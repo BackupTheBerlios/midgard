@@ -16,6 +16,7 @@
 void table_lernschema::init(midgard_CG *h)
 {
   hauptfenster=h;
+  vabenteurer=&h->getChar();
   vabenteurer->getLernpunkte().MaxKido()=0;
   gwr_auswahl=ENone;
   show_gelerntes();

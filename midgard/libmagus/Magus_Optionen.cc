@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.cc,v 1.7 2003/09/15 08:27:38 christof Exp $
+// $Id: Magus_Optionen.cc,v 1.8 2003/09/30 07:13:36 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -209,7 +209,7 @@ void Magus_Optionen::setpdfViewer(std::string is,bool b)
 void Magus_Optionen::Optionen_init()
 {
   list_OptionenCheck.push_back(st_OptionenCheck(Notebook_start, 
-                           "MAGUS mit bestimmter Seite starten",false,1));
+                           "MAGUS mit bestimmter Seite starten",false,0));
 
   list_OptionenCheck.push_back(st_OptionenCheck(Wizard_immer_starten, 
                            "Wizard bei jedem Programmstart starten",true));

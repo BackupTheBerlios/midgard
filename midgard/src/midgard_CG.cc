@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.308 2003/09/29 11:01:35 christof Exp $
+// $Id: midgard_CG.cc,v 1.309 2003/09/30 07:13:36 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -53,14 +53,9 @@ midgard_CG::midgard_CG(const std::vector<std::string> &dateien)
 : news_columns(), undo_menu(),menu_kontext(), schummeln(false)
 { news_columns.attach_to(*list_news);
 
-//  ManuProC::Tracer::Enable(table_grundwerte::trace_channel);
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
 
-  // Optionen laden
-//  fill_IconVec();
-//  MOptionen = new Magus_Optionen(this); 
   table_optionen->set_Hauptfenster(this);
-//  Programmoptionen.load_options(with_path("magus_optionen.xml",false,true));
   
   srand(time(0));
 // ToolBar: StyleIcon
@@ -78,12 +73,12 @@ midgard_CG::midgard_CG(const std::vector<std::string> &dateien)
   hbox_status->pack_start(*wuerfelt_butt, Gtk::PACK_SHRINK, 0);
   wuerfelt_butt->show();
 
-  // wait for Window to appear
-//  while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-
-//  Database.load(Midgard_Info,this);
-
   set_sensitive(true);
+
+  menubar_init();
+  table_optionen->init();
+  menu_init();
+  init_statusbar();
 
   if (!dateien.empty())
      for (std::vector<std::string>::const_iterator i=dateien.begin();i!=dateien.end();++i) 
@@ -91,13 +86,9 @@ midgard_CG::midgard_CG(const std::vector<std::string> &dateien)
   else if(Programmoptionen.OptionenCheck(Magus_Optionen::Wizard_immer_starten).active) 
        on_wizard_starten_activate();
   else on_neuer_charakter_clicked();
-  if(Programmoptionen.OptionenCheck(Magus_Optionen::Notebook_start).wert!=-1) 
+  if(Programmoptionen.OptionenCheck(Magus_Optionen::Notebook_start).active.Value() &&
+  	Programmoptionen.OptionenCheck(Magus_Optionen::Notebook_start).wert!=-1) 
      notebook_main->set_current_page(Programmoptionen.OptionenCheck(Magus_Optionen::Notebook_start).wert);
-
-  menubar_init();
-  table_optionen->init();
-  menu_init();
-  init_statusbar();
 
   // für die NEWS
   Gtk::OStream os(list_news);
