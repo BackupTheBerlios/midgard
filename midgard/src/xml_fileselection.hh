@@ -36,7 +36,7 @@ class xml_fileselection
 #endif
 {   
   public:
-        enum eAction {Save,Load,Export,Pix};
+        enum eAction {Save,Load,Export,Pix,html,temp,speichern};
   private:
         midgard_CG* hauptfenster;        
         eAction ewas;

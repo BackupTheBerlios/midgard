@@ -141,15 +141,20 @@ Spezies_All::Spezies_All(Gtk::ProgressBar *progressbar)
 
 bool Spezies::Typ_erlaubt(std::string typ) const
 {
+  if(vec_typen.empty()) return true;
+  bool verbotene_typen=false;
+  if(vec_typen.begin()->typen.substr(0,1)=="-") verbotene_typen=true;
   for(std::vector<st_spez>::const_iterator i=vec_typen.begin();i!=vec_typen.end();++i)
    {
     std::string s=i->typen.substr(0,1);
     if(s=="-") 
-      {  std::string t=i->typen.substr(1,std::string::npos);
+      {  
+         std::string t=i->typen.substr(1,std::string::npos);
          if(t==typ) return false;
       }
     if(i->typen == typ) return true ;
    }
+  if(verbotene_typen) return true;
   return false;
 }
 

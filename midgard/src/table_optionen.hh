@@ -16,6 +16,7 @@ class table_optionen : public table_optionen_glade
 {  
         
         friend class table_optionen_glade;
+        friend class xml_fileselection;
         midgard_CG *hauptfenster;
 public:
         
@@ -29,5 +30,12 @@ private:
         void on_entry_tmp_verz_changed();
         void on_entry_speicher_verz_changed();
         void on_spinbutton_datei_history_changed();
+
+        void on_button_html_browser_clicked();
+        void html_browser_selected(const std::string& dateiname);
+        void on_button_tmp_clicked();
+        void tmp_selected(const std::string& dateiname);
+        void on_button_speicherplatz_clicked();
+        void speicherplatz_selected(const std::string& dateiname);
 };
 #endif

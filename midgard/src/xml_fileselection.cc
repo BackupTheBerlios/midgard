@@ -44,6 +44,12 @@ try{
     VA->getWerte().setBeschreibungPix(this->get_filename());
     hauptfenster->table_beschreibung->init(hauptfenster);
    }
+ else if (ewas==html)
+   hauptfenster->table_optionen->html_browser_selected(this->get_filename());
+ else if (ewas==temp)
+   hauptfenster->table_optionen->tmp_selected(this->get_filename());
+ else if (ewas==speichern)
+   hauptfenster->table_optionen->speicherplatz_selected(this->get_filename());
 #ifndef __MINGW32__  
  destroy();
 #endif

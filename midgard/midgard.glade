@@ -16975,7 +16975,7 @@ KS
 	    <class>GtkTable</class>
 	    <name>table147</name>
 	    <rows>5</rows>
-	    <columns>2</columns>
+	    <columns>3</columns>
 	    <homogeneous>False</homogeneous>
 	    <row_spacing>0</row_spacing>
 	    <column_spacing>3</column_spacing>
@@ -17246,6 +17246,87 @@ KS
 		<xexpand>True</xexpand>
 		<yexpand>False</yexpand>
 		<xshrink>True</xshrink>
+		<yshrink>False</yshrink>
+		<xfill>True</xfill>
+		<yfill>False</yfill>
+	      </child>
+	    </widget>
+
+	    <widget>
+	      <class>GtkButton</class>
+	      <name>button_html_browser</name>
+	      <can_focus>True</can_focus>
+	      <signal>
+		<name>clicked</name>
+		<handler>on_button_html_browser_clicked</handler>
+		<last_modification_time>Sat, 21 Sep 2002 18:29:44 GMT</last_modification_time>
+	      </signal>
+	      <label>...</label>
+	      <relief>GTK_RELIEF_NORMAL</relief>
+	      <child>
+		<left_attach>2</left_attach>
+		<right_attach>3</right_attach>
+		<top_attach>0</top_attach>
+		<bottom_attach>1</bottom_attach>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<xexpand>False</xexpand>
+		<yexpand>False</yexpand>
+		<xshrink>False</xshrink>
+		<yshrink>False</yshrink>
+		<xfill>False</xfill>
+		<yfill>False</yfill>
+	      </child>
+	    </widget>
+
+	    <widget>
+	      <class>GtkButton</class>
+	      <name>button_tmp</name>
+	      <can_focus>True</can_focus>
+	      <signal>
+		<name>clicked</name>
+		<handler>on_button_tmp_clicked</handler>
+		<last_modification_time>Sat, 21 Sep 2002 18:43:40 GMT</last_modification_time>
+	      </signal>
+	      <label>...</label>
+	      <relief>GTK_RELIEF_NORMAL</relief>
+	      <child>
+		<left_attach>2</left_attach>
+		<right_attach>3</right_attach>
+		<top_attach>2</top_attach>
+		<bottom_attach>3</bottom_attach>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<xexpand>False</xexpand>
+		<yexpand>False</yexpand>
+		<xshrink>False</xshrink>
+		<yshrink>False</yshrink>
+		<xfill>True</xfill>
+		<yfill>False</yfill>
+	      </child>
+	    </widget>
+
+	    <widget>
+	      <class>GtkButton</class>
+	      <name>button_speicherplatz</name>
+	      <can_focus>True</can_focus>
+	      <signal>
+		<name>clicked</name>
+		<handler>on_button_speicherplatz_clicked</handler>
+		<last_modification_time>Sat, 21 Sep 2002 18:44:16 GMT</last_modification_time>
+	      </signal>
+	      <label>...</label>
+	      <relief>GTK_RELIEF_NORMAL</relief>
+	      <child>
+		<left_attach>2</left_attach>
+		<right_attach>3</right_attach>
+		<top_attach>3</top_attach>
+		<bottom_attach>4</bottom_attach>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<xexpand>False</xexpand>
+		<yexpand>False</yexpand>
+		<xshrink>False</xshrink>
 		<yshrink>False</yshrink>
 		<xfill>True</xfill>
 		<yfill>False</yfill>

@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_abge_werte.cc,v 1.8 2002/09/17 14:01:09 thoma Exp $
+// $Id: table_grundwerte_abge_werte.cc,v 1.9 2002/09/21 20:03:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,8 +22,11 @@
 
 void table_grundwerte::on_abge_werte_setzen_clicked()
 {
-  combo_typ->set_sensitive(false);
-  combo_typ2->set_sensitive(false);
+  if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
+   {
+     combo_typ->set_sensitive(false);
+     combo_typ2->set_sensitive(false);
+   }   
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::ABGELEITETEWERTE);
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active) 
       button_abg_werte->set_sensitive(false);

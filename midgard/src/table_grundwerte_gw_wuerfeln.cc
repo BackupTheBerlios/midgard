@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.14 2002/09/07 07:15:56 thoma Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.15 2002/09/21 20:03:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,7 +35,8 @@ gint table_grundwerte::on_button_grundwerte_button_release_event(GdkEventButton 
   if (ev->button==3) Eigenschaften_variante(3);
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::GRUNDWERTE);
 
-  combo_spezies->set_sensitive(false);
+  if(!hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active)
+      combo_spezies->set_sensitive(false);
   return false;
 }
 

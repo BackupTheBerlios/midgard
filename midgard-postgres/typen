@@ -86,11 +86,11 @@ COPY "typen" FROM stdin;
 45	PC	Chaospriester	Chaosprieserin	z	z	20	0	4	\N	3	z	\N	Wunder	t	\N	\N	\N	\N	\N	\N	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
 46	De	Derwisch	Derwisch	z	ak	0	0	1	E	4	\N	\N	Wunder	\N	\N	\N	\N	\N	\N	\N	\N	\N
 47	Dt	Deuter	Deuterin	z	z	20	0	1	N	4	z	\N	null	\N	\N	\N	\N	\N	\N	\N	\N	\N
-48	Tt	Tempeltänzer	Tämpeltänzerin	z	ak	0	0	1	N	3	z	\N	Wunder	\N	\N	\N	\N	\N	\N	\N	\N	\N
+48	Tt	Tempeltänzer	Tempeltänzerin	z	ak	0	0	1	N	3	z	\N	Wunder	\N	\N	\N	\N	\N	\N	\N	\N	\N
 49	Tr	Trickser	Trickserin	j	ak	-20	-20	1	N	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 50	Mg	Magister	Magisterin	j	ak	20	0	1	TuT	4	\N	\N	\N	\N	\N	\N	31	61	61	\N	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
-51	RiN	Ritter (Alba, Küstenstaaten)	Ritterin (Alba, Küstenstaaten)	n	k	0	0	3	TuT	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	Ritter aus Alba dürfen weder Rapier, Buckler noch Parierdolch wählen. Ritter aus den Küstenstaaten dürfen weder Kampf in Schlachtreihe noch das Schlachtbeil lernen.	\N
-52	RiS	Ritter (Aran,Eschar)	Ritterin (Aran,Eschar)	n	k	0	0	3	TuT	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+51	RiN	Ritter [Alba, Küstenstaaten]	Ritterin [Alba, Küstenstaaten]	n	k	0	0	3	TuT	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	Ritter aus Alba dürfen weder Rapier, Buckler noch Parierdolch wählen. Ritter aus den Küstenstaaten dürfen weder Kampf in Schlachtreihe noch das Schlachtbeil lernen.	\N
+52	RiS	Ritter [Aran,Eschar]	Ritterin [Aran,Eschar]	n	k	0	0	3	TuT	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 53	Hj	Hexenjäger	Hexenjägerin	j	ak	0	30	2	TuT	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	Nur Dolch, Kurzschwert, Streitkolben oder Kriegshammer als Spezialwaffe möglich.	\N
 54	Sw	Schattenweber	Schattenweberin	j	ak	10	-20	1	TuT	4	\N	s	\N	\N	\N	\N	\N	\N	\N	\N	Nur Dolch, Keule, Wurfaxt oder Wurfmesser kann als Spezialwaffe gewählt werden. Schreiben: Muttersprache +9 muß gelernt werden	t
 55	Wi	Wildläufer	Wildläuferin	j	ak	0	0	1	TuT	2	\N	l	Dweomer	\N	\N	\N	\N	\N	\N	\N	\N	\N

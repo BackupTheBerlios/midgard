@@ -8,6 +8,7 @@
 #include "config.h"
 #include "table_optionen.hh"
 #include "midgard_CG.hh"
+#include "xml_fileselection.hh"
 
 void table_optionen::init()
 {
@@ -57,3 +58,41 @@ void table_optionen::on_spinbutton_datei_history_changed()
   hauptfenster->getOptionen()->setDateiHistory(
       spinbutton_datei_history->get_value_as_int());
 }
+
+
+void table_optionen::on_button_html_browser_clicked()
+{
+#ifndef __MINGW32__ 
+ manage
+#else
+ delete
+#endif
+ (new xml_fileselection(hauptfenster,xml_fileselection::html));
+}
+void table_optionen::html_browser_selected(const std::string& dateiname)
+{entry_html->set_text(dateiname);}
+
+void table_optionen::on_button_tmp_clicked()
+{
+#ifndef __MINGW32__ 
+ manage
+#else
+ delete
+#endif
+ (new xml_fileselection(hauptfenster,xml_fileselection::temp));
+}
+void table_optionen::tmp_selected(const std::string& dateiname)
+{entry_tmp_verz->set_text(dateiname);}
+
+void table_optionen::on_button_speicherplatz_clicked()
+{
+#ifndef __MINGW32__ 
+ manage
+#else
+ delete
+#endif
+ (new xml_fileselection(hauptfenster,xml_fileselection::speichern));
+}
+void table_optionen::speicherplatz_selected(const std::string& dateiname)
+{entry_speicher_verz->set_text(dateiname);}
+

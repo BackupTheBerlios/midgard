@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.86 2002/09/21 18:00:13 thoma Exp $
+// $Id: Optionen.cc,v 1.87 2002/09/21 20:03:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -560,7 +560,6 @@ void Midgard_Optionen::save_options(const std::string &filename,WindowInfo *Info
    { Tag &opt=optionen.push_back(Tag("Option"));
      opt.setAttr("Name",i->text);
      opt.setBoolAttr("Wert", i->active);
-cout << "Save: "<<i->wert<<' '<<i->active<<'\n';
      if(i->wert!=-1 && i->active)  opt.setIntAttr("Page",i->wert);
    }
  for(std::list<st_Ober>::iterator i=list_Ober.begin();i!=list_Ober.end();++i)

@@ -16,6 +16,8 @@ NEWS IN VERSION 0.8.3
    (ist aber immer noch verbesserungswürdig).
 * verbotene Typen für Menschen
 * Werte editieren setzt alten Zustand für Typen wieder her
+* Fileselector für HTML-Browser, Temporäres Verzeichnis und Speichern
+* Ausrüstungsauswahl bis auf weiteres deaktiviert
 
 TODO: ('-' zeigt CP an)
 
