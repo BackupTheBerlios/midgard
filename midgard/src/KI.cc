@@ -49,6 +49,7 @@ void MagusKI::Verteile(int gfp)
    {
      int i=random.integer(1,100);
      const Enums::MBEListen was=Was();
+cout << "KI:WAS: "<<was<<'\n';
      int spezial_allgemein=prozente100.getS(was);
 
      if     (i<=spezial_allgemein) Steigern(gfp,was);

@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.13 2002/11/08 07:26:49 thoma Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.14 2002/11/08 16:22:46 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -471,7 +471,7 @@ int Abenteurer::get_ausdauer(int grad, const Datenbank &Database,std::string &in
   info+="Ausdauerpunkte für Grad "+itos(getWerte().Grad())+": "
    "Gewürfelt("+itos(ap)+") + Bonus für Typ("+itos(nab)
    +") + Persönlichen Bonus("+itos(getWerte().bo_Au())
-   +") + Spezies-Bonus("+itos(nspez)+") = "+itos(nap)+" AP";
+   +") + Spezies-Bonus("+itos(nspez)+") = "+itos(nap)+" AP\n";
    // Für alle ist die AP-anzahel mind. = Grad
   if (getWerte().AP()<getWerte().Grad()) getWerte().setAP(getWerte().Grad());
    // Neue AP höher als alte?

@@ -21,6 +21,7 @@ NEWS IN VERSION 0.8.9
 * Spezialwaffen nur bis max. 1 (Nahkampf) bzw. 2 (Fernkampf) Lernpunkte
 * Beim steigern von Fertigkeiten und Waffen wird das Fenster nicht mehr
    neu aufgebaut, dadurch bleibt der Fensterausschnitt erhalten.
+* Schaden bei Waffen mit '|'
 
 TODO: ('-' zeigt CP an)
 
@@ -30,7 +31,6 @@ TODO: ('-' zeigt CP an)
   der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 
 * Deutsche Sortierung (Bärenwut vor Beschleunigen)
 * -- bei PP wenn nicht möglich
-* Schaden bei Waffen mit '|'
 - dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
   man etwas hinzufügen möchte, ist nicht gerade intuitiv
   (vielleicht drag'n'drop oder CTree verschieben)
