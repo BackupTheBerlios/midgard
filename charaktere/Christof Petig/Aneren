@@ -4,14 +4,14 @@
  <Preise/>
  <Midgard-Abenteurer Version="10">
   <Figur Name="Aneren" Spieler="Christof Petig" Zeitpunkt="Grad 7" Grad="7"/>
-  <Typ Spezies="Mensch" Abkürzung="Hl" Überleben="Überleben Heimat" Stadt_Land="Stadt" Hand=""/>
+  <Typ Spezies="Mensch" Geschlecht="f" Abkürzung="Hl" Überleben="Überleben im Wald" Muttersprache="Asadi" Stadt_Land="Stadt" Hand=""/>
   <Basiseigenschaften St="59" Gw="78" Gs="82" Ko="92" In="100" Zt="93"/>
   <abgeleiteteEigenschaften Au="40" pA="72" Wk="50" Sb="64" B="25" SG="4"/>
   <Erfolgswerte Abwehr="13" Zaubern="17" ZauberResistenz="13"/>
   <Gesundheit LP="16" AP="39"/>
-  <Beschreibung Alter="28" Gestalt="normal" Gewicht="73" Größe="171" Stand="Mittelschicht" Herkunft="Erainn" Glaube="Kebechet"/>
-  <Vermögen GS="3"/>
-  <Steigern GFP="11153" AEP="250" EPproGFP="66" benötigte_Tage="67.08">
+  <Beschreibung Alter="28" Gestalt="breit" Gewicht="69" Größe="161" Stand="Mittelschicht" Herkunft="Erainn" Glaube="Kebechet"/>
+  <Vermögen GS="200"/>
+  <Steigern GFP="12363" AEP="577" benötigte_Tage="198.24">
    <Praxispunkte Zaubern="1" Resistenz="1"/>
   </Steigern>
   <Text/>
@@ -40,22 +40,25 @@
    <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
    <Beruf Bezeichnung="Gelehrte" Wert="14"/>
    <ang-Fertigkeit Bezeichnung="Geschmacksschwäche"/>
-   <Fertigkeit Bezeichnung="Erste Hilfe" Wert="11"/>
+   <Fertigkeit Bezeichnung="Erste Hilfe" Wert="12"/>
    <Fertigkeit Bezeichnung="Heilkunde" Wert="11"/>
    <Fertigkeit Bezeichnung="Kamelreiten" Wert="12"/>
    <Fertigkeit Bezeichnung="Klettern" Wert="12"/>
-   <Fertigkeit Bezeichnung="Kräuterkunde" Wert="11"/>
+   <Fertigkeit Bezeichnung="Kräuterkunde" Wert="11" Praxispunkte="1"/>
    <Fertigkeit Bezeichnung="Landeskunde" Wert="8" Zusatz=""/>
    <Fertigkeit Bezeichnung="Landeskunde" Wert="11" Zusatz=""/>
    <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="14"/>
    <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="6"/>
+   <Fertigkeit Bezeichnung="Naturkunde" Wert="4"/>
+   <Fertigkeit Bezeichnung="Pflanzenkunde" Wert="4"/>
+   <Fertigkeit Bezeichnung="Sagenkunde" Wert="4"/>
    <Fertigkeit Bezeichnung="Schwimmen" Wert="12"/>
    <Fertigkeit Bezeichnung="Suchen" Wert="8"/>
    <Fertigkeit Bezeichnung="TaiTschi"/>
-   <Fertigkeit Bezeichnung="Tierkunde" Wert="6"/>
+   <Fertigkeit Bezeichnung="Tierkunde" Wert="8"/>
    <Fertigkeit Bezeichnung="Wahrnehmung" Wert="6" Praxispunkte="1"/>
-   <Fertigkeit Bezeichnung="YangScheng" Wert="2"/>
-   <Fertigkeit Bezeichnung="Zauberkunde" Wert="10" Praxispunkte="1"/>
+   <Fertigkeit Bezeichnung="YangScheng" Wert="4"/>
+   <Fertigkeit Bezeichnung="Zauberkunde" Wert="10" Praxispunkte="3"/>
    <Fertigkeit Bezeichnung="Zaubern"/>
    <Fertigkeit Bezeichnung="Überleben in der Wüste" Wert="11"/>
    <Waffe Bezeichnung="Magierstab" Wert="6"/>
@@ -77,6 +80,7 @@
    <Zauber Bezeichnung="Handauflegen"/>
    <Zauber Bezeichnung="Heilen von Krankheit"/>
    <Zauber Bezeichnung="Heilen von Wunden"/>
+   <Zauber Bezeichnung="Heranholen"/>
    <Zauber Bezeichnung="Lehrersuche"/>
    <Zauber Bezeichnung="Liniensicht"/>
    <Zauber Bezeichnung="Lähmung"/>
@@ -84,6 +88,7 @@
    <Zauber Bezeichnung="Macht über die belebte Natur"/>
    <Zauber Bezeichnung="Reinigen"/>
    <Zauber Bezeichnung="Rost"/>
+   <Zauber Bezeichnung="Schlaf"/>
    <Zauber Bezeichnung="Schmerzen"/>
    <Zauber Bezeichnung="Seelenheilung"/>
    <Zauber Bezeichnung="Stille"/>
@@ -100,6 +105,7 @@
    <Grundkenntnis Bezeichnung="Zauberstab"/>
    <Sprache Bezeichnung="Albisch" Wert="13"/>
    <Sprache Bezeichnung="Aranisch" Wert="6"/>
+   <Sprache Bezeichnung="Asadi" Wert="20"/>
    <Sprache Bezeichnung="Chryseisch" Wert="13"/>
    <Sprache Bezeichnung="Comentang" Wert="10"/>
    <Sprache Bezeichnung="Dvarskar" Wert="10"/>
