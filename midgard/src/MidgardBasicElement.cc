@@ -387,4 +387,7 @@ std::string MidgardBasicElement_mutable::Pflicht_str() const
   if (Pflicht()) return "X";
   else return "";
 }
-    
+
+int MidgardBasicElement::FErfolgswert(const Abenteurer &abenteurer,const MidgardBasicElement_mutable &mbem) const
+{  return 0;
+}

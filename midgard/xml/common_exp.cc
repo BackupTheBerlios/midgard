@@ -1,4 +1,4 @@
-// $Id: common_exp.cc,v 1.24 2002/06/05 06:43:29 christof Exp $
+// $Id: common_exp.cc,v 1.25 2002/06/08 15:21:40 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -21,11 +21,11 @@
 #include <Aux/Transaction.h>
 
 static void schwierigkeit(Tag &o, 
-	const std::string &_query, const std::string &tag, int indent=4)
+	const std::string &_query, const std::string &tag)
 {  Query query(_query);
    FetchIStream is;
    while ((query>>is).good())
-   {  o.push_back(Tag(tag,fetch_typ(is)));
+   {  o.push_back(Tag(tag)).setAttr("Typ",fetch_typ(is));
    }
 }
 
@@ -173,7 +173,7 @@ std::string RegionErgaenzungQuery(const std::string &attribute,
 
 void region_tags(Tag &t, const string &region)
 {  Transaction tr;
-   t.setAttr("Region",region);
+   if (!region.empty()) t.setAttr("Region",region);
    Query query("select name, titel, copyright, jahr, offiziell, file, url, maintainer,"
    	" version, nr, pic"
 	" from regionen where abkuerzung='"+region+"'");

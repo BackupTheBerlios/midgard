@@ -1,4 +1,4 @@
-// $Id: waffen_exp.cc,v 1.20 2002/06/07 08:53:40 christof Exp $
+// $Id: waffen_exp.cc,v 1.21 2002/06/08 15:21:40 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -115,7 +115,7 @@ void waffen_speichern(Tag &o)
       " where name='"+waffe+"' and art='W' order by voraussetzung");
       FetchIStream isV2;
       while ((queryV2>>isV2).good())   
-      {  Waffe.push_back(Tag("Voraussetzungen_W")).setAttr("Name",fetch_string(isV1));
+      {  Waffe.push_back(Tag("Voraussetzungen_W")).setAttr("Name",fetch_string(isV2));
       }
     }
 
