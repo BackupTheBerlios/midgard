@@ -137,7 +137,7 @@ Dau ed-Datin	800	3	Geste	3	E	\N	\N	Magan	beherrscht	Wasser	15 min	0	Geist	15 m U
 Dau ed-Din	2500	6	Geste	5	E	\N	\N	Metall	zerstört	Magan	10 min	0	Körper	15 m Uk	-	göttlich		f		\N
 Deckmantel	1500	6	Geste	4	\N	\N	\N	Magan	zerstört	Magan	10 s	0	Umgebung	6 m Uk	8 h	dämonisch	Goldring	t	Siegel	\N
 Der Gesang Crescendis	120	2*h	Zauberlied	1	H&D	\N	\N	Magan	verändert	Erde	0	100m Uk	Körper	var	var	druidisch	Gesang plus Instrument(beliebig)	f		\N
-Der Große Knall	200	2	Geste	2	\N	\N	\N				1 s	12 m	Umgebung	12 m	0	dämonisch		t		\N
+Der Große Knall	200	2	Geste	2	H&D	\N	\N				1 s	12 m	Umgebung	12 m	0	dämonisch		t		\N
 Der einschläfernde Gesang	400	2	Zauberlied	2	\N	\N	\N	Magan	beherrscht	Wasser	-	0	Geist	15 m Uk	1 min	druidisch		f		\N
 Der frohlockende Gesang	400	2	Zauberlied	2	\N	\N	\N	Luft	verändert	Luft	-	0	Geist	15 m Uk	1 min	druidisch		f		\N
 Der große Seiltrick	6000	6	Geste	5	R	\N	\N	Magan	bewegt	Erde	-	0	Umgebung	1 Ws	6 h	göttlich		f		\N
