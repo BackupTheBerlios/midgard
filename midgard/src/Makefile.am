@@ -1,7 +1,7 @@
-# $Id: Makefile.am,v 1.118 2002/02/13 11:21:00 thoma Exp $
+# $Id: Makefile.am,v 1.119 2002/02/13 11:48:12 christof Exp $
 
 bin_PROGRAMS = midgard 
-
+noinst_PROGRAMS = text2c
 
 # völlig veraltet!!!
 EXTRA_PROGRAMS = midgard_xmlexport
@@ -74,10 +74,11 @@ Sprache_auswahl.hh Sprache_auswahl_glade.hh \
    Window_Erfahrungspunkte_glade.hh \
    ProgressBar.h
 
-BUILT_SOURCES= export_common.h
+BUILT_SOURCES= export_common.h text2c NEWS.h
 
 export_common.cc: ../xml/export_common.cc ; ln -sf ../xml/$@ .
 export_common.h: ../xml/export_common.h ; ln -sf ../xml/$@ .
+NEWS.h: ../NEWS ; ./text2c <../NEWS >NEWS.h
 
 midgard_xmlexport_SOURCES= xmlexport.cc export_common.cc
 

@@ -1,7 +1,7 @@
-/* $Id: text2c.c,v 1.1 2002/02/13 11:20:22 christof Exp $ */
+/* $Id: text2c.c,v 1.2 2002/02/13 11:48:12 christof Exp $ */
 #include <stdio.h>
 
-void main()
+int main()
 {  int c;
    fputs("\t\"",stdout);
    while ((c=fgetc(stdin))!=-1)
@@ -17,4 +17,5 @@ void main()
       }
    }
    fputs("\"\n",stdout);
+   return 0;
 }
