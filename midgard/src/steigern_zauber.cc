@@ -19,6 +19,7 @@
 #include "midgard_CG.hh"
 #include "WindowInfo.hh"
 #include "class_SimpleTree.hh"
+#include "Zauber.hh"
 
 void midgard_CG::on_zauber_laden_clicked()
 {   
