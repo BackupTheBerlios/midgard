@@ -181,8 +181,8 @@ void table_zufall::fill_combos()
   // Typen
   fill_combo_typen(LL,nsc_allowed);
 /*  
-  const std::vector<pair<cH_Typen,bool> > T=LL.getTypen(hauptfenster->getAben(),nsc_allowed);
-  for(std::vector<pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
+  const std::vector<std::pair<cH_Typen,bool> > T=LL.getTypen(hauptfenster->getAben(),nsc_allowed);
+  for(std::vector<std::pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
      L.push_back(i->first->Name(hauptfenster->getWerte().Geschlecht()));
   combo_typ->set_popdown_strings(L);
 */
@@ -195,8 +195,8 @@ void table_zufall::fill_combos()
 
   // Herkunft
   L.clear();
-   std::vector<pair<cH_Land,bool> > H=LL.getHerkunft(hauptfenster->getAben());
-  for(std::vector<pair<cH_Land,bool> >::const_iterator i=H.begin();i!=H.end();++i)
+   std::vector<std::pair<cH_Land,bool> > H=LL.getHerkunft(hauptfenster->getAben());
+  for(std::vector<std::pair<cH_Land,bool> >::const_iterator i=H.begin();i!=H.end();++i)
      L.push_back(i->first->Name());
  L.sort();
  combo_herkunft->set_popdown_strings(L);
@@ -212,8 +212,8 @@ void table_zufall::fill_combo_typen(const LernListen &LL,const bool nsc_allowed)
   if(Spezies::get_Spezies_from_long(hauptfenster->getCDatabase().Spezies,ss))
      spezies=Spezies::getSpezies(ss,hauptfenster->getDatabase().Spezies)  ;    
 
-  const std::vector<pair<cH_Typen,bool> > T=LL.getTypen(hauptfenster->getWerte(),spezies,nsc_allowed);
-  for(std::vector<pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
+  const std::vector<std::pair<cH_Typen,bool> > T=LL.getTypen(hauptfenster->getWerte(),spezies,nsc_allowed);
+  for(std::vector<std::pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
      L.push_back(i->first->Name(hauptfenster->getWerte().Geschlecht()));
   combo_typ->set_popdown_strings(L);
 }

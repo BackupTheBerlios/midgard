@@ -45,9 +45,9 @@ void table_grundwerte::fill_typauswahl_fill(int typ_1_2)
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   bool nsc_allowed = hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active;
-  const std::vector<pair<cH_Typen,bool> > T=LernListen(hauptfenster->getCDatabase()).getTypen(hauptfenster->getAben(),nsc_allowed);
+  const std::vector<std::pair<cH_Typen,bool> > T=LernListen(hauptfenster->getCDatabase()).getTypen(hauptfenster->getAben(),nsc_allowed);
   std::list<std::string> L;
-  for(std::vector<pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
+  for(std::vector<std::pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
    {
      if(combo_typ2->is_visible() && typ_1_2==1 && i->first->Zaubern()=="z") continue;
      if(typ_1_2==2 && i->first->Zaubern()!="z") continue;

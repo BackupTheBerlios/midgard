@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.46 2002/12/12 10:36:39 christof Exp $
+// $Id: xml.cc,v 1.47 2002/12/12 10:48:21 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -161,11 +161,11 @@ void xml_free()
 }
 
 const Tag *find_Tag(const std::string &listtag, const std::string &elementtag,
-		const std::vector<pair<std::string,std::string> > &anforderungen)
+		const std::vector<std::pair<std::string,std::string> > &anforderungen)
 {
    if (!xml_data)
    {  std::cerr << "find_Tag("<< listtag<< "," << elementtag <<",";
-      for (std::vector<pair<std::string,std::string> >::const_iterator i=anforderungen.begin();i!=anforderungen.end();++i)
+      for (std::vector<std::pair<std::string,std::string> >::const_iterator i=anforderungen.begin();i!=anforderungen.end();++i)
          std::cerr << '\'' << i->first << "'='" << i->second << "' ";
       std::cerr << ") ohne Daten!\n";
       return 0;
@@ -173,7 +173,7 @@ const Tag *find_Tag(const std::string &listtag, const std::string &elementtag,
    
 #ifdef VERBOSE
 cerr << "find_Tag("<< listtag<< "," << elementtag <<",";
-for (std::vector<pair<std::string,std::string> >::const_iterator i=anforderungen.begin();i!=anforderungen.end();++i)
+for (std::vector<std::pair<std::string,std::string> >::const_iterator i=anforderungen.begin();i!=anforderungen.end();++i)
 cerr << '\'' << i->first << "'='" << i->second << "' ";
 cerr << ")\n";
 #endif
@@ -182,7 +182,7 @@ cerr << ")\n";
  if (!liste) std::cerr << "find_Tag " << listtag << ',' << elementtag << ": unbekannt\n";
  else
  {  const char * const *k=liste->key;
-    std::vector<pair<std::string,std::string> >::const_iterator i=anforderungen.begin();
+    std::vector<std::pair<std::string,std::string> >::const_iterator i=anforderungen.begin();
     for (;*k && i!=anforderungen.end();++i,++k)
     {  if (*k!=i->first)
  	  std::cerr << "find_Tag " << listtag << ',' << elementtag << ": key " << i->first << "!=" <<*k<<"\n";
@@ -200,7 +200,7 @@ cerr << ")\n";
  else
  {  Tag::const_iterator b=liste->begin(),e=liste->end();
     FOR_EACH_CONST_TAG_OF_5(i,*liste,b,e,elementtag)
-    {  for (std::vector<pair<std::string,std::string> >::const_iterator j=anforderungen.begin();
+    {  for (std::vector<std::pair<std::string,std::string> >::const_iterator j=anforderungen.begin();
     		j!=anforderungen.end();++j)
        {  if (i->getAttr(j->first)!=j->second) goto continue_outer;
        }
@@ -214,7 +214,7 @@ cerr << ")\n";
 
 const Tag *find_Tag(const std::string &listtag, const std::string &elementtag,
 		const std::string &name, const std::string &wert)
-{  std::vector<pair<std::string,std::string> > anforderungen;
+{  std::vector<std::pair<std::string,std::string> > anforderungen;
    anforderungen.push_back(std::pair<std::string,std::string>(name,wert));
    return find_Tag(listtag,elementtag,anforderungen);
 }

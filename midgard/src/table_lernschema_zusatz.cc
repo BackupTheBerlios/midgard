@@ -57,8 +57,8 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
    {
      case MidgardBasicElement::ZHerkunft:
       {
-       std::vector<pair<cH_Land,bool> > L=LernListen(hauptfenster->getDatabase()).getHerkunft(hauptfenster->getAben());
-       for(std::vector<pair<cH_Land,bool> >::const_iterator i=L.begin();i!=L.end();++i)
+       std::vector<std::pair<cH_Land,bool> > L=LernListen(hauptfenster->getDatabase()).getHerkunft(hauptfenster->getAben());
+       for(std::vector<std::pair<cH_Land,bool> >::const_iterator i=L.begin();i!=L.end();++i)
           datavec_zusatz.push_back(new Data_Herkunft(i->first,i->second,MBE));
        connection = Tree_Lernschema_Zusatz->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_herkunft_leaf_selected));
        scrolledwindow_lernen->hide();

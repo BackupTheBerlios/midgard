@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.67 2002/12/12 10:36:39 christof Exp $            
+// $Id: Abenteurer.cc,v 1.68 2002/12/12 10:48:21 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -174,8 +174,8 @@ void Abenteurer::setAngebFert()
   List_Fertigkeit_ang()=getWerte().Spezies()->getAngFertigkeiten();
   List_Zauber()=getWerte().Spezies()->getZauber();
   getWerte().resetSinne();
-  std::list<pair<std::string,int> > L=getWerte().Spezies()->getSinne();
-  for(std::list<pair<std::string,int> >::const_iterator i=L.begin();i!=L.end();++i) 
+  std::list<std::pair<std::string,int> > L=getWerte().Spezies()->getSinne();
+  for(std::list<std::pair<std::string,int> >::const_iterator i=L.begin();i!=L.end();++i) 
        getWerte().setSinn(i->first,i->second);
 }
 

@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.108 2002/12/12 10:36:39 christof Exp $
+// $Id: Optionen.cc,v 1.109 2002/12/12 10:48:21 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -600,7 +600,7 @@ void Midgard_Optionen::save_options(const std::string &filename,WindowInfo *Info
     position.setIntAttr("Y", y);
 
     // Handle-Windows
-    std::vector<pair<std::string,Gdk_Window> > VW;
+    std::vector<std::pair<std::string,Gdk_Window> > VW;
     VW.push_back(pair<std::string,Gdk_Window>("main",hauptfenster->get_window()));
     if(hauptfenster->table_steigern->handlebox_steigern_1->is_float_window_mapped())
        VW.push_back(pair<std::string,Gdk_Window>("handlebox_steigern_1",hauptfenster->table_steigern->handlebox_steigern_1->get_float_window()));
@@ -610,7 +610,7 @@ void Midgard_Optionen::save_options(const std::string &filename,WindowInfo *Info
        VW.push_back(pair<std::string,Gdk_Window>("handlebox_steigern_3",hauptfenster->table_steigern->handlebox_steigern_3->get_float_window()));
     if(hauptfenster->table_steigern->handlebox_steigern_4->is_float_window_mapped())
        VW.push_back(pair<std::string,Gdk_Window>("handlebox_steigern_4",hauptfenster->table_steigern->handlebox_steigern_4->get_float_window()));
-    for(std::vector<pair<std::string,Gdk_Window> >::iterator i=VW.begin();i!=VW.end();++i)    
+    for(std::vector<std::pair<std::string,Gdk_Window> >::iterator i=VW.begin();i!=VW.end();++i)    
      {
        Tag &T=fenstert.push_back(Tag("WindowPositions"));
        gint width,height,x,y;

@@ -1,4 +1,4 @@
-// $Id: LernListen.cc,v 1.27 2002/12/11 18:18:50 christof Exp $
+// $Id: LernListen.cc,v 1.28 2002/12/12 10:48:21 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -142,13 +142,13 @@ std::vector<cH_Spezies> LernListen::getSpezies(bool nsc_allowed) const
  return V;
 }
 
-std::vector<pair<cH_Typen,bool> > LernListen::getTypen(const Abenteurer& A,bool nsc_allowed) const
+std::vector<std::pair<cH_Typen,bool> > LernListen::getTypen(const Abenteurer& A,bool nsc_allowed) const
 {return getTypen(A.getWerte(),A.getWerte().Spezies(),nsc_allowed);}
 
-std::vector<pair<cH_Typen,bool> > LernListen::getTypen(const Grundwerte &W,const cH_Spezies &S,bool nsc_allowed) const
+std::vector<std::pair<cH_Typen,bool> > LernListen::getTypen(const Grundwerte &W,const cH_Spezies &S,bool nsc_allowed) const
 {
   std::vector<cH_Typen> T=D.Typen;
-  std::vector<pair<cH_Typen,bool> > V;
+  std::vector<std::pair<cH_Typen,bool> > V;
   for(std::vector<cH_Typen>::const_iterator i=T.begin();i!=T.end();++i)
    {
 //cout << (*i)->Typl()<<'\t'<<S->Typ_erlaubt((*i)->Short())<<' '
@@ -168,10 +168,10 @@ std::vector<pair<cH_Typen,bool> > LernListen::getTypen(const Grundwerte &W,const
 
 
 
-std::vector<pair<cH_Land,bool> > LernListen::getHerkunft(const Abenteurer& A) const
+std::vector<std::pair<cH_Land,bool> > LernListen::getHerkunft(const Abenteurer& A) const
 {
   std::vector<cH_Land> L=D.Laender;
-  std::vector<pair<cH_Land,bool> > V;
+  std::vector<std::pair<cH_Land,bool> > V;
   for (std::vector<cH_Land>::const_iterator i=L.begin();i!=L.end();++i)
    {
      V.push_back(std::pair<cH_Land,bool>(*i,(*i)->ist_erlaubt(A)));

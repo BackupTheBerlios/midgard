@@ -229,9 +229,9 @@ std::list<MBEmlt> Spezies::getFreiwilligeFertigkeiten(const Grundwerte &Werte) c
  return L;
 }
 
-std::list<pair<std::string,int> > Spezies::getSinne() const
+std::list<std::pair<std::string,int> > Spezies::getSinne() const
 {
-  std::list<pair<std::string,int> > S;
+  std::list<std::pair<std::string,int> > S;
   for(std::vector<st_angebfert>::const_iterator i=vec_angebfert.begin();i!=vec_angebfert.end();++i)
    {
     if(!(i->art=="s")) continue;

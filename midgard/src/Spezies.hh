@@ -1,4 +1,4 @@
-// $Id: Spezies.hh,v 1.23 2002/11/06 20:03:26 thoma Exp $               
+// $Id: Spezies.hh,v 1.24 2002/12/12 10:48:21 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -105,7 +105,7 @@ public:
    std::list<MBEmlt> getAngFertigkeiten() const;
    std::list<MBEmlt> getFertigkeiten(int &lp,const Grundwerte &Werte) const;
    std::list<MBEmlt> getFreiwilligeFertigkeiten(const Grundwerte &Werte) const;
-   std::list<pair<std::string,int> > getSinne() const;
+   std::list<std::pair<std::string,int> > getSinne() const;
 
    bool istVerboten(const cH_MidgardBasicElement &mbe) const;
    bool istVerbotenSpielbegin(const cH_MidgardBasicElement &mbe) const;

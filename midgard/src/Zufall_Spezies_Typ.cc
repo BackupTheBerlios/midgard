@@ -46,7 +46,7 @@ Enums::geschlecht Zufall::getGeschlecht() const
 
 cH_Typen Zufall::getTyp() const
 {
-   std::vector<pair<cH_Typen,bool> > V=LL.getTypen(Aben,true);
+   std::vector<std::pair<cH_Typen,bool> > V=LL.getTypen(Aben,true);
    int i=random.integer(0,V.size()-1);
    return V[i].first;   
 }
@@ -66,9 +66,9 @@ Enums::StadtLand Zufall::getStadtLand() const
 
 cH_Land Zufall::getLand() const
 {
-   std::vector<pair<cH_Land,bool> > V_=LL.getHerkunft(Aben);
+   std::vector<std::pair<cH_Land,bool> > V_=LL.getHerkunft(Aben);
    std::vector<cH_Land> V; // nur die erlaubten Länder
-   for(std::vector<pair<cH_Land,bool> >::const_iterator i=V_.begin();i!=V_.end();++i)
+   for(std::vector<std::pair<cH_Land,bool> >::const_iterator i=V_.begin();i!=V_.end();++i)
     {
       if(i->second) V.push_back(i->first) ;
     }
