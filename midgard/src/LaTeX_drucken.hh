@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.hh,v 1.13 2002/08/15 15:01:07 thoma Exp $
+// $Id: LaTeX_drucken.hh,v 1.14 2002/08/20 06:12:44 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,6 +24,7 @@ class midgard_CG;
 //class cH_MidgardBasicElement;
 #include "MidgardBasicElement.hh"
 #include "Waffe.hh"
+#include "Sprache.hh"
 class AusruestungBaum;
 #include <iostream>
 #include <string>
@@ -60,20 +61,12 @@ class LaTeX_drucken
 
     void LaTeX_write_values(ostream &fout,const std::string &install_latex_file);
     void LaTeX_write_empty_values(ostream &fout,const std::string &install_latex_file);
-    struct st_sprachen_schrift{MidgardBasicElement_mutable sprache;
-               std::vector<pair<std::string,int> > vs;
-               st_sprachen_schrift(const MidgardBasicElement_mutable &s,
-                               const std::vector<pair<std::string,int> > &v)
-                    :sprache(s),vs(v) {}
-               st_sprachen_schrift(const MidgardBasicElement_mutable &s)
-                    :sprache(s) {}
-               };
     void write_grundwerte(ostream &fout,bool empty=false);
-    void write_sprachen(ostream &fout,const std::vector<st_sprachen_schrift>& L,bool longlist=false);
+    void write_sprachen(ostream &fout,const std::vector<Sprache::st_sprachen_schrift>& L,bool longlist=false);
     void write_fertigkeiten(ostream &fout,const std::list<MidgardBasicElement_mutable>& L,bool longlist=false);
     void write_waffenbesitz(ostream &fout,const std::list<WaffeBesitz>& L,bool longlist=false);
     void write_universelle(ostream &fout);
-    void write_long_list(ostream &fout,const std::vector<st_sprachen_schrift> &S,
+    void write_long_list(ostream &fout,const std::vector<Sprache::st_sprachen_schrift> &S,
                          const std::list<MidgardBasicElement_mutable> &F,
                          const std::list<WaffeBesitz> &WB_druck);
 

@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.55 2002/08/16 09:59:29 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.56 2002/08/20 06:12:44 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,8 +19,8 @@
 
 #include <unistd.h>
 #include <Misc/EmptyInt_4TeX.h>
-#include "Sprache.hh"
-#include "Waffe.hh"
+//#include "Sprache.hh"
+//#include "Waffe.hh"
 #include "Fertigkeiten_angeboren.hh"
 #include "LaTeX_drucken.hh"
 #include <fstream>
@@ -114,20 +114,20 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  write_grundwerte(fout);
  /////////////////////////////////////////////////////////////////////////////
  // Sprachen und Schriften
- std::vector<st_sprachen_schrift> S;
+ std::vector<Sprache::st_sprachen_schrift> S;
  std::list<MidgardBasicElement_mutable> verwandteSprachen;
  for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Sprache().begin();i!=hauptfenster->getChar().List_Sprache().end();++i)
    {  //cH_Sprache s(*i);
       std::list<MidgardBasicElement_mutable> tmplist=cH_Sprache(*i)->VerwandteSprachen((*i).Erfolgswert(),hauptfenster->getChar().List_Sprache(),hauptfenster->getCDatabase().Sprache);
       verwandteSprachen.splice(verwandteSprachen.end(),tmplist);
       vector<pair<std::string,int> > vs=cH_Sprache(*i)->SchriftWert(hauptfenster->getChar().List_Schrift());
-      S.push_back(st_sprachen_schrift(*i,vs));
+      S.push_back(Sprache::st_sprachen_schrift(*i,vs));
    }
  verwandteSprachen=Sprache::cleanVerwandteSprachen(verwandteSprachen);
  for(std::list<MidgardBasicElement_mutable>::const_iterator i=verwandteSprachen.begin();i!=verwandteSprachen.end();++i)
    { //cH_Sprache s(*i);
      if(i->ist_gelernt(hauptfenster->getChar().List_Sprache())) continue;
-     S.push_back(st_sprachen_schrift(*i));
+     S.push_back(Sprache::st_sprachen_schrift(*i));
    }
  write_sprachen(fout,S);
  if(S.size()>maxsprach) bool_sprach=true;
@@ -208,7 +208,7 @@ void LaTeX_drucken::LaTeX_write_empty_values(ostream &fout,const std::string &in
  LaTeX_newsavebox(fout);
  write_grundwerte(fout,true);
  
- std::vector<st_sprachen_schrift> L;
+ std::vector<Sprache::st_sprachen_schrift> L;
  write_sprachen(fout,L);
  fout << "\\newcommand{\\beruf}{}\n" ;
  std::list<MidgardBasicElement_mutable> F;
@@ -403,10 +403,10 @@ void LaTeX_drucken::write_grundwerte(ostream &fout,bool empty=false)
 }
 
 
-void LaTeX_drucken::write_sprachen(ostream &fout,const std::vector<st_sprachen_schrift>& L,bool longlist=false)
+void LaTeX_drucken::write_sprachen(ostream &fout,const std::vector<Sprache::st_sprachen_schrift>& L,bool longlist=false)
 {
   unsigned int sprachanz=0;
-  for(std::vector<st_sprachen_schrift>::const_iterator i=L.begin();i!=L.end();++i)
+  for(std::vector<Sprache::st_sprachen_schrift>::const_iterator i=L.begin();i!=L.end();++i)
    {
       std::string a = LaTeX_string(sprachanz++);
       if(a=="0") break;
@@ -578,7 +578,7 @@ void LaTeX_drucken::write_universelle(ostream &fout)
 }
 
 
-void LaTeX_drucken::write_long_list(ostream &fout,const std::vector<st_sprachen_schrift>& S,
+void LaTeX_drucken::write_long_list(ostream &fout,const std::vector<Sprache::st_sprachen_schrift>& S,
                      const std::list<MidgardBasicElement_mutable> &F,
                      const std::list<WaffeBesitz> &WB_druck)
 {

@@ -120,6 +120,20 @@ bool Sprache::Sprachgruppe(const std::vector<int>& V2) const
   return false;
 }
 
+std::list<MidgardBasicElement_mutable> Sprache::getVerwandteSprachen(const std::list<MidgardBasicElement_mutable>& gekonnteSprachen,const std::list<cH_MidgardBasicElement>& alleSprachen)
+{
+  std::list<MidgardBasicElement_mutable> L;
+  for(std::list<MidgardBasicElement_mutable>::const_iterator i=gekonnteSprachen.begin();i!=gekonnteSprachen.end();++i)
+   {
+     std::list<MidgardBasicElement_mutable> tmplist=cH_Sprache(*i)->VerwandteSprachen(i->Erfolgswert(),gekonnteSprachen,alleSprachen);
+     L.splice(L.end(),tmplist);
+   }
+  L=Sprache::cleanVerwandteSprachen(L);
+  return L;
+}
+
+
+
 std::list<MidgardBasicElement_mutable> Sprache::VerwandteSprachen(const int erfolgswert,const std::list<MidgardBasicElement_mutable>& gelernte_listSprache,const std::list<cH_MidgardBasicElement>& listSprache) const
 {
   std::list<MidgardBasicElement_mutable> VS;
