@@ -1,4 +1,4 @@
-// $Id: Window_Geld_eingeben.cc,v 1.23 2002/01/14 12:59:00 christof Exp $
+// $Id: Window_Geld_eingeben.cc,v 1.24 2002/01/14 14:22:11 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -28,30 +28,18 @@ void Window_Geld_eingeben::on_button_close_clicked()
   spinbutton_gold->update();
   spinbutton_silber->update();
   spinbutton_kupfer->update();
-   Werte.setGeld(atoi(spinbutton_gold->get_text().c_str()),
+  Werte.setGeld(atoi(spinbutton_gold->get_text().c_str()),
                   atoi(spinbutton_silber->get_text().c_str()),
                   atoi(spinbutton_kupfer->get_text().c_str()));
-   if (back == true) oberfenster->show_Geld();
-   else hauptfenster->Geld_uebernehmen();
-   destroy();
+  hauptfenster->Geld_uebernehmen();
+  destroy();
 }
 
-#warning Es gibt zwei Konstruktoren, je nachdem von wo aus diese Funktion 
-#warning aufgerufen wird. Gibt es da eine bessere Lösung? MAT
 
-Window_Geld_eingeben::Window_Geld_eingeben(Window_Waffe_Geld* h,Grundwerte& w)
-: Werte(w)
-{
-  oberfenster = h;
-  back = true;
-  show_Geld();
-}
-
-Window_Geld_eingeben::Window_Geld_eingeben(midgard_CG* h,Grundwerte& w)
+Window_Geld_eingeben::Window_Geld_eingeben(GeldFenster* h,Grundwerte& w)
 : Werte(w)
 {
   hauptfenster = h;
-  back = false;
   show_Geld();
 }
 

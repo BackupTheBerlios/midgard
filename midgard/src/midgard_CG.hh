@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.130 2002/01/14 10:46:43 thoma Exp $
+// $Id: midgard_CG.hh,v 1.131 2002/01/14 14:22:11 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -53,7 +53,12 @@ extern bool Originalbool;
 extern bool Infobool;
 extern bool steigern_bool;
 
-class midgard_CG : public midgard_CG_glade
+class GeldFenster 
+{public:
+    virtual void Geld_uebernehmen()=0;
+};
+
+class midgard_CG : public midgard_CG_glade, public GeldFenster
 {   
         Random random;   
         enum enum_notebook_main{PAGE_GRUNDWERTE,PAGE_LERNEN,PAGE_STEIGERN,
