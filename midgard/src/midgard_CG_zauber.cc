@@ -1,4 +1,4 @@
-// $Id: midgard_CG_zauber.cc,v 1.47 2002/01/19 18:22:06 christof Exp $
+// $Id: midgard_CG_zauber.cc,v 1.48 2002/01/21 17:48:49 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -97,7 +97,7 @@ cout <<"Menu: "<< option_magier_spezialgebiet->get_menu()<<'\n';
 void midgard_CG::spezialgebiet_button()
 {
 cout << "Auswahl\n";
- gpointer user_data=optionmenu_spezies->get_menu()->get_active()->get_user_data();
+ gpointer user_data=option_magier_spezialgebiet->get_menu()->get_active()->get_user_data();
 cout <<"Menu: "<< option_magier_spezialgebiet->get_menu()<<'\n';
 cout << "Ja\n";
 cout << user_data<<' '<<&user_data<<'\n';
@@ -105,13 +105,11 @@ cout << user_data<<' '<<&user_data<<'\n';
 cout << "aftercast\n";
 // if (s=="Spezialgebiet" || s == "Primär- und Sekundärelement") return ;
 cout <<"Spez="<<(ptr)->Name()<<'\n';
-/*
  Werte.set_Spezialgebiet(ptr);
 
 cout <<"Spez="<<(ptr)->Name()<<'\n';
 // get_spezial_from_spezialgebiet();
 //cout << Werte.Spezialisierung()<<"\t"<<Werte.Spezial()<<"\t"<<Werte.Spezial2(
-*/
 } 
 
               
