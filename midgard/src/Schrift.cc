@@ -22,7 +22,8 @@
 #include <Gtk_OStream.h>
 #include <Misc/itos.h>
 #include "ProgressBar.h"
-#include "Grundwerte.hh"
+//#include "Grundwerte.hh"
+#include "Abenteurer.hh"
 
 cH_Schrift::cache_t cH_Schrift::cache;
 
@@ -87,9 +88,11 @@ std::list<cH_MidgardBasicElement> Schrift::gleicheSchrift(const std::list<cH_Mid
   return LS;
 }
 
-bool Schrift::Mutterschrift(cH_Land herkunft,cH_Spezies spezies) const
+bool Schrift::Mutterschrift(const VAbenteurer& A) const
 {
-  std::vector<std::string> V=herkunft->Sprachen();
+  
+  std::vector<std::string> V=A.getWerte().Spezies()->getVSprache();
+  if(V.empty()) V=A.getWerte().Herkunft()->Sprachen();
   for(std::vector<std::string>::const_iterator i=V.begin();i!=V.end();++i)
    {
      const std::vector<std::string> W=cH_Sprache(*i)->Schrift();

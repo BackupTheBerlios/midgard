@@ -18,13 +18,13 @@ CREATE TABLE "spezies_herkunft" (
 
 
 COPY "spezies_herkunft" FROM stdin;
-Elf	Alba
-Elf	Clanngadarn
-Elf	Moravod
-Elf		Eldalyn
-Zwerge		Dvarska
-Halbling	Halfdal
-Halbling		Halftan
-Waldgnom		Gnomenon
 Berggnom		Gnomenon
+Elf		Eldalyn
+Elf	Alba	\N
+Elf	Clanngadarn	\N
+Elf	Moravod	\N
+Halbling		Halftan
+Halbling	Halfdal	\N
+Waldgnom		Gnomenon
+Zwerg		Dvarskar
 \.

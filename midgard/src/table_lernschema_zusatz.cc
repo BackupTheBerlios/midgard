@@ -124,8 +124,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
            bool erlaubt=true;
            if(s!=std::string::npos)
             {
-             if(!cH_Schrift(*i)->Mutterschrift(hauptfenster->getChar().getWerte().Herkunft(),
-                        hauptfenster->getChar().getWerte().Spezies())) erlaubt=false; 
+             if(!cH_Schrift(*i)->Mutterschrift(hauptfenster->getChar())) erlaubt=false; 
             }
            datavec_zusatz.push_back(new Data_Zusatz(MBE,(*i)->Name(),erlaubt));
          }

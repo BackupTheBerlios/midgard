@@ -29,7 +29,6 @@ Chryseia	Vesternesse	Maralinga
 Chryseia	Vesternesse	Tuskisch
 Clanngadarn	Vesternesse	Twyneddisch
 Dvarheim	Vesternesse	Dvarskar
-Elfen	Nichtmenschen	Eldalyn
 Erainn	Vesternesse	Erainnisch
 Erainn	Vesternesse	Hochcoraniaid
 Eschar	Lamaran	Kelwisch
@@ -37,8 +36,6 @@ Eschar	Lamaran	Meketisch
 Eschar	Lamaran	Scharidisch
 Feuerinseln	Huaxal	Stammesdialekte
 Fuardain	Vesternesse	Twyneddisch
-Gnome	Nichtmenschen	Gnomenon
-Halblinge	Nichtmenschen	Halftan
 Halfdal	Vesternesse	Halftan
 Ikengabecken	Lamaran	Ikengadialekte
 Inseln unter dem Westwind	Huaxal	Nahuatlanisch
@@ -62,7 +59,6 @@ Vesternesse	Vesternesse	Comentang
 Waeland	Sirao	Waelska
 Ywerddon	Vesternesse	Erainnisch
 Ywerddon	Vesternesse	Twyneddisch
-Zwerge	Nichtmenschen	Dvarskar
 \.
 --
 --
