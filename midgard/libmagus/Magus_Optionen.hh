@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.hh,v 1.16 2004/03/07 12:14:20 thoma Exp $
+// $Id: Magus_Optionen.hh,v 1.17 2004/03/08 14:34:10 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -26,7 +26,8 @@
 #include <BaseObjects/RadioModel.h>
 #include "libmagus_dll.h"
 #include <map>
-class cH_Region;
+//class cH_Region;
+#include <Region.hh>
 
 class Magus_Optionen
 {
@@ -108,6 +109,7 @@ class Magus_Optionen
 	
 	static const int NOPAGE=-1;
    private:
+
       int datei_history;
       std::list<st_strings> list_Strings;
       std::list<st_Ober> list_Ober;
@@ -159,7 +161,7 @@ class Magus_Optionen
       std::list<st_pdfViewer> &getPDF()  {return list_pdfViewer;}
       int DateiHistory() const {return datei_history;}
 
-      void save_options(const std::string &filename,const std::vector<cH_Region> &VRegion);
+      void save_options(const std::string &filename);
       void load_options(const std::string &filename);
 
       void setString(std::string os,std::string name);
@@ -190,6 +192,11 @@ class Magus_Optionen
       void pdfViewer_setzen_from_menu(pdfViewerIndex index);
       SigC::Signal0<void> &signal_history_changed() { return sig_history_geaendert; }
       
+
+//      typedef std::map<cH_Region,Model_copyable<bool> > regionen_t;
+      typedef std::map<cH_Region,bool > regionen_t;
+      regionen_t standard_regionen;  // aktive Standardregionen
+
 //      Model_ref<bool> WerteEingebenModel() { return werte_eingeben; }
 };
 

@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.cc,v 1.12 2004/03/07 12:14:20 thoma Exp $
+// $Id: Magus_Optionen.cc,v 1.13 2004/03/08 14:34:10 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -381,8 +381,8 @@ void Magus_Optionen::load_options(const std::string &filename)
 }
 
                                                    
-void Magus_Optionen::save_options(const std::string &filename,
-               const std::vector<cH_Region> &VRegion)
+#include <iostream>
+void Magus_Optionen::save_options(const std::string &filename)
 {
   std::ofstream datei(filename.c_str());
   if (!datei.good())
@@ -456,12 +456,14 @@ void Magus_Optionen::save_options(const std::string &filename,
      opt.setAttr("Name",i->text);
      opt.setAttr("Wert", i->name);
    }
+std::cout << "SAVE OPTIONEN\n";
   if(OptionenCheck(RegionenAuswahlSpeichern).active) 
    {
      Tag &reg=data.push_back(Tag("Regionen"));
-     for(std::vector<cH_Region>::const_iterator i=VRegion.begin();i!=VRegion.end();++i)
+     for(regionen_t::const_iterator i=standard_regionen.begin();i!=standard_regionen.end();++i)
       {
-/* SO GEHT ES NICHT; WEIL ACTIVE NICHT MHER ZU REGION GEHÖRT ... */        
+        reg.setAttr("Name",i->first->Name());
+        reg.setBoolAttr("Wert",i->second);
       }
    }
   ts.write(datei);
