@@ -46,6 +46,8 @@ cH_KiDo::cH_KiDo(const std::string& name IF_XML(,bool create))
   {  static Tag t2("KiDo"); 
      // note that this Tag is shared ... works well for now
      t2.setAttr("Name",name);
+     t2.setAttr("Übersetzung","?");
+     t2.setAttr("Stil","?");
      *this=cH_KiDo(&t2);
   }
   else throw NotFound();

@@ -172,7 +172,7 @@ void midgard_CG::xml_import(const std::string& datei)
    Werte.setAlter(Beschreibung->getIntAttr("Alter")); 
    Werte.setGeschlecht(Typ->getAttr("Geschlecht","m"));
    Werte.setSpezialisierung(Typ->getAttr("Spezialisierung"));
-   Werte.setHerkunft(cH_Land(Beschreibung->getAttr("Herkunft")));
+   Werte.setHerkunft(cH_Land(Beschreibung->getAttr("Herkunft"),true));
    Werte.setGlaube(Beschreibung->getAttr("Glaube"));
    Werte.setNamen(Figur->getAttr("Name"),Figur->getAttr("Spieler"),Figur->getAttr("Zeitpunkt"));
    Werte.setGFP(Steigern ? Steigern->getIntAttr("GFP", // V9
@@ -181,9 +181,9 @@ void midgard_CG::xml_import(const std::string& datei)
    Werte.setSG(abgeleiteteEigenschaften->getIntAttr("SG")); // V9
    Werte.setBeschreibung(top->getString("Text")); 
    Werte.setGeld(Vermoegen->getIntAttr("GS"),Vermoegen->getIntAttr("SS"),Vermoegen->getIntAttr("KS"));
-   if (Ruestung) Werte.setRuestung(cH_Ruestung(Ruestung->Value()));
-   else Werte.setRuestung(cH_Ruestung("OR"));
-   Werte.setSpezies(cH_Spezies(Typ->getAttr("Spezies","Mensch")));
+   if (Ruestung) Werte.setRuestung(cH_Ruestung(Ruestung->Value(),true));
+   else Werte.setRuestung(cH_Ruestung("OR"),true);
+   Werte.setSpezies(cH_Spezies(Typ->getAttr("Spezies","Mensch"),true));
    if (Steigern) // V7+
       Werte.setEP(Steigern->getIntAttr("AEP"),Steigern->getIntAttr("KEP"),Steigern->getIntAttr("ZEP"));
    else
@@ -195,10 +195,10 @@ void midgard_CG::xml_import(const std::string& datei)
    else Database.GradAnstieg.set_Grad_Anstieg(50,Werte.Grad());
 
    // Charakterklasse setzen und anzeigen 
-   this->Typ[0]=cH_Typen(Typ->getAttr("Abkürzung"));
+   this->Typ[0]=cH_Typen(Typ->getAttr("Abkürzung"),true);
 
    { std::string s = Typ->getAttr("Abkürzung2");
-     if(s!="") this->Typ[1]=cH_Typen(s);
+     if(s!="") this->Typ[1]=cH_Typen(s,true);
    }
 
    ///////////////////////////////////////////////////////////////////////   
@@ -552,7 +552,8 @@ void midgard_CG::load_ausruestung_C(int parent,AusruestungBaum *AB)
 #else
 void midgard_CG::load_ausruestung(const Tag *tag, AusruestungBaum *AB)
 {  FOR_EACH_CONST_TAG_OF(i,*tag,"Gegenstand")
-   {  AusruestungBaum *A = &AB->push_back(
+   {  cH_Preis(i->getAttr("Bezeichnung"),true); // create dummy if needed
+      AusruestungBaum *A = &AB->push_back(
    	Ausruestung(i->getAttr("Bezeichnung"),i->getAttr("Besonderheit")
    					,i->getBoolAttr("sichtbar")));
       A->setParent(AB);
@@ -709,6 +710,7 @@ void midgard_CG::load_fertigkeiten(IF_XML(const Tag *tag, const Tag *waffen_b))
          fert->set_Praxispunkte(i->getIntAttr("Praxispunkte"));
          if(fert->Name()=="Landeskunde") 
          {  fert=new Fertigkeit(*cH_Fertigkeit(fert));
+            cH_Land(i->getAttr("Land"),true);
             cH_Fertigkeit(fert)->setZusatz(i->getAttr("Land"));
          }
          list_Fertigkeit.push_back(fert);

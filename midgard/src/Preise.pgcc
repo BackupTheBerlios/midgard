@@ -45,6 +45,8 @@ cH_Preise::cH_Preise(const std::string& name IF_XML(,bool create))
   {  static Tag t2("Kaufpreis"); 
      // note that this Tag is shared ... works well for now
      t2.setAttr("Ware",name);
+     t2.setAttr("Art","?");
+     t2.setAttr("Art2","?");
      *this=cH_Preise(&t2);
   }
   else throw NotFound();

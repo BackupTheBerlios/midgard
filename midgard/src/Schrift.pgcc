@@ -47,6 +47,7 @@ cH_Schrift::cH_Schrift(const std::string& name IF_XML(,bool create))
   {  static Tag t2("Schrift"); 
      // note that this Tag is shared ... works well for now
      t2.setAttr("Name",name);
+     t2.setAttr("Typ","?");
      *this=cH_Schrift(name, &t2);
   }
   else throw NotFound();

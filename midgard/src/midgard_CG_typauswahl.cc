@@ -38,7 +38,6 @@ void midgard_CG::fill_typauswahl_2()
 void midgard_CG::fill_typauswahl_fill(int typ_1_2)
 {
   Gtk::OStream t_((typ_1_2==1) ? typauswahl : typauswahl_2 ); 
-//  int count=0;
   for(std::vector<cH_Typen>::iterator i=Database.Typen.begin();i!=Database.Typen.end();++i)
     {
      if (Werte.Spezies()->Name()=="Mensch" || Werte.Spezies()->Typ_erlaubt((*i)->Short()))
@@ -46,7 +45,6 @@ void midgard_CG::fill_typauswahl_fill(int typ_1_2)
          {
            t_ << (*i)->Name(Werte.Geschlecht());
            t_.flush((*i)->ref(),&HandleContent::unref);
-//           (*i)->set_opionmenu_nr(count++);  unnötig !!!
          }
    }
 }
