@@ -99,17 +99,17 @@ void frame_globale_optionen::element_show_or_hide(gpointer gp,Gtk::Widget *widge
 #warning sollte noch weg
 void frame_globale_optionen::element_activate_C(gpointer gp,Magus_Optionen::OptionenCheckIndex index)
 {
-//  hauptfenster->getOptionen()->OptionenCheck_setzen_from_menu(index);
+//  hauptfenster->getAben().getOptionen().OptionenCheck_setzen_from_menu(index);
 #if 0
   if(index==Magus_Optionen::Original)
    {
-    if(hauptfenster->getOptionen()->OptionenCheck(index).active)
-       hauptfenster->getOptionen()->setAllHausregeln(false);
+    if(hauptfenster->getAben().getOptionen().OptionenCheck(index).active)
+       hauptfenster->getAben().getOptionen().setAllHausregeln(false);
    }
 #endif
 }
 
 void frame_globale_optionen::element_activate_H(gpointer gp,Optionen::HausIndex index)
 {
-//  hauptfenster->getOptionen()->Hausregeln_setzen_from_menu(index);
+//  hauptfenster->getAben().getOptionen().Hausregeln_setzen_from_menu(index);
 }

@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_abge_werte.cc,v 1.23 2003/09/05 08:33:30 christof Exp $
+// $Id: table_grundwerte_abge_werte.cc,v 1.24 2003/09/10 07:15:43 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,30 +25,30 @@
 void table_grundwerte::on_abge_werte_setzen_clicked()
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
-  if(!hauptfenster->getOptionen()->OptionenCheck(Optionen::NSC_only).active)
+  if(!hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active)
    {
      combo_typ->set_sensitive(false);
      combo_typ2->set_sensitive(false);
    }   
   hauptfenster->getChar().getWizard().done(Wizard::ABGELEITETEWERTE,hauptfenster->getAben());
-  if(!hauptfenster->getOptionen()->OptionenCheck(Optionen::NSC_only).active) 
+  if(!hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active) 
       button_abg_werte->set_sensitive(false);
-  hauptfenster->setGrad(1);
+  hauptfenster->getAben().setGrad(1);
   { //Bewegungsweite
-    int b = hauptfenster->Spezies()->B_Bonus();
-    for (int i=0;i<hauptfenster->Spezies()->B_Wanz();++i) b+=Random::integer(1,3);
-    hauptfenster->setB(b);
+    int b = hauptfenster->getAben().Spezies()->B_Bonus();
+    for (int i=0;i<hauptfenster->getAben().Spezies()->B_Wanz();++i) b+=Random::integer(1,3);
+    hauptfenster->getAben().setB(b);
   }
-  hauptfenster->setWk(Random::integer(1,100)-40 
-         + 3*(hauptfenster->In()/10 + hauptfenster->Ko()/10) );
+  hauptfenster->getAben().setWk(Random::integer(1,100)-40 
+         + 3*(hauptfenster->getAben().In()/10 + hauptfenster->getAben().Ko()/10) );
   {
-    int sb = Random::integer(1,100) + 3*(hauptfenster->In()/10 
-                                       + hauptfenster->Wk()/10) - 30;
+    int sb = Random::integer(1,100) + 3*(hauptfenster->getAben().In()/10 
+                                       + hauptfenster->getAben().Wk()/10) - 30;
     // Boni für Selbstbeherrschung: Assassine, Beschwörer & Druide
     sb += hauptfenster->getAben().Typ1()->Sb() + hauptfenster->getAben().Typ2()->Sb();
     // Saddhu
     if (hauptfenster->getAben().Typ1()->Short() == "Sa") sb = 80+Random::integer(1,20);
-    hauptfenster->setSb(sb);
+    hauptfenster->getAben().setSb(sb);
   }
 
   ////////////////////////////////////////////////////////////////////////
@@ -58,44 +58,44 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
     if      (hauptfenster->getAben().Typ1()->Ausdauer() == "k" || hauptfenster->getAben().Typ2()->Ausdauer() == "k" ) bo_au_typ = 4 ;
     else if (hauptfenster->getAben().Typ1()->Ausdauer() == "ak"|| hauptfenster->getAben().Typ2()->Ausdauer() == "ak" ) bo_au_typ = 3 ;
     else bo_au_typ = 2 ;
-    int ap = Random::integer(1,6)+hauptfenster->bo_Au()+bo_au_typ 
-            + hauptfenster->Spezies()->AP_Bonus() ;
+    int ap = Random::integer(1,6)+hauptfenster->getAben().bo_Au()+bo_au_typ 
+            + hauptfenster->getAben().Spezies()->AP_Bonus() ;
     if (ap<4) ap=4;
-    hauptfenster->setAP(ap);
+    hauptfenster->getAben().setAP(ap);
   }
-  hauptfenster->setLP(Random::integer(1,6)
-      +hauptfenster->Ko()/10+4 + hauptfenster->Spezies()->LP_Bonus());
+  hauptfenster->getAben().setLP(Random::integer(1,6)
+      +hauptfenster->getAben().Ko()/10+4 + hauptfenster->getAben().Spezies()->LP_Bonus());
 
   /////////////////////////////////////////////////////////////////////////
   // Körper und Stand
   {
-    int groesse = hauptfenster->Spezies()->Groesse_Bonus() 
-                +  hauptfenster->St()/10 ;
-    for (int i=0;i<hauptfenster->Spezies()->Groesse_Wanz();++i) 
-       groesse += Random::integer(1,hauptfenster->Spezies()->Groesse_Wuerfel()) ;
-    if (hauptfenster->Spezies()->Name()=="Mensch" && 
-         hauptfenster->Geschlecht()==Enums::Frau)
+    int groesse = hauptfenster->getAben().Spezies()->Groesse_Bonus() 
+                +  hauptfenster->getAben().St()/10 ;
+    for (int i=0;i<hauptfenster->getAben().Spezies()->Groesse_Wanz();++i) 
+       groesse += Random::integer(1,hauptfenster->getAben().Spezies()->Groesse_Wuerfel()) ;
+    if (hauptfenster->getAben().Spezies()->Name()=="Mensch" && 
+         hauptfenster->getAben().Geschlecht()==Enums::Frau)
        groesse-=10;   
-    hauptfenster->setGroesse(groesse);
+    hauptfenster->getAben().setGroesse(groesse);
   }
   {
-    int gewicht = hauptfenster->Spezies()->Gewicht_Bonus() 
-                  + hauptfenster->St()/10 
-                  + hauptfenster->Groesse();
-    for (int i=0;i<hauptfenster->Spezies()->Gewicht_Wanz();++i) 
+    int gewicht = hauptfenster->getAben().Spezies()->Gewicht_Bonus() 
+                  + hauptfenster->getAben().St()/10 
+                  + hauptfenster->getAben().Groesse();
+    for (int i=0;i<hauptfenster->getAben().Spezies()->Gewicht_Wanz();++i) 
        gewicht += Random::integer(1,6) ;
-    if (hauptfenster->Spezies()->Name()=="Mensch" && hauptfenster->Geschlecht()==Enums::Frau)
+    if (hauptfenster->getAben().Spezies()->Name()=="Mensch" && hauptfenster->getAben().Geschlecht()==Enums::Frau)
        gewicht-=4;   
-    hauptfenster->setGewicht(gewicht);
+    hauptfenster->getAben().setGewicht(gewicht);
   }
 
   {
-    int ihand=Random::integer(1,20)+hauptfenster->Spezies()->HandBonus();
+    int ihand=Random::integer(1,20)+hauptfenster->getAben().Spezies()->HandBonus();
     std::string h;
     if(ihand<=15) h=Vhand[0];
     else if (16<=ihand && ihand<=19) h=Vhand[1];
     else h=Vhand[2];
-    hauptfenster->setHand(h);
+    hauptfenster->getAben().setHand(h);
   }
   {
     int istand=Random::integer(1,100);
@@ -109,7 +109,7 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
      }
 //std::cout << "typstand\t"<<typstand<<"\n";
     std::string stand;  
-    if(hauptfenster->Spezies()->Name()=="Mensch")
+    if(hauptfenster->getAben().Spezies()->Name()=="Mensch")
      {
        if (istand<=10) stand = Vstand[1];
        if (11<=istand&&istand<=50) stand =  Vstand[2];
@@ -117,9 +117,9 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
        if (istand>=91) stand =  Vstand[4];;
        if (hauptfenster->getAben().Typ1()->Short()=="MMa") stand =  Vstand[3];
      }
-    else if(hauptfenster->Spezies()->Name()=="Halbling" ||
-            hauptfenster->Spezies()->Name()=="Waldgnom" ||
-            hauptfenster->Spezies()->Name()=="Berggnom")
+    else if(hauptfenster->getAben().Spezies()->Name()=="Halbling" ||
+            hauptfenster->getAben().Spezies()->Name()=="Waldgnom" ||
+            hauptfenster->getAben().Spezies()->Name()=="Berggnom")
      {
        if (istand<=50) stand =  Vstand[2];
        if (51<=istand) stand =  Vstand[3];
@@ -130,12 +130,12 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
        if (51<=istand&&istand<=90) stand =  Vstand[3];
        if (istand>=91) stand =  Vstand[4];
      }
-    hauptfenster->setStand(stand);
+    hauptfenster->getAben().setStand(stand);
    }
-  hauptfenster->setGrad1Werte(hauptfenster->getAben().getVTyp());
+  hauptfenster->getAben().setGrad1Werte();
 
-  hauptfenster->table_lernschema->button_herkunft->set_sensitive(true);
-  hauptfenster->frame_lernschema->set_sensitive(true);
+//  hauptfenster->table_lernschema->button_herkunft->set_sensitive(true);
+//  hauptfenster->frame_lernschema->set_sensitive(true);
   zeige_werte();
   hauptfenster->getChar().undosave("Abgeleitete Werte gewürfelt");
 }

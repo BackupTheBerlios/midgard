@@ -1,4 +1,4 @@
-// $Id: midgard_CG_drucken.cc,v 1.8 2003/09/01 06:47:58 christof Exp $   
+// $Id: midgard_CG_drucken.cc,v 1.9 2003/09/10 07:15:43 christof Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,71 +23,56 @@
 // Beschreibung ///////////////////////////////////////////////////
 void midgard_CG::on_beschreibung_drucken()
 { 
-  LaTeX_drucken L(this);
-  L.latex_beschreibung_drucken();
+  LaTeX_drucken L;
+  L.latex_beschreibung_drucken(getAben());
 }
 
 // Dokument ///////////////////////////////////////////////////
 void midgard_CG::on_abenteurerdokument_drucken()
 {  
-  LaTeX_drucken L(this);
-  L.on_latex_clicked();
+  LaTeX_drucken L;
+  L.Ausdrucken(getAben());
 }
  
 // Leeres Dokument ///////////////////////////////////////////////////
 void midgard_CG::on_leeres_abenteurerdokument_drucken()
 {  
-  LaTeX_drucken L(this);
-  L.on_latex_clicked(false);
+  LaTeX_drucken L;
+  L.Ausdrucken();
 }
  
 void midgard_CG::on_alles_drucken()
 {
-  LaTeX_drucken L(this);
-  L.on_latex_clicked();
-  L.latex_beschreibung_drucken();
-  L.on_ausruestung_druck(true);
-  L.on_ausruestung_druck(false);
-//  on_beschreibung_drucken();
-//  on_nur_sichtbares_drucken();
-//  on_auch_unsichtbares_drucken();
+  LaTeX_drucken L;
+  L.Ausdrucken(getAben());
+  L.latex_beschreibung_drucken(getAben());
+  L.on_ausruestung_druck(getAben(),true);
+  L.on_ausruestung_druck(getAben(),false);
 }
 
 
 void midgard_CG::on_latex()
 {
   on_abenteurerdokument_drucken();
-//  if (ev->button==2) on_beschreibung_drucken();
-//  if (ev->button==3) on_nur_sichtbares_drucken();  
-//  return false;
 }
  
 
-// Ausrüstung ///////////////////////////////////////////////////
-//gint midgard_CG::on_button_ausruestung_druck(GdkEventButton *event)
-//{
-//  if (event->button==1) on_auch_unsichtbares_drucken();
-//  if (event->button==3) on_nur_sichtbares_drucken();
-//  return false;
-//}
-      
-
 void midgard_CG::on_nur_sichtbares_drucken()
 {
-  LaTeX_drucken L(this);
-  L.on_ausruestung_druck(false);
+  LaTeX_drucken L;
+  L.on_ausruestung_druck(getAben(),false);
 }
     
 void midgard_CG::on_auch_unsichtbares_drucken()
 { 
-  LaTeX_drucken L(this);
-  L.on_ausruestung_druck(true);
+  LaTeX_drucken L;
+  L.on_ausruestung_druck(getAben(),true);
 }
         
 // Spielleiterbogen ///////////////////////////////////////////////////////////
 void midgard_CG::on_spielleiterbogen_drucken_activate()
 {
-  LaTeX_drucken L(this);
-  L.Spielleiterbogen();
+  LaTeX_drucken L;
+  L.Spielleiterbogen(getChar());
 }
  

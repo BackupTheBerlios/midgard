@@ -1,4 +1,4 @@
-// $Id: MagusDialog.cc,v 1.2 2003/09/02 06:22:47 christof Exp $
+// $Id: MagusDialog.cc,v 1.3 2003/09/10 07:15:43 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -34,16 +34,15 @@ extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 void MagusDialog::on_button_abbrechen_clicked()
 {   delete this;
 }
-
-bool MagusDialog::on_WindowInfo_delete_event(GdkEventAny *ev)
-{
-// on_button_abbrechen_clicked();
- return false; // verhindert das zerstören des Objektes
-}
 #endif
 
+bool MagusDialog::on_WindowInfo_delete_event(GdkEventAny *ev)
+{ hide();
+  return false; // verhindert das zerstören des Objektes
+}
+
 MagusDialog::MagusDialog(Gtk::Window *w)
-{ set_transient_for(w);
+{ set_transient_for(*w);
   show();
 }
 

@@ -22,21 +22,21 @@
 
 extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
-Glib::RefPtr<Gdk::Pixbuf> RegionenPic_enum::PicModel(epic typ,bool tiny)
+Glib::RefPtr<Gdk::Pixbuf> RegionenPic::PicModel(RegionenPic_enum::epic typ,bool tiny)
 {  std::string name="pinguin.xpm";
-   if      (typ==Eschar)     name="Eschar-trans-50.xpm";
-   else if (typ==KanThaiPan) name="KiDo-trans-50.xpm";
-   else if (typ==DFR)        name="Regio-DFR-4-50.xpm";
-   else if (typ==Rawindra)   name="Regio_Rawindra-50.xpm";
-   else if (typ==Alba)       name="Regio_Alba-50.xpm";
-   else if (typ==Waeland)    name="Regio_Waeland-50.xpm";
-   else if (typ==Nahuatlan)  name="Regio_Nahuatlan-50.xpm";
-   else if (typ==Arkanum)    name="Regio_Arkanum-50.xpm";
-   else if (typ==Gildenbrief)name="Regio_Gilde-50.xpm";
-   else if (typ==HD)         name="Regio_H_u_D-50.xpm";
-   else if (typ==HD_finster) name="Regio_H_u_D_F-50.xpm";
-   else if (typ==Tipps_und_Tricks)  name="TuT_50.xpm";
-   else if (typ==Abenteuer)  name="Abwehr-50.xpm";
+   if      (typ==RegionenPic_enum::Eschar)     name="Eschar-trans-50.xpm";
+   else if (typ==RegionenPic_enum::KanThaiPan) name="KiDo-trans-50.xpm";
+   else if (typ==RegionenPic_enum::DFR)        name="Regio-DFR-4-50.xpm";
+   else if (typ==RegionenPic_enum::Rawindra)   name="Regio_Rawindra-50.xpm";
+   else if (typ==RegionenPic_enum::Alba)       name="Regio_Alba-50.xpm";
+   else if (typ==RegionenPic_enum::Waeland)    name="Regio_Waeland-50.xpm";
+   else if (typ==RegionenPic_enum::Nahuatlan)  name="Regio_Nahuatlan-50.xpm";
+   else if (typ==RegionenPic_enum::Arkanum)    name="Regio_Arkanum-50.xpm";
+   else if (typ==RegionenPic_enum::Gildenbrief)name="Regio_Gilde-50.xpm";
+   else if (typ==RegionenPic_enum::HD)         name="Regio_H_u_D-50.xpm";
+   else if (typ==RegionenPic_enum::HD_finster) name="Regio_H_u_D_F-50.xpm";
+   else if (typ==RegionenPic_enum::Tipps_und_Tricks)  name="TuT_50.xpm";
+   else if (typ==RegionenPic_enum::Abenteuer)  name="Abwehr-50.xpm";
 
    Glib::RefPtr<Gdk::Pixbuf> res=MagusImage(name);
    if (tiny && !res.is_null() && res->get_height()>26)
@@ -45,7 +45,7 @@ Glib::RefPtr<Gdk::Pixbuf> RegionenPic_enum::PicModel(epic typ,bool tiny)
    return res;
 }
 
-Gtk::Image *RegionenPic_enum::Pic(epic typ,bool tiny)
+Gtk::Image *RegionenPic::Pic(RegionenPic_enum::epic typ,bool tiny)
 {  return manage(new Gtk::Image(PicModel(typ,tiny)));
 }
 

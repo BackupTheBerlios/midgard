@@ -1,4 +1,4 @@
-// $Id: Region_GUI.hh,v 1.5 2003/09/08 08:54:16 christof Exp $               
+// $Id: Region_GUI.hh,v 1.6 2003/09/10 07:15:43 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002-2003 Christof Petig
@@ -23,6 +23,7 @@
 #include <libmagus/Region.hh>
 #include <gtkmm/image.h>
 //#include "Optionen.hh"
+#include <Misc/compiler_ports.h>
 
 class RegionenPic
 {

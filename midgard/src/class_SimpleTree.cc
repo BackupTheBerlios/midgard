@@ -47,7 +47,7 @@ const cH_EntryValue Data_SimpleTree::retEV(const WEV &what) const
       case FLernart: return cH_EntryValueIntString((*MBE).LernArt());
       case FPflicht: return cH_EntryValueIntString((*MBE).Pflicht_str());
       case FGrundkenntnis: return cH_EntryValueIntString(cH_Waffe((*MBE).getMBE())->Grundkenntnis());
-      case FErfolgswerBonus: { int AB = cH_Fertigkeit((*MBE).getMBE())->AttributBonus(abenteurer->getWerte());
+      case FErfolgswerBonus: { int AB = cH_Fertigkeit((*MBE).getMBE())->AttributBonus(*abenteurer);
                                const int EW=(*MBE)->FErfolgswert(*abenteurer,MBE);
                                if(!AB) return cH_EntryValueEmptyInt(EW);
                                else { std::string s=itos(EW-AB)+"+"+itos(AB);
@@ -64,7 +64,7 @@ const cH_EntryValue Data_SimpleTree::retEV(const WEV &what) const
       case FSteigern: return cH_EntryValueEmptyInt((*MBE).Steigern(*abenteurer));
       case FReduzieren: return cH_EntryValueEmptyInt((*MBE).Reduzieren(*abenteurer));
       case FVerlernen: return cH_EntryValueEmptyInt((*MBE).Verlernen(*abenteurer));
-      case FRegion: return cH_EntryValueIntString((*MBE)->RegionString(Datenbank));
+      case FRegion: return cH_EntryValueIntString((*MBE)->RegionString());
       case FUrsprung: return cH_EntryValueIntString(cH_Zauber((*MBE).getMBE())->Ursprung());
       case FArtderSchrift: return cH_EntryValueIntString(cH_Schrift((*MBE).getMBE())->Art_der_Schrift());
    }

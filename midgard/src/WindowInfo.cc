@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.63 2003/09/02 06:22:47 christof Exp $
+// $Id: WindowInfo.cc,v 1.64 2003/09/10 07:15:43 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,6 +25,8 @@
 #include <gtkmm/box.h>
 #include <Misc/itos.h>
 extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+#include <Gtk_OStream.h>
+#include <libmagus/Magus_Optionen.hh>
 
 void WindowInfo::on_button_abbrechen_clicked()
 {   

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.333 2003/09/08 09:06:23 christof Exp $
+// $Id: midgard_CG.hh,v 1.334 2003/09/10 07:15:43 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,28 +21,12 @@
 #  include "midgard_CG_glade.hh"
 #  define _MIDGARD_CG_HH
 
-// hier muss noch viel raus !!!
 #include <config.h>
-//#include <iostream>
-//#include <string>
 #include <gtkmm/menu.h>
-//#include <gtkmm/menuitem.h>
 #include <gtkmm/image.h>
-
-//#include <vector>
 #include <list>
-//#include "Datenbank.hh"
-//#include <fstream>
-//#include "Wizard.hh"
-//class Wizard;
-//#include "Midgard_Undo.hh"
-//#include "Optionen.hh"
-//#include "Waffe.hh"
-//#include "Abenteurer.hh"
 #include "Region_GUI.hh"
 #include <TreeViewUtility.h>
-//#include "Magus_Optionen.hh"
-
 #include <libmagus/VAbenteurer.hh>
 #include <Misc/compiler_ports.h>
 
@@ -59,17 +43,9 @@ private:
         Gtk::Menu *undo_menu;
         Gtk::Menu *menu_kontext;
 
-        std::list<std::string> LDateien;
         Model<bool> schummeln;
 
-        struct st_reg_status{RegionenPic_enum::epic name; Gtk::Image *pix;
-               st_reg_status(RegionenPic_enum::epic n, Gtk::Image *p):name(n),pix(p){}};
-        std::vector<st_reg_status> vec_region_status;
-        
         SigC::Connection connection_status;
-        // eigentlich muss das in VAbenteurer, damit unterschiedliche Abenteurer
-        // es unabhängig voneinander setzen können.
-//        Wizard wizard;
 
 /////////////////////////////////////////////////////////////////////////////
         // Drucken

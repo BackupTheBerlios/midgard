@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.303 2003/09/08 09:06:23 christof Exp $
+// $Id: midgard_CG.cc,v 1.304 2003/09/10 07:15:43 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -30,10 +30,11 @@
 #endif
 #include "Windows_Linux.hh"
 #include <Misc/Trace.h>
-#include <RefPtr_Pixmap.hh>
+#include <bool_properties.hh>
 #include <gdkmm/pixbufloader.h>
 #include <bool_ImageButton.hh>
 extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+#include <Gtk_OStream.h>
 
 static void ImageLabelKnopf(Gtk::Button *b, Glib::RefPtr<Gdk::Pixbuf> pb, const Glib::ustring &t)
 {  Gtk::VBox *vbox=manage(new Gtk::VBox());
@@ -47,35 +48,31 @@ static void ImageLabelKnopf(Gtk::Button *b, Glib::RefPtr<Gdk::Pixbuf> pb, const 
    vbox->show();
 }
 
-midgard_CG::midgard_CG(
-                       const std::string &datei)
-: InfoFenster(), news_columns(),
-	undo_menu(),menu_kontext(),
-	schummeln(false)
+midgard_CG::midgard_CG(const std::vector<std::string> &dateien)
+: news_columns(), undo_menu(),menu_kontext(), schummeln(false)
 { news_columns.attach_to(*list_news);
 
 //  ManuProC::Tracer::Enable(table_grundwerte::trace_channel);
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
-  InfoFenster = new WindowInfo(this);
 
   // Optionen laden
 //  fill_IconVec();
 //  MOptionen = new Magus_Optionen(this); 
   table_optionen->set_Hauptfenster(this);
-//  MOptionen->load_options(with_path("magus_optionen.xml",false,true));
+//  Programmoptionen.load_options(with_path("magus_optionen.xml",false,true));
   
   srand(time(0));
 // ToolBar: StyleIcon
-  button_neuer_charakter->add((StyleIcon(iNew).icon),"Neu mit Wizard",SigC::slot(*this,&midgard_CG::on_neuer_charakter));
-  button_neuer_charakter->add((StyleIcon(iNew).icon),"Neu ohne Wizard",SigC::slot(*this,&midgard_CG::on_neuer_charakter_clicked));
-  button_speichern->add((StyleIcon(iClose).icon),"Speichern",SigC::slot(*this,&midgard_CG::save_existing_filename));
-  button_speichern->add((StyleIcon(iClose).icon),"Speichern unter",SigC::slot(*this,&midgard_CG::xml_export_auswahl));
-  button_main_drucken->add((StyleIcon(iPrint).icon),"Drucken",SigC::slot(*this,&midgard_CG::on_latex));
-  ImageLabelKnopf(button_undo,(StyleIcon(iBack).icon),StyleIcon(iBack).text);
-  ImageLabelKnopf(button_redo,(StyleIcon(iForward).icon),StyleIcon(iForward).text);
+  button_neuer_charakter->add(MagusImage("NewChar-trans-50.xpm"),"Neu mit Wizard",SigC::slot(*this,&midgard_CG::on_neuer_charakter));
+  button_neuer_charakter->add(MagusImage("NewChar-trans-50.xpm"),"Neu ohne Wizard",SigC::slot(*this,&midgard_CG::on_neuer_charakter_clicked));
+  button_speichern->add(MagusImage("SaveChar-trans-50.xpm"),"Speichern",SigC::slot(*this,&midgard_CG::save_existing_filename));
+  button_speichern->add(MagusImage("SaveChar-trans-50.xpm"),"Speichern unter",SigC::slot(*this,&midgard_CG::xml_export_auswahl));
+  button_main_drucken->add(MagusImage("PrintChar-trans-50.xpm"),"Drucken",SigC::slot(*this,&midgard_CG::on_latex));
+  ImageLabelKnopf(button_undo,MagusImage("Undo.xpm"),"Zurück");
+  ImageLabelKnopf(button_redo,MagusImage("redo.xpm"),"Vorwärts");
   
 // Statusbar MVC
-  bool_ImageButton *wuerfelt_butt = new bool_ImageButton(MOptionen->WerteEingebenModel(),
+  bool_ImageButton *wuerfelt_butt = new bool_ImageButton(Programmoptionen.WerteEingebenModel(),
   	MagusImage("hand_roll.png"),MagusImage("auto_roll.png"));
   hbox_status->pack_start(*wuerfelt_butt, Gtk::PACK_SHRINK, 0);
   wuerfelt_butt->show();
@@ -87,12 +84,14 @@ midgard_CG::midgard_CG(
 
   set_sensitive(true);
 
-  if (!datei.empty()) xml_import(datei); // Charakter laden
-  else if(MOptionen->OptionenCheck(Magus_Optionen::Wizard_immer_starten).active) 
+  if (!dateien.empty())
+     for (std::vector<std::string>::const_iterator i=dateien.begin();i!=dateien.end();++i) 
+        xml_import(*i); // Charakter laden
+  else if(Programmoptionen.OptionenCheck(Magus_Optionen::Wizard_immer_starten).active) 
        on_wizard_starten_activate();
   else on_neuer_charakter_clicked();
-  if(MOptionen->OptionenCheck(Magus_Optionen::Notebook_start).wert!=-1) 
-     notebook_main->set_current_page(MOptionen->OptionenCheck(Magus_Optionen::Notebook_start).wert);
+  if(Programmoptionen.OptionenCheck(Magus_Optionen::Notebook_start).wert!=-1) 
+     notebook_main->set_current_page(Programmoptionen.OptionenCheck(Magus_Optionen::Notebook_start).wert);
 
   menubar_init();
   table_optionen->init();
@@ -105,7 +104,7 @@ midgard_CG::midgard_CG(
 #include"NEWS.h" 
    <<'\n';
 
-  if(MOptionen->OberCheck(Magus_Optionen::BegruessungsFenster).active)
+  if(Programmoptionen.OberCheck(Magus_Optionen::BegruessungsFenster).active)
      manage(new BegruessungsWindow(this));
 }
 
@@ -113,7 +112,6 @@ midgard_CG::~midgard_CG()
 {  
 //cout << "~midgard_CG()\n\n\n\n";
 //   in_dtor=true;
-   if (InfoFenster) delete InfoFenster;
    if (menu_kontext) delete menu_kontext;
    if (undo_menu) delete undo_menu;
 }
@@ -121,21 +119,20 @@ midgard_CG::~midgard_CG()
 void midgard_CG::init_statusbar()
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
-//  frame_regionen_status->remove();
-  vec_region_status.clear();
+//  vec_region_status.clear();
   Gtk::HBox *hb_regionen_status=manage(new class Gtk::HBox(false, 0));
-//  Magus_Optionen::IconIndex II=MOptionen->getIconIndex();
-  for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
+  for(std::vector<cH_Region>::const_iterator i=Datenbank.Regionen.begin();i!=Datenbank.Regionen.end();++i)
    {
-     RefPtr_Pixmap *_pix=manage(new RefPtr_Pixmap((*i)->RegionPixSmall()));
+     Gtk::Image *_pix=manage(new Gtk::Image(RegionenPic::PicModel((*i)->Pic(),true)));
      hb_regionen_status->pack_start(*_pix);
-     if((*i)->Active()) _pix->show();
-     vec_region_status.push_back(st_reg_status((*i)->Pic(),_pix));
+     Gtk::AssociateVisibility(_pix,Char.proxies.regionen[*i]);
+//     vec_region_status.push_back(st_reg_status((*i)->Pic(),_pix));
    }
   hb_regionen_status->show();
   frame_regionen_status->add(*hb_regionen_status);
 }
 
+#if 0
 void midgard_CG::set_region_statusbar(RegionenPic_enum::epic pic,bool active)
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
@@ -149,6 +146,7 @@ void midgard_CG::set_region_statusbar(RegionenPic_enum::epic pic,bool active)
       }
    }
 }
+#endif
 
 #if 0
 void midgard_CG::fill_IconVec()
@@ -206,12 +204,12 @@ void midgard_CG::fill_IconVec()
 void midgard_CG::WizardBeenden() { on_wizard_beenden_activate(); }
 void midgard_CG::AndererAbenteurer() 
 {  getChar().signal_anderer_abenteurer()(); 
-   hauptfenster->on_neuer_charakter_clicked();
-   hauptfenster->table_lernschema->init(this);
-   hauptfenster->table_steigern->init(this);
+   this->on_neuer_charakter_clicked();
+   this->table_lernschema->init(this);
+   this->table_steigern->init(this);
 }
 
 void midgard_CG::LernschemaSteigern(bool l,bool s)
-{  hauptfenster->frame_lernschema->set_sensitive(l);
-   hauptfenster->frame_steigern->set_sensitive(s);
+{  this->frame_lernschema->set_sensitive(l);
+   this->frame_steigern->set_sensitive(s);
 }
