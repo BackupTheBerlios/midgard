@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.291 2002/10/29 07:57:57 christof Exp $
+// $Id: midgard_CG.hh,v 1.292 2002/10/29 10:53:28 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -45,6 +45,7 @@ class Random;
 // small class for determining file positions (originally part of midgard_CG)
 class magus_paths
 {
+        friend class midgard_CG;
         std::string argv0; // Dateiname
         std::string magus_verzeichnis;
 public:
