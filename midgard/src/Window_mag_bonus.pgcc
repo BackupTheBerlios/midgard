@@ -29,14 +29,14 @@
 #include <Aux/SQLerror.h>
 
 
-Window_mag_bonus::Window_mag_bonus(Window_Waffenbesitz* h,st_waffen_besitz& wa)
-: waffe_besitz(wa)
+Window_mag_bonus::Window_mag_bonus(Window_Waffenbesitz* h,H_Data_waffen& wa)
+: Waffe_besitz(wa)
 {
    hauptfenster=h;
    exec sql begin declare section;
      char db_art[30], db_waffe[30];
    exec sql end declare section;
-   strncpy(db_waffe,waffe_besitz.name.c_str(),sizeof(db_waffe));
+   strncpy(db_waffe,(Waffe_besitz->Name()).c_str(),sizeof(db_waffe));
    exec sql select art into :db_art from waffen where name = :db_waffe;
    SQLerror::test(__FILELINE__);
    string art = db_art;
@@ -48,19 +48,19 @@ Window_mag_bonus::Window_mag_bonus(Window_Waffenbesitz* h,st_waffen_besitz& wa)
       { label_av_bonus->set_text("Angriffsbonus");
         label_SL_bonus->set_text("Schadensbonus");
       }
-   label_waffe->set_text(wa.name);
-   spinbutton_av_bonus->set_value(wa.av_bonus);
-   spinbutton_sl_bonus->set_value(wa.sl_bonus);
+   label_waffe->set_text(wa->Name());
+   spinbutton_av_bonus->set_value(wa->av_Bonus());
+   spinbutton_sl_bonus->set_value(wa->sl_Bonus());
 
-   entry_magisch->set_text(wa.magisch);
+   entry_magisch->set_text(wa->Magisch());
 }
 
 void Window_mag_bonus::on_button_close_clicked()
 {
-  waffe_besitz.av_bonus = atoi(spinbutton_av_bonus->get_text().c_str());
-  waffe_besitz.sl_bonus = atoi(spinbutton_sl_bonus->get_text().c_str());
-  waffe_besitz.magisch = entry_magisch->get_text();
-  if (waffe_besitz.magisch=="") waffe_besitz.magisch="*";
-  hauptfenster->mag_boni_uebernehmen(waffe_besitz);
+  Waffe_besitz->set_av_Bonus(atoi(spinbutton_av_bonus->get_text().c_str()));
+  Waffe_besitz->set_sl_Bonus(atoi(spinbutton_sl_bonus->get_text().c_str()));
+  Waffe_besitz->set_Magisch(entry_magisch->get_text());
+  if (Waffe_besitz->Magisch()=="") Waffe_besitz->set_Magisch("*");
+  hauptfenster->mag_boni_uebernehmen(Waffe_besitz);
   destroy();
 }

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_kido.cc,v 1.16 2001/06/12 09:31:06 thoma Exp $
+// $Id: midgard_CG_kido.cc,v 1.17 2001/06/26 05:20:29 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,7 +32,7 @@ void midgard_CG::on_kido_wahl_clicked()
       manage(new WindowInfo(strinfo));
       return;
     }
-   vec_kido.clear();
+   vec_Kido.clear();
    manage(new KiDo_auswahl(this,maxkido,werte));
 }
 
@@ -40,9 +40,9 @@ void midgard_CG::show_kido()
 {
    clist_kido->clear();
    Gtk::OStream os(clist_kido);
-   for (vector<st_kido>::const_iterator i=vec_kido.begin();i!=vec_kido.end();++i)
+   for (vector<H_Data_kido>::const_iterator i=vec_Kido.begin();i!=vec_Kido.end();++i)
     {
-      os << i->hoho<<"\t"<<i->technik<<"\t"<<"\t"<<i->ap<<"\t"<<i->fp<<"\n";
+      os << (*i)->Hoho()<<"\t"<<(*i)->Name()<<"\t"<<"\t"<<(*i)->Ap()<<"\t"<<(*i)->Kosten()<<"\n";
     }
    for (unsigned int i=0;i<clist_kido->columns().size();++i)
       clist_kido->set_column_auto_resize(i,true);
@@ -52,8 +52,8 @@ void midgard_CG::kido_uebernehmen(vector<string>& technik)
 {
    clist_kido->clear();
    for (vector<string>::const_iterator i=technik.begin();i!=technik.end();++i)
-      vec_kido.push_back(st_kido((*i),"","","",0,0,""));
-   get_kido(vec_kido);
+      vec_Kido.push_back(new Data_kido(*i));
+   get_kido(vec_Kido);
    midgard_CG::show_kido();
 }
 

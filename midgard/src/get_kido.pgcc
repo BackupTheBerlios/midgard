@@ -30,26 +30,26 @@ exec sql include sqlca;
 #include <cstring>
 #include <Gtk_OStream.h>
 
-void midgard_CG::get_kido(vector<st_kido>& vec_kido)
+void midgard_CG::get_kido(vector<H_Data_kido>& vec_Kido)
 {
   exec sql begin declare section;
    char db_name_orig[50],db_name[50],db_stufe[20],db_stil[20],db_effekt[1024];
    int db_fp,db_ap;
   exec sql end declare section;
 
-  for(vector<st_kido>::iterator i=vec_kido.begin();i!=vec_kido.end();++i)
+  for(vector<H_Data_kido>::iterator i=vec_Kido.begin();i!=vec_Kido.end();++i)
    { 
-     strncpy(db_name_orig,i->hoho.c_str(),sizeof(db_name_orig));
+     strncpy(db_name_orig,((*i)->Hoho()).c_str(),sizeof(db_name_orig));
      exec sql select name,stufe,stil,fp,ap,effekt
          into :db_name,:db_stufe,:db_stil,:db_fp,:db_ap,:db_effekt
          from kido where name_orig = :db_name_orig;
      SQLerror::test(__FILELINE__);
-     i->technik = db_name;
-     i->stufe = db_stufe;
-     i->stil = db_stil;
-     i->fp = db_fp;
-     i->ap = db_ap;
-     i->effekt = db_effekt;  
+     (*i)->set_Name(db_name);
+     (*i)->set_Stufe(db_stufe);
+     (*i)->set_Stil(db_stil);
+     (*i)->set_Kosten (db_fp);
+     (*i)->set_Ap(db_ap);
+     (*i)->set_Effekt(db_effekt);  
    }
 }
 

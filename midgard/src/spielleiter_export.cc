@@ -42,25 +42,29 @@ void midgard_CG::spielleiter_export()
   fout << "\n\n";
   fout << "Angriff: ";
 
- for (unsigned int i=0;i<vec_waffen.size();++i)
+// for (unsigned int i=0;i<vec_waffen.size();++i)
+  for(vector<H_Data_waffen>::const_iterator i=vec_Waffen.begin();i!=vec_Waffen.end();++i)
    {
-    string wert = itos(vec_waffen[i].erfolgswert);
-    for (unsigned int j=0; j<waffe_besitz.size();++j)
+    string wert = itos((*i)->Erfolgswert());
+//    for (unsigned int j=0; j<waffe_besitz.size();++j)
+    for(vector<H_Data_waffen>::const_iterator j=vec_Waffen_besitz.begin();j!=vec_Waffen_besitz.end();++j)
      {
-      if (waffe_besitz[j].name==vec_waffen[i].name)
+      if ((*j)->Name()==(*i)->Name())
        {
          string waffenname ;
-         waffenname = waffe_besitz[j].alias;
+         waffenname = (*j)->Alias();
          fout <<waffenname ;
-         if (waffe_besitz[j].av_bonus!=0 || waffe_besitz[j].sl_bonus!=0) fout <<"$^*$";
-         int mag_schadensbonus = waffe_besitz[j].av_bonus;
-         if (waffe_besitz[j].av_bonus==-5 && waffe_besitz[j].sl_bonus==-5) mag_schadensbonus = 0; 
+         if ((*j)->av_Bonus()!=0 || (*j)->sl_Bonus()!=0) fout <<"$^*$";
+         int mag_schadensbonus = (*j)->av_Bonus();
+         if ((*j)->av_Bonus()==-5 && (*j)->sl_Bonus()==-5) mag_schadensbonus = 0; 
          int anbo = werte.bo_an;
-         if (midgard_CG::waffe_werte(waffe_besitz[j],werte,"Verteidigung")=="true")
+//         if (midgard_CG::waffe_werte(waffe_besitz[j],werte,"Verteidigung")=="true")
+         if (midgard_CG::waffe_werte(*j,werte,"Verteidigung")=="true")
             anbo = 0;
-         int wert = vec_waffen[i].erfolgswert + anbo + mag_schadensbonus;
+         int wert = (*i)->Erfolgswert() + anbo + mag_schadensbonus;
          fout << "+"<<wert << "(";
-         string schaden=midgard_CG::waffe_werte(waffe_besitz[j],werte,"Schaden+mag_Bonus");
+//         string schaden=midgard_CG::waffe_werte(waffe_besitz[j],werte,"Schaden+mag_Bonus");
+         string schaden=midgard_CG::waffe_werte(*j,werte,"Schaden+mag_Bonus");
          fout << schaden << ")";
        }
       fout << ", ";
@@ -92,10 +96,11 @@ void midgard_CG::spielleiter_export()
     if (i != vec_Fertigkeiten.end()) fout << ", ";
    }
  fout << " - ";
- for (unsigned int i=0; i<vec_sprachen.size();++i)
+// for (unsigned int i=0; i<vec_sprachen.size();++i)
+ for (vector<H_Data_sprache>::const_iterator i=vec_Sprachen.begin();i!=vec_Sprachen.end();++i)
    {
-      fout << vec_sprachen[i].name << " " << vec_sprachen[i].wert ;
-      if (i!=vec_sprachen.size()-1) fout <<", ";
+      fout << (*i)->Name() << " " << (*i)->Wert() ;
+      if (i!=vec_Sprachen.end()) fout <<", ";
    }
   // Zauber
  if (vec_Zauber.size()!=0)

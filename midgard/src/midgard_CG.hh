@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.47 2001/06/24 13:24:52 thoma Exp $
+// $Id: midgard_CG.hh,v 1.48 2001/06/26 05:20:29 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -47,6 +47,10 @@
 #include "class_zauber.hh"
 #include "class_fertigkeiten.hh"
 #include "class_berufe.hh"
+#include "class_waffen.hh"
+#include "class_kido.hh"
+#include "class_sprache_schrift.hh"
+
 
 struct st_werte{int st; int ge;int ko;int in;int zt;
              int au;int pa;int sb;int rw;int hgw;
@@ -85,25 +89,6 @@ struct styp{string l;string s;string z; string ausdauer; int stand; int sb;
    styp() : stand(0), sb(0) {} 
    void clear() {*this=styp();} };
 
-struct st_ausgewaehlte_waffen {string name; int erfolgswert; 
-      st_ausgewaehlte_waffen(const string n,int e)
-      : name(n),erfolgswert(e) {} };
-struct st_waffen_besitz {string name; string alias; string region ;int av_bonus; 
-      int sl_bonus; string magisch;
-   st_waffen_besitz(string n, string na, string r,int a, int s, string m) 
-   : name(n), alias(na), region(r),av_bonus(a),sl_bonus(s),magisch(m) {}
-   st_waffen_besitz() : name(""), alias(""), region(""), av_bonus(0), sl_bonus(0), magisch("") {} };
-
-struct st_kido {string hoho; string technik; string stufe;
-      string stil; int fp; int ap; string effekt;
-      st_kido(string h, string t, string s1, string s2, int f, int a, string e)
-      : hoho(h),technik(t),stufe(s1),stil(s2),fp(f),ap(a) {}};
-
-struct st_sprachen {string name; int wert;string schrift;
-      st_sprachen(string n, int w, string s) : name(n),wert(w),schrift(s) {} };
-struct st_schriften {string urschrift; string typ;
-      st_schriften(string u, string t) : urschrift(u),typ(t) {}};
-
 struct st_ausnahmen{string name; string art;float fac;string standard;
          st_ausnahmen(string nn, string aa, float ff, string ss)
          :name(nn), art(aa), fac(ff), standard(ss) {}};
@@ -134,17 +119,19 @@ class midgard_CG : public midgard_CG_glade
         vector<string> spezies_vector;
         vector<H_Data_fert> vec_Fertigkeiten;
         vector<H_Data_fert> vec_an_Fertigkeit;
-        vector<st_ausgewaehlte_waffen> vec_waffen;
-        vector<st_waffen_besitz> waffe_besitz;
+//        vector<st_ausgewaehlte_waffen> vec_waffen;
+//        vector<st_waffen_besitz> waffe_besitz;
+        vector<H_Data_waffen> vec_Waffen;
+        vector<H_Data_waffen> vec_Waffen_besitz;
         vector<H_Data_beruf> vec_Beruf;
         vector<H_Data_zauber> vec_Zauber;
         vector<H_Data_zaubermittel> vec_Zaubermittel;
-        vector<st_kido> vec_kido;
+        vector<H_Data_kido> vec_Kido;
         bool kido_bool;
         int maxkido;
         bool magie_bool;
-        vector<st_sprachen> vec_sprachen;
-        vector<st_schriften> vec_schriften;
+        vector<H_Data_sprache> vec_Sprachen;
+        vector<H_Data_schrift> vec_Schriften;
         map<string,string> waffen_grundkenntnisse;
         vector<st_ausnahmen> vec_ausnahmen;
         styp typ;
@@ -186,7 +173,8 @@ class midgard_CG : public midgard_CG_glade
         void latex_beschreibung_drucken();
         void on_button_info_clicked();
         void LaTeX_zauber_main();
-        string LaTeX_scale(const string& is, unsigned int maxlength, const string& scale, const st_waffen_besitz& waffe=st_waffen_besitz());
+//        string LaTeX_scale(const string& is, unsigned int maxlength, const string& scale, const st_waffen_besitz& waffe=st_waffen_besitz());
+        string LaTeX_scale(const string& is, unsigned int maxlength, const string& scale, const H_Data_waffen& waffe=new Data_waffen());
         void LaTeX_zauber();
         void LaTeX_zaubermittel();
         void LaTeX_kido_main();
@@ -212,7 +200,7 @@ class midgard_CG : public midgard_CG_glade
         void on_zauber_wahl_clicked();
         void on_berufe_wahl_clicked();
         void on_kido_wahl_clicked();
-        void get_kido(vector<st_kido>& vec_kido);
+        void get_kido(vector<H_Data_kido>& vec_Kido);
         int get_erfolgswert_kido();
         int maxkidostil(const string& stufe);
         void show_kido();
@@ -357,8 +345,8 @@ class midgard_CG : public midgard_CG_glade
          void setze_lernpunkte(st_lernpunkte& lernpunkte);
          void fertigkeiten_uebernehmen(const vector<H_Data_fert>& saf);
          void show_fertigkeiten();
-         void waffen_uebernehmen(vector<st_ausgewaehlte_waffen>& saw,map<string,string> wg);
-         void waffe_besitz_uebernehmen(vector<st_waffen_besitz>& wbu);
+         void waffen_uebernehmen(const vector<H_Data_waffen>& saw,map<string,string> wg);
+         void waffe_besitz_uebernehmen(const vector<H_Data_waffen>& wbu);
          void zauber_uebernehmen(const vector<H_Data_zauber>& saz);
          void berufe_uebernehmen(vector<H_Data_beruf>& sab);
          void kido_uebernehmen(vector<string>& technik);
@@ -371,7 +359,7 @@ class midgard_CG : public midgard_CG_glade
          void sprache_uebernehmen(const string& s, int wert);
          void schrift_uebernehmen(const string& s, const string& t);
          void herkunft_uebernehmen(const string& s);
-         string waffe_werte(const st_waffen_besitz& waffe,const st_werte& werte, const string& mod);
+         string waffe_werte(const H_Data_waffen& waffe,const st_werte& werte, const string& mod);
          vector<string> Berufs_Vorteile();
          bool Fertigkeiten_Voraussetzung(const string& fertigkeit);
          bool Waffen_Voraussetzung(const string& waffe);

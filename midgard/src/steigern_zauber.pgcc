@@ -277,7 +277,7 @@ void midgard_CG::show_alte_zaubermittel()
    if (!checkbutton_zaubermittel->get_active()) return ;
    for (vector<H_Data_zaubermittel>::iterator i=vec_Zaubermittel.begin(); 
          i!=vec_Zaubermittel.end();++i)
-   datavec.push_back(new Data_zaubermittel((*i)->Name(),(*i)->Kosten()));
+   datavec.push_back(new Data_zaubermittel((*i)->Stufe(),(*i)->Name(),(*i)->Art(),(*i)->Kosten()));
    alte_zaubermittel_tree->setDataVec(datavec);
 }
 
@@ -305,12 +305,13 @@ void midgard_CG::show_neue_zaubermittel()
  if (get_typ_s("Magie",typ)) squery += " coalesce(z."+typ.s+",'A'), " ;
  if (get_typ_s("Magie",typ_2)) squery += " coalesce(z."+typ_2.s+",'A'), " ;
  squery += " coalesce(z.region,'') from zauberwerk z \
+//   where "+alle_zauber+" (name,stufe) NOT IN (SELECT fertigkeit,wert FROM charaktere_fertigkeiten \
    where "+alle_zauber+" name NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten \
    WHERE charakter_name = '"+werte.name_charakter+"' \
-   AND version = '"+werte.version+"') order by art, stufe, name";
+   AND version = '"+werte.version+"')  order by art, stufe, name";
 
  strncpy(query,squery.c_str(),sizeof(query));
-
+cout << query<<"\n";
  Transaction tr;
  exec sql prepare zauberm_ein_ from :query ;
  exec sql declare zauberm_ein cursor for zauberm_ein_ ;

@@ -36,55 +36,13 @@ void midgard_CG::on_sprache_laden_clicked()
    midgard_CG::show_neue_sprachen();
 }   
 
-class Data_alt_sprache : public RowDataBase
-{  
-   string name;
-   int wert,steigern,reduzieren,verlernen;
- public:
-   Data_alt_sprache(const string& n,int w, int s, int r, int v)
-       :name(n),wert(w),steigern(s),reduzieren(r),verlernen(v) {}
-
-   virtual const cH_EntryValue Value(int seqnr, gpointer gp) const
- { switch (seqnr) {
-      case 0 : return cH_EntryValueIntString(name);
-      case 1 : return cH_EntryValueEmptyInt(wert);
-      case 2 : return cH_EntryValueEmptyInt(steigern);
-      case 3 : return cH_EntryValueEmptyInt(reduzieren);
-      case 4 : return cH_EntryValueEmptyInt(verlernen);
-   }
-   return cH_EntryValueIntString("?");
- }
- string Name() const {  return name; }
- int Wert() const {  return wert; }
- int Steigern() const {  return steigern; }
- int Reduzieren() const {  return reduzieren; }
- int Verlernen() const {  return verlernen; }
-}; 
 void midgard_CG::on_leaf_selected_alte_sprache(cH_RowDataBase d)
-{  const Data_alt_sprache *dt=dynamic_cast<const Data_alt_sprache*>(&*d);  
+{  const Data_sprache *dt=dynamic_cast<const Data_sprache*>(&*d);  
    on_steigern_sprache_tree_alt_select(dt->Name(),dt->Steigern(),dt->Reduzieren(),dt->Verlernen());
 }
-class Data_neu_sprache : public RowDataBase
-{  
-   string name, urschrift;
-   int kosten;
- public:
-   Data_neu_sprache(const string& n,const string& u, int k)
-       :name(n),urschrift(u),kosten(k) {}
 
-   virtual const cH_EntryValue Value(int seqnr, gpointer gp) const
- { switch (seqnr) {
-      case 0 : return cH_EntryValueIntString(name);
-      case 1 : return cH_EntryValueIntString(urschrift);
-      case 2 : return cH_EntryValueEmptyInt(kosten);
-   }
-   return cH_EntryValueIntString("?");
- }
- string Name() const {  return name; }
- int Kosten() const {  return kosten; }
-}; 
 void midgard_CG::on_leaf_selected_neue_sprache(cH_RowDataBase d)
-{  const Data_neu_sprache *dt=dynamic_cast<const Data_neu_sprache*>(&*d);  
+{  const Data_sprache *dt=dynamic_cast<const Data_sprache*>(&*d);  
    on_steigern_sprache_tree_neu_select(dt->Name(),dt->Kosten());
 }
 
@@ -93,7 +51,7 @@ void midgard_CG::on_steigern_sprache_tree_neu_select(const string& name,int kost
 {   
    werte.gfp += kosten;
    midgard_CG::zeige_werte(werte,"alle");
-   vec_sprachen.push_back(st_sprachen(name,1,""));   
+   vec_Sprachen.push_back(new Data_sprache(name,"",1,0));   
    on_sprache_laden_clicked();
 }   
     
@@ -102,23 +60,23 @@ void midgard_CG::on_steigern_sprache_tree_alt_select(const string& name,int stei
    if (radio_sprache_steigern->get_active() && steigern)
     {
       werte.gfp += steigern;
-      for (vector<st_sprachen>::iterator i=vec_sprachen.begin();
-                     i!= vec_sprachen.end();++i )
-            if ( i->name == name) i->wert++;
+      for (vector<H_Data_sprache>::iterator i=vec_Sprachen.begin();
+                     i!= vec_Sprachen.end();++i )
+            if ( (*i)->Name() == name) (*i)->set_Wert((*i)->Wert()+1);
     }
    if (radio_sprache_reduzieren->get_active() && reduzieren )
     {
       werte.gfp -= reduzieren;
-      for (vector<st_sprachen>::iterator i=vec_sprachen.begin();
-                     i!= vec_sprachen.end();++i )
-            if ( i->name == name) i->wert--;
+      for (vector<H_Data_sprache>::iterator i=vec_Sprachen.begin();
+                     i!= vec_Sprachen.end();++i )
+            if ( (*i)->Name() == name) (*i)->set_Wert((*i)->Wert()-1);
     }
    if (radio_sprache_verlernen->get_active() && verlernen )
     {
       werte.gfp -= verlernen;
-      for (vector<st_sprachen>::iterator i=vec_sprachen.begin();
-                     i!= vec_sprachen.end();++i )
-            if ( i->name == name) {vec_sprachen.erase(i);break;};
+      for (vector<H_Data_sprache>::iterator i=vec_Sprachen.begin();
+                     i!= vec_Sprachen.end();++i )
+            if ( (*i)->Name() == name) {vec_Sprachen.erase(i);break;};
     }
    on_sprache_laden_clicked();
 }
@@ -136,26 +94,6 @@ void midgard_CG::on_radio_sprache_verlernen_toggled()
 }   
 
 
-class Data_schrift : public RowDataBase
-{  
-   string urschrift,art;
-   int kosten;
- public:
-   Data_schrift(const string& u,const string& a, int k)
-       :urschrift(u),art(a),kosten(k) {}
-
-   virtual const cH_EntryValue Value(int seqnr, gpointer gp) const
- { switch (seqnr) {
-      case 0 : return cH_EntryValueIntString(urschrift);
-      case 1 : return cH_EntryValueIntString(art);
-      case 2 : return cH_EntryValueEmptyInt(kosten);
-   }
-   return cH_EntryValueIntString("?");
- }
- string Urschrift() const {  return urschrift; }
- string Art() const {  return art; }
- int Kosten() const {  return kosten; }
-}; 
 void midgard_CG::on_leaf_selected_neue_schrift(cH_RowDataBase d)
 {  const Data_schrift *dt=dynamic_cast<const Data_schrift*>(&*d);  
    on_steigern_schrift_tree_neu_select(dt->Urschrift(),dt->Art(),dt->Kosten());
@@ -170,10 +108,10 @@ void midgard_CG::on_leaf_selected_alte_schrift(cH_RowDataBase d)
 void midgard_CG::on_steigern_schrift_tree_alt_select(const string& name, int kosten)
 {   
    werte.gfp -= kosten;
-   for (vector<st_schriften>::iterator i=vec_schriften.begin();
-            i!=vec_schriften.end();++i)
+   for (vector<H_Data_schrift>::iterator i=vec_Schriften.begin();
+            i!=vec_Schriften.end();++i)
       {
-         if (i->urschrift == name) { vec_schriften.erase(i);break;}
+         if ((*i)->Urschrift() == name) { vec_Schriften.erase(i);break;}
       }
    on_sprache_laden_clicked();
 }   
@@ -181,7 +119,7 @@ void midgard_CG::on_steigern_schrift_tree_alt_select(const string& name, int kos
 void midgard_CG::on_steigern_schrift_tree_neu_select(const string& name, const string& art, int kosten)
 {   
    werte.gfp += kosten;
-   vec_schriften.push_back(st_schriften(name,art));
+   vec_Schriften.push_back(new Data_schrift(name,art));
    on_sprache_laden_clicked();
 }   
 
@@ -190,8 +128,8 @@ void midgard_CG::show_alte_sprachen()
 {
    vector<cH_RowDataBase> datavec;
    double fac = midgard_CG::get_standard_fertigkeit(typ.s,typ_2.s,"Sprache");
-   for (vector<st_sprachen>::const_iterator i=vec_sprachen.begin();
-            i!=vec_sprachen.end();++i)
+   for (vector<H_Data_sprache>::const_iterator i=vec_Sprachen.begin();
+            i!=vec_Sprachen.end();++i)
       {
          exec sql begin declare section;
             int db_max_erfolgswert;
@@ -201,13 +139,13 @@ void midgard_CG::show_alte_sprachen()
             char query[256];
             int db_steigern, db_reduzieren, db_verlernen;
          exec sql end declare section;
-         strncpy(db_sprache,i->name.c_str(),sizeof(db_sprache));
+         strncpy(db_sprache,((*i)->Name()).c_str(),sizeof(db_sprache));
          exec sql select distinct max_wert into :db_max_erfolgswert 
                from sprachen where name = :db_sprache;
 
 
-         string ae = "p";  ae += itos(i->wert);
-         string ne = "p";  ne += itos(i->wert+1);
+         string ae = "p";  ae += itos((*i)->Wert());
+         string ne = "p";  ne += itos((*i)->Wert()+1);
          strncpy(db_neuer_erfolgswert, ne.c_str(), sizeof(db_neuer_erfolgswert));
          strncpy(db_alter_erfolgswert, ae.c_str(), sizeof(db_alter_erfolgswert));
 
@@ -230,8 +168,8 @@ void midgard_CG::show_alte_sprachen()
          SQLerror::test(__FILELINE__);
          int reduzieren = db_reduzieren*fac;
          if (db_reduzieren !=0) db_verlernen = 0 ;
-         if (db_max_erfolgswert==i->wert) db_steigern=0;
-         datavec.push_back(new Data_alt_sprache(i->name,i->wert,
+         if (db_max_erfolgswert==(*i)->Wert()) db_steigern=0;
+         datavec.push_back(new Data_sprache((*i)->Name(),(*i)->Wert(),
             db_steigern*fac,db_reduzieren*fac,db_verlernen * fac));
       }
    alte_sprache_tree->setDataVec(datavec);
@@ -262,7 +200,7 @@ void midgard_CG::show_neue_sprachen()
       exec sql fetch ein into :db_name, :db_fp, :db_urschrift;
       SQLerror::test(__FILELINE__,100);  
       if (sqlca.sqlcode) break;
-      datavec.push_back(new Data_neu_sprache(db_name,db_urschrift,db_fp*fac));
+      datavec.push_back(new Data_sprache(db_name,db_urschrift,0,db_fp*fac));
    }
  exec sql close ein;
  tr.close();
@@ -279,13 +217,13 @@ void midgard_CG::show_alte_schriften()
    int db_kosten;
   exec sql end declare section;
   double fac = midgard_CG::get_standard_fertigkeit(typ.s,typ_2.s,"Lesen/Schreiben");
-  for (vector<st_schriften>::const_iterator i=vec_schriften.begin();
-      i!=vec_schriften.end();++i)
+  for (vector<H_Data_schrift>::const_iterator i=vec_Schriften.begin();
+      i!=vec_Schriften.end();++i)
    {
-      strncpy(db_name,i->urschrift.c_str(),sizeof(db_name));
+      strncpy(db_name,((*i)->Urschrift()).c_str(),sizeof(db_name));
       exec sql select typ, kosten into :db_typ, :db_kosten 
                            from schrift where name = :db_name;
-      datavec.push_back(new Data_schrift(i->urschrift,db_typ,db_kosten*fac));
+      datavec.push_back(new Data_schrift((*i)->Urschrift(),db_typ,db_kosten*fac));
    }
   alte_schrift_tree->setDataVec(datavec);
 }

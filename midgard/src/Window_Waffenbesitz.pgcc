@@ -37,12 +37,12 @@ void Window_Waffenbesitz::on_clist_waffe_alt_select_row(gint row, gint column, G
   string waffe = clist_waffe_alt->get_text(row,0);
   memwaffe=row;
   int count=0;
-  for (vector<st_waffen_besitz>::iterator i=waffe_besitz.begin();
-         i!=waffe_besitz.end();++i)
+  for (vector<H_Data_waffen>::iterator i=Waffe_Besitz.begin();
+         i!=Waffe_Besitz.end();++i)
    { 
-     if ((i->region) !="") waffe = hauptfenster->get_region_waffen(waffe,i->region,2);
+     if (((*i)->Region()) !="") waffe = hauptfenster->get_region_waffen(waffe,(*i)->Region(),2);
      if (count==memwaffe &&  mag_bonus_bool) {manage (new Window_mag_bonus(this,*i)); break;}
-     if (count==memwaffe && !mag_bonus_bool) {waffe_besitz.erase(i);break;} 
+     if (count==memwaffe && !mag_bonus_bool) {Waffe_Besitz.erase(i);break;} 
      ++count;
    }
   hauptfenster->on_speichern_clicked();
@@ -56,18 +56,18 @@ void Window_Waffenbesitz::on_clist_waffe_neu_select_row(gint row, gint column, G
  string region = clist_waffe_neu->get_text(row,2);
  if (region!="") 
    { string wwaffe = hauptfenster->get_region_waffen(waffe,region,2);
-     waffe_besitz.push_back(st_waffen_besitz(wwaffe,waffe,region,0,0,""));
+     Waffe_Besitz.push_back(new Data_waffen(wwaffe,waffe,region,0,0,""));
    }
  if (region=="") 
-     waffe_besitz.push_back(st_waffen_besitz(waffe,waffe,region,0,0,""));
+     Waffe_Besitz.push_back(new Data_waffen(waffe,waffe,region,0,0,""));
   hauptfenster->on_speichern_clicked();
   show_alte_waffen();   
   show_neue_waffen();   
 }
 
 Window_Waffenbesitz::Window_Waffenbesitz(midgard_CG* h,
-      vector<st_ausgewaehlte_waffen>& vw,vector<st_waffen_besitz>& wb,st_werte& we )
-: vec_waffen(vw), waffe_besitz(wb), werte(we)
+      vector<H_Data_waffen>& vw,vector<H_Data_waffen>& wb,st_werte& we )
+: vec_Waffen(vw), Waffe_Besitz(wb), werte(we)
 {
   mag_bonus_bool=false;
   hauptfenster=h;
@@ -86,17 +86,17 @@ void  Window_Waffenbesitz::show_alte_waffen()
 {
   clist_waffe_alt->clear();
   Gtk::OStream os(clist_waffe_alt);  
-  for (vector<st_waffen_besitz>::const_iterator i=waffe_besitz.begin();
-            i!=waffe_besitz.end();++i)
+  for (vector<H_Data_waffen>::const_iterator i=Waffe_Besitz.begin();
+            i!=Waffe_Besitz.end();++i)
    {
      string schaden=hauptfenster->waffe_werte((*i),werte,"Schaden");
-     string bonus= "("+itos(i->av_bonus)+"/"+itos(i->sl_bonus)+")";
-     if (i->magisch=="")   bonus = "";
-     if (i->region=="")
-        os << i->name <<"\t"<<schaden<<"\t"<<bonus<<"\n";
+     string bonus= "("+itos((*i)->av_Bonus())+"/"+itos((*i)->sl_Bonus())+")";
+     if ((*i)->Magisch()=="")   bonus = "";
+     if ((*i)->Region()=="")
+        os << (*i)->Name() <<"\t"<<schaden<<"\t"<<bonus<<"\n";
      else
       {
-        os << i->alias <<"\t"<<schaden<<"\t"<<bonus<<"\n";
+        os << (*i)->Alias() <<"\t"<<schaden<<"\t"<<bonus<<"\n";
       }
    }
   for (unsigned int i=0;i<clist_waffe_alt->columns().size();++i)
@@ -133,7 +133,7 @@ void  Window_Waffenbesitz::show_neue_waffen()
      exec sql fetch ein into :db_waffe;
      SQLerror::test(__FILELINE__,100);
      if (sqlca.sqlcode) break;
-     string schaden=hauptfenster->waffe_werte(st_waffen_besitz(db_waffe,db_waffe,"",0,0,""),werte,"Schaden");
+     string schaden=hauptfenster->waffe_werte(new Data_waffen(db_waffe,db_waffe,"",0,0,""),werte,"Schaden");
      string waffe=db_waffe;
      if (waffe!="waffenloser Kampf" )
         os << db_waffe<<"\t"<<schaden<<"\n";
@@ -173,11 +173,11 @@ void Window_Waffenbesitz::on_checkbutton_mag_waffenbonus_toggled()
   else mag_bonus_bool= false;
 }
 
-void Window_Waffenbesitz::mag_boni_uebernehmen(st_waffen_besitz& wa)
+void Window_Waffenbesitz::mag_boni_uebernehmen(H_Data_waffen& wa)
 {
   int count=0; 
-  for (vector<st_waffen_besitz>::iterator i=waffe_besitz.begin();
-         i!=waffe_besitz.end();++i)
+  for (vector<H_Data_waffen>::iterator i=Waffe_Besitz.begin();
+         i!=Waffe_Besitz.end();++i)
      if (count++ == memwaffe) (*i)=wa;
   Window_Waffenbesitz::show_alte_waffen();
   Window_Waffenbesitz::show_neue_waffen();

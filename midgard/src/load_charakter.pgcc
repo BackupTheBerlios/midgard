@@ -381,7 +381,7 @@ void midgard_CG::load_charakter()
          exec sql fetch waffen into :db_fertigkeit, :db_wert;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         vec_waffen.push_back(st_ausgewaehlte_waffen(db_fertigkeit,db_wert));
+         vec_Waffen.push_back(new Data_waffen(db_fertigkeit,db_wert,""));
       } 
    exec sql close waffen;
    // Besitz (Waffen)
@@ -400,7 +400,7 @@ void midgard_CG::load_charakter()
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
          string wa = get_region_waffen(db_fertigkeit,db_region,2);         
-         waffe_besitz.push_back(st_waffen_besitz(wa,db_fertigkeit,db_region,db_av_bonus,db_sl_bonus,db_magisch));
+         vec_Waffen_besitz.push_back(new Data_waffen(wa,db_fertigkeit,db_region,db_av_bonus,db_sl_bonus,db_magisch));
       } 
    exec sql close besitz_w;
 
@@ -457,10 +457,10 @@ void midgard_CG::load_charakter()
          exec sql fetch kido into :db_fertigkeit, :db_wert ;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         vec_kido.push_back(st_kido(db_fertigkeit,"","","",0,0,""));
+         vec_Kido.push_back(new Data_kido(db_fertigkeit));
       } 
    exec sql close kido;
-   get_kido(vec_kido);
+   get_kido(vec_Kido);
 
    // Grundkenntnisse (Waffen)
    strncpy(db_art,"Grundkenntnis",sizeof(db_art));
@@ -494,7 +494,7 @@ void midgard_CG::load_charakter()
          exec sql fetch sprache into :db_fertigkeit, :db_wert;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         vec_sprachen.push_back(st_sprachen(db_fertigkeit,db_wert,""));
+         vec_Sprachen.push_back(new Data_sprache(db_fertigkeit,"",db_wert,0));
       } 
    exec sql close sprache;
    // Schrift
@@ -511,7 +511,7 @@ void midgard_CG::load_charakter()
          exec sql fetch schrift into :db_fertigkeit;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         vec_schriften.push_back(st_schriften(db_fertigkeit,""));
+         vec_Schriften.push_back(new Data_schrift(db_fertigkeit,""));
       } 
    exec sql close sprache;
    midgard_CG::sprachen_schrift();

@@ -21,10 +21,10 @@
 #include <Aux/SQLerror.h>
 #include <Gtk_OStream.h>
 exec sql include sqlca;
-int swk(vector<st_ausgewaehlte_waffen>& vec_waffen);
+int swk(vector<H_Data_waffen>& vec_Waffen);
 
 
-string midgard_CG::waffe_werte(const st_waffen_besitz& waffe,const st_werte& werte, const string& mod)
+string midgard_CG::waffe_werte(const H_Data_waffen& Waffe,const st_werte& werte, const string& mod)
 {
   exec sql begin declare section;
    char db_waffe[50];
@@ -34,7 +34,7 @@ string midgard_CG::waffe_werte(const st_waffen_besitz& waffe,const st_werte& wer
    char db_angriffsrangmod[10], db_wm_abwehr_leicht[10], db_wm_abwehr_schwer[10];
    int db_reich_0,db_reich_n,db_reich_m,db_reich_f;
   exec sql end declare section;
-  strncpy(db_waffe,waffe.name.c_str(),sizeof(db_waffe));
+  strncpy(db_waffe,(Waffe->Name()).c_str(),sizeof(db_waffe));
   exec sql select coalesce(schaden,''), coalesce(schaden_b,0),
       art, coalesce(angriffsrangmod,''), coalesce(wm_abwehr_leicht,''),
       coalesce(wm_abwehr_schwer,''),coalesce(reichweite_0,-1)
@@ -72,13 +72,13 @@ string midgard_CG::waffe_werte(const st_waffen_besitz& waffe,const st_werte& wer
      if (art=="Verteidigung") return "-"+itos(db_sb)+"AP"; /* doppeltes Minus wg. LaTeX Ausdruck */
      string schaden = db_s1;
      if (schaden=="0") return "";
-     if (waffe.name=="waffenloser Kampf") {schaden="W6"; db_sb=swk(vec_waffen);}
+     if (Waffe->Name()=="waffenloser Kampf") {schaden="W6"; db_sb=swk(vec_Waffen);}
 
      int ibonus = db_sb;
      if (art!="Fern") ibonus+=werte.bo_sc;
      if (mod=="Schaden+mag_Bonus")
-      {  ibonus += waffe.sl_bonus;
-         if (waffe.sl_bonus ==-5 && waffe.av_bonus ==-5) ibonus -= waffe.sl_bonus; 
+      {  ibonus += Waffe->sl_Bonus();
+         if (Waffe->sl_Bonus() ==-5 && Waffe->av_Bonus() ==-5) ibonus -= Waffe->sl_Bonus(); 
       }
      if (ibonus < 0 ) schaden += "-"+itos(ibonus); /* doppeltes Minus für LaTeX Ausdruck */
      if (ibonus == 0 ) schaden += "";
@@ -95,14 +95,14 @@ string midgard_CG::waffe_werte(const st_waffen_besitz& waffe,const st_werte& wer
  abort();
 }
 
-int swk(vector<st_ausgewaehlte_waffen>& vec_waffen) 
+int swk(vector<H_Data_waffen>& vec_Waffen) 
 /*Schaden für waffenlosen Kampf*/
 {
    int wert = 4;
-   for (vector<st_ausgewaehlte_waffen>::const_iterator i=vec_waffen.begin();
-         i!=vec_waffen.end();++i)
-     if (i->name == "waffenloser Kampf") 
-      { wert=i->erfolgswert; break;}
+   for (vector<H_Data_waffen>::const_iterator i=vec_Waffen.begin();
+         i!=vec_Waffen.end();++i)
+     if ((*i)->Name() == "waffenloser Kampf") 
+      { wert=(*i)->Erfolgswert(); break;}
 
    int bo ;
    if ( 4<=wert && wert <= 7) bo=-4;

@@ -35,37 +35,13 @@ void midgard_CG::on_kido_laden_clicked()
  midgard_CG::show_neue_kido();
 }
 
-class Data_kido : public RowDataBase
-{  
-   string hoho,name,stufe;
-   int ap,kosten;
-   string stil;
- public:
-   Data_kido(const string& h,const string& n,const string& s1,int a,int k,const string& s)
-       :hoho(h),name(n),stufe(s1),ap(a),kosten(k),stil(s) {}
-
-   virtual const cH_EntryValue Value(int seqnr, gpointer gp) const
- { switch (seqnr) {
-      case 0 : return cH_EntryValueIntString(hoho);
-      case 1 : return cH_EntryValueIntString(name);
-      case 2 : return cH_EntryValueIntString(stufe);
-      case 3 : return cH_EntryValueEmptyInt(ap);
-      case 4 : return cH_EntryValueEmptyInt(kosten);
-      case 5 : return cH_EntryValueIntString(stil);
-   }
-   return cH_EntryValueIntString("?");
- }
- string HoHo() const {  return hoho; }   
- int Kosten() const {  return kosten; }   
-}; 
-
 void midgard_CG::on_leaf_selected_alte_kido(cH_RowDataBase d)
 {  const Data_kido *dt=dynamic_cast<const Data_kido*>(&*d);
-   on_steigern_kido_tree_alt_select(dt->HoHo(),dt->Kosten());
+   on_steigern_kido_tree_alt_select(dt->Hoho(),dt->Kosten());
 }
 void midgard_CG::on_leaf_selected_neue_kido(cH_RowDataBase d)
 {  const Data_kido *dt=dynamic_cast<const Data_kido*>(&*d);
-   on_steigern_kido_tree_neu_select(dt->HoHo(),dt->Kosten());
+   on_steigern_kido_tree_neu_select(dt->Hoho(),dt->Kosten());
 }
 
 
@@ -73,10 +49,10 @@ void midgard_CG::on_leaf_selected_neue_kido(cH_RowDataBase d)
 void midgard_CG::show_alte_kido()
 {
    vector<cH_RowDataBase> datavec;
-   for (vector<st_kido>::iterator i=vec_kido.begin(); i!=vec_kido.end();++i)
+   for (vector<H_Data_kido>::iterator i=vec_Kido.begin(); i!=vec_Kido.end();++i)
       {
          double fac = midgard_CG::get_standard_fertigkeit(typ.s,typ_2.s,"KiDo");
-         datavec.push_back(new Data_kido(i->hoho,i->technik,i->stufe,i->ap,fac*i->fp,i->stil));
+         datavec.push_back(new Data_kido((*i)->Hoho(),(*i)->Name(),(*i)->Stufe(),(*i)->Ap(),fac*(*i)->Kosten(),(*i)->Stil()));
       }
    alte_kido_tree->setDataVec(datavec);
 }
@@ -96,7 +72,7 @@ int midgard_CG::get_erfolgswert_kido()
 
 void midgard_CG::show_neue_kido()
 {
-  vector<st_kido> new_kido;
+  vector<H_Data_kido> new_Kido;
   vector<cH_RowDataBase> datavec;
   exec sql begin declare section;
    char db_hoho[50];
@@ -150,16 +126,16 @@ void midgard_CG::show_neue_kido()
        exec sql fetch kido_ein into :db_hoho;
          SQLerror::test(__FILELINE__,100);  
          if (sqlca.sqlcode) break;
-         new_kido.push_back(st_kido(db_hoho,"","","",0,0,""));
+         new_Kido.push_back(new Data_kido(db_hoho));
       }
    exec sql close kido_ein;
    tr.commit();
 
-   midgard_CG::get_kido(new_kido);
+   midgard_CG::get_kido(new_Kido);
    double fac = midgard_CG::get_standard_fertigkeit(typ.s,typ_2.s,"KiDo");
-   for (vector<st_kido>::iterator i=new_kido.begin();i!=new_kido.end();++i)
+   for (vector<H_Data_kido>::iterator i=new_Kido.begin();i!=new_Kido.end();++i)
      {
-        datavec.push_back(new Data_kido(i->hoho,i->technik,i->stufe,i->ap,fac*i->fp,i->stil));
+        datavec.push_back(new Data_kido((*i)->Hoho(),(*i)->Name(),(*i)->Stufe(),(*i)->Ap(),fac*(*i)->Kosten(),(*i)->Stil()));
      }
    neue_kido_tree->setDataVec(datavec);
 }
@@ -168,9 +144,9 @@ void midgard_CG::show_neue_kido()
 void midgard_CG::on_steigern_kido_tree_alt_select(const string& name,int kosten)
 {   
    werte.gfp -= kosten;
-   for (vector<st_kido>::iterator i=vec_kido.begin();
-            i!= vec_kido.end();++i) 
-      if (i->hoho==name) {vec_kido.erase(i);break;}
+   for (vector<H_Data_kido>::iterator i=vec_Kido.begin();
+            i!= vec_Kido.end();++i) 
+      if ((*i)->Hoho()==name) {vec_Kido.erase(i);break;}
 
    on_kido_laden_clicked();
 }
@@ -178,18 +154,18 @@ void midgard_CG::on_steigern_kido_tree_alt_select(const string& name,int kosten)
 void midgard_CG::on_steigern_kido_tree_neu_select(const string& name, int kosten)
 {   
   werte.gfp += kosten;
-  vec_kido.push_back(st_kido(name,"","","",0,0,""));
-  get_kido(vec_kido);
+  vec_Kido.push_back(new Data_kido(name));
+  get_kido(vec_Kido);
   on_kido_laden_clicked();
 }
 
 int midgard_CG::maxkidostil(const string& stufe)
 {
   int count=0;
-  for (vector<st_kido>::const_iterator i=vec_kido.begin();
-      i!=vec_kido.end();++i)
+  for (vector<H_Data_kido>::const_iterator i=vec_Kido.begin();
+      i!=vec_Kido.end();++i)
    {
-     if (i->stufe==stufe) ++count;
+     if ((*i)->Stufe()==stufe) ++count;
    }
 return count;
 }

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.20 2001/06/12 09:31:06 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.21 2001/06/26 05:20:29 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -76,12 +76,12 @@ void midgard_CG::on_button_ruestung_clicked()
 void midgard_CG::on_button_geld_waffen_clicked()
 {   
   werte.gold=werte.silber=werte.kupfer=0;
-  manage(new Window_Waffe_Geld::Window_Waffe_Geld(this,werte,vec_waffen));
+  manage(new Window_Waffe_Geld::Window_Waffe_Geld(this,werte,vec_Waffen));
 }
 
-void midgard_CG::waffe_besitz_uebernehmen(vector<st_waffen_besitz>& wbu)
+void midgard_CG::waffe_besitz_uebernehmen(const vector<H_Data_waffen>& wbu)
 {
- waffe_besitz = wbu;
+ vec_Waffen_besitz = wbu;
 }
 
 void midgard_CG::zeige_notebook()

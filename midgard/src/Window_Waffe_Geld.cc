@@ -1,4 +1,4 @@
-// $Id: Window_Waffe_Geld.cc,v 1.21 2001/06/12 09:31:06 thoma Exp $
+// $Id: Window_Waffe_Geld.cc,v 1.22 2001/06/26 05:20:29 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -55,30 +55,30 @@ void Window_Waffe_Geld::on_button_auswaehlen_clicked()
 
 void Window_Waffe_Geld::on_button_close_clicked()
 {
-  vector<st_waffen_besitz> waffe;
+  vector<H_Data_waffen> waffe;
   for (unsigned int i=0;i<clist_gewaehlte_waffen->rows().size();++i)
    {
      string swaffe=clist_gewaehlte_waffen->get_text(i,0);
-     waffe.push_back(st_waffen_besitz(swaffe,swaffe,"",0,0,""));
+     waffe.push_back(new Data_waffen(swaffe,swaffe,"",0,0,""));
    }
   hauptfenster->waffe_besitz_uebernehmen(waffe);
   destroy();
 }
 
-Window_Waffe_Geld::Window_Waffe_Geld(midgard_CG* h, st_werte& w, vector<st_ausgewaehlte_waffen>& wa)
-: werte(w), vec_waffen(wa)
+Window_Waffe_Geld::Window_Waffe_Geld(midgard_CG* h, st_werte& w, vector<H_Data_waffen>& wa)
+: werte(w), vec_Waffen(wa)
 {
    hauptfenster = h;
 }
 
 void Window_Waffe_Geld::Waffe(int wurf)
 {
- manage (new Window_waffe(wurf,hauptfenster,this,werte,vec_waffen));
+ manage (new Window_waffe(wurf,hauptfenster,this,werte,vec_Waffen));
 }
  
 void Window_Waffe_Geld::Waffe()
 {
- manage (new Window_waffe(-1,hauptfenster,this,werte,vec_waffen));
+ manage (new Window_waffe(-1,hauptfenster,this,werte,vec_Waffen));
 }
 
 void Window_Waffe_Geld::get_waffe(const string& waffe)

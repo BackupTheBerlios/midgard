@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.27 2001/06/24 13:24:52 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.28 2001/06/26 05:20:29 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -106,13 +106,14 @@ void midgard_CG::on_latex_clicked()
  // Sprachen und Schriften
  unsigned int sprachanz=0;
  unsigned int maxsprach=14;
- for (unsigned int i=0; i<vec_sprachen.size();++i)
+// for (unsigned int i=0; i<vec_sprachen.size();++i)
+ for(vector<H_Data_sprache>::const_iterator i=vec_Sprachen.begin();i!=vec_Sprachen.end();++i)
    {
-      string a = LaTeX_string(i);
+      string a = LaTeX_string(sprachanz);
       ++sprachanz;
-      fout << "\\newcommand{\\spra"<<a<<"}{\\scriptsize " << vec_sprachen[i].name <<"}\n";
-      fout << "\\newcommand{\\spraw"<<a<<"}{\\scriptsize "<< vec_sprachen[i].wert <<"}\n";
-      fout << "\\newcommand{\\schr"<<a<<"}{\\scriptsize "<< vec_sprachen[i].schrift <<"}\n";
+      fout << "\\newcommand{\\spra"<<a<<"}{\\scriptsize " << (*i)->Name() <<"}\n";
+      fout << "\\newcommand{\\spraw"<<a<<"}{\\scriptsize "<< (*i)->Wert() <<"}\n";
+      fout << "\\newcommand{\\schr"<<a<<"}{\\scriptsize "<< (*i)->Urschrift() <<"}\n";
    }
  for (unsigned int i=sprachanz; i<maxsprach;++i) // Bis zum Ende auffüllen
    {
@@ -180,49 +181,59 @@ void midgard_CG::on_latex_clicked()
  // Waffen + Waffen/Besitz
  int  i_waffenlos = 4;
  unsigned int countwaffen=0;
- for (unsigned int i=0;i<vec_waffen.size();++i)
+// for (unsigned int i=0;i<vec_Waffen.size();++i)
+// int jcount=0;
+ for (vector<H_Data_waffen>::const_iterator i=vec_Waffen.begin();i!=vec_Waffen.end();++i)
    {
     count++;
     string a = LaTeX_string(count);
-    string wert = itos(vec_waffen[i].erfolgswert);
-    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<vec_waffen[i].name << "}\t\t";
+//cout << "latexstring = "<<a<<"\n";
+    string wert = itos((*i)->Erfolgswert());
+    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<(*i)->Name() << "}\t\t";
     fout <<"\\newcommand{\\wert"<<a<<"}{"  <<wert << "}\n";
     // waffenloser Kampf:
-    if (vec_waffen[i].name=="waffenloser Kampf") 
+    if ((*i)->Name()=="waffenloser Kampf") 
          { i_waffenlos=atoi(wert.c_str());}
-    for (unsigned int j=0; j<waffe_besitz.size();++j)
+//    for (unsigned int j=0; j<waffe_besitz.size();++j)
+      for (vector<H_Data_waffen>::const_iterator j=vec_Waffen_besitz.begin();j!=vec_Waffen_besitz.end();++j)
      {
-      if (waffe_besitz[j].name==vec_waffen[i].name)
+      if ((*j)->Name()==(*i)->Name())
        {
-         ++countwaffen;
-         string b = LaTeX_string(j);
+//         ++countwaffen;
+         string b = LaTeX_string(countwaffen++);
+//cout << (*j)->Name()<<"\t"<<(*i)->Name()<<"\t"<<"latexstring = "<<b<<"\n";
          string waffenname ;
-         waffenname = waffe_besitz[j].alias;
+         waffenname = (*j)->Alias();
          fout << "\\newcommand{\\waffe"<<b<<"}{ " ;
-         if (waffe_besitz[j].magisch!="") waffenname+="$^*$" ;
-         fout <<LaTeX_scale(waffenname,15,"2.5cm",waffe_besitz[j])<< "}\n";
-         int mag_schadensbonus = waffe_besitz[j].av_bonus;
+         if ((*j)->Magisch()!="") waffenname+="$^*$" ;
+//         fout <<LaTeX_scale(waffenname,15,"2.5cm",waffe_besitz[j])<< "}\n";
+         fout <<LaTeX_scale(waffenname,15,"2.5cm",*j)<< "}\n";
+         int mag_schadensbonus = (*j)->av_Bonus();
          int anbo = werte.bo_an;
-         if (midgard_CG::waffe_werte(waffe_besitz[j],werte,"Verteidigung")=="true")
+         if (midgard_CG::waffe_werte(*j,werte,"Verteidigung")=="true")
             anbo = 0;
-         int wert = vec_waffen[i].erfolgswert + anbo + mag_schadensbonus;
+         int wert = (*i)->Erfolgswert() + anbo + mag_schadensbonus;
          fout << "\\newcommand{\\waffeE"<<b<<"}{"<<wert << "}\n";
-         string schaden=midgard_CG::waffe_werte(waffe_besitz[j],werte,"Schaden+mag_Bonus");
+//         string schaden=midgard_CG::waffe_werte(waffe_besitz[j],werte,"Schaden+mag_Bonus");
+         string schaden=midgard_CG::waffe_werte(*j,werte,"Schaden+mag_Bonus");
          fout << "\\newcommand{\\waffeS"<<b<<"}{"<<schaden << "}\n";
-         string anm = midgard_CG::waffe_werte(waffe_besitz[j],werte,"Angriffsrangmodifikation");
+//         string anm = midgard_CG::waffe_werte(waffe_besitz[j],werte,"Angriffsrangmodifikation");
+         string anm = midgard_CG::waffe_werte(*j,werte,"Angriffsrangmodifikation");
          fout << "\\newcommand{\\waffeA"<<b<<"}{"<<anm << "}\n";
-         string abm = midgard_CG::waffe_werte(waffe_besitz[j],werte,"WM_Abwehr");
+//         string abm = midgard_CG::waffe_werte(waffe_besitz[j],werte,"WM_Abwehr");
+         string abm = midgard_CG::waffe_werte(*j,werte,"WM_Abwehr");
          fout << "\\newcommand{\\waffeV"<<b<<"}{"<<abm << "}\n";
+//         ++jcount;
        }
      }
    }
  // waffenloser Kampf:
  fout << "\\newcommand{\\waffeEy"<<"}{"<<i_waffenlos+werte.bo_an << "}\n";
- string schaden=midgard_CG::waffe_werte(st_waffen_besitz("waffenloser Kampf","waffenloser Kampf","",0,0,""),werte,"Schaden");
+ string schaden=midgard_CG::waffe_werte(new Data_waffen("waffenloser Kampf","waffenloser Kampf","",0,0,""),werte,"Schaden");
  fout << "\\newcommand{\\waffeSy}{"<<schaden << "}\n";
- string anm = midgard_CG::waffe_werte(st_waffen_besitz("waffenloser Kampf","waffenloser Kampf","",0,0,""),werte,"Angriffsrangmodifikation");
+ string anm = midgard_CG::waffe_werte(new Data_waffen("waffenloser Kampf","waffenloser Kampf","",0,0,""),werte,"Angriffsrangmodifikation");
  fout << "\\newcommand{\\waffeAy}{"<<anm << "}\n";
- string abm = midgard_CG::waffe_werte(st_waffen_besitz("waffenloser Kampf","waffenloser Kampf","",0,0,""),werte,"WM_Abwehr");
+ string abm = midgard_CG::waffe_werte(new Data_waffen("waffenloser Kampf","waffenloser Kampf","",0,0,""),werte,"WM_Abwehr");
  fout << "\\newcommand{\\waffeVy}{"<<abm << "}\n";
 
  // Fertigkeiten auffüllen
@@ -261,7 +272,7 @@ void midgard_CG::on_latex_clicked()
  }
 
  // KiDo
- if (vec_kido.size()>0)
+ if (vec_Kido.size()>0)
  {
     midgard_CG::LaTeX_kido_main();
     midgard_CG::LaTeX_kido();
@@ -272,18 +283,18 @@ void midgard_CG::on_latex_clicked()
 }      
 
 
-string midgard_CG::LaTeX_scale(const string& is, unsigned int maxlength, const string& scale, const st_waffen_besitz& waffe)
+string midgard_CG::LaTeX_scale(const string& is, unsigned int maxlength, const string& scale, const H_Data_waffen& Waffe)
 {
  string os;
  if (is.size() <= maxlength) os = is;
  else  os = "\\resizebox*{"+scale+"}{1.5ex}{"+is+"}" ;
 
- if (waffe.name!="")
+ if (Waffe->Name()!="")
    {
      string l1=os,l2;
-     if (waffe.magisch==""||waffe.magisch=="*") l2 = midgard_CG::waffe_werte(waffe,werte,"Fern");
-     else  { if (waffe.magisch.size()<=25) l2 = "\\tiny "+waffe.magisch;
-             else l2 = "\\resizebox*{"+scale+"}{1.5ex}{\\tiny "+waffe.magisch+"}" ;
+     if (Waffe->Magisch()==""||Waffe->Magisch()=="*") l2 = midgard_CG::waffe_werte(Waffe,werte,"Fern");
+     else  { if ((Waffe->Magisch()).size()<=25) l2 = "\\tiny "+Waffe->Magisch();
+             else l2 = "\\resizebox*{"+scale+"}{1.5ex}{\\tiny "+Waffe->Magisch()+"}" ;
        }
      os = "\\parbox{2cm}{\\mbox{"+l1+"}" ;
      if (l2!="")  os += "\\tiny\\\\ \\mbox{"+l2+"}";

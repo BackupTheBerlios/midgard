@@ -26,47 +26,47 @@ string midgard_CG::get_Verteidigungswaffe(int ohne_waffe)
    exec sql begin declare section;
       char db_waffe[30], db_art[30];
    exec sql end declare section;
-   vector<st_waffen_besitz> Verteidigungswaffen;
-   Verteidigungswaffen.push_back(st_waffen_besitz("waffenloser Kampf","waffenloser Kampf","",0,0,""));
-   for (vector<st_waffen_besitz>::const_iterator i=waffe_besitz.begin();
-         i!=waffe_besitz.end();++i)
+   vector<H_Data_waffen> Verteidigungswaffen;
+   Verteidigungswaffen.push_back(new Data_waffen("waffenloser Kampf","waffenloser Kampf","",0,0,""));
+   for (vector<H_Data_waffen>::const_iterator i=vec_Waffen_besitz.begin();
+         i!=vec_Waffen_besitz.end();++i)
      {
-       strncpy(db_waffe,i->name.c_str(),sizeof(db_waffe));
+       strncpy(db_waffe,((*i)->Name()).c_str(),sizeof(db_waffe));
        exec sql select art into :db_art from waffen where name = :db_waffe;
        SQLerror::test(__FILELINE__);
        string art = db_art;
-       if (art=="Verteidigung" || i->name=="Kampfstab" || i->name=="Sai" ||
-          i->name=="Tonfa" || i->name=="GunSen" || i->name=="BuKasa" || 
-          i->name=="KusariGama" || i->name=="TetsuBo" ) 
-         Verteidigungswaffen.push_back(st_waffen_besitz(i->name,i->name,i->region,i->av_bonus,i->sl_bonus,""));
+       if (art=="Verteidigung" || (*i)->Name()=="Kampfstab" || (*i)->Name()=="Sai" ||
+          (*i)->Name()=="Tonfa" || (*i)->Name()=="GunSen" || (*i)->Name()=="BuKasa" || 
+          (*i)->Name()=="KusariGama" || (*i)->Name()=="TetsuBo" ) 
+         Verteidigungswaffen.push_back(new Data_waffen((*i)->Name(),(*i)->Name(),(*i)->Region(),(*i)->av_Bonus(),(*i)->sl_Bonus(),""));
      }
    string Vwaffewert;
-cout << Vwaffewert<<"\n";
-   for(vector<st_waffen_besitz>::const_iterator i=Verteidigungswaffen.begin();
+//cout << Vwaffewert<<"\n";
+   for(vector<H_Data_waffen>::const_iterator i=Verteidigungswaffen.begin();
          i!=Verteidigungswaffen.end();++i)
      {
       vector<int> vwert;
-      for (vector<st_ausgewaehlte_waffen>::const_iterator j=vec_waffen.begin();
-            j!=vec_waffen.end();++j)      
+      for (vector<H_Data_waffen>::const_iterator j=vec_Waffen.begin();
+            j!=vec_Waffen.end();++j)      
          {
-            if (i->name == j->name) 
+            if ((*i)->Name() == (*j)->Name()) 
                { 
                  int erf_wert;
-                 if (i->name=="Kampfstab"||i->name=="Sai"||i->name=="Tonfa"||i->name=="KusariGama") 
-                  {erf_wert = j->erfolgswert-5; (erf_wert<=7)?:erf_wert=7; }
-                 else if (i->name=="TetsuBo")
-                  {erf_wert = j->erfolgswert-7; (erf_wert<=7)?:erf_wert=7; }
-                 else if (i->name=="GunSen"||i->name=="BuKasa")
-                  {erf_wert = j->erfolgswert; (erf_wert<=10)?:erf_wert=10; }
-                 else if (i->name=="waffenloser Kampf")
-                  {if ( j->erfolgswert<8)                     erf_wert = 0;
-                   if ( 8<=j->erfolgswert&&j->erfolgswert<12) erf_wert = 1;
-                   if (12<=j->erfolgswert&&j->erfolgswert<16) erf_wert = 2;
-                   if (16<=j->erfolgswert)                    erf_wert = 3;
+                 if ((*i)->Name()=="Kampfstab"||(*i)->Name()=="Sai"||(*i)->Name()=="Tonfa"||(*i)->Name()=="KusariGama") 
+                  {erf_wert = (*j)->Erfolgswert()-5; (erf_wert<=7)?:erf_wert=7; }
+                 else if ((*i)->Name()=="TetsuBo")
+                  {erf_wert = (*j)->Erfolgswert()-7; (erf_wert<=7)?:erf_wert=7; }
+                 else if ((*i)->Name()=="GunSen"||(*i)->Name()=="BuKasa")
+                  {erf_wert = (*j)->Erfolgswert(); (erf_wert<=10)?:erf_wert=10; }
+                 else if ((*i)->Name()=="waffenloser Kampf")
+                  {if ( (*j)->Erfolgswert()<8)                     erf_wert = 0;
+                   if ( 8<=(*j)->Erfolgswert()&&(*j)->Erfolgswert()<12) erf_wert = 1;
+                   if (12<=(*j)->Erfolgswert()&&(*j)->Erfolgswert()<16) erf_wert = 2;
+                   if (16<=(*j)->Erfolgswert())                    erf_wert = 3;
                   }
-                 else erf_wert = j->erfolgswert;
+                 else erf_wert = (*j)->Erfolgswert();
                  int ewert = werte.abwehr_wert+werte.bo_ab // Grundwerte
-                           + erf_wert + i->av_bonus ;// Waffenwerte
+                           + erf_wert + (*i)->av_Bonus() ;// Waffenwerte
                  Vwaffewert += itos(ewert);
                }
          }

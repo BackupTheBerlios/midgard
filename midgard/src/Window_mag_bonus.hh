@@ -1,4 +1,4 @@
-// $Id: Window_mag_bonus.hh,v 1.14 2001/06/12 09:31:06 thoma Exp $
+// $Id: Window_mag_bonus.hh,v 1.15 2001/06/26 05:20:29 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,16 +34,18 @@
 #include "glademm_support.hh"
 #include "Window_Waffenbesitz.hh"
 
-struct st_waffen_besitz;
+//struct st_waffen_besitz;
 class Window_Waffenbesitz;
+class H_Data_waffen;
 
 class Window_mag_bonus : public Window_mag_bonus_glade
 {   
         Window_Waffenbesitz* hauptfenster;
-        st_waffen_besitz& waffe_besitz;        
+//        st_waffen_besitz& waffe_besitz;        
+        H_Data_waffen& Waffe_besitz;
         friend class Window_mag_bonus_glade;
         void on_button_close_clicked();
    public:
-        Window_mag_bonus::Window_mag_bonus(Window_Waffenbesitz* h, st_waffen_besitz& wa);
+        Window_mag_bonus::Window_mag_bonus(Window_Waffenbesitz* h, H_Data_waffen& wa);
 };
 #endif

@@ -80,19 +80,20 @@ Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const string& typ, const string& ty
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
          if (hauptfenster->region_check(db_region))
-            waffe.push_back(db_struct_waffe(db_lernpunkte,db_fertigkeiten,db_erfolgswert,db_grund,db_zusatz));
+            vec_Waffen.push_back(new Data_waffen(db_fertigkeiten,db_erfolgswert,db_lernpunkte,db_grund,db_zusatz));
       }
     exec sql close waffen;
     Gtk::OStream os(waffen_clist_auswahl);
-    for(vector<db_struct_waffe>::iterator i=waffe.begin();i!=waffe.end();++i)
+    for(vector<H_Data_waffen>::iterator i=vec_Waffen.begin();i!=vec_Waffen.end();++i)
       {
         for (vector<string>::const_iterator j=vorteile.begin();
                j!=vorteile.end();++j)
-           if ((*j)==i->waffe) --(i->lernpunkte);
-        if (hauptfenster->Waffen_Voraussetzung(i->waffe))
+           if ((*j)==(*i)->Name()) (*i)->set_Lernpunkte((*i)->Lernpunkte()-1);
+        if (hauptfenster->Waffen_Voraussetzung((*i)->Name()))
          {
-            os << i->lernpunkte <<"\t"<<i->zusatz<<"\t"<< i->waffe <<"\t"
-               << i->erfolgswert <<"\t"<<i->grundkenntnisse<<"\n";
+            os << (*i)->Lernpunkte() <<"\t"<<(*i)->Voraussetzung()<<"\t"
+               << (*i)->Name() <<"\t"
+               << (*i)->Erfolgswert() <<"\t"<<(*i)->Grundkenntnisse()<<"\n";
             os.flush(&*i);
          }
       }
@@ -124,16 +125,14 @@ void Waffen_auswahl::on_waffen_clist_auswahl_unselect_row(gint row, gint column,
 
 void Waffen_auswahl::on_close_waffen_clicked()
 {   
-   vector<st_ausgewaehlte_waffen> saw;
+   vector<H_Data_waffen> saw;
    for (Gtk::CList::SelectionList::iterator i=waffen_clist_auswahl->selection().begin();
          i!=waffen_clist_auswahl->selection().end();++i)
      {  
-      db_struct_waffe *ptr
-         =static_cast<db_struct_waffe*>(i->get_data());
+      H_Data_waffen *ptr = static_cast<H_Data_waffen*>(i->get_data());
          // ptr=&fert[i->get_row_num()];
 //       cout << ptr ->waffe << ' ' << ptr -> erfolgswert << '\n';
-       saw.push_back(st_ausgewaehlte_waffen(ptr->waffe,
-                        ptr->erfolgswert ));
+       saw.push_back(new Data_waffen((*ptr)->Name(),(*ptr)->Erfolgswert(),"" ));
      }
   hauptfenster->waffen_uebernehmen(saw,waffen_grundkenntnisse);
   destroy();

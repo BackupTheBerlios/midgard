@@ -70,32 +70,9 @@ void midgard_CG::show_alte_grund()
 }
 
 
-class Data_alt_waffen : public RowDataBase
-{
-   string name;
-   int wert, steigern, reduzieren;
- public:
-   Data_alt_waffen(const string& n, int w,int s,int r)
-   :name(n),wert(w),steigern(s),reduzieren(r) {}
-
-   virtual const cH_EntryValue Value(int seqnr,gpointer gp) const
- { switch (seqnr) {
-      case 0 : return cH_EntryValueIntString(name);
-      case 1 : return cH_EntryValueEmptyInt(wert); 
-      case 2 : return cH_EntryValueEmptyInt(steigern);
-      case 3 : return cH_EntryValueEmptyInt(reduzieren);
-   }
-   return cH_EntryValueIntString("?");
- }
- string Name() const {  return name; }
- int  Wert() const {  return wert; }  
- int  Steigern() const {  return steigern; }
- int  Reduzieren() const {  return reduzieren; }
-};
-
 void midgard_CG::on_leaf_selected_alte_waffen(cH_RowDataBase d)
-{  const Data_alt_waffen *dt=dynamic_cast<const Data_alt_waffen*>(&*d);
-   on_steigern_waffen_tree_alt_select(dt->Name(),dt->Wert(),dt->Steigern(),
+{  const Data_waffen *dt=dynamic_cast<const Data_waffen*>(&*d);
+   on_steigern_waffen_tree_alt_select(dt->Name(),dt->Erfolgswert(),dt->Steigern(),
       dt->Reduzieren());
 }
 
@@ -103,8 +80,8 @@ void midgard_CG::on_leaf_selected_alte_waffen(cH_RowDataBase d)
 void midgard_CG::show_alte_waffen()
 {
    vector<cH_RowDataBase> datavec;
-   for (vector<st_ausgewaehlte_waffen>::const_iterator i=vec_waffen.begin();
-            i!=vec_waffen.end();++i)
+   for (vector<H_Data_waffen>::const_iterator i=vec_Waffen.begin();
+            i!=vec_Waffen.end();++i)
       {
          exec sql begin declare section;
             char db_alter_erfolgswert[10];
@@ -115,9 +92,9 @@ void midgard_CG::show_alte_waffen()
             char db_waffe[50];
             char query[256];
          exec sql end declare section;
-         strncpy(db_waffe,i->name.c_str(),sizeof(db_waffe));
-         string ae = "p";  ae += itos(i->erfolgswert);
-         string ne = "p";  ne += itos(i->erfolgswert+1);
+         strncpy(db_waffe,((*i)->Name()).c_str(),sizeof(db_waffe));
+         string ae = "p";  ae += itos((*i)->Erfolgswert());
+         string ne = "p";  ne += itos((*i)->Erfolgswert()+1);
          strncpy(db_neuer_erfolgswert, ne.c_str(), sizeof(db_neuer_erfolgswert));
          strncpy(db_alter_erfolgswert, ae.c_str(), sizeof(db_alter_erfolgswert));
          snprintf(query,sizeof(query),"SELECT w.schwierigkeit, \
@@ -135,10 +112,10 @@ db_alter_erfolgswert,db_neuer_erfolgswert,db_waffe);
          exec sql close w_ein;
          tr.close();
          
-         double fac = midgard_CG::get_standard_waffen(typ.s,typ_2.s,i->name);
+         double fac = midgard_CG::get_standard_waffen(typ.s,typ_2.s,(*i)->Name());
          int kosten_steigern = db_schwierigkeit*db_erfolgsfaktor_s*fac;
          int kosten_reduzieren = db_schwierigkeit*db_erfolgsfaktor_r*fac;
-         datavec.push_back(new Data_alt_waffen(i->name,i->erfolgswert,
+         datavec.push_back(new Data_waffen((*i)->Name(),(*i)->Erfolgswert(),
             kosten_steigern,kosten_reduzieren));
       }
    alte_waffen_tree->setDataVec(datavec);
@@ -162,6 +139,7 @@ class Data_neu_grund : public RowDataBase
  string Name() const {  return name; }
  int Kosten() const {  return kosten; }
 };
+
 
 void midgard_CG::on_leaf_selected_neue_grund(cH_RowDataBase d)
 {  const Data_neu_grund *dt=dynamic_cast<const Data_neu_grund*>(&*d);
@@ -206,32 +184,9 @@ void midgard_CG::show_neue_grund()
  neue_grund_tree->setDataVec(datavec);
 }
 
-
-class Data_neu_waffen : public RowDataBase
-{
-   string name;
-   int wert;
-   string vorraussetzung;
- public:
-   Data_neu_waffen(const string& n, int w, const string& v)
-   :name(n),wert(w),vorraussetzung(v) {}
-
-   virtual const cH_EntryValue Value(int seqnr, gpointer gp) const
- { switch (seqnr) {
-      case 0 : return cH_EntryValueIntString(name);
-      case 1 : return cH_EntryValueEmptyInt(wert); 
-      case 2 : return cH_EntryValueIntString(vorraussetzung);
-   }
-   return cH_EntryValueIntString("?");
- }
- string Name() const {  return name; }
- int  Wert() const {  return wert; }  
-// int  Vorraussetzung() const {  return vorraussetzung; }
-};
-
 void midgard_CG::on_leaf_selected_neue_waffen(cH_RowDataBase d)
-{  const Data_neu_waffen *dt=dynamic_cast<const Data_neu_waffen*>(&*d);
-   on_steigern_waffen_tree_neu_select(dt->Name(),dt->Wert());
+{  const Data_waffen *dt=dynamic_cast<const Data_waffen*>(&*d);
+   on_steigern_waffen_tree_neu_select(dt->Name(),dt->Erfolgswert());
 }
  
 
@@ -270,7 +225,7 @@ void midgard_CG::show_neue_waffen()
          if (!strcmp(db_art,"Verteidigung")) wert = 1;
          if  (midgard_CG::Waffen_Voraussetzung(db_waffe)
             &&midgard_CG::region_check(db_region))
-         datavec.push_back(new Data_neu_waffen(db_waffe,wert,db_zusatz));
+         datavec.push_back(new Data_waffen(db_waffe,wert,db_zusatz));
       }
    exec sql close wa_ein;
    tr.close();
@@ -347,9 +302,9 @@ void midgard_CG::on_steigern_waffen_tree_alt_select(const string& waffe, int erf
             }          
           werte.gfp += steigern;
           if (steigern != 0)
-          for (vector<st_ausgewaehlte_waffen>::iterator i=vec_waffen.begin();
-             i!=vec_waffen.end();++i)
-               if (i->name==waffe) i->erfolgswert++;
+          for (vector<H_Data_waffen>::const_iterator i=vec_Waffen.begin();
+             i!=vec_Waffen.end();++i)
+               if ((*i)->Name()==waffe) (*i)->set_Erfolgswert((*i)->Erfolgswert()+1);
         }
        else // steigern mit Praxispunkten
         {
@@ -363,9 +318,9 @@ void midgard_CG::on_steigern_waffen_tree_alt_select(const string& waffe, int erf
             {
               werte.gfp += steigern;
 //              if (steigern != 0)
-              for (vector<st_ausgewaehlte_waffen>::iterator i=vec_waffen.begin();
-                i!=vec_waffen.end();++i)
-                  if (i->name==waffe) i->erfolgswert++;
+              for (vector<H_Data_waffen>::const_iterator i=vec_Waffen.begin();
+                i!=vec_Waffen.end();++i)
+                  if ((*i)->Name()==waffe) (*i)->set_Erfolgswert((*i)->Erfolgswert()+1);
             }
         }
       }
@@ -373,9 +328,9 @@ void midgard_CG::on_steigern_waffen_tree_alt_select(const string& waffe, int erf
       {
         werte.gfp -= reduzieren;
         if (reduzieren != 0)
-        for (vector<st_ausgewaehlte_waffen>::iterator i=vec_waffen.begin();
-           i!=vec_waffen.end();++i)
-              if (i->name==waffe) i->erfolgswert--;  
+        for (vector<H_Data_waffen>::iterator i=vec_Waffen.begin();
+           i!=vec_Waffen.end();++i)
+              if ((*i)->Name()==waffe) (*i)->set_Erfolgswert((*i)->Erfolgswert()-1);  
       }
    midgard_CG::zeige_werte(werte,"alle");
    midgard_CG::on_speichern_clicked();
@@ -391,7 +346,7 @@ void midgard_CG::on_steigern_waffen_tree_neu_select(const string&  name, int erf
 //   midgard_CG::zeige_werte(werte,"alle");
 //   string new_fert = steigern_waffen_clist_neu->get_text(row,0);
 //   int erf = atoi(steigern_waffen_clist_neu->get_text(row,1).c_str());
-   vec_waffen.push_back(st_ausgewaehlte_waffen(name,erfolgswert));   
+   vec_Waffen.push_back(new Data_waffen(name,erfolgswert,""));   
    midgard_CG::on_speichern_clicked();
    midgard_CG::show_alte_waffen();
    midgard_CG::show_neue_waffen();

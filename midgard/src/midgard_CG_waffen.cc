@@ -1,4 +1,4 @@
-// $Id: midgard_CG_waffen.cc,v 1.17 2001/06/12 09:31:06 thoma Exp $
+// $Id: midgard_CG_waffen.cc,v 1.18 2001/06/26 05:20:29 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,10 +31,10 @@ void midgard_CG::show_waffen()
 {
    waffen_clist->clear();
    Gtk::OStream os(waffen_clist);
-   for(vector<st_ausgewaehlte_waffen>::iterator i=vec_waffen.begin();
-         i!=vec_waffen.end();++i)
+   for(vector<H_Data_waffen>::iterator i=vec_Waffen.begin();
+         i!=vec_Waffen.end();++i)
       {
-         os << i->name<<"\t"<<i->erfolgswert<<"\n";
+         os << (*i)->Name()<<"\t"<<(*i)->Erfolgswert()<<"\n";
       }
    for (unsigned int i=0;i<waffen_clist->columns().size();++i)
       waffen_clist->set_column_auto_resize(i,true);
@@ -42,9 +42,9 @@ void midgard_CG::show_waffen()
 
 }
 
-void midgard_CG::waffen_uebernehmen(vector<st_ausgewaehlte_waffen>& saw, map<string,string> wg)
+void midgard_CG::waffen_uebernehmen(const vector<H_Data_waffen>& saw, map<string,string> wg)
 {
-   vec_waffen = saw;
+   vec_Waffen = saw;
    waffen_grundkenntnisse = wg;
    midgard_CG::show_waffen();
    button_geld_waffen->set_sensitive(true);
@@ -63,11 +63,13 @@ void midgard_CG::on_waffen_clist_select_row(gint row, gint column, GdkEvent *eve
  if (typ.z=="n" || typ.s == "Ord")
    {
     static int oldrow = -1;
-    ++++vec_waffen[row].erfolgswert;    
-    if(oldrow!=-1) ----vec_waffen[oldrow].erfolgswert;    
+//    ++++vec_waffen[row].erfolgswert;    
+//    if(oldrow!=-1) ----vec_waffen[oldrow].erfolgswert;    
+    vec_Waffen[row]->set_Erfolgswert(vec_Waffen[row]->Erfolgswert()+2);    
+    if(oldrow!=-1) vec_Waffen[oldrow]->set_Erfolgswert(vec_Waffen[oldrow]->Erfolgswert()-2);    
     oldrow=row;
     werte.spezialisierung = waffen_clist->get_text(row,0);
-    midgard_CG::waffen_uebernehmen(vec_waffen,waffen_grundkenntnisse);
+    midgard_CG::waffen_uebernehmen(vec_Waffen,waffen_grundkenntnisse);
    }
 }
 

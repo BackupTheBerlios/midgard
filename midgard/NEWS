@@ -2,7 +2,13 @@
 NEWS IN VERSION 0.6beta1
 - Umstellung der Steigern-Listen abgeschlossen.
 - Einige Bugs beseitigt, die durch die Umstellung entstanden.
-- Einige kleinere Umstellung im Code.
+- Einige bedeutenden(!) Umstellung im Code: Der MCG ist jetzt wesentlich
+   mehr an Klassen orientiert, als vorher. Durch die Umstellung könnten sich 
+   einige Bugs eingeschlichen haben. Ich bitte um ausgiebiges Testen.
+- Überarbeitung des 'Zauberwerks', da gab es noch eine Menge Bugs.
+- Erneute Überarbeitung der neuen Liste, deswegen ist wieder ein Update 
+   von ManuProc_Widgets nötig.
+- Joachim hat die fehlenden H&D Zauber fertig abgetippt.
 
 ##########################################################################
 NEWS IN VERSION 0.6beta0
