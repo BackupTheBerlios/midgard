@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.213 2002/04/29 14:01:37 thoma Exp $
+// $Id: midgard_CG.cc,v 1.214 2002/04/29 21:08:33 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,7 +32,8 @@
 
 midgard_CG::midgard_CG(const string &datei)
 : InfoFenster(0),wizard(0), MOptionen(0),menu(0),menu_gradanstieg(0),
-  Database(Midgard_Info),fire_enabled(true)
+  Database(Midgard_Info),fire_enabled(true),
+  tree_lernschema(0),Beruf_tree(0),tree_angeb_fert(0)
 {
   ansicht_menu = manage(new Gtk::MenuItem("Ansicht"));
   region_menu = manage(new Gtk::MenuItem("Regionen"));
@@ -120,13 +121,6 @@ void midgard_CG::set_tree_titles()
  preis.push_back("Eigenschaft");
  preis.push_back("Kostenfaktor");
  preise_tree->setTitles(preis);
-
- std::vector<std::string> beruf;
- beruf.push_back("Beruf"); 
- beruf.push_back("Gelernt"); 
- beruf.push_back("Fertigkeit"); 
- beruf.push_back("Kategorie"); 
- Beruf_tree->setTitles(beruf);          
 }
 
 void midgard_CG::on_radiobutton_frau_toggled()
@@ -291,7 +285,6 @@ void midgard_CG::clear_listen()
 void midgard_CG::clear_gtk()
 {
    tree_gelerntes->clear();
-   tree_lernschema->clear();
 
    alte_fert_tree->clear();
    neue_fert_tree->clear();
@@ -347,8 +340,8 @@ void midgard_CG::on_neuer_charakter_clicked()
    button_waffen->set_sensitive(false);
    button_zauber->set_sensitive(false);
 //   frame_berufswahl->set_sensitive(false);
-   scrolledwindow_beruf->hide();
-   scrolledwindow_ange_fert->hide();
+//   scrolledwindow_beruf->hide();
+//   scrolledwindow_ange_fert->hide();
 //   label_berufskategorie->hide();
 //   label_berufsstern_erklaerung->hide();
    togglebutton_spezialwaffe->set_active(false);

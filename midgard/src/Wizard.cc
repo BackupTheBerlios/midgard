@@ -31,19 +31,6 @@ void Wizard::next_step(esteps e)
   evaluate_step(actual_step);
 }
 
-/*
-void Wizard::next_step()
-{
-  evaluate_step(++actual_step);
-}
-*/
-/*
-void Wizard::same_step()
-{
-  evaluate_step(actual_step);
-}
-*/
-
 void Wizard::restart()
 {
  actual_step=START;
@@ -55,14 +42,14 @@ void Wizard::evaluate_step(esteps step)
 {
   assert(vecwiz.size()>(size_t)(step));
   vector<cH_Typen> Typ=hauptfenster->getVTyp();
-//cout << step<<' '<<SPEZIALWAFFE<<' '<<SPEZIALGEBIET<<'\n';
+cout <<"evaluate_step " <<step<<' '<<SPEZIALWAFFE<<' '<<SPEZIALGEBIET<<'\n';
   if(step==SPEZIALWAFFE&&(!Typ[0]->Spezialwaffe()&&!Typ[1]->Spezialwaffe()))
 {
 cout << "Automatisch weiter \n";
-    next_step(SPEZIALGEBIET);
+    next_step(SPEZIALWAFFE);
 }
   if(step==SPEZIALGEBIET&&(!Typ[0]->Spezialgebiet()&&!Typ[1]->Spezialgebiet()))
-    next_step(SPEICHERN);
+    next_step(SPEZIALGEBIET);
 //cout << "AA "<<vecwiz[step].page<<'\n';
   hauptfenster->notebook_main->set_page(vecwiz[step].page);
 //cout << "BB "<<vecwiz[step].page<<'\n';
@@ -78,7 +65,6 @@ cout << "Automatisch weiter \n";
   static_cast<Gtk::Label*>(button_wiz_weiter->get_child())->set_text("Weiter:\n"+vecwiz[step+1].kurz);
   static_cast<Gtk::Label*>(button_wiz_wiederholen->get_child())->set_text("Wiederholen:\n"+vecwiz[step].kurz);
 */
-  // button_wiz_skip
 }
 
 
@@ -175,7 +161,7 @@ void Wizard::fill_vecwiz()
                           &midgard_CG::wizard_do_something));
    //SPEZIAGEBIET
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
-                          "Magier sollten eine Spezialgebiet wählen",
+                          "Magier sollten ein Spezialgebiet wählen (das kann aber auch später geschehen)",
                           "Spezialgebiet",
                           &midgard_CG::wizard_do_something));
    //SPEICHERN

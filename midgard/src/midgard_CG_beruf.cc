@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.66 2002/04/29 14:01:37 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.67 2002/04/29 21:08:33 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -87,6 +87,20 @@ void midgard_CG::deleteBerufsFertigekeit()
 
 void midgard_CG::showBerufsLernList()
 {
+  if(tree_lernschema) {  tree_lernschema->destroy(); tree_lernschema=0;}
+  if(Beruf_tree) {Beruf_tree->destroy(); Beruf_tree=0;}
+  if(tree_angeb_fert) {tree_angeb_fert->destroy(); tree_angeb_fert=0;}
+  viewport_lernen->remove();
+
+  Beruf_tree = manage(new SimpleTree(4,4));
+  Beruf_tree->leaf_selected.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_beruf_tree_leaf_selected));
+  std::vector<std::string> beruf;
+  beruf.push_back("Beruf"); 
+  beruf.push_back("Gelernt"); 
+  beruf.push_back("Fertigkeit");
+  beruf.push_back("Kategorie"); 
+  Beruf_tree->setTitles(beruf);       
+
   label_lernschma_titel->set_text("Beruf");
   std::list<cH_MidgardBasicElement> L;
   for(std::list<cH_MidgardBasicElement>::const_iterator i=Database.Beruf.begin();i!=Database.Beruf.end();++i)
@@ -127,10 +141,13 @@ void midgard_CG::showBerufsLernList()
                            +"\nEin * bezeichnet eine bereits gelernte Fertigkeit."
                             " Für diese wird dann der Erfolgswert um eins erhöht.",false);
   Beruf_tree->setDataVec(datavec);
+  Beruf_tree->show();
   Beruf_tree->Expand_recursively();
-  scrolledwindow_beruf->show();
-  scrolledwindow_lernschema->hide();
-  scrolledwindow_ange_fert->hide();
+  viewport_lernen->add(*Beruf_tree);  
+
+//  scrolledwindow_beruf->show();
+  scrolledwindow_lernen->show();
+//  scrolledwindow_ange_fert->hide();
 }
 
 void midgard_CG::beruf_gewuerfelt(int wurf)
@@ -196,9 +213,10 @@ void midgard_CG::on_beruf_tree_leaf_selected(cH_RowDataBase d)
 
     if (!BKategorie.kat_IV || (dt->Kat()==3 || dt->Kat()==4))
       {
-         tree_lernschema->clear();
+         if(tree_lernschema) tree_lernschema->clear();
          set_status("");
-         scrolledwindow_beruf->hide();
+//         scrolledwindow_beruf->hide();
+         scrolledwindow_lernen->hide();
          label_lernschma_titel->set_text("");
          if(wizard) wizard->next_step(Wizard::BERUF);
       }

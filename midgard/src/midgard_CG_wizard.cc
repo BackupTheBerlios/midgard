@@ -27,7 +27,6 @@ void midgard_CG::wizard_do_something()
   if(e==Wizard::FERTIG)
       { on_wizard_beenden_activate();}
 
-cout<<"Herkunft: " << e<<' '<<Wizard::HERKUNFT<<'\n';
   if(e==Wizard::HERKUNFT)
       { on_herkunftsland_clicked();}
 
@@ -68,13 +67,8 @@ cout<<"Herkunft: " << e<<' '<<Wizard::HERKUNFT<<'\n';
 
 void midgard_CG::on_wizard_starten_activate()
 {
-//}
-//void midgard_CG::wizard_starten_clicked()
-//{
  on_neuer_charakter_clicked();
  wizard = new Wizard(this);
-// wizard = manage(new class Wizard_window(this));
-// notebook_main->set_sensitive(false);
  wizard->restart();
 }
 
@@ -84,5 +78,3 @@ void midgard_CG::on_wizard_beenden_activate()
  label_wizard->hide();
  wizard=0;
 }
-
-

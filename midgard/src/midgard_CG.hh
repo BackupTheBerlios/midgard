@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.224 2002/04/29 07:02:52 thoma Exp $
+// $Id: midgard_CG.hh,v 1.225 2002/04/29 21:08:33 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -132,6 +132,10 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
 
     public:
         bool fire_enabled;
+        MidgardBasicTree *tree_lernschema;
+        SimpleTree *Beruf_tree;
+        MidgardBasicTree *tree_angeb_fert;
+
     private:
         bool modify_bool;
         bool kido_bool;

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.109 2002/04/29 17:56:15 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.110 2002/04/29 21:08:33 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -331,7 +331,7 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
                Werte.setSpezialisierung(MBE->Name());
                Waffe::setSpezialWaffe(Werte.Spezialisierung(),list_Waffen);
                togglebutton_spezialwaffe->set_active(false);
-//'               if(wizard) wizard->next_step(Wizard::SPEZIALWAFFE);
+               if(wizard) wizard->next_step(Wizard::SPEZIALWAFFE);
               }
             }
            else
@@ -456,6 +456,7 @@ cout << "\n\nTODO\n";
   undosave(MBE->Name()+" gelernt");
   show_lernschema();
   show_gelerntes();
+  if(MBE->ZusatzEnum(Typ)) scrolledwindow_lernen->set_sensitive(false);
 }
 
 void midgard_CG::show_gelerntes()
@@ -482,10 +483,18 @@ void midgard_CG::show_gelerntes()
       FL.push_back(*j);
   MidgardBasicElement::show_list_in_tree(FL,tree_gelerntes,this);
   tree_gelerntes->Expand_recursively();
+  scrolledwindow_lernen->set_sensitive(true);
 }
 
 void midgard_CG::show_lernschema()
 {
+  if(tree_lernschema) {tree_lernschema->destroy(); tree_lernschema=0;}
+  if(Beruf_tree) {Beruf_tree->destroy(); Beruf_tree=0;}
+  if(tree_angeb_fert) {tree_angeb_fert->destroy(); tree_angeb_fert=0;}
+  viewport_lernen->remove();
+  tree_lernschema = manage(new MidgardBasicTree(MidgardBasicTree::LERNSCHEMA));
+  tree_lernschema->leaf_selected.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_tree_lernschema_leaf_selected));
+  
   MidgardBasicElement::MBEE what;
   std::string fert;
   if(button_waffen->get_active())
@@ -634,12 +643,16 @@ void midgard_CG::show_lernschema()
         }
      }
   MidgardBasicElement::show_list_in_tree(newlist,tree_lernschema,this);
+  tree_lernschema->show();
+  viewport_lernen->add(*tree_lernschema);
+
   setTitels_for_Lernschema(what,fert);
   tree_lernschema->Expand_recursively();
-  scrolledwindow_beruf->hide();
+
+//  scrolledwindow_beruf->hide();
 //  table_berufsprozent->hide();
-  scrolledwindow_lernschema->show();
-  scrolledwindow_ange_fert->hide();
+  scrolledwindow_lernen->show();
+//  scrolledwindow_ange_fert->hide();
 }
 
 void midgard_CG::setTitels_for_Lernschema(const MidgardBasicElement::MBEE& what,const std::string& fert)

@@ -40,19 +40,10 @@ class Wizard
       void fill_vecwiz();
       void evaluate_step(esteps step);
 
-//      gint on_Wizard_window_delete_event(GdkEventAny* event);
-     
-        friend class Wizard_window_glade;
-//        void on_button_wizard_weiter_clicked();
-//        void on_button_wizard_skip_clicked();
-//        void on_button_wizard_wiederholen_clicked();
-//        void on_button_close_wizard_clicked();
-//        void on_togglebutton_wizard_start_toggled();
+      friend class Wizard_window_glade;
    public: 
       Wizard(midgard_CG* h);
-//      void next_step();
       void next_step(esteps e);
-//      void same_step();
       void restart();  
 
       esteps ActualStep() const {return actual_step;}

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.64 2002/04/29 07:02:52 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.65 2002/04/29 21:08:33 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -54,11 +54,9 @@ void midgard_CG::on_angeborene_fertigkeit_clicked()
   int count100=0;
   while (wurf==100)
    {
-//      manage (new Window_angeb_fert(this,Database,list_Fertigkeit_ang,Werte,wurf));
      ++count100; 
      wurf = random.integer(1,100);
    }
-//  Window_angeb_fert *W = manage (new Window_angeb_fert(this,Database,list_Fertigkeit_ang,Werte,wurf));
   if(count100>0) 
     { set_info(itos(count100)+"x eine 100 gewürfelt, "+itos(count100)+" zusätzliche angeborende Fertigkeit nach Belieben wählen.");
       on_angeborene_fertigkeit_right_clicked();      
@@ -70,12 +68,21 @@ void midgard_CG::on_angeborene_fertigkeit_clicked()
 
 void midgard_CG::on_angeborene_fertigkeit_right_clicked()
 {
-//  manage (new Window_angeb_fert(this,Database,list_Fertigkeit_ang,Werte,-1));
+  if(tree_lernschema) {tree_lernschema->destroy(); tree_lernschema=0;}
+  if(Beruf_tree) {Beruf_tree->destroy(); Beruf_tree=0;}
+  if(tree_angeb_fert) {tree_angeb_fert->destroy(); tree_angeb_fert=0;}
+  viewport_lernen->remove();
+      
+  tree_angeb_fert = manage(new MidgardBasicTree(MidgardBasicTree::ANGEBFERT));
+  tree_angeb_fert->leaf_selected.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_ang_fert_leaf_selected));
   list_Fertigkeit_ang_neu=Database.Fertigkeit_ang;
   MidgardBasicElement::show_list_in_tree(list_Fertigkeit_ang_neu,tree_angeb_fert,this);
-  scrolledwindow_beruf->hide();
-  scrolledwindow_lernschema->hide();
-  scrolledwindow_ange_fert->show();
+
+//  scrolledwindow_beruf->hide();
+  scrolledwindow_lernen->show();
+//  scrolledwindow_ange_fert->show();
+  tree_angeb_fert->show();
+  viewport_lernen->add(*tree_angeb_fert);
 }
 
 void midgard_CG::on_ang_fert_leaf_selected(cH_RowDataBase d)

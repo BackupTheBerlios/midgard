@@ -39,6 +39,7 @@ void midgard_CG::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_Midgard
        for (std::vector<cH_Land>::const_iterator i=Database.Laender.begin();i!=Database.Laender.end();++i)
          datavec.push_back(new Data_Herkunft(*i));
        connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_herkunft_leaf_selected));
+       scrolledwindow_lernen->hide();
        break;
       }
      case MidgardBasicElement::ZLand:
@@ -107,7 +108,7 @@ void midgard_CG::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_Midgard
      case MidgardBasicElement::ZNone : break;
    }
  Tree_Lernschema_Zusatz->setDataVec(datavec);
- tree_lernschema->set_sensitive(false);
+// scrolledwindow_lernen->set_sensitive(false);
  frame_lernschema_zusatz->show();
 }
 
@@ -173,7 +174,6 @@ void midgard_CG::on_herkunft_leaf_selected(cH_RowDataBase d)
   if(wizard) wizard->next_step(Wizard::HERKUNFT);
   Werte.setHerkunft(dt->getLand());
   frame_lernschema_zusatz->hide();
-  tree_lernschema->set_sensitive(true);
   zeige_werte();  
   button_angeborene_fert->set_sensitive(true);
   button_herkunft->set_sensitive(false);

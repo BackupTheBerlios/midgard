@@ -7460,7 +7460,7 @@ auswählen</label>
 	      <widget>
 		<class>GtkTable</class>
 		<name>table123</name>
-		<rows>4</rows>
+		<rows>2</rows>
 		<columns>2</columns>
 		<homogeneous>False</homogeneous>
 		<row_spacing>0</row_spacing>
@@ -7469,51 +7469,6 @@ auswählen</label>
 		  <shrink>True</shrink>
 		  <resize>True</resize>
 		</child>
-
-		<widget>
-		  <class>GtkScrolledWindow</class>
-		  <name>scrolledwindow_lernschema</name>
-		  <cxx_visibility>protected</cxx_visibility>
-		  <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
-		  <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
-		  <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
-		  <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
-		  <child>
-		    <left_attach>0</left_attach>
-		    <right_attach>1</right_attach>
-		    <top_attach>1</top_attach>
-		    <bottom_attach>2</bottom_attach>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>True</xexpand>
-		    <yexpand>True</yexpand>
-		    <xshrink>True</xshrink>
-		    <yshrink>True</yshrink>
-		    <xfill>True</xfill>
-		    <yfill>True</yfill>
-		  </child>
-
-		  <widget>
-		    <class>GtkViewport</class>
-		    <name>viewport34</name>
-		    <shadow_type>GTK_SHADOW_NONE</shadow_type>
-
-		    <widget>
-		      <class>Custom</class>
-		      <name>tree_lernschema</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <signal>
-			<name>leaf_selected</name>
-			<handler>on_tree_lernschema_leaf_selected</handler>
-			<last_modification_time>Tue, 05 Feb 2002 08:09:00 GMT</last_modification_time>
-		      </signal>
-		      <creation_function>MidgardBasicTree(MidgardBasicTree::LERNSCHEMA)</creation_function>
-		      <int1>0</int1>
-		      <int2>0</int2>
-		      <last_modification_time>Tue, 05 Feb 2002 08:30:20 GMT</last_modification_time>
-		    </widget>
-		  </widget>
-		</widget>
 
 		<widget>
 		  <class>GtkLabel</class>
@@ -7543,51 +7498,6 @@ auswählen</label>
 		</widget>
 
 		<widget>
-		  <class>GtkScrolledWindow</class>
-		  <name>scrolledwindow_beruf</name>
-		  <cxx_visibility>protected</cxx_visibility>
-		  <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
-		  <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
-		  <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
-		  <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
-		  <child>
-		    <left_attach>0</left_attach>
-		    <right_attach>1</right_attach>
-		    <top_attach>2</top_attach>
-		    <bottom_attach>3</bottom_attach>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>True</xexpand>
-		    <yexpand>True</yexpand>
-		    <xshrink>False</xshrink>
-		    <yshrink>False</yshrink>
-		    <xfill>True</xfill>
-		    <yfill>True</yfill>
-		  </child>
-
-		  <widget>
-		    <class>GtkViewport</class>
-		    <name>viewport40</name>
-		    <shadow_type>GTK_SHADOW_NONE</shadow_type>
-
-		    <widget>
-		      <class>Custom</class>
-		      <name>Beruf_tree</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <signal>
-			<name>leaf_selected</name>
-			<handler>on_beruf_tree_leaf_selected</handler>
-			<last_modification_time>Thu, 21 Feb 2002 15:05:51 GMT</last_modification_time>
-		      </signal>
-		      <creation_function>SimpleTree</creation_function>
-		      <int1>4</int1>
-		      <int2>4</int2>
-		      <last_modification_time>Sun, 09 Dec 2001 12:29:52 GMT</last_modification_time>
-		    </widget>
-		  </widget>
-		</widget>
-
-		<widget>
 		  <class>GtkFrame</class>
 		  <name>frame_lernschema_zusatz</name>
 		  <cxx_visibility>protected</cxx_visibility>
@@ -7598,7 +7508,7 @@ auswählen</label>
 		    <left_attach>1</left_attach>
 		    <right_attach>2</right_attach>
 		    <top_attach>0</top_attach>
-		    <bottom_attach>4</bottom_attach>
+		    <bottom_attach>2</bottom_attach>
 		    <xpad>0</xpad>
 		    <ypad>0</ypad>
 		    <xexpand>True</xexpand>
@@ -7637,7 +7547,7 @@ auswählen</label>
 
 		<widget>
 		  <class>GtkScrolledWindow</class>
-		  <name>scrolledwindow_ange_fert</name>
+		  <name>scrolledwindow_lernen</name>
 		  <cxx_visibility>protected</cxx_visibility>
 		  <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
 		  <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
@@ -7646,8 +7556,8 @@ auswählen</label>
 		  <child>
 		    <left_attach>0</left_attach>
 		    <right_attach>1</right_attach>
-		    <top_attach>3</top_attach>
-		    <bottom_attach>4</bottom_attach>
+		    <top_attach>1</top_attach>
+		    <bottom_attach>2</bottom_attach>
 		    <xpad>0</xpad>
 		    <ypad>0</ypad>
 		    <xexpand>True</xexpand>
@@ -7660,22 +7570,12 @@ auswählen</label>
 
 		  <widget>
 		    <class>GtkViewport</class>
-		    <name>viewport42</name>
+		    <name>viewport_lernen</name>
+		    <cxx_visibility>protected</cxx_visibility>
 		    <shadow_type>GTK_SHADOW_NONE</shadow_type>
 
 		    <widget>
-		      <class>Custom</class>
-		      <name>tree_angeb_fert</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <signal>
-			<name>leaf_selected</name>
-			<handler>on_ang_fert_leaf_selected</handler>
-			<last_modification_time>Fri, 08 Mar 2002 19:14:29 GMT</last_modification_time>
-		      </signal>
-		      <creation_function>MidgardBasicTree(MidgardBasicTree::ANGEBFERT)</creation_function>
-		      <int1>0</int1>
-		      <int2>0</int2>
-		      <last_modification_time>Fri, 08 Mar 2002 19:21:49 GMT</last_modification_time>
+		      <class>Placeholder</class>
 		    </widget>
 		  </widget>
 		</widget>
@@ -8813,7 +8713,7 @@ zeigen, die zu teuer sind</label>
 		      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
 		      <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
 		      <child>
-			<shrink>True</shrink>
+			<shrink>False</shrink>
 			<resize>True</resize>
 		      </child>
 
@@ -8853,7 +8753,7 @@ zeigen, die zu teuer sind</label>
 		      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
 		      <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
 		      <child>
-			<shrink>True</shrink>
+			<shrink>False</shrink>
 			<resize>True</resize>
 		      </child>
 
@@ -8958,7 +8858,7 @@ zeigen, die zu teuer sind</label>
 		    <homogeneous>False</homogeneous>
 		    <spacing>0</spacing>
 		    <child>
-		      <shrink>True</shrink>
+		      <shrink>False</shrink>
 		      <resize>True</resize>
 		    </child>
 
@@ -8998,7 +8898,7 @@ zeigen, die zu teuer sind</label>
 			<hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
 			<vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
 			<child>
-			  <shrink>True</shrink>
+			  <shrink>False</shrink>
 			  <resize>True</resize>
 			</child>
 
@@ -9037,7 +8937,7 @@ zeigen, die zu teuer sind</label>
 			<hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
 			<vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
 			<child>
-			  <shrink>True</shrink>
+			  <shrink>False</shrink>
 			  <resize>True</resize>
 			</child>
 
@@ -9071,7 +8971,7 @@ zeigen, die zu teuer sind</label>
 		    <homogeneous>False</homogeneous>
 		    <spacing>0</spacing>
 		    <child>
-		      <shrink>True</shrink>
+		      <shrink>False</shrink>
 		      <resize>True</resize>
 		    </child>
 
@@ -9111,7 +9011,7 @@ zeigen, die zu teuer sind</label>
 			<hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
 			<vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
 			<child>
-			  <shrink>True</shrink>
+			  <shrink>False</shrink>
 			  <resize>True</resize>
 			</child>
 
@@ -9145,7 +9045,7 @@ zeigen, die zu teuer sind</label>
 			<hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
 			<vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
 			<child>
-			  <shrink>True</shrink>
+			  <shrink>False</shrink>
 			  <resize>True</resize>
 			</child>
 
@@ -9252,7 +9152,7 @@ zeigen, die zu teuer sind</label>
 		    <homogeneous>False</homogeneous>
 		    <spacing>0</spacing>
 		    <child>
-		      <shrink>True</shrink>
+		      <shrink>False</shrink>
 		      <resize>True</resize>
 		    </child>
 
@@ -9292,7 +9192,7 @@ zeigen, die zu teuer sind</label>
 			<hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
 			<vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
 			<child>
-			  <shrink>True</shrink>
+			  <shrink>False</shrink>
 			  <resize>True</resize>
 			</child>
 
@@ -9331,7 +9231,7 @@ zeigen, die zu teuer sind</label>
 			<hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
 			<vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
 			<child>
-			  <shrink>True</shrink>
+			  <shrink>False</shrink>
 			  <resize>True</resize>
 			</child>
 
@@ -9365,7 +9265,7 @@ zeigen, die zu teuer sind</label>
 		    <homogeneous>False</homogeneous>
 		    <spacing>0</spacing>
 		    <child>
-		      <shrink>True</shrink>
+		      <shrink>False</shrink>
 		      <resize>True</resize>
 		    </child>
 
@@ -9405,7 +9305,7 @@ zeigen, die zu teuer sind</label>
 			<hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
 			<vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
 			<child>
-			  <shrink>True</shrink>
+			  <shrink>False</shrink>
 			  <resize>True</resize>
 			</child>
 
@@ -9444,7 +9344,7 @@ zeigen, die zu teuer sind</label>
 			<hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
 			<vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
 			<child>
-			  <shrink>True</shrink>
+			  <shrink>False</shrink>
 			  <resize>True</resize>
 			</child>
 
@@ -9553,7 +9453,7 @@ zeigen, die zu teuer sind</label>
 		    <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
 		    <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
 		    <child>
-		      <shrink>True</shrink>
+		      <shrink>False</shrink>
 		      <resize>True</resize>
 		    </child>
 
@@ -9592,7 +9492,7 @@ zeigen, die zu teuer sind</label>
 		    <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
 		    <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
 		    <child>
-		      <shrink>True</shrink>
+		      <shrink>False</shrink>
 		      <resize>True</resize>
 		    </child>
 
@@ -9722,7 +9622,7 @@ zeigen, die zu teuer sind</label>
 		    <homogeneous>False</homogeneous>
 		    <spacing>0</spacing>
 		    <child>
-		      <shrink>True</shrink>
+		      <shrink>False</shrink>
 		      <resize>True</resize>
 		    </child>
 
@@ -9762,7 +9662,7 @@ zeigen, die zu teuer sind</label>
 			<hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
 			<vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
 			<child>
-			  <shrink>True</shrink>
+			  <shrink>False</shrink>
 			  <resize>True</resize>
 			</child>
 
@@ -9801,7 +9701,7 @@ zeigen, die zu teuer sind</label>
 			<hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
 			<vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
 			<child>
-			  <shrink>True</shrink>
+			  <shrink>False</shrink>
 			  <resize>True</resize>
 			</child>
 
@@ -9835,7 +9735,7 @@ zeigen, die zu teuer sind</label>
 		    <homogeneous>False</homogeneous>
 		    <spacing>0</spacing>
 		    <child>
-		      <shrink>True</shrink>
+		      <shrink>False</shrink>
 		      <resize>True</resize>
 		    </child>
 
@@ -9875,7 +9775,7 @@ zeigen, die zu teuer sind</label>
 			<hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
 			<vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
 			<child>
-			  <shrink>True</shrink>
+			  <shrink>False</shrink>
 			  <resize>True</resize>
 			</child>
 
@@ -9909,7 +9809,7 @@ zeigen, die zu teuer sind</label>
 			<hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
 			<vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
 			<child>
-			  <shrink>True</shrink>
+			  <shrink>False</shrink>
 			  <resize>True</resize>
 			</child>
 
