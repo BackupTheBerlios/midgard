@@ -4953,8 +4953,8 @@ würfeln</label>
 
 		      <widget>
 			<class>GtkPixmap</class>
-			<name>pixmap97</name>
-			<filename>Angeb_Reflex-32.xpm</filename>
+			<name>pixmap98</name>
+			<filename>Angeb_Richtung-32.xpm</filename>
 			<xalign>0.5</xalign>
 			<yalign>0.5</yalign>
 			<xpad>0</xpad>
@@ -5003,8 +5003,8 @@ Fertigkeiten</label>
 
 		      <widget>
 			<class>GtkPixmap</class>
-			<name>pixmap98</name>
-			<filename>Angeb_Richtung-32.xpm</filename>
+			<name>pixmap97</name>
+			<filename>Angeb_Reflex-32.xpm</filename>
 			<xalign>0.5</xalign>
 			<yalign>0.5</yalign>
 			<xpad>0</xpad>
@@ -5018,7 +5018,19 @@ Fertigkeiten</label>
 		      </widget>
 
 		      <widget>
-			<class>Placeholder</class>
+			<class>GtkPixmap</class>
+			<name>pixmap105</name>
+			<filename>Angeb_Tast-32.xpm</filename>
+			<xalign>0.5</xalign>
+			<yalign>0.5</yalign>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<build_insensitive>True</build_insensitive>
+			<child>
+			  <padding>0</padding>
+			  <expand>True</expand>
+			  <fill>True</fill>
+			</child>
 		      </widget>
 
 		      <widget>

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.40 2002/01/27 09:01:25 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.41 2002/01/27 12:49:16 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -42,7 +42,7 @@ gint midgard_CG::on_button_beruf_release_event(GdkEventButton *ev)
 
 void midgard_CG::on_entry_berufsname_activate()
 {
-  cH_MidgardBasicElement beruf(&*cH_Beruf(entry_berufsname->get_text()));
+  cH_MidgardBasicElement beruf(&*cH_Beruf(entry_berufsname->get_text(),true));
   MidgardBasicElement_uebernehmen(beruf);
   vbox_berufsname->hide();
 }
