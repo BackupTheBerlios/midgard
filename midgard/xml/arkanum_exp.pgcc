@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.pgcc,v 1.4 2001/11/05 15:52:01 christof Exp $
+// $Id: arkanum_exp.pgcc,v 1.5 2001/11/06 08:43:40 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -36,8 +36,9 @@ void arkanum_speichern(std::ostream &o)
    	zauberdauer, reichweite, wirkungsziel, wirkungsbereich,
    	wirkungsdauer, material, /* spruchrolle, thaumagram, */
    	/* effekt[2] ??? */
-   	zauberart, p_element, s_element
+   	zauberart, p_element
    	from arkanum_zauber
+   	where coalesce(s_element,'')=''
    	order by coalesce(region,''),name;
    exec sql open c;
    SQLerror::test(__FILELINE__);
@@ -65,8 +66,7 @@ void arkanum_speichern(std::ostream &o)
    fetch_and_write_string_attrib(is, o, "Wirkungsdauer");
    fetch_and_write_string_attrib(is, o, "Material");
    fetch_and_write_string_attrib(is, o, "Zauberart");
-   fetch_and_write_string_attrib(is, o, "Primärelement");
-   fetch_and_write_string_attrib(is, o, "Sekundärelement");
+   fetch_and_write_string_attrib(is, o, "Element");
    o << ">\n";
    {  exec sql begin declare section;
       const char *ZAUBER=zauber.c_str(GARNIX);

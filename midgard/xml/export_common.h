@@ -1,4 +1,4 @@
-// $Id: export_common.h,v 1.1 2001/11/02 12:52:20 christof Exp $
+// $Id: export_common.h,v 1.2 2001/11/06 08:43:40 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -20,6 +20,23 @@
 #include <string>
 #include <Aux/FetchIStream.h>
 #include <iostream>
+
+static const char HEX[]="0123456789ABCDEF";
+
+static std::string toXML(const std::string &s)
+{  string res;
+   for (string::const_iterator i=s.begin();i!=s.end();++i)
+   {  if (isalnum(*i)) res+=*i;
+      else if ((unsigned char)*i>=160) res+=*i;
+      else if (strchr(" @^+-*/.,?!$'`|~[]{}()_:;",*i)) res+=*i;
+      else if (*i=='&') res+="&amp;";
+      else if (*i=='<') res+="&lt;";
+      else if (*i=='>') res+="&gt;";
+      else if (*i=='"') res+="&quot;";
+      else res+=string("&#X")+HEX[(*i>>4)&0xf]+HEX[*i&0xf]+';';
+   }
+   return res;
+}
 
 static int fetch_and_write_int(FetchIStream &is,std::ostream &o,const std::string &wert,int indent=0)
 {  int val;
@@ -45,9 +62,8 @@ static void fetch_and_write_string(FetchIStream &is,std::ostream &o,const std::s
    
    is >> FetchIStream::MapNull<string>(val,""); 
    if (!val.size()) return;
-   // val in XML wandeln ...
    for (int i=0;i<indent;++i) o << ' ';
-   o << '<' << wert << '>' << val << "</" << wert << ">\n";
+   o << '<' << wert << '>' << toXML(val) << "</" << wert << ">\n";
 }
 
 static std::string fetch_and_write_string_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,const std::string &standard="")
@@ -55,8 +71,7 @@ static std::string fetch_and_write_string_attrib(FetchIStream &is,std::ostream &
    
    is >> FetchIStream::MapNull<string>(val,standard); 
    if (val==standard) return val;
-   // val in XML wandeln ...
-   o << ' ' << wert << "=\"" << val << '\"';
+   o << ' ' << wert << "=\"" << toXML(val) << '\"';
    return val;
 }
 
@@ -65,7 +80,6 @@ static bool fetch_and_write_bool_attrib(FetchIStream &is,std::ostream &o,const s
    
    is >> FetchIStream::MapNull<bool>(val,standard); 
    if (val==standard) return val;
-   // val in XML wandeln ...
    o << ' ' << wert << "=\"" << (val?"True":"False") << '\"';
    return val;
 }
