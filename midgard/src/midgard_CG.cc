@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.122 2002/01/22 11:41:46 thoma Exp $
+// $Id: midgard_CG.cc,v 1.123 2002/01/22 15:34:40 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,27 +33,32 @@ midgard_CG::midgard_CG(Datenbank& _Database, const string &datei)
 : menu(0),menu_gradanstieg(0),Database(_Database)
 {
   srand(time(0));
-  
-        Vstand.resize(5);
-        Vstand[1]="Unfrei";
-        Vstand[2]="Volk";
-        Vstand[3]="Mittelschicht";
-        Vstand[4]="Adel";
-        Vhand.resize(3);
-        Vhand[0]="Rechtshänder";
-        Vhand[1]="Linkshänder";
-        Vhand[2]="Beidhändig";
-
-        Vkido.resize(4);
-        Vkido[0]="TECHNIK";
-        Vkido[1]="Sanfte Techniken";
-        Vkido[2]="Harte Techniken";
-        Vkido[3]="Gemischte Techniken";
+  optionmenu_init();  
 
   on_neuer_charakter_clicked();
   set_tree_titles();
 
   if (!datei.empty()) xml_import(datei);
+}
+
+void midgard_CG::optionmenu_init()
+{
+  Vstand.resize(5);
+  Vstand[1]="Unfrei";
+  Vstand[2]="Volk";
+  Vstand[3]="Mittelschicht";
+  Vstand[4]="Adel";
+
+  Vhand.resize(3);
+  Vhand[0]="Rechtshänder";
+  Vhand[1]="Linkshänder";
+  Vhand[2]="Beidhändig";
+
+  Vkido.resize(4);
+  Vkido[0]="TECHNIK";
+  Vkido[1]="Sanfte Techniken";
+  Vkido[2]="Harte Techniken";
+  Vkido[3]="Gemischte Techniken";
 }
 
 gint midgard_CG::on_eventbox_MCG_button_press_event(GdkEventButton *event) 

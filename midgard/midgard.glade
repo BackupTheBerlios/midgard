@@ -622,6 +622,11 @@
 		<name>optionmenu_stand</name>
 		<cxx_visibility>protected</cxx_visibility>
 		<can_focus>True</can_focus>
+		<signal>
+		  <name>deactivate</name>
+		  <handler>optionmenu_stand_deactivate</handler>
+		  <last_modification_time>Tue, 22 Jan 2002 14:17:46 GMT</last_modification_time>
+		</signal>
 		<items>STAND
 Unfrei
 Volk
@@ -983,6 +988,45 @@ Adel
 		  <page>10</page>
 		  <page_size>10</page_size>
 		</widget>
+	      </widget>
+	    </widget>
+
+	    <widget>
+	      <class>GtkFrame</class>
+	      <name>frame98</name>
+	      <label>Hand</label>
+	      <label_xalign>0</label_xalign>
+	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+	      <child>
+		<left_attach>2</left_attach>
+		<right_attach>3</right_attach>
+		<top_attach>3</top_attach>
+		<bottom_attach>4</bottom_attach>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<xexpand>False</xexpand>
+		<yexpand>True</yexpand>
+		<xshrink>False</xshrink>
+		<yshrink>False</yshrink>
+		<xfill>True</xfill>
+		<yfill>True</yfill>
+	      </child>
+
+	      <widget>
+		<class>GtkOptionMenu</class>
+		<name>optionmenu_hand</name>
+		<cxx_visibility>protected</cxx_visibility>
+		<can_focus>True</can_focus>
+		<signal>
+		  <name>deactivate</name>
+		  <handler>optionmenu_hand_deactivate</handler>
+		  <last_modification_time>Tue, 22 Jan 2002 14:18:59 GMT</last_modification_time>
+		</signal>
+		<items>Rechtshänder
+Linkshänder
+Beidhänder
+</items>
+		<initial_choice>0</initial_choice>
 	      </widget>
 	    </widget>
 	  </widget>
@@ -6501,7 +6545,8 @@ gemischt
 
 	    <widget>
 	      <class>GtkToolbar</class>
-	      <name>toolbar38</name>
+	      <name>toolbar_steigern_lang2</name>
+	      <cxx_visibility>protected</cxx_visibility>
 	      <orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
 	      <type>GTK_TOOLBAR_BOTH</type>
 	      <space_size>5</space_size>
@@ -6676,7 +6721,7 @@ gemischt
 		<class>GtkButton</class>
 		<child_name>Toolbar:button</child_name>
 		<name>button69</name>
-		<tooltip>Grad, Ausdauer, Abwehr, Zaubern und Resistenz an die GFP anpassen und für eine Erhöhung der Basiswerte würfeln.</tooltip>
+		<tooltip>Linke Maustaste: Menü für die Grandanpassung. Rechte Maustaste: Gradanpassung ohne Menü (alles auf einmal): Grad, Ausdauer, Abwehr, Zaubern und Resistenz an die GFP anpassen und für eine Erhöhung der Basiswerte würfeln.</tooltip>
 		<signal>
 		  <name>button_release_event</name>
 		  <handler>on_button_kurz_steigern_release_event</handler>
@@ -7146,7 +7191,7 @@ gemischt
 		  </signal>
 		  <label>Erfahrungspunkte
 eingeben</label>
-		  <icon>Eschar-trans-50.xpm</icon>
+		  <icon>EP-Eingabe-50.xpm</icon>
 		</widget>
 	      </widget>
 

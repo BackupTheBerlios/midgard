@@ -162,8 +162,9 @@ bool Fertigkeit::Voraussetzungen(const Grundwerte& Werte) const
 
 int Fertigkeit::FErfolgswert(const Grundwerte &Werte) const
 {
-  if(Name()!="Trinken") return Erfolgswert();
-  else return Erfolgswert()+Werte.Ko()/10;
+  if(Name()=="Trinken") return Erfolgswert()+Werte.Ko()/10;
+  if(Name()=="Berserkergang") return Erfolgswert()-Werte.Wk()/5;
+  else return Erfolgswert();
 }
 
 int Fertigkeit::MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const

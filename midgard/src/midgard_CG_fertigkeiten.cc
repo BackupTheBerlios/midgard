@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.46 2002/01/19 18:22:06 christof Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.47 2002/01/22 15:34:41 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -42,13 +42,13 @@ void midgard_CG::show_fertigkeiten()
          i!=list_Fertigkeit_ang.end();++i)
       { cH_Fertigkeit_angeborene f(*i);
          os << f->Name();
-         if (f->Erfolgswert()!=0) os <<"\t" <<f->Erfolgswert();
+         if (f->FErfolgswert(Werte)!=0) os <<"\t" <<f->FErfolgswert(Werte);
          os << "\n";
       }
    for(std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i)
       { cH_Fertigkeit f(*i);
          os << f->Name()<<" "<<f->Zusatz();
-         if (f->Erfolgswert()!=0) os <<"\t" <<f->Erfolgswert();
+         if (f->FErfolgswert(Werte)!=0) os <<"\t" <<f->FErfolgswert(Werte);
          os << "\n";
       }
    for(std::list<cH_MidgardBasicElement>::iterator i=list_Sprache.begin();i!=list_Sprache.end();++i)

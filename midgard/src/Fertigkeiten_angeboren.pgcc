@@ -24,6 +24,7 @@
 exec sql include sqlca;
 #endif
 #include <gtk--/main.h>
+#include "Grundwerte.hh"
 
 cH_Fertigkeit_angeborene::cache_t cH_Fertigkeit_angeborene::cache;
 
@@ -78,6 +79,16 @@ void Fertigkeit_angeborene::get_Fertigkeit()
  erfolgswert=tag->getIntAttr("Wert");
 #endif 
 }
+
+
+int Fertigkeit_angeborene::FErfolgswert(const Grundwerte &Werte) const
+{
+  if(Name()=="Trinken") return Erfolgswert()+Werte.Ko()/10;
+  if(Name()=="Berserkergang") return Erfolgswert()-Werte.Wk()/5;
+  else return Erfolgswert();
+}
+
+
 
 Fertigkeiten_angeborene_All::Fertigkeiten_angeborene_All(Gtk::ProgressBar *progressbar)
 {

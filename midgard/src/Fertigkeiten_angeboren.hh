@@ -41,6 +41,7 @@ class Fertigkeit_angeborene : public MidgardBasicElement
      enum MBEE What() const {return MidgardBasicElement::FERTIGKEIT_ANG;}
      std::string What_str() const {return "ang.Fertigkeit";}
 
+     int FErfolgswert(const Grundwerte &Werte) const;
      int Min() const {return min;}
      int Max() const {return max;}
      int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const 

@@ -54,9 +54,12 @@ gint midgard_CG::on_laden_release_event(GdkEventButton *ev)
 
 void midgard_CG::xml_import_auswahl()
 {
+#ifdef USE_XML
   manage (new xml_fileselection(this,"load"/*"Abenteurer laden"*/))
 	  ->set_filename(filename);
+#endif
 }
+
 
 #ifdef USE_XML
 bool operator!=(const cH_Preise &a, const string &b)
@@ -257,9 +260,8 @@ void midgard_CG::on_laden_clicked()
 
 void midgard_CG::select_charakter(const std::string& name, const std::string& version)
 {
-  Werte.setNamen(name,"",version);
   try{
-    midgard_CG::load_charakter();
+    load_charakter(name,version);
    }catch(SQLerror &e) {regnot("Laden Fehlgeschlagen");}
   button_abg_werte->set_sensitive(true);
 //  button_herkunft->set_sensitive(true);
@@ -271,8 +273,9 @@ void midgard_CG::select_charakter(const std::string& name, const std::string& ve
 }
 
 
-void midgard_CG::load_charakter()
+void midgard_CG::load_charakter(std::string name, std::string version)
 {
+   Werte.setNamen(name,"",version);
    // Werte
    exec sql begin declare section;
       char *db_beschreibung=0;
@@ -301,8 +304,8 @@ void midgard_CG::load_charakter()
    exec sql end declare section;
 
  //  db_beschreibung=0; /* Ist nötig !!! */
-   strncpy(db_name_ch,(Werte.Name_Charakter()).c_str(),sizeof(db_name_ch));
-   strncpy(db_version,(Werte.Version(OptionBool.version)).c_str(),sizeof(db_version));
+   strncpy(db_name_ch,name.c_str(),sizeof(db_name_ch));
+   strncpy(db_version,version.c_str(),sizeof(db_version));
 
    Transaction tr;
 

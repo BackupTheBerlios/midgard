@@ -196,6 +196,7 @@ void midgard_CG::menu_gradanstieg_init()
      _tab->attach(*_l,1,2,0,1,0,0,0,0);
      _tab->set_col_spacings(10);
      mi->add(*_tab);
+#warning DAS FUNKTIONIERT SO NOCH NICHT
      mi->activate.connect(SigC::slot(this,&midgard_CG::on_button_grad_clicked));
 //     mi->activate.connect(SigC::slot(this,(*(i->funk))() ));
      menu_gradanstieg->append(*mi);

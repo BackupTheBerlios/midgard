@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.88 2002/01/22 11:41:46 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.89 2002/01/22 15:34:40 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,12 +38,10 @@ void midgard_CG::on_latex_clicked(bool values=true)
  if (!access("document_eingabe.tex",R_OK)) // Files im aktuellen Verzeichnis?
    {
     system("cp document_eingabe4.tex midgard_tmp_document_eingabe.tex");
-//    system("cp latexwertedef.tex midgard_tmp_latexwertedef.tex");
    }
  else
    {
     system("cp "PACKAGE_DATA_DIR"document_eingabe4.tex midgard_tmp_document_eingabe.tex");
-//    system("cp "PACKAGE_DATA_DIR"latexwertedef.tex midgard_tmp_latexwertedef.tex");
    }
  if (values) LaTeX_write_values();
  else LaTeX_write_empty_values();
@@ -247,7 +245,7 @@ void midgard_CG::LaTeX_write_values()
     if (pp == "0") pp = "";
     fout << "\\newcommand{\\praxis"<<a<<"}{"  << pp << "}   ";
     // Erfolgswert
-    std::string wert = itos(f->Erfolgswert());
+    std::string wert = itos(f->FErfolgswert(Werte));
     if (wert == "0") wert = "";
     fout << "\\newcommand{\\wert"<<a<<"}{"  <<wert << "}\n";
    }
@@ -261,10 +259,15 @@ void midgard_CG::LaTeX_write_values()
     if (wert == "0") wert = "";
     fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<f->Name()<<
       ' '<<f->Zusatz() << "}\t\t";
+    // Praxispunkte
+    std::string pp = itos(f->Praxispunkte());
+    if (pp == "0") pp = "";
+    fout << "\\newcommand{\\praxis"<<a<<"}{"  << pp << "}   ";
     fout << "\\newcommand{\\wert"<<a<<"}{"  <<wert << "}\n";
    }
  std::string a = LaTeX_string(count);
  fout << "\\newcommand{\\fert"<<a<<"}{\\scriptsize }\n";
+ fout << "\\newcommand{\\praxis"<<a<<"}{\\scriptsize }\n";
  fout << "\\newcommand{\\wert"<<a<<"}{\\scriptsize }\n";
 
  /////////////////////////////////////////////////////////////////////////////
@@ -285,6 +288,10 @@ void midgard_CG::LaTeX_write_values()
 //std::cout << "latexstring = "<<a<<"\n";
     std::string wert = itos(w->Erfolgswert());
     fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<w->Name() << "}\t\t";
+    // Praxispunkte
+    std::string pp = itos(w->Praxispunkte());
+    if (pp == "0") pp = "";
+    fout << "\\newcommand{\\praxis"<<a<<"}{"  << pp << "}   ";
     fout <<"\\newcommand{\\wert"<<a<<"}{"  <<wert << "}\n";
     // waffenloser Kampf:
     if (w->Name()=="waffenloser Kampf") 
@@ -301,7 +308,7 @@ void midgard_CG::LaTeX_write_values()
          fout << "\\newcommand{\\waffe"<<b<<"}{ " ;
          if (WB->Magisch()!="" || 
             (WB->av_Bonus()!=0 && WB->sl_Bonus()!=0)) waffenname+="$^*$ "+WB->Bonus() ;
-         fout <<LaTeX_scalemag(waffenname,15,"2.5cm",WB->Magisch(),WB->Waffe()->Reichweite())<< "}\n";
+         fout <<LaTeX_scalemag(waffenname,20,"3cm",WB->Magisch(),WB->Waffe()->Reichweite())<< "}\n";
          
          // Erfolgswert für einen Verteidigungswaffen
          if (WB->Waffe()->Verteidigung())
@@ -348,16 +355,15 @@ void midgard_CG::LaTeX_write_values()
   {
     cH_Fertigkeit f(*i);
     std::string a = LaTeX_string(countunifert);
-    std::string wert;
-    if      (f->Ungelernt()>0) wert = "+"+itos(f->Ungelernt());
-    else if (f->Ungelernt()<0) wert = "--"+itos(abs(f->Ungelernt()));
-    else wert = itos(f->Ungelernt());
+    int iwert = f->Ungelernt();
+    if (!f->Voraussetzungen(Werte)) iwert-=2;
+    std::string swert;
+    if   (iwert>=0) swert = "+"+itos(iwert);
+    else            swert = "--"+itos(abs(iwert));
+
     std::string name = f->Name();
     if(name=="Geheimmechanismen öffnen") name = "Geheimmech. öffnen";
     if(name=="Landeskunde (Heimat)") name = "Landeskunde ("+Werte.Herkunft()->Name()+")";
-
-    if (f->Voraussetzungen(Werte)) f->set_Erfolgswert(f->Ungelernt());
-    else f->set_Erfolgswert(f->Ungelernt()-2);
 
     if ((*i)->ist_gelernt(list_Fertigkeit))
      {
@@ -369,9 +375,9 @@ void midgard_CG::LaTeX_write_values()
        ++countunifert;
        fout <<"\\newcommand{\\uni"<<a<<"}{"<<name<< "}\t\t";
        if (f->Voraussetzungen(Werte))
-          fout << "\\newcommand{\\uniw"<<a<<"}{("<<wert << ")}\n";
+          fout << "\\newcommand{\\uniw"<<a<<"}{("<<swert << ")}\n";
        else
-          fout << "\\newcommand{\\uniw"<<a<<"}{$^*\\!$("<<wert << ")}\n";
+          fout << "\\newcommand{\\uniw"<<a<<"}{$^*\\!$("<<swert << ")}\n";
      }
   } 
 
@@ -381,6 +387,7 @@ void midgard_CG::LaTeX_write_values()
    {
       std::string a = LaTeX_string(i);
       fout << "\\newcommand{\\fert"<<a<<"}{\\scriptsize }\n";
+      fout << "\\newcommand{\\praxis"<<a<<"}{\\scriptsize }\n";
       fout << "\\newcommand{\\wert"<<a<<"}{\\scriptsize }\n";
    }
  // Waffen auffüllen
@@ -519,7 +526,7 @@ void midgard_CG::LaTeX_write_empty_values()
  for(std::list<cH_MidgardBasicElement>::iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
   {
     cH_Fertigkeit f(*i);
-    if(f->Ungelernt()!=-1)
+    if(f->Ungelernt()!=-99)
        UF.push_back(*i);
   }
  int countunifert=0;

@@ -1,4 +1,4 @@
-// $Id: grundwere_edit_setzen.cc,v 1.21 2002/01/21 19:01:48 thoma Exp $
+// $Id: grundwere_edit_setzen.cc,v 1.22 2002/01/22 15:34:40 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -208,6 +208,24 @@ gint midgard_CG::on_spinbutton_b_focus_out_event(GdkEventFocus *ev)
 { set_all_entrys(); return false;} 
 
 
+void midgard_CG::optionmenu_stand_deactivate()
+{
+  int ityp = int(optionmenu_stand->get_menu()->get_active()->get_user_data());
+  if (ityp==optionmenu_stand::Unfrei)        Werte.setStand(Vstand[0]);
+  if (ityp==optionmenu_stand::Volk)          Werte.setStand(Vstand[1]);
+  if (ityp==optionmenu_stand::Mittelschicht) Werte.setStand(Vstand[2]);
+  if (ityp==optionmenu_stand::Adel)          Werte.setStand(Vstand[3]);
+}
+
+void midgard_CG::optionmenu_hand_deactivate()
+{
+  int ityp = int(optionmenu_hand->get_menu()->get_active()->get_user_data());
+  if (ityp==optionmenu_hand::Rechtsh_nder) Werte.setHand(Vhand[0]);
+  if (ityp==optionmenu_hand::Linksh_nder)  Werte.setHand(Vhand[1]);
+  if (ityp==optionmenu_hand::Beidh_nder)   Werte.setHand(Vhand[2]);
+}
+
+                
 
 
 void midgard_CG::edit_sensitive(bool b)
@@ -223,6 +241,7 @@ void midgard_CG::edit_sensitive(bool b)
   spinbutton_gg->set_sensitive(b);
   spinbutton_sg->set_sensitive(b);
   optionmenu_stand->set_sensitive(b);
+  optionmenu_hand->set_sensitive(b);
   spinbutton_groesse->set_sensitive(b);
   spinbutton_grad->set_sensitive(b);
   entry_herkunft->set_sensitive(b); 

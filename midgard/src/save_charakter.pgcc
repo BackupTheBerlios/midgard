@@ -47,9 +47,12 @@ gint midgard_CG::on_speichern_release_event(GdkEventButton *ev)
 }
 
 void midgard_CG::xml_export_auswahl()
-{ manage (new xml_fileselection(this,"save"/*"Abenteurer speichern"*/))
+{ 
+#ifdef USE_XML
+ manage (new xml_fileselection(this,"save"/*"Abenteurer speichern"*/))
 	->set_filename(filename);
   steigern_aktivieren();
+#endif
 }
 
 void midgard_CG::xml_export(const std::string& dateiname)
@@ -279,7 +282,7 @@ void midgard_CG::grundwerte_speichern(IF_XML(ostream &datei))
       char db_typ_2_s[5];
       int db_st, db_gw, db_gs,db_ko, db_in,db_zt,db_au,db_pa,db_sb,db_wk,
           db_b, db_lp, db_ap,db_abwehr,db_abwehr_pp,db_zaubern,db_zaubern_pp,
-          db_resistenz,db_resistenz_pp,db_lpbasis, db_alter  ;
+          db_resistenz,db_resistenz_pp, db_alter  ;
       char db_hand[30] ;
       char db_geschlecht[5];
       int db_gewicht, db_groesse, db_grad ;
@@ -377,7 +380,6 @@ void midgard_CG::grundwerte_speichern(IF_XML(ostream &datei))
       abwehr_pp      = :db_abwehr_pp   ,
       zaubern_pp     = :db_zaubern_pp  ,
       resistenz_pp   = :db_resistenz_pp,
-      lpbasis        = :db_lpbasis  ,
       alter          = :db_alter    ,
       hand           = :db_hand     ,
       geschlecht     = :db_geschlecht  ,

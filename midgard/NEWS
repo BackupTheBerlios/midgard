@@ -1,5 +1,5 @@
 ##########################################################################
-NEWS IN VERSION 0.2delta2
+NEWS IN VERSION 0.3delta1
 
 * Fehlschlagendes Laden abgefangen
 * Erhöter Erfolgswert für Fachkenntnisse
@@ -14,16 +14,18 @@ NEWS IN VERSION 0.2delta2
 * LaTeX Ausgabe überarbeitet (Werte für Angriff und Verteidigung; Sprachen)
 * Compilieren beschleunigt (Christof)
 * Lädt aus XML Datei statt Datenbank (Christof)
-* Spezialgebiete für Magier stürzt nicht mehr ab?
+* Spezialgebiete für Magier stürzt nicht mehr ab !!!
 * XML: Ich kann einen Version 3 Charakter laden, editieren und speichern !!!
 * Praxispunkte werden im Charakterdokument ausgegeben
+* Ausdrucken veränderte die Erfolgswerte (mit unangenehmen Folgen...)
+* Erfolgswert von Berserkergang korrekt
+* Erfolgswert für waffenlosen Kampf und dem dazugehöriger Abwerbonus korrekt
+* Standauswahl funktioniert
+* Handauswahl hinzugefügt (war bei Umstellung verlorengegangen)
 
 TODO:
-* Abwehr Wert (mit Waffe)
 * Fenster beim Steigern
-* Magische Waffen besitzen
-* Irgendwie funktioniert das mit dem Erfolgswert für waffenlosen Kampf 
-   und dem dazugehörigen Abwerbonus noch nicht.
+* Magische Waffen besitzen (mehrere von einer Sorte)
 * Landeskunde als Berufsfähigkeit für 3 Berufe
   (Karawanenführer, land, v,m
    Kaufmann, stadt,m,a

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.138 2002/01/22 11:41:46 thoma Exp $
+// $Id: midgard_CG.hh,v 1.139 2002/01/22 15:34:40 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -110,6 +110,9 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
 #endif
    
 //        void get_Database();
+        void optionmenu_init();
+        void optionmenu_stand_deactivate();
+        void optionmenu_hand_deactivate();
         void regnot(std::string sadd);
         void fill_typauswahl();
         void fill_typauswahl_2();
@@ -208,7 +211,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_charakter_beschreibung_clicked();
         void charakter_db_anlegen();
         void on_laden_clicked();
-        void load_charakter();
+        void load_charakter(std::string name, std::string version);
         void load_fertigkeiten(IF_XML(const Tag *tag, const Tag *waffen_b));
         void on_latex_clicked(bool values=true);
         void LaTeX_write_values();

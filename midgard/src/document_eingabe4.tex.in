@@ -340,7 +340,7 @@ Sprache&Wert&Schrift\\\hline\hline
 \begin{minipage}[t]{7.5cm}
 \small
 \setlength{\tabcolsep}{0.3em}
-    \begin{tabular}[t]{||p{2.6cm}|c|c||}\hline\hline
+    \begin{tabular}[t]{||p{3.1cm}|c|c||}\hline\hline
       \raisebox{-1ex}[2ex][0ex]{\LARGE Waffe}&\normalsize Erfolgswert&\footnotesize Waffenrang\\\cline{2-3}
       \raisebox{-0.2ex}[1ex][0.2ex]{\footnotesize (Reichweite)}&\normalsize\raisebox{-0.2ex}[1ex][0.2ex]{Schaden}&\footnotesize Abwehrmod.\\\hline\hline\hline
       waffenloser&{\waffeEy}&\waffeAy\\\cline{2-3}

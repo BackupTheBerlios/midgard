@@ -1,6 +1,7 @@
-# $Id: Makefile.am,v 1.97 2002/01/22 12:53:51 christof Exp $
+# $Id: Makefile.am,v 1.98 2002/01/22 15:34:40 thoma Exp $
 
 bin_PROGRAMS = midgard 
+
 
 # völlig veraltet!!!
 EXTRA_PROGRAMS = midgard_xmlexport midgard_xmlimport
@@ -199,7 +200,7 @@ midgard_SOURCES = \
 
 
 CXXFLAGS = @CXXFLAGS@ @KOMPONENTEN_INCLUDES@ \
-           -DPACKAGE_DATA_DIR=\"$(pkgdatadir)/\" -DUSE_XML
+           -DPACKAGE_DATA_DIR=\"$(pkgdatadir)/\"
 
 midgard_LDADD = @LIBS@ @KOMPONENTEN_LIBS@
 
