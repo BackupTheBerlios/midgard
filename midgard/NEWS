@@ -10,6 +10,7 @@ NEWS IN VERSION 0.4beta9
 - Ausdruck von Gewicht und Größe in SI-Einheiten :-)
 - Alten Bug beseitigt: Jetzt können auch Fertigkeiten OHNE Erfolgswert
    VERLERNT werden.
+- Bug: Bei Lernen der Zauber werden die GFP nicht hochgerechnet. 
 
 ##########################################################################
 NEWS IN VERSION 0.4beta8

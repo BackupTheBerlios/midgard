@@ -122,7 +122,7 @@ void midgard_CG::show_neue_zauber()
 void midgard_CG::on_steigern_zauber_clist_alt_select_row(gint row, gint column, GdkEvent *event)
 {   
    string alt_zauber = steigern_zauber_clist_alt->get_text(row,0);
-   int alt_kosten = atoi(steigern_zauber_clist_alt->get_text(row,1).c_str());
+   int alt_kosten = atoi(steigern_zauber_clist_alt->get_text(row,2).c_str());
    werte.gfp -= alt_kosten;
    for (vector<st_zauber>::iterator i=zauber.begin();
             i!= zauber.end();++i) 
@@ -139,11 +139,11 @@ void midgard_CG::on_steigern_zauber_clist_alt_select_row(gint row, gint column, 
 
 void midgard_CG::on_steigern_zauber_clist_neu_select_row(gint row, gint column, GdkEvent *event)
 {   
-  int new_kosten = atoi(steigern_zauber_clist_neu->get_text(row,2).c_str());
+  int new_kosten = atoi(steigern_zauber_clist_neu->get_text(row,3).c_str());
   string new_zauber = steigern_zauber_clist_neu->get_text(row,1);
   string erf = midgard_CG::get_erfolgswert_zaubern(typ,new_zauber);
   string stufe= steigern_zauber_clist_neu->get_text(row,0);
-  string art =steigern_zauber_clist_neu->get_text(row,3);
+  string art =steigern_zauber_clist_neu->get_text(row,4);
   
   if (radio_spruchrolle_auto->get_active() && spruchrolle->get_active())
    {
