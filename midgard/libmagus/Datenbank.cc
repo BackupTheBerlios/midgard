@@ -1,5 +1,4 @@
-
-// $Id: Datenbank.cc,v 1.8 2003/05/14 07:04:59 christof Exp $               
+// $Id: Datenbank.cc,v 1.9 2003/05/16 06:42:03 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -62,6 +61,8 @@ void Datenbank::load_list(const Tag &t)
          FOR_EACH_CONST_TAG(k,*j) Zauberwerk_All::load(Zauberwerk,*k);
       else if (j->Type()=="Fertigkeiten")
          FOR_EACH_CONST_TAG(k,*j) Fertigkeiten_All::load(Fertigkeit,*k);
+      else if (j->Type()=="Berufe")
+         FOR_EACH_CONST_TAG(k,*j) Beruf_All::load(Beruf,*k);
       else if (j->Type()=="verwendbareEP")
          FOR_EACH_CONST_TAG(k,*j) 
             Fertigkeit::EP_steigern(k->getAttr("Fertigkeit"),Fertigkeit::EP_steigern_load(*k));
@@ -76,7 +77,7 @@ void Datenbank::load(SigC::Slot1<void,double> progress,SigC::Slot1<void,const st
     Laender = Laender_All().get_All();
     Ruestung = Ruestung_All().get_All();
     lernschema = Lernschema(true);
-    Beruf = Beruf_All().get_All();
+//    Beruf = Beruf_All().get_All();
     Fertigkeit_ang = Fertigkeiten_angeborene_All().get_All();
 //    Fertigkeit = Fertigkeiten_All().get_All();
     WaffeGrund = WaffeGrund_All().get_All();

@@ -37,25 +37,19 @@ cH_Beruf::cH_Beruf(const std::string& name ,bool create)
   {  static Tag t2("Beruf"); 
      // note that this Tag is shared ... works well for now
      t2.setAttr("Name",name);
-     *this=cH_Beruf(&t2);
+     *this=new Beruf(t2);
   }
   else throw NotFound();
   }
 }
 
-cH_Beruf::cH_Beruf(const Tag *tag)
-{*this=cH_Beruf(new Beruf(tag));
- cache.Register(tag->getAttr("Name"),*this);
-}
-
-void Beruf::get_Beruf()
+void Beruf::load(const Tag &t)
 {
-   assert(tag);
-   const Tag *Voraussetzungen=tag->find("Voraussetzungen");
-   if (!Voraussetzungen) Voraussetzungen=tag; // might as well be empty
-   const Tag *Stand=tag->find("Stand");
-     region=tag->getAttr("Region");
-     region_zusatz=tag->getAttr("RegionZusatz");
+   const Tag *Voraussetzungen=t.find("Voraussetzungen");
+   if (!Voraussetzungen) Voraussetzungen=&t; // might as well be empty
+   const Tag *Stand=t.find("Stand");
+     region=t.getAttr("Region");
+     region_zusatz=t.getAttr("RegionZusatz");
      geschlecht=Voraussetzungen->getAttr("Geschlecht");
      if (!Stand) u=v=m=a=true;
      else
@@ -69,25 +63,12 @@ void Beruf::get_Beruf()
      stadt=Voraussetzungen->getBoolAttr("Stadt");
      land=Voraussetzungen->getBoolAttr("Land");
 
-    const Tag *Vorteil=tag->find("Vorteil");
+    const Tag *Vorteil=t.find("Vorteil");
     if (Vorteil)
        FOR_EACH_CONST_TAG_OF(i,*Vorteil,"Fertigkeit")
           vorteile.push_back(st_vorteil(i->getAttr("Name"),i->getIntAttr("Wert")));
 }
 
-
-/*
-std::string Beruf::get_Vorteile() const
-{
-  std::string s;
-  for(std::vector<st_vorteil>::const_iterator i=vorteile.begin();i!=vorteile.end();++i)
-   {  
-     s+= (*i);
-     if(i+1!=vorteile.end()) s+=", ";
-   }
-  return s;
-}
-*/
 
 bool Beruf::Stand(const std::string& stand) const
 {
@@ -113,23 +94,6 @@ bool Beruf::Typ(const std::vector<cH_Typen>& Typ) const
 
 Beruf_All::Beruf_All()
 {
- const Tag *berufe=xml_data->find("Berufe");
-// int count=0;
- if (!berufe)
-    std::cerr << "<Berufe><Beruf/>... nicht gefunden\n";
- else
- {  Tag::const_iterator b=berufe->begin(),e=berufe->end();
-    FOR_EACH_CONST_TAG_OF_5(i,*berufe,b,e,"Beruf")
-    {  // if (!((++count)&31))
-// warum sowas?
-//    die Klasse cH_Beruf enthält den Cache, erzeuge ich nur einen Beruf, so
-//    wird er nicht in den Cache (nach Namen) aufgenommen.
-//    Ich brauche aber einen cH_MidgardBasicElement, daher bilde ich einen
-//    Beruf* um danach (aus dem ebenfalls MidgardBasicElement*) ein 
-//    cH_MidgardBasicElement zu machen. Wow.
-       list_All.push_back(&*(cH_Beruf(&*i)));
-    }
- }
 }
 
 
@@ -198,3 +162,29 @@ bool Beruf::Berufsfertigkeit(Abenteurer& A,st_vorteil F)
  return false;
 }
 
+Beruf::Beruf(const Tag &t)
+      : MidgardBasicElement(t.getAttr("Name")), klasse(),u(),v(),m(),a(),
+      	typ_k(), typ_z(), stadt(), land()
+{load(t);
+}
+
+cH_Beruf cH_Beruf::load(const Tag &t,bool &is_new)
+{  cH_Beruf *res=cache.lookup(t.getAttr("Name"));
+   if (!res)
+   {  cH_Beruf r2=new Beruf(t);
+      is_new=true;
+      cache.Register(t.getAttr("Name"),r2);
+      return r2;
+   }
+   else 
+   {  const_cast<Beruf&>(**res).load(t);
+      return *res;
+   }
+}
+
+void Beruf_All::load(std::list<cH_MidgardBasicElement> &list,const Tag &t)
+{  bool is_new=false;
+   cH_Beruf z=cH_Beruf::load(t,is_new);
+   // das &* dient dazu um aus einem cH_Beruf ein cH_MBE zu machen
+   if (is_new) list.push_back(&*z);
+}

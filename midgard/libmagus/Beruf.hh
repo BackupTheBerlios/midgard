@@ -42,18 +42,16 @@ class Beruf : public MidgardBasicElement
    public:
       struct st_vorteil{std::string name;int wert;bool gelernt;int kat;
              st_vorteil(std::string n,int w) 
-               : name(n),wert(w),gelernt(false),kat(-1) {}};
+               : name(n),wert(w),gelernt(),kat(-1) {}};
    private:
       std::string geschlecht; 
       int klasse;
       std::vector<st_vorteil> vorteile;
       bool u,v,m,a,typ_k,typ_z,stadt,land;
       
-     void get_Beruf();      
   public:
-//      Beruf() {}
-      Beruf(const Tag *t) : MidgardBasicElement(t,t->getAttr("Name"))
-          {get_Beruf();}
+      Beruf(const Tag &t);
+      void load(const Tag &t);
 
      enum MBEE What() const {return MidgardBasicElement::BERUF;}
      std::string What_str() const {return "Beruf";}
@@ -63,8 +61,7 @@ class Beruf : public MidgardBasicElement
      bool Land() const {return land;}
      bool Stadt() const {return stadt;}
 
-     std::vector<st_vorteil> Vorteile() const {return vorteile;}
-//     std::string Beruf::get_Vorteile() const;
+     const std::vector<st_vorteil> &Vorteile() const {return vorteile;}
      int MaxErfolgswert(const Grundwerte& w,const std::vector<cH_Typen>& Typ) const 
          {return 0;} //wg. virtueller Funktion
 
@@ -83,7 +80,7 @@ class cH_Beruf : public Handle<const Beruf>
     cH_Beruf(){};
  public:
     cH_Beruf(const std::string& n ,bool create=false);
-    cH_Beruf(const Tag *tag);
+    static cH_Beruf load(const Tag &t,bool &is_new);
 
     cH_Beruf(const cH_MidgardBasicElement &x) : Handle<const Beruf>
       (dynamic_cast<const Beruf *>(&*x)){}
@@ -94,7 +91,8 @@ class Beruf_All
    std::list<cH_MidgardBasicElement> list_All;
   public:
    Beruf_All();
-   std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
+   static void load(std::list<cH_MidgardBasicElement> &list, const Tag &t);
+   const std::list<cH_MidgardBasicElement> &get_All() const {return list_All;}
 };
 
 #endif

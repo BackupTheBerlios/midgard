@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.7 2003/05/14 07:04:59 christof Exp $
+// $Id: xml.cc,v 1.8 2003/05/16 06:42:03 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -53,7 +53,7 @@ static void reserve(Tag *t)
    reserve(t,"Gradanstieg",16);
    reserve(t,"Typen",64);
    reserve(t,"Preise",256);
-   reserve(t,"Fertigkeiten",256);
+//   reserve(t,"Fertigkeiten",256);
    reserve(t,"angeboreneFertigkeiten",32);
    reserve(t,"Berufe",256);
    reserve(t,"verwendbareEP",8);
@@ -122,7 +122,8 @@ reloop:
           FOR_EACH_CONST_TAG(j,*data2)
           {  if (j->Type().empty()) continue; // inter tag space
              if (j->Type()=="Zauber" || j->Type()=="Zauberwerke" 
-                 || j->Type()=="Fertigkeiten") continue;
+                 || j->Type()=="Fertigkeiten" || j->Type()=="Berufe")
+                continue;
              Tag *merge_here;
              if ((merge_here=xml_data_mutable->find(j->Type())))
              {  // std::cout << "TODO: merge '"<< j->Type()<<"' from '"<< file << "'\n";
