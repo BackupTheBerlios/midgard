@@ -1,10 +1,13 @@
-# $Id: Makefile.am,v 1.1 2001/11/02 12:52:20 christof Exp $
+# $Id: Makefile.am,v 1.2 2001/11/02 13:33:21 christof Exp $
 
 bin_PROGRAMS = arkanum_exp
 
 %.cc: %.pgcc ; @ECPG@ -o $*.cc $<
 
-arkanum_exp_SOURCE= $(BUILT_SOURCES)
+CXXFLAGS = @CXXFLAGS@ @KOMPONENTEN_INCLUDES@ \
+           -DPACKAGE_DATA_DIR=\"$(pkgdatadir)/\"
+
+arkanum_exp_SOURCES= $(BUILT_SOURCES)
 
 #arkanum_exp_LDADD = @LIBS@ @COMMONXX_LIBS@
 
