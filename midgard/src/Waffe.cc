@@ -215,7 +215,11 @@ int Waffe::WM_Angriff(const std::string& name) const
 {
   if(Name()==name) return 0;
   for(list<st_alias>::const_iterator i=list_alias.begin();i!=list_alias.end();++i)
+{
     if (name==(*i).name) return (*i).angriffs_mod;
+cout << name<<' '<<(*i).name<<'\n';
+}
+cout << name<<'\t'<<list_alias.size()<<'\n';
   assert(false);
 }
 

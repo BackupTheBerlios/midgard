@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.43 2002/07/09 07:06:25 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.44 2002/07/09 09:28:26 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -114,24 +114,23 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  write_grundwerte(fout);
  /////////////////////////////////////////////////////////////////////////////
  // Sprachen und Schriften
- {
- std::vector<st_sprachen_schrift> L;
+ std::vector<st_sprachen_schrift> S;
  std::list<MidgardBasicElement_mutable> verwandteSprachen;
  for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Sprache().begin();i!=hauptfenster->getChar().List_Sprache().end();++i)
    {  //cH_Sprache s(*i);
       std::list<MidgardBasicElement_mutable> tmplist=cH_Sprache(*i)->VerwandteSprachen((*i).Erfolgswert(),hauptfenster->getChar().List_Sprache(),hauptfenster->getCDatabase().Sprache);
       verwandteSprachen.splice(verwandteSprachen.end(),tmplist);
       vector<pair<std::string,int> > vs=cH_Sprache(*i)->SchriftWert(hauptfenster->getChar().List_Schrift());
-      L.push_back(st_sprachen_schrift(*i,vs));
+      S.push_back(st_sprachen_schrift(*i,vs));
    }
  verwandteSprachen=Sprache::cleanVerwandteSprachen(verwandteSprachen);
  for(std::list<MidgardBasicElement_mutable>::const_iterator i=verwandteSprachen.begin();i!=verwandteSprachen.end();++i)
    { //cH_Sprache s(*i);
      if(i->ist_gelernt(hauptfenster->getChar().List_Sprache())) continue;
-     L.push_back(st_sprachen_schrift(*i));
+     S.push_back(st_sprachen_schrift(*i));
    }
- write_sprachen(fout,L);
- }
+ write_sprachen(fout,S);
+ if(S.size()>maxsprach) bool_sprach=true;
  /////////////////////////////////////////////////////////////////////////////
  // Grundfertigkeiten (Waffen)
  for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_WaffenGrund().begin();i!=hauptfenster->getChar().List_WaffenGrund().end();++i)
@@ -157,13 +156,13 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  // Fertigkeiten & Waffen
  /////////////////////////////////////////////////////////////////////////////
  // angeborene Fertigkeiten
- std::list<MidgardBasicElement_mutable> L;
+ std::list<MidgardBasicElement_mutable> F;
  for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Fertigkeit_ang().begin();i!=hauptfenster->getChar().List_Fertigkeit_ang().end();++i) 
-     L.push_back(*i);
+     F.push_back(*i);
  /////////////////////////////////////////////////////////////////////////////
  // Fertigkeiten
  for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Fertigkeit().begin();i!=hauptfenster->getChar().List_Fertigkeit().end();++i) 
-    L.push_back(*i);
+    F.push_back(*i);
 // Leerzeile ???
  /////////////////////////////////////////////////////////////////////////////
  // Waffen + Waffen/Besitz
@@ -172,7 +171,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  std::list<WaffeBesitz> WB_druck;
  for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Waffen().begin();i!=hauptfenster->getChar().List_Waffen().end();++i)
    {
-    L.push_back(*i);
+    F.push_back(*i);
     cH_Waffe w(*i);
     // waffenloser Kampf:
     if (w->Name()=="waffenloser Kampf" || w->Name()=="Faustkampf") 
@@ -189,10 +188,14 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
      }
    }
  write_waffenbesitz(fout,WB_druck);
- write_fertigkeiten(fout,L);
+ write_fertigkeiten(fout,F);
  write_universelle(fout);
+ if(F.size()>maxfert) bool_fert=true;
+ if(WB_druck.size()>maxwaffen) bool_waffen=true;
 
  fout << "\\input{"+WinLux::recodePathForTeX(install_latex_file)+"}\n";
+
+ if(bool_sprach || bool_fert || bool_waffen) write_long_list(fout,S,F,WB_druck);
 }
 
 
@@ -211,54 +214,9 @@ void LaTeX_drucken::LaTeX_write_empty_values(ostream &fout,const std::string &in
  std::list<WaffeBesitz> B;
  write_waffenbesitz(fout,B);
  write_universelle(fout);
-/*
- // Universelle Fertigkeiten
- std::list<cH_MidgardBasicElement> UF;
- const std::list<cH_MidgardBasicElement> LF=hauptfenster->getCDatabase().Fertigkeit;
- for(std::list<cH_MidgardBasicElement>::const_iterator i=LF.begin();i!=LF.end();++i)
-  {
-    cH_Fertigkeit f(*i);
-    if(f->Ungelernt()!=-99)
-       UF.push_back(*i);
-  }
- cH_MidgardBasicElement werfen(&*cH_Waffe("Werfen")); 
- UF.push_back(werfen);
- UF.sort(MidgardBasicElement_mutable::sort(MidgardBasicElement_mutable::sort::NAME));
- int countunifert=0;
- for(std::list<cH_MidgardBasicElement>::iterator i=UF.begin();i!=UF.end();++i)
-  {
-    std::string a = LaTeX_string(countunifert++);
-    std::string name = (*i)->Name();
-    std::string wert;
-    if       ((*i)->What()==MidgardBasicElement::FERTIGKEIT) 
-      { cH_Fertigkeit f(*i);
-        wert = "+"+itos(f->Ungelernt());
-        if(name=="Geheimmechanismen öffnen") name = "Geheimmech. öffnen";
-        if(name=="Landeskunde (Heimat)") name = "Landeskunde";
-      }
-    else if  ((*i)->What()==MidgardBasicElement::WAFFE)    
-      { cH_Waffe      f(*i);
-        wert = "+4";
-      }
-//    f->set_Erfolgswert(f->Ungelernt());
-    fout <<"\\newcommand{\\uni"<<a<<"}{\\tiny "<<name<< "}\t\t";
-    fout << "\\newcommand{\\uniw"<<a<<"}{("<<wert << ")}\n";
-  } 
 
-
-// unsigned int maxunifert=48;
- for (unsigned int i=countunifert; i<maxunifert;++i)
-   {
-      std::string a = LaTeX_string(i);
-      fout << "\\newcommand{\\uni"<<a<<"}{\\scriptsize }\n";
-      fout << "\\newcommand{\\uniw"<<a<<"}{\\scriptsize }\n";
-   }
-*/
  fout << "\\input{"+WinLux::recodePathForTeX(install_latex_file)+"}\n";
-// fout.close();
 }
-
-
 
 void LaTeX_drucken::write_grundwerte(ostream &fout,bool empty=false)
 {
@@ -355,7 +313,7 @@ void LaTeX_drucken::write_grundwerte(ostream &fout,bool empty=false)
         break;
       }      
      case emerk : { if(W.Spezies()->Name()!="Mensch") sfout += W.Spezies()->Name() + " ";
-           sfout +=W.Merkmale(); 
+           sfout +=W.Merkmale(); break;
          }
      case est   : sfout += itos(W.St()); break ;
      case egs   : sfout += itos(W.Gs()); break ;
@@ -436,23 +394,34 @@ void LaTeX_drucken::write_grundwerte(ostream &fout,bool empty=false)
 }
 
 
-void LaTeX_drucken::write_sprachen(ostream &fout,const std::vector<st_sprachen_schrift>& L)
+void LaTeX_drucken::write_sprachen(ostream &fout,const std::vector<st_sprachen_schrift>& L,bool longlist=false)
 {
   unsigned int sprachanz=0;
   for(std::vector<st_sprachen_schrift>::const_iterator i=L.begin();i!=L.end();++i)
    {
       std::string a = LaTeX_string(sprachanz++);
-      fout << "\\newcommand{\\spra"<<a<<"}{\\scriptsize " << LaTeX_scale(i->sprache->Name(),20,"2.6cm") <<"}\n";
-      fout << "\\newcommand{\\spraw"<<a<<"}{\\scriptsize +"<< i->sprache.Erfolgswert() <<"}\n";
+      if(a=="0") break;
+      if(!longlist) fout << "\\newcommand{\\spra"<<a<<"}";
+      fout << "{\\scriptsize " << LaTeX_scale(i->sprache->Name(),20,"2.6cm") <<"}\n";
+
+      if(!longlist) fout << "\\newcommand{\\spraw"<<a<<"}";
+      else fout << " & ";
+      fout << "{\\scriptsize +"<< i->sprache.Erfolgswert() <<"}\n";
+
       std::string ss;
       for(vector<pair<std::string,int> >::const_iterator j=i->vs.begin();j!=i->vs.end();)
        {
          ss+= j->first + "(+"+itos(j->second)+")";
          if(++j!=i->vs.end())  ss+=", ";
        }
-      fout << "\\newcommand{\\schr"<<a<<"}{\\scriptsize "<< LaTeX_scale(ss,20,"2.6cm") <<"}\n";
+      if(!longlist) fout << "\\newcommand{\\schr"<<a<<"}";
+      else fout << " & ";
+      fout <<"{\\scriptsize "<< LaTeX_scale(ss,20,"2.6cm") <<"}";
+      if(longlist) fout << "\\\\";
+      fout << "\n";
    }
- for (unsigned int i=sprachanz; i<maxsprach;++i) // Bis zum Ende auffüllen
+ if(!longlist)
+  for (unsigned int i=sprachanz; i<maxsprach;++i) // Bis zum Ende auffüllen
    {
       std::string a = LaTeX_string(i);
       fout << "\\newcommand{\\spra"<<a<<"}{\\scriptsize }\n";
@@ -462,15 +431,20 @@ void LaTeX_drucken::write_sprachen(ostream &fout,const std::vector<st_sprachen_s
    }
 }
 
-void LaTeX_drucken::write_fertigkeiten(ostream &fout,const std::list<MidgardBasicElement_mutable>& L)
+void LaTeX_drucken::write_fertigkeiten(ostream &fout,const std::list<MidgardBasicElement_mutable>& L,bool longlist=false)
 {
   unsigned int count=0;
   for(std::list<MidgardBasicElement_mutable>::const_iterator i=L.begin();i!=L.end();++i)
    {
      std::string a = LaTeX_string(count++);
-     fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "
-         <<LaTeX_scale((*i)->Name()+" "+i->Zusatz(),33,"4cm") << "}   ";
-     fout << "\\newcommand{\\praxis"<<a<<"}{"  << itos0((*i).Praxispunkte()) << "}   ";
+     if(a=="0") break;
+     if(!longlist) fout <<"\\newcommand{\\fert"<<a<<"}";
+     fout << "{\\scriptsize " <<LaTeX_scale((*i)->Name()+" "+i->Zusatz(),33,"4cm") << "}";
+
+     if(!longlist) fout << "\\newcommand{\\praxis"<<a<<"}";
+     else fout << " & ";
+     fout <<"{"  << itos0((*i).Praxispunkte()) << "}   ";
+
      std::string wert;
      if((*i)->What()==MidgardBasicElement::FERTIGKEIT)
        wert=itos0(cH_Fertigkeit(*i)->FErfolgswert(hauptfenster->getChar().getAbenteurer(),*i));
@@ -478,8 +452,13 @@ void LaTeX_drucken::write_fertigkeiten(ostream &fout,const std::list<MidgardBasi
        wert=itos0(cH_Fertigkeit_angeborene(*i)->FErfolgswert(hauptfenster->getChar().getAbenteurer(),*i));
      else if((*i)->What()==MidgardBasicElement::WAFFE)
        wert=itos0(i->Erfolgswert());
-     fout << "\\newcommand{\\wert"<<a<<"}{"  <<wert<< "}\n";
+     if(!longlist) fout << "\\newcommand{\\wert"<<a<<"}";
+     else fout << " & ";
+     fout << "{"  <<wert<< "}";
+     if(longlist) fout << "\\\\";
+     fout << "\n";
    }
+ if(!longlist)
  for (unsigned int i=count; i<maxfert;++i)
    {
       std::string a = LaTeX_string(i);
@@ -489,37 +468,57 @@ void LaTeX_drucken::write_fertigkeiten(ostream &fout,const std::list<MidgardBasi
    }
 }
 
-void LaTeX_drucken::write_waffenbesitz(ostream &fout,const std::list<WaffeBesitz>& L)
+void LaTeX_drucken::write_waffenbesitz(ostream &fout,const std::list<WaffeBesitz>& L,bool longlist=false)
 {
   std::string angriffsverlust = hauptfenster->getWerte().Ruestung_Angriff_Verlust(hauptfenster->getChar().List_Fertigkeit());
   unsigned int count=0;
   for(std::list<WaffeBesitz>::const_iterator i=L.begin();i!=L.end();++i)
    {
      std::string b = LaTeX_string(count++);
+     if(b=="0") break;
      std::string waffenname = i->AliasName();
-     fout << "\\newcommand{\\waffe"<<b<<"}{ " ;
      if (i->Magisch()!="" || i->av_Bonus()!=0 || i->sl_Bonus()!=0) 
          waffenname+="$^*$ "+i->Bonus() ;
-     fout <<LaTeX_scalemag(waffenname,20,"3cm",i->Magisch(),i->Waffe()->Reichweite())<< "}\n";
-     if (i->Waffe()->Verteidigung()) // Erfolgswert für einen Verteidigungswaffen
+     std::string swert;
+     if (i->Waffe()->Verteidigung()) // Erfolgswert für Verteidigungswaffen
       {
-        int wert = i->Erfolgswert()+i->av_Bonus()+i->Waffe()->WM_Angriff((*i)->Name());
-        fout << "\\newcommand{\\waffeE"<<b<<"}{"<<itos(wert)<<"}\n";
+        int wert = i->Erfolgswert()+i->av_Bonus()+i->Waffe()->WM_Angriff(i->AliasName());
+        swert=itos(wert);
       }
      else  // Erfolgswert für Angriffswaffen
       {
-        int wert = i->Erfolgswert()+hauptfenster->getWerte().bo_An()+i->av_Bonus()+i->Waffe()->WM_Angriff(waffenname);
+        int wert = i->Erfolgswert()+hauptfenster->getWerte().bo_An()+i->av_Bonus()+i->Waffe()->WM_Angriff(i->AliasName());
         // Angriffsbonus subtrahieren, wenn schwere Rüstung getragen wird:
-        fout << "\\newcommand{\\waffeE"<<b<<"}{"<<wert<<angriffsverlust<<"}\n";
+        swert = itos(wert)+angriffsverlust;
       }
-     std::string schaden=i->Schaden(hauptfenster->getWerte(),waffenname,true);
-     fout << "\\newcommand{\\waffeS"<<b<<"}{"<<schaden << "}\n";
+     std::string schaden=i->Schaden(hauptfenster->getWerte(),i->AliasName(),true);
      std::string anm = i->Waffe()->Waffenrang();
-     fout << "\\newcommand{\\waffeA"<<b<<"}{"<<anm << "}\n";
      std::string abm = i->Waffe()->WM_Abwehr();
-     fout << "\\newcommand{\\waffeV"<<b<<"}{"<<abm << "}\n";
+
+
+     if(!longlist) fout << "\\newcommand{\\waffeE"<<b<<"}";
+     else fout << " & ";
+     fout << "{"<<swert<<"}\n";
+     if(!longlist) fout << "\\newcommand{\\waffeA"<<b<<"}";
+     else fout << " & ";
+     fout << "{"<<anm << "}";
+     if(longlist) fout << "\\\\\\cline{2-3}";
+     fout << "\n";
+
+     if(!longlist) fout << "\\newcommand{\\waffe"<<b<<"}{ " ;
+     else fout << "\\raisebox{1.5ex}[-1.5ex]{\\makebox[2cm][l]{ ";
+     fout <<LaTeX_scalemag(waffenname,20,"3cm",i->Magisch(),i->Waffe()->Reichweite())<< "}\n";
+     if(!longlist) fout << "\\newcommand{\\waffeS"<<b<<"}";
+     else fout << "} & ";
+     fout << "{"<<schaden << "}\n";
+     if(!longlist) fout << "\\newcommand{\\waffeV"<<b<<"}";
+     else fout << " & ";
+     fout << "{"<<abm << "}";
+     if(longlist) fout << "\\\\\\hline\\hline";
+     fout << "\n";
    }
- for (unsigned int i=count; i<maxwaffen;++i)
+ if(!longlist)
+  for (unsigned int i=count; i<maxwaffen;++i)
    {
       std::string a = LaTeX_string(i);
       fout << "\\newcommand{\\waffe"<<a<<"}{\\scriptsize }\n";
@@ -538,6 +537,7 @@ void LaTeX_drucken::write_universelle(ostream &fout)
  for(std::list<Abenteurer::st_universell>::iterator i=UF.begin();i!=UF.end();++i)
   {
     std::string a = LaTeX_string(countunifert);
+    if(a=="0") break;
     std::string name = i->mbe->Name();
     std::string wert;
     int iwert= i->mbe.Erfolgswert();
@@ -569,6 +569,52 @@ void LaTeX_drucken::write_universelle(ostream &fout)
 }
 
 
+void LaTeX_drucken::write_long_list(ostream &fout,const std::vector<st_sprachen_schrift>& S,
+                     const std::list<MidgardBasicElement_mutable> &F,
+                     const std::list<WaffeBesitz> &WB_druck)
+{
+  fout << "\n\n\\newpage\n\n";
+  fout << "\\begin{sideways}\n";
+  fout << "\\fbox{\n";
+  fout << "\\begin{minipage}[t][\\textwidth]{19cm}\n";
+
+  // Fertigkeiten & Waffen
+  fout << "\\parbox{7cm}{\n"
+          "\\setlength{\\tabcolsep}{0.4em}\n"
+          "\\footnotesize"
+          "\\begin{tabular}[t]{|p{4cm}|c|r|}\\hline\n"
+          "\\multicolumn{3}{|c|}{\\small angeborene und erlernte}\\\\\n"
+          "\\multicolumn{3}{|c|}{\\small Fähigkeiten und Waffenfertigkeiten}\\\\[1ex]\n"
+          "\\normalsize Fertigkeit&{$\\!$\\normalsize PP$\\!$}&{$\\!\\!$\\normalsize EW$\\!\\!$}\\\\\\hline\\hline\n";
+  write_fertigkeiten(fout,F,true);
+  fout << "\\hline\n\\end{tabular}}\n";
+
+  // Sprache & Schrift
+  fout << "\\parbox{9cm}{\n"
+          "\\setlength{\\tabcolsep}{0.5em}\n"
+          "\\scriptsize\n"
+          "\\begin{tabular}{|p{2.6cm}|c|p{2.6cm}|}\n"
+          "\\hline\n"
+          "Sprache&Wert&Schrift\\\\\\hline\\hline\n";
+  write_sprachen(fout,S,true);
+  fout << "\\hline\n\\end{tabular}\n\n";
+
+  // Waffenbesitz
+  fout << "\\bigskip\n"
+          "\\setlength{\\tabcolsep}{0.3em}\n"
+          "\\begin{tabular}[t]{||p{3.1cm}|c|c||}\\hline\\hline\n"
+          "\\raisebox{-1ex}[2ex][0ex]{\\LARGE Waffe}&\\normalsize Erfolgswert&\\footnotesize Waffenrang\\\\\\cline{2-3}\n"
+          "\\raisebox{-0.2ex}[1ex][0.2ex]{\\footnotesize (Reichweite)}&\\normalsize\\raisebox{-0.2ex}[1ex][0.2ex]{Schaden}&\\footnotesize Abwehrmod.\\\\\\hline\\hline\\hline\n";
+  write_waffenbesitz(fout,WB_druck,true);
+  fout << "\\hline\n\\end{tabular}}\n";
+
+  fout <<"\\vfill\\hfill\n";
+  fout <<"\\parbox{1.5cm}{\\includegraphics[width=1.5cm]{"
+       << get_latex_pathname(TeX_Install) << "/MAGUS-Logo-grey2.png}}";
+  fout << "\\end{minipage}\n";
+  fout << "}\n";
+  fout << "\\end{sideways}\n";
+}
 
 std::string LaTeX_drucken::LaTeX_scale(const std::string& is, 
       unsigned int maxlength, const std::string& scale)
@@ -601,6 +647,7 @@ std::string LaTeX_drucken::LaTeX_scalemag(const std::string& is,
 std::string LaTeX_drucken::LaTeX_string(int i)
 {  if (i<26) return std::string(1,char('a'+i));
    if (i<52) return "a"+std::string(1,char('a'+i-26));
+   if (i<78) return "b"+std::string(1,char('a'+i-52));
    //Never get here
    return("0");
 }
@@ -656,11 +703,8 @@ void LaTeX_drucken::LaTeX_kopfzeile(ostream &fout,bool landscape,bool newdoc)
   }
  std::string     drache="9.9cm", namensbox="7cm";
  if(!landscape) {drache="7cm" , namensbox="5cm";}
- fout << "\\parbox{"+drache+"}{\\includegraphics[width="+drache+"]{"
- 	<< get_latex_pathname(TeX_Install) << "drache.png}}\n";
-#if 0
- fout << "\\IfFileExists{drache.png}{\\parbox{"+drache+"}{\\includegraphics[width="+drache+"]{drache.png}}}\n";
- fout << "{\\parbox{"+drache+"}{\\includegraphics[width="+drache+"]{"PACKAGE_DATA_DIR"drache.png}}}\n";
+// fout << "\\parbox{"+drache+"}{\\includegraphics[width="+drache+"]{"+get_latex_pathname(TeX_Install)+"/drache.png}}\n";
+ fout << "\\parbox{"+drache+"}{\\includegraphics[width="+drache+"]{"<< get_latex_pathname(TeX_Install) << "drache.png}}\n";
 #endif 
  fout << "\\parbox[][][c]{"+namensbox+"}{\n";
  if(!landscape) fout << "\\scriptsize\n";
@@ -673,12 +717,8 @@ void LaTeX_drucken::LaTeX_kopfzeile(ostream &fout,bool landscape,bool newdoc)
  fout <<"\\begin{tabularx}{"+namensbox+"}{|c|X|}\\hline\n";
  fout <<"\\makebox[1.1cm]{Spieler}&\\namespieler\\\\\\hline\n";
  fout <<"\\end{tabularx}\n}\n";
- fout << "\\parbox{"+drache+"}{\\reflectbox{\\includegraphics[width="+drache+"]{"
- 	<< get_latex_pathname(TeX_Install) << "drache.png}}}\n";
-#if 0
- fout <<"\\IfFileExists{drache.png}{\\parbox{"+drache+"}{\\reflectbox{\\includegraphics[width="+drache+"]{drache.png}}}}\n";
- fout <<"{\\parbox{"+drache+"}{\\reflectbox{\\includegraphics[width="+drache+"]{"PACKAGE_DATA_DIR"drache.png}}}}\n";
-#endif 
+// fout << "\\parbox{"+drache+"}{\\reflectbox{\\includegraphics[width="+drache+"]{"+get_latex_pathname(TeX_Install)+"/drache.png}}}\n";
+ fout << "\\parbox{"+drache+"}{\\reflectbox{\\includegraphics[width="+drache+"]{"<< get_latex_pathname(TeX_Install) << "drache.png}}}\n";
  fout <<"\\vspace*{2ex}\n\n";
 }
 
