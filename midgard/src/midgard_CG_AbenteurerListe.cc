@@ -1,4 +1,4 @@
-// $Id: midgard_CG_AbenteurerListe.cc,v 1.8 2002/11/11 21:19:31 thoma Exp $
+// $Id: midgard_CG_AbenteurerListe.cc,v 1.9 2002/11/12 06:21:34 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,18 +38,19 @@ void midgard_CG::on_AbenteurerListe_leaf(cH_RowDataBase d)
   const Data_AbenteurerListe *dt=dynamic_cast<const Data_AbenteurerListe*>(&*d);
   if(togglebutton_delete_abenteurer_aus_liste->get_active())
    {
-//     VAbenteurer::st_abenteurer A(dt->getAbenteurer(),false);
-//     Char.getList().erase(find(Char.getList().begin(),Char.getList().end(),A));
-//old     std::remove(Char.getList().begin(),Char.getList().end(),A);
      std::list<VAbenteurer::st_abenteurer>::iterator A=dt->getAbenteurer();
+     bool neuer_zeiger=false;
+     if(Char.getAbenteurer()==A->abenteurer) neuer_zeiger=true;
      Char.getList().erase(A);
-
+     if(neuer_zeiger) 
+      { if(Char.empty()) Char.push_back(); 
+        else Char.setAbenteurer(--(Char.getList().end()));
+      }
      togglebutton_delete_abenteurer_aus_liste->set_active(false);
      load_for_mainpage(PAGE_NEWS);
    }
   else
    {
-//     Char.set_Abenteurer(dt->getAbenteurer());
      Char.setAbenteurer(dt->getAbenteurer());
      set_title(getWerte().Name_Abenteurer());
      AbenteurerListe->unselect_all();

@@ -13,7 +13,7 @@ NEWS IN VERSION 0.8.9
 * Hausregel beim laden setzen
 * Ohne Namen in NEWS&Geschichte -> Wechsel des Abenteurers
 * KI-Steigern überarbeitet und (hoffentlich) verbessert
-
+* 'SegFault' Bug beim wechseln der Seite nach Charakterlöschen gefixed
 
 TODO: ('-' zeigt CP an)
 
@@ -24,6 +24,7 @@ TODO: ('-' zeigt CP an)
   der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 
 * Deutsche Sortierung (Bärenwut vor Beschleunigen)
 * '--' bei PP wenn nicht möglich
+* DIrektaddition der Schadensboni im Ausdruck
 - Ausrüstung mit drag & drop
 - Würfelvarianten für Nichtmenschen!
 - verschwinden alle Icons? :

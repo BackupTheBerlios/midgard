@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.43 2002/11/11 21:19:31 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.44 2002/11/12 06:21:34 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -139,11 +139,9 @@ public:
    void load_regionen_optionen(const Tag *tag, int xml_version,Datenbank &Database,Midgard_Optionen *Optionen,midgard_CG *hauptfenster);
 
 
-/*
    bool operator==(const Abenteurer& a) const
       {return getWerte().Name_Abenteurer()==a.getWerte().Name_Abenteurer() &&
               getWerte().Version() == a.getWerte().Version() ;}
-*/
 
    // (bool==true) => gelernt ; (bool==false) => universell(oder garnicht)
    const std::pair<int,bool> Erfolgswert(std::string name,const Datenbank &Database) const;
