@@ -41,6 +41,6 @@ COPY "regionen" FROM stdin;
 5	Minangpahit	Minangpahit	M	\N	\N	Malte Thoma	1.0	?	f	0	null
 6	Nahuatlan	Nahuatlan - Im Land des Mondjaguars	N	\N	\N	Malte Thoma	1.0	Alexander Huiskes	t	8	\N
 8	Rawindra	Rawindra - Im Bann der Todesechsen	R	\N	\N	Malte Thoma	1.0	Ludger Fischer und Thomas Kreutz	t	1	\N
-1	Tipps und Tricks	Tipps und Tricks	TuT	\N	\N	Malte Thoma	1.0	Jürgen E. Franke	t	12	\N
+1	Tipps & Tricks	Tipps und Tricks	TuT	\N	\N	Malte Thoma	1.0	Jürgen E. Franke	t	12	\N
 9	Waeland	Waeland - Die Krieger des Nordens	W	\N	\N	Malte Thoma	1.0	Olaf Möhle, Stephanie Lammers u.a.	t	7	1991-1997
 \.
