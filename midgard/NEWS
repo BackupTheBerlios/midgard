@@ -1,4 +1,13 @@
 ##########################################################################
+NEWS IN VERSION 0.8beta4
+- Körperbemalung und Kriegsbemalung sind nun 'Ramwindi' Zauberwerk
+- Umarbeiten der Steigern - Darstellung mit dem Ziel wesentlich weniger
+   Datenbankzugriffe zu benötigen (Spart Zeit)
+    # Zauber
+    # Fertigkeiten
+   
+
+##########################################################################
 NEWS IN VERSION 0.8beta3
 - Überflüssigen Code aus 'grad_anstieg' und sinnlose Tabellenspalten
    aus 'charaktere' entfernt
