@@ -6,6 +6,7 @@ exec sql include sqlca;
 #include "Typen.hh"
 #include "Waffe.hh"
 #include "Zauber.hh"
+#include "Fertigkeiten.hh"
 
 Lernschema::Lernschema(Gtk::ProgressBar *progressbar)
 {
@@ -17,8 +18,8 @@ Lernschema::Lernschema(Gtk::ProgressBar *progressbar)
   exec sql select count(typ) into :db_size from lernschema;
   exec sql declare LEin cursor for select distinct
    typ, pflicht, fertigkeit, art, coalesce(wert,0), 
-   lernpunkte, coalesce(attribut),
-   coalesce(p_element),coalesce(s_element) from lernschema;
+   lernpunkte, coalesce(attribut,''),
+   coalesce(p_element,''),coalesce(s_element,'') from lernschema;
  Transaction tr;
  exec sql open LEin;
  SQLerror::test(__FILELINE__);
@@ -29,10 +30,13 @@ Lernschema::Lernschema(Gtk::ProgressBar *progressbar)
      while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
      exec sql fetch LEin into :TYP,:PFLICHT,:FERTIGKEIT,:ART,
       :WERT,:LERNPUNKTE,:ATTR,:PE,:SE;
+     SQLerror::test(__FILELINE__,100);
+     if (sqlca.sqlcode) break; 
      lern_map[st_index(TYP,ART,FERTIGKEIT)] 
             = st_wert(PFLICHT,WERT,ATTR,LERNPUNKTE,PE,SE); 
      ++count;
    }
+ progressbar->set_percentage(1);
 }
 
 std::list<cH_MidgardBasicElement> Lernschema::get_List(const std::string& art, 
@@ -44,6 +48,12 @@ std::list<cH_MidgardBasicElement> Lernschema::get_List(const std::string& art,
    if( (i->first.typ==Typ[0]->Short() || i->first.typ==Typ[1]->Short()) &&
        i->first.art==art)
      {
+      if(art=="Fertigkeit") 
+         { 
+           cH_MidgardBasicElement fert(new Fertigkeit(i->first.fertigkeit));
+           cH_Waffe(fert)->set_Erfolgswert(i->second.erfolgswert);
+           L.push_back(fert); 
+         }
       if(art=="Waffe") 
          { 
            cH_MidgardBasicElement waffe(new Waffe(i->first.fertigkeit));

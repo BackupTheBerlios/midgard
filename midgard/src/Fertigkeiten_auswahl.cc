@@ -43,9 +43,10 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const midgard_CG::st_Da
 
   // Lernschema //////////////////////////////////////////////////////////////
   std::list<cH_MidgardBasicElement> LW=Database.lernschema.get_List("Fertigkeit",Typ);
+cout << LW.size()<<'\n';
   for(std::list<cH_MidgardBasicElement>::const_iterator i=LW.begin();i!=LW.end();++i)
    {
-      if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name())) continue;
+      if (!Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name())) continue;
       cH_Fertigkeit(*i)->set_Erfolgswert(cH_Fertigkeit(*i)->Anfangswert0());
       list_Fert.push_back(*i);
    }
@@ -68,6 +69,7 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const midgard_CG::st_Da
          }
       }
    }
+cout << list_allg_Fert.size()<<'\t'<<list_Fert.size()<<'\n';
 
    Gtk::OStream os(fertigkeiten_clist_auswahl);
    fertigkeiten_clist_auswahl->freeze();
