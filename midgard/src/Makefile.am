@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.109 2002/01/31 17:46:07 christof Exp $
+# $Id: Makefile.am,v 1.110 2002/02/05 07:45:50 thoma Exp $
 
 bin_PROGRAMS = midgard 
 
@@ -8,7 +8,7 @@ EXTRA_PROGRAMS = midgard_xmlexport
 
 pkgdata_DATA = document_eingabe.tex document_eingabe4.tex \
    charakter_beschreibung.tex axt1.ps \
-   drache.ps dracher.ps
+   drache_l.ps drache_r.ps
 
 EXTRA_DIST = document_eingabe.tex.in document_eingabe4.tex.in \
     charakter_beschreibung.tex axt1.ps \

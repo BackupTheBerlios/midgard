@@ -60,8 +60,8 @@
 \newsavebox{\Lasso}   
 %\input{midgard_tmp_latexwertedef}
 \input{midgard_tmp_latexwerte}
-\IfFileExists{drache.ps}{\parbox{10cm}{\epsfig{width=10cm,angle=0,file=drache.ps}}}%
-{\parbox{10cm}{\epsfig{width=10cm,angle=0,file=@PACKAGE_DATA_DIR@drache.ps}}}
+\IfFileExists{drache_l.ps}{\parbox{10cm}{\epsfig{width=10cm,angle=0,file=drache_l.ps}}}%
+{\parbox{10cm}{\epsfig{width=10cm,angle=0,file=@PACKAGE_DATA_DIR@drache_l.ps}}}
 \parbox[][][c]{7cm}{
 \LI
   \begin{tabularx}{7.0cm}{|c|X|}\hline
@@ -73,8 +73,8 @@
 \makebox[1.1cm]{Spieler}&{\namespieler}\\\hline
   \end{tabularx}
 }
-\IfFileExists{dracher.ps}{\parbox{10cm}{\epsfig{width=10cm,angle=0,file=dracher.ps}}}%
-{\parbox{10cm}{\epsfig{width=10cm,angle=0,file=@PACKAGE_DATA_DIR@dracher.ps}}}
+\IfFileExists{drache_r.ps}{\parbox{10cm}{\epsfig{width=10cm,angle=0,file=drache_r.ps}}}%
+{\parbox{10cm}{\epsfig{width=10cm,angle=0,file=@PACKAGE_DATA_DIR@drache_r.ps}}}
 
 \vspace*{2ex}
 \begin{minipage}[t]{13cm}
@@ -195,6 +195,9 @@ Berufe&{\beruf}\\\hline
 \end{tabular}
 
 \vspace{1ex}
+\IfFileExists{MAGUS-Logo-35mm.ps}{\parbox{1.5cm}{\epsfig{width=1.5cm,angle=0,file=MAGUS-Logo-35mm.ps}}}%
+{\parbox{1.5cm}{\epsfig{width=1.5cm,angle=0,file=@PACKAGE_DATA_DIR@MAGUS-Logo-35mm.ps}}}
+\hfill
 \parbox[t]{7.5cm}{
 \tiny
 \begin{tabular}{|lr|lr|lr|}
@@ -213,10 +216,8 @@ Sechster Sinn  & \sinnss   &Geistmagie    & \bopsy &Umgebungsmagie & \phk \\
 \end{tabular}
 }
 \hfill
-%\IfFileExists{saebel.ps}{\parbox{4.5cm}{\epsfig{width=4.5cm,angle=0,file=saebel.ps}}}%
-%{\parbox{4.5cm}{\epsfig{width=4.5cm,angle=0,file=@PACKAGE_DATA_DIR@saebel.ps}}}
-\IfFileExists{wurfbeil.ps}{\parbox{4.5cm}{\epsfig{width=4.5cm,angle=0,file=wurfbeil.ps}}}%
-{\parbox{4.5cm}{\epsfig{width=4.5cm,angle=0,file=@PACKAGE_DATA_DIR@wurfbeil.ps}}}
+\IfFileExists{wurfbeil.ps}{\parbox{3cm}{\epsfig{width=3cm,angle=0,file=wurfbeil.ps}}}%
+{\parbox{3cm}{\epsfig{width=3cm,angle=0,file=@PACKAGE_DATA_DIR@wurfbeil.ps}}}
 \hfill~
 
 \parbox{6cm}

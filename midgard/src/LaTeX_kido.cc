@@ -1,4 +1,4 @@
-// $Id: LaTeX_kido.cc,v 1.31 2002/01/29 10:45:28 thoma Exp $
+// $Id: LaTeX_kido.cc,v 1.32 2002/02/05 07:45:50 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -69,8 +69,8 @@ void midgard_CG::LaTeX_kido_main(void)
    fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(Werte.Name_Abenteurer(),25,"4.5cm") << "}\n";
    fout << "\\newcommand{\\namespieler}{"  <<LaTeX_scale(Werte.Name_Spieler(),25,"4.5cm") << "}\n";
    fout << "\\begin{center}\n";
-   fout << "\\IfFileExists{drache.ps}{\\parbox{10cm}{\\epsfig{width=10cm,angle=0,file=drache.ps}}}\n";
-   fout << "{\\parbox{10cm}{\\epsfig{width=10cm,angle=0,file="PACKAGE_DATA_DIR"drache.ps}}}\n";
+   fout << "\\IfFileExists{drache_l.ps}{\\parbox{10cm}{\\epsfig{width=10cm,angle=0,file=drache_l.ps}}}\n";
+   fout << "{\\parbox{10cm}{\\epsfig{width=10cm,angle=0,file="PACKAGE_DATA_DIR"drache_l.ps}}}\n";
    fout << "\\parbox[][][c]{7cm}{\n";
    fout << "\\LI\n";
    fout << "\\begin{tabularx}{7.0cm}{|c|X|}\\hline\n";
@@ -80,8 +80,8 @@ void midgard_CG::LaTeX_kido_main(void)
    fout <<"\\begin{tabularx}{7.0cm}{|c|X|}\\hline\n";
    fout <<"\\makebox[1.1cm]{Spieler}&\\namespieler\\\\\\hline\n";
    fout <<"\\end{tabularx}\n}\n";
-   fout <<"\\IfFileExists{dracher.ps}{\\parbox{10cm}{\\epsfig{width=10cm,angle=0,file=dracher.ps}}}\n";
-   fout <<"{\\parbox{10cm}{\\epsfig{width=10cm,angle=0,file="PACKAGE_DATA_DIR"dracher.ps}}}\n";
+   fout <<"\\IfFileExists{drache_r.ps}{\\parbox{10cm}{\\epsfig{width=10cm,angle=0,file=drache_r.ps}}}\n";
+   fout <<"{\\parbox{10cm}{\\epsfig{width=10cm,angle=0,file="PACKAGE_DATA_DIR"drache_r.ps}}}\n";
    fout <<"\\vspace*{2ex}\n";
 */
 

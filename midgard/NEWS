@@ -11,6 +11,7 @@ NEWS IN VERSION 0.3delta4
 * 'Laufen' Pixmap im 'Fertigkeiten auswählen' Button
 * Stadt-lernliste jetzt korrekt
 * radiobutton_[stadt|land] beim Laden setzen
+* Logo und neue Drachenbilder in LaTeX-dokument eingearbeitet
 
 TODO:
 * Abspeichern und laden von Optionen 
