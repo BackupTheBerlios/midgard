@@ -173,6 +173,9 @@ class cH_MidgardBasicElement : public Handle<const MidgardBasicElement>
    public:
       cH_MidgardBasicElement(const MidgardBasicElement *r) 
             : Handle<const MidgardBasicElement>(r){}
+      template <class T>
+       cH_MidgardBasicElement(const Handle<T> &r)
+       	    : Handle<const MidgardBasicElement>(r){}
 };
 
 // dies ist eine erlernte "Fertigkeit" d.h. sie hat Erfolgswert usw.
@@ -191,9 +194,21 @@ class MidgardBasicElement_mutable : public HandleContent
       
    
  public: 
+#if 0 
       MidgardBasicElement_mutable(const cH_MidgardBasicElement  &_mbe)
-         : mbe(_mbe),praxispunkte(0),erfolgswert(0),
-            lernpunkte(0),gelernt(false),pflicht(false) 
+         : mbe(_mbe),praxispunkte(),erfolgswert(),
+            lernpunkte(),gelernt(),pflicht() 
+           {setErfolgswert(mbe->Anfangswert());}
+#endif           
+      template <class T>
+       MidgardBasicElement_mutable(const Handle<T> &_mbe)
+         : mbe(_mbe),praxispunkte(),erfolgswert(),
+            lernpunkte(),gelernt(),pflicht() 
+           {setErfolgswert(mbe->Anfangswert());}
+      // wegen der &* Unsitte ;-)
+      MidgardBasicElement_mutable(const MidgardBasicElement *_mbe)
+         : mbe(_mbe),praxispunkte(),erfolgswert(),
+            lernpunkte(),gelernt(),pflicht() 
            {setErfolgswert(mbe->Anfangswert());}
       const MidgardBasicElement *operator->() const
          {return &*mbe;}

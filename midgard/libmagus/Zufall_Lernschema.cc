@@ -37,7 +37,7 @@ void Zufall::Lernschema()
 {
   Lernpunkte lernpunkte;
   Lernpunkte_wuerfeln(lernpunkte,Aben);
-  st_LL FAUWZ_Listen=getLernlisten();
+  st_LernListen::FAUWZ_Listen=getLernlisten();
 
   if(Aben.Typ1()->getLernpflichtSchrift() || Aben.Typ2()->getLernpflichtSchrift())
    {
@@ -74,7 +74,7 @@ void Zufall::setSpezialwaffe()
 void Zufall::setSpezialgebiet()
 {
   if (!Aben.Typ1()->Spezialgebiet() && !Aben.Typ2()->Spezialgebiet()) return;
-  std::vector<std::string> V=LL.getSpezialgebiet(Aben);
+  std::vector<std::string> V=LernListen::getSpezialgebiet(Aben);
   if(V.empty()) return;
   int i=Random::integer(0,V.size()-1);
   Aben.setSpezialgebiet(cH_Spezialgebiet(V[i]));
@@ -95,7 +95,7 @@ std::vector<MBEmlt> List_to_Vector(std::list<MBEmlt> L,const Abenteurer& Aben,in
   return V;
 }
 
-void Zufall:: Lernpunkte_verteilen(const eFAUWZ was,const Lernpunkte &lernpunkte,const st_LL &Listen)
+void Zufall:: Lernpunkte_verteilen(const eFAUWZ was,const Lernpunkte &lernpunkte,const st_LernListen::&Listen)
 {
  std::list<MBEmlt> L;
  int lp=0;
@@ -225,14 +225,14 @@ bool Zufall::knows_everything(const std::list<MBEmlt> &List_gelerntes,const std:
 
 
 
-Zufall::st_LL Zufall::getLernlisten()
+Zufall::st_LernListen::Zufall::getLernlisten()
 {
    
-  st_LL FAUWZ_Listen=st_LL( LL.getMBEm(Aben,LernListen::lFach,0,0,"Fach"),
-                            LL.getMBEm(Aben,LernListen::lAllg,0,0,"Allg"),
-                            LL.getMBEm(Aben,LernListen::lUnge,0,0,"Unge"),
-                            LL.getMBEm(Aben,LernListen::lWaff,0,0,"Waff"),
-                            LL.getMBEm(Aben,LernListen::lZaub,0,0,"Zaub"));
+  st_LernListen::FAUWZ_Listen=st_LernListen:: LernListen::getMBEm(Aben,LernListen::lFach,0,0,"Fach"),
+                            LernListen::getMBEm(Aben,LernListen::lAllg,0,0,"Allg"),
+                            LernListen::getMBEm(Aben,LernListen::lUnge,0,0,"Unge"),
+                            LernListen::getMBEm(Aben,LernListen::lWaff,0,0,"Waff"),
+                            LernListen::getMBEm(Aben,LernListen::lZaub,0,0,"Zaub"));
 
   return FAUWZ_Listen;
 }
@@ -246,11 +246,11 @@ MBEmlt Zufall::getZusatz(MidgardBasicElement::eZusatz was,MBEmlt& MBE,bool nachb
   switch(was)
    {
 //     case MidgardBasicElement::ZHerkunft:
-     case MidgardBasicElement::ZUeberleben: VG=LL.getUeberlebenZusatz();break;
-     case MidgardBasicElement::ZLand:       VG=LL.getLandZusatz(); break;
-     case MidgardBasicElement::ZSprache:    VG=LL.getSprachenZusatz(MBE,Aben,nachbarland); break;
-     case MidgardBasicElement::ZSchrift:    VG=LL.getSchriftenZusatz(MBE,Aben); break;
-     case MidgardBasicElement::ZWaffe:      VG=LL.getWaffenZusatz(Aben.List_Waffen()); break;
+     case MidgardBasicElement::ZUeberleben: VG=LernListen::getUeberlebenZusatz();break;
+     case MidgardBasicElement::ZLand:       VG=LernListen::getLandZusatz(); break;
+     case MidgardBasicElement::ZSprache:    VG=LernListen::getSprachenZusatz(MBE,Aben,nachbarland); break;
+     case MidgardBasicElement::ZSchrift:    VG=LernListen::getSchriftenZusatz(MBE,Aben); break;
+     case MidgardBasicElement::ZWaffe:      VG=LernListen::getWaffenZusatz(Aben.List_Waffen()); break;
      case MidgardBasicElement::ZTabelle:    VG=(*MBE)->VZusatz(); break;
      default: assert(!"never get here");
    }
@@ -302,7 +302,7 @@ std::vector<H_WaffeBesitz> List_to_Vector(const std::list<H_WaffeBesitz>& L)
 
 void Zufall::setWaffenBesitz()
 {
-  std::list<H_WaffeBesitz> L=LL.getWaffenBesitz(Aben);
+  std::list<H_WaffeBesitz> L=LernListen::getWaffenBesitz(Aben);
   WaffeBesitzLernen wbl=WaffenBesitz_wuerfeln(Aben,Random::W100());
 
 reloop:
@@ -332,7 +332,7 @@ reloop:
 
 void Zufall::setBeruf()
 {
-  std::list<MBEmlt> L=LL.getBeruf(Aben);
+  std::list<MBEmlt> L=LernListen::getBeruf(Aben);
   std::vector<MBEmlt> V=List_to_Vector(L,Aben,99);
   if(V.empty()) return;
   int i=Random::integer(0,V.size()-1);
@@ -341,7 +341,7 @@ void Zufall::setBeruf()
   
   BerufsKategorie BKat;
   BKat.wuerfeln(Random::W100());
-  std::vector<Beruf::st_vorteil> F=LL.getBerufsVorteil(V[i],BKat,Aben);
+  std::vector<Beruf::st_vorteil> F=LernListen::getBerufsVorteil(V[i],BKat,Aben);
   if(F.empty()) return;
 
   while(true)

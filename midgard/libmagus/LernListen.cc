@@ -1,4 +1,4 @@
-// $Id: LernListen.cc,v 1.8 2003/11/10 14:20:09 thoma Exp $
+// $Id: LernListen.cc,v 1.9 2003/12/09 08:01:46 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -26,7 +26,7 @@
 
 
 std::list<MBEmlt> LernListen::getMBEm(const Abenteurer& A,eMBE was,
-                        int erfolgswert,int lernpunkte,std::string lernart) const
+                        int erfolgswert,int lernpunkte,std::string lernart)
 {
    std::list<cH_MidgardBasicElement> V_;
    std::list<MBEmlt> Vm;
@@ -131,7 +131,7 @@ std::list<MBEmlt> LernListen::getMBEm(const Abenteurer& A,eMBE was,
 
 
 
-std::vector<cH_Spezies> LernListen::getSpezies(bool nsc_allowed) const
+std::vector<cH_Spezies> LernListen::getSpezies(bool nsc_allowed)
 {
  std::vector<cH_Spezies> V,S=Datenbank.Spezies;
  for(std::vector<cH_Spezies>::const_iterator i=S.begin();i!=S.end();++i)                                   
@@ -142,8 +142,8 @@ std::vector<cH_Spezies> LernListen::getSpezies(bool nsc_allowed) const
  return V;
 }
 
-std::vector<std::pair<cH_Typen,bool> > LernListen::getTypen(const Abenteurer &A) const 
- //W,const cH_Spezies &S,bool nsc_allowed) const
+std::vector<std::pair<cH_Typen,bool> > LernListen::getTypen(const Abenteurer &A)
+ //W,const cH_Spezies &S,bool nsc_allowed)
 {
   const std::vector<cH_Typen> &T=Datenbank.Typen;
   std::vector<std::pair<cH_Typen,bool> > V;
@@ -166,7 +166,7 @@ std::vector<std::pair<cH_Typen,bool> > LernListen::getTypen(const Abenteurer &A)
 
 
 
-std::vector<std::pair<cH_Land,bool> > LernListen::getHerkunft(const Abenteurer& A) const
+std::vector<std::pair<cH_Land,bool> > LernListen::getHerkunft(const Abenteurer& A)
 {
   std::vector<cH_Land> L=Datenbank.Laender;
   std::vector<std::pair<cH_Land,bool> > V;
@@ -177,7 +177,7 @@ std::vector<std::pair<cH_Land,bool> > LernListen::getHerkunft(const Abenteurer& 
   return V;
 }
 
-std::vector<MidgardBasicElement::st_zusatz> LernListen::getLandZusatz() const
+std::vector<MidgardBasicElement::st_zusatz> LernListen::getLandZusatz()
 {
   std::vector<MidgardBasicElement::st_zusatz> B;
   std::vector<cH_Land> L=Datenbank.Laender;
@@ -189,7 +189,7 @@ std::vector<MidgardBasicElement::st_zusatz> LernListen::getLandZusatz() const
 }
 
 
-std::vector<MidgardBasicElement::st_zusatz> LernListen::getMBEZusatz(const Abenteurer &A, const MBEmlt& MBE) const
+std::vector<MidgardBasicElement::st_zusatz> LernListen::getMBEZusatz(const Abenteurer &A, const MBEmlt& MBE)
 {
   std::vector<MidgardBasicElement::st_zusatz> B;
   std::vector<MidgardBasicElement::st_zusatz> V=(*MBE)->VZusatz();
@@ -202,7 +202,7 @@ std::vector<MidgardBasicElement::st_zusatz> LernListen::getMBEZusatz(const Abent
   return B;
 }
 
-std::vector<MidgardBasicElement::st_zusatz> LernListen::getUeberlebenZusatz() const
+std::vector<MidgardBasicElement::st_zusatz> LernListen::getUeberlebenZusatz()
 {
    std::vector<MidgardBasicElement::st_zusatz> B;
    for(std::list<cH_MidgardBasicElement>::const_iterator i=Datenbank.Fertigkeit.begin();i!=Datenbank.Fertigkeit.end();++i)
@@ -224,7 +224,7 @@ std::vector<MidgardBasicElement::st_zusatz> LernListen::getWaffenZusatz(const st
   return B;
 }
 
-std::vector<MidgardBasicElement::st_zusatz> LernListen::getSprachenZusatz(const MBEmlt &MBE,const Abenteurer& Aben,bool nachbarland) const
+std::vector<MidgardBasicElement::st_zusatz> LernListen::getSprachenZusatz(const MBEmlt &MBE,const Abenteurer& Aben,bool nachbarland)
 {
   std::vector<MidgardBasicElement::st_zusatz> B;
   for(std::list<cH_MidgardBasicElement>::const_iterator i=Datenbank.Sprache.begin();i!=Datenbank.Sprache.end();++i)
@@ -248,7 +248,7 @@ std::vector<MidgardBasicElement::st_zusatz> LernListen::getSprachenZusatz(const 
  return B;
 }
 
-std::vector<MidgardBasicElement::st_zusatz> LernListen::getSchriftenZusatz(const MBEmlt &MBE,const Abenteurer& Aben) const
+std::vector<MidgardBasicElement::st_zusatz> LernListen::getSchriftenZusatz(const MBEmlt &MBE,const Abenteurer& Aben)
 {
   std::vector<MidgardBasicElement::st_zusatz> B;
   for(std::list<cH_MidgardBasicElement>::const_iterator i=Datenbank.Schrift.begin();i!=Datenbank.Schrift.end();++i)
@@ -265,7 +265,7 @@ std::vector<MidgardBasicElement::st_zusatz> LernListen::getSchriftenZusatz(const
   return B;
 }
 
-std::vector<cH_Ruestung> LernListen::getRuestung(const Abenteurer &A) const
+std::vector<cH_Ruestung> LernListen::getRuestung(const Abenteurer &A)
 {
   std::vector<cH_Ruestung> V;
   for(std::vector<cH_Ruestung>::const_iterator i=Datenbank.Ruestung.begin();i!=Datenbank.Ruestung.end();++i)
@@ -318,7 +318,7 @@ bool LernListen::SpracheSchrift(const cH_MidgardBasicElement& MBE)
  return back;  
 }
 
-std::list<H_WaffeBesitz> LernListen::getWaffenBesitz(const Abenteurer& Aben) const
+std::list<H_WaffeBesitz> LernListen::getWaffenBesitz(const Abenteurer& Aben)
 {
   std::list<cH_MidgardBasicElement> V=Datenbank.Waffe;
   std::list<H_WaffeBesitz> L;
@@ -340,7 +340,7 @@ std::list<H_WaffeBesitz> LernListen::getWaffenBesitz(const Abenteurer& Aben) con
  return L;
 }
 
-std::vector<std::string> LernListen::getSpezialgebiet(const Abenteurer& A) const
+std::vector<std::string> LernListen::getSpezialgebiet(const Abenteurer& A)
 {
   std::vector<std::string> L;
   for(std::vector<cH_Spezialgebiet>::const_iterator i=Datenbank.Spezialgebiet.begin();i!=Datenbank.Spezialgebiet.end();++i) 
@@ -353,7 +353,7 @@ std::vector<std::string> LernListen::getSpezialgebiet(const Abenteurer& A) const
 }
 
 
-std::list<MBEmlt> LernListen::getBeruf(const Abenteurer& A) const
+std::list<MBEmlt> LernListen::getBeruf(const Abenteurer& A)
 {
   std::list<MBEmlt> L;
   for(std::list<cH_MidgardBasicElement>::const_iterator i=Datenbank.Beruf.begin();i!=Datenbank.Beruf.end();++i)
@@ -369,7 +369,7 @@ std::list<MBEmlt> LernListen::getBeruf(const Abenteurer& A) const
  return L;
 }
 
-std::vector<Beruf::st_vorteil> LernListen::getBerufsVorteil(const MBEmlt& beruf,const BerufsKategorie &BKat,const Abenteurer& A) const
+std::vector<Beruf::st_vorteil> LernListen::getBerufsVorteil(const MBEmlt& beruf,const BerufsKategorie &BKat,const Abenteurer& A)
 {
   cH_Beruf b(beruf->getMBE());
   std::vector<Beruf::st_vorteil> fert=b->Vorteile();

@@ -20,7 +20,6 @@
 #ifndef MAGUSKI
 #define MAGUSKI
 
-#include "LernListen.hh"
 #include<list>
 #include <Enums.hh>
 #include <Abenteurer.hh>
@@ -28,7 +27,6 @@
 class MagusKI
 {
       Abenteurer &Aben;
-      LernListen LL;
       Prozente100 prozente100;
       Grund_Standard_Ausnahme_MBE GSA_MBE;
       std::vector<cH_Prototyp2> vec_Prototypen;

@@ -80,7 +80,7 @@ void Zufall::setAngebFert()
    do{
       wurf=Random::W100(); 
       if(wurf==100) 
-       { std::list<MBEmlt> L=LL.getMBEm(Aben,LernListen::lAngebFert);
+       { std::list<MBEmlt> L=LernListen::getMBEm(Aben,LernListen::lAngebFert);
          std::vector<MBEmlt> V=List_to_Vector(L,Aben,99);
          if(V.empty()) break;
          int i=Random::integer(0,V.size()-1);

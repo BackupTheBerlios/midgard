@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.hh,v 1.13 2003/11/28 07:52:29 christof Exp $
+// $Id: Magus_Optionen.hh,v 1.14 2003/12/09 08:01:46 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -121,6 +121,8 @@ class Magus_Optionen
       bool geaendert;
       
       std::list<RadioModel> ausschluesse;
+      
+      SigC::Signal0<void> sig_history_geaendert;
 
       void Strings_init();
       void Optionen_init();
@@ -182,7 +184,7 @@ class Magus_Optionen
       void OptionenCheck_setzen_from_menu(OptionenCheckIndex index);
       void OptionenExecute_setzen_from_menu(OptionenExecuteIndex index);
       void pdfViewer_setzen_from_menu(pdfViewerIndex index);
-      
+      SigC::Signal0<void> &signal_history_changed() { return sig_history_geaendert; }
       
 //      Model_ref<bool> WerteEingebenModel() { return werte_eingeben; }
 };

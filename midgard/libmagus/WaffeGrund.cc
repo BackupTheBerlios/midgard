@@ -50,7 +50,7 @@ void WaffeGrund::get_WaffeGrund(const Tag &t)
 }
 
 bool WaffeGrund::is_sinnvoll(const std::list<cH_MidgardBasicElement> &WL,
-                             const Abenteurer &A,const LernListen &LL) const
+                             const Abenteurer &A) const
 {
   for(std::list<cH_MidgardBasicElement>::const_iterator i=WL.begin();i!=WL.end();++i)
    {
@@ -58,7 +58,7 @@ bool WaffeGrund::is_sinnvoll(const std::list<cH_MidgardBasicElement> &WL,
       {
 //cout << (*i)->Name()<<'\t'<<cH_Waffe(*i)->Grundkenntnis()<<'\t'<<Name()<<'\t'
 //<<(*i)->Voraussetzung(A,false)<<'\n';
-        if(!LL.region_check(A,(*i)->Region())) continue;
+        if(!LernListen::region_check(A,(*i)->Region())) continue;
         if((*i)->Voraussetzung(A,false)) return true;
       }
    }

@@ -1,4 +1,4 @@
-// $Id: LernListen_steigern.cc,v 1.4 2003/09/01 06:47:57 christof Exp $
+// $Id: LernListen_steigern.cc,v 1.5 2003/12/09 08:01:46 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -25,7 +25,7 @@
 #include "Zauber.hh"
 #include "Zauberwerk.hh"
 
-std::list<MBEmlt> LernListen::get_steigern_MBEm(const Abenteurer& A,Enums::MBEListen was) const
+std::list<MBEmlt> LernListen::get_steigern_MBEm(const Abenteurer& A,Enums::MBEListen was)
 {
   std::list<cH_MidgardBasicElement> V_;
   switch(was) {
@@ -102,7 +102,7 @@ std::list<MBEmlt> LernListen::get_steigern_MBEm(const Abenteurer& A,Enums::MBELi
 }
 
 std::list<MBEmlt> LernListen::get_steigern_Zauberliste(const Abenteurer& A,
-      bool salz,bool beschwoerung, bool alle,bool spruchrolle) const
+      bool salz,bool beschwoerung, bool alle,bool spruchrolle)
 {
   std::list<MBEmlt> L_=get_steigern_MBEm(A,Enums::sZaub);
   std::list<MBEmlt> L;
@@ -124,7 +124,7 @@ std::list<MBEmlt> LernListen::get_steigern_Zauberliste(const Abenteurer& A,
 }
 
 std::list<MBEmlt> LernListen::get_steigern_ZauberWerkliste(const Abenteurer& A,
-     bool alle) const
+     bool alle)
 {
   std::list<MBEmlt> L_=get_steigern_MBEm(A,Enums::sZWerk);
   std::list<MBEmlt> L;
@@ -141,7 +141,7 @@ std::list<MBEmlt> LernListen::get_steigern_ZauberWerkliste(const Abenteurer& A,
 }
 
 
-void LernListen::shorten_for_GFP(std::list<MBEmlt> &L_,const Abenteurer& A,const int gfp) const
+void LernListen::shorten_for_GFP(std::list<MBEmlt> &L_,const Abenteurer& A,const int gfp)
 {
   std::list<MBEmlt> L;
   for(std::list<MBEmlt>::const_iterator i=L_.begin();i!=L_.end();++i)

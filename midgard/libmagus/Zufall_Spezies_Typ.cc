@@ -25,7 +25,7 @@
 
 cH_Spezies Zufall::getSpezies() const
 {
-   std::vector<cH_Spezies> V=LL.getSpezies(true);
+   std::vector<cH_Spezies> V=LernListen::getSpezies(true);
    int i=Random::integer(0,V.size()-1);
    return V[i];   
 }
@@ -40,7 +40,7 @@ Enums::geschlecht Zufall::getGeschlecht() const
 
 cH_Typen Zufall::getTyp() const
 {
-   std::vector<std::pair<cH_Typen,bool> > V=LL.getTypen(Aben);
+   std::vector<std::pair<cH_Typen,bool> > V=LernListen::getTypen(Aben);
    int i=Random::integer(0,V.size()-1);
    return V[i].first;   
 }
@@ -60,7 +60,7 @@ Enums::StadtLand Zufall::getStadtLand() const
 
 cH_Land Zufall::getLand() const
 {
-   std::vector<std::pair<cH_Land,bool> > V_=LL.getHerkunft(Aben);
+   std::vector<std::pair<cH_Land,bool> > V_=LernListen::getHerkunft(Aben);
    std::vector<cH_Land> V; // nur die erlaubten Länder
    for(std::vector<std::pair<cH_Land,bool> >::const_iterator i=V_.begin();i!=V_.end();++i)
     {
@@ -75,7 +75,7 @@ cH_Land Zufall::getLand() const
 MBEmlt Zufall::getMuttersprache() const
 {
   
-  std::list<MBEmlt> V_=LL.getMBEm(Aben,LernListen::MutterSprache,0,0,"Allg");
+  std::list<MBEmlt> V_=LernListen::getMBEm(Aben,LernListen::MutterSprache,0,0,"Allg");
   std::vector<MBEmlt> V;
   for(std::list<MBEmlt>::const_iterator i=V_.begin();i!=V_.end();++i)
    {
@@ -91,7 +91,7 @@ MBEmlt Zufall::getMuttersprache() const
 
 MBEmlt Zufall::getUeberleben() const
 {
-  std::vector<MidgardBasicElement::st_zusatz> V=LL.getUeberlebenZusatz();
+  std::vector<MidgardBasicElement::st_zusatz> V=LernListen::getUeberlebenZusatz();
   int i=Random::integer(0,V.size()-1);
   MBEmlt M(&*cH_Fertigkeit(V[i].name));
   return M;

@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.15 2003/09/01 06:47:57 christof Exp $               
+// $Id: Abenteurer.hh,v 1.16 2003/12/09 08:01:46 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -55,15 +55,7 @@ class Abenteurer : public Grundwerte
 
 public:
 
-   void reset(){  list_Beruf.clear();
-             list_Fertigkeit_ang.clear();list_Fertigkeit.clear();
-             list_WaffenGrund.clear();list_Waffen.clear();
-             list_Waffen_besitz.clear();list_Zauber.clear();
-             list_Zauberwerk.clear();list_Kido.clear();
-             list_Sprache.clear();list_Schrift.clear(); 
-             Grundwerte::reset();
-             }
-
+   void reset();
    bool Valid() const;
 
    __deprecated Grundwerte &getWerte() {return *this;}

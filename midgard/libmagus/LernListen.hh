@@ -1,4 +1,4 @@
-// $Id: LernListen.hh,v 1.8 2003/09/18 07:32:12 christof Exp $
+// $Id: LernListen.hh,v 1.9 2003/12/09 08:01:46 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -30,48 +30,48 @@ class H_WaffeBesitz;
 
 // könnte jetzt Namespace werden
 
-struct LernListen
+namespace LernListen
 {
-private:
-      static bool nsc_check(bool nsc_allowed,bool nsc_only);
-      static bool nsc_check(const Abenteurer &A,bool nsc_only);
+//private:
+      bool nsc_check(bool nsc_allowed,bool nsc_only);
+      bool nsc_check(const Abenteurer &A,bool nsc_only);
 
-public:
+//public:
       enum eMBE{MutterSprache,GastlandSprache,NachbarlandSprache,AlteSprache,
                 lFach,lAllg,lUnge,lWaff,lZaub,lAngebFert};
 //                sFert,sWaff,sZaub,sSpra,sSchr,sWGru,sZWerk};
 
-      LernListen() {}   
+//      LernListen() {}   
 
-      static bool region_check(const Abenteurer &A, const std::string& region);
-      static bool SpracheSchrift(const cH_MidgardBasicElement& MBE);                
+      bool region_check(const Abenteurer &A, const std::string& region);
+      bool SpracheSchrift(const cH_MidgardBasicElement& MBE);                
       
-      std::vector<cH_Spezies> getSpezies(bool nsc_allowed) const ;
-      std::vector<std::pair<cH_Typen,bool> > getTypen(const Abenteurer& A) const;
-      std::vector<std::pair<cH_Land,bool> > getHerkunft(const Abenteurer& A) const;
-      std::vector<MidgardBasicElement::st_zusatz> getLandZusatz() const;
-      std::vector<MidgardBasicElement::st_zusatz> getMBEZusatz(const Abenteurer& A,const MBEmlt& MBE) const;
-      std::vector<MidgardBasicElement::st_zusatz> getUeberlebenZusatz() const; 
-      static std::vector<MidgardBasicElement::st_zusatz> getWaffenZusatz(const std::list<MBEmlt>& WL); 
-      std::vector<MidgardBasicElement::st_zusatz> getSprachenZusatz(const MBEmlt &MBE,const Abenteurer& Aben,bool nachbarland) const;
-      std::vector<MidgardBasicElement::st_zusatz> getSchriftenZusatz(const MBEmlt &MBE,const Abenteurer& Aben) const;
-      std::vector<std::string> getSpezialgebiet(const Abenteurer& A) const;
-      std::list<MBEmlt> getBeruf(const Abenteurer& A) const;      
-      std::vector<Beruf::st_vorteil> getBerufsVorteil(const MBEmlt& beruf,const BerufsKategorie &BKat,const Abenteurer& A) const;
-      std::vector<cH_Ruestung> getRuestung(const Abenteurer& A) const;
+      std::vector<cH_Spezies> getSpezies(bool nsc_allowed);
+      std::vector<std::pair<cH_Typen,bool> > getTypen(const Abenteurer& A);
+      std::vector<std::pair<cH_Land,bool> > getHerkunft(const Abenteurer& A);
+      std::vector<MidgardBasicElement::st_zusatz> getLandZusatz();
+      std::vector<MidgardBasicElement::st_zusatz> getMBEZusatz(const Abenteurer& A,const MBEmlt& MBE);
+      std::vector<MidgardBasicElement::st_zusatz> getUeberlebenZusatz(); 
+      std::vector<MidgardBasicElement::st_zusatz> getWaffenZusatz(const std::list<MBEmlt>& WL); 
+      std::vector<MidgardBasicElement::st_zusatz> getSprachenZusatz(const MBEmlt &MBE,const Abenteurer& Aben,bool nachbarland);
+      std::vector<MidgardBasicElement::st_zusatz> getSchriftenZusatz(const MBEmlt &MBE,const Abenteurer& Aben);
+      std::vector<std::string> getSpezialgebiet(const Abenteurer& A);
+      std::list<MBEmlt> getBeruf(const Abenteurer& A);      
+      std::vector<Beruf::st_vorteil> getBerufsVorteil(const MBEmlt& beruf,const BerufsKategorie &BKat,const Abenteurer& A);
+      std::vector<cH_Ruestung> getRuestung(const Abenteurer& A);
 
-      std::list<H_WaffeBesitz> getWaffenBesitz(const Abenteurer& Aben) const;
+      std::list<H_WaffeBesitz> getWaffenBesitz(const Abenteurer& Aben);
 
       std::list<MBEmlt> getMBEm(const Abenteurer& A,eMBE was, int erfolgswert=0,
-                     int lernpunkte=0,std::string lernart="") const;
+                     int lernpunkte=0,std::string lernart="");
 
-      std::list<MBEmlt> get_steigern_MBEm(const Abenteurer& A,Enums::MBEListen was) const;
+      std::list<MBEmlt> get_steigern_MBEm(const Abenteurer& A,Enums::MBEListen was);
       // beschwörung ... ist das nicht eine Region?
       std::list<MBEmlt> get_steigern_Zauberliste(const Abenteurer& A,
-            bool salz,bool beschwoerung, bool alle,bool spruchrolle) const;
+            bool salz,bool beschwoerung, bool alle,bool spruchrolle);
       std::list<MBEmlt> get_steigern_ZauberWerkliste(const Abenteurer& A,
-            bool alle) const;
-      void shorten_for_GFP(std::list<MBEmlt> &L,const Abenteurer& A,const int gfp) const;
+            bool alle);
+      void shorten_for_GFP(std::list<MBEmlt> &L,const Abenteurer& A,const int gfp);
 };
 
 

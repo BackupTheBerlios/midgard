@@ -24,13 +24,11 @@
 #include "AbenteurerLernpunkte.hh"
 #include "Abenteurer.hh"
 #include <Misc/bitmask.h>
-#include <LernListen.hh>
 
 class Zufall
 {
       Abenteurer &Aben;
       Abenteurer oldAben;
-      LernListen LL;
       AbenteurerLernpunkte lernpunkte;
       
 //      friend enum Zufall::B_VORGABE_BITS &operator++(enum Zufall::B_VORGABE_BITS &s);

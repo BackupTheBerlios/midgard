@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.8 2003/09/16 09:14:03 christof Exp $               
+// $Id: Grundwerte.cc,v 1.9 2003/12/09 08:01:46 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -22,6 +22,8 @@
 #include <Misc/itos.h>
 #include "Sinne.hh"
 #include "Fertigkeiten.hh"
+
+static unsigned neucount;
 
 void Grundwerte::reset()
 {
@@ -51,7 +53,7 @@ void Grundwerte::reset()
   grad=1;
   stand="";
   glaube="";
-  name_abenteurer="";
+  name_abenteurer="Neu "+itos(++neucount);
   version="Erschaffung";
   gfp=0;
   steigertage=0;

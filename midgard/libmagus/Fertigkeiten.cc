@@ -220,7 +220,7 @@ void Fertigkeit::get_region_lp(int &lp,const Abenteurer& A) const
 {
   for(std::vector<st_region_lern>::const_iterator i=vec_region_lp.begin();i!=vec_region_lp.end();++i)
    {
-     if(!LernListen().region_check(A,i->region)) continue;
+     if(!LernListen::region_check(A,i->region)) continue;
      if(A.Herkunft()->Name()==i->region)
        {
          if     (A.Stadt_Land()==Enums::Land  ) lp=i->lp_land;
