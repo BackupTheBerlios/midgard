@@ -124,6 +124,7 @@ void PreiseMod::get_PreiseMod()
     SQLerror::test(__FILELINE__,100);
     if (sqlca.sqlcode) break;
     vec_mod.push_back(st_vec(db_name,db_einheit,db_typ,db_faktor,db_min));
+cout << db_name<<"\t"<<db_typ<<'\n';
    }
   exec sql close PM2ein;
   tr.close();

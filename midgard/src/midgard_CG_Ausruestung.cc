@@ -106,7 +106,7 @@ void midgard_CG::fill_optionmenu_eigenschaft()
    {
      if(i->typ==*typ)
 cout <<"->"<< i->name<<"<-\n";
-     os << i->name<<'\n';
+//     os << i->name<<'\n';
 //     os.flush((gpointer)&*i);
    }  
 }

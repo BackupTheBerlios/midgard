@@ -79,22 +79,15 @@ class Waffe : public MidgardBasicElement
          const std::list<cH_MidgardBasicElement>& list_Waffen_besitz,
          const vector<cH_Typen>& Typ,
          const Grundwerte& Werte);
+
+#warning Warum geht das nicht?
+//    Waffe(const MidgardBasicElement &x)  :  (dynamic_cast<const Waffe&>(x)) {}
+
+
 };
 
 class cH_Waffe : public Handle<const Waffe>
 {
-/*
-   struct st_index {std::string name; int lernpunkte;
-      bool operator == (const st_index& b) const
-         {return (name==b.name && lernpunkte==b.lernpunkte);}
-      bool operator <  (const st_index& b) const
-         { return name < b.name ||
-             (name==b.name && lernpunkte<b.lernpunkte ); }
-      st_index(std::string n, int l)
-         :name(n),lernpunkte(l){}
-      st_index(){}
-      };
-*/
     typedef CacheStatic<std::string,cH_Waffe> cache_t;
     static cache_t cache;
     cH_Waffe() {};

@@ -148,7 +148,7 @@ int MidgardBasicElement::Steigern(const vector<cH_Typen>& Typ,const Ausnahmen& a
    else 
       kosten = get_Steigern_Kosten(abs(Erfolgswert())-1);
    int back = int(Standard_Faktor(Typ,ausnahmen)*kosten);
-   if (What()==WAFFE) back *= cH_Waffe(this)->Schwierigkeit();
+//   if (What()==WAFFE) back *= cH_Waffe(this)->Schwierigkeit();
    return back;
 }
 int MidgardBasicElement::Reduzieren(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const 
@@ -159,17 +159,17 @@ int MidgardBasicElement::Reduzieren(const vector<cH_Typen>& Typ,const Ausnahmen&
 //   else 
       kosten = get_Steigern_Kosten(abs(Erfolgswert()));
    int back = int(Standard_Faktor(Typ,ausnahmen)*kosten);
-   if (What()==WAFFE) back *= cH_Waffe(this)->Schwierigkeit();
+//   if (What()==WAFFE) back *= cH_Waffe(this)->Schwierigkeit();
    return back;
 }
 int MidgardBasicElement::Verlernen(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
 {
    if(Reduzieren(Typ,ausnahmen)==0)
     {
-      if(What()!=WAFFE)
+//      if(What()!=WAFFE)
         return Kosten(Typ,ausnahmen);
-      else 
-        return Kosten(Typ,ausnahmen)*cH_Waffe(this)->Schwierigkeit();
+//      else 
+//        return Kosten(Typ,ausnahmen)*cH_Waffe(this)->Schwierigkeit();
     }      
    else return 0;
 }

@@ -38,10 +38,10 @@ void MidgardBasicElement::get_map_typ()
              +"' and stufe ='"+Stufe()+"'";
  if(What()==FERTIGKEIT )
     squery ="select typ,standard from fertigkeiten_typen where name ='"+Name()+"'";
- if(What()==WAFFEGRUND || What()==WAFFE)
+ if(What()==WAFFEGRUND)
     squery ="select typ,standard from waffen_typen where name ='"+Name()+"'";
  if(What()==WAFFE)
-    squery ="select typ,standard from waffen_typen where name ='"+cH_Waffe(this)->Grundkenntnis()+"'";
+    squery ="select typ,standard from waffen_typen where name ='"+dynamic_cast<Waffe*>(this)->Grundkenntnis()+"'";
  if(What()==SPRACHE)
     squery ="select typ,standard from fertigkeiten_typen where name ='Sprache'";
  if(What()==SCHRIFT)
@@ -131,8 +131,8 @@ void MidgardBasicElement::get_Steigern_Kosten_map()
    squery += "steigern_fertigkeiten_werte w, steigern_fertigkeiten s where 
                s.wie = w.name and s.name = 'Sprache'"; 
   if(What()==WAFFE) 
-   squery += "waffen_steigern w, waffen s where 
-               s.art = w.name and s.name = '"+Name()+"'"; 
+   squery += "waffen_steigern s, waffen w where 
+               s.schwierigkeit = w.schwierigkeit and w.name = '"+Name()+"'"; 
   strncpy(query,squery.c_str(),sizeof(query));
   exec sql prepare SKM_ein_ from :query;
   exec sql declare SKM_ein cursor for SKM_ein_;
@@ -161,6 +161,7 @@ void MidgardBasicElement::get_Steigern_Kosten_map()
    map_erfolgswert_kosten[19] = P19;
   exec sql close SKM_ein;
   tr.close();
+//if(What()==WAFFE) 
 //for(std::map<int,int>::const_iterator i=map_erfolgswert_kosten.begin();i!=map_erfolgswert_kosten.end();++i)
 // cout <<Name()<<'\t'<<i->first<<'\t'<<i->second<<'\n';
 }
