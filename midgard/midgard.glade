@@ -2257,16 +2257,46 @@ andere geholfen.</label>
 	</widget>
 
 	<widget>
-	  <class>GtkPixmap</class>
+	  <class>GtkHBox</class>
 	  <child_name>Notebook:tab</child_name>
-	  <name>pixmap_logo</name>
-	  <cxx_visibility>protected</cxx_visibility>
-	  <filename>midgard_logo_small.xpm</filename>
-	  <xalign>0.5</xalign>
-	  <yalign>0.5</yalign>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	  <build_insensitive>True</build_insensitive>
+	  <name>hbox64</name>
+	  <homogeneous>False</homogeneous>
+	  <spacing>0</spacing>
+
+	  <widget>
+	    <class>GtkPixmap</class>
+	    <child_name>Notebook:tab</child_name>
+	    <name>pixmapLogo</name>
+	    <cxx_visibility>protected</cxx_visibility>
+	    <filename>midgard_logo_small.xpm</filename>
+	    <xalign>0.5</xalign>
+	    <yalign>0.5</yalign>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <build_insensitive>True</build_insensitive>
+	    <child>
+	      <padding>0</padding>
+	      <expand>True</expand>
+	      <fill>True</fill>
+	    </child>
+	  </widget>
+
+	  <widget>
+	    <class>GtkPixmap</class>
+	    <name>pixmap_original_tux</name>
+	    <cxx_visibility>protected</cxx_visibility>
+	    <filename>MAGUS_Logo_Small.xpm</filename>
+	    <xalign>0.5</xalign>
+	    <yalign>0.5</yalign>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <build_insensitive>True</build_insensitive>
+	    <child>
+	      <padding>0</padding>
+	      <expand>True</expand>
+	      <fill>True</fill>
+	    </child>
+	  </widget>
 	</widget>
 
 	<widget>
@@ -4985,7 +5015,7 @@ setzen</label>
 		      <yexpand>False</yexpand>
 		      <xshrink>False</xshrink>
 		      <yshrink>False</yshrink>
-		      <xfill>True</xfill>
+		      <xfill>False</xfill>
 		      <yfill>True</yfill>
 		    </child>
 
@@ -5976,7 +6006,8 @@ Abenteurerblatt</label>
 
 		<widget>
 		  <class>GtkVBox</class>
-		  <name>vbox44</name>
+		  <name>vbox_gw_wuerfeln</name>
+		  <cxx_visibility>protected</cxx_visibility>
 		  <homogeneous>True</homogeneous>
 		  <spacing>0</spacing>
 
@@ -6018,7 +6049,7 @@ Abenteurerblatt</label>
 		    <class>GtkRadioButton</class>
 		    <name>radiobutton_eigenschaften_69</name>
 		    <cxx_visibility>protected</cxx_visibility>
-		    <tooltip>9x würfeln, die besten sech Ergebnisse frei verteilen.</tooltip>
+		    <tooltip>9x würfeln, die besten sechs Ergebnisse frei verteilen.</tooltip>
 		    <can_focus>True</can_focus>
 		    <label>6 von 9</label>
 		    <active>False</active>
@@ -6368,6 +6399,7 @@ editieren</label>
 
 	    <widget>
 	      <class>Placeholder</class>
+	      <child_name>Notebook:tab</child_name>
 	    </widget>
 
 	    <widget>
@@ -7452,8 +7484,8 @@ auswählen</label>
 		<widget>
 		  <class>GtkTable</class>
 		  <name>table_berufswahl</name>
-		  <rows>1</rows>
-		  <columns>2</columns>
+		  <rows>3</rows>
+		  <columns>3</columns>
 		  <homogeneous>False</homogeneous>
 		  <row_spacing>0</row_spacing>
 		  <column_spacing>0</column_spacing>
@@ -7479,8 +7511,8 @@ auswählen</label>
 		    <homogeneous>False</homogeneous>
 		    <spacing>0</spacing>
 		    <child>
-		      <left_attach>1</left_attach>
-		      <right_attach>2</right_attach>
+		      <left_attach>2</left_attach>
+		      <right_attach>3</right_attach>
 		      <top_attach>0</top_attach>
 		      <bottom_attach>1</bottom_attach>
 		      <xpad>0</xpad>
@@ -7598,6 +7630,175 @@ auswählen</label>
 			</child>
 		      </widget>
 		    </widget>
+		  </widget>
+
+		  <widget>
+		    <class>GtkTable</class>
+		    <name>table130</name>
+		    <rows>2</rows>
+		    <columns>2</columns>
+		    <homogeneous>False</homogeneous>
+		    <row_spacing>0</row_spacing>
+		    <column_spacing>0</column_spacing>
+		    <child>
+		      <left_attach>1</left_attach>
+		      <right_attach>2</right_attach>
+		      <top_attach>0</top_attach>
+		      <bottom_attach>1</bottom_attach>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <xexpand>False</xexpand>
+		      <yexpand>False</yexpand>
+		      <xshrink>False</xshrink>
+		      <yshrink>False</yshrink>
+		      <xfill>False</xfill>
+		      <yfill>True</yfill>
+		    </child>
+
+		    <widget>
+		      <class>GtkLabel</class>
+		      <name>label557</name>
+		      <label>gewürfelt</label>
+		      <justify>GTK_JUSTIFY_CENTER</justify>
+		      <wrap>False</wrap>
+		      <xalign>0</xalign>
+		      <yalign>0.5</yalign>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <child>
+			<left_attach>0</left_attach>
+			<right_attach>2</right_attach>
+			<top_attach>0</top_attach>
+			<bottom_attach>1</bottom_attach>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<xexpand>False</xexpand>
+			<yexpand>False</yexpand>
+			<xshrink>False</xshrink>
+			<yshrink>False</yshrink>
+			<xfill>True</xfill>
+			<yfill>False</yfill>
+		      </child>
+		    </widget>
+
+		    <widget>
+		      <class>GtkLabel</class>
+		      <name>label558</name>
+		      <label>%</label>
+		      <justify>GTK_JUSTIFY_CENTER</justify>
+		      <wrap>False</wrap>
+		      <xalign>0</xalign>
+		      <yalign>0.5</yalign>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <child>
+			<left_attach>1</left_attach>
+			<right_attach>2</right_attach>
+			<top_attach>1</top_attach>
+			<bottom_attach>2</bottom_attach>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<xexpand>False</xexpand>
+			<yexpand>False</yexpand>
+			<xshrink>False</xshrink>
+			<yshrink>False</yshrink>
+			<xfill>True</xfill>
+			<yfill>False</yfill>
+		      </child>
+		    </widget>
+
+		    <widget>
+		      <class>GtkSpinButton</class>
+		      <name>spinbutton_beruf</name>
+		      <cxx_visibility>protected</cxx_visibility>
+		      <can_focus>True</can_focus>
+		      <signal>
+			<name>activate</name>
+			<handler>on_spinbutton_beruf_activate</handler>
+			<last_modification_time>Thu, 21 Feb 2002 08:26:02 GMT</last_modification_time>
+		      </signal>
+		      <climb_rate>1</climb_rate>
+		      <digits>0</digits>
+		      <numeric>False</numeric>
+		      <update_policy>GTK_UPDATE_ALWAYS</update_policy>
+		      <snap>False</snap>
+		      <wrap>False</wrap>
+		      <value>1</value>
+		      <lower>1</lower>
+		      <upper>100</upper>
+		      <step>1</step>
+		      <page>10</page>
+		      <page_size>10</page_size>
+		      <child>
+			<left_attach>0</left_attach>
+			<right_attach>1</right_attach>
+			<top_attach>1</top_attach>
+			<bottom_attach>2</bottom_attach>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<xexpand>False</xexpand>
+			<yexpand>False</yexpand>
+			<xshrink>False</xshrink>
+			<yshrink>False</yshrink>
+			<xfill>False</xfill>
+			<yfill>False</yfill>
+		      </child>
+		    </widget>
+		  </widget>
+
+		  <widget>
+		    <class>GtkLabel</class>
+		    <name>label_berufskategorie</name>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <label>Kategorie</label>
+		    <justify>GTK_JUSTIFY_CENTER</justify>
+		    <wrap>False</wrap>
+		    <xalign>0</xalign>
+		    <yalign>0.5</yalign>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <child>
+		      <left_attach>0</left_attach>
+		      <right_attach>3</right_attach>
+		      <top_attach>1</top_attach>
+		      <bottom_attach>2</bottom_attach>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <xexpand>False</xexpand>
+		      <yexpand>False</yexpand>
+		      <xshrink>False</xshrink>
+		      <yshrink>False</yshrink>
+		      <xfill>True</xfill>
+		      <yfill>False</yfill>
+		    </child>
+		  </widget>
+
+		  <widget>
+		    <class>GtkLabel</class>
+		    <name>label_berufsstern_erklaerung</name>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <label>Ein * bezeichnet eine bereits gelernte Fertigkeit.
+Für diese wird dann der Erfolgswert um eins erhöht.</label>
+		    <justify>GTK_JUSTIFY_CENTER</justify>
+		    <wrap>False</wrap>
+		    <xalign>0.49</xalign>
+		    <yalign>0.5</yalign>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <child>
+		      <left_attach>0</left_attach>
+		      <right_attach>3</right_attach>
+		      <top_attach>2</top_attach>
+		      <bottom_attach>3</bottom_attach>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <xexpand>False</xexpand>
+		      <yexpand>False</yexpand>
+		      <xshrink>False</xshrink>
+		      <yshrink>False</yshrink>
+		      <xfill>True</xfill>
+		      <yfill>False</yfill>
+		    </child>
 		  </widget>
 		</widget>
 
@@ -11300,6 +11501,7 @@ eingeben</label>
 		      <class>GtkRadioButton</class>
 		      <name>radiobutton_pp_fertigkeit</name>
 		      <cxx_visibility>protected</cxx_visibility>
+		      <tooltip>Nach Aktivierung dieses Knopfes muß die Fertigkeit gewählt werden, für die PP eingegeben werden sollen.</tooltip>
 		      <can_focus>True</can_focus>
 		      <signal>
 			<name>toggled</name>

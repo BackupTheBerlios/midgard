@@ -200,25 +200,25 @@ Berufe&{\beruf}\\\hline
 \hfill
 \parbox[t]{7.5cm}{
 \tiny
-\begin{tabular}{|lr|lr|lr|}
+\begin{tabular}{|lr|lr|lrr|}
 \hline
 \multicolumn{2}{|l|}{Sinne} 
    & \multicolumn{2}{l|}{pers. Boni für} 
-   & \multicolumn{2}{l|}{Erfolgswerte}\\\hline
-Sehen          & \sinnse   &Ausdauer & \boau  &Raufen & \raufen \\
-Hören          & \sinnh    &Schaden  & \bosc  &Abwehr  & \abwehr \\
-Riechen        & \sinnr    &Angriff  & \boan  &Zaubern & \zauber \\
-Schmecken      & \sinnsc   &Abwehr   & \boab  &Geistesmagie & \psy \\
-Tasten         & \sinnt    &Zaubern  & \boza  &Körpermagie & \phs \\
-Sechster Sinn  & \sinnss   &Geistmagie    & \bopsy &Umgebungsmagie & \phk \\
-               &           &Körpermagie   & \bophs &Gift & \gift  \\
-\multicolumn{2}{|l|}{\hand}  &Umgebungsmagie   & \bophk & & \\\hline
+   & \multicolumn{2}{l}{Erfolgswerte}&PP\\\hline
+Sehen          & \sinnse   &Ausdauer & \boau  &Raufen & \raufen & \\
+Hören          & \sinnh    &Schaden  & \bosc  &Abwehr  & \abwehr & \ppabwehr \\
+Riechen        & \sinnr    &Angriff  & \boan  &Zaubern & \zauber & \ppzauber \\
+Schmecken      & \sinnsc   &Abwehr   & \boab  &Geistesmagie & \psy&  \ppresistenz \\
+Tasten         & \sinnt    &Zaubern  & \boza  &Körpermagie & \phs & \\
+Sechster Sinn  & \sinnss   &Geistmagie    & \bopsy &Umgebungsmagie & \phk& \\
+               &           &Körpermagie   & \bophs &Gift & \gift & \\
+\multicolumn{2}{|l|}{\hand}  &Umgebungsmagie   & \bophk & & &\\\hline
 \end{tabular}
 }
 \hfill
-\IfFileExists{wurfbeil.ps}{\parbox{3cm}{\epsfig{width=3cm,angle=0,file=wurfbeil.ps}}}%
-{\parbox{3cm}{\epsfig{width=3cm,angle=0,file=@PACKAGE_DATA_DIR@wurfbeil.ps}}}
-\hfill~
+\IfFileExists{wurfbeil.ps}{\parbox{2cm}{\epsfig{width=2cm,angle=0,file=wurfbeil.ps}}}%
+{\parbox{2cm}{\epsfig{width=2cm,angle=0,file=@PACKAGE_DATA_DIR@wurfbeil.ps}}}
+%\hfill~
 
 \parbox{6cm}
 {

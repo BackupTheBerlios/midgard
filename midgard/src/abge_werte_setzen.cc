@@ -1,4 +1,4 @@
-// $Id: abge_werte_setzen.cc,v 1.44 2002/02/06 16:37:27 thoma Exp $
+// $Id: abge_werte_setzen.cc,v 1.45 2002/02/21 10:23:30 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -51,7 +51,7 @@ void midgard_CG::on_abge_werte_setzen_clicked()
     if (ap<4) ap=4;
     Werte.setAP(ap);
   }
-  Werte.setLP(random.integer(1,6)+Werte.Ko()/10.+4+Werte.Spezies()->LPBasis());
+  Werte.setLP(random.integer(1,6)+Werte.Ko()/10+4+Werte.Spezies()->LPBasis());
 
   /////////////////////////////////////////////////////////////////////////
   // Körper und Stand
@@ -67,18 +67,22 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   {
    int gewicht=0,ganz=0;
    if(Werte.Spezies()->Name()=="Mensch" || 
-     Werte.Spezies()->Name()=="Elf" || 
-     Werte.Spezies()->Name()=="Zwerg" )
+      Werte.Spezies()->Name()=="Elf" || 
+      Werte.Spezies()->Name()=="Zwerg" )
     ganz=4;
    else ganz=3;
    for (int i=0;i<ganz;++i) gewicht+=random.integer(1,6) ;
    if (Werte.Spezies()->Name()=="Mensch" && Werte.Geschlecht()=="w")
     gewicht-=4;
    gewicht += Werte.St()/10. + Werte.Groesse();
-   if(Werte.Spezies()->Name()=="Mensch" || 
-      Werte.Spezies()->Name()=="Elf")
-      gewicht-=120;
-   else gewicht -=90;
+   if(Werte.Spezies()->Name()=="Mensch")
+       gewicht-=120;
+    else if (Werte.Spezies()->Name()=="Elf")
+       gewicht-=128;
+    else if (Werte.Spezies()->Name()=="Halbling")
+       gewicht -=87;
+    else
+       gewicht -=90;
    Werte.setGewicht(gewicht);
   }
   {
@@ -95,6 +99,20 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   {
     int istand=random.integer(1,100);
     int typstand = Typ[0]->Stand();
+
+/*
+>     int typstand = Typ[0]->Stand();   // Anscheinend für
+> Doppelcharaktere
+>     (typstand<Typ[1]->Stand()) ? typstand=Typ[1]->Stand() : istand +=
+> typstand;
+> // Falls der Standmodifikator von Typ0 < Typ1, wird typstand = Typ1,
+> sonst wird Typ1 addiert. Ne.
+> Besser: 
+>     (typstand<Typ[1]->Stand()) ? istand+=Typ[1]->Stand() : istand +=
+> typstand;
+> 
+*/
+
     (typstand<Typ[1]->Stand()) ? typstand=Typ[1]->Stand() : istand += typstand;
 //std::cout << "typstand\t"<<typstand<<"\n";
     std::string stand;  

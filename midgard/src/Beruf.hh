@@ -25,6 +25,7 @@
 
 class Beruf : public MidgardBasicElement
 {
+   private:
       std::string geschlecht; 
       int klasse;
       vector<std::string> vorteile;

@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.98 2002/02/12 11:22:44 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.99 2002/02/21 10:23:30 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -126,6 +126,7 @@ void midgard_CG::LaTeX_write_values()
 
 // fout << "\\newcommand{\\bogi}{ X }\n";
  fout << "\\newcommand{\\psy}{"<<Werte.Resistenz()+Werte.bo_Psy(Typ)<<"}\n";
+ fout << "\\newcommand{\\ppresistenz}{"<<EmptyInt_4TeX(Werte.ResistenzPP())<<"}\n";
  fout << "\\newcommand{\\phs}{"<<Werte.Resistenz()+Werte.bo_Phs(Typ)<<"}\n";
  fout << "\\newcommand{\\phk}{"<<Werte.Resistenz()+Werte.bo_Phk(Typ)<<"}\n";
 // fout << "\\newcommand{\\gift}{"<<3*Werte.LP()+Werte.bo_Gift()+ Spezies_constraint.Gift()<<"}\n";
@@ -133,6 +134,7 @@ void midgard_CG::LaTeX_write_values()
 
  fout << "\\newcommand{\\raufen}{"<<Werte.Raufen()<< "}\n";
  fout << "\\newcommand{\\abwehr}{"<<Werte.Abwehr_wert()<< "}\n";
+ fout << "\\newcommand{\\ppabwehr}{"<<EmptyInt_4TeX(Werte.AbwehrPP())<< "}\n";
  int ohne_waffe=Werte.Abwehr_wert()+Werte.bo_Ab();
  int abwehr_verlust = Werte.Ruestung()->AbwehrBonus_Verlust(Werte.bo_Ab());
  if(!cH_Fertigkeit("Kampf in Vollrüstung")->ist_gelernt(list_Fertigkeit) &&
@@ -146,6 +148,7 @@ void midgard_CG::LaTeX_write_values()
  fout << "\\newcommand{\\abwehrmitwaffe}{"<<mit_waffe<<abwehr_verlust_string<<"}\n";
 
  fout << "\\newcommand{\\zauber}{"<<EmptyInt_4TeX(Werte.Zaubern_wert())<< "}\n";
+ fout << "\\newcommand{\\ppzauber}{"<<EmptyInt_4TeX(Werte.ZaubernPP())<< "}\n";
  fout << "\\newcommand{\\alter}{"  <<Werte.Alter() << "}\n";
  fout << "\\newcommand{\\gestalt}{"  <<LaTeX_scale(Werte.Gestalt(),5,"0.7cm") << "}\n";
  fout << "\\newcommand{\\gewicht}{"  <<Werte.Gewicht() << "\\,kg}\n";
@@ -469,6 +472,10 @@ void midgard_CG::LaTeX_write_empty_values()
  fout << "\\newcommand{\\abwehr}{}\n";
  fout << "\\newcommand{\\abwehrfinal}{}\n";
  fout << "\\newcommand{\\abwehrmitwaffe}{}\n";
+
+ fout << "\\newcommand{\\ppresistenz}{}\n";
+ fout << "\\newcommand{\\ppabwehr}{}\n";
+ fout << "\\newcommand{\\ppzauber}{}\n";
 
  fout << "\\newcommand{\\zauber}{}\n";
  fout << "\\newcommand{\\alter}{}\n";

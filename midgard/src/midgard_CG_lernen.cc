@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.76 2002/02/19 14:36:32 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.77 2002/02/21 10:23:31 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,6 +26,7 @@
 //#include "Zauber.hh"
 #include "Fertigkeiten.hh"
 #include "Sprache_auswahl.hh"
+#include "class_Beruf_Data.hh"
 
 void midgard_CG::on_herkunftsland_clicked()
 {
@@ -62,7 +63,7 @@ void midgard_CG::on_lernpunkte_wuerfeln_clicked()
   button_waffen->set_sensitive(true);
   if(Typ[0]->Zaubern()=="j" || Typ[0]->Zaubern() == "z" || magie_bool) 
       button_zauber->set_sensitive(true);
-  vbox_berufsname->set_sensitive(true);               
+//  vbox_berufsname->set_sensitive(true);               
   button_geld_waffen->set_sensitive(true);
   button_ruestung->set_sensitive(true);
 
@@ -103,6 +104,7 @@ void midgard_CG::edit_lernpunkte(bool b)
  spinbutton_unge->set_sensitive(b);
  spinbutton_waffen->set_sensitive(b);
  spinbutton_zauber->set_sensitive(b);
+ spinbutton_beruf->set_sensitive(b);
 }
 
 
@@ -151,7 +153,12 @@ void midgard_CG::zeige_lernpunkte()
  spinbutton_unge->set_value(lernpunkte.Unge());
  spinbutton_waffen->set_value(lernpunkte.Waffen());
  spinbutton_zauber->set_value(lernpunkte.Zauber());
-  zeige_werte(Werte);
+ zeige_werte(Werte);
+
+ if(lernpunkte.Fach()==0 && lernpunkte.Allgemein()==0 &&
+    lernpunkte.Unge()==0 && lernpunkte.Waffen()==0 &&
+    lernpunkte.Zauber()==0 )
+ vbox_berufsname->set_sensitive(true);
 }
 
 void midgard_CG::on_button_geld_waffen_clicked()
@@ -305,6 +312,7 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
 
 void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
 {
+  try{
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE();
   switch(MBE->What()) {
@@ -355,6 +363,38 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
   else   show_lernschema(MBE->What());
 //cout <<"2 " << MBE->Name()<<' '<<MBE->Erfolgswert()<<'\n';
   MBE->set_Erfolgswert(e);
+  }
+  catch(...) 
+  {
+    const Beruf_Data *dt=dynamic_cast<const Beruf_Data*>(&*d);
+    cH_MidgardBasicElement mbe(&*cH_Beruf(dt->Beruf()));
+    MidgardBasicElement_uebernehmen(mbe);
+    if(dt->Gelernt()) // Erfolgswert um eins erhöhen
+      for (std::list<cH_MidgardBasicElement>::const_iterator k=list_Fertigkeit.begin();k!=list_Fertigkeit.end();++k)
+        {
+          if((*k)->Name()==dt->Fert())
+           { (*k)->add_Erfolgswert(1);
+             if((*k)->What()==MidgardBasicElement::FERTIGKEIT)
+                cH_Fertigkeit(*k)->setLernArt("Beruf+");
+           }
+        }
+    else // neue Fertigkeit
+      {
+         cH_MidgardBasicElement saf(&*cH_Fertigkeit(dt->Fert()));
+         MidgardBasicElement_uebernehmen(saf,true);
+      }
+    if(!BKategorie.kat_IV || (dt->Kat()==3 || dt->Kat()==4) ) 
+      {
+         tree_lernschema->clear();
+         label_berufskategorie->set_text("");
+         label_berufskategorie->hide();
+         label_berufsstern_erklaerung->hide();
+      }
+    else
+      {
+#warning mehrere Berufe -> TODO
+      }
+  }
   show_gelerntes();
 }
 
@@ -388,6 +428,7 @@ void midgard_CG::show_gelerntes()
 
 void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std::string& fert)
 {
+  if(what==MidgardBasicElement::BERUF) label_lernschma_titel->set_text("Beruf");
   if(what==MidgardBasicElement::WAFFE) label_lernschma_titel->set_text("Waffen");
   if(what==MidgardBasicElement::ZAUBER) label_lernschma_titel->set_text("Zauber");
   if(what==MidgardBasicElement::FERTIGKEIT)
@@ -454,6 +495,8 @@ void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std
    }
   if(fert!="Unge" && fert!="Allg" )
     {
+      if(what==MidgardBasicElement::BERUF)
+         LW=Database.Beruf;
       if(what==MidgardBasicElement::WAFFE)
          LW=Database.lernschema.get_List("Waffenfertigkeiten",Typ);
       if(what==MidgardBasicElement::ZAUBER)
@@ -467,42 +510,56 @@ void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std
                if (!region_check(cH_Waffe(*i)->Region((*i)->Name()))) continue;
           else if (!region_check((*i)->Region())) continue;
 
-          Lernschema::st_index I;
-          if(what==MidgardBasicElement::WAFFE)  
+          if(what==MidgardBasicElement::BERUF)
            {
-             if((*i)->Lernpunkte()>lernpunkte.Waffen()) continue;
-             if ((*i)->ist_gelernt(list_Waffen)) continue ;
-             if (!cH_Waffe(*i)->SG_Voraussetzung(Werte)) continue ;
-             I= Lernschema::st_index(Typ[0]->Short(),"Waffenfertigkeiten",(*i)->Name());
+             cH_Beruf b(*i);
+             if ( !b->Typ(Typ) ||  !b->Stand(Werte.Stand()) ) continue;
+             if(!b->Stadt() && Werte.Stadt_Land()=="Stadt") continue;  
+             if(!b->Land()  && Werte.Stadt_Land()=="Land") continue;   
+             newlist.push_back(*i);
+           }
+          else
+           {
+             Lernschema::st_index I;
+             if(what==MidgardBasicElement::WAFFE)  
+              {
+                if((*i)->Lernpunkte()>lernpunkte.Waffen()) continue;
+                if ((*i)->ist_gelernt(list_Waffen)) continue ;
+                if (!cH_Waffe(*i)->SG_Voraussetzung(Werte)) continue ;
+                I= Lernschema::st_index(Typ[0]->Short(),"Waffenfertigkeiten",(*i)->Name());
 //cout << "Spezial "<<Werte.Spezialisierung()<<' '<<(*i)->Name()
 //<<' '<<(*i)->Erfolgswert()<<'\t';
 //             if(Werte.Spezialisierung()==(*i)->Name()) 
 //                  (*i)->add_Erfolgswert(2);
 //cout <<' '<<(*i)->Erfolgswert()<<'\n';
-           }
-          else if(what==MidgardBasicElement::ZAUBER)
-           {
-             if((*i)->Lernpunkte()>lernpunkte.Zauber()) continue;
-             if ((*i)->ist_gelernt(list_Zauber)) continue ;
-             if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) continue ;
-             I=Lernschema::st_index(Typ[0]->Short(),"Zauberkünste",(*i)->Name());
-           }
-          else if(what==MidgardBasicElement::FERTIGKEIT)
-           {
-             if((*i)->Lernpunkte()>lernpunkte.Fach()) continue;
-             if ((*i)->ist_gelernt(list_Fertigkeit)) continue ;
-             if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) continue ;
-             if (!cH_Fertigkeit(*i)->Voraussetzungen(Werte)) continue ;
-             if(Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name(),true)) continue;
-             I=Lernschema::st_index(Typ[0]->Short(),"Fachkenntnisse",(*i)->Name());
-             cH_Fertigkeit(*i)->set_Erfolgswert(cH_Fertigkeit(*i)->Anfangswert0()+cH_Fertigkeit(*i)->AttributBonus(Werte));
-             cH_Fertigkeit(*i)->setPflicht(Database.lernschema.get_Pflicht(I));
-           }
-          (*i)->set_Lernpunkte(Database.lernschema.get_Lernpunkte(I));
-          newlist.push_back(*i);
+               }
+              else if(what==MidgardBasicElement::ZAUBER)
+               {
+                if((*i)->Lernpunkte()>lernpunkte.Zauber()) continue;
+                if ((*i)->ist_gelernt(list_Zauber)) continue ;
+                if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) continue ;
+                I=Lernschema::st_index(Typ[0]->Short(),"Zauberkünste",(*i)->Name());
+               }
+              else if(what==MidgardBasicElement::FERTIGKEIT)
+               {
+                if((*i)->Lernpunkte()>lernpunkte.Fach()) continue;
+                if ((*i)->ist_gelernt(list_Fertigkeit)) continue ;
+                if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) continue ;
+                if (!cH_Fertigkeit(*i)->Voraussetzungen(Werte)) continue ;
+                if(Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name(),true)) continue;
+                I=Lernschema::st_index(Typ[0]->Short(),"Fachkenntnisse",(*i)->Name());
+                cH_Fertigkeit(*i)->set_Erfolgswert(cH_Fertigkeit(*i)->Anfangswert0()+cH_Fertigkeit(*i)->AttributBonus(Werte));
+                cH_Fertigkeit(*i)->setPflicht(Database.lernschema.get_Pflicht(I));
+              }
+             (*i)->set_Lernpunkte(Database.lernschema.get_Lernpunkte(I));
+             newlist.push_back(*i);
+            }
         }
      }
-  MidgardBasicElement::show_list_in_tree(newlist,tree_lernschema,Werte,Typ,Database.ausnahmen);
+  if(what==MidgardBasicElement::BERUF)
+    showBerufsLernList(newlist);
+  else
+     MidgardBasicElement::show_list_in_tree(newlist,tree_lernschema,Werte,Typ,Database.ausnahmen);
   setTitels_for_Lernschema(what,fert);
   tree_lernschema->Expand_recursively();
 }
@@ -510,10 +567,10 @@ void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std
 void midgard_CG::setTitels_for_Lernschema(const MidgardBasicElement::MBEE& what,const std::string& fert)
 {
  vector<std::string> vs;
- vs.push_back("LP");
  switch (what) {
    case MidgardBasicElement::WAFFE:
      {
+       vs.push_back("LP");
        vs.push_back("Grundkenntnnis"); // PFLICHTg
        vs.push_back("Waffe");
        vs.push_back("Wert");  
@@ -524,6 +581,7 @@ void midgard_CG::setTitels_for_Lernschema(const MidgardBasicElement::MBEE& what,
      }
    case MidgardBasicElement::FERTIGKEIT:
      {
+       vs.push_back("LP");
        vs.push_back("Pflicht");
        vs.push_back("Fertigkeit");
        vs.push_back("Wert");  
@@ -534,6 +592,7 @@ void midgard_CG::setTitels_for_Lernschema(const MidgardBasicElement::MBEE& what,
      }
    case MidgardBasicElement::ZAUBER:
      {
+       vs.push_back("LP");
        vs.push_back("");
        vs.push_back("Zauber");
        vs.push_back("AP"); // WERTg
@@ -542,31 +601,57 @@ void midgard_CG::setTitels_for_Lernschema(const MidgardBasicElement::MBEE& what,
        vs.push_back("Kosten");    
        break;
      }
+   case MidgardBasicElement::BERUF:
+     {
+       vs.push_back("");
+       vs.push_back("Pflicht"); // PFLICHTg
+       vs.push_back("Beruf"); 
+       vs.push_back("Gelernt"); // WERTg
+       vs.push_back("Fertigkeit"); // EIGENSCHAFTg
+       vs.push_back("Kategorie"); // VORAUSSETZUNGg
+       vs.push_back("");    // KOSTENg
+       break;
+     }
    default: break;
    }
  tree_lernschema->setTitles(vs);                                   
 
  switch (what) {
+   case MidgardBasicElement::BERUF:
+     {
+       tree_lernschema->set_column_visibility(Data_SimpleTree::LERNPUNKTEg,false);
+       tree_lernschema->set_column_visibility(Data_SimpleTree::PFLICHTg,true);
+       tree_lernschema->set_column_visibility(Data_SimpleTree::EIGENSCHAFTg,true);
+       tree_lernschema->set_column_visibility(Data_SimpleTree::VORAUSSETZUNGg,true);
+       tree_lernschema->set_column_visibility(Data_SimpleTree::KOSTENg,false);
+       break;
+     }
    case MidgardBasicElement::WAFFE:
      {
+       tree_lernschema->set_column_visibility(Data_SimpleTree::LERNPUNKTEg,true);
        tree_lernschema->set_column_visibility(Data_SimpleTree::PFLICHTg,true);
        tree_lernschema->set_column_visibility(Data_SimpleTree::EIGENSCHAFTg,false);
        tree_lernschema->set_column_visibility(Data_SimpleTree::VORAUSSETZUNGg,true);
+       tree_lernschema->set_column_visibility(Data_SimpleTree::KOSTENg,true);
        break;
      }
    case MidgardBasicElement::FERTIGKEIT:
      {
+       tree_lernschema->set_column_visibility(Data_SimpleTree::LERNPUNKTEg,true);
        if(fert=="Fach") tree_lernschema->set_column_visibility(Data_SimpleTree::PFLICHTg,true);
        else tree_lernschema->set_column_visibility(Data_SimpleTree::PFLICHTg,false);
        tree_lernschema->set_column_visibility(Data_SimpleTree::EIGENSCHAFTg,true);
        tree_lernschema->set_column_visibility(Data_SimpleTree::VORAUSSETZUNGg,true);
+       tree_lernschema->set_column_visibility(Data_SimpleTree::KOSTENg,true);
        break;
      }
    case MidgardBasicElement::ZAUBER:
      {
+       tree_lernschema->set_column_visibility(Data_SimpleTree::LERNPUNKTEg,true);
        tree_lernschema->set_column_visibility(Data_SimpleTree::PFLICHTg,false);
        tree_lernschema->set_column_visibility(Data_SimpleTree::EIGENSCHAFTg,false);
        tree_lernschema->set_column_visibility(Data_SimpleTree::VORAUSSETZUNGg,false);
+       tree_lernschema->set_column_visibility(Data_SimpleTree::KOSTENg,true);
        break;
      }
     default : break;

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.178 2002/02/19 14:36:32 thoma Exp $
+// $Id: midgard_CG.hh,v 1.179 2002/02/21 10:23:30 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -108,6 +108,14 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
                       };
 
         void set_tree_titles();
+
+        struct st_BKategorie{bool kat_I; bool kat_II; bool kat_III; bool kat_IV;
+             st_BKategorie(): kat_I(false),kat_II(false),kat_III(false),kat_IV(false) {}
+             st_BKategorie(bool a,bool b, bool c, bool d)
+               : kat_I(a),kat_II(b),kat_III(c),kat_IV(d) {}
+             };
+        st_BKategorie BKategorie;
+
 
         Datenbank Database;
         std::list<cH_MidgardBasicElement> list_Beruf;
@@ -327,7 +335,10 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void get_spezial_from_spezialgebiet();
         gint on_button_beruf_release_event(GdkEventButton *ev);
         void on_entry_berufsname_activate();
+        void on_spinbutton_beruf_activate();
         void deleteBerufsFertigekeit();
+        void showBerufsLernList(std::list<cH_MidgardBasicElement>& L);
+        void beruf_gewuerfelt(int wurf);
         void on_kido_wahl_clicked();
         void stil_optionmenue();
         void zeige_lernpunkte();

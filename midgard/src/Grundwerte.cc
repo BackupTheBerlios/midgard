@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.10 2002/02/18 07:01:06 thoma Exp $               
+// $Id: Grundwerte.cc,v 1.11 2002/02/21 10:23:30 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -54,9 +54,9 @@ int Grundwerte::bo_An() const
 { 
   int bo_an = 0;
   if (1<=Gs()  &&Gs() <=5)  { bo_an-=2; }
-  if (6<=Gs()  &&Gs() <=20) { bo_an-=1; }
-  if (81<=Gs() &&Gs() <=95) { bo_an+=1; }
-  if (96<=Gs())             { bo_an+=2; }
+  else if (6<=Gs()  &&Gs() <=20) { bo_an-=1; }
+  else if (81<=Gs() &&Gs() <=95) { bo_an+=1; }
+  else if (96<=Gs())             { bo_an+=2; }
   return bo_an;
 }
 
@@ -64,9 +64,9 @@ int Grundwerte::bo_Ab() const
 { 
   int bo_ab = 0;
   if (1<=Gw()  &&Gw() <=5)  { bo_ab-=2; }
-  if (6<=Gw()  &&Gw() <=20) { bo_ab-=1; }
-  if (81<=Gw() &&Gw() <=95) { bo_ab+=1; }
-  if (96<=Gw())             { bo_ab+=2; }
+  else if (6<=Gw()  &&Gw() <=20) { bo_ab-=1; }
+  else if (81<=Gw() &&Gw() <=95) { bo_ab+=1; }
+  else if (96<=Gw())             { bo_ab+=2; }
   return bo_ab;
 }
 
@@ -74,12 +74,12 @@ int Grundwerte::bo_Za() const
 { 
   int bo_za  =0;
   if (Zt()<=5)              {bo_za-=3; }
-  if (6<=Zt()  && Zt()<=20) {bo_za-=2; }
-  if (21<=Zt() && Zt()<=40) {bo_za-=1; }
-  if (61<=Zt() && Zt()<=80) {bo_za+=1; }
-  if (81<=Zt() && Zt()<=95) {bo_za+=2; }
-  if (96<=Zt() && Zt()<=99) {bo_za+=3; }
-  if (Zt()>=100)            {bo_za+=4; }
+  else if (6<=Zt()  && Zt()<=20) {bo_za-=2; }
+  else if (21<=Zt() && Zt()<=40) {bo_za-=1; }
+  else if (61<=Zt() && Zt()<=80) {bo_za+=1; }
+  else if (81<=Zt() && Zt()<=95) {bo_za+=2; }
+  else if (96<=Zt() && Zt()<=99) {bo_za+=3; }
+  else if (Zt()>=100)            {bo_za+=4; }
   return bo_za;
 }
 
@@ -87,16 +87,16 @@ int Grundwerte::bo_Psy(const vector<cH_Typen>& Typ) const
 {
   int bo_psyZt =0;
   if (Zt()<=5)              {bo_psyZt-=2; }
-  if (6<=Zt()  && Zt()<=20) {bo_psyZt-=1; }
-  if (81<=Zt() && Zt()<=95) {bo_psyZt+=1; }
-  if (96<=Zt() && Zt()<=99) {bo_psyZt+=2; }
-  if (Zt()>=100)            {bo_psyZt+=3; }
+  else if (6<=Zt()  && Zt()<=20) {bo_psyZt-=1; }
+  else if (81<=Zt() && Zt()<=95) {bo_psyZt+=1; }
+  else if (96<=Zt() && Zt()<=99) {bo_psyZt+=2; }
+  else if (Zt()>=100)            {bo_psyZt+=3; }
 
   int bo_psyIn =0;
   if (In()<=5)              { bo_psyIn-=2; }
-  if (6<=In()  && In()<=20) { bo_psyIn-=1; }
-  if (81<=In() && In()<=95) { bo_psyIn+=1; }
-  if (96<=In())             { bo_psyIn+=2; }
+  else if (6<=In()  && In()<=20) { bo_psyIn-=1; }
+  else if (81<=In() && In()<=95) { bo_psyIn+=1; }
+  else if (96<=In())             { bo_psyIn+=2; }
 
   int bo_psy;  
   // Vorzeichen unterschiedlich:
@@ -108,13 +108,13 @@ int Grundwerte::bo_Psy(const vector<cH_Typen>& Typ) const
      // Vorzeichen setzen:
      if(bo_psyZt<0) bo_psy*=-1;
    }
-  if (Spezies()->Name()=="Elf" && Zt() <= 100 ) { bo_psy=2;}
-  if (Spezies()->Name()=="Elf" && Zt() >= 100 ) { bo_psy=3;}
+  if (Spezies()->Name()=="Elf" && Zt() < 100 ) { bo_psy=2;}
+  else if (Spezies()->Name()=="Elf" && Zt() >= 100 ) { bo_psy=3;}
 
   if (Spezies()->Name()=="Berggnom") { bo_psy=5;}
-  if (Spezies()->Name()=="Waldgnom") { bo_psy=5;}
-  if (Spezies()->Name()=="Halbling") { bo_psy=5;}
-  if (Spezies()->Name()=="Zwerg")    { bo_psy=4;}
+  else if (Spezies()->Name()=="Waldgnom") { bo_psy=5;}
+  else if (Spezies()->Name()=="Halbling") { bo_psy=5;}
+  else if (Spezies()->Name()=="Zwerg")    { bo_psy=4;}
 
   if (Typ[0]->Zaubern()=="z" || Typ[1]->Zaubern()=="z" )
     bo_psy+=3;
@@ -126,16 +126,16 @@ int Grundwerte::bo_Phs(const vector<cH_Typen>& Typ) const
 {
   int bo_phsZt =0;
   if (Zt()<=5)              {bo_phsZt-=2; }
-  if (6<=Zt()  && Zt()<=20) {bo_phsZt-=1; }
-  if (81<=Zt() && Zt()<=95) {bo_phsZt+=1; }
-  if (96<=Zt() && Zt()<=99) {bo_phsZt+=2; }
-  if (Zt()>=100)            {bo_phsZt+=3; }
+  else if (6<=Zt()  && Zt()<=20) {bo_phsZt-=1; }
+  else if (81<=Zt() && Zt()<=95) {bo_phsZt+=1; }
+  else if (96<=Zt() && Zt()<=99) {bo_phsZt+=2; }
+  else if (Zt()>=100)            {bo_phsZt+=3; }
 
   int bo_phsKo =0;
   if (Ko()<=5)            { bo_phsKo-=2; }
-  if (6<=Ko()&&Ko()<=20)  { bo_phsKo-=1; }
-  if (81<=Ko()&&Ko()<=95) { bo_phsKo+=1; }
-  if (96<=Ko())           { bo_phsKo+=2; }
+  else if (6<=Ko()&&Ko()<=20)  { bo_phsKo-=1; }
+  else if (81<=Ko()&&Ko()<=95) { bo_phsKo+=1; }
+  else if (96<=Ko())           { bo_phsKo+=2; }
 
   // Vorzeichen unterschiedlich:
   int bo_phs;
@@ -148,12 +148,12 @@ int Grundwerte::bo_Phs(const vector<cH_Typen>& Typ) const
      if(bo_phsZt<0) bo_phs*=-1;
    }
 
-  if (Spezies()->Name()=="Elf" && Zt() <= 100 ) { bo_phs=2;}
-  if (Spezies()->Name()=="Elf" && Zt() >= 100 ) { bo_phs=3;}
+  if (Spezies()->Name()=="Elf" && Zt() < 100 ) { bo_phs=2;}
+  else if (Spezies()->Name()=="Elf" && Zt() >= 100 ) { bo_phs=3;}
   if (Spezies()->Name()=="Berggnom") { bo_phs=5;}
-  if (Spezies()->Name()=="Waldgnom") { bo_phs=5;}
-  if (Spezies()->Name()=="Halbling") { bo_phs=5;}
-  if (Spezies()->Name()=="Zwerg")    { bo_phs=4;}
+  else if (Spezies()->Name()=="Waldgnom") { bo_phs=5;}
+  else if (Spezies()->Name()=="Halbling") { bo_phs=5;}
+  else if (Spezies()->Name()=="Zwerg")    { bo_phs=4;}
 
   if (Typ[0]->Zaubern()=="z" || Typ[1]->Zaubern()=="z" )
     bo_phs+=3;
@@ -165,13 +165,13 @@ int Grundwerte::bo_Phk(const vector<cH_Typen>& Typ) const
 {
   int bo_phk =0;   
   if (Gw()<=5)              {bo_phk-=2; }
-  if (6<=Gw()  && Gw()<=20) {bo_phk-=1; }
-  if (81<=Gw() && Gw()<=95) {bo_phk+=1; }
-  if (96<=Gw())             {bo_phk+=2; }
+  else if (6<=Gw()  && Gw()<=20) {bo_phk-=1; }
+  else if (81<=Gw() && Gw()<=95) {bo_phk+=1; }
+  else if (96<=Gw())             {bo_phk+=2; }
   if (Spezies()->Name()=="Elf")      { bo_phk=2;}
-  if (Spezies()->Name()=="Berggnom") { bo_phk=5;}
-  if (Spezies()->Name()=="Waldgnom") { bo_phk=5;}
-  if (Spezies()->Name()=="Halbling") { bo_phk=5;}
+  else if (Spezies()->Name()=="Berggnom") { bo_phk=5;}
+  else if (Spezies()->Name()=="Waldgnom") { bo_phk=5;}
+  else if (Spezies()->Name()=="Halbling") { bo_phk=5;}
 
   if (Typ[0]->Zaubern()=="z" || Typ[1]->Zaubern()=="z" )
     bo_phk+=3;

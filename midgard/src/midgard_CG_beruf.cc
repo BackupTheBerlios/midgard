@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.47 2002/02/19 08:46:05 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.48 2002/02/21 10:23:30 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,6 +21,7 @@
 #include "Berufe_auswahl.hh"
 #include <Gtk_OStream.h>
 #include "Fertigkeiten.hh"
+#include "class_Beruf_Data.hh"
 
 gint midgard_CG::on_button_beruf_release_event(GdkEventButton *ev)
 {
@@ -28,12 +29,14 @@ gint midgard_CG::on_button_beruf_release_event(GdkEventButton *ev)
   if (ev->button==1) 
    {
      manage(new Berufe_auswahl(this,Database,Typ,Werte,list_Fertigkeit));
+//     beruf_gewuerfelt(random.integer(1,100));
    }
   if (ev->button==3) 
    {
      vbox_berufsname->show();
      entry_berufsname->grab_focus();
    }
+  button_beruf->set_sensitive(false);
   return false;
 }
 
@@ -43,6 +46,13 @@ void midgard_CG::on_entry_berufsname_activate()
   MidgardBasicElement_uebernehmen(beruf);
   vbox_berufsname->hide();
 }
+
+void midgard_CG::on_spinbutton_beruf_activate()
+{
+  gtk_spin_button_update(spinbutton_wurf->gtkobj());
+  beruf_gewuerfelt(spinbutton_wurf->get_value_as_int());
+}
+
 
 void midgard_CG::deleteBerufsFertigekeit()
 {
@@ -62,3 +72,65 @@ void midgard_CG::deleteBerufsFertigekeit()
       }
    }
 }
+
+
+void midgard_CG::showBerufsLernList(std::list<cH_MidgardBasicElement>& L)
+{
+  L.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME));
+  std::vector<cH_RowDataBase> datavec;
+  bool gelerntes=false;
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=L.begin();i!=L.end();++i)
+    {
+      cH_Beruf b(*i);
+      std::vector<string> fert=b->Vorteile();
+      for(std::vector<string>::const_iterator j=fert.begin();j!=fert.end();++j)
+       {
+         int kat;
+         if(*j=="Schmecken+10") kat=1;
+         else kat=cH_Fertigkeit(*j)->Berufskategorie();
+         if( (kat==1 && BKategorie.kat_I)   || (kat==2 && BKategorie.kat_II) ||
+             (kat==3 && BKategorie.kat_III) || (kat==4 && BKategorie.kat_IV ) )
+           {
+             if(*j!="Schmecken+10" && cH_Fertigkeit(*j)->ist_gelernt(list_Fertigkeit))
+               {
+                  datavec.push_back(new Beruf_Data(kat,(*i)->Name(),*j,true));  
+                  gelerntes=true;
+               }
+             else
+                  datavec.push_back(new Beruf_Data(kat,(*i)->Name(),*j,false));
+           }
+       }
+    }
+  if(gelerntes) label_berufsstern_erklaerung->show();
+  tree_lernschema->setDataVec(datavec);
+}
+
+void midgard_CG::beruf_gewuerfelt(int wurf)
+{
+ BKategorie=st_BKategorie();
+//TODO label_wuerfel->set_text("Würfelergebnis: "+itos(wurf));
+ spinbutton_beruf->set_value(wurf);
+ std::string kat;
+ if(wurf<=20) kat="Kein(e) Beruf/Fertigkeit wählbar";
+ if(21<=wurf&&wurf<=50)
+  { kat="Eine Fertigkeit aus der Kategorie I wählbar";
+    BKategorie.kat_I=true; }
+ if(51<=wurf&&wurf<=80)
+  { kat="Eine Fertigkeit aus der Kategorie I oder II wählbar";
+    BKategorie.kat_I=true; 
+    BKategorie.kat_II=true;}
+ if(81<=wurf&&wurf<=95)
+  { kat="Eine Fertigkeit aus der Kategorie I,II oder III wählbar";
+    BKategorie.kat_I=true; 
+    BKategorie.kat_II=true;
+    BKategorie.kat_III=true;}
+ if(96<=wurf&&wurf<=100)
+  { kat="Eine Fertigkeit aus der Kategorie III oder IV \n oder zwei aus den Kategorien I und II wählbar (aber trotzdem nur EIN Beruf)";
+    BKategorie.kat_I=true; 
+    BKategorie.kat_II=true;
+    BKategorie.kat_III=true;
+    BKategorie.kat_IV=true; }
+    label_berufskategorie->set_text(kat);
+    label_berufskategorie->show();
+}
+
