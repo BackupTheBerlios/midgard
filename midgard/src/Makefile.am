@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.211 2002/12/18 17:58:00 christof Exp $
+# $Id: Makefile.am,v 1.212 2002/12/19 07:58:11 christof Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -86,7 +86,6 @@ midgard_CG_glade.hh midgard_CG.hh  \
 WindowInfo_glade.hh WindowInfo.hh \
 	Midgard_Info.hh \
    Midgard_Info_glade.hh \
-   Tag.hh TagStream.hh \
    xml_fileselection_glade.hh \
    xml_fileselection.hh \
    class_lernpunkte.hh \
