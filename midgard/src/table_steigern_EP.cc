@@ -108,17 +108,20 @@ void table_steigern::desteigern(unsigned int kosten)
   zeige_werte();
 }
 
-void table_steigern::set_lernzeit(int kosten)
+void table_steigern::set_lernzeit(int kosten,bool no_pp=false)
 {
   if(radiobutton_unterweisung->get_active())
       hauptfenster->getWerte().addSteigertage(kosten/10);
   else if(radiobutton_selbst->get_active())
       hauptfenster->getWerte().addSteigertage(kosten/5.);
-  else if(radiobutton_praxis->get_active())
-      hauptfenster->getWerte().addSteigertage(kosten/500.);
+  else if(radiobutton_praxis->get_active() )
+   {
+     if(!no_pp) hauptfenster->getWerte().addSteigertage(kosten/500.);
+     else  hauptfenster->getWerte().addSteigertage(kosten/5.);
+   }
 }
 
-bool table_steigern::steigern_usp(int kosten,MidgardBasicElement_mutable *MBE, e_was_steigern was,bool verschenke_pp)
+bool table_steigern::steigern_usp(int &kosten,MidgardBasicElement_mutable *MBE,int &stufen, e_was_steigern was)
 {
   if (!steigern_mit_EP_bool) // Steigern OHNE EP/Gold/PP
       { set_lernzeit(kosten);
@@ -135,64 +138,44 @@ bool table_steigern::steigern_usp(int kosten,MidgardBasicElement_mutable *MBE, e
 
   int ep_k = EP_kosten(kosten);
   int pp   = PP_vorrat(MBE,was);
-if(radiobutton_praxis->get_active())
-{ hauptfenster->set_info("Wird gerade überarbeitet, nicht möglich, sorry\n"); 
-return false;}
 
-  // Kosten geringer als ein Praxispunkt wert ist
-  if((pp>0 && ep_k<40) )//|| (was!=Nichts && ep_k%40!=0 && true))
-   {
-     if(MBE)
-      {
-        int kosten=0;
-        int aep=40;
-        int stufen=stufen_auf_einmal_steigern_fuer_aep(true,*MBE,kosten,aep);
-        int kosten_max=0;
-        int aep_max=40*pp;
-        int stufen_max=stufen_auf_einmal_steigern_fuer_aep(true,*MBE,kosten_max,aep_max);
-        std::string anzahl="drei";
-        if(pp>1) anzahl="fünf";
-        std::string str ="\nACHTUNG: Kosten ("+itos(ep_k)+") geringer als ein Praxispunkt wert (40GFP) ist.\n"
-            "Nun gibt es "+anzahl+" Möglichkeiten:\n"
-            " 1. Es wird nicht gesteigert.\n"
-            " 2. Es wird mit einem PP um "+itos(stufen)+" Stufen gesteigert.\n"
-            "    Die restlichen Punkte ("+itos(aep)+") verfallen\n"
-            " 3. Es wird mit einem PP und "+itos(kosten-aep)+" AEP um "+itos(stufen+1)+" Stufen gesteigert\n"
-            "    (Damit verfallen dann keine Punkte. Die Lernzeit für die verwendeten AEP\n."
-            "     wird wie bei 'Selbststudium' angenommen)\n";
-         if(pp>1)
-         str+= 
-            " 4. Es werden alle ("+itos(pp)+") PP verwendet um "+itos(stufen_max)+" Stufen zu steigern.\n"
-            "    Die restlichen Punkte ("+itos(aep_max)+") verfallen\n"
-            " 5. Es werden alle ("+itos(pp)+") PP und "+itos(kosten_max-aep_max)+" AEP verwendet um "+itos(stufen_max+1)+" Stufen zu steigern,\n"
-            "(sollten die AEP (bei 3. und 5.) nicht ausreichen um fehlende FP zu bezahlen,\n"
-            " so verfallen die restlichen FP der PP.)";
-         if(pp>1)
-              hauptfenster->InfoFenster->AppendShow(str,WindowInfo::PraxisPunkteMBE,MBE,5);
-         else hauptfenster->InfoFenster->AppendShow(str,WindowInfo::PraxisPunkteMBE,MBE,3);
-      }
-     else if(!verschenke_pp)
-      {
-        std::string str ="\nACHTUNG: Kosten ("+itos(ep_k)+") geringer als ein Praxispunkt wert (40GFP) ist.\n"
-            "Nun gibt es zwei Möglichkeiten:\n"
-            " 1. Es wird nicht gesteigert.\n"
-            " 2. Es wird mit einem PP gesteigert,\n"
-            "    die restlichen Punkte verfallen\n";
-        hauptfenster->InfoFenster->AppendShow(str,WindowInfo::PraxisPunkteMBE,was,2);
-      }
-     return false;
-   }
-  // Dafür sorgen, daß FP für Praxispunkte nicht verschenkt werden
-  while (pp>0 && pp*40 > ep_k ) --pp;
-  // Nun von den Kosten 40*pp subtrahieren
-  ep_k -= pp*40;
-  if(verschenke_pp)
+//if(radiobutton_praxis->get_active())
+//{ hauptfenster->set_info("Wird gerade überarbeitet, nicht möglich, sorry\n"); 
+//return false;}
+
+ if(radiobutton_praxis->get_active())
+  {
+   if(pp==0) {hauptfenster->set_status("Keine PP vorhanden"); return false;}
+   int rest_aep=0,use_pp=0;
+   if(radiobutton_pp_hoch_wie_geht->get_active())
     {
-      pp = 1+ep_k/40;
+      use_pp=pp;
+      int ppkosten=0,aep=40*pp;
+      stufen=stufen_auf_einmal_steigern_fuer_aep(true,*MBE,ppkosten,aep);
+      rest_aep=aep;
+      kosten=ppkosten;
+    }
+   else // genau EINE Stufe steigern
+    {
+      stufen=1;
+      rest_aep = ep_k%40;
+      use_pp   = ep_k/40;
+    }
+
+   if(togglebutton_pp_aep_fuellen->get_active())
+    {
+      if(pp>=use_pp)  ep_k = rest_aep; 
+      else ep_k = rest_aep + 40*(use_pp-pp);
+    }
+   else
+    {
+      if(rest_aep!=0) {hauptfenster->set_status("Es müßten "+itos(rest_aep)+" EP verwendet werden um "+itos(stufen)+" Stufe(n) zu steigern"); return false; }
+      if(pp<use_pp )  {hauptfenster->set_status("Nicht genug PP zum steigern vorhanden"); return false; }
       ep_k=0;
     }
-cout <<"jbksfvbkjvb\t"<< pp<<'\n';
-  
+   pp=use_pp;
+  }
+
   int aep0=0,kep0=0,zep0=0;
   bool ok=genug_EP(ep_k,bkep,bzep,aep0,kep0,zep0);
   if(!ok) return false;
@@ -200,7 +183,10 @@ cout <<"jbksfvbkjvb\t"<< pp<<'\n';
   // jetzt darf gesteigert werden ...
   hauptfenster->getWerte().addGold(-gold_k);  
   set_lernzeit(kosten);
-  if     (MBE&&(*MBE)->What()!=MidgardBasicElement::ZAUBER) MBE->addPraxispunkte(-pp) ;
+  if(radiobutton_praxis->get_active())  set_lernzeit(ep_k,true);
+cout << "set lernzeiten: "<<kosten<<' '<<ep_k<<'\n';
+
+  if     (MBE&&(*MBE)->What()!=MidgardBasicElement::ZAUBER) modify(PP,*MBE,"",MBE->Praxispunkte()-pp) ;
   else if(MBE && (*MBE)->What()==MidgardBasicElement::ZAUBER) hauptfenster->getWerte().addSpezialPP(-pp) ;
   else if(was==Resistenz)  hauptfenster->getWerte().addResistenzPP(-pp) ;
   else if(was==Abwehr)     hauptfenster->getWerte().addAbwehrPP(-pp) ;
@@ -220,6 +206,33 @@ cout <<"jbksfvbkjvb\t"<< pp<<'\n';
   zeige_werte();
   return true;  
 }
+
+int table_steigern::stufen_auf_einmal_steigern_fuer_aep(MidgardBasicElement_mutable& MBE,int &kosten,int &aep)
+{
+  int steiger_kosten = MBE.Steigern(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp());
+  int stufen=0;
+  int erfolgswert_mem=MBE.Erfolgswert();
+  while(steiger_kosten<=aep)
+   {   
+     kosten+=steiger_kosten;
+     ++stufen;
+     aep-=steiger_kosten;
+     MBE.addErfolgswert(1);
+     steiger_kosten = MBE.Steigern(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp());
+   }      
+  if(aep>0)
+   {
+     ++stufen;
+     kosten+=steiger_kosten;
+     aep-=steiger_kosten;  
+     aep*=-1;
+   }
+     
+  MBE.setErfolgswert(erfolgswert_mem);
+  return stufen;
+}
+
+
 
 bool table_steigern::genug_EP(const int ep_k,const bool bkep,const bool bzep, int &aep0,int &kep0,int &zep0)
 {
@@ -300,7 +313,7 @@ int table_steigern::genug_geld(const int kosten)
    return gold_k;
 }
 
-
+/*
 void table_steigern::PraxisPunkt_to_AEP(MidgardBasicElement_mutable& MBE,bool verfallen,bool alle_pp)
 {
   int aep=40;
@@ -337,36 +350,12 @@ void table_steigern::PraxisPunkt_to_AEP(MidgardBasicElement_mutable& MBE,bool ve
    }
   load_for_page(notebook_lernen->get_current_page_num());
 }
+*/
 
-int table_steigern::stufen_auf_einmal_steigern_fuer_aep(bool info,MidgardBasicElement_mutable& MBE,int &kosten,int &aep)
-{
-  int steiger_kosten = MBE.Steigern(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp());
-  int stufen=0;
-  int erfolgswert_mem=MBE.Erfolgswert();
-  while(steiger_kosten<=aep)
-   {   
-     kosten+=steiger_kosten;
-     ++stufen;
-     aep-=steiger_kosten;
-     MBE.addErfolgswert(1);
-     steiger_kosten = MBE.Steigern(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp());
-   }      
-  if(info)
-   {
-     kosten=MBE.Steigern(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp()) ; // kosten für die nächste Stufe
-     MBE.setErfolgswert(erfolgswert_mem);
-   }
-  else
-   {
-     hauptfenster->getWerte().addGFP(kosten);
-     set_lernzeit(kosten);
-   }
-  return stufen;
-}
-
-
+/*
 void table_steigern::PraxisPunkt_fuer_Was(e_was_steigern was)
 {
 // get_ab_re_za(was,true);
  
 }
+*/
