@@ -1,4 +1,4 @@
-// $Id: table_steigern_grad_anstieg.cc,v 1.24 2003/11/28 08:49:05 christof Exp $
+// $Id: table_steigern_grad_anstieg.cc,v 1.25 2003/12/09 16:58:26 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,6 +21,7 @@
 #include "table_steigern.hh"
 #include <Misc/itos.h>
 #include <libmagus/Random.hh>
+#include <libmagus/Datenbank.hh>
 
 void table_steigern::on_grad_anstieg_clicked()
 {

@@ -25,11 +25,12 @@
 #include "LernListen.hh"
 #include <libmagus/Ausgabe.hh>
 #include <libmagus/Random.hh>
+#include <libmagus/LernListen.hh>
 
 void table_steigern::on_zauber_laden_clicked()
 {   
  try{
-  list_Zauber_neu=LL->get_steigern_Zauberliste(hauptfenster->getAben(),togglebutton_zaubersalze->get_active(),
+  list_Zauber_neu=LernListen::get_steigern_Zauberliste(hauptfenster->getAben(),togglebutton_zaubersalze->get_active(),
   					   LernListen::region_check(hauptfenster->getAben(),"MdS"),
                                            togglebutton_alle_zauber->get_active(),
                                            togglebutton_spruchrolle->get_active());
@@ -151,6 +152,6 @@ void table_steigern::on_leaf_selected_neue_zauberwerk(cH_RowDataBase d)
 
 void table_steigern::zauberwerk_laden()
 {
- list_Zauberwerk_neu=LL->get_steigern_ZauberWerkliste(hauptfenster->getAben(),
+ list_Zauberwerk_neu=LernListen::get_steigern_ZauberWerkliste(hauptfenster->getAben(),
                                                       togglebutton_alle_zauber->get_active());
 }

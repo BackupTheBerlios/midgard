@@ -25,6 +25,7 @@
 #include <Misc/itos.h>
 #include "dtos1.h"
 #include <libmagus/Ausgabe.hh>
+#include <libmagus/Datenbank.hh>
 
 void table_ausruestung::init(midgard_CG *h)
 {
