@@ -47,6 +47,8 @@ Armbrust	PM	A
 Armbrust	PT	A
 Armbrust	PW	A
 Armbrust	Ri	G
+Armbrust	RiN	G
+Armbrust	RiS	G
 Armbrust	Ru	S
 Armbrust	Sa	A
 Armbrust	ScN	A
@@ -93,6 +95,8 @@ Blasrohr	PM	A
 Blasrohr	PT	A
 Blasrohr	PW	A
 Blasrohr	Ri	G
+Blasrohr	RiN	G
+Blasrohr	RiS	G
 Blasrohr	Ru	S
 Blasrohr	Sa	A
 Blasrohr	ScN	A
@@ -139,6 +143,8 @@ Bögen	PM	A
 Bögen	PT	A
 Bögen	PW	A
 Bögen	Ri	G
+Bögen	RiN	G
+Bögen	RiS	G
 Bögen	Ru	S
 Bögen	Sa	A
 Bögen	ScN	A
@@ -185,6 +191,8 @@ Einhandschlagwaffe	PM	A
 Einhandschlagwaffe	PT	A
 Einhandschlagwaffe	PW	A
 Einhandschlagwaffe	Ri	G
+Einhandschlagwaffe	RiN	G
+Einhandschlagwaffe	RiS	G
 Einhandschlagwaffe	Ru	S
 Einhandschlagwaffe	Sa	A
 Einhandschlagwaffe	ScN	A
@@ -231,6 +239,8 @@ Einhandschwert	PM	A
 Einhandschwert	PT	A
 Einhandschwert	PW	A
 Einhandschwert	Ri	G
+Einhandschwert	RiN	G
+Einhandschwert	RiS	G
 Einhandschwert	Ru	S
 Einhandschwert	Sa	A
 Einhandschwert	ScN	A
@@ -277,6 +287,8 @@ Fesselwaffe	PM	A
 Fesselwaffe	PT	A
 Fesselwaffe	PW	A
 Fesselwaffe	Ri	S
+Fesselwaffe	RiN	S
+Fesselwaffe	RiS	S
 Fesselwaffe	Ru	S
 Fesselwaffe	Sa	A
 Fesselwaffe	ScN	A
@@ -323,6 +335,8 @@ Garotte	PM	A
 Garotte	PT	S
 Garotte	PW	A
 Garotte	Ri	G
+Garotte	RiN	G
+Garotte	RiS	G
 Garotte	Ru	S
 Garotte	Sa	A
 Garotte	ScN	A
@@ -369,6 +383,8 @@ Kampf ohne Waffen	PM	A
 Kampf ohne Waffen	PT	A
 Kampf ohne Waffen	PW	A
 Kampf ohne Waffen	Ri	G
+Kampf ohne Waffen	RiN	G
+Kampf ohne Waffen	RiS	G
 Kampf ohne Waffen	Ru	S
 Kampf ohne Waffen	Sa	A
 Kampf ohne Waffen	ScN	S
@@ -415,6 +431,8 @@ Kampfstab	PM	A
 Kampfstab	PT	A
 Kampfstab	PW	A
 Kampfstab	Ri	G
+Kampfstab	RiN	G
+Kampfstab	RiS	G
 Kampfstab	Ru	S
 Kampfstab	Sa	A
 Kampfstab	ScN	A
@@ -461,6 +479,8 @@ Kettenwaffe	PM	A
 Kettenwaffe	PT	A
 Kettenwaffe	PW	A
 Kettenwaffe	Ri	G
+Kettenwaffe	RiN	G
+Kettenwaffe	RiS	G
 Kettenwaffe	Ru	S
 Kettenwaffe	Sa	A
 Kettenwaffe	ScN	A
@@ -505,6 +525,8 @@ Kharrata	PM	A
 Kharrata	PT	A
 Kharrata	PW	A
 Kharrata	Ri	S
+Kharrata	RiN	S
+Kharrata	RiS	S
 Kharrata	Ru	S
 Kharrata	Sa	A
 Kharrata	ScN	A
@@ -549,6 +571,8 @@ Lasso	PM	A
 Lasso	PT	A
 Lasso	PW	A
 Lasso	Ri	G
+Lasso	RiN	G
+Lasso	RiS	G
 Lasso	Ru	S
 Lasso	Sa	A
 Lasso	ScN	A
@@ -593,6 +617,8 @@ Namisritra	PM	A
 Namisritra	PT	A
 Namisritra	PW	A
 Namisritra	Ri	S
+Namisritra	RiN	S
+Namisritra	RiS	S
 Namisritra	Ru	S
 Namisritra	Sa	A
 Namisritra	ScN	A
@@ -637,6 +663,8 @@ Netz	PM	A
 Netz	PT	A
 Netz	PW	A
 Netz	Ri	G
+Netz	RiN	G
+Netz	RiS	G
 Netz	Ru	S
 Netz	Sa	A
 Netz	ScN	A
@@ -683,6 +711,8 @@ Parierwaffe	PM	A
 Parierwaffe	PT	A
 Parierwaffe	PW	A
 Parierwaffe	Ri	G
+Parierwaffe	RiN	G
+Parierwaffe	RiS	G
 Parierwaffe	Ru	S
 Parierwaffe	Sa	A
 Parierwaffe	ScN	A
@@ -729,6 +759,8 @@ Peitsche	PM	A
 Peitsche	PT	A
 Peitsche	PW	A
 Peitsche	Ri	S
+Peitsche	RiN	S
+Peitsche	RiS	S
 Peitsche	Ru	S
 Peitsche	Sa	A
 Peitsche	ScN	A
@@ -775,6 +807,8 @@ Schild	PM	A
 Schild	PT	A
 Schild	PW	A
 Schild	Ri	G
+Schild	RiN	G
+Schild	RiS	G
 Schild	Ru	S
 Schild	Sa	A
 Schild	ScN	A
@@ -821,6 +855,8 @@ Schleuder	PM	A
 Schleuder	PT	A
 Schleuder	PW	A
 Schleuder	Ri	G
+Schleuder	RiN	G
+Schleuder	RiS	G
 Schleuder	Ru	S
 Schleuder	Sa	A
 Schleuder	ScN	A
@@ -867,6 +903,8 @@ Spießwaffe	PM	A
 Spießwaffe	PT	A
 Spießwaffe	PW	A
 Spießwaffe	Ri	G
+Spießwaffe	RiN	G
+Spießwaffe	RiS	G
 Spießwaffe	Ru	S
 Spießwaffe	Sa	A
 Spießwaffe	ScN	A
@@ -913,6 +951,8 @@ Stangenwaffe	PM	A
 Stangenwaffe	PT	A
 Stangenwaffe	PW	A
 Stangenwaffe	Ri	G
+Stangenwaffe	RiN	G
+Stangenwaffe	RiS	G
 Stangenwaffe	Ru	S
 Stangenwaffe	Sa	A
 Stangenwaffe	ScN	A
@@ -959,6 +999,8 @@ Stichwaffe	PM	A
 Stichwaffe	PT	A
 Stichwaffe	PW	A
 Stichwaffe	Ri	G
+Stichwaffe	RiN	G
+Stichwaffe	RiS	G
 Stichwaffe	Ru	S
 Stichwaffe	Sa	A
 Stichwaffe	ScN	A
@@ -1005,6 +1047,8 @@ Stielwurfwaffe	PM	A
 Stielwurfwaffe	PT	A
 Stielwurfwaffe	PW	A
 Stielwurfwaffe	Ri	G
+Stielwurfwaffe	RiN	G
+Stielwurfwaffe	RiS	G
 Stielwurfwaffe	Ru	S
 Stielwurfwaffe	Sa	A
 Stielwurfwaffe	ScN	A
@@ -1051,6 +1095,8 @@ Werfen	PM	A
 Werfen	PT	A
 Werfen	PW	A
 Werfen	Ri	G
+Werfen	RiN	G
+Werfen	RiS	G
 Werfen	Ru	S
 Werfen	Sa	A
 Werfen	ScN	A
@@ -1097,6 +1143,8 @@ Wurfmesser	PM	A
 Wurfmesser	PT	A
 Wurfmesser	PW	A
 Wurfmesser	Ri	G
+Wurfmesser	RiN	G
+Wurfmesser	RiS	G
 Wurfmesser	Ru	S
 Wurfmesser	Sa	A
 Wurfmesser	ScN	A
@@ -1143,6 +1191,8 @@ Wurfpfeil	PM	A
 Wurfpfeil	PT	A
 Wurfpfeil	PW	A
 Wurfpfeil	Ri	G
+Wurfpfeil	RiN	G
+Wurfpfeil	RiS	G
 Wurfpfeil	Ru	S
 Wurfpfeil	Sa	A
 Wurfpfeil	ScN	A
@@ -1189,6 +1239,8 @@ Wurfscheibe	PM	A
 Wurfscheibe	PT	A
 Wurfscheibe	PW	S
 Wurfscheibe	Ri	G
+Wurfscheibe	RiN	G
+Wurfscheibe	RiS	G
 Wurfscheibe	Ru	S
 Wurfscheibe	Sa	A
 Wurfscheibe	ScN	A
@@ -1235,6 +1287,8 @@ Wurfspieß	PM	A
 Wurfspieß	PT	A
 Wurfspieß	PW	A
 Wurfspieß	Ri	G
+Wurfspieß	RiN	G
+Wurfspieß	RiS	G
 Wurfspieß	Ru	S
 Wurfspieß	Sa	A
 Wurfspieß	ScN	A
@@ -1306,6 +1360,8 @@ Zweihandschlagwaffe	PM	A
 Zweihandschlagwaffe	PT	A
 Zweihandschlagwaffe	PW	A
 Zweihandschlagwaffe	Ri	G
+Zweihandschlagwaffe	RiN	G
+Zweihandschlagwaffe	RiS	G
 Zweihandschlagwaffe	Ru	S
 Zweihandschlagwaffe	Sa	A
 Zweihandschlagwaffe	ScN	A
@@ -1352,6 +1408,8 @@ Zweihandschwert	PM	A
 Zweihandschwert	PT	A
 Zweihandschwert	PW	A
 Zweihandschwert	Ri	G
+Zweihandschwert	RiN	G
+Zweihandschwert	RiS	G
 Zweihandschwert	Ru	S
 Zweihandschwert	Sa	A
 Zweihandschwert	ScN	A

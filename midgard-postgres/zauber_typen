@@ -21,7 +21,6 @@ CREATE TABLE "zauber_typen" (
 
 COPY "zauber_typen" FROM stdin;
 Abu es-Samum	De	G	\N
-Abu es-Samum	Sa	S	\N
 Abu es-Samum	ScN	S	\N
 Abu es-Samum	ScS	S	\N
 Abu es-Samum	ScW	S	\N
@@ -2275,7 +2274,30 @@ Elfenfeuer	Th	G	\N
 Elfenfeuer	gHx	S	\N
 Elfenfeuer	sHx	S	\N
 Elfenfeuer	wHx	S	\N
+Elfenklinge	Dr	S	\N
 Elfenklinge	Fi	G	\N
+Elfenklinge	Hl	G	\N
+Elfenklinge	Km	G	\N
+Elfenklinge	Ma	S	\N
+Elfenklinge	Or	S	\N
+Elfenklinge	PC	A	\N
+Elfenklinge	PF	S	\N
+Elfenklinge	PHa	S	\N
+Elfenklinge	PHe	S	\N
+Elfenklinge	PK	S	\N
+Elfenklinge	PM	A	\N
+Elfenklinge	PT	A	\N
+Elfenklinge	PW	A	\N
+Elfenklinge	ScN	S	\N
+Elfenklinge	ScS	S	\N
+Elfenklinge	ScW	S	\N
+Elfenklinge	Tm	S	\N
+Elfenklinge	To	A	\N
+Elfenklinge	Wi	G	\N
+Elfenklinge	gHx	S	\N
+Elfenklinge	sHx	S	\N
+Elfenklinge	sSc	S	\N
+Elfenklinge	wHx	S	\N
 Entfesseln	Dt	A	\N
 Entfesseln	Hl	S	\N
 Entfesseln	PK	S	\N
@@ -2292,6 +2314,7 @@ Entfesseln	tBe	G	\N
 Entgiften	De	A	\N
 Entgiften	Dr	S	Holz
 Entgiften	Dt	S	\N
+Entgiften	Fi	A	\N
 Entgiften	Hl	G	Holz
 Entgiften	Or	G	\N
 Entgiften	PF	S	\N
@@ -2444,6 +2467,24 @@ Erkennen der Aura	ScN	A	\N
 Erkennen der Aura	ScS	A	\N
 Erkennen der Aura	ScW	A	\N
 Erkennen der Aura	Sr	G	\N
+Erkennen von Besessenheit	De	G	\N
+Erkennen von Besessenheit	Hj	G	\N
+Erkennen von Besessenheit	Hl	S	\N
+Erkennen von Besessenheit	Or	S	\N
+Erkennen von Besessenheit	PC	S	\N
+Erkennen von Besessenheit	PF	S	\N
+Erkennen von Besessenheit	PHa	S	\N
+Erkennen von Besessenheit	PHe	S	\N
+Erkennen von Besessenheit	PK	S	\N
+Erkennen von Besessenheit	PM	S	\N
+Erkennen von Besessenheit	PT	S	\N
+Erkennen von Besessenheit	PW	G	\N
+Erkennen von Besessenheit	ScN	S	\N
+Erkennen von Besessenheit	ScS	S	\N
+Erkennen von Besessenheit	ScW	S	\N
+Erkennen von Besessenheit	dBe	S	\N
+Erkennen von Besessenheit	eBe	S	\N
+Erkennen von Besessenheit	tBe	S	\N
 Erkennen von Gift	Dr	G	\N
 Erkennen von Gift	Hl	A	\N
 Erkennen von Gift	Ma	S	\N
@@ -3292,15 +3333,22 @@ Funkensalz	gHx	S	\N
 Funkensalz	sHx	S	\N
 Funkensalz	tBe	A	\N
 Funkensalz	wHx	S	\N
-Fährtenduft	Ba	G	\N
-Fährtenduft	Dr	A	\N
+Fährtenduft	Dr	G	\N
 Fährtenduft	Dt	A	\N
-Fährtenduft	Hl	A	\N
-Fährtenduft	PT	S	\N
-Fährtenduft	PW	A	\N
-Fährtenduft	Th	A	\N
-Fährtenduft	eBe	G	\N
+Fährtenduft	Fi	S	\N
+Fährtenduft	Hl	G	\N
+Fährtenduft	Km	A	\N
+Fährtenduft	Ma	A	\N
+Fährtenduft	Or	A	\N
+Fährtenduft	ScN	S	\N
+Fährtenduft	ScS	S	\N
+Fährtenduft	ScW	S	\N
+Fährtenduft	Tm	S	\N
+Fährtenduft	To	S	\N
+Fährtenduft	Wi	S	\N
 Fährtenduft	gHx	A	\N
+Fährtenduft	sHx	A	\N
+Fährtenduft	wHx	A	\N
 Färbersalz	De	A	\N
 Färbersalz	Dr	A	\N
 Färbersalz	Dt	A	\N
@@ -3429,6 +3477,31 @@ Geruchsverlust	Th	G	\N
 Geruchsverlust	gHx	S	\N
 Geruchsverlust	sHx	S	\N
 Geruchsverlust	wHx	S	\N
+Geräusche dämpfen	De	A	\N
+Geräusche dämpfen	Dr	S	\N
+Geräusche dämpfen	Fi	A	\N
+Geräusche dämpfen	Hl	S	\N
+Geräusche dämpfen	Km	S	\N
+Geräusche dämpfen	Ma	A	\N
+Geräusche dämpfen	PC	A	\N
+Geräusche dämpfen	PF	A	\N
+Geräusche dämpfen	PHa	A	\N
+Geräusche dämpfen	PHe	A	\N
+Geräusche dämpfen	PK	A	\N
+Geräusche dämpfen	PM	A	\N
+Geräusche dämpfen	PT	S	\N
+Geräusche dämpfen	PW	A	\N
+Geräusche dämpfen	ScN	A	\N
+Geräusche dämpfen	ScS	A	\N
+Geräusche dämpfen	ScW	A	\N
+Geräusche dämpfen	Sw	G	\N
+Geräusche dämpfen	Th	G	\N
+Geräusche dämpfen	Tm	A	\N
+Geräusche dämpfen	To	S	\N
+Geräusche dämpfen	Wi	A	\N
+Geräusche dämpfen	gHx	S	\N
+Geräusche dämpfen	sHx	S	\N
+Geräusche dämpfen	wHx	S	\N
 Gesichtsrune	Ru	G	\N
 Gesichtsrune	Sk	S	\N
 Ghussat el-Masin	PF	G	\N
@@ -3987,6 +4060,27 @@ Harkbuar beschwören	eBe	A	\N
 Harkbuar beschwören	gHx	A	\N
 Harkbuar beschwören	sHx	A	\N
 Harkbuar beschwören	wHx	A	\N
+Hauch der Betäubung	Dr	A	\N
+Hauch der Betäubung	Hl	A	\N
+Hauch der Betäubung	Km	S	\N
+Hauch der Betäubung	Ma	S	\N
+Hauch der Betäubung	PC	S	\N
+Hauch der Betäubung	PF	S	\N
+Hauch der Betäubung	PHa	S	\N
+Hauch der Betäubung	PHe	S	\N
+Hauch der Betäubung	PK	S	\N
+Hauch der Betäubung	PM	S	\N
+Hauch der Betäubung	PT	S	\N
+Hauch der Betäubung	PW	S	\N
+Hauch der Betäubung	ScN	A	\N
+Hauch der Betäubung	ScS	A	\N
+Hauch der Betäubung	ScW	A	\N
+Hauch der Betäubung	Sw	G	\N
+Hauch der Betäubung	Th	G	\N
+Hauch der Betäubung	To	S	\N
+Hauch der Betäubung	gHx	S	\N
+Hauch der Betäubung	sHx	S	\N
+Hauch der Betäubung	wHx	S	\N
 Hauch der Verwesung	De	A	\N
 Hauch der Verwesung	Dt	S	\N
 Hauch der Verwesung	Ma	S	\N
@@ -4084,6 +4178,7 @@ Haugskadi beschwören	wHx	A	\N
 Heilen schwerer Wunden	De	S	\N
 Heilen schwerer Wunden	Dr	A	\N
 Heilen schwerer Wunden	Dt	S	\N
+Heilen schwerer Wunden	Fi	S	\N
 Heilen schwerer Wunden	Hl	G	\N
 Heilen schwerer Wunden	Or	G	\N
 Heilen schwerer Wunden	PC	S	\N
@@ -4138,7 +4233,6 @@ Heilen von Wunden	sHx	A	\N
 Heilen von Wunden	wHx	A	\N
 Heiliger Zorn	De	G	\N
 Heiliger Zorn	Dt	S	\N
-Heiliger Zorn	Fi	G	\N
 Heiliger Zorn	Or	G	\N
 Heiliger Zorn	PC	G	\N
 Heiliger Zorn	PF	G	\N
@@ -4493,6 +4587,7 @@ Hören der Geister	tBe	G	\N
 Hören der Geister	wHx	S	\N
 Hören von Fernem	De	S	\N
 Hören von Fernem	Dr	S	\N
+Hören von Fernem	Fi	S	\N
 Hören von Fernem	Hl	S	\N
 Hören von Fernem	Ma	G	\N
 Hören von Fernem	Mg	G	\N
@@ -5323,7 +5418,19 @@ Lahmsalz	eBe	A	\N
 Lahmsalz	gHx	S	\N
 Lahmsalz	sHx	S	\N
 Lahmsalz	wHx	S	\N
+Laufen wie der Wind	Dr	S	\N
 Laufen wie der Wind	Fi	G	\N
+Laufen wie der Wind	Hl	G	\N
+Laufen wie der Wind	Km	S	\N
+Laufen wie der Wind	ScN	S	\N
+Laufen wie der Wind	ScS	S	\N
+Laufen wie der Wind	ScW	S	\N
+Laufen wie der Wind	Tm	S	\N
+Laufen wie der Wind	To	A	\N
+Laufen wie der Wind	Wi	G	\N
+Laufen wie der Wind	gHx	A	\N
+Laufen wie der Wind	sHx	A	\N
+Laufen wie der Wind	wHx	A	\N
 Lauschen	Ma	G	\N
 Lauschen	Th	G	\N
 Lauschen	gHx	S	\N
@@ -5397,6 +5504,29 @@ Lergris beschwören	eBe	A	\N
 Lergris beschwören	gHx	A	\N
 Lergris beschwören	sHx	A	\N
 Lergris beschwören	wHx	A	\N
+Leuchtspur	De	A	\N
+Leuchtspur	Hj	G	\N
+Leuchtspur	Ma	A	\N
+Leuchtspur	Or	A	\N
+Leuchtspur	PC	A	\N
+Leuchtspur	PF	A	\N
+Leuchtspur	PHa	A	\N
+Leuchtspur	PHe	A	\N
+Leuchtspur	PK	A	\N
+Leuchtspur	PM	A	\N
+Leuchtspur	PT	S	\N
+Leuchtspur	PW	S	\N
+Leuchtspur	ScN	S	\N
+Leuchtspur	ScS	S	\N
+Leuchtspur	ScW	S	\N
+Leuchtspur	Tm	A	\N
+Leuchtspur	To	S	\N
+Leuchtspur	dBe	G	\N
+Leuchtspur	eBe	G	\N
+Leuchtspur	gHx	A	\N
+Leuchtspur	sHx	A	\N
+Leuchtspur	tBe	G	\N
+Leuchtspur	wHx	A	\N
 Levitation	De	S	\N
 Levitation	Dr	S	\N
 Levitation	Dt	S	\N
@@ -6066,6 +6196,7 @@ Marmennil beschwören	sHx	A	\N
 Marmennil beschwören	wHx	A	\N
 Marmorhaut	De	S	\N
 Marmorhaut	Dt	S	\N
+Marmorhaut	Fi	S	\N
 Marmorhaut	Hl	A	\N
 Marmorhaut	Ma	S	\N
 Marmorhaut	Or	G	\N
@@ -6527,10 +6658,12 @@ Person beschwören	eBe	S	\N
 Person beschwören	gHx	A	\N
 Person beschwören	sHx	A	\N
 Person beschwören	wHx	A	\N
-Person wiederfinden	De	G	\N
-Person wiederfinden	Dt	S	\N
+Person wiederfinden	De	A	\N
+Person wiederfinden	Dr	S	\N
+Person wiederfinden	Hj	G	\N
 Person wiederfinden	Hl	G	\N
 Person wiederfinden	Ma	S	\N
+Person wiederfinden	Or	A	\N
 Person wiederfinden	PC	S	\N
 Person wiederfinden	PF	S	\N
 Person wiederfinden	PHa	S	\N
@@ -6539,11 +6672,11 @@ Person wiederfinden	PK	S	\N
 Person wiederfinden	PM	S	\N
 Person wiederfinden	PT	S	\N
 Person wiederfinden	PW	S	\N
-Person wiederfinden	Sa	G	\N
 Person wiederfinden	ScN	G	\N
 Person wiederfinden	ScS	G	\N
 Person wiederfinden	ScW	G	\N
 Person wiederfinden	Th	G	\N
+Person wiederfinden	To	S	\N
 Person wiederfinden	gHx	S	\N
 Person wiederfinden	sHx	S	\N
 Person wiederfinden	wHx	S	\N
@@ -6588,6 +6721,26 @@ PiYeúQuang	ScN	S	\N
 PiYeúQuang	ScS	S	\N
 PiYeúQuang	ScW	S	\N
 PiYeúQuang	Tt	S	\N
+Rauchbild	De	A	\N
+Rauchbild	Hj	G	\N
+Rauchbild	PC	A	\N
+Rauchbild	PF	A	\N
+Rauchbild	PHa	A	\N
+Rauchbild	PHe	A	\N
+Rauchbild	PK	A	\N
+Rauchbild	PM	A	\N
+Rauchbild	PT	S	\N
+Rauchbild	PW	S	\N
+Rauchbild	ScN	S	\N
+Rauchbild	ScS	S	\N
+Rauchbild	ScW	S	\N
+Rauchbild	To	A	\N
+Rauchbild	dBe	G	\N
+Rauchbild	eBe	G	\N
+Rauchbild	gHx	A	\N
+Rauchbild	sHx	A	\N
+Rauchbild	tBe	G	\N
+Rauchbild	wHx	A	\N
 Rauchkringel	Tr	G	\N
 Rauchsalz	De	A	\N
 Rauchsalz	Dr	A	\N
@@ -6797,6 +6950,7 @@ Rince na Daoine Maithe (Reigen des Feenvolks)	ScW	S	\N
 Rince na Daoine Maithe (Reigen des Feenvolks)	Tm	S	\N
 Rindenhaut	De	S	\N
 Rindenhaut	Dr	G	\N
+Rindenhaut	Fi	S	\N
 Rindenhaut	Ma	A	\N
 Rindenhaut	PF	A	\N
 Rindenhaut	Sa	S	\N
@@ -6999,6 +7153,7 @@ Schadd wa-Tarka	wHx	G	\N
 Scharade	Tr	G	\N
 Scharfblick	Dr	S	\N
 Scharfblick	Dt	S	\N
+Scharfblick	Fi	S	\N
 Scharfblick	Hl	S	\N
 Scharfblick	Ma	G	\N
 Scharfblick	Mg	G	\N
@@ -7014,6 +7169,27 @@ Scharfblick	Tm	S	\N
 Scharfblick	gHx	S	\N
 Scharfblick	sHx	S	\N
 Scharfblick	wHx	S	\N
+Schatten verstärken	Dr	A	\N
+Schatten verstärken	Fi	A	\N
+Schatten verstärken	Km	A	\N
+Schatten verstärken	Ma	A	\N
+Schatten verstärken	PC	A	\N
+Schatten verstärken	PF	A	\N
+Schatten verstärken	PHa	A	\N
+Schatten verstärken	PK	A	\N
+Schatten verstärken	PM	A	\N
+Schatten verstärken	PT	A	\N
+Schatten verstärken	PW	A	\N
+Schatten verstärken	ScN	S	\N
+Schatten verstärken	ScS	S	\N
+Schatten verstärken	ScW	S	\N
+Schatten verstärken	Sw	G	\N
+Schatten verstärken	Th	G	\N
+Schatten verstärken	To	S	\N
+Schatten verstärken	Wi	A	\N
+Schatten verstärken	gHx	S	\N
+Schatten verstärken	sHx	S	\N
+Schatten verstärken	wHx	S	\N
 Schattenbruder	De	A	\N
 Schattenbruder	Hl	A	\N
 Schattenbruder	Ma	S	\N
@@ -7047,9 +7223,37 @@ Schattenjaguar	Tr	A	\N
 Schattenjaguar	gHx	A	\N
 Schattenjaguar	sHx	A	\N
 Schattenjaguar	wHx	A	\N
+Schattenrobe	Hj	A	\N
+Schattenrobe	Km	A	\N
+Schattenrobe	Ma	A	\N
+Schattenrobe	Sw	G	\N
+Schattenrobe	Th	G	\N
+Schattenrobe	To	S	\N
+Schattenrobe	gHx	S	\N
+Schattenrobe	sHx	S	\N
+Schattenrobe	wHx	S	\N
 Schattenroß	Dr	S	\N
 Schattenroß	PC	S	\N
 Schattenroß	sHx	S	\N
+Schattenschrecken	Dr	S	\N
+Schattenschrecken	Km	S	\N
+Schattenschrecken	Ma	A	\N
+Schattenschrecken	PC	A	\N
+Schattenschrecken	PF	A	\N
+Schattenschrecken	PHa	A	\N
+Schattenschrecken	PK	A	\N
+Schattenschrecken	PM	A	\N
+Schattenschrecken	PT	A	\N
+Schattenschrecken	PW	A	\N
+Schattenschrecken	ScN	S	\N
+Schattenschrecken	ScS	S	\N
+Schattenschrecken	ScW	S	\N
+Schattenschrecken	Sw	G	\N
+Schattenschrecken	Th	G	\N
+Schattenschrecken	To	A	\N
+Schattenschrecken	gHx	S	\N
+Schattenschrecken	sHx	S	\N
+Schattenschrecken	wHx	S	\N
 Scheintod	De	G	\N
 Scheintod	Dr	A	\N
 Scheintod	Dt	A	\N
@@ -7072,7 +7276,19 @@ Scheintod	sHx	S	\N
 Scheintod	wHx	S	\N
 Schildrune	Ru	G	\N
 Schildrune	Sk	S	\N
+Schlachtenwahnsinn	Dr	S	\N
 Schlachtenwahnsinn	Fi	G	\N
+Schlachtenwahnsinn	Hl	A	\N
+Schlachtenwahnsinn	Km	A	\N
+Schlachtenwahnsinn	ScN	A	\N
+Schlachtenwahnsinn	ScS	A	\N
+Schlachtenwahnsinn	ScW	A	\N
+Schlachtenwahnsinn	Tm	S	\N
+Schlachtenwahnsinn	To	A	\N
+Schlachtenwahnsinn	Wi	A	\N
+Schlachtenwahnsinn	gHx	A	\N
+Schlachtenwahnsinn	sHx	A	\N
+Schlachtenwahnsinn	wHx	A	\N
 Schlaf	De	S	\N
 Schlaf	Dr	S	\N
 Schlaf	Dt	G	\N
@@ -7247,6 +7463,7 @@ Schrumpfen	wHx	S	\N
 Schutzgeist	De	S	\N
 Schutzgeist	Dr	S	\N
 Schutzgeist	Dt	S	\N
+Schutzgeist	Fi	S	\N
 Schutzgeist	Or	G	\N
 Schutzgeist	PC	S	\N
 Schutzgeist	PF	S	\N
@@ -7263,6 +7480,22 @@ Schutzgeist	ScW	S	\N
 Schutzgeist	Sr	G	\N
 Schutzgeist	Tm	G	\N
 Schutzgeist	wHx	S	\N
+Schutzgeste	De	S	\N
+Schutzgeste	Dr	A	\N
+Schutzgeste	Hj	G	\N
+Schutzgeste	Hl	A	\N
+Schutzgeste	Or	A	\N
+Schutzgeste	PF	S	\N
+Schutzgeste	PHa	S	\N
+Schutzgeste	PHe	S	\N
+Schutzgeste	PK	S	\N
+Schutzgeste	PM	S	\N
+Schutzgeste	PT	S	\N
+Schutzgeste	PW	S	\N
+Schutzgeste	ScN	S	\N
+Schutzgeste	ScS	S	\N
+Schutzgeste	ScW	S	\N
+Schutzgeste	Tm	A	\N
 Schutzkreis gegen Dunebargen	De	A	\N
 Schutzkreis gegen Dunebargen	Dr	A	\N
 Schutzkreis gegen Dunebargen	Dt	A	\N
@@ -8478,6 +8711,14 @@ Tor schaffen	eBe	S	\N
 Tor schaffen	gHx	A	\N
 Tor schaffen	sHx	A	\N
 Tor schaffen	wHx	A	\N
+Torwandeln	Km	A	\N
+Torwandeln	Ma	A	\N
+Torwandeln	Sw	G	\N
+Torwandeln	Th	G	\N
+Torwandeln	To	S	\N
+Torwandeln	gHx	S	\N
+Torwandeln	sHx	S	\N
+Torwandeln	wHx	S	\N
 Totenrune	Ru	G	\N
 Totenrune	Sk	A	\N
 Trampelsalz	De	A	\N
@@ -9158,6 +9399,7 @@ Wachsen	wHx	S	\N
 Wagemut	De	G	\N
 Wagemut	Dr	S	\N
 Wagemut	Dt	S	\N
+Wagemut	Fi	G	\N
 Wagemut	Hl	S	\N
 Wagemut	Ma	A	\N
 Wagemut	Or	G	\N
@@ -9298,9 +9540,18 @@ Wandelsalz	tBe	A	\N
 Wandelsalz	wHx	S	\N
 Wandlung	Hl	S	\N
 Wandlung	Sa	G	\N
+Wandwandeln	Km	A	\N
+Wandwandeln	Ma	A	\N
+Wandwandeln	Sw	G	\N
+Wandwandeln	Th	G	\N
+Wandwandeln	To	S	\N
+Wandwandeln	gHx	S	\N
+Wandwandeln	sHx	S	\N
+Wandwandeln	wHx	S	\N
 Warnung	De	G	\N
 Warnung	Dr	A	\N
 Warnung	Dt	S	\N
+Warnung	Fi	A	\N
 Warnung	Hl	S	\N
 Warnung	Ma	S	\N
 Warnung	Or	S	\N
@@ -9671,13 +9922,18 @@ Wirbelwind	eBe	S	\N
 Wirbelwind	gHx	S	\N
 Wirbelwind	sHx	S	\N
 Wirbelwind	wHx	S	\N
-Wittern	De	G	\N
 Wittern	Dr	G	\N
+Wittern	Fi	S	\N
+Wittern	Hl	S	\N
+Wittern	Km	A	\N
 Wittern	Ma	A	\N
 Wittern	ScN	G	\N
 Wittern	ScS	G	\N
 Wittern	ScW	G	\N
 Wittern	Th	G	\N
+Wittern	Tm	S	\N
+Wittern	To	S	\N
+Wittern	Wi	S	\N
 Wittern	gHx	S	\N
 Wittern	sHx	S	\N
 Wittern	wHx	S	\N
@@ -9911,7 +10167,19 @@ Zauberschmiede	Th	G	\N
 Zauberschmiede	gHx	A	\N
 Zauberschmiede	sHx	A	\N
 Zauberschmiede	wHx	A	\N
+Zaubersprung	Dr	S	\N
 Zaubersprung	Fi	G	\N
+Zaubersprung	Hl	G	\N
+Zaubersprung	Km	A	\N
+Zaubersprung	ScN	S	\N
+Zaubersprung	ScS	S	\N
+Zaubersprung	ScW	S	\N
+Zaubersprung	Tm	S	\N
+Zaubersprung	To	A	\N
+Zaubersprung	Wi	S	\N
+Zaubersprung	gHx	A	\N
+Zaubersprung	sHx	A	\N
+Zaubersprung	wHx	A	\N
 Zauberstimme	De	S	\N
 Zauberstimme	Dr	S	\N
 Zauberstimme	Dt	S	\N
@@ -9982,6 +10250,7 @@ Zeichen des Chaos	PC	S	\N
 Zeichen des Chaos	sHx	S	\N
 Zielsuche	De	G	\N
 Zielsuche	Dr	G	\N
+Zielsuche	Fi	G	\N
 Zielsuche	Ma	S	\N
 Zielsuche	PK	G	\N
 Zielsuche	Sa	G	\N
@@ -10095,6 +10364,38 @@ Zwingkreis	dBe	G	\N
 Zwingkreis	eBe	S	\N
 Zwingkreis	gHx	S	\N
 Zwingkreis	tBe	S	\N
+Zwingkreis, Blauer	De	A	\N
+Zwingkreis, Blauer	Hj	G	\N
+Zwingkreis, Blauer	PC	A	\N
+Zwingkreis, Blauer	PF	A	\N
+Zwingkreis, Blauer	PHa	A	\N
+Zwingkreis, Blauer	PHe	A	\N
+Zwingkreis, Blauer	PK	A	\N
+Zwingkreis, Blauer	PM	A	\N
+Zwingkreis, Blauer	PT	S	\N
+Zwingkreis, Blauer	PW	A	\N
+Zwingkreis, Blauer	ScN	A	\N
+Zwingkreis, Blauer	ScS	A	\N
+Zwingkreis, Blauer	ScW	A	\N
+Zwingkreis, Blauer	dBe	S	\N
+Zwingkreis, Blauer	eBe	S	\N
+Zwingkreis, Blauer	tBe	S	\N
+Zwingkreis, Silberner	De	A	\N
+Zwingkreis, Silberner	Hj	G	\N
+Zwingkreis, Silberner	PC	S	\N
+Zwingkreis, Silberner	PF	S	\N
+Zwingkreis, Silberner	PHa	A	\N
+Zwingkreis, Silberner	PHe	A	\N
+Zwingkreis, Silberner	PK	A	\N
+Zwingkreis, Silberner	PM	A	\N
+Zwingkreis, Silberner	PT	A	\N
+Zwingkreis, Silberner	PW	A	\N
+Zwingkreis, Silberner	ScN	A	\N
+Zwingkreis, Silberner	ScS	A	\N
+Zwingkreis, Silberner	ScW	A	\N
+Zwingkreis, Silberner	dBe	S	\N
+Zwingkreis, Silberner	eBe	S	\N
+Zwingkreis, Silberner	tBe	S	\N
 Zähmen	De	A	\N
 Zähmen	Dr	G	Holz
 Zähmen	Dt	G	\N

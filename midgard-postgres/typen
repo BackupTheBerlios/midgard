@@ -79,8 +79,7 @@ COPY "typen" FROM stdin;
 38	Kd	KiDoka	KiDoka	n	k	0	0	1	K	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 39	Sa	Saddhu	Saddhu	z	z	0	0	4	R	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 40	Sr	Srikumara	Srikumara	j	ak	0	0	3	R	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-41	Fi	Fian	Fian	j	ak	0	0	3	B&R	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-42	Ri	Ritter	Ritterin	n	k	0	0	3	B&R	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+41	Fi	Fian	Fiana	j	ak	10	0	1	TuT	2	\N	l	Dweomer	\N	\N	\N	\N	\N	\N	t	\N	\N
 43	Sk	Skalde	Skaldin	j	ak	20	0	1	W	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 44	Ru	Runenschneider	Runenschneiderin	j	ak	0	0	3	W	3	k	\N	Runen	\N	\N	\N	\N	\N	\N	\N	\N	\N
 45	PC	Chaospriester	Chaosprieserin	z	z	20	0	4	\N	3	z	\N	Wunder	t	\N	\N	\N	\N	\N	\N	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
@@ -89,6 +88,8 @@ COPY "typen" FROM stdin;
 48	Tt	Tempeltänzer	Tämpeltänzerin	z	ak	0	0	1	N	3	z	\N	Wunder	\N	\N	\N	\N	\N	\N	\N	\N	\N
 49	Tr	Trickser	Trickserin	j	ak	-20	-20	1	N	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 50	Mg	Magister	Magisterin	j	ak	20	0	1	TuT	4	\N	\N	\N	\N	\N	\N	31	61	61	\N	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
+51	RiN	Ritter (Alba, Küstenstaaten)	Ritterin (Alba, Küstenstaaten)	n	k	0	0	3	TuT	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+52	RiS	Ritter (Aran,Eschar)	Ritterin (Aran,Eschar)	n	k	0	0	3	TuT	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 \.
 --
 --

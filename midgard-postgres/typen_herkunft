@@ -89,7 +89,9 @@ Er	Küstenstaaten	\N
 Er	Rawindra	\N
 Er	Valian	\N
 Er	Ywerddon	\N
+Fi	Erainn	Langschwert
 Fi	Erainn	\N
+Fi	Ywerddon	Langschwert
 Gl	Alba	\N
 Gl	Aran	\N
 Gl	Chryseia	\N
@@ -305,6 +307,10 @@ PW	Minangpahit	Dolch
 PW	Nahuatlan	Magierstab
 PW	Rawindra	waffenloser Kampf
 PW	Waeland	Magierstab
+RiN	Alba	\N
+RiN	Küstenstaaten	\N
+RiS	Aran	\N
+RiS	Eschar	\N
 Ru	Waeland	\N
 Sa	Rawindra	\N
 ScN	Buluga	\N

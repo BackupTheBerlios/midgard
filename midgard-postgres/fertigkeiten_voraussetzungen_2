@@ -18,6 +18,7 @@ CREATE TABLE "fertigkeiten_voraussetzungen_2" (
 
 
 COPY "fertigkeiten_voraussetzungen_2" FROM stdin;
+Astrologie	Himmelskunde
 Astrologie	Rechnen
 Augensalbe herstellen	Alchemie
 Augensalbe herstellen	Thaumaturgie
