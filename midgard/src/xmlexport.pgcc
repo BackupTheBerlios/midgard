@@ -1,4 +1,4 @@
-// $Id: xmlexport.pgcc,v 1.25 2001/09/04 16:42:59 christof Exp $
+// $Id: xmlexport.pgcc,v 1.26 2001/09/04 17:04:29 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -254,9 +254,12 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
    exec sql deallocate descriptor spalten;
 }
 
+// wegen eines bugs in epcg <=V6.1
+#define GARNIX 
+
 int main(int argc, char *argv[])
 {  
-   if (argc!=3 && argc!=1) {std::cerr << "FEHLER: "<<argv[0]<<" muß mit 'Charaktername' und 'Version' aufgerufen werden\n";
+   if (argc>3 && argc<1) {std::cerr << "USAGE: "<<argv[0]<<" ['Charaktername'] ['Version']\n";
       exit(1); };
    try{
       Petig::Connection conn;
@@ -265,7 +268,34 @@ int main(int argc, char *argv[])
 
    std::cout << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n";
    if (argc==3) charakter_speichern(std::cout,argv[1],argv[2]);
-   else
+   else if (argc==2)
+   {  Transaction tr;
+   exec sql begin declare section;
+   char *charakter=argv[1];
+   exec sql end declare section;
+   
+   exec sql allocate descriptor figuren2;
+   exec sql declare fcurs2 cursor for
+   	select charakter_name, version
+   	from charaktere 
+   	where charakter_name like :charakter
+   	order by charakter_name, version;
+   exec sql open fcurs2;
+   SQLerror::test(__FILELINE__);
+   while (true)
+   {  exec sql fetch fcurs2 into sql descriptor figuren2;
+      SQLerror::test(__FILELINE__,100);
+      if (sqlca.sqlcode) break;
+      FetchIStream is("figuren2");
+      string charakter,version;
+      is >> charakter >> version;
+      charakter_speichern(std::cout,charakter,version);
+   }
+   exec sql close fcurs2;
+   SQLerror::test(__FILELINE__);
+   exec sql deallocate descriptor figuren2;
+   }
+   else // argc==1
    {  Transaction tr;
    exec sql allocate descriptor figuren;
    exec sql declare fcurs cursor for
