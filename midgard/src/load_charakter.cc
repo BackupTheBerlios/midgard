@@ -179,6 +179,7 @@ void midgard_CG::xml_import(const std::string& datei)
    load_ausruestung(Ausruestung,&besitz);
    
    filename=datei;
+   load_for_mainpage(notebook_main->get_current_page_num());
 }
 
 void midgard_CG::Typ_Geschlecht_Spezies_setzen() 

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.188 2002/04/15 10:05:24 thoma Exp $
+// $Id: midgard_CG.cc,v 1.189 2002/04/15 18:02:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,10 +37,10 @@ midgard_CG::midgard_CG(const string &datei)
   notebook_main->set_sensitive(true); // solange die Datenbank nicht geladen ist
                                       // stürzt das Programm ab
   srand(time(0));
+  Typ.resize(2);
   if(InfoFenster) delete(InfoFenster);
   InfoFenster = manage(new WindowInfo(this));
   if(MOptionen) delete(MOptionen);
-//  MOptionen = manage(new Midgard_Optionen(this)); // geht nicht
   MOptionen = new Midgard_Optionen(this); // Destruktor schrieben !?!
   frame_drucken->set_Hauptfenster(this);
   frame_globale_optionen->set_Hauptfenster(this);
@@ -50,8 +50,7 @@ midgard_CG::midgard_CG(const string &datei)
 
   MOptionen->load_options();
   on_neuer_charakter_clicked();
-
-  notebook_main->set_page(PAGE_GRUNDWERTE); // muß nach 'on_neuer_charakter_clicked' kommen wg. Typ.resize(2)
+  notebook_main->set_page(PAGE_GRUNDWERTE);
   if (!datei.empty()) xml_import(datei); // Charakter laden
   else if(MOptionen->OptionenCheck(Midgard_Optionen::Wizard_immer_starten).active) wizard_starten_clicked();
   // für die NEWS
@@ -59,7 +58,6 @@ midgard_CG::midgard_CG(const string &datei)
   os << 
 #include"NEWS.h" 
    <<'\n';
-
 }
 
 void midgard_CG::optionmenu_init()

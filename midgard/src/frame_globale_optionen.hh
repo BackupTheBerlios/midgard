@@ -23,7 +23,8 @@ class frame_globale_optionen : public frame_globale_optionen_glade
         
         friend class frame_globale_optionen_glade;
         midgard_CG *hauptfenster;
-        void element_activate(Gtk::CheckButton *cb,Midgard_Optionen::OptionenCheckIndex index);         
+        void element_activate_C(Gtk::CheckButton *cb,Midgard_Optionen::OptionenCheckIndex index);         
+        void element_activate_H(Gtk::CheckButton *cb,Midgard_Optionen::HausIndex index);         
 
 public:
         

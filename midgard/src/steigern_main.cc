@@ -176,6 +176,8 @@ void midgard_CG::on_button_alter_clicked()
 
 gint midgard_CG::on_eventbox_ausruestung_button_release_event(GdkEventButton *event)
 { notebook_main->set_page(PAGE_AUSRUESTUNG); return false;}
+gint midgard_CG::on_eventbox_optionen_button_release_event(GdkEventButton *event)
+{ notebook_main->set_page(PAGE_OPTIONEN); return false;}
 gint midgard_CG::on_eventbox_beschreibung_button_release_event(GdkEventButton *event)
 { notebook_main->set_page(PAGE_BESCHREIBUNG); return false;}
 gint midgard_CG::on_eventbox_steigern_button_release_event(GdkEventButton *event)
@@ -187,6 +189,11 @@ gint midgard_CG::on_eventbox_grundwerte_button_release_event(GdkEventButton *eve
 
 
 void midgard_CG::on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page *page,guint pagenr)
+{
+ load_for_mainpage(pagenr);
+}
+
+void midgard_CG::load_for_mainpage(guint pagenr)
 {
  if(Typ[0]->is_mage() || Typ[1]->is_mage())
   {

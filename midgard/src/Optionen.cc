@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.7 2002/04/15 16:50:11 christof Exp $
+// $Id: Optionen.cc,v 1.8 2002/04/15 18:02:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -72,8 +72,7 @@ void Midgard_Optionen::setOptionCheck(std::string os,bool b)
 {
  for(std::list<st_OptionenCheck>::iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
    if(i->text==os) 
-     { 
-       OptionenCheck_setzen_from_menu(i->index,b);
+     { OptionenCheck_setzen_from_menu(i->index,b);
        return; 
      }
  throw NotFound();
@@ -83,7 +82,7 @@ void Midgard_Optionen::setHausregeln(std::string hs,bool b)
 {
   for(list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
     if(i->text==hs)  
-      { i->active=b; 
+      { Hausregeln_setzen_from_menu(i->index,b);
         return;
       }
  throw NotFound();
@@ -117,7 +116,7 @@ void Midgard_Optionen::OptionenCheck_setzen_from_menu(OptionenCheckIndex index,b
      else if(i->index==showPics) hauptfenster->Pics(i->active);
      else if(i->index==gw_wuerfeln) hauptfenster->show_gw_wuerfeln(i->active);
 #warning führt zum Absturz beim Programmstart, etwas unausgegoren? CP     
-//     else if(i->index==NSC_only) hauptfenster->on_radiobutton_mann_toggled(); // zum Neuaufbau des Typmenüs
+     else if(i->index==NSC_only) hauptfenster->on_radiobutton_mann_toggled(); // zum Neuaufbau des Typmenüs
    }
 //  hauptfenster->fire_enabled=true;
 }
@@ -131,12 +130,12 @@ void Midgard_Optionen::OptionenExecute_setzen_from_menu(OptionenExecuteIndex ind
   if(index==show_InfoWindow) hauptfenster->InfoFenster->show();
 }
 
-void Midgard_Optionen::Hausregeln_setzen_from_menu(HausIndex index)
+void Midgard_Optionen::Hausregeln_setzen_from_menu(HausIndex index,bool b)
 {
   for(list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
    {
      if(i->index==index) 
-      { i->active = true;
+      { i->active = b;
         return;
       }
    }

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.213 2002/04/15 05:45:02 thoma Exp $
+// $Id: midgard_CG.hh,v 1.214 2002/04/15 18:02:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -54,7 +54,8 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
 
         Random random;   
         enum enum_notebook_main{PAGE_INFO,PAGE_GRUNDWERTE,PAGE_LERNEN,PAGE_STEIGERN,
-                                PAGE_BESCHREIBUNG,PAGE_AUSRUESTUNG,PAGE_NEWS};
+                                PAGE_BESCHREIBUNG,PAGE_AUSRUESTUNG,PAGE_OPTIONEN,
+                                PAGE_NEWS};
         enum enum_notebook_lernen{PAGE_FERTIGKEITEN,PAGE_WAFFEN,PAGE_ZAUBER,
                                   PAGE_KIDO,PAGE_SPRACHE};
         enum enum_lernschema_zusatz{LZHERKUNFT,LZGEHEIMZEICHEN,LZABRICHTEN,
@@ -453,6 +454,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
 
         void on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page* page,guint pagenr);
         gint on_eventbox_ausruestung_button_release_event(GdkEventButton *event);
+        gint on_eventbox_optionen_button_release_event(GdkEventButton *event);
         gint on_eventbox_beschreibung_button_release_event(GdkEventButton *event);
         gint on_eventbox_steigern_button_release_event(GdkEventButton *event);
         gint on_eventbox_lernen_button_release_event(GdkEventButton *event);
@@ -461,6 +463,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         gint on_button_kurz_steigern_release_event(GdkEventButton *event);
 
         void on_notebook_lernen_switch_page(Gtk::Notebook_Helpers::Page* page,guint pagenr);
+        void load_for_mainpage(guint pagenr);
         void load_for_page(guint pagenr);
         void on_radio_steigern_toggled();
         void on_radio_reduzieren_toggled();

@@ -18,6 +18,7 @@ NEWS IN VERSION 0.6delta0
   und Drucken enthält.
 * (zukünftige) Wizard Verbesserungen von Christof
 * Implementation der Optionen komplett(!) überarbeitet
+* Gründliche(!) Oberflächenüberarbeitung
 
 TODO:
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
