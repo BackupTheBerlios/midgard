@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.26 2004/11/22 07:25:28 christof Exp $            
+// $Id: Abenteurer.cc,v 1.27 2004/11/24 08:20:17 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -404,28 +404,6 @@ bool Abenteurer::xml_import_stream(std::istream& datei)
           +" wird noch nicht unterstützt");
    }
 */
-/*
-   if (data)
-   {  const Tag *Preise=data->find("Preise");
-      if (Preise)
-      {  FOR_EACH_CONST_TAG_OF(i,*Preise,"Kaufpreis")
-         {  std::string name=i->getAttr("Ware");
-         
-            std::list<cH_Preise>::iterator iter;
-            while ((iter=std::find(Datenbank.preise.begin(),Datenbank.preise.end(),name))
-            		!=Datenbank.preise.end())
-            {  iter=Datenbank.preise.erase(iter);
-            }
-            
-            Preise::saveArtikel("",hauptfenster,i->getAttr("Art"),i->getAttr("Art2"),name,
-            		i->getFloatAttr("Preis"),i->getAttr("Währung"),
-            		i->getFloatAttr("Gewicht"),
-            		i->getAttr("Region"));
-            Datenbank.preise.push_back(cH_Preise(name));
-         }
-      }
-   }
-*/
    
    const Tag *Figur=top->find("Figur");
    const Tag *Typ=top->find("Typ");
@@ -441,6 +419,8 @@ bool Abenteurer::xml_import_stream(std::istream& datei)
        if (!Ruestung1) Ruestung1=top->find("Rüstung");
    const Tag *Ausruestung=top->find("Ausrüstung");
        if (!Ausruestung) Ausruestung=top->find("Fertigkeiten");
+   Tag leer("");
+       if (!Ausruestung) Ausruestung=&leer; // last Ressort
        if (!Ruestung1) Ruestung1=Ausruestung->find("Rüstung");
    const Tag *Ruestung2=Ausruestung->find("Rüstung2");
    const Tag *Fertigkeiten=top->find("Fertigkeiten");
