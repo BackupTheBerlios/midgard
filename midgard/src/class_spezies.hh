@@ -11,15 +11,15 @@ public:
        m_psy(0),m_phs(0),m_phk(0),alter(0), 
        groesse_f(0),groesse_w(0), groesse_s(0),
        gestalt(0),b_f(0),b_s(0)  {}
-   Data_spezies(int _st,int _ge,int _ko,int _in,int _zt,int _sb,int _au,    
+   void set(int _st,int _ge,int _ko,int _in,int _zt,int _sb,int _au,    
    int _lpbasis,int _ap_grad,int _gift,int _m_abb, int _m_psy,int _m_phs, int _m_phk, 
    int _alter,int _groesse_f,int _groesse_w,int _groesse_s,int _gestalt,   
    int _b_f,int _b_s)
-   :st(_st),ge(_ge),ko(_ko),in(_in),zt(_zt),sb(_sb),au(_au),
-       lpbasis(_lpbasis),ap_grad(_ap_grad),gift(_gift),m_abb(_m_abb),
-       m_psy(_m_psy),m_phs(_m_phs),m_phk(_m_phk),alter(_alter), 
-       groesse_f(_groesse_f),groesse_w(_groesse_w), groesse_s(_groesse_s),
-       gestalt(_gestalt),b_f(_b_f),b_s(_b_s)  {}
+   { st=_st;ge=_ge;ko=_ko;in=_in;zt=_zt;sb=_sb;au=_au;
+       lpbasis=_lpbasis;ap_grad=_ap_grad;gift=_gift;m_abb=_m_abb;
+       m_psy=_m_psy;m_phs=_m_phs;m_phk=_m_phk;alter=_alter; 
+       groesse_f=_groesse_f;groesse_w=_groesse_w; groesse_s=_groesse_s;
+       gestalt=_gestalt;b_f=_b_f;b_s=_b_s;}
 
    int St() const {return st;}
    int Ge() const {return ge;}

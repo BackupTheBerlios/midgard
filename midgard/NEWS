@@ -1,4 +1,16 @@
 ##########################################################################
+NEWS IN VERSION 0.7beta2
+- Eine Handvoll Bugs beseitigt (Dank an Joachim fürs Melden derselben)
+
+##########################################################################
+NEWS IN VERSION 0.7beta1
+- Midgard muß nicht mehr installiert werden, es KANN auch aus dem 
+   Verzeichnis gestartete werden, in dem die Latex und Postscript FIles sind.
+- Auf der Homepage ist jetzt ein Link zu dem CVS-Install-Script
+- Bug bei der Speziesauswahl beseitigt
+- Christof hat ein grausammes Query durch eine etwas schöneres erstezt.
+
+##########################################################################
 NEWS IN VERSION 0.7beta0
 - Umstellung der Steigern-Listen abgeschlossen.
 - Einige Bugs beseitigt, die durch die Umstellung entstanden.

@@ -40,7 +40,7 @@ void midgard_CG::get_spezies_constraint()
          :ABB,:PSY,:PHS,:PHK,:ALTER,:GF,:GW,:GS,:GESTALT,:BF,:BS
    from spezies where spezies = :SPEZIES;
  SQLerror::test(__FILELINE__); 
- Data_spezies Spezies_constraint(ST,GE,KO,IN,ZT,SB,AU,LPBASIS,AP_GRAD,
+ Spezies_constraint.set(ST,GE,KO,IN,ZT,SB,AU,LPBASIS,AP_GRAD,
    GIFT,ABB,PSY,PHS,PHK,ALTER,GF,GW,GS,GESTALT,BF,BS);
 
 }

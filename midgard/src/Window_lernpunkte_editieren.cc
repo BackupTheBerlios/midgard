@@ -1,4 +1,4 @@
-// $Id: Window_lernpunkte_editieren.cc,v 1.15 2001/06/27 10:10:16 thoma Exp $
+// $Id: Window_lernpunkte_editieren.cc,v 1.16 2001/07/29 20:29:59 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,16 +29,17 @@
 
 void Window_lernpunkte_editieren::on_close_clicked()
 {   
+#warning Christof: Warum funktioniert das nicht so ?
   lernpunkte->set_Beruf(lernpunkte_b_ein->get_value_as_int());
   lernpunkte->set_Fertigkeit (lernpunkte_f_ein->get_value_as_int());
   lernpunkte->set_Waffen       (lernpunkte_w_ein->get_value_as_int());
   lernpunkte->set_Zauber       (lernpunkte_z_ein->get_value_as_int());
+# warning sondern nur so?
+  lernpunkte->set_Beruf      (atoi(lernpunkte_b_ein->get_text().c_str()));
+  lernpunkte->set_Fertigkeit (atoi(lernpunkte_f_ein->get_text().c_str()));
+  lernpunkte->set_Waffen     (atoi(lernpunkte_w_ein->get_text().c_str()));
+  lernpunkte->set_Zauber     (atoi(lernpunkte_z_ein->get_text().c_str()));
 
-/*  lernpunkte.set_Beruf(atoi(lernpunkte_b_ein->get_text().c_str());
-  lernpunkte.set_Fertigkeiten = atoi(lernpunkte_f_ein->get_text().c_str());
-  lernpunkte.set_Waffen       = atoi(lernpunkte_w_ein->get_text().c_str());
-  lernpunkte.set_Zauber       = atoi(lernpunkte_z_ein->get_text().c_str());
- */ 
   hauptfenster->setze_lernpunkte(*lernpunkte);
   destroy();
 }

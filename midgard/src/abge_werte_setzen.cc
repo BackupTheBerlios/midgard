@@ -1,4 +1,4 @@
-// $Id: abge_werte_setzen.cc,v 1.23 2001/06/30 20:30:06 thoma Exp $
+// $Id: abge_werte_setzen.cc,v 1.24 2001/07/29 20:29:59 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -77,19 +77,20 @@ void midgard_CG::on_abge_werte_setzen_clicked()
       groesse += random.integer(1,Spezies_constraint.Groesse_w()) ;
 
   int ges=random.integer(1,6) + Spezies_constraint.Gestalt();
-  int gin=Werte.Groesse()-100;
+  int gin=groesse-100;
   std::string gestalt;
-  int gewicht;
+  int gewicht=0;
   if (Werte.St() >= 81) ges++;
   if (Werte.St() >= 96) ges++;
   if (ges<=2) 
    { gestalt = "schlank";
      gewicht = gin-(int)(gin*0.1) ; }
-  if (ges>=3&&ges<=4) gestalt = "normal";
+  if (ges>=3&&ges<=4) 
+   { gestalt = "normal";
+     gewicht = gin; }
   if (ges>=5) 
    { gestalt = "breit";
      gewicht =  gin+(int)(gin*0.2) ; }
-
   int istand=random.integer(1,100);
   int typstand = Typ.Stand();
   (typstand<Typ2.Stand())?typstand=Typ2.Stand():
@@ -100,7 +101,6 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   if (11<=istand&&istand<=50) stand = "Volk";
   if (51<=istand&&istand<=90) stand = "Mittelschicht";
   if (istand>=91) stand = "Adel";
-
   Werte.set_Abgeleitetewerte(au,pa,sb,rw,hgw,b,lp,ap,abwehr_wert,zaubern_wert,
    resistenz,gestalt,gewicht,groesse,grad,stand);
 
