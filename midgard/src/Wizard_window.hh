@@ -21,7 +21,8 @@ class Wizard_window : public Wizard_window_glade
    public:
      enum esteps {START,SPEZIES,GRUNDWERTE,GESCHLECHT,TYP,STADTLAND,
                   ABGELEITETEWERTE,HERKUNFT,ANGEBORENEFERTIGKEITEN,
-                  LERNPUNKTE,FERTIG,MAXSTEPS};
+                  LERNPUNKTE,WAEHLEN,BERUF,SPEZIALWAFFE,SPEZIALGEBIET,
+                  GELD,WAFFEN,RUESTUNG,SPEICHERN,FERTIG,MAXSTEPS};
    private:
      struct st_wiz{int page;std::string text;
             void (midgard_CG::*callback)();

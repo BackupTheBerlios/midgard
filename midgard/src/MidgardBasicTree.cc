@@ -1,4 +1,4 @@
-// $Id: MidgardBasicTree.cc,v 1.11 2002/02/24 14:31:17 thoma Exp $
+// $Id: MidgardBasicTree.cc,v 1.12 2002/02/27 13:02:15 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -77,7 +77,7 @@ void MidgardBasicTree::set_tree_titles(variante V)
       vs.push_back("Fertigkeit");
       vs.push_back("Wert");
       vs.push_back("PP");  
-      vs.push_back("");    
+      vs.push_back("Art");    
       vs.push_back("Steigern\n(nächste Stufe)");
       vs.push_back("Reduzieren\n(eine Stufe)"); 
       vs.push_back("Verlernen");
@@ -93,7 +93,7 @@ void MidgardBasicTree::set_tree_titles(variante V)
   if(V==WAFFEGRUND)
    {
       vs.push_back("Grundkenntnisse");
-      vs.push_back("");
+      vs.push_back("Art");
       vs.push_back("Kosten");
    }
   if(V==SPRACHE_NEU)
@@ -105,10 +105,10 @@ void MidgardBasicTree::set_tree_titles(variante V)
   if(V==SCHRIFT_ALT)
    {
       vs.push_back("Fertigkeit");
-      vs.push_back("Art");
+      vs.push_back("Schrifttyp");
       vs.push_back("Wert");
       vs.push_back("PP");  
-      vs.push_back("");    
+      vs.push_back("Art");    
       vs.push_back("Steigern\n(nächste Stufe)");
       vs.push_back("Reduzieren\n(eine Stufe)"); 
       vs.push_back("Verlernen");
@@ -116,7 +116,7 @@ void MidgardBasicTree::set_tree_titles(variante V)
   if(V==SCHRIFT_NEU)
    {
       vs.push_back("Schrift");
-      vs.push_back("Art");
+      vs.push_back("Schrifttyp");
       vs.push_back("Lernkosten");  
    }
   if(V==ZAUBER)

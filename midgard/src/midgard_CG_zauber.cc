@@ -1,4 +1,4 @@
-// $Id: midgard_CG_zauber.cc,v 1.54 2002/02/12 12:42:37 thoma Exp $
+// $Id: midgard_CG_zauber.cc,v 1.55 2002/02/27 13:02:15 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,13 +38,13 @@ void midgard_CG::angeborene_zauber()
 #endif
 }
 
-void midgard_CG::magier_spezialgebiet(const std::string& whattodo)
+void midgard_CG::show_magier_spezialgebiet(bool show)
 {
- if (whattodo=="show")
+ if (show)
    { spezialgebiet_button_fill();
      option_magier_spezialgebiet->show();
    }
- if (whattodo=="hide") option_magier_spezialgebiet->hide();
+ else option_magier_spezialgebiet->hide();
 }
 
 void midgard_CG::spezialgebiet_button_fill()

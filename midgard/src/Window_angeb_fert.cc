@@ -31,7 +31,7 @@ void Window_angeb_fert::fertigkeiten_zeigen()
 
 void Window_angeb_fert::on_clist_ang_fert_alt_select_row(gint row, gint column, GdkEvent *event)
 {   
-  static_cast<MidgardBasicElement*>(clist_ang_fert_alt->selection().begin()->get_data());
+//  static_cast<MidgardBasicElement*>(clist_ang_fert_alt->selection().begin()->get_data());
   cH_MidgardBasicElement MBE=static_cast<MidgardBasicElement*>(clist_ang_fert_alt->selection().begin()->get_data());
   MidgardBasicElement::move_element(list_Fertigkeit_ang,list_Fertigkeit_ang_neu,MBE);
   hauptfenster->steigern_aktivieren();

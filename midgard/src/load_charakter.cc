@@ -178,9 +178,8 @@ void midgard_CG::Typ_Geschlecht_Spezies_setzen() {
    fill_typauswahl();
    if(!Typ[1]->Short().empty()) fill_typauswahl_2();
    
-   if (this->Typ[0]->Zaubern()=="n" || this->Typ[0]->Short() == "Or" ||
-       this->Typ[1]->Zaubern()=="n" || this->Typ[1]->Short() == "Or")
-      togglebutton_spezialwaffe->show();
+   if (this->Typ[0]->Spezialwaffe() ||  this->Typ[1]->Spezialwaffe() )
+         togglebutton_spezialwaffe->show();
    else {togglebutton_spezialwaffe->hide();
          togglebutton_spezialwaffe->set_active(false); }
    Database.ausnahmen.set_Typ(this->Typ);

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.183 2002/02/25 10:04:26 thoma Exp $
+// $Id: midgard_CG.hh,v 1.184 2002/02/27 13:02:15 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -353,7 +353,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_lernliste_wahl_toggled();
         void spezialgebiet_button();
         void spezialgebiet_button_fill();
-        void magier_spezialgebiet(const std::string& whattodo);
+        void show_magier_spezialgebiet(bool show);
         void get_spezial_from_spezialgebiet();
         gint on_button_beruf_release_event(GdkEventButton *ev);
         void on_entry_berufsname_activate();
@@ -548,6 +548,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          Grundwerte Werte;
 
 	// werden von anderen Fenstern aufgerufen
+         vector<cH_Typen> getVTyp() const {return Typ;}
         bool SpracheSchrift(const cH_MidgardBasicElement& MBE,int wert=0,bool auswahl=false);
          void kaempfer_lernt_zaubern(cH_MidgardBasicElement);
          void doppelcharaktere();

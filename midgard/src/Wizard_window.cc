@@ -43,7 +43,11 @@ void Wizard_window::restart()
 void Wizard_window::evaluate_step(esteps step)
 {
   assert(vecwiz.size()>(size_t)(step));
-  
+  vector<cH_Typen> Typ=hauptfenster->getVTyp();
+  if(step==SPEZIALWAFFE&&(!Typ[0]->Spezialwaffe()&&!Typ[1]->Spezialwaffe()))
+    next_step();
+  if(step==SPEZIALGEBIET&&(!Typ[0]->Spezialgebiet()&&!Typ[1]->Spezialgebiet()))
+    next_step();
   hauptfenster->notebook_main->set_page(vecwiz[step].page);
   Gtk::OStream os(LogWinWizard->get_list());
   os << vecwiz[step].text<<'\n';
@@ -96,6 +100,38 @@ void Wizard_window::fill_vecwiz()
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
                           "Lernpunkte würfeln",
                           &midgard_CG::wizard_do_something));
+   //WAEHLEN
+   vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
+                          "Jetzt Fertigkeiten/Waffen und ev. Zauber in beliebiger Reinfolge lernen und anschließne auf 'Weiter' drücken.",
+                          &midgard_CG::wizard_do_something));
+   //BERUF
+   vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
+                          "Beruf auswählen",
+                          &midgard_CG::wizard_do_something));
+   //SPEZIALWAFFE
+   vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
+                          "Spezialwaffe wählen",
+                          &midgard_CG::wizard_do_something));
+   //SPEZIAGEBIET
+   vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
+                          "Magier sollten eine Spezialgebiet wählen",
+                          &midgard_CG::wizard_do_something));
+   //GELD
+   vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
+                          "Geld auswürfeln",
+                          &midgard_CG::wizard_do_something));
+   //WAFFEN
+   vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
+                          "Waffen auswürfeln",
+                          &midgard_CG::wizard_do_something));
+   //RUESTUNG
+   vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
+                          "Rüstung auswürfeln",
+                          &midgard_CG::wizard_do_something));
+   //SPEICHERN
+   vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
+                          "Speichern",
+                          &midgard_CG::wizard_do_something));
    //FERTIG
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
                           "Fertig",
@@ -106,13 +142,11 @@ void Wizard_window::fill_vecwiz()
 void Wizard_window::on_button_wizard_weiter_clicked()
 {   
   next_step();
-//  hauptfenster->on_button_wizard_weiter_clicked();
 }
 
 void Wizard_window::on_button_wizard_wiederholen_clicked()
 {   
   same_step();
-// hauptfenster->on_button_wizard_wiederholen_clicked();
 }
 
 void Wizard_window::on_button_close_wizard_clicked()

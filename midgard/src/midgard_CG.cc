@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.169 2002/02/25 10:04:26 thoma Exp $
+// $Id: midgard_CG.cc,v 1.170 2002/02/27 13:02:15 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -170,21 +170,23 @@ void midgard_CG::show_gtk()
  steigern_gtk();
 
  // Spezialwaffe anzeigen?
- if (Typ[0]->Zaubern()=="n" || Typ[0]->Short() == "Ord") 
+ if (Typ[0]->Spezialwaffe() || Typ[1]->Spezialwaffe()) 
     togglebutton_spezialwaffe->show(); 
- else { togglebutton_spezialwaffe->set_active(false);
-        togglebutton_spezialwaffe->hide(); }
+ else 
+   { togglebutton_spezialwaffe->set_active(false);
+     togglebutton_spezialwaffe->hide(); }
+
 
  // Magie anzeigen?
  if (Typ[0]->Zaubern()=="j" || Typ[0]->Zaubern() == "z" || magie_bool) 
-   { if (Typ[0]->Short()=="Ma" || Typ[0]->Short() == "eBe") magier_spezialgebiet("show");
-     else 
+   { if (Typ[0]->Spezialgebiet() || Typ[1]->Spezialgebiet()) show_magier_spezialgebiet(true);
+     else show_magier_spezialgebiet(false);
      button_zauber->set_sensitive(true);
      table_magier_steigern->show();
    }
  else 
    { 
-     magier_spezialgebiet("hide");
+     show_magier_spezialgebiet(false);
      button_zauber->set_sensitive(false);
      table_magier_steigern->hide();
    }
@@ -286,6 +288,9 @@ void midgard_CG::clear_listen()
 
 void midgard_CG::clear_gtk()
 {
+   tree_gelerntes->clear();
+   tree_lernschema->clear();
+
    alte_fert_tree->clear();
    neue_fert_tree->clear();
    alte_waffen_tree->clear();
@@ -310,10 +315,7 @@ void midgard_CG::clear_gtk()
 void midgard_CG::on_neuer_charakter_clicked()
 {
    modify_bool=false;
-   tree_gelerntes->clear();
-   tree_lernschema->clear();
    label_lernschma_titel->set_text("");
-
 
    button_grundwerte->set_sensitive(true);
    button_abg_werte->set_sensitive(false);

@@ -17,6 +17,7 @@
  */
 
 #include "midgard_CG.hh"
+#include <cstring>
 
 void midgard_CG::wizard_do_nothing()
 {
@@ -26,28 +27,30 @@ void midgard_CG::wizard_do_something()
 {
   if(!wizard) return;
   Wizard_window::esteps e=wizard->ActualStep();
+  GdkEventButton button;
+  memset(&button,0,sizeof button);
+  button.button=1;
   switch (e) {
-      case Wizard_window::SPEZIES : 
-         { 
-           notebook_main->set_sensitive(true);
-           break; }
+      case Wizard_window::SPEZIES : notebook_main->set_sensitive(true);break;
       case Wizard_window::GRUNDWERTE : grundwerte_wuerfeln(); break;
-      case Wizard_window::GESCHLECHT : 
-         { 
-           notebook_main->set_sensitive(true);
-           break; }
-      case Wizard_window::TYP : 
-         { 
-           notebook_main->set_sensitive(true);
-           break; }
-      case Wizard_window::STADTLAND : 
-         {
-           notebook_main->set_sensitive(true);
-           break; }
+      case Wizard_window::GESCHLECHT : notebook_main->set_sensitive(true);break;
+      case Wizard_window::TYP : notebook_main->set_sensitive(true);break;
+      case Wizard_window::STADTLAND : notebook_main->set_sensitive(true);break;
       case Wizard_window::ABGELEITETEWERTE : on_abge_werte_setzen_clicked(); break;
       case Wizard_window::HERKUNFT : on_herkunftsland_clicked(); break;
       case Wizard_window::ANGEBORENEFERTIGKEITEN : on_angeborene_fertigkeit_clicked(); break;
       case Wizard_window::LERNPUNKTE : on_lernpunkte_wuerfeln_clicked(); break;
+      case Wizard_window::WAEHLEN : notebook_main->set_sensitive(true); break;
+      case Wizard_window::BERUF: beruf_gewuerfelt(random.integer(1,100)); break;
+      case Wizard_window::SPEZIALWAFFE :
+         if(Typ[0]->Spezialwaffe() || Typ[1]->Spezialwaffe() )
+             togglebutton_spezialwaffe->set_active(true); 
+         break;
+      case Wizard_window::SPEZIALGEBIET : notebook_main->set_sensitive(true); break;
+      case Wizard_window::GELD : on_button_lernschema_geld_button_release_event(&button); break;
+      case Wizard_window::WAFFEN : on_button_lernschema_waffen_button_release_event(&button); break;
+      case Wizard_window::RUESTUNG : on_button_ruestung_button_release_event(&button); break;
+      case Wizard_window::SPEICHERN : on_speichern_release_event(&button); break;
       case Wizard_window::FERTIG : on_button_close_wizard_clicked(); break;
       default: regnot("Nicht impelmentiert");break;
    }

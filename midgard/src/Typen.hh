@@ -1,4 +1,4 @@
-// $Id: Typen.hh,v 1.12 2002/01/26 09:17:41 christof Exp $               
+// $Id: Typen.hh,v 1.13 2002/02/27 13:02:15 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -66,6 +66,8 @@ if (geschlecht=="m") return typl; else return typlw;}
    bool Land() const {return land;}
    bool Stadt() const {return stadt;}
    bool SpruecheMitPP() const {return sprueche_mit_pp;}
+   bool Spezialwaffe() const;
+   bool Spezialgebiet() const;
 
    bool is_mage() const 
     { if(Zaubern()=="z" || Zaubern()=="j") return true; else return false; } 

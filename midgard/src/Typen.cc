@@ -68,6 +68,21 @@ Typen::Typen(const Tag *tag)
  sprueche_mit_pp=tag->getBoolAttr("SprücheMitPraxisPunkten");
 }
 
+bool Typen::Spezialwaffe() const
+{
+  if (Zaubern()=="z") return false;
+  if (Short()=="Ba") return false;
+  if (Short()=="") return false;
+  return true;
+}
+
+bool Typen::Spezialgebiet() const
+{
+  if (Short()=="Ma")  return true;
+  if (Short()=="eBe") return true;
+  return true;
+}
+
 
 Typen_All::Typen_All(Gtk::ProgressBar *progressbar)
 {
@@ -83,6 +98,10 @@ Typen_All::Typen_All(Gtk::ProgressBar *progressbar)
  ProgressBar::set_percentage(progressbar,1);
 }
 
+
+
+
 bool operator==(gpointer data,const cH_Typen &t)
 {  return *(static_cast<Typen*>(data))==*t;
 }
+
