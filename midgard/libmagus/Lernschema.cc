@@ -23,6 +23,7 @@
 #include "Zauber.hh"
 #include "Zauberwerk.hh"
 #include "Fertigkeiten.hh"
+#include <Misc/Tag.h>
 
 void Lernschema::StoreLernschema(const std::string &slist,const std::string &element,
 		const std::string &typ, std::map<Lernschema::st_index,Lernschema::st_wert> &lern_map)

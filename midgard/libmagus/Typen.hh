@@ -1,6 +1,7 @@
-// $Id: Typen.hh,v 1.2 2003/05/07 00:02:03 christof Exp $               
+// $Id: Typen.hh,v 1.3 2003/05/21 07:02:14 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
+ *  Copyright (C) 2003 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -25,6 +26,7 @@
 #include <Misc/CacheStatic.h>
 #include <vector>
 #include <string>
+#include <list>
 //#include "xml.h"
 #include "Enums.hh"
 
@@ -55,11 +57,11 @@ private:
    bool lernpflicht_schrift;
 
 public:
-   Typen(const Tag *tag);
-   Typen() : typnr(0),stand(0),sb(0),ruestung(0),geld(0),
-         stadt(true),land(true),nsc_only(false),
-         min_st(0),min_gw(0),min_gs(0),min_in(0),min_pa(0),
-         lernpflicht_schrift(false) {}
+   Typen(const Tag &tag);
+   Typen() : typnr(),stand(),sb(),ruestung(),geld(),
+         stadt(true),land(true),nsc_only(),
+         min_st(),min_gw(),min_gs(),min_in(),min_pa(),
+         lernpflicht_schrift() {}
    
    bool Valid() const;
    std::string Name(const Enums::geschlecht& geschlecht) const 
@@ -116,17 +118,14 @@ class cH_Typen : public Handle<const Typen>
   public:
    cH_Typen() {*this=new Typen();}
    cH_Typen(const std::string& name ,bool create=false);
-   cH_Typen(const Tag *tag);
+   static cH_Typen load(const Tag &tag);
    cH_Typen(const Typen *s) : Handle<const Typen>(s) {};
 };
  
-class Typen_All
-{
-      std::vector<cH_Typen> list_All;
-   public:
-      Typen_All();
-      std::vector<cH_Typen> get_All() const {return list_All;}
-};
+namespace Typen_All
+{  void load(std::list<cH_Typen> &list, const Tag &t);
+   void load(std::vector<cH_Typen> &list, const Tag &t);
+}
 
 bool operator==(void *p,const cH_Typen &t);
 

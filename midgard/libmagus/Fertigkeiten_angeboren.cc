@@ -1,6 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
- *  Copyright (C) 2002      Christof Petig 
+ *  Copyright (C) 2002-2003 Christof Petig 
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -20,6 +20,8 @@
 #include "Fertigkeiten_angeboren.hh"
 #include "Abenteurer.hh"
 #include <iostream>
+#include <Misc/Tag.h>
+#include "NotFound.h"
 
 cH_Fertigkeit_angeborene::cache_t cH_Fertigkeit_angeborene::cache;
 
@@ -31,29 +33,20 @@ cH_Fertigkeit_angeborene::cH_Fertigkeit_angeborene(const std::string& name ,bool
   {
   std::cerr << "angeborene Fertigkeit '" << name << "' nicht im Cache\n";
   if (create)
-  {  static Tag t2("angeboreneFertigkeit"); 
-     // note that this Tag is shared ... works well for now
+  {  Tag t2("angeboreneFertigkeit"); 
      t2.setAttr("Name",name);
-     *this=cH_Fertigkeit_angeborene(&t2);
+     *this=new Fertigkeit_angeborene(t2);
   }
   else throw NotFound();
   }
 }
 
-cH_Fertigkeit_angeborene::cH_Fertigkeit_angeborene(const Tag *tag)
-{*this=cH_Fertigkeit_angeborene(new Fertigkeit_angeborene(tag));
- cache.Register(tag->getAttr("Name"),*this);
-}
-
-void Fertigkeit_angeborene::get_Fertigkeit()
+void Fertigkeit_angeborene::get_Fertigkeit(const Tag &t)
 {
- assert(tag);
- min=tag->getIntAttr("Min");
- max=tag->getIntAttr("Max");
-// erfolgswert=tag->getIntAttr("Wert");
- anfangswert=tag->getIntAttr("Wert");
+ min=t.getIntAttr("Min");
+ max=t.getIntAttr("Max");
+ anfangswert=t.getIntAttr("Wert");
 }
-
 
 int Fertigkeit_angeborene::FErfolgswert(const Abenteurer &a,const MBEmlt &mbem) const
 {
@@ -62,16 +55,22 @@ int Fertigkeit_angeborene::FErfolgswert(const Abenteurer &a,const MBEmlt &mbem) 
   return mbem->Erfolgswert();
 }
 
+Fertigkeit_angeborene::Fertigkeit_angeborene(const Tag &t)
+         : MidgardBasicElement(t.getAttr("Name")),min(),max() 
+{get_Fertigkeit(t);}
 
-
-Fertigkeiten_angeborene_All::Fertigkeiten_angeborene_All()
-{
- const Tag *angeboreneFertigkeiten=xml_data->find("angeboreneFertigkeiten");
- if (angeboreneFertigkeiten)
- {  Tag::const_iterator b=angeboreneFertigkeiten->begin(),e=angeboreneFertigkeiten->end();
-    FOR_EACH_CONST_TAG_OF_5(i,*angeboreneFertigkeiten,b,e,"angeboreneFertigkeit")
-    {  
-       list_All.push_back(&*(cH_Fertigkeit_angeborene(&*i)));
-    }
- }
+cH_Fertigkeit_angeborene cH_Fertigkeit_angeborene::load(const Tag &t)
+{  cH_Fertigkeit_angeborene *res=cache.lookup(t.getAttr("Name"));
+   assert (!res);
+   {  cH_Fertigkeit_angeborene r2=new Fertigkeit_angeborene(t);
+      cache.Register(t.getAttr("Name"),r2);
+      return r2;
+   }
 }
+
+void Fertigkeiten_angeborene_All::load(std::list<cH_MidgardBasicElement> &list,const Tag &t)
+{  cH_Fertigkeit_angeborene z=cH_Fertigkeit_angeborene::load(t);
+   // das &* dient dazu um aus einem cH_Fertigkeit_angeborene ein cH_MBE zu machen
+   list.push_back(&*z);
+}
+

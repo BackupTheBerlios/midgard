@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.1 2003/05/06 07:12:04 christof Exp $               
+// $Id: Grundwerte.cc,v 1.2 2003/05/21 07:02:14 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -271,8 +271,8 @@ int Grundwerte::getSinn(const std::string &name) const
 
 
 void Grundwerte::resetSinne() 
-{ 
- list_Sinne=Sinne_All().get_All();
+{list_Sinne.clear();
+ Sinne_All::init(list_Sinne); 
  setSinn("Sechster Sinn",Zt()/25); 
 }
 

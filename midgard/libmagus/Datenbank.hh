@@ -1,4 +1,4 @@
-// $Id: Datenbank.hh,v 1.8 2003/05/19 06:10:34 christof Exp $               
+// $Id: Datenbank.hh,v 1.9 2003/05/21 07:02:14 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,6 +38,8 @@
 #include "Prototyp.hh"
 #include "Prototyp2.hh"
 #include "Waffe.hh"
+#include <Misc/Tag.h>
+#include <Misc/Model.h> // for cheap sigc++
 
 class Datenbank
 {

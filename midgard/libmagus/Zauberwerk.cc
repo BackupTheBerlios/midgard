@@ -18,8 +18,10 @@
  */
 
 #include "Zauberwerk.hh"
-#include "Typen.hh"
+//#include "Typen.hh"
+#include <Misc/Tag.h>
 #include <iostream>
+#include "NotFound.h"
 
 cH_Zauberwerk::cache_t cH_Zauberwerk::cache;
 
@@ -33,8 +35,7 @@ cH_Zauberwerk::cH_Zauberwerk(const std::string& name,const std::string& art,
   {
   std::cerr << "Zauberwerk '" << name << "' nicht im Cache\n";
   if (create)
-  {  static Tag t2("Zauberwerk"); 
-     // note that this Tag is shared ... works well for now
+  {  Tag t2("Zauberwerk"); 
      t2.setAttr("Name",name);
      t2.setAttr("Art",art);
      t2.setAttr("Stufe",stufe);

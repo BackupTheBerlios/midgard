@@ -1,6 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
- *  Copyright (C) 2002 Christof Petig
+ *  Copyright (C) 2002-2003 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -21,13 +21,8 @@
 #include <cstring>
 #include <iostream>
 #include <Misc/itos.h>
-
-class NotFound : public std::exception
-{public:
-   virtual const char* what() const throw() { return "NotFound"; }
-};
-
-
+#include "NotFound.h"
+#include <Misc/Tag.h>
 
 double Prototyp2::fac_for(const std::string &art, const std::string &name, const std::vector<cH_Prototyp2> &A)
 {
@@ -63,10 +58,9 @@ cH_Prototyp2::cH_Prototyp2(const std::string& name,bool create)
   {
   std::cerr << "Prototyp2 '" << name << "' nicht im Cache\n";
   if (create)
-  {  static Tag t2("Prototyp2"); 
-     // note that this Tag is shared ... works well for now
+  {  Tag t2("Prototyp2"); 
      t2.setAttr("Name",name);
-     *this=cH_Prototyp2(&t2);
+     *this=cH_Prototyp2(t2);
   }
   else throw NotFound();
   }

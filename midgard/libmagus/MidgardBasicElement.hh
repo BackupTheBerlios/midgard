@@ -24,6 +24,7 @@
 #include <string>
 #include <vector>
 #include <list>
+//#include "NotFound.h"
 //#include <Tag.h>
 //#include "xml.h"
 //#include "Enums.hh"
@@ -42,11 +43,6 @@ class H_MidgardBasicElement_mutable;
   
 typedef H_MidgardBasicElement_mutable MBEmlt;
   
-class NotFound : public std::exception
-{public:
-	virtual const char* what() const throw() { return "NotFound"; }
-};
-
 // dies ist eine erlernbare Fertigkeit, d.h. losgelöst von einem Abenteurer
 class MidgardBasicElement : public HandleContentCopyable
 {
@@ -224,11 +220,11 @@ class MidgardBasicElement_mutable : public HandleContentCopyable
       void setGelernt(bool b)  {gelernt=b;}
       bool Gelernt() const {return gelernt;}
   
-      std::string Zusatz() const {return zusatz.name;}
+      const std::string &Zusatz() const {return zusatz.name;}
       void setZusatz(MidgardBasicElement::st_zusatz z) {zusatz=z;}
 
-     std::string LernArt() const {return lernart;}
-     void setLernArt(std::string z)  {lernart=z;}   
+     const std::string &LernArt() const {return lernart;}
+     void setLernArt(const std::string &z)  {lernart=z;}   
      
      bool Erlaubt() const {return erlaubt;}
      void setErlaubt(bool e) {erlaubt=e;}

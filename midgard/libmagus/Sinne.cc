@@ -18,6 +18,7 @@
  */
 
 #include "Sinne.hh"
+#include "NotFound.h"
 
 cH_Sinne::cH_Sinne(const std::string& name,bool create)
 {

@@ -40,10 +40,9 @@ cH_Prototyp::cH_Prototyp(const std::string& name,bool create)
   {
   std::cerr << "Prototyp '" << name << "' nicht im Cache\n";
   if (create)
-  {  static Tag t2("Prototyp"); 
-     // note that this Tag is shared ... works well for now
+  {  Tag t2("Prototyp"); 
      t2.setAttr("Name",name);
-     *this=cH_Prototyp(&t2);
+     *this=new Prototyp(t2);
   }
   else throw NotFound();
   }

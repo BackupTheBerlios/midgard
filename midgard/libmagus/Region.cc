@@ -17,7 +17,7 @@
  */
 
 #include "Region.hh"
-#include "MidgardBasicElement.hh" // nur für NotFound
+#include "NotFound.h"
 #include <iostream>
 #include <Misc/Tag.h>
 #include "xml.h"
@@ -29,9 +29,9 @@ cH_Region::cH_Region(const std::string& name,bool create)
  cH_Region *cached(cache.lookup(name));
  if (cached) *this=*cached;
  else if (create)
-  { static Tag t2("Region");
+  { Tag t2("Region");
     t2.setAttr("Region",name);
-    *this=cH_Region(&t2);
+    *this=cH_Region(t2);
   }
  else
   {
@@ -40,38 +40,21 @@ cH_Region::cH_Region(const std::string& name,bool create)
   }
 }
 
-cH_Region::cH_Region(const Tag *tag)
-{*this=cH_Region(new Region(tag));
- cache.Register(tag->getAttr("Name"),*this);
-}
-
-Region::Region(const Tag *tag) 
-: name(tag->getAttr("Name"))
+Region::Region(const Tag &tag) 
+: name(tag.getAttr("Name"))
 {
-  nr=tag->getIntAttr("MAGUS-Index");
-  titel=tag->getAttr("Titel");
-  abkuerzung=tag->getAttr("Region");
-  file=tag->getAttr("Dateiname");
-  url=tag->getAttr("URL");
-  maintainer=tag->getAttr("Maintainer");
-  version=tag->getAttr("Version");
-  copyright=tag->getAttr("Copyright");
-  jahr=tag->getAttr("Jahr");
-  offiziell=tag->getBoolAttr("offiziell");
-  pic=RegionenPic_enum::epic(tag->getIntAttr("MAGUS-Bild",tag->getIntAttr("MCG-Bild")));
+  nr=tag.getIntAttr("MAGUS-Index");
+  titel=tag.getAttr("Titel");
+  abkuerzung=tag.getAttr("Region");
+  file=tag.getAttr("Dateiname");
+  url=tag.getAttr("URL");
+  maintainer=tag.getAttr("Maintainer");
+  version=tag.getAttr("Version");
+  copyright=tag.getAttr("Copyright");
+  jahr=tag.getAttr("Jahr");
+  offiziell=tag.getBoolAttr("offiziell");
+  pic=RegionenPic_enum::epic(tag.getIntAttr("MAGUS-Bild",tag.getIntAttr("MCG-Bild")));
 }
-
-Regionen_All::Regionen_All()
-{
- if (xml_data)
- {  Tag::const_iterator b=xml_data->begin(),e=xml_data->end();
-    FOR_EACH_CONST_TAG_OF_5(i,*xml_data,b,e,"Region")
-    {  
-       list_All.push_back(cH_Region(&*i));
-    }
- }
-}
-
 
 cH_Region Regionen_All::getRegionfromAbk(const std::vector<cH_Region>& V,const std::string& r)
 {

@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.22 2003/05/16 15:06:51 christof Exp $
+# $Id: Makefile.am,v 1.23 2003/05/21 07:02:14 christof Exp $
 
 AM_CPPFLAGS = @CPPFLAGS@ @COMMONXX_INCLUDES@ $(WIN_INCLUDES) -I.. \
 	@SIGC_CFLAGS@ -DSIGC1_2 @XMLPP_CFLAGS@
@@ -21,9 +21,10 @@ libmagus_a_SOURCES=MidgardBasicElement.cc Zauber.cc KiDo.cc \
 	Fertigkeiten.cc Sprache.cc Spezies.cc Abenteurer_besitz.cc \
 	Ausruestung.cc dtos1.cc Windows_Linux.cc magus_paths.cc \
 	Datenbank.cc Grad_anstieg.cc \
-	Grundwerte.cc LernListen.cc Lernschema.cc Preise.cc Prototyp2.cc \
+	Grundwerte.cc LernListen.cc Preise.cc Prototyp2.cc \
 	Prototyp.cc Prozente100.cc  Ruestung.cc Spezialgebiet.cc \
-	xml.cc Region.cc Optionen.cc Abenteurer.cc magustrace.cc
+	xml.cc Region.cc Optionen.cc Abenteurer.cc magustrace.cc \
+	Lernschema.cc 
 
 test_LDADD = libmagus.a @COMMONXX_LIBS@ @SIGC_LIBS@
 readxml_LDADD = @COMMONXX_LIBS@ @SIGC_LIBS@

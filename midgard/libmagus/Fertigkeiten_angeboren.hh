@@ -1,5 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
+ *  Copyright (C) 2003 Christof Petig 
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -26,10 +27,9 @@ class Fertigkeit_angeborene : public MidgardBasicElement
 {
      int min,max;
 
-     void get_Fertigkeit();
+     void get_Fertigkeit(const Tag &t);
   public:
-     Fertigkeit_angeborene(const Tag *tag) 
-         : MidgardBasicElement(tag,tag->getAttr("Name")),min(0),max(0) {get_Fertigkeit();}
+     Fertigkeit_angeborene(const Tag &tag);
 
      enum MBEE What() const {return MidgardBasicElement::FERTIGKEIT_ANG;}
      std::string What_str() const {return "ang.Fertigkeit";}
@@ -49,20 +49,15 @@ class cH_Fertigkeit_angeborene : public Handle<const Fertigkeit_angeborene>
     cH_Fertigkeit_angeborene(){};
  public:
     cH_Fertigkeit_angeborene(const std::string& n ,bool create=false);
-    cH_Fertigkeit_angeborene(const Tag *tag);
+    static cH_Fertigkeit_angeborene load(const Tag &tag);
     cH_Fertigkeit_angeborene(const Fertigkeit_angeborene *r) : Handle<const Fertigkeit_angeborene>(r){}
 
     cH_Fertigkeit_angeborene(const cH_MidgardBasicElement &x) : Handle<const Fertigkeit_angeborene>
       (dynamic_cast<const Fertigkeit_angeborene *>(&*x)){}
-
 };
 
-class Fertigkeiten_angeborene_All 
-{
-   std::list<cH_MidgardBasicElement> list_All;
-  public : 
-   Fertigkeiten_angeborene_All();
-   std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
-};
+namespace Fertigkeiten_angeborene_All 
+{  void load(std::list<cH_MidgardBasicElement> &list, const Tag &t);
+}
 
 #endif

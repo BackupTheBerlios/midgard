@@ -1,6 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
- *  Copyright (C) 2002 Christof Petig
+ *  Copyright (C) 2002-2003 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -18,9 +18,10 @@
  */
 
 #include "Land.hh"
-#include "MidgardBasicElement.hh" // für NotFound
+#include "NotFound.h"
 #include "Abenteurer.hh"
 #include <iostream>
+#include <Misc/Tag.h>
 
 cH_Land::cache_t cH_Land::cache;
 
@@ -32,10 +33,9 @@ cH_Land::cH_Land(const std::string& name ,bool create)
   {
   std::cerr << "Land '" << name << "' nicht im Cache\n";
   if (create || name.empty()) // don t ask me ... it just works this way ...
-  {  static Tag t2("Land"); 
-     // note that this Tag is shared ... works well for now
+  {  Tag t2("Land"); 
      t2.setAttr("Name",name);
-     *this=cH_Land("?",&t2);
+     *this=new Land("?",t2);
   }
   else throw NotFound();
   }
@@ -72,32 +72,28 @@ bool Land::ist_bekannt(std::string s,const std::vector<cH_Land>& L)
   return false;
 }
 
-
-
-
-cH_Land::cH_Land(const std::string& kontinent,const Tag *tag)
-{
-   *this=cH_Land(new Land(kontinent,tag));
-   cache.Register(tag->getAttr("Name"),*this);
-}
-
-Land::Land(const std::string& _kontinent, const Tag *tag)
-  : name(tag->getAttr("Name")), kontinent(_kontinent)
-{  FOR_EACH_CONST_TAG_OF(i,*tag,"Sprache")
+Land::Land(const std::string& _kontinent, const Tag &tag)
+  : name(tag.getAttr("Name")), kontinent(_kontinent)
+{  FOR_EACH_CONST_TAG_OF(i,tag,"Sprache")
       vec_sprache.push_back(i->getAttr("Name"));
-   FOR_EACH_CONST_TAG_OF(i,*tag,"Nachbarland")
+   FOR_EACH_CONST_TAG_OF(i,tag,"Nachbarland")
       nachbarlaender.push_back(i->getAttr("Name"));
 }
 
-Laender_All::Laender_All()
-{
- const Tag *Laender=xml_data->find("Länder");
- if (Laender)
- {  Tag::const_iterator b=Laender->begin(),e=Laender->end();
-    FOR_EACH_CONST_TAG_OF_5(i,*Laender,b,e,"Kontinent")
-    {  
-       FOR_EACH_CONST_TAG_OF(j,*i,"Land")
-          list_All.push_back(cH_Land(i->getAttr("Name"),&*j));
-    }
- }
+cH_Land cH_Land::load(const std::string& _kontinent,const Tag &t)
+{  cH_Land *res=cache.lookup(t.getAttr("Name"));
+   assert (!res);
+   {  cH_Land r2=new Land(_kontinent,t);
+      cache.Register(t.getAttr("Name"),r2);
+      return r2;
+   }
 }
+
+void Laender_All::load(std::list<cH_Land> &list,const std::string& _kontinent,const Tag &t)
+{  list.push_back(cH_Land::load(_kontinent,t));
+}
+
+void Laender_All::load(std::vector<cH_Land> &list,const std::string& _kontinent,const Tag &t)
+{  list.push_back(cH_Land::load(_kontinent,t));
+}
+

@@ -16,7 +16,7 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#include "MidgardBasicElement.hh" // nur für NotFound
+#include "NotFound.h"
 #include "Preise.hh"
 #include <Misc/itos.h>
 #include <fstream>
@@ -38,8 +38,7 @@ cH_Preise::cH_Preise(const std::string& name ,bool create)
   {
   std::cerr << "Preis '" << name << "' nicht im Cache\n";
   if (create)
-  {  static Tag t2("Kaufpreis"); 
-     // note that this Tag is shared ... works well for now
+  {  Tag t2("Kaufpreis"); 
      t2.setAttr("Ware",name);
      t2.setAttr("Art","?");
      t2.setAttr("Art2","?");
@@ -123,8 +122,7 @@ cH_PreiseNewMod::cH_PreiseNewMod(const std::string& name, bool create)
   std::cerr << "PreiseNewMod '" << name << "' nicht im Cache\n";
   if (create)
   {  
-     static Tag t2("Art");
-     // note that this Tag is shared ... works well for now
+     Tag t2("Art");
      t2.setAttr("Name",name);
      *this=new PreiseNewMod(t2);
   }

@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.1 2003/05/06 07:12:04 christof Exp $               
+// $Id: Grundwerte.hh,v 1.2 2003/05/21 07:02:14 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,7 +26,6 @@
 #include "Typen.hh"
 #include "MidgardBasicElement.hh"
 #include "Fertigkeiten.hh"
-
 
 class Grundwerte
 {
@@ -102,7 +101,7 @@ public:
    int B() const {return b;}
    int LP() const {return lp;}
    int AP() const {return ap;}
-   std::list<MBEmlt> Sinne() const {return list_Sinne;}
+   const std::list<MBEmlt> &Sinne() const {return list_Sinne;}
    const MBEmlt &Ueberleben() const {return Ueberleben_angeboren;};
    int Raufen() const;
    std::string RaufenSchaden() const;
@@ -130,7 +129,7 @@ public:
    std::string Gestalt() const ;
    Enums::geschlecht Geschlecht() const {return geschlecht;}
    std::string Geschlecht_str() const;
-   std::string Hand() const {return hand;}
+   const std::string &Hand() const {return hand;}
    int Gewicht() const {return gewicht;}
    int Groesse() const {return groesse;}
    std::string GroesseBez() const ;
@@ -138,21 +137,21 @@ public:
    int SG() const {return sg;}
    int GG() const {return gg;}
    cH_Spezialgebiet Spezialgebiet() const {return spezialgebiet;}
-   std::string Spezialisierung() const {return spezialisierung;}
+   const std::string &Spezialisierung() const {return spezialisierung;}
 //   std::string Spezial2() const {return spezial2;}
-   std::string Stand() const {return stand;}
+   const std::string &Stand() const {return stand;}
    cH_Ruestung Ruestung(unsigned int i=0) const;
    cH_Land Herkunft() const {return herkunft;}
    cH_Spezies Spezies() const {return spezies;}
-   std::string Glaube() const {return glaube;}
-   std::string Name_Abenteurer() const {return name_abenteurer;}
-   std::string Name_Spieler() const {return name_spieler;}
+   const std::string &Glaube() const {return glaube;}
+   const std::string &Name_Abenteurer() const {return name_abenteurer;}
+   const std::string &Name_Spieler() const {return name_spieler;}
    std::string Version() const;
-   std::string Bezeichnung() const {return bezeichnung;}
-   std::string Beschreibung() const {return beschreibung.text;}
-   std::string BeschreibungPix() const {return beschreibung.file;}
+   const std::string &Bezeichnung() const {return bezeichnung;}
+   const std::string &Beschreibung() const {return beschreibung.text;}
+   const std::string &BeschreibungPix() const {return beschreibung.file;}
    int BeschreibungPixSize() const {return beschreibung.size;}
-   std::string Merkmale() const {return merkmale;}
+   const std::string &Merkmale() const {return merkmale;}
    Enums::StadtLand Stadt_Land() const {return stadt_land;}
    std::string Stadt_Land_str() const ;
 //   cH_Ruestung Ruestung(unsigned int i=0) const;
@@ -181,8 +180,8 @@ public:
          {grund=st_grund(st,gw,gs,ko,in,zt);}
    void setGewicht(int i) {gewicht=i;}
    void setGroesse(int i) {groesse=i;}
-   void setHand(std::string s) {hand=s;}
-   void setStand(std::string s) {stand=s;}
+   void setHand(const std::string &s) {hand=s;}
+   void setStand(const std::string &s) {stand=s;}
    void setAu(int i) {au=i;}
    void setpA(int i) {pa=i;}
    void setSb(int i) {sb=i;}
@@ -236,7 +235,7 @@ public:
    void setSpezies(const cH_Spezies& _spezies){spezies=_spezies;}
    void setGlaube(const std::string& _glaube){glaube=_glaube;}
    void setAbenteurername(const std::string& s) {name_abenteurer=s;}
-   void setNamen(const std::string& _name_abenteurer,std::string _name_spieler, std::string _version)
+   void setNamen(const std::string& _name_abenteurer,const std::string &_name_spieler, const std::string &_version)
       {name_abenteurer=_name_abenteurer;name_spieler=_name_spieler;version=_version;}
    void setBezeichnung(const std::string& s) {bezeichnung=s;}
    void setMerkmale(const std::string& m) {merkmale=m;}
@@ -278,9 +277,9 @@ public:
    void set_Steigern_EP_Prozent(int i) {steigern_EP_prozent=i;}
    void set_Grad_Basiswerte(int i) {grad_basiswerte=i;}
 
-   void setRuestung1(std::string r,bool force=false)
+   void setRuestung1(const std::string &r,bool force=false)
        {ruestung[0]=cH_Ruestung(r,force);}
-   void setRuestung2(std::string r,bool force=false)
+   void setRuestung2(const std::string &r,bool force=false)
        {ruestung[1]=cH_Ruestung(r,force);}
                      
 

@@ -1,4 +1,4 @@
-// $Id: Spezialgebiet.hh,v 1.1 2003/05/06 07:12:04 christof Exp $               
+// $Id: Spezialgebiet.hh,v 1.2 2003/05/21 07:02:14 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -26,7 +26,7 @@
 #include <Misc/CacheStatic.h>
 #include <vector>
 #include <string>
-#include "xml.h"
+class Tag;
 
 class Spezialgebiet : public HandleContent
 {

@@ -1,6 +1,7 @@
-// $Id: Land.hh,v 1.1 2003/05/06 07:12:04 christof Exp $               
+// $Id: Land.hh,v 1.2 2003/05/21 07:02:14 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
+ *  Copyright (C) 2002-2003 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -21,9 +22,11 @@
 #define LANDCLASS
 #include <Misc/Handles.h>
 #include <Misc/CacheStatic.h>
+#include <list>
 #include <vector>
 #include <string>
-#include "xml.h"
+class Tag;
+//#include "xml.h"
 //class cH_Typen;
 class Abenteurer;
 class cH_Land;
@@ -37,12 +40,12 @@ class Land  : public HandleContent
 
   public:
    Land() {};
-   Land(const std::string& kontinent, const Tag *tag);
+   Land(const std::string& kontinent, const Tag &tag);
 
-   std::string Name() const   {return name; }
-   std::string Kontinent() const {return kontinent;}
-   std::vector<std::string> Sprachen() const {return vec_sprache;}
-   std::vector<std::string> Nachbarlaender() const {return nachbarlaender;}
+   const std::string &Name() const   {return name; }
+   const std::string &Kontinent() const {return kontinent;}
+   const std::vector<std::string> &Sprachen() const {return vec_sprache;}
+   const std::vector<std::string> &Nachbarlaender() const {return nachbarlaender;}
    bool ist_erlaubt(const Abenteurer& A) const;
    static bool ist_bekannt(std::string s,const std::vector<cH_Land>& L);
 };
@@ -54,17 +57,14 @@ class cH_Land : public Handle<const Land>
     friend class std::map<std::string,cH_Land>;
   public:
    cH_Land(const Land *s) : Handle<const Land>(s) {};
-   cH_Land(const std::string& kontinent, const Tag *tag);
+   static cH_Land load(const std::string& kontinent, const Tag &tag);
    cH_Land(const std::string& name, bool create=false);
-   cH_Land() {*this=new Land();}
+   cH_Land() {} // *this=new Land();}
 };
 
-class Laender_All
-{
-   std::vector<cH_Land> list_All;
-  public:
-   Laender_All();
-   std::vector<cH_Land> get_All() const {return list_All;}
-};
+namespace Laender_All
+{  void load(std::list<cH_Land> &list, const std::string& kontinent, const Tag &t);
+   void load(std::vector<cH_Land> &list, const std::string& kontinent, const Tag &t);
+}
 
 #endif

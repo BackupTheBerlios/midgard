@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.6 2003/05/09 08:19:10 christof Exp $               
+// $Id: Abenteurer.hh,v 1.7 2003/05/21 07:02:13 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -19,13 +19,15 @@
 
 #ifndef CLASS_ABENTEURER
 #define CLASS_ABENTEURER
+#include <vector>
 #include "Ausruestung.hh"
 #include "Grundwerte.hh"
 #include "Typen.hh"
-#include <vector>
-#include "Datenbank.hh"
+//#include "Datenbank.hh"
+class Datenbank;
 #include "Optionen.hh"
 #include "Waffe.hh"
+#include "Ruestung.hh"
 #include "Enums.hh"
 #include "Region.hh"
 #include <map>

@@ -22,6 +22,7 @@
 #include <LernListen.hh>
 #include <iostream>
 #include "Abenteurer.hh"
+#include "NotFound.h"
 
 cH_Fertigkeit::cache_t cH_Fertigkeit::cache;
 
@@ -35,8 +36,7 @@ cH_Fertigkeit::cH_Fertigkeit(const std::string& name, bool create)
 /*  const Tag *t=find_Tag("Fertigkeiten","Fertigkeit","Name",name);
   if (t) *this=cH_Fertigkeit(t);
   else */ if (create)
-  {  static Tag t2("Fertigkeit"); 
-     // note that this Tag is shared ... works well for now
+  {  Tag t2("Fertigkeit"); 
      t2.setAttr("Name",name);
      *this=new Fertigkeit(t2);
   }

@@ -37,6 +37,7 @@
 #include <iostream>
 #include <Misc/germanstring.h>
 #include <memory>
+#include "NotFound.h"
 
 bool H_MidgardBasicElement_mutable::sort::operator() (H_MidgardBasicElement_mutable x,H_MidgardBasicElement_mutable y) const
 { switch(es) {

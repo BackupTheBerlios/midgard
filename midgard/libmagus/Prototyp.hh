@@ -1,4 +1,4 @@
-// $Id: Prototyp.hh,v 1.1 2003/05/07 00:02:03 christof Exp $               
+// $Id: Prototyp.hh,v 1.2 2003/05/21 07:02:14 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,7 +20,7 @@
 #ifndef PROTOTYPCLASS
 #define PROTOTYPCLASS
 #include <string>
-#include "xml.h"
+class Tag;
 #include <Misc/Handles.h>
 #include <Misc/CacheStatic.h>
 #include <list>

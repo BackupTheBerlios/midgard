@@ -21,6 +21,7 @@
 #include "LernListen.hh"
 #include <iostream>
 #include "Waffe.hh"
+#include "NotFound.h"
 
 cH_WaffeGrund::cache_t cH_WaffeGrund::cache;
 
@@ -32,8 +33,7 @@ cH_WaffeGrund::cH_WaffeGrund(const std::string& name ,bool create)
   {
   std::cerr << "Waffengrundfert. '" << name << "' nicht im Cache\n";
   if (create)
-  {  static Tag t2("Waffen-Grundkenntnis");
-     // note that this Tag is shared ... works well for now
+  {  Tag t2("Waffen-Grundkenntnis");
      t2.setAttr("Name",name);
      *this=new WaffeGrund(t2);
   }

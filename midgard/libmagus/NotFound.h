@@ -1,6 +1,5 @@
-// $Id: xml.h,v 1.5 2003/05/21 07:02:14 christof Exp $
 /*  Midgard Character Generator
- *  Copyright (C) 2001-2003 Christof Petig
+ *  Copyright (C) 2003 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -17,12 +16,14 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#ifndef MCG_XML_H
-#define MCG_XML_H
+#ifndef LIBMAGUS_NOTFOUND_H
+#define LIBMAGUS_NOTFOUND_H
 
-#include <Misc/Model.h> // for easily getting SigC::Slot*
-class Datenbank;
+#include <stdexcept>
 
-void xml_init(SigC::Slot1<void,double> progress,SigC::Slot1<void,const std::string &> meldungen, Datenbank &db);
-void xml_free();
+class NotFound : public std::exception
+{public:
+	virtual const char* what() const throw() { return "NotFound"; }
+};
+
 #endif

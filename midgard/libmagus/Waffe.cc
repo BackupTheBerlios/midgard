@@ -1,6 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
- *  Copyright (C) 2002      Christof Petig 
+ *  Copyright (C) 2002-2003 Christof Petig 
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -23,6 +23,8 @@
 #include <iostream>
 #include "Abenteurer.hh"
 // #include <memory>
+#include <Misc/Tag.h>
+#include "NotFound.h"
 
 cH_Waffe::cache_t cH_Waffe::cache;
 
@@ -34,8 +36,7 @@ cH_Waffe::cH_Waffe(const std::string& name , bool create)
   {
   std::cerr << "Waffe '" << name << "' nicht im Cache\n";
   if (create)
-  {  static Tag t2("Waffe"); 
-     // note that this Tag is shared ... works well for now
+  {  Tag t2("Waffe"); 
      t2.setAttr("Name",name);
      *this=new Waffe(t2);
   }

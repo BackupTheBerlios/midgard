@@ -23,6 +23,7 @@
 #include "Typen.hh"
 #include <Misc/itos.h>
 #include <iostream>
+#include "NotFound.h"
 
 cH_Beruf::cache_t cH_Beruf::cache;
 
@@ -34,8 +35,7 @@ cH_Beruf::cH_Beruf(const std::string& name ,bool create)
   {
   std::cerr << "Beruf '" << name << "' nicht im Cache\n";
   if (create)
-  {  static Tag t2("Beruf"); 
-     // note that this Tag is shared ... works well for now
+  {  Tag t2("Beruf"); 
      t2.setAttr("Name",name);
      *this=new Beruf(t2);
   }

@@ -1,4 +1,4 @@
-// $Id: Spezies.hh,v 1.2 2003/05/07 07:25:18 christof Exp $               
+// $Id: Spezies.hh,v 1.3 2003/05/21 07:02:14 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -69,9 +69,9 @@ public:
        alter_fak(0),groesse_wanz(1),groesse_wuerfel(0),groesse_bonus(0),
        gewicht_wanz(0), gewicht_bonus(0),
        b_wanz(0),b_bonus(0),raufen(0) {}
-   Spezies(const Tag *tag);
+   Spezies(const Tag &tag);
 
-   std::string Name() const {return name;}
+   const std::string &Name() const {return name;}
    int HandBonus() const {return hand_bonus;}
    int Nr() const {return nr;}
    int St() const {return st;}
@@ -132,19 +132,15 @@ class cH_Spezies : public Handle<const Spezies>
     friend class std::map<std::string,cH_Spezies>; 
     cH_Spezies(){};
   public:
-//   cH_Spezies() {*this=new Spezies();}
    cH_Spezies(const std::string& name ,bool create=false);
-   cH_Spezies(const Tag *tag);
+   static cH_Spezies load(const Tag &tag);
     cH_Spezies(const Spezies *s) : Handle<const Spezies>(s) {};
 };
 
 
-class Spezies_All
-{
-      std::vector<cH_Spezies> list_All;
-   public:
-      Spezies_All();
-      std::vector<cH_Spezies> get_All() const {return list_All;}
+namespace Spezies_All
+{  void load(std::list<cH_Spezies> &list, const Tag &t);
+   void load(std::vector<cH_Spezies> &list, const Tag &t);
 };
 
 bool operator==(void *data, const cH_Spezies &s);

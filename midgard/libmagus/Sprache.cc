@@ -24,6 +24,8 @@
 #include "Grundwerte.hh"
 #include "Abenteurer.hh"
 #include <iostream>
+#include "NotFound.h"
+#include <Misc/Tag.h>
 
 cH_Sprache::cache_t cH_Sprache::cache;
 
@@ -35,8 +37,7 @@ cH_Sprache::cH_Sprache(const std::string& name,bool create)
   {
   std::cerr << "Sprache '" << name << "' nicht im Cache\n";
   if (create)
-  {  static Tag t2("Sprache"); 
-     // note that this Tag is shared ... works well for now
+  {  Tag t2("Sprache"); 
      t2.setAttr("Name",name);
      *this=new Sprache(t2);
   }
@@ -222,7 +223,7 @@ void Sprache::setErfolgswertMutterGastlandsprache(MBEmlt &M,std::string mode,int
 static MidgardBasicElement::EP_t Sprache_EP=MidgardBasicElement::EP_t_undefined;
 
 Sprache::Sprache(const Tag &t)
-      : MidgardBasicElement(t.getAttr("Name")),
+      : MidgardBasicElement(t.getAttr("Name"))
 {  get_Sprache(t); get_map_typ(); get_Steigern_Kosten_map();
    if (Sprache_EP==EP_t_undefined) Sprache_EP=EP_steigern("Sprache");
    else EP_steigern(Sprache_EP);
@@ -230,7 +231,7 @@ Sprache::Sprache(const Tag &t)
 
 cH_Sprache cH_Sprache::load(const Tag &t,bool &is_new)
 {  cH_Sprache *res=cache.lookup(t.getAttr("Name"));
-   assert (!res)
+   assert (!res);
    {  cH_Sprache r2=new Sprache(t);
       is_new=true;
       cache.Register(t.getAttr("Name"),r2);
@@ -238,7 +239,7 @@ cH_Sprache cH_Sprache::load(const Tag &t,bool &is_new)
    }
 }
 
-void Sprache_All::load(std::list<cH_MidgardBasicElement> &list,const Tag &t)
+void Sprachen_All::load(std::list<cH_MidgardBasicElement> &list,const Tag &t)
 {  bool is_new=false;
    cH_Sprache z=cH_Sprache::load(t,is_new);
    // das &* dient dazu um aus einem cH_Sprache ein cH_MBE zu machen

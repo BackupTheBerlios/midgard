@@ -18,7 +18,7 @@
 
 #ifndef ZAUBERWERKCLASS
 #define ZAUBERWERKCLASS
-#include "Grundwerte.hh"
+class Grundwerte;
 #include "MidgardBasicElement.hh"
 #include "Typen.hh"
 class cH_Zauberwerk;

@@ -23,6 +23,8 @@
 #include <Misc/itos.h>
 #include "Abenteurer.hh"
 #include <iostream>
+#include <Misc/Tag.h>
+#include "NotFound.h"
 
 cH_Schrift::cache_t cH_Schrift::cache;
 
@@ -34,8 +36,7 @@ cH_Schrift::cH_Schrift(const std::string& name ,bool create)
   {
  std::cerr << "Schrift '" << name << "' nicht im Cache\n";
   if (create)
-  {  static Tag t2("Schrift"); 
-     // note that this Tag is shared ... works well for now
+  {  Tag t2("Schrift"); 
      t2.setAttr("Name",name);
      t2.setAttr("Typ","?");
      *this=new Schrift(name, t2);

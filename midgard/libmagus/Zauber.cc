@@ -25,7 +25,9 @@
 #include "Abenteurer.hh"
 #include <iostream>
 #include <Misc/germanstring.h>
+#include <Misc/Tag.h>
 //#include <memory>
+#include "NotFound.h"
 
 bool cH_Zauber::sort::operator() (MBEmlt _x,MBEmlt _y) const
 {  cH_Zauber x(_x->getMBE());
@@ -51,8 +53,7 @@ cH_Zauber::cH_Zauber(const std::string& name, bool create)
   {
   std::cerr << "Zauber '" << name << "' nicht im Cache\n";
   if (create)
-  {  static Tag t2("Spruch"); 
-     // note that this Tag is shared ... works well for now
+  {  Tag t2("Spruch"); 
      t2.setAttr("Name",name);
      t2.setAttr("Grad","?");
      t2.setAttr("Typ","?");

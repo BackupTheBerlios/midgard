@@ -1,4 +1,4 @@
-// $Id: Ruestung.hh,v 1.1 2003/05/07 00:02:03 christof Exp $               
+// $Id: Ruestung.hh,v 1.2 2003/05/21 07:02:14 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,7 +23,9 @@
 #include <Misc/CacheStatic.h>
 #include <vector>
 #include <string>
-#include "xml.h"
+#include <list>
+class Tag;
+//#include "xml.h"
 
 class Grundwerte;
 class Ruestung  : public HandleContentCopyable
@@ -36,7 +38,7 @@ class Ruestung  : public HandleContentCopyable
    std::string BehinderungWie() const {return behinderung_wie;}
   public:
 //   Ruestung() {};
-   Ruestung(const Tag *tag);
+   Ruestung(const Tag &tag);
 
    std::string Name() const   {return name; }
    std::string Long() const {return longname;}
@@ -59,16 +61,13 @@ class cH_Ruestung : public Handle<const Ruestung>
 //   cH_Ruestung() {*this=new Ruestung();}
    cH_Ruestung() {} // needed for e.g. Gtk::TreeModelColumn<cH_Ruestung>
    cH_Ruestung(const std::string& name, bool create=false);
-   cH_Ruestung(const Tag *tag);
+   static cH_Ruestung load(const Tag &tag, bool &is_new);
    cH_Ruestung(const Ruestung *s) : Handle<const Ruestung>(s) {};
 };
 
-class Ruestung_All
-{
-   std::vector<cH_Ruestung> list_All;
-  public:
-   Ruestung_All();
-   std::vector<cH_Ruestung> get_All() const {return list_All;}
-};
+namespace Ruestung_All
+{  void load(std::list<cH_Ruestung> &list, const Tag &t);
+   void load(std::vector<cH_Ruestung> &list, const Tag &t);
+}
 
 #endif

@@ -23,6 +23,7 @@
 #include "Fertigkeiten_angeboren.hh"
 #include "Fertigkeiten.hh"
 #include <iostream>
+#include "NotFound.h"
 
 cH_Spezies::cache_t cH_Spezies::cache;
 
@@ -33,64 +34,56 @@ cH_Spezies::cH_Spezies(const std::string& name ,bool create)
  else
   {
   std::cerr << "Spezies '" << name << "' nicht im Cache\n";
-  const Tag *t=find_Tag("SpeziesListe","Spezies","Name",name);
-  if (t) *this=cH_Spezies(t);
-  else if (create || !xml_data) // !xml_data = vor Einlesen der Daten
-  {  static Tag t2("Spezies"); 
-     // note that this Tag is shared ... works well for now
+  if (create)
+  {  Tag t2("Spezies"); 
      t2.setAttr("Name",name);
-     *this=cH_Spezies(&t2);
+     *this=new Spezies(t2);
   }
   else throw NotFound();
   }
 }
 
-cH_Spezies::cH_Spezies(const Tag *tag)
-{*this=cH_Spezies(new Spezies(tag));
- cache.Register(tag->getAttr("Name"),*this);
-}
-
-Spezies::Spezies(const Tag *tag) 
-: name(tag->getAttr("Name"))
+Spezies::Spezies(const Tag &tag) 
+: name(tag.getAttr("Name"))
 {
- nr=tag->getIntAttr("MAGUS-Index",tag->getIntAttr("MCG-Index"));
- only_nsc=tag->getBoolAttr("only_NSC");
- land=tag->getBoolAttr("Land");
- hand_bonus=tag->getIntAttr("HandBonus");
- raufen=tag->getIntAttr("RaufenBonus");
+ nr=tag.getIntAttr("MAGUS-Index",tag.getIntAttr("MCG-Index"));
+ only_nsc=tag.getBoolAttr("only_NSC");
+ land=tag.getBoolAttr("Land");
+ hand_bonus=tag.getIntAttr("HandBonus");
+ raufen=tag.getIntAttr("RaufenBonus");
 
- const Tag *Alter=tag->find("Alter");
+ const Tag *Alter=tag.find("Alter");
  if (Alter) alter_fak=Alter->getIntAttr("Faktor");
  else alter_fak=1;
 
- const Tag *Groesse=tag->find("Größe");
- if(!Groesse) Groesse=tag;
+ const Tag *Groesse=tag.find("Größe");
+ if(!Groesse) Groesse=&tag;
  groesse_bonus=Groesse->getIntAttr("Addiere");
  groesse_wanz=Groesse->getIntAttr("AnzahlWürfel");
  groesse_wuerfel=Groesse->getIntAttr("Würfel");
 
- const Tag *Gewicht=tag->find("Gewicht");
- if (!Gewicht) Gewicht=tag;
+ const Tag *Gewicht=tag.find("Gewicht");
+ if (!Gewicht) Gewicht=&tag;
  gewicht_bonus=Gewicht->getIntAttr("Addiere");
  gewicht_wanz=Gewicht->getIntAttr("AnzahlWürfel");
 
- const Tag *NormGe=tag->find("Normgestalt");
- if (!NormGe) NormGe=tag;
+ const Tag *NormGe=tag.find("Normgestalt");
+ if (!NormGe) NormGe=&tag;
  normgestalt = NormGe->getIntAttr("Wert"); 
 
- const Tag *Bewegungsweite=tag->find("Bewegungsweite");
- if (!Bewegungsweite) Bewegungsweite=tag;
+ const Tag *Bewegungsweite=tag.find("Bewegungsweite");
+ if (!Bewegungsweite) Bewegungsweite=&tag;
  b_bonus=Bewegungsweite->getIntAttr("Addiere");
  b_wanz=Bewegungsweite->getIntAttr("AnzahlWürfel");
 
- const Tag *Modifikation=tag->find("Modifikation");
- if (!Modifikation) Modifikation=tag;
+ const Tag *Modifikation=tag.find("Modifikation");
+ if (!Modifikation) Modifikation=&tag;
  lp=Modifikation->getIntAttr("LP_Bonus");
  ap_bonus=Modifikation->getIntAttr("AP_Bonus");
  ap_grad_fak=Modifikation->getIntAttr("AP_GradFaktor");
 
  const Tag *Resistenzen=Modifikation->find("Resistenzen");
- if (!Resistenzen) Resistenzen=tag;
+ if (!Resistenzen) Resistenzen=&tag;
  psy=Resistenzen->getIntAttr("psy");
  phs=Resistenzen->getIntAttr("phs");
  phk=Resistenzen->getIntAttr("phk");
@@ -99,7 +92,7 @@ Spezies::Spezies(const Tag *tag)
  phk100=Resistenzen->getIntAttr("phk100");
 
  const Tag *Grundwerte=Modifikation->find("Grundwerte");
- if (!Grundwerte) Grundwerte=tag;
+ if (!Grundwerte) Grundwerte=&tag;
  st=Grundwerte->getIntAttr("St");
  gw=Grundwerte->getIntAttr("Gw");
  gs=Grundwerte->getIntAttr("Gs");
@@ -109,32 +102,19 @@ Spezies::Spezies(const Tag *tag)
  sb=Grundwerte->getIntAttr("Sb");
  au=Grundwerte->getIntAttr("Au");
 
- FOR_EACH_CONST_TAG_OF(i,*tag,"Typ")
+ FOR_EACH_CONST_TAG_OF(i,tag,"Typ")
     vec_typen.push_back(st_spez(i->getAttr("Name"),i->getIntAttr("MaximalerGrad")));
- FOR_EACH_CONST_TAG_OF(i,*tag,"AngeboreneFerigkeit")
+ FOR_EACH_CONST_TAG_OF(i,tag,"AngeboreneFerigkeit")
     vec_angebfert.push_back(st_angebfert(i->getAttr("Art"),
             i->getAttr("Name"),i->getIntAttr("Erfolgswert"),i->getIntAttr("LP")));
  // mal sinnvoll !            
- FOR_EACH_CONST_TAG_OF(i,*tag,"angeboreneFertigkeit")
+ FOR_EACH_CONST_TAG_OF(i,tag,"angeboreneFertigkeit")
     vec_angebfert.push_back(st_angebfert(i->getAttr("Art"),
             i->getAttr("Name"),i->getIntAttr("Erfolgswert"),i->getIntAttr("LP")));
- FOR_EACH_CONST_TAG_OF(i,*tag,"Land")
+ FOR_EACH_CONST_TAG_OF(i,tag,"Land")
    vec_herkunft.push_back(i->getAttr("Name"));
- FOR_EACH_CONST_TAG_OF(i,*tag,"Sprache")
+ FOR_EACH_CONST_TAG_OF(i,tag,"Sprache")
    vec_sprache.push_back(i->getAttr("Name"));
-}
-
-
-Spezies_All::Spezies_All()
-{
- const Tag *spezies=xml_data->find("SpeziesListe");
- if (spezies)
- {  Tag::const_iterator b=spezies->begin(),e=spezies->end();
-    FOR_EACH_CONST_TAG_OF_5(i,*spezies,b,e,"Spezies")
-    {  
-       list_All.push_back(cH_Spezies(&*i));
-    }
- }   
 }
 
 bool Spezies::Typ_erlaubt(std::string typ) const
@@ -287,5 +267,22 @@ cH_Spezies Spezies::getSpezies(std::string s,const std::vector<cH_Spezies> V)
      if(s==(*i)->Name()) return *i;
    }
   return cH_Spezies("Mensch");
+}
+
+cH_Spezies cH_Spezies::load(const Tag &t)
+{  cH_Spezies *res=cache.lookup(t.getAttr("Name"));
+   assert(!res);
+   {  cH_Spezies r2=new Spezies(t);
+      cache.Register(t.getAttr("Name"),r2);
+      return r2;
+   }
+}
+
+void Spezies_All::load(std::list<cH_Spezies> &list,const Tag &t)
+{  list.push_back(cH_Spezies::load(t));
+}
+
+void Spezies_All::load(std::vector<cH_Spezies> &list,const Tag &t)
+{  list.push_back(cH_Spezies::load(t));
 }
 

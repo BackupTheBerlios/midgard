@@ -1,5 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
+ *  Copyright (C) 2002-2003 Christof Petig 
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -47,11 +48,9 @@ private:
       void fill_kosten_maps();
    public:
       Grad_anstieg() {};// anderer ctor war mit progressbar
-      Grad_anstieg(bool t) ;
+      void load(const Tag &t);
+      void init_after_load() { fill_kosten_maps(); }
       
-//      void getGrad_anstieg();
-
-     
       int get_AP_Kosten(int grad) const;
       int get_MaxAbwehr(int grad) const;
       int get_Abwehr_Kosten(int erfolgswert) const ;

@@ -1,5 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
+ *  Copyright (C) 2003 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -17,9 +18,10 @@
  */
 
 #include "Typen.hh"
-#include "MidgardBasicElement.hh" // für NotFound
+#include "NotFound.h"
 #include "Grundwerte.hh"
 #include <iostream>
+#include <Misc/Tag.h>
 
 cH_Typen::cache_t cH_Typen::cache;
 
@@ -30,22 +32,15 @@ cH_Typen::cH_Typen(const std::string& name ,bool create)
  else
  {std::cerr << "Typen '" << name << "' nicht im Cache\n";
   if (create)
-  {  static Tag t2("Typ"); 
-     // note that this Tag is shared ... works well for now
+  {  Tag t2("Typ"); 
      t2.setAttr("Abkürzung",name);
      t2.setAttr("Bezeichnung-Mann",name);
      t2.setAttr("Bezeichnung-Frau",name);
-     *this=cH_Typen(&t2);
+     *this=new Typen(t2);
   }
   else throw NotFound();
  }
 }
-
-cH_Typen::cH_Typen(const Tag *tag)
-{*this=cH_Typen(new Typen(tag));
- cache.Register(tag->getAttr("Abkürzung"),*this);
-}
-
 
 bool Typen::Valid() const
 {
@@ -53,41 +48,39 @@ bool Typen::Valid() const
   return true;
 }
 
-
-
-Typen::Typen(const Tag *tag)
-: typs(tag->getAttr("Abkürzung"))
-  ,typnr(tag->getIntAttr("MAGUS-Index",tag->getIntAttr("MCG-Index")))
+Typen::Typen(const Tag &tag)
+: typs(tag.getAttr("Abkürzung"))
+  ,typnr(tag.getIntAttr("MAGUS-Index",tag.getIntAttr("MCG-Index")))
   ,stand(0),sb(0),ruestung(0),geld(0)
 {
- typl=tag->getAttr("Bezeichnung-Mann");
- typlw=tag->getAttr("Bezeichnung-Frau");
- typz=tag->getBoolAttr("Zauberer")?"z":(tag->getBoolAttr("kannZaubern")?"j":"n");
- ausdauer=tag->getAttr("Ausdauer");
- const Tag *Modifikation=tag->find("Modifikation");
+ typl=tag.getAttr("Bezeichnung-Mann");
+ typlw=tag.getAttr("Bezeichnung-Frau");
+ typz=tag.getBoolAttr("Zauberer")?"z":(tag.getBoolAttr("kannZaubern")?"j":"n");
+ ausdauer=tag.getAttr("Ausdauer");
+ const Tag *Modifikation=tag.find("Modifikation");
  if (Modifikation)
  {  stand=Modifikation->getIntAttr("Stand");
     sb=Modifikation->getIntAttr("Sb");
     ruestung=Modifikation->getIntAttr("Rüstung");
     geld=Modifikation->getIntAttr("Geld");
  }
- region=tag->getAttr("Region");
- beruf=tag->getAttr("Berufswahl");
- land=tag->getBoolAttr("Land",true);
- stadt=tag->getBoolAttr("Stadt",true);
- sprueche_mit_pp=tag->getAttr("SprücheMitPraxisPunkten");
- nsc_only=tag->getBoolAttr("NSC_only",false);
- kultwaffe=tag->getBoolAttr("Kultwaffe",false);
- lernpflichten_info=tag->getAttr("Lernpflichten");
- lernpflicht_schrift=tag->getBoolAttr("SchreibenPflicht");
- min_st=tag->getIntAttr("MinSt");
- min_gw=tag->getIntAttr("MinGw");
- min_gs=tag->getIntAttr("MinGs");
- min_in=tag->getIntAttr("MinIn");
- min_pa=tag->getIntAttr("MinpA");
- FOR_EACH_CONST_TAG_OF(i,*tag,"Herkunft")
+ region=tag.getAttr("Region");
+ beruf=tag.getAttr("Berufswahl");
+ land=tag.getBoolAttr("Land",true);
+ stadt=tag.getBoolAttr("Stadt",true);
+ sprueche_mit_pp=tag.getAttr("SprücheMitPraxisPunkten");
+ nsc_only=tag.getBoolAttr("NSC_only",false);
+ kultwaffe=tag.getBoolAttr("Kultwaffe",false);
+ lernpflichten_info=tag.getAttr("Lernpflichten");
+ lernpflicht_schrift=tag.getBoolAttr("SchreibenPflicht");
+ min_st=tag.getIntAttr("MinSt");
+ min_gw=tag.getIntAttr("MinGw");
+ min_gs=tag.getIntAttr("MinGs");
+ min_in=tag.getIntAttr("MinIn");
+ min_pa=tag.getIntAttr("MinpA");
+ FOR_EACH_CONST_TAG_OF(i,tag,"Herkunft")
    vec_herkunft.push_back(Typen::st_herkunft(i->getAttr("Land"),i->getAttr("Kultwaffe")));
- FOR_EACH_CONST_TAG_OF(i,*tag,"Gruppe")
+ FOR_EACH_CONST_TAG_OF(i,tag,"Gruppe")
    vec_gruppe.push_back(i->getAttr("Name"));
 }
 
@@ -160,9 +153,6 @@ cH_Typen Typen::getTyp(std::string s,const std::vector<cH_Typen> V)
   return cH_Typen("Kr");
 }
 
-
-
-
 std::string Typen::getLernpflichtenInfo(cH_Land herkunft) const
 { 
   std::vector<std::string> vk;
@@ -184,23 +174,24 @@ std::string Typen::getLernpflichtenInfo(cH_Land herkunft) const
   return lernpflichten_info + "\n"+K;
 }
 
-
-Typen_All::Typen_All()
-{
- const Tag *typen=xml_data->find("Typen");
- if (typen)
- {  Tag::const_iterator b=typen->begin(),e=typen->end();
-    FOR_EACH_CONST_TAG_OF_5(i,*typen,b,e,"Typ")
-    {  
-       list_All.push_back(cH_Typen(&*i));
-    }
- }   
-}
-
-
-
-
 bool operator==(void *data,const cH_Typen &t)
 {  return *(static_cast<Typen*>(data))==*t;
+}
+
+cH_Typen cH_Typen::load(const Tag &t)
+{  cH_Typen *res=cache.lookup(t.getAttr("Name"));
+   assert (!res);
+   {  cH_Typen r2=new Typen(t);
+      cache.Register(t.getAttr("Name"),r2);
+      return r2;
+   }
+}
+
+void Typen_All::load(std::list<cH_Typen> &list,const Tag &t)
+{  list.push_back(cH_Typen::load(t));
+}
+
+void Typen_All::load(std::vector<cH_Typen> &list,const Tag &t)
+{  list.push_back(cH_Typen::load(t));
 }
 

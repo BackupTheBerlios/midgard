@@ -1,5 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
+ *  Copyright (C) 2003      Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -17,9 +18,11 @@
  */
 
 #include "Ruestung.hh"
-#include "MidgardBasicElement.hh" // für NotFound
+#include "NotFound.h"
 #include "Grundwerte.hh"
 #include <iostream>
+#include <Misc/Tag.h>
+#include "NotFound.h"
 
 cH_Ruestung::cache_t cH_Ruestung::cache;
 
@@ -30,32 +33,24 @@ cH_Ruestung::cH_Ruestung(const std::string& name ,bool create)
  else
   {
   std::cerr << "Rüstung '" << name << "' nicht im Cache\n";
-  const Tag *t=find_Tag("Rüstungen","Rüstung","Abkürzung",name);
-  if (t) *this=cH_Ruestung(t);
-  else if (create || !xml_data) // !xml_data = vor Einlesen der Daten
-  {  static Tag t2("Rüstung"); 
-     // note that this Tag is shared ... works well for now
+  if (create)
+  {  Tag t2("Rüstung"); 
      t2.setAttr("Abkürzung",name);
      t2.setAttr("Name",name);
-     *this=cH_Ruestung(&t2);
+     *this=new Ruestung(t2);
   }
   else throw NotFound();
   }
 }
 
-cH_Ruestung::cH_Ruestung(const Tag *tag)
-{*this=cH_Ruestung(new Ruestung(tag));
- cache.Register(tag->getAttr("Abkürzung"),*this);
-}
-
-Ruestung::Ruestung(const Tag *tag) 
-: name(tag->getAttr("Abkürzung"))
+Ruestung::Ruestung(const Tag &tag) 
+: name(tag.getAttr("Abkürzung"))
 {
-  longname=tag->getAttr("Name");
-  region=tag->getAttr("Region");
-  lp_verlust=tag->getIntAttr("schütztLP");
-  min_staerke=tag->getIntAttr("minimaleStärke");
-  const Tag *Verlust=tag->find("Verlust");
+  longname=tag.getAttr("Name");
+  region=tag.getAttr("Region");
+  lp_verlust=tag.getIntAttr("schütztLP");
+  min_staerke=tag.getIntAttr("minimaleStärke");
+  const Tag *Verlust=tag.find("Verlust");
   if (Verlust)
   {  rw_verlust=Verlust->getIntAttr("RW");
      b_verlust=Verlust->getIntAttr("B");
@@ -68,29 +63,16 @@ Ruestung::Ruestung(const Tag *tag)
      rw_verlust=b_verlust=abwehr_bonus_verlust=angriffs_bonus_verlust=0;
 }
 
-Ruestung_All::Ruestung_All()
-{
- const Tag *ruestungen=xml_data->find("Rüstungen");
- if (ruestungen)
- {  Tag::const_iterator b=ruestungen->begin(),e=ruestungen->end();
-    FOR_EACH_CONST_TAG_OF_5(i,*ruestungen,b,e,"Rüstung")
-       list_All.push_back(cH_Ruestung(&*i));
- }   
-}
-
-
 int Ruestung::AbwehrBonus_Verlust(int abwehr_bonus) const
 {
   if(abwehr_bonus_verlust<=abwehr_bonus) return abwehr_bonus_verlust;
   else return 0;
-  abort();
 } 
 
 int Ruestung::AngriffsBonus_Verlust(int angriffs_bonus) const
 {
   if(angriffs_bonus_verlust<=angriffs_bonus) return angriffs_bonus_verlust;
   else return 0;
-  abort();
 }
 
 
@@ -131,5 +113,27 @@ int Ruestung::B_Verlust(const double &ueberlast,const Grundwerte &Werte,bool &ew
      }
    else reduce = Werte.B();
    return reduce;
+}
+
+cH_Ruestung cH_Ruestung::load(const Tag &t,bool &is_new)
+{  cH_Ruestung *res=cache.lookup(t.getAttr("Name"));
+   assert (!res);
+   {  cH_Ruestung r2=new Ruestung(t);
+      is_new=true;
+      cache.Register(t.getAttr("Name"),r2);
+      return r2;
+   }
+}
+
+void Ruestung_All::load(std::list<cH_Ruestung> &list,const Tag &t)
+{  bool is_new=false;
+   cH_Ruestung z=cH_Ruestung::load(t,is_new);
+   if (is_new) list.push_back(z);
+}
+
+void Ruestung_All::load(std::vector<cH_Ruestung> &list,const Tag &t)
+{  bool is_new=false;
+   cH_Ruestung z=cH_Ruestung::load(t,is_new);
+   if (is_new) list.push_back(z);
 }
 

@@ -20,8 +20,9 @@
 #include "KiDo.hh"
 #include <cstring>
 #include <Misc/itos.h>
-#include "xml.h"
 #include <iostream>
+#include <Misc/Tag.h>
+#include "NotFound.h"
 
 KiDo_Stile::KiDo_Stile()
 {
@@ -70,8 +71,7 @@ cH_KiDo::cH_KiDo(const std::string& name ,bool create)
   {
   std::cerr << "KiDo '" << name << "' nicht im Cache\n";
   if (create)
-  {  static Tag t2("KiDo"); 
-     // note that this Tag is shared ... works well for now
+  {  Tag t2("KiDo"); 
      t2.setAttr("Name",name);
      t2.setAttr("Übersetzung","?");
      t2.setAttr("Stil","?");

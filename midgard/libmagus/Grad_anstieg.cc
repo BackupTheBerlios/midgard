@@ -1,6 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
- *  Copyright (C) 2002      Christof Petig 
+ *  Copyright (C) 2002-2003 Christof Petig 
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -20,25 +20,17 @@
 #include "Grad_anstieg.hh"
 #include "xml.h"
 #include <Misc/itos.h>
+#include <Misc/Tag.h>
 
-Grad_anstieg::Grad_anstieg(bool t)
+void Grad_anstieg::load(const Tag &t)
 {
- const Tag *Gradanstieg=xml_data->find("Gradanstieg");
- if (Gradanstieg)
- {  Tag::const_iterator b=Gradanstieg->begin(),e=Gradanstieg->end();
-//    double size=e-b;
-    FOR_EACH_CONST_TAG_OF_5(i,*Gradanstieg,b,e,"Grad")
-    {  
-       const Tag *Kosten=i->find("Kosten");
-       map_grad[i->getIntAttr("Grad")]=
-       	st_grad(i->getIntAttr("Abwehr"),Kosten->getIntAttr("Abwehr"),
-       		i->getIntAttr("Resistenz"),Kosten->getIntAttr("Resistenz"),
-       		i->getIntAttr("Zaubern"),Kosten->getIntAttr("Zaubern"),
-       		i->getIntAttr("GFP"), i->getIntAttr("Schicksalsgunst"),
-       		Kosten->getIntAttr("Ausdauer",i->getIntAttr("AP_Kosten")));
-    }
- }
- fill_kosten_maps();
+    const Tag *Kosten=t.find("Kosten");
+    map_grad[t.getIntAttr("Grad")]=
+       	st_grad(t.getIntAttr("Abwehr"),Kosten->getIntAttr("Abwehr"),
+       		t.getIntAttr("Resistenz"),Kosten->getIntAttr("Resistenz"),
+       		t.getIntAttr("Zaubern"),Kosten->getIntAttr("Zaubern"),
+       		t.getIntAttr("GFP"), t.getIntAttr("Schicksalsgunst"),
+       		Kosten->getIntAttr("Ausdauer",t.getIntAttr("AP_Kosten")));
 }
 
 void Grad_anstieg::fill_kosten_maps()

@@ -1,7 +1,7 @@
-// $Id: Datenbank.cc,v 1.11 2003/05/20 07:14:34 christof Exp $               
+// $Id: Datenbank.cc,v 1.12 2003/05/21 07:02:14 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
- *  Copyright (C) 2002 Christof Petig
+ *  Copyright (C) 2002-2003 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -49,6 +49,7 @@
 #include "Schrift.hh"
 #include "magus_paths.h"
 #include <Misc/inbetween.h>
+#include "xml.h"
 
 Datenbank::Datenbank() : tag_eigene_artikel("MAGUS-data")
 {
@@ -69,21 +70,35 @@ void Datenbank::load_list(const Tag &t)
       else if (j->Type()=="Waffen-Grundkenntnisse")
          FOR_EACH_CONST_TAG(k,*j) WaffeGrund_All::load(Waffe,*k);
       else if (j->Type()=="Kido-Fertigkeiten")
-         FOR_EACH_CONST_TAG(k,*j) KiDo_All::load(KiDo,*k);
+         FOR_EACH_CONST_TAG(k,*j) KiDo_All::load(Kido,*k);
       else if (j->Type()=="Sprachen")
          FOR_EACH_CONST_TAG(k,*j) Sprachen_All::load(Sprache,*k);
       else if (j->Type()=="Schriften")
          FOR_EACH_CONST_TAG(k,*j) Schriften_All::load(Schrift,*k);
       else if (j->Type()=="Waffen-Grundkenntnisse")
          FOR_EACH_CONST_TAG(k,*j) WaffeGrund_All::load(WaffeGrund,*k);
+      else if (j->Type()=="angeboreneFertigkeiten")
+         FOR_EACH_CONST_TAG(k,*j) Fertigkeiten_angeborene_All::load(Fertigkeit_ang,*k);
+      else if (j->Type()=="Rüstungen")
+         FOR_EACH_CONST_TAG(k,*j) Ruestung_All::load(Ruestung,*k);
+      else if (j->Type()=="Typen")
+         FOR_EACH_CONST_TAG(k,*j) Typen_All::load(Typen,*k);
+      else if (j->Type()=="SpeziesListe")
+         FOR_EACH_CONST_TAG(k,*j) Spezies_All::load(Spezies,*k);
+      else if (j->Type()=="Gradanstieg")
+         FOR_EACH_CONST_TAG_OF(k,*j,"Grad") GradAnstieg.load(*k);
+      else if (j->Type()=="Länder")
+         FOR_EACH_CONST_TAG(k,*j) // Kontinent
+            FOR_EACH_CONST_TAG_OF(l,*k,"Land")
+               Laender_All::load(Laender,k->getAttr("Name"),*l);
       else if (j->Type()=="PreiseNeuMod")
          FOR_EACH_CONST_TAG(k,*j) PreiseNewMod_All::load(preisenewmod,*k);
       else if (in<std::string>(j->Type(),"Preise","PreiseNeu"))
          FOR_EACH_CONST_TAG(k,*j) Preise_All::load(preise,*k);
-      else if ((j->Type()=="Waffen-Steigern")
+      else if (j->Type()=="Waffen-Steigern")
          FOR_EACH_CONST_TAG(k,*j) 
            MidgardBasicElement::load_waffen_steigern_nach_schwierigkeit(*k);
-      else if ((j->Type()=="SteigernKosten")
+      else if (j->Type()=="SteigernKosten")
          FOR_EACH_CONST_TAG(k,*j) 
            MidgardBasicElement::load_steigern_kosten(*k);
       else if (j->Type()=="verwendbareEP")
@@ -97,11 +112,11 @@ void Datenbank::load(SigC::Slot1<void,double> progress,SigC::Slot1<void,const st
     xml_init(progress,meldungen,*this);
     Regionen = Regionen_All().get_All();
 //    MI->set_Regionen(Regionen);
-    Laender = Laender_All().get_All();
-    Ruestung = Ruestung_All().get_All();
+//    Laender = Laender_All().get_All();
+//    Ruestung = Ruestung_All().get_All();
     lernschema = Lernschema(true);
 //    Beruf = Beruf_All().get_All();
-    Fertigkeit_ang = Fertigkeiten_angeborene_All().get_All();
+//    Fertigkeit_ang = Fertigkeiten_angeborene_All().get_All();
 //    Fertigkeit = Fertigkeiten_All().get_All();
 //    WaffeGrund = WaffeGrund_All().get_All();
 //    Waffe = Waffe_All().get_All();
@@ -110,9 +125,9 @@ void Datenbank::load(SigC::Slot1<void,double> progress,SigC::Slot1<void,const st
 //    Kido = KiDo_All().get_All();
 //    Sprache = Sprachen_All().get_All();
 //    Schrift = Schriften_All().get_All();
-    Spezies = Spezies_All().get_All();
-    Typen = Typen_All().get_All();
-    GradAnstieg = Grad_anstieg(true);
+//    Spezies = Spezies_All().get_All();
+//    Typen = Typen_All().get_All();
+//    GradAnstieg = Grad_anstieg(true);
     Spezialgebiet = Spezialgebiet_All().get_All();
 //    preise = Preise_All(magus_paths::with_path("magus_preise.xml",false,true),tag_eigene_artikel).get_All();
 //    preisenewmod = PreiseNewMod_All().get_All();
@@ -120,5 +135,6 @@ void Datenbank::load(SigC::Slot1<void,double> progress,SigC::Slot1<void,const st
     prototyp2 = Prototyp2_All().get_All();
 //    MI->database_hide();  // can't do this yet
 //    Waffe_from_Alias = Waffe::fill_map_alias_waffe();
+   GradAnstieg.init_after_load();
 }
 
