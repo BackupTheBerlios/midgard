@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.302 2003/09/05 06:32:27 christof Exp $
+// $Id: midgard_CG.cc,v 1.303 2003/09/08 09:06:23 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -136,7 +136,7 @@ void midgard_CG::init_statusbar()
   frame_regionen_status->add(*hb_regionen_status);
 }
 
-void midgard_CG::set_region_statusbar(RegionenPic::epic pic,bool active)
+void midgard_CG::set_region_statusbar(RegionenPic_enum::epic pic,bool active)
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   for(std::vector<st_reg_status>::const_iterator i=vec_region_status.begin();i!=vec_region_status.end();++i)

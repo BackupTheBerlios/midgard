@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen_icons.cc,v 1.36 2003/09/01 06:47:58 christof Exp $
+// $Id: midgard_CG_optionen_icons.cc,v 1.37 2003/09/08 09:06:23 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -48,9 +48,9 @@ void midgard_CG::Icons_setzen()
    }
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {
-     Glib::RefPtr<Gdk::Pixbuf> rp=RegionenPic::PicModel((*i)->Pic());
+     Glib::RefPtr<Gdk::Pixbuf> rp=RegionenPic_enum::PicModel((*i)->Pic());
      (*i)->setRegionPix(rp);
-     Glib::RefPtr<Gdk::Pixbuf> rps=RegionenPic::PicModel((*i)->Pic(),true);
+     Glib::RefPtr<Gdk::Pixbuf> rps=RegionenPic_enum::PicModel((*i)->Pic(),true);
      (*i)->setRegionPixSmall(rps);
    }
 }

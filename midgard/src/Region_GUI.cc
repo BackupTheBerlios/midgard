@@ -22,7 +22,7 @@
 
 extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
-Glib::RefPtr<Gdk::Pixbuf> RegionenPic::PicModel(epic typ,bool tiny)
+Glib::RefPtr<Gdk::Pixbuf> RegionenPic_enum::PicModel(epic typ,bool tiny)
 {  std::string name="pinguin.xpm";
    if      (typ==Eschar)     name="Eschar-trans-50.xpm";
    else if (typ==KanThaiPan) name="KiDo-trans-50.xpm";
@@ -45,7 +45,7 @@ Glib::RefPtr<Gdk::Pixbuf> RegionenPic::PicModel(epic typ,bool tiny)
    return res;
 }
 
-Gtk::Image *RegionenPic::Pic(epic typ,bool tiny)
+Gtk::Image *RegionenPic_enum::Pic(epic typ,bool tiny)
 {  return manage(new Gtk::Image(PicModel(typ,tiny)));
 }
 

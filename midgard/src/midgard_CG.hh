@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.332 2003/09/05 08:29:29 christof Exp $
+// $Id: midgard_CG.hh,v 1.333 2003/09/08 09:06:23 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -62,8 +62,8 @@ private:
         std::list<std::string> LDateien;
         Model<bool> schummeln;
 
-        struct st_reg_status{RegionenPic::epic name; Gtk::Image *pix;
-               st_reg_status(RegionenPic::epic n, Gtk::Image *p):name(n),pix(p){}};
+        struct st_reg_status{RegionenPic_enum::epic name; Gtk::Image *pix;
+               st_reg_status(RegionenPic_enum::epic n, Gtk::Image *p):name(n),pix(p){}};
         std::vector<st_reg_status> vec_region_status;
         
         SigC::Connection connection_status;
@@ -163,7 +163,7 @@ private:
 
         // Oberfläche Statusbar
         void init_statusbar();
-        void set_region_statusbar(RegionenPic::epic pic,bool active);
+        void set_region_statusbar(RegionenPic_enum::epic pic,bool active);
 
         // Oberfläche Diverses
         void setWindowPosition(int x,int y);

@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.cc,v 1.78 2003/09/01 06:47:58 christof Exp $
+// $Id: Midgard_Info.cc,v 1.79 2003/09/08 09:06:23 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -47,7 +47,7 @@ void Midgard_Info::set_Regionen(const std::vector<cH_Region>& Regionen)
    {
      Gtk::Label *_lcopy=manage (new Gtk::Label((*i)->Copyright(),0,0));
      Gtk::Label *_lname=manage (new Gtk::Label((*i)->Titel(),0,0));
-     _tab->attach(*RegionenPic::Pic((*i)->Pic(),II),0,1,row,row+1,Gtk::AttachOptions(0),Gtk::AttachOptions(0),0,0);
+     _tab->attach(*RegionenPic_enum::Pic((*i)->Pic(),II),0,1,row,row+1,Gtk::AttachOptions(0),Gtk::AttachOptions(0),0,0);
      _tab->attach(*_lname,1,2,row,row+1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
      _tab->attach(*_lcopy,2,3,row,row+1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
      ++row;

@@ -118,7 +118,7 @@ void midgard_CG::menu_init()
        }
      Gtk::Label *_l=Gtk::manage (new Gtk::Label(labeltext,0,0));
      _tab->attach(*_l,1,2,0,1,Gtk::AttachOptions(0),Gtk::AttachOptions(0),0,0);
-     RefPtr_Pixmap *_pix=Gtk::manage(new RefPtr_Pixmap(RegionenPic::PicModel((*i)->Pic())));
+     RefPtr_Pixmap *_pix=Gtk::manage(new RefPtr_Pixmap(RegionenPic_enum::PicModel((*i)->Pic())));
      _tab->attach(*_pix,0,1,0,row,Gtk::AttachOptions(0),Gtk::AttachOptions(0),0,0);
      _tab->set_col_spacings(10);
 
@@ -231,7 +231,7 @@ void midgard_CG::menubar_init()
        }
      Gtk::Label *_l=Gtk::manage (new Gtk::Label(labeltext,0,0));
      _tab->attach(*_l,1,2,0,1,Gtk::AttachOptions(0),Gtk::AttachOptions(0),0,0);
-     RefPtr_Pixmap *_pix=Gtk::manage(new RefPtr_Pixmap(RegionenPic::PicModel((*i)->Pic())));
+     RefPtr_Pixmap *_pix=Gtk::manage(new RefPtr_Pixmap(RegionenPic_enum::PicModel((*i)->Pic())));
      _tab->attach(*_pix,0,1,0,row,Gtk::AttachOptions(0),Gtk::AttachOptions(0),0,0);
      _tab->set_col_spacings(10);
 
