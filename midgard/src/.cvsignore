@@ -33,6 +33,7 @@ save_charakter.cc
 Schrift.cc
 Spezialgebiet.cc
 Spezies.cc
+Region.cc
 Sprache.cc
 tmp_b.tex
 Typen.cc

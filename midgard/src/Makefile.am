@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.87 2002/01/14 10:29:27 thoma Exp $
+# $Id: Makefile.am,v 1.88 2002/01/16 09:54:54 thoma Exp $
 
 USE_XML=$(shell if test `hostname` = "puck" ; then echo -DUSE_XML ; fi)
 
@@ -39,9 +39,8 @@ Fertigkeiten_auswahl_glade.hh Fertigkeiten_auswahl.hh glademm_support.hh \
 midgard_CG_glade.hh midgard_CG.hh Waffen_auswahl_glade.hh Waffen_auswahl.hh   \
 Window_charakter_auswahl_glade.hh Window_charakter_auswahl.hh  \
 Window_charakter_beschreibung_glade.hh Window_charakter_beschreibung.hh \
-WindowInfo_glade.hh WindowInfo.hh Window_lernpunkte_editieren_glade.hh  \
-Window_lernpunkte_editieren.hh Window_werte_editieren_glade.hh \
-Window_werte_editieren.hh Zauber_auswahl_glade.hh Zauber_auswahl.hh \
+WindowInfo_glade.hh WindowInfo.hh \
+Zauber_auswahl_glade.hh Zauber_auswahl.hh \
 Sprache_auswahl.hh Sprache_auswahl_glade.hh \
    Window_herkunft_glade.hh \
    Window_herkunft.hh \
@@ -182,16 +181,12 @@ midgard_SOURCES = \
    midgard_CG_grad_anstieg.cc \
 	midgard_CG_glade.cc \
 	midgard_CG.cc \
-	Window_werte_editieren_glade.cc \
-	Window_werte_editieren.cc \
 	abge_werte_setzen.cc \
    zeige_werte.cc \
    midgard_CG_fertigkeiten.cc\
    midgard_CG_waffen.cc\
    midgard_CG_zauber.cc\
    midgard_CG_beruf.cc\
-	Window_lernpunkte_editieren_glade.cc \
-	Window_lernpunkte_editieren.cc \
 	Window_Waffe_Geld_glade.cc \
 	Window_Waffe_Geld.cc \
 	Window_Geld_eingeben_glade.cc \

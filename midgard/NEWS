@@ -1,4 +1,25 @@
 ##########################################################################
+NEWS IN VERSION 0.2delta2
+
+* Fehlschlagendes Laden abgefangen
+* Erhöter Erfolgswert für Fachkenntnisse
+* Automatische Versionsvergabe
+* Rüstungen sortiert
+
+TODO:
+* Abwehr Wert (mit Waffe)
+* Fenster beim Steigern
+* Spezielgebiete für Magier stürzt ab
+* Irgendwie funktioniert das mit dem Erfolgswert für waffenlosen Kampf 
+   und dem dazugehörigen Abwerbonus noch nicht.
+* Landeskunde als Berufsfähigkeit für 3 Berufe
+  (Karawanenführer, land, v,m
+   Kaufmann, stadt,m,a
+   Verwalter, land, stadt, m,a,
+* Einlesen von Charakteren aus XML (!!!)
+
+
+##########################################################################
 NEWS IN VERSION 0.2delta1
 
 * Neue angelegte Ausrüstungsgegenstände werden sofort übernommen
