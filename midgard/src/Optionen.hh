@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.32 2002/09/18 09:44:38 christof Exp $
+// $Id: Optionen.hh,v 1.33 2002/09/18 11:39:10 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,8 +26,6 @@
 #include <gtk--/spinbutton.h>
 class midgard_CG;
 #include <MVC.h>
-#include <MVC_int_Widget.hh>
-#include <MVC_bool_Widget.hh>
 
 class Midgard_Optionen
 {

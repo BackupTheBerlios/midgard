@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.81 2002/09/18 09:09:36 thoma Exp $
+// $Id: Optionen.cc,v 1.82 2002/09/18 11:39:10 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -234,10 +234,10 @@ void Midgard_Optionen::OptionenCheck_setzen_from_menu(OptionenCheckIndex index)
      else if(i->index==Wizard_immer_starten) hauptfenster->show_wizard_active(i->active);
      else if(i->index==Notebook_start)  
       { //i->wert=wert;
-        if(!i->spin) return;
-cout << "Option: "<<i->spin<<'\n';
-        if(i->active) i->spin->show();
-        else i->spin->hide();
+//        if(!i->spin) return;
+//cout << "Option: "<<i->spin<<'\n';
+//        if(i->active) i->spin->show();
+//        else i->spin->hide();
       }
    }
 //  hauptfenster->fire_enabled=true;
@@ -345,7 +345,6 @@ void Midgard_Optionen::Optionen_init()
 {
   list_OptionenCheck.push_back(st_OptionenCheck(Original,"Originalregeln",
                            true,midgard_logo_tiny_xpm));
-/*
   list_OptionenCheck.push_back(st_OptionenCheck(NSC_only,"NSC zulassen",
                            false,NSC_Mode_32_xpm));
   list_OptionenCheck.push_back(st_OptionenCheck(Drei_Tasten_Maus,
@@ -355,7 +354,6 @@ void Midgard_Optionen::Optionen_init()
                            "MAGUS mit bestimmter Seite starten",false,0,1));
   list_OptionenCheck.push_back(st_OptionenCheck(Wizard_immer_starten, 
                            "Wizard bei jedem Programmstart starten",true,0));
-*/
 /*
   list_OptionenCheck.push_back(st_OptionenCheck(Original,"Originalregeln",
                            true,midgard_logo_tiny_xpm));
