@@ -1,4 +1,4 @@
-// $Id: Window_Geld_eingeben.hh,v 1.19 2001/10/21 21:21:55 thoma Exp $
+// $Id: Window_Geld_eingeben.hh,v 1.20 2002/01/14 12:59:00 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -16,17 +16,6 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
-
-// generated 2001/3/12 10:16:00 CET by thoma@ig23.
-// using glademm V0.5_11f_cvs
-//
-// newer (non customized) versions of this file go to Window_Geld_eingeben.hh_new
-
-// you might replace
-//    class foo : public foo_glade { ... };
-// by
-//    typedef foo_glade foo;
-// if you didn't make any modifications to the widget
 
 #ifndef _WINDOW_GELD_EINGEBEN_HH
 #  include "Window_Geld_eingeben_glade.hh"

@@ -1,4 +1,4 @@
-// $Id: Window_Geld_eingeben.cc,v 1.22 2002/01/14 10:29:27 thoma Exp $
+// $Id: Window_Geld_eingeben.cc,v 1.23 2002/01/14 12:59:00 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -16,13 +16,6 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
-
-// generated 2001/3/12 10:16:00 CET by thoma@ig23.
-// using glademm V0.5_11f_cvs
-//
-// newer (non customized) versions of this file go to Window_Geld_eingeben.cc_new
-
-// This file is for your program, I won't touch it again!
 
 #include "config.h"
 #include "Window_Geld_eingeben.hh"
