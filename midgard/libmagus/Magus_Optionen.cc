@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.cc,v 1.24 2004/04/22 08:04:45 thoma Exp $
+// $Id: Magus_Optionen.cc,v 1.25 2004/04/22 08:06:12 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -383,7 +383,7 @@ void Magus_Optionen::load_options(const std::string &filename)
 }
 
                                                    
-#include <iostream>
+//#include <iostream>
 void Magus_Optionen::save_options(const std::string &filename)
 {
   std::ofstream datei(filename.c_str());
@@ -417,10 +417,8 @@ void Magus_Optionen::save_options(const std::string &filename)
   }
 
  Tag &optionen=data.push_back(Tag("Optionen"));
-std::cout << "SIZE:"<<list_OptionenCheck.size()<<'\n';
  for(std::list<st_OptionenCheck>::const_iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
    { Tag &opt=optionen.push_back(Tag("Option"));
-std::cout << i->text<<' '<<i->active<<'\n';
      opt.setAttr("Name",i->text);
      opt.setBoolAttr("Wert", i->active);
      if(i->wert!=-1 && i->active)  opt.setIntAttr("Page",i->wert);

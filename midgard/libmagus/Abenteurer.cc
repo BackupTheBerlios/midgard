@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.18 2004/03/08 14:56:15 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.19 2004/04/22 08:04:45 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -237,7 +237,6 @@ void Abenteurer::speicherstream(std::ostream &datei)
    for(std::list<Optionen::st_OptionenCheck>::const_iterator i=LO.begin();i!=LO.end();++i)
    {
      // Option, die mit dem C. gespeichert werden müssen
-     if(i->index!=Optionen::Original && i->index!=Optionen::NSC_only) continue; 
      Tag &o=Opt.push_back(Tag("CheckOptions"));
      o.setAttr("Name", i->text);
      o.setBoolAttr("Wert", i->active);
