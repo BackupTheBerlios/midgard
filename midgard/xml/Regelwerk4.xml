@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.19 $">
+<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.20 $">
  <Länder>
   <Kontinent Name="Huaxal">
    <Land Name="Feuerinseln">
@@ -441,6 +441,7 @@
    <angeboreneFertigkeit Art="v" Name="Zweihandschlagwaffe"/>
    <angeboreneFertigkeit Art="v" Name="Zweihandschwert"/>
    <angeboreneFertigkeit Art="v" Name="schwere Armbrust"/>
+   <Sprache Name="Gnomenon"/>
   </Spezies>
   <Spezies Name="Elf" Name-weiblich="Elfe" MAGUS-Index="1" Land="true">
    <Alter Faktor="5"/>
@@ -536,6 +537,10 @@
    <angeboreneFertigkeit Art="v" Name="Winzer"/>
    <angeboreneFertigkeit Art="v" Name="Wirt"/>
    <angeboreneFertigkeit Art="z" Name="Erkennen der Aura"/>
+   <Land Name="Alba"/>
+   <Land Name="Clanngadarn"/>
+   <Land Name="Moravod"/>
+   <Sprache Name="Eldalyn"/>
   </Spezies>
   <Spezies Name="Halbling" MAGUS-Index="4">
    <Alter Faktor="1"/>
@@ -640,6 +645,8 @@
    <angeboreneFertigkeit Art="v" Name="Zweihandschlagwaffe"/>
    <angeboreneFertigkeit Art="v" Name="Zweihandschwert"/>
    <angeboreneFertigkeit Art="v" Name="schwere Armbrust"/>
+   <Land Name="Halfdal"/>
+   <Sprache Name="Halftan"/>
   </Spezies>
   <Spezies Name="Mensch">
    <Alter Faktor="1"/>
@@ -717,6 +724,7 @@
    <angeboreneFertigkeit Art="v" Name="Zweihandschlagwaffe"/>
    <angeboreneFertigkeit Art="v" Name="Zweihandschwert"/>
    <angeboreneFertigkeit Art="v" Name="schwere Armbrust"/>
+   <Sprache Name="Gnomenon"/>
   </Spezies>
   <Spezies Name="Zwerg" Name-weiblich="Zwergin" MAGUS-Index="5" RaufenBonus="1">
    <Alter Faktor="2"/>
@@ -798,6 +806,7 @@
    <angeboreneFertigkeit Art="v" Name="Steuermann"/>
    <angeboreneFertigkeit Art="v" Name="Waldarbeiter"/>
    <angeboreneFertigkeit Art="v" Name="Zureiter"/>
+   <Sprache Name="Dvarskar"/>
   </Spezies>
  </SpeziesListe>
  <Gradanstieg>
@@ -1906,6 +1915,7 @@
    <Lernschema Typ="BW" Lernpunkte="3" Erfolgswert="15"/>
    <Lernschema Typ="Sp" Lernpunkte="3" Erfolgswert="15"/>
    <Kosten Wert11="100" Wert12="100" Wert13="200" Wert14="200" Wert15="400" Wert16="800" Wert17="800" Wert18="800" Wert19="800" Wert20="800"/>
+   <EP-Typ KEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Athletik" Lernpunkte="4" Anfangswert="4" Lernkosten="50" Erfolgswert="4" Attribut="St" Berufskategorie="1" Maximalwert="16" MaximalMitUnterweisung="11">
    <Grund Typ="BN"/>
@@ -2239,6 +2249,7 @@
    <Lernschema Typ="Ba" Lernpunkte="1" Erfolgswert="12"/>
    <Lernschema Typ="Gl" Lernpunkte="1" Erfolgswert="12"/>
    <Kosten Wert9="10" Wert10="10" Wert11="10" Wert12="20" Wert13="20" Wert14="20" Wert15="50" Wert16="50" Wert17="50" Wert18="50" Wert19="50" Wert20="50" Wert21="50" Wert22="50"/>
+   <EP-Typ ZEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Erste Hilfe" Lernpunkte-Land="3" Lernpunkte-Stadt="3" Anfangswert="8" Lernkosten="100" Erfolgswert="6" Attribut="Gs" Berufskategorie="2" Maximalwert="18" MaximalMitUnterweisung="13">
    <Grund Typ="Hl"/>
@@ -2584,6 +2595,7 @@
    <Lernschema Typ="Gl" Lernpunkte="1" Erfolgswert="12"/>
    <Lernschema Typ="Sp" Lernpunkte="1" Erfolgswert="12"/>
    <Kosten Wert7="10" Wert8="10" Wert9="10" Wert10="10" Wert11="10" Wert12="20" Wert13="50" Wert14="50" Wert15="50" Wert16="50"/>
+   <EP-Typ ZEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Geschäftstüchtigkeit" Lernpunkte="8" Anfangswert="8" Lernkosten="2000" Erfolgswert="6" Attribut="In" Berufskategorie="4" Maximalwert="18" MaximalMitUnterweisung="14">
    <Grund Typ="Hä"/>
@@ -2706,6 +2718,7 @@
    <Lernschema Typ="Ku" Lernpunkte="1" Erfolgswert="5"/>
    <Lernschema Typ="Se" Lernpunkte="1" Erfolgswert="5"/>
    <Kosten Wert5="10" Wert6="10" Wert7="10" Wert8="10" Wert9="10" Wert10="10" Wert11="20" Wert12="20" Wert13="50" Wert14="50" Wert15="50" Wert16="50" Wert17="50" Wert18="50"/>
+   <EP-Typ ZEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Kampf in Dunkelheit" Lernpunkte="6" Anfangswert="2" Lernkosten="300" Erfolgswert="2" Attribut="Gw" Berufskategorie="3" Maximalwert="16" MaximalMitUnterweisung="14">
    <Grund Typ="As"/>
@@ -3065,6 +3078,7 @@
    <Lernschema Typ="ScS" Lernpunkte="2" Erfolgswert="12"/>
    <Lernschema Typ="ScW" Lernpunkte="2" Erfolgswert="12"/>
    <Kosten Wert7="10" Wert8="10" Wert9="10" Wert10="10" Wert11="10" Wert12="20" Wert13="20" Wert14="50" Wert15="50" Wert16="50" Wert17="50" Wert18="50" Wert19="50" Wert20="50"/>
+   <EP-Typ ZEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Lippenlesen" Lernpunkte="3" Anfangswert="6" Lernkosten="250" Erfolgswert="4" Attribut="In" Maximalwert="16" MaximalMitUnterweisung="11">
    <Grund Typ="As"/>
@@ -3301,6 +3315,7 @@
    <Lernschema Typ="PW" Lernpunkte="2" Erfolgswert="8"/>
    <Lernschema Typ="Se" Lernpunkte="2" Erfolgswert="8"/>
    <Kosten Wert7="10" Wert8="10" Wert9="10" Wert10="20" Wert11="20" Wert12="20" Wert13="50" Wert14="50" Wert15="100" Wert16="100" Wert17="100" Wert18="100" Wert19="100" Wert20="100"/>
+   <EP-Typ ZEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Scharfschießen" Lernpunkte="6" Anfangswert="5" Lernkosten="800" Erfolgswert="4" Attribut="Gs" Maximalwert="16" MaximalMitUnterweisung="16" Zusätze="3">
    <Grund Typ="As"/>
@@ -3424,6 +3439,7 @@
    <Voraussetzungen Gs="31"/>
    <Lernschema Typ="Kr" Lernpunkte="2" Erfolgswert="15"/>
    <Kosten Wert11="10" Wert12="10" Wert13="20" Wert14="20" Wert15="50" Wert16="100" Wert17="200" Wert18="400" Wert19="400" Wert20="400"/>
+   <EP-Typ KEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Schleichen" Lernpunkte="4" Anfangswert="8" Lernkosten="400" Erfolgswert="6" Erfolgswert-ungelernt="3" Attribut="Gw" Berufskategorie="3" Maximalwert="18" MaximalMitUnterweisung="14">
    <Grund Typ="As"/>
@@ -3466,6 +3482,7 @@
    <Lernschema Typ="Sp" Lernpunkte="2" Erfolgswert="8"/>
    <Lernschema Typ="Wa" Lernpunkte="2" Erfolgswert="8"/>
    <Kosten Wert7="200" Wert8="200" Wert9="400" Wert10="400" Wert11="800" Wert12="800" Wert13="800" Wert14="1600" Wert15="1600" Wert16="1600" Wert17="1600" Wert18="1600" Wert19="1600" Wert20="1600"/>
+   <EP-Typ KEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Schreiben" Lernpunkte="3" Anfangswert="9" Lernkosten="20" Erfolgswert="4" Attribut="In" Maximalwert="20" MaximalMitUnterweisung="17" Zusätze="6">
    <Grund Typ="Er"/>
@@ -3582,6 +3599,7 @@
    <Lernschema Typ="Hä" Lernpunkte="1" Erfolgswert="5"/>
    <Lernschema Typ="PHa" Lernpunkte="2" Erfolgswert="5"/>
    <Kosten Wert5="10" Wert6="10" Wert7="10" Wert8="20" Wert9="20" Wert10="20" Wert11="50" Wert12="50" Wert13="100" Wert14="100" Wert15="100" Wert16="100" Wert17="100" Wert18="100"/>
+   <EP-Typ ZEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Seilkunst" Lernpunkte-Land="2" Lernpunkte-Stadt="2" Anfangswert="8" Lernkosten="50" Erfolgswert="6" Erfolgswert-ungelernt="4" Attribut="Gs" Berufskategorie="1" Maximalwert="18" MaximalMitUnterweisung="14">
    <Grund Typ="Hä"/>
@@ -3893,6 +3911,7 @@
    <Lernschema Typ="ScS" Lernpunkte="1" Erfolgswert="15"/>
    <Lernschema Typ="ScW" Lernpunkte="1" Erfolgswert="15"/>
    <Kosten Wert11="10" Wert12="10" Wert13="10" Wert14="20" Wert15="20" Wert16="50" Wert17="50" Wert18="50" Wert19="50" Wert20="50"/>
+   <EP-Typ KEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Tauchen" Lernpunkte="3" Anfangswert="15" Lernkosten="120" Erfolgswert="10" Erfolgswert-ungelernt="9" Attribut="Ko" Maximalwert="18" MaximalMitUnterweisung="16">
    <Grund Typ="BN"/>
@@ -3959,6 +3978,7 @@
    <Lernschema Typ="Th" Lernpunkte="3" Erfolgswert="6" Pflicht="true"/>
    <Lernschema Typ="Ma" Lernpunkte="5" Erfolgswert="6"/>
    <Kosten Wert5="100" Wert6="100" Wert7="200" Wert8="200" Wert9="400" Wert10="400" Wert11="800" Wert12="800" Wert13="1600" Wert14="1600" Wert15="1600" Wert16="1600" Wert17="1600" Wert18="1600"/>
+   <EP-Typ ZEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Trinken" Lernpunkte="3" Anfangswert="1" Lernkosten="100" Erfolgswert="1" Erfolgswert-ungelernt="0" Attribut="Ko" Berufskategorie="2" Maximalwert="6" MaximalMitUnterweisung="1">
    <Grund Typ="BN"/>
@@ -4250,6 +4270,7 @@
    <Ausnahme Typ="Kr"/>
    <Ausnahme Typ="Sö"/>
    <Voraussetzungen/>
+   <EP-Typ ZEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Zeichensprache" Lernpunkte="4" Anfangswert="6" Lernkosten="20" Erfolgswert="4" Attribut="In" Maximalwert="12" MaximalMitUnterweisung="11">
    <Grund Typ="Er"/>
@@ -4291,6 +4312,7 @@
    <Lernschema Typ="Sp" Lernpunkte="1" Erfolgswert="6"/>
    <Lernschema Typ="Hä" Lernpunkte="2" Erfolgswert="6"/>
    <Kosten Wert5="10" Wert6="10" Wert7="10" Wert8="10" Wert9="20" Wert10="50" Wert11="100" Wert12="100" Wert13="100" Wert14="100"/>
+   <EP-Typ ZEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Alchimie" Lernpunkte="8" Anfangswert="5" Lernkosten="100" Erfolgswert="4" Attribut="In" Berufskategorie="2" Maximalwert="18" MaximalMitUnterweisung="13">
    <Grund Typ="Ma"/>
@@ -4331,6 +4353,7 @@
    <Lernschema Typ="Ma" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Th" Lernpunkte="3" Erfolgswert="5"/>
    <steigern_wie Fertigkeit="Wissen"/>
+   <EP-Typ ZEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Balancieren" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="10" Erfolgswert-ungelernt="8" Attribut="Gw" Berufskategorie="1" Maximalwert="18" MaximalMitUnterweisung="18">
    <Grund Typ="As"/>
@@ -4414,6 +4437,7 @@
    <Lernschema Typ="Gl" Lernpunkte="1" Erfolgswert="12"/>
    <Lernschema Typ="Se" Lernpunkte="1" Erfolgswert="12"/>
    <steigern_wie Fertigkeit="Dichten"/>
+   <EP-Typ ZEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Fangen" Lernpunkte="3" Anfangswert="15" Lernkosten="60" Erfolgswert="10" Erfolgswert-ungelernt="8" Attribut="Gs" Maximalwert="18" MaximalMitUnterweisung="18">
    <Grund Typ="BN"/>
@@ -4672,6 +4696,7 @@
    <Lernschema Typ="sHx" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="wHx" Lernpunkte="2" Erfolgswert="5"/>
    <steigern_wie Fertigkeit="Wissen"/>
+   <EP-Typ ZEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Heilkunde" Lernpunkte="5" Lernpunkte-Stadt="3" Anfangswert="5" Lernkosten="100" Erfolgswert="4" Attribut="In" Berufskategorie="2" Maximalwert="16" MaximalMitUnterweisung="13">
    <Grund Typ="Hl"/>
@@ -4706,6 +4731,7 @@
    <Lernschema Typ="ScW" Lernpunkte="2" Erfolgswert="5"/>
    <steigern_wie Fertigkeit="Wissen"/>
    <Kosten Wert5="50" Wert6="50" Wert7="50" Wert8="100" Wert9="100" Wert10="200" Wert11="200" Wert12="400" Wert13="400" Wert14="400" Wert15="400" Wert16="400" Wert17="400" Wert18="400"/>
+   <EP-Typ ZEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Katapult bedienen" Lernpunkte="8" Anfangswert="4" Lernkosten="100" Erfolgswert="4" Attribut="Gs" Maximalwert="16" MaximalMitUnterweisung="16">
    <Grund Typ="Kr"/>
@@ -4839,6 +4865,7 @@
    <Lernschema Typ="sHx" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="wHx" Lernpunkte="2" Erfolgswert="5"/>
    <steigern_wie Fertigkeit="Wissen"/>
+   <EP-Typ ZEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Landeskunde" Anfangswert="5" Lernkosten="100" Erfolgswert="4" Attribut="In" Berufskategorie="2" Maximalwert="16" MaximalMitUnterweisung="13" Zusätze="2">
    <Grund Typ="Ba"/>
@@ -5010,6 +5037,7 @@
    <Lernschema Typ="Th" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Tm" Lernpunkte="2" Erfolgswert="5"/>
    <steigern_wie Fertigkeit="Wissen"/>
+   <EP-Typ ZEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Pflanzenkunde" Lernpunkte="4" Lernpunkte-Land="3" Anfangswert="5" Lernkosten="100" Erfolgswert="4" Erfolgswert-ungelernt="0" Attribut="In" Berufskategorie="2" Maximalwert="16" MaximalMitUnterweisung="13">
    <Grund Typ="Dr"/>
@@ -5054,6 +5082,7 @@
    <Lernschema Typ="ScS" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="ScW" Lernpunkte="2" Erfolgswert="5"/>
    <steigern_wie Fertigkeit="Wissen"/>
+   <EP-Typ ZEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Reiten" Lernpunkte="3" Lernpunkte-Land="2" Lernpunkte-Stadt="2" Anfangswert="15" Lernkosten="60" Erfolgswert="10" Erfolgswert-ungelernt="5" Attribut="Gw" Berufskategorie="1" Maximalwert="18" MaximalMitUnterweisung="18">
    <Grund Typ="As"/>
@@ -5195,6 +5224,7 @@
    <Lernschema Typ="PM" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="PT" Lernpunkte="2" Erfolgswert="5"/>
    <steigern_wie Fertigkeit="Wissen"/>
+   <EP-Typ ZEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Schiffsführung" Lernpunkte="6" Anfangswert="8" Lernkosten="150" Erfolgswert="6" Attribut="In" Berufskategorie="2" Maximalwert="20" MaximalMitUnterweisung="16">
    <Grund Typ="Hä"/>
@@ -5404,6 +5434,7 @@
    <Lernschema Typ="Se" Lernpunkte="1" Erfolgswert="15"/>
    <Lernschema Typ="BN" Lernpunkte="2" Erfolgswert="15"/>
    <steigern_wie Fertigkeit="Bewegung"/>
+   <EP-Typ KEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Singen" Lernpunkte-Land="1" Lernpunkte-Stadt="1" Anfangswert="12" Lernkosten="80" Erfolgswert="8" Erfolgswert-ungelernt="4" Attribut="pA" Maximalwert="20" MaximalMitUnterweisung="16">
    <Grund Typ="Ba"/>
@@ -5571,6 +5602,7 @@
    <Lernschema Typ="Hä" Lernpunkte="2" Erfolgswert="15"/>
    <Lernschema Typ="PM" Lernpunkte="2" Erfolgswert="15"/>
    <steigern_wie Fertigkeit="Bewegung"/>
+   <EP-Typ KEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Streitwagen lenken" Lernpunkte="6" Anfangswert="15" Lernkosten="60" Erfolgswert="10" Attribut="Gs" Berufskategorie="1" Maximalwert="18" MaximalMitUnterweisung="18">
    <Grund Typ="BS"/>
@@ -5701,6 +5733,7 @@
    <Lernschema Typ="ScS" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="ScW" Lernpunkte="2" Erfolgswert="5"/>
    <steigern_wie Fertigkeit="Wissen"/>
+   <EP-Typ ZEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Verbergen" Lernpunkte="4" Anfangswert="8" Lernkosten="300" Erfolgswert="6" Erfolgswert-ungelernt="3" Attribut="In" Berufskategorie="3" Maximalwert="18" MaximalMitUnterweisung="13">
    <Grund Typ="As"/>
@@ -5839,6 +5872,7 @@
    <Lernschema Typ="sHx" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="wHx" Lernpunkte="2" Erfolgswert="5"/>
    <steigern_wie Fertigkeit="Wissen"/>
+   <EP-Typ ZEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Überleben im Dschungel" Lernpunkte="3" Lernpunkte-Land="3" Lernpunkte-Stadt="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6" Attribut="In" Berufskategorie="1" Maximalwert="18" MaximalMitUnterweisung="14">
    <Grund Typ="BW"/>
@@ -5882,6 +5916,7 @@
    <regionaleBesonderheit Herkunft="Ikengabecken" Typ="ScS" Standard="G"/>
    <regionaleBesonderheit Herkunft="Ikengabecken" Typ="ScW" Standard="G"/>
    <steigern_wie Fertigkeit="Überleben"/>
+   <EP-Typ ZEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Überleben im Gebirge" Lernpunkte="3" Lernpunkte-Land="3" Lernpunkte-Stadt="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6" Attribut="In" Berufskategorie="1" Maximalwert="18" MaximalMitUnterweisung="14">
    <Grund Typ="BN"/>
@@ -5921,6 +5956,7 @@
    <Voraussetzungen In="21"/>
    <Lernschema Typ="Wa" Lernpunkte="1" Erfolgswert="8"/>
    <steigern_wie Fertigkeit="Überleben"/>
+   <EP-Typ ZEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Überleben im Schnee" Lernpunkte="3" Lernpunkte-Land="3" Lernpunkte-Stadt="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6" Attribut="In" Berufskategorie="1" Maximalwert="18" MaximalMitUnterweisung="14">
    <Grund Typ="BN"/>
@@ -5961,6 +5997,7 @@
    <Lernschema Typ="BN" Lernpunkte="1" Erfolgswert="8"/>
    <Lernschema Typ="ScN" Lernpunkte="1" Erfolgswert="8"/>
    <steigern_wie Fertigkeit="Überleben"/>
+   <EP-Typ ZEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Überleben im Sumpf" Lernpunkte="3" Lernpunkte-Land="3" Lernpunkte-Stadt="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6" Attribut="In" Berufskategorie="1" Maximalwert="18" MaximalMitUnterweisung="14">
    <Standard Typ="As"/>
@@ -5999,6 +6036,7 @@
    <Standard Typ="wHx"/>
    <Voraussetzungen In="21"/>
    <steigern_wie Fertigkeit="Überleben"/>
+   <EP-Typ ZEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Überleben im Wald" Lernpunkte="3" Lernpunkte-Land="3" Lernpunkte-Stadt="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6" Attribut="In" Berufskategorie="1" Maximalwert="18" MaximalMitUnterweisung="14">
    <Grund Typ="BW"/>
@@ -6040,6 +6078,7 @@
    <Lernschema Typ="ScW" Lernpunkte="1" Erfolgswert="8"/>
    <Lernschema Typ="Wa" Lernpunkte="1" Erfolgswert="8"/>
    <steigern_wie Fertigkeit="Überleben"/>
+   <EP-Typ ZEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Überleben in der Steppe" Lernpunkte="3" Lernpunkte-Land="3" Lernpunkte-Stadt="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6" Attribut="In" Berufskategorie="1" Maximalwert="18" MaximalMitUnterweisung="14">
    <Grund Typ="BS"/>
@@ -6081,6 +6120,7 @@
    <Lernschema Typ="Ku" Lernpunkte="1" Erfolgswert="8"/>
    <Lernschema Typ="ScS" Lernpunkte="1" Erfolgswert="8"/>
    <steigern_wie Fertigkeit="Überleben"/>
+   <EP-Typ ZEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Überleben in der Wüste" Lernpunkte="3" Lernpunkte-Land="3" Lernpunkte-Stadt="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6" Attribut="In" Berufskategorie="1" Maximalwert="18" MaximalMitUnterweisung="14">
    <Grund Typ="BS"/>
@@ -6125,6 +6165,7 @@
    <regionaleBesonderheit Herkunft="Eschar" Typ="ScS" Standard="G"/>
    <regionaleBesonderheit Herkunft="Eschar" Typ="ScW" Standard="G"/>
    <steigern_wie Fertigkeit="Überleben"/>
+   <EP-Typ ZEP="true"/>
   </Fertigkeit>
  </Fertigkeiten>
  <angeboreneFertigkeiten>
@@ -7067,6 +7108,7 @@
   </Beruf>
  </Berufe>
  <verwendbareEP>
+  <EP-Typ Fertigkeit="Abwehr" KEP="true"/>
   <EP-Typ Fertigkeit="Ausdauer" KEP="true" ZEP="true"/>
   <EP-Typ Fertigkeit="Heraldik" ZEP="true"/>
   <EP-Typ Fertigkeit="IaiJutsu" KEP="true"/>
@@ -10301,6 +10343,18 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="As" Lernpunkte="1" Erfolgswert="5"/>
    <Lernschema Typ="PW" Lernpunkte="4" Erfolgswert="4"/>
+  </Waffe>
+  <Waffe>
+   <Modifikationen/>
+   <Voraussetzungen/>
+   <Reichweite/>
+   <Lernkosten/>
+  </Waffe>
+  <Waffe Name="WakiZaschi">
+   <Modifikationen/>
+   <Voraussetzungen/>
+   <Reichweite/>
+   <Lernkosten/>
   </Waffe>
  </Waffen>
  <Waffen-Grundkenntnisse>

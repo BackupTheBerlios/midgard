@@ -8,9 +8,8 @@ DROP TABLE "spezies_herkunft";
 
 CREATE TABLE "spezies_herkunft" (
 	"spezies" text NOT NULL,
-	"land" text NOT NULL,
-	"sprache" text,
-	Constraint "spezies_herkunft_pkey" Primary Key ("spezies", "land")
+	"land" text,
+	"sprache" text
 );
 
 --
@@ -19,4 +18,13 @@ CREATE TABLE "spezies_herkunft" (
 
 
 COPY "spezies_herkunft" FROM stdin;
+Berggnom	\N	Gnomenon
+Elf	Alba	\N
+Elf	Clanngadarn	\N
+Elf	Moravod	\N
+Elf	\N	Eldalyn
+Halbling	Halfdal	\N
+Halbling	\N	Halftan
+Waldgnom	\N	Gnomenon
+Zwerg	\N	Dvarskar
 \.

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="K" Name="KanThaiPan" Titel="Unter dem Schirm des Jadekaisers" Copyright="Isolde Popp" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="7" MAGUS-Bild="2" CVS="$Revision: 1.11 $">
+<MAGUS-data Region="K" Name="KanThaiPan" Titel="Unter dem Schirm des Jadekaisers" Copyright="Isolde Popp" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="7" MAGUS-Bild="2" CVS="$Revision: 1.12 $">
  <Schriften>
   <Schrift Name="KanThaiTun(1)" Region="K" Typ="Silben" Kosten="20">
    <Variante Name="KanThaiTun(1)"/>
@@ -2161,6 +2161,18 @@
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="5"/>
    <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="5"/>
+  </Waffe>
+  <Waffe Name="Tanto" Region="K" Kategorie="Angriff">
+   <Modifikationen/>
+   <Voraussetzungen/>
+   <Reichweite/>
+   <Lernkosten/>
+  </Waffe>
+  <Waffe Name="Tanto mit Meisterklinge" Region="K" Kategorie="Angriff">
+   <Modifikationen/>
+   <Voraussetzungen/>
+   <Reichweite/>
+   <Lernkosten/>
   </Waffe>
   <Waffe Name="TetsuBo" Region="K" Grundkenntnisse="Kampfstab" Schwierigkeit="7" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="1" Schadensbonus2="1">
    <Modifikationen Abwehr-schwer="+2"/>

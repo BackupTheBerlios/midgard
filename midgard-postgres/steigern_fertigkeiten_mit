@@ -20,6 +20,9 @@ CREATE TABLE "steigern_fertigkeiten_mit" (
 
 COPY "steigern_fertigkeiten_mit" FROM stdin;
 Abrichten	ZEP
+Abwehr	KEP
+Akrobatik	KEP
+Alchimie	ZEP
 Askese	ZEP
 Astrologie	ZEP
 Athletik	KEP
@@ -32,14 +35,20 @@ Beidhändiger Kampf	KEP
 Beredsamkeit	ZEP
 Bogenkampf zu Pferd	KEP
 Brettspiel	KEP
+Dichten	ZEP
 Elefanten lenken	KEP
+Erzählen	ZEP
 Fangen	KEP
 Fechten	KEP
 Fechten tevarrischer Stil	KEP
 FengTsu	KEP
+Geheimzeichen	ZEP
 Geländelauf	KEP
 Geomantie	ZEP
+Giftmischen	ZEP
+Heilkunde	ZEP
 Heraldik	ZEP
+Himmelskunde	ZEP
 IaiJutsu	KEP
 Kamelreiten	KEP
 Kampf in Dunkelheit	KEP
@@ -57,39 +66,63 @@ KentoYobu	KEP
 KiDo	KEP
 KiDo	ZEP
 Klettern	KEP
+Kräuterkunde	ZEP
 KujNoIu	ZEP
 Körperkontrolle	ZEP
 Laufen	KEP
+Lesen von Zauberschrift	ZEP
 Meditieren	ZEP
 Menschenkenntnis	ZEP
 Meucheln	KEP
 MiChen	KEP
+Naturkunde	ZEP
 Natya	ZEP
+Pflanzenkunde	ZEP
 Pyromantie	ZEP
+Rechnen	ZEP
 Reiten	KEP
 Rudern	KEP
+Sagenkunde	ZEP
 Scharfschießen	KEP
+Schießen vom Streitwagen	KEP
 Schiffsführung	KEP
 SchiyoKi	KEP
 SchiyoKi	ZEP
+Schleichen	KEP
 Schlittenfahren	KEP
 Schlittschuhlaufen	KEP
 Schmerzen ertragen	ZEP
 Schwerttanz	KEP
 Schwimmen	KEP
+Schätzen	ZEP
+Seemannsgang	KEP
 Skifahren	KEP
 Springen	KEP
 Srimara lenken	KEP
+Steuern	KEP
 Streitwagen lenken	KEP
 TaiTschi	KEP
 TaiTschi	ZEP
+Tanzen	KEP
 Tarnen	KEP
 Tauchen	KEP
+Thaumatographie	ZEP
+Tierkunde	ZEP
 Waffen	KEP
 Wagenlenken	KEP
 Winden	KEP
 YubeChian	KEP
 Zauber	ZEP
+Zauberkunde	ZEP
+Zaubern	ZEP
+Zeichensprache	ZEP
+Überleben im Dschungel	ZEP
+Überleben im Gebirge	ZEP
+Überleben im Schnee	ZEP
+Überleben im Sumpf	ZEP
+Überleben im Wald	ZEP
+Überleben in der Steppe	ZEP
+Überleben in der Wüste	ZEP
 \.
 --
 --
