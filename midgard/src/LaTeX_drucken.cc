@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.44 2002/07/09 09:28:26 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.45 2002/07/09 09:29:49 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -705,7 +705,6 @@ void LaTeX_drucken::LaTeX_kopfzeile(ostream &fout,bool landscape,bool newdoc)
  if(!landscape) {drache="7cm" , namensbox="5cm";}
 // fout << "\\parbox{"+drache+"}{\\includegraphics[width="+drache+"]{"+get_latex_pathname(TeX_Install)+"/drache.png}}\n";
  fout << "\\parbox{"+drache+"}{\\includegraphics[width="+drache+"]{"<< get_latex_pathname(TeX_Install) << "drache.png}}\n";
-#endif 
  fout << "\\parbox[][][c]{"+namensbox+"}{\n";
  if(!landscape) fout << "\\scriptsize\n";
  fout << "\\LI\n";

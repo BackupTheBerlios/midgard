@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.hh,v 1.10 2002/07/07 08:31:58 thoma Exp $
+// $Id: LaTeX_drucken.hh,v 1.11 2002/07/09 09:28:26 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -54,6 +54,7 @@ class LaTeX_drucken
     static const unsigned int maxunifert=48;
    
     const midgard_CG *hauptfenster;
+    bool bool_sprach,bool_fert,bool_waffen;
 
     void LaTeX_write_values(ostream &fout,const std::string &install_latex_file);
     void LaTeX_write_empty_values(ostream &fout,const std::string &install_latex_file);
@@ -66,10 +67,13 @@ class LaTeX_drucken
                     :sprache(s) {}
                };
     void write_grundwerte(ostream &fout,bool empty=false);
-    void write_sprachen(ostream &fout,const std::vector<st_sprachen_schrift>& L);
-    void write_fertigkeiten(ostream &fout,const std::list<MidgardBasicElement_mutable>& L);
-    void write_waffenbesitz(ostream &fout,const std::list<WaffeBesitz>& L);
+    void write_sprachen(ostream &fout,const std::vector<st_sprachen_schrift>& L,bool longlist=false);
+    void write_fertigkeiten(ostream &fout,const std::list<MidgardBasicElement_mutable>& L,bool longlist=false);
+    void write_waffenbesitz(ostream &fout,const std::list<WaffeBesitz>& L,bool longlist=false);
     void write_universelle(ostream &fout);
+    void write_long_list(ostream &fout,const std::vector<st_sprachen_schrift> &S,
+                         const std::list<MidgardBasicElement_mutable> &F,
+                         const std::list<WaffeBesitz> &WB_druck);
 
     std::string LaTeX_scale(const std::string& is, 
          unsigned int maxlength, const std::string& scale);
@@ -93,20 +97,13 @@ class LaTeX_drucken
     void ausruestung_druck(ostream &fout,bool unsichtbar,const std::list<AusruestungBaum> &AB,int deep);
     void pdf_viewer(const std::string& file);
     
-/*
-    enum ewhat{SName,AName,Spezies,Typ,Grad,Herkunft,Stand,Gestalt,Groesse,
-               Gewicht,Beruf,Glaube,Sprachen,Schriften,St,Gw,Gs,Ko,In,Zt,
-               Au,pA,Wk,Sb,B,Resistenz,Zaubern,Abwehr,Sehen,Hoeren,Riechen,Schmecken,Tasten,
-               SechsterSinn,Wahrnehmung,Spurenlesen,Fallen_entdecken,
-               Suchen,Menschenkenntnis, Sagenkunde,Zauberkunde,Gassenwissen,
-               Himmelskunde,Schaetzen,angFert,Waffen};
-*/
     void line(ostream &fout,const ewhat &what);
     void for_each(ostream &fout,const ewhat &what);
     void list_for_each(ostream &fout,const std::list<MidgardBasicElement_mutable>& L,const int &maxlength,const std::string& cm);
  public:
     LaTeX_drucken(const midgard_CG* h)
-      : hauptfenster(h) {}
+      : hauptfenster(h),bool_sprach(false),bool_fert(false),bool_waffen(false)
+       {}
 
     void on_latex_clicked(bool values=true);
     void on_ausruestung_druck(bool unsichtbar);
