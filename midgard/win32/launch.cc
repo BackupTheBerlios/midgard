@@ -69,10 +69,14 @@ int main()
       }
    }
 
-                                                           
+
+   putenv("PGDATA=/usr/share/postgresql/data");                                                           
+   
       /* chdir("cygwin\\bin"); */
-      int ipc_pid=_spawnl(_P_NOWAIT,"cygwin\\bin\\ipc-daemon","ipc-daemon",NULL);
-      int pgsql_pid=_spawnl(_P_NOWAIT,"cygwin\\bin\\postmaster","postmaster","-?I",NULL);
-      _spawnl(_P_WAIT,"midgard","midgard",NULL);
+      int ipc_pid=spawnl(_P_NOWAIT,"cygwin\\bin\\ipc-daemon","ipc-daemon",NULL);
+      int pgsql_pid=spawnl(_P_NOWAIT,"cygwin\\bin\\postmaster","postmaster","-i",NULL);
+      			// "-h","127.0.0.1"
+      // putenv("PGHOST=127.0.0.1"); ?
+      spawnl(_P_WAIT,"midgard","midgard",NULL);
       // killen?
 }
