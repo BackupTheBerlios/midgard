@@ -51,9 +51,8 @@ void midgard_CG::xml_import(const std::string& datei)
    on_neuer_charakter_clicked();
    frame_steigern->set_sensitive(true);
 
-
    TagStream ts(datei);
-   const Tag *data=&ts;
+   const Tag *data=0; // &ts.getContent();
    const Tag *top=ts.find("Midgard-Charakter");    
    if (!top) 
    {  data=ts.find("MidgardCG-data");        

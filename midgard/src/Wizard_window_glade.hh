@@ -43,6 +43,8 @@ class Wizard_window_glade : public Gtk::Window
         GlademmData *_data;
 protected:
         class logwin *LogWinWizard;
+        class Gtk::Button *button_wiz_weiter;
+        class Gtk::Button *button_wiz_wiederholen;
         class Gtk::Button *button_wiz_skip;
         class Gtk::ToggleButton *togglebutton_wizard_start;
         class Gtk::Table *table_wizard;

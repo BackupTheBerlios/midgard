@@ -24,11 +24,14 @@ class Wizard_window : public Wizard_window_glade
                   LERNPUNKTE,WAEHLEN,BERUF,SPEZIALWAFFE,SPEZIALGEBIET,
                   GELD,WAFFEN,RUESTUNG,SPEICHERN,FERTIG,MAXSTEPS};
    private:
-     struct st_wiz{int page;std::string text;
-            void (midgard_CG::*callback)();
-            st_wiz(int p,std::string t,void (midgard_CG::*c)() )
-            : page(p),text(t),callback(c){}
-            };
+     struct st_wiz
+     {	int page;
+     	std::string text,kurz;
+        void (midgard_CG::*callback)();
+        
+        st_wiz(int p,std::string t,std::string k,void (midgard_CG::*c)() )
+            : page(p),text(t),kurz(k),callback(c){}
+     };
 
       midgard_CG* hauptfenster;
       esteps actual_step;

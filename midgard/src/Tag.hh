@@ -33,6 +33,7 @@ class Tag {
     	attvec_t attributes;
     	std::vector <Tag> sub_specifications;
 
+public: // nice to have for custom parsing
 	static bool parse_bool_value(const std::string &val, bool def=false);
 	static int parse_int_value(const std::string &val, int def=0);
 	static long parse_long_value(const std::string &val, long def=0);

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.72 2002/04/15 05:45:02 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.73 2002/04/15 05:57:12 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -271,6 +271,7 @@ void midgard_CG::load_options()
 { ifstream f("midgard_optionen.xml");
   if (!f.good()) cout << "Cannot open " << "midgard_optionen.xml" << '\n';
   TagStream ts(f);
+  // data=&ts.getContent();
   const Tag *data=ts.find("MAGUS-optionen");
   if(!data)    
     { cout << "Optionen konnten nicht geladen werden";

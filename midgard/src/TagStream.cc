@@ -193,6 +193,23 @@ char *TagStream::find_wordend(char *ptr)
    return ptr>=buffer+end_pointer ? 0 : ptr;
 }
 
+char *TagStream::find_wordend2(char *ptr)
+{  while (ptr<buffer+end_pointer && *ptr!='>' && *ptr!=' ') ++ptr;
+   return ptr>=buffer+end_pointer ? 0 : ptr;
+}
+
+char *TagStream::find_tagend2(char *ptr)
+{  while (ptr<buffer+end_pointer && *ptr!='>')
+   {  if (*ptr=='"')
+      {  ++ptr;
+         while (ptr<buffer+end_pointer && *ptr!='"') ++ptr;
+         if (ptr>=buffer+end_pointer) return 0;
+      }
+      ++ptr;
+   }
+   return ptr>=buffer+end_pointer ? 0 : ptr;
+}
+
 // returns unmatched </tag> or 0
 // set pointer should wind
 // unify the errors
@@ -211,6 +228,7 @@ char *TagStream::next_tag(Tag *parent)
                set_pointer(tagend+2);
                if (newtag->Type()=="?xml") 
                {  encoding=newtag->getAttr("encoding");
+                  if (encoding.empty()) encoding=host_encoding;
                   if (encoding!=host_encoding)
                      cout << "Recoding " << encoding << "->" << host_encoding << '\n';
                }
@@ -245,6 +263,22 @@ char *TagStream::next_tag(Tag *parent)
       }
       if (tag[1]=='/') 
          return tag; // unmatched </tag>
+      if (tag[1]=='!') // special tag
+      {  char *tagend=find_wordend2(tag+1);
+         if (!tagend) ERROR2("tag doesn't end",tag);
+         
+         char *value=tagend,*valueend=tagend;
+         if (*tagend!='>') 
+         { value=tagend+1;
+           valueend=find_tagend2(value);
+           if (!valueend) ERROR2("tag doesn't end",tag);
+         }
+         
+         parent->push_back(Tag(recode(std::string(tag+1,tagend-(tag+1))),
+         	std::string(value,valueend-value)));
+         set_pointer(valueend+1);
+         continue; // outer
+      }
       // normal tag
       {  char *tagend=find_wordend(tag+1);
          if (!tagend) ERROR2("tag doesn't end",tag);
@@ -295,5 +329,23 @@ char *TagStream::next_tag(Tag *parent)
        continue_outer: ;
    }
    return 0;
+}
+
+const Tag &TagStream::getContent() const
+{  FOR_EACH_CONST_TAG(i,*this)
+   {  if (!i->Type().empty() && i->Type()[0]!='?'
+   		 && i->Type()[0]!='!' && i->Type()[0]!='-')
+         return *i;
+   }
+   throw std::exception();
+}
+
+Tag &TagStream::getContent()
+{  FOR_EACH_TAG(i,*this)
+   {  if (!i->Type().empty() && i->Type()[0]!='?'
+   		 && i->Type()[0]!='!' && i->Type()[0]!='-')
+         return *i;
+   }
+   throw std::exception();
 }
 

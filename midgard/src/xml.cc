@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.31 2002/03/02 18:55:21 thoma Exp $
+// $Id: xml.cc,v 1.32 2002/04/15 05:57:12 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -37,6 +37,7 @@ void xml_init(Gtk::ProgressBar *progressbar, const std::string &filename)
    {  ifstream in(filename.c_str());
       top=new TagStream(in);
    }
+//   xml_data_mutable=&ts.getContent();
    xml_data_mutable=const_cast<Tag*>(top->find("MAGUS-data"));
    if (!xml_data_mutable) 
       xml_data_mutable=const_cast<Tag*>(top->find("MidgardCG-data"));

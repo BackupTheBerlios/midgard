@@ -30,8 +30,8 @@ Wizard_window_glade::Wizard_window_glade(
    LogWinWizard = new class logwin();
    
    Gtk::Pixmap *pixmap134 = manage(new class Gtk::Pixmap(MAGUS_Logo_Text_halb_xpm));
-   Gtk::Button *button_wiz_weiter = manage(new class Gtk::Button("Weiter"));
-   Gtk::Button *button_wiz_wiederholen = manage(new class Gtk::Button("Wiederholen"));
+   button_wiz_weiter = manage(new class Gtk::Button("Weiter"));
+   button_wiz_wiederholen = manage(new class Gtk::Button("Wiederholen"));
    button_wiz_skip = manage(new class Gtk::Button("Überspringen"));
    togglebutton_wizard_start = manage(new class Gtk::ToggleButton("Wizard immer\n"
 		"starten"));

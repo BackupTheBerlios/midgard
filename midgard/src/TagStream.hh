@@ -46,6 +46,8 @@ class TagStream : public Tag
 	char *find(char what)
 	{  return (char*)memchr(buffer+pointer,what,end_pointer-pointer); }
 	char *find_wordend(char *ptr);
+	char *find_wordend2(char *ptr);
+	char *find_tagend2(char *ptr);
 	void set_pointer(char *ptr) // test for valid range
 	{  pointer=ptr-buffer; }
 	void write(std::ostream &o,const char *ptr)
@@ -68,4 +70,7 @@ public:
 	TagStream(const char *buf);
 	TagStream(istream &i);
 	~TagStream();
+	
+	const Tag &getContent() const;
+	Tag &getContent();
 };
