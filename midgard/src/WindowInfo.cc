@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.29 2002/02/18 07:01:06 thoma Exp $
+// $Id: WindowInfo.cc,v 1.30 2002/02/19 08:46:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -96,11 +96,13 @@ void WindowInfo::Flush()
   if (Modus==None || Modus==Autoclean) bestaetigen(false) ;
   else bestaetigen(true);
 
+/*
   if(Modus==Autoclean)
     {
       des = Gtk::Main::timeout.connect(slot(this,&WindowInfo::timeout),4000);
 //      button_info_ok->hide();
     }
+*/
 }
 
 void WindowInfo::bestaetigen(bool b)

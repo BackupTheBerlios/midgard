@@ -253,7 +253,7 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasic
   show_gelerntes();
 }
 
-void midgard_CG::MidgardBasicElement_uebernehmen(const cH_MidgardBasicElement& mbe)
+void midgard_CG::MidgardBasicElement_uebernehmen(const cH_MidgardBasicElement& mbe,bool beruf)
 {
   if(mbe->What()==MidgardBasicElement::BERUF)
    {
@@ -263,6 +263,7 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const cH_MidgardBasicElement& m
    }
   if(mbe->What()==MidgardBasicElement::FERTIGKEIT)
    {
+    if(beruf) cH_Fertigkeit(mbe)->setLernArt("Beruf");
     list_Fertigkeit.push_back(mbe);
    }
   if(mbe->What()==MidgardBasicElement::SPRACHE)

@@ -174,6 +174,11 @@ void midgard_CG::fillClistLand(const cH_MidgardBasicElement &MBE)
            }
         break; 
        }
+
+     case MidgardBasicElement::ZHerkunft :
+      {
+        assert("Never get here\n");
+      }
      case MidgardBasicElement::ZNone :
       {
         assert("Never get here\n");

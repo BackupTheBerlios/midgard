@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.163 2002/02/18 12:59:25 thoma Exp $
+// $Id: midgard_CG.cc,v 1.164 2002/02/19 08:46:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -252,6 +252,7 @@ void midgard_CG::on_button_waffen_s_clicked()
 void midgard_CG::clear_listen()
 {
    list_Fertigkeit.clear();
+   list_FertigkeitZusaetze.clear();
    list_Fertigkeit_neu.clear();
    list_Fertigkeit_ang.clear();
    list_Waffen.clear();

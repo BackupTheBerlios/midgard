@@ -137,7 +137,7 @@ void midgard_CG::menu_init()
      {
        i->menuitem=manage(new Gtk::MenuItem());
        i->menuitem->add(*_tab);    
-       i->menuitem->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::Optionen_setzen_from_menu),i->index));
+       i->menuitem->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::OptionenM_setzen_from_menu),i->index));
 //       i->menuitem->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::OptionenM_setzen_from_menu),*i));
        optionen_menu->append(*(i->menuitem));
      }

@@ -1,7 +1,7 @@
 ##########################################################################
 NEWS IN VERSION 0.4delta4
 
-* kleinere Bugs beseitigt
+* viele kleinere Bugs beseitigt
 * Lernschema: Lernreinfolge jetzt beliebig
 * Tooltip 'steigern, reduzieren, verlernen'
 * Großer Gradanstiegbutten nur steigern
@@ -10,9 +10,14 @@ NEWS IN VERSION 0.4delta4
 * Info Fenser nicht automatisch zuklappen
 * Gestallt auch dann 'breit' wenn (Größe-Gewicht)<=0
 * Leiteigenschaften bei Fertigkeiten lernen 
-
+* Neuimplementation der Zusätze beim Lernen -> weniger Fenster
+* Sprachen im Lernschma verlernen
+* Berufs-Fertigkeiten automatisch verlernen, wenn neuer Beruf gewählt wird
+* Herkunftsland und Angeborene Fertigkeiten jetzt nur einmal anwählbar
 
 TODO:
+* Nichtanzeigen von bereits gelernten Sprachen/Schriften
+* Neuimplemenation des Sprachenfensters (so wie die anderen Zusätze)
 * Kurzanleitung drucken ... mal sehe, ob das sinnvoll ist.
 * Es sind die beiden Infofenster, die beim Auswürfeln 
    von Geld und Waffen im Lernschema auftauchen. 

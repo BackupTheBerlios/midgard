@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten.hh,v 1.41 2002/02/14 14:13:54 thoma Exp $               
+// $Id: Fertigkeiten.hh,v 1.42 2002/02/19 08:46:05 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -42,10 +42,8 @@ class Fertigkeit : public MidgardBasicElement
               sb(_sb),rw(_rw),fert(_fert) {} };
      st_Voraussetzung voraussetzung;
      mutable bool pflicht;
-//     IF_XML(std::string steigern_wie;) ??
 
      void get_Fertigkeit();
-//     void get_Steigern_Kosten_map();
 
   public:
 #ifndef USE_XML  

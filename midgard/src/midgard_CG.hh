@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.176 2002/02/18 07:01:06 thoma Exp $
+// $Id: midgard_CG.hh,v 1.177 2002/02/19 08:46:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -54,7 +54,9 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
                                   PAGE_AUSRUESTUNG,PAGE_NEWS};
         enum enum_notebook_lernen{PAGE_FERTIGKEITEN,PAGE_WAFFEN,PAGE_ZAUBER,
                                   PAGE_KIDO,PAGE_SPRACHE};
-        enum enum_lernschema_zusatz{LZHERKUNFT};
+        enum enum_lernschema_zusatz{LZHERKUNFT,LZGEHEIMZEICHEN,LZABRICHTEN,
+                                 LZTIERSPRACHE,LZMUSIZIEREN,LZSCHARFSCHIESSEN,
+                                 LZLAND};
 
 
         std::vector<std::string> Vstand, Vhand, Vkido;
@@ -110,6 +112,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         std::list<cH_MidgardBasicElement> list_Beruf;
         std::list<cH_MidgardBasicElement> list_Fertigkeit_ang;
         std::list<cH_MidgardBasicElement> list_Fertigkeit;
+        std::list<cH_MidgardBasicElement> list_FertigkeitZusaetze;
         std::list<cH_MidgardBasicElement> list_Fertigkeit_neu;
         std::list<cH_MidgardBasicElement> list_Fertigkeit_universal;
         std::list<cH_MidgardBasicElement> list_WaffenGrund;
@@ -323,6 +326,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void get_spezial_from_spezialgebiet();
         gint on_button_beruf_release_event(GdkEventButton *ev);
         void on_entry_berufsname_activate();
+        void deleteBerufsFertigekeit();
         void on_kido_wahl_clicked();
         void stil_optionmenue();
         void zeige_lernpunkte();
@@ -382,9 +386,10 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_radiobutton_pp_resistenz_toggled();
         void on_radiobutton_pp_all_toggled();
         void on_button_alter_clicked();
-        void lernen_zusatz(enum_lernschema_zusatz was);
-        void lernen_zusatz_titel(enum_lernschema_zusatz was);
+        void lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_MidgardBasicElement& _MBE);
+        void lernen_zusatz_titel(MidgardBasicElement::eZusatz was,const cH_MidgardBasicElement& MBE);
         void on_herkunft_leaf_selected(cH_RowDataBase d);
+        void on_zusatz_leaf_selected(cH_RowDataBase d);
 
         void on_fertigkeiten_laden_clicked();
         void fertigkeiten_zeigen();
@@ -521,8 +526,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          void waffe_besitz_uebernehmen(const std::list<cH_MidgardBasicElement>& wbu);
          void MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe,
                                               const std::list<cH_MidgardBasicElement>& mbe2=std::list<cH_MidgardBasicElement>());
-         void MidgardBasicElement_uebernehmen(const cH_MidgardBasicElement& mbe);
-//         void herkunft_uebernehmen(const cH_Land& s);
+         void MidgardBasicElement_uebernehmen(const cH_MidgardBasicElement& mbe,bool beruf=false);
          bool region_check(const std::string& region);
          void EP_uebernehmen();
          void Geld_uebernehmen();

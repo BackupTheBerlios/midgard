@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.74 2002/02/18 07:01:06 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.75 2002/02/19 08:46:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,7 +19,6 @@
 
 #include "midgard_CG.hh"
 #include "Window_Waffe_Geld.hh"
-//#include "Window_herkunft.hh"
 #include <Aux/itos.h>
 #include "class_SimpleTree.hh"
 #include "Waffe.hh"
@@ -30,7 +29,8 @@
 
 void midgard_CG::on_herkunftsland_clicked()
 {
-  lernen_zusatz(LZHERKUNFT);
+  cH_MidgardBasicElement Dummy=new Fertigkeit(*cH_Fertigkeit("",true));
+  lernen_zusatz(MidgardBasicElement::ZHerkunft,Dummy);
 }
 
 void midgard_CG::on_lernpunkte_wuerfeln_clicked()
@@ -144,8 +144,6 @@ void midgard_CG::set_lernpunkte()
   zeige_werte(Werte);
 }
 
-                                        
-
 void midgard_CG::zeige_lernpunkte()
 {
  spinbutton_fach->set_value(lernpunkte.Fach());
@@ -155,9 +153,6 @@ void midgard_CG::zeige_lernpunkte()
  spinbutton_zauber->set_value(lernpunkte.Zauber());
   zeige_werte(Werte);
 }
-
-
-
 
 void midgard_CG::on_button_geld_waffen_clicked()
 {   
@@ -277,15 +272,33 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
          }
      case MidgardBasicElement::FERTIGKEIT : 
          { list_Fertigkeit.remove(MBE);
-           if(cH_Fertigkeit(MBE)->LernArt()=="Fach")  lernpunkte.addFach( MBE->Lernpunkte());
+           if(cH_Fertigkeit(MBE)->LernArt()=="Fach")      lernpunkte.addFach( MBE->Lernpunkte());
            else if(cH_Fertigkeit(MBE)->LernArt()=="Allg") lernpunkte.addAllgemein( MBE->Lernpunkte());
            else if(cH_Fertigkeit(MBE)->LernArt()=="Unge") lernpunkte.addUnge( MBE->Lernpunkte());
            break;
          }
-     default : break;
+     case MidgardBasicElement::SPRACHE : 
+           list_Sprache.remove(MBE);
+     case MidgardBasicElement::SCHRIFT : 
+           list_Schrift.remove(MBE);
+
+           if(button_fachkenntnisse->get_active())
+                lernpunkte.addFach(MBE->Lernpunkte());
+           else if(button_allgemeinwissen->get_active())
+                lernpunkte.addAllgemein(MBE->Lernpunkte());
+           else if(button_untyp_fertigkeiten->get_active())
+                lernpunkte.addUnge(MBE->Lernpunkte());
+           else regnot("Da kein Fertigkeiten-Auswahl-Knopf gew‰hlt wurde konnten die Lernpunkte ("
+                  +itos(MBE->Lernpunkte())+") f¸r das Verlernen dieser Sprache nicht gut geschrieben werden.");
+           break;
+
+//     default : break;
    }
   if(MBE->What()==MidgardBasicElement::FERTIGKEIT) 
          show_lernschema(MBE->What(),cH_Fertigkeit(MBE)->LernArt());
+  else if(MBE->What()==MidgardBasicElement::SPRACHE ||
+          MBE->What()==MidgardBasicElement::SCHRIFT )
+         on_lernliste_wahl_toggled();
   else   show_lernschema(MBE->What());
   show_gelerntes();
 }
@@ -304,6 +317,7 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
         break; }
     case MidgardBasicElement::ZAUBER: 
       { list_Zauber.push_back(MBE); 
+        if(MBE->ZusatzEnum(Typ)) lernen_zusatz(MBE->ZusatzEnum(Typ),MBE);
         lernpunkte.addZauber(- MBE->Lernpunkte());
         break; }
     case MidgardBasicElement::FERTIGKEIT: 
@@ -311,8 +325,14 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
         // Das hat hier keinen Sinn, da der Erfolgswert bein Anzeigen des
         // Lernschemas nocheinmal nocheinmal gesetzt wird.
         // MBE->set_Erfolgswert(cH_Fertigkeit(MBE)->FErfolgswert(Werte)+cH_Fertigkeit(MBE)->AttributBonus(Werte));
-        if(!SpracheSchrift(MBE)) list_Fertigkeit.push_back(MBE); 
+        if(!SpracheSchrift(MBE)) 
+          { if(MBE->Name!="Landeskunde (Heimat)") // Das macht 'lernen_zusatz' automatisch
+               list_Fertigkeit.push_back(MBE); 
+          }
         else SpracheSchrift(MBE,MBE->Erfolgswert(),true);
+
+        if(MBE->ZusatzEnum(Typ)) lernen_zusatz(MBE->ZusatzEnum(Typ),MBE);
+
         if(cH_Fertigkeit(MBE)->LernArt()=="Fach")
            lernpunkte.addFach(-MBE->Lernpunkte());
         else if(cH_Fertigkeit(MBE)->LernArt()=="Allg")
@@ -327,7 +347,7 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
 #warning angezeigt wird. Daher dieser HAck mit dem Erfolgswert.
    int e=MBE->Erfolgswert();
 //cout <<"1 " <<MBE->Name()<<'a '<<MBE->Erfolgswert()<<'\n';
-  if(MBE->What()==MidgardBasicElement::FERTIGKEIT) 
+  if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
          show_lernschema(MBE->What(),cH_Fertigkeit(MBE)->LernArt());
   else   show_lernschema(MBE->What());
 //cout <<"2 " << MBE->Name()<<' '<<MBE->Erfolgswert()<<'\n';
@@ -460,12 +480,14 @@ void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std
            {
              if((*i)->Lernpunkte()>lernpunkte.Zauber()) continue;
              if ((*i)->ist_gelernt(list_Zauber)) continue ;
+             if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) continue ;
              I=Lernschema::st_index(Typ[0]->Short(),"Zauberk¸nste",(*i)->Name());
            }
           else if(what==MidgardBasicElement::FERTIGKEIT)
            {
              if((*i)->Lernpunkte()>lernpunkte.Fach()) continue;
              if ((*i)->ist_gelernt(list_Fertigkeit)) continue ;
+             if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) continue ;
              if (!cH_Fertigkeit(*i)->Voraussetzungen(Werte)) continue ;
              if(Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name(),true)) continue;
              I=Lernschema::st_index(Typ[0]->Short(),"Fachkenntnisse",(*i)->Name());
@@ -553,21 +575,21 @@ bool midgard_CG::SpracheSchrift(const cH_MidgardBasicElement& MBE,int wert,bool 
  Sprache_auswahl::modus mod;
  std::string fert=MBE->Name();
 
- if      (fert=="Geheimzeichen") 
-    { launch=true;  mod=Sprache_auswahl::GEHEIMZEICHEN; }
- else if (fert=="Abrichten") 
-    { launch=true;  mod=Sprache_auswahl::ABRICHTEN; }
- else if (fert=="Tiersprache") 
-    { launch=true;  mod=Sprache_auswahl::TIERSPRACHE; }
- else if (fert=="Musizieren") 
-    { launch=true;  mod=Sprache_auswahl::MUSIZIEREN; }
- else if (fert=="Scharfschieﬂen") 
-    { launch=true;  mod=Sprache_auswahl::SCHARFSCHIESSEN; }
- else if (fert=="Landeskunde") 
-    { launch=true;  mod=Sprache_auswahl::LAND; }
- else if (fert=="Landeskunde (Heimat)")
-    { launch=true;  mod=Sprache_auswahl::HEIMATLAND; }
- else if(fert=="Schreiben: Muttersprache(+12)" ||
+// if      (fert=="Geheimzeichen") 
+//    { launch=true;  mod=Sprache_auswahl::GEHEIMZEICHEN; }
+// if (fert=="Abrichten") 
+//    { launch=true;  mod=Sprache_auswahl::ABRICHTEN; }
+// else if (fert=="Tiersprache") 
+//    { launch=true;  mod=Sprache_auswahl::TIERSPRACHE; }
+// else if (fert=="Musizieren") 
+//    { launch=true;  mod=Sprache_auswahl::MUSIZIEREN; }
+// if (fert=="Scharfschieﬂen") 
+//    { launch=true;  mod=Sprache_auswahl::SCHARFSCHIESSEN; }
+// else if (fert=="Landeskunde") 
+//    { launch=true;  mod=Sprache_auswahl::LAND; }
+// else if (fert=="Landeskunde (Heimat)")
+//    { launch=true;  mod=Sprache_auswahl::HEIMATLAND; }
+ if(fert=="Schreiben: Muttersprache(+12)" ||
          fert=="Schreiben: Muttersprache(+9)" ||        
          fert=="Schreiben: Muttersprache(+4)" ||
          fert=="Schreiben: Alte Sprache(+12)" ||

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.55 2002/02/18 12:59:25 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.56 2002/02/19 08:46:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -87,6 +87,7 @@ void midgard_CG::lernschema_sensitive(bool active)
    button_ruestung->set_sensitive(true);   
    button_angeborene_fert->show();
    button_kido_auswahl->set_sensitive(true);
+   button_angeborene_fert->set_sensitive(true);
 }
 
 
@@ -176,7 +177,7 @@ void midgard_CG::setAllHausregeln(bool b)
 
 void midgard_CG::save_options()
 {
-  ofstream datei("~/.midgard_optionen.xml");
+  ofstream datei("midgard_optionen.xml");
   if (!datei.good())
    { 
     InfoFenster->AppendShow("Ich kann die Optionen nicht speichern");
@@ -206,13 +207,12 @@ void midgard_CG::save_options()
 
 void midgard_CG::load_options()
 {
-  TagStream ts("~/.midgard_optionen.xml");
+  TagStream ts("midgard_optionen.xml");
   const Tag *data=ts.find("MAGUS-optionen");
   if(!data)    
     { InfoFenster->AppendShow("Optionen konnten nicht geladen werden");
       return;
     }
-
   FOR_EACH_CONST_TAG_OF(i,*data,"Optionen")
      setOption(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*data,"Hausregel")

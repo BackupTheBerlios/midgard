@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.46 2002/02/06 14:35:26 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.47 2002/02/19 08:46:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,13 +20,11 @@
 #include "midgard_CG.hh"
 #include "Berufe_auswahl.hh"
 #include <Gtk_OStream.h>
-#ifndef USE_XML
-#include <Aux/SQLerror.h>
-#endif
-
+#include "Fertigkeiten.hh"
 
 gint midgard_CG::on_button_beruf_release_event(GdkEventButton *ev)
 {
+  deleteBerufsFertigekeit();
   if (ev->button==1) 
    {
      manage(new Berufe_auswahl(this,Database,Typ,Werte,list_Fertigkeit));
@@ -46,4 +44,21 @@ void midgard_CG::on_entry_berufsname_activate()
   vbox_berufsname->hide();
 }
 
-
+void midgard_CG::deleteBerufsFertigekeit()
+{
+  for(std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i)
+   {
+     cH_Fertigkeit f(*i);
+     if(f->LernArt()=="Beruf") 
+      {
+        list_Fertigkeit.erase(i);
+        break;
+      }
+     else if(f->LernArt()=="Beruf+") 
+      {
+        (*i)->add_Erfolgswert(-1);
+        f->setLernArt("");
+        break;
+      }
+   }
+}

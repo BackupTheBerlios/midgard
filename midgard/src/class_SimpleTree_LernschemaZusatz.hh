@@ -22,6 +22,7 @@
 #include <rowdata.h>   
 #include "Land.hh"
 #include <Aux/EntryValueIntString.h>
+#include "MidgardBasicElement.hh"
 
 class Data_Herkunft : public RowDataBase
 {
@@ -56,5 +57,37 @@ class cH_Data_Herkunft : public Handle<Data_Herkunft>
 public:
  cH_Data_Herkunft(Data_Herkunft *r) : Handle<Data_Herkunft>(r) {}
 };
+
+////////////////////////////////////////////////////////////////
+class Data_Zusatz : public RowDataBase
+{
+      cH_MidgardBasicElement MBE;
+      std::string zusatz;
+
+   public:
+      Data_Zusatz(const cH_MidgardBasicElement mbe,std::string z)
+         : MBE(mbe),zusatz(z) {}
+
+      enum Spalten {NAME};
+      virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
+        {
+         switch((Spalten)seqnr) 
+           {
+            case NAME : return cH_EntryValueIntString(zusatz);
+            default : return cH_EntryValueIntString("");
+           }
+          return cH_EntryValueIntString();
+        }
+      cH_MidgardBasicElement getMBE() const {return MBE;}
+      std::string getZusatz() const {return zusatz;}
+};
+
+class cH_Data_Zusatz : public Handle<Data_Zusatz>
+{
+public:
+ cH_Data_Zusatz(Data_Zusatz *r) : Handle<Data_Zusatz>(r) {}
+};
+
+
   
 #endif

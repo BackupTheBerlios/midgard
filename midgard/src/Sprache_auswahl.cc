@@ -75,6 +75,7 @@ void Sprache_auswahl::on_clist_sp_sc_select_row(gint row, gint column, GdkEvent 
   else 
    {
      cH_MidgardBasicElement s=static_cast<MidgardBasicElement*>(clist_sp_sc->selection().begin()->get_data());
+     s->set_Lernpunkte(MBE->Lernpunkte());
      if(s->What()==MidgardBasicElement::SPRACHE)
         cH_Sprache(s)->set_Erfolgswert(wert);
      else if(s->What()==MidgardBasicElement::SCHRIFT)

@@ -204,13 +204,16 @@ void Berufe_auswahl::einBeruf(const Beruf_Data &dt)
   if(dt.Gelernt()) // Erfolgswert um eins erhöhen
     for (std::list<cH_MidgardBasicElement>::const_iterator k=list_fert.begin();k!=list_fert.end();++k)
       {
-        if((*k)->Name()==dt.Fert()) (*k)->add_Erfolgswert(1);
-//        hauptfenster->show_fertigkeiten();
+        if((*k)->Name()==dt.Fert()) 
+         { (*k)->add_Erfolgswert(1);
+           if((*k)->What()==MidgardBasicElement::FERTIGKEIT)
+              cH_Fertigkeit(*k)->setLernArt("Beruf+");
+         }
       }        
   else // neue Fertigkeit
     {
        cH_MidgardBasicElement saf(&*cH_Fertigkeit(dt.Fert()));       
-       hauptfenster->MidgardBasicElement_uebernehmen(saf);
+       hauptfenster->MidgardBasicElement_uebernehmen(saf,true);
     }
 }
 

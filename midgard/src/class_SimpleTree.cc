@@ -95,7 +95,7 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case KOSTENg : 
             if ( MBE->What()==MidgardBasicElement::WAFFE)
                return cH_EntryValueIntString(cH_Waffe(MBE)->Schwierigkeit_str()); 
-           /* else*/ return cH_EntryValueIntString(MBE->Kosten(Typ,ausnahmen)); 
+           /* else*/ return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen)); 
         }
       if (Variante==MidgardBasicTree::LONG_ALT)
        switch((Spalten_LONG_ALT)seqnr) {

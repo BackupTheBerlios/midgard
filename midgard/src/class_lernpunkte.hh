@@ -50,9 +50,5 @@ public:
    void addUnge(int i) {unge +=i;}
    void addZauber(int i) {zauber +=i;}
 
-//   void set_d_Beruf(int i) {beruf +=i;}
-//   void set_d_Fertigkeit(int i) {fertigkeit +=i;}
-//   void set_d_Waffen(int i) {waffen +=i;}
-//   void set_d_Zauber(int i) {zauber +=i;}
 };
 #endif

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.56 2002/02/14 07:06:48 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.57 2002/02/19 08:46:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,6 +38,7 @@ gint midgard_CG::on_angeborene_fertigkeit_button_release_event(GdkEventButton *e
 
   button_lernpunkte->set_sensitive(true);
   togglebutton_lernpunkte_edit->set_sensitive(true);
+  button_angeborene_fert->set_sensitive(false);
 
   return false;
 }
