@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten.hh,v 1.3 2003/05/07 12:42:08 christof Exp $               
+// $Id: Fertigkeiten.hh,v 1.4 2003/05/13 07:08:36 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -62,7 +62,7 @@ class Fertigkeit : public MidgardBasicElement
   public:
      Fertigkeit(const Tag *t)
       :MidgardBasicElement(t,t->getAttr("Name")),lern_unge(0),lern_land(0),lern_stadt(0)
-      {get_Fertigkeit(); get_map_typ(); get_Steigern_Kosten_map();
+      {get_Fertigkeit(); get_map_typ(*t); get_Steigern_Kosten_map(*t);
        EP_steigern(Name());}
      enum MBEE What() const {return MidgardBasicElement::FERTIGKEIT;}
      std::string What_str() const {return "Fertigkeit";}

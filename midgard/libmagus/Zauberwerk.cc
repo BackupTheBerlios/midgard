@@ -38,28 +38,23 @@ cH_Zauberwerk::cH_Zauberwerk(const std::string& name,const std::string& art,
      t2.setAttr("Name",name);
      t2.setAttr("Art",art);
      t2.setAttr("Stufe",stufe);
-     *this=cH_Zauberwerk(&t2);
+     *this=new Zauberwerk(t2);
   }
   else throw NotFound();
   }
 }
 
-cH_Zauberwerk::cH_Zauberwerk(const Tag *tag)
-{*this=cH_Zauberwerk(new Zauberwerk(tag));
- cache.Register(st_index(tag->getAttr("Name"),tag->getAttr("Art"),
- 		tag->getAttr("Stufe")),*this);
-}
-
-void Zauberwerk::get_Zauberwerk()
+void Zauberwerk::get_Zauberwerk(const Tag &t)
 {
-   assert(tag);
-   kosten=tag->getIntAttr("Kosten");
-   zeitaufwand=tag->getAttr("Zeitaufwand");
-   preis=tag->getAttr("Geldaufwand");
-   region=tag->getAttr("Region");
-   region_zusatz=tag->getAttr("RegionZusatz");
+  if (t.hasAttr("Kosten"))
+  {kosten=t.getIntAttr("Kosten");
+   zeitaufwand=t.getAttr("Zeitaufwand");
+   preis=t.getAttr("Geldaufwand");
+   region=t.getAttr("Region");
+   region_zusatz=t.getAttr("RegionZusatz");
+  }
 
-    FOR_EACH_CONST_TAG_OF(i,*tag,"regionaleBesonderheit")
+    FOR_EACH_CONST_TAG_OF(i,t,"regionaleBesonderheit")
          VAusnahmen.push_back(st_ausnahmen(i->getAttr("Herkunft"),
                               i->getAttr("Spezies"),
                               i->getAttr("Typ"),
@@ -68,19 +63,17 @@ void Zauberwerk::get_Zauberwerk()
                               i->getAttr("Standard")));
 }
 
-void Zauberwerk::getVoraussetzungen()
+void Zauberwerk::getVoraussetzungen(const Tag &t)
 {
-   assert(tag);
-   FOR_EACH_CONST_TAG_OF(i,*tag,"Voraussetzung")
+   FOR_EACH_CONST_TAG_OF(i,t,"Voraussetzung")
    {  if (i->getAttr("Zauber").empty()) continue;
       vec_vor.push_back(st_vor(i->getAttr("Zauber"),i->getAttr("Verbindung")));
    }
 }
 
-void Zauberwerk::getVoraussetzungenFert()
+void Zauberwerk::getVoraussetzungenFert(const Tag &t)
 {
-   assert(tag);
-   FOR_EACH_CONST_TAG_OF(i,*tag,"Voraussetzung")
+   FOR_EACH_CONST_TAG_OF(i,t,"Voraussetzung")
    {  if (i->getAttr("Fertigkeit").empty()) continue;
       vec_vorF.push_back(st_vor(i->getAttr("Fertigkeit"),""));
    }
@@ -135,6 +128,7 @@ bool Zauberwerk::Voraussetzungen_Fertigkeit(const std::list<MBEmlt>& listFert) c
 
 Zauberwerk_All::Zauberwerk_All()
 {
+#if 0
  const Tag *zauberwerke=xml_data->find("Zauberwerke");
  if (!zauberwerke)
     std::cerr << "<Zauberwerke><Zauberwerk/>... nicht gefunden\n";
@@ -146,6 +140,38 @@ Zauberwerk_All::Zauberwerk_All()
        list_All.push_back(&*(cH_Zauberwerk(&*i)));
     }
  }
+#endif
 }
 
+Zauberwerk::Zauberwerk(const Tag &t)
+      : MidgardBasicElement(t.getAttr("Name")),
+      	stufe(t.getAttr("Stufe")),art(t.getAttr("Art")) 
+{ load(t);
+}
 
+void Zauberwerk::load(const Tag &t)
+{  get_Zauberwerk(t);get_map_typ(t);
+   getVoraussetzungen(t);getVoraussetzungenFert(t);
+}
+
+cH_Zauberwerk cH_Zauberwerk::load(const Tag &t,bool &is_new)
+{  st_index index(t.getAttr("Name"),t.getAttr("Art"),t.getAttr("Stufe"));
+   cH_Zauberwerk *res=cache.lookup(index);
+   if (!res)
+   {  cH_Zauberwerk r2=new Zauberwerk(t);
+      is_new=true;
+      cache.Register(index,r2);
+      return r2;
+   }
+   else 
+   {  const_cast<Zauberwerk&>(**res).load(t);
+      return *res;
+   }
+}
+
+void Zauberwerk_All::load(std::list<cH_MidgardBasicElement> &list,const Tag &t)
+{  bool is_new=false;
+   cH_Zauberwerk z=cH_Zauberwerk::load(t,is_new);
+   // das &* dient dazu um aus einem cH_Zauberwerk ein cH_MBE zu machen
+   if (is_new) list.push_back(&*z);
+}

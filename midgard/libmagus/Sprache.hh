@@ -1,4 +1,4 @@
-// $Id: Sprache.hh,v 1.2 2003/05/07 12:42:08 christof Exp $               
+// $Id: Sprache.hh,v 1.3 2003/05/13 07:08:36 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -64,7 +64,7 @@ class Sprache : public MidgardBasicElement
   
   public:
    Sprache(const Tag *t) : MidgardBasicElement(t,t->getAttr("Name"))
-      {get_Sprache();get_map_typ();get_Steigern_Kosten_map();
+      {get_Sprache();get_map_typ(*tag);get_Steigern_Kosten_map(*t);
          EP_steigern("Sprache");}
    enum MBEE What() const {return MidgardBasicElement::SPRACHE;}
    std::string What_str() const {return "Sprache";}

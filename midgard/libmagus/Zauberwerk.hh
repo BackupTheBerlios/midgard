@@ -35,35 +35,29 @@ class Zauberwerk : public MidgardBasicElement
           st_vor(){};
           st_vor(std::string v,std::string o) 
                : voraussetzung(v),op(o){} };
-   std::vector<st_vor> vec_vor;
-   std::vector<st_vor> vec_vorF;
+   std::vector<st_vor> vec_vor; // Zaubersprüche
+   std::vector<st_vor> vec_vorF; // Fertigkeiten
 
-   void getVoraussetzungen();
-   void getVoraussetzungenFert();
-   void get_Zauberwerk();
+   void getVoraussetzungen(const Tag &t);
+   void getVoraussetzungenFert(const Tag &t);
+   void get_Zauberwerk(const Tag &t);
  public:
-   Zauberwerk(const Tag *t)
-      : MidgardBasicElement(t,t->getAttr("Name")),
-      	stufe(t->getAttr("Stufe")),art(t->getAttr("Art")) 
-   {get_Zauberwerk();get_map_typ();
-            getVoraussetzungen();getVoraussetzungenFert();} 
+   Zauberwerk(const Tag &t);
+   void load(const Tag &t);
 
    virtual bool operator==(const MidgardBasicElement& b) const
       {return MidgardBasicElement::operator==(b) && 
               Art()==static_cast<const Zauberwerk&>(b).Art() &&
               Stufe()==static_cast<const Zauberwerk&>(b).Stufe() ;}
                                                      
-
-//   std::string Name() const {  return name; }
    std::string Art() const { return art; }
    std::string Stufe() const {  return stufe; }
    int iStufe() const {  if (Stufe()=="groÃŸ") return 6; else return atoi(Stufe().c_str()); }
    std::string Zeitaufwand() const { return zeitaufwand;}
-//   std::string Region() const {return region;}
    std::string Preis() const { return preis; }
 
    bool Voraussetzungen(const std::list<MBEmlt>& listZauber) const;
-   bool Voraussetzungen_Fertigkeit(const std::list<MBEmlt>& listZauber) const;
+   bool Voraussetzungen_Fertigkeit(const std::list<MBEmlt>& listFert) const;
    int MaxErfolgswert(const Grundwerte& w,const std::vector<cH_Typen>& Typ) const 
          {return 0;} //wg. virtueller Funktion
 };
@@ -85,7 +79,7 @@ class cH_Zauberwerk : public Handle<const Zauberwerk>
     cH_Zauberwerk(){};
  public:
     cH_Zauberwerk(const std::string& name, const std::string& art,const std::string& stufe ,bool create=false);
-    cH_Zauberwerk(const Tag *tag);
+    static cH_Zauberwerk load(const Tag &tag,bool &is_new);
 
     cH_Zauberwerk(const cH_MidgardBasicElement &x) : Handle<const Zauberwerk>
       (dynamic_cast<const Zauberwerk *>(&*x)){}
@@ -116,7 +110,8 @@ class Zauberwerk_All
    std::list<cH_MidgardBasicElement> list_All;
   public:
    Zauberwerk_All();
-   std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
+   static void load(std::list<cH_MidgardBasicElement> &list,const Tag &t);
+   const std::list<cH_MidgardBasicElement> &get_All() const {return list_All;}
 };
 
 #endif

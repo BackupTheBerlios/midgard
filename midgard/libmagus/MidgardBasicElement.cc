@@ -271,9 +271,9 @@ void MidgardBasicElement::get_map_typ(const Tag &t)
 }
  
 
-void MidgardBasicElement::get_Steigern_Kosten_map()
+void MidgardBasicElement::get_Steigern_Kosten_map(const Tag &t)
 {
- const Tag *tag=this->tag;
+ const Tag *tag=&t;
  const Tag *kosten=0;
  std::string steigern_wie=Name();
  

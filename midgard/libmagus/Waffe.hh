@@ -56,7 +56,7 @@ class Waffe : public MidgardBasicElement
   public:
      Waffe(const Tag *t)
       :MidgardBasicElement(t,t->getAttr("Name")),lern_land(0),lern_stadt(0)
-     {get_Waffe(); get_Alias(); get_map_typ();get_Steigern_Kosten_map();
+     {get_Waffe(); get_Alias(); get_map_typ(*tag);get_Steigern_Kosten_map(*t);
       EP_steigern("Waffen"); }
 
      enum MBEE What() const {return MidgardBasicElement::WAFFE;}

@@ -1,5 +1,5 @@
 
-// $Id: Datenbank.cc,v 1.6 2003/05/12 06:37:44 christof Exp $               
+// $Id: Datenbank.cc,v 1.7 2003/05/13 07:08:36 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -56,11 +56,12 @@ Datenbank::Datenbank() : tag_eigene_artikel("MAGUS-data")
 
 void Datenbank::load_one(const std::string &list, const Tag &t)
 {  if (t.Type()=="Spruch") Zauber_All::load(Zauber,t);
+   else if (t.Type()=="Zauberwerk") Zauberwerk_All::load(Zauberwerk,t);
 }
 
 void Datenbank::load_list(const Tag &t)
 {  FOR_EACH_CONST_TAG(j,t)
-   {  if (j->Type()=="Zauber") 
+   {  if (j->Type()=="Zauber" || j->Type()=="Zauberwerke") 
       {  FOR_EACH_CONST_TAG(k,*j)
          {  load_one(j->Type(), *k);
          }
