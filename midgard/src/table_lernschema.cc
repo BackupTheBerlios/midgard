@@ -558,6 +558,16 @@ void table_lernschema::on_togglebutton_gelernte_anzeigen_toggled()
  on_lernliste_wahl_toggled();
 }
 
+void table_lernschema::on_togglebutton_einschraenkungen_zusatz_anzeigen_toggled()
+{  
+//  if(checkbutton_einschraenkungen_zusatz->get_active() &&
+//     frame_lernschema_zusatz->is_visible())
+//    {
+      show_datavec_zusatz();
+//      lernen_zusatz(was_mem,*MBE_mem);
+//    }
+}
+
 void table_lernschema::zeige_werte()
 {
   zeige_lernpunkte();

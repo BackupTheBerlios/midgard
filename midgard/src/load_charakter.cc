@@ -50,6 +50,7 @@ void midgard_CG::xml_import(const std::string& datei)
 {
    ifstream fi(datei.c_str());
    on_neuer_charakter_clicked();
+   table_grundwerte->combo_spezies->set_sensitive(false);
    Char.push_back(Abenteurer());
    frame_steigern->set_sensitive(true);
    if(!(Char.xml_import_stream(fi,getDatabase(),getOptionen())))

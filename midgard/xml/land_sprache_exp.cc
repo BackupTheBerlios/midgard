@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.41 2002/06/27 13:28:18 christof Exp $
+// $Id: land_sprache_exp.cc,v 1.42 2002/06/30 07:55:31 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -244,6 +244,27 @@ void land_speichern(Tag &o)
    fetch_and_set_int_attrib(is, Mod, "Sb");
    fetch_and_set_int_attrib(is, Mod, "Rüstung");
    fetch_and_set_int_attrib(is, Mod, "Geld");
+   { 
+#warning HACK until typen_gruppe works (here for priests)
+     std::string S=typ;
+     if(S[0]=='P') S="PRI";
+     Query query1("select land from typen_herkunft where typ='"+typ+"'"
+   		" and (erlaubt=true or erlaubt is null) order by land");
+     FetchIStream is1;
+     while ((query1>>is1).good())
+     {  Typ.push_back(Tag("Herkunft")).setAttr("Name",fetch_string(is1));
+     }
+#warning das negative geht noch nciht :-( 
+/*
+     Query query2("SELECT distinct land from land where land not in "
+         "(select land from typen_herkunft where typ='"+typ+"' and "
+         " erlaubt=false) order by land");
+     FetchIStream is2;
+     while ((query2>>is2).good())
+     {  Typ.push_back(Tag("Herkunft")).setAttr("Name",fetch_string(is2));
+     }
+*/
+   }
    { Query queryg("select gruppe from typen_gruppe where typ='"+typ+"'"
    		" order by gruppe");
      FetchIStream isg;

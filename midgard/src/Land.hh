@@ -1,4 +1,4 @@
-// $Id: Land.hh,v 1.15 2002/06/28 13:09:10 thoma Exp $               
+// $Id: Land.hh,v 1.16 2002/06/30 07:55:31 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,6 +25,7 @@
 #include <string>
 #include <gtk--/progressbar.h>
 #include "xml.h"
+class cH_Typen;
 
 class Land  : public HandleContent
 {
@@ -39,6 +40,7 @@ class Land  : public HandleContent
    std::string Name() const   {return name; }
    std::string Kontinent() const {return kontinent;}
    vector<std::string> Sprachen() const {return vec_sprache;}
+   bool ist_erlaubt(const std::vector<cH_Typen>& Typ) const;
 };
 
 class cH_Land : public Handle<const Land>
@@ -46,11 +48,10 @@ class cH_Land : public Handle<const Land>
     typedef CacheStatic<std::string,cH_Land> cache_t;
     static cache_t cache;
     friend class std::map<std::string,cH_Land>;
-//    cH_Land(){};
   public:
    cH_Land(const Land *s) : Handle<const Land>(s) {};
    cH_Land(const std::string& kontinent, const Tag *tag);
-   cH_Land(const std::string& name IF_XML(,bool create=false));
+   cH_Land(const std::string& name, bool create=false);
    cH_Land() {*this=new Land();}
 };
 

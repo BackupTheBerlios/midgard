@@ -23,13 +23,16 @@
 #include "Waffe.hh"
 #include "Sprache.hh"
 #include "Schrift.hh"
-
+#include <typeinfo> // for bad_cast
 static SigC::Connection connection;
 
 #include <gdk/gdk.h>
 
 void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBasicElement_mutable& MBE)
 {
+//  was_mem=was;
+//  MBE_mem=&MBE;
+  checkbutton_einschraenkungen_zusatz->set_active(false);
   // Weil Fertigkeiten mehrmals gelernt werden dürfen werde sie hier nicht 
   // in die LIste geschrieben.
   // eine Ausnamhe ist 'Landeskunde (Heimat)', das passiert unten
@@ -45,14 +48,19 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
       list_FertigkeitZusaetze.push_back("Schreiben: Muttersprache(+12)");
     }
   lernen_zusatz_titel(was,MBE);
-  std::vector<cH_RowDataBase> datavec;
+//  std::vector<cH_RowDataBase> datavec_zusatz;
+  datavec_zusatz.clear();
   connection.disconnect();
   switch(was)
    {
      case MidgardBasicElement::ZHerkunft:
       {
        for (std::vector<cH_Land>::const_iterator i=hauptfenster->getDatabase().Laender.begin();i!=hauptfenster->getDatabase().Laender.end();++i)
-         datavec.push_back(new Data_Herkunft(*i));
+        {
+          bool erlaubt=false;
+          if((*i)->ist_erlaubt(hauptfenster->getChar().getVTyp())) erlaubt=true;
+          datavec_zusatz.push_back(new Data_Herkunft(*i,erlaubt));
+        }
        connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_herkunft_leaf_selected));
        scrolledwindow_lernen->hide();
        break;
@@ -72,7 +80,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
          }
        else
          for (std::vector<cH_Land>::const_iterator i=hauptfenster->getDatabase().Laender.begin();i!=hauptfenster->getDatabase().Laender.end();++i)
-            datavec.push_back(new Data_Zusatz(MBE,(*i)->Name()));
+            datavec_zusatz.push_back(new Data_Zusatz(MBE,(*i)->Name(),true));
        connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_selected));
        break;
       }
@@ -80,11 +88,12 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
       {
        for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getDatabase().Sprache.begin();i!=hauptfenster->getDatabase().Sprache.end();++i)
          {
-            if(MBE->Name()=="Muttersprache") // muß im Heimatlannd gesprochen werden
+            bool erlaubt=true;
+            if(MBE->Name()=="Muttersprache") // muß im Heimatland gesprochen werden
              {
                std::vector<std::string> V=hauptfenster->getChar().getWerte().Herkunft()->Sprachen(); 
                std::vector<std::string>::const_iterator l=find(V.begin(),V.end(),(*i)->Name());
-               if(l==V.end()) continue;
+               if(l==V.end()) erlaubt=false;
              }
             if((MBE->Name()=="Muttersprache" || (MBE->Name()=="Gastlandsprache"))
                   && cH_Sprache(*i)->Alte_Sprache()) 
@@ -98,7 +107,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
                 continue ;
               }
             if(MidgardBasicElement_mutable(&**i).ist_gelernt(hauptfenster->getChar().List_Sprache())) continue;
-            datavec.push_back(new Data_Zusatz(MBE,(*i)->Name()));
+            datavec_zusatz.push_back(new Data_Zusatz(MBE,(*i)->Name(),erlaubt));
          }
        connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_sprache_selected));
        break;
@@ -110,13 +119,15 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
            if(MidgardBasicElement_mutable(&**i).ist_gelernt(hauptfenster->getChar().List_Schrift())) continue;
            if(!cH_Schrift(*i)->kann_Sprache(hauptfenster->getChar().List_Sprache())) continue;
            std::string::size_type s=MBE->Name().find("Muttersprache");
+           bool erlaubt=true;
            if(s!=std::string::npos)
             {
-             if(!cH_Schrift(*i)->Mutterschrift(hauptfenster->getChar().getWerte().Herkunft())) continue; 
+             if(!cH_Schrift(*i)->Mutterschrift(hauptfenster->getChar().getWerte().Herkunft(),
+                        hauptfenster->getChar().getWerte().Spezies())) erlaubt=false; 
             }
-           datavec.push_back(new Data_Zusatz(MBE,(*i)->Name()));
+           datavec_zusatz.push_back(new Data_Zusatz(MBE,(*i)->Name(),erlaubt));
          }
-       if(datavec.empty()) 
+       if(datavec_zusatz.empty()) 
          { hauptfenster->set_status("Keine Schrift lernbar (entweder keine Sprache gelernt oder es werden alle lernbaren Schriften schon beherrscht.)");
            list_FertigkeitZusaetze.remove(MBE->Name());
            if(MBE.LernArt()=="Fach")      lernpunkte.addFach( MBE.Lernpunkte());
@@ -131,8 +142,8 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
       {
        for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Waffen().begin();i!=hauptfenster->getChar().List_Waffen().end();++i)
         if (cH_Waffe(*i)->Art()=="Schußwaffe" || cH_Waffe(*i)->Art()=="Wurfwaffe")
-          datavec.push_back(new Data_Zusatz(MBE,(*i)->Name()));
-       if(datavec.empty()) 
+          datavec_zusatz.push_back(new Data_Zusatz(MBE,(*i)->Name(),true));
+       if(datavec_zusatz.empty()) 
          { hauptfenster->set_status("Noch keine Fernkampfwaffe gewählt.");
            hauptfenster->getChar().List_Fertigkeit().remove(MBE);
            list_FertigkeitZusaetze.remove(MBE->Name());
@@ -148,14 +159,16 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
       {
        std::vector<std::string> VG=MBE->VZusatz();
        for (std::vector<std::string>::const_iterator i=VG.begin();i!=VG.end();++i)
-           datavec.push_back(new Data_Zusatz(MBE,*i));
+           datavec_zusatz.push_back(new Data_Zusatz(MBE,*i,true));
        connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_selected));
        break;
       }
      case MidgardBasicElement::ZNone : break;
    }
- Tree_Lernschema_Zusatz->setDataVec(datavec);
+ show_datavec_zusatz();
  set_zusatz_sensitive(true);
+ list_FertigkeitZusaetze.sort();
+ list_FertigkeitZusaetze.unique();
 
 // Tree_Lernschema_Zusatz->grab_focus();
 /*
@@ -167,6 +180,27 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
 */
 // fra->pointer_grab();
 }
+
+
+void table_lernschema::show_datavec_zusatz()
+{
+  std::vector<cH_RowDataBase> datavec;
+  for(std::vector<cH_RowDataBase>::const_iterator i=datavec_zusatz.begin();i!=datavec_zusatz.end();++i)
+   {
+     try{
+        const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&**i);
+        if(!dt) throw std::bad_cast();
+        if(checkbutton_einschraenkungen_zusatz->get_active() || dt->Erlaubt())
+           datavec.push_back(*i);
+      }catch (std::bad_cast &e) {
+        const Data_Herkunft *dt=dynamic_cast<const Data_Herkunft*>(&**i);
+        if(checkbutton_einschraenkungen_zusatz->get_active() || dt->Erlaubt())
+           datavec.push_back(*i);
+      }            
+   }
+  Tree_Lernschema_Zusatz->setDataVec(datavec);
+}
+
 
 void table_lernschema::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,const MidgardBasicElement_mutable& MBE)
 {

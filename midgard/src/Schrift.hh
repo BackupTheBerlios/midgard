@@ -1,4 +1,4 @@
-// $Id: Schrift.hh,v 1.18 2002/06/28 13:09:10 thoma Exp $               
+// $Id: Schrift.hh,v 1.19 2002/06/30 07:55:31 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,6 +24,7 @@
 #include "Fertigkeiten.hh"
 #include <gtk--/progressbar.h>
 class cH_Land;
+class cH_Spezies;
 
 class Schrift : public MidgardBasicElement
 {
@@ -46,7 +47,7 @@ class Schrift : public MidgardBasicElement
    bool Kult() const {return kult;}
    bool Alt() const {return alt;}
    bool kann_Sprache(const std::list<MidgardBasicElement_mutable>& sprache) const;
-   bool Mutterschrift(cH_Land herkunft) const;
+   bool Mutterschrift(cH_Land herkunft,cH_Spezies spezies) const;
    int Schrift::MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const;
    int Kosten(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
         { cH_Fertigkeit F("Lesen/Schreiben");

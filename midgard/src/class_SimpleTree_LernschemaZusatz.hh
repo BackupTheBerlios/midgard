@@ -27,10 +27,11 @@
 class Data_Herkunft : public RowDataBase
 {
       cH_Land Land;
+      bool erlaubt;
 
    public:
-      Data_Herkunft(const cH_Land l)
-         : Land(l) {}
+      Data_Herkunft(const cH_Land l,bool e)
+         : Land(l),erlaubt(e) {}
 
       enum Spalten {LAND,KONTINENT,SPRACHEN};
       virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
@@ -50,6 +51,7 @@ class Data_Herkunft : public RowDataBase
           return cH_EntryValueIntString();
         }
       cH_Land getLand() const {return Land;}
+      bool Erlaubt() const {return erlaubt;}
 };
 
 class cH_Data_Herkunft : public Handle<Data_Herkunft>
@@ -63,10 +65,10 @@ class Data_Zusatz : public RowDataBase
 {
       MidgardBasicElement_mutable MBE;
       std::string zusatz;
-
+      bool erlaubt;
    public:
-      Data_Zusatz(const MidgardBasicElement_mutable &mbe,std::string z)
-         : MBE(mbe),zusatz(z) {}
+      Data_Zusatz(const MidgardBasicElement_mutable &mbe,std::string z,bool e)
+         : MBE(mbe),zusatz(z),erlaubt(e) {}
 
       enum Spalten {NAME};
       virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
@@ -80,6 +82,7 @@ class Data_Zusatz : public RowDataBase
         }
       const MidgardBasicElement_mutable &getMBE() const {return MBE;}
       std::string getZusatz() const {return zusatz;}
+      bool Erlaubt() const {return erlaubt;}
 };
 
 class cH_Data_Zusatz : public Handle<Data_Zusatz>

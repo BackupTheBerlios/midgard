@@ -1,4 +1,4 @@
-// $Id: Typen.hh,v 1.21 2002/06/24 10:51:30 christof Exp $               
+// $Id: Typen.hh,v 1.22 2002/06/30 07:55:31 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -30,6 +30,7 @@
 
 class Grundwerte;
 class cH_Typen;
+class cH_Land;
 
 class Typen : public HandleContent
 {
@@ -42,6 +43,8 @@ class Typen : public HandleContent
    std::string sprueche_mit_pp;
    bool nsc_only,kultwaffe;
    int min_st,min_gw,min_gs,min_in,min_pa;
+
+   std::vector<std::string> vec_herkunft;
 
 public:
    Typen(const Tag *tag);
@@ -71,6 +74,9 @@ public:
    bool Spezialwaffe() const;
    bool Spezialgebiet() const;
    bool Mindestwerte(const Grundwerte& Werte) const;
+//   bool Herkunft(cH_Land land) const;
+   const std::vector<std::string> &get_vec_herkunft() const {return vec_herkunft;}
+
 
    bool is_mage() const 
     { if(Zaubern()=="z" || Zaubern()=="j") return true; else return false; } 

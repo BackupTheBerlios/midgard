@@ -259,9 +259,9 @@ Halbling	v	Zweihandschwert	\N	\N
 Halbling	v	schwere Armbrust	\N	\N
 Waldgnom	af	Nachtsicht	8	\N
 Waldgnom	af	Robustheit	12	\N
-Waldgnom	f	Fallenstellen	4	1
-Waldgnom	f	Spurenlesen	6	1
-Waldgnom	f	Tarnen	8	1
+Waldgnom	ff	Fallenstellen	4	1
+Waldgnom	ff	Spurenlesen	6	1
+Waldgnom	ff	Tarnen	8	1
 Waldgnom	s	Hören	10	\N
 Waldgnom	sv	Überleben im Dschungel	\N	\N
 Waldgnom	sv	Überleben im Gebirge	\N	\N

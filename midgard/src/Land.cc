@@ -20,6 +20,7 @@
 #include "Land.hh"
 #include "ProgressBar.h"
 #include "MidgardBasicElement.hh" // für NotFound
+#include "Typen.hh"
 
 cH_Land::cache_t cH_Land::cache;
 
@@ -39,6 +40,20 @@ cH_Land::cH_Land(const std::string& name IF_XML(,bool create))
   else throw NotFound();
   }
 }
+
+bool Land::ist_erlaubt(const std::vector<cH_Typen>& Typ) const
+{
+  for(std::vector<cH_Typen>::const_iterator i=Typ.begin();i!=Typ.end();++i)
+   {
+     const std::vector<std::string> V=(*i)->get_vec_herkunft();
+     for(std::vector<std::string>::const_iterator j=V.begin();j!=V.end();++j)
+      {
+        if(*j==Name()) return true;
+      }
+   }
+  return false;
+}
+
 
 cH_Land::cH_Land(const std::string& kontinent,const Tag *tag)
 {

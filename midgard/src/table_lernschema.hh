@@ -22,7 +22,6 @@ class AusruestungBaum;
 
 class table_lernschema : public table_lernschema_glade
 {  
-        
         friend class table_lernschema_glade;
         friend class table_grundwerte;
         friend class midgard_CG;  
@@ -43,8 +42,12 @@ class table_lernschema : public table_lernschema_glade
         enum GWR_Auswahl {ENone,EGeld1,EGeld2,EGeld3,EWaffen,ERuestung};
         GWR_Auswahl gwr_auswahl;
         std::vector<int> VGeldwurf;
+//        MidgardBasicElement::eZusatz was_mem; // zum wiederanzeigen des Zusatzes
+        std::vector<cH_RowDataBase> datavec_zusatz;
+//        MidgardBasicElement_mutable *MBE_mem; // zum wiederanzeigen des Zusatzes
         
 private:
+       void show_datavec_zusatz();
        void lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBasicElement_mutable& _MBE);
        void lernen_zusatz_titel(MidgardBasicElement::eZusatz was,const MidgardBasicElement_mutable& MBE);
 
@@ -151,6 +154,7 @@ private:
         gint on_button_ausruestung_button_release_event(GdkEventButton *ev);
         void on_togglebutton_teure_anzeigen_toggled();
         void on_togglebutton_gelernte_anzeigen_toggled();
+        void on_togglebutton_einschraenkungen_zusatz_anzeigen_toggled();
         gint on_eventbox_zusatz_leave_notify_event(GdkEventCrossing *ev);
 };
 #endif

@@ -87,7 +87,7 @@ std::list<cH_MidgardBasicElement> Schrift::gleicheSchrift(const std::list<cH_Mid
   return LS;
 }
 
-bool Schrift::Mutterschrift(cH_Land herkunft) const
+bool Schrift::Mutterschrift(cH_Land herkunft,cH_Spezies spezies) const
 {
   std::vector<std::string> V=herkunft->Sprachen();
   for(std::vector<std::string>::const_iterator i=V.begin();i!=V.end();++i)
@@ -95,6 +95,8 @@ bool Schrift::Mutterschrift(cH_Land herkunft) const
      const std::vector<std::string> W=cH_Sprache(*i)->Schrift();
      for(std::vector<std::string>::const_iterator j=W.begin();j!=W.end();++j)
       {
+       if(spezies->Name()=="Waldgnom" && Name()=="Zwergenrunen Futhark") return false;
+       if(spezies->Name()=="Berggnom" && Name()=="Baumrunen Beth-Luis-Nion") return false;
        if(*j==Name()) return true;
       }
    }

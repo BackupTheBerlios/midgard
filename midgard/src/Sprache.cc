@@ -27,7 +27,7 @@
 
 cH_Sprache::cache_t cH_Sprache::cache;
 
-cH_Sprache::cH_Sprache(const std::string& name IF_XML(,bool create))
+cH_Sprache::cH_Sprache(const std::string& name,bool create)
 {
  cH_Sprache *cached(cache.lookup(name));
  if (cached) *this=*cached;
@@ -96,7 +96,6 @@ std::string Sprache::Schriften() const
 
 
 
-//const vector<pair<std::string,int> > Sprache::SchriftWert(const std::list<cH_MidgardBasicElement>& list_Schrift,const std::list<cH_MidgardBasicElement>& list_AllSchrift) const 
 const vector<pair<std::string,int> > Sprache::SchriftWert(const std::list<MidgardBasicElement_mutable>& list_Schrift) const 
 {
  vector<pair<std::string,int> > vs;
@@ -106,18 +105,6 @@ const vector<pair<std::string,int> > Sprache::SchriftWert(const std::list<Midgar
     {
       if(*i == (*j)->Name()) // Schrift ist gelernt
         vs.push_back(pair<std::string,int>(*i,(*j).Erfolgswert()));
-/*
-      else // Schrift nicht gelernt, aber vielleicht ist dieselbe Schrift gelernt?
-        {
-          cH_Schrift schrift(*i);
-          std::list<cH_MidgardBasicElement> LM=schrift->gleicheSchrift(list_AllSchrift);
-          for(std::list<cH_MidgardBasicElement>::const_iterator l=LM.begin();l!=LM.end();++l)
-            {
-              if((*l)->Name()==*i)
-                 vs.push_back(pair<std::string,int>(*i,+8));
-            }
-        }
-*/
     }
   }
  return vs;
@@ -139,9 +126,6 @@ std::list<MidgardBasicElement_mutable> Sprache::VerwandteSprachen(const int erfo
      if(erfolgswert>=10 && !MidgardBasicElement_mutable(*i).ist_gelernt(gelernte_listSprache) &&
         Sprachgruppe(cH_Sprache(*i)->getVSprachgruppe())) 
       {
-//         cH_MidgardBasicElement MBE=new Sprache(*cH_Sprache(*i)); // Kopie anlegen
-//         MBE->setErfolgswert(Erfolgswert()-10);
-//         VS.push_back(MBE) ;
         MidgardBasicElement_mutable M(*i);
         M.setErfolgswert(erfolgswert-10);
         VS.push_back(M);
@@ -163,9 +147,6 @@ std::list<MidgardBasicElement_mutable> Sprache::cleanVerwandteSprachen(std::list
   for(std::map<std::string,int>::const_iterator i=M.begin();i!=M.end();++i)
    {
      const cH_Sprache s(i->first);
-//     s->setErfolgswert(i->second);
-//     N.push_back(&*s);
-     
      MidgardBasicElement_mutable m(&*s);
      m.setErfolgswert(i->second);
      N.push_back(m);

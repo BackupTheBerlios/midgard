@@ -75,6 +75,8 @@ Typen::Typen(const Tag *tag)
  min_gs=tag->getIntAttr("MinGs");
  min_in=tag->getIntAttr("MinIn");
  min_pa=tag->getIntAttr("MinpA");
+ FOR_EACH_CONST_TAG_OF(i,*tag,"Herkunft")
+   vec_herkunft.push_back(i->getAttr("Name"));
 }
 
 bool Typen::Spezialwaffe() const
@@ -103,6 +105,14 @@ bool Typen::Mindestwerte(const Grundwerte& Werte) const
   else return true;
   abort(); 
 }
+
+/*
+bool Typen::Herkunft(const cH_Land land) const
+{
+  return true;
+}
+*/
+
 
 bool Typen::get_Typ_from_long(const std::vector<cH_Typen>& V,
                                     std::string& name)

@@ -230,7 +230,7 @@ void table_steigern::fillClistZusatz(MidgardBasicElement_mutable &MBE)
         title.push_back("Land auswählen");
         for (std::vector<cH_Land>::const_iterator i=hauptfenster->getCDatabase().Laender.begin();i!=hauptfenster->getCDatabase().Laender.end();++i)
          {
-           datavec.push_back(new Data_Zusatz(MBE,(*i)->Name()));
+           datavec.push_back(new Data_Zusatz(MBE,(*i)->Name(),true));
          }
         break;
       }
@@ -241,7 +241,7 @@ void table_steigern::fillClistZusatz(MidgardBasicElement_mutable &MBE)
          {
            if (cH_Waffe(*i)->Art()=="Schußwaffe" || cH_Waffe(*i)->Art()=="Wurfwaffe")
             {
-              datavec.push_back(new Data_Zusatz(MBE,(*i)->Name()));
+              datavec.push_back(new Data_Zusatz(MBE,(*i)->Name(),true));
             }
          }
         break;
@@ -252,7 +252,7 @@ void table_steigern::fillClistZusatz(MidgardBasicElement_mutable &MBE)
         std::vector<std::string> VZ=MBE->VZusatz();
         for (std::vector<std::string>::const_iterator i=VZ.begin();i!=VZ.end();++i)
            {
-             datavec.push_back(new Data_Zusatz(MBE,(*i)));
+             datavec.push_back(new Data_Zusatz(MBE,(*i),true));
            }
         break; 
        }
