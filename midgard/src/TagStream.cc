@@ -1,4 +1,4 @@
-// $Id: TagStream.cc,v 1.17 2002/06/03 09:53:11 christof Exp $
+// $Id: TagStream.cc,v 1.19 2002/06/03 21:26:29 christof Exp $
 /*  glade--: C++ frontend for glade (Gtk+ User Interface Builder)
  *  Copyright (C) 1998-2002  Christof Petig
  *
@@ -84,7 +84,23 @@ std::string TagStream::de_xml(const std::string &cont)
       {  std::string::const_iterator endtag(::find(verbatim,cont.end(),';'));
          if (endtag!=cont.end()) ++endtag;
          std::string tag(verbatim,endtag);
-         if (tag=="&amp;") ret+='&';
+         if (tag[1]=='#' && tag[2]=='x')
+         {  int c=0;  // hex coded
+            for (std::string::const_iterator j=tag.begin()+3; 
+               *j!=';' && j!=tag.end();++j)
+            {  if ('0' <= *j && *j<='9') c=(c<<4)+(*j-'0');
+               else c=(c<<4)+((*j-'A'+10)&0xf);
+            }
+            ret+=char(c);
+         }
+         else if (tag[1]=='#' && '0'<=tag[2] && tag[2]<='9')
+         {  int c=0;  // decimal coded
+            for (std::string::const_iterator j=tag.begin()+3; 
+               *j!=';' && j!=tag.end();++j)
+               c=c*10+(*j-'0');
+            ret+=char(c);
+         }
+         else if (tag=="&amp;") ret+='&';
          else if (tag=="&lt;") ret+='<';
          else if (tag=="&gt;") ret+='>';
          else if (tag=="&quot;") ret+='"';
@@ -103,7 +119,7 @@ std::string TagStream::de_xml(const std::string &cont)
 
 TagStream::TagStream(const std::string &path) 
 	: Tag(""), read_again(false), pointer(0), end_pointer(0), is(0), ifs(0), iss(0)
-{  ifs=new ifstream(path.c_str());
+{  ifs=new std::ifstream(path.c_str());
    is=ifs;
    is->read(buffer,GB_BUFFER_SIZE);
    end_pointer=is->gcount();
@@ -112,7 +128,7 @@ TagStream::TagStream(const std::string &path)
 
 TagStream::TagStream(const char *str) 
 	: Tag(""), read_again(false), pointer(0), end_pointer(0), is(0), ifs(0), iss(0)
-{  iss=new istrstream(str,strlen(str));
+{  iss=new std::istrstream(str,strlen(str));
    is=iss;
    is->read(buffer,GB_BUFFER_SIZE);
    end_pointer=is->gcount();
@@ -122,7 +138,7 @@ TagStream::TagStream(const char *str)
 TagStream::TagStream() 
 	: Tag(""), read_again(false), pointer(0), end_pointer(0), is(0), ifs(0), iss(0), encoding(host_encoding) {}
  
-TagStream::TagStream(istream &i) 
+TagStream::TagStream(std::istream &i) 
 	: Tag(""), read_again(false), pointer(0), end_pointer(0), is(0), ifs(0), iss(0)
 {  is=&i;
    is->read(buffer,GB_BUFFER_SIZE);
@@ -409,10 +425,10 @@ void TagStream::write(ostream &o) const
    o << '\n';
 }
 
-bool TagStream::write(const std::string &filename="",const std::string &_encoding="")
+bool TagStream::write(const std::string &filename,const std::string &_encoding)
 {  if (!filename.empty()) setFileName(filename);
    if (!_encoding.empty()) setEncoding(_encoding);
-   ofstream os(filename.c_str());
+   std::ofstream os(filename.c_str());
    write(os);
    return os.good();
 }
