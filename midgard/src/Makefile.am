@@ -66,9 +66,9 @@ BUILT_SOURCES_CG = Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
 
 BUILT_SOUCES_XML=xml.cc
 
-BUILT_SOURCES=$(BUILT_SOURCES_CG) 
+BUILT_SOURCES=$(BUILT_SOURCES_CG) $(BUILT_SOUCES_XML)
 
-xml_SOURCES= xml.cc
+xml_SOURCES= $(BUILT_SOUCES_XML)
 
 midgard_SOURCES = \
    midgard_CG_kido.cc \
@@ -124,16 +124,15 @@ midgard_SOURCES = \
    grundwere_edit_setzen.cc \
    WindowInfo.cc \
    WindowInfo_glade.cc \
-   $(BUILT_SOURCES) \
+   $(BUILT_SOURCES_CG) \
    itos.cc 
 
 
-CXXFLAGS = @CXXFLAGS@ @GTKMM_CFLAGS@ @COMMONXX_INCLUDES@ \
-           @ECPG_INCLUDES@ @COMMONGTK_INCLUDES@ \
+CXXFLAGS = @CXXFLAGS@ @COMMONXX_INCLUDES@ \
+           @COMMONGTK_INCLUDES@ \
            -DPACKAGE_DATA_DIR=\"$(pkgdatadir)/\"
 
-midgard_LDADD = @LIBS@ @COMMONXX_LIBS@ @ECPG_LIBS@ \
-               @COMMONGTK_LIBS@ @GTKMM_LIBS@
+midgard_LDADD = @LIBS@ @COMMONXX_LIBS@ @COMMONGTK_LIBS@ 
 
 xml_LDADD = @LIBS@ @COMMONXX_LIBS@
 
