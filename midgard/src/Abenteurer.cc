@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.69 2003/01/23 15:28:24 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.70 2003/02/24 12:48:25 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -310,7 +310,7 @@ void Abenteurer::grundwerte_speichern(Tag &datei)
    Typ.setAttr_ne("Abkürzung2", Typ2()->Short());
    Typ.setAttr_ne("Spezialgebiet", getWerte().Spezialgebiet()->Name());
    Typ.setAttr_ne("Spezialisierung", getWerte().Spezialisierung());
-   Typ.setAttr_ne("Überleben",(*getWerte().Ueberleben())->Name());
+   Typ.setAttr_ne("ܜberleben",(*getWerte().Ueberleben())->Name());
    Typ.setAttr_ne("Muttersprache",Muttersprache());
    Typ.setAttr("Stadt_Land", getWerte().Stadt_Land_str());
    Typ.setAttr("Hand", getWerte().Hand());
@@ -524,7 +524,7 @@ bool Abenteurer::xml_import_stream(std::istream& datei, Datenbank &Database,
        cH_Spezialgebiet S(spezialgebiet);
        getWerte().setSpezialgebiet(S);
      }
-   std::string ueberleben=Typ->getAttr("Überleben");
+   std::string ueberleben=Typ->getAttr("ܜberleben");
    if(ueberleben!="") 
      { 
        MBEmlt M(&*cH_Fertigkeit(ueberleben));

@@ -1,4 +1,4 @@
-// $Id: LernListen.cc,v 1.28 2002/12/12 10:48:21 christof Exp $
+// $Id: LernListen.cc,v 1.29 2003/02/24 12:48:25 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -209,7 +209,7 @@ std::vector<MidgardBasicElement::st_zusatz> LernListen::getUeberlebenZusatz() co
    std::vector<MidgardBasicElement::st_zusatz> B;
    for(std::list<cH_MidgardBasicElement>::const_iterator i=D.Fertigkeit.begin();i!=D.Fertigkeit.end();++i)
     {
-      if((*i)->Name().find("Überleben")!=std::string::npos)
+      if((*i)->Name().find("ܜberleben")!=std::string::npos)
          B.push_back(MidgardBasicElement::st_zusatz((*i)->Name()));
     }
    return B;

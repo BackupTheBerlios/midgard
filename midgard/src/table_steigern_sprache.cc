@@ -84,7 +84,8 @@ void table_steigern::on_leaf_selected_alte_sprache(cH_RowDataBase d)
      if(radiobutton_verlernen->get_active()) alte_sprache_zeigen();
      else dynamic_cast<const Data_SimpleTree*>(&*d)->redisplay(alte_sprache_tree);
    }
-  alte_sprache_tree->get_selection()->unselect_all();
+  if(!spinbutton_pp_eingeben->is_visible())
+     alte_sprache_tree->get_selection()->unselect_all();
 }
     
 void table_steigern::on_alte_sprache_reorder()

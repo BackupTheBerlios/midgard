@@ -216,7 +216,7 @@ void table_lernschema::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,cons
       }
      case MidgardBasicElement::ZUeberleben :
       {
-       frame_lernschema_zusatz->set_label("In welcher Gegend beherrscht dieser Abenteurer 'Ãœberleben' als Universelle Fertigkeit");
+       frame_lernschema_zusatz->set_label("In welcher Gegend beherrscht dieser Abenteurer 'üœberleben' als Universelle Fertigkeit");
        vs.push_back((*MBE)->Name());
        vs.push_back("");
        vs.push_back("");
