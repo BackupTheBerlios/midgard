@@ -118,7 +118,12 @@ reloop:
      else if(V[0].Pflicht()) i=0;   // Pflichtfertigkeiten 
      else if(was==eAllg && mutter_9) 
        { ci=find(V.begin(),V.end(),MidgardBasicElement_mutable(&*cH_Fertigkeit("Schreiben: Muttersprache(+9)")));
-         if(ci==V.end()) assert(!"Muttersprache nicht im Lernschema gefunden");
+//         if(ci==V.end()) assert(!"Muttersprache nicht im Lernschema gefunden");
+         if(ci==V.end()) 
+            { cerr << "Zu blöd für Schreiben: Muttersprache(+9)\n";
+//              const_cast<Lernpunkte&>(lernpunkte).set_schreiben_pflicht_allg(true);
+              throw std::exception();
+            }
          i=-1;
          mutter_9=false;
 //cout << Aben->Typ1()->Name(Enums::Mann) <<" lernt Allgemeine Sprache\n";
@@ -142,6 +147,7 @@ reloop:
      if(i==-1)  M=*ci;
      else       M=V[i];
 
+cout << '\t'<<L.size()<<' '<<M->Name()<<'\n';
      L.remove(M); // Die nächste Methode ändert 'M' daher muß es HIER entfernt werden
 
      if(M->What()==MidgardBasicElement::FERTIGKEIT) 
