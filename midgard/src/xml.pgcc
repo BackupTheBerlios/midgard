@@ -1,4 +1,4 @@
-// $Id: xml.pgcc,v 1.3 2001/04/19 11:37:39 christof Exp $
+// $Id: xml.pgcc,v 1.4 2001/04/19 13:46:28 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -39,8 +39,7 @@ void fetch_and_write_int_attrib(FetchIStream &is,ostream &o,const string &wert)
    
    is >> FetchIStream::MapNull<int>(val,0);
    if (!val) return;
-   for (int i=0;i<indent;++i) o << ' ';
-   o << ' ' << wert << "=\"" << wert << '\"';
+   o << ' ' << wert << "=\"" << val << '\"';
 }
 
 void fetch_and_write_string(FetchIStream &is,ostream &o,const string &wert,int indent=0)
@@ -51,6 +50,15 @@ void fetch_and_write_string(FetchIStream &is,ostream &o,const string &wert,int i
    // val in XML wandeln ...
    for (int i=0;i<indent;++i) o << ' ';
    o << '<' << wert << '>' << val << "</" << wert << ">\n";
+}
+
+void fetch_and_write_string_attrib(FetchIStream &is,ostream &o,const string &wert)
+{  string val;
+   
+   is >> FetchIStream::MapNull<string>(val,""); 
+   if (!val.size()) return;
+   // val in XML wandeln ...
+   o << ' ' << wert << "=\"" << val << '\"';
 }
 
 void charakter_speichern(ostream &o, const string &name,const string &version="")
@@ -65,14 +73,15 @@ void charakter_speichern(ostream &o, const string &name,const string &version=""
    exec sql allocate descriptor spalten;
    exec sql declare c cursor for
    	select charakter_name, spieler_name, version, grad, 
-   		typ_l, typ_s, typ_i, spezialisierung, 
+   		typ_l, typ_s, spezialisierung, 
    		st, ge, ko, inn, zt, au, pa,
    		sb, rw, hgw, b, kaw, wlw, abwehr, zaubern,
    		psy, phs, phk, gift, lpbasis, lp, ap, alter, gestalt,
    		gewicht, groesse, stand, herkunft,
-   		glaube, beschreibung, db_bo_au_typ, db_bo_au, db_bo_sc, db_bo_an, 
+   		glaube, db_bo_au_typ, db_bo_au, db_bo_sc, db_bo_an, 
    		db_bo_ab, db_bo_za, db_bo_psy, db_bo_phs, db_bo_phk,
-   		db_bo_gi, db_gfp, gold, silber, kupfer, ruestung
+   		db_bo_gi, db_gfp, gold, silber, kupfer, ruestung,
+   		beschreibung
    	from charaktere 
    	where charakter_name=:NAME and version=:VERSION;
    exec sql open c;
@@ -84,80 +93,80 @@ void charakter_speichern(ostream &o, const string &name,const string &version=""
    FetchIStream is("spalten");
    o << "<?xml version=\"1.0\"?>\n\n"
    	"<Midgard-Charakter>\n"
-   	"  <XMLVersion>0</XMLVersion>\n";
+   	"  <XMLVersion>1</XMLVersion>\n";
    fetch_and_write_string(is, o, "Name",2);
    fetch_and_write_string(is, o, "Spieler", 2);
    fetch_and_write_string(is, o, "Zeitpunkt", 2);
    fetch_and_write_int(is, o, "Grad", 2);
-   o << "  <Typ>\n";
-   fetch_and_write_string(is, o, "Bezeichnung", 4);
-   fetch_and_write_string(is, o, "Abkuerzung", 4);
-   fetch_and_write_int(is, o, "Index", 4);
-   fetch_and_write_string(is, o, "Spezialisierung", 4);
-   o << "  </Typ>\n";
-   o << "  <Basiseigenschaften>\n";
-   fetch_and_write_int(is, o, "St", 4);
-   fetch_and_write_int(is, o, "Ge", 4);
-   fetch_and_write_int(is, o, "Ko", 4);
-   fetch_and_write_int(is, o, "In", 4);
-   fetch_and_write_int(is, o, "Zt", 4);
-   o << "  </Basiseigenschaften>\n";
-   o << "  <abgeleiteteEigenschaften>\n";
-   fetch_and_write_int(is, o, "Au", 4);
-   fetch_and_write_int(is, o, "pA", 4);
-   fetch_and_write_int(is, o, "Sb", 4);
-   fetch_and_write_int(is, o, "RW", 4);
-   fetch_and_write_int(is, o, "HGW", 4);
-   fetch_and_write_int(is, o, "B", 4);
-   fetch_and_write_int(is, o, "KAW", 4);
-   fetch_and_write_int(is, o, "WLW", 4);
-   o << "  </abgeleiteteEigenschaften>\n";
-   o << "  <Erfolgswerte>\n";
-   fetch_and_write_int(is, o, "Abwehr", 4);
-   fetch_and_write_int(is, o, "Zaubern", 4);
-   o << "  </Erfolgswerte>\n";
-   o << "  <Resistenzen>\n";
-   fetch_and_write_int(is, o, "psy", 4);
-   fetch_and_write_int(is, o, "phs", 4);
-   fetch_and_write_int(is, o, "phk", 4);
-   fetch_and_write_int(is, o, "Gift", 4);
-   o << "  </Resistenzen>\n";
-   o << "  <Gesundheit>\n"; // schlechter Name ?
-   fetch_and_write_int(is, o, "LP_Basis", 4);
-   fetch_and_write_int(is, o, "LP", 4);
-   fetch_and_write_int(is, o, "AP", 4);
-   o << "  </Gesundheit>\n";
-   o << "  <sonstigeEigenschaften>\n"; // soziale?
-   fetch_and_write_int(is, o, "Alter", 4);
-   fetch_and_write_string(is, o, "Gestalt", 4);
-   fetch_and_write_int(is, o, "Gewicht", 4);
-   fetch_and_write_int(is, o, "Groesse", 4);
-   fetch_and_write_string(is, o, "Stand", 4);
-   fetch_and_write_string(is, o, "Herkunft", 4);
-   fetch_and_write_string(is, o, "Glaube", 4);
-   fetch_and_write_string(is, o, "Beschreibung", 4);
-   o << "  </sonstigeEigenschaften>\n"; // soziale?
-   o << "  <Boni>\n"; 
-   fetch_and_write_int(is, o, "Au_Typ", 4); // ?
-   fetch_and_write_int(is, o, "Ausdauer", 4);
-   fetch_and_write_int(is, o, "Schaden", 4);
-   fetch_and_write_int(is, o, "Angriff", 4);
-   fetch_and_write_int(is, o, "Abwehr", 4);
-   fetch_and_write_int(is, o, "Zaubern", 4);
-   o << "    <Resistenzen>\n";
-   fetch_and_write_int(is, o, "psy", 6);
-   fetch_and_write_int(is, o, "phs", 6);
-   fetch_and_write_int(is, o, "phk", 6);
-   fetch_and_write_int(is, o, "Gift", 6);
-   o << "    </Resistenzen>\n";
+   o << "  <Typ";
+   fetch_and_write_string_attrib(is, o, "Bezeichnung");
+   fetch_and_write_string_attrib(is, o, "Abkuerzung");
+   fetch_and_write_string_attrib(is, o, "Spezialisierung");
+   o << "/>\n";
+   o << "  <Basiseigenschaften";
+   fetch_and_write_int_attrib(is, o, "St");
+   fetch_and_write_int_attrib(is, o, "Ge");
+   fetch_and_write_int_attrib(is, o, "Ko");
+   fetch_and_write_int_attrib(is, o, "In");
+   fetch_and_write_int_attrib(is, o, "Zt");
+   o << "/>\n";
+   o << "  <abgeleiteteEigenschaften";
+   fetch_and_write_int_attrib(is, o, "Au");
+   fetch_and_write_int_attrib(is, o, "pA");
+   fetch_and_write_int_attrib(is, o, "Sb");
+   fetch_and_write_int_attrib(is, o, "RW");
+   fetch_and_write_int_attrib(is, o, "HGW");
+   fetch_and_write_int_attrib(is, o, "B");
+   fetch_and_write_int_attrib(is, o, "KAW");
+   fetch_and_write_int_attrib(is, o, "WLW");
+   o << "/>\n";
+   o << "  <Erfolgswerte";
+   fetch_and_write_int_attrib(is, o, "Abwehr");
+   fetch_and_write_int_attrib(is, o, "Zaubern");
+   o << "/>\n";
+   o << "  <Resistenzen";
+   fetch_and_write_int_attrib(is, o, "psy");
+   fetch_and_write_int_attrib(is, o, "phs");
+   fetch_and_write_int_attrib(is, o, "phk");
+   fetch_and_write_int_attrib(is, o, "Gift");
+   o << "/>\n";
+   o << "  <Gesundheit"; // schlechter Name ?
+   fetch_and_write_int_attrib(is, o, "LP_Basis");
+   fetch_and_write_int_attrib(is, o, "LP");
+   fetch_and_write_int_attrib(is, o, "AP");
+   o << "/>\n";
+   o << "  <Beschreibung"; // soziale?
+   fetch_and_write_int_attrib(is, o, "Alter");
+   fetch_and_write_string_attrib(is, o, "Gestalt");
+   fetch_and_write_int_attrib(is, o, "Gewicht");
+   fetch_and_write_int_attrib(is, o, "Groesse");
+   fetch_and_write_string_attrib(is, o, "Stand");
+   fetch_and_write_string_attrib(is, o, "Herkunft");
+   fetch_and_write_string_attrib(is, o, "Glaube");
+   o << "/>\n";
+   o << "  <Boni"; 
+   fetch_and_write_int_attrib(is, o, "Ausdauer_Typ");
+   fetch_and_write_int_attrib(is, o, "Ausdauer");
+   fetch_and_write_int_attrib(is, o, "Schaden");
+   fetch_and_write_int_attrib(is, o, "Angriff");
+   fetch_and_write_int_attrib(is, o, "Abwehr");
+   fetch_and_write_int_attrib(is, o, "Zaubern");
+   o << ">\n";
+   o << "    <Resistenzen";
+   fetch_and_write_int_attrib(is, o, "psy");
+   fetch_and_write_int_attrib(is, o, "phs");
+   fetch_and_write_int_attrib(is, o, "phk");
+   fetch_and_write_int_attrib(is, o, "Gift");
+   o << "/>\n";
    o << "  </Boni>\n"; 
    fetch_and_write_int(is, o, "GFP", 2);
-   o << "  <Vermoegen>\n";
-   fetch_and_write_int(is, o, "GS", 4);
-   fetch_and_write_int(is, o, "SS", 4);
-   fetch_and_write_int(is, o, "KS", 4);
-   o << "  </Vermoegen>\n";
+   o << "  <Vermoegen";
+   fetch_and_write_int_attrib(is, o, "GS");
+   fetch_and_write_int_attrib(is, o, "SS");
+   fetch_and_write_int_attrib(is, o, "KS");
+   o << "/>\n";
    fetch_and_write_string(is, o, "Ruestung", 2);
+   fetch_and_write_string(is, o, "Text", 2);
 
    o << "  <Fertigkeiten>\n";   
    exec sql declare c2 cursor for
@@ -175,12 +184,12 @@ void charakter_speichern(ostream &o, const string &name,const string &version=""
       FetchIStream is2("spalten");
       is2 >> typ;
       // oder <Beruf Wert=12>Arzt</Beruf> ?
-      o << "    <"<<typ<<">\n";
-      fetch_and_write_string(is2, o, "Bezeichnung", 6);
-      fetch_and_write_int(is2, o, "Wert", 6);
-      fetch_and_write_int(is2, o, "AV_Bonus", 6);
-      fetch_and_write_int(is2, o, "SL_Bonus", 6);
-      o << "    </"<<typ<<">\n";
+      o << "    <"<<typ;
+      fetch_and_write_string_attrib(is2, o, "Bezeichnung");
+      fetch_and_write_int_attrib(is2, o, "Wert");
+      fetch_and_write_int_attrib(is2, o, "AngriffVerteidigung_Bonus");
+      fetch_and_write_int_attrib(is2, o, "SchadenLebenspunkte_Bonus");
+      o << "/>\n";
    }
    exec sql close c2;
    SQLerror::test(__FILELINE__);
@@ -195,12 +204,11 @@ int main(int argc, char *argv[])
    if (argc!=3) {cerr << "FEHLER: "<<argv[0]<<" muß mit 'Charaktername' und 'Version' aufgerufen werden\n";
       exit(1); };
    try{
-   ofstream o(argv[1]);
       Petig::Connection conn;
       conn.setDbase("midgard");
       Petig::dbconnect(conn);
 
-   charakter_speichern(o,argv[1],argv[2]);
+   charakter_speichern(cout,argv[1],argv[2]);
    Petig::dbdisconnect();
    } catch (SQLerror &e)
    {  cerr << e << '\n';
