@@ -1,9 +1,5 @@
 ##### DAS IST DAS WICHTIGSTE #########################################
 * Wizard aktiv
-* Eingabe von PP für Fertigkeiten geht nicht
-	Problem: SpinButton hat focus und damit ist irgendwie keine 
-	Zeile mehr selektiert? Cursor sollte reichen
-	get_cursor(Path&,Column*&)
 ######################################################################
 
 #### das finde ich (CP) beunruhigend #################################
