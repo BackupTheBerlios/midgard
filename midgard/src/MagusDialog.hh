@@ -1,4 +1,4 @@
-// $Id: MagusDialog.hh,v 1.5 2004/12/21 07:24:14 christof Exp $
+// $Id: MagusDialog.hh,v 1.6 2004/12/21 08:32:29 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -22,7 +22,7 @@
 #  include "MagusDialog_glade.hh"
 #  define _MAGUSDIALOG_HH
 #include <gtkmm/window.h>
-#include <Nisc/bitmask.h>
+#include <Misc/bitmask.h>
 
 class MagusDialog : public MagusDialog_glade
 {  
