@@ -1,0 +1,44 @@
+// generated 2001/3/7 10:18:12 CET by thoma@ig23.
+// using glademm V0.5_11f_cvs
+//
+// newer (non customized) versions of this file go to Window_herkunft.cc_new
+
+// This file is for your program, I won't touch it again!
+
+#include "config.h"
+#include "Window_herkunft.hh"
+#include "midgard_CG.hh"
+#include <Gtk_OStream.h>
+exec sql include sqlca;
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+
+void Window_herkunft::on_clist_herkunftsland_select_row(gint row, gint column, GdkEvent *event)
+{   
+   string land = clist_herkunftsland->get_text(row,1);
+   hauptfenster->herkunft_uebernehmen(land);
+   destroy();
+}
+
+Window_herkunft::Window_herkunft(midgard_CG* h)
+{
+ hauptfenster=h;
+ exec sql begin declare section;
+   char db_land[50],db_kontinent[50];
+ exec sql end declare section;
+ Gtk::OStream os(clist_herkunftsland);
+ Transaction tr;
+ exec sql declare ein cursor for
+   SELECT DISTINCT kontinent, land FROM sprachen;
+ exec sql open ein;
+ SQLerror::test(__FILELINE__);
+ while (true)
+  {
+    exec sql fetch ein into :db_kontinent, :db_land;
+    SQLerror::test(__FILELINE__,100);
+    if (sqlca.sqlcode) break;
+    os << db_kontinent<<"\t"<<db_land<<"\n";
+  }   
+ tr.close();
+ exec sql close ein;
+}

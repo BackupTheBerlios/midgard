@@ -1,0 +1,74 @@
+#include "midgard_CG.hh"
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+#include <Gtk_OStream.h>
+exec sql include sqlca;
+int swk(vector<st_ausgewaelte_waffen>& vec_waffen);
+
+
+string midgard_CG::waffe_werte(const string waffe,st_werte& werte, string mod)
+{
+  exec sql begin declare section;
+   char db_waffe[50];
+   char db_art[50];
+   char db_s1[50] ;
+   int  db_sb ;
+   char db_angriffsrangmod[10], db_wm_abwehr_leicht[10], db_wm_abwehr_schwer[10];
+  exec sql end declare section;
+  strncpy(db_waffe,waffe.c_str(),sizeof(db_waffe));
+  exec sql select coalesce(schaden,''), coalesce(schaden_b,0),
+      art, coalesce(angriffsrangmod,''), coalesce(wm_abwehr_leicht,''),
+      coalesce(wm_abwehr_schwer,'')
+      into :db_s1, :db_sb, :db_art, :db_angriffsrangmod,
+            :db_wm_abwehr_leicht, :db_wm_abwehr_schwer
+      from waffen where name = :db_waffe;
+  SQLerror::test(__FILELINE__);
+  string art=db_art;
+  if (mod=="Angriffsrangmodifikation")
+   {
+      string anm = db_angriffsrangmod;
+      return anm;
+   }
+  if (mod=="WM_Abwehr")
+   {
+      string abl = db_wm_abwehr_leicht;
+      string abs = db_wm_abwehr_schwer;
+      if (abl==""&&abs=="") return "--";
+      else return abl+"|"+abs;
+   }
+  if (mod=="Angriffsrangmodifikation")
+   {
+      string ret = db_angriffsrangmod;
+      return ret;
+   }
+  if (mod=="Schaden")
+   {
+     if (art=="Verteidigung") return "-"+itos(db_sb)+"AP"; /* doppeltes Minus wg. LaTeX Ausdruck */
+     string schaden = db_s1;
+     if (schaden=="0") return "";
+     if (waffe=="waffenloser Kampf") {schaden="W6"; db_sb=swk(vec_waffen);}
+
+     int ibonus = db_sb+werte.bo_sc;
+     if (ibonus < 0 ) schaden += "-"+itos(ibonus); /* doppeltes Minus für LaTeX Ausdruck */
+     if (ibonus == 0 ) schaden += "";
+     if (ibonus > 0 ) schaden += "+"+itos(ibonus);
+     return schaden;
+   }
+}
+
+int swk(vector<st_ausgewaelte_waffen>& vec_waffen) 
+/*Schaden für waffenlosen Kampf*/
+{
+   int wert = 4;
+   for (vector<st_ausgewaelte_waffen>::const_iterator i=vec_waffen.begin();
+         i!=vec_waffen.end();++i)
+     if (i->name == "waffenloser Kampf") 
+      { wert=i->erfolgswert; break;}
+
+   int bo ;
+   if ( 4<=wert && wert <= 7) bo=-4;
+   if ( 8<=wert && wert <=11) bo=-3;
+   if (12<=wert && wert <=15) bo=-2;
+   if (16<=wert) bo=-1;
+   return bo;
+}

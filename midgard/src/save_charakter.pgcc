@@ -1,0 +1,259 @@
+#include "midgard_CG.hh"
+exec sql include sqlca;
+#include <cstring>
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+ 
+void midgard_CG::on_speichern_clicked()
+{
+   // Werte
+   exec sql begin declare section;
+      char db_typ_l[30]     ;
+      char db_beschreibung[102400] ;
+//      char *db_beschreibung = const cast<char*> (werte.beschreibung.c_str());
+      char db_typ_s[5]     ;
+      int db_typ_i = typ.nr;
+      int db_st = werte.st;      
+      int db_ge = werte.ge;      
+      int db_ko = werte.ko;      
+      int db_in = werte.in;      
+      int db_zt = werte.zt;      
+      int db_au = werte.au;      
+      int db_pa = werte.pa;      
+      int db_sb = werte.sb;      
+      int db_rw = werte.rw;      
+      int db_hgw= werte.hgw;      
+      int db_b  = werte.b;      
+      int db_lp = werte.lp;      
+      int db_ap = werte.ap;      
+      int db_kaw= werte.kaw;      
+      int db_wlw= werte.wlw;      
+      int db_abwehr       = werte.abwehr_wert;      
+      int db_zaubern ;
+      int db_psy          = werte.psyZR_wert;      
+      int db_phs          = werte.phsZR_wert;      
+      int db_phk          = werte.phkZR_wert;      
+      int db_gift         = werte.gift_wert;      
+      int db_bo_au_typ    = werte.bo_au_typ;      
+      int db_bo_au        = werte.bo_au;      
+      int db_bo_sc        = werte.bo_sc;      
+      int db_bo_an        = werte.bo_an;      
+      int db_bo_ab        = werte.bo_ab;      
+      int db_bo_za        = werte.bo_za;      
+      int db_bo_psy       = werte.bo_psy;      
+      int db_bo_phs       = werte.bo_phs;      
+      int db_bo_phk       = werte.bo_phk;      
+      int db_bo_gi        = werte.bo_gi;      
+      int db_lpbasis      = werte.lpbasis;      
+      int db_alter        = werte.alter;      
+      char db_gestalt[20] ;
+      int db_gewicht      = werte.gewicht;      
+      int db_groesse      = werte.groesse;      
+      int db_grad         = werte.grad;      
+      char db_spez[30]    ;
+      char db_stand[30]   ;
+      char db_herkunft[50];
+      char db_glaube[50]  ;
+      char db_name_ch[50] ;
+      char db_name_sp[50] ;
+      char db_version[50] ;
+      int db_gfp = werte.gfp ;
+      int db_gold = werte.gold;
+      int db_silber = werte.silber;
+      int db_kupfer = werte.kupfer;
+      char db_ruestung[20];
+   exec sql end declare section;
+   db_zaubern = atoi(werte.zaubern_wert.c_str());
+   strncpy(db_beschreibung,werte.beschreibung.c_str(),sizeof(db_beschreibung));
+   strncpy(db_gestalt,werte.gestalt.c_str(),sizeof(db_gestalt));
+   strncpy(db_spez,werte.spezialisierung.c_str(),sizeof(db_spez));
+   strncpy(db_stand,werte.stand.c_str(),sizeof(db_stand));
+   strncpy(db_herkunft,werte.herkunft.c_str(),sizeof(db_herkunft));
+   strncpy(db_glaube,werte.glaube.c_str(),sizeof(db_glaube));
+   strncpy(db_name_ch,werte.name_charakter.c_str(),sizeof(db_name_ch));
+   strncpy(db_name_sp,werte.name_spieler.c_str(),sizeof(db_name_sp));
+   strncpy(db_version,werte.version.c_str(),sizeof(db_version));
+   strncpy(db_typ_l,typ.l.c_str(),sizeof(db_typ_l));
+   strncpy(db_typ_s,typ.s.c_str(),sizeof(db_typ_s));
+   strncpy(db_ruestung,werte.ruestung.c_str(),sizeof(db_ruestung));
+   
+   exec sql UPDATE charaktere SET 
+      charakter_name = :db_name_ch  , 
+      beschreibung   = :db_beschreibung  , 
+      version        = :db_version  ,
+      typ_l          = :db_typ_l    ,
+      typ_s          = :db_typ_s    ,
+      typ_i          = :db_typ_i    ,
+      spieler_name   = :db_name_sp  , 
+      st             = :db_st       ,
+      ge             = :db_ge       ,
+      ko             = :db_ko       ,
+      inn            = :db_in       ,
+      zt             = :db_zt       ,
+      au             = :db_au       ,
+      pa             = :db_pa       ,
+      sb             = :db_sb       ,
+      rw             = :db_rw       ,
+      hgw            = :db_hgw      ,
+      b              = :db_b        ,
+      lp             = :db_lp       ,
+      ap             = :db_ap       ,
+      kaw            = :db_kaw      ,
+      wlw            = :db_wlw      ,
+      abwehr         = :db_abwehr   ,
+      zaubern        = :db_zaubern  ,
+      psy            = :db_psy      ,
+      phs            = :db_phs      ,
+      phk            = :db_phk      ,
+      gift           = :db_gift     ,
+      lpbasis        = :db_lpbasis  ,
+      alter          = :db_alter    ,
+      gestalt        = :db_gestalt  ,
+      gewicht        = :db_gewicht  ,
+      groesse        = :db_groesse  ,
+      grad           = :db_grad     ,
+      spezialisierung= :db_spez     ,
+      stand          = :db_stand    ,
+      herkunft       = :db_herkunft ,
+      glaube         = :db_glaube   ,
+      db_bo_au_typ   = :db_bo_au_typ   ,
+      db_bo_au       = :db_bo_au       ,
+      db_bo_sc       = :db_bo_sc       ,
+      db_bo_an       = :db_bo_an       ,
+      db_bo_ab       = :db_bo_ab       ,
+      db_bo_za       = :db_bo_za       ,
+      db_bo_psy      = :db_bo_psy      ,
+      db_bo_phs      = :db_bo_phs      ,
+      db_bo_phk      = :db_bo_phk      ,
+      db_bo_gi       = :db_bo_gi       ,  
+      db_gfp         = :db_gfp         ,
+      gold           = :db_gold        ,
+      silber         = :db_silber      ,
+      kupfer         = :db_kupfer      ,
+      ruestung       = :db_ruestung
+      WHERE charakter_name = :db_name_ch ;
+   SQLerror::test(__FILELINE__,100);
+   if (sqlca.sqlcode==100) midgard_CG::charakter_db_anlegen();
+
+   ///////////////////////////////////////////////////////////////////////   
+   // Berufe, (angeborene) Fertigkeiten, Waffen und Zauber
+   // Grundfertigkeiten (Waffen), Sprache, Schrift
+   exec sql begin declare section;
+      char db_fertigkeit[50];
+      int db_wert;
+      char db_wert_str[20];
+   exec sql end declare section;
+   Transaction tr;
+   // Alte einträge löschen
+   exec sql DELETE FROM charaktere_fertigkeiten WHERE charakter_name = :db_name_ch ;
+   for (vector<st_ausgewaelte_berufe>::iterator i=vec_beruf.begin();
+         i!=vec_beruf.end();++i)
+      {
+         strncpy(db_fertigkeit, i->name.c_str(),sizeof(db_fertigkeit));
+         db_wert =  i->erfolgswert ;
+         exec sql INSERT INTO charaktere_fertigkeiten
+            (charakter_name,version,fertigkeit,wert,art)
+         VALUES
+            (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Beruf') ;         
+            SQLerror::test(__FILELINE__);
+      }
+   for (vector<st_angeborene_fertigkeit>::iterator i=vec_an_fertigkeit.begin();
+         i!=vec_an_fertigkeit.end();++i)
+      {
+         strncpy(db_fertigkeit, i->name.c_str(),sizeof(db_fertigkeit));
+         db_wert =  i->erfolgswert ;
+         exec sql INSERT INTO charaktere_fertigkeiten
+            (charakter_name,version,fertigkeit,wert,art)
+         VALUES
+            (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'ang.Fertigkeit') ;         
+            SQLerror::test(__FILELINE__);
+      }
+   for (vector<st_ausgewaelte_fertigkeiten>::iterator i=vec_fertigkeiten.begin();
+         i!=vec_fertigkeiten.end();++i)
+      {
+         strncpy(db_fertigkeit, i->name.c_str(),sizeof(db_fertigkeit));
+         db_wert =  i->erfolgswert ;
+         exec sql INSERT INTO charaktere_fertigkeiten
+            (charakter_name,version,fertigkeit,wert,art)
+         VALUES
+            (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Fertigkeit') ;         
+            SQLerror::test(__FILELINE__);
+      }
+   for (vector<st_ausgewaelte_waffen>::iterator i=vec_waffen.begin();
+         i!=vec_waffen.end();++i)
+      {
+         strncpy(db_fertigkeit, i->name.c_str(),sizeof(db_fertigkeit));
+         db_wert =  i->erfolgswert ;
+         exec sql INSERT INTO charaktere_fertigkeiten
+            (charakter_name,version,fertigkeit,wert,art)
+         VALUES
+            (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Waffe') ;         
+            SQLerror::test(__FILELINE__);
+      }
+   for (vector<string>::iterator i=waffe_besitz.begin();
+         i!=waffe_besitz.end();++i)
+      {
+         strncpy(db_fertigkeit, (*i).c_str(),sizeof(db_fertigkeit));
+         exec sql INSERT INTO charaktere_fertigkeiten
+            (charakter_name,version,fertigkeit,wert,art)
+         VALUES
+            (:db_name_ch,:db_version,:db_fertigkeit,0,'Besitz_W') ;         
+            SQLerror::test(__FILELINE__);
+      }
+   for (vector<st_zauber>::iterator i=zauber.begin();
+         i!=zauber.end();++i)
+      {
+         strncpy(db_fertigkeit, i->name.c_str(),sizeof(db_fertigkeit));
+         strncpy(db_wert_str,i->erfolgswert.c_str(),sizeof(db_wert_str)) ;
+         exec sql INSERT INTO charaktere_fertigkeiten
+            (charakter_name,version,fertigkeit,wert,art)
+         VALUES
+            (:db_name_ch,:db_version,:db_fertigkeit,:db_wert_str,'Zauber') ;         
+            SQLerror::test(__FILELINE__);
+      }
+   for (map<string,string>::const_iterator i=waffen_grundkenntnisse.begin();
+            i!=waffen_grundkenntnisse.end();++i)
+      {
+         strncpy(db_fertigkeit, i->first.c_str(),sizeof(db_fertigkeit));
+         exec sql INSERT INTO charaktere_fertigkeiten 
+            (charakter_name,version,fertigkeit,wert,art)
+         VALUES(:db_name_ch,:db_version,:db_fertigkeit,0,'Grundkenntnis');
+            SQLerror::test(__FILELINE__);
+      }
+   for (vector<st_sprachen>::const_iterator i=vec_sprachen.begin();
+         i!=vec_sprachen.end();++i)
+      {
+         strncpy(db_fertigkeit, i->name.c_str(),sizeof(db_fertigkeit));
+         db_wert = i->wert;
+         exec sql INSERT INTO charaktere_fertigkeiten
+            (charakter_name,version,fertigkeit,wert,art)
+         VALUES(:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Sprache');
+            SQLerror::test(__FILELINE__);
+      }
+   for (vector<st_schriften>::const_iterator i=vec_schriften.begin();
+         i!=vec_schriften.end();++i)
+      {
+         strncpy(db_fertigkeit, i->urschrift.c_str(),sizeof(db_fertigkeit));
+         exec sql INSERT INTO charaktere_fertigkeiten
+            (charakter_name,version,fertigkeit,wert,art)
+         VALUES(:db_name_ch,:db_version,:db_fertigkeit,0,'Urschrift');
+            SQLerror::test(__FILELINE__);
+      }
+   tr.commit();
+}
+
+void midgard_CG::charakter_db_anlegen()
+{
+  
+   exec sql begin declare section;
+      char db_name_ch[50] ;
+   exec sql end declare section;
+   strncpy(db_name_ch,werte.name_charakter.c_str(),sizeof(db_name_ch));
+   cout << "Neuen Charakter "<< db_name_ch  <<" in Datenbank anlegen\n";
+   exec sql insert into charaktere 
+        (charakter_name)
+     values
+        (:db_name_ch);
+
+   midgard_CG::on_speichern_clicked();   
+}

@@ -1,0 +1,25 @@
+#include "midgard_CG.hh"
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+exec sql include sqlca;
+
+
+void midgard_CG::sprachen_schrift()
+{
+ for(vector<st_sprachen>::iterator i = vec_sprachen.begin();
+         i!=vec_sprachen.end();++i)
+   {
+      exec sql begin declare section;
+         char db_schrift[50], db_sprache[50];
+      exec sql end declare section;
+      strncpy(db_sprache,i->name.c_str(),sizeof(db_sprache)); 
+      exec sql select distinct schrift into :db_schrift from sprachen where name = :db_sprache; 
+      SQLerror::test(__FILELINE__);
+      for(vector<st_schriften>::iterator j = vec_schriften.begin();
+            j!=vec_schriften.end();++j)
+         {
+            string schrift = db_schrift;
+            if (schrift==j->urschrift) i->schrift=db_schrift;
+         }
+   }
+}

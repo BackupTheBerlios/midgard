@@ -1,0 +1,169 @@
+Midgard Charaktergenerator
+
+Dieser Generator wendet sich an Personen, denen das Midgard System 
+zumindest grundlegend bekannnt ist.
+Er kann nicht nur zur Generierung eines Charakters benutzt werden, 
+sondern auch (und vor allem!) zur Verwaltung von Charakteren.
+Dieser Text beschreibt kurz was man wie damit machen kann - 
+und was (noch) nicht.
+
+##########################################################################
+
+
+##########################################################################
+INHALT:
+0) TODO-Liste
+1) Installation
+2) Generierung eines neuen Charakters
+3) Steigerung eines Charakters
+4) Beschreibung der Datenbank
+5) Erweiterung des Charaktergenerators
+
+##########################################################################
+TODO
+* Vorraussetzungen bei Fertigkeiten, Waffen und Berufen werden angegeben, 
+   aber nicht kontrolliert, der Benutzer muß selber darauf achten, daß 
+   sein Charakter die Vorraussetzungen erfüllt.
+* Vorteile, die ein Beruf gewährt werden nicht automatisch berücksichtigt.
+   Werden entsprechende Fertigkeiten gelernt, muß die Lernpunktezahl entsprechend
+   nach oben korrigiert werden ('Lernpunkte Editieren').
+* Datenbank: 'arkanum_zauber' um  Sprüche für Beschwörer ergänzen.
+* Andere Rassen (Zwerg, Halbling, Ork, ...)
+* Charakterklassen aus den Quellenbüchern (siehe unten),
+
+##########################################################################
+1. Abschnitt: Installation
+
+Eventuell neuere Versionen dieses Abschnittes findet man unter
+http://midgard.berlios.de/
+
+Vorraussetzungen:
+* C++ Compiler (gcc version 2.95.2 19991024)
+* Gtk+ (1.2.8)
+   ## http://www.fh-heilbron.de/mirrors/ftp.gimp.org/gtk/v1.2/
+   ## http://www.gtk.org/
+      ('glib-1.2.8.tar.gz' und 'gtk+1.2.3.tar.gz')
+* Gtk-- (1.2.4) [ heißt manchmal auch Gtkmm ]
+   ## http://gtkmm.sourceforge.net/
+* Postgress Datenbank (psql 7.1beta4) <-- jetzt reicht auch 7.0 !!!!
+   ## http:/www.postgresql.org/
+   ## ftp://ftpgreatbridge.com/pub/postgres/dev
+* LaTeX 
+   ## sollte jeder bei seiner Distibution schon dabei haben :-)
+* gv (ghostview clone)
+   ## ebenfalls ist m.E. nach schöner als 'ghostview'
+* zur (bequemen!) Erweiterung des Charaktergenerators: 
+   - glade (0.5.7+)
+      ## http://glade.pn.org/
+   - glademm (V0.5_11e glade to Gtk-- converter)
+      ## http://home.wtal.de/petig/Gtk
+
+Nun zum eigentlichen Charaktergenerator:
+Man benötigt die beiden Bibliotheken
+   -> 'ManuProC_Base-0.2.tar.gz'
+   -> 'gtkmmaddons-0.5.0.tar.gz'
+von Christof Petig, die Angeben zur Datenbank
+   -> 'midgard.postgres.gz'
+und das eigentliche Programm:
+   -> 'midgard-x.xx.tar.gz'
+wobei die 'x'se für die Versionsnummer stehen.
+Diese Pakete kopiert man in ein Installationsverzeichnis (z.B. /tmp)
+Dann packt man die Pakete aus:
+   'tar xcvz ________.tar.gz'
+Die beiden Bibliotheken werden jeweils mit
+   'configure --prefix=$HOME/midgard'
+   'make all'
+   'make install'
+übersetzt und installiert, wird die prefixopiton weggelassen installieren
+ sich die Pakete global in /usr/local (dazu benötigt man aber root-Rechte).
+Nach dem Auspacken der Datenbank erhält man die Datei 'midgard.postgres'.
+Um diese in die Datenbank zu kopieren muß
+a) Die Datenbank Infrastruktur muß bereitgestellt werden:
+   als user 'postgress' (als root 'su postgres' eingeben) muß der 
+   Befehl: 'initdb' eingeben werden.
+b) Der Datenbankserver gestartet werden: 'pg_ctl start' (als user 'postgres') 
+   (Bei SuSE geht das auch als root mit 'rcpostgres start')
+c) Dann muß ein ein Benutzer angelegt werden: 'createuser' (auch als user 'postgres')
+   Hier gibt man den eigenen Benutzernamen (und andere Dinge) an.
+d) Die Datenbank 'midgard' muß angelegt werden :'createdb midgard'
+   ALS USER, den man bei c) angegeben hat.
+e) Die Datei ALS USER in die Datenbank kopieren:
+   'psql midgard < midgard.postgres'
+
+Nun muß nur :-) noch der eigentliche Charaktergenerator übersetzt und 
+installiert werden:
+   './configure --prefix=$HOME/midgard'
+   'make'
+   'make install'
+
+(Das prefix muß mit den prefix der Bibliotheken (s.o) übereinstimmen) 
+
+##########################################################################
+4. Abschnitt: Datenbank
+* arkanum_zauber
+   Liste der Zauber mit Angabe der Lernkosten
+* berufe
+* charaktere
+   In dieser Datei werden die Werte der erzeugten Chraktere gespeichert
+* charaktere_fertigkeiten
+   In dieser Datei werden die Berufe, Fertigkeiten, Waffen und Zauber der 
+   Charaktere gespeichert.
+* kämpfer_zauberer 
+   wird (noch) nicht verwendet
+* lernschema
+* pflicht_lernen
+   Die Obligatorischen Fertigkeiten bei der Charaktererschaffung
+* steigern_fertigkeiten
+   Zusammenfassung aller Fertigkeiten in Lerngruppen
+* Steigerungskosten für Fertigkeiten (Lerngruppen)
+* waffen
+   Liste aller Waffen
+* waffen_grund
+   Kosten der Grundkenntnisse
+* waffen_standard
+   Zuordnung von Grund-,Standard- und Ausnahme Zuordnung zu den Charakterklassen
+* waffen_steigern
+   Steigerungskosten (Erfolgsfaktor) für Waffen 
+
+##########################################################################
+4. Abschnitt: Erweiterung des Charaktergenerators
+
+a) Neue Charakterklassen:
+   * Eintag der neuen Charakterkasse in das Optionmenu (mit 'glade')
+      oder direkt in das Quellfile 'midgard_CG_glade.cc'
+   * Eintrag in 'get_typ.pgcc' wobei die Variable 'typs' mit dem 
+      entsprechenden Einträgen in der Datenbank 'typen' übereinstimmen muß.
+   * Erweiterung der Datenbank:
+      - lernschema
+      - pflicht_lernen
+      - typen
+      - arkanum_zauber
+      - fertigkeiten
+      - waffen_standard
+
+b) Anderes
+   * neue Zauber
+      -> arkanum_zauber
+   * neue berufe
+      -> berufe
+   * neue Fertigkeiten
+      -> fertigkeiten, steigern_fertigkeiten, steigern_fertigkeiten_werte
+   * neue Waffen
+      -> waffen, waffen_grund
+
+##########################################################################
+Verteiler:
+jordanj@s.netic.de
+malte@knoerr.escape.de
+Fabian.Wagner@01019freenet.de
+klaus@caldera.de
+bernward_kett@hp.com
+HChristsen@aol.com
+Lynx@chello.at
+filippetti@wtal.de 
+aneren@wtal.de
+skeeve@gmx.de
+kraehe@copyleft.de
+robert.wenner@smail.inf.fh-rhein-sieg.de
+corelltd@rbg.informatik.tu-darmstadt.de
+frank@heidebrunn.de

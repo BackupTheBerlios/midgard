@@ -1,0 +1,49 @@
+// generated 2001/2/11 14:16:06 CET by thoma@ig23.
+// using glademm V0.5_11c
+//
+// newer (non customized) versions of this file go to Zauber_auswahl.cc_new
+
+// This file is for your program, I won't touch it again!
+
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+exec sql include sqlca;
+#include "midgard_CG.hh"
+#include <cstring>
+#include <Gtk_OStream.h>
+
+double midgard_CG::get_standard_waffen(string typ, string waffe)
+{
+  string swaffe="Waffen";
+  if (waffe=="Peitsche") swaffe="Peitsche";
+  if (waffe=="Lasso") swaffe="Lasso";
+  if (waffe=="Netz") swaffe="Netz";
+  if (waffe=="Bola") swaffe="Bola";
+
+  exec sql begin declare section;
+   char db_ergebnis[20];
+   char query[200];
+  exec sql end declare section;
+  snprintf(query,sizeof(query),"select %s from waffen_standard where fertigkeit = '%s'",
+               typ.c_str(),swaffe.c_str());
+
+   Transaction tr;
+   exec sql prepare fert from :query ;    
+   exec sql declare fertig cursor for fert ;
+
+    exec sql open fertig;
+    SQLerror::test(__FILELINE__);
+
+    exec sql fetch fertig into  :db_ergebnis;
+    SQLerror::test(__FILELINE__,100);  
+
+    exec sql close fertig;
+
+ double fac;
+ if (!strcmp(db_ergebnis,"Grund")) fac = 0.5; 
+ if (!strcmp(db_ergebnis,"Standard")) fac = 1.0; 
+ if (!strcmp(db_ergebnis,"Ausnahme")) fac = 2.0; 
+//cout << typ << "\t"<<fertigkeit<<"\t"<<db_ergebnis<<"\t"<<fac<<"\n";
+ return(fac);
+}
+

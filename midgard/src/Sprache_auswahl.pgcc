@@ -1,0 +1,100 @@
+// generated 2001/3/7 7:55:50 CET by thoma@ig23.
+// using glademm V0.5_11f_cvs
+//
+// newer (non customized) versions of this file go to Sprache_auswahl.cc_new
+
+// This file is for your program, I won't touch it again!
+
+#include "config.h"
+#include "Sprache_auswahl.hh"
+#include "midgard_CG.hh"
+#include <Gtk_OStream.h>
+exec sql include sqlca;
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+
+
+void Sprache_auswahl::on_clist_sp_sc_select_row(gint row, gint column, GdkEvent *event)
+{   
+   string fert = clist_sp_sc->get_text(row,0);
+   if (modus =="Sprache")
+    {
+       int wert = atoi(clist_sp_sc->get_text(row,2).c_str());
+       hauptfenster->sprache_uebernehmen(fert,wert);
+    }
+   if (modus =="Lesen/Schreiben") 
+    {
+      string typ  = clist_sp_sc->get_text(row,1);
+      hauptfenster->schrift_uebernehmen(fert,typ);
+    }
+   destroy();
+}
+
+
+Sprache_auswahl::Sprache_auswahl(midgard_CG* h, string mod)
+{
+   hauptfenster=h;
+   modus = mod;
+//   st_werte werte = hauptfenster->werte;
+   st_werte werte;
+   Gtk::OStream os(clist_sp_sc);
+   exec sql begin declare section;
+      char db_1[50], db_2[50];
+      char db_cname[50],db_version[50];
+      int  db_3;
+   exec sql end declare section;
+  strncpy(db_cname,werte.name_charakter.c_str(),sizeof(db_cname));
+  strncpy(db_version,werte.version.c_str(),sizeof(db_version));
+   
+   if (mod == "Sprache")
+      {
+         sp_sc_label->set_text("Sprache wählen");
+//         label_clist_sp_1->set_text("Sprache");
+//         label_clist_sp_2->set_text("Urschrift");
+         Transaction tr;
+         exec sql declare ein cursor for
+            SELECT DISTINCT  name, land, max_wert from sprachen
+            WHERE name NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten
+            WHERE art = 'Sprache' 
+            AND charakter_name = :db_cname AND version = :db_version) order by name;
+         exec sql open ein;
+         SQLerror::test(__FILELINE__);
+         while (true)
+            {
+               exec sql fetch ein into :db_1, :db_2, :db_3;
+               SQLerror::test(__FILELINE__,100);
+               if (sqlca.sqlcode) break;
+               os << db_1<<"\t("<<db_2<<")\t"<<db_3<<"\n";
+            }   
+         tr.close();
+         exec sql close ein;
+      }
+   if (mod == "Lesen/Schreiben")
+      {
+         sp_sc_label->set_text("Schrift wählen");
+//         label_clist_sp_1->set_text("Schrift");
+//         label_clist_sp_2->set_text("Typ");
+         Transaction tr;
+         exec sql declare ein2 cursor for
+            SELECT DISTINCT  name, typ from schrift WHERE  name 
+            NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten
+            WHERE art = 'Urschrift' 
+            AND charakter_name = :db_cname AND version = :db_version) 
+            order by name;
+         exec sql open ein2;
+         SQLerror::test(__FILELINE__);
+         while (true)
+            {
+               exec sql fetch ein2 into :db_1, :db_2;
+               SQLerror::test(__FILELINE__,100);
+               if (sqlca.sqlcode) break;
+               os << db_1<<"\t("<<db_2<<")\n";
+            }   
+         tr.close();
+         exec sql close ein2;
+      }
+   for (unsigned int i=0;i<clist_sp_sc->columns().size();++i)
+      clist_sp_sc->set_column_auto_resize(i,true);
+
+
+}

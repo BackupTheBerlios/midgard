@@ -1,0 +1,178 @@
+#include "midgard_CG.hh"
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+exec sql include sqlca;
+#include <cstring>
+#include <Gtk_OStream.h>
+#include "zufall.h"
+#include <strstream>
+#include "WindowInfo.hh"
+
+void midgard_CG::on_zauber_laden_clicked()
+{   
+ midgard_CG::on_speichern_clicked();
+ midgard_CG::show_alte_zauber();
+ midgard_CG::show_neue_zauber();
+
+}
+
+
+void midgard_CG::show_alte_zauber()
+{
+   steigern_zauber_clist_alt->clear();
+   Gtk::OStream os(steigern_zauber_clist_alt);
+   for (vector<st_zauber>::iterator i=zauber.begin(); i!=zauber.end();++i)
+      {
+         double fac = midgard_CG::get_standard_zauber(typ.s,i->name);
+         os << i->name<<"\t"<<i->kosten*fac<<"\n";
+      }
+   for (unsigned int i=0;i<steigern_zauber_clist_alt->columns().size();++i)
+      steigern_zauber_clist_alt->set_column_auto_resize(i,true);
+   steigern_zauber_clist_alt->set_reorderable(true);
+}
+
+
+void midgard_CG::show_neue_zauber()
+{
+  steigern_zauber_clist_neu->clear();
+  exec sql begin declare section;
+   char db_typ[5];
+   char db_name[100];
+   int db_kosten;
+   char db_stufe[10];
+   char db_spruchrolle[10];
+   char db_standard[20];
+   char query[1000];
+  exec sql end declare section;
+  strncpy(db_typ,typ.s.c_str(),sizeof(db_typ));
+  snprintf(query,sizeof(query),"SELECT name, kosten, stufe, %s, spruchrolle FROM \
+arkanum_zauber WHERE (%s = 'Grund' OR %s = 'Standard' OR %s = 'Ausnahme') \
+AND name NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten
+WHERE charakter_name = '%s' AND version = '%s') ORDER BY stufe,name "
+            ,db_typ,db_typ,db_typ,db_typ,werte.name_charakter.c_str(),werte.version.c_str());
+
+   Transaction tr;
+   exec sql prepare zauber_ein_ from :query ;
+   exec sql declare zauber_ein cursor for zauber_ein_ ;
+
+   exec sql open zauber_ein;
+   SQLerror::test(__FILELINE__);
+   Gtk::OStream os(steigern_zauber_clist_neu);
+   while (true)
+      {
+         exec sql fetch zauber_ein into :db_name, :db_kosten, :db_stufe, 
+            :db_standard, :db_spruchrolle ;
+         SQLerror::test(__FILELINE__,100);  
+         if (sqlca.sqlcode) break;
+         double fac = midgard_CG::get_standard_zauber(typ.s,db_name);
+         if (!spruchrolle->get_active())
+            os << db_stufe <<"\t"<< db_name <<"\t"<<db_kosten*fac<<"\t"<<db_standard<<"\n";
+         else
+            if (strcmp(db_spruchrolle,"nicht"))
+               os << db_stufe <<"\t"<< db_name <<"\t"<<db_kosten*fac/10<<"\t"<<db_standard<<"\n";
+      }
+   exec sql close zauber_ein;
+
+   for (unsigned int i=0;i<steigern_zauber_clist_neu->columns().size();++i)
+      steigern_zauber_clist_neu->set_column_auto_resize(i,true);
+   steigern_zauber_clist_neu->set_reorderable(true);
+   tr.commit();
+}
+
+
+void midgard_CG::on_steigern_zauber_clist_alt_select_row(gint row, gint column, GdkEvent *event)
+{   
+   string alt_zauber = steigern_zauber_clist_alt->get_text(row,0);
+   int alt_kosten = atoi(steigern_zauber_clist_alt->get_text(row,1).c_str());
+   werte.gfp -= alt_kosten;
+   for (vector<st_zauber>::iterator i=zauber.begin();
+            i!= zauber.end();++i) 
+      if (i->name==alt_zauber) {zauber.erase(i);break;}
+
+   midgard_CG::zeige_werte(werte,"alle");
+   midgard_CG::show_zauber();
+   midgard_CG::on_speichern_clicked();
+   midgard_CG::show_alte_zauber();
+   midgard_CG::show_neue_zauber();
+}
+
+void midgard_CG::on_steigern_zauber_clist_neu_select_row(gint row, gint column, GdkEvent *event)
+{   
+  int new_kosten = atoi(steigern_zauber_clist_neu->get_text(row,2).c_str());
+  string new_zauber = steigern_zauber_clist_neu->get_text(row,1);
+  string erf = midgard_CG::get_erfolgswert_zaubern(typ,new_zauber);
+  string stufe= steigern_zauber_clist_neu->get_text(row,0);
+  string art =steigern_zauber_clist_neu->get_text(row,3);
+  
+  if (radio_spruchrolle_auto->get_active() && spruchrolle->get_active())
+   {
+     werte.gfp += 2*new_kosten;
+     zauber.push_back(st_zauber("0",new_zauber,erf,"0","0","0","0","0","0","0","0","0","0","0","0","0",0));
+   }
+  else if (radio_spruchrolle_wuerfeln->get_active() && spruchrolle->get_active())
+   {
+      int istufe;
+      if (stufe != "groß" ) istufe = atoi(stufe.c_str());
+      else istufe = 6; // Sprüche der großen Magie werden wie Sprüche der Stufe 6 behandelt 
+      int gelungen = midgard_CG::spruchrolle_wuerfeln(istufe,art,new_zauber);
+      if (gelungen != 0)
+        {
+         zauber.push_back(st_zauber("0",new_zauber,erf,"0","0","0","0","0","0","0","0","0","0","0","0","0",0));
+         werte.gfp += new_kosten;
+        }
+      werte.gfp += new_kosten;
+   }
+  else // normales lernen ohne Spruchrolle
+   {
+     werte.gfp += new_kosten;
+     zauber.push_back(st_zauber("0",new_zauber,erf,"0","0","0","0","0","0","0","0","0","0","0","0","0",0));
+   }
+
+  midgard_CG::show_zauber();
+  midgard_CG::on_speichern_clicked();
+  midgard_CG::zeige_werte(werte,"alle");
+  midgard_CG::show_alte_zauber();
+  midgard_CG::show_neue_zauber();
+}
+
+void midgard_CG::on_spruchrolle_toggled()
+{
+ midgard_CG::show_alte_zauber();
+ midgard_CG::show_neue_zauber();
+}
+
+int midgard_CG::spruchrolle_wuerfeln(int istufe, string art, string zauber)
+{
+ Random random;
+ int erf_z = atoi(werte.zaubern_wert.c_str()) + werte.bo_za ;
+ int xr=random.integer(1,20);
+ int iaus=0;
+ 
+ if (typ.s != "Ma")
+   {
+      if (art=="Ausnahme")  iaus=-2;
+   }
+ if (typ.s == "Ma") 
+   {
+    iaus = midgard_CG::get_spezial_zauber(typ.s,zauber);
+    if (!iaus)
+     {
+       if (art=="Standard")  iaus=+1;
+       if (art=="Ausnahme")  iaus=-1;
+     }
+   }
+
+
+ 
+ int x = xr-istufe;
+ x += iaus;
+ x += erf_z;
+ strstream strinfo;
+ strinfo << "Lernversuch von Spruchrolle:\n"
+      << " gewürfelt  Spruchstufe  Ausnahme/Spezial Erfolgswert  Gesamtergebnis\n"
+      << "    "<<xr<<"            -"<<istufe<<"               "<<iaus<<"             "<<erf_z<<"       =       "<< x<<"\n"<<char(0);
+ manage (new WindowInfo(strinfo.str()));
+ strinfo.freeze(0);
+ if (x>=20) return(1);
+ else return(0);
+}

@@ -1,0 +1,101 @@
+// generated 2001/3/14 8:34:43 CET by thoma@ig23.
+// using glademm V0.5_11f_cvs
+//
+// newer (non customized) versions of this file go to Window_Waffenbesitz.cc_new
+
+// This file is for your program, I won't touch it again!
+
+#include "config.h"
+#include "Window_Waffenbesitz.hh"
+#include "midgard_CG.hh"
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+#include <Gtk_OStream.h>
+exec sql include sqlca;
+
+void Window_Waffenbesitz::on_clist_waffe_alt_select_row(gint row, gint column, GdkEvent *event)
+{   
+  string waffe = clist_waffe_alt->get_text(row,0);
+  for (vector<string>::iterator i=waffe_besitz.begin();
+          i!=waffe_besitz.end();++i)
+   { 
+     if ( (*i) == waffe) {waffe_besitz.erase(i);break;} 
+   }
+  hauptfenster->on_speichern_clicked();
+  show_alte_waffen();   
+  show_neue_waffen();   
+}
+
+void Window_Waffenbesitz::on_clist_waffe_neu_select_row(gint row, gint column, GdkEvent *event)
+{   
+ string waffe = clist_waffe_neu->get_text(row,0);
+ waffe_besitz.push_back(waffe);
+  hauptfenster->on_speichern_clicked();
+  show_alte_waffen();   
+  show_neue_waffen();   
+}
+
+Window_Waffenbesitz::Window_Waffenbesitz(midgard_CG* h,
+      vector<st_ausgewaelte_waffen>& vw,vector<string>& wb,st_werte& we )
+: vec_waffen(vw), waffe_besitz(wb), werte(we)
+{
+  hauptfenster=h;
+  hauptfenster->on_speichern_clicked();
+  show_alte_waffen();   
+  show_neue_waffen();   
+}
+
+void Window_Waffenbesitz::on_button_close_clicked()
+{
+   destroy();
+}
+
+
+void  Window_Waffenbesitz::show_alte_waffen()
+{
+  clist_waffe_alt->clear();
+  Gtk::OStream os(clist_waffe_alt);  
+  for (vector<string>::const_iterator i=waffe_besitz.begin();
+            i!=waffe_besitz.end();++i)
+   {
+     string schaden=hauptfenster->waffe_werte(*i,werte,"Schaden");
+     os << *i <<"\t"<<schaden<<"\n";
+   }
+  for (unsigned int i=0;i<clist_waffe_alt->columns().size();++i)
+   clist_waffe_neu->set_column_auto_resize(i,true);
+}
+
+void  Window_Waffenbesitz::show_neue_waffen()
+{
+  clist_waffe_neu->clear();
+  exec sql begin declare section;
+   char db_waffe[50];
+   char db_name[50] ;
+   char db_version[50] ;
+  exec sql end declare section;
+  strncpy(db_name,werte.name_charakter.c_str(),sizeof(db_name));
+  strncpy(db_version,werte.version.c_str(),sizeof(db_version));
+  exec sql declare ein cursor for 
+     SELECT distinct w.name from waffen w, charaktere_fertigkeiten c 
+     where w.name = c.fertigkeit and c.charakter_name = :db_name
+     and c.version = :db_version and w.name not in 
+     (select fertigkeit from charaktere_fertigkeiten 
+      where charakter_name = :db_name and version = :db_version
+      and art = 'Besitz_W');
+  Transaction tr;
+  Gtk::OStream os(clist_waffe_neu);
+  exec sql open ein;
+  SQLerror::test(__FILELINE__);
+  while(true)
+   {
+     exec sql fetch ein into :db_waffe;
+     SQLerror::test(__FILELINE__,100);
+     if (sqlca.sqlcode) break;
+     string schaden=hauptfenster->waffe_werte(db_waffe,werte,"Schaden");
+     os << db_waffe<<"\t"<<schaden<<"\n";
+   }
+  exec sql close ein;
+  tr.close();
+  for (unsigned int i=0;i<clist_waffe_neu->columns().size();++i)
+   clist_waffe_neu->set_column_auto_resize(i,true);
+}

@@ -1,0 +1,48 @@
+// generated 2001/2/11 14:16:06 CET by thoma@ig23.
+// using glademm V0.5_11c
+//
+// newer (non customized) versions of this file go to Zauber_auswahl.cc_new
+
+// This file is for your program, I won't touch it again!
+
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+exec sql include sqlca;
+#include "midgard_CG.hh"
+#include <cstring>
+#include <Gtk_OStream.h>
+
+int midgard_CG::get_spezial_zauber(string typ, string zauber)
+{
+  exec sql begin declare section;
+   char db_ergebnis[20];
+   char db_agens[20];
+   char db_prozess[20];
+   char query[200];
+  exec sql end declare section;
+  snprintf(query,sizeof(query),"select %s,agens,prozess from arkanum_zauber where name = '%s'",
+               typ.c_str(), zauber.c_str());
+
+   Transaction tr;
+   exec sql prepare zaub from :query ;    
+    exec sql declare zauber cursor for zaub ;
+
+    exec sql open zauber;
+    SQLerror::test(__FILELINE__);
+
+    exec sql fetch zauber into  :db_ergebnis, :db_agens, :db_prozess;
+    SQLerror::test(__FILELINE__);  
+
+ int ispez=0;
+ string ergebnis = db_ergebnis;
+ string agens=db_agens;
+ string prozess=db_prozess;
+
+ if (ergebnis!="Grund" && agens==werte.spezial) ispez = 2; 
+ if (ergebnis!="Grund" && prozess==werte.spezial) ispez = 2; 
+
+//cout << typ << "\t"<<zauber<<"\t"<<db_ergebnis<<"\t"<<ispez<<"\n";
+ return(ispez);
+}
+
+

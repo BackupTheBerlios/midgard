@@ -1,0 +1,85 @@
+// generated 2001/3/9 7:14:20 CET by thoma@ig23.
+// using glademm V0.5_11f_cvs
+//
+// newer (non customized) versions of this file go to Window_hilfe.cc_new
+
+// This file is for your program, I won't touch it again!
+
+#include "config.h"
+#include "Window_hilfe.hh"
+#include <string>
+
+void Window_hilfe::on_button_hilfe_schliessen_clicked()
+{   
+   destroy();
+}
+
+Window_hilfe::Window_hilfe()
+{
+// text_hilfe->delete_text(0,text_hilfe->get_length());
+ gint pos=0;
+ string s=hilfetext();
+ text_hilfe->insert_text(s.c_str() , s.size(), &pos);
+}
+
+string Window_hilfe::hilfetext()
+{
+string s="
+1. Generierung eines neuen Charakters
+
+* Grundwerte würfeln (eventuell editieren)
+* Charaktertyp wählen
+* Abgeleitete Werte würfeln (eventuell editieren)
+* Werte editieren: 'Name des Charakters' und 'Version' eintragen, unter diesen
+   beiden Angaben wird der Charakter in der Datenbank gespeichert.
+* Lernschema
+* Lernpunkte würfeln (eventuell editieren)
+* Beruf wählen
+* Erfolgswert für Beruf würfeln
+* Fertigkeiten auswählen
+* Angeborene Fertigkeit auswürfeln
+* Waffen auswählen
+* Spezialwaffe wählen (nicht für Zauberer und Barden)
+* Zauber auswählen (nicht für Kämpfer außer Barde und Ordenskrieger)
+* Magier wählen einen Spezialbereich
+* Charakterbeschreibung hinzufügen und ausdrucken.
+* Charakter speichern (in der Datenbank unter dem Schlüssel 
+   'Charaktername und Version'
+* Charakter drucken (Es wird ein druckfertiges Postscriptdokument mit 'gv'
+   angezeigt, der Ausdruck kann dann aus diesem Programm heraus erfolgen. 
+
+2. Steigern eines Charakters 
+
+* Charakter laden (Wenn ein Charaktername und eine Version eingetragen sind,
+    wird der entsprechende Charakter geladen, ansonsten erscheint eine 
+    Auswahlliste aller gespeicherter Charaktere.)
+* Steigern
+* Fertigkeiten (Fertigkeiten laden)
+   Im oberen Fenster sind die Fertigkeiten, die der Charakter kann mit
+   dem jeweiligen Erfolgswert angegeben. Außerdem ist angegeben, wieviele
+   GFP die nächste Stufe (nach oben bzw nach unten) kostet. Beherrscht ein
+   Charakter eine Fertigkeit auf dem niedrigsten Erfolgswert, so kannn er 
+   diese auch 'verlernen'.
+   Im untern Fenster sind die lernbaren Fertigkeiten mit entsprechenden 
+   Kosten angegeben.
+* Waffen (Waffen laden)
+   Im rechten Bereich sind die Grundkenntnisse der Waffen aufgeführt.
+   oben die, die der Charakter bereits kann, unten die, die er lernen kann
+   (mit Lernkosten in GFP).
+   Im linken Bereich stehen oben die Waffen, die der Charakter schon 
+   beherrscht (mit Erfolgswert und Kosten für die nächst höhere bzw. 
+   niedirgere Stufe), unten stehen die Waffen, die der Charakter mit dem
+   Erfolgswert +4 beherrscht, weil er die Grundkenntnisse in der jeweiligen
+   Waffenart besitzt. Durch anckicken kann man Waffen steigern und lernen,
+   bzw. Grundkenntnisse lernen.
+* Zauber
+   Oben die Zauber, die ein Charakter kann, unten die, die er lernen darf
+   (mit Kosten). Wählt man einen Zauber aus der linken Liste, so wird dieser
+   'verlernt'.
+* Sprachen und Schriften
+   Links die Sprachen, rechts die Schriften. Oben jeweils die, die ein 
+   Charakter beherrscht, unten die, die er lernen kann.
+
+";
+return s;
+}

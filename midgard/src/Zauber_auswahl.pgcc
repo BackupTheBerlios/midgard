@@ -1,0 +1,96 @@
+// generated 2001/2/11 14:16:06 CET by thoma@ig23.
+// using glademm V0.5_11c
+//
+// newer (non customized) versions of this file go to Zauber_auswahl.cc_new
+
+// This file is for your program, I won't touch it again!
+
+#include "Zauber_auswahl.hh"
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+exec sql include sqlca;
+#include "midgard_CG.hh"
+#include <cstring>
+#include <Gtk_OStream.h>
+
+Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const string& typ, st_lernpunkte& l)
+{
+
+  hauptfenster=h;
+  maxpunkte = l.zauber;
+  zauber_auswahl_lernpunkte->set_text(itos(maxpunkte));
+  exec sql begin declare section;
+   char db_typ[5];
+   int db_lernpunkte;
+   char db_fertigkeiten[100];
+   char db_ap[20];
+   int db_kosten;
+  exec sql end declare section;
+   strncpy(db_typ,typ.c_str(),sizeof(db_typ));
+   
+   Transaction tr;
+    exec sql declare zauber cursor for
+      select lernschema.fertigkeit, lernschema.lernpunkte,
+             arkanum_zauber.ap, arkanum_zauber.kosten
+      from lernschema, arkanum_zauber where lernschema.typ = :db_typ
+      and lernschema.art = 'Zauber' and 
+      arkanum_zauber.name = lernschema.fertigkeit 
+      order by lernpunkte ;
+
+    exec sql open zauber;
+    SQLerror::test(__FILELINE__);
+    while (true)
+      {
+         exec sql fetch zauber into :db_fertigkeiten, :db_lernpunkte, :db_ap, :db_kosten;
+         SQLerror::test(__FILELINE__,100);  
+         if (sqlca.sqlcode) break;
+         zauber.push_back(db_struct_zauber(db_lernpunkte,db_fertigkeiten,db_ap,db_kosten));
+      }
+    exec sql close zauber;
+    Gtk::OStream os(zauber_clist_auswahl);
+    for(vector<db_struct_zauber>::iterator i=zauber.begin();i!=zauber.end();++i)
+      {
+         double fac=hauptfenster->get_standard_zauber(typ,i->zauber);
+         os << i->lernpunkte <<"\t"<< i->zauber <<"\t"
+            <<i->ap<<"\t"<<i->kosten*fac<<"\n";
+         os.flush(&*i);
+      }
+    for (unsigned int i=0;i<zauber_clist_auswahl->columns().size();++i)
+      zauber_clist_auswahl->set_column_auto_resize(i,true);
+
+    zauber_clist_auswahl->set_selection_mode(GTK_SELECTION_MULTIPLE);
+    zauber_clist_auswahl->set_reorderable(true);
+}
+
+
+void Zauber_auswahl::on_zauber_clist_auswahl_select_row(gint row, gint column, GdkEvent *event)
+{   
+   if (maxpunkte < atoi(zauber_clist_auswahl->get_text(row,0).c_str() ))
+      {
+         zauber_clist_auswahl->row(row).unselect();
+      }
+   maxpunkte -= atoi(zauber_clist_auswahl->get_text(row,0).c_str());
+   zauber_auswahl_lernpunkte->set_text(itos(maxpunkte));
+}
+
+void Zauber_auswahl::on_zauber_clist_auswahl_unselect_row(gint row, gint column, GdkEvent *event)
+{   
+   maxpunkte += atoi(zauber_clist_auswahl->get_text(row,0).c_str());
+   zauber_auswahl_lernpunkte->set_text(itos(maxpunkte));
+}
+
+void Zauber_auswahl::on_close_zauber_clicked()
+{   
+    vector<st_ausgewaelte_zauber> saz;
+   for (Gtk::CList::SelectionList::iterator i=zauber_clist_auswahl->selection().begin();
+         i!=zauber_clist_auswahl->selection().end();++i)
+     {  
+      db_struct_zauber *ptr
+         =static_cast<db_struct_zauber*>(i->get_data());
+         // ptr=&fert[i->get_row_num()];
+//       cout << ptr ->zauber << ' ' << '\n';
+       saz.push_back(st_ausgewaelte_zauber(ptr->zauber,ptr->ap));
+     }
+  hauptfenster->zauber_uebernehmen(saz);
+  destroy();
+}

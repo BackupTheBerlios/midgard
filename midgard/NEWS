@@ -1,0 +1,110 @@
+##########################################################################
+NEWS IN VERSION 0.1alpha6
+Einige kleinere Bugs beseitigt
+Waffen aussuchen komplett, 
+Ausdruck von Waffen, die ein CHarakter besitzt mit
+   Erfolgswert und Schaden (incl. waffenl. Kampf!)
+Damit der Ausdruck wieder ohne Stopp funktioniert habe ich eine '~'
+   als Defaultwert eingetragen, da diese für LaTeX 
+   ein unsichtbares Zeichen ist.
+Peitsche, Lasso, Bola und Netz hinzugefügt.
+ACHTUNG: Aufgrund eine Beschränkung von LaTeX können bisher nur vier Waffen
+als Besitz ausgedruckt werden. Ich hoffe, daß mir (aus der TeX-Newsgroup in 
+diesem Punkt bals weiterhelfen kann, oder ist einer von LaTeX Experte?
+
+##########################################################################
+NEWS IN VERSION 0.1alpha5
+Bugs aus LaTeX Dokument entfernt
+Auswürfeln von Rüstung möglich -> Anzeige von Auswirkugen im Charakterblatt
+Auswürfeln von Geld bei Spielbeginn möglich -> Anzeige im Charakterblatt
+Aussuchen von Geld und Rüstung beim steigern -> Anzeige im Charakterblatt
+Beim LaTeX Dokument wird die Schrift skaliert, so daß der Text in die 
+   vorgegebenen Kästen paßt. Dadurch kommt es ab zu einem 
+   LaTeX Fehler wenn nicht alle Felder gefüllt sind, die durch '\resizebox'
+   skaliert werden sollen:
+   'Package graphics Error: Division by 0.'
+   Wenn man dann auf 's' + ENTER drückt wird aber ein korrektes Dokument 
+   erstellt. Ich wäre dankbar, wenn jemand weiß wie man diesen Fehler 
+   beseitigen (oder unterdrücken) kann (Vielleicht funktioniert eine '~'?).
+Waffen können zwar auch ausgesucht und ausgedruckt werden, 
+   ABER dieser Teil funktioniert noch nicht 100%tig, also braucht ihr hier auch keine
+   Bugs zu melden, ich veröffentliche diese Version nur, weil in der 
+   Vorherigen der Fehler im LaTeX Dokument war.
+   
+
+
+##########################################################################
+NEWS IN VERSION 0.1alpha4
+Sprachen werden im LaTeX Dokument angezeigt.
+Auf Sandros Anregung hin temporäre Dateien von 'tmp_*' in 'midgard_tmp_*' 
+   umbenannt.
+##########################################################################
+NEWS IN VERSION 0.1alpha3
+Leichte Überarbeitung der graphischen Oberfläche
+Scrollwindows eingefügt, die aus mir unbekannten Gründen 
+   verlorengeganegen waren.
+Löschen von Charakteren in der Datenbank möglich.
+   Dazu darf kein Charaktername eingetragen sein. Durch 
+   Klicken auf 'Charakter laden' bekommt man dann die 
+   Möglichkeit einen Charakter zu laden oder auch zu löschen.
+Ich habe die Fertigkeiten, die nicht zu dem Grundregelwerk gehöhren 
+   erstmal gelöscht, da sie zu einem Programmabsturz führten.
+   Ich denke auch, daß es nur mäßig Sinn macht, die Fertigkeiten
+   aus 'Barbarenwut und Ritterehere' einzubauen, da sowieso bald ein 
+   neues Regelwerk erscheinen wird. Wenn jemand von Euch diese Fertigkeiten
+   eintippen möchte, so wäre das natürlich sehr schön.
+   Am einfachsten ist es Ihr verwendet pgaccess um entsprechenden Tabellen
+   zu editieren. Im Programmcode selber muß dazu nichts geändert werden.
+   Anders sieht es mit Fertigkeiten aus den Regionen aus, die könnte man auch 
+   jetzt schon eintippen. Hat jemand Lust?
+Einfaches Updatescript hinzugefügt, das sich um das Update der Datenbank
+   kümmert und dabei die bisher erzeugten Charaktere erhält.
+
+##########################################################################
+NEWS IN VERSION 0.1alpha2
+Man einen Erfolgswert mit Praxispunkten um 1(2) Punkte höher steigern 
+kann, wenn die entsprechende Basiseigenschaft entsprechnde hoch ist.
+
+Und es gab einen Fehler in der Installationsanleitung:
+Es muß 
+'psql midgard < midgard.postgres' heißen!!!!!
+sonst bleibt die Datenbank leer. Sorry.
+
+##########################################################################
+NEWS IN VERSION 0.1alpha1
+Zahlreiche Bugs beseitigt:
+
+1. Die Lernpunkte waren nicht editierbar, jetzt sind sie es wieder.
+2. Geheimmechanismen öffnen war nicht von Beginn an lernbar (Fehler in
+der Datenbank)
+3. Das Hilfe Fenster war viel zu klein.
+4. 'Giftmischen' war in der Datenbank falsch geschrieben, konnte daher
+nicht gelernt werden.
+5. 'Überleben' in der Datenbank überarbeitet.
+6. Bogen zu Pferd funktioniert jetzt im Lernschema.
+7. Sprache im Lernschema korrigiert.
+8. Zauberkunde kostet den Elementarbeschwörer 3 Lernpunkte
+9. Priester Herrschaft/Krieg stürzte ab -> beseitigt
+10. Priester Herrschaft kosten Sagenkunde und Beredsamkeit je 2
+Lernpunkte
+
+
+##########################################################################
+NEWS IN VERSION 0.1alpha0
+Programm
+* Bugs aus der Datenbankanfrage beim Steigern und beim Zaubermaterial entfernt
+* Beachtung des maximal möglichen Erfolgswertes bei Waffenfertigkeiten für    
+   Krieger/Söldner bzw. Zauberer
+* Mit Praxispunkten kann gesteigert werden
+* Heimatland kann gewählt werden
+* Sprachen können als Muttersprache gewählt werden
+* Sprachen und Lesen/Schreiben kann gelernt + gesteigert werden
+* Zahllose sonstige Bugs entfernt
+* Gründliche Überarbeitung der Graphischen Oberfläche
+
+Datenbank
+* Überleben aufgeteilt in Regionen
+* Fertigkeit 'Fallen' hinzugefügt 
+* Sagenkunde jetzt Grundfähigkeit für ZAU
+* Sprachen und Schriften Tabellen angelegt
+* Anfangswert für Stehlen auf +8 im Lernschema für Sp korrigiert

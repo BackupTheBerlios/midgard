@@ -1,0 +1,191 @@
+// generated 2001/2/8 11:08:32 CET by thoma@ig23.
+// using glademm V0.5_11c
+//
+// newer (non customized) versions of this file go to Fertigkeiten_auswahl.cc_new
+
+// This file is for your program, I won't touch it again!
+
+#include "Fertigkeiten_auswahl.hh"
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+exec sql include sqlca;
+#include "midgard_CG.hh"
+#include <cstring>
+#include <Gtk_OStream.h>
+#include "Sprache_auswahl.hh"
+
+Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ, st_lernpunkte& l)
+{
+  hauptfenster=h;
+  maxpunkte = l.fertigkeiten;
+  fert_auswahl_lernpunkte->set_text(itos(maxpunkte));
+
+  // Lernschema //////////////////////////////////////////////////////////////
+  exec sql begin declare section;
+   char db_typ[5];
+   char db_art[100];
+   int db_lernpunkte;
+   char db_fertigkeiten[100]; 
+   int db_erfolgswert; 
+   int idb_erfolgswert; 
+   char db_attribut[100];
+   int idb_attribut;
+   int idb_art;
+   char db_pflicht[10];
+   int idb_pflicht;
+   int db_fp;
+   char db_vorraussetzung[100];
+  exec sql end declare section;
+   strncpy(db_typ,typ.c_str(),sizeof(db_typ));    
+
+   Transaction tr;
+   exec sql declare fertigkeiten cursor for 
+/*
+      select l.fertigkeit, art, wert, f.attribut,
+             lernpunkte, pflicht_lernen.typ,
+             f.fp, f.vorraussetzung
+      from fertigkeiten f, lernschema l left join pflicht_lernen 
+      on l.typ=pflicht_lernen.typ
+      and l.fertigkeit=pflicht_lernen.pflicht
+      where l.typ = :db_typ
+      and art = 'Fertigkeit' 
+      and f.fertigkeit = l.fertigkeit
+      order by lernpunkte, l.fertigkeit ;
+*/
+      select l.fertigkeit, art, wert, f.attribut,
+             lernpunkte, pflicht_lernen.typ,
+             f.fp, f.vorraussetzung
+      from fertigkeiten f, lernschema l, pflicht_lernen 
+      where l.typ = :db_typ
+      and art = 'Fertigkeit' 
+      and f.fertigkeit = l.fertigkeit
+      and l.typ=pflicht_lernen.typ
+      and l.fertigkeit=pflicht_lernen.pflicht
+      /* order by lernpunkte */
+
+      union all
+      select l.fertigkeit, art, wert, f.attribut,
+             lernpunkte, NULL,
+             f.fp, f.vorraussetzung
+      from fertigkeiten f, lernschema l 
+      where l.typ = :db_typ
+      and art = 'Fertigkeit' 
+      and f.fertigkeit = l.fertigkeit
+      and not exists (select true from pflicht_lernen where 
+            pflicht=l.fertigkeit and l.typ=pflicht_lernen.typ)
+      order by lernpunkte,1;
+
+   exec sql open fertigkeiten;
+   SQLerror::test(__FILELINE__);
+   while (true)
+      {
+         exec sql fetch fertigkeiten into :db_fertigkeiten, :db_art:idb_art ,
+            :db_erfolgswert:idb_erfolgswert, :db_attribut:idb_attribut, 
+            :db_lernpunkte, :db_pflicht:idb_pflicht, :db_fp, :db_vorraussetzung ; 
+         SQLerror::test(__FILELINE__,100);
+         if (sqlca.sqlcode) break;
+         fert.push_back(db_struct_fertigkeiten(db_lernpunkte,db_fertigkeiten,
+               idb_erfolgswert?0:db_erfolgswert, idb_attribut?"":db_attribut,
+               idb_pflicht?"":db_pflicht, db_fp, db_vorraussetzung));
+      }
+   exec sql close fertigkeiten;
+  
+   Gtk::OStream os(fertigkeiten_clist_auswahl);
+   for(vector<db_struct_fertigkeiten>::iterator i=fert.begin();i!=fert.end();++i)
+      {
+        double fac=hauptfenster->get_standard_fertigkeit(typ,i->fertigkeiten);
+        string pf="";
+        if (i->pflicht != "") pf = "*";
+        string serfolgswert=itos(i->erfolgswert);
+        if (serfolgswert=="0") serfolgswert="";
+         os << i->lernpunkte<<"\t"<<i->vorraussetzung<<"\t"<<pf<<"\t"<<i->fertigkeiten<<"\t"
+            << serfolgswert<<"\t"<<i->attribut<<"\t"<<i->fp*fac<<"\n";
+         os.flush(&*i);
+      }
+   // andere Fertigkeiten ////////////////////////////////////////////////
+   exec sql declare an_fert cursor for
+      SELECT f.anfangswert0, f.lp, f.fertigkeit, f.vorraussetzung,
+            f.attribut, f.fp 
+      FROM fertigkeiten f
+      ORDER BY f.fertigkeit ;
+   exec sql open an_fert;
+   SQLerror::test(__FILELINE__);
+
+   while(true)
+      {
+         exec sql fetch an_fert into 
+            :db_erfolgswert:idb_erfolgswert, :db_lernpunkte, :db_fertigkeiten, 
+            :db_vorraussetzung, :db_attribut:idb_attribut, :db_fp ;
+         SQLerror::test(__FILELINE__,100);
+         if (sqlca.sqlcode) break;
+         allg_fert.push_back(db_struct_fertigkeiten(db_lernpunkte,db_fertigkeiten,
+               idb_erfolgswert?0:db_erfolgswert, idb_attribut?"":db_attribut,
+               "", db_fp, db_vorraussetzung));
+      }
+   exec sql close an_fert;
+
+   os <<"\n\n";   
+   for(vector<db_struct_fertigkeiten>::iterator i=allg_fert.begin();
+                                                      i!=allg_fert.end();++i)
+      {
+        double fac=hauptfenster->get_standard_fertigkeit(typ,i->fertigkeiten);
+        string pf="";
+        string serfolgswert=itos(i->erfolgswert);
+        if (serfolgswert=="0") serfolgswert="";
+         os << i->lernpunkte<<"\t"<<i->vorraussetzung<<"\t"<<""<<"\t"<<i->fertigkeiten<<"\t"
+            << serfolgswert<<"\t"<<i->attribut<<"\t"<<i->fp*fac<<"\n";
+         os.flush(&*i);
+      }
+
+   for (unsigned int i=0;i<fertigkeiten_clist_auswahl->columns().size();++i)
+      fertigkeiten_clist_auswahl->set_column_auto_resize(i,true);
+
+   fertigkeiten_clist_auswahl->set_selection_mode(GTK_SELECTION_MULTIPLE);
+   fertigkeiten_clist_auswahl->set_reorderable(true);
+
+}
+
+
+
+void Fertigkeiten_auswahl::on_close_fertigkeiten_clicked()
+{
+   vector<st_ausgewaelte_fertigkeiten> saf;
+   for (Gtk::CList::SelectionList::iterator i=fertigkeiten_clist_auswahl->selection().begin();
+         i!=fertigkeiten_clist_auswahl->selection().end();++i)
+     {  
+      db_struct_fertigkeiten *ptr
+         =static_cast<db_struct_fertigkeiten*>(i->get_data());
+         // ptr=&fert[i->get_row_num()];
+//       cout << ptr ->fertigkeiten << ' ' << ptr -> erfolgswert << '\n'; 
+       saf.push_back(st_ausgewaelte_fertigkeiten(ptr->fertigkeiten,
+                        ptr->erfolgswert, ptr->attribut));
+     }
+  hauptfenster->fertigkeiten_uebernehmen(saf);
+  destroy();
+}
+
+
+void Fertigkeiten_auswahl::on_fertigkeiten_clist_auswahl_select_row(gint row, gint column, GdkEvent *event)
+{
+   if (maxpunkte < atoi(fertigkeiten_clist_auswahl->get_text(row,0).c_str() ))
+      {
+         fertigkeiten_clist_auswahl->row(row).unselect();
+      }
+   maxpunkte -= atoi(fertigkeiten_clist_auswahl->get_text(row,0).c_str());
+   fert_auswahl_lernpunkte->set_text(itos(maxpunkte));
+   // Sprache oder Schrift?
+   string fert = fertigkeiten_clist_auswahl->get_text(row,3);
+   if (fert == "Sprache" || fert == "Lesen/Schreiben" )
+    {
+      if (maxpunkte >=  atoi(fertigkeiten_clist_auswahl->get_text(row,0).c_str() ))
+         manage (new Sprache_auswahl(hauptfenster,fert));
+    }
+}
+
+void Fertigkeiten_auswahl::on_fertigkeiten_clist_auswahl_unselect_row(gint row, gint column, GdkEvent *event)
+{
+   maxpunkte += atoi(fertigkeiten_clist_auswahl->get_text(row,0).c_str());
+   fert_auswahl_lernpunkte->set_text(itos(maxpunkte));
+}
+
+

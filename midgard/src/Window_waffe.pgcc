@@ -1,0 +1,159 @@
+// generated 2001/3/12 22:18:09 CET by thoma@ig23.
+// using glademm V0.5_11f_cvs
+//
+// newer (non customized) versions of this file go to Window_waffe.cc_new
+
+// This file is for your program, I won't touch it again!
+
+#include "config.h"
+#include "Window_waffe.hh"
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+exec sql include sqlca;
+#include <Gtk_OStream.h>
+#include "itos.h"
+#include "WindowInfo.hh"
+#include "midgard_CG.hh"
+#include "Window_Waffe_Geld.hh"
+
+void Window_waffe::on_clist_waffe_select_row(gint row, gint column, GdkEvent *event)
+{   
+  string waffe = clist_waffe->get_text(row,0);
+  oberfenster->get_waffe(waffe);
+  destroy();
+}
+
+Window_waffe::Window_waffe(int we,midgard_CG* h, 
+      Window_Waffe_Geld* o, st_werte& w, vector<st_ausgewaelte_waffen>& wa)
+:vec_waffen(wa) ,werte(w)
+{
+  wurf=we;
+  hauptfenster=h;
+  oberfenster=o;
+  hauptfenster->on_speichern_clicked();
+  Window_waffe::wuerfeln();
+}
+
+Window_waffe::Window_waffe(int we,midgard_CG* h, 
+      st_werte& w, vector<st_ausgewaelte_waffen>& wa)
+:vec_waffen(wa) ,werte(w)
+{
+  wurf=we;
+  hauptfenster=h;
+  hauptfenster->on_speichern_clicked();
+  Window_waffe::wuerfeln();
+}
+
+void Window_waffe::wuerfeln()
+{
+ string strinfo = "Für die Waffenauswahl wurde eine "+itos(wurf)
+            +" gewürfelt,\n der Stand ist "+werte.stand+"\n ---> ";
+ if ( 1<=wurf&&wurf<=10)
+   {
+       werte.kupfer+=10;  strinfo+="10 Kupferstücke";
+       manage(new WindowInfo(strinfo));      
+       oberfenster->Geld();
+       destroy();
+       return;
+   }
+  exec sql begin declare section;
+   char db_waffe[50], db_grund[50], db_art[5] ;
+   char db_name[50], db_version[50] ;
+  exec sql end declare section;
+  strncpy(db_name,werte.name_charakter.c_str(),sizeof(db_name));
+  strncpy(db_version,werte.version.c_str(),sizeof(db_version));
+  exec sql declare ein cursor for
+   SELECT distinct w.name, w.grundkenntnisse, coalesce(w.art_2,'') FROM waffen w,
+   charaktere_fertigkeiten  c
+   WHERE c.fertigkeit=w.name AND c.charakter_name = 'test'
+   AND c.version = :db_version AND c.art ='Waffe';
+ Transaction tr;
+ exec sql open ein;
+ SQLerror::test(__FILELINE__);
+ Gtk::OStream os(clist_waffe);
+ string aartE,aartS,aartW,aartZ,aartA;
+ if (wurf!=-1) Window_waffe::get_art(aartE,aartS,aartW,aartZ,aartA);
+ if (wurf==-1) aartA="A";
+
+ while(true)
+   {
+     exec sql fetch ein into :db_waffe, :db_grund, :db_art;
+     SQLerror::test(__FILELINE__,100);
+     if (sqlca.sqlcode) break;
+     string waffe=db_waffe;
+
+     if (waffe == "waffenloser Kampf") continue;
+     string art = db_art;
+     string sch = hauptfenster->waffe_werte(db_waffe,werte,"Schaden");
+     if (aartE =="E" && art=="E" )
+         os << waffe <<"\t"<<db_grund<<"\t"<<sch<<"\n";
+     if (aartW =="W" && art=="W" )
+         os << waffe <<"\t"<<db_grund<<"\t"<<sch<<"\n";
+     if (aartS =="S" && art=="S" )
+         os << waffe <<"\t"<<db_grund<<"\t"<<sch<<"\n";
+     if (aartZ =="Z" && art=="Z" )
+         os << waffe <<"\t"<<db_grund<<"\t"<<sch<<"\n";
+     if (aartA =="A")
+         os << waffe <<"\t"<<db_grund<<"\t"<<sch<<"\n";
+
+   }
+     if (aartE=="E") strinfo += "Einhandwaffe ";
+     if (aartS=="S") strinfo += "Schußwaffe " ;
+     if (aartW=="W") strinfo += "Wurfwaffe " ;
+     if (aartZ=="Z") strinfo += "Zweihandwaffe " ;
+     if (aartA=="A") strinfo += "Beliebige Waffe" ;
+ if (wurf !=-1) manage(new WindowInfo(strinfo));
+ exec sql close ein;
+ tr.close();
+ for (unsigned int i=0;i<clist_waffe->columns().size();++i)
+   clist_waffe->set_column_auto_resize(i,true);  
+}
+
+
+void Window_waffe::get_art(string& aartE,string& aartS,string& aartW,string& aartZ,string& aartA)
+{
+        if (werte.stand == "Unfrei")
+         {
+//        if ( 1<=wurf&&wurf<=10){werte.kupfer+=10;strinfo+="10 Kupferstücke";} 
+          if (11<=wurf&&wurf<=20){aartE="E";} 
+          if (21<=wurf&&wurf<=40){aartE="E";} 
+          if (41<=wurf&&wurf<=60){aartE="E";aartS="S";} 
+          if (61<=wurf&&wurf<=80){aartE="E";aartW="W";aartS="S";} 
+          if (81<=wurf&&wurf<=90){aartA="A";} 
+          if (91<=wurf&&wurf<=99){aartA="A";} 
+          if (wurf==100){aartE="E";} 
+         }
+        if (werte.stand == "Volk")
+         {
+//        if ( 1<=wurf&&wurf<=10){werte.kupfer+=10;strinfo+="10 Kupferstücke";} 
+          if (11<=wurf&&wurf<=20){aartE="E";} 
+          if (21<=wurf&&wurf<=40){aartE="E";} 
+          if (41<=wurf&&wurf<=60){aartE="E";aartW="W";} 
+          if (61<=wurf&&wurf<=80){aartE="E";aartW="W";aartS="S";} 
+          if (81<=wurf&&wurf<=90){aartA="A";} 
+          if (91<=wurf&&wurf<=99){aartA="A";} 
+          if (wurf==100){aartE="E";} 
+         }
+        if (werte.stand == "Mittelschicht")
+         {
+//        if ( 1<=wurf&&wurf<=10){werte.kupfer+=10;strinfo+="10 Kupferstücke";} 
+          if (11<=wurf&&wurf<=20){aartE="E";} 
+          if (21<=wurf&&wurf<=40){aartE="E";} 
+          if (41<=wurf&&wurf<=60){aartE="E";aartW="W";} 
+          if (61<=wurf&&wurf<=80){aartE="E";aartW="W";aartS="S";} 
+          if (81<=wurf&&wurf<=90){aartA="A";} 
+          if (91<=wurf&&wurf<=99){aartA="A";} 
+          if (wurf==100){aartE="E";} 
+         }
+        if (werte.stand == "Adel")
+         {
+//        if ( 1<=wurf&&wurf<=10){werte.kupfer+=10;strinfo+="10 Kupferstücke";} 
+          if (11<=wurf&&wurf<=20){aartE="E";} 
+          if (21<=wurf&&wurf<=40){aartE="E";} 
+          if (41<=wurf&&wurf<=60){aartE="E";aartZ="Z";} 
+          if (61<=wurf&&wurf<=80){aartE="E";aartZ="Z";} 
+          if (81<=wurf&&wurf<=90){aartA="A";} 
+          if (91<=wurf&&wurf<=99){aartA="A";} 
+          if (wurf==100){aartE="E";} 
+         }
+}

@@ -1,0 +1,267 @@
+#include "midgard_CG.hh"
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+exec sql include sqlca;
+#include <cstring>
+#include <Gtk_OStream.h>
+//#include <algorithm>
+
+void midgard_CG::on_sprache_laden_clicked()
+{   
+   midgard_CG::on_speichern_clicked();
+   midgard_CG::show_alte_schriften();
+   midgard_CG::show_neue_schriften();
+   midgard_CG::show_alte_sprachen();
+   midgard_CG::show_neue_sprachen();
+}   
+    
+void midgard_CG::on_steigern_sprache_clist_neu_select_row(gint row, gint column, GdkEvent *event)
+{   
+   int new_kosten = atoi(clist_steigern_sprachen_neu->get_text(row,1).c_str());
+   werte.gfp += new_kosten;
+   midgard_CG::zeige_werte(werte,"alle");
+
+   string new_sprache = clist_steigern_sprachen_neu->get_text(row,0);
+   vec_sprachen.push_back(st_sprachen(new_sprache,1,""));   
+
+   midgard_CG::zeige_werte(werte,"alle");
+   midgard_CG::sprachen_schrift();
+   midgard_CG::on_speichern_clicked();
+   midgard_CG::show_alte_sprachen();
+   midgard_CG::show_neue_sprachen();
+}   
+    
+void midgard_CG::on_steigern_sprache_clist_alt_select_row(gint row, gint column, GdkEvent *event)
+{   
+   string sprache=clist_steigern_sprachen_alt->get_text(row,0);
+   if (radio_sprache_steigern->get_active())
+    {
+      int kosten_steigern=atoi(clist_steigern_sprachen_alt->get_text(row,2).c_str());
+      werte.gfp += kosten_steigern;
+      if (kosten_steigern != 0)
+      for (vector<st_sprachen>::iterator i=vec_sprachen.begin();
+                     i!= vec_sprachen.end();++i )
+            if ( i->name == sprache) i->wert++;
+    }
+   if (radio_sprache_reduzieren->get_active())
+    {
+      int kosten_reduzieren=atoi(clist_steigern_sprachen_alt->get_text(row,3).c_str());
+      werte.gfp -= kosten_reduzieren;
+      if (kosten_reduzieren != 0)
+      for (vector<st_sprachen>::iterator i=vec_sprachen.begin();
+                     i!= vec_sprachen.end();++i )
+            if ( i->name == sprache) i->wert--;
+    }
+   if (radio_sprache_verlernen->get_active())
+    {
+      int kosten_verlernen=atoi(clist_steigern_sprachen_alt->get_text(row,4).c_str());
+      werte.gfp -= kosten_verlernen;
+      if (kosten_verlernen != 0)
+      for (vector<st_sprachen>::iterator i=vec_sprachen.begin();
+                     i!= vec_sprachen.end();++i )
+            if ( i->name == sprache) {vec_sprachen.erase(i);break;};
+    }
+   midgard_CG::zeige_werte(werte,"alle");
+   midgard_CG::sprachen_schrift();
+   midgard_CG::on_speichern_clicked();   
+   midgard_CG::show_alte_sprachen(); 
+   midgard_CG::show_neue_sprachen(); 
+}
+    
+void midgard_CG::on_radio_sprache_steigern_toggled()
+{   
+}   
+    
+void midgard_CG::on_radio_sprache_reduzieren_toggled()
+{   
+}   
+    
+void midgard_CG::on_radio_sprache_verlernen_toggled()
+{   
+}   
+
+void midgard_CG::on_clist_steigern_schrift_alt_select_row(gint row, gint column, GdkEvent *event)
+{   
+   int new_kosten = atoi(clist_steigern_schrift_alt->get_text(row,2).c_str());
+   werte.gfp -= new_kosten;
+   string urschrift = clist_steigern_schrift_alt->get_text(row,0);
+   for (vector<st_schriften>::iterator i=vec_schriften.begin();
+            i!=vec_schriften.end();++i)
+      {
+         if (i->urschrift == urschrift ) { vec_schriften.erase(i);break;}
+      }
+   midgard_CG::zeige_werte(werte,"alle");
+   midgard_CG::sprachen_schrift();
+   midgard_CG::on_speichern_clicked();
+   midgard_CG::show_alte_schriften();
+   midgard_CG::show_neue_schriften();
+}   
+    
+void midgard_CG::on_clist_steigern_schrift_neu_select_row(gint row, gint column, GdkEvent *event)
+{   
+   int new_kosten = atoi(clist_steigern_schrift_neu->get_text(row,0).c_str());
+   werte.gfp += new_kosten;
+
+   string urschrift = clist_steigern_schrift_neu->get_text(row,1);
+   string art_schrift = clist_steigern_schrift_neu->get_text(row,2);
+   vec_schriften.push_back(st_schriften(urschrift,art_schrift));
+
+   midgard_CG::zeige_werte(werte,"alle");
+   midgard_CG::sprachen_schrift();
+   midgard_CG::on_speichern_clicked();
+   midgard_CG::show_alte_schriften();
+   midgard_CG::show_neue_schriften();
+}   
+
+
+void midgard_CG::show_alte_sprachen()
+{
+   clist_steigern_sprachen_alt->clear();
+   Gtk::OStream os(clist_steigern_sprachen_alt);
+   for (vector<st_sprachen>::const_iterator i=vec_sprachen.begin();
+            i!=vec_sprachen.end();++i)
+      {
+         exec sql begin declare section;
+            int db_max_erfolgswert;
+            char db_alter_erfolgswert[10];
+            char db_neuer_erfolgswert[10];
+            char db_sprache[50];
+            char query[256];
+            int db_ps, db_pr, db_fp;
+         exec sql end declare section;
+         strncpy(db_sprache,i->name.c_str(),sizeof(db_sprache));
+         exec sql select distinct max_wert into :db_max_erfolgswert 
+               from sprachen where name = :db_sprache;
+
+
+         string ae = "p";  ae += itos(i->wert);
+         string ne = "p";  ne += itos(i->wert+1);
+         strncpy(db_neuer_erfolgswert, ne.c_str(), sizeof(db_neuer_erfolgswert));
+         strncpy(db_alter_erfolgswert, ae.c_str(), sizeof(db_alter_erfolgswert));
+
+         snprintf(query,sizeof(query),"SELECT \
+         coalesce(%s,0), coalesce(%s,0) 
+         FROM steigern_fertigkeiten_werte \
+         WHERE name = 'Sprache'",
+         db_alter_erfolgswert,db_neuer_erfolgswert);
+
+         Transaction tr;
+         exec sql prepare s_ein_ from :query;
+         exec sql declare s_ein cursor for s_ein_;
+         exec sql open s_ein;
+         exec sql fetch s_ein into :db_pr, :db_ps ;
+         SQLerror::test(__FILELINE__);
+         exec sql close s_ein;
+         tr.close();
+         
+         exec sql select distinct fp into :db_fp from sprachen where name = :db_sprache ;
+         SQLerror::test(__FILELINE__);
+         double fac = midgard_CG::get_standard_fertigkeit(typ.s,"Sprache");
+         string sfp = itos(db_fp * fac);
+         string kosten_steigern =   itos(db_ps*fac);
+         string kosten_reduzieren = itos(db_pr*fac);
+         if (kosten_steigern=="0") kosten_steigern="";         
+         if (kosten_reduzieren=="0") kosten_reduzieren="";         
+         if (kosten_reduzieren!="") sfp ="" ;
+         if (db_max_erfolgswert==i->wert) kosten_steigern="";
+         os << i->name<<"\t"<<i->wert<<"\t"
+            <<kosten_steigern<<"\t"<<kosten_reduzieren<<"\t"<<sfp<<"\n";
+      }
+ for (unsigned int i=0;i<clist_steigern_sprachen_alt->columns().size();++i)
+   clist_steigern_sprachen_alt->set_column_auto_resize(i,true);
+ clist_steigern_sprachen_alt->set_reorderable(true);
+}
+
+
+void midgard_CG::show_neue_sprachen()
+{
+  clist_steigern_sprachen_neu->clear();
+  Gtk::OStream os(clist_steigern_sprachen_neu);
+  exec sql begin declare section;
+   char db_name[50], db_urschrift[50];
+   int db_fp;
+   char db_cname[50],db_version[50];
+  exec sql end declare section;
+  strncpy(db_cname,werte.name_charakter.c_str(),sizeof(db_cname));
+  strncpy(db_version,werte.version.c_str(),sizeof(db_version));   
+  Transaction tr; 
+ exec sql declare ein cursor for
+   SELECT DISTINCT name, fp, schrift from sprachen
+   WHERE  name NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten
+   WHERE art = 'Sprache' 
+   AND charakter_name = :db_cname AND version = :db_version) order by name;
+  SQLerror::test(__FILELINE__);
+ exec sql open ein;
+  while (true)
+   {
+      exec sql fetch ein into :db_name, :db_fp, :db_urschrift;
+      SQLerror::test(__FILELINE__,100);  
+      if (sqlca.sqlcode) break;
+      double fac = midgard_CG::get_standard_fertigkeit(typ.s,"Sprache");
+      os <<db_name <<"\t"<<db_urschrift<<"\t" << db_fp*fac<<"\n";
+   }
+ exec sql close ein;
+ for (unsigned int i=0;i<clist_steigern_sprachen_neu->columns().size();++i)
+   clist_steigern_sprachen_neu->set_column_auto_resize(i,true);
+ clist_steigern_sprachen_neu->set_reorderable(true);
+ tr.close();
+}
+
+
+
+void midgard_CG::show_alte_schriften()
+{
+  clist_steigern_schrift_alt->clear();
+  Gtk::OStream os(clist_steigern_schrift_alt);
+  exec sql begin declare section;
+   char db_typ[20], db_name[20];
+   int db_kosten;
+  exec sql end declare section;
+  for (vector<st_schriften>::const_iterator i=vec_schriften.begin();
+      i!=vec_schriften.end();++i)
+   {
+      strncpy(db_name,i->urschrift.c_str(),sizeof(db_name));
+      exec sql select typ, kosten into :db_typ, :db_kosten 
+                           from schrift where name = :db_name;
+      double fac = midgard_CG::get_standard_fertigkeit(typ.s,"Lesen/Schreiben");
+      os << i->urschrift<<"\t"<<db_typ<<"\t"<<db_kosten*fac<<"\n";    
+   }
+}
+
+void midgard_CG::show_neue_schriften()
+{
+  clist_steigern_schrift_neu->clear();
+  Gtk::OStream os(clist_steigern_schrift_neu);
+  exec sql begin declare section;
+   char db_name[50];
+   int db_fp;
+   char db_typ[30],db_cname[50],db_version[50];
+  exec sql end declare section;
+  strncpy(db_cname,werte.name_charakter.c_str(),sizeof(db_cname));
+  strncpy(db_version,werte.version.c_str(),sizeof(db_version));   
+  Transaction tr; 
+ exec sql declare ein2 cursor for
+   SELECT DISTINCT name, kosten, typ from schrift   
+   WHERE  name NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten
+   WHERE art = 'Urschrift' 
+   AND charakter_name = :db_cname AND version = :db_version) order by name, typ;
+  SQLerror::test(__FILELINE__);
+ exec sql open ein2;
+  while (true)
+   {
+      exec sql fetch ein2 into :db_name, :db_fp, :db_typ;
+      SQLerror::test(__FILELINE__,100);  
+      if (sqlca.sqlcode) break;
+      double fac = midgard_CG::get_standard_fertigkeit(typ.s,"Lesen/Schreiben");
+      os << db_fp*fac <<"\t"<<db_name<<"\t"<<db_typ <<"\n";
+   }
+ exec sql close ein2;
+ tr.close();
+ for (unsigned int i=0;i<clist_steigern_schrift_neu->columns().size();++i)
+   clist_steigern_schrift_neu->set_column_auto_resize(i,true);
+ clist_steigern_schrift_neu->set_reorderable(true);
+}
+
+
+
+

@@ -1,0 +1,74 @@
+// generated 2001/2/11 14:16:06 CET by thoma@ig23.
+// using glademm V0.5_11c
+//
+// newer (non customized) versions of this file go to Zauber_auswahl.cc_new
+
+// This file is for your program, I won't touch it again!
+
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+exec sql include sqlca;
+#include "midgard_CG.hh"
+#include <cstring>
+#include <Gtk_OStream.h>
+
+void midgard_CG::Zauber_get_daten(vector<st_zauber>& zauber)
+{
+ for (vector<st_zauber>::iterator i=zauber.begin();i!=zauber.end();++i)
+ {
+  exec sql begin declare section;
+   char db_name[100];
+   int db_kosten;
+   char db_ap[20];
+   char db_art[20];
+   char db_stufe[20];
+   char db_agens[20];
+   char db_prozess[20];
+   char db_reagens[20];
+   char db_zauberdauer[20];
+   char db_reichweite[20];
+   char db_wirkungsziel[20];
+   char db_wirkungsbereich[20];
+   char db_wirkungsdauer[20];
+   char db_ursprung[20];
+   char db_material[100];
+  exec sql end declare section;
+   strncpy(db_name,i->name.c_str(),sizeof(db_name));
+
+   Transaction tr;
+    exec sql declare zauber cursor for
+      select kosten, ap, art, stufe, agens, prozess, reagens,
+            zauberdauer, reichweite, wirkungsziel, wirkungsbereich,
+            wirkungsdauer, ursprung, material
+      from arkanum_zauber where name = :db_name ;
+
+    exec sql open zauber;
+    SQLerror::test(__FILELINE__);
+
+
+         exec sql fetch zauber into :db_kosten, :db_ap, :db_art, :db_stufe,
+            :db_agens, :db_prozess, :db_reagens, :db_zauberdauer,
+            :db_reichweite, :db_wirkungsziel, :db_wirkungsbereich,
+            :db_wirkungsdauer, :db_ursprung, :db_material ;
+         SQLerror::test(__FILELINE__,100);  
+         if (sqlca.sqlcode) break;
+         i->kosten = db_kosten;
+         i->ap = db_ap;
+         i->art = db_art ;
+         i->stufe = db_stufe ;
+         i->agens = db_agens ;
+         i->prozess = db_prozess ;
+         i->reagens = db_reagens ;
+         i->zauberdauer = db_zauberdauer ;
+         i->reichweite = db_reichweite ;
+         i->wirkungsziel = db_wirkungsziel ;
+         i->wirkungsbereich = db_wirkungsbereich ;
+         i->wirkungsdauer = db_wirkungsdauer ;
+         i->ursprung = db_ursprung;
+         i->material = db_material ;
+    exec sql close zauber;
+    tr.commit();
+ }
+}
+
+

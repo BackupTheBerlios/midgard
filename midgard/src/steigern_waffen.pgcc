@@ -1,0 +1,301 @@
+#include "midgard_CG.hh"
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+exec sql include sqlca;
+#include <cstring>
+#include <Gtk_OStream.h>
+#include <algorithm>
+
+
+void midgard_CG::on_waffen_laden_clicked()
+{
+   midgard_CG::on_speichern_clicked();
+   midgard_CG::show_alte_grund();
+   midgard_CG::show_neue_grund();
+   midgard_CG::show_alte_waffen();
+   midgard_CG::show_neue_waffen();
+   
+}
+
+void midgard_CG::show_alte_grund()
+{
+   grundkenntnisse_clist_alt->clear();
+   Gtk::OStream os(grundkenntnisse_clist_alt);
+ for (map<string,string>::const_iterator i=waffen_grundkenntnisse.begin();
+      i!=waffen_grundkenntnisse.end();++i)
+   {
+      os << i->first<<"\n";
+   }
+
+ for (unsigned int i=0;i<grundkenntnisse_clist_alt->columns().size();++i)
+   grundkenntnisse_clist_alt->set_column_auto_resize(i,true);
+ grundkenntnisse_clist_alt->set_reorderable(true);
+}
+
+void midgard_CG::show_alte_waffen()
+{
+   steigern_waffen_clist_alt->clear();
+   Gtk::OStream os(steigern_waffen_clist_alt);
+   for (vector<st_ausgewaelte_waffen>::const_iterator i=vec_waffen.begin();
+            i!=vec_waffen.end();++i)
+      {
+         exec sql begin declare section;
+            char db_alter_erfolgswert[10];
+            char db_neuer_erfolgswert[10];
+            int db_schwierigkeit;
+            int db_erfolgsfaktor_s;
+            int db_erfolgsfaktor_r;
+            char db_waffe[50];
+            char query[256];
+         exec sql end declare section;
+         strncpy(db_waffe,i->name.c_str(),sizeof(db_waffe));
+         string ae = "p";  ae += itos(i->erfolgswert);
+         string ne = "p";  ne += itos(i->erfolgswert+1);
+         strncpy(db_neuer_erfolgswert, ne.c_str(), sizeof(db_neuer_erfolgswert));
+         strncpy(db_alter_erfolgswert, ae.c_str(), sizeof(db_alter_erfolgswert));
+         snprintf(query,sizeof(query),"SELECT w.schwierigkeit, \
+coalesce(s.%s,0), coalesce(s.%s,0) FROM waffen w, waffen_steigern s WHERE w.art = s.name AND \
+w.name = '%s'",
+db_alter_erfolgswert,db_neuer_erfolgswert,db_waffe);
+
+         Transaction tr;
+         exec sql prepare w_ein_ from :query;
+         exec sql declare w_ein cursor for w_ein_;
+         exec sql open w_ein;
+         exec sql fetch w_ein into :db_schwierigkeit, 
+            :db_erfolgsfaktor_r, :db_erfolgsfaktor_s;
+         SQLerror::test(__FILELINE__);
+         exec sql close w_ein;
+         tr.close();
+         
+         
+         double fac = midgard_CG::get_standard_waffen(typ.s,i->name);
+         string kosten_steigern = itos(db_schwierigkeit*db_erfolgsfaktor_s*fac);
+         string kosten_reduzieren = itos(db_schwierigkeit*db_erfolgsfaktor_r*fac);
+         if (kosten_steigern=="0") kosten_steigern="";         
+         if (kosten_reduzieren=="0") kosten_reduzieren="";         
+         os << i->name<<"\t"<<i->erfolgswert<<"\t"
+            <<kosten_steigern<<"\t"<<kosten_reduzieren<<"\n";
+      }
+ for (unsigned int i=0;i<steigern_waffen_clist_alt->columns().size();++i)
+   steigern_waffen_clist_alt->set_column_auto_resize(i,true);
+ steigern_waffen_clist_alt->set_reorderable(true);
+
+}
+
+void midgard_CG::show_neue_grund()
+{
+  grundkenntnisse_clist_neu->clear();
+  exec sql begin declare section;
+   char db_name[50];
+   int db_fp;
+   char db_cname[50],db_version[50];
+  exec sql end declare section;
+  strncpy(db_cname,werte.name_charakter.c_str(),sizeof(db_cname));
+  strncpy(db_version,werte.version.c_str(),sizeof(db_version));
+  Transaction tr;  
+  exec sql declare grund_ein cursor for 
+   SELECT name, fp from waffen_grund 
+   WHERE  name NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten 
+   WHERE art = 'Grundkenntnis' 
+   AND charakter_name = :db_cname AND version = :db_version) order by name;
+  SQLerror::test(__FILELINE__);
+  Gtk::OStream os(grundkenntnisse_clist_neu);
+ exec sql open grund_ein;
+  while (true)
+   {
+      exec sql fetch grund_ein into :db_name, :db_fp;
+      SQLerror::test(__FILELINE__,100);  
+      if (sqlca.sqlcode) break;
+
+      double fac = midgard_CG::get_standard_waffen(typ.s,db_name);
+      os << db_name<<"\t"<<db_fp*fac <<"\n";
+   }
+ exec sql close grund_ein;
+ for (unsigned int i=0;i<grundkenntnisse_clist_neu->columns().size();++i)
+   grundkenntnisse_clist_neu->set_column_auto_resize(i,true);
+ grundkenntnisse_clist_neu->set_reorderable(true);
+ tr.close();
+}
+
+void midgard_CG::show_neue_waffen()
+{
+   steigern_waffen_clist_neu->clear();
+   Gtk::OStream os(steigern_waffen_clist_neu);
+   exec sql begin declare section;
+      char db_waffe[50];
+      char db_art[50];
+      char query[512];
+   exec sql end declare section;
+   snprintf(query,sizeof(query),"SELECT w.name, w.art FROM  waffen w, \
+   charaktere_fertigkeiten c WHERE  w.grundkenntnisse = c.fertigkeit \
+   AND c.charakter_name = '%s' AND w.name NOT IN \
+   (SELECT fertigkeit FROM charaktere_fertigkeiten WHERE art = 'Waffe'
+   AND charakter_name = '%s' AND version = '%s')",
+   werte.name_charakter.c_str(),werte.name_charakter.c_str(),werte.version.c_str());
+   Transaction tr;
+   exec sql prepare wa_ein_ from :query;
+   exec sql declare wa_ein cursor for wa_ein_;
+   exec sql open wa_ein;
+   SQLerror::test(__FILELINE__);
+   while(true)
+      {
+         exec sql fetch wa_ein into :db_waffe, :db_art;
+         SQLerror::test(__FILELINE__,100);
+         if (sqlca.sqlcode) break;
+         int wert=4;
+         if (!strcmp(db_art,"Verteidigung")) wert = 1;
+         os << db_waffe<<"\t"<<wert<<"\n"; 
+      }
+   exec sql close wa_ein;
+   tr.close();
+ for (unsigned int i=0;i<steigern_waffen_clist_neu->columns().size();++i)
+   steigern_waffen_clist_neu->set_column_auto_resize(i,true);
+ steigern_waffen_clist_neu->set_reorderable(true);
+ 
+}
+
+
+void midgard_CG::on_grundkenntnisse_clist_neu_select_row(gint row, gint column, GdkEvent *event)
+{
+  int new_kosten = atoi(grundkenntnisse_clist_neu->get_text(row,1).c_str());
+  werte.gfp += new_kosten;
+  midgard_CG::zeige_werte(werte,"alle");
+
+  string new_grund = grundkenntnisse_clist_neu->get_text(row,0);
+  waffen_grundkenntnisse[new_grund] = "X";
+
+  midgard_CG::on_speichern_clicked();
+  midgard_CG::show_alte_grund();
+  midgard_CG::show_neue_grund();
+  midgard_CG::show_alte_waffen();
+  midgard_CG::show_neue_waffen();
+}
+
+void midgard_CG::on_grundkenntnisse_clist_alt_select_row(gint row, gint column, GdkEvent *event)
+{
+}
+
+
+
+
+void midgard_CG::on_steigern_waffen_clist_alt_select_row(gint row, gint column, GdkEvent *event)
+{
+   string waffe=steigern_waffen_clist_alt->get_text(row,0);
+   int erfolgswert=atoi(steigern_waffen_clist_alt->get_text(row,1).c_str());
+
+   if (radio_waffen_steigern->get_active())
+      {
+       if (!togglebutton_praxispunkte_waffen->get_active()) // steigern mit Lernen
+        {
+          int maxwert;
+          // Angriff oder Verteidigungswaffe?
+          exec sql begin declare section ;
+            char db_name[30], db_art[30];
+          exec sql end declare section;
+          strncpy(db_name,waffe.c_str(),sizeof(db_name));
+          exec sql select art into :db_art from waffen where name = :db_name ;
+          SQLerror::test(__FILELINE__);
+          string art = db_art;
+          if (art == "Angriff" || art == "Fern" )
+            {
+             maxwert = 17;
+             if (typ.s == "Kr" || typ.s == "Sö") maxwert = 19;
+             if (typ.z == "z" ) maxwert = 14;
+            }
+          if (art == "Verteidigung")
+            {
+             maxwert = 7;
+             if (typ.s == "Kr" || typ.s == "Sö") maxwert = 8;
+             if (typ.z == "z" ) maxwert = 6;
+            }
+          if (erfolgswert >=maxwert) 
+            {  
+               string strinfo = "Maximal möglicher Erfolgswert erreicht\n";
+               manage (new WindowInfo(strinfo));
+               return ;
+            }          
+          int kosten_steigern=atoi(steigern_waffen_clist_alt->get_text(row,2).c_str());
+          werte.gfp += kosten_steigern;
+          if (kosten_steigern != 0)
+          for (vector<st_ausgewaelte_waffen>::iterator i=vec_waffen.begin();
+             i!=vec_waffen.end();++i)
+               if (i->name==waffe) i->erfolgswert++;
+        }
+       else // steigern mit Praxispunkten
+        {
+          bool wuerfeln;
+          if (radiobutton_praxis_auto_waffen->get_active())     wuerfeln = false;
+          if (radiobutton_praxis_wuerfeln_waffen->get_active()) wuerfeln = true;
+
+          string art="Waffe";
+          string fert = steigern_waffen_clist_alt->get_text(row,0);
+          int alter_wert = atoi(steigern_waffen_clist_alt->get_text(row,1).c_str());
+          int gelungen = midgard_CG::praxispunkte_wuerfeln(fert,alter_wert,art,wuerfeln);
+          if (gelungen)
+            {
+              int kosten_steigern=atoi(steigern_waffen_clist_alt->get_text(row,2).c_str());
+              werte.gfp += kosten_steigern;
+//              if (kosten_steigern != 0)
+              for (vector<st_ausgewaelte_waffen>::iterator i=vec_waffen.begin();
+                i!=vec_waffen.end();++i)
+                  if (i->name==waffe) i->erfolgswert++;
+            }
+        }
+      }
+   if (radio_waffen_reduzieren->get_active())
+      {
+        int kosten_reduzieren=atoi(steigern_waffen_clist_alt->get_text(row,3).c_str());
+        werte.gfp -= kosten_reduzieren;
+        if (kosten_reduzieren != 0)
+        for (vector<st_ausgewaelte_waffen>::iterator i=vec_waffen.begin();
+           i!=vec_waffen.end();++i)
+              if (i->name==waffe) i->erfolgswert--;  
+      }
+   midgard_CG::zeige_werte(werte,"alle");
+   midgard_CG::on_speichern_clicked();
+   midgard_CG::show_alte_waffen();
+   midgard_CG::show_neue_waffen();
+   
+   steigern_waffen_clist_alt->unselect_row(row);
+}
+
+
+void midgard_CG::on_steigern_waffen_clist_neu_select_row(gint row, gint column, GdkEvent *event)
+{
+   int new_kosten = atoi(steigern_waffen_clist_neu->get_text(row,2).c_str());
+   werte.gfp += new_kosten;
+   midgard_CG::zeige_werte(werte,"alle");
+   string new_fert = steigern_waffen_clist_neu->get_text(row,0);
+   int erf = atoi(steigern_waffen_clist_neu->get_text(row,1).c_str());
+   vec_waffen.push_back(st_ausgewaelte_waffen(new_fert,erf));   
+   midgard_CG::on_speichern_clicked();
+   midgard_CG::show_alte_waffen();
+   midgard_CG::show_neue_waffen();
+}
+
+
+
+void midgard_CG::on_radio_waffen_steigern_toggled()
+{   
+}
+
+void midgard_CG::on_radio_waffen_reduzieren_toggled()
+{   
+   if (radio_waffen_reduzieren->get_active())
+      togglebutton_praxispunkte_waffen->set_active(false);
+}
+
+void midgard_CG::on_togglebutton_praxispunkte_waffen_toggled()
+{   
+   if (togglebutton_praxispunkte_waffen->get_active()) 
+      radio_waffen_steigern->set_active(true);
+}
+
+void midgard_CG::on_radiobutton_praxis_wuerfeln_waffen_toggled()
+{   
+}
+
+void midgard_CG::on_radiobutton_praxis_auto_waffen_toggled()
+{   
+}

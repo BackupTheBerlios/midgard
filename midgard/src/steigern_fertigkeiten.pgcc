@@ -1,0 +1,233 @@
+#include "midgard_CG.hh"
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+exec sql include sqlca;
+#include <cstring>
+#include <Gtk_OStream.h>
+#include <algorithm>
+
+
+
+void midgard_CG::on_fertigkeiten_laden_clicked()
+{
+  midgard_CG::on_speichern_clicked();
+  midgard_CG::show_alte_fertigkeiten();
+  midgard_CG::show_neue_fertigkeiten();
+   
+}
+
+void midgard_CG::show_alte_fertigkeiten()
+{
+   steigern_fert_clist_alt->clear();
+   Gtk::OStream os(steigern_fert_clist_alt);
+   for ( vector<st_ausgewaelte_fertigkeiten>::iterator i=vec_fertigkeiten.begin();i!=vec_fertigkeiten.end();++i)
+      {
+        string skosten_steigern="", skosten_reduzieren="", sfp="";
+        string serfolgswert=itos(i->erfolgswert);
+        if (i->erfolgswert != 0)
+         {
+            exec sql begin declare section;
+               char db_typ[5];
+               char db_alter_erfolgswert[10];
+               char db_neuer_erfolgswert[10];
+               int db_kosten_steigern;
+               int db_kosten_reduzieren;
+               int db_fp;
+               char query[1024];
+            exec sql end declare section;
+            strncpy(db_typ,typ.s.c_str(),sizeof(db_typ));
+            string ae = "p";  ae += itos(abs(i->erfolgswert));
+            string ne = "p";  ne += itos(abs(i->erfolgswert+1));
+            strncpy(db_neuer_erfolgswert, ne.c_str(), sizeof(db_neuer_erfolgswert));
+            strncpy(db_alter_erfolgswert, ae.c_str(), sizeof(db_alter_erfolgswert));
+
+            snprintf(query,sizeof(query),"SELECT coalesce(%s,0), coalesce(%s,0), fp \
+FROM steigern_fertigkeiten s, steigern_fertigkeiten_werte w, fertigkeiten f \
+WHERE s.name = '%s' AND w.name = s.wie AND f.fertigkeit = '%s' "
+, db_alter_erfolgswert, db_neuer_erfolgswert, i->name.c_str(), i->name.c_str());
+
+//            exec sql select query into :db_kosten_reduzieren, :db_kosten_steigern;
+            Transaction tr;
+            exec sql prepare kosten_ein_ from :query ;  
+            exec sql declare kosten_ein cursor for kosten_ein_ ;  
+            exec sql open kosten_ein;
+            exec sql fetch kosten_ein into :db_kosten_reduzieren, :db_kosten_steigern, :db_fp;
+            SQLerror::test(__FILELINE__);
+            exec sql close kosten_ein;
+            tr.close();
+
+            double fac = midgard_CG::get_standard_fertigkeit(typ.s,i->name);
+            sfp = itos(db_fp * fac);
+            skosten_steigern = itos(db_kosten_steigern*fac);
+            skosten_reduzieren = itos(db_kosten_reduzieren*fac);
+         }
+        if (i->erfolgswert == 0) serfolgswert = "" ;
+        if ( skosten_steigern == "0" ) skosten_steigern="";
+        if ( skosten_reduzieren == "0" ) skosten_reduzieren="";
+        if (skosten_reduzieren!="") sfp ="" ;
+         os << i->name<<"\t"<<serfolgswert<<"\t"
+            <<skosten_steigern<<"\t"<<skosten_reduzieren<<"\t"<<sfp<<"\n";
+      }
+ for (unsigned int i=0;i<steigern_fert_clist_alt->columns().size();++i)
+   steigern_fert_clist_alt->set_column_auto_resize(i,true);
+ steigern_fert_clist_alt->set_reorderable(true);
+}
+
+void midgard_CG::show_neue_fertigkeiten()
+{
+  steigern_fert_clist_neu->clear();
+  exec sql begin declare section;
+   char db_typ[5];
+   char db_fertigkeiten[100];
+   int db_erfolgswert; 
+   char db_art[100];
+   int idb_erfolgswert;
+   int db_fp;
+   char query[1000];
+   char db_vorraussetzung[100];
+  exec sql end declare section;
+  strncpy(db_typ,typ.s.c_str(),sizeof(db_typ));
+  snprintf(query,sizeof(query),"SELECT fertigkeit, fp, anfangswert, \
+%s, vorraussetzung FROM fertigkeiten WHERE \
+(%s = 'Grund' OR %s = 'Standard' OR %s = 'Ausnahme') \
+AND fertigkeit NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten \
+WHERE charakter_name = '%s' AND version = '%s') \
+AND fertigkeit != 'Sprache' AND fertigkeit != 'Lesen/Schreiben' \
+ORDER BY fertigkeit",  db_typ, db_typ, db_typ, db_typ, werte.name_charakter.c_str(),
+   werte.version.c_str());
+
+//cout << query<<"\n"<<werte.name_charakter<<"\t"<<werte.version<<"\n";
+ Transaction tr;  
+ exec sql prepare fert_ein_ from :query ;  
+ exec sql declare fert_ein cursor for fert_ein_ ;  
+ exec sql open fert_ein;
+ SQLerror::test(__FILELINE__);
+ Gtk::OStream os(steigern_fert_clist_neu);
+ while (true)
+   {
+      exec sql fetch fert_ein into :db_fertigkeiten, :db_fp, 
+         :db_erfolgswert:idb_erfolgswert, :db_art, :db_vorraussetzung;
+      SQLerror::test(__FILELINE__,100);  
+      if (sqlca.sqlcode) break;
+      string serfolgswert=itos(db_erfolgswert);
+      if (serfolgswert=="0") serfolgswert="";
+      double fac = midgard_CG::get_standard_fertigkeit(typ.s,db_fertigkeiten);
+      os << db_fertigkeiten<<"\t"<<serfolgswert<<"\t"<<db_fp*fac
+         <<"\t"<<db_art<<"\t"<<db_vorraussetzung<<"\n";
+   }
+ exec sql close fert_ein;
+ for (unsigned int i=0;i<steigern_fert_clist_neu->columns().size();++i)
+   steigern_fert_clist_neu->set_column_auto_resize(i,true);
+ steigern_fert_clist_neu->set_reorderable(true);
+ tr.commit();
+}
+
+
+
+
+void midgard_CG::on_steigern_fert_clist_alt_select_row(gint row, gint column, GdkEvent *event)
+{
+  string fertigkeit=steigern_fert_clist_alt->get_text(row,0);
+   if (radio_fert_steigern->get_active())
+    {
+      int kosten_steigern=atoi(steigern_fert_clist_alt->get_text(row,2).c_str());
+      if (!togglebutton_praxispunkte_fertigkeiten->get_active()) // Steigern mit lernen
+         {
+            werte.gfp += kosten_steigern;
+            if (kosten_steigern != 0)
+            for (vector<st_ausgewaelte_fertigkeiten>::iterator i=vec_fertigkeiten.begin();
+                     i!= vec_fertigkeiten.end();++i )
+               if ( i->name == fertigkeit) i->erfolgswert++; 
+         }
+      else  // Lernen mit Praxispunkten 
+         {
+            bool wuerfeln;
+            if (radiobutton_praxis_wuerfeln_fertigkeiten->get_active()) wuerfeln = true;
+            if (radiobutton_praxis_auto_fertigkeiten->get_active()) wuerfeln = false;
+            int alter_wert = atoi(steigern_fert_clist_alt->get_text(row,1).c_str());
+            int gelungen = midgard_CG::praxispunkte_wuerfeln(fertigkeit,alter_wert,"Fertigkeit",wuerfeln);
+            if (gelungen)
+               {
+                  werte.gfp += kosten_steigern/2;
+                  for (vector<st_ausgewaelte_fertigkeiten>::iterator i=vec_fertigkeiten.begin();
+                        i!= vec_fertigkeiten.end();++i )
+                     if ( i->name == fertigkeit) i->erfolgswert++; 
+               }
+         }     
+    }
+   if (radio_fert_reduzieren->get_active())
+         {
+            int kosten_reduzieren=atoi(steigern_fert_clist_alt->get_text(row,3).c_str());
+            werte.gfp -= kosten_reduzieren;
+            if (kosten_reduzieren != 0)
+            for (vector<st_ausgewaelte_fertigkeiten>::iterator i=vec_fertigkeiten.begin();
+                     i!= vec_fertigkeiten.end();++i )
+               if ( i->name == fertigkeit) i->erfolgswert--; 
+         }
+   if (radio_fert_verlernen->get_active())
+         {
+            int kosten_verlernen=atoi(steigern_fert_clist_alt->get_text(row,4).c_str());
+            werte.gfp -= kosten_verlernen;
+            if (kosten_verlernen != 0)
+            for (vector<st_ausgewaelte_fertigkeiten>::iterator i=vec_fertigkeiten.begin();
+                     i!= vec_fertigkeiten.end();++i )
+               if ( i->name == fertigkeit) {vec_fertigkeiten.erase(i);break;}; 
+         }
+   midgard_CG::zeige_werte(werte,"alle");
+   midgard_CG::on_speichern_clicked();
+   midgard_CG::show_alte_fertigkeiten();
+   midgard_CG::show_neue_fertigkeiten();
+   
+   steigern_fert_clist_alt->unselect_row(row);
+}
+
+void midgard_CG::on_steigern_fert_clist_neu_select_row(gint row, gint column, GdkEvent *event)
+{
+  int new_kosten = atoi(steigern_fert_clist_neu->get_text(row,2).c_str());
+  werte.gfp += new_kosten;
+  midgard_CG::zeige_werte(werte,"alle");
+
+  string new_fert = steigern_fert_clist_neu->get_text(row,0);
+  int erf = atoi(steigern_fert_clist_neu->get_text(row,1).c_str());
+  vec_fertigkeiten.push_back(st_ausgewaelte_fertigkeiten(new_fert,erf,"0"));
+
+  midgard_CG::show_fertigkeiten();
+  midgard_CG::on_speichern_clicked();
+  midgard_CG::show_alte_fertigkeiten();
+  midgard_CG::show_neue_fertigkeiten();
+
+}
+
+void midgard_CG::on_radio_fert_steigern_toggled()
+{
+}
+
+void midgard_CG::on_radio_fert_reduzieren_toggled()
+{
+   if (radio_fert_reduzieren->get_active())
+      togglebutton_praxispunkte_fertigkeiten->set_active(false);
+}
+
+void midgard_CG::on_radio_fert_verlernen_toggled()
+{
+   if (radio_fert_verlernen->get_active())
+      togglebutton_praxispunkte_fertigkeiten->set_active(false);
+}
+
+
+
+void midgard_CG::on_togglebutton_praxispunkte_fertigkeiten_toggled()
+{
+    if (togglebutton_praxispunkte_fertigkeiten->get_active())
+      radio_fert_steigern->set_active(true);
+
+}
+
+void midgard_CG::on_radiobutton_praxis_wuerfeln_fertigkeiten_toggled()
+{
+}
+
+void midgard_CG::on_radiobutton_praxis_auto_fertigkeiten_toggled()
+{
+}
+

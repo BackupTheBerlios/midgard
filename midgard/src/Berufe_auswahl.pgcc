@@ -1,0 +1,95 @@
+// generated 2001/2/10 15:15:14 CET by thoma@ig23.
+// using glademm V0.5_11c
+//
+// newer (non customized) versions of this file go to Waffen_auswahl.cc_new
+
+// This file is for your program, I won't touch it again!
+
+#include "Berufe_auswahl.hh"
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+exec sql include sqlca;
+#include "midgard_CG.hh"
+#include <cstring>
+#include <Gtk_OStream.h>
+
+
+Berufe_auswahl::Berufe_auswahl(midgard_CG* h,const string& typ, st_lernpunkte& l)
+{
+  hauptfenster=h;
+  maxpunkte = l.beruf;
+  beruf_auswahl_lernpunkte->set_text(itos(maxpunkte));
+  exec sql begin declare section;
+   char db_beruf[100];
+   int db_lernpunkte;
+   char db_stand[100];
+   char db_vorraussetzung[100];
+   char db_vorteile[100];
+   int db_maxp = maxpunkte;
+  exec sql end declare section;
+
+   Transaction tr;
+    exec sql declare beruf cursor for
+      select lernpunkte, beruf, stand, vorraussetzung, vorteile
+      from berufe where :db_maxp >= lernpunkte 
+      order by lernpunkte ;
+
+    exec sql open beruf;
+    SQLerror::test(__FILELINE__);
+    while (true)
+      {
+         exec sql fetch beruf into :db_lernpunkte, :db_beruf, :db_stand,
+                        :db_vorraussetzung, :db_vorteile ;
+         SQLerror::test(__FILELINE__,100);
+         if (sqlca.sqlcode) break;
+         beruf.push_back(db_struct_beruf(db_lernpunkte,db_beruf,db_stand,
+                           db_vorraussetzung, db_vorteile));
+      }
+    exec sql close beruf;
+    Gtk::OStream os(berufe_clist_auswahl);
+    for(vector<db_struct_beruf>::iterator i=beruf.begin();i!=beruf.end();++i)
+      {
+         os << i->lernpunkte <<"\t"<< i->vorraussetzung <<"\t"
+            << i->stand<<"\t"<<i->beruf<<"\t"<<i->vorteile <<"\n";
+         os.flush(&*i);
+      }
+    for (unsigned int i=0;i<berufe_clist_auswahl->columns().size();++i)
+      berufe_clist_auswahl->set_column_auto_resize(i,true);
+
+    berufe_clist_auswahl->set_selection_mode(GTK_SELECTION_MULTIPLE);
+    berufe_clist_auswahl->set_reorderable(true);
+
+}
+
+void Berufe_auswahl::on_berufe_clist_auswahl_select_row(gint row, gint column, GdkEvent *event)
+{   
+   if (maxpunkte < atoi(berufe_clist_auswahl->get_text(row,0).c_str() ))
+      {
+         berufe_clist_auswahl->row(row).unselect();
+      }
+   maxpunkte -= atoi(berufe_clist_auswahl->get_text(row,0).c_str());
+   beruf_auswahl_lernpunkte->set_text(itos(maxpunkte));
+}
+
+void Berufe_auswahl::on_berufe_clist_auswahl_unselect_row(gint row, gint column, GdkEvent *event)
+{   
+   maxpunkte += atoi(berufe_clist_auswahl->get_text(row,0).c_str());
+   beruf_auswahl_lernpunkte->set_text(itos(maxpunkte));
+}
+
+void Berufe_auswahl::on_close_berufe_clicked()
+{   
+   vector<st_ausgewaelte_berufe> sab;
+   for (Gtk::CList::SelectionList::iterator i=berufe_clist_auswahl->selection().begin();
+         i!=berufe_clist_auswahl->selection().end();++i)
+     {  
+      db_struct_beruf *ptr
+         =static_cast<db_struct_beruf*>(i->get_data());
+         // ptr=&fert[i->get_row_num()];
+       sab.push_back(st_ausgewaelte_berufe(ptr->beruf,
+                        ptr->vorteile,0));
+     }
+  hauptfenster->berufe_uebernehmen(sab);
+  destroy();
+
+}

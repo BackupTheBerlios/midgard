@@ -1,0 +1,63 @@
+#include "midgard_CG.hh"
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+exec sql include sqlca;
+
+
+void midgard_CG::get_typ(styp& typ)
+{
+ int ityp = int(typauswahl->get_menu()->get_active()->get_user_data()); 
+ typ.nr=ityp;
+ // Typergänzung in den folgenden Zeilen
+ if (ityp==typauswahl::Assassine)                 typ.s = "Ass";
+ if (ityp==typauswahl::Barbar__Nordland)          typ.s = "BN";
+ if (ityp==typauswahl::Barbar__Steppe)            typ.s = "BS";
+ if (ityp==typauswahl::Barbar__Waldland)          typ.s = "BW";
+ if (ityp==typauswahl::Barde)                     typ.s = "Ba";
+ if (ityp==typauswahl::Gl_cksritter)              typ.s = "Gl";
+ if (ityp==typauswahl::H_ndler)                   typ.s = "Hä";
+ if (ityp==typauswahl::Krieger)                   typ.s = "Kr";
+ if (ityp==typauswahl::Ordenskrieger)             typ.s = "Ord";
+ if (ityp==typauswahl::Seefahrer)                 typ.s = "Se";
+ if (ityp==typauswahl::S_ldner)                   typ.s = "Sö";
+ if (ityp==typauswahl::Spitzbube)                 typ.s = "Sp";
+ if (ityp==typauswahl::Waldl_ufer)                typ.s = "Wa";
+ if (ityp==typauswahl::Beschw_rer__D_monen)       typ.s = "dBe";
+ if (ityp==typauswahl::Beschw_rer__Elementare)    typ.s = "eBe";
+ if (ityp==typauswahl::Druide)                    typ.s = "Dr";
+ if (ityp==typauswahl::Heiler)                    typ.s = "Hl";
+ if (ityp==typauswahl::Hexer__wei_)               typ.s = "wHx";
+ if (ityp==typauswahl::Hexer__grau)               typ.s = "gHx";
+ if (ityp==typauswahl::Hexer__schwarz)            typ.s = "sHx";
+ if (ityp==typauswahl::Magier)                    typ.s = "Ma";
+ if (ityp==typauswahl::Priester__Herrschaft)      typ.s = "PH";
+ if (ityp==typauswahl::Priester__Fruchtbarkeit)   typ.s = "PF";
+ if (ityp==typauswahl::Priester__Weisheit)        typ.s = "PW";
+ if (ityp==typauswahl::Priester__Meer)            typ.s = "PM";
+ if (ityp==typauswahl::Priester__Krieg)           typ.s = "PK";
+ if (ityp==typauswahl::Priester__Tod)             typ.s = "PT";
+ if (ityp==typauswahl::Schamane)                  typ.s = "Sc";
+ if (ityp==typauswahl::Thaumaturge)               typ.s = "Th";
+ // Do not change anything below this line
+ exec sql begin declare section ;
+  char db_typs[50];
+  char db_typl[50];
+  char db_typz[5];
+  char db_ausdauer[5];
+  int  db_stand;
+  int  db_sb;
+ exec sql end declare section ; 
+ strncpy(db_typs,typ.s.c_str(),sizeof(db_typs));
+
+ Transaction tr;
+ exec sql select typl, typz, ausdauer, stand, sb into :db_typl, :db_typz, :db_ausdauer, :db_stand, :db_sb
+   from typen where typs = :db_typs;
+ SQLerror::test(__FILELINE__); 
+
+ typ.l = db_typl;
+ typ.z = db_typz;
+ typ.ausdauer = db_ausdauer;
+ typ.stand = db_stand;
+ typ.sb = db_sb;
+
+}
