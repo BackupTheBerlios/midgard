@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.6 2002/06/08 06:35:03 thoma Exp $
+// $Id: table_lernschema_waffen.cc,v 1.7 2002/06/12 13:35:20 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -105,7 +105,7 @@ void table_lernschema::show_WaffenBesitz_lernschema()
      if (w->Grundkenntnis() == "Kampf ohne Waffen") continue;
      if (!MidgardBasicElement_mutable(&*w).ist_gelernt(hauptfenster->getCChar().CList_Waffen())) continue;
 //     L.push_back(new WaffeBesitz(w,w->Name(),0,0,""));
-     L.push_back(WaffeBesitz(w,-2,w->Name(),0,0,""));
+     L.push_back(WaffeBesitz(w,-2,w->Name(),0,0,"",""));
    }
   MidgardBasicElement::show_list_in_tree(L,tree_waffen_lernschema,hauptfenster);
   tree_waffen_lernschema->show();
@@ -132,15 +132,16 @@ void table_lernschema::on_waffen_lernschema_tree_leaf_selected(cH_RowDataBase d)
  try{
    const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
    MidgardBasicElement_mutable MBE = dt->getMBE();
-//   std::string art=cH_WaffeBesitz(MBE)->Waffe()->Art2();
-   std::string art=WaffeBesitz(MBE).Waffe()->Art2();
+   std::string art=cH_Waffe(MBE)->Art2();
+   WaffeBesitz WB(MBE,0,MBE->Name(),0,0,"","");
+//   std::string art=WaffeBesitz(MBE).Waffe()->Art2();
    if( (art=="E" || art=="W" || art=="V") && waffebesitzlernen.EWaffe()>0)
     {
       waffebesitzlernen.add_EWaffe(-1);
       if(waffebesitzlernen.getMagisch())
         {
 //          cH_WaffeBesitz(MBE).set_av_Bonus(1);
-          WaffeBesitz(MBE).set_av_Bonus(1);
+          WB.set_av_Bonus(1);
           waffebesitzlernen.setMagisch(false);
         }
     }
@@ -148,7 +149,7 @@ void table_lernschema::on_waffen_lernschema_tree_leaf_selected(cH_RowDataBase d)
      waffebesitzlernen.add_AWaffe(-1);
    else return;
 
-   hauptfenster->getChar().List_Waffen_besitz().push_back(MBE);
+   hauptfenster->getChar().List_Waffen_besitz().push_back(WB);
 
    show_gelerntes();
    show_WaffenBesitz_lernschema();
