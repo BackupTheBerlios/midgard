@@ -1,5 +1,5 @@
 /* XPM */
-static char * PrintChar_trans_xpm[] = {
+static char * PrintChar_trans_50_xpm[] = {
 "50 32 273 2",
 "  	c None",
 ". 	c #000000",

@@ -12,6 +12,7 @@ NEWS IN VERSION 0.6delta2
 * Waffenauswahl bei Charaktererschaffung überarbeiten (selbst eingeben)
 * Nr. bei Gildenbrief und Name bei Abenteuern hinzugefügt (für Ergänzungen)
 * Mag. Waffe bei Spielbeginn
+* HTML-Browser mit Hilfe aus dem Programm heraus ausrufen
 
 TODO:
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
