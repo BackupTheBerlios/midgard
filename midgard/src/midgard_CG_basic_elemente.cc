@@ -63,7 +63,7 @@ bool midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
           togglebutton_spruchrolle->get_active() )    verlernen/=5  ;
       if (steigern_bool) desteigern(verlernen);
       Werte.add_GFP(-verlernen);
-      MidgardBasicElement::move_element(*MyList,*MyList_neu,MBE->Name());
+      MidgardBasicElement::move_element(*MyList,*MyList_neu,MBE);
     }
  return true;
 }
@@ -150,12 +150,7 @@ void midgard_CG::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
    { MyList     = &list_Schrift; MyList_neu = &list_Schrift_neu;  }
  else assert(!"Fehler (alt) in midgard_CG_basic_elemente.cc");
 
-//cout << MBE->What()<<' '<<MyList_neu->size()<<' '<<MyList->size()<<' '<<MBE->Name()<<'\n';
- if(MBE->What()!=MidgardBasicElement::ZAUBERWERK)
-    MidgardBasicElement::move_element(*MyList_neu,*MyList,MBE->Name());
- else
-    MidgardBasicElement::move_element(*MyList_neu,*MyList,MBE->Name(),cH_Zauberwerk(MBE)->Art());
-//cout << MBE->What()<<' '<<MyList_neu->size()<<' '<<MyList->size()<<' '<<MBE->Name()<<'\n';
+ MidgardBasicElement::move_element(*MyList_neu,*MyList,MBE);
 }
 
 

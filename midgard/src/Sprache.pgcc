@@ -65,7 +65,6 @@ void Sprache::get_Sprache()
   alte_sprache=db_alt;
   minderheit=db_minderheit;
   maxwert=db_maxwert;
-cout <<"\tMaxwert= "<< maxwert<<' '<<db_maxwert<<'\n';
   kosten=db_fp;
   if(db_g1) V_sprachgruppe.push_back(db_g1);
   if(db_g2) V_sprachgruppe.push_back(db_g2);
@@ -92,7 +91,6 @@ int Sprache::Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) cons
 
 int Sprache::MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const
 {
-cout << maxwert<<' '<<w.In()<<'\n';
   if     (w.In() < 31) return (11>maxwert ? maxwert : 11); 
   else if(w.In() < 61) return (18>maxwert ? maxwert : 18); 
   else return (20>maxwert ? maxwert : 20);

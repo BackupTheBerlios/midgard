@@ -9,7 +9,8 @@
 class Sprache : public MidgardBasicElement
 {
      vector<std::string> VSchrift;
-     bool alte_sprache,minderheit,maxwert;
+     bool alte_sprache,minderheit;
+     int maxwert;
      vector<int> V_sprachgruppe;
 
      void get_Sprache();

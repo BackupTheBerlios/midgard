@@ -99,8 +99,7 @@ class MidgardBasicElement : public HandleContent
 
       static void move_element(std::list<cH_MidgardBasicElement>& von,
                                std::list<cH_MidgardBasicElement>& nach,
-                               const std::string& name,
-                               const std::string& art="");
+                               const cH_MidgardBasicElement& MBE);
       static void show_list_in_tree(
             const std::list<cH_MidgardBasicElement>& BasicList,
             SimpleTree *Tree, 

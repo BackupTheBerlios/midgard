@@ -44,20 +44,20 @@ void MidgardBasicElement::show_list_in_tree(
 
 void MidgardBasicElement::move_element(std::list<cH_MidgardBasicElement>& von,
                                        std::list<cH_MidgardBasicElement>& nach,
-                                       const std::string& name,
-                                       const std::string& art)//,
-                                       //const std::string& stufe)
+                                       const cH_MidgardBasicElement& MBE)
 {
  for (std::list<cH_MidgardBasicElement>::iterator i=von.begin();i!= von.end();++i)
   {
    if((*i)->What()==ZAUBERWERK)
     {
-      if ((*i)->Name()==name && cH_Zauberwerk(*i)->Art()==art)// && (*i)->Stufe()==stufe) 
+      if ( (*i)->Name()==MBE->Name() && 
+           cH_Zauberwerk(*i)->Art()==cH_Zauberwerk(MBE)->Art() && 
+           (*i)->Stufe()==MBE->Stufe() ) 
         { nach.splice(nach.begin(),von,i);break; }
     }
    else
     {
-      if ((*i)->Name()==name) 
+      if ((*i)->Name()==MBE->Name()) 
         { nach.splice(nach.begin(),von,i);break; }
     }
   }
