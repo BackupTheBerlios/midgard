@@ -24,8 +24,9 @@ cH_Spezialgebiet::cH_Spezialgebiet(const std::string& name)
 {
  cH_Spezialgebiet *cached(cache.lookup(name));
  if (cached) *this=*cached;
- else cerr << "Spezialgebiet '"<<name<<"' nicht gefunden\n";
-  assert(!"Spezialgebiet im Cache");
+ else { cerr << "Spezialgebiet '"<<name<<"' nicht gefunden\n";
+        assert(!"Spezialgebiet im Cache");
+      }
 }
 
 bool cH_Spezialgebiet::is_cached(const std::string s)

@@ -1,16 +1,15 @@
 ##########################################################################
 NEWS IN VERSION 0.8.7
 
-* Datenbankkorekturen (Dank an Sandro)
+* Datenbankkorekturen (Zauber) (Dank an Sandro)
+* Oberfläche: Die Kopfzeile einer Liste bleibt jetzt stehen wenn man scrollt :-)
+* Ausrüstungsauswahl (Code und Oberfläche) überarbeitet => funktioniert wieder
 
 TODO: ('-' zeigt CP an)
 
 * Hilfe Menü ans Ende
-* Schwarzer Balken im Lernschema bei Maximierung
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
   der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 
-* Ausrüstungsauswahl stürzt ab
-* Steigern mit vielen(!) PP stürzt ab
 - dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
   man etwas hinzufügen möchte, ist nicht gerade intuitiv
   (vielleicht drag'n'drop oder CTree verschieben)

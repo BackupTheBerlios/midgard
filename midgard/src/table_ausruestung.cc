@@ -54,6 +54,7 @@ void table_ausruestung::showAusruestung()
   title.push_back("Titel");
   title.push_back("Material");
   title.push_back("Sichtbar");
+  viewport_ausruestung->remove();
   Ausruestung_tree=manage(new Gtk::CTree(title));
 
   Ausruestung_tree->drag_data_received.connect(slot(this,&(table_ausruestung::tree_drag_data_received)));
@@ -62,7 +63,7 @@ void table_ausruestung::showAusruestung()
          static_cast < GdkDragAction > ( GDK_ACTION_COPY | GDK_ACTION_MOVE) );
   
   Gtk::CTree_Helpers::RowList::iterator r;
-  AusruestungBaum be=hauptfenster->getChar()->getBesitz();
+  AusruestungBaum &be=hauptfenster->getChar()->getBesitz();
   for(AusruestungBaum::const_iterator i=be.begin();i!=be.end();++i)
    {
      std::vector <string> v;
@@ -72,7 +73,7 @@ void table_ausruestung::showAusruestung()
      Ausruestung_tree->rows().push_back(Gtk::CTree_Helpers::Element(v));
      r=--(Ausruestung_tree->rows().end());
      r->set_data(gpointer(&*i));
-cout << "show "<<v[0]<<'\t'<<&*i<<'\t'<<i->getAusruestung().Name()<<'\n';
+//cout << "show "<<v[0]<<'\t'<<&*i<<'\t'<<i->getAusruestung().Name()<<'\n';
      showChildren(r,i->getChildren());
    }
 
@@ -83,7 +84,6 @@ cout << "show "<<v[0]<<'\t'<<&*i<<'\t'<<i->getAusruestung().Name()<<'\n';
   for (unsigned int i=0;i<Ausruestung_tree->columns().size();++i)
          Ausruestung_tree->set_column_auto_resize(i,true);
             
-  viewport_ausruestung->remove();
   viewport_ausruestung->add(*Ausruestung_tree);
   button_ausruestung_loeschen->set_sensitive(false);
 }
@@ -139,11 +139,10 @@ void table_ausruestung::on_Ausruestung_tree_select_row(Gtk::CTree::Row row,gint 
   checkbutton_sichtbar->set_active(A->getAusruestung().Sichtbar());
   sichtbarConnection=checkbutton_sichtbar->toggled.connect(SigC::slot(static_cast<class table_ausruestung*>(this), &table_ausruestung::on_checkbutton_sichtbar_toggled));
   button_ausruestung_loeschen->set_sensitive(true);
-cout << "SEL: "<<' '<<A<<'\t'<<  besitz<<'\t'<<A->getAusruestung().Sichtbar()<<'\n';
+//cout << "SEL: "<<' '<<A<<'\t'<<  besitz<<'\t'<<A->getAusruestung().Sichtbar()<<'\n';
   besitz=A;
-cout << "SEL: "<<' '<<A<<'\t'<<  besitz<<'\t'<<besitz->getAusruestung().Material()<<'#'<<'\n';
+//cout << "SEL: "<<' '<<A<<'\t'<<  besitz<<'\t'<<besitz->getAusruestung().Material()<<'#'<<'\n';
 //  cout << "SEL: "<<' '<<A<<'\t'<<A->getAusruestung().Name()<<'\n';
-
 
 //  cout << "SEL: "<<' '<<besitz<<'\t'<<besitz->getAusruestung().Name()<<'\n';
 }
@@ -151,32 +150,16 @@ cout << "SEL: "<<' '<<A<<'\t'<<  besitz<<'\t'<<besitz->getAusruestung().Material
 
 void table_ausruestung::on_checkbutton_sichtbar_toggled()
 {
-/*
-  Gtk::CTree_Helpers::SelectionList selectionList = Ausruestung_tree->selection();
-  if(!tree_valid(selectionList)) return;
-
-  AusruestungBaum &A=*static_cast<AusruestungBaum*>(selectionList.begin()->get_data());
-  const_cast<Ausruestung&>(A.getAusruestung()).setSichtbar(checkbutton_sichtbar->get_active());
-*/
   if(!besitz) return;
-cout << "Sichtbar 1: "<<'\t'<<  besitz<<'\t'<<besitz->getAusruestung().Sichtbar()<<'\n';
   const_cast<Ausruestung&>(besitz->getAusruestung()).setSichtbar(checkbutton_sichtbar->get_active());
-cout << "Sichtbar 2: "<<'\t'<<  besitz<<'\t'<<besitz->getAusruestung().Sichtbar()<<'\n';
   showAusruestung();
 }
 
 
 void table_ausruestung::on_ausruestung_loeschen_clicked()
 {
-/*
-  Gtk::CTree_Helpers::SelectionList selectionList = Ausruestung_tree->selection();
-  if(!tree_valid(selectionList)) return;
-  AusruestungBaum &A=*static_cast<AusruestungBaum*>(selectionList.begin()->get_data());
-  AusruestungBaum *Parent = A.getParent();
-*/
   if(!besitz) return;
   AusruestungBaum *Parent = besitz->getParent();
-//  if(Parent)  Parent->remove(A);  
   if(Parent)  Parent->remove(*besitz);  
   else cerr << "Keine Herkunftsnode gesetzt\n";
 

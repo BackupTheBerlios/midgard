@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen_icons.cc,v 1.13 2002/10/05 07:34:45 thoma Exp $
+// $Id: midgard_CG_optionen_icons.cc,v 1.14 2002/10/15 06:37:10 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -103,7 +103,7 @@ void midgard_CG::Bin_setzen(Gtk::Widget *child,st_icons I)
 #include "../pixmaps/MAGUS_Logo_Small.xpm" 
 #include "../pixmaps/MAGUS_Logo_Tiny.xpm" 
 #include "../pixmaps/NSC-Mode-26.xpm" 
-#include "../pixmaps/Fert_Lesen-32.xpm" 
+#include "../pixmaps/NewsGeschichte.xpm" 
 #include "../pixmaps/L_Schema_small.xpm" 
 
 
@@ -167,7 +167,7 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iDeleteA     )return st_icons("Abenteurer aus\nListe löschen"  ,Erase_50_xpm);
      else if(typ==iStatusWizard)return st_icons(""  ,MAGUS_Logo_Tiny_xpm);
      else if(typ==iStatusNPC)return st_icons(""  ,NSC_Mode_26_xpm);
-     else if(typ==iNotebookInfo)   return st_icons("News & Geschichte"  ,Fert_Lesen_32_xpm);
+     else if(typ==iNotebookInfo)   return st_icons("News & Geschichte"  ,NewsGeschichte_xpm);
      else if(typ==iNotebookLernen)   return st_icons("Lernschema"  ,L_Schema_small_xpm);
    }
   else if(MOptionen->IconCheck(Midgard_Optionen::Ulf).active)

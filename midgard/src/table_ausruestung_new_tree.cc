@@ -20,8 +20,6 @@
 #include "midgard_CG.hh"
 #include "Data_NewPreis.hh"
 #include <Misc/mystring.h>
-//#include <Misc/itos.h>
-//#include "dtos1.h"
 
 pair<table_ausruestung::e_spalten,std::string> table_ausruestung::enum_from_string(const std::string &s)
 {
@@ -98,10 +96,7 @@ void table_ausruestung::fill_new_preise()
    }
   std::vector<cH_RowDataBase> datavec;
   for(std::list<cH_Data_NewPreis>::iterator j=LNP.begin();j!=LNP.end();++j)
-   {
      datavec.push_back(&**j);
-   }
-
   fill_new_tree_titles(SpaltenMap);
   preise_tree_neu->setDataVec(datavec);
 }
@@ -122,27 +117,20 @@ void table_ausruestung::on_preise_tree_neu_leaf_selected(cH_RowDataBase d)
      hauptfenster->getWerte().addKupfer(-k);
      zeige_werte();
    }
-cout << dt->Ware()->Name()<<'\t'<<dt->Ware()->Kosten()<<'\t'<<dt->Kosten()<<'\n';  
+//cout << dt->Ware()->Name()<<'\t'<<dt->Ware()->Kosten()<<'\t'<<dt->Kosten()<<'\n';  
   bool sichtbar=checkbutton_sichtbar->get_active();
   std::string material;
   std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod> M=dt->getMod();
   for(std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod>::const_iterator i=M.begin();i!=M.end();++i)
-   {
      material += i->second.spezifikation + ", ";
-   }
   ManuProC::remove_last_from(material,", ");
   Ausruestung A(dt->Ware()->Name(),material,sichtbar);
   
-  hauptfenster->getAben().getBesitz().push_back(A);
-
-cout << "SEL:1 "<<besitz->getAusruestung().Name()<<'\n';
-
+//  hauptfenster->getAben().getBesitz().push_back(A);
+//cout << "SEL:1 "<<besitz->getAusruestung().Name()<<'\n';
   AusruestungBaum &B=besitz->push_back(A);
-cout << "SEL:2 "<<' '<<besitz<<'\t'<<besitz->getAusruestung().Name()<<'\n';
   B.setParent(besitz);
-cout << "SEL:3 "<<' '<<besitz<<'\t'<<besitz->getAusruestung().Name()<<'\n';
   showAusruestung();
-cout << "SEL:4 "<<' '<<besitz<<'\t'<<besitz->getAusruestung().Name()<<'\n';
 }
 
 
