@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.49 2002/07/08 09:36:32 thoma Exp $
+// $Id: land_sprache_exp.cc,v 1.50 2002/07/08 10:09:32 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -119,7 +119,7 @@ void land_speichern(Tag &o)
 //******************************************************************
   if (region.empty())
   {Tag &SpeziesListe=o.push_back(Tag("SpeziesListe"));
-   Query query("select spezies, nr, only_nsc, land, hand_bonus, raufen,alter_fak, "
+   Query query("select spezies, weiblich, nr, only_nsc, land, hand_bonus, raufen,alter_fak, "
          " groesse_wanz, groesse_wuerfel, groesse_bonus, gewicht_wanz, gewicht_bonus, normgestalt, "
          " b_wanz, b_bonus, lp, ap_bonus, ap_grad_fak, "
          " psy, psy100, phs, phs100, phk, phk100, "
@@ -129,6 +129,7 @@ void land_speichern(Tag &o)
   while ((query>>is).good())
   {Tag &Spezies=SpeziesListe.push_back(Tag("Spezies"));
    std::string name=fetch_and_set_string_attrib(is, Spezies, "Name");
+   fetch_and_set_string_attrib(is, Spezies, "Name-weiblich");
    fetch_and_set_int_attrib(is, Spezies, "MAGUS-Index");
    fetch_and_set_bool_attrib(is, Spezies, "only_NSC");
    fetch_and_set_bool_attrib(is, Spezies, "Land");
