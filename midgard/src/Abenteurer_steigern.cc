@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.17 2002/11/22 08:06:16 thoma Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.18 2002/12/11 16:51:17 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -127,7 +127,7 @@ bool Abenteurer::neu_lernen(MBEmlt &MBE,std::string &info,const e_wie_steigern &
  
  int dummy=1;
  if(neue_sprache_mit_pp)
-   { set_lernzeit(wie,kosten,Enums::eMBEm);
+   { set_lernzeit(wie,kosten,Enums::eMBEm,bool_steigern);
      if((*MBE)->Grundfertigkeit(*this))
           MBE->setErfolgswert(9);
      else MBE->setErfolgswert(7);
@@ -158,12 +158,12 @@ bool Abenteurer::steigern_usp(const e_wie_steigern wie,
                               const st_bool_steigern &bool_steigern)
 {
  if (!bool_steigern.mitEP) // Steigern OHNE EP/Gold/PP
-   { set_lernzeit(wie,kosten,was);
+   { set_lernzeit(wie,kosten,was,bool_steigern);
      return true;
    }
 
   // genug GELD
-  int gold_k=genug_geld(kosten,wie,bool_steigern.HausG1,info);
+  int gold_k=genug_geld(kosten,wie,bool_steigern,info);
   if(gold_k==-1) return false; // nicht genug Geld
 
   // EP
@@ -174,7 +174,7 @@ bool Abenteurer::steigern_usp(const e_wie_steigern wie,
   int pp   = PP_vorrat(MBE,was,info,wie);
   if(pp==-1) return false;
 
- if(wie==Enums::ePraxis)
+ if(wie==Enums::ePraxis && !bool_steigern.Spruchrolle)
   {
    if(pp==0) {info+="Keine PP vorhanden"; return false;}
    int rest_aep=0,use_pp=0;
@@ -232,13 +232,18 @@ bool Abenteurer::steigern_usp(const e_wie_steigern wie,
   // jetzt darf gesteigert werden ...
   getWerte().addGold(-gold_k);
   
-  if(wie==Enums::ePraxis)
+  if(wie==Enums::ePraxis &&  !bool_steigern.Spruchrolle)
    {
-     if(bool_steigern.pp_verfallen)  set_lernzeit(wie,kosten,was); 
+     if(bool_steigern.pp_verfallen)  set_lernzeit(wie,kosten,was,bool_steigern); 
      else   
-      { set_lernzeit(wie,kosten-ep_k,was); set_lernzeit(wie,ep_k,was,true); }
+      { set_lernzeit(wie,kosten-ep_k,was,bool_steigern); 
+        set_lernzeit(wie,ep_k,was,bool_steigern,true); 
+      }
    }
-  else set_lernzeit(wie,kosten,was);
+  else 
+   { if(bool_steigern.Spruchrolle) kosten=cH_Zauber(MBE->getMBE())->iStufe();
+     set_lernzeit(wie,kosten,was,bool_steigern);
+   }
 
   if(pp)
    {
@@ -246,7 +251,7 @@ bool Abenteurer::steigern_usp(const e_wie_steigern wie,
      else if(was==Enums::eMBEm && (*MBE).What()==MidgardBasicElement::ZAUBER) getWerte().addSpezialPP(-pp) ;
      else if(was==Enums::eResistenz)  getWerte().addResistenzPP(-pp) ;
      else if(was==Enums::eAbwehr)     getWerte().addAbwehrPP(-pp) ;   
-     else if(was==Enums::eZaubern)    getWerte().addZaubernPP(-pp) ;  
+     else if(was==Enums::eZaubern)    getWerte().addZaubernPP(-pp) ;
      else if(was==Enums::eAusdauer)   ;
      else assert(!"Fehler in steigern_EP.cc");
    }
@@ -264,13 +269,20 @@ bool Abenteurer::steigern_usp(const e_wie_steigern wie,
 
 
 void Abenteurer::set_lernzeit(const e_wie_steigern wie,const int kosten,
-                              const e_was_steigern was,const bool no_pp)
+                              const e_was_steigern was,
+                              const st_bool_steigern bool_steigern,
+                              const bool no_pp)
 {
   if(was==Enums::eAusdauer)
    { getWerte().addSteigertage(Grad_anstieg::AP_Maximum_Tage);
      return;
    }
-  if     (wie==Enums::eUnterweisung) getWerte().addSteigertage(kosten/10);
+  if(bool_steigern.Spruchrolle)
+   { assert(wie==Enums::eSelbststudium);
+     getWerte().addSteigertage(kosten*3);
+     return;
+   }
+  else if(wie==Enums::eUnterweisung) getWerte().addSteigertage(kosten/10);
   else if(wie==Enums::eSelbststudium) getWerte().addSteigertage(kosten/5.);
   else if(wie==Enums::ePraxis)       
    {
@@ -304,11 +316,13 @@ void Abenteurer::steigern_mit(bool &bkep,bool &bzep,const MBEmlt MBE,e_was_steig
 
 
 int Abenteurer::genug_geld(const int kosten,const e_wie_steigern wie,
-                           const bool HausG1, std::string &info)
+                           const st_bool_steigern bool_steigern,
+                           std::string &info)
 {
   if(wie!=Enums::eUnterweisung) return 0; // keine Unterweisung => kein Geld nötig
+  if(bool_steigern.Spruchrolle) return 0;
   int gold_k = getWerte().gold_kosten(kosten);
-  if( !HausG1 ) gold_k*=10;
+  if( !bool_steigern.HausG1 ) gold_k*=10;
   if (gold_k > getWerte().Gold())
     { info+= "Zu wenig Gold um zu steigern, es fehlt "+itos(gold_k-getWerte().Gold())+" Gold.";
       return -1;
@@ -432,7 +446,7 @@ void Abenteurer::desteigern(unsigned int kosten,const e_wie_steigern &wie,const 
    }
 //  if( !hauptfenster->getOptionen()->HausregelCheck(Midgard_Optionen::Gold).active ) gold_k*=10;
   if( !bool_steigern.HausG1 ) gold_k*=10;
-  set_lernzeit(wie,-ep_k,Enums::eMBEm);
+  set_lernzeit(wie,-ep_k,Enums::eMBEm,bool_steigern);
   getWerte().addGold(gold_k);
   getWerte().addAEP(ep_k);   
 }
@@ -533,7 +547,7 @@ int Abenteurer::get_ab_re_za(const e_was_steigern was,const e_wie_steigern &wie,
         return 0;
       }
      if (bool_steigern.mitEP) desteigern(kosten,wie,bool_steigern);
-     set_lernzeit(wie,-kosten,was);
+     set_lernzeit(wie,-kosten,was,bool_steigern);
      getWerte().addGFP(-kosten);
      if      (was==Enums::eAbwehr)    getWerte().setAbwehr_wert(alter_wert-1);
      else if (was==Enums::eResistenz) getWerte().setResistenz(alter_wert-1);  

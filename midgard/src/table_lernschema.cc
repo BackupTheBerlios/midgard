@@ -164,7 +164,8 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
            else
             {  
              hauptfenster->getChar()->List_Waffen().remove(MBE);
-             lernpunkte.addWaffen(MBE->Lernpunkte());
+             if(MBE->LernArt().find("Allg")!=std::string::npos) lernpunkte.addAllgemein( MBE->Lernpunkte());
+             else lernpunkte.addWaffen(MBE->Lernpunkte());
              hauptfenster->getChar()->remove_WaffenGrund();
             }
            break;
@@ -264,6 +265,15 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
   switch((*MBE).What()) {
     case MidgardBasicElement::WAFFE:
       { 
+        if(button_allgemeinwissen->get_active())
+         { if(MBE->Lernpunkte()>lernpunkte.Allgemein() )
+             { hauptfenster->set_status("Nicht genug Lernpunkte");
+               tree_lernschema->unselect_all();
+               return;
+             }
+           lernpunkte.addWaffen(MBE->Lernpunkte());
+           lernpunkte.addAllgemein(-MBE->Lernpunkte());
+         }
         int lp=MBE->Lernpunkte();
         if(A.Typ1()->Kultwaffe() &&A.List_Waffen().empty())
           {

@@ -81,7 +81,8 @@ void table_steigern::on_leaf_selected_alte_sprache(cH_RowDataBase d)
      neue_schrift_wegen_sprache();
      neue_sprache_zeigen();
      schriften_zeigen();
-     dynamic_cast<const Data_SimpleTree*>(&*d)->redisplay(alte_sprache_tree);
+     if(radiobutton_verlernen->get_active()) alte_sprache_zeigen();
+     else dynamic_cast<const Data_SimpleTree*>(&*d)->redisplay(alte_sprache_tree);
    }
   alte_sprache_tree->unselect_all();
 }

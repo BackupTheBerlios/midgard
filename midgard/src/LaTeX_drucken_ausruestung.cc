@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_ausruestung.cc,v 1.15 2002/11/06 20:03:26 thoma Exp $   
+// $Id: LaTeX_drucken_ausruestung.cc,v 1.16 2002/12/11 16:51:17 thoma Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,6 +23,7 @@
 #include "dtos1.h"
 #include "itos.h"
 #include "recodestream.h"
+#include <Gtk2TeX.h>
 
 void LaTeX_drucken::on_ausruestung_druck(bool unsichtbar)
 {
@@ -79,8 +80,8 @@ void LaTeX_drucken::on_ausruestung_druck(bool unsichtbar)
       std::string name=i->getAusruestung().Name();
       if (!i->getAusruestung().Material().empty()) name +=" ("+i->getAusruestung().Material()+")";
       fout <<"\\hspace{0.7cm}";
-      if(i->getAusruestung().Sichtbar())  fout << name<<"\\\\\n" ;
-      else                                fout <<"\\textcolor{mygray}{"<< name<<"}\\\\\n" ;
+      if(i->getAusruestung().Sichtbar())  fout << Gtk2TeX::string2TeX(name)<<"\\\\\n" ;
+      else                                fout <<"\\textcolor{mygray}{"<< Gtk2TeX::string2TeX(name)<<"}\\\\\n" ;
       ausruestung_druck(fout,unsichtbar,i->getChildren(),1);
      }
   }
@@ -105,8 +106,8 @@ void LaTeX_drucken::ausruestung_druck(std::ostream &fout,bool unsichtbar,const s
       fout <<"\\makebox[0.7cm]{\\raggedleft\\footnotesize "+i->getAusruestung().SGewicht()+"}"; 
       double fdeep = deep*0.5;
       fout << "\\hspace*{"+dtos1(fdeep)+"cm} ";
-      if(i->getAusruestung().Sichtbar())  fout << name<<"\\\\\n" ;
-      else                                 fout <<"\\textcolor{mygray}{"<< name<<"}\\\\\n" ;
+      if(i->getAusruestung().Sichtbar())  fout << Gtk2TeX::string2TeX(name)<<"\\\\\n" ;
+      else                                 fout <<"\\textcolor{mygray}{"<< Gtk2TeX::string2TeX(name)<<"}\\\\\n" ;
       ausruestung_druck(fout,unsichtbar,i->getChildren(),deep+1);
      }
   }

@@ -8,9 +8,17 @@ NEWS IN VERSION 0.8.13
 * Eingebe neuer Ausrüstungs-Arten möglich
 * Region-Icons im Menü wechseln
 * Deutsche Sortierung (Bärenwut vor Beschleunigen)
+* Lernpunkte werden jetzt bei Allgemeinwissen verrechnet wenn man Waffen
+   als Allgemeinwissen lernt (auch bei verlernen)
+* Verlernen einer Sprache bewirkt neuaufbau des Fensters
+* Ausrüstung mit gtk2tex gefixed
+* Lernen von Spruchrolle: Lerndauer=Stufe*3 Tage
+* Nur EP für Lernen von Spruchrolle verwenden
+* Würfeln beim lernen von Spruchrolle geht wieder
 
 TODO
 
+* Mehrseitige Ausrüstungen
 ** Setzen der Handle-Fenster-Positionen :-(
 * Ausrüstung: Etwas zum 'Root-Tree' hinzufügen
 * KI-Steigern nicht nur mit Unterweisung oder Selbststudium 

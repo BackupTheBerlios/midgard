@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.47 2002/11/19 09:55:16 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.48 2002/12/11 16:51:17 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -180,9 +180,10 @@ public:
                      int &stufen,const e_was_steigern was,
                      std::string &info,const st_bool_steigern &bool_steigern);
    void set_lernzeit(const e_wie_steigern wie,const int kosten,
-                     const e_was_steigern was,const bool no_pp=false);
-   int genug_geld(const int kosten,const e_wie_steigern wie,
-                           const bool HausG1, std::string &info);
+                     const e_was_steigern was,const st_bool_steigern bool_steigern,
+                     const bool no_pp=false);
+   int genug_geld(const int kosten,const e_wie_steigern wie,const st_bool_steigern bool_steigern,
+                           std::string &info);
    bool genug_EP(const int ep_k,const bool bkep,const bool bzep, int &aep0,int &kep0,int &zep0,std::string &info);
    int EP_kosten(const int kosten,const e_wie_steigern wie);
    int PP_vorrat(const MBEmlt &MBE,e_was_steigern was,std::string &info,const e_wie_steigern wie);

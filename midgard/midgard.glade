@@ -391,15 +391,39 @@
 
 	    <widget>
 	      <class>GtkMenuItem</class>
-	      <name>exportieren</name>
-	      <tooltip>Der Charakter wird im Format für NSCs in publizierten Abenteurern gespeichert</tooltip>
-	      <signal>
-		<name>activate</name>
-		<handler>on_exportieren_activate</handler>
-		<last_modification_time>Mon, 13 May 2002 11:55:31 GMT</last_modification_time>
-	      </signal>
+	      <name>exportieren_main</name>
 	      <label>Exportieren</label>
 	      <right_justify>False</right_justify>
+
+	      <widget>
+		<class>GtkMenu</class>
+		<name>exportieren_main_menu</name>
+
+		<widget>
+		  <class>GtkMenuItem</class>
+		  <name>exportieren</name>
+		  <tooltip>Der Charakter wird im Format für NSCs in publizierten Abenteurern gespeichert</tooltip>
+		  <signal>
+		    <name>activate</name>
+		    <handler>on_exportieren_activate</handler>
+		    <last_modification_time>Mon, 13 May 2002 11:55:31 GMT</last_modification_time>
+		  </signal>
+		  <label>Exportieren für gedruckte Abenteuer</label>
+		  <right_justify>False</right_justify>
+		</widget>
+
+		<widget>
+		  <class>GtkMenuItem</class>
+		  <name>exportieren_ranas_pdf-dokumente</name>
+		  <signal>
+		    <name>activate</name>
+		    <handler>on_exportieren_ranas_pdf_dokumente_activate</handler>
+		    <last_modification_time>Mon, 09 Dec 2002 19:37:39 GMT</last_modification_time>
+		  </signal>
+		  <label>Exportieren für Ranas pdf-Dokumente</label>
+		  <right_justify>False</right_justify>
+		</widget>
+	      </widget>
 	    </widget>
 
 	    <widget>
@@ -10564,6 +10588,7 @@ eing.</label>
 		      <signal>
 			<name>toggled</name>
 			<handler>on_spruchrolle_toggled</handler>
+			<after>True</after>
 			<last_modification_time>Thu, 27 Dec 2001 13:57:56 GMT</last_modification_time>
 		      </signal>
 		      <relief>GTK_RELIEF_HALF</relief>

@@ -71,6 +71,8 @@ void table_steigern::on_togglebutton_alle_zauber_toggled()
 
 void table_steigern::on_spruchrolle_toggled()
 {
+ if(togglebutton_spruchrolle->get_active())
+   radiobutton_selbst->set_active(true);
  on_zauber_laden_clicked();
 }
 
