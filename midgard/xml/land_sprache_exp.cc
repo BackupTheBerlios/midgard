@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.35 2002/05/19 07:26:38 thoma Exp $
+// $Id: land_sprache_exp.cc,v 1.36 2002/06/06 08:41:40 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -22,110 +22,94 @@
 #include <Aux/dbconnect.h>
 #include "export_common.h"
 
-void land_speichern(std::ostream &o)
+void land_speichern(Tag &o)
 {  
    Transaction t;
    FetchIStream is;
 
   if (region.empty())
-  {o << " <Länder>\n";
+  {Tag &Laender=o.push_back(Tag("Länder"));
   {Query query("select distinct kontinent from land"
    	" order by kontinent");
   while ((query>>is).good())
-  {o << "  <Kontinent";
-   string kontinent=fetch_and_write_string_attrib(is, o, "Name");
-   o << ">\n";
+  {Tag &Kontinent=Laender.push_back(Tag("Kontinent"));
+   string kontinent=fetch_and_set_string_attrib(is, Kontinent, "Name");
    Query query2("select distinct land from land"
    	" where kontinent='"+kontinent+"'"
    	" order by land");
    FetchIStream is2;
    while ((query2>>is2).good())
-   {o << "    <Land";
-    string land=fetch_and_write_string_attrib(is2, o, "Name");
-    o << ">\n";
+   {Tag &Land=Kontinent.push_back(Tag("Land"));
+    string land=fetch_and_set_string_attrib(is2, Land, "Name");
     Query query3("select sprache from land"
    	" where kontinent='"+kontinent+"'"
    	" and land='"+land+"'"
    	" order by sprache");
     FetchIStream is3;
     while ((query3>>is3).good())
-    { o << "      <Sprache";
-      fetch_and_write_string_attrib(is3, o, "Name");
-      o << "/>\n";
+    { Land.push_back(Tag("Sprache")).setAttr("Name", fetch_string(is3));
     }
-    o << "    </Land>\n";
    }
-   o << "  </Kontinent>\n";
   }
  }
-   o << " </Länder>\n";
   }
 
 //******************************************************************
-   o << " <Schriften>\n";
+   Tag &Schriften=o.push_back(Tag("Schriften"));
   {Query query("select name, region,region_zusatz, typ, kosten, alt, kult"
    	" from schrift"
    	" where coalesce(region,'')='"+region+"'"
    	" order by coalesce(region,''),name");
   while ((query>>is).good())
-  {o << "  <Schrift";
-   string schrift=fetch_and_write_string_attrib(is, o, "Name");
-   fetch_and_write_string_attrib(is, o, "Region");
-   fetch_and_write_string_attrib(is, o, "RegionZusatz");
-   fetch_and_write_string_attrib(is, o, "Typ");
-   fetch_and_write_int_attrib(is, o, "Kosten");
-   fetch_and_write_bool_attrib(is, o, "alte_Schrift");
-   fetch_and_write_bool_attrib(is, o, "Kultschrift");
-   o << ">\n";
+  {Tag &Schrift=Schriften.push_back(Tag("Schrift"));
+   string schrift=fetch_and_set_string_attrib(is, Schrift, "Name");
+   fetch_and_set_string_attrib(is, Schrift, "Region");
+   fetch_and_set_string_attrib(is, Schrift, "RegionZusatz");
+   fetch_and_set_string_attrib(is, Schrift, "Typ");
+   fetch_and_set_int_attrib(is, Schrift, "Kosten");
+   fetch_and_set_bool_attrib(is, Schrift, "alte_Schrift");
+   fetch_and_set_bool_attrib(is, Schrift, "Kultschrift");
    Query query2("select schrift from sprache_schrift"
    	" where art_der_schrift="+toSQL(schrift)+" order by schrift");
    FetchIStream is2;
    while ((query2>>is2).good())
-   {  o << "    <Variante";
-      fetch_and_write_string_attrib(is2, o, "Name");
-      o << "/>\n";
+   {  Schrift.push_back(Tag("Variante")).setAttr("Name", fetch_string(is2));
    }
-   o << "  </Schrift>\n";
   }
   }
-   o << " </Schriften>\n";
 
 //******************************************************************
-   o << " <Sprachen>\n";
+   Tag &Sprachen=o.push_back(Tag("Sprachen"));
   {Query query("select name, region,region_zusatz, fp, max_wert, alt,"
   	" gruppe_1, gruppe_2, minderheit"
    	" from sprachen"
    	" where coalesce(region,'')='"+region+"'"
    	" order by coalesce(region,''),name");
   while ((query>>is).good())
-  {o << "  <Sprache";
-   std::string sprache=fetch_and_write_string_attrib(is, o, "Name");
-   fetch_and_write_string_attrib(is, o, "Region");
-   fetch_and_write_string_attrib(is, o, "RegionZusatz");
-   fetch_and_write_int_attrib(is, o, "Kosten");
-   fetch_and_write_int_attrib(is, o, "Maximalwert");
-//   fetch_and_write_string_attrib(is, o, "Schrift");
-   fetch_and_write_bool_attrib(is, o, "alteSprache");
-   fetch_and_write_int_attrib(is, o, "Gruppe");
-   fetch_and_write_int_attrib(is, o, "Gruppe2");
-   fetch_and_write_bool_attrib(is, o, "Minderheit");
-   o << ">";
+  {Tag &Sprache=Sprachen.push_back(Tag("Sprache"));
+   std::string sprache=fetch_and_set_string_attrib(is, Sprache, "Name");
+   fetch_and_set_string_attrib(is, Sprache, "Region");
+   fetch_and_set_string_attrib(is, Sprache, "RegionZusatz");
+   fetch_and_set_int_attrib(is, Sprache, "Kosten");
+   fetch_and_set_int_attrib(is, Sprache, "Maximalwert");
+//   fetch_and_set_string_attrib(is, Sprache, "Schrift");
+   fetch_and_set_bool_attrib(is, Sprache, "alteSprache");
+   fetch_and_set_int_attrib(is, Sprache, "Gruppe");
+   fetch_and_set_int_attrib(is, Sprache, "Gruppe2");
+   fetch_and_set_bool_attrib(is, Sprache, "Minderheit");
+
    Query query2("select schrift from sprache_schrift"
    	" where sprache="+toSQL(sprache)+" order by schrift");
    FetchIStream is2;
    while ((query2>>is2).good())
-   {  o << "\n    <Schrift";
-      fetch_and_write_string_attrib(is2, o, "Name", sprache);
-      o << "/>";
+   {  Sprache.push_back(Tag("Schrift")).setAttr("Name", fetch_string(is2));
    }
-   o << "</Sprache>\n";
   }
   }
-   o << " </Sprachen>\n";
 
 //******************************************************************
   if (region.empty())
-  {o << " <SpeziesListe>\n";
+  {Tag &SpeziesListe=o.push_back(Tag("SpeziesListe"));
    Query query("select spezies, nr, only_nsc, land, hand_bonus, raufen,alter_fak, "
          " groesse_wanz, groesse_wuerfel, groesse_bonus, gewicht_wanz, gewicht_bonus, normgestalt, "
          " b_wanz, b_bonus, lp, ap_bonus, ap_grad_fak, "
@@ -134,64 +118,55 @@ void land_speichern(std::ostream &o)
       	" from spezies"
       	" order by spezies");
   while ((query>>is).good())
-  {o << "  <Spezies";
-   std::string name=fetch_and_write_string_attrib(is, o, "Name");
-   fetch_and_write_int_attrib(is, o, "MAGUS-Index");
-   fetch_and_write_bool_attrib(is, o, "only_NSC");
-   fetch_and_write_bool_attrib(is, o, "Land");
-   fetch_and_write_int_attrib(is, o, "HandBonus");
-   fetch_and_write_int_attrib(is, o, "RaufenBonus");
-   o << ">\n";
-   o << "    <Alter";
-   fetch_and_write_int_attrib(is, o, "Faktor");
-   o << "/>\n";
-   o << "    <Größe";
-   fetch_and_write_int_attrib(is, o, "AnzahlWürfel");
-   fetch_and_write_int_attrib(is, o, "Würfel");
-   fetch_and_write_int_attrib(is, o, "Addiere");
-   o << "/>\n";
-   o << "    <Gewicht";
-   fetch_and_write_int_attrib(is, o, "AnzahlWürfel");
-   fetch_and_write_int_attrib(is, o, "Addiere");
-   o << "/>\n";
-   o << "    <Normgestalt";
-   fetch_and_write_int_attrib(is, o, "Wert");
-   o << "/>\n";
-   o << "    <Bewegungsweite";
-   fetch_and_write_int_attrib(is, o, "AnzahlWürfel");
-   fetch_and_write_int_attrib(is, o, "Addiere");
-   o << "/>\n";
-   o << "    <Modifikation";
-   fetch_and_write_int_attrib(is, o, "LP_Bonus");
-   fetch_and_write_int_attrib(is, o, "AP_Bonus");
-   fetch_and_write_int_attrib(is, o, "AP_GradFaktor");
-   o << ">\n       <Resistenzen";
-   fetch_and_write_int_attrib(is, o, "psy");
-   fetch_and_write_int_attrib(is, o, "psy100");
-   fetch_and_write_int_attrib(is, o, "phs");
-   fetch_and_write_int_attrib(is, o, "phs100");
-   fetch_and_write_int_attrib(is, o, "phk");
-   fetch_and_write_int_attrib(is, o, "phk100");
-   o << "/>\n       <Grundwerte";
-   fetch_and_write_int_attrib(is, o, "St");
-   fetch_and_write_int_attrib(is, o, "Gs");
-   fetch_and_write_int_attrib(is, o, "Gw");
-   fetch_and_write_int_attrib(is, o, "Ko");
-   fetch_and_write_int_attrib(is, o, "In");
-   fetch_and_write_int_attrib(is, o, "Zt");
-   fetch_and_write_int_attrib(is, o, "Sb");
-   fetch_and_write_int_attrib(is, o, "Au");
-   o << "/>\n    </Modifikation>\n";
+  {Tag &Spezies=SpeziesListe.push_back(Tag("Spezies"));
+   std::string name=fetch_and_set_string_attrib(is, Spezies, "Name");
+   fetch_and_set_int_attrib(is, Spezies, "MAGUS-Index");
+   fetch_and_set_bool_attrib(is, Spezies, "only_NSC");
+   fetch_and_set_bool_attrib(is, Spezies, "Land");
+   fetch_and_set_int_attrib(is, Spezies, "HandBonus");
+   fetch_and_set_int_attrib(is, Spezies, "RaufenBonus");
+   fetch_and_set_int_attrib(is, Spezies.push_back(Tag("Alter")), "Faktor");
+   Tag &Groesse=Spezies.push_back(Tag("Größe"));
+   fetch_and_set_int_attrib(is, Groesse, "AnzahlWürfel");
+   fetch_and_set_int_attrib(is, Groesse, "Würfel");
+   fetch_and_set_int_attrib(is, Groesse, "Addiere");
+   Tag &Gewicht=Spezies.push_back(Tag("Gewicht"));
+   fetch_and_set_int_attrib(is, Gewicht, "AnzahlWürfel");
+   fetch_and_set_int_attrib(is, Gewicht, "Addiere");
+   fetch_and_set_int_attrib(is, Spezies.push_back(Tag("Normgestalt")), "Wert");
+   Tag &Bewegungsweite=Spezies.push_back(Tag("Bewegungsweite"));
+   fetch_and_set_int_attrib(is, Bewegungsweite, "AnzahlWürfel");
+   fetch_and_set_int_attrib(is, Bewegungsweite, "Addiere");
+   Tag &Modifikation=Spezies.push_back(Tag("Modifikation"));
+   fetch_and_set_int_attrib(is, Modifikation, "LP_Bonus");
+   fetch_and_set_int_attrib(is, Modifikation, "AP_Bonus");
+   fetch_and_set_int_attrib(is, Modifikation, "AP_GradFaktor");
+   Tag &Resistenzen=Modifikation.push_back(Tag("Resistenzen"));
+   fetch_and_set_int_attrib(is, Resistenzen, "psy");
+   fetch_and_set_int_attrib(is, Resistenzen, "psy100");
+   fetch_and_set_int_attrib(is, Resistenzen, "phs");
+   fetch_and_set_int_attrib(is, Resistenzen, "phs100");
+   fetch_and_set_int_attrib(is, Resistenzen, "phk");
+   fetch_and_set_int_attrib(is, Resistenzen, "phk100");
+   Tag &Grundwerte=Modifikation.push_back(Tag("Grundwerte"));
+   fetch_and_set_int_attrib(is, Grundwerte, "St");
+   fetch_and_set_int_attrib(is, Grundwerte, "Gs");
+   fetch_and_set_int_attrib(is, Grundwerte, "Gw");
+   fetch_and_set_int_attrib(is, Grundwerte, "Ko");
+   fetch_and_set_int_attrib(is, Grundwerte, "In");
+   fetch_and_set_int_attrib(is, Grundwerte, "Zt");
+   fetch_and_set_int_attrib(is, Grundwerte, "Sb");
+   fetch_and_set_int_attrib(is, Grundwerte, "Au");
+
    {  Query query2("select typen,maxgrad from spezies_typen"
       	" where spezies='"+name+"'"
       	" order by spezies,typen");
       FetchIStream is2;
       std::string typen;
       while ((query2>>is2).good()) 
-      {  o << "    <Typ";
-         fetch_and_write_string_attrib(is2, o, "Name");
-         fetch_and_write_int_attrib(is2, o, "MaximalerGrad");
-         o << "/>\n";
+      {  Tag &t=Spezies.push_back(Tag("Typ"));
+         fetch_and_set_string_attrib(is2, t, "Name");
+         fetch_and_set_int_attrib(is2, t, "MaximalerGrad");
       }
    }
    {  Query query3("select art,name,erfolgswert,lp from spezies_angeborene_fert"
@@ -199,17 +174,14 @@ void land_speichern(std::ostream &o)
       FetchIStream is3;
       std::string typen;
       while ((query3>>is3).good()) 
-      {  o << "    <AngeboreneFerigkeit";
-         fetch_and_write_string_attrib(is3, o, "Art");
-         fetch_and_write_string_attrib(is3, o, "Name");
-         fetch_and_write_int_attrib(is3, o, "Erfolgswert");
-         fetch_and_write_int_attrib(is3, o, "LP");
-         o << "/>\n";
+      {  Tag &a=Spezies.push_back(Tag("AngeboreneFerigkeit"));
+         fetch_and_set_string_attrib(is3, a, "Art");
+         fetch_and_set_string_attrib(is3, a, "Name");
+         fetch_and_set_int_attrib(is3, a, "Erfolgswert");
+         fetch_and_set_int_attrib(is3, a, "LP");
       }
    }
-   o << "  </Spezies>\n";
   }
-   o << " </SpeziesListe>\n";
   }
 
 //******************************************************************
@@ -221,17 +193,17 @@ void land_speichern(std::ostream &o)
    	" order by grad");
   while ((query>>is).good())
   {o << "  <Grad";
-   fetch_and_write_int_attrib(is, o, "Grad");
-   fetch_and_write_int_attrib(is, o, "GFP");
-   fetch_and_write_int_attrib(is, o, "Abwehr");
-   fetch_and_write_int_attrib(is, o, "Resistenz");
-   fetch_and_write_int_attrib(is, o, "Zaubern");
-   fetch_and_write_int_attrib(is, o, "Schicksalsgunst");
+   fetch_and_set_int_attrib(is, o, "Grad");
+   fetch_and_set_int_attrib(is, o, "GFP");
+   fetch_and_set_int_attrib(is, o, "Abwehr");
+   fetch_and_set_int_attrib(is, o, "Resistenz");
+   fetch_and_set_int_attrib(is, o, "Zaubern");
+   fetch_and_set_int_attrib(is, o, "Schicksalsgunst");
    o << "><Kosten";
-   fetch_and_write_int_attrib(is, o, "Ausdauer");
-   fetch_and_write_int_attrib(is, o, "Abwehr");
-   fetch_and_write_int_attrib(is, o, "Resistenz");
-   fetch_and_write_int_attrib(is, o, "Zaubern");
+   fetch_and_set_int_attrib(is, o, "Ausdauer");
+   fetch_and_set_int_attrib(is, o, "Abwehr");
+   fetch_and_set_int_attrib(is, o, "Resistenz");
+   fetch_and_set_int_attrib(is, o, "Zaubern");
    o << "/></Grad>\n";
   }
    o << " </Gradanstieg>\n";
@@ -247,33 +219,33 @@ void land_speichern(std::ostream &o)
    	" order by typnr,coalesce(region,''),typs");
   while ((query>>is).good())
   {o << "  <Typ";
-   fetch_and_write_typ_attrib(is, o, "Abkürzung");
-   fetch_and_write_string_attrib(is, o, "Region");
-   fetch_and_write_int_attrib(is, o, "MAGUS-Index");
-   fetch_and_write_string_attrib(is, o, "Bezeichnung-Mann");
-   fetch_and_write_string_attrib(is, o, "Bezeichnung-Frau");
+   fetch_and_set_typ_attrib(is, o, "Abkürzung");
+   fetch_and_set_string_attrib(is, o, "Region");
+   fetch_and_set_int_attrib(is, o, "MAGUS-Index");
+   fetch_and_set_string_attrib(is, o, "Bezeichnung-Mann");
+   fetch_and_set_string_attrib(is, o, "Bezeichnung-Frau");
    o << "\n       ";
    char zauberer=fetch_string(is,"n")[0];
    write_bool_attrib(o, "Zauberer",zauberer=='z');
    write_bool_attrib(o, "kannZaubern",zauberer=='z'||zauberer=='j');
-   fetch_and_write_string_attrib(is, o, "SprücheMitPraxisPunkten");
-   fetch_and_write_bool_attrib(is, o, "NSC_only");
-   fetch_and_write_bool_attrib(is, o, "Kultwaffe");
-   fetch_and_write_int_attrib(is, o, "MinSt");
-   fetch_and_write_int_attrib(is, o, "MinGw");
-   fetch_and_write_int_attrib(is, o, "MinGs");
-   fetch_and_write_int_attrib(is, o, "MinIn");
-   fetch_and_write_int_attrib(is, o, "MinpA");
-   fetch_and_write_string_attrib(is, o, "Berufswahl");
+   fetch_and_set_string_attrib(is, o, "SprücheMitPraxisPunkten");
+   fetch_and_set_bool_attrib(is, o, "NSC_only");
+   fetch_and_set_bool_attrib(is, o, "Kultwaffe");
+   fetch_and_set_int_attrib(is, o, "MinSt");
+   fetch_and_set_int_attrib(is, o, "MinGw");
+   fetch_and_set_int_attrib(is, o, "MinGs");
+   fetch_and_set_int_attrib(is, o, "MinIn");
+   fetch_and_set_int_attrib(is, o, "MinpA");
+   fetch_and_set_string_attrib(is, o, "Berufswahl");
    string stadt_land=fetch_string(is);
    if (stadt_land=="s") write_bool_attrib(o, "Land", false, true);
    else if (stadt_land=="l") write_bool_attrib(o, "Stadt", false, true);
-   fetch_and_write_string_attrib(is, o, "Ausdauer");
+   fetch_and_set_string_attrib(is, o, "Ausdauer");
    o << ">\n    <Modifikation";
-   fetch_and_write_int_attrib(is, o, "Stand");
-   fetch_and_write_int_attrib(is, o, "Sb");
-   fetch_and_write_int_attrib(is, o, "Rüstung");
-   fetch_and_write_int_attrib(is, o, "Geld");
+   fetch_and_set_int_attrib(is, o, "Stand");
+   fetch_and_set_int_attrib(is, o, "Sb");
+   fetch_and_set_int_attrib(is, o, "Rüstung");
+   fetch_and_set_int_attrib(is, o, "Geld");
    o << "/></Typ>\n";
   }
   }
@@ -292,13 +264,13 @@ void land_speichern(std::ostream &o)
    	" order by art,art2,name");
   while ((query>>is).good())
   {o << "  <Kaufpreis";
-   fetch_and_write_string_attrib(is, o, "Ware");
-   fetch_and_write_string_attrib(is, o, "Art");
-   fetch_and_write_string_attrib(is, o, "Art2");
-   fetch_and_write_float_attrib(is, o, "Preis");
-   fetch_and_write_string_attrib(is, o, "Währung");
+   fetch_and_set_string_attrib(is, o, "Ware");
+   fetch_and_set_string_attrib(is, o, "Art");
+   fetch_and_set_string_attrib(is, o, "Art2");
+   fetch_and_set_float_attrib(is, o, "Preis");
+   fetch_and_set_string_attrib(is, o, "Währung");
 #ifndef MIDGARD3   
-   fetch_and_write_float_attrib(is, o, "Gewicht");
+   fetch_and_set_float_attrib(is, o, "Gewicht");
 #endif
    o << "/>\n";
   }
@@ -310,14 +282,14 @@ void land_speichern(std::ostream &o)
    	" order by art,art2,typ,name");
   while ((query>>is).good())
   {o << "  <Modifikation";
-   fetch_and_write_string_attrib(is, o, "Bezeichnung");
-   fetch_and_write_string_attrib(is, o, "Art");
-   fetch_and_write_string_attrib(is, o, "Art2");
-   fetch_and_write_float_attrib(is, o, "Faktor");
-//   fetch_and_write_int_attrib(is, o, "Mindestpreis");
-//   fetch_and_write_string_attrib(is, o, "Einheit");
-   fetch_and_write_string_attrib(is, o, "Typ");
-   fetch_and_write_int_attrib(is, o, "MAGUS-Nr");
+   fetch_and_set_string_attrib(is, o, "Bezeichnung");
+   fetch_and_set_string_attrib(is, o, "Art");
+   fetch_and_set_string_attrib(is, o, "Art2");
+   fetch_and_set_float_attrib(is, o, "Faktor");
+//   fetch_and_set_int_attrib(is, o, "Mindestpreis");
+//   fetch_and_set_string_attrib(is, o, "Einheit");
+   fetch_and_set_string_attrib(is, o, "Typ");
+   fetch_and_set_int_attrib(is, o, "MAGUS-Nr");
    o << "/>\n";
   }
    o << " </Preise>\n";
