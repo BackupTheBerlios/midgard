@@ -42,7 +42,10 @@ std::string utf82iso(const std::string &s)
 
    for (std::string::const_iterator i = s.begin(); i!=s.end() ; i++)
    {  if (((*i)&0xe0)==0xc0)
-         ret+=(unsigned char)(((*i)<<6)|(*(++i))&0x3f);
+      {  unsigned char first=*i;
+         unsigned char second=*++i;
+         ret+=(unsigned char)((first<<6)|(second)&0x3f);
+      }
       else if ((unsigned char)(*i)>=0x80)
          cout << "UTF8 error " << int(*i) << '\n';
       else ret+=*i;
@@ -206,8 +209,11 @@ char *TagStream::next_tag(Tag *parent)
             if (*tagend=='?')
             {  if (tagend[1]!='>') ERROR2("strange tag end (?[^>])",tag);
                set_pointer(tagend+2);
-               newtag->debug();
-               if (newtag->Type()=="xml") encoding=newtag->getAttr("encoding");
+               if (newtag->Type()=="?xml") 
+               {  encoding=newtag->getAttr("encoding");
+                  if (encoding!=host_encoding)
+                     cout << "Recoding " << encoding << "->" << host_encoding << '\n';
+               }
                goto continue_outer;
             }
             if (isword0(*tagend))
@@ -280,7 +286,7 @@ char *TagStream::next_tag(Tag *parent)
          if (tagvalue[1]!='/') ERROR2("not ending?",tagvalue);
          char *endtagend=find(tagvalue+1,'>');
          if (!endtagend) ERROR2("endtag doesn't end",valueend);
-         if (memcmp(tagvalue+2,newtag->Type().c_str(),newtag->Type().size()))
+         if (recode(std::string(tagvalue+2,endtagend-(tagvalue+2)))!=newtag->Type())
          {  std::cerr << "tag <" << newtag->Type() << "> ended with </";
             std::cerr.write(tagvalue+2,endtagend-(tagvalue+2)) << ">\n";
          }
