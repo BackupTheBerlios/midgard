@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.227 2002/05/02 10:12:02 thoma Exp $
+// $Id: midgard_CG.hh,v 1.228 2002/05/02 12:12:56 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -336,6 +336,7 @@ private:
         gint on_button_lernschema_geld_button_release_event(GdkEventButton *ev);
         gint on_button_lernschema_waffen_button_release_event(GdkEventButton *ev);
         void on_waffen_lernschema_tree_leaf_selected(cH_RowDataBase d);
+        void on_spinbutton_waffen_lernschema_activate();
         void show_WaffenBesitz_lernschema();
         void WaffenBesitz_lernschema_wuerfeln(int wurf);
 //   public:

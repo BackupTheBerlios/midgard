@@ -1,4 +1,4 @@
-// $Id: midgard_CG_waffen.cc,v 1.35 2002/05/02 10:12:02 thoma Exp $
+// $Id: midgard_CG_waffen.cc,v 1.36 2002/05/02 12:12:56 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -23,7 +23,7 @@
 //#include "class_Beruf_Data.hh"
 //#include "Beruf.hh"
 #include <Aux/itos.h>
-#include "Window_Waffenbesitz.hh"
+//#include "Window_Waffenbesitz.hh"
 #include "class_SimpleTree.hh"
 
 gint midgard_CG::on_button_lernschema_waffen_button_release_event(GdkEventButton *ev)
@@ -33,14 +33,23 @@ gint midgard_CG::on_button_lernschema_waffen_button_release_event(GdkEventButton
   button_lernschema_waffen->set_sensitive(false);
   if  (ev->button==1)
    {
+     table_waffen_lernschema_eingabe->hide();
      int wurf = random.integer(1,100);
      WaffenBesitz_lernschema_wuerfeln(wurf);     
      show_WaffenBesitz_lernschema();
 //     manage (new Window_waffe(wurf,this,Werte,Typ,Database,list_Waffen));
    }
   else if (ev->button==3)
-     manage (new Window_Waffenbesitz(this,list_Waffen,list_Waffen_besitz));
+   table_waffen_lernschema_eingabe->show();
+//     manage (new Window_Waffenbesitz(this,list_Waffen,list_Waffen_besitz));
   return 0;
+}
+
+void midgard_CG::on_spinbutton_waffen_lernschema_activate()
+{
+  spinbutton_waffen_lernschema->update();
+  WaffenBesitz_lernschema_wuerfeln(spinbutton_waffen_lernschema->get_value_as_int());
+  table_waffen_lernschema_eingabe->hide();
 }
 
 
