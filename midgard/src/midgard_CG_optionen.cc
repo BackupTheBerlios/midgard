@@ -35,7 +35,6 @@ void midgard_CG::on_checkbutton_KanThaiPan_toggled()
   if (checkbutton_KanThaiPan->get_active()) KanThaiPanbool=true;
   else KanThaiPanbool=false;
   midgard_CG::fill_typauswahl();
-  midgard_CG::typauswahl_button();
 }
 
 void midgard_CG::on_checkbutton_Nahuatlan_toggled()

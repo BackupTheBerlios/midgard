@@ -128,16 +128,28 @@ ORDER BY f.fertigkeit",  db_typ, db_typ, db_typ, db_typ, werte.name_charakter.c_
  tr.commit();
 }
 
+bool midgard_CG::kido_steigern_check(int wert)
+{
+  if (werte.grad+10 > wert) return false;
+  else
+   { string strinfo ="KiDo darf nur auf maximal Grad+10 gesteigert werden.\n";
+     manage (new WindowInfo(strinfo));
+     return true;
+   }
+}
 
 
 
 void midgard_CG::on_steigern_fert_clist_alt_select_row(gint row, gint column, GdkEvent *event)
 {
-  string fertigkeit=steigern_fert_clist_alt->get_text(row,0);
+ string fertigkeit=steigern_fert_clist_alt->get_text(row,0);
+ int wert = atoi(steigern_fert_clist_alt->get_text(row,1).c_str());
+ if (fertigkeit=="KiDo" && kido_steigern_check(wert)) return;
    if (radio_fert_steigern->get_active())
     {
       int kosten_steigern=atoi(steigern_fert_clist_alt->get_text(row,2).c_str());
-      if (!togglebutton_praxispunkte_fertigkeiten->get_active()) // Steigern mit lernen
+      // Steigern mit lernen
+      if (!togglebutton_praxispunkte_fertigkeiten->get_active()) 
          {
             werte.gfp += kosten_steigern;
             if (kosten_steigern != 0)
@@ -186,6 +198,9 @@ void midgard_CG::on_steigern_fert_clist_alt_select_row(gint row, gint column, Gd
    
    steigern_fert_clist_alt->unselect_row(row);
 }
+
+
+
 
 void midgard_CG::on_steigern_fert_clist_neu_select_row(gint row, gint column, GdkEvent *event)
 {

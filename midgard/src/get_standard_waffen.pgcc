@@ -47,3 +47,28 @@ double midgard_CG::get_standard_waffen(string typ, string waffe)
  return(fac);
 }
 
+string midgard_CG::get_region_waffen(string waffe, string region, int mod)
+{
+  exec sql begin declare section;
+   char db_waffe[50],db_region[10];
+   char db_ergebnis[50];
+  exec sql end declare section;
+
+  strncpy(db_waffe,waffe.c_str(),sizeof(db_waffe));
+  strncpy(db_region,region.c_str(),sizeof(db_region));
+
+  if (mod==1) // get alias from waffe
+   {
+     exec sql select alias into :db_ergebnis from waffen_region_name 
+         where name = :db_waffe and region = :db_region;
+   }
+  if (mod==2) // get waffe from alias
+   {
+     exec sql select name into :db_ergebnis from waffen_region_name
+         where alias = :db_waffe and region = :db_region;
+   }
+  SQLerror::test(__FILELINE__,100);
+  if (sqlca.sqlcode) return(waffe);
+  else return(db_ergebnis);
+}
+

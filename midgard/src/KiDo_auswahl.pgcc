@@ -17,13 +17,13 @@ exec sql include sqlca;
 
 void KiDo_auswahl::on_clist_kido_auswahl_select_row(gint row, gint column, GdkEvent *event)
 {   
-   if (maxkido>0) label_kido_techniken->set_text(itos(--maxkido));
-   else clist_kido_auswahl->row(row).unselect();
+   if (maxkido<=0) clist_kido_auswahl->row(row).unselect();
+   label_kido_techniken->set_text("Noch "+itos(--maxkido)+" Techniken auswählen");
 }
 
 void KiDo_auswahl::on_clist_kido_auswahl_unselect_row(gint row, gint column, GdkEvent *event)
 {   
-   label_kido_techniken->set_text(itos(++maxkido));
+   label_kido_techniken->set_text("Noch "+itos(++maxkido)+" Techniken auswählen");
 }
 
 void KiDo_auswahl::on_button_close_clicked()
@@ -32,22 +32,51 @@ void KiDo_auswahl::on_button_close_clicked()
   for(Gtk::CList::SelectionList::iterator i=clist_kido_auswahl->selection().begin();
       i!=clist_kido_auswahl->selection().end();++i)
    {
-     
-//     technik.push_back(ptr->technik);
+     st_kido_ *ptr = static_cast<st_kido_*>(i->get_data());
+     technik.push_back(ptr->name_orig);
    }
   hauptfenster->kido_uebernehmen(technik);
   destroy();
 }
 
 
-KiDo_auswahl::KiDo_auswahl(midgard_CG* h, int m)
+KiDo_auswahl::KiDo_auswahl(midgard_CG* h, int m, st_werte werte)
 : maxkido(m)
 {
    hauptfenster=h;
-   label_kido_techniken->set_text(itos(maxkido));
+   label_kido_techniken->set_text("Noch "+itos(maxkido)+" Techniken auswählen");
 
-//XXX CLIST FÜLLEN
-
+   exec sql begin declare section;
+    char db_name_orig[50], db_name[50];
+    int db_fp, db_ap;
+    char query[1024];
+   exec sql end declare section;
+   string squery;
+   squery = "select name_orig, name, fp, ap from kido \
+         where stufe='Schüler' ";
+   if (werte.spezialisierung != "Gemischte Techniken")
+      squery += "and (stil = 'beide' or stil = '"+werte.spezialisierung +"') ";
+   squery +=  " order by 1";
+   strncpy(query,squery.c_str(),sizeof(query));
+   Transaction tr;
+   exec sql prepare ein_ from :query;
+   exec sql declare ein cursor for ein_;
+   exec sql open ein;
+   SQLerror::test(__FILELINE__);
+   while (true)
+     {
+      exec sql fetch ein into :db_name_orig, :db_name, :db_fp, :db_ap;
+      SQLerror::test(__FILELINE__,100);  
+      if (sqlca.sqlcode) break;
+      kido_technik.push_back(st_kido_(db_name_orig,db_name,db_ap,db_fp));
+     }
+   exec sql close ein;
+   Gtk::OStream os(clist_kido_auswahl);
+   for (vector<st_kido_>::iterator i=kido_technik.begin();i!=kido_technik.end();++i)
+    {
+      os << i->name_orig <<"\t"<<i->name<<"\t"<<i->ap<<"\t"<<i->fp<<"\n";
+      os.flush(&*i);
+    }
    for (unsigned int i=0;i<clist_kido_auswahl->columns().size();++i)
       clist_kido_auswahl->set_column_auto_resize(i,true);
    clist_kido_auswahl->set_selection_mode(GTK_SELECTION_MULTIPLE);

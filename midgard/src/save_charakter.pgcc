@@ -63,6 +63,7 @@ void midgard_CG::on_speichern_clicked()
       int db_kupfer = werte.kupfer;
       char db_ruestung[20];
       int db_av_bonus,db_sl_bonus;
+      char db_region[20];
    exec sql end declare section;
    db_zaubern = atoi(werte.zaubern_wert.c_str());
    strncpy(db_beschreibung,werte.beschreibung.c_str(),sizeof(db_beschreibung));
@@ -197,10 +198,11 @@ void midgard_CG::on_speichern_clicked()
          strncpy(db_fertigkeit, i->name.c_str(),sizeof(db_fertigkeit));
          db_av_bonus = i->av_bonus;
          db_sl_bonus = i->sl_bonus;
+         strncpy(db_region,i->region.c_str(),sizeof(db_region));
          exec sql INSERT INTO charaktere_fertigkeiten
-            (charakter_name,version,fertigkeit,wert,art,av_bonus,sl_bonus)
+            (charakter_name,version,fertigkeit,wert,art,av_bonus,sl_bonus,region)
          VALUES
-            (:db_name_ch,:db_version,:db_fertigkeit,0,'Besitz_W',:db_av_bonus,:db_sl_bonus) ;
+            (:db_name_ch,:db_version,:db_fertigkeit,0,'Besitz_W',:db_av_bonus,:db_sl_bonus,:db_region) ;
             SQLerror::test(__FILELINE__);
       }
    for (vector<st_zauber>::iterator i=zauber.begin();
@@ -217,7 +219,7 @@ void midgard_CG::on_speichern_clicked()
    for (vector<st_kido>::iterator i=vec_kido.begin();
          i!=vec_kido.end();++i)
       {
-         strncpy(db_fertigkeit, i->technik.c_str(),sizeof(db_fertigkeit));
+         strncpy(db_fertigkeit, i->hoho.c_str(),sizeof(db_fertigkeit));
 //         strncpy(db_wert_str,"0",sizeof(db_wert_str)) ;
          exec sql INSERT INTO charaktere_fertigkeiten
             (charakter_name,version,fertigkeit,wert,art)

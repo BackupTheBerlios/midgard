@@ -1,33 +1,31 @@
 #include "midgard_CG.hh"
 #include <Gtk2TeX.h>
 
-void midgard_CG::LaTeX_zauber()
+void midgard_CG::LaTeX_kido()
 {
-  string name = "midgard_tmp_myzauber.tex";
+  string name = "midgard_tmp_mykido.tex";
   ofstream fout(name.c_str());
-  for (unsigned int i=0;i<zauber.size();++i)
+  for (unsigned int i=0;i<vec_kido.size();++i)
    {
-     fout << zauber[i].name << " & ";
-     fout << zauber[i].erfolgswert <<" & ";
-     fout << Gtk2TeX::string2TeX(zauber[i].ap) << " & ";
-     fout << zauber[i].art << " & ";
-     fout << zauber[i].stufe << " & ";
-     fout << zauber[i].zauberdauer << " & ";
-     fout << zauber[i].reichweite << " & ";
-     fout << zauber[i].wirkungsziel << " & ";
-     fout << zauber[i].wirkungsbereich << " & ";
-     fout << zauber[i].wirkungsdauer << " & ";
-     fout << zauber[i].ursprung << " & " ;
-     fout << zauber[i].material << " & " ;
-     fout << zauber[i].agens <<" " <<zauber[i].prozess <<" "<<zauber[i].reagens ;
+     string ap = itos(vec_kido[i].ap);
+     if (ap=="0") ap="";
+     string stufe=vec_kido[i].stufe;
+     if (stufe=="Schüler") stufe="S";
+     if (stufe=="Eingeweihter") stufe="E";
+     if (stufe=="Meister") stufe="M";
+     fout << ap << " & ";
+     fout << vec_kido[i].hoho << " & ";
+     fout << vec_kido[i].technik << " & ";
+     fout << stufe << " & ";
+     fout << Gtk2TeX::string2TeX(vec_kido[i].effekt) ;
      fout << "\\\\\n";
    }
 }
 
 
-void midgard_CG::LaTeX_zauber_main(void)
+void midgard_CG::LaTeX_kido_main(void)
 {
-  ofstream fout ("midgard_tmp_document_zauber.tex");
+  ofstream fout ("midgard_tmp_document_kido.tex");
   fout << "\\documentclass[a4paper,10pt,landscape]{article}\n";
   fout << "\\usepackage{german}\n\\usepackage[latin2]{inputenc}\n";
    fout << "\\usepackage[final]{epsfig}\n";
@@ -43,7 +41,7 @@ void midgard_CG::LaTeX_zauber_main(void)
    fout << "\\newcommand{\\li}{\\setlength{\\arrayrulewidth}{0.2mm}}\n";
    fout << "\\setlength{\\doublerulesep}{0mm}\n";
   fout << "\\begin{document}\n";
-   fout << "\\input{./midgard_tmp_latexwertedef}\n";
+//   fout << "\\input{./midgard_tmp_latexwertedef}\n";
    fout << "\\input{./midgard_tmp_latexwerte}\n";
    fout << "\\begin{center}\n";
    fout << "\\parbox{10cm}{\\epsfig{width=10cm,angle=0,file="PACKAGE_DATA_DIR"drache.ps}}\n";
@@ -58,14 +56,11 @@ void midgard_CG::LaTeX_zauber_main(void)
    fout <<"\\end{tabularx}\n}\n";
    fout <<"\\parbox{10cm}{\\epsfig{width=10cm,angle=0,file="PACKAGE_DATA_DIR"dracher.ps}}\n";
    fout <<"\\vspace*{2ex}\n";
-  fout << "\\begin{tabular}{lcclccclcclp{3cm}l}\\hline\n";
-  fout << " & Erfolgs- & &&&Zauber-&Reich-&\\multicolumn{1}{c}{Wirkungs-}&Wirkungs-&"
-       <<"  Wirkungs-&\\multicolumn{1}{c}{Ur-}&\\multicolumn{1}{c}{Material}&\\multicolumn{1}{c}{Prozess}\\\\ \n";
-  fout << "\\raisebox{1.5ex}[-1.5ex]{Zauberformel} & wert     & "
-       << "\\raisebox{1.5ex}[-1.5ex]{AP} & \\multicolumn{1}{c}{\\raisebox{1.5ex}[-1.5ex]{Art}}"
-       << " & \\raisebox{1.5ex}[-1.5ex]{Stufe} & -dauer & weite&\\multicolumn{1}{c}{ziel}&bereich&"
-       << "dauer&\\multicolumn{1}{c}{sprung}\\\\\\hline\n";
-  fout << "\\input{midgard_tmp_myzauber.tex}\n";
+  fout << "\\begin{tabular}{rllcp{17cm}}\n";
+  fout << "\\multicolumn{5}{l}{\\large\\bf Erfolgswert KiDo: "
+         <<get_erfolgswert_kido()+werte.bo_za<<"}\\\\\\hline\n";
+  fout << " AP & HoHo & Technik & Stufe & Effekt \\\\\\hline \n";
+  fout << "\\input{midgard_tmp_mykido.tex}\n";
   fout << "\\end{tabular}\n";
   fout << "\\end{center}\n";
   fout << "\\end{document}\n\n";

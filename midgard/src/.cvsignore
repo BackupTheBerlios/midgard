@@ -58,3 +58,4 @@ get_Verteidigungswaffe.cc
 Window_mag_bonus.cc
 KiDo_auswahl.cc
 steigern_kido.cc
+get_kido.cc

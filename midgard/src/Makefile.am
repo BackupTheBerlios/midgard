@@ -60,10 +60,7 @@ BUILT_SOURCES = Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
 	Window_ruestung.cc Window_waffe.cc Window_Waffenbesitz.cc \
    midgard_CG_waffe_werte.cc get_berufs_vorteile.cc \
    midgard_CG_typauswahl.cc  Window_mag_bonus.cc get_Verteidigungswaffe.cc \
-	Window_angeb_fert.cc KiDo_auswahl.cc steigern_kido.cc
-
-
-
+	Window_angeb_fert.cc KiDo_auswahl.cc steigern_kido.cc get_kido.cc
 
 
 
@@ -116,6 +113,7 @@ midgard_SOURCES = \
 	Window_Geld_eingeben.cc \
    LaTeX_out.cc \
    LaTeX_zauber.cc \
+   LaTeX_kido.cc \
    LaTeX_charakter_beschreibung.cc \
    grundwere_edit_setzen.cc \
    WindowInfo.cc \

@@ -1,4 +1,49 @@
 ##########################################################################
+NEWS IN VERSION 0.3beta4
+Ausdruck von KiDo-Techniken MIT KURZBESCHREIBUNG (Dank an Nils) ist 
+   jetzt möglich
+Bei der Gelegenheit gleich einen Bug aus dem Zauberausdruck mit entfernt.
+ (Hat vielleicht jemand Lust und Zeit eine Kurzbeschreibung der Zauberformeln
+   einzugeben?)
+Anmerkungen: Beim KiDo habe ich versucht alle Regeln zu berücksichtigen die
+   es gibt. Wenn irgendjemanden ein Fehler auffällt, dann bitte ich um Mitteilung.
+   Einzige (mir bekannte) Ausnahme ist, daß es möglich ist Meistertechniken
+   zu wählen, da es keine Möglichkeit gibt zu testen, ob ein Charakter
+   das Te im KiDo erreicht hat. Ich weiß auch nicht, ob es sinnvoll ist dafür 
+   einen Check einzuführen, was meit ihr? Wie könnte ein solcher Test aussehn?
+
+In Planung:
+   Waeland -> Stefan ????,   midgard-site@t-online.de
+   Eschar  -> Sebastian Horstmar, horstse@uni-muenster.de
+   Nahuatlan -> Nils Richter, anarion@uni-muenster.de
+   Rawindra -> Fabian Wagner, Fabian.Wagner@01019freenet.de
+Sieht doch sehr gut für die nahe Zukunft aus ....
+
+##########################################################################
+NEWS IN VERSION 0.3beta3
+Ich habe mit mehreren hartnäckigen Bug gekämpft:
+   - Das Auswählen von länderspezifischen Waffen hat nicht richtig funktioniert
+     Dadurch kam die Waffenwahl (Besitz) völlig durcheinander. 
+   - Durch die kulturspezifischen Waffen kam es zu abstürzen, wenn das Dokument
+     ausgedruckt werden sollt
+Soweit ich das bis jetzt beurteilen kann habe ich DIESE Käfer besiegt...
+
+Außerdem funktioniert die Wahl von KiDo Techniken jetzt.
+Was (sollte) funktioniert:
+   lernen, steigern, Wahl eines KiDo Stils, Berücksichtigung des Stil,
+   Berücksichtigung der Stufen der Techniken (Schüler, Eingeweihte, Meister)
+Was nicht berücksichtigt wird:
+   Ob Te erworben wurde, muß der Spieler selber kontrollieren :-)
+Was noch fehlt sind die Icons für KiDo
+
+Ich gehe davon aus, daß es durch die (noch nciht abgeschlossene 
+Ländererweiterung noch einige Bugs gibt, ich bitte um Rückmeldung.
+
+##########################################################################
+NEWS IN VERSION 0.3beta2
+Im File auf dem Server fehlten 2 Pixmaps...
+
+##########################################################################
 NEWS IN VERSION 0.3beta1
 Weitere Pixmaps eingebaut.
 Die Pixmaps müssen nicht mehr getrennnt heruntergeladen werden, die 

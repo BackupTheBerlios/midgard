@@ -16,12 +16,15 @@
 
 #include <vector>
 class midgard_CG;
-
-
+struct st_werte;
+struct st_kido_{string name_orig;string name;int ap;int fp;
+      st_kido_(string n, string n2, int a, int f)
+      : name_orig(n),name(n2),ap(a),fp(f) {}};
 
 class KiDo_auswahl : public KiDo_auswahl_glade
 {   
         
+        vector<st_kido_> kido_technik;
         midgard_CG* hauptfenster;
         int maxkido;
         friend class KiDo_auswahl_glade;
@@ -29,6 +32,6 @@ class KiDo_auswahl : public KiDo_auswahl_glade
         void on_clist_kido_auswahl_unselect_row(gint row, gint column, GdkEvent *event);
         void on_button_close_clicked();
    public:
-        KiDo_auswahl(midgard_CG* h, int m);
+        KiDo_auswahl(midgard_CG* h, int m,st_werte werte);
 };
 #endif

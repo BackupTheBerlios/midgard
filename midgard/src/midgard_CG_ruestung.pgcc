@@ -7,7 +7,7 @@ string midgard_CG::ruestung(string mod)
 {
  exec sql begin declare section;
    char db_typ[5];
-   char db_c_ruestung[5], db_long[30];
+   char db_c_ruestung[10], db_long[30];
    int  db_i_ruestung;
    int  db_wert;
  exec sql end declare section;

@@ -27,7 +27,7 @@ Window_ruestung::Window_ruestung(st_werte& w,midgard_CG* h)
  label_ruestung->set_text(sru.c_str());
  exec sql begin declare section;
    int lp,mst,rw,b;
-   char ru[30],rus[5];
+   char ru[30],rus[10];
    char db_region[10];
  exec sql end declare section;
  exec sql declare ein cursor for

@@ -8,6 +8,7 @@ exec sql include sqlca;
 #include <strstream>
 #include "WindowInfo.hh"
 
+
 void midgard_CG::on_kido_laden_clicked()
 {   
  midgard_CG::on_speichern_clicked();
@@ -22,80 +23,92 @@ void midgard_CG::show_alte_kido()
    Gtk::OStream os(steigern_kido_clist_alt);
    for (vector<st_kido>::iterator i=vec_kido.begin(); i!=vec_kido.end();++i)
       {
-//         double fac = midgard_CG::get_standard_kido(typ.s,i->name);
-         os << i->technik<<"\t"<<i->stil<<"\n";
+         double fac = midgard_CG::get_standard_fertigkeit(typ.s,"KiDo");
+         os << i->hoho<<"\t"<<i->technik<<"\t"<<i->stufe<<"\t"
+            << i->ap<<"\t"<<fac*i->fp<<"\t"<<i->stil<<"\n";
       }
    for (unsigned int i=0;i<steigern_kido_clist_alt->columns().size();++i)
       steigern_kido_clist_alt->set_column_auto_resize(i,true);
    steigern_kido_clist_alt->set_reorderable(true);
 }
 
+int midgard_CG::get_erfolgswert_kido()
+{
+ for (vector<st_ausgewaehlte_fertigkeiten>::const_iterator
+      i= vec_fertigkeiten.begin();i!=vec_fertigkeiten.end();++i)
+   {
+      if (i->name == "KiDo") return i->erfolgswert; 
+   }
+ // should never get here 
+ string strinfo="WARNUNG: Dieser Charakter beherrscht die Fertigkeit KiDo nicht.";
+ manage (new WindowInfo(strinfo));
+ return 0; 
+}
 
 void midgard_CG::show_neue_kido()
 {
+  vector<st_kido> new_kido;
   steigern_kido_clist_neu->clear();
-/*
   exec sql begin declare section;
-   char db_typ[5];
-   char db_name[100];
-   int db_kosten;
-   char db_stufe[10];
-   char db_spruchrolle[10];
-   char db_standard[20];
-   char query[1000];
-   char db_region[10];
+   char db_hoho[50];
+   char query[1024];
   exec sql end declare section;
-  strncpy(db_typ,typ.s.c_str(),sizeof(db_typ));
-  snprintf(query,sizeof(query),"SELECT name, kosten, stufe, %s, spruchrolle, coalesce(region,'') \
-FROM arkanum_kido WHERE (%s = 'G' OR %s = 'S' OR %s = 'A') \
-AND name NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten \
-WHERE charakter_name = '%s' AND version = '%s') ORDER BY stufe,name "
-            ,db_typ,db_typ,db_typ,db_typ,werte.name_charakter.c_str(),werte.version.c_str());
+  string stufe_constraint ="";
+  // Stufe
+  if (werte.grad<=4 || get_erfolgswert_kido()+werte.bo_za <=15)
+      stufe_constraint += " and stufe != 'Eingeweihter' ";
+  if (werte.grad<=6 || get_erfolgswert_kido()+werte.bo_za <=18)
+      stufe_constraint += " and stufe != 'Meister' ";
+  // Stil
+  if (werte.spezialisierung=="Harte Techniken")
+      stufe_constraint += " and stil != 'Sanfte Techniken' ";
+  if (werte.spezialisierung=="Sanfte Techniken")
+      stufe_constraint += " and stil != 'Harte Techniken' ";
 
-   Transaction tr;
-   exec sql prepare kido_ein_ from :query ;
-   exec sql declare kido_ein cursor for kido_ein_ ;
+  string squery = "SELECT name_orig from kido \
+   where name_orig not in (SELECT fertigkeit FROM charaktere_fertigkeiten \
+   WHERE charakter_name = '"+werte.name_charakter+"' AND version = '"+
+   werte.version+"') "+stufe_constraint+"order by 1";
 
-   exec sql open kido_ein;
-   SQLerror::test(__FILELINE__);
-   Gtk::OStream os(steigern_kido_clist_neu);
-   while (true)
-      {
-         exec sql fetch kido_ein into :db_name, :db_kosten, :db_stufe, 
-            :db_standard, :db_spruchrolle, :db_region ;
+  snprintf(query,sizeof(query),squery.c_str());
+  Transaction tr;
+  exec sql prepare kido_ein_ from :query ;
+  exec sql declare kido_ein cursor for kido_ein_ ;
+  exec sql open kido_ein;
+  SQLerror::test(__FILELINE__);
+  Gtk::OStream os(steigern_kido_clist_neu);
+  while (true)
+    {
+       exec sql fetch kido_ein into :db_hoho;
          SQLerror::test(__FILELINE__,100);  
          if (sqlca.sqlcode) break;
-         double fac = midgard_CG::get_standard_kido(typ.s,db_name);
-
-         if (midgard_CG::region_check(db_region))
-          {
-            if (!spruchrolle->get_active())
-               os << db_stufe <<"\t"<< db_name <<"\t"<<db_kosten*fac<<"\t"<<db_standard<<"\n";
-            else
-               if (strcmp(db_spruchrolle,"nicht"))
-                  os << db_stufe <<"\t"<< db_name <<"\t"<<db_kosten*fac/10<<"\t"<<db_standard<<"\n";
-          }
+         new_kido.push_back(st_kido(db_hoho,"","","",0,0,""));
       }
    exec sql close kido_ein;
+   tr.commit();
 
+   midgard_CG::get_kido(new_kido);
+   double fac = midgard_CG::get_standard_fertigkeit(typ.s,"KiDo");
+   for (vector<st_kido>::iterator i=new_kido.begin();i!=new_kido.end();++i)
+     {
+        os << i->hoho <<"\t"<< i->technik <<"\t"<<i->stufe<<"\t"
+            <<i->ap<<"\t"<<fac*i->fp<<"\t"<<i->stil<<"\n";
+     }
    for (unsigned int i=0;i<steigern_kido_clist_neu->columns().size();++i)
       steigern_kido_clist_neu->set_column_auto_resize(i,true);
    steigern_kido_clist_neu->set_reorderable(true);
-   tr.commit();
-*/
 }
 
 
 void midgard_CG::on_steigern_kido_clist_alt_select_row(gint row, gint column, GdkEvent *event)
 {   
-/*
    string alt_kido = steigern_kido_clist_alt->get_text(row,0);
-   int alt_kosten = atoi(steigern_kido_clist_alt->get_text(row,1).c_str());
+   int alt_kosten = atoi(steigern_kido_clist_alt->get_text(row,4).c_str());
    werte.gfp -= alt_kosten;
-   for (vector<st_kido>::iterator i=kido.begin();
-            i!= kido.end();++i) 
-      if (i->name==alt_kido) {kido.erase(i);break;}
-*/
+   for (vector<st_kido>::iterator i=vec_kido.begin();
+            i!= vec_kido.end();++i) 
+      if (i->hoho==alt_kido) {vec_kido.erase(i);break;}
+
    midgard_CG::zeige_werte(werte,"alle");
    midgard_CG::show_kido();
    midgard_CG::on_speichern_clicked();
@@ -105,16 +118,12 @@ void midgard_CG::on_steigern_kido_clist_alt_select_row(gint row, gint column, Gd
 
 void midgard_CG::on_steigern_kido_clist_neu_select_row(gint row, gint column, GdkEvent *event)
 {   
-/*
-  int new_kosten = atoi(steigern_kido_clist_neu->get_text(row,2).c_str());
-  string new_kido = steigern_kido_clist_neu->get_text(row,1);
-  string erf = midgard_CG::get_erfolgswert_kidon(typ,new_kido);
-  string stufe= steigern_kido_clist_neu->get_text(row,0);
-  string art =steigern_kido_clist_neu->get_text(row,3);
-  
+  int new_kosten = atoi(steigern_kido_clist_neu->get_text(row,4).c_str());
+  string new_name = steigern_kido_clist_neu->get_text(row,0);
   werte.gfp += new_kosten;
-  kido.push_back(st_kido("0",new_kido,erf,"0","0","0","0","0","0","0","0","0","0","0","0","0",0));
-*/
+  vec_kido.push_back(st_kido(new_name,"","","",0,0,""));
+  get_kido(vec_kido);
+
   midgard_CG::show_kido();
   midgard_CG::on_speichern_clicked();
   midgard_CG::zeige_werte(werte,"alle");

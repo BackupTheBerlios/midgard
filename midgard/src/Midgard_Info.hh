@@ -19,5 +19,7 @@ class Midgard_Info : public Midgard_Info_glade
         
         friend class Midgard_Info_glade;
         void on_button_close_clicked();
+   public:
+        Midgard_Info();
 };
 #endif

@@ -19,7 +19,7 @@ string midgard_CG::get_Verteidigungswaffe(int ohne_waffe)
        if (art=="Verteidigung" || i->name=="Kampfstab" || i->name=="Sai" ||
           i->name=="Tonfa" || i->name=="GunSen" || i->name=="BuKasa" || 
           i->name=="KusariGama" || i->name=="TetsuBo") 
-         Verteidigungswaffen.push_back(st_waffen_besitz(i->name,i->av_bonus,i->sl_bonus));
+         Verteidigungswaffen.push_back(st_waffen_besitz(i->name,i->region,i->av_bonus,i->sl_bonus));
      }
    string Vwaffewert;
    for(vector<st_waffen_besitz>::const_iterator i=Verteidigungswaffen.begin();

@@ -1,0 +1,38 @@
+// generated 2001/2/11 14:16:06 CET by thoma@ig23.
+// using glademm V0.5_11c
+//
+// newer (non customized) versions of this file go to Zauber_auswahl.cc_new
+
+// This file is for your program, I won't touch it again!
+
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+exec sql include sqlca;
+#include "midgard_CG.hh"
+#include <cstring>
+#include <Gtk_OStream.h>
+
+void midgard_CG::get_kido(vector<st_kido>& vec_kido)
+{
+  exec sql begin declare section;
+   char db_name_orig[50],db_name[50],db_stufe[20],db_stil[20],db_effekt[1024];
+   int db_fp,db_ap;
+  exec sql end declare section;
+
+  for(vector<st_kido>::iterator i=vec_kido.begin();i!=vec_kido.end();++i)
+   { 
+     strncpy(db_name_orig,i->hoho.c_str(),sizeof(db_name_orig));
+     exec sql select name,stufe,stil,fp,ap,effekt
+         into :db_name,:db_stufe,:db_stil,:db_fp,:db_ap,:db_effekt
+         from kido where name_orig = :db_name_orig;
+     SQLerror::test(__FILELINE__);
+     i->technik = db_name;
+     i->stufe = db_stufe;
+     i->stil = db_stil;
+     i->fp = db_fp;
+     i->ap = db_ap;
+     i->effekt = db_effekt;  
+   }
+}
+
+

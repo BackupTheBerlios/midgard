@@ -20,6 +20,7 @@ void Window_Waffenbesitz::on_clist_waffe_alt_select_row(gint row, gint column, G
   for (vector<st_waffen_besitz>::iterator i=waffe_besitz.begin();
          i!=waffe_besitz.end();++i)
    { 
+     if ((i->region) !="") waffe = hauptfenster->get_region_waffen(waffe,i->region,2);
      if ((i->name) == waffe &&  mag_bonus_bool) {manage (new Window_mag_bonus(this,*i)); break;}
      if ((i->name) == waffe && !mag_bonus_bool) {waffe_besitz.erase(i);break;} 
    }
@@ -31,7 +32,9 @@ void Window_Waffenbesitz::on_clist_waffe_alt_select_row(gint row, gint column, G
 void Window_Waffenbesitz::on_clist_waffe_neu_select_row(gint row, gint column, GdkEvent *event)
 {   
  string waffe = clist_waffe_neu->get_text(row,0);
- waffe_besitz.push_back(st_waffen_besitz(waffe,0,0));
+ string region = clist_waffe_neu->get_text(row,2);
+ if (region!="") waffe = hauptfenster->get_region_waffen(waffe,region,2);
+ waffe_besitz.push_back(st_waffen_besitz(waffe,region,0,0));
   hauptfenster->on_speichern_clicked();
   show_alte_waffen();   
   show_neue_waffen();   
@@ -65,7 +68,13 @@ void  Window_Waffenbesitz::show_alte_waffen()
      string bonus= "("+itos(i->av_bonus)+"/"+itos(i->sl_bonus)+")";
      if (bonus == "(0/0)")   bonus = "";
      if (bonus == "(-5/-5)") bonus = "(0/0)";
-     os << i->name <<"\t"<<schaden<<"\t"<<bonus<<"\n";
+     if (i->region=="")
+        os << i->name <<"\t"<<schaden<<"\t"<<bonus<<"\n";
+     else
+      {
+        string alias = hauptfenster->get_region_waffen(i->name,i->region,1); 
+        os << alias <<"\t"<<schaden<<"\t"<<bonus<<"\n";
+      }
    }
   for (unsigned int i=0;i<clist_waffe_alt->columns().size();++i)
    clist_waffe_neu->set_column_auto_resize(i,true);
@@ -83,30 +92,51 @@ void  Window_Waffenbesitz::show_neue_waffen()
   exec sql end declare section;
   strncpy(db_name,werte.name_charakter.c_str(),sizeof(db_name));
   strncpy(db_version,werte.version.c_str(),sizeof(db_version));
+
   exec sql declare ein cursor for 
-     SELECT distinct w.name, r.alias, r.region from waffen w, charaktere_fertigkeiten c,
-     waffen_region_name r 
+     SELECT distinct w.name from waffen w, charaktere_fertigkeiten c 
      where w.name = c.fertigkeit and c.charakter_name = :db_name
-     and c.version = :db_version and r.name = w.name
+     and c.version = :db_version
      and w.name not in 
      (select fertigkeit from charaktere_fertigkeiten 
       where charakter_name = :db_name and version = :db_version
       and art = 'Besitz_W');
   Transaction tr;
-  Gtk::OStream os(clist_waffe_neu);
   exec sql open ein;
   SQLerror::test(__FILELINE__);
+  Gtk::OStream os(clist_waffe_neu);
   while(true)
    {
-     exec sql fetch ein into :db_waffe, :db_alias, :db_region;
+     exec sql fetch ein into :db_waffe;
      SQLerror::test(__FILELINE__,100);
      if (sqlca.sqlcode) break;
-     string schaden=hauptfenster->waffe_werte(st_waffen_besitz(db_waffe,0,0),werte,"Schaden");
+     string schaden=hauptfenster->waffe_werte(st_waffen_besitz(db_waffe,"",0,0),werte,"Schaden");
      string waffe=db_waffe;
      if (waffe!="waffenloser Kampf" )
         os << db_waffe<<"\t"<<schaden<<"\n";
-     if (hauptfenster->region_check(db_region))
-        os << db_alias<<"\t"<<schaden<<"\n";
+
+     // Aliasnamen für Waffen aus anderen Regionen
+     exec sql declare alias_ein cursor for 
+      select alias,region from waffen_region_name
+      where name = :db_waffe; 
+      exec sql open alias_ein;     
+     SQLerror::test(__FILELINE__);
+     vector<string> aliaswaffen;
+     vector<string> aliasregion;
+     while(true)
+      {
+        exec sql fetch alias_ein into :db_alias, :db_region ;
+        SQLerror::test(__FILELINE__,100);
+        if (sqlca.sqlcode) break;
+        aliaswaffen.push_back(db_alias);     
+        aliasregion.push_back(db_region);     
+      }
+     exec sql close alias_ein;
+     for (unsigned int i=0;i<aliaswaffen.size();++i)
+      {
+        if (hauptfenster->region_check(aliasregion[i]))
+           os << aliaswaffen[i]<<"\t"<<schaden<<"\t"<<db_region<<"\n";
+      }
    }
   exec sql close ein;
   tr.close();

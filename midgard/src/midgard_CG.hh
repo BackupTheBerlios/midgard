@@ -24,7 +24,6 @@
 #include <vector>
 #include <map>
 #include "itos.h"
-//string itos(int i);
 
 struct st_werte{int st; int ge;int ko;int in;int zt;
              int au;int pa;int sb;int rw;int hgw;
@@ -64,10 +63,10 @@ struct st_angeborene_fertigkeit {string name; int erfolgswert;
 struct st_ausgewaehlte_waffen {string name; int erfolgswert; 
       st_ausgewaehlte_waffen(const string n,int e)
       : name(n),erfolgswert(e) {} };
-struct st_waffen_besitz {string name; int av_bonus; int sl_bonus;
-   st_waffen_besitz(string n, int a, int s) : name(n), av_bonus(a),sl_bonus(s)
-      {}
-   st_waffen_besitz() : name(""), av_bonus(0), sl_bonus(0) {} };
+struct st_waffen_besitz {string name; string region ;int av_bonus; int sl_bonus;
+   st_waffen_besitz(string n, string r,int a, int s) 
+   : name(n), region(r),av_bonus(a),sl_bonus(s) {}
+   st_waffen_besitz() : name(""), region(""), av_bonus(0), sl_bonus(0) {} };
 struct st_ausgewaehlte_zauber {string name; string ap; 
       st_ausgewaehlte_zauber(const string n, const string a)
       : name(n), ap(a) {} };
@@ -91,8 +90,10 @@ struct st_zauber{string ap; string name; string erfolgswert;string art; string s
          ursprung(u), material(mat), agens(age), prozess(pro), reagens(rea),
          beschreibung(bes), kosten(ko) {} };
 
-struct st_kido {string technik; string stil;
-      st_kido(string t, string s): technik(t),stil(s) {}};
+struct st_kido {string hoho; string technik; string stufe;
+      string stil; int fp; int ap; string effekt;
+      st_kido(string h, string t, string s1, string s2, int f, int a, string e)
+      : hoho(h),technik(t),stufe(s1),stil(s2),fp(f),ap(a) {}};
 
 struct st_sprachen {string name; int wert;string schrift;
       st_sprachen(string n, int w, string s) : name(n),wert(w),schrift(s) {} };
@@ -147,6 +148,8 @@ class midgard_CG : public midgard_CG_glade
         void on_button_info_clicked();
         void LaTeX_zauber_main();
         void LaTeX_zauber();
+        void LaTeX_kido_main();
+        void LaTeX_kido();
         string LaTeX_string(int i);
         void on_schliessen_CG_clicked();
         void on_lernpunkte_wuerfeln_clicked();
@@ -166,6 +169,8 @@ class midgard_CG : public midgard_CG_glade
         void on_zauber_wahl_clicked();
         void on_berufe_wahl_clicked();
         void on_kido_wahl_clicked();
+        void get_kido(vector<st_kido>& vec_kido);
+        int get_erfolgswert_kido();
         void show_kido();
         void stil_optionmenue();
         string  get_erfolgswert_zaubern(styp typ,string name);
@@ -207,8 +212,9 @@ class midgard_CG : public midgard_CG_glade
         void on_radiobutton_praxis_wuerfeln_fertigkeiten_toggled();
         void on_radiobutton_praxis_auto_fertigkeiten_toggled();
         int praxispunkte_wuerfeln(string fert,int alter_wert, string art,bool wuerfeln);
-        int midgard_CG::attribut_check(string atr);
-
+        int attribut_check(string atr);
+        bool kido_steigern_check(int wert);
+   
         void on_waffen_laden_clicked();
         void show_alte_grund();
         void show_neue_grund();
@@ -270,10 +276,11 @@ class midgard_CG : public midgard_CG_glade
          void waffe_besitz_uebernehmen(vector<st_waffen_besitz>& wbu);
          void zauber_uebernehmen(vector<st_ausgewaehlte_zauber>& saz);
          void berufe_uebernehmen(vector<st_ausgewaehlte_berufe>& sab);
-         void midgard_CG::kido_uebernehmen(vector<string>& technik);
+         void kido_uebernehmen(vector<string>& technik);
          double get_standard_zauber(string typ, string zauber);
          double get_standard_waffen(string typ,string waffe);
          double get_standard_fertigkeit(string typ, string fertigkeit);
+         string get_region_waffen(string waffe, string region,int mod);
          void sprache_uebernehmen(string s, int wert);
          void schrift_uebernehmen(string s, string t);
          void herkunft_uebernehmen(string s);

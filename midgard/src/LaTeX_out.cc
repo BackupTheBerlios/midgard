@@ -162,7 +162,10 @@ void midgard_CG::on_latex_clicked()
        {
          ++countwaffen;
          string b = LaTeX_string(j);
-         fout << "\\newcommand{\\waffe"<<b<<"}{\\scriptsize "<<waffe_besitz[j].name ;
+         string waffenname ;
+         if (waffe_besitz[j].region=="") waffenname = waffe_besitz[j].name;
+         else waffenname = midgard_CG::get_region_waffen(waffe_besitz[j].name,waffe_besitz[j].region,1);
+         fout << "\\newcommand{\\waffe"<<b<<"}{\\scriptsize "<<waffenname ;
          if (waffe_besitz[j].av_bonus!=0 || waffe_besitz[j].sl_bonus!=0) fout <<"$^*$";
          fout << "}\n";
          int mag_schadensbonus = waffe_besitz[j].av_bonus;
@@ -180,11 +183,11 @@ void midgard_CG::on_latex_clicked()
    }
  // waffenloser Kampf:
  fout << "\\newcommand{\\waffeEy"<<"}{"<<i_waffenlos+werte.bo_an << "}\n";
- string schaden=midgard_CG::waffe_werte(st_waffen_besitz("waffenloser Kampf",0,0),werte,"Schaden");
+ string schaden=midgard_CG::waffe_werte(st_waffen_besitz("waffenloser Kampf","",0,0),werte,"Schaden");
  fout << "\\newcommand{\\waffeSy}{"<<schaden << "}\n";
- string anm = midgard_CG::waffe_werte(st_waffen_besitz("waffenloser Kampf",0,0),werte,"Angriffsrangmodifikation");
+ string anm = midgard_CG::waffe_werte(st_waffen_besitz("waffenloser Kampf","",0,0),werte,"Angriffsrangmodifikation");
  fout << "\\newcommand{\\waffeAy}{"<<anm << "}\n";
- string abm = midgard_CG::waffe_werte(st_waffen_besitz("waffenloser Kampf",0,0),werte,"WM_Abwehr");
+ string abm = midgard_CG::waffe_werte(st_waffen_besitz("waffenloser Kampf","",0,0),werte,"WM_Abwehr");
  fout << "\\newcommand{\\waffeVy}{"<<abm << "}\n";
 
  // Fertigkeiten auffüllen
@@ -221,6 +224,16 @@ void midgard_CG::on_latex_clicked()
     system("latex midgard_tmp_document_zauber.tex");
     system("dvips -t landscape midgard_tmp_document_zauber.dvi");
     system("gv -seascape midgard_tmp_document_zauber.ps &");
+ }
+
+ // KiDO
+ if (vec_kido.size()>0)
+ {
+    midgard_CG::LaTeX_kido_main();
+    midgard_CG::LaTeX_kido();
+    system("latex midgard_tmp_document_kido.tex");
+    system("dvips -t landscape midgard_tmp_document_kido.dvi");
+    system("gv -seascape midgard_tmp_document_kido.ps &");
  }
 }      
 

@@ -18,6 +18,7 @@ EXTRA_DIST = \
        Dices2-trans-50.xpm \
        Edit-2W6-trans-50.xpm \
        EditChar-trans-50.xpm \
+       Edit-trans-50.xpm \
        Exit-trans-50.xpm \
        Help-trans-50.xpm \
        Info-trans-50.xpm \
@@ -42,4 +43,5 @@ EXTRA_DIST = \
        SchliessenIII-50.xpm \
        Verlernen-trans-32.xpm \
        Weapon-trans-50.xpm \
-       Zauber-trans-50.xpm
+       Zauber-trans-50.xpm \
+       Select2-trans.xpm

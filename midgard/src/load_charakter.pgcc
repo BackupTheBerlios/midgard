@@ -7,6 +7,7 @@ exec sql include sqlca;
  
 void midgard_CG::on_laden_clicked()
 {
+ midgard_CG::on_neuer_charakter_clicked();
 //  if (werte.name_charakter =="") manage (new Window_charakter_auswahl(this));
 //  else midgard_CG::load_charakter();
   manage (new Window_charakter_auswahl(this));
@@ -78,6 +79,7 @@ void midgard_CG::load_charakter()
       int db_kupfer;
       char db_ruestung[20];
       int db_av_bonus, db_sl_bonus;
+      char db_region[20];
    exec sql end declare section;
    strncpy(db_name_ch,werte.name_charakter.c_str(),sizeof(db_name_ch));
    strncpy(db_version,werte.version.c_str(),sizeof(db_version));
@@ -336,7 +338,7 @@ void midgard_CG::load_charakter()
    // Besitz (Waffen)
    strncpy(db_art,"Besitz_W",sizeof(db_art));
    exec sql declare besitz_w cursor for
-      select fertigkeit,coalesce(av_bonus,0),coalesce(sl_bonus,0)  
+      select fertigkeit,coalesce(av_bonus,0),coalesce(sl_bonus,0),coalesce(region,'')  
       from charaktere_fertigkeiten
       where charakter_name=:db_name_ch 
          and version=:db_version
@@ -345,10 +347,10 @@ void midgard_CG::load_charakter()
    SQLerror::test(__FILELINE__);
    while(true)
       {
-         exec sql fetch besitz_w into :db_fertigkeit, :db_av_bonus ,:db_sl_bonus;
+         exec sql fetch besitz_w into :db_fertigkeit, :db_av_bonus ,:db_sl_bonus, :db_region;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         waffe_besitz.push_back(st_waffen_besitz(db_fertigkeit,db_av_bonus,db_sl_bonus));
+         waffe_besitz.push_back(st_waffen_besitz(db_fertigkeit,db_region,db_av_bonus,db_sl_bonus));
       } 
    exec sql close besitz_w;
 
@@ -384,9 +386,10 @@ void midgard_CG::load_charakter()
          exec sql fetch kido into :db_fertigkeit, :db_wert ;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         vec_kido.push_back(st_kido(db_fertigkeit,0));
+         vec_kido.push_back(st_kido(db_fertigkeit,"","","",0,0,""));
       } 
    exec sql close kido;
+   get_kido(vec_kido);
 
    // Grundkenntnisse (Waffen)
    strncpy(db_art,"Grundkenntnis",sizeof(db_art));
@@ -447,19 +450,28 @@ void midgard_CG::load_charakter()
    typ.l = db_typ_l;
    typ.s = db_typ_s;
    typ.nr = db_typ_i;
-//cout << typ.l <<"\t"<<typ.nr<<"\t"<<typ.s<<"\t"<<typ.ausdauer<<"\t"
-//   <<typ.z<<"\t"<<typ.stand<<"\t"<<typ.sb<<"\n";
    fertig_typ->set_text(typ.l);
    if (typ.z=="n" || typ.s == "Ord") label_spezialwaffe->set_text("Spezialwaffe durch \nselektieren auswählen");
    else label_spezialwaffe->set_text("");
+   // KiDo Stil setzen
+   int kido_stil_nr=0;
+   if (werte.spezialisierung=="Harte Techniken") kido_stil_nr = 1;
+   if (werte.spezialisierung=="Sanfte Techniken") kido_stil_nr = 2;
+   if (werte.spezialisierung=="Gemischte Techniken") kido_stil_nr = 3;
+   if (kido_stil_nr!=0)
+    {   
+      optionmenu_KiDo_Stile->get_menu()->set_active(kido_stil_nr);
+      optionmenu_KiDo_Stile->get_menu()->deactivate();
+      checkbutton_KanThaiPan->set_active(true);
+      midgard_CG::on_checkbutton_KanThaiPan_toggled();
+    }
    typauswahl->get_menu()->set_active(typ.nr);
    typauswahl->get_menu()->deactivate();
+
    midgard_CG::zeige_werte(werte,"alle");
    midgard_CG::show_berufe();
    midgard_CG::show_fertigkeiten();
    midgard_CG::show_waffen();
    midgard_CG::show_zauber();
+   
 }
-
-
-

@@ -26,7 +26,9 @@ midgard_CG::midgard_CG()
 
 void midgard_CG::typauswahl_button()
 {
+//cout << typ.nr<<"\n";
  get_typ(typ);
+//cout << typ.nr<<"\n";
  fertig_typ->set_text(typ.l);
 
  // Spezialwaffe anzeigen?
@@ -81,12 +83,10 @@ void midgard_CG::on_charakter_beschreibung_clicked()
 {   
   manage(new Window_charakter_beschreibung(this,werte.beschreibung)); 
 }   
-
 void midgard_CG::charakter_beschreibung_uebernehmen(string b)
 {
   werte.beschreibung=b;  
 }
-
 void midgard_CG::charakter_beschreibung_drucken(string b)
 {
   werte.beschreibung=b;  
@@ -97,7 +97,6 @@ void midgard_CG::on_button_hilfe_clicked()
 {
   manage(new Window_hilfe()); 
 }
-
 void midgard_CG::on_button_info_clicked()
 {   
   manage(new Midgard_Info());
@@ -108,13 +107,10 @@ void midgard_CG::on_button_geld_s_clicked()
 {
   manage (new  Window_Geld_eingeben(this, werte));
 }
-
-
 void midgard_CG::on_button_ruestung_s_clicked()
 {
   manage (new Window_ruestung(werte,this));
 }
-
 void midgard_CG::on_button_waffen_s_clicked()
 {
   manage (new Window_Waffenbesitz(this,vec_waffen,waffe_besitz,werte));
@@ -131,6 +127,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    vec_waffen.clear();
    waffe_besitz.clear();
    vec_zauber.clear();
+   vec_kido.clear();
    vec_beruf.clear();
    vec_sprachen.clear();
    vec_schriften.clear();
@@ -145,6 +142,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    waffen_clist->clear();
    fertigkeiten_clist->clear();
    zauber_clist->clear();
+   clist_kido->clear();
    steigern_fert_clist_alt->clear();
    steigern_fert_clist_neu->clear();
    steigern_waffen_clist_alt->clear();
@@ -153,6 +151,8 @@ void midgard_CG::on_neuer_charakter_clicked()
    grundkenntnisse_clist_neu->clear();
    steigern_zauber_clist_alt->clear();
    steigern_zauber_clist_neu->clear();
+   steigern_kido_clist_alt->clear();
+   steigern_kido_clist_neu->clear();
    clist_steigern_sprachen_alt->clear();
    clist_steigern_sprachen_neu->clear();
    clist_steigern_schrift_alt->clear();
