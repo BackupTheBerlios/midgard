@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.hh,v 1.40 2002/10/04 06:20:12 thoma Exp $
+// $Id: Midgard_Info.hh,v 1.41 2002/10/30 16:59:51 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,7 +20,6 @@
 #ifndef _MIDGARD_INFO_HH
 #  include "Midgard_Info_glade.hh"
 #  define _MIDGARD_INFO_HH
-#include "glademm_support.hh"
 
 class cH_Region;
 class midgard_CG;

@@ -1,4 +1,4 @@
-// $Id: WindowInfo.hh,v 1.38 2002/09/25 06:33:02 thoma Exp $
+// $Id: WindowInfo.hh,v 1.39 2002/10/30 16:59:51 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -17,21 +17,9 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// generated 2001/2/27 13:32:15 CET by thoma@ig23.
-// using glademm V0.5_11f_cvs
-//
-// newer (non customized) versions of this file go to WindowInfo.hh_new
-
-// you might replace
-//    class foo : public foo_glade { ... };
-// by
-//    typedef foo_glade foo;
-// if you didn't make any modifications to the widget
-
 #ifndef _WINDOWINFO_HH
 #  include "WindowInfo_glade.hh"
 #  define _WINDOWINFO_HH
-#include "glademm_support.hh"
 #include <sigc++/slot.h>
 #include <Gtk_OStream.h>
 #include <gtk--/pixmap.h>

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.294 2002/10/30 09:57:11 thoma Exp $
+// $Id: midgard_CG.hh,v 1.295 2002/10/30 16:59:51 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,7 +20,6 @@
 #ifndef _MIDGARD_CG_HH
 #  include "midgard_CG_glade.hh"
 #  define _MIDGARD_CG_HH
-#include "glademm_support.hh"
 
 #include <iostream>
 #include <string>

@@ -20,7 +20,6 @@
 #ifndef _XML_FILESELECTION_HH
 #  ifndef __MINGW32__
 #    include "xml_fileselection_glade.hh"
-#    include "glademm_support.hh"
 #  endif
 #  define _XML_FILESELECTION_HH
 

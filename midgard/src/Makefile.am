@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.206 2002/10/23 15:36:30 thoma Exp $
+# $Id: Makefile.am,v 1.207 2002/10/30 17:00:19 christof Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -80,7 +80,6 @@ noinst_HEADERS = \
    Lernschema.hh \
    Preise.hh dtos1.h \
 WaffeGrund.hh Fertigkeiten_angeboren.hh zufall.h \
-glademm_support.hh \
 midgard_CG_glade.hh midgard_CG.hh  \
 WindowInfo_glade.hh WindowInfo.hh \
    Window_hilfe_glade.hh \
@@ -215,7 +214,6 @@ magus_SOURCES = $(PORT_FILES) \
    midgard_CG_optionen_icons.cc \
    Window_hilfe_glade.cc \
    Window_hilfe.cc \
-   glademm_support.cc \
 	Midgard_Info.cc \
    Midgard_Info_glade.cc \
 	midgard.cc \
