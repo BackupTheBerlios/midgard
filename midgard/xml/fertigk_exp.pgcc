@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.pgcc,v 1.11 2001/11/16 09:20:39 christof Exp $
+// $Id: fertigk_exp.pgcc,v 1.12 2001/11/19 07:33:51 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -143,11 +143,33 @@ void fert_speichern(std::ostream &o)
       {  for (int i=0;i<sqlca.sqlerrd[2];++i)
          {  o << "    <Verbot";
             write_string_attrib(o,"Typ",typ_standardisierung(TYPEN[i]));
-            write_string_attrib(o,"Spielbeginn",SPIELBEGINN[i]);
+            write_bool_attrib(o,"Spielbeginn",SPIELBEGINN[i]==string("S"));
             o << "/>\n";
          }
       }
      }
+//************** ausnahmen *****************
+      exec sql declare cursor_ausn cursor for 
+      	select spezies, herkunft, typ, beruf, stand, standard
+      	from lernschema 
+      	where name=:FERTIGK and art='f'
+      	order by spezies,herkunft,typ,beruf,stand;
+      exec sql open cursor_ausn;
+      while (!sqlca.sqlcode) 
+      {  exec sql fetch from cursor_ausn into sql descriptor spalten;
+         if (sqlca.sqlcode) break;
+         FetchIStream is2("spalten");
+         o << "    <Ausnahme";
+         fetch_and_write_string_attrib(is2, o, "Spezies");
+         fetch_and_write_string_attrib(is2, o, "Herkunft");
+         fetch_and_write_typ_attrib(is2, o, "Typ");
+         fetch_and_write_string_attrib(is2, o, "Beruf");
+         fetch_and_write_string_attrib(is2, o, "Stand");
+         fetch_and_write_string_attrib(is2, o, "Standard");
+         o << "/>\n";
+      }
+      exec sql close cursor_ausn;
+
 // ************************* Steigern wie *****************************
       {  exec sql begin declare section;
       	 char STEIGERN_WIE[100];
@@ -339,7 +361,7 @@ void fert_speichern(std::ostream &o)
       {  for (int i=0;i<sqlca.sqlerrd[2];++i)
          {  o << "    <Verbot";
             write_string_attrib(o,"Typ",typ_standardisierung(TYPEN[i]));
-            write_string_attrib(o,"Spielbeginn",SPIELBEGINN[i]);
+            write_bool_attrib(o,"Spielbeginn",SPIELBEGINN[i]==string("S"));
             o << "/>\n";
          }
       }

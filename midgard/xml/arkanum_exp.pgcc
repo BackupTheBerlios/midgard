@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.pgcc,v 1.18 2001/11/15 10:06:26 christof Exp $
+// $Id: arkanum_exp.pgcc,v 1.19 2001/11/19 07:33:51 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -108,6 +108,7 @@ void arkanum_speichern(std::ostream &o)
          o << "</Ausnahme>\n";
       }
 
+//************** lernschema *****************
       // wert, attribut, [p+s]_element 
       exec sql declare cursor_lp cursor for 
       	select typ,lernpunkte,pflicht,p_element,s_element from lernschema 
@@ -128,9 +129,32 @@ void arkanum_speichern(std::ostream &o)
       }
       exec sql close cursor_lp;
       
+//************** ausnahmen *****************
+      exec sql declare cursor_ausn cursor for 
+      	select spezies, herkunft, typ, beruf, stand, standard
+      	from lernschema 
+      	where name=:ZAUBER and art='z'
+      	order by spezies,herkunft,typ,beruf,stand;
+      exec sql open cursor_ausn;
+      while (!sqlca.sqlcode) 
+      {  exec sql fetch from cursor_ausn into sql descriptor spalten;
+         if (sqlca.sqlcode) break;
+         FetchIStream is2("spalten");
+         o << "    <Ausnahme";
+         fetch_and_write_string_attrib(is2, o, "Spezies");
+         fetch_and_write_string_attrib(is2, o, "Herkunft");
+         fetch_and_write_typ_attrib(is2, o, "Typ");
+         fetch_and_write_string_attrib(is2, o, "Beruf");
+         fetch_and_write_string_attrib(is2, o, "Stand");
+         fetch_and_write_string_attrib(is2, o, "Standard");
+         o << "/>\n";
+      }
+      exec sql close cursor_ausn;
+
 /* 7.2      ex ec sql select beschreibung into descriptor spalten 
       	from zauber_beschreibung where name=:ZAUBER 
       	and beschreibung is not null and beschreibung!=''; */
+//****************** Beschreibung *************************
       exec sql declare cursor_b cursor for 
       	select beschreibung from zauber_beschreibung 
       	where name=:ZAUBER and beschreibung is not null and beschreibung!='';
@@ -210,6 +234,7 @@ void arkanum_speichern(std::ostream &o)
          }
          o << "</Ausnahme>\n";
       }
+//************************ Voraussetzungen ****************************
       // Zauberwerk Voraussetzungen
       exec sql declare zaubwerk_vor_curs cursor for 
       	select voraussetzung,verbindung from zauberwerk_voraussetzung 

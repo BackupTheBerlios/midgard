@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.pgcc,v 1.4 2001/11/15 10:06:26 christof Exp $
+// $Id: land_sprache_exp.pgcc,v 1.5 2001/11/19 07:33:51 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -164,6 +164,69 @@ void land_speichern(std::ostream &o)
    exec sql close spezies_curs;
    SQLerror::test(__FILELINE__);
    o << " </SpeziesListe>\n";
+
+//******************************************************************
+   o << " <Gradanstieg>\n";
+   exec sql declare grad_curs cursor for
+   	select grad, gfp, abwehr, resistenz, zaubern, 
+   	abwehr_kosten, resistenz_kosten, zaubern_kosten
+   	from grad_anstieg
+   	order by grad;
+   exec sql open grad_curs;
+   SQLerror::test(__FILELINE__);
+  while (true)
+  {exec sql fetch grad_curs into sql descriptor spalten;
+   SQLerror::test(__FILELINE__,100);
+   if (sqlca.sqlcode) break;
+   FetchIStream is("spalten");
+   o << "  <Grad";
+   fetch_and_write_int_attrib(is, o, "Grad");
+   fetch_and_write_int_attrib(is, o, "GFP");
+   fetch_and_write_int_attrib(is, o, "Abwehr");
+   fetch_and_write_int_attrib(is, o, "Resistenz");
+   fetch_and_write_int_attrib(is, o, "Zaubern");
+   o << "><Kosten";
+   fetch_and_write_int_attrib(is, o, "Abwehr");
+   fetch_and_write_int_attrib(is, o, "Resistenz");
+   fetch_and_write_int_attrib(is, o, "Zaubern");
+   o << "/></Grad>\n";
+  }
+   exec sql close grad_curs;
+   SQLerror::test(__FILELINE__);
+   o << " </Gradanstieg>\n";
+
+//********************** typen ****************************************
+   o << " <Typen>\n";
+   exec sql declare typen_curs cursor for
+   	select typs, region, typnr, typl, typlw, typz, 
+   		ausdauer, stand, sb, ruestung
+   	from typen
+   	order by region,typs;
+   exec sql open typen_curs;
+   SQLerror::test(__FILELINE__);
+  while (true)
+  {exec sql fetch typen_curs into sql descriptor spalten;
+   SQLerror::test(__FILELINE__,100);
+   if (sqlca.sqlcode) break;
+   FetchIStream is("spalten");
+   o << "  <Typ";
+   fetch_and_write_string_attrib(is, o, "Abkürzung");
+   fetch_and_write_string_attrib(is, o, "Region");
+   fetch_and_write_int_attrib(is, o, "MCG:Index");
+   fetch_and_write_string_attrib(is, o, "Bezeichnung:Mann");
+   fetch_and_write_string_attrib(is, o, "Bezeichnung:Frau");
+   char zauberer=fetch_string_attrib(is,"n")[0];
+   write_bool_attrib(is, o, "Zauberer",zauberer=='z'||zauberer=='j');
+   o << "><Modifikation";
+   fetch_and_write_int_attrib(is, o, "Ausdauer");
+   fetch_and_write_int_attrib(is, o, "Stand");
+   fetch_and_write_int_attrib(is, o, "Sb");
+   fetch_and_write_int_attrib(is, o, "Rüstung");
+   o << "/></Typ>\n";
+  }
+   exec sql close typen_curs;
+   SQLerror::test(__FILELINE__);
+   o << " </Typen>\n";
 
 //******************************************************************
    o << "</MidgardCG-data>\n";
