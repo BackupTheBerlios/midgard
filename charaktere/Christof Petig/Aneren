@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <Midgard-Charakter Version="7">
-  <Figur Name="Aneren" Spieler="Christof Petig" Zeitpunkt="Smaskrifter" Grad="7"/>
+  <Figur Name="Aneren" Spieler="Christof Petig" Zeitpunkt="Haut des Bruders" Grad="7"/>
   <Typ Spezies="Mensch" Geschlecht="w" Abkürzung="Hl"/>
   <Basiseigenschaften St="59" Ge="82" Ko="92" In="100" Zt="93"/>
   <abgeleiteteEigenschaften Au="40" pA="72" Sb="64" RW="78" HGW="78" B="25" KAW="2" WLW="80"/>
