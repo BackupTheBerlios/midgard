@@ -1,6 +1,6 @@
-// $Id: export_common.cc,v 1.6 2002/01/07 10:38:14 christof Exp $
+// $Id: export_common.cc,v 1.7 2002/01/08 07:59:04 christof Exp $
 /*  Midgard Roleplaying Character Generator
- *  Copyright (C) 2001 Christof Petig
+ *  Copyright (C) 2001-2002 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
