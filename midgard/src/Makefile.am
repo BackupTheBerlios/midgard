@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.158 2002/05/14 07:26:14 thoma Exp $
+# $Id: Makefile.am,v 1.159 2002/05/14 14:01:44 thoma Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -34,6 +34,8 @@ noinst_HEADERS = \
    LaTeX_drucken.hh \
    table_beschreibung.hh \
    table_beschreibung_glade.hh \
+   table_grundwerte.hh \
+   table_grundwerte_glade.hh \
    Wizard.hh \
    table_optionen.hh \
    table_optionen_glade.hh \
@@ -144,10 +146,12 @@ magus_SOURCES = $(PORT_FILES) \
    Preise.cc \
    Sinne.cc \
    Grundwerte.cc \
-	gw_wuerfeln.cc \
+	table_grundwerte_gw_wuerfeln.cc \
+   table_grundwerte.cc \
+   table_grundwerte_glade.cc \
    midgard_CG_Ausruestung.cc \
 	Window_Waffenbesitz.cc \
-   midgard_CG_typauswahl.cc \
+   table_grundwerte_typauswahl.cc \
    MidgardBasicTree.cc \
    MidgardBasicElement.cc \
    midgard_CG_basic_elemente.cc \
@@ -181,14 +185,14 @@ magus_SOURCES = $(PORT_FILES) \
    midgard_CG_grad_anstieg.cc \
 	midgard_CG_glade.cc \
 	midgard_CG.cc \
-	abge_werte_setzen.cc \
+	table_grundwerte_abge_werte.cc \
    zeige_werte.cc \
    midgard_CG_fertigkeiten.cc\
    midgard_CG_zauber.cc\
    midgard_CG_beruf.cc\
 	Window_Geld_eingeben_glade.cc \
 	Window_Geld_eingeben.cc \
-   grundwere_edit_setzen.cc \
+   table_grundwerte_grundwere_edit.cc \
    WindowInfo.cc \
    WindowInfo_glade.cc \
    Window_doppelcharaktere.cc \

@@ -230,8 +230,8 @@ void midgard_CG::grundwerte_speichern(IF_XML(ostream &datei))
    write_int_attrib(datei, "AEP", Werte.AEP());
    write_int_attrib(datei, "KEP", Werte.KEP());
    write_int_attrib(datei, "ZEP", Werte.ZEP());
-   write_int_attrib(datei, "EPproGFP", Database.GradAnstieg.get_Steigern_EP_Prozent(), 50);
-   write_int_attrib(datei, "Basiswerte", Database.GradAnstieg.get_Grad_Basiswerte(), Werte.Grad());
+   write_int_attrib(datei, "EPproGFP", Werte.get_Steigern_EP_Prozent(), 50);
+   write_int_attrib(datei, "Basiswerte", Werte.get_Grad_Basiswerte(), Werte.Grad());
    write_float_attrib(datei, Internal2Latin("benötigte_Tage"), Werte.Steigertage());
    datei << "><Praxispunkte";
    write_int_attrib(datei, "Abwehr", Werte.AbwehrPP());

@@ -1,4 +1,4 @@
-// $Id: gw_wuerfeln.cc,v 1.50 2002/05/08 07:01:40 thoma Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.1 2002/05/14 14:01:44 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -17,6 +17,7 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include "table_grundwerte.hh"
 #include "midgard_CG.hh"
 #include <strstream>
 #include <algorithm>
@@ -25,23 +26,26 @@
 #include <SelectMatching.h>
 
 
-gint midgard_CG::on_button_grundwerte_button_release_event(GdkEventButton *ev)
+gint table_grundwerte::on_button_grundwerte_button_release_event(GdkEventButton *ev)
 {
-  if(!MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active) 
+  if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active) 
       button_grundwerte->set_sensitive(false);
   if (ev->button==1) grundwerte_wuerfeln();
   if (ev->button==2) Eigenschaften_variante(2);
   if (ev->button==3) Eigenschaften_variante(3);
-  if(wizard) wizard->next_step(Wizard::GRUNDWERTE);
+  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::GRUNDWERTE);
 
-  Werte.setAu( constraint_aw(Werte.Spezies()->Au()) );
-  Werte.setpA( random.integer(1,100)-30 + 3*(Werte.In()/10 + Werte.Au()/10) );
-  zeige_werte();
+  hauptfenster->getWerte().setAu(constraint_aw(
+                                 hauptfenster->getCWerte().Spezies()->Au()) );
+  hauptfenster->getWerte().setpA( hauptfenster->random.integer(1,100)-30 
+                                 + 3*(hauptfenster->getCWerte().In()/10 
+                                      + hauptfenster->getCWerte().Au()/10) );
+  hauptfenster->zeige_werte();
   fill_typauswahl();
   return false;
 }
 
-void midgard_CG::grundwerte_wuerfeln()
+void table_grundwerte::grundwerte_wuerfeln()
 {
   if(radiobutton_eigenschaften_standard->get_active())
      Eigenschaften_variante(1);
@@ -51,7 +55,7 @@ void midgard_CG::grundwerte_wuerfeln()
      Eigenschaften_variante(3);
 }
 
-void midgard_CG::Eigenschaften_variante(int i)
+void table_grundwerte::Eigenschaften_variante(int i)
 {
   button_abg_werte->set_sensitive(true);
   std::vector<int> a350;
@@ -81,7 +85,7 @@ void midgard_CG::Eigenschaften_variante(int i)
   else if (i==3)
    {
      std::vector<int> V;
-     for(int i=0;i<9;++i) V.push_back(random.integer(1,100)) ;
+     for(int i=0;i<9;++i) V.push_back(hauptfenster->random.integer(1,100)) ;
      sort(V.rbegin(),V.rend());
      button_wert_1->remove();
      button_wert_1->add_label(itos(V[0]));
@@ -120,12 +124,12 @@ void midgard_CG::Eigenschaften_variante(int i)
    }
 }
 
-void midgard_CG::check_350(const std::vector<int>& a)
+void table_grundwerte::check_350(const std::vector<int>& a)
 {
   int sum=0;
   if(a.empty())
-   { sum  = Werte.St() + Werte.Gs() + Werte.Gw() 
-          + Werte.Ko() + Werte.In() + Werte.Zt(); 
+   { sum  = hauptfenster->getCWerte().St() + hauptfenster->getCWerte().Gs() + hauptfenster->getCWerte().Gw() 
+          + hauptfenster->getCWerte().Ko() + hauptfenster->getCWerte().In() + hauptfenster->getCWerte().Zt(); 
    }
   else
    {
@@ -134,28 +138,28 @@ void midgard_CG::check_350(const std::vector<int>& a)
        sum += *i;
    }   
   if(sum<350)
-   {  set_status("Summe der Eigenschaftswerte "+itos(sum)+" kleiner als 350. Es darf (muß aber nicht) noch einmal gewürfelt werden.",false);
+   {  hauptfenster->set_status("Summe der Eigenschaftswerte "+itos(sum)+" kleiner als 350. Es darf (muß aber nicht) noch einmal gewürfelt werden.",false);
       button_grundwerte->set_sensitive(true);
 //      button_abg_werte->set_sensitive(false);
 //      Werte.clear();            
-      Gtk::Menu_Helpers::SelectMatching(*optionmenu_spezies,Werte.Spezies());
+      Gtk::Menu_Helpers::SelectMatching(*optionmenu_spezies,hauptfenster->getCWerte().Spezies());
    }
 }
 
 
 
 //////////////////////////////////////////////////////////////////////////
-void midgard_CG::gw_setzen(Gtk::Label *L,int button)
+void table_grundwerte::gw_setzen(Gtk::Label *L,int button)
 {
   if(L) 
    {
      int w=atoi(label_besserer_wurf->get_text().c_str());
-     if(L->get_text()=="St") {Werte.setSt(w); spinbutton_st->set_value(w);}
-     else if(L->get_text()=="Gs") {Werte.setGs(w); spinbutton_gs->set_value(w);}
-     else if(L->get_text()=="Gw") {Werte.setGw(w); spinbutton_gw->set_value(w);}
-     else if(L->get_text()=="Ko") {Werte.setKo(w); spinbutton_ko->set_value(w);}
-     else if(L->get_text()=="In") {Werte.setIn(w); spinbutton_in->set_value(w);}
-     else if(L->get_text()=="Zt") {Werte.setZt(w); spinbutton_zt->set_value(w);}
+     if(L->get_text()=="St") {hauptfenster->getWerte().setSt(w); spinbutton_st->set_value(w);}
+     else if(L->get_text()=="Gs") {hauptfenster->getWerte().setGs(w); spinbutton_gs->set_value(w);}
+     else if(L->get_text()=="Gw") {hauptfenster->getWerte().setGw(w); spinbutton_gw->set_value(w);}
+     else if(L->get_text()=="Ko") {hauptfenster->getWerte().setKo(w); spinbutton_ko->set_value(w);}
+     else if(L->get_text()=="In") {hauptfenster->getWerte().setIn(w); spinbutton_in->set_value(w);}
+     else if(L->get_text()=="Zt") {hauptfenster->getWerte().setZt(w); spinbutton_zt->set_value(w);}
    }
   if(++werte_label_count==7)
    {
@@ -167,7 +171,7 @@ void midgard_CG::gw_setzen(Gtk::Label *L,int button)
    }
 
   vector<int> V;
-  for(int j=0;j<2;++j) V.push_back(random.integer(1,100)) ;
+  for(int j=0;j<2;++j) V.push_back(hauptfenster->random.integer(1,100)) ;
   sort(V.rbegin(),V.rend());
 
   label_werte->set_text("Für welche Basiseigenschaft soll der Wurf verwendet werden?") ;
@@ -176,7 +180,7 @@ void midgard_CG::gw_setzen(Gtk::Label *L,int button)
 }
 
 
-void midgard_CG::set_werte_label_2()
+void table_grundwerte::set_werte_label_2()
 {
   button_wert_1->remove();
   button_wert_1->add_label("St");
@@ -194,7 +198,7 @@ void midgard_CG::set_werte_label_2()
 
 //////////////////////////////////////////////////////////////////////////
 
-void midgard_CG::set_werte_label_3(Gtk::Label *L)
+void table_grundwerte::set_werte_label_3(Gtk::Label *L)
 {
   if(werte_label_count==0)
      label_werte->set_text("Welcher Wert soll für die  Stärke (St) verwendet werden?") ;
@@ -204,32 +208,32 @@ void midgard_CG::set_werte_label_3(Gtk::Label *L)
      switch(werte_label_count) {
       case 1 : 
             spinbutton_st->set_value(w);
-            Werte.setSt(w);
+            hauptfenster->getWerte().setSt(w);
             label_werte->set_text("Welcher Wert soll für die  Geschicklichkeit (Gs) verwendet werden?");
             break;
       case 2 :
             spinbutton_gs->set_value(w);
-            Werte.setGs(w);
+            hauptfenster->getWerte().setGs(w);
             label_werte->set_text("Welcher Wert soll für die  Gewandheit (Gw) verwendet werden?");
             break;
       case 3 : 
             spinbutton_gw->set_value(w);
-            Werte.setGw(w);
+            hauptfenster->getWerte().setGw(w);
             label_werte->set_text("Welcher Wert soll für die  Konstitution (Ko) verwendet werden?");
             break;
       case 4 : 
             spinbutton_ko->set_value(w);
-            Werte.setKo(w);
+            hauptfenster->getWerte().setKo(w);
             label_werte->set_text("Welcher Wert soll für die  Intelligenz (In) verwendet werden?");
             break;
       case 5 : 
             spinbutton_in->set_value(w);
-            Werte.setIn(w);
+            hauptfenster->getWerte().setIn(w);
             label_werte->set_text("Welcher Wert soll für das  Zaubertalent (Zt) verwendet werden?");
             break;
       default: 
             spinbutton_zt->set_value(w);
-            Werte.setZt(w);
+            hauptfenster->getWerte().setZt(w);
             table_werte_wuerfeln->hide();
             table_bw_wurf->hide();
         } 
@@ -239,42 +243,42 @@ void midgard_CG::set_werte_label_3(Gtk::Label *L)
 
 //////////////////////////////////////////////////////////////////////////
 
-void midgard_CG::on_button_wert_1_clicked()
+void table_grundwerte::on_button_wert_1_clicked()
 {
   Gtk::Label *l=static_cast<Gtk::Label*>(button_wert_1->get_child());
   button_wert_1->set_sensitive(false);
   if(l->get_text()=="St") gw_setzen(l,1);
   else  set_werte_label_3(l);
 }
-void midgard_CG::on_button_wert_2_clicked()
+void table_grundwerte::on_button_wert_2_clicked()
 {
   Gtk::Label *l=static_cast<Gtk::Label*>(button_wert_2->get_child());
   button_wert_2->set_sensitive(false);
   if(l->get_text()=="Gs") gw_setzen(l,2);
   else  set_werte_label_3(l);
 }
-void midgard_CG::on_button_wert_3_clicked()
+void table_grundwerte::on_button_wert_3_clicked()
 {
   Gtk::Label *l=static_cast<Gtk::Label*>(button_wert_3->get_child());
   button_wert_3->set_sensitive(false);
   if(l->get_text()=="Gw") gw_setzen(l,3);
   else  set_werte_label_3(l);
 }
-void midgard_CG::on_button_wert_4_clicked()
+void table_grundwerte::on_button_wert_4_clicked()
 {
   Gtk::Label *l=static_cast<Gtk::Label*>(button_wert_4->get_child());
   button_wert_4->set_sensitive(false);
   if(l->get_text()=="Ko") gw_setzen(l,4);
   else  set_werte_label_3(l);
 }
-void midgard_CG::on_button_wert_5_clicked()
+void table_grundwerte::on_button_wert_5_clicked()
 {
   Gtk::Label *l=static_cast<Gtk::Label*>(button_wert_5->get_child());
   button_wert_5->set_sensitive(false);
   if(l->get_text()=="In") gw_setzen(l,5);
   else  set_werte_label_3(l);
 }
-void midgard_CG::on_button_wert_6_clicked()
+void table_grundwerte::on_button_wert_6_clicked()
 {
   Gtk::Label *l=static_cast<Gtk::Label*>(button_wert_6->get_child());
   button_wert_6->set_sensitive(false);
@@ -284,45 +288,45 @@ void midgard_CG::on_button_wert_6_clicked()
 
 //////////////////////////////////////////////////////////////////////////
 
-void midgard_CG::gw_wuerfeln_2x()
+void table_grundwerte::gw_wuerfeln_2x()
 {   
- Werte.setBasiswerte(constraint_gw(Werte.Spezies()->St()),
-     constraint_gw(Werte.Spezies()->Gw()),
-     constraint_gw(Werte.Spezies()->Gs()),
-     constraint_gw(Werte.Spezies()->Ko()),
-     constraint_gw(Werte.Spezies()->In()),
-     constraint_gw(Werte.Spezies()->Zt()));
- zeige_werte();
+ hauptfenster->getWerte().setBasiswerte(constraint_gw(hauptfenster->getCWerte().Spezies()->St()),
+     constraint_gw(hauptfenster->getCWerte().Spezies()->Gw()),
+     constraint_gw(hauptfenster->getCWerte().Spezies()->Gs()),
+     constraint_gw(hauptfenster->getCWerte().Spezies()->Ko()),
+     constraint_gw(hauptfenster->getCWerte().Spezies()->In()),
+     constraint_gw(hauptfenster->getCWerte().Spezies()->Zt()));
+ hauptfenster->zeige_werte();
 }
 
 //static inline int max(int a,int b) { return a>b?a:b; }
 
-int midgard_CG::constraint_gw(int constraint)
+int table_grundwerte::constraint_gw(int constraint)
 {
  int wert;
  if      (constraint==0) wert = wuerfeln_best_of_two();
  else if (constraint<0) 
- {  do wert = random.integer(1,100);
+ {  do wert = hauptfenster->random.integer(1,100);
     while (wert > -constraint);
  }
  else if (constraint > 0) 
    { wert = wuerfeln_best_of_two();
-     while (wert < constraint) wert = random.integer(1,100);
+     while (wert < constraint) wert = hauptfenster->random.integer(1,100);
    }
  return wert;
 }
 
-int midgard_CG::constraint_aw(int constraint)
+int table_grundwerte::constraint_aw(int constraint)
 {
- if      (constraint==0) return random.integer(1,100);
- else if (constraint<0)  return random.integer(1,-constraint); 
- else 			          return random.integer(constraint,100);
+ if      (constraint==0) return hauptfenster->random.integer(1,100);
+ else if (constraint<0)  return hauptfenster->random.integer(1,-constraint); 
+ else 			          return hauptfenster->random.integer(constraint,100);
 }
 
-int midgard_CG::wuerfeln_best_of_two()
+int table_grundwerte::wuerfeln_best_of_two()
 {
- int ran  = random.integer(1,100);
- int ran2 = random.integer(1,100);
+ int ran  = hauptfenster->random.integer(1,100);
+ int ran2 = hauptfenster->random.integer(1,100);
  (ran > ran2) ? : ran=ran2;
  return ran;
 }

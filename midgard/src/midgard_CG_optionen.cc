@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.88 2002/05/11 06:51:31 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.89 2002/05/14 14:01:44 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -79,7 +79,7 @@ void midgard_CG::show_Pics(bool b)
  InfoFenster->show_pic(b);
  if(b)
   {
-    pixmap_dfr4->show();
+    table_grundwerte->pixmap_dfr4->show();
 //    pixmap_dfr3->show();
     scrolledwindow_dfr3->show(); 
     pixmap_kurai->show();
@@ -88,7 +88,7 @@ void midgard_CG::show_Pics(bool b)
   }
  else
   {
-    pixmap_dfr4->hide();
+    table_grundwerte->pixmap_dfr4->hide();
 //    pixmap_dfr3->hide();
     scrolledwindow_dfr3->hide(); 
     pixmap_kurai->hide();
@@ -194,8 +194,8 @@ void midgard_CG::show_NBeschriftungen(bool b)
 
 void midgard_CG::show_gw_wuerfeln(bool b)
 {
-  if(b) vbox_gw_wuerfeln->hide();
-  else vbox_gw_wuerfeln->show();
+  if(b) table_grundwerte->vbox_gw_wuerfeln->hide();
+  else table_grundwerte->vbox_gw_wuerfeln->show();
 }
 
 void midgard_CG::on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_Region region)
@@ -203,7 +203,7 @@ void midgard_CG::on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_R
  if(menu_item->get_active()) region->setActive(true);
  else region->setActive(false);
 
- on_radiobutton_mann_toggled(); // zum Neuaufbau des Typmenüs
+ table_grundwerte->fill_typauswahl();
  if(notebook_main->get_current_page_num()==PAGE_STEIGERN)
     load_for_page(notebook_lernen->get_current_page_num());
 

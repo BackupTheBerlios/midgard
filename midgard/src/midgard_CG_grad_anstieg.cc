@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.58 2002/04/27 15:11:43 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.59 2002/05/14 14:01:44 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -86,9 +86,9 @@ void midgard_CG::on_button_grad_basiswerte_clicked()
 
 void midgard_CG::get_grundwerte()
 {
-  if(Werte.Grad() <= Database.GradAnstieg.get_Grad_Basiswerte()) 
+  if(Werte.Grad() <= Werte.get_Grad_Basiswerte()) 
    {
-      set_status("Für Grad "+itos(Database.GradAnstieg.get_Grad_Basiswerte())+" wurde schon gewürfelt");
+      set_status("Für Grad "+itos(Werte.get_Grad_Basiswerte())+" wurde schon gewürfelt");
       return;
    }
   // Erhöhen der Schicksalsgunst
@@ -100,7 +100,7 @@ void midgard_CG::get_grundwerte()
 
   int z=random.integer(1,100);
   std::string stinfo="Beim Würfeln zur Erhöhung einer Eigenschaft\nfür Grad "
-      + itos(Database.GradAnstieg.get_Grad_Basiswerte()+1) + " wurde eine ";
+      + itos(Werte.get_Grad_Basiswerte()+1) + " wurde eine ";
   stinfo += itos(z);
   stinfo +=" gewürfelt ==> ";
   std::string was = "keine Erhöhung";
@@ -138,7 +138,7 @@ void midgard_CG::get_grundwerte()
     }
 //  InfoFenster->AppendShow(stinfo,WindowInfo::None);
   set_status(stinfo);
-  Database.GradAnstieg.set_Grad_Basiswerte(1+Database.GradAnstieg.get_Grad_Basiswerte());
+  Werte.set_Grad_Basiswerte(1+Werte.get_Grad_Basiswerte());
   zeige_werte();
 }
 

@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.32 2002/05/08 07:01:40 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.33 2002/05/14 14:01:44 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -60,6 +60,9 @@ class Grundwerte
    cH_Spezialgebiet spezialgebiet;
    std::string stadt_land;
 
+   int steigern_EP_prozent;  
+   int grad_basiswerte; 
+   
 public:
    Grundwerte() : raufen(0),au(0),pa(0),sb(0), wk(0),
              b(0),lp(0),ap(0),gg(0),sg(0),abwehr_wert(0),abwehr_pp(0),
@@ -68,7 +71,7 @@ public:
              stand(""),glaube(""),name_abenteurer(""),version("Erschaffung"),
              gfp(0),steigertage(0),gold(0), silber(0), kupfer(0),
              aep(0),kep(0),zep(0),ruestung("OR"),spezies("Mensch"),
-             stadt_land("Stadt") 
+             stadt_land("Stadt"), steigern_EP_prozent(50), grad_basiswerte(1)
          { resetSinne(); }
    void clear() {*this=Grundwerte();resetSinne();}
    void resetSinne() ;
@@ -240,6 +243,12 @@ public:
    void setKEP(int a) {kep=a;}
    void setZEP(int a) {zep=a;}
 
+   int get_Steigern_EP_Prozent() const {return steigern_EP_prozent;}
+   int get_Grad_Basiswerte() const {return grad_basiswerte;}
+   void set_Grad_Anstieg(int p,int b)
+              { steigern_EP_prozent=p; grad_basiswerte=b; }
+   void set_Steigern_EP_Prozent(int i) {steigern_EP_prozent=i;}
+   void set_Grad_Basiswerte(int i) {grad_basiswerte=i;}
 };
 /*
 class H_Grundwerte : public Handle<Grundwerte>    

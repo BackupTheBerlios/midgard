@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.239 2002/05/14 07:26:14 thoma Exp $
+// $Id: midgard_CG.hh,v 1.240 2002/05/14 14:01:44 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -55,11 +55,13 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         friend class Window_Waffenbesitz;
         friend class Data_waffenbesitz;
         friend class Data_SimpleTree;
-      
+        friend class WindowInfo;      
         friend class xml_fileselection;
         friend class frame_globale_optionen;
         friend class frame_ansicht;
         friend class table_optionen;
+        friend class table_beschreibung;
+        friend class table_grundwerte;
    private:
         // Drucken
         void on_alles_drucken();
@@ -70,11 +72,10 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         gint on_button_ausruestung_druck_release_event(GdkEventButton *event);
         void on_nur_sichtbares_drucken();
         void on_auch_unsichtbares_drucken();
-//        void on_ausruestung_druck(bool unsichtbar);
-//        void ausruestung_druck(ostream &fout,bool unsichtbar,const list<AusruestungBaum> &AB,int deep);
    protected:
+        Random random;   
+
         void undosave(std::string s); 
-//        void latex_beschreibung_drucken();
 
         const Datenbank &getDatabase() const {return Database;}
         Grundwerte &getWerte() {return Werte;}
@@ -91,7 +92,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         WindowInfo *InfoFenster;
    private:
 
-        Random random;   
         enum enum_notebook_main{PAGE_INFO,PAGE_GRUNDWERTE,PAGE_LERNEN,PAGE_STEIGERN,
                                 PAGE_BESCHREIBUNG,PAGE_AUSRUESTUNG,PAGE_OPTIONEN,
                                 PAGE_NEWS};
@@ -102,14 +102,13 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
                                  LZLAND};
 
 
-        std::vector<std::string> Vstand, Vhand, Vkido;
+        std::vector<std::string> Vkido;
 
         friend class midgard_CG_glade;
         friend class Wizard;
         friend class Midgard_Optionen;
         friend class Midgard_Info;
         friend class frame_drucken;
-        friend class table_beschreibung;
         Midgard_Undo MidgardUndo;
         Wizard *wizard;
         Midgard_Optionen *MOptionen;
@@ -201,11 +200,12 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void OptionenExecute_setzen_from_menu(Midgard_Optionen::OptionenExecuteIndex index);
         void Ober_setzen_from_menu(Gtk::CheckMenuItem *mi,Midgard_Optionen::OberIndex index);
         void optionmenu_init();
-        void optionmenu_stand_deactivate();
-        void optionmenu_hand_deactivate();
+//        void optionmenu_stand_deactivate();
+ //       void optionmenu_hand_deactivate();
         void pdf_viewer(const std::string& file);
         SigC::Connection connection_status;
         gint timeout_status();
+/*
         void fill_typauswahl();
         void fill_typauswahl_2();
         void fill_typauswahl_fill(int typ_1_2);
@@ -214,36 +214,40 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void typauswahl_2_button();
         void on_radiobutton_stadt_land_toggled();
         void on_radiobutton_frau_toggled();
+*/
    public:
         void set_info(const std::string& sadd);
         void set_status(std::string s,bool autoclean=true);
 private:
         void set_wizard(std::string s);
-        void on_radiobutton_mann_toggled();
+//        void on_radiobutton_mann_toggled();
    private:
-        void spezieswahl_button();
+//        void spezieswahl_button();
         void on_herkunftsland_clicked();
         gint on_button_menu_button_release_event(GdkEventButton *ev);
-        void gw_wuerfeln_2x();
-        void check_350(const std::vector<int>& a);
-        gint on_button_grundwerte_button_release_event(GdkEventButton *ev);
+//        void gw_wuerfeln_2x();
+//        void check_350(const std::vector<int>& a);
+//        gint on_button_grundwerte_button_release_event(GdkEventButton *ev);
         void Eigenschaften_variante(int i);
-        void grundwerte_wuerfeln();
+//        void grundwerte_wuerfeln();
+/*
         void on_button_wert_1_clicked();
         void on_button_wert_2_clicked();
         void on_button_wert_3_clicked();
         void on_button_wert_4_clicked();
         void on_button_wert_5_clicked();
         void on_button_wert_6_clicked();
-        int werte_label_count;
-        void set_werte_label_2();
-        void set_werte_label_3(Gtk::Label *L=0);
-        void gw_setzen(Gtk::Label *L=0,int button=0);
-        int  constraint_gw(int constraint);
-        int  constraint_aw(int constraint);
-        int  wuerfeln_best_of_two();
-        void on_togglebutton_edit_werte_toggled();
-        void on_button_grda1setzen_clicked();
+*/
+//        int werte_label_count;
+//        void set_werte_label_2();
+//        void set_werte_label_3(Gtk::Label *L=0);
+//        void gw_setzen(Gtk::Label *L=0,int button=0);
+//        int  constraint_gw(int constraint);
+//        int  constraint_aw(int constraint);
+//        int  wuerfeln_best_of_two();
+//        void on_togglebutton_edit_werte_toggled();
+//        void on_button_grda1setzen_clicked();
+/*
         void on_entry_nameC_activate();
         void on_entry_nameS_activate();
         void on_entry_version_activate();
@@ -331,6 +335,7 @@ private:
         gint on_spinbutton_au_focus_in_event(GdkEventFocus *ev);
         gint on_spinbutton_pa_focus_in_event(GdkEventFocus *ev);
         gint on_spinbutton_b_focus_in_event(GdkEventFocus *ev);
+*/
 
         void edit_sensitive(bool b);
         void on_abge_werte_setzen_clicked();
@@ -340,39 +345,10 @@ private:
         void clear_listen();
         void on_button_hilfe_clicked();
         void on_button_html_hilfe_clicked();
-//        gint on_text_charakter_beschreibung_focus_out_event(GdkEventFocus *ev);        
-//        gint on_spinbutton_pix_breite_focus_out_event(GdkEventFocus *ev);
-//        gint on_spinbutton_pix_breite_focus_in_event(GdkEventFocus *ev);
-//        void on_button_beschreibung_drucken_clicked();
-//        void on_button_grafik_clicked();
-        
 
         void load_fertigkeiten(IF_XML(const Tag *tag, const Tag *waffen_b, int xml_version));
-        // needed for menu connection, you can't pass any data or default args
-//        void on_drucken_clicked();
-//        void LaTeX_newsavebox(ostream &fout);
-//        void LaTeX_write_values(ostream &fout,const std::string &install_latex_file);
-//        void LaTeX_write_empty_values(ostream &fout,const std::string &install_latex_file);
-//        enum LaTeX_Filenames {TeX_MainWerte,TeX_MainDocument,TeX_Beschreibung,TeX_Ausruestung};
-//        enum LaTeX_Pathnames {TeX_Install,TeX_tmp};
-//        std::string get_latex_filename(const LaTeX_Filenames what);
-//        std::string get_latex_pathname(const LaTeX_Pathnames what);
-//        enum SystemComms {RM/*,CP*/};
-//        std::string system_comm(SystemComms);
         void on_exportieren_activate();
         void on_button_info_clicked();
-//        void LaTeX_zauber_main(ostream &fout);
-//        std::string LaTeX_scale(const std::string& is, unsigned int maxlength, const std::string& scale);
-//        std::string LaTeX_scalemag(const std::string& is, unsigned int maxlength, const std::string& scale,
-//            const std::string& magisch,const std::string& reichweite);
-//        void LaTeX_zauber(ostream &fout);
-//        void LaTeX_zaubermittel(ostream &fout);
-//        void LaTeX_kido_main(ostream &fout);
-//        void LaTeX_kido(ostream &fout);
-//        void LaTeX_header(ostream &fout,bool landscape=true);
-//        void LaTeX_kopfzeile(ostream &fout,bool landscape,bool newdoc=true);
-//        void LaTeX_footer(ostream &fout);
-//        std::string LaTeX_string(int i);
         void on_schliessen_CG_clicked();
         gint on_midgard_CG_delete_event(GdkEventAny* event);
 
@@ -650,10 +626,10 @@ private:
          void zeige_werte();
  
          cH_MidgardBasicElement getSelectedNotebookLernen();
-         void kaempfer_lernt_zaubern(cH_MidgardBasicElement& MBE);
+//         void kaempfer_lernt_zaubern(cH_MidgardBasicElement& MBE);
          void PraxisPunkt_to_AEP(cH_MidgardBasicElement& MBE,bool verfallen,bool alle_pp);
          int stufen_auf_einmal_steigern_fuer_aep(bool info,cH_MidgardBasicElement& MBE,int &kosten,int &aep);
-         void doppelcharaktere();
+//         void doppelcharaktere();
          void xml_export(const std::string& datei);
          void xml_import(const std::string& datei);
          void xml_import_stream(istream &datei);
@@ -664,8 +640,5 @@ private:
          bool region_check(const std::string& region);
          void EP_uebernehmen();
          void Geld_uebernehmen();
-         
-
-
 };
 #endif

@@ -34,8 +34,8 @@ void midgard_CG::wizard_do_something()
       { togglebutton_spezialwaffe->set_active(true);}
 
   if(e==Wizard::NAMEN)
-      { togglebutton_edit_werte->set_active(true);
-        entry_nameC->grab_focus();
+      { table_grundwerte->togglebutton_edit_werte->set_active(true);
+        table_grundwerte->entry_nameC->grab_focus();
       }
 
   if(e==Wizard::SPEICHERN) xml_export_auswahl();

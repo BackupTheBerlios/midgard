@@ -31,15 +31,15 @@
 #  include "Window_doppelcharaktere_glade.hh"
 #  define _WINDOW_DOPPELCHARAKTERE_HH
 #include "glademm_support.hh"
-class midgard_CG;
+class table_grundwerte;
 
 class Window_doppelcharaktere : public Window_doppelcharaktere_glade
 {   
-        midgard_CG *hauptfenster;        
+        table_grundwerte *hauptfenster;        
         friend class Window_doppelcharaktere_glade;
         void on_doppelklasse_button_nein_clicked();
         void on_doppelklasse_button_ja_clicked();
    public :
-        Window_doppelcharaktere::Window_doppelcharaktere(midgard_CG* h);
+        Window_doppelcharaktere::Window_doppelcharaktere(table_grundwerte* h);
 };
 #endif

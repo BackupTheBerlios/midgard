@@ -25,7 +25,7 @@
 
 #include "config.h"
 #include "Window_doppelcharaktere.hh"
-#include "midgard_CG.hh"
+#include "table_grundwerte.hh"
 
 void Window_doppelcharaktere::on_doppelklasse_button_nein_clicked()
 {   
@@ -38,7 +38,7 @@ void Window_doppelcharaktere::on_doppelklasse_button_ja_clicked()
  destroy();
 }
 
-Window_doppelcharaktere::Window_doppelcharaktere(midgard_CG* h)
+Window_doppelcharaktere::Window_doppelcharaktere(table_grundwerte* h)
 {
  hauptfenster=h;
 }

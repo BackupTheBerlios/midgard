@@ -23,7 +23,7 @@
 #include <Aux/itos.h>
 
 Grad_anstieg::Grad_anstieg(Gtk::ProgressBar *progressbar)
-: steigern_EP_prozent(50), grad_basiswerte(1)
+//: steigern_EP_prozent(50), grad_basiswerte(1)
 {
  const Tag *Gradanstieg=xml_data->find("Gradanstieg");
  if (Gradanstieg)
@@ -54,55 +54,55 @@ void Grad_anstieg::fill_kosten_maps()
    }
 }
 
-int Grad_anstieg::get_AP_Kosten(int grad)  
+int Grad_anstieg::get_AP_Kosten(int grad)  const
 {
   int x=0; 
   while(x==0)   x = map_grad[grad--].ap_kosten;
   return x;
 }
 
-int Grad_anstieg::get_MaxAbwehr(int grad)  
+int Grad_anstieg::get_MaxAbwehr(int grad)   const
 {
   int x=0; 
   while(x==0)   x = map_grad[grad--].abwehr;
   return x;
 }
 
-int Grad_anstieg::get_Abwehr_Kosten(int erfolgswert)
+int Grad_anstieg::get_Abwehr_Kosten(int erfolgswert) const
 {
   return map_Abwehr_kosten[erfolgswert]; 
 }
 
-int Grad_anstieg::get_MaxZauber(int grad)  
+int Grad_anstieg::get_MaxZauber(int grad)  const
 {
   int x=0; 
   while(x==0)   x = map_grad[grad--].zaubern;
   return x;
 }
 
-int Grad_anstieg::get_Zauber_Kosten(int erfolgswert)  
+int Grad_anstieg::get_Zauber_Kosten(int erfolgswert)  const
 {
   return map_Zaubern_kosten[erfolgswert]; 
 }
 
-int Grad_anstieg::get_MaxResistenz(int grad)  
+int Grad_anstieg::get_MaxResistenz(int grad)  const
 {
   int x=0; 
   while(x==0)   x = map_grad[grad--].resistenz;
   return x;
 }
 
-int Grad_anstieg::get_Resistenz_Kosten(int erfolgswert)   
+int Grad_anstieg::get_Resistenz_Kosten(int erfolgswert)   const
 {
   return map_Resistenz_kosten[erfolgswert]; 
 }
 
-int Grad_anstieg::get_Schicksalsgunst(int grad)   
+int Grad_anstieg::get_Schicksalsgunst(int grad)   const
 {
   return map_grad[grad].schicksalsgunst;
 }
 
-int Grad_anstieg::get_Grad(int gfp) 
+int Grad_anstieg::get_Grad(int gfp) const
 {
  if(gfp<0)gfp=0;
  map<int,st_grad>::const_reverse_iterator e=map_grad.rend();
@@ -115,7 +115,7 @@ int Grad_anstieg::get_Grad(int gfp)
  assert(0);
 }
 
-std::string Grad_anstieg::getGFP_for_str(ewas ew,const Grundwerte& Werte)
+std::string Grad_anstieg::getGFP_for_str(ewas ew,const Grundwerte& Werte) const
 {
  int back=getGFP_for(ew,Werte);
  if(ew==Grad_fehlt)
@@ -130,7 +130,7 @@ std::string Grad_anstieg::getGFP_for_str(ewas ew,const Grundwerte& Werte)
   }
 }
 
-int Grad_anstieg::getGFP_for(ewas ew,const Grundwerte& Werte)
+int Grad_anstieg::getGFP_for(ewas ew,const Grundwerte& Werte) const
 {
   int wert, maxwert, kosten;
   int maxgrad=get_Grad(Werte.GFP());

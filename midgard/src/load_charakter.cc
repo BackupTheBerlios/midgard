@@ -190,12 +190,11 @@ void midgard_CG::xml_import_stream(istream& datei)
    else
       Werte.setEP(0,0,0);
    Werte.setStadt_Land(Typ->getAttr("Stadt_Land","Stadt"));
-   if(Werte.Stadt_Land()=="Stadt") radiobutton_stadt->set_active(true);
-   if(Werte.Stadt_Land()=="Land")  radiobutton_land->set_active(true);
-   if (Steigern)
-      Database.GradAnstieg.set_Grad_Anstieg(Steigern->getIntAttr("EPproGFP",50)
+   if(Werte.Stadt_Land()=="Stadt") table_grundwerte->radiobutton_stadt->set_active(true);
+   if(Werte.Stadt_Land()=="Land")  table_grundwerte->radiobutton_land->set_active(true);
+   if (Steigern) Werte.set_Grad_Anstieg(Steigern->getIntAttr("EPproGFP",50)
       	,Steigern->getIntAttr("Basiswerte",Werte.Grad()));
-   else Database.GradAnstieg.set_Grad_Anstieg(50,Werte.Grad());
+   else Werte.set_Grad_Anstieg(50,Werte.Grad());
 
       this->Typ[0]=cH_Typen(Typ->getAttr("Abkürzung"),true);
 
@@ -214,11 +213,11 @@ void midgard_CG::xml_import_stream(istream& datei)
 
 void midgard_CG::Typ_Geschlecht_Spezies_setzen() 
 {  
-   if (Werte.Geschlecht()=="w") radiobutton_frau->set_active(true);
-   if (Werte.Geschlecht()=="m") radiobutton_mann->set_active(true);
+   if (Werte.Geschlecht()=="w") table_grundwerte->radiobutton_frau->set_active(true);
+   if (Werte.Geschlecht()=="m") table_grundwerte->radiobutton_mann->set_active(true);
 
-   fill_typauswahl();
-   if(!Typ[1]->Short().empty()) fill_typauswahl_2();
+   table_grundwerte->fill_typauswahl();
+   if(!Typ[1]->Short().empty()) table_grundwerte->fill_typauswahl_2();
    
    if (this->Typ[0]->Spezialwaffe() ||  this->Typ[1]->Spezialwaffe() )
          togglebutton_spezialwaffe->show();
@@ -226,7 +225,7 @@ void midgard_CG::Typ_Geschlecht_Spezies_setzen()
          togglebutton_spezialwaffe->set_active(false); }
 
    menu_init();
-   Gtk::Menu_Helpers::SelectMatching(*optionmenu_spezies,Werte.Spezies());
+   Gtk::Menu_Helpers::SelectMatching(*(table_grundwerte->optionmenu_spezies),Werte.Spezies());
    show_gtk();
    if(Werte.Spezialgebiet()->Name()!="") 
      { 

@@ -108,17 +108,6 @@ void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
   fertigkeiten_zeigen();
 }
 
-void midgard_CG::kaempfer_lernt_zaubern(cH_MidgardBasicElement &MBE)
-{
-   doppelcharaktere();
-   InfoFenster->AppendShow("Jetzt unter 'Grundwerte' die zweite Charkakterklasse wählen\n",WindowInfo::None);
-   if (Werte.Zaubern_wert()==2) Werte.setZaubern_wert(10);
-//   cH_MidgardBasicElement MBE=new Fertigkeit(*cH_Fertigkeit("Zaubern"));
-//  MidgardBasicElement::move_element(list_Fertigkeit_neu,list_Fertigkeit,MBE);
-//  fertigkeiten_zeigen();
-}
-
-
 void midgard_CG::fillClistLand(const cH_MidgardBasicElement &MBE)
 {
   clist_landauswahl->clear();

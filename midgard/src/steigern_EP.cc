@@ -27,17 +27,17 @@ gint midgard_CG::vscale_value_changed(GdkEventButton *ev)
 {
   Gtk::Adjustment *A=vscale_EP_Gold->get_adjustment();
   int Av=(int)A->get_value();
-  Database.GradAnstieg.set_Steigern_EP_Prozent(100-Av);
+  Werte.set_Steigern_EP_Prozent(100-Av);
   steigern_gtk();
   return false;
 }
 
 void midgard_CG::steigern_gtk()
 {
-  label_EP->set_text(itos(Database.GradAnstieg.get_Steigern_EP_Prozent())+"%");
-  label_Gold->set_text(itos(100-Database.GradAnstieg.get_Steigern_EP_Prozent())+"%");
+  label_EP->set_text(itos(Werte.get_Steigern_EP_Prozent())+"%");
+  label_Gold->set_text(itos(100-Werte.get_Steigern_EP_Prozent())+"%");
   Gtk::Adjustment *A=vscale_EP_Gold->get_adjustment();
-  A->set_value(100-Database.GradAnstieg.get_Steigern_EP_Prozent());
+  A->set_value(100-Werte.get_Steigern_EP_Prozent());
   if (steigern_mit_EP_bool) checkbutton_EP_Geld->set_active(true);
   else                      checkbutton_EP_Geld->set_active(false);
 }
@@ -88,8 +88,8 @@ void midgard_CG::desteigern(unsigned int kosten)
   else 
    {
      gold_k = (int)(0.5+kosten 
-               * ((100-Database.GradAnstieg.get_Steigern_EP_Prozent())/100.));
-     ep_k = (int)(0.5+kosten * (Database.GradAnstieg.get_Steigern_EP_Prozent()/100.));
+               * ((100-Werte.get_Steigern_EP_Prozent())/100.));
+     ep_k = (int)(0.5+kosten * (Werte.get_Steigern_EP_Prozent()/100.));
    }
   if( !MOptionen->HausregelCheck(Midgard_Optionen::Gold).active ) gold_k*=10;
   set_lernzeit(-ep_k);
@@ -233,7 +233,7 @@ int midgard_CG::EP_kosten(const int kosten)
 {
   int ep_k;
   if(radiobutton_unterweisung->get_active()) //+0.5 zum runden
-      ep_k = (int)(0.5 + kosten * (Database.GradAnstieg.get_Steigern_EP_Prozent()/100.));
+      ep_k = (int)(0.5 + kosten * (Werte.get_Steigern_EP_Prozent()/100.));
   else
       ep_k = (int)(kosten);
   return ep_k;
@@ -266,7 +266,7 @@ int midgard_CG::genug_geld(const int kosten)
   if(!radiobutton_unterweisung->get_active())
      return 0; // keine Untreweisung => kein Geld nötig
   // +0.5 zum runden
-  int gold_k = (int)(0.5 + kosten * ((100-Database.GradAnstieg.get_Steigern_EP_Prozent())/100.));
+  int gold_k = (int)(0.5 + kosten * ((100-Werte.get_Steigern_EP_Prozent())/100.));
   if( !MOptionen->HausregelCheck(Midgard_Optionen::Gold).active ) gold_k*=10;
   if (gold_k > Werte.Gold()) 
     { set_status("Zu wenig Gold um zu steigern, es fehlt "+itos(gold_k-Werte.Gold())+" Gold."); 

@@ -237,7 +237,11 @@ void midgard_CG::load_for_mainpage(guint pagenr)
     button_grad_zaubern->set_sensitive(false);
     frame_pp_zaubern->set_sensitive(false);
   }
- if(pagenr==PAGE_LERNEN)
+ if(pagenr==PAGE_GRUNDWERTE)
+  {
+    table_grundwerte->init(this);
+  }
+ else if(pagenr==PAGE_LERNEN)
   {
    if(wizard && wizard->ActualStep()==Wizard::LERNSCHEMA_SEITE) 
          wizard->next_step(Wizard::LERNSCHEMA_SEITE);
@@ -263,7 +267,6 @@ void midgard_CG::load_for_mainpage(guint pagenr)
  else if(pagenr==PAGE_BESCHREIBUNG)
    {
      table_beschreibung->init(this);
-//    show_beschreibung();
    }
  else if(pagenr==PAGE_AUSRUESTUNG)
     ausruestung_laden();

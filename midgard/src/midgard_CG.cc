@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.223 2002/05/08 20:38:54 thoma Exp $
+// $Id: midgard_CG.cc,v 1.224 2002/05/14 14:01:44 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -79,6 +79,7 @@ midgard_CG::~midgard_CG()
 
 void midgard_CG::optionmenu_init()
 {
+/*
   Vstand.resize(5);
   Vstand[1]="Unfrei";
   Vstand[2]="Volk";
@@ -89,7 +90,7 @@ void midgard_CG::optionmenu_init()
   Vhand[0]="Rechtshänder";
   Vhand[1]="Linkshänder";
   Vhand[2]="Beidhändig";
-
+*/
   Vkido.resize(4);
   Vkido[0]="TECHNIK";
   Vkido[1]="Sanfte Techniken";
@@ -124,6 +125,7 @@ void midgard_CG::set_tree_titles()
  preise_tree->setTitles(preis);
 }
 
+/*
 void midgard_CG::on_radiobutton_frau_toggled()
 { on_radiobutton_mann_toggled(); }
 void midgard_CG::on_radiobutton_mann_toggled()
@@ -146,13 +148,16 @@ void midgard_CG::on_radiobutton_mann_toggled()
   fill_typauswahl_2();
   zeige_werte();
 }
+*/
 
 void midgard_CG::show_gtk()
 {
+/*
   if (Typ[1]->Short()=="") typauswahl_2->hide();
   else
    { typauswahl_2->show(); 
    }
+*/
  fertig_typ->set_text(Typ[0]->Name(Werte.Geschlecht()));     // Abenteurerklasse im Lernfenster
  if (Typ[1]->Name(Werte.Geschlecht())!="") 
    fertig_typ->set_text(Typ[0]->Name(Werte.Geschlecht())+"/"+Typ[1]->Name(Werte.Geschlecht()));
@@ -313,8 +318,8 @@ void midgard_CG::clear_gtk()
    alte_schrift_tree->clear();
    neue_schrift_tree->clear();
   
-   togglebutton_edit_werte->set_active(false);
-   on_togglebutton_edit_werte_toggled();
+//   togglebutton_edit_werte->set_active(false);
+//   on_togglebutton_edit_werte_toggled();
 }
 
 gint midgard_CG::on_neuer_charakter_release_event(GdkEventButton *ev)
@@ -327,17 +332,18 @@ gint midgard_CG::on_neuer_charakter_release_event(GdkEventButton *ev)
 void midgard_CG::on_neuer_charakter_clicked()
 {
   notebook_main->set_page(PAGE_GRUNDWERTE);
-
    if(modify_bool)
      {
        MOptionen->save_options(InfoFenster);
        xml_export_auswahl();
      }               
    filename="";
+  table_grundwerte->neuer_charakter();
+
    label_lernschma_titel->set_text("");
 
-   button_grundwerte->set_sensitive(true);
-   button_abg_werte->set_sensitive(false);
+//   button_grundwerte->set_sensitive(true);
+//   button_abg_werte->set_sensitive(false);
    frame_steigern->set_sensitive(false); // das wirkt nicht ?
    frame_lernschema->set_sensitive(false);
    togglebutton_lernpunkte_edit->set_active(false);
@@ -362,8 +368,8 @@ void midgard_CG::on_neuer_charakter_clicked()
    togglebutton_spezialwaffe->hide();
       
    scrolledwindow_landauswahl->hide();
-   table_werte_wuerfeln->hide();
-   table_bw_wurf->hide();
+//   table_werte_wuerfeln->hide();
+//   table_bw_wurf->hide();
    spinbutton_pp_eingeben->hide();
    vbox_praxispunkte->hide();
    table_gruppe->hide();
@@ -372,8 +378,8 @@ void midgard_CG::on_neuer_charakter_clicked()
 
    togglebutton_praxispunkte->set_active(false);
 
-   if(Werte.Stadt_Land()=="Land")  radiobutton_land->set_active(true);
-   if(Werte.Stadt_Land()=="Stadt")  radiobutton_stadt->set_active(true);
+//   if(Werte.Stadt_Land()=="Land")  radiobutton_land->set_active(true);
+//   if(Werte.Stadt_Land()=="Stadt")  radiobutton_stadt->set_active(true);
   
 
    vbox_berufsname->hide();
@@ -389,15 +395,15 @@ void midgard_CG::on_neuer_charakter_clicked()
    steigern_mit_EP_bool=true;
    checkbutton_EP_Geld->set_active(steigern_mit_EP_bool);
 
-   Database.GradAnstieg.set_Grad_Basiswerte(1);
+   Werte.set_Grad_Basiswerte(1);
    label_EP->set_text("50%");
    label_Gold->set_text("50%");
 
 //  magie_bool=false;
   menu_init();
-  fill_typauswahl();
-  fill_spezies();
-  spezieswahl_button();
+//  fill_typauswahl();
+//  fill_spezies();
+//  spezieswahl_button();
   zeige_lernpunkte();
 }
 
@@ -418,4 +424,33 @@ gint midgard_CG::on_midgard_CG_delete_event(GdkEventAny* event)
 {
   on_schliessen_CG_clicked();
   return true;
+}
+
+void midgard_CG::original_midgard_check()
+{
+   int st=Werte.St(),gw=Werte.Gw(),gs=Werte.Gs(),ko=Werte.Ko(),in=Werte.In(),zt=Werte.Zt();
+   if (st>100) st=100;
+   if (st<1)   st=1;
+   if (gw>100) gw=100;
+   if (gw<1)   gw=1;
+   if (gs>100) gs=100;
+   if (gs<1)   gs=1;
+   if (ko>100) ko=100;
+   if (ko<1)   ko=1;
+   if (in>100) in=100;
+   if (in<1)   in=1;
+   if (zt>100) zt=100;
+   if (zt<1)   zt=1;
+   Werte.setBasiswerte(st,gw,gs,ko,in,zt);
+
+   int au=Werte.Au(),pa=Werte.pA(),sb=Werte.Sb(),wk=Werte.Wk();
+   if (au>100) au=100;
+   if (au<1)   au=1;
+   if (pa>100) pa=100;
+   if (pa<1)   pa=1;
+   if (sb>100) sb=100;
+   if (sb<1)   sb=1;
+   if (wk>100) wk=100;
+   if (wk<1)   wk=1;
+   Werte.setAbgeleitetewerte_small(au,pa,sb,wk);
 }
