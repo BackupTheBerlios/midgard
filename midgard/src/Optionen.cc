@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.31 2002/05/08 21:31:24 thoma Exp $
+// $Id: Optionen.cc,v 1.32 2002/05/09 08:05:27 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -322,6 +322,7 @@ void Midgard_Optionen::Hausregeln_init()
 void Midgard_Optionen::Ober_init()
 {
  list_Ober.clear();  
+ list_Ober.push_back(st_Ober(SaveFenster,"Größe und Position Fensters speichern",false));
  list_Ober.push_back(st_Ober(AutoShrink,"Automatisches verkleinern des Fensters",false));
  list_Ober.push_back(st_Ober(Bilder,"Bilder anzeigen",true));
  list_Ober.push_back(st_Ober(Menueleiste,"Menüleiste",true));
@@ -356,11 +357,13 @@ void Midgard_Optionen::load_options()
      setString(i->getAttr("Name"),i->getAttr("Wert"));
 
   const Tag *data2=ts.find("MAGUS-fenster");
-  FOR_EACH_CONST_TAG_OF(i,*data2,"Position")
-     hauptfenster->setWindowPosition(i->getIntAttr("X"),i->getIntAttr("Y"));
-  FOR_EACH_CONST_TAG_OF(i,*data2,"Groesse")
-     hauptfenster->setWindowSize(i->getIntAttr("Width"),i->getIntAttr("Height"));
-
+  if(data2)
+   {
+     FOR_EACH_CONST_TAG_OF(i,*data2,"Position")
+        hauptfenster->setWindowPosition(i->getIntAttr("X"),i->getIntAttr("Y"));
+     FOR_EACH_CONST_TAG_OF(i,*data2,"Groesse")
+        hauptfenster->setWindowSize(i->getIntAttr("Width"),i->getIntAttr("Height"));
+   }
   hauptfenster->menu_init();
  } catch (std::exception &e) { cerr << e.what() << '\n'; }
 }
@@ -387,13 +390,13 @@ void Midgard_Optionen::save_options(WindowInfo *InfoFenster)
     fenster.get_size(width,height);
     fenster.get_root_origin(x,y);
     datei << "  <Groesse";
-    write_int_attrib(datei, "Width" ,width);
-    write_int_attrib(datei, "Height" ,height);
-    datei << "/>";
+    write_int_attrib_force(datei, "Width" ,width);
+    write_int_attrib_force(datei, "Height" ,height);
+    datei << "/>\n";
     datei << "  <Position";
-    write_int_attrib(datei, "X" ,x);
-    write_int_attrib(datei, "Y" ,y);
-    datei << "/>";
+    write_int_attrib_force(datei, "X" ,x);
+    write_int_attrib_force(datei, "Y" ,y);
+    datei << "/>\n";
     datei << "</MAGUS-fenster>\n\n";
   }
  datei << "<MAGUS-optionen>\n";
