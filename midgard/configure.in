@@ -28,6 +28,8 @@ AC_ARG_ENABLE(utf8, [  --enable-utf8	Recode to UTF8],
 	 	else utf8=true
 	 	fi])
 AM_CONDITIONAL(UTF8, test x$utf8 = xtrue)
+# make this sane once we use gtk 2.0
+AM_CONDITIONAL(WINDOWS, test x$utf8 = xtrue)
 
 dnl Set PACKAGE_DATA_DIR in config.h.
 if test "x${prefix}" = "xNONE"; then

@@ -1,4 +1,4 @@
-// $Id: LaTeX_header.cc,v 1.22 2002/04/15 07:04:42 thoma Exp $
+// $Id: LaTeX_header.cc,v 1.23 2002/04/16 10:17:37 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,6 +19,11 @@
 
 #include "midgard_CG.hh"
 #include <Gtk2TeX.h>
+#ifndef __MINGW32__
+#include <unistd.h>
+#else
+#include <windows.h>
+#endif
 
 std::string midgard_CG::get_latex_filename(const LaTeX_Filenames what)
 {
@@ -204,6 +209,26 @@ void midgard_CG::LaTeX_footer(ostream &fout)
 
 void midgard_CG::pdf_viewer(const std::string& file)
 {
+#ifdef __MINGW32__
+  const char * const subpath="\\texmf\\miktex\\bin";
+  char buffer[1024];
+  static char buffer2[10240];
+  const char *e=getenv("PATH");
+  if (!strstr(e,subpath))
+  {  assert( getcwd(buffer, sizeof buffer) );
+     assert( strlen(buffer)+strlen(subpath)<sizeof buffer);
+     strcat(buffer,subpath);
+     assert( 5+strlen(e)+1+strlen(buffer)<sizeof buffer2 );
+     strcpy(buffer2,"PATH=");
+     strcat(buffer2,e);
+     strcat(buffer2,";");
+     strcat(buffer2,buffer); // SearchPathA ?
+     putenv(buffer2);
+  }
+  // GetTempPath ?
+#define unlink(a) DeleteFileA(a)
+
+#endif
   system(("pdflatex "+file+".tex").c_str());
   system((MOptionen->Viewer()+file+".pdf &").c_str());
 /*
@@ -216,7 +241,10 @@ void midgard_CG::pdf_viewer(const std::string& file)
   else if (MOptionen->pdfViewerCheck(Midgard_Optionen::andere).active)
      system(("xpdf "+file+".pdf &").c_str());
 */
-  system((system_comm(RM)+file+".tex").c_str());
+  unlink((file+".tex").c_str());
+  unlink((file+".aux").c_str());
+  unlink((file+".log").c_str());
+  unlink((file+".pdf").c_str());
 }
 
 

@@ -1,10 +1,18 @@
-# $Id: Makefile.am,v 1.142 2002/04/16 08:07:41 thoma Exp $
+# $Id: Makefile.am,v 1.143 2002/04/16 10:17:37 christof Exp $
 
 bin_PROGRAMS = midgard 
 noinst_PROGRAMS = text2c
 
 # völlig veraltet!!!
 EXTRA_PROGRAMS = midgard_xmlexport
+
+if WINDOWS
+	RC_FILES=magus.rc
+	LINK_OPTIONS=-mwindows
+else
+	RC_FILES=
+	LINK_OPTIONS=
+endif
 
 pkgdata_DATA = midgard_document_eingabe.tex \
     drache.png dracher.png schwert.png wurfbeil.png MAGUS-Logo-grey2.png
@@ -180,7 +188,7 @@ midgard_SOURCES = \
    dtos1.cc snprintf.c \
    Midgard_Undo.cc \
    Tag.cc TagStream.cc xml.cc export_common.cc \
-   ProgressBar.cc
+   ProgressBar.cc $(RC_FILES)
 
 CXXFLAGS = @CXXFLAGS@ @KOMPONENTEN_INCLUDES@ -DUSE_XML \
            -DPACKAGE_DATA_DIR=\"$(pkgdatadir)/\"
@@ -189,7 +197,7 @@ midgard_LDADD = @LIBS@ @KOMPONENTEN_NODB_LIBS@
 
 midgard_xmlexport_LDADD = @LIBS@ @COMMONXX_LIBS@
 
-LDFLAGS = @KOMPONENTEN_LDFLAGS@
+LDFLAGS = @KOMPONENTEN_LDFLAGS@ $(LINK_OPTIONS)
 
 CLEANFILES = *~ *_new $(BUILT_SOURCES) *_old
 
@@ -210,12 +218,6 @@ midgard_CG_glade.o: $(midgard_CG_glade_o_DEPS)
 	| ./iso2utf8 \
 	| $(CXXCOMPILE) -o $*.o -O0 -c -x c++ /dev/stdin
 	echo > .deps/$(*F).P
-
-# libtool does not work when cross compiling, so link directly
-#midgard$(EXEEXT): $(midgard_OBJECTS) $(midgard_DEPENDENCIES)
-#	@rm -f midgard$(EXEEXT)
-#	$(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(LDFLAGS) \
-#	  -o $@ $(midgard_LDFLAGS) $(midgard_OBJECTS) $(midgard_LDADD)
 
 else
 
