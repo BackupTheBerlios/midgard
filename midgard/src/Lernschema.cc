@@ -24,9 +24,9 @@
 #include "Zauberwerk.hh"
 #include "Fertigkeiten.hh"
 
-static void StoreLernschema(const std::string &std::list,const std::string &element,
+static void StoreLernschema(const std::string &liste,const std::string &element,
 		const std::string &typ, std::map<Lernschema::st_index,Lernschema::st_wert> &lern_map)
-{const Tag *liste=xml_data->find(std::list);
+{const Tag *liste=xml_data->find(liste);
  if (liste)
  {  Tag::const_iterator b=liste->begin(),e=liste->end();
 //    double size=(e-b)*3;
