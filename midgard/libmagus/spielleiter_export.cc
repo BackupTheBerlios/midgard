@@ -105,7 +105,7 @@ void spielleiter_export_save(const Abenteurer &Char,const std::string& dateiname
     std::string schaden;
     bool besitz=false;
     {WaffeBesitz WB(w,w->Name(),0,0,"","");
-    schaden= "$"+WB.Schaden(Char,w->Name())+"$";
+    schaden= WB.Schaden(Char,w->Name());
     }
     for(std::list<H_WaffeBesitz>::const_iterator j=Char.List_Waffen_besitz().begin();j!=Char.List_Waffen_besitz().end();++j)
      {
@@ -114,7 +114,6 @@ void spielleiter_export_save(const Abenteurer &Char,const std::string& dateiname
         {
           besitz=true;
           name = WB->AliasName();
-//LaTeX          if (WB->av_Bonus()!=0 || WB->sl_Bonus()!=0) name +="$^*$";
           if (WB->av_Bonus()!=0 || WB->sl_Bonus()!=0) name +="*";
           wert += WB->av_Bonus() + WB->Waffe()->WM_Angriff((**j)->Name());
           schaden=WB->Schaden(Char,(*WB)->Name());

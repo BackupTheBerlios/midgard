@@ -21,7 +21,6 @@ was bedeutet:
    on_eventbox_ausruestung_button_release_event
 
 eventuell Größe neu berechnen, wenn Optionen ausgewertet wurden.
-Optionen vor Hauptfenster laden?
 
 use StyleIcon for new Icons
 
@@ -41,8 +40,6 @@ use StyleIcon for new Icons
 
   Landeskunde geht, Schreiben: Alte Sprache nicht
 
-- evtl. Bugfixes in magus (drucken nicht mitgekommen?)
-
 - Undo/Redo verändern die Lernpunkte noch nicht ...
 	Undo/Redo über array<st_abenteurer> realisieren bzw Teil davon
 
@@ -56,21 +53,7 @@ use StyleIcon for new Icons
 	Aktiver Wizard (alter Wizard)
 	alles möglich (Schummeln/Auswählbar machen)
 
-- Mutual exclusive (pdf,Icon,?) 
-	exclusive (midgard+je haus)
-
 - Preise und Lernschema sind Regionenäbhangig ...
 
-- DLL decorations:
+- InfoWindow neu erzeugen, eventuell einfärben
 
-#ifdef __MINGW32__
-#if defined(libmagus_COMPILATION) && defined(DLL_EXPORT)
-#define LIBMAGUS_API __declspec(dllexport) 
-#elif !defined(libmagus_COMPILATION)
-#define LIBMAGUS_API __declspec(dllimport)
-#else
-#define LIBMAGUS_API
-#endif /* libmagus_COMPILATION - DLL_EXPORT */
-#else
-#define LIBMAGUS_API
-#endif /* __MINGW32__ */

@@ -1,3 +1,5 @@
+- Spielleiter-Export jetzt ohne $$
+
 NEU in Version 0.9.0
 
 - Wechsel nach gtk+ 2.0 und gtkmm 2.0 (neuere Bibliotheken)
