@@ -21,5 +21,6 @@
 #include "Gtk_OStream.h"
 
 std::streamsize Gtk::OStream::data_stream(const char *s,std::streamsize n)
-{   return (*handler_data.stream.os).write(s,n);
+{   (*handler_data.stream.os).write(s,n);
+    return (*handler_data.stream.os).pcount();
 };
