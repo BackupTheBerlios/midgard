@@ -45,7 +45,7 @@ void midgard_CG::xml_export(const std::string& datei)
 {
   std::string cname   = Werte.Name_Charakter();
   std::string version = Werte.Version();
-  std::string command = "midgard_xmlexport '"+cname+"' '"+version+"' > "+datei;
+  std::string command = "midgard_xmlexport '"+cname+"' '"+version+"' > '"+datei+"'";
   system(command.c_str());
   std::string strinfo = "Charakter "+cname+" exportiert\n";
   manage (new WindowInfo(strinfo));
