@@ -37,7 +37,7 @@ COPY "regionen" FROM stdin;
 11	H&D (Finstere Magie)	Hexenzauber und Druidenkraft	H&Df	\N	\N	Malte Thoma	1.0	Alexander Huiskes	t	14	1994
 10	Hexenzauber & Druidenkraft	Hexenzauber und Druidenkraft	H&D	\N	\N	Malte Thoma	1.0	Alexander Huiskes (Hrsg.)	f	6	1994
 7	KanThaiPan	Unter dem Schirm des Jadekaisers	K	\N	\N	Malte Thoma	1.0	Isolde Popp	f	2	\N
-14	Küstenstaaten	Küstenstaaten	KS	\N	\N	Malte Thoma	1.0	?	f	15	?
+14	Küstenstaaten & Valian	Das Reich des Seekönigs	KV	\N	\N	Malte Thoma	1.0	?	f	15	?
 2	Meister der Sphären	Meister der Sphären	MdS	\N	\N	Malte Thoma	1.0	Jürgen E. Franke	t	11	\N
 5	Minangpahit	Minangpahit	M	\N	\N	Malte Thoma	1.0	?	f	0	null
 6	Nahuatlan	Nahuatlan - Im Land des Mondjaguars	N	\N	\N	Malte Thoma	1.0	Alexander Huiskes	t	8	\N
