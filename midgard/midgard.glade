@@ -4958,50 +4958,6 @@ editieren</label>
 		    <active>False</active>
 		  </widget>
 
-		  <widget>
-		    <class>GtkButton</class>
-		    <child_name>Toolbar:button</child_name>
-		    <name>button_menu</name>
-		    <tooltip>Dieses Menü ist auch über die rechte Maustaste (an fast jeder beliebiegen Stelle im Programm) verfügbar.</tooltip>
-		    <signal>
-		      <name>button_release_event</name>
-		      <handler>on_button_menu_button_release_event</handler>
-		      <last_modification_time>Sat, 05 Jan 2002 09:11:37 GMT</last_modification_time>
-		    </signal>
-		    <label>Menü</label>
-		    <icon>wizzard-trans-50_2.xpm</icon>
-		    <child>
-		      <new_group>True</new_group>
-		    </child>
-		  </widget>
-
-		  <widget>
-		    <class>GtkButton</class>
-		    <child_name>Toolbar:button</child_name>
-		    <name>button_info</name>
-		    <tooltip>Info</tooltip>
-		    <signal>
-		      <name>clicked</name>
-		      <handler>on_button_info_clicked</handler>
-		      <last_modification_time>Sun, 01 Apr 2001 19:06:08 GMT</last_modification_time>
-		    </signal>
-		    <label>Info</label>
-		    <icon>Info-trans-50.xpm</icon>
-		  </widget>
-
-		  <widget>
-		    <class>GtkButton</class>
-		    <child_name>Toolbar:button</child_name>
-		    <name>button11</name>
-		    <tooltip>Hilfe</tooltip>
-		    <signal>
-		      <name>clicked</name>
-		      <handler>on_button_hilfe_clicked</handler>
-		      <last_modification_time>Fri, 30 Mar 2001 19:46:38 GMT</last_modification_time>
-		    </signal>
-		    <label>Hilfe</label>
-		    <icon>Help-trans-50.xpm</icon>
-		  </widget>
 		</widget>
 	      </widget>
 	    </widget>
@@ -15358,6 +15314,50 @@ KS
 	    <label>Vorwärts</label>
 	  </widget>
 
+		  <widget>
+		    <class>GtkButton</class>
+		    <child_name>Toolbar:button</child_name>
+		    <name>button_menu</name>
+		    <tooltip>Dieses Menü ist auch über die rechte Maustaste (an fast jeder beliebiegen Stelle im Programm) verfügbar.</tooltip>
+		    <signal>
+		      <name>button_release_event</name>
+		      <handler>on_button_menu_button_release_event</handler>
+		      <last_modification_time>Sat, 05 Jan 2002 09:11:37 GMT</last_modification_time>
+		    </signal>
+		    <label>Menü</label>
+		    <icon>wizzard-trans-50_2.xpm</icon>
+		    <child>
+		      <new_group>True</new_group>
+		    </child>
+		  </widget>
+
+		  <widget>
+		    <class>GtkButton</class>
+		    <child_name>Toolbar:button</child_name>
+		    <name>button_info</name>
+		    <tooltip>Info</tooltip>
+		    <signal>
+		      <name>clicked</name>
+		      <handler>on_button_info_clicked</handler>
+		      <last_modification_time>Sun, 01 Apr 2001 19:06:08 GMT</last_modification_time>
+		    </signal>
+		    <label>Info</label>
+		    <icon>Info-trans-50.xpm</icon>
+		  </widget>
+
+		  <widget>
+		    <class>GtkButton</class>
+		    <child_name>Toolbar:button</child_name>
+		    <name>button11</name>
+		    <tooltip>Hilfe</tooltip>
+		    <signal>
+		      <name>clicked</name>
+		      <handler>on_button_hilfe_clicked</handler>
+		      <last_modification_time>Fri, 30 Mar 2001 19:46:38 GMT</last_modification_time>
+		    </signal>
+		    <label>Hilfe</label>
+		    <icon>Help-trans-50.xpm</icon>
+		  </widget>
 	  <widget>
 	    <class>GtkButton</class>
 	    <child_name>Toolbar:button</child_name>
