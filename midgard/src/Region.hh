@@ -1,4 +1,4 @@
-// $Id: Region.hh,v 1.21 2002/07/08 07:19:51 thoma Exp $               
+// $Id: Region.hh,v 1.22 2002/07/09 13:02:18 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -37,7 +37,7 @@ class RegionenPic
  public:
    enum epic {None, Rawindra,KanThaiPan,Alba,Eschar,Gildenbrief,HD,Waeland,
               Nahuatlan,Arkanum,DFR,Meister_der_Sphaeren,Tipps_und_Tricks,
-              Abenteuer,HD_finster};
+              Abenteuer,HD_finster,Kuestenstaaten};
    static Gtk::Pixmap* Pic(epic e,bool tiny=false) ;
 };
 

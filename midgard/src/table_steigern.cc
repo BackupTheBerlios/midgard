@@ -80,7 +80,12 @@ void table_steigern::load_for_page(guint pagenr)
    {
 //     frame_fertigkeit->hide();
      radiobutton_verlernen->set_active(true);
-     if(pagenr==PAGE_ZAUBER) frame_zauber_zusatz->show();
+     if(pagenr==PAGE_ZAUBER) 
+       { frame_zauber_zusatz->show();
+         if(MidgardBasicElement_mutable(&*cH_Fertigkeit("Lesen von Zauberschrift")).ist_gelernt(hauptfenster->getChar().List_Fertigkeit()))
+              togglebutton_spruchrolle->set_sensitive(true);
+         else togglebutton_spruchrolle->set_sensitive(false);
+       }
      if(hauptfenster->getChar().Typ1()->SpruecheMitPP() || hauptfenster->getChar().Typ2()->SpruecheMitPP())
         radiobutton_praxis->set_sensitive(true);
      else

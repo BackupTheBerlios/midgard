@@ -40,7 +40,6 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
 {
   std::string strinfo = "Datei '"+dateiname+"' enthält nun die Daten des ";
   strinfo +="Abenteurers im Format für Midgard Publikationen\n";
-//  InfoFenster->AppendShow(strinfo);
   set_status(strinfo); 
   ofstream fout2(dateiname.c_str());
 #ifdef __MINGW32__
@@ -87,7 +86,7 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
   std::string angriff;
   for(std::list<MidgardBasicElement_mutable>::const_iterator i=Char.List_Waffen().begin();i!=Char.List_Waffen().end();++i)
    {cH_Waffe w(*i);
-    std::string wert = itos(i->Erfolgswert());
+//    std::string wert = itos(i->Erfolgswert());
     for(std::list<WaffeBesitz>::const_iterator j=Char.List_Waffen_besitz().begin();j!=Char.List_Waffen_besitz().end();++j)
      {
       WaffeBesitz WB=*j;
@@ -102,11 +101,10 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
          int anbo = Char.getWerte().bo_An();
          if (WB.Waffe()->Verteidigung())
             anbo = 0;
-         int wert = j->Erfolgswert() + anbo + mag_schadensbonus + ang_mod;
+         int wert = i->Erfolgswert() + anbo + mag_schadensbonus + ang_mod;
          angriff+="+"+itos(wert) + "(";
          std::string schaden=WB.Schaden(Char.getWerte(),WB->Name());
          angriff+= schaden+ "), ";
-//         angriff+= ", ";
        }
      }
    }
@@ -149,7 +147,7 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
  std::string::size_type st4=sprache.find_last_of(",");
  if(st4!=std::string::npos) sprache.erase(st4,2);
  fout << sprache<<"\n\n";
-  // Zauber
+ // Zauber
  if (Char.List_Zauber().size()!=0)
    {
      std::string zauber;

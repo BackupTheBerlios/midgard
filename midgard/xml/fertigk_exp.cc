@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.37 2002/07/08 09:26:31 christof Exp $
+// $Id: fertigk_exp.cc,v 1.38 2002/07/09 13:02:18 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -92,16 +92,21 @@ void fert_speichern(Tag &o)
    	" where name='"+fert+"' order by voraussetzung");
       FetchIStream isV2;
       while ((queryV2>>isV2).good()) 
-      {  fetch_and_set_string_attrib(isV2, fertigk.push_back(Tag("Voraussetzungen_2")), "Name");
+      {  
+        fetch_and_set_string_attrib(isV2, fertigk.push_back(Tag("Voraussetzungen_2")), "Name");
       }
     }
 
       //********** fertigkeiten_zusätze **********************************
-   {  Query queryZu("select name from fz_zusaetze "
+   {  Query queryZu("select name,typ,region,region_zusatz from fz_zusaetze "
    	" where art='"+fert+"' order by name");
       FetchIStream isZu;
       while ((queryZu>>isZu).good()) 
-      {  fetch_and_set_string_attrib(isZu, fertigk.push_back(Tag("Zusätze")), "Name");
+      { Tag &z=fertigk.push_back(Tag("Zusätze")); 
+        fetch_and_set_string_attrib(isZu, z, "Name");
+        fetch_and_set_string_attrib(isZu, z, "Typ");
+        fetch_and_set_string_attrib(isZu, z, "Region");
+        fetch_and_set_string_attrib(isZu, z, "RegionZusatz");
       }
     }
 
