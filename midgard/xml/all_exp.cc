@@ -1,4 +1,4 @@
-// $Id: all_exp.cc,v 1.23 2003/03/10 14:20:08 christof Exp $
+// $Id: all_exp.cc,v 1.24 2003/07/01 10:47:47 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -50,8 +50,8 @@ int main(int argc, char *argv[])
       ts.setEncoding("ISO-8859-1");
       Tag &data=ts.push_back(Tag("MAGUS-data"));
       region_tags(data,region,revision);
-   land_speichern(data);
    fert_speichern(data);
+   land_speichern(data);
    waffen_speichern(data);
    if (region.empty()) ki_speichern(data);
    // Arkanum ist ein extra Package
