@@ -214,7 +214,8 @@ void midgard_CG::load_for_page(guint pagenr)
   // Sensitive & Show
   if(pagenr==PAGE_ZAUBER || pagenr==PAGE_KIDO)
    {
-     frame_fertigkeit->set_sensitive(false);
+//     frame_fertigkeit->set_sensitive(false);
+     frame_fertigkeit->hide();
 //     frame_lernen_mit->set_sensitive(false);
      radiobutton_verlernen->set_active(true);
      if(pagenr==PAGE_ZAUBER) frame_zauber_zusatz->show();
@@ -225,7 +226,8 @@ void midgard_CG::load_for_page(guint pagenr)
    }
   else
    {
-     frame_fertigkeit->set_sensitive(true);
+//     frame_fertigkeit->set_sensitive(true);
+     frame_fertigkeit->show();
 //     frame_lernen_mit->set_sensitive(true);
      radiobutton_steigern->set_active(true);
      frame_zauber_zusatz->hide();
