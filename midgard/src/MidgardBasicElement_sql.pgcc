@@ -90,14 +90,20 @@ void MidgardBasicElement::get_map_typ()
     tag=cH_Fertigkeit("KiDo")->tag;
 
  if (tag)
- {  MIDGARD3_4(bool found=false,);
+ {  
+#ifdef MIDGARD3  // ich weiß, das ist hässlich ...
+    bool found=false;
+#  define FOUND found=true
+#else
+#  define FOUND
+#endif
     for (Tag::const_iterator i=tag->begin();i!=tag->end();++i)
     {  if (i->Type()=="Grund") 
-       { map_typ[i->getAttr("Typ")]="G"; MIDGARD3_4(found=true,); }
+       { map_typ[i->getAttr("Typ")]="G"; FOUND; }
        else if (i->Type()=="Standard") 
-       { map_typ[i->getAttr("Typ")]="S"; MIDGARD3_4(found=true,); }
+       { map_typ[i->getAttr("Typ")]="S"; FOUND; }
        else if (i->Type()=="Ausnahme") 
-       { map_typ[i->getAttr("Typ")]="A"; MIDGARD3_4(found=true,); }
+       { map_typ[i->getAttr("Typ")]="A"; FOUND; }
     }
 #ifdef MIDGARD3
     if ((What()==WAFFEGRUND || What()==WAFFE) && !found)
