@@ -26,6 +26,7 @@ void table_steigern::on_leaf_waffenbesitz_selected_alt(cH_RowDataBase d)
 {  
   const Data_waffenbesitz *dt=dynamic_cast<const Data_waffenbesitz*>(&*d);
   WaffeBesitz WB(dt->get_Waffe());
+cout << WB->Name()<<'\t'<<WB.AliasName()<<'\n';
 
   if(!checkbutton_mag_waffenbonus->get_active()) 
    {
@@ -33,7 +34,6 @@ void table_steigern::on_leaf_waffenbesitz_selected_alt(cH_RowDataBase d)
     for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Waffen_besitz().begin();
          i!=hauptfenster->getChar().List_Waffen_besitz().end();++i)
      {
-//       WaffeBesitz w(*i);
        if(*i==MBE)
          {
             hauptfenster->getChar().List_Waffen_besitz().remove(*i);
@@ -102,8 +102,10 @@ void table_steigern::on_leaf_waffenbesitz_selected_neu(cH_RowDataBase d)
 {  
   const Data_waffenbesitz *dt=dynamic_cast<const Data_waffenbesitz*>(&*d);
 //  cH_MidgardBasicElement MBE=new WaffeBesitz(*cH_WaffeBesitz(dt->get_Waffe()));
-  MidgardBasicElement_mutable MBE=dt->get_Waffe();
+//  MidgardBasicElement_mutable MBE=dt->get_Waffe();
+  WaffeBesitz MBE=dt->get_Waffe();
 
+cout << MBE->Name()<<'\t'<<MBE.AliasName()<<'\n';
   hauptfenster->getChar().List_Waffen_besitz().push_back(MBE);
 //  zeige_waffen();
   show_alte_waffen();
@@ -152,7 +154,7 @@ void  table_steigern::lade_waffenbesitz()
         for (list<Waffe::st_alias>::const_iterator j=cH_Waffe(w)->Alias().begin();j!=cH_Waffe(w)->Alias().end();++j)
          {
            WaffeBesitz W(w,0,(*j).name,0,0,"");
-//           Waffe_Besitz W(WaffeBesitz(w,0,(*j).name,0,0,"");
+cout << W->Name()<<'\t'<<(*j).name<<'\t'<<W.AliasName()<<'\n';
            if(hauptfenster->region_check(j->region))
                  Waffe_Besitz_neu.push_back(W);
          }
@@ -160,7 +162,6 @@ void  table_steigern::lade_waffenbesitz()
    }
   std::vector<cH_RowDataBase> datavec;
   for (std::list<WaffeBesitz>::const_iterator i=Waffe_Besitz_neu.begin();i!=Waffe_Besitz_neu.end();++i)
-//     if (hauptfenster->region_check((*i).Waffe()->Region((*i).AliasName())))
         datavec.push_back(new Data_waffenbesitz(*i,hauptfenster));
   waffenbesitz_neu_tree->setDataVec(datavec);
 }

@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.15 2002/06/12 06:59:31 christof Exp $               
+// $Id: Abenteurer.hh,v 1.16 2002/06/12 10:12:49 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -25,7 +25,7 @@
 #include <vector>
 #include "Datenbank.hh"
 #include "Optionen.hh"
-
+class WaffeBesitz;
 
 
 class Abenteurer
@@ -39,7 +39,7 @@ class Abenteurer
    std::list<MidgardBasicElement_mutable> list_Fertigkeit;
    std::list<MidgardBasicElement_mutable> list_WaffenGrund;
    std::list<MidgardBasicElement_mutable> list_Waffen;
-   std::list<MidgardBasicElement_mutable> list_Waffen_besitz;
+   std::list<WaffeBesitz> list_Waffen_besitz;
    std::list<MidgardBasicElement_mutable> list_Zauber;
    std::list<MidgardBasicElement_mutable> list_Zauberwerk;
    std::list<MidgardBasicElement_mutable> list_Kido;
@@ -79,7 +79,7 @@ public:
    const std::list<MidgardBasicElement_mutable>& CList_Fertigkeit() const {return list_Fertigkeit;}
    const std::list<MidgardBasicElement_mutable>& CList_WaffenGrund() const {return list_WaffenGrund;}
    const std::list<MidgardBasicElement_mutable>& CList_Waffen() const {return list_Waffen;}
-   const std::list<MidgardBasicElement_mutable>& CList_Waffen_besitz() const {return list_Waffen_besitz;}
+   const std::list<WaffeBesitz>& CList_Waffen_besitz() const {return list_Waffen_besitz;}
    const std::list<MidgardBasicElement_mutable>& CList_Zauber() const {return list_Zauber;}
    const std::list<MidgardBasicElement_mutable>& CList_Zauberwerk() const {return list_Zauberwerk;}
    const std::list<MidgardBasicElement_mutable>& CList_Kido() const {return list_Kido;}
@@ -104,7 +104,7 @@ public:
    std::list<MidgardBasicElement_mutable>& List_Fertigkeit()  {return list_Fertigkeit;}
    std::list<MidgardBasicElement_mutable>& List_WaffenGrund() {return list_WaffenGrund;}
    std::list<MidgardBasicElement_mutable>& List_Waffen()  {return list_Waffen;}
-   std::list<MidgardBasicElement_mutable>& List_Waffen_besitz() {return list_Waffen_besitz;}
+   std::list<WaffeBesitz>& List_Waffen_besitz() {return list_Waffen_besitz;}
    std::list<MidgardBasicElement_mutable>& List_Zauber()  {return list_Zauber;}
    std::list<MidgardBasicElement_mutable>& List_Zauberwerk()  {return list_Zauberwerk;}
    std::list<MidgardBasicElement_mutable>& List_Kido()  {return list_Kido;}
@@ -211,7 +211,7 @@ public:
    const std::list<MidgardBasicElement_mutable>& CList_Fertigkeit() const {return ai->abenteurer.CList_Fertigkeit();}
    const std::list<MidgardBasicElement_mutable>& CList_WaffenGrund() const {return ai->abenteurer.CList_WaffenGrund();}
    const std::list<MidgardBasicElement_mutable>& CList_Waffen() const {return ai->abenteurer.CList_Waffen();}
-   const std::list<MidgardBasicElement_mutable>& CList_Waffen_besitz() const {return ai->abenteurer.CList_Waffen_besitz();}
+   const std::list<WaffeBesitz>& CList_Waffen_besitz() const {return ai->abenteurer.CList_Waffen_besitz();}
    const std::list<MidgardBasicElement_mutable>& CList_Zauber() const {return ai->abenteurer.CList_Zauber();}
    const std::list<MidgardBasicElement_mutable>& CList_Zauberwerk() const {return ai->abenteurer.CList_Zauberwerk();}
    const std::list<MidgardBasicElement_mutable>& CList_Kido() const {return ai->abenteurer.CList_Kido();}
@@ -224,7 +224,7 @@ public:
    std::list<MidgardBasicElement_mutable>& List_Fertigkeit()  {return ai->abenteurer.List_Fertigkeit();}
    std::list<MidgardBasicElement_mutable>& List_WaffenGrund() {return ai->abenteurer.List_WaffenGrund();}
    std::list<MidgardBasicElement_mutable>& List_Waffen()  {return ai->abenteurer.List_Waffen();}
-   std::list<MidgardBasicElement_mutable>& List_Waffen_besitz() {return ai->abenteurer.List_Waffen_besitz();}
+   std::list<WaffeBesitz>& List_Waffen_besitz() {return ai->abenteurer.List_Waffen_besitz();}
    std::list<MidgardBasicElement_mutable>& List_Zauber()  {return ai->abenteurer.List_Zauber();}
    std::list<MidgardBasicElement_mutable>& List_Zauberwerk()  {return ai->abenteurer.List_Zauberwerk();}
    std::list<MidgardBasicElement_mutable>& List_Kido()  {return ai->abenteurer.List_Kido();}

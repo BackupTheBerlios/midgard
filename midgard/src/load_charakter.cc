@@ -61,7 +61,7 @@ void midgard_CG::xml_import(const std::string& datei)
    int page=notebook_main->get_current_page_num();
    ifstream fi(datei.c_str());
    Char.push_back(Abenteurer());
-   on_neuer_charakter_clicked();
+//   on_neuer_charakter_clicked();
    frame_steigern->set_sensitive(true);
    if(!(Char.xml_import_stream(fi,getDatabase(),getOptionen())))
      {
