@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.344 2004/07/16 07:13:00 christof Exp $
+// $Id: midgard_CG.cc,v 1.345 2004/07/16 08:36:36 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -42,6 +42,8 @@ extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 #if MPC_SIGC_VERSION > 0x120
 #  include <sigc++/bind.h>
 #endif
+#include <Association.h>
+#include <int_ImageButton.hh>
 
 static void ImageLabelKnopf(Gtk::Button *b, Glib::RefPtr<Gdk::Pixbuf> pb, const Glib::ustring &t)
 {  Gtk::VBox *vbox=manage(new Gtk::VBox());
@@ -99,19 +101,23 @@ midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
 // Statusbar MVC
   bool_ImageButton *wuerfelt_butt = new bool_ImageButton(aktiver.proxies.werte_eingeben,
   	MagusImage("hand_roll.png"),MagusImage("auto_roll.png"));
-  wuerfelt_butt->set_tooltips(_tooltips,
+  wuerfelt_butt->set_tooltips(&_tooltips,
   		"Werte werden ausgewürfelt. (Hier klicken zum eingeben)",
   		"Werte werden eingegeben. (Hier klicken zum auswürfeln)");
   hbox_status->pack_start(*wuerfelt_butt, Gtk::PACK_SHRINK, 0);
   wuerfelt_butt->show();
   
-  {ModelWidgetConnection<int,Gtk::Image> &mwc
-      =ManuProC::Association(*pixmap_status_wizard);
-   mwc.set_tooltips(_tooltips);
-   mwc.add_entry(Wizard::Aus,MagusIcons("Wizard_off.png"),"alle Funktionen anwählbar");
-   mwc.add_entry(Wizard::Sensitive,MagusIcons("MAGUS_Logo_Tiny.xpm"),"doppeltes Würfeln verhindern");
-   mwc.add_entry(Wizard::Aktiv,MagusIcons("MAGUS_Logo_Tiny.light"),"Magus hilft beim Erstellen");
-   mwc.set_model(getChar().proxies.wizard_mode);
+  {int_ImageButton::Connection &mwc
+      =dynamic_cast<int_ImageButton::Connection&>
+        (ManuProC::Association(*eventbox_wizard_aktiv,*pixmap_status_wizard));
+   mwc.set_tooltips(&_tooltips);
+   mwc.add_entry(Wizard::Aus,MagusImage("Wizard_off.png"),"alle Funktionen anwählbar");
+   mwc.add_entry(Wizard::Sensitive,MagusImage("MAGUS_Logo_Tiny.xpm"),"doppeltes Würfeln verhindern");
+   mwc.add_entry(Wizard::Aktiv,MagusImage("MAGUS_Logo_Tiny.light"),"Magus hilft beim Erstellen");
+   // black magic: aus einem enum Model ein int Model machen
+   Model_ref<int> mref_int(static_cast<int*>(getChar().proxies.wizard_mode.Id()),
+               getChar().proxies.wizard_mode.signal_changed());
+   mwc.set_model(mref_int);
   }
 
   set_sensitive(true);
