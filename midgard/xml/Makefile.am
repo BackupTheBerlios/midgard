@@ -1,7 +1,6 @@
-# $Id: Makefile.am,v 1.14 2001/12/05 07:51:55 christof Exp $
+# $Id: Makefile.am,v 1.15 2001/12/06 09:53:20 christof Exp $
 
-noinst_PROGRAMS = all_exp 
-EXTRA_PROGRAMS = arkanum_exp kido_exp fertigk_exp land_sprache_exp waffen_exp
+EXTRA_PROGRAMS = all_exp arkanum_exp kido_exp fertigk_exp land_sprache_exp waffen_exp
 
 %_nm.o: %_exp.cc ; $(COMPILE.cc) -DXML_NO_MAIN $(OUTPUT_OPTION) $<
 %.cc: %.pgcc ; @ECPG@ -o $*.cc $<
@@ -28,10 +27,12 @@ LDFLAGS = @KOMPONENTEN_LDFLAGS@
 CLEANFILES = *~ $(BUILT_SOURCES) 
 LIBS=@LIBS@ @COMMONXX_LIBS@
 
-export: $(noinst_PROGRAMS)
-#	./arkanum_exp >../../midgard-xml/Arkanum.xml
-#	./kido_exp >../../midgard-xml/KiDo.xml
-#	./fertigk_exp >../../midgard-xml/Fertigkeiten.xml
-#	./land_sprache_exp >../../midgard-xml/Land_Sprache.xml
-#	./waffen_exp >../../midgard-xml/Waffen.xml
+export: $(EXTRA_PROGRAMS)
 	./all_exp >../src/midgard.xml
+
+export5: $(EXTRA_PROGRAMS)
+	./arkanum_exp >../midgard-xml/Arkanum.xml
+	./kido_exp >../../midgard-xml/KiDo.xml
+	./fertigk_exp >../../midgard-xml/Fertigkeiten.xml
+	./land_sprache_exp >../../midgard-xml/Land_Sprache.xml
+	./waffen_exp >../../midgard-xml/Waffen.xml
