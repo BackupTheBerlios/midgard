@@ -1,4 +1,4 @@
-// $Id: Gtk_OStream.h,v 1.6 2001/12/19 10:58:15 christof Exp $
+// $Id: Gtk_OStream.h,v 1.8 2002/09/24 15:17:31 christof Exp $
 /*  Gtk--addons: a collection of gtk-- addons
     Copyright (C) 1998  Adolf Petig GmbH. & Co. KG
     Developed by Christof Petig <christof.petig@wtal.de>
@@ -23,17 +23,14 @@
 #include <iostream.h> // <iostream> for newer compilers
 #include <strstream.h> // <strstream> for newer compilers
 // <sstream> for upcoming compilers ;-)
-#include <gtk--/menu.h>
+#include <gtkmm/menu.h>
 
 namespace Gtk {
-class List;
 class OptionMenu;
-class CList;
 class Label;
 };
 
 class ostream;
-#include <gtk--/combo.h>
 
 #if (defined (__GNUC__) && __GNUC__ == 2 && __GNUC_MINOR__ < 8)
 #define throw(away...)
@@ -54,26 +51,19 @@ class OStream : public ostrstream
         int mode;
 
         // specific information
-        struct data_clist { CList *widget;
-                gint row,column; 
-                bool freeze; };
         struct data_stream { ostream *os; };
-        struct data_list { Gtk::List *widget; };
         struct data_optionmenu { Gtk::OptionMenu *widget; 
                 Gtk::Menu *menu; };
         struct data_label { Label *widget; };
         union
-        {  struct data_clist clist;
+        {  
                 struct data_stream stream;
-                struct data_list list;
                 struct data_optionmenu optionmenu;
                 struct data_label label;
         } handler_data;
 
         void erase_OptionMenu();
         void flush_stream(gpointer user_data,GtkDestroyNotify d);
-        void flush_CList(gpointer user_data,GtkDestroyNotify d);
-        void flush_List(gpointer user_data,GtkDestroyNotify d);
         void flush_OptionMenu(gpointer user_data,GtkDestroyNotify d);
         void flush_Label(gpointer user_data,GtkDestroyNotify d);
         void close_OptionMenu();
@@ -93,52 +83,12 @@ class OStream : public ostrstream
         {
             handler_data.stream.os=stream;
         }
-        OStream(CList *cl,int _mode=(ios::out|ios::app), bool freeze=true) throw()
-                : flush_impl(&OStream::flush_CList), close_impl(0),
-                        mode(_mode)
-        {
-            handler_data.clist.widget=cl;
-            handler_data.clist.row=handler_data.clist.column=-1;
-            handler_data.clist.freeze=freeze;
-        }
-        OStream(CList *cl,gint _row,int _mode=(ios::out|ios::trunc), bool freeze=true)
-        throw()
-                : flush_impl(&OStream::flush_CList), close_impl(0),
-                        mode(_mode)
-        {
-            handler_data.clist.widget=cl;
-            handler_data.clist.row=_row;
-            handler_data.clist.column=-1;
-            handler_data.clist.freeze=freeze;
-        }
-        OStream(CList *cl,gint _row,gint _column,int _mode=(ios::out|ios::trunc), bool freeze=true)
-        throw()
-                : flush_impl(&OStream::flush_CList), close_impl(0),
-                        mode(_mode)
-        {
-            handler_data.clist.widget=cl;
-            handler_data.clist.row=_row;
-            handler_data.clist.column=_column;
-            handler_data.clist.freeze=freeze;
-        }
-        OStream(Gtk::List *l,int _mode=(ios::out|ios::app)) throw()
-                : flush_impl(&OStream::flush_List), close_impl(0),
-                        mode(_mode)
-        {
-            handler_data.list.widget=l;
-        }
         OStream(Gtk::OptionMenu *o,int _mode=(ios::out|ios::trunc)) throw()
                 : flush_impl(&OStream::flush_OptionMenu), 
                   close_impl(&OStream::close_OptionMenu),
                         mode(_mode)
         {   handler_data.optionmenu.widget=o;
             erase_OptionMenu();
-        }
-        OStream(Gtk::Combo *c,int _mode=(ios::out|ios::app)) throw()
-                : flush_impl(&OStream::flush_List), close_impl(0),
-                        mode(_mode)
-        {
-            handler_data.list.widget=c->get_list();
         }
         OStream(Label *l,int _mode=(ios::out|ios::trunc)) throw()
                 : flush_impl(&OStream::flush_Label), close_impl(0),

@@ -16,17 +16,6 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// generated 1999/11/19 14:05:29 MET by christof@petig.petig.de
-// using glademm V0.5.4a
-//
-// newer (non customized) versions of this file go to window2.hh_glade
-
-// you might replace
-//    class Foo : public Foo_glade { ... };
-// by
-//    typedef Foo_glade Foo;
-// if you didn't make any modifications to the widget
-
 #ifndef _WINDOW2_HH
 #  include "window2_glade.hh"
 #  define _WINDOW2_HH
@@ -35,7 +24,7 @@ class window2 : public window2_glade
         
         friend class window2_glade;
         void on_button2_clicked();
-        gint on_window2_delete_event(GdkEventAny *ev);
+        bool on_window2_delete_event(GdkEventAny *ev);
 public:
 	window2() {}
         ~window2();

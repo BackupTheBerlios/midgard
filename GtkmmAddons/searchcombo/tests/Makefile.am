@@ -1,12 +1,12 @@
-# $Id: Makefile.am,v 1.3 2001/04/20 07:29:20 christof Exp $
+# $Id: Makefile.am,v 1.4 2002/09/20 10:28:07 christof Exp $
 
 noinst_PROGRAMS = gsc_test
 
 INCLUDES = -I../src @GTK_CFLAGS@
 
-LDFLAGS = @GTK_LIBS@
+#LDFLAGS = @GTK_LDFLAGS@
 
-LIBS = $(top_srcdir)/src/libGtkmmAddonsWidgets.a 
+LIBS = $(top_srcdir)/src/libGtkmmAddonsWidgets.a @GTK_LIBS@
 
 gsc_test_DEPENDENCIES = $(top_srcdir)/src/libGtkmmAddonsWidgets.a
 

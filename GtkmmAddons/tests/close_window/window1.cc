@@ -16,22 +16,15 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// generated 1999/11/19 14:05:29 MET by christof@petig.petig.de
-// using glademm V0.5.4a
-//
-// newer (non customized) versions of this file go to window1.cc_glade
-
-// This file is for your program, I won't touch it again!
-
 #include "window1.hh"
 #include "window2.hh"
-#include "gtk--/main.h"
+#include "gtkmm/main.h"
 
 void window1::on_button1_clicked()
-{  manage(new window2());
+{  new window2();
 }
 
-gint window1::on_window1_delete_event(GdkEventAny *ev)
+bool window1::on_window1_delete_event(GdkEventAny *ev)
 {  (Gtk::Main::instance()->quit)();
    return false;
 }

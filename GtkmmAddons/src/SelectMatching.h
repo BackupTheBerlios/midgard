@@ -16,12 +16,11 @@
  *  Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-// $Id: SelectMatching.h,v 1.2 2002/05/16 14:41:46 christof Exp $
+// $Id: SelectMatching.h,v 1.6 2002/09/24 15:50:59 christof Exp $
 
-#include <gtk--/menu.h>
-#include <gtk--/clist.h>
-#include <gtk--/optionmenu.h>
-#include <gtk--/menuitem.h>
+#include <gtkmm/menu.h>
+#include <gtkmm/optionmenu.h>
+#include <gtkmm/menuitem.h>
 
 namespace Gtk
 {
@@ -34,7 +33,7 @@ template <class T>
 {  Gtk::Menu *m=om.get_menu();
    guint index=0;
    for (MenuList::const_iterator i=m->items().begin();i!=m->items().end();++i,++index)
-      if ((*i)->get_user_data()==val)
+      if ((*i).get_data("user_data")==val)
       {  om.set_history(index);
          return true;
       }
@@ -43,19 +42,4 @@ template <class T>
 
 }
 
-namespace CList_Helpers
-{
-
-// returns true on match
-template <class T>
- bool SelectMatching(Gtk::CList &cl, const T &val)
-{  for (RowList::iterator i=cl->rows().begin();i!=cl->rows().end();++i)
-      if (i->get_data()==val)
-      {  i->select();
-         return true;
-      }
-   return false;
-}
-
-}
 }

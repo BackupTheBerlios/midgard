@@ -1,4 +1,4 @@
-// $Id: Gtk_OStream_optionmenu.cc,v 1.4 2002/01/21 17:16:59 christof Exp $
+// $Id: Gtk_OStream_optionmenu.cc,v 1.5 2002/09/24 15:17:31 christof Exp $
 /*  Gtk--addons: a collection of gtk-- addons
     Copyright (C) 1998  Adolf Petig GmbH. & Co. KG
     Developed by Christof Petig <christof.petig@wtal.de>
@@ -19,8 +19,8 @@
 */
 
 #include "Gtk_OStream.h"
-#include <gtk--/optionmenu.h>
-#include <gtk--/menuitem.h>
+#include <gtkmm/optionmenu.h>
+#include <gtkmm/menuitem.h>
 //#include <cstring>
 
 // something is strange here, looks like this menu never get's destroyed
@@ -39,7 +39,7 @@ void Gtk::OStream::erase_OptionMenu()
 
 void Gtk::OStream::close_OptionMenu()
 {
-   if (mode&std::ios::trunc) handler_data.optionmenu.widget->set_menu(handler_data.optionmenu.menu);
+   if (mode&std::ios::trunc) handler_data.optionmenu.widget->set_menu(*handler_data.optionmenu.menu);
 }
 
 void Gtk::OStream::flush_OptionMenu(gpointer user_data,GtkDestroyNotify d)
@@ -57,21 +57,15 @@ void Gtk::OStream::flush_OptionMenu(gpointer user_data,GtkDestroyNotify d)
         item=manage(new Gtk::MenuItem(nextline));
         handler_data.optionmenu.menu->append(*item);
         item->show();
-	if (user_data) 
-        {  item->set_user_data(user_data);
-           item->set_data_full("user_data",user_data,d);
-        }
+	if (user_data) item->set_data("user_data",user_data,d);
     }
     if (nextline[0])
     {
         item=manage(new Gtk::MenuItem(nextline));
-        assert(Gtk::OptionMenu::isA(handler_data.optionmenu.widget));
+//        assert(Gtk::OptionMenu::isA(handler_data.optionmenu.widget));
         handler_data.optionmenu.menu->append(*item);
         item->show();
-        if (user_data) 
-        {  item->set_user_data(user_data);
-	   item->set_data_full("user_data",user_data,d);
-        }
+        if (user_data) item->set_data("user_data",user_data,d);
     }
     freeze(0); // we don't need the buffer any more
     seekp(0,std::ios::beg);

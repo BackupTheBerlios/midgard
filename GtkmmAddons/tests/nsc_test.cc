@@ -1,4 +1,4 @@
-/* $Id: nsc_test.cc,v 1.4 2002/01/21 17:17:54 christof Exp $ */
+/* $Id: nsc_test.cc,v 1.5 2002/09/24 15:46:21 christof Exp $ */
 /*  Gtk--addons: a collection of gtk-- addons
     Copyright (C) 1998  Adolf Petig GmbH. & Co. KG
     Developed by Christof Petig <christof.petig@wtal.de>
@@ -19,13 +19,13 @@
 */
 
 #include <string>
-#include <gtk--/main.h>
-#include <gtk--/box.h>
-#include <gtk--/window.h>
-#include <gtk--/listitem.h>
-#include <gtk--/list.h>
+#include <gtkmm/main.h>
+#include <gtkmm/box.h>
+#include <gtkmm/entry.h>
+#include <gtkmm/window.h>
 #include <SearchCombo.h>
 #include <unistd.h>
+#include <iostream>
 
 const char *names[]=
   {
@@ -148,14 +148,14 @@ class testwindow : public Gtk::Window
             scombo2.show();
             scombo3.show();
 
-            scombo.search.connect(SigC::slot(&comboart,&comboArtikel::suchfunc));
-            scombo.activate.connect(SigC::slot(&comboart,&comboArtikel::selectfunc));
-            scombo2.search.connect(SigC::slot(&comboart2,&comboArtikel::suchfunc));
-            scombo2.activate.connect(SigC::slot(&comboart2,&comboArtikel::selectfunc));
-            scombo3.search.connect(SigC::slot(&comboart3,&comboArtikel::suchfunc));
-            scombo3.activate.connect(SigC::slot(&comboart3,&comboArtikel::selectfunc));
+            scombo.signal_search().connect(SigC::slot(comboart,&comboArtikel::suchfunc));
+            scombo.signal_activate().connect(SigC::slot(comboart,&comboArtikel::selectfunc));
+            scombo2.signal_search().connect(SigC::slot(comboart2,&comboArtikel::suchfunc));
+            scombo2.signal_activate().connect(SigC::slot(comboart2,&comboArtikel::selectfunc));
+            scombo3.signal_search().connect(SigC::slot(comboart3,&comboArtikel::suchfunc));
+            scombo3.signal_activate().connect(SigC::slot(comboart3,&comboArtikel::selectfunc));
         }
-        gint delete_event_impl(GdkEventAny *)
+        bool delete_event_impl(GdkEventAny *)
         {
             std::cout << "Close Window" << endl;
             Gtk::Main::instance()->quit();
@@ -180,6 +180,6 @@ int main( int argc, char **argv )
 
     w.show();
 
-    m.run();
+    m.run(w);
     return 0;
 }

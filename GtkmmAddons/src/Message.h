@@ -1,4 +1,4 @@
-/* $Id: Message.h,v 1.5 2001/07/04 10:11:34 christof Exp $ */
+/* $Id: Message.h,v 1.6 2002/09/24 15:17:31 christof Exp $ */
 /*  Gtk--addons: a collection of gtk-- addons
     Copyright (C) 1998  Adolf Petig GmbH. & Co. KG
     Developed by Jacek Jakubowski <jacek@wtal.de>
@@ -20,11 +20,11 @@
 
 #ifndef MESSAGEH
 #define MESSAGEH
-#include<gtk--/dialog.h>
-#include<gtk--/label.h>
-#include<gtk--/button.h>
-#include<gtk--/box.h>
-#include<gtk--/main.h>
+#include<gtkmm/dialog.h>
+#include<gtkmm/label.h>
+#include<gtkmm/button.h>
+#include<gtkmm/box.h>
+#include<gtkmm/main.h>
 #include <string>
 
 class Message : public Gtk::Dialog

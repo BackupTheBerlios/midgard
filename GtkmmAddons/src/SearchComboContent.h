@@ -1,5 +1,5 @@
 /*  Gtk--addons: a collection of gtk-- addons
- *  Copyright (C) 2001 Adolf Petig GmbH & Co. KG, written by Christof Petig
+ *  Copyright (C) 2001-2002 Adolf Petig GmbH & Co. KG, written by Christof Petig
  *
  *  This library is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU Library General Public
@@ -38,7 +38,7 @@ struct ContentError : public std::exception
        
 
  
- SearchComboContent() {}
+ SearchComboContent() { gobj()->auto_narrow=false; }
  void add_item(const std::string &text, const T &item);
  void reset();
  void clear() {reset();}

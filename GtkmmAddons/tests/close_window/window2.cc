@@ -16,22 +16,15 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// generated 1999/11/19 14:05:29 MET by christof@petig.petig.de
-// using glademm V0.5.4a
-//
-// newer (non customized) versions of this file go to window2.cc_glade
-
-// This file is for your program, I won't touch it again!
-
 #include "window2.hh"
 #include <iostream>
 
 void window2::on_button2_clicked()
-{  destroy();
+{  delete this;
 }
 
-gint window2::on_window2_delete_event(GdkEventAny *ev)
-{  destroy();
+bool window2::on_window2_delete_event(GdkEventAny *ev)
+{  delete this;
    return true;
 }
 

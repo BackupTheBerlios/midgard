@@ -1,4 +1,4 @@
-// $Id: optionmenu.cc,v 1.1 2002/01/21 08:32:26 christof Exp $
+// $Id: optionmenu.cc,v 1.3 2002/09/24 15:49:07 christof Exp $
 /*  Gtk--addons: a collection of gtk-- addons
     Copyright (C) 1998  Adolf Petig GmbH. & Co. KG
     Developed by Christof Petig <christof.petig@wtal.de>
@@ -18,8 +18,8 @@
     Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 */
 
-#include <gtk--/main.h>
-#include <gtk--/window.h>
+#include <gtkmm/main.h>
+#include <gtkmm/window.h>
 #include <Gtk_OStream.h>
 #include <SelectMatching.h>
 
@@ -29,7 +29,7 @@ public:
 	myWindow()
 	{	add(l);
 		l.show();
-		l.set_usize(100,100);
+		// l.set_usize(100,100);
 	}
 	Gtk::OptionMenu &OptionMenu()
 	{  return l; }
@@ -45,6 +45,6 @@ int main(int argc,char **argv)
       os << "test 23"; os.flush((void*)23);
    }
    Gtk::Menu_Helpers::SelectMatching(w.OptionMenu(),(void*)17);
-   m.run();
+   m.run(w);
    return 0;
 }

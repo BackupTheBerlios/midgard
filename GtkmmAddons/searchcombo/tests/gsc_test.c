@@ -1,9 +1,11 @@
-/* $Id: gsc_test.c,v 1.7 2002/07/25 16:24:45 christof Exp $ */
+/* $Id: gsc_test.c,v 1.8 2002/09/20 10:28:07 christof Exp $ */
 
 #include <gtk/gtk.h>
 #include "gtksearchcombo.h"
 #include <string.h>
 #include <assert.h>
+#include <unistd.h>
+#include <stdio.h>
 
 #define SLOW_DOWN
 
@@ -195,7 +197,7 @@ void activate_cb(GtkSearchCombo *sc, gpointer   data)
    if (!stat(gtk_searchcombo_get_text(sc),&statb))
    {  if (S_ISDIR(statb.st_mode))
          /* trigger listing of dir's contents */
-         gtk_editable_changed(GTK_EDITABLE(sc->entry));
+         g_signal_emit_by_name(G_OBJECT(sc->entry),"changed");
    }
 } 
 

@@ -1,4 +1,4 @@
-// $Id: Gtk_OStream_label.cc,v 1.4 2002/01/21 17:16:59 christof Exp $
+// $Id: Gtk_OStream_label.cc,v 1.5 2002/09/24 15:17:31 christof Exp $
 /*  Gtk--addons: a collection of gtk-- addons
     Copyright (C) 1998  Adolf Petig GmbH. & Co. KG
     Developed by Christof Petig <christof.petig@wtal.de>
@@ -19,13 +19,13 @@
 */
 
 #include "Gtk_OStream.h"
-#include <gtk--/label.h>
+#include <gtkmm/label.h>
 
 void Gtk::OStream::flush_Label(gpointer user_data,GtkDestroyNotify d)
 {
     put(0);
     std::ostrstream::flush();
-    handler_data.label.widget->set(str());
+    handler_data.label.widget->set_text(str());
     freeze(0); // we don't need the buffer any more
     seekp(0,std::ios::beg);
 }

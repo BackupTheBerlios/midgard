@@ -16,11 +16,12 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// $Id: sccont_test.cc,v 1.6 2002/01/21 17:17:54 christof Exp $
+// $Id: sccont_test.cc,v 1.7 2002/09/24 15:46:21 christof Exp $
 
 #include<SearchComboContent.h>
 #include <cstdio>
-#include <gtk--/main.h>
+#include <gtkmm/main.h>
+#include <gtkmm/window.h>
 
 class testwindow : public Gtk::Window
 {
@@ -42,10 +43,10 @@ class testwindow : public Gtk::Window
         testwindow() 
         {   add(testscc);
             testscc.show();
-            testscc.search.connect(SigC::slot(this,&testwindow::suchfunc));
-            testscc.activate.connect(SigC::slot(this,&testwindow::activatefunc));
+            testscc.signal_search().connect(SigC::slot(*this,&testwindow::suchfunc));
+            testscc.signal_activate().connect(SigC::slot(*this,&testwindow::activatefunc));
         }
-        gint delete_event_impl(GdkEventAny *)
+        bool delete_event_impl(GdkEventAny *)
         {
             std::cout << "Close Window" << endl;
             Gtk::Main::instance()->quit();
@@ -60,7 +61,7 @@ int main(int argc,char **argv)
     testwindow w;
     
     w.show();
-    m.run();
+    m.run(w);
     return 0;
 
 }

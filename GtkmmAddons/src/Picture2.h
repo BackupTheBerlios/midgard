@@ -1,4 +1,4 @@
-// $Id: Picture2.h,v 1.5 2002/03/20 07:49:18 christof Exp $
+// $Id: Picture2.h,v 1.6 2002/09/24 15:17:31 christof Exp $
 /*  Gtk--addons: a collection of gtk-- addons
     Copyright (C) 1998  Adolf Petig GmbH. & Co. KG
     Developed by Christof Petig <christof.petig@wtal.de>
@@ -21,7 +21,7 @@
 #define PICTURE2_H
 
 
-#include <gtk--/imageloader.h>
+#include <gtkmm/imageloader.h>
 
 class Picture2 : public Gtk::ImageLoaderData 
 {	static const char * const empty_image[];

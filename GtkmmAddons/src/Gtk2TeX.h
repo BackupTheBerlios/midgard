@@ -16,11 +16,11 @@
  *  Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-// $Id: Gtk2TeX.h,v 1.13 2002/07/26 06:28:30 christof Exp $
+// $Id: Gtk2TeX.h,v 1.14 2002/09/24 15:17:31 christof Exp $
 
 #include <iostream>
 #include <TeX.h>
-#include <gtk--/clist.h>
+#include <gtkmm/clist.h>
 
 namespace Gtk2TeX
 {	using namespace TeX;

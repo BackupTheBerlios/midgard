@@ -16,7 +16,7 @@
  *  Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-// $Id: Gtk2TeX.cc,v 1.17 2002/07/26 06:28:30 christof Exp $
+// $Id: Gtk2TeX.cc,v 1.18 2002/07/26 10:58:29 christof Exp $
 
 #include "Gtk2TeX.h"
 
@@ -63,7 +63,7 @@ static void CList2Table_sub(std::ostream &os,const Gtk::CList *cl,const Gtk2TeX:
          }
          Gtk::nstring content;
          if (multicol>1) 
-         {  os << "\\multicolumn[l]{"<< multicol<< "}{";
+         {  os << "\\multicolumn{"<< multicol<< "}{l}{";
          }
          if (!(content=x->get_text()).null()) 
          {  if (fl.element_cb)
