@@ -572,8 +572,8 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 1	Kd	f	TaiTschi	Fachkenntnisse	\N
 1	BW	f	Tanzen	Fachkenntnisse	15
 1	Ba	f	Tanzen	Fachkenntnisse	15
-1	Gl	f	Tanzen	Fachkenntnisse	15
 1	De	f	Tanzen	Fachkenntnisse	15
+1	Gl	f	Tanzen	Fachkenntnisse	15
 1	RiN	f	Tanzen	Fachkenntnisse	15
 1	ScN	f	Tanzen	Fachkenntnisse	15
 1	ScS	f	Tanzen	Fachkenntnisse	15
@@ -620,10 +620,6 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 1	BS	f	Wurfaxt	Waffenfertigkeiten	5
 1	BW	f	Wurfaxt	Waffenfertigkeiten	5
 1	Fi	f	Wurfaxt	Waffenfertigkeiten	5
-2	Hj	f	Wurfaxt	Waffenfertigkeiten	5
-3	Hj	f	Kriegsflegel	Waffenfertigkeiten	5
-3	Hj	f	Schleuder	Waffenfertigkeiten	5
-3	Hj	f	Wurfmesser	Waffenfertigkeiten	5
 1	Km	f	Wurfaxt	Waffenfertigkeiten	5
 1	Kr	f	Wurfaxt	Waffenfertigkeiten	5
 1	Or	f	Wurfaxt	Waffenfertigkeiten	5
@@ -735,6 +731,7 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 1	Ku	f	Überleben in der Wüste	Fachkenntnisse	8
 1	ScS	f	Überleben in der Wüste	Fachkenntnisse	8
 2	Gl	f	Akrobatik	Fachkenntnisse	15
+2	De	f	Al-Mahram 	Zauberkünste	0
 2	De	f	Al-Mutadid	Zauberkünste	0
 2	Mg	f	Alchimie	Fachkenntnisse	5
 2	BN	f	Anderthalbhänder	Waffenfertigkeiten	5
@@ -897,7 +894,6 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 2	To	f	Garotte	Waffenfertigkeiten	5
 2	Er	f	Gassenwissen	Fachkenntnisse	5
 2	Hä	f	Gassenwissen	Fachkenntnisse	5
-3	Mg	f	Gassenwissen	Fachkenntnisse	5
 2	Sp	f	Gassenwissen	Fachkenntnisse	5
 2	Sw	f	Gassenwissen	Fachkenntnisse	5
 2	To	f	Gassenwissen	Fachkenntnisse	5
@@ -1407,6 +1403,7 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 2	As	f	Wurfaxt	Waffenfertigkeiten	5
 2	Ba	f	Wurfaxt	Waffenfertigkeiten	5
 2	Gl	f	Wurfaxt	Waffenfertigkeiten	5
+2	Hj	f	Wurfaxt	Waffenfertigkeiten	5
 2	Hä	f	Wurfaxt	Waffenfertigkeiten	5
 2	Se	f	Wurfaxt	Waffenfertigkeiten	5
 2	Sp	f	Wurfaxt	Waffenfertigkeiten	5
@@ -1595,6 +1592,7 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 3	Sp	f	Fuchtel	Waffenfertigkeiten	5
 3	To	f	Fuchtel	Waffenfertigkeiten	5
 3	Ku	f	Gassenwissen	Fachkenntnisse	5
+3	Mg	f	Gassenwissen	Fachkenntnisse	5
 3	Se	f	Gassenwissen	Fachkenntnisse	5
 3	Mg	f	Geheimmechanismen öffnen	Fachkenntnisse	6
 3	De	f	Geomantie	Fachkenntnisse	15
@@ -1612,18 +1610,19 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 3	Tt	f	Ixtantzutuhs Ekstase	Zauberkünste	\N
 3	dBe	f	Kaligin 1 beschwören	Zauberkünste	\N
 3	PK	f	Kampf zu Pferd	Fachkenntnisse	15
-3	Mg	f	Kampfstab	Waffenfertigkeiten	5
 3	Ba	f	Kampfstab	Waffenfertigkeiten	5
 3	Er	f	Kampfstab	Waffenfertigkeiten	5
 3	Fi	f	Kampfstab	Waffenfertigkeiten	5
 3	Hj	f	Kampfstab	Waffenfertigkeiten	5
 3	Hä	f	Kampfstab	Waffenfertigkeiten	5
+3	Mg	f	Kampfstab	Waffenfertigkeiten	5
 3	Sp	f	Kampfstab	Waffenfertigkeiten	5
 3	To	f	Kampfstab	Waffenfertigkeiten	5
 3	Wa	f	Kampfstab	Waffenfertigkeiten	5
 3	PK	f	Kampftaktik	Fachkenntnisse	8
 3	Ba	f	Keule	Waffenfertigkeiten	5
 3	Gl	f	Kriegsflegel	Waffenfertigkeiten	5
+3	Hj	f	Kriegsflegel	Waffenfertigkeiten	5
 3	Or	f	Kriegsflegel	Waffenfertigkeiten	5
 3	Ba	f	Kriegshammer	Waffenfertigkeiten	5
 3	Hä	f	Kriegshammer	Waffenfertigkeiten	5
@@ -1711,6 +1710,7 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 3	Ba	f	Schleuder	Waffenfertigkeiten	5
 3	Er	f	Schleuder	Waffenfertigkeiten	5
 3	Gl	f	Schleuder	Waffenfertigkeiten	5
+3	Hj	f	Schleuder	Waffenfertigkeiten	5
 3	Hä	f	Schleuder	Waffenfertigkeiten	5
 3	Or	f	Schleuder	Waffenfertigkeiten	5
 3	Se	f	Schleuder	Waffenfertigkeiten	5
@@ -1815,6 +1815,7 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 3	ScW	f	Wurfkeule	Waffenfertigkeiten	4
 3	To	f	Wurfkeule	Waffenfertigkeiten	5
 3	BN	f	Wurfmesser	Waffenfertigkeiten	5
+3	Hj	f	Wurfmesser	Waffenfertigkeiten	5
 3	Hä	f	Wurfmesser	Waffenfertigkeiten	5
 3	Ku	f	Wurfmesser	Waffenfertigkeiten	5
 3	Or	f	Wurfmesser	Waffenfertigkeiten	5
@@ -1870,7 +1871,6 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 3	Mg	f	waffenloser Kampf	Waffenfertigkeiten	5
 3	Se	f	waffenloser Kampf	Waffenfertigkeiten	5
 4	Tt	f	Ahuatls Sturm	Zauberkünste	\N
-2	De	f	Al-Mahram 	Zauberkünste	0
 4	De	f	Al-Tarka	Zauberkünste	0
 4	Ba	f	Anderthalbhänder	Waffenfertigkeiten	5
 4	De	f	Anderthalbhänder	Waffenfertigkeiten	4
