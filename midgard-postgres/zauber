@@ -62,8 +62,8 @@ Augenschleier	200	1*Gr	Geste	2	H&D	\N	\N					1 s	50 m	Geist	1 Ws	1 min	dämonisch
 Austreibung des Bösen	500	5	Wort	2	\N	\N	\N	\N	Magan	bewegt	Feuer	10 s	15 m	Körper	1 Ws	10 min	göttlich		f		\N	\N
 Austreibung des Guten	500	5	Wort	2	\N	\N	\N	\N	Magan	bewegt	Feuer	10 s	15 m	Körper	1 Ws	10 min	dämonisch		f		\N	\N
 Automat schaffen	2400	9	Geste	5	\N	\N	\N	\N	Magan	verändert	Metall	1 h	B	Umgebung	1 Ob	perm	dämonisch		f	Siegel	\N	\N
-Ballade der Begierde	300	1	Zauberlied	3	H&D	\N	\N	\N	Magan	beherrscht	Luft	5 min	0 m	Geist	1 Ws	perm	druidisch	Harfe oder Laute	f		\N	\N
-Ballader der besiegten Gier	1500	1	Zauberlied	4	H&D	\N	\N		Magan	beherrscht	Luft	10 min	0 m	Geist	1 Ws	perm	druidisch	Harfe oder Laute	f		\N	\N
+Ballade der Begierde	300	1	Zauberlied	3	H&D	\N	\N	\N	Magan	beherrscht	Luft	5 min	0 m	Geist	1 Ws	perm	Weltenlied	Harfe oder Laute	f		\N	\N
+Ballader der besiegten Gier	1500	1	Zauberlied	4	H&D	\N	\N		Magan	beherrscht	Luft	10 min	0 m	Geist	1 Ws	perm	Weltenlied	Harfe oder Laute	f		\N	\N
 Ballbalance	100	1	Geste	1/Ball	N	\N	\N	\N	Magan	verändert	Metall	5 sec	B	Umgebung	1-10 Objekte	Grad min	dämonisch	Gummiball (25KS)	f	Trickser	\N	\N
 Bann der wahren Eigentümerschaft	10000	alle(mind 18)	Geste	G	H&D	\N	\N					6 h	0m	Körper	1 Ob		dämonisch	Halsband eines bis zum Tode treuen Hundes	f	Siegel	\N	\N
 Bannen des Todes	20000	alle (min 9)	Geste	G	\N	\N	\N	\N	Eis	verändert	Erde	6 h	-	Körper	Zauberer	0	schwarzmagisch	Mensch, frisches Katzenherz	f		\N	\N
@@ -128,7 +128,7 @@ Bruchbann	200	var	Geste	2	H&D	\N	\N					10 min	0 m	Körper	var	Gr*h	dämonisch		t	
 Bärenstärke	100	1	Geste	1	H&D	\N	\N					20 s	0 m	Körper	Zauberer	1 min	druidisch	Bärenfett	f		\N	\N
 Bärenwut	100	1	Geste	1	\N	\N	\N	\N	Holz	verändert	Erde	1 s	-	Körper	Zauberer	2 min	druidisch	eigenes Blut	f		\N	\N
 Böser Blick	400	2	Gedanke	2	\N	\N	\N	\N	Eis	zerstört	Holz	1 s	15 m	Körper	1 Ws	perm	schwarzmagisch		f		\N	\N
-Charivari Klänge	400	2	Zauberlied	2	G	?	\N	\N	\N	\N	\N	-	-	Geist	15m Uk	var	\N	Flöte oder Laute	f	\N	\N	\N
+Charivari Klänge	400	2	Zauberlied	2	G	?	\N	\N	\N	\N	\N	-	-	Geist	15m Uk	var	Weltenlied	Flöte oder Laute	f	\N	\N	\N
 Cheprus Sendbote	1500	4	Geste	4	E	\N	\N	\N	Magan	erschafft	Erde	30 min	0	Geist	1 Ws	1W6 h	göttlich	Körperflüssigkeit des Opfers	f		\N	\N
 Coluscar 1 beschwören	80	1	Geste	1	3	\N	\N	Beschwörung	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h	dämonisch	Kaninchen	f		\N	\N
 Coluscar 2 beschwören	160	2	Geste	2	3	\N	\N	Beschwörung	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h	dämonisch	schwarzes Huhn	f		\N	\N
@@ -140,27 +140,27 @@ Damhsa Claimh (Schwerttanz)	1000	2/Tänzer	Tanz	3	G	46	\N	Tanz	Luft	verändert	Feu
 Damhsa Meallim (Locktanz)	80	2	Tanz	1	G	46	\N	Tanz	Wasser	beherrscht	Wasser	5 min	15 m	Geist	1 Ws	6 h	druidisch	Solotanz	f	\N	\N	\N
 Damhsa an Duiseacht (Tanz des Erwachens)	1600	6	Tanz	5	G	46	\N	Tanz	Magan	beherrscht	Wasser	5 min	-	Körper	Zauberer	inf	druidisch	Solotanz	f	\N	\N	\N
 Das Essen nährt...	3000	6	Geste	5	K	\N	\N	\N				1 min	0	Geist		1 h		1 p Gifttausendfüßler, 1 g GoGoNe-Pulver	f		\N	\N
-Das Lied der Erinnerung	5000	2	Zauberlied	6	H&D	\N	\N	\N	Magan	beherrscht	Luft	0	0	Geist	30m Uk	5 min+	druidisch	Harfe oder Laute	f		\N	\N
-Das Lied der Feier	60	1	Zauberlied	1	H&D	\N	\N	\N	Magan	beherrscht	Luft	0	0	Geist	20m Uk	2 min+	druidisch	Flöte, Harfe oder Laute	f		\N	\N
-Das Lied der Macht	7500	2*min	Zauberlied	G	H&D	\N	\N	\N	Magan	beherrscht	Wasser	3 min	0	Geist	30m Uk	var	druidisch	Flöte	f		\N	\N
-Das Lied der Magie	3000	2	Zauberlied	5	H&D	\N	\N	\N	Magan	verändert	Magan	0	0	Umgebung	10m Uk	var	druidisch	Harfe	f		\N	\N
-Das Lied des Verstehens	1000	2	Zauberlied	5	H&D	\N	\N	\N	Magan	beherrscht	Luft	3 min	0	Geist	30m Uk	30 min	druidisch	Harfe oder Laute	f		\N	\N
+Das Lied der Erinnerung	5000	2	Zauberlied	6	H&D	\N	\N	\N	Magan	beherrscht	Luft	0	0	Geist	30m Uk	5 min+	Weltenlied	Harfe oder Laute	f		\N	\N
+Das Lied der Feier	60	1	Zauberlied	1	H&D	\N	\N	\N	Magan	beherrscht	Luft	0	0	Geist	20m Uk	2 min+	Weltenlied	Flöte, Harfe oder Laute	f		\N	\N
+Das Lied der Macht	7500	2*min	Zauberlied	G	H&D	\N	\N	\N	Magan	beherrscht	Wasser	3 min	0	Geist	30m Uk	var	Weltenlied	Flöte	f		\N	\N
+Das Lied der Magie	3000	2	Zauberlied	5	H&D	\N	\N	\N	Magan	verändert	Magan	0	0	Umgebung	10m Uk	var	Weltenlied	Harfe	f		\N	\N
+Das Lied des Verstehens	1000	2	Zauberlied	5	H&D	\N	\N	\N	Magan	beherrscht	Luft	3 min	0	Geist	30m Uk	30 min	Weltenlied	Harfe oder Laute	f		\N	\N
 Dau ed-Datin	800	3	Tanz	3	E	\N	\N	Tanz	Wasser	beherrscht	Wasser	15 min	0	Geist	15 m Uk	10 min	dämonisch		f		\N	\N
 Dau ed-Din	2500	6	Tanz	5	E	\N	\N	Tanz	Metall	zerstört	Magan	10 min	0	Körper	15 m Uk	-	göttlich		f		\N	\N
 Deckmantel	1500	6	Geste	4	\N	\N	\N	\N	Magan	zerstört	Magan	10 s	0 m	Umgebung	6 m Uk	8 h	dämonisch	Goldring (10GS)	t	Siegel	\N	\N
-Der Gesang Crescendis	120	2*h	Zauberlied	1	H&D	\N	\N	\N	Magan	verändert	Erde	0	100m Uk	Körper	var	var	druidisch	Gesang plus Instrument(beliebig)	f		\N	\N
+Der Gesang Crescendis	120	2*h	Zauberlied	1	H&D	\N	\N	\N	Magan	verändert	Erde	0	100m Uk	Körper	var	var	Weltenlied	Gesang plus Instrument(beliebig)	f		\N	\N
 Der Große Knall	200	2	Geste	2	H&D	\N	\N	\N				1 s	12 m	Umgebung	12 m	0	dämonisch		t		\N	\N
-Der einschläfernde Gesang	400	2	Zauberlied	2	\N	\N	\N	\N	Magan	beherrscht	Wasser	-	-	Geist	15 m Uk	1 min	druidisch	Harfe o. Laute, Stimme	f		\N	\N
-Der frohlockende Gesang	400	2	Zauberlied	2	\N	\N	\N	\N	Luft	verändert	Luft	-	-	Geist	15 m Uk	1 min	druidisch	Harfe o. Laute, Stimme	f		\N	\N
+Der einschläfernde Gesang	400	2	Zauberlied	2	\N	\N	\N	\N	Magan	beherrscht	Wasser	-	-	Geist	15 m Uk	1 min	Weltenlied	Harfe o. Laute, Stimme	f		\N	\N
+Der frohlockende Gesang	400	2	Zauberlied	2	\N	\N	\N	\N	Luft	verändert	Luft	-	-	Geist	15 m Uk	1 min	Weltenlied	Harfe o. Laute, Stimme	f		\N	\N
 Der große Seiltrick	6000	6	Geste	5	R	\N	\N	\N	Magan	bewegt	Erde	-	0 m	Umgebung	1 Ws	6 h	göttlich		f		\N	\N
-Der große Seiltrick (Lied)	6000	6	Zauberlied	5	\N	\N	\N	\N	Magan	bewegt	Erde	-	-	Umgebung	1 Ws	6 h	druidisch	Flöte	f		\N	\N
+Der große Seiltrick (Lied)	6000	6	Zauberlied	5	\N	\N	\N	\N	Magan	bewegt	Erde	-	-	Umgebung	1 Ws	6 h	Weltenlied	Flöte	f		\N	\N
 Der kleine Seiltrick	1600	4	Geste	4	R	\N	\N	\N	Magan	bewegt	Erde	-	500 m	Umgebung	1 Ws	5 min	göttlich		f		\N	\N
-Der kleine Seiltrick (Lied)	1600	4	Zauberlied	4	\N	\N	\N	\N	Magan	bewegt	Erde	-	500 m	Umgebung	1 Ws	5 min	druidisch	Flöte	f		\N	\N
-Der traurige Gesang	400	2	Zauberlied	2	\N	\N	\N	\N	Magan	verändert	Luft	-	-	Geist	15 m Uk	1 min	druidisch	Harfe o. Laute, Gesang	f		\N	\N
-Die Klänge der Genesung	1200	2	Zauberlied	3	\N	\N	\N	\N	Magan	verändert	Erde	-	-	Körper	15 m Uk	0	druidisch	Flöte, Harfe o. Laute, Stimme	f		\N	\N
-Die Stimme der Gerechten	8000	alle AP(mind18)	Zauberlied	G	H&D	\N	\N	\N	Magan	verändert	Magan	20 sec	0	Umgebung	50m Uk	0	druidisch	Chimäron	f		\N	\N
+Der kleine Seiltrick (Lied)	1600	4	Zauberlied	4	\N	\N	\N	\N	Magan	bewegt	Erde	-	500 m	Umgebung	1 Ws	5 min	Weltenlied	Flöte	f		\N	\N
+Der traurige Gesang	400	2	Zauberlied	2	\N	\N	\N	\N	Magan	verändert	Luft	-	-	Geist	15 m Uk	1 min	Weltenlied	Harfe o. Laute, Gesang	f		\N	\N
+Die Klänge der Genesung	1200	2	Zauberlied	3	\N	\N	\N	\N	Magan	verändert	Erde	-	-	Körper	15 m Uk	0	Weltenlied	Flöte, Harfe o. Laute, Stimme	f		\N	\N
+Die Stimme der Gerechten	8000	alle AP(mind18)	Zauberlied	G	H&D	\N	\N	\N	Magan	verändert	Magan	20 sec	0	Umgebung	50m Uk	0	Weltenlied	Chimäron	f		\N	\N
 Die Wiesenheuschrecke zirpt...	5000	12	Wort	5	K	\N	\N	\N				10 sec	0	Geist	1 Ws	1 Jahr			f		\N	\N
-Die überzeugende Stimme	800	2	Zauberlied	3	\N	\N	\N	\N	Feuer	beherrscht	Luft	-	15 m	Geist	1 Ws	2 min	druidisch	Stimme	f		\N	\N
+Die überzeugende Stimme	800	2	Zauberlied	3	\N	\N	\N	\N	Feuer	beherrscht	Luft	-	15 m	Geist	1 Ws	2 min	Weltenlied	Stimme	f		\N	\N
 Dinge aufspüren	1400	4	Gedanke	4	N	\N	\N	\N	Magan	erkennt	Metall	30 sec	9 km	Geist	1  Objekt	0	dämonisch	\N	f	Trickser	\N	\N
 Dinge rufen	1500	2x4	Geste	4	H&D	\N	\N	\N				1 h	50 km	Umgebung	1 Ob	1 Monat	dämonisch	Spinnenblut	t	Siegel	\N	\N
 Dinge verbergen	80	1	Gedanke	1	\N	\N	\N	\N	Magan	zerstört	Magan	10 min	B	Geist	1 Ob	12 h	dämonisch		t	Siegel	\N	\N
@@ -277,7 +277,7 @@ Geisterrune	1200	4	Geste	4	W	\N	\N	Runen	Luft	beherrscht	Feuer	30 min	-	Körper	1
 Geistesschild	1000	var	Gedanke	3	\N	\N	\N	\N	Feuer	zerstört	Magan	1 s	0	Geist	Zauberer	10 min	dämonisch		t		\N	\N
 Geistesschlüssel	1500	4	Geste	4	H&Df	\N	\N	\N	Metall	verändert	Luft	30 min	0	Geist	1 Ws	0	finster		f		\N	t
 Geizrune	200	2	Geste	2	W	\N	\N	Runen	Luft	verändert	Luft	30 min	-	Geist	1 Ws	perm	göttlich	Pferdeschädel	f	\N	\N	\N
-Gelbe Glocke (1. Urton Kung)	800	1	Zauberlied	2	K	\N	\N	\N				1 sec	0	Geist	30 m Uk	24 h			t		\N	\N
+Gelbe Glocke (1. Urton Kung)	800	1	Zauberlied	2	K	\N	\N	\N				1 sec	0	Geist	30 m Uk	24 h	Weltenlied		t		\N	\N
 Geruch intensivieren	300	1-4	Gedanke	2	N	\N	\N	\N	Magan	verändert	Holz	5 sec	B	Körper	1 Ws/Ob	1 h	dämonisch	\N	f	Trickser	\N	\N
 Geruchsverlust	400	3	Wort	3	H&D	\N	\N	\N				20 s	1m	Körper	1 Ws	1 h	druidisch		t	Siegel	\N	\N
 Gesichtsrune	30000	6	Geste	5	W	\N	\N	Runen	Luft	erkennt	Magan	30 min	15 m	Geist	Zauberer	6 h	göttlich	Wurzelstück einer Esche	f	\N	\N	\N
@@ -294,7 +294,7 @@ Golem schaffen	12000	alle (min 8)	Geste	G	\N	\N	\N	\N	Holz	verändert	Erde	12 h	0
 Graue Hand	7000	9	Geste	6	\N	\N	\N	\N	Eis	zerstört	Erde	1 s	0	Körper	1 Ws	0	schwarzmagisch		t		\N	\N
 Grenzenlose Freude	1500	4	Geste	4	H&D	\N	\N	\N				10 s	B	Geist	1 Ws	2 min	dämonisch	Schweiss von Liebenden	f		\N	\N
 Großer Hitzeschutz	1000	4	Wort	3	K	\N	\N	\N				10 min	1 m	Umgebung	1 Ob	4 Wochen			f		\N	\N
-Grüne Flöte (5. Urton Chüeh)	2000	1	Zauberlied	3	K	\N	\N	\N				1 sec	0	Geist	30 m Uk	24 h			t		\N	\N
+Grüne Flöte (5. Urton Chüeh)	2000	1	Zauberlied	3	K	\N	\N	\N				1 sec	0	Geist	30 m Uk	24 h	Weltenlied		t		\N	\N
 Grüne Hand	3000	6	Geste	5	\N	\N	\N	\N	Holz	verändert	Holz	20 s	0	Umgebung	Pflanzen	2 min	druidisch	ulverisierte Wurzeln, Frülingsregen	f		\N	\N
 Götterarme	1500	4	Geste	4	R	\N	\N	\N	Holz	verändert	Erde	10 s	-	Körper	Z	10 min	göttlich		f		\N	\N
 Göttliche Eingebung	2000	4	Gedanke	4	\N	\N	\N	\N	Luft	erkennt	Luft	30 min	0	Geist	Zauberer	10 min	göttlich		f		\N	\N
@@ -342,7 +342,7 @@ Hrimdvegar beschwören	4000	5	Geste	5	3	\N	Eis	Beschwörung	Magan	bewegt	Feuer	3 h
 Hrimdverg beschwören	800	3	Geste	3	3	\N	Eis	Beschwörung	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 40 GS 	f		\N	\N
 Hrimhune beschwören	7000	6	Geste	6	3	\N	Eis	Beschwörung	Magan	bewegt	Feuer	4,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	f		\N	\N
 Hungersalz	60	1	Gedanke	1	\N	\N	\N	Zaubersalz	Feuer	verändert	Erde	1 s	500 m	Körper	1 Ws	0	dämonisch		f		\N	\N
-Hymne der Ordnung	1000	2	Zauberlied	3	\N	\N	\N	\N	Metall	zerstört	Magan	-	0	Umgebung	15 m Uk	1 min	druidisch		f		\N	\N
+Hymne der Ordnung	1000	2	Zauberlied	3	\N	\N	\N	\N	Metall	zerstört	Magan	-	0	Umgebung	15 m Uk	1 min	Weltenlied		f		\N	\N
 Hyrrbauti beschwören	600	3	Geste	3	3	\N	Feuer	Beschwörung	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 20 GS	f		\N	\N
 Höllenbote rufen	3500	alle(mind 9)	Wort	5	H&Df	\N	Eis	\N	Metall	verändert	Luft	1 h	100 km	umgebung	1 Ws	var	finster		f		\N	t
 Höllenfeuer	2000	4*#	Geste	4	H&Df	\N	\N	\N	Metall	verändert	Luft	15 s	50 m	Umgebung	var	0	finster	Pech und Schwefel	f		\N	t
@@ -406,30 +406,30 @@ Lichtbrücke	2000	4	Geste	4	\N	\N	\N	\N	Metall	erschafft	Feuer	1 min	50 m	Umgebun
 Lichtrunen	100	1	Geste	1	\N	\N	\N	\N	Feuer	verändert	Metall	10 min	0	Umgebung	1 m²	perm	dämonisch	Tusche mit Gold-, Silber- oder Kupferstaub	f		\N	\N
 Liebesrune	2000	4	Geste	4	W	\N	\N	Runen	Wasser	beherrscht	Wasser	30 min	-	Geist	1 Ws	perm	göttlich	Stück Birkenholz	f	\N	\N	\N
 Liebeszauber	2000	4	Geste	4	\N	\N	\N	\N	Wasser	beherrscht	Wasser	1 h	0	Geist	1 Ws	perm	dämonisch		f		\N	\N
-Lied der Feier	120	0	Zauberlied	1	\N	\N	\N	\N	Luft	verändert	Luft	-	0	Geist	30 m Uk	30 min	druidisch		f		\N	\N
-Lied der Liebe	2000	0	Zauberlied	4	\N	\N	\N	\N	Wasser	beherrscht	Wasser	-	15 m	Geist	1 Ws	perm	druidisch		f		\N	\N
-Lied der Lockung	3000	2	Zauberlied	4	\N	\N	\N	\N	Magan	beherrscht	Wasser	-	0	Geist	200 m Kegel	1 min	druidisch		f		\N	\N
-Lied der Ruhe	300	2	Zauberlied	1	\N	\N	\N	\N	Wasser	beherrscht	Wasser	-	0	Geist	30 m Uk	2 h	druidisch		f		\N	\N
-Lied der Tanzlust	600	2	Zauberlied	3	\N	\N	\N	\N	Magan	beherrscht	Erde	-	0	Geist	30 m Uk	1 min	druidisch		f		\N	\N
-Lied der Tapferkeit	120	0	Zauberlied	1	\N	\N	\N	\N	Luft	verändert	Luft	-	0	Geist	15 m Uk	30 min	druidisch		f		\N	\N
-Lied der Verführung	200	2	Zauberlied	2	\N	\N	\N	\N	Wasser	beherrscht	Wasser	-	5 m	Geist	1 Ws	6 h	druidisch		f		\N	\N
-Lied der Verzweiflung	2000	2	Zauberlied	4	\N	\N	\N	\N	Magan	verändert	Luft	-	15 m	Geist	1 Ws	30 min	druidisch		f		\N	\N
-Lied der Zwietracht	6000	2	Zauberlied	6	\N	\N	\N	\N	Magan	beherrscht	Wasser	-	0	Geist	15 m Uk	10 min	druidisch		f		\N	\N
-Lied der verborgenen Kraft	1000	2	Zauberlied	3	\N	\N	\N	\N	Magan	verändert	Feuer	-	0	Körper	15 m Uk	0	druidisch		f		\N	\N
-Lied des Erinnerns	2000	2	Zauberlied	4	\N	\N	\N	\N	Magan	verändert	Luft	-	0	Geist	15 m Uk	0	druidisch		f		\N	\N
-Lied des Fesselns	200	2	Zauberlied	1	\N	\N	\N	\N	Luft	beherrscht	Luft	-	0	Geist	30 m Uk	1 min	druidisch		f		\N	\N
-Lied des Friedens	6000	2	Zauberlied	6	\N	\N	\N	\N	Metall	beherrscht	Wasser	-	0	Geist	15 m Uk	10 min	druidisch		f		\N	\N
-Lied des Grauens	4000	2	Zauberlied	4	\N	\N	\N	\N	Eis	beherrscht	Wasser	-	0	Geist	200 m Kegel	1 min	druidisch		f		\N	\N
-Lied des Spottes	200	2	Zauberlied	2	\N	\N	\N	\N	Luft	verändert	Luft	-	0	Geist	30 m Uk	perm	druidisch		f		\N	\N
-Lied des Vergessens	2000	2	Zauberlied	4	\N	\N	\N	\N	Magan	verändert	Luft	-	0	Geist	15 m Uk	perm	druidisch		f		\N	\N
-Lied des Wagemuts	200	2	Zauberlied	2	\N	\N	\N	\N	Luft	verändert	Luft	-	0	Geist	15 m Uk	30 min	druidisch		f		\N	\N
-Lied des Wahnsinns	4000	2	Zauberlied	5	\N	\N	\N	\N	Magan	zerstört	Luft	-	0	Geist	30 m Uk	perm	druidisch		f		\N	\N
-Lied des Zorns	8000	2	Zauberlied	6	\N	\N	\N	\N	Wasser	beherrscht	Wasser	-	0	Geist	30 m Uk	2 min	druidisch		f		\N	\N
+Lied der Feier	120	0	Zauberlied	1	\N	\N	\N	\N	Luft	verändert	Luft	-	0	Geist	30 m Uk	30 min	Weltenlied		f		\N	\N
+Lied der Liebe	2000	0	Zauberlied	4	\N	\N	\N	\N	Wasser	beherrscht	Wasser	-	15 m	Geist	1 Ws	perm	Weltenlied		f		\N	\N
+Lied der Lockung	3000	2	Zauberlied	4	\N	\N	\N	\N	Magan	beherrscht	Wasser	-	0	Geist	200 m Kegel	1 min	Weltenlied		f		\N	\N
+Lied der Ruhe	300	2	Zauberlied	1	\N	\N	\N	\N	Wasser	beherrscht	Wasser	-	0	Geist	30 m Uk	2 h	Weltenlied		f		\N	\N
+Lied der Tanzlust	600	2	Zauberlied	3	\N	\N	\N	\N	Magan	beherrscht	Erde	-	0	Geist	30 m Uk	1 min	Weltenlied		f		\N	\N
+Lied der Tapferkeit	120	0	Zauberlied	1	\N	\N	\N	\N	Luft	verändert	Luft	-	0	Geist	15 m Uk	30 min	Weltenlied		f		\N	\N
+Lied der Verführung	200	2	Zauberlied	2	\N	\N	\N	\N	Wasser	beherrscht	Wasser	-	5 m	Geist	1 Ws	6 h	Weltenlied		f		\N	\N
+Lied der Verzweiflung	2000	2	Zauberlied	4	\N	\N	\N	\N	Magan	verändert	Luft	-	15 m	Geist	1 Ws	30 min	Weltenlied		f		\N	\N
+Lied der Zwietracht	6000	2	Zauberlied	6	\N	\N	\N	\N	Magan	beherrscht	Wasser	-	0	Geist	15 m Uk	10 min	Weltenlied		f		\N	\N
+Lied der verborgenen Kraft	1000	2	Zauberlied	3	\N	\N	\N	\N	Magan	verändert	Feuer	-	0	Körper	15 m Uk	0	Weltenlied		f		\N	\N
+Lied des Erinnerns	2000	2	Zauberlied	4	\N	\N	\N	\N	Magan	verändert	Luft	-	0	Geist	15 m Uk	0	Weltenlied		f		\N	\N
+Lied des Fesselns	200	2	Zauberlied	1	\N	\N	\N	\N	Luft	beherrscht	Luft	-	0	Geist	30 m Uk	1 min	Weltenlied		f		\N	\N
+Lied des Friedens	6000	2	Zauberlied	6	\N	\N	\N	\N	Metall	beherrscht	Wasser	-	0	Geist	15 m Uk	10 min	Weltenlied		f		\N	\N
+Lied des Grauens	4000	2	Zauberlied	4	\N	\N	\N	\N	Eis	beherrscht	Wasser	-	0	Geist	200 m Kegel	1 min	Weltenlied		f		\N	\N
+Lied des Spottes	200	2	Zauberlied	2	\N	\N	\N	\N	Luft	verändert	Luft	-	0	Geist	30 m Uk	perm	Weltenlied		f		\N	\N
+Lied des Vergessens	2000	2	Zauberlied	4	\N	\N	\N	\N	Magan	verändert	Luft	-	0	Geist	15 m Uk	perm	Weltenlied		f		\N	\N
+Lied des Wagemuts	200	2	Zauberlied	2	\N	\N	\N	\N	Luft	verändert	Luft	-	0	Geist	15 m Uk	30 min	Weltenlied		f		\N	\N
+Lied des Wahnsinns	4000	2	Zauberlied	5	\N	\N	\N	\N	Magan	zerstört	Luft	-	0	Geist	30 m Uk	perm	Weltenlied		f		\N	\N
+Lied des Zorns	8000	2	Zauberlied	6	\N	\N	\N	\N	Wasser	beherrscht	Wasser	-	0	Geist	30 m Uk	2 min	Weltenlied		f		\N	\N
 Lindern von Entkräftung	1200	5	Geste	4	\N	\N	\N	\N	Holz	erschafft	Feuer	10 min	0	Körper	1 Ws	0	druidisch		f	Siegel	\N	\N
 Liniensicht	80	1	Gedanke	1	\N	\N	\N	\N	Holz	erkennt	Holz	1 s	<=5km	Geist	Zauberer	10 s	druidisch		f		\N	\N
 Linienwanderung	2000	4	Gedanke	4	\N	\N	\N	\N	Luft	bewegt	Feuer	20 s	0	Körper	Zauberer	1 h	druidisch		f		\N	\N
 Ljosfang beschwören	80	1	Geste	1	3	\N	Feuer	Beschwörung	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 2 GS 	f		\N	\N
-Loblied	200	2	Zauberlied	2	\N	\N	\N	\N	Luft	verändert	Luft	-	0	Geist	30 m Uk	1-3 d	druidisch		f		\N	\N
+Loblied	200	2	Zauberlied	2	\N	\N	\N	\N	Luft	verändert	Luft	-	0	Geist	30 m Uk	1-3 d	Weltenlied		f		\N	\N
 Luftelementargeist beschwören	6000	6	Geste	6	3	\N	Luft	Beschwörung	Magan	bewegt	Feuer	4 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 200 GS	f		\N	\N
 Luftlauf	1500	4	Gedanke	4	\N	\N	\N	\N	Luft	bewegt	Erde	15 s	0	Körper	Zauberer	2 min	elementar		t	Siegel	\N	\N
 Luftsphäre	2000	4	Geste	4	\N	\N	\N	\N	Luft	erschafft	Luft	20 s	0	Umgebung	3 m Uk	1 h	elementar	kleine Perle	t		\N	\N
@@ -521,7 +521,7 @@ Rince na Daoine Maithe (Reigen des Feenvolks)	1500	3	Tanz	5	G	46	\N	Tanz	Holz	be
 Rindenhaut	300	2	Geste	2	\N	\N	\N	\N	Holz	verändert	Erde	10 s	0	Körper	1 Ws	10 min	druidisch	Eichenrinde	f		\N	\N
 Ring des Lebens	800	4	Geste	3	\N	\N	\N	\N	Holz	zerstört	Eis	1 s	0	Umgebung	3 m Uk/R	1 min	druidisch	Samen des Lebenskrautes	f		\N	\N
 Rost	100	2	Geste	1	\N	\N	\N	\N	Eis	verändert	Metall	1 s	15 m	Umgebung	1 Ob	0	dämonisch		t	Siegel	\N	\N
-Roter Pirol (2. Urton Chih)	160	1	Zauberlied	1	K	\N	\N	\N				1 sec	0	Geist	30 m Uk	24 h			t		\N	\N
+Roter Pirol (2. Urton Chih)	160	1	Zauberlied	1	K	\N	\N	\N				1 sec	0	Geist	30 m Uk	24 h	Weltenlied		t		\N	\N
 Ruf des Herzens	600	3	Gedanke	3	N	\N	\N	\N	Magan	erkennt	Erde	10 sec	0m	Geist	10m Uk	1 min	göttlich	\N	f	\N	\N	\N
 Rutschsalz	80	1	Gedanke	1	\N	\N	\N	Zaubersalz	Eis	verändert	Metall	1 s	500 m	Umgebung	1 Ob	10 min	dämonisch		f		\N	\N
 Rückführung	1800	4	Geste	4	R	\N	\N	\N	Magan	erkennt	Luft	10 min	B	Geist	1 Ws	2 h	göttlich		f		\N	\N
@@ -570,7 +570,7 @@ Schutzkreis gegen Wisfolk	40	#*1	Geste	1	3	\N	Wasser	Beschwörung	Luft	beherrscht
 Schutzrune	1000	3	Geste	3	W	\N	\N	Runen	Luft	beherrscht	Eis	30 min	-	Umgebung	3m Uk	12 h	göttlich	6 Fichtenholzstücke	f	\N	\N	\N
 Schwarm	300	2	Wort	2	\N	\N	\N	\N	Holz	bewegt	Erde	10 s	50 m	Umgebung	-	1 min	druidisch		f		\N	\N
 Schwarze Zone	1800	var	Gedanke	4	\N	\N	\N	\N	Magan	zerstört	Magan	1 s	0	Umgebung	5 m Uk	10 min	dämonisch		t		\N	\N
-Schwarzes Horn (4. Urton Yü)	6000	1	Zauberlied	4	K	\N	\N	\N				1 sec	0	Geist	15 m Uk	24 h			t		\N	\N
+Schwarzes Horn (4. Urton Yü)	6000	1	Zauberlied	4	K	\N	\N	\N				1 sec	0	Geist	15 m Uk	24 h	Weltenlied		t		\N	\N
 Schweben	3000	6	Geste	5	\N	\N	\N	\N	Luft	bewegt	Erde	20 s	0	Körper	Zauberer	1 min	dämonisch	Kolibriflügel	t	Siegel	\N	\N
 Schwingenkeule	200	2	Geste	2	\N	\N	\N	\N	Luft	verändert	Holz	5 s	0	Umgebung	1 Ob	2 min	göttlich		f		\N	\N
 Schwäche	80	#Ws	Geste	1	\N	\N	\N	\N	Magan	verändert	Erde	1 s	30 m	Körper	max 10 Ws	2 min	dämonisch	Eschenrinde	t		\N	\N
@@ -695,7 +695,7 @@ Wasserwandlung	1400	4	Geste	4	\N	\N	\N	\N	Eis	verwandelt	Wasser	15 s	200 m	Umgeb
 Wegzauber	600	3	Geste	3	N	\N	null	\N	Magan	bewegt	Metall	10 sec	3 m	Umgebung	1 Objekt	10 min	dämonisch	\N	f	Trickser	\N	\N
 Wehrrune	1500	4	Geste	4	W	\N	\N	Runen	Metall	zerstört	Magan	30 min	B	Umgebung	1 Ws/Ob	0	göttlich	Eschenholzstab	f	\N	\N	\N
 Wehsalz	40	1	Gedanke	1	\N	\N	\N	Zaubersalz	Magan	bewegt	Erde	1 s	500 m	Körper	1 Ws	10 s	dämonisch		f		\N	\N
-Weißer Jadeklangstein (3. Urton Schang)	10000	1	Zauberlied	5	K	\N	\N	\N				1 sec	0	Geist	30 m Kegel	var			t		\N	\N
+Weißer Jadeklangstein (3. Urton Schang)	10000	1	Zauberlied	5	K	\N	\N	\N				1 sec	0	Geist	30 m Kegel	var	Weltenlied		t		\N	\N
 Weltentor schaffen	20000	36	Geste	G	3	\N	\N	Beschwörung	Luft	bewegt	Erde	6 h	0	Umgebung	2x1 m	1 Monat	dämonisch		f		\N	\N
 Wesen aufspüren	1400	6	Gedanken	4	N	\N	\N	\N	Magan	erkennt	Wasser	30 sec	9 km	Geist	1 Ws	0	dämonisch	\N	f	Trickser	\N	\N
 Wetterrune	1200	9	Geste	3	W	\N	\N	Runen	Magan	verändert	Luft	30 min	-	Umgebung	1 km Uk	var	göttlich	Specksteinfigur	f	\N	\N	\N
