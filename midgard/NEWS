@@ -1,11 +1,12 @@
 ##########################################################################
-NEWS IN VERSION 0.3delta4
+NEWS IN VERSION 0.4delta0
 
 * Komplette Neuimplementation des Lernschemas
   Grund: Sinnvoller Vorschlag von Fabian Wagner
    -> vermutlich viele neue Bugs zu suchen....
 
 TODO:
+* Startwert der Muttersprache -> Intelligenz
 * Testen von nichtmenschlichen Spezies
 * Spezialwaffe
 * Abspeichern und laden von Optionen 

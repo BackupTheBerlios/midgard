@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.138 2002/02/06 10:23:51 thoma Exp $
+// $Id: midgard_CG.cc,v 1.139 2002/02/06 12:14:56 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -120,12 +120,6 @@ void midgard_CG::show_gtk()
    steigern_typ->set_text(Typ[0]->Name(Werte.Geschlecht())+"/"+Typ[1]->Name(Werte.Geschlecht()));
  
  zeige_werte(Werte);
-/*
- show_berufe();
- show_fertigkeiten();
- show_waffen();
- show_zauber();
-*/
  show_gelerntes();
  EP_uebernehmen();
  Geld_uebernehmen();
@@ -139,13 +133,11 @@ void midgard_CG::show_gtk()
  if (Typ[0]->Zaubern()=="j" || Typ[0]->Zaubern() == "z" || magie_bool) 
    { if (Typ[0]->Short()=="Ma" || Typ[0]->Short() == "eBe") magier_spezialgebiet("show");
      else magier_spezialgebiet("hide");
-//     table_magier_lernen->show();
      button_zauber->set_sensitive(true);
      table_magier_steigern->show();
    }
  else 
    { 
-//   table_magier_lernen->hide();
      button_zauber->set_sensitive(false);
      table_magier_steigern->hide();
    }

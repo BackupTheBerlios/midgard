@@ -1,4 +1,4 @@
-// $Id: MidgardBasicTree.cc,v 1.4 2002/02/05 15:47:43 thoma Exp $
+// $Id: MidgardBasicTree.cc,v 1.5 2002/02/06 12:10:47 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -62,11 +62,12 @@ void MidgardBasicTree::set_tree_titles(variante V)
    }
   if(V==LERNSCHEMA)
    {
+      vs.push_back("Lernpunkte");    
       vs.push_back("Fertigkeit");
       vs.push_back("Erfolgswert");  
-      vs.push_back("Lernpunkte");    
       vs.push_back("Voraussetzung");    
       vs.push_back("Grundkenntnnis");    
+      vs.push_back("Kosten");    
    }
   if(V==LONG_ALT)
    {

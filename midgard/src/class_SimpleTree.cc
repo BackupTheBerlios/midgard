@@ -47,7 +47,7 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
              if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
                 return cH_EntryValueEmptyInt(cH_Fertigkeit(MBE)->FErfolgswert(Werte)); 
              else
-                return cH_EntryValueIntString(MBE->Erfolgswert());
+                return cH_EntryValueEmptyInt(MBE->Erfolgswert());
            }
          case LERNPUNKTEgg : return cH_EntryValueEmptyInt(MBE->Lernpunkte()); 
         }
