@@ -108,6 +108,8 @@ void table_grundwerte::zeige_werte(bool typ2_hide=true)
       else  combo_typ2->show();
     }
    combo_spezies->get_entry()->set_text(hauptfenster->getWerte().Spezies()->Name());
+   combo_typ ->get_entry()->set_text(hauptfenster->getChar().Typ1()->Name(hauptfenster->getWerte().Geschlecht()));
+   combo_typ2->get_entry()->set_text(hauptfenster->getChar().Typ2()->Name(hauptfenster->getWerte().Geschlecht()));
    block_changed=false;
 }
 

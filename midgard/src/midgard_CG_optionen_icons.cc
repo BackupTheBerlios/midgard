@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen_icons.cc,v 1.5 2002/09/07 07:15:56 thoma Exp $
+// $Id: midgard_CG_optionen_icons.cc,v 1.6 2002/09/07 12:19:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -126,7 +126,7 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iHelp)       return st_icons("Hilfe"       ,Hilfe_xpm    );
      else if(typ==iInstruction)return st_icons("Anleitung"   ,Anleitung_xpm    );
      else if(typ==iExit)       return st_icons("Schließen"   ,Schliessen_xpm      );
-     else if(typ==iJa)         return st_icons("Ja"          ,Neu_xpm);
+     else if(typ==iJa)         return st_icons("Ja"          ,SP_Neugr_xpm);
      else if(typ==iNein)       return st_icons("Nein"        ,Schliessen_xpm);
    }
   else if(MOptionen->IconCheck(Midgard_Optionen::StefanP).active)
@@ -148,4 +148,3 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
   assert(!"never get here");
   abort();
 }
-
