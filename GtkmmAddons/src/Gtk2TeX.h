@@ -21,7 +21,7 @@
 #include <TeX.h>
 #include <iostream>
 #if 0
-#include <gtkmm/clist.h>
+#include <gtkmm/treeview.h>
 
 namespace Gtk2TeX
 {	using namespace TeX;
@@ -38,7 +38,7 @@ namespace Gtk2TeX
 		ColumnType_cb columntype_cb;
 		Row_cb preline_cb,postline_cb;
 		Simple_cb prehead_cb,posthead_cb,postlist_cb;
-		Gtk::CList::SelectionList *selection;
+		// Glib::RefPtr<Gtk::TreeSelection> selection;
 		// there's no selection ctor ... so 
 		gint first_line,last_line;
 		gpointer user_data;
@@ -50,12 +50,12 @@ namespace Gtk2TeX
 		  multicolumn(0),
 		  columntype_cb(0), preline_cb(0), postline_cb(0),
 		  prehead_cb(0), posthead_cb(0), postlist_cb(0),
-		  selection(0), first_line(0), last_line(-1),
+		  first_line(0), last_line(-1),
 		  user_data(0), columntitle_cb(0),
 		  element_cb(0)
 		{}
 	};
 	
-	std::ostream &CList2Table(std::ostream &os,const Gtk::CList *cl,const TableFlags &fl=TableFlags());
+	std::ostream &TreeView2Table(std::ostream &os,const Gtk::TreeView *cl,const TableFlags &fl=TableFlags());
 };
 #endif

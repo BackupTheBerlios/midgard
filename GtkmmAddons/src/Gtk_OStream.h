@@ -1,6 +1,6 @@
 // $Id: Gtk_OStream.h,v 1.8 2002/09/24 15:17:31 christof Exp $
 /*  Gtk--addons: a collection of gtk-- addons
-    Copyright (C) 1998  Adolf Petig GmbH. & Co. KG
+    Copyright (C) 1998-2002  Adolf Petig GmbH. & Co. KG
     Developed by Christof Petig <christof.petig@wtal.de>
  
     This library is free software; you can redistribute it and/or
@@ -20,79 +20,36 @@
 
 #ifndef GTKMM_OSTREAM_H
 #define GTKMM_OSTREAM_H
-#include <iostream> // <iostream> for newer compilers
-#include <strstream> // <strstream> for newer compilers
-// <sstream> for upcoming compilers ;-)
-#include <gtkmm/menu.h>
+#include <Misc/callbackbuf.h> 
 
 namespace Gtk {
 class OptionMenu;
 class Label;
+class Menu;
+class TreeView;
 };
 
-// 2do: option-menu, Button, ... (everything which has Text on it)
-// option-menu fertig MAT
+// 2do: 
 
 namespace Gtk {
 
-class OStream : public std::ostrstream
-{
-    private:
-        void (OStream::*flush_impl)(gpointer user_data,GtkDestroyNotify d);
-        void (OStream::*close_impl)();
-
-        // append/overwrite (not yet implemented)
-        int mode;
-
-        // specific information
-        struct data_stream { std::ostream *os; };
-        struct data_optionmenu { Gtk::OptionMenu *widget; 
-                Gtk::Menu *menu; };
-        struct data_label { Label *widget; };
-        union
-        {  
-                struct data_stream stream;
-                struct data_optionmenu optionmenu;
-                struct data_label label;
-        } handler_data;
-
-        void erase_OptionMenu();
-        void flush_stream(gpointer user_data,GtkDestroyNotify d);
-        void flush_OptionMenu(gpointer user_data,GtkDestroyNotify d);
-        void flush_Label(gpointer user_data,GtkDestroyNotify d);
-        void close_OptionMenu();
-    public:
-        // add your own post flushing functionality (e.g. scrolling)
-        SigC::Signal0<void> flushed;
-
-        OStream()
-                : flush_impl(&OStream::flush_stream), close_impl(0),
-                        mode(std::ios::out)
-        {
-            handler_data.stream.os=&std::cout;
-        }
-        OStream(std::ostream *stream)
-                : flush_impl(&OStream::flush_stream), close_impl(0),
-                        mode(std::ios::out)
-        {
-            handler_data.stream.os=stream;
-        }
-        OStream(Gtk::OptionMenu *o,int _mode=(std::ios::out|std::ios::trunc)) throw()
-                : flush_impl(&OStream::flush_OptionMenu), 
-                  close_impl(&OStream::close_OptionMenu),
-                        mode(_mode)
-        {   handler_data.optionmenu.widget=o;
-            erase_OptionMenu();
-        }
-        OStream(Label *l,int _mode=(std::ios::out|std::ios::trunc)) throw()
-                : flush_impl(&OStream::flush_Label), close_impl(0),
-                        mode(_mode)
-        {
-            handler_data.label.widget=l;
-        }
-        ~OStream(void)
-        {
-            flush();
+class OStreamBase : public std::ostream
+{protected:
+	typedef void (OStream::*flush_cbt)(gpointer user_data,GtkDestroyNotify d);
+        typedef void (OStream::*close_cbt)();
+        typedef streamsize (OStream::*data_cbt)(const char*,streamsize);
+        flush_cbt flush_impl;
+        close_cbt close_impl;
+        data_cbt data_impl;
+        
+        std::string data;
+        std::ios::openmode mode;
+        
+        streamsize 
+public:
+	OStreamBase(flush_cbt f,close_cbt c=0, data_cbt d=0);
+        ~OStreamBase(void)
+        {   flush();
             if (close_impl) (this->*close_impl)();
         }
         // this routine does the hard work
@@ -100,6 +57,56 @@ class OStream : public std::ostrstream
         {
             (this->*flush_impl)(user_data,d);
             flushed();
+        }
+};
+
+class OStream : public OStreamBase
+{       // specific information
+        struct data_stream { std::ostream *os; };
+        struct data_optionmenu { Gtk::OptionMenu *widget; 
+                Gtk::Menu *menu; };
+        struct data_label { Label *widget; };
+        struct data_treeview { Gtk::TreeView *view; };
+        union
+        {  
+                struct data_stream stream;
+                struct data_optionmenu optionmenu;
+                struct data_label label;
+                struct data_treeview treeview;
+        } handler_data;
+
+        streamsize default_data(const char *,streamsize);
+        void erase_OptionMenu();
+        void flush_stream(gpointer user_data,GtkDestroyNotify d);
+        void flush_OptionMenu(gpointer user_data,GtkDestroyNotify d);
+        void flush_Label(gpointer user_data,GtkDestroyNotify d);
+        void flush_TreeView(gpointer user_data,GtkDestroyNotify d);
+        void close_OptionMenu();
+    public:
+        // add your own post flushing functionality (e.g. scrolling)
+        SigC::Signal0<void> flushed;
+
+        OStream()
+                : OStreamBase(&OStream::flush_stream)
+        {   handler_data.stream.os=&std::cout;
+        }
+	OStream(Gtk::TreeView *tv,int _mode=(std::ios::out|std::ios::trunc))
+		: OStreamBase(&OStream::flush_TreeView)
+	{   handler_data.treeview.view=tv;
+	}
+        OStream(std::ostream *stream)
+                : OStreamBase(&OStream::flush_stream)
+        {   handler_data.stream.os=stream;
+        }
+        OStream(Gtk::OptionMenu *o,int _mode=(std::ios::out|std::ios::trunc)) throw()
+                : OStreamBase(&OStream::flush_OptionMenu, &OStream::close_OptionMenu)
+        {   handler_data.optionmenu.widget=o;
+            erase_OptionMenu();
+        }
+        OStream(Label *l,int _mode=(std::ios::out|std::ios::trunc)) throw()
+                : OStreamBase(&OStream::flush_Label)
+        {
+            handler_data.label.widget=l;
         }
 };
 

@@ -16,13 +16,10 @@ noinst_HEADERS = green_minus.xpm red_plus.xpm
 
 libGtkmmAddons_a_SOURCES = Gtk_OStream_label.cc \
 		 Gtk_OStream_optionmenu.cc Gtk_OStream_stream.cc \
-		 SearchCombo.cc \
-		 TeX.cc 
-		 
+		 SearchCombo.cc TeX.cc Gtk_OStream.cc \
+		 gtksearchcombo.c		 
 
-BUILT_SOURCES=SearchCombo.cc SearchCombo.h
-
-libGtkmmAddons_a_LIBADD = gtksearchcombo.o
+BUILT_SOURCES=SearchCombo.cc SearchCombo.h gtksearchcombo.c gtksearchcombo.h
 
 EXTRA_DIST=SearchCombo.gen_h private/SearchCombo_p.h
 
@@ -34,6 +31,6 @@ SearchCombo.cc SearchCombo.h: SearchCombo.hg SearchCombo.ccg
 gtksearchcombo.h: $(top_srcdir)/searchcombo/src/gtksearchcombo.h
 	ln -s $(top_srcdir)/searchcombo/src/gtksearchcombo.h .
 
-gtksearchcombo.o: $(top_srcdir)/searchcombo/src/gtksearchcombo.o
-	cp $(top_srcdir)/searchcombo/src/gtksearchcombo.o .
+gtksearchcombo.c: $(top_srcdir)/searchcombo/src/gtksearchcombo.c
+	ln -s $(top_srcdir)/searchcombo/src/gtksearchcombo.c .
 

@@ -1,6 +1,6 @@
 // $Id: Gtk_OStream_stream.cc,v 1.4 2002/01/21 17:16:59 christof Exp $
 /*  Gtk--addons: a collection of gtk-- addons
-    Copyright (C) 1998  Adolf Petig GmbH. & Co. KG
+    Copyright (C) 1998-2002  Adolf Petig GmbH. & Co. KG
     Developed by Christof Petig <christof.petig@wtal.de>
  
     This library is free software; you can redistribute it and/or
@@ -23,11 +23,7 @@
 #define CLIST_COLUMNS 20
 
 void Gtk::OStream::flush_stream(gpointer user_data,GtkDestroyNotify d)
-{
-    put(0);
-    std::ostrstream::flush();
-    (*handler_data.stream.os) << str();
-    handler_data.stream.os->flush();
-    freeze(0);
-    seekp(0,std::ios::beg);
+{   (*handler_data.stream.os) << data;
 };
+
+// a data callback would be more sensible

@@ -44,9 +44,7 @@ void Gtk::OStream::close_OptionMenu()
 
 void Gtk::OStream::flush_OptionMenu(gpointer user_data,GtkDestroyNotify d)
 {
-    put(0);
-    std::ostrstream::flush();
-    char *linebuf=str();
+    char *linebuf=data.c_str; // grrr
 
     
     const char *nextline=linebuf;
@@ -67,6 +65,4 @@ void Gtk::OStream::flush_OptionMenu(gpointer user_data,GtkDestroyNotify d)
         item->show();
         if (user_data) item->set_data("user_data",user_data,d);
     }
-    freeze(0); // we don't need the buffer any more
-    seekp(0,std::ios::beg);
 }

@@ -1,6 +1,6 @@
-// $Id: Gtk_OStream_label.cc,v 1.5 2002/09/24 15:17:31 christof Exp $
+// $Id: Gtk_OStream_TreeView.cc,v 1.1 2002/12/17 10:15:06 christof Exp $
 /*  Gtk--addons: a collection of gtk-- addons
-    Copyright (C) 1998  Adolf Petig GmbH. & Co. KG
+    Copyright (C) 2002  Adolf Petig GmbH. & Co. KG
     Developed by Christof Petig <christof.petig@wtal.de>
  
     This library is free software; you can redistribute it and/or
@@ -19,11 +19,8 @@
 */
 
 #include "Gtk_OStream.h"
-#include <gtkmm/label.h>
+#include <gtkmm/treeview.h>
 
-void Gtk::OStream::flush_Label(gpointer user_data,GtkDestroyNotify d)
-{   handler_data.label.widget->set_text(data);
-// user_data?
+void Gtk::OStream::flush_TreeView(gpointer user_data,GtkDestroyNotify d)
+{
 }
-
-// void erase_Label? so that append might work?
