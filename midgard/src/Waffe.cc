@@ -378,7 +378,7 @@ std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
                  else erf_wert = (*j)->Erfolgswert();
                  int ewert = A.getWerte().Abwehr_wert()+A.getWerte().bo_Ab() // Grundwerte
                            + erf_wert + WB->av_Bonus() ;// Waffenwerte
-                 Vwaffewert += itos(ewert);
+                 Vwaffewert += itos0p(ewert,-1,true);
                }
          }
        ++i;

@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.95 2003/06/10 08:11:21 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.96 2003/06/10 14:31:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -356,7 +356,7 @@ void LaTeX_drucken::write_grundwerte(std::ostream &fout,bool empty)
      case eabwehr:sfout += itos0p(W.Abwehr_wert(),0,true); break ;
      case eabwehrfinal:
      case eabwehrmitwaffe:
-      { if(was==eabwehrfinal)    sfout += itos(W.Abwehr_wert()+W.bo_Ab());
+      { if(was==eabwehrfinal)    sfout += itos0p(W.Abwehr_wert()+W.bo_Ab(),-1,true);
         if(was==eabwehrmitwaffe) sfout += TeX::string2TeX(Waffe::get_Verteidigungswaffe(W.Abwehr_wert()+W.bo_Ab(),hauptfenster->getChar()->List_Waffen(),hauptfenster->getChar()->List_Waffen_besitz(),hauptfenster->getAben()));
         sfout += W.Ruestung_Abwehr_Verlust(hauptfenster->getChar()->List_Fertigkeit());
         break;
