@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.150 2002/02/10 16:17:31 thoma Exp $
+// $Id: midgard_CG.cc,v 1.151 2002/02/12 08:48:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -100,10 +100,23 @@ void midgard_CG::on_radiobutton_frau_toggled()
 { on_radiobutton_mann_toggled(); }
 void midgard_CG::on_radiobutton_mann_toggled()
 {
+  std::string oldG=Werte.Geschlecht();
   if (radiobutton_mann->get_active()) Werte.setGeschlecht("m");
   else Werte.setGeschlecht("w");
+  if(oldG!=Werte.Geschlecht() && Werte.Groesse() && Werte.Spezies()->Name()=="Mensch")
+   {
+     if( Werte.Geschlecht()=="w") Werte.setGroesse(Werte.Groesse()-10);
+     if( Werte.Geschlecht()=="m") Werte.setGroesse(Werte.Groesse()+10);
+   }
+  if(oldG!=Werte.Geschlecht() && Werte.Gewicht() && Werte.Spezies()->Name()=="Mensch")
+   {
+     if( Werte.Geschlecht()=="w") Werte.setGewicht(Werte.Gewicht()-4);
+     if( Werte.Geschlecht()=="m") Werte.setGewicht(Werte.Gewicht()+4);
+   }
+
   fill_typauswahl();
   fill_typauswahl_2();
+  zeige_werte(Werte);
 }
 
 void midgard_CG::show_gtk()
