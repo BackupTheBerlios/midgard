@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.25 2002/06/28 13:57:40 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.26 2002/06/28 14:06:09 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -818,21 +818,32 @@ void LaTeX_drucken::pdf_viewer(const std::string& file)
 
 #endif
 
+  if (!getenv("TEXMFOUTPUT"))
+  {  static string env; // static is needed ! CP
+     env=file;
+     if (pfile.rfind("/")!=std::string::npos)
+        env.replace(0,pfile.rfind("/")+1,"");
+     env="TEXMFOUTPUT="+env;
+     putenv(env.c_str());
+  }
+  
   system(("pdflatex --interaction scrollmode "+file+".tex").c_str());
 
-#warning This is a hack because pdflatex trys FIRST to write to the local dir
+#if 0
   std::string pfile=file;
+#warning This is a hack because pdflatex trys FIRST to write to the local dir
   if(access((file+".pdf").c_str(),R_OK))
    {
      pfile.replace(0,pfile.rfind("/")+1,"");
    }
 cout << "\n\nPDF VIEWER="<<file<<'\n'<<pfile<<'\n';
+#endif
 
-  system((hauptfenster->getOptionen()->Viewer()+" \""+pfile+".pdf\" &").c_str());
+  system((hauptfenster->getOptionen()->Viewer()+" \""+file+".pdf\" &").c_str());
 
 //  unlink((file+".tex").c_str());
-  unlink((pfile+".aux").c_str());
-  unlink((pfile+".log").c_str());
+  unlink((file+".aux").c_str());
+  unlink((file+".log").c_str());
 //  unlink((pfile+".pdf").c_str());
 }
 
