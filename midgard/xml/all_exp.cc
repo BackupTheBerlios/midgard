@@ -1,4 +1,4 @@
-// $Id: all_exp.cc,v 1.22 2003/03/10 13:19:33 christof Exp $
+// $Id: all_exp.cc,v 1.23 2003/03/10 14:20:08 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -37,6 +37,8 @@ int main(int argc, char *argv[])
 
    if (argc>1) region=argv[1];
    if (argc>2) file=argv[2];
+
+   TagStream::host_encoding="ISO-8859-1";
    
    try
    {  TagStream in(file);
