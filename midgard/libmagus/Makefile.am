@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.47 2004/05/11 09:04:35 christof Exp $
+# $Id: Makefile.am,v 1.48 2004/05/24 16:02:59 christof Exp $
 
 SIGC_MAJOR=2
 
@@ -22,7 +22,8 @@ libmagus_res.lo: libmagus.rc
 	WINDRES=i586-mingw32msvc-windres $(top_srcdir)/../ManuProC_Base/build/win32/lt-compile-resource $< $@
 
 AM_CPPFLAGS = @COMMONXX_INCLUDES@ $(WIN_INCLUDES) -I.. \
-	@XMLPP_CFLAGS@ @COMMONGTK2_INCLUDES@ -Dlibmagus_COMPILATION
+	@COMMONGTK2_INCLUDES@ -Dlibmagus_COMPILATION
+#	@XMLPP_CFLAGS@ 
 
 AM_LDFLAGS = @COMMONXX_LDFLAGS@ @COMMONGTK2_LDFLAGS@ $(WIN_LDFLAGS)
 
@@ -73,7 +74,7 @@ test_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
 Zufallscharakter_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@ 
 OptionenTest_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@ 
 readxml_LDADD = @COMMONXX_LIBS@ @SIGC_LIBS@
-readxml2_LDADD = @XMLPP_LIBS@
+#readxml2_LDADD = @XMLPP_LIBS@
 model_test_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
 model_test2_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
 model_test3_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
