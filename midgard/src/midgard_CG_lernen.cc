@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.44 2002/01/18 22:08:00 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.45 2002/01/19 18:02:54 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,7 +20,7 @@
 #include "midgard_CG.hh"
 #include "Window_Waffe_Geld.hh"
 #include "Window_herkunft.hh"
-
+#include <Aux/itos.h>
 
 void midgard_CG::on_herkunftsland_clicked()
 {
