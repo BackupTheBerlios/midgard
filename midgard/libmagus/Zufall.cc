@@ -20,6 +20,7 @@
 #include "Zufall.hh"
 #include "Fertigkeiten_angeboren.hh"
 #include "Random.hh"
+#include "LernListen.hh"
 
 Zufall::Zufall(Abenteurer &a) 
 : Aben(a),oldAben(Aben)

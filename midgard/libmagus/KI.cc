@@ -23,7 +23,11 @@
 #include "Zauber.hh"
 #include "Fertigkeiten.hh"
 #include <Ausgabe.hh>
-#include <iostream>
+//#include <iostream>
+#include "LernListen.hh"
+//#include "Prototyp2.hh"
+//#include "Beruf.hh"
+#include "Datenbank.hh"
 
 void MagusKI::VerteileGFP(int gfp,const Prozente100 &p,
                           const Grund_Standard_Ausnahme_MBE &gsa)
@@ -123,12 +127,12 @@ const Enums::MBEListen MagusKI::Was() const
 
 MagusKI::st_KI  MagusKI::NeuLernen(int &gfp,const Enums::MBEListen was)
 {
-  std::list<MBEmlt> LernListen::=NeuLernenList(was,gfp);
-  std::list<MBEmlt> LernListen::
-  if(use_GSA_MBE)  LernListen::KI_GSA_Liste(LernListen::);
-  else             LernListen::KI_Prototypen_Liste(was,LernListen::,false);
-  if(LernListen::empty()) return st_KI(EmptyList);
-  std::vector<MBEmlt> V=List_to_Vector(LernListen::;
+  std::list<MBEmlt> LL_=NeuLernenList(was,gfp);
+  std::list<MBEmlt> LL;
+  if(use_GSA_MBE)  LL=KI_GSA_Liste(LL_);
+  else             LL=KI_Prototypen_Liste(was,LL_,false);
+  if(LL.empty()) return st_KI(EmptyList);
+  std::vector<MBEmlt> V=List_to_Vector(LL);
   int j=Random::integer(0,V.size()-1);
   MBEmlt M=V[j];
 
@@ -147,14 +151,14 @@ MagusKI::st_KI  MagusKI::NeuLernen(int &gfp,const Enums::MBEListen was)
 
 MagusKI::st_KI MagusKI::Steigern(int &gfp,const Enums::MBEListen was) 
 {
-  std::list<MBEmlt> &LernListen::=Aben.get_known_list(was);
-  std::list<MBEmlt> LernListen::
-  if(use_GSA_MBE) LernListen::KI_GSA_Liste(LernListen::);
-  else            LernListen::KI_Prototypen_Liste(was,LernListen::,true);
-  if(LernListen::empty()) return st_KI(EmptyList);
-  int j=Random::integer(0,LernListen::size()-1);
+  std::list<MBEmlt> &LL_=Aben.get_known_list(was);
+  std::list<MBEmlt> LL;
+  if(use_GSA_MBE) LL=KI_GSA_Liste(LL_);
+  else            LL=KI_Prototypen_Liste(was,LL_,true);
+  if(LL.empty()) return st_KI(EmptyList);
+  int j=Random::integer(0,LL.size()-1);
   int x=0;
-  for(std::list<MBEmlt>::iterator i=LernListen::begin();i!=LernListen::end();++i)
+  for(std::list<MBEmlt>::iterator i=LL.begin();i!=LL.end();++i)
    {
      if(j==x++) 
       {
@@ -176,26 +180,25 @@ MagusKI::st_KI MagusKI::Steigern(int &gfp,const Enums::MBEListen was)
 
 std::list<MBEmlt> MagusKI::NeuLernenList(const Enums::MBEListen was,const int gfp) const
 {
-  LernListen LernListen::;
-   std::list<MBEmlt> LernListen::
+   std::list<MBEmlt> LL;
   switch (was) {
      case Enums::sFert: 
      case Enums::sWaff: 
      case Enums::sSpra: 
      case Enums::sSchr: 
-     case Enums::sWGru: LernListen::LernListen::.get_steigern_MBEm(Aben,was); break;
+     case Enums::sWGru: LL=LernListen::get_steigern_MBEm(Aben,was); break;
      case Enums::sZaub: {
          bool salz=false;
          bool beschw=false;
          bool spruchrolle=false;
-         LernListen::LernListen::.get_steigern_Zauberliste(Aben,salz,beschw,false,spruchrolle); 
+         LL=LernListen::get_steigern_Zauberliste(Aben,salz,beschw,false,spruchrolle); 
          break;
         }
-     case Enums::sZWerk: LernListen::LernListen::.get_steigern_ZauberWerkliste(Aben,false); break;
+     case Enums::sZWerk: LL=LernListen::get_steigern_ZauberWerkliste(Aben,false); break;
      default: assert(!"never get here\n");
    }
- LernListen::.shorten_for_GFP(LernListen::Aben,gfp);
- return LernListen::
+ LernListen::shorten_for_GFP(LL,Aben,gfp);
+ return LL;
 }
 
 

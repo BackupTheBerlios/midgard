@@ -22,6 +22,7 @@
 #include "Sprache.hh"
 #include "Ausgabe.hh"
 #include "Random.hh"
+#include "LernListen.hh"
 
 cH_Spezies Zufall::getSpezies() const
 {

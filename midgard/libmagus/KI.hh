@@ -21,8 +21,12 @@
 #define MAGUSKI
 
 #include<list>
-#include <Enums.hh>
+//#include<MidgardBasicElement.hh>
+//#include <Enums.hh>
 #include <Abenteurer.hh>
+class Abenteurer;
+#include <Prozente100.hh>
+class cH_Prototyp2;
 
 class MagusKI
 {

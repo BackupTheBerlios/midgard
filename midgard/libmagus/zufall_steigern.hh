@@ -21,7 +21,8 @@
 
 #include "Prozente100.hh"
 #include "Zufall.hh"
-
+#include "Prototyp2.hh"
+class Abenteurer;
 class Zufall;
 
 class zufall_steigern

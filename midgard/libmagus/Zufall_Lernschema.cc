@@ -27,6 +27,7 @@
 //#include <Misc/relops.h>
 #include "Ausgabe.hh"
 #include "Random.hh"
+#include "LernListen.hh"
 
 enum Zufall::eFAUWZ &operator++(enum Zufall::eFAUWZ &s)
 {  ++(int&)s;
@@ -37,7 +38,7 @@ void Zufall::Lernschema()
 {
   Lernpunkte lernpunkte;
   Lernpunkte_wuerfeln(lernpunkte,Aben);
-  st_LernListen::FAUWZ_Listen=getLernlisten();
+  st_LL FAUWZ_Listen=getLernlisten();
 
   if(Aben.Typ1()->getLernpflichtSchrift() || Aben.Typ2()->getLernpflichtSchrift())
    {
@@ -95,7 +96,7 @@ std::vector<MBEmlt> List_to_Vector(std::list<MBEmlt> L,const Abenteurer& Aben,in
   return V;
 }
 
-void Zufall:: Lernpunkte_verteilen(const eFAUWZ was,const Lernpunkte &lernpunkte,const st_LernListen::&Listen)
+void Zufall:: Lernpunkte_verteilen(const eFAUWZ was,const Lernpunkte &lernpunkte,const st_LL &Listen)
 {
  std::list<MBEmlt> L;
  int lp=0;
@@ -225,10 +226,10 @@ bool Zufall::knows_everything(const std::list<MBEmlt> &List_gelerntes,const std:
 
 
 
-Zufall::st_LernListen::Zufall::getLernlisten()
+Zufall::st_LL Zufall::getLernlisten()
 {
    
-  st_LernListen::FAUWZ_Listen=st_LernListen:: LernListen::getMBEm(Aben,LernListen::lFach,0,0,"Fach"),
+  st_LL FAUWZ_Listen=st_LL( LernListen::getMBEm(Aben,LernListen::lFach,0,0,"Fach"),
                             LernListen::getMBEm(Aben,LernListen::lAllg,0,0,"Allg"),
                             LernListen::getMBEm(Aben,LernListen::lUnge,0,0,"Unge"),
                             LernListen::getMBEm(Aben,LernListen::lWaff,0,0,"Waff"),

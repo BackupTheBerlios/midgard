@@ -25,6 +25,7 @@
 #include <Misc/itos.h>
 #include "Prototyp.hh"
 #include "Random.hh"
+#include "Datenbank.hh"
 
 unsigned zufall_steigern::GFPvonGrad(unsigned grad)
 {  const Grad_anstieg &GA=Datenbank.GradAnstieg;

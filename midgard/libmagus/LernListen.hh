@@ -1,4 +1,4 @@
-// $Id: LernListen.hh,v 1.9 2003/12/09 08:01:46 christof Exp $
+// $Id: LernListen.hh,v 1.10 2003/12/09 11:41:30 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -21,12 +21,17 @@
 #ifndef _LERNLISTEN_HH
 #  define _LERNLISTEN_HH
 
-#include "Datenbank.hh"
-
+//#include "Datenbank.hh"
 class VAbenteurer;
 class H_WaffeBesitz;
+class Abenteurer;
+//class Beruf;
+#include <string>
 #include "Beruf.hh"
 #include "Enums.hh"
+#include "Spezies.hh"
+#include "Ruestung.hh"
+#include "Land.hh"
 
 // könnte jetzt Namespace werden
 

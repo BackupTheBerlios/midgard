@@ -1,4 +1,4 @@
-// $Id: LernListen.cc,v 1.9 2003/12/09 08:01:46 christof Exp $
+// $Id: LernListen.cc,v 1.10 2003/12/09 11:41:30 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -23,7 +23,8 @@
 #include "Sprache.hh"
 #include "Schrift.hh"
 #include "Beruf.hh"
-
+#include "Lernschema.hh"
+#include "Datenbank.hh"
 
 std::list<MBEmlt> LernListen::getMBEm(const Abenteurer& A,eMBE was,
                         int erfolgswert,int lernpunkte,std::string lernart)
