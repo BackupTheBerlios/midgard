@@ -33,7 +33,8 @@ private:
         
 private:
        void show_datavec_zusatz();
-       void lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& _MBE);
+       // kein & wegen signal callback
+       void lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt _MBE);
        void lernen_zusatz_titel(MidgardBasicElement::eZusatz was,const MBEmlt& MBE);
 
        void set_gwr_eingabe();

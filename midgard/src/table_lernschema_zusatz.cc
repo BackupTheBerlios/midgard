@@ -29,7 +29,7 @@ static SigC::Connection connection;
 #include <libmagus/Ausgabe.hh>
 #include <gdk/gdk.h>
 
-void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MBE)
+void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt MBE)
 {
   checkbutton_einschraenkungen_zusatz->set_active(false);
   // Weil Fertigkeiten mehrmals gelernt werden dürfen werde sie hier nicht 
@@ -181,16 +181,18 @@ void table_lernschema::show_datavec_zusatz()
   std::vector<cH_RowDataBase> datavec;
   for(std::vector<cH_RowDataBase>::const_iterator i=datavec_zusatz.begin();i!=datavec_zusatz.end();++i)
    {
-     try{
-        const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&**i);
-        if(!dt) throw std::bad_cast();
-        if(checkbutton_einschraenkungen_zusatz->get_active() || dt->Erlaubt())
-           datavec.push_back(*i);
-      }catch (std::bad_cast &e) {
-        const Data_Herkunft *dt=dynamic_cast<const Data_Herkunft*>(&**i);
-        if(checkbutton_einschraenkungen_zusatz->get_active() || dt->Erlaubt())
-           datavec.push_back(*i);
-      }            
+        Handle<const Data_Zusatz> dt=i->cast_dynamic<const Data_Zusatz>();
+        if(!!dt) 
+        {  if(checkbutton_einschraenkungen_zusatz->get_active() 
+        	|| dt->Erlaubt())
+              datavec.push_back(*i);
+        }
+        else
+        {  Handle<const Data_Herkunft>dt2=i->cast_dynamic<const Data_Herkunft>();
+           if(checkbutton_einschraenkungen_zusatz->get_active() 
+           	|| dt2->Erlaubt())
+              datavec.push_back(*i);
+        }
    }
   Tree_Lernschema_Zusatz->setDataVec(datavec);
 }
@@ -274,16 +276,17 @@ void table_lernschema::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,cons
 
 void table_lernschema::on_herkunft_leaf_selected(cH_RowDataBase d)
 {
-  const Data_Herkunft *dt=dynamic_cast<const Data_Herkunft*>(&*d);
+  Handle<const Data_Herkunft> dt=d.cast_dynamic<const Data_Herkunft>();
   hauptfenster->getChar().getWizard().done(Wizard::HERKUNFT,hauptfenster->getAben());
   hauptfenster->getAben().setHerkunft(dt->getLand());
   set_zusatz_sensitive(false);
   zeige_werte();  
   if(!hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active)
      button_herkunft->set_sensitive(false);
-  MBEmlt M(&*cH_Fertigkeit("Muttersprache"));
+  MBEmlt M(cH_Fertigkeit("Muttersprache"));
   Sprache::setErfolgswertMuttersprache(M,hauptfenster->getAben().In(),
            cH_Fertigkeit(M->getMBE())->AttributBonus(hauptfenster->getAben()));
+#error lernen_zusatz in idle connectieren!
   lernen_zusatz(MidgardBasicElement::ZSprache,M);
 }
 
@@ -344,9 +347,10 @@ void table_lernschema::on_zusatz_leaf_schrift_selected(cH_RowDataBase d)
 void table_lernschema::on_zusatz_leaf_sprache_selected(cH_RowDataBase d)
 {
   if(tree_lernschema) tree_lernschema->set_sensitive(true);
-  const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
+  Handle<const Data_Zusatz> dt=d.cast_dynamic<const Data_Zusatz>();
+  if (!dt) { Ausgabe(Ausgabe::Error,"on_zusatz_leaf_sprache_selected: kein Data_Zusatz"); return; }
 
-  MBEmlt sprache(&*cH_Sprache(dt->getZusatz().name));
+  MBEmlt sprache(cH_Sprache(dt->getZusatz().name));
   sprache->setErfolgswert(dt->getMBE()->Erfolgswert());
   sprache->setLernpunkte(dt->getMBE()->Lernpunkte());
   sprache->setLernArt(dt->getMBE()->LernArt());
@@ -358,6 +362,7 @@ void table_lernschema::on_zusatz_leaf_sprache_selected(cH_RowDataBase d)
   if((*dt->getMBE())->Name()=="Muttersprache")
    {
      MBEmlt dummy=hauptfenster->getAben().Ueberleben();
+#error in idle selectieren     
      lernen_zusatz(MidgardBasicElement::ZUeberleben,dummy);
      hauptfenster->getAben().setMuttersprache((*sprache)->Name());
    }

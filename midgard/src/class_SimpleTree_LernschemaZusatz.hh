@@ -70,16 +70,9 @@ class Data_Zusatz : public RowDataBase
       MBEmlt MBE;
       MidgardBasicElement::st_zusatz zusatz;
    public:
-      Data_Zusatz(const MBEmlt &mbe,MidgardBasicElement::st_zusatz z)
+      Data_Zusatz(const MBEmlt &mbe,const MidgardBasicElement::st_zusatz &z)
          : MBE(mbe),zusatz(z){}
 
-/*
-      Data_Zusatz(const MBEmlt &mbe,MidgardBasicElement::st_zusatz z,bool e,const Datenbank &D)
-         : MBE(mbe),zusatz(z),erlaubt(e),Database(D) {}
-
-      Data_Zusatz(const MBEmlt &mbe,std::string z,bool e,const Datenbank &D)
-         : MBE(mbe),zusatz(z),erlaubt(e),Database(D) {}
-*/
       enum Spalten {NAME,TYP,REGION};
       virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
         {
@@ -90,12 +83,12 @@ class Data_Zusatz : public RowDataBase
             case REGION : return cH_EntryValueIntString(zusatz.long_region);
 //            case REGION : return cH_EntryValueIntString(
 //               Regionen_All::getRegionfromAbk(Database.Regionen,zusatz.region)->Name()+" "+zusatz.region_zusatz);
-            default : return cH_EntryValueIntString("");
+            default : return cH_EntryValue();
            }
-          return cH_EntryValueIntString();
+          return cH_EntryValue();
         }
       const MBEmlt &getMBE() const {return MBE;}
-      MidgardBasicElement::st_zusatz getZusatz() const {return zusatz;}
+      const MidgardBasicElement::st_zusatz &getZusatz() const {return zusatz;}
       bool Erlaubt() const {return zusatz.erlaubt;}
 };
 

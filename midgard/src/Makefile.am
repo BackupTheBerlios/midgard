@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.228 2004/01/19 10:54:14 christof Exp $
+# $Id: Makefile.am,v 1.229 2004/01/20 08:03:07 christof Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -170,3 +170,4 @@ AM_LDFLAGS = @KOMPONENTEN2_LDFLAGS@ $(LINK_OPTIONS) -L../libmagusicons \
 
 CLEANFILES = *~ *_new $(BUILT_SOURCES) *_old
 
+AM_CXXFLAGS= -g -Wall
