@@ -1,5 +1,5 @@
 
-// $Id: Datenbank.cc,v 1.25 2002/11/23 22:12:18 thoma Exp $               
+// $Id: Datenbank.cc,v 1.26 2002/11/25 12:09:47 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -78,7 +78,7 @@ void Datenbank::load(Midgard_Info* MI, midgard_CG *hauptfenster)
     Typen = Typen_All().get_All();
     GradAnstieg = Grad_anstieg(true);
     Spezialgebiet = Spezialgebiet_All().get_All();
-    preise = Preise_All(hauptfenster->with_path("magus_preise.xml",false,true)).get_All();
+    preise = Preise_All(hauptfenster->with_path("magus_preise.xml",false,true),hauptfenster->tag_eigene_artikel).get_All();
     preisenewmod = PreiseNewMod_All().get_All();
     prototyp = Prototyp_All().get_All();
     prototyp2 = Prototyp2_All().get_All();

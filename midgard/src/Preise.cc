@@ -68,7 +68,7 @@ void Preise::get_Preise()
   if(kosten<0) {kosten=0; unverkauflich=true;}
 }
 
-Preise_All::Preise_All(const std::string &filename)
+Preise_All::Preise_All(const std::string &filename,Tag *tag_eigene_artikel)
 {
  const Tag *preise=xml_data->find("PreiseNeu");
  if (preise)
@@ -88,10 +88,13 @@ Preise_All::Preise_All(const std::string &filename)
       ts.debug();
       return;
     }
+cout << "LoadTag\t"<<tag_eigene_artikel<<'\n';
+  tag_eigene_artikel=const_cast<Tag*>(data);
+cout << "LoadTag\t"<<tag_eigene_artikel<<'\n';
+
   const Tag *preise=data->find("Preise");
   if (preise)
    {  
-      Preise::Tag_eigene_Artikel=*preise;
       Tag::const_iterator b=preise->begin(),e=preise->end();
       FOR_EACH_CONST_TAG_OF_5(i,*preise,b,e,"Dinge")
       {  
@@ -153,54 +156,6 @@ PreiseNewMod_All::PreiseNewMod_All()
    } 
 }
 
-
-
-
-
-//////////////////////////////////////////////////////////////////////
-#if 0
-cH_PreiseMod::cache_t cH_PreiseMod::cache;
-
-cH_PreiseMod::cH_PreiseMod(const std::string& art,const std::string& art2,const std::string typ,const int &nr)
-{
- st_index index(art,art2,typ,nr);
- cH_PreiseMod *cached(cache.lookup(index));
- if (cached) *this=*cached;
-  assert(!"PreiseMod im Cache");
-}
-
-cH_PreiseMod::cH_PreiseMod(const Tag *tag)
-{*this=cH_PreiseMod(new PreiseMod(tag));
-	// art,art2,typ,nr
- cache.Register(st_index(tag->getAttr("Art"),tag->getAttr("Art2"),
- 		tag->getAttr("Typ"),
- 		tag->getIntAttr("MAGUS-Nr",tag->getIntAttr("MCG-Nr"))),*this);
-}
-
-void PreiseMod::get_PreiseMod()
-{
-  assert(tag);
-  nr=tag->getIntAttr("MAGUS-Nr",tag->getIntAttr("MCG-Nr"));
-  art=tag->getAttr("Art");
-  art2=tag->getAttr("Art2");
-  typ=tag->getAttr("Typ");
-  payload=st_payload(tag->getAttr("Bezeichnung"),tag->getFloatAttr("Faktor"));
-}
-
-
-PreiseMod_All::PreiseMod_All()
-{
- const Tag *preise=xml_data->find("Preise");
- if (preise)
- {  Tag::const_iterator b=preise->begin(),e=preise->end();
-    FOR_EACH_CONST_TAG_OF_5(i,*preise,b,e,"Modifikation")
-    {  
-       list_All.push_back(cH_PreiseMod(&*i));
-    }
- }   
-}  
-
-#endif
 /////////////////////////////////////////////////////////////////////////
 // Neuanlegen
 /////////////////////////////////////////////////////////////////////////
@@ -210,7 +165,7 @@ PreiseMod_All::PreiseMod_All()
 #include "TagStream.hh"
 
 // use this tag to determine whether this is a user defined item
-Tag Preise::Tag_eigene_Artikel("Dinge");
+//Tag Preise::Tag_eigene_Artikel("Dinge");
 
 void Preise::saveArtikel(const std::string &Filename,midgard_CG *hauptfenster,
      const std::string &art,const std::string &art2,
@@ -225,12 +180,30 @@ void Preise::saveArtikel(const std::string &Filename,midgard_CG *hauptfenster,
     }
    TagStream ts;
    ts.setEncoding("ISO-8859-1");
-   ts.write(datei,Tag_eigene_Artikel);
 
-   Tag_eigene_Artikel.setAttr("Art2",art2);
-   Tag_eigene_Artikel.setAttr("Währung",einheit);
-   Tag_eigene_Artikel.setAttr("Preis",dtos(preis));
-   Tag_eigene_Artikel.setAttr("Gewicht",dtos(gewicht));
-   Tag_eigene_Artikel.setAttr("Region",region);
-   cH_Preise(name,art,&Tag_eigene_Artikel);
+   if(!hauptfenster->tag_eigene_artikel) 
+    {
+cout << "Create NEW root Tag\n";
+      Tag RootTag_=Tag("MAGUS-data");
+      hauptfenster->tag_eigene_artikel=&RootTag_;
+cout <<  hauptfenster->tag_eigene_artikel<<'\n';
+    }
+   else      cout << "Old Root Tag: "<<hauptfenster->tag_eigene_artikel<<'\n';
+
+   Tag &RootTag=*(hauptfenster->tag_eigene_artikel);
+
+cout <<"Final Root Tag: "<< &RootTag<<' '<< hauptfenster->tag_eigene_artikel<<'\n';
+
+
+   Tag &TeA=RootTag.push_back(Tag("Preise"));
+
+   TeA.setAttr("Art",art);
+   TeA.setAttr("Art2",art2);
+   TeA.setAttr("Währung",einheit);
+   TeA.setAttr("Preis",dtos(preis));
+   TeA.setAttr("Gewicht",dtos(gewicht));
+   TeA.setAttr("Region",region);
+
+   cH_Preise(name,art,&TeA);
+   ts.write(datei);
 }

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.281 2002/11/21 09:00:21 thoma Exp $
+// $Id: midgard_CG.cc,v 1.282 2002/11/25 12:09:47 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,7 +35,8 @@
 midgard_CG::midgard_CG(const std::string &_argv0,const std::string &_magus_verzeichnis,
                        const std::string &datei)
 : magus_paths(_argv0,_magus_verzeichnis),in_dtor(false),
-	InfoFenster(0),MOptionen(0),wizard(0),menu_kontext(0)
+	InfoFenster(0),MOptionen(0),wizard(0),menu_kontext(0),
+	tag_eigene_artikel(0)
 {
 //  ManuProC::Tracer::Enable(ManuProC::Tracer::Auftrag);
   ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
@@ -146,7 +147,7 @@ std::string magus_paths::with_path(const std::string &name,bool path_only,bool n
   for(std::vector<std::string>::const_iterator i=V.begin();i!=V.end();++i)
    {
      std::string n=*i+name;
-cout <<"Suche nach "<< n<<'\n';
+//cout <<"Suche nach "<< n<<'\n';
      if(!access(n.c_str(),R_OK)) 
       { if(path_only) return *i;
         else return n;

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.301 2002/11/19 09:55:17 thoma Exp $
+// $Id: midgard_CG.hh,v 1.302 2002/11/25 12:09:47 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -273,12 +273,14 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
    private:
         SigC::Connection connection_status;
         gint timeout_status();
+        friend class Datenbank;
+        Tag *tag_eigene_artikel;
    protected:
         Random random;   
 
         void set_status(const std::string &s,bool autoclean=true);
    public:
-         midgard_CG(const std::string &argv0,const std::string &_magus_verzeichnis,
+        midgard_CG(const std::string &argv0,const std::string &_magus_verzeichnis,
                     const std::string &datei="");
          ~midgard_CG();
 };

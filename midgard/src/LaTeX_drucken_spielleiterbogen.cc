@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.19 2002/10/24 07:21:01 christof Exp $   
+// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.20 2002/11/25 12:09:47 thoma Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -39,7 +39,7 @@ void LaTeX_drucken::Spielleiterbogen()
  fout << "\\newcommand{\\n}{\\normalsize\\rule[-0.5ex]{0ex}{2.5ex}}\n";
  fout << "\\setlength{\\doublerulesep}{0.1mm}\n";
 // fout << "\\fbox{\\parbox[t][22cm]{18cm}{ \n";
- fout << "\\vspace*{-2cm}\n\n";
+ fout << "\\vspace*{-0cm}\n\n";
 
  fout << "\\scalebox{0.97}{\\footnotesize\n";
  fout << "\\begin{tabular}{|||l|||\n";

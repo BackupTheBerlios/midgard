@@ -1,4 +1,4 @@
-// $Id: Preise.hh,v 1.26 2002/11/23 22:12:18 thoma Exp $
+// $Id: Preise.hh,v 1.27 2002/11/25 12:09:47 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,7 +33,8 @@ class Preise : public HandleContent
    double kosten,gewicht;
    const Tag *tag;
    friend class Preise_All;
-   static Tag Tag_eigene_Artikel;
+//   static Tag Tag_eigene_Artikel;
+//   Tag *Tag_eigene_Artikel;
    bool unverkauflich;
    bool ruestung; // Ruestung wird bei der Belastung nicht mitgezählt
 
@@ -57,7 +58,7 @@ class Preise : public HandleContent
  double Kosten() const { return kosten ; }
  double Gewicht() const { return gewicht ; }
  std::string Einheit()  const {  return einheit; }
- bool ist_eigener_Artikel() const { return tag==&Tag_eigene_Artikel; }
+// bool ist_eigener_Artikel() const { return tag==&Tag_eigene_Artikel; }
 
  static void saveArtikel(const std::string &Filename,midgard_CG *hauptfenster,
      const std::string &art,const std::string &art2,
@@ -98,7 +99,7 @@ class Preise_All
 {
    std::list<cH_Preise> list_All;
   public:
-   Preise_All(const std::string &filename);
+   Preise_All(const std::string &filename,Tag *tag_eigene_artikel);
    std::list<cH_Preise> get_All() const {return list_All;}
 };
 
@@ -113,7 +114,7 @@ class PreiseNewMod :  public HandleContent
    public: 
       struct st_preismod{std::string spezifikation; double preis_faktor;
              st_preismod() : preis_faktor(1) {};
-             st_preismod(std::string s,double p) 
+             st_preismod(const std::string &s,const double &p) 
                   :spezifikation(s),preis_faktor(p) {} };
 
    private:

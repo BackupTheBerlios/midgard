@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.43 2002/10/24 07:29:17 thoma Exp $
+// $Id: xml.cc,v 1.44 2002/11/25 12:09:47 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -101,7 +101,7 @@ reloop:
        ProgressBar::set_percentage(progressbar,++count/anzdateien);
        t2->Type("Region"); // change Type of Tag "MAGUS-include" -> "Region"
        
-       std::cerr << "loading XML " << file << '\n';
+//       std::cerr << "loading XML " << file << '\n';
        std::ifstream in2(file.c_str());
        // wenn nicht, URL holen?
        // ab hier sollte man nicht mehr auf i, t2 zugreifen (push_back) !!!

@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.62 2002/11/19 12:37:51 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.63 2002/11/25 12:09:47 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -211,6 +211,7 @@ void Abenteurer::speicherstream(std::ostream &datei,const Datenbank &Database,co
 
 // Vielleicht hier eingegebene Ausrüstung speichern wie in anderen Dateien
 // oder ganz unten?
+/*
    Tag &Preise=data.push_back(Tag("Preise"));
    for (std::list<cH_Preise>::const_iterator i=Database.preise.begin();i!=Database.preise.end();++i)
    {  if ((*i)->ist_eigener_Artikel())
@@ -224,6 +225,7 @@ void Abenteurer::speicherstream(std::ostream &datei,const Datenbank &Database,co
          k.setAttr("Region", (*i)->Region());
       }
    }
+*/
    
    Tag &Abenteurer=data.push_back(Tag("Midgard-Abenteurer"));
    Abenteurer.setIntAttr("Version",10);

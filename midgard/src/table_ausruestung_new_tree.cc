@@ -71,8 +71,10 @@ enum table_ausruestung::e_spalten &operator++(enum table_ausruestung::e_spalten 
 
 void table_ausruestung::fill_new_preise()
 {
+cout << "F I L L \n";
   std::map<e_spalten,std::string> SpaltenMap;
   std::list<cH_Data_NewPreis> LNP;
+int count=0;
   for(std::list<cH_Preise>::const_iterator i=hauptfenster->getDatabase().preise.begin();i!=hauptfenster->getDatabase().preise.end();++i)
    {
      if((*i)->Unverkauflich() && !togglebutton_unverkauflich->get_active()) 
@@ -80,6 +82,7 @@ void table_ausruestung::fill_new_preise()
      if(LernListen(hauptfenster->getDatabase()).region_check((*i)->Region()))
          LNP.push_back(new Data_NewPreis(*i));
    }
+cout << "F I LL 2\n";
   for(e_spalten e=e_spalten(int(None)+1);e<Max;++e)
    {
      SpaltenMap[e]=spaltentitel(e);
@@ -109,8 +112,10 @@ void table_ausruestung::fill_new_preise()
      LNP.splice(LNP.end(),LNP2);
    }
   std::vector<cH_RowDataBase> datavec;
+  datavec.reserve(2000);
   for(std::list<cH_Data_NewPreis>::iterator j=LNP.begin();j!=LNP.end();++j)
      datavec.push_back(&**j);
+cout <<SpaltenMap.size()<<'\t'<< LNP.size()<<'\t'<<datavec.size()<<'\n';
   fill_new_tree_titles(SpaltenMap);
   preise_tree_neu->setDataVec(datavec);
 }

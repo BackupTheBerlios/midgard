@@ -268,7 +268,6 @@ void table_ausruestung::on_spinbutton_gewicht_activate()
   std::string region="";
   Preise::saveArtikel("",hauptfenster,
                       art,art2,name,preis,einheit,gewicht,region);
- // Ausruestung::save("",hauptfenster,art,art2,name,gewicht,preis,einheit,region);
   hauptfenster->getDatabase().preise.push_back(cH_Preise(name));
   ausruestung_laden();
 // table_artikel->hide();
