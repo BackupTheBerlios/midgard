@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.30 2002/07/08 07:19:51 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.31 2002/07/08 07:32:53 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -330,7 +330,7 @@ const std::string Abenteurer::Beruf() const
 ///////////////////////////////////////////////////////////////////////////////
 
 bool Abenteurer::xml_import_stream(istream& datei, Datenbank &Database,
-   Midgard_Optionen *Optionen)
+   Midgard_Optionen *Optionen,midgard_CG *hauptfenster)
 {
    reset();
    TagStream ts(datei);
@@ -485,7 +485,7 @@ bool Abenteurer::xml_import_stream(istream& datei, Datenbank &Database,
          setTyp2(cH_Typen(Typ->getAttr("Abkürzung2"),true));
    }
 
-   load_fertigkeiten(Fertigkeiten,Ausruestung,xml_version,Database,Optionen);
+   load_fertigkeiten(Fertigkeiten,Ausruestung,xml_version,Database,Optionen,hauptfenster);
    load_ausruestung(Ausruestung,&(getBesitz()));
    return true;
 }
@@ -500,7 +500,7 @@ void Abenteurer::load_ausruestung(const Tag *tag, AusruestungBaum *AB)
    }
 }
 
-void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version,Datenbank &Database,Midgard_Optionen *Optionen)
+void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version,Datenbank &Database,Midgard_Optionen *Optionen,midgard_CG *hauptfenster)
 {
 
     for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();
@@ -626,7 +626,7 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
          try
          {  cH_Region R(i->getAttr("Name",i->getAttr("Region")));
             Region::setActive(Database.Regionen,R,true);
-            set_region_statusbar(R->Pic,true);
+            hauptfenster->set_region_statusbar(R->Pic(),true);
          }
          catch (const NotFound &e)
          {}
@@ -636,7 +636,6 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
     {   std::string wn = Database.Waffe_from_Alias[i->getAttr("Bezeichnung")];
         if (wn=="") wn=i->getAttr("Bezeichnung"); 
          WaffeBesitz WB(cH_Waffe(wn,true),
-//                        i->getIntAttr("Erfolgswert"),
                         i->getAttr("Bezeichnung"),
                         i->getIntAttr("AngriffVerteidigung_Bonus"),
                         i->getIntAttr("SchadenLebenspunkte_Bonus"),
