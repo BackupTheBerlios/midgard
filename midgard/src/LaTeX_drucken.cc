@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.28 2002/06/28 19:44:08 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.29 2002/06/29 06:32:31 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -795,55 +795,41 @@ void LaTeX_drucken::LaTeX_footer(ostream &fout)
  
 void LaTeX_drucken::pdf_viewer(const std::string& file)
 {
-   
+#ifdef __MINGW32__
+  const char psep=';',dirsep='\\';
+#else
+  const char psep=':',dirsep='/';
+#endif   
 
 #ifdef __MINGW32__
   const char * const subpath="\\texmf\\miktex\\bin";
-  char buffer[1024];
-  static char buffer2[10240];
+  static std::string newpath;
   const char *e=getenv("PATH");
+  if (!e) e="";
   if (!strstr(e,subpath))
-  {  assert( getcwd(buffer, sizeof buffer) );
-     assert( strlen(buffer)+strlen(subpath)<sizeof buffer);
-     strcat(buffer,subpath);
-     assert( 5+strlen(e)+1+strlen(buffer)<sizeof buffer2 );
-     strcpy(buffer2,"PATH=");
-     strcat(buffer2,e);
-     strcat(buffer2,";");
-     strcat(buffer2,buffer); // SearchPathA ?
-     putenv(buffer2);
+  {  newpath="PATH="+hauptfenster->BinaryVerzeichnis()
+  	+subpath+std::string(1,psep)+ e;
+     putenv((char*)(newpath.c_str()));
   }
   // GetTempPath ?
 #define unlink(a) _unlink(a)
 
 #endif
 
-  if (!getenv("TEXMFOUTPUT"))
-  {  static string env; // static is needed ! CP
-     env=file;
-     if (env.rfind("/")!=std::string::npos)
-        env.replace(0,env.rfind("/")+1,"");
-     env="TEXMFOUTPUT="+env;
-     putenv((char*)(env.c_str()));
+  std::string file2=file;
+  // LaTeX always writes to current dir first, so we change dir
+
+  if (file.rfind(dirsep)!=std::string::npos)
+  {  chdir((file.substr(0,file.rfind(dirsep))).c_str());
+     file2=file.substr(file.rfind(dirsep)+1);
   }
-  
-  system(("pdflatex --interaction scrollmode "+file+".tex").c_str());
 
-#if 0
-  std::string pfile=file;
-#warning This is a hack because pdflatex trys FIRST to write to the local dir
-  if(access((file+".pdf").c_str(),R_OK))
-   {
-     pfile.replace(0,pfile.rfind("/")+1,"");
-   }
-cout << "\n\nPDF VIEWER="<<file<<'\n'<<pfile<<'\n';
-#endif
-
-  system((hauptfenster->getOptionen()->Viewer()+" \""+file+".pdf\" &").c_str());
+  system(("pdflatex --interaction batchmode "+file2+".tex").c_str());
+  system((hauptfenster->getOptionen()->Viewer()+" \""+file2+".pdf\" &").c_str());
 
 //  unlink((file+".tex").c_str());
-  unlink((file+".aux").c_str());
-  unlink((file+".log").c_str());
+  unlink((file2+".aux").c_str());
+  unlink((file2+".log").c_str());
 //  unlink((pfile+".pdf").c_str());
 }
 

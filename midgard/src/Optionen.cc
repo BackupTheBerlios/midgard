@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.54 2002/06/28 07:36:51 thoma Exp $
+// $Id: Optionen.cc,v 1.55 2002/06/29 06:32:31 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -306,29 +306,13 @@ void Midgard_Optionen::Strings_init()
   list_Strings.push_back(st_strings(pdf_viewer,"PDF Viewer",CommandByExtension(".pdf")));
   list_Strings.push_back(st_strings(html_viewer,"HTML Viewer",CommandByExtension(".htm")));
   char *tmp=getenv("TMPDIR");
+  if (!tmp) tmp=getenv("TMP");
   if (!tmp) tmp=getenv("TEMP");
   if (!tmp) tmp="C:\\WINDOWS\\TEMP";
   list_Strings.push_back(st_strings(tmppfad,"TEMP-Pfad",tmp));
   
- {std::string save_path;
-  char buf[1024];
-  reg_key r1(HKEY_CURRENT_USER, KEY_READ, "Software", "Microsoft", "Windows",
-  	"CurrentVersion", "Explorer", "User Shell Folders", NULL); // "AppData");?
-  if (r1.get_string("Personal", buf, sizeof buf, "")==ERROR_SUCCESS) save_path=buf;
-  else
-  {  reg_key r2(HKEY_USERS, KEY_READ, ".Default", "Software", "Microsoft", "Windows",
-  	"CurrentVersion", "Explorer", "User Shell Folders", NULL);
-     if (r2.get_string("Personal", buf, sizeof buf, "")==ERROR_SUCCESS) save_path=buf;
-     else
-     {  reg_key r3(HKEY_LOCAL_MACHINE, KEY_READ, "Software", "Microsoft", "Windows",
-     		"CurrentVersion", "Explorer", "User Shell Folders", NULL);
-        if (r3.get_string("Personal", buf, sizeof buf, "")==ERROR_SUCCESS) save_path=buf;
-        else save_path="C:\\Eigene Dateien";
-     }
-  }
-  save_path+="\\Magus\\";
   // %USERPROFILE%\Anwendungsdaten\Magus ???
-  list_Strings.push_back(st_strings(speicherpfad,"Speicherverzeichnis",save_path));
+  list_Strings.push_back(st_strings(speicherpfad,"Speicherverzeichnis",hauptfenster->MagusVerzeichnis()));
  }
 #endif
 }
