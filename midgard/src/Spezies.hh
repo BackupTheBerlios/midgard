@@ -1,4 +1,4 @@
-// $Id: Spezies.hh,v 1.11 2002/03/02 16:24:38 thoma Exp $               
+// $Id: Spezies.hh,v 1.12 2002/03/20 19:53:53 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -39,6 +39,7 @@ class Spezies : public HandleContent
   int st,gw,gs,ko,in,zt,sb,au,lp,ap_bonus,ap_grad_fak,
        psy,psy100,phs,phs100,phk,phk100,
        alter_fak, groesse_wanz,groesse_wuerfel,groesse_bonus, 
+       normgestalt,
        gewicht_wanz, gewicht_bonus, 
        b_wanz,b_bonus,raufen;
   bool land,only_nsc;
@@ -88,6 +89,7 @@ public:
    int Groesse_Wanz() const {return groesse_wanz;}
    int Gewicht_Bonus() const {return gewicht_bonus;}
    int Gewicht_Wanz() const {return gewicht_wanz;}
+   int Normgestalt() const {return normgestalt;}
    int B_Wanz() const {return b_wanz;}
    int B_Bonus() const {return b_bonus;}
    int Raufen() const {return raufen;}

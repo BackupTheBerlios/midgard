@@ -53,5 +53,5 @@ eBe	10	Wasser Luft	Wasser	Luft
 --
 --
 
-CREATE UNIQUE INDEX spezialgebiete_spezialgebiet ON spezialgebiete USING btree (spezialgebiet text_ops);
+CREATE UNIQUE INDEX spezialgebiete_spezialgebiet ON spezialgebiete USING btree (spezialgebiet);
 

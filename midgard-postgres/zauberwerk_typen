@@ -1029,5 +1029,5 @@ Zündletter (Schlüsselwort)	3	Th	G	magische Letter
 --
 --
 
-CREATE UNIQUE INDEX zauberwerk_typen_name_stufe_typ ON zauberwerk_typen USING btree (name text_ops, stufe text_ops, typ text_ops, art text_ops);
+CREATE UNIQUE INDEX zauberwerk_typen_name_stufe_typ ON zauberwerk_typen USING btree (name, stufe, typ, art);
 

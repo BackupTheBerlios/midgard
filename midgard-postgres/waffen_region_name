@@ -66,5 +66,5 @@ schwere Armbrust	SangMiau	K	\N	\N	\N
 --
 --
 
-CREATE UNIQUE INDEX waffen_region_name_alias ON waffen_region_name USING btree (alias text_ops);
+CREATE UNIQUE INDEX waffen_region_name_alias ON waffen_region_name USING btree (alias);
 

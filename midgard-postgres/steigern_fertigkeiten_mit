@@ -94,5 +94,5 @@ Zauber	ZEP
 --
 --
 
-CREATE INDEX steigern_fertigkeiten_mit_name ON steigern_fertigkeiten_mit USING btree (name text_ops);
+CREATE INDEX steigern_fertigkeiten_mit_name ON steigern_fertigkeiten_mit USING btree (name);
 

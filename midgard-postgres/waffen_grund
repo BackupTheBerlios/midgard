@@ -52,5 +52,5 @@ Zauberstäbe	400	\N
 --
 --
 
-CREATE UNIQUE INDEX waffen_grund_name ON waffen_grund USING btree (name text_ops);
+CREATE UNIQUE INDEX waffen_grund_name ON waffen_grund USING btree (name);
 

@@ -52,5 +52,5 @@ COPY "waffen_steigern" FROM stdin;
 --
 --
 
-CREATE UNIQUE INDEX waffen_steigern_schwierigkeit ON waffen_steigern USING btree (schwierigkeit int4_ops);
+CREATE UNIQUE INDEX waffen_steigern_schwierigkeit ON waffen_steigern USING btree (schwierigkeit);
 

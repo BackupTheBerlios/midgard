@@ -187,5 +187,5 @@ COPY "fertigkeiten" FROM stdin;
 --
 --
 
-CREATE UNIQUE INDEX fertigkeiten_fertigkeit_region ON fertigkeiten USING btree (fertigkeit text_ops, region text_ops);
+CREATE UNIQUE INDEX fertigkeiten_fertigkeit_region ON fertigkeiten USING btree (fertigkeit, region);
 

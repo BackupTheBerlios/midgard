@@ -8876,5 +8876,5 @@ Zündersalz	wHx	S
 --
 --
 
-CREATE UNIQUE INDEX zauber_typen_name_typ ON zauber_typen USING btree (name text_ops, typ text_ops);
+CREATE UNIQUE INDEX zauber_typen_name_typ ON zauber_typen USING btree (name, typ);
 

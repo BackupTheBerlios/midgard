@@ -70,5 +70,5 @@ COPY "sprachen" FROM stdin;
 --
 --
 
-CREATE UNIQUE INDEX sprachen_name ON sprachen USING btree (name text_ops);
+CREATE UNIQUE INDEX sprachen_name ON sprachen USING btree (name);
 

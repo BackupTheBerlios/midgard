@@ -236,5 +236,5 @@ Zureiter	t	\N	\N	t	t	t	t	\N	\N	\N
 --
 --
 
-CREATE UNIQUE INDEX berufe_voraussetzung_4_beruf ON berufe_voraussetzung_4 USING btree (beruf text_ops);
+CREATE UNIQUE INDEX berufe_voraussetzung_4_beruf ON berufe_voraussetzung_4 USING btree (beruf);
 

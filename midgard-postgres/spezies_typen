@@ -72,5 +72,5 @@ Zwerg	eBe	\N
 --
 --
 
-CREATE INDEX spezies_typen_spezies ON spezies_typen USING btree (spezies text_ops);
+CREATE INDEX spezies_typen_spezies ON spezies_typen USING btree (spezies);
 

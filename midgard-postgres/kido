@@ -76,5 +76,5 @@ YuehSchu	Axt und Baum	Schüler	beide	60	0	Blockade und Angriff. Mißlingt der EW.K
 --
 --
 
-CREATE UNIQUE INDEX kido_name_orig ON kido USING btree (name_orig text_ops);
+CREATE UNIQUE INDEX kido_name_orig ON kido USING btree (name_orig);
 

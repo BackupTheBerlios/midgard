@@ -79,5 +79,5 @@ Zauberpergament beschriften	\N	\N	Lesen von Zauberschrift
 --
 --
 
-CREATE INDEX zauberwerk_voraussetzung_name ON zauberwerk_voraussetzung USING btree (name text_ops);
+CREATE INDEX zauberwerk_voraussetzung_name ON zauberwerk_voraussetzung USING btree (name);
 

@@ -1316,5 +1316,5 @@ Zauberstäbe	wHx	S
 --
 --
 
-CREATE UNIQUE INDEX waffen_grund_typen_name_typ ON waffen_grund_typen USING btree (name text_ops, typ text_ops);
+CREATE UNIQUE INDEX waffen_grund_typen_name_typ ON waffen_grund_typen USING btree (name, typ);
 

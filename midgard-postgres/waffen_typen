@@ -3324,5 +3324,5 @@ waffenloser Kampf	wHx	A
 --
 --
 
-CREATE UNIQUE INDEX waffen_typen_name_typ ON waffen_typen USING btree (name text_ops, typ text_ops);
+CREATE UNIQUE INDEX waffen_typen_name_typ ON waffen_typen USING btree (name, typ);
 

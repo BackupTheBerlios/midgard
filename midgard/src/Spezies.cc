@@ -74,6 +74,10 @@ Spezies::Spezies(const Tag *tag)
  gewicht_bonus=Gewicht->getIntAttr("Addiere");
  gewicht_wanz=Gewicht->getIntAttr("AnzahlWürfel");
 
+ const Tag *NormGe=tag->find("Normgestalt");
+ if (!NormGe) NormGe=tag;
+ normgestalt = NormGe->getIntAttr("Wert"); 
+
  const Tag *Bewegungsweite=tag->find("Bewegungsweite");
  if (!Bewegungsweite) Bewegungsweite=tag;
  b_bonus=Bewegungsweite->getIntAttr("AnzahlWürfel");

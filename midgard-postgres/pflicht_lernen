@@ -133,5 +133,5 @@ Zwerk	Trinken	1	\N	\N	12
 --
 --
 
-CREATE INDEX pflicht_lernen_typ ON pflicht_lernen USING btree (typ text_ops);
+CREATE INDEX pflicht_lernen_typ ON pflicht_lernen USING btree (typ);
 

@@ -681,5 +681,5 @@ Zündersalz	100	1	Gedanke	1	\N	\N	Zaubersalz	Feuer	erschafft	Feuer	1 s	500 m	Umge
 --
 --
 
-CREATE UNIQUE INDEX zauber_name ON zauber USING btree (name text_ops);
+CREATE UNIQUE INDEX zauber_name ON zauber USING btree (name);
 

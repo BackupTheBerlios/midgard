@@ -47,5 +47,5 @@ COPY "grad_anstieg" FROM stdin;
 --
 --
 
-CREATE UNIQUE INDEX grad_anstieg_grad ON grad_anstieg USING btree (grad int4_ops);
+CREATE UNIQUE INDEX grad_anstieg_grad ON grad_anstieg USING btree (grad);
 

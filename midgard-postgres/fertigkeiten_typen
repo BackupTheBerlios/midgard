@@ -6255,11 +6255,11 @@ Zunge verschlucken	wHx	S
 --
 --
 
-CREATE UNIQUE INDEX fertigkeiten_typen_name_typ ON fertigkeiten_typen USING btree (name text_ops, typ text_ops);
+CREATE UNIQUE INDEX fertigkeiten_typen_name_typ ON fertigkeiten_typen USING btree (name, typ);
 
 --
 --
 --
 
-CREATE INDEX fertigkeiten_typen_name ON fertigkeiten_typen USING btree (name text_ops);
+CREATE INDEX fertigkeiten_typen_name ON fertigkeiten_typen USING btree (name);
 

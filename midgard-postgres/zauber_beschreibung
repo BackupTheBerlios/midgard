@@ -118,5 +118,5 @@ Zucksalz	Das Opfer leidet unter nervösen Zuckungen, was WM-4 auf alle EW bedeute
 --
 --
 
-CREATE UNIQUE INDEX zauber_beschreibung_name ON zauber_beschreibung USING btree (name text_ops);
+CREATE UNIQUE INDEX zauber_beschreibung_name ON zauber_beschreibung USING btree (name);
 

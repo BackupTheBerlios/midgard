@@ -250,5 +250,5 @@ Ausrüstung	Behälter	wasserdichte Lederhülle für Schriftrollen	0	3	GS
 --
 --
 
-CREATE UNIQUE INDEX "Preise_name" ON preise USING btree (name text_ops);
+CREATE UNIQUE INDEX "Preise_name" ON preise USING btree (name);
 

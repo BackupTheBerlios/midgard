@@ -190,5 +190,5 @@ Zündletter (Schlüsselwort)	600	magische Letter	3		4 GS	\N
 --
 --
 
-CREATE UNIQUE INDEX zauberwerk_name_art_stufe ON zauberwerk USING btree (name text_ops, art text_ops, stufe text_ops);
+CREATE UNIQUE INDEX zauberwerk_name_art_stufe ON zauberwerk USING btree (name, art, stufe);
 

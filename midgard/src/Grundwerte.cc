@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.14 2002/03/19 22:48:04 thoma Exp $               
+// $Id: Grundwerte.cc,v 1.15 2002/03/20 19:53:53 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,12 +38,16 @@ int Grundwerte::Raufen() const
 
 std::string Grundwerte::Gestalt() const 
 { 
-  int g2=Groesse()-Gewicht();
-  if(g2<=0) return "breit";
-  double ge=100./g2;
-  if(ge>1.1)      return "breit";
-  else if(ge<0.9) return "schlank";
-  else            return "normal";
+ if (Groesse() <= Gewicht()) return "breit";
+ int normgew = Groesse() + Spezies()->Normgestalt(); 
+ // bzw. 70 für Gnome, Halblinge, Zwerge
+ // das muesste entweder in die Beschreibung der Rasse oder hier
+ // einzeln kodiert werden.
+ if (normgew <= 0) return "Fehler 8-) "; 
+ double ge = Gewicht() / normgew;
+ if(ge>1.1)      return "breit";
+ else if(ge<0.9) return "schlank";
+ else            return "normal";
 }
 
 

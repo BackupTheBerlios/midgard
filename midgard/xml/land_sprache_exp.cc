@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.30 2002/03/15 07:08:41 thoma Exp $
+// $Id: land_sprache_exp.cc,v 1.31 2002/03/20 19:53:53 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -125,7 +125,7 @@ void land_speichern(std::ostream &o)
   if (region.empty())
   {o << " <SpeziesListe>\n";
    Query query("select spezies, nr, only_nsc, land, hand_bonus, raufen,alter_fak, "
-         " groesse_wanz, groesse_wuerfel, groesse_bonus, gewicht_wanz, gewicht_bonus, "
+         " groesse_wanz, groesse_wuerfel, groesse_bonus, gewicht_wanz, gewicht_bonus, normgestalt, "
          " b_wanz, b_bonus, lp, ap_bonus, ap_grad_fak, "
          " psy, psy100, phs, phs100, phk, phk100, "
    		" st,gs,gw,ko,\"in\",zt,sb,au "
@@ -151,6 +151,9 @@ void land_speichern(std::ostream &o)
    o << "    <Gewicht";
    fetch_and_write_int_attrib(is, o, "AnzahlWürfel");
    fetch_and_write_int_attrib(is, o, "Addiere");
+   o << "/>\n";
+   o << "    <Normgestalt";
+   fetch_and_write_int_attrib(is, o, "Wert");
    o << "/>\n";
    o << "    <Bewegungsweite";
    fetch_and_write_int_attrib(is, o, "AnzahlWürfel");

@@ -68,5 +68,5 @@ Zwerge	Nichtmenschen	Dvarskar
 --
 --
 
-CREATE INDEX land_land ON land USING btree (land text_ops);
+CREATE INDEX land_land ON land USING btree (land);
 

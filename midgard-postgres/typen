@@ -82,5 +82,5 @@ COPY "typen" FROM stdin;
 --
 --
 
-CREATE UNIQUE INDEX typen_typs ON typen USING btree (typs text_ops);
+CREATE UNIQUE INDEX typen_typs ON typen USING btree (typs);
 

@@ -1640,5 +1640,5 @@ COPY "lernschema_4" FROM stdin;
 --
 --
 
-CREATE UNIQUE INDEX lernschema_4_typ_name_wert ON lernschema_4 USING btree (typ text_ops, name text_ops, wert int4_ops);
+CREATE UNIQUE INDEX lernschema_4_typ_name_wert ON lernschema_4 USING btree (typ, name, wert);
 

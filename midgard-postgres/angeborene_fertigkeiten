@@ -43,5 +43,5 @@ COPY "angeborene_fertigkeiten" FROM stdin;
 --
 --
 
-CREATE UNIQUE INDEX angeborene_fertigkeiten_name ON angeborene_fertigkeiten USING btree (name text_ops);
+CREATE UNIQUE INDEX angeborene_fertigkeiten_name ON angeborene_fertigkeiten USING btree (name);
 

@@ -28,6 +28,8 @@ NEWS IN VERSION 0.4delta6
 * einige Bugs im Regionenmenü behoben
 * Regionen setzen nach dem Laden eines Abenteurers funktioniert wieder
 * Optionen 'Originalregeln' und 'NSC zulassen' wird mit Abenteurer zusammen abgespeichert
+* Weitere korrekturen von Ottmar Zimmer eingearbeitet (insb. Gestaltberechnung)
+
 
 TODO:
 * Ausrüstung drucken, Abenteurer drucken -> absturz ??

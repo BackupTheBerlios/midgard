@@ -118,5 +118,5 @@ waffenloser Kampf	21	21	\N	Kampf ohne Waffen	7	Angriff	Speziell	0	\N	+2	-2	+2	\N
 --
 --
 
-CREATE UNIQUE INDEX waffen_name ON waffen USING btree (name text_ops);
+CREATE UNIQUE INDEX waffen_name ON waffen USING btree (name);
 

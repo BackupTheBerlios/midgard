@@ -327,5 +327,5 @@ YehKiQuang	z	\N	KanThaiPan	ScW	G	\N	\N
 --
 --
 
-CREATE INDEX ausnahmen_name ON ausnahmen USING btree (name text_ops);
+CREATE INDEX ausnahmen_name ON ausnahmen USING btree (name);
 

@@ -45,5 +45,5 @@ Vollrüstung	VR	5	61	40	12	\N	2	1	2
 --
 --
 
-CREATE UNIQUE INDEX ruestung_ruestung_s ON ruestung USING btree (ruestung_s text_ops);
+CREATE UNIQUE INDEX ruestung_ruestung_s ON ruestung USING btree (ruestung_s);
 

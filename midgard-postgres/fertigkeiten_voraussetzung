@@ -197,5 +197,5 @@ Zunge verschlucken	\N	\N	\N	\N	\N	\N	\N	61	\N	\N	\N
 --
 --
 
-CREATE UNIQUE INDEX fertigkeiten_voraussetzung_name ON fertigkeiten_voraussetzung USING btree (name text_ops);
+CREATE UNIQUE INDEX fertigkeiten_voraussetzung_name ON fertigkeiten_voraussetzung USING btree (name);
 

@@ -87,5 +87,5 @@ CREATE TABLE "charaktere" (
 --
 --
 
-CREATE UNIQUE INDEX charaktere_charakter_name_versi ON charaktere USING btree (charakter_name text_ops, "version" text_ops);
+CREATE UNIQUE INDEX charaktere_charakter_name_versi ON charaktere USING btree (charakter_name, "version");
 

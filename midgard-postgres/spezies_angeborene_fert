@@ -204,5 +204,5 @@ Zwerg	v	Zureiter	\N	\N
 --
 --
 
-CREATE INDEX spezies_angeborene_fert_spezies ON spezies_angeborene_fert USING btree (spezies text_ops);
+CREATE INDEX spezies_angeborene_fert_spezies ON spezies_angeborene_fert USING btree (spezies);
 

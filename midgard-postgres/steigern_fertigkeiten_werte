@@ -124,5 +124,5 @@ Zunge verschlucken	\N	\N	\N	\N	\N	\N	\N	\N	50	100	200	400	800	\N	\N	\N	\N	\N	\N	
 --
 --
 
-CREATE UNIQUE INDEX steigern_fertigkeiten_werte_nam ON steigern_fertigkeiten_werte USING btree (name text_ops);
+CREATE UNIQUE INDEX steigern_fertigkeiten_werte_nam ON steigern_fertigkeiten_werte USING btree (name);
 
