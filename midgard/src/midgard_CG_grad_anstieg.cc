@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.22 2001/09/03 08:11:00 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.23 2001/09/03 10:26:32 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -55,11 +55,9 @@ void midgard_CG::on_button_grad_basiswerte_clicked()
 
 void midgard_CG::on_button_grad_azr_clicked()
 {   
-// get_abwehr_wert(Werte.Grad());
  get_zauber(Werte.Grad());
-// get_resistenz_wert(Werte.Grad());
-   get_abwehr_resistenz("Abwehr");
-   get_abwehr_resistenz("Resistenz");
+ get_abwehr_resistenz("Abwehr");
+ get_abwehr_resistenz("Resistenz");
 
  zeige_werte(Werte);
 }
@@ -69,17 +67,16 @@ void midgard_CG::get_grundwerte()
 {
   if(Werte.Grad() <= Grad_Anstieg.get_Grad_Basiswerte()) 
    {
-      std::string strinfo = "Für diesen Grad wurde schon gewürfelt";
+      std::string strinfo = "Für Grad "+itos(Grad_Anstieg.get_Grad_Basiswerte())+" wurde schon gewürfelt";
       manage(new WindowInfo(strinfo));
       return;
    }
   Random random;
   int z=random.integer(1,100);
-  std::string stinfo="Beim Würfeln zur Erhöhung einer Eigenschaft\nbeim Gradanstieg wurde eine ";
+  std::string stinfo="Beim Würfeln zur Erhöhung einer Eigenschaft\nfür Grad "
+      + itos(Grad_Anstieg.get_Grad_Basiswerte()+1) + " wurde eine ";
   stinfo += itos(z);
   stinfo +=" gewürfelt --> ";
-//  std::cout << "Beim Würfeln zur Erhöhung einer Eigenschaft beim Gradanstieg\n"
-//       << " wurde eine "<<z<<" gewürfelt --> ";
   std::string was = "keine Erhöhung";
 
   int erh = random.integer(1,6)+1;
@@ -102,7 +99,7 @@ void midgard_CG::get_grundwerte()
     }
   manage(new WindowInfo(stinfo,true));
   if (Originalbool) original_midgard_check() ;
-  Grad_Anstieg.set_Grad_Basiswerte(Werte.Grad());
+  Grad_Anstieg.set_Grad_Basiswerte(1+Grad_Anstieg.get_Grad_Basiswerte());
 }
 
 void midgard_CG::get_zauber(int grad)

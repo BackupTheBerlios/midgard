@@ -9,11 +9,13 @@ exec sql include sqlca;
 void midgard_CG::get_abwehr_resistenz(const string& was)
 {
   int grad=Werte.Grad();
-  if (was=="Abwehr"    && grad <= Grad_Anstieg.get_Grad_Abwehr())   
-      {manage(new WindowInfo("Für diesen Grad wurde schon gesteigert!")) ;return;}
-  if (was=="Resistenz" && grad <= Grad_Anstieg.get_Grad_Resistenz())
-      {manage(new WindowInfo("Für diesen Grad wurde schon gesteigert!")) ;return;}
-
+  int grad_alt;
+  if (was=="Abwehr")    grad_alt = Grad_Anstieg.get_Grad_Abwehr(); 
+  if (was=="Resistenz") grad_alt = Grad_Anstieg.get_Grad_Resistenz();
+  if (grad <= grad_alt)
+      {manage(new WindowInfo("Für Grad "+itos(grad_alt)+" wurde schon gesteigert!")) ;return;}
+  ++grad_alt;
+  
   exec sql allocate descriptor mydesc;
   exec sql begin declare section;
    char query[1024];
@@ -21,9 +23,8 @@ void midgard_CG::get_abwehr_resistenz(const string& was)
   string squery = "select ";
   if (was=="Abwehr"   ) squery += "abwehr   , abwehr_kosten ";
   if (was=="Resistenz") squery += "resistenz, resistenz_kosten ";
-  squery += " from grad_anstieg where grad = '"+itos(Werte.Grad())+"'"; 
+  squery += " from grad_anstieg where grad = '"+itos(grad_alt)+"'"; 
 
-  Werte.Grad();
   snprintf(query,sizeof(query),squery.c_str());
   Transaction tr;
   exec sql prepare grad_an_ein_ from :query ;
@@ -36,14 +37,16 @@ void midgard_CG::get_abwehr_resistenz(const string& was)
   FetchIStream is("mydesc");
   is >> FetchIStream::MapNull<int>(wert,0) >> FetchIStream::MapNull<int>(kosten,0);
   SQLerror::test(__FILELINE__);
-  if (!wert)
-    {manage(new WindowInfo(was+" kann nur für gerade Grade gesteigert werden!")) ;return;}
   exec sql close grad_an_ein;
   tr.close();
-
-  Werte.add_GFP(kosten);
-  if (was=="Abwehr")   
-   { Werte.set_Abwehr_wert(wert); Grad_Anstieg.set_Grad_Abwehr(grad);}
-  if (was=="Resistenz") 
-   { Werte.set_Resistenz(wert); Grad_Anstieg.set_Grad_Resistenz(grad);}
+  if (wert==0)
+    {manage(new WindowInfo(was+" kann für Grad "+itos(grad_alt)+" nicht gesteigert werden!")) ;}
+  else 
+   {
+     Werte.add_GFP(kosten);
+     if (was=="Abwehr") Werte.set_Abwehr_wert(wert);
+     if (was=="Resistenz") Werte.set_Resistenz(wert); 
+   }
+  if (was=="Abwehr") Grad_Anstieg.set_Grad_Abwehr(grad_alt);
+  if (was=="Resistenz") Grad_Anstieg.set_Grad_Resistenz(grad_alt);
 }
