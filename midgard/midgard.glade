@@ -770,6 +770,29 @@
 	      <build_insensitive>True</build_insensitive>
 	    </widget>
 	  </widget>
+
+	  <widget>
+	    <class>GtkEventBox</class>
+	    <name>eventbox_haus_aktiv</name>
+	    <cxx_visibility>protected</cxx_visibility>
+	    <tooltip>Dieses Icon zeigt an, daﬂ Hausregeln aktiv sind.</tooltip>
+	    <child>
+	      <padding>0</padding>
+	      <expand>False</expand>
+	      <fill>False</fill>
+	    </child>
+
+	    <widget>
+	      <class>GtkPixmap</class>
+	      <name>pixmap166</name>
+	      <filename>Haus-26.xpm</filename>
+	      <xalign>0.5</xalign>
+	      <yalign>0.5</yalign>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <build_insensitive>True</build_insensitive>
+	    </widget>
+	  </widget>
 	</widget>
 
 	<widget>
@@ -7814,7 +7837,19 @@ editieren</label>
 			<spacing>0</spacing>
 
 			<widget>
-			  <class>Placeholder</class>
+			  <class>GtkPixmap</class>
+			  <name>pixmap114</name>
+			  <filename>Skills-trans-50.xpm</filename>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <build_insensitive>True</build_insensitive>
+			  <child>
+			    <padding>0</padding>
+			    <expand>True</expand>
+			    <fill>True</fill>
+			  </child>
 			</widget>
 
 			<widget>
@@ -7834,19 +7869,7 @@ editieren</label>
 			</widget>
 
 			<widget>
-			  <class>GtkPixmap</class>
-			  <name>pixmap114</name>
-			  <filename>Fert_Laufen-32.xpm</filename>
-			  <xalign>0.5</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <build_insensitive>True</build_insensitive>
-			  <child>
-			    <padding>0</padding>
-			    <expand>True</expand>
-			    <fill>True</fill>
-			  </child>
+			  <class>Placeholder</class>
 			</widget>
 		      </widget>
 		    </widget>
@@ -10256,7 +10279,7 @@ ausw‰hlen</label>
 		      <widget>
 			<class>GtkPixmap</class>
 			<name>pixmap130</name>
-			<filename>Anpass-trans-50.xpm</filename>
+			<filename>Grad-All-32.xpm</filename>
 			<xalign>0.5</xalign>
 			<yalign>0.5</yalign>
 			<xpad>0</xpad>

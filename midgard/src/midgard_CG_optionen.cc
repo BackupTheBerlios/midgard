@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.95 2002/07/01 11:34:55 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.96 2002/07/02 16:43:44 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -147,6 +147,12 @@ void midgard_CG::show_NSC_active(bool b)
 {
   if(b) eventbox_NSC_aktiv->show();
   else  eventbox_NSC_aktiv->hide();
+}
+
+void midgard_CG::show_Hausregeln_active(bool b)
+{
+  if(b) eventbox_haus_aktiv->show();
+  else  eventbox_haus_aktiv->hide();
 }
 
 void midgard_CG::show_wizard_active(bool b)
