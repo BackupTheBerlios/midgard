@@ -65,7 +65,7 @@ void show_window(Gdk_Window &W)
  gint b,h,x,y;
  W.get_size(b,h);
  W.get_position(x,y);
- cout << "Position: x="<<itos(x)<<"  y="<<itos(y)<<" Br.="
+ std::cout << "Position: x="<<itos(x)<<"  y="<<itos(y)<<" Br.="
  <<itos(b)<<"  Hö.="<<itos(h)<<'\n';
 }
 */
@@ -74,15 +74,15 @@ gint midgard_CG::on_button_menu_button_release_event(GdkEventButton *event)
 {
 /*
 Gtk::HandleBox *HB=table_steigern->handlebox_steigern_1;
-cout <<"HB: "<< HB->is_child_detached()<<' '<<HB->is_float_window_mapped()<<' '
+std::cout <<"HB: "<< HB->is_child_detached()<<' '<<HB->is_float_window_mapped()<<' '
 <<HB->is_in_drag()<<' '<<HB->shrinks_on_detach()<<'\n';
 
 Gdk_Window W1=HB->get_window();
 Gdk_Window W2=HB->get_bin_window();
 Gdk_Window W3=HB->get_float_window();
-cout << "get_window()\t"; show_window(W1);
-cout << "get_bin_window()\t"; show_window(W2);
-cout << "get_float_window()\t"; show_window(W3);
+std::cout << "get_window()\t"; show_window(W1);
+std::cout << "get_bin_window()\t"; show_window(W2);
+std::cout << "get_float_window()\t"; show_window(W3);
 */
   menu_kontext->popup(event->button,event->time);
   return true;

@@ -1,4 +1,4 @@
-// $Id: Abenteurer_besitz.cc,v 1.8 2002/12/11 18:18:50 christof Exp $               
+// $Id: Abenteurer_besitz.cc,v 1.9 2002/12/12 11:00:50 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -46,11 +46,11 @@ double Abenteurer::getBelastung() const
 
 AusruestungBaum* Abenteurer::rekursiv(std::list<AusruestungBaum> &AB,const std::string &name)
 {
-cout << "S2: "<<AB.size()<<'\n';
+std::cout << "S2: "<<AB.size()<<'\n';
   AusruestungBaum *ab=&getBesitz();
   for(std::list<AusruestungBaum>::iterator i=AB.begin();i!=AB.end();++i)
    {
-cout <<' '<< name<<'\t'<<i->getAusruestung().Name()<<'\t'<<(name==i->getAusruestung().Name())<<'\n';
+std::cout <<' '<< name<<'\t'<<i->getAusruestung().Name()<<'\t'<<(name==i->getAusruestung().Name())<<'\n';
      if(name==i->getAusruestung().Name()) return ab=&*i;
      else ab = rekursiv(i->getChildren(),name);
    }
@@ -62,7 +62,7 @@ AusruestungBaum& Abenteurer::getAusruestung_as_parent(const std::string &name)
   AusruestungBaum *ab=&getBesitz();
   for(AusruestungBaum::iterator i=getBesitz().begin();i!=getBesitz().end();++i)
    {
-cout << name<<'\t'<<i->getAusruestung().Name()<<'\t'<<(name==i->getAusruestung().Name())<<'\n';
+std::cout << name<<'\t'<<i->getAusruestung().Name()<<'\t'<<(name==i->getAusruestung().Name())<<'\n';
      if(name==i->getAusruestung().Name()) return *i;
      else ab=rekursiv(i->getChildren(),name);
    }

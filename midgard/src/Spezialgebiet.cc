@@ -63,7 +63,7 @@ Spezialgebiet_All::Spezialgebiet_All()
 
 bool operator==(void *data,const cH_Spezialgebiet &t)
 {  
-cout << "SPEZ=" <<static_cast<Spezialgebiet*>(data)->Name()<<' '<< t->Name()<<'\n';
+std::cout << "SPEZ=" <<static_cast<Spezialgebiet*>(data)->Name()<<' '<< t->Name()<<'\n';
  return *(static_cast<Spezialgebiet*>(data))==*t;
 }
 

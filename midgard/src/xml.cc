@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.47 2002/12/12 10:48:21 christof Exp $
+// $Id: xml.cc,v 1.48 2002/12/12 11:00:50 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -172,10 +172,10 @@ const Tag *find_Tag(const std::string &listtag, const std::string &elementtag,
    }
    
 #ifdef VERBOSE
-cerr << "find_Tag("<< listtag<< "," << elementtag <<",";
+std::cerr << "find_Tag("<< listtag<< "," << elementtag <<",";
 for (std::vector<std::pair<std::string,std::string> >::const_iterator i=anforderungen.begin();i!=anforderungen.end();++i)
-cerr << '\'' << i->first << "'='" << i->second << "' ";
-cerr << ")\n";
+std::cerr << '\'' << i->first << "'='" << i->second << "' ";
+std::cerr << ")\n";
 #endif
 #ifdef PARANOIA
 {const xml_liste *liste=suche_Tageigenschaften(listtag,elementtag);

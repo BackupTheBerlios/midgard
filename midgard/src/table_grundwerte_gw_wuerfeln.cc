@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.26 2002/12/11 18:18:50 christof Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.27 2002/12/12 11:00:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -172,7 +172,7 @@ struct spezies_mod_comp
 };
 
 #if 0
-ostream &operator<<(ostream &o,const table_grundwerte::st_eigen &a)
+std::ostream &operator<<(std::ostream &o,const table_grundwerte::st_eigen &a)
 {  o << '{' << int(a.eigenschaft) << ',' << a.lang << ',' << a.kurz
 	<< ',' << a.spezies_mod << '}';
    return o;

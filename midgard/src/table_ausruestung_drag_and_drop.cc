@@ -81,17 +81,17 @@ void table_ausruestung::tree_drag_data_received(GdkDragContext *context,
 
       std::string sdp = (gchar *)data->data;
       int adresse = atoi(sdp.c_str());
-cout << "OUT:"<<sdp<<" at "<<adresse<<'\n';
+std::cout << "OUT:"<<sdp<<" at "<<adresse<<'\n';
 
 
       void *gp = reinterpret_cast<void*>(adresse);
-cout << "gp: "<<gp<<'t'<<'\n';
+std::cout << "gp: "<<gp<<'t'<<'\n';
 /*
       Data_NewPreis *dp=reinterpret_cast<Data_NewPreis*>(gp);
 
       cH_Data_NewPreis P(dp);
       P->unref();
-cout << "Finaly we got: "<<P->Ware()->Name()<<' '<<P->Kosten()<<'\n';
+std::cout << "Finaly we got: "<<P->Ware()->Name()<<' '<<P->Kosten()<<'\n';
 */
       Gtk::Widget::drag_finish ( gdc, true, false, time );
       return;
@@ -105,7 +105,7 @@ cout << "Finaly we got: "<<P->Ware()->Name()<<' '<<P->Kosten()<<'\n';
 gboolean table_ausruestung::target_drag_drop(GdkDragContext *context,
                                   gint x,gint y, guint time )
 {
-cout << "Traget Drop\n";
+std::cout << "Traget Drop\n";
   return false;
 }
 */
@@ -127,7 +127,7 @@ void table_ausruestung::on_preise_tree_neu_drag_data_get(GdkDragContext *context
    int *adresse=reinterpret_cast<int*>(dt->ref());
    std::string data=itos(*adresse);
 
-cout << "IN: "<<data<<" at "<<*adresse<<'\t'<<'\n';
+std::cout << "IN: "<<data<<" at "<<*adresse<<'\t'<<'\n';
    gtk_selection_data_set(selection_data,selection_data->target,8, 
        reinterpret_cast < const unsigned char * > ( data.c_str() ) ,
        data.size() );

@@ -45,26 +45,26 @@ void MagusKI::ausgabe(const st_KI& stki, const bool gesteigert,Enums::MBEListen 
 {
   std::string aktion="neu gelernt";
   if(gesteigert) aktion="gesteigert";
-  cout << was <<' '<<aktion ;
+  std::cout << was <<' '<<aktion ;
   if(stki.e_ki==OK)
    { 
-     cout <<"\tOK:\t"<<stki.name<<'\t'<<stki.wert<<'\n';
+     std::cout <<"\tOK:\t"<<stki.name<<'\t'<<stki.wert<<'\n';
    }
   else if(stki.e_ki==EmptyList)
    { 
-     cout << "\tEmptyList:\n";
+     std::cout << "\tEmptyList:\n";
    }
   else if(stki.e_ki==NotAllowedForGrad)
    { 
-     cout <<"\tNotAllowdForGrad:\t"<<stki.name<<'\n';
+     std::cout <<"\tNotAllowdForGrad:\t"<<stki.name<<'\n';
    }
   else if(stki.e_ki==Geheimzeichen)
    { 
-     cout <<"\tGeheimzeichen:\t"<<stki.name<<'\n';
+     std::cout <<"\tGeheimzeichen:\t"<<stki.name<<'\n';
    }
   else if(stki.e_ki==NoSteigern)
    { 
-     cout <<"\tNoSteigern:\t"<<stki.name<<'\t'<<stki.wert<<'\n';
+     std::cout <<"\tNoSteigern:\t"<<stki.name<<'\t'<<stki.wert<<'\n';
    }
   else assert(!"never get here\n");
 }
@@ -272,14 +272,14 @@ bool MagusKI::allowed_for_grad(const MBEmlt &M,eSL was)
   int maxkosten = int(0.5*Database.GradAnstieg.getGFP(Aben.getWerte().Grad()+1));
   if(was==eNeuLernen && (*M)->Kosten(Aben)>maxkosten)
    {
-cerr << (*M)->Name() <<" wird nicht neu gelernt, weil es "<<(*M)->Kosten(Aben)
+std::cerr << (*M)->Name() <<" wird nicht neu gelernt, weil es "<<(*M)->Kosten(Aben)
 <<" kostet\tGrad: "<<Aben.getWerte().Grad()<<' '
 <<Database.GradAnstieg.getGFP(Aben.getWerte().Grad()+1)<<'\n';
      return false;
    }
   else if(was==eSteigern && M->Steigern(Aben)>maxkosten)
    {
-cerr << (*M)->Name() <<" wird nicht gesteigert, weil es "<<(*M).Steigern(Aben)
+std::cerr << (*M)->Name() <<" wird nicht gesteigert, weil es "<<(*M).Steigern(Aben)
 <<" kostet\tGrad: "<<Aben.getWerte().Grad()<<' '
 <<Database.GradAnstieg.getGFP(Aben.getWerte().Grad()+1)<<'\n';
      return false;

@@ -196,7 +196,7 @@ int MidgardBasicElement::get_Steigern_Kosten(int erfolgswert) const
 /*
 for(std::map<int,int>::const_iterator i=map_erfolgswert_kosten.begin();i!=map_erfolgswert_kosten.end();++i)
 {
-cout << What()<<'\t'<<i->first<<'\t'<<i->second<<'\n';
+std::cout << What()<<'\t'<<i->first<<'\t'<<i->second<<'\n';
 }
 */
  return const_cast<std::map<int,int>& >(map_erfolgswert_kosten)[erfolgswert];
@@ -370,7 +370,7 @@ void MidgardBasicElement::EP_steigern(const std::string fert)
   {
     steigern=find_Tag("verwendbareEP","EP-Typ","Fertigkeit",fert);
 #warning Christof: Das funktioniert nicht :-(
-cout << "\n\n\nverwendbareEP "<<fert<<' '<<steigern<<'\n';
+std::cout << "\n\n\nverwendbareEP "<<fert<<' '<<steigern<<'\n';
   }
 
  int back=0;

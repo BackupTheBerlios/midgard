@@ -305,7 +305,7 @@ assert(!"NIX DA\n");
      else assert(!"never get here\n");
      for(std::list<MBEmlt>::iterator i=L->begin();i!=L->end();++i)
       {
-cout << (*i)->Zusatz().empty()<<'\t'<<(*(*i))->Name()<<' '<< (*M)->Name()<<'\n';
+std::cout << (*i)->Zusatz().empty()<<'\t'<<(*(*i))->Name()<<' '<< (*M)->Name()<<'\n';
         if( (*i)->Zusatz().empty() && (*(*i))->Name() == (*M)->Name())       
          {
            found=true;

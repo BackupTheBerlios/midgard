@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen_icons.cc,v 1.28 2002/12/12 08:35:34 christof Exp $
+// $Id: midgard_CG_optionen_icons.cc,v 1.29 2002/12/12 11:00:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -259,7 +259,7 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iNotebookZufall)   return st_icons("Zufallsgenerator"  ,ulf_zipfel_24_zufallsgenerator_xpm);
      else return st_icons("Unbekannt"  ,pinguin_xpm);
    }
-  cout<< "FEHLER: typ="<<typ<<'\n';
+  std::cout<< "FEHLER: typ="<<typ<<'\n';
   assert(!"never get here");
   abort();
 }

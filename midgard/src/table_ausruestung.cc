@@ -177,7 +177,7 @@ void table_ausruestung::on_ausruestung_loeschen_clicked()
   for(Gtk::CTree_Helpers::Row::iterator i=parent.begin();i!=parent.end();++i)
    {
      Gtk::CTree_Helpers::Cell& cell = *i;   
-cout <<"Cell: " <<cell.get_text()<<'\n';
+std::cout <<"Cell: " <<cell.get_text()<<'\n';
 //cout <<i->get_data()<<'\n';
 //     if ((*i)->get_data() == A);// { parent.remove(i); break;}
    }
@@ -378,7 +378,7 @@ void table_ausruestung::save_new_arikel()
                       art,art2,name,preis,einheit,gewicht,region);
   hauptfenster->getDatabase().preise.push_back(cH_Preise(name));
   fill_new_preise();
-  }catch(std::exception &e) {cerr << e.what()<<'\n';}
+  }catch(std::exception &e) {std::cerr << e.what()<<'\n';}
   ausruestung_laden();
 // table_artikel->hide();
 }
