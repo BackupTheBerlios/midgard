@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.pgcc,v 1.34 2001/12/17 09:53:44 christof Exp $
+// $Id: fertigk_exp.pgcc,v 1.35 2001/12/17 14:24:14 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -225,7 +225,7 @@ void fert_speichern(std::ostream &o)
    bool kaempfer=fetch_bool(is);
    bool zauberer=fetch_bool(is);
    if (!zauberer) write_bool_attrib(o, "Zauberer", zauberer);
-   if (!kaempfer) write_bool_attrib(o, "K@mpfer", land);
+   if (!kaempfer) write_bool_attrib(o, "Kämpfer", land);
 #endif
    fetch_and_write_string_attrib(is, o, "Geschlecht");
    o << "/>\n";
@@ -245,7 +245,7 @@ void fert_speichern(std::ostream &o)
    if (fetch_bool(is)) staende+=",V";
    if (fetch_bool(is)) staende+=",M";
    if (fetch_bool(is)) staende+=",A";
-   staende=staende.substr(1);
+   if (!staende.empty()) staende=staende.substr(1);
 #endif
       if (!staende.empty())
          o << "    <Stand>" << staende << "</Stand>\n";

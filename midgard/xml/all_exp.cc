@@ -1,4 +1,4 @@
-// $Id: all_exp.cc,v 1.4 2001/12/17 09:53:44 christof Exp $
+// $Id: all_exp.cc,v 1.5 2001/12/17 14:24:14 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -20,6 +20,7 @@
 #include <fstream>
 #include <Aux/dbconnect.h>
 #include <export_common.h>
+#include <Aux/exception.h>
 
 void arkanum_speichern(std::ostream &o);
 void land_speichern(std::ostream &o);
@@ -28,7 +29,7 @@ void waffen_speichern(std::ostream &o);
 void kido_speichern(std::ostream &o);
 
 int main(int argc, char *argv[])
-{  
+{  Petig::PrintUncaughtExceptions();
    try{
       Petig::Connection conn;
       conn.setDbase("midgard");
