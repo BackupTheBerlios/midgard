@@ -1,9 +1,9 @@
-MidgardCG-data -> MAGUS-data
-
 Beim 'make install' waere es nett ein $PREFIX/share/midgard anzulegen, und
 alle xml dateien dort automatisch hinzukopieren. Nett waere es ebenfalls
 eine environment variable zu haben in der form :
   export MCGPATH=/usr/local/share/midgard:/home/kraehe/midgard
 damit es moeglich ist mehrere repositories zu verwenden.
       
-      
+Laden: benötigte_Tage
+Speichern: Magier Spezialgebiet
+
