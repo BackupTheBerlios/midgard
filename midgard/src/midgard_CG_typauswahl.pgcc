@@ -25,13 +25,13 @@ exec sql include sqlca;
 
 void midgard_CG::fill_typauswahl()
 {
-  typen_vector.clear();
+  vec_Typen.clear();
   fill_typauswahl_fill(1);
 }
 
 void midgard_CG::fill_typauswahl_2()
 {
-  typen_2_vector.clear();
+  vec_Typen_2.clear();
   fill_typauswahl_fill(2);
 }
 
@@ -42,10 +42,12 @@ void midgard_CG::fill_typauswahl_fill(int typ_1_2)
    char db_region[10];
    int db_typnr;
    char query[1024];
+     char db_typs[50], db_typz[5], db_ausdauer[5];
+     int  db_stand, db_sb, db_ruestung;
   exec sql end declare section;
   string squery = "select t.typl";
   if (werte.geschlecht=="w") squery +="w";
-  squery +=",t.typnr,coalesce(t.region,'') from typen t";
+  squery +=",t.typnr,coalesce(t.region,''), t.typs,t.typz,t.stand,t.sb,t.ausdauer,t.ruestung from typen t";
   if (werte.spezies!="Mensch") 
      squery += ", spezies_typen st where t.typs = st.typen and st.spezies = '"
             + werte.spezies +"'";
@@ -68,13 +70,16 @@ Gtk::OStream t_((typ_1_2==1) ? typauswahl : typauswahl_2 );
   unsigned int count=0;
   while (true)
    {
-      exec sql fetch ein into :db_typ, :db_typnr, :db_region;
+      exec sql fetch ein into :db_typ, :db_typnr, :db_region, 
+         :db_typs,:db_typz,:db_stand,:db_sb,:db_ausdauer,:db_ruestung;
       SQLerror::test(__FILELINE__,100);
       if (sqlca.sqlcode) break;   
       if (region_check(db_region))
        {
-         if (typ_1_2==1)  typen_vector.push_back(st_typen(db_typnr,db_typ));
-         if (typ_1_2==2)  typen_2_vector.push_back(st_typen(db_typnr,db_typ));
+         if (typ_1_2==1)  vec_Typen.push_back(new Data_typen(db_typnr,count,db_typ,
+            db_typs,db_typz,db_stand,db_sb,db_ausdauer,db_ruestung));
+         if (typ_1_2==2)  vec_Typen_2.push_back(new Data_typen(db_typnr,count,db_typ,
+            db_typs,db_typz,db_stand,db_sb,db_ausdauer,db_ruestung));
 //cout << db_typnr<<"\t"<<db_typ<<"\t"<<typen_vector.size()<<"\n";
 
 /*
@@ -104,30 +109,38 @@ void midgard_CG::typauswahl_button(int ttyp)
 {
  int ityp,count=0;
  int ityp_ = int(typauswahl->get_menu()->get_active()->get_user_data());
+ Typ = *vec_Typen[ityp_];
+
  if (ttyp==-1) ityp_=0;
- for (vector<st_typen>::const_iterator i=typen_vector.begin();
-    i!=typen_vector.end();++i)
-    { if (count==ityp_){ityp=i->nr;break;}
+ for (vector<cH_Data_typen>::const_iterator i=vec_Typen.begin();
+    i!=vec_Typen.end();++i)
+    { if (count==ityp_){ityp=(*i)->Nr();break;}
       ++count;
     }
- get_typ(ityp);     
- show_gtk(ityp_);
- if (ttyp!=-1&&(typ.s=="dBe" || typ.s=="eBe")) angeborene_zauber();
+// get_typ(ityp);     
+ get_Ausnahmen();
+ show_gtk();
+ if (ttyp!=-1&&(Typ.Short()=="dBe" || Typ.Short()=="eBe")) angeborene_zauber();
 }
 
 void midgard_CG::typauswahl_2_button(int ttyp)
 {
  int ityp,count=0;
  int ityp_ = int(typauswahl_2->get_menu()->get_active()->get_user_data());
+ Typ2 = *vec_Typen_2[ityp_];
+
+//cout << "Typ 2 = " << vec_Typen_2[ityp_]->Name()<<"\n";
  if (ttyp==-1) ityp_=0;
- for (vector<st_typen>::const_iterator i=typen_2_vector.begin();
-   i!=typen_2_vector.end();++i)
-   { if (count==ityp_){ityp=i->nr;break;}
+ for (vector<cH_Data_typen>::const_iterator i=vec_Typen_2.begin();
+   i!=vec_Typen_2.end();++i)
+   { if (count==ityp_){ityp=(*i)->Nr();break;}
      ++count;
    }
- get_typ(ityp,2);     
- show_gtk(ityp_,2);
- if (ttyp!=-1 && (typ_2.s=="dBe" || typ_2.s=="eBe")) angeborene_zauber();
+//cout << "Nummern \t"<<ityp<<"="<<vec_Typen[ityp_]->Nr()<<"\t"<<ityp_<<"="<<vec_Typen[ityp_]->Nr_Optionmenu()<<"\n";
+// get_typ(ityp,2);     
+ get_Ausnahmen();
+ show_gtk();
+ if (ttyp!=-1 && (Typ2.Short()=="dBe" || Typ2.Short()=="eBe")) angeborene_zauber();
 }
 
 

@@ -1,4 +1,4 @@
-// $Id: xmlimport.pgcc,v 1.17 2001/06/25 10:15:20 christof Exp $
+// $Id: xmlimport.pgcc,v 1.18 2001/06/27 10:10:16 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -61,8 +61,8 @@ bool charakter_laden(istream &i)
       char db_beschreibung[10240];
       char db_typ_s[5];
       char db_typ_2_s[5];
-      int db_st;      
-      int db_ge;      
+      int db_st;
+      int db_ge;
       int db_ko;      
       int db_in;      
       int db_zt;      

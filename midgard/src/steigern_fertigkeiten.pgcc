@@ -59,16 +59,16 @@ void midgard_CG::show_alte_fertigkeiten()
         if ((*i)->Erfolgswert() != 0) // Fertigkeiten MIT Erfolgswert
          {
            squery = "SELECT coalesce(p"+itos(abs((*i)->Erfolgswert()))
-               +",0),coalesce(p"+itos(abs((*i)->Erfolgswert()+1))+",0),fp,f."+typ.s;
-           if (typ_2.s!="") squery += ", "+typ_2.s;
+               +",0),coalesce(p"+itos(abs((*i)->Erfolgswert()+1))+",0),fp,f."+Typ.Short();
+           if (Typ2.Short()!="") squery += ", "+Typ2.Short();
            squery +=" FROM steigern_fertigkeiten s, steigern_fertigkeiten_werte w, \
                fertigkeiten f WHERE s.name = '"+(*i)->Name()+"' AND w.name = s.wie \
                AND f.fertigkeit = '"+(*i)->Name()+"'";
          }
         else // Fertigkeiten OHNE Erfolgswert
          {
-           squery = "SELECT fp,f."+typ.s;
-           if (typ_2.s!="") squery += ", "+typ_2.s;
+           squery = "SELECT fp,f."+Typ.Short();
+           if (Typ2.Short()!="") squery += ", "+Typ2.Short();
            squery  +=" FROM steigern_fertigkeiten s, fertigkeiten f \
                WHERE s.name = '"+(*i)->Name()+"' \
                AND f.fertigkeit = '"+(*i)->Name()+"'";
@@ -79,7 +79,7 @@ void midgard_CG::show_alte_fertigkeiten()
         exec sql prepare kosten_ein_ from :query ;  
         exec sql declare kosten_ein cursor for kosten_ein_ ;  
         exec sql open kosten_ein;
-        if(typ_2.s!="")      
+        if(Typ2.Short()!="")      
          {
            if ((*i)->Erfolgswert() != 0) // Fertigkeiten MIT Erfolgswert
                exec sql fetch kosten_ein into :db_reduzieren, 
@@ -127,8 +127,8 @@ void midgard_CG::show_neue_fertigkeiten()
    char db_region[10];
   exec sql end declare section;
   string squery = "SELECT f.fertigkeit, f.fp, coalesce(f.anfangswert,''), \
-   coalesce(f."+typ.s+",''), ";
-  if (typ_2.s!="") squery += " coalesce(f."+typ_2.s+",''), ";
+   coalesce(f."+Typ.Short()+",''), ";
+  if (Typ2.Short()!="") squery += " coalesce(f."+Typ2.Short()+",''), ";
   squery += "coalesce(v.fertigkeit,''), coalesce(f.region,'') \
    FROM fertigkeiten f, fertigkeiten_voraussetzung v WHERE \
    v.name = f.fertigkeit \
@@ -150,7 +150,7 @@ void midgard_CG::show_neue_fertigkeiten()
  SQLerror::test(__FILELINE__);
  while (true)
    {
-      if (typ_2.s!="")
+      if (Typ2.Short()!="")
          exec sql fetch fert_ein into :db_fertigkeiten, :db_fp, 
             :db_erfolgswert, :db_standard, :db_standard2, :db_voraussetzung, 
             :db_region;
@@ -246,7 +246,7 @@ void midgard_CG::on_steigern_fert_tree_neu_select(const string& fertigkeit, int 
   midgard_CG::zeige_werte(werte,"alle");
   vec_Fertigkeiten.push_back(new Data_fert(fertigkeit,wert));
 
-  if (fertigkeit=="KiDo") {kido_bool=true;show_gtk(get_typ_nr());
+  if (fertigkeit=="KiDo") {kido_bool=true;show_gtk();
       string strinfo="Jetzt muß ein Stil unter 'Lernschema' -> 'KiDo' gewählt werden !!!";
       manage (new WindowInfo(strinfo,true)); }
   if (fertigkeit=="Wissen von der Magie") 

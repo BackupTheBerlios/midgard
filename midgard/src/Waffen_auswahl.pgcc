@@ -33,11 +33,11 @@ exec sql include sqlca;
 
 
 Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const string& typ, const string& typ_2,
-   st_lernpunkte& l, const st_werte& werte)
+   int lernpunkte, const st_werte& werte)
 {
   hauptfenster=h;
   vector<string> vorteile=hauptfenster->Berufs_Vorteile();
-  maxpunkte = l.waffen;
+  maxpunkte = lernpunkte;
   waffen_auswahl_lernpunkte->set_text(itos(maxpunkte));
   exec sql begin declare section;
    char db_art[100];

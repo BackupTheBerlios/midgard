@@ -51,7 +51,7 @@ void midgard_CG::show_alte_kido()
    vector<cH_RowDataBase> datavec;
    for (vector<H_Data_kido>::iterator i=vec_Kido.begin(); i!=vec_Kido.end();++i)
       {
-         double fac = midgard_CG::get_standard_fertigkeit(typ.s,typ_2.s,"KiDo");
+         double fac = midgard_CG::get_standard_fertigkeit(Typ.Short(),Typ2.Short(),"KiDo");
          datavec.push_back(new Data_kido((*i)->Hoho(),(*i)->Name(),(*i)->Stufe(),(*i)->Ap(),fac*(*i)->Kosten(),(*i)->Stil()));
       }
    alte_kido_tree->setDataVec(datavec);
@@ -132,7 +132,7 @@ void midgard_CG::show_neue_kido()
    tr.commit();
 
    midgard_CG::get_kido(new_Kido);
-   double fac = midgard_CG::get_standard_fertigkeit(typ.s,typ_2.s,"KiDo");
+   double fac = midgard_CG::get_standard_fertigkeit(Typ.Short(),Typ2.Short(),"KiDo");
    for (vector<H_Data_kido>::iterator i=new_Kido.begin();i!=new_Kido.end();++i)
      {
         datavec.push_back(new Data_kido((*i)->Hoho(),(*i)->Name(),(*i)->Stufe(),(*i)->Ap(),fac*(*i)->Kosten(),(*i)->Stil()));

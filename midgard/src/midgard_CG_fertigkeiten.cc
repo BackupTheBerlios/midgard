@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.20 2001/06/24 13:24:52 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.21 2001/06/27 10:10:16 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,8 +25,8 @@
 
 void midgard_CG::on_fertigkeiten_wahl_clicked()
 {   
-//  manage(new Fertigkeiten_auswahl(this,typ.s,werte,lernpunkte,vec_beruf));
-  manage(new Fertigkeiten_auswahl(this,typ.s,typ_2.s,lernpunkte,werte));
+//  manage(new Fertigkeiten_auswahl(this,Typ.Short(),werte,lernpunkte,vec_beruf));
+  manage(new Fertigkeiten_auswahl(this,Typ.Short(),Typ2.Short(),lernpunkte.Fertigkeiten(),werte));
 }
 
 void midgard_CG::show_fertigkeiten()
@@ -56,7 +56,7 @@ void midgard_CG::fertigkeiten_uebernehmen(const vector<H_Data_fert>& saf)
 {
    vec_Fertigkeiten = saf;
    maxkido=0;
-   if (typ.s=="Kd") maxkido=2;
+   if (Typ.Short()=="Kd") maxkido=2;
 //XXX   vector<vector<st_ausgewaehlte_fertigkeiten>::iterator>  vi;
    int KD_tech=0; //XXX
    for(vector<H_Data_fert>::iterator i=vec_Fertigkeiten.begin();
@@ -64,7 +64,7 @@ void midgard_CG::fertigkeiten_uebernehmen(const vector<H_Data_fert>& saf)
       {
          int bonus = midgard_CG::attribut_check((*i)->Attribut());
          (*i)->set_Erfolgswert( (*i)->Erfolgswert() + bonus);
-         if ((*i)->Name()=="KiDo") {kido_bool=true; show_gtk(get_typ_nr());}
+         if ((*i)->Name()=="KiDo") {kido_bool=true; show_gtk();}
          if ((*i)->Name()=="KiDo-Technik") { ++KD_tech;++maxkido;}
       }
 

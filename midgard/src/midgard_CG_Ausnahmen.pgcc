@@ -42,8 +42,8 @@ void midgard_CG::get_Ausnahmen()
        squery = "select name, art, standard from ausnahmen \
          where (spezies = '"+werte.spezies+"' or spezies=null) \
          and (herkunft = '"+werte.herkunft+"' or herkunft = null) \
-         and typ = '"+typ.s+"'";
-         if (typ_2.s!="") squery += "or typ = '"+typ_2.s+"'";
+         and typ = '"+Typ.Short()+"'";
+         if (Typ2.Short()!="") squery += "or typ = '"+Typ2.Short()+"'";
       }
      else if (n==1)
       { 

@@ -31,10 +31,10 @@ exec sql include sqlca;
 #include <cstring>
 #include <Gtk_OStream.h>
 
-Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const st_werte& werte, const styp& typ, const styp& typ_2, st_lernpunkte& l)
+Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const st_werte& werte, const Data_typen& Typ, const Data_typen& Typ2, int lernpunkte)
 {
   hauptfenster=h;
-  maxpunkte = l.zauber;
+  maxpunkte = lernpunkte;
   zauber_auswahl_lernpunkte->set_text(itos(maxpunkte));
   exec sql begin declare section;
    int db_lernpunkte;
@@ -46,9 +46,9 @@ Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const st_werte& werte, const styp& 
 
    string squery = "select distinct l.fertigkeit, l.lernpunkte, a.ap, a.kosten \
       from lernschema l, arkanum_zauber a \
-      where (l.typ = '"+typ.s+"' or l.typ = '"+typ_2.s+"') \
+      where (l.typ = '"+Typ.Short()+"' or l.typ = '"+Typ2.Short()+"') \
       and l.art = 'Zauber' and a.name = l.fertigkeit ";
-   if (typ.s == "eBe") squery += "and (l.p_element = '"+werte.spezial+"' or l.s_element = '"+werte.spezial2+"') ";
+   if (Typ.Short() == "eBe") squery += "and (l.p_element = '"+werte.spezial+"' or l.s_element = '"+werte.spezial2+"') ";
    squery += " order by lernpunkte";      
   
    strncpy(query,squery.c_str(),sizeof(query));
@@ -70,7 +70,7 @@ Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const st_werte& werte, const styp& 
     Gtk::OStream os(zauber_clist_auswahl);
     for(vector<H_Data_zauber>::iterator i=vec_zauber.begin();i!=vec_zauber.end();++i)
       {
-         double fac=hauptfenster->get_standard_zauber(typ,typ_2,(*i)->Name());
+         double fac=hauptfenster->get_standard_zauber(Typ,Typ2,(*i)->Name());
          os << (*i)->Lernpunkte() <<"\t"<< (*i)->Name() <<"\t"
             <<(*i)->Ap()<<"\t"<<(*i)->Kosten()*fac<<"\n";
          os.flush(&*i);

@@ -33,10 +33,10 @@ exec sql include sqlca;
 #include "Sprache_auswahl.hh"
 
 Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
-   const string& typ_2,  st_lernpunkte& l, const st_werte& werte)
+   const string& typ_2,  int lernpunkte, const st_werte& werte)
 {
   hauptfenster=h;
-  maxpunkte = l.fertigkeiten;
+  maxpunkte = lernpunkte;
   fert_auswahl_lernpunkte->set_text(itos(maxpunkte));
   // Berufsvorteile
   vector<string> vorteile=hauptfenster->Berufs_Vorteile();

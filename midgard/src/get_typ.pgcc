@@ -20,55 +20,53 @@
 #include <Aux/SQLerror.h>
 exec sql include sqlca;
 
-void midgard_CG::get_typ(int nr, int typ_1_2)
+//void midgard_CG::get_typ_after_load(int nr, int typ_1_2)
+void midgard_CG::get_typ_after_load()
 {
 //cout << nr<<"\t"<<typ_1_2<<"\n";
  exec sql begin declare section ;
   char db_typs[50], db_typl[50], db_typz[5], db_ausdauer[5];
-  int  db_stand, db_sb;
-  int db_typnr=nr;
+  int  db_stand, db_sb, db_ruestung;
  exec sql end declare section ; 
- if (nr!=-1)
-   {
-    exec sql select typs, typl, typz, ausdauer, stand, sb 
-      into :db_typs, :db_typl, :db_typz, :db_ausdauer, :db_stand, :db_sb
-      from typen where typnr = :db_typnr;
-   }
- else if (nr==-1)
-   {
-    if (typ_1_2==1) strncpy(db_typs,typ.s.c_str(),sizeof(db_typs));
-    else if (typ_1_2==2) strncpy(db_typs,typ_2.s.c_str(),sizeof(db_typs));
-    else abort();
-    exec sql select typs, typl, typz, ausdauer, stand, sb 
-      into :db_typs, :db_typl, :db_typz, :db_ausdauer, :db_stand, :db_sb
-      from typen where typs = :db_typs;
-   }
- else abort();
- SQLerror::test(__FILELINE__); 
+ int Typ12=1;
+ if (Typ2.Short()!="") Typ12=2; //  == Doppelcharakter
 
- if (werte.geschlecht=="w")
- exec sql select typlw into :db_typl from typen where typl = :db_typl;
- SQLerror::test(__FILELINE__); 
+ for (int typ_1_2=1;typ_1_2<=Typ12;++typ_1_2)
+   {
+    if (typ_1_2==1) strncpy(db_typs,Typ.Short().c_str(),sizeof(db_typs));
+    else if (typ_1_2==2) strncpy(db_typs,Typ2.Short().c_str(),sizeof(db_typs));
+    exec sql select typs, typl, typz, ausdauer, stand, sb ,ruestung
+      into :db_typs, :db_typl, :db_typz, :db_ausdauer, :db_stand, :db_sb, :db_ruestung
+      from typen where typs = :db_typs;
+//  else abort();
+  SQLerror::test(__FILELINE__); 
+
+  if (werte.geschlecht=="w")
+  exec sql select typlw into :db_typl from typen where typl = :db_typl;
+  SQLerror::test(__FILELINE__); 
  
- if (typ_1_2==1)
+  if (typ_1_2==1)
   {
-    typ.s = db_typs;
-    typ.l = db_typl;
-    typ.z = db_typz;
-    typ.ausdauer = db_ausdauer;
-    typ.stand = db_stand;
-    typ.sb = db_sb;
+    Typ.set_Short(db_typs);
+    Typ.set_Name(db_typl);
+    Typ.set_Zaubern(db_typz);
+    Typ.set_Ausdauer(db_ausdauer);
+    Typ.set_Stand (db_stand);
+    Typ.set_Sb (db_sb);
+    Typ.set_Ruestung (db_ruestung);
    }
- else if (typ_1_2==2)
+  else if (typ_1_2==2)
   {
-    typ_2.s = db_typs;
-    typ_2.l = db_typl;
-    typ_2.z = db_typz;
-    typ_2.ausdauer = db_ausdauer;
-    typ_2.stand = db_stand;
-    typ_2.sb = db_sb;
+    Typ2.set_Short(db_typs);
+    Typ2.set_Name(db_typl);
+    Typ2.set_Zaubern(db_typz);
+    Typ2.set_Ausdauer(db_ausdauer);
+    Typ2.set_Stand (db_stand);
+    Typ2.set_Sb (db_sb);
+    Typ2.set_Ruestung (db_ruestung);
    }
  else abort();
+  }
 //cout <<typ.l <<"\t"<<typ_2.l <<"<-\n";
  midgard_CG::get_Ausnahmen();
 
@@ -82,8 +80,8 @@ int midgard_CG::get_typ_nr(int typ_1_2)
   char db_typs[5];
   int db_typnr;
  exec sql end declare section ; 
- if (typ_1_2==1) strncpy(db_typs,typ.s.c_str(),sizeof(db_typs));
- else if (typ_1_2==2) strncpy(db_typs,typ_2.s.c_str(),sizeof(db_typs));
+ if (typ_1_2==1) strncpy(db_typs,Typ.Short().c_str(),sizeof(db_typs));
+ else if (typ_1_2==2) strncpy(db_typs,Typ2.Short().c_str(),sizeof(db_typs));
  else abort();
 
  exec sql select typnr into :db_typnr from typen where typs = :db_typs;
@@ -92,16 +90,16 @@ int midgard_CG::get_typ_nr(int typ_1_2)
  int count=0;
  if (typ_1_2==1)
    {
-      for (vector<st_typen>::const_iterator i=typen_vector.begin();
-           i!=typen_vector.end();++i)
-      { if(db_typnr==i->nr) { return count ; }
+      for (vector<cH_Data_typen>::const_iterator i=vec_Typen.begin();
+           i!=vec_Typen.end();++i)
+      { if(db_typnr==(*i)->Nr()) { return count ; }
         ++count;
       }
    }
  if (typ_1_2==2)
-   {for (vector<st_typen>::const_iterator i=typen_2_vector.begin();
-           i!=typen_2_vector.end();++i)
-      { if(db_typnr==i->nr) { return count+100 ; } // 2. Charakterklasse ab 100
+   {for (vector<cH_Data_typen>::const_iterator i=vec_Typen_2.begin();
+           i!=vec_Typen_2.end();++i)
+      { if(db_typnr==(*i)->Nr()) { return count+100 ; } // 2. Charakterklasse ab 100
         ++count;
       }
    }

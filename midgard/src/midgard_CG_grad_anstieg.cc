@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.17 2001/06/18 05:58:50 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.18 2001/06/27 10:10:16 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -66,7 +66,7 @@ void midgard_CG::get_grundwerte()
 
 void midgard_CG::get_zauber(int grad)
 {
- if (typ.z == "z" || typ.z == "j" || typ_2.z == "z" || typ_2.z == "j")
+ if (Typ.Zaubern() == "z" || Typ.Zaubern() == "j" || Typ2.Zaubern() == "z" || Typ2.Zaubern() == "j")
   {  
    int kosten=0;
    if (grad == 1)  { werte.zaubern_wert = 10 ;}
@@ -129,8 +129,8 @@ void midgard_CG::get_ausdauer(int grad)
    for (int i=0;i<grad;++i) ap += random.integer(1,6);
 
   int nab, nap;
-  if      (typ.ausdauer == "k" || typ_2.ausdauer == "k")  nab = bonus_K ;
-  else if (typ.ausdauer == "ak"|| typ_2.ausdauer == "ak") nab = bonus_aK ;
+  if      (Typ.Ausdauer() == "k" || Typ2.Ausdauer() == "k")  nab = bonus_K ;
+  else if (Typ.Ausdauer() == "ak"|| Typ2.Ausdauer() == "ak") nab = bonus_aK ;
   else  nab = bonus_Z ;
   nap = ap + nab + werte.bo_au ;
   int nspez = werte.grad*spezies_constraint.ap_grad;

@@ -554,15 +554,19 @@ void midgard_CG::load_charakter()
    exec sql close r_ein;
    tr.close();
 
-   typ.s = db_typ_s;
-   get_typ(-1);
-   typ_2.s = db_typ_2_s;
-   if (typ_2.s!="") 
+   Typ.Short() = db_typ_s;
+   Typ2.Short() = db_typ_2_s;
+
+//   get_typ_after_load(-1);
+   get_typ_after_load();
+/*
+   if (Typ2.Short()!="") 
      { fill_typauswahl_2();
-       get_typ(-1,2);      
+       get_typ_after_load(-1,2);      
      }
-   if (typ.z=="n" || typ.s == "Ord" ||
-       typ_2.z=="n" || typ_2.s == "Ord") label_spezialwaffe->set_text("Spezialwaffe durch \nselektieren auswählen");
+*/
+   if (Typ.Zaubern()=="n" || Typ.Short() == "Ord" ||
+       Typ2.Zaubern()=="n" || Typ2.Short() == "Ord") label_spezialwaffe->set_text("Spezialwaffe durch \nselektieren auswählen");
    else label_spezialwaffe->set_text("");
    // Spezies setzen
    exec sql begin declare section;   
@@ -574,7 +578,7 @@ void midgard_CG::load_charakter()
    if (werte.geschlecht=="w") radiobutton_frau->set_active(true);
    if (werte.geschlecht=="m") radiobutton_mann->set_active(true);
    optionmenu_spezies->set_history(db_nr); // Spezies
-   midgard_CG::show_gtk(get_typ_nr());
-   if (typ_2.s!="") midgard_CG::show_gtk(get_typ_nr(2),2);
+   show_gtk();
+//   if (Typ2.Short()!="") midgard_CG::show_gtk(get_typ_nr(2),2);
    midgard_CG::get_spezial_from_spezialgebiet();
 }

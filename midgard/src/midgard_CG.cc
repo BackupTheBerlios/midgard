@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.42 2001/06/26 05:20:29 thoma Exp $
+// $Id: midgard_CG.cc,v 1.43 2001/06/27 10:10:16 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -172,21 +172,25 @@ void midgard_CG::on_radiobutton_mann_toggled()
   typauswahl_2->set_history(get_typ_nr(2)-100);
 }
 
-void midgard_CG::show_gtk(int tnr,int typ_1_2)
+//void midgard_CG::show_gtk(int tnr,int typ_1_2)
+void midgard_CG::show_gtk()
 {
 //cout << "show_gtk "<<tnr<<"\t"<<typ_1_2<<"\n";
- if (typ_1_2==1) 
-   { typauswahl->set_history(tnr); // Charakterklasse
-     if (typen_2_vector.size()==0) typauswahl_2->hide();
-   }
- if (typ_1_2==2) 
+// if (typ_1_2==1) 
+//   { //typauswahl->set_history(tnr); // Charakterklasse
+     typauswahl->set_history(Typ.Nr_Optionmenu());
+     if (vec_Typen_2.size()==0) typauswahl_2->hide();
+//   }
+// if (typ_1_2==2) 
+     else
    { typauswahl_2->show(); 
-     typauswahl_2->set_history(tnr-100);
+//     typauswahl_2->set_history(tnr-100);
+     typauswahl_2->set_history(Typ2.Nr_Optionmenu());
    }
- fertig_typ->set_text(typ.l);     // Charakterklasse im Lernfenster
- if (typ_2.l!="") fertig_typ->set_text(typ.l+"/"+typ_2.l);
- steigern_typ->set_text(typ.l);     // Charakterklasse im Lernfenster
- if (typ_2.l!="") steigern_typ->set_text(typ.l+"/"+typ_2.l);
+ fertig_typ->set_text(Typ.Name());     // Charakterklasse im Lernfenster
+ if (Typ2.Name()!="") fertig_typ->set_text(Typ.Name()+"/"+Typ2.Name());
+ steigern_typ->set_text(Typ.Name());     // Charakterklasse im Lernfenster
+ if (Typ2.Name()!="") steigern_typ->set_text(Typ.Name()+"/"+Typ2.Name());
  
    midgard_CG::zeige_werte(werte,"alle");
    midgard_CG::show_berufe();
@@ -196,12 +200,12 @@ void midgard_CG::show_gtk(int tnr,int typ_1_2)
 
 
  // Spezialwaffe anzeigen?
- if (typ.z=="n" || typ.s == "Ord") label_spezialwaffe->set_text("Spezialwaffe durch \nselektieren auswählen");
+ if (Typ.Zaubern()=="n" || Typ.Short() == "Ord") label_spezialwaffe->set_text("Spezialwaffe durch \nselektieren auswählen");
  else label_spezialwaffe->set_text("");
 
  // Magie anzeigen?
- if (typ.z=="j" || typ.z == "z" || magie_bool) 
-   { if (typ.s=="Ma" || typ.s == "eBe") magier_spezialgebiet("show");
+ if (Typ.Zaubern()=="j" || Typ.Zaubern() == "z" || magie_bool) 
+   { if (Typ.Short()=="Ma" || Typ.Short() == "eBe") magier_spezialgebiet("show");
      else magier_spezialgebiet("hide");
      table_magier_lernen->show();
      table_magier_steigern->show();
@@ -211,7 +215,7 @@ void midgard_CG::show_gtk(int tnr,int typ_1_2)
      table_magier_steigern->hide();
    }
  // KiDo anzeigen?
-// if (typ.s=="Kd" || typ.s == "Ny" ) 
+// if (Typ.Short()=="Kd" || Typ.Short() == "Ny" ) 
  if (kido_bool) 
    { optionmenu_KiDo_Stile->show();
      table_kido_lernen->show();
@@ -338,14 +342,14 @@ void midgard_CG::on_neuer_charakter_clicked()
    vec_Zauber.clear();
    vec_Zaubermittel.clear();
    werte.clear();
-   lernpunkte.clear();
-   typ.clear();
-   typ_2.clear();
-   typen_vector.clear();
-   typen_2_vector.clear();
+   Lernpunkte();
+   Typ.clear();
+   Typ2.clear();
+   vec_Typen.clear();
+   vec_Typen_2.clear();
    waffen_grundkenntnisse.clear();
-   midgard_CG::zeige_lernpunkte();
-   midgard_CG::zeige_werte(werte,"alle");
+   zeige_lernpunkte();
+   zeige_werte(werte,"alle");
    berufe_clist->clear();
    waffen_clist->clear();
    fertigkeiten_clist->clear();
@@ -378,7 +382,8 @@ void midgard_CG::on_neuer_charakter_clicked()
  midgard_CG::fill_spezies();
  midgard_CG::spezieswahl_button();
  midgard_CG::typauswahl_button(-1);
- show_gtk(get_typ_nr());
+// show_gtk(get_typ_nr());
+ show_gtk();
 
  // Verschwindet irgendwann
  checkbutton_Kuestenstaaten->set_sensitive(false);

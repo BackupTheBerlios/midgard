@@ -1,4 +1,4 @@
-// $Id: Waffen_auswahl.hh,v 1.18 2001/06/26 05:20:29 thoma Exp $
+// $Id: Waffen_auswahl.hh,v 1.19 2001/06/27 10:10:16 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -64,6 +64,6 @@ class Waffen_auswahl : public Waffen_auswahl_glade
         void on_waffen_clist_auswahl_unselect_row(gint row, gint column, GdkEvent *event);
         void on_close_waffen_clicked();
   public:
-        Waffen_auswahl(midgard_CG* h,const string& typ,const string& typ_2, st_lernpunkte& l, const st_werte& werte);
+        Waffen_auswahl(midgard_CG* h,const string& typ,const string& typ_2, int lernpunkte, const st_werte& werte);
 };
 #endif

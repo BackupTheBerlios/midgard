@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.48 2001/06/26 05:20:29 thoma Exp $
+// $Id: midgard_CG.hh,v 1.49 2001/06/27 10:10:16 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -50,7 +50,7 @@
 #include "class_waffen.hh"
 #include "class_kido.hh"
 #include "class_sprache_schrift.hh"
-
+#include "class_misc.hh"
 
 struct st_werte{int st; int ge;int ko;int in;int zt;
              int au;int pa;int sb;int rw;int hgw;
@@ -80,15 +80,11 @@ struct st_spezies_constraint{int st;int ge;int ko;int in;int zt;int sb;int au;
       int lpbasis;int ap_grad;int gift;int m_abb; int m_psy;int m_phs; int m_phk;
       int alter;int groesse_f;int groesse_w;int groesse_s;int gestalt;
       int b_f;int b_s;};
-struct st_typen{int nr;string name;
-	st_typen(int i,string n):nr(i),name(n){}};
-struct st_lernpunkte{int beruf; int fertigkeiten; int waffen; int zauber;
-      st_lernpunkte() : beruf(0),fertigkeiten(0),waffen(0),zauber(0) {}
-      void clear(){*this=st_lernpunkte();} };
+/*
 struct styp{string l;string s;string z; string ausdauer; int stand; int sb;
    styp() : stand(0), sb(0) {} 
    void clear() {*this=styp();} };
-
+*/
 struct st_ausnahmen{string name; string art;float fac;string standard;
          st_ausnahmen(string nn, string aa, float ff, string ss)
          :name(nn), art(aa), fac(ff), standard(ss) {}};
@@ -113,8 +109,10 @@ class midgard_CG : public midgard_CG_glade
         friend class midgard_CG_glade;
         void set_tree_titles();
 
-        vector<st_typen> typen_vector;
-        vector<st_typen> typen_2_vector;
+//        vector<st_typen> typen_vector;
+//        vector<st_typen> typen_2_vector;
+        vector<cH_Data_typen> vec_Typen;
+        vector<cH_Data_typen> vec_Typen_2;
         vector<string> vec_spezialgebiet;
         vector<string> spezies_vector;
         vector<H_Data_fert> vec_Fertigkeiten;
@@ -134,9 +132,12 @@ class midgard_CG : public midgard_CG_glade
         vector<H_Data_schrift> vec_Schriften;
         map<string,string> waffen_grundkenntnisse;
         vector<st_ausnahmen> vec_ausnahmen;
-        styp typ;
-        styp typ_2;
-        st_lernpunkte lernpunkte;
+//        styp typ;
+//        styp typ_2;
+        Data_typen Typ;
+        Data_typen Typ2;
+//        st_lernpunkte lernpunkte;
+        Lernpunkte lernpunkte;
         st_spezies_constraint spezies_constraint;
 
         void regnot(string sadd);
@@ -205,7 +206,7 @@ class midgard_CG : public midgard_CG_glade
         int maxkidostil(const string& stufe);
         void show_kido();
         void stil_optionmenue();
-        int  get_erfolgswert_zaubern(const styp& typ,const styp& typ_2,const string& name);
+        int  get_erfolgswert_zaubern(const Data_typen& Typ,const Data_typen& Typ2,const string& name);
         int get_spezial_zauber(const string& typ,const string& name);
         void show_berufe();
         void show_waffen();
@@ -296,7 +297,7 @@ class midgard_CG : public midgard_CG_glade
         void show_alte_zaubermittel();
         void show_neue_zaubermittel();
         void get_Zaubermittel(vector<H_Data_zaubermittel>& vec_Zaubermittel);
-        float get_standard_zaubermittel(const styp& typ,const styp& typ_2,const string& name);
+        float get_standard_zaubermittel(const Data_typen& Typ,const Data_typen& Typ2,const string& name);
         bool zauberwerk_voraussetzung(const string& name);
 
         void on_kido_laden_clicked();
@@ -325,9 +326,9 @@ class midgard_CG : public midgard_CG_glade
         void show_alte_sprachen();
         void show_neue_sprachen();
         void sprachen_schrift();
-        void show_gtk(int tnr,int typ_1_2=1);
+        void show_gtk();
 
-        bool get_typ_s(const string& mod,const styp& t);
+        bool get_typ_s(const string& mod,const Data_typen& t);
    
    public:
          midgard_CG();
@@ -342,7 +343,7 @@ class midgard_CG : public midgard_CG_glade
          void charakter_beschreibung_drucken(const string& b);
          void select_charakter(const string& name, const string& version);
          void zeige_werte(const st_werte& w, const string& welche);
-         void setze_lernpunkte(st_lernpunkte& lernpunkte);
+         void setze_lernpunkte(const Lernpunkte& _lernpunkte);
          void fertigkeiten_uebernehmen(const vector<H_Data_fert>& saf);
          void show_fertigkeiten();
          void waffen_uebernehmen(const vector<H_Data_waffen>& saw,map<string,string> wg);
@@ -350,7 +351,7 @@ class midgard_CG : public midgard_CG_glade
          void zauber_uebernehmen(const vector<H_Data_zauber>& saz);
          void berufe_uebernehmen(vector<H_Data_beruf>& sab);
          void kido_uebernehmen(vector<string>& technik);
-         double get_standard_zauber(const styp& typ,const styp& typ2, const string& zauber);
+         double get_standard_zauber(const Data_typen& typ,const Data_typen& typ2, const string& zauber);
          double get_standard_zauber_(const string& ergebnis, const string& ergebnis2, const string& p_element, const string& s_element, const string& zauber);
          double get_standard_waffen(const string& typ, const string& typ2,const string& waffe);
          double get_standard_fertigkeit(const string& typ, const string& typ_2,const string& fertigkeit);
@@ -368,7 +369,8 @@ class midgard_CG : public midgard_CG_glade
          void get_Ausnahmen();
          float Ausnahmen_float(const string& name);
          string Ausnahmen_string(const string& name, const string& alt,const string& alt2);
-        void get_typ(int nr, int typ_1_2=1);
+//        void get_typ_after_load(int nr, int typ_1_2=1);
+        void get_typ_after_load();
         int  get_typ_nr(int typ_1_2=1);
 
 };

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.21 2001/06/26 05:20:29 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.22 2001/06/27 10:10:16 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,22 +25,22 @@
 void midgard_CG::on_lernpunkte_wuerfeln_clicked()
 {
   Random random;
-  lernpunkte.fertigkeiten=random.integer(1,6)+random.integer(1,6);
-  lernpunkte.beruf=random.integer(1,6)+random.integer(1,6);
-  if (typ_2.s=="") lernpunkte.waffen=random.integer(1,6)+random.integer(1,6);
-  else             lernpunkte.waffen=random.integer(1,6)+1; // Doppelcharakter bei Elfen
-  if (typ.z=="j" || typ.z == "z" && typ_2.s=="") 
-      lernpunkte.zauber=random.integer(1,6)+random.integer(1,6);
-  if (typ.z=="j" || typ.z == "z" && typ_2.s!="") 
-      lernpunkte.zauber=random.integer(1,6)+1;
+  lernpunkte.set_Fertigkeit(random.integer(1,6)+random.integer(1,6));
+  lernpunkte.set_Beruf(random.integer(1,6)+random.integer(1,6));
+  if (Typ2.Short()=="") lernpunkte.set_Waffen(random.integer(1,6)+random.integer(1,6));
+  else             lernpunkte.set_Waffen(random.integer(1,6)+1); // Doppelcharakter bei Elfen
+  if (Typ.Zaubern()=="j" || Typ.Zaubern() == "z" && Typ2.Short()=="") 
+      lernpunkte.set_Zauber(random.integer(1,6)+random.integer(1,6));
+  if (Typ.Zaubern()=="j" || Typ.Zaubern() == "z" && Typ2.Short()!="") 
+      lernpunkte.set_Zauber(random.integer(1,6)+1);
 
   if (werte.alter==0)
    {
-     int age = lernpunkte.beruf + lernpunkte.fertigkeiten 
-             + lernpunkte.waffen + lernpunkte.zauber;
+     int age = lernpunkte.Beruf() + lernpunkte.Fertigkeiten() 
+             + lernpunkte.Waffen() + lernpunkte.Zauber();
 
-     if (typ.z=="z" ) werte.alter = age/4+19;
-     if (typ.z=="n" || typ.z=="j") werte.alter = age/4+16;
+     if (Typ.Zaubern()=="z" ) werte.alter = age/4+19;
+     if (Typ.Zaubern()=="n" || Typ.Zaubern()=="j") werte.alter = age/4+16;
      werte.alter *= spezies_constraint.alter;
      alter->set_text(itos(werte.alter));
    }
@@ -50,11 +50,11 @@ void midgard_CG::on_lernpunkte_wuerfeln_clicked()
 
 void midgard_CG::on_lernpunkte_editieren_clicked()
 {
-  manage(new Window_lernpunkte_editieren(this,lernpunkte)); 
+  manage(new Window_lernpunkte_editieren(this,&lernpunkte)); 
   zeige_notebook();
 }
 
-void midgard_CG::setze_lernpunkte(st_lernpunkte& l)
+void midgard_CG::setze_lernpunkte(const Lernpunkte& l)
 {
  lernpunkte = l;
  midgard_CG::zeige_lernpunkte();
@@ -62,10 +62,10 @@ void midgard_CG::setze_lernpunkte(st_lernpunkte& l)
 
 void midgard_CG::zeige_lernpunkte()
 {
- lernpunkte_b->set_text(itos(lernpunkte.beruf));
- lernpunkte_f->set_text(itos(lernpunkte.fertigkeiten));
- lernpunkte_w->set_text(itos(lernpunkte.waffen));
- lernpunkte_z->set_text(itos(lernpunkte.zauber));
+ lernpunkte_b->set_text(itos(lernpunkte.Beruf()));
+ lernpunkte_f->set_text(itos(lernpunkte.Fertigkeiten()));
+ lernpunkte_w->set_text(itos(lernpunkte.Waffen()));
+ lernpunkte_z->set_text(itos(lernpunkte.Zauber()));
 }
 
 void midgard_CG::on_button_ruestung_clicked()

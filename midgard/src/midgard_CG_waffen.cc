@@ -1,4 +1,4 @@
-// $Id: midgard_CG_waffen.cc,v 1.18 2001/06/26 05:20:29 thoma Exp $
+// $Id: midgard_CG_waffen.cc,v 1.19 2001/06/27 10:10:16 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,7 +24,7 @@
 void midgard_CG::on_waffen_wahl_clicked()
 {
   waffen_clist->clear();
-  manage(new Waffen_auswahl(this,typ.s,typ_2.s,lernpunkte,werte));
+  manage(new Waffen_auswahl(this,Typ.Short(),Typ2.Short(),lernpunkte.Waffen(),werte));
 }
 
 void midgard_CG::show_waffen()
@@ -60,7 +60,7 @@ void midgard_CG::waffen_uebernehmen(const vector<H_Data_waffen>& saw, map<string
 void midgard_CG::on_waffen_clist_select_row(gint row, gint column, GdkEvent *event)
 {   
  /* Funktion für Spezialwaffe */
- if (typ.z=="n" || typ.s == "Ord")
+ if (Typ.Zaubern()=="n" || Typ.Short() == "Ord")
    {
     static int oldrow = -1;
 //    ++++vec_waffen[row].erfolgswert;    

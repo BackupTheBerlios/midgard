@@ -1,4 +1,4 @@
-// $Id: get_erfolgswert_zaubern.cc,v 1.17 2001/06/24 13:24:52 thoma Exp $
+// $Id: get_erfolgswert_zaubern.cc,v 1.18 2001/06/27 10:10:16 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,15 +19,15 @@
 
 #include "midgard_CG.hh"
 
-int midgard_CG::get_erfolgswert_zaubern(const styp& typ,const styp& typ_2,const string& name)
+int midgard_CG::get_erfolgswert_zaubern(const Data_typen& Typ,const Data_typen& Typ2,const string& name)
 {
-   double fac = midgard_CG::get_standard_zauber(typ,typ_2,name);
+   double fac = midgard_CG::get_standard_zauber(Typ,Typ2,name);
    int ifac;
    if (fac == 0.5) ifac = 0; else ifac=-2;
 
    int ispez=0;
-   if (typ.s=="Ma")   ispez = midgard_CG::get_spezial_zauber(typ.s,name);
-   if (typ_2.s=="Ma") ispez = midgard_CG::get_spezial_zauber(typ_2.s,name);
+   if (Typ.Short()=="Ma")   ispez = midgard_CG::get_spezial_zauber(Typ.Short(),name);
+   if (Typ2.Short()=="Ma") ispez = midgard_CG::get_spezial_zauber(Typ2.Short(),name);
 
 //   string erf = itos (atoi(werte.zaubern_wert.c_str())
 //                            +werte.bo_za + ifac + ispez) ;

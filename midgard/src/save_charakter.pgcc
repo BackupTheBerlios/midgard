@@ -48,8 +48,8 @@ void midgard_CG::on_speichern_clicked()
    exec sql begin declare section;
 //      char db_beschreibung[102400] ;
       char *db_beschreibung; 
-      char db_typ_s[5]     ;
-      char db_typ_2_s[5]     ;
+      char db_typ_s[5];
+      char db_typ_2_s[5];
       int db_st = werte.st;      
       int db_ge = werte.ge;      
       int db_ko = werte.ko;      
@@ -114,8 +114,8 @@ void midgard_CG::on_speichern_clicked()
    strncpy(db_name_ch,werte.name_charakter.c_str(),sizeof(db_name_ch));
    strncpy(db_name_sp,werte.name_spieler.c_str(),sizeof(db_name_sp));
    strncpy(db_version,werte.version.c_str(),sizeof(db_version));
-   strncpy(db_typ_s,typ.s.c_str(),sizeof(db_typ_s));
-   strncpy(db_typ_2_s,typ_2.s.c_str(),sizeof(db_typ_2_s));
+   strncpy(db_typ_s,Typ.Short().c_str(),sizeof(db_typ_s));
+   strncpy(db_typ_2_s,Typ2.Short().c_str(),sizeof(db_typ_2_s));
    strncpy(db_ruestung,werte.ruestung.c_str(),sizeof(db_ruestung));
    strncpy(db_spezies,werte.spezies.c_str(),sizeof(db_spezies));
    

@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.28 2001/06/26 05:20:29 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.29 2001/06/27 10:10:16 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,8 +34,8 @@ void midgard_CG::on_latex_clicked()
  system("cp "PACKAGE_DATA_DIR"latexwertedef.tex midgard_tmp_latexwertedef.tex");
 
  ofstream fout("midgard_tmp_latexwerte.tex");
- string styp = typ.l;
- if (typ_2.l!="") styp += "/"+typ_2.l;
+ string styp = Typ.Name();
+ if (Typ2.Name()!="") styp += "/"+Typ2.Name();
  fout << "\\newcommand{\\typ}{"<< LaTeX_scale(styp,10,"2.2cm") << "}\n";
  fout << "\\newcommand{\\st}{"  <<werte.st << "}\n";
  fout << "\\newcommand{\\gee}{" <<werte.ge << "}\n";

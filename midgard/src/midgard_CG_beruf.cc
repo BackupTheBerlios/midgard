@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.18 2001/06/24 13:24:52 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.19 2001/06/27 10:10:16 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,7 +24,7 @@
 void midgard_CG::on_berufe_wahl_clicked()
 {
   berufe_clist->clear();
-  manage(new Berufe_auswahl(this,typ,typ_2,lernpunkte,werte));
+  manage(new Berufe_auswahl(this,Typ.Zaubern(),Typ2.Zaubern(),lernpunkte.Beruf(),werte));
 }
 
 void midgard_CG::show_berufe()
@@ -53,7 +53,7 @@ void midgard_CG::berufe_uebernehmen(vector<H_Data_beruf>& sab)
 void midgard_CG::on_beruf_erfolgswert_clicked()
 {
  Random random;
- int erfahrungswert =  (lernpunkte.waffen + lernpunkte.fertigkeiten)/5.;
+ int erfahrungswert =  (lernpunkte.Waffen() + lernpunkte.Fertigkeiten())/5.;
  int inbo=0;
  if (atoi(in->get_text().c_str()) >= 81 ) ++inbo ;
  if (atoi(in->get_text().c_str()) >= 96 ) ++inbo ;
