@@ -47,9 +47,10 @@ void table_steigern::on_button_ruestung_2_toggled()
                 
 
 void table_steigern::on_ruestung_selection_changed()
-{ if (clist_ruestung->get_selection()->get_selected()==RuestungStore->children().end()) return;
+{ Gtk::TreeIter actual=clist_ruestung->get_selection()->get_selected();
+  if (!actual || actual==RuestungStore->children().end()) return;
   
-  cH_Ruestung R=(*clist_ruestung->get_selection()->get_selected())[ruestung_columns.ruestung];
+  cH_Ruestung R=(*actual)[ruestung_columns.ruestung];
 
   if(R->Min_Staerke()<=hauptfenster->getAben().St())
    {

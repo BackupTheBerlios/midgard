@@ -95,7 +95,7 @@ void table_steigern::on_leaf_selected_neue_fert(cH_RowDataBase d)
 #warning Kido Stil mit Wizard realisieren!
 //      hauptfenster->load_for_mainpage(midgard_CG::PAGE_LERNEN);
 //          Wizard::KIDO_STIL
-      MidgardBasicElement_leaf_neu(d);      
+      MidgardBasicElement_leaf_neu(d);
     }
   else if ((*MBE)->Name()=="Zaubern") 
     {  

@@ -1,6 +1,5 @@
 ##### DAS IST DAS WICHTIGSTE #########################################
 - beim Laden wird nicht alles richtig angezeigt
-- Absturz bei Auswahl der Rüstung
 - nicht-Refresh der aktuellen Zeile nach anklicken (lernen)
 - man kann keine Verzeichnisse im Requester auswählen
 - Wizard
@@ -17,9 +16,6 @@
 Bugreport Sanni:
 Auswahl/Besitz: Teilweise als aufklappbare Einträge ohne Namen und 
 mit dem Wert +0
-
-Steigern:
-Beim Verlernen wird die Fertigkeit nicht gelöscht.
 
 Waffen (Grundfertigkeiten) steigern (außer Buckler) kostet jeweils 1000 FP, 
 reduzieren bringt 500 FP und lassen sich nicht auf Werte >8 Steigern 

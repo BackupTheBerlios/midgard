@@ -6,6 +6,7 @@ Version 0.9.8
 - Viele Radiobutton-Felder durch ChoiceButtons ersetzt (spart Platz!)
 - Grafik in SteigernKnopffeld wieder da
 - Verlernen geht wieder (nur noch 1 Knopf für reduzieren/verlernen)
+- Die Auswahl von Rüstungen geht wieder
 
 -------------- TODO ----------------
 

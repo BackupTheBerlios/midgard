@@ -94,6 +94,7 @@ void midgard_CG::menu_init()
   schummel_menu->append(*_M); _M->show();}
 
   menu_kontext->append(*schummel);
+  schummel->show();
 
 //Drucken ///////////////////////////////////////////////////////////////////
   Gtk::Menu *drucken_menu = Gtk::manage(new class Gtk::Menu());
@@ -120,6 +121,7 @@ void midgard_CG::menu_init()
   latex_empty->signal_activate().connect(SigC::slot(*this,&midgard_CG::on_leeres_abenteurerdokument_drucken));
 
   menu_kontext->append(*drucken);
+  drucken->show();
 // Abent. Optionen (Original, NSC, ...)
  {Gtk::Menu *char_opt_menu = Gtk::manage(new class Gtk::Menu());
   Gtk::MenuItem *char_opt = Gtk::manage(new class Gtk::MenuItem("Abent.-Einst."));
@@ -142,6 +144,7 @@ void midgard_CG::menu_init()
 #warning undosave?
    }
   menu_kontext->append(*char_opt);
+  menu_kontext->show();
  }
 
 //Regionen/////////////////////////////////////////////////////////////////////
@@ -183,6 +186,7 @@ void midgard_CG::menu_init()
    standard_regionen->signal_activate().connect(SigC::slot(*this,&midgard_CG::SetStandardRegionen));
 #endif
   menu_kontext->append(*regionen);
+  regionen->show();
   
 
 //Optionen/////////////////////////////////////////////////////////////////////
@@ -207,6 +211,7 @@ void midgard_CG::menu_init()
     optionen_menu->append(*mi);
    } 
   menu_kontext->append(*optionen);
+  optionen->show();
  }
 ///////////////////////////////////////////////////////////////////////////////
 #if 0
@@ -215,9 +220,9 @@ void midgard_CG::menu_init()
     mi->show();
     mi->signal_activate().connect(SigC::bind(SigC::slot(&prop_adaptor),gobj()));
   }
-  menu_kontext->show_all();
 #endif
 ///////////
+//  menu_kontext->show_all();
 }
 
 
