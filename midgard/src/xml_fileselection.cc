@@ -52,16 +52,14 @@ try{
    hauptfenster->table_optionen->speicherplatz_selected(this->get_filename());
  else if (ewas==pdfviewer)
    hauptfenster->table_optionen->frame_drucken->pdf_viewer_selected(this->get_filename());
-#ifndef __MINGW32__  
- destroy();
-#endif
+ delete this;
 }catch(std::exception &e) {std::cerr<<e.what()<<'\n';}
 }
 
 #ifndef __MINGW32__  
 void xml_fileselection::on_cancel_button1_clicked()
 {   
-  destroy();
+  delete this;
 }
 #endif
 
@@ -194,6 +192,7 @@ std::cout << "Dateiname " << fname << "->" << get_filename() << '\n';
    {  set_filename(buf);
       on_ok_button1_clicked();
    }
+   else delete this;
 
 #endif
 }

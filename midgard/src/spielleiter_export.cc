@@ -29,11 +29,6 @@
 
 void midgard_CG::on_exportieren_activate()
 {
-#ifndef __MINGW32__
- manage 
-#else
- delete
-#endif
 	 (new xml_fileselection(this,xml_fileselection::Export));
 }
 

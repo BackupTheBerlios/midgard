@@ -22,7 +22,7 @@
 //#include <MidgardBasicElement.hh>
 #include <Waffe.hh>
 #include <Typen.hh>
-#include <rowdata.h>
+#include <RowDataBase.h>
 class midgard_CG;
 
 class Data_SimpleTree : public RowDataBase

@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.29 2002/12/13 18:35:22 christof Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.30 2002/12/14 23:45:11 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -202,18 +202,18 @@ void table_grundwerte::gw_variante_2()
   frame_wuerfelvariante->remove();  
   Gtk::Table *tab = manage(new class Gtk::Table(3, 6, false));
   Gtk::Label *lab = manage(new class Gtk::Label(itos(Veigenschaften.size())+"x gewürfelt, jetzt die Werte zuordnen."));
-  tab->attach(*lab, 0, int(eMAX), 0, 1, Gtk::FILL, 0, 0, 0);
+  tab->attach(*lab, 0, int(eMAX), 0, 1, Gtk::FILL, Gtk::AttachOptions(0), 0, 0);
   int count=0;
   for(std::vector<st_eigen>::const_iterator i=Veigenschaften.begin();i!=Veigenschaften.end();++i)
    {
      Gtk::Button *b = manage(new class Gtk::Button(i->kurz));
-     tab->attach(*b, count, count+1, 2, 3, Gtk::FILL, 0, 0, 0);
+     tab->attach(*b, count, count+1, 2, 3, Gtk::FILL, Gtk::AttachOptions(0), 0, 0);
      b->signal_clicked().connect(SigC::bind(SigC::slot(*static_cast<class table_grundwerte*>(this), &table_grundwerte::on_button_variante_2_clicked),b,i->eigenschaft));
      ++count;     
    }
 //  if(label) delete label;
   label = manage(new class Gtk::Label("XXX"));  
-  tab->attach(*label, 0, int(eMAX), 1, 2, Gtk::FILL, 0, 0, 0);
+  tab->attach(*label, 0, int(eMAX), 1, 2, Gtk::FILL, Gtk::AttachOptions(0), 0, 0);
   frame_wuerfelvariante->add(*tab);
   frame_wuerfelvariante->show_all();
   gw_variante_2_next();
@@ -261,19 +261,19 @@ void table_grundwerte::gw_variante_3()
             
   Gtk::Table *tab = manage(new class Gtk::Table(3, 6, false));
   Gtk::Label *lab = manage(new class Gtk::Label(itos(anz_wuerfe)+"x gewürfelt, jetzt die Werte den Eigenschaften zuordnen."));  
-  tab->attach(*lab, 0, 9, 0, 1, Gtk::FILL, 0, 0, 0);
+  tab->attach(*lab, 0, 9, 0, 1, Gtk::FILL, Gtk::AttachOptions(0), 0, 0);
   int count=0;
   for(std::vector<int>::const_iterator i=V.begin();i!=V.end();++i)
    {
      Gtk::Button *b = manage(new class Gtk::Button(itos(*i)));
-     tab->attach(*b, count, count+1, 2, 3, Gtk::FILL, 0, 0, 0);
+     tab->attach(*b, count, count+1, 2, 3, Gtk::FILL, Gtk::AttachOptions(0), 0, 0);
      b->signal_clicked().connect(SigC::bind(SigC::slot(*static_cast<class table_grundwerte*>(this), &table_grundwerte::on_button_variante_3_clicked),b,*i));
      if(count>=anz_wuerfe-3) b->set_sensitive(false);
      ++count;     
    }
 //  if(label) delete label;
   label = manage(new class Gtk::Label("XXX"));  
-  tab->attach(*label, 0, 9, 1, 2, Gtk::FILL, 0, 0, 0);
+  tab->attach(*label, 0, 9, 1, 2, Gtk::FILL, Gtk::AttachOptions(0), 0, 0);
   frame_wuerfelvariante->add(*tab);
   frame_wuerfelvariante->show_all();
   gw_variante_3_next();
@@ -315,11 +315,11 @@ void table_grundwerte::set_Grundwerte(e_eigen eigenschaft,int wert)
   Gtk::Table *tab = dynamic_cast<Gtk::Table*>(frame_wuerfelvariante->get_child());
   if (!tab) return; // no children 
   bool all_insensitive=true;
-//  Gtk::Table_Helpers::TableList &ch=tab->children();
-//  for(Gtk::Table_Helpers::TableList::iterator i=ch.begin();i!=ch.end();++i)
-  for(GList *liste=Gtk::TABLE(tab->gobj())->children;liste;liste=liste->next)
+  Gtk::Table_Helpers::TableList &ch=tab->children();
+  for(Gtk::Table_Helpers::TableList::iterator i=ch.begin();i!=ch.end();++i)
+//  for(GList *liste=GTK_TABLE(tab->gobj())->children;liste;liste=liste->next)
    {
-     Gtk::Widget *x=Gtk::wrap(((GtkTableChild*)(liste->data))->widget);
+     Gtk::Widget *x=(*i).get_widget(); // Gtk::wrap(((GtkTableChild*)(liste->data))->widget);
      if(dynamic_cast<Gtk::Button*>(x) && x->is_sensitive()) { all_insensitive=false; break; }
    }
   if(all_insensitive)

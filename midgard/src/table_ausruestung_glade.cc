@@ -569,7 +569,7 @@ table_ausruestung_glade::table_ausruestung_glade(GlademmData *_data
    combo_art2->get_entry()->signal_changed().connect(SigC::slot(*this, &table_ausruestung_glade::on_combo_entry_art2_changed));
    button_ausruestung_loeschen->signal_clicked().connect(SigC::slot(*this, &table_ausruestung_glade::on_ausruestung_loeschen_clicked));
    preise_tree_neu->signal_leaf_selected().connect(SigC::slot(*this, &table_ausruestung_glade::on_preise_tree_neu_leaf_selected));
-   preise_tree_neu->signal_drag_data_get().connect(SigC::slot(*this, &table_ausruestung_glade::on_preise_tree_neu_drag_data_get));
+//   preise_tree_neu->signal_drag_data_get().connect(SigC::slot(*this, &table_ausruestung_glade::on_preise_tree_neu_drag_data_get));
    checkbutton_ausruestung_geld->signal_toggled().connect(SigC::slot(*this, &table_ausruestung_glade::on_checkbutton_ausruestung_geld_toggled));
    togglebutton_unverkauflich->signal_toggled().connect(SigC::slot(*this, &table_ausruestung_glade::on_togglebutton_unverkauflich_toggled));
 }

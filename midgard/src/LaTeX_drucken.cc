@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.88 2002/12/12 11:00:50 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.89 2002/12/14 23:45:10 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,7 +27,7 @@
 #include "KiDo.hh"
 #include "Zauber.hh"
 #include "Zauberwerk.hh"
-#include <Gtk2TeX.h>
+#include <TeX.h>
 #include "recodestream.h"
 #include "Windows_Linux.hh"
 
@@ -359,7 +359,7 @@ void LaTeX_drucken::write_grundwerte(std::ostream &fout,bool empty)
      case eabwehrfinal:
      case eabwehrmitwaffe:
       { if(was==eabwehrfinal)    sfout += itos(W.Abwehr_wert()+W.bo_Ab());
-        if(was==eabwehrmitwaffe) sfout += Gtk2TeX::string2TeX(Waffe::get_Verteidigungswaffe(W.Abwehr_wert()+W.bo_Ab(),hauptfenster->getChar()->List_Waffen(),hauptfenster->getChar()->List_Waffen_besitz(),hauptfenster->getAben()));
+        if(was==eabwehrmitwaffe) sfout += TeX::string2TeX(Waffe::get_Verteidigungswaffe(W.Abwehr_wert()+W.bo_Ab(),hauptfenster->getChar()->List_Waffen(),hauptfenster->getChar()->List_Waffen_besitz(),hauptfenster->getAben()));
         sfout += W.Ruestung_Abwehr_Verlust(hauptfenster->getChar()->List_Fertigkeit());
         break;
       }
@@ -525,7 +525,7 @@ void LaTeX_drucken::write_waffenbesitz(std::ostream &fout,const std::list<WaffeB
      std::string abm = i->Waffe()->WM_Abwehr();
 
      VWB.push_back(st_WB(LaTeX_scalemag(waffenname,25,"3cm",i->Magisch(),
-            Gtk2TeX::string2TeX(i->Waffe()->Reichweite()+" "+i->Waffe()->Text())),
+            TeX::string2TeX(i->Waffe()->Reichweite()+" "+i->Waffe()->Text())),
             swert,schaden,anm,abm));
    }
  unsigned int count=0;
@@ -535,10 +535,10 @@ void LaTeX_drucken::write_waffenbesitz(std::ostream &fout,const std::list<WaffeB
     if(b=="0") break;
     if(!longlist) fout << "\\newcommand{\\waffeE"<<b<<"}";
     else fout << " & ";
-    fout << "{+"<<Gtk2TeX::string2TeX(i->wert)<<"}\n";
+    fout << "{+"<<TeX::string2TeX(i->wert)<<"}\n";
      if(!longlist) fout << "\\newcommand{\\waffeA"<<b<<"}";
      else fout << " & ";
-     fout << "{"<<Gtk2TeX::string2TeX(i->rang) << "}";
+     fout << "{"<<TeX::string2TeX(i->rang) << "}";
      if(longlist) fout << "\\\\\\cline{2-3}";
      fout << "\n";
 
@@ -547,10 +547,10 @@ void LaTeX_drucken::write_waffenbesitz(std::ostream &fout,const std::list<WaffeB
      fout << i->name <<"}\n";
      if(!longlist) fout << "\\newcommand{\\waffeS"<<b<<"}";
      else fout << "} & ";
-     fout << "{"<<Gtk2TeX::string2TeX(i->schaden) << "}\n";
+     fout << "{"<<TeX::string2TeX(i->schaden) << "}\n";
      if(!longlist) fout << "\\newcommand{\\waffeV"<<b<<"}";
      else fout << " & ";
-     fout << "{"<<Gtk2TeX::string2TeX(i->modi) << "}";
+     fout << "{"<<TeX::string2TeX(i->modi) << "}";
      if(longlist) fout << "\\\\\\hline\\hline";
      fout << "\n";
   }
@@ -902,16 +902,16 @@ void LaTeX_drucken::LaTeX_zauber(std::ostream &fout)
      if(!(*i)->Zusatz().empty()) fout << " ("<<(*i)->Zusatz()<<")";
      fout <<" & ";
      fout << z->Erfolgswert_Z(hauptfenster->getAben()) <<" & ";
-     fout << Gtk2TeX::string2TeX(z->Ap()) << " & ";
-     fout << Gtk2TeX::string2TeX(z->Art())<< " & ";
-     fout << Gtk2TeX::string2TeX(z->Stufe()) << " & ";
-     fout << Gtk2TeX::string2TeX(z->Zauberdauer()) << " & ";
-     fout << Gtk2TeX::string2TeX(z->Reichweite()) << " & ";
-     fout << Gtk2TeX::string2TeX(z->Wirkungsziel()) << " & ";
-     fout << Gtk2TeX::string2TeX(z->Wirkungsbereich()) << " & ";
-     fout << Gtk2TeX::string2TeX(z->Wirkungsdauer()) << " & ";
-     fout << Gtk2TeX::string2TeX(z->Ursprung()) << " & " ;
-     fout << LaTeX_scale(Gtk2TeX::string2TeX(z->Material()),20,"3cm") << " & " ;
+     fout << TeX::string2TeX(z->Ap()) << " & ";
+     fout << TeX::string2TeX(z->Art())<< " & ";
+     fout << TeX::string2TeX(z->Stufe()) << " & ";
+     fout << TeX::string2TeX(z->Zauberdauer()) << " & ";
+     fout << TeX::string2TeX(z->Reichweite()) << " & ";
+     fout << TeX::string2TeX(z->Wirkungsziel()) << " & ";
+     fout << TeX::string2TeX(z->Wirkungsbereich()) << " & ";
+     fout << TeX::string2TeX(z->Wirkungsdauer()) << " & ";
+     fout << TeX::string2TeX(z->Ursprung()) << " & " ;
+     fout << LaTeX_scale(TeX::string2TeX(z->Material()),20,"3cm") << " & " ;
      fout << z->Agens(hauptfenster->getChar()->getVTyp()) <<" " <<z->Prozess() <<" "<<z->Reagens() ;
      fout << "\\\\\n";
    }
@@ -981,7 +981,7 @@ void LaTeX_drucken::LaTeX_kido(std::ostream &fout)
      fout << kd->HoHo() << " & ";
      fout << kd->Deutsch() << " & ";
      fout << stufe << " & ";
-     fout << Gtk2TeX::string2TeX(kd->Effekt()) ;
+     fout << TeX::string2TeX(kd->Effekt()) ;
      fout << "\\\\\n";
    }
 }

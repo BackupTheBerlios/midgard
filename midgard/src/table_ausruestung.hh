@@ -33,6 +33,7 @@
 
 class midgard_CG;
 #include <gtkmm/treeview.h>
+#include <gtkmm/treestore.h>
 #include <map>
 #include <Preise.hh>
 #include <Ausruestung.hh>
@@ -45,7 +46,16 @@ class table_ausruestung : public table_ausruestung_glade
         midgard_CG *hauptfenster;
         AusruestungBaum *besitz;
         Gtk::TreeView *Ausruestung_tree;
+        Glib::RefPtr<Gtk::TreeStore> m_refStore;
 
+	struct ModelColumns : public Gtk::TreeModelColumnRecord
+	{  Gtk::TreeModelColumn<Glib::ustring> name,material,region,gewicht;
+	   Gtk::TreeModelColumn<bool> sichtbar;
+	   Gtk::TreeModelColumn<AusruestungBaum *> ausruestung;
+	   ModelColumns();
+	};
+	ModelColumns m_columns;
+	                                   
    public:
         enum e_spalten{None,Farbe,Material,Stand,Max};
    private:
@@ -68,10 +78,9 @@ public:
 private:
         void ausruestung_laden();
         void showAusruestung();
-        void showChildren(Gtk::TreeModel::iterator r,const std::list<AusruestungBaum> &AB);
-        bool tree_valid(Gtk::TreeView::Selection &selectionList) ;
-        void on_Ausruestung_tree_unselect_row(Gtk::TreeModel::Row row,gint column);
-        void on_Ausruestung_tree_select_row(Gtk::TreeModel::Row row,gint column);
+        void showChildren(Gtk::TreeModel::Children r,const std::list<AusruestungBaum> &AB);
+        bool tree_valid(const Glib::RefPtr<Gtk::TreeSelection> &selectionList);
+        void on_Ausruestung_tree_select_row();
         void on_checkbutton_sichtbar_toggled();
         void fill_new_preise();
         void fill_all_Combos_Art_Einheit_Region();
@@ -112,17 +121,19 @@ private:
         void on_button_artikel_speichern_clicked();
 
         // drag & drop
+        // for later realization
+#if 0        
         enum {TARGET_STRING,TARGET_ROOTWIN,TARGET_URL};
         static const GtkTargetEntry target_table[4];
         std::vector<st_ausruestung> vec_aus;
 
         guint n_targets;// = sizeof(target_table) / sizeof(target_table[0]);       
 
-        void on_preise_tree_neu_drag_data_get(GdkDragContext *context,
+        void on_preise_tree_neu_drag_data_get(const Glib::RefPtr<Gdk::DragContext>&context,
                                      GtkSelectionData   *selection_data,
                                      guint               info,
                                      guint32             time );
-        void tree_drag_data_received(GdkDragContext *context,
+        void tree_drag_data_received(const Glib::RefPtr<Gdk::DragContext>&context,
                                   gint x,gint y,
                                   GtkSelectionData   *data,
                                   guint info,guint32 time);
@@ -135,5 +146,6 @@ private:
                                   guint           time );
 
 */
+#endif
 };
 #endif

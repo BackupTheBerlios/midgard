@@ -103,7 +103,6 @@ private:
         virtual void on_combo_entry_art2_changed() = 0;
         virtual void on_ausruestung_loeschen_clicked() = 0;
         virtual void on_preise_tree_neu_leaf_selected(cH_RowDataBase leaf) = 0;
-        virtual void on_preise_tree_neu_drag_data_get(GdkDragContext *context,GtkSelectionData *selection_data,guint info,guint time) = 0;
         virtual void on_checkbutton_ausruestung_geld_toggled() = 0;
         virtual void on_togglebutton_unverkauflich_toggled() = 0;
 };

@@ -25,9 +25,9 @@ void frame_icons::init()
  int count=0;
  for(std::list<Midgard_Optionen::st_Icon>::iterator i=L.begin();i!=L.end();++i)
   {
-    bool_CheckButton *cb = manage(new bool_CheckButton(i->active,i->text,0,0.5));
+    bool_CheckButton *cb = Gtk::manage(new bool_CheckButton(i->active,i->text));
     i->active.signal_changed().connect(SigC::bind(SigC::slot(*this,&frame_icons::element_activate),i->index));
-    table->attach(*cb,0,1,count,count+1,Gtk::FILL,0,0,0);
+    table->attach(*cb,0,1,count,count+1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
     ++count;
   }
  table->show_all();

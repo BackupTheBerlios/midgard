@@ -18,7 +18,7 @@
 #include "midgard_CG.hh"
 #include "table_steigern.hh"
 //#include <gtkmm/toolbar.h>
-#include <gtkmm/pixmap.h>
+#include <gtkmm/image.h>
 #include "class_SimpleTree.hh"
 #include "class_SimpleTree_LernschemaZusatz.hh"
 
@@ -48,7 +48,7 @@ void table_steigern::on_togglebutton_praxispunkte_toggled()
       MBEmlt M=getSelectedNotebookLernen();
       spinbutton_pp_eingeben->set_value(M->Praxispunkte());
       spinbutton_pp_eingeben->show();
-     }catch(TreeBase::noRowSelected &e) {/*std::cerr << e.what()<<'\n'; hauptfenster->set_status("Keine Zeile selektiert");*/}
+     }catch(SimpleTree::noRowSelected &e) {/*std::cerr << e.what()<<'\n'; hauptfenster->set_status("Keine Zeile selektiert");*/}
    }
   else
    {
@@ -160,12 +160,12 @@ void table_steigern::on_spinbutton_pp_eingeben_activate()
     return;
   }   
 
- guint pagenr = notebook_lernen->get_current_page_num();
+ guint pagenr = notebook_lernen->get_current_page();
  try{
  const MBEmlt &M=getSelectedNotebookLernen();
 // modify(PP,M,MidgardBasicElement::st_zusatz(""),PPanz);
  M->setPraxispunkte(PPanz);
- }catch(TreeBase::noRowSelected &e) {std::cerr << e.what()<<'\n'; hauptfenster->set_status("Keine Zeile selektiert");}
+ }catch(SimpleTree::noRowSelected &e) {std::cerr << e.what()<<'\n'; hauptfenster->set_status("Keine Zeile selektiert");}
 
   if(pagenr==PAGE_FERTIGKEITEN)
      MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Fertigkeit(),alte_fert_tree,hauptfenster); 
@@ -179,10 +179,10 @@ void table_steigern::on_spinbutton_pp_eingeben_activate()
   spinbutton_pp_eingeben->hide();
 }
 
-const MBEmlt &table_steigern::getSelectedNotebookLernen() throw(TreeBase::noRowSelected)
+const MBEmlt &table_steigern::getSelectedNotebookLernen() throw(SimpleTree::noRowSelected)
 {
  const Data_SimpleTree *dt;
- guint pagenr = notebook_lernen->get_current_page_num();
+ guint pagenr = notebook_lernen->get_current_page();
    if(pagenr==PAGE_FERTIGKEITEN)
       dt=dynamic_cast<const Data_SimpleTree*>(&*(alte_fert_tree->getSelectedRowDataBase())); 
    if(pagenr==PAGE_WAFFEN)

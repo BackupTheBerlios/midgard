@@ -1,4 +1,4 @@
-// $Id: midgard_CG_undo.cc,v 1.12 2002/09/23 06:34:08 thoma Exp $
+// $Id: midgard_CG_undo.cc,v 1.13 2002/12/14 23:45:11 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,11 +24,11 @@ void midgard_CG::undosave(std::string s)
 {
   Char.modified();
 //  modify_bool=true;
-  strstream ss;
+  std::strstream ss;
   Char->speicherstream(ss,getCDatabase(),getCOptionen());
   ss<<char(0);
   MidgardUndo.push_back(s,ss.str());
-  ss.freeze();
+  ss.freeze(0);
 }
 
 void midgard_CG::show_undo_tree()
@@ -43,30 +43,30 @@ void midgard_CG::show_undo_tree()
 void midgard_CG::on_undo_leaf_selected(cH_RowDataBase d)
 {
   const Data_Undo *dt=dynamic_cast<const Data_Undo*>(&*d);
-  strstream s;
+  std::strstream s;
   s<<MidgardUndo.get(dt->getIndex())<<char(0);
   Char->xml_import_stream(s,getDatabase(),getOptionen(),this);
-  s.freeze();
+  s.freeze(0);
   set_status("Alten Zustand wieder hergestellt");
-  undo_tree->unselect_all();
+  undo_tree->get_selection()->unselect_all();
 }
 
 void midgard_CG::on_button_redo_clicked()
 {
-  strstream s;
+  std::strstream s;
   s<<MidgardUndo.get_next()<<char(0);
   Char->xml_import_stream(s,getDatabase(),getOptionen(),this);
-  s.freeze();
-  load_for_mainpage(notebook_main->get_current_page_num());
+  s.freeze(0);
+  load_for_mainpage(notebook_main->get_current_page());
 }
 
 
 void midgard_CG::on_button_undo_clicked()
 {
-  strstream s;
+  std::strstream s;
   s<<MidgardUndo.get_last()<<char(0);
   Char->xml_import_stream(s,getDatabase(),getOptionen(),this);
-  s.freeze();
-  load_for_mainpage(notebook_main->get_current_page_num());
+  s.freeze(0);
+  load_for_mainpage(notebook_main->get_current_page());
 }
 

@@ -50,8 +50,8 @@ midgard_CG_glade::midgard_CG_glade(
 ) : Gtk::Window(Gtk::WINDOW_TOPLEVEL)
 {  midgard_CG = this;
    _data = new GlademmData(get_accel_group());
-   toolbar_top = manage(new class Gtk::Toolbar());
-   griff_toolbar_top = manage(new class Gtk::HandleBox());
+   toolbar_top = Gtk::manage(new class Gtk::Toolbar());
+   griff_toolbar_top = Gtk::manage(new class Gtk::HandleBox());
    
    Gtk::MenuItem *neuen_abenteurer1 = NULL;
    Gtk::MenuItem *neuer_abenteurer_mit_wizard1 = NULL;
@@ -62,13 +62,13 @@ midgard_CG_glade::midgard_CG_glade(
    Gtk::MenuItem *speichern_unter_ = NULL;
    Gtk::MenuItem *exportieren = NULL;
    Gtk::MenuItem *exportieren_ranas_pdf_dokumente = NULL;
-   Gtk::Menu *exportieren_main_menu = manage(new class Gtk::Menu());
+   Gtk::Menu *exportieren_main_menu = Gtk::manage(new class Gtk::Menu());
    Gtk::MenuItem *exportieren_main = NULL;
    Gtk::MenuItem *trennlinie1 = NULL;
    Gtk::MenuItem *abenteurerdokument = NULL;
    Gtk::MenuItem *nur_sichtbares = NULL;
    Gtk::MenuItem *unsichtbares_drucken = NULL;
-   Gtk::Menu *ausr__stungsdokument_menu = manage(new class Gtk::Menu());
+   Gtk::Menu *ausr__stungsdokument_menu = Gtk::manage(new class Gtk::Menu());
    Gtk::MenuItem *ausr__stungsdokument = NULL;
    Gtk::MenuItem *beschreibung = NULL;
    Gtk::MenuItem *alles_drucken = NULL;
@@ -76,179 +76,179 @@ midgard_CG_glade::midgard_CG_glade(
    Gtk::MenuItem *leeres_abenteurerblatt = NULL;
    Gtk::MenuItem *trennlinie6 = NULL;
    Gtk::MenuItem *spielleiterbogen_drucken = NULL;
-   Gtk::Menu *drucken1_menu = manage(new class Gtk::Menu());
+   Gtk::Menu *drucken1_menu = Gtk::manage(new class Gtk::Menu());
    Gtk::MenuItem *drucken1 = NULL;
    Gtk::MenuItem *trennlinie2 = NULL;
    Gtk::MenuItem *beenden1 = NULL;
    Gtk::MenuItem *trennlinie5 = NULL;
-   Gtk::Menu *magus1_menu = manage(new class Gtk::Menu());
+   Gtk::Menu *magus1_menu = Gtk::manage(new class Gtk::Menu());
    Gtk::MenuItem *magus1 = NULL;
    Gtk::MenuItem *r__ckg__ngig1 = NULL;
    Gtk::MenuItem *erneut_vorw__rts1 = NULL;
    Gtk::MenuItem *geschichte = NULL;
-   Gtk::Menu *bearbeiten1_menu = manage(new class Gtk::Menu());
+   Gtk::Menu *bearbeiten1_menu = Gtk::manage(new class Gtk::Menu());
    Gtk::MenuItem *bearbeiten1 = NULL;
    Gtk::MenuItem *anleitung_menu = NULL;
    Gtk::MenuItem *info_credits_menu = NULL;
    Gtk::MenuItem *news_menu = NULL;
-   Gtk::Menu *hilfe1_menu = manage(new class Gtk::Menu());
+   Gtk::Menu *hilfe1_menu = Gtk::manage(new class Gtk::Menu());
    Gtk::MenuItem *hilfe1 = NULL;
-   main_menubar = manage(new class Gtk::MenuBar());
-   handlebox_menu = manage(new class Gtk::HandleBox());
-   Midgard_Info = manage(new class Midgard_Info(_data));
+   main_menubar = Gtk::manage(new class Gtk::MenuBar());
+   handlebox_menu = Gtk::manage(new class Gtk::HandleBox());
+   Midgard_Info = Gtk::manage(new class Midgard_Info(_data));
    
    Glib::RefPtr<Gdk::Bitmap> _pixmap_original_tux_mask;
    Glib::RefPtr<Gdk::Pixmap> _pixmap_original_tux_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _pixmap_original_tux_mask, MAGUS_Logo_Small_xpm);
-   pixmap_original_tux = manage(new class Gtk::Image(_pixmap_original_tux_pixmap, _pixmap_original_tux_mask));
-   label_notebook_info = manage(new class Gtk::Label("Info & Credits"));
+   pixmap_original_tux = Gtk::manage(new class Gtk::Image(_pixmap_original_tux_pixmap, _pixmap_original_tux_mask));
+   label_notebook_info = Gtk::manage(new class Gtk::Label("Info & Credits"));
    
-   Gtk::VBox *vbox66 = manage(new class Gtk::VBox(false, 0));
-   eventbox_credits = manage(new class Gtk::EventBox());
-   table_grundwerte = manage(new class table_grundwerte(_data));
+   Gtk::VBox *vbox66 = Gtk::manage(new class Gtk::VBox(false, 0));
+   eventbox_credits = Gtk::manage(new class Gtk::EventBox());
+   table_grundwerte = Gtk::manage(new class table_grundwerte(_data));
    
-   Gtk::Frame *frame4 = manage(new class Gtk::Frame());
+   Gtk::Frame *frame4 = Gtk::manage(new class Gtk::Frame());
    Glib::RefPtr<Gdk::Bitmap> _pixmap_notebook_grundwerte_mask;
    Glib::RefPtr<Gdk::Pixmap> _pixmap_notebook_grundwerte_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _pixmap_notebook_grundwerte_mask, Grundwert_small_xpm);
-   pixmap_notebook_grundwerte = manage(new class Gtk::Image(_pixmap_notebook_grundwerte_pixmap, _pixmap_notebook_grundwerte_mask));
-   label_notebook_grundwerte = manage(new class Gtk::Label("Grundwerte"));
+   pixmap_notebook_grundwerte = Gtk::manage(new class Gtk::Image(_pixmap_notebook_grundwerte_pixmap, _pixmap_notebook_grundwerte_mask));
+   label_notebook_grundwerte = Gtk::manage(new class Gtk::Label("Grundwerte"));
    
-   Gtk::VBox *vbox51 = manage(new class Gtk::VBox(false, 0));
-   eventbox_grundwerte = manage(new class Gtk::EventBox());
-   table_lernschema = manage(new class table_lernschema(_data));
-   frame_lernschema = manage(new class Gtk::Frame());
+   Gtk::VBox *vbox51 = Gtk::manage(new class Gtk::VBox(false, 0));
+   eventbox_grundwerte = Gtk::manage(new class Gtk::EventBox());
+   table_lernschema = Gtk::manage(new class table_lernschema(_data));
+   frame_lernschema = Gtk::manage(new class Gtk::Frame());
    
    Glib::RefPtr<Gdk::Bitmap> _pixmap_notebook_lernen_mask;
    Glib::RefPtr<Gdk::Pixmap> _pixmap_notebook_lernen_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _pixmap_notebook_lernen_mask, L_Schema_small_xpm);
-   pixmap_notebook_lernen = manage(new class Gtk::Image(_pixmap_notebook_lernen_pixmap, _pixmap_notebook_lernen_mask));
-   label_notebook_lernen = manage(new class Gtk::Label("Lernschema"));
+   pixmap_notebook_lernen = Gtk::manage(new class Gtk::Image(_pixmap_notebook_lernen_pixmap, _pixmap_notebook_lernen_mask));
+   label_notebook_lernen = Gtk::manage(new class Gtk::Label("Lernschema"));
    
-   Gtk::VBox *vbox52 = manage(new class Gtk::VBox(false, 0));
-   eventbox_lernen = manage(new class Gtk::EventBox());
-   table_steigern = manage(new class table_steigern(_data));
-   frame_steigern = manage(new class Gtk::Frame());
+   Gtk::VBox *vbox52 = Gtk::manage(new class Gtk::VBox(false, 0));
+   eventbox_lernen = Gtk::manage(new class Gtk::EventBox());
+   table_steigern = Gtk::manage(new class table_steigern(_data));
+   frame_steigern = Gtk::manage(new class Gtk::Frame());
    
    Glib::RefPtr<Gdk::Bitmap> _pixmap_notebook_steigern_mask;
    Glib::RefPtr<Gdk::Pixmap> _pixmap_notebook_steigern_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _pixmap_notebook_steigern_mask, Steigern_small_xpm);
-   pixmap_notebook_steigern = manage(new class Gtk::Image(_pixmap_notebook_steigern_pixmap, _pixmap_notebook_steigern_mask));
-   label_notebook_steigern = manage(new class Gtk::Label("Steigern"));
+   pixmap_notebook_steigern = Gtk::manage(new class Gtk::Image(_pixmap_notebook_steigern_pixmap, _pixmap_notebook_steigern_mask));
+   label_notebook_steigern = Gtk::manage(new class Gtk::Label("Steigern"));
    
-   Gtk::VBox *vbox53 = manage(new class Gtk::VBox(false, 0));
-   eventbox_steigern = manage(new class Gtk::EventBox());
-   table_beschreibung = manage(new class table_beschreibung(_data));
+   Gtk::VBox *vbox53 = Gtk::manage(new class Gtk::VBox(false, 0));
+   eventbox_steigern = Gtk::manage(new class Gtk::EventBox());
+   table_beschreibung = Gtk::manage(new class table_beschreibung(_data));
    
    Glib::RefPtr<Gdk::Bitmap> _pixmap_notebook_beschreibung_mask;
    Glib::RefPtr<Gdk::Pixmap> _pixmap_notebook_beschreibung_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _pixmap_notebook_beschreibung_mask, Descr_Char_40_xpm);
-   pixmap_notebook_beschreibung = manage(new class Gtk::Image(_pixmap_notebook_beschreibung_pixmap, _pixmap_notebook_beschreibung_mask));
-   label_notebook_beschreibung = manage(new class Gtk::Label("Beschreibung"));
+   pixmap_notebook_beschreibung = Gtk::manage(new class Gtk::Image(_pixmap_notebook_beschreibung_pixmap, _pixmap_notebook_beschreibung_mask));
+   label_notebook_beschreibung = Gtk::manage(new class Gtk::Label("Beschreibung"));
    
-   Gtk::VBox *vbox54 = manage(new class Gtk::VBox(false, 0));
-   eventbox_beschreibung = manage(new class Gtk::EventBox());
-   table_ausruestung = manage(new class table_ausruestung(_data));
+   Gtk::VBox *vbox54 = Gtk::manage(new class Gtk::VBox(false, 0));
+   eventbox_beschreibung = Gtk::manage(new class Gtk::EventBox());
+   table_ausruestung = Gtk::manage(new class table_ausruestung(_data));
    
    Glib::RefPtr<Gdk::Bitmap> _pixmap_notebook_ausruestung_mask;
    Glib::RefPtr<Gdk::Pixmap> _pixmap_notebook_ausruestung_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _pixmap_notebook_ausruestung_mask, Ausruest_small_xpm);
-   pixmap_notebook_ausruestung = manage(new class Gtk::Image(_pixmap_notebook_ausruestung_pixmap, _pixmap_notebook_ausruestung_mask));
-   label_notebook_ausruestung = manage(new class Gtk::Label("Ausrüstung"));
+   pixmap_notebook_ausruestung = Gtk::manage(new class Gtk::Image(_pixmap_notebook_ausruestung_pixmap, _pixmap_notebook_ausruestung_mask));
+   label_notebook_ausruestung = Gtk::manage(new class Gtk::Label("Ausrüstung"));
    
-   Gtk::VBox *vbox55 = manage(new class Gtk::VBox(false, 0));
-   eventbox_ausruestung = manage(new class Gtk::EventBox());
-   table_optionen = manage(new class table_optionen(_data));
+   Gtk::VBox *vbox55 = Gtk::manage(new class Gtk::VBox(false, 0));
+   eventbox_ausruestung = Gtk::manage(new class Gtk::EventBox());
+   table_optionen = Gtk::manage(new class table_optionen(_data));
    
    Glib::RefPtr<Gdk::Bitmap> _pixmap_notebook_optionen_mask;
    Glib::RefPtr<Gdk::Pixmap> _pixmap_notebook_optionen_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _pixmap_notebook_optionen_mask, Regio_Hausregel_50_xpm);
-   pixmap_notebook_optionen = manage(new class Gtk::Image(_pixmap_notebook_optionen_pixmap, _pixmap_notebook_optionen_mask));
-   label_notebook_optionen = manage(new class Gtk::Label("Optionen"));
+   pixmap_notebook_optionen = Gtk::manage(new class Gtk::Image(_pixmap_notebook_optionen_pixmap, _pixmap_notebook_optionen_mask));
+   label_notebook_optionen = Gtk::manage(new class Gtk::Label("Optionen"));
    
-   Gtk::VBox *vbox56 = manage(new class Gtk::VBox(false, 0));
-   eventbox_optionen = manage(new class Gtk::EventBox());
-   list_news = manage(new class Gtk::TreeView());
+   Gtk::VBox *vbox56 = Gtk::manage(new class Gtk::VBox(false, 0));
+   eventbox_optionen = Gtk::manage(new class Gtk::EventBox());
+   list_news = Gtk::manage(new class Gtk::TreeView());
    
-   Gtk::Viewport *viewport38 = manage(new class Gtk::Viewport(*manage(new Gtk::Adjustment(0,0,1)), *manage(new Gtk::Adjustment(0,0,1))));
-   Gtk::ScrolledWindow *scrolledwindow76 = manage(new class Gtk::ScrolledWindow());
+   Gtk::Viewport *viewport38 = Gtk::manage(new class Gtk::Viewport(*Gtk::manage(new Gtk::Adjustment(0,0,1)), *Gtk::manage(new Gtk::Adjustment(0,0,1))));
+   Gtk::ScrolledWindow *scrolledwindow76 = Gtk::manage(new class Gtk::ScrolledWindow());
    Glib::RefPtr<Gdk::Bitmap> _pixmap162_mask;
    Glib::RefPtr<Gdk::Pixmap> _pixmap162_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _pixmap162_mask, KillChar_32_xpm);
-   Gtk::Image *pixmap162 = manage(new class Gtk::Image(_pixmap162_pixmap, _pixmap162_mask));
-   Gtk::Label *label598 = manage(new class Gtk::Label("Abenteurer aus\n"
+   Gtk::Image *pixmap162 = Gtk::manage(new class Gtk::Image(_pixmap162_pixmap, _pixmap162_mask));
+   Gtk::Label *label598 = Gtk::manage(new class Gtk::Label("Abenteurer aus\n"
 		"Liste löschen"));
-   Gtk::HBox *hbox84 = manage(new class Gtk::HBox(false, 0));
-   togglebutton_delete_abenteurer_aus_liste = manage(new class Gtk::ToggleButton());
+   Gtk::HBox *hbox84 = Gtk::manage(new class Gtk::HBox(false, 0));
+   togglebutton_delete_abenteurer_aus_liste = Gtk::manage(new class Gtk::ToggleButton());
    
-   Gtk::Label *label597 = manage(new class Gtk::Label("Zum Editieren eines Abenteurers diesen anklicken."));
+   Gtk::Label *label597 = Gtk::manage(new class Gtk::Label("Zum Editieren eines Abenteurers diesen anklicken."));
    AbenteurerListe = new class SimpleTree(7);
    
-   Gtk::Viewport *viewport47 = manage(new class Gtk::Viewport(*manage(new Gtk::Adjustment(0,0,1)), *manage(new Gtk::Adjustment(0,0,1))));
-   Gtk::ScrolledWindow *scrolledwindow86 = manage(new class Gtk::ScrolledWindow());
-   Gtk::Label *label579 = manage(new class Gtk::Label("Durch anklicken einer Zeile aus der Liste wird der entsprechende Abenteurer geladen."));
+   Gtk::Viewport *viewport47 = Gtk::manage(new class Gtk::Viewport(*Gtk::manage(new Gtk::Adjustment(0,0,1)), *Gtk::manage(new Gtk::Adjustment(0,0,1))));
+   Gtk::ScrolledWindow *scrolledwindow86 = Gtk::manage(new class Gtk::ScrolledWindow());
+   Gtk::Label *label579 = Gtk::manage(new class Gtk::Label("Durch anklicken einer Zeile aus der Liste wird der entsprechende Abenteurer geladen."));
    undo_tree = new class SimpleTree(2);
    
-   Gtk::Viewport *viewport44 = manage(new class Gtk::Viewport(*manage(new Gtk::Adjustment(0,0,1)), *manage(new Gtk::Adjustment(0,0,1))));
-   Gtk::ScrolledWindow *scrolledwindow81 = manage(new class Gtk::ScrolledWindow());
-   Gtk::Table *table161 = manage(new class Gtk::Table(3, 2, false));
-   Gtk::Table *table139 = manage(new class Gtk::Table(2, 1, false));
+   Gtk::Viewport *viewport44 = Gtk::manage(new class Gtk::Viewport(*Gtk::manage(new Gtk::Adjustment(0,0,1)), *Gtk::manage(new Gtk::Adjustment(0,0,1))));
+   Gtk::ScrolledWindow *scrolledwindow81 = Gtk::manage(new class Gtk::ScrolledWindow());
+   Gtk::Table *table161 = Gtk::manage(new class Gtk::Table(3, 2, false));
+   Gtk::Table *table139 = Gtk::manage(new class Gtk::Table(2, 1, false));
    Glib::RefPtr<Gdk::Bitmap> _pixmap175_mask;
    Glib::RefPtr<Gdk::Pixmap> _pixmap175_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _pixmap175_mask, NewsGeschichte_xpm);
-   Gtk::Image *pixmap175 = manage(new class Gtk::Image(_pixmap175_pixmap, _pixmap175_mask));
-   label_notebook_news = manage(new class Gtk::Label("News & Geschichte"));
+   Gtk::Image *pixmap175 = Gtk::manage(new class Gtk::Image(_pixmap175_pixmap, _pixmap175_mask));
+   label_notebook_news = Gtk::manage(new class Gtk::Label("News & Geschichte"));
    
-   Gtk::VBox *vbox57 = manage(new class Gtk::VBox(false, 0));
-   eventbox_geschichte = manage(new class Gtk::EventBox());
-   table_zufall = manage(new class table_zufall(_data));
+   Gtk::VBox *vbox57 = Gtk::manage(new class Gtk::VBox(false, 0));
+   eventbox_geschichte = Gtk::manage(new class Gtk::EventBox());
+   table_zufall = Gtk::manage(new class table_zufall(_data));
    
    Glib::RefPtr<Gdk::Bitmap> _pixmap167_mask;
    Glib::RefPtr<Gdk::Pixmap> _pixmap167_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _pixmap167_mask, Z_NewChar_xpm);
-   pixmap167 = manage(new class Gtk::Image(_pixmap167_pixmap, _pixmap167_mask));
-   label603 = manage(new class Gtk::Label("Zufallsgenerator"));
+   pixmap167 = Gtk::manage(new class Gtk::Image(_pixmap167_pixmap, _pixmap167_mask));
+   label603 = Gtk::manage(new class Gtk::Label("Zufallsgenerator"));
    
-   Gtk::VBox *vbox65 = manage(new class Gtk::VBox(false, 0));
-   eventbox_zufall = manage(new class Gtk::EventBox());
-   notebook_main = manage(new class Gtk::Notebook());
-   label_status = manage(new class Gtk::Label(""));
-   label_wizard = manage(new class Gtk::Label(""));
+   Gtk::VBox *vbox65 = Gtk::manage(new class Gtk::VBox(false, 0));
+   eventbox_zufall = Gtk::manage(new class Gtk::EventBox());
+   notebook_main = Gtk::manage(new class Gtk::Notebook());
+   label_status = Gtk::manage(new class Gtk::Label(""));
+   label_wizard = Gtk::manage(new class Gtk::Label(""));
    
-   Gtk::VBox *vbox64 = manage(new class Gtk::VBox(false, 0));
-   frame_regionen_status = manage(new class Gtk::Frame());
+   Gtk::VBox *vbox64 = Gtk::manage(new class Gtk::VBox(false, 0));
+   frame_regionen_status = Gtk::manage(new class Gtk::Frame());
    
    Glib::RefPtr<Gdk::Bitmap> _pixmap176_mask;
    Glib::RefPtr<Gdk::Pixmap> _pixmap176_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _pixmap176_mask, midgard_logo_status_xpm);
-   Gtk::Image *pixmap176 = manage(new class Gtk::Image(_pixmap176_pixmap, _pixmap176_mask));
-   eventbox_Original_Midgard = manage(new class Gtk::EventBox());
+   Gtk::Image *pixmap176 = Gtk::manage(new class Gtk::Image(_pixmap176_pixmap, _pixmap176_mask));
+   eventbox_Original_Midgard = Gtk::manage(new class Gtk::EventBox());
    
    Glib::RefPtr<Gdk::Bitmap> _pixmap164_mask;
    Glib::RefPtr<Gdk::Pixmap> _pixmap164_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _pixmap164_mask, NSC_Mode_26_xpm);
-   Gtk::Image *pixmap164 = manage(new class Gtk::Image(_pixmap164_pixmap, _pixmap164_mask));
-   eventbox_NSC_aktiv = manage(new class Gtk::EventBox());
+   Gtk::Image *pixmap164 = Gtk::manage(new class Gtk::Image(_pixmap164_pixmap, _pixmap164_mask));
+   eventbox_NSC_aktiv = Gtk::manage(new class Gtk::EventBox());
    
    Glib::RefPtr<Gdk::Bitmap> _pixmap165_mask;
    Glib::RefPtr<Gdk::Pixmap> _pixmap165_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _pixmap165_mask, MAGUS_Logo_Tiny_xpm);
-   Gtk::Image *pixmap165 = manage(new class Gtk::Image(_pixmap165_pixmap, _pixmap165_mask));
-   eventbox_wizard_aktiv = manage(new class Gtk::EventBox());
-   frame_haus_status = manage(new class Gtk::Frame());
+   Gtk::Image *pixmap165 = Gtk::manage(new class Gtk::Image(_pixmap165_pixmap, _pixmap165_mask));
+   eventbox_wizard_aktiv = Gtk::manage(new class Gtk::EventBox());
+   frame_haus_status = Gtk::manage(new class Gtk::Frame());
    
-   Gtk::HBox *hbox88 = manage(new class Gtk::HBox(false, 0));
-   handlebox_status = manage(new class Gtk::HandleBox());
+   Gtk::HBox *hbox88 = Gtk::manage(new class Gtk::HBox(false, 0));
+   handlebox_status = Gtk::manage(new class Gtk::HandleBox());
    
-   Gtk::Table *main_table = manage(new class Gtk::Table(4, 1, false));
+   Gtk::Table *main_table = Gtk::manage(new class Gtk::Table(4, 1, false));
    Glib::RefPtr<Gdk::Bitmap> _button_neuer_charakter_img_mask;
    Glib::RefPtr<Gdk::Pixmap> _button_neuer_charakter_img_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _button_neuer_charakter_img_mask, NewChar_trans_50_xpm);
-   Gtk::Image *button_neuer_charakter_img = manage(new class Gtk::Image(_button_neuer_charakter_img_pixmap, _button_neuer_charakter_img_mask));
+   Gtk::Image *button_neuer_charakter_img = Gtk::manage(new class Gtk::Image(_button_neuer_charakter_img_pixmap, _button_neuer_charakter_img_mask));
    
    toolbar_top->tools().push_back(Gtk::Toolbar_Helpers::ButtonElem("Neu", *button_neuer_charakter_img, Gtk::Toolbar_Helpers::Callback0()));
    Gtk::Button *button_neuer_charakter = static_cast<Gtk::Button *>(toolbar_top->tools().back().get_widget());
    Glib::RefPtr<Gdk::Bitmap> _button9_img_mask;
    Glib::RefPtr<Gdk::Pixmap> _button9_img_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _button9_img_mask, LoadChar_trans_50_xpm);
-   Gtk::Image *button9_img = manage(new class Gtk::Image(_button9_img_pixmap, _button9_img_mask));
+   Gtk::Image *button9_img = Gtk::manage(new class Gtk::Image(_button9_img_pixmap, _button9_img_mask));
    
    toolbar_top->tools().push_back(Gtk::Toolbar_Helpers::ButtonElem("Öffnen", *button9_img, Gtk::Toolbar_Helpers::Callback0()));
    Gtk::Button *button9 = static_cast<Gtk::Button *>(toolbar_top->tools().back().get_widget());
    Glib::RefPtr<Gdk::Bitmap> _button8_img_mask;
    Glib::RefPtr<Gdk::Pixmap> _button8_img_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _button8_img_mask, SaveChar_trans_50_xpm);
-   Gtk::Image *button8_img = manage(new class Gtk::Image(_button8_img_pixmap, _button8_img_mask));
+   Gtk::Image *button8_img = Gtk::manage(new class Gtk::Image(_button8_img_pixmap, _button8_img_mask));
    
    toolbar_top->tools().push_back(Gtk::Toolbar_Helpers::ButtonElem("Speichern", *button8_img, Gtk::Toolbar_Helpers::Callback0()));
    Gtk::Button *button8 = static_cast<Gtk::Button *>(toolbar_top->tools().back().get_widget());
    Glib::RefPtr<Gdk::Bitmap> _button_main_drucken_img_mask;
    Glib::RefPtr<Gdk::Pixmap> _button_main_drucken_img_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _button_main_drucken_img_mask, PrintChar_trans_50_xpm);
-   Gtk::Image *button_main_drucken_img = manage(new class Gtk::Image(_button_main_drucken_img_pixmap, _button_main_drucken_img_mask));
+   Gtk::Image *button_main_drucken_img = Gtk::manage(new class Gtk::Image(_button_main_drucken_img_pixmap, _button_main_drucken_img_mask));
    
    toolbar_top->tools().push_back(Gtk::Toolbar_Helpers::ButtonElem("Drucken", *button_main_drucken_img, Gtk::Toolbar_Helpers::Callback0()));
    button_main_drucken = static_cast<Gtk::Button *>(toolbar_top->tools().back().get_widget());
@@ -256,13 +256,13 @@ midgard_CG_glade::midgard_CG_glade(
    
    Glib::RefPtr<Gdk::Bitmap> _button_undo_img_mask;
    Glib::RefPtr<Gdk::Pixmap> _button_undo_img_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _button_undo_img_mask, Undo_xpm);
-   Gtk::Image *button_undo_img = manage(new class Gtk::Image(_button_undo_img_pixmap, _button_undo_img_mask));
+   Gtk::Image *button_undo_img = Gtk::manage(new class Gtk::Image(_button_undo_img_pixmap, _button_undo_img_mask));
    
    toolbar_top->tools().push_back(Gtk::Toolbar_Helpers::ButtonElem("Zurück", *button_undo_img, Gtk::Toolbar_Helpers::Callback0()));
    button_undo = static_cast<Gtk::Button *>(toolbar_top->tools().back().get_widget());
    Glib::RefPtr<Gdk::Bitmap> _button_redo_img_mask;
    Glib::RefPtr<Gdk::Pixmap> _button_redo_img_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _button_redo_img_mask, redo_xpm);
-   Gtk::Image *button_redo_img = manage(new class Gtk::Image(_button_redo_img_pixmap, _button_redo_img_mask));
+   Gtk::Image *button_redo_img = Gtk::manage(new class Gtk::Image(_button_redo_img_pixmap, _button_redo_img_mask));
    
    toolbar_top->tools().push_back(Gtk::Toolbar_Helpers::ButtonElem("Vorwärts", *button_redo_img, Gtk::Toolbar_Helpers::Callback0()));
    button_redo = static_cast<Gtk::Button *>(toolbar_top->tools().back().get_widget());
@@ -270,19 +270,19 @@ midgard_CG_glade::midgard_CG_glade(
    
    Glib::RefPtr<Gdk::Bitmap> _button_menu_img_mask;
    Glib::RefPtr<Gdk::Pixmap> _button_menu_img_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _button_menu_img_mask, wizzard_trans_50_2_xpm);
-   Gtk::Image *button_menu_img = manage(new class Gtk::Image(_button_menu_img_pixmap, _button_menu_img_mask));
+   Gtk::Image *button_menu_img = Gtk::manage(new class Gtk::Image(_button_menu_img_pixmap, _button_menu_img_mask));
    
    toolbar_top->tools().push_back(Gtk::Toolbar_Helpers::ButtonElem("Menü", *button_menu_img, Gtk::Toolbar_Helpers::Callback0()));
    Gtk::Button *button_menu = static_cast<Gtk::Button *>(toolbar_top->tools().back().get_widget());
    Glib::RefPtr<Gdk::Bitmap> _button_info_img_mask;
    Glib::RefPtr<Gdk::Pixmap> _button_info_img_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _button_info_img_mask, Info_trans_50_xpm);
-   Gtk::Image *button_info_img = manage(new class Gtk::Image(_button_info_img_pixmap, _button_info_img_mask));
+   Gtk::Image *button_info_img = Gtk::manage(new class Gtk::Image(_button_info_img_pixmap, _button_info_img_mask));
    
    toolbar_top->tools().push_back(Gtk::Toolbar_Helpers::ButtonElem("Info", *button_info_img, Gtk::Toolbar_Helpers::Callback0()));
    Gtk::Button *button_info = static_cast<Gtk::Button *>(toolbar_top->tools().back().get_widget());
    Glib::RefPtr<Gdk::Bitmap> _button_html_hilfe_img_mask;
    Glib::RefPtr<Gdk::Pixmap> _button_html_hilfe_img_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _button_html_hilfe_img_mask, Help_trans_new1_xpm);
-   Gtk::Image *button_html_hilfe_img = manage(new class Gtk::Image(_button_html_hilfe_img_pixmap, _button_html_hilfe_img_mask));
+   Gtk::Image *button_html_hilfe_img = Gtk::manage(new class Gtk::Image(_button_html_hilfe_img_pixmap, _button_html_hilfe_img_mask));
    
    toolbar_top->tools().push_back(Gtk::Toolbar_Helpers::ButtonElem("Anleitung", *button_html_hilfe_img, Gtk::Toolbar_Helpers::Callback0()));
    Gtk::Button *button_html_hilfe = static_cast<Gtk::Button *>(toolbar_top->tools().back().get_widget());
@@ -290,7 +290,7 @@ midgard_CG_glade::midgard_CG_glade(
    
    Glib::RefPtr<Gdk::Bitmap> _button_schliessen_img_mask;
    Glib::RefPtr<Gdk::Pixmap> _button_schliessen_img_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _button_schliessen_img_mask, Exit_trans_50_xpm);
-   Gtk::Image *button_schliessen_img = manage(new class Gtk::Image(_button_schliessen_img_pixmap, _button_schliessen_img_mask));
+   Gtk::Image *button_schliessen_img = Gtk::manage(new class Gtk::Image(_button_schliessen_img_pixmap, _button_schliessen_img_mask));
    
    toolbar_top->tools().push_back(Gtk::Toolbar_Helpers::ButtonElem("Schließen", *button_schliessen_img, Gtk::Toolbar_Helpers::Callback0()));
    button_schliessen = static_cast<Gtk::Button *>(toolbar_top->tools().back().get_widget());
@@ -301,52 +301,52 @@ midgard_CG_glade::midgard_CG_glade(
    exportieren_main_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Exportieren für Ranas pdf-Dokumente"));
    exportieren_ranas_pdf_dokumente = (Gtk::MenuItem *)&exportieren_main_menu->items().back();
    
-   ausr__stungsdokument_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Nur sichtbares", Gtk::Menu_Helpers::AccelKey(Gdk::CONTROL_MASK, GDK_A)));
+   ausr__stungsdokument_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Nur sichtbares", Gtk::Menu_Helpers::AccelKey( GDK_A,Gdk::CONTROL_MASK)));
    nur_sichtbares = (Gtk::MenuItem *)&ausr__stungsdokument_menu->items().back();
    
-   ausr__stungsdokument_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Alles drucken", Gtk::Menu_Helpers::AccelKey(Gdk::MOD1_MASK, GDK_A)));
+   ausr__stungsdokument_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Alles drucken", Gtk::Menu_Helpers::AccelKey( GDK_A,Gdk::MOD1_MASK)));
    unsichtbares_drucken = (Gtk::MenuItem *)&ausr__stungsdokument_menu->items().back();
    
-   drucken1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Abenteurerdokument", Gtk::Menu_Helpers::AccelKey(Gdk::CONTROL_MASK, GDK_P)));
+   drucken1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Abenteurerdokument", Gtk::Menu_Helpers::AccelKey( GDK_P,Gdk::CONTROL_MASK)));
    abenteurerdokument = (Gtk::MenuItem *)&drucken1_menu->items().back();
    
    drucken1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Ausrüstungsdokument", *ausr__stungsdokument_menu));
    ausr__stungsdokument = (Gtk::MenuItem *)&drucken1_menu->items().back();
    
-   drucken1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Beschreibung", Gtk::Menu_Helpers::AccelKey(Gdk::CONTROL_MASK, GDK_B)));
+   drucken1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Beschreibung", Gtk::Menu_Helpers::AccelKey( GDK_B,Gdk::CONTROL_MASK)));
    beschreibung = (Gtk::MenuItem *)&drucken1_menu->items().back();
    
-   drucken1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Alles drucken", Gtk::Menu_Helpers::AccelKey(Gdk::MOD1_MASK, GDK_P)));
+   drucken1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Alles drucken", Gtk::Menu_Helpers::AccelKey( GDK_P,Gdk::MOD1_MASK)));
    alles_drucken = (Gtk::MenuItem *)&drucken1_menu->items().back();
    
    drucken1_menu->items().push_back(Gtk::Menu_Helpers::SeparatorElem());
    trennlinie4 = (Gtk::MenuItem *)&drucken1_menu->items().back();
    
-   drucken1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Leeres Abenteurerblatt", Gtk::Menu_Helpers::AccelKey(Gdk::CONTROL_MASK, GDK_E)));
+   drucken1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Leeres Abenteurerblatt", Gtk::Menu_Helpers::AccelKey( GDK_E,Gdk::CONTROL_MASK)));
    leeres_abenteurerblatt = (Gtk::MenuItem *)&drucken1_menu->items().back();
    
    drucken1_menu->items().push_back(Gtk::Menu_Helpers::SeparatorElem());
    trennlinie6 = (Gtk::MenuItem *)&drucken1_menu->items().back();
    
-   drucken1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Spielleiterbogen", Gtk::Menu_Helpers::AccelKey(Gdk::MOD1_MASK, GDK_S)));
+   drucken1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Spielleiterbogen", Gtk::Menu_Helpers::AccelKey( GDK_S,Gdk::MOD1_MASK)));
    spielleiterbogen_drucken = (Gtk::MenuItem *)&drucken1_menu->items().back();
    
-   magus1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Neuer Abenteurer", Gtk::Menu_Helpers::AccelKey(Gdk::MOD1_MASK, GDK_N)));
+   magus1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Neuer Abenteurer", Gtk::Menu_Helpers::AccelKey( GDK_N,Gdk::MOD1_MASK)));
    neuen_abenteurer1 = (Gtk::MenuItem *)&magus1_menu->items().back();
    
-   magus1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Neuer Abenteurer mit Wizard", Gtk::Menu_Helpers::AccelKey(Gdk::CONTROL_MASK, GDK_N)));
+   magus1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Neuer Abenteurer mit Wizard", Gtk::Menu_Helpers::AccelKey( GDK_N,Gdk::CONTROL_MASK)));
    neuer_abenteurer_mit_wizard1 = (Gtk::MenuItem *)&magus1_menu->items().back();
    
-   magus1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Wizard beenden", Gtk::Menu_Helpers::AccelKey(Gdk::MOD1_MASK, GDK_W)));
+   magus1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Wizard beenden", Gtk::Menu_Helpers::AccelKey( GDK_W,Gdk::MOD1_MASK)));
    wizard_beenden = (Gtk::MenuItem *)&magus1_menu->items().back();
    
    magus1_menu->items().push_back(Gtk::Menu_Helpers::SeparatorElem());
    trennlinie3 = (Gtk::MenuItem *)&magus1_menu->items().back();
    
-   magus1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Öffnen", Gtk::Menu_Helpers::AccelKey(Gdk::CONTROL_MASK, GDK_O)));
+   magus1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Öffnen", Gtk::Menu_Helpers::AccelKey( GDK_O,Gdk::CONTROL_MASK)));
    laden1 = (Gtk::MenuItem *)&magus1_menu->items().back();
    
-   magus1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Speichern", Gtk::Menu_Helpers::AccelKey(Gdk::CONTROL_MASK, GDK_S)));
+   magus1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Speichern", Gtk::Menu_Helpers::AccelKey( GDK_S,Gdk::CONTROL_MASK)));
    speichern1 = (Gtk::MenuItem *)&magus1_menu->items().back();
    
    magus1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Speichern unter ..."));
@@ -364,16 +364,16 @@ midgard_CG_glade::midgard_CG_glade(
    magus1_menu->items().push_back(Gtk::Menu_Helpers::SeparatorElem());
    trennlinie2 = (Gtk::MenuItem *)&magus1_menu->items().back();
    
-   magus1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Beenden", Gtk::Menu_Helpers::AccelKey(Gdk::CONTROL_MASK, GDK_Q)));
+   magus1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Beenden", Gtk::Menu_Helpers::AccelKey( GDK_Q,Gdk::CONTROL_MASK)));
    beenden1 = (Gtk::MenuItem *)&magus1_menu->items().back();
    
    magus1_menu->items().push_back(Gtk::Menu_Helpers::SeparatorElem());
    trennlinie5 = (Gtk::MenuItem *)&magus1_menu->items().back();
    
-   bearbeiten1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Rückgängig", Gtk::Menu_Helpers::AccelKey(Gdk::CONTROL_MASK, GDK_Z)));
+   bearbeiten1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Rückgängig", Gtk::Menu_Helpers::AccelKey( GDK_Z,Gdk::CONTROL_MASK)));
    r__ckg__ngig1 = (Gtk::MenuItem *)&bearbeiten1_menu->items().back();
    
-   bearbeiten1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Erneut/Vorwärts", Gtk::Menu_Helpers::AccelKey(Gdk::CONTROL_MASK, GDK_R)));
+   bearbeiten1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Erneut/Vorwärts", Gtk::Menu_Helpers::AccelKey( GDK_R,Gdk::CONTROL_MASK)));
    erneut_vorw__rts1 = (Gtk::MenuItem *)&bearbeiten1_menu->items().back();
    
    bearbeiten1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("Geschichte"));
@@ -388,13 +388,13 @@ midgard_CG_glade::midgard_CG_glade(
    hilfe1_menu->items().push_back(Gtk::Menu_Helpers::MenuElem("News"));
    news_menu = (Gtk::MenuItem *)&hilfe1_menu->items().back();
    
-   main_menubar->items().push_back(Gtk::Menu_Helpers::MenuElem("_Datei", Gtk::Menu_Helpers::AccelKey(Gdk::CONTROL_MASK, GDK_D), *magus1_menu));
+   main_menubar->items().push_back(Gtk::Menu_Helpers::MenuElem("_Datei", Gtk::Menu_Helpers::AccelKey( GDK_D,Gdk::CONTROL_MASK), *magus1_menu));
    magus1 = (Gtk::MenuItem *)&main_menubar->items().back();
    
-   main_menubar->items().push_back(Gtk::Menu_Helpers::MenuElem("_Bearbeiten", Gtk::Menu_Helpers::AccelKey(Gdk::CONTROL_MASK, GDK_B), *bearbeiten1_menu));
+   main_menubar->items().push_back(Gtk::Menu_Helpers::MenuElem("_Bearbeiten", Gtk::Menu_Helpers::AccelKey( GDK_B,Gdk::CONTROL_MASK), *bearbeiten1_menu));
    bearbeiten1 = (Gtk::MenuItem *)&main_menubar->items().back();
    
-   main_menubar->items().push_back(Gtk::Menu_Helpers::MenuElem("_Hilfe", Gtk::Menu_Helpers::AccelKey(Gdk::CONTROL_MASK, GDK_H), *hilfe1_menu));
+   main_menubar->items().push_back(Gtk::Menu_Helpers::MenuElem("_Hilfe", Gtk::Menu_Helpers::AccelKey( GDK_H,Gdk::CONTROL_MASK), *hilfe1_menu));
    hilfe1 = (Gtk::MenuItem *)&main_menubar->items().back();
    button_neuer_charakter->set_flags(Gtk::CAN_FOCUS);
    _tooltips.set_tip(*button_neuer_charakter, "Linke Maustaste: Neuer Abenteurer mit Wizard generieren    Rechte Maustaste: Neuen Abenteurer ohne Wizard gegerieren.", "");

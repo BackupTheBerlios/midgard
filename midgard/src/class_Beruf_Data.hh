@@ -17,7 +17,7 @@
  */
 
 #include <Misc/EntryValueIntString.h>
-#include <rowdata.h>
+#include <RowDataBase.h>
 #include "Beruf.hh"
 
 class Beruf_Data : public RowDataBase

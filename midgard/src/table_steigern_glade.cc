@@ -1863,7 +1863,6 @@ table_steigern_glade::table_steigern_glade(GlademmData *_data
    neue_schrift_tree->signal_leaf_selected().connect(SigC::slot(*this, &table_steigern_glade::on_leaf_selected_neue_schrift));
    button_ruestung_1->signal_toggled().connect(SigC::slot(*this, &table_steigern_glade::on_button_ruestung_1_toggled));
    button_ruestung_2->signal_toggled().connect(SigC::slot(*this, &table_steigern_glade::on_button_ruestung_2_toggled));
-   clist_ruestung->signal_select_row().connect(SigC::slot(*this, &table_steigern_glade::on_clist_ruestung_select_row));
    spinbutton_av_bonus->signal_activate().connect(SigC::slot(*this, &table_steigern_glade::on_spinbutton_av_bonus_activate));
    spinbutton_sl_bonus->signal_activate().connect(SigC::slot(*this, &table_steigern_glade::on_spinbutton_sl_bonus_activate));
    entry_magisch->signal_activate().connect(SigC::slot(*this, &table_steigern_glade::on_entry_magisch_activate));

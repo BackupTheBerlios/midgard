@@ -249,7 +249,6 @@ private:
         virtual void on_leaf_selected_neue_schrift(cH_RowDataBase leaf) = 0;
         virtual void on_button_ruestung_1_toggled() = 0;
         virtual void on_button_ruestung_2_toggled() = 0;
-        virtual void on_clist_ruestung_select_row() = 0;
         virtual void on_spinbutton_av_bonus_activate() = 0;
         virtual void on_spinbutton_sl_bonus_activate() = 0;
         virtual void on_entry_magisch_activate() = 0;

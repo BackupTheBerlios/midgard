@@ -21,6 +21,7 @@
 #include "Data_NewPreis.hh"
 #include <Misc/mystring.h>
 
+#if 0
 //static  Gdk_Pixmap drag_icon;
 //#include "/tmp/testdrag_and_drop.xpm"
 
@@ -30,12 +31,13 @@ const GtkTargetEntry table_ausruestung::target_table[4] = {
            { "text/uri-std::list", 0, table_ausruestung::TARGET_URL },
            { "application/x-rootwin-drop", 0, table_ausruestung::TARGET_ROOTWIN}
            };
+#endif
 
 table_ausruestung::table_ausruestung(GlademmData *_data)
 : table_ausruestung_glade(_data) , hauptfenster(0), besitz(0)
 {
 //  target_table=tt;
-  n_targets = sizeof(target_table) / sizeof(target_table[0]);
+//  n_targets = sizeof(target_table) / sizeof(target_table[0]);
 
 /*
   Gdk_Color transparent;
@@ -52,6 +54,7 @@ table_ausruestung::table_ausruestung(GlademmData *_data)
 
 // Ausruestung_tree->signal_drag_drop().connect(slot(this,&(table_ausruestung::target_drag_drop)));
 
+#if 0
   preise_tree_neu->drag_source_set ( static_cast < GdkModifierType > ( GDK_BUTTON1_MASK | GDK_BUTTON3_MASK ) ,
                              target_table, n_targets,
                              static_cast < GdkDragAction > ( GDK_ACTION_COPY | GDK_ACTION_MOVE ) );
@@ -62,9 +65,17 @@ table_ausruestung::table_ausruestung(GlademmData *_data)
   checkbutton_ausruestung_geld->drag_dest_set ( Gtk::DEST_DEFAULT_ALL,
                           target_table, n_targets - 1, /* no rootwin */
                           static_cast < GdkDragAction > ( GDK_ACTION_COPY | GDK_ACTION_MOVE) );
-
+#endif                          
+  
+  Ausruestung_tree->set_model(m_refStore);
+  Ausruestung_tree->append_column("Titel",m_columns.name);
+  Ausruestung_tree->append_column("Material",m_columns.material);
+  Ausruestung_tree->append_column("Gewicht",m_columns.gewicht);
+  Ausruestung_tree->append_column("Sichtbar",m_columns.sichtbar);
+  Ausruestung_tree->append_column("Region",m_columns.region);
 }
 
+#if 0
 void table_ausruestung::tree_drag_data_received(GdkDragContext *context, 
                                   gint x,gint y,
                                   GtkSelectionData   *data,
@@ -135,3 +146,4 @@ std::cout << "IN: "<<data<<" at "<<*adresse<<'\t'<<'\n';
    }catch(std::exception &e) {std::cerr << e.what()<<'\n';}   
 }
 
+#endif

@@ -19,7 +19,7 @@
 #ifndef _CLASS_SIMPLELERN_HH
 #  define _CLASS_SIMPLELERN_HH
 
-#include <rowdata.h>   
+#include <RowDataBase.h>   
 #include "Land.hh"
 #include <Misc/EntryValueIntString.h>
 #include "MidgardBasicElement.hh"

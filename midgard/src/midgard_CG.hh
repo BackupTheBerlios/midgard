@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.311 2002/12/12 09:59:35 christof Exp $
+// $Id: midgard_CG.hh,v 1.312 2002/12/14 23:45:11 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -221,7 +221,7 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
                                 PAGE_BESCHREIBUNG,PAGE_AUSRUESTUNG,PAGE_OPTIONEN,
                                 PAGE_NEWS,PAGE_ZUFALL};
    private:
-        void on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page* page,guint pagenr);
+        void on_notebook_main_switch_page(GtkNotebookPage *page,guint pagenr);
         bool on_eventbox_ausruestung_button_release_event(GdkEventButton *event);
         bool on_eventbox_credits_button_release_event(GdkEventButton *event);
         bool on_eventbox_geschichte_button_release_event(GdkEventButton *event);
@@ -276,7 +276,7 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
        // Diverses
    private:
 //        SigC::signal_Connection().connection_status;
-        gint timeout_status();
+        bool timeout_status();
         friend class Datenbank;
         Tag tag_eigene_artikel;
    protected:

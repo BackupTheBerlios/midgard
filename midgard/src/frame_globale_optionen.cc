@@ -35,28 +35,28 @@ void frame_globale_optionen::init()
    bool_CheckButton *cb = manage(new bool_CheckButton(i->active,i->text));
    i->active.signal_changed().connect(SigC::bind(SigC::slot(*this,&frame_globale_optionen::element_activate_C),i->index));
    Gtk::Table *t=manage(new Gtk::Table(0,0,false));
-   t->attach(*cb,0,1,0,1,Gtk::FILL,0,0,0);
+   t->attach(*cb,0,1,0,1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
    if(i->wert!=hauptfenster->NOPAGE) 
     {
       int min=hauptfenster->PAGE_INFO;
       int max=hauptfenster->PAGE_ZUFALL;
-      int_SpinButton *spin=manage(new int_SpinButton(i->wert, min, max));
+      int_SpinButton *spin=Gtk::manage(new int_SpinButton(i->wert, min, max));
       i->active.signal_changed().connect(SigC::bind(SigC::slot(*this,&frame_globale_optionen::element_show_or_hide),spin,&(i->wert)));
-      t->attach(*spin,1,2,0,1,Gtk::FILL,0,0,0);
+      t->attach(*spin,1,2,0,1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
     }
    else if(i->bild)
     {
-      Gtk::Image *_o=manage(new Gtk::Image(i->bild));
-      t->attach(*_o,1,2,0,1,Gtk::FILL,0,0,0);
+      Gtk::Image *_o=Gtk::manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(i->bild)));
+      t->attach(*_o,1,2,0,1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
     }
-   table->attach(*t,0,1,count,count+1,Gtk::FILL,0,0,0);
+   table->attach(*t,0,1,count,count+1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
    ++count;
   } 
  Gtk::HSeparator *hseparator = manage(new class Gtk::HSeparator());
- table->attach(*hseparator, 0, 1, count, count+1, Gtk::FILL, 0, 0, 0);
+ table->attach(*hseparator, 0, 1, count, count+1, Gtk::FILL, Gtk::AttachOptions(0), 0, 0);
  ++count;
  Gtk::Label *label = manage(new class Gtk::Label("Hausregeln"));
- table->attach(*label, 0, 1, count, count+1, 0, 0, 0, 0);
+ table->attach(*label, 0, 1, count, count+1, Gtk::AttachOptions(0), Gtk::AttachOptions(0), 0, 0);
  ++count;
  std::list<Midgard_Optionen::st_Haus> &L2=hauptfenster->getOptionen()->getHausregeln();
  for(std::list<Midgard_Optionen::st_Haus>::iterator i=L2.begin();i!=L2.end();++i)
@@ -65,13 +65,13 @@ void frame_globale_optionen::init()
    i->active.signal_changed().connect(SigC::bind(SigC::slot(*this,&frame_globale_optionen::element_activate_H),i->index));
 
    Gtk::Table *t=manage(new Gtk::Table(0,0,false));
-   t->attach(*cb,0,1,0,1,Gtk::FILL,0,0,0);
+   t->attach(*cb,0,1,0,1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
    if(i->bild)
      {
-        Gtk::Image *_o=manage(new Gtk::Image(i->bild));
-        t->attach(*_o,1,2,0,1,Gtk::FILL,0,0,0);
+        Gtk::Image *_o=manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(i->bild)));
+        t->attach(*_o,1,2,0,1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
      }
-   table->attach(*t,0,1,count,count+1,Gtk::FILL,0,0,0);
+   table->attach(*t,0,1,count,count+1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
    ++count;
   } 
  add(*table);

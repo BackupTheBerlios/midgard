@@ -68,56 +68,56 @@ Gtk::Image *RegionenPic::Pic(epic typ,Midgard_Optionen::IconIndex ii,bool tiny)
 {  
  if(ii==Midgard_Optionen::Ulf)
  {
-   if      (typ==Eschar)     return manage(new Gtk::Image(ulf_regionen_16_eschar_xpm));
-   else if (typ==KanThaiPan) return manage(new Gtk::Image(ulf_regionen_16_kanthaipan_xpm));
-   else if (typ==DFR)        return manage(new Gtk::Image(Regio_DFR_4_26_xpm));
-   else if (typ==Rawindra)   return manage(new Gtk::Image(ulf_regionen_16_rawindra_xpm));
-   else if (typ==Alba)       return manage(new Gtk::Image(ulf_regionen_16_alba_xpm));
-   else if (typ==Waeland)    return manage(new Gtk::Image(ulf_regionen_16_waeland_xpm));
-   else if (typ==Nahuatlan)  return manage(new Gtk::Image(ulf_regionen_16_nahuatlan_xpm));
-   else if (typ==Arkanum)    return manage(new Gtk::Image(Regio_Arkanum_26_xpm));
-   else if (typ==Gildenbrief)return manage(new Gtk::Image(ulf_regionen_16_gildenbrief_xpm));
-   else if (typ==HD)         return manage(new Gtk::Image(ulf_regionen_16_hexenzauber_xpm));
-   else if (typ==HD_finster) return manage(new Gtk::Image(ulf_regionen_16_finstermagier_xpm));
-   else if (typ==Tipps_und_Tricks) return manage(new Gtk::Image(ulf_regionen_16_kompendium_xpm));
-   else if (typ==Abenteuer)  return manage(new Gtk::Image(ulf_regionen_16_abenteuer_xpm));
+   if      (typ==Eschar)     return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(ulf_regionen_16_eschar_xpm)));
+   else if (typ==KanThaiPan) return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(ulf_regionen_16_kanthaipan_xpm)));
+   else if (typ==DFR)        return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_DFR_4_26_xpm)));
+   else if (typ==Rawindra)   return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(ulf_regionen_16_rawindra_xpm)));
+   else if (typ==Alba)       return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(ulf_regionen_16_alba_xpm)));
+   else if (typ==Waeland)    return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(ulf_regionen_16_waeland_xpm)));
+   else if (typ==Nahuatlan)  return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(ulf_regionen_16_nahuatlan_xpm)));
+   else if (typ==Arkanum)    return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_Arkanum_26_xpm)));
+   else if (typ==Gildenbrief)return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(ulf_regionen_16_gildenbrief_xpm)));
+   else if (typ==HD)         return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(ulf_regionen_16_hexenzauber_xpm)));
+   else if (typ==HD_finster) return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(ulf_regionen_16_finstermagier_xpm)));
+   else if (typ==Tipps_und_Tricks) return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(ulf_regionen_16_kompendium_xpm)));
+   else if (typ==Abenteuer)  return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(ulf_regionen_16_abenteuer_xpm)));
  }
  else 
  {
  if(!tiny)
   {
-   if      (typ==Eschar)     return manage(new Gtk::Image(Eschar_trans_50_xpm));
-   else if (typ==KanThaiPan) return manage(new Gtk::Image(KiDo_trans_50_xpm));
-   else if (typ==DFR)        return manage(new Gtk::Image(Regio_DFR_4_50_xpm));
-   else if (typ==Rawindra)   return manage(new Gtk::Image(Regio_Rawindra_50_xpm));
-   else if (typ==Alba)       return manage(new Gtk::Image(Regio_Alba_50_xpm));
-   else if (typ==Waeland)    return manage(new Gtk::Image(Regio_Waeland_50_xpm));
-   else if (typ==Nahuatlan)  return manage(new Gtk::Image(Regio_Nahuatlan_50_xpm));
-   else if (typ==Arkanum)    return manage(new Gtk::Image(Regio_Arkanum_50_xpm));
-   else if (typ==Gildenbrief)return manage(new Gtk::Image(Regio_Gilde_50_xpm));
-   else if (typ==HD)         return manage(new Gtk::Image(Regio_H_u_D_50_xpm));
-   else if (typ==HD_finster) return manage(new Gtk::Image(Regio_H_u_D_F_50_xpm));
-   else if (typ==Tipps_und_Tricks) return manage(new Gtk::Image(TuT_50_xpm));
-   else if (typ==Abenteuer)  return manage(new Gtk::Image(Abwehr_50_xpm));
+   if      (typ==Eschar)     return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Eschar_trans_50_xpm)));
+   else if (typ==KanThaiPan) return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(KiDo_trans_50_xpm)));
+   else if (typ==DFR)        return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_DFR_4_50_xpm)));
+   else if (typ==Rawindra)   return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_Rawindra_50_xpm)));
+   else if (typ==Alba)       return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_Alba_50_xpm)));
+   else if (typ==Waeland)    return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_Waeland_50_xpm)));
+   else if (typ==Nahuatlan)  return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_Nahuatlan_50_xpm)));
+   else if (typ==Arkanum)    return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_Arkanum_50_xpm)));
+   else if (typ==Gildenbrief)return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_Gilde_50_xpm)));
+   else if (typ==HD)         return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_H_u_D_50_xpm)));
+   else if (typ==HD_finster) return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_H_u_D_F_50_xpm)));
+   else if (typ==Tipps_und_Tricks) return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(TuT_50_xpm)));
+   else if (typ==Abenteuer)  return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Abwehr_50_xpm)));
   }
  else
   {
-   if      (typ==Eschar)     return manage(new Gtk::Image(Eschar_trans_26_xpm));
-   else if (typ==KanThaiPan) return manage(new Gtk::Image(KiDo_trans_26_xpm));
-   else if (typ==DFR)        return manage(new Gtk::Image(Regio_DFR_4_26_xpm));
-   else if (typ==Rawindra)   return manage(new Gtk::Image(Regio_Rawindra_26_xpm));
-   else if (typ==Alba)       return manage(new Gtk::Image(Regio_Alba_26_xpm));
-   else if (typ==Waeland)    return manage(new Gtk::Image(Regio_Waeland_26_xpm));
-   else if (typ==Nahuatlan)  return manage(new Gtk::Image(Regio_Nahuatlan_26_xpm));
-   else if (typ==Arkanum)    return manage(new Gtk::Image(Regio_Arkanum_26_xpm));
-   else if (typ==Gildenbrief)return manage(new Gtk::Image(Regio_Gilde_26_xpm));
-   else if (typ==HD)         return manage(new Gtk::Image(Regio_H_u_D_26_xpm));
-   else if (typ==HD_finster) return manage(new Gtk::Image(Regio_H_u_D_F_26_xpm));
-   else if (typ==Tipps_und_Tricks) return manage(new Gtk::Image(TuT_26_xpm));
-   else if (typ==Abenteuer)  return manage(new Gtk::Image(Abwehr_26_xpm));
+   if      (typ==Eschar)     return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Eschar_trans_26_xpm)));
+   else if (typ==KanThaiPan) return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(KiDo_trans_26_xpm)));
+   else if (typ==DFR)        return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_DFR_4_26_xpm)));
+   else if (typ==Rawindra)   return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_Rawindra_26_xpm)));
+   else if (typ==Alba)       return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_Alba_26_xpm)));
+   else if (typ==Waeland)    return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_Waeland_26_xpm)));
+   else if (typ==Nahuatlan)  return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_Nahuatlan_26_xpm)));
+   else if (typ==Arkanum)    return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_Arkanum_26_xpm)));
+   else if (typ==Gildenbrief)return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_Gilde_26_xpm)));
+   else if (typ==HD)         return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_H_u_D_26_xpm)));
+   else if (typ==HD_finster) return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Regio_H_u_D_F_26_xpm)));
+   else if (typ==Tipps_und_Tricks) return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(TuT_26_xpm)));
+   else if (typ==Abenteuer)  return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Abwehr_26_xpm)));
   }
  }
- return manage(new Gtk::Image(pinguin_xpm));
+ return manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(pinguin_xpm)));
 }
 
 const char* const *RegionenPic::PicModel(epic typ,Midgard_Optionen::IconIndex ii,bool tiny)

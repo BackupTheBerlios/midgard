@@ -1,4 +1,4 @@
-// $Id: MidgardBasicTree.cc,v 1.24 2002/12/11 18:18:50 christof Exp $
+// $Id: MidgardBasicTree.cc,v 1.25 2002/12/14 23:45:10 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,7 +25,7 @@
 
 
 MidgardBasicTree::MidgardBasicTree(variante V)
-: SimpleTree(Cols(V),Attr(V))
+: SimpleTree(Cols(V))
 {
   set_tree_titles(V);
   set_value_data(gpointer(V));

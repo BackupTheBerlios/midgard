@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.289 2002/12/11 18:18:50 christof Exp $
+// $Id: midgard_CG.cc,v 1.290 2002/12/14 23:45:11 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -60,7 +60,7 @@ midgard_CG::midgard_CG(const std::string &_argv0,const std::string &_magus_verze
        on_wizard_starten_activate();
   else on_neuer_charakter_clicked();
   if(MOptionen->OptionenCheck(Midgard_Optionen::Notebook_start).wert!=-1) 
-     notebook_main->set_page(MOptionen->OptionenCheck(Midgard_Optionen::Notebook_start).wert);
+     notebook_main->set_current_page(MOptionen->OptionenCheck(Midgard_Optionen::Notebook_start).wert);
 
 
   menubar_init();

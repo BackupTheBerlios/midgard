@@ -56,7 +56,7 @@ void Wizard::evaluate_step(esteps step)
      next_step(SPEZIALGEBIET);
      return;
    }
-  hauptfenster->notebook_main->set_page(vecwiz[step].page);
+  hauptfenster->notebook_main->set_current_page(vecwiz[step].page);
   hauptfenster->set_wizard(vecwiz[step].text);
   hauptfenster->wizard_do_something();
 

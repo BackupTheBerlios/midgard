@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.119 2002/12/12 10:36:39 christof Exp $
+// $Id: midgard_CG_optionen.cc,v 1.120 2002/12/14 23:45:11 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -126,9 +126,9 @@ void midgard_CG::show_Icons(bool i)
 {
  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
  bool b=MOptionen->OberCheck(Midgard_Optionen::Beschriftungen).active;
- if     ( b && i) toolbar_top->set_style(Gtk::TOOLBAR_BOTH);
- else if( b &&!i) toolbar_top->set_style(Gtk::TOOLBAR_TEXT);
- else if(!b && i) toolbar_top->set_style(Gtk::TOOLBAR_ICONS);
+ if     ( b && i) toolbar_top->set_toolbar_style(Gtk::TOOLBAR_BOTH);
+ else if( b &&!i) toolbar_top->set_toolbar_style(Gtk::TOOLBAR_TEXT);
+ else if(!b && i) toolbar_top->set_toolbar_style(Gtk::TOOLBAR_ICONS);
  else if(!b &&!i) toolbar_top->hide();
 }
 
@@ -136,9 +136,9 @@ void midgard_CG::show_Beschriftungen(bool b)
 {
  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
  bool i=MOptionen->OberCheck(Midgard_Optionen::Icons).active;
- if     ( b && i) toolbar_top->set_style(Gtk::TOOLBAR_BOTH);
- else if( b &&!i) toolbar_top->set_style(Gtk::TOOLBAR_TEXT);
- else if(!b && i) toolbar_top->set_style(Gtk::TOOLBAR_ICONS);
+ if     ( b && i) toolbar_top->set_toolbar_style(Gtk::TOOLBAR_BOTH);
+ else if( b &&!i) toolbar_top->set_toolbar_style(Gtk::TOOLBAR_TEXT);
+ else if(!b && i) toolbar_top->set_toolbar_style(Gtk::TOOLBAR_ICONS);
  else if(!b &&!i) toolbar_top->hide();
 }
 
@@ -179,7 +179,7 @@ void midgard_CG::show_Hausregeln_active()
   for(std::list<Midgard_Optionen::st_Haus>::const_iterator i=MOptionen->getHausregeln().begin();i!=MOptionen->getHausregeln().end();++i)
    {
      if(!i->active) continue;
-     Gtk::Image *p=manage(new Gtk::Image(i->bild));     
+     Gtk::Image *p=manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(i->bild)));
      hb->pack_start(*p);
      if(i->active) p->show();
    }
@@ -208,9 +208,9 @@ void midgard_CG::on_checkbutton_Regionen_menu(gpointer gp,cH_Region region)
 {
  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
  table_grundwerte->fill_typauswahl();
- if(notebook_main->get_current_page_num()==PAGE_STEIGERN)
-    table_steigern->load_for_page(table_steigern->notebook_lernen->get_current_page_num());
- else if(notebook_main->get_current_page_num()==PAGE_AUSRUESTUNG)
+ if(notebook_main->get_current_page()==PAGE_STEIGERN)
+    table_steigern->load_for_page(table_steigern->notebook_lernen->get_current_page());
+ else if(notebook_main->get_current_page()==PAGE_AUSRUESTUNG)
     table_ausruestung->fill_new_preise();
 
  for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)

@@ -93,5 +93,5 @@ void window_Ausruestung::on_button_druck_clicked()
 
 void window_Ausruestung::on_button_close_clicked()
 {   
-  destroy();
+  delete this;
 }

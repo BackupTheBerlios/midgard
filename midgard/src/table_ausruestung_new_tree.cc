@@ -31,7 +31,7 @@ double Data_NewPreis::CalKosten() const
 }
 
 
-pair<table_ausruestung::e_spalten,std::string> table_ausruestung::enum_from_string(const std::string &s)
+std::pair<table_ausruestung::e_spalten,std::string> table_ausruestung::enum_from_string(const std::string &s)
 {
   
   if(s=="Farbe") return std::pair<table_ausruestung::e_spalten,std::string>(Farbe,"Farbe");

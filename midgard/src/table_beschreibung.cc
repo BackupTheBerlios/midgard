@@ -19,7 +19,9 @@ void table_beschreibung::init(midgard_CG *h)
 
 void table_beschreibung::save_beschreibung()
 {
-  std::string b=text_charakter_beschreibung->get_chars(0,text_charakter_beschreibung->get_length());
+  std::string b=text_charakter_beschreibung->get_buffer()->get_text(
+  	text_charakter_beschreibung->get_buffer()->begin(),
+  	text_charakter_beschreibung->get_buffer()->end());
   hauptfenster->getWerte().setBeschreibung(b);
   hauptfenster->undosave("Beschreibung geändert");
 }
@@ -48,11 +50,6 @@ bool table_beschreibung::on_button_grafik_button_release_event(GdkEventButton *e
 
 void table_beschreibung::on_button_grafik_clicked()
 {  
-#ifndef __MINGW32__
-  manage 
-#else    
-  delete 
-#endif   
   (new xml_fileselection(hauptfenster,xml_fileselection::Pix));
   hauptfenster->undosave("Bild geändert");
 }
@@ -72,10 +69,11 @@ bool table_beschreibung::on_spinbutton_pix_breite_focus_in_event(GdkEventFocus *
 
 void table_beschreibung::show_beschreibung()
 {
-  text_charakter_beschreibung->delete_text(0,text_charakter_beschreibung->get_length());
-  gint pos=0;
-  text_charakter_beschreibung->insert_text(hauptfenster->getWerte().Beschreibung().c_str()
-      , hauptfenster->getWerte().Beschreibung().size(), &pos);
+  text_charakter_beschreibung->get_buffer()->erase(
+  	text_charakter_beschreibung->get_buffer()->begin(),
+  	text_charakter_beschreibung->get_buffer()->end());
+  Gtk::TextBuffer::iterator pos=text_charakter_beschreibung->get_buffer()->begin();
+  text_charakter_beschreibung->get_buffer()->insert(pos, hauptfenster->getWerte().Beschreibung());
 
   std::string s="Bild";
   if(hauptfenster->getWerte().BeschreibungPix()!="")
@@ -90,13 +88,14 @@ void table_beschreibung::show_beschreibung()
 
 void table_beschreibung::insert_into_beschreibung(const std::string &s,const gint select_start,const gint select_end)
 {
-  gint pos=text_charakter_beschreibung->get_point();
-  text_charakter_beschreibung->insert_text(s.c_str(), s.size(), &pos);
-  
+  text_charakter_beschreibung->get_buffer()->insert_at_cursor(s);
+
+#if 0 // was taete das denn wenn es gehen wuerde? CP
   if(select_start!=select_end)
      text_charakter_beschreibung->select_region(pos-select_start,pos-select_end);
   if(select_start)
      text_charakter_beschreibung->set_point(pos-select_start);
+#endif     
   text_charakter_beschreibung->grab_focus();
 
 }

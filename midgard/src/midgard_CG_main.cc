@@ -16,7 +16,7 @@
  */
 
 #include "midgard_CG.hh"
-#include <gtkmm/main.h>
+#include <glibmm/main.h>
 #include <unistd.h>
 #include "Windows_Linux.hh"
 
@@ -26,13 +26,13 @@ void midgard_CG::set_status(const std::string &s,bool autoclean)
   InfoFenster->AppendShowLog(s);
   if(autoclean)
 //     connection_status=
-      Gtk::Main::signal_timeout().connect(slot(this,&midgard_CG::timeout_status),7000);
+  Glib::signal_timeout().connect(SigC::slot(*this,&midgard_CG::timeout_status),7000);
 }
 
-gint midgard_CG::timeout_status()
+bool midgard_CG::timeout_status()
 {
   label_status->set_text("");
-  return 0;
+  return false;
 }
 
 void midgard_CG::on_button_html_hilfe_clicked()
@@ -45,7 +45,7 @@ void midgard_CG::on_button_html_hilfe_clicked()
 
 void midgard_CG::on_button_info_clicked()
 {
-  notebook_main->set_page(PAGE_INFO);
+  notebook_main->set_current_page(PAGE_INFO);
 }
 
 
@@ -131,12 +131,12 @@ void midgard_CG::load_for_mainpage(guint pagenr)
 
 void midgard_CG::menu_geschichte_selected()
 {
- notebook_main->set_page(PAGE_NEWS);
+ notebook_main->set_current_page(PAGE_NEWS);
 }
 
 void midgard_CG::menu_einstellungen_aendern()
 {
- notebook_main->set_page(PAGE_OPTIONEN);
+ notebook_main->set_current_page(PAGE_OPTIONEN);
 }
 
 void midgard_CG::on_anleitung_menu_activate()
@@ -146,17 +146,17 @@ void midgard_CG::on_anleitung_menu_activate()
 
 void midgard_CG::on_info_credits_menu_activate()
 {
- notebook_main->set_page(PAGE_INFO);
+ notebook_main->set_current_page(PAGE_INFO);
 }
 
 void midgard_CG::on_news_menu_activate()
 {
- notebook_main->set_page(PAGE_NEWS);
+ notebook_main->set_current_page(PAGE_NEWS);
 }
 
 
 
-void midgard_CG::on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page *page,guint pagenr)
+void midgard_CG::on_notebook_main_switch_page(GtkNotebookPage *page,guint pagenr)
 {
  if (!in_dtor) 
   {
@@ -167,23 +167,23 @@ void midgard_CG::on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page *page,
 
 
 bool midgard_CG::on_eventbox_ausruestung_button_release_event(GdkEventButton *event)
-{ notebook_main->set_page(PAGE_AUSRUESTUNG); return false;}
+{ notebook_main->set_current_page(PAGE_AUSRUESTUNG); return false;}
 bool midgard_CG::on_eventbox_optionen_button_release_event(GdkEventButton *event)
-{ notebook_main->set_page(PAGE_OPTIONEN); return false;}
+{ notebook_main->set_current_page(PAGE_OPTIONEN); return false;}
 bool midgard_CG::on_eventbox_zufall_button_release_event(GdkEventButton *event)
-{ notebook_main->set_page(PAGE_ZUFALL); return false;}
+{ notebook_main->set_current_page(PAGE_ZUFALL); return false;}
 bool midgard_CG::on_eventbox_beschreibung_button_release_event(GdkEventButton *event)
-{ notebook_main->set_page(PAGE_BESCHREIBUNG); return false;}
+{ notebook_main->set_current_page(PAGE_BESCHREIBUNG); return false;}
 bool midgard_CG::on_eventbox_steigern_button_release_event(GdkEventButton *event)
-{ notebook_main->set_page(PAGE_STEIGERN); return false;}
+{ notebook_main->set_current_page(PAGE_STEIGERN); return false;}
 bool midgard_CG::on_eventbox_lernen_button_release_event(GdkEventButton *event)
-{ notebook_main->set_page(PAGE_LERNEN); return false;}
+{ notebook_main->set_current_page(PAGE_LERNEN); return false;}
 bool midgard_CG::on_eventbox_grundwerte_button_release_event(GdkEventButton *event)
-{ notebook_main->set_page(PAGE_GRUNDWERTE); return false;}
+{ notebook_main->set_current_page(PAGE_GRUNDWERTE); return false;}
 bool midgard_CG::on_eventbox_credits_button_release_event(GdkEventButton *event)
-{ notebook_main->set_page(PAGE_INFO); return false;}
+{ notebook_main->set_current_page(PAGE_INFO); return false;}
 bool midgard_CG::on_eventbox_geschichte_button_release_event(GdkEventButton *event)
-{ notebook_main->set_page(PAGE_NEWS); return false;}
+{ notebook_main->set_current_page(PAGE_NEWS); return false;}
 
 
 
@@ -197,7 +197,7 @@ void midgard_CG::on_schliessen_CG_clicked()
   MOptionen->save_options(filename,InfoFenster);
   if(Char.unsaved_exist())
    {
-     notebook_main->set_page(PAGE_NEWS);
+     notebook_main->set_current_page(PAGE_NEWS);
      set_status("Es existieren nichtgespeicherte Abenteurer",false);
      InfoFenster->AppendShow("Es existieren nichtgespeicherte Abenteurer,\n soll das Programm trotzdem beendet werden?",WindowInfo::Exit_ohne_speichern);
      return;
@@ -207,7 +207,7 @@ void midgard_CG::on_schliessen_CG_clicked()
 
 void midgard_CG::on_button_quit_confirm_clicked()
 {
-//  connection_status.signal_di().connect();
+//  connection_status.disconnect();
   Gtk::Main::instance()->quit();
 }
 

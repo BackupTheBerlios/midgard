@@ -14,7 +14,7 @@
 #include <../pixmaps/EditChar-trans-50.xpm>
 
 #include<gtkmm/label.h>
-#include<gtkmm/pixmap.h>
+#include<gtkmm/image.h>
 #include<gtkmm/box.h>
 #include <bool_CheckButton.hh>
 
@@ -43,7 +43,7 @@ void table_grundwerte::init(midgard_CG *h)
    _m->set_mode(false);
    eventbox_werte_edit->add(*_m);
    eventbox_werte_edit->show_all();
-   _m->signal_toggled().connect_after(SigC::slot(*this, &table_grundwerte::on_togglebutton_edit_werte_toggled));
+   _m->signal_toggled().connect(SigC::slot(*this, &table_grundwerte::on_togglebutton_edit_werte_toggled),true);
   }
   edit_sensitive(false);
   zeige_werte();

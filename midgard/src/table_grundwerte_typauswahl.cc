@@ -250,7 +250,7 @@ void table_grundwerte::kaempfer_lernt_zaubern()
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   if(!hauptfenster) return;
-  hauptfenster->notebook_main->set_page(midgard_CG::PAGE_GRUNDWERTE);
+  hauptfenster->notebook_main->set_current_page(midgard_CG::PAGE_GRUNDWERTE);
   doppelcharaktere();
   hauptfenster->InfoFenster->AppendShow("Jetzt unter 'Grundwerte' die zweite Charkakterklasse wählen\n",WindowInfo::None);
   if (hauptfenster->getWerte().Zaubern_wert()==2) 

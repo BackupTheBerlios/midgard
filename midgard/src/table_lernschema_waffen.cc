@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.26 2002/12/12 11:20:14 christof Exp $
+// $Id: table_lernschema_waffen.cc,v 1.27 2002/12/14 23:45:11 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -117,13 +117,13 @@ void table_lernschema::show_WaffenBesitz_lernschema()
   Gtk::Label *lA = manage(new Gtk::Label(itos(waffebesitzlernen.AWaffe())+" beliebige Waffen (einschließlich Zweihand- und Schußwaffen)",0));
   
 
-  table->attach(*lE,0,1,0,1,Gtk::FILL,0,0,0);
-  table->attach(*lA,0,1,1,2,Gtk::FILL,0,0,0);
-  table->attach(*tree_waffen_lernschema,0,1,2,3,Gtk::FILL,0,0,0);
+  table->attach(*lE,0,1,0,1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
+  table->attach(*lA,0,1,1,2,Gtk::FILL,Gtk::AttachOptions(0),0,0);
+  table->attach(*tree_waffen_lernschema,0,1,2,3,Gtk::FILL,Gtk::AttachOptions(0),0,0);
   if(waffebesitzlernen.getMagisch())
    {
      Gtk::Label *lM = manage(new Gtk::Label("Die erste gewählte Einhandwaffe ist magisch",0));
-     table->attach(*lM,0,1,3,4,Gtk::FILL,0,0,0);
+     table->attach(*lM,0,1,3,4,Gtk::FILL,Gtk::AttachOptions(0),0,0);
    }
   scrolledwindow_lernen->add(*table);  
   scrolledwindow_lernen->show_all();

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_oberflaeche.cc,v 1.2 2002/05/11 06:51:31 thoma Exp $
+// $Id: midgard_CG_oberflaeche.cc,v 1.3 2002/12/14 23:45:11 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,8 +22,8 @@
 
 void midgard_CG::setWindowPosition(int x,int y)
 {
-  Gdk_Window fenster=get_window();
-  fenster.move(x,y);
+  Glib::RefPtr<Gdk::Window> fenster=get_window();
+  fenster->move(x,y);
 }
 
 void midgard_CG::setWindowSize(int width,int height)
@@ -32,9 +32,8 @@ void midgard_CG::setWindowSize(int width,int height)
 }
                
 void midgard_CG::autoshrink(bool b)
-{
-  //set_policy(gint allow_shrink,gint allow_grow,gint auto_shrink);
-  set_policy(true,true,b);
+{ // unter 2.0 noch notwendig?
+  //set_policy(true,true,b);
 }
 
                

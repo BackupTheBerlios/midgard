@@ -53,7 +53,7 @@ void MidgardBasicElement::show_list_in_tree(
   std::vector<cH_RowDataBase> datavec;
   for (std::list<MBEmlt>::const_iterator i=BasicList.begin();i!=BasicList.end();++i)
       datavec.push_back(new Data_SimpleTree(*i,hauptfenster));
-  Tree->setDataVec(datavec,clear_me);
+  Tree->setDataVec(datavec); // ,clear_me); nonsense now
 }
 
 

@@ -34,16 +34,11 @@ void midgard_CG::xml_export_auswahl()
 { 
    if(Char->getWerte().Name_Abenteurer().empty())
     { set_status("Der Abenteurer braucht noch einen Namen"); 
-      notebook_main->set_page(PAGE_GRUNDWERTE);
+      notebook_main->set_current_page(PAGE_GRUNDWERTE);
 //      table_grundwerte->togglebutton_edit_werte->set_active(true);
       table_grundwerte->edit_werte=true;
       table_grundwerte->entry_nameC->grab_focus();
       return;}
-#ifndef __MINGW32__ 
- manage 
-#else
- delete
-#endif
  (new xml_fileselection(this,xml_fileselection::Save/*"Abenteurer speichern"*/));
 }
 
@@ -58,7 +53,7 @@ void midgard_CG::xml_export(const std::string& dateiname)
 {  
    if(Char->getWerte().Name_Abenteurer().empty())
     { set_status("Der Abenteurer braucht noch einen Namen"); 
-      notebook_main->set_page(PAGE_GRUNDWERTE);
+      notebook_main->set_current_page(PAGE_GRUNDWERTE);
       table_grundwerte->edit_werte=true;
 //      table_grundwerte->togglebutton_edit_werte->set_active(true);
       table_grundwerte->entry_nameC->grab_focus();
@@ -75,7 +70,7 @@ void midgard_CG::xml_export(const std::string& dateiname)
   Char->speicherstream(datei,getCDatabase(),getCOptionen());
   Char.saved();   
   push_back_LDateien(dateiname);
-  if(notebook_main->get_current_page_num() == PAGE_NEWS)
+  if(notebook_main->get_current_page() == PAGE_NEWS)
       load_for_mainpage(PAGE_NEWS);
 }
 

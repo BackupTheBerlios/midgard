@@ -25,7 +25,7 @@
 #include "Schrift.hh"
 #include "LernListen.hh"
 #include <typeinfo> // for bad_cast
-static SigC::signal_Connection().connection;
+static SigC::Connection connection;
 
 
 #include <gdk/gdk.h>
@@ -51,7 +51,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
     }
   lernen_zusatz_titel(was,MBE);
   datavec_zusatz.clear();
-  connection.signal_di().connect();
+  connection.disconnect();
 
   switch(was)
    {

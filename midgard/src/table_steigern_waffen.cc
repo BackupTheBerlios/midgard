@@ -93,7 +93,7 @@ void table_steigern::on_leaf_selected_alte_waffen(cH_RowDataBase d)
      if(radiobutton_verlernen->get_active()) alte_waffen_zeigen();
    }
   if(!spinbutton_pp_eingeben->is_visible())
-     alte_waffen_tree->unselect_all(); 
+     alte_waffen_tree->get_selection()->unselect_all(); 
 }
 
 void table_steigern::on_alte_waffen_reorder()

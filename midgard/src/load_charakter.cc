@@ -32,18 +32,13 @@ bool midgard_CG::on_laden_release_event(GdkEventButton *ev)
 
 void midgard_CG::xml_import_auswahl()
 {
-#ifndef __MINGW32__
-  manage 
-#else
-  delete
-#endif
   (new xml_fileselection(this,xml_fileselection::Load));
 }
 
 void midgard_CG::xml_import_history(const std::string datei)
 {
  xml_import(datei);
- load_for_mainpage(notebook_main->get_current_page_num());
+ load_for_mainpage(notebook_main->get_current_page());
 }
 
 void midgard_CG::xml_import(const std::string& datei)

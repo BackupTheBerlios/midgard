@@ -86,15 +86,15 @@ void table_lernschema::on_spinbutton_zaubern_activate()
 
 void table_lernschema::set_lernpunkte()
 {
-  gtk_spin_button_update(spinbutton_unge->gobj());
+  spinbutton_unge->update();
   lernpunkte.setUnge(spinbutton_unge->get_value_as_int());
-  gtk_spin_button_update(spinbutton_fach->gobj());
+  spinbutton_fach->update();
   lernpunkte.setFach(spinbutton_fach->get_value_as_int());
-  gtk_spin_button_update(spinbutton_allgemein->gobj());
+  spinbutton_allgemein->update();
   lernpunkte.setAllgemein(spinbutton_allgemein->get_value_as_int());
-  gtk_spin_button_update(spinbutton_waffen->gobj());   
+  spinbutton_waffen->update();   
   lernpunkte.setWaffen(spinbutton_waffen->get_value_as_int());
-  gtk_spin_button_update(spinbutton_zauber->gobj());
+  spinbutton_zauber->update();
   lernpunkte.setZauber(spinbutton_zauber->get_value_as_int());
   on_lernliste_wahl_toggled();
   zeige_werte();
@@ -252,7 +252,7 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
   if(MBE->Gelernt()) 
    { 
      hauptfenster->set_status("Diese Fertigkeit ist schon gelernt");
-     tree_lernschema->unselect_all();
+     tree_lernschema->get_selection()->unselect_all();
      return;
    }
  if(((*MBE).What()==MidgardBasicElement::FERTIGKEIT || (*MBE).What()==MidgardBasicElement::WAFFE)
@@ -268,7 +268,7 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
         if(button_allgemeinwissen->get_active())
          { if(MBE->Lernpunkte()>lernpunkte.Allgemein() )
              { hauptfenster->set_status("Nicht genug Lernpunkte");
-               tree_lernschema->unselect_all();
+               tree_lernschema->get_selection()->unselect_all();
                return;
              }
            lernpunkte.addWaffen(MBE->Lernpunkte());
@@ -283,7 +283,7 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
           }
         else if(MBE->Lernpunkte()>lernpunkte.Waffen())
           { hauptfenster->set_status("Nicht genug Lernpunkte");
-            tree_lernschema->unselect_all();
+            tree_lernschema->get_selection()->unselect_all();
             return;
           }
        A.List_Waffen().push_back(MBE);
@@ -297,7 +297,7 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
       { 
         if(MBE->Lernpunkte()>lernpunkte.Zauber())
           { hauptfenster->set_status("Nicht genug Lernpunkte");
-            tree_lernschema->unselect_all();
+            tree_lernschema->get_selection()->unselect_all();
             return;
           }
         if(!(*MBE)->ZusatzEnum(A.getVTyp())) // Das macht 'lernen_zusatz' automatisch
@@ -314,7 +314,7 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
              (MBE->LernArt().find("Unge")!=std::string::npos &&
              MBE->Lernpunkte() > lernpunkte.Unge()))
           { hauptfenster->set_status("Nicht genug Lernpunkte");      
-            tree_lernschema->unselect_all();
+            tree_lernschema->get_selection()->unselect_all();
             return;
           }
         if(!LernListen::SpracheSchrift(MBE->getMBE()))
@@ -893,11 +893,11 @@ void table_lernschema::setTitels_for_Lernschema(const MidgardBasicElement::MBEE&
 
 void table_lernschema::clean_lernschema_trees()
 {
-  if(tree_lernschema) {tree_lernschema->destroy(); tree_lernschema=0;}
-  if(Beruf_tree) {Beruf_tree->destroy(); Beruf_tree=0;}
-  if(tree_angeb_fert) {tree_angeb_fert->destroy(); tree_angeb_fert=0;}
-  if(tree_kido_lernschema) {tree_kido_lernschema->destroy(); tree_kido_lernschema=0;}
-  if(tree_waffen_lernschema) {tree_waffen_lernschema->destroy(); tree_waffen_lernschema=0;}
+  if(tree_lernschema) {delete tree_lernschema; tree_lernschema=0;}
+  if(Beruf_tree) {delete Beruf_tree; Beruf_tree=0;}
+  if(tree_angeb_fert) {delete tree_angeb_fert; tree_angeb_fert=0;}
+  if(tree_kido_lernschema) {delete tree_kido_lernschema; tree_kido_lernschema=0;}
+  if(tree_waffen_lernschema) {delete tree_waffen_lernschema; tree_waffen_lernschema=0;}
   scrolledwindow_lernen->remove();
 }
 

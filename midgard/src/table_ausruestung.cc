@@ -58,42 +58,33 @@ void table_ausruestung::showAusruestung()
 
   besitz=0;
   std::vector<std::string> title;
-  title.push_back("Titel");
-  title.push_back("Material");
-  title.push_back("Gewicht");
-  title.push_back("Sichtbar");
-  title.push_back("Region");
   scrolledwindow_ausruestung->remove();
-  Ausruestung_tree=manage(new Gtk::CTree(title));
+  Ausruestung_tree=manage(new Gtk::TreeView());
 
+#if 0
   Ausruestung_tree->signal_drag_data_received().connect(SigC::slot(*this,&table_ausruestung::tree_drag_data_received));
   Ausruestung_tree->drag_dest_set ( Gtk::DEST_DEFAULT_ALL,
          target_table, n_targets - 1, /* no rootwin */
          static_cast < GdkDragAction > ( GDK_ACTION_COPY | GDK_ACTION_MOVE) );
+#endif         
   
-  Gtk::CTree_Helpers::RowList::iterator r;
+//  Gtk::TreeModelIterator r;
   AusruestungBaum &be=hauptfenster->getChar()->getBesitz();
   for(AusruestungBaum::const_iterator i=be.begin();i!=be.end();++i)
-   {
-     std::vector <std::string> v;
-     v.push_back(i->getAusruestung().Name());
-     v.push_back(i->getAusruestung().Material());
-     v.push_back(i->getAusruestung().SGewicht());
-     v.push_back(i->getAusruestung().SichtbarStr());
-     v.push_back(i->getAusruestung().Region());
-     Ausruestung_tree->rows().push_back(Gtk::CTree_Helpers::Element(v));
-     r=--(Ausruestung_tree->rows().end());
-     r->set_data(gpointer(&*i));
-//cout << "show "<<v[0]<<'\t'<<&*i<<'\t'<<i->getAusruestung().Name()<<'\n';
-     showChildren(r,i->getChildren());
+   { Gtk::TreeModel::iterator iter = m_refStore->append();
+     (*iter)[m_columns.name] = i->getAusruestung().Name();
+     (*iter)[m_columns.material] = i->getAusruestung().Material();
+     (*iter)[m_columns.gewicht] = i->getAusruestung().SGewicht();
+     (*iter)[m_columns.sichtbar] = i->getAusruestung().Sichtbar();
+     (*iter)[m_columns.region] = i->getAusruestung().Region();
+     (*iter)[m_columns.ausruestung] = const_cast<AusruestungBaum*>(&*i);
+     showChildren(iter->children(),i->getChildren());
    }
 
-  r->expand_recursive();
+  Ausruestung_tree->expand_all();
   Ausruestung_tree->show(); 
-  Ausruestung_tree->signal_tree_select_row().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_Ausruestung_tree_select_row));
-  Ausruestung_tree->signal_tree_unselect_row().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_Ausruestung_tree_unselect_row));
-  for (unsigned int i=0;i<Ausruestung_tree->columns().size();++i)
-         Ausruestung_tree->set_column_auto_resize(i,true);
+  Ausruestung_tree->get_selection()->signal_changed().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_Ausruestung_tree_select_row));
+//  Ausruestung_tree->signal_tree_unselect_row().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_Ausruestung_tree_unselect_row));
             
   scrolledwindow_ausruestung->add(*Ausruestung_tree);
   button_ausruestung_loeschen->set_sensitive(false);
@@ -101,55 +92,43 @@ void table_ausruestung::showAusruestung()
 }
 
 
-void table_ausruestung::showChildren(Gtk::CTree_Helpers::RowList::iterator r,const std::list<AusruestungBaum> &AB)
-{
-  Gtk::CTree_Helpers::RowList::iterator n;
+void table_ausruestung::showChildren(Gtk::TreeModel::Children r,const std::list<AusruestungBaum> &AB)
+{ // we should use a non const iterator - once available
   for(std::list<AusruestungBaum>::const_iterator i=AB.begin();i!=AB.end();++i)
-   {
-     std::vector <std::string> v;
-     v.push_back(i->getAusruestung().Name());
-     v.push_back(i->getAusruestung().Material());
-     v.push_back(i->getAusruestung().SGewicht());
-     v.push_back(i->getAusruestung().SichtbarStr());
-     v.push_back(i->getAusruestung().Region());
-     r->subtree().push_back(Gtk::CTree_Helpers::Element(v));
-     n=--(r->subtree().end());
-     n->set_data(gpointer(&*i));
-     showChildren(n,i->getChildren());
+   { Gtk::TreeModel::iterator iter = m_refStore->append(r);
+     (*iter)[m_columns.name] = i->getAusruestung().Name();
+     (*iter)[m_columns.material] = i->getAusruestung().Material();
+     (*iter)[m_columns.gewicht] = i->getAusruestung().SGewicht();
+     (*iter)[m_columns.sichtbar] = i->getAusruestung().Sichtbar();
+     (*iter)[m_columns.region] = i->getAusruestung().Region();
+     (*iter)[m_columns.ausruestung] = const_cast<AusruestungBaum*>(&*i);
+     showChildren(iter->children(),i->getChildren());
    }  
 }
 
 
-
-bool table_ausruestung::tree_valid(Gtk::CTree_Helpers::SelectionList &selectionList)
-{
-  if(selectionList.empty())
+bool table_ausruestung::tree_valid(const Glib::RefPtr<Gtk::TreeSelection> &selectionList)
+{ Gtk::TreeIter i= selectionList->get_selected();
+  if(i==m_refStore->children().end())
    {
-      std::cout<< "Keine Zeile gewählt\n";
-      button_ausruestung_loeschen->set_sensitive(true);
-      return false;
-   }
-  if(selectionList.size()>1)
-   {
-      std::cout<< "Zuviele Zeilen gewählt\n";
+      std::cout<< "Keine oder zuviel Zeile(n) gewählt\n";
       button_ausruestung_loeschen->set_sensitive(true);
       return false;
    }
   return true;
 }
 
-void table_ausruestung::on_Ausruestung_tree_unselect_row(Gtk::CTree::Row row,gint column)
-{
-  button_ausruestung_loeschen->set_sensitive(false);
-  besitz=0;
-}
-
-void table_ausruestung::on_Ausruestung_tree_select_row(Gtk::CTree::Row row,gint column)
-{
-  Gtk::CTree_Helpers::SelectionList selectionList = Ausruestung_tree->selection();
-  if(!tree_valid(selectionList)) return;
-  AusruestungBaum *A=static_cast<AusruestungBaum*>(selectionList.begin()->get_data());
-  sichtbarConnection.signal_di().connect();
+void table_ausruestung::on_Ausruestung_tree_select_row()
+{ Gtk::TreeIter i= Ausruestung_tree->get_selection()->get_selected();
+  if (i==m_refStore->children().end())
+  {  button_ausruestung_loeschen->set_sensitive(false);
+     besitz=0;
+     return;
+  }
+//  Gtk::TreeModel::Selection selectionList = Ausruestung_tree->get_selection();
+//  if(!tree_valid(selectionList)) return;
+  AusruestungBaum *A=(*i)[m_columns.ausruestung];
+  sichtbarConnection.disconnect();
   checkbutton_sichtbar->set_active(A->getAusruestung().Sichtbar());
   sichtbarConnection=checkbutton_sichtbar->signal_toggled().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_checkbutton_sichtbar_toggled));
   button_ausruestung_loeschen->set_sensitive(true);
@@ -391,3 +370,8 @@ bool table_ausruestung::on_button_ausruestung_druck_release_event(GdkEventButton
 }
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
+
+table_ausruestung::ModelColumns::ModelColumns()
+{  add(name); add(material); add(region);
+   add(gewicht); add(sichtbar); add(ausruestung);
+}

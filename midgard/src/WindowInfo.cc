@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.55 2002/12/12 11:20:14 christof Exp $
+// $Id: WindowInfo.cc,v 1.56 2002/12/14 23:45:11 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,7 +38,7 @@
 
 void WindowInfo::on_button_abbrechen_clicked()
 {   
-  if(Modus==Autoclean) des.signal_di().connect();
+  if(Modus==Autoclean) des.disconnect();
   hide();
 }
 

@@ -153,7 +153,7 @@ private:
         void on_leaf_selected_neue_sprache(cH_RowDataBase d);
         void on_leaf_selected_alte_schrift(cH_RowDataBase d);
         void on_leaf_selected_neue_schrift(cH_RowDataBase d);
-        void on_notebook_lernen_switch_page(Gtk::Notebook_Helpers::Page *p0, guint p1);
+        void on_notebook_lernen_switch_page(Gtk::NotebookPage *p0, guint p1);
         bool vscale_value_changed(GdkEventButton *ev);
         void on_checkbutton_EP_Geld_toggled();
         void on_radio_selbst_toggled();

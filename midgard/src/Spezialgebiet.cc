@@ -17,6 +17,7 @@
  */
 
 #include "Spezialgebiet.hh"
+#include <iostream>
 
 cH_Spezialgebiet::cache_t cH_Spezialgebiet::cache;
 

@@ -24,28 +24,28 @@ void frame_drucken::init()
   bool_changed=false;
   if(!hauptfenster) assert(!"");
   if(!(hauptfenster->getOptionen())) assert(!"");
-  Gtk::Table *table=manage(new Gtk::Table(0,0,false));
+  Gtk::Table *table=Gtk::manage(new Gtk::Table(0,0,false));
   std::list<Midgard_Optionen::st_pdfViewer> L=hauptfenster->getOptionen()->getPDF();  
   Gtk::RadioButton::Group _RadioMGroup_pdfViewer;
   int count=0;
   for(std::list<Midgard_Optionen::st_pdfViewer>::const_iterator i=L.begin();i!=L.end();++i)
    {
-     Gtk::RadioButton *rmi=manage(new class Gtk::RadioButton(_RadioMGroup_pdfViewer,i->text,0,0.5));
+     Gtk::RadioButton *rmi=Gtk::manage(new class Gtk::RadioButton(_RadioMGroup_pdfViewer,i->text));
      rmi->set_active(i->active);
      rmi->signal_toggled().connect(SigC::bind(SigC::slot(*this,&frame_drucken::element_activate),rmi,i->index));
-     table->attach(*rmi,0,1,count,count+1,Gtk::FILL,0,0,0);
+     table->attach(*rmi,0,1,count,count+1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
      if(i->index==Midgard_Optionen::anderer) 
-      { Gtk::Button *b=manage(new class Gtk::Button("..."));
+      { Gtk::Button *b=Gtk::manage(new class Gtk::Button("..."));
         b->signal_clicked().connect(SigC::slot(*this,&frame_drucken::on_button_pdf_viewer_clicked));
-        table->attach(*b,1,2,count+1,count+2,Gtk::FILL,0,0,0);
+        table->attach(*b,1,2,count+1,count+2,Gtk::FILL,Gtk::AttachOptions(0),0,0);
       }
      ++count;
    }
- entry=manage(new class Gtk::Entry());
+ entry=Gtk::manage(new class Gtk::Entry());
  entry->signal_changed().connect(SigC::slot(*this,&frame_drucken::entry_changed));
  entry->set_text(hauptfenster->getOptionen()->Viewer());
  entry->signal_focus_out_event().connect(SigC::slot(*this,&frame_drucken::entry_focus_out));
- table->attach(*entry,0,1,count,count+1,Gtk::FILL,0,0,0);
+ table->attach(*entry,0,1,count,count+1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
  table->show_all();
  add(*table);
 }
@@ -76,11 +76,6 @@ bool frame_drucken::entry_focus_out(GdkEventFocus *ev)
 
 void frame_drucken::on_button_pdf_viewer_clicked()
 {
-#ifndef __MINGW32__
- manage
-#else
- delete
-#endif
  (new xml_fileselection(hauptfenster,xml_fileselection::pdfviewer));
 }
 

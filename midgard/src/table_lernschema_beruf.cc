@@ -1,4 +1,4 @@
-// $Id: table_lernschema_beruf.cc,v 1.21 2002/12/12 11:20:14 christof Exp $
+// $Id: table_lernschema_beruf.cc,v 1.22 2002/12/14 23:45:11 christof Exp $
 /*  Midgard Character Generator Copyright (C) 2001 Malte Thoma
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -58,7 +58,7 @@ bool table_lernschema::on_spinbutton_beruf_focus_in(GdkEventFocus *ev)
 
 void table_lernschema::on_spinbutton_beruf_activate()
 {
-  gtk_spin_button_update(spinbutton_beruf->gobj());
+  spinbutton_beruf->update();
   table_berufsprozent->hide();
   beruf_gewuerfelt(spinbutton_beruf->get_value_as_int());
 }
@@ -87,7 +87,7 @@ void table_lernschema::showBerufsLernList()
 {
   clean_lernschema_trees();
 
-  Beruf_tree = manage(new SimpleTree(5,5));
+  Beruf_tree = Gtk::manage(new SimpleTree(5));
   Beruf_tree->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_beruf_tree_leaf_selected));
   std::vector<std::string> beruf;
   beruf.push_back("Beruf"); 

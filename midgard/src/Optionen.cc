@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.110 2002/12/12 11:00:50 christof Exp $
+// $Id: Optionen.cc,v 1.111 2002/12/14 23:45:11 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -58,7 +58,7 @@ std::cout << "Found "<<ext<<" Viewer @" << path << '\n';
 }
 #endif
 
-#include <gdk--.h>
+#include <gdkmm.h>
 
 Midgard_Optionen::Midgard_Optionen(midgard_CG* h)
 :hauptfenster(h)
@@ -476,17 +476,18 @@ void Midgard_Optionen::Icon_init()
  list_Icon.push_back(st_Icon(Ulf,"Win32-Stil",false));
 }
 
+#include <gtk/gtkhandlebox.h>
 
 void detachHB(Gtk::HandleBox &HB,int x,int y,int b,int h)
 {
   HB.gobj()->child_detached = true;
-  Gdk_Window w=HB.get_float_window();
-  HB.get_bin_window().reparent(w,0,0);
+  Glib::RefPtr<Gdk::Window> w=HB.get_float_window();
+  HB.get_bin_window()->reparent(w,0,0);
 
 //  HB.get_float_window().set_hints(x, y, 50, 50, 0, 0, GDK_HINT_POS); 
-  HB.get_float_window().set_hints(x, y, 50, 50, 100, 100, GDK_HINT_MAX_SIZE); 
-  HB.get_float_window().move_resize(x,y,b,h);
-  HB.get_float_window().show();
+//  HB.get_float_window()->set_hints(x, y, 50, 50, 100, 100, GDK_HINT_MAX_SIZE); 
+  HB.get_float_window()->move_resize(x,y,b,h);
+  HB.get_float_window()->show();
 //  HB.gobj()->float_window_mapped = true;
   HB.queue_resize();
 }
@@ -589,9 +590,9 @@ void Midgard_Optionen::save_options(const std::string &filename,WindowInfo *Info
  if(OberCheck(SaveFenster).active)
   { Tag &fenstert=data.push_back(Tag("Fenster"));
     gint width,height,x,y;
-    Gdk_Window fenster=hauptfenster->get_window();
-    fenster.get_size(width,height);
-    fenster.get_position(x,y);
+    Glib::RefPtr<Gdk::Window> fenster=hauptfenster->get_window();
+    fenster->get_size(width,height);
+    fenster->get_position(x,y);
     Tag &groesse=fenstert.push_back(Tag("Größe"));
     groesse.setIntAttr("Breite",width);
     groesse.setIntAttr("Höhe",height);
@@ -600,22 +601,22 @@ void Midgard_Optionen::save_options(const std::string &filename,WindowInfo *Info
     position.setIntAttr("Y", y);
 
     // Handle-Windows
-    std::vector<std::pair<std::string,Gdk_Window> > VW;
-    VW.push_back(std::pair<std::string,Gdk_Window>("main",hauptfenster->get_window()));
+    std::vector<std::pair<std::string,Glib::RefPtr<Gdk::Window> > > VW;
+    VW.push_back(std::pair<std::string,Glib::RefPtr<Gdk::Window> >("main",hauptfenster->get_window()));
     if(hauptfenster->table_steigern->handlebox_steigern_1->is_float_window_mapped())
-       VW.push_back(std::pair<std::string,Gdk_Window>("handlebox_steigern_1",hauptfenster->table_steigern->handlebox_steigern_1->get_float_window()));
+       VW.push_back(std::pair<std::string,Glib::RefPtr<Gdk::Window> >("handlebox_steigern_1",hauptfenster->table_steigern->handlebox_steigern_1->get_float_window()));
     if(hauptfenster->table_steigern->handlebox_steigern_2->is_float_window_mapped())
-       VW.push_back(std::pair<std::string,Gdk_Window>("handlebox_steigern_2",hauptfenster->table_steigern->handlebox_steigern_2->get_float_window()));
+       VW.push_back(std::pair<std::string,Glib::RefPtr<Gdk::Window> >("handlebox_steigern_2",hauptfenster->table_steigern->handlebox_steigern_2->get_float_window()));
     if(hauptfenster->table_steigern->handlebox_steigern_3->is_float_window_mapped())
-       VW.push_back(std::pair<std::string,Gdk_Window>("handlebox_steigern_3",hauptfenster->table_steigern->handlebox_steigern_3->get_float_window()));
+       VW.push_back(std::pair<std::string,Glib::RefPtr<Gdk::Window> >("handlebox_steigern_3",hauptfenster->table_steigern->handlebox_steigern_3->get_float_window()));
     if(hauptfenster->table_steigern->handlebox_steigern_4->is_float_window_mapped())
-       VW.push_back(std::pair<std::string,Gdk_Window>("handlebox_steigern_4",hauptfenster->table_steigern->handlebox_steigern_4->get_float_window()));
-    for(std::vector<std::pair<std::string,Gdk_Window> >::iterator i=VW.begin();i!=VW.end();++i)    
+       VW.push_back(std::pair<std::string,Glib::RefPtr<Gdk::Window> >("handlebox_steigern_4",hauptfenster->table_steigern->handlebox_steigern_4->get_float_window()));
+    for(std::vector<std::pair<std::string,Glib::RefPtr<Gdk::Window> > >::iterator i=VW.begin();i!=VW.end();++i)    
      {
        Tag &T=fenstert.push_back(Tag("WindowPositions"));
        gint width,height,x,y;
-       i->second.get_size(width,height);
-       i->second.get_position(x,y);
+       i->second->get_size(width,height);
+       i->second->get_position(x,y);
        T.setAttr("Name",i->first);
        T.setIntAttr("Breite",width);
        T.setIntAttr("Höhe",height);
