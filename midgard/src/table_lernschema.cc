@@ -188,27 +188,47 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
            if(MBE.LernArt()=="Fach")      lernpunkte.addFach( MBE.Lernpunkte());
            else if(MBE.LernArt()=="Allg") lernpunkte.addAllgemein( MBE.Lernpunkte());
            else if(MBE.LernArt()=="Unge") lernpunkte.addUnge( MBE.Lernpunkte());
+           else if(MBE.LernArt()=="Allg_Heimat") 
+             { lernpunkte.addAllgemein( MBE.Lernpunkte());
+               list_FertigkeitZusaetze.remove("Landeskunde (Heimat)");
+             }
+           else if(MBE.LernArt()=="Allg_Schreiben_Muttersprache") 
+             { lernpunkte.addAllgemein( MBE.Lernpunkte());
+               list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+4)"); 
+               list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+9)"); 
+               list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+12)");
+             }
            else hauptfenster->set_info("Fehler beim Lernpunkte zurückstellen");
            std::string::size_type st = MBE->Name().find("KiDo-Technik");
            if(st!=std::string::npos)  --maxkido;
            break;
          }
      case MidgardBasicElement::SPRACHE :
+
           hauptfenster->getChar().List_Sprache().remove(MBE);
+          if(MBE.LernArt()=="Muttersprache" || MBE.LernArt()=="Gastlandsprache")
+            {   list_FertigkeitZusaetze.remove(MBE.LernArt()); break; }
            // KEIN break 
      case MidgardBasicElement::SCHRIFT :
+
           hauptfenster->getChar().List_Schrift().remove(MBE);
 
-           if(button_fachkenntnisse->get_active())
-                lernpunkte.addFach(MBE.Lernpunkte());
-           else if(button_allgemeinwissen->get_active())
-                lernpunkte.addAllgemein(MBE.Lernpunkte());
-           else if(button_untyp_fertigkeiten->get_active())
-                lernpunkte.addUnge(MBE.Lernpunkte());
-           else hauptfenster->set_info("Da kein Fertigkeiten-Auswahl-Knopf gewählt wurde konnten die Lernpunkte ("
-                  +itos(MBE.Lernpunkte())+") für das Verlernen dieser Sprache nicht gut geschrieben werden.");
-           break;
+          if(MBE.LernArt()=="Allg_Schreiben_Muttersprache")
+            {  lernpunkte.addAllgemein(MBE.Lernpunkte());
+               list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+4)"); 
+               list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+9)");
+               list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+12)"); 
+               break;}
 
+          if(button_fachkenntnisse->get_active())
+               lernpunkte.addFach(MBE.Lernpunkte());
+          else if(button_allgemeinwissen->get_active())
+               lernpunkte.addAllgemein(MBE.Lernpunkte());
+          else if(button_untyp_fertigkeiten->get_active())
+                lernpunkte.addUnge(MBE.Lernpunkte());
+          else hauptfenster->set_info("Da kein Fertigkeiten-Auswahl-Knopf gewählt wurde konnten die Lernpunkte ("
+                 +itos(MBE.Lernpunkte())+") für das Verlernen dieser Sprache nicht gut geschrieben werden.");
+          break;
      default : break;
    }
   if(MBE->What()==MidgardBasicElement::WAFFEBESITZ)
@@ -240,7 +260,6 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
     return;
   }
   
-
   switch(MBE->What()) {
     case MidgardBasicElement::WAFFE:
       { 
@@ -279,7 +298,7 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
       { 
         if( (MBE.LernArt()=="Fach" &&
              MBE.Lernpunkte() > lernpunkte.Fach()) ||
-             (MBE.LernArt()=="Allg" &&
+             (MBE.LernArt().find("Allg")!=std::string::npos &&
              MBE.Lernpunkte() > lernpunkte.Allgemein()) ||
              (MBE.LernArt()=="Unge" && 
              MBE.Lernpunkte() > lernpunkte.Unge()) )  
@@ -308,7 +327,7 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
 
         if(MBE.LernArt()=="Fach")
            lernpunkte.addFach(-MBE.Lernpunkte());
-        else if(MBE.LernArt()=="Allg")
+        else if(MBE.LernArt().find("Allg")!=std::string::npos)
            lernpunkte.addAllgemein(- MBE.Lernpunkte());
         else if(MBE.LernArt()=="Unge")  
            lernpunkte.addUnge(- MBE.Lernpunkte());     
@@ -319,7 +338,6 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
   show_lernschema();
   show_gelerntes(); 
   if(frame_lernschema_zusatz->is_visible()) scrolledwindow_lernen->set_sensitive(false);
-//  if(MBE->ZusatzEnum(hauptfenster->getChar().getVTyp())) scrolledwindow_lernen->set_sensitive(false);
 }
 
 

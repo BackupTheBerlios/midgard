@@ -1,4 +1,32 @@
 ##########################################################################
+NEWS IN VERSION 0.7delta4
+
+* kleinere Bugs behoben
+* 'Muttersprache' und 'Gastlandsprache' können im Lernschema wieder 
+   verlernt und neu ausgesucht werden.
+* Landeskunde (Heimat): das gleiche
+* Schreiben:Muttersprache+x: das gleiche
+* viele Icons upgedated (Auch schon in 0.7delta3
+
+
+TODO: ('-' zeigt CP an)
+* Überleben als angeborene Fertigkeit
+* Info Fenster für Typen, Lernpflichten
+* Kultwaffe für Priester ins Info Fenster
+* Ausrüstung nach Fertigkeiten würfeln
+* Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
+in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
+links). 
+* Ausdruck für lange Listen
+- dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+- überprüfen ob gelernt/ungelernt nicht in die Überschrift der Tabelle passt
+- Würfelvarianten für Nichtmenschen!
+- Absturz bei Programmende
+- 800x600 endlich wieder funktionstüchtig machen (wenn möglich ...)
+
+##########################################################################
 NEWS IN VERSION 0.7delta3
 - Spezialwaffe versteckt nun die ungelernten Waffen ;-)
 * hide der PP steigern Buttons wenn pp nicht angewählt
@@ -35,29 +63,6 @@ NEWS IN VERSION 0.7delta3
 - transparentes Umcodieren auf latin1 während des Schreibens von TeX-Dateien 
 	(damit der Quelltext besser lesbar wird)
 
-TODO: ('-' zeigt CP an)
-* Überleben als angeborene Fertigkeit
-* Info Fenster für Typen, Lernpflichten
-* Kultwaffe für Priester ins Info Fenster
-* Ausrüstung nach Fertigkeiten würfeln
-* Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
-in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
-links). 
-* Ausdruck für lange Listen
-* Ich hatte als Allgemeinwissen die Landeskunde
-  (Elfen) gelernt und wollte das wieder verlernen. Die Landeskunde
-  verschwand, das Infofenster ging auf mit der Meldung "Fehler beim
-  Lernpunkte zurückstellen". Die Lernpunkte wurden auch nicht
-  zurückgestellt...
-* Wenn ich die Sprache Gastland wieder verlerne, wird sie mir nicht wieder
-  im Auswahlmenu angeboten - sie bleibt deaktiviert.
-- dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
-  man etwas hinzufügen möchte, ist nicht gerade intuitiv
-  (vielleicht drag'n'drop oder CTree verschieben)
-- überprüfen ob gelernt/ungelernt nicht in die Überschrift der Tabelle passt
-- Würfelvarianten für Nichtmenschen!
-- Absturz bei Programmende
-- 800x600 endlich wieder funktionstüchtig machen (wenn möglich ...)
 
 ##########################################################################
 NEWS IN VERSION 0.7delta2

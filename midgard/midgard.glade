@@ -7839,7 +7839,7 @@ editieren</label>
 			<widget>
 			  <class>GtkPixmap</class>
 			  <name>pixmap114</name>
-			  <filename>Haus-32.xpm</filename>
+			  <filename>Fert-Gaukler-32.xpm</filename>
 			  <xalign>0.5</xalign>
 			  <yalign>0.5</yalign>
 			  <xpad>0</xpad>

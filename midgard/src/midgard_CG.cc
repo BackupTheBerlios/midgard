@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.250 2002/07/03 06:33:55 christof Exp $
+// $Id: midgard_CG.cc,v 1.251 2002/07/03 14:27:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,6 +19,7 @@
 
 #include "midgard_CG.hh"
 #include <gtk--/notebook.h>
+#include <gtk--/main.h>
 #include "Midgard_Info.hh"
 #include "Fertigkeiten.hh"
 #include <unistd.h>
