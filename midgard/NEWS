@@ -36,10 +36,14 @@ NEWS IN VERSION 0.4delta6
 * Herkunft korrigierbar
 * Landeskunde (Heimat): Erfolgswert 
 * Erfogswert für Spezialwaffe jetzt (hoffentlich) korrekt implementiert
+* Bezeichnung für einen Charakter möglich (Ergänzung zur Klasse)
+* Neuimplementation der Kosten für Abwehr/Resistenz/Zaubern
+* LaTeX Datei erzeugung komplett überarbeitet (damit wird es unter Windows 
+   erst möglich zu drucken und unter Linux etwas übersichtlicher.
+
 
 TODO:
-* Bezeichnung für einen Charakter
-* Ausrüstung drucken, Abenteurer drucken -> absturz ??
+* testen von drucken für Charakterbeschreibung, Ausrüstung
 * Steigern mehrerer Stufen mit PP
 * Finstermagier: Lernschema, Fertigkeiten, Waffen, Zauber
 * Waeland: Zauber

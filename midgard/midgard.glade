@@ -6272,6 +6272,50 @@ Beidhänder
 		  <initial_choice>0</initial_choice>
 		</widget>
 	      </widget>
+
+	      <widget>
+		<class>GtkFrame</class>
+		<name>frame104</name>
+		<label>Bezeichnung</label>
+		<label_xalign>0</label_xalign>
+		<shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+		<child>
+		  <left_attach>0</left_attach>
+		  <right_attach>1</right_attach>
+		  <top_attach>3</top_attach>
+		  <bottom_attach>4</bottom_attach>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <xexpand>False</xexpand>
+		  <yexpand>True</yexpand>
+		  <xshrink>False</xshrink>
+		  <yshrink>False</yshrink>
+		  <xfill>True</xfill>
+		  <yfill>True</yfill>
+		</child>
+
+		<widget>
+		  <class>GtkEntry</class>
+		  <name>entry_bezeichnung</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <tooltip>Hier kann eine optionale Bezeichnung der Klasse eingegeben werden, die dann auf dem Ausdruck erscheint. (Bsp.: Samurai, Derwisch)</tooltip>
+		  <can_focus>True</can_focus>
+		  <signal>
+		    <name>activate</name>
+		    <handler>on_entry_bezeichnung_activate</handler>
+		    <last_modification_time>Thu, 28 Mar 2002 09:16:14 GMT</last_modification_time>
+		  </signal>
+		  <signal>
+		    <name>focus_out_event</name>
+		    <handler>on_entry_bezeichnung_focus_out_event</handler>
+		    <last_modification_time>Thu, 28 Mar 2002 09:16:23 GMT</last_modification_time>
+		  </signal>
+		  <editable>True</editable>
+		  <text_visible>True</text_visible>
+		  <text_max_length>0</text_max_length>
+		  <text></text>
+		</widget>
+	      </widget>
 	    </widget>
 	  </widget>
 	</widget>
