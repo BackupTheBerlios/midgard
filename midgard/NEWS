@@ -9,6 +9,7 @@ NEWS IN VERSION 0.7delta1
 * Viele kleinere und größere Bugs beseitigt
 * Gildenbrief funktioniert wieder 
 * Ausdruck langer Fertigkeitsnamen geht
+* die XML Dateien enthalten schon Gruppen (KÄM, PRI etc.)
 
 TODO:
 * Destruktor löst einen 'Speicherzugriffsfehler'aus :-( 
