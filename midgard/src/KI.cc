@@ -41,22 +41,54 @@ void MagusKI::VerteileGFP(int gfp,const Prozente100 &p,const std::vector<cH_Prot
   Verteile(gfp);
 }
 
+void MagusKI::ausgabe(const st_KI& stki, const bool gesteigert,Enums::MBEListen was) const
+{
+  std::string aktion="neu gelernt";
+  if(gesteigert) aktion="gesteigert";
+  cout << was <<' '<<aktion ;
+  if(stki.e_ki==OK)
+   { 
+     cout <<"\tOK:\t"<<stki.name<<'\t'<<stki.wert<<'\n';
+   }
+  else if(stki.e_ki==EmptyList)
+   { 
+     cout << "\tEmptyList:\n";
+   }
+  else if(stki.e_ki==NotAllowedForGrad)
+   { 
+     cout <<"\tNotAllowdForGrad:\t"<<stki.name<<'\n';
+   }
+  else if(stki.e_ki==Geheimzeichen)
+   { 
+     cout <<"\tGeheimzeichen:\t"<<stki.name<<'\n';
+   }
+  else assert(!"never get here\n");
+}
+
 void MagusKI::Verteile(int gfp)
 {
-  int count=0,gfpmem=gfp; // wenn man nicht mitzählt, kann es zu Endlosschleifen kommen
+  int count=0;//,gfpmem=gfp; // wenn man nicht mitzählt, kann es zu Endlosschleifen kommen
   const int MAXCOUNT=100;
   while(gfp>0 && count<MAXCOUNT)
    {
      int i=random.integer(1,100);
      const Enums::MBEListen was=Was();
-cout << "KI:WAS: "<<was<<'\n';
      int spezial_allgemein=prozente100.getS(was);
 
-     if     (i<=spezial_allgemein) Steigern(gfp,was);
-     else                          NeuLernen(gfp,was);
-
-     if(gfp!=gfpmem) {gfpmem=gfp; count=0;}
-     else ++count;
+     while(true)
+      {
+        st_KI stki(OK);
+        if     (i<=spezial_allgemein) {stki=Steigern(gfp,was); ausgabe(stki,true,was); }
+        else                          {stki=NeuLernen(gfp,was);ausgabe(stki,false,was); }
+        if(stki.e_ki==OK) break;
+        else if(stki.e_ki==EmptyList) break;
+        else if(stki.e_ki==NotAllowedForGrad) ++count;
+        else if(stki.e_ki==Geheimzeichen) ++count;
+        else assert(!"never get here\n");
+        if(count>=MAXCOUNT) break;
+      }
+//     if(gfp!=gfpmem) {gfpmem=gfp; count=0;}
+//     else ++count;
 
      int kosten=teste_auf_gradanstieg();
      gfp-=kosten;
@@ -84,48 +116,59 @@ const Enums::MBEListen MagusKI::Was() const
   assert(!"never get here"); abort();
 }
 
-void MagusKI::NeuLernen(int &gfp,const Enums::MBEListen was)
+MagusKI::st_KI  MagusKI::NeuLernen(int &gfp,const Enums::MBEListen was)
 {
   std::list<MBEmlt> LL_=NeuLernenList(was,gfp);
   std::list<MBEmlt> LL;
   if(use_GSA_MBE)  LL=KI_GSA_Liste(LL_);
   else             LL=KI_Prototypen_Liste(was,LL_,false);
-  if(LL.empty()) return;
+  if(LL.empty()) return st_KI(EmptyList);
   std::vector<MBEmlt> V=List_to_Vector(LL);
   int j=random.integer(0,V.size()-1);
   MBEmlt M=V[j];
 
-  if(!allowed_for_grad(M,eNeuLernen)) return;
+  if((*M)->Name()=="Geheimzeichen")   return st_KI((*M)->Name(),Geheimzeichen);
+  if(!allowed_for_grad(M,eNeuLernen)) return st_KI((*M)->Name(),NotAllowedForGrad);
 
   std::string info;
   bool ok=Aben.neu_lernen(M,info,get_wie_steigern(),get_bool_steigern());
   if(ok) 
    { gfp-=(*M)->Kosten(Aben);
      Aben.get_known_list(was).push_back(M);
+     return st_KI((*M)->Name(),(*M).Erfolgswert(),OK);
    }
+ assert(!"never get here");
+ abort();
 }
 
 
-void MagusKI::Steigern(int &gfp,const Enums::MBEListen was) 
+MagusKI::st_KI MagusKI::Steigern(int &gfp,const Enums::MBEListen was) 
 {
   std::list<MBEmlt> &LL_=Aben.get_known_list(was);
   std::list<MBEmlt> LL;
   if(use_GSA_MBE) LL=KI_GSA_Liste(LL_);
   else            LL=KI_Prototypen_Liste(was,LL_,true);
-  if(LL.empty()) return;
+  if(LL.empty()) return st_KI(EmptyList);
   int j=random.integer(0,LL.size()-1);
   int x=0;
   for(std::list<MBEmlt>::iterator i=LL.begin();i!=LL.end();++i)
    {
      if(j==x++) 
       {
-         if(!allowed_for_grad(*i,eSteigern)) return;
+         if(!allowed_for_grad(*i,eSteigern)) return st_KI((*(*i))->Name(),NotAllowedForGrad);
 
          std::string info;
          bool ok=Aben.steigere(*i,info,get_wie_steigern(),get_bool_steigern());        
-         if(ok) gfp-=(*i)->Steigern(Aben);
+         if(ok) 
+           { gfp-=(*i)->Steigern(Aben);
+             return st_KI((*(*i))->Name(),(*(*i)).Erfolgswert(),OK);
+           }
+         else
+             return st_KI((*(*i))->Name()+"  "+info,(*(*i)).Erfolgswert(),NoSteigern);
       }
    }
+ assert(!"never get here");
+ abort();
 }
 
 
@@ -233,7 +276,7 @@ cerr << (*M)->Name() <<" wird nicht neu gelernt, weil es "<<(*M)->Kosten(Aben)
 <<Database.GradAnstieg.getGFP(Aben.getWerte().Grad()+1)<<'\n';
      return false;
    }
-  if(was==eSteigern && M->Steigern(Aben)>maxkosten)
+  else if(was==eSteigern && M->Steigern(Aben)>maxkosten)
    {
 cerr << (*M)->Name() <<" wird nicht gesteigert, weil es "<<(*M).Steigern(Aben)
 <<" kostet\tGrad: "<<Aben.getWerte().Grad()<<' '

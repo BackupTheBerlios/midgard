@@ -24,15 +24,24 @@
 
 void table_steigern::on_button_ruestung_1_toggled()
 {
- if(!button_ruestung_1->get_active()) return;
-// hauptfenster->getWerte().clearRuestung();
+ if(!button_ruestung_1->get_active()) 
+   { clist_ruestung->clear();
+     clist_ruestung->set_sensitive(false);
+     return;
+   }
+ button_ruestung_2->set_active(false);
  fill_ruestung();
  show_label();
 }
 
 void table_steigern::on_button_ruestung_2_toggled()
 {
- if(!button_ruestung_2->get_active()) return;
+ if(!button_ruestung_2->get_active())
+   { clist_ruestung->clear();
+     clist_ruestung->set_sensitive(false);
+     return;
+   }
+ button_ruestung_1->set_active(false);
  fill_ruestung();
 }
                 

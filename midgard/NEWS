@@ -1,6 +1,36 @@
 ##########################################################################
 NEWS IN VERSION 0.8.9
 
+* Wizard abschlaten bei neuladen und neuer Abenteurer OHNE Wizard
+* Kleinere Bugs beseitigt (dank an Markus Steinberg)
+* Pfeile bei den KI-Schiebereglern
+* Typauswahl aktiv bei Doppelcharakter
+
+TODO: ('-' zeigt CP an)
+
+* Ohne Namen in NEWS&Gewschihte -> Wechsel des Abenteurers
+* Neue Ausrüstung eingeben
+* Hilfe Menü ans Ende
+* Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
+  der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 
+* Deutsche Sortierung (Bärenwut vor Beschleunigen)
+* -- bei PP wenn nicht möglich
+- dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+- Würfelvarianten für Nichtmenschen!
+- verschwinden alle Icons? :
+   Unter "Lernschema" bleibt noch 
+   einiges stehen. Bei "Steigern" 
+   und "Optionen" sind auch noch bunte Bildchen, und bei 
+   "Ausrüstung" verweigern die Icons von "Modifikatoren 
+   entfernen" und "mit Geld ausrüsten" das Verschwinden.
+- alle Ausdrucke unter Windows testen
+- wrapfig for Windows für Grafik in Beschreibung
+
+##########################################################################
+NEWS IN VERSION 0.8.9
+
 * Angabe der Normal/Höchst/Schublast im Ausdruck
 * Neue Icons von Alessandro
 * Kleinere Bugfixes in der Datenbank
@@ -23,26 +53,6 @@ NEWS IN VERSION 0.8.9
    neu aufgebaut, dadurch bleibt der Fensterausschnitt erhalten.
 * Schaden bei Waffen mit '|'
 
-TODO: ('-' zeigt CP an)
-
-* Neue Ausrüstung eingeben
-* Hilfe Menü ans Ende
-* Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
-  der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 
-* Deutsche Sortierung (Bärenwut vor Beschleunigen)
-* -- bei PP wenn nicht möglich
-- dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
-  man etwas hinzufügen möchte, ist nicht gerade intuitiv
-  (vielleicht drag'n'drop oder CTree verschieben)
-- Würfelvarianten für Nichtmenschen!
-- verschwinden alle Icons? :
-   Unter "Lernschema" bleibt noch 
-   einiges stehen. Bei "Steigern" 
-   und "Optionen" sind auch noch bunte Bildchen, und bei 
-   "Ausrüstung" verweigern die Icons von "Modifikatoren 
-   entfernen" und "mit Geld ausrüsten" das Verschwinden.
-- alle Ausdrucke unter Windows testen
-- wrapfig for Windows für Grafik in Beschreibung
 
 ##########################################################################
 NEWS IN VERSION 0.8.8

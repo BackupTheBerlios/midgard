@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.19 2002/11/04 08:00:25 christof Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.20 2002/11/08 21:11:01 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -56,6 +56,7 @@ void table_grundwerte::Eigenschaften_variante(int i)
 {
   button_abg_werte->set_sensitive(true);
   combo_typ->set_sensitive(true);
+  combo_typ2->set_sensitive(true);
   combo_typ->grab_focus();
   if (i==1) 
    { gw_wuerfeln_2x();

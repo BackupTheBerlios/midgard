@@ -41,12 +41,22 @@ class MagusKI
 
       const Enums::MBEListen Was() const;
 
-      void NeuLernen(int &gfp,const Enums::MBEListen was);
       std::list<MBEmlt> NeuLernenList(const Enums::MBEListen was,const int gfp) const;
       std::list<MBEmlt> KI_GSA_Liste(const std::list<MBEmlt> &L);
       std::list<MBEmlt> KI_Prototypen_Liste(const Enums::MBEListen was,const std::list<MBEmlt> &L,bool steigern);
 
-      void Steigern(int &gfp,const Enums::MBEListen was) ; 
+      enum e_KI {OK, EmptyList, NotAllowedForGrad,Geheimzeichen,NoSteigern};
+      struct st_KI {std::string name; int wert; e_KI e_ki;
+             st_KI(const e_KI e) : wert(0), e_ki(e){} 
+             st_KI(const std::string &n,const e_KI e) 
+               : name(n),wert(0),e_ki(e){}
+             st_KI(const std::string &n,const int w,const e_KI e) 
+               : name(n),wert(w),e_ki(e){} };
+
+      void ausgabe(const st_KI& stki, const bool gesteigert,Enums::MBEListen was) const;
+
+      st_KI NeuLernen(int &gfp,const Enums::MBEListen was);
+      st_KI Steigern(int &gfp,const Enums::MBEListen was) ; 
 
       void Verteile(int gfp);
       enum eSL {eSteigern,eNeuLernen};
