@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.82 2002/01/14 10:29:27 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.83 2002/01/16 09:37:53 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -131,17 +131,24 @@ void midgard_CG::LaTeX_write_values()
 
  fout << "\\newcommand{\\raufen}{"<<Werte.Raufen()<< "}\n";
  fout << "\\newcommand{\\abwehr}{"<<Werte.Abwehr_wert()<< "}\n";
+ int ohne_waffe=Werte.Abwehr_wert()+Werte.bo_Ab();
  int abboR = Werte.Ruestung()->AbwehrBonus_Verlust(Werte.bo_Ab());
+cout << "\nohne_waffe = "<<ohne_waffe<<'='<<Werte.Abwehr_wert()<<'+'<<Werte.bo_Ab()<<'\n';
+cout << "abboR = "<<abboR<<'\n';
  std::string vollruestabzug,abbors;
  if(abboR) abbors="--"+itos(abs(abboR)); 
+cout << "abbors ="<<abbors<<'\n';
  if(!cH_Fertigkeit("Kampf in Vollrüstung")->ist_gelernt(list_Fertigkeit) &&
       Werte.Ruestung()->VollRuestungsAbzug()!=0)
     vollruestabzug="-"+itos(abs(Werte.Ruestung()->VollRuestungsAbzug()));
- fout << "\\newcommand{\\abwehrfinal}{"<<Werte.Abwehr_wert()+Werte.bo_Ab()
+cout << cH_Fertigkeit("Kampf in Vollrüstung")->ist_gelernt(list_Fertigkeit)
+<<' '<<Werte.Ruestung()->VollRuestungsAbzug()<<"\t->"<<vollruestabzug<<"<-\n";
+ fout << "\\newcommand{\\abwehrfinal}{"<<ohne_waffe
       << vollruestabzug<<abbors<< "}\n";
- 
- int ohne_waffe=Werte.Abwehr_wert()+Werte.bo_Ab();
+cout << "abwehrfinal = "<<ohne_waffe<<'#'<<vollruestabzug<<'#'<<abbors<<'\n';
+
  std::string mit_waffe = Waffe::get_Verteidigungswaffe(ohne_waffe,list_Waffen,list_Waffen_besitz,Typ,Werte);
+cout << "mit_waffe="<<mit_waffe<<'\n';
 // if (mit_waffe.size())// != Werte.Abwehr_wert()+Werte.bo_Ab())
 //   {
 //    if(vollruestabzug.size() || mit_waffe.size())

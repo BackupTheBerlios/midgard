@@ -58,31 +58,6 @@ Window_ruestung::Window_ruestung(Grundwerte& W,midgard_CG* h, const Datenbank& D
             <<r->Min_Staerke()<<"\t"<<r->RW_Verlust()<<"\t"<<r->B_Verlust()<<"\n";
      os.flush(&const_cast<cH_Ruestung&>(*i));
    } 
-/*
- exec sql begin declare section;
-   int lp,mst,rw,b;
-   char ru[30],rus[10];
-   char db_region[10];
- exec sql end declare section;
- exec sql declare ein cursor for
-   SELECT  ruestung, ruestung_s, lp_verlust, min_staerke, rw_verlust, 
-           b_verlust, coalesce(region,'')
-           FROM ruestung order by lp_verlust, ruestung_s ;
- Transaction tr;
- exec sql open ein;
- SQLerror::test(__FILELINE__);
- Gtk::OStream os(clist_ruestung);
- while(true)
-   {
-     exec sql fetch ein into :ru, :rus,:lp,:mst,:rw,:b,:db_region;
-     SQLerror::test(__FILELINE__,100);
-     if (sqlca.sqlcode) break;
-     if (hauptfenster->region_check(db_region))
-        os << ru <<"\t"<<rus<<"\t"<<lp<<"\t"<<mst<<"\t"<<rw<<"\t"<<b<<"\n";
-   }
- exec sql close ein;
- tr.close();
-*/
  for (unsigned int i=0;i<clist_ruestung->columns().size();++i)
    clist_ruestung->set_column_auto_resize(i,true);  
 }

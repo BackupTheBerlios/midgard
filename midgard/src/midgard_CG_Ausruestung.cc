@@ -457,7 +457,7 @@ void midgard_CG::InfoFenster(std::string name,int wurf,int noetig)
  strinfo += "Nötig ist mindestens eine "+itos(noetig+1)+".\n";
  if(wurf>noetig) strinfo +="==> Das reicht.\n";
  else strinfo +="==> Das reicht NICHT.\n";
- manage(new WindowInfo(strinfo,true));
+ manage(new WindowInfo(strinfo,false));
 }
 
 void midgard_CG::on_button_ausruestung_druck_clicked()
@@ -576,6 +576,6 @@ void midgard_CG::on_spinbutton_gewicht_activate()
   Preise::saveArtikel(art,art2,name,preis,einheit,gewicht);
   Database.preise.push_back(cH_Preise(name));
   ausruestung_laden();
-   } catch(SQLerror &e) {manage (new WindowInfo(e.what()));}
+   } catch(SQLerror &e) {manage (new WindowInfo(e.what(),false));}
 // table_artikel->hide();
 }

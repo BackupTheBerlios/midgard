@@ -49,12 +49,11 @@
 \newsavebox{\Wurfmesser}
 \newsavebox{\Wurfstern} 
 \newsavebox{\Kampfstab} 
-\newsavebox{\Parierdolch}
+\newsavebox{\Parierwaffe}
 \newsavebox{\Bola}
 \newsavebox{\Netz}
 \newsavebox{\Peitsche}
 \newsavebox{\Lasso}   
-%\input{midgard_tmp_latexwertedef}
 \input{midgard_tmp_latexwerte}
 \IfFileExists{drache.ps}{\parbox{10cm}{\epsfig{width=10cm,angle=0,file=drache.ps}}}%
 {\parbox{10cm}{\epsfig{width=10cm,angle=0,file=@PACKAGE_DATA_DIR@drache.ps}}}

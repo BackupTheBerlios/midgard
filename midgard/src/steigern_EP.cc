@@ -119,7 +119,11 @@ bool midgard_CG::steigern_usp(unsigned int kosten,const cH_MidgardBasicElement* 
    {
      // genug Geld? 
      gold_k = (guint)(kosten * ((100-Database.GradAnstieg.get_Steigern_EP_Prozent())/100.));
-     if (gold_k > Werte.Gold()) { regnot("Zu wenig Gold um zu steigern,\n es fehlen "+itos(gold_k-Werte.Gold())+" GS."); return false;}
+     if (gold_k > Werte.Gold()) 
+         { regnot("Zu wenig Gold um zu steigern,\n es fehlen "+itos(gold_k-Werte.Gold())+" GS."); 
+cout << "Zu wenig Gold\n";
+           return false;
+         }
    }  
 
   // genug EP?
@@ -160,7 +164,11 @@ bool midgard_CG::steigern_usp(unsigned int kosten,const cH_MidgardBasicElement* 
   std::string sw;
   if (bkep) {ep += kep;sw  =",KEP";}
   if (bzep) {ep += zep;sw +=",ZEP";}
-  if (ep_k > ep) { regnot("Zu wenig EP um zu steigern,\n es fehlen "+itos(ep_k-ep)+" Erfahrungspunkte (AEP"+sw+")."); return false;}
+  if (ep_k > ep) 
+      { regnot("Zu wenig EP um zu steigern,\n es fehlen "+itos(ep_k-ep)+" Erfahrungspunkte (AEP"+sw+")."); 
+cout << "Zu wenig EP\n";
+        return false;
+      }
 
   // jetzt darf gesteigert werden ...
   Werte.addGold(-gold_k);  

@@ -52,7 +52,7 @@
 \newsavebox{\Wurfmesser}
 \newsavebox{\Wurfstern} 
 \newsavebox{\Kampfstab} 
-\newsavebox{\Parierdolch}
+\newsavebox{\Parierwaffe}
 \newsavebox{\Bola}
 \newsavebox{\Netz}
 \newsavebox{\Peitsche}

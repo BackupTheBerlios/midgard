@@ -51,6 +51,7 @@ void Window_charakter_auswahl::on_clist_charakter_auswahl_select_row(gint row, g
 void Window_charakter_auswahl::charakter_loeschen(const std::string& name, const std::string& version)
 {
  checkbutton_loeschen->set_active(false);
+ try{
  exec sql begin declare section;
    char db_name[30], db_version[30];
  exec sql end declare section;
@@ -62,6 +63,7 @@ void Window_charakter_auswahl::charakter_loeschen(const std::string& name, const
  exec sql delete from charaktere_fertigkeiten 
       where charakter_name = :db_name and version = :db_version;
  SQLerror::test(__FILELINE__);
+ }catch(SQLerror &e){cerr << e.what()<<'\n';}
 }
 
 void Window_charakter_auswahl::on_auswahl_abbruch_clicked()

@@ -75,7 +75,8 @@ void midgard_CG::on_speichern_clicked()
    strncpy(db_version,Werte.Version(OptionBool.version).c_str(),sizeof(db_version));
    // Alte einträge löschen
 
-   exec sql DELETE FROM charaktere_fertigkeiten WHERE charakter_name = :db_name_ch ;
+   exec sql DELETE FROM charaktere_fertigkeiten WHERE 
+      charakter_name = :db_name_ch and version=:db_version;
    // Sinne
    std::map<std::string,int> Sinnmap=Werte.Sinne();
    for(std::map<std::string,int>::const_iterator i=Sinnmap.begin();i!=Sinnmap.end();++i) 
@@ -368,8 +369,6 @@ void midgard_CG::charakter_db_anlegen()
    std::cout << "Neuen Charakter "<< db_name_ch  <<" in Datenbank anlegen\n";
    exec sql insert into charaktere 
         (charakter_name,version)
-     values
-        (:db_name_ch,:db_version);
-
-   midgard_CG::on_speichern_clicked();   
+     values (:db_name_ch,:db_version);
+   on_speichern_clicked();   
 }

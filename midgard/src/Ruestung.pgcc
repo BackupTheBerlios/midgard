@@ -73,7 +73,8 @@ Ruestung_All::Ruestung_All(Gtk::ProgressBar *progressbar)
    int  db_size   ;
  exec sql end declare section;
  exec sql select  count ( ruestung_s  ) into :db_size from ruestung;
- exec sql declare RIein  cursor for select distinct ruestung_s  from ruestung ;
+ exec sql declare RIein  cursor for 
+      select distinct ruestung_s  from ruestung order by lp_verlust,ruestung_s;
 
  Transaction tr;
  exec sql open RIein;

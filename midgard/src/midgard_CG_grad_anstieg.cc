@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.40 2002/01/15 12:21:18 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.41 2002/01/16 09:37:53 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -122,7 +122,7 @@ void midgard_CG::get_grundwerte()
     {
        stinfo += " um "; stinfo += itos(erh); stinfo+=" erhöht.\n";
     }
-  manage(new WindowInfo(stinfo,true));
+  manage(new WindowInfo(stinfo,false));
   if (OptionBool.Original) original_midgard_check() ;
   Database.GradAnstieg.set_Grad_Basiswerte(1+Database.GradAnstieg.get_Grad_Basiswerte());
 }
@@ -158,7 +158,7 @@ void midgard_CG::get_ausdauer(int grad)
    stinfo+="Ausdauerpunkte: Gewürfelt + Bonus für Typ + Persönlichen Bonus + Spezies-Bonus\n";
    stinfo+=itos(ap);stinfo+="+";stinfo+=itos(nab);
    stinfo+="+";stinfo+=itos(Werte.bo_Au());stinfo+="=";stinfo+=itos(nap);
-  manage(new WindowInfo(stinfo,true));
+  manage(new WindowInfo(stinfo,false));
    // Für alle ist die AP-anzahel mind. = Grad
   if (Werte.AP()<Werte.Grad()) Werte.setAP(Werte.Grad()); 
    // Neue AP höher als alte?
