@@ -94,7 +94,7 @@ void Window_waffe::wuerfeln()
   {  
     cH_Waffe w(*i);
     cH_MidgardBasicElement WB= new WaffeBesitz(w,w->Name(),0,0,"");
-    if (w->Name() == "waffenloser Kampf") continue;
+    if (w->Grundkenntnis() == "Kampf ohne Waffen") continue;
     if ((*i)->ist_gelernt(list_Waffen))
       {
          os << w->Art2()<<'\t'<<w->Name() <<'\t'<<w->Grundkenntnis()

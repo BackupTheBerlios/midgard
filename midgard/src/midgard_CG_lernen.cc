@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.108 2002/04/29 14:01:37 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.109 2002/04/29 17:56:15 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -331,7 +331,7 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
                Werte.setSpezialisierung(MBE->Name());
                Waffe::setSpezialWaffe(Werte.Spezialisierung(),list_Waffen);
                togglebutton_spezialwaffe->set_active(false);
-//               if(wizard) wizard->next_step(Wizard::SPEZIALWAFFE);
+//'               if(wizard) wizard->next_step(Wizard::SPEZIALWAFFE);
               }
             }
            else

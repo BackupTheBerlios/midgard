@@ -55,7 +55,7 @@ void Wizard::evaluate_step(esteps step)
 {
   assert(vecwiz.size()>(size_t)(step));
   vector<cH_Typen> Typ=hauptfenster->getVTyp();
-cout << step<<' '<<SPEZIALWAFFE<<' '<<SPEZIALGEBIET<<'\n';
+//cout << step<<' '<<SPEZIALWAFFE<<' '<<SPEZIALGEBIET<<'\n';
   if(step==SPEZIALWAFFE&&(!Typ[0]->Spezialwaffe()&&!Typ[1]->Spezialwaffe()))
 {
 cout << "Automatisch weiter \n";
@@ -63,9 +63,9 @@ cout << "Automatisch weiter \n";
 }
   if(step==SPEZIALGEBIET&&(!Typ[0]->Spezialgebiet()&&!Typ[1]->Spezialgebiet()))
     next_step(SPEICHERN);
-cout << "AA "<<vecwiz[step].page<<'\n';
+//cout << "AA "<<vecwiz[step].page<<'\n';
   hauptfenster->notebook_main->set_page(vecwiz[step].page);
-cout << "BB "<<vecwiz[step].page<<'\n';
+//cout << "BB "<<vecwiz[step].page<<'\n';
   hauptfenster->set_wizard(vecwiz[step].text);
   hauptfenster->wizard_do_something();
 
