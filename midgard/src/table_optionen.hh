@@ -23,8 +23,8 @@ public:
         {  
         }
         void set_Hauptfenster(midgard_CG *h) {hauptfenster=h;}
-private:
         void init();        
+private:
         void on_entry_html_changed();
         void on_entry_tmp_verz_changed();
         void on_entry_speicher_verz_changed();

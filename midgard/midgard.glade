@@ -2096,7 +2096,7 @@ andere geholfen.</label>
 	      <widget>
 		<class>GtkPixmap</class>
 		<name>pixmap90</name>
-		<filename>MAGUS-Logo-Text-halb.xpm</filename>
+		<filename>MAGUS-Logo-Text-halb-t2.xpm</filename>
 		<xalign>0.5</xalign>
 		<yalign>0.5</yalign>
 		<xpad>0</xpad>
@@ -14771,7 +14771,7 @@ KS
 	      <name>frame_globale_optionen</name>
 	      <cxx_separate_file>True</cxx_separate_file>
 	      <cxx_separate_class>True</cxx_separate_class>
-	      <cxx_visibility>protected</cxx_visibility>
+	      <cxx_visibility>public</cxx_visibility>
 	      <label>Globale Optionen</label>
 	      <label_xalign>0</label_xalign>
 	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
@@ -14800,7 +14800,7 @@ KS
 	      <name>frame_drucken</name>
 	      <cxx_separate_file>True</cxx_separate_file>
 	      <cxx_separate_class>True</cxx_separate_class>
-	      <cxx_visibility>protected</cxx_visibility>
+	      <cxx_visibility>public</cxx_visibility>
 	      <label>Drucken</label>
 	      <label_xalign>0</label_xalign>
 	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
