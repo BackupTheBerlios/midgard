@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Preise/>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Qvillh Thiandor Hagrûmel" Spieler="Thorsten Bartusel" Zeitpunkt="Erschaffung" Grad="4"/>
+  <Typ Spezies="Berggnom" Geschlecht="m" Abkürzung="Th" Überleben="Überleben im Gebirge" Stadt_Land="Stadt" Hand="Beidhändig"/>
+  <Basiseigenschaften St="51" Gw="86" Gs="99" Ko="41" In="63" Zt="99"/>
+  <abgeleiteteEigenschaften Au="36" pA="64" Wk="63" Sb="31" B="12"/>
+  <Erfolgswerte Abwehr="13" Zaubern="14" ZauberResistenz="12"/>
+  <Gesundheit LP="10" AP="11"/>
+  <Beschreibung Alter="104" Gestalt="schlank" Gewicht="24" Größe="100" Stand="Mittelschicht" Herkunft="Waeland" Glaube="druidisch"/>
+  <Vermögen GS="25"/>
+  <Steigern GFP="1219" AEP="81" Basiswerte="1" benötigte_Tage="204">
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>TR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="0" Bezeichnung="Blasrohr"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Dolch"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Dolch"/>
+   <Gegenstand Bezeichnung="Körper" Besonderheit="" sichtbar="true">
+    <Gegenstand Bezeichnung="Hose" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Hemd" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Gürtel" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Schuhe" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Rucksack" Besonderheit="Leder" sichtbar="true">
+     <Gegenstand Bezeichnung="Decke" Besonderheit="warm"/>
+     <Gegenstand Bezeichnung="Lederbeutel" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Bezeichnung="Geld" Besonderheit=""/>
+    </Gegenstand>
+   </Gegenstand>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="10"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
+   <Beruf Bezeichnung="Schreiber"/>
+   <ang-Fertigkeit Bezeichnung="Gute Reflexe" Wert="9"/>
+   <ang-Fertigkeit Bezeichnung="Nachtsicht" Wert="8"/>
+   <ang-Fertigkeit Bezeichnung="Robustheit" Wert="12"/>
+   <Fertigkeit Bezeichnung="Fallen entdecken" Wert="6"/>
+   <Fertigkeit Bezeichnung="Fallenmechanik" Wert="6"/>
+   <Fertigkeit Bezeichnung="Geheimmechanismen öffnen" Wert="6"/>
+   <Fertigkeit Bezeichnung="Klettern" Wert="11"/>
+   <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="12"/>
+   <Fertigkeit Bezeichnung="Naturkunde" Wert="5"/>
+   <Fertigkeit Bezeichnung="Sagenkunde" Wert="4"/>
+   <Fertigkeit Bezeichnung="Schwimmen" Wert="10"/>
+   <Fertigkeit Bezeichnung="Sprache" Wert="4" Zusatz=""/>
+   <Fertigkeit Bezeichnung="Thaumatographie" Wert="6"/>
+   <Fertigkeit Bezeichnung="Zauberkunde" Wert="7"/>
+   <Waffe Bezeichnung="Blasrohr" Wert="7"/>
+   <Waffe Bezeichnung="Dolch" Wert="8"/>
+   <Zauber Bezeichnung="Bannen von Dunkelheit"/>
+   <Zauber Bezeichnung="Bittersalz"/>
+   <Zauber Bezeichnung="Blicksalz"/>
+   <Zauber Bezeichnung="Feuerfinger"/>
+   <Zauber Bezeichnung="Funkensalz"/>
+   <Zauber Bezeichnung="Heranholen"/>
+   <Zauber Bezeichnung="Lauschen"/>
+   <Zauber Bezeichnung="Lichtrunen"/>
+   <Zauber Bezeichnung="Löschsalz"/>
+   <Zauber Bezeichnung="Macht über das Selbst"/>
+   <Zauber Bezeichnung="Rost"/>
+   <Zauber Bezeichnung="Sehen von Verborgenem"/>
+   <Zauber Bezeichnung="Trampelsalz"/>
+   <Zauber Bezeichnung="Zauberschloß"/>
+   <Zauber Bezeichnung="Zauberschlüssel"/>
+   <Zauber Bezeichnung="Zündersalz"/>
+   <Grundkenntnis Bezeichnung="Blasrohr"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Sprache Bezeichnung="Chryseisch" Wert="9"/>
+   <Sprache Bezeichnung="Erainnisch" Wert="7"/>
+   <Sprache Bezeichnung="Gnomenon" Wert="18"/>
+   <Sprache Bezeichnung="Moravisch" Wert="4"/>
+   <Sprache Bezeichnung="Waelska" Wert="12"/>
+   <Urschrift Bezeichnung="Zwergenrunen Futhark" Wert="12"/>
+   <Optionen Name="Originalregeln" Wert="true"/>
+   <Optionen Name="NSC zulassen" Wert="false"/>
+  </Fertigkeiten>
+ </Midgard-Abenteurer>
+</MAGUS-data>

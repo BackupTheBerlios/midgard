@@ -22,8 +22,10 @@
   <Ausrüstung>
    <Rüstung>LR</Rüstung>
    <Rüstung2>OR</Rüstung2>
-   <Waffe Erfolgswert="0" Bezeichnung="Dolch" AngriffVerteidigung_Bonus="1"/>
-   <Waffe Erfolgswert="0" Bezeichnung="Dolch"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Dolch">Schleichen+4</Waffe>
+   <Waffe Erfolgswert="0" Bezeichnung="Dolch">Tarnen+4</Waffe>
+   <Waffe Erfolgswert="0" Bezeichnung="Dolch">GW+4</Waffe>
+   <Waffe Erfolgswert="0" Bezeichnung="Dolch" AngriffVerteidigung_Bonus="1" SchadenLebenspunkte_Bonus="2">Schwarzer Steindolch, Zaubern+20 'Kraftentzug' ABW 8</Waffe>
    <Waffe Erfolgswert="0" Bezeichnung="leichte Armbrust"/>
   </Ausrüstung>
   <Fertigkeiten>
