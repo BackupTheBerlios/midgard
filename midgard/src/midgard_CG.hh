@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.326 2003/09/01 06:47:58 christof Exp $
+// $Id: midgard_CG.hh,v 1.327 2003/09/01 16:57:04 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -254,6 +254,7 @@ protected:
          void WizardBeenden();
          void AndererAbenteurer();
          void LernschemaSteigern(bool l,bool s);
+         void NamenEingeben() { table_grundwerte->NamenEingeben(); }
 
 	// Nettigkeiten ?
         static Gtk::Box &make_gtk_box(Glib::RefPtr<Gdk::Pixbuf> data,const std::string &label,const bool text_vor_bild=true,const bool hbox=true);

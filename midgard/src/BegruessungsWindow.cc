@@ -19,8 +19,8 @@ BegruessungsWindow::BegruessungsWindow(midgard_CG* h)
 
 
 void BegruessungsWindow::on_button_eingabe_clicked()
-{  
-   hauptfenster->table_grundwerte->NamenEingeben();
+{  // ProgrammOptionen: Eingabe aktiv ...
+   hauptfenster->NamenEingeben();
    end();
 }
 
