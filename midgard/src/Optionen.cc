@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.84 2002/09/19 08:16:21 thoma Exp $
+// $Id: Optionen.cc,v 1.85 2002/09/19 10:06:45 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -341,9 +341,9 @@ void Midgard_Optionen::pdfViewer_setzen_from_menu(pdfViewerIndex index)
    }
 }   
 
-static void print_it(gpointer x)
-{  std::cout << "changed " << *(int*)x << '\n';
-} 
+//static void print_it(gpointer x)
+//{  std::cout << "changed " << *(int*)x << '\n';
+//} 
 
  
 void Midgard_Optionen::Optionen_init()
@@ -351,8 +351,8 @@ void Midgard_Optionen::Optionen_init()
   list_OptionenCheck.push_back(st_OptionenCheck(Original,"Originalregeln",
                            true,midgard_logo_tiny_xpm));
 
-std::cout << list_OptionenCheck.back().wert.get_value();
-list_OptionenCheck.back().wert.changed.connect(SigC::slot(&print_it)); 
+//std::cout << list_OptionenCheck.back().wert.get_value();
+//list_OptionenCheck.back().wert.changed.connect(SigC::slot(&print_it)); 
 
   list_OptionenCheck.push_back(st_OptionenCheck(NSC_only,"NSC zulassen",
                            false,NSC_Mode_32_xpm));
@@ -465,9 +465,9 @@ void Midgard_Optionen::load_options(const std::string &filename)
   const Tag *options=data->find("Optionen");
   if (!options) options=data; // compat
   FOR_EACH_CONST_TAG_OF(i,*options,"Optionen") // compat
-     setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"),i->getIntAttr("Page",-1));
+     setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"),i->getIntAttr("Page",hauptfenster->NOPAGE));
   FOR_EACH_CONST_TAG_OF(i,*options,"Option")
-     setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"),i->getIntAttr("Page",-1));
+     setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"),i->getIntAttr("Page",hauptfenster->NOPAGE));
   FOR_EACH_CONST_TAG_OF(i,*options,"Ansicht")
      setOber(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*options,"Icon")

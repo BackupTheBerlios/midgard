@@ -29,11 +29,12 @@ void frame_globale_optionen::set_values()
 }
 
 
+/*
 static void wert_changed(gpointer gp)
 {
   cout << "WC: "<<  *(int*)(gp)<<'\n';
 }
-
+*/
 
 void frame_globale_optionen::init()
 {
@@ -56,14 +57,14 @@ void frame_globale_optionen::init()
    i->active.changed.connect(SigC::bind(SigC::slot(this,&frame_globale_optionen::element_activate_C),i->index));
    Gtk::Table *t=manage(new Gtk::Table(0,0,false));
    t->attach(*cb,0,1,0,1,GTK_FILL,0,0,0);
-cout << "AUFBAU: "<<i->text<<'\t'<<i->active<<'\t'<<i->wert<<'\n';
+//cout << "AUFBAU: "<<i->text<<'\t'<<i->active<<'\t'<<i->wert<<'\n';
 
-   if(i->wert!=-1) 
+   if(i->wert!=hauptfenster->NOPAGE) 
     {
       int min=hauptfenster->PAGE_INFO;
-      int max=hauptfenster->PAGE_ZUFALL-1;
+      int max=hauptfenster->PAGE_ZUFALL;
       MVC_int_Widget *spin=manage(new MVC_int_Widget(i->wert, min, max));
-i->wert.changed.connect(SigC::slot(&wert_changed));
+//i->wert.changed.connect(SigC::slot(&wert_changed));
       i->active.changed.connect(SigC::bind(SigC::slot(this,&frame_globale_optionen::element_show_or_hide),spin,&(i->wert)));
       t->attach(*spin,1,2,0,1,GTK_FILL,0,0,0);
     }
@@ -117,8 +118,9 @@ cout <<"Wert: "<< *wert<<'\n';
   if(*static_cast<bool*>(gp)) widget->show();
   else { 
       widget->hide();
-//      *wert=-1;
+      *wert=-1;
    }
+cout <<"Wert: "<< *wert<<'\n';
 }
 
 

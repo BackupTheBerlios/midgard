@@ -152,6 +152,7 @@ gint midgard_CG::on_eventbox_geschichte_button_release_event(GdkEventButton *eve
 
 void midgard_CG::on_schliessen_CG_clicked()
 {
+  button_schliessen->grab_focus();
   std::string filename="magus_optionen.xml";
   if(access(filename.c_str(),W_OK)) 
       filename=magus_verzeichnis+"magus_optionen.xml";

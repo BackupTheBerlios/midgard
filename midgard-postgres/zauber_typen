@@ -24,7 +24,6 @@ Abu es-Samum	De	G	\N
 Abu es-Samum	ScN	S	\N
 Abu es-Samum	ScS	S	\N
 Abu es-Samum	ScW	S	\N
-Abu es-Samum	To	S	\N
 Abu es-Samum	Tt	G	\N
 Abu es-Samum	gHx	S	\N
 Abu es-Samum	sHx	S	\N
@@ -66,7 +65,6 @@ Ahuatls Sturm	Sa	S	\N
 Ahuatls Sturm	ScN	S	\N
 Ahuatls Sturm	ScS	S	\N
 Ahuatls Sturm	ScW	S	\N
-Ahuatls Sturm	To	S	\N
 Ahuatls Sturm	Tt	G	\N
 Ahuatls Sturm	gHx	S	\N
 Ahuatls Sturm	sHx	S	\N
@@ -76,7 +74,6 @@ Ain es-Samum	Sa	S	\N
 Ain es-Samum	ScN	S	\N
 Ain es-Samum	ScS	S	\N
 Ain es-Samum	ScW	S	\N
-Ain es-Samum	To	S	\N
 Ain es-Samum	gHx	S	\N
 Ain es-Samum	sHx	S	\N
 Ain es-Samum	wHx	S	\N
@@ -85,7 +82,6 @@ Akbar fil-Ghadban	Sa	S	\N
 Akbar fil-Ghadban	ScN	S	\N
 Akbar fil-Ghadban	ScS	S	\N
 Akbar fil-Ghadban	ScW	S	\N
-Akbar fil-Ghadban	To	S	\N
 Akbar fil-Ghadban	Tt	G	\N
 Akbar fil-Ghadban	gHx	S	\N
 Akbar fil-Ghadban	sHx	S	\N
@@ -102,7 +98,6 @@ Al-Karama	Sa	S	\N
 Al-Karama	ScN	S	\N
 Al-Karama	ScS	S	\N
 Al-Karama	ScW	S	\N
-Al-Karama	To	S	\N
 Al-Karama	Tt	G	\N
 Al-Karama	gHx	S	\N
 Al-Karama	sHx	S	\N
@@ -112,7 +107,6 @@ Al-Mahram	De	G	\N
 Al-Mahram	ScN	S	\N
 Al-Mahram	ScS	S	\N
 Al-Mahram	ScW	S	\N
-Al-Mahram	To	S	\N
 Al-Mahram	gHx	S	\N
 Al-Mahram	sHx	S	\N
 Al-Mutadid	De	G	\N
@@ -129,7 +123,6 @@ Al-Tarka	Sa	S	\N
 Al-Tarka	ScN	S	\N
 Al-Tarka	ScS	S	\N
 Al-Tarka	ScW	S	\N
-Al-Tarka	To	S	\N
 Al-Tarka	Tt	G	\N
 Al-Tarka	gHx	S	\N
 Al-Tarka	sHx	S	\N
@@ -188,6 +181,7 @@ Anziehen	PF	S	\N
 Anziehen	PHe	S	\N
 Anziehen	Sw	G	\N
 Anziehen	Th	G	\N
+Anziehen	To	S	\N
 Anziehen	gHx	G	\N
 Anziehen	sHx	G	\N
 Anziehen	wHx	G	\N
@@ -360,7 +354,7 @@ Bannen von Dunkelheit	Sr	G	\N
 Bannen von Dunkelheit	Sw	G	\N
 Bannen von Dunkelheit	Th	G	\N
 Bannen von Dunkelheit	Tm	S	\N
-Bannen von Dunkelheit	To	A	\N
+Bannen von Dunkelheit	To	S	\N
 Bannen von Dunkelheit	gHx	A	\N
 Bannen von Dunkelheit	sHx	A	\N
 Bannen von Dunkelheit	wHx	G	\N
@@ -654,7 +648,6 @@ Bannen von Kälte	Sa	G	\N
 Bannen von Kälte	ScN	G	\N
 Bannen von Kälte	ScS	G	\N
 Bannen von Kälte	ScW	G	\N
-Bannen von Kälte	To	S	\N
 Bannen von Kälte	gHx	S	\N
 Bannen von Kälte	sHx	S	\N
 Bannen von Kälte	wHx	S	\N
@@ -827,7 +820,6 @@ Bannsphäre, Blaue	ScW	S	\N
 Bannsphäre, Blaue	Sr	G	\N
 Bannsphäre, Blaue	Sw	G	\N
 Bannsphäre, Blaue	Th	G	\N
-Bannsphäre, Blaue	To	S	\N
 Bannsphäre, Blaue	dBe	G	\N
 Bannsphäre, Blaue	eBe	G	\N
 Bannsphäre, Blaue	gHx	S	\N
@@ -853,7 +845,6 @@ Bannsphäre, Goldene	ScN	A	\N
 Bannsphäre, Goldene	ScS	A	\N
 Bannsphäre, Goldene	ScW	A	\N
 Bannsphäre, Goldene	Sr	G	\N
-Bannsphäre, Goldene	To	S	\N
 Bannsphäre, Goldene	dBe	A	\N
 Bannsphäre, Goldene	eBe	A	\N
 Bannsphäre, Goldene	gHx	S	\N
@@ -880,7 +871,6 @@ Bannsphäre, Schwarze	ScS	S	\N
 Bannsphäre, Schwarze	ScW	S	\N
 Bannsphäre, Schwarze	Sw	S	\N
 Bannsphäre, Schwarze	Th	S	\N
-Bannsphäre, Schwarze	To	S	\N
 Bannsphäre, Schwarze	dBe	S	\N
 Bannsphäre, Schwarze	eBe	S	\N
 Bannsphäre, Schwarze	gHx	S	\N
@@ -909,7 +899,6 @@ Bannsphäre, Silberne	ScW	A	\N
 Bannsphäre, Silberne	Sr	G	\N
 Bannsphäre, Silberne	Sw	G	\N
 Bannsphäre, Silberne	Th	G	\N
-Bannsphäre, Silberne	To	S	\N
 Bannsphäre, Silberne	dBe	G	\N
 Bannsphäre, Silberne	eBe	G	\N
 Bannsphäre, Silberne	gHx	S	\N
@@ -1171,7 +1160,6 @@ Blenden	ScW	G	\N
 Blenden	Sr	G	\N
 Blenden	Sw	G	\N
 Blenden	Th	G	\N
-Blenden	To	S	\N
 Blenden	gHx	S	\N
 Blenden	sHx	S	\N
 Blenden	wHx	S	\N
@@ -1356,7 +1344,6 @@ Brot und Wasser	PW	G	\N
 Brot und Wasser	ScN	S	\N
 Brot und Wasser	ScS	S	\N
 Brot und Wasser	ScW	S	\N
-Brot und Wasser	To	S	\N
 Brot und Wasser	gHx	S	\N
 Brot und Wasser	sHx	S	\N
 Brot und Wasser	wHx	S	\N
@@ -1388,7 +1375,6 @@ Bärenstärke	Sa	G	\N
 Bärenstärke	ScN	G	\N
 Bärenstärke	ScS	G	\N
 Bärenstärke	ScW	G	\N
-Bärenstärke	To	S	\N
 Bärenstärke	gHx	S	\N
 Bärenstärke	sHx	S	\N
 Bärenstärke	wHx	S	\N
@@ -1747,7 +1733,7 @@ Dinge wiederfinden	PT	S	\N
 Dinge wiederfinden	PW	S	\N
 Dinge wiederfinden	Sw	G	\N
 Dinge wiederfinden	Th	G	\N
-Dinge wiederfinden	To	S	\N
+Dinge wiederfinden	To	A	\N
 Dinge wiederfinden	gHx	S	\N
 Dinge wiederfinden	sHx	S	\N
 Dinge wiederfinden	wHx	S	\N
@@ -1847,7 +1833,7 @@ Dschinni-Auge	PK	S	\N
 Dschinni-Auge	PM	S	\N
 Dschinni-Auge	PT	S	\N
 Dschinni-Auge	PW	G	\N
-Dschinni-Auge	To	S	\N
+Dschinni-Auge	To	A	\N
 Dschinni-Auge	dBe	A	\N
 Dschinni-Auge	eBe	A	\N
 Dschinni-Auge	gHx	S	\N
@@ -1865,7 +1851,7 @@ Dschinni-Horn	PK	S	\N
 Dschinni-Horn	PM	S	\N
 Dschinni-Horn	PT	G	\N
 Dschinni-Horn	PW	S	\N
-Dschinni-Horn	To	S	\N
+Dschinni-Horn	To	A	\N
 Dschinni-Horn	dBe	A	\N
 Dschinni-Horn	eBe	A	\N
 Dschinni-Horn	gHx	S	\N
@@ -1883,7 +1869,6 @@ Dschinni-Ohr	PK	S	\N
 Dschinni-Ohr	PM	S	\N
 Dschinni-Ohr	PT	S	\N
 Dschinni-Ohr	PW	G	\N
-Dschinni-Ohr	To	S	\N
 Dschinni-Ohr	gHx	S	\N
 Dschinni-Ohr	sHx	S	\N
 Dschinni-Ohr	wHx	S	\N
@@ -1904,7 +1889,7 @@ Dschungelwand	Sa	S	\N
 Dschungelwand	ScN	A	\N
 Dschungelwand	ScS	A	\N
 Dschungelwand	ScW	A	\N
-Dschungelwand	To	S	\N
+Dschungelwand	To	A	\N
 Dschungelwand	gHx	S	\N
 Dschungelwand	sHx	S	\N
 Dschungelwand	wHx	S	\N
@@ -2176,7 +2161,6 @@ Dämonenschar beschwören	eBe	A	\N
 Dämonenschar beschwören	gHx	A	\N
 Dämonenschar beschwören	sHx	A	\N
 Dämonenschar beschwören	wHx	A	\N
-Dämonische Eingebung	To	S	\N
 Dämonische Eingebung	dBe	G	\N
 Dämonische Eingebung	eBe	S	\N
 Dämonische Eingebung	gHx	S	\N
@@ -2282,7 +2266,6 @@ Eismeisterschaft	Sa	S	\N
 Eismeisterschaft	ScN	S	\N
 Eismeisterschaft	ScS	S	\N
 Eismeisterschaft	ScW	S	\N
-Eismeisterschaft	To	S	\N
 Eismeisterschaft	gHx	S	\N
 Eismeisterschaft	sHx	S	\N
 Eismeisterschaft	wHx	S	\N
@@ -2302,7 +2285,7 @@ Eiswand	Sa	A	\N
 Eiswand	ScN	A	\N
 Eiswand	ScS	A	\N
 Eiswand	ScW	A	\N
-Eiswand	To	S	\N
+Eiswand	To	A	\N
 Eiswand	eBe	S	\N
 Eiswand	gHx	S	\N
 Eiswand	sHx	S	\N
@@ -2419,7 +2402,7 @@ Elementenwandlung	Sa	A	\N
 Elementenwandlung	ScN	A	\N
 Elementenwandlung	ScS	A	\N
 Elementenwandlung	ScW	A	\N
-Elementenwandlung	To	S	\N
+Elementenwandlung	To	A	\N
 Elementenwandlung	eBe	S	\N
 Elementenwandlung	gHx	S	\N
 Elementenwandlung	sHx	S	\N
@@ -2595,7 +2578,6 @@ Erdmeisterschaft	Sa	S	\N
 Erdmeisterschaft	ScN	S	\N
 Erdmeisterschaft	ScS	S	\N
 Erdmeisterschaft	ScW	S	\N
-Erdmeisterschaft	To	S	\N
 Erdmeisterschaft	gHx	S	\N
 Erdmeisterschaft	sHx	S	\N
 Erdmeisterschaft	wHx	S	\N
@@ -2617,7 +2599,7 @@ Erdwandlung	Sa	S	\N
 Erdwandlung	ScN	S	\N
 Erdwandlung	ScS	S	\N
 Erdwandlung	ScW	S	\N
-Erdwandlung	To	S	\N
+Erdwandlung	To	A	\N
 Erdwandlung	eBe	S	\N
 Erdwandlung	gHx	S	\N
 Erdwandlung	sHx	S	\N
@@ -2667,6 +2649,7 @@ Erkennen von Besessenheit	PW	G	\N
 Erkennen von Besessenheit	ScN	S	\N
 Erkennen von Besessenheit	ScS	S	\N
 Erkennen von Besessenheit	ScW	S	\N
+Erkennen von Besessenheit	To	A	\N
 Erkennen von Besessenheit	dBe	S	\N
 Erkennen von Besessenheit	eBe	S	\N
 Erkennen von Besessenheit	tBe	S	\N
@@ -3180,7 +3163,6 @@ Feuerregen	Sa	S	\N
 Feuerregen	ScN	S	\N
 Feuerregen	ScS	S	\N
 Feuerregen	ScW	S	\N
-Feuerregen	To	S	\N
 Feuerregen	eBe	S	\N
 Feuerregen	gHx	S	\N
 Feuerregen	sHx	S	\N
@@ -3199,7 +3181,6 @@ Feuerring	PT	A	\N
 Feuerring	PW	S	\N
 Feuerring	Sw	G	\N
 Feuerring	Th	G	\N
-Feuerring	To	S	\N
 Feuerring	eBe	S	\N
 Feuerring	gHx	S	\N
 Feuerring	sHx	S	\N
@@ -3237,7 +3218,6 @@ Feuerspiel	PHa	G	\N
 Feuerspiel	PHe	G	\N
 Feuerspiel	PK	S	\N
 Feuerspiel	PW	S	\N
-Feuerspiel	To	S	\N
 Feuerspiel	gHx	S	\N
 Feuerspiel	sHx	S	\N
 Feuerspiel	wHx	S	\N
@@ -3258,7 +3238,7 @@ Feuerwand	Sa	A	\N
 Feuerwand	ScN	A	\N
 Feuerwand	ScS	A	\N
 Feuerwand	ScW	A	\N
-Feuerwand	To	S	\N
+Feuerwand	To	A	\N
 Feuerwand	eBe	S	\N
 Feuerwand	gHx	S	\N
 Feuerwand	sHx	S	\N
@@ -3376,7 +3356,6 @@ Flammenkreis	ScW	A	\N
 Flammenkreis	Sr	S	\N
 Flammenkreis	Sw	G	\N
 Flammenkreis	Th	G	\N
-Flammenkreis	To	S	\N
 Flammenkreis	dBe	A	\N
 Flammenkreis	eBe	A	\N
 Flammenkreis	gHx	S	\N
@@ -3404,7 +3383,7 @@ Fliegen	ScS	S	\N
 Fliegen	ScW	S	\N
 Fliegen	Sw	G	\N
 Fliegen	Th	G	\N
-Fliegen	To	S	\N
+Fliegen	To	A	\N
 Fliegen	gHx	S	\N
 Fliegen	sHx	S	\N
 Fliegen	wHx	S	\N
@@ -3499,7 +3478,6 @@ Freundesauge	ScW	G	\N
 Freundesauge	Sw	G	\N
 Freundesauge	Th	G	\N
 Freundesauge	Tm	G	\N
-Freundesauge	To	S	\N
 Freundesauge	Wi	G	\N
 Freundesauge	gHx	S	\N
 Freundesauge	sHx	S	\N
@@ -3538,7 +3516,6 @@ Fruchtbarkeit	PHe	A	\N
 Fruchtbarkeit	ScN	S	\N
 Fruchtbarkeit	ScS	S	\N
 Fruchtbarkeit	ScW	S	\N
-Fruchtbarkeit	To	S	\N
 Fruchtbarkeit	gHx	S	\N
 Fruchtbarkeit	sHx	S	\N
 Fruchtbarkeit	wHx	S	\N
@@ -3712,7 +3689,7 @@ Geistesschild	ScS	S	\N
 Geistesschild	ScW	S	\N
 Geistesschild	Sw	S	\N
 Geistesschild	Th	S	\N
-Geistesschild	To	S	\N
+Geistesschild	To	A	\N
 Geistesschild	gHx	S	\N
 Geistesschild	sHx	S	\N
 Geistesschild	wHx	S	\N
@@ -4015,7 +3992,6 @@ Grüne Hand	Sa	A	\N
 Grüne Hand	ScN	A	\N
 Grüne Hand	ScS	A	\N
 Grüne Hand	ScW	A	\N
-Grüne Hand	To	S	\N
 Grüne Hand	gHx	S	\N
 Grüne Hand	sHx	S	\N
 Grüne Hand	wHx	S	\N
@@ -4130,7 +4106,6 @@ Hagel	Sa	G	\N
 Hagel	ScN	G	\N
 Hagel	ScS	G	\N
 Hagel	ScW	G	\N
-Hagel	To	S	\N
 Hagel	eBe	S	\N
 Hagel	gHx	S	\N
 Hagel	sHx	S	\N
@@ -4250,7 +4225,6 @@ Hammerhand	PT	A	\N
 Hammerhand	ScN	S	\N
 Hammerhand	ScS	S	\N
 Hammerhand	ScW	S	\N
-Hammerhand	To	S	\N
 Hammerhand	gHx	S	\N
 Hammerhand	sHx	S	\N
 Hammerhand	wHx	S	\N
@@ -4285,7 +4259,6 @@ Haram fil-Din	Sa	S	\N
 Haram fil-Din	ScN	S	\N
 Haram fil-Din	ScS	S	\N
 Haram fil-Din	ScW	S	\N
-Haram fil-Din	To	S	\N
 Haram fil-Din	Tt	G	\N
 Haram fil-Din	gHx	S	\N
 Haram fil-Din	sHx	S	\N
@@ -4403,7 +4376,7 @@ Hauch der Verwesung	ScS	S	\N
 Hauch der Verwesung	ScW	S	\N
 Hauch der Verwesung	Sw	G	\N
 Hauch der Verwesung	Th	G	\N
-Hauch der Verwesung	To	S	\N
+Hauch der Verwesung	To	A	\N
 Hauch der Verwesung	gHx	S	\N
 Hauch der Verwesung	sHx	S	\N
 Hauch der Verwesung	tBe	S	\N
@@ -4423,7 +4396,7 @@ Hauch der Wüste	ScS	S	\N
 Hauch der Wüste	ScW	S	\N
 Hauch der Wüste	Sw	G	\N
 Hauch der Wüste	Th	G	\N
-Hauch der Wüste	To	S	\N
+Hauch der Wüste	To	A	\N
 Hauch der Wüste	gHx	S	\N
 Hauch der Wüste	sHx	S	\N
 Hauch der Wüste	wHx	S	\N
@@ -4443,7 +4416,7 @@ Hauch des Frühlings	ScS	G	\N
 Hauch des Frühlings	ScW	G	\N
 Hauch des Frühlings	Sw	S	\N
 Hauch des Frühlings	Th	S	\N
-Hauch des Frühlings	To	S	\N
+Hauch des Frühlings	To	A	\N
 Hauch des Frühlings	gHx	S	\N
 Hauch des Winters	De	S	\N
 Hauch des Winters	Dr	S	\N
@@ -4920,7 +4893,6 @@ Hören der Geister	Sa	G	\N
 Hören der Geister	ScN	G	\N
 Hören der Geister	ScS	G	\N
 Hören der Geister	ScW	G	\N
-Hören der Geister	To	S	\N
 Hören der Geister	gHx	S	\N
 Hören der Geister	sHx	S	\N
 Hören der Geister	tBe	G	\N
@@ -4962,7 +4934,6 @@ Hörnerklang	ScW	A	\N
 Hörnerklang	Sr	G	\N
 Hörnerklang	Sw	G	\N
 Hörnerklang	Th	G	\N
-Hörnerklang	To	S	\N
 Hörnerklang	gHx	S	\N
 Hörnerklang	sHx	S	\N
 Hörnerklang	wHx	S	\N
@@ -5876,7 +5847,6 @@ Lehrersuche	ScS	S	\N
 Lehrersuche	ScW	S	\N
 Lehrersuche	Sw	S	\N
 Lehrersuche	Th	S	\N
-Lehrersuche	To	S	\N
 Lehrersuche	dBe	G	\N
 Lehrersuche	eBe	G	\N
 Lehrersuche	gHx	S	\N
@@ -6073,7 +6043,7 @@ Liniensicht	ScS	S	\N
 Liniensicht	ScW	S	\N
 Liniensicht	Sw	A	\N
 Liniensicht	Th	A	\N
-Liniensicht	To	S	\N
+Liniensicht	To	A	\N
 Liniensicht	Wi	S	\N
 Liniensicht	dBe	A	\N
 Liniensicht	eBe	A	\N
@@ -6165,7 +6135,6 @@ Luftsphäre	PK	S	\N
 Luftsphäre	PM	G	\N
 Luftsphäre	PT	S	\N
 Luftsphäre	PW	G	\N
-Luftsphäre	To	S	\N
 Luftsphäre	eBe	S	\N
 Luftsphäre	gHx	S	\N
 Luftsphäre	sHx	S	\N
@@ -6187,7 +6156,6 @@ Luftspiegelung	Sa	S	\N
 Luftspiegelung	ScN	S	\N
 Luftspiegelung	ScS	S	\N
 Luftspiegelung	ScW	S	\N
-Luftspiegelung	To	S	\N
 Luftspiegelung	gHx	S	\N
 Luftspiegelung	sHx	S	\N
 Luftspiegelung	wHx	S	\N
@@ -6316,6 +6284,7 @@ Macht über Menschen	ScS	A	\N
 Macht über Menschen	ScW	A	\N
 Macht über Menschen	Sw	G	\N
 Macht über Menschen	Th	G	\N
+Macht über Menschen	To	S	\N
 Macht über Menschen	dBe	A	\N
 Macht über Menschen	eBe	A	\N
 Macht über Menschen	gHx	A	\N
@@ -6414,7 +6383,6 @@ Macht über die belebte Natur	ScW	S	\N
 Macht über die belebte Natur	Sw	G	\N
 Macht über die belebte Natur	Th	G	\N
 Macht über die belebte Natur	Tm	G	\N
-Macht über die belebte Natur	To	S	\N
 Macht über die belebte Natur	Wi	G	\N
 Macht über die belebte Natur	dBe	A	\N
 Macht über die belebte Natur	eBe	A	\N
@@ -6433,7 +6401,7 @@ Macht über magische Wesen	Sa	A	\N
 Macht über magische Wesen	ScN	A	\N
 Macht über magische Wesen	ScS	A	\N
 Macht über magische Wesen	ScW	A	\N
-Macht über magische Wesen	To	S	\N
+Macht über magische Wesen	To	A	\N
 Macht über magische Wesen	dBe	S	\N
 Macht über magische Wesen	eBe	S	\N
 Macht über magische Wesen	gHx	S	\N
@@ -6535,7 +6503,6 @@ Magischer Kreis, klein	ScS	S	\N
 Magischer Kreis, klein	ScW	S	\N
 Magischer Kreis, klein	Sw	S	\N
 Magischer Kreis, klein	Th	S	\N
-Magischer Kreis, klein	To	S	\N
 Magischer Kreis, klein	dBe	G	\N
 Magischer Kreis, klein	eBe	G	\N
 Magischer Kreis, klein	gHx	S	\N
@@ -7216,7 +7183,7 @@ Pflanzenfessel	Dt	G	\N
 Pflanzenfessel	Hl	S	\N
 Pflanzenfessel	Ma	A	\N
 Pflanzenfessel	PF	A	\N
-Pflanzenfessel	To	A	\N
+Pflanzenfessel	To	S	\N
 Pflanzenfessel	Wi	A	\N
 Pflanzenfessel	gHx	A	\N
 Pflanzenfessel	sHx	A	\N
@@ -7224,7 +7191,7 @@ Pflanzenfessel	wHx	A	\N
 Pflanzenmann	Dr	G	\N
 Pflanzenmann	Ma	A	\N
 Pflanzenmann	PC	S	\N
-Pflanzenmann	To	A	\N
+Pflanzenmann	To	S	\N
 Pflanzenmann	gHx	A	\N
 Pflanzenmann	sHx	A	\N
 Pflanzenmann	tBe	S	\N
@@ -7359,7 +7326,6 @@ Regenzauber	Sa	G	\N
 Regenzauber	ScN	G	\N
 Regenzauber	ScS	G	\N
 Regenzauber	ScW	G	\N
-Regenzauber	To	S	\N
 Regenzauber	gHx	S	\N
 Regenzauber	sHx	S	\N
 Regenzauber	wHx	S	\N
@@ -7389,7 +7355,6 @@ Reise der Seele	Sa	S	\N
 Reise der Seele	ScN	S	\N
 Reise der Seele	ScS	S	\N
 Reise der Seele	ScW	S	\N
-Reise der Seele	To	A	\N
 Reise der Seele	gHx	A	\N
 Reise der Seele	sHx	A	\N
 Reise der Seele	wHx	A	\N
@@ -7399,7 +7364,6 @@ Reise in die Zeit	Sa	A	\N
 Reise in die Zeit	ScN	A	\N
 Reise in die Zeit	ScS	A	\N
 Reise in die Zeit	ScW	A	\N
-Reise in die Zeit	To	A	\N
 Reise in die Zeit	gHx	A	\N
 Reise in die Zeit	sHx	A	\N
 Reise in die Zeit	wHx	A	\N
@@ -7413,7 +7377,6 @@ Reise zu den Sphären	Sa	A	\N
 Reise zu den Sphären	ScN	A	\N
 Reise zu den Sphären	ScS	A	\N
 Reise zu den Sphären	ScW	A	\N
-Reise zu den Sphären	To	A	\N
 Reise zu den Sphären	dBe	S	\N
 Reise zu den Sphären	eBe	S	\N
 Reise zu den Sphären	gHx	A	\N
@@ -7440,7 +7403,6 @@ Reptilien rufen	PT	A	\N
 Reptilien rufen	ScN	S	\N
 Reptilien rufen	ScS	S	\N
 Reptilien rufen	ScW	S	\N
-Reptilien rufen	To	S	\N
 Reptilien rufen	gHx	S	\N
 Reptilien rufen	sHx	S	\N
 Reptilien rufen	wHx	S	\N
@@ -7664,7 +7626,6 @@ Saijidat el-Masin	Sa	S	\N
 Saijidat el-Masin	ScN	S	\N
 Saijidat el-Masin	ScS	S	\N
 Saijidat el-Masin	ScW	S	\N
-Saijidat el-Masin	To	S	\N
 Saijidat el-Masin	gHx	S	\N
 Saijidat el-Masin	sHx	S	\N
 Saijidat el-Masin	wHx	S	\N
@@ -7685,7 +7646,6 @@ Sandmeisterschaft	Sa	S	\N
 Sandmeisterschaft	ScN	S	\N
 Sandmeisterschaft	ScS	S	\N
 Sandmeisterschaft	ScW	S	\N
-Sandmeisterschaft	To	S	\N
 Sandmeisterschaft	gHx	S	\N
 Sandmeisterschaft	sHx	S	\N
 Sandmeisterschaft	wHx	S	\N
@@ -7780,7 +7740,6 @@ Schattenrobe	Km	A	\N
 Schattenrobe	Ma	A	\N
 Schattenrobe	Sw	G	\N
 Schattenrobe	Th	G	\N
-Schattenrobe	To	S	\N
 Schattenrobe	gHx	S	\N
 Schattenrobe	sHx	S	\N
 Schattenrobe	wHx	S	\N
@@ -7994,7 +7953,6 @@ Schreiber beschwören	Hl	A	\N
 Schreiber beschwören	Ma	S	\N
 Schreiber beschwören	PHe	A	\N
 Schreiber beschwören	PW	S	\N
-Schreiber beschwören	To	S	\N
 Schreiber beschwören	dBe	G	\N
 Schreiber beschwören	eBe	G	\N
 Schreiber beschwören	gHx	S	\N
@@ -8019,7 +7977,6 @@ Schrumpfen	ScS	S	\N
 Schrumpfen	ScW	S	\N
 Schrumpfen	Sw	G	\N
 Schrumpfen	Th	G	\N
-Schrumpfen	To	S	\N
 Schrumpfen	gHx	S	\N
 Schrumpfen	sHx	S	\N
 Schrumpfen	wHx	S	\N
@@ -8393,7 +8350,7 @@ Schwarm	Ma	A	\N
 Schwarm	PC	A	\N
 Schwarm	PF	A	\N
 Schwarm	Tm	S	\N
-Schwarm	To	S	\N
+Schwarm	To	A	\N
 Schwarm	Wi	S	\N
 Schwarm	gHx	S	\N
 Schwarm	sHx	S	\N
@@ -8419,7 +8376,6 @@ Schwarze Zone	ScS	S	\N
 Schwarze Zone	ScW	S	\N
 Schwarze Zone	Sw	S	\N
 Schwarze Zone	Th	S	\N
-Schwarze Zone	To	S	\N
 Schwarze Zone	gHx	S	\N
 Schwarze Zone	sHx	S	\N
 Schwarze Zone	wHx	S	\N
@@ -8462,7 +8418,6 @@ Schwingenkeule	ScN	G	\N
 Schwingenkeule	ScS	G	\N
 Schwingenkeule	ScW	G	\N
 Schwingenkeule	Tm	S	\N
-Schwingenkeule	To	A	\N
 Schwingenkeule	gHx	A	\N
 Schwingenkeule	sHx	A	\N
 Schwingenkeule	wHx	A	\N
@@ -8692,7 +8647,6 @@ Silberstaub	ScS	S	\N
 Silberstaub	ScW	S	\N
 Silberstaub	Sw	G	\N
 Silberstaub	Th	G	\N
-Silberstaub	To	S	\N
 Silberstaub	dBe	A	\N
 Silberstaub	eBe	A	\N
 Silberstaub	gHx	S	\N
@@ -8732,7 +8686,6 @@ Sprachlähmung	PW	S	\N
 Sprachlähmung	ScN	A	\N
 Sprachlähmung	ScS	A	\N
 Sprachlähmung	ScW	A	\N
-Sprachlähmung	To	S	\N
 Sprachlähmung	gHx	S	\N
 Sprachlähmung	sHx	S	\N
 Sprachlähmung	wHx	S	\N
@@ -8837,7 +8790,7 @@ Steinwand	Sa	A	\N
 Steinwand	ScN	A	\N
 Steinwand	ScS	A	\N
 Steinwand	ScW	A	\N
-Steinwand	To	G	\N
+Steinwand	To	S	\N
 Steinwand	eBe	S	\N
 Steinwand	gHx	S	\N
 Steinwand	sHx	S	\N
@@ -8941,7 +8894,6 @@ Sturmflut	Sa	G	\N
 Sturmflut	ScN	G	\N
 Sturmflut	ScS	G	\N
 Sturmflut	ScW	G	\N
-Sturmflut	To	S	\N
 Sturmflut	gHx	S	\N
 Sturmflut	sHx	S	\N
 Sturmflut	wHx	S	\N
@@ -8962,7 +8914,7 @@ Sturmhand	Sa	S	\N
 Sturmhand	ScN	S	\N
 Sturmhand	ScS	S	\N
 Sturmhand	ScW	S	\N
-Sturmhand	To	S	\N
+Sturmhand	To	A	\N
 Sturmhand	gHx	S	\N
 Sturmhand	sHx	S	\N
 Sturmhand	wHx	S	\N
@@ -8985,7 +8937,7 @@ Sturmwind	ScS	G	\N
 Sturmwind	ScW	G	\N
 Sturmwind	Sw	G	\N
 Sturmwind	Th	G	\N
-Sturmwind	To	S	\N
+Sturmwind	To	A	\N
 Sturmwind	eBe	S	\N
 Sturmwind	gHx	S	\N
 Sturmwind	sHx	S	\N
@@ -9185,7 +9137,6 @@ Tibb al-Mumani	Sa	S	\N
 Tibb al-Mumani	ScN	S	\N
 Tibb al-Mumani	ScS	S	\N
 Tibb al-Mumani	ScW	S	\N
-Tibb al-Mumani	To	S	\N
 Tibb al-Mumani	gHx	S	\N
 Tibb al-Mumani	sHx	S	\N
 Tibb al-Mumani	wHx	S	\N
@@ -9207,7 +9158,6 @@ Tiefschlaf	ScS	S	\N
 Tiefschlaf	ScW	S	\N
 Tiefschlaf	Sw	G	\N
 Tiefschlaf	Th	G	\N
-Tiefschlaf	To	S	\N
 Tiefschlaf	gHx	S	\N
 Tiefschlaf	sHx	S	\N
 Tiefschlaf	wHx	S	\N
@@ -9238,7 +9188,6 @@ Tiergestalt	ScN	G	\N
 Tiergestalt	ScS	G	\N
 Tiergestalt	ScW	G	\N
 Tiergestalt	Tm	G	\N
-Tiergestalt	To	S	\N
 Tiergestalt	Wi	G	\N
 Tiergestalt	gHx	S	\N
 Tiergestalt	sHx	S	\N
@@ -9450,7 +9399,6 @@ Trunk des Lebens	PHe	A	\N
 Trunk des Lebens	ScN	A	\N
 Trunk des Lebens	ScS	A	\N
 Trunk des Lebens	ScW	A	\N
-Trunk des Lebens	To	S	\N
 Trunk des Lebens	gHx	S	\N
 Trunk des Lebens	sHx	S	\N
 Trunk des Lebens	wHx	S	\N
@@ -9592,7 +9540,7 @@ Ungeheuer rufen	Sa	S	\N
 Ungeheuer rufen	ScN	S	\N
 Ungeheuer rufen	ScS	S	\N
 Ungeheuer rufen	ScW	S	\N
-Ungeheuer rufen	To	S	\N
+Ungeheuer rufen	To	A	\N
 Ungeheuer rufen	dBe	S	\N
 Ungeheuer rufen	eBe	S	\N
 Ungeheuer rufen	gHx	S	\N
@@ -9733,7 +9681,6 @@ Verfluchen	ScN	G	\N
 Verfluchen	ScS	G	\N
 Verfluchen	ScW	G	\N
 Verfluchen	Sr	G	\N
-Verfluchen	To	S	\N
 Verfluchen	gHx	S	\N
 Verfluchen	sHx	S	\N
 Verfluchen	wHx	S	\N
@@ -9811,7 +9758,6 @@ Verjüngen	Sa	A	\N
 Verjüngen	ScN	A	\N
 Verjüngen	ScS	A	\N
 Verjüngen	ScW	A	\N
-Verjüngen	To	A	\N
 Verjüngen	gHx	A	\N
 Verjüngen	sHx	A	\N
 Verjüngen	wHx	A	\N
@@ -9864,7 +9810,7 @@ Verletzung	Sa	A	\N
 Verletzung	ScN	A	\N
 Verletzung	ScS	A	\N
 Verletzung	ScW	A	\N
-Verletzung	To	A	\N
+Verletzung	To	S	\N
 Verletzung	gHx	A	\N
 Verletzung	sHx	A	\N
 Versetzen	Dr	A	\N
@@ -9931,7 +9877,7 @@ Verursachen schwerer Wunden	Sa	A	\N
 Verursachen schwerer Wunden	ScN	A	\N
 Verursachen schwerer Wunden	ScS	A	\N
 Verursachen schwerer Wunden	ScW	A	\N
-Verursachen schwerer Wunden	To	A	\N
+Verursachen schwerer Wunden	To	S	\N
 Verursachen schwerer Wunden	gHx	A	\N
 Verursachen schwerer Wunden	sHx	A	\N
 Verursachen von Krankheit	De	S	\N
@@ -9940,6 +9886,7 @@ Verursachen von Krankheit	Sa	S	\N
 Verursachen von Krankheit	ScN	S	\N
 Verursachen von Krankheit	ScS	S	\N
 Verursachen von Krankheit	ScW	S	\N
+Verursachen von Krankheit	To	S	\N
 Verursachen von Krankheit	sHx	S	\N
 Verursachen von Krankheit	tBe	S	\N
 Verursachen von Wunden	Dr	A	\N
@@ -9948,7 +9895,7 @@ Verursachen von Wunden	Sa	S	\N
 Verursachen von Wunden	ScN	S	\N
 Verursachen von Wunden	ScS	S	\N
 Verursachen von Wunden	ScW	S	\N
-Verursachen von Wunden	To	A	\N
+Verursachen von Wunden	To	S	\N
 Verursachen von Wunden	gHx	A	\N
 Verursachen von Wunden	sHx	A	\N
 Verwandlung	De	S	\N
@@ -10113,7 +10060,6 @@ Wachsen	ScS	S	\N
 Wachsen	ScW	S	\N
 Wachsen	Sw	G	\N
 Wachsen	Th	G	\N
-Wachsen	To	S	\N
 Wachsen	gHx	S	\N
 Wachsen	sHx	S	\N
 Wachsen	wHx	S	\N
@@ -10138,7 +10084,7 @@ Wagemut	ScS	G	\N
 Wagemut	ScW	G	\N
 Wagemut	Sr	G	\N
 Wagemut	Tm	G	\N
-Wagemut	To	A	\N
+Wagemut	To	S	\N
 Wagemut	Wi	S	\N
 Wagemut	gHx	A	\N
 Wagemut	sHx	A	\N
@@ -10213,7 +10159,6 @@ Waldluft	PW	A	\N
 Waldluft	ScN	G	\N
 Waldluft	ScS	G	\N
 Waldluft	ScW	G	\N
-Waldluft	To	S	\N
 Waldluft	gHx	S	\N
 Waldluft	sHx	S	\N
 Waldluft	wHx	S	\N
@@ -10224,7 +10169,7 @@ Wandelhand	Sa	S	\N
 Wandelhand	ScN	S	\N
 Wandelhand	ScS	S	\N
 Wandelhand	ScW	S	\N
-Wandelhand	To	A	\N
+Wandelhand	To	S	\N
 Wandelhand	dBe	S	\N
 Wandelhand	eBe	S	\N
 Wandelhand	gHx	A	\N
@@ -10240,7 +10185,7 @@ Wandeln wie der Wind	ScN	A	\N
 Wandeln wie der Wind	ScS	A	\N
 Wandeln wie der Wind	ScW	A	\N
 Wandeln wie der Wind	Tm	A	\N
-Wandeln wie der Wind	To	A	\N
+Wandeln wie der Wind	To	S	\N
 Wandeln wie der Wind	Wi	S	\N
 Wandeln wie der Wind	gHx	A	\N
 Wandeln wie der Wind	sHx	A	\N
@@ -10305,7 +10250,6 @@ Warnung	Sr	S	\N
 Warnung	Sw	G	\N
 Warnung	Th	G	\N
 Warnung	Tm	A	\N
-Warnung	To	S	\N
 Warnung	Wi	A	\N
 Warnung	gHx	S	\N
 Warnung	sHx	S	\N
@@ -10325,7 +10269,6 @@ Wasser befreien	Sa	S	\N
 Wasser befreien	ScN	S	\N
 Wasser befreien	ScS	S	\N
 Wasser befreien	ScW	S	\N
-Wasser befreien	To	S	\N
 Wasser befreien	gHx	S	\N
 Wasser befreien	sHx	S	\N
 Wasser befreien	wHx	S	\N
@@ -10345,7 +10288,6 @@ Wasser spüren	ScS	S	\N
 Wasser spüren	ScW	S	\N
 Wasser spüren	Sw	G	\N
 Wasser spüren	Th	G	\N
-Wasser spüren	To	S	\N
 Wasser spüren	gHx	S	\N
 Wasser spüren	sHx	S	\N
 Wasser spüren	wHx	S	\N
@@ -10413,7 +10355,7 @@ Wasserlauf	PW	A	\N
 Wasserlauf	Sa	G	\N
 Wasserlauf	Sw	G	\N
 Wasserlauf	Th	G	\N
-Wasserlauf	To	A	\N
+Wasserlauf	To	S	\N
 Wasserlauf	gHx	A	\N
 Wasserlauf	sHx	A	\N
 Wasserlauf	wHx	A	\N
@@ -10500,7 +10442,7 @@ Wasserwandlung	Sa	S	\N
 Wasserwandlung	ScN	S	\N
 Wasserwandlung	ScS	S	\N
 Wasserwandlung	ScW	S	\N
-Wasserwandlung	To	S	\N
+Wasserwandlung	To	A	\N
 Wasserwandlung	eBe	S	\N
 Wasserwandlung	gHx	S	\N
 Wasserwandlung	sHx	S	\N
@@ -10555,7 +10497,6 @@ Weltentor schaffen	ScS	A	\N
 Weltentor schaffen	ScW	A	\N
 Weltentor schaffen	Sw	A	\N
 Weltentor schaffen	Th	A	\N
-Weltentor schaffen	To	A	\N
 Weltentor schaffen	dBe	S	\N
 Weltentor schaffen	eBe	S	\N
 Weltentor schaffen	gHx	A	\N
@@ -10581,7 +10522,6 @@ Wetterzauber	Sa	G	\N
 Wetterzauber	ScN	G	\N
 Wetterzauber	ScS	G	\N
 Wetterzauber	ScW	G	\N
-Wetterzauber	To	S	\N
 Wetterzauber	gHx	S	\N
 Wetterzauber	sHx	S	\N
 Wetterzauber	wHx	S	\N
@@ -10602,7 +10542,6 @@ Wiederkehr	Sa	G	\N
 Wiederkehr	ScN	G	\N
 Wiederkehr	ScS	G	\N
 Wiederkehr	ScW	G	\N
-Wiederkehr	To	S	\N
 Wiederkehr	dBe	S	\N
 Wiederkehr	eBe	S	\N
 Wiederkehr	gHx	S	\N
@@ -10615,7 +10554,6 @@ Wind des Todes	Sa	S	\N
 Wind des Todes	ScN	S	\N
 Wind des Todes	ScS	S	\N
 Wind des Todes	ScW	S	\N
-Wind des Todes	To	A	\N
 Wind des Todes	gHx	A	\N
 Wind des Todes	sHx	G	\N
 Windmeisterschaft	De	S	\N
@@ -10680,7 +10618,7 @@ Wirbelwind	Sa	S	\N
 Wirbelwind	ScN	S	\N
 Wirbelwind	ScS	S	\N
 Wirbelwind	ScW	S	\N
-Wirbelwind	To	S	\N
+Wirbelwind	To	A	\N
 Wirbelwind	eBe	S	\N
 Wirbelwind	gHx	S	\N
 Wirbelwind	sHx	S	\N
@@ -10716,7 +10654,6 @@ Wolkenbruch	PW	S	\N
 Wolkenbruch	ScN	G	\N
 Wolkenbruch	ScS	G	\N
 Wolkenbruch	ScW	G	\N
-Wolkenbruch	To	S	\N
 Wolkenbruch	gHx	S	\N
 Wolkenbruch	sHx	S	\N
 Wolkenbruch	wHx	S	\N
@@ -10759,7 +10696,6 @@ Wort des Lebens	wHx	G	\N
 Wort des Todes	Ma	A	\N
 Wort des Todes	PC	G	\N
 Wort des Todes	PT	S	\N
-Wort des Todes	To	A	\N
 Wort des Todes	gHx	A	\N
 Wort des Todes	sHx	G	\N
 Wunden schließen	Tr	G	\N
@@ -10771,7 +10707,7 @@ Wundersame Tarnung	ScN	S	\N
 Wundersame Tarnung	ScS	S	\N
 Wundersame Tarnung	ScW	S	\N
 Wundersame Tarnung	Tm	S	\N
-Wundersame Tarnung	To	A	\N
+Wundersame Tarnung	To	S	\N
 Wundersame Tarnung	Wi	S	\N
 Wundersame Tarnung	gHx	A	\N
 Wundersame Tarnung	sHx	A	\N
@@ -10912,7 +10848,7 @@ Zauberschloß	PT	S	\N
 Zauberschloß	PW	S	\N
 Zauberschloß	Sw	G	\N
 Zauberschloß	Th	G	\N
-Zauberschloß	To	S	\N
+Zauberschloß	To	A	\N
 Zauberschloß	gHx	S	\N
 Zauberschloß	sHx	S	\N
 Zauberschloß	wHx	S	\N
@@ -10949,7 +10885,7 @@ Zauberschmiede	PW	S	\N
 Zauberschmiede	Sr	S	\N
 Zauberschmiede	Sw	G	\N
 Zauberschmiede	Th	G	\N
-Zauberschmiede	To	A	\N
+Zauberschmiede	To	S	\N
 Zauberschmiede	gHx	A	\N
 Zauberschmiede	sHx	A	\N
 Zauberschmiede	wHx	A	\N
@@ -10992,7 +10928,6 @@ Zauberstimme	wHx	S	\N
 Zaubertür	Ma	S	\N
 Zaubertür	Sw	G	\N
 Zaubertür	Th	G	\N
-Zaubertür	To	A	\N
 Zaubertür	gHx	A	\N
 Zaubertür	sHx	A	\N
 Zaubertür	wHx	A	\N
@@ -11013,7 +10948,7 @@ Zauberwirklichkeit	Sa	A	\N
 Zauberwirklichkeit	ScN	A	\N
 Zauberwirklichkeit	ScS	A	\N
 Zauberwirklichkeit	ScW	A	\N
-Zauberwirklichkeit	To	S	\N
+Zauberwirklichkeit	To	A	\N
 Zauberwirklichkeit	gHx	S	\N
 Zauberwirklichkeit	sHx	S	\N
 Zauberwirklichkeit	wHx	S	\N
@@ -11139,7 +11074,7 @@ Zwiesprache	ScS	S	\N
 Zwiesprache	ScW	S	\N
 Zwiesprache	Sw	G	\N
 Zwiesprache	Th	G	\N
-Zwiesprache	To	S	\N
+Zwiesprache	To	A	\N
 Zwiesprache	dBe	S	\N
 Zwiesprache	eBe	S	\N
 Zwiesprache	gHx	S	\N
@@ -11164,7 +11099,6 @@ Zwingkreis	ScN	S	\N
 Zwingkreis	ScS	S	\N
 Zwingkreis	ScW	S	\N
 Zwingkreis	Tm	S	\N
-Zwingkreis	To	S	\N
 Zwingkreis	dBe	G	\N
 Zwingkreis	eBe	S	\N
 Zwingkreis	gHx	S	\N

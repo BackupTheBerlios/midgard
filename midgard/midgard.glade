@@ -230,8 +230,10 @@
 	<widget>
 	  <class>GtkButton</class>
 	  <child_name>Toolbar:button</child_name>
-	  <name>button12</name>
+	  <name>button_schliessen</name>
+	  <cxx_visibility>protected</cxx_visibility>
 	  <tooltip>Schlieﬂen</tooltip>
+	  <can_focus>True</can_focus>
 	  <signal>
 	    <name>clicked</name>
 	    <handler>on_schliessen_CG_clicked</handler>
