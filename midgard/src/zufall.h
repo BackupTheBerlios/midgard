@@ -1,4 +1,4 @@
-/* $Id: zufall.h,v 1.16 2001/12/21 22:46:15 thoma Exp $ */
+/* $Id: zufall.h,v 1.17 2002/01/19 18:22:06 christof Exp $ */
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,30 +19,12 @@
 #ifndef _ZUFALL_H
 #  define _ZUFALL_H 
 
-//#include <iomanip.h>
-//#include <time.h>
-//#include <limits.h>
+// nicht übermäßig glücklich, das in einem h File zu machen ...
 #include <stdlib.h>
 
 class Random {
 public:
-//        Random(long seed=0) { _seed =( seed ? seed : time(NULL) ); }
-//        void seed(long seed=0)   { _seed =( seed ? seed : time(NULL) ); }
-//        int integer() { return _next(); }
-        int integer(int min, int max) {return min + int(((max-min+1.)*rand())/(RAND_MAX+1.0)); }
-//        int integer(int min, int max) {return min+ (int)(10 * rand()/(RAND_MAX)); }
-//        double real() {return double(_next())/double(INT_MAX); }
-//        double real() {return double(rand())/double(RAND_MAX); }
-//        int integer(int min, int max) {return min+_next()%(max-min+1); }
-/*
-private:
-        unsigned long _seed;
-        void _randomize() { _seed = (314159265*_seed + 13579) % ULONG_MAX;}
-        int _next()
-         { int iterations = _seed % 3;
-           for (int i=0;i<= iterations; ++i) _randomize(); 
-           return int(_seed/2);
-         }
-*/
+        int integer(int min, int max) 
+        {return min + int(((max-min+1.)*rand())/(RAND_MAX+1.0)); }
 };
 #endif

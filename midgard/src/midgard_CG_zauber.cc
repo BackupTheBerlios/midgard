@@ -1,4 +1,4 @@
-// $Id: midgard_CG_zauber.cc,v 1.46 2002/01/19 17:07:33 christof Exp $
+// $Id: midgard_CG_zauber.cc,v 1.47 2002/01/19 18:22:06 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,6 +23,7 @@
 #ifndef USE_XML
 #include <Aux/SQLerror.h>
 #endif
+#include "Zauber.hh"
 
 void midgard_CG::on_zauber_wahl_clicked()
 {

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.41 2002/01/16 09:37:53 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.42 2002/01/19 18:22:06 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,6 +19,7 @@
 
 #include "midgard_CG.hh"
 #include "WindowInfo.hh"
+#include <Aux/itos.h>
 
 void midgard_CG::on_grad_anstieg_clicked()
 {

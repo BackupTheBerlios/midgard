@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.117 2002/01/18 08:40:39 thoma Exp $
+// $Id: midgard_CG.cc,v 1.118 2002/01/19 18:22:06 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -17,13 +17,6 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// generated 2001/2/2 11:29:18 CET by thoma@ig23.
-// using glademm V0.5_11c
-//
-// newer (non customized) versions of this file go to midgard_CG.cc_glade
-
-// This file is for your program, I won't touch it again!
-
 #include "midgard_CG.hh"
 #include "Window_charakter_beschreibung.hh"
 #include "Window_hilfe.hh"
@@ -32,6 +25,8 @@
 #include "Window_waffe.hh"
 #include "Window_Waffenbesitz.hh"
 #include <gtk--/notebook.h>
+#include <gtk--/main.h>
+#include "Midgard_Info.hh"
 
 //midgard_CG::midgard_CG(int argc,char **argv)
 midgard_CG::midgard_CG(Datenbank& _Database)
@@ -197,7 +192,7 @@ void midgard_CG::on_button_hilfe_clicked()
   manage(new Window_hilfe()); 
 }
 void midgard_CG::on_button_info_clicked()
-{   
+{
   manage(new Midgard_Info());
 }
 

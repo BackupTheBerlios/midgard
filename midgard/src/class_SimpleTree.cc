@@ -23,6 +23,10 @@
 #include <Sprache.hh>
 #include <Fertigkeiten.hh>
 #include <Schrift.hh>
+#include "Waffe.hh"
+#include "KiDo.hh"
+#include "Zauber.hh"
+#include "Zauberwerk.hh"
 
 const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
     { 

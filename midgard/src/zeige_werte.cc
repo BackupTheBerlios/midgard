@@ -1,4 +1,4 @@
-// $Id: zeige_werte.cc,v 1.34 2002/01/19 17:07:33 christof Exp $
+// $Id: zeige_werte.cc,v 1.35 2002/01/19 18:22:06 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,6 +20,7 @@
 #include "midgard_CG.hh"
 //#include "class_spezies.hh"
 #include "dtos1.h"
+#include <Aux/itos.h>
 
 void midgard_CG::zeige_werte(const Grundwerte& w)
 {

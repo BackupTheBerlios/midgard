@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.45 2002/01/15 12:21:18 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.46 2002/01/19 18:22:06 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,6 +21,9 @@
 #include "Fertigkeiten_auswahl.hh"
 #include <Gtk_OStream.h>
 #include "Window_angeb_fert.hh"
+#include "Fertigkeiten.hh"
+#include "Fertigkeiten_angeboren.hh"
+#include <Aux/itos.h>
 
 void midgard_CG::on_fertigkeiten_wahl_clicked()
 {   
