@@ -1,4 +1,4 @@
-// $Id: Schrift.hh,v 1.10 2002/01/12 08:12:25 thoma Exp $               
+// $Id: Schrift.hh,v 1.11 2002/01/16 16:08:36 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,10 +35,17 @@ class Schrift : public MidgardBasicElement
      int Grundkosten() const {return kosten;}
   
   public:
+#ifdef USE_XML
+   Schrift(const Tag *t) : MidgardBasicElement(t,t->getAttr("Name"))
+      { get_Schrift();get_map_typ(); get_Steigern_Kosten_map();
+        EP_steigern("Schreiben");
+      }
+#else
    Schrift(const std::string& n) : MidgardBasicElement(n)
       { get_Schrift();get_map_typ(); get_Steigern_Kosten_map();
         EP_steigern("Schreiben");
       }
+#endif
    enum MBEE What() const {return MidgardBasicElement::SCHRIFT;}
    std::string What_str() const {return "Urschrift";}
 
@@ -63,6 +70,9 @@ class cH_Schrift : public Handle<const Schrift>
     cH_Schrift(){};
   public:
    cH_Schrift(const std::string& name);
+#ifdef USE_XML
+   cH_Schrift(const Tag *tag);
+#endif
 
    cH_Schrift(const cH_MidgardBasicElement &x) : Handle<const Schrift>
       (dynamic_cast<const Schrift *>(&*x)){}

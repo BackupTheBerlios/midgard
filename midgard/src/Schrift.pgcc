@@ -40,14 +40,27 @@ cH_Schrift::cH_Schrift(const std::string& name)
  cH_Schrift *cached(cache.lookup(name));
  if (cached) *this=*cached;
  else
+#ifndef USE_XML 
   {
    *this=cH_Schrift(new Schrift(name));
    cache.Register(name,*this);
   }
+#else
+ assert(!"Schrift im Cache");
+#endif
 }
+
+#ifdef USE_XML
+cH_Schrift::cH_Schrift(const Tag *tag)
+{*this=cH_Schrift(new Schrift(tag));  
+ cache.Register(tag->getAttr("Name"),*this);
+}
+#endif
+
 
 void Schrift::get_Schrift()
 {
+#ifndef USE_XML
   exec sql begin declare section;
    char db_name[50],db_art[50],db_region[50];
    int db_fp;
@@ -66,6 +79,14 @@ void Schrift::get_Schrift()
   kosten=db_fp;
   alt=db_alt;
   kult=db_kult;
+#else // USE_XML
+  assert(tag);
+  art_der_schrift=db_art;
+  region=db_region;
+  kosten=db_fp;
+  alt=db_alt;
+  kult=db_kult;
+#endif 
 }
 
 bool Schrift::kann_Sprache(const std::list<cH_MidgardBasicElement>& sprache) const
