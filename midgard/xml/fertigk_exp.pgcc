@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.pgcc,v 1.30 2001/12/10 15:48:25 christof Exp $
+// $Id: fertigk_exp.pgcc,v 1.31 2001/12/10 16:14:30 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -81,9 +81,11 @@ void fert_speichern(std::ostream &o)
 // ************************* Steigern wie *****************************
     {  Query query2("select wie from steigern_fertigkeiten where name='"+fert+"'");
        FetchIStream is2=query2.Fetch();
-       if (is2.good())
+       std::string wie;
+       if (is2.good()) wie=fetch_string(is2, fert);
+       if (wie!=fert && !wie.empty())
        {  o << "    <steigern_wie";
-          fetch_and_write_string_attrib(is2, o, "Fertigkeit",fert);
+          write_string_attrib(o, "Fertigkeit",wie);
           o << "/>\n";
        }
     }

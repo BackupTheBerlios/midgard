@@ -1,4 +1,4 @@
-// $Id: waffen_exp.pgcc,v 1.15 2001/12/10 15:38:50 christof Exp $
+// $Id: waffen_exp.pgcc,v 1.16 2001/12/10 16:14:30 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -47,7 +47,7 @@ void waffen_speichern(std::ostream &o)
    fetch_and_write_int_attrib(is, o, "RW-Verlust");
    fetch_and_write_int_attrib(is, o, "B-Verlust");
    //***** preise ******
-   {  Query query2("select kosten, einheit into :kosten, :einheit"
+   {  Query query2("select kosten, einheit"
    		" from preise where name='"+ruestung+"' and art='Rüstungen'");
       FetchIStream is2=query2.Fetch();
       if (is2.good())
@@ -133,7 +133,7 @@ void waffen_speichern(std::ostream &o)
 //      ausnahmen(o, "w", waffe);
 
    //***** preise ******
-   {  Query query2("select kosten, einheit into :kosten, :einheit"
+   {  Query query2("select kosten, einheit"
    		" from preise where name='"+waffe+"' and art='Waffen'");
       FetchIStream is2=query2.Fetch();
       if (is2.good())
