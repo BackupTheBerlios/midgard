@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.hh,v 1.19 2003/06/03 16:39:02 christof Exp $
+// $Id: LaTeX_drucken.hh,v 1.20 2003/06/04 08:35:29 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,6 +38,7 @@ class LaTeX_drucken
     enum LaTeX_Pathnames {TeX_Install,TeX_tmp};
  private:
     enum ewhat{enamecharakter,enamespieler,egrad,etyp,espez,
+               emagusversion,
                espezialisierung,estand,eherkunft,eglaube,
                egfp,eaep,ekep,ezep,egold,esilber,ekupfer,eruestung,eruestunglp,
                eruestungb,eruestunglpb,espezies,
