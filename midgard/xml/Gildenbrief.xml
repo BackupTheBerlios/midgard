@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="G" Name="Gildenbrief" Titel="Gildenbrief" Copyright="var." Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="13" MAGUS-Bild="5" CVS="$Revision: 1.12 $">
+<MAGUS-data Region="G" Name="Gildenbrief" Titel="Gildenbrief" Copyright="var." Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="13" MAGUS-Bild="5" CVS="$Revision: 1.13 $">
  <Fertigkeiten>
   <Fertigkeit Name="Abrichten">
    <Ausnahme Typ="MMa"/>
@@ -191,6 +191,9 @@
   <Fertigkeit Name="Schreiben">
    <Grund Typ="MMa"/>
   </Fertigkeit>
+  <Fertigkeit Name="Schreiben: Muttersprache(+12)">
+   <Lernschema Typ="MMa" Lernpunkte="1" Erfolgswert="12"/>
+  </Fertigkeit>
   <Fertigkeit Name="Schwimmen">
    <Grund Typ="MMa"/>
    <Lernschema Typ="MMa" Lernpunkte="3" Erfolgswert="15"/>
@@ -212,6 +215,9 @@
   </Fertigkeit>
   <Fertigkeit Name="Sprache">
    <Standard Typ="MMa"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Sprechen: Alte Sprache">
+   <Lernschema Typ="MMa" Erfolgswert="9"/>
   </Fertigkeit>
   <Fertigkeit Name="Springen">
    <Ausnahme Typ="MMa"/>

@@ -313,6 +313,10 @@
    <Standard Typ="eBe"/>
    <Standard Typ="tBe"/>
   </Fertigkeit>
+  <Fertigkeit Name="Schreiben: Muttersprache(+12)">
+   <Lernschema Typ="dBe" Lernpunkte="1" Erfolgswert="12" Pflicht="true"/>
+   <Lernschema Typ="eBe" Lernpunkte="1" Erfolgswert="12" Pflicht="true"/>
+  </Fertigkeit>
   <Fertigkeit Name="Schwimmen">
    <Standard Typ="dBe"/>
    <Standard Typ="eBe"/>

@@ -8,7 +8,7 @@ ALTER TABLE ONLY public.lernschema_4 DROP CONSTRAINT lernschema_4_pkey;
 DROP INDEX public.lernschema_4_typ_name_wert;
 DROP TABLE public.lernschema_4;
 --
--- TOC entry 2 (OID 27704)
+-- TOC entry 2 (OID 8625937)
 --
 
 CREATE TABLE lernschema_4 (
@@ -22,7 +22,7 @@ CREATE TABLE lernschema_4 (
 
 
 --
--- Data for TOC entry 5 (OID 27704)
+-- Data for TOC entry 5 (OID 8625937)
 --
 
 COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
@@ -362,7 +362,6 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 1	Ma	f	Macht über das Selbst	Zauberkünste	0
 1	Kd	f	Meditieren	Fachkenntnisse	8
 1	Sa	f	Meditieren	Fachkenntnisse	8
-1	Hj	f	Mennschenkenntnis	Fachkenntnisse	5
 1	Er	f	Menschenkenntnis	Fachkenntnisse	5
 1	Hä	f	Menschenkenntnis	Fachkenntnisse	5
 1	As	t	Meucheln	Fachkenntnisse	8
@@ -522,6 +521,7 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 1	Ku	f	Spurenlesen	Fachkenntnisse	6
 1	Wa	f	Spurenlesen	Fachkenntnisse	6
 1	Wi	t	Spurenlesen	Fachkenntnisse	6
+3	To	t	Spurenlesen	Fachkenntnisse	6
 1	Sr	f	Srimara lenken	Fachkenntnisse	15
 1	Kr	f	Stabkeule	Waffenfertigkeiten	5
 1	RiN	f	Stabkeule	Waffenfertigkeiten	5
@@ -1361,7 +1361,6 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 2	Sk	f	Verführen	Fachkenntnisse	8
 2	As	f	Verhören	Fachkenntnisse	8
 2	Gl	f	Verhören	Fachkenntnisse	8
-2	Hj	f	Verhören	8	8
 2	Hä	f	Verhören	Fachkenntnisse	8
 2	PHe	f	Verhören	Fachkenntnisse	8
 2	PT	f	Verhören	Fachkenntnisse	8
@@ -1466,6 +1465,7 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 2	Sw	f	Zauberkunde	Fachkenntnisse	5
 2	Th	f	Zauberkunde	Fachkenntnisse	5
 2	To	f	Zauberkunde	Fachkenntnisse	5
+2	Hj	f	Zauberkunde	Fachkenntnisse	5
 2	dBe	f	Zauberkunde	Fachkenntnisse	4
 2	eBe	f	Zauberkunde	Fachkenntnisse	4
 2	gHx	f	Zauberkunde	Fachkenntnisse	5
@@ -1742,7 +1742,6 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 3	ScS	f	Segnen	Zauberkünste	0
 3	ScW	f	Segnen	Zauberkünste	0
 3	Ma	f	Sehen in Dunkelheit	Zauberkünste	0
-3	Hj	f	Spurenlesen	Spurenlesen	6
 3	Gl	f	Stabkeule	Waffenfertigkeiten	5
 3	Hj	f	Stabkeule	Waffenfertigkeiten	5
 3	Se	f	Stabkeule	Waffenfertigkeiten	5
@@ -1858,6 +1857,7 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 3	To	f	kleiner Schild	Waffenfertigkeiten	1
 3	Gl	f	leichte Armbrust	Waffenfertigkeiten	5
 3	Hj	f	leichte Armbrust	Waffenfertigkeiten	5
+4	Hj	f	schwere Armbrust	Waffenfertigkeiten	5
 3	Kd	f	leichte Armbrust	Waffenfertigkeiten	5
 3	Or	f	leichte Armbrust	Waffenfertigkeiten	5
 3	Se	f	leichte Armbrust	Waffenfertigkeiten	5
@@ -2095,6 +2095,7 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 8	Ba	f	Das Lied der Verführung	Zauberkünste	0
 8	Ba	f	Das Lied des Spottes	Zauberkünste	0
 8	Ba	f	Das Lied des Wagemuts	Zauberkünste	0
+2	Hj	f	Verhören	Fachkenntnisse	8
 8	Hj	f	Erkennen von Zauberei	Zauberkünste	0
 8	Mg	f	Erkennen von Zauberei	Zauberkünste	0
 8	ScN	f	Faustkampf	Waffenfertigkeiten	4
@@ -2137,18 +2138,20 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 9	PM	f	waffenloser Kampf	Waffenfertigkeiten	4
 9	dBe	f	waffenloser Kampf	Waffenfertigkeiten	4
 9	eBe	f	waffenloser Kampf	Waffenfertigkeiten	4
+1	Hj	f	Menschenkenntnis	Fachkenntnisse	5
+3	Hj	f	Spurenlesen	Fachkenntnisse	6
 \.
 
 
 --
--- TOC entry 4 (OID 29823)
+-- TOC entry 4 (OID 8628056)
 --
 
 CREATE UNIQUE INDEX lernschema_4_typ_name_wert ON lernschema_4 USING btree (typ, name, wert);
 
 
 --
--- TOC entry 3 (OID 27709)
+-- TOC entry 3 (OID 8628057)
 --
 
 ALTER TABLE ONLY lernschema_4

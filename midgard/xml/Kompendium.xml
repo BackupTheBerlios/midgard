@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="TuT" Name="Kompendium" Titel="Das Kompendium" Copyright="Jürgen E. Franke" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="1" MAGUS-Bild="12" CVS="$Revision: 1.14 $">
+<MAGUS-data Region="TuT" Name="Kompendium" Titel="Das Kompendium" Copyright="Jürgen E. Franke" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="1" MAGUS-Bild="12" CVS="$Revision: 1.15 $">
  <Fertigkeiten>
   <Fertigkeit Name="Geomantie" Region="TuT" Lernpunkte="4" Anfangswert="5" Lernkosten="100" Erfolgswert="4" Attribut="In" Maximalwert="12" MaximalMitUnterweisung="11">
    <Grund Typ="De"/>
@@ -536,6 +536,13 @@
    <Standard Typ="Sw"/>
    <Standard Typ="Wi"/>
   </Fertigkeit>
+  <Fertigkeit Name="Landeskunde (Heimat)">
+   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="10"/>
+   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="10"/>
+   <Lernschema Typ="RiN" Lernpunkte="2" Erfolgswert="12"/>
+   <Lernschema Typ="RiS" Lernpunkte="2" Erfolgswert="12"/>
+  </Fertigkeit>
   <Fertigkeit Name="Laufen">
    <Grund Typ="Fi"/>
    <Grund Typ="Wi"/>
@@ -596,6 +603,7 @@
    <Standard Typ="RiS"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
+   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="5"/>
    <Lernschema Typ="Mg" Lernpunkte="3" Erfolgswert="5"/>
   </Fertigkeit>
   <Fertigkeit Name="Meucheln">
@@ -791,6 +799,16 @@
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
   </Fertigkeit>
+  <Fertigkeit Name="Schreiben: Alte Sprache(+12)">
+   <Lernschema Typ="Mg" Erfolgswert="12"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schreiben: Muttersprache(+12)">
+   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="12"/>
+   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="12"/>
+   <Lernschema Typ="Sw" Lernpunkte="1" Erfolgswert="12"/>
+   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="12"/>
+  </Fertigkeit>
   <Fertigkeit Name="Schwimmen">
    <Grund Typ="Km"/>
    <Grund Typ="RiN"/>
@@ -870,6 +888,12 @@
    <Standard Typ="Sw"/>
    <Standard Typ="Wi"/>
   </Fertigkeit>
+  <Fertigkeit Name="Sprechen: Alte Sprache">
+   <Lernschema Typ="Mg" Erfolgswert="12"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Sprechen: Sprache(+12)">
+   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="12"/>
+  </Fertigkeit>
   <Fertigkeit Name="Springen">
    <Grund Typ="Sw"/>
    <Grund Typ="To"/>
@@ -895,6 +919,8 @@
    <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="6" Pflicht="true"/>
    <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="6" Pflicht="true"/>
    <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="6"/>
+   <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="6"/>
+   <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="6" Pflicht="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Stehlen">
    <Standard Typ="Mg"/>
@@ -1059,6 +1085,7 @@
    <Standard Typ="To"/>
    <Ausnahme Typ="Fi"/>
    <Ausnahme Typ="Wi"/>
+   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="8"/>
   </Fertigkeit>
   <Fertigkeit Name="Verkleiden">
    <Grund Typ="Sw"/>
@@ -1119,6 +1146,7 @@
    <Ausnahme Typ="RiN"/>
    <Ausnahme Typ="RiS"/>
    <Ausnahme Typ="Wi"/>
+   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Km" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="5"/>
@@ -2692,6 +2720,7 @@
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
    <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Typ="Hj" Lernpunkte="4" Erfolgswert="5"/>
   </Waffe>
   <Waffe Name="waffenloser Kampf">
    <Grund Typ="RiN"/>

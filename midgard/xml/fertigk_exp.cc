@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.43 2003/07/01 21:00:08 christof Exp $
+// $Id: fertigk_exp.cc,v 1.44 2003/07/20 18:21:48 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -232,7 +232,7 @@ void fert_speichern(Tag &o)
   if (!region.empty())
  { FetchIStream is;
    Query q("select fertigkeit, region from fertigkeiten "
-   	+ RegionErgaenzungQuery("fertigkeiten.fertigkeit","fertigkeiten_typen","Fertigkeit","f")
+   	+ RegionErgaenzungQuery("fertigkeiten.fertigkeit","fertigkeiten_typen","Fachkenntnisse","f")
    	+ "order by coalesce(region,''),fertigkeit");
   while ((q >> is).good())
   {Tag &fertigk=fertigkeiten.push_back(Tag("Fertigkeit"));
