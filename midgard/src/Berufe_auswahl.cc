@@ -182,9 +182,11 @@ void Berufe_auswahl::fill_list()
       std::vector<string> fert=b->Vorteile();
       for(std::vector<string>::const_iterator j=fert.begin();j!=fert.end();++j)
        {
+cout << *j<<'\n';
          int kat;
          if(*j=="Schmecken+10") kat=1;
          else kat=cH_Fertigkeit(*j)->Berufskategorie();
+cout <<'\t'<< kat<<'\n';
          if( (kat==1 && kat_I)   || (kat==2 && kat_II) || 
              (kat==3 && kat_III) || (kat==4 && kat_IV ) )
            {
