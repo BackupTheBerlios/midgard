@@ -44,4 +44,27 @@
   <Land Name="Ywerdon" Kontinent="Vesternesse" Sprache="Twyneddisch"/>
   <Land Name="Ywerdon" Kontinent="Vesternesse" Sprache="Erainnisch"/>
  </Länder>
+ <Schriften>
+  <Schrift Name="Bulugi" Typ="Bilder" Kosten="100"/>
+  <Schrift Name="Coraniaid" Typ="Buchstaben" Kosten="100"/>
+  <Schrift Name="Dvarskar" Typ="Runen" Kosten="100"/>
+  <Schrift Name="Gnomenon" Typ="Bilder" Kosten="100"/>
+  <Schrift Name="Halftan" Typ="Buchstaben" Kosten="100"/>
+  <Schrift Name="Luwisch" Typ="Keilschrift" Kosten="100"/>
+  <Schrift Name="Läinisch" Typ="Bilder" Kosten="100"/>
+  <Schrift Name="Meketisch" Typ="Bilder" Kosten="100"/>
+  <Schrift Name="Nahuatlanisch" Typ="Bilder" Kosten="100"/>
+  <Schrift Name="Rawindi" Typ="Buchstaben" Kosten="100"/>
+  <Schrift Name="Scharidisch" Typ="Buchstaben" Kosten="100"/>
+  <Schrift Name="Seemeister" Typ="Buchstaben" Kosten="100"/>
+  <Schrift Name="Tegarisch" Typ="Buchstaben" Kosten="100"/>
+  <Schrift Name="Waelska" Typ="Runen" Kosten="100"/>
+  <Schrift Name="Geisterschrift" Region="K" Typ="Silben" Kosten="100"/>
+  <Schrift Name="KanThaiTun(1)" Region="K" Typ="Silben" Kosten="100"/>
+  <Schrift Name="KanThaiTun(2)" Region="K" Typ="Silben" Kosten="200"/>
+  <Schrift Name="KanThaiTun(3)" Region="K" Typ="Silben" Kosten="1000"/>
+  <Schrift Name="KanThaiTun(4)" Region="K" Typ="Silben" Kosten="1000"/>
+  <Schrift Name="KanThaiTun(5)" Region="K" Typ="Silben" Kosten="1000"/>
+  <Schrift Name="KanThaiTun(6)" Region="K" Typ="Silben" Kosten="1000"/>
+ </Schriften>
 </MidgardCG-data>
