@@ -1,4 +1,4 @@
-// $Id: export_common.cc,v 1.14 2002/05/15 12:29:56 christof Exp $
+// $Id: export_common.cc,v 1.15 2002/06/03 15:49:52 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -19,9 +19,7 @@
 
 #include "export_common.h"
 
-#ifdef REGION
 std::string region;
-#endif
 
 #if defined( __MINGW32__) || defined(USE_XML)
 #define NO_SQL
@@ -74,6 +72,12 @@ int fetch_and_write_int_attrib(FetchIStream &is,std::ostream &o,const std::strin
    return val;
 }
 
+int fetch_and_set_int_attrib(FetchIStream &is,Tag &o,const std::string &wert,int standard=0)
+{  int val=fetch_int(is,standard);
+   if (val!=standard) o.setIntAttr(wert,val);
+   return val;
+}
+
 double fetch_float(FetchIStream &is,double standard=0)
 {  float val;
    
@@ -106,9 +110,15 @@ double fetch_and_write_float_attrib(FetchIStream &is,std::ostream &o,const std::
    return val;
 }
 
- std::string fetch_and_write_string_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,const std::string &standard="")
+ std::string fetch_and_set_string_attrib(FetchIStream &is,Tag &o,const std::string &wert,const std::string &standard="")
 {  std::string val=fetch_string(is,standard);
-   write_string_attrib(o,wert,val,standard);
+   if (val!=standard) o.setAttr(wert,val);
+   return val;
+}
+
+int fetch_and_set_bool_attrib(FetchIStream &is,Tag &o,const std::string &wert,bool standard=0)
+{  bool val=fetch_bool(is,standard);
+   if (val!=standard) o.setBoolAttr(wert,val);
    return val;
 }
 

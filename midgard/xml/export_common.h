@@ -1,4 +1,4 @@
-// $Id: export_common.h,v 1.20 2002/05/10 06:02:25 thoma Exp $
+// $Id: export_common.h,v 1.21 2002/06/03 15:49:52 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -20,6 +20,7 @@
 #include <string>
 #include <Aux/FetchIStream.h>
 #include <iostream>
+#include "Tag.hh"
 
 #ifdef MIDGARD3
 #define MIDGARD3_4(x,y) x
@@ -28,14 +29,9 @@
 #define MIDGARD4
 #endif
 
-#ifdef REGION
 extern std::string region;
 #define IF_REGION(x) x
 #define IF_NOT_REGION(x) 
-#else
-#define IF_REGION(x)
-#define IF_NOT_REGION(x) x
-#endif
 
 std::string toXML(const std::string &s);
 std::string toSQL(const std::string &s);
@@ -47,6 +43,7 @@ void write_int_attrib(std::ostream &o,const std::string &wert,int val, int stand
 inline void write_int_attrib_force(std::ostream &o,const std::string &wert,int val);
 int fetch_and_write_int(FetchIStream &is,std::ostream &o,const std::string &wert,int indent=0);
 int fetch_and_write_int_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,int standard=0);
+int fetch_and_set_int_attrib(FetchIStream &is,Tag &o,const std::string &wert,int standard=0);
 
 double fetch_float(FetchIStream &is,double standard=0);
 void write_float(std::ostream &o,const std::string &wert,double val, int indent=0);
@@ -59,11 +56,13 @@ void write_string(std::ostream &o,const std::string &wert,const std::string &val
 void write_string_attrib(std::ostream &o,const std::string &wert,const std::string &val,const std::string &standard="");
 std::string fetch_and_write_string(FetchIStream &is,std::ostream &o,const std::string &wert,int indent=0);
 std::string fetch_and_write_string_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,const std::string &standard="");
+std::string fetch_and_set_string_attrib(FetchIStream &is,Tag &o,const std::string &wert,const std::string &standard="");
 
 bool fetch_bool(FetchIStream &is,const bool &standard=false);
 void write_bool_attrib(std::ostream &o,const std::string &wert,bool val, bool standard=false);
 void write_bool_attrib_force(std::ostream &o,const std::string &wert,bool val);
 bool fetch_and_write_bool_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,const bool &standard=false);
+bool fetch_and_set_bool_attrib(FetchIStream &is,Tag &o,const std::string &wert,const bool &standard=false);
 
 std::string typ_standardisierung(const std::string &t);
 std::string fetch_typ(FetchIStream &is,const std::string &standard="");
@@ -77,16 +76,23 @@ void lernschema(ostream &o, const std::string &art, const std::string &name,
 	bool nur_region=false);
 void ausnahmen(ostream &o, const std::string &art, const std::string &name,
 	bool nur_region=false);
-//void pflicht_lernen(ostream &o, const std::string &name, bool nur_region=false);
-//void verbot_lernen(ostream &o, const std::string &name, bool nur_region=false);
+void grund_standard_ausnahme(Tag &o, 
+	const std::string &table, const std::string &name,
+	const std::string &condition="", bool nur_region=false);
+void lernschema(Tag &o, const std::string &art, const std::string &name,
+	bool nur_region=false);
+void ausnahmen(Tag &o, const std::string &art, const std::string &name,
+	bool nur_region=false);
 
 std::string RegionErgaenzungQuery(const std::string &attribute, 
 	const std::string &typtable, const std::string &lernsch_art,
 	const std::string &ausnahmen_art);
 std::string Herkunft(bool invert=false);
 void region_tags(std::ostream &os, const string &region);
+void region_tags(Tag &t, const string &region);
 void kaufpreis(std::ostream &os, const string &art, const string &name);
 
+void arkanum_speichern(Tag &t);
 void arkanum_speichern(std::ostream &o);
 void land_speichern(std::ostream &o);
 void fert_speichern(std::ostream &o);

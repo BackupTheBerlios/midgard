@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.cc,v 1.13 2002/01/29 16:43:04 christof Exp $
+// $Id: arkanum_exp.cc,v 1.14 2002/06/03 15:49:52 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -20,6 +20,7 @@
 #include <fstream>
 #include <Aux/dbconnect.h>
 #include "export_common.h"
+#include "TagStream.hh"
 
 int main(int argc, char *argv[])
 {  
@@ -30,12 +31,11 @@ int main(int argc, char *argv[])
       
       if (argc>1) region=argv[1];
 
-   std::cout << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n";
-   std::cout << "<MAGUS-data";
-   region_tags(std::cout,region.empty()?std::string("Arkanum"):region);
-   std::cout << ">\n";
-   arkanum_speichern(std::cout);
-   std::cout << "</MAGUS-data>\n";
+      TagStream ts;
+      Tag &data=ts.push_back(Tag("MAGUS-data"));
+      region_tags(data,region.empty()?std::string("Arkanum"):region);
+      arkanum_speichern(data);
+      ts.write(std::cout);
    Petig::dbdisconnect();
    } catch (SQLerror &e)
    {  std::cerr << e << '\n';
