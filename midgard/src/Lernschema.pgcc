@@ -45,8 +45,7 @@ Lernschema::Lernschema(Gtk::ProgressBar *progressbar)
  if (zauber)
  {  Tag::const_iterator b=zauber->begin(),e=zauber->end();
     double size=(e-b)*3;
-    for (Tag::const_iterator i=zauber->find(b,"Spruch");
-    		i!=e;	i=zauber->find(i+1,"Spruch"))
+    FOR_EACH_TAG_OF_5(i,*zauber,b,e,"Spruch")
     {  progressbar->set_percentage((i-b)/size);
        while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
        for (Tag::const_iterator j=i->find(i->begin(),"Lernschema")
@@ -60,8 +59,7 @@ Lernschema::Lernschema(Gtk::ProgressBar *progressbar)
  if (fertigkeiten)
  {  Tag::const_iterator b=fertigkeiten->begin(),e=fertigkeiten->end();
     double size=(e-b)*3;
-    for (Tag::const_iterator i=fertigkeiten->find(b,"Fertigkeit");
-    		i!=e;	i=fertigkeiten->find(i+1,"Fertigkeit"))
+    FOR_EACH_TAG_OF_5(i,*fertigkeiten,b,e,"Fertigkeit")
     {  progressbar->set_percentage((i-b)/size+.33);
        while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
        for (Tag::const_iterator j=i->find(i->begin(),"Lernschema")
@@ -75,8 +73,7 @@ Lernschema::Lernschema(Gtk::ProgressBar *progressbar)
  if (waffen)
  {  Tag::const_iterator b=waffen->begin(),e=waffen->end();
     double size=(e-b)*3;
-    for (Tag::const_iterator i=waffen->find(b,"Waffe");
-    		i!=e;	i=waffen->find(i+1,"Waffe"))
+    FOR_EACH_TAG_OF_5(i,*waffen,b,e,"Waffe")
     {  progressbar->set_percentage((i-b)/size+.66);
        while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
        for (Tag::const_iterator j=i->find(i->begin(),"Lernschema")

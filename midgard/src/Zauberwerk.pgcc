@@ -15,14 +15,27 @@ cH_Zauberwerk::cH_Zauberwerk(const std::string& name,const std::string& art,cons
  cH_Zauberwerk *cached(cache.lookup(index));
  if (cached) *this=*cached;
  else
+#ifndef USE_XML
   {
    *this=cH_Zauberwerk(new Zauberwerk(name,art,stufe));
    cache.Register(index,*this);
   }
+#else
+   assert(!"Zauberwerk im Cache");
+#endif
 }
+
+#ifdef USE_XML
+cH_Zauberwerk::cH_Zauberwerk(const Tag *tag)
+{*this=cH_Zauber(new Zauberwerk(tag));
+ cache.Register(st_index(tag->getAttr("Name"),tag->getAttr("Art"),
+ 		tag->getAttr("Stufe")),*this);
+}
+#endif
 
 void Zauberwerk::get_Zauberwerk()
 {
+#ifndef USE_XML
   exec sql begin declare section;
    int db_kosten;
    char db_preis[50];
@@ -52,10 +65,18 @@ void Zauberwerk::get_Zauberwerk()
 
    exec sql close cl_zauberwerk_ein;
    tr.close();
+#else
+   assert(tag);
+   kosten=tag->getIntAttr("Kosten");
+   zeitaufwand=tag->getAttr("Zeitaufwand");
+   preis=tag->getAttr("Geldaufwand");
+   region=tag->getAttr("Region");
+#endif
 }
 
 void Zauberwerk::getVoraussetzungen()
 {
+#ifndef USE_XML
  exec sql begin declare section;
    char db_name[50];
    char db_voraus[50];
@@ -77,10 +98,16 @@ void Zauberwerk::getVoraussetzungen()
   }
  exec sql close ZWVein;
  tr.close();
+#else
+   assert(tag);
+   FOR_EACH_TAG_OF(i,*tag,"Voraussetzung")
+      vec_vor.push_back(st_vor(i->getAttr("Fertigkeit"),i->getAttr("Verbindung")));
+#endif
 }
 
 void Zauberwerk::getVoraussetzungenFert()
 {
+#ifndef USE_XML
  exec sql begin declare section;
    char db_name[50];
    char db_voraus[50];
@@ -101,6 +128,11 @@ void Zauberwerk::getVoraussetzungenFert()
   }
  exec sql close ZWVFein;
  tr.close();
+#else
+   assert(tag);
+   FOR_EACH_TAG_OF(i,*tag,"Voraussetzung_Art")
+      vec_vor.push_back(st_vor(i->getAttr("Fertigkeit"),""));
+#endif
 }
 
 
@@ -152,6 +184,7 @@ bool Zauberwerk::Voraussetzungen_Fertigkeit(const std::list<cH_MidgardBasicEleme
 
 Zauberwerk_All::Zauberwerk_All(Gtk::ProgressBar *progressbar)
 {
+#ifndef USE_XML
  exec sql begin declare section;
    char db_name[100]; 
    char db_art[100];
@@ -176,6 +209,24 @@ Zauberwerk_All::Zauberwerk_All(Gtk::ProgressBar *progressbar)
   }
  exec sql close ZAWein;
  tr.close();
+#else
+ const Tag *zauberwerke=xml_data->find("Zauberwerke");
+ int count=0;
+ if (!zauberwerke)
+    cerr << "<Zauberwerke><Zauberwerk/>... nicht gefunden\n";
+ else
+ {  Tag::const_iterator b=zauberwerke->begin(),e=zauberwerke->end();
+    double size=e-b;
+    FOR_EACH_TAG_OF_5(i,*zauberwerke,b,e,"Zauberwerk")
+    {  if (!((++count)&31))
+       {  progressbar->set_percentage((i-b)/size);
+          while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+       }
+// warum sowas? siehe Zauber.pgcc
+       list_All.push_back(&*(cH_Zauberwerk(&*i)));
+    }
+ }
+#endif 
  progressbar->set_percentage(1);
 }
 

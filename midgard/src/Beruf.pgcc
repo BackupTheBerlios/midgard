@@ -12,8 +12,8 @@ cH_Beruf::cH_Beruf(const std::string& name)
 {
  cH_Beruf *cached(cache.lookup(name));
  if (cached) *this=*cached;
-#ifndef USE_XML 
  else
+#ifndef USE_XML 
   {
    *this=cH_Beruf(new Beruf(name));
    cache.Register(name,*this);
@@ -100,8 +100,7 @@ void Beruf::get_Beruf()
 
     const Tag *Vorteil=tag->find("Vorteil");
     if (Vorteil)
-       for (Tag::const_iterator i=Vorteil->find(Vorteil->begin(),"Fertigkeit");
-     		i!=Vorteil->end();i=Vorteil->find(i+1,"Fertigkeit"))
+       FOR_EACH_TAG_OF(i,*Vorteil,"Fertigkeit")
           vorteile.push_back(i->getAttr("Name"));
 #endif 
 }
@@ -192,8 +191,7 @@ Beruf_All::Beruf_All(Gtk::ProgressBar *progressbar)
  else
  {  Tag::const_iterator b=berufe->begin(),e=berufe->end();
     double size=e-b;
-    for (Tag::const_iterator i=berufe->find(b,"Beruf");
-    		i!=e;	i=berufe->find(i+1,"Beruf"))
+    FOR_EACH_TAG_OF_5(i,*berufe,b,e,"Beruf")
     {  // if (!((++count)&31))
        {  progressbar->set_percentage((i-b)/size);
           while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;

@@ -35,10 +35,17 @@ class Waffe : public MidgardBasicElement
      int Gw() const {return gw;}
      int Gs() const {return gs;}
   public:
+#ifndef USE_XML
      Waffe(const std::string& n)
       :MidgardBasicElement(n),lern_land(0),lern_stadt(0)
      {get_Waffe(); get_Alias(); get_map_typ();get_Steigern_Kosten_map();
       EP_steigern("Waffen"); }
+#else
+     Waffe(const Tag *t)
+      :MidgardBasicElement(t,t->getAttr("Name")),lern_land(0),lern_stadt(0)
+     {get_Waffe(); get_Alias(); get_map_typ();get_Steigern_Kosten_map();
+      EP_steigern("Waffen"); }
+#endif
 
      enum MBEE What() const {return MidgardBasicElement::WAFFE;}
      std::string What_str() const {return "Waffe";}
@@ -87,6 +94,9 @@ class cH_Waffe : public Handle<const Waffe>
     friend class std::map<std::string,cH_Waffe>;
  public:
     cH_Waffe(const std::string& n);
+#ifdef USE_XML
+    cH_Waffe(const Tag *tag);
+#endif
 
     cH_Waffe(const cH_MidgardBasicElement &x) : Handle<const Waffe>
       (dynamic_cast<const Waffe *>(&*x)){}

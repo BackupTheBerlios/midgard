@@ -12,14 +12,26 @@ cH_Waffe::cH_Waffe(const std::string& name)
  cH_Waffe *cached(cache.lookup(name));
  if (cached) *this=*cached;
  else
+#ifndef USE_XML 
   {
    *this=cH_Waffe(new Waffe(name));  
    cache.Register(name,*this);
   }
+#else
+  assert(!"Waffe im Cache");
+#endif
 }
+
+#ifdef USE_XML
+cH_Waffe::cH_Waffe(const Tag *tag)
+{*this=cH_Waffe(new Waffe(tag));
+ cache.Register(tag->getAttr("Name"),*this);
+}
+#endif
 
 void Waffe::get_Waffe()
 {
+#ifndef USE_XML
   exec sql begin declare section;
    int db_schwierigkeit,db_schaden_b, db_st,db_gw,db_gs,
       db_reichweite_0,db_reichweite_n,db_reichweite_m,
@@ -74,10 +86,13 @@ void Waffe::get_Waffe()
 
   exec sql close cl_waffen_ein;
   tr.close();
+#else
+#endif
 }
 
 void Waffe::get_Alias() 
 {
+#ifndef USE_XML
   exec sql begin declare section;
    char query[1024], db_alias[50], db_region[10], db_schaden[30];
    int db_schaden_b,db_angriffs_mod;
@@ -108,7 +123,8 @@ void Waffe::get_Alias()
 //
 //for (list<Waffe::st_alias>::const_iterator j=list_alias.begin();j!=list_alias.end();++j)
 //cout << Name()<<'\t'<<(*j).name<<'\t'<<(*j).region<<'\n';
-
+#else
+#endif
 }
 
 
@@ -211,6 +227,7 @@ std::string Waffe::Region(const std::string& name) const
 
 map<std::string,std::string> Waffe::fill_map_alias_waffe(Gtk::ProgressBar *progressbar)
 {
+#ifndef USE_XML
   map<std::string,std::string> M;
   exec sql begin declare section;
    char db_alias[50];
@@ -235,6 +252,8 @@ map<std::string,std::string> Waffe::fill_map_alias_waffe(Gtk::ProgressBar *progr
    }
   tr.close();
   exec sql close WAliasC;
+#else  
+#endif  
   progressbar->set_percentage(1);
   return M;
 }
@@ -315,6 +334,7 @@ std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
 
 Waffe_All::Waffe_All(Gtk::ProgressBar *progressbar)
 {
+#ifndef USE_XML
  exec sql begin declare section;
    char db_name[50][100];
    int db_size;
@@ -344,5 +364,7 @@ Waffe_All::Waffe_All(Gtk::ProgressBar *progressbar)
   }
  exec sql close WAein;
  tr.close();
+#else
+#endif
  progressbar->set_percentage(1);
 }

@@ -1,4 +1,4 @@
-// $Id: xmlimport.pgcc,v 1.31 2001/11/23 09:31:58 christof Exp $
+// $Id: xmlimport.pgcc,v 1.32 2002/01/10 07:27:32 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -258,10 +258,8 @@ update:
    exec sql delete from charaktere_fertigkeiten where charakter_name = :db_name_ch;
    SQLerror::test(__FILELINE__,100);
    //-- Waffen ---- V4+
-   for (Tag::const_iterator i=Ausruestung->begin();i!=Ausruestung->end();++i)
-   {  if (i->Type()!="Waffe") continue;
-   
-      exec sql begin declare section;
+   FOR_EACH_TAG_OF(i,*Ausruestung,"Waffe")
+   {  exec sql begin declare section;
       char db_fertigkeit[50];
       int db_wert;
       char db_magisch[1024];
@@ -286,7 +284,7 @@ update:
 		:db_sl_bonus,:db_region,:db_magisch);
    }
    //-- Fertigkeiten --- V3+
-   for (Tag::const_iterator i=Fertigkeiten->begin();i!=Fertigkeiten->end();++i)
+   FOR_EACH_TAG(i,*Fertigkeiten)
    {  if (!i->Type().size()) continue;
    
       exec sql begin declare section;

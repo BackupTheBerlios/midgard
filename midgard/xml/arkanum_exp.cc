@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.cc,v 1.7 2002/01/09 08:04:58 christof Exp $
+// $Id: arkanum_exp.cc,v 1.8 2002/01/10 07:27:32 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -105,18 +105,18 @@ void arkanum_speichern(std::ostream &o)
   {o << "  <Zauberwerk";
    std::string zauberwerk=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
-   fetch_and_write_string_attrib(is, o, "Art");
+   std::string art=fetch_and_write_string_attrib(is, o, "Art");
    std::string stufe=fetch_and_write_string_attrib(is, o, "Stufe");
    fetch_and_write_string_attrib(is, o, "Zeitaufwand");
    fetch_and_write_string_attrib(is, o, "Geldaufwand");
    fetch_and_write_string_attrib(is, o, "Kosten");
    o << ">\n";
    
-   grund_standard_ausnahme(o, "zauberwerk_typen", zauberwerk, "stufe='"+stufe+"'");
+   grund_standard_ausnahme(o, "zauberwerk_typen", zauberwerk, "stufe='"+stufe+"' and art='"+art+"'");
 
 //************************ Voraussetzungen ****************************
 	// Zauberwerk Voraussetzungen
-   Query query2("select voraussetzung,verbindung from zauberwerk_voraussetzung"
+  {Query query2("select voraussetzung,verbindung from zauberwerk_voraussetzung"
 	" where name='"+zauberwerk+"' order by voraussetzung");
    FetchIStream is2;
    while ((query2>>is2).good())
@@ -125,24 +125,36 @@ void arkanum_speichern(std::ostream &o)
       fetch_and_write_string_attrib(is2, o, "Verbindung");
       o << "/>\n";
    }
+  }
+  {Query query3("select voraussetzung from zauberwerk_voraussetzung"
+	" where name='"+art+"' order by voraussetzung");
+   FetchIStream is3;
+   while ((query3>>is3).good())
+   {  o << "    <Voraussetzung_Art";
+      fetch_and_write_string_attrib(is3, o, "Fertigkeit");
+      o << "/>\n";
+   }
+  }
    o << "  </Zauberwerk>\n";
   }
  }
 #ifdef REGION // Lernschema für Typen dieser Region
   if (region!="")
   {FetchIStream is;
-   Query q("select name, region from zauberwerk "
+   Query q("select name, region, art, stufe from zauberwerk "
    	+ RegionErgaenzungQuery("zauberwerk.name","zauberwerk_typen","Zauber","z")
    	+ "order by coalesce(region,''),name");
   while ((q >> is).good())
   {o << "  <Zauberwerk";
-   std::string zauber=fetch_and_write_string_attrib(is, o, "Name");
+   std::string zauberwerk=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
+   std::string art=fetch_and_write_string_attrib(is, o, "Art");
+   std::string stufe=fetch_and_write_string_attrib(is, o, "Stufe");
    o << ">\n";
 
-   grund_standard_ausnahme(o, "zauber_typen",zauber,"",true);
-   lernschema(o, "Zauber",zauber,true);
-   ausnahmen(o, "z", zauber,true);
+   grund_standard_ausnahme(o, "zauber_typen",zauberwerk,"stufe='"+stufe+"' and art='"+art+"'",true);
+//   lernschema(o, "Zauber",zauberwerk,true);
+//   ausnahmen(o, "z", zauberwerk,true);
    o << "  </Zauberwerk>\n";
   }
   }

@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.18 2002/01/09 14:19:30 christof Exp $
+// $Id: xml.cc,v 1.19 2002/01/10 07:27:32 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -39,8 +39,7 @@ void xml_init(const std::string &filename="midgard.xml")
 
 reloop:   
    Tag::const_iterator b=xml_data->begin(),e=xml_data->end();
-    for (Tag::const_iterator i=xml_data->find(b,"MCG:include");
-    		i!=e;	i=xml_data->find(i+1,"MCG:include"))
+    FOR_EACH_TAG_OF_5(i,*xml_data,b,e,"MCG:include")
     {  const Tag *t2=&*i;
        std::string file=t2->getAttr("File");
        if (t2->getBoolAttr("Loaded",false) || t2->getBoolAttr("inactive",false))
@@ -54,7 +53,7 @@ reloop:
        if (in2.good()) 
        {  TagStream ts2(in2);
           const Tag *data2=ts2.find("MidgardCG-data");
-          for (Tag::const_iterator j=data2->begin();j!=data2->end();++j)
+          FOR_EACH_TAG(j,*data2)
           {  if (j->Type().empty()) continue; // inter tag space
              const Tag *merge_here;
              if ((merge_here=xml_data->find(j->Type())))
@@ -109,8 +108,7 @@ cerr << ")\n";
     cerr << "<"<<listtag<<"><"<<elementtag<<"/>... nicht gefunden\n";
  else
  {  Tag::const_iterator b=liste->begin(),e=liste->end();
-    for (Tag::const_iterator i=liste->find(b,elementtag);
-    		i!=e;	i=liste->find(i+1,elementtag))
+    FOR_EACH_TAG_OF_5(i,*liste,b,e,elementtag)
     {  for (vector<pair<std::string,std::string> >::const_iterator j=anforderungen.begin();
     		j!=anforderungen.end();++j)
        {  if (i->getAttr(j->first)!=j->second) goto continue_outer;
@@ -179,14 +177,14 @@ const xml_liste *suche_Tageigenschaften(const std::string &list, const std::stri
 static void xml_merge(Tag *merge_here, const Tag *tomerge)
 {  // suche nach tomerge->getAttr("name");
 //   cout << "merge " << merge_here->Type() << ',' << tomerge->Type() << '\n';
-   for (Tag::const_iterator i=tomerge->begin();i!=tomerge->end();++i)
+   FOR_EACH_TAG(i,*tomerge)
    {  if (i->Type().empty()) continue;
       const xml_liste *tagprops=suche_Tageigenschaften(tomerge->Type(),i->Type());
       if (!tagprops)
       {  cerr << "Can't find properties for Tag '" << i->Type() << "'\n";
          continue;
       }
-      for (Tag::const_iterator j=merge_here->begin();j!=merge_here->end();++j)
+      FOR_EACH_TAG(j,*merge_here)
       {  if (j->Type().empty()) continue;
          const char * const *k=0;
          for (k=tagprops->key;*k && i->getAttr(*k)==j->getAttr(*k);++k) ;

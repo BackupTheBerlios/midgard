@@ -10,11 +10,10 @@ cH_Zauber::cache_t cH_Zauber::cache;
 
 cH_Zauber::cH_Zauber(const std::string& name)
 {
-// st_index index(name);
  cH_Zauber *cached(cache.lookup(name));
  if (cached) *this=*cached;
-#ifndef USE_XML 
  else
+#ifndef USE_XML 
   {
    *this=cH_Zauber(new Zauber(name));
    cache.Register(name,*this);
@@ -195,13 +194,11 @@ Zauber_All::Zauber_All(Gtk::ProgressBar *progressbar)
  else
  {  Tag::const_iterator b=zauber->begin(),e=zauber->end();
     double size=e-b;
-    for (Tag::const_iterator i=zauber->find(b,"Spruch");
-    		i!=e;	i=zauber->find(i+1,"Spruch"))
+    FOR_EACH_TAG_OF_5(i,*zauber,b,e,"Spruch")
     {  if (!((++count)&31))
        {  progressbar->set_percentage((i-b)/size);
           while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
        }
-       // sinnvoller wäre es, den Tag weiterzugeben, dann brauchen wir den oben nicht zu suchen!
 // warum sowas?
 //    die Klasse cH_Zauber enthält den Cache, erzeuge ich nur einen Zauber, so
 //    wird er nicht in den Cache (nach Namen) aufgenommen.

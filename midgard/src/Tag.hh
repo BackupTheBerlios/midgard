@@ -112,4 +112,23 @@ public:
 	
 	void debug(int recursion_depth=2,int indent=0) const;
 };
+
+// some nice macros
+
+#define FOR_EACH_TAG(variable,parent) \
+	for (Tag::const_iterator variable=(parent).begin(); \
+		(variable)!=(parent).end(); ++(variable))
+
+#define FOR_EACH_TAG_OF(variable,parent,type) \
+	for (Tag::const_iterator variable= \
+			(parent).find((parent).begin(),(type)); \
+		(variable)!=(parent).end(); \
+		variable=(parent).find((variable)+1,(type)))
+
+#define FOR_EACH_TAG_OF_5(variable,parent,begin,end,type) \
+	for (Tag::const_iterator variable= \
+			(parent).find((begin),(type)); \
+		(variable)!=(end); \
+		variable=(parent).find((variable)+1,(type)))
+
 #endif
