@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.15 2002/01/20 11:56:59 christof Exp $
+// $Id: fertigk_exp.cc,v 1.16 2002/01/22 11:39:11 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -51,7 +51,7 @@ void fert_speichern(std::ostream &o)
    fetch_and_write_int_attrib(is, o, "Lernkosten");
    fetch_and_write_int_attrib(is, o, "Erfolgswert");
 #ifndef MIDGARD3
-   fetch_and_write_int_attrib(is, o, "Erfolgswert-ungelernt");
+   fetch_and_write_int_attrib(is, o, "Erfolgswert-ungelernt",-99);
 #endif
    fetch_and_write_string_attrib(is, o, "Attribut");
 #ifndef MIDGARD3

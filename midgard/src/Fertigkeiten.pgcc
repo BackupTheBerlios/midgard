@@ -120,7 +120,7 @@ void Fertigkeit::get_Fertigkeit()
   lern_stadt=tag->getIntAttr("Lernpunkte-Stadt",99);
   anfangswert0=tag->getIntAttr("Anfangswert");
   anfangswert=tag->getIntAttr("Erfolgswert");
-  ungelernt=tag->getIntAttr("Erfolgswert-ungelernt");
+  ungelernt=tag->getIntAttr("Erfolgswert-ungelernt",-99);
   berufskategorie=tag->getIntAttr("Berufskategorie");
   erfolgswert=anfangswert; //Defaultwert
   kosten=tag->getIntAttr("Lernkosten");
