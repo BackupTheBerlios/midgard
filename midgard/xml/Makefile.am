@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.22 2002/01/08 11:09:35 christof Exp $
+# $Id: Makefile.am,v 1.23 2002/01/10 15:46:48 christof Exp $
 
 EXTRA_PROGRAMS = all_exp arkanum_exp kido_exp fertigk_exp land_sprache_exp waffen_exp
 
@@ -38,6 +38,7 @@ export: all_exp arkanum_exp # $(EXTRA_PROGRAMS)
 	./all_exp K >$(XMLDIR)/KanThaiPan.xml
 	./all_exp R >$(XMLDIR)/Rawindra.xml
 	./all_exp A >$(XMLDIR)/Alba.xml
+	./all_exp E >$(XMLDIR)/Eschar.xml
 	./all_exp "B&R" >$(XMLDIR)/BarbarenWutRitterEhre.xml
 	./all_exp "H&D" >$(XMLDIR)/HexenzauberDruidenkraft.xml
 	./all_exp G >$(XMLDIR)/Gildenbrief.xml

@@ -1,4 +1,4 @@
-// $Id: waffen_exp.cc,v 1.6 2002/01/09 08:04:58 christof Exp $
+// $Id: waffen_exp.cc,v 1.7 2002/01/10 15:46:48 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -62,7 +62,7 @@ void waffen_speichern(std::ostream &o)
    o << " <Waffen>\n";
   {Query query("select name, region, grundkenntnisse, schwierigkeit,"
    		"art, art_2, schaden, schaden_b, zusatz, "
-   		MIDGARD3_4("angriffsrangmod,","")
+   		MIDGARD3_4("angriffsrangmod,","waffenrang,")
    		"wm_abwehr_leicht, wm_abwehr_schwer, st, "
    		MIDGARD3_4("ge,","gw,gs,")
    		" reichweite_0, reichweite_n,"
@@ -85,6 +85,8 @@ void waffen_speichern(std::ostream &o)
    o << ">\n    <Modifikationen";
 #ifdef MIDGARD3   
    fetch_and_write_string_attrib(is, o, "Angriffsrang");
+#else   
+   fetch_and_write_string_attrib(is, o, "Waffenrang");
 #endif
    fetch_and_write_string_attrib(is, o, "Abwehr-leicht");
    fetch_and_write_string_attrib(is, o, "Abwehr-schwer");
@@ -176,7 +178,26 @@ void waffen_speichern(std::ostream &o)
    fetch_and_write_string_attrib(is, o, "Region");
    o << ">\n";
 
-#warning regionale Variante fehlt
+ //************************* waffen_region_name ************************  
+   {  Query query2("select alias,region,schaden,schaden_b,angriffs_mod"
+      	" from waffen_region_name"
+      	" where name='"+waffe+"'"
+   	" and coalesce(region,'')='"+region+"'"
+      	" order by region,alias");
+      FetchIStream is2;
+      while ((query2>>is2).good()) 
+      {  o << "    <regionaleVariante";
+         fetch_and_write_string_attrib(is2, o, "Name");
+         fetch_and_write_string_attrib(is2, o, "Region");
+         fetch_and_write_string_attrib(is2, o, "Schaden");
+         fetch_and_write_int_attrib(is2, o, "Schadensbonus");
+	 o << "><Modifikationen";
+         fetch_and_write_int_attrib(is2, o, "Angriff");
+         o << "/></regionaleVariante>\n";
+// Preis? wäre nett!
+      }
+     }
+
    grund_standard_ausnahme(o, "waffen_typen",waffe,"",true);
    lernschema(o, MIDGARD3_4("Waffe","Waffenfertigkeiten"), waffe,true);
    ausnahmen(o, "w", waffe,true);

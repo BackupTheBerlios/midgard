@@ -1,4 +1,4 @@
-// $Id: common_exp.cc,v 1.10 2002/01/07 15:16:13 christof Exp $
+// $Id: common_exp.cc,v 1.11 2002/01/10 15:46:48 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -195,10 +195,14 @@ std::string RegionErgaenzungQuery(const std::string &attribute,
    	" on typ=typs where region='"+region+"'"
    	" and "+attribute+"="+typtable+".name) ";
    
-   result+="or exists (select true from lernschema join typen"
+   result+="or exists (select true from "
+   	MIDGARD3_4("lernschema","lernschema_4")
+   	" join typen"
    	" on typ=typs where region='"+region+"'"
    	" and art='"+lernsch_art+"'"
-   	" and "+attribute+"=lernschema.fertigkeit) ";
+   	" and "+attribute+"="
+   	MIDGARD3_4("lernschema.fertigkeit","lernschema_4.name")
+   	") ";
    	
    result+="or exists (select true from pflicht_lernen join typen"
    	" on typ=typs where region='"+region+"'"
@@ -210,6 +214,11 @@ std::string RegionErgaenzungQuery(const std::string &attribute,
    	" where (region='"+region+"' or herkunft"+herkunft+")"
    	" and art='"+ausnahmen_art+"'"
    	" and "+attribute+"=ausnahmen.name) ";
+   	
+   if (attribute=="waffen.name")
+      result+="or exists (select true from waffen_region_name"
+   	" where region='"+region+"'"
+   	" and "+attribute+"=waffen_region_name.name) ";
    	
    result+=") ";
    	
