@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.43 2002/06/30 20:37:08 thoma Exp $
+// $Id: land_sprache_exp.cc,v 1.44 2002/07/01 11:01:49 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -266,16 +266,6 @@ void land_speichern(Tag &o)
      while ((query1>>is1).good())
      {  Typ.push_back(Tag("Herkunft")).setAttr("Name",fetch_string(is1));
      }
-#warning das negative geht noch nciht :-( 
-/*
-     Query query2("SELECT distinct land from land where land not in "
-         "(select land from typen_herkunft where typ='"+typ+"' and "
-         " erlaubt=false) order by land");
-     FetchIStream is2;
-     while ((query2>>is2).good())
-     {  Typ.push_back(Tag("Herkunft")).setAttr("Name",fetch_string(is2));
-     }
-*/
    }
    { Query queryg("select gruppe from typen_gruppe where typ='"+typ+"'"
    		" order by gruppe");

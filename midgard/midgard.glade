@@ -697,21 +697,79 @@
 	<spacing>0</spacing>
 
 	<widget>
-	  <class>GtkLabel</class>
-	  <name>label_status</name>
-	  <cxx_visibility>protected</cxx_visibility>
-	  <label></label>
-	  <justify>GTK_JUSTIFY_LEFT</justify>
-	  <wrap>False</wrap>
-	  <xalign>0.01</xalign>
-	  <yalign>0.5</yalign>
-	  <xpad>0</xpad>
-	  <ypad>2</ypad>
+	  <class>GtkHBox</class>
+	  <name>hbox87</name>
+	  <homogeneous>False</homogeneous>
+	  <spacing>0</spacing>
 	  <child>
 	    <padding>0</padding>
 	    <expand>False</expand>
 	    <fill>False</fill>
 	  </child>
+
+	  <widget>
+	    <class>GtkLabel</class>
+	    <name>label_status</name>
+	    <cxx_visibility>protected</cxx_visibility>
+	    <label></label>
+	    <justify>GTK_JUSTIFY_LEFT</justify>
+	    <wrap>False</wrap>
+	    <xalign>0.01</xalign>
+	    <yalign>0.5</yalign>
+	    <xpad>0</xpad>
+	    <ypad>2</ypad>
+	    <child>
+	      <padding>0</padding>
+	      <expand>True</expand>
+	      <fill>True</fill>
+	    </child>
+	  </widget>
+
+	  <widget>
+	    <class>GtkEventBox</class>
+	    <name>eventbox_NSC_aktiv</name>
+	    <cxx_visibility>protected</cxx_visibility>
+	    <tooltip>Dieses Icon zeigt an, daﬂ der NSC Modus eingeschaltet ist.</tooltip>
+	    <child>
+	      <padding>0</padding>
+	      <expand>False</expand>
+	      <fill>True</fill>
+	    </child>
+
+	    <widget>
+	      <class>GtkPixmap</class>
+	      <name>pixmap164</name>
+	      <filename>MAGUS_Logo_Tiny.xpm</filename>
+	      <xalign>0.5</xalign>
+	      <yalign>0.5</yalign>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <build_insensitive>True</build_insensitive>
+	    </widget>
+	  </widget>
+
+	  <widget>
+	    <class>GtkEventBox</class>
+	    <name>eventbox_wizard_aktiv</name>
+	    <cxx_visibility>protected</cxx_visibility>
+	    <tooltip>Dieses Icon zeigt an, daﬂ der Wizard aktiv ist.</tooltip>
+	    <child>
+	      <padding>0</padding>
+	      <expand>False</expand>
+	      <fill>True</fill>
+	    </child>
+
+	    <widget>
+	      <class>GtkPixmap</class>
+	      <name>pixmap165</name>
+	      <filename>MAGUS_Logo_Tiny.xpm</filename>
+	      <xalign>0.5</xalign>
+	      <yalign>0.5</yalign>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <build_insensitive>True</build_insensitive>
+	    </widget>
+	  </widget>
 	</widget>
 
 	<widget>
