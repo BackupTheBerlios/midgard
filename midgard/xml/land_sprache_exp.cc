@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.62 2002/11/30 08:18:08 thoma Exp $
+// $Id: land_sprache_exp.cc,v 1.63 2003/07/14 14:13:29 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -121,7 +121,7 @@ void land_speichern(Tag &o)
   {Tag &SpeziesListe=o.push_back(Tag("SpeziesListe"));
    Query query("select spezies, weiblich, nr, only_nsc, land, hand_bonus, raufen,alter_fak, "
          " groesse_wanz, groesse_wuerfel, groesse_bonus, gewicht_wanz, gewicht_bonus, normgestalt, "
-         " b_wanz, b_bonus, lp, ap_bonus, ap_grad_fak, "
+         " b_wanz, b_bonus, lp, ap_bonus, ap_grad_fak, ap_prozent_gb51, "
          " psy, psy100, phs, phs100, phk, phk100, "
    		" st,gs,gw,ko,\"in\",zt,sb,au "
       	" from spezies"
@@ -151,6 +151,7 @@ void land_speichern(Tag &o)
    fetch_and_set_int_attrib(is, Modifikation, "LP_Bonus");
    fetch_and_set_int_attrib(is, Modifikation, "AP_Bonus");
    fetch_and_set_int_attrib(is, Modifikation, "AP_GradFaktor");
+   fetch_and_set_int_attrib(is, Modifikation, "AP_Prozent_GB51");
    Tag &Resistenzen=Modifikation.push_back(Tag("Resistenzen"));
    fetch_and_set_int_attrib(is, Resistenzen, "psy");
    fetch_and_set_int_attrib(is, Resistenzen, "psy100");
