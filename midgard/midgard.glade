@@ -4358,7 +4358,6 @@ setzen</property>
 		      <child>
 			<widget class="GtkFrame" id="frame_wuerfelvariante">
 			  <property agent="glademm" name="cxx_visibility">protected</property>
-			  <property name="visible">True</property>
 			  <property name="label_xalign">0</property>
 			  <property name="label_yalign">0.5</property>
 			  <property name="shadow_type">GTK_SHADOW_ETCHED_IN</property>
@@ -5013,7 +5012,6 @@ auswählen</property>
 			  <child>
 			    <widget class="GtkFrame" id="frame_lernschema_zusatz">
 			      <property agent="glademm" name="cxx_visibility">protected</property>
-			      <property name="visible">True</property>
 			      <property name="label_xalign">0</property>
 			      <property name="label_yalign">0.5</property>
 			      <property name="shadow_type">GTK_SHADOW_ETCHED_IN</property>
@@ -5294,7 +5292,6 @@ auswählen</property>
 			      <child>
 				<widget class="GtkTable" id="table_berufsprozent">
 				  <property agent="glademm" name="cxx_visibility">protected</property>
-				  <property name="visible">True</property>
 				  <property name="n_rows">2</property>
 				  <property name="n_columns">2</property>
 				  <property name="homogeneous">False</property>
@@ -5386,7 +5383,6 @@ Beruf eingeben</property>
 			      <child>
 				<widget class="GtkVBox" id="vbox_berufsname">
 				  <property agent="glademm" name="cxx_visibility">protected</property>
-				  <property name="visible">True</property>
 				  <property name="homogeneous">False</property>
 				  <property name="spacing">0</property>
 
@@ -19373,10 +19369,10 @@ löschen</property>
 
 		  <child>
 		    <widget class="GtkLabel" id="text_no">
+		      <property agent="glademm" name="cxx_visibility">protected</property>
 		      <property name="visible">True</property>
 		      <property name="label" translatable="yes">Nein</property>
 		      <property name="use_underline">False</property>
-		      <property agent="glademm" name="cxx_visibility">protected</property>
 		      <property name="use_markup">False</property>
 		      <property name="justify">GTK_JUSTIFY_CENTER</property>
 		      <property name="wrap">False</property>
@@ -19429,9 +19425,9 @@ löschen</property>
 
 		  <child>
 		    <widget class="GtkLabel" id="text_yes">
+		      <property agent="glademm" name="cxx_visibility">protected</property>
 		      <property name="visible">True</property>
 		      <property name="label" translatable="yes">Ja</property>
-		      <property agent="glademm" name="cxx_visibility">protected</property>
 		      <property name="use_underline">False</property>
 		      <property name="use_markup">False</property>
 		      <property name="justify">GTK_JUSTIFY_CENTER</property>

@@ -246,11 +246,13 @@ void midgard_CG::menubar_init()
         mi->setSensitive(getChar().proxies.checks[Optionen::Original],true);
    }
  regionen_menu->show_all();
+ menu_history_init(-1);
 }
 
 
 
 void midgard_CG::menu_history_init(int oldsize)
+// oldsize is not used ...
 {
   Gtk::Menu *M=manage(new Gtk::Menu); // main_menubar->items()[0].get_submenu();
   zuletzt_geladen_mi->set_submenu(*M);

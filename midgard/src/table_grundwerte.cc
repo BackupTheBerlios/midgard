@@ -51,6 +51,7 @@ table_grundwerte::table_grundwerte(GlademmData *_data)
    fill_spezies();
   edit_werte=false;
   edit_sensitive(false); // noch weg ?
+   frame_wuerfelvariante->hide();
 }
 
 void table_grundwerte::zeige_werte(bool typ2_hide)
@@ -154,5 +155,4 @@ void table_grundwerte::sync_wizard(gpointer x)
    button_abg_werte->set_sensitive(false);
    radiobutton_stadt->set_sensitive(true);
    radiobutton_land->set_sensitive(true);
-   frame_wuerfelvariante->hide();
 }

@@ -273,7 +273,7 @@ void table_steigern::set_zusatz_sensitive(bool an)
 
 void table_steigern::on_steigern_zusatz_leaf_selected(cH_RowDataBase d)
 {
-  const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
+  Handle<const Data_Zusatz> dt=d.cast_dynamic<const Data_Zusatz>();
   dt->getMBE()->setZusatz(dt->getZusatz());
   if(dt->getZusatz().name==hauptfenster->getAben().Herkunft()->Name())
      dt->getMBE()->setErfolgswert(9);

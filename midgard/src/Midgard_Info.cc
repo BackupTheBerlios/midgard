@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.cc,v 1.86 2003/12/15 23:17:06 christof Exp $
+// $Id: Midgard_Info.cc,v 1.87 2003/12/30 08:39:28 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,6 +25,7 @@ extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 #include <libmagus/Ausgabe.hh>
 // to redefine VERSION
 #include "config.h"
+#include <libmagus/Datenbank.hh>
 
 #if 0
 void Midgard_Info::database_hide()
@@ -39,7 +40,7 @@ Midgard_Info::Midgard_Info(GlademmData *data) : Midgard_Info_glade(data)
    		+"\n\"Spirit of Sargon\""); // Hommage to André (my first SL)
 //   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
 //   frame_datenbank->show();
-
+   set_Regionen(Datenbank.Regionen);
 }
 
 
@@ -112,8 +113,8 @@ void Midgard_Info::set_Regionen(const std::vector<cH_Region>& Regionen)
   ++row;
 
   _tab->set_col_spacings(10);
-  _tab->show_all();
   frame_regionen->add(*_tab);
+  _tab->show();
 }
 
 std::string Midgard_Info::umbruch(std::string s)
