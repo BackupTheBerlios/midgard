@@ -25,7 +25,7 @@
 exec sql include sqlca;
 #endif
 #include "Typen.hh"
-#include <gtk--/main.h>
+#include "ProgressBar.h"
 
 cH_Fertigkeit::cache_t cH_Fertigkeit::cache;
 
@@ -240,9 +240,7 @@ Fertigkeiten_All::Fertigkeiten_All(Gtk::ProgressBar *progressbar)
     double size=e-b;
     for (Tag::const_iterator i=fertigkeiten->find(b,"Fertigkeit");
     		i!=e;	i=fertigkeiten->find(i+1,"Fertigkeit"))
-    {  {  progressbar->set_percentage((i-b)/size);
-          while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-       }
+    {  ProgressBar::set_percentage(progressbar,(i-b)/size);
 // warum sowas?
 //    die Klasse cH_Fertigkeit enthält den Cache, erzeuge ich nur eine Fertigkeit, so
 //    wird sie nicht in den Cache (nach Namen) aufgenommen.
@@ -253,7 +251,7 @@ Fertigkeiten_All::Fertigkeiten_All(Gtk::ProgressBar *progressbar)
     }
  }
 #endif
- progressbar->set_percentage(1);
+ ProgressBar::set_percentage(progressbar,1);
 }  
 
 

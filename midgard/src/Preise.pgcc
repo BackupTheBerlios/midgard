@@ -24,7 +24,7 @@ exec sql include sqlca;
 #include "MidgardBasicElement.hh" // nur für NotFound
 #endif
 #include "Preise.hh"
-#include <gtk--/main.h>
+#include "ProgressBar.h"
 #include <Aux/itos.h>
 
 cH_Preise::cache_t cH_Preise::cache;
@@ -124,8 +124,7 @@ Preise_All::Preise_All(Gtk::ProgressBar *progressbar)
  {  Tag::const_iterator b=preise->begin(),e=preise->end();
     double size=(e-b)*3;
     FOR_EACH_CONST_TAG_OF_5(i,*preise,b,e,"Kaufpreis")
-    {  progressbar->set_percentage((i-b)/size);   
-       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+    {  ProgressBar::set_percentage(progressbar,(i-b)/size);
        list_All.push_back(cH_Preise(&*i));
     }
  }   
@@ -134,8 +133,7 @@ Preise_All::Preise_All(Gtk::ProgressBar *progressbar)
  {  Tag::const_iterator b=waffen->begin(),e=waffen->end();
     double size=(e-b)*3;
     FOR_EACH_CONST_TAG_OF_5(i,*waffen,b,e,"Waffe")
-    {  progressbar->set_percentage((i-b)/size+.33);   
-       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+    {  ProgressBar::set_percentage(progressbar,(i-b)/size+.33);
        {  const Tag *preis=i->find("Kaufpreis");
           if (preis) 
              list_All.push_back(cH_Preise(i->getAttr("Name"),"Waffen",&*i));
@@ -152,8 +150,7 @@ Preise_All::Preise_All(Gtk::ProgressBar *progressbar)
  {  Tag::const_iterator b=ruestungen->begin(),e=ruestungen->end();
     double size=(e-b)*3;
     FOR_EACH_CONST_TAG_OF_5(i,*ruestungen,b,e,"Rüstung")
-    {  progressbar->set_percentage((i-b)/size+.66);   
-       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+    {  ProgressBar::set_percentage(progressbar,(i-b)/size+.66);
        {  const Tag *preis=i->find("Kaufpreis");
           if (preis) 
              list_All.push_back(cH_Preise(i->getAttr("Name"),"Rüstung",&*i));
@@ -161,7 +158,7 @@ Preise_All::Preise_All(Gtk::ProgressBar *progressbar)
     }
  }   
 #endif 
- progressbar->set_percentage(1);
+ ProgressBar::set_percentage(progressbar,1);
 }  
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -255,13 +252,12 @@ PreiseMod_All::PreiseMod_All(Gtk::ProgressBar *progressbar)
  {  Tag::const_iterator b=preise->begin(),e=preise->end();
     double size=e-b;
     FOR_EACH_CONST_TAG_OF_5(i,*preise,b,e,"Modifikation")
-    {  progressbar->set_percentage((i-b)/size);   
-       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+    {  ProgressBar::set_percentage(progressbar,(i-b)/size);
        list_All.push_back(cH_PreiseMod(&*i));
     }
  }   
 #endif 
- progressbar->set_percentage(1);
+ ProgressBar::set_percentage(progressbar,1);
 }  
 
 

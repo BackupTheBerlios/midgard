@@ -25,7 +25,7 @@ exec sql include sqlca;
 #include <Ausnahmen.hh>
 #include <midgard_CG.hh>
 //#include <gtk--/progressbar.h>
-#include <gtk--/main.h>
+#include "ProgressBar.h"
 
 Ausnahmen::Ausnahmen(Gtk::ProgressBar *progressbar)
 {
@@ -67,8 +67,7 @@ Ausnahmen::Ausnahmen(Gtk::ProgressBar *progressbar)
  {  Tag::const_iterator b=Fertigkeiten->begin(),e=Fertigkeiten->end();
     double size=(e-b)*2;
     FOR_EACH_CONST_TAG_OF_5(i,*Fertigkeiten,b,e,"Fertigkeit")
-    {  progressbar->set_percentage((i-b)/size);
-       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+    {  ProgressBar::set_percentage(progressbar,(i-b)/size);
        FOR_EACH_CONST_TAG_OF(j,*i,"regionaleBesonderheit")
        {  st_index1 index(j->getAttr("Typ"),j->getAttr("Herkunft"),
        			j->getAttr("Spezies"),j->getAttr("Beruf"),j->getAttr("Stand"));
@@ -81,8 +80,7 @@ Ausnahmen::Ausnahmen(Gtk::ProgressBar *progressbar)
  {  Tag::const_iterator b=Zauber->begin(),e=Zauber->end();
     double size=(e-b)*2;
     FOR_EACH_CONST_TAG_OF_5(i,*Zauber,b,e,"Spruch")
-    {  progressbar->set_percentage((i-b)/size+.5);
-       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+    {  ProgressBar::set_percentage(progressbar,(i-b)/size+.5);
        FOR_EACH_CONST_TAG_OF(j,*i,"regionaleBesonderheit")
        {  st_index1 index(j->getAttr("Typ"),j->getAttr("Herkunft"),
        			j->getAttr("Spezies"),j->getAttr("Beruf"),j->getAttr("Stand"));
@@ -91,7 +89,7 @@ Ausnahmen::Ausnahmen(Gtk::ProgressBar *progressbar)
     }
  }
 #endif 
- progressbar->set_percentage(1);
+ ProgressBar::set_percentage(progressbar,1);
 }
 
 double Ausnahmen::Ausnahmen_float(const std::string& name) const

@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.28 2002/01/29 17:28:08 christof Exp $
+// $Id: xml.cc,v 1.29 2002/01/30 15:59:37 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -66,8 +66,7 @@ reloop:
        std::string file=dir+t2->getAttr("File");
        if (t2->getBoolAttr("inactive",false))
           continue;
-       progressbar->set_percentage(++count/anzdateien);   
-       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+       ProgressBar::set_percentage(progressbar,++count/anzdateien);
        t2->Type("Region"); // change Type of Tag "MAGUS-include" -> "Region"
        
        cerr << "loading XML " << file << '\n';

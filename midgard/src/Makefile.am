@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.104 2002/01/30 10:08:03 christof Exp $
+# $Id: Makefile.am,v 1.105 2002/01/30 15:59:37 christof Exp $
 
 bin_PROGRAMS = midgard 
 
@@ -72,7 +72,8 @@ Sprache_auswahl.hh Sprache_auswahl_glade.hh \
    Spezies.hh \
    Typen.hh \
    Window_Erfahrungspunkte.hh \
-   Window_Erfahrungspunkte_glade.hh
+   Window_Erfahrungspunkte_glade.hh \
+   ProgressBar.h
 
 %.cc: %.pgcc ; @ECPG@ -o $*.cc $<
 
@@ -191,8 +192,8 @@ midgard_SOURCES = \
    Window_doppelcharaktere_glade.cc \
    Datenbank.cc class_SimpleTree.cc \
    dtos1.cc snprintf.c \
-   Tag.cc TagStream.cc xml.cc export_common.cc
-
+   Tag.cc TagStream.cc xml.cc export_common.cc \
+   ProgressBar.cc
 
 CXXFLAGS = @CXXFLAGS@ @KOMPONENTEN_INCLUDES@ -DUSE_XML \
            -DPACKAGE_DATA_DIR=\"$(pkgdatadir)/\"

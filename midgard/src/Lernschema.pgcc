@@ -23,7 +23,7 @@
 #include <Aux/Transaction.h>
 exec sql include sqlca;
 #endif
-#include <gtk--/main.h>
+#include "ProgressBar.h"
 #include "Typen.hh"
 #include "Waffe.hh"
 #include "Zauber.hh"
@@ -39,8 +39,7 @@ static void StoreLernschema(const string &list,const string &element,
  {  Tag::const_iterator b=liste->begin(),e=liste->end();
     double size=(e-b)*3;
     FOR_EACH_CONST_TAG_OF_5(i,*liste,b,e,element)
-    {  progressbar->set_percentage((i-b)/size+base);
-       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+    {  ProgressBar::set_percentage(progressbar,(i-b)/size+base);
        FOR_EACH_CONST_TAG_OF(j,*i,"Lernschema")
        {  if (j->getAttr("Typ").empty()) continue; // Spezies ??
           lern_map[Lernschema::st_index(j->getAttr("Typ"),typ,i->getAttr("Name"))] 
@@ -87,7 +86,7 @@ Lernschema::Lernschema(Gtk::ProgressBar *progressbar)
  StoreLernschema("Fertigkeiten","Fertigkeit","Fachkenntnisse",lern_map,progressbar,0.33);
  StoreLernschema("Waffen","Waffe","Waffenfertigkeiten",lern_map,progressbar,0.66);
 #endif 
- progressbar->set_percentage(1);
+ ProgressBar::set_percentage(progressbar,1);
 }
 
 std::list<cH_MidgardBasicElement> Lernschema::get_List(const std::string& art, 

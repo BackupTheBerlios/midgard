@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.hh,v 1.31 2002/01/23 09:00:51 thoma Exp $
+// $Id: Midgard_Info.hh,v 1.32 2002/01/30 15:59:37 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -17,17 +17,6 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// generated 2001/4/1 21:32:45 CEST by thoma@ig23.
-// using glademm V0.5_11f_cvs
-//
-// newer (non customized) versions of this file go to Midgard Info.hh_new
-
-// you might replace
-//    class foo : public foo_glade { ... };
-// by
-//    typedef foo_glade foo;
-// if you didn't make any modifications to the widget
-
 #ifndef _MIDGARD_INFO_HH
 #  include "Midgard_Info_glade.hh"
 #  define _MIDGARD_INFO_HH
@@ -39,12 +28,9 @@ class cH_Region;
 
 class Midgard_Info : public Midgard_Info_glade
 {   
-        
-//        midgard_CG* hauptfenster;
         friend class Midgard_Info_glade;
 
    public:
-//        Midgard_Info(midgard_CG* h=0,bool selfclean=false);
         Midgard_Info(bool selfclean=false);
         void set_Regionen(const std::vector<cH_Region>& Regionen);
         Gtk::ProgressBar *get_progressbar_regionen() const {return progressbar_regionen;}

@@ -1,4 +1,4 @@
-// $Id: Datenbank.cc,v 1.5 2002/01/23 10:00:56 thoma Exp $               
+// $Id: Datenbank.cc,v 1.6 2002/01/30 15:59:37 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -49,7 +49,6 @@
 #include "Midgard_Info.hh"
 #include "Sprache.hh"
 #include "Schrift.hh"
-#include <gtk--/main.h>
 
 Datenbank::Datenbank()
 {

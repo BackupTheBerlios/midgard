@@ -25,7 +25,7 @@
 exec sql include sqlca;
 #endif
 #include "Typen.hh"
-#include <gtk--/main.h>
+#include "ProgressBar.h"
 #include <Aux/itos.h>
 
 cH_Waffe::cache_t cH_Waffe::cache;
@@ -338,15 +338,14 @@ map<std::string,std::string> Waffe::fill_map_alias_waffe(Gtk::ProgressBar *progr
  {  Tag::const_iterator b=waffen->begin(),e=waffen->end();
     double size=e-b;
     FOR_EACH_CONST_TAG_OF_5(i,*waffen,b,e,"Waffe")
-    {  progressbar->set_percentage((i-b)/size);
-       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+    {  ProgressBar::set_percentage(progressbar,(i-b)/size);
        
        FOR_EACH_CONST_TAG_OF(j,*i,"regionaleVariante")
           M[j->getAttr("Name")]=i->getAttr("Name");
     }
  }
 #endif  
-  progressbar->set_percentage(1);
+  ProgressBar::set_percentage(progressbar,1);
   return M;
 }
 
