@@ -125,8 +125,10 @@ void midgard_CG::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
 
  std::list<cH_MidgardBasicElement> *MyList,*MyList_neu;
  if(MBE->What()==MidgardBasicElement::FERTIGKEIT) 
-   { 
-     if(MBE->Name()=="Landeskunde") fillClistLand(MBE);
+   { if(MBE->Name()=="Landeskunde")
+     {  MBE=new Fertigkeit(*cH_Fertigkeit(MBE));
+        fillClistLand(MBE);
+     }
      if (MBE->Name()=="KiDo" && kido_steigern_check(MBE->Erfolgswert())) return;
      MyList     = &list_Fertigkeit; MyList_neu = &list_Fertigkeit_neu;
    }

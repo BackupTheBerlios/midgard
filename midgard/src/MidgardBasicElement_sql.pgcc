@@ -36,7 +36,7 @@ void MidgardBasicElement::get_map_typ()
     squery ="select typ,standard from zauber_typen where name ='"+Name()+"'";
  if(What()==ZAUBERWERK)
     squery ="select typ,standard from zauberwerk_typen where name ='"+Name()
-             +"' and stufe ='"+Stufe()+"'";
+             +"' and stufe ='"+Stufe()+"' and art='"+cH_Zauberwerk(this)->Art()+"'";
  if(What()==FERTIGKEIT )
     squery ="select typ,standard from fertigkeiten_typen where name ='"+Name()+"'";
  if(What()==WAFFEGRUND)

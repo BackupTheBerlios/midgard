@@ -25,8 +25,8 @@ class Zauberwerk : public MidgardBasicElement
    void getVoraussetzungenFert();
    void get_Zauberwerk();
  public: 
-   Zauberwerk(const std::string& n,const std::string& a) 
-      : MidgardBasicElement(n),art(a) {get_Zauberwerk();get_map_typ();
+   Zauberwerk(const std::string& n,const std::string& a,const std::string& s) 
+      : MidgardBasicElement(n),stufe(s),art(a) {get_Zauberwerk();get_map_typ();
             getVoraussetzungen();getVoraussetzungenFert();} 
 
 //   std::string Name() const {  return name; }
@@ -45,10 +45,13 @@ class Zauberwerk : public MidgardBasicElement
 
 class cH_Zauberwerk : public Handle<const Zauberwerk>
 {
-    struct st_index {std::string name;std::string art;
-           st_index(std::string n,std::string a):name(n),art(a){}
+    struct st_index {std::string name;std::string art; std::string stufe;
+           st_index(std::string n,std::string a,std::string s)
+                    :name(n),art(a),stufe(s) {}
            bool operator<(const st_index& b) const {
-               return name<b.name || (name==b.name && art<b.art) ;}
+               return name<b.name ||
+                     (name==b.name && art<b.art) || 
+                     (name==b.name && art==b.art && stufe<b.stufe) ;}
             };
     typedef CacheStatic<st_index,cH_Zauberwerk> cache_t;
     static cache_t cache;
@@ -56,7 +59,7 @@ class cH_Zauberwerk : public Handle<const Zauberwerk>
     friend class std::map<st_index,cH_Zauberwerk>;
     cH_Zauberwerk(){};
  public:
-    cH_Zauberwerk(const std::string& name, const std::string& art);
+    cH_Zauberwerk(const std::string& name, const std::string& art,const std::string& stufe);
 
     cH_Zauberwerk(const cH_MidgardBasicElement &x) : Handle<const Zauberwerk>
       (dynamic_cast<const Zauberwerk *>(&*x)){}

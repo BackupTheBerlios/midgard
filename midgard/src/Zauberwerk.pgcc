@@ -9,33 +9,31 @@ exec sql include sqlca;
 
 cH_Zauberwerk::cache_t cH_Zauberwerk::cache;
 
-cH_Zauberwerk::cH_Zauberwerk(const std::string& name,const std::string& art)
+cH_Zauberwerk::cH_Zauberwerk(const std::string& name,const std::string& art,const std::string& stufe)
 {
- st_index index(name,art);
+ st_index index(name,art,stufe);
  cH_Zauberwerk *cached(cache.lookup(index));
  if (cached) *this=*cached;
  else
   {
-   *this=cH_Zauberwerk(new Zauberwerk(name,art));
+   *this=cH_Zauberwerk(new Zauberwerk(name,art,stufe));
    cache.Register(index,*this);
   }
-
 }
 
 void Zauberwerk::get_Zauberwerk()
 {
   exec sql begin declare section;
    int db_kosten;
-   char db_stufe[10];
    char db_preis[50];
    char query[1000];
    char db_zeitaufwand[30];
    char db_region[10];
   exec sql end declare section;
   std::string squery = "SELECT kosten_gfp, 
-      stufe, zeitaufwand,kosten, coalesce(region,'')
+      zeitaufwand,kosten, coalesce(region,'')
       FROM zauberwerk 
-      WHERE name = '"+Name()+"' and art = '"+art+"'";
+      WHERE name = '"+Name()+"' and art = '"+Art()+"' and stufe = '"+Stufe()+"'";
    strncpy(query,squery.c_str(),sizeof(query));
    Transaction tr;
    exec sql prepare cl_zauberwerk_ein_ from :query ;
@@ -44,11 +42,10 @@ void Zauberwerk::get_Zauberwerk()
    exec sql open cl_zauberwerk_ein;
    SQLerror::test(__FILELINE__);
    exec sql fetch cl_zauberwerk_ein into 
-      :db_kosten, :db_stufe, :db_zeitaufwand, :db_preis, :db_region;
+      :db_kosten, :db_zeitaufwand, :db_preis, :db_region;
    SQLerror::test(__FILELINE__);
 
    kosten=db_kosten;
-   stufe=db_stufe;
    zeitaufwand=db_zeitaufwand;
    preis=db_preis;
    region=db_region;
@@ -158,10 +155,11 @@ Zauberwerk_All::Zauberwerk_All(Gtk::ProgressBar *progressbar)
  exec sql begin declare section;
    char db_name[100]; 
    char db_art[100];
+   char db_stufe[5];
    int db_size;
  exec sql end declare section;
  exec sql select count(*) into :db_size from zauberwerk;
- exec sql declare ZAWein cursor for select distinct name,art from zauberwerk;
+ exec sql declare ZAWein cursor for select distinct name,art,stufe from zauberwerk;
  Transaction tr;
  exec sql open ZAWein;
  SQLerror::test(__FILELINE__);
@@ -170,10 +168,10 @@ Zauberwerk_All::Zauberwerk_All(Gtk::ProgressBar *progressbar)
   {
    progressbar->set_percentage(count/db_size);
    while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-   exec sql fetch ZAWein into :db_name, :db_art;
+   exec sql fetch ZAWein into :db_name, :db_art, :db_stufe;
    SQLerror::test(__FILELINE__,100);
    if (sqlca.sqlcode) break;
-   list_All.push_back(&*(cH_Zauberwerk(db_name,db_art)));
+   list_All.push_back(&*(cH_Zauberwerk(db_name,db_art,db_stufe)));
    ++count;
   }
  exec sql close ZAWein;

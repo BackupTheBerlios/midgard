@@ -35,8 +35,8 @@ void midgard_CG::on_fertigkeiten_laden_clicked()
         if (f->Voraussetzungen(Werte)) 
          {
             f->set_Erfolgswert(f->Anfangswert());
-//            list_Fertigkeit_neu.push_back(*i);
-            list_Fertigkeit_neu.push_back(new Fertigkeit(*f));
+            list_Fertigkeit_neu.push_back(*i);
+//Kopie            list_Fertigkeit_neu.push_back(new Fertigkeit(*f));
          }
    }
  fertigkeiten_zeigen();

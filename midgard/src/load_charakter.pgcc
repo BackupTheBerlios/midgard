@@ -392,11 +392,11 @@ void midgard_CG::load_fertigkeiten()
    int db_wert;
    char query[1024];
    int db_av_bonus,db_sl_bonus;
-   char db_magisch[512],db_region[30];
+   char db_magisch[512],db_region[30],db_zauberwerk_stufe[10];
   exec sql end declare section;
   std::string squery = "select fertigkeit,coalesce(wert,0),art,
       coalesce(av_bonus,0),coalesce(sl_bonus,0),coalesce(region,''),
-      coalesce(magisch,'')
+      coalesce(magisch,''),coalesce(zauberwerk_stufe,'')
       from charaktere_fertigkeiten
       where charakter_name='"+Werte.Name_Charakter()+"' and 
             version ='"+Werte.Version()+"' and art!='Ausruestung'";
@@ -409,7 +409,8 @@ void midgard_CG::load_fertigkeiten()
   while(true)
     {
       exec sql fetch LFEIN into :db_fert, :db_wert, :db_art,
-            :db_av_bonus, :db_sl_bonus, :db_region, :db_magisch;
+            :db_av_bonus, :db_sl_bonus, :db_region, :db_magisch,
+            :db_zauberwerk_stufe ;
       SQLerror::test(__FILELINE__,100);
       if (sqlca.sqlcode) break;
       std::string sart=db_art;
@@ -458,7 +459,7 @@ void midgard_CG::load_fertigkeiten()
                         db_fert,db_region,db_av_bonus,db_sl_bonus,db_magisch));
         }
       if(sart=="Zauber")        list_Zauber.push_back(&*cH_Zauber(db_fert));
-      if(sart=="Zauberwerk")    list_Zauberwerk.push_back(new Zauberwerk(db_fert,db_magisch));
+      if(sart=="Zauberwerk")    list_Zauberwerk.push_back(new Zauberwerk(db_fert,db_magisch,db_zauberwerk_stufe));
       if(sart=="KiDo")          list_Kido.push_back(new KiDo(db_fert)) ;
       if(sart=="Grundkenntnis") list_WaffenGrund.push_back(new WaffeGrund(db_fert)) ;
       if(sart=="Sprache")

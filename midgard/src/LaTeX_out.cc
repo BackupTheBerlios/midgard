@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.73 2002/01/02 17:37:50 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.74 2002/01/03 10:32:04 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -526,7 +526,7 @@ void midgard_CG::LaTeX_write_empty_values()
     f->set_Erfolgswert(f->Ungelernt());
 
     fout <<"\\newcommand{\\uni"<<a<<"}{\\tiny "<<name<< "}\t\t";
-    fout << "\\newcommand{\\uniw"<<a<<"}{"  <<wert << "}\n";
+    fout << "\\newcommand{\\uniw"<<a<<"}{("<<wert << ")}\n";
   } 
 
 
