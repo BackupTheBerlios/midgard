@@ -182,25 +182,40 @@ void table_steigern::on_spinbutton_pp_eingeben_activate()
 
 const MBEmlt &table_steigern::getSelectedNotebookLernen() throw(SimpleTree::noRowSelected)
 {
- const Data_SimpleTree *dt;
+ cH_RowDataBase dt;
  guint pagenr = notebook_lernen->get_current_page();
+ try {
    if(pagenr==PAGE_FERTIGKEITEN)
-      dt=dynamic_cast<const Data_SimpleTree*>(&*(alte_fert_tree->getSelectedRowDataBase())); 
+      dt=alte_fert_tree->getSelectedRowDataBase(); 
    if(pagenr==PAGE_WAFFEN)
-      dt=dynamic_cast<const Data_SimpleTree*>(&*(alte_waffen_tree->getSelectedRowDataBase())); 
+      dt=alte_waffen_tree->getSelectedRowDataBase(); 
    if(pagenr==PAGE_ZAUBER)
-      dt=dynamic_cast<const Data_SimpleTree*>(&*(alte_zauber_tree->getSelectedRowDataBase())); 
+      dt=alte_zauber_tree->getSelectedRowDataBase(); 
    if(pagenr==PAGE_KIDO)
-      dt=dynamic_cast<const Data_SimpleTree*>(&*(alte_kido_tree->getSelectedRowDataBase())); 
+      dt=alte_kido_tree->getSelectedRowDataBase(); 
    if(pagenr==PAGE_SPRACHE)
     {
-      try{ dt=dynamic_cast<const Data_SimpleTree*>(&*(alte_sprache_tree->getSelectedRowDataBase())); }
+      try{ dt=alte_sprache_tree->getSelectedRowDataBase(); }
       catch (std::exception &e)
-       { dt=dynamic_cast<const Data_SimpleTree*>(&*(alte_schrift_tree->getSelectedRowDataBase())); }
+       { dt=alte_schrift_tree->getSelectedRowDataBase(); }
     }
-  return dt->getMBE();
-// cH_MidgardBasicElement MBE(dt->getMBE());
-// return (const_cast<MidgardBasicElement*>(MBE));
+  } catch (SimpleTree::noRowSelected &e) // try cursor
+  {if(pagenr==PAGE_FERTIGKEITEN)
+      dt=alte_fert_tree->getCursorRowDataBase(); 
+   if(pagenr==PAGE_WAFFEN)
+      dt=alte_waffen_tree->getCursorRowDataBase(); 
+   if(pagenr==PAGE_ZAUBER)
+      dt=alte_zauber_tree->getCursorRowDataBase(); 
+   if(pagenr==PAGE_KIDO)
+      dt=alte_kido_tree->getCursorRowDataBase(); 
+   if(pagenr==PAGE_SPRACHE)
+    {
+      try{ dt=alte_sprache_tree->getCursorRowDataBase(); }
+      catch (std::exception &e)
+       { dt=alte_schrift_tree->getCursorRowDataBase(); }
+    }
+  }
+  return Handle<const Data_SimpleTree>::cast_dynamic(dt)->getMBE();
 }
 
 
