@@ -36,6 +36,14 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
 // list_FertigkeitZusaetze.push_back(MBE->Name());
   if(MBE.Lernpunkte()==0) // Sprache/Schrift für '0' Lernpunkte nur einmal lernen
     list_FertigkeitZusaetze.push_back(MBE->Name());
+  if(MBE->Name()=="Schreiben: Muttersprache(+4)" ||
+     MBE->Name()=="Schreiben: Muttersprache(+9)" ||
+     MBE->Name()=="Schreiben: Muttersprache(+12)") 
+    {
+      list_FertigkeitZusaetze.push_back("Schreiben: Muttersprache(+4)");
+      list_FertigkeitZusaetze.push_back("Schreiben: Muttersprache(+9)");
+      list_FertigkeitZusaetze.push_back("Schreiben: Muttersprache(+12)");
+    }
   lernen_zusatz_titel(was,MBE);
   std::vector<cH_RowDataBase> datavec;
   connection.disconnect();

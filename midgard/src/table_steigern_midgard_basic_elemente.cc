@@ -61,12 +61,24 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
 
  if (radiobutton_steigern->get_active() && MBE.Steigern(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp()))
     {
-      int stufen=1;
-      int steigerkosten=MBE.Steigern(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp());
-      if (!steigern_usp(steigerkosten,&MBE,stufen)) return false;
       if ( MBE.Erfolgswert() >= MBE->MaxErfolgswert(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp())) 
           { hauptfenster->set_status("Maximal möglicher Erfolgswert erreicht");
             return false; }
+      if(radiobutton_unterweisung->get_active())
+       {
+         if( (MBE->What()==MidgardBasicElement::FERTIGKEIT &&
+              MBE.Erfolgswert() >= cH_Fertigkeit(MBE)->MaxUnterweisung()) ||
+             (MBE->What()==MidgardBasicElement::SPRACHE &&
+              MBE.Erfolgswert() >= cH_Fertigkeit("Sprache")->MaxUnterweisung()) ||
+             (MBE->What()==MidgardBasicElement::SCHRIFT &&
+              MBE.Erfolgswert() >= cH_Fertigkeit("Schreiben")->MaxUnterweisung())
+             )
+          { hauptfenster->set_status("Weitere Steigerung des Erfolgswertes ist NICHT mit Unterweisung möglich.");
+            return false; }
+       }      
+      int stufen=1;
+      int steigerkosten=MBE.Steigern(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp());
+      if (!steigern_usp(steigerkosten,&MBE,stufen)) return false;
       hauptfenster->getChar().getWerte().addGFP(steigerkosten);
       for (std::list<MidgardBasicElement_mutable>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
          if ( (*i)->Name() == MBE->Name()) 

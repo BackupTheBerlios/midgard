@@ -80,17 +80,6 @@ void table_steigern::on_leaf_selected_neue_sprache(cH_RowDataBase d)
     
 void table_steigern::on_leaf_selected_alte_sprache(cH_RowDataBase d)
 {  
-  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
-  if(dt->getMBE()->What()==MidgardBasicElement::SPRACHE)
-   {
-     cH_Fertigkeit F("Sprache");
-     if( radiobutton_unterweisung->get_active() &&
-         dt->getMBE().Erfolgswert() >= F->MaxUnterweisung())
-      {
-        hauptfenster->set_status("Weitere Steigerung des Erfolgswertes ist NICHT mit Unterweisung möglich.");
-        return;
-      }
-   }
   if(MidgardBasicElement_leaf_alt(d))
    {
      neue_schrift_wegen_sprache();
@@ -111,17 +100,6 @@ void table_steigern::on_alte_sprache_reorder()
 
 void table_steigern::on_leaf_selected_alte_schrift(cH_RowDataBase d)
 {  
-  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
-  if(dt->getMBE()->What()==MidgardBasicElement::SCHRIFT)
-   {
-     cH_Fertigkeit F("Schreiben");
-     if( radiobutton_unterweisung->get_active() &&
-         dt->getMBE().Erfolgswert() >= F->MaxUnterweisung())
-      {
-        hauptfenster->set_status("Weitere Steigerung des Erfolgswertes ist NICHT mit Unterweisung möglich.");
-        return;
-      }
-   }
   if(MidgardBasicElement_leaf_alt(d))
    {
      neue_schrift_wegen_sprache();

@@ -160,8 +160,9 @@ bool table_steigern::steigern_usp(int &kosten,MidgardBasicElement_mutable *MBE,i
 //         ep_k = 0;
 //         kosten=rest_aep;
 //         rest_aep=0;
-cout << use_pp<<' '<<kosten<<' '<<rest_aep<<' '<<ep_k<<'\n';
-hauptfenster->set_status("Nicht implementiert"); return false; 
+//cout << use_pp<<' '<<kosten<<' '<<rest_aep<<' '<<ep_k<<'\n';
+//cout << "Abziehen = "<<MBE->Steigern(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp())<<'\n';
+hauptfenster->set_status("Nicht implementiert");
 return false;
        }
     }
@@ -172,6 +173,7 @@ return false;
       use_pp   = ep_k/40;
       if(togglebutton_pp_verfallen->get_active())
        {
+         use_pp=1;
          ep_k = 0;
          kosten=rest_aep;
          rest_aep=0;

@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.7 2002/06/07 12:17:03 thoma Exp $   
+// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.8 2002/06/18 07:20:54 thoma Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -101,7 +101,7 @@ void LaTeX_drucken::line(ofstream &fout,const ewhat &what)
      case AName: fout << "Figur"; break; 
      case Spezies: fout << "Spezies"; break; 
      case Typ: fout << "Typ"; break; 
-     case Grad: fout << "Grad"; break; 
+     case Grad: fout << "Grad/GFP"; break; 
      case Herkunft: fout << "Herkunft"; break; 
      case Stand: fout << "Stand"; break; 
      case Gestalt: fout << "Gestalt"; break; 
@@ -145,60 +145,78 @@ void LaTeX_drucken::line(ofstream &fout,const ewhat &what)
   fout << "\\\\\\hline\n";
 }
 
+struct st_is{int e;std::string s;
+      st_is(pair<int,bool> _e,std::string _s) : e(_e.first),s(_s){}
+      st_is(int _e) : e(_e),s(itos(_e)) {}
+   };
 void LaTeX_drucken::for_each(ofstream &fout,const ewhat& what)
 {
- const Datenbank Database=hauptfenster->getCDatabase();
+ const Datenbank &Database=hauptfenster->getCDatabase();
  int maxlength=15;
  std::string cm="2.2cm";
+ std::vector<st_is> V;
  for(std::list<VAbenteurer::st_abenteurer>::const_iterator i=hauptfenster->Char.getList().begin();i!=hauptfenster->Char.getList().end();++i)
   {
+    const Grundwerte &W=i->abenteurer.getCWerte();
+    const Abenteurer &A=i->abenteurer;
     switch(what)
      {
-       case SName : fout << " & "<<LaTeX_scale(i->abenteurer.getCWerte().Name_Spieler(),maxlength,cm) ; break;
-       case AName : fout << " & "<<LaTeX_scale(i->abenteurer.getCWerte().Name_Abenteurer(),maxlength,cm) ; break;
-       case Spezies: fout << " & "<<LaTeX_scale(i->abenteurer.getCWerte().Spezies()->Name(),maxlength,cm); break; 
+       case SName : fout << " & "<<LaTeX_scale(W.Name_Spieler(),maxlength,cm) ; break;
+       case AName : fout << " & "<<LaTeX_scale(W.Name_Abenteurer(),maxlength,cm) ; break;
+       case Spezies: fout << " & "<<LaTeX_scale(W.Spezies()->Name(),maxlength,cm); break; 
        case Typ: fout << " & "<<LaTeX_scale(i->abenteurer.STyp(),maxlength,cm); break; 
-       case Grad: fout << " & "<<i->abenteurer.getCWerte().Grad(); break; 
-       case Herkunft: fout << " & "<<LaTeX_scale(i->abenteurer.getCWerte().Herkunft()->Name(),maxlength,cm); break; 
-       case Stand: fout << " & "<<LaTeX_scale(i->abenteurer.getCWerte().Stand(),maxlength,cm); break; 
-       case Gestalt: fout << " & "<<LaTeX_scale(i->abenteurer.getCWerte().Gestalt(),maxlength,cm); break; 
-       case Groesse: fout << " & "<<i->abenteurer.getCWerte().Groesse()<<" cm"; break; 
-       case Gewicht: fout << " & "<<i->abenteurer.getCWerte().Gewicht()<<" kg"; break; 
+       case Grad: fout << " & "<<W.Grad()<<"/"<<W.GFP(); break; 
+       case Herkunft: fout << " & "<<LaTeX_scale(W.Herkunft()->Name(),maxlength,cm); break; 
+       case Stand: fout << " & "<<LaTeX_scale(W.Stand(),maxlength,cm); break; 
+       case Gestalt: fout << " & "<<LaTeX_scale(W.Gestalt(),maxlength,cm); break; 
+       case Groesse: fout << " & "<<W.Groesse()<<" cm"; break; 
+       case Gewicht: fout << " & "<<W.Gewicht()<<" kg"; break; 
        case Beruf: fout << " & "<<LaTeX_scale(i->abenteurer.Beruf(),maxlength,cm); break; 
-       case Glaube: fout << " & "<<LaTeX_scale(i->abenteurer.getCWerte().Glaube(),maxlength,cm); break; 
-       case St: fout << " & "<<i->abenteurer.getCWerte().St();; break; 
-       case Gw: fout << " & "<<i->abenteurer.getCWerte().Gw();; break; 
-       case Gs: fout << " & "<<i->abenteurer.getCWerte().Gs();; break; 
-       case Ko: fout << " & "<<i->abenteurer.getCWerte().Ko();; break; 
-       case In: fout << " & "<<i->abenteurer.getCWerte().In();; break; 
-       case Zt: fout << " & "<<i->abenteurer.getCWerte().Zt();; break; 
-       case Au: fout << " & "<<i->abenteurer.getCWerte().Au();; break; 
-       case pA: fout << " & "<<i->abenteurer.getCWerte().pA();; break; 
-       case Wk: fout << " & "<<i->abenteurer.getCWerte().Wk();; break; 
-       case Sb: fout << " & "<<i->abenteurer.getCWerte().Sb();; break; 
-       case B: fout << " & "<<i->abenteurer.getCWerte().B();; break; 
-       case Resistenz: fout << " & "<<i->abenteurer.getCWerte().Resistenzen_alle(hauptfenster->getCChar().getVTyp()); break; 
-       case Sehen: fout << " & "<<i->abenteurer.getCWerte().Sehen(); break; 
-       case Hoeren: fout << " & "<<i->abenteurer.getCWerte().Hoeren(); break; 
-       case Riechen: fout << " & "<<i->abenteurer.getCWerte().Riechen(); break; 
-       case Schmecken: fout << " & "<<i->abenteurer.getCWerte().Schmecken(); break; 
-       case Tasten: fout << " & "<<i->abenteurer.getCWerte().Tasten(); break; 
-       case SechsterSinn: fout << " & "<<i->abenteurer.getCWerte().SechsterSinn(); break; 
-       case Wahrnehmung: fout << " & "<<i->abenteurer.SErfolgswert("Wahrnehmung",Database); break; 
-       case Spurenlesen: fout << " & "<<i->abenteurer.SErfolgswert("Spurenlesen",Database); break; 
-       case Fallen_entdecken: fout << " & "<<i->abenteurer.SErfolgswert("Fallen entdecken",Database); break; 
-       case Suchen: fout << " & "<<i->abenteurer.SErfolgswert("Suchen",Database); break; 
-       case Menschenkenntnis: fout << " & "<<i->abenteurer.SErfolgswert("Menschenkenntnis",Database); break;
-       case Sagenkunde: fout << " & "<<i->abenteurer.SErfolgswert("Sagenkunde",Database); break;
-       case Zauberkunde: fout << " & "<<i->abenteurer.SErfolgswert("Zauberkunde",Database); break;
-       case Gassenwissen: fout << " & "<<i->abenteurer.SErfolgswert("Gassenwissen",Database); break;
-       case Himmelskunde: fout << " & "<<i->abenteurer.SErfolgswert("Himmelskunde",Database); break;
-       case Schaetzen: fout << " & "<<i->abenteurer.SErfolgswert("Schaetzen",Database); break;
-       case angFert: list_for_each(fout,i->abenteurer.CList_Fertigkeit_ang(),maxlength,cm); break;
-       case Sprachen: list_for_each(fout,i->abenteurer.CList_Sprache(),maxlength,cm); break;
-       case Schriften: list_for_each(fout,i->abenteurer.CList_Schrift(),maxlength,cm); break;
+       case Glaube: fout << " & "<<LaTeX_scale(W.Glaube(),maxlength,cm); break; 
+       case St: V.push_back(st_is(W.St())); break;
+       case Gw: V.push_back(st_is(W.Gw())); break;
+       case Gs: V.push_back(st_is(W.Gs())); break;
+       case Ko: V.push_back(st_is(W.Ko())); break;
+       case In: V.push_back(st_is(W.In())); break;
+       case Zt: V.push_back(st_is(W.Zt())); break;
+       case Au: V.push_back(st_is(W.Au())); break;
+       case pA: V.push_back(st_is(W.pA())); break;
+       case Wk: V.push_back(st_is(W.Wk())); break;
+       case Sb: V.push_back(st_is(W.Sb())); break;
+       case B:  V.push_back(st_is(W.B())); break;
+       case Resistenz: fout << " & "<<W.Resistenzen_alle(hauptfenster->getCChar().getVTyp()); break; 
+       case Sehen: V.push_back(st_is(W.Sehen())); break;
+       case Hoeren: V.push_back(st_is(W.Hoeren())); break;
+       case Riechen: V.push_back(st_is(W.Riechen())); break;
+       case Schmecken: V.push_back(st_is(W.Schmecken())); break;
+       case Tasten: V.push_back(st_is(W.Tasten())); break;
+       case SechsterSinn: V.push_back(st_is(W.SechsterSinn())); break;
+       case Wahrnehmung:  V.push_back(st_is(A.Erfolgswert("Wahrnehmung",Database),A.SErfolgswert("Wahrnehmung",Database))); break;
+       case Spurenlesen: V.push_back(st_is(A.Erfolgswert("Spurenlesen",Database),A.SErfolgswert("Spurenlesen",Database))); break;
+       case Fallen_entdecken: V.push_back(st_is(A.Erfolgswert("Fallen entdecken",Database),A.SErfolgswert("Fallen entdecken",Database))); break;
+       case Suchen: V.push_back(st_is(A.Erfolgswert("Suchen",Database),A.SErfolgswert("Suchen",Database))); break;
+       case Menschenkenntnis: V.push_back(st_is(A.Erfolgswert("Menschenkenntnis",Database),A.SErfolgswert("Menschenkenntnis",Database))); break;
+       case Sagenkunde: V.push_back(st_is(A.Erfolgswert("Sagenkunde",Database),A.SErfolgswert("Sagenkunde",Database))); break;
+       case Zauberkunde: V.push_back(st_is(A.Erfolgswert("Zauberkunde",Database),A.SErfolgswert("Zauberkunde",Database))); break;
+       case Gassenwissen: V.push_back(st_is(A.Erfolgswert("Gassenwissen",Database),A.SErfolgswert("Gassenwissen",Database))); break;
+       case Himmelskunde: V.push_back(st_is(A.Erfolgswert("Himmelskunde",Database),A.SErfolgswert("Himmelskunde",Database))); break;
+       case Schaetzen: V.push_back(st_is(A.Erfolgswert("Schaetzen",Database),A.SErfolgswert("Schaetzen",Database))); break;
+       case angFert: list_for_each(fout,A.CList_Fertigkeit_ang(),maxlength,cm); break;
+       case Sprachen: list_for_each(fout,A.CList_Sprache(),maxlength,cm); break;
+       case Schriften: list_for_each(fout,A.CList_Schrift(),maxlength,cm); break;
      }
    }
+ int max=-1;
+ int min=99;
+ for(std::vector<st_is>::iterator i=V.begin();i!=V.end();++i)
+  {  if(i->e>max)  max=i->e  ;
+     if(i->e<min)  min=i->e  ; }
+ for(std::vector<st_is>::const_iterator i=V.begin();i!=V.end();++i)
+  {
+    fout << " & ";
+    if(i->e==max && max!=min) fout << "\\bf ";
+    fout <<i->s; 
+  }
 }
 
 
