@@ -9,15 +9,15 @@
 class Fertigkeit : public MidgardBasicElement
 {
      std::string name, region, attribut;
-     int lernpunkte, anfangswert0, anfangswert;
-     struct st_Voraussetzung {int st;int ge;int ko;int in;int zt;int au;int pa;
+     int lernpunkte, lern_land,lern_stadt, anfangswert0, anfangswert;
+     struct st_Voraussetzung {int st;int gw;int gs;int ko;int in;int zt;int au;int pa;
                            int sb;int rw;std::string fert;
          st_Voraussetzung()
-            : st(0),ge(0),ko(0),in(0),zt(0),au(0),pa(0),
+            : st(0),gw(0),gs(0),ko(0),in(0),zt(0),au(0),pa(0),
               sb(0),rw(0) {} 
-         st_Voraussetzung(int _st,int _ge,int _ko,int _in,int _zt,int _au,int _pa,
+         st_Voraussetzung(int _st,int _gw,int _gs,int _ko,int _in,int _zt,int _au,int _pa,
                        int _sb,int _rw,std::string _fert)
-            : st(_st),ge(_ge),ko(_ko),in(_in),zt(_zt),au(_au),pa(_pa),
+            : st(_st),gw(_gw),gs(_gs),ko(_ko),in(_in),zt(_zt),au(_au),pa(_pa),
               sb(_sb),rw(_rw),fert(_fert) {} };
      st_Voraussetzung voraussetzung;
      mutable bool pflicht;
@@ -27,7 +27,7 @@ class Fertigkeit : public MidgardBasicElement
 
   public:
      Fertigkeit(const std::string& n)
-      :name(n),lernpunkte(0),pflicht(false) 
+      :name(n),lernpunkte(0),lern_land(0),lern_stadt(0),pflicht(false) 
       {get_Fertigkeit(); get_map_typ(); get_Steigern_Kosten_map();
        EP_steigern(Name());}
 
@@ -39,6 +39,8 @@ class Fertigkeit : public MidgardBasicElement
      std::string Attribut() const {return attribut;}
      std::string Region() const {return region;}
      int Lernpunkte() const {return lernpunkte;}
+     int LernLand() const {return lern_land;}
+     int LernStadt() const {return lern_stadt;}
      int Anfangswert0() const {return anfangswert0;}
      int Anfangswert() const {return anfangswert;}
      std::string Voraussetzung() const {return voraussetzung.fert;}

@@ -9,7 +9,6 @@ cH_Fertigkeit::cache_t cH_Fertigkeit::cache;
 
 cH_Fertigkeit::cH_Fertigkeit(const std::string& name)
 {
-// st_index index(name,lernpunkte);
  cH_Fertigkeit *cached(cache.lookup(name));
  if (cached) *this=*cached;
  else
@@ -22,13 +21,13 @@ cH_Fertigkeit::cH_Fertigkeit(const std::string& name)
 void Fertigkeit::get_Fertigkeit()
 {
   exec sql begin declare section;
-   int db_lp,db_anfangswert0,db_anfangswert,db_kosten;
-   int db_st,db_ge,db_ko,db_in,db_zt,db_pa,db_au,db_sb,db_rw;
+   int db_lp,db_lp_l,db_lp_s,db_anfangswert0,db_anfangswert,db_kosten;
+   int db_st,db_gw,db_gs,db_ko,db_in,db_zt,db_pa,db_au,db_sb,db_rw;
    char query[1024],db_region[10],db_attribut[10],db_voraussetzung[50];
   exec sql end declare section; 
-  std::string squery ="select lp,coalesce(anfangswert0,0),
+  std::string squery ="select lp,coalesce(lp_land,99),coalesce(lp_stadt,99),coalesce(anfangswert0,0),
       coalesce(anfangswert,0),coalesce(fp,0),coalesce(region,''),
-      coalesce(attribut,''), coalesce(st,0), coalesce(ge,0),
+      coalesce(attribut,''), coalesce(st,0), coalesce(gw,0),coalesce(gs,0),
       coalesce(ko,0), coalesce(\"in\",0), coalesce(zt,0),   
       coalesce(au,0), coalesce(pa,0), 
       coalesce(sb,0), coalesce(rw,0), coalesce(v.fertigkeit,'')
@@ -42,12 +41,14 @@ void Fertigkeit::get_Fertigkeit()
 
   exec sql open cl_fertigkeit_ein;
   SQLerror::test(__FILELINE__);
-  exec sql fetch cl_fertigkeit_ein into :db_lp, 
+  exec sql fetch cl_fertigkeit_ein into :db_lp,:db_lp_l,:db_lp_s, 
       :db_anfangswert0, :db_anfangswert, :db_kosten, :db_region,
-      :db_attribut, :db_st,:db_ge,:db_ko,:db_in,:db_zt,:db_au,:db_pa,
+      :db_attribut, :db_st,:db_gw,:db_gs,:db_ko,:db_in,:db_zt,:db_au,:db_pa,
       :db_sb,:db_rw, :db_voraussetzung;
   SQLerror::test(__FILELINE__);
   if (lernpunkte==0) lernpunkte=db_lp;
+  if (lern_land==0) lern_land=db_lp_l;
+  if (lern_stadt==0) lern_stadt=db_lp_s;
   anfangswert0=db_anfangswert0;
   anfangswert=db_anfangswert;
   erfolgswert=anfangswert; //Defaultwert
@@ -55,7 +56,7 @@ void Fertigkeit::get_Fertigkeit()
   region=db_region;
 //cout << Name()<<'\t'<<db_region <<' ' <<Region()<<'\n';
   attribut=db_attribut;
-  voraussetzung = st_Voraussetzung(db_st,db_ge,db_ko,db_in,db_zt,db_au,db_pa,
+  voraussetzung = st_Voraussetzung(db_st,db_gw,db_gs,db_ko,db_in,db_zt,db_au,db_pa,
                                    db_sb,db_rw,db_voraussetzung);
   exec sql close cl_fertigkeit_ein;
 }
@@ -63,7 +64,8 @@ void Fertigkeit::get_Fertigkeit()
 bool Fertigkeit::Voraussetzungen(const Grundwerte& Werte) const 
 {
  if ( voraussetzung.st<=Werte.St() &&
-      voraussetzung.ge<=Werte.Ge() &&
+      voraussetzung.gw<=Werte.Ge() &&
+      voraussetzung.gs<=Werte.Ge() &&
       voraussetzung.ko<=Werte.Ko() &&
       voraussetzung.in<=Werte.In() &&
       voraussetzung.zt<=Werte.Zt() &&

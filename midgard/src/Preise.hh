@@ -64,15 +64,17 @@ class Preise_All
 class PreiseMod : public HandleContent
 {
  public: 
-   struct st_vec{std::string name; std::string einheit;std::string typ;
+   struct st_vec{std::string name; std::string einheit;
                  float faktor; int min;
-          st_vec(std::string n, std::string e,std::string t,
+          st_vec() : faktor(0),min(0){}
+          st_vec(std::string n, std::string e,
                  float f, int m) 
-             : name(n), einheit(e), typ(t), faktor(f), min(m) {}
+             : name(n), einheit(e), faktor(f), min(m) {}
           };
  private:
    std::string art;
-   vector<st_vec> vec_mod;
+   vector<st_vec> vec;
+   std::map<std::string,vector<st_vec> > map_mod;
 
    void get_PreiseMod();
  public:
@@ -80,7 +82,9 @@ class PreiseMod : public HandleContent
      :art(a) {get_PreiseMod();}
 
  std::string Art() const {  return art; }
- vector<st_vec> getVec() const {return vec_mod;}
+// vector<st_vec> getVec() const {return vec_mod;}
+ std::map<std::string,vector<st_vec> > getMap() const {return map_mod;}
+ 
 };
 
 

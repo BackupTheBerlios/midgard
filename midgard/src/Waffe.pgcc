@@ -23,7 +23,7 @@ void Waffe::get_Waffe()
   exec sql begin declare section;
    int db_schwierigkeit,db_schaden_b, db_st,db_ge,
       db_reichweite_0,db_reichweite_n,db_reichweite_m,
-      db_reichweite_f;
+      db_reichweite_f,db_lern_l,db_lern_s;
    char query[1024],db_grundkenntnisse[50],db_art[50],db_art2,
       db_region[10],db_schaden[30],db_angriffsrangmod[10],
       db_wm_abwehr_leicht[10], db_wm_abwehr_schwer[10], db_voraussetzung[50];
@@ -34,7 +34,7 @@ void Waffe::get_Waffe()
       coalesce(wm_abwehr_schwer,''),st,ge,coalesce(zusatz,''),
       coalesce(region,''),coalesce(reichweite_0,-1),
       coalesce(reichweite_n,-1),coalesce(reichweite_m,-1),
-      coalesce(reichweite_f,-1)
+      coalesce(reichweite_f,-1),coalesce(lern_land,99),coalesce(lern_stadt,99)
       from waffen
       where name = '"+Name()+"'";
 //      where name = '"+get_waffe_from_alias(Name())+"'";
@@ -50,7 +50,7 @@ void Waffe::get_Waffe()
    :db_grundkenntnisse,:db_schwierigkeit,:db_art,:db_art2,:db_schaden,
    :db_schaden_b,:db_angriffsrangmod,:db_wm_abwehr_leicht,:db_wm_abwehr_schwer,
    :db_st,:db_ge,:db_voraussetzung,:db_region,:db_reichweite_0,:db_reichweite_n,
-   :db_reichweite_m,:db_reichweite_f;
+   :db_reichweite_m,:db_reichweite_f,:db_lern_l,:db_lern_s;
   SQLerror::test(__FILELINE__);
    grundkenntnisse=db_grundkenntnisse;
    schwierigkeit=db_schwierigkeit;
@@ -66,6 +66,7 @@ void Waffe::get_Waffe()
    region=db_region;
    reichweite_0=db_reichweite_0;reichweite_n=db_reichweite_n;
    reichweite_m=db_reichweite_m;reichweite_f=db_reichweite_f;
+   lern_land=db_lern_l; lern_stadt=db_lern_s;
 
   exec sql close cl_waffen_ein;
   tr.close();

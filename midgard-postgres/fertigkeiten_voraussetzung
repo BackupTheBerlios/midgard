@@ -118,7 +118,6 @@ Heraldik	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
 Talisman verzaubern	\N	31	\N	\N	\N	\N	\N	\N	\N	Wissen von der Magie	\N
 Körperbemalung	\N	31	\N	\N	\N	\N	\N	\N	\N	Wissen von der Magie	\N
 Kriegsbemalung	\N	31	\N	\N	\N	\N	\N	\N	\N	Körperbemalung	\N
-Malen/Zeichen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Schlittschuhlaufen	\N	21	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Siegelfälschung	\N	\N	\N	\N	\N	\N	\N	\N	\N	Fälschen	\N
 Siegelkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	Lesen/Schreiben	\N
@@ -163,10 +162,10 @@ Lesen von Zauberschrift	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
 Meucheln	31	0	\N	\N	\N	\N	\N	\N	\N	\N	61
 Musizieren	\N	0	\N	\N	\N	\N	\N	\N	31	\N	31
 Rudern	21	0	0	\N	\N	\N	\N	\N	\N	\N	21
-SchÃ¤tzen	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
+Schätzen	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
 Scharfschießen	\N	0	0	\N	\N	\N	\N	\N	\N	\N	61
 Schauspielern	\N	\N	\N	\N	\N	\N	61	\N	\N	\N	\N
-SchieÃŸen vom Streitwagen	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	31
+Schießen vom Streitwagen	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	31
 Schiffsführung	\N	\N	\N	31	\N	\N	61	\N	\N	\N	\N
 Schlittenfahren	\N	0	\N	\N	\N	\N	\N	\N	\N	\N	21
 Schlösser öffnen	\N	0	\N	\N	\N	\N	\N	\N	\N	61	61
@@ -186,6 +185,7 @@ Wagenlenken	\N	21	\N	\N	\N	\N	\N	\N	\N	\N	21
 Wahrnehmung	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
 Winden	\N	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Zeichensprache	\N	0	\N	31	\N	\N	\N	\N	\N	\N	31
+Malen/Zeichnen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
 \.
 --
 -- TOC Entry ID 3 (OID 26667275)

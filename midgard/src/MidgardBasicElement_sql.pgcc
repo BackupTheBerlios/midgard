@@ -9,7 +9,7 @@ exec sql include sqlca;
 #include "Waffe.hh"
 
 #ifdef USE_XML
-static void Add(map<std::string,std::string> map_typ, std::string typen, std::string wert)
+static void Add(map<std::string,std::string> &map_typ, std::string typen, std::string wert)
 {  while (!typen.empty())
    {  string::size_type komma=typen.find(',');
       if (komma!=string::npos)

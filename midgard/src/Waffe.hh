@@ -26,7 +26,7 @@ class Waffe : public MidgardBasicElement
      std::string region;
      int schwierigkeit,st,ge,reichweite_0,reichweite_n,
          reichweite_m,reichweite_f;
-     int /*lernpunkte,*/ anfangswert;
+     int lern_land,lern_stadt, anfangswert;
      int schaden_bonus;
 //     bool pflicht;
      list<st_alias> list_alias;
@@ -36,10 +36,8 @@ class Waffe : public MidgardBasicElement
      int St() const {return st;}
      int Ge() const {return ge;}
   public:
-//     Waffe(const std::string& n,int l=0,bool p=false)
-//      :name(n),lernpunkte(l),pflicht(p)
      Waffe(const std::string& n)
-      :name(n)
+      :name(n),lern_land(0),lern_stadt(0)
      {get_Waffe(); get_Alias(); get_map_typ();get_Steigern_Kosten_map();
       EP_steigern("Waffen"); }
 
@@ -50,6 +48,8 @@ class Waffe : public MidgardBasicElement
      const list<st_alias>& Alias() const {return list_alias;}     
      std::string Grundkenntnis() const {return grundkenntnisse;}
      std::string Region(const std::string& name) const ;
+     int LernLand() const {return lern_land;}
+     int LernStadt() const {return lern_stadt;}
 
      std::string Art() const {return art;}
      std::string Art2() const {return art2;}
@@ -79,10 +79,6 @@ class Waffe : public MidgardBasicElement
          const std::list<cH_MidgardBasicElement>& list_Waffen_besitz,
          const vector<cH_Typen>& Typ,
          const Grundwerte& Werte);
-
-#warning Warum geht das nicht?
-//    Waffe(const MidgardBasicElement &x)  :  (dynamic_cast<const Waffe&>(x)) {}
-
 
 };
 

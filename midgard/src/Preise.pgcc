@@ -109,7 +109,6 @@ void PreiseMod::get_PreiseMod()
    char db_name[50],db_typ[50],db_art[50],db_einheit[20];
    float db_faktor;
    int db_min;
-   int db_nr;
   exec sql end declare section;
   strncpy(db_art,Art().c_str(),sizeof(db_art));
   exec sql declare PM2ein cursor for select 
@@ -123,8 +122,9 @@ void PreiseMod::get_PreiseMod()
     exec sql fetch PM2ein into :db_name,:db_faktor,:db_min,:db_einheit,:db_typ;
     SQLerror::test(__FILELINE__,100);
     if (sqlca.sqlcode) break;
-    vec_mod.push_back(st_vec(db_name,db_einheit,db_typ,db_faktor,db_min));
-cout << db_name<<"\t"<<db_typ<<'\n';
+    map_mod[db_typ].push_back(st_vec(db_name,db_einheit,db_faktor,db_min));
+//    vec_mod.push_back(st_vec(db_name,db_einheit,db_typ,db_faktor,db_min));
+//cout << db_name<<"\t"<<db_typ<<'\n';
    }
   exec sql close PM2ein;
   tr.close();

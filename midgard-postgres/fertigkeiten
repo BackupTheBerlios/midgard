@@ -104,7 +104,7 @@ COPY "fertigkeiten"  FROM stdin;
 5	\N	\N	8	Meditieren	6	200		Wk
 6	\N	\N	8	Meucheln	6	800		Gs
 6	\N	\N	5	Scharfschieﬂen	4	800		Gs
-8	\N	\N	15	Schie√üen von Streitwagen	10	200	\N	Gs
+8	\N	\N	15	Schieﬂen vom Streitwagen	10	200	\N	Gs
 6	\N	\N	8	Schiffsf¸hrung	6	150	\N	In
 4	\N	\N	8	Schleichen	6	400	\N	Gw
 6	\N	\N	15	Seemannsgang	15	100	\N	Gw
@@ -169,7 +169,7 @@ COPY "fertigkeiten"  FROM stdin;
 4	3	0	5	Pflanzenkunde	4	100	\N	In
 4	\N	3	8	Rechnen	6	100		In
 99	3	3	5	Sagenkunde	4	100		In
-4	\N	3	5	Sch√§tzen	4	100	\N	In
+4	\N	3	5	Sch‰tzen	4	100	\N	In
 5	\N	3	8	Schauspielern	6	50	\N	pA
 6	4	0	8	Abrichten	6	400	\N	pA
 5	\N	4	8	Beredsamkeit	6	200		pA
