@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.30 2002/06/06 14:15:11 christof Exp $
+// $Id: fertigk_exp.cc,v 1.31 2002/06/08 16:25:24 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -287,7 +287,7 @@ void fert_speichern(Tag &o)
       while ((query2>>is2).good())
       {  vorteile.push_back(Tag("Fertigkeit")).setAttr("Name",fetch_string(is2));
       }
-      if (vorteile.attbegin()!=vorteile.attend())
+      if (vorteile.begin()!=vorteile.end())
          Beruf.push_back(vorteile);
    }
   }

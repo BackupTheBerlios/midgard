@@ -1,4 +1,4 @@
-// $Id: waffen_exp.cc,v 1.21 2002/06/08 15:21:40 christof Exp $
+// $Id: waffen_exp.cc,v 1.22 2002/06/08 16:25:24 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -198,7 +198,7 @@ void waffen_speichern(Tag &o)
    	" where coalesce(region,'')='"+region+"'"
    	" order by name");
   while ((query>>is).good())
-  {Tag &WGk=WGk.push_back(Tag("Waffen-Grundkenntnis"));
+  {Tag &WGk=WGke.push_back(Tag("Waffen-Grundkenntnis"));
    std::string grund=fetch_and_set_string_attrib(is, WGk, "Name");
    fetch_and_set_string_attrib(is, WGk, "Region");
    fetch_and_set_int_attrib(is, WGk, "Kosten");
@@ -215,7 +215,7 @@ void waffen_speichern(Tag &o)
        	+ RegionErgaenzungQuery("waffen_grund.name","waffen_grund_typen","Waffengrund","g")
        	+ "order by coalesce(region,''),name");
       while ((q >> is).good())
-      {Tag &WGk=WGk.push_back(Tag("Waffen-Grundkenntnis"));
+      {Tag &WGk=WGke.push_back(Tag("Waffen-Grundkenntnis"));
        std::string grund=fetch_and_set_string_attrib(is, WGk, "Name");
        fetch_and_set_string_attrib(is, WGk, "Region");
        grund_standard_ausnahme(WGk, "waffen_grund_typen", grund, "", true);
