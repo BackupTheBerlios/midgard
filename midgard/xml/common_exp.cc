@@ -1,4 +1,4 @@
-// $Id: common_exp.cc,v 1.9 2002/01/07 10:03:56 christof Exp $
+// $Id: common_exp.cc,v 1.10 2002/01/07 15:16:13 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -25,7 +25,7 @@ static void schwierigkeit(std::ostream &o,
    Query query(_query);
    FetchIStream is;
    while ((query>>is).good())
-   {  content+="<"+tag+" Typ=\""+toXML(fetch_typ(is))+"\">";
+   {  content+="<"+tag+" Typ=\""+toXML(fetch_typ(is))+"\"/>";
    }
    if (!content.empty())
       o << "    " << content << '\n';
