@@ -22,6 +22,8 @@
 #include "table_ausruestung.hh"
 #include <Misc/itos.h>
 #include <Misc/EntryValueEmptyInt.h>
+#include <ManuProCConfig.h>
+#undef MANUPROC_WITH_DATABASE // don't use database here, because the include path is missing
 #include <Misc/EntryValueFixed.h>
 #include "dtos1.h"
 
