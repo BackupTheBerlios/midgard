@@ -1,4 +1,4 @@
-// $Id: magusicons.cc,v 1.14 2004/06/07 16:03:24 christof Exp $
+// $Id: magusicons.cc,v 1.15 2004/06/08 10:36:36 christof Exp $
 
 #include <magusicons_p.h>
 #include <gdkmm/pixbufloader.h>
@@ -126,5 +126,3 @@ Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name)
    if (!pb) std::cerr << "MagusImage(\"" << name << "\") not found\n";
    return pb;
 }
-
-const MagusIcons::data_registry *MagusIcons::data_registry::first;

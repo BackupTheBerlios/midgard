@@ -14,7 +14,7 @@ VS_VERSION_INFO VERSIONINFO
       BLOCK "040904B0"
       BEGIN
 	VALUE "FileDescription", "MAGuS Icon- und Bildersammlung"
-	VALUE "FileVersion", "0.1.0.BUILDNUMBER"
+	VALUE "FileVersion", "0.1.1.BUILDNUMBER"
 	VALUE "LegalCopyright", "Copyright © 2003 Christof Petig"
 	VALUE "InternalName", "libmagusicons"
 	VALUE "OriginalFilename", "libmagusicons-0.dll"
