@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_beschreibung.cc,v 1.5 2002/07/10 07:49:16 christof Exp $
+// $Id: LaTeX_drucken_beschreibung.cc,v 1.6 2002/08/22 08:10:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,19 +37,19 @@ void LaTeX_drucken::latex_beschreibung_drucken()
  ostream &fout(fout2);
 #endif 
  LaTeX_header(fout,false); 
- fout << "\\fbox{\\parbox[t][22cm]{18cm}{ \n";
+ fout << "\\fbox{\\parbox[t][23cm]{18cm}{ \n";
  if(file!="")
   {
    fout << WinLux::normal_tilde;
-   fout << "\\IfFileExists{"+WinLux::recodePathForTeX(file)+"}";
+//   fout << "\\IfFileExists{"+WinLux::recodePathForTeX(file)+"}";
    fout << WinLux::active_tilde;
-   fout << "{\n~\n"; //'~' damit 'wrapfig funktioniert
+   fout << "\n~\n"; //'~' damit 'wrapfig funktioniert
    fout << "\\begin{wrapfigure}{r}{"+figwidth+"}\n";
    fout << WinLux::normal_tilde;
    fout << "\\includegraphics[width="+figwidth+"]{"
    	+WinLux::recodePathForTeX(file)+"}\n";
    fout << WinLux::active_tilde;
-   fout << "\\end{wrapfigure}}\n";
+   fout << "\\end{wrapfigure}\n";
   }
  fout << hauptfenster->getWerte().Beschreibung()<<"\n";
  fout << "}}\n";

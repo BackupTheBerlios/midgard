@@ -40,7 +40,10 @@ try{
  else if (ewas==Export)
    hauptfenster->spielleiter_export_save(this->get_filename());
  else if (ewas==Pix)
+   {
     VA->getWerte().setBeschreibungPix(this->get_filename());
+    hauptfenster->table_beschreibung->init(hauptfenster);
+   }
 #ifndef __MINGW32__  
  destroy();
 #endif

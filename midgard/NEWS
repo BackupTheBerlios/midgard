@@ -20,21 +20,19 @@ NEWS IN VERSION 0.7.7
 * Im Ausdruck: Raufen steht jetzt beim 'Waffenbesitz' mit Schaden
 * Ausdruck überarbeitet: GFP/EP reduziert, dafür Resistenzen und Sinne größer
 * Spezies explizit im Ausdruck
+* Graphik in Beschreibung
 
 TODO: ('-' zeigt CP an)
-* Vorschlag: wäre es möglich die GFP-Liste zu verkleinern und dafür die
-  sehr unleserlichen, weil in sehr kleiner Schriftgröße aufgeführten Sinne und
-  Resistenzwerte etwas zu vergrößern?
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
   der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 
 * Ausrüstungsauswahl stürzt ab
-* Graphik in Beschreibung
 - dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
   man etwas hinzufügen möchte, ist nicht gerade intuitiv
   (vielleicht drag'n'drop oder CTree verschieben)
 - Würfelvarianten für Nichtmenschen!
 - verschwinden alle Icons? (Nein:-)
 - alle Ausdrucke unter Windows testen
+- wrapfig for Windows für Grafik in Beschreibung
 - .magus Endung unter Windows mit Magus.exe verknüpfen (beim Speichern)
 - xml laden beschleunigen (merge with map, reservate on vectors)
 
