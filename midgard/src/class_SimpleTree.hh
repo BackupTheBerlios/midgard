@@ -51,7 +51,7 @@ class Data_SimpleTree : public RowDataBase
 
    virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const;
    enum WEV {FWhat,FName,FErfolgswert,FErfolgswerBonus,
-             FWurf,FLernpunkte,,FLernpunkte0,FLernart,FPflicht,
+             FWurf,FLernpunkte,FLernpunkte0,FLernart,FPflicht,
              FGrundkenntnis,FZauberAP,FAttribut,FVoraussetung,FSchwierigkeit,
              FKosten,FStandard,FGelernt,FPraxispunkt,
              FSteigern,FReduzieren,FVerlernen,FRegion,
