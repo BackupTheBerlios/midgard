@@ -1,4 +1,4 @@
-// $Id: all_exp.cc,v 1.26 2004/06/03 16:46:05 christof Exp $
+// $Id: all_exp.cc,v 1.27 2004/11/29 13:54:25 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -31,6 +31,7 @@ int main(int argc, char *argv[])
       ManuProC::Connection conn;
       conn.setDbase("midgard");
       ManuProC::dbconnect(conn);
+      Query("set names 'utf-8'");
       
       std::string revision="$Revi""sion$";
       std::string file="/dev/stdout";
@@ -38,7 +39,7 @@ int main(int argc, char *argv[])
    if (argc>1) region=argv[1];
    if (argc>2) file=argv[2];
 
-   TagStream::host_encoding="ISO-8859-1";
+   TagStream::host_encoding="UTF-8";
    
    try
    {  TagStream in(file);
@@ -47,7 +48,7 @@ int main(int argc, char *argv[])
    catch (std::exception) { }
    
       TagStream ts;
-      ts.setEncoding("UTF-8");
+//      ts.setEncoding("UTF-8");
       Tag &data=ts.push_back(Tag("MAGUS-data"));
       region_tags(data,region,revision);
    fert_speichern(data);

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.350 2004/07/16 07:13:00 christof Exp $
+// $Id: midgard_CG.hh,v 1.351 2004/11/29 13:54:23 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -161,7 +161,7 @@ private:
 
         void checkbutton_original(bool active);
         void lernschema_sensitive(bool active);
-
+        bool werte_edit_click(GdkEventButton*);
 
        // Diverses
 //        SigC::signal_Connection().connection_status;

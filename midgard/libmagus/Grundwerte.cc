@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.13 2004/08/30 13:17:56 christof Exp $               
+// $Id: Grundwerte.cc,v 1.14 2004/11/29 13:54:23 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -64,6 +64,8 @@ void Grundwerte::reset()
   goldanteil=50;
   fpanteil=50;
   wie_steigern=ws_Unterweisung;
+  wie_steigern_variante=wie_steigern_variante_t();
+  reduzieren=false;
   
   grad_basiswerte=1;
   herkunft=cH_Land("",true);
@@ -441,8 +443,8 @@ Grundwerte::Grundwerte()
              gfp(),steigertage(),gold(), silber(), kupfer(),
              aep(),kep(),zep(),herkunft(cH_Land("",true)),spezies("Mensch"),
              stadt_land(Enums::Stadt), /*steigern_EP_prozent(50),*/ grad_basiswerte(1),
-             Typ(2), wie_steigern(ws_Unterweisung), goldanteil(50),
-             fpanteil(50)
+             Typ(2), wie_steigern(ws_Unterweisung), wie_steigern_variante(),
+             goldanteil(50), fpanteil(50)
 { reset(); }
 
 

@@ -1,4 +1,4 @@
-// $Id: table_steigern_grad_anstieg.cc,v 1.25 2003/12/09 16:58:26 christof Exp $
+// $Id: table_steigern_grad_anstieg.cc,v 1.26 2004/11/29 13:54:23 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,7 +27,8 @@ void table_steigern::on_grad_anstieg_clicked()
 {
  flashing_gradanstieg->setTime(0);
  flashing_eigenschaft->setTime(0);
- radiobutton_steigern->set_active(true);
+// radiobutton_steigern->set_active(true);
+ hauptfenster->getAben().reduzieren=false;
  int act_grad=hauptfenster->getAben().Grad();
  int max_grad=Datenbank.GradAnstieg.get_Grad(hauptfenster->getAben().GFP());
 
@@ -40,8 +41,7 @@ void table_steigern::on_grad_anstieg_clicked()
     hauptfenster->getAben().setGrad(++act_grad);
 
     std::string info;
-    hauptfenster->getAben().get_ausdauer(act_grad,
-                           get_wie_steigern(),get_bool_steigern());
+    hauptfenster->getAben().get_ausdauer(act_grad);
 //    hauptfenster->set_status(info);
 
     get_ab_re_za(Enums::eAbwehr);
@@ -61,7 +61,7 @@ void table_steigern::on_button_grad_clicked()
 void table_steigern::on_button_grad_ausdauer_clicked()
 {   
  std::string info;
- hauptfenster->getAben().get_ausdauer(hauptfenster->getAben().Grad(),get_wie_steigern(),get_bool_steigern());
+ hauptfenster->getAben().get_ausdauer(hauptfenster->getAben().Grad());
 // hauptfenster->set_status(info,false);
  zeige_werte();
 }
@@ -114,9 +114,6 @@ void table_steigern::get_grundwerte(int wurf)
 
 void table_steigern::get_ab_re_za(Enums::e_was_steigern was)
 {
-  std::string info;
-  const bool bsteigern=radiobutton_steigern->get_active();
-  hauptfenster->getAben().get_ab_re_za(was,get_wie_steigern(),bsteigern,
-                        get_bool_steigern());
+  hauptfenster->getAben().get_ab_re_za(was);
   zeige_werte();
 }

@@ -70,7 +70,7 @@ void table_steigern::on_leaf_selected_neue_waffen(cH_RowDataBase d)
  
 void table_steigern::on_leaf_selected_alte_grund(cH_RowDataBase d)
 {  
-  if(radiobutton_verlernen->get_active())
+  if(hauptfenster->getAben().reduzieren)
    {
      Ausgabe(Ausgabe::Warning,"WARNUNG: Beim verlernen von Grundkenntnissen werden die\n"
      	"bereits gelernten Waffen, die zu dieser\n"
@@ -88,7 +88,7 @@ void table_steigern::on_leaf_selected_alte_waffen(cH_RowDataBase d)
      dynamic_cast<const Data_SimpleTree*>(&*d)->redisplay(alte_waffen_tree);
      neue_waffen_zeigen();
      zeige_werte();
-     if(radiobutton_verlernen->get_active()) alte_waffen_zeigen();
+     if(hauptfenster->getAben().reduzieren) alte_waffen_zeigen();
    }
   if(!spinbutton_pp_eingeben->is_visible())
      alte_waffen_tree->get_selection()->unselect_all(); 

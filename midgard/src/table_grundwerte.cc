@@ -195,3 +195,11 @@ void table_grundwerte::sync_wizard(gpointer x)
    button_abg_werte->set_sensitive(always_sens 
    	|| between(pr.wizard.Value(),Wizard::STADTLAND,Wizard::ABGELEITETEWERTE));
 }
+
+void table_grundwerte::NamenEingeben() 
+{ edit_werte=true; entry_nameC->grab_focus(); }
+
+void table_grundwerte::clean_up()
+{ if (edit_werte)
+    edit_werte=false;
+}

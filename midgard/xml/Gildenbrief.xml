@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<MAGUS-data Region="G" Name="Gildenbrief" Titel="Gildenbrief" Copyright="var." Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="13" MAGUS-Bild="5" CVS="$Revision: 1.18 $">
+<MAGUS-data CVS="$Revision: 1.19 $" Copyright="var." MAGUS-Bild="5" MAGUS-Index="13" Maintainer="Malte Thoma" Name="Gildenbrief" Region="G" Titel="Gildenbrief" Version="1.0">
  <Fertigkeiten>
   <Fertigkeit Name="Abrichten">
    <Ausnahme Typ="MMa"/>
@@ -94,7 +94,7 @@
   </Fertigkeit>
   <Fertigkeit Name="Himmelskunde">
    <Grund Typ="MMa"/>
-   <Lernschema Typ="MMa" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="MMa"/>
   </Fertigkeit>
   <Fertigkeit Name="Kampf in Dunkelheit">
    <Ausnahme Typ="MMa"/>
@@ -131,7 +131,7 @@
   </Fertigkeit>
   <Fertigkeit Name="Lesen von Zauberschrift">
    <Grund Typ="MMa"/>
-   <Lernschema Typ="MMa" Lernpunkte="1" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="MMa"/>
   </Fertigkeit>
   <Fertigkeit Name="Lippenlesen">
    <Standard Typ="MMa"/>
@@ -156,7 +156,7 @@
   </Fertigkeit>
   <Fertigkeit Name="Rechnen">
    <Grund Typ="MMa"/>
-   <Lernschema Typ="MMa" Lernpunkte="1" Erfolgswert="8"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="1" Typ="MMa"/>
   </Fertigkeit>
   <Fertigkeit Name="Reiten">
    <Standard Typ="MMa"/>
@@ -192,11 +192,11 @@
    <Grund Typ="MMa"/>
   </Fertigkeit>
   <Fertigkeit Name="Schreiben: Muttersprache(+12)">
-   <Lernschema Typ="MMa" Lernpunkte="1" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="MMa"/>
   </Fertigkeit>
   <Fertigkeit Name="Schwimmen">
    <Grund Typ="MMa"/>
-   <Lernschema Typ="MMa" Lernpunkte="3" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="3" Typ="MMa"/>
   </Fertigkeit>
   <Fertigkeit Name="Schätzen">
    <Standard Typ="MMa"/>
@@ -217,7 +217,7 @@
    <Standard Typ="MMa"/>
   </Fertigkeit>
   <Fertigkeit Name="Sprechen: Alte Sprache">
-   <Lernschema Typ="MMa" Erfolgswert="9"/>
+   <Lernschema Erfolgswert="9" Typ="MMa"/>
   </Fertigkeit>
   <Fertigkeit Name="Springen">
    <Ausnahme Typ="MMa"/>
@@ -230,7 +230,7 @@
   </Fertigkeit>
   <Fertigkeit Name="Steuern">
    <Grund Typ="MMa"/>
-   <Lernschema Typ="MMa" Lernpunkte="3" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="3" Typ="MMa"/>
   </Fertigkeit>
   <Fertigkeit Name="Stimmen nachahmen">
    <Standard Typ="MMa"/>
@@ -249,11 +249,11 @@
   </Fertigkeit>
   <Fertigkeit Name="Tauchen">
    <Grund Typ="MMa"/>
-   <Lernschema Typ="MMa" Lernpunkte="5" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="5" Typ="MMa"/>
   </Fertigkeit>
   <Fertigkeit Name="Thaumatographie">
    <Ausnahme Typ="MMa"/>
-   <Lernschema Typ="MMa" Lernpunkte="5" Erfolgswert="6"/>
+   <Lernschema Erfolgswert="6" Lernpunkte="5" Typ="MMa"/>
   </Fertigkeit>
   <Fertigkeit Name="Tierkunde">
    <Standard Typ="MMa"/>
@@ -284,7 +284,7 @@
   </Fertigkeit>
   <Fertigkeit Name="Zauberkunde">
    <Grund Typ="MMa"/>
-   <Lernschema Typ="MMa" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="MMa"/>
   </Fertigkeit>
   <Fertigkeit Name="Zaubern">
    <Grund Typ="MMa"/>
@@ -461,31 +461,31 @@
    <Standard Typ="MMa"/>
   </Fertigkeit>
   <Fertigkeit Name="Schreiben: Alte Sprache(+4)">
-   <Lernschema Typ="MMa" Lernpunkte="1" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="1" Typ="MMa"/>
   </Fertigkeit>
   <Fertigkeit Name="Schreiben: Muttersprache(+12)">
-   <Lernschema Typ="MMa" Lernpunkte="1" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="MMa"/>
   </Fertigkeit>
   <Fertigkeit Name="Sprechen: Alte Sprache">
-   <Lernschema Typ="MMa" Erfolgswert="9"/>
+   <Lernschema Erfolgswert="9" Typ="MMa"/>
   </Fertigkeit>
  </Fertigkeiten>
  <Berufe/>
  <Schriften/>
  <Sprachen>
-  <Sprache Name="Meeressprache" Region="G" RegionZusatz="49" Kosten="10" Maximalwert="20"/>
+  <Sprache Kosten="10" Maximalwert="20" Name="Meeressprache" Region="G" RegionZusatz="49"/>
  </Sprachen>
  <Typen>
-  <Typ Abkürzung="MMa" Region="G" MAGUS-Index="58" Bezeichnung-Mann="Meeresmagier" Bezeichnung-Frau="Meeresmagierin" Zauberer="true" kannZaubern="true" Lernpflichten="Die Alte Sprache mu�&#x9F; Maralinga sein. Schreiben: Valinga mu�&#x9F; auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen." SchreibenPflicht="true" MinIn="21" Berufswahl="z" Stadt="false" Ausdauer="z">
-   <Modifikation Stand="10" Sb="30" Rüstung="4" Geld="3"/>
+  <Typ Abkürzung="MMa" Ausdauer="z" Berufswahl="z" Bezeichnung-Frau="Meeresmagierin" Bezeichnung-Mann="Meeresmagier" Lernpflichten="Die Alte Sprache mu�&#x9F; Maralinga sein. Schreiben: Valinga mu�&#x9F; auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen." MAGUS-Index="58" MinIn="21" Region="G" SchreibenPflicht="true" Stadt="false" Zauberer="true" kannZaubern="true">
+   <Modifikation Geld="3" Rüstung="4" Sb="30" Stand="10"/>
    <Herkunft Land="Valian"/>
   </Typ>
  </Typen>
  <Rüstungen/>
  <Waffen>
-  <Waffe Name="Dreizack" Region="G" Grundkenntnisse="Spie�&#x9F;waffe" Schwierigkeit="4" Kategorie="Angriff" Klasse="Z" Schaden="W6+1|2W6">
+  <Waffe Grundkenntnisse="Spie�&#x9F;waffe" Kategorie="Angriff" Klasse="Z" Name="Dreizack" Region="G" Schaden="W6+1|2W6" Schwierigkeit="4">
    <Modifikationen/>
-   <Voraussetzungen St="31" Gs="11"/>
+   <Voraussetzungen Gs="11" St="31"/>
    <Reichweite/>
    <Lernkosten/>
    <Grund Typ="Kr"/>
@@ -545,9 +545,9 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="wHx"/>
-   <Lernschema Typ="MMa" Lernpunkte="8" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="8" Typ="MMa"/>
   </Waffe>
-  <Waffe Name="Zweizack" Region="G" Grundkenntnisse="Spie�&#x9F;waffe" Schwierigkeit="3" Kategorie="Angriff" Klasse="E" Schaden="W6">
+  <Waffe Grundkenntnisse="Spie�&#x9F;waffe" Kategorie="Angriff" Klasse="E" Name="Zweizack" Region="G" Schaden="W6" Schwierigkeit="3">
    <Modifikationen/>
    <Voraussetzungen Gs="11"/>
    <Reichweite/>
@@ -609,7 +609,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="wHx"/>
-   <Lernschema Typ="MMa" Lernpunkte="6" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="6" Typ="MMa"/>
   </Waffe>
   <Waffe Name="Anderthalbhänder">
    <Ausnahme Typ="MMa"/>
@@ -631,7 +631,7 @@
   </Waffe>
   <Waffe Name="Dolch">
    <Ausnahme Typ="MMa"/>
-   <Lernschema Typ="MMa" Lernpunkte="2" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="2" Typ="MMa"/>
   </Waffe>
   <Waffe Name="Faustkampf">
    <Ausnahme Typ="MMa"/>
@@ -925,7 +925,7 @@
   </Waffen-Grundkenntnis>
  </Waffen-Grundkenntnisse>
  <Zauber>
-  <Spruch Name="Abwenden von Blicken" Region="G" RegionZusatz="?" Grad="1" Lernkosten="120" AP="1" Typ="Gedanke" Zauberdauer="1s" Reichweite="-" Wirkungsziel="Geist" Wirkungsbereich="Z" Wirkungsdauer="10min" Spruchrolle="true">
+  <Spruch AP="1" Grad="1" Lernkosten="120" Name="Abwenden von Blicken" Region="G" RegionZusatz="?" Reichweite="-" Spruchrolle="true" Typ="Gedanke" Wirkungsbereich="Z" Wirkungsdauer="10min" Wirkungsziel="Geist" Zauberdauer="1s">
    <Grund Typ="Dt"/>
    <Grund Typ="Hl"/>
    <Grund Typ="Or"/>
@@ -946,10 +946,10 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Charivari Klänge" Region="G" RegionZusatz="?" Grad="2" Lernkosten="400" AP="2" Typ="Zauberlied" Ursprung="Weltenlied" Zauberdauer="-" Reichweite="-" Wirkungsziel="Geist" Wirkungsbereich="15m Uk" Wirkungsdauer="var" Material="Flöte oder Laute">
+  <Spruch AP="2" Grad="2" Lernkosten="400" Material="Flöte oder Laute" Name="Charivari Klänge" Region="G" RegionZusatz="?" Reichweite="-" Typ="Zauberlied" Ursprung="Weltenlied" Wirkungsbereich="15m Uk" Wirkungsdauer="var" Wirkungsziel="Geist" Zauberdauer="-">
    <Grund Typ="Ba"/>
   </Spruch>
-  <Spruch Name="Damhsa Claimh (Schwerttanz)" Region="G" RegionZusatz="46" Grad="3" Lernkosten="1000" AP="2/Tänzer" Typ="Tanz" Ursprung="druidisch" Agens="Luft" Prozess="verändert" Reagens="Feuer" Zauberdauer="10 min" Reichweite="15 m" Wirkungsziel="Geist" Wirkungsbereich="Mittänzer" Wirkungsdauer="24 h" Material="Gruppentanz (min 3)" Zauberart="Tanz">
+  <Spruch AP="2/Tänzer" Agens="Luft" Grad="3" Lernkosten="1000" Material="Gruppentanz (min 3)" Name="Damhsa Claimh (Schwerttanz)" Prozess="verändert" Reagens="Feuer" Region="G" RegionZusatz="46" Reichweite="15 m" Typ="Tanz" Ursprung="druidisch" Wirkungsbereich="Mittänzer" Wirkungsdauer="24 h" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="10 min">
    <Grund Typ="Fi"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
@@ -959,14 +959,14 @@
    <Standard Typ="sHx"/>
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="wHx"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="Ba" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="Hl" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="Or" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="gHx" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="sHx" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="wHx" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Ba"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Hl"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Or"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="gHx"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="sHx"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Damhsa Meallim (Locktanz)" Region="G" RegionZusatz="46" Grad="1" Lernkosten="80" AP="2" Typ="Tanz" Ursprung="druidisch" Agens="Wasser" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="5 min" Reichweite="15 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h" Material="Solotanz" Zauberart="Tanz">
+  <Spruch AP="2" Agens="Wasser" Grad="1" Lernkosten="80" Material="Solotanz" Name="Damhsa Meallim (Locktanz)" Prozess="beherrscht" Reagens="Wasser" Region="G" RegionZusatz="46" Reichweite="15 m" Typ="Tanz" Ursprung="druidisch" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="5 min">
    <Grund Typ="Fi"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
@@ -976,14 +976,14 @@
    <Standard Typ="sHx"/>
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="wHx"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="Ba" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="Hl" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="Or" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="gHx" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="sHx" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="wHx" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Ba"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Hl"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Or"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="gHx"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="sHx"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Damhsa an Duiseacht (Tanz des Erwachens)" Region="G" RegionZusatz="46" Grad="5" Lernkosten="1600" AP="6" Typ="Tanz" Ursprung="druidisch" Agens="Magan" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="5 min" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="Zauberer" Wirkungsdauer="inf" Material="Solotanz" Zauberart="Tanz">
+  <Spruch AP="6" Agens="Magan" Grad="5" Lernkosten="1600" Material="Solotanz" Name="Damhsa an Duiseacht (Tanz des Erwachens)" Prozess="beherrscht" Reagens="Wasser" Region="G" RegionZusatz="46" Reichweite="-" Typ="Tanz" Ursprung="druidisch" Wirkungsbereich="Zauberer" Wirkungsdauer="inf" Wirkungsziel="Körper" Zauberart="Tanz" Zauberdauer="5 min">
    <Grund Typ="Fi"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
@@ -992,18 +992,18 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="Ba" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="Hl" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="Or" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="gHx" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="sHx" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="wHx" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Ba"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Hl"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Or"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="gHx"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="sHx"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Eichenzauber" Region="G" RegionZusatz="?" Grad="G" Lernkosten="15000" AP="5" Typ="Geste" Zauberdauer="30min" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1 Eichel" Wirkungsdauer="var" Material="Silbereichel">
+  <Spruch AP="5" Grad="G" Lernkosten="15000" Material="Silbereichel" Name="Eichenzauber" Region="G" RegionZusatz="?" Reichweite="B" Typ="Geste" Wirkungsbereich="1 Eichel" Wirkungsdauer="var" Wirkungsziel="Umgebung" Zauberdauer="30min">
    <Grund Typ="Dr"/>
    <Standard Typ="Hl"/>
   </Spruch>
-  <Spruch Name="Fainne ghuairne (Der wirbelnde Kreis)" Region="G" RegionZusatz="46" Grad="3" Lernkosten="1000" AP="6" Typ="Tanz" Ursprung="druidisch" Agens="Wasser" Prozess="erkennt" Reagens="Luft" Zauberdauer="10 min" Reichweite="-" Wirkungsziel="Geist" Wirkungsbereich="Mittänzer" Wirkungsdauer="1 h" Material="Gruppentanz (min 3)" Zauberart="Tanz">
+  <Spruch AP="6" Agens="Wasser" Grad="3" Lernkosten="1000" Material="Gruppentanz (min 3)" Name="Fainne ghuairne (Der wirbelnde Kreis)" Prozess="erkennt" Reagens="Luft" Region="G" RegionZusatz="46" Reichweite="-" Typ="Tanz" Ursprung="druidisch" Wirkungsbereich="Mittänzer" Wirkungsdauer="1 h" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="10 min">
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
@@ -1012,14 +1012,14 @@
    <Standard Typ="sHx"/>
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="wHx"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="Ba" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="Hl" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="Or" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="gHx" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="sHx" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="wHx" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Ba"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Hl"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Or"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="gHx"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="sHx"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Fluch des Hundes" Region="G" RegionZusatz="?" Grad="5" Lernkosten="2000" AP="6" Typ="Geste" Ursprung="dämonisch" Zauberdauer="1 s" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Material="Hundeurin       " Spruchrolle="true">
+  <Spruch AP="6" Grad="5" Lernkosten="2000" Material="Hundeurin       " Name="Fluch des Hundes" Region="G" RegionZusatz="?" Reichweite="0" Spruchrolle="true" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Wirkungsziel="Körper" Zauberdauer="1 s">
    <Grund Typ="De"/>
    <Grund Typ="Dt"/>
    <Grund Typ="PW"/>
@@ -1039,7 +1039,7 @@
    <Ausnahme Typ="PM"/>
    <Ausnahme Typ="PT"/>
   </Spruch>
-  <Spruch Name="Heimfeder" Region="G" RegionZusatz="47" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="druidisch" Agens="Wasser" Prozess="erkennt" Reagens="Luft" Zauberdauer="1 min" Reichweite="unbegrenzt" Wirkungsziel="Umgebung" Wirkungsbereich="1 Obj" Wirkungsdauer="30 min" Material="Wasser, Taubenschwungfeder (2KS)">
+  <Spruch AP="2" Agens="Wasser" Grad="2" Lernkosten="200" Material="Wasser, Taubenschwungfeder (2KS)" Name="Heimfeder" Prozess="erkennt" Reagens="Luft" Region="G" RegionZusatz="47" Reichweite="unbegrenzt" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="1 Obj" Wirkungsdauer="30 min" Wirkungsziel="Umgebung" Zauberdauer="1 min">
    <Grund Typ="Dr"/>
    <Grund Typ="MMa"/>
    <Grund Typ="PM"/>
@@ -1064,9 +1064,9 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
-   <Lernschema Typ="MMa" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="MMa"/>
   </Spruch>
-  <Spruch Name="Meeressegen" Region="G" RegionZusatz="47" Grad="3" Lernkosten="800" AP="3" Typ="Wort" Ursprung="druidisch" Agens="Wasser" Prozess="verändert" Reagens="Erde" Zauberdauer="10 sec" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="Z" Wirkungsdauer="druidisch">
+  <Spruch AP="3" Agens="Wasser" Grad="3" Lernkosten="800" Name="Meeressegen" Prozess="verändert" Reagens="Erde" Region="G" RegionZusatz="47" Reichweite="0" Typ="Wort" Ursprung="druidisch" Wirkungsbereich="Z" Wirkungsdauer="druidisch" Wirkungsziel="Körper" Zauberdauer="10 sec">
    <Grund Typ="MMa"/>
    <Standard Typ="Dr"/>
    <Standard Typ="PM"/>
@@ -1091,33 +1091,33 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Rince an Coisreacan (Reigen der Weihe)" Region="G" RegionZusatz="46" Grad="6" Lernkosten="3000" AP="alle (mind. 9)" Typ="Tanz" Ursprung="druidisch" Agens="Holz" Prozess="zerstört" Reagens="Eis" Zauberdauer="1 h" Reichweite="0m" Wirkungsziel="Umgebung" Wirkungsbereich="var. Uk" Wirkungsdauer="inf" Material="Gruppentanz (min 4)" Zauberart="Tanz">
+  <Spruch AP="alle (mind. 9)" Agens="Holz" Grad="6" Lernkosten="3000" Material="Gruppentanz (min 4)" Name="Rince an Coisreacan (Reigen der Weihe)" Prozess="zerstört" Reagens="Eis" Region="G" RegionZusatz="46" Reichweite="0m" Typ="Tanz" Ursprung="druidisch" Wirkungsbereich="var. Uk" Wirkungsdauer="inf" Wirkungsziel="Umgebung" Zauberart="Tanz" Zauberdauer="1 h">
    <Standard Typ="Fi"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
    <Standard Typ="Tm"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="Ba" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="Hl" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="Or" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="gHx" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="sHx" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="wHx" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Ba"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Hl"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Or"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="gHx"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="sHx"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Rince na Daoine Maithe (Reigen des Feenvolks)" Region="G" RegionZusatz="46" Grad="5" Lernkosten="1500" AP="3" Typ="Tanz" Ursprung="druidisch" Agens="Holz" Prozess="beherrscht" Reagens="Holz" Zauberdauer="5 min" Reichweite="500 m" Wirkungsziel="Geist" Wirkungsbereich="-" Wirkungsdauer="2 min" Material="Gruppentanz (min 5)" Zauberart="Tanz">
+  <Spruch AP="3" Agens="Holz" Grad="5" Lernkosten="1500" Material="Gruppentanz (min 5)" Name="Rince na Daoine Maithe (Reigen des Feenvolks)" Prozess="beherrscht" Reagens="Holz" Region="G" RegionZusatz="46" Reichweite="500 m" Typ="Tanz" Ursprung="druidisch" Wirkungsbereich="-" Wirkungsdauer="2 min" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="5 min">
    <Grund Typ="Fi"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
    <Standard Typ="Tm"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="Ba" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="Hl" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="Or" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="gHx" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="sHx" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Erainn" Typ="wHx" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Ba"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Hl"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="G" Typ="Or"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="gHx"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="sHx"/>
+   <regionaleBesonderheit Herkunft="Erainn" Standard="S" Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Windgunst" Region="G" RegionZusatz="47" Grad="5" Lernkosten="4000" AP="6" Typ="Wort" Ursprung="elementar" Agens="Luft" Prozess="bewegt" Reagens="Luft" Zauberdauer="20 sec" Reichweite="30 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Obj" Wirkungsdauer="6 h">
+  <Spruch AP="6" Agens="Luft" Grad="5" Lernkosten="4000" Name="Windgunst" Prozess="bewegt" Reagens="Luft" Region="G" RegionZusatz="47" Reichweite="30 m" Typ="Wort" Ursprung="elementar" Wirkungsbereich="1 Obj" Wirkungsdauer="6 h" Wirkungsziel="Umgebung" Zauberdauer="20 sec">
    <Grund Typ="MMa"/>
    <Grund Typ="PW"/>
    <Standard Typ="Dr"/>
@@ -1273,11 +1273,11 @@
   </Spruch>
   <Spruch Name="Erkennen von Leben">
    <Grund Typ="MMa"/>
-   <Lernschema Typ="MMa" Lernpunkte="1"/>
+   <Lernschema Lernpunkte="1" Typ="MMa"/>
   </Spruch>
   <Spruch Name="Erkennen von Zauberei">
    <Grund Typ="MMa"/>
-   <Lernschema Typ="MMa" Lernpunkte="4"/>
+   <Lernschema Lernpunkte="4" Typ="MMa"/>
   </Spruch>
   <Spruch Name="Erscheinungen">
    <Standard Typ="MMa"/>
@@ -1380,14 +1380,14 @@
   </Spruch>
   <Spruch Name="Heranholen">
    <Grund Typ="MMa"/>
-   <Lernschema Typ="MMa" Lernpunkte="1"/>
+   <Lernschema Lernpunkte="1" Typ="MMa"/>
   </Spruch>
   <Spruch Name="Himmelsleiter">
    <Ausnahme Typ="MMa"/>
   </Spruch>
   <Spruch Name="Hitzeschutz">
    <Grund Typ="MMa"/>
-   <Lernschema Typ="MMa" Lernpunkte="1"/>
+   <Lernschema Lernpunkte="1" Typ="MMa"/>
   </Spruch>
   <Spruch Name="Hitzsalz">
    <Ausnahme Typ="MMa"/>
@@ -1457,11 +1457,11 @@
   </Spruch>
   <Spruch Name="Macht über Unbelebtes">
    <Grund Typ="MMa"/>
-   <Lernschema Typ="MMa" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="MMa"/>
   </Spruch>
   <Spruch Name="Macht über das Selbst">
    <Grund Typ="MMa"/>
-   <Lernschema Typ="MMa" Lernpunkte="1"/>
+   <Lernschema Lernpunkte="1" Typ="MMa"/>
   </Spruch>
   <Spruch Name="Macht über den Tod">
    <Ausnahme Typ="MMa"/>
@@ -1474,7 +1474,7 @@
   </Spruch>
   <Spruch Name="Macht über die belebte Natur">
    <Grund Typ="MMa"/>
-   <Lernschema Typ="MMa" Lernpunkte="3"/>
+   <Lernschema Lernpunkte="3" Typ="MMa"/>
   </Spruch>
   <Spruch Name="Macht über magische Wesen">
    <Grund Typ="MMa"/>
@@ -1502,7 +1502,7 @@
   </Spruch>
   <Spruch Name="Nebel wecken">
    <Grund Typ="MMa"/>
-   <Lernschema Typ="MMa" Lernpunkte="1"/>
+   <Lernschema Lernpunkte="1" Typ="MMa"/>
   </Spruch>
   <Spruch Name="Niessalz">
    <Ausnahme Typ="MMa"/>
@@ -1554,7 +1554,7 @@
   </Spruch>
   <Spruch Name="Scharfblick">
    <Grund Typ="MMa"/>
-   <Lernschema Typ="MMa" Lernpunkte="1"/>
+   <Lernschema Lernpunkte="1" Typ="MMa"/>
   </Spruch>
   <Spruch Name="Schlaf">
    <Standard Typ="MMa"/>
@@ -1723,7 +1723,7 @@
   </Spruch>
   <Spruch Name="Wasseratmen">
    <Grund Typ="MMa"/>
-   <Lernschema Typ="MMa" Lernpunkte="3"/>
+   <Lernschema Lernpunkte="3" Typ="MMa"/>
   </Spruch>
   <Spruch Name="Wasserlauf">
    <Grund Typ="MMa"/>
@@ -1745,7 +1745,7 @@
   </Spruch>
   <Spruch Name="Wetterzauber">
    <Grund Typ="MMa"/>
-   <Lernschema Typ="MMa" Lernpunkte="4"/>
+   <Lernschema Lernpunkte="4" Typ="MMa"/>
   </Spruch>
   <Spruch Name="Wiederkehr">
    <Standard Typ="MMa"/>
@@ -1755,7 +1755,7 @@
   </Spruch>
   <Spruch Name="Windsto�&#x9F;">
    <Grund Typ="MMa"/>
-   <Lernschema Typ="MMa" Lernpunkte="1"/>
+   <Lernschema Lernpunkte="1" Typ="MMa"/>
   </Spruch>
   <Spruch Name="Wirbelwind">
    <Grund Typ="MMa"/>

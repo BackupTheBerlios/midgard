@@ -1,4 +1,4 @@
-// $Id: kido_exp.cc,v 1.6 2003/09/01 06:47:59 christof Exp $
+// $Id: kido_exp.cc,v 1.7 2004/11/29 13:54:25 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -36,7 +36,7 @@ void kido_speichern(Tag &o)
   while ((query>>is).good())
   {Tag &kf=liste.push_back(Tag("KiDo"));
    fetch_and_set_string_attrib(is, kf, "Name");
-   fetch_and_set_string_attrib(is, kf, "Übersetzung");
+   fetch_and_set_string_attrib(is, kf, "Ãœbersetzung");
    fetch_and_set_string_attrib(is, kf, "Stufe");
    fetch_and_set_string_attrib(is, kf, "Stil");
    fetch_and_set_int_attrib(is, kf, "Lernkosten");

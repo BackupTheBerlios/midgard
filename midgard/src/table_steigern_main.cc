@@ -70,6 +70,7 @@ std::string table_steigern::SpruecheMitPP()
 
 /////////////////////////////////////////////////////////
 
+#if 0
 void table_steigern::on_radio_unterweisung_toggled()
 { Window2Abenteurer();
  if(radiobutton_unterweisung->get_active())
@@ -98,6 +99,7 @@ void table_steigern::on_radio_praxis_toggled()
   else
      table_pp_einstellungen->hide();//set_sensitive(false);
 }
+#endif
 
 void table_steigern::on_radiobutton_pp_fertigkeit_toggled()
 { 
@@ -156,7 +158,7 @@ void table_steigern::on_spinbutton_pp_eingeben_activate()
     else if(radiobutton_pp_resistenz->get_active())
        hauptfenster->getAben().setResistenzPP(PPanz);
     spinbutton_pp_eingeben->hide();
-    radiobutton_steigern->get_active();
+//    radiobutton_steigern->get_active();
     zeige_werte();
     return;
   }   

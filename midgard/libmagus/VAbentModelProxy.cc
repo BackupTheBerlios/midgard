@@ -1,4 +1,4 @@
-// $Id: VAbentModelProxy.cc,v 1.15 2004/07/12 13:34:38 christof Exp $               
+// $Id: VAbentModelProxy.cc,v 1.16 2004/11/29 13:54:23 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2003-2004 Christof Petig
  *
@@ -56,6 +56,8 @@ void VAbentModelProxy::divert(VAbenteurer::st_undo &A)
    wizard.set_model(Model_ref<Wizard::esteps>(A.wizard));
    wizard_mode=Model_ref<Wizard::mode>(A.wizard);
    sg_conns.push_back(A.abenteurer.wie_steigern.signal_changed()
+         .connect(SigC::bind(SigC::slot(&adaptor),&sig_steigern_geaendert)));
+   sg_conns.push_back(A.abenteurer.wie_steigern_variante.signal_changed()
          .connect(SigC::bind(SigC::slot(&adaptor),&sig_steigern_geaendert)));
    sg_conns.push_back(A.abenteurer.goldanteil.signal_changed()
          .connect(SigC::bind(SigC::slot(&adaptor),&sig_steigern_geaendert)));

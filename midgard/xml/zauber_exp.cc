@@ -1,4 +1,4 @@
-// $Id: zauber_exp.cc,v 1.21 2003/09/01 06:47:59 christof Exp $
+// $Id: zauber_exp.cc,v 1.22 2004/11/29 13:54:25 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -58,25 +58,25 @@ void arkanum_speichern(Tag &o)
    fetch_and_set_string_attrib(is, spruch, "Element");
    fetch_and_set_bool_attrib(is, spruch, "Spruchrolle");
    fetch_and_set_string_attrib(is, spruch, "Thaumagramm");
-   fetch_and_set_int_attrib(is, spruch, "Zus‰tze");
+   fetch_and_set_int_attrib(is, spruch, "Zus√§tze");
    fetch_and_set_bool_attrib(is, spruch, "NSC_only");
 
    grund_standard_ausnahme(spruch, "zauber_typen",zauber);
-   lernschema(spruch, MIDGARD3_4("Zauber","Zauberk¸nste"),zauber);
+   lernschema(spruch, MIDGARD3_4("Zauber","Zauberk√ºnste"),zauber);
    ausnahmen(spruch, "z", zauber);
 
-   //********** fz_zus‰tze **********************************
+   //********** fz_zus√§tze **********************************
    {  
       Query queryZu("select name,typ,region,region_zusatz from fz_zusaetze "
       " where art='"+zauber+"' order by name");
       FetchIStream isZu;
       while ((queryZu>>isZu).good())
-      {  Tag &z=spruch.push_back(Tag("Zus‰tze"));
+      {  Tag &z=spruch.push_back(Tag("Zus√§tze"));
          fetch_and_set_string_attrib(isZu, z, "Name");                          
          fetch_and_set_string_attrib(isZu, z, "Typ"); 
          fetch_and_set_string_attrib(isZu, z, "Region");
          fetch_and_set_string_attrib(isZu, z, "RegionZusatz"); 
-//         spruch.push_back(Tag("Zus‰tze")).setAttr("Name",fetch_string(isZu));
+//         spruch.push_back(Tag("Zus√§tze")).setAttr("Name",fetch_string(isZu));
       }
    }  
                                                                     
@@ -114,7 +114,7 @@ void arkanum_speichern(Tag &o)
    fetch_and_set_string_attrib(is, spruch, "Region");
 
    grund_standard_ausnahme(spruch, "zauber_typen",zauber,"",true);
-   lernschema(spruch, MIDGARD3_4("Zauber","Zauberk¸nste"), zauber,true);
+   lernschema(spruch, MIDGARD3_4("Zauber","Zauberk√ºnste"), zauber,true);
    ausnahmen(spruch, "z", zauber,true);
   }
  }
@@ -195,7 +195,7 @@ void arkanum_speichern(Tag &o)
       fetch_and_set_string_attrib(is, sp, "Name");
       fetch_and_set_int_attrib(is, sp, "MAGUS-Index");
       fetch_and_set_string_attrib(is, sp, "Spezialisierung");
-      fetch_and_set_string_attrib(is, sp, "Sekund‰relement");
+      fetch_and_set_string_attrib(is, sp, "Sekund√§relement");
    }
   }
 

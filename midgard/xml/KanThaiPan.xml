@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<MAGUS-data Region="K" Name="KanThaiPan" Titel="Unter dem Schirm des Jadekaisers" Copyright="Isolde Popp" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="7" MAGUS-Bild="2" CVS="$Revision: 1.19 $">
+<MAGUS-data CVS="$Revision: 1.20 $" Copyright="Isolde Popp" MAGUS-Bild="2" MAGUS-Index="7" Maintainer="Malte Thoma" Name="KanThaiPan" Region="K" Titel="Unter dem Schirm des Jadekaisers" Version="1.0">
  <Fertigkeiten>
-  <Fertigkeit Name="+1 KiDo-Technik" Region="K" Lernpunkte="1" Maximalwert="18" MaximalMitUnterweisung="18">
-   <Lernschema Typ="Kd" Lernpunkte="1"/>
-   <Lernschema Typ="Ny" Lernpunkte="1"/>
+  <Fertigkeit Lernpunkte="1" MaximalMitUnterweisung="18" Maximalwert="18" Name="+1 KiDo-Technik" Region="K">
+   <Lernschema Lernpunkte="1" Typ="Kd"/>
+   <Lernschema Lernpunkte="1" Typ="Ny"/>
   </Fertigkeit>
-  <Fertigkeit Name="+1 KiDo-Technik " Region="K" Lernpunkte="1" Maximalwert="18" MaximalMitUnterweisung="18">
-   <Lernschema Typ="Kd" Lernpunkte="1"/>
-   <Lernschema Typ="Ny" Lernpunkte="1"/>
+  <Fertigkeit Lernpunkte="1" MaximalMitUnterweisung="18" Maximalwert="18" Name="+1 KiDo-Technik " Region="K">
+   <Lernschema Lernpunkte="1" Typ="Kd"/>
+   <Lernschema Lernpunkte="1" Typ="Ny"/>
   </Fertigkeit>
-  <Fertigkeit Name="+1 KiDo-Technik  " Region="K" Lernpunkte="1" Maximalwert="18" MaximalMitUnterweisung="18">
-   <Lernschema Typ="Kd" Lernpunkte="1"/>
+  <Fertigkeit Lernpunkte="1" MaximalMitUnterweisung="18" Maximalwert="18" Name="+1 KiDo-Technik  " Region="K">
+   <Lernschema Lernpunkte="1" Typ="Kd"/>
   </Fertigkeit>
-  <Fertigkeit Name="KiDo" Region="K" Lernpunkte="8" Anfangswert="10" Lernkosten="800" Erfolgswert="10" Attribut="Zt" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Anfangswert="10" Attribut="Zt" Erfolgswert="10" Lernkosten="800" Lernpunkte="8" MaximalMitUnterweisung="18" Maximalwert="18" Name="KiDo" Region="K">
    <Grund Typ="As"/>
    <Grund Typ="Fi"/>
    <Grund Typ="Kd"/>
@@ -65,14 +65,14 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="wHx"/>
-   <Voraussetzungen Gw="31" Zt="61" Fertigkeit="TaiTschi"/>
+   <Voraussetzungen Fertigkeit="TaiTschi" Gw="31" Zt="61"/>
    <Voraussetzungen_2 Name="TaiTschi"/>
-   <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="10" Pflicht="true"/>
-   <Lernschema Typ="Ny" Lernpunkte="1" Erfolgswert="10"/>
+   <Lernschema Erfolgswert="10" Lernpunkte="1" Pflicht="true" Typ="Kd"/>
+   <Lernschema Erfolgswert="10" Lernpunkte="1" Typ="Ny"/>
    <Kosten Wert11="10" Wert12="15" Wert13="20" Wert14="30" Wert15="70" Wert16="150" Wert17="300" Wert18="600" Wert19="800"/>
    <EP-Typ KEP="true" ZEP="true"/>
   </Fertigkeit>
-  <Fertigkeit Name="LiYao" Region="K" Lernpunkte="5" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Anfangswert="4" Attribut="In" Erfolgswert="2" Lernkosten="100" Lernpunkte="5" MaximalMitUnterweisung="18" Maximalwert="18" Name="LiYao" Region="K">
    <Grund Typ="Ny"/>
    <Grund Typ="Th"/>
    <Standard Typ="As"/>
@@ -125,10 +125,10 @@
    <Ausnahme Typ="Tt"/>
    <Ausnahme Typ="Wa"/>
    <Voraussetzungen Gw="61" In="61"/>
-   <Lernschema Typ="Ny" Lernpunkte="3" Erfolgswert="4"/>
-   <Kosten Wert3="10" Wert4="10" Wert5="30" Wert6="30" Wert7="30" Wert8="50" Wert9="50" Wert10="100" Wert11="100" Wert12="200" Wert13="200"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="3" Typ="Ny"/>
+   <Kosten Wert10="100" Wert11="100" Wert12="200" Wert13="200" Wert3="10" Wert4="10" Wert5="30" Wert6="30" Wert7="30" Wert8="50" Wert9="50"/>
   </Fertigkeit>
-  <Fertigkeit Name="NinJutsu" Region="K" Lernpunkte="4" Anfangswert="4" Lernkosten="600" Erfolgswert="2" Attribut="Gw" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Anfangswert="4" Attribut="Gw" Erfolgswert="2" Lernkosten="600" Lernpunkte="4" MaximalMitUnterweisung="18" Maximalwert="18" Name="NinJutsu" Region="K">
    <Grund Typ="Ny"/>
    <Standard Typ="As"/>
    <Standard Typ="De"/>
@@ -181,11 +181,11 @@
    <Ausnahme Typ="Sö"/>
    <Ausnahme Typ="Wa"/>
    <Voraussetzungen Gw="61"/>
-   <Lernschema Typ="Ny" Lernpunkte="1" Erfolgswert="4" Pflicht="true"/>
-   <Lernschema Typ="Kd" Lernpunkte="3" Erfolgswert="4"/>
-   <Kosten Wert3="150" Wert4="150" Wert5="300" Wert6="300" Wert7="600" Wert8="600" Wert9="1200" Wert10="1200" Wert11="2400" Wert12="2400"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="1" Pflicht="true" Typ="Ny"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="3" Typ="Kd"/>
+   <Kosten Wert10="1200" Wert11="2400" Wert12="2400" Wert3="150" Wert4="150" Wert5="300" Wert6="300" Wert7="600" Wert8="600" Wert9="1200"/>
   </Fertigkeit>
-  <Fertigkeit Name="YangScheng" Region="K" Lernpunkte="5" Anfangswert="1" Lernkosten="100" Erfolgswert="1" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Anfangswert="1" Erfolgswert="1" Lernkosten="100" Lernpunkte="5" MaximalMitUnterweisung="18" Maximalwert="18" Name="YangScheng" Region="K">
    <Grund Typ="De"/>
    <Grund Typ="Dt"/>
    <Grund Typ="Fi"/>
@@ -238,10 +238,10 @@
    <Ausnahme Typ="RiS"/>
    <Ausnahme Typ="Se"/>
    <Voraussetzungen Zt="61"/>
-   <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="1"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="1" Typ="Kd"/>
    <Kosten Wert2="200" Wert3="500" Wert4="1000" Wert5="2000"/>
   </Fertigkeit>
-  <Fertigkeit Name="Zunge verschlucken" Region="K" Lernpunkte="4" Anfangswert="8" Lernkosten="200" Erfolgswert="8" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Anfangswert="8" Erfolgswert="8" Lernkosten="200" Lernpunkte="4" MaximalMitUnterweisung="18" Maximalwert="18" Name="Zunge verschlucken" Region="K">
    <Standard Typ="As"/>
    <Standard Typ="BN"/>
    <Standard Typ="BS"/>
@@ -294,9 +294,9 @@
    <Standard Typ="tBe"/>
    <Standard Typ="wHx"/>
    <Voraussetzungen Sb="61"/>
-   <Kosten Wert9="50" Wert10="100" Wert11="200" Wert12="400" Wert13="800"/>
+   <Kosten Wert10="100" Wert11="200" Wert12="400" Wert13="800" Wert9="50"/>
   </Fertigkeit>
-  <Fertigkeit Name="FengSchui" Region="K" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="10" Attribut="In" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Anfangswert="4" Attribut="In" Erfolgswert="10" Lernkosten="100" Lernpunkte="4" MaximalMitUnterweisung="18" Maximalwert="18" Name="FengSchui" Region="K">
    <Grund Typ="As"/>
    <Grund Typ="Fi"/>
    <Grund Typ="Kd"/>
@@ -349,11 +349,11 @@
    <Ausnahme Typ="Sa"/>
    <Ausnahme Typ="To"/>
    <Voraussetzungen In="81"/>
-   <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="4"/>
-   <Lernschema Typ="Ny" Lernpunkte="1" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="1" Typ="Kd"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="1" Typ="Ny"/>
    <steigern_wie Fertigkeit="Wissen"/>
   </Fertigkeit>
-  <Fertigkeit Name="FengTsu" Region="K" Lernpunkte="8" Anfangswert="15" Lernkosten="300" Erfolgswert="10" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Anfangswert="15" Erfolgswert="10" Lernkosten="300" Lernpunkte="8" MaximalMitUnterweisung="18" Maximalwert="18" Name="FengTsu" Region="K">
    <Grund Typ="As"/>
    <Grund Typ="Fi"/>
    <Grund Typ="Gl"/>
@@ -409,7 +409,7 @@
    <steigern_wie Fertigkeit="Bewegung"/>
    <EP-Typ KEP="true"/>
   </Fertigkeit>
-  <Fertigkeit Name="Geschenke machen" Region="K" Lernpunkte="5" Anfangswert="8" Lernkosten="200" Erfolgswert="6" Attribut="pA" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Anfangswert="8" Attribut="pA" Erfolgswert="6" Lernkosten="200" Lernpunkte="5" MaximalMitUnterweisung="18" Maximalwert="18" Name="Geschenke machen" Region="K">
    <Standard Typ="As"/>
    <Standard Typ="BN"/>
    <Standard Typ="BS"/>
@@ -462,11 +462,11 @@
    <Standard Typ="wHx"/>
    <Ausnahme Typ="Sa"/>
    <Voraussetzungen In="61" pA="61"/>
-   <Lernschema Typ="Tr" Lernpunkte="1"/>
+   <Lernschema Lernpunkte="1" Typ="Tr"/>
    <steigern_wie Fertigkeit="Beredsamkeit"/>
-   <Kosten Wert7="50" Wert8="100" Wert9="250" Wert10="500"/>
+   <Kosten Wert10="500" Wert7="50" Wert8="100" Wert9="250"/>
   </Fertigkeit>
-  <Fertigkeit Name="KarumiJutsu" Region="K" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Gw" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Anfangswert="15" Attribut="Gw" Erfolgswert="12" Lernkosten="100" Lernpunkte="3" MaximalMitUnterweisung="18" Maximalwert="18" Name="KarumiJutsu" Region="K">
    <Grund Typ="Ny"/>
    <Standard Typ="As"/>
    <Standard Typ="De"/>
@@ -518,13 +518,13 @@
    <Ausnahme Typ="Sr"/>
    <Ausnahme Typ="Sö"/>
    <Ausnahme Typ="Wa"/>
-   <Voraussetzungen St="61" Gw="61" Fertigkeit="Klettern"/>
+   <Voraussetzungen Fertigkeit="Klettern" Gw="61" St="61"/>
    <Voraussetzungen_2 Name="Klettern"/>
-   <Lernschema Typ="Ny" Lernpunkte="1" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Typ="Ny"/>
    <steigern_wie Fertigkeit="Bewegung"/>
    <EP-Typ KEP="true"/>
   </Fertigkeit>
-  <Fertigkeit Name="Kenntnis der fünf Klassiker" Region="K" Lernpunkte="5" Lernkosten="2500" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Lernkosten="2500" Lernpunkte="5" MaximalMitUnterweisung="18" Maximalwert="18" Name="Kenntnis der fünf Klassiker" Region="K">
    <Standard Typ="As"/>
    <Standard Typ="BN"/>
    <Standard Typ="BS"/>
@@ -577,11 +577,11 @@
    <Ausnahme Typ="Sa"/>
    <Ausnahme Typ="Sw"/>
    <Voraussetzungen In="11"/>
-   <Lernschema Typ="Kd" Lernpunkte="1"/>
-   <Lernschema Typ="Ny" Lernpunkte="1"/>
+   <Lernschema Lernpunkte="1" Typ="Kd"/>
+   <Lernschema Lernpunkte="1" Typ="Ny"/>
    <steigern_wie Fertigkeit="Wissen"/>
   </Fertigkeit>
-  <Fertigkeit Name="KentoYobu" Region="K" Lernpunkte="8" Lernkosten="100" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Lernkosten="100" Lernpunkte="8" MaximalMitUnterweisung="18" Maximalwert="18" Name="KentoYobu" Region="K">
    <Grund Typ="Fi"/>
    <Grund Typ="Kr"/>
    <Grund Typ="Or"/>
@@ -637,7 +637,7 @@
    <steigern_wie Fertigkeit="-"/>
    <EP-Typ KEP="true"/>
   </Fertigkeit>
-  <Fertigkeit Name="KujKuri" Region="K" Lernpunkte="4" Anfangswert="1" Lernkosten="20" Erfolgswert="1" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Anfangswert="1" Erfolgswert="1" Lernkosten="20" Lernpunkte="4" MaximalMitUnterweisung="18" Maximalwert="18" Name="KujKuri" Region="K">
    <Grund Typ="Ny"/>
    <Standard Typ="As"/>
    <Standard Typ="Dt"/>
@@ -690,11 +690,11 @@
    <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="wHx"/>
    <Voraussetzungen Gw="21" In="31"/>
-   <Lernschema Typ="Ny" Erfolgswert="1" Pflicht="true"/>
+   <Lernschema Erfolgswert="1" Pflicht="true" Typ="Ny"/>
    <steigern_wie Fertigkeit="Zeichensprache"/>
    <Kosten Wert2="30" Wert3="150"/>
   </Fertigkeit>
-  <Fertigkeit Name="KujNoIu" Region="K" Lernpunkte="8" Lernkosten="400" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Lernkosten="400" Lernpunkte="8" MaximalMitUnterweisung="18" Maximalwert="18" Name="KujNoIu" Region="K">
    <Grund Typ="Th"/>
    <Standard Typ="As"/>
    <Standard Typ="BN"/>
@@ -746,11 +746,11 @@
    <Standard Typ="tBe"/>
    <Standard Typ="wHx"/>
    <Ausnahme Typ="Sw"/>
-   <Voraussetzungen Gw="31" Fertigkeit="Thaumaturg"/>
+   <Voraussetzungen Fertigkeit="Thaumaturg" Gw="31"/>
    <steigern_wie Fertigkeit="-"/>
    <EP-Typ ZEP="true"/>
   </Fertigkeit>
-  <Fertigkeit Name="Lesen von Geisterschrift" Region="K" Lernpunkte="8" Anfangswert="12" Lernkosten="20" Erfolgswert="6" Attribut="In" Maximalwert="18" MaximalMitUnterweisung="15">
+  <Fertigkeit Anfangswert="12" Attribut="In" Erfolgswert="6" Lernkosten="20" Lernpunkte="8" MaximalMitUnterweisung="15" Maximalwert="18" Name="Lesen von Geisterschrift" Region="K">
    <Grund Typ="Hl"/>
    <Grund Typ="MMa"/>
    <Grund Typ="Ma"/>
@@ -812,7 +812,7 @@
    <Voraussetzungen In="21"/>
    <steigern_wie Fertigkeit="Lesen von Zauberschrift"/>
   </Fertigkeit>
-  <Fertigkeit Name="MiChen" Region="K" Lernpunkte="8" Lernkosten="500" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Lernkosten="500" Lernpunkte="8" MaximalMitUnterweisung="18" Maximalwert="18" Name="MiChen" Region="K">
    <Grund Typ="As"/>
    <Grund Typ="Dt"/>
    <Grund Typ="Hl"/>
@@ -868,7 +868,7 @@
    <steigern_wie Fertigkeit="-"/>
    <EP-Typ KEP="true"/>
   </Fertigkeit>
-  <Fertigkeit Name="SchiyoKi" Region="K" Lernpunkte="8" Lernkosten="100" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Lernkosten="100" Lernpunkte="8" MaximalMitUnterweisung="18" Maximalwert="18" Name="SchiyoKi" Region="K">
    <Grund Typ="As"/>
    <Grund Typ="De"/>
    <Grund Typ="Dt"/>
@@ -920,13 +920,13 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
-   <Voraussetzungen Gw="21" Sb="21" Fertigkeit="TaiTschi"/>
+   <Voraussetzungen Fertigkeit="TaiTschi" Gw="21" Sb="21"/>
    <Voraussetzungen_2 Name="TaiTschi"/>
-   <Lernschema Typ="Kd" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="Kd"/>
    <steigern_wie Fertigkeit="-"/>
    <EP-Typ KEP="true" ZEP="true"/>
   </Fertigkeit>
-  <Fertigkeit Name="Schwerttanz" Region="K" Lernpunkte="8" Anfangswert="14" Lernkosten="100" Erfolgswert="12" Attribut="Gw" Berufskategorie="3" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Anfangswert="14" Attribut="Gw" Berufskategorie="3" Erfolgswert="12" Lernkosten="100" Lernpunkte="8" MaximalMitUnterweisung="18" Maximalwert="18" Name="Schwerttanz" Region="K">
    <Grund Typ="Fi"/>
    <Grund Typ="Gl"/>
    <Grund Typ="Kr"/>
@@ -978,12 +978,12 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="wHx"/>
-   <Voraussetzungen Gw="61" Fertigkeit="Beidhändiger Kampf"/>
+   <Voraussetzungen Fertigkeit="Beidhändiger Kampf" Gw="61"/>
    <Voraussetzungen_2 Name="Beidhändiger Kampf"/>
    <steigern_wie Fertigkeit="Bewegung"/>
    <EP-Typ KEP="true"/>
   </Fertigkeit>
-  <Fertigkeit Name="Steinabreibungen machen" Region="K" Lernpunkte="4" Anfangswert="4" Lernkosten="60" Erfolgswert="4" Berufskategorie="1" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Anfangswert="4" Berufskategorie="1" Erfolgswert="4" Lernkosten="60" Lernpunkte="4" MaximalMitUnterweisung="18" Maximalwert="18" Name="Steinabreibungen machen" Region="K">
    <Grund Typ="MMa"/>
    <Grund Typ="Ma"/>
    <Grund Typ="PC"/>
@@ -1036,10 +1036,10 @@
    <Ausnahme Typ="Sö"/>
    <Ausnahme Typ="Wa"/>
    <Voraussetzungen Gw="31"/>
-   <Lernschema Typ="Dt" Lernpunkte="2" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="2" Typ="Dt"/>
    <steigern_wie Fertigkeit="Wissen"/>
   </Fertigkeit>
-  <Fertigkeit Name="TaiTschi" Region="K" Lernpunkte="5" Anfangswert="4" Lernkosten="100" Erfolgswert="4" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Anfangswert="4" Erfolgswert="4" Lernkosten="100" Lernpunkte="5" MaximalMitUnterweisung="18" Maximalwert="18" Name="TaiTschi" Region="K">
    <Grund Typ="As"/>
    <Grund Typ="De"/>
    <Grund Typ="Dt"/>
@@ -1092,12 +1092,12 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
    <Voraussetzungen Gw="21" Sb="21"/>
-   <Lernschema Typ="Kd" Lernpunkte="1"/>
-   <Lernschema Typ="Ny" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="1" Typ="Kd"/>
+   <Lernschema Lernpunkte="2" Typ="Ny"/>
    <steigern_wie Fertigkeit="Wissen"/>
    <EP-Typ KEP="true" ZEP="true"/>
   </Fertigkeit>
-  <Fertigkeit Name="Teezeremonie" Region="K" Lernpunkte="5" Anfangswert="8" Lernkosten="50" Erfolgswert="6" Attribut="pA" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Anfangswert="8" Attribut="pA" Erfolgswert="6" Lernkosten="50" Lernpunkte="5" MaximalMitUnterweisung="18" Maximalwert="18" Name="Teezeremonie" Region="K">
    <Grund Typ="De"/>
    <Grund Typ="Kd"/>
    <Grund Typ="Or"/>
@@ -1150,12 +1150,12 @@
    <Standard Typ="wHx"/>
    <Ausnahme Typ="Fi"/>
    <Voraussetzungen pA="31"/>
-   <Lernschema Typ="Ny" Lernpunkte="1" Erfolgswert="8"/>
-   <Lernschema Typ="Kd" Lernpunkte="2" Erfolgswert="8"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="1" Typ="Ny"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="Kd"/>
    <steigern_wie Fertigkeit="�&#x9C;berleben"/>
-   <Kosten Wert7="10" Wert8="10" Wert9="10" Wert10="20" Wert11="20" Wert12="50" Wert13="100" Wert14="100"/>
+   <Kosten Wert10="20" Wert11="20" Wert12="50" Wert13="100" Wert14="100" Wert7="10" Wert8="10" Wert9="10"/>
   </Fertigkeit>
-  <Fertigkeit Name="YubeChian" Region="K" Lernpunkte="8" Lernkosten="200" Berufskategorie="1" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Berufskategorie="1" Lernkosten="200" Lernpunkte="8" MaximalMitUnterweisung="18" Maximalwert="18" Name="YubeChian" Region="K">
    <Grund Typ="As"/>
    <Grund Typ="Dt"/>
    <Grund Typ="Hl"/>
@@ -1230,8 +1230,8 @@
   <Fertigkeit Name="Balancieren">
    <Grund Typ="Kd"/>
    <Grund Typ="Ny"/>
-   <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="15"/>
-   <Lernschema Typ="Ny" Lernpunkte="1" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Typ="Kd"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Typ="Ny"/>
   </Fertigkeit>
   <Fertigkeit Name="Ballista bedienen">
    <Standard Typ="Ny"/>
@@ -1244,8 +1244,8 @@
   <Fertigkeit Name="Beidhändiger Kampf">
    <Grund Typ="Kd"/>
    <Standard Typ="Ny"/>
-   <Lernschema Typ="Kd" Lernpunkte="2" Erfolgswert="3"/>
-   <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="3"/>
+   <Lernschema Erfolgswert="3" Lernpunkte="2" Typ="Kd"/>
+   <Lernschema Erfolgswert="3" Lernpunkte="2" Typ="Ny"/>
   </Fertigkeit>
   <Fertigkeit Name="Beredsamkeit">
    <Standard Typ="Kd"/>
@@ -1254,7 +1254,7 @@
   <Fertigkeit Name="Beschatten">
    <Grund Typ="Ny"/>
    <Standard Typ="Kd"/>
-   <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="8"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="Ny"/>
   </Fertigkeit>
   <Fertigkeit Name="Bogenkampf zu Pferd">
    <Standard Typ="Kd"/>
@@ -1267,7 +1267,7 @@
   <Fertigkeit Name="Erste Hilfe">
    <Standard Typ="Kd"/>
    <Standard Typ="Ny"/>
-   <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="8"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="1" Typ="Kd"/>
   </Fertigkeit>
   <Fertigkeit Name="Erzählen">
    <Standard Typ="Kd"/>
@@ -1372,8 +1372,8 @@
   <Fertigkeit Name="Klettern">
    <Grund Typ="Ny"/>
    <Standard Typ="Kd"/>
-   <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="15"/>
-   <Lernschema Typ="Ny" Lernpunkte="1" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Typ="Kd"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Typ="Ny"/>
   </Fertigkeit>
   <Fertigkeit Name="Kräuterkunde">
    <Standard Typ="Kd"/>
@@ -1398,29 +1398,29 @@
   <Fertigkeit Name="Meditieren">
    <Grund Typ="Kd"/>
    <Grund Typ="Ny"/>
-   <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="8"/>
-   <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="8"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Kr" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Or" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PC" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PF" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PH" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PK" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PM" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PW" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScN" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScS" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScW" Standard="G"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="1" Typ="Kd"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="Ny"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="Kr"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="Or"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="PC"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="PF"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="PH"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="PK"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="PM"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="PW"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScN"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScS"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScW"/>
   </Fertigkeit>
   <Fertigkeit Name="Menschenkenntnis">
    <Standard Typ="Kd"/>
    <Standard Typ="Ny"/>
-   <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="2" Typ="Ny"/>
   </Fertigkeit>
   <Fertigkeit Name="Meucheln">
    <Grund Typ="Ny"/>
    <Standard Typ="Kd"/>
-   <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="8" Pflicht="true"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Pflicht="true" Typ="Ny"/>
   </Fertigkeit>
   <Fertigkeit Name="Musizieren">
    <Standard Typ="Kd"/>
@@ -1453,7 +1453,7 @@
   <Fertigkeit Name="Scharfschie�&#x9F;en">
    <Grund Typ="Ny"/>
    <Standard Typ="Kd"/>
-   <Lernschema Typ="Ny" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Ny"/>
   </Fertigkeit>
   <Fertigkeit Name="Schauspielern">
    <Standard Typ="Kd"/>
@@ -1484,8 +1484,8 @@
    <Standard Typ="Ny"/>
   </Fertigkeit>
   <Fertigkeit Name="Schreiben: Muttersprache(+12)">
-   <Lernschema Typ="Ny" Lernpunkte="1" Erfolgswert="12"/>
-   <Lernschema Typ="Kd" Lernpunkte="2" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="Ny"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="2" Typ="Kd"/>
   </Fertigkeit>
   <Fertigkeit Name="Schwimmen">
    <Grund Typ="Kd"/>
@@ -1534,7 +1534,7 @@
   <Fertigkeit Name="Stimmen nachahmen">
    <Grund Typ="Ny"/>
    <Standard Typ="Kd"/>
-   <Lernschema Typ="Ny" Lernpunkte="1" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Typ="Ny"/>
   </Fertigkeit>
   <Fertigkeit Name="Streitwagen lenken">
    <Standard Typ="Kd"/>
@@ -1579,7 +1579,7 @@
   <Fertigkeit Name="Verkleiden">
    <Grund Typ="Ny"/>
    <Standard Typ="Kd"/>
-   <Lernschema Typ="Ny" Lernpunkte="1" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Typ="Ny"/>
   </Fertigkeit>
   <Fertigkeit Name="Wagenlenken">
    <Standard Typ="Kd"/>
@@ -1588,8 +1588,8 @@
   <Fertigkeit Name="Wahrnehmung">
    <Grund Typ="Ny"/>
    <Standard Typ="Kd"/>
-   <Lernschema Typ="Kd" Lernpunkte="3" Erfolgswert="4"/>
-   <Lernschema Typ="Ny" Lernpunkte="3" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="3" Typ="Kd"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="3" Typ="Ny"/>
   </Fertigkeit>
   <Fertigkeit Name="Winden">
    <Grund Typ="Kd"/>
@@ -1654,7 +1654,7 @@
   <Fertigkeit Name="Orakelkunst" Region="E">
    <Standard Typ="Ny"/>
    <Ausnahme Typ="Kd"/>
-   <Lernschema Typ="Ny" Lernpunkte="1"/>
+   <Lernschema Lernpunkte="1" Typ="Ny"/>
   </Fertigkeit>
   <Fertigkeit Name="Wetterkunde" Region="H&amp;D">
    <Ausnahme Typ="Kd"/>
@@ -1741,8 +1741,8 @@
    <Standard Typ="Ny"/>
   </Fertigkeit>
   <Fertigkeit Name="Schreiben: Muttersprache(+12)">
-   <Lernschema Typ="Ny" Lernpunkte="1" Erfolgswert="12"/>
-   <Lernschema Typ="Kd" Lernpunkte="2" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="Ny"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="2" Typ="Kd"/>
   </Fertigkeit>
   <Fertigkeit Name="Geheimzeichen">
    <Zusätze Name="Wei�&#x9F;er Lotus" Region="K"/>
@@ -1750,53 +1750,53 @@
  </Fertigkeiten>
  <Berufe/>
  <Schriften>
-  <Schrift Name="KanThaiTun(1)" Region="K" Typ="Silben" Kosten="20">
+  <Schrift Kosten="20" Name="KanThaiTun(1)" Region="K" Typ="Silben">
    <Variante Name="KanThaiTun(1)"/>
   </Schrift>
-  <Schrift Name="KanThaiTun(2)" Region="K" Typ="Silben" Kosten="50">
+  <Schrift Kosten="50" Name="KanThaiTun(2)" Region="K" Typ="Silben">
    <Variante Name="KanThaiTun(2)"/>
   </Schrift>
-  <Schrift Name="KanThaiTun(3)" Region="K" Typ="Silben" Kosten="100">
+  <Schrift Kosten="100" Name="KanThaiTun(3)" Region="K" Typ="Silben">
    <Variante Name="KanThaiTun(3)"/>
   </Schrift>
-  <Schrift Name="KanThaiTun(4)" Region="K" Typ="Silben" Kosten="100">
+  <Schrift Kosten="100" Name="KanThaiTun(4)" Region="K" Typ="Silben">
    <Variante Name="KanThaiTun(4)"/>
   </Schrift>
-  <Schrift Name="KanThaiTun(5)" Region="K" Typ="Silben" Kosten="100">
+  <Schrift Kosten="100" Name="KanThaiTun(5)" Region="K" Typ="Silben">
    <Variante Name="KanThaiTun(5)"/>
   </Schrift>
-  <Schrift Name="KanThaiTun(6)" Region="K" Typ="Silben" Kosten="100">
+  <Schrift Kosten="100" Name="KanThaiTun(6)" Region="K" Typ="Silben">
    <Variante Name="KanThaiTun(6)"/>
   </Schrift>
  </Schriften>
  <Sprachen/>
  <Typen>
-  <Typ Abkürzung="Ny" Region="K" MAGUS-Index="37" Bezeichnung-Mann="Ninya" Bezeichnung-Frau="Ninya" Ausdauer="ak">
-   <Modifikation Sb="30" Rüstung="1" Geld="1"/>
+  <Typ Abkürzung="Ny" Ausdauer="ak" Bezeichnung-Frau="Ninya" Bezeichnung-Mann="Ninya" MAGUS-Index="37" Region="K">
+   <Modifikation Geld="1" Rüstung="1" Sb="30"/>
    <Herkunft Land="KanThaiPan"/>
    <Gruppe Name="K�&#x84;M"/>
   </Typ>
-  <Typ Abkürzung="Kd" Region="K" MAGUS-Index="38" Bezeichnung-Mann="KiDoka" Bezeichnung-Frau="KiDoka" Ausdauer="k">
-   <Modifikation Rüstung="1" Geld="4"/>
+  <Typ Abkürzung="Kd" Ausdauer="k" Bezeichnung-Frau="KiDoka" Bezeichnung-Mann="KiDoka" MAGUS-Index="38" Region="K">
+   <Modifikation Geld="4" Rüstung="1"/>
    <Herkunft Land="KanThaiPan"/>
    <Gruppe Name="K�&#x84;M"/>
   </Typ>
  </Typen>
  <Rüstungen>
-  <Rüstung Name="Papierrüstung" Region="K" Abkürzung="TR(K)" schütztLP="1">
+  <Rüstung Abkürzung="TR(K)" Name="Papierrüstung" Region="K" schütztLP="1">
    <Verlust BehinderungWie="TR"/>
   </Rüstung>
-  <Rüstung Name="SaMurai-Rüstung" Region="K" Abkürzung="PR(K)" schütztLP="4" minimaleStärke="31">
-   <Verlust B="4" Abwehrbonus="1" BehinderungWie="KR"/>
+  <Rüstung Abkürzung="PR(K)" Name="SaMurai-Rüstung" Region="K" minimaleStärke="31" schütztLP="4">
+   <Verlust Abwehrbonus="1" B="4" BehinderungWie="KR"/>
   </Rüstung>
-  <Rüstung Name="SaMurai-Rüstung" Region="K" Abkürzung="VR(K)" schütztLP="5" minimaleStärke="61">
-   <Verlust RW="25" B="8" Abwehrbonus="2" Vollrüstung="2" BehinderungWie="PR"/>
+  <Rüstung Abkürzung="VR(K)" Name="SaMurai-Rüstung" Region="K" minimaleStärke="61" schütztLP="5">
+   <Verlust Abwehrbonus="2" B="8" BehinderungWie="PR" RW="25" Vollrüstung="2"/>
   </Rüstung>
  </Rüstungen>
  <Waffen>
-  <Waffe Name="BuKasa" Region="K" Grundkenntnisse="Einhandschlagwaffe" Schwierigkeit="5" Kategorie="Angriff" Klasse="E" Schaden="W6">
+  <Waffe Grundkenntnisse="Einhandschlagwaffe" Kategorie="Angriff" Klasse="E" Name="BuKasa" Region="K" Schaden="W6" Schwierigkeit="5">
    <Modifikationen/>
-   <Voraussetzungen St="31" Gs="61"/>
+   <Voraussetzungen Gs="61" St="31"/>
    <Reichweite/>
    <Lernkosten/>
    <Grund Typ="Kr"/>
@@ -1854,9 +1854,9 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Waffe>
-  <Waffe Name="GunSen" Region="K" Grundkenntnisse="Einhandschlagwaffe" Schwierigkeit="5" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-1" Schadensbonus2="-1">
+  <Waffe Grundkenntnisse="Einhandschlagwaffe" Kategorie="Angriff" Klasse="E" Name="GunSen" Region="K" Schaden="W6" Schadensbonus="-1" Schadensbonus2="-1" Schwierigkeit="5">
    <Modifikationen/>
-   <Voraussetzungen St="31" Gs="61"/>
+   <Voraussetzungen Gs="61" St="31"/>
    <Reichweite/>
    <Lernkosten/>
    <Grund Typ="Kr"/>
@@ -1914,9 +1914,9 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Waffe>
-  <Waffe Name="Katana" Region="K" Grundkenntnisse="Zweihandschwert" Schwierigkeit="5" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="1" Schadensbonus2="1">
+  <Waffe Grundkenntnisse="Zweihandschwert" Kategorie="Angriff" Klasse="E" Name="Katana" Region="K" Schaden="W6" Schadensbonus="1" Schadensbonus2="1" Schwierigkeit="5">
    <Modifikationen/>
-   <Voraussetzungen St="31" Gs="21"/>
+   <Voraussetzungen Gs="21" St="31"/>
    <Reichweite/>
    <Lernkosten/>
    <Grund Typ="Kr"/>
@@ -1974,15 +1974,15 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Waffe>
-  <Waffe Name="Katana mit Meisterklinge" Region="K" Grundkenntnisse="Zweihandschwert" Kategorie="Angriff">
+  <Waffe Grundkenntnisse="Zweihandschwert" Kategorie="Angriff" Name="Katana mit Meisterklinge" Region="K">
    <Modifikationen/>
    <Voraussetzungen/>
    <Reichweite/>
    <Lernkosten/>
   </Waffe>
-  <Waffe Name="KusariGama" Region="K" Grundkenntnisse="Kettenwaffe" Schwierigkeit="7" Kategorie="Angriff" Klasse="Z" Schaden="W6" Schadensbonus="-1" Schadensbonus2="2">
+  <Waffe Grundkenntnisse="Kettenwaffe" Kategorie="Angriff" Klasse="Z" Name="KusariGama" Region="K" Schaden="W6" Schadensbonus="-1" Schadensbonus2="2" Schwierigkeit="7">
    <Modifikationen/>
-   <Voraussetzungen St="61" Gs="81"/>
+   <Voraussetzungen Gs="81" St="61"/>
    <Reichweite/>
    <Lernkosten/>
    <Grund Typ="Kr"/>
@@ -2039,12 +2039,12 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
-   <Lernschema Typ="Kd" Lernpunkte="3" Erfolgswert="5"/>
-   <Lernschema Typ="Ny" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Kd"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Ny"/>
   </Waffe>
-  <Waffe Name="Naginata" Region="K" Grundkenntnisse="Stangenwaffe" Schwierigkeit="5" Kategorie="Angriff" Klasse="Z" Schaden="W6" Schadensbonus="2" Schadensbonus2="2">
-   <Modifikationen Waffenrang="+1/-3" Abwehr-schwer="+2/-2"/>
-   <Voraussetzungen St="11" Gs="61"/>
+  <Waffe Grundkenntnisse="Stangenwaffe" Kategorie="Angriff" Klasse="Z" Name="Naginata" Region="K" Schaden="W6" Schadensbonus="2" Schadensbonus2="2" Schwierigkeit="5">
+   <Modifikationen Abwehr-schwer="+2/-2" Waffenrang="+1/-3"/>
+   <Voraussetzungen Gs="61" St="11"/>
    <Reichweite/>
    <Lernkosten/>
    <Grund Typ="Kr"/>
@@ -2101,12 +2101,12 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
-   <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Kd" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Ny"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Kd"/>
   </Waffe>
-  <Waffe Name="NunChaku" Region="K" Grundkenntnisse="Kettenwaffe" Schwierigkeit="7" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-1" Schadensbonus2="-1">
-   <Modifikationen Waffenrang="+2" Abwehr-leicht="-1" Abwehr-schwer="+1"/>
-   <Voraussetzungen St="31" Gs="61"/>
+  <Waffe Grundkenntnisse="Kettenwaffe" Kategorie="Angriff" Klasse="E" Name="NunChaku" Region="K" Schaden="W6" Schadensbonus="-1" Schadensbonus2="-1" Schwierigkeit="7">
+   <Modifikationen Abwehr-leicht="-1" Abwehr-schwer="+1" Waffenrang="+2"/>
+   <Voraussetzungen Gs="61" St="31"/>
    <Reichweite/>
    <Lernkosten/>
    <Grund Typ="Kr"/>
@@ -2163,24 +2163,24 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
-   <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Kd"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Ny"/>
   </Waffe>
-  <Waffe Name="Tanto" Region="K" Kategorie="Angriff">
+  <Waffe Kategorie="Angriff" Name="Tanto" Region="K">
    <Modifikationen/>
    <Voraussetzungen/>
    <Reichweite/>
    <Lernkosten/>
   </Waffe>
-  <Waffe Name="Tanto mit Meisterklinge" Region="K" Kategorie="Angriff">
+  <Waffe Kategorie="Angriff" Name="Tanto mit Meisterklinge" Region="K">
    <Modifikationen/>
    <Voraussetzungen/>
    <Reichweite/>
    <Lernkosten/>
   </Waffe>
-  <Waffe Name="TetsuBo" Region="K" Grundkenntnisse="Kampfstab" Schwierigkeit="7" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="1" Schadensbonus2="1">
+  <Waffe Grundkenntnisse="Kampfstab" Kategorie="Angriff" Klasse="E" Name="TetsuBo" Region="K" Schaden="W6" Schadensbonus="1" Schadensbonus2="1" Schwierigkeit="7">
    <Modifikationen Abwehr-schwer="+2"/>
-   <Voraussetzungen St="31" Gs="61"/>
+   <Voraussetzungen Gs="61" St="31"/>
    <Reichweite/>
    <Lernkosten/>
    <Grund Typ="Kr"/>
@@ -2238,9 +2238,9 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Waffe>
-  <Waffe Name="Tonfa" Region="K" Grundkenntnisse="Kampf ohne Waffen" Schwierigkeit="6" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-2" Schadensbonus2="-2">
+  <Waffe Grundkenntnisse="Kampf ohne Waffen" Kategorie="Angriff" Klasse="E" Name="Tonfa" Region="K" Schaden="W6" Schadensbonus="-2" Schadensbonus2="-2" Schwierigkeit="6">
    <Modifikationen/>
-   <Voraussetzungen St="21" Gs="61"/>
+   <Voraussetzungen Gs="61" St="21"/>
    <Reichweite/>
    <Lernkosten/>
    <Grund Typ="Kr"/>
@@ -2297,12 +2297,12 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
-   <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Kd"/>
   </Waffe>
-  <Waffe Name="Kyu" Region="K" Grundkenntnisse="Bögen" Schwierigkeit="5" Kategorie="Schu�&#x9F;waffe" Klasse="S" Schaden="W6">
+  <Waffe Grundkenntnisse="Bögen" Kategorie="Schu�&#x9F;waffe" Klasse="S" Name="Kyu" Region="K" Schaden="W6" Schwierigkeit="5">
    <Modifikationen/>
-   <Voraussetzungen St="31" Gs="61"/>
-   <Reichweite nah="30" mittel="100" fern="180"/>
+   <Voraussetzungen Gs="61" St="31"/>
+   <Reichweite fern="180" mittel="100" nah="30"/>
    <Lernkosten/>
    <Grund Typ="Kr"/>
    <Grund Typ="Ri"/>
@@ -2426,18 +2426,18 @@
   <Waffe Name="Bihänder">
    <Standard Typ="Kd"/>
    <Standard Typ="Ny"/>
-   <Lernschema Typ="Ny" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Ny"/>
   </Waffe>
   <Waffe Name="Blasrohr">
    <regionaleVariante Name="FukiDake" Region="K" Schaden="Speziell"/>
    <Standard Typ="Kd"/>
    <Standard Typ="Ny"/>
-   <Lernschema Typ="Ny" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Ny"/>
   </Waffe>
   <Waffe Name="Bogen">
    <Standard Typ="Kd"/>
    <Standard Typ="Ny"/>
-   <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Ny"/>
   </Waffe>
   <Waffe Name="Bola">
    <Standard Typ="Kd"/>
@@ -2451,8 +2451,8 @@
    <regionaleVariante Name="Tanto" Region="K" Schaden="W6" Schadensbonus="-1"/>
    <Standard Typ="Kd"/>
    <Standard Typ="Ny"/>
-   <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Ny" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Kd"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Ny"/>
   </Waffe>
   <Waffe Name="Faustkampf">
    <Standard Typ="Kd"/>
@@ -2491,8 +2491,8 @@
    <regionaleVariante Name="Bo" Region="K" Schaden="W6" St="31"/>
    <Standard Typ="Kd"/>
    <Standard Typ="Ny"/>
-   <Lernschema Typ="Kd" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Kd"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Ny"/>
   </Waffe>
   <Waffe Name="Keule">
    <Standard Typ="Kd"/>
@@ -2517,8 +2517,8 @@
   <Waffe Name="Krummsäbel">
    <Standard Typ="Kd"/>
    <Standard Typ="Ny"/>
-   <Lernschema Typ="Kd" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Kd"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Ny"/>
   </Waffe>
   <Waffe Name="Kurzbogen">
    <Standard Typ="Kd"/>
@@ -2531,13 +2531,13 @@
   <Waffe Name="Langbogen">
    <Standard Typ="Kd"/>
    <Standard Typ="Ny"/>
-   <Lernschema Typ="Kd" Lernpunkte="3" Erfolgswert="5"/>
-   <Lernschema Typ="Ny" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Kd"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Ny"/>
   </Waffe>
   <Waffe Name="Langschwert">
    <Standard Typ="Kd"/>
    <Standard Typ="Ny"/>
-   <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Ny"/>
   </Waffe>
   <Waffe Name="Lanze">
    <Standard Typ="Kd"/>
@@ -2551,8 +2551,8 @@
    <regionaleVariante Name="KauSinKe" Region="K" Schaden="W6" Schadensbonus="2" St="61"/>
    <Standard Typ="Kd"/>
    <Standard Typ="Ny"/>
-   <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Ny" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Kd"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Ny"/>
   </Waffe>
   <Waffe Name="Netz">
    <Standard Typ="Kd"/>
@@ -2664,8 +2664,8 @@
   <Waffe Name="Wurfstern">
    <Standard Typ="Kd"/>
    <Standard Typ="Ny"/>
-   <Lernschema Typ="Ny" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Kd" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Ny"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Kd"/>
   </Waffe>
   <Waffe Name="gro�&#x9F;er Schild">
    <Standard Typ="Kd"/>
@@ -2679,8 +2679,8 @@
    <regionaleVariante Name="OjuMi" Region="K" Schaden="W6"/>
    <Standard Typ="Kd"/>
    <Standard Typ="Ny"/>
-   <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Kd" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Ny"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Kd"/>
   </Waffe>
   <Waffe Name="leichter Speer">
    <Standard Typ="Kd"/>
@@ -2694,8 +2694,8 @@
   <Waffe Name="waffenloser Kampf">
    <Standard Typ="Kd"/>
    <Standard Typ="Ny"/>
-   <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Ny" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Kd"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Ny"/>
   </Waffe>
   <Waffe Name="Pilum" Region="3">
    <Standard Typ="Kd"/>
@@ -2825,18 +2825,18 @@
   </Waffen-Grundkenntnis>
  </Waffen-Grundkenntnisse>
  <Zauber>
-  <Spruch Name="Ahnengeist beschwören" Region="K" Grad="3" Lernkosten="1000" AP="6" Typ="Geste" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Material="Kerzen, Kräuter, Speiseopfer">
+  <Spruch AP="6" Grad="3" Lernkosten="1000" Material="Kerzen, Kräuter, Speiseopfer" Name="Ahnengeist beschwören" Region="K" Reichweite="0" Typ="Geste" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Wirkungsziel="Umgebung" Zauberdauer="1 h">
    <Standard Typ="De"/>
    <Standard Typ="Sa"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PC" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScN" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScS" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScW" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="PC"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScN"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScS"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScW"/>
   </Spruch>
-  <Spruch Name="Das Essen nährt..." Region="K" Grad="5" Lernkosten="3000" AP="6" Typ="Geste" Zauberdauer="1 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsdauer="1 h" Material="1 p Gifttausendfü�&#x9F;ler, 1 g GoGoNe-Pulver">
+  <Spruch AP="6" Grad="5" Lernkosten="3000" Material="1 p Gifttausendfü�&#x9F;ler, 1 g GoGoNe-Pulver" Name="Das Essen nährt..." Region="K" Reichweite="0" Typ="Geste" Wirkungsdauer="1 h" Wirkungsziel="Geist" Zauberdauer="1 min">
    <Grund Typ="gHx"/>
    <Grund Typ="sHx"/>
    <Grund Typ="wHx"/>
@@ -2846,7 +2846,7 @@
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
   </Spruch>
-  <Spruch Name="Die Wiesenheuschrecke zirpt..." Region="K" Grad="5" Lernkosten="5000" AP="12" Typ="Wort" Zauberdauer="10 sec" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Jahr">
+  <Spruch AP="12" Grad="5" Lernkosten="5000" Name="Die Wiesenheuschrecke zirpt..." Region="K" Reichweite="0" Typ="Wort" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Jahr" Wirkungsziel="Geist" Zauberdauer="10 sec">
    <Grund Typ="gHx"/>
    <Grund Typ="sHx"/>
    <Grund Typ="wHx"/>
@@ -2856,7 +2856,7 @@
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
   </Spruch>
-  <Spruch Name="Doppelgänger schaffen" Region="K" Grad="6" Lernkosten="6000" AP="9" Typ="Geste" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="perm" Material="Haare, Nägel, Speichel und Blut">
+  <Spruch AP="9" Grad="6" Lernkosten="6000" Material="Haare, Nägel, Speichel und Blut" Name="Doppelgänger schaffen" Region="K" Reichweite="0" Typ="Geste" Wirkungsbereich="1 Ws" Wirkungsdauer="perm" Wirkungsziel="Körper" Zauberdauer="1 h">
    <Grund Typ="Km"/>
    <Grund Typ="MMa"/>
    <Grund Typ="Ma"/>
@@ -2870,7 +2870,7 @@
    <Standard Typ="eBe"/>
    <Ausnahme Typ="gHx"/>
   </Spruch>
-  <Spruch Name="Erkennen von Metall" Region="K" Grad="3" Lernkosten="600" AP="3" Typ="Gedanke" Zauberdauer="10 sec" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="15 m Kegel" Wirkungsdauer="1 min" Thaumagramm="Siegel">
+  <Spruch AP="3" Grad="3" Lernkosten="600" Name="Erkennen von Metall" Region="K" Reichweite="0" Thaumagramm="Siegel" Typ="Gedanke" Wirkungsbereich="15 m Kegel" Wirkungsdauer="1 min" Wirkungsziel="Körper" Zauberdauer="10 sec">
    <Grund Typ="PHe"/>
    <Standard Typ="Sw"/>
    <Standard Typ="Th"/>
@@ -2881,13 +2881,13 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Gelbe Glocke (1. Urton Kung)" Region="K" Grad="2" Lernkosten="800" AP="1" Typ="Zauberlied" Ursprung="Weltenlied" Zauberdauer="1 sec" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="30 m Uk" Wirkungsdauer="24 h" Spruchrolle="true">
+  <Spruch AP="1" Grad="2" Lernkosten="800" Name="Gelbe Glocke (1. Urton Kung)" Region="K" Reichweite="0" Spruchrolle="true" Typ="Zauberlied" Ursprung="Weltenlied" Wirkungsbereich="30 m Uk" Wirkungsdauer="24 h" Wirkungsziel="Geist" Zauberdauer="1 sec">
    <Standard Typ="Ba"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScN" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScS" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScW" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScN"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScS"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScW"/>
   </Spruch>
-  <Spruch Name="Gro�&#x9F;er Hitzeschutz" Region="K" Grad="3" Lernkosten="1000" AP="4" Typ="Wort" Zauberdauer="10 min" Reichweite="1 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="4 Wochen">
+  <Spruch AP="4" Grad="3" Lernkosten="1000" Name="Gro�&#x9F;er Hitzeschutz" Region="K" Reichweite="1 m" Typ="Wort" Wirkungsbereich="1 Ob" Wirkungsdauer="4 Wochen" Wirkungsziel="Umgebung" Zauberdauer="10 min">
    <Standard Typ="Dt"/>
    <Standard Typ="Or"/>
    <Standard Typ="PT"/>
@@ -2899,16 +2899,16 @@
    <Ausnahme Typ="PHe"/>
    <Ausnahme Typ="PK"/>
    <Ausnahme Typ="PM"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Or" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PW" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="Or"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="PW"/>
   </Spruch>
-  <Spruch Name="Grüne Flöte (5. Urton Chüeh)" Region="K" Grad="3" Lernkosten="2000" AP="1" Typ="Zauberlied" Ursprung="Weltenlied" Zauberdauer="1 sec" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="30 m Uk" Wirkungsdauer="24 h" Spruchrolle="true">
+  <Spruch AP="1" Grad="3" Lernkosten="2000" Name="Grüne Flöte (5. Urton Chüeh)" Region="K" Reichweite="0" Spruchrolle="true" Typ="Zauberlied" Ursprung="Weltenlied" Wirkungsbereich="30 m Uk" Wirkungsdauer="24 h" Wirkungsziel="Geist" Zauberdauer="1 sec">
    <Standard Typ="Ba"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScN" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScS" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScW" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScN"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScS"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScW"/>
   </Spruch>
-  <Spruch Name="Hauch des Frühlings" Region="K" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Zauberdauer="1 sec" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="12 m Uk" Wirkungsdauer="10 min" Material="Fasanenfedern" Spruchrolle="true" Thaumagramm="Runenstab">
+  <Spruch AP="1" Grad="1" Lernkosten="80" Material="Fasanenfedern" Name="Hauch des Frühlings" Region="K" Reichweite="0" Spruchrolle="true" Thaumagramm="Runenstab" Typ="Geste" Wirkungsbereich="12 m Uk" Wirkungsdauer="10 min" Wirkungsziel="Umgebung" Zauberdauer="1 sec">
    <Grund Typ="Dr"/>
    <Grund Typ="Sa"/>
    <Grund Typ="ScN"/>
@@ -2930,7 +2930,7 @@
    <Ausnahme Typ="PM"/>
    <Ausnahme Typ="To"/>
   </Spruch>
-  <Spruch Name="Metallmeisterschaft" Region="K" Grad="6" Lernkosten="6000" AP="9" Typ="Gedanke" Zauberdauer="30 sec" Reichweite="1 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="10 min" Spruchrolle="true">
+  <Spruch AP="9" Grad="6" Lernkosten="6000" Name="Metallmeisterschaft" Region="K" Reichweite="1 m" Spruchrolle="true" Typ="Gedanke" Wirkungsbereich="1 Ob" Wirkungsdauer="10 min" Wirkungsziel="Umgebung" Zauberdauer="30 sec">
    <Grund Typ="PHe"/>
    <Standard Typ="Dt"/>
    <Standard Typ="Km"/>
@@ -2954,28 +2954,28 @@
    <Ausnahme Typ="ScS"/>
    <Ausnahme Typ="ScW"/>
   </Spruch>
-  <Spruch Name="NüQuang" Region="K" Grad="5" Lernkosten="3000" AP="alle" Typ="Geste" Zauberdauer="var" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="3 d">
+  <Spruch AP="alle" Grad="5" Lernkosten="3000" Name="NüQuang" Region="K" Reichweite="0" Typ="Geste" Wirkungsbereich="1 Ws" Wirkungsdauer="3 d" Wirkungsziel="Umgebung" Zauberdauer="var">
    <Standard Typ="De"/>
    <Standard Typ="Sa"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScN" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScS" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScW" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScN"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScS"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScW"/>
   </Spruch>
-  <Spruch Name="PiPingQuang" Region="K" Grad="3" Lernkosten="600" AP="4" Typ="Tanz" Agens="Holz" Prozess="zerstört" Reagens="Eis" Zauberdauer="30 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Zauberart="Tanz">
+  <Spruch AP="4" Agens="Holz" Grad="3" Lernkosten="600" Name="PiPingQuang" Prozess="zerstört" Reagens="Eis" Region="K" Reichweite="0" Typ="Tanz" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="30 min">
    <Standard Typ="De"/>
    <Standard Typ="Sa"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
    <Standard Typ="Tt"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScN" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScS" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScW" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScN"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScS"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScW"/>
   </Spruch>
-  <Spruch Name="PiYeúQuang" Region="K" Grad="3" Lernkosten="800" AP="4" Typ="Tanz" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Zauberart="Tanz">
+  <Spruch AP="4" Agens="Magan" Grad="3" Lernkosten="800" Name="PiYeúQuang" Prozess="bewegt" Reagens="Feuer" Region="K" Reichweite="0" Typ="Tanz" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="10 min">
    <Standard Typ="De"/>
    <Standard Typ="PC"/>
    <Standard Typ="Sa"/>
@@ -2983,17 +2983,17 @@
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
    <Standard Typ="Tt"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScN" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScS" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScW" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScN"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScS"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScW"/>
   </Spruch>
-  <Spruch Name="Roter Pirol (2. Urton Chih)" Region="K" Grad="1" Lernkosten="160" AP="1" Typ="Zauberlied" Ursprung="Weltenlied" Zauberdauer="1 sec" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="30 m Uk" Wirkungsdauer="24 h" Spruchrolle="true">
+  <Spruch AP="1" Grad="1" Lernkosten="160" Name="Roter Pirol (2. Urton Chih)" Region="K" Reichweite="0" Spruchrolle="true" Typ="Zauberlied" Ursprung="Weltenlied" Wirkungsbereich="30 m Uk" Wirkungsdauer="24 h" Wirkungsziel="Geist" Zauberdauer="1 sec">
    <Standard Typ="Ba"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScN" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScS" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScW" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScN"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScS"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScW"/>
   </Spruch>
-  <Spruch Name="Scheintod" Region="K" Grad="5" Lernkosten="2400" AP="6" Typ="Gedanke" Zauberdauer="1 min" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="Zauberer" Wirkungsdauer="var" Spruchrolle="true">
+  <Spruch AP="6" Grad="5" Lernkosten="2400" Name="Scheintod" Region="K" Reichweite="0" Spruchrolle="true" Typ="Gedanke" Wirkungsbereich="Zauberer" Wirkungsdauer="var" Wirkungsziel="Körper" Zauberdauer="1 min">
    <Grund Typ="De"/>
    <Grund Typ="Hl"/>
    <Grund Typ="Sa"/>
@@ -3018,13 +3018,13 @@
    <Ausnahme Typ="PT"/>
    <Ausnahme Typ="PW"/>
   </Spruch>
-  <Spruch Name="Schwarzes Horn (4. Urton Yü)" Region="K" Grad="4" Lernkosten="6000" AP="1" Typ="Zauberlied" Ursprung="Weltenlied" Zauberdauer="1 sec" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="15 m Uk" Wirkungsdauer="24 h" Spruchrolle="true">
+  <Spruch AP="1" Grad="4" Lernkosten="6000" Name="Schwarzes Horn (4. Urton Yü)" Region="K" Reichweite="0" Spruchrolle="true" Typ="Zauberlied" Ursprung="Weltenlied" Wirkungsbereich="15 m Uk" Wirkungsdauer="24 h" Wirkungsziel="Geist" Zauberdauer="1 sec">
    <Standard Typ="Ba"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScN" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScS" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScW" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScN"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScS"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScW"/>
   </Spruch>
-  <Spruch Name="Schöne Leiche" Region="K" Grad="3" Lernkosten="800" AP="4" Typ="Geste" Zauberdauer="1 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Spruchrolle="true" Thaumagramm="Siegel">
+  <Spruch AP="4" Grad="3" Lernkosten="800" Name="Schöne Leiche" Region="K" Reichweite="0" Spruchrolle="true" Thaumagramm="Siegel" Typ="Geste" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Wirkungsziel="Umgebung" Zauberdauer="1 min">
    <Grund Typ="Hl"/>
    <Grund Typ="PT"/>
    <Standard Typ="De"/>
@@ -3050,7 +3050,7 @@
    <Ausnahme Typ="PM"/>
    <Ausnahme Typ="PW"/>
   </Spruch>
-  <Spruch Name="Stolz zieht der Krieger..." Region="K" Grad="5" Lernkosten="3000" AP="9" Typ="Geste" Zauberdauer="30 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="2 Wochen" Material="Seidenschirm">
+  <Spruch AP="9" Grad="5" Lernkosten="3000" Material="Seidenschirm" Name="Stolz zieht der Krieger..." Region="K" Reichweite="0" Typ="Geste" Wirkungsbereich="1 Ws" Wirkungsdauer="2 Wochen" Wirkungsziel="Umgebung" Zauberdauer="30 min">
    <Grund Typ="gHx"/>
    <Grund Typ="sHx"/>
    <Grund Typ="wHx"/>
@@ -3060,14 +3060,14 @@
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
   </Spruch>
-  <Spruch Name="TaiQuang" Region="K" Grad="3" Lernkosten="1000" AP="1/Grad des Opfers" Typ="Tanz" Agens="Wasser" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="5 min" Reichweite="50 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws/Grad des Zauberers" Wirkungsdauer="2 h" Zauberart="Tanz">
+  <Spruch AP="1/Grad des Opfers" Agens="Wasser" Grad="3" Lernkosten="1000" Name="TaiQuang" Prozess="beherrscht" Reagens="Wasser" Region="K" Reichweite="50 m" Typ="Tanz" Wirkungsbereich="1 Ws/Grad des Zauberers" Wirkungsdauer="2 h" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="5 min">
    <Standard Typ="PC"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
    <Standard Typ="Tt"/>
   </Spruch>
-  <Spruch Name="Wasser befreien" Region="K" Grad="4" Lernkosten="1600" AP="4" Typ="Geste" Zauberdauer="10 sec" Reichweite="5 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 m Uk" Wirkungsdauer="1 min" Material="Bambussprosse" Spruchrolle="true">
+  <Spruch AP="4" Grad="4" Lernkosten="1600" Material="Bambussprosse" Name="Wasser befreien" Region="K" Reichweite="5 m" Spruchrolle="true" Typ="Geste" Wirkungsbereich="1 m Uk" Wirkungsdauer="1 min" Wirkungsziel="Umgebung" Zauberdauer="10 sec">
    <Grund Typ="Dr"/>
    <Grund Typ="PF"/>
    <Grund Typ="PM"/>
@@ -3089,13 +3089,13 @@
    <Ausnahme Typ="PK"/>
    <Ausnahme Typ="PT"/>
   </Spruch>
-  <Spruch Name="Wei�&#x9F;er Jadeklangstein (3. Urton Schang)" Region="K" Grad="5" Lernkosten="10000" AP="1" Typ="Zauberlied" Ursprung="Weltenlied" Zauberdauer="1 sec" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="30 m Kegel" Wirkungsdauer="var" Spruchrolle="true">
+  <Spruch AP="1" Grad="5" Lernkosten="10000" Name="Wei�&#x9F;er Jadeklangstein (3. Urton Schang)" Region="K" Reichweite="0" Spruchrolle="true" Typ="Zauberlied" Ursprung="Weltenlied" Wirkungsbereich="30 m Kegel" Wirkungsdauer="var" Wirkungsziel="Geist" Zauberdauer="1 sec">
    <Standard Typ="Ba"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScN" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScS" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScW" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScN"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScS"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScW"/>
   </Spruch>
-  <Spruch Name="XiengBaQuang" Region="K" Grad="5" Lernkosten="4000" AP="var" Typ="Tanz" Agens="Wasser" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="var" Reichweite="var" Wirkungsziel="Körper" Wirkungsbereich="var" Wirkungsdauer="var" Zauberart="Tanz">
+  <Spruch AP="var" Agens="Wasser" Grad="5" Lernkosten="4000" Name="XiengBaQuang" Prozess="beherrscht" Reagens="Wasser" Region="K" Reichweite="var" Typ="Tanz" Wirkungsbereich="var" Wirkungsdauer="var" Wirkungsziel="Körper" Zauberart="Tanz" Zauberdauer="var">
    <Standard Typ="De"/>
    <Standard Typ="PC"/>
    <Standard Typ="Sa"/>
@@ -3103,94 +3103,94 @@
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
    <Standard Typ="Tt"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScN" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScS" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScW" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScN"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScS"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScW"/>
   </Spruch>
-  <Spruch Name="YehKiQuang" Region="K" Grad="1" Lernkosten="80" AP="3" Typ="Geste" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Geist">
+  <Spruch AP="3" Grad="1" Lernkosten="80" Name="YehKiQuang" Region="K" Reichweite="0" Typ="Geste" Wirkungsziel="Geist" Zauberdauer="1 h">
    <Standard Typ="De"/>
    <Standard Typ="Sa"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
    <Standard Typ="Tt"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScN" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScS" Standard="G"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScW" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScN"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScS"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="G" Typ="ScW"/>
   </Spruch>
   <Spruch Name="Jadezauber" Region="N">
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Dr" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Hl" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Ma" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PC" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PF" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PHa" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PHe" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PK" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PM" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PT" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PW" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScN" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScS" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScW" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="dBe" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="eBe" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="gHx" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="sHx" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="tBe" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="wHx" Standard="S"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="Dr"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="Hl"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="Ma"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="PC"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="PF"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="PHa"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="PHe"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="PK"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="PM"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="PT"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="PW"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="ScN"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="ScS"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="ScW"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="dBe"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="eBe"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="gHx"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="sHx"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="tBe"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="wHx"/>
   </Spruch>
  </Zauber>
  <Zauberwerke/>
  <Kido-Fertigkeiten>
-  <KiDo Name="ChochoInu" Übersetzung="Schmetterling und Hund" Stufe="Schüler" Stil="beide" Lernkosten="40" AP="0">Sich aus einem Kontrollbereich entfernen, wenn PW+60:RW des Gegners mi�&#x9F;lingt. Danach ist eine freie Bewegung möglich.</KiDo>
-  <KiDo Name="DageIki" Übersetzung="Hauch eines Hiebes" Stufe="Schüler" Stil="beide" Lernkosten="40" AP="0">Finte. Kein eigener Angriff. Mi�&#x9F;lingt PW+30:In/bzw RW bei In:t, so erhält der Gegner in der nächsten Runde WM-4 auf die Abwehr. (max. WM-8)</KiDo>
-  <KiDo Name="DaiUchi" Übersetzung="Gro�&#x9F;er Schlag" Stufe="Eingeweihter" Stil="Harte Techniken" Lernkosten="120" AP="0">Erlaubt Gezielten Hieb mit Todesfolge.</KiDo>
-  <KiDo Name="DoMino" Übersetzung="Sichere Ernte" Stufe="Eingeweihter" Stil="Sanfte Techniken" Lernkosten="200" AP="0">weiter Wurf. Gegner stürzt automatisch. Gelingt der WW:Abwehr: 1W6-3 AP, sonst Flug bis 6m auf Ziel (1W6-1 LP/AP). Ziel verliert automatischem 1W6-3 AP, WW:Abwehr vs.EW:KiDo oder Sturz. Dahinterstehende Personen verfahren dann ebenso (Domino)</KiDo>
-  <KiDo Name="DokujaOschi" Übersetzung="Sto�&#x9F; der Giftschlange" Stufe="Schüler" Stil="Harte Techniken" Lernkosten="60" AP="0">�&#x9C;berraschungsangriff auf Gegner in 12mUK. Alle überrascht, WM-4 auf Abwehr.</KiDo>
-  <KiDo Name="EnchuTao" Übersetzung="Säule umstürzen" Stufe="Eingeweihter" Stil="Harte Techniken" Lernkosten="120" AP="0">Erlaubt Gezielten Hieb mit Todesfolge, der bei einem normalen Erfolg nur leichten Schaden und 1W20 min Bewustlosigkeit verursacht.</KiDo>
-  <KiDo Name="FengAschi" Übersetzung="Wind in den Fü�&#x9F;en" Stufe="Meister" Stil="beide" Lernkosten="800" AP="2">Ermöglicht Bewgung mit 4xB max. 10min</KiDo>
-  <KiDo Name="FengTsu" Übersetzung="Bambus im Wind" Stufe="Schüler" Stil="beide" Lernkosten="100" AP="0">Verringert leichte Schäden um 2 AP</KiDo>
-  <KiDo Name="FengYetsi" Übersetzung="Wind und Blatt" Stufe="Schüler" Stil="Sanfte Techniken" Lernkosten="60" AP="0">weiter Wurf gegen Gegner die im Sturm angreifen oder mehr als B/2 gelaufen sind. KiDoka stürzt. Gegner stürzt automatisch (1W6-3 AP) mi�&#x9F;lingt der WW:Abwehr, Flug 1W6m, 1W6LP/AP</KiDo>
-  <KiDo Name="GinZjang" Übersetzung="Opfer des Kranichs" Stufe="Schüler" Stil="Harte Techniken" Lernkosten="80" AP="3">Sturmangriff ab 6m. KiDoka stürzt und WM-4 auf Abwehr. 1x Angriff vs Abwehr SchB+5, 1x KiDo vs Abwehr wie Wurf.</KiDo>
-  <KiDo Name="HaschiBami" Übersetzung="Zweig der Haselnu�&#x9F;" Stufe="Schüler" Stil="beide" Lernkosten="40" AP="0">Aufstehen. Gilt nicht als Aktion.</KiDo>
-  <KiDo Name="HiaBatta" Übersetzung="Sprung der Heuschrecke" Stufe="Schüler" Stil="beide" Lernkosten="40" AP="0">Verbessert Sprungweiten und - höhen um 50&#x25;</KiDo>
-  <KiDo Name="HiaFei" Übersetzung="Sprung des Tigers" Stufe="Meister" Stil="Harte Techniken" Lernkosten="800" AP="5">Sturmangriff nach 6 bis B Meter. SchB +7 bzw KAW 50</KiDo>
-  <KiDo Name="HiaPao" Übersetzung="Sprung des Leoparden" Stufe="Schüler" Stil="Harte Techniken" Lernkosten="60" AP="1">Sturmangriff nach 6 bis B Metern. SchB + 2 bzw KAW 15</KiDo>
-  <KiDo Name="HyoKobe" Übersetzung="Hagel von Fäusten" Stufe="Eingeweihter" Stil="Harte Techniken" Lernkosten="400" AP="3">6 Angriffe auch verschiedene Gegner</KiDo>
-  <KiDo Name="ItaSone" Übersetzung="Schmerzlicher Verlust" Stufe="Schüler" Stil="Sanfte Techniken" Lernkosten="80" AP="0">Entwaffnen. Gegner mu�&#x9F; letzte Runde angegriffen haben. KiDo vs Abwehr : 1W6 AP + Waffenverlust. krit.=krit.Armtreffer. Nur Einhandwaffen.</KiDo>
-  <KiDo Name="KaHiko" Übersetzung="Mückenflug" Stufe="Schüler" Stil="Sanfte Techniken" Lernkosten="80" AP="3">Verwirren der Nahkampfgegner. KiDo vs psyZR. WM+4 auf Angriff gegen einen Verwirrten. Verwirrte handeln nicht, wehren aber ab.</KiDo>
-  <KiDo Name="KamaKusa" Übersetzung="Sichel und Gras" Stufe="Schüler" Stil="Harte Techniken" Lernkosten="60" AP="0">Wurf durch Tritt</KiDo>
-  <KiDo Name="KanaUchi" Übersetzung="Hammerschlag" Stufe="Schüler" Stil="Harte Techniken" Lernkosten="40" AP="0">Erlaubt gezielten Hieb gegen Arm, Bein oder Kopf.</KiDo>
-  <KiDo Name="KansiTeko" Übersetzung="Zange und Hebel" Stufe="Schüler" Stil="Sanfte Techniken" Lernkosten="40" AP="0">Erlaubt gezielten Hieb gegen Arm, Bein oder Kopf.</KiDo>
-  <KiDo Name="KawaSui" Übersetzung="Austrocknen der Quelle" Stufe="Eingeweihter" Stil="beide" Lernkosten="200" AP="3">Heilt 1W6 LP/AP des KiDokas. Wirkt exakt wie Heilen von Wunden.</KiDo>
-  <KiDo Name="KentoYobu" Übersetzung="Kampfschrei" Stufe="Schüler" Stil="beide" Lernkosten="60" AP="1">Der Kampfschrei gibt WM+1 auf Angriff und Abwehr für 10 min. Gelingt der KentoYubo nicht, darf er erst beim nächsten Kampf wieder eingesetzt werden. Der KentoYubo ist die erste Technik in einem Kampf, es sei denn ein PW:Sb gelingt.</KiDo>
-  <KiDo Name="KoéLong" Übersetzung="Stimme des Drachen" Stufe="Eingeweihter" Stil="beide" Lernkosten="200" AP="4">&quot;Schrei, &quot;&quot;Schmerzen&quot;&quot; auf 30m Kegel, phsZR oder 1W6 AP und 1min WM-4&quot;</KiDo>
-  <KiDo Name="LingHia" Übersetzung="Göttlicher Sprung" Stufe="Meister" Stil="beide" Lernkosten="800" AP="5">Springen: bis 20m weit, 5m hoch, 10m tief, über Angreifer + Angriff</KiDo>
-  <KiDo Name="MiChen" Übersetzung="Biene und Nadel" Stufe="Eingeweihter" Stil="beide" Lernkosten="400" AP="0">Gezielter Hieb, WW+2 auf 2.Abwehr, nur leichter Schaden dafür PW:Ko (bzw. 5*LPmax) oder 1W6 Runden Ohnmacht</KiDo>
-  <KiDo Name="MingHa" Übersetzung="Leuchtende Klinge" Stufe="Schüler" Stil="Sanfte Techniken" Lernkosten="80" AP="1">Verwirren. KiDo vs phsZR. Nur mit Dolch oder Sai und helle Lichtquelle. Lichtreflexe blenden einen Gegner. WM+4 auf Angriff</KiDo>
-  <KiDo Name="MuYosai" Übersetzung="Unbezwingbare Festung" Stufe="Schüler" Stil="beide" Lernkosten="60" AP="0">Blockade + konzentrierte Abwehr mit WM+6 gegen die restlichen Gegner</KiDo>
-  <KiDo Name="MuhiKabe" Übersetzung="Unvergleichliche Mauer" Stufe="Schüler" Stil="Harte Techniken" Lernkosten="60" AP="0">Blockade WW+2:KiDo. Kein Eigener Angriff. Gegner verliert (WW+2:KiDo - Angriff) AP</KiDo>
-  <KiDo Name="NagaKusa" Übersetzung="Strömung im Seegras" Stufe="Eingeweihter" Stil="beide" Lernkosten="400" AP="0">Verringert leichte Schäden um 4 AP</KiDo>
-  <KiDo Name="NiNintai" Übersetzung="Zweite Ausdauer" Stufe="Eingeweihter" Stil="beide" Lernkosten="400" AP="3">Regeneriert sofort alle AP. Nach einer Stunde: Verlust aller AP und von 3 LP. Während dieser Zeit kann die Technik nicht erneut angewendet werden.</KiDo>
-  <KiDo Name="NiuTsuke" Übersetzung="Ochsentritt" Stufe="Schüler" Stil="Harte Techniken" Lernkosten="60" AP="1">SchB +2</KiDo>
-  <KiDo Name="OchiFuku" Übersetzung="Fallender Sack" Stufe="Schüler" Stil="Sanfte Techniken" Lernkosten="60" AP="0">Wurf</KiDo>
-  <KiDo Name="OjuKiba" Übersetzung="Verjagen der Wespe" Stufe="Schüler" Stil="Harte Techniken" Lernkosten="80" AP="0">Entwaffnen. Nur Einhandwaffen. Waffe fliegt 1W6m. krit.=krit.Armtreffer</KiDo>
-  <KiDo Name="SchanScha" Übersetzung="Mörderischer Berg" Stufe="Eingeweihter" Stil="beide" Lernkosten="200" AP="1">Eisenhaut. 1 Runde. Verringert Verluste um 5 LP oder AP. RW-xx</KiDo>
-  <KiDo Name="SchindoKu" Übersetzung="Schwingungen der Alten" Stufe="Meister" Stil="Sanfte Techniken" Lernkosten="1600" AP="6">Handfläche schwingt. KiDo vs phsZR. leichter Schaden: 1W6+1 LP/AP schwerer Schaden: 3W6+1 LP/AP. Kein Treffer: selbst phsZR für 1W6-1 bzw 3W6-3 LP/AP</KiDo>
-  <KiDo Name="SosaYaku" Übersetzung="Suche die Schwäche" Stufe="Schüler" Stil="beide" Lernkosten="40" AP="0">Angriff WM+2, Angriff erst am Ende der Runde</KiDo>
-  <KiDo Name="SukuHaya" Übersetzung="Schnelle Heilung" Stufe="Meister" Stil="beide" Lernkosten="1200" AP="6">Allheilung. EW:KiDo vs 1W20+20</KiDo>
-  <KiDo Name="TateTiao" Übersetzung="Tanzender Schild" Stufe="Eingeweihter" Stil="Sanfte Techniken" Lernkosten="120" AP="1">Nur mit Schirm/Fächer (GunSen oder BuKasa). Gegner: WM-4 Angriff, WW:psyZR</KiDo>
-  <KiDo Name="TiaoYuschi" Übersetzung="Tanz des Helden" Stufe="Eingeweihter" Stil="beide" Lernkosten="120" AP="3">Showeinlage mit Wirkung wie Angst. KiDo vs psyZR.</KiDo>
-  <KiDo Name="TsiJe" Übersetzung="Gedanken der Wärme" Stufe="Eingeweihter" Stil="beide" Lernkosten="120" AP="1">Kälteschutz</KiDo>
-  <KiDo Name="TsiLeng" Übersetzung="Gedanken der Kühle" Stufe="Eingeweihter" Stil="beide" Lernkosten="120" AP="1">Hitzeschutz</KiDo>
-  <KiDo Name="TuoKobe" Übersetzung="VieleFäuste" Stufe="Schüler" Stil="beide" Lernkosten="40" AP="0">2 Waffenlose Angriffe, auch versch. Gegner</KiDo>
-  <KiDo Name="UzuHaki" Übersetzung="Zerstörerischer Wirbel" Stufe="Eingeweihter" Stil="beide" Lernkosten="200" AP="2">bis zu 4x Angriff, SchB+1, nur verschiedene Gegner im Kontrollbereich</KiDo>
-  <KiDo Name="WanTsui" Übersetzung="Zehntausend Münder" Stufe="Meister" Stil="beide" Lernkosten="1600" AP="6">Schrei. 30m Kegel. Wie Sturmwind. Gegner max 6m in Richtung KiDoka. Alle PW+30:HGW oder 1W6 LP/AP und Sturz</KiDo>
-  <KiDo Name="YingKando" Übersetzung="Siegreiche Bewegung" Stufe="Meister" Stil="beide" Lernkosten="800" AP="6">Je ein Angriff auf jeden Gegner, der in der zweiten Rundenhälfte in 6mUk steht. Hierbei WM+2, SchB+2</KiDo>
-  <KiDo Name="YoroYoschi" Übersetzung="Schwankendes Schilf" Stufe="Schüler" Stil="Sanfte Techniken" Lernkosten="40" AP="0">Geschossen ausweichen und Angreifen. Fernkämpfer WM-2. KiDoka WM+4 Abwehr/phkZR(!)</KiDo>
-  <KiDo Name="YubeChian" Übersetzung="Finger des Friedens" Stufe="Eingeweihter" Stil="Sanfte Techniken" Lernkosten="200" AP="0">Im Handgemenge festgehaltene werden gelähmt. Der Griff kann max. 2min aufrecht erhalten werden.</KiDo>
-  <KiDo Name="YuehSchu" Übersetzung="Axt und Baum" Stufe="Schüler" Stil="beide" Lernkosten="60" AP="0">Blockade und Angriff. Mi�&#x9F;lingt der EW.KiDo: Nur Blockade.</KiDo>
+  <KiDo AP="0" Lernkosten="40" Name="ChochoInu" Stil="beide" Stufe="Schüler" Übersetzung="Schmetterling und Hund">Sich aus einem Kontrollbereich entfernen, wenn PW+60:RW des Gegners mi�&#x9F;lingt. Danach ist eine freie Bewegung möglich.</KiDo>
+  <KiDo AP="0" Lernkosten="40" Name="DageIki" Stil="beide" Stufe="Schüler" Übersetzung="Hauch eines Hiebes">Finte. Kein eigener Angriff. Mi�&#x9F;lingt PW+30:In/bzw RW bei In:t, so erhält der Gegner in der nächsten Runde WM-4 auf die Abwehr. (max. WM-8)</KiDo>
+  <KiDo AP="0" Lernkosten="120" Name="DaiUchi" Stil="Harte Techniken" Stufe="Eingeweihter" Übersetzung="Gro�&#x9F;er Schlag">Erlaubt Gezielten Hieb mit Todesfolge.</KiDo>
+  <KiDo AP="0" Lernkosten="200" Name="DoMino" Stil="Sanfte Techniken" Stufe="Eingeweihter" Übersetzung="Sichere Ernte">weiter Wurf. Gegner stürzt automatisch. Gelingt der WW:Abwehr: 1W6-3 AP, sonst Flug bis 6m auf Ziel (1W6-1 LP/AP). Ziel verliert automatischem 1W6-3 AP, WW:Abwehr vs.EW:KiDo oder Sturz. Dahinterstehende Personen verfahren dann ebenso (Domino)</KiDo>
+  <KiDo AP="0" Lernkosten="60" Name="DokujaOschi" Stil="Harte Techniken" Stufe="Schüler" Übersetzung="Sto�&#x9F; der Giftschlange">�&#x9C;berraschungsangriff auf Gegner in 12mUK. Alle überrascht, WM-4 auf Abwehr.</KiDo>
+  <KiDo AP="0" Lernkosten="120" Name="EnchuTao" Stil="Harte Techniken" Stufe="Eingeweihter" Übersetzung="Säule umstürzen">Erlaubt Gezielten Hieb mit Todesfolge, der bei einem normalen Erfolg nur leichten Schaden und 1W20 min Bewustlosigkeit verursacht.</KiDo>
+  <KiDo AP="2" Lernkosten="800" Name="FengAschi" Stil="beide" Stufe="Meister" Übersetzung="Wind in den Fü�&#x9F;en">Ermöglicht Bewgung mit 4xB max. 10min</KiDo>
+  <KiDo AP="0" Lernkosten="100" Name="FengTsu" Stil="beide" Stufe="Schüler" Übersetzung="Bambus im Wind">Verringert leichte Schäden um 2 AP</KiDo>
+  <KiDo AP="0" Lernkosten="60" Name="FengYetsi" Stil="Sanfte Techniken" Stufe="Schüler" Übersetzung="Wind und Blatt">weiter Wurf gegen Gegner die im Sturm angreifen oder mehr als B/2 gelaufen sind. KiDoka stürzt. Gegner stürzt automatisch (1W6-3 AP) mi�&#x9F;lingt der WW:Abwehr, Flug 1W6m, 1W6LP/AP</KiDo>
+  <KiDo AP="3" Lernkosten="80" Name="GinZjang" Stil="Harte Techniken" Stufe="Schüler" Übersetzung="Opfer des Kranichs">Sturmangriff ab 6m. KiDoka stürzt und WM-4 auf Abwehr. 1x Angriff vs Abwehr SchB+5, 1x KiDo vs Abwehr wie Wurf.</KiDo>
+  <KiDo AP="0" Lernkosten="40" Name="HaschiBami" Stil="beide" Stufe="Schüler" Übersetzung="Zweig der Haselnu�&#x9F;">Aufstehen. Gilt nicht als Aktion.</KiDo>
+  <KiDo AP="0" Lernkosten="40" Name="HiaBatta" Stil="beide" Stufe="Schüler" Übersetzung="Sprung der Heuschrecke">Verbessert Sprungweiten und - höhen um 50&#x25;</KiDo>
+  <KiDo AP="5" Lernkosten="800" Name="HiaFei" Stil="Harte Techniken" Stufe="Meister" Übersetzung="Sprung des Tigers">Sturmangriff nach 6 bis B Meter. SchB +7 bzw KAW 50</KiDo>
+  <KiDo AP="1" Lernkosten="60" Name="HiaPao" Stil="Harte Techniken" Stufe="Schüler" Übersetzung="Sprung des Leoparden">Sturmangriff nach 6 bis B Metern. SchB + 2 bzw KAW 15</KiDo>
+  <KiDo AP="3" Lernkosten="400" Name="HyoKobe" Stil="Harte Techniken" Stufe="Eingeweihter" Übersetzung="Hagel von Fäusten">6 Angriffe auch verschiedene Gegner</KiDo>
+  <KiDo AP="0" Lernkosten="80" Name="ItaSone" Stil="Sanfte Techniken" Stufe="Schüler" Übersetzung="Schmerzlicher Verlust">Entwaffnen. Gegner mu�&#x9F; letzte Runde angegriffen haben. KiDo vs Abwehr : 1W6 AP + Waffenverlust. krit.=krit.Armtreffer. Nur Einhandwaffen.</KiDo>
+  <KiDo AP="3" Lernkosten="80" Name="KaHiko" Stil="Sanfte Techniken" Stufe="Schüler" Übersetzung="Mückenflug">Verwirren der Nahkampfgegner. KiDo vs psyZR. WM+4 auf Angriff gegen einen Verwirrten. Verwirrte handeln nicht, wehren aber ab.</KiDo>
+  <KiDo AP="0" Lernkosten="60" Name="KamaKusa" Stil="Harte Techniken" Stufe="Schüler" Übersetzung="Sichel und Gras">Wurf durch Tritt</KiDo>
+  <KiDo AP="0" Lernkosten="40" Name="KanaUchi" Stil="Harte Techniken" Stufe="Schüler" Übersetzung="Hammerschlag">Erlaubt gezielten Hieb gegen Arm, Bein oder Kopf.</KiDo>
+  <KiDo AP="0" Lernkosten="40" Name="KansiTeko" Stil="Sanfte Techniken" Stufe="Schüler" Übersetzung="Zange und Hebel">Erlaubt gezielten Hieb gegen Arm, Bein oder Kopf.</KiDo>
+  <KiDo AP="3" Lernkosten="200" Name="KawaSui" Stil="beide" Stufe="Eingeweihter" Übersetzung="Austrocknen der Quelle">Heilt 1W6 LP/AP des KiDokas. Wirkt exakt wie Heilen von Wunden.</KiDo>
+  <KiDo AP="1" Lernkosten="60" Name="KentoYobu" Stil="beide" Stufe="Schüler" Übersetzung="Kampfschrei">Der Kampfschrei gibt WM+1 auf Angriff und Abwehr für 10 min. Gelingt der KentoYubo nicht, darf er erst beim nächsten Kampf wieder eingesetzt werden. Der KentoYubo ist die erste Technik in einem Kampf, es sei denn ein PW:Sb gelingt.</KiDo>
+  <KiDo AP="4" Lernkosten="200" Name="KoéLong" Stil="beide" Stufe="Eingeweihter" Übersetzung="Stimme des Drachen">&quot;Schrei, &quot;&quot;Schmerzen&quot;&quot; auf 30m Kegel, phsZR oder 1W6 AP und 1min WM-4&quot;</KiDo>
+  <KiDo AP="5" Lernkosten="800" Name="LingHia" Stil="beide" Stufe="Meister" Übersetzung="Göttlicher Sprung">Springen: bis 20m weit, 5m hoch, 10m tief, über Angreifer + Angriff</KiDo>
+  <KiDo AP="0" Lernkosten="400" Name="MiChen" Stil="beide" Stufe="Eingeweihter" Übersetzung="Biene und Nadel">Gezielter Hieb, WW+2 auf 2.Abwehr, nur leichter Schaden dafür PW:Ko (bzw. 5*LPmax) oder 1W6 Runden Ohnmacht</KiDo>
+  <KiDo AP="1" Lernkosten="80" Name="MingHa" Stil="Sanfte Techniken" Stufe="Schüler" Übersetzung="Leuchtende Klinge">Verwirren. KiDo vs phsZR. Nur mit Dolch oder Sai und helle Lichtquelle. Lichtreflexe blenden einen Gegner. WM+4 auf Angriff</KiDo>
+  <KiDo AP="0" Lernkosten="60" Name="MuYosai" Stil="beide" Stufe="Schüler" Übersetzung="Unbezwingbare Festung">Blockade + konzentrierte Abwehr mit WM+6 gegen die restlichen Gegner</KiDo>
+  <KiDo AP="0" Lernkosten="60" Name="MuhiKabe" Stil="Harte Techniken" Stufe="Schüler" Übersetzung="Unvergleichliche Mauer">Blockade WW+2:KiDo. Kein Eigener Angriff. Gegner verliert (WW+2:KiDo - Angriff) AP</KiDo>
+  <KiDo AP="0" Lernkosten="400" Name="NagaKusa" Stil="beide" Stufe="Eingeweihter" Übersetzung="Strömung im Seegras">Verringert leichte Schäden um 4 AP</KiDo>
+  <KiDo AP="3" Lernkosten="400" Name="NiNintai" Stil="beide" Stufe="Eingeweihter" Übersetzung="Zweite Ausdauer">Regeneriert sofort alle AP. Nach einer Stunde: Verlust aller AP und von 3 LP. Während dieser Zeit kann die Technik nicht erneut angewendet werden.</KiDo>
+  <KiDo AP="1" Lernkosten="60" Name="NiuTsuke" Stil="Harte Techniken" Stufe="Schüler" Übersetzung="Ochsentritt">SchB +2</KiDo>
+  <KiDo AP="0" Lernkosten="60" Name="OchiFuku" Stil="Sanfte Techniken" Stufe="Schüler" Übersetzung="Fallender Sack">Wurf</KiDo>
+  <KiDo AP="0" Lernkosten="80" Name="OjuKiba" Stil="Harte Techniken" Stufe="Schüler" Übersetzung="Verjagen der Wespe">Entwaffnen. Nur Einhandwaffen. Waffe fliegt 1W6m. krit.=krit.Armtreffer</KiDo>
+  <KiDo AP="1" Lernkosten="200" Name="SchanScha" Stil="beide" Stufe="Eingeweihter" Übersetzung="Mörderischer Berg">Eisenhaut. 1 Runde. Verringert Verluste um 5 LP oder AP. RW-xx</KiDo>
+  <KiDo AP="6" Lernkosten="1600" Name="SchindoKu" Stil="Sanfte Techniken" Stufe="Meister" Übersetzung="Schwingungen der Alten">Handfläche schwingt. KiDo vs phsZR. leichter Schaden: 1W6+1 LP/AP schwerer Schaden: 3W6+1 LP/AP. Kein Treffer: selbst phsZR für 1W6-1 bzw 3W6-3 LP/AP</KiDo>
+  <KiDo AP="0" Lernkosten="40" Name="SosaYaku" Stil="beide" Stufe="Schüler" Übersetzung="Suche die Schwäche">Angriff WM+2, Angriff erst am Ende der Runde</KiDo>
+  <KiDo AP="6" Lernkosten="1200" Name="SukuHaya" Stil="beide" Stufe="Meister" Übersetzung="Schnelle Heilung">Allheilung. EW:KiDo vs 1W20+20</KiDo>
+  <KiDo AP="1" Lernkosten="120" Name="TateTiao" Stil="Sanfte Techniken" Stufe="Eingeweihter" Übersetzung="Tanzender Schild">Nur mit Schirm/Fächer (GunSen oder BuKasa). Gegner: WM-4 Angriff, WW:psyZR</KiDo>
+  <KiDo AP="3" Lernkosten="120" Name="TiaoYuschi" Stil="beide" Stufe="Eingeweihter" Übersetzung="Tanz des Helden">Showeinlage mit Wirkung wie Angst. KiDo vs psyZR.</KiDo>
+  <KiDo AP="1" Lernkosten="120" Name="TsiJe" Stil="beide" Stufe="Eingeweihter" Übersetzung="Gedanken der Wärme">Kälteschutz</KiDo>
+  <KiDo AP="1" Lernkosten="120" Name="TsiLeng" Stil="beide" Stufe="Eingeweihter" Übersetzung="Gedanken der Kühle">Hitzeschutz</KiDo>
+  <KiDo AP="0" Lernkosten="40" Name="TuoKobe" Stil="beide" Stufe="Schüler" Übersetzung="VieleFäuste">2 Waffenlose Angriffe, auch versch. Gegner</KiDo>
+  <KiDo AP="2" Lernkosten="200" Name="UzuHaki" Stil="beide" Stufe="Eingeweihter" Übersetzung="Zerstörerischer Wirbel">bis zu 4x Angriff, SchB+1, nur verschiedene Gegner im Kontrollbereich</KiDo>
+  <KiDo AP="6" Lernkosten="1600" Name="WanTsui" Stil="beide" Stufe="Meister" Übersetzung="Zehntausend Münder">Schrei. 30m Kegel. Wie Sturmwind. Gegner max 6m in Richtung KiDoka. Alle PW+30:HGW oder 1W6 LP/AP und Sturz</KiDo>
+  <KiDo AP="6" Lernkosten="800" Name="YingKando" Stil="beide" Stufe="Meister" Übersetzung="Siegreiche Bewegung">Je ein Angriff auf jeden Gegner, der in der zweiten Rundenhälfte in 6mUk steht. Hierbei WM+2, SchB+2</KiDo>
+  <KiDo AP="0" Lernkosten="40" Name="YoroYoschi" Stil="Sanfte Techniken" Stufe="Schüler" Übersetzung="Schwankendes Schilf">Geschossen ausweichen und Angreifen. Fernkämpfer WM-2. KiDoka WM+4 Abwehr/phkZR(!)</KiDo>
+  <KiDo AP="0" Lernkosten="200" Name="YubeChian" Stil="Sanfte Techniken" Stufe="Eingeweihter" Übersetzung="Finger des Friedens">Im Handgemenge festgehaltene werden gelähmt. Der Griff kann max. 2min aufrecht erhalten werden.</KiDo>
+  <KiDo AP="0" Lernkosten="60" Name="YuehSchu" Stil="beide" Stufe="Schüler" Übersetzung="Axt und Baum">Blockade und Angriff. Mi�&#x9F;lingt der EW.KiDo: Nur Blockade.</KiDo>
  </Kido-Fertigkeiten>
 </MAGUS-data>

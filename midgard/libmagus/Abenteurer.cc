@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.28 2004/11/24 10:44:49 christof Exp $            
+// $Id: Abenteurer.cc,v 1.29 2004/11/29 13:54:22 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -183,11 +183,11 @@ bool Abenteurer::setAngebSinnFert(int wurf,const MBEmlt &MBE)
 
 
 
-void Abenteurer::speicherstream(std::ostream &datei)
+void Abenteurer::speicherstream(std::ostream &datei) const
 {  speichern(datei);
 }
 
-void Abenteurer::speichern(std::ostream &datei)
+void Abenteurer::speichern(std::ostream &datei) const
 {
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
    TagStream ts;
@@ -245,7 +245,7 @@ void Abenteurer::speichern(std::ostream &datei)
       r.setAttr("Region", i->first->Abkuerzung());
    }
    // Optionen
-   std::list<Optionen::st_OptionenCheck> LO=optionen.getOptionenCheck();
+   const std::list<Optionen::st_OptionenCheck> &LO=optionen.getOptionenCheck();
    for(std::list<Optionen::st_OptionenCheck>::const_iterator i=LO.begin();i!=LO.end();++i)
    {
      // Option, die mit dem C. gespeichert werden müssen
@@ -253,7 +253,7 @@ void Abenteurer::speichern(std::ostream &datei)
      o.setAttr("Name", i->text);
      o.setBoolAttr("Wert", i->active);
    }
-   std::list<Optionen::st_Haus> LH=optionen.getHausregeln();
+   const std::list<Optionen::st_Haus> &LH=optionen.getHausregeln();
    for(std::list<Optionen::st_Haus>::const_iterator i=LH.begin();i!=LH.end();++i)
    {
      Tag &o=Opt.push_back(Tag("Hausregeln"));
@@ -261,11 +261,11 @@ void Abenteurer::speichern(std::ostream &datei)
      o.setBoolAttr("Wert", i->active);
    }
    ts.write(datei);
-   last_saved_time= time((time_t *)NULL);
+   const_cast<class Abenteurer*>(this)->last_saved_time= time(0);
 }
 
 
-void Abenteurer::grundwerte_speichern(Tag &datei)
+void Abenteurer::grundwerte_speichern(Tag &datei) const
 {
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
    Tag &Figur=datei.push_back(Tag("Figur"));
@@ -351,18 +351,24 @@ void Abenteurer::grundwerte_speichern(Tag &datei)
    Text.setAttr_ne("Bild", BeschreibungPix());
 }
 
-void Abenteurer::save_ausruestung(Tag &datei,const std::list<AusruestungBaum> &AB)
+void Abenteurer::save_ausruestung(Tag &datei,const std::list<AusruestungBaum> &AB) const
 {  
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
   for(AusruestungBaum::const_iterator i=AB.begin();i!=AB.end();++i)
    {  Tag &Ggs=datei.push_back(Tag("Gegenstand"));
-      Ggs.setIntAttr("Anzahl", i->getAusruestung().Anzahl());
+      if (i->getAusruestung().Anzahl()!=1)
+        Ggs.setIntAttr("Anzahl", i->getAusruestung().Anzahl());
       Ggs.setAttr("Bezeichnung", i->getAusruestung().Name());
-      Ggs.setAttr("Beschreibung", i->getAusruestung().Beschreibung());
-      Ggs.setAttr("Region", i->getAusruestung().Region());
-      Ggs.setFloatAttr("Gewicht", i->getAusruestung().Gewicht());
-      Ggs.setBoolAttr("RüstungOhneGewicht",i->getAusruestung().RuestungOhneGewicht());
-      Ggs.setAttr("Besonderheit", i->getAusruestung().Material());
+      if (!i->getAusruestung().Beschreibung().empty())
+        Ggs.setAttr("Beschreibung", i->getAusruestung().Beschreibung());
+      if (!i->getAusruestung().Region().empty())
+        Ggs.setAttr("Region", i->getAusruestung().Region());
+      if (i->getAusruestung().Gewicht()!=0.0)
+        Ggs.setFloatAttr("Gewicht", i->getAusruestung().Gewicht());
+      if (i->getAusruestung().RuestungOhneGewicht())
+        Ggs.setBoolAttr("RüstungOhneGewicht",i->getAusruestung().RuestungOhneGewicht());
+      if (!i->getAusruestung().Material().empty())
+        Ggs.setAttr("Besonderheit", i->getAusruestung().Material());
       if (i->getAusruestung().Sichtbar()) 
          Ggs.setBoolAttr("sichtbar", i->getAusruestung().Sichtbar());
       if (!i->empty())
@@ -512,9 +518,16 @@ bool Abenteurer::laden(std::istream& datei)
    else
       setEP(0,0,0);
    setStadtLand(Typ->getAttr("Stadt_Land","Stadt"));
-   if (Steigern) set_Grad_Anstieg(Steigern->getIntAttr("EPproGFP",50)
-      	,Steigern->getIntAttr("Basiswerte",Grad()));
-   else set_Grad_Anstieg(50,Grad());
+   if (Steigern) 
+   { int fpanteil2=Steigern->getIntAttr("EPproGFP",50);
+     fpanteil=fpanteil2;
+     goldanteil=100-fpanteil2;
+     set_Grad_Basiswerte(Steigern->getIntAttr("Basiswerte",Grad()));
+   }
+   else 
+   { fpanteil=goldanteil=50;
+     set_Grad_Basiswerte(Grad());
+   }
 
 //   this->Typ1()=cH_Typen(Typ->getAttr("Abkürzung"),true);
    setTyp1(cH_Typen(Typ->getAttr("Abkürzung"),true));
@@ -660,7 +673,7 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
          S->setPraxispunkte(i->getIntAttr("Praxispunkte"));
          List_Schrift().push_back(S);
         }
-// demnächst weg (geänder seit 0.8.10)
+// demnächst weg (geändert seit 0.8.10)
       else if(sart=="Optionen")
         {
          try{
@@ -848,6 +861,7 @@ void Abenteurer::reset()
              setStandardAusruestung();
 }
 
+#if 0
 void Abenteurer::calculate_old_API(e_wie_steigern &wie, Enums::st_bool_steigern &bool_st)
 { wie=Enums::eUnterweisung;
   bool_st.mitEP=fpanteil>0;
@@ -855,22 +869,19 @@ void Abenteurer::calculate_old_API(e_wie_steigern &wie, Enums::st_bool_steigern 
   bool_st.Spruchrolle= wie_steigern==ws_Spruchrolle;
   bool_st.SpruchrolleAuto=true; // ???
   bool_st.hoch_wie_geht=true;
-  bool_st.pp_verfallen= wie_steigern==ws_NurPraxispunkte;
-  bool_st.aep_fuellen= wie_steigern==ws_PraxispunkteFP;
-  bool_st.neue_sprache_pp= wie_steigern==ws_NurPraxispunkte || wie_steigern==ws_PraxispunkteFP;
-  if (wie_steigern==ws_NurPraxispunkte 
-      || wie_steigern==ws_PraxispunkteFP)
+  bool_st.pp_verfallen= wie_steigern_variante==wsv_NurPraxispunkte;
+  bool_st.aep_fuellen= wie_steigern_variante==wsv_PraxispunkteFP;
+  bool_st.neue_sprache_pp= wie_steigern==ws_Praxispunkte;
+  if (wie_steigern==ws_Praxispunkte)
     wie=Enums::ePraxis;
-  else if (wie_steigern==ws_Unterweisung && fpanteil>100)
+  else if (wie_steigern==ws_Selbststudium)
     wie=Enums::eSelbststudium;
 }
+#endif
 
    // true: funktioniert
 bool Abenteurer::Steigern(MBEmlt &MBE)
-{ e_wie_steigern wie;
-  Enums::st_bool_steigern bool_st(false,false,false,false,false,false,false,false);
-  calculate_old_API(wie,bool_st);
-  return steigere(MBE,wie,bool_st);
+{ return steigere(MBE);
 //  return true;
 }
 
@@ -882,30 +893,24 @@ bool Abenteurer::Erlernen(MBEmlt &MBE)
 
    // false: Fehlgeschlagen
 bool Abenteurer::ReduzierenVerlernen(MBEmlt &MBE, bool &verlernt)
-{ e_wie_steigern wie;
-  Enums::st_bool_steigern bool_st(false,false,false,false,false,false,false,false);
-  calculate_old_API(wie,bool_st);
-  verlernt=false;
+{ verlernt=false;
   if (MBE->Reduzieren(*this))
-    reduziere(MBE,wie,bool_st);
+    reduziere(MBE);
   else if ((*MBE).What()==MidgardBasicElement::WAFFE)
   { // Waffen kann man nicht verlernen
     verlernt=true;
   }
   else if (MBE->Verlernen(*this)) 
-  { verlerne(MBE,wie,bool_st);
+  { verlerne(MBE);
     verlernt=true;
   }
   else return false;
   return true;
 }
 
-bool Abenteurer::steigern_usp(const e_wie_steigern wie,int &kosten,
-                     const e_was_steigern was,
-                     const st_bool_steigern &bool_steigern)
-{ int d=1; 
-         MBEmlt mbe=MBEmlt(&*cH_Fertigkeit("",true));
-         return steigern_usp(wie,kosten,mbe,d,was,bool_steigern);}
-
 bool Abenteurer::SpruchVonSpruchrolleGelernt(const std::string &zauber)
-      {return find(list_Gelernt_von_Spruchrolle.begin(),list_Gelernt_von_Spruchrolle.end(),zauber)!=list_Gelernt_von_Spruchrolle.end() ; }
+{ return find(list_Gelernt_von_Spruchrolle.begin(),list_Gelernt_von_Spruchrolle.end(),zauber)!=list_Gelernt_von_Spruchrolle.end() ; }
+
+bool Abenteurer::sort_universell::operator()(const st_universell &x,const st_universell &y) const
+{ return (*(x.mbe))->Name() < (*(y.mbe))->Name() ;
+}

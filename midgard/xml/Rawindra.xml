@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<MAGUS-data Region="R" Name="Rawindra" Titel="Rawindra - Im Bann der Todesechsen" Copyright="Ludger Fischer und Thomas Kreutz" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="8" MAGUS-Bild="1" CVS="$Revision: 1.18 $">
+<MAGUS-data CVS="$Revision: 1.19 $" Copyright="Ludger Fischer und Thomas Kreutz" MAGUS-Bild="1" MAGUS-Index="8" Maintainer="Malte Thoma" Name="Rawindra" Region="R" Titel="Rawindra - Im Bann der Todesechsen" Version="1.0" offiziell="true">
  <Fertigkeiten>
-  <Fertigkeit Name="Elefanten lenken" Region="R" Lernpunkte="6" Anfangswert="15" Lernkosten="1000" Erfolgswert="10" Attribut="Gw" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Anfangswert="15" Attribut="Gw" Erfolgswert="10" Lernkosten="1000" Lernpunkte="6" MaximalMitUnterweisung="18" Maximalwert="18" Name="Elefanten lenken" Region="R">
    <Standard Typ="Sa"/>
    <Standard Typ="Sr"/>
    <Standard Typ="Sw"/>
@@ -55,22 +55,22 @@
    <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="wHx"/>
    <Voraussetzungen Gw="31" Sb="31"/>
-   <regionaleBesonderheit Herkunft="Minangpahit" Typ="BW" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Minangpahit" Typ="Gl" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Minangpahit" Typ="Hä" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Minangpahit" Typ="Kr" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Minangpahit" Typ="PW" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Minangpahit" Typ="Sö" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="BW" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Gl" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Hä" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Kr" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PW" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Sö" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Minangpahit" Standard="G" Typ="BW"/>
+   <regionaleBesonderheit Herkunft="Minangpahit" Standard="G" Typ="Gl"/>
+   <regionaleBesonderheit Herkunft="Minangpahit" Standard="G" Typ="Hä"/>
+   <regionaleBesonderheit Herkunft="Minangpahit" Standard="G" Typ="Kr"/>
+   <regionaleBesonderheit Herkunft="Minangpahit" Standard="G" Typ="PW"/>
+   <regionaleBesonderheit Herkunft="Minangpahit" Standard="G" Typ="Sö"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="BW"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Gl"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Hä"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Kr"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="PW"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Sö"/>
    <Kosten Wert11="200" Wert12="200" Wert13="500" Wert14="500" Wert15="1000" Wert16="2000" Wert17="4000" Wert18="8000" Wert19="8000" Wert20="8000"/>
    <EP-Typ KEP="true"/>
   </Fertigkeit>
-  <Fertigkeit Name="Askese" Region="R" Lernpunkte="6" Anfangswert="1" Lernkosten="1500" Erfolgswert="1" Attribut="Sb" Berufskategorie="2" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Anfangswert="1" Attribut="Sb" Berufskategorie="2" Erfolgswert="1" Lernkosten="1500" Lernpunkte="6" MaximalMitUnterweisung="18" Maximalwert="18" Name="Askese" Region="R">
    <Grund Typ="Sa"/>
    <Standard Typ="De"/>
    <Standard Typ="Dr"/>
@@ -123,15 +123,15 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
    <Voraussetzungen Sb="61"/>
-   <Lernschema Typ="Sa" Lernpunkte="1" Erfolgswert="1"/>
-   <regionaleBesonderheit Herkunft="Eschar" Typ="ScN" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Eschar" Typ="ScS" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Eschar" Typ="ScW" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Hl" Standard="G"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="1" Typ="Sa"/>
+   <regionaleBesonderheit Herkunft="Eschar" Standard="G" Typ="ScN"/>
+   <regionaleBesonderheit Herkunft="Eschar" Standard="G" Typ="ScS"/>
+   <regionaleBesonderheit Herkunft="Eschar" Standard="G" Typ="ScW"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Hl"/>
    <steigern_wie Fertigkeit="Beidhändiger Kampf"/>
    <EP-Typ ZEP="true"/>
   </Fertigkeit>
-  <Fertigkeit Name="Astrologie" Region="R" Lernpunkte="4" Anfangswert="5" Lernkosten="400" Erfolgswert="4" Attribut="Zt" Berufskategorie="2" Maximalwert="12" MaximalMitUnterweisung="11">
+  <Fertigkeit Anfangswert="5" Attribut="Zt" Berufskategorie="2" Erfolgswert="4" Lernkosten="400" Lernpunkte="4" MaximalMitUnterweisung="11" Maximalwert="12" Name="Astrologie" Region="R">
    <Grund Typ="Ma"/>
    <Grund Typ="PC"/>
    <Grund Typ="PF"/>
@@ -185,13 +185,13 @@
    <Ausnahme Typ="Tr"/>
    <Ausnahme Typ="Wa"/>
    <Ausnahme Typ="Wi"/>
-   <Voraussetzungen In="61" Fertigkeit="Himmelskunde,Rechnen"/>
+   <Voraussetzungen Fertigkeit="Himmelskunde,Rechnen" In="61"/>
    <Voraussetzungen_2 Name="Himmelskunde"/>
    <Voraussetzungen_2 Name="Rechnen"/>
    <steigern_wie Fertigkeit="Wissen"/>
    <EP-Typ ZEP="true"/>
   </Fertigkeit>
-  <Fertigkeit Name="Augensalbe herstellen" Region="R" Anfangswert="15" Lernkosten="200" Erfolgswert="12" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Anfangswert="15" Erfolgswert="12" Lernkosten="200" MaximalMitUnterweisung="18" Maximalwert="18" Name="Augensalbe herstellen" Region="R">
    <Standard Typ="As"/>
    <Standard Typ="BN"/>
    <Standard Typ="BS"/>
@@ -243,14 +243,14 @@
    <Standard Typ="sHx"/>
    <Standard Typ="tBe"/>
    <Standard Typ="wHx"/>
-   <Voraussetzungen Gw="31" Fertigkeit="Alchemie, Thaumaturgie"/>
+   <Voraussetzungen Fertigkeit="Alchemie, Thaumaturgie" Gw="31"/>
    <Voraussetzungen_2 Name="Alchemie"/>
    <Voraussetzungen_2 Name="Thaumaturgie"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Th" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Th"/>
    <steigern_wie Fertigkeit="Wissen"/>
    <EP-Typ ZEP="true"/>
   </Fertigkeit>
-  <Fertigkeit Name="Kampf zu Elefant" Region="R" Lernpunkte="8" Anfangswert="15" Lernkosten="200" Erfolgswert="10" Attribut="Gw" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Anfangswert="15" Attribut="Gw" Erfolgswert="10" Lernkosten="200" Lernpunkte="8" MaximalMitUnterweisung="18" Maximalwert="18" Name="Kampf zu Elefant" Region="R">
    <Standard Typ="Sa"/>
    <Standard Typ="Sr"/>
    <Ausnahme Typ="As"/>
@@ -306,7 +306,7 @@
    <steigern_wie Fertigkeit="Kampf zu Pferd"/>
    <EP-Typ KEP="true"/>
   </Fertigkeit>
-  <Fertigkeit Name="Körperkontrolle" Region="R" Lernpunkte="3" Anfangswert="15" Lernkosten="150" Erfolgswert="12" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Anfangswert="15" Erfolgswert="12" Lernkosten="150" Lernpunkte="3" MaximalMitUnterweisung="18" Maximalwert="18" Name="Körperkontrolle" Region="R">
    <Standard Typ="Sa"/>
    <Standard Typ="Sr"/>
    <Standard Typ="Sw"/>
@@ -358,46 +358,46 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="wHx"/>
-   <Voraussetzungen Ko="61" In="61" Sb="61"/>
-   <Lernschema Typ="Sa" Lernpunkte="1" Erfolgswert="15"/>
-   <Lernschema Typ="Sr" Lernpunkte="2" Erfolgswert="15"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="As" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="BN" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="BS" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="BW" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Ba" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Dr" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Gl" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Hl" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Hä" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Kr" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Ma" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Or" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PC" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PF" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PH" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PK" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PM" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PT" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PW" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PW" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="ScN" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="ScS" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="ScW" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Sp" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Sö" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Th" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Wa" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="dBe" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="eBe" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="gHx" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="sHx" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="sHx" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="wHx" Standard="G"/>
+   <Voraussetzungen In="61" Ko="61" Sb="61"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Typ="Sa"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="2" Typ="Sr"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="As"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="BN"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="BS"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="BW"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Ba"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Dr"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Gl"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Hl"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Hä"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Kr"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Ma"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Or"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="PC"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="PF"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="PH"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="PK"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="PM"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="PT"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="PW"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="PW"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="ScN"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="ScS"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="ScW"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Sp"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Sö"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Wa"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="dBe"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="eBe"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="gHx"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="sHx"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="sHx"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="wHx"/>
    <steigern_wie Fertigkeit="Bewegung"/>
    <EP-Typ ZEP="true"/>
   </Fertigkeit>
-  <Fertigkeit Name="Natya" Region="R" Lernpunkte="7" Lernkosten="100" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Lernkosten="100" Lernpunkte="7" MaximalMitUnterweisung="18" Maximalwert="18" Name="Natya" Region="R">
    <Standard Typ="Ba"/>
    <Standard Typ="Mg"/>
    <Standard Typ="PC"/>
@@ -449,19 +449,19 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="wHx"/>
-   <Voraussetzungen Gw="61" pA="61" Sb="31" Fertigkeit="Tanzen"/>
+   <Voraussetzungen Fertigkeit="Tanzen" Gw="61" Sb="31" pA="61"/>
    <Voraussetzungen_2 Name="Tanzen"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Ba" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PC" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PF" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PH" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PK" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PM" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PW" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Ba"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="PC"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="PF"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="PH"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="PK"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="PM"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="PW"/>
    <steigern_wie Fertigkeit="Bewegung"/>
    <EP-Typ ZEP="true"/>
   </Fertigkeit>
-  <Fertigkeit Name="Schlangen beschwören" Region="R" Lernpunkte="4" Anfangswert="8" Lernkosten="200" Erfolgswert="8" Attribut="Sb" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Anfangswert="8" Attribut="Sb" Erfolgswert="8" Lernkosten="200" Lernpunkte="4" MaximalMitUnterweisung="18" Maximalwert="18" Name="Schlangen beschwören" Region="R">
    <Grund Typ="Kd"/>
    <Grund Typ="Ny"/>
    <Grund Typ="Sa"/>
@@ -513,31 +513,31 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="wHx"/>
-   <Voraussetzungen Gw="61" Sb="31" Fertigkeit="Musizieren"/>
+   <Voraussetzungen Fertigkeit="Musizieren" Gw="61" Sb="31"/>
    <Voraussetzungen_2 Name="Musizieren"/>
-   <Lernschema Typ="Sa" Lernpunkte="1"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Ba" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Dr" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Hl" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Ma" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PC" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PF" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PH" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PK" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PM" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PW" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="ScN" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="ScS" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="ScW" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="dBe" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="eBe" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="gHx" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="sHx" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="wHx" Standard="S"/>
+   <Lernschema Lernpunkte="1" Typ="Sa"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Ba"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Dr"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Hl"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Ma"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="PC"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="PF"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="PH"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="PK"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="PM"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="PW"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="ScN"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="ScS"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="ScW"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="dBe"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="eBe"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="gHx"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="sHx"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="wHx"/>
    <steigern_wie Fertigkeit="Wissen"/>
   </Fertigkeit>
-  <Fertigkeit Name="Schmerzen ertragen" Region="R" Lernpunkte="8" Anfangswert="15" Lernkosten="200" Erfolgswert="12" Attribut="Sb" Berufskategorie="3" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Anfangswert="15" Attribut="Sb" Berufskategorie="3" Erfolgswert="12" Lernkosten="200" Lernpunkte="8" MaximalMitUnterweisung="18" Maximalwert="18" Name="Schmerzen ertragen" Region="R">
    <Grund Typ="Ru"/>
    <Grund Typ="Sa"/>
    <Standard Typ="Sr"/>
@@ -590,43 +590,43 @@
    <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="wHx"/>
    <Voraussetzungen Sb="81"/>
-   <Lernschema Typ="Sa" Lernpunkte="1" Erfolgswert="12"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="As" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="BN" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="BS" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="BW" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Ba" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Ba" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Dr" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Gl" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Hl" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Hä" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Kr" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Ma" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Or" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PC" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PF" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PH" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PK" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PM" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PW" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="ScN" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="ScS" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="ScW" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Se" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Sr" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Sö" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Wa" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="dBe" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="eBe" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="gHx" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="sHx" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="wHx" Standard="S"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="Sa"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="As"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="BN"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="BS"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="BW"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Ba"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Ba"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Dr"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Gl"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Hl"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Hä"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Kr"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Ma"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Or"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="PC"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="PF"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="PH"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="PK"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="PM"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="PW"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="ScN"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="ScS"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="ScW"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Se"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Sr"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Sö"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Wa"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="dBe"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="eBe"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="gHx"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="sHx"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="wHx"/>
    <steigern_wie Fertigkeit="Bewegung"/>
    <EP-Typ ZEP="true"/>
   </Fertigkeit>
-  <Fertigkeit Name="Srimara lenken" Region="R" Lernpunkte="6" Anfangswert="15" Lernkosten="1000" Erfolgswert="12" Attribut="Gw" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Anfangswert="15" Attribut="Gw" Erfolgswert="12" Lernkosten="1000" Lernpunkte="6" MaximalMitUnterweisung="18" Maximalwert="18" Name="Srimara lenken" Region="R">
    <Grund Typ="Sr"/>
    <Standard Typ="Sw"/>
    <Ausnahme Typ="As"/>
@@ -679,10 +679,10 @@
    <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="wHx"/>
    <Voraussetzungen Gw="31" Sb="61"/>
-   <Lernschema Typ="Sr" Lernpunkte="1" Erfolgswert="15"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Kr" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Or" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Sö" Standard="S"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Typ="Sr"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Kr"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Or"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="S" Typ="Sö"/>
    <steigern_wie Fertigkeit="Elefanten lenken"/>
    <EP-Typ KEP="true"/>
   </Fertigkeit>
@@ -737,7 +737,7 @@
   <Fertigkeit Name="Erste Hilfe">
    <Grund Typ="Sa"/>
    <Standard Typ="Sr"/>
-   <Lernschema Typ="Sa" Lernpunkte="2" Erfolgswert="8"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="Sa"/>
   </Fertigkeit>
   <Fertigkeit Name="Erzählen">
    <Standard Typ="Sr"/>
@@ -818,7 +818,7 @@
   <Fertigkeit Name="Kampf in Vollrüstung">
    <Standard Typ="Sa"/>
    <Standard Typ="Sr"/>
-   <Lernschema Typ="Sr" Lernpunkte="4" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="4" Typ="Sr"/>
   </Fertigkeit>
   <Fertigkeit Name="Kampf vom Streitwagen">
    <Standard Typ="Sr"/>
@@ -831,7 +831,7 @@
   <Fertigkeit Name="Kampftaktik">
    <Grund Typ="Sa"/>
    <Standard Typ="Sr"/>
-   <Lernschema Typ="Sr" Lernpunkte="2" Erfolgswert="8"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="Sr"/>
   </Fertigkeit>
   <Fertigkeit Name="Katapult bedienen">
    <Standard Typ="Sr"/>
@@ -844,7 +844,7 @@
   <Fertigkeit Name="Kräuterkunde">
    <Grund Typ="Sa"/>
    <Standard Typ="Sr"/>
-   <Lernschema Typ="Sa" Lernpunkte="2" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="2" Typ="Sa"/>
   </Fertigkeit>
   <Fertigkeit Name="Landeskunde">
    <Standard Typ="Sa"/>
@@ -857,7 +857,7 @@
   <Fertigkeit Name="Lesen von Zauberschrift">
    <Standard Typ="Sa"/>
    <Ausnahme Typ="Sr"/>
-   <Lernschema Typ="Sa" Lernpunkte="2" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="2" Typ="Sa"/>
   </Fertigkeit>
   <Fertigkeit Name="Lippenlesen">
    <Standard Typ="Sa"/>
@@ -866,31 +866,31 @@
   <Fertigkeit Name="Meditieren">
    <Grund Typ="Sa"/>
    <Grund Typ="Sr"/>
-   <Lernschema Typ="Sa" Lernpunkte="1" Erfolgswert="8"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Ba" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Dr" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Hl" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Ma" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PC" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PF" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PH" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PK" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PM" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="PW" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="ScN" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="ScS" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="ScW" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="Th" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="dBe" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="eBe" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="gHx" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="sHx" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="wHx" Standard="G"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="1" Typ="Sa"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Ba"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Dr"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Hl"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Ma"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="PC"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="PF"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="PH"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="PK"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="PM"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="PW"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="ScN"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="ScS"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="ScW"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="dBe"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="eBe"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="gHx"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="sHx"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="wHx"/>
   </Fertigkeit>
   <Fertigkeit Name="Menschenkenntnis">
    <Standard Typ="Sa"/>
    <Standard Typ="Sr"/>
-   <Lernschema Typ="Sa" Lernpunkte="2" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="2" Typ="Sa"/>
   </Fertigkeit>
   <Fertigkeit Name="Meucheln">
    <Standard Typ="Sr"/>
@@ -899,17 +899,17 @@
   <Fertigkeit Name="Musizieren">
    <Grund Typ="Sa"/>
    <Standard Typ="Sr"/>
-   <Lernschema Typ="Sa" Lernpunkte="2" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="2" Typ="Sa"/>
   </Fertigkeit>
   <Fertigkeit Name="Naturkunde">
    <Grund Typ="Sa"/>
    <Standard Typ="Sr"/>
-   <Lernschema Typ="Sa" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Sa"/>
   </Fertigkeit>
   <Fertigkeit Name="Pflanzenkunde">
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
-   <Lernschema Typ="Sa" Lernpunkte="2" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="2" Typ="Sa"/>
   </Fertigkeit>
   <Fertigkeit Name="Rechnen">
    <Standard Typ="Sr"/>
@@ -918,7 +918,7 @@
   <Fertigkeit Name="Reiten">
    <Grund Typ="Sa"/>
    <Ausnahme Typ="Sr"/>
-   <Lernschema Typ="Sr" Lernpunkte="2" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="2" Typ="Sr"/>
   </Fertigkeit>
   <Fertigkeit Name="Rudern">
    <Standard Typ="Sa"/>
@@ -927,7 +927,7 @@
   <Fertigkeit Name="Sagenkunde">
    <Grund Typ="Sa"/>
    <Standard Typ="Sr"/>
-   <Lernschema Typ="Sa" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Sa"/>
   </Fertigkeit>
   <Fertigkeit Name="Scharfschie�&#x9F;en">
    <Standard Typ="Sa"/>
@@ -962,8 +962,8 @@
    <Standard Typ="Sr"/>
   </Fertigkeit>
   <Fertigkeit Name="Schreiben: Muttersprache(+12)">
-   <Lernschema Typ="Sr" Lernpunkte="1" Erfolgswert="12"/>
-   <Lernschema Typ="Sa" Lernpunkte="2" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="Sr"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="2" Typ="Sa"/>
   </Fertigkeit>
   <Fertigkeit Name="Schwimmen">
    <Grund Typ="Sa"/>
@@ -1039,7 +1039,7 @@
   <Fertigkeit Name="Tierkunde">
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
-   <Lernschema Typ="Sa" Lernpunkte="2" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="2" Typ="Sa"/>
   </Fertigkeit>
   <Fertigkeit Name="Trinken">
    <Standard Typ="Sa"/>
@@ -1068,7 +1068,7 @@
   <Fertigkeit Name="Wahrnehmung">
    <Standard Typ="Sa"/>
    <Standard Typ="Sr"/>
-   <Lernschema Typ="Sa" Lernpunkte="2" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="2" Typ="Sa"/>
   </Fertigkeit>
   <Fertigkeit Name="Winden">
    <Grund Typ="Sa"/>
@@ -1266,8 +1266,8 @@
    <Standard Typ="Sr"/>
   </Fertigkeit>
   <Fertigkeit Name="Schreiben: Muttersprache(+12)">
-   <Lernschema Typ="Sr" Lernpunkte="1" Erfolgswert="12"/>
-   <Lernschema Typ="Sa" Lernpunkte="2" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="Sr"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="2" Typ="Sa"/>
   </Fertigkeit>
  </Fertigkeiten>
  <Berufe>
@@ -1299,13 +1299,13 @@
  <Schriften/>
  <Sprachen/>
  <Typen>
-  <Typ Abkürzung="Sa" Region="R" MAGUS-Index="39" Bezeichnung-Mann="Saddhu" Bezeichnung-Frau="Saddhu" Zauberer="true" kannZaubern="true" Ausdauer="z">
-   <Modifikation Rüstung="4" Geld="1"/>
+  <Typ Abkürzung="Sa" Ausdauer="z" Bezeichnung-Frau="Saddhu" Bezeichnung-Mann="Saddhu" MAGUS-Index="39" Region="R" Zauberer="true" kannZaubern="true">
+   <Modifikation Geld="1" Rüstung="4"/>
    <Herkunft Land="Rawindra"/>
    <Gruppe Name="ZAU"/>
   </Typ>
-  <Typ Abkürzung="Sr" Region="R" MAGUS-Index="40" Bezeichnung-Mann="Srikumara" Bezeichnung-Frau="Srikumara" kannZaubern="true" Ausdauer="ak">
-   <Modifikation Rüstung="3" Geld="1"/>
+  <Typ Abkürzung="Sr" Ausdauer="ak" Bezeichnung-Frau="Srikumara" Bezeichnung-Mann="Srikumara" MAGUS-Index="40" Region="R" kannZaubern="true">
+   <Modifikation Geld="1" Rüstung="3"/>
    <Herkunft Land="Rawindra"/>
    <Gruppe Name="GK�&#x84;M"/>
    <Gruppe Name="K�&#x84;M"/>
@@ -1313,21 +1313,21 @@
   </Typ>
  </Typen>
  <Rüstungen>
-  <Rüstung Name="Sritrahaut" Region="R" Abkürzung="TR(R)" schütztLP="1">
-   <Verlust Vollrüstung="2" BehinderungWie="TR"/>
+  <Rüstung Abkürzung="TR(R)" Name="Sritrahaut" Region="R" schütztLP="1">
+   <Verlust BehinderungWie="TR" Vollrüstung="2"/>
   </Rüstung>
-  <Rüstung Name="Dhunaka" Region="R" Abkürzung="KR(R)" schütztLP="3">
+  <Rüstung Abkürzung="KR(R)" Name="Dhunaka" Region="R" schütztLP="3">
    <Verlust BehinderungWie="LR"/>
   </Rüstung>
-  <Rüstung Name="Tschahaatha" Region="R" Abkürzung="PR(R)" schütztLP="4">
+  <Rüstung Abkürzung="PR(R)" Name="Tschahaatha" Region="R" schütztLP="4">
    <Verlust B="4" BehinderungWie="KR"/>
   </Rüstung>
-  <Rüstung Name="Tschahaatha(VR)" Region="R" Abkürzung="VR(R)" schütztLP="5">
-   <Verlust B="8" Vollrüstung="2" BehinderungWie="PR"/>
+  <Rüstung Abkürzung="VR(R)" Name="Tschahaatha(VR)" Region="R" schütztLP="5">
+   <Verlust B="8" BehinderungWie="PR" Vollrüstung="2"/>
   </Rüstung>
  </Rüstungen>
  <Waffen>
-  <Waffe Name="Namisritra" Region="R" Grundkenntnisse="Namisritra" Schwierigkeit="2" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus="-1" Schadensbonus2="-1" erfordert="waffenloser Kampf">
+  <Waffe Grundkenntnisse="Namisritra" Kategorie="Angriff" Klasse="E" Name="Namisritra" Region="R" Schaden="W6" Schadensbonus="-1" Schadensbonus2="-1" Schwierigkeit="2" erfordert="waffenloser Kampf">
    <Modifikationen/>
    <Voraussetzungen/>
    <Reichweite/>
@@ -1390,7 +1390,7 @@
    <regionaleVariante Name="Hamschar" Region="R" Schaden="W6" Schadensbonus="1" St="31"/>
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
-   <Lernschema Typ="Sr" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Sr"/>
   </Waffe>
   <Waffe Name="Bihänder">
    <Standard Typ="Sr"/>
@@ -1411,7 +1411,7 @@
   <Waffe Name="Buckler">
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
-   <Lernschema Typ="Sr" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Sr"/>
   </Waffe>
   <Waffe Name="Dolch">
    <regionaleVariante Name="Katar" Region="R" Schaden="W6" Schadensbonus="-1"/>
@@ -1420,7 +1420,7 @@
    </regionaleVariante>
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
-   <Lernschema Typ="Sr" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Sr"/>
   </Waffe>
   <Waffe Name="Faustkampf">
    <Standard Typ="Sr"/>
@@ -1446,7 +1446,7 @@
    <regionaleVariante Name="Ankusch" Region="R" Schaden="W6" St="11"/>
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
-   <Lernschema Typ="Sr" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Sr"/>
   </Waffe>
   <Waffe Name="Hellebarde">
    <Standard Typ="Sr"/>
@@ -1459,12 +1459,12 @@
   <Waffe Name="Kampfstab">
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
-   <Lernschema Typ="Sa" Lernpunkte="2" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="2" Typ="Sa"/>
   </Waffe>
   <Waffe Name="Keule">
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
-   <Lernschema Typ="Sr" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Sr"/>
   </Waffe>
   <Waffe Name="Kharrata">
    <Standard Typ="Sr"/>
@@ -1483,12 +1483,12 @@
    <Ausnahme Typ="Sa"/>
   </Waffe>
   <Waffe Name="Krummsäbel">
-   <regionaleVariante Name="Ma`khirr" Region="R" Schaden="W6" Schadensbonus="1" St="31"/>
+   <regionaleVariante Name="Ma&#x60;khirr" Region="R" Schaden="W6" Schadensbonus="1" St="31"/>
    <regionaleVariante Name="Schimschar" Region="R" Schaden="W6(+2)" St="31"/>
    <regionaleVariante Name="Szimitar" Region="R" Schaden="W6(+2)" St="31"/>
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
-   <Lernschema Typ="Sr" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Sr"/>
   </Waffe>
   <Waffe Name="Kurzbogen">
    <Standard Typ="Sr"/>
@@ -1498,7 +1498,7 @@
    <regionaleVariante Name="Patawar" Region="R" Schaden="W6(+2)"/>
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
-   <Lernschema Typ="Sr" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Sr"/>
   </Waffe>
   <Waffe Name="Langbogen">
    <regionaleVariante Name="Aginkha (Pfeil)" Region="R" Schaden="2W6" Schadensbonus="-2" St="61">
@@ -1506,18 +1506,18 @@
    </regionaleVariante>
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
-   <Lernschema Typ="Sr" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Sr"/>
   </Waffe>
   <Waffe Name="Langschwert">
    <regionaleVariante Name="Aschwapatawar" Region="R" Schaden="W6" Schadensbonus="1" St="31"/>
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
-   <Lernschema Typ="Sr" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Sr"/>
   </Waffe>
   <Waffe Name="Lanze">
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
-   <Lernschema Typ="Sr" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Sr"/>
   </Waffe>
   <Waffe Name="Lasso">
    <Standard Typ="Sr"/>
@@ -1571,7 +1571,7 @@
   <Waffe Name="Stabkeule">
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
-   <Lernschema Typ="Sr" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Sr"/>
   </Waffe>
   <Waffe Name="Stielhammer">
    <Standard Typ="Sr"/>
@@ -1589,7 +1589,7 @@
    <regionaleVariante Name="Sanghala" Region="R" Schaden="W6" Schadensbonus="1" St="61"/>
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
-   <Lernschema Typ="Sr" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Sr"/>
   </Waffe>
   <Waffe Name="Streitkolben">
    <Standard Typ="Sr"/>
@@ -1656,7 +1656,7 @@
   <Waffe Name="leichter Speer">
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
-   <Lernschema Typ="Sr" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Sr"/>
   </Waffe>
   <Waffe Name="schwere Armbrust">
    <Standard Typ="Sr"/>
@@ -1665,7 +1665,7 @@
   <Waffe Name="waffenloser Kampf">
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
-   <Lernschema Typ="Sa" Lernpunkte="2" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="2" Typ="Sa"/>
   </Waffe>
   <Waffe Name="Pilum" Region="3">
    <Standard Typ="Sr"/>
@@ -1717,7 +1717,7 @@
   </Waffe>
  </Waffen>
  <Waffen-Grundkenntnisse>
-  <Waffen-Grundkenntnis Name="Kharrata" Region="R" Kosten="200">
+  <Waffen-Grundkenntnis Kosten="200" Name="Kharrata" Region="R">
    <Grund Typ="As"/>
    <Standard Typ="BN"/>
    <Standard Typ="BS"/>
@@ -1771,7 +1771,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Waffen-Grundkenntnis>
-  <Waffen-Grundkenntnis Name="Namisritra" Region="R" Kosten="200">
+  <Waffen-Grundkenntnis Kosten="200" Name="Namisritra" Region="R">
    <Grund Typ="As"/>
    <Standard Typ="BN"/>
    <Standard Typ="BS"/>
@@ -1930,16 +1930,16 @@
   </Waffen-Grundkenntnis>
  </Waffen-Grundkenntnisse>
  <Zauber>
-  <Spruch Name="Binden von Srimara" Region="R" Grad="4" Lernkosten="2000" AP="alle" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="6 h" Reichweite="B" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="-" Material="Srimaraschuppe der entsprechenden Rasse">
+  <Spruch AP="alle" Agens="Luft" Grad="4" Lernkosten="2000" Material="Srimaraschuppe der entsprechenden Rasse" Name="Binden von Srimara" Prozess="beherrscht" Reagens="Wasser" Region="R" Reichweite="B" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="-" Wirkungsziel="Geist" Zauberdauer="6 h">
    <Standard Typ="Sr"/>
    <Standard Typ="Tm"/>
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="ScN"/>
    <Ausnahme Typ="ScS"/>
    <Ausnahme Typ="ScW"/>
-   <Lernschema Typ="Sr" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="Sr"/>
   </Spruch>
-  <Spruch Name="Der gro�&#x9F;e Seiltrick" Region="R" Grad="5" Lernkosten="6000" AP="6" Typ="Geste" Ursprung="göttlich" Agens="Magan" Prozess="bewegt" Reagens="Erde" Zauberdauer="-" Reichweite="0 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h">
+  <Spruch AP="6" Agens="Magan" Grad="5" Lernkosten="6000" Name="Der gro�&#x9F;e Seiltrick" Prozess="bewegt" Reagens="Erde" Region="R" Reichweite="0 m" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h" Wirkungsziel="Umgebung" Zauberdauer="-">
    <Grund Typ="Ba"/>
    <Grund Typ="Sa"/>
    <Standard Typ="To"/>
@@ -1950,7 +1950,7 @@
    <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
   </Spruch>
-  <Spruch Name="Der kleine Seiltrick" Region="R" Grad="4" Lernkosten="1600" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Magan" Prozess="bewegt" Reagens="Erde" Zauberdauer="-" Reichweite="500 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="5 min">
+  <Spruch AP="4" Agens="Magan" Grad="4" Lernkosten="1600" Name="Der kleine Seiltrick" Prozess="bewegt" Reagens="Erde" Region="R" Reichweite="500 m" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="5 min" Wirkungsziel="Umgebung" Zauberdauer="-">
    <Grund Typ="Ba"/>
    <Grund Typ="Sa"/>
    <Standard Typ="To"/>
@@ -1961,11 +1961,11 @@
    <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
   </Spruch>
-  <Spruch Name="Götterarme" Region="R" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Holz" Prozess="verändert" Reagens="Erde" Zauberdauer="10 s" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="Z" Wirkungsdauer="10 min">
+  <Spruch AP="4" Agens="Holz" Grad="4" Lernkosten="1500" Name="Götterarme" Prozess="verändert" Reagens="Erde" Region="R" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="Z" Wirkungsdauer="10 min" Wirkungsziel="Körper" Zauberdauer="10 s">
    <Standard Typ="Sa"/>
    <Ausnahme Typ="Hl"/>
   </Spruch>
-  <Spruch Name="Levitation" Region="R" Grad="4" Lernkosten="1500" AP="4" Typ="Gedanke" Ursprung="göttlich" Agens="Luft" Prozess="bewegt" Reagens="Erde" Zauberdauer="20 s" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="Z" Wirkungsdauer="30 min">
+  <Spruch AP="4" Agens="Luft" Grad="4" Lernkosten="1500" Name="Levitation" Prozess="bewegt" Reagens="Erde" Region="R" Reichweite="-" Typ="Gedanke" Ursprung="göttlich" Wirkungsbereich="Z" Wirkungsdauer="30 min" Wirkungsziel="Körper" Zauberdauer="20 s">
    <Grund Typ="Sa"/>
    <Standard Typ="De"/>
    <Standard Typ="Dr"/>
@@ -1994,9 +1994,9 @@
    <Standard Typ="sHx"/>
    <Standard Typ="tBe"/>
    <Standard Typ="wHx"/>
-   <Lernschema Typ="Sa" Lernpunkte="8"/>
+   <Lernschema Lernpunkte="8" Typ="Sa"/>
   </Spruch>
-  <Spruch Name="Paschuyana, der Weg des Tieres" Region="R" Grad="5" Lernkosten="5000" AP="6" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="bewegt" Reagens="Luft" Zauberdauer="30 min" Reichweite="B" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="-">
+  <Spruch AP="6" Agens="Luft" Grad="5" Lernkosten="5000" Name="Paschuyana, der Weg des Tieres" Prozess="bewegt" Reagens="Luft" Region="R" Reichweite="B" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="-" Wirkungsziel="Geist" Zauberdauer="30 min">
    <Standard Typ="De"/>
    <Standard Typ="Dt"/>
    <Standard Typ="PW"/>
@@ -2011,9 +2011,9 @@
    <Ausnahme Typ="PK"/>
    <Ausnahme Typ="PM"/>
    <Ausnahme Typ="PT"/>
-   <regionaleBesonderheit Herkunft="Rawindra" Typ="pw" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Rawindra" Standard="G" Typ="pw"/>
   </Spruch>
-  <Spruch Name="Rückführung" Region="R" Grad="4" Lernkosten="1800" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Magan" Prozess="erkennt" Reagens="Luft" Zauberdauer="10 min" Reichweite="B" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="2 h">
+  <Spruch AP="4" Agens="Magan" Grad="4" Lernkosten="1800" Name="Rückführung" Prozess="erkennt" Reagens="Luft" Region="R" Reichweite="B" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="2 h" Wirkungsziel="Geist" Zauberdauer="10 min">
    <Grund Typ="Sa"/>
    <Standard Typ="De"/>
    <Standard Typ="Hl"/>
@@ -2031,7 +2031,7 @@
    <Ausnahme Typ="PM"/>
    <Ausnahme Typ="PW"/>
   </Spruch>
-  <Spruch Name="Seele finden" Region="R" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="erkennt" Reagens="Luft" Zauberdauer="1 min" Reichweite="-" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Material="Haare des Toten">
+  <Spruch AP="3" Agens="Luft" Grad="3" Lernkosten="600" Material="Haare des Toten" Name="Seele finden" Prozess="erkennt" Reagens="Luft" Region="R" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Wirkungsziel="Geist" Zauberdauer="1 min">
    <Grund Typ="Dt"/>
    <Grund Typ="Hl"/>
    <Grund Typ="PC"/>
@@ -2048,7 +2048,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Srimarameisterschaft I" Region="R" Grad="2" Lernkosten="400" AP="SGr*2" Typ="Wort" Ursprung="dämonisch" Agens="Magan" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="10 s" Reichweite="30 m" Wirkungsziel="Geist" Wirkungsbereich="Gr Ws" Wirkungsdauer="var h" Thaumagramm="Siegel">
+  <Spruch AP="SGr*2" Agens="Magan" Grad="2" Lernkosten="400" Name="Srimarameisterschaft I" Prozess="beherrscht" Reagens="Wasser" Region="R" Reichweite="30 m" Thaumagramm="Siegel" Typ="Wort" Ursprung="dämonisch" Wirkungsbereich="Gr Ws" Wirkungsdauer="var h" Wirkungsziel="Geist" Zauberdauer="10 s">
    <Grund Typ="Sr"/>
    <Standard Typ="Dr"/>
    <Standard Typ="Hl"/>
@@ -2060,7 +2060,7 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Srimarameisterschaft II" Region="R" Grad="3" Lernkosten="600" AP="SGr*3" Typ="Wort" Ursprung="dämonisch" Agens="Magan" Prozess="beherrscht" Reagens="Luft" Zauberdauer="20 s" Reichweite="30 m" Wirkungsziel="Geist" Wirkungsbereich="Gr Ws" Wirkungsdauer="var" Thaumagramm="Siegel">
+  <Spruch AP="SGr*3" Agens="Magan" Grad="3" Lernkosten="600" Name="Srimarameisterschaft II" Prozess="beherrscht" Reagens="Luft" Region="R" Reichweite="30 m" Thaumagramm="Siegel" Typ="Wort" Ursprung="dämonisch" Wirkungsbereich="Gr Ws" Wirkungsdauer="var" Wirkungsziel="Geist" Zauberdauer="20 s">
    <Grund Typ="Sr"/>
    <Standard Typ="Dr"/>
    <Standard Typ="Hl"/>
@@ -2072,7 +2072,7 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Wandlung" Region="R" Grad="6" Lernkosten="6000" AP="18" Typ="Gedanke" Ursprung="elementar" Agens="Element" Prozess="verwandelt" Reagens="Erde" Zauberdauer="10 sec" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="Z" Wirkungsdauer="6 h">
+  <Spruch AP="18" Agens="Element" Grad="6" Lernkosten="6000" Name="Wandlung" Prozess="verwandelt" Reagens="Erde" Region="R" Reichweite="-" Typ="Gedanke" Ursprung="elementar" Wirkungsbereich="Z" Wirkungsdauer="6 h" Wirkungsziel="Körper" Zauberdauer="10 sec">
    <Grund Typ="Sa"/>
    <Standard Typ="Hl"/>
   </Spruch>
@@ -2320,7 +2320,7 @@
   </Spruch>
   <Spruch Name="Goldener Panzer">
    <Grund Typ="Sr"/>
-   <Lernschema Typ="Sr" Lernpunkte="8"/>
+   <Lernschema Lernpunkte="8" Typ="Sr"/>
   </Spruch>
   <Spruch Name="Graue Hand">
    <Standard Typ="Sa"/>
@@ -2340,7 +2340,7 @@
   </Spruch>
   <Spruch Name="Göttlicher Schutz vor Magie">
    <Grund Typ="Sr"/>
-   <Lernschema Typ="Sr" Lernpunkte="8"/>
+   <Lernschema Lernpunkte="8" Typ="Sr"/>
   </Spruch>
   <Spruch Name="Göttlicher Schutz vor dem Bösen">
    <Grund Typ="Sr"/>
@@ -2363,7 +2363,7 @@
   </Spruch>
   <Spruch Name="Heiliger Zorn">
    <Grund Typ="Sr"/>
-   <Lernschema Typ="Sr" Lernpunkte="4"/>
+   <Lernschema Lernpunkte="4" Typ="Sr"/>
   </Spruch>
   <Spruch Name="Heiliges Wort">
    <Grund Typ="Sr"/>
@@ -2378,7 +2378,7 @@
   </Spruch>
   <Spruch Name="Hitzeschutz">
    <Grund Typ="Sa"/>
-   <Lernschema Typ="Sa" Lernpunkte="1"/>
+   <Lernschema Lernpunkte="1" Typ="Sa"/>
   </Spruch>
   <Spruch Name="Hitzsalz">
    <Ausnahme Typ="Sa"/>
@@ -2413,7 +2413,7 @@
   </Spruch>
   <Spruch Name="Kälteschutz">
    <Grund Typ="Sa"/>
-   <Lernschema Typ="Sa" Lernpunkte="1"/>
+   <Lernschema Lernpunkte="1" Typ="Sa"/>
   </Spruch>
   <Spruch Name="Kühlsalz">
    <Ausnahme Typ="Sa"/>
@@ -2445,7 +2445,7 @@
   </Spruch>
   <Spruch Name="Macht über Unbelebtes">
    <Grund Typ="Sa"/>
-   <Lernschema Typ="Sa" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="Sa"/>
   </Spruch>
   <Spruch Name="Macht über das Selbst">
    <Standard Typ="Sr"/>
@@ -2455,7 +2455,7 @@
   </Spruch>
   <Spruch Name="Macht über die Sinne">
    <Grund Typ="Sa"/>
-   <Lernschema Typ="Sa" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="Sa"/>
   </Spruch>
   <Spruch Name="Macht über die belebte Natur">
    <Standard Typ="Sa"/>
@@ -2567,7 +2567,7 @@
   <Spruch Name="Segnen">
    <Grund Typ="Sa"/>
    <Grund Typ="Sr"/>
-   <Lernschema Typ="Sa" Lernpunkte="3"/>
+   <Lernschema Lernpunkte="3" Typ="Sa"/>
   </Spruch>
   <Spruch Name="Sehen in Dunkelheit">
    <Ausnahme Typ="Sa"/>
@@ -2659,7 +2659,7 @@
   <Spruch Name="Verfluchen">
    <Grund Typ="Sa"/>
    <Grund Typ="Sr"/>
-   <Lernschema Typ="Sa" Lernpunkte="3"/>
+   <Lernschema Lernpunkte="3" Typ="Sa"/>
   </Spruch>
   <Spruch Name="Vergiften">
    <Standard Typ="Sa"/>
@@ -2690,7 +2690,7 @@
   </Spruch>
   <Spruch Name="Verursachen von Krankheit">
    <Standard Typ="Sa"/>
-   <Lernschema Typ="Sa" Lernpunkte="4"/>
+   <Lernschema Lernpunkte="4" Typ="Sa"/>
   </Spruch>
   <Spruch Name="Verursachen von Wunden">
    <Standard Typ="Sa"/>
@@ -2706,7 +2706,7 @@
   </Spruch>
   <Spruch Name="Vision">
    <Grund Typ="Sa"/>
-   <Lernschema Typ="Sa" Lernpunkte="3"/>
+   <Lernschema Lernpunkte="3" Typ="Sa"/>
   </Spruch>
   <Spruch Name="Wachsen">
    <Standard Typ="Sa"/>

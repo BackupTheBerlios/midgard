@@ -1,4 +1,4 @@
-// $Id: Enums.hh,v 1.6 2004/11/24 10:44:49 christof Exp $               
+// $Id: Enums.hh,v 1.7 2004/11/29 13:54:22 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -29,18 +29,6 @@ namespace Enums
    // Vielleicht doch besser in spezielles MBEmlt
    enum e_was_steigern{eMBEm,eAusdauer,eAbwehr,eZaubern,eResistenz};
 
-   // <deprecated> diese Definitionen sind in Abenteurer.hh sinnvoller realisiert
-   enum e_wie_steigern{eUnterweisung,eSelbststudium,ePraxis};
-   struct st_bool_steigern{bool mitEP;bool HausG1;bool Spruchrolle; bool
-                        SpruchrolleAuto;
-                        bool hoch_wie_geht; bool pp_verfallen; bool aep_fuellen;
-                        bool neue_sprache_pp;
-          st_bool_steigern(bool m,bool H,bool S,bool Sa,bool h,bool v,bool a,bool n)
-              : mitEP(m),HausG1(H),Spruchrolle(S),SpruchrolleAuto(Sa),
-                  hoch_wie_geht(h),
-                  pp_verfallen(v),aep_fuellen(a),neue_sprache_pp(n)
-                  {}
-                    };
    // </deprecated>
    enum MBEListen {sFert,sWaff,sZaub,sSpra,sSchr,sWGru,sZWerk,sKiDo};
 

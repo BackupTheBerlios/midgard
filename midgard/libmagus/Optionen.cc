@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.13 2004/08/30 13:17:56 christof Exp $
+// $Id: Optionen.cc,v 1.14 2004/11/29 13:54:23 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -49,6 +49,10 @@ Optionen::st_Haus &Optionen::HausregelCheck(HausIndex hi)
    if(i->index==hi) return *i;
  assert(!"HausregelCheck: nicht gefunden");
  abort();
+}
+
+const Optionen::st_Haus &Optionen::HausregelCheck(HausIndex hi) const
+{ return const_cast<Optionen*>(this)->HausregelCheck(hi);
 }
 
 void Optionen::setOptionCheck(std::string os,bool b)

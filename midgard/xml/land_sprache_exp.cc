@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.64 2003/09/01 06:47:59 christof Exp $
+// $Id: land_sprache_exp.cc,v 1.65 2004/11/29 13:54:25 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -27,7 +27,7 @@ void land_speichern(Tag &o)
    FetchIStream is;
 
   if (region.empty())
-  {Tag &Laender=o.push_back(Tag("Länder"));
+  {Tag &Laender=o.push_back(Tag("LÃ¤nder"));
   {Query query("select distinct kontinent from land"
    	" order by kontinent");
   while ((query>>is).good())
@@ -137,16 +137,16 @@ void land_speichern(Tag &o)
    fetch_and_set_int_attrib(is, Spezies, "HandBonus");
    fetch_and_set_int_attrib(is, Spezies, "RaufenBonus");
    fetch_and_set_int_attrib(is, Spezies.push_back(Tag("Alter")), "Faktor");
-   Tag &Groesse=Spezies.push_back(Tag("Größe"));
-   fetch_and_set_int_attrib(is, Groesse, "AnzahlWürfel");
-   fetch_and_set_int_attrib(is, Groesse, "Würfel");
+   Tag &Groesse=Spezies.push_back(Tag("GrÃ¶ÃŸe"));
+   fetch_and_set_int_attrib(is, Groesse, "AnzahlWÃ¼rfel");
+   fetch_and_set_int_attrib(is, Groesse, "WÃ¼rfel");
    fetch_and_set_int_attrib(is, Groesse, "Addiere");
    Tag &Gewicht=Spezies.push_back(Tag("Gewicht"));
-   fetch_and_set_int_attrib(is, Gewicht, "AnzahlWürfel");
+   fetch_and_set_int_attrib(is, Gewicht, "AnzahlWÃ¼rfel");
    fetch_and_set_int_attrib(is, Gewicht, "Addiere");
    fetch_and_set_int_attrib(is, Spezies.push_back(Tag("Normgestalt")), "Wert");
    Tag &Bewegungsweite=Spezies.push_back(Tag("Bewegungsweite"));
-   fetch_and_set_int_attrib(is, Bewegungsweite, "AnzahlWürfel");
+   fetch_and_set_int_attrib(is, Bewegungsweite, "AnzahlWÃ¼rfel");
    fetch_and_set_int_attrib(is, Bewegungsweite, "Addiere");
    Tag &Modifikation=Spezies.push_back(Tag("Modifikation"));
    fetch_and_set_int_attrib(is, Modifikation, "LP_Bonus");
@@ -242,7 +242,7 @@ void land_speichern(Tag &o)
    	" order by typnr,coalesce(region,''),typs");
   while ((query>>is).good())
   {Tag &Typ=Typen.push_back(Tag("Typ"));
-   std::string typ=fetch_and_set_string_attrib(is, Typ, "Abkürzung");
+   std::string typ=fetch_and_set_string_attrib(is, Typ, "AbkÃ¼rzung");
    fetch_and_set_string_attrib(is, Typ, "Region");
    fetch_and_set_int_attrib(is, Typ, "MAGUS-Index");
    fetch_and_set_string_attrib(is, Typ, "Bezeichnung-Mann");
@@ -250,7 +250,7 @@ void land_speichern(Tag &o)
    char zauberer=fetch_string(is,"n")[0];
    if (zauberer=='z') Typ.setBoolAttr("Zauberer",zauberer=='z');
    if (zauberer=='z'||zauberer=='j') Typ.setBoolAttr("kannZaubern",zauberer=='z'||zauberer=='j');
-   fetch_and_set_string_attrib(is, Typ, "SprücheMitPraxisPunkten");
+   fetch_and_set_string_attrib(is, Typ, "SprÃ¼cheMitPraxisPunkten");
    fetch_and_set_bool_attrib(is, Typ, "NSC_only");
    fetch_and_set_bool_attrib(is, Typ, "Kultwaffe");
    fetch_and_set_string_attrib(is, Typ, "Lernpflichten");
@@ -268,7 +268,7 @@ void land_speichern(Tag &o)
    Tag &Mod=Typ.push_back(Tag("Modifikation"));
    fetch_and_set_int_attrib(is, Mod, "Stand");
    fetch_and_set_int_attrib(is, Mod, "Sb");
-   fetch_and_set_int_attrib(is, Mod, "Rüstung");
+   fetch_and_set_int_attrib(is, Mod, "RÃ¼stung");
    fetch_and_set_int_attrib(is, Mod, "Geld");
    { 
      Query query1("select land,kultwaffe from typen_herkunft where typ='"+typ+"'"
@@ -303,7 +303,7 @@ void land_speichern(Tag &o)
       fetch_and_set_string_attrib(is, Dinge, "Ware");
       fetch_and_set_string_attrib(is, Dinge, "Gewicht");
       fetch_and_set_float_attrib(is, Dinge, "Preis");
-      fetch_and_set_string_attrib(is, Dinge, "Währung");
+      fetch_and_set_string_attrib(is, Dinge, "WÃ¤hrung");
     }
    Query query1a("select 'Waffen', '', name, gewicht, kosten_gs, 'GS',region from waffen"
                " where (grundkenntnisse !='Kampf ohne Waffen' "
@@ -316,7 +316,7 @@ void land_speichern(Tag &o)
       fetch_and_set_string_attrib(is, Dinge, "Ware");
       fetch_and_set_string_attrib(is, Dinge, "Gewicht");
       fetch_and_set_float_attrib(is, Dinge, "Preis");
-      fetch_and_set_string_attrib(is, Dinge, "Währung");
+      fetch_and_set_string_attrib(is, Dinge, "WÃ¤hrung");
       fetch_and_set_string_attrib(is, Dinge, "Region");
     }
    Query query1b("select 'Waffen', '', alias, gewicht, "
@@ -333,12 +333,12 @@ void land_speichern(Tag &o)
       fetch_and_set_string_attrib(is, Dinge, "Ware");
       fetch_and_set_string_attrib(is, Dinge, "Gewicht");
       fetch_and_set_float_attrib(is, Dinge, "Preis");
-      fetch_and_set_string_attrib(is, Dinge, "Währung");
+      fetch_and_set_string_attrib(is, Dinge, "WÃ¤hrung");
       fetch_and_set_string_attrib(is, Dinge, "Region");
     }
-   Query query1c("select 'Rüstung', '', ruestung, gewicht, kosten_gs, 'GS',region,'true' "
+   Query query1c("select 'RÃ¼stung', '', ruestung, gewicht, kosten_gs, 'GS',region,'true' "
                " from ruestung "
-               " where ruestung !='Ohne Rüstung' "
+               " where ruestung !='Ohne RÃ¼stung' "
                "order by ruestung");
    while ((query1c>>is).good())
     { Tag &Dinge=Preise.push_back(Tag("Dinge"));
@@ -347,9 +347,9 @@ void land_speichern(Tag &o)
       fetch_and_set_string_attrib(is, Dinge, "Ware");
       fetch_and_set_string_attrib(is, Dinge, "Gewicht");
       fetch_and_set_float_attrib(is, Dinge, "Preis");
-      fetch_and_set_string_attrib(is, Dinge, "Währung");
+      fetch_and_set_string_attrib(is, Dinge, "WÃ¤hrung");
       fetch_and_set_string_attrib(is, Dinge, "Region");
-      fetch_and_set_bool_attrib(is, Dinge, "Rüstung_ohne_Gewicht");
+      fetch_and_set_bool_attrib(is, Dinge, "RÃ¼stung_ohne_Gewicht");
     }
    
    Tag &PreiseM=o.push_back(Tag("PreiseNeuMod"));
@@ -390,7 +390,7 @@ void land_speichern(Tag &o)
    fetch_and_set_string_attrib(is, Kaufpreis, "Art");
    fetch_and_set_string_attrib(is, Kaufpreis, "Art2");
    fetch_and_set_float_attrib(is, Kaufpreis, "Preis");
-   fetch_and_set_string_attrib(is, Kaufpreis, "Währung");
+   fetch_and_set_string_attrib(is, Kaufpreis, "WÃ¤hrung");
 #ifndef MIDGARD3   
    fetch_and_set_float_attrib(is, Kaufpreis, "Gewicht");
 #endif

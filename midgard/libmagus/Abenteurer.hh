@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.27 2004/11/24 10:44:49 christof Exp $               
+// $Id: Abenteurer.hh,v 1.28 2004/11/29 13:54:22 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -55,6 +55,7 @@ class Abenteurer : public Grundwerte
    
 public:
    typedef std::map<cH_Region,Model_copyable<bool> > regionen_t;
+   typedef Enums::e_was_steigern e_was_steigern;
 
 private:
    regionen_t regionen; // aktive Regionen
@@ -124,21 +125,19 @@ public:
 private:
       class sort_universell {
         public: sort_universell() {}
-        bool operator()(st_universell x,st_universell y) const
-          { return (*(x.mbe))->Name() < (*(y.mbe))->Name() ;
-          }
+        bool operator()(const st_universell &x,const st_universell &y) const;
       };
 public:
 
    // alter Name
-   __deprecated void speicherstream(std::ostream &datei);
+   __deprecated void speicherstream(std::ostream &datei) const;
    __deprecated bool xml_import_stream(std::istream &datei);
    // neuer Name
-   void speichern(std::ostream &datei);
+   void speichern(std::ostream &datei) const;
    bool laden(std::istream &datei);
 private:
-   void grundwerte_speichern(Tag &);
-   void save_ausruestung(Tag &datei,const std::list<AusruestungBaum> &AB);
+   void grundwerte_speichern(Tag &) const;
+   void save_ausruestung(Tag &datei,const std::list<AusruestungBaum> &AB) const;
 
    void load_ausruestung(const Tag *tag, AusruestungBaum *AB);
    void load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version);
@@ -174,52 +173,46 @@ public:
    bool Erlernen(MBEmlt &MBE);
    // false: Fehlgeschlagen
    bool ReduzierenVerlernen(MBEmlt &MBE, bool &verlernt);
-//   void set_lernzeit(const int kosten,const e_was_steigern was=Enums::eMBEm);
 
-   // Zum Steigern eines MBEm
-   typedef Enums::e_was_steigern e_was_steigern;
-   typedef Enums::e_wie_steigern e_wie_steigern;
+   void reduziere(MBEmlt &MBE);
+   void verlerne(MBEmlt &MBE);
+   bool steigere(MBEmlt &MBE);
+   bool neu_lernen(MBEmlt &MBE, int bonus=0);
+   // (Kosten für) Ausdauer würfeln
+   int get_ausdauer(int grad);
+   // (Kosten für) Abwehr, Resistenz, Zaubern steigern
+   int get_ab_re_za(const e_was_steigern was);
+
+   void move_neues_element(MBEmlt &MBE,std::list<MBEmlt> *MyList_neu);
+private:   
+   void EP_aufwenden(MidgardBasicElement::EP_t ep_t,unsigned ep_k);
+   void PP_aufwenden(unsigned pp, const MBEmlt &MBE,const e_was_steigern was=Enums::eMBEm);
+
+   // ??? Kosten für reduzieren verrechnen?
+   void desteigern(unsigned int kosten);
+   // usp?, default richtig?
+   // Unterweisung, Selbststudium, Praxispunkte
+   bool steigern_usp(int &kosten,e_was_steigern was=Enums::eMBEm);
+   bool steigern_usp(int &kosten,MBEmlt MBE,int &stufen,e_was_steigern was=Enums::eMBEm);
+   void set_lernzeit(int kosten,e_was_steigern was=Enums::eMBEm);
+   MidgardBasicElement::EP_t steigern_mit(const MBEmlt MBE,e_was_steigern was=Enums::eMBEm) const;
+   bool genug_EP(int ep_k,MidgardBasicElement::EP_t mit) const;
+
+   int genug_geld(int kosten) const;
+   int EP_kosten(const int kosten) const;
+   int PP_vorrat(const MBEmlt &MBE,e_was_steigern was=Enums::eMBEm) const;
+
+   // Beschreibung siehe .cc
+   int stufen_auf_einmal_steigern_fuer_aep(const MBEmlt& MBE,int &kosten_out,int &aep) const;
+   // schüttel
    enum modi_modus{Zusatzmodus,PPmodus};;
-   typedef Enums::st_bool_steigern st_bool_steigern;
-private:
-   void calculate_old_API(e_wie_steigern &wie, Enums::st_bool_steigern &bool_st);
-public:
-   __deprecated void reduziere(MBEmlt &MBE,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern);
-   __deprecated void verlerne(MBEmlt &MBE,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern);
-   __deprecated bool steigere(MBEmlt &MBE,const e_wie_steigern wie,
-                 const st_bool_steigern &bool_steigern);
-   __deprecated bool neu_lernen(MBEmlt &MBE,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern,const int bonus=0);
-   __deprecated void move_neues_element(MBEmlt &MBE,std::list<MBEmlt> *MyList_neu,const std::list<cH_MidgardBasicElement> *alleSprachen=0);
-
-   __deprecated void desteigern(unsigned int kosten,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern);
-   __deprecated bool steigern_usp(const e_wie_steigern wie,int &kosten,
-                     const e_was_steigern was,
-                     const st_bool_steigern &bool_steigern);
-   __deprecated bool steigern_usp(const e_wie_steigern wie,int &kosten,MBEmlt MBE,
-                     int &stufen,const e_was_steigern was,
-                     const st_bool_steigern &bool_steigern);
-   __deprecated void set_lernzeit(const e_wie_steigern wie,const int kosten,
-                     const e_was_steigern was,const st_bool_steigern bool_steigern);
-   __deprecated int genug_geld(const int kosten,const e_wie_steigern wie,const st_bool_steigern bool_steigern);
-   bool genug_EP(const int ep_k,const bool bkep,const bool bzep, int &aep0,int &kep0,int &zep0);
-   __deprecated int EP_kosten(const int kosten,const e_wie_steigern wie);
-   __deprecated int PP_vorrat(const MBEmlt &MBE,e_was_steigern was,const e_wie_steigern wie);
-   void steigern_mit(bool &bkep,bool &bzep,const MBEmlt MBE,e_was_steigern was);
-   int stufen_auf_einmal_steigern_fuer_aep(MBEmlt& MBE,int &kosten,int &aep);
    void modify(modi_modus modus,const MBEmlt &M,const MidgardBasicElement::st_zusatz &zusatz,int praxispunkte);
 
-
-   __deprecated int get_ausdauer(int grad,
-                      const e_wie_steigern &wie,const st_bool_steigern &bool_steigern);
-   __deprecated int get_ab_re_za(const e_was_steigern was,const e_wie_steigern &wie,
-                              const bool bsteigern,
-                              const st_bool_steigern &bool_steigern);
+public:
    void eigenschaften_steigern(int wurf=-1);
    bool eigenschaften_steigern_erlaubt() const;
   
-
    bool SpruchVonSpruchrolleGelernt(const std::string &zauber);
-
    bool ZauberSpruecheMitPP() const;
 };
 

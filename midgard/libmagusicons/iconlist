@@ -66,7 +66,8 @@ midgard_logo_tiny.xpm
 midgard_logo.xpm
 Modify-32.xpm
 Money-50.xpm
-Nein-32.xpm
+Nein.xpm
+Nein.xpm	Nein-32.xpm
 New_Art-50.xpm
 NewChar-trans-50.xpm
 NewsGeschichte.xpm
@@ -95,6 +96,7 @@ Resistenz-trans-32.xpm
 right_arr-exp3.xpm
 SaveChar-trans-50.xpm
 schirm.xpm
+Schliessen.xpm
 Self-Learning-32.xpm
 sichtbar.xpm
 Skills-trans-50.xpm

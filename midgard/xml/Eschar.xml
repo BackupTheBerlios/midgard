@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<MAGUS-data Region="E" Name="Eschar" Titel="Die Pyramiden von Eschar" Copyright="Stephanie Lammers" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="4" MAGUS-Bild="4" CVS="$Revision: 1.20 $">
+<MAGUS-data CVS="$Revision: 1.21 $" Copyright="Stephanie Lammers" MAGUS-Bild="4" MAGUS-Index="4" Maintainer="Malte Thoma" Name="Eschar" Region="E" Titel="Die Pyramiden von Eschar" Version="1.0" offiziell="true">
  <Fertigkeiten>
-  <Fertigkeit Name="Brettspiel" Region="E" Lernpunkte="1" Anfangswert="4" Lernkosten="20" Erfolgswert="2" Attribut="In" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Anfangswert="4" Attribut="In" Erfolgswert="2" Lernkosten="20" Lernpunkte="1" MaximalMitUnterweisung="18" Maximalwert="18" Name="Brettspiel" Region="E">
    <Grund Typ="Ba"/>
    <Grund Typ="Dr"/>
    <Grund Typ="Dt"/>
@@ -55,10 +55,10 @@
    <Ausnahme Typ="Sw"/>
    <Ausnahme Typ="Tt"/>
    <Voraussetzungen In="31"/>
-   <Kosten Wert3="5" Wert4="5" Wert5="10" Wert6="10" Wert7="10" Wert8="20" Wert9="20" Wert10="50" Wert11="50" Wert12="100" Wert13="100"/>
+   <Kosten Wert10="50" Wert11="50" Wert12="100" Wert13="100" Wert3="5" Wert4="5" Wert5="10" Wert6="10" Wert7="10" Wert8="20" Wert9="20"/>
    <EP-Typ KEP="true"/>
   </Fertigkeit>
-  <Fertigkeit Name="Kamelreiten" Region="E" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="10" Erfolgswert-ungelernt="5" Attribut="Gw" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Anfangswert="15" Attribut="Gw" Erfolgswert="10" Erfolgswert-ungelernt="5" Lernkosten="100" Lernpunkte="3" MaximalMitUnterweisung="18" Maximalwert="18" Name="Kamelreiten" Region="E">
    <Grund Typ="BS"/>
    <Grund Typ="Gl"/>
    <Grund Typ="Hä"/>
@@ -112,12 +112,12 @@
    <Standard Typ="tBe"/>
    <Standard Typ="wHx"/>
    <Voraussetzungen Gw="31"/>
-   <Lernschema Typ="De" Lernpunkte="1" Erfolgswert="15"/>
-   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Typ="De"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Typ="RiS"/>
    <steigern_wie Fertigkeit="Bewegung"/>
    <EP-Typ KEP="true"/>
   </Fertigkeit>
-  <Fertigkeit Name="Kampf zu Kamel" Region="E" Lernpunkte="8" Anfangswert="15" Lernkosten="200" Erfolgswert="10" Attribut="Gw" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Anfangswert="15" Attribut="Gw" Erfolgswert="10" Lernkosten="200" Lernpunkte="8" MaximalMitUnterweisung="18" Maximalwert="18" Name="Kampf zu Kamel" Region="E">
    <Grund Typ="BS"/>
    <Grund Typ="Kr"/>
    <Grund Typ="Ri"/>
@@ -169,12 +169,12 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="wHx"/>
-   <Voraussetzungen Gw="21" Fertigkeit="Kamelreiten"/>
+   <Voraussetzungen Fertigkeit="Kamelreiten" Gw="21"/>
    <Voraussetzungen_2 Name="Kamelreiten"/>
    <steigern_wie Fertigkeit="Kampf zu Pferd"/>
    <EP-Typ KEP="true"/>
   </Fertigkeit>
-  <Fertigkeit Name="Mumifizieren" Region="E" Lernpunkte="4" Lernkosten="200" Attribut="In" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Attribut="In" Lernkosten="200" Lernpunkte="4" MaximalMitUnterweisung="18" Maximalwert="18" Name="Mumifizieren" Region="E">
    <Grund Typ="De"/>
    <Grund Typ="Hl"/>
    <Grund Typ="PT"/>
@@ -226,12 +226,12 @@
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
-   <Voraussetzungen Gw="31" In="31" Fertigkeit="Kräuterkunde, Naturkunde"/>
+   <Voraussetzungen Fertigkeit="Kräuterkunde, Naturkunde" Gw="31" In="31"/>
    <Voraussetzungen_2 Name="Kräuterkunde"/>
    <Voraussetzungen_2 Name="Naturkunde"/>
    <steigern_wie Fertigkeit="Wissen"/>
   </Fertigkeit>
-  <Fertigkeit Name="Orakelkunst" Region="E" Anfangswert="5" Lernkosten="60" Erfolgswert="4" Attribut="In" Maximalwert="12" MaximalMitUnterweisung="11">
+  <Fertigkeit Anfangswert="5" Attribut="In" Erfolgswert="4" Lernkosten="60" MaximalMitUnterweisung="11" Maximalwert="12" Name="Orakelkunst" Region="E">
    <Grund Typ="As"/>
    <Grund Typ="PC"/>
    <Grund Typ="PF"/>
@@ -284,10 +284,10 @@
    <Ausnahme Typ="Tr"/>
    <Ausnahme Typ="Wa"/>
    <Voraussetzungen In="61" Zt="61"/>
-   <Lernschema Typ="Ny" Lernpunkte="1"/>
+   <Lernschema Lernpunkte="1" Typ="Ny"/>
    <steigern_wie Fertigkeit="Geomantie"/>
   </Fertigkeit>
-  <Fertigkeit Name="Pyromantie" Region="E" Lernpunkte="1" Anfangswert="5" Lernkosten="100" Erfolgswert="4" Attribut="Zt" Berufskategorie="1" Maximalwert="12" MaximalMitUnterweisung="11">
+  <Fertigkeit Anfangswert="5" Attribut="Zt" Berufskategorie="1" Erfolgswert="4" Lernkosten="100" Lernpunkte="1" MaximalMitUnterweisung="11" Maximalwert="12" Name="Pyromantie" Region="E">
    <Grund Typ="De"/>
    <Grund Typ="Dr"/>
    <Grund Typ="PHa"/>
@@ -314,7 +314,7 @@
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
-   <Voraussetzungen Zt="61" Fertigkeit="Zaubern"/>
+   <Voraussetzungen Fertigkeit="Zaubern" Zt="61"/>
    <steigern_wie Fertigkeit="Geomantie"/>
    <EP-Typ ZEP="true"/>
   </Fertigkeit>
@@ -356,7 +356,7 @@
   </Fertigkeit>
   <Fertigkeit Name="Erste Hilfe">
    <Grund Typ="De"/>
-   <Lernschema Typ="De" Lernpunkte="2" Erfolgswert="8"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="De"/>
   </Fertigkeit>
   <Fertigkeit Name="Erzählen">
    <Standard Typ="De"/>
@@ -447,14 +447,14 @@
   </Fertigkeit>
   <Fertigkeit Name="Lesen von Zauberschrift">
    <Grund Typ="De"/>
-   <Lernschema Typ="De" Lernpunkte="2" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="2" Typ="De"/>
   </Fertigkeit>
   <Fertigkeit Name="Lippenlesen">
    <Standard Typ="De"/>
   </Fertigkeit>
   <Fertigkeit Name="Meditieren">
    <Grund Typ="De"/>
-   <Lernschema Typ="De" Lernpunkte="3" Erfolgswert="8"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="3" Typ="De"/>
   </Fertigkeit>
   <Fertigkeit Name="Menschenkenntnis">
    <Standard Typ="De"/>
@@ -467,7 +467,7 @@
   </Fertigkeit>
   <Fertigkeit Name="Naturkunde">
    <Grund Typ="De"/>
-   <Lernschema Typ="De" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="De"/>
   </Fertigkeit>
   <Fertigkeit Name="Pflanzenkunde">
    <Standard Typ="De"/>
@@ -477,14 +477,14 @@
   </Fertigkeit>
   <Fertigkeit Name="Reiten">
    <Grund Typ="De"/>
-   <Lernschema Typ="De" Lernpunkte="2" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="2" Typ="De"/>
   </Fertigkeit>
   <Fertigkeit Name="Rudern">
    <Standard Typ="De"/>
   </Fertigkeit>
   <Fertigkeit Name="Sagenkunde">
    <Grund Typ="De"/>
-   <Lernschema Typ="De" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="De"/>
   </Fertigkeit>
   <Fertigkeit Name="Scharfschie�&#x9F;en">
    <Ausnahme Typ="De"/>
@@ -533,7 +533,7 @@
   </Fertigkeit>
   <Fertigkeit Name="Springen">
    <Grund Typ="De"/>
-   <Lernschema Typ="De" Lernpunkte="1" Erfolgswert="15" Pflicht="true"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Pflicht="true" Typ="De"/>
   </Fertigkeit>
   <Fertigkeit Name="Spurenlesen">
    <Standard Typ="De"/>
@@ -555,7 +555,7 @@
   </Fertigkeit>
   <Fertigkeit Name="Tanzen">
    <Grund Typ="De"/>
-   <Lernschema Typ="De" Lernpunkte="1" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Typ="De"/>
   </Fertigkeit>
   <Fertigkeit Name="Tarnen">
    <Standard Typ="De"/>
@@ -622,10 +622,10 @@
   </Fertigkeit>
   <Fertigkeit Name="�&#x9C;berleben in der Wüste">
    <Grund Typ="De"/>
-   <Lernschema Typ="De" Lernpunkte="1" Erfolgswert="8"/>
-   <regionaleBesonderheit Herkunft="Eschar" Typ="ScN" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Eschar" Typ="ScS" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Eschar" Typ="ScW" Standard="G"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="1" Typ="De"/>
+   <regionaleBesonderheit Herkunft="Eschar" Standard="G" Typ="ScN"/>
+   <regionaleBesonderheit Herkunft="Eschar" Standard="G" Typ="ScS"/>
+   <regionaleBesonderheit Herkunft="Eschar" Standard="G" Typ="ScW"/>
   </Fertigkeit>
   <Fertigkeit Name="Wetterkunde" Region="H&amp;D">
    <Grund Typ="De"/>
@@ -719,9 +719,9 @@
   </Fertigkeit>
   <Fertigkeit Name="Askese" Region="R">
    <Standard Typ="De"/>
-   <regionaleBesonderheit Herkunft="Eschar" Typ="ScN" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Eschar" Typ="ScS" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Eschar" Typ="ScW" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Eschar" Standard="G" Typ="ScN"/>
+   <regionaleBesonderheit Herkunft="Eschar" Standard="G" Typ="ScS"/>
+   <regionaleBesonderheit Herkunft="Eschar" Standard="G" Typ="ScW"/>
   </Fertigkeit>
   <Fertigkeit Name="Astrologie" Region="R">
    <Standard Typ="De"/>
@@ -752,7 +752,7 @@
   </Fertigkeit>
   <Fertigkeit Name="Geomantie" Region="TuT">
    <Grund Typ="De"/>
-   <Lernschema Typ="De" Lernpunkte="3" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="3" Typ="De"/>
   </Fertigkeit>
   <Fertigkeit Name="Lesen von Zauberrunen" Region="W">
    <Grund Typ="De"/>
@@ -768,8 +768,8 @@
  <Schriften/>
  <Sprachen/>
  <Typen>
-  <Typ Abkürzung="De" Region="E" MAGUS-Index="46" Bezeichnung-Mann="Derwisch" Bezeichnung-Frau="Derwisch" Zauberer="true" kannZaubern="true" SprücheMitPraxisPunkten="Wunder" Ausdauer="ak">
-   <Modifikation Rüstung="1" Geld="4"/>
+  <Typ Abkürzung="De" Ausdauer="ak" Bezeichnung-Frau="Derwisch" Bezeichnung-Mann="Derwisch" MAGUS-Index="46" Region="E" SprücheMitPraxisPunkten="Wunder" Zauberer="true" kannZaubern="true">
+   <Modifikation Geld="4" Rüstung="1"/>
    <Herkunft Land="Eschar"/>
    <Gruppe Name="ZAU"/>
   </Typ>
@@ -779,7 +779,7 @@
   <Waffe Name="Anderthalbhänder">
    <regionaleVariante Name="Nimcha" Region="E" Schaden="W6" Schadensbonus="1" St="31"/>
    <Standard Typ="De"/>
-   <Lernschema Typ="De" Lernpunkte="4" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="4" Typ="De"/>
   </Waffe>
   <Waffe Name="Bihänder">
    <Standard Typ="De"/>
@@ -803,7 +803,7 @@
    <regionaleVariante Name="Rilok" Region="E" Schaden="W6" Schadensbonus="-1"/>
    <regionaleVariante Name="Telek" Region="E" Schaden="W6" Schadensbonus="-1"/>
    <Ausnahme Typ="De"/>
-   <Lernschema Typ="De" Lernpunkte="2" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="2" Typ="De"/>
   </Waffe>
   <Waffe Name="Faustkampf">
    <Ausnahme Typ="De"/>
@@ -954,7 +954,7 @@
   </Waffe>
   <Waffe Name="Wurfspeer">
    <Ausnahme Typ="De"/>
-   <Lernschema Typ="De" Lernpunkte="4" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="4" Typ="De"/>
   </Waffe>
   <Waffe Name="Wurfspie�&#x9F;">
    <Ausnahme Typ="De"/>
@@ -967,7 +967,7 @@
   </Waffe>
   <Waffe Name="kleiner Schild">
    <Ausnahme Typ="De"/>
-   <Lernschema Typ="De" Lernpunkte="3" Erfolgswert="1"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="3" Typ="De"/>
   </Waffe>
   <Waffe Name="leichte Armbrust">
    <regionaleVariante Name="Ud al-Khal" Region="E" Schaden="W6"/>
@@ -976,14 +976,14 @@
   <Waffe Name="leichter Speer">
    <regionaleVariante Name="Jarid" Region="E" Schaden="W6" Schadensbonus="-1"/>
    <Ausnahme Typ="De"/>
-   <Lernschema Typ="De" Lernpunkte="2" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="2" Typ="De"/>
   </Waffe>
   <Waffe Name="schwere Armbrust">
    <Ausnahme Typ="De"/>
   </Waffe>
   <Waffe Name="waffenloser Kampf">
    <Ausnahme Typ="De"/>
-   <Lernschema Typ="De" Lernpunkte="9" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="9" Typ="De"/>
   </Waffe>
   <Waffe Name="Pilum" Region="3">
    <Ausnahme Typ="De"/>
@@ -1112,7 +1112,7 @@
   </Waffen-Grundkenntnis>
  </Waffen-Grundkenntnisse>
  <Zauber>
-  <Spruch Name="Abu es-Samum" Region="E" Grad="6" Lernkosten="8000" AP="9" Typ="Tanz" Ursprung="elementar" Agens="Luft" Prozess="bewegt" Reagens="Erde" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="10 km Uk" Wirkungsdauer="1 h" Zauberart="Tanz">
+  <Spruch AP="9" Agens="Luft" Grad="6" Lernkosten="8000" Name="Abu es-Samum" Prozess="bewegt" Reagens="Erde" Region="E" Reichweite="0" Typ="Tanz" Ursprung="elementar" Wirkungsbereich="10 km Uk" Wirkungsdauer="1 h" Wirkungsziel="Umgebung" Zauberart="Tanz" Zauberdauer="5 min">
    <Grund Typ="De"/>
    <Grund Typ="Tt"/>
    <Standard Typ="ScN"/>
@@ -1122,7 +1122,7 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Ain es-Samum" Region="E" Grad="4" Lernkosten="1500" AP="4" Typ="Tanz" Ursprung="elementar" Agens="Luft" Prozess="verändert" Reagens="Luft" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="30 m Uk" Wirkungsdauer="1 h" Zauberart="Tanz">
+  <Spruch AP="4" Agens="Luft" Grad="4" Lernkosten="1500" Name="Ain es-Samum" Prozess="verändert" Reagens="Luft" Region="E" Reichweite="0" Typ="Tanz" Ursprung="elementar" Wirkungsbereich="30 m Uk" Wirkungsdauer="1 h" Wirkungsziel="Umgebung" Zauberart="Tanz" Zauberdauer="5 min">
    <Grund Typ="De"/>
    <Standard Typ="Sa"/>
    <Standard Typ="ScN"/>
@@ -1132,7 +1132,7 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Akbar fil-Ghadban" Region="E" Grad="2" Lernkosten="200" AP="2" Typ="Tanz" Ursprung="göttlich" Agens="Luft" Prozess="verändert" Reagens="Erde" Zauberdauer="3 min" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="Zauberer" Wirkungsdauer="30 min" Zauberart="Tanz">
+  <Spruch AP="2" Agens="Luft" Grad="2" Lernkosten="200" Name="Akbar fil-Ghadban" Prozess="verändert" Reagens="Erde" Region="E" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="Zauberer" Wirkungsdauer="30 min" Wirkungsziel="Körper" Zauberart="Tanz" Zauberdauer="3 min">
    <Grund Typ="De"/>
    <Grund Typ="Tt"/>
    <Standard Typ="Sa"/>
@@ -1142,9 +1142,9 @@
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
-   <Lernschema Typ="De" Lernpunkte="3"/>
+   <Lernschema Lernpunkte="3" Typ="De"/>
   </Spruch>
-  <Spruch Name="Al-Ghussat" Region="E" Grad="4" Lernkosten="2000" AP="6" Typ="Tanz" Ursprung="göttlich" Agens="Eis" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="15 m Uk" Wirkungsdauer="10 min" Zauberart="Tanz">
+  <Spruch AP="6" Agens="Eis" Grad="4" Lernkosten="2000" Name="Al-Ghussat" Prozess="beherrscht" Reagens="Wasser" Region="E" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="15 m Uk" Wirkungsdauer="10 min" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="5 min">
    <Grund Typ="De"/>
    <Grund Typ="Tt"/>
    <Standard Typ="Sa"/>
@@ -1153,7 +1153,7 @@
    <Standard Typ="ScW"/>
    <Standard Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Al-Karama" Region="E" Grad="3" Lernkosten="800" AP="3" Typ="Tanz" Ursprung="göttlich" Agens="Luft" Prozess="erkennt" Reagens="Luft" Zauberdauer="10 min" Reichweite="5 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="8 h" Zauberart="Tanz">
+  <Spruch AP="3" Agens="Luft" Grad="3" Lernkosten="800" Name="Al-Karama" Prozess="erkennt" Reagens="Luft" Region="E" Reichweite="5 m" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="8 h" Wirkungsziel="Körper" Zauberart="Tanz" Zauberdauer="10 min">
    <Grund Typ="De"/>
    <Grund Typ="Tt"/>
    <Standard Typ="Sa"/>
@@ -1163,9 +1163,9 @@
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
-   <Lernschema Typ="De" Lernpunkte="3"/>
+   <Lernschema Lernpunkte="3" Typ="De"/>
   </Spruch>
-  <Spruch Name="Al-Mahram" Region="E" Grad="2" Lernkosten="400" AP="3" Typ="Tanz" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="6 m Uk" Wirkungsdauer="30 min" Zauberart="Tanz">
+  <Spruch AP="3" Agens="Luft" Grad="2" Lernkosten="400" Name="Al-Mahram" Prozess="beherrscht" Reagens="Eis" Region="E" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="6 m Uk" Wirkungsdauer="30 min" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="5 min">
    <Grund Typ="De"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
@@ -1173,7 +1173,7 @@
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
   </Spruch>
-  <Spruch Name="Al-Mutadid" Region="E" Grad="3" Lernkosten="800" AP="3" Typ="Tanz" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="6m Uk" Wirkungsdauer="30 min" Zauberart="Tanz">
+  <Spruch AP="3" Agens="Luft" Grad="3" Lernkosten="800" Name="Al-Mutadid" Prozess="beherrscht" Reagens="Feuer" Region="E" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="6m Uk" Wirkungsdauer="30 min" Wirkungsziel="Umgebung" Zauberart="Tanz" Zauberdauer="5 min">
    <Grund Typ="De"/>
    <Standard Typ="Sa"/>
    <Standard Typ="ScN"/>
@@ -1183,9 +1183,9 @@
    <Ausnahme Typ="To"/>
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
-   <Lernschema Typ="De" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="De"/>
   </Spruch>
-  <Spruch Name="Al-Tarka" Region="E" Grad="3" Lernkosten="800" AP="3" Typ="Tanz" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Luft" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="15 m Uk" Wirkungsdauer="-" Zauberart="Tanz">
+  <Spruch AP="3" Agens="Luft" Grad="3" Lernkosten="800" Name="Al-Tarka" Prozess="beherrscht" Reagens="Luft" Region="E" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="15 m Uk" Wirkungsdauer="-" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="5 min">
    <Grund Typ="De"/>
    <Grund Typ="Tt"/>
    <Standard Typ="Sa"/>
@@ -1195,9 +1195,9 @@
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
-   <Lernschema Typ="De" Lernpunkte="4"/>
+   <Lernschema Lernpunkte="4" Typ="De"/>
   </Spruch>
-  <Spruch Name="Blenden" Region="E" Grad="4" Lernkosten="2000" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Feuer" Prozess="erschafft" Reagens="Feuer" Zauberdauer="1 s" Wirkungsziel="Umgebung" Wirkungsbereich="9m Uk" Wirkungsdauer="1 min" Thaumagramm="Runenstab">
+  <Spruch AP="4" Agens="Feuer" Grad="4" Lernkosten="2000" Name="Blenden" Prozess="erschafft" Reagens="Feuer" Region="E" Thaumagramm="Runenstab" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="9m Uk" Wirkungsdauer="1 min" Wirkungsziel="Umgebung" Zauberdauer="1 s">
    <Grund Typ="De"/>
    <Grund Typ="Or"/>
    <Grund Typ="PF"/>
@@ -1224,7 +1224,7 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Blutwandlung" Region="E" Grad="2" Lernkosten="150" AP="4" Typ="Geste" Ursprung="dämonisch" Agens="Wasser" Prozess="verwandelt" Reagens="Erde" Zauberdauer="10 min" Reichweite="0 m" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="-">
+  <Spruch AP="4" Agens="Wasser" Grad="2" Lernkosten="150" Name="Blutwandlung" Prozess="verwandelt" Reagens="Erde" Region="E" Reichweite="0 m" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="-" Wirkungsdauer="-" Wirkungsziel="Umgebung" Zauberdauer="10 min">
    <Grund Typ="PC"/>
    <Grund Typ="gHx"/>
    <Grund Typ="sHx"/>
@@ -1238,7 +1238,7 @@
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
   </Spruch>
-  <Spruch Name="Cheprus Sendbote" Region="E" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Magan" Prozess="erschafft" Reagens="Erde" Zauberdauer="30 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="1W6 h" Material="Körperflüssigkeit des Opfers">
+  <Spruch AP="4" Agens="Magan" Grad="4" Lernkosten="1500" Material="Körperflüssigkeit des Opfers" Name="Cheprus Sendbote" Prozess="erschafft" Reagens="Erde" Region="E" Reichweite="0" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="1W6 h" Wirkungsziel="Geist" Zauberdauer="30 min">
    <Grund Typ="De"/>
    <Grund Typ="Dt"/>
    <Grund Typ="PF"/>
@@ -1261,7 +1261,7 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Dalail al-Khairat" Region="E" Grad="2" Lernkosten="200" AP="2" Typ="Tanz" Ursprung="göttlich" Agens="Luft" Prozess="verändert" Reagens="Wasser" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="15 m Uk" Wirkungsdauer="30 min" Zauberart="Tanz">
+  <Spruch AP="2" Agens="Luft" Grad="2" Lernkosten="200" Name="Dalail al-Khairat" Prozess="verändert" Reagens="Wasser" Region="E" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="15 m Uk" Wirkungsdauer="30 min" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="5 min">
    <Grund Typ="De"/>
    <Standard Typ="Sa"/>
    <Standard Typ="ScN"/>
@@ -1271,9 +1271,9 @@
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
-   <Lernschema Typ="De" Lernpunkte="3"/>
+   <Lernschema Lernpunkte="3" Typ="De"/>
   </Spruch>
-  <Spruch Name="Dalail ed-Dawahi" Region="E" Grad="2" Lernkosten="300" AP="2" Typ="Tanz" Ursprung="dämonisch" Agens="Magan" Prozess="verändert" Reagens="Wasser" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="15 m Uk" Wirkungsdauer="30 min" Zauberart="Tanz">
+  <Spruch AP="2" Agens="Magan" Grad="2" Lernkosten="300" Name="Dalail ed-Dawahi" Prozess="verändert" Reagens="Wasser" Region="E" Reichweite="0" Typ="Tanz" Ursprung="dämonisch" Wirkungsbereich="15 m Uk" Wirkungsdauer="30 min" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="5 min">
    <Grund Typ="PF"/>
    <Grund Typ="gHx"/>
    <Grund Typ="sHx"/>
@@ -1284,7 +1284,7 @@
    <Standard Typ="ScW"/>
    <Standard Typ="Tt"/>
   </Spruch>
-  <Spruch Name="Dau ed-Datin" Region="E" Grad="3" Lernkosten="800" AP="3" Typ="Tanz" Ursprung="dämonisch" Agens="Wasser" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="15 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="15 m Uk" Wirkungsdauer="10 min" Zauberart="Tanz">
+  <Spruch AP="3" Agens="Wasser" Grad="3" Lernkosten="800" Name="Dau ed-Datin" Prozess="beherrscht" Reagens="Wasser" Region="E" Reichweite="0" Typ="Tanz" Ursprung="dämonisch" Wirkungsbereich="15 m Uk" Wirkungsdauer="10 min" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="15 min">
    <Grund Typ="PF"/>
    <Grund Typ="gHx"/>
    <Grund Typ="sHx"/>
@@ -1295,7 +1295,7 @@
    <Standard Typ="ScW"/>
    <Standard Typ="Tt"/>
   </Spruch>
-  <Spruch Name="Dau ed-Din" Region="E" Grad="5" Lernkosten="2500" AP="6" Typ="Tanz" Ursprung="göttlich" Agens="Metall" Prozess="zerstört" Reagens="Magan" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="15 m Uk" Wirkungsdauer="-" Zauberart="Tanz">
+  <Spruch AP="6" Agens="Metall" Grad="5" Lernkosten="2500" Name="Dau ed-Din" Prozess="zerstört" Reagens="Magan" Region="E" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="15 m Uk" Wirkungsdauer="-" Wirkungsziel="Körper" Zauberart="Tanz" Zauberdauer="10 min">
    <Grund Typ="De"/>
    <Grund Typ="Tt"/>
    <Standard Typ="Sa"/>
@@ -1304,7 +1304,7 @@
    <Standard Typ="ScW"/>
    <Standard Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Feuerspiel" Region="E" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="elementar" Agens="Feuer" Prozess="verändert" Reagens="Feuer" Zauberdauer="5 s" Reichweite="10 m" Wirkungsziel="Umgebung" Wirkungsbereich="1m Uk" Wirkungsdauer="2 min" Spruchrolle="true">
+  <Spruch AP="2" Agens="Feuer" Grad="2" Lernkosten="200" Name="Feuerspiel" Prozess="verändert" Reagens="Feuer" Region="E" Reichweite="10 m" Spruchrolle="true" Typ="Geste" Ursprung="elementar" Wirkungsbereich="1m Uk" Wirkungsdauer="2 min" Wirkungsziel="Umgebung" Zauberdauer="5 s">
    <Grund Typ="De"/>
    <Grund Typ="PHa"/>
    <Grund Typ="PHe"/>
@@ -1319,7 +1319,7 @@
    <Standard Typ="wHx"/>
    <Ausnahme Typ="MMa"/>
   </Spruch>
-  <Spruch Name="Ghussat el-Masin" Region="E" Grad="4" Lernkosten="1600" AP="6" Typ="Tanz" Ursprung="dämonisch" Agens="Eis" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="15 m Uk" Wirkungsdauer="10 min" Zauberart="Tanz">
+  <Spruch AP="6" Agens="Eis" Grad="4" Lernkosten="1600" Name="Ghussat el-Masin" Prozess="beherrscht" Reagens="Wasser" Region="E" Reichweite="0" Typ="Tanz" Ursprung="dämonisch" Wirkungsbereich="15 m Uk" Wirkungsdauer="10 min" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="5 min">
    <Grund Typ="PF"/>
    <Grund Typ="gHx"/>
    <Grund Typ="sHx"/>
@@ -1330,7 +1330,7 @@
    <Standard Typ="ScW"/>
    <Standard Typ="Tt"/>
   </Spruch>
-  <Spruch Name="Haram fil-Din" Region="E" Grad="1" Lernkosten="100" AP="1" Typ="Tanz" Ursprung="elementar" Agens="Feuer" Prozess="verwandelt" Reagens="Erde" Zauberdauer="2 min" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="Zauberer" Wirkungsdauer="30 min" Zauberart="Tanz">
+  <Spruch AP="1" Agens="Feuer" Grad="1" Lernkosten="100" Name="Haram fil-Din" Prozess="verwandelt" Reagens="Erde" Region="E" Reichweite="0" Typ="Tanz" Ursprung="elementar" Wirkungsbereich="Zauberer" Wirkungsdauer="30 min" Wirkungsziel="Körper" Zauberart="Tanz" Zauberdauer="2 min">
    <Grund Typ="De"/>
    <Grund Typ="Tt"/>
    <Standard Typ="Sa"/>
@@ -1340,9 +1340,9 @@
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
-   <Lernschema Typ="De" Lernpunkte="1"/>
+   <Lernschema Lernpunkte="1" Typ="De"/>
   </Spruch>
-  <Spruch Name="Hauch der Wüste" Region="E" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="elementar" Agens="Feuer" Prozess="verändert" Reagens="Luft" Zauberdauer="1 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="12m Uk" Wirkungsdauer="10 min" Spruchrolle="true" Thaumagramm="Runenstab">
+  <Spruch AP="1" Agens="Feuer" Grad="1" Lernkosten="80" Name="Hauch der Wüste" Prozess="verändert" Reagens="Luft" Region="E" Reichweite="0" Spruchrolle="true" Thaumagramm="Runenstab" Typ="Geste" Ursprung="elementar" Wirkungsbereich="12m Uk" Wirkungsdauer="10 min" Wirkungsziel="Umgebung" Zauberdauer="1 s">
    <Grund Typ="PHa"/>
    <Grund Typ="PHe"/>
    <Grund Typ="Sw"/>
@@ -1365,7 +1365,7 @@
    <Ausnahme Typ="PW"/>
    <Ausnahme Typ="To"/>
   </Spruch>
-  <Spruch Name="Incheper schaffen" Region="E" Grad="6" Lernkosten="6000" AP="18" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verändert" Reagens="Erde" Zauberdauer="6 h" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="-" Material="Statue">
+  <Spruch AP="18" Agens="Holz" Grad="6" Lernkosten="6000" Material="Statue" Name="Incheper schaffen" Prozess="verändert" Reagens="Erde" Region="E" Reichweite="0" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="1 Ob" Wirkungsdauer="-" Wirkungsziel="Umgebung" Zauberdauer="6 h">
    <Grund Typ="Dt"/>
    <Grund Typ="PHa"/>
    <Grund Typ="PHe"/>
@@ -1381,7 +1381,7 @@
    <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
   </Spruch>
-  <Spruch Name="Luftspiegelung" Region="E" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="elementar" Agens="Feuer" Prozess="verändert" Reagens="Luft" Zauberdauer="10 s" Reichweite="30 km" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="30 min" Material="Quarz und Silberstaub" Spruchrolle="true">
+  <Spruch AP="3" Agens="Feuer" Grad="3" Lernkosten="600" Material="Quarz und Silberstaub" Name="Luftspiegelung" Prozess="verändert" Reagens="Luft" Region="E" Reichweite="30 km" Spruchrolle="true" Typ="Geste" Ursprung="elementar" Wirkungsbereich="-" Wirkungsdauer="30 min" Wirkungsziel="Umgebung" Zauberdauer="10 s">
    <Grund Typ="De"/>
    <Grund Typ="Dr"/>
    <Standard Typ="Dt"/>
@@ -1405,7 +1405,7 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Macht über Mumien" Region="E" Grad="6" Lernkosten="4000" AP="12" Typ="Wort" Ursprung="dämonisch" Agens="Eis" Prozess="verändert" Reagens="Erde" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="-" Material="Mumie">
+  <Spruch AP="12" Agens="Eis" Grad="6" Lernkosten="4000" Material="Mumie" Name="Macht über Mumien" Prozess="verändert" Reagens="Erde" Region="E" Reichweite="0" Typ="Wort" Ursprung="dämonisch" Wirkungsbereich="1 Ws" Wirkungsdauer="-" Wirkungsziel="Körper" Zauberdauer="1 h">
    <Grund Typ="Km"/>
    <Grund Typ="Ma"/>
    <Grund Typ="PC"/>
@@ -1420,7 +1420,7 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
   </Spruch>
-  <Spruch Name="Manifestation des Ka" Region="E" Grad="G" Lernkosten="15000" AP="18" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="erschafft" Reagens="Erde" Zauberdauer="6 h" Reichweite="3 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="-" Material="Wachsbad mit seltenen Essenzen">
+  <Spruch AP="18" Agens="Magan" Grad="G" Lernkosten="15000" Material="Wachsbad mit seltenen Essenzen" Name="Manifestation des Ka" Prozess="erschafft" Reagens="Erde" Region="E" Reichweite="3 m" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="1 Ws" Wirkungsdauer="-" Wirkungsziel="Geist" Zauberdauer="6 h">
    <Grund Typ="Dt"/>
    <Grund Typ="PC"/>
    <Grund Typ="PF"/>
@@ -1444,7 +1444,7 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Mumie erwecken" Region="E" Grad="6" Lernkosten="6000" AP="18" Typ="Geste" Ursprung="dämonisch" Agens="Eis" Prozess="verändert" Reagens="Erde" Zauberdauer="6 h" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="-" Material="Mumie">
+  <Spruch AP="18" Agens="Eis" Grad="6" Lernkosten="6000" Material="Mumie" Name="Mumie erwecken" Prozess="verändert" Reagens="Erde" Region="E" Reichweite="0" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="1 Ws" Wirkungsdauer="-" Wirkungsziel="Körper" Zauberdauer="6 h">
    <Grund Typ="Dt"/>
    <Grund Typ="PC"/>
    <Grund Typ="PF"/>
@@ -1467,7 +1467,7 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Sa rauben" Region="E" Grad="2" Lernkosten="250" AP="5" Typ="Geste" Ursprung="schwarzmagisch" Agens="Eis" Prozess="zerstört" Reagens="Holz" Zauberdauer="1 s" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="-">
+  <Spruch AP="5" Agens="Eis" Grad="2" Lernkosten="250" Name="Sa rauben" Prozess="zerstört" Reagens="Holz" Region="E" Reichweite="0" Typ="Geste" Ursprung="schwarzmagisch" Wirkungsbereich="1 Ws" Wirkungsdauer="-" Wirkungsziel="Geist" Zauberdauer="1 s">
    <Grund Typ="PC"/>
    <Grund Typ="sHx"/>
    <Standard Typ="Sa"/>
@@ -1478,7 +1478,7 @@
    <Ausnahme Typ="To"/>
    <Ausnahme Typ="gHx"/>
   </Spruch>
-  <Spruch Name="Sa spenden" Region="E" Grad="4" Lernkosten="1500" AP="4 vom Max" Typ="Geste" Ursprung="göttlich" Agens="Holz" Prozess="zerstört" Reagens="Holz" Zauberdauer="30 min" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="-">
+  <Spruch AP="4 vom Max" Agens="Holz" Grad="4" Lernkosten="1500" Name="Sa spenden" Prozess="zerstört" Reagens="Holz" Region="E" Reichweite="0" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="-" Wirkungsziel="Körper" Zauberdauer="30 min">
    <Grund Typ="Dt"/>
    <Grund Typ="PF"/>
    <Grund Typ="PHa"/>
@@ -1494,7 +1494,7 @@
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
   </Spruch>
-  <Spruch Name="Sadik es-Sidiki" Region="E" Grad="2" Lernkosten="400" AP="4" Typ="Tanz" Ursprung="göttlich" Agens="Luft" Prozess="verändert" Reagens="Luft" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="15 m Uk" Wirkungsdauer="1 h" Zauberart="Tanz">
+  <Spruch AP="4" Agens="Luft" Grad="2" Lernkosten="400" Name="Sadik es-Sidiki" Prozess="verändert" Reagens="Luft" Region="E" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="15 m Uk" Wirkungsdauer="1 h" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="10 min">
    <Grund Typ="De"/>
    <Standard Typ="Sa"/>
    <Standard Typ="ScN"/>
@@ -1504,9 +1504,9 @@
    <Ausnahme Typ="To"/>
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
-   <Lernschema Typ="De" Lernpunkte="4"/>
+   <Lernschema Lernpunkte="4" Typ="De"/>
   </Spruch>
-  <Spruch Name="Saijidat el-Masin" Region="E" Grad="3" Lernkosten="600" AP="6" Typ="Tanz" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Erde" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="15 m Uk" Wirkungsdauer="10 min" Zauberart="Tanz">
+  <Spruch AP="6" Agens="Luft" Grad="3" Lernkosten="600" Name="Saijidat el-Masin" Prozess="beherrscht" Reagens="Erde" Region="E" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="15 m Uk" Wirkungsdauer="10 min" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="10 min">
    <Grund Typ="De"/>
    <Standard Typ="Sa"/>
    <Standard Typ="ScN"/>
@@ -1515,9 +1515,9 @@
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
-   <Lernschema Typ="De" Lernpunkte="4"/>
+   <Lernschema Lernpunkte="4" Typ="De"/>
   </Spruch>
-  <Spruch Name="Sandmeisterschaft" Region="E" Grad="6" Lernkosten="6000" AP="9" Typ="Geste" Ursprung="elementar" Agens="Luft" Prozess="bewegt" Reagens="Erde" Zauberdauer="30 s" Reichweite="2 km" Wirkungsziel="Umgebung" Wirkungsbereich="500m Uk" Wirkungsdauer="1 h" Material="10g Sandwurmhaut" Spruchrolle="true">
+  <Spruch AP="9" Agens="Luft" Grad="6" Lernkosten="6000" Material="10g Sandwurmhaut" Name="Sandmeisterschaft" Prozess="bewegt" Reagens="Erde" Region="E" Reichweite="2 km" Spruchrolle="true" Typ="Geste" Ursprung="elementar" Wirkungsbereich="500m Uk" Wirkungsdauer="1 h" Wirkungsziel="Umgebung" Zauberdauer="30 s">
    <Grund Typ="De"/>
    <Grund Typ="PF"/>
    <Standard Typ="Dr"/>
@@ -1541,7 +1541,7 @@
    <Ausnahme Typ="PK"/>
    <Ausnahme Typ="PM"/>
   </Spruch>
-  <Spruch Name="Schadd wa-Tarka" Region="E" Grad="3" Lernkosten="1000" AP="3" Typ="Tanz" Agens="Wasser" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="15 min" Reichweite="15 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h" Zauberart="Tanz">
+  <Spruch AP="3" Agens="Wasser" Grad="3" Lernkosten="1000" Name="Schadd wa-Tarka" Prozess="beherrscht" Reagens="Wasser" Region="E" Reichweite="15 m" Typ="Tanz" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="15 min">
    <Grund Typ="PF"/>
    <Grund Typ="Tt"/>
    <Grund Typ="gHx"/>
@@ -1551,7 +1551,7 @@
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
   </Spruch>
-  <Spruch Name="Seelenraub" Region="E" Grad="G" Lernkosten="12000" AP="18" Typ="Geste" Ursprung="schwarzmagisch" Agens="Magan" Prozess="bewegt" Reagens="Luft" Zauberdauer="30 min" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="bis 12 Ws" Wirkungsdauer="-">
+  <Spruch AP="18" Agens="Magan" Grad="G" Lernkosten="12000" Name="Seelenraub" Prozess="bewegt" Reagens="Luft" Region="E" Reichweite="0" Typ="Geste" Ursprung="schwarzmagisch" Wirkungsbereich="bis 12 Ws" Wirkungsdauer="-" Wirkungsziel="Körper" Zauberdauer="30 min">
    <Grund Typ="dBe"/>
    <Grund Typ="sHx"/>
    <Standard Typ="Dr"/>
@@ -1563,7 +1563,7 @@
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="gHx"/>
   </Spruch>
-  <Spruch Name="Seelenschock" Region="E" Grad="4" Lernkosten="2000" AP="4" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verändert" Reagens="Luft" Zauberdauer="15 s" Reichweite="15 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="var" Spruchrolle="true">
+  <Spruch AP="4" Agens="Holz" Grad="4" Lernkosten="2000" Name="Seelenschock" Prozess="verändert" Reagens="Luft" Region="E" Reichweite="15 m" Spruchrolle="true" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="1 Ws" Wirkungsdauer="var" Wirkungsziel="Geist" Zauberdauer="15 s">
    <Grund Typ="Dr"/>
    <Grund Typ="Hl"/>
    <Standard Typ="De"/>
@@ -1588,7 +1588,7 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Serkefs Todesbote" Region="E" Grad="5" Lernkosten="5000" AP="6" Typ="Geste" Ursprung="göttlich" Agens="Magan" Prozess="erschafft" Reagens="Erde" Zauberdauer="30 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1W6 h" Material="Haare oder Nägel des Opfers">
+  <Spruch AP="6" Agens="Magan" Grad="5" Lernkosten="5000" Material="Haare oder Nägel des Opfers" Name="Serkefs Todesbote" Prozess="erschafft" Reagens="Erde" Region="E" Reichweite="0" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="1W6 h" Wirkungsziel="Umgebung" Zauberdauer="30 min">
    <Grund Typ="De"/>
    <Grund Typ="PHa"/>
    <Grund Typ="PHe"/>
@@ -1611,7 +1611,7 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Sutechs Heer" Region="E" Grad="3" Lernkosten="600" AP="12" Typ="Wort" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="10 sec" Reichweite="2 km" Wirkungsziel="Geist" Wirkungsbereich="4W6 Ws" Wirkungsdauer="30 min" Spruchrolle="true">
+  <Spruch AP="12" Agens="Luft" Grad="3" Lernkosten="600" Name="Sutechs Heer" Prozess="beherrscht" Reagens="Wasser" Region="E" Reichweite="2 km" Spruchrolle="true" Typ="Wort" Ursprung="göttlich" Wirkungsbereich="4W6 Ws" Wirkungsdauer="30 min" Wirkungsziel="Geist" Zauberdauer="10 sec">
    <Grund Typ="PK"/>
    <Standard Typ="De"/>
    <Standard Typ="Dr"/>
@@ -1632,7 +1632,7 @@
    <Ausnahme Typ="PF"/>
    <Ausnahme Typ="PW"/>
   </Spruch>
-  <Spruch Name="Tausch des Ba" Region="E" Grad="G" Lernkosten="20000" AP="18" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Luft" Zauberdauer="3 h" Reichweite="15 m" Wirkungsziel="Geist" Wirkungsbereich="2 Ws" Wirkungsdauer="-" Material="Silberdraht">
+  <Spruch AP="18" Agens="Magan" Grad="G" Lernkosten="20000" Material="Silberdraht" Name="Tausch des Ba" Prozess="bewegt" Reagens="Luft" Region="E" Reichweite="15 m" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="2 Ws" Wirkungsdauer="-" Wirkungsziel="Geist" Zauberdauer="3 h">
    <Grund Typ="De"/>
    <Grund Typ="PC"/>
    <Grund Typ="Sa"/>
@@ -1656,7 +1656,7 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Tibb al-Mumani" Region="E" Grad="3" Lernkosten="600" AP="6" Typ="Tanz" Ursprung="göttlich" Agens="Magan" Prozess="bewegt" Reagens="Feuer" Zauberdauer="20 min" Reichweite="15 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws, 1Ob" Wirkungsdauer="-" Zauberart="Tanz">
+  <Spruch AP="6" Agens="Magan" Grad="3" Lernkosten="600" Name="Tibb al-Mumani" Prozess="bewegt" Reagens="Feuer" Region="E" Reichweite="15 m" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="1 Ws, 1Ob" Wirkungsdauer="-" Wirkungsziel="Körper" Zauberart="Tanz" Zauberdauer="20 min">
    <Grund Typ="De"/>
    <Standard Typ="Sa"/>
    <Standard Typ="ScN"/>
@@ -1665,9 +1665,9 @@
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
-   <Lernschema Typ="De" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="De"/>
   </Spruch>
-  <Spruch Name="Wasser spüren" Region="E" Grad="1" Lernkosten="100" AP="1" Typ="Gedanke" Ursprung="elementar" Agens="Wasser" Prozess="erkennt" Reagens="Wasser" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="500 m Ke" Wirkungsdauer="10 s" Thaumagramm="Siegel">
+  <Spruch AP="1" Agens="Wasser" Grad="1" Lernkosten="100" Name="Wasser spüren" Prozess="erkennt" Reagens="Wasser" Region="E" Reichweite="0" Thaumagramm="Siegel" Typ="Gedanke" Ursprung="elementar" Wirkungsbereich="500 m Ke" Wirkungsdauer="10 s" Wirkungsziel="Körper" Zauberdauer="10 s">
    <Grund Typ="De"/>
    <Grund Typ="Dr"/>
    <Grund Typ="PF"/>
@@ -1690,7 +1690,7 @@
    <Ausnahme Typ="PK"/>
    <Ausnahme Typ="PT"/>
   </Spruch>
-  <Spruch Name="Wind des Todes" Region="E" Grad="G" Lernkosten="15000" AP="18" Typ="Geste" Ursprung="schwarzmagisch" Agens="Feuer" Prozess="zerstört" Reagens="Wasser" Zauberdauer="30 s" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="100 m Ke" Wirkungsdauer="2 min" Material="Vulkansche, Wüstensand,Diamantstaub" Spruchrolle="true">
+  <Spruch AP="18" Agens="Feuer" Grad="G" Lernkosten="15000" Material="Vulkansche, Wüstensand,Diamantstaub" Name="Wind des Todes" Prozess="zerstört" Reagens="Wasser" Region="E" Reichweite="0" Spruchrolle="true" Typ="Geste" Ursprung="schwarzmagisch" Wirkungsbereich="100 m Ke" Wirkungsdauer="2 min" Wirkungsziel="Körper" Zauberdauer="30 s">
    <Grund Typ="PC"/>
    <Grund Typ="sHx"/>
    <Standard Typ="Dr"/>
@@ -1954,7 +1954,7 @@
   </Spruch>
   <Spruch Name="Heiliger Zorn">
    <Grund Typ="De"/>
-   <Lernschema Typ="De" Lernpunkte="1"/>
+   <Lernschema Lernpunkte="1" Typ="De"/>
   </Spruch>
   <Spruch Name="Heiliges Wort">
    <Grund Typ="De"/>
@@ -1967,7 +1967,7 @@
   </Spruch>
   <Spruch Name="Hitzeschutz">
    <Grund Typ="De"/>
-   <Lernschema Typ="De" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="De"/>
   </Spruch>
   <Spruch Name="Hitzsalz">
    <Ausnahme Typ="De"/>
@@ -2028,7 +2028,7 @@
   </Spruch>
   <Spruch Name="Macht über das Selbst">
    <Grund Typ="De"/>
-   <Lernschema Typ="De" Lernpunkte="3"/>
+   <Lernschema Lernpunkte="3" Typ="De"/>
   </Spruch>
   <Spruch Name="Macht über die Sinne">
    <Standard Typ="De"/>

@@ -139,7 +139,8 @@ MagusKI::st_KI  MagusKI::NeuLernen(int &gfp,const Enums::MBEListen was)
   if((*M)->Name()=="Geheimzeichen")   return st_KI((*M)->Name(),Geheimzeichen);
   if(!allowed_for_grad(M,eNeuLernen)) return st_KI((*M)->Name(),NotAllowedForGrad);
 
-  bool ok=Aben.neu_lernen(M,get_wie_steigern(eNeuLernen),get_bool_steigern());
+  Aben.wie_steigern=Abenteurer::ws_Unterweisung;
+  bool ok=Aben.neu_lernen(M);
   if(ok) 
    { gfp-=(*M)->Kosten(Aben);
      Aben.get_known_list(was).push_back(M);
@@ -164,7 +165,8 @@ MagusKI::st_KI MagusKI::Steigern(int &gfp,const Enums::MBEListen was)
       {
          if(!allowed_for_grad(*i,eSteigern)) return st_KI((*(*i))->Name(),NotAllowedForGrad);
 
-         bool ok=Aben.steigere(*i,get_wie_steigern(eSteigern),get_bool_steigern());        
+         Aben.wie_steigern=Abenteurer::ws_Selbststudium;
+         bool ok=Aben.steigere(*i);
          if(ok) 
            { gfp-=(*i)->Steigern(Aben);
              return st_KI((*(*i))->Name(),(*(*i)).Erfolgswert(),OK);
@@ -296,29 +298,18 @@ int MagusKI::teste_auf_gradanstieg()
   Aben.setGrad(Datenbank.GradAnstieg.get_Grad(Aben.GFP()));
   int kosten=0;
   if(oldgrad!=Aben.Grad())
-   {
-     kosten+=Aben.get_ausdauer(Aben.Grad(),
-                                get_wie_steigern(eSpeziel),get_bool_steigern());
-     kosten+=Aben.get_ab_re_za(Enums::eAbwehr,get_wie_steigern(eSpeziel),true,get_bool_steigern());
-     kosten+=Aben.get_ab_re_za(Enums::eResistenz,get_wie_steigern(eSpeziel),true,get_bool_steigern());
-     kosten+=Aben.get_ab_re_za(Enums::eZaubern,get_wie_steigern(eSpeziel),true,get_bool_steigern());
+   { Aben.wie_steigern=Abenteurer::ws_Unterweisung;
+     kosten+=Aben.get_ausdauer(Aben.Grad());
+     kosten+=Aben.get_ab_re_za(Enums::eAbwehr);
+     kosten+=Aben.get_ab_re_za(Enums::eResistenz);
+     kosten+=Aben.get_ab_re_za(Enums::eZaubern);
      Aben.eigenschaften_steigern();
    }  
   return kosten;
 }
 
-const Abenteurer::e_wie_steigern MagusKI::get_wie_steigern(const eSL e)
-{
-  switch(e) {
-   case eNeuLernen : return Enums::eUnterweisung;
-   case eSteigern  : return Enums::eSelbststudium;
-   case eSpeziel   : return Enums::eUnterweisung;
-   }
-  abort();
+MagusKI::MagusKI(Abenteurer &a)
+  : Aben(a), use_GSA_MBE(true)
+{ a.fpanteil=0;
+  a.goldanteil=0;
 }
-
-const Enums::st_bool_steigern MagusKI::get_bool_steigern()
-{
-  return Enums::st_bool_steigern(false,false,false,false,false,false,false,false);
-}
-

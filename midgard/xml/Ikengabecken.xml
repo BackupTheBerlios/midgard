@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+ï»¿<?xml version="1.0" encoding="UTF-8"?>
 
-<MAGUS-data Region="I" Name="Ikengabecken" Titel="Ikengabecken" Copyright="?" Jahr="?" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="15" MAGUS-Bild="16" CVS="$Revision: 1.6 $">
+<MAGUS-data CVS="$Revision: 1.7 $" Copyright="?" Jahr="?" MAGUS-Bild="16" MAGUS-Index="15" Maintainer="Malte Thoma" Name="Ikengabecken" Region="I" Titel="Ikengabecken" Version="1.0">
  <Fertigkeiten>
   <Fertigkeit Name="Ã&#x9C;berleben im Dschungel">
-   <regionaleBesonderheit Herkunft="Ikengabecken" Typ="ScN" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Ikengabecken" Typ="ScS" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Ikengabecken" Typ="ScW" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Ikengabecken" Standard="G" Typ="ScN"/>
+   <regionaleBesonderheit Herkunft="Ikengabecken" Standard="G" Typ="ScS"/>
+   <regionaleBesonderheit Herkunft="Ikengabecken" Standard="G" Typ="ScW"/>
   </Fertigkeit>
  </Fertigkeiten>
  <Berufe/>

@@ -38,14 +38,17 @@ public:
         
         table_grundwerte(GlademmData *_data);
         void init(midgard_CG *hauptfenster);
+
         void refresh() { zeige_werte(); }
         void fill_typauswahl();  
         void fill_typauswahl_2();
         void neuer_charakter();
         void doppelcharaktere();
+        
+        void clean_up(); // stop pending editing
 
 	// noch in .cc tun        
-        void NamenEingeben() { edit_werte=true; entry_nameC->grab_focus(); }
+        void NamenEingeben();
 
         static const UniqueValue::value_t trace_channel;
 

@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<MAGUS-data Region="TuT" Name="Kompendium" Titel="Das Kompendium" Copyright="Jürgen E. Franke" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="1" MAGUS-Bild="12" CVS="$Revision: 1.24 $">
+<MAGUS-data CVS="$Revision: 1.25 $" Copyright="Jürgen E. Franke" MAGUS-Bild="12" MAGUS-Index="1" Maintainer="Malte Thoma" Name="Kompendium" Region="TuT" Titel="Das Kompendium" Version="1.0" offiziell="true">
  <Fertigkeiten>
-  <Fertigkeit Name="Geomantie" Region="TuT" Lernpunkte="4" Anfangswert="5" Lernkosten="100" Erfolgswert="4" Attribut="In" Maximalwert="12" MaximalMitUnterweisung="11">
+  <Fertigkeit Anfangswert="5" Attribut="In" Erfolgswert="4" Lernkosten="100" Lernpunkte="4" MaximalMitUnterweisung="11" Maximalwert="12" Name="Geomantie" Region="TuT">
    <Grund Typ="De"/>
    <Grund Typ="PF"/>
    <Grund Typ="Sa"/>
@@ -28,9 +28,9 @@
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
-   <Voraussetzungen Zt="61" Fertigkeit="Zaubern"/>
-   <Lernschema Typ="De" Lernpunkte="3" Erfolgswert="15"/>
-   <Kosten Wert5="20" Wert6="20" Wert7="50" Wert8="50" Wert9="50" Wert10="100" Wert11="100" Wert12="200"/>
+   <Voraussetzungen Fertigkeit="Zaubern" Zt="61"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="3" Typ="De"/>
+   <Kosten Wert10="100" Wert11="100" Wert12="200" Wert5="20" Wert6="20" Wert7="50" Wert8="50" Wert9="50"/>
    <EP-Typ ZEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Abrichten">
@@ -43,7 +43,7 @@
    <Standard Typ="To"/>
    <Ausnahme Typ="Km"/>
    <Ausnahme Typ="Mg"/>
-   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="8" Pflicht="true"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="1" Pflicht="true" Typ="Wi"/>
   </Fertigkeit>
   <Fertigkeit Name="Akrobatik">
    <Grund Typ="Sw"/>
@@ -55,7 +55,7 @@
    <Standard Typ="RiS"/>
    <Standard Typ="Wi"/>
    <Ausnahme Typ="Km"/>
-   <Lernschema Typ="Sw" Lernpunkte="3" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="3" Typ="Sw"/>
   </Fertigkeit>
   <Fertigkeit Name="Alchimie">
    <Grund Typ="Km"/>
@@ -67,9 +67,9 @@
    <Ausnahme Typ="RiS"/>
    <Ausnahme Typ="To"/>
    <Ausnahme Typ="Wi"/>
-   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Km" Lernpunkte="3" Erfolgswert="5"/>
-   <Lernschema Typ="Sw" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Mg"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Km"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Sw"/>
   </Fertigkeit>
   <Fertigkeit Name="Athletik">
    <Grund Typ="Km"/>
@@ -81,9 +81,9 @@
    <Ausnahme Typ="Mg"/>
    <Ausnahme Typ="Sw"/>
    <Ausnahme Typ="To"/>
-   <Lernschema Typ="Km" Lernpunkte="3" Erfolgswert="4"/>
-   <Lernschema Typ="RiN" Lernpunkte="3" Erfolgswert="4"/>
-   <Lernschema Typ="RiS" Lernpunkte="3" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="3" Typ="Km"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="3" Typ="RiN"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="3" Typ="RiS"/>
   </Fertigkeit>
   <Fertigkeit Name="Balancieren">
    <Grund Typ="Sw"/>
@@ -95,7 +95,7 @@
    <Standard Typ="RiN"/>
    <Standard Typ="RiS"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="2" Typ="Sw"/>
   </Fertigkeit>
   <Fertigkeit Name="Ballista bedienen">
    <Grund Typ="RiN"/>
@@ -129,9 +129,9 @@
    <Standard Typ="Wi"/>
    <Ausnahme Typ="Sw"/>
    <Ausnahme Typ="To"/>
-   <Lernschema Typ="Km" Lernpunkte="2" Erfolgswert="3"/>
-   <Lernschema Typ="RiN" Lernpunkte="2" Erfolgswert="3"/>
-   <Lernschema Typ="RiS" Lernpunkte="2" Erfolgswert="3"/>
+   <Lernschema Erfolgswert="3" Lernpunkte="2" Typ="Km"/>
+   <Lernschema Erfolgswert="3" Lernpunkte="2" Typ="RiN"/>
+   <Lernschema Erfolgswert="3" Lernpunkte="2" Typ="RiS"/>
   </Fertigkeit>
   <Fertigkeit Name="Beredsamkeit">
    <Grund Typ="Hj"/>
@@ -143,11 +143,11 @@
    <Standard Typ="RiS"/>
    <Standard Typ="Sw"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="8"/>
-   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="8"/>
-   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="8"/>
-   <Lernschema Typ="RiN" Lernpunkte="3" Erfolgswert="8"/>
-   <Lernschema Typ="RiS" Lernpunkte="3" Erfolgswert="8"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="Hj"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="Mg"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="To"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="3" Typ="RiN"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="3" Typ="RiS"/>
   </Fertigkeit>
   <Fertigkeit Name="Beschatten">
    <Grund Typ="Sw"/>
@@ -159,7 +159,7 @@
    <Standard Typ="RiN"/>
    <Standard Typ="RiS"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="8"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="To"/>
   </Fertigkeit>
   <Fertigkeit Name="Bogenkampf zu Pferd">
    <Grund Typ="RiN"/>
@@ -171,7 +171,7 @@
    <Ausnahme Typ="Mg"/>
    <Ausnahme Typ="Sw"/>
    <Ausnahme Typ="To"/>
-   <Lernschema Typ="RiS" Lernpunkte="2" Erfolgswert="1"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="2" Typ="RiS"/>
   </Fertigkeit>
   <Fertigkeit Name="Dichten">
    <Standard Typ="Fi"/>
@@ -194,7 +194,7 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Mg" Lernpunkte="3" Erfolgswert="8"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="3" Typ="Mg"/>
   </Fertigkeit>
   <Fertigkeit Name="Erzählen">
    <Standard Typ="Fi"/>
@@ -206,7 +206,7 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="RiS"/>
   </Fertigkeit>
   <Fertigkeit Name="Fallen entdecken">
    <Grund Typ="Sw"/>
@@ -218,8 +218,8 @@
    <Ausnahme Typ="Km"/>
    <Ausnahme Typ="RiN"/>
    <Ausnahme Typ="RiS"/>
-   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="6"/>
-   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="6"/>
+   <Lernschema Erfolgswert="6" Lernpunkte="2" Typ="Sw"/>
+   <Lernschema Erfolgswert="6" Lernpunkte="2" Typ="To"/>
   </Fertigkeit>
   <Fertigkeit Name="Fallenmechanik">
    <Grund Typ="Sw"/>
@@ -231,8 +231,8 @@
    <Ausnahme Typ="RiN"/>
    <Ausnahme Typ="RiS"/>
    <Ausnahme Typ="Wi"/>
-   <Lernschema Typ="Sw" Lernpunkte="1" Erfolgswert="4"/>
-   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="1" Typ="Sw"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="1" Typ="To"/>
   </Fertigkeit>
   <Fertigkeit Name="Fallenstellen">
    <Grund Typ="To"/>
@@ -244,8 +244,8 @@
    <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="Km"/>
    <Ausnahme Typ="Sw"/>
-   <Lernschema Typ="Wi" Lernpunkte="2" Erfolgswert="4"/>
-   <Lernschema Typ="Fi" Lernpunkte="3" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="2" Typ="Wi"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="3" Typ="Fi"/>
   </Fertigkeit>
   <Fertigkeit Name="Fangen">
    <Grund Typ="Sw"/>
@@ -290,8 +290,8 @@
    <Ausnahme Typ="RiN"/>
    <Ausnahme Typ="RiS"/>
    <Ausnahme Typ="Wi"/>
-   <Lernschema Typ="Sw" Lernpunkte="1" Erfolgswert="15"/>
-   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Typ="Sw"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="2" Typ="To"/>
   </Fertigkeit>
   <Fertigkeit Name="Gassenwissen">
    <Grund Typ="Sw"/>
@@ -301,9 +301,9 @@
    <Standard Typ="Mg"/>
    <Standard Typ="RiN"/>
    <Standard Typ="RiS"/>
-   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Mg" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Sw"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="To"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Mg"/>
   </Fertigkeit>
   <Fertigkeit Name="Gaukeln">
    <Grund Typ="Sw"/>
@@ -315,7 +315,7 @@
    <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="Km"/>
    <Ausnahme Typ="Wi"/>
-   <Lernschema Typ="Sw" Lernpunkte="1" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="Sw"/>
   </Fertigkeit>
   <Fertigkeit Name="Geheimmechanismen öffnen">
    <Grund Typ="Mg"/>
@@ -327,8 +327,8 @@
    <Ausnahme Typ="RiN"/>
    <Ausnahme Typ="RiS"/>
    <Ausnahme Typ="Wi"/>
-   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="6"/>
-   <Lernschema Typ="Mg" Lernpunkte="3" Erfolgswert="6"/>
+   <Lernschema Erfolgswert="6" Lernpunkte="2" Typ="Sw"/>
+   <Lernschema Erfolgswert="6" Lernpunkte="3" Typ="Mg"/>
   </Fertigkeit>
   <Fertigkeit Name="Geheimzeichen">
    <Grund Typ="Sw"/>
@@ -340,8 +340,8 @@
    <Standard Typ="RiN"/>
    <Standard Typ="RiS"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Sw" Lernpunkte="1" Erfolgswert="12"/>
-   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="Sw"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="To"/>
   </Fertigkeit>
   <Fertigkeit Name="Geländelauf">
    <Grund Typ="Fi"/>
@@ -353,8 +353,8 @@
    <Standard Typ="RiS"/>
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
-   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="15"/>
-   <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Typ="Wi"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="2" Typ="Fi"/>
   </Fertigkeit>
   <Fertigkeit Name="Geschäftstüchtigkeit">
    <Standard Typ="Fi"/>
@@ -377,8 +377,8 @@
    <Ausnahme Typ="RiN"/>
    <Ausnahme Typ="RiS"/>
    <Ausnahme Typ="Wi"/>
-   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="To"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Mg"/>
   </Fertigkeit>
   <Fertigkeit Name="Glücksspiel">
    <Grund Typ="Sw"/>
@@ -399,7 +399,7 @@
    <Standard Typ="Wi"/>
    <Ausnahme Typ="Km"/>
    <Ausnahme Typ="To"/>
-   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Mg"/>
   </Fertigkeit>
   <Fertigkeit Name="Himmelskunde">
    <Grund Typ="Mg"/>
@@ -411,7 +411,7 @@
    <Ausnahme Typ="Km"/>
    <Ausnahme Typ="Sw"/>
    <Ausnahme Typ="To"/>
-   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Mg"/>
   </Fertigkeit>
   <Fertigkeit Name="Kampf in Dunkelheit">
    <Grund Typ="To"/>
@@ -423,7 +423,7 @@
    <Ausnahme Typ="RiN"/>
    <Ausnahme Typ="RiS"/>
    <Ausnahme Typ="Sw"/>
-   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="2"/>
+   <Lernschema Erfolgswert="2" Lernpunkte="2" Typ="To"/>
   </Fertigkeit>
   <Fertigkeit Name="Kampf in Schlachtreihe">
    <Grund Typ="Km"/>
@@ -435,7 +435,7 @@
    <Ausnahme Typ="Sw"/>
    <Ausnahme Typ="To"/>
    <Ausnahme Typ="Wi"/>
-   <Lernschema Typ="RiN" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Typ="RiN"/>
   </Fertigkeit>
   <Fertigkeit Name="Kampf in Vollrüstung">
    <Grund Typ="RiN"/>
@@ -447,8 +447,8 @@
    <Ausnahme Typ="Sw"/>
    <Ausnahme Typ="To"/>
    <Ausnahme Typ="Wi"/>
-   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="15" Pflicht="true"/>
-   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="15" Pflicht="true"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Pflicht="true" Typ="RiN"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Pflicht="true" Typ="RiS"/>
   </Fertigkeit>
   <Fertigkeit Name="Kampf vom Streitwagen">
    <Grund Typ="Km"/>
@@ -471,9 +471,9 @@
    <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="Sw"/>
    <Ausnahme Typ="To"/>
-   <Lernschema Typ="Km" Lernpunkte="2" Erfolgswert="15"/>
-   <Lernschema Typ="RiN" Lernpunkte="2" Erfolgswert="15"/>
-   <Lernschema Typ="RiS" Lernpunkte="2" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="2" Typ="Km"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="2" Typ="RiN"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="2" Typ="RiS"/>
   </Fertigkeit>
   <Fertigkeit Name="Kampftaktik">
    <Grund Typ="Km"/>
@@ -485,9 +485,9 @@
    <Ausnahme Typ="Sw"/>
    <Ausnahme Typ="To"/>
    <Ausnahme Typ="Wi"/>
-   <Lernschema Typ="Km" Lernpunkte="2" Erfolgswert="8"/>
-   <Lernschema Typ="RiN" Lernpunkte="2" Erfolgswert="8"/>
-   <Lernschema Typ="RiS" Lernpunkte="2" Erfolgswert="8"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="Km"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="RiN"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="RiS"/>
   </Fertigkeit>
   <Fertigkeit Name="Katapult bedienen">
    <Grund Typ="RiN"/>
@@ -510,8 +510,8 @@
    <Standard Typ="RiN"/>
    <Standard Typ="RiS"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Fi" Lernpunkte="1" Erfolgswert="15"/>
-   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Typ="Fi"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="2" Typ="Sw"/>
   </Fertigkeit>
   <Fertigkeit Name="Kräuterkunde">
    <Grund Typ="Km"/>
@@ -523,7 +523,7 @@
    <Standard Typ="Wi"/>
    <Ausnahme Typ="Fi"/>
    <Ausnahme Typ="Sw"/>
-   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Mg"/>
   </Fertigkeit>
   <Fertigkeit Name="Landeskunde">
    <Grund Typ="Hj"/>
@@ -537,11 +537,11 @@
    <Standard Typ="Wi"/>
   </Fertigkeit>
   <Fertigkeit Name="Landeskunde (Heimat)">
-   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="10"/>
-   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="10"/>
-   <Lernschema Typ="RiN" Lernpunkte="2" Erfolgswert="12"/>
-   <Lernschema Typ="RiS" Lernpunkte="2" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Mg"/>
+   <Lernschema Erfolgswert="10" Lernpunkte="1" Typ="Hj"/>
+   <Lernschema Erfolgswert="10" Lernpunkte="2" Typ="To"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="2" Typ="RiN"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="2" Typ="RiS"/>
   </Fertigkeit>
   <Fertigkeit Name="Laufen">
    <Grund Typ="Fi"/>
@@ -553,8 +553,8 @@
    <Standard Typ="RiS"/>
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
-   <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="4"/>
-   <Lernschema Typ="Wi" Lernpunkte="2" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="2" Typ="Fi"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="2" Typ="Wi"/>
   </Fertigkeit>
   <Fertigkeit Name="Lesen von Zauberschrift">
    <Grund Typ="Km"/>
@@ -566,11 +566,11 @@
    <Ausnahme Typ="RiN"/>
    <Ausnahme Typ="RiS"/>
    <Ausnahme Typ="Wi"/>
-   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="12"/>
-   <Lernschema Typ="Sw" Lernpunkte="1" Erfolgswert="12"/>
-   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="12"/>
-   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="12"/>
-   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="Km"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="Sw"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="To"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="2" Typ="Hj"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="2" Typ="Mg"/>
   </Fertigkeit>
   <Fertigkeit Name="Lippenlesen">
    <Grund Typ="To"/>
@@ -582,7 +582,7 @@
    <Standard Typ="RiS"/>
    <Standard Typ="Sw"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="6"/>
+   <Lernschema Erfolgswert="6" Lernpunkte="2" Typ="To"/>
   </Fertigkeit>
   <Fertigkeit Name="Meditieren">
    <Standard Typ="Fi"/>
@@ -603,8 +603,8 @@
    <Standard Typ="RiS"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Mg" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Hj"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Mg"/>
   </Fertigkeit>
   <Fertigkeit Name="Meucheln">
    <Grund Typ="To"/>
@@ -615,7 +615,7 @@
    <Ausnahme Typ="RiN"/>
    <Ausnahme Typ="RiS"/>
    <Ausnahme Typ="Wi"/>
-   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="8" Pflicht="true"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="1" Pflicht="true" Typ="To"/>
   </Fertigkeit>
   <Fertigkeit Name="Musizieren">
    <Standard Typ="Fi"/>
@@ -627,7 +627,7 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="RiN"/>
   </Fertigkeit>
   <Fertigkeit Name="Naturkunde">
    <Grund Typ="Mg"/>
@@ -639,8 +639,8 @@
    <Ausnahme Typ="RiN"/>
    <Ausnahme Typ="RiS"/>
    <Ausnahme Typ="Sw"/>
-   <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Wi" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Fi"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Wi"/>
   </Fertigkeit>
   <Fertigkeit Name="Pflanzenkunde">
    <Grund Typ="Mg"/>
@@ -652,8 +652,8 @@
    <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="RiN"/>
    <Ausnahme Typ="RiS"/>
-   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Fi" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Mg"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Fi"/>
   </Fertigkeit>
   <Fertigkeit Name="Rechnen">
    <Grund Typ="Mg"/>
@@ -665,7 +665,7 @@
    <Ausnahme Typ="RiN"/>
    <Ausnahme Typ="RiS"/>
    <Ausnahme Typ="Wi"/>
-   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="8"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="1" Typ="Mg"/>
   </Fertigkeit>
   <Fertigkeit Name="Reiten">
    <Grund Typ="Km"/>
@@ -677,10 +677,10 @@
    <Standard Typ="To"/>
    <Ausnahme Typ="RiN"/>
    <Ausnahme Typ="RiS"/>
-   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="15"/>
-   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="15"/>
-   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="15"/>
-   <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Typ="Km"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Typ="RiN"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Typ="RiS"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="2" Typ="Fi"/>
   </Fertigkeit>
   <Fertigkeit Name="Rudern">
    <Standard Typ="Fi"/>
@@ -703,8 +703,8 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Mg"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Fi"/>
   </Fertigkeit>
   <Fertigkeit Name="Scharfschie�&#x9F;en">
    <Grund Typ="Fi"/>
@@ -760,11 +760,11 @@
    <Standard Typ="Mg"/>
    <Standard Typ="RiN"/>
    <Standard Typ="RiS"/>
-   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="8" Pflicht="true"/>
-   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="8"/>
-   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="8" Pflicht="true"/>
-   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="8"/>
-   <Lernschema Typ="Fi" Lernpunkte="3" Erfolgswert="8"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="1" Pflicht="true" Typ="Km"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="1" Typ="To"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="1" Pflicht="true" Typ="Wi"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="Sw"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="3" Typ="Fi"/>
   </Fertigkeit>
   <Fertigkeit Name="Schlittenfahren">
    <Standard Typ="Fi"/>
@@ -786,7 +786,7 @@
    <Ausnahme Typ="RiS"/>
    <Ausnahme Typ="To"/>
    <Ausnahme Typ="Wi"/>
-   <Lernschema Typ="Sw" Lernpunkte="1" Erfolgswert="8"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="1" Typ="Sw"/>
   </Fertigkeit>
   <Fertigkeit Name="Schreiben">
    <Grund Typ="Hj"/>
@@ -800,14 +800,14 @@
    <Standard Typ="Wi"/>
   </Fertigkeit>
   <Fertigkeit Name="Schreiben: Alte Sprache(+12)">
-   <Lernschema Typ="Mg" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="12" Typ="Mg"/>
   </Fertigkeit>
   <Fertigkeit Name="Schreiben: Muttersprache(+12)">
-   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="12"/>
-   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="12"/>
-   <Lernschema Typ="Sw" Lernpunkte="1" Erfolgswert="12"/>
-   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Km"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="Hj"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="Mg"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="Sw"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="To"/>
   </Fertigkeit>
   <Fertigkeit Name="Schwimmen">
    <Grund Typ="Fi"/>
@@ -819,7 +819,7 @@
    <Standard Typ="Hj"/>
    <Standard Typ="Mg"/>
    <Standard Typ="Sw"/>
-   <Lernschema Typ="Fi" Lernpunkte="1" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Typ="Fi"/>
   </Fertigkeit>
   <Fertigkeit Name="Schätzen">
    <Standard Typ="Hj"/>
@@ -830,7 +830,7 @@
    <Standard Typ="To"/>
    <Ausnahme Typ="Fi"/>
    <Ausnahme Typ="Wi"/>
-   <Lernschema Typ="Sw" Lernpunkte="1" Erfolgswert="8"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="1" Typ="Sw"/>
   </Fertigkeit>
   <Fertigkeit Name="Seemannsgang">
    <Standard Typ="Fi"/>
@@ -864,7 +864,7 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="RiN"/>
   </Fertigkeit>
   <Fertigkeit Name="Skifahren">
    <Standard Typ="Fi"/>
@@ -889,10 +889,10 @@
    <Standard Typ="Wi"/>
   </Fertigkeit>
   <Fertigkeit Name="Sprechen: Alte Sprache">
-   <Lernschema Typ="Mg" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="12" Typ="Mg"/>
   </Fertigkeit>
   <Fertigkeit Name="Sprechen: Sprache(+12)">
-   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="Mg"/>
   </Fertigkeit>
   <Fertigkeit Name="Springen">
    <Grund Typ="Sw"/>
@@ -904,7 +904,7 @@
    <Standard Typ="RiS"/>
    <Standard Typ="Wi"/>
    <Ausnahme Typ="Km"/>
-   <Lernschema Typ="Fi" Lernpunkte="1" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Typ="Fi"/>
   </Fertigkeit>
   <Fertigkeit Name="Spurenlesen">
    <Grund Typ="Wi"/>
@@ -916,10 +916,10 @@
    <Standard Typ="RiS"/>
    <Standard Typ="To"/>
    <Ausnahme Typ="Sw"/>
-   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="6" Pflicht="true"/>
-   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="6" Pflicht="true"/>
-   <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="6"/>
-   <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="6"/>
+   <Lernschema Erfolgswert="6" Lernpunkte="1" Pflicht="true" Typ="Km"/>
+   <Lernschema Erfolgswert="6" Lernpunkte="1" Pflicht="true" Typ="Wi"/>
+   <Lernschema Erfolgswert="6" Lernpunkte="2" Typ="Fi"/>
+   <Lernschema Erfolgswert="6" Lernpunkte="3" Typ="Hj"/>
   </Fertigkeit>
   <Fertigkeit Name="Stehlen">
    <Standard Typ="Mg"/>
@@ -952,7 +952,7 @@
    <Ausnahme Typ="Km"/>
    <Ausnahme Typ="RiN"/>
    <Ausnahme Typ="RiS"/>
-   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Typ="To"/>
   </Fertigkeit>
   <Fertigkeit Name="Streitwagen lenken">
    <Grund Typ="Km"/>
@@ -975,9 +975,9 @@
    <Standard Typ="RiN"/>
    <Standard Typ="RiS"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="8"/>
-   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="8"/>
-   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="8"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="Hj"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="Sw"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="To"/>
   </Fertigkeit>
   <Fertigkeit Name="Tanzen">
    <Standard Typ="Fi"/>
@@ -989,7 +989,7 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Typ="RiN"/>
   </Fertigkeit>
   <Fertigkeit Name="Tarnen">
    <Grund Typ="Km"/>
@@ -1001,11 +1001,11 @@
    <Standard Typ="RiN"/>
    <Standard Typ="RiS"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="8" Pflicht="true"/>
-   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="8"/>
-   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="8" Pflicht="true"/>
-   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="8"/>
-   <Lernschema Typ="Fi" Lernpunkte="3" Erfolgswert="8"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="1" Pflicht="true" Typ="Km"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="1" Typ="To"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="1" Pflicht="true" Typ="Wi"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="Sw"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="3" Typ="Fi"/>
   </Fertigkeit>
   <Fertigkeit Name="Tauchen">
    <Standard Typ="Fi"/>
@@ -1021,7 +1021,7 @@
   <Fertigkeit Name="Thaumatographie">
    <Grund Typ="Km"/>
    <Grund Typ="Sw"/>
-   <Lernschema Typ="Sw" Lernpunkte="3" Erfolgswert="6" Pflicht="true"/>
+   <Lernschema Erfolgswert="6" Lernpunkte="3" Pflicht="true" Typ="Sw"/>
   </Fertigkeit>
   <Fertigkeit Name="Tierkunde">
    <Grund Typ="Mg"/>
@@ -1033,9 +1033,9 @@
    <Ausnahme Typ="RiN"/>
    <Ausnahme Typ="RiS"/>
    <Ausnahme Typ="Sw"/>
-   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Fi" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Mg"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Wi"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Fi"/>
   </Fertigkeit>
   <Fertigkeit Name="Trinken">
    <Standard Typ="Fi"/>
@@ -1058,8 +1058,8 @@
    <Standard Typ="RiN"/>
    <Standard Typ="RiS"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Sw" Lernpunkte="1" Erfolgswert="8"/>
-   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="8"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="1" Typ="Sw"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="To"/>
   </Fertigkeit>
   <Fertigkeit Name="Verführen">
    <Standard Typ="Fi"/>
@@ -1071,8 +1071,8 @@
    <Standard Typ="Wi"/>
    <Ausnahme Typ="Km"/>
    <Ausnahme Typ="Sw"/>
-   <Lernschema Typ="RiN" Lernpunkte="2" Erfolgswert="8"/>
-   <Lernschema Typ="RiS" Lernpunkte="2" Erfolgswert="8"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="RiN"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="RiS"/>
   </Fertigkeit>
   <Fertigkeit Name="Verhören">
    <Grund Typ="Hj"/>
@@ -1084,7 +1084,7 @@
    <Standard Typ="To"/>
    <Ausnahme Typ="Fi"/>
    <Ausnahme Typ="Wi"/>
-   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="8"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="Hj"/>
   </Fertigkeit>
   <Fertigkeit Name="Verkleiden">
    <Grund Typ="Sw"/>
@@ -1096,7 +1096,7 @@
    <Ausnahme Typ="RiN"/>
    <Ausnahme Typ="RiS"/>
    <Ausnahme Typ="Wi"/>
-   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="2" Typ="To"/>
   </Fertigkeit>
   <Fertigkeit Name="Wagenlenken">
    <Grund Typ="Km"/>
@@ -1119,9 +1119,9 @@
    <Standard Typ="RiS"/>
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
-   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="4" Pflicht="true"/>
-   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="4" Pflicht="true"/>
-   <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="1" Pflicht="true" Typ="Km"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="1" Pflicht="true" Typ="Wi"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="3" Typ="Hj"/>
   </Fertigkeit>
   <Fertigkeit Name="Winden">
    <Grund Typ="Sw"/>
@@ -1133,7 +1133,7 @@
    <Ausnahme Typ="Km"/>
    <Ausnahme Typ="RiN"/>
    <Ausnahme Typ="RiS"/>
-   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="2" Typ="Sw"/>
   </Fertigkeit>
   <Fertigkeit Name="Zauberkunde">
    <Grund Typ="Km"/>
@@ -1145,11 +1145,11 @@
    <Ausnahme Typ="RiN"/>
    <Ausnahme Typ="RiS"/>
    <Ausnahme Typ="Wi"/>
-   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Km" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Hj"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Km"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Mg"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Sw"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="To"/>
   </Fertigkeit>
   <Fertigkeit Name="Zaubern">
    <Grund Typ="Km"/>
@@ -1172,7 +1172,7 @@
    <Standard Typ="RiN"/>
    <Standard Typ="RiS"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Fi" Erfolgswert="6"/>
+   <Lernschema Erfolgswert="6" Typ="Fi"/>
   </Fertigkeit>
   <Fertigkeit Name="�&#x9C;berleben im Dschungel">
    <Standard Typ="Hj"/>
@@ -1195,7 +1195,7 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="8"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="Fi"/>
   </Fertigkeit>
   <Fertigkeit Name="�&#x9C;berleben im Schnee">
    <Standard Typ="Hj"/>
@@ -1229,7 +1229,7 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="8"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="Fi"/>
   </Fertigkeit>
   <Fertigkeit Name="�&#x9C;berleben in der Steppe">
    <Standard Typ="Hj"/>
@@ -1270,7 +1270,7 @@
    <Standard Typ="RiS"/>
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
-   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Typ="RiS"/>
   </Fertigkeit>
   <Fertigkeit Name="Kampf zu Kamel" Region="E">
    <Grund Typ="RiN"/>
@@ -1706,35 +1706,35 @@
    <Standard Typ="To"/>
   </Fertigkeit>
   <Fertigkeit Name="Schreiben: Alte Sprache(+12)">
-   <Lernschema Typ="Mg" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="12" Typ="Mg"/>
   </Fertigkeit>
   <Fertigkeit Name="Schreiben: Muttersprache(+12)">
-   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="12"/>
-   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="12"/>
-   <Lernschema Typ="Sw" Lernpunkte="1" Erfolgswert="12"/>
-   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Km"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="Hj"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="Mg"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="Sw"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="To"/>
   </Fertigkeit>
   <Fertigkeit Name="Sprechen: Alte Sprache">
-   <Lernschema Typ="Mg" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="12" Typ="Mg"/>
   </Fertigkeit>
   <Fertigkeit Name="Sprechen: Sprache(+12)">
-   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="Mg"/>
   </Fertigkeit>
  </Fertigkeiten>
  <Berufe/>
  <Schriften/>
  <Sprachen/>
  <Typen>
-  <Typ Abkürzung="Fi" Region="TuT" MAGUS-Index="41" Bezeichnung-Mann="Fian" Bezeichnung-Frau="Fiana" kannZaubern="true" SprücheMitPraxisPunkten="Dweomer" Kultwaffe="true" Stadt="false" Ausdauer="ak">
-   <Modifikation Stand="10" Rüstung="1" Geld="2"/>
-   <Herkunft Land="Erainn" Kultwaffe="Langschwert"/>
-   <Herkunft Land="Ywerddon" Kultwaffe="Langschwert"/>
+  <Typ Abkürzung="Fi" Ausdauer="ak" Bezeichnung-Frau="Fiana" Bezeichnung-Mann="Fian" Kultwaffe="true" MAGUS-Index="41" Region="TuT" SprücheMitPraxisPunkten="Dweomer" Stadt="false" kannZaubern="true">
+   <Modifikation Geld="2" Rüstung="1" Stand="10"/>
+   <Herkunft Kultwaffe="Langschwert" Land="Erainn"/>
+   <Herkunft Kultwaffe="Langschwert" Land="Ywerddon"/>
    <Gruppe Name="K�&#x84;M"/>
    <Gruppe Name="ZK�&#x84;M"/>
   </Typ>
-  <Typ Abkürzung="Mg" Region="TuT" MAGUS-Index="50" Bezeichnung-Mann="Magister" Bezeichnung-Frau="Magisterin" kannZaubern="true" Lernpflichten="Schreiben: Muttersprache mu�&#x9F; auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen." SchreibenPflicht="true" MinGs="31" MinIn="61" MinpA="61" Ausdauer="ak">
-   <Modifikation Stand="20" Rüstung="1" Geld="4"/>
+  <Typ Abkürzung="Mg" Ausdauer="ak" Bezeichnung-Frau="Magisterin" Bezeichnung-Mann="Magister" Lernpflichten="Schreiben: Muttersprache mu�&#x9F; auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen." MAGUS-Index="50" MinGs="31" MinIn="61" MinpA="61" Region="TuT" SchreibenPflicht="true" kannZaubern="true">
+   <Modifikation Geld="4" Rüstung="1" Stand="20"/>
    <Herkunft Land="Alba"/>
    <Herkunft Land="Eschar"/>
    <Herkunft Land="Küstenstaaten"/>
@@ -1742,18 +1742,18 @@
    <Gruppe Name="K�&#x84;M"/>
    <Gruppe Name="ZK�&#x84;M"/>
   </Typ>
-  <Typ Abkürzung="RiN" Region="TuT" MAGUS-Index="51" Bezeichnung-Mann="Ritter [Alba, Küstenstaaten]" Bezeichnung-Frau="Ritterin [Alba, Küstenstaaten]" Lernpflichten="Ritter aus Alba dürfen weder Rapier, Buckler noch Parierdolch wählen. Ritter aus den Küstenstaaten dürfen weder Kampf in Schlachtreihe noch das Schlachtbeil lernen." Ausdauer="k">
-   <Modifikation Rüstung="3" Geld="1"/>
+  <Typ Abkürzung="RiN" Ausdauer="k" Bezeichnung-Frau="Ritterin [Alba, Küstenstaaten]" Bezeichnung-Mann="Ritter [Alba, Küstenstaaten]" Lernpflichten="Ritter aus Alba dürfen weder Rapier, Buckler noch Parierdolch wählen. Ritter aus den Küstenstaaten dürfen weder Kampf in Schlachtreihe noch das Schlachtbeil lernen." MAGUS-Index="51" Region="TuT">
+   <Modifikation Geld="1" Rüstung="3"/>
    <Herkunft Land="Alba"/>
    <Herkunft Land="Küstenstaaten"/>
   </Typ>
-  <Typ Abkürzung="RiS" Region="TuT" MAGUS-Index="52" Bezeichnung-Mann="Ritter [Aran,Eschar]" Bezeichnung-Frau="Ritterin [Aran,Eschar]" Ausdauer="k">
-   <Modifikation Rüstung="3" Geld="1"/>
+  <Typ Abkürzung="RiS" Ausdauer="k" Bezeichnung-Frau="Ritterin [Aran,Eschar]" Bezeichnung-Mann="Ritter [Aran,Eschar]" MAGUS-Index="52" Region="TuT">
+   <Modifikation Geld="1" Rüstung="3"/>
    <Herkunft Land="Aran"/>
    <Herkunft Land="Eschar"/>
   </Typ>
-  <Typ Abkürzung="Hj" Region="TuT" MAGUS-Index="53" Bezeichnung-Mann="Hexenjäger" Bezeichnung-Frau="Hexenjägerin" kannZaubern="true" Lernpflichten="Nur Dolch, Kurzschwert, Streitkolben oder Kriegshammer als Spezialwaffe möglich." Ausdauer="ak">
-   <Modifikation Sb="30" Rüstung="2" Geld="3"/>
+  <Typ Abkürzung="Hj" Ausdauer="ak" Bezeichnung-Frau="Hexenjägerin" Bezeichnung-Mann="Hexenjäger" Lernpflichten="Nur Dolch, Kurzschwert, Streitkolben oder Kriegshammer als Spezialwaffe möglich." MAGUS-Index="53" Region="TuT" kannZaubern="true">
+   <Modifikation Geld="3" Rüstung="2" Sb="30"/>
    <Herkunft Land="Alba"/>
    <Herkunft Land="Aran"/>
    <Herkunft Land="Buluga"/>
@@ -1781,8 +1781,8 @@
    <Herkunft Land="Waeland"/>
    <Herkunft Land="Ywerddon"/>
   </Typ>
-  <Typ Abkürzung="Sw" Region="TuT" MAGUS-Index="54" Bezeichnung-Mann="Schattenweber" Bezeichnung-Frau="Schattenweberin" kannZaubern="true" Lernpflichten="Nur Dolch, Keule, Wurfaxt oder Wurfmesser kann als Spezialwaffe gewählt werden. Schreiben: Muttersprache +9 mu�&#x9F; gelernt werden" SchreibenPflicht="true" Land="false" Ausdauer="ak">
-   <Modifikation Stand="10" Sb="-20" Rüstung="1" Geld="4"/>
+  <Typ Abkürzung="Sw" Ausdauer="ak" Bezeichnung-Frau="Schattenweberin" Bezeichnung-Mann="Schattenweber" Land="false" Lernpflichten="Nur Dolch, Keule, Wurfaxt oder Wurfmesser kann als Spezialwaffe gewählt werden. Schreiben: Muttersprache +9 mu�&#x9F; gelernt werden" MAGUS-Index="54" Region="TuT" SchreibenPflicht="true" kannZaubern="true">
+   <Modifikation Geld="4" Rüstung="1" Sb="-20" Stand="10"/>
    <Herkunft Land="Alba"/>
    <Herkunft Land="Aran"/>
    <Herkunft Land="Buluga"/>
@@ -1810,14 +1810,14 @@
    <Herkunft Land="Waeland"/>
    <Herkunft Land="Ywerddon"/>
   </Typ>
-  <Typ Abkürzung="Wi" Region="TuT" MAGUS-Index="55" Bezeichnung-Mann="Wildläufer" Bezeichnung-Frau="Wildläuferin" kannZaubern="true" SprücheMitPraxisPunkten="Dweomer" Stadt="false" Ausdauer="ak">
-   <Modifikation Rüstung="1" Geld="2"/>
+  <Typ Abkürzung="Wi" Ausdauer="ak" Bezeichnung-Frau="Wildläuferin" Bezeichnung-Mann="Wildläufer" MAGUS-Index="55" Region="TuT" SprücheMitPraxisPunkten="Dweomer" Stadt="false" kannZaubern="true">
+   <Modifikation Geld="2" Rüstung="1"/>
    <Herkunft Land="Alba"/>
    <Herkunft Land="Clanngadarn"/>
    <Herkunft Land="Moravod"/>
   </Typ>
-  <Typ Abkürzung="To" Region="TuT" MAGUS-Index="56" Bezeichnung-Mann="Todeswirker" Bezeichnung-Frau="Todeswirkerin" kannZaubern="true" Lernpflichten="Als Spezialwaffe kann nur Dolch, Kurzschwert, Rapier, Wurfmesser oder leichte Armbrust gewählt werden." Land="false" Ausdauer="ak">
-   <Modifikation Stand="-10" Sb="30" Rüstung="1" Geld="3"/>
+  <Typ Abkürzung="To" Ausdauer="ak" Bezeichnung-Frau="Todeswirkerin" Bezeichnung-Mann="Todeswirker" Land="false" Lernpflichten="Als Spezialwaffe kann nur Dolch, Kurzschwert, Rapier, Wurfmesser oder leichte Armbrust gewählt werden." MAGUS-Index="56" Region="TuT" kannZaubern="true">
+   <Modifikation Geld="3" Rüstung="1" Sb="30" Stand="-10"/>
    <Herkunft Land="Alba"/>
    <Herkunft Land="Aran"/>
    <Herkunft Land="Chryseia"/>
@@ -1826,8 +1826,8 @@
    <Herkunft Land="Moravod"/>
    <Herkunft Land="Valian"/>
   </Typ>
-  <Typ Abkürzung="Km" Region="TuT" MAGUS-Index="57" Bezeichnung-Mann="Klingenmagier" Bezeichnung-Frau="Klingenmagierin" kannZaubern="true" Lernpflichten="Schreiben: Muttersprache mu�&#x9F; auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen." Stadt="false" Ausdauer="k">
-   <Modifikation Stand="10" Rüstung="3" Geld="3"/>
+  <Typ Abkürzung="Km" Ausdauer="k" Bezeichnung-Frau="Klingenmagierin" Bezeichnung-Mann="Klingenmagier" Lernpflichten="Schreiben: Muttersprache mu�&#x9F; auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen." MAGUS-Index="57" Region="TuT" Stadt="false" kannZaubern="true">
+   <Modifikation Geld="3" Rüstung="3" Stand="10"/>
   </Typ>
  </Typen>
  <Rüstungen/>
@@ -1842,12 +1842,12 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Km" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="RiN" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="RiS" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="5"/>
-   <Lernschema Typ="Wi" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Hj"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Km"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="RiN"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="RiS"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="To"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Wi"/>
   </Waffe>
   <Waffe Name="Bihänder">
    <Grund Typ="RiN"/>
@@ -1859,10 +1859,10 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Km" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="RiN" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="RiS" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Km"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="RiN"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="RiS"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="To"/>
   </Waffe>
   <Waffe Name="Blasrohr">
    <Grund Typ="RiN"/>
@@ -1874,8 +1874,8 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Sw" Lernpunkte="4" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="To"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="4" Typ="Sw"/>
   </Waffe>
   <Waffe Name="Bogen">
    <Grund Typ="RiN"/>
@@ -1887,14 +1887,14 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Km" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="RiS" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Wi" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="5"/>
-   <Lernschema Typ="Mg" Lernpunkte="4" Erfolgswert="5"/>
-   <Lernschema Typ="Sw" Lernpunkte="4" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Fi"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Km"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="RiS"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="To"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Wi"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Hj"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="4" Typ="Mg"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="4" Typ="Sw"/>
   </Waffe>
   <Waffe Name="Bola">
    <Grund Typ="RiN"/>
@@ -1917,12 +1917,12 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="1"/>
-   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="1"/>
-   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="1"/>
-   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="1"/>
-   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="1"/>
-   <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="1"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="1" Typ="Hj"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="1" Typ="Mg"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="1" Typ="RiN"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="1" Typ="RiS"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="2" Typ="Sw"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="3" Typ="To"/>
   </Waffe>
   <Waffe Name="Dolch">
    <Grund Typ="RiN"/>
@@ -1934,15 +1934,15 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Fi" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Sw" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Fi"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Hj"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Km"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Mg"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="RiN"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="RiS"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Sw"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="To"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Wi"/>
   </Waffe>
   <Waffe Name="Faustkampf">
    <Grund Typ="RiN"/>
@@ -1965,9 +1965,9 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="5"/>
-   <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Mg"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Hj"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="To"/>
   </Waffe>
   <Waffe Name="Garotte">
    <Grund Typ="RiN"/>
@@ -1979,7 +1979,7 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="To"/>
   </Waffe>
   <Waffe Name="Glefe">
    <Grund Typ="RiN"/>
@@ -2013,13 +2013,13 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Hj"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Km"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="RiN"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Wi"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Mg"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Sw"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="To"/>
   </Waffe>
   <Waffe Name="Hellebarde">
    <Grund Typ="RiN"/>
@@ -2031,10 +2031,10 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="RiN" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="RiS" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="5"/>
-   <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="RiN"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="RiS"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Hj"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="To"/>
   </Waffe>
   <Waffe Name="Kampfgabeln">
    <Grund Typ="RiN"/>
@@ -2057,12 +2057,12 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Km" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Fi" Lernpunkte="3" Erfolgswert="5"/>
-   <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="5"/>
-   <Lernschema Typ="Mg" Lernpunkte="3" Erfolgswert="5"/>
-   <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="5"/>
-   <Lernschema Typ="Wi" Lernpunkte="4" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Km"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Fi"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Hj"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Mg"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="To"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="4" Typ="Wi"/>
   </Waffe>
   <Waffe Name="Keule">
    <Grund Typ="RiN"/>
@@ -2074,13 +2074,13 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Sw" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Hj"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Km"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Mg"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="RiS"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Sw"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="To"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Wi"/>
   </Waffe>
   <Waffe Name="Kharrata">
    <Standard Typ="Fi"/>
@@ -2114,8 +2114,8 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="RiN" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="RiN"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Hj"/>
   </Waffe>
   <Waffe Name="Kriegshammer">
    <Grund Typ="RiN"/>
@@ -2127,8 +2127,8 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Hj"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="RiN"/>
   </Waffe>
   <Waffe Name="Krummsäbel">
    <Grund Typ="RiN"/>
@@ -2140,9 +2140,9 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Hj"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="RiS"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Mg"/>
   </Waffe>
   <Waffe Name="Kurzbogen">
    <Grund Typ="RiN"/>
@@ -2154,13 +2154,13 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Km" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Wi" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="5"/>
-   <Lernschema Typ="Mg" Lernpunkte="3" Erfolgswert="5"/>
-   <Lernschema Typ="Sw" Lernpunkte="4" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Fi"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Km"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="To"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Wi"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Hj"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Mg"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="4" Typ="Sw"/>
   </Waffe>
   <Waffe Name="Kurzschwert">
    <Grund Typ="RiN"/>
@@ -2172,14 +2172,14 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Hj"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Km"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Mg"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="RiN"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="RiS"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="To"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Wi"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Sw"/>
   </Waffe>
   <Waffe Name="Langbogen">
    <Grund Typ="RiN"/>
@@ -2191,8 +2191,8 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Km" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Wi" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Km"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Wi"/>
   </Waffe>
   <Waffe Name="Langschwert">
    <Grund Typ="RiN"/>
@@ -2204,14 +2204,14 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Wi" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Mg" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Km"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="RiN"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="RiS"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Fi"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Hj"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="To"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Wi"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Mg"/>
   </Waffe>
   <Waffe Name="Lanze">
    <Grund Typ="RiN"/>
@@ -2223,8 +2223,8 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Km"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="RiN"/>
   </Waffe>
   <Waffe Name="Lasso">
    <Grund Typ="RiN"/>
@@ -2242,17 +2242,17 @@
    <Standard Typ="Sw"/>
    <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="Wi"/>
-   <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="5"/>
-   <Lernschema Typ="Km" Lernpunkte="4" Erfolgswert="5"/>
-   <Lernschema Typ="Sw" Lernpunkte="6" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="To"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="4" Typ="Km"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="6" Typ="Sw"/>
   </Waffe>
   <Waffe Name="Magierstecken">
    <Standard Typ="Km"/>
    <Standard Typ="Sw"/>
    <Ausnahme Typ="Hj"/>
    <Ausnahme Typ="Wi"/>
-   <Lernschema Typ="Wi" Lernpunkte="3" Erfolgswert="5"/>
-   <Lernschema Typ="Km" Lernpunkte="4" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Wi"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="4" Typ="Km"/>
   </Waffe>
   <Waffe Name="Morgenstern">
    <Grund Typ="RiN"/>
@@ -2264,9 +2264,9 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="RiN"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Hj"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="To"/>
   </Waffe>
   <Waffe Name="Netz">
    <Grund Typ="RiN"/>
@@ -2289,9 +2289,9 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Hj"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Mg"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="To"/>
   </Waffe>
   <Waffe Name="Ogerhammer">
    <Standard Typ="Fi"/>
@@ -2314,11 +2314,11 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="1"/>
-   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="1"/>
-   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="1"/>
-   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="1"/>
-   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="1"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="1" Typ="RiN"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="1" Typ="To"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="2" Typ="Hj"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="2" Typ="Mg"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="2" Typ="Sw"/>
   </Waffe>
   <Waffe Name="Peitsche">
    <Standard Typ="Fi"/>
@@ -2341,11 +2341,11 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Mg"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="RiN"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="To"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Hj"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Sw"/>
   </Waffe>
   <Waffe Name="Schlachtbeil">
    <Grund Typ="RiN"/>
@@ -2357,7 +2357,7 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="RiN" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="RiN"/>
   </Waffe>
   <Waffe Name="Schleuder">
    <Grund Typ="RiN"/>
@@ -2369,12 +2369,12 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Km" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="5"/>
-   <Lernschema Typ="Sw" Lernpunkte="3" Erfolgswert="5"/>
-   <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="5"/>
-   <Lernschema Typ="Wi" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Km"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Mg"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Hj"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Sw"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="To"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Wi"/>
   </Waffe>
   <Waffe Name="Skhallanta">
    <Grund Typ="RiN"/>
@@ -2408,8 +2408,8 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="RiN"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Hj"/>
   </Waffe>
   <Waffe Name="Stielhammer">
    <Grund Typ="RiN"/>
@@ -2421,8 +2421,8 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="RiN" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="RiN"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Hj"/>
   </Waffe>
   <Waffe Name="Stockschleuder">
    <Grund Typ="RiN"/>
@@ -2445,14 +2445,14 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Fi" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Fi"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Km"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="RiN"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="RiS"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Wi"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Hj"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Mg"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="To"/>
   </Waffe>
   <Waffe Name="Streitaxt">
    <Grund Typ="RiN"/>
@@ -2464,7 +2464,7 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Hj"/>
   </Waffe>
   <Waffe Name="Streitkolben">
    <Grund Typ="RiN"/>
@@ -2476,13 +2476,13 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Hj"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Km"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="RiN"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="RiS"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Mg"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Sw"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="To"/>
   </Waffe>
   <Waffe Name="Werfen">
    <Grund Typ="RiN"/>
@@ -2494,8 +2494,8 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Sw"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="To"/>
   </Waffe>
   <Waffe Name="Wurfaxt">
    <Grund Typ="RiN"/>
@@ -2507,13 +2507,13 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Fi" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Fi"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Km"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="RiN"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Wi"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Hj"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Sw"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="To"/>
   </Waffe>
   <Waffe Name="Wurfeisen">
    <Grund Typ="RiN"/>
@@ -2536,8 +2536,8 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="RiN"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Hj"/>
   </Waffe>
   <Waffe Name="Wurfkeule">
    <Grund Typ="RiN"/>
@@ -2549,12 +2549,12 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Fi" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Fi"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Km"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="RiS"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Wi"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Hj"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="To"/>
   </Waffe>
   <Waffe Name="Wurfmesser">
    <Grund Typ="RiN"/>
@@ -2566,11 +2566,11 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="To" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Km"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="To"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Mg"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Sw"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Hj"/>
   </Waffe>
   <Waffe Name="Wurfpfeil">
    <Grund Typ="RiN"/>
@@ -2582,10 +2582,10 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="5"/>
-   <Lernschema Typ="Sw" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Mg"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="To"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Hj"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Sw"/>
   </Waffe>
   <Waffe Name="Wurfscheibe">
    <Grund Typ="RiN"/>
@@ -2608,12 +2608,12 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Km"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="RiS"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Wi"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Fi"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Hj"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="To"/>
   </Waffe>
   <Waffe Name="Wurfspie�&#x9F;">
    <Grund Typ="RiN"/>
@@ -2625,7 +2625,7 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="RiS"/>
   </Waffe>
   <Waffe Name="Wurfstern">
    <Grund Typ="RiN"/>
@@ -2648,12 +2648,12 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="1"/>
-   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="1"/>
-   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="1"/>
-   <Lernschema Typ="Fi" Lernpunkte="2" Erfolgswert="1"/>
-   <Lernschema Typ="Hj" Lernpunkte="2" Erfolgswert="1"/>
-   <Lernschema Typ="Wi" Lernpunkte="2" Erfolgswert="1"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="1" Typ="Km"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="1" Typ="RiN"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="1" Typ="RiS"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="2" Typ="Fi"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="2" Typ="Hj"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="2" Typ="Wi"/>
   </Waffe>
   <Waffe Name="kleiner Schild">
    <Grund Typ="RiN"/>
@@ -2665,15 +2665,15 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Fi" Lernpunkte="1" Erfolgswert="1"/>
-   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="1"/>
-   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="1"/>
-   <Lernschema Typ="Mg" Lernpunkte="1" Erfolgswert="1"/>
-   <Lernschema Typ="RiN" Lernpunkte="1" Erfolgswert="1"/>
-   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="1"/>
-   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="1"/>
-   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="1"/>
-   <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="1"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="1" Typ="Fi"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="1" Typ="Hj"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="1" Typ="Km"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="1" Typ="Mg"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="1" Typ="RiN"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="1" Typ="RiS"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="1" Typ="Wi"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="2" Typ="Sw"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="3" Typ="To"/>
   </Waffe>
   <Waffe Name="leichte Armbrust">
    <Grund Typ="RiN"/>
@@ -2685,10 +2685,10 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Hj" Lernpunkte="3" Erfolgswert="5"/>
-   <Lernschema Typ="Mg" Lernpunkte="4" Erfolgswert="5"/>
-   <Lernschema Typ="Sw" Lernpunkte="4" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="To"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Hj"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="4" Typ="Mg"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="4" Typ="Sw"/>
   </Waffe>
   <Waffe Name="leichter Speer">
    <Grund Typ="RiN"/>
@@ -2700,14 +2700,14 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Fi" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Hj" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Km" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="RiS" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Wi" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Mg" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Sw" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Fi"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Hj"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Km"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="RiS"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Wi"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Mg"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Sw"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="To"/>
   </Waffe>
   <Waffe Name="schwere Armbrust">
    <Grund Typ="RiN"/>
@@ -2719,8 +2719,8 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="To" Lernpunkte="3" Erfolgswert="5"/>
-   <Lernschema Typ="Hj" Lernpunkte="4" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="To"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="4" Typ="Hj"/>
   </Waffe>
   <Waffe Name="waffenloser Kampf">
    <Grund Typ="RiN"/>
@@ -2732,13 +2732,13 @@
    <Standard Typ="Sw"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Km" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="RiN" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="RiS" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="To" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Mg" Lernpunkte="3" Erfolgswert="5"/>
-   <Lernschema Typ="Fi" Lernpunkte="4" Erfolgswert="5"/>
-   <Lernschema Typ="Wi" Lernpunkte="4" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Km"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="RiN"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="RiS"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="To"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Mg"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="4" Typ="Fi"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="4" Typ="Wi"/>
   </Waffe>
   <Waffe Name="Pilum" Region="3">
    <Grund Typ="RiN"/>
@@ -3190,7 +3190,7 @@
   </Waffen-Grundkenntnis>
  </Waffen-Grundkenntnisse>
  <Zauber>
-  <Spruch Name="Elfenklinge" Region="TuT" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verändert" Reagens="Metall" Zauberdauer="10 s" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="10 min" Spruchrolle="true">
+  <Spruch AP="3" Agens="Holz" Grad="3" Lernkosten="800" Name="Elfenklinge" Prozess="verändert" Reagens="Metall" Region="TuT" Reichweite="B" Spruchrolle="true" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="1 Ob" Wirkungsdauer="10 min" Wirkungsziel="Umgebung" Zauberdauer="10 s">
    <Grund Typ="Fi"/>
    <Grund Typ="Hl"/>
    <Grund Typ="Km"/>
@@ -3217,7 +3217,7 @@
    <Ausnahme Typ="PW"/>
    <Ausnahme Typ="To"/>
   </Spruch>
-  <Spruch Name="Erkennen von Besessenheit" Region="TuT" Grad="2" Lernkosten="200" AP="2" Typ="Gedanke" Ursprung="göttlich" Agens="Luft" Prozess="erkennt" Reagens="Feuer" Zauberdauer="5 sec" Reichweite="0 m" Wirkungsziel="Geist" Wirkungsbereich="30 m Kegel" Wirkungsdauer="10 sec">
+  <Spruch AP="2" Agens="Luft" Grad="2" Lernkosten="200" Name="Erkennen von Besessenheit" Prozess="erkennt" Reagens="Feuer" Region="TuT" Reichweite="0 m" Typ="Gedanke" Ursprung="göttlich" Wirkungsbereich="30 m Kegel" Wirkungsdauer="10 sec" Wirkungsziel="Geist" Zauberdauer="5 sec">
    <Grund Typ="De"/>
    <Grund Typ="Hj"/>
    <Grund Typ="PW"/>
@@ -3238,9 +3238,9 @@
    <Standard Typ="tBe"/>
    <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="To"/>
-   <Lernschema Typ="Hj" Lernpunkte="4"/>
+   <Lernschema Lernpunkte="4" Typ="Hj"/>
   </Spruch>
-  <Spruch Name="Fährtenduft" Region="TuT" Grad="2" Lernkosten="200" AP="1+1/Ws" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verändert" Reagens="Erde" Zauberdauer="1 min" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1-6 Ws" Wirkungsdauer="30 min" Material="Tierkot (2KS)" Spruchrolle="true">
+  <Spruch AP="1+1/Ws" Agens="Holz" Grad="2" Lernkosten="200" Material="Tierkot (2KS)" Name="Fährtenduft" Prozess="verändert" Reagens="Erde" Region="TuT" Reichweite="B" Spruchrolle="true" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="1-6 Ws" Wirkungsdauer="30 min" Wirkungsziel="Körper" Zauberdauer="1 min">
    <Grund Typ="Dr"/>
    <Grund Typ="Hl"/>
    <Standard Typ="Fi"/>
@@ -3259,7 +3259,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Geräusche dämpfen" Region="TuT" Grad="1" Lernkosten="100" AP="1" Typ="Geste" Ursprung="dämonisch" Agens="Metall" Prozess="verändert" Reagens="Luft" Zauberdauer="1 sec" Reichweite="0 m" Wirkungsziel="Umgebung" Wirkungsbereich="3 m UK" Wirkungsdauer="5 min" Thaumagramm="Siegel">
+  <Spruch AP="1" Agens="Metall" Grad="1" Lernkosten="100" Name="Geräusche dämpfen" Prozess="verändert" Reagens="Luft" Region="TuT" Reichweite="0 m" Thaumagramm="Siegel" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="3 m UK" Wirkungsdauer="5 min" Wirkungsziel="Umgebung" Zauberdauer="1 sec">
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Standard Typ="Dr"/>
@@ -3286,9 +3286,9 @@
    <Ausnahme Typ="ScW"/>
    <Ausnahme Typ="Tm"/>
    <Ausnahme Typ="Wi"/>
-   <Lernschema Typ="Sw" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="Sw"/>
   </Spruch>
-  <Spruch Name="Hauch der Betäubung" Region="TuT" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="dämonisch" Agens="Eis" Prozess="erschafft" Reagens="Holz" Zauberdauer="1 sec" Reichweite="0 m" Wirkungsziel="Umgebung" Wirkungsbereich="bis 18 m UK" Wirkungsdauer="1 min" Material="getr. Vamirmoos (1 Gs)" Thaumagramm="Runenstab">
+  <Spruch AP="3" Agens="Eis" Grad="3" Lernkosten="800" Material="getr. Vamirmoos (1 Gs)" Name="Hauch der Betäubung" Prozess="erschafft" Reagens="Holz" Region="TuT" Reichweite="0 m" Thaumagramm="Runenstab" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="bis 18 m UK" Wirkungsdauer="1 min" Wirkungsziel="Umgebung" Zauberdauer="1 sec">
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Standard Typ="Km"/>
@@ -3312,7 +3312,7 @@
    <Ausnahme Typ="ScS"/>
    <Ausnahme Typ="ScW"/>
   </Spruch>
-  <Spruch Name="Laufen wie der Wind" Region="TuT" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verändert" Reagens="Erde" Zauberdauer="10 s" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min">
+  <Spruch AP="3" Agens="Holz" Grad="3" Lernkosten="800" Name="Laufen wie der Wind" Prozess="verändert" Reagens="Erde" Region="TuT" Reichweite="B" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Wirkungsziel="Körper" Zauberdauer="10 s">
    <Grund Typ="Fi"/>
    <Grund Typ="Hl"/>
    <Grund Typ="Wi"/>
@@ -3327,7 +3327,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Leuchtspur" Region="TuT" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="göttlich" Agens="Feuer" Prozess="erkennt" Reagens="Feuer" Zauberdauer="1 min" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="50 m UK" Wirkungsdauer="6 h">
+  <Spruch AP="3" Agens="Feuer" Grad="3" Lernkosten="800" Name="Leuchtspur" Prozess="erkennt" Reagens="Feuer" Region="TuT" Reichweite="B" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="50 m UK" Wirkungsdauer="6 h" Wirkungsziel="Umgebung" Zauberdauer="1 min">
    <Grund Typ="Hj"/>
    <Grund Typ="dBe"/>
    <Grund Typ="eBe"/>
@@ -3354,7 +3354,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Person wiederfinden" Region="TuT" Grad="2" Lernkosten="200" AP="2" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="erkennt" Reagens="Luft" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Spruchrolle="true" Thaumagramm="Siegel">
+  <Spruch AP="2" Agens="Magan" Grad="2" Lernkosten="200" Name="Person wiederfinden" Prozess="erkennt" Reagens="Luft" Region="TuT" Reichweite="0" Spruchrolle="true" Thaumagramm="Siegel" Typ="Gedanke" Ursprung="dämonisch" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Wirkungsziel="Geist" Zauberdauer="10 min">
    <Grund Typ="Hj"/>
    <Grund Typ="Hl"/>
    <Grund Typ="ScN"/>
@@ -3380,7 +3380,7 @@
    <Ausnahme Typ="De"/>
    <Ausnahme Typ="Or"/>
   </Spruch>
-  <Spruch Name="Rauchbild" Region="TuT" Grad="4" Lernkosten="1800" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Feuer" Prozess="erkennt" Reagens="Feuer" Zauberdauer="10 min" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="Z" Wirkungsdauer="5 min" Material="Wollgras, Rauschmittel, Regenbogenpulver (10 Gs)">
+  <Spruch AP="4" Agens="Feuer" Grad="4" Lernkosten="1800" Material="Wollgras, Rauschmittel, Regenbogenpulver (10 Gs)" Name="Rauchbild" Prozess="erkennt" Reagens="Feuer" Region="TuT" Reichweite="B" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="Z" Wirkungsdauer="5 min" Wirkungsziel="Umgebung" Zauberdauer="10 min">
    <Grund Typ="Hj"/>
    <Grund Typ="dBe"/>
    <Grund Typ="eBe"/>
@@ -3403,7 +3403,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Schatten verstärken" Region="TuT" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="dämonisch" Agens="Eis" Prozess="verändert" Reagens="Feuer" Zauberdauer="1 sec" Reichweite="0 m" Wirkungsziel="Umgebung" Wirkungsbereich="15 m UK" Wirkungsdauer="10 min" Thaumagramm="Siegel">
+  <Spruch AP="1" Agens="Eis" Grad="1" Lernkosten="80" Name="Schatten verstärken" Prozess="verändert" Reagens="Feuer" Region="TuT" Reichweite="0 m" Thaumagramm="Siegel" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="15 m UK" Wirkungsdauer="10 min" Wirkungsziel="Umgebung" Zauberdauer="1 sec">
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Standard Typ="ScN"/>
@@ -3426,9 +3426,9 @@
    <Ausnahme Typ="PT"/>
    <Ausnahme Typ="PW"/>
    <Ausnahme Typ="Wi"/>
-   <Lernschema Typ="Sw" Lernpunkte="3"/>
+   <Lernschema Lernpunkte="3" Typ="Sw"/>
   </Spruch>
-  <Spruch Name="Schattenrobe" Region="TuT" Grad="2" Lernkosten="200" AP="2" Typ="Wort" Ursprung="dämonisch" Agens="Magan" Prozess="verändert" Reagens="Feuer" Zauberdauer="5 sec" Reichweite="0 m" Wirkungsziel="Umgebung" Wirkungsbereich="Z" Wirkungsdauer="10 min" Thaumagramm="Siegel">
+  <Spruch AP="2" Agens="Magan" Grad="2" Lernkosten="200" Name="Schattenrobe" Prozess="verändert" Reagens="Feuer" Region="TuT" Reichweite="0 m" Thaumagramm="Siegel" Typ="Wort" Ursprung="dämonisch" Wirkungsbereich="Z" Wirkungsdauer="10 min" Wirkungsziel="Umgebung" Zauberdauer="5 sec">
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Standard Typ="gHx"/>
@@ -3438,9 +3438,9 @@
    <Ausnahme Typ="Km"/>
    <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
-   <Lernschema Typ="Sw" Lernpunkte="4"/>
+   <Lernschema Lernpunkte="4" Typ="Sw"/>
   </Spruch>
-  <Spruch Name="Schattenschrecken" Region="TuT" Grad="4" Lernkosten="1200" AP="4" Typ="Geste" Ursprung="dämonisch" Agens="Eis" Prozess="bewegt" Reagens="Feuer" Zauberdauer="20 sec" Reichweite="0 m" Wirkungsziel="Umgebung" Wirkungsbereich="100 m UK" Wirkungsdauer="30 min" Thaumagramm="Runenstab">
+  <Spruch AP="4" Agens="Eis" Grad="4" Lernkosten="1200" Name="Schattenschrecken" Prozess="bewegt" Reagens="Feuer" Region="TuT" Reichweite="0 m" Thaumagramm="Runenstab" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="100 m UK" Wirkungsdauer="30 min" Wirkungsziel="Umgebung" Zauberdauer="20 sec">
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Standard Typ="Dr"/>
@@ -3462,7 +3462,7 @@
    <Ausnahme Typ="PW"/>
    <Ausnahme Typ="To"/>
   </Spruch>
-  <Spruch Name="Schlachtenwahnsinn" Region="TuT" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verändert" Reagens="Erde" Zauberdauer="10 s" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="Zauberer" Wirkungsdauer="2 min">
+  <Spruch AP="4" Agens="Holz" Grad="4" Lernkosten="1500" Name="Schlachtenwahnsinn" Prozess="verändert" Reagens="Erde" Region="TuT" Reichweite="-" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="Zauberer" Wirkungsdauer="2 min" Wirkungsziel="Körper" Zauberdauer="10 s">
    <Grund Typ="Fi"/>
    <Standard Typ="Dr"/>
    <Standard Typ="Tm"/>
@@ -3477,7 +3477,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Schutzgeste" Region="TuT" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="göttlich" Agens="Metall" Prozess="verändert" Reagens="Erde" Zauberdauer="1 sec" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="Z" Wirkungsdauer="0">
+  <Spruch AP="3" Agens="Metall" Grad="3" Lernkosten="600" Name="Schutzgeste" Prozess="verändert" Reagens="Erde" Region="TuT" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="Z" Wirkungsdauer="0" Wirkungsziel="Körper" Zauberdauer="1 sec">
    <Grund Typ="Hj"/>
    <Standard Typ="De"/>
    <Standard Typ="PF"/>
@@ -3495,7 +3495,7 @@
    <Ausnahme Typ="Or"/>
    <Ausnahme Typ="Tm"/>
   </Spruch>
-  <Spruch Name="Torwandeln" Region="TuT" Grad="4" Lernkosten="1600" AP="4" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="verwandelt" Reagens="Holz" Zauberdauer="10 min" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="30 cm" Wirkungsdauer="1 min" Thaumagramm="Siegel">
+  <Spruch AP="4" Agens="Magan" Grad="4" Lernkosten="1600" Name="Torwandeln" Prozess="verwandelt" Reagens="Holz" Region="TuT" Reichweite="B" Thaumagramm="Siegel" Typ="Geste" Ursprung="elementar" Wirkungsbereich="30 cm" Wirkungsdauer="1 min" Wirkungsziel="Umgebung" Zauberdauer="10 min">
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Standard Typ="To"/>
@@ -3506,7 +3506,7 @@
    <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
   </Spruch>
-  <Spruch Name="Wandwandeln" Region="TuT" Grad="5" Lernkosten="3000" AP="6" Typ="Geste" Ursprung="elementar" Agens="Magan" Prozess="verwandelt" Reagens="Erde" Zauberdauer="10 min" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="1 min" Thaumagramm="Siegel">
+  <Spruch AP="6" Agens="Magan" Grad="5" Lernkosten="3000" Name="Wandwandeln" Prozess="verwandelt" Reagens="Erde" Region="TuT" Reichweite="B" Thaumagramm="Siegel" Typ="Geste" Ursprung="elementar" Wirkungsbereich="-" Wirkungsdauer="1 min" Wirkungsziel="Umgebung" Zauberdauer="10 min">
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Standard Typ="To"/>
@@ -3517,7 +3517,7 @@
    <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
   </Spruch>
-  <Spruch Name="Wittern" Region="TuT" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verändert" Reagens="Erde" Zauberdauer="10 s" Reichweite="25m Uk" Wirkungsziel="Körper" Wirkungsbereich="Z" Wirkungsdauer="10 min" Material="Spürhundhaare (5 SS)" Thaumagramm="Siegel">
+  <Spruch AP="2" Agens="Holz" Grad="2" Lernkosten="200" Material="Spürhundhaare (5 SS)" Name="Wittern" Prozess="verändert" Reagens="Erde" Region="TuT" Reichweite="25m Uk" Thaumagramm="Siegel" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="Z" Wirkungsdauer="10 min" Wirkungsziel="Körper" Zauberdauer="10 s">
    <Grund Typ="Dr"/>
    <Grund Typ="ScN"/>
    <Grund Typ="ScS"/>
@@ -3536,7 +3536,7 @@
    <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
   </Spruch>
-  <Spruch Name="Zaubersprung" Region="TuT" Grad="4" Lernkosten="200" AP="2" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verändert" Reagens="Erde" Zauberdauer="5 s" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="2 min">
+  <Spruch AP="2" Agens="Holz" Grad="4" Lernkosten="200" Name="Zaubersprung" Prozess="verändert" Reagens="Erde" Region="TuT" Reichweite="-" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="1 Ws" Wirkungsdauer="2 min" Wirkungsziel="Körper" Zauberdauer="5 s">
    <Grund Typ="Fi"/>
    <Grund Typ="Hl"/>
    <Standard Typ="Dr"/>
@@ -3550,9 +3550,9 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
-   <Lernschema Typ="Fi" Lernpunkte="8"/>
+   <Lernschema Lernpunkte="8" Typ="Fi"/>
   </Spruch>
-  <Spruch Name="Zwingkreis, Blauer" Region="TuT" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="20 sec" Reichweite="30 m" Wirkungsziel="Geist" Wirkungsbereich="6 m UK" Wirkungsdauer="10 min" Material="Eichenholzreif (1 Gs)" Spruchrolle="true">
+  <Spruch AP="4" Agens="Luft" Grad="4" Lernkosten="1500" Material="Eichenholzreif (1 Gs)" Name="Zwingkreis, Blauer" Prozess="beherrscht" Reagens="Eis" Region="TuT" Reichweite="30 m" Spruchrolle="true" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="6 m UK" Wirkungsdauer="10 min" Wirkungsziel="Geist" Zauberdauer="20 sec">
    <Grund Typ="Hj"/>
    <Standard Typ="PT"/>
    <Standard Typ="dBe"/>
@@ -3570,7 +3570,7 @@
    <Ausnahme Typ="ScS"/>
    <Ausnahme Typ="ScW"/>
   </Spruch>
-  <Spruch Name="Zwingkreis, Silberner" Region="TuT" Grad="4" Lernkosten="1600" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="20 sec" Reichweite="30 m" Wirkungsziel="Geist" Wirkungsbereich="6 m UK" Wirkungsdauer="10 min" Material="Silberreif (5Gs)">
+  <Spruch AP="4" Agens="Luft" Grad="4" Lernkosten="1600" Material="Silberreif (5Gs)" Name="Zwingkreis, Silberner" Prozess="beherrscht" Reagens="Feuer" Region="TuT" Reichweite="30 m" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="6 m UK" Wirkungsdauer="10 min" Wirkungsziel="Geist" Zauberdauer="20 sec">
    <Grund Typ="Hj"/>
    <Standard Typ="PC"/>
    <Standard Typ="PF"/>
@@ -3594,10 +3594,10 @@
    <Standard Typ="Km"/>
    <Standard Typ="Mg"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Hj" Lernpunkte="2"/>
-   <Lernschema Typ="Mg" Lernpunkte="4"/>
-   <Lernschema Typ="To" Lernpunkte="4"/>
-   <Lernschema Typ="Wi" Lernpunkte="8"/>
+   <Lernschema Lernpunkte="2" Typ="Hj"/>
+   <Lernschema Lernpunkte="4" Typ="Mg"/>
+   <Lernschema Lernpunkte="4" Typ="To"/>
+   <Lernschema Lernpunkte="8" Typ="Wi"/>
   </Spruch>
   <Spruch Name="Anziehen">
    <Grund Typ="Sw"/>
@@ -3611,7 +3611,7 @@
   </Spruch>
   <Spruch Name="Austreibung des Bösen">
    <Grund Typ="Hj"/>
-   <Lernschema Typ="Hj" Lernpunkte="8"/>
+   <Lernschema Lernpunkte="8" Typ="Hj"/>
   </Spruch>
   <Spruch Name="Automat schaffen">
    <Grund Typ="Sw"/>
@@ -3631,7 +3631,7 @@
   <Spruch Name="Bannen von Licht">
    <Grund Typ="To"/>
    <Ausnahme Typ="Km"/>
-   <Lernschema Typ="To" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="To"/>
   </Spruch>
   <Spruch Name="Bannen von Zauberwerk">
    <Grund Typ="Hj"/>
@@ -3679,7 +3679,7 @@
    <Grund Typ="Sw"/>
    <Standard Typ="Km"/>
    <Standard Typ="To"/>
-   <Lernschema Typ="Sw" Lernpunkte="1"/>
+   <Lernschema Lernpunkte="1" Typ="Sw"/>
   </Spruch>
   <Spruch Name="Belebungshauch">
    <Grund Typ="Sw"/>
@@ -3695,7 +3695,7 @@
   <Spruch Name="Besänftigen">
    <Standard Typ="Mg"/>
    <Standard Typ="To"/>
-   <Lernschema Typ="Mg" Lernpunkte="8"/>
+   <Lernschema Lernpunkte="8" Typ="Mg"/>
   </Spruch>
   <Spruch Name="Binden des Vertrauten">
    <Standard Typ="Hj"/>
@@ -3704,8 +3704,8 @@
    <Grund Typ="Sw"/>
    <Standard Typ="Mg"/>
    <Standard Typ="To"/>
-   <Lernschema Typ="Sw" Lernpunkte="1"/>
-   <Lernschema Typ="Mg" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="1" Typ="Sw"/>
+   <Lernschema Lernpunkte="2" Typ="Mg"/>
   </Spruch>
   <Spruch Name="Blendwerk">
    <Grund Typ="Sw"/>
@@ -3716,8 +3716,8 @@
    <Grund Typ="Sw"/>
    <Standard Typ="Mg"/>
    <Standard Typ="To"/>
-   <Lernschema Typ="Sw" Lernpunkte="1"/>
-   <Lernschema Typ="Mg" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="1" Typ="Sw"/>
+   <Lernschema Lernpunkte="2" Typ="Mg"/>
   </Spruch>
   <Spruch Name="Blitze schleudern">
    <Grund Typ="Sw"/>
@@ -3728,11 +3728,12 @@
    <Standard Typ="Km"/>
   </Spruch>
   <Spruch Name="Bärenwut">
+   <Grund Typ="Fi"/>
    <Grund Typ="To"/>
    <Grund Typ="Wi"/>
-   <Lernschema Typ="To" Lernpunkte="2"/>
-   <Lernschema Typ="Wi" Lernpunkte="4"/>
-   <Lernschema Typ="Fi" Lernpunkte="4"/>
+   <Lernschema Lernpunkte="2" Typ="To"/>
+   <Lernschema Lernpunkte="4" Typ="Wi"/>
+   <Lernschema Lernpunkte="4" Typ="Fi"/>
   </Spruch>
   <Spruch Name="Böser Blick">
    <Standard Typ="To"/>
@@ -3779,7 +3780,7 @@
    <Grund Typ="Sw"/>
    <Standard Typ="Mg"/>
    <Standard Typ="To"/>
-   <Lernschema Typ="Sw" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="Sw"/>
   </Spruch>
   <Spruch Name="Dämonenfeuer">
    <Grund Typ="Sw"/>
@@ -3841,8 +3842,8 @@
   <Spruch Name="Erkennen der Aura">
    <Grund Typ="Hj"/>
    <Grund Typ="Mg"/>
-   <Lernschema Typ="Hj" Lernpunkte="2"/>
-   <Lernschema Typ="Mg" Lernpunkte="4"/>
+   <Lernschema Lernpunkte="2" Typ="Hj"/>
+   <Lernschema Lernpunkte="4" Typ="Mg"/>
   </Spruch>
   <Spruch Name="Erkennen von Krankheit">
    <Grund Typ="Mg"/>
@@ -3855,8 +3856,8 @@
    <Standard Typ="Fi"/>
    <Ausnahme Typ="To"/>
    <Ausnahme Typ="Wi"/>
-   <Lernschema Typ="Km" Lernpunkte="1"/>
-   <Lernschema Typ="Mg" Lernpunkte="4"/>
+   <Lernschema Lernpunkte="1" Typ="Km"/>
+   <Lernschema Lernpunkte="4" Typ="Mg"/>
   </Spruch>
   <Spruch Name="Erkennen von Zauberei">
    <Grund Typ="Hj"/>
@@ -3864,9 +3865,9 @@
    <Grund Typ="Mg"/>
    <Grund Typ="Sw"/>
    <Standard Typ="To"/>
-   <Lernschema Typ="Km" Lernpunkte="4"/>
-   <Lernschema Typ="Hj" Lernpunkte="8"/>
-   <Lernschema Typ="Mg" Lernpunkte="8"/>
+   <Lernschema Lernpunkte="4" Typ="Km"/>
+   <Lernschema Lernpunkte="8" Typ="Hj"/>
+   <Lernschema Lernpunkte="8" Typ="Mg"/>
   </Spruch>
   <Spruch Name="Erscheinungen">
    <Grund Typ="Sw"/>
@@ -3947,7 +3948,7 @@
    <Grund Typ="Hj"/>
    <Grund Typ="Sw"/>
    <Standard Typ="Km"/>
-   <Lernschema Typ="Hj" Lernpunkte="4"/>
+   <Lernschema Lernpunkte="4" Typ="Hj"/>
   </Spruch>
   <Spruch Name="Fliegen">
    <Grund Typ="Sw"/>
@@ -3977,7 +3978,7 @@
    <Grund Typ="Sw"/>
    <Standard Typ="Mg"/>
    <Standard Typ="To"/>
-   <Lernschema Typ="Sw" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="Sw"/>
   </Spruch>
   <Spruch Name="Färbersalz">
    <Grund Typ="Sw"/>
@@ -4043,8 +4044,8 @@
    <Grund Typ="Sw"/>
    <Standard Typ="To"/>
    <Ausnahme Typ="Wi"/>
-   <Lernschema Typ="Km" Lernpunkte="1"/>
-   <Lernschema Typ="Sw" Lernpunkte="3"/>
+   <Lernschema Lernpunkte="1" Typ="Km"/>
+   <Lernschema Lernpunkte="3" Typ="Sw"/>
   </Spruch>
   <Spruch Name="Himmelsleiter">
    <Standard Typ="Km"/>
@@ -4060,8 +4061,8 @@
    <Grund Typ="Sw"/>
    <Standard Typ="Mg"/>
    <Standard Typ="To"/>
-   <Lernschema Typ="Sw" Lernpunkte="1"/>
-   <Lernschema Typ="Mg" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="1" Typ="Sw"/>
+   <Lernschema Lernpunkte="2" Typ="Mg"/>
   </Spruch>
   <Spruch Name="Hort der Natur">
    <Grund Typ="Km"/>
@@ -4070,7 +4071,7 @@
    <Grund Typ="Sw"/>
    <Standard Typ="Mg"/>
    <Standard Typ="To"/>
-   <Lernschema Typ="Sw" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="Sw"/>
   </Spruch>
   <Spruch Name="Hören der Geister">
    <Grund Typ="Hj"/>
@@ -4083,8 +4084,8 @@
    <Standard Typ="Fi"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Km" Lernpunkte="1"/>
-   <Lernschema Typ="Mg" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="1" Typ="Km"/>
+   <Lernschema Lernpunkte="2" Typ="Mg"/>
   </Spruch>
   <Spruch Name="Hörnerklang">
    <Grund Typ="Sw"/>
@@ -4094,7 +4095,7 @@
    <Grund Typ="Sw"/>
    <Standard Typ="Mg"/>
    <Standard Typ="To"/>
-   <Lernschema Typ="Sw" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="Sw"/>
   </Spruch>
   <Spruch Name="Juwelenauge">
    <Grund Typ="Km"/>
@@ -4120,8 +4121,8 @@
    <Grund Typ="Sw"/>
    <Standard Typ="Mg"/>
    <Standard Typ="To"/>
-   <Lernschema Typ="Sw" Lernpunkte="1"/>
-   <Lernschema Typ="Mg" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="1" Typ="Sw"/>
+   <Lernschema Lernpunkte="2" Typ="Mg"/>
   </Spruch>
   <Spruch Name="Lachsalz">
    <Grund Typ="Sw"/>
@@ -4133,8 +4134,8 @@
    <Grund Typ="Sw"/>
    <Standard Typ="Hj"/>
    <Standard Typ="To"/>
-   <Lernschema Typ="Km" Lernpunkte="1"/>
-   <Lernschema Typ="Sw" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="1" Typ="Km"/>
+   <Lernschema Lernpunkte="2" Typ="Sw"/>
   </Spruch>
   <Spruch Name="Lichtbrücke">
    <Standard Typ="Km"/>
@@ -4144,7 +4145,7 @@
    <Grund Typ="Km"/>
    <Grund Typ="Sw"/>
    <Standard Typ="To"/>
-   <Lernschema Typ="Sw" Lernpunkte="1"/>
+   <Lernschema Lernpunkte="1" Typ="Sw"/>
   </Spruch>
   <Spruch Name="Liebeszauber">
    <Ausnahme Typ="Km"/>
@@ -4180,7 +4181,7 @@
    <Grund Typ="Sw"/>
    <Standard Typ="Mg"/>
    <Standard Typ="To"/>
-   <Lernschema Typ="Sw" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="Sw"/>
   </Spruch>
   <Spruch Name="Macht über Leben">
    <Standard Typ="Km"/>
@@ -4191,12 +4192,12 @@
    <Grund Typ="Km"/>
    <Grund Typ="Sw"/>
    <Standard Typ="To"/>
-   <Lernschema Typ="Km" Lernpunkte="4"/>
+   <Lernschema Lernpunkte="4" Typ="Km"/>
   </Spruch>
   <Spruch Name="Macht über Unbelebtes">
    <Grund Typ="Km"/>
    <Standard Typ="To"/>
-   <Lernschema Typ="Km" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="Km"/>
   </Spruch>
   <Spruch Name="Macht über das Selbst">
    <Grund Typ="Km"/>
@@ -4205,10 +4206,10 @@
    <Standard Typ="Mg"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Km" Lernpunkte="1"/>
-   <Lernschema Typ="To" Lernpunkte="3"/>
-   <Lernschema Typ="Hj" Lernpunkte="4"/>
-   <Lernschema Typ="Fi" Lernpunkte="4"/>
+   <Lernschema Lernpunkte="1" Typ="Km"/>
+   <Lernschema Lernpunkte="3" Typ="To"/>
+   <Lernschema Lernpunkte="4" Typ="Hj"/>
+   <Lernschema Lernpunkte="4" Typ="Fi"/>
   </Spruch>
   <Spruch Name="Macht über den Tod">
    <Ausnahme Typ="Km"/>
@@ -4217,7 +4218,7 @@
   <Spruch Name="Macht über die Sinne">
    <Grund Typ="Km"/>
    <Standard Typ="To"/>
-   <Lernschema Typ="Km" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="Km"/>
   </Spruch>
   <Spruch Name="Macht über die Zeit">
    <Grund Typ="Km"/>
@@ -4228,9 +4229,9 @@
    <Grund Typ="Sw"/>
    <Grund Typ="Wi"/>
    <Standard Typ="Fi"/>
-   <Lernschema Typ="Km" Lernpunkte="3"/>
-   <Lernschema Typ="Wi" Lernpunkte="4"/>
-   <Lernschema Typ="Fi" Lernpunkte="8"/>
+   <Lernschema Lernpunkte="3" Typ="Km"/>
+   <Lernschema Lernpunkte="4" Typ="Wi"/>
+   <Lernschema Lernpunkte="8" Typ="Fi"/>
   </Spruch>
   <Spruch Name="Macht über magische Wesen">
    <Grund Typ="Hj"/>
@@ -4282,8 +4283,8 @@
    <Grund Typ="Sw"/>
    <Standard Typ="Mg"/>
    <Standard Typ="To"/>
-   <Lernschema Typ="Sw" Lernpunkte="1"/>
-   <Lernschema Typ="Mg" Lernpunkte="4"/>
+   <Lernschema Lernpunkte="1" Typ="Sw"/>
+   <Lernschema Lernpunkte="4" Typ="Mg"/>
   </Spruch>
   <Spruch Name="Pestklaue">
    <Grund Typ="To"/>
@@ -4354,8 +4355,8 @@
    <Standard Typ="Fi"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Km" Lernpunkte="1"/>
-   <Lernschema Typ="Mg" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="1" Typ="Km"/>
+   <Lernschema Lernpunkte="2" Typ="Mg"/>
   </Spruch>
   <Spruch Name="Schlaf">
    <Standard Typ="Km"/>
@@ -4377,7 +4378,7 @@
   <Spruch Name="Schmerzen">
    <Grund Typ="To"/>
    <Standard Typ="Km"/>
-   <Lernschema Typ="To" Lernpunkte="3"/>
+   <Lernschema Lernpunkte="3" Typ="To"/>
   </Spruch>
   <Spruch Name="Schrumpfen">
    <Grund Typ="Sw"/>
@@ -4406,7 +4407,7 @@
   <Spruch Name="Schwäche">
    <Grund Typ="To"/>
    <Standard Typ="Km"/>
-   <Lernschema Typ="To" Lernpunkte="1"/>
+   <Lernschema Lernpunkte="1" Typ="To"/>
   </Spruch>
   <Spruch Name="Seelenkompa�&#x9F;">
    <Standard Typ="Km"/>
@@ -4419,21 +4420,21 @@
    <Standard Typ="Mg"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Sw" Lernpunkte="4"/>
+   <Lernschema Lernpunkte="4" Typ="Sw"/>
   </Spruch>
   <Spruch Name="Sehen von Verborgenem">
    <Grund Typ="Km"/>
    <Grund Typ="Sw"/>
    <Standard Typ="Hj"/>
    <Standard Typ="To"/>
-   <Lernschema Typ="Km" Lernpunkte="1"/>
-   <Lernschema Typ="Sw" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="1" Typ="Km"/>
+   <Lernschema Lernpunkte="2" Typ="Sw"/>
   </Spruch>
   <Spruch Name="Silberstaub">
    <Grund Typ="Sw"/>
    <Standard Typ="Hj"/>
    <Standard Typ="Km"/>
-   <Lernschema Typ="Hj" Lernpunkte="4"/>
+   <Lernschema Lernpunkte="4" Typ="Hj"/>
   </Spruch>
   <Spruch Name="Spruch intensivieren">
    <Grund Typ="Km"/>
@@ -4456,19 +4457,19 @@
    <Grund Typ="Sw"/>
    <Grund Typ="To"/>
    <Standard Typ="Km"/>
-   <Lernschema Typ="To" Lernpunkte="4"/>
+   <Lernschema Lernpunkte="4" Typ="To"/>
   </Spruch>
   <Spruch Name="Stimmenwerfen">
    <Grund Typ="To"/>
    <Standard Typ="Km"/>
-   <Lernschema Typ="To" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="To"/>
   </Spruch>
   <Spruch Name="Stottersalz">
    <Grund Typ="Sw"/>
    <Standard Typ="Mg"/>
    <Standard Typ="To"/>
-   <Lernschema Typ="Sw" Lernpunkte="1"/>
-   <Lernschema Typ="Mg" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="1" Typ="Sw"/>
+   <Lernschema Lernpunkte="2" Typ="Mg"/>
   </Spruch>
   <Spruch Name="Sturmflut">
    <Standard Typ="Km"/>
@@ -4516,7 +4517,7 @@
    <Grund Typ="Km"/>
    <Grund Typ="Mg"/>
    <Grund Typ="Wi"/>
-   <Lernschema Typ="Wi" Lernpunkte="8"/>
+   <Lernschema Lernpunkte="8" Typ="Wi"/>
   </Spruch>
   <Spruch Name="Todeshauch">
    <Grund Typ="Sw"/>
@@ -4608,7 +4609,7 @@
    <Grund Typ="Mg"/>
    <Standard Typ="Km"/>
    <Standard Typ="To"/>
-   <Lernschema Typ="Mg" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="Mg"/>
   </Spruch>
   <Spruch Name="Verzweiflung">
    <Grund Typ="To"/>
@@ -4623,8 +4624,8 @@
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
    <Ausnahme Typ="Km"/>
-   <Lernschema Typ="Km" Lernpunkte="3"/>
-   <Lernschema Typ="Fi" Lernpunkte="4"/>
+   <Lernschema Lernpunkte="3" Typ="Km"/>
+   <Lernschema Lernpunkte="4" Typ="Fi"/>
   </Spruch>
   <Spruch Name="Wahnsinn">
    <Standard Typ="Km"/>
@@ -4647,8 +4648,8 @@
    <Grund Typ="Fi"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Wi" Lernpunkte="2"/>
-   <Lernschema Typ="Fi" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="Wi"/>
+   <Lernschema Lernpunkte="2" Typ="Fi"/>
   </Spruch>
   <Spruch Name="Wandelsalz">
    <Grund Typ="Sw"/>
@@ -4680,7 +4681,7 @@
    <Grund Typ="Sw"/>
    <Standard Typ="Mg"/>
    <Standard Typ="To"/>
-   <Lernschema Typ="Sw" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="Sw"/>
   </Spruch>
   <Spruch Name="Wasserstrahl">
    <Grund Typ="Sw"/>
@@ -4695,8 +4696,8 @@
    <Grund Typ="Sw"/>
    <Standard Typ="Mg"/>
    <Standard Typ="To"/>
-   <Lernschema Typ="Sw" Lernpunkte="1"/>
-   <Lernschema Typ="Mg" Lernpunkte="4"/>
+   <Lernschema Lernpunkte="1" Typ="Sw"/>
+   <Lernschema Lernpunkte="4" Typ="Mg"/>
   </Spruch>
   <Spruch Name="Wetterzauber">
    <Standard Typ="Km"/>
@@ -4721,8 +4722,8 @@
    <Grund Typ="Fi"/>
    <Standard Typ="To"/>
    <Standard Typ="Wi"/>
-   <Lernschema Typ="Wi" Lernpunkte="2"/>
-   <Lernschema Typ="Fi" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="Wi"/>
+   <Lernschema Lernpunkte="2" Typ="Fi"/>
   </Spruch>
   <Spruch Name="Zauberauge">
    <Grund Typ="Hj"/>
@@ -4800,9 +4801,9 @@
    <Standard Typ="Fi"/>
    <Standard Typ="Mg"/>
    <Ausnahme Typ="To"/>
-   <Lernschema Typ="Wi" Lernpunkte="2"/>
-   <Lernschema Typ="Mg" Lernpunkte="4"/>
-   <Lernschema Typ="Fi" Lernpunkte="4"/>
+   <Lernschema Lernpunkte="2" Typ="Wi"/>
+   <Lernschema Lernpunkte="4" Typ="Mg"/>
+   <Lernschema Lernpunkte="4" Typ="Fi"/>
   </Spruch>
   <Spruch Name="Zündersalz">
    <Grund Typ="Sw"/>

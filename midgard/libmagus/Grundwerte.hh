@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.11 2004/06/28 08:44:10 christof Exp $               
+// $Id: Grundwerte.hh,v 1.12 2004/11/29 13:54:23 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -73,16 +73,24 @@ class Grundwerte
 public: // access these Models if you like ... ;-)
    enum wie_steigern_t { 
            ws_Unterweisung, // FP+GS
-           ws_none=ws_Unterweisung, // FP werden nicht ver‰ndert (*anteil=0)
-           ws_Selbststudium=ws_Unterweisung, // 4/3*FP (goldanteil=0, fpanteil=133)
-           ws_NurPraxispunkte, // PP (GFP Rest kann verfallen) unsinnig? besser warten
-           ws_PraxispunkteFP, // PP+FP (mit FP bis zur n‰chsten Stufe auff¸llen)
+//           ws_none=ws_Unterweisung, // FP werden nicht ver√§ndert (*anteil=0)
+           ws_Selbststudium, // 4/3*FP (goldanteil=0, fpanteil=133)
+           ws_Praxispunkte, // PP(+FP) (goldanteil=0)
            ws_Spruchrolle // FP/10, GFP+=2*FP, Fehlschlag: GFP+=FP
+        };
+   enum wie_steigern_variante_t {
+           wsv_NurPraxispunkte, // PP (GFP Rest kann verfallen) unsinnig? besser warten
+           wsv_PraxispunkteFP, // PP+FP (mit FP bis zur n√§chsten Stufe auff√ºllen)
+           // nur eine Stufe?
+           
+           wsv_SpruchrolleAlways=0,
+           wsv_SpruchrolleRoll
         };
 
    Model_copyable<wie_steigern_t> wie_steigern;
+   Model_copyable<wie_steigern_variante_t> wie_steigern_variante;
    Model_copyable<int> goldanteil; // 33-67 (oder weniger wenn Auftraggeber Kosten bezahlt)
-   Model_copyable<int> fpanteil; // 33-67 (oder 133 wenn Selbststudium)
+   Model_copyable<int> fpanteil; // 0, 33-67 (oder 133 wenn Selbststudium)
    Model_copyable<bool> reduzieren; // reduzieren/verlernen statt steigern
 
 public:

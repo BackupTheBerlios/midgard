@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.46 2004/06/04 13:27:17 christof Exp $
+// $Id: fertigk_exp.cc,v 1.47 2004/11/29 13:54:25 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -28,7 +28,7 @@ static void fertigkeiten_zusaetze(Tag &fertigk, const std::string &fert)
    	+"' order by name");
       FetchIStream isZu;
       while ((queryZu>>isZu).good()) 
-      { Tag &z=fertigk.push_back(Tag("Zus‰tze")); 
+      { Tag &z=fertigk.push_back(Tag("Zus√§tze")); 
         fetch_and_set_string_attrib(isZu, z, "Name");
         fetch_and_set_string_attrib(isZu, z, "Typ");
         fetch_and_set_string_attrib(isZu, z, "Region");
@@ -82,7 +82,7 @@ void fert_speichern(Tag &o)
    std::string fert=fetch_and_set_string_attrib(is, fertigk, "Name");
    fetch_and_set_string_attrib(is, fertigk, "Region");
    fetch_and_set_string_attrib(is, fertigk, "RegionZusatz");
-   fetch_and_set_int_attrib(is, fertigk, "Lernpunkte",99); // auﬂergewˆhnliche Fertigkeit
+   fetch_and_set_int_attrib(is, fertigk, "Lernpunkte",99); // au√üergew√∂hnliche Fertigkeit
 #ifndef MIDGARD3
    fetch_and_set_int_attrib(is, fertigk, "Lernpunkte-Land",99);
    fetch_and_set_int_attrib(is, fertigk, "Lernpunkte-Stadt",99);
@@ -98,7 +98,7 @@ void fert_speichern(Tag &o)
    fetch_and_set_int_attrib(is, fertigk, "Berufskategorie");
    fetch_and_set_int_attrib(is, fertigk, "Maximalwert");
    fetch_and_set_int_attrib(is, fertigk, "MaximalMitUnterweisung");
-   fetch_and_set_int_attrib(is, fertigk, "Zus‰tze");
+   fetch_and_set_int_attrib(is, fertigk, "Zus√§tze");
 #endif
    
    grund_standard_ausnahme(fertigk, "fertigkeiten_typen", fert);
@@ -139,7 +139,7 @@ void fert_speichern(Tag &o)
       }
     }
 
-      //********** fertigkeiten_zus‰tze **********************************
+      //********** fertigkeiten_zus√§tze **********************************
      fertigkeiten_zusaetze(fertigk, fert);
 
       //********** fertigkeiten_besitz **********************************
@@ -228,7 +228,7 @@ void fert_speichern(Tag &o)
   }
 
   // ------------------------------------------------------------
-  // Schwierigkeit & Lernschema f¸r Typen dieser Region
+  // Schwierigkeit & Lernschema f√ºr Typen dieser Region
   if (!region.empty())
  { FetchIStream is;
    Query q("select fertigkeit, region from fertigkeiten "
@@ -244,7 +244,7 @@ void fert_speichern(Tag &o)
    ausnahmen(fertigk, "f", fert,true);
   }
  }
-  // Sprachen/Schriften Lernschema f¸r Typen aus dieser Region
+  // Sprachen/Schriften Lernschema f√ºr Typen aus dieser Region
   if (!region.empty())
  { FetchIStream is;
    Query q("select distinct name from lernschema_4 "
@@ -259,7 +259,7 @@ void fert_speichern(Tag &o)
    lernschema(fertigk, MIDGARD3_4("Fertigkeit","Fachkenntnisse"),fert,true);
   }
  }
-  // Zus‰tze aus dieser Region
+  // Zus√§tze aus dieser Region
   if (!region.empty())
  { FetchIStream is;
    Query q("select fertigkeit, fertigkeiten.region from fertigkeiten "
@@ -333,7 +333,7 @@ void fert_speichern(Tag &o)
 #else
    fetch_and_set_bool_attrib(is, v, "Land");
    fetch_and_set_bool_attrib(is, v, "Stadt");
-   fetch_and_set_bool_attrib(is, v, "K‰mpfer");
+   fetch_and_set_bool_attrib(is, v, "K√§mpfer");
    fetch_and_set_bool_attrib(is, v, "Zauberer");
 #endif
    fetch_and_set_string_attrib(is, v, "Geschlecht");

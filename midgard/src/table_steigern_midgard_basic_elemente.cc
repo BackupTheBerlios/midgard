@@ -52,13 +52,12 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
 // Abenteurer::e_wie_steigern wie=get_wie_steigern();
 // Abenteurer::st_bool_steigern bool_steigern=get_bool_steigern();
  
- if (radiobutton_steigern->get_active() && MBE->Steigern(hauptfenster->getAben()))
+ if (!hauptfenster->getAben().reduzieren && MBE->Steigern(hauptfenster->getAben()))
     {
       if (!hauptfenster->getAben().Steigern(MBE))
         return false;
     }
- else if (radiobutton_reduzieren->get_active()
-             || radiobutton_verlernen->get_active())
+ else if (hauptfenster->getAben().reduzieren)
     { bool verlernt=false;
       if (!hauptfenster->getAben().ReduzierenVerlernen(MBE,verlernt))
         return false;
@@ -66,11 +65,14 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
       { std::list<MBEmlt> *MyList=&hauptfenster->getAben().getList((*MBE).What()),
                *MyList_neu=&getLearnList((*MBE).What());
         Abenteurer::move_element(*MyList,*MyList_neu,MBE);
+        getLearnTree((*MBE).What())->getModel().append_line(d);
+        getKnownTree((*MBE).What())->getModel().remove_line(d);
       }
     }
  return true;
 }
 
+#if 0
 const Enums::e_wie_steigern table_steigern::get_wie_steigern()
 {
  if     (radiobutton_unterweisung->get_active()) return Enums::eUnterweisung; 
@@ -91,6 +93,7 @@ const Enums::st_bool_steigern table_steigern::get_bool_steigern()
          togglebutton_neue_sprache_pp->get_active()
       );
 }
+#endif
 
 void table_steigern::lernen_von_spruchrolle_fragen(const int bonus)
 {
@@ -114,7 +117,7 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
 
 bool table_steigern::neu_lernen(MBEmlt &MBE,const int bonus)
 {
- bool ok=hauptfenster->getAben().neu_lernen(MBE,get_wie_steigern(),get_bool_steigern(),bonus);
+ bool ok=hauptfenster->getAben().neu_lernen(MBE,bonus);
  if(!ok) return false;
 //ab hier neuer code:
  hauptfenster->getChar().undosave((*MBE)->What_str()+" "+(*MBE)->Name()+" gelernt");

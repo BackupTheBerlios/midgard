@@ -82,63 +82,40 @@ void table_steigern::on_notebook_lernen_switch_page(GtkNotebookPage *page,guint 
    refresh();
 }
 
-void table_steigern::load_for_page(guint pagenr)
-{ 
-  // Sensitive & Show
-  if(pagenr==PAGE_ZAUBER || pagenr==PAGE_KIDO)
-   {
-//     radiobutton_verlernen->set_active(true); // wieso das denn?
-     if(pagenr==PAGE_ZAUBER) 
-       { frame_zauber_zusatz->show();
-         const Abenteurer &W=hauptfenster->getAben();
-         if(W.Typ1()->SpruecheMitPP() || W.Typ2()->SpruecheMitPP())
-            radiobutton_praxis->set_sensitive(true);
-         else
-            radiobutton_praxis->set_sensitive(false);
-       }
-       else frame_zauber_zusatz->hide();
-   }
-  else
-   {
-//     radiobutton_steigern->set_active(true);
-     frame_zauber_zusatz->hide();
-     radiobutton_praxis->set_sensitive(true);
-   }
-}
+enum { Button_Unterweisung, Button_Selbststudium, Button_Praxis,
+       Button_Spruchrolle };
 
-void table_steigern::show_goldeingabe(bool b,int button)
-{
-  LabelSpin_silber->set_value(hauptfenster->getAben().Silber());
-  LabelSpin_kupfer->set_value(hauptfenster->getAben().Kupfer());
-  LabelSpin_gold->set_value(hauptfenster->getAben().Gold());
-  if(b)
-   {
-     if     (button == 1) 
-       { 
-         LabelSpin_silber->edit_new();
-         LabelSpin_kupfer->edit_new();
-         LabelSpin_gold->edit_new();
-       }
-     else if(button == 3) 
-       { 
-         LabelSpin_silber->edit_add();
-         LabelSpin_kupfer->edit_add();
-         LabelSpin_gold->edit_add();
-       }
+void table_steigern::load_for_page(guint pagenr)
+{ // Sensitive & Show
+  if(pagenr==PAGE_ZAUBER) 
+   { frame_zauber_zusatz->show();
+     const Abenteurer &W=hauptfenster->getAben();
+     button_wie_tun->set_index_sensitive(Button_Praxis,
+         W.Typ1()->SpruecheMitPP() || W.Typ2()->SpruecheMitPP());
+     button_wie_tun->set_index_sensitive(Button_Spruchrolle,
+         MBEmlt(cH_Fertigkeit("Lesen von Zauberschrift"))->ist_gelernt(W.List_Fertigkeit()));
+     button_rolle->show();
    }
-  else
-   {
-      LabelSpin_gold->deaktivate();
-      LabelSpin_silber->deaktivate();
-      LabelSpin_kupfer->deaktivate();
-   }             
+  else 
+   { frame_zauber_zusatz->hide();
+     button_wie_tun->set_index_sensitive(Button_Praxis,true);
+     button_wie_tun->set_index_sensitive(Button_Spruchrolle,false);
+     button_rolle->hide();
+   }
 }
 
 std::string Steigerntyp(const Grundwerte &W)
-{  if (W.wie_steigern==Grundwerte::ws_NurPraxispunkte) return "durch Praxis";
-   if (W.wie_steigern==Grundwerte::ws_PraxispunkteFP) return "durch Praxis+FP";
-   if (W.wie_steigern==Grundwerte::ws_Spruchrolle) return "durch Spruchrolle";
-   if (W.wie_steigern==Grundwerte::ws_Unterweisung && W.fpanteil>100) 
+{  if (W.wie_steigern==Grundwerte::ws_Praxispunkte) 
+   { if (W.wie_steigern_variante==Grundwerte::wsv_NurPraxispunkte) 
+       return "nur durch Praxis";
+     else return "durch Praxis+EP";
+   }
+   if (W.wie_steigern==Grundwerte::ws_Spruchrolle) 
+   { if (W.wie_steigern_variante==Grundwerte::wsv_SpruchrolleAlways) 
+       return "durch Spruchrolle";
+     else return "durch Spruchrolle (MAGuS würfelt EW)";
+   }
+   if (W.wie_steigern==Grundwerte::ws_Selbststudium) 
       return "im Selbststudium";
    if (W.wie_steigern==Grundwerte::ws_Unterweisung && !W.fpanteil) 
       return "ohne Kosten";
@@ -148,7 +125,7 @@ std::string Steigerntyp(const Grundwerte &W)
 }
 
 void table_steigern::zeige_werte()
-{
+{  clean_up();
    const Abenteurer &W=hauptfenster->getAben();
    LabelSpin_gfp->set_value(W.GFP());
 
@@ -188,12 +165,6 @@ void table_steigern::zeige_werte()
    if(!W.Typ1()->is_mage() && !W.Typ2()->is_mage()) z="";
    label_zauber_GFP->set_text(z);
 
-  show_goldeingabe(false);
-  show_EPeingabe(false);
-  
-  checkbutton_gfp->set_active(false);
-  LabelSpin_gfp->deaktivate();
-
   if (!W.Typ2()->Name(W.Geschlecht()).empty())
       steigern_typ->set_text(W.Typ1()->Name(W.Geschlecht())
             +"/"+W.Typ2()->Name(W.Geschlecht()));
@@ -219,9 +190,6 @@ void table_steigern::zeige_werte()
     radiobutton_pp_zauber->set_sensitive(false);
   }
  show_label();
-     if(MBEmlt(cH_Fertigkeit("Lesen von Zauberschrift"))->ist_gelernt(W.List_Fertigkeit()))
-              togglebutton_spruchrolle->set_sensitive(true);
-         else togglebutton_spruchrolle->set_sensitive(false);
 #if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
   handlebox_steigern_1->set_label(W.Spezies()->Name()+" "+W.Typ1()->Short()
       + "," + W.Typ2()->Short() + " Grad "+itos(W.Grad()));
@@ -233,8 +201,8 @@ void table_steigern::zeige_werte()
 }
 
 table_steigern::table_steigern(GlademmData *_data) 
-         : table_steigern_glade(_data),hauptfenster(),//LL(),
-            steigern_mit_EP_bool(true) 
+         : table_steigern_glade(_data),hauptfenster()
+//            steigern_mit_EP_bool(true) 
 {  RuestungStore=Gtk::ListStore::create(ruestung_columns);
    clist_ruestung->set_model(RuestungStore);
    clist_ruestung->append_column("Rüstung",ruestung_columns.name);
@@ -244,12 +212,16 @@ table_steigern::table_steigern(GlademmData *_data)
    clist_ruestung->append_column("Gw\nVerlust",ruestung_columns.rw_verlust);
    clist_ruestung->append_column("B\nVerlust",ruestung_columns.b_verlust);
    clist_ruestung->get_selection()->signal_changed().connect(SigC::slot(*this,&table_steigern::on_ruestung_selection_changed));
+
+#if 0
    bool_CheckButton *_m=manage(new bool_CheckButton(steigern_mit_EP_bool,hauptfenster->make_gtk_box(MagusImage("EP-Steigern-50.xpm"),"Mit EP/PP\nsteigern",false)));
    _m->set_mode(false);
    _m->signal_toggled().connect(SigC::slot(*this, &table_steigern::on_checkbutton_EP_Geld_toggled),true);
    _m->show();
    eventbox_eppp_steigern->add(*_m);
    eventbox_eppp_steigern->show();
+#endif
+// die drei Zeilen können auch noch weg
      vbox_praxispunkte->hide();
      spinbutton_pp_eingeben->hide();
  scrolledwindow_landauswahl->hide();
@@ -259,74 +231,155 @@ table_steigern::table_steigern(GlademmData *_data)
      &table_steigern::fert_col_changed));
   flashing_gradanstieg->set(MagusImage("Anpass-trans-50.xpm"),MagusImage("Anpass-trans-50_invers.xpm"),0);
   flashing_eigenschaft->set(MagusImage("Red-Dice-trans-50.xpm"),MagusImage("Red-Dice-trans-50_invers.xpm"),0);
+//  steigern_mit_EP_bool.signal_changed().connect(SigC::slot(*this,&table_steigern::Window2Abenteurer));
+  
+  button_was_tun->add(MagusImage("Steigern-trans-32.xpm"),"Steigern",SigC::Slot0<void>());
+  // Ist dieser Knopf gedrückt können die bereits gelernten Fertigkeiten (durch anklicken) gesteigert werden.
+  button_was_tun->add(MagusImage("Verlernen-trans-32.xpm"),"Reduzieren",SigC::Slot0<void>());
+  // Ist dieser Knopf gedrückt werden die Erfolgswerte bereits gelernter Fertigkeiten (durch anklicken) reduziert und die Fähigkeit schließlich verlernt.
+  button_was_tun->add(MagusImage("PP-Eingeben-trans-32.xpm"),"PP ändern",SigC::Slot0<void>());
+  // Ist dieser Knopf gedrückt können die Praxispunkte geändert werden (doppelklick in der entsprechenden Spalte)
+  button_was_tun->set_style(true,true,true);
+
+  button_wie_tun->add(MagusImage("Teacher-trans32.xpm"),"Unterweisung",SigC::Slot0<void>());
+  // Steigern mit Gold und EP
+  button_wie_tun->add(MagusImage("Self-Learning-32.xpm"),"Selbststudium",SigC::Slot0<void>());
+  // Steigern mit EP
+  button_wie_tun->add(MagusImage("Learning_by_Doing-32.xpm"),"Praxis",SigC::Slot0<void>());
+  // Zum Steigern werden in erster Linie Praxispunkte verwendet. Es werden jedoch keine FP verschenkt, fehlenden FP werden durch EP aufgefüllt.
+  // Es wird um eine Stufe gesteigert und wenn die PP nicht reichen mit EP aufgefüllt.
+  // Es werden alle PP verwendet, um so hoch wie möglich zu steigern.
+  // Mit EP auffüllen, FP verfallen lassen
+  button_wie_tun->add(MagusImage("LearnRoll-trans-50.xpm"),"Spruchrolle",SigC::Slot0<void>());
+  button_wie_tun->set_style(true,true,true);
+
+  button_sonder->add(MagusImage("EP-Steigern-50.xpm"),"Steigern mit Gold+EP",SigC::Slot0<void>());
+  // Ist dieser Knopf aktiviert, werden die Erfahrungspunkte entsprechend des eingestellten Verhältnisses reduziert. Ist dieser Knopf deaktiviert, kann beliebig gesteigert werden.
+  button_sonder->add(MagusImage("Money-50.xpm"),"⅓ Goldanteil spendiert",SigC::Slot0<void>());
+  button_sonder->add(MagusImage("Money-50.xpm"),"½ Goldanteil spendiert",SigC::Slot0<void>());
+  button_sonder->add(MagusImage("Money-50.xpm"),"⅔ Goldanteil spendiert",SigC::Slot0<void>());
+  button_sonder->add(MagusImage("NSC-Mode-32.xpm"),"ohne EP+Gold steigern",SigC::Slot0<void>());
+  button_sonder->set_style(true,true);
+  
+  button_rolle->add(MagusImage("Automat-32.xpm"),"Der Erfolgswurf ist gelungen.",SigC::Slot0<void>());
+  button_rolle->add(MagusImage("Green-Dice-trans-50.xpm"),"MAGuS würfelt, ob das Lernen von Spruchrolle erfolgreich ist.",SigC::Slot0<void>());
+  button_rolle->hide();
+
+  button_pp_variante->add(MagusImage("Learning_by_Doing-32.xpm"),"Praxispunkte mit EP auffüllen",SigC::Slot0<void>());
+  button_pp_variante->add(MagusImage("Learning_by_Doing-32.xpm"),"Ausschließlich Praxispunkte verwenden\n"
+      "(angebrochene Praxispunkte verfallen)",SigC::Slot0<void>());
+  button_pp_variante->hide();
+
+  button_EP->add(MagusImage("EP-Eingabe2-50.xpm"),"EP\neingeben",SigC::slot(*this,&table_steigern::on_button_EP_eingeben));
+  button_EP->add(MagusImage("EP-Eingabe2-50.xpm"),"EP\naddieren",SigC::slot(*this,&table_steigern::on_button_EP_eingeben));
+
+  button_GFP->add(MagusImage("Helper-50.xpm"),"GFP\neingeben",SigC::slot(*this,&table_steigern::on_checkbutton_gfp));
+  button_GFP->add(MagusImage("Helper-50.xpm"),"GFP\naddieren",SigC::slot(*this,&table_steigern::on_checkbutton_gfp));
+
+  button_gold->add(MagusImage("Money-50.xpm"),"Geld\neingeben",SigC::slot(*this,&table_steigern::on_button_gold_eingeben));
+  button_gold->add(MagusImage("Money-50.xpm"),"Geld\naddieren",SigC::slot(*this,&table_steigern::on_button_gold_eingeben));
 }
+
+enum { Button_Steigern, Button_Verlernen, Button_PP_eingeben };
+// button_sonder
+enum { Button_GoldEP, Button_1Drittel, Button_1Halb, Button_2Drittel, Button_Ohne };
 
 void table_steigern::Abenteurer2Window()
 {  Abenteurer &A=hauptfenster->getAben();
-   steigern_mit_EP_bool=A.fpanteil>0 || A.goldanteil>0;
 
-   if (A.reduzieren) radiobutton_reduzieren->set_active(true);
-   else radiobutton_steigern->set_active(true);
-   
-   togglebutton_spruchrolle->set_active(A.wie_steigern==Grundwerte::ws_Spruchrolle);
-   if (A.wie_steigern==Grundwerte::ws_Spruchrolle)
-   {  radiobutton_unterweisung->set_active(true);
-   }
-   else if (A.wie_steigern==Grundwerte::ws_NurPraxispunkte
-       || A.wie_steigern==Grundwerte::ws_PraxispunkteFP)
-   {  radiobutton_praxis->set_active(true);
-      togglebutton_pp_verfallen->set_active(A.wie_steigern==Grundwerte::ws_NurPraxispunkte);
-      togglebutton_pp_aep_fuellen->set_active(A.wie_steigern==Grundwerte::ws_PraxispunkteFP);
-//      radiobutton_pp_hoch_wie_geht ???
-   }
-   else if (A.wie_steigern==Grundwerte::ws_Unterweisung)
-   {  if (A.fpanteil>100) radiobutton_selbst->set_active(true);
-      else radiobutton_unterweisung->set_active(true);
-   }
+   if (button_was_tun->get_index()!=Button_PP_eingeben)
+     button_was_tun->set_index(A.reduzieren ? Button_Verlernen : Button_Steigern);
+
+   switch (A.wie_steigern)
+   { case Grundwerte::ws_Spruchrolle:
+       button_wie_tun->set_index(Button_Spruchrolle);
+       break;
+     case Grundwerte::ws_Praxispunkte:
+       button_wie_tun->set_index(Button_Praxis);
+       break;
+     case Grundwerte::ws_Selbststudium:
+       button_wie_tun->set_index(Button_Selbststudium);
+       break;
+     case Grundwerte::ws_Unterweisung:
+       button_wie_tun->set_index(Button_Unterweisung);
+       break;
+   }   
+   if (A.fpanteil=0)
+       button_sonder->set_index(Button_Ohne);
+   else if (A.fpanteil+A.goldanteil<=34)
+       button_sonder->set_index(Button_2Drittel);
+   else if (A.fpanteil+A.goldanteil<=51)
+       button_sonder->set_index(Button_1Halb);
+   else if (A.fpanteil+A.goldanteil<=67)
+       button_sonder->set_index(Button_1Drittel);
+   else button_sonder->set_index(Button_GoldEP);
    steigern_gtk();
 }
 
 void table_steigern::Window2Abenteurer()
 { Abenteurer &A=hauptfenster->getAben();
-  if (radiobutton_verlernen->get_active()
-        || radiobutton_reduzieren->get_active())
-     A.reduzieren=true;
-  else 
-  {  A.reduzieren=false;
-     if (togglebutton_spruchrolle->get_active())
-     {  A.wie_steigern=Grundwerte::ws_Spruchrolle;
+
+  if (button_was_tun->get_index()!=Button_PP_eingeben)
+    button_was_tun->set_index(A.reduzieren ? Button_Verlernen : Button_Steigern);
+
+  switch (button_wie_tun->get_index())
+  { case Button_Spruchrolle:
+       A.wie_steigern=Grundwerte::ws_Spruchrolle;
         A.fpanteil=10;
         A.goldanteil=0;
-     }
-     else if (radiobutton_praxis->get_active())
-     {  A.wie_steigern=togglebutton_pp_verfallen->get_active()
-             ? Grundwerte::ws_NurPraxispunkte
-             : Grundwerte::ws_PraxispunkteFP;
-        A.goldanteil=0;
-        A.fpanteil=100;
-        // togglebutton_pp_aep_fuellen
-     }
-     else if (!steigern_mit_EP_bool) 
-     {  A.wie_steigern=Grundwerte::ws_Unterweisung;
-        // fp+goldanteil werden unten zu 0 gesetzt
-     }
-     else if (radiobutton_unterweisung->get_active()) 
-     {  A.wie_steigern=Grundwerte::ws_Unterweisung;
-        Gtk::Adjustment *adj=vscale_EP_Gold->get_adjustment();
-        int Av=int(adj->get_value());
-        A.goldanteil=Av;
-        A.fpanteil=100-Av;
-     }
-     else if (radiobutton_selbst->get_active())
-     {  A.wie_steigern=Grundwerte::ws_Unterweisung;
-        A.goldanteil=0;
-        A.fpanteil=133;
-     }
-     if (!steigern_mit_EP_bool)
-     {  A.fpanteil=0;
-        A.goldanteil=0;
-     }
-     steigern_gtk();
+       break;
+    case Button_Praxis:
+       A.wie_steigern=Grundwerte::ws_Praxispunkte;
+       A.goldanteil=0;
+       A.fpanteil=100;
+       break;
+    case Button_Selbststudium:
+      A.wie_steigern=Grundwerte::ws_Selbststudium;
+      A.goldanteil=0;
+      A.fpanteil=133;
+      break;
+    case Button_Unterweisung:
+      Gtk::Adjustment *adj=vscale_EP_Gold->get_adjustment();
+      int Av=int(adj->get_value());
+      A.goldanteil=Av;
+      A.fpanteil=100-Av;
+      A.wie_steigern=Grundwerte::ws_Unterweisung;
+      break;
+  }   
+  switch (button_sonder->get_index())
+  { case Button_GoldEP: break;
+    case Button_1Drittel: A.goldanteil=A.goldanteil-33;
+    case Button_1Halb: A.goldanteil=A.goldanteil-50;
+    case Button_2Drittel: A.goldanteil=A.goldanteil-67;
+    case Button_Ohne: A.goldanteil=A.fpanteil=0;
   }
+  if (A.goldanteil<0)
+  { A.fpanteil=A.fpanteil-A.goldanteil;
+    A.goldanteil=0;
+  }
+  if (button_was_tun->get_index()!=Button_PP_eingeben)
+    A.reduzieren=button_was_tun->get_index()==Button_Verlernen;
+  steigern_gtk();
 }
 
+bool table_steigern::pp_eingeben_click(GdkEventButton*)
+{ if (!togglebutton_praxispunkte->get_active())
+    togglebutton_praxispunkte->set_active(true);
+}
+void table_steigern::button_sonder_changed()
+{ Window2Abenteurer();
+}
+void table_steigern::button_wie_tun_changed()
+{ // wie steigern: Prax geändert: show
+  //   Spruchr : show, redisplay
+  Window2Abenteurer();
+}
+void table_steigern::button_rolle_changed()
+{ Window2Abenteurer();
+}
+void table_steigern::button_ppvar_changed()
+{ Window2Abenteurer();
+}
+void table_steigern::button_was_tun_changed()
+{ Window2Abenteurer();
+}

@@ -1,4 +1,4 @@
-// $Id: waffen_exp.cc,v 1.30 2003/09/01 06:47:59 christof Exp $
+// $Id: waffen_exp.cc,v 1.31 2004/11/29 13:54:25 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -25,7 +25,7 @@
 
 void waffen_speichern(Tag &o)
 {  
-   Tag &Ruestungen=o.push_back(Tag("Rüstungen"));
+   Tag &Ruestungen=o.push_back(Tag("RÃ¼stungen"));
 
    Transaction t;
    FetchIStream is;
@@ -36,20 +36,20 @@ void waffen_speichern(Tag &o)
    	" where coalesce(region,'')='"+region+"'"
    	" order by coalesce(region,''),lp_verlust");
   while ((query>>is).good())
-  {Tag &Ruestung=Ruestungen.push_back(Tag("Rüstung"));
+  {Tag &Ruestung=Ruestungen.push_back(Tag("RÃ¼stung"));
    std::string ruestung=fetch_and_set_string_attrib(is, Ruestung, "Name");
    fetch_and_set_string_attrib(is, Ruestung, "Region");
-   fetch_and_set_string_attrib(is, Ruestung, "Abkürzung");
-   fetch_and_set_int_attrib(is, Ruestung, "schütztLP");
-   fetch_and_set_int_attrib(is, Ruestung, "minimaleStärke");
+   fetch_and_set_string_attrib(is, Ruestung, "AbkÃ¼rzung");
+   fetch_and_set_int_attrib(is, Ruestung, "schÃ¼tztLP");
+   fetch_and_set_int_attrib(is, Ruestung, "minimaleStÃ¤rke");
    Tag &Verlust=Ruestung.push_back(Tag("Verlust"));
    fetch_and_set_int_attrib(is, Verlust, "RW");
    fetch_and_set_int_attrib(is, Verlust, "B");
    fetch_and_set_int_attrib(is, Verlust, "Abwehrbonus");
    fetch_and_set_int_attrib(is, Verlust, "Angriffsbonus");
-   fetch_and_set_int_attrib(is, Verlust, "Vollrüstung");
+   fetch_and_set_int_attrib(is, Verlust, "VollrÃ¼stung");
    fetch_and_set_string_attrib(is, Verlust, "BehinderungWie");
-   kaufpreis(Ruestung, "Rüstungen", ruestung);
+   kaufpreis(Ruestung, "RÃ¼stungen", ruestung);
   }
   }
 
@@ -209,7 +209,7 @@ void waffen_speichern(Tag &o)
    fetch_and_set_int_attrib(is, WGk, "Kosten");
 //*************** Waffen Grund Typen ***************************
 
-   // nicht erforderlich für Grundkenntnisse?
+   // nicht erforderlich fÃ¼r Grundkenntnisse?
       grund_standard_ausnahme(WGk, "waffen_grund_typen", grund);
   }
 

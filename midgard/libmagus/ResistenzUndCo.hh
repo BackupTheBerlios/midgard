@@ -1,4 +1,4 @@
-// $Id: ResistenzUndCo.hh,v 1.2 2004/06/23 11:00:25 christof Exp $               
+// $Id: ResistenzUndCo.hh,v 1.3 2004/11/29 13:54:23 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2004 Christof Petig
  *
@@ -22,15 +22,17 @@
 #include "MidgardBasicElement.hh"
 
 /* Diese Klasse dient nur dazu, um diese speziellen Werte ebenfalls
-   über ein MBE(mlt) steigern zu können */
+   Ã¼ber ein MBE(mlt) steigern zu kÃ¶nnen */
 
 class ResistenzUndCo : public MidgardBasicElement
-{  enum was_t { eAusdauer,eAbwehr,eZaubern,eResistenz };
+{public:
+   enum was_t { eAusdauer,eAbwehr,eZaubern,eResistenz };
+private:
    was_t was_ist_es;
    
    ResistenzUndCo(was_t w) : MidgardBasicElement(What_str(w)), was_ist_es(w) {}
    static std::string What_str(was_t w);
- public: 
+public: 
    static Handle<ResistenzUndCo> Ausdauer,Abwehr,Zaubern,Resistenz;
    
    enum MBEE What() const {return MidgardBasicElement::RESISTENZ_UND_CO;}

@@ -1,4 +1,4 @@
-// $Id: common_exp.cc,v 1.36 2003/09/01 06:47:59 christof Exp $
+// $Id: common_exp.cc,v 1.37 2004/11/29 13:54:25 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -79,8 +79,8 @@ void lernschema(Tag &o, const std::string &art, const std::string &name, bool nu
       fetch_and_set_int_attrib(is, ls, "Erfolgswert");
       fetch_and_set_bool_attrib(is, ls, "Pflicht");
 #ifdef MIDGARD3
-      fetch_and_set_string_attrib(is, ls, "Primärelement");
-      fetch_and_set_string_attrib(is, ls, "Sekundärelement");
+      fetch_and_set_string_attrib(is, ls, "PrimÃ¤relement");
+      fetch_and_set_string_attrib(is, ls, "SekundÃ¤relement");
 #endif
    }
 }
@@ -111,7 +111,7 @@ void ausnahmen(Tag &o, const std::string &art, const std::string &name, bool nur
 std::string Herkunft(bool invert)
 {  std::string herkunft;
    std::vector<std::string> laender;
-   // vielleicht über Land(region)
+   // vielleicht Ã¼ber Land(region)
    (Query("select land from land where coalesce(region,'')=?")
    	<< region
    	).FetchArray(laender);
@@ -146,7 +146,7 @@ std::string RegionErgaenzungQuery(const std::string &attribute,
    	" and "+attribute+"="+typtable+".name) ";
    
    if (typtable!="waffen_grund_typen")
-   {  // gilt für alles außer Waffengrundfertigkeiten ?
+   {  // gilt fÃ¼r alles auÃŸer Waffengrundfertigkeiten ?
       result+="or exists (select true from "
    	MIDGARD3_4("lernschema","lernschema_4")
    	" join typen"
@@ -204,7 +204,7 @@ void kaufpreis(Tag &o, const std::string &art, const std::string &name)
    {  Tag &kp=o.push_back(Tag("Kaufpreis"));
       fetch_and_set_string_attrib(is2, kp, "Art2");
       fetch_and_set_float_attrib(is2, kp, "Preis");
-      fetch_and_set_string_attrib(is2, kp, "Währung");
+      fetch_and_set_string_attrib(is2, kp, "WÃ¤hrung");
       fetch_and_set_float_attrib(is2, kp, "Gewicht");
    }
 }   

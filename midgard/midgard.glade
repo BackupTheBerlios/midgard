@@ -852,9 +852,11 @@
 		<widget class="GtkEventBox" id="grundwerte_background">
 		  <property agent="glademm" name="cxx_visibility">protected</property>
 		  <property name="visible">True</property>
+		  <property name="events">GDK_BUTTON_PRESS_MASK</property>
 		  <property name="visible_window">True</property>
 		  <property name="above_child">False</property>
 		  <signal name="realize" handler="grundwerte_background_create" after="yes" last_modification_time="Sun, 12 Oct 2003 22:02:43 GMT"/>
+		  <signal name="button_press_event" handler="werte_edit_click" last_modification_time="Wed, 24 Nov 2004 16:59:50 GMT"/>
 
 		  <child>
 		    <widget class="GtkTable" id="table_grundwerte">
@@ -7011,7 +7013,7 @@ auswählen</property>
 		  <property agent="glademm" name="cxx_visibility">protected</property>
 		  <property name="visible">True</property>
 		  <property name="n_rows">3</property>
-		  <property name="n_columns">3</property>
+		  <property name="n_columns">2</property>
 		  <property name="homogeneous">False</property>
 		  <property name="row_spacing">0</property>
 		  <property name="column_spacing">0</property>
@@ -7046,8 +7048,8 @@ auswählen</property>
 		      </child>
 		    </widget>
 		    <packing>
-		      <property name="left_attach">2</property>
-		      <property name="right_attach">3</property>
+		      <property name="left_attach">1</property>
+		      <property name="right_attach">2</property>
 		      <property name="top_attach">0</property>
 		      <property name="bottom_attach">1</property>
 		      <property name="x_options">expand|shrink|fill</property>
@@ -8945,7 +8947,7 @@ eingeben</property>
 		    </widget>
 		    <packing>
 		      <property name="left_attach">0</property>
-		      <property name="right_attach">3</property>
+		      <property name="right_attach">2</property>
 		      <property name="top_attach">2</property>
 		      <property name="bottom_attach">3</property>
 		      <property name="x_options">expand|shrink|fill</property>
@@ -9727,18 +9729,28 @@ eingeben</property>
 				  </child>
 
 				  <child>
-				    <widget class="GtkLabel" id="label655">
+				    <widget class="GtkEventBox" id="eventbox24">
 				      <property name="visible">True</property>
-				      <property name="label" translatable="yes">Praxispunkte</property>
-				      <property name="use_underline">False</property>
-				      <property name="use_markup">False</property>
-				      <property name="justify">GTK_JUSTIFY_LEFT</property>
-				      <property name="wrap">False</property>
-				      <property name="selectable">False</property>
-				      <property name="xalign">0.5</property>
-				      <property name="yalign">0.5</property>
-				      <property name="xpad">0</property>
-				      <property name="ypad">0</property>
+				      <property name="events">GDK_BUTTON_PRESS_MASK</property>
+				      <property name="visible_window">True</property>
+				      <property name="above_child">False</property>
+				      <signal name="button_press_event" handler="pp_eingeben_click" last_modification_time="Wed, 24 Nov 2004 16:54:16 GMT"/>
+
+				      <child>
+					<widget class="GtkLabel" id="label655">
+					  <property name="visible">True</property>
+					  <property name="label" translatable="yes">Praxispunkte</property>
+					  <property name="use_underline">False</property>
+					  <property name="use_markup">False</property>
+					  <property name="justify">GTK_JUSTIFY_LEFT</property>
+					  <property name="wrap">False</property>
+					  <property name="selectable">False</property>
+					  <property name="xalign">0.5</property>
+					  <property name="yalign">0.5</property>
+					  <property name="xpad">0</property>
+					  <property name="ypad">0</property>
+					</widget>
+				      </child>
 				    </widget>
 				    <packing>
 				      <property name="type">label_item</property>
@@ -10256,222 +10268,15 @@ eingeben</property>
 			      </child>
 
 			      <child>
-				<widget class="GtkCheckButton" id="button_gold_eingeben">
+				<widget class="Custom" id="button_sonder">
 				  <property agent="glademm" name="cxx_visibility">protected</property>
 				  <property name="visible">True</property>
-				  <property name="tooltip" translatable="yes">Geld eingeben/ändern</property>
 				  <property name="can_focus">True</property>
-				  <property name="relief">GTK_RELIEF_NORMAL</property>
-				  <property name="focus_on_click">True</property>
-				  <property name="active">False</property>
-				  <property name="inconsistent">False</property>
-				  <property name="draw_indicator">False</property>
-				  <signal name="clicked" handler="on_button_gold_eingeben" after="yes"/>
-
-				  <child>
-				    <widget class="GtkHBox" id="hbox99">
-				      <property name="visible">True</property>
-				      <property name="homogeneous">False</property>
-				      <property name="spacing">0</property>
-
-				      <child>
-					<widget class="GtkImage" id="pixmap62">
-					  <property name="visible">True</property>
-					  <property name="pixbuf">Money-50.xpm</property>
-					  <property name="xalign">0.5</property>
-					  <property name="yalign">0.5</property>
-					  <property name="xpad">0</property>
-					  <property name="ypad">0</property>
-					</widget>
-					<packing>
-					  <property name="padding">0</property>
-					  <property name="expand">True</property>
-					  <property name="fill">True</property>
-					</packing>
-				      </child>
-
-				      <child>
-					<widget class="GtkLabel" id="label640">
-					  <property name="visible">True</property>
-					  <property name="label" translatable="yes">Geld
-eing.</property>
-					  <property name="use_underline">False</property>
-					  <property name="use_markup">False</property>
-					  <property name="justify">GTK_JUSTIFY_CENTER</property>
-					  <property name="wrap">False</property>
-					  <property name="selectable">False</property>
-					  <property name="xalign">0.5</property>
-					  <property name="yalign">0.5</property>
-					  <property name="xpad">0</property>
-					  <property name="ypad">0</property>
-					</widget>
-					<packing>
-					  <property name="padding">0</property>
-					  <property name="expand">False</property>
-					  <property name="fill">False</property>
-					</packing>
-				      </child>
-				    </widget>
-				  </child>
-				</widget>
-				<packing>
-				  <property name="left_attach">4</property>
-				  <property name="right_attach">5</property>
-				  <property name="top_attach">2</property>
-				  <property name="bottom_attach">3</property>
-				  <property name="x_options">shrink</property>
-				  <property name="y_options">expand|shrink|fill</property>
-				</packing>
-			      </child>
-
-			      <child>
-				<widget class="GtkCheckButton" id="checkbutton_gfp">
-				  <property agent="glademm" name="cxx_visibility">protected</property>
-				  <property name="visible">True</property>
-				  <property name="tooltip" translatable="yes">GFP eingeben/ändern</property>
-				  <property name="can_focus">True</property>
-				  <property name="relief">GTK_RELIEF_NORMAL</property>
-				  <property name="focus_on_click">True</property>
-				  <property name="active">False</property>
-				  <property name="inconsistent">False</property>
-				  <property name="draw_indicator">False</property>
-				  <signal name="clicked" handler="on_checkbutton_gfp" after="yes"/>
-
-				  <child>
-				    <widget class="GtkHBox" id="hbox98">
-				      <property name="visible">True</property>
-				      <property name="homogeneous">False</property>
-				      <property name="spacing">0</property>
-
-				      <child>
-					<widget class="GtkImage" id="pixmap161">
-					  <property name="visible">True</property>
-					  <property name="pixbuf">Helper-50.xpm</property>
-					  <property name="xalign">0.5</property>
-					  <property name="yalign">0.5</property>
-					  <property name="xpad">0</property>
-					  <property name="ypad">0</property>
-					</widget>
-					<packing>
-					  <property name="padding">0</property>
-					  <property name="expand">True</property>
-					  <property name="fill">True</property>
-					</packing>
-				      </child>
-
-				      <child>
-					<widget class="GtkLabel" id="label639">
-					  <property name="visible">True</property>
-					  <property name="label" translatable="yes">GFP
-eing.</property>
-					  <property name="use_underline">False</property>
-					  <property name="use_markup">False</property>
-					  <property name="justify">GTK_JUSTIFY_CENTER</property>
-					  <property name="wrap">False</property>
-					  <property name="selectable">False</property>
-					  <property name="xalign">0.5</property>
-					  <property name="yalign">0.5</property>
-					  <property name="xpad">0</property>
-					  <property name="ypad">0</property>
-					</widget>
-					<packing>
-					  <property name="padding">0</property>
-					  <property name="expand">False</property>
-					  <property name="fill">False</property>
-					</packing>
-				      </child>
-				    </widget>
-				  </child>
-				</widget>
-				<packing>
-				  <property name="left_attach">4</property>
-				  <property name="right_attach">5</property>
-				  <property name="top_attach">1</property>
-				  <property name="bottom_attach">2</property>
-				  <property name="x_options">shrink</property>
-				  <property name="y_options">expand|shrink|fill</property>
-				</packing>
-			      </child>
-
-			      <child>
-				<widget class="GtkCheckButton" id="button_EP">
-				  <property agent="glademm" name="cxx_visibility">protected</property>
-				  <property name="visible">True</property>
-				  <property name="tooltip" translatable="yes">Erfahrungspunkte eingeben/ändern</property>
-				  <property name="relief">GTK_RELIEF_NORMAL</property>
-				  <property name="focus_on_click">True</property>
-				  <property name="active">False</property>
-				  <property name="inconsistent">False</property>
-				  <property name="draw_indicator">False</property>
-				  <signal name="clicked" handler="on_button_EP_eingeben" after="yes"/>
-
-				  <child>
-				    <widget class="GtkHBox" id="hbox97">
-				      <property name="visible">True</property>
-				      <property name="homogeneous">False</property>
-				      <property name="spacing">0</property>
-
-				      <child>
-					<widget class="GtkImage" id="pixmap93">
-					  <property name="visible">True</property>
-					  <property name="pixbuf">EP-Eingabe2-50.xpm</property>
-					  <property name="xalign">0.5</property>
-					  <property name="yalign">0.5</property>
-					  <property name="xpad">0</property>
-					  <property name="ypad">0</property>
-					</widget>
-					<packing>
-					  <property name="padding">0</property>
-					  <property name="expand">True</property>
-					  <property name="fill">True</property>
-					</packing>
-				      </child>
-
-				      <child>
-					<widget class="GtkLabel" id="label638">
-					  <property name="visible">True</property>
-					  <property name="label" translatable="yes">EP
-eing.</property>
-					  <property name="use_underline">False</property>
-					  <property name="use_markup">False</property>
-					  <property name="justify">GTK_JUSTIFY_CENTER</property>
-					  <property name="wrap">False</property>
-					  <property name="selectable">False</property>
-					  <property name="xalign">0.5</property>
-					  <property name="yalign">0.5</property>
-					  <property name="xpad">0</property>
-					  <property name="ypad">0</property>
-					</widget>
-					<packing>
-					  <property name="padding">0</property>
-					  <property name="expand">False</property>
-					  <property name="fill">False</property>
-					</packing>
-				      </child>
-				    </widget>
-				  </child>
-				</widget>
-				<packing>
-				  <property name="left_attach">4</property>
-				  <property name="right_attach">5</property>
-				  <property name="top_attach">0</property>
-				  <property name="bottom_attach">1</property>
-				  <property name="x_options">shrink</property>
-				  <property name="y_options">expand|shrink|fill</property>
-				</packing>
-			      </child>
-
-			      <child>
-				<widget class="GtkEventBox" id="eventbox_eppp_steigern">
-				  <property agent="glademm" name="cxx_visibility">protected</property>
-				  <property name="visible">True</property>
-				  <property name="tooltip" translatable="yes">Ist dieser Knopf aktiviert, werden die Erfahrungspunkte entsprechend des eingestellten Verhältnisses reduziert. Ist dieser Knopf deaktiviert, kann beliebig gesteigert werden.</property>
-				  <property name="visible_window">True</property>
-				  <property name="above_child">False</property>
-
-				  <child>
-				    <placeholder/>
-				  </child>
+				  <property name="creation_function">ChoiceButton</property>
+				  <property name="int1">0</property>
+				  <property name="int2">0</property>
+				  <property name="last_modification_time">Mon, 14 Apr 2003 20:31:03 GMT</property>
+				  <signal name="changed" handler="button_sonder_changed" last_modification_time="Thu, 25 Nov 2004 07:36:29 GMT"/>
 				</widget>
 				<packing>
 				  <property name="left_attach">1</property>
@@ -10479,7 +10284,67 @@ eing.</property>
 				  <property name="top_attach">1</property>
 				  <property name="bottom_attach">2</property>
 				  <property name="x_options">shrink|fill</property>
-				  <property name="y_options">shrink</property>
+				  <property name="y_options">shrink|fill</property>
+				</packing>
+			      </child>
+
+			      <child>
+				<widget class="Custom" id="button_EP">
+				  <property agent="glademm" name="cxx_visibility">protected</property>
+				  <property name="visible">True</property>
+				  <property name="can_focus">True</property>
+				  <property name="creation_function">ChoiceButton</property>
+				  <property name="int1">0</property>
+				  <property name="int2">0</property>
+				  <property name="last_modification_time">Mon, 14 Apr 2003 20:31:03 GMT</property>
+				</widget>
+				<packing>
+				  <property name="left_attach">4</property>
+				  <property name="right_attach">5</property>
+				  <property name="top_attach">0</property>
+				  <property name="bottom_attach">1</property>
+				  <property name="x_options">shrink|fill</property>
+				  <property name="y_options">shrink|fill</property>
+				</packing>
+			      </child>
+
+			      <child>
+				<widget class="Custom" id="button_GFP">
+				  <property agent="glademm" name="cxx_visibility">protected</property>
+				  <property name="visible">True</property>
+				  <property name="can_focus">True</property>
+				  <property name="creation_function">ChoiceButton</property>
+				  <property name="int1">0</property>
+				  <property name="int2">0</property>
+				  <property name="last_modification_time">Mon, 14 Apr 2003 20:31:03 GMT</property>
+				</widget>
+				<packing>
+				  <property name="left_attach">4</property>
+				  <property name="right_attach">5</property>
+				  <property name="top_attach">1</property>
+				  <property name="bottom_attach">2</property>
+				  <property name="x_options">shrink|fill</property>
+				  <property name="y_options">shrink|fill</property>
+				</packing>
+			      </child>
+
+			      <child>
+				<widget class="Custom" id="button_gold">
+				  <property agent="glademm" name="cxx_visibility">protected</property>
+				  <property name="visible">True</property>
+				  <property name="can_focus">True</property>
+				  <property name="creation_function">ChoiceButton</property>
+				  <property name="int1">0</property>
+				  <property name="int2">0</property>
+				  <property name="last_modification_time">Mon, 14 Apr 2003 20:31:03 GMT</property>
+				</widget>
+				<packing>
+				  <property name="left_attach">4</property>
+				  <property name="right_attach">5</property>
+				  <property name="top_attach">2</property>
+				  <property name="bottom_attach">3</property>
+				  <property name="x_options">shrink|fill</property>
+				  <property name="y_options">shrink|fill</property>
 				</packing>
 			      </child>
 			    </widget>
@@ -11183,165 +11048,11 @@ eing.</property>
 				    <widget class="GtkTable" id="table102">
 				      <property name="border_width">3</property>
 				      <property name="visible">True</property>
-				      <property name="n_rows">3</property>
-				      <property name="n_columns">2</property>
+				      <property name="n_rows">2</property>
+				      <property name="n_columns">1</property>
 				      <property name="homogeneous">False</property>
 				      <property name="row_spacing">0</property>
 				      <property name="column_spacing">0</property>
-
-				      <child>
-					<widget class="GtkTable" id="table50">
-					  <property name="visible">True</property>
-					  <property name="n_rows">1</property>
-					  <property name="n_columns">2</property>
-					  <property name="homogeneous">False</property>
-					  <property name="row_spacing">0</property>
-					  <property name="column_spacing">0</property>
-
-					  <child>
-					    <widget class="GtkRadioButton" id="radio_spruchrolle_auto">
-					      <property agent="glademm" name="cxx_visibility">protected</property>
-					      <property name="visible">True</property>
-					      <property name="tooltip" translatable="yes">Das Lernen von Spruchrolle ist automatisch erfolgreich.</property>
-					      <property name="can_focus">True</property>
-					      <property name="relief">GTK_RELIEF_NORMAL</property>
-					      <property name="focus_on_click">True</property>
-					      <property name="active">False</property>
-					      <property name="inconsistent">False</property>
-					      <property name="draw_indicator">False</property>
-
-					      <child>
-						<widget class="GtkImage" id="pixmap82">
-						  <property name="visible">True</property>
-						  <property name="pixbuf">Automat-32.xpm</property>
-						  <property name="xalign">7.45058e-09</property>
-						  <property name="yalign">0.5</property>
-						  <property name="xpad">0</property>
-						  <property name="ypad">0</property>
-						</widget>
-					      </child>
-					    </widget>
-					    <packing>
-					      <property name="left_attach">1</property>
-					      <property name="right_attach">2</property>
-					      <property name="top_attach">0</property>
-					      <property name="bottom_attach">1</property>
-					      <property name="x_options">fill</property>
-					      <property name="y_options"></property>
-					    </packing>
-					  </child>
-
-					  <child>
-					    <widget class="GtkRadioButton" id="radio_spruchrolle_wuerfeln">
-					      <property agent="glademm" name="cxx_visibility">protected</property>
-					      <property name="visible">True</property>
-					      <property name="tooltip" translatable="yes">Es wird gewürfelt, ob das Lernen von Spruchrolle erfolgreich ist.</property>
-					      <property name="can_focus">True</property>
-					      <property name="relief">GTK_RELIEF_NORMAL</property>
-					      <property name="focus_on_click">True</property>
-					      <property name="active">True</property>
-					      <property name="inconsistent">False</property>
-					      <property name="draw_indicator">False</property>
-					      <property name="group">radio_spruchrolle_auto</property>
-
-					      <child>
-						<widget class="GtkImage" id="pixmap81">
-						  <property name="visible">True</property>
-						  <property name="pixbuf">Green-Dice-trans-50.xpm</property>
-						  <property name="xalign">7.45058e-09</property>
-						  <property name="yalign">0.5</property>
-						  <property name="xpad">0</property>
-						  <property name="ypad">0</property>
-						</widget>
-					      </child>
-					    </widget>
-					    <packing>
-					      <property name="left_attach">0</property>
-					      <property name="right_attach">1</property>
-					      <property name="top_attach">0</property>
-					      <property name="bottom_attach">1</property>
-					      <property name="x_options">shrink|fill</property>
-					      <property name="y_options">shrink|fill</property>
-					    </packing>
-					  </child>
-					</widget>
-					<packing>
-					  <property name="left_attach">1</property>
-					  <property name="right_attach">2</property>
-					  <property name="top_attach">0</property>
-					  <property name="bottom_attach">1</property>
-					  <property name="x_options">expand|shrink|fill</property>
-					  <property name="y_options">expand|shrink|fill</property>
-					</packing>
-				      </child>
-
-				      <child>
-					<widget class="GtkToggleButton" id="togglebutton_spruchrolle">
-					  <property agent="glademm" name="cxx_visibility">protected</property>
-					  <property name="visible">True</property>
-					  <property name="tooltip" translatable="yes">Lernen von Spruchrolle</property>
-					  <property name="can_focus">True</property>
-					  <property name="relief">GTK_RELIEF_HALF</property>
-					  <property name="focus_on_click">True</property>
-					  <property name="active">False</property>
-					  <property name="inconsistent">False</property>
-					  <signal name="toggled" handler="on_spruchrolle_toggled" after="yes"/>
-
-					  <child>
-					    <widget class="GtkHBox" id="hbox44">
-					      <property name="visible">True</property>
-					      <property name="homogeneous">False</property>
-					      <property name="spacing">0</property>
-
-					      <child>
-						<widget class="GtkImage" id="pixmap79">
-						  <property name="visible">True</property>
-						  <property name="pixbuf">LearnRoll-trans-50.xpm</property>
-						  <property name="xalign">0.5</property>
-						  <property name="yalign">0.5</property>
-						  <property name="xpad">0</property>
-						  <property name="ypad">0</property>
-						</widget>
-						<packing>
-						  <property name="padding">0</property>
-						  <property name="expand">False</property>
-						  <property name="fill">False</property>
-						</packing>
-					      </child>
-
-					      <child>
-						<widget class="GtkLabel" id="label520">
-						  <property name="visible">True</property>
-						  <property name="label" translatable="yes">Lernen mit
-Spruchrolle</property>
-						  <property name="use_underline">False</property>
-						  <property name="use_markup">False</property>
-						  <property name="justify">GTK_JUSTIFY_CENTER</property>
-						  <property name="wrap">False</property>
-						  <property name="selectable">False</property>
-						  <property name="xalign">0.5</property>
-						  <property name="yalign">0.5</property>
-						  <property name="xpad">0</property>
-						  <property name="ypad">0</property>
-						</widget>
-						<packing>
-						  <property name="padding">0</property>
-						  <property name="expand">False</property>
-						  <property name="fill">False</property>
-						</packing>
-					      </child>
-					    </widget>
-					  </child>
-					</widget>
-					<packing>
-					  <property name="left_attach">0</property>
-					  <property name="right_attach">1</property>
-					  <property name="top_attach">0</property>
-					  <property name="bottom_attach">1</property>
-					  <property name="x_options">fill</property>
-					  <property name="y_options"></property>
-					</packing>
-				      </child>
 
 				      <child>
 					<widget class="GtkToggleButton" id="togglebutton_alle_zauber">
@@ -11404,8 +11115,8 @@ anzeigen</property>
 					<packing>
 					  <property name="left_attach">0</property>
 					  <property name="right_attach">1</property>
-					  <property name="top_attach">1</property>
-					  <property name="bottom_attach">2</property>
+					  <property name="top_attach">0</property>
+					  <property name="bottom_attach">1</property>
 					  <property name="x_options">fill</property>
 					  <property name="y_options"></property>
 					</packing>
@@ -11472,29 +11183,10 @@ anzeigen</property>
 					<packing>
 					  <property name="left_attach">0</property>
 					  <property name="right_attach">1</property>
-					  <property name="top_attach">2</property>
-					  <property name="bottom_attach">3</property>
+					  <property name="top_attach">1</property>
+					  <property name="bottom_attach">2</property>
 					  <property name="x_options">fill</property>
 					  <property name="y_options"></property>
-					</packing>
-				      </child>
-
-				      <child>
-					<widget class="GtkTable" id="table150">
-					  <property name="visible">True</property>
-					  <property name="n_rows">1</property>
-					  <property name="n_columns">1</property>
-					  <property name="homogeneous">False</property>
-					  <property name="row_spacing">0</property>
-					  <property name="column_spacing">0</property>
-					</widget>
-					<packing>
-					  <property name="left_attach">1</property>
-					  <property name="right_attach">2</property>
-					  <property name="top_attach">2</property>
-					  <property name="bottom_attach">3</property>
-					  <property name="x_options">fill</property>
-					  <property name="y_options">fill</property>
 					</packing>
 				      </child>
 				    </widget>
@@ -11541,329 +11233,68 @@ anzeigen</property>
 				  <child>
 				    <widget class="GtkTable" id="table101">
 				      <property name="visible">True</property>
-				      <property name="n_rows">3</property>
-				      <property name="n_columns">2</property>
+				      <property name="n_rows">1</property>
+				      <property name="n_columns">3</property>
 				      <property name="homogeneous">False</property>
 				      <property name="row_spacing">0</property>
 				      <property name="column_spacing">0</property>
 
 				      <child>
-					<widget class="GtkTable" id="table_pp_einstellungen">
-					  <property agent="glademm" name="cxx_visibility">protected</property>
-					  <property name="n_rows">2</property>
-					  <property name="n_columns">2</property>
-					  <property name="homogeneous">False</property>
-					  <property name="row_spacing">0</property>
-					  <property name="column_spacing">0</property>
-
-					  <child>
-					    <widget class="GtkRadioButton" id="radiobutton_pp_hoch_wie_geht">
-					      <property agent="glademm" name="cxx_visibility">protected</property>
-					      <property name="visible">True</property>
-					      <property name="tooltip" translatable="yes">Es werden alle PP verwendet, um so hoch wie möglich zu steigern.</property>
-					      <property name="can_focus">True</property>
-					      <property name="label" translatable="yes">n Stufen</property>
-					      <property name="use_underline">True</property>
-					      <property name="relief">GTK_RELIEF_NORMAL</property>
-					      <property name="focus_on_click">True</property>
-					      <property name="active">False</property>
-					      <property name="inconsistent">False</property>
-					      <property name="draw_indicator">False</property>
-					    </widget>
-					    <packing>
-					      <property name="left_attach">0</property>
-					      <property name="right_attach">1</property>
-					      <property name="top_attach">1</property>
-					      <property name="bottom_attach">2</property>
-					      <property name="x_options">fill</property>
-					      <property name="y_options"></property>
-					    </packing>
-					  </child>
-
-					  <child>
-					    <widget class="GtkRadioButton" id="radiobutton_pp_1stufe">
-					      <property agent="glademm" name="cxx_visibility">protected</property>
-					      <property name="visible">True</property>
-					      <property name="tooltip" translatable="yes">Es wird um eine Stufe gesteigert und wenn die PP nicht reichen mit EP aufgefüllt.</property>
-					      <property name="can_focus">True</property>
-					      <property name="label" translatable="yes">1 Stufe</property>
-					      <property name="use_underline">True</property>
-					      <property name="relief">GTK_RELIEF_NORMAL</property>
-					      <property name="focus_on_click">True</property>
-					      <property name="active">True</property>
-					      <property name="inconsistent">False</property>
-					      <property name="draw_indicator">False</property>
-					      <property name="group">radiobutton_pp_hoch_wie_geht</property>
-					    </widget>
-					    <packing>
-					      <property name="left_attach">0</property>
-					      <property name="right_attach">1</property>
-					      <property name="top_attach">0</property>
-					      <property name="bottom_attach">1</property>
-					      <property name="x_options">fill</property>
-					      <property name="y_options"></property>
-					    </packing>
-					  </child>
-
-					  <child>
-					    <widget class="GtkToggleButton" id="togglebutton_pp_verfallen">
-					      <property agent="glademm" name="cxx_visibility">protected</property>
-					      <property name="visible">True</property>
-					      <property name="can_focus">True</property>
-					      <property name="label" translatable="yes">FP verfallen lassen</property>
-					      <property name="use_underline">True</property>
-					      <property name="relief">GTK_RELIEF_NORMAL</property>
-					      <property name="focus_on_click">True</property>
-					      <property name="active">False</property>
-					      <property name="inconsistent">False</property>
-					      <signal name="toggled" handler="on_togglebutton_pp_verfallen_toggled"/>
-					    </widget>
-					    <packing>
-					      <property name="left_attach">1</property>
-					      <property name="right_attach">2</property>
-					      <property name="top_attach">1</property>
-					      <property name="bottom_attach">2</property>
-					      <property name="x_options">fill</property>
-					      <property name="y_options"></property>
-					    </packing>
-					  </child>
-
-					  <child>
-					    <widget class="GtkToggleButton" id="togglebutton_pp_aep_fuellen">
-					      <property agent="glademm" name="cxx_visibility">protected</property>
-					      <property name="visible">True</property>
-					      <property name="can_focus">True</property>
-					      <property name="label" translatable="yes">Mit EP auffüllen</property>
-					      <property name="use_underline">True</property>
-					      <property name="relief">GTK_RELIEF_NORMAL</property>
-					      <property name="focus_on_click">True</property>
-					      <property name="active">False</property>
-					      <property name="inconsistent">False</property>
-					      <signal name="toggled" handler="on_togglebutton_pp_aep_fuellen_toggled"/>
-					    </widget>
-					    <packing>
-					      <property name="left_attach">1</property>
-					      <property name="right_attach">2</property>
-					      <property name="top_attach">0</property>
-					      <property name="bottom_attach">1</property>
-					      <property name="x_options">fill</property>
-					      <property name="y_options">fill</property>
-					    </packing>
-					  </child>
-					</widget>
-					<packing>
-					  <property name="left_attach">1</property>
-					  <property name="right_attach">2</property>
-					  <property name="top_attach">2</property>
-					  <property name="bottom_attach">3</property>
-					  <property name="x_options">fill</property>
-					  <property name="y_options">fill</property>
-					</packing>
-				      </child>
-
-				      <child>
-					<widget class="GtkRadioButton" id="radiobutton_praxis">
+					<widget class="Custom" id="button_wie_tun">
 					  <property agent="glademm" name="cxx_visibility">protected</property>
 					  <property name="visible">True</property>
-					  <property name="tooltip" translatable="yes">Zum Steigern werden in erster Linie Praxispunkte verwendet. Es werden jedoch keine FP verschenkt, fehlenden FP werden durch EP aufgefüllt.</property>
 					  <property name="can_focus">True</property>
-					  <property name="relief">GTK_RELIEF_NORMAL</property>
-					  <property name="focus_on_click">True</property>
-					  <property name="active">False</property>
-					  <property name="inconsistent">False</property>
-					  <property name="draw_indicator">False</property>
-					  <signal name="toggled" handler="on_radio_praxis_toggled"/>
-
-					  <child>
-					    <widget class="GtkHBox" id="hbox43">
-					      <property name="visible">True</property>
-					      <property name="homogeneous">False</property>
-					      <property name="spacing">0</property>
-
-					      <child>
-						<widget class="GtkImage" id="pixmap76">
-						  <property name="visible">True</property>
-						  <property name="pixbuf">Learning_by_Doing-32.xpm</property>
-						  <property name="xalign">0.5</property>
-						  <property name="yalign">0.5</property>
-						  <property name="xpad">0</property>
-						  <property name="ypad">0</property>
-						</widget>
-						<packing>
-						  <property name="padding">0</property>
-						  <property name="expand">True</property>
-						  <property name="fill">True</property>
-						</packing>
-					      </child>
-
-					      <child>
-						<widget class="GtkLabel" id="label519">
-						  <property name="visible">True</property>
-						  <property name="label" translatable="yes">Praxis         </property>
-						  <property name="use_underline">False</property>
-						  <property name="use_markup">False</property>
-						  <property name="justify">GTK_JUSTIFY_CENTER</property>
-						  <property name="wrap">False</property>
-						  <property name="selectable">False</property>
-						  <property name="xalign">0.5</property>
-						  <property name="yalign">0.5</property>
-						  <property name="xpad">0</property>
-						  <property name="ypad">0</property>
-						</widget>
-						<packing>
-						  <property name="padding">0</property>
-						  <property name="expand">False</property>
-						  <property name="fill">False</property>
-						</packing>
-					      </child>
-					    </widget>
-					  </child>
-					</widget>
-					<packing>
-					  <property name="left_attach">0</property>
-					  <property name="right_attach">1</property>
-					  <property name="top_attach">2</property>
-					  <property name="bottom_attach">3</property>
-					  <property name="x_options">fill</property>
-					  <property name="y_options"></property>
-					</packing>
-				      </child>
-
-				      <child>
-					<widget class="GtkRadioButton" id="radiobutton_unterweisung">
-					  <property agent="glademm" name="cxx_visibility">protected</property>
-					  <property name="visible">True</property>
-					  <property name="tooltip" translatable="yes">Steigern mit Gold und EP</property>
-					  <property name="can_focus">True</property>
-					  <property name="relief">GTK_RELIEF_NORMAL</property>
-					  <property name="focus_on_click">True</property>
-					  <property name="active">True</property>
-					  <property name="inconsistent">False</property>
-					  <property name="draw_indicator">False</property>
-					  <property name="group">radiobutton_praxis</property>
-					  <signal name="toggled" handler="on_radio_unterweisung_toggled"/>
-
-					  <child>
-					    <widget class="GtkHBox" id="hbox41">
-					      <property name="visible">True</property>
-					      <property name="homogeneous">False</property>
-					      <property name="spacing">0</property>
-
-					      <child>
-						<widget class="GtkImage" id="pixmap77">
-						  <property name="visible">True</property>
-						  <property name="pixbuf">Teacher-trans32.xpm</property>
-						  <property name="xalign">0.5</property>
-						  <property name="yalign">0.5</property>
-						  <property name="xpad">0</property>
-						  <property name="ypad">0</property>
-						</widget>
-						<packing>
-						  <property name="padding">0</property>
-						  <property name="expand">True</property>
-						  <property name="fill">True</property>
-						</packing>
-					      </child>
-
-					      <child>
-						<widget class="GtkLabel" id="label517">
-						  <property name="visible">True</property>
-						  <property name="label" translatable="yes">Unterweisung</property>
-						  <property name="use_underline">False</property>
-						  <property name="use_markup">False</property>
-						  <property name="justify">GTK_JUSTIFY_CENTER</property>
-						  <property name="wrap">False</property>
-						  <property name="selectable">False</property>
-						  <property name="xalign">0.5</property>
-						  <property name="yalign">0.5</property>
-						  <property name="xpad">0</property>
-						  <property name="ypad">0</property>
-						</widget>
-						<packing>
-						  <property name="padding">0</property>
-						  <property name="expand">False</property>
-						  <property name="fill">False</property>
-						</packing>
-					      </child>
-					    </widget>
-					  </child>
+					  <property name="creation_function">ChoiceButton</property>
+					  <property name="int1">0</property>
+					  <property name="int2">0</property>
+					  <property name="last_modification_time">Mon, 14 Apr 2003 20:31:03 GMT</property>
+					  <signal name="changed" handler="button_wie_tun_changed" last_modification_time="Thu, 25 Nov 2004 07:29:31 GMT"/>
 					</widget>
 					<packing>
 					  <property name="left_attach">0</property>
 					  <property name="right_attach">1</property>
 					  <property name="top_attach">0</property>
 					  <property name="bottom_attach">1</property>
-					  <property name="x_options">fill</property>
-					  <property name="y_options"></property>
 					</packing>
 				      </child>
 
 				      <child>
-					<widget class="GtkRadioButton" id="radiobutton_selbst">
+					<widget class="Custom" id="button_rolle">
 					  <property agent="glademm" name="cxx_visibility">protected</property>
 					  <property name="visible">True</property>
-					  <property name="tooltip" translatable="yes">Steigern mit EP</property>
 					  <property name="can_focus">True</property>
-					  <property name="relief">GTK_RELIEF_NORMAL</property>
-					  <property name="focus_on_click">True</property>
-					  <property name="active">False</property>
-					  <property name="inconsistent">False</property>
-					  <property name="draw_indicator">False</property>
-					  <property name="group">radiobutton_praxis</property>
-					  <signal name="toggled" handler="on_radio_selbst_toggled"/>
-
-					  <child>
-					    <widget class="GtkHBox" id="hbox42">
-					      <property name="visible">True</property>
-					      <property name="homogeneous">False</property>
-					      <property name="spacing">0</property>
-
-					      <child>
-						<widget class="GtkImage" id="pixmap75">
-						  <property name="visible">True</property>
-						  <property name="pixbuf">Self-Learning-32.xpm</property>
-						  <property name="xalign">0.5</property>
-						  <property name="yalign">0.5</property>
-						  <property name="xpad">0</property>
-						  <property name="ypad">0</property>
-						</widget>
-						<packing>
-						  <property name="padding">0</property>
-						  <property name="expand">True</property>
-						  <property name="fill">True</property>
-						</packing>
-					      </child>
-
-					      <child>
-						<widget class="GtkLabel" id="label518">
-						  <property name="visible">True</property>
-						  <property name="label" translatable="yes">Selbststudium</property>
-						  <property name="use_underline">False</property>
-						  <property name="use_markup">False</property>
-						  <property name="justify">GTK_JUSTIFY_CENTER</property>
-						  <property name="wrap">False</property>
-						  <property name="selectable">False</property>
-						  <property name="xalign">0.5</property>
-						  <property name="yalign">0.5</property>
-						  <property name="xpad">0</property>
-						  <property name="ypad">0</property>
-						</widget>
-						<packing>
-						  <property name="padding">0</property>
-						  <property name="expand">False</property>
-						  <property name="fill">False</property>
-						</packing>
-					      </child>
-					    </widget>
-					  </child>
+					  <property name="creation_function">ChoiceButton</property>
+					  <property name="int1">0</property>
+					  <property name="int2">0</property>
+					  <property name="last_modification_time">Mon, 14 Apr 2003 20:31:03 GMT</property>
+					  <signal name="changed" handler="button_rolle_changed" last_modification_time="Thu, 25 Nov 2004 07:05:10 GMT"/>
 					</widget>
 					<packing>
-					  <property name="left_attach">0</property>
-					  <property name="right_attach">1</property>
-					  <property name="top_attach">1</property>
-					  <property name="bottom_attach">2</property>
-					  <property name="x_options">fill</property>
-					  <property name="y_options"></property>
+					  <property name="left_attach">1</property>
+					  <property name="right_attach">2</property>
+					  <property name="top_attach">0</property>
+					  <property name="bottom_attach">1</property>
+					  <property name="y_options">fill</property>
+					</packing>
+				      </child>
+
+				      <child>
+					<widget class="Custom" id="button_pp_variante">
+					  <property agent="glademm" name="cxx_visibility">protected</property>
+					  <property name="visible">True</property>
+					  <property name="can_focus">True</property>
+					  <property name="creation_function">ChoiceButton</property>
+					  <property name="int1">0</property>
+					  <property name="int2">0</property>
+					  <property name="last_modification_time">Mon, 14 Apr 2003 20:31:03 GMT</property>
+					  <signal name="changed" handler="button_ppvar_changed" last_modification_time="Mon, 29 Nov 2004 07:55:40 GMT"/>
+					</widget>
+					<packing>
+					  <property name="left_attach">2</property>
+					  <property name="right_attach">3</property>
+					  <property name="top_attach">0</property>
+					  <property name="bottom_attach">1</property>
+					  <property name="y_options">fill</property>
 					</packing>
 				      </child>
 				    </widget>
@@ -11910,207 +11341,22 @@ anzeigen</property>
 				    <widget class="GtkTable" id="table100">
 				      <property name="border_width">3</property>
 				      <property name="visible">True</property>
-				      <property name="n_rows">3</property>
+				      <property name="n_rows">1</property>
 				      <property name="n_columns">1</property>
 				      <property name="homogeneous">False</property>
 				      <property name="row_spacing">0</property>
 				      <property name="column_spacing">0</property>
 
 				      <child>
-					<widget class="GtkRadioButton" id="radiobutton_reduzieren">
+					<widget class="Custom" id="button_was_tun">
 					  <property agent="glademm" name="cxx_visibility">protected</property>
 					  <property name="visible">True</property>
-					  <property name="tooltip" translatable="yes">Ist dieser Knopf gedrückt werden die Erfolgswerte bereits gelernter Fertigkeiten (durch anklicken) reduziert.</property>
 					  <property name="can_focus">True</property>
-					  <property name="relief">GTK_RELIEF_NORMAL</property>
-					  <property name="focus_on_click">True</property>
-					  <property name="active">False</property>
-					  <property name="inconsistent">False</property>
-					  <property name="draw_indicator">False</property>
-					  <signal name="toggled" handler="on_radio_reduzieren_toggled"/>
-
-					  <child>
-					    <widget class="GtkHBox" id="hbox38">
-					      <property name="visible">True</property>
-					      <property name="homogeneous">False</property>
-					      <property name="spacing">0</property>
-
-					      <child>
-						<widget class="GtkImage" id="pixmap72">
-						  <property name="visible">True</property>
-						  <property name="pixbuf">Reduzieren-trans-32.xpm</property>
-						  <property name="xalign">0.5</property>
-						  <property name="yalign">0.5</property>
-						  <property name="xpad">0</property>
-						  <property name="ypad">0</property>
-						</widget>
-						<packing>
-						  <property name="padding">0</property>
-						  <property name="expand">False</property>
-						  <property name="fill">False</property>
-						</packing>
-					      </child>
-
-					      <child>
-						<widget class="GtkLabel" id="label514">
-						  <property name="visible">True</property>
-						  <property name="label" translatable="yes">Reduzieren</property>
-						  <property name="use_underline">False</property>
-						  <property name="use_markup">False</property>
-						  <property name="justify">GTK_JUSTIFY_CENTER</property>
-						  <property name="wrap">False</property>
-						  <property name="selectable">False</property>
-						  <property name="xalign">0.5</property>
-						  <property name="yalign">0.5</property>
-						  <property name="xpad">0</property>
-						  <property name="ypad">0</property>
-						</widget>
-						<packing>
-						  <property name="padding">0</property>
-						  <property name="expand">False</property>
-						  <property name="fill">False</property>
-						</packing>
-					      </child>
-					    </widget>
-					  </child>
-					</widget>
-					<packing>
-					  <property name="left_attach">0</property>
-					  <property name="right_attach">1</property>
-					  <property name="top_attach">1</property>
-					  <property name="bottom_attach">2</property>
-					  <property name="x_options">fill</property>
-					  <property name="y_options"></property>
-					</packing>
-				      </child>
-
-				      <child>
-					<widget class="GtkRadioButton" id="radiobutton_verlernen">
-					  <property agent="glademm" name="cxx_visibility">protected</property>
-					  <property name="visible">True</property>
-					  <property name="tooltip" translatable="yes">Ist dieser Knopf gedrückt wird eine bereits gelernter Fertigkeiten (durch anklicken) verlernt, wenn sie auf dem niedrigsten Erfolgswert beherrscht wird.</property>
-					  <property name="can_focus">True</property>
-					  <property name="relief">GTK_RELIEF_NORMAL</property>
-					  <property name="focus_on_click">True</property>
-					  <property name="active">False</property>
-					  <property name="inconsistent">False</property>
-					  <property name="draw_indicator">False</property>
-					  <property name="group">radiobutton_reduzieren</property>
-					  <signal name="toggled" handler="on_radio_verlernen_toggled"/>
-
-					  <child>
-					    <widget class="GtkHBox" id="hbox39">
-					      <property name="visible">True</property>
-					      <property name="homogeneous">False</property>
-					      <property name="spacing">0</property>
-
-					      <child>
-						<widget class="GtkImage" id="pixmap73">
-						  <property name="visible">True</property>
-						  <property name="pixbuf">Verlernen-trans-32.xpm</property>
-						  <property name="xalign">0.5</property>
-						  <property name="yalign">0.5</property>
-						  <property name="xpad">0</property>
-						  <property name="ypad">0</property>
-						</widget>
-						<packing>
-						  <property name="padding">0</property>
-						  <property name="expand">False</property>
-						  <property name="fill">False</property>
-						</packing>
-					      </child>
-
-					      <child>
-						<widget class="GtkLabel" id="label515">
-						  <property name="visible">True</property>
-						  <property name="label" translatable="yes">Verlernen </property>
-						  <property name="use_underline">False</property>
-						  <property name="use_markup">False</property>
-						  <property name="justify">GTK_JUSTIFY_CENTER</property>
-						  <property name="wrap">False</property>
-						  <property name="selectable">False</property>
-						  <property name="xalign">0.5</property>
-						  <property name="yalign">0.5</property>
-						  <property name="xpad">0</property>
-						  <property name="ypad">0</property>
-						</widget>
-						<packing>
-						  <property name="padding">0</property>
-						  <property name="expand">False</property>
-						  <property name="fill">False</property>
-						</packing>
-					      </child>
-					    </widget>
-					  </child>
-					</widget>
-					<packing>
-					  <property name="left_attach">0</property>
-					  <property name="right_attach">1</property>
-					  <property name="top_attach">2</property>
-					  <property name="bottom_attach">3</property>
-					  <property name="x_options">fill</property>
-					  <property name="y_options"></property>
-					</packing>
-				      </child>
-
-				      <child>
-					<widget class="GtkRadioButton" id="radiobutton_steigern">
-					  <property agent="glademm" name="cxx_visibility">protected</property>
-					  <property name="visible">True</property>
-					  <property name="tooltip" translatable="yes">Ist dieser Knopf gedrückt können die bereits gelernten Fertigkeiten (durch anklicken) gesteigert werden.</property>
-					  <property name="can_focus">True</property>
-					  <property name="relief">GTK_RELIEF_NORMAL</property>
-					  <property name="focus_on_click">True</property>
-					  <property name="active">True</property>
-					  <property name="inconsistent">False</property>
-					  <property name="draw_indicator">False</property>
-					  <property name="group">radiobutton_reduzieren</property>
-					  <signal name="toggled" handler="on_radio_steigern_toggled"/>
-
-					  <child>
-					    <widget class="GtkHBox" id="hbox37">
-					      <property name="visible">True</property>
-					      <property name="homogeneous">False</property>
-					      <property name="spacing">0</property>
-
-					      <child>
-						<widget class="GtkImage" id="pixmap74">
-						  <property name="visible">True</property>
-						  <property name="pixbuf">Steigern-trans-32.xpm</property>
-						  <property name="xalign">0.5</property>
-						  <property name="yalign">0.5</property>
-						  <property name="xpad">0</property>
-						  <property name="ypad">0</property>
-						</widget>
-						<packing>
-						  <property name="padding">0</property>
-						  <property name="expand">False</property>
-						  <property name="fill">False</property>
-						</packing>
-					      </child>
-
-					      <child>
-						<widget class="GtkLabel" id="label513">
-						  <property name="visible">True</property>
-						  <property name="label" translatable="yes">Steigern    </property>
-						  <property name="use_underline">False</property>
-						  <property name="use_markup">False</property>
-						  <property name="justify">GTK_JUSTIFY_CENTER</property>
-						  <property name="wrap">False</property>
-						  <property name="selectable">False</property>
-						  <property name="xalign">0.5</property>
-						  <property name="yalign">0.5</property>
-						  <property name="xpad">0</property>
-						  <property name="ypad">0</property>
-						</widget>
-						<packing>
-						  <property name="padding">0</property>
-						  <property name="expand">False</property>
-						  <property name="fill">False</property>
-						</packing>
-					      </child>
-					    </widget>
-					  </child>
+					  <property name="creation_function">ChoiceButton</property>
+					  <property name="int1">0</property>
+					  <property name="int2">0</property>
+					  <property name="last_modification_time">Mon, 14 Apr 2003 20:31:03 GMT</property>
+					  <signal name="changed" handler="button_was_tun_changed" last_modification_time="Thu, 25 Nov 2004 07:03:41 GMT"/>
 					</widget>
 					<packing>
 					  <property name="left_attach">0</property>
@@ -12118,7 +11364,6 @@ anzeigen</property>
 					  <property name="top_attach">0</property>
 					  <property name="bottom_attach">1</property>
 					  <property name="x_options">fill</property>
-					  <property name="y_options"></property>
 					</packing>
 				      </child>
 				    </widget>
@@ -12127,7 +11372,7 @@ anzeigen</property>
 				  <child>
 				    <widget class="GtkLabel" id="label669">
 				      <property name="visible">True</property>
-				      <property name="label" translatable="yes">Fertigkeit</property>
+				      <property name="label" translatable="yes">Aktion</property>
 				      <property name="use_underline">False</property>
 				      <property name="use_markup">False</property>
 				      <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -12156,7 +11401,6 @@ anzeigen</property>
 			      <child>
 				<widget class="GtkFrame" id="frame_praxispunkte">
 				  <property agent="glademm" name="cxx_visibility">protected</property>
-				  <property name="visible">True</property>
 				  <property name="label_xalign">0</property>
 				  <property name="label_yalign">0.5</property>
 				  <property name="shadow_type">GTK_SHADOW_ETCHED_IN</property>
@@ -12457,7 +11701,7 @@ eingeben</property>
 		    </widget>
 		    <packing>
 		      <property name="left_attach">0</property>
-		      <property name="right_attach">2</property>
+		      <property name="right_attach">1</property>
 		      <property name="top_attach">0</property>
 		      <property name="bottom_attach">1</property>
 		      <property name="x_options">shrink|fill</property>
@@ -12481,7 +11725,7 @@ eingeben</property>
 		    </widget>
 		    <packing>
 		      <property name="left_attach">0</property>
-		      <property name="right_attach">2</property>
+		      <property name="right_attach">1</property>
 		      <property name="top_attach">1</property>
 		      <property name="bottom_attach">2</property>
 		      <property name="x_options">shrink|fill</property>

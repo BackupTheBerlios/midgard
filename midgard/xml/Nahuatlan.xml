@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<MAGUS-data Region="N" Name="Nahuatlan" Titel="Nahuatlan - Im Land des Mondjaguars" Copyright="Alexander Huiskes" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="6" MAGUS-Bild="8" CVS="$Revision: 1.20 $">
+<MAGUS-data CVS="$Revision: 1.21 $" Copyright="Alexander Huiskes" MAGUS-Bild="8" MAGUS-Index="6" Maintainer="Malte Thoma" Name="Nahuatlan" Region="N" Titel="Nahuatlan - Im Land des Mondjaguars" Version="1.0" offiziell="true">
  <Fertigkeiten>
-  <Fertigkeit Name="Adlersprung" Region="N" Lernkosten="200" Attribut="Ge">
+  <Fertigkeit Attribut="Ge" Lernkosten="200" Name="Adlersprung" Region="N">
    <Grund Typ="Sw"/>
    <Ausnahme Typ="As"/>
    <Ausnahme Typ="BN"/>
@@ -63,7 +63,7 @@
    <Ausnahme Typ="wHx"/>
    <Voraussetzungen Gw="11"/>
   </Fertigkeit>
-  <Fertigkeit Name="Federflechten" Region="N" Lernkosten="800" Attribut="Gs">
+  <Fertigkeit Attribut="Gs" Lernkosten="800" Name="Federflechten" Region="N">
    <Standard Typ="Sw"/>
    <Standard Typ="Th"/>
    <Ausnahme Typ="As"/>
@@ -123,9 +123,9 @@
    <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="wHx"/>
    <Voraussetzungen Gs="81"/>
-   <Lernschema Typ="Tr" Lernpunkte="1"/>
+   <Lernschema Lernpunkte="1" Typ="Tr"/>
   </Fertigkeit>
-  <Fertigkeit Name="Schlachtruf" Region="N" Lernkosten="100" Attribut="Gw">
+  <Fertigkeit Attribut="Gw" Lernkosten="100" Name="Schlachtruf" Region="N">
    <Grund Typ="As"/>
    <Grund Typ="BN"/>
    <Grund Typ="BS"/>
@@ -185,15 +185,15 @@
    <Ausnahme Typ="wHx"/>
    <Voraussetzungen Gw="31"/>
   </Fertigkeit>
-  <Fertigkeit Name="Siebter Sinn" Region="N" Anfangswert="2" Lernkosten="500" Erfolgswert="2">
+  <Fertigkeit Anfangswert="2" Erfolgswert="2" Lernkosten="500" Name="Siebter Sinn" Region="N">
    <Grund Typ="Dt"/>
    <Ausnahme Typ="ScN"/>
    <Ausnahme Typ="ScS"/>
    <Ausnahme Typ="ScW"/>
-   <Lernschema Typ="Dt" Lernpunkte="1" Erfolgswert="4" Pflicht="true"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="1" Pflicht="true" Typ="Dt"/>
    <Kosten Wert3="500" Wert4="500" Wert5="500" Wert6="500" Wert7="500" Wert8="500" Wert9="500"/>
   </Fertigkeit>
-  <Fertigkeit Name="Wahrsagekalender führen" Region="N" Lernkosten="1000" Attribut="In">
+  <Fertigkeit Attribut="In" Lernkosten="1000" Name="Wahrsagekalender führen" Region="N">
    <Grund Typ="Dt"/>
    <Standard Typ="Sw"/>
    <Ausnahme Typ="As"/>
@@ -253,9 +253,9 @@
    <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="wHx"/>
    <Voraussetzungen In="31"/>
-   <Lernschema Typ="Dt" Lernpunkte="1" Pflicht="true"/>
+   <Lernschema Lernpunkte="1" Pflicht="true" Typ="Dt"/>
   </Fertigkeit>
-  <Fertigkeit Name="Akribie" Region="N" Anfangswert="17" Lernkosten="100" Attribut="In">
+  <Fertigkeit Anfangswert="17" Attribut="In" Lernkosten="100" Name="Akribie" Region="N">
    <Grund Typ="Dt"/>
    <Standard Typ="Dr"/>
    <Standard Typ="MMa"/>
@@ -315,10 +315,10 @@
    <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="wHx"/>
    <Voraussetzungen In="11"/>
-   <Lernschema Typ="Dt" Lernpunkte="1" Erfolgswert="17" Pflicht="true"/>
+   <Lernschema Erfolgswert="17" Lernpunkte="1" Pflicht="true" Typ="Dt"/>
    <steigern_wie Fertigkeit="Wissen"/>
   </Fertigkeit>
-  <Fertigkeit Name="Ballspiel" Region="N" Anfangswert="10" Lernkosten="60" Erfolgswert="10" Attribut="Gw">
+  <Fertigkeit Anfangswert="10" Attribut="Gw" Erfolgswert="10" Lernkosten="60" Name="Ballspiel" Region="N">
    <Standard Typ="Sw"/>
    <Ausnahme Typ="As"/>
    <Ausnahme Typ="BN"/>
@@ -380,7 +380,7 @@
    <Voraussetzungen Gw="31"/>
    <steigern_wie Fertigkeit="Bewegung"/>
   </Fertigkeit>
-  <Fertigkeit Name="Dämonenkunde" Region="N" Anfangswert="5" Lernkosten="100" Erfolgswert="4" Attribut="In">
+  <Fertigkeit Anfangswert="5" Attribut="In" Erfolgswert="4" Lernkosten="100" Name="Dämonenkunde" Region="N">
    <Grund Typ="Dt"/>
    <Grund Typ="Nb"/>
    <Standard Typ="Hj"/>
@@ -441,10 +441,10 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
    <Voraussetzungen In="31"/>
-   <Lernschema Typ="Dt" Lernpunkte="1" Erfolgswert="4" Pflicht="true"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="1" Pflicht="true" Typ="Dt"/>
    <steigern_wie Fertigkeit="Wissen"/>
   </Fertigkeit>
-  <Fertigkeit Name="Tätowieren" Region="N" Lernpunkte="5" Anfangswert="15" Lernkosten="50" Erfolgswert="12" Attribut="Gs">
+  <Fertigkeit Anfangswert="15" Attribut="Gs" Erfolgswert="12" Lernkosten="50" Lernpunkte="5" Name="Tätowieren" Region="N">
    <Grund Typ="Th"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
@@ -504,8 +504,8 @@
    <Ausnahme Typ="Wa"/>
    <Ausnahme Typ="Wi"/>
    <Voraussetzungen Gs="61"/>
-   <Lernschema Typ="Tr" Lernpunkte="1" Erfolgswert="12"/>
-   <Lernschema Typ="Dt" Lernpunkte="2" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="Tr"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="2" Typ="Dt"/>
    <steigern_wie Fertigkeit="Verkleiden"/>
   </Fertigkeit>
   <Fertigkeit Name="Abrichten">
@@ -532,7 +532,7 @@
    <Grund Typ="Tr"/>
    <Grund Typ="Tt"/>
    <Standard Typ="Dt"/>
-   <Lernschema Typ="Tr" Lernpunkte="2" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="2" Typ="Tr"/>
   </Fertigkeit>
   <Fertigkeit Name="Ballista bedienen">
    <Standard Typ="Tr"/>
@@ -573,8 +573,8 @@
    <Grund Typ="Dt"/>
    <Grund Typ="Tt"/>
    <Standard Typ="Tr"/>
-   <Lernschema Typ="Dt" Lernpunkte="2" Erfolgswert="8"/>
-   <Lernschema Typ="Tt" Lernpunkte="2" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="Dt"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="2" Typ="Tt"/>
   </Fertigkeit>
   <Fertigkeit Name="Erzählen">
    <Standard Typ="Dt"/>
@@ -620,7 +620,7 @@
    <Grund Typ="Tr"/>
    <Standard Typ="Dt"/>
    <Standard Typ="Tt"/>
-   <Lernschema Typ="Tr" Lernpunkte="2" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="2" Typ="Tr"/>
   </Fertigkeit>
   <Fertigkeit Name="Gaukeln">
    <Grund Typ="Tr"/>
@@ -636,7 +636,7 @@
    <Grund Typ="Tr"/>
    <Standard Typ="Dt"/>
    <Standard Typ="Tt"/>
-   <Lernschema Typ="Tr" Lernpunkte="2" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="2" Typ="Tr"/>
   </Fertigkeit>
   <Fertigkeit Name="Geländelauf">
    <Grund Typ="Tr"/>
@@ -666,7 +666,7 @@
    <Grund Typ="Dt"/>
    <Grund Typ="Tt"/>
    <Standard Typ="Tr"/>
-   <Lernschema Typ="Dt" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Dt"/>
   </Fertigkeit>
   <Fertigkeit Name="Kampf in Dunkelheit">
    <Grund Typ="Tr"/>
@@ -697,7 +697,7 @@
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Tr"/>
    <Ausnahme Typ="Tt"/>
-   <Lernschema Typ="Tt" Lernpunkte="2" Erfolgswert="8"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="Tt"/>
   </Fertigkeit>
   <Fertigkeit Name="Katapult bedienen">
    <Standard Typ="Tr"/>
@@ -708,7 +708,7 @@
    <Grund Typ="Tr"/>
    <Standard Typ="Dt"/>
    <Standard Typ="Tt"/>
-   <Lernschema Typ="Tr" Lernpunkte="2" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="2" Typ="Tr"/>
   </Fertigkeit>
   <Fertigkeit Name="Kräuterkunde">
    <Standard Typ="Dt"/>
@@ -734,7 +734,7 @@
    <Standard Typ="Dt"/>
    <Standard Typ="Tr"/>
    <Standard Typ="Tt"/>
-   <Lernschema Typ="Tr" Lernpunkte="2" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="2" Typ="Tr"/>
   </Fertigkeit>
   <Fertigkeit Name="Meditieren">
    <Grund Typ="Tt"/>
@@ -760,13 +760,13 @@
    <Grund Typ="Tt"/>
    <Standard Typ="Dt"/>
    <Ausnahme Typ="Tr"/>
-   <Lernschema Typ="Dt" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Dt"/>
   </Fertigkeit>
   <Fertigkeit Name="Pflanzenkunde">
    <Grund Typ="Dt"/>
    <Standard Typ="Tt"/>
    <Ausnahme Typ="Tr"/>
-   <Lernschema Typ="Dt" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Dt"/>
   </Fertigkeit>
   <Fertigkeit Name="Rechnen">
    <Standard Typ="Dt"/>
@@ -787,8 +787,8 @@
    <Grund Typ="Dt"/>
    <Grund Typ="Tt"/>
    <Standard Typ="Tr"/>
-   <Lernschema Typ="Tr" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Tt" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Tr"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Tt"/>
   </Fertigkeit>
   <Fertigkeit Name="Scharfschie�&#x9F;en">
    <Standard Typ="Tr"/>
@@ -814,7 +814,7 @@
    <Grund Typ="Tr"/>
    <Standard Typ="Dt"/>
    <Standard Typ="Tt"/>
-   <Lernschema Typ="Tr" Lernpunkte="2" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="2" Typ="Tr"/>
   </Fertigkeit>
   <Fertigkeit Name="Schlittenfahren">
    <Standard Typ="Dt"/>
@@ -832,8 +832,8 @@
    <Standard Typ="Tt"/>
   </Fertigkeit>
   <Fertigkeit Name="Schreiben: Muttersprache(+12)">
-   <Lernschema Typ="Dt" Lernpunkte="1" Erfolgswert="12" Pflicht="true"/>
-   <Lernschema Typ="Tt" Lernpunkte="1" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Pflicht="true" Typ="Dt"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="Tt"/>
   </Fertigkeit>
   <Fertigkeit Name="Schwimmen">
    <Standard Typ="Dt"/>
@@ -874,19 +874,19 @@
    <Grund Typ="Tr"/>
    <Grund Typ="Tt"/>
    <Ausnahme Typ="Dt"/>
-   <Lernschema Typ="Tt" Lernpunkte="1" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Typ="Tt"/>
   </Fertigkeit>
   <Fertigkeit Name="Spurenlesen">
    <Grund Typ="Dt"/>
    <Standard Typ="Tr"/>
    <Standard Typ="Tt"/>
-   <Lernschema Typ="Dt" Lernpunkte="1" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="1" Typ="Dt"/>
   </Fertigkeit>
   <Fertigkeit Name="Stehlen">
    <Grund Typ="Tr"/>
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Tt"/>
-   <Lernschema Typ="Tr" Lernpunkte="1" Erfolgswert="8"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="1" Typ="Tr"/>
   </Fertigkeit>
   <Fertigkeit Name="Steuern">
    <Standard Typ="Dt"/>
@@ -912,13 +912,13 @@
    <Grund Typ="Tt"/>
    <Standard Typ="Dt"/>
    <Standard Typ="Tr"/>
-   <Lernschema Typ="Tt" Lernpunkte="1" Erfolgswert="15" Pflicht="true"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Pflicht="true" Typ="Tt"/>
   </Fertigkeit>
   <Fertigkeit Name="Tarnen">
    <Grund Typ="Tr"/>
    <Standard Typ="Dt"/>
    <Standard Typ="Tt"/>
-   <Lernschema Typ="Tr" Lernpunkte="1" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="1" Typ="Tr"/>
   </Fertigkeit>
   <Fertigkeit Name="Tauchen">
    <Standard Typ="Tr"/>
@@ -978,7 +978,7 @@
    <Grund Typ="Dt"/>
    <Standard Typ="Tr"/>
    <Standard Typ="Tt"/>
-   <Lernschema Typ="Dt" Lernpunkte="1" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="1" Typ="Dt"/>
   </Fertigkeit>
   <Fertigkeit Name="Zaubern">
    <Grund Typ="Dt"/>
@@ -989,7 +989,7 @@
    <Grund Typ="Tr"/>
    <Standard Typ="Dt"/>
    <Standard Typ="Tt"/>
-   <Lernschema Typ="Tr" Lernpunkte="1" Erfolgswert="1"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="1" Typ="Tr"/>
   </Fertigkeit>
   <Fertigkeit Name="�&#x9C;berleben im Dschungel">
    <Grund Typ="Dt"/>
@@ -1069,7 +1069,7 @@
    <Standard Typ="Dt"/>
    <Standard Typ="Tr"/>
    <Standard Typ="Tt"/>
-   <Lernschema Typ="Tr" Lernpunkte="1"/>
+   <Lernschema Lernpunkte="1" Typ="Tr"/>
   </Fertigkeit>
   <Fertigkeit Name="KarumiJutsu" Region="K">
    <Standard Typ="Dt"/>
@@ -1135,7 +1135,7 @@
    <Standard Typ="Dt"/>
    <Standard Typ="Tr"/>
    <Standard Typ="Tt"/>
-   <Lernschema Typ="Dt" Lernpunkte="2" Erfolgswert="4"/>
+   <Lernschema Erfolgswert="4" Lernpunkte="2" Typ="Dt"/>
   </Fertigkeit>
   <Fertigkeit Name="TaiTschi" Region="K">
    <Grund Typ="Dt"/>
@@ -1223,43 +1223,43 @@
    <Standard Typ="Tt"/>
   </Fertigkeit>
   <Fertigkeit Name="Schreiben: Muttersprache(+12)">
-   <Lernschema Typ="Dt" Lernpunkte="1" Erfolgswert="12" Pflicht="true"/>
-   <Lernschema Typ="Tt" Lernpunkte="1" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Pflicht="true" Typ="Dt"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="Tt"/>
   </Fertigkeit>
  </Fertigkeiten>
  <Berufe/>
  <Schriften/>
  <Sprachen/>
  <Typen>
-  <Typ Abkürzung="Dt" Region="N" MAGUS-Index="47" Bezeichnung-Mann="Deuter" Bezeichnung-Frau="Deuterin" Zauberer="true" kannZaubern="true" Berufswahl="z" Ausdauer="z">
-   <Modifikation Stand="20" Rüstung="1" Geld="4"/>
+  <Typ Abkürzung="Dt" Ausdauer="z" Berufswahl="z" Bezeichnung-Frau="Deuterin" Bezeichnung-Mann="Deuter" MAGUS-Index="47" Region="N" Zauberer="true" kannZaubern="true">
+   <Modifikation Geld="4" Rüstung="1" Stand="20"/>
    <Herkunft Land="Nahuatlan"/>
    <Gruppe Name="ZAU"/>
   </Typ>
-  <Typ Abkürzung="Tt" Region="N" MAGUS-Index="48" Bezeichnung-Mann="Tempeltänzer" Bezeichnung-Frau="Tempeltänzerin" Zauberer="true" kannZaubern="true" SprücheMitPraxisPunkten="Wunder" Berufswahl="z" Ausdauer="ak">
-   <Modifikation Rüstung="1" Geld="3"/>
+  <Typ Abkürzung="Tt" Ausdauer="ak" Berufswahl="z" Bezeichnung-Frau="Tempeltänzerin" Bezeichnung-Mann="Tempeltänzer" MAGUS-Index="48" Region="N" SprücheMitPraxisPunkten="Wunder" Zauberer="true" kannZaubern="true">
+   <Modifikation Geld="3" Rüstung="1"/>
    <Herkunft Land="Nahuatlan"/>
    <Gruppe Name="ZAU"/>
   </Typ>
-  <Typ Abkürzung="Tr" Region="N" MAGUS-Index="49" Bezeichnung-Mann="Trickser" Bezeichnung-Frau="Trickserin" kannZaubern="true" Ausdauer="ak">
-   <Modifikation Stand="-20" Sb="-20" Rüstung="1" Geld="4"/>
+  <Typ Abkürzung="Tr" Ausdauer="ak" Bezeichnung-Frau="Trickserin" Bezeichnung-Mann="Trickser" MAGUS-Index="49" Region="N" kannZaubern="true">
+   <Modifikation Geld="4" Rüstung="1" Sb="-20" Stand="-20"/>
    <Herkunft Land="Nahuatlan"/>
    <Gruppe Name="K�&#x84;M"/>
    <Gruppe Name="ZK�&#x84;M"/>
   </Typ>
  </Typen>
  <Rüstungen>
-  <Rüstung Name="Baumwollharnisch" Region="N" Abkürzung="TR(N)" schütztLP="1">
+  <Rüstung Abkürzung="TR(N)" Name="Baumwollharnisch" Region="N" schütztLP="1">
    <Verlust BehinderungWie="TR"/>
   </Rüstung>
-  <Rüstung Name="Baumwollrüstung" Region="N" Abkürzung="LR(N)" schütztLP="2">
+  <Rüstung Abkürzung="LR(N)" Name="Baumwollrüstung" Region="N" schütztLP="2">
    <Verlust BehinderungWie="LR"/>
   </Rüstung>
  </Rüstungen>
  <Waffen>
-  <Waffe Name="Dreizackspeer" Region="N" Grundkenntnisse="Wurfspie�&#x9F;" Schwierigkeit="4" Kategorie="Angriff" Klasse="W" Schaden="W6" Schadensbonus="4" Schadensbonus2="4" erfordert="leichter Speer">
+  <Waffe Grundkenntnisse="Wurfspie�&#x9F;" Kategorie="Angriff" Klasse="W" Name="Dreizackspeer" Region="N" Schaden="W6" Schadensbonus="4" Schadensbonus2="4" Schwierigkeit="4" erfordert="leichter Speer">
    <Modifikationen/>
-   <Voraussetzungen St="31" Gs="51"/>
+   <Voraussetzungen Gs="51" St="31"/>
    <Reichweite/>
    <Lernkosten/>
    <Voraussetzungen_W Name="leichter Speer"/>
@@ -1271,8 +1271,8 @@
    <regionaleVariante Name="Nazcaltek" Region="N" Schaden="W6" Schadensbonus="-1"/>
    <regionaleVariante Name="Obsidiandoclch" Region="N" Schaden="W6" Schadensbonus="-1"/>
    <regionaleVariante Name="Opferdolch" Region="N" Schaden="W6" Schadensbonus="-1"/>
-   <Lernschema Typ="Tr" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Tt" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Tr"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Tt"/>
   </Waffe>
   <Waffe Name="Handaxt">
    <regionaleVariante Name="Steinaxt" Region="N" Schaden="W6" St="11"/>
@@ -1282,12 +1282,12 @@
   </Waffe>
   <Waffe Name="Langschwert">
    <regionaleVariante Name="Maquahuitl" Region="N" Schaden="W6" Schadensbonus="1" St="31"/>
-   <Lernschema Typ="Tt" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Tr" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Tt"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Tr"/>
   </Waffe>
   <Waffe Name="Magierstab">
    <regionaleVariante Name="Priesterstab" Region="N" Schaden="W6"/>
-   <Lernschema Typ="Tt" Lernpunkte="3" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Tt"/>
   </Waffe>
   <Waffe Name="Rapier">
    <regionaleVariante Name="Angushorn" Region="N" Schaden="W6" St="11"/>
@@ -1300,7 +1300,7 @@
   </Waffe>
   <Waffe Name="Wurfmesser">
    <regionaleVariante Name="Opfermesser" Region="N" Schaden="W6" Schadensbonus="-1"/>
-   <Lernschema Typ="Tt" Lernpunkte="4" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="4" Typ="Tt"/>
   </Waffe>
   <Waffe Name="Wurfpfeil">
    <regionaleVariante Name="Mague-Stacheln" Region="N" Schaden="W6" Schadensbonus="-2" St="11"/>
@@ -1310,7 +1310,7 @@
   </Waffe>
   <Waffe Name="kleiner Schild">
    <regionaleVariante Name="Rundschild" Region="N" Schadensbonus="-1" St="31"/>
-   <Lernschema Typ="Tr" Lernpunkte="4" Erfolgswert="1"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="4" Typ="Tr"/>
   </Waffe>
   <Waffe Name="Dreizack" Region="G">
    <Standard Typ="Tr"/>
@@ -1325,7 +1325,7 @@
  </Waffen>
  <Waffen-Grundkenntnisse/>
  <Zauber>
-  <Spruch Name="Ahuatls Sturm" Region="N" Grad="6" Lernkosten="8000" AP="9" Typ="Tanz" Ursprung="göttlich" Agens="Luft" Prozess="bewegt" Reagens="Erde" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="10 km Uk" Wirkungsdauer="1 h" Zauberart="Tanz">
+  <Spruch AP="9" Agens="Luft" Grad="6" Lernkosten="8000" Name="Ahuatls Sturm" Prozess="bewegt" Reagens="Erde" Region="N" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="10 km Uk" Wirkungsdauer="1 h" Wirkungsziel="Umgebung" Zauberart="Tanz" Zauberdauer="5 min">
    <Grund Typ="De"/>
    <Grund Typ="Tt"/>
    <Standard Typ="Sa"/>
@@ -1335,13 +1335,13 @@
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
-   <Lernschema Typ="Tt" Lernpunkte="4"/>
+   <Lernschema Lernpunkte="4" Typ="Tt"/>
   </Spruch>
-  <Spruch Name="Ballbalance" Region="N" Grad="1/Ball" Lernkosten="100" AP="1" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="verändert" Reagens="Metall" Zauberdauer="5 sec" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1-10 Objekte" Wirkungsdauer="Grad min" Material="Gummiball (25KS)" Thaumagramm="Trickser">
+  <Spruch AP="1" Agens="Magan" Grad="1/Ball" Lernkosten="100" Material="Gummiball (25KS)" Name="Ballbalance" Prozess="verändert" Reagens="Metall" Region="N" Reichweite="B" Thaumagramm="Trickser" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="1-10 Objekte" Wirkungsdauer="Grad min" Wirkungsziel="Umgebung" Zauberdauer="5 sec">
    <Grund Typ="Tr"/>
-   <Lernschema Typ="Tr" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="Tr"/>
   </Spruch>
-  <Spruch Name="Blumen erschaffen" Region="N" Grad="1" Lernkosten="60" AP="1" Typ="Geste" Ursprung="göttlich" Agens="Holz" Prozess="erschafft" Reagens="Holz" Zauberdauer="1 sec" Reichweite="0 m" Wirkungsziel="Umgebung" Wirkungsbereich="Zauberer" Wirkungsdauer="-" Material="getrocknete Blütenblätter (5KS)" Spruchrolle="true">
+  <Spruch AP="1" Agens="Holz" Grad="1" Lernkosten="60" Material="getrocknete Blütenblätter (5KS)" Name="Blumen erschaffen" Prozess="erschafft" Reagens="Holz" Region="N" Reichweite="0 m" Spruchrolle="true" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="Zauberer" Wirkungsdauer="-" Wirkungsziel="Umgebung" Zauberdauer="1 sec">
    <Grund Typ="PF"/>
    <Standard Typ="Dr"/>
    <Standard Typ="Hl"/>
@@ -1359,45 +1359,45 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="Ma" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PT" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="gHx" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="sHx" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="wHx" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="S" Typ="Ma"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="G" Typ="PT"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="S" Typ="gHx"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="S" Typ="sHx"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="S" Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Blumen herbeizaubern" Region="N" Grad="1" Lernkosten="160" AP="1-20" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="erschafft" Reagens="Holz" Zauberdauer="1 sec" Reichweite="0 m" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="0" Thaumagramm="Trickser">
+  <Spruch AP="1-20" Agens="Magan" Grad="1" Lernkosten="160" Name="Blumen herbeizaubern" Prozess="erschafft" Reagens="Holz" Region="N" Reichweite="0 m" Thaumagramm="Trickser" Typ="Gedanke" Ursprung="dämonisch" Wirkungsbereich="-" Wirkungsdauer="0" Wirkungsziel="Umgebung" Zauberdauer="1 sec">
    <Grund Typ="Tr"/>
-   <Lernschema Typ="Tr" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="Tr"/>
   </Spruch>
-  <Spruch Name="Blumenfee" Region="N" Grad="4-20" Lernkosten="400" AP="2" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="B" Wirkungsziel="Geist" Wirkungsbereich="1-10 Objekte" Wirkungsdauer="Grad min" Material="Blüten (je 5 KS)" Thaumagramm="Trickser">
+  <Spruch AP="2" Agens="Magan" Grad="4-20" Lernkosten="400" Material="Blüten (je 5 KS)" Name="Blumenfee" Prozess="beherrscht" Reagens="Feuer" Region="N" Reichweite="B" Thaumagramm="Trickser" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="1-10 Objekte" Wirkungsdauer="Grad min" Wirkungsziel="Geist" Zauberdauer="10 sec">
    <Grund Typ="Tr"/>
-   <Lernschema Typ="Tr" Lernpunkte="6"/>
+   <Lernschema Lernpunkte="6" Typ="Tr"/>
   </Spruch>
-  <Spruch Name="Blumengeist betrachten" Region="N" Grad="2" Lernkosten="300" AP="3" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="erkennt" Reagens="Luft" Zauberdauer="10 min" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Material="frische Blüte">
+  <Spruch AP="3" Agens="Luft" Grad="2" Lernkosten="300" Material="frische Blüte" Name="Blumengeist betrachten" Prozess="erkennt" Reagens="Luft" Region="N" Reichweite="B" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Wirkungsziel="Körper" Zauberdauer="10 min">
    <Grund Typ="Dt"/>
    <Ausnahme Typ="PT"/>
    <Ausnahme Typ="PW"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PC" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PF" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PHa" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PHe" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PK" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PM" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PT" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PW" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="S" Typ="PC"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="S" Typ="PF"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="S" Typ="PHa"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="S" Typ="PHe"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="S" Typ="PK"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="S" Typ="PM"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="S" Typ="PT"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="S" Typ="PW"/>
   </Spruch>
-  <Spruch Name="Dinge aufspüren" Region="N" Grad="4" Lernkosten="1400" AP="4" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="erkennt" Reagens="Metall" Zauberdauer="30 sec" Reichweite="9 km" Wirkungsziel="Geist" Wirkungsbereich="1  Objekt" Wirkungsdauer="0" Thaumagramm="Trickser">
+  <Spruch AP="4" Agens="Magan" Grad="4" Lernkosten="1400" Name="Dinge aufspüren" Prozess="erkennt" Reagens="Metall" Region="N" Reichweite="9 km" Thaumagramm="Trickser" Typ="Gedanke" Ursprung="dämonisch" Wirkungsbereich="1  Objekt" Wirkungsdauer="0" Wirkungsziel="Geist" Zauberdauer="30 sec">
    <Grund Typ="Tr"/>
   </Spruch>
-  <Spruch Name="Farbenspiel" Region="N" Grad="2" Lernkosten="300" AP="1-10" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="verändert" Reagens="Metall" Zauberdauer="1 sec" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1 Objekt" Wirkungsdauer="0" Thaumagramm="Trickser">
+  <Spruch AP="1-10" Agens="Magan" Grad="2" Lernkosten="300" Name="Farbenspiel" Prozess="verändert" Reagens="Metall" Region="N" Reichweite="B" Thaumagramm="Trickser" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="1 Objekt" Wirkungsdauer="0" Wirkungsziel="Umgebung" Zauberdauer="1 sec">
    <Grund Typ="Tr"/>
-   <Lernschema Typ="Tr" Lernpunkte="4"/>
+   <Lernschema Lernpunkte="4" Typ="Tr"/>
   </Spruch>
-  <Spruch Name="Fehlleistung" Region="N" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="beherrscht" Reagens="Luft" Zauberdauer="1 sec" Reichweite="9 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Thaumagramm="Trickser">
+  <Spruch AP="3" Agens="Magan" Grad="3" Lernkosten="600" Name="Fehlleistung" Prozess="beherrscht" Reagens="Luft" Region="N" Reichweite="9 m" Thaumagramm="Trickser" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Wirkungsziel="Geist" Zauberdauer="1 sec">
    <Grund Typ="Tr"/>
-   <Lernschema Typ="Tr" Lernpunkte="8"/>
+   <Lernschema Lernpunkte="8" Typ="Tr"/>
   </Spruch>
-  <Spruch Name="Fruchtbarkeit" Region="N" Grad="2" Lernkosten="300" AP="2" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verändert" Reagens="Erde" Zauberdauer="30 min" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Monat" Material="pulverisierte Nabelschnur, diverse Kräuter (50 GS)" Spruchrolle="true">
+  <Spruch AP="2" Agens="Holz" Grad="2" Lernkosten="300" Material="pulverisierte Nabelschnur, diverse Kräuter (50 GS)" Name="Fruchtbarkeit" Prozess="verändert" Reagens="Erde" Region="N" Reichweite="B" Spruchrolle="true" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Monat" Wirkungsziel="Körper" Zauberdauer="30 min">
    <Grund Typ="Hl"/>
    <Grund Typ="PF"/>
    <Standard Typ="Dr"/>
@@ -1411,15 +1411,15 @@
    <Ausnahme Typ="PHa"/>
    <Ausnahme Typ="PHe"/>
   </Spruch>
-  <Spruch Name="Funkenflug" Region="N" Grad="2" Lernkosten="300" AP="2-20" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="erschafft" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="200 m" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="20-60 sec" Thaumagramm="Trickser">
+  <Spruch AP="2-20" Agens="Magan" Grad="2" Lernkosten="300" Name="Funkenflug" Prozess="erschafft" Reagens="Feuer" Region="N" Reichweite="200 m" Thaumagramm="Trickser" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="-" Wirkungsdauer="20-60 sec" Wirkungsziel="Umgebung" Zauberdauer="10 sec">
    <Grund Typ="Tr"/>
-   <Lernschema Typ="Tr" Lernpunkte="8"/>
+   <Lernschema Lernpunkte="8" Typ="Tr"/>
   </Spruch>
-  <Spruch Name="Geruch intensivieren" Region="N" Grad="2" Lernkosten="300" AP="1-4" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="verändert" Reagens="Holz" Zauberdauer="5 sec" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws/Ob" Wirkungsdauer="1 h" Thaumagramm="Trickser">
+  <Spruch AP="1-4" Agens="Magan" Grad="2" Lernkosten="300" Name="Geruch intensivieren" Prozess="verändert" Reagens="Holz" Region="N" Reichweite="B" Thaumagramm="Trickser" Typ="Gedanke" Ursprung="dämonisch" Wirkungsbereich="1 Ws/Ob" Wirkungsdauer="1 h" Wirkungsziel="Körper" Zauberdauer="5 sec">
    <Grund Typ="Tr"/>
-   <Lernschema Typ="Tr" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="Tr"/>
   </Spruch>
-  <Spruch Name="Hexenspüren" Region="N" Grad="1" Lernkosten="100" AP="1" Typ="Gedanke" Ursprung="göttlich" Agens="Magan" Prozess="erkennt" Reagens="Magan" Zauberdauer="1 min" Reichweite="var" Wirkungsziel="Geist" Wirkungsbereich="1 Zauberer" Wirkungsdauer="1 h">
+  <Spruch AP="1" Agens="Magan" Grad="1" Lernkosten="100" Name="Hexenspüren" Prozess="erkennt" Reagens="Magan" Region="N" Reichweite="var" Typ="Gedanke" Ursprung="göttlich" Wirkungsbereich="1 Zauberer" Wirkungsdauer="1 h" Wirkungsziel="Geist" Zauberdauer="1 min">
    <Standard Typ="PF"/>
    <Standard Typ="PHa"/>
    <Standard Typ="PHe"/>
@@ -1449,7 +1449,7 @@
    <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Iquibalams Ruhm" Region="N" Grad="3" Lernkosten="800" AP="3" Typ="Tanz" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Luft" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="15 m Uk" Wirkungsdauer="-" Zauberart="Tanz">
+  <Spruch AP="3" Agens="Luft" Grad="3" Lernkosten="800" Name="Iquibalams Ruhm" Prozess="beherrscht" Reagens="Luft" Region="N" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="15 m Uk" Wirkungsdauer="-" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="5 min">
    <Grund Typ="De"/>
    <Grund Typ="Tt"/>
    <Standard Typ="Sa"/>
@@ -1460,9 +1460,9 @@
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
-   <Lernschema Typ="Tt" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="Tt"/>
   </Spruch>
-  <Spruch Name="Iquibalams Tapferkeit" Region="N" Grad="2" Lernkosten="200" AP="2" Typ="Tanz" Ursprung="göttlich" Agens="Luft" Prozess="verändert" Reagens="Erde" Zauberdauer="3 min" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="Zauberer" Wirkungsdauer="30 min" Zauberart="Tanz">
+  <Spruch AP="2" Agens="Luft" Grad="2" Lernkosten="200" Name="Iquibalams Tapferkeit" Prozess="verändert" Reagens="Erde" Region="N" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="Zauberer" Wirkungsdauer="30 min" Wirkungsziel="Körper" Zauberart="Tanz" Zauberdauer="3 min">
    <Grund Typ="De"/>
    <Grund Typ="Tt"/>
    <Standard Typ="Sa"/>
@@ -1473,9 +1473,9 @@
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
-   <Lernschema Typ="Tt" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="Tt"/>
   </Spruch>
-  <Spruch Name="Iquibalams Verachtung" Region="N" Grad="3" Lernkosten="800" AP="5" Typ="Tanz" Agens="Magan" Prozess="verändert" Reagens="Wasser" Zauberdauer="5 min" Reichweite="0 m" Wirkungsziel="Körper" Wirkungsbereich="10 m Uk" Wirkungsdauer="30 min" Zauberart="Tanz">
+  <Spruch AP="5" Agens="Magan" Grad="3" Lernkosten="800" Name="Iquibalams Verachtung" Prozess="verändert" Reagens="Wasser" Region="N" Reichweite="0 m" Typ="Tanz" Wirkungsbereich="10 m Uk" Wirkungsdauer="30 min" Wirkungsziel="Körper" Zauberart="Tanz" Zauberdauer="5 min">
    <Grund Typ="Tt"/>
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
@@ -1484,9 +1484,9 @@
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
-   <Lernschema Typ="Tt" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="Tt"/>
   </Spruch>
-  <Spruch Name="Ixtantzutuhs Ekstase" Region="N" Grad="3" Lernkosten="800" AP="3" Typ="Tanz" Ursprung="göttlich" Agens="Wasser" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="15 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="15 m Uk" Wirkungsdauer="10 min" Zauberart="Tanz">
+  <Spruch AP="3" Agens="Wasser" Grad="3" Lernkosten="800" Name="Ixtantzutuhs Ekstase" Prozess="beherrscht" Reagens="Wasser" Region="N" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="15 m Uk" Wirkungsdauer="10 min" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="15 min">
    <Grund Typ="PF"/>
    <Grund Typ="gHx"/>
    <Grund Typ="sHx"/>
@@ -1496,9 +1496,9 @@
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
    <Standard Typ="Tt"/>
-   <Lernschema Typ="Tt" Lernpunkte="3"/>
+   <Lernschema Lernpunkte="3" Typ="Tt"/>
   </Spruch>
-  <Spruch Name="Ixtantzutuhs Schönheit" Region="N" Grad="3" Lernkosten="1000" AP="3" Typ="Tanz" Ursprung="göttlich" Agens="Wasser" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="15 min" Reichweite="15 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h" Zauberart="Tanz">
+  <Spruch AP="3" Agens="Wasser" Grad="3" Lernkosten="1000" Name="Ixtantzutuhs Schönheit" Prozess="beherrscht" Reagens="Wasser" Region="N" Reichweite="15 m" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="15 min">
    <Grund Typ="PF"/>
    <Grund Typ="Tt"/>
    <Grund Typ="gHx"/>
@@ -1507,9 +1507,9 @@
    <Standard Typ="ScN"/>
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
-   <Lernschema Typ="Tt" Lernpunkte="4"/>
+   <Lernschema Lernpunkte="4" Typ="Tt"/>
   </Spruch>
-  <Spruch Name="Jadezauber" Region="N" Grad="1" Lernkosten="120" AP="1" Typ="Wort" Ursprung="göttlich" Agens="Magan" Prozess="erkennt" Reagens="Metall" Zauberdauer="20 sec" Reichweite="0m" Wirkungsziel="Geist" Wirkungsbereich="100m Uk" Wirkungsdauer="5 sec" Spruchrolle="true" Thaumagramm="Runenstab">
+  <Spruch AP="1" Agens="Magan" Grad="1" Lernkosten="120" Name="Jadezauber" Prozess="erkennt" Reagens="Metall" Region="N" Reichweite="0m" Spruchrolle="true" Thaumagramm="Runenstab" Typ="Wort" Ursprung="göttlich" Wirkungsbereich="100m Uk" Wirkungsdauer="5 sec" Wirkungsziel="Geist" Zauberdauer="20 sec">
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Or"/>
@@ -1520,46 +1520,46 @@
    <Ausnahme Typ="ScW"/>
    <Ausnahme Typ="Sw"/>
    <Ausnahme Typ="Th"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Dr" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Hl" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Ma" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PC" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PF" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PHa" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PHe" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PK" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PM" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PT" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="PW" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScN" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScS" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="ScW" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="dBe" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="eBe" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="gHx" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="sHx" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="tBe" Standard="S"/>
-   <regionaleBesonderheit Herkunft="KanThaiPan" Typ="wHx" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="Hl" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PF" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PW" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="ScN" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="ScS" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="ScW" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="Th" Standard="G"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="Dr"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="Hl"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="Ma"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="PC"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="PF"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="PHa"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="PHe"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="PK"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="PM"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="PT"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="PW"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="ScN"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="ScS"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="ScW"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="dBe"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="eBe"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="gHx"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="sHx"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="tBe"/>
+   <regionaleBesonderheit Herkunft="KanThaiPan" Standard="S" Typ="wHx"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="G" Typ="Hl"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="G" Typ="PF"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="G" Typ="PW"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="G" Typ="ScN"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="G" Typ="ScS"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="G" Typ="ScW"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="G" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Kernkleid" Region="N" Grad="4" Lernkosten="1600" AP="5-20" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="erschafft" Reagens="Metall" Zauberdauer="10 sec" Reichweite="3 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Obj" Wirkungsdauer="Grad Tage" Thaumagramm="Trickser">
+  <Spruch AP="5-20" Agens="Magan" Grad="4" Lernkosten="1600" Name="Kernkleid" Prozess="erschafft" Reagens="Metall" Region="N" Reichweite="3 m" Thaumagramm="Trickser" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="1 Obj" Wirkungsdauer="Grad Tage" Wirkungsziel="Umgebung" Zauberdauer="10 sec">
    <Grund Typ="Tr"/>
   </Spruch>
-  <Spruch Name="Macht des Netzes" Region="N" Grad="G" Lernkosten="20000" AP="alle" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="bewegt" Reagens="Holz" Zauberdauer="1 min" Reichweite="Grad * 10 km" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws / 1 Ob" Wirkungsdauer="12 h" Thaumagramm="Netz">
+  <Spruch AP="alle" Agens="Holz" Grad="G" Lernkosten="20000" Name="Macht des Netzes" Prozess="bewegt" Reagens="Holz" Region="N" Reichweite="Grad * 10 km" Thaumagramm="Netz" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="1 Ws / 1 Ob" Wirkungsdauer="12 h" Wirkungsziel="Umgebung" Zauberdauer="1 min">
    <Grund Typ="Nb"/>
    <Standard Typ="Dr"/>
   </Spruch>
-  <Spruch Name="Maskieren" Region="N" Grad="6" Lernkosten="3000" AP="6" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="10 sec" Reichweite="50 m" Wirkungsziel="Geist" Wirkungsbereich="Z" Wirkungsdauer="1 h" Thaumagramm="Trickser">
+  <Spruch AP="6" Agens="Magan" Grad="6" Lernkosten="3000" Name="Maskieren" Prozess="beherrscht" Reagens="Feuer" Region="N" Reichweite="50 m" Thaumagramm="Trickser" Typ="Gedanke" Ursprung="dämonisch" Wirkungsbereich="Z" Wirkungsdauer="1 h" Wirkungsziel="Geist" Zauberdauer="10 sec">
    <Grund Typ="Tr"/>
   </Spruch>
-  <Spruch Name="Nahuahauquihs Preis" Region="N" Grad="1" Lernkosten="100" AP="1" Typ="Tanz" Ursprung="göttlich" Agens="Feuer" Prozess="verwandelt" Reagens="Erde" Zauberdauer="2 min" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="Zauberer" Wirkungsdauer="30 min" Zauberart="Tanz">
+  <Spruch AP="1" Agens="Feuer" Grad="1" Lernkosten="100" Name="Nahuahauquihs Preis" Prozess="verwandelt" Reagens="Erde" Region="N" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="Zauberer" Wirkungsdauer="30 min" Wirkungsziel="Körper" Zauberart="Tanz" Zauberdauer="2 min">
    <Grund Typ="De"/>
    <Grund Typ="Tt"/>
    <Standard Typ="Sa"/>
@@ -1570,9 +1570,9 @@
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
-   <Lernschema Typ="Tt" Lernpunkte="4"/>
+   <Lernschema Lernpunkte="4" Typ="Tt"/>
   </Spruch>
-  <Spruch Name="Nahuahauquihs Zorn" Region="N" Grad="4" Lernkosten="2000" AP="6" Typ="Tanz" Ursprung="göttlich" Agens="Eis" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="5 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="15 m Uk" Wirkungsdauer="10 min" Zauberart="Tanz">
+  <Spruch AP="6" Agens="Eis" Grad="4" Lernkosten="2000" Name="Nahuahauquihs Zorn" Prozess="beherrscht" Reagens="Wasser" Region="N" Reichweite="0" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="15 m Uk" Wirkungsdauer="10 min" Wirkungsziel="Geist" Zauberart="Tanz" Zauberdauer="5 min">
    <Grund Typ="De"/>
    <Grund Typ="Tt"/>
    <Standard Typ="Sa"/>
@@ -1580,17 +1580,17 @@
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
    <Standard Typ="wHx"/>
-   <Lernschema Typ="Tt" Lernpunkte="3"/>
+   <Lernschema Lernpunkte="3" Typ="Tt"/>
   </Spruch>
-  <Spruch Name="Netz ahnen" Region="N" Grad="2" Lernkosten="200" AP="4" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="zerstört" Reagens="Erde" Zauberdauer="10 sec" Reichweite="30 m" Wirkungsziel="Körper" Wirkungsbereich="Strahl" Wirkungsdauer="0" Thaumagramm="Trickser">
+  <Spruch AP="4" Agens="Magan" Grad="2" Lernkosten="200" Name="Netz ahnen" Prozess="zerstört" Reagens="Erde" Region="N" Reichweite="30 m" Thaumagramm="Trickser" Typ="Gedanke" Ursprung="dämonisch" Wirkungsbereich="Strahl" Wirkungsdauer="0" Wirkungsziel="Körper" Zauberdauer="10 sec">
    <Grund Typ="Tr"/>
-   <Lernschema Typ="Tr" Lernpunkte="8"/>
+   <Lernschema Lernpunkte="8" Typ="Tr"/>
   </Spruch>
-  <Spruch Name="Netzfeuer" Region="N" Grad="4" Lernkosten="1600" AP="4" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="bewegt" Reagens="Holz" Zauberdauer="1 sec" Reichweite="200 m" Wirkungsziel="Umgebung" Wirkungsbereich="Strahl" Wirkungsdauer="2 min" Thaumagramm="Netz">
+  <Spruch AP="4" Agens="Holz" Grad="4" Lernkosten="1600" Name="Netzfeuer" Prozess="bewegt" Reagens="Holz" Region="N" Reichweite="200 m" Thaumagramm="Netz" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="Strahl" Wirkungsdauer="2 min" Wirkungsziel="Umgebung" Zauberdauer="1 sec">
    <Grund Typ="Nb"/>
    <Standard Typ="Dr"/>
   </Spruch>
-  <Spruch Name="Netzkontakt" Region="N" Grad="3" Lernkosten="1000" AP="5+1/min" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="bewegt" Reagens="Feuer" Zauberdauer="1 min" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="Z" Wirkungsdauer="var" Thaumagramm="Netz">
+  <Spruch AP="5+1/min" Agens="Holz" Grad="3" Lernkosten="1000" Name="Netzkontakt" Prozess="bewegt" Reagens="Feuer" Region="N" Reichweite="B" Thaumagramm="Netz" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="Z" Wirkungsdauer="var" Wirkungsziel="Körper" Zauberdauer="1 min">
    <Grund Typ="Nb"/>
    <Standard Typ="Dr"/>
    <Standard Typ="Dt"/>
@@ -1610,34 +1610,34 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Netzkraft" Region="N" Grad="3" Lernkosten="1200" AP="3" Typ="Gedanke" Ursprung="druidisch" Agens="Holz" Prozess="bewegt" Reagens="Feuer" Zauberdauer="10 min" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="Z" Wirkungsdauer="0" Thaumagramm="Netz">
+  <Spruch AP="3" Agens="Holz" Grad="3" Lernkosten="1200" Name="Netzkraft" Prozess="bewegt" Reagens="Feuer" Region="N" Reichweite="B" Thaumagramm="Netz" Typ="Gedanke" Ursprung="druidisch" Wirkungsbereich="Z" Wirkungsdauer="0" Wirkungsziel="Körper" Zauberdauer="10 min">
    <Grund Typ="Nb"/>
    <Standard Typ="Dr"/>
   </Spruch>
-  <Spruch Name="Netzschlinge" Region="N" Grad="3" Lernkosten="1000" AP="3" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="bewegt" Reagens="Holz" Zauberdauer="5 sec" Reichweite="15 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="Grad * 10 sec" Thaumagramm="Netz">
+  <Spruch AP="3" Agens="Holz" Grad="3" Lernkosten="1000" Name="Netzschlinge" Prozess="bewegt" Reagens="Holz" Region="N" Reichweite="15 m" Thaumagramm="Netz" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="1 Ws" Wirkungsdauer="Grad * 10 sec" Wirkungsziel="Umgebung" Zauberdauer="5 sec">
    <Grund Typ="Nb"/>
    <Standard Typ="Dr"/>
   </Spruch>
-  <Spruch Name="Netzschutz" Region="N" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verändert" Reagens="Holz" Zauberdauer="30 min" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="7 Tage" Thaumagramm="Netz">
+  <Spruch AP="2" Agens="Holz" Grad="2" Lernkosten="200" Name="Netzschutz" Prozess="verändert" Reagens="Holz" Region="N" Reichweite="B" Thaumagramm="Netz" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="-" Wirkungsdauer="7 Tage" Wirkungsziel="Umgebung" Zauberdauer="30 min">
    <Grund Typ="Nb"/>
    <Standard Typ="Dr"/>
   </Spruch>
-  <Spruch Name="Netzsehen" Region="N" Grad="2" Lernkosten="200" AP="2" Typ="Gedanke" Ursprung="druidisch" Agens="Holz" Prozess="erkennt" Reagens="Holz" Zauberdauer="1 sec" Reichweite="bis 5 km" Wirkungsziel="Geist" Wirkungsbereich="Z" Wirkungsdauer="5 min" Thaumagramm="Netz">
+  <Spruch AP="2" Agens="Holz" Grad="2" Lernkosten="200" Name="Netzsehen" Prozess="erkennt" Reagens="Holz" Region="N" Reichweite="bis 5 km" Thaumagramm="Netz" Typ="Gedanke" Ursprung="druidisch" Wirkungsbereich="Z" Wirkungsdauer="5 min" Wirkungsziel="Geist" Zauberdauer="1 sec">
    <Grund Typ="Nb"/>
    <Standard Typ="Dr"/>
   </Spruch>
-  <Spruch Name="Netzversteck" Region="N" Grad="3" Lernkosten="1000" AP="3" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verändert" Reagens="Metall" Zauberdauer="10 sec" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1 Person/Objekt" Wirkungsdauer="Grad h" Thaumagramm="Netz">
+  <Spruch AP="3" Agens="Holz" Grad="3" Lernkosten="1000" Name="Netzversteck" Prozess="verändert" Reagens="Metall" Region="N" Reichweite="B" Thaumagramm="Netz" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="1 Person/Objekt" Wirkungsdauer="Grad h" Wirkungsziel="Umgebung" Zauberdauer="10 sec">
    <Grund Typ="Nb"/>
    <Standard Typ="Dr"/>
   </Spruch>
-  <Spruch Name="Passieren" Region="N" Grad="4" Lernkosten="2000" AP="4" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="verändert" Reagens="Metall" Zauberdauer="20 sec" Reichweite="3 m" Wirkungsziel="Umgebung" Wirkungsbereich="30 cm Wanddicke" Wirkungsdauer="10 sec" Thaumagramm="Trickser">
+  <Spruch AP="4" Agens="Magan" Grad="4" Lernkosten="2000" Name="Passieren" Prozess="verändert" Reagens="Metall" Region="N" Reichweite="3 m" Thaumagramm="Trickser" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="30 cm Wanddicke" Wirkungsdauer="10 sec" Wirkungsziel="Umgebung" Zauberdauer="20 sec">
    <Grund Typ="Tr"/>
   </Spruch>
-  <Spruch Name="Rauchkringel" Region="N" Grad="1" Lernkosten="100" AP="1-20" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="verändert" Reagens="Metall" Zauberdauer="1 sec" Reichweite="0m" Wirkungsziel="Umgebung" Wirkungsbereich="9m Uk" Wirkungsdauer="1-5 min" Material="Tabackpfeife (1GS)" Thaumagramm="Trickser">
+  <Spruch AP="1-20" Agens="Magan" Grad="1" Lernkosten="100" Material="Tabackpfeife (1GS)" Name="Rauchkringel" Prozess="verändert" Reagens="Metall" Region="N" Reichweite="0m" Thaumagramm="Trickser" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="9m Uk" Wirkungsdauer="1-5 min" Wirkungsziel="Umgebung" Zauberdauer="1 sec">
    <Grund Typ="Tr"/>
-   <Lernschema Typ="Tr" Lernpunkte="6"/>
+   <Lernschema Lernpunkte="6" Typ="Tr"/>
   </Spruch>
-  <Spruch Name="Ruf des Herzens" Region="N" Grad="3" Lernkosten="600" AP="3" Typ="Gedanke" Ursprung="göttlich" Agens="Magan" Prozess="erkennt" Reagens="Erde" Zauberdauer="10 sec" Reichweite="0m" Wirkungsziel="Geist" Wirkungsbereich="10m Uk" Wirkungsdauer="1 min">
+  <Spruch AP="3" Agens="Magan" Grad="3" Lernkosten="600" Name="Ruf des Herzens" Prozess="erkennt" Reagens="Erde" Region="N" Reichweite="0m" Typ="Gedanke" Ursprung="göttlich" Wirkungsbereich="10m Uk" Wirkungsdauer="1 min" Wirkungsziel="Geist" Zauberdauer="10 sec">
    <Ausnahme Typ="PK"/>
    <Ausnahme Typ="ScN"/>
    <Ausnahme Typ="ScS"/>
@@ -1647,24 +1647,24 @@
    <Ausnahme Typ="gHx"/>
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="Or" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PF" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PHa" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PHe" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PK" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PM" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PT" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PW" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="ScN" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="ScS" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="ScW" Standard="S"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="Tm" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="S" Typ="Or"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="S" Typ="PF"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="S" Typ="PHa"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="S" Typ="PHe"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="S" Typ="PK"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="S" Typ="PM"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="S" Typ="PT"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="S" Typ="PW"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="S" Typ="ScN"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="S" Typ="ScS"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="S" Typ="ScW"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="S" Typ="Tm"/>
   </Spruch>
-  <Spruch Name="Scharade" Region="N" Grad="3" Lernkosten="600" AP="1-10" Typ="Wort" Ursprung="dämonisch" Agens="Magan" Prozess="beherrscht" Reagens="Luft" Zauberdauer="1 sec" Reichweite="15 m" Wirkungsziel="Geist" Wirkungsbereich="1-10 Ws" Wirkungsdauer="GRad min" Thaumagramm="Trickser">
+  <Spruch AP="1-10" Agens="Magan" Grad="3" Lernkosten="600" Name="Scharade" Prozess="beherrscht" Reagens="Luft" Region="N" Reichweite="15 m" Thaumagramm="Trickser" Typ="Wort" Ursprung="dämonisch" Wirkungsbereich="1-10 Ws" Wirkungsdauer="GRad min" Wirkungsziel="Geist" Zauberdauer="1 sec">
    <Grund Typ="Tr"/>
-   <Lernschema Typ="Tr" Lernpunkte="4"/>
+   <Lernschema Lernpunkte="4" Typ="Tr"/>
   </Spruch>
-  <Spruch Name="Schattenjaguar" Region="N" Grad="2" Lernkosten="400" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 min" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="10m Uk" Wirkungsdauer="inf" Material="Jaguarhaar" Spruchrolle="true" Thaumagramm="Siegel">
+  <Spruch AP="4" Agens="Luft" Grad="2" Lernkosten="400" Material="Jaguarhaar" Name="Schattenjaguar" Prozess="beherrscht" Reagens="Feuer" Region="N" Reichweite="B" Spruchrolle="true" Thaumagramm="Siegel" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="10m Uk" Wirkungsdauer="inf" Wirkungsziel="Körper" Zauberdauer="1 min">
    <Grund Typ="Dr"/>
    <Grund Typ="Nb"/>
    <Grund Typ="Or"/>
@@ -1692,31 +1692,31 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Stigma" Region="N" Grad="2" Lernkosten="300" AP="4" Typ="Wort" Ursprung="göttlich" Agens="Luft" Prozess="verändert" Reagens="Feuer" Zauberdauer="30 sec" Reichweite="7 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws / 1 Ob" Wirkungsdauer="inf">
+  <Spruch AP="4" Agens="Luft" Grad="2" Lernkosten="300" Name="Stigma" Prozess="verändert" Reagens="Feuer" Region="N" Reichweite="7 m" Typ="Wort" Ursprung="göttlich" Wirkungsbereich="1 Ws / 1 Ob" Wirkungsdauer="inf" Wirkungsziel="Körper" Zauberdauer="30 sec">
    <Standard Typ="Dt"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PF" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PHa" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PHe" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PK" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PM" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PT" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PW" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="G" Typ="PF"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="G" Typ="PHa"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="G" Typ="PHe"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="G" Typ="PK"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="G" Typ="PM"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="G" Typ="PT"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="G" Typ="PW"/>
   </Spruch>
-  <Spruch Name="Stigma lokalisieren" Region="N" Grad="1" Lernkosten="100" AP="1" Typ="Gedanke" Ursprung="göttlich" Agens="Luft" Prozess="erkennt" Reagens="Feuer" Zauberdauer="1 min" Reichweite="Grad * 10km" Wirkungsziel="Geist" Wirkungsbereich="1 Ws / 10km Uk" Wirkungsdauer="1 h">
+  <Spruch AP="1" Agens="Luft" Grad="1" Lernkosten="100" Name="Stigma lokalisieren" Prozess="erkennt" Reagens="Feuer" Region="N" Reichweite="Grad * 10km" Typ="Gedanke" Ursprung="göttlich" Wirkungsbereich="1 Ws / 10km Uk" Wirkungsdauer="1 h" Wirkungsziel="Geist" Zauberdauer="1 min">
    <Ausnahme Typ="Dt"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PF" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PHa" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PHe" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PK" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PM" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PT" Standard="G"/>
-   <regionaleBesonderheit Herkunft="Nahuatlan" Typ="PW" Standard="G"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="G" Typ="PF"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="G" Typ="PHa"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="G" Typ="PHe"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="G" Typ="PK"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="G" Typ="PM"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="G" Typ="PT"/>
+   <regionaleBesonderheit Herkunft="Nahuatlan" Standard="G" Typ="PW"/>
   </Spruch>
-  <Spruch Name="Sto�&#x9F;" Region="N" Grad="1" Lernkosten="100" AP="1" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Metall" Zauberdauer="1 sec" Reichweite="30 m" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="1 sec" Thaumagramm="Trickser">
+  <Spruch AP="1" Agens="Magan" Grad="1" Lernkosten="100" Name="Sto�&#x9F;" Prozess="bewegt" Reagens="Metall" Region="N" Reichweite="30 m" Thaumagramm="Trickser" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="-" Wirkungsdauer="1 sec" Wirkungsziel="Umgebung" Zauberdauer="1 sec">
    <Grund Typ="Tr"/>
-   <Lernschema Typ="Tr" Lernpunkte="8"/>
+   <Lernschema Lernpunkte="8" Typ="Tr"/>
   </Spruch>
-  <Spruch Name="Tolucans Gabe" Region="N" Grad="3" Lernkosten="800" AP="3" Typ="Tanz" Ursprung="göttlich" Agens="Luft" Prozess="erkennt" Reagens="Luft" Zauberdauer="10 min" Reichweite="5 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="8 h" Zauberart="Tanz">
+  <Spruch AP="3" Agens="Luft" Grad="3" Lernkosten="800" Name="Tolucans Gabe" Prozess="erkennt" Reagens="Luft" Region="N" Reichweite="5 m" Typ="Tanz" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="8 h" Wirkungsziel="Körper" Zauberart="Tanz" Zauberdauer="10 min">
    <Grund Typ="De"/>
    <Grund Typ="Tt"/>
    <Standard Typ="Sa"/>
@@ -1727,13 +1727,13 @@
    <Standard Typ="gHx"/>
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
-   <Lernschema Typ="Tt" Lernpunkte="4"/>
+   <Lernschema Lernpunkte="4" Typ="Tt"/>
   </Spruch>
-  <Spruch Name="Tüchertanz" Region="N" Grad="2" Lernkosten="300" AP="5" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="erschafft" Reagens="Metall" Zauberdauer="1 sec" Reichweite="0m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Objekt" Wirkungsdauer="Grad * 10 min" Material="variable" Thaumagramm="Trickser">
+  <Spruch AP="5" Agens="Magan" Grad="2" Lernkosten="300" Material="variable" Name="Tüchertanz" Prozess="erschafft" Reagens="Metall" Region="N" Reichweite="0m" Thaumagramm="Trickser" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="1 Objekt" Wirkungsdauer="Grad * 10 min" Wirkungsziel="Umgebung" Zauberdauer="1 sec">
    <Grund Typ="Tr"/>
-   <Lernschema Typ="Tr" Lernpunkte="6"/>
+   <Lernschema Lernpunkte="6" Typ="Tr"/>
   </Spruch>
-  <Spruch Name="Unfruchtbarkeit" Region="N" Grad="2" Lernkosten="300" AP="3" Typ="Geste" Ursprung="druidisch" Agens="Holz" Prozess="verändert" Reagens="Erde" Zauberdauer="10 min" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Monat" Material="pulverisierte Granatapfelkerne und Kräuter (10GS)" Spruchrolle="true">
+  <Spruch AP="3" Agens="Holz" Grad="2" Lernkosten="300" Material="pulverisierte Granatapfelkerne und Kräuter (10GS)" Name="Unfruchtbarkeit" Prozess="verändert" Reagens="Erde" Region="N" Reichweite="B" Spruchrolle="true" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Monat" Wirkungsziel="Körper" Zauberdauer="10 min">
    <Grund Typ="Hl"/>
    <Grund Typ="gHx"/>
    <Grund Typ="sHx"/>
@@ -1745,7 +1745,7 @@
    <Ausnahme Typ="ScS"/>
    <Ausnahme Typ="ScW"/>
   </Spruch>
-  <Spruch Name="Ungeziefer rufen" Region="N" Grad="2" Lernkosten="300" AP="2" Typ="Wort" Ursprung="druidisch" Agens="Holz" Prozess="bewegt" Reagens="Erde" Zauberdauer="10 sec" Reichweite="50m" Wirkungsziel="Umgebung" Wirkungsbereich="-" Wirkungsdauer="2 min">
+  <Spruch AP="2" Agens="Holz" Grad="2" Lernkosten="300" Name="Ungeziefer rufen" Prozess="bewegt" Reagens="Erde" Region="N" Reichweite="50m" Typ="Wort" Ursprung="druidisch" Wirkungsbereich="-" Wirkungsdauer="2 min" Wirkungsziel="Umgebung" Zauberdauer="10 sec">
    <Grund Typ="Dr"/>
    <Grund Typ="gHx"/>
    <Grund Typ="sHx"/>
@@ -1777,29 +1777,29 @@
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="tBe"/>
   </Spruch>
-  <Spruch Name="Verblüffen" Region="N" Grad="2" Lernkosten="400" AP="1/Grad" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="1 sec" Reichweite="30 m" Wirkungsziel="Geist" Wirkungsbereich="1-10 Ws" Wirkungsdauer="10 sec" Thaumagramm="Trickser">
+  <Spruch AP="1/Grad" Agens="Magan" Grad="2" Lernkosten="400" Name="Verblüffen" Prozess="beherrscht" Reagens="Feuer" Region="N" Reichweite="30 m" Thaumagramm="Trickser" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="1-10 Ws" Wirkungsdauer="10 sec" Wirkungsziel="Geist" Zauberdauer="1 sec">
    <Grund Typ="Tr"/>
-   <Lernschema Typ="Tr" Lernpunkte="4"/>
+   <Lernschema Lernpunkte="4" Typ="Tr"/>
   </Spruch>
-  <Spruch Name="Wegzauber" Region="N" Grad="3" Lernkosten="600" AP="3" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Metall" Zauberdauer="10 sec" Reichweite="3 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Objekt" Wirkungsdauer="10 min" Element="null" Thaumagramm="Trickser">
-   <Grund Typ="Tr"/>
-  </Spruch>
-  <Spruch Name="Wesen aufspüren" Region="N" Grad="4" Lernkosten="1400" AP="6" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="erkennt" Reagens="Wasser" Zauberdauer="30 sec" Reichweite="9 km" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Thaumagramm="Trickser">
+  <Spruch AP="3" Agens="Magan" Element="null" Grad="3" Lernkosten="600" Name="Wegzauber" Prozess="bewegt" Reagens="Metall" Region="N" Reichweite="3 m" Thaumagramm="Trickser" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="1 Objekt" Wirkungsdauer="10 min" Wirkungsziel="Umgebung" Zauberdauer="10 sec">
    <Grund Typ="Tr"/>
   </Spruch>
-  <Spruch Name="Wunden schlie�&#x9F;en" Region="N" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="erschafft" Reagens="Erde" Zauberdauer="1 min" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Thaumagramm="Trickser">
+  <Spruch AP="6" Agens="Magan" Grad="4" Lernkosten="1400" Name="Wesen aufspüren" Prozess="erkennt" Reagens="Wasser" Region="N" Reichweite="9 km" Thaumagramm="Trickser" Typ="Gedanke" Ursprung="dämonisch" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Wirkungsziel="Geist" Zauberdauer="30 sec">
    <Grund Typ="Tr"/>
   </Spruch>
-  <Spruch Name="Zusammenfügen" Region="N" Grad="2" Lernkosten="160" AP="2" Typ="Geste" Ursprung="dämonisch" Agens="Magan" Prozess="erschafft" Reagens="Metall" Zauberdauer="1 min" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1 Objekt" Wirkungsdauer="0" Thaumagramm="Trickser">
+  <Spruch AP="2" Agens="Magan" Grad="2" Lernkosten="200" Name="Wunden schlie�&#x9F;en" Prozess="erschafft" Reagens="Erde" Region="N" Reichweite="B" Thaumagramm="Trickser" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Wirkungsziel="Körper" Zauberdauer="1 min">
    <Grund Typ="Tr"/>
-   <Lernschema Typ="Tr" Lernpunkte="4"/>
+  </Spruch>
+  <Spruch AP="2" Agens="Magan" Grad="2" Lernkosten="160" Name="Zusammenfügen" Prozess="erschafft" Reagens="Metall" Region="N" Reichweite="B" Thaumagramm="Trickser" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="1 Objekt" Wirkungsdauer="0" Wirkungsziel="Umgebung" Zauberdauer="1 min">
+   <Grund Typ="Tr"/>
+   <Lernschema Lernpunkte="4" Typ="Tr"/>
   </Spruch>
   <Spruch Name="Allheilung">
    <Standard Typ="Dt"/>
   </Spruch>
   <Spruch Name="Angst">
    <Grund Typ="Dt"/>
-   <Lernschema Typ="Dt" Lernpunkte="1"/>
+   <Lernschema Lernpunkte="1" Typ="Dt"/>
   </Spruch>
   <Spruch Name="Austreibung des Bösen">
    <Grund Typ="Dt"/>
@@ -1821,7 +1821,7 @@
   </Spruch>
   <Spruch Name="Bannen von Gift">
    <Standard Typ="Dt"/>
-   <Lernschema Typ="Dt" Lernpunkte="3"/>
+   <Lernschema Lernpunkte="3" Typ="Dt"/>
   </Spruch>
   <Spruch Name="Bannen von Kälte">
    <Ausnahme Typ="Dt"/>
@@ -1846,7 +1846,7 @@
   </Spruch>
   <Spruch Name="Baum">
    <Grund Typ="Dt"/>
-   <Lernschema Typ="Dt" Lernpunkte="3"/>
+   <Lernschema Lernpunkte="3" Typ="Dt"/>
   </Spruch>
   <Spruch Name="Baumkämpfer">
    <Grund Typ="Dt"/>
@@ -1877,7 +1877,7 @@
   </Spruch>
   <Spruch Name="Blutsbrüderschaft stiften">
    <Grund Typ="Dt"/>
-   <Lernschema Typ="Dt" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="Dt"/>
   </Spruch>
   <Spruch Name="Brot und Wasser">
    <Standard Typ="Dt"/>
@@ -1953,7 +1953,7 @@
   </Spruch>
   <Spruch Name="Erkennen von Krankheit">
    <Grund Typ="Dt"/>
-   <Lernschema Typ="Dt" Lernpunkte="1"/>
+   <Lernschema Lernpunkte="1" Typ="Dt"/>
   </Spruch>
   <Spruch Name="Erkennen von Leben">
    <Grund Typ="Dt"/>
@@ -2161,7 +2161,7 @@
   </Spruch>
   <Spruch Name="Macht über das Selbst">
    <Grund Typ="Dt"/>
-   <Lernschema Typ="Dt" Lernpunkte="1"/>
+   <Lernschema Lernpunkte="1" Typ="Dt"/>
   </Spruch>
   <Spruch Name="Macht über die Sinne">
    <Ausnahme Typ="Dt"/>
@@ -2291,7 +2291,7 @@
   </Spruch>
   <Spruch Name="Stille">
    <Grund Typ="Dt"/>
-   <Lernschema Typ="Dt" Lernpunkte="2"/>
+   <Lernschema Lernpunkte="2" Typ="Dt"/>
   </Spruch>
   <Spruch Name="Stimmenwerfen">
    <Standard Typ="Dt"/>

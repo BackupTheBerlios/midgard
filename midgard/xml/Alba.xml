@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<MAGUS-data Region="A" Name="Alba" Titel="Alba - Für Clan und Krone" Copyright="Thomas Kreutz und Ludger Fischer" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="3" MAGUS-Bild="3" CVS="$Revision: 1.15 $">
+<MAGUS-data CVS="$Revision: 1.16 $" Copyright="Thomas Kreutz und Ludger Fischer" MAGUS-Bild="3" MAGUS-Index="3" Maintainer="Malte Thoma" Name="Alba" Region="A" Titel="Alba - Für Clan und Krone" Version="1.0" offiziell="true">
  <Fertigkeiten/>
  <Berufe/>
  <Schriften/>
  <Sprachen>
-  <Sprache Name="Dunathisch" Region="A" Kosten="10" Maximalwert="20" alteSprache="true">
+  <Sprache Kosten="10" Maximalwert="20" Name="Dunathisch" Region="A" alteSprache="true">
    <Schrift/>
   </Sprache>
  </Sprachen>
@@ -27,7 +27,7 @@
  </Waffen>
  <Waffen-Grundkenntnisse/>
  <Zauber>
-  <Spruch Name="Leomies Birneneis" Region="A" Grad="2" Lernkosten="500" AP="2/Wesen" Typ="Geste" Ursprung="elementar" Agens="Eis" Prozess="erschafft" Reagens="Eis" Zauberdauer="5 s" Reichweite="30 m" Wirkungsziel="Umgebung" Wirkungsbereich="50 cm Umkreis" Wirkungsdauer="1 min" Spruchrolle="true">
+  <Spruch AP="2/Wesen" Agens="Eis" Grad="2" Lernkosten="500" Name="Leomies Birneneis" Prozess="erschafft" Reagens="Eis" Region="A" Reichweite="30 m" Spruchrolle="true" Typ="Geste" Ursprung="elementar" Wirkungsbereich="50 cm Umkreis" Wirkungsdauer="1 min" Wirkungsziel="Umgebung" Zauberdauer="5 s">
    <Ausnahme Typ="Dt"/>
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="Km"/>
@@ -48,9 +48,9 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="wHx"/>
-   <regionaleBesonderheit Spezies="Halbling" Typ="Hl" Standard="S"/>
-   <regionaleBesonderheit Spezies="Halbling" Typ="PF" Standard="G"/>
-   <regionaleBesonderheit Spezies="Halbling" Typ="PW" Standard="G"/>
+   <regionaleBesonderheit Spezies="Halbling" Standard="S" Typ="Hl"/>
+   <regionaleBesonderheit Spezies="Halbling" Standard="G" Typ="PF"/>
+   <regionaleBesonderheit Spezies="Halbling" Standard="G" Typ="PW"/>
   </Spruch>
  </Zauber>
  <Zauberwerke/>

@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<MAGUS-data Region="X" Name="Abenteuer" Titel="Abenteuer" Copyright="var." Jahr="1981-" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="12" MAGUS-Bild="13" CVS="$Revision: 1.11 $">
+<MAGUS-data CVS="$Revision: 1.12 $" Copyright="var." Jahr="1981-" MAGUS-Bild="13" MAGUS-Index="12" Maintainer="Malte Thoma" Name="Abenteuer" Region="X" Titel="Abenteuer" Version="1.0" offiziell="true">
  <Fertigkeiten>
-  <Fertigkeit Name="Schlittschuhlaufen" Region="X" RegionZusatz="Smaskrifter" Lernpunkte="3" Lernpunkte-Land="2" Anfangswert="15" Lernkosten="60" Erfolgswert="10" Attribut="Gs" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Anfangswert="15" Attribut="Gs" Erfolgswert="10" Lernkosten="60" Lernpunkte="3" Lernpunkte-Land="2" MaximalMitUnterweisung="18" Maximalwert="18" Name="Schlittschuhlaufen" Region="X" RegionZusatz="Smaskrifter">
    <Grund Typ="BN"/>
    <Standard Typ="As"/>
    <Standard Typ="BS"/>
@@ -59,13 +59,13 @@
    <EP-Typ KEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Musizieren">
-   <Zusätze Name="Cheng (Mundorgel)" Typ="Zupfinstrument" Region="X" RegionZusatz="Unter der Sturmdrachen"/>
+   <Zusätze Name="Cheng (Mundorgel)" Region="X" RegionZusatz="Unter der Sturmdrachen" Typ="Zupfinstrument"/>
   </Fertigkeit>
  </Fertigkeiten>
  <Berufe/>
  <Schriften/>
  <Sprachen>
-  <Sprache Name="Ferangah" Region="X" RegionZusatz="Die schwarze Sphäre" Kosten="10" Maximalwert="20" Gruppe="10">
+  <Sprache Gruppe="10" Kosten="10" Maximalwert="20" Name="Ferangah" Region="X" RegionZusatz="Die schwarze Sphäre">
    <Schrift/>
   </Sprache>
  </Sprachen>
@@ -74,7 +74,7 @@
  <Waffen/>
  <Waffen-Grundkenntnisse/>
  <Zauber>
-  <Spruch Name="Die Wirklichkeit des Vertrauten ist stärker als die Augen" Region="X" RegionZusatz="Unter dem Sturmdrachen" Grad="5" Lernkosten="2000" AP="6" Typ="Geste" Zauberdauer="20 s" Reichweite="30 m" Wirkungsziel="Geist" Wirkungsbereich="3x3x3 m" Wirkungsdauer="-" Material="Edelsteinstaub (10 GS)" Spruchrolle="true" Thaumagramm="Siegel"/>
+  <Spruch AP="6" Grad="5" Lernkosten="2000" Material="Edelsteinstaub (10 GS)" Name="Die Wirklichkeit des Vertrauten ist stärker als die Augen" Region="X" RegionZusatz="Unter dem Sturmdrachen" Reichweite="30 m" Spruchrolle="true" Thaumagramm="Siegel" Typ="Geste" Wirkungsbereich="3x3x3 m" Wirkungsdauer="-" Wirkungsziel="Geist" Zauberdauer="20 s"/>
  </Zauber>
  <Zauberwerke/>
 </MAGUS-data>

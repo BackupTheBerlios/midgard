@@ -46,7 +46,7 @@ class table_steigern : public table_steigern_glade
         std::list<MBEmlt> list_Sprache_neu;
         std::list<MBEmlt> list_Schrift_neu;
 
-        Model<bool> steigern_mit_EP_bool; // nur das Model für die Oberfläche
+//        Model<bool> steigern_mit_EP_bool; // nur das Model für die Oberfläche
               // muss synchron mit Grundwerte gehalten werden
         enum enum_notebook_lernen{PAGE_FERTIGKEITEN,PAGE_WAFFEN,PAGE_ZAUBER,
                                   PAGE_KIDO,PAGE_SPRACHE,PAGE_BESITZ};
@@ -64,6 +64,8 @@ public:
         
         table_steigern(GlademmData *_data) ;
         void init(midgard_CG *hauptfenster);
+        
+        void clean_up(); // stop pending editing
 
 private:
         const MBEmlt &getSelectedNotebookLernen() throw(SimpleTree::noRowSelected); 
@@ -98,9 +100,6 @@ private:
         
         // Grad anstieg
 private:
-        const Enums::e_wie_steigern get_wie_steigern();
-        const Enums::st_bool_steigern get_bool_steigern();
-
         void get_grundwerte(int wurf);
         void get_ab_re_za(Enums::e_was_steigern was);//,bool verschenke_pp=false);
 
@@ -232,6 +231,13 @@ private:
         void on_entry_magisch_activate();
         void on_togglebutton_pp_verfallen_toggled();
         void on_togglebutton_pp_aep_fuellen_toggled();
+        bool pp_eingeben_click(GdkEventButton*);
+        void button_sonder_changed();
+        void button_wie_tun_changed();
+        void button_rolle_changed();
+        void button_ppvar_changed();
+        void button_was_tun_changed();
+           
         // wie_steigern, *anteil
         void Window2Abenteurer();
         void Abenteurer2Window();

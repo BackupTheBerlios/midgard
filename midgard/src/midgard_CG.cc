@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.346 2004/07/19 12:16:18 christof Exp $
+// $Id: midgard_CG.cc,v 1.347 2004/11/29 13:54:23 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -264,4 +264,10 @@ void midgard_CG::refresh_char_list()
 
 midgard_CG::enum_notebook_main midgard_CG::get_current_page() const
 {  return enum_notebook_main(notebook_main->get_current_page());
+}
+
+bool midgard_CG::werte_edit_click(GdkEventButton*)
+{ if (!table_grundwerte->edit_werte) 
+     table_grundwerte->edit_werte=true;
+  return false;
 }

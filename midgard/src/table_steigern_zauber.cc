@@ -33,7 +33,7 @@ void table_steigern::on_zauber_laden_clicked()
   list_Zauber_neu=LernListen::get_steigern_Zauberliste(hauptfenster->getAben(),togglebutton_zaubersalze->get_active(),
   					   LernListen::region_check(hauptfenster->getAben(),"MdS"),
                                            togglebutton_alle_zauber->get_active(),
-                                           togglebutton_spruchrolle->get_active());
+                                           hauptfenster->getAben().wie_steigern==Grundwerte::ws_Spruchrolle);
  }catch(std::exception &e) {Ausgabe(Ausgabe::Error,e.what());}
   zauber_zeigen();
 }
@@ -55,9 +55,9 @@ void table_steigern::on_leaf_selected_alte_zauber(cH_RowDataBase d)
 
 
 void table_steigern::on_leaf_selected_neue_zauber(cH_RowDataBase d)
-{  
-  if(togglebutton_spruchrolle->get_active() && radio_spruchrolle_wuerfeln->get_active())
-   {
+{ if(hauptfenster->getAben().wie_steigern==Grundwerte::ws_Spruchrolle
+     && hauptfenster->getAben().wie_steigern_variante==Grundwerte::wsv_SpruchrolleRoll)
+   { // 2* würfeln???
      wuerfel_lesen_von_zauberschrift();
      return;
    }   
@@ -94,8 +94,6 @@ void table_steigern::on_togglebutton_alle_zauber_toggled()
 
 void table_steigern::on_spruchrolle_toggled()
 {
- if(togglebutton_spruchrolle->get_active())
-   radiobutton_selbst->set_active(true);
  on_zauber_laden_clicked();
 }
 

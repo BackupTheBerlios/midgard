@@ -59,18 +59,13 @@ class MagusKI
       enum eSL {eSteigern,eNeuLernen,eSpeziel};
       bool allowed_for_grad(const MBEmlt &M,eSL was);
       int teste_auf_gradanstieg();
-      const Abenteurer::e_wie_steigern get_wie_steigern(const eSL e);
-      const Enums::st_bool_steigern get_bool_steigern();
       
       void operator=(const MagusKI &);
       MagusKI(const MagusKI &);
       
    public:
 
-      MagusKI(Abenteurer &a)
-        : Aben(a),
-          use_GSA_MBE(true)
-          {};
+      MagusKI(Abenteurer &a);
 
       void VerteileGFP(int gfp,const Prozente100 &p,
                        const Grund_Standard_Ausnahme_MBE &gsa) ;

@@ -326,6 +326,10 @@ void MidgardBasicElement::saveElementliste(Tag &datei,
         t.setAttr("Art", cH_Zauberwerk((*i)->getMBE())->Art());
         t.setAttr("Stufe", cH_Zauberwerk((*i)->getMBE())->Stufe());
       }
+      if ((*(*i))->What()==SCHRIFT)
+      { t.setAttr("Buchstaben", cH_Schrift((*i)->getMBE())->Art_der_Schrift());
+//        t.setAttr("Sprache","???");
+      }
       if ((*(*i))->ZusatzEnum(Typ))
          t.setAttr("Zusatz", (*i)->Zusatz());
    }

@@ -1,7 +1,9 @@
 Version 0.9.8
 - nerviges Zuklappen der ungelernten Fertigkeiten/Zauber behoben !!!
 	da bewegt sich nichts mehr
+- Komplettes Überarbeiten der Steigern API
 - Verlernen sollte jetzt gehen (neue überarbeitete API)
+- Viele Radiobutton-Felder durch ChoiceButtons ersetzt (spart Platz!)
 
 -------------- TODO ----------------
 

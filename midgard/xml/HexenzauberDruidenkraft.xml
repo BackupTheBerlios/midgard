@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<MAGUS-data Region="H&amp;D" Name="Hexenzauber &amp; Druidenkraft" Titel="Hexenzauber und Druidenkraft" Copyright="Alexander Huiskes (Hrsg.)" Jahr="1994" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="10" MAGUS-Bild="6" CVS="$Revision: 1.15 $">
+<MAGUS-data CVS="$Revision: 1.16 $" Copyright="Alexander Huiskes (Hrsg.)" Jahr="1994" MAGUS-Bild="6" MAGUS-Index="10" Maintainer="Malte Thoma" Name="Hexenzauber &amp; Druidenkraft" Region="H&amp;D" Titel="Hexenzauber und Druidenkraft" Version="1.0">
  <Fertigkeiten>
-  <Fertigkeit Name="Wetterkunde" Region="H&amp;D" Anfangswert="5" Lernkosten="50" Erfolgswert="4" Attribut="In" Maximalwert="16" MaximalMitUnterweisung="14">
+  <Fertigkeit Anfangswert="5" Attribut="In" Erfolgswert="4" Lernkosten="50" MaximalMitUnterweisung="14" Maximalwert="16" Name="Wetterkunde" Region="H&amp;D">
    <Grund Typ="De"/>
    <Grund Typ="Dr"/>
    <Grund Typ="Ku"/>
@@ -62,17 +62,17 @@
    <Ausnahme Typ="tBe"/>
    <Ausnahme Typ="wHx"/>
    <Voraussetzungen In="61"/>
-   <Lernschema Typ="PF" Lernpunkte="1" Erfolgswert="15"/>
-   <Lernschema Typ="Se" Lernpunkte="1" Erfolgswert="15"/>
-   <Lernschema Typ="Dr" Lernpunkte="2" Erfolgswert="15"/>
-   <Lernschema Typ="Ku" Lernpunkte="2" Erfolgswert="15"/>
-   <Lernschema Typ="PW" Lernpunkte="2" Erfolgswert="15"/>
-   <Lernschema Typ="Ru" Lernpunkte="2" Erfolgswert="15"/>
-   <Lernschema Typ="ScN" Lernpunkte="2" Erfolgswert="15"/>
-   <Lernschema Typ="ScS" Lernpunkte="2" Erfolgswert="15"/>
-   <Lernschema Typ="ScW" Lernpunkte="2" Erfolgswert="15"/>
-   <Lernschema Typ="Wa" Lernpunkte="2" Erfolgswert="15"/>
-   <Kosten Wert3="5" Wert4="5" Wert5="13" Wert6="13" Wert7="13" Wert8="25" Wert9="25" Wert10="50" Wert11="50" Wert12="100" Wert13="100"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Typ="PF"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Typ="Se"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="2" Typ="Dr"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="2" Typ="Ku"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="2" Typ="PW"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="2" Typ="Ru"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="2" Typ="ScN"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="2" Typ="ScS"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="2" Typ="ScW"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="2" Typ="Wa"/>
+   <Kosten Wert10="50" Wert11="50" Wert12="100" Wert13="100" Wert3="5" Wert4="5" Wert5="13" Wert6="13" Wert7="13" Wert8="25" Wert9="25"/>
   </Fertigkeit>
  </Fertigkeiten>
  <Berufe/>
@@ -83,7 +83,7 @@
  <Waffen/>
  <Waffen-Grundkenntnisse/>
  <Zauber>
-  <Spruch Name="Aggression" Region="H&amp;D" Grad="4" Lernkosten="2000" AP="Gr*2" Typ="Wort" Ursprung="dämonisch" Zauberdauer="5 s" Reichweite="10 m" Wirkungsziel="1 Ws" Wirkungsbereich="Geist" Wirkungsdauer="1 min">
+  <Spruch AP="Gr*2" Grad="4" Lernkosten="2000" Name="Aggression" Region="H&amp;D" Reichweite="10 m" Typ="Wort" Ursprung="dämonisch" Wirkungsbereich="Geist" Wirkungsdauer="1 min" Wirkungsziel="1 Ws" Zauberdauer="5 s">
    <Grund Typ="gHx"/>
    <Grund Typ="sHx"/>
    <Grund Typ="wHx"/>
@@ -98,7 +98,7 @@
    <Ausnahme Typ="Ma"/>
    <Beschreibung>Das Opfer fängt mit den umgebenden Streit an, nicht aber mit dem Zauberer. Bei einem kritischen Fehler beim Zaubern fängt er Streit mit dem Zauberer an.</Beschreibung>
   </Spruch>
-  <Spruch Name="Aufladen" Region="H&amp;D" Grad="G" Lernkosten="15000" AP="alle" Typ="Geste" Ursprung="dämonisch" Zauberdauer="7*6 Tage" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Material="Einhornpulver und Essenzen" Spruchrolle="true" Thaumagramm="Siegel">
+  <Spruch AP="alle" Grad="G" Lernkosten="15000" Material="Einhornpulver und Essenzen" Name="Aufladen" Region="H&amp;D" Reichweite="0" Spruchrolle="true" Thaumagramm="Siegel" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="1 Ob" Wirkungsziel="Umgebung" Zauberdauer="7*6 Tage">
    <Grund Typ="tBe"/>
    <Standard Typ="Hl"/>
    <Standard Typ="PT"/>
@@ -111,7 +111,7 @@
    <Ausnahme Typ="eBe"/>
    <Beschreibung>Damit kann ein magisches Artefakt wieder neu aufgeladen werden. Bei normalen Erfolg verdoppelt sich die ABW, bei kritischen Erfolg bleibt sie gleich und bei kritischen Fehler wird das Artefakt vollkommen zerstört. </Beschreibung>
   </Spruch>
-  <Spruch Name="Augenschleier" Region="H&amp;D" Grad="2" Lernkosten="200" AP="1*Gr" Typ="Geste" Ursprung="dämonisch" Zauberdauer="1 s" Reichweite="50 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="1 min" Spruchrolle="true">
+  <Spruch AP="1*Gr" Grad="2" Lernkosten="200" Name="Augenschleier" Region="H&amp;D" Reichweite="50 m" Spruchrolle="true" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="1 Ws" Wirkungsdauer="1 min" Wirkungsziel="Geist" Zauberdauer="1 s">
    <Grund Typ="gHx"/>
    <Grund Typ="sHx"/>
    <Grund Typ="wHx"/>
@@ -129,15 +129,15 @@
    <Ausnahme Typ="ScW"/>
    <Beschreibung>Das Opfer sieht einen illusionären Lichtblitz und ist geblendet. Währdend der Wirkungsdauer hat es WM-4 auf alle EW und WW, zu denen Augen benötigt werden. Dazu BW-8.</Beschreibung>
   </Spruch>
-  <Spruch Name="Ballade der Begierde" Region="H&amp;D" Grad="3" Lernkosten="300" AP="1" Typ="Zauberlied" Ursprung="Weltenlied" Agens="Magan" Prozess="beherrscht" Reagens="Luft" Zauberdauer="5 min" Reichweite="0 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="perm" Material="Harfe oder Laute">
+  <Spruch AP="1" Agens="Magan" Grad="3" Lernkosten="300" Material="Harfe oder Laute" Name="Ballade der Begierde" Prozess="beherrscht" Reagens="Luft" Region="H&amp;D" Reichweite="0 m" Typ="Zauberlied" Ursprung="Weltenlied" Wirkungsbereich="1 Ws" Wirkungsdauer="perm" Wirkungsziel="Geist" Zauberdauer="5 min">
    <Grund Typ="Ba"/>
    <Standard Typ="Sk"/>
    <Beschreibung>Das Opfer will unbedingt eine Begierde erfüllen. Es können keine Begierden sein, die die Verletzung anderer verursachen oder absurd sind. Ballade muss auf Opfer abgestimmt sein und wirkt nur, wenn WW-(Grad Barde):psy und PW+(5*Grad Barde) mi�&#x9F;glücken.</Beschreibung>
   </Spruch>
-  <Spruch Name="Ballade der besiegten Gier" Region="H&amp;D" Grad="4" Lernkosten="1500" AP="1" Typ="Zauberlied" Ursprung="Weltenlied" Agens="Magan" Prozess="beherrscht" Reagens="Luft" Zauberdauer="10 min" Reichweite="0 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="perm" Material="Harfe oder Laute">
+  <Spruch AP="1" Agens="Magan" Grad="4" Lernkosten="1500" Material="Harfe oder Laute" Name="Ballade der besiegten Gier" Prozess="beherrscht" Reagens="Luft" Region="H&amp;D" Reichweite="0 m" Typ="Zauberlied" Ursprung="Weltenlied" Wirkungsbereich="1 Ws" Wirkungsdauer="perm" Wirkungsziel="Geist" Zauberdauer="10 min">
    <Beschreibung>Zauber hebt die Wirkung des Zaubers Ballade der Gier auf, wenn Opfer PW:Sb gelingt</Beschreibung>
   </Spruch>
-  <Spruch Name="Bann der wahren Eigentümerschaft" Region="H&amp;D" Grad="G" Lernkosten="10000" AP="alle (mind 18)" Typ="Geste" Ursprung="dämonisch" Zauberdauer="6 h" Reichweite="0m" Wirkungsziel="Körper" Wirkungsbereich="1 Ob" Material="Halsband eines bis zum Tode treuen Hundes" Thaumagramm="Siegel">
+  <Spruch AP="alle (mind 18)" Grad="G" Lernkosten="10000" Material="Halsband eines bis zum Tode treuen Hundes" Name="Bann der wahren Eigentümerschaft" Region="H&amp;D" Reichweite="0m" Thaumagramm="Siegel" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="1 Ob" Wirkungsziel="Körper" Zauberdauer="6 h">
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Standard Typ="Dt"/>
@@ -158,7 +158,7 @@
    <Ausnahme Typ="wHx"/>
    <Beschreibung>Mit diesem Zauber wird ein Gegenstand bis max 5 kg an eine Person gebunden. Wird dieser Gegenstand länger als 3 Tage aus der Umgebung(50m) entfernt, wird er mittels von &quot;Zufällen&quot; innerhalb von 7 Tagen wieder zu seinem Besizert zurueckkehren. Priester beherrschen auch eine Abwandlung, bei der das Objekt an eine geweihte Stätte gebunden wird.</Beschreibung>
   </Spruch>
-  <Spruch Name="Bannen von Fäulnis" Region="H&amp;D" Grad="3" Lernkosten="800" AP="4" Typ="Geste" Ursprung="druidisch" Zauberdauer="10 min" Reichweite="0 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob(3m*3m)" Wirkungsdauer="Gr*Monat">
+  <Spruch AP="4" Grad="3" Lernkosten="800" Name="Bannen von Fäulnis" Region="H&amp;D" Reichweite="0 m" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="1 Ob(3m*3m)" Wirkungsdauer="Gr*Monat" Wirkungsziel="Umgebung" Zauberdauer="10 min">
    <Grund Typ="Hl"/>
    <Grund Typ="PF"/>
    <Grund Typ="PHe"/>
@@ -182,7 +182,7 @@
    <Ausnahme Typ="wHx"/>
    <Beschreibung>Das Objekt wird von Schimmel, Pilzen und Pflanzen befreit.</Beschreibung>
   </Spruch>
-  <Spruch Name="Baumtor" Region="H&amp;D" Grad="G" Lernkosten="10000" AP="9" Typ="Gedanke" Ursprung="druidisch" Zauberdauer="30 s" Reichweite="0 m" Wirkungsziel="Umgebung" Wirkungsbereich="Zauberer" Wirkungsdauer="2 min">
+  <Spruch AP="9" Grad="G" Lernkosten="10000" Name="Baumtor" Region="H&amp;D" Reichweite="0 m" Typ="Gedanke" Ursprung="druidisch" Wirkungsbereich="Zauberer" Wirkungsdauer="2 min" Wirkungsziel="Umgebung" Zauberdauer="30 s">
    <Grund Typ="Dr"/>
    <Grund Typ="Sa"/>
    <Grund Typ="ScN"/>
@@ -190,7 +190,7 @@
    <Grund Typ="ScW"/>
    <Beschreibung>Der Zauberer kann mit Kleidung in einen Baum treten und auch auf einen anderen überwechseln. Wenn er nicht vor dem Ende der Wirkungsdauer wieder herauskommt, stirbt er. Mit 10&#x25; bleibt die Seele im Baum zurück und der Baum verwandelt sich in 7 Wochen in einen Baumhirte. Wenn ein Druide die vorsätzlich tut, um am Ende seines Lebens mit der Natur zu verschmelzen, ist die Wahrscheinlichkeit 90&#x25;.</Beschreibung>
   </Spruch>
-  <Spruch Name="Blindsalz" Region="H&amp;D" Grad="1" Lernkosten="100" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="10 s" Zauberart="Zaubersalz">
+  <Spruch AP="1" Agens="Magan" Grad="1" Lernkosten="100" Name="Blindsalz" Prozess="beherrscht" Reagens="Wasser" Region="H&amp;D" Reichweite="500 m" Typ="Gedanke" Ursprung="dämonisch" Wirkungsbereich="1 Ws" Wirkungsdauer="10 s" Wirkungsziel="Körper" Zauberart="Zaubersalz" Zauberdauer="1 s">
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Standard Typ="Mg"/>
@@ -220,7 +220,7 @@
    <Ausnahme Typ="eBe"/>
    <Beschreibung>Das Opfer sieht eine Runde nichts. Zauber werden unterbrochen, wenn der Zauber Blickkontakt benötigt.</Beschreibung>
   </Spruch>
-  <Spruch Name="Brechsalz" Region="H&amp;D" Grad="1" Lernkosten="40" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Feuer" Prozess="verändert" Reagens="Erde" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="1 min" Zauberart="Zaubersalz">
+  <Spruch AP="1" Agens="Feuer" Grad="1" Lernkosten="40" Name="Brechsalz" Prozess="verändert" Reagens="Erde" Region="H&amp;D" Reichweite="500 m" Typ="Gedanke" Ursprung="dämonisch" Wirkungsbereich="1 Ws" Wirkungsdauer="1 min" Wirkungsziel="Körper" Zauberart="Zaubersalz" Zauberdauer="1 s">
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Standard Typ="Mg"/>
@@ -250,7 +250,7 @@
    <Ausnahme Typ="eBe"/>
    <Beschreibung>Dem Opfer wird eine Minute übel. In jeder Runde ist ein PW:Sb (hektische Bewegungen ergeben WM+10) notwendig, um sich nicht um übergeben.</Beschreibung>
   </Spruch>
-  <Spruch Name="Bruchbann" Region="H&amp;D" Grad="2" Lernkosten="200" AP="var" Typ="Geste" Ursprung="dämonisch" Zauberdauer="10 min" Reichweite="0 m" Wirkungsziel="Körper" Wirkungsbereich="var" Wirkungsdauer="Gr*h" Spruchrolle="true" Thaumagramm="Siegel">
+  <Spruch AP="var" Grad="2" Lernkosten="200" Name="Bruchbann" Region="H&amp;D" Reichweite="0 m" Spruchrolle="true" Thaumagramm="Siegel" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="var" Wirkungsdauer="Gr*h" Wirkungsziel="Körper" Zauberdauer="10 min">
    <Grund Typ="Km"/>
    <Grund Typ="MMa"/>
    <Grund Typ="Ma"/>
@@ -276,7 +276,7 @@
    <Ausnahme Typ="ScW"/>
    <Beschreibung>Der Zauberer macht Gegenstände gegen mechanische Einwirkung unepfindlich. AP Kosten richten sich nach Gesamtgewicht: 1kg 2AP, 10 kg 8AP, 100 kg 32 AP. </Beschreibung>
   </Spruch>
-  <Spruch Name="Bärenstärke" Region="H&amp;D" Grad="1" Lernkosten="100" AP="1" Typ="Geste" Ursprung="druidisch" Zauberdauer="20 s" Reichweite="0 m" Wirkungsziel="Körper" Wirkungsbereich="Zauberer" Wirkungsdauer="1 min" Material="Bärenfett">
+  <Spruch AP="1" Grad="1" Lernkosten="100" Material="Bärenfett" Name="Bärenstärke" Region="H&amp;D" Reichweite="0 m" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="Zauberer" Wirkungsdauer="1 min" Wirkungsziel="Körper" Zauberdauer="20 s">
    <Grund Typ="Sa"/>
    <Grund Typ="ScN"/>
    <Grund Typ="ScS"/>
@@ -291,26 +291,26 @@
    <Ausnahme Typ="PK"/>
    <Beschreibung>Der Zauberer wird bärenstark. Tragfähigkeit +40 kg, Kraftakt +25. WM-2 auf alle EW wie Angriff, aber WM+3 auf Schaden. Keine Zauber möglich. Am Ende PW:St, falls mi�&#x9F;lungen 1W3 AP verloren.</Beschreibung>
   </Spruch>
-  <Spruch Name="Das Lied der Macht" Region="H&amp;D" Grad="G" Lernkosten="7500" AP="2*min" Typ="Zauberlied" Ursprung="Weltenlied" Agens="Magan" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="3 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="30m Uk" Wirkungsdauer="var" Material="Flöte">
+  <Spruch AP="2*min" Agens="Magan" Grad="G" Lernkosten="7500" Material="Flöte" Name="Das Lied der Macht" Prozess="beherrscht" Reagens="Wasser" Region="H&amp;D" Reichweite="0" Typ="Zauberlied" Ursprung="Weltenlied" Wirkungsbereich="30m Uk" Wirkungsdauer="var" Wirkungsziel="Geist" Zauberdauer="3 min">
    <Grund Typ="Ba"/>
    <Standard Typ="Sk"/>
    <Beschreibung>Der Barde hat Gewalt über alle Säugetiere und Vögel, die ihm zugehört haben. Nach 3/6/12 Minuten Spiel dauert die Wirkung 2 Minuten/1 Stunde/1 Tag an.</Beschreibung>
   </Spruch>
-  <Spruch Name="Das Lied der Magie" Region="H&amp;D" Grad="5" Lernkosten="3000" AP="2" Typ="Zauberlied" Ursprung="Weltenlied" Agens="Magan" Prozess="verändert" Reagens="Magan" Zauberdauer="0" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="10m Uk" Wirkungsdauer="var" Material="Harfe">
+  <Spruch AP="2" Agens="Magan" Grad="5" Lernkosten="3000" Material="Harfe" Name="Das Lied der Magie" Prozess="verändert" Reagens="Magan" Region="H&amp;D" Reichweite="0" Typ="Zauberlied" Ursprung="Weltenlied" Wirkungsbereich="10m Uk" Wirkungsdauer="var" Wirkungsziel="Umgebung" Zauberdauer="0">
    <Grund Typ="Ba"/>
    <Standard Typ="Sk"/>
    <Beschreibung>Durch dieses Lied wird der Flu�&#x9F; der Magie innerhalb des Wirkungsbereiches verändert. Entweder wird er erleichtert (WM+1 auf EW:Zaubern und WM-4 auf WW:res) auf Zauber und Artefakte, oder erschwert (WM-1 auf EW:Zaubern und Wm+4 auf WW:res).</Beschreibung>
   </Spruch>
-  <Spruch Name="Das Lied des Verstehens" Region="H&amp;D" Grad="5" Lernkosten="1000" AP="2" Typ="Zauberlied" Ursprung="Weltenlied" Agens="Magan" Prozess="beherrscht" Reagens="Luft" Zauberdauer="3 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="30m Uk" Wirkungsdauer="30 min" Material="Harfe oder Laute">
+  <Spruch AP="2" Agens="Magan" Grad="5" Lernkosten="1000" Material="Harfe oder Laute" Name="Das Lied des Verstehens" Prozess="beherrscht" Reagens="Luft" Region="H&amp;D" Reichweite="0" Typ="Zauberlied" Ursprung="Weltenlied" Wirkungsbereich="30m Uk" Wirkungsdauer="30 min" Wirkungsziel="Geist" Zauberdauer="3 min">
    <Grund Typ="Ba"/>
    <Standard Typ="Sk"/>
    <Beschreibung>Der Zauber ist ein Universalübersetzer. Alle betroffenen Personen können sich gegenseitig verstehen, auch wenn sie nicht die gleiche Sprachen sprechen.</Beschreibung>
   </Spruch>
-  <Spruch Name="Der Gesang Crescendis" Region="H&amp;D" Grad="1" Lernkosten="120" AP="2*h" Typ="Zauberlied" Ursprung="Weltenlied" Agens="Magan" Prozess="verändert" Reagens="Erde" Zauberdauer="0" Reichweite="100m Uk" Wirkungsziel="Körper" Wirkungsbereich="var" Wirkungsdauer="var" Material="Gesang plus Instrument(beliebig)">
+  <Spruch AP="2*h" Agens="Magan" Grad="1" Lernkosten="120" Material="Gesang plus Instrument(beliebig)" Name="Der Gesang Crescendis" Prozess="verändert" Reagens="Erde" Region="H&amp;D" Reichweite="100m Uk" Typ="Zauberlied" Ursprung="Weltenlied" Wirkungsbereich="var" Wirkungsdauer="var" Wirkungsziel="Körper" Zauberdauer="0">
    <Grund Typ="Ba"/>
    <Standard Typ="Sk"/>
   </Spruch>
-  <Spruch Name="Der Gro�&#x9F;e Knall" Region="H&amp;D" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="dämonisch" Zauberdauer="1 s" Reichweite="12 m" Wirkungsziel="Umgebung" Wirkungsbereich="12 m" Wirkungsdauer="0" Spruchrolle="true">
+  <Spruch AP="2" Grad="2" Lernkosten="200" Name="Der Gro�&#x9F;e Knall" Region="H&amp;D" Reichweite="12 m" Spruchrolle="true" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="12 m" Wirkungsdauer="0" Wirkungsziel="Umgebung" Zauberdauer="1 s">
    <Grund Typ="Km"/>
    <Grund Typ="MMa"/>
    <Grund Typ="Ma"/>
@@ -326,12 +326,12 @@
    <Ausnahme Typ="ScS"/>
    <Ausnahme Typ="ScW"/>
   </Spruch>
-  <Spruch Name="Die Stimme der Gerechten" Region="H&amp;D" Grad="G" Lernkosten="8000" AP="alle AP (mind 18)" Typ="Zauberlied" Ursprung="Weltenlied" Agens="Magan" Prozess="verändert" Reagens="Magan" Zauberdauer="20 sec" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="50m Uk" Wirkungsdauer="0" Material="Chimäron">
+  <Spruch AP="alle AP (mind 18)" Agens="Magan" Grad="G" Lernkosten="8000" Material="Chimäron" Name="Die Stimme der Gerechten" Prozess="verändert" Reagens="Magan" Region="H&amp;D" Reichweite="0" Typ="Zauberlied" Ursprung="Weltenlied" Wirkungsbereich="50m Uk" Wirkungsdauer="0" Wirkungsziel="Umgebung" Zauberdauer="20 sec">
    <Grund Typ="Ba"/>
    <Standard Typ="Sk"/>
    <Beschreibung>Durch das Spielen des Chimäron werden &quot;die Gerechten&quot; herbeigerufen. Im Wirkungsbereich wird die Ordung der Ebenen wiederhergestellt. Weltentore nach verlorenen Zauberduell werden geschlossen und Wesen von anderen Ebenen nach einem mi�&#x9F;lungenen WW-4:phs in diese zurückgeschleudert (Im Fallen von kontrollierten Wesen nach einem verlorenen Zauberduell). Dazu muss der Barde alle, aber mindestens 18 AP aufbringen. Es dauert 2 min, bevor die Wirkung einsetzt und Wesen mit mindestens Int:m80 können nach einem gelungenen PW:In dem Wirkungsbereich verlassen. </Beschreibung>
   </Spruch>
-  <Spruch Name="Dinge rufen" Region="H&amp;D" Grad="4" Lernkosten="1500" AP="2x4" Typ="Geste" Ursprung="dämonisch" Zauberdauer="1 h" Reichweite="50 km" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="1 Monat" Material="Spinnenblut" Spruchrolle="true" Thaumagramm="Siegel">
+  <Spruch AP="2x4" Grad="4" Lernkosten="1500" Material="Spinnenblut" Name="Dinge rufen" Region="H&amp;D" Reichweite="50 km" Spruchrolle="true" Thaumagramm="Siegel" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="1 Ob" Wirkungsdauer="1 Monat" Wirkungsziel="Umgebung" Zauberdauer="1 h">
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Standard Typ="Km"/>
@@ -344,14 +344,14 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Eifersucht" Region="H&amp;D" Grad="3" Lernkosten="800" AP="1AP*#" Typ="Wort" Ursprung="dämonisch" Zauberdauer="10 s" Reichweite="15 m" Wirkungsziel="Geist" Wirkungsbereich="Grad Ws" Wirkungsdauer="2 min" Spruchrolle="true">
+  <Spruch AP="1AP*#" Grad="3" Lernkosten="800" Name="Eifersucht" Region="H&amp;D" Reichweite="15 m" Spruchrolle="true" Typ="Wort" Ursprung="dämonisch" Wirkungsbereich="Grad Ws" Wirkungsdauer="2 min" Wirkungsziel="Geist" Zauberdauer="10 s">
    <Grund Typ="PT"/>
    <Grund Typ="dBe"/>
    <Standard Typ="Hl"/>
    <Standard Typ="tBe"/>
    <Ausnahme Typ="eBe"/>
   </Spruch>
-  <Spruch Name="Entfesseln" Region="H&amp;D" Grad="2" Lernkosten="240" AP="2" Typ="Wort" Ursprung="dämonisch" Zauberdauer="20 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="0" Spruchrolle="true">
+  <Spruch AP="2" Grad="2" Lernkosten="240" Name="Entfesseln" Region="H&amp;D" Reichweite="0" Spruchrolle="true" Typ="Wort" Ursprung="dämonisch" Wirkungsbereich="1 Ob" Wirkungsdauer="0" Wirkungsziel="Umgebung" Zauberdauer="20 s">
    <Grund Typ="ScN"/>
    <Grund Typ="ScS"/>
    <Grund Typ="ScW"/>
@@ -366,7 +366,7 @@
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="gHx"/>
   </Spruch>
-  <Spruch Name="Erkennen von Gift" Region="H&amp;D" Grad="3" Lernkosten="1000" AP="3" Typ="Gedanke" Ursprung="druidisch" Zauberdauer="30 sec" Reichweite="15 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 m²" Wirkungsdauer="nicht" Spruchrolle="true">
+  <Spruch AP="3" Grad="3" Lernkosten="1000" Name="Erkennen von Gift" Region="H&amp;D" Reichweite="15 m" Spruchrolle="true" Typ="Gedanke" Ursprung="druidisch" Wirkungsbereich="1 m²" Wirkungsdauer="nicht" Wirkungsziel="Umgebung" Zauberdauer="30 sec">
    <Grund Typ="Dr"/>
    <Standard Typ="Km"/>
    <Standard Typ="Ma"/>
@@ -383,14 +383,14 @@
    <Ausnahme Typ="PHa"/>
    <Ausnahme Typ="PHe"/>
   </Spruch>
-  <Spruch Name="Erkennen von Verdammten" Region="H&amp;D" Grad="1" Lernkosten="200" AP="1" Typ="Gedanke" Ursprung="göttlich" Zauberdauer="1 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="30m Kegel" Wirkungsdauer="10 s">
+  <Spruch AP="1" Grad="1" Lernkosten="200" Name="Erkennen von Verdammten" Region="H&amp;D" Reichweite="0" Typ="Gedanke" Ursprung="göttlich" Wirkungsbereich="30m Kegel" Wirkungsdauer="10 s" Wirkungsziel="Umgebung" Zauberdauer="1 s">
    <Grund Typ="Or"/>
    <Standard Typ="PT"/>
    <Ausnahme Typ="Km"/>
    <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
   </Spruch>
-  <Spruch Name="Fiebersalz" Region="H&amp;D" Grad="1" Lernkosten="80" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Feuer" Prozess="zerstört" Reagens="Wasser" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Zauberart="Zaubersalz">
+  <Spruch AP="1" Agens="Feuer" Grad="1" Lernkosten="80" Name="Fiebersalz" Prozess="zerstört" Reagens="Wasser" Region="H&amp;D" Reichweite="500 m" Typ="Gedanke" Ursprung="dämonisch" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Wirkungsziel="Körper" Zauberart="Zaubersalz" Zauberdauer="1 s">
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Standard Typ="Mg"/>
@@ -420,7 +420,7 @@
    <Ausnahme Typ="eBe"/>
    <Beschreibung>Das Opfer hat Fieber, WM-1 auf alle EW.</Beschreibung>
   </Spruch>
-  <Spruch Name="Geruchsverlust" Region="H&amp;D" Grad="3" Lernkosten="400" AP="3" Typ="Wort" Ursprung="druidisch" Zauberdauer="20 s" Reichweite="1m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Spruchrolle="true" Thaumagramm="Siegel">
+  <Spruch AP="3" Grad="3" Lernkosten="400" Name="Geruchsverlust" Region="H&amp;D" Reichweite="1m" Spruchrolle="true" Thaumagramm="Siegel" Typ="Wort" Ursprung="druidisch" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Wirkungsziel="Körper" Zauberdauer="20 s">
    <Grund Typ="Dr"/>
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
@@ -446,7 +446,7 @@
    <Ausnahme Typ="PT"/>
    <Ausnahme Typ="PW"/>
   </Spruch>
-  <Spruch Name="Grenzenlose Freude" Region="H&amp;D" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="dämonisch" Zauberdauer="10 s" Reichweite="B" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="2 min" Material="Schweiss von Liebenden">
+  <Spruch AP="4" Grad="4" Lernkosten="1500" Material="Schweiss von Liebenden" Name="Grenzenlose Freude" Region="H&amp;D" Reichweite="B" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="1 Ws" Wirkungsdauer="2 min" Wirkungsziel="Geist" Zauberdauer="10 s">
    <Grund Typ="PF"/>
    <Standard Typ="De"/>
    <Standard Typ="Hl"/>
@@ -461,7 +461,7 @@
    <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
   </Spruch>
-  <Spruch Name="Hammerhand" Region="H&amp;D" Grad="3" Lernkosten="1000" AP="3" Typ="Geste" Ursprung="dämonisch" Zauberdauer="1 s" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="Z" Wirkungsdauer="2 min" Material="Ginseng" Spruchrolle="true">
+  <Spruch AP="3" Grad="3" Lernkosten="1000" Material="Ginseng" Name="Hammerhand" Region="H&amp;D" Reichweite="0" Spruchrolle="true" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="Z" Wirkungsdauer="2 min" Wirkungsziel="Körper" Zauberdauer="1 s">
    <Grund Typ="Km"/>
    <Grund Typ="MMa"/>
    <Grund Typ="Ma"/>
@@ -481,7 +481,7 @@
    <Ausnahme Typ="PM"/>
    <Ausnahme Typ="PT"/>
   </Spruch>
-  <Spruch Name="Hexenhand" Region="H&amp;D" Grad="3" Lernkosten="1000" AP="3" Typ="Geste" Ursprung="dämonisch" Zauberdauer="30 min" Reichweite="30m" Wirkungsziel="Körper" Wirkungsbereich="1 Ob" Wirkungsdauer="1 h" Material="abgeschlagene Hand eines Diebes">
+  <Spruch AP="3" Grad="3" Lernkosten="1000" Material="abgeschlagene Hand eines Diebes" Name="Hexenhand" Region="H&amp;D" Reichweite="30m" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="1 Ob" Wirkungsdauer="1 h" Wirkungsziel="Körper" Zauberdauer="30 min">
    <Grund Typ="PC"/>
    <Grund Typ="gHx"/>
    <Grund Typ="sHx"/>
@@ -492,7 +492,7 @@
    <Ausnahme Typ="eBe"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Hexenwirbel" Region="H&amp;D" Grad="2" Lernkosten="300" AP="2" Typ="Geste" Ursprung="dämonisch" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="1 Ort" Wirkungsdauer="0" Material="eigenes Haar    nicht" Spruchrolle="true">
+  <Spruch AP="2" Grad="2" Lernkosten="300" Material="eigenes Haar    nicht" Name="Hexenwirbel" Region="H&amp;D" Reichweite="0" Spruchrolle="true" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="1 Ort" Wirkungsdauer="0" Wirkungsziel="Geist" Zauberdauer="10 min">
    <Grund Typ="De"/>
    <Grund Typ="ScN"/>
    <Grund Typ="ScS"/>
@@ -503,7 +503,7 @@
    <Standard Typ="PW"/>
    <Standard Typ="dBe"/>
   </Spruch>
-  <Spruch Name="Kammerdiener beschwören" Region="H&amp;D" Grad="2" Lernkosten="200" AP="2" Typ="Wort" Ursprung="elementar" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="Spielzeug">
+  <Spruch AP="2" Grad="2" Lernkosten="200" Material="Spielzeug" Name="Kammerdiener beschwören" Region="H&amp;D" Reichweite="0" Typ="Wort" Ursprung="elementar" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Wirkungsziel="Umgebung" Zauberdauer="10 min">
    <Grund Typ="Hl"/>
    <Grund Typ="dBe"/>
    <Grund Typ="eBe"/>
@@ -524,7 +524,7 @@
    <Ausnahme Typ="PM"/>
    <Ausnahme Typ="PT"/>
   </Spruch>
-  <Spruch Name="Klebesalz" Region="H&amp;D" Grad="1" Lernkosten="40" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="bewegt" Reagens="Metall" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="1 Ws" Wirkungsbereich="Umgebung" Wirkungsdauer="10 min" Zauberart="Zaubersalz">
+  <Spruch AP="1" Agens="Magan" Grad="1" Lernkosten="40" Name="Klebesalz" Prozess="bewegt" Reagens="Metall" Region="H&amp;D" Reichweite="500 m" Typ="Gedanke" Ursprung="dämonisch" Wirkungsbereich="Umgebung" Wirkungsdauer="10 min" Wirkungsziel="1 Ws" Zauberart="Zaubersalz" Zauberdauer="1 s">
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Standard Typ="Mg"/>
@@ -554,7 +554,7 @@
    <Ausnahme Typ="eBe"/>
    <Beschreibung>Das Salz wird auf zwei möglichst glatte(sonst WM-2) Oberflächen aufgebracht und aneinandergehalten. Danach nur mit einem Kraftakt zu trennen.</Beschreibung>
   </Spruch>
-  <Spruch Name="Knallsalz" Region="H&amp;D" Grad="1" Lernkosten="60" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="verändert" Reagens="Luft" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Umgebung" Wirkungsdauer="2 min" Zauberart="Zaubersalz">
+  <Spruch AP="1" Agens="Magan" Grad="1" Lernkosten="60" Name="Knallsalz" Prozess="verändert" Reagens="Luft" Region="H&amp;D" Reichweite="500 m" Typ="Gedanke" Ursprung="dämonisch" Wirkungsdauer="2 min" Wirkungsziel="Umgebung" Zauberart="Zaubersalz" Zauberdauer="1 s">
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Standard Typ="Mg"/>
@@ -584,7 +584,7 @@
    <Ausnahme Typ="eBe"/>
    <Beschreibung>Das Salz knallt und kracht.</Beschreibung>
   </Spruch>
-  <Spruch Name="Kopieren" Region="H&amp;D" Grad="3" Lernkosten="800" AP="1#Seite" Typ="Geste" Ursprung="dämonisch" Zauberdauer="1 min pro Seite" Reichweite="1m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="0" Material="Schreibmaterial" Spruchrolle="true" Thaumagramm="Siegel">
+  <Spruch AP="1#Seite" Grad="3" Lernkosten="800" Material="Schreibmaterial" Name="Kopieren" Region="H&amp;D" Reichweite="1m" Spruchrolle="true" Thaumagramm="Siegel" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="1 Ob" Wirkungsdauer="0" Wirkungsziel="Umgebung" Zauberdauer="1 min pro Seite">
    <Grund Typ="PC"/>
    <Grund Typ="PF"/>
    <Grund Typ="PHa"/>
@@ -605,7 +605,7 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Kravyad-Schrei" Region="H&amp;D" Grad="1" Lernkosten="100" AP="2" Typ="Geste" Ursprung="druidisch" Zauberdauer="1 s" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="Z" Wirkungsdauer="1 min" Material="Stimband eines Kravyad-Sauriers" Spruchrolle="true" Thaumagramm="Siegel">
+  <Spruch AP="2" Grad="1" Lernkosten="100" Material="Stimband eines Kravyad-Sauriers" Name="Kravyad-Schrei" Region="H&amp;D" Reichweite="0" Spruchrolle="true" Thaumagramm="Siegel" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="Z" Wirkungsdauer="1 min" Wirkungsziel="Körper" Zauberdauer="1 s">
    <Grund Typ="Sk"/>
    <Standard Typ="Ba"/>
    <Standard Typ="Dr"/>
@@ -628,7 +628,7 @@
    <Standard Typ="eBe"/>
    <Standard Typ="gHx"/>
   </Spruch>
-  <Spruch Name="Ku�&#x9F; des Schlafes" Region="H&amp;D" Grad="2" Lernkosten="200" AP="1AP#Gr" Typ="Gedanke" Ursprung="druidisch" Zauberdauer="5 s" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="8 h">
+  <Spruch AP="1AP#Gr" Grad="2" Lernkosten="200" Name="Ku�&#x9F; des Schlafes" Region="H&amp;D" Reichweite="B" Typ="Gedanke" Ursprung="druidisch" Wirkungsbereich="1 Ws" Wirkungsdauer="8 h" Wirkungsziel="Körper" Zauberdauer="5 s">
    <Grund Typ="De"/>
    <Grund Typ="ScN"/>
    <Grund Typ="ScS"/>
@@ -647,7 +647,7 @@
    <Ausnahme Typ="PT"/>
    <Ausnahme Typ="PW"/>
   </Spruch>
-  <Spruch Name="Lahmsalz" Region="H&amp;D" Grad="1" Lernkosten="80" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Holz" Prozess="verändert" Reagens="Erde" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="1 min" Zauberart="Zaubersalz">
+  <Spruch AP="1" Agens="Holz" Grad="1" Lernkosten="80" Name="Lahmsalz" Prozess="verändert" Reagens="Erde" Region="H&amp;D" Reichweite="500 m" Typ="Gedanke" Ursprung="dämonisch" Wirkungsbereich="1 Ws" Wirkungsdauer="1 min" Wirkungsziel="Körper" Zauberart="Zaubersalz" Zauberdauer="1 s">
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Standard Typ="Mg"/>
@@ -677,7 +677,7 @@
    <Ausnahme Typ="eBe"/>
    <Beschreibung>Dem Opfer schlafen die Beine ein. WM-6 auf Springen, Geländelauf und ähnliches.</Beschreibung>
   </Spruch>
-  <Spruch Name="Lustsalz" Region="H&amp;D" Grad="1" Lernkosten="80" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer=" " Zauberart="Zaubersalz">
+  <Spruch AP="1" Agens="Magan" Grad="1" Lernkosten="80" Name="Lustsalz" Prozess="beherrscht" Reagens="Wasser" Region="H&amp;D" Reichweite="500 m" Typ="Gedanke" Ursprung="dämonisch" Wirkungsbereich="1 Ws" Wirkungsdauer=" " Wirkungsziel="Körper" Zauberart="Zaubersalz" Zauberdauer="1 s">
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Standard Typ="Mg"/>
@@ -707,7 +707,7 @@
    <Ausnahme Typ="eBe"/>
    <Beschreibung>Das Opfer hat unwiderstehliche Lust auf Sex. Nur schwerwiegende Gründe können sie davon abhalten, Kampfeshandlungen, Erziehung, Standesunterschiede usw.</Beschreibung>
   </Spruch>
-  <Spruch Name="Magische Aura" Region="H&amp;D" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="dämonisch" Zauberdauer="30 s" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws/Ob" Wirkungsdauer="1h/1 Monat" Material="Alchimistenmetallstaub">
+  <Spruch AP="2" Grad="2" Lernkosten="200" Material="Alchimistenmetallstaub" Name="Magische Aura" Region="H&amp;D" Reichweite="B" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="1 Ws/Ob" Wirkungsdauer="1h/1 Monat" Wirkungsziel="Umgebung" Zauberdauer="30 s">
    <Grund Typ="Km"/>
    <Grund Typ="MMa"/>
    <Grund Typ="Ma"/>
@@ -724,7 +724,7 @@
    <Ausnahme Typ="PK"/>
    <Ausnahme Typ="PW"/>
   </Spruch>
-  <Spruch Name="Magischer Spion" Region="H&amp;D" Grad="4" Lernkosten="2000" AP="6" Typ="Geste" Ursprung="dämonisch" Zauberdauer="je 2 min" Reichweite="2 km" Wirkungsziel="Umgebung" Wirkungsbereich="0" Wirkungsdauer="1 Monat" Material="Harz und Edelsteinstaub" Thaumagramm="Siegel">
+  <Spruch AP="6" Grad="4" Lernkosten="2000" Material="Harz und Edelsteinstaub" Name="Magischer Spion" Region="H&amp;D" Reichweite="2 km" Thaumagramm="Siegel" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="0" Wirkungsdauer="1 Monat" Wirkungsziel="Umgebung" Zauberdauer="je 2 min">
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Grund Typ="gHx"/>
@@ -737,7 +737,7 @@
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
   </Spruch>
-  <Spruch Name="Nebelsalz" Region="H&amp;D" Grad="1" Lernkosten="60" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Wasser" Prozess="verwandelt" Reagens="Luft" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Umgebung" Wirkungsbereich="2m Uk" Wirkungsdauer="3 h" Zauberart="Zaubersalz">
+  <Spruch AP="1" Agens="Wasser" Grad="1" Lernkosten="60" Name="Nebelsalz" Prozess="verwandelt" Reagens="Luft" Region="H&amp;D" Reichweite="500 m" Typ="Gedanke" Ursprung="dämonisch" Wirkungsbereich="2m Uk" Wirkungsdauer="3 h" Wirkungsziel="Umgebung" Zauberart="Zaubersalz" Zauberdauer="1 s">
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Standard Typ="Mg"/>
@@ -767,7 +767,7 @@
    <Ausnahme Typ="eBe"/>
    <Beschreibung>Es entsteht eine dichte kleine Nebelwolke.</Beschreibung>
   </Spruch>
-  <Spruch Name="Reizen" Region="H&amp;D" Grad="1" Lernkosten="120" AP="1AP*Gr" Typ="Wort" Ursprung="dämonisch" Zauberdauer="5 s" Reichweite="30 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws:Gr" Wirkungsdauer="2 h" Spruchrolle="true">
+  <Spruch AP="1AP*Gr" Grad="1" Lernkosten="120" Name="Reizen" Region="H&amp;D" Reichweite="30 m" Spruchrolle="true" Typ="Wort" Ursprung="dämonisch" Wirkungsbereich="1 Ws:Gr" Wirkungsdauer="2 h" Wirkungsziel="Geist" Zauberdauer="5 s">
    <Grund Typ="PW"/>
    <Grund Typ="dBe"/>
    <Standard Typ="Dt"/>
@@ -779,7 +779,7 @@
    <Standard Typ="eBe"/>
    <Ausnahme Typ="Hl"/>
   </Spruch>
-  <Spruch Name="Reptilien rufen" Region="H&amp;D" Grad="3" Lernkosten="600" AP="3-9 AP" Typ="Wort" Ursprung="dämonisch" Zauberdauer="10 s" Reichweite="2 km" Wirkungsziel="Geist" Wirkungsbereich="var" Wirkungsdauer="10 min" Spruchrolle="true">
+  <Spruch AP="3-9 AP" Grad="3" Lernkosten="600" Name="Reptilien rufen" Region="H&amp;D" Reichweite="2 km" Spruchrolle="true" Typ="Wort" Ursprung="dämonisch" Wirkungsbereich="var" Wirkungsdauer="10 min" Wirkungsziel="Geist" Zauberdauer="10 s">
    <Grund Typ="Dr"/>
    <Grund Typ="Hl"/>
    <Standard Typ="De"/>
@@ -794,7 +794,7 @@
    <Ausnahme Typ="Ma"/>
    <Ausnahme Typ="PT"/>
   </Spruch>
-  <Spruch Name="Schattenbruder" Region="H&amp;D" Grad="4" Lernkosten="1500" AP="6" Typ="Geste" Ursprung="dämonisch" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="12m Uk" Wirkungsdauer="2 min" Spruchrolle="true" Thaumagramm="Runenstab">
+  <Spruch AP="6" Grad="4" Lernkosten="1500" Name="Schattenbruder" Region="H&amp;D" Reichweite="0" Spruchrolle="true" Thaumagramm="Runenstab" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="12m Uk" Wirkungsdauer="2 min" Wirkungsziel="Umgebung" Zauberdauer="10 s">
    <Grund Typ="PC"/>
    <Grund Typ="gHx"/>
    <Grund Typ="sHx"/>
@@ -810,7 +810,7 @@
    <Ausnahme Typ="ScS"/>
    <Ausnahme Typ="ScW"/>
   </Spruch>
-  <Spruch Name="Schmerzen spüren" Region="H&amp;D" Grad="3" Lernkosten="600" AP="3" Typ="Gedanke" Ursprung="druidisch" Zauberdauer="15 s" Reichweite="500 m" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="30 s" Spruchrolle="true">
+  <Spruch AP="3" Grad="3" Lernkosten="600" Name="Schmerzen spüren" Region="H&amp;D" Reichweite="500 m" Spruchrolle="true" Typ="Gedanke" Ursprung="druidisch" Wirkungsbereich="1 Ws" Wirkungsdauer="30 s" Wirkungsziel="Geist" Zauberdauer="15 s">
    <Grund Typ="De"/>
    <Grund Typ="ScN"/>
    <Grund Typ="ScS"/>
@@ -831,7 +831,7 @@
    <Ausnahme Typ="PT"/>
    <Ausnahme Typ="dBe"/>
   </Spruch>
-  <Spruch Name="Schminken" Region="H&amp;D" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="dämonisch" Zauberdauer="1 min" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="4 h" Material="Papageienfeder">
+  <Spruch AP="2" Grad="2" Lernkosten="200" Material="Papageienfeder" Name="Schminken" Region="H&amp;D" Reichweite="B" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="1 Ws" Wirkungsdauer="4 h" Wirkungsziel="Körper" Zauberdauer="1 min">
    <Grund Typ="Ba"/>
    <Grund Typ="gHx"/>
    <Grund Typ="sHx"/>
@@ -847,7 +847,7 @@
    <Standard Typ="ScW"/>
    <Ausnahme Typ="PT"/>
   </Spruch>
-  <Spruch Name="Schreiber beschwören" Region="H&amp;D" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="dämonisch" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="Pergament">
+  <Spruch AP="3" Grad="3" Lernkosten="800" Material="Pergament" Name="Schreiber beschwören" Region="H&amp;D" Reichweite="0" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Wirkungsziel="Umgebung" Zauberdauer="10 min">
    <Grund Typ="dBe"/>
    <Grund Typ="eBe"/>
    <Standard Typ="Dt"/>
@@ -861,7 +861,7 @@
    <Ausnahme Typ="Hl"/>
    <Ausnahme Typ="PHe"/>
   </Spruch>
-  <Spruch Name="Seance" Region="H&amp;D" Grad="3" Lernkosten="1000" AP="alle" Typ="Geste" Ursprung="dämonisch" Zauberdauer="2 h" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="Z" Wirkungsdauer="10 min" Material="Schwarze Kerzen, Weihrauch, Totenschädel">
+  <Spruch AP="alle" Grad="3" Lernkosten="1000" Material="Schwarze Kerzen, Weihrauch, Totenschädel" Name="Seance" Region="H&amp;D" Reichweite="0" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="Z" Wirkungsdauer="10 min" Wirkungsziel="Geist" Zauberdauer="2 h">
    <Grund Typ="De"/>
    <Grund Typ="ScN"/>
    <Grund Typ="ScS"/>
@@ -877,7 +877,7 @@
    <Ausnahme Typ="MMa"/>
    <Ausnahme Typ="Ma"/>
   </Spruch>
-  <Spruch Name="Signalkugel" Region="H&amp;D" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="elementar" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="0" Wirkungsdauer="20 s" Material="Eulenfeder und Zunder" Spruchrolle="true" Thaumagramm="Runenstab">
+  <Spruch AP="2" Grad="2" Lernkosten="200" Material="Eulenfeder und Zunder" Name="Signalkugel" Region="H&amp;D" Reichweite="0" Spruchrolle="true" Thaumagramm="Runenstab" Typ="Geste" Ursprung="elementar" Wirkungsbereich="0" Wirkungsdauer="20 s" Wirkungsziel="Umgebung" Zauberdauer="10 s">
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Grund Typ="gHx"/>
@@ -890,7 +890,7 @@
    <Standard Typ="PHe"/>
    <Standard Typ="PM"/>
   </Spruch>
-  <Spruch Name="Sprachlähmung" Region="H&amp;D" Grad="4" Lernkosten="1500" AP="1AP*Gr" Typ="Geste" Ursprung="druidisch" Zauberdauer="10 s" Reichweite="30 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="2 h" Material="Schnur mit Knoten" Spruchrolle="true">
+  <Spruch AP="1AP*Gr" Grad="4" Lernkosten="1500" Material="Schnur mit Knoten" Name="Sprachlähmung" Region="H&amp;D" Reichweite="30 m" Spruchrolle="true" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="1 Ws" Wirkungsdauer="2 h" Wirkungsziel="Körper" Zauberdauer="10 s">
    <Grund Typ="Hl"/>
    <Standard Typ="Dt"/>
    <Standard Typ="Km"/>
@@ -905,7 +905,7 @@
    <Ausnahme Typ="ScS"/>
    <Ausnahme Typ="ScW"/>
   </Spruch>
-  <Spruch Name="Tiefschlaf" Region="H&amp;D" Grad="5" Lernkosten="3000" AP="6" Typ="Geste" Ursprung="druidisch" Zauberdauer="10 s" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h" Thaumagramm="Siegel">
+  <Spruch AP="6" Grad="5" Lernkosten="3000" Name="Tiefschlaf" Region="H&amp;D" Reichweite="B" Thaumagramm="Siegel" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h" Wirkungsziel="Körper" Zauberdauer="10 s">
    <Grund Typ="Hl"/>
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
@@ -930,7 +930,7 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Trockensalz" Region="H&amp;D" Grad="1" Lernkosten="40" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Feuer" Prozess="bewegt" Reagens="Wasser" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Umgebung" Zauberart="Zaubersalz">
+  <Spruch AP="1" Agens="Feuer" Grad="1" Lernkosten="40" Name="Trockensalz" Prozess="bewegt" Reagens="Wasser" Region="H&amp;D" Reichweite="500 m" Typ="Gedanke" Ursprung="dämonisch" Wirkungsziel="Umgebung" Zauberart="Zaubersalz" Zauberdauer="1 s">
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Standard Typ="Mg"/>
@@ -960,7 +960,7 @@
    <Ausnahme Typ="eBe"/>
    <Beschreibung>Das Salz saugt bis zu 1l Flüssigkeit auf.</Beschreibung>
   </Spruch>
-  <Spruch Name="Trunk des Lebens" Region="H&amp;D" Grad="1" Lernkosten="100" AP="1/2" Typ="Geste" Ursprung="druidisch" Zauberdauer="10 s" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="var" Wirkungsdauer="0" Material="Honig" Spruchrolle="true">
+  <Spruch AP="1/2" Grad="1" Lernkosten="100" Material="Honig" Name="Trunk des Lebens" Region="H&amp;D" Reichweite="B" Spruchrolle="true" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="var" Wirkungsdauer="0" Wirkungsziel="Umgebung" Zauberdauer="10 s">
    <Grund Typ="Hl"/>
    <Standard Typ="Km"/>
    <Standard Typ="MMa"/>
@@ -975,7 +975,7 @@
    <Ausnahme Typ="ScS"/>
    <Ausnahme Typ="ScW"/>
   </Spruch>
-  <Spruch Name="Ungeziefer bannen" Region="H&amp;D" Grad="3" Lernkosten="1000" AP="3-9 AP" Typ="Geste" Ursprung="druidisch" Zauberdauer="10 min" Reichweite="0" Wirkungsziel="Geist" Wirkungsbereich="6m Uk" Wirkungsdauer="8 h" Material="Schädel" Spruchrolle="true" Thaumagramm="Siegel">
+  <Spruch AP="3-9 AP" Grad="3" Lernkosten="1000" Material="Schädel" Name="Ungeziefer bannen" Region="H&amp;D" Reichweite="0" Spruchrolle="true" Thaumagramm="Siegel" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="6m Uk" Wirkungsdauer="8 h" Wirkungsziel="Geist" Zauberdauer="10 min">
    <Grund Typ="Dr"/>
    <Grund Typ="PF"/>
    <Grund Typ="Sw"/>
@@ -999,7 +999,7 @@
    <Ausnahme Typ="To"/>
    <Ausnahme Typ="gHx"/>
   </Spruch>
-  <Spruch Name="Waldluft" Region="H&amp;D" Grad="1" Lernkosten="80" AP="1" Typ="Wort" Ursprung="druidisch" Zauberdauer="10 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="12m Uk" Wirkungsdauer="8 h">
+  <Spruch AP="1" Grad="1" Lernkosten="80" Name="Waldluft" Region="H&amp;D" Reichweite="0" Typ="Wort" Ursprung="druidisch" Wirkungsbereich="12m Uk" Wirkungsdauer="8 h" Wirkungsziel="Umgebung" Zauberdauer="10 s">
    <Grund Typ="De"/>
    <Grund Typ="Dr"/>
    <Grund Typ="Hl"/>
@@ -1021,7 +1021,7 @@
    <Ausnahme Typ="PT"/>
    <Ausnahme Typ="PW"/>
   </Spruch>
-  <Spruch Name="Wolkenbruch" Region="H&amp;D" Grad="4" Lernkosten="2000" AP="4" Typ="Geste" Ursprung="druidisch" Zauberdauer="10 s" Reichweite="50 m" Wirkungsziel="Umgebung" Wirkungsbereich="5m Uk" Wirkungsdauer="10 min" Material="Regenwasser" Spruchrolle="true">
+  <Spruch AP="4" Grad="4" Lernkosten="2000" Material="Regenwasser" Name="Wolkenbruch" Region="H&amp;D" Reichweite="50 m" Spruchrolle="true" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="5m Uk" Wirkungsdauer="10 min" Wirkungsziel="Umgebung" Zauberdauer="10 s">
    <Grund Typ="De"/>
    <Grund Typ="PM"/>
    <Grund Typ="ScN"/>
@@ -1041,7 +1041,7 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Wüstenwind" Region="H&amp;D" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="druidisch" Zauberdauer="19 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="30m Uk Kegel" Wirkungsdauer="2 min" Material="Wüstensand" Thaumagramm="Runenstab">
+  <Spruch AP="3" Grad="3" Lernkosten="800" Material="Wüstensand" Name="Wüstenwind" Region="H&amp;D" Reichweite="0" Thaumagramm="Runenstab" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="30m Uk Kegel" Wirkungsdauer="2 min" Wirkungsziel="Umgebung" Zauberdauer="19 s">
    <Grund Typ="De"/>
    <Grund Typ="PM"/>
    <Grund Typ="PW"/>
@@ -1065,7 +1065,7 @@
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
   </Spruch>
-  <Spruch Name="Zaubertür" Region="H&amp;D" Grad="6" Lernkosten="10000" AP="9" Typ="Geste" Ursprung="dämonisch" Zauberdauer="30 s" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1x2m Wand" Wirkungsdauer="2 min" Spruchrolle="true" Thaumagramm="Siegel">
+  <Spruch AP="9" Grad="6" Lernkosten="10000" Name="Zaubertür" Region="H&amp;D" Reichweite="B" Spruchrolle="true" Thaumagramm="Siegel" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="1x2m Wand" Wirkungsdauer="2 min" Wirkungsziel="Umgebung" Zauberdauer="30 s">
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Standard Typ="Km"/>
@@ -1075,7 +1075,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Zucksalz" Region="H&amp;D" Grad="1" Lernkosten="60" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="beherrscht" Reagens="Luft" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="2 min" Zauberart="Zaubersalz">
+  <Spruch AP="1" Agens="Magan" Grad="1" Lernkosten="60" Name="Zucksalz" Prozess="beherrscht" Reagens="Luft" Region="H&amp;D" Reichweite="500 m" Typ="Gedanke" Ursprung="dämonisch" Wirkungsbereich="1 Ws" Wirkungsdauer="2 min" Wirkungsziel="Körper" Zauberart="Zaubersalz" Zauberdauer="1 s">
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
    <Standard Typ="Mg"/>
@@ -1105,7 +1105,7 @@
    <Ausnahme Typ="eBe"/>
    <Beschreibung>Das Opfer leidet unter nervösen Zuckungen, was WM-4 auf alle EW bedeutet, auch Angriff und Zaubern. pA sinkt auf ein Viertel.</Beschreibung>
   </Spruch>
-  <Spruch Name="Zurückführen" Region="H&amp;D" Grad="6" Lernkosten="6000" AP="var" Typ="Wort" Ursprung="druidisch" Zauberdauer="6 h" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="0" Thaumagramm="Siegel">
+  <Spruch AP="var" Grad="6" Lernkosten="6000" Name="Zurückführen" Region="H&amp;D" Reichweite="B" Thaumagramm="Siegel" Typ="Wort" Ursprung="druidisch" Wirkungsbereich="1 Ob" Wirkungsdauer="0" Wirkungsziel="Umgebung" Zauberdauer="6 h">
    <Grund Typ="Dr"/>
    <Grund Typ="Sw"/>
    <Grund Typ="Th"/>
@@ -1121,7 +1121,7 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Zwingkreis" Region="H&amp;D" Grad="5" Lernkosten="4000" AP="6" Typ="Geste" Ursprung="druidisch" Zauberdauer="10 s" Reichweite="30m" Wirkungsziel="Umgebung" Wirkungsbereich="6m Uk" Wirkungsdauer="6 h" Material="Kupferarmband" Spruchrolle="true">
+  <Spruch AP="6" Grad="5" Lernkosten="4000" Material="Kupferarmband" Name="Zwingkreis" Region="H&amp;D" Reichweite="30m" Spruchrolle="true" Typ="Geste" Ursprung="druidisch" Wirkungsbereich="6m Uk" Wirkungsdauer="6 h" Wirkungsziel="Umgebung" Zauberdauer="10 s">
    <Grund Typ="PHa"/>
    <Grund Typ="PW"/>
    <Grund Typ="dBe"/>

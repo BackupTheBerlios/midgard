@@ -20,32 +20,57 @@
 #include "table_steigern.hh"
 #include <Misc/itos.h>
 
+void table_steigern::clean_up()
+{ LabelSpin_gfp->deaktivate();
+  LabelSpin_silber->deaktivate();
+  LabelSpin_kupfer->deaktivate();
+  LabelSpin_gold->deaktivate();
+  LabelSpin_aep->deaktivate();
+  LabelSpin_kep->deaktivate();
+  LabelSpin_zep->deaktivate();
+}
+
+enum { Button_edit=0, Button_add=1 };
+
 void table_steigern::on_checkbutton_gfp()
 {
-// if(ev->button==3) checkbutton_gfp->set_active(!checkbutton_gfp->get_active()); 
- if(checkbutton_gfp->get_active())
-  {
+ if(button_GFP->get_index()==Button_edit)
     LabelSpin_gfp->edit_new();
-    //else if(ev->button == 3) LabelSpin_gfp->edit_add();
-  }
- else  LabelSpin_gfp->deaktivate();
-// return false;
+ else 
+    LabelSpin_gfp->edit_add();
 }
 
 void table_steigern::on_LabelSpin_gfp_activate()
 {
   hauptfenster->getAben().setGFP(LabelSpin_gfp->get_value());
-  checkbutton_gfp->set_active(false);
-  checkbutton_gfp->grab_focus();
   zeige_werte();
 }
 
 //////////////////////////////////////////////////////////////////////////
 
+// vielleicht nur ein bool?
+void table_steigern::show_goldeingabe(bool b,int button)
+{
+  LabelSpin_silber->set_value(hauptfenster->getAben().Silber());
+  LabelSpin_kupfer->set_value(hauptfenster->getAben().Kupfer());
+  LabelSpin_gold->set_value(hauptfenster->getAben().Gold());
+     if     (button == 1) 
+       { 
+         LabelSpin_silber->edit_new();
+         LabelSpin_kupfer->edit_new();
+         LabelSpin_gold->edit_new();
+       }
+     else
+       { 
+         LabelSpin_silber->edit_add();
+         LabelSpin_kupfer->edit_add();
+         LabelSpin_gold->edit_add();
+       }
+}
+
 void table_steigern::on_button_gold_eingeben()
 {
- // if(ev->button==3) button_gold_eingeben->set_active(!button_gold_eingeben->get_active()); 
- show_goldeingabe(button_gold_eingeben->get_active(),1);
+ show_goldeingabe(true,button_gold->get_index()==Button_edit);
 }
 
 
@@ -55,61 +80,17 @@ void table_steigern::on_LabelSpin_gold_activate()
  LabelSpin_silber->grab_focus();
 }
 
-/*
-bool table_steigern::on_spinbutton_gold_focus_out_event(GdkEventFocus *ev)
-{
- spinbutton_gold->update();
- hauptfenster->getAben().setGold(spinbutton_gold->get_value());
- return false;
-}
-
-bool table_steigern::on_spinbutton_gold_focus_in_event(GdkEventFocus *ev)
-{
- spinbutton_gold->select_region(0,-1);
- return false;
-}
-*/
 void table_steigern::on_LabelSpin_silber_activate()
 {
  hauptfenster->getAben().setSilber(LabelSpin_silber->get_value());
  LabelSpin_kupfer->grab_focus();
 }
-/*
-bool table_steigern::on_spinbutton_silber_focus_out_event(GdkEventFocus *ev)
-{
- spinbutton_silber->update();
- hauptfenster->getAben().setSilber(spinbutton_silber->get_value_as_int());
- return false;
-}
-
-bool table_steigern::on_spinbutton_silber_focus_in_event(GdkEventFocus *ev)
-{
- spinbutton_silber->select_region(0,-1);
- return false;
-}
-*/
 
 void table_steigern::on_LabelSpin_kupfer_activate()
 {
   hauptfenster->getAben().setKupfer(LabelSpin_kupfer->get_value());
-  button_gold_eingeben->grab_focus();
-  button_gold_eingeben->set_active(false);
 }
 
-/*
-bool table_steigern::on_spinbutton_kupfer_focus_out_event(GdkEventFocus *ev)
-{
- spinbutton_kupfer->update();
- hauptfenster->getAben().setKupfer(spinbutton_kupfer->get_value_as_int());
- return false;
-}
-
-bool table_steigern::on_spinbutton_kupfer_focus_in_event(GdkEventFocus *ev)
-{
- spinbutton_kupfer->select_region(0,-1);
- return false;
-}
-*/
 ///////////////////////////////////////////////////////////////////////////
 
 
@@ -118,57 +99,38 @@ void table_steigern::on_LabelSpin_aep_activate()
  hauptfenster->getAben().setAEP(LabelSpin_aep->get_value());
  LabelSpin_kep->grab_focus();
 }
-/*
-bool table_steigern::on_spinbutton_aep_focus_out_event(GdkEventFocus *ev)
-{
- spinbutton_aep->update();
- hauptfenster->getAben().setAEP(spinbutton_aep->get_value_as_int());
- return false;
-}
 
-bool table_steigern::on_spinbutton_aep_focus_in_event(GdkEventFocus *ev)
-{
- spinbutton_aep->select_region(0,-1);
- return false;
-}
-*/
 void table_steigern::on_LabelSpin_kep_activate()
 {
  hauptfenster->getAben().setKEP(LabelSpin_kep->get_value());
  LabelSpin_zep->grab_focus();
 }
 
-/*
-bool table_steigern::on_spinbutton_kep_focus_out_event(GdkEventFocus *ev)
-{
- spinbutton_kep->update();
- hauptfenster->getAben().setKEP(spinbutton_kep->get_value_as_int());
- return false;
-}
-
-bool table_steigern::on_spinbutton_kep_focus_in_event(GdkEventFocus *ev)
-{
- spinbutton_kep->select_region(0,-1);
- return false;
-}
-*/
 void table_steigern::on_LabelSpin_zep_activate()
 {
  hauptfenster->getAben().setZEP(LabelSpin_zep->get_value());
- button_EP->grab_focus();
- button_EP->set_active(false);  
-}
-/*
-bool table_steigern::on_spinbutton_zep_focus_out_event(GdkEventFocus *ev)
-{
- spinbutton_zep->update();
- hauptfenster->getAben().setZEP(spinbutton_zep->get_value_as_int());
- return false;
 }
 
-bool table_steigern::on_spinbutton_zep_focus_in_event(GdkEventFocus *ev)
-{
- spinbutton_zep->select_region(0,-1);
- return false;
+void table_steigern::on_button_EP_eingeben()
+{ 
+ show_EPeingabe(true,button_EP->get_index()==Button_edit);
 }
-*/
+
+void table_steigern::show_EPeingabe(bool b,int button)
+{
+  LabelSpin_aep->set_value(hauptfenster->getAben().AEP());
+  LabelSpin_kep->set_value(hauptfenster->getAben().KEP());
+  LabelSpin_zep->set_value(hauptfenster->getAben().ZEP());
+     if     (button == 1)
+       { 
+         LabelSpin_kep->edit_new();
+         LabelSpin_zep->edit_new();
+         LabelSpin_aep->edit_new();
+       }
+     else if(button == 3)
+       { 
+         LabelSpin_kep->edit_add();
+         LabelSpin_zep->edit_add();
+         LabelSpin_aep->edit_add();
+       }
+}

@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<MAGUS-data Region="W" Name="Waeland" Titel="Waeland - Die Krieger des Nordens" Copyright="Olaf Möhle, Stephanie Lammers u.a." Jahr="1991-1997" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="9" MAGUS-Bild="7" CVS="$Revision: 1.16 $">
+<MAGUS-data CVS="$Revision: 1.17 $" Copyright="Olaf Möhle, Stephanie Lammers u.a." Jahr="1991-1997" MAGUS-Bild="7" MAGUS-Index="9" Maintainer="Malte Thoma" Name="Waeland" Region="W" Titel="Waeland - Die Krieger des Nordens" Version="1.0" offiziell="true">
  <Fertigkeiten>
-  <Fertigkeit Name="Lesen von Zauberrunen" Region="W" Anfangswert="12" Lernkosten="20" Erfolgswert="6" Attribut="In" Maximalwert="18" MaximalMitUnterweisung="15">
+  <Fertigkeit Anfangswert="12" Attribut="In" Erfolgswert="6" Lernkosten="20" MaximalMitUnterweisung="15" Maximalwert="18" Name="Lesen von Zauberrunen" Region="W">
    <Grund Typ="De"/>
    <Grund Typ="PC"/>
    <Grund Typ="PF"/>
@@ -61,8 +61,8 @@
    <Ausnahme Typ="Tr"/>
    <Ausnahme Typ="Wa"/>
    <Ausnahme Typ="Wi"/>
-   <Lernschema Typ="Sk" Lernpunkte="1" Erfolgswert="12" Pflicht="true"/>
-   <Lernschema Typ="Ru" Lernpunkte="1" Erfolgswert="15" Pflicht="true"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Pflicht="true" Typ="Sk"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="1" Pflicht="true" Typ="Ru"/>
    <steigern_wie Fertigkeit="Lesen von Zauberschrift"/>
   </Fertigkeit>
   <Fertigkeit Name="Abrichten">
@@ -100,8 +100,8 @@
   <Fertigkeit Name="Beredsamkeit">
    <Grund Typ="Ru"/>
    <Grund Typ="Sk"/>
-   <Lernschema Typ="Ru" Lernpunkte="2" Erfolgswert="8"/>
-   <Lernschema Typ="Sk" Lernpunkte="2" Erfolgswert="8"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="Ru"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="Sk"/>
   </Fertigkeit>
   <Fertigkeit Name="Beschatten">
    <Grund Typ="Ru"/>
@@ -114,8 +114,8 @@
   <Fertigkeit Name="Dichten">
    <Grund Typ="Ru"/>
    <Grund Typ="Sk"/>
-   <Lernschema Typ="Ru" Lernpunkte="1" Erfolgswert="12" Pflicht="true"/>
-   <Lernschema Typ="Sk" Lernpunkte="1" Erfolgswert="12" Pflicht="true"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Pflicht="true" Typ="Ru"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Pflicht="true" Typ="Sk"/>
   </Fertigkeit>
   <Fertigkeit Name="Erste Hilfe">
    <Standard Typ="Ru"/>
@@ -260,7 +260,7 @@
   <Fertigkeit Name="Musizieren">
    <Grund Typ="Sk"/>
    <Standard Typ="Ru"/>
-   <Lernschema Typ="Sk" Lernpunkte="1" Erfolgswert="12" Pflicht="true"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Pflicht="true" Typ="Sk"/>
   </Fertigkeit>
   <Fertigkeit Name="Naturkunde">
    <Standard Typ="Ru"/>
@@ -277,7 +277,7 @@
   <Fertigkeit Name="Reiten">
    <Grund Typ="Ru"/>
    <Grund Typ="Sk"/>
-   <Lernschema Typ="Ru" Lernpunkte="2" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="2" Typ="Ru"/>
   </Fertigkeit>
   <Fertigkeit Name="Rudern">
    <Standard Typ="Ru"/>
@@ -286,8 +286,8 @@
   <Fertigkeit Name="Sagenkunde">
    <Grund Typ="Ru"/>
    <Grund Typ="Sk"/>
-   <Lernschema Typ="Ru" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Sk" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Ru"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Sk"/>
   </Fertigkeit>
   <Fertigkeit Name="Scharfschie�&#x9F;en">
    <Grund Typ="Ru"/>
@@ -322,13 +322,13 @@
    <Grund Typ="Sk"/>
   </Fertigkeit>
   <Fertigkeit Name="Schreiben: Muttersprache(+12)">
-   <Lernschema Typ="Ru" Lernpunkte="1" Erfolgswert="12" Pflicht="true"/>
-   <Lernschema Typ="Sk" Lernpunkte="1" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Pflicht="true" Typ="Ru"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="Sk"/>
   </Fertigkeit>
   <Fertigkeit Name="Schwimmen">
    <Grund Typ="Ru"/>
    <Grund Typ="Sk"/>
-   <Lernschema Typ="Ru" Lernpunkte="2" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="2" Typ="Ru"/>
   </Fertigkeit>
   <Fertigkeit Name="Schätzen">
    <Standard Typ="Ru"/>
@@ -373,7 +373,7 @@
   <Fertigkeit Name="Stimmen nachahmen">
    <Grund Typ="Sk"/>
    <Standard Typ="Ru"/>
-   <Lernschema Typ="Sk" Lernpunkte="2" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="2" Typ="Sk"/>
   </Fertigkeit>
   <Fertigkeit Name="Streitwagen lenken">
    <Standard Typ="Ru"/>
@@ -410,7 +410,7 @@
   <Fertigkeit Name="Verführen">
    <Grund Typ="Sk"/>
    <Standard Typ="Ru"/>
-   <Lernschema Typ="Sk" Lernpunkte="2" Erfolgswert="8"/>
+   <Lernschema Erfolgswert="8" Lernpunkte="2" Typ="Sk"/>
   </Fertigkeit>
   <Fertigkeit Name="Verhören">
    <Standard Typ="Ru"/>
@@ -495,7 +495,7 @@
   <Fertigkeit Name="Wetterkunde" Region="H&amp;D">
    <Grund Typ="Ru"/>
    <Grund Typ="Sk"/>
-   <Lernschema Typ="Ru" Lernpunkte="2" Erfolgswert="15"/>
+   <Lernschema Erfolgswert="15" Lernpunkte="2" Typ="Ru"/>
   </Fertigkeit>
   <Fertigkeit Name="FengSchui" Region="K">
    <Grund Typ="Ru"/>
@@ -658,24 +658,24 @@
    <Standard Typ="Sk"/>
   </Fertigkeit>
   <Fertigkeit Name="Schreiben: Muttersprache(+12)">
-   <Lernschema Typ="Ru" Lernpunkte="1" Erfolgswert="12" Pflicht="true"/>
-   <Lernschema Typ="Sk" Lernpunkte="1" Erfolgswert="12"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Pflicht="true" Typ="Ru"/>
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="Sk"/>
   </Fertigkeit>
  </Fertigkeiten>
  <Berufe/>
  <Schriften>
-  <Schrift Name="Futhark" Region="W" Typ="Runen" Kosten="20"/>
+  <Schrift Kosten="20" Name="Futhark" Region="W" Typ="Runen"/>
  </Schriften>
  <Sprachen/>
  <Typen>
-  <Typ Abkürzung="Sk" Region="W" MAGUS-Index="43" Bezeichnung-Mann="Skalde" Bezeichnung-Frau="Skaldin" kannZaubern="true" Ausdauer="ak">
-   <Modifikation Stand="20" Rüstung="1" Geld="4"/>
+  <Typ Abkürzung="Sk" Ausdauer="ak" Bezeichnung-Frau="Skaldin" Bezeichnung-Mann="Skalde" MAGUS-Index="43" Region="W" kannZaubern="true">
+   <Modifikation Geld="4" Rüstung="1" Stand="20"/>
    <Herkunft Land="Waeland"/>
    <Gruppe Name="K�&#x84;M"/>
    <Gruppe Name="ZK�&#x84;M"/>
   </Typ>
-  <Typ Abkürzung="Ru" Region="W" MAGUS-Index="44" Bezeichnung-Mann="Runenschneider" Bezeichnung-Frau="Runenschneiderin" kannZaubern="true" SprücheMitPraxisPunkten="Runen" Berufswahl="k" Ausdauer="ak">
-   <Modifikation Rüstung="3" Geld="3"/>
+  <Typ Abkürzung="Ru" Ausdauer="ak" Berufswahl="k" Bezeichnung-Frau="Runenschneiderin" Bezeichnung-Mann="Runenschneider" MAGUS-Index="44" Region="W" SprücheMitPraxisPunkten="Runen" kannZaubern="true">
+   <Modifikation Geld="3" Rüstung="3"/>
    <Herkunft Land="Waeland"/>
    <Gruppe Name="K�&#x84;M"/>
    <Gruppe Name="ZK�&#x84;M"/>
@@ -698,8 +698,8 @@
   <Waffe Name="Bogen">
    <Standard Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <Lernschema Typ="Ru" Lernpunkte="3" Erfolgswert="5"/>
-   <Lernschema Typ="Sk" Lernpunkte="4" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Ru"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="4" Typ="Sk"/>
   </Waffe>
   <Waffe Name="Bola">
    <Standard Typ="Ru"/>
@@ -712,8 +712,8 @@
   <Waffe Name="Dolch">
    <Standard Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <Lernschema Typ="Ru" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Sk" Lernpunkte="1" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Ru"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Sk"/>
   </Waffe>
   <Waffe Name="Faustkampf">
    <Standard Typ="Ru"/>
@@ -790,8 +790,8 @@
   <Waffe Name="Langschwert">
    <Standard Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <Lernschema Typ="Ru" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Sk" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Ru"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Sk"/>
   </Waffe>
   <Waffe Name="Lanze">
    <Standard Typ="Ru"/>
@@ -838,8 +838,8 @@
   <Waffe Name="Schlachtbeil">
    <Standard Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <Lernschema Typ="Ru" Lernpunkte="3" Erfolgswert="5"/>
-   <Lernschema Typ="Sk" Lernpunkte="4" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Ru"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="4" Typ="Sk"/>
   </Waffe>
   <Waffe Name="Schleuder">
    <Standard Typ="Ru"/>
@@ -872,8 +872,8 @@
   <Waffe Name="Streitaxt">
    <Standard Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <Lernschema Typ="Ru" Lernpunkte="2" Erfolgswert="5"/>
-   <Lernschema Typ="Sk" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Ru"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Sk"/>
   </Waffe>
   <Waffe Name="Streitkolben">
    <Standard Typ="Ru"/>
@@ -914,8 +914,8 @@
   <Waffe Name="Wurfspeer">
    <Standard Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <Lernschema Typ="Ru" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Sk" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Ru"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Sk"/>
   </Waffe>
   <Waffe Name="Wurfspie�&#x9F;">
    <Standard Typ="Ru"/>
@@ -928,8 +928,8 @@
   <Waffe Name="gro�&#x9F;er Schild">
    <Standard Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <Lernschema Typ="Ru" Lernpunkte="1" Erfolgswert="1"/>
-   <Lernschema Typ="Sk" Lernpunkte="2" Erfolgswert="1"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="1" Typ="Ru"/>
+   <Lernschema Erfolgswert="1" Lernpunkte="2" Typ="Sk"/>
   </Waffe>
   <Waffe Name="kleiner Schild">
    <Standard Typ="Ru"/>
@@ -942,8 +942,8 @@
   <Waffe Name="leichter Speer">
    <Standard Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <Lernschema Typ="Ru" Lernpunkte="1" Erfolgswert="5"/>
-   <Lernschema Typ="Sk" Lernpunkte="2" Erfolgswert="5"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="1" Typ="Ru"/>
+   <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Sk"/>
   </Waffe>
   <Waffe Name="schwere Armbrust">
    <Standard Typ="Ru"/>
@@ -1120,88 +1120,88 @@
   </Waffen-Grundkenntnis>
  </Waffen-Grundkenntnisse>
  <Zauber>
-  <Spruch Name="Bannrune" Region="W" Grad="3" Lernkosten="1000" AP="3" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Umgebung" Wirkungsbereich="3m Uk" Wirkungsdauer="12 h" Material="6 Apfelbaumstücke" Zauberart="Runen">
+  <Spruch AP="3" Agens="Luft" Grad="3" Lernkosten="1000" Material="6 Apfelbaumstücke" Name="Bannrune" Prozess="beherrscht" Reagens="Feuer" Region="W" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="3m Uk" Wirkungsdauer="12 h" Wirkungsziel="Umgebung" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Becherrune" Region="W" Grad="1" Lernkosten="80" AP="1" Typ="Geste" Ursprung="göttlich" Agens="Holz" Prozess="erkennt" Reagens="Eis" Zauberdauer="30 min" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="6 h" Material="Trinkgefä�&#x9F;" Zauberart="Runen">
+  <Spruch AP="1" Agens="Holz" Grad="1" Lernkosten="80" Material="Trinkgefä�&#x9F;" Name="Becherrune" Prozess="erkennt" Reagens="Eis" Region="W" Reichweite="B" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ob" Wirkungsdauer="6 h" Wirkungsziel="Umgebung" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <Lernschema Typ="Ru" Lernpunkte="4"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <Lernschema Lernpunkte="4" Typ="Ru"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Berserkerrune" Region="W" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="göttlich" Agens="Magan" Prozess="verändert" Reagens="Wasser" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="var" Material="Waffe mit Eichenholzschaft" Zauberart="Runen">
+  <Spruch AP="3" Agens="Magan" Grad="3" Lernkosten="800" Material="Waffe mit Eichenholzschaft" Name="Berserkerrune" Prozess="verändert" Reagens="Wasser" Region="W" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="var" Wirkungsziel="Körper" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Drachenrune" Region="W" Grad="5" Lernkosten="1400" AP="6" Typ="Geste" Ursprung="göttlich" Agens="Feuer" Prozess="verändert" Reagens="Erde" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="Drachenschuppe" Zauberart="Runen">
+  <Spruch AP="6" Agens="Feuer" Grad="5" Lernkosten="1400" Material="Drachenschuppe" Name="Drachenrune" Prozess="verändert" Reagens="Erde" Region="W" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Wirkungsziel="Körper" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Fesselrune" Region="W" Grad="4" Lernkosten="2000" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Metall" Prozess="verändert" Reagens="Erde" Zauberdauer="30 min" Reichweite="30 m" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h" Material="Wolle und Espenholz" Zauberart="Runen">
+  <Spruch AP="4" Agens="Metall" Grad="4" Lernkosten="2000" Material="Wolle und Espenholz" Name="Fesselrune" Prozess="verändert" Reagens="Erde" Region="W" Reichweite="30 m" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h" Wirkungsziel="Körper" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Ausnahme Typ="Sk"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Flammenrune" Region="W" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="göttlich" Agens="Wasser" Prozess="zerstört" Reagens="Feuer" Zauberdauer="30 min" Reichweite="1 m" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws/Ob" Wirkungsdauer="1 h" Material="Drachenschuppe" Zauberart="Runen">
+  <Spruch AP="3" Agens="Wasser" Grad="3" Lernkosten="800" Material="Drachenschuppe" Name="Flammenrune" Prozess="zerstört" Reagens="Feuer" Region="W" Reichweite="1 m" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws/Ob" Wirkungsdauer="1 h" Wirkungsziel="Umgebung" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Friedensrune" Region="W" Grad="6" Lernkosten="5000" AP="9" Typ="Geste" Ursprung="göttlich" Agens="Metall" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Geist" Wirkungsbereich="2 Wesen" Wirkungsdauer="0" Material="Goldreif (100 GS)" Zauberart="Runen">
+  <Spruch AP="9" Agens="Metall" Grad="6" Lernkosten="5000" Material="Goldreif (100 GS)" Name="Friedensrune" Prozess="beherrscht" Reagens="Wasser" Region="W" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="2 Wesen" Wirkungsdauer="0" Wirkungsziel="Geist" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Grund Typ="Sk"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Geberrune" Region="W" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="verändert" Reagens="Luft" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="perm" Material="Silberscheibe in Münzgrö�&#x9F;e (2 SS)" Zauberart="Runen">
+  <Spruch AP="2" Agens="Luft" Grad="2" Lernkosten="200" Material="Silberscheibe in Münzgrö�&#x9F;e (2 SS)" Name="Geberrune" Prozess="verändert" Reagens="Luft" Region="W" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="perm" Wirkungsziel="Geist" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Grund Typ="Sk"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Geisterrune" Region="W" Grad="4" Lernkosten="1200" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Material="Stab aus dem Holz eines Apfelbaums" Zauberart="Runen">
+  <Spruch AP="4" Agens="Luft" Grad="4" Lernkosten="1200" Material="Stab aus dem Holz eines Apfelbaums" Name="Geisterrune" Prozess="beherrscht" Reagens="Feuer" Region="W" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Wirkungsziel="Körper" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Ausnahme Typ="Sk"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Geizrune" Region="W" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="verändert" Reagens="Luft" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="perm" Material="Pferdeschädel" Zauberart="Runen">
+  <Spruch AP="2" Agens="Luft" Grad="2" Lernkosten="200" Material="Pferdeschädel" Name="Geizrune" Prozess="verändert" Reagens="Luft" Region="W" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="perm" Wirkungsziel="Geist" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Grund Typ="Sk"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Gesichtsrune" Region="W" Grad="5" Lernkosten="30000" AP="6" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="erkennt" Reagens="Magan" Zauberdauer="30 min" Reichweite="15 m" Wirkungsziel="Geist" Wirkungsbereich="Zauberer" Wirkungsdauer="6 h" Material="Wurzelstück einer Esche" Zauberart="Runen">
+  <Spruch AP="6" Agens="Luft" Grad="5" Lernkosten="30000" Material="Wurzelstück einer Esche" Name="Gesichtsrune" Prozess="erkennt" Reagens="Magan" Region="W" Reichweite="15 m" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="Zauberer" Wirkungsdauer="6 h" Wirkungsziel="Geist" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Hagelrune" Region="W" Grad="1" Lernkosten="100" AP="1" Typ="Geste" Ursprung="göttlich" Agens="Magan" Prozess="verändert" Reagens="Wasser" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Woche" Material="Knochen eines Wildschafes" Zauberart="Runen">
+  <Spruch AP="1" Agens="Magan" Grad="1" Lernkosten="100" Material="Knochen eines Wildschafes" Name="Hagelrune" Prozess="verändert" Reagens="Wasser" Region="W" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="1 Woche" Wirkungsziel="Umgebung" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <Lernschema Typ="Ru" Lernpunkte="4"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <Lernschema Lernpunkte="4" Typ="Ru"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Heilsrune" Region="W" Grad="2" Lernkosten="300" AP="2" Typ="Geste" Ursprung="göttlich" Agens="Holz" Prozess="zerstört" Reagens="Eis" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Material="Stück Brennholz" Zauberart="Runen">
+  <Spruch AP="2" Agens="Holz" Grad="2" Lernkosten="300" Material="Stück Brennholz" Name="Heilsrune" Prozess="zerstört" Reagens="Eis" Region="W" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Wirkungsziel="Körper" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Ausnahme Typ="Sk"/>
-   <Lernschema Typ="Ru" Lernpunkte="6"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <Lernschema Lernpunkte="6" Typ="Ru"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Hexenschu�&#x9F;" Region="W" Grad="4" Lernkosten="2000" AP="4" Typ="Geste" Ursprung="schwarzmagisch" Agens="Magan" Prozess="zerstört" Reagens="Feuer" Zauberdauer="20 sec" Reichweite="30 m" Wirkungsziel="Körper" Wirkungsbereich="Strahl" Wirkungsdauer="10 min" Material="Schwarzdornpfeil mit Silberspitze (2GS)" Spruchrolle="true">
+  <Spruch AP="4" Agens="Magan" Grad="4" Lernkosten="2000" Material="Schwarzdornpfeil mit Silberspitze (2GS)" Name="Hexenschu�&#x9F;" Prozess="zerstört" Reagens="Feuer" Region="W" Reichweite="30 m" Spruchrolle="true" Typ="Geste" Ursprung="schwarzmagisch" Wirkungsbereich="Strahl" Wirkungsdauer="10 min" Wirkungsziel="Körper" Zauberdauer="20 sec">
    <Grund Typ="gHx"/>
    <Grund Typ="sHx"/>
    <Grund Typ="wHx"/>
@@ -1210,25 +1210,25 @@
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
   </Spruch>
-  <Spruch Name="Klingenrune" Region="W" Grad="4" Lernkosten="1200" AP="5" Typ="Geste" Ursprung="göttlich" Agens="Magan" Prozess="verändert" Reagens="Metall" Zauberdauer="10 min" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="1 h" Material="Klingenwaffe, eigenes blut" Zauberart="Runen">
+  <Spruch AP="5" Agens="Magan" Grad="4" Lernkosten="1200" Material="Klingenwaffe, eigenes blut" Name="Klingenrune" Prozess="verändert" Reagens="Metall" Region="W" Reichweite="B" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ob" Wirkungsdauer="1 h" Wirkungsziel="Umgebung" Zauberart="Runen" Zauberdauer="10 min">
    <Grund Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Kälterune" Region="W" Grad="1" Lernkosten="100" AP="1" Typ="Geste" Ursprung="göttlich" Agens="Feuer" Prozess="verändert" Reagens="Erde" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="24 h" Material="Seehundknochen" Zauberart="Runen">
+  <Spruch AP="1" Agens="Feuer" Grad="1" Lernkosten="100" Material="Seehundknochen" Name="Kälterune" Prozess="verändert" Reagens="Erde" Region="W" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="24 h" Wirkungsziel="Körper" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Liebesrune" Region="W" Grad="4" Lernkosten="2000" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Wasser" Prozess="beherrscht" Reagens="Wasser" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="perm" Material="Stück Birkenholz" Zauberart="Runen">
+  <Spruch AP="4" Agens="Wasser" Grad="4" Lernkosten="2000" Material="Stück Birkenholz" Name="Liebesrune" Prozess="beherrscht" Reagens="Wasser" Region="W" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="perm" Wirkungsziel="Geist" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Lösen" Region="W" Grad="3" Lernkosten="500" AP="3" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="zerstört" Reagens="Magan" Zauberdauer="10 sec" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Material="Schwungfeder eines Singschwans (1GS)" Spruchrolle="true" Thaumagramm="Siegel">
+  <Spruch AP="3" Agens="Luft" Grad="3" Lernkosten="500" Material="Schwungfeder eines Singschwans (1GS)" Name="Lösen" Prozess="zerstört" Reagens="Magan" Region="W" Reichweite="B" Spruchrolle="true" Thaumagramm="Siegel" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Wirkungsziel="Körper" Zauberdauer="10 sec">
    <Grund Typ="PW"/>
    <Standard Typ="Dr"/>
    <Standard Typ="Dt"/>
@@ -1253,13 +1253,13 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
   </Spruch>
-  <Spruch Name="Lösungsrune" Region="W" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="zerstört" Reagens="Magan" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws/Ob" Wirkungsdauer="0" Material="Stück Espenholz" Zauberart="Runen">
+  <Spruch AP="3" Agens="Luft" Grad="3" Lernkosten="800" Material="Stück Espenholz" Name="Lösungsrune" Prozess="zerstört" Reagens="Magan" Region="W" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws/Ob" Wirkungsdauer="0" Wirkungsziel="Umgebung" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Ausnahme Typ="Sk"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Oysteins kleine Prophezeiung" Region="W" Grad="4" Lernkosten="1500" AP="8" Typ="Gedanke" Ursprung="göttlich" Agens="Luft" Prozess="erkennt" Reagens="Luft" Zauberdauer="10 min" Reichweite="-" Wirkungsziel="Geist" Wirkungsbereich="Zauberer" Wirkungsdauer="0" Spruchrolle="true">
+  <Spruch AP="8" Agens="Luft" Grad="4" Lernkosten="1500" Name="Oysteins kleine Prophezeiung" Prozess="erkennt" Reagens="Luft" Region="W" Reichweite="-" Spruchrolle="true" Typ="Gedanke" Ursprung="göttlich" Wirkungsbereich="Zauberer" Wirkungsdauer="0" Wirkungsziel="Geist" Zauberdauer="10 min">
    <Grund Typ="Dt"/>
    <Grund Typ="PW"/>
    <Standard Typ="PC"/>
@@ -1273,122 +1273,122 @@
    <Standard Typ="ScS"/>
    <Standard Typ="ScW"/>
   </Spruch>
-  <Spruch Name="Pfeilrune" Region="W" Grad="2" Lernkosten="400" AP="2" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="bewegt" Reagens="Metall" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Material="Eibenholzscheibe an Bogensehne" Zauberart="Runen">
+  <Spruch AP="2" Agens="Luft" Grad="2" Lernkosten="400" Material="Eibenholzscheibe an Bogensehne" Name="Pfeilrune" Prozess="bewegt" Reagens="Metall" Region="W" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="1 h" Wirkungsziel="Umgebung" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <Lernschema Typ="Ru" Lernpunkte="8"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <Lernschema Lernpunkte="8" Typ="Ru"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Regenrune" Region="W" Grad="3" Lernkosten="800" AP="9" Typ="Geste" Ursprung="göttlich" Agens="Magan" Prozess="erschafft" Reagens="Wasser" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Umgebung" Wirkungsbereich="1 km Uk" Wirkungsdauer="var" Material="Specksteinfigur" Zauberart="Runen">
+  <Spruch AP="9" Agens="Magan" Grad="3" Lernkosten="800" Material="Specksteinfigur" Name="Regenrune" Prozess="erschafft" Reagens="Wasser" Region="W" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 km Uk" Wirkungsdauer="var" Wirkungsziel="Umgebung" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Reiserune" Region="W" Grad="1" Lernkosten="120" AP="1" Typ="Geste" Ursprung="göttlich" Agens="Magan" Prozess="verändert" Reagens="Wasser" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="7 Tage" Material="Rentierknochen" Zauberart="Runen">
+  <Spruch AP="1" Agens="Magan" Grad="1" Lernkosten="120" Material="Rentierknochen" Name="Reiserune" Prozess="verändert" Reagens="Wasser" Region="W" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="7 Tage" Wirkungsziel="Körper" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <Lernschema Typ="Ru" Lernpunkte="4"/>
-   <Lernschema Typ="Sk" Lernpunkte="4"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <Lernschema Lernpunkte="4" Typ="Ru"/>
+   <Lernschema Lernpunkte="4" Typ="Sk"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Schildrune" Region="W" Grad="2" Lernkosten="400" AP="2" Typ="Geste" Ursprung="göttlich" Agens="Magan" Prozess="verändert" Reagens="Holz" Zauberdauer="10 min" Reichweite="-" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="1 h" Material="Holzschild, Spucke" Zauberart="Runen">
+  <Spruch AP="2" Agens="Magan" Grad="2" Lernkosten="400" Material="Holzschild, Spucke" Name="Schildrune" Prozess="verändert" Reagens="Holz" Region="W" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ob" Wirkungsdauer="1 h" Wirkungsziel="Umgebung" Zauberart="Runen" Zauberdauer="10 min">
    <Grund Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <Lernschema Typ="Ru" Lernpunkte="8"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <Lernschema Lernpunkte="8" Typ="Ru"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Schneidenrune" Region="W" Grad="2" Lernkosten="300" AP="2" Typ="Geste" Ursprung="göttlich" Agens="Magan" Prozess="verändert" Reagens="Metall" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Umgebung" Wirkungsbereich="1 We" Wirkungsdauer="1 h" Material="Stück Eichenholz an Lederschnur" Zauberart="Runen">
+  <Spruch AP="2" Agens="Magan" Grad="2" Lernkosten="300" Material="Stück Eichenholz an Lederschnur" Name="Schneidenrune" Prozess="verändert" Reagens="Metall" Region="W" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 We" Wirkungsdauer="1 h" Wirkungsziel="Umgebung" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <Lernschema Typ="Ru" Lernpunkte="8"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <Lernschema Lernpunkte="8" Typ="Ru"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Schnellrune" Region="W" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="verändert" Reagens="Erde" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h" Material="Schuhsohle, Huf" Zauberart="Runen">
+  <Spruch AP="3" Agens="Luft" Grad="3" Lernkosten="800" Material="Schuhsohle, Huf" Name="Schnellrune" Prozess="verändert" Reagens="Erde" Region="W" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h" Wirkungsziel="Körper" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Schutzrune" Region="W" Grad="3" Lernkosten="1000" AP="3" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Umgebung" Wirkungsbereich="3m Uk" Wirkungsdauer="12 h" Material="6 Fichtenholzstücke" Zauberart="Runen">
+  <Spruch AP="3" Agens="Luft" Grad="3" Lernkosten="1000" Material="6 Fichtenholzstücke" Name="Schutzrune" Prozess="beherrscht" Reagens="Eis" Region="W" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="3m Uk" Wirkungsdauer="12 h" Wirkungsziel="Umgebung" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Stärkerune" Region="W" Grad="2" Lernkosten="200" AP="2" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="verändert" Reagens="Erde" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="var" Material="Ochsenhornscheibe" Zauberart="Runen">
+  <Spruch AP="2" Agens="Luft" Grad="2" Lernkosten="200" Material="Ochsenhornscheibe" Name="Stärkerune" Prozess="verändert" Reagens="Erde" Region="W" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="var" Wirkungsziel="Körper" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Grund Typ="Sk"/>
-   <Lernschema Typ="Ru" Lernpunkte="6"/>
-   <Lernschema Typ="Sk" Lernpunkte="6"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <Lernschema Lernpunkte="6" Typ="Ru"/>
+   <Lernschema Lernpunkte="6" Typ="Sk"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Tierrune" Region="W" Grad="5" Lernkosten="2000" AP="5" Typ="Geste" Ursprung="göttlich" Agens="Wasser" Prozess="verwandelt" Reagens="Erde" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="Zauberer" Wirkungsdauer="w6 h" Material="Knochenstück" Zauberart="Runen">
+  <Spruch AP="5" Agens="Wasser" Grad="5" Lernkosten="2000" Material="Knochenstück" Name="Tierrune" Prozess="verwandelt" Reagens="Erde" Region="W" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="Zauberer" Wirkungsdauer="w6 h" Wirkungsziel="Körper" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Ausnahme Typ="Sk"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Totenrune" Region="W" Grad="3" Lernkosten="800" AP="3" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Eis" Zauberdauer="30 min" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Material="Eibenholzstab" Zauberart="Runen">
+  <Spruch AP="3" Agens="Luft" Grad="3" Lernkosten="800" Material="Eibenholzstab" Name="Totenrune" Prozess="beherrscht" Reagens="Eis" Region="W" Reichweite="B" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Wirkungsziel="Körper" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Ausnahme Typ="Sk"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Traumrune" Region="W" Grad="3" Lernkosten="1000" AP="3" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="erkennt" Reagens="Luft" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Geist" Wirkungsbereich="Zauberer" Wirkungsdauer="0" Material="Stück Eschenholz" Zauberart="Runen">
+  <Spruch AP="3" Agens="Luft" Grad="3" Lernkosten="1000" Material="Stück Eschenholz" Name="Traumrune" Prozess="erkennt" Reagens="Luft" Region="W" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="Zauberer" Wirkungsdauer="0" Wirkungsziel="Geist" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Ungeheuerrune" Region="W" Grad="3" Lernkosten="800" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Luft" Prozess="beherrscht" Reagens="Erde" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Umgebung" Wirkungsbereich="3m Uk" Wirkungsdauer="12 h" Material="Stab aus kaltem Eisen, eigenes Blut" Zauberart="Runen">
+  <Spruch AP="4" Agens="Luft" Grad="3" Lernkosten="800" Material="Stab aus kaltem Eisen, eigenes Blut" Name="Ungeheuerrune" Prozess="beherrscht" Reagens="Erde" Region="W" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="3m Uk" Wirkungsdauer="12 h" Wirkungsziel="Umgebung" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Unheilsrune" Region="W" Grad="2" Lernkosten="400" AP="2" Typ="Geste" Ursprung="göttlich" Agens="Eis" Prozess="zerstört" Reagens="Erde" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Material="Stück Buchenholz" Zauberart="Runen">
+  <Spruch AP="2" Agens="Eis" Grad="2" Lernkosten="400" Material="Stück Buchenholz" Name="Unheilsrune" Prozess="zerstört" Reagens="Erde" Region="W" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Wirkungsziel="Körper" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Ausnahme Typ="Sk"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Wahrheitsrune" Region="W" Grad="1" Lernkosten="100" AP="1" Typ="Geste" Ursprung="göttlich" Agens="Magan" Prozess="beherrscht" Reagens="Luft" Zauberdauer="10 min" Reichweite="-" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Material="Goldring (30 GS), Spucke des Verzauberten" Zauberart="Runen">
+  <Spruch AP="1" Agens="Magan" Grad="1" Lernkosten="100" Material="Goldring (30 GS), Spucke des Verzauberten" Name="Wahrheitsrune" Prozess="beherrscht" Reagens="Luft" Region="W" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="10 min" Wirkungsziel="Geist" Zauberart="Runen" Zauberdauer="10 min">
    <Grund Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <Lernschema Typ="Sk" Lernpunkte="4"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <Lernschema Lernpunkte="4" Typ="Sk"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Wehrrune" Region="W" Grad="4" Lernkosten="1500" AP="4" Typ="Geste" Ursprung="göttlich" Agens="Metall" Prozess="zerstört" Reagens="Magan" Zauberdauer="30 min" Reichweite="B" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws/Ob" Wirkungsdauer="0" Material="Eschenholzstab" Zauberart="Runen">
+  <Spruch AP="4" Agens="Metall" Grad="4" Lernkosten="1500" Material="Eschenholzstab" Name="Wehrrune" Prozess="zerstört" Reagens="Magan" Region="W" Reichweite="B" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws/Ob" Wirkungsdauer="0" Wirkungsziel="Umgebung" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Ausnahme Typ="Sk"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Wetterrune" Region="W" Grad="3" Lernkosten="1200" AP="9" Typ="Geste" Ursprung="göttlich" Agens="Magan" Prozess="verändert" Reagens="Luft" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Umgebung" Wirkungsbereich="1 km Uk" Wirkungsdauer="var" Material="Specksteinfigur" Zauberart="Runen">
+  <Spruch AP="9" Agens="Magan" Grad="3" Lernkosten="1200" Material="Specksteinfigur" Name="Wetterrune" Prozess="verändert" Reagens="Luft" Region="W" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 km Uk" Wirkungsdauer="var" Wirkungsziel="Umgebung" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Wogenrune" Region="W" Grad="5" Lernkosten="4000" AP="6" Typ="Geste" Ursprung="göttlich" Agens="Wasser" Prozess="bewegt" Reagens="Wasser" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Umgebung" Wirkungsbereich="100 m Uk" Wirkungsdauer="12 h" Material="Schiff oder Boot" Zauberart="Runen">
+  <Spruch AP="6" Agens="Wasser" Grad="5" Lernkosten="4000" Material="Schiff oder Boot" Name="Wogenrune" Prozess="bewegt" Reagens="Wasser" Region="W" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="100 m Uk" Wirkungsdauer="12 h" Wirkungsziel="Umgebung" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
-  <Spruch Name="Wundrune" Region="W" Grad="2" Lernkosten="300" AP="2" Typ="Geste" Ursprung="göttlich" Agens="Holz" Prozess="erschafft" Reagens="Erde" Zauberdauer="30 min" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Material="Kieselstein, Stechpalmenblätter" Zauberart="Runen">
+  <Spruch AP="2" Agens="Holz" Grad="2" Lernkosten="300" Material="Kieselstein, Stechpalmenblätter" Name="Wundrune" Prozess="erschafft" Reagens="Erde" Region="W" Reichweite="-" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Wirkungsziel="Körper" Zauberart="Runen" Zauberdauer="30 min">
    <Grund Typ="Ru"/>
    <Standard Typ="Sk"/>
-   <Lernschema Typ="Ru" Lernpunkte="8"/>
-   <regionaleBesonderheit Spezies="Berggnom" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
-   <regionaleBesonderheit Spezies="Zwerg" Herkunft="Dvarheim" Typ="Th" Standard="S"/>
+   <Lernschema Lernpunkte="8" Typ="Ru"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Berggnom" Standard="S" Typ="Th"/>
+   <regionaleBesonderheit Herkunft="Dvarheim" Spezies="Zwerg" Standard="S" Typ="Th"/>
   </Spruch>
   <Spruch Name="Das Lied der Feier">
    <Standard Typ="Sk"/>

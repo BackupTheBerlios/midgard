@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.8 2004/08/30 13:17:56 christof Exp $
+// $Id: Optionen.hh,v 1.9 2004/11/29 13:54:23 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -67,7 +67,9 @@ class Optionen
       void set_Original(bool active,OptionenCheckIndex index);
 
       std::list<st_Haus> &getHausregeln()  {return list_Hausregeln;}
+      const std::list<st_Haus> &getHausregeln() const {return list_Hausregeln;}
       std::list<st_OptionenCheck> &getOptionenCheck() {return list_OptionenCheck;}
+      const std::list<st_OptionenCheck> &getOptionenCheck() const {return list_OptionenCheck;}
 
       void setOptionCheck(std::string os,bool b);
       void setHausregeln(std::string hs,bool b);
@@ -76,6 +78,7 @@ class Optionen
       st_OptionenCheck &OptionenCheck(OptionenCheckIndex oi) ;
       const st_OptionenCheck &OptionenCheck(OptionenCheckIndex oi) const;
       st_Haus &HausregelCheck(HausIndex hi) ;
+      const st_Haus &HausregelCheck(HausIndex hi) const;
 };
 
 #endif
