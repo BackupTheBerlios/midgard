@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.68 2002/08/26 14:22:14 thoma Exp $
+// $Id: Optionen.cc,v 1.69 2002/08/27 12:57:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -293,14 +293,16 @@ void Midgard_Optionen::Ober_setzen_from_menu(OberIndex index,bool b)
 
 void Midgard_Optionen::Icon_setzen_from_menu(IconIndex index,bool b)
 {
+//  assert(b);
   for(list<st_Icon>::iterator i=list_Icon.begin();i!=list_Icon.end();++i)
    {
      if(i->index==index) 
       { i->active = b;
         if     (index==Self) ;
         else if(index==Ulf) ;
-        return;
+        hauptfenster->Icons_setzen();
       }
+     else i->active = false;
    }
 }   
 

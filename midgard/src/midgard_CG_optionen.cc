@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.101 2002/08/19 06:31:14 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.102 2002/08/27 12:57:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -195,4 +195,17 @@ void midgard_CG::on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_R
   }
  menu_init();
  set_region_statusbar(region->Pic(),region->Active());
+}
+
+
+void midgard_CG::Icons_setzen()
+{
+  if(MOptionen->IconCheck(Midgard_Optionen::Self).active)
+   {
+cout << "SELF\n";
+   }
+  else if(MOptionen->IconCheck(Midgard_Optionen::Ulf).active)
+   {
+cout << "ULF\n";
+   }
 }
