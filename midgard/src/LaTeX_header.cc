@@ -1,4 +1,4 @@
-// $Id: LaTeX_header.cc,v 1.17 2002/03/14 07:06:24 thoma Exp $
+// $Id: LaTeX_header.cc,v 1.18 2002/04/03 07:58:49 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,6 +19,42 @@
 
 #include "midgard_CG.hh"
 #include <Gtk2TeX.h>
+
+std::string midgard_CG::get_latex_filename(const LaTeX_Filenames what)
+{
+  switch (what)
+    {
+      case TeX_MainDocument : return "midgard_document_eingabe";
+      case TeX_MainWerte    : return "midgard_tmp_latexwerte";  
+      case TeX_Beschreibung : return "midgard_tmp_beschreibung";
+      case TeX_Ausruestung  : return "midgard_tmp_ausruestung";
+    }
+  abort(); // never get here
+}
+
+std::string midgard_CG::get_latex_pathname(const LaTeX_Pathnames what)
+{
+  switch (what)
+    {
+      case TeX_tmp : return "";
+      case TeX_Install : return ""; //PACKAGE_DATA_DIR;
+    }
+  abort(); // never get here
+}
+
+
+std::string midgard_CG::system_comm(SystemComms what)
+{
+  switch (what)
+   {
+     case RM : return "rm ";
+//     case CP : return "cp ";
+   }
+  abort(); //never get here
+}
+
+
+
 
 void midgard_CG::LaTeX_kopfzeile(ostream &fout,bool landscape,bool newdoc)
 {
@@ -143,4 +179,7 @@ void midgard_CG::pdf_viewer(const std::string& file)
      system(("acroread "+file+".pdf &").c_str());
   else if (pdfViewerCheck(xpdf).active)
      system(("xpdf "+file+".pdf &").c_str());
+  system((system_comm(RM)+file+".tex").c_str());
 }
+
+

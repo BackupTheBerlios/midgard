@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.198 2002/03/29 07:02:59 thoma Exp $
+// $Id: midgard_CG.hh,v 1.199 2002/04/03 07:58:49 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -304,6 +304,12 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void LaTeX_write_values(ofstream &fout,const std::string &install_latex_file);
         void LaTeX_write_empty_values(ofstream &fout,const std::string &install_latex_file);
         gint on_latex_release_event(GdkEventButton *ev);
+        enum LaTeX_Filenames {TeX_MainWerte,TeX_MainDocument,TeX_Beschreibung,TeX_Ausruestung};
+        enum LaTeX_Pathnames {TeX_Install,TeX_tmp};
+        std::string get_latex_filename(const LaTeX_Filenames what);
+        std::string get_latex_pathname(const LaTeX_Pathnames what);
+        enum SystemComms {RM/*,CP*/};
+        std::string system_comm(SystemComms);
         void spielleiter_export();
         void latex_beschreibung_drucken();
         void on_button_info_clicked();

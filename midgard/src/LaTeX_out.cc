@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.109 2002/03/29 07:02:59 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.110 2002/04/03 07:58:49 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,6 +24,7 @@
 #include "Waffe.hh"
 #include "Fertigkeiten_angeboren.hh"
 
+
 gint midgard_CG::on_latex_release_event(GdkEventButton *ev)
 {
   if (ev->button==1) on_latex_clicked();
@@ -34,13 +35,9 @@ gint midgard_CG::on_latex_release_event(GdkEventButton *ev)
 
 void midgard_CG::on_latex_clicked(bool values=true)
 {   
- std::string tmppath=""; 
- std::string installpath=""; //PACKAGE_DATA_DIR; 
- std::string installfile=installpath+"midgard_document_eingabe";
- std::string tmpname=tmppath+"midgard_tmp_latexwerte";
+ std::string installfile=get_latex_pathname(TeX_Install)+get_latex_filename(TeX_MainDocument);
+ std::string filename=get_latex_pathname(TeX_tmp)+get_latex_filename(TeX_MainWerte);
  
- system(("rm "+tmpname+".tex").c_str());
-
 /*
  if (!access("document_eingabe4.tex",R_OK)) // Files im aktuellen Verzeichnis?
     system("cp document_eingabe4.tex midgard_tmp_document_eingabe.tex");
@@ -48,7 +45,7 @@ void midgard_CG::on_latex_clicked(bool values=true)
     system("cp "PACKAGE_DATA_DIR"document_eingabe4.tex midgard_tmp_document_eingabe.tex");
 */
 
- ofstream fout((tmpname+".tex").c_str());
+ ofstream fout((filename+".tex").c_str());
  if (values) LaTeX_write_values(fout,installfile);
  else LaTeX_write_empty_values(fout,installfile);
 
@@ -62,8 +59,7 @@ void midgard_CG::on_latex_clicked(bool values=true)
   }
  fout << "\\end{document}\n";
  fout.close();
- pdf_viewer(tmpname);
- system(("rm "+tmpname+".tex").c_str());
+ pdf_viewer(filename);
 }      
 
 void midgard_CG::LaTeX_write_values(ofstream &fout,const std::string &install_latex_file)

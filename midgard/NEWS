@@ -38,8 +38,8 @@ NEWS IN VERSION 0.4delta6
 * Erfogswert für Spezialwaffe jetzt (hoffentlich) korrekt implementiert
 * Bezeichnung für einen Charakter möglich (Ergänzung zur Klasse)
 * Neuimplementation der Kosten für Abwehr/Resistenz/Zaubern
-* LaTeX Datei erzeugung komplett überarbeitet (damit wird es unter Windows 
-   erst möglich zu drucken und unter Linux etwas übersichtlicher.
+* LaTeX Dateien Erzeugung komplett überarbeitet (damit wird es unter Windows 
+   erst möglich zu drucken und auch unter Linux deutlich übersichtlicher.
 
 
 TODO:

@@ -479,7 +479,8 @@ gint midgard_CG::on_button_ausruestung_druck_release_event(GdkEventButton *event
 
 void midgard_CG::on_ausruestung_druck(bool unsichtbar)
 {
- ofstream fout("midgard_tmp_ausruestung.tex");
+ std::string filename=get_latex_pathname(TeX_tmp)+get_latex_filename(TeX_Ausruestung);
+ ofstream fout((filename+".tex").c_str());
  LaTeX_header(fout,false);           
 
  fout << "\\fbox{\\parbox[t][22cm]{18cm}{ \n";
@@ -497,7 +498,7 @@ void midgard_CG::on_ausruestung_druck(bool unsichtbar)
  fout << "}}\n";
  LaTeX_footer(fout);
  fout.close();
- pdf_viewer("midgard_tmp_ausruestung");
+ pdf_viewer(filename);
 }
 
 
