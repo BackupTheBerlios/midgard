@@ -58,8 +58,10 @@ void Zufall::setSpezialwaffe()
 void Zufall::setSpezialgebiet()
 {
   if (!Aben->Typ1()->Spezialgebiet() && !Aben->Typ2()->Spezialgebiet()) return;
-
-//  Aben->getWerte().setSpezialgebiet();
+  std::vector<std::string> V=LL.getSpezialgebiet(Aben);
+  if(V.empty()) return;
+  int i=random.integer(0,V.size()-1);
+  Aben->getWerte().setSpezialgebiet(cH_Spezialgebiet(V[i]));
 }
 
 

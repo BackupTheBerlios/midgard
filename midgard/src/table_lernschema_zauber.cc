@@ -1,4 +1,4 @@
-// $Id: table_lernschema_zauber.cc,v 1.4 2002/06/26 14:01:18 christof Exp $
+// $Id: table_lernschema_zauber.cc,v 1.5 2002/09/12 08:11:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,6 +21,7 @@
 #include <Gtk_OStream.h>
 #include "Zauber.hh"
 #include "midgard_CG.hh"
+#include "LernListen.hh"
 
 /*
 void table_lernschema::angeborene_zauber()
@@ -43,19 +44,18 @@ void table_lernschema::show_magier_spezialgebiet(bool show)
 
 void table_lernschema::spezialgebiet_button_fill()
 {
- vector<std::string> L;
+/*
+ std::vector<std::string> L;
  {
-//  Gtk::OStream t_(option_magier_spezialgebiet);
   for(std::vector<cH_Spezialgebiet>::const_iterator i=hauptfenster->getDatabase().Spezialgebiet.begin();i!=hauptfenster->getDatabase().Spezialgebiet.end();++i)
    {
     if((*i)->Typ() != hauptfenster->getChar().Typ1()->Short() && 
        (*i)->Typ() != hauptfenster->getChar().Typ2()->Short() ) continue;
-//    t_ << (*i)->Name();
-//    t_.flush((*i)->ref(),&HandleContent::unref);
     L.push_back((*i)->Name());
    }  
  }
-// option_magier_spezialgebiet->get_menu()->deactivate.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::spezialgebiet_button));
+*/
+ std::vector<std::string> L=LernListen(hauptfenster->getDatabase()).getSpezialgebiet(hauptfenster->getChar());
  combo_magier_spezialgebiet->set_popdown_strings(L);
 }
 
