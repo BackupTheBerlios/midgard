@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.54 2002/11/05 07:24:18 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.55 2002/11/05 09:06:43 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -797,12 +797,12 @@ std::string Abenteurer::Ruestung_B_Verlust(bool ueberlast_beruecksichtigen) cons
     R0 = Ruestung(0)->B_Verlust();
     R1 = Ruestung(1)->B_Verlust();
   }
- R0=b-R0;
- R1=b-R1;
+// R0=b-R0;
+// R1=b-R1;
 
- if     (R0&&!R1) s="\\scriptsize("+itos(R0)+")";
- else if(R1&&!R0) s="\\scriptsize("+itos(R1)+")";
- else if(R0&&R1)  s="\\tiny("+itos(R0)+","+itos(R1)+")";
+ if     (R0&&!R1) s="\\scriptsize("+itos(b-R0)+")";
+ else if(R1&&!R0) s="\\scriptsize("+itos(b-R1)+")";
+ else if(R0&&R1)  s="\\tiny("+itos((b-R0<0)?0:b-R0)+","+itos((b-R1<0)?0:b-R1)+")";
 
  if(s!="") return "_{"+s+"}";
  return "";

@@ -140,7 +140,7 @@ reloop:
 
   // Ansicht
   Gtk::Menu *ansicht_menu = manage(new class Gtk::Menu());
-  main_menubar->items().push_back(Gtk::Menu_Helpers::MenuElem("_Ansicht & Fenster","<Control>A", *ansicht_menu));
+  main_menubar->items().push_back(Gtk::Menu_Helpers::MenuElem("Ansicht & _Fenster","<Control>F", *ansicht_menu));
 
   Gtk::Menu *menu1 = manage(new class Gtk::Menu());
   Gtk::Menu *menu2 = manage(new class Gtk::Menu());

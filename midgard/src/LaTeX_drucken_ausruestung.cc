@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_ausruestung.cc,v 1.13 2002/11/05 07:24:19 thoma Exp $   
+// $Id: LaTeX_drucken_ausruestung.cc,v 1.14 2002/11/05 09:06:43 thoma Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,28 +37,38 @@ void LaTeX_drucken::on_ausruestung_druck(bool unsichtbar)
 
  std::string breite="18cm";
  std::string hbreitea="9cm";
- std::string hbreiteb="8cm";
+ std::string hbreiteb="8.5cm";
  std::string aboxhoehe="26cm";
 
  const Abenteurer &A=hauptfenster->getAben();
- fout <<"\\parbox{"+hbreitea+"}{";
+ fout <<"\\parbox{"+breite+"}{\\parbox{"+hbreitea+"}{";
  fout << "Normallast: "<<itos(A.getNormallast())<<"\\,kg\\qquad\n"
       << "Höchstlast: "<<itos(A.getHoechstlast())<<"\\,kg\\qquad\n"
       << "Schublast: " <<itos(A.getSchublast())<<"\\,kg\n\n";
  fout << "Belastung: "<<dtos1(A.getBelastung())<<"\\,kg}\\hfill\n";
  fout <<"\\parbox{"+hbreiteb+"}{";
  {
-  bool ew=false;
+  bool ew1=false; bool ew2=false;
   double ueberlast=A.getUeberlast();
   int B=hauptfenster->getWerte().B();
-  int v=hauptfenster->getWerte().Ruestung(0)->B_Verlust(ueberlast,B,ew);
-cout << "XXXXXXXXXXXXX\t"<<ueberlast<<'\t'<<B<<'\t'<<ew<<'\t'<<v<<'\n';
-  if(ew) 
-    fout << "\\scriptsize Abzug auf Erfolgswürfe aufgrund von übermäßiger Belastung: --2\n\n";
-  if(v)
-    fout << "\\scriptsize Abzug auf die Bewegungsweite aufgrund übermäßiger Belastung: --"<<B<<"\n";
+  cH_Ruestung R1=hauptfenster->getWerte().Ruestung(0);
+  cH_Ruestung R2=hauptfenster->getWerte().Ruestung(1);
+  int v1=R1->B_Verlust(ueberlast,B,ew1);
+  int v2=R2->B_Verlust(ueberlast,B,ew2);
+  if(ew1) 
+    fout << "\\scriptsize Abzug auf Erfolgswürfe aufgrund von übermäßiger Belastung: --2 ("
+               +R1->Name()+")\n\n";
+  if(v1)
+    fout << "\\scriptsize Abzug von der Bewegungsweite aufgrund übermäßiger Belastung: --"
+         <<v1<<" $\\Rightarrow$ "<<(((B-v1)<0)?0:(B-v1))<<" ("+R1->Name()+")\n\n";
+  if(ew2) 
+    fout << "\\scriptsize Abzug auf Erfolgswürfe aufgrund von übermäßiger Belastung: --2 ("
+               +R2->Name()+")\n\n";
+  if(v2)
+    fout << "\\scriptsize Abzug von der Bewegungsweite aufgrund übermäßiger Belastung: --"
+         <<v2<<" $\\Rightarrow$ "<<(((B-v2)<0)?0:(B-v2))<<" ("+R2->Name()+")\n\n";
  }
- fout << "}\n\n";
+ fout << "}}\n\n";
 
  fout << "\\fbox{\\parbox[t]["+aboxhoehe+"]{"+breite+"}{ \n";
  const AusruestungBaum besitz=hauptfenster->getChar()->getBesitz();

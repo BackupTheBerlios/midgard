@@ -10,10 +10,13 @@ NEWS IN VERSION 0.8.9
 * Ausdruck: B im Ausdruck
 * Negative Preise => Unverkäufliche Waren können jetzt angezeigt werden
 * Gewichte und Preise überarbeitet und ergänzt
+* Reduzieren mit SELBSTSTUDIUM (kein Geld)
+* Reduzieren von Zauber, Abwehr, Grad nicht unter Minimum
+* Auf dem Ausrüstungsbogen werden Abzüge auf EW und B bei Überlast angegeben
+* Gewicht der Rüstung wird bei der Belastung nicht mitgerechnet
 
 TODO: ('-' zeigt CP an)
 
-* Abzug auf EW bei Überlast (Ruestung(0)->B_Verlust(u,b,ew))
 * Neue Ausrüstung eingeben
 * Hilfe Menü ans Ende
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
@@ -30,8 +33,6 @@ TODO: ('-' zeigt CP an)
    entfernen" und "mit Geld ausrüsten" das Verschwinden.
 - alle Ausdrucke unter Windows testen
 - wrapfig for Windows für Grafik in Beschreibung
-
-
 
 ##########################################################################
 NEWS IN VERSION 0.8.8
