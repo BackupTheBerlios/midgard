@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.57 2002/02/06 15:14:05 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.58 2002/02/06 18:07:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -193,23 +193,6 @@ void midgard_CG::waffe_besitz_uebernehmen(const std::list<cH_MidgardBasicElement
 #endif
 }
 
-/*
-void midgard_CG::zeige_notebook()
-{
-   hbox_beruf->set_sensitive(true);
-   table_beruf->set_sensitive(true);
-
-   hbox_fertigkeit->set_sensitive(true);
-   table_fertigkeit->set_sensitive(true);
-   hbox_waffen->set_sensitive(true);
-   table_waffen->set_sensitive(true);
-   hbox_zauber->set_sensitive(true); 
-   table_magier_lernen->set_sensitive(true);
-   hbox_kido->set_sensitive(true);
-   table_kido_lernen->set_sensitive(true);
-
-}
-*/
 
 void midgard_CG::on_button_ruestung_clicked()
 {
@@ -260,6 +243,33 @@ void midgard_CG::on_button_ruestung_clicked()
   strinfo += "---> " + Werte.Ruestung()->Long();
   manage(new WindowInfo(strinfo));
 }
+
+
+void on_lernliste_wahl_toggled()
+{
+  if(button_fachkenntnisse->get_active())
+      show_lernschema(MidgardBasicElement::FERTIGKEIT,"Fach");
+  if(button_allgemeinwissen->get_active())
+      show_lernschema(MidgardBasicElement::FERTIGKEIT,"Allg");
+  if(button_untyp_fertigkeiten->get_active())
+      show_lernschema(MidgardBasicElement::FERTIGKEIT,"Unge");
+  if(button_waffen->get_active())
+      show_lernschema(MidgardBasicElement::WAFFE);
+  if(button_zauber->get_active())
+   {
+     if (Werte.Spezialgebiet()->Spezial2()=="" && Typ[0]->Short()=="eBe")
+      {
+         std::string strinfo="Erst Primär- und Sekundärelement wählen\n";
+         manage(new WindowInfo(strinfo));
+         return;
+      }
+    show_lernschema(MidgardBasicElement::ZAUBER);
+   }
+}
+
+
+
+
 
 void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
 {

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_waffen.cc,v 1.32 2002/02/06 10:23:51 thoma Exp $
+// $Id: midgard_CG_waffen.cc,v 1.33 2002/02/06 18:07:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,49 +21,6 @@
 #include "Waffen_auswahl.hh"
 #include <Gtk_OStream.h>
 #include "Waffe.hh"
-
-void midgard_CG::on_waffen_wahl_clicked()
-{
-//  waffen_clist->clear();
-//  manage(new Waffen_auswahl(this,Database,lernpunkte.Waffen(),Werte,Typ));
-//  show_waffen();
-  show_lernschema(MidgardBasicElement::WAFFE);
-}
-
-/*
-void midgard_CG::show_waffen()
-{
-  list_Waffen_neu.clear();
-  std::list<cH_MidgardBasicElement> LW=Database.lernschema.get_List("Waffenfertigkeiten",Typ);
-  for(std::list<cH_MidgardBasicElement>::const_iterator i=LW.begin();i!=LW.end();++i)
-     {
-       cH_Waffe waffe(*i);
-       if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name())) continue;
-       if (!region_check(waffe->Region((*i)->Name()))) continue;
-       if ((*i)->ist_gelernt(list_Waffen)) continue ;
-       Lernschema::st_index I(Typ[0]->Short(),"Waffenfertigkeiten",(*i)->Name());
-       (*i)->set_Lernpunkte(Database.lernschema.get_Lernpunkte(I));
-       list_Waffen_neu.push_back(*i);
-     }
-  MidgardBasicElement::show_list_in_tree(list_Waffen_neu,tree_lernschema,Werte,Typ,Database.ausnahmen);
-  tree_lernschema.Expand_recursively();        
-
-*/  
-/*
-   waffen_clist->clear();
-   Gtk::OStream os(waffen_clist);
-   for(std::list<cH_MidgardBasicElement>::iterator i=list_Waffen.begin();
-         i!=list_Waffen.end();++i)
-      {
-         os << (*i)->Name()<<"\t"<<(*i)->Erfolgswert()<<"\n";
-//         os.flush(&*i);
-         os.flush((*i)->ref(),&HandleContent::unref);
-      }
-   for (unsigned int i=0;i<waffen_clist->columns().size();++i)
-      waffen_clist->set_column_auto_resize(i,true);
-   waffen_clist->set_reorderable(true);
-*/
-//}
 
 void midgard_CG::on_waffen_clist_select_row(gint row, gint column, GdkEvent *event)
 {   

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.50 2002/02/06 18:07:35 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.51 2002/02/06 18:09:54 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -84,8 +84,10 @@ void midgard_CG::universal_Fertigkeiten()
 }
 
 
+
 void midgard_CG::show_sinne()
 {
+/*
    clist_sinne->clear();
    Gtk::OStream os(clist_sinne);
    std::map<std::string,int> Sinnmap=Werte.Sinne();
@@ -96,6 +98,7 @@ void midgard_CG::show_sinne()
    for (unsigned int i=0;i<clist_sinne->columns().size();++i)
       clist_sinne->set_column_auto_resize(i,true);
    clist_sinne->set_reorderable(true);
+*/
 }
 
 

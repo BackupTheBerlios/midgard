@@ -1,4 +1,4 @@
-// $Id: midgard_CG_zauber.cc,v 1.52 2002/02/06 10:23:51 thoma Exp $
+// $Id: midgard_CG_zauber.cc,v 1.53 2002/02/06 18:07:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,37 +24,6 @@
 #include <Aux/SQLerror.h>
 #endif
 #include "Zauber.hh"
-
-void midgard_CG::on_zauber_wahl_clicked()
-{
-//  zauber_clist->clear();
-  if (Werte.Spezialgebiet()->Spezial2()=="" && Typ[0]->Short()=="eBe")
-   {
-      std::string strinfo="Erst Primär- und Sekundärelement wählen\n";
-      manage(new WindowInfo(strinfo));
-      return;
-   }
-  show_lernschema(MidgardBasicElement::ZAUBER); 
-//  manage(new Zauber_auswahl(this,Werte,Database,Typ,lernpunkte.Zauber()));
-//  show_zauber();
-}
-
-//void midgard_CG::show_zauber()
-//{
-/*
-   zauber_clist->clear();
-   Gtk::OStream os(zauber_clist);
-   for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Zauber.begin();i!=list_Zauber.end();++i)
-      {
-         cH_Zauber z(*i);
-         os << z->Name()<<"\t"<<z->Erfolgswert_Z(Typ,Werte,Database.ausnahmen)<<"\n";
-      }
-   for (unsigned int i=0;i<zauber_clist->columns().size();++i)
-      zauber_clist->set_column_auto_resize(i,true);
-//   zauber_clist->set_reorderable(true);
-*/
-//}
-
 
 void midgard_CG::angeborene_zauber()
 {
