@@ -34,7 +34,8 @@ NEWS IN VERSION 0.6delta3
 * Etliche kleinere Änderungen im Code mit aufräumen
 * Neue Option: Automatische Verkleinerung des Hauptfensters
 * Neue Option: Abspeichern und Laden der Position und Größe des Fensters
-* AUtomatisches selektieren bei 'focus_in_event'
+* Automatisches selektieren bei 'focus_in_event'
+* Gewichtsbug beseitigt
 
 TODO:
 * Gildenbrief funktioniert nicht

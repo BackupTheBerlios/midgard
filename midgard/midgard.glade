@@ -7093,8 +7093,8 @@ editieren</label>
 			</signal>
 			<signal>
 			  <name>focus_in_event</name>
-			  <handler>on_spinbutton_zauber_focus_in_event</handler>
-			  <last_modification_time>Fri, 10 May 2002 21:09:23 GMT</last_modification_time>
+			  <handler>on_spinbutton_zaubern_focus_in_event</handler>
+			  <last_modification_time>Sat, 11 May 2002 07:07:54 GMT</last_modification_time>
 			</signal>
 			<climb_rate>1</climb_rate>
 			<digits>0</digits>
@@ -8087,8 +8087,8 @@ Beruf eingeben</label>
 			</signal>
 			<signal>
 			  <name>focus_in_event</name>
-			  <handler>on_spinbutton_beruf_focus_in_event</handler>
-			  <last_modification_time>Fri, 10 May 2002 21:06:16 GMT</last_modification_time>
+			  <handler>on_spinbutton_beruf_focus_in</handler>
+			  <last_modification_time>Sat, 11 May 2002 07:52:11 GMT</last_modification_time>
 			</signal>
 			<climb_rate>1</climb_rate>
 			<digits>0</digits>
