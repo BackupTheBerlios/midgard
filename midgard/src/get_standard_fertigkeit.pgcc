@@ -50,13 +50,14 @@ double midgard_CG::get_standard_fertigkeit(const string& typ, const string& fert
     SQLerror::test(__FILELINE__,100);  
 
     exec sql close fertig;
-
- double fac;
- if (!strcmp(db_ergebnis,"G")) fac = 0.5; 
- if (!strcmp(db_ergebnis,"S")) fac = 1.0; 
- if (!strcmp(db_ergebnis,"A")) fac = 2.0; 
-//cout << typ << "\t"<<fertigkeit<<"\t"<<db_ergebnis<<"\t"<<fac<<"\n";
- return(fac);
+   return(get_standard_fertigkeit_(db_ergebnis));
 }
 
-
+double midgard_CG::get_standard_fertigkeit_(const string& ergebnis)
+{
+  double fac;
+  if (ergebnis=="G") return 0.5;
+  if (ergebnis=="S") return 1.0;
+  if (ergebnis=="A") return 2.0;
+  abort();
+}

@@ -69,7 +69,7 @@ int midgard_CG::get_typ_nr()
  for (vector<st_typen>::const_iterator i=typen_vector.begin();
         i!=typen_vector.end();++i)
    { 
-cout << db_typnr<<"\t"<<typ.s<<"\t"<<i->nr<<"\t"<<i->name<<"\n";
+//cout << db_typnr<<"\t"<<typ.s<<"\t"<<i->nr<<"\t"<<i->name<<"\n";
 
 if(db_typnr==i->nr) { return count ; }
      ++count;

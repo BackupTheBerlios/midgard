@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.11 2001/04/23 10:55:31 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.12 2001/05/05 20:01:26 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -81,8 +81,8 @@ void midgard_CG::on_latex_clicked()
  fout << "\\newcommand{\\zauber}{"<<werte.zaubern_wert<< "}\n";
  fout << "\\newcommand{\\alter}{"  <<werte.alter << "}\n";
  fout << "\\newcommand{\\gestalt}{"  <<werte.gestalt << "}\n";
- fout << "\\newcommand{\\gewicht}{"  <<werte.gewicht << "}\n";
- fout << "\\newcommand{\\koerpergroesse}{"  <<werte.groesse << "}\n";
+ fout << "\\newcommand{\\gewicht}{"  <<werte.gewicht/100. << "\\,kg}\n";
+ fout << "\\newcommand{\\koerpergroesse}{"  <<werte.groesse/100. << "\\,m}\n";
  fout << "\\newcommand{\\grad}{"  <<werte.grad << "}\n";
  fout << "\\newcommand{\\spezialisierung}{\\tiny "  <<werte.spezialisierung << "}\n";
  fout << "\\newcommand{\\stand}{\\scriptsize "  <<werte.stand << "}\n";

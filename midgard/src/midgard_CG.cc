@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.21 2001/05/04 06:35:34 thoma Exp $
+// $Id: midgard_CG.cc,v 1.22 2001/05/05 20:01:26 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -61,12 +61,8 @@ void midgard_CG::typauswahl_button()
    { if (count==ityp_){ityp=i->nr;break;}
      ++count;
    }
-//cout << ityp_<<"\t"<<ityp <<"\n";
  get_typ(ityp);
-//cout << ityp_<<"\t"<<ityp <<"\n";
  show_gtk(ityp_);
-//cout << ityp_<<"\t"<<ityp <<"\n";
-//cout << typ.s <<"\t"<<typ.l<<"\n";
 }
 
 void midgard_CG::on_radiobutton_frau_toggled()
@@ -74,7 +70,7 @@ void midgard_CG::on_radiobutton_frau_toggled()
   if (radiobutton_frau->get_active()) werte.geschlecht="w";
    else werte.geschlecht="m";
   midgard_CG::fill_typauswahl();
-  midgard_CG::typauswahl_button();
+  typauswahl->set_history(get_typ_nr());
 }
 
 void midgard_CG::on_radiobutton_mann_toggled()
@@ -82,7 +78,7 @@ void midgard_CG::on_radiobutton_mann_toggled()
   if (radiobutton_mann->get_active()) werte.geschlecht="m";
    else werte.geschlecht="w";
   midgard_CG::fill_typauswahl();
-  midgard_CG::typauswahl_button();
+  typauswahl->set_history(get_typ_nr());
 }
 
 void midgard_CG::show_gtk(int tnr)

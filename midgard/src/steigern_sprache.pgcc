@@ -136,6 +136,7 @@ void midgard_CG::show_alte_sprachen()
 {
    clist_steigern_sprachen_alt->clear();
    Gtk::OStream os(clist_steigern_sprachen_alt);
+   double fac = midgard_CG::get_standard_fertigkeit(typ.s,"Sprache");
    for (vector<st_sprachen>::const_iterator i=vec_sprachen.begin();
             i!=vec_sprachen.end();++i)
       {
@@ -174,7 +175,6 @@ void midgard_CG::show_alte_sprachen()
          
          exec sql select distinct fp into :db_fp from sprachen where name = :db_sprache ;
          SQLerror::test(__FILELINE__);
-         double fac = midgard_CG::get_standard_fertigkeit(typ.s,"Sprache");
          string sfp = itos(db_fp * fac);
          string kosten_steigern =   itos(db_ps*fac);
          string kosten_reduzieren = itos(db_pr*fac);
@@ -210,12 +210,12 @@ void midgard_CG::show_neue_sprachen()
    AND charakter_name = :db_cname AND version = :db_version) order by name;
   SQLerror::test(__FILELINE__);
  exec sql open ein;
+ double fac = midgard_CG::get_standard_fertigkeit(typ.s,"Sprache");
   while (true)
    {
       exec sql fetch ein into :db_name, :db_fp, :db_urschrift;
       SQLerror::test(__FILELINE__,100);  
       if (sqlca.sqlcode) break;
-      double fac = midgard_CG::get_standard_fertigkeit(typ.s,"Sprache");
       os <<db_name <<"\t"<<db_urschrift<<"\t" << db_fp*fac<<"\n";
    }
  exec sql close ein;
@@ -235,13 +235,13 @@ void midgard_CG::show_alte_schriften()
    char db_typ[20], db_name[20];
    int db_kosten;
   exec sql end declare section;
+  double fac = midgard_CG::get_standard_fertigkeit(typ.s,"Lesen/Schreiben");
   for (vector<st_schriften>::const_iterator i=vec_schriften.begin();
       i!=vec_schriften.end();++i)
    {
       strncpy(db_name,i->urschrift.c_str(),sizeof(db_name));
       exec sql select typ, kosten into :db_typ, :db_kosten 
                            from schrift where name = :db_name;
-      double fac = midgard_CG::get_standard_fertigkeit(typ.s,"Lesen/Schreiben");
       os << i->urschrift<<"\t"<<db_typ<<"\t"<<db_kosten*fac<<"\n";    
    }
 }
@@ -265,12 +265,12 @@ void midgard_CG::show_neue_schriften()
    AND charakter_name = :db_cname AND version = :db_version) order by name, typ;
   SQLerror::test(__FILELINE__);
  exec sql open ein2;
+ double fac = midgard_CG::get_standard_fertigkeit(typ.s,"Lesen/Schreiben");
   while (true)
    {
       exec sql fetch ein2 into :db_name, :db_fp, :db_typ;
       SQLerror::test(__FILELINE__,100);  
       if (sqlca.sqlcode) break;
-      double fac = midgard_CG::get_standard_fertigkeit(typ.s,"Lesen/Schreiben");
       os << db_fp*fac <<"\t"<<db_name<<"\t"<<db_typ <<"\n";
    }
  exec sql close ein2;
@@ -279,7 +279,3 @@ void midgard_CG::show_neue_schriften()
    clist_steigern_schrift_neu->set_column_auto_resize(i,true);
  clist_steigern_schrift_neu->set_reorderable(true);
 }
-
-
-
-

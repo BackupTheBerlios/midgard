@@ -42,47 +42,47 @@ void midgard_CG::show_alte_fertigkeiten()
       {
         string skosten_steigern="", skosten_reduzieren="", sfp="";
         string serfolgswert=itos(i->erfolgswert);
-        if (i->erfolgswert != 0)
-         {
-            exec sql begin declare section;
-               char db_typ[5];
-               char db_alter_erfolgswert[10];
-               char db_neuer_erfolgswert[10];
-               int db_kosten_steigern;
-               int db_kosten_reduzieren;
-               int db_fp;
-               char query[1024];
-            exec sql end declare section;
-            strncpy(db_typ,typ.s.c_str(),sizeof(db_typ));
-            string ae = "p";  ae += itos(abs(i->erfolgswert));
-            string ne = "p";  ne += itos(abs(i->erfolgswert+1));
-            strncpy(db_neuer_erfolgswert, ne.c_str(), sizeof(db_neuer_erfolgswert));
-            strncpy(db_alter_erfolgswert, ae.c_str(), sizeof(db_alter_erfolgswert));
+        exec sql begin declare section;
+          int db_kosten_steigern=0, db_kosten_reduzieren=0, db_fp;
+          char query[1024];
+          char db_standard[5];
+        exec sql end declare section;
+        string squery;
+        if (i->erfolgswert != 0) // Fertigkeiten MIT Erfolgswert
+           squery = "SELECT coalesce(p"+itos(abs(i->erfolgswert))
+               +",0),coalesce(p"+itos(abs(i->erfolgswert+1))+",0),fp,f."+typ.s
+               +" FROM steigern_fertigkeiten s, steigern_fertigkeiten_werte w,"
+               +"fertigkeiten f WHERE s.name = '"+i->name+"' AND w.name = s.wie " 
+               +"AND f.fertigkeit = '"+i->name+"'";
+        else // Fertigkeiten OHNE Erfolgswert
+           squery = "SELECT fp,f."+typ.s
+               +" FROM steigern_fertigkeiten s, fertigkeiten f "
+               +" WHERE s.name = '"+i->name+"' " 
+               +"AND f.fertigkeit = '"+i->name+"'";
+        strncpy(query,squery.c_str(),sizeof(query));
 
-            snprintf(query,sizeof(query),"SELECT coalesce(%s,0), coalesce(%s,0), fp \
-FROM steigern_fertigkeiten s, steigern_fertigkeiten_werte w, fertigkeiten f \
-WHERE s.name = '%s' AND w.name = s.wie AND f.fertigkeit = '%s' "
-, db_alter_erfolgswert, db_neuer_erfolgswert, i->name.c_str(), i->name.c_str());
+        Transaction tr;
+        exec sql prepare kosten_ein_ from :query ;  
+        exec sql declare kosten_ein cursor for kosten_ein_ ;  
+        exec sql open kosten_ein;
+        if (i->erfolgswert != 0) // Fertigkeiten MIT Erfolgswert
+            exec sql fetch kosten_ein into :db_kosten_reduzieren, 
+                 :db_kosten_steigern, :db_fp, :db_standard;
+        else // Fertigkeiten OHNE Erfolgswert
+            exec sql fetch kosten_ein into :db_fp, :db_standard;
+        SQLerror::test(__FILELINE__);
+        exec sql close kosten_ein;
+        tr.close();
 
-//            exec sql select query into :db_kosten_reduzieren, :db_kosten_steigern;
-            Transaction tr;
-            exec sql prepare kosten_ein_ from :query ;  
-            exec sql declare kosten_ein cursor for kosten_ein_ ;  
-            exec sql open kosten_ein;
-            exec sql fetch kosten_ein into :db_kosten_reduzieren, :db_kosten_steigern, :db_fp;
-            SQLerror::test(__FILELINE__);
-            exec sql close kosten_ein;
-            tr.close();
-
-            double fac = midgard_CG::get_standard_fertigkeit(typ.s,i->name);
-            sfp = itos(db_fp * fac);
-            skosten_steigern = itos(db_kosten_steigern*fac);
-            skosten_reduzieren = itos(db_kosten_reduzieren*fac);
-         }
+        double fac = midgard_CG::get_standard_fertigkeit_(db_standard);
+        sfp = itos(db_fp * fac);
+        skosten_steigern = itos(db_kosten_steigern*fac);
+        skosten_reduzieren = itos(db_kosten_reduzieren*fac);
         if (i->erfolgswert == 0) serfolgswert = "" ;
         if ( skosten_steigern == "0" ) skosten_steigern="";
         if ( skosten_reduzieren == "0" ) skosten_reduzieren="";
-        if (skosten_reduzieren!="") sfp ="" ;
+        if (skosten_reduzieren!="" || 
+            (skosten_steigern == "0" && skosten_reduzieren == "0")) sfp ="" ;
          os << i->name<<"\t"<<serfolgswert<<"\t"
             <<skosten_steigern<<"\t"<<skosten_reduzieren<<"\t"<<sfp<<"\n";
       }
@@ -104,17 +104,19 @@ void midgard_CG::show_neue_fertigkeiten()
    char query[1024];
    char db_voraussetzung[100];
    char db_region[10];
+   char db_standard[5];
   exec sql end declare section;
   strncpy(db_typ,typ.s.c_str(),sizeof(db_typ));
   snprintf(query,sizeof(query),"SELECT f.fertigkeit, f.fp, f.anfangswert, \
-f.%s, coalesce(v.fertigkeit,''), coalesce(f.region,'') FROM fertigkeiten f, fertigkeiten_voraussetzung v WHERE \
+f.%s, coalesce(v.fertigkeit,''), coalesce(f.region,''), f.%s \
+FROM fertigkeiten f, fertigkeiten_voraussetzung v WHERE \
 v.name = f.fertigkeit \
 AND (f.%s = 'G' OR f.%s = 'S' OR f.%s = 'A') \
 AND f.fertigkeit NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten \
 WHERE charakter_name = '%s' AND version = '%s') \
 AND f.fertigkeit != 'Sprache' AND f.fertigkeit != 'Lesen/Schreiben' \
-ORDER BY f.fertigkeit",  db_typ, db_typ, db_typ, db_typ, werte.name_charakter.c_str(),
-   werte.version.c_str());
+ORDER BY f.fertigkeit",  db_typ, db_typ, db_typ, db_typ, db_typ, 
+   werte.name_charakter.c_str(), werte.version.c_str());
 
  Transaction tr;  
  exec sql prepare fert_ein_ from :query ;  
@@ -125,12 +127,13 @@ ORDER BY f.fertigkeit",  db_typ, db_typ, db_typ, db_typ, werte.name_charakter.c_
  while (true)
    {
       exec sql fetch fert_ein into :db_fertigkeiten, :db_fp, 
-         :db_erfolgswert:idb_erfolgswert, :db_art, :db_voraussetzung, :db_region;
+         :db_erfolgswert:idb_erfolgswert, :db_art, :db_voraussetzung, 
+         :db_region, :db_standard;
       SQLerror::test(__FILELINE__,100);  
       if (sqlca.sqlcode) break;
       string serfolgswert=itos(db_erfolgswert);
       if (serfolgswert=="0") serfolgswert="";
-      double fac = midgard_CG::get_standard_fertigkeit(typ.s,db_fertigkeiten);
+      double fac = midgard_CG::get_standard_fertigkeit_(db_standard);
       if (midgard_CG::Fertigkeiten_Voraussetzung(db_fertigkeiten) 
         &&midgard_CG::region_check(db_region))
        {
@@ -154,7 +157,6 @@ bool midgard_CG::kido_steigern_check(int wert)
      return true;
    }
 }
-
 
 
 void midgard_CG::on_steigern_fert_clist_alt_select_row(gint row, gint column, GdkEvent *event)

@@ -46,5 +46,5 @@ EXTRA_DIST = \
        Zauber-trans-50.xpm \
        Select2-trans.xpm \
        Eschar-trans-50.xpm \
-       KiDo-trans-50.xpm
-
+       KiDo-trans-50.xpm \
+       Load-Kido-trans-50.xpm

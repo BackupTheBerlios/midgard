@@ -1,4 +1,17 @@
 ##########################################################################
+NEWS IN VERSION 0.4beta9
+- Boni für Angriff/Abwehr/..../Resistenzen können jetzt auch negativ sein.
+- Neuer Button 'KiDo-laden' von Alessandro
+- Die 'Fertigkeiten' Fenster werden schneller aufgebaut (Neue Programmierung)
+- Bug bei der Umschaltung männlich/weiblich und beim laden von weibl. Charakteren
+    beseitigt
+- Einige andere kleine Umprogrammierungen vorgenommen, die das Programm schneller
+   machen (sollten:)
+- Ausdruck von Gewicht und Größe in SI-Einheiten :-)
+- Alten Bug beseitigt: Jetzt können auch Fertigkeiten OHNE Erfolgswert
+   VERLERNT werden.
+
+##########################################################################
 NEWS IN VERSION 0.4beta8
 - Beim Laden eines Charakters wurde die falsche Charakterklasse angezeigt
 - Bei nichtmenschlichen Spezies kam es beim Laden zu einem Absturz
