@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.209 2002/04/12 12:07:14 thoma Exp $
+// $Id: midgard_CG.hh,v 1.210 2002/04/13 07:49:27 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -73,12 +73,13 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         Gtk::Menu *menu, *menu_gradanstieg;
         void menu_init();
         void menu_gradanstieg_init();
-        void Optionen_init();
-        void Hausregeln_init();
-        void pdfViewer_init();
         gint on_eventbox_MCG_button_press_event(GdkEventButton *event);
 
-     
+        void Optionen_init(); //X
+        void Hausregeln_init();//X
+        void pdfViewer_init();//X
+
+        //X von hier     
         enum pdfViewerIndex {gv,acroread,xpdf};
         struct st_pdfViewer {pdfViewerIndex index; 
                              Gtk::RadioMenuItem *radio_menu_item;
@@ -115,13 +116,14 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
                            bool a, const char * const * const b)
                   :index(i),checkmenuitem(cm),text(t),active(a),bild(b) 
                   {}};
-        
+              
 
         Gtk::MenuItem *haus_menuitem;
         struct st_Haus{HausIndex index; Gtk::CheckMenuItem *menu;std::string text;bool active;
                st_Haus(HausIndex i,Gtk::CheckMenuItem *m,std::string t,bool a)
                       :index(i),menu(m),text(t),active(a) {}
                       };
+        //XX bis hier
 
         void set_tree_titles();
 
@@ -157,6 +159,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         std::list<cH_MidgardBasicElement> list_Schrift;
         std::list<cH_MidgardBasicElement> list_Schrift_neu;
 
+         //XX von hier
         std::list<st_Haus> list_Hausregeln;
         std::list<st_Optionen>  list_Optionen;
         std::list<st_OptionenM> list_OptionenM;
@@ -170,6 +173,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void setHausregeln(std::string hs,bool b);
         void setpdfViewer(std::string is,bool b);
         void setAllHausregeln(bool b);
+         //XX bis hier
 
         void Hausregeln_setzen_from_menu(HausIndex index);
         void Optionen_setzen_from_menu(OptionenIndex index);
@@ -553,8 +557,10 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_checkbutton_ausruestung_geld_toggled();
 
          gint on_speichern_release_event(GdkEventButton *ev);
+         //XX von hier
          void save_options();
          void load_options();
+         //XX bis hier
          void grundwerte_speichern(ostream &);
          void save_ausruestung(ostream &datei,const list<AusruestungBaum> &AB,const int indent=4);
          void load_ausruestung(const Tag *tag, AusruestungBaum *AB);
