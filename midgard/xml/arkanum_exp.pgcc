@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.pgcc,v 1.10 2001/11/13 17:48:30 christof Exp $
+// $Id: arkanum_exp.pgcc,v 1.11 2001/11/13 17:51:28 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -74,7 +74,8 @@ void arkanum_speichern(std::ostream &o)
       exec sql end declare section;
       
       exec sql select typ into :TYPEN from zauber_typen
-      	where name=:ZAUBER and standard='G';
+      	where name=:ZAUBER and standard='G'
+      	order by typ;
       if (!sqlca.sqlcode) 
       {  o << "    <Grund>";
          for (int i=0;i<sqlca.sqlerrd[2];++i)
@@ -84,7 +85,8 @@ void arkanum_speichern(std::ostream &o)
          o << "</Grund>\n";
       }
       exec sql select typ into :TYPEN from zauber_typen
-      	where name=:ZAUBER and standard='S';
+      	where name=:ZAUBER and standard='S'
+      	order by typ;
       if (!sqlca.sqlcode) 
       {  o << "    <Standard>";
          for (int i=0;i<sqlca.sqlerrd[2];++i)
@@ -94,7 +96,8 @@ void arkanum_speichern(std::ostream &o)
          o << "</Standard>\n";
       }
       exec sql select typ into :TYPEN from zauber_typen
-      	where name=:ZAUBER and standard='A';
+      	where name=:ZAUBER and standard='A'
+      	order by typ;
       if (!sqlca.sqlcode) 
       {  o << "    <Ausnahme>";
          for (int i=0;i<sqlca.sqlerrd[2];++i)
@@ -172,7 +175,8 @@ void arkanum_speichern(std::ostream &o)
       exec sql end declare section;
       
       exec sql select typ into :TYPEN from zauberwerk_typen
-      	where name=:ZAUBERWERK and standard='G' and stufe=:STUFE;
+      	where name=:ZAUBERWERK and standard='G' and stufe=:STUFE
+      	order by typ;
       if (!sqlca.sqlcode) 
       {  o << "    <Grund>";
          for (int i=0;i<sqlca.sqlerrd[2];++i)
@@ -182,7 +186,8 @@ void arkanum_speichern(std::ostream &o)
          o << "</Grund>\n";
       }
       exec sql select typ into :TYPEN from zauberwerk_typen
-      	where name=:ZAUBERWERK and standard='S' and stufe=:STUFE;
+      	where name=:ZAUBERWERK and standard='S' and stufe=:STUFE
+      	order by typ;
       if (!sqlca.sqlcode) 
       {  o << "    <Standard>";
          for (int i=0;i<sqlca.sqlerrd[2];++i)
@@ -192,7 +197,8 @@ void arkanum_speichern(std::ostream &o)
          o << "</Standard>\n";
       }
       exec sql select typ into :TYPEN from zauberwerk_typen
-      	where name=:ZAUBERWERK and standard='A' and stufe=:STUFE;
+      	where name=:ZAUBERWERK and standard='A' and stufe=:STUFE
+      	order by typ;
       if (!sqlca.sqlcode) 
       {  o << "    <Ausnahme>";
          for (int i=0;i<sqlca.sqlerrd[2];++i)

@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.pgcc,v 1.4 2001/11/13 10:29:08 christof Exp $
+// $Id: fertigk_exp.pgcc,v 1.5 2001/11/13 17:51:28 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -58,7 +58,8 @@ void fert_speichern(std::ostream &o)
       exec sql end declare section;
       
       exec sql select typ into :TYPEN from fertigkeiten_typen
-      	where name=:FERTIGK and standard='G';
+      	where name=:FERTIGK and standard='G'
+      	order by typ;
       if (!sqlca.sqlcode) 
       {  o << "    <Grund>";
          for (int i=0;i<sqlca.sqlerrd[2];++i)
@@ -68,7 +69,8 @@ void fert_speichern(std::ostream &o)
          o << "</Grund>\n";
       }
       exec sql select typ into :TYPEN from fertigkeiten_typen
-      	where name=:FERTIGK and standard='S';
+      	where name=:FERTIGK and standard='S'
+      	order by typ;
       if (!sqlca.sqlcode) 
       {  o << "    <Standard>";
          for (int i=0;i<sqlca.sqlerrd[2];++i)
@@ -78,7 +80,8 @@ void fert_speichern(std::ostream &o)
          o << "</Standard>\n";
       }
       exec sql select typ into :TYPEN from fertigkeiten_typen
-      	where name=:FERTIGK and standard='A';
+      	where name=:FERTIGK and standard='A'
+      	order by typ;
       if (!sqlca.sqlcode) 
       {  o << "    <Ausnahme>";
          for (int i=0;i<sqlca.sqlerrd[2];++i)
