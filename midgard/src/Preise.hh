@@ -67,12 +67,10 @@ class Preise_All
 class PreiseMod : public HandleContent
 {
  public: 
-   struct st_payload{std::string name; std::string einheit;
-                 float faktor; int min;
-          st_payload() : faktor(0),min(0){}
-          st_payload(std::string n, std::string e,
-                 float f, int m) 
-             : name(n), einheit(e), faktor(f), min(m) {}
+   struct st_payload{std::string name; double faktor;
+          st_payload() : faktor(0) {}
+          st_payload(std::string n, double f) 
+             : name(n), faktor(f) {}
           };
  private:
    std::string art,typ;

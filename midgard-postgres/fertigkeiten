@@ -35,7 +35,7 @@ COPY "fertigkeiten" FROM stdin;
 1	\N	\N	\N	KiDo-Technik	\N	\N	K	\N	\N	\N	18	18
 1	\N	\N	\N	Pyromantie	\N	400	E	Zt	\N	1	18	18
 1	\N	\N	\N	Wissen von der Magie	\N	5000	3	\N	\N	\N	18	18
-2	1	1	5	Himmelskunde	4	50	3	In	\N	1	16	14
+2	1	1	5	Himmelskunde	4	50		In	\N	1	16	14
 2	2	2	9	Sprechen: Sprache(+9)	9	0	\N	In	\N	\N	18	17
 2	\N	\N	4	Fallen entschärfen	2	400	3	Gs	\N	\N	18	18
 2	\N	\N	\N	Heraldik	0	100	B&R	In	\N	\N	18	18

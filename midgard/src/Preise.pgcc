@@ -108,22 +108,21 @@ cH_PreiseMod::cH_PreiseMod(const std::string& art,const std::string typ,const in
 void PreiseMod::get_PreiseMod()
 {
   exec sql begin declare section;
-   char db_name[50],db_typ[50],db_art[50],db_einheit[20];
-   float db_faktor;
-   int db_min;
+   char db_name[100],db_typ[100],db_art[100];
+   double db_faktor;
    int db_nr;
   exec sql end declare section;
   strncpy(db_art,Art().c_str(),sizeof(db_art));
   strncpy(db_typ,Typ().c_str(),sizeof(db_typ));
   db_nr=Nr();
   exec sql select 
-    name,faktor,min,coalesce(einheit,'')
-    into :db_name,:db_faktor,:db_min,:db_einheit
+    name,faktor
+    into :db_name,:db_faktor
     from preise_modifikation where 
     art =:db_art and typ=:db_typ and nr=:db_nr
-    order by typ,nr;
+    order by art,typ,nr;
   SQLerror::test(__FILELINE__);
-  payload=st_payload(db_name,db_einheit,db_faktor,db_min);
+  payload=st_payload(db_name,db_faktor);
 }
 
 

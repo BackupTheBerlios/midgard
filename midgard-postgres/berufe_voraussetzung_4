@@ -27,36 +27,18 @@ CREATE TABLE "berufe_voraussetzung_4" (
 
 
 COPY "berufe_voraussetzung_4" FROM stdin;
-Adliger	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Akrobat	\N	t	t	t	\N	\N	\N	\N	\N	\N
 Alchimist	\N	t	\N	\N	t	t	\N	t	\N	\N
-Angesteller	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Anstreicher	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Apotheker	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Arbeiter	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Arzt	\N	t	\N	\N	t	t	\N	t	\N	\N
-Astrologe	\N	\N	\N	\N	\N	\N	\N	\N	R	\N
-Athlet	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Aufseher	t	t	\N	t	t	\N	t	\N	\N	\N
-Auktionator	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Bader	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Barbier	\N	t	\N	t	\N	\N	\N	\N	\N	\N
-Bardame	\N	\N	\N	\N	\N	\N	\N	\N	\N	w
-Barkeeper	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Bauer	t	\N	t	t	t	t	t	t	\N	\N
-Baumeister	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Beamter	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Bergbauingenieur	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Bergführer	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Bergmann	t	\N	t	t	\N	\N	\N	\N	\N	\N
 Bettler	\N	t	t	\N	\N	\N	\N	\N	\N	\N
-Bildhauer	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Biologe	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Bogenmacher	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Bootsbauer	t	t	\N	t	\N	\N	\N	\N	\N	\N
-Botaniker	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Bote	t	t	t	t	\N	\N	t	\N	\N	\N
-Brauer/Brenner	t	t	\N	t	\N	\N	\N	\N	\N	\N
+Brauer	t	t	\N	t	\N	\N	\N	\N	\N	\N
+Brenner	t	t	\N	t	\N	\N	\N	\N	\N	\N
 Butler	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Bäcker	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Croupier	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N

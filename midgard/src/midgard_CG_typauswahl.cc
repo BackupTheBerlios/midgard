@@ -68,14 +68,14 @@ void midgard_CG::typauswahl_button()
  else if(!Typ[0]->Stadt())
    {
      radiobutton_land->set_active(true);
-     radiobutton_stadt->set_sensitive(false);
      radiobutton_land->set_sensitive(true);
+     radiobutton_stadt->set_sensitive(false);
    }
  else if(!Typ[0]->Land())
    {
      radiobutton_stadt->set_active(true);
-     radiobutton_land->set_sensitive(false);
      radiobutton_stadt->set_sensitive(true);
+     radiobutton_land->set_sensitive(false);
    }
  else
    {

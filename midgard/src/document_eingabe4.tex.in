@@ -212,9 +212,11 @@ Sechster Sinn  & \sinnss   &Geistmagie    & \bopsy &Umgebungsmagie & \phk \\
 \end{tabular}
 }
 \hfill
-\IfFileExists{saebel.ps}{\parbox{4.5cm}{\epsfig{width=4.5cm,angle=0,file=saebel.ps}}}%
-{\parbox{4.5cm}{\epsfig{width=4.5cm,angle=0,file=@PACKAGE_DATA_DIR@saebel.ps}}}
-\hfill
+%\IfFileExists{saebel.ps}{\parbox{4.5cm}{\epsfig{width=4.5cm,angle=0,file=saebel.ps}}}%
+%{\parbox{4.5cm}{\epsfig{width=4.5cm,angle=0,file=@PACKAGE_DATA_DIR@saebel.ps}}}
+\IfFileExists{wurfbeil.ps}{\parbox{4.5cm}{\epsfig{width=4.5cm,angle=0,file=wurfbeil.ps}}}%
+{\parbox{4.5cm}{\epsfig{width=4.5cm,angle=0,file=@PACKAGE_DATA_DIR@wurfbeil.ps}}}
+\hfill~
 
 \parbox{6cm}
 {

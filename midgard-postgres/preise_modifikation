@@ -1,20 +1,18 @@
 --
 -- Selected TOC Entries:
 --
+DROP INDEX "preise_modifikation_art_name";
 DROP TABLE "preise_modifikation";
 --
 --
 --
 
 CREATE TABLE "preise_modifikation" (
-	"name" text NOT NULL,
-	"faktor" double precision NOT NULL,
-	"min" integer,
-	"einheit" text,
 	"art" text NOT NULL,
-	"typ" text,
 	"nr" integer,
-	Constraint "preise_modifikation_pkey" Primary Key ("name")
+	"typ" text,
+	"name" text NOT NULL,
+	"faktor" double precision NOT NULL
 );
 
 --
@@ -23,23 +21,39 @@ CREATE TABLE "preise_modifikation" (
 
 
 COPY "preise_modifikation" FROM stdin;
-Adel	5	0		Kleidung	Stand	3
-Alchemistenmetall	50	25	GS	Waffen	Material	3
-Baumwolle	2	0		Kleidung	Material	2
-Dauernahrung	2	0		Essen	?	1
-Getränke	5	0		Gasthaus	?	1
-Lebensmittel	1	0	kg/l	Lebensmittel	?	1
-Leinen	1	0		Kleidung	Material	1
-Mittelschicht	1	0	\N	Kleidung	Stand	1
-Pelz	4.5	0		Kleidung	Material	4
-Seide	8	0		Kleidung	Material	3
-Volk	0.33333	0		Kleidung	Stand	2
-blau	3	0		Kleidung	Farbe	4
-gelb	2	0		Kleidung	Farbe	3
-grün	2	0		Kleidung	Farbe	2
-purpur	20	0		Kleidung	Farbe	6
-rot	4	0		Kleidung	Farbe	5
-standard	1	0	\N	Waffen	Material	1
-ungefärbt	1	0	\N	Kleidung	Farbe	1
-versilbert	10	15	GS	Waffen	Material	2
+Ausrüstung (Behälter)	1			1
+Ausrüstung (Heiler- und Priesterbedarf)	1			1
+Ausrüstung (Licht und Feuer)	1			1
+Ausrüstung (Musikinstrumente)	1			1
+Ausrüstung (Präzisionsinstrumente)	1			1
+Ausrüstung (Schreibmaterial)	1			1
+Ausrüstung (Stoff. Draht usw.)	1			1
+Ausrüstung (Tiere)	1			1
+Ausrüstung (Transportmittel)	1			1
+Ausrüstung (Werkzeug)	1			1
+Ausrüstung (Übernachtung)	1			1
+Kleidung	1	Farbe	ungefärbt	1
+Kleidung	1	Material	Leinen	1
+Kleidung	1	Stand	Mittelschicht	1
+Kleidung	2	Farbe	grün	2
+Kleidung	2	Material	Baumwolle	2
+Kleidung	2	Stand	Volk	0.33333
+Kleidung	3	Farbe	gelb	2
+Kleidung	3	Material	Seide	8
+Kleidung	3	Stand	Adel	5
+Kleidung	4	Farbe	blau	3
+Kleidung	4	Material	Pelz	4.5
+Kleidung	5	Farbe	rot	4
+Kleidung	6	Farbe	purpur	20
+Rüstung	1			1
+Waffen	1	Material	standard	1
+Waffen	2	Material	versilbert	10
+Waffen	3	Material	Alchemistenmetall	50
+Waffenzubehör	1			1
 \.
+--
+--
+--
+
+CREATE UNIQUE INDEX preise_modifikation_art_name ON preise_modifikation USING btree (art text_ops, name text_ops);
+

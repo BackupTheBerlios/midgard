@@ -177,8 +177,8 @@ void Berufe_auswahl::fill_list()
   for(std::list<cH_MidgardBasicElement>::iterator i=list_beruf.begin();i!=list_beruf.end();++i)
      {
       cH_Beruf b(*i);
-      if(b->Stadt() && Werte.Stadt_Land()=="Land") continue;
-      if(b->Land()  && Werte.Stadt_Land()=="Stadt") continue;
+      if(!b->Stadt() && Werte.Stadt_Land()=="Stadt") continue;
+      if(!b->Land()  && Werte.Stadt_Land()=="Land") continue;
       std::vector<string> fert=b->Vorteile();
       for(std::vector<string>::const_iterator j=fert.begin();j!=fert.end();++j)
        {

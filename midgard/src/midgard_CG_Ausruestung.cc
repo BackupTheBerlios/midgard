@@ -21,7 +21,7 @@ class Data_Preis : public RowDataBase
      Data_Preis(std::string a, std::string t, PreiseMod::st_payload p)
       : art(a),typ(t),preismod(p) {}
       
-     enum spalten {ART,TYP,EIGENSCHAFT,KOSTEN,EINHEIT};
+     enum spalten {ART,TYP,EIGENSCHAFT,KOSTEN};
      
      virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const 
       {
@@ -30,7 +30,6 @@ class Data_Preis : public RowDataBase
            case TYP: return cH_EntryValueIntString(typ);
            case EIGENSCHAFT: return cH_EntryValueIntString(preismod.name);
            case KOSTEN: return cH_EntryValueIntString(preismod.faktor);
-           case EINHEIT: return cH_EntryValueIntString(preismod.einheit);
          }
         return cH_EntryValueIntString();
       }

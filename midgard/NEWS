@@ -7,13 +7,19 @@ NEWS IN VERSION 0.2delta1
 * LaTeX Charakterdokument überarbeitet: 23 Schriften können jetzt 
    angezeigt werden
 * Bugs in der Oberfläche (Schriften) beseitigt
+* Bug bei der Berufsanzeige
+* Offizielle Preis/Ausrüstungsliste von Elsa ist eingearbeitet
+* Stadt/Land Bug beseitigt
+* Himmelskunde Bug beseitigt
 
 TODO:
 * Spezielgebiete für Magier stürzt ab
 * Irgendwie funktioniert das mit dem Erfolgswert für waffenlosen Kampf 
    und dem dazugehörigen Abwerbonus noch nicht.
 * Landeskunde als Berufsfähigkeit für 3 Berufe
-
+  (Karawanenführer, land, v,m
+   Kaufmann, stadt,m,a
+   Verwalter, land, stadt, m,a,
 
 
 ##########################################################################

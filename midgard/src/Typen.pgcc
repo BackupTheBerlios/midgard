@@ -68,8 +68,8 @@ Typen::Typen(const std::string& n)
  region=db_region;
  beruf=db_beruf;
  std::string sl=db_sl;
- if(sl=="s") land=false; 
- else if(sl=="l") stadt=false; 
+ if(sl=="s")     { land=false;stadt=true;  } 
+ else if(sl=="l"){ land=true; stadt=false; }
  else {land=true;stadt=true;}
  sprueche_mit_pp=db_sprueche_mit_pp;
 }
