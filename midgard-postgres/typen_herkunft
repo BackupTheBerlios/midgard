@@ -8,8 +8,7 @@ DROP TABLE "typen_herkunft";
 
 CREATE TABLE "typen_herkunft" (
 	"typ" text NOT NULL,
-	"land" text NOT NULL,
-	"erlaubt" boolean
+	"land" text NOT NULL
 );
 
 --
@@ -24,7 +23,6 @@ As	Chryseia	\N
 As	Clanngadarn	\N
 As	Erainn	\N
 As	Eschar	\N
-As	Gnome	\N
 As	KanThaiPan	\N
 As	Küstenstaaten	\N
 As	Minangpahit	\N
@@ -51,17 +49,35 @@ BW	Minangpahit	\N
 BW	Moravod	\N
 BW	Nahuatlan	\N
 BW	Rawindra	\N
-Ba	Elfen	\N
-Ba	Halblinge	\N
-Ba	Ikengabecken	f
-Ba	Medjis	f
-Ba	Waeland	f
+Ba	Alba	\N
+Ba	Aran	\N
+Ba	Buluga	\N
+Ba	Chryseia	\N
+Ba	Clanngadarn	\N
+Ba	Dvarheim	\N
+Ba	Erainn	\N
+Ba	Eschar	\N
+Ba	Feuerinseln	\N
+Ba	Fuardain	\N
+Ba	Halfdal	\N
+Ba	Inseln unter dem Westwind	\N
+Ba	KanThaiPan	\N
+Ba	Küstenstaaten	\N
+Ba	Minangpahit	\N
+Ba	Moravod	\N
+Ba	Nahuatlan	\N
+Ba	Rawindra	\N
+Ba	Tegarische Steppe	\N
+Ba	Urruti	\N
+Ba	Valian	\N
+Ba	Vesternesse	\N
+Ba	Ywerddon	\N
+De	Eschar	\N
 Dr	Alba	\N
 Dr	Clanngadarn	\N
-Dr	Elfen	\N
 Dr	Fuardain	\N
-Dr	Gnome	\N
 Dr	Ywerddon	\N
+Dt	Nahuatlan	\N
 Er	Alba	\N
 Er	Aran	\N
 Er	Chryseia	\N
@@ -72,14 +88,13 @@ Er	Küstenstaaten	\N
 Er	Rawindra	\N
 Er	Valian	\N
 Er	Ywerddon	\N
+Fi	Erainn	\N
 Gl	Alba	\N
 Gl	Aran	\N
 Gl	Chryseia	\N
 Gl	Clanngadarn	\N
-Gl	Elfen	\N
 Gl	Erainn	\N
 Gl	Eschar	\N
-Gl	Gnome	\N
 Gl	KanThaiPan	\N
 Gl	Küstenstaaten	\N
 Gl	Minangpahit	\N
@@ -92,11 +107,8 @@ Hl	Alba	\N
 Hl	Aran	\N
 Hl	Chryseia	\N
 Hl	Clanngadarn	\N
-Hl	Elfen	\N
 Hl	Erainn	\N
 Hl	Eschar	\N
-Hl	Gnome	\N
-Hl	Halblinge	\N
 Hl	Küstenstaaten	\N
 Hl	Moravod	\N
 Hl	Nahuatlan	\N
@@ -104,33 +116,68 @@ Hl	Urruti	\N
 Hl	Valian	\N
 Hl	Waeland	\N
 Hl	Ywerddon	\N
-Hä	Fuardain	f
-Hä	Halblinge	\N
-Hä	Ikengabecken	f
-Hä	Zwerge	\N
-Kr	Elfen	\N
-Kr	Fuardain	f
-Kr	Ikengabecken	f
-Kr	Medjis	f
-Kr	Zwerge	\N
+Hä	Alba	\N
+Hä	Aran	\N
+Hä	Buluga	\N
+Hä	Chryseia	\N
+Hä	Clanngadarn	\N
+Hä	Dvarheim	\N
+Hä	Erainn	\N
+Hä	Eschar	\N
+Hä	Feuerinseln	\N
+Hä	Halfdal	\N
+Hä	Inseln unter dem Westwind	\N
+Hä	KanThaiPan	\N
+Hä	Küstenstaaten	\N
+Hä	Medjis	\N
+Hä	Minangpahit	\N
+Hä	Moravod	\N
+Hä	Nahuatlan	\N
+Hä	Rawindra	\N
+Hä	Tegarische Steppe	\N
+Hä	Urruti	\N
+Hä	Valian	\N
+Hä	Vesternesse	\N
+Hä	Waeland	\N
+Hä	Ywerddon	\N
+Kd	KanThaiPan	\N
+Kr	Alba	\N
+Kr	Aran	\N
+Kr	Buluga	\N
+Kr	Chryseia	\N
+Kr	Clanngadarn	\N
+Kr	Dvarheim	\N
+Kr	Erainn	\N
+Kr	Eschar	\N
+Kr	Feuerinseln	\N
+Kr	Halfdal	\N
+Kr	Inseln unter dem Westwind	\N
+Kr	KanThaiPan	\N
+Kr	Küstenstaaten	\N
+Kr	Minangpahit	\N
+Kr	Moravod	\N
+Kr	Nahuatlan	\N
+Kr	Rawindra	\N
+Kr	Tegarische Steppe	\N
+Kr	Urruti	\N
+Kr	Valian	\N
+Kr	Vesternesse	\N
+Kr	Waeland	\N
+Kr	Ywerddon	\N
 Ku	Aran	\N
 Ku	Buluga	\N
 Ku	Erainn	\N
 Ku	Eschar	\N
 Ku	Fuardain	\N
-Ku	Gnome	\N
 Ku	Tegarische Steppe	\N
 Ku	Urruti	\N
 Ku	Waeland	\N
-Ku	Zwerge	\N
 Ma	Alba	\N
 Ma	Aran	\N
 Ma	Chryseia	\N
 Ma	Clanngadarn	\N
-Ma	Elfen	\N
 Ma	Erainn	\N
 Ma	Eschar	\N
-Ma	Gnome	\N
 Ma	KanThaiPan	\N
 Ma	Küstenstaaten	\N
 Ma	Minangpahit	\N
@@ -140,6 +187,7 @@ Ma	Rawindra	\N
 Ma	Tegarische Steppe	\N
 Ma	Valian	\N
 Ma	Ywerddon	\N
+Ny	KanThaiPan	\N
 Or	Alba	\N
 Or	Aran	\N
 Or	Chryseia	\N
@@ -154,13 +202,29 @@ Or	Rawindra	\N
 Or	Tegarische Steppe	\N
 Or	Urruti	\N
 Or	Valian	\N
-PRI	Buluga	f
-PRI	Erainn	f
-PRI	Halblinge	\N
-PRI	Ikengabecken	f
-PRI	Medjis	f
-PRI	Moravod	f
-PRI	Zwerge	\N
+PRI	Alba	\N
+PRI	Aran	\N
+PRI	Chryseia	\N
+PRI	Clanngadarn	\N
+PRI	Dvarheim	\N
+PRI	Eschar	\N
+PRI	Feuerinseln	\N
+PRI	Fuardain	\N
+PRI	Halfdal	\N
+PRI	Inseln unter dem Westwind	\N
+PRI	KanThaiPan	\N
+PRI	Küstenstaaten	\N
+PRI	Minangpahit	\N
+PRI	Nahuatlan	\N
+PRI	Rawindra	\N
+PRI	Tegarische Steppe	\N
+PRI	Urruti	\N
+PRI	Valian	\N
+PRI	Vesternesse	\N
+PRI	Waeland	\N
+PRI	Ywerddon	\N
+Ru	Waeland	\N
+Sa	Rawindra	\N
 ScN	Buluga	\N
 ScN	Fuardain	\N
 ScN	Ikengabecken	\N
@@ -198,7 +262,6 @@ Se	Alba	\N
 Se	Aran	\N
 Se	Chryseia	\N
 Se	Clanngadarn	\N
-Se	Elfen	\N
 Se	Erainn	\N
 Se	Eschar	\N
 Se	KanThaiPan	\N
@@ -209,23 +272,59 @@ Se	Rawindra	\N
 Se	Valian	\N
 Se	Waeland	\N
 Se	Ywerddon	\N
-Sp	Buluga	f
-Sp	Fuardain	f
-Sp	Gnome	\N
-Sp	Halblinge	\N
-Sp	Ikengabecken	f
-Sp	Waeland	f
-Sö	Buluga	f
-Sö	Fuardain	f
-Sö	Ikengabecken	f
-Sö	Zwerge	\N
+Sk	Waeland	\N
+Sp	Alba	\N
+Sp	Aran	\N
+Sp	Chryseia	\N
+Sp	Clanngadarn	\N
+Sp	Dvarheim	\N
+Sp	Erainn	\N
+Sp	Eschar	\N
+Sp	Feuerinseln	\N
+Sp	Halfdal	\N
+Sp	Inseln unter dem Westwind	\N
+Sp	KanThaiPan	\N
+Sp	Küstenstaaten	\N
+Sp	Medjis	\N
+Sp	Minangpahit	\N
+Sp	Moravod	\N
+Sp	Nahuatlan	\N
+Sp	Rawindra	\N
+Sp	Tegarische Steppe	\N
+Sp	Urruti	\N
+Sp	Valian	\N
+Sp	Vesternesse	\N
+Sp	Ywerddon	\N
+Sr	Rawindra	\N
+Sö	Alba	\N
+Sö	Aran	\N
+Sö	Chryseia	\N
+Sö	Clanngadarn	\N
+Sö	Dvarheim	\N
+Sö	Erainn	\N
+Sö	Eschar	\N
+Sö	Feuerinseln	\N
+Sö	Halfdal	\N
+Sö	Inseln unter dem Westwind	\N
+Sö	KanThaiPan	\N
+Sö	Küstenstaaten	\N
+Sö	Medjis	\N
+Sö	Minangpahit	\N
+Sö	Moravod	\N
+Sö	Nahuatlan	\N
+Sö	Rawindra	\N
+Sö	Tegarische Steppe	\N
+Sö	Urruti	\N
+Sö	Valian	\N
+Sö	Vesternesse	\N
+Sö	Waeland	\N
+Sö	Ywerddon	\N
 Th	Alba	\N
 Th	Aran	\N
 Th	Chryseia	\N
 Th	Clanngadarn	\N
 Th	Erainn	\N
 Th	Eschar	\N
-Th	Gnome	\N
 Th	KanThaiPan	\N
 Th	Küstenstaaten	\N
 Th	Minangpahit	\N
@@ -235,7 +334,6 @@ Th	Rawindra	\N
 Th	Valian	\N
 Th	Waeland	\N
 Th	Ywerddon	\N
-Th	Zwerge	\N
 Tm	Buluga	\N
 Tm	Fuardain	\N
 Tm	Ikengabecken	\N
@@ -246,13 +344,12 @@ Tm	Nahuatlan	\N
 Tm	Rawindra	\N
 Tm	Tegarische Steppe	\N
 Tm	Waeland	\N
+Tr	Nahuatlan	\N
+Tt	Nahuatlan	\N
 Wa	Alba	\N
 Wa	Aran	\N
 Wa	Clanngadarn	\N
-Wa	Elfen	\N
 Wa	Erainn	\N
-Wa	Gnome	\N
-Wa	Gnome	\N
 Wa	Ikengabecken	\N
 Wa	KanThaiPan	\N
 Wa	Medjis	\N
@@ -295,17 +392,14 @@ eBe	Urruti	\N
 eBe	Valian	\N
 eBe	Waeland	\N
 eBe	Ywerddon	\N
-eBe	Zwerge	\N
 gHx	Alba	\N
 gHx	Aran	\N
 gHx	Buluga	\N
 gHx	Chryseia	\N
 gHx	Clanngadarn	\N
-gHx	Elfen	\N
 gHx	Erainn	\N
 gHx	Eschar	\N
 gHx	Fuardain	\N
-gHx	Gnome	\N
 gHx	Ikengabecken	\N
 gHx	KanThaiPan	\N
 gHx	Küstenstaaten	\N
@@ -324,11 +418,9 @@ sHx	Aran	\N
 sHx	Buluga	\N
 sHx	Chryseia	\N
 sHx	Clanngadarn	\N
-sHx	Elfen	\N
 sHx	Erainn	\N
 sHx	Eschar	\N
 sHx	Fuardain	\N
-sHx	Gnome	\N
 sHx	Ikengabecken	\N
 sHx	KanThaiPan	\N
 sHx	Küstenstaaten	\N
@@ -363,11 +455,9 @@ wHx	Aran	\N
 wHx	Buluga	\N
 wHx	Chryseia	\N
 wHx	Clanngadarn	\N
-wHx	Elfen	\N
 wHx	Erainn	\N
 wHx	Eschar	\N
 wHx	Fuardain	\N
-wHx	Gnome	\N
 wHx	Ikengabecken	\N
 wHx	KanThaiPan	\N
 wHx	Küstenstaaten	\N
