@@ -1,7 +1,7 @@
 Summary: MAGUS - Midgard Abenteurer Generieren Und Steigern
 Name: magus
-Version: 0.7.6pre
-Release: 2
+Version: 0.8.2pre
+Release: 1
 Copyright: GPL
 Group: application/games
 Distribution: SuSE_7.2
@@ -13,16 +13,18 @@ Dies ist ein Test-RPM PAcket für MAGUS.
 MAGUS ist ein Abenteurer Generierungs- und Steigerungstool für das Fantasyrollenspiel Midgard
 
 
+
 %clean
+
 
 
 
 
 %files
 /usr/local/bin/magus
-/usr/local/share/magus/midgard.xml
 /usr/local/share/magus/AbenteuerBaende.xml 
 /usr/local/share/magus/Alba.xml
+/usr/local/share/magus/Alba-grey.png
 /usr/local/share/magus/Arkanum.xml
 /usr/local/share/magus/BarbarenWutRitterEhre.xml
 /usr/local/share/magus/Eschar.xml
@@ -31,6 +33,7 @@ MAGUS ist ein Abenteurer Generierungs- und Steigerungstool für das Fantasyrollen
 /usr/local/share/magus/HexenzauberDruidenkraftFinster.xml
 /usr/local/share/magus/KanThaiPan.xml
 /usr/local/share/magus/Kuestenstaaten.xml
+/usr/local/share/magus/Letter-Feather-grey.png
 /usr/local/share/magus/MAGUS-Logo-grey2.png
 /usr/local/share/magus/MAGUS_Logo_Small.xpm
 /usr/local/share/magus/MAGUS_Logo_Tiny.xpm
@@ -44,6 +47,7 @@ MAGUS ist ein Abenteurer Generierungs- und Steigerungstool für das Fantasyrollen
 /usr/local/share/magus/Waeland.xml
 /usr/local/share/magus/drache.png
 /usr/local/share/magus/magus_document_eingabe.tex
+/usr/local/share/magus/midgard.xml
 /usr/local/share/magus/midgard_document_eingabe.tex
 /usr/local/share/magus/schwert.png
 /usr/local/share/magus/wurfbeil.png
@@ -254,3 +258,4 @@ MAGUS ist ein Abenteurer Generierungs- und Steigerungstool für das Fantasyrollen
 /usr/local/share/magus/docs/Steigern_Besitz.html
 /usr/local/share/magus/docs/Steigern_Spra.html
 /usr/local/share/magus/docs/Steigern_Zaub.html
+/usr/local/share/magus/pixmaps/MAGUS_Logo_Small.xpm
