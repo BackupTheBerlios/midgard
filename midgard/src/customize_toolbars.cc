@@ -1,4 +1,4 @@
-// $Id: customize_toolbars.cc,v 1.8 2002/05/16 06:35:35 christof Exp $
+// $Id: customize_toolbars.cc,v 1.9 2002/05/16 06:43:08 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -28,7 +28,7 @@
 #include <typeinfo>
 // bin + container sind schon dabei
 
-void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text)
+void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text, bool tab_text)
 {  // cout << '+' << typeid(*w).name() << '-' << w->get_name() << '\n';
    if (Gtk::Button::isA(w))
    {  Gtk::Widget *child=dynamic_cast<Gtk::Bin*>(w)->get_child();
