@@ -38,8 +38,12 @@ gint midgard_CG::on_speichern_release_event(GdkEventButton *ev)
 void midgard_CG::xml_export_auswahl()
 { 
  modify_bool=false;
- manage (new xml_fileselection(this,xml_fileselection::Save/*"Abenteurer speichern"*/))
-	->set_filename(filename);
+#ifndef __MINGW32__ 
+ manage 
+#else
+ delete
+#endif
+ (new xml_fileselection(this,xml_fileselection::Save/*"Abenteurer speichern"*/));
 }
 
 void midgard_CG::xml_export(const std::string& dateiname)

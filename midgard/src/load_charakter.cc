@@ -41,8 +41,12 @@ gint midgard_CG::on_laden_release_event(GdkEventButton *ev)
 
 void midgard_CG::xml_import_auswahl()
 {
-  manage (new xml_fileselection(this,xml_fileselection::Load/*"Abenteurer laden"*/))
-	  ->set_filename(filename);
+#ifndef __MINGW32__
+  manage 
+#else
+  delete
+#endif
+  (new xml_fileselection(this,xml_fileselection::Load/*"Abenteurer laden"*/));
 }
 
 

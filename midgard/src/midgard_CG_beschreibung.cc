@@ -40,7 +40,12 @@ void midgard_CG::show_beschreibung()
 
 void midgard_CG::on_button_grafik_clicked()
 {
-  manage (new xml_fileselection(this,xml_fileselection::Pix,&Werte));
+#ifndef __MINGW32__
+  manage 
+#else
+  delete
+#endif  
+  (new xml_fileselection(this,xml_fileselection::Pix,&Werte));
   undosave("Bild geändert");
 }
 

@@ -34,7 +34,12 @@ std::string utf82iso(const std::string &s);
 
 void midgard_CG::spielleiter_export()
 {
- manage (new xml_fileselection(this,xml_fileselection::Export));
+#ifndef __MINGW32__
+ manage 
+#else
+ delete
+#endif
+	 (new xml_fileselection(this,xml_fileselection::Export));
 }
 
 
