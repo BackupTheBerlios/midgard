@@ -16,9 +16,12 @@
  */
 
 #include "midgard_CG.hh"
+#include <Misc/Trace.h>
+
 
 gint midgard_CG::on_neuer_charakter_release_event(GdkEventButton *ev)
 {
+   ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
    Char.push_back();
    on_neuer_charakter_clicked();
    if (ev->button==1)  on_wizard_starten_activate();
@@ -27,6 +30,7 @@ gint midgard_CG::on_neuer_charakter_release_event(GdkEventButton *ev)
 
 void midgard_CG::on_neuer_charakter_clicked()
 {
+   ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
    on_wizard_beenden_activate();
    if(Char.empty()) Char.push_back();
    table_lernschema->label_lernschma_titel->set_text("");
@@ -52,7 +56,6 @@ void midgard_CG::on_neuer_charakter_clicked()
       set_region_statusbar((*i)->Pic(),false);
      }
   table_steigern->neuer_charakter();
-//  menu_init();
   notebook_main->set_page(PAGE_GRUNDWERTE);
   table_grundwerte->neuer_charakter();
 }

@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.23 2002/11/13 16:59:01 christof Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.24 2002/11/19 12:37:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,10 +24,11 @@
 #include <gtk--/label.h>
 #include <Misc/itos.h>
 #include <SelectMatching.h>
-
+#include <Misc/Trace.h>
 
 gint table_grundwerte::on_button_grundwerte_button_release_event(GdkEventButton *ev)
 {
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active) 
       button_grundwerte->set_sensitive(false);
   if (ev->button==1) grundwerte_wuerfeln();
@@ -42,6 +43,7 @@ gint table_grundwerte::on_button_grundwerte_button_release_event(GdkEventButton 
 
 void table_grundwerte::grundwerte_wuerfeln()
 {
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   hauptfenster->set_status("");
   if(radiobutton_eigenschaften_standard->get_active())
      Eigenschaften_variante(1);
@@ -54,6 +56,7 @@ void table_grundwerte::grundwerte_wuerfeln()
 
 void table_grundwerte::Eigenschaften_variante(int i)
 {
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   button_abg_werte->set_sensitive(true);
   combo_typ->set_sensitive(true);
   combo_typ2->set_sensitive(true);
@@ -65,7 +68,7 @@ void table_grundwerte::Eigenschaften_variante(int i)
    }
   else 
    { cH_Spezies spez=hauptfenster->getWerte().Spezies();
-std::cout << spez->Name() << '\n';
+//std::cout << spez->Name() << '\n';
      Veigenschaften.clear();
      Veigenschaften.push_back(st_eigen(est,"die Stärke","St",spez->St()));
      Veigenschaften.push_back(st_eigen(egs,"die Geschicklichkeit","Gs",spez->Gs()));
@@ -89,6 +92,7 @@ std::cout << spez->Name() << '\n';
 
 void table_grundwerte::check_350(const std::vector<int>& a)
 {
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   int sum=0;
   if(a.empty())
    { sum  = hauptfenster->getWerte().St() + hauptfenster->getWerte().Gs() + hauptfenster->getWerte().Gw() 
@@ -115,6 +119,7 @@ void table_grundwerte::check_350(const std::vector<int>& a)
 
 void table_grundwerte::gw_wuerfeln_2x()
 {   
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
  hauptfenster->getWerte().setBasiswerte(constraint_gw(hauptfenster->getWerte().Spezies()->St()),
      constraint_gw(hauptfenster->getWerte().Spezies()->Gw()),
      constraint_gw(hauptfenster->getWerte().Spezies()->Gs()),
@@ -127,6 +132,7 @@ void table_grundwerte::gw_wuerfeln_2x()
 
 int table_grundwerte::constraint_gw(int constraint)
 {
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
  int wert;
  if      (constraint==0) wert = wuerfeln_best_of_two();
  else if (constraint<0) 
@@ -142,6 +148,7 @@ int table_grundwerte::constraint_gw(int constraint)
 
 int table_grundwerte::constraint_aw(int constraint)
 {
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
  if      (constraint==0) return hauptfenster->random.integer(1,100);
  else if (constraint<0)  return hauptfenster->random.integer(1,-constraint); 
  else 			          return hauptfenster->random.integer(constraint,100);
@@ -149,6 +156,7 @@ int table_grundwerte::constraint_aw(int constraint)
 
 int table_grundwerte::wuerfeln_best_of_two()
 {
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
  int ran  = hauptfenster->random.integer(1,100);
  int ran2 = hauptfenster->random.integer(1,100);
  (ran > ran2) ? : ran=ran2;
@@ -172,7 +180,9 @@ ostream &operator<<(ostream &o,const table_grundwerte::st_eigen &a)
 #endif
 
 void table_grundwerte::Schwachpunkt_wuerfeln()
-{  for (std::vector<st_eigen>::iterator i=Veigenschaften.begin();i!=Veigenschaften.end();)
+{
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
+  for (std::vector<st_eigen>::iterator i=Veigenschaften.begin();i!=Veigenschaften.end();)
    {  if (i->spezies_mod<0)
       {   set_Grundwerte(i->eigenschaft,constraint_gw(i->spezies_mod));
           i=Veigenschaften.erase(i);
@@ -186,7 +196,9 @@ void table_grundwerte::Schwachpunkt_wuerfeln()
 }
 
 void table_grundwerte::gw_variante_2()
-{ Schwachpunkt_wuerfeln();
+{
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
+  Schwachpunkt_wuerfeln();
   frame_wuerfelvariante->remove();  
   Gtk::Table *tab = manage(new class Gtk::Table(3, 6, false));
   Gtk::Label *lab = manage(new class Gtk::Label(itos(Veigenschaften.size())+"x gewürfelt, jetzt die Werte zuordnen."));
@@ -216,6 +228,7 @@ enum table_grundwerte::e_eigen &operator++(enum table_grundwerte::e_eigen &s)
 
 void table_grundwerte::on_button_variante_2_clicked(Gtk::Button *button,e_eigen eigenschaft)
 {
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   button->set_sensitive(false);
   set_Grundwerte(eigenschaft,actual_wurf);
   gw_variante_2_next();
@@ -224,6 +237,7 @@ void table_grundwerte::on_button_variante_2_clicked(Gtk::Button *button,e_eigen 
 
 void table_grundwerte::gw_variante_2_next()
 {
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   if(!label) return;
   std::vector<int> V;
   for(int j=0;j<2;++j) V.push_back(hauptfenster->random.integer(1,100)) ;
@@ -236,7 +250,9 @@ void table_grundwerte::gw_variante_2_next()
 ///////////////////////////////////////////////////////////////////////////
 
 void table_grundwerte::gw_variante_3()
-{ Schwachpunkt_wuerfeln();
+{
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
+  Schwachpunkt_wuerfeln();
   int anz_wuerfe=3+Veigenschaften.size();
   frame_wuerfelvariante->remove();  
   std::vector<int> V;
@@ -266,12 +282,14 @@ void table_grundwerte::gw_variante_3()
 
 void table_grundwerte::gw_variante_3_next()
 {
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   if(label)
      label->set_text("Welcher Wert soll für "+actual_eigen->lang+" ("+actual_eigen->kurz+") verwendet werden?");  
 }
 
 void table_grundwerte::on_button_variante_3_clicked(Gtk::Button *button,int wert)
 {
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   button->set_sensitive(false);
   set_Grundwerte(actual_eigen->eigenschaft,wert);
   gw_variante_3_next();
@@ -281,6 +299,7 @@ void table_grundwerte::on_button_variante_3_clicked(Gtk::Button *button,int wert
 
 void table_grundwerte::set_Grundwerte(e_eigen eigenschaft,int wert)
 {
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   switch(eigenschaft) {
      case est : hauptfenster->getWerte().setSt(wert); break;
      case egw : hauptfenster->getWerte().setGw(wert); break;

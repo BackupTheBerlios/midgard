@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.278 2002/11/16 23:04:46 thoma Exp $
+// $Id: midgard_CG.cc,v 1.279 2002/11/19 12:37:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,6 +29,7 @@
 #include <time.h>
 #endif
 #include "Windows_Linux.hh"
+#include <Misc/Trace.h>
 
 
 midgard_CG::midgard_CG(const std::string &_argv0,const std::string &_magus_verzeichnis,
@@ -36,6 +37,8 @@ midgard_CG::midgard_CG(const std::string &_argv0,const std::string &_magus_verze
 : magus_paths(_argv0,_magus_verzeichnis),in_dtor(false),
 	InfoFenster(0),MOptionen(0),wizard(0),menu_kontext(0)
 {
+  ManuProC::Tracer::Enable(ManuProC::Tracer::Auftrag);
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   InfoFenster = manage(new WindowInfo(this));
 
   // Optionen laden
@@ -86,6 +89,7 @@ midgard_CG::~midgard_CG()
 
 void midgard_CG::init_statusbar()
 {
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   frame_regionen_status->remove();
   vec_region_status.clear();
   Gtk::HBox *hb_regionen_status=manage(new class Gtk::HBox(false, 0));
@@ -103,6 +107,7 @@ void midgard_CG::init_statusbar()
 
 void midgard_CG::set_region_statusbar(RegionenPic::epic pic,bool active)
 {
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   for(std::vector<st_reg_status>::const_iterator i=vec_region_status.begin();i!=vec_region_status.end();++i)
    {
      if(i->name==pic)
@@ -117,6 +122,7 @@ void midgard_CG::set_region_statusbar(RegionenPic::epic pic,bool active)
 
 std::string magus_paths::with_path(const std::string &name,bool path_only,bool noexit) const
 {
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   std::vector<std::string> V;
 #ifndef __MINGW32__ // IMHO macht das unter Win32 keinen Sinn
 
@@ -156,6 +162,7 @@ cout <<"Suche nach "<< n<<'\n';
 
 std::string magus_paths::BinaryVerzeichnis() const
 {  
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
    if (argv0.rfind(WinLux::dirsep)!=std::string::npos) 
       return argv0.substr(0,argv0.rfind(WinLux::dirsep)+1);
    else return "";
@@ -163,6 +170,7 @@ std::string magus_paths::BinaryVerzeichnis() const
 
 void midgard_CG::fill_IconVec()
 {
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   // InfoFenster
   IconVec.push_back(st_buttons(InfoFenster->button_bestaetigen,iJa));
   IconVec.push_back(st_buttons(InfoFenster->button_abbrechen,iNein));

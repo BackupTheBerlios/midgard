@@ -17,14 +17,14 @@
  */
 
 #include "midgard_CG.hh"
-//#include "Window_doppelcharaktere.hh"
 #include <Gtk_OStream.h>
 #include <SelectMatching.h>
 #include "LernListen.hh"
-//static bool block;
+#include <Misc/Trace.h>
 
 void table_grundwerte::fill_typauswahl()
 {
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   if(!hauptfenster) return;
   fill_typauswahl_fill(1);
   if (!hauptfenster->getChar()->getVTyp().empty()) 
@@ -35,6 +35,7 @@ void table_grundwerte::fill_typauswahl()
 
 void table_grundwerte::fill_typauswahl_2()
 {
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   if(!hauptfenster) return;
   fill_typauswahl_fill(2);
   combo_typ2->get_entry()->set_text(hauptfenster->getChar()->Typ2()->Name(hauptfenster->getWerte().Geschlecht()));
@@ -42,6 +43,7 @@ void table_grundwerte::fill_typauswahl_2()
 
 void table_grundwerte::fill_typauswahl_fill(int typ_1_2)
 {
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   bool nsc_allowed = hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active;
   const std::vector<pair<cH_Typen,bool> > T=LernListen(hauptfenster->getCDatabase()).getTypen(hauptfenster->getAben(),nsc_allowed);
   std::list<std::string> L;
@@ -82,6 +84,7 @@ gint table_grundwerte::on_combo_typ__focus_out_event(GdkEventFocus *ev)
 
 void table_grundwerte::typauswahl_button()
 {
+ ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
  std::string typ=combo_typ->get_entry()->get_text();
  if(!Typen::get_Typ_from_long(hauptfenster->getCDatabase().Typen,typ))
    return;
@@ -136,6 +139,7 @@ gint table_grundwerte::on_combo_typ2_focus_out_event(GdkEventFocus *ev)
 
 void table_grundwerte::typauswahl_2_button()
 {
+ ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
  std::string typ=combo_typ2->get_entry()->get_text();
  if(!Typen::get_Typ_from_long(hauptfenster->getCDatabase().Typen,typ))
    return;
@@ -148,6 +152,7 @@ void table_grundwerte::typauswahl_2_button()
 
 void table_grundwerte::fill_spezies()
 {
+ ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   std::vector<std::string> L;
   bool nsc_allowed = hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active;
   std::vector<cH_Spezies>V=LernListen(hauptfenster->getDatabase()).getSpezies(nsc_allowed);
@@ -180,6 +185,7 @@ gint table_grundwerte::on_combo_spezies_focus_out_event(GdkEventFocus *ev)
 
 void table_grundwerte::spezieswahl_button()
 {
+ ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
  std::string spezies=combo_spezies->get_entry()->get_text();
  if(!Spezies::get_Spezies_from_long(hauptfenster->getCDatabase().Spezies,spezies))
    return;
@@ -197,6 +203,7 @@ void table_grundwerte::spezieswahl_button()
 
 void table_grundwerte::on_radiobutton_stadt_land_toggled()
 {
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   if(block_changed) return;
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::STADTLAND);
 
@@ -207,6 +214,7 @@ void table_grundwerte::on_radiobutton_stadt_land_toggled()
 
 void table_grundwerte::doppelcharaktere()
 {
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
    if(!hauptfenster) return;
    combo_typ2->show();
    fill_typauswahl();
@@ -217,6 +225,7 @@ void table_grundwerte::on_radiobutton_frau_toggled()
 { on_radiobutton_mann_toggled(); }
 void table_grundwerte::on_radiobutton_mann_toggled()
 {
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   if(block_changed) return;
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::GESCHLECHT);
   Enums::geschlecht oldG=hauptfenster->getWerte().Geschlecht();
@@ -239,6 +248,7 @@ void table_grundwerte::on_radiobutton_mann_toggled()
 
 void table_grundwerte::kaempfer_lernt_zaubern()
 {
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   if(!hauptfenster) return;
   hauptfenster->notebook_main->set_page(midgard_CG::PAGE_GRUNDWERTE);
   doppelcharaktere();

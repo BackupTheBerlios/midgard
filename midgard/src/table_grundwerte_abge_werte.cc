@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_abge_werte.cc,v 1.11 2002/10/18 08:36:47 thoma Exp $
+// $Id: table_grundwerte_abge_werte.cc,v 1.12 2002/11/19 12:37:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,9 +19,12 @@
 
 #include "midgard_CG.hh"
 #include "table_grundwerte.hh"
+#include <Misc/Trace.h>
+
 
 void table_grundwerte::on_abge_werte_setzen_clicked()
 {
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
    {
      combo_typ->set_sensitive(false);

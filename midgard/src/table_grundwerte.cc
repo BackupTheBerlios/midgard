@@ -10,9 +10,11 @@
 #include "midgard_CG.hh"
 #include <Misc/itos.h>
 #include <SelectMatching.h>
+#include <Misc/Trace.h>
 
 void table_grundwerte::init(midgard_CG *h)
 {
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__); 
   hauptfenster=h;
   label=0;
 
@@ -34,6 +36,7 @@ void table_grundwerte::init(midgard_CG *h)
     
 void table_grundwerte::zeige_werte(bool typ2_hide)
 { 
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__); 
    if(!hauptfenster) return;
    block_changed=true;
 //   if (hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::Original).active)  
@@ -115,7 +118,9 @@ void table_grundwerte::zeige_werte(bool typ2_hide)
 
 void table_grundwerte::neuer_charakter()
 {
+  ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__); 
    if(!hauptfenster) return;
+   block_changed=true;
    button_grundwerte->set_sensitive(true);
    combo_typ->set_sensitive(false);
    combo_spezies->set_sensitive(true);
@@ -130,6 +135,7 @@ void table_grundwerte::neuer_charakter()
    combo_spezies->get_entry()->set_text(hauptfenster->getWerte().Spezies()->Name());
    combo_typ ->get_entry()->set_text(hauptfenster->getChar()->Typ1()->Name(hauptfenster->getWerte().Geschlecht()));
    combo_typ2->get_entry()->set_text(hauptfenster->getChar()->Typ2()->Name(hauptfenster->getWerte().Geschlecht()));
+   block_changed=false;
    zeige_werte();
    hauptfenster->getChar().saved();
 }

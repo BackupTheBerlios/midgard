@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.112 2002/11/14 13:26:04 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.113 2002/11/19 12:37:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,25 +22,31 @@
 #include <fstream>
 #include "TagStream.hh"
 #include <xml.h>
+#include <Misc/Trace.h>
+
 
 void midgard_CG::set_info(const std::string& sadd)
 {
+ ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
  InfoFenster->AppendShow(sadd);
 }
 
 void midgard_CG::OptionenExecute_setzen_from_menu(Midgard_Optionen::OptionenExecuteIndex index)
 {
+ ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
  MOptionen->OptionenExecute_setzen_from_menu(index);
 }
 
 
 void midgard_CG::Ober_element_activate(gpointer gp,Midgard_Optionen::OberIndex index)
 {
+ ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   getOptionen()->Ober_setzen_from_menu(index);
 }
 
 void midgard_CG::checkbutton_original(bool active)
 {
+ ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   if(active) 
     { table_steigern->togglebutton_alle_zauber->set_sensitive(false); 
       MOptionen->setAllHausregeln(false);
@@ -56,6 +62,7 @@ void midgard_CG::checkbutton_original(bool active)
 
 void midgard_CG::lernschema_sensitive(bool active)
 {
+ ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
 assert(active);
    table_lernschema->frame_lernpunkte->set_sensitive(true);
    frame_steigern->set_sensitive(true);
@@ -76,6 +83,7 @@ assert(active);
 
 void midgard_CG::show_Pics(bool b)
 {
+ ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
  InfoFenster->show_pic(b);
  if(b)
   {
@@ -95,24 +103,28 @@ void midgard_CG::show_Pics(bool b)
 
 void midgard_CG::show_Menueleiste(bool b)
 {
+ ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   if(b) handlebox_menu->show();
   else  handlebox_menu->hide();
 }
 
 void midgard_CG::show_Knopfleiste(bool b)
 {
+ ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   if(b) griff_toolbar_top->show();
   else  griff_toolbar_top->hide();
 }
 
 void midgard_CG::show_Statusleiste(bool b)
 {
+ ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   if(b) handlebox_status->show();
   else  handlebox_status->hide();
 }
 
 void midgard_CG::show_Icons(bool i)
 {
+ ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
  bool b=MOptionen->OberCheck(Midgard_Optionen::Beschriftungen).active;
  if     ( b && i) toolbar_top->set_style(GTK_TOOLBAR_BOTH);
  else if( b &&!i) toolbar_top->set_style(GTK_TOOLBAR_TEXT);
@@ -122,6 +134,7 @@ void midgard_CG::show_Icons(bool i)
 
 void midgard_CG::show_Beschriftungen(bool b)
 {
+ ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
  bool i=MOptionen->OberCheck(Midgard_Optionen::Icons).active;
  if     ( b && i) toolbar_top->set_style(GTK_TOOLBAR_BOTH);
  else if( b &&!i) toolbar_top->set_style(GTK_TOOLBAR_TEXT);
@@ -131,6 +144,7 @@ void midgard_CG::show_Beschriftungen(bool b)
 
 void midgard_CG::show_3_Tasten_Maus(bool b)
 {
+ ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   if(b) 
    { table_grundwerte->vbox_gw_wuerfeln->hide();
      _tooltips.set_tip(*(table_grundwerte->button_grundwerte),"Linke Maustaste: 2x für jede Basiseigenschaft würfeln, höheres Ergebnis zählt.\n"
@@ -152,12 +166,14 @@ void midgard_CG::show_3_Tasten_Maus(bool b)
 
 void midgard_CG::show_NSC_active(bool b)
 {
+ ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   if(b) eventbox_NSC_aktiv->show();
   else  eventbox_NSC_aktiv->hide();
 }
 
 void midgard_CG::show_Hausregeln_active()
 {
+ ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   frame_haus_status->remove();
   Gtk::HBox *hb=manage(new class Gtk::HBox(false, 0));
   for(std::list<Midgard_Optionen::st_Haus>::const_iterator i=MOptionen->getHausregeln().begin();i!=MOptionen->getHausregeln().end();++i)
@@ -173,6 +189,7 @@ void midgard_CG::show_Hausregeln_active()
 
 void midgard_CG::show_wizard_active(bool b)
 {
+ ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   if(b) {eventbox_wizard_aktiv->show(); label_wizard->show();}
   else  {eventbox_wizard_aktiv->hide(); label_wizard->hide();}
 }
@@ -180,6 +197,7 @@ void midgard_CG::show_wizard_active(bool b)
 
 void midgard_CG::on_checkbutton_Regionen_menu_(Gtk::CheckMenuItem *menu_item,cH_Region region)
 {
+ ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
   if(menu_item->get_active()) region->setActive(true);
   else region->setActive(false);
   on_checkbutton_Regionen_menu_(0,region);
@@ -188,6 +206,7 @@ void midgard_CG::on_checkbutton_Regionen_menu_(Gtk::CheckMenuItem *menu_item,cH_
 
 void midgard_CG::on_checkbutton_Regionen_menu(gpointer gp,cH_Region region)
 {
+ ManuProC::Trace _t(ManuProC::Tracer::Auftrag,__FUNCTION__);
  table_grundwerte->fill_typauswahl();
  if(notebook_main->get_current_page_num()==PAGE_STEIGERN)
     table_steigern->load_for_page(table_steigern->notebook_lernen->get_current_page_num());
