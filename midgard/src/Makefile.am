@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.78 2001/11/27 12:31:58 thoma Exp $
+# $Id: Makefile.am,v 1.79 2001/12/13 21:53:48 thoma Exp $
 
 USE_XML=$(shell if test `hostname` = "puck" ; then echo -DUSE_XML ; fi)
 
@@ -116,6 +116,7 @@ midgard_xmlimport_SOURCES= $(BUILT_SOUCES_XMLI) Tag.cc TagStream.cc
 
 
 midgard_SOURCES = \
+	gw_wuerfeln.cc \
    midgard_CG_Ausruestung.cc \
    Berufe_auswahl.cc \
    $(BUILT_SOURCES_CG) \
@@ -178,7 +179,6 @@ midgard_SOURCES = \
 	Window_werte_editieren_glade.cc \
 	Window_werte_editieren.cc \
 	abge_werte_setzen.cc \
-	gw_wuerfeln.cc \
    zeige_werte.cc \
    midgard_CG_fertigkeiten.cc\
    midgard_CG_waffen.cc\

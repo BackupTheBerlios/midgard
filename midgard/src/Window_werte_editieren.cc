@@ -1,4 +1,4 @@
-// $Id: Window_werte_editieren.cc,v 1.27 2001/12/03 08:08:06 thoma Exp $
+// $Id: Window_werte_editieren.cc,v 1.28 2001/12/13 21:53:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,8 +33,8 @@ void Window_werte_editieren::on_nwe_close_clicked()
    gewicht_ein->update();
    groesse_ein->update();
    Werte.set_Basiswerte(atoi(st_ein->get_text().c_str()),
-                        atoi( ge_ein->get_text().c_str()),
-                        atoi( ge_ein->get_text().c_str()),
+                        atoi( gw_ein->get_text().c_str()),
+                        atoi( gs_ein->get_text().c_str()),
                         atoi( ko_ein->get_text().c_str()),
                         atoi( in_ein->get_text().c_str()),
                         atoi( zt_ein->get_text().c_str()));
@@ -42,9 +42,7 @@ void Window_werte_editieren::on_nwe_close_clicked()
    Werte.set_Abgeleitetewerte(atoi( au_ein->get_text().c_str()),
                               atoi( pa_ein->get_text().c_str()),
                               atoi( sb_ein->get_text().c_str()),
-                              atoi( sb_ein->get_text().c_str()),//Wk
-                              atoi( rw_ein->get_text().c_str()),
-                              atoi(hgw_ein->get_text().c_str()),
+                              atoi( wk_ein->get_text().c_str()),
                               atoi(  b_ein->get_text().c_str()),
                               atoi( lp_ein->get_text().c_str()),
                               atoi( ap_ein->get_text().c_str()),
@@ -74,7 +72,6 @@ void Window_werte_editieren::on_nwe_close_clicked()
    Werte.set_Namen(name_charakter_ein->get_text(),name_spieler_ein->get_text(),
                version_ein->get_text());
 
-//   hauptfenster->clear_Ausnahmen();
    hauptfenster->zeige_werte(Werte);
    destroy();
 }
@@ -91,21 +88,21 @@ Window_werte_editieren::Window_werte_editieren(midgard_CG* h,Grundwerte& w)
 
 
  st_ein->set_value(Werte.St());   
- ge_ein->set_value(Werte.Gw());   
- ge_ein->set_value(Werte.Gs());   
+ gw_ein->set_value(Werte.Gw());   
+ gs_ein->set_value(Werte.Gs());   
  ko_ein->set_value(Werte.Ko());   
  in_ein->set_value(Werte.In());   
  zt_ein->set_value(Werte.Zt());     
  au_ein->set_value(Werte.Au());     
  pa_ein->set_value(Werte.pA());     
  sb_ein->set_value(Werte.Sb());     
- rw_ein->set_value(Werte.RW());     
- hgw_ein->set_value(Werte.HGW());   
+// rw_ein->set_value(Werte.RW());     
+// hgw_ein->set_value(Werte.HGW());   
  b_ein->set_value(Werte.B());     
  lp_ein->set_value(Werte.LP());   
 // lpbasis_ein->set_value(Werte.LPBasis());   
- kaw_ein->set_value(Werte.KAW());   
- wlw_ein->set_value(Werte.WLW());   
+// kaw_ein->set_value(Werte.KAW());   
+// wlw_ein->set_value(Werte.WLW());   
  ap_ein->set_value(Werte.AP());          
  bo_au_ein->  set_value(Werte.bo_Au ());
  bo_sc_ein->  set_value(Werte.bo_Sc ());
@@ -115,7 +112,7 @@ Window_werte_editieren::Window_werte_editieren(midgard_CG* h,Grundwerte& w)
  bo_psy_ein-> set_value(Werte.bo_Psy()); 
  bo_phs_ein-> set_value(Werte.bo_Phs()); 
  bo_phk_ein-> set_value(Werte.bo_Phk()); 
- bo_gi_ein->  set_value(Werte.bo_Gift()); 
+// bo_gi_ein->  set_value(Werte.bo_Gift()); 
  abwehr_ein -> set_value(Werte.Abwehr_wert());
  zaubern_ein -> set_value(Werte.Zaubern_wert());
  resistenz_ein -> set_value(Werte.Resistenz());
@@ -142,10 +139,15 @@ Window_werte_editieren::Window_werte_editieren(midgard_CG* h,Grundwerte& w)
 
 void Window_werte_editieren::st_activate()
 {   
- ge_ein->grab_focus();
+ gw_ein->grab_focus();
 }
 
-void Window_werte_editieren::ge_activate()
+void Window_werte_editieren::gw_activate()
+{   
+ gs_ein->grab_focus();
+}
+
+void Window_werte_editieren::gs_activate()
 {   
  ko_ein->grab_focus();
 }
@@ -181,9 +183,15 @@ void Window_werte_editieren::pa_activate()
 
 void Window_werte_editieren::sb_activate()
 {   
- rw_ein->grab_focus();
+ wk_ein->grab_focus();
 }
 
+void Window_werte_editieren::wk_activate()
+{   
+ b_ein->grab_focus();
+}
+
+/*
 void Window_werte_editieren::rw_activate()
 {   
  hgw_ein->grab_focus();
@@ -193,7 +201,7 @@ void Window_werte_editieren::hgw_activate()
 {   
  b_ein->grab_focus();
 }
-
+*/
 void Window_werte_editieren::b_activate()
 {   
  lp_ein->grab_focus();
@@ -291,34 +299,31 @@ void Window_werte_editieren::phs_activate()
 
 void Window_werte_editieren::phk_activate()
 {   
- bo_gi_ein->grab_focus();
+ abwehr_ein->grab_focus();
 }
 
+/*
 void Window_werte_editieren::gift_activate()
 {   
  kaw_ein->grab_focus();
 }
-/*
 void Window_werte_editieren::wgift_activate()
 {   
  gfp_ein->grab_focus();
 }
-*/
 void Window_werte_editieren::lpb_activate()
 {   
  abwehr_ein->grab_focus();
 }
-
 void Window_werte_editieren::kaw_activate()
 {   
  wlw_ein->grab_focus();
 }
-
+*/
 void Window_werte_editieren::re_activate()
 {   
  gfp_ein->grab_focus();
 }
-
 void Window_werte_editieren::wza_activate()
 {   
  resistenz_ein->grab_focus();
@@ -339,7 +344,9 @@ void Window_werte_editieren::vers_activate()
  on_nwe_close_clicked();
 }
 
+/*
 void Window_werte_editieren::wlw_activate()
 {   
  lpbasis_ein->grab_focus();
 }
+*/

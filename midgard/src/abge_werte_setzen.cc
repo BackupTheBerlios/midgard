@@ -1,4 +1,4 @@
-// $Id: abge_werte_setzen.cc,v 1.30 2001/12/10 17:11:05 thoma Exp $
+// $Id: abge_werte_setzen.cc,v 1.31 2001/12/13 21:53:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,10 +32,6 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   int au = constraint_aw(random,Werte.Spezies()->Au());
   // pers. Ausstrahlung
   int pa = random.integer(1,100)-30 + 3*(Werte.In()/10. + Werte.Au()/10.) ;
-  // Reaktionswert
-  int rw=0;// = random.integer(1,20)+10 + Werte.Ge()/2. + Werte.In()/4.;
-  // Handgemengewert
-  int hgw=0;// = random.integer(1,20)+10+ Werte.St()/2. + Werte.Ge()/4.;
   // Bewegungsweite
   int b = Werte.Spezies()->B_s();
   for (int i=0;i<Werte.Spezies()->B_f();++i) b+=random.integer(1,3);
@@ -129,7 +125,7 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   if (11<=istand&&istand<=50) stand = "Volk";
   if (51<=istand&&istand<=90) stand = "Mittelschicht";
   if (istand>=91) stand = "Adel";
-  Werte.set_Abgeleitetewerte(au,pa,sb,wk,rw,hgw,b,lp,ap,abwehr_wert,zaubern_wert,
+  Werte.set_Abgeleitetewerte(au,pa,sb,wk,b,lp,ap,abwehr_wert,zaubern_wert,
    resistenz,gestalt,shand,gewicht,groesse,grad,stand);
 
   if (Originalbool) original_midgard_check() ;
@@ -247,8 +243,6 @@ void midgard_CG::grundwerte_boni_setzen()
   Werte.set_Abgeleitetewerte_Boni(bo_au,bo_sc,bo_an,bo_ab,bo_za,bo_psy,bo_phs,
    bo_phk);
 
-
-
 /*
   int bo_gi  =0;
   int kaw;
@@ -258,71 +252,6 @@ void midgard_CG::grundwerte_boni_setzen()
 
 
 
-/*
-  // Stärke
-  int ist=Werte.St();
-  if (ist<=10) { bo_sc-=2; bo_au-=1;kaw=0;}
-  if (11<=ist&&ist<=30) { bo_sc-=1; kaw=0;}
-  if (31<=ist&&ist<=60) { kaw=2;}
-  if (61<=ist&&ist<=80) { bo_sc+=1; kaw=4;}
-  if (81<=ist&&ist<=90) { bo_sc+=2; kaw=6;}
-  if (91<=ist&&ist<=95) { bo_sc+=2; bo_au+=1;kaw=8;}
-  if (96<=ist&&ist<=99) { bo_sc+=3; bo_au+=2;kaw=10;}
-  if (ist>=100) { bo_sc+=4; bo_au+=3;kaw=15;}
-  // Geschicklichkeit
-  ist=Werte.Ge();
-  if (ist<=1) { bo_sc-=2; bo_an-=2; bo_phk-=2;}
-  if (2<=ist&&ist<=10) { bo_sc-=1; bo_an-=1; bo_phk-=1;}
-  if (11<=ist&&ist<=20) { bo_sc-=1; }
-  if (81<=ist&&ist<=90) { bo_ab+=1;}
-  if (91<=ist&&ist<=95) { bo_sc+=1; bo_ab+=1; bo_phk+=1;}
-  if (96<=ist&&ist<=99) { bo_sc+=1; bo_an+=1; bo_ab+=2; bo_phk+=2;}
-  if (ist>=100) { bo_sc+=2; bo_an+=2; bo_ab+=2; bo_phk+=2;}
-  // Konsitution
-  ist=Werte.Ko();
-  if (ist<=1) { bo_au-=4; lpbasis=5; wlw=25; bo_gi-=10; }
-  if (2<=ist&&ist<=10) { bo_au-=3; lpbasis=6; wlw=30; bo_gi-=10; }
-  if (11<=ist&&ist<=20) {bo_au-=2; lpbasis=7; wlw=30; bo_gi-=5; }
-  if (21<=ist&&ist<=30) {bo_au-=1; lpbasis=8; wlw=40; }
-  if (31<=ist&&ist<=60) {bo_au-=0; lpbasis=9; wlw=50; }
-  if (61<=ist&&ist<=80) {bo_au+=1; lpbasis=10; wlw=60; bo_gi+=5; }
-  if (81<=ist&&ist<=90) {bo_au+=2; lpbasis=11; wlw=70; bo_gi+=5; }
-  if (91<=ist&&ist<=95) {bo_au+=3; lpbasis=12; wlw=80; bo_gi+=5; }
-  if (96<=ist&&ist<=99) {bo_au+=4; lpbasis=13; wlw=90; bo_gi+=10; }
-  if (ist>=100) { bo_au+=5; lpbasis=15; wlw=95; bo_gi+=15; }
-  // Intelligenz
-  ist=Werte.In();
-  if (ist<=10) { bo_psy-=2;}
-  if (11<=ist&&ist<=20) {bo_psy-=1;}
-  if (91<=ist&&ist<=95) {bo_psy+=1;}
-  if (96<=ist&&ist<=99) {bo_psy+=2;}
-  if (ist>=100) { bo_psy+=3;}
-  // Zaubertalent
-  ist=Werte.Zt();
-  int ibo_psy2=0;
-  if (ist<=10) { bo_za-=3; ibo_psy2-=2; bo_phs-=2; }
-  if (11<=ist&&ist<=20) {bo_za-=2; ibo_psy2-=1; bo_phs-=1; }
-  if (21<=ist&&ist<=30) {bo_za-=1; }
-  if (61<=ist&&ist<=80) {bo_za+=1; }
-  if (81<=ist&&ist<=95) {bo_za+=2; ibo_psy2+=1; bo_phs+=1; }
-  if (96<=ist&&ist<=99) {bo_za+=3; ibo_psy2+=2; bo_phs+=2; }
-  if (ist>=100)         {bo_za+=4; ibo_psy2+=3; bo_phs+=3; }
-*/
-/*
-  // Höhere Resistenz zählt + Resistenzen für Kämpfer|Zauberer
-  (bo_psy >= ibo_psy2) ? : bo_psy=ibo_psy2 ;
-  if (Typ[0]->Zaubern()=="z" || Typ[1]->Zaubern()=="z" ) 
-      { bo_phs+=3; bo_psy+=3; bo_phk+=3; }
-  else
-      { bo_phs+=2; }
-  // Speziesspezifische Boni
-  if (bo_ab <Werte.Spezies()->Abb()) bo_ab =Werte.Spezies()->Abb();
-  if (bo_psy<Werte.Spezies()->Psy()) bo_psy=Werte.Spezies()->Psy();
-  if (bo_phs<Werte.Spezies()->Phs()) bo_phs=Werte.Spezies()->Phs();
-  if (bo_phk<Werte.Spezies()->Phk()) bo_phk=Werte.Spezies()->Phk();
-*/
-//  Werte.set_Abgeleitetewerte_Boni(bo_au,bo_sc,bo_an,bo_ab,bo_za,bo_psy,bo_phs,
-//   bo_phk,bo_gi,kaw,wlw,lpbasis);
 }
 
 void midgard_CG::original_midgard_check()
@@ -342,7 +271,7 @@ void midgard_CG::original_midgard_check()
    if (zt<1)   zt=1;
    Werte.set_Basiswerte(st,gw,gs,ko,in,zt);
 
-   int au=Werte.Au(),pa=Werte.pA(),sb=Werte.Sb(),wk=Werte.Wk(),rw=Werte.RW(),hgw=Werte.HGW();
+   int au=Werte.Au(),pa=Werte.pA(),sb=Werte.Sb(),wk=Werte.Wk();
    if (au>100) au=100;
    if (au<1)   au=1;
    if (pa>100) pa=100;
@@ -351,9 +280,5 @@ void midgard_CG::original_midgard_check()
    if (sb<1)   sb=1;
    if (wk>100) wk=100;
    if (wk<1)   wk=1;
-   if (rw>100) rw=100;
-   if (rw<1)   rw=1;
-   if (hgw>100) hgw=100;
-   if (hgw<1)   hgw=1;
-   Werte.set_Abgeleitetewerte_small(au,pa,sb,wk,rw,hgw);
+   Werte.set_Abgeleitetewerte_small(au,pa,sb,wk);
 }

@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.57 2001/12/03 08:08:06 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.58 2001/12/13 21:53:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -86,9 +86,10 @@ void midgard_CG::LaTeX_write_values()
  fout << "\\newcommand{\\pa}{"  <<Werte.pA() << "}\n";
  fout << "\\newcommand{\\sbb}{"  <<Werte.Sb() << "}\n";
 // int reaktionswert = Werte.RW() - atoi(ruestung("RW").c_str());
- int reaktionswert = Werte.RW() - Werte.Ruestung()->RW_Verlust();
- fout << "\\newcommand{\\rw}{"  << Werte.RW() << "\\scriptsize ("<<reaktionswert<<")}\n";
- fout << "\\newcommand{\\hgw}{"  <<Werte.HGW() << "}\n";
+// fout << "\\newcommand{\\rw}{"  << Werte.RW() << "\\scriptsize ("<<reaktionswert<<")}\n";
+// fout << "\\newcommand{\\hgw}{"  <<Werte.HGW() << "}\n";
+ fout << "\\newcommand{\\rw}{ X }\n";
+ fout << "\\newcommand{\\hgw}{ X }\n";
 // int bewegungsweite = Werte.B() - atoi(ruestung("B").c_str());
  int bewegungsweite = Werte.B() - Werte.Ruestung()->B_Verlust();
  fout << "\\newcommand{\\bb}{"  <<Werte.B() << "\\scriptsize ("<<bewegungsweite<<")}\n";
@@ -105,12 +106,12 @@ void midgard_CG::LaTeX_write_values()
  fout << "\\newcommand{\\bopsy}{"<<Werte.bo_Psy()<< "}\n";
  fout << "\\newcommand{\\bophs}{"<<Werte.bo_Phs()<< "}\n";
  fout << "\\newcommand{\\bophk}{"<<Werte.bo_Phk()<< "}\n";
- fout << "\\newcommand{\\bogi}{"<<Werte.bo_Gift()<< "}\n";
+ fout << "\\newcommand{\\bogi}{ X }\n";
  fout << "\\newcommand{\\psy}{"<<Werte.Resistenz()+Werte.bo_Psy()<<"}\n";
  fout << "\\newcommand{\\phs}{"<<Werte.Resistenz()+Werte.bo_Phs()<<"}\n";
  fout << "\\newcommand{\\phk}{"<<Werte.Resistenz()+Werte.bo_Phk()<<"}\n";
 // fout << "\\newcommand{\\gift}{"<<3*Werte.LP()+Werte.bo_Gift()+ Spezies_constraint.Gift()<<"}\n";
- fout << "\\newcommand{\\gift}{"<<3*Werte.LP()+Werte.bo_Gift()+ Werte.Spezies()->Gift()<<"}\n";
+ fout << "\\newcommand{\\gift}{"<<Werte.Gift()<<"}\n";
 
  fout << "\\newcommand{\\abwehr}{"<<Werte.Abwehr_wert()<< "}\n";
  fout << "\\newcommand{\\abwehrfinal}{"<<Werte.Abwehr_wert()+Werte.bo_Ab()<< "}\n";

@@ -206,10 +206,10 @@ void midgard_CG::grundwerte_speichern()
       char *db_beschreibung; 
       char db_typ_s[5];
       char db_typ_2_s[5];
-      int db_st, db_gw, db_gs,db_ko, db_in,db_zt,db_au,db_pa,db_sb,db_wk,db_rw,db_hgw,
-          db_b, db_lp, db_ap, db_kaw,db_wlw,db_abwehr,db_zaubern,
+      int db_st, db_gw, db_gs,db_ko, db_in,db_zt,db_au,db_pa,db_sb,db_wk,
+          db_b, db_lp, db_ap,db_abwehr,db_zaubern,
           db_resistenz, db_bo_au, db_bo_sc,db_bo_an,db_bo_ab,db_bo_za,  
-          db_bo_psy, db_bo_phs , db_bo_phk, db_bo_gi,db_lpbasis, db_alter  ;
+          db_bo_psy, db_bo_phs , db_bo_phk,db_lpbasis, db_alter  ;
       char db_gestalt[20] ;
       char db_hand[30] ;
       char db_geschlecht[5];
@@ -241,13 +241,9 @@ void midgard_CG::grundwerte_speichern()
       db_pa = Werte.pA();      
       db_sb = Werte.Sb();      
       db_wk = Werte.Wk();      
-      db_rw = Werte.RW();      
-      db_hgw= Werte.HGW();      
       db_b  = Werte.B();      
       db_lp = Werte.LP();      
       db_ap = Werte.AP();      
-      db_kaw= Werte.KAW();      
-      db_wlw= Werte.WLW();      
       db_abwehr       = Werte.Abwehr_wert();      
       db_zaubern      = Werte.Zaubern_wert();
       db_resistenz    = Werte.Resistenz();      
@@ -259,7 +255,7 @@ void midgard_CG::grundwerte_speichern()
       db_bo_psy       = Werte.bo_Psy();      
       db_bo_phs       = Werte.bo_Phs();      
       db_bo_phk       = Werte.bo_Phk();      
-      db_bo_gi        = Werte.bo_Gift();      
+//      db_bo_gi        = Werte.bo_Gift();      
 //      db_lpbasis      = Werte.LPBasis();      
       db_alter        = Werte.Alter();      
       db_gewicht      = Werte.Gewicht();      
@@ -309,13 +305,9 @@ void midgard_CG::grundwerte_speichern()
       pa             = :db_pa       ,
       sb             = :db_sb       ,
       wk             = :db_wk       ,
-      rw             = :db_rw       ,
-      hgw            = :db_hgw      ,
       b              = :db_b        ,
       lp             = :db_lp       ,
       ap             = :db_ap       ,
-      kaw            = :db_kaw      ,
-      wlw            = :db_wlw      ,
       abwehr         = :db_abwehr   ,
       zaubern        = :db_zaubern  ,
       resistenz      = :db_resistenz,
@@ -339,7 +331,6 @@ void midgard_CG::grundwerte_speichern()
       db_bo_psy      = :db_bo_psy      ,
       db_bo_phs      = :db_bo_phs      ,
       db_bo_phk      = :db_bo_phk      ,
-      db_bo_gi       = :db_bo_gi       ,  
       db_gfp         = :db_gfp         ,
       gold           = :db_gold        ,
       silber         = :db_silber      ,

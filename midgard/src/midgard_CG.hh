@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.104 2001/12/12 18:02:44 thoma Exp $
+// $Id: midgard_CG.hh,v 1.105 2001/12/13 21:53:49 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -204,12 +204,22 @@ class midgard_CG : public midgard_CG_glade
         void typauswahl_button();
         void typauswahl_2_button();
         void angeborene_zauber();
+        void angeborene_fertigkeiten();
         void on_radiobutton_frau_toggled();
         void on_radiobutton_mann_toggled();
         void spezieswahl_button();
         void on_herkunftsland_clicked();
         void on_muttersprache_clicked();
-        void gw_wuerfeln();
+        void gw_wuerfeln_2x();
+        gint on_button_grundwerte_button_release_event(GdkEventButton *ev);
+        void on_button_wert_1_clicked();
+        void on_button_wert_2_clicked();
+        void on_button_wert_3_clicked();
+        void on_button_wert_4_clicked();
+        void on_button_wert_5_clicked();
+        void on_button_wert_6_clicked();
+        int werte_label_count;
+        void set_werte_label(Gtk::Label *L=0);
         int  constraint_gw(Random& random,int constraint);
         int  constraint_aw(Random& random,int constraint);
         int  wuerfeln_best_of_two(Random& random);
@@ -400,12 +410,16 @@ class midgard_CG : public midgard_CG_glade
         void on_preise_leaf_selected(cH_RowDataBase d);        
         void on_button_modi_clicked();
         void show_modi();
-        void createAusruestungNode(const std::string &name,AusruestungBaum parent);
         void showAusruestung();
         void showChildren(Gtk::CTree_Helpers::RowList::iterator r,const std::list<AusruestungBaum> &AB);
         Gtk::CTree *Ausruestung_tree;
         AusruestungBaum besitz;
         std::map<pair<std::string,std::string>,PreiseMod::st_payload> modimap;
+        void on_checkbutton_sichtbar_toggled();
+        void on_ausruestung_loeschen_clicked();
+        void on_Ausruestung_tree_select_row(Gtk::CTree::Row row,gint column);
+        void on_Ausruestung_tree_unselect_row(Gtk::CTree::Row row,gint column);
+        bool tree_valid(Gtk::CTree_Helpers::SelectionList &selectionList) ;
    
    public:
          midgard_CG(int argc,char **argv);

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.38 2001/12/12 09:34:46 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.39 2001/12/13 21:53:49 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -113,4 +113,18 @@ void midgard_CG::show_sinne()
    for (unsigned int i=0;i<clist_sinne->columns().size();++i)
       fertigkeiten_clist->set_column_auto_resize(i,true);
    clist_sinne->set_reorderable(true);
+}
+
+
+
+void midgard_CG::angeborene_fertigkeiten()
+{
+ if (Werte.Spezies()->Name()=="Zwerg" ||
+     Werte.Spezies()->Name()=="Waldgnom" ||
+     Werte.Spezies()->Name()=="Berggnom")
+   {
+     cH_MidgardBasicElement fert_an(new Fertigkeit_angeborene("Robustheit"));
+     cH_Fertigkeit_angeborene(fert_an)->set_Erfolgswert(9);
+     list_Fertigkeit_ang.push_back(fert_an);
+   }
 }

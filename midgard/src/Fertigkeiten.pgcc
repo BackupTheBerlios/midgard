@@ -78,8 +78,7 @@ bool Fertigkeit::Voraussetzungen(const Grundwerte& Werte) const
       voraussetzung.zt<=Werte.Zt() &&
       voraussetzung.au<=Werte.Au() &&
       voraussetzung.pa<=Werte.pA() &&
-      voraussetzung.sb<=Werte.Sb() &&  
-      voraussetzung.rw<=Werte.RW()
+      voraussetzung.sb<=Werte.Sb()
      )   
     return true;
  else return false ;
@@ -105,8 +104,6 @@ int Fertigkeit::AttributBonus(const Grundwerte& Werte) const
    if (Attribut()=="In" && Werte.In()>=96) ++b;
    if (Attribut()=="Zt" && Werte.Zt()>=81) ++b;
    if (Attribut()=="Zt" && Werte.Zt()>=96) ++b;
-   if (Attribut()=="RW" && Werte.RW()>=81) ++b;
-   if (Attribut()=="RW" && Werte.RW()>=96) ++b;
    if (Attribut()=="Sb" && Werte.Sb()>=81) ++b;
    if (Attribut()=="Sb" && Werte.Sb()>=96) ++b;
    if (Attribut()=="pA" && Werte.pA()>=81) ++b;

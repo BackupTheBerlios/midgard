@@ -12,7 +12,7 @@ class Spezies : public HandleContent
 {
   std::string name;
   int nr;
-  int st,gw,gs,ko,in,zt,sb,au,lpbasis,ap_grad,gift,m_abb,
+  int st,gw,gs,ko,in,zt,sb,au,lpbasis,ap_grad,m_abb,
        m_psy,m_phs,m_phk,alter, groesse_f,groesse_w, groesse_s, gestalt,
        b_f,b_s;
 
@@ -26,7 +26,7 @@ private:
 public:
    Spezies()
      :st(0),gw(0),gs(0),ko(0),in(0),zt(0),sb(0),au(0),
-       lpbasis(0),ap_grad(0),gift(0),m_abb(0),
+       lpbasis(0),ap_grad(0),m_abb(0),
        m_psy(0),m_phs(0),m_phk(0),alter(0), 
        groesse_f(0),groesse_w(0), groesse_s(0),
        gestalt(0),b_f(0),b_s(0)  {}
@@ -48,7 +48,6 @@ public:
    int Psy() const {return m_psy;}
    int Phs() const {return m_phs;}
    int Phk() const {return m_phk;}
-   int Gift() const {return gift;}
    int Alter() const {return alter;}
    int Groesse_f() const {return groesse_f;}
    int Groesse_w() const {return groesse_w;}

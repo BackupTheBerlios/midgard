@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.31 2001/12/03 22:07:38 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.32 2001/12/13 21:53:49 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -95,8 +95,8 @@ void midgard_CG::get_grundwerte()
   if (z==96)   { was="Aussehn"; Werte.add_Au(erh); }
   if (z==97)   { was="persönliche Ausstrahlung"; Werte.add_pA(erh); }
   if (z==98)   { was="Selbstbeherrschung"; Werte.add_Sb(erh); }
-  if (z==99)   { was="Reaktionswert"; Werte.add_RW(erh); }
-  if (z==100)  { was="Handgemengewert"; Werte.add_HGW(erh); }
+//  if (z==99)   { was="Reaktionswert"; Werte.add_RW(erh); }
+//  if (z==100)  { was="Handgemengewert"; Werte.add_HGW(erh); }
 
   stinfo += was;
   if (was != "keine Erhöhung" )

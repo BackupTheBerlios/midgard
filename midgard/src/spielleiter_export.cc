@@ -34,7 +34,7 @@ void midgard_CG::spielleiter_export()
   fout << "St "<<Werte.St()<<", Ge"<<Werte.Gw()<<", Gs"<<Werte.Gs()<<", Ko"<<Werte.Ko()<<", In"<<Werte.In()
        << ", Zt"<<Werte.Zt()<<", Au"<<Werte.Au()<<", pA"<<Werte.pA()<<", Sb"<<Werte.Sb()<<"\n";
   fout << Werte.LP()<<"LP, "<<Werte.AP()<<"AP - "<<Werte.Ruestung()->Name()<<" - RW "
-       << Werte.RW()<<", HGW "<<Werte.HGW()<<", B " << Werte.B() ;
+       <<", HGW "<<", B " << Werte.B() ;
   if (Werte.bo_Sc() != 0 || Werte.bo_Ab() != 0 || Werte.bo_An() != 0) fout <<" - ";
   if (Werte.bo_Sc() != 0) fout << "SchB+"<<Werte.bo_Sc();
   if (Werte.bo_Sc() != 0 || Werte.bo_Ab() != 0 ) fout <<", ";

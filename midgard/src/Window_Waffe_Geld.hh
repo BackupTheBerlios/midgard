@@ -1,4 +1,4 @@
-// $Id: Window_Waffe_Geld.hh,v 1.24 2001/11/09 17:12:56 thoma Exp $
+// $Id: Window_Waffe_Geld.hh,v 1.25 2001/12/13 21:53:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -51,7 +51,7 @@ class Window_Waffe_Geld : public Window_Waffe_Geld_glade
         void on_button_wuerfeln_clicked();
         void on_button_auswaehlen_clicked();
         void on_button_close_clicked();
-        void Geld(int wurf);
+        void Geld();
    public:
         Window_Waffe_Geld::Window_Waffe_Geld(midgard_CG* h, Grundwerte& w, 
             const vector<cH_Typen>& T, 

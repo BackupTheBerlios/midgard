@@ -10,18 +10,11 @@ class AusruestungBaum;
 class Ausruestung
 {
      std::string name, material;
-//     AusruestungBaum *parent;
      bool sichtbar;
 
    public:
      Ausruestung() : sichtbar(false) {}
-/*
-     Ausruestung(std::string n,AusruestungBaum *p) 
-       : name(n),parent(p), sichtbar(true) {}
-     Ausruestung(std::string n,std::string ma,AusruestungBaum *p,
-            std::string wo,bool s)
-         :name(n), material(ma),parent(p),wobinich(wo),sichtbar(s) {}
-*/
+
      Ausruestung(std::string n) 
        : name(n), sichtbar(true) {}
      Ausruestung(std::string n,std::string ma,bool s)
@@ -32,10 +25,8 @@ class Ausruestung
      
      std::string Name() const {return name;}
      std::string Material() const {return material;}
-//     std::string Modi() const {return modi;}
-//     std::string WoBinIch() const {return wobinich;}
-//     AusruestungBaum Parent() const {return parent;}
      bool Sichtbar() const {return sichtbar;}
+     std::string SichtbarStr() const {if(sichtbar) return "*"; else return "";}
 
      void setSichtbar(bool s) {sichtbar=s;}
 };
@@ -46,7 +37,6 @@ class AusruestungBaum
       Ausruestung ausruestung;
 
       typedef list<AusruestungBaum>::const_iterator const_iterator;
-//      typedef list<AusruestungBaum>::iterator iterator;
 
    public:
       AusruestungBaum()  {}
@@ -56,10 +46,7 @@ class AusruestungBaum
           { child.push_back(a); return child.back(); }
 
       Ausruestung getAusruestung() const {return ausruestung;}
-      std::list<AusruestungBaum> getChildren() const {return child;}
-
-//      void Rein(const Ausruestung& a) { ausmap[a.WoBinIch()].push_back(a); }
-//      void Raus(const Ausruestung& a) { ausmap[a.WoBinIch()].remove(a); }
+      const std::list<AusruestungBaum> &getChildren() const {return child;}
 
       bool empty() const
           {  return child.empty(); }

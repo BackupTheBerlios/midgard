@@ -78,10 +78,10 @@ void midgard_CG::load_charakter()
       char *db_beschreibung=0;
       char db_typ_s[5]     ;
       char db_typ_2_s[5]     ;
-      int db_st,db_gw,db_gs,db_ko,db_in,db_zt,db_au,db_pa,db_sb,db_wk,db_rw,db_hgw,
-          db_b,db_lp,db_ap,db_kaw,db_wlw,db_abwehr,db_zaubern,db_resistenz,
+      int db_st,db_gw,db_gs,db_ko,db_in,db_zt,db_au,db_pa,db_sb,db_wk,
+          db_b,db_lp,db_ap,db_abwehr,db_zaubern,db_resistenz,
           db_bo_au,db_bo_sc,db_bo_an,db_bo_ab,db_bo_za,db_bo_psy,db_bo_phs,
-          db_bo_phk,db_bo_gi,db_lpbasis,db_alter;
+          db_bo_phk,db_alter;
       char db_gestalt[20] ;
       char db_hand[30] ;
       char db_geschlecht[5];
@@ -126,17 +126,12 @@ void midgard_CG::load_charakter()
          pa             ,
          sb             ,
          wk             ,
-         rw             ,
-         hgw            ,
          b              ,
          lp             ,
          ap             ,
-         kaw            ,
-         wlw            ,
          abwehr         ,
          zaubern        ,
          resistenz      ,
-         lpbasis        ,
          alter          ,
          gestalt        ,
          hand           ,
@@ -156,7 +151,6 @@ void midgard_CG::load_charakter()
          db_bo_psy      ,
          db_bo_phs      ,
          db_bo_phk      ,
-         db_bo_gi       ,
          db_gfp         ,
          gold        ,
          silber      ,
@@ -190,17 +184,12 @@ void midgard_CG::load_charakter()
        :db_pa       ,
        :db_sb       ,
        :db_wk       ,
-       :db_rw       ,
-       :db_hgw      ,
        :db_b        ,
        :db_lp       ,
        :db_ap       ,
-       :db_kaw      ,
-       :db_wlw      ,
        :db_abwehr   ,
        :db_zaubern  ,
        :db_resistenz,
-       :db_lpbasis  ,
        :db_alter    ,
        :db_gestalt  ,
        :db_hand     ,
@@ -220,7 +209,6 @@ void midgard_CG::load_charakter()
        :db_bo_psy      ,
        :db_bo_phs      ,
        :db_bo_phk      ,
-       :db_bo_gi       ,
        :db_gfp         ,
        :db_gold        ,
        :db_silber      ,
@@ -233,7 +221,7 @@ void midgard_CG::load_charakter()
    SQLerror::test(__FILELINE__);
    exec sql close cha;
    Werte.set_Basiswerte(db_st,db_gw,db_gs,db_ko,db_in,db_zt) ;    
-   Werte.set_Abgeleitetewerte(db_au,db_pa,db_sb,db_wk,db_rw,db_hgw,db_b,
+   Werte.set_Abgeleitetewerte(db_au,db_pa,db_sb,db_wk,db_b,
        db_lp, db_ap,db_abwehr,db_zaubern,db_resistenz,db_gestalt,db_hand,
        db_gewicht,db_groesse,db_grad,db_stand);
    Werte.set_Abgeleitetewerte_Boni(db_bo_au,db_bo_sc, db_bo_an,db_bo_ab,

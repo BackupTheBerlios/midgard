@@ -1,4 +1,4 @@
-// $Id: gw_wuerfeln.cc,v 1.19 2001/12/03 08:08:06 thoma Exp $
+// $Id: gw_wuerfeln.cc,v 1.20 2001/12/13 21:53:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,8 +27,133 @@
 #include "midgard_CG.hh"
 #include "zufall.h"
 #include <strstream>
+#include <algorithm>
+#include <gtk--/label.h>
 
-void midgard_CG::gw_wuerfeln()
+gint midgard_CG::on_button_grundwerte_button_release_event(GdkEventButton *ev)
+{
+  if (ev->button==1) gw_wuerfeln_2x();
+  if (ev->button==3)
+   {
+     Random random;
+     std::vector<int> V;
+     for(int i=0;i<9;++i) V.push_back(random.integer(1,100)) ;
+     sort(V.begin(),V.end());
+     button_wert_1->remove();
+     button_wert_1->add_label(itos(V[0]));
+     button_wert_2->remove();
+     button_wert_2->add_label(itos(V[1]));
+     button_wert_3->remove();
+     button_wert_3->add_label(itos(V[2]));
+     button_wert_4->remove();
+     button_wert_4->add_label(itos(V[3]));
+     button_wert_5->remove();
+     button_wert_5->add_label(itos(V[4]));
+     button_wert_6->remove();
+     button_wert_6->add_label(itos(V[5]));
+     button_wert_7->remove();
+     button_wert_7->add_label(itos(V[6]));
+     button_wert_8->remove();
+     button_wert_8->add_label(itos(V[7]));
+     button_wert_9->remove();
+     button_wert_9->add_label(itos(V[8]));
+     werte_label_count=0;
+     set_werte_label();
+     button_wert_1->set_sensitive(true);
+     button_wert_2->set_sensitive(true);
+     button_wert_3->set_sensitive(true);
+     button_wert_4->set_sensitive(true);
+     button_wert_5->set_sensitive(true);
+     button_wert_6->set_sensitive(true);
+     button_wert_7->set_sensitive(false);
+     button_wert_8->set_sensitive(false);
+     button_wert_9->set_sensitive(false);
+     table_werte_wuerfeln->show();
+   }
+  return false;
+}
+
+void midgard_CG::set_werte_label(Gtk::Label *L)
+{
+  if(werte_label_count==0)
+     label_werte->set_text("Welcher Wert soll für die  Stärke (St) verwendet werden?") ;
+  else
+   {
+     int w=atoi(L->get_text().c_str());
+     switch(werte_label_count) {
+      case 1 : 
+            st->set_text(L->get_text());
+            Werte.setSt(w);
+            button_wert_1->set_sensitive(false);
+            label_werte->set_text("Welcher Wert soll für die  Gewandheit (Gw) verwendet werden?");
+            break;
+      case 2 :
+            gw->set_text(L->get_text());
+            Werte.setGw(w);
+            button_wert_2->set_sensitive(false);
+            label_werte->set_text("Welcher Wert soll für die  Geschicklichkeit (Gs) verwendet werden?");
+            break;
+      case 3 : 
+            gs->set_text(L->get_text());
+            Werte.setGs(w);
+            button_wert_3->set_sensitive(false);
+            label_werte->set_text("Welcher Wert soll für die  Konstitution (Ko) verwendet werden?");
+            break;
+      case 4 : 
+            ko->set_text(L->get_text());
+            Werte.setKo(w);
+            button_wert_4->set_sensitive(false);
+            label_werte->set_text("Welcher Wert soll für die  Intelligenz (In) verwendet werden?");
+            break;
+      case 5 : 
+            in->set_text(L->get_text());
+            Werte.setIn(w);
+            button_wert_5->set_sensitive(false);
+            label_werte->set_text("Welcher Wert soll für das  Zaubertalent (Zt) verwendet werden?");
+            break;
+      default: 
+            zt->set_text(L->get_text());
+            Werte.setZt(w);
+            button_wert_6->set_sensitive(false);
+            table_werte_wuerfeln->hide();
+        } 
+     ++werte_label_count;
+   }
+}
+
+void midgard_CG::on_button_wert_1_clicked()
+{
+  Gtk::Label *l=static_cast<Gtk::Label*>(button_wert_1->get_child());
+  set_werte_label(l);
+}
+void midgard_CG::on_button_wert_2_clicked()
+{
+  Gtk::Label *l=static_cast<Gtk::Label*>(button_wert_2->get_child());
+  set_werte_label(l);
+}
+void midgard_CG::on_button_wert_3_clicked()
+{
+  Gtk::Label *l=static_cast<Gtk::Label*>(button_wert_3->get_child());
+  set_werte_label(l);
+}
+void midgard_CG::on_button_wert_4_clicked()
+{
+  Gtk::Label *l=static_cast<Gtk::Label*>(button_wert_4->get_child());
+  set_werte_label(l);
+}
+void midgard_CG::on_button_wert_5_clicked()
+{
+  Gtk::Label *l=static_cast<Gtk::Label*>(button_wert_5->get_child());
+  set_werte_label(l);
+}
+void midgard_CG::on_button_wert_6_clicked()
+{
+  Gtk::Label *l=static_cast<Gtk::Label*>(button_wert_6->get_child());
+  set_werte_label(l);
+}
+
+
+void midgard_CG::gw_wuerfeln_2x()
 {   
  Random random;
  Werte.set_Basiswerte(constraint_gw(random,Werte.Spezies()->St()),

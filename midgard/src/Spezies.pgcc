@@ -42,7 +42,7 @@ Spezies::Spezies(const std::string& n)
 {
  exec sql begin declare section;
    int ST,GE,KO,IN,ZT;
-   int SB,AU,LPBASIS,AP_GRAD,GIFT,ABB,PSY,PHS,PHK,ALTER,GF,GW,GS,
+   int SB,AU,LPBASIS,AP_GRAD,ABB,PSY,PHS,PHK,ALTER,GF,GW,GS,
       GESTALT,BF,BS;
    char SPEZIES[50];
    int NR;
@@ -53,10 +53,10 @@ Spezies::Spezies(const std::string& n)
  exec sql select nr,coalesce(m_st,-h_st), coalesce(m_ge,-h_ge),
       coalesce(m_ko,-h_ko), coalesce(m_in,-h_in), coalesce(m_zt,-h_zt) ,
       coalesce(m_sb,-h_sb), coalesce(m_au,-h_au), lpbasis, ap_grad,
-      coalesce(gift,0), coalesce(m_abb,0), coalesce(m_psy,0), coalesce(m_phs,0), 
+      coalesce(m_abb,0), coalesce(m_psy,0), coalesce(m_phs,0), 
       coalesce(m_phk,0),alter,groesse_f,groesse_w,groesse_s,
       coalesce(gestalt,0),b_f,b_s 
-      into :NR,:ST,:GE,:KO,:IN,:ZT,:SB,:AU,:LPBASIS,:AP_GRAD,:GIFT,
+      into :NR,:ST,:GE,:KO,:IN,:ZT,:SB,:AU,:LPBASIS,:AP_GRAD,
          :ABB,:PSY,:PHS,:PHK,:ALTER,:GF,:GW,:GS,:GESTALT,:BF,:BS
       from spezies where spezies=:SPEZIES;
  SQLerror::test(__FILELINE__); 
@@ -71,7 +71,6 @@ Spezies::Spezies(const std::string& n)
  au=AU;
  lpbasis=LPBASIS;
  ap_grad=AP_GRAD;
- gift=GIFT;
  m_abb=ABB;
  m_psy=PSY;
  m_phs=PHS;

@@ -43,46 +43,6 @@ public:
 };
 
 
-/*
-class Data_Ausruestung : public RowDataBase
-{
-     vector<std::string> V;
-  public:
-     Data_Ausruestung(vector<std::string> v) : V(v) {V.resize(10);}
-     
-     virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const 
-      {
-        switch(seqnr) {
-           case 1 : return cH_EntryValueIntString(V[0]);
-           case 2 : return cH_EntryValueIntString(V[1]);
-           case 3 : return cH_EntryValueIntString(V[2]);
-           case 4 : return cH_EntryValueIntString(V[3]);
-           case 5 : return cH_EntryValueIntString(V[4]);
-           case 6 : return cH_EntryValueIntString(V[5]);
-           case 7 : return cH_EntryValueIntString(V[6]);
-           case 8 : return cH_EntryValueIntString(V[7]);
-           case 9 : return cH_EntryValueIntString(V[8]);
-           case 10: return cH_EntryValueIntString(V[9]);
-         }
-        return cH_EntryValueIntString();
-      }
-
-   std::string getLast()
-      {
-        vector<std::string>::const_reverse_iterator e=V.rend();
-        for(vector<std::string>::const_reverse_iterator i=V.rbegin();i!=e;++i)
-          if((*i)!="") return *i;
-        return "";         
-      }
-};
-class cH_Data_Ausruestung : public Handle<const Data_Ausruestung>
-{
-public:
- cH_Data_Ausruestung(Data_Ausruestung *r) : Handle<const Data_Ausruestung>(r) {}
-};
-*/ 
-
-
 void midgard_CG::ausruestung_laden()
 {
   std::vector<cH_RowDataBase> datavec;
@@ -98,7 +58,7 @@ void midgard_CG::on_preise_leaf_selected(cH_RowDataBase d)
 {
  static std::string art;
  const Data_Preis *dt=dynamic_cast<const Data_Preis*>(&*d);
-cout << dt->Art()<<' '<<dt->Typ()<<' '<<dt->Preismod().name<<'\n';
+//cout << dt->Art()<<' '<<dt->Typ()<<' '<<dt->Preismod().name<<'\n';
  std::string memart=art;
  art=dt->Art();
  if(art!=memart) modimap.clear();
@@ -142,6 +102,63 @@ void midgard_CG::on_button_modi_clicked()
 
 
 
+void midgard_CG::showAusruestung()
+{
+  if(besitz.empty()) 
+    { AusruestungBaum *Koerper = &besitz.push_back(Ausruestung("Körper"));
+      AusruestungBaum *Rucksack=&Koerper->push_back(Ausruestung("Rucksack"));
+      Rucksack->push_back(Ausruestung("Buckler"));
+      Koerper->push_back(Ausruestung("Sack"));
+      Koerper->push_back(Ausruestung("Hose"));
+    }
+  std::vector<std::string> title;
+  title.push_back("Titel");
+  title.push_back("Material");
+  title.push_back("Sichtbar");
+  Ausruestung_tree=manage(new Gtk::CTree(title));
+  Gtk::CTree_Helpers::RowList::iterator r;
+  for(AusruestungBaum::const_iterator i=besitz.begin();i!=besitz.end();++i)
+   {
+     std::vector <string> v;
+     v.push_back(i->getAusruestung().Name());
+     v.push_back(i->getAusruestung().Material());
+     v.push_back(i->getAusruestung().SichtbarStr());
+     Ausruestung_tree->rows().push_back(Gtk::CTree_Helpers::Element(v));
+     r=--(Ausruestung_tree->rows().end());
+     r->set_data(gpointer(&*i));
+     showChildren(r,i->getChildren());
+   }
+
+/*
+  for(Gtk::CTree_Helpers::RowList::const_iterator i=Ausruestung_tree->rows().begin();
+         i!=Ausruestung_tree->rows().end();++i)
+   {
+     cout << i->get_data() << '\n';
+     AusruestungBaum &A=*static_cast<AusruestungBaum*>(i->get_data());
+     cout << '\t'<<A.getAusruestung().Name();
+     cout << '\t'<<A.getChildren().size();
+     for(Gtk::CTree_Helpers::RowList::const_iterator j=i->subtree().begin();
+            j!=i->subtree().end();++j)
+      {
+        cout << j->get_data() << '\n';
+        AusruestungBaum &A=*static_cast<AusruestungBaum*>(j->get_data());
+        cout << '\t'<<A.getAusruestung().Name();
+        cout << '\t'<<A.getChildren().size();
+      }
+   }
+*/
+  r->expand_recursive();
+  Ausruestung_tree->show(); 
+  Ausruestung_tree->tree_select_row.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_Ausruestung_tree_select_row));
+  Ausruestung_tree->tree_unselect_row.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_Ausruestung_tree_unselect_row));
+  for (unsigned int i=0;i<Ausruestung_tree->columns().size();++i)
+         Ausruestung_tree->set_column_auto_resize(i,true);
+            
+  viewport_ausruestung->remove();
+  viewport_ausruestung->add(*Ausruestung_tree);
+  button_ausruestung_loeschen->set_sensitive(false);
+}
+
 void midgard_CG::showChildren(Gtk::CTree_Helpers::RowList::iterator r,const list<AusruestungBaum> &AB)
 {
   Gtk::CTree_Helpers::RowList::iterator n;
@@ -149,66 +166,78 @@ void midgard_CG::showChildren(Gtk::CTree_Helpers::RowList::iterator r,const list
    {
      std::vector <string> v;
      v.push_back(i->getAusruestung().Name());
+     v.push_back(i->getAusruestung().Material());
+     v.push_back(i->getAusruestung().SichtbarStr());
      r->subtree().push_back(Gtk::CTree_Helpers::Element(v));
-     n=--(Ausruestung_tree->rows().end());
+     n=--(r->subtree().end());
      n->set_data(gpointer(&*i));
      showChildren(n,i->getChildren());
    }  
 }
 
-void midgard_CG::showAusruestung()
+
+bool midgard_CG::tree_valid(Gtk::CTree_Helpers::SelectionList &selectionList)
 {
-  if(besitz.empty()) 
-    { AusruestungBaum *Koerper = &besitz.push_back(Ausruestung("Körper"));
-      Koerper->push_back(Ausruestung("Rucksack"));
-      Koerper->push_back(Ausruestung("Sack"));
-      Koerper->push_back(Ausruestung("Hose"));
-    }
-  std::vector<std::string> title;
-  title.push_back("Titel");
-  Ausruestung_tree=manage(new Gtk::CTree(title));
-  Gtk::CTree_Helpers::RowList::iterator r;
-  for(AusruestungBaum::const_iterator i=besitz.begin();i!=besitz.end();++i)
+  if(selectionList.empty())
    {
-     std::vector <string> v;
-     v.push_back(i->getAusruestung().Name());
-     Ausruestung_tree->rows().push_back(Gtk::CTree_Helpers::Element(v));
-     r=--(Ausruestung_tree->rows().end());
-     r->set_data(gpointer(&*i));
-     showChildren(r,i->getChildren());
+      cout<< "Keine Zeile gewählt\n";
+      button_ausruestung_loeschen->set_sensitive(true);
+      return false;
    }
-
-  for(Gtk::CTree_Helpers::RowList::const_iterator i=Ausruestung_tree->rows().begin();
-         i!=Ausruestung_tree->rows().end();++i)
+  if(selectionList.size()>1)
    {
-     cout << i->get_data() << '\n';
+      cout<< "Zuviele Zeilen gewählt\n";
+      button_ausruestung_loeschen->set_sensitive(true);
+      return false;
    }
-
-  r->expand_recursive();
-  Ausruestung_tree->show(); 
-  viewport_ausruestung->add(*Ausruestung_tree);
+  return true;
 }
 
-void midgard_CG::createAusruestungNode(const std::string &name,AusruestungBaum parent)
+void midgard_CG::on_Ausruestung_tree_unselect_row(Gtk::CTree::Row row,gint column)
 {
-//  Ausruestung A(name);
-//  parent.push_back(A);
+  button_ausruestung_loeschen->set_sensitive(false);
+}
+
+void midgard_CG::on_Ausruestung_tree_select_row(Gtk::CTree::Row row,gint column)
+{
+  Gtk::CTree_Helpers::SelectionList selectionList = Ausruestung_tree->selection();
+  if(!tree_valid(selectionList)) return;
+  AusruestungBaum &A=*static_cast<AusruestungBaum*>(selectionList.begin()->get_data());
+  checkbutton_sichtbar->set_active(A.getAusruestung().Sichtbar());
+  button_ausruestung_loeschen->set_sensitive(true);
+}
+
+void midgard_CG::on_checkbutton_sichtbar_toggled()
+{
+  Gtk::CTree_Helpers::SelectionList selectionList = Ausruestung_tree->selection();
+  if(!tree_valid(selectionList)) return;
+  AusruestungBaum &A=*static_cast<AusruestungBaum*>(selectionList.begin()->get_data());
+  A.getAusruestung().setSichtbar(checkbutton_sichtbar->get_active());
+  showAusruestung();
+}
+
+void midgard_CG::on_ausruestung_loeschen_clicked()
+{
+  Gtk::CTree_Helpers::SelectionList selectionList = Ausruestung_tree->selection();
+  if(!tree_valid(selectionList)) return;
+  AusruestungBaum &A=*static_cast<AusruestungBaum*>(selectionList.begin()->get_data());
+//  AusruestungBaum Parent = A.get_parent();
+  Gtk::CTree_Helpers::Row parent = selectionList.begin()->get_parent();  
+  for(Gtk::CTree_Helpers::Row::iterator i=parent.begin();i!=parent.end();++i)
+   {
+     Gtk::CTree_Helpers::Cell& cell = *i;   
+cout << cell.get_text()<<'\n';
+//cout <<i->get_data()<<'\n';
+//     if ((*i)->get_data() == A);// { parent.remove(i); break;}
+   }
+  showAusruestung();
 }
 
 
 void midgard_CG::on_clist_preisliste_select_row(gint row, gint column, GdkEvent *event)
 {
   Gtk::CTree_Helpers::SelectionList selectionList = Ausruestung_tree->selection();
-  if(selectionList.empty())
-   {
-cout<< "Keine Zeile gewählt\n";
-return;
-   }
-  if(selectionList.size()>1)
-   {
-cout<< "Zuviele Zeilen gewählt\n";
-return;
-   }
+  if(!tree_valid(selectionList)) return;
   AusruestungBaum &A=*static_cast<AusruestungBaum*>(selectionList.begin()->get_data());
 
   std::string name   =clist_preisliste->get_text(row,0);
@@ -231,13 +260,7 @@ return;
      if(++i!=modimap.end()) bez+=", ";
    }
 
-   bool sichtbar=true;
-cout << A.getAusruestung().Name()<<'\n';
-//   AusruestungBaum *Koerper = &besitz.push_back(Ausruestung("Körper"));
-   A.push_back(Ausruestung(name,bez,sichtbar));
-// std::string position="Körper";
-// Ausruestung a(name,bez,position,sichtbar);
-// ausruestung.push_back(AusruestungBaum());
+ A.push_back(Ausruestung(name,bez,checkbutton_sichtbar->get_active()));
  showAusruestung();
 }
 

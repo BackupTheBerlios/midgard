@@ -1,4 +1,4 @@
-// $Id: Window_werte_editieren.hh,v 1.20 2001/08/29 08:44:54 thoma Exp $
+// $Id: Window_werte_editieren.hh,v 1.21 2001/12/13 21:53:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -42,7 +42,8 @@ class Window_werte_editieren : public Window_werte_editieren_glade
         
         friend class Window_werte_editieren_glade;
         void st_activate();
-        void ge_activate();
+        void gw_activate();
+        void gs_activate();
         void ko_activate();
         void in_activate();
         void zt_activate();
@@ -50,8 +51,8 @@ class Window_werte_editieren : public Window_werte_editieren_glade
         void au_activate();
         void pa_activate();
         void sb_activate();
-        void rw_activate();
-        void hgw_activate();
+        void wk_activate();
+        void re_activate();
         void b_activate();
         void lp_activate();
         void ap_activate();
@@ -72,16 +73,16 @@ class Window_werte_editieren : public Window_werte_editieren_glade
         void psy_activate();
         void phs_activate();
         void phk_activate();
-        void gift_activate();
+//        void gift_activate();
 //        void wgift_activate();
-        void lpb_activate();
-        void kaw_activate();
-        void re_activate();
+//        void lpb_activate();
+//        void kaw_activate();
+//        void re_activate();
         void wza_activate();
         void wab_activate();
         void gfp_activate();
         void vers_activate();
-        void wlw_activate();
+//        void wlw_activate();
         void on_nwe_close_clicked();
         std::vector<string> vstand;
         Grundwerte& Werte;

@@ -1,4 +1,4 @@
-// $Id: Window_Waffe_Geld.cc,v 1.32 2001/11/12 09:20:36 thoma Exp $
+// $Id: Window_Waffe_Geld.cc,v 1.33 2001/12/13 21:53:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -43,11 +43,13 @@ void Window_Waffe_Geld::on_button_wuerfeln_clicked()
       manage (new WindowInfo(strinfo)); return; }
    std::string s= itos(count)+"x von 6x für Waffen oder Geld gewürfelt";
    label_waffen_geld->set_text(s);
-   Random random;
-   int wurf = random.integer(1,100);
-   if (radio_geld->get_active()) Geld(wurf);
+   if (radio_geld->get_active()) Geld();
    if (radio_waffe->get_active())
+    {
+      Random random;
+      int wurf = random.integer(1,100);
       manage (new Window_waffe(wurf,this,Werte,Typ,Database,list_Waffen));
+    }
 }
 
 void Window_Waffe_Geld::on_button_auswaehlen_clicked()
@@ -93,57 +95,29 @@ void Window_Waffe_Geld::show_Geld()
  kupfer->set_text(itos(Werte.Kupfer()));
 }
 
-void Window_Waffe_Geld::Geld(int wurf)
+void Window_Waffe_Geld::Geld()
 {
- std::string stand = Werte.Stand();
- if (stand == "Unfrei")
-     {
-      if ( 1 <= wurf && wurf  <= 10 ) {Werte.add_Kupfer(1);  }
-      if (11 <= wurf && wurf  <= 20 ) {Werte.add_Silber(5);  }
-      if (21 <= wurf && wurf  <= 40 ) {Werte.add_Gold(1);  }
-      if (41 <= wurf && wurf  <= 60 ) {Werte.add_Silber(15);  }
-      if (61 <= wurf && wurf  <= 80 ) {Werte.add_Gold(2);  }
-      if (81 <= wurf && wurf  <= 90 ) {Werte.add_Silber(25);  }
-      if (91 <= wurf && wurf  <= 99 ) {Werte.add_Gold(3);  }
-      if (99 <  wurf && wurf  <= 100 ){Werte.add_Gold(100);  }
-     }
- if (stand == "Volk")
-     {
-      if ( 1 <= wurf && wurf  <= 10 ) {Werte.add_Silber(1);  }
-      if (11 <= wurf && wurf  <= 20 ) {Werte.add_Gold(1);  }
-      if (21 <= wurf && wurf  <= 40 ) {Werte.add_Silber(15);  }
-      if (41 <= wurf && wurf  <= 60 ) {Werte.add_Gold( 2);  }
-      if (61 <= wurf && wurf  <= 80 ) {Werte.add_Silber(25);  }
-      if (81 <= wurf && wurf  <= 90 ) {Werte.add_Gold(3);  }
-      if (91 <= wurf && wurf  <= 99 ) {Werte.add_Gold(5);  }
-      if (99 <  wurf && wurf  <= 100 ){Werte.add_Gold(100);  }
-     }
- if (stand == "Mittelschicht")
-     {
-      if ( 1 <= wurf && wurf  <= 10 ) {Werte.add_Silber(5);  }
-      if (11 <= wurf && wurf  <= 20 ) {Werte.add_Gold(1);  }
-      if (21 <= wurf && wurf  <= 40 ) {Werte.add_Gold(2);  }
-      if (41 <= wurf && wurf  <= 60 ) {Werte.add_Gold(3);  }
-      if (61 <= wurf && wurf  <= 80 ) {Werte.add_Gold(4);  }
-      if (81 <= wurf && wurf  <= 90 ) {Werte.add_Gold(5);  }
-      if (91 <= wurf && wurf  <= 99 ) {Werte.add_Gold(8);  }
-      if (99 <  wurf && wurf  <= 100 ){Werte.add_Gold(100);  }
-     }
- if (stand == "Adel")
-     {
-      if ( 1 <= wurf && wurf  <= 10 ) {Werte.add_Silber(5);  }
-      if (11 <= wurf && wurf  <= 20 ) {Werte.add_Gold(1);  }
-      if (21 <= wurf && wurf  <= 40 ) {Werte.add_Gold(3);  }
-      if (41 <= wurf && wurf  <= 60 ) {Werte.add_Gold(5);  }
-      if (61 <= wurf && wurf  <= 80 ) {Werte.add_Gold(7);  }
-      if (81 <= wurf && wurf  <= 90 ) {Werte.add_Gold(10);  }
-      if (91 <= wurf && wurf  <= 99 ) {Werte.add_Gold(10);  }
-      if (99 <  wurf && wurf  <= 100 ){Werte.add_Gold(100);  }
-     }
- std::string strinfo ="Beim Auswürfeln von Geld wurde eine \n"+itos(wurf)+" gewürfelt\n";
+ Random random;
+ int igold=0;
+ vector<int> V;
+ for(int i=0;i<3;++i) V.push_back(random.integer(1,6));
+ igold=V[0]+V[1]+V[2];
+ if      (Typ[0]->Geld() == 1) igold-=3;
+ else if (Typ[0]->Geld() == 2) igold+=0;
+ else if (Typ[0]->Geld() == 3) igold+=6;
+ else if (Typ[0]->Geld() == 4) igold+=3;
+ if(V[0]==V[1] && V[1]==V[2]) igold += 100;
+
+ if(Werte.Stand()=="Adel" ) igold*=3;
+ if(Werte.Stand()=="Unfrei" ) igold/=2;
+
+
+ std::string strinfo ="Beim Auswürfeln von Geld wurden \n"
+   +itos(V[0])+"  "+itos(V[1])+"  "+itos(V[2])+"\n gewürfelt\n";
  manage (new WindowInfo(strinfo));
+ Werte.add_Gold(igold);
  gold->set_text(itos(Werte.Gold()));
- silber->set_text(itos(Werte.Silber()));
- kupfer->set_text(itos(Werte.Kupfer()));
+// silber->set_text(itos(Werte.Silber()));
+// kupfer->set_text(itos(Werte.Kupfer()));
 }
 

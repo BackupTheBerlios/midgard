@@ -19,10 +19,10 @@ class Grundwerte
    std::map<std::string,int> sinnmap;
    int raufen;
 
-   int au,pa,sb,wk,rw,hgw,b,lp,ap;
+   int au,pa,sb,wk,b,lp,ap;
    int abwehr_wert,zaubern_wert;
    int resistenz,bo_au,bo_sc,bo_an,bo_ab,bo_za,
-      bo_psy,bo_phs,bo_phk, bo_gi,kaw,wlw,alter;
+      bo_psy,bo_phs,bo_phk,alter;
    std::string gestalt, geschlecht;
    int gewicht,groesse,grad;
    std::string stand,spezialisierung,hand,
@@ -34,11 +34,11 @@ class Grundwerte
    cH_Spezialgebiet spezialgebiet;
 
 public:
-   Grundwerte() : raufen(0),au(0),pa(0),sb(0), wk(0), rw(0),
-             hgw(0),b(0),lp(0),ap(0),abwehr_wert(0),zaubern_wert(0),
+   Grundwerte() : raufen(0),au(0),pa(0),sb(0), wk(0),
+             b(0),lp(0),ap(0),abwehr_wert(0),zaubern_wert(0),
              resistenz(0),
              bo_au(0),bo_sc(0),bo_an(0),bo_ab(0),bo_za(0),
-             bo_psy(0),bo_phs(0),bo_phk(0),bo_gi(0),kaw(0),wlw(0),
+             bo_psy(0),bo_phs(0),bo_phk(0),
              alter(0),geschlecht("m"),gewicht(0),groesse(0),grad(1),
              stand(""),glaube(""),name_charakter(""),version("Erschaffung"),
              gfp(0),gold(0), silber(0), kupfer(0),
@@ -51,6 +51,12 @@ public:
                       sinnmap["Schmecken"]=8;
                       sinnmap["Tasten"]=8; }
 
+   void setSt(int i) {grund.st=i;}
+   void setGw(int i) {grund.gw=i;}
+   void setGs(int i) {grund.gs=i;}
+   void setKo(int i) {grund.ko=i;}
+   void setIn(int i) {grund.in=i;}
+   void setZt(int i) {grund.zt=i;}
    int St() const {return grund.st;}
    int Gw() const {return grund.gw;}
    int Gs() const {return grund.gs;}
@@ -61,8 +67,6 @@ public:
    int pA() const {return pa;}
    int Sb() const {return sb;}
    int Wk() const {return wk;}
-   int RW() const {return rw;}
-   int HGW() const {return hgw;}
    int B() const {return b;}
    int LP() const {return lp;}
    int AP() const {return ap;}
@@ -79,9 +83,10 @@ public:
    int bo_Psy() const {return bo_psy;}
    int bo_Phs() const {return bo_phs;}
    int bo_Phk() const {return bo_phk;}
-   int bo_Gift() const {return bo_gi;}
-   int KAW() const {return kaw;}
-   int WLW() const {return wlw;}
+   int KAW() const {return St()/10;}
+   int WLW() const {return 40+Ko()/2;}
+   int Geistesblitz() const {return In()/10;}
+   int Gift() const {return 30 + Ko()/10;}
    int Alter() const {return alter;}
    std::string Gestalt() const {return gestalt;}
    std::string Geschlecht() const {return geschlecht;}
@@ -121,24 +126,22 @@ public:
    void add_pA(int i) {pa+=i;}
    void add_Sb(int i) {sb+=i;}
    void add_Wk(int i) {wk+=i;}
-   void add_RW(int i) {rw+=i;}
-   void add_HGW(int i) {hgw+=i;}
 
    void set_Basiswerte(int st,int gw,int gs,int ko,int in, int zt)
          {grund=st_grund(st,gw,gs,ko,in,zt);}
-   void set_Abgeleitetewerte(int _au,int _pa,int _sb,int _wk,int _rw,int _hgw,int _b,
+   void set_Abgeleitetewerte(int _au,int _pa,int _sb,int _wk,int _b,
          int _lp, int _ap, int _abwehr_wert,int _zaubern_wert,
          int _resistenz,
          std::string _gestalt, std::string _hand,
          int _gewicht,int _groesse,int _grad, std::string _stand)
-      { au=_au ;pa=_pa ;sb=_sb;wk=_wk ;rw=_rw ;hgw=_hgw ;b=_b ;lp=_lp ;ap=_ap ;
+      { au=_au ;pa=_pa ;sb=_sb;wk=_wk ;b=_b ;lp=_lp ;ap=_ap ;
          abwehr_wert=_abwehr_wert ;zaubern_wert=_zaubern_wert ;
          resistenz=_resistenz ;
          gestalt=_gestalt ; hand=_hand;
          gewicht=_gewicht ;groesse=_groesse ;grad=_grad ;stand=_stand;
       }
-   void set_Abgeleitetewerte_small(int _au,int _pa,int _sb,int _wk,int _rw,int _hgw)
-      { au=_au ;pa=_pa ;sb=_sb; wk=_wk;rw=_rw ;hgw=_hgw; }
+   void set_Abgeleitetewerte_small(int _au,int _pa,int _sb,int _wk)
+      { au=_au ;pa=_pa ;sb=_sb; wk=_wk; }
    void set_Abgeleitetewerte_Boni(int _bo_au,int _bo_sc,int _bo_an,int _bo_ab,
          int _bo_za,int _bo_psy,int _bo_phs,int _bo_phk)
       { bo_au=_bo_au ; bo_sc=_bo_sc ;bo_an=_bo_an ;

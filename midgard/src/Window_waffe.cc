@@ -50,15 +50,8 @@ Window_waffe::Window_waffe(int _wurf,
 void Window_waffe::wuerfeln()
 {
  std::string strinfo = "Für die Waffenauswahl wurde eine "+itos(wurf)
-            +" gewürfelt,\n der Stand ist "+Werte.Stand()+"\n ---> ";
- if ( 1<=wurf&&wurf<=10)
-   {
-       Werte.add_Kupfer(10);  strinfo+="10 Kupferstücke";
-       manage(new WindowInfo(strinfo));      
-       oberfenster->show_Geld();
-       destroy();
-       return;
-   }
+            +" gewürfelt,\n die Charakterklasse ist "+Typ[0]->Name(Werte.Geschlecht())+"\n ---> ";
+
  Gtk::OStream os(clist_waffe);
  std::string aartE,aartS,aartW,aartZ,aartA;
  if (wurf!=-1) get_art(aartE,aartS,aartW,aartZ,aartA);
@@ -69,7 +62,6 @@ void Window_waffe::wuerfeln()
     cH_Waffe w(*i);
     if (w->Name() == "waffenloser Kampf") continue;
     if ((*i)->ist_gelernt(list_Waffen))
-//     if (w->ist_lernbar(Typ,w->get_MapTyp()))
        if  ((aartE =="E" && w->Art2()=="E") ||
             (aartW =="W" && w->Art2()=="W") ||
             (aartS =="S" && w->Art2()=="S") ||

@@ -96,6 +96,10 @@ void midgard_CG::spezieswahl_button()
    { manage (new Window_doppelcharaktere(this));
      angeborene_zauber();
    }
+ else if (Werte.Spezies()->Name()=="Zwerg" ||
+          Werte.Spezies()->Name()=="Waldgnom" ||
+          Werte.Spezies()->Name()=="Berggnom")
+     angeborene_fertigkeiten();
  else
    {
      typauswahl_2->hide();

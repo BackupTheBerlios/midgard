@@ -1,4 +1,4 @@
-// $Id: zeige_werte.cc,v 1.25 2001/12/04 13:07:17 thoma Exp $
+// $Id: zeige_werte.cc,v 1.26 2001/12/13 21:53:49 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,18 +33,17 @@ void midgard_CG::zeige_werte(const Grundwerte& w)
        pa->set_text(itos(w.pA()));
        sb->set_text(itos(w.Sb()));      
        wk->set_text(itos(w.Wk()));      
-       rw->set_text(itos(w.RW()));    
-       hgw->set_text(itos(w.HGW())); 
+//       rw->set_text(itos(w.RW()));    
+//       hgw->set_text(itos(w.HGW())); 
        b->set_text(itos(w.B()));     
        lp->set_text(itos(w.LP()));      
-//       lpbasis->set_text(itos(w.LPBasis()));      
        ap->set_text(itos(w.AP()));   
        abwehr_wert->set_text(itos(w.Abwehr_wert()));
        zaubern_wert->set_text(itos(w.Zaubern_wert()));
        kaw->set_text(itos(w.KAW()));
        wlw->set_text(itos(w.WLW()));
        resistenz->set_text(itos(w.Resistenz()));
-       gift_wert->set_text(itos( 3*w.LP() + w.bo_Gift() + Werte.Spezies()->Gift() ));
+       gift_wert->set_text(itos(w.Gift()));
        bo_au->set_text(itos(w.bo_Au())) ;
        bo_sc->set_text(itos(w.bo_Sc())) ;
        bo_an->set_text(itos(w.bo_An())) ;
@@ -53,7 +52,7 @@ void midgard_CG::zeige_werte(const Grundwerte& w)
        bo_psy->set_text(itos(w.bo_Psy())) ;
        bo_phs->set_text(itos(w.bo_Phs())) ;
        bo_phk->set_text(itos(w.bo_Phk())) ;
-       bo_gi->set_text(itos(w.bo_Gift())) ;
+//       bo_gi->set_text(itos(w.bo_Gift())) ;
        alter->set_text(itos(w.Alter()));
        gestalt->set_text(w.Gestalt());  
        gewicht->set_text(itos(w.Gewicht()));
