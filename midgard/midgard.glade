@@ -11920,32 +11920,6 @@ eingeben</label>
 		    </widget>
 		  </widget>
 		</widget>
-
-		<widget>
-		  <class>GtkPixmap</class>
-		  <name>pixmap_Wald</name>
-		  <cxx_visibility>protected</cxx_visibility>
-		  <filename>Gross_Wald.xpm</filename>
-		  <xalign>0.5</xalign>
-		  <yalign>0.5</yalign>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <build_insensitive>True</build_insensitive>
-		  <child>
-		    <left_attach>1</left_attach>
-		    <right_attach>2</right_attach>
-		    <top_attach>0</top_attach>
-		    <bottom_attach>1</bottom_attach>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>False</xexpand>
-		    <yexpand>False</yexpand>
-		    <xshrink>False</xshrink>
-		    <yshrink>False</yshrink>
-		    <xfill>False</xfill>
-		    <yfill>True</yfill>
-		  </child>
-		</widget>
 	      </widget>
 
 	      <widget>

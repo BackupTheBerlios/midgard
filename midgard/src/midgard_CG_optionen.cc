@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.66 2002/03/13 09:32:35 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.67 2002/03/16 16:55:44 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,14 +31,17 @@ void midgard_CG::regnot(const std::string& sadd)
 
 void midgard_CG::Optionen_setzen_from_menu(OptionenIndex index)
 {
+  if(!fire_enabled) return;
+  fire_enabled=false;
   for(list<st_Optionen>::iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
    {
      if(i->index!=index) continue;
      i->active = i->checkmenuitem->get_active();
-     if(i->index==Original)checkbutton_original(i->active);
+     if(i->index==Original) { checkbutton_original(i->active); cerr << "NEUAUFBA\n";menu_init();}
      if(i->index==showPics) Pics(i->active);
      if(i->index==gw_wuerfeln) show_gw_wuerfeln(i->active);
    }
+  fire_enabled=true;
 }
 
 void midgard_CG::OptionenM_setzen_from_menu(OptionenIndex index)
@@ -114,7 +117,6 @@ void midgard_CG::Pics(bool b)
   {
     pixmap_dfr4->show();
     pixmap_dfr3->show();
-    pixmap_Wald->show();
     pixmap_kurai->show();
     table_gradsteigern_lang->show();
     button_steigern_kurz->hide();
@@ -123,7 +125,6 @@ void midgard_CG::Pics(bool b)
   {
     pixmap_dfr4->hide();
     pixmap_dfr3->hide();
-    pixmap_Wald->hide();
     pixmap_kurai->hide();
     table_gradsteigern_lang->hide();
     button_steigern_kurz->show();

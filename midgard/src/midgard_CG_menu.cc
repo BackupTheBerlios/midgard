@@ -25,6 +25,8 @@
 
 void midgard_CG::menu_init()
 {
+  bool memfire=fire_enabled;
+  fire_enabled=false;
   if (menu) { menu->destroy(); menu=0; haus_menuitem=0; }
   menu=manage(new Gtk::Menu());
 
@@ -110,7 +112,7 @@ void midgard_CG::menu_init()
      regionen_menu->append(*_mi);
      _mi->set_active((*i)->Active());
      _mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),_mi,*i));
-     if(!OptionenCheck(Original).active && (*i)->Offiziell() )
+     if(OptionenCheck(Original).active && !(*i)->Offiziell() )
         _mi->set_sensitive(false);
    }
   menu->append(*regionen);
@@ -198,6 +200,7 @@ void midgard_CG::menu_init()
 ///////////////////////////////////////////////////////////////////////////////
 
   menu->show_all();
+  fire_enabled=memfire;
 }
 
 //////////////////////////////////////////////////////////////////

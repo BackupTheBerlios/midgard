@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.179 2002/03/13 09:32:35 thoma Exp $
+// $Id: midgard_CG.cc,v 1.180 2002/03/16 16:55:44 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,7 +32,7 @@
 
 midgard_CG::midgard_CG(const string &datei)
 : InfoFenster(0), wizard(0),menu(0),menu_gradanstieg(0),
-  haus_menuitem(0),Database(Midgard_Info)
+  haus_menuitem(0),Database(Midgard_Info),fire_enabled(true)
 {
   notebook_main->set_sensitive(true); // solange die Datenbank nicht geladen ist
                                       // stürzt das Programm ab

@@ -26,10 +26,12 @@
 #include "../pixmaps/Regio_Rawindra-50.xpm"
 #include "../pixmaps/Regio_Alba-50.xpm"
 #include "../pixmaps/Regio_H_u_D-50.xpm"
+#include "../pixmaps/Regio_H_u_D_F-50.xpm"
 #include "../pixmaps/Regio_Gilde-50.xpm"
 #include "../pixmaps/Regio_Nahuatlan-50.xpm"
 #include "../pixmaps/Regio_Waeland-50.xpm"
 #include "../pixmaps/Regio_Arkanum-50.xpm"
+#include "../pixmaps/Abwehr-50.xpm"
 //#include "../pixmaps/Arkanum-50.xpm"
 #include "../pixmaps/pinguin.xpm"
 
@@ -45,7 +47,8 @@ Gtk::Pixmap *RegionenPic::Pic(epic typ)
    else if (typ==Arkanum)    return manage(new Gtk::Pixmap(Regio_Arkanum_50_xpm));
    else if (typ==Gildenbrief)return manage(new Gtk::Pixmap(Regio_Gilde_50_xpm));
    else if (typ==HD)         return manage(new Gtk::Pixmap(Regio_H_u_D_50_xpm));
-   else if (typ==Abenteuer)  return manage(new Gtk::Pixmap(Regio_H_u_D_50_xpm));
+   else if (typ==HD_finster) return manage(new Gtk::Pixmap(Regio_H_u_D_F_50_xpm));
+   else if (typ==Abenteuer)  return manage(new Gtk::Pixmap(Abwehr_50_xpm));
    else return manage(new Gtk::Pixmap(pinguin_xpm));
    abort();
 }
@@ -135,5 +138,6 @@ cH_Region Regionen_All::getRegionfromAbk(const std::vector<cH_Region>& V,const s
     }
   }
  assert(!"Region nicht gefunden\n");
+ abort(); // never get here
 }
 

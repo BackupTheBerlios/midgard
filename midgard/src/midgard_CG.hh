@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.195 2002/03/14 16:55:06 thoma Exp $
+// $Id: midgard_CG.hh,v 1.196 2002/03/16 16:55:44 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -173,6 +173,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void OptionenM_setzen_from_menu(OptionenIndex index);
         void pdfViewer_setzen_from_menu(pdfViewerIndex index);
 
+        bool fire_enabled;
         bool modify_bool;
         bool kido_bool;
         int maxkido;

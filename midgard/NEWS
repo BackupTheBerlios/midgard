@@ -24,6 +24,7 @@ NEWS IN VERSION 0.4delta6
 * Option 'Originalregeln' wird mit Abenteurer zusammen abgespeichert
 * versteckte Ausrüstung nun wieder grau (im Ausdruck) 
 * Chaospriester und Finstermagier sind als NSC Klassen möglich (Menü: Optionen)
+* einige Bugs im Regionenmenü behoben
 
 TODO:
 * Ausrüstung drucken, Abenteurer drucken -> absturz ??
