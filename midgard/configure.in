@@ -38,4 +38,4 @@ AC_DEFINE_UNQUOTED(PACKAGE_DATA_DIR,"$PACKAGE_DATA_DIR",[install path])
 
 
 AC_OUTPUT(Makefile src/Makefile pixmaps/Makefile \
-	xml/Makefile )
+	xml/Makefile libmagus/Makefile libmagusicons/Makefile)
