@@ -109,7 +109,8 @@ void Zauber::get_Zauber(const Tag &t)
 }
 
 void Zauber::load(const Tag &t)
-{  get_Zauber(t); get_map_typ(t); EP_steigern("Zauber");
+{  get_Zauber(t); get_map_typ(t); 
+//   EP_steigern("Zauber"); //cachen ???
 }
 
 Zauber::Zauber(const Tag &t)

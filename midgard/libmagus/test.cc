@@ -5,6 +5,7 @@
 #include "magus_paths.h"
 #include <fstream>
 #include "Abenteurer.hh"
+#include <Misc/TagStream.h>
 
 void progress(double d)
 {  std::cout << "Progress " << d << "%\n";
@@ -17,6 +18,7 @@ void meldung(const std::string &d)
 int main(int argc,char **argv)
 {  ManuProC::Tracer::Enable(LibMagus::trace_channel,true);
    Datenbank db;
+   if (argc>1) TagStream::host_encoding=argv[1];
    magus_paths::init(argv[0]);
    db.load(&progress,&meldung);
    

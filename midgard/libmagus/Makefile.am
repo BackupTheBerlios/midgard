@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.19 2003/05/09 08:19:10 christof Exp $
+# $Id: Makefile.am,v 1.20 2003/05/13 10:33:43 christof Exp $
 
 AM_CPPFLAGS = @CPPFLAGS@ @COMMONXX_INCLUDES@ $(WIN_INCLUDES) -I.. \
 	@SIGC_CFLAGS@ -DSIGC1_2
@@ -7,9 +7,10 @@ AM_LDFLAGS = @COMMONXX_LDFLAGS@ $(LINK_OPTIONS)
 
 CLEANFILES = *~
 
-EXTRA_PROGRAMS= test
+EXTRA_PROGRAMS= test readxml
 
 test_SOURCES=test.cc
+readxml_SOURCES=readxml.cc
 
 noinst_LIBRARIES=libmagus.a
 
@@ -24,3 +25,4 @@ libmagus_a_SOURCES=MidgardBasicElement.cc Zauber.cc KiDo.cc \
 	xml.cc Region.cc Optionen.cc Abenteurer.cc magustrace.cc
 
 test_LDADD = libmagus.a @COMMONXX_LIBS@ @SIGC_LIBS@
+readxml_LDADD = @COMMONXX_LIBS@ @SIGC_LIBS@
