@@ -1,4 +1,4 @@
-// $Id: Window_Waffe_Geld.cc,v 1.33 2001/12/13 21:53:48 thoma Exp $
+// $Id: Window_Waffe_Geld.cc,v 1.34 2001/12/18 13:14:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,29 +35,27 @@
 #include "zufall.h"
 #include "Waffe.hh"
 
-void Window_Waffe_Geld::on_button_wuerfeln_clicked()
+void Window_Waffe_Geld::on_button_geld_clicked()
 {   
-   static int count = 0;
-   ++count;
-   if (count>6) { std::string strinfo="Schon 6x gewürfelt\n"; 
-      manage (new WindowInfo(strinfo)); return; }
-   std::string s= itos(count)+"x von 6x für Waffen oder Geld gewürfelt";
-   label_waffen_geld->set_text(s);
-   if (radio_geld->get_active()) Geld();
-   if (radio_waffe->get_active())
+   button_geld->set_sensitive(false);
+
+   if (radio_auswaehlen->get_active()) 
+       manage (new Window_Geld_eingeben(this,Werte));
+   else    
+       Geld() ;
+}
+
+void Window_Waffe_Geld::on_button_waffe_clicked()
+{   
+   button_waffe->set_sensitive(false);
+   if (radio_auswaehlen->get_active()) 
+      manage (new Window_waffe(-1,this,Werte,Typ,Database,list_Waffen));
+   else
     {
       Random random;
       int wurf = random.integer(1,100);
       manage (new Window_waffe(wurf,this,Werte,Typ,Database,list_Waffen));
     }
-}
-
-void Window_Waffe_Geld::on_button_auswaehlen_clicked()
-{   
- if (radio_geld->get_active()) 
-   manage (new Window_Geld_eingeben(this,Werte));
- if (radio_waffe->get_active()) 
-   manage (new Window_waffe(-1,this,Werte,Typ,Database,list_Waffen));
 }
 
 void Window_Waffe_Geld::on_button_close_clicked()
@@ -80,12 +78,18 @@ Window_Waffe_Geld::Window_Waffe_Geld(midgard_CG* h, Grundwerte& w,
 : Database(_Database),Werte(w), Typ(T), list_Waffen(wa)
 {
    hauptfenster = h;
+   button_geld->set_sensitive(true);
+   button_waffe->set_sensitive(true);
+
+// Midgard 3 Version:
+  label_waffen_geld->hide();
 }
 
-void Window_Waffe_Geld::get_waffe(const std::string& waffe)
+void Window_Waffe_Geld::get_waffe(const vector<cH_MidgardBasicElement>& waffe)
 {
   Gtk::OStream os(clist_gewaehlte_waffen);
-  os << waffe<<"\n"; 
+  for(vector<cH_MidgardBasicElement>::const_iterator i=waffe.begin();i!=waffe.end();++i)
+     os << (*i)->Name() <<"\n"; 
 }
 
 void Window_Waffe_Geld::show_Geld()
@@ -110,7 +114,6 @@ void Window_Waffe_Geld::Geld()
 
  if(Werte.Stand()=="Adel" ) igold*=3;
  if(Werte.Stand()=="Unfrei" ) igold/=2;
-
 
  std::string strinfo ="Beim Auswürfeln von Geld wurden \n"
    +itos(V[0])+"  "+itos(V[1])+"  "+itos(V[2])+"\n gewürfelt\n";

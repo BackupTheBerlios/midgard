@@ -1,4 +1,4 @@
-// $Id: Window_waffe.hh,v 1.24 2001/11/09 17:12:56 thoma Exp $
+// $Id: Window_waffe.hh,v 1.25 2001/12/18 13:14:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -52,8 +52,9 @@ class Window_waffe : public Window_waffe_glade
         friend class Window_waffe_glade;
         void on_clist_waffe_select_row(gint row, gint column, GdkEvent *event);
         void wuerfeln();
-        void get_art(std::string& aartE,std::string& aartS,std::string& aartW,std::string&Z,std::string& aartA);
+//        void get_art(std::string& aartE,std::string& aartS,std::string& aartW,std::string&Z,std::string& aartA);
         void Window_waffe::magische_Waffe();
+        void on_button_close_clicked();
    public:
         Window_waffe::Window_waffe(int we,
                                     Window_Waffe_Geld* o,Grundwerte& W,

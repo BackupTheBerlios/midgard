@@ -2,9 +2,8 @@
 NEWS IN VERSION 0.1delta1
 
 * Berufe funktionieren (soweit ich die neuen Regeln kenne/rate)
-* Sprachen und Schriften funktionieren (zumindest sollten sie das:-)
+* Sprachen, alte Sprachen und Schriften funktionieren (zumindest sollten sie das:-)
 * Umbau der Oberfläche begonnen
-* Viele(!) Bugfixes
 * Landeskunde funktioniert jetzt für Heimatländer (Charaktererschaffung)
 * Neuer Grundwerte-Auswürfelmechanismus implementiert
 * Die Oberfläche für die 4.Version ist weitgehend fertig
@@ -12,16 +11,18 @@ NEWS IN VERSION 0.1delta1
 * Ausrüstungsbaum kann abgespeichert werden
 * Die Ausrüstung kann noch nicht ausgedruckt werden
 * 'Hand' kann editiert werden
-* Zahllose Bugfixes
+* Zahllose Bugfixes im Programm
+* Zahllose Bugfixes in der Datenbank
 * Die Hilfe an die neuen Regeln angepaßt
 * Charakterbeschreibung (Ausdruck) überarbeitet
+* Viele(!) Bugfixes
+* Waffen und Geld bei Spielbeginn nach den neuen Regeln
 
 TODO:
 * Landeskunde beim 'steigern' stürzt ab.
 * Die Ausrüstung kann noch nicht geladen werden
 * Das (ausdruckbare) Charakterdokument ist noch nicht an die neuen Regeln angepaßt 
 * Universelle Fertigkeiten im ausgedruckten Charakterdokument
-* Waffen und Geld bei Spielbeginn (Regeln fehlen noch)
 * Spezielgebiete für Magier stürzt ab
 * Irgendwie funktioniert das mit dem Erfolgswert für waffenlosen Kampf 
    und dem dazugehörigen Abwerbonus noch nicht.

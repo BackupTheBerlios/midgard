@@ -32,6 +32,7 @@ class Grundwerte
    cH_Ruestung ruestung; 
    cH_Spezies spezies;
    cH_Spezialgebiet spezialgebiet;
+   std::string stadt_land;
 
 public:
    Grundwerte() : raufen(0),au(0),pa(0),sb(0), wk(0),
@@ -107,6 +108,7 @@ public:
    std::string Name_Spieler() const {return name_spieler;}
    std::string Version() const {return version;}
    std::string Beschreibung() const {return beschreibung;}
+   std::string Stadt_Land() const {return stadt_land;}
    cH_Ruestung Ruestung() const {return ruestung;}
    int GFP() const {return gfp;}
    int Gold() const {return gold;}
@@ -178,6 +180,7 @@ public:
       {name_charakter=_name_charakter;name_spieler=_name_spieler;version=_version;}
    void set_Beschreibung(const std::string& _beschreibung){beschreibung=_beschreibung;}
    void set_Ruestung(const cH_Ruestung _ruestung){ruestung=_ruestung;}
+   void setStadt_Land(const std::string& sl) {stadt_land=sl;}
    void set_GFP(int _gfp){gfp=_gfp;}
    void add_GFP(int _gfp){gfp += _gfp;}
    void set_Geld(int g,int s,int k){gold=g;silber=s;kupfer=k;}

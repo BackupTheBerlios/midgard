@@ -1,4 +1,4 @@
-// $Id: gw_wuerfeln.cc,v 1.22 2001/12/17 09:38:17 thoma Exp $
+// $Id: gw_wuerfeln.cc,v 1.23 2001/12/18 13:14:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -90,15 +90,15 @@ void midgard_CG::set_werte_label(Gtk::Label *L)
             Werte.setSt(w);
             label_werte->set_text("Welcher Wert soll für die  Gewandheit (Gw) verwendet werden?");
             break;
-      case 2 :
-            gw->set_text(L->get_text());
-            Werte.setGw(w);
-            label_werte->set_text("Welcher Wert soll für die  Geschicklichkeit (Gs) verwendet werden?");
-            break;
-      case 3 : 
+      case 2 : 
             gs->set_text(L->get_text());
             Werte.setGs(w);
             label_werte->set_text("Welcher Wert soll für die  Konstitution (Ko) verwendet werden?");
+            break;
+      case 3 :
+            gw->set_text(L->get_text());
+            Werte.setGw(w);
+            label_werte->set_text("Welcher Wert soll für die  Geschicklichkeit (Gs) verwendet werden?");
             break;
       case 4 : 
             ko->set_text(L->get_text());

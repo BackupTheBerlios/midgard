@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.107 2001/12/17 14:53:58 thoma Exp $
+// $Id: midgard_CG.hh,v 1.108 2001/12/18 13:14:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -203,6 +203,7 @@ class midgard_CG : public midgard_CG_glade
         void fill_spezies();
         void typauswahl_button();
         void typauswahl_2_button();
+        void on_optionmenu_land_deactivate();
         void angeborene_zauber();
         void angeborene_fertigkeiten();
         void on_radiobutton_frau_toggled();
@@ -257,6 +258,8 @@ class midgard_CG : public midgard_CG_glade
         void on_schliessen_CG_clicked();
         void on_lernpunkte_wuerfeln_clicked();
         void on_lernpunkte_editieren_clicked();
+        void on_button_fach_trans_clicked();
+        void on_button_waffe_trans_clicked();
         void on_button_ruestung_clicked();
         void on_button_geld_waffen_clicked();
         void on_button_geld_s_clicked();

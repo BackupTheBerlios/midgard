@@ -1,4 +1,4 @@
-// $Id: Sprache_auswahl.hh,v 1.19 2001/12/10 17:11:05 thoma Exp $
+// $Id: Sprache_auswahl.hh,v 1.20 2001/12/18 13:14:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,7 +38,7 @@
 class Sprache_auswahl : public Sprache_auswahl_glade
 {   
    public:
-        enum modus {SPRACHE,SCHRIFT,LAND};
+        enum modus {SPRACHE,NEUESPRACHE,ALTESPRACHE,SCHRIFT,LAND};
    private:
         modus mod;
         midgard_CG* hauptfenster;        

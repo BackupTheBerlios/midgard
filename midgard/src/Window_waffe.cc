@@ -31,12 +31,6 @@
 #include "midgard_CG.hh"
 #include "Window_Waffe_Geld.hh"
 
-void Window_waffe::on_clist_waffe_select_row(gint row, gint column, GdkEvent *event)
-{   
-  oberfenster->get_waffe(clist_waffe->get_text(row,0));
-  destroy();
-}
-
 Window_waffe::Window_waffe(int _wurf, 
       Window_Waffe_Geld* o, Grundwerte& W,const vector<cH_Typen>& T, 
       const midgard_CG::st_Database& _Database,
@@ -50,39 +44,107 @@ Window_waffe::Window_waffe(int _wurf,
 void Window_waffe::wuerfeln()
 {
  std::string strinfo = "Für die Waffenauswahl wurde eine "+itos(wurf)
-            +" gewürfelt,\n die Charakterklasse ist "+Typ[0]->Name(Werte.Geschlecht())+"\n ---> ";
+            +" gewürfelt,\n die Charakterklasse ist "+Typ[0]->Name(Werte.Geschlecht())+"\n ---> \n";
 
  Gtk::OStream os(clist_waffe);
- std::string aartE,aartS,aartW,aartZ,aartA;
- if (wurf!=-1) get_art(aartE,aartS,aartW,aartZ,aartA);
- if (wurf==-1) aartA="A";
+// std::string aartE,aartS,aartW,aartZ,aartA;
+// if (wurf!=-1) get_art(aartE,aartS,aartW,aartZ,aartA);
+// if (wurf==-1) aartA="A";
+ int E=0,A=0;
+ bool M=false;
+ if (Typ[0]->Geld() == 1) 
+  { if      ( 1<=wurf&&wurf<=10 ) { E=3;      }
+    else if (11<=wurf&&wurf<=20 ) { E=3; A=1; }
+    else if (21<=wurf&&wurf<=30 ) { E=2; A=2; }
+    else if (31<=wurf&&wurf<=60 ) { E=3; A=2; }
+    else if (61<=wurf&&wurf<=80 ) { E=2; A=3; }
+    else if (81<=wurf&&wurf<=95 ) {      A=5; }
+    else if (96<=wurf&&wurf<=100) { E=1; A=4; M=true; }
+  }  
+ if (Typ[0]->Geld() == 2) 
+  { if      ( 1<=wurf&&wurf<=10 ) { E=2;      }
+    else if (11<=wurf&&wurf<=20 ) { E=1; A=1; }
+    else if (21<=wurf&&wurf<=30 ) { E=2; A=1; }
+    else if (31<=wurf&&wurf<=60 ) { E=3; A=1; }
+    else if (61<=wurf&&wurf<=80 ) { E=2; A=2; }
+    else if (81<=wurf&&wurf<=95 ) {      A=4; }
+    else if (96<=wurf&&wurf<=100) { E=1; A=3; M=true; }
+  }  
+ if (Typ[0]->Geld() == 3) 
+  { if      ( 1<=wurf&&wurf<=10 ) { E=1;      }
+    else if (11<=wurf&&wurf<=20 ) {      A=1; }
+    else if (21<=wurf&&wurf<=30 ) { E=2;      }
+    else if (31<=wurf&&wurf<=60 ) { E=1; A=1; }
+    else if (61<=wurf&&wurf<=80 ) { E=1; A=1; }
+    else if (81<=wurf&&wurf<=95 ) {      A=2; }
+    else if (96<=wurf&&wurf<=100) { E=1; A=1; M=true; }
+  }  
+ if (Typ[0]->Geld() == 4) 
+  { if      ( 1<=wurf&&wurf<=10 ) { E=2;      }
+    else if (11<=wurf&&wurf<=20 ) { E=1; A=1; }
+    else if (21<=wurf&&wurf<=30 ) { E=3;      }
+    else if (31<=wurf&&wurf<=60 ) { E=2; A=1; }
+    else if (61<=wurf&&wurf<=80 ) { E=1; A=2; }
+    else if (81<=wurf&&wurf<=95 ) {      A=3; }
+    else if (96<=wurf&&wurf<=100) { E=1; A=2; M=true; }
+  }  
+
+ strinfo += "Es dürfen gewählt werden:\n"
+            +itos(E)+" Einhandwaffen und "
+            +itos(A)+" Beliebige Waffen und/oder Schilde\n";
+
 
  for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Waffe.begin();i!=Database.Waffe.end();++i)
   {  
     cH_Waffe w(*i);
     if (w->Name() == "waffenloser Kampf") continue;
     if ((*i)->ist_gelernt(list_Waffen))
-       if  ((aartE =="E" && w->Art2()=="E") ||
-            (aartW =="W" && w->Art2()=="W") ||
-            (aartS =="S" && w->Art2()=="S") ||
-            (aartZ =="Z" && w->Art2()=="Z") ||
-            (aartA =="A") )
-         os << w->Name() <<"\t"<<w->Grundkenntnis()
-            <<"\t"<<w->Schaden(w->Name())+"+"
+      {
+         os << w->Art2()<<'\t'<<w->Name() <<'\t'<<w->Grundkenntnis()
+            <<'\t'<<w->Schaden(w->Name())+"+"
             +itos(w->Schaden_Bonus(w->Name()))<<"\n";
+//         os.flush(gpointer(&*i));
+         os.flush((*i)->ref());
+      }  
   }
- if (aartE=="E") strinfo += "Einhandwaffe ";
- if (aartS=="S") strinfo += "Schußwaffe " ;
- if (aartW=="W") strinfo += "Wurfwaffe " ;
- if (aartZ=="Z") strinfo += "Zweihandwaffe " ;
- if (aartA=="A") strinfo += "Beliebige Waffe" ;
- if (wurf !=-1) manage(new WindowInfo(strinfo));
+ manage(new WindowInfo(strinfo));
+ label_anzahl_E->set_text(itos(E));
+ label_anzahl_A->set_text(itos(A));
 
  for (unsigned int i=0;i<clist_waffe->columns().size();++i)
    clist_waffe->set_column_auto_resize(i,true);  
+ clist_waffe->set_selection_mode(GTK_SELECTION_MULTIPLE);
+}
+
+void Window_waffe::on_clist_waffe_select_row(gint row, gint column, GdkEvent *event)
+{   
+  std::string art= clist_waffe->get_text(row,0);
+  int X;
+  if(art=="E") X=atoi(label_anzahl_E->get_text().c_str());
+  else         X=atoi(label_anzahl_A->get_text().c_str());
+ 
+  if(X>=1) --X; 
+  else     clist_waffe->row(row).unselect();   
+
+  if(art=="E") label_anzahl_E->set_text(itos(X));
+  else         label_anzahl_A->set_text(itos(X));
 }
 
 
+void Window_waffe::on_button_close_clicked()
+{
+  vector<cH_MidgardBasicElement> V;
+  for (Gtk::CList::SelectionList::iterator i=clist_waffe->selection().begin();i!=clist_waffe->selection().end();++i)
+   {
+     cH_MidgardBasicElement mbe=static_cast<MidgardBasicElement*>(i->get_data());
+     V.push_back(mbe);
+   }
+  oberfenster->get_waffe(V);
+  destroy();
+}
+
+
+/*
 void Window_waffe::get_art(std::string& aartE,std::string& aartS, std::string& aartW, std::string& aartZ, std::string& aartA)
 {
         if (Werte.Stand() == "Unfrei")
@@ -126,6 +188,7 @@ void Window_waffe::get_art(std::string& aartE,std::string& aartS, std::string& a
           if (wurf==100){aartE="E";magische_Waffe();} 
          }
 }
+*/
 
 void Window_waffe::magische_Waffe()
 {

@@ -32,12 +32,13 @@ class cH_Spezialgebiet : public Handle<const Spezialgebiet>
 {
     typedef CacheStatic<std::string,cH_Spezialgebiet> cache_t;
     static cache_t cache;
-    cH_Spezialgebiet(Spezialgebiet *s) : Handle<const Spezialgebiet>(s) {};
+//    cH_Spezialgebiet(Spezialgebiet *s) : Handle<const Spezialgebiet>(s) {};
     friend class std::map<std::string,cH_Spezialgebiet>;
 ///    cH_Typen(){};
   public:
    cH_Spezialgebiet() {*this=new Spezialgebiet();}
    cH_Spezialgebiet(const std::string& name);
+   cH_Spezialgebiet(Spezialgebiet *s) : Handle<const Spezialgebiet>(s) {};
 
    static bool is_cached(const std::string s);
 };

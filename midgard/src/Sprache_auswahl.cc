@@ -71,7 +71,8 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const midgard_CG::st_Database& D
          for (std::vector<cH_Land>::const_iterator i=Database.Laender.begin();i!=Database.Laender.end();++i)
           { 
             os << (*i)->Name()<<'\t'<<wert<<'\n';
-            os.flush(&const_cast<cH_Land&>(*i));
+//            os.flush(&const_cast<cH_Land&>(*i));
+            os.flush((*i)->ref());
           }
       }
    if (mod == SPRACHE)
@@ -82,7 +83,34 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const midgard_CG::st_Database& D
             if((*i)->ist_gelernt(*Sp)) continue;
             cH_Sprache s(*i);
             os << s->Name()<<'\t'<<wert<<'\n';
-            os.flush(&const_cast<cH_MidgardBasicElement&>(*i));
+//            os.flush(&const_cast<cH_MidgardBasicElement&>(*i));
+            os.flush((*i)->ref());
+          }
+      }
+   if (mod == ALTESPRACHE)
+      {
+         sp_sc_label->set_text("Sprache wählen");
+         for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Sprache.begin();i!=Database.Sprache.end();++i)
+          { 
+            if((*i)->ist_gelernt(*Sp)) continue;
+            cH_Sprache s(*i);
+            if(!s->Alte_Sprache()) continue;
+            os << s->Name()<<'\t'<<wert<<'\n';
+//            os.flush(&const_cast<cH_MidgardBasicElement&>(*i));
+            os.flush((*i)->ref());
+           }
+      }
+   if (mod == NEUESPRACHE)
+      {
+         sp_sc_label->set_text("Sprache wählen");
+         for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Sprache.begin();i!=Database.Sprache.end();++i)
+          { 
+            if((*i)->ist_gelernt(*Sp)) continue;
+            cH_Sprache s(*i);
+            if(s->Alte_Sprache()) continue;
+            os << s->Name()<<'\t'<<wert<<'\n';
+//            os.flush(&const_cast<cH_MidgardBasicElement&>(*i));
+            os.flush((*i)->ref());
           }
       }
    if (mod == SCHRIFT)
@@ -95,7 +123,8 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const midgard_CG::st_Database& D
             if(s->kann_Sprache(*Sp))
              {
                os << s->Name()<<'\t'<<s->Art_der_Schrift()<<'\n';
-               os.flush(&const_cast<cH_MidgardBasicElement&>(*i));
+//               os.flush(&const_cast<cH_MidgardBasicElement&>(*i));
+               os.flush((*i)->ref());
              }
           }
          if(!clist_sp_sc->rows().size())

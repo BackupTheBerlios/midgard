@@ -1,4 +1,4 @@
-// $Id: abge_werte_setzen.cc,v 1.31 2001/12/13 21:53:48 thoma Exp $
+// $Id: abge_werte_setzen.cc,v 1.32 2001/12/18 13:14:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -121,10 +121,26 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   istand += typstand;
 //std::cout << "typstand\t"<<typstand<<"\n";
   std::string stand;  
-  if (istand<=10) stand = "Unfrei";
-  if (11<=istand&&istand<=50) stand = "Volk";
-  if (51<=istand&&istand<=90) stand = "Mittelschicht";
-  if (istand>=91) stand = "Adel";
+  if(Werte.Spezies()->Name()=="Mensch")
+   {
+     if (istand<=10) stand = "Unfrei";
+     if (11<=istand&&istand<=50) stand = "Volk";
+     if (51<=istand&&istand<=90) stand = "Mittelschicht";
+     if (istand>=91) stand = "Adel";
+   }
+  else if(Werte.Spezies()->Name()=="Halbling" ||
+          Werte.Spezies()->Name()=="Waldgnom" ||
+          Werte.Spezies()->Name()=="Berggnom")
+   {
+     if (istand<=50) stand = "Volk";
+     if (51<=istand) stand = "Mittelschicht";
+   }
+  else
+   {
+     if (            istand<=50) stand = "Volk";
+     if (51<=istand&&istand<=90) stand = "Mittelschicht";
+     if (istand>=91) stand = "Adel";
+   }
   Werte.set_Abgeleitetewerte(au,pa,sb,wk,b,lp,ap,abwehr_wert,zaubern_wert,
    resistenz,gestalt,shand,gewicht,groesse,grad,stand);
 

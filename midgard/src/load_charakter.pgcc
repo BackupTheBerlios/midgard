@@ -96,6 +96,7 @@ void midgard_CG::load_charakter()
       bool db_steigern_bool;   
       int db_steigern_EP;      
       int db_grad_basiswerte;
+      char db_stadt_land[20];
    exec sql end declare section;
 
  //  db_beschreibung=0; /* Ist nötig !!! */
@@ -155,7 +156,8 @@ void midgard_CG::load_charakter()
          spezies  ,
          coalesce(aep,0), coalesce(kep,0),coalesce(zep,0),
          coalesce(steigern_bool,'f'),coalesce(steigern_EP_prozent,50),
-         coalesce(grad_basiswerte,1)
+         coalesce(grad_basiswerte,1),
+         stadt_land
       FROM charaktere WHERE charakter_name= :db_name_ch
             AND version= :db_version;
 
@@ -213,7 +215,8 @@ void midgard_CG::load_charakter()
        :db_spezies     ,
        :db_aep,:db_kep,:db_zep  ,
        :db_steigern_bool, :db_steigern_EP,
-       :db_grad_basiswerte;
+       :db_grad_basiswerte,
+       :db_stadt_land;
    SQLerror::test(__FILELINE__);
    exec sql close cha;
    Werte.set_Basiswerte(db_st,db_gw,db_gs,db_ko,db_in,db_zt) ;    
@@ -234,9 +237,13 @@ void midgard_CG::load_charakter()
    Werte.set_Ruestung(cH_Ruestung(db_ruestung));
    Werte.set_Spezies(cH_Spezies(db_spezies)) ;
    Werte.set_EP(db_aep,db_kep,db_zep);
+   Werte.setStadt_Land(db_stadt_land);
    steigern_bool=db_steigern_bool;
    Database.GradAnstieg.set_Grad_Anstieg(db_steigern_EP,db_grad_basiswerte);
 //////////////////////////////////////////////////////////////////////////////
+   // Land oder Stadt?
+   if(Werte.Stadt_Land()=="Stadt") optionmenu_land->set_history(0);
+   else optionmenu_land->set_history(1);
 
    // Geschlecht setzen ////////////////////////////////////////////////
    if (Werte.Geschlecht()=="w") radiobutton_frau->set_active(true);
@@ -404,7 +411,7 @@ void midgard_CG::load_fertigkeiten()
          if(fert->Name()=="Landeskunde") cH_Fertigkeit(fert)->setZusatz(db_magisch);
          list_Fertigkeit.push_back(fert);
          if      (fert->Name()=="KiDo") kido_bool=true;
-         else if (fert->Name()=="Wissen von der Magie") magie_bool=true;
+         else if (fert->Name()=="Zaubern") magie_bool=true;
        }    
       if(sart=="Waffe")
         {

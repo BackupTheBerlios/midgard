@@ -47,8 +47,8 @@ void KiDo_auswahl::on_button_close_clicked()
   for(Gtk::CList::SelectionList::iterator i=clist_kido_auswahl->selection().begin();
       i!=clist_kido_auswahl->selection().end();++i)
    {
-     cH_MidgardBasicElement *ptr = static_cast<cH_MidgardBasicElement*>(i->get_data());
-     technik.push_back(*ptr);
+     cH_MidgardBasicElement ptr = static_cast<MidgardBasicElement*>(i->get_data());
+     technik.push_back(ptr);
    }
   hauptfenster->MidgardBasicElement_uebernehmen(technik);
   destroy();
@@ -106,7 +106,8 @@ KiDo_auswahl::KiDo_auswahl(midgard_CG* h, int m, const Grundwerte& Werte,
     {
       cH_KiDo kd(*i);
       os << kd->Hoho() <<"\t"<<kd->Name()<<"\t"<<kd->Ap()<<"\t"<<kd->Kosten(Typ,Database.ausnahmen)<<"\n";
-      os.flush(&*i);
+//      os.flush(&*i);
+      os.flush(kd->ref());
     }
    for (unsigned int i=0;i<clist_kido_auswahl->columns().size();++i)
       clist_kido_auswahl->set_column_auto_resize(i,true);

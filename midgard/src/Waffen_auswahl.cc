@@ -62,7 +62,8 @@ Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const midgard_CG::st_Database& D,
             os << w->Lernpunkte() <<"\t"<<w->Voraussetzung()<<"\t"
                << w->Name() <<"\t"
                << w->Erfolgswert() <<"\t"<<w->Grundkenntnis()<<"\n";
-            os.flush(&*i);
+//            os.flush(&*i);
+            os.flush(w->ref());
          }
       }
     for (unsigned int i=0;i<waffen_clist_auswahl->columns().size();++i)
@@ -99,8 +100,8 @@ void Waffen_auswahl::on_close_waffen_clicked()
    for (Gtk::CList::SelectionList::iterator i=waffen_clist_auswahl->selection().begin();
          i!=waffen_clist_auswahl->selection().end();++i)
      {  
-       cH_MidgardBasicElement *ptr = static_cast<cH_MidgardBasicElement*>(i->get_data());
-       saw.push_back(*ptr);
+       cH_MidgardBasicElement ptr = static_cast<MidgardBasicElement*>(i->get_data());
+       saw.push_back(ptr);
      }
 //  hauptfenster->waffen_uebernehmen(saw,list_WaffenGrund);
   hauptfenster->MidgardBasicElement_uebernehmen(saw,list_WaffenGrund);

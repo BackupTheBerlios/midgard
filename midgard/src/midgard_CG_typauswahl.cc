@@ -108,6 +108,14 @@ void midgard_CG::spezieswahl_button()
    }
 }
 
+void midgard_CG::on_optionmenu_land_deactivate()
+{
+   int iw = int(optionmenu_land->get_menu()->get_active()->get_user_data());
+   if(iw==optionmenu_land::Stadt) Werte.setStadt_Land("Stadt");   
+   if(iw==optionmenu_land::Land)  Werte.setStadt_Land("Land");   
+}
+
+
 void midgard_CG::doppelcharaktere()
 {
    fill_typauswahl_2();

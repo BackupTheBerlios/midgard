@@ -1,4 +1,4 @@
-// $Id: midgard_CG_waffen.cc,v 1.27 2001/11/12 09:20:37 thoma Exp $
+// $Id: midgard_CG_waffen.cc,v 1.28 2001/12/18 13:14:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,7 +35,8 @@ void midgard_CG::show_waffen()
          i!=list_Waffen.end();++i)
       {
          os << (*i)->Name()<<"\t"<<(*i)->Erfolgswert()<<"\n";
-         os.flush(&*i);
+//         os.flush(&*i);
+         os.flush((*i)->ref());
       }
    for (unsigned int i=0;i<waffen_clist->columns().size();++i)
       waffen_clist->set_column_auto_resize(i,true);
@@ -49,16 +50,16 @@ void midgard_CG::on_waffen_clist_select_row(gint row, gint column, GdkEvent *eve
  if (Typ[0]->Zaubern()=="n" || Typ[0]->Short() == "Ord")
    {
     Gtk::CList::SelectionList::iterator i=waffen_clist->selection().begin();
-    cH_Waffe *ptr = static_cast<cH_Waffe*>(i->get_data());           
-    (*ptr)->set_Erfolgswert((*ptr)->Erfolgswert()+2);
-    Werte.set_Spezialisierung((*ptr)->Name());
+    cH_MidgardBasicElement ptr = static_cast<MidgardBasicElement*>(i->get_data());           
+    (ptr)->set_Erfolgswert((ptr)->Erfolgswert()+2);
+    Werte.set_Spezialisierung((ptr)->Name());
 
-    static cH_Waffe *ptr_mem=0;
+    static cH_MidgardBasicElement *ptr_mem=0;
     if(ptr_mem)
      {
       (*ptr_mem)->set_Erfolgswert((*ptr_mem)->Erfolgswert()-2);
      }
-    ptr_mem=ptr;
+    ptr_mem=&ptr;
    show_waffen();
    }
 }

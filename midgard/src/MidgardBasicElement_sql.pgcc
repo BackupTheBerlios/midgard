@@ -46,7 +46,7 @@ void MidgardBasicElement::get_map_typ()
  if(What()==SPRACHE)
     squery ="select typ,standard from fertigkeiten_typen where name ='Sprache'";
  if(What()==SCHRIFT)
-    squery ="select typ,standard from fertigkeiten_typen where name ='Lesen/Schreiben'";
+    squery ="select typ,standard from fertigkeiten_typen where name ='Schreiben'";
  if(What()==KIDO)
     squery ="select typ,standard from fertigkeiten_typen where name ='KiDo'";
  strncpy(query,squery.c_str(),sizeof(query));

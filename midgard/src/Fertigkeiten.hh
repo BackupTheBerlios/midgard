@@ -93,9 +93,6 @@ class cH_Fertigkeit : public Handle<const Fertigkeit>
                case(LERN_S) : return x->LernStadt() < y->LernStadt()  ;
            }}
     };
-
-
-
 };
 
 class Fertigkeiten_All

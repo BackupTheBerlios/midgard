@@ -28,7 +28,7 @@ void midgard_CG::on_fertigkeiten_laden_clicked()
   for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
    { cH_Fertigkeit f(*i);
      if ((*i)->ist_gelernt(list_Fertigkeit) && f->Name()!="Landeskunde") continue ;
-     if (f->Name()=="Sprache" || f->Name()=="Lesen/Schreiben" || f->Name()=="KiDo-Technik") continue;
+     if (f->Name()=="Sprache" || f->Name()=="Schreiben" || f->Name()=="KiDo-Technik") continue;
      if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name())) continue;
      if ((*i)->ist_lernbar(Typ,f->get_MapTyp()))
        if (region_check(f->Region()) )
@@ -138,7 +138,7 @@ void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
       button_kido_auswahl->set_sensitive(false);
       std::string strinfo="Jetzt muﬂ ein Stil unter 'Lernschema' -> 'KiDo' gew‰hlt werden !!!";
       manage (new WindowInfo(strinfo,true)); }
-  if (MBE->Name()=="Wissen von der Magie") 
+  if (MBE->Name()=="Zaubern") 
       {  doppelcharaktere();
          std::string strinfo ="Jetzt unter 'Grundwerte' die zweite Charkakterklasse w‰hlen\n";
          strinfo += " und anschlieﬂend 'Fertigkeiten neu laden' klicken\n";
@@ -155,7 +155,8 @@ void midgard_CG::fillClistLand(const cH_MidgardBasicElement &MBE)
   for (std::vector<cH_Land>::const_iterator i=Database.Laender.begin();i!=Database.Laender.end();++i)
    {
      os <<(*i)->Name()<<'\n';
-     os.flush(const_cast<cH_MidgardBasicElement*>(&MBE));
+//     os.flush(const_cast<cH_MidgardBasicElement*>(&MBE));
+     os.flush(MBE->ref());
    }
   scrolledwindow_landauswahl->show();
 }
@@ -164,10 +165,10 @@ void midgard_CG::on_clist_landauswahl_select_row(gint row, gint column, GdkEvent
 {
   std::string land = clist_landauswahl->get_text(row,0);
 cout << "2 "<<land<<'\n';
-  cH_MidgardBasicElement *MBE=static_cast<cH_MidgardBasicElement*>(clist_landauswahl->selection().begin()->get_data());
-cout << (*MBE)->What()<<'\n';
+  MidgardBasicElement *MBE=static_cast<MidgardBasicElement*>(clist_landauswahl->selection().begin()->get_data());
+cout << (MBE)->What()<<'\n';
 
-  cH_Fertigkeit(*MBE)->setZusatz(land);
+  cH_Fertigkeit(MBE)->setZusatz(land);
   scrolledwindow_landauswahl->hide();
   fertigkeiten_zeigen();
 }

@@ -147,8 +147,7 @@ bool Window_angeb_fert::Sinn(int wurf,int wert)
   else if(41<=wurf && wurf<=50) Werte.set_Sinn("Schmecken",wert);
   else if(51<=wurf && wurf<=60) Werte.set_Sinn("Tasten",wert);
   else if(61<=wurf && wurf<=65) Werte.set_Sinn("Sechster Sinn",wert);
-
-  else return true;
-  return false;
+  else return false;
+  return true;
 }
 

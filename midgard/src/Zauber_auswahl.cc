@@ -56,7 +56,8 @@ Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const Grundwerte& Werte,
          cH_Zauber z(*i);
          os << z->Lernpunkte() <<"\t"<< z->Name() <<"\t"
             <<z->Ap()<<"\t"<<z->Kosten(Typ,Database.ausnahmen)<<"\n";
-         os.flush(&*i);
+//         os.flush(&*i);
+         os.flush(z->ref());
       }
     for (unsigned int i=0;i<zauber_clist_auswahl->columns().size();++i)
       zauber_clist_auswahl->set_column_auto_resize(i,true);
@@ -89,8 +90,8 @@ void Zauber_auswahl::on_close_zauber_clicked()
    for (Gtk::CList::SelectionList::iterator i=zauber_clist_auswahl->selection().begin();
          i!=zauber_clist_auswahl->selection().end();++i)
      {  
-       cH_MidgardBasicElement *ptr = static_cast<cH_MidgardBasicElement*>(i->get_data());
-       saz.push_back(*ptr);
+       cH_MidgardBasicElement ptr = static_cast<MidgardBasicElement*>(i->get_data());
+       saz.push_back(ptr);
      }
   hauptfenster->MidgardBasicElement_uebernehmen(saz);
   destroy();

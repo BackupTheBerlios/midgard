@@ -229,6 +229,7 @@ void midgard_CG::grundwerte_speichern()
       bool db_steigern_bool;
       int db_steigern_EP;
       int db_grad_basiswerte;
+      char db_stadt_land[20];
    exec sql end declare section;
 
 
@@ -288,6 +289,7 @@ void midgard_CG::grundwerte_speichern()
    strncpy(db_typ_2_s,Typ[1]->Short().c_str(),sizeof(db_typ_2_s));
    strncpy(db_ruestung,(Werte.Ruestung()->Name()).c_str(),sizeof(db_ruestung));
    strncpy(db_spezies,(Werte.Spezies()->Name()).c_str(),sizeof(db_spezies));
+   strncpy(db_stadt_land,(Werte.Stadt_Land()).c_str(),sizeof(db_stadt_land));
    
    exec sql UPDATE charaktere SET 
       charakter_name = :db_name_ch  , 
@@ -343,7 +345,8 @@ void midgard_CG::grundwerte_speichern()
       zep            = :db_zep,
       steigern_bool  = :db_steigern_bool,
       steigern_EP_prozent  = :db_steigern_EP,
-      grad_basiswerte =:db_grad_basiswerte
+      grad_basiswerte =:db_grad_basiswerte,
+      stadt_land      =:db_stadt_land
       WHERE charakter_name = :db_name_ch and version= :db_version;
    SQLerror::test(__FILELINE__,100);
    if (sqlca.sqlcode==100) charakter_db_anlegen();
