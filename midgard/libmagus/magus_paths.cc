@@ -1,4 +1,4 @@
-// $Id: magus_paths.cc,v 1.2 2003/05/07 11:27:21 christof Exp $
+// $Id: magus_paths.cc,v 1.4 2003/05/07 13:32:12 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,6 +22,8 @@
 #include "Windows_Linux.hh"
 #include <vector>
 #include <unistd.h>
+#include "magustrace.h"
+#include <Misc/Trace.h>
 
 std::vector<std::string> magus_paths::paths;
 std::string magus_paths::argv0;
@@ -54,7 +56,7 @@ void magus_paths::init(const std::string &_argv0,const std::string &_magus_verze
 
 std::string magus_paths::with_path(const std::string &name,bool path_only,bool noexit)
 {
-//  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
   for(std::vector<std::string>::const_iterator i=paths.begin();i!=paths.end();++i)
    {
      std::string n=*i+name;
@@ -71,7 +73,7 @@ std::string magus_paths::with_path(const std::string &name,bool path_only,bool n
 
 std::string magus_paths::BinaryVerzeichnis()
 {  
-//  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
    if (argv0.rfind(WinLux::dirsep)!=std::string::npos) 
       return argv0.substr(0,argv0.rfind(WinLux::dirsep)+1);
    else return "";

@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.2 2003/05/07 07:25:18 christof Exp $            
+// $Id: Abenteurer.cc,v 1.3 2003/05/07 13:29:41 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -32,11 +32,11 @@
 #include "KiDo.hh"
 #include "Beruf.hh"
 #include <Misc/Trace.h>
-
+#include "magustrace.h"
 
 bool Abenteurer::Valid() const
 {
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
   if(Typ.size()!=2) return false;
   return Typ1()->Valid();
 }
@@ -46,7 +46,7 @@ bool Abenteurer::Valid() const
 
 std::string Abenteurer::STyp() const
 {
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
   if(Typ2()->Name(getWerte().Geschlecht())!="")
    return Typ1()->Name(getWerte().Geschlecht())+"/"+Typ2()->Name(getWerte().Geschlecht());
   else return Typ1()->Name(getWerte().Geschlecht());
@@ -56,7 +56,7 @@ std::string Abenteurer::STyp() const
 
 const std::string Abenteurer::SErfolgswert(std::string name,const Datenbank &Database) const
 {
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
   std::pair<int,bool> w=Erfolgswert(name,Database);
   if(w.first==-99) return "";
   if(w.second) return itos(w.first);
@@ -65,7 +65,7 @@ const std::string Abenteurer::SErfolgswert(std::string name,const Datenbank &Dat
 
 const std::pair<int,bool> Abenteurer::Erfolgswert(std::string name,const Datenbank &Database) const
 {
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
   for(std::list<MBEmlt>::const_iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i)
    {
      if(name==(*(*i))->Name()) return std::pair<int,bool>((*i)->Erfolgswert(),true); 
@@ -81,7 +81,7 @@ const std::pair<int,bool> Abenteurer::Erfolgswert(std::string name,const Datenba
 
 const std::list<Abenteurer::st_universell> Abenteurer::List_Universell( const Datenbank &Database) const
 {
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
   std::list<st_universell> UF;
   for(std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
    {
@@ -122,7 +122,7 @@ const std::list<Abenteurer::st_universell> Abenteurer::List_Universell( const Da
 
 void VAbenteurer::push_back()
 { 
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
    VA.push_back(st_abenteurer()); 
    ai=--VA.end(); 
 }
@@ -130,13 +130,13 @@ void VAbenteurer::push_back()
 
 void VAbenteurer::setAbenteurer(const std::list<VAbenteurer::st_abenteurer>::iterator &i)
 {
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
  ai=i;
 }
 
 bool Abenteurer::is_mage() const 
 {  
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
    if(Typ.size()!=2) return false;
    if(Typ1()->is_mage() || Typ2()->is_mage()) return true;
    else return false;
@@ -146,7 +146,7 @@ bool Abenteurer::is_mage() const
 
 bool VAbenteurer::unsaved_exist()
 { 
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
    for(std::list<st_abenteurer>::iterator i=VA.begin();i!=VA.end();++i)
        if(!i->gespeichert) return true;
    return false;
@@ -154,7 +154,7 @@ bool VAbenteurer::unsaved_exist()
 
 void VAbenteurer::delete_empty()
 { 
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
  reloop:
    ai=--VA.end(); 
    for(std::list<st_abenteurer>::iterator i=VA.begin();i!=VA.end();++i)
@@ -168,7 +168,7 @@ void VAbenteurer::delete_empty()
 
 void Abenteurer::setAngebFert()
 {
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
   List_Fertigkeit_ang().clear();
   List_Fertigkeit_ang()=getWerte().Spezies()->getAngFertigkeiten();
   List_Zauber()=getWerte().Spezies()->getZauber();
@@ -180,7 +180,7 @@ void Abenteurer::setAngebFert()
 
 bool Abenteurer::setAngebSinnFert(int wurf,const MBEmlt &MBE)
 {
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
   int wert=MBE->Erfolgswert();
   if     ( 1<=wurf && wurf<= 2) getWerte().setSinnCheck("Sehen",wert);    
   else if( 3<=wurf && wurf<= 4) getWerte().setSinnCheck("Hören",wert);    
@@ -202,7 +202,7 @@ bool Abenteurer::setAngebSinnFert(int wurf,const MBEmlt &MBE)
 
 void Abenteurer::speicherstream(std::ostream &datei,const Datenbank &Database,const Midgard_Optionen *Optionen)
 {
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
    TagStream ts;
    ts.setEncoding("ISO-8859-1");
    
@@ -295,7 +295,7 @@ void Abenteurer::speicherstream(std::ostream &datei,const Datenbank &Database,co
 
 void Abenteurer::grundwerte_speichern(Tag &datei)
 {
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
    Tag &Figur=datei.push_back(Tag("Figur"));
    Figur.setAttr_ne("Name", getWerte().Name_Abenteurer());
    Figur.setAttr_ne("Spieler", getWerte().Name_Spieler());
@@ -381,7 +381,7 @@ void Abenteurer::grundwerte_speichern(Tag &datei)
 
 void Abenteurer::save_ausruestung(Tag &datei,const std::list<AusruestungBaum> &AB)
 {  
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
   for(AusruestungBaum::const_iterator i=AB.begin();i!=AB.end();++i)
    {  Tag &Ggs=datei.push_back(Tag("Gegenstand"));
       Ggs.setIntAttr("Anzahl", i->getAusruestung().Anzahl());
@@ -400,7 +400,7 @@ void Abenteurer::save_ausruestung(Tag &datei,const std::list<AusruestungBaum> &A
 
 const std::string Abenteurer::Beruf() const
 {
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
  if(list_Beruf.empty()) return "";
  return (*(*(list_Beruf.begin())))->Name();
  abort(); //never get here
@@ -411,7 +411,7 @@ const std::string Abenteurer::Beruf() const
 bool Abenteurer::xml_import_stream(std::istream& datei, Datenbank &Database,
    Midgard_Optionen *Optionen,midgard_CG *hauptfenster)
 {
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
    reset();
    TagStream ts(datei);
    const Tag *data=0; // &ts.getContent();
@@ -577,7 +577,7 @@ bool Abenteurer::xml_import_stream(std::istream& datei, Datenbank &Database,
 
 void Abenteurer::load_ausruestung(const Tag *tag, AusruestungBaum *AB)
 {
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
   FOR_EACH_CONST_TAG_OF(i,*tag,"Gegenstand")
    {  cH_Preise(i->getAttr("Bezeichnung"),true);
       AusruestungBaum *A = &AB->push_back(
@@ -594,7 +594,7 @@ void Abenteurer::load_ausruestung(const Tag *tag, AusruestungBaum *AB)
 
 void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version,Datenbank &Database,Midgard_Optionen *Optionen,midgard_CG *hauptfenster)
 {
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
     FOR_EACH_CONST_TAG(i,*tag)
     {
       const std::string sart=i->Type();
@@ -737,7 +737,7 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
 
 void Abenteurer::load_regionen_optionen(const Tag *tag, int xml_version,Datenbank &Database,Midgard_Optionen *Optionen,midgard_CG *hauptfenster)
 {
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
     for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
       {   Region::setActive(Database.Regionen,(*i),false);  }
     if(!tag) return;
@@ -778,7 +778,7 @@ void Abenteurer::move_element(std::list<MBEmlt>& von,
                                        std::list<MBEmlt>& nach,
                                        const MBEmlt& MBE)
 {
- ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+ ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
  for (std::list<MBEmlt>::iterator i=von.begin();i!= von.end();++i)
   {
     if(*i==MBE)
@@ -793,7 +793,7 @@ void Abenteurer::move_element(std::list<MBEmlt>& von,
 
 void Abenteurer::remove_WaffenGrund()
 {
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
 reloop:
   for(std::list<MBEmlt>::iterator i=list_WaffenGrund.begin();i!=list_WaffenGrund.end();++i)
    {
@@ -810,7 +810,7 @@ reloop:
 
 std::list<MBEmlt> &Abenteurer::get_known_list(const Enums::MBEListen was)
 {
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
   std::list<MBEmlt> *L ; 
   switch (was) {
      case Enums::sFert: L=&List_Fertigkeit(); break;
@@ -829,7 +829,7 @@ std::list<MBEmlt> &Abenteurer::get_known_list(const Enums::MBEListen was)
 
 std::list<MBEmlt> &Abenteurer::get_known_list(const MBEmlt &MBE)
 {
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
    if((*MBE).What()==MidgardBasicElement::FERTIGKEIT) 
          return get_known_list(Enums::sFert);
    else if((*MBE).What()==MidgardBasicElement::WAFFE) 
@@ -851,7 +851,7 @@ std::list<MBEmlt> &Abenteurer::get_known_list(const MBEmlt &MBE)
  
 std::string Abenteurer::Ruestung_B_Verlust(bool ueberlast_beruecksichtigen) const
 {
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
  std::string s;
  int R0; 
  int R1; 
