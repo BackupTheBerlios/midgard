@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<Midgard-Charakter Version="4">
+<Midgard-Charakter Version="7">
   <Figur Name="Aneren" Spieler="Christof Petig" Zeitpunkt="Smaskrifter" Grad="7"/>
-  <Typ Spezies="Mensch" Geschlecht="w" Abkürzung="Hl" Abkürzung2="wHx"/>
+  <Typ Spezies="Mensch" Geschlecht="w" Abkürzung="Hl"/>
   <Basiseigenschaften St="59" Ge="82" Ko="92" In="100" Zt="93"/>
   <abgeleiteteEigenschaften Au="40" pA="72" Sb="64" RW="78" HGW="78" B="25" KAW="2" WLW="80"/>
   <Erfolgswerte Abwehr="13" Zaubern="17"/>
-  <Resistenzen psy="13" phs="13" phk="13" Gift="53"/>
+  <Resistenzen Zauber="13"/>
   <Gesundheit LP_Basis="12" LP="16" AP="39"/>
   <Beschreibung Alter="28" Gestalt="breit" Gewicht="73" Größe="171" Stand="Mittelschicht" Herkunft="Erainn" Glaube="Kebechet"/>
   <Boni Ausdauer="3" Abwehr="1" Zaubern="2">
     <Resistenzen psy="9" phs="5" phk="6" Gift="5"/>
   </Boni>
-  <GFP>6053</GFP>
+  <GFP>6103</GFP>
   <Vermögen/>
+  <Steigern Basiswerte="1"/>
   <Ausrüstung>
     <Rüstung>TR</Rüstung>
   </Ausrüstung>
@@ -34,8 +35,12 @@
     <Fertigkeit Bezeichnung="Zauberkunde" Wert="9"/>
     <Fertigkeit Bezeichnung="Überleben in der Wüste" Wert="11"/>
     <Grundkenntnis Bezeichnung="Magierstab"/>
+    <Region Region="ORIG"/>
+    <Region Region="INFO"/>
     <Region Region="E"/>
     <Region Region="K"/>
+    <Region Region="HD"/>
+    <Region Region="G"/>
     <Sprache Bezeichnung="Albisch" Wert="4"/>
     <Sprache Bezeichnung="Chryseisch" Wert="4"/>
     <Sprache Bezeichnung="Comentang" Wert="2"/>
@@ -79,6 +84,7 @@
     <Zauber Bezeichnung="Stille" Wert="17"/>
     <Zauber Bezeichnung="Stärke" Wert="19"/>
     <Zauber Bezeichnung="Tiere rufen" Wert="19"/>
+    <Zauber Bezeichnung="Trunk des Lebens" Wert="19"/>
     <Zauber Bezeichnung="Unsichtbarkeit" Wert="17"/>
     <Zauber Bezeichnung="Vision" Wert="17"/>
     <Zauber Bezeichnung="Wasser spüren" Wert="17"/>
