@@ -26,7 +26,7 @@ bool midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
 {
  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
  cH_MidgardBasicElement MBE = dt->getMBE();
- if(togglebutton_praxispunkte->get_active()) 
+ if(togglebutton_praxispunkte->get_active() && radiobutton_pp_fertigkeit->get_active()) 
   {
    spinbutton_pp_eingeben->set_value(MBE->Praxispunkte());
    spinbutton_pp_eingeben->show();
@@ -100,30 +100,32 @@ void midgard_CG::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
  cH_MidgardBasicElement MBE = dt->getMBE();
  // Neue Dinge können nur durch Unterweisung gelernt werden
  // es sei denn es handelt sich um Zaubersprüche
- if(!radiobutton_unterweisung->get_active() &&  
-    MBE->What()==MidgardBasicElement::ZAUBER )
-  {
-    regnot("Neue Fertigkeiten können nur durch 'Unterweisung' gelernt werden");
-    return;
+ if(MBE->What()!=MidgardBasicElement::ZAUBER)
+  { if (!radiobutton_unterweisung->get_active())
+     { regnot("Neue Fertigkeiten, Waffen, Sprachen und Schriften können\n nur durch 'Unterweisung' gelernt werden");
+       return;
+     }
   }
- // Nicht alle Abenteurerklassen können Zauber auch mit Praxispunkten lernen
- if(MBE->What()==MidgardBasicElement::ZAUBER &&
-     radiobutton_praxis->get_active() )
-   {
-     if(!Typ[0]->SpruecheMitPP() || !Typ[1]->SpruecheMitPP() )
-        {
-          regnot("Neue Zaubersprüche können von "+Typ[0]->Name(Werte.Geschlecht())
-                  +" nicht durch Praxispunkte gelernt werden");
-          return;
-        }
-      else if(MBE->Standard__(Werte,Typ)!="G")
-        {
-          regnot("Nur Grundzauber können von "+Typ[0]->Name(Werte.Geschlecht())
-                  +" mit Praxispunkten gelernt werden");
-          return;
-        }
-   }
-
+ else // ==> MBE->What()==MidgardBasicElement::ZAUBER
+  {
+    // Nicht alle Abenteurerklassen können Zauber auch mit Praxispunkten lernen
+    if(radiobutton_selbst->get_active() )
+      { regnot("Neue Zauber können nicht durch 'Selbststudium' gelernt werden");
+        return;
+      }
+    if(radiobutton_praxis->get_active() )
+      { if(!Typ[0]->SpruecheMitPP() && !Typ[1]->SpruecheMitPP() )
+           { regnot("Neue Zaubersprüche können von "+Typ[0]->Name(Werte.Geschlecht())
+                     +" nicht durch Praxispunkte gelernt werden");
+             return;
+           }
+        else if(MBE->Standard__(Werte,Typ)!="G")
+           { regnot("Nur Grundzauber können von "+Typ[0]->Name(Werte.Geschlecht())
+                     +" mit Praxispunkten gelernt werden");
+             return;
+           }
+      }
+  }
  guint kosten=MBE->Kosten(Werte,Typ);
 
  // Lernen mit Spruchrolle: ///////////////////////////////////////////////

@@ -29,11 +29,12 @@ void midgard_CG::on_radio_verlernen_toggled()
 { on_radio_steigern_all();}
 void midgard_CG::on_radio_steigern_all()
 {
-  if (radiobutton_steigern->get_active() && checkbutton_EP_Geld->get_active())
+/*
+  if (radiobutton_steigern->get_active())
      frame_lernen_mit->set_sensitive(true); 
   else
      frame_lernen_mit->set_sensitive(false); 
-
+*/
 }
 
 void midgard_CG::on_togglebutton_praxispunkte_toggled()
@@ -258,21 +259,17 @@ void midgard_CG::load_for_page(guint pagenr)
   // Sensitive & Show
   if(pagenr==PAGE_ZAUBER || pagenr==PAGE_KIDO)
    {
-//     frame_fertigkeit->set_sensitive(false);
      frame_fertigkeit->hide();
-//     frame_lernen_mit->set_sensitive(false);
      radiobutton_verlernen->set_active(true);
      if(pagenr==PAGE_ZAUBER) frame_zauber_zusatz->show();
      if(Typ[0]->SpruecheMitPP() || Typ[1]->SpruecheMitPP())
         radiobutton_praxis->set_sensitive(true);
      else
-     radiobutton_praxis->set_sensitive(false);
+        radiobutton_praxis->set_sensitive(false);
    }
   else
    {
-//     frame_fertigkeit->set_sensitive(true);
      frame_fertigkeit->show();
-//     frame_lernen_mit->set_sensitive(true);
      radiobutton_steigern->set_active(true);
      frame_zauber_zusatz->hide();
      radiobutton_praxis->set_sensitive(true);

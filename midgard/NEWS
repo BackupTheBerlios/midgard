@@ -1,6 +1,7 @@
 ##########################################################################
 NEWS IN VERSION 0.6delta0
 
+* Das Executable heißt jetzt magus (statt midgard) 
 * Abspeichern und Laden des Spezialgebietes für Magier
 * Abspeichern und Laden der 'Steigertage'
 * Spezieskorrekturen (C++ Code und Datenbank)
@@ -20,6 +21,7 @@ NEWS IN VERSION 0.6delta0
 * Implementation der Optionen komplett(!) überarbeitet
 * Gründliche(!) Oberflächenüberarbeitung
 * Code aufgeräumt
+* Zauber lernen mit PP geht
 
 TODO:
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen

@@ -175,7 +175,8 @@ bool midgard_CG::steigern_usp(int kosten,cH_MidgardBasicElement* MBE, e_was_stei
   // jetzt darf gesteigert werden ...
   Werte.addGold(-gold_k);  
   set_lernzeit(kosten);
-  if (MBE)                 (*MBE)->addPraxispunkte(-pp) ;
+  if     (MBE&&(*MBE)->What()!=MidgardBasicElement::ZAUBER) (*MBE)->addPraxispunkte(-pp) ;
+  else if(MBE && (*MBE)->What()==MidgardBasicElement::ZAUBER) Werte.addZaubernPP(-pp) ;
   else if(was==Resistenz)  Werte.addResistenzPP(-pp) ;
   else if(was==Abwehr)     Werte.addAbwehrPP(-pp) ;
   else if(was==Zaubern)    Werte.addZaubernPP(-pp) ;
@@ -216,7 +217,8 @@ int midgard_CG::PP_vorrat(const cH_MidgardBasicElement *MBE,e_was_steigern was)
   guint pp=0;
   if(radiobutton_praxis->get_active())
    { 
-     if(MBE)                 pp=(*MBE)->Praxispunkte() ;
+     if     (MBE && (*MBE)->What()!=MidgardBasicElement::ZAUBER) pp=(*MBE)->Praxispunkte();
+     else if(MBE && (*MBE)->What()==MidgardBasicElement::ZAUBER) pp=Werte.ZaubernPP();
      else if(was==Resistenz) pp=Werte.ResistenzPP() ;
      else if(was==Abwehr)    pp=Werte.AbwehrPP() ;
      else if(was==Zaubern)   pp=Werte.ZaubernPP() ;
