@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.28 $">
+<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.29 $">
  <Länder>
   <Kontinent Name="Huaxal">
    <Land Name="Feuerinseln">
@@ -3693,7 +3693,7 @@
    <Lernschema Typ="PT" Erfolgswert="12"/>
    <Lernschema Typ="PW" Erfolgswert="12"/>
   </Fertigkeit>
-  <Fertigkeit Name="Sprechen: Alte Sprache(+12)" Anfangswert="12" Erfolgswert="12" Attribut="In" Maximalwert="20" MaximalMitUnterweisung="17" Zusätze="6"/>
+  <Fertigkeit Name="Sprechen: Alte Sprache(+12)" Anfangswert="12" Erfolgswert="12" Attribut="In" Maximalwert="20" MaximalMitUnterweisung="17" Zusätze="5"/>
   <Fertigkeit Name="Sprechen: Sprache(+12)" Lernpunkte="3" Lernpunkte-Land="3" Lernpunkte-Stadt="3" Anfangswert="12" Erfolgswert="12" Attribut="In" Berufskategorie="2" Maximalwert="20" MaximalMitUnterweisung="17" Zusätze="5">
    <Voraussetzungen In="31"/>
    <Lernschema Typ="Hä" Lernpunkte="1" Erfolgswert="12"/>
