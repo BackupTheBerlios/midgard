@@ -16,6 +16,8 @@ Version 0.9.8
 - auch gelernte Fertigkeiten erhöhen bewirkt kein zuklappen
 - erstmalige (ungetestete) UTF-8 LaTeX Unterstützung
 - viele Bugfixes
+- Grundwerte::setSinn("Sechster Sinn") brach ab, wird nun akzeptiert 
+	(erst einmal)
 
 -------------- TODO ----------------
 

@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.13 2004/12/22 08:10:31 christof Exp $               
+// $Id: Grundwerte.hh,v 1.14 2005/03/07 16:11:58 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -303,10 +303,8 @@ public:
    __deprecated void set_Steigern_EP_Prozent(int i) {fpanteil=i; goldanteil=100-i;}
    void set_Grad_Basiswerte(int i) {grad_basiswerte=i;}
 
-   void setRuestung1(const std::string &r,bool force=false)
-       {ruestung[0]=cH_Ruestung(r,force);}
-   void setRuestung2(const std::string &r,bool force=false)
-       {ruestung[1]=cH_Ruestung(r,force);}
+   void setRuestung1(const std::string &r,bool force=false);
+   void setRuestung2(const std::string &r,bool force=false);
                      
 
    // LaTeX code für die Rüstung

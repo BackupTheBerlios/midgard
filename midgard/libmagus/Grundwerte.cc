@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.16 2005/03/07 09:38:03 thoma Exp $               
+// $Id: Grundwerte.cc,v 1.17 2005/03/07 16:11:58 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -254,6 +254,7 @@ const std::string Grundwerte::Resistenzen_alle() const
 
 void Grundwerte::setSinn(const std::string &name,int wert)
 {
+  if (name=="Sechster Sinn") return; // accepting it doesn't hurt for now
   for(std::list<MBEmlt>::iterator i=list_Sinne.begin();i!=list_Sinne.end();++i)
    {
      if((*(*i))->Name()==name) 
@@ -447,6 +448,20 @@ Grundwerte::Grundwerte(bool initialize)
              stadt_land(Enums::Stadt), /*steigern_EP_prozent(50),*/ grad_basiswerte(1),
              Typ(2), wie_steigern(ws_Unterweisung), wie_steigern_variante(),
              goldanteil(50), fpanteil(50)
-{ if (initialize) reset(); }
+{ if (initialize) reset();
+  else // minimal initialization
+  {  ruestung.resize(2);
+     Typ.resize(2);
+//     resetSinne(); // hmmm
+  }
+}
 
+void Grundwerte::setRuestung1(const std::string &r,bool force)
+{assert(!ruestung.empty());
+ ruestung[0]=cH_Ruestung(r,force);
+}
 
+void Grundwerte::setRuestung2(const std::string &r,bool force)
+{assert(ruestung.size()>1);
+ ruestung[1]=cH_Ruestung(r,force);
+}

@@ -57,7 +57,7 @@ int main(int argc,char **argv)
  try {  
    libmagus_init(argc,const_cast<const char**>(argv),&progress);
 
-   Abenteurer a,vorgabe;
+   Abenteurer a(true),vorgabe;
    vorgabe.setNameC("random");
    int GFP=zufall_steigern::GFPvonGrad(Random::integer(1,12));
    Zufall::e_Vorgabe was;

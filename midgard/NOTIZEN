@@ -31,3 +31,6 @@ debuggen:
 `pwd`/../libmagusicons/.libs:`pwd`/../../ManuProC_Base/src/.libs \
 gdb .libs/magus
 
+	env LD_LIBRARY_PATH=/usr/lib/debug:`pwd`/.libs:\
+`pwd`/../../ManuProC_Base/src/.libs gdb --args \
+.libs/Zufallscharakter --Grad 7 --Typ PC --Herkunft Chryseia
