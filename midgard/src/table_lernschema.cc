@@ -291,15 +291,10 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
        A.List_WaffenGrund().push_back(
           MBEmlt(&*cH_WaffeGrund(cH_Waffe(MBE->getMBE())->Grundkenntnis())));
 
-       if(MBE->getMBE()->Name()=="Anderthalbhänder" && 
-          cH_Waffe(MBE->getMBE())->Min_St_Einhand(hauptfenster->getWerte()) )
-             A.List_WaffenGrund().push_back(                              
-                MBEmlt(&*cH_WaffeGrund("Einhandschwert")));
-       else if(MBE->getMBE()->Name()=="Schlachtbeil" &&   
-          cH_Waffe(MBE->getMBE())->Min_St_Einhand(hauptfenster->getWerte()) )
-             A.List_WaffenGrund().push_back(              
-                MBEmlt(&*cH_WaffeGrund("Einhandschlagwaffe")));
-
+       const std::string &zwgr=cH_Waffe(MBE->getMBE())->ZweiteGrundkenntnis();
+       if(!zwgr.empty()&&cH_Waffe(MBE->getMBE())->Min_St_Einhand(hauptfenster->getWerte())) 
+          A.List_WaffenGrund().push_back(MBEmlt(&*cH_WaffeGrund(zwgr)));
+                        
        A.List_WaffenGrund().sort(MBEmlt::sort(MBEmlt::sort::NAME));
        A.List_WaffenGrund().unique();
         lernpunkte.addWaffen(-lp);

@@ -42,6 +42,7 @@ class Waffe : public MidgardBasicElement
      std::string schaden;
      std::string waffenrang, wm_abwehr_leicht, wm_abwehr_schwer,
          voraussetzung,text;
+     std::string zweite_grundkenntnis;
      int schwierigkeit,st,gw,gs,reichweite_0,reichweite_n,
          reichweite_m,reichweite_f,min_st_einhand;
      int lern_land,lern_stadt, anfangswert;
@@ -77,6 +78,7 @@ class Waffe : public MidgardBasicElement
      int WM_Angriff(const std::string& name) const;
      std::string Reichweite() const ;
      std::string Text() const {return text;}
+     std::string ZweiteGrundkenntnis() const {return zweite_grundkenntnis;}
 
      int Schwierigkeit() const {return schwierigkeit;}
      std::string Schwierigkeit_str() const;

@@ -57,6 +57,8 @@ void Waffe::get_Waffe(const Tag &t)
    voraussetzung=t.getAttr("erfordert");
    region=t.getAttr("Region");
    text=t.getAttr("Text");
+   zweite_grundkenntnis=t.getAttr("ZweiteGrundkenntnis");
+   
   }
    
    const Tag *Modifikationen=t.find("Modifikationen");

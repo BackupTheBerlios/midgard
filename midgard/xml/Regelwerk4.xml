@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.26 $">
+<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.27 $">
  <Länder>
   <Kontinent Name="Huaxal">
    <Land Name="Feuerinseln">
@@ -7150,7 +7150,7 @@
   </Rüstung>
  </Rüstungen>
  <Waffen>
-  <Waffe Name="Anderthalbhänder" Grundkenntnisse="Zweihandschwert" Schwierigkeit="4" Kategorie="Angriff" Klasse="Z" Schaden="W6" Schadensbonus="1" Schadensbonus2="2" Text="(Einhändig|Beidhändig)">
+  <Waffe Name="Anderthalbhänder" Grundkenntnisse="Zweihandschwert" Schwierigkeit="4" Kategorie="Angriff" Klasse="Z" Schaden="W6" Schadensbonus="1" Schadensbonus2="2" Text="(Einhändig|Beidhändig)" ZweiteGrundkenntnis="Einhandschwert">
    <Modifikationen Waffenrang="-1" Abwehr-leicht="0" Abwehr-schwer="-1"/>
    <Voraussetzungen St="31" Gs="21" Min_St_Einhand="91"/>
    <Reichweite/>
@@ -8380,7 +8380,7 @@
    <Lernschema Typ="Sp" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Hä" Lernpunkte="3" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="Schlachtbeil" Grundkenntnisse="Zweihandschlagwaffe" Schwierigkeit="3" Kategorie="Angriff" Klasse="Z" Schaden="W6" Schadensbonus="1" Schadensbonus2="3" Text="(Einhändig|Beidhändig)">
+  <Waffe Name="Schlachtbeil" Grundkenntnisse="Zweihandschlagwaffe" Schwierigkeit="3" Kategorie="Angriff" Klasse="Z" Schaden="W6" Schadensbonus="1" Schadensbonus2="3" Text="(Einhändig|Beidhändig)" ZweiteGrundkenntnis="Einhandschlagwaffe">
    <Modifikationen Waffenrang="-2" Abwehr-leicht="+1" Abwehr-schwer="-2"/>
    <Voraussetzungen St="61" Gs="31" Min_St_Einhand="91"/>
    <Reichweite/>
