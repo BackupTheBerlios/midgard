@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.pgcc,v 1.16 2001/11/15 07:51:27 christof Exp $
+// $Id: arkanum_exp.pgcc,v 1.17 2001/11/15 08:29:34 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -232,6 +232,31 @@ void arkanum_speichern(std::ostream &o)
    exec sql close zauberwerk_curs;
    SQLerror::test(__FILELINE__);
    o << " </Zauberwerke>\n";
+
+//********************* Spezialgebiete ********************
+   o << " <Spezialgebiete>\n";
+   exec sql declare spezial_curs cursor for
+   	select typ, spezialgebiet, nr, spezial, spezial2
+   	from spezialgebiete
+   	order by typ,nr;
+   exec sql open spezial_curs;
+   SQLerror::test(__FILELINE__);
+  while (true)
+  {exec sql fetch spezial_curs into sql descriptor spalten;
+   SQLerror::test(__FILELINE__,100);
+   if (sqlca.sqlcode) break;
+   FetchIStream is("spalten");
+   o << "  <Spezialgebiet";
+   fetch_and_write_typ_attrib(is, o, "Typ");
+   fetch_and_write_string_attrib(is, o, "Name");
+   fetch_and_write_int_attrib(is, o, "MCG-Index");
+   fetch_and_write_string_attrib(is, o, "Spezialisierung");
+   fetch_and_write_string_attrib(is, o, "Sekundärelement");
+   o << "/>\n";
+  }
+   exec sql close spezial_curs;
+   SQLerror::test(__FILELINE__);
+   o << " </Spezialgebiete>\n";
 
 //*************************************************************   
    o << "</MidgardCG-data>\n";
