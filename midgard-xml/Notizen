@@ -1,0 +1,29 @@
+- Zum Ansehen/Editieren von xml Dateien eignet sich
+
+    kxmleditor (L,C): schönes Syntax Highlighting, hierarchisch
+    Turbo XML (W)
+    oXygen (LMWJ)
+    conglomerate
+    mlview
+
+- Zum Validieren der DTD eignet sich
+
+    xmllint (L): 
+
+- Zum Validieren eines XML Schemas eignet sich
+
+    XSV (L,W):
+    Xerces (L+):
+    xsdvalidator (L):
+
+- Zum Erstellen eines XML Schemas eignet sich
+
+    XML Spy Suite (W):
+    Turbo XML (W,8,M):
+
+- Zum Editieren einer XML Datei unter Einhaltung des Schemas eignet sich
+
+    Turbo XML ?
+    oXygen ?
+
+L=Linux C=CygWin W=Win32 M=Mac 8=Linux/86 J=Java
