@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.35 $">
+<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.36 $">
  <SteigernKosten>
   <Kosten Fertigkeit="Bewegung" Wert11="20" Wert12="20" Wert13="50" Wert14="50" Wert15="100" Wert16="200" Wert17="400" Wert18="800" Wert19="800" Wert20="800"/>
   <Kosten Fertigkeit="Lanzenstechen" Wert2="100" Wert3="100" Wert4="150" Wert5="150" Wert6="200" Wert7="200" Wert8="400"/>
@@ -11522,6 +11522,10 @@
    <Fertigkeit Name="Dämonenkunde" Faktor="0.7"/>
    <Fertigkeit Name="Gassenwissen" Faktor="0.9"/>
    <Fertigkeit Name="Geheimzeichen" Faktor="0.8"/>
+   <Fertigkeit Name="Geomantie" Faktor="0.5"/>
+   <Fertigkeit Name="Giftmischen" Faktor="0.9"/>
+   <Fertigkeit Name="Heilkunde" Faktor="0.5"/>
+   <Fertigkeit Name="Himmelskunde" Faktor="0.5"/>
    <Fertigkeit Name="Kenntnis der fünf Klassiker" Faktor="0.5"/>
    <Fertigkeit Name="Kräuterkunde" Faktor="0.5"/>
    <Fertigkeit Name="Landeskunde" Faktor="0.5"/>
@@ -11536,6 +11540,7 @@
    <Fertigkeit Name="Pyromantie" Faktor="0.8"/>
    <Fertigkeit Name="Rechnen" Faktor="0.5"/>
    <Fertigkeit Name="Sagenkunde" Faktor="0.5"/>
+   <Fertigkeit Name="Schätzen" Faktor="0.8"/>
    <Fertigkeit Name="Steinabreibungen machen" Faktor="0.9"/>
    <Fertigkeit Name="Teezeremonie" Faktor="0.8"/>
    <Fertigkeit Name="Thaumatographie" Faktor="0.8"/>
@@ -11545,13 +11550,6 @@
    <Fertigkeit Name="YangScheng" Faktor="0.8"/>
    <Fertigkeit Name="Zauberkunde" Faktor="0.5"/>
    <Fertigkeit Name="Zeichensprache" Faktor="0.6"/>
-  </Prototyp2>
-  <Prototyp2 Name="Wissen ">
-   <Fertigkeit Name="Geomantie" Faktor="0.5"/>
-   <Fertigkeit Name="Giftmischen" Faktor="0.9"/>
-   <Fertigkeit Name="Heilkunde" Faktor="0.5"/>
-   <Fertigkeit Name="Himmelskunde" Faktor="0.5"/>
-   <Fertigkeit Name="Schätzen" Faktor="0.8"/>
   </Prototyp2>
  </KI>
 </MAGUS-data>

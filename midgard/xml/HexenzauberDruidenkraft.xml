@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="H&amp;D" Name="Hexenzauber &amp; Druidenkraft" Titel="Hexenzauber und Druidenkraft" Copyright="Alexander Huiskes (Hrsg.)" Jahr="1994" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="10" MAGUS-Bild="6" CVS="$Revision: 1.13 $">
+<MAGUS-data Region="H&amp;D" Name="Hexenzauber &amp; Druidenkraft" Titel="Hexenzauber und Druidenkraft" Copyright="Alexander Huiskes (Hrsg.)" Jahr="1994" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="10" MAGUS-Bild="6" CVS="$Revision: 1.14 $">
  <Fertigkeiten>
   <Fertigkeit Name="Wetterkunde" Region="H&amp;D" Anfangswert="5" Lernkosten="50" Erfolgswert="4" Attribut="In" Maximalwert="16" MaximalMitUnterweisung="14">
    <Grund Typ="De"/>
@@ -351,7 +351,7 @@
    <Standard Typ="tBe"/>
    <Ausnahme Typ="eBe"/>
   </Spruch>
-  <Spruch Name="Entfesseln" Region="H&amp;D" Grad="2" Lernkosten="240" AP="2" Typ="Wort" Zauberdauer="20 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="0" Wirkungsdauer="dämonisch" Spruchrolle="true">
+  <Spruch Name="Entfesseln" Region="H&amp;D" Grad="2" Lernkosten="240" AP="2" Typ="Wort" Ursprung="dämonisch" Zauberdauer="20 s" Reichweite="0" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ob" Wirkungsdauer="0" Spruchrolle="true">
    <Grund Typ="ScN"/>
    <Grund Typ="ScS"/>
    <Grund Typ="ScW"/>
