@@ -223,16 +223,18 @@ void midgard_CG::menubar_init()
   Gtk::Menu *menu0 = manage(new class Gtk::Menu());
   Gtk::Menu *menu1 = manage(new class Gtk::Menu());
   Gtk::Menu *menu2 = manage(new class Gtk::Menu());
+
   Gtk::MenuItem *mi1 = manage(new class Gtk::MenuItem("Ansicht & Fenster"));
-  Gtk::MenuItem *mi2 = manage(new class Gtk::MenuItem("Gestaltung"));
-/*
-  mi1->set_submenu(*menu1);
-//  mi2->set_submenu(*menu2);
   menu0->add(*mi1);
-//  menu0->add(*mi2);
-  ansicht_menu->add(*menu0);
-*/
-  ansicht_menu->show_all();
+  mi1->set_submenu(*menu1);
+  mi1->show();
+
+  Gtk::MenuItem *mi2 = manage(new class Gtk::MenuItem("Gestaltung"));
+  mi2->set_submenu(*menu2);
+  menu0->add(*mi2);
+  mi2->show();
+
+  ansicht_menu->set_submenu(*menu0);
   
 
 /*  

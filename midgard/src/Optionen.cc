@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.14 2002/04/19 06:43:27 christof Exp $
+// $Id: Optionen.cc,v 1.15 2002/04/19 13:45:14 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -263,46 +263,21 @@ void Midgard_Optionen::pdfViewer_init()
 
   char pdfclass[1024];
     
-  reg_key r1(HKEY_LOCAL_MACHINE, KEY_READ, "SOFTWARE", "Classes"); // ".pdf");
-  r1.get_string(".pdf", pdfclass, sizeof pdfclass, "?");
-  cout << pdfclass << '\n';
-  reg_key r2(HKEY_LOCAL_MACHINE, KEY_READ, "SOFTWARE", "Classes", pdfclass,
-  		"shell", "open");
-  r2.get_string("command", pdfclass, sizeof pdfclass, "?");
-  cout << pdfclass << '\n';
+  reg_key r1(HKEY_LOCAL_MACHINE, KEY_READ, "SOFTWARE", "Classes",".pdf",0);
+  r1.get_string(0, pdfclass, sizeof pdfclass, "");
+  if (*pdfclass)
+  {  reg_key r2(HKEY_LOCAL_MACHINE, KEY_READ, "SOFTWARE", "Classes", pdfclass,
+  		"shell", "open", "command", 0);
+     r2.get_string(0, pdfclass, sizeof pdfclass, "");
   
-  std::string path=pdfclass;
-  if (path.substr(path.size()-3)==" %1")
-     path=path.substr(0, path.size()-3);
-  cout << path << '\n';
-
-  setString(pdfViewer,path);
+     std::string path=pdfclass;
+     if (path.size()>3 && path.substr(path.size()-3)==" %1") 
+        path=path.substr(0, path.size()-3);
+     else if (path.size()>5 && path.substr(path.size()-5)==" \"%1\"") 
+        path=path.substr(0, path.size()-5);
+     setString(pdfViewer,path);
+   }
   
-#if 0
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\.pdf]
-@="AcroExch.Document"
-"Content Type"="application/pdf"
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\AcroExch.Document\shell\open\command]
-@="\"C:\\Programme\\Adobe\\Acrobat 4.0\\Reader\\AcroRd32.exe\" %1"
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\AcroExch.Document\CLSID]
-@="{B801CA65-A1FC-11D0-85AD-444553540000}"
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{B801CA65-A1FC-11D0-85AD-444553540000
-}\LocalServer]
-@="C:\\Programme\\Adobe\\Acrobat 4.0\\Reader\\AcroRd32.exe"
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Software\Adobe\Acrobat\Exe]
-@="\"C:\\Programme\\Adobe\\Acrobat 4.0\\Reader\\AcroRd32.exe\""
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\AcroRd32
-.exe]
-"Path"="C:\\Programme\\Adobe\\Acrobat 4.0\\Reader;C:\\Programme\\Adobe\\Acrobat 
-4.0\\Resource\\Lib"
-@="C:\\Programme\\Adobe\\Acrobat 4.0\\Reader\\AcroRd32.exe"
-
-#endif
 #endif
 }
 
