@@ -40,7 +40,6 @@ struct st_vor{bool spezies; bool typ; bool herkunft; bool st; bool gs; bool gw; 
               st_vor() :
                   spezies(true),typ(true),herkunft(true),st(true),gs(true),gw(true),ko(true),
                   in(true),zt(true),au(true),pa(true),wk(true),sb(true),b(true){}
-
 /*
               st_vor(bool _spezies,_typ,_herkunft,_st,_gs,_gw,_ko,_in,_zt,_au,_pa,_wk,_sb,_b) :
                   spezies(_spezies),typ(_typ),herkunft(_herkunft),st(_st),gs(_gs),gw(_gw),ko(_ko),
@@ -73,21 +72,13 @@ void Zufall::Teil(e_Vorgabe vorgabe)
 
    if(sv.spezies)  Aben->getWerte().setSpezies(getSpezies());
    else            Aben->getWerte().setSpezies(oldAben.getWerte().Spezies());
-
-//Spezies::getSpezies(hauptfenster->table_grundwerte->combo_spezies->get_entry()->get_text(),Database.Spezies));
-cout << "C\n"<<Aben->getWerte().Spezies()->Name()<<'\n';
-
    hauptfenster->table_grundwerte->Eigenschaften_variante(1);
    Aben->getWerte().setGeschlecht(getGeschlecht());
    if(sv.typ)      Aben->setTyp1(getTyp());
-   else            Aben->setTyp1(Typen::getTyp(hauptfenster->table_grundwerte->combo_typ->get_entry()->get_text(),Database.Typen));     
+   else            Aben->setTyp1(oldAben.Typ1());     
    hauptfenster->table_grundwerte->on_abge_werte_setzen_clicked();
    if(sv.herkunft) Aben->getWerte().setHerkunft(getLand());
-   else { std::string l=hauptfenster->table_grundwerte->entry_herkunft->get_text();
-          if(Land::ist_bekannt(l,Database.Laender))
-               Aben->getWerte().setHerkunft(cH_Land(l));
-          else Aben->getWerte().setHerkunft(cH_Land("Alba"));
-        }
+   else            Aben->getWerte().setHerkunft(oldAben.getWerte().Herkunft());
    setMuttersprache();
    Aben->getWerte().setUeberleben(getUeberleben());
    Aben->List_Fertigkeit_ang().clear();
@@ -99,8 +90,6 @@ cout << "C\n"<<Aben->getWerte().Spezies()->Name()<<'\n';
    hauptfenster->table_lernschema->on_button_ruestung_clicked(random.integer(1,100));
    hauptfenster->table_lernschema->ausruestung_setzen();
    hauptfenster->table_grundwerte->zeige_werte();
-
-
 }
 
 void Zufall::setMuttersprache()
