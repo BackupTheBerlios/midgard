@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.168 2002/02/12 11:22:44 thoma Exp $
+// $Id: midgard_CG.hh,v 1.169 2002/02/13 11:21:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,6 +36,7 @@
 #include "Ausruestung.hh"
 class Random;
 #include "WindowInfo.hh"
+#include "Wizard.hh"
 
 class GeldFenster 
 {public:
@@ -58,6 +59,9 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         std::vector<std::string> Vstand, Vhand, Vkido;
 
         friend class midgard_CG_glade;
+        friend class Wizard;
+        Wizard wizard;
+
         Gtk::Menu *menu, *menu_gradanstieg;
         void menu_init();
         void menu_gradanstieg_init();
@@ -67,7 +71,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void Hausregeln_setzen(bool b);
         gint on_eventbox_MCG_button_press_event(GdkEventButton *event);
 
-        enum OptionenIndex {Original,Info,showPics,LernschemaSensitive};
+        enum OptionenIndex {Original,Info,showPics,LernschemaSensitive,WizardStarten};
         enum HausIndex {Gold};
 
 
@@ -147,7 +151,13 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
 	std::string filename;
 #endif
    
-//        void get_Database();
+        // Wizard
+        void on_button_wizard_weiter_clicked();
+        void on_button_wizard_wiederholen_clicked();
+        void wizard_do_nothing();
+        void wizard_do_something();
+        void wizard_starten_clicked();
+
         void optionmenu_init();
         void optionmenu_stand_deactivate();
         void optionmenu_hand_deactivate();
@@ -169,6 +179,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void gw_wuerfeln_2x();
         gint on_button_grundwerte_button_release_event(GdkEventButton *ev);
         void Eigenschaften_variante(int i);
+        void grundwerte_wuerfeln();
         void on_button_wert_1_clicked();
         void on_button_wert_2_clicked();
         void on_button_wert_3_clicked();

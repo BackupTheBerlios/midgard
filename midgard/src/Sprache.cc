@@ -70,11 +70,14 @@ int Sprache::Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) cons
   return  (int)(F->Standard_Faktor(Typ,ausnahmen) * kosten) ; 
 }
 
-int Sprache::MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const
+int Sprache::MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
 {
-  if     (w.In() < 31) return (11>maxwert ? maxwert : 11); 
-  else if(w.In() < 61) return (18>maxwert ? maxwert : 18); 
-  else return (20>maxwert ? maxwert : 20);
+  if (w.In() < 31) return (11>maxwert ? maxwert : 11); 
+  if (w.In() < 61) return (18>maxwert ? maxwert : 18); 
+
+  int ab= cH_Fertigkeit("Sprache")->MaxErfolgswert(w,Typ,ausnahmen);
+  int m=ab+20;
+  return (m>maxwert ? maxwert : m);
 }
 
 

@@ -241,21 +241,33 @@ map<std::string,std::string> Waffe::fill_map_alias_waffe(Gtk::ProgressBar *progr
 }
 
 
-int Waffe::MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const
+int Waffe::MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
 {
  assert(Typ.size()==2);
  int maxwert=0;
+ double x=Standard_Faktor(Typ,ausnahmen);
+
  if (art == "Verteidigung")
   {
-     maxwert = 7;
-     if ((Typ[0]->Short() == "Kr" || Typ[0]->Short() == "Sö") && Typ[1]->Short()=="") maxwert = 8;
-     else if (Typ[0]->Zaubern() == "z" ) maxwert = 6;
+    if (Typ[0]->Zaubern() == "z" && Typ[1]->Short()!="") maxwert = 6;
+    else
+     {
+      if     (x==1.0)  maxwert = 7;
+      else if(x==0.5)  maxwert = 8;
+      else if(x==2.0)  maxwert = 6;
+      else assert(!"Auf Fixedpoint umstellen");
+     }
   }
  else
   {
-    maxwert = 17;
-    if ((Typ[0]->Short() == "Kr" || Typ[0]->Short() == "Sö") && Typ[1]->Short()=="") maxwert = 19;
-    if (Typ[0]->Zaubern() == "z" ) maxwert = 14;
+    if (Typ[0]->Zaubern() == "z" && Typ[1]->Short()!="") maxwert = 14;
+    else
+     {
+      if     (x==1.0)  maxwert = 17;
+      else if(x==0.5)  maxwert = 19;
+      else if(x==2.0)  maxwert = 14;
+      else assert(!"Auf Fixedpoint umstellen");
+     }
   }
  return maxwert;
 }

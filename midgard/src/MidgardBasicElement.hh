@@ -67,12 +67,11 @@ class MidgardBasicElement : public HandleContent
             : IF_XML(tag(0),) name(n),region(r),kosten(0),praxispunkte(0),
                               erfolgswert(0),lernpunkte(0)
                               ,steigern_mit_EP(0) {}
-#ifdef USE_XML
       MidgardBasicElement(const Tag *t,const std::string &n) 
 		: tag(t), name(n), kosten(0),praxispunkte(0),
                                erfolgswert(0),lernpunkte(0)
                               ,steigern_mit_EP(0) {}
-#endif                              
+
       MidgardBasicElement(const MidgardBasicElement &M)
        : name(M.name), region(M.region),kosten(M.kosten), 
          praxispunkte(M.praxispunkte),erfolgswert(M.erfolgswert),
@@ -102,7 +101,7 @@ class MidgardBasicElement : public HandleContent
       virtual enum MBEE What() const=0;
       virtual std::string What_str() const=0; // zum speichern
       virtual std::string Stufe() const {return "";} 
-      virtual int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const {return 0;};
+      virtual int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const {return 0;};
       bool ist_lernbar(const vector<cH_Typen>& Typ,const map<std::string,std::string>& map_typ) const;
       bool ist_gelernt(const std::list<cH_MidgardBasicElement>& L) const;
       int get_Steigern_Kosten(int erfolgswert) const;

@@ -169,10 +169,12 @@ int MidgardBasicElement::get_Steigern_Kosten(int erfolgswert) const
 {
 //cout << erfolgswert<<'\t'<<const_cast<std::map<int,int>& >(map_erfolgswert_kosten)[erfolgswert]<<'\t';
 //cout << map_erfolgswert_kosten.size()<<'\n';
-//for(std::map<int,int>::const_iterator i=map_erfolgswert_kosten.begin();i!=map_erfolgswert_kosten.end();++i)
-//{
-//cout << What()<<'\t'<<i->first<<'\t'<<i->second<<'\n';
-//}
+/*
+for(std::map<int,int>::const_iterator i=map_erfolgswert_kosten.begin();i!=map_erfolgswert_kosten.end();++i)
+{
+cout << What()<<'\t'<<i->first<<'\t'<<i->second<<'\n';
+}
+*/
  return const_cast<std::map<int,int>& >(map_erfolgswert_kosten)[erfolgswert];
 }
 
@@ -290,7 +292,7 @@ void MidgardBasicElement::get_Steigern_Kosten_map()
  { cerr << "keine Kosten für '" << steigern_wie << "' gefunden\n";
    return;
  }
- for (int i=1;i<=19;++i)
+ for (int i=1;i<=22;++i)
     map_erfolgswert_kosten[i]=kosten->getIntAttr("Wert"+itos(i),0/*??*/);
 }
 

@@ -282,6 +282,11 @@ void midgard_CG::Optionen_init()
                            menu_lernschema_sensitive,
                            "Lernschema auswählbar machen",0,
                            &midgard_CG::on_optionen_menu));
+  Gtk::MenuItem *menu_wizard_starten;
+  list_OptionenM.push_back(st_OptionenM(WizardStarten,
+                           menu_wizard_starten,
+                           "Wizard starten",0,
+                           &midgard_CG::on_optionen_menu));
 }
 
 

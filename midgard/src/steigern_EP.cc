@@ -95,6 +95,7 @@ void midgard_CG::desteigern(unsigned int kosten)
      ep_k = (guint)(kosten * (Database.GradAnstieg.get_Steigern_EP_Prozent()/100.));
    }
   if( !HausregelCheck(Gold).active ) gold_k*=10;
+  set_lernzeit(-ep_k);
   Werte.addGold(gold_k);
   Werte.addAEP(ep_k);
   Geld_uebernehmen();

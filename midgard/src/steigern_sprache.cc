@@ -54,11 +54,7 @@ void midgard_CG::on_sprache_laden_clicked()
 void midgard_CG::schriften_zeigen()
 {
    zeige_werte(Werte);
-#ifndef USE_XML   
-   on_speichern_clicked();
-#else
    steigern_aktivieren();
-#endif
    MidgardBasicElement::show_list_in_tree(list_Schrift    ,alte_schrift_tree,Werte,Typ,Database.ausnahmen);
    MidgardBasicElement::show_list_in_tree(list_Schrift_neu,neue_schrift_tree,Werte,Typ,Database.ausnahmen);
 }
@@ -66,11 +62,7 @@ void midgard_CG::schriften_zeigen()
 void midgard_CG::sprachen_zeigen()
 {
    zeige_werte(Werte);
-#ifndef USE_XML   
-   on_speichern_clicked();
-#else
    steigern_aktivieren();
-#endif   
    MidgardBasicElement::show_list_in_tree(list_Sprache    ,alte_sprache_tree,Werte,Typ,Database.ausnahmen);
    MidgardBasicElement::show_list_in_tree(list_Sprache_neu,neue_sprache_tree,Werte,Typ,Database.ausnahmen);
 }
@@ -85,6 +77,17 @@ void midgard_CG::on_leaf_selected_neue_sprache(cH_RowDataBase d)
     
 void midgard_CG::on_leaf_selected_alte_sprache(cH_RowDataBase d)
 {  
+  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
+  if(dt->getMBE()->What()==MidgardBasicElement::SPRACHE)
+   {
+     cH_Fertigkeit F("Sprache");
+     if( radiobutton_unterweisung->get_active() &&
+         dt->getMBE()->Erfolgswert() >= F->MaxUnterweisung())
+      {
+        regnot("Weitere Steigerung des Erfolgswertes ist NICHT mit Unterweisung möglich.");
+        return;
+      }
+   }
   if(MidgardBasicElement_leaf_alt(d))
    {
      neue_schrift_wegen_sprache();
@@ -110,6 +113,17 @@ void midgard_CG::on_button_sprache_sort_clicked()
 
 void midgard_CG::on_leaf_selected_alte_schrift(cH_RowDataBase d)
 {  
+  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
+  if(dt->getMBE()->What()==MidgardBasicElement::SCHRIFT)
+   {
+     cH_Fertigkeit F("Schreiben");
+     if( radiobutton_unterweisung->get_active() &&
+         dt->getMBE()->Erfolgswert() >= F->MaxUnterweisung())
+      {
+        regnot("Weitere Steigerung des Erfolgswertes ist NICHT mit Unterweisung möglich.");
+        return;
+      }
+   }
   if(MidgardBasicElement_leaf_alt(d))
    {
      neue_schrift_wegen_sprache();

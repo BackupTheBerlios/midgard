@@ -121,7 +121,7 @@ int Fertigkeit::FErfolgswert(const Grundwerte &Werte) const
   else return Erfolgswert();
 }
 
-int Fertigkeit::MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const
+int Fertigkeit::MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
 {
 //cout << Name()<<" Maximaler Erfolgswert = "<<maxerfolgswert<<'+'
 //  <<AttributBonus(w)<<" Attribut = "<<Attribut()<<'\n';

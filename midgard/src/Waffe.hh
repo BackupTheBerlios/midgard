@@ -92,7 +92,7 @@ class Waffe : public MidgardBasicElement
      bool SG_Voraussetzung(const Grundwerte& Werte) const;
      bool Grundkenntnis_vorhanden(const std::list<cH_MidgardBasicElement>&) const;
      int Maxwert(const vector<cH_Typen>& Typ) const;
-     int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const; 
+     int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const; 
 
 
      static std::map<std::string,std::string> fill_map_alias_waffe(Gtk::ProgressBar *progressbar);

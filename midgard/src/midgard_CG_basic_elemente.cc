@@ -48,7 +48,7 @@ bool midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
  else if(MBE->What()==MidgardBasicElement::KIDO) 
    { MyList     = &list_Kido; MyList_neu = &list_Kido_neu;  }
  else if(MBE->What()==MidgardBasicElement::SPRACHE) 
-   { if (MBE->MaxErfolgswert(Werte,Typ)==MBE->Erfolgswert() ) return false;
+   { if (cH_Fertigkeit("Sprache")->MaxErfolgswert(Werte,Typ,Database.ausnahmen)==MBE->Erfolgswert() ) return false;
      MyList     = &list_Sprache; MyList_neu = &list_Sprache_neu;  }
  else if(MBE->What()==MidgardBasicElement::SCHRIFT) 
    { MyList     = &list_Schrift; MyList_neu = &list_Schrift_neu;  }
@@ -59,7 +59,7 @@ bool midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
  if (radiobutton_steigern->get_active() && MBE->Steigern(Typ,Database.ausnahmen))
     {
       if (!steigern_usp(MBE->Steigern(Typ,Database.ausnahmen),&MBE)) return false;
-      if ( MBE->Erfolgswert() >= MBE->MaxErfolgswert(Werte,Typ)) 
+      if ( MBE->Erfolgswert() >= MBE->MaxErfolgswert(Werte,Typ,Database.ausnahmen)) 
           { regnot("Maximal möglicher Erfolgswert erreicht");
             return false; }
       Werte.addGFP(MBE->Steigern(Typ,Database.ausnahmen));

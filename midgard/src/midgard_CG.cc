@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.153 2002/02/12 14:17:53 thoma Exp $
+// $Id: midgard_CG.cc,v 1.154 2002/02/13 11:21:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,7 +33,7 @@
 
 //midgard_CG::midgard_CG(int argc,char **argv)
 midgard_CG::midgard_CG(Datenbank& _Database, const string &datei)
-: InfoFenster(0), menu(0),menu_gradanstieg(0),haus_menuitem(0),Database(_Database)
+: InfoFenster(0), wizard(this),menu(0),menu_gradanstieg(0),haus_menuitem(0),Database(_Database)
 {
   srand(time(0));
   if(InfoFenster) delete(InfoFenster);
@@ -348,6 +348,8 @@ void midgard_CG::on_neuer_charakter_clicked()
   spezieswahl_button();
   typauswahl_button(); // ruft clear_listen() und clear_gtk() auf
   show_gtk();
+
+  table_wizard->hide();
 }
 
 void midgard_CG::on_schliessen_CG_clicked()

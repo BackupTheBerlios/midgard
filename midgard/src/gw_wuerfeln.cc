@@ -1,4 +1,4 @@
-// $Id: gw_wuerfeln.cc,v 1.30 2002/02/08 14:34:18 thoma Exp $
+// $Id: gw_wuerfeln.cc,v 1.31 2002/02/13 11:21:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,18 +25,20 @@
 
 gint midgard_CG::on_button_grundwerte_button_release_event(GdkEventButton *ev)
 {
-  if (ev->button==1) 
-    {
-      if(radiobutton_eigenschaften_standard->get_active())
-         Eigenschaften_variante(1);
-      else if(radiobutton_eigenschaften_zuweisen->get_active())
-         Eigenschaften_variante(2);
-      else if(radiobutton_eigenschaften_69->get_active())
-         Eigenschaften_variante(3);
-    }
+  if (ev->button==1) grundwerte_wuerfeln();
   if (ev->button==2) Eigenschaften_variante(2);
   if (ev->button==3) Eigenschaften_variante(3);
   return false;
+}
+
+void midgard_CG::grundwerte_wuerfeln()
+{
+  if(radiobutton_eigenschaften_standard->get_active())
+     Eigenschaften_variante(1);
+  else if(radiobutton_eigenschaften_zuweisen->get_active())
+     Eigenschaften_variante(2);
+  else if(radiobutton_eigenschaften_69->get_active())
+     Eigenschaften_variante(3);
 }
 
 void midgard_CG::Eigenschaften_variante(int i)

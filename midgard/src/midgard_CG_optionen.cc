@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.49 2002/02/12 07:15:29 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.50 2002/02/13 11:21:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,6 +31,7 @@ void midgard_CG::on_checkbutton_optionen_menu(st_Optionen O)
 void midgard_CG::on_optionen_menu(st_OptionenM O)
 {
   if(O.index==LernschemaSensitive) lernschema_sensitive(true);
+  if(O.index==WizardStarten) wizard_starten_clicked();
 }
 
 

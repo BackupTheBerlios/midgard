@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.117 2002/02/12 12:06:42 thoma Exp $
+# $Id: Makefile.am,v 1.118 2002/02/13 11:21:00 thoma Exp $
 
 bin_PROGRAMS = midgard 
 
@@ -16,6 +16,7 @@ EXTRA_DIST = document_eingabe.tex.in document_eingabe4.tex.in \
 
 
 noinst_HEADERS = \
+   Wizard.hh \
    Grad_anstieg.hh \
    MidgardBasicTree.hh \
    MidgardBasicElement.hh \
@@ -81,6 +82,8 @@ export_common.h: ../xml/export_common.h ; ln -sf ../xml/$@ .
 midgard_xmlexport_SOURCES= xmlexport.cc export_common.cc
 
 midgard_SOURCES = \
+   Wizard.cc \
+   midgard_CG_wizard.cc \
 	load_charakter.cc  \
    save_charakter.cc \
 	Fertigkeiten_angeboren.cc \
