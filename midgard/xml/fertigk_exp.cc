@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.34 2002/07/03 10:15:05 thoma Exp $
+// $Id: fertigk_exp.cc,v 1.35 2002/07/08 09:14:30 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -201,9 +201,21 @@ void fert_speichern(Tag &o)
 
    grund_standard_ausnahme(fertigk, "fertigkeiten_typen",fert,"",true);
    lernschema(fertigk, MIDGARD3_4("Fertigkeit","Fachkenntnisse"),fert,true);
-//   pflicht_lernen(fertigk, fert, true);
-//   verbot_lernen(fertigk, fert, true);
    ausnahmen(fertigk, "f", fert,true);
+  }
+ }
+  if (!region.empty())
+ { FetchIStream is;
+   Query q("select lernschema_4.name from lernschema_4 "
+   	"join typen on typ=typs "
+   	"where (name like 'Schreiben:%' or name like 'Sprechen:%') "
+   	"and region='"+region+"' "
+   	"order by fertigkeit");
+  while ((q >> is).good())
+  {Tag &fertigk=fertigkeiten.push_back(Tag("Fertigkeit"));
+   std::string fert=fetch_and_set_string_attrib(is, fertigk, "Name");
+
+   lernschema(fertigk, MIDGARD3_4("Fertigkeit","Fachkenntnisse"),fert,true);
   }
  }
 #endif
