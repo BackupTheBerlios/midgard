@@ -42,7 +42,8 @@ void Zufall::Voll()
 
 
 enum Zufall::B_VORGABE_BITS &operator++(enum Zufall::B_VORGABE_BITS &s)
-{  return (enum Zufall::B_VORGABE_BITS)(++(int&)s);
+{  ++(int&)s;
+   return s;
 }
 
 struct st_vor{bool spezies; bool typ; bool herkunft; bool angefert;

@@ -40,6 +40,7 @@ class Zufall
       
       enum B_VORGABE_BITS{B_Spezies,B_Typ,B_Herkunft,B_AngeFert,B_St,B_Gs,B_Gw,
             B_Ko,B_In,B_Zt,B_Au,B_pA,B_Wk,B_Sb,B_B,B_MAX};
+      friend enum Zufall::B_VORGABE_BITS &operator++(enum Zufall::B_VORGABE_BITS &s);
 
    public:
 
@@ -91,6 +92,7 @@ class Zufall
       void Lernschema();
       st_LL getLernlisten();
       enum eFAUWZ {eWaffen,eZauber,eFach,eAllg,eUnge,eMAX};
+      friend enum Zufall::eFAUWZ &operator++(enum Zufall::eFAUWZ &s);
       void Lernpunkte_verteilen(const eFAUWZ was,const Lernpunkte &lernpunkte,
                                 const st_LL &Listen);
       bool knows_everything(const std::list<MBEmlt> &List_gelerntes,const std::list<MBEmlt> &L);
