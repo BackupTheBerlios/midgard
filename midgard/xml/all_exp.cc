@@ -1,4 +1,4 @@
-// $Id: all_exp.cc,v 1.13 2002/02/10 14:55:56 thoma Exp $
+// $Id: all_exp.cc,v 1.14 2002/06/05 06:43:29 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -23,7 +23,7 @@
 #include <Aux/exception.h>
 #include <Aux/FetchIStream.h>
 #include <Aux/Transaction.h>
-
+#include "TagStream.hh"
 
 int main(int argc, char *argv[])
 {  Petig::PrintUncaughtExceptions();
@@ -34,17 +34,16 @@ int main(int argc, char *argv[])
 
    if (argc>1) region=argv[1];
    
-   std::cout << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n";
-   std::cout << "<MAGUS-data";
-   region_tags(std::cout,region);
-   std::cout << ">\n";
-   land_speichern(std::cout);
-   fert_speichern(std::cout);
-   waffen_speichern(std::cout);
+      TagStream ts;
+      Tag &data=ts.push_back(Tag("MAGUS-data"));
+      region_tags(data,region);
+   land_speichern(data);
+   fert_speichern(data);
+   waffen_speichern(data);
    // Arkanum ist ein extra Package
-   if (!region.empty()) arkanum_speichern(std::cout);
-   kido_speichern(std::cout);
-   std::cout << "</MAGUS-data>\n";
+   if (!region.empty()) arkanum_speichern(data);
+   kido_speichern(data);
+      ts.write(std::cout);
    Petig::dbdisconnect();
    } catch (SQLerror &e)
    {  std::cerr << e << '\n';

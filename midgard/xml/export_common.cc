@@ -1,4 +1,4 @@
-// $Id: export_common.cc,v 1.16 2002/06/03 21:29:07 christof Exp $
+// $Id: export_common.cc,v 1.17 2002/06/05 06:43:29 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -18,6 +18,7 @@
  */
 
 #include "export_common.h"
+#include <Aux/itos.h>
 
 std::string region;
 
@@ -125,6 +126,12 @@ double fetch_and_write_float_attrib(FetchIStream &is,std::ostream &o,const std::
 bool fetch_and_set_bool_attrib(FetchIStream &is,Tag &o,const std::string &wert,bool standard=0)
 {  bool val=fetch_bool(is,standard);
    if (val!=standard) o.setBoolAttr(wert,val);
+   return val;
+}
+
+double fetch_and_set_float_attrib(FetchIStream &is,Tag &o,const std::string &wert,double standard=0)
+{  double val=fetch_float(is,standard);
+   if (val!=standard) o.setAttr(wert,dtos(val));
    return val;
 }
 

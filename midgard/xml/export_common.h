@@ -1,4 +1,4 @@
-// $Id: export_common.h,v 1.22 2002/06/03 21:29:07 christof Exp $
+// $Id: export_common.h,v 1.23 2002/06/05 06:43:29 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -50,6 +50,7 @@ void write_float(std::ostream &o,const std::string &wert,double val, int indent=
 void write_float_attrib(std::ostream &o,const std::string &wert,double val, double standard=0);
 double fetch_and_write_float(FetchIStream &is,std::ostream &o,const std::string &wert,int indent=0);
 double fetch_and_write_float_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,double standard=0);
+double fetch_and_set_float_attrib(FetchIStream &is,Tag &o,const std::string &wert,double standard=0);
 
 std::string fetch_string(FetchIStream &is,const std::string &standard="");
 void write_string(std::ostream &o,const std::string &wert,const std::string &val,int indent=0);
@@ -69,6 +70,7 @@ std::string fetch_typ(FetchIStream &is,const std::string &standard="");
 std::string fetch_and_write_typ_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,const std::string &standard="");
 
 // common routines for exporting from tables
+#if 0
 void grund_standard_ausnahme(ostream &o, 
 	const std::string &table, const std::string &name,
 	const std::string &condition="", bool nur_region=false);
@@ -76,6 +78,7 @@ void lernschema(ostream &o, const std::string &art, const std::string &name,
 	bool nur_region=false);
 void ausnahmen(ostream &o, const std::string &art, const std::string &name,
 	bool nur_region=false);
+#endif
 void grund_standard_ausnahme(Tag &o, 
 	const std::string &table, const std::string &name,
 	const std::string &condition="", bool nur_region=false);
@@ -88,14 +91,13 @@ std::string RegionErgaenzungQuery(const std::string &attribute,
 	const std::string &typtable, const std::string &lernsch_art,
 	const std::string &ausnahmen_art);
 std::string Herkunft(bool invert=false);
-void region_tags(std::ostream &os, const string &region);
+// void region_tags(std::ostream &os, const string &region);
 void region_tags(Tag &t, const string &region);
-void kaufpreis(std::ostream &os, const string &art, const string &name);
+void kaufpreis(Tag &t, const string &art, const string &name);
 
 void arkanum_speichern(Tag &t);
-void arkanum_speichern(std::ostream &o);
-void land_speichern(std::ostream &o);
-void fert_speichern(std::ostream &o);
-void zusaetze_speichern(std::ostream &o);
-void waffen_speichern(std::ostream &o);
-void kido_speichern(std::ostream &o);
+void land_speichern(Tag &t);
+void fert_speichern(Tag &t);
+void zusaetze_speichern(Tag &t);
+void waffen_speichern(Tag &t);
+void kido_speichern(Tag &t);

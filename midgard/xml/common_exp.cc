@@ -1,4 +1,4 @@
-// $Id: common_exp.cc,v 1.23 2002/06/03 21:29:07 christof Exp $
+// $Id: common_exp.cc,v 1.24 2002/06/05 06:43:29 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -20,24 +20,6 @@
 #include "export_common.h"
 #include <Aux/Transaction.h>
 
-static void schwierigkeit(std::ostream &o, 
-	const std::string &_query, const std::string &tag, int indent=4)
-{  std::string content;
-   int in_this_line=0;
-   int per_line=3;
-   if (tag=="Grund") per_line=4;
-
-   Query query(_query);
-   FetchIStream is;
-   while ((query>>is).good())
-   {  if (++in_this_line>per_line) 
-      { content+="\n"+string(indent,' '); in_this_line=1; }
-      content+="<"+tag+" Typ=\""+toXML(fetch_typ(is))+"\"/>";
-   }
-   if (!content.empty())
-      o << string(indent,' ') << content << '\n';
-}
-
 static void schwierigkeit(Tag &o, 
 	const std::string &_query, const std::string &tag, int indent=4)
 {  Query query(_query);
@@ -45,23 +27,6 @@ static void schwierigkeit(Tag &o,
    while ((query>>is).good())
    {  o.push_back(Tag(tag,fetch_typ(is)));
    }
-}
-
-void grund_standard_ausnahme(std::ostream &o, 
-	const std::string &table, const std::string &name,
-	const std::string &condition, bool nur_region)
-{  std::string query0="select typ from "+table+" where name='"+name
-   	+"' and standard='";
-   std::string query1="'";
-   if (!condition.empty()) query1+=" and "+condition;
-   if (nur_region || region.empty())
-   {  query1+=" and exists (select true from typen where typ=typs and coalesce(region,'')='"
-   	+region+"') ";
-   }
-   query1+=" order by typ";
-   schwierigkeit(o,query0+"G"+query1, "Grund");
-   schwierigkeit(o,query0+"S"+query1, "Standard");
-   schwierigkeit(o,query0+"A"+query1, "Ausnahme");
 }
 
 void grund_standard_ausnahme(Tag &o, 
@@ -80,70 +45,6 @@ void grund_standard_ausnahme(Tag &o,
    schwierigkeit(o,query0+"S"+query1, "Standard");
    schwierigkeit(o,query0+"A"+query1, "Ausnahme");
    schwierigkeit(o,query0+"-"+query1, "Nicht");
-}
-
-void lernschema(std::ostream &o, const std::string &art, const std::string &name, bool nur_region)
-{  
-   std::string constraint;
-
-   if (nur_region || region.empty())
-   {  constraint=" and exists (select true from typen where typ=typs and coalesce(region,'')='"
-   	+region+"') ";
-   }
-   
-   Query query(
-#ifdef MIDGARD3
-	"select typ, lernpunkte, 0 as wert, pflicht, p_element, s_element"
-	" from lernschema"
-	" where fertigkeit='"+name+"' and art='"+art+"'"
-	+constraint+
-	" order by lernpunkte,typ"
-#else
-	"select typ, lernpunkte, wert, pflicht"
-	" from lernschema_4"
-	" where name='"+name+"' and art='"+art+"'"
-	+constraint+
-	" order by lernpunkte,wert,typ"
-#endif
-	);
-
-   FetchIStream is;
-   while ((query>>is).good())
-   {  o << "    <Lernschema";
-      fetch_and_write_typ_attrib(is, o, "Typ");
-      fetch_and_write_int_attrib(is, o, "Lernpunkte");
-      fetch_and_write_int_attrib(is, o, "Erfolgswert");
-      fetch_and_write_bool_attrib(is, o, "Pflicht");
-#ifdef MIDGARD3
-      fetch_and_write_string_attrib(is, o, "Primärelement");
-      fetch_and_write_string_attrib(is, o, "Sekundärelement");
-#endif
-      o << "/>\n";
-   }
-}
-
-void ausnahmen(std::ostream &o, const std::string &art, const std::string &name, bool nur_region)
-{  std::string constraint;
-   if (nur_region || region.empty())
-   {  constraint=" and (exists (select true from typen where typ=typs and coalesce(region,'')='"
-   	+region+"') or herkunft"+Herkunft()+") ";
-   }
-
-   Query query("select spezies, herkunft, typ, beruf, stand, standard"
-	" from ausnahmen where name='"+name+"' and art='"+art+"'"
-	+constraint+
-	" order by spezies,herkunft,typ,beruf,stand");
-   FetchIStream is2;
-   while ((query>>is2).good())
-   {  o << "    <regionaleBesonderheit";
-      fetch_and_write_string_attrib(is2, o, "Spezies");
-      fetch_and_write_string_attrib(is2, o, "Herkunft");
-      fetch_and_write_typ_attrib(is2, o, "Typ");
-      fetch_and_write_string_attrib(is2, o, "Beruf");
-      fetch_and_write_string_attrib(is2, o, "Stand");
-      fetch_and_write_string_attrib(is2, o, "Standard");
-      o << "/>\n";
-   }
 }
 
 void lernschema(Tag &o, const std::string &art, const std::string &name, bool nur_region)
@@ -270,28 +171,6 @@ std::string RegionErgaenzungQuery(const std::string &attribute,
    return result;
 }
 
-void region_tags(std::ostream &os, const string &region)
-{  Transaction tr;
-   write_string_attrib(std::cout,"Region",region);
-   Query query("select name, titel, copyright, jahr, offiziell, file, url, maintainer,"
-   	" version, nr, pic"
-	" from regionen where abkuerzung='"+region+"'");
-   FetchIStream is=query.Fetch();
-   if (query.good())
-   {  fetch_and_write_string_attrib(is, std::cout, "Name");
-      fetch_and_write_string_attrib(is, std::cout, "Titel");
-      fetch_and_write_string_attrib(is, std::cout, "Copyright");
-      fetch_and_write_string_attrib(is, std::cout, "Jahr");
-      fetch_and_write_bool_attrib(is, std::cout, "offiziell");
-      fetch_and_write_string_attrib(is, std::cout, "Dateiname");
-      fetch_and_write_string_attrib(is, std::cout, "URL");
-      fetch_and_write_string_attrib(is, std::cout, "Maintainer");
-      fetch_and_write_string_attrib(is, std::cout, "Version");
-      fetch_and_write_int_attrib(is, std::cout, "MAGUS-Index");
-      fetch_and_write_int_attrib(is, std::cout, "MAGUS-Bild");
-   }
-}
-
 void region_tags(Tag &t, const string &region)
 {  Transaction tr;
    t.setAttr("Region",region);
@@ -314,18 +193,17 @@ void region_tags(Tag &t, const string &region)
    }
 }
 
-void kaufpreis(std::ostream &o, const string &art, const string &name)
+void kaufpreis(Tag &o, const string &art, const string &name)
 //***** preise ******
 {  Query query2("select art2, kosten, einheit, gewicht"
    		" from preise where name='"+name+"' and art='"+art+"'");
    FetchIStream is2=query2.Fetch();
    if (is2.good())
-   {  o << "    <Kaufpreis";
-      fetch_and_write_string_attrib(is2, o, "Art2");
-      fetch_and_write_float_attrib(is2, o, "Preis");
-      fetch_and_write_string_attrib(is2, o, "Währung");
-      fetch_and_write_float_attrib(is2, o, "Gewicht");
-      o << "/>\n";
+   {  Tag &kp=o.push_back(Tag("Kaufpreis"));
+      fetch_and_set_string_attrib(is2, kp, "Art2");
+      fetch_and_set_float_attrib(is2, kp, "Preis");
+      fetch_and_set_string_attrib(is2, kp, "Währung");
+      fetch_and_set_float_attrib(is2, kp, "Gewicht");
    }
 }   
 
