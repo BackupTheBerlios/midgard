@@ -128,29 +128,8 @@ void midgard_CG::menu_init()
     i->menuitem->set_active(i->active);
     optionen_menu->append(*(i->menuitem));
    } 
+
 /*
-  OptionMenu.menu_original=manage(new Gtk::CheckMenuItem());
-  Gtk::Label *_l=manage (new Gtk::Label("Originalregeln"));
-  Gtk::Pixmap *_o=manage(new Gtk::Pixmap(midgard_logo_tiny_xpm));
-  Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
-  _tab->attach(*_l,0,1,0,1,GTK_FILL,0,0,0);
-  _tab->attach(*_o,1,2,0,1,GTK_FILL,0,0,0);
-  OptionMenu.menu_original->add(*_tab);
-
-  optionen_menu->append(*OptionMenu.menu_original);
-  OptionMenu.menu_original->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_original_menu));
-  OptionMenu.menu_original->set_active(OptionBool.Original);
-
-  OptionMenu.menu_info=manage(new Gtk::CheckMenuItem("Info Fenster anzeigen"));
-  optionen_menu->append(*OptionMenu.menu_info);
-  OptionMenu.menu_info->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_info_fenster_menu));
-  OptionMenu.menu_info->set_active(OptionBool.Info);
-
-  OptionMenu.menu_pics=manage(new Gtk::CheckMenuItem("Bilder anzeigen"));
-  optionen_menu->append(*OptionMenu.menu_pics);
-  OptionMenu.menu_pics->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_pics_menu));
-  OptionMenu.menu_pics->set_active(OptionBool.Pics);
-
   OptionMenu.menu_sensitive=manage(new Gtk::MenuItem("Lernschema auswählbar machen"));
   optionen_menu->append(*OptionMenu.menu_sensitive);
   OptionMenu.menu_sensitive->activate.connect(SigC::slot(this,&midgard_CG::on_lernschema_sensitive_menu));

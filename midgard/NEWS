@@ -23,6 +23,8 @@ NEWS IN VERSION 0.3delta3
    wenn sie relevant sind.
 * Giftresistenz korrigiert
 * xml Umstellungsbug: 'Reichweite von Waffen' beseitigt
+* Menüumbau: Optionen jetzt intern als Liste, ebnso für Hausregeln
+* Waffen können 'verlernt' werden
 * Umbenennung M[idgard]CG->MAGUS
 * erstmalige Win32 Version
 * Durch die Einführung von 20% Schritten in den ProgressBars wurde der 

@@ -1,7 +1,5 @@
 MidgardCG-data -> MAGUS-data
 
-Charakter -> Abenteurer (Ich frag mal Elsa)
-
 Beim 'make install' waere es nett ein $PREFIX/share/midgard anzulegen, und
 alle xml dateien dort automatisch hinzukopieren. Nett waere es ebenfalls
 eine environment variable zu haben in der form :
