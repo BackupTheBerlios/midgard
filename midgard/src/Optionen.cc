@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.11 2002/04/19 06:21:57 thoma Exp $
+// $Id: Optionen.cc,v 1.12 2002/04/19 06:25:10 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,6 +25,9 @@
 #include "TagStream.hh"
 #include "export_common.h"
 #include "midgard_CG.hh"
+#ifdef __MINGW32__
+#  include "registry.h"
+#endif
 
 Midgard_Optionen::Midgard_Optionen(midgard_CG* h)
 :hauptfenster(h)
@@ -257,8 +260,49 @@ void Midgard_Optionen::pdfViewer_init()
   list_pdfViewer.push_back(st_pdfViewer(anderer,
                            "Programm",
                            true));
+
+  char pdfclass[1024];
+    
+  reg_key r1(HKEY_LOCAL_MACHINE, KEY_READ, "SOFTWARE", "Classes"); // ".pdf");
+  r1.get_string(".pdf", pdfclass, sizeof pdfclass, "?");
+  cout << pdfclass << '\n';
+  reg_key r2(HKEY_LOCAL_MACHINE, KEY_READ, "SOFTWARE", "Classes", pdfclass,
+  		"shell", "open");
+  r2.get_string("command", pdfclass, sizeof pdfclass, "?");
+  cout << pdfclass << '\n';
+  
+  std::string path=pdfclass;
+  if (path.substr(path.size()-3)==" %1")) 
+     path=path.substr(0, path.size()-3);
+  cout << path << '\n';
   // registry
-  // setString(pdfViewer,);
+  setString(pdfViewer,path);
+  
+#if 0
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\.pdf]
+@="AcroExch.Document"
+"Content Type"="application/pdf"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\AcroExch.Document\shell\open\command]
+@="\"C:\\Programme\\Adobe\\Acrobat 4.0\\Reader\\AcroRd32.exe\" %1"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\AcroExch.Document\CLSID]
+@="{B801CA65-A1FC-11D0-85AD-444553540000}"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{B801CA65-A1FC-11D0-85AD-444553540000
+}\LocalServer]
+@="C:\\Programme\\Adobe\\Acrobat 4.0\\Reader\\AcroRd32.exe"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Software\Adobe\Acrobat\Exe]
+@="\"C:\\Programme\\Adobe\\Acrobat 4.0\\Reader\\AcroRd32.exe\""
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\AcroRd32
+.exe]
+"Path"="C:\\Programme\\Adobe\\Acrobat 4.0\\Reader;C:\\Programme\\Adobe\\Acrobat 
+4.0\\Resource\\Lib"
+@="C:\\Programme\\Adobe\\Acrobat 4.0\\Reader\\AcroRd32.exe"
+
+#endif
 #endif
 }
 

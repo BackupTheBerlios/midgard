@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.148 2002/04/18 08:19:08 christof Exp $
+# $Id: Makefile.am,v 1.149 2002/04/19 06:25:10 christof Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -9,9 +9,12 @@ EXTRA_PROGRAMS = midgard_xmlexport
 if WINDOWS
 RC_FILES=magus.rc registry.cc
 LINK_OPTIONS=-mwindows
+# sigh! local installation menace
+WIN_INCLUDES=-I/usr/local/mingw/mingw32/include
 else
 RC_FILES=
 LINK_OPTIONS=
+WIN_INCLUDES=
 endif
 
 pkgdata_DATA = midgard_document_eingabe.tex \
@@ -193,7 +196,7 @@ magus_SOURCES = \
    ProgressBar.cc $(RC_FILES)
 
 CXXFLAGS = @CXXFLAGS@ @KOMPONENTEN_INCLUDES@ -DUSE_XML \
-           -DPACKAGE_DATA_DIR=\"$(pkgdatadir)/\"
+           -DPACKAGE_DATA_DIR=\"$(pkgdatadir)/\" $(WIN_INCLUDES)
 
 magus_LDADD = @LIBS@ @KOMPONENTEN_NODB_LIBS@
 
@@ -222,7 +225,7 @@ if UTF8
 	rm .deps/$(*F).pp
 
 midgard_CG_glade.o: $(midgard_CG_glade_o_DEPS)
-	$(CXXCPP) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \ 
+	$(CXXCPP) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
 		$(AM_CXXFLAGS) $(CXXFLAGS) -Wp,-MD,.deps/$(*F).pp $*.cc \
 	| ./iso2utf8 \
 	| $(CXXCOMPILE) -o $*.o -O0 -c -x c++ /dev/stdin
