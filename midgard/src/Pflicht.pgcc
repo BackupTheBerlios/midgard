@@ -41,7 +41,7 @@ cH_Pflicht::cH_Pflicht(const std::string& spezies,const vector<cH_Typen>& Typ)
 
 #ifdef USE_XML
 
-typedef std::list<pf> list_pflicht_t;
+typedef std::list<Pflicht::pf> list_pflicht_t;
 typedef std::map<std::string,list_pflicht_t> pflicht_nach_typ_t;
 
 static void SuchePflichtVerbot(const Tag *list,const string &name,
