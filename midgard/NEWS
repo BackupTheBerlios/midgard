@@ -14,9 +14,11 @@ NEWS IN VERSION 0.4delta3
    in das Hauptfenster gewandert.
 * Max Erf. für Waffen in Abhängigkeit der Abenteurerklasse
 * Speichern vor dem Schließen (wenn etwas geändert wurde)
+** Tiersprache wie 'Geheimzeichen' (dafür war mal wieder ein sorgfältiges(!)
+   redesign nötig, ich hoffe es funktioniert ...)
+* Wizard nocheinmal umgearbeitet
 
 TODO:
-* Tiersprache wie 'Geheimzeichen'
 * GFP min. GradGFP
 * Es sind die beiden Infofenster, die beim Auswürfeln 
    von Geld und Waffen im Lernschema auftauchen. 

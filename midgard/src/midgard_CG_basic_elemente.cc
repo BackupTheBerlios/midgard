@@ -19,6 +19,7 @@
 #include "midgard_CG.hh"
 #include "class_SimpleTree.hh"
 #include "Fertigkeiten.hh"
+#include "Zauber.hh"
 
 bool midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
 {
