@@ -13,7 +13,8 @@ CREATE TABLE "schrift" (
 	"kosten" integer,
 	"region" text,
 	"alt" boolean,
-	"kult" boolean
+	"kult" boolean,
+	"region_zusatz" text
 );
 
 --
@@ -22,30 +23,31 @@ CREATE TABLE "schrift" (
 
 
 COPY "schrift" FROM stdin;
-Aranische Silbenschrift	Silben	20	\N	\N	\N
-Arracht-Versalien	Versalien	20	\N	\N	\N
-Baumrunen Beth-Luis-Nion	Baumrunen	20	\N	\N	\N
-Bulugische Bilderschrift	Bilder	20	\N	\N	t
-Coraniaid-Alphabet	Buchstaben	20	\N	t	t
-Futhark	Runen	20	W	\N	\N
-Hurritische Keilschrift	Keilschrift	20	\N	\N	\N
-KanThaiTun(1)	Silben	20	K	\N	\N
-KanThaiTun(2)	Silben	50	K	\N	\N
-KanThaiTun(3)	Silben	100	K	\N	\N
-KanThaiTun(4)	Silben	100	K	\N	\N
-KanThaiTun(5)	Silben	100	K	\N	\N
-KanThaiTun(6)	Silben	100	K	\N	\N
-Läinisch	Bilder	20	\N	\N	\N
-Meketische Bilderschrift	Bilder	20	\N	t	\N
-Nahuatlanische Bilderschrift	Bilder	20	\N	t	\N
-Nahuatlanische Knotenschrift Quipu	Bilder	20	\N	\N	\N
-Rawindisches Alphabet	Buchstaben	20	\N	\N	\N
-Tegarisch	Buchstaben	20	\N	\N	\N
-Toquinische Keilschrift	Keil	20	\N	\N	\N
-Tuskische Keilschrift	Keil	20	\N	\N	\N
-Valianisches Alphabet	Buchstaben	20	\N	\N	\N
-Waelska	Runen	20	\N	\N	\N
-Zwergenrunen Futhark	Runen	20	\N	\N	\N
+Aranische Silbenschrift	Silben	20	\N	\N	\N	\N
+Arracht-Versalien	Versalien	20	\N	\N	\N	\N
+Baumrunen Beth-Luis-Nion	Baumrunen	20	\N	\N	\N	\N
+Bulugische Bilderschrift	Bilder	20	\N	\N	t	\N
+Coraniaid-Alphabet	Buchstaben	20	\N	t	t	\N
+Futhark	Runen	20	W	\N	\N	\N
+Hurritische Keilschrift	Keilschrift	20	\N	\N	\N	\N
+KanThaiTun(1)	Silben	20	K	\N	\N	\N
+KanThaiTun(2)	Silben	50	K	\N	\N	\N
+KanThaiTun(3)	Silben	100	K	\N	\N	\N
+KanThaiTun(4)	Silben	100	K	\N	\N	\N
+KanThaiTun(5)	Silben	100	K	\N	\N	\N
+KanThaiTun(6)	Silben	100	K	\N	\N	\N
+Läinisch	Bilder	20	\N	\N	\N	\N
+Meketische Bilderschrift	Bilder	20	\N	t	\N	\N
+Nahuatlanische Bilderschrift	Bilder	20	\N	t	\N	\N
+Nahuatlanische Knotenschrift Quipu	Bilder	20	\N	\N	\N	\N
+Rawindisches Alphabet	Buchstaben	20	\N	\N	\N	\N
+Tegarisch	Buchstaben	20	\N	\N	\N	\N
+Toquinische Keilschrift	Keil	20	\N	\N	\N	\N
+Tuskische Keilschrift	Keil	20	\N	\N	\N	\N
+Valianisches	\N	\N	\N	\N	\N	\N
+Valianisches Alphabet	Buchstaben	20	\N	\N	\N	\N
+Waelska	Runen	20	\N	\N	\N	\N
+Zwergenrunen Futhark	Runen	20	\N	\N	\N	\N
 \.
 --
 --

@@ -55,6 +55,7 @@ void Schrift::get_Schrift()
   assert(tag);
   art_der_schrift=tag->getAttr("Name");
   region=tag->getAttr("Region");
+  region_zusatz=tag->getAttr("RegionZusatz");
   kosten=tag->getIntAttr("Kosten");
   alt=tag->getBoolAttr("alte_Schrift");
   kult=tag->getBoolAttr("Kultschrift");;

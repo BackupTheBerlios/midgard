@@ -52,6 +52,7 @@ cH_Sprache::cH_Sprache(const Tag *tag)
 void Sprache::get_Sprache()
 {
   region=tag->getAttr("Region");
+  region_zusatz=tag->getAttr("RegionZusatz");
   alte_sprache=tag->getBoolAttr("alteSprache");
   minderheit=tag->getBoolAttr("Minderheit");
   maxwert=tag->getIntAttr("Maximalwert");

@@ -1,4 +1,4 @@
-// $Id: grundwere_edit_setzen.cc,v 1.35 2002/05/06 12:03:01 thoma Exp $
+// $Id: grundwere_edit_setzen.cc,v 1.36 2002/05/08 07:01:40 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -42,6 +42,7 @@ void midgard_CG::set_all_entrys()
   Werte.setNameS(entry_nameS->get_text());
   Werte.setVersion(entry_version->get_text());
   Werte.setBezeichnung(entry_bezeichnung->get_text());
+  Werte.setMerkmale(entry_merkmale->get_text());
   Werte.setSpezialisierung(entry_spezialisierung->get_text());
   Werte.setGlaube(entry_glaube->get_text());
   Werte.setHerkunft(cH_Land(entry_herkunft->get_text(),true));
@@ -119,6 +120,8 @@ void midgard_CG::on_entry_version_activate()
 void midgard_CG::on_entry_bezeichnung_activate()
 { set_all_entrys(); entry_herkunft->grab_focus();}
 void midgard_CG::on_entry_spezialisierung_activate()
+{ set_all_entrys(); entry_merkmale->grab_focus();}
+void midgard_CG::on_entry_merkmale_activate()
 { set_all_entrys(); spinbutton_grad->grab_focus();}
 void midgard_CG::on_entry_glaube_activate()
 { set_all_entrys(); entry_spezialisierung->grab_focus();}
@@ -179,6 +182,8 @@ gint midgard_CG::on_entry_nameS_focus_out_event(GdkEventFocus *ev)
 gint midgard_CG::on_entry_version_focus_out_event(GdkEventFocus *ev)
 { set_all_entrys(); return false;}
 gint midgard_CG::on_entry_bezeichnung_focus_out_event(GdkEventFocus *ev)
+{ set_all_entrys(); return false;}
+gint midgard_CG::on_entry_merkmale_focus_out_event(GdkEventFocus *ev)
 { set_all_entrys(); return false;}
 gint midgard_CG::on_entry_spezialisierung_focus_out_event(GdkEventFocus *ev)
 { set_all_entrys(); return false;}
@@ -264,6 +269,7 @@ void midgard_CG::edit_sensitive(bool b)
   entry_nameS->set_sensitive(b);
   entry_version->set_sensitive(b);
   entry_bezeichnung->set_sensitive(b);
+  entry_merkmale->set_sensitive(b);
   entry_spezialisierung->set_sensitive(b);
   entry_glaube->set_sensitive(b);
   spinbutton_alter->set_sensitive(b);

@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.31 2002/04/23 08:33:02 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.32 2002/05/08 07:01:40 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -50,6 +50,7 @@ class Grundwerte
    struct st_beschreibung{std::string text;std::string file;int size;
             st_beschreibung():size(8){} };
    st_beschreibung beschreibung;
+   std::string merkmale;
    int gfp;
    float steigertage;
    int gold,silber,kupfer,aep,kep,zep;
@@ -135,6 +136,7 @@ public:
    std::string Beschreibung() const {return beschreibung.text;}
    std::string BeschreibungPix() const {return beschreibung.file;}
    int BeschreibungPixSize() const {return beschreibung.size;}
+   std::string Merkmale() const {return merkmale;}
    std::string Stadt_Land() const {return stadt_land;}
    cH_Ruestung Ruestung() const {return ruestung;}
    int GFP() const {return gfp;}
@@ -213,6 +215,7 @@ public:
    void setNamen(const std::string& _name_abenteurer,std::string _name_spieler, std::string _version)
       {name_abenteurer=_name_abenteurer;name_spieler=_name_spieler;version=_version;}
    void setBezeichnung(const std::string& s) {bezeichnung=s;}
+   void setMerkmale(const std::string& m) {merkmale=m;}
    void setNameC(const std::string& s) {name_abenteurer=s;}
    void setNameS(const std::string& s) { name_spieler=s;}
    void setVersion(const std::string& s) { version=s;}

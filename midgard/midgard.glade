@@ -2119,14 +2119,13 @@ andere geholfen.</label>
 	      </widget>
 
 	      <widget>
-		<class>GtkPixmap</class>
-		<name>pixmap106</name>
-		<filename>Tux-med.xpm</filename>
-		<xalign>0.5</xalign>
-		<yalign>0.5</yalign>
-		<xpad>0</xpad>
-		<ypad>0</ypad>
-		<build_insensitive>True</build_insensitive>
+		<class>GtkTable</class>
+		<name>table149</name>
+		<rows>1</rows>
+		<columns>2</columns>
+		<homogeneous>False</homogeneous>
+		<row_spacing>0</row_spacing>
+		<column_spacing>0</column_spacing>
 		<child>
 		  <left_attach>0</left_attach>
 		  <right_attach>1</right_attach>
@@ -2141,6 +2140,56 @@ andere geholfen.</label>
 		  <xfill>True</xfill>
 		  <yfill>True</yfill>
 		</child>
+
+		<widget>
+		  <class>GtkPixmap</class>
+		  <name>pixmap106</name>
+		  <filename>Tux-med.xpm</filename>
+		  <xalign>0.5</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <build_insensitive>True</build_insensitive>
+		  <child>
+		    <left_attach>0</left_attach>
+		    <right_attach>1</right_attach>
+		    <top_attach>0</top_attach>
+		    <bottom_attach>1</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>True</xexpand>
+		    <yexpand>True</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>True</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkPixmap</class>
+		  <name>pixmap154</name>
+		  <filename>GnuHead-trans.xpm</filename>
+		  <xalign>0.5</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <build_insensitive>True</build_insensitive>
+		  <child>
+		    <left_attach>1</left_attach>
+		    <right_attach>2</right_attach>
+		    <top_attach>0</top_attach>
+		    <bottom_attach>1</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>True</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>True</yfill>
+		  </child>
+		</widget>
 	      </widget>
 	    </widget>
 	  </widget>
@@ -2149,8 +2198,13 @@ andere geholfen.</label>
 	<widget>
 	  <class>GtkEventBox</class>
 	  <child_name>Notebook:tab</child_name>
-	  <name>eventbox16</name>
+	  <name>eventbox_credits</name>
 	  <tooltip>Info &amp; Credits</tooltip>
+	  <signal>
+	    <name>button_release_event</name>
+	    <handler>on_eventbox_credits_button_release_event</handler>
+	    <last_modification_time>Tue, 07 May 2002 11:26:28 GMT</last_modification_time>
+	  </signal>
 
 	  <widget>
 	    <class>GtkHBox</class>
@@ -5775,6 +5829,50 @@ Beidhänder
 		    <name>focus_out_event</name>
 		    <handler>on_entry_bezeichnung_focus_out_event</handler>
 		    <last_modification_time>Thu, 28 Mar 2002 09:16:23 GMT</last_modification_time>
+		  </signal>
+		  <editable>True</editable>
+		  <text_visible>True</text_visible>
+		  <text_max_length>0</text_max_length>
+		  <text></text>
+		</widget>
+	      </widget>
+
+	      <widget>
+		<class>GtkFrame</class>
+		<name>frame105</name>
+		<label>Weitere Merkmale</label>
+		<label_xalign>0</label_xalign>
+		<shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+		<child>
+		  <left_attach>1</left_attach>
+		  <right_attach>6</right_attach>
+		  <top_attach>3</top_attach>
+		  <bottom_attach>4</bottom_attach>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <xexpand>False</xexpand>
+		  <yexpand>False</yexpand>
+		  <xshrink>False</xshrink>
+		  <yshrink>False</yshrink>
+		  <xfill>True</xfill>
+		  <yfill>True</yfill>
+		</child>
+
+		<widget>
+		  <class>GtkEntry</class>
+		  <name>entry_merkmale</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <tooltip>Hier kann eine optionale Bezeichnung der Klasse eingegeben werden, die dann auf dem Ausdruck erscheint. (Bsp.: Samurai, Derwisch)</tooltip>
+		  <can_focus>True</can_focus>
+		  <signal>
+		    <name>activate</name>
+		    <handler>on_entry_merkmale_activate</handler>
+		    <last_modification_time>Tue, 07 May 2002 13:05:56 GMT</last_modification_time>
+		  </signal>
+		  <signal>
+		    <name>focus_out_event</name>
+		    <handler>on_entry_merkmale_focus_out_event</handler>
+		    <last_modification_time>Tue, 07 May 2002 13:06:03 GMT</last_modification_time>
 		  </signal>
 		  <editable>True</editable>
 		  <text_visible>True</text_visible>
@@ -15270,7 +15368,12 @@ wird der entsprechende Abenteurer geladen.</label>
 	<widget>
 	  <class>GtkEventBox</class>
 	  <child_name>Notebook:tab</child_name>
-	  <name>eventbox17</name>
+	  <name>eventbox_geschichte</name>
+	  <signal>
+	    <name>button_release_event</name>
+	    <handler>on_eventbox_geschichte_button_release_event</handler>
+	    <last_modification_time>Tue, 07 May 2002 11:25:59 GMT</last_modification_time>
+	  </signal>
 
 	  <widget>
 	    <class>GtkVBox</class>

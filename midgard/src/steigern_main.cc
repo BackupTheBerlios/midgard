@@ -200,6 +200,10 @@ gint midgard_CG::on_eventbox_lernen_button_release_event(GdkEventButton *event)
 { notebook_main->set_page(PAGE_LERNEN); return false;}
 gint midgard_CG::on_eventbox_grundwerte_button_release_event(GdkEventButton *event)
 { notebook_main->set_page(PAGE_GRUNDWERTE); return false;}
+gint midgard_CG::on_eventbox_credits_button_release_event(GdkEventButton *event)
+{ notebook_main->set_page(PAGE_INFO); return false;}
+gint midgard_CG::on_eventbox_geschichte_button_release_event(GdkEventButton *event)
+{ notebook_main->set_page(PAGE_NEWS); return false;}
 
 
 void midgard_CG::menu_geschichte_selected()

@@ -24,6 +24,8 @@ NEWS IN VERSION 0.6delta3
 * Typempfehlungen werden berücksichtigt
 * Fertigkeiten/Zauber mit Zusätzen können auch bei der Erschaffung mehrfach 
    gelernt werden
+* Zauberstabausdruckbug entfernt
+* Geschlecht 'weiblich' wird wieder geladen
 
 TODO:
 * Gildenbrief funktioniert nicht

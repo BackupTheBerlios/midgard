@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.232 2002/05/06 12:03:01 thoma Exp $
+// $Id: midgard_CG.hh,v 1.233 2002/05/08 07:01:40 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -212,6 +212,7 @@ private:
         void on_entry_nameS_activate();
         void on_entry_version_activate();
         void on_entry_bezeichnung_activate();
+        void on_entry_merkmale_activate();
         void on_entry_spezialisierung_activate();
         void on_entry_glaube_activate();
         void on_entry_herkunft_activate();
@@ -240,6 +241,7 @@ private:
         gint on_entry_nameS_focus_out_event(GdkEventFocus *ev);
         gint on_entry_version_focus_out_event(GdkEventFocus *ev);
         gint on_entry_bezeichnung_focus_out_event(GdkEventFocus *ev);
+        gint on_entry_merkmale_focus_out_event(GdkEventFocus *ev);
         gint on_entry_spezialisierung_focus_out_event(GdkEventFocus *ev);
         gint on_entry_glaube_focus_out_event(GdkEventFocus *ev);
         gint on_entry_herkunft_focus_out_event(GdkEventFocus *ev);
@@ -410,6 +412,8 @@ private:
 
         void on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page* page,guint pagenr);
         gint on_eventbox_ausruestung_button_release_event(GdkEventButton *event);
+        gint on_eventbox_credits_button_release_event(GdkEventButton *event);
+        gint on_eventbox_geschichte_button_release_event(GdkEventButton *event);
         gint on_eventbox_optionen_button_release_event(GdkEventButton *event);
         gint on_eventbox_beschreibung_button_release_event(GdkEventButton *event);
         gint on_eventbox_steigern_button_release_event(GdkEventButton *event);

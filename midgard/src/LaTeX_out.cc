@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.115 2002/04/22 07:48:53 christof Exp $
+// $Id: LaTeX_out.cc,v 1.116 2002/05/08 07:01:40 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -232,6 +232,7 @@ void midgard_CG::LaTeX_write_values(ostream &fout,const std::string &install_lat
       if (sout =="Wurfspieﬂ") sout = "Wurfspiess";
       if (sout =="Spieﬂwaffe") sout = "Spiesswaffe";
       if (sout =="Kampf ohne Waffen") sout = "KampfohneWaffen";
+      if (sout =="Zauberst‰be") sout = "Zauberstaebe";
       fout << "\\sbox{\\"<<sout<<"}{\\tiny X}\n";
    }
 
@@ -247,8 +248,8 @@ void midgard_CG::LaTeX_write_values(ostream &fout,const std::string &install_lat
  /////////////////////////////////////////////////////////////////////////////
  // weitere Merkmale
  fout << "\\newcommand{\\merkmale}{" ;
- if(Werte.Spezies()->Name()!="Mensch") 
-     fout << LATIN(Werte.Spezies()->Name()); 
+ if(Werte.Spezies()->Name()!="Mensch")  fout << LATIN(Werte.Spezies()->Name())<<" "; 
+ fout << LATIN(Werte.Merkmale());
  fout <<"}\n";
  /////////////////////////////////////////////////////////////////////////////
  // Fertigkeiten & Waffen

@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.33 2002/05/06 12:03:01 thoma Exp $
+// $Id: land_sprache_exp.cc,v 1.34 2002/05/08 07:01:41 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -63,7 +63,7 @@ void land_speichern(std::ostream &o)
 
 //******************************************************************
    o << " <Schriften>\n";
-  {Query query("select name, region, typ, kosten, alt, kult"
+  {Query query("select name, region,region_zusatz, typ, kosten, alt, kult"
    	" from schrift"
    	" where coalesce(region,'')='"+region+"'"
    	" order by coalesce(region,''),name");
@@ -71,6 +71,7 @@ void land_speichern(std::ostream &o)
   {o << "  <Schrift";
    string schrift=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
+   fetch_and_write_string_attrib(is, o, "RegionZusatz");
    fetch_and_write_string_attrib(is, o, "Typ");
    fetch_and_write_int_attrib(is, o, "Kosten");
    fetch_and_write_bool_attrib(is, o, "alte_Schrift");
@@ -91,7 +92,7 @@ void land_speichern(std::ostream &o)
 
 //******************************************************************
    o << " <Sprachen>\n";
-  {Query query("select name, region, fp, max_wert, alt,"
+  {Query query("select name, region,region_zusatz, fp, max_wert, alt,"
   	" gruppe_1, gruppe_2, minderheit"
    	" from sprachen"
    	" where coalesce(region,'')='"+region+"'"
@@ -100,6 +101,7 @@ void land_speichern(std::ostream &o)
   {o << "  <Sprache";
    std::string sprache=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
+   fetch_and_write_string_attrib(is, o, "RegionZusatz");
    fetch_and_write_int_attrib(is, o, "Kosten");
    fetch_and_write_int_attrib(is, o, "Maximalwert");
 //   fetch_and_write_string_attrib(is, o, "Schrift");

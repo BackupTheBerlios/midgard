@@ -189,7 +189,8 @@ void midgard_CG::xml_import_stream(istream& datei)
    if (Steigern)       Werte.setEP(Steigern->getIntAttr("AEP"),Steigern->getIntAttr("KEP"),Steigern->getIntAttr("ZEP"));
    else
       Werte.setEP(0,0,0);
-   Werte.setStadt_Land(Typ->getAttr("Stadt_Land","Stadt"));    if(Werte.Stadt_Land()=="Stadt") radiobutton_stadt->set_active(true);
+   Werte.setStadt_Land(Typ->getAttr("Stadt_Land","Stadt"));
+   if(Werte.Stadt_Land()=="Stadt") radiobutton_stadt->set_active(true);
    if(Werte.Stadt_Land()=="Land")  radiobutton_land->set_active(true);
    if (Steigern)
       Database.GradAnstieg.set_Grad_Anstieg(Steigern->getIntAttr("EPproGFP",50)
@@ -246,11 +247,11 @@ void midgard_CG::load_ausruestung(const Tag *tag, AusruestungBaum *AB)
 
 void midgard_CG::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version)
 {
+
     for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();
     			i!=Database.Regionen.end();++i)
     {  Region::setActive(Database.Regionen,(*i),false);
     }
-    
     FOR_EACH_CONST_TAG(i,*tag)
     {
       const std::string sart=i->Type();
