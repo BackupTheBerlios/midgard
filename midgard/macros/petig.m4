@@ -1,4 +1,4 @@
-dnl $Id: petig.m4,v 1.3 2002/02/14 10:52:08 christof Exp $
+dnl $Id: petig.m4,v 1.4 2002/02/18 13:43:08 christof Exp $
 
 dnl Configure paths for some libraries
 dnl derived from kde's acinclude.m4
@@ -266,14 +266,14 @@ then
   then
     $3_INCLUDES="$$5_INCLUDES $$3_INCLUDES"
     $3_LIBS="$$3_LIBS $$5_LIBS"
-    $3_NODB_LIBS="$$3_LIBS $$5_LIBS"
+    $3_NODB_LIBS="$$3_NODB_LIBS $$5_NODB_LIBS"
     $3_LDFLAGS="$$3_LDFLAGS $$5_LDFLAGS" 
   fi
   if test "x$6" != "x"
   then
     $3_INCLUDES="$$6_INCLUDES $$3_INCLUDES"
     $3_LIBS="$$3_LIBS $$6_LIBS"
-    $3_NODB_LIBS="$$3_LIBS $$6_LIBS"
+    $3_NODB_LIBS="$$3_NODB_LIBS $$6_NODB_LIBS"
     $3_LDFLAGS="$$3_LDFLAGS $$6_LDFLAGS"
   fi
 
