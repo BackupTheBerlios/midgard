@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.59 2001/12/18 14:52:40 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.60 2001/12/19 09:13:07 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -79,7 +79,7 @@ void midgard_CG::LaTeX_write_values()
  fout << "\\newcommand{\\typ}{"<< LaTeX_scale(styp,10,"2.2cm") << "}\n";
  fout << "\\newcommand{\\st}{"  <<Werte.St() << "}\n";
  fout << "\\newcommand{\\gs}{" <<Werte.Gs() << "}\n";
- int reaktionswert = Werte.Gw() - atoi(ruestung("RW").c_str());
+ int reaktionswert = Werte.Gw() - Werte.Ruestung()->RW_Verlust();
  fout << "\\newcommand{\\gw}{"  << Werte.Gw() << "\\scriptsize ("<<reaktionswert<<")}\n";
  fout << "\\newcommand{\\ko}{"  <<Werte.Ko()<< "}\n";
  fout << "\\newcommand{\\inn}{" <<Werte.In() << "}\n";

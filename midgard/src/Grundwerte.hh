@@ -43,7 +43,8 @@ public:
              alter(0),geschlecht("m"),gewicht(0),groesse(0),grad(1),
              stand(""),glaube(""),name_charakter(""),version("Erschaffung"),
              gfp(0),gold(0), silber(0), kupfer(0),
-             aep(0),kep(0),zep(0),ruestung("OR"),spezies("Mensch") 
+             aep(0),kep(0),zep(0),ruestung("OR"),spezies("Mensch"),
+             stadt_land("Stadt") 
          { resetSinne(); }
    void clear() {*this=Grundwerte();}
    void resetSinne() {sinnmap["Sehen"]=8;

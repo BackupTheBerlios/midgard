@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.35 2001/12/18 13:14:48 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.36 2001/12/19 09:13:07 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -60,6 +60,7 @@ void midgard_CG::on_button_waffe_trans_clicked()
      lernpunkte.set_Fach(F-1);
      lernpunkte.set_Unge(U+1);
    }
+ zeige_lernpunkte();
 }
 
 void midgard_CG::on_button_fach_trans_clicked()
@@ -71,7 +72,7 @@ void midgard_CG::on_button_fach_trans_clicked()
      lernpunkte.set_Waffen(W-1);
      lernpunkte.set_Unge(U+1);
    }
-
+ zeige_lernpunkte();
 }
 
 void midgard_CG::on_lernpunkte_editieren_clicked()

@@ -128,12 +128,13 @@ void Fertigkeiten_auswahl::Allgemeinwissen()
        if((*j)->Name()==(*i)->Name()) { spezieskenntnis=true; break; }
 */    
 //    if(!fachkenntnis && !spezieskenntnis)
-     if(cH_Fertigkeit(*i)->LernLand() >= maxpunkte_A && Werte.Stadt_Land()=="Land")
+cout << Werte.Stadt_Land()<<'\n'<<'\n';
+     if(cH_Fertigkeit(*i)->LernLand() <= maxpunkte_A && Werte.Stadt_Land()=="Land")
        {
         cH_Fertigkeit(*i)->set_Erfolgswert(cH_Fertigkeit(*i)->Anfangswert());
         list_Fert_Allg.push_back(*i);
        }
-     if(cH_Fertigkeit(*i)->LernStadt() >= maxpunkte_A && Werte.Stadt_Land()=="Stadt")
+     if(cH_Fertigkeit(*i)->LernStadt() <= maxpunkte_A && Werte.Stadt_Land()=="Stadt")
        {
         cH_Fertigkeit(*i)->set_Erfolgswert(cH_Fertigkeit(*i)->Anfangswert());
         list_Fert_Allg.push_back(*i);
