@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.cc,v 1.10 2003/11/03 13:54:12 christof Exp $
+// $Id: Magus_Optionen.cc,v 1.11 2004/01/08 13:32:35 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -30,6 +30,8 @@
 #include <magus_paths.h>
 //#include <libmagusicons/magusicons.h>
 #include <Misc/Global_Settings.h>
+
+// HKEY_LOCAL_MACHINE\software\classes\http\shell\open\command ?
 
 #ifdef __MINGW32__
 static std::string CommandByExtension(const std::string &ext)
@@ -233,6 +235,7 @@ void Magus_Optionen::Strings_init()
   list_Strings.push_back(st_strings(speicherpfad,"Speicherverzeichnis",magus_paths::MagusVerzeichnis()));
 #else
   list_Strings.push_back(st_strings(pdf_viewer,"PDF Viewer",CommandByExtension(".pdf")));
+  // class "http"?
   list_Strings.push_back(st_strings(html_viewer,"HTML Viewer",CommandByExtension(".htm")));
   char *tmp=getenv("TMPDIR");
   if (!tmp) tmp=getenv("TMP");

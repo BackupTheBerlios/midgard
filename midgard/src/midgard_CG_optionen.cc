@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.126 2003/09/15 15:53:35 christof Exp $
+// $Id: midgard_CG_optionen.cc,v 1.127 2004/01/08 13:32:35 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,37 +24,6 @@
 #include <xml.h>
 #include <Misc/Trace.h>
 
-#if 0
-void midgard_CG::OptionenExecute_setzen_from_menu(Magus_Optionen::OptionenExecuteIndex index)
-{
- ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
- MOptionen->OptionenExecute_setzen_from_menu(index);
-}
-
-
-void midgard_CG::Ober_element_activate(gpointer gp,Magus_Optionen::OberIndex index)
-{
- ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
-  getOptionen()->Ober_setzen_from_menu(index);
-}
-
-void midgard_CG::checkbutton_original(bool active)
-{
- ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
-  if(active) 
-    { table_steigern->togglebutton_alle_zauber->set_sensitive(false); 
-      MOptionen->setAllHausregeln(false);
-      show_Hausregeln_active();
-      eventbox_Original_Midgard->show();
-    }      
-  else 
-    { table_steigern->togglebutton_alle_zauber->set_sensitive(true); 
-      eventbox_Original_Midgard->hide();
-    }      
-//  menu_init();
-}
-#endif
-
 void midgard_CG::lernschema_sensitive(bool active)
 {
  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
@@ -77,111 +46,6 @@ assert(active);
    table_lernschema->button_beruf->set_sensitive(true);
 #endif   
 }
-
-#if 0
-void midgard_CG::show_Menueleiste(bool b)
-{
- ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
-  if(b) handlebox_menu->show();
-  else  handlebox_menu->hide();
-}
-
-void midgard_CG::show_Knopfleiste(bool b)
-{
- ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
-  if(b) griff_toolbar_top->show();
-  else  griff_toolbar_top->hide();
-}
-
-void midgard_CG::show_Statusleiste(bool b)
-{
- ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
-  if(b) handlebox_status->show();
-  else  handlebox_status->hide();
-}
-
-void midgard_CG::show_Icons(bool i)
-{
- ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
- bool b=MOptionen->OberCheck(Magus_Optionen::Beschriftungen).active;
- if     ( b && i) toolbar_top->set_toolbar_style(Gtk::TOOLBAR_BOTH);
- else if( b &&!i) toolbar_top->set_toolbar_style(Gtk::TOOLBAR_TEXT);
- else if(!b && i) toolbar_top->set_toolbar_style(Gtk::TOOLBAR_ICONS);
- else if(!b &&!i) toolbar_top->hide();
-}
-
-void midgard_CG::show_Beschriftungen(bool b)
-{
- ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
- bool i=MOptionen->OberCheck(Magus_Optionen::Icons).active;
- if     ( b && i) toolbar_top->set_toolbar_style(Gtk::TOOLBAR_BOTH);
- else if( b &&!i) toolbar_top->set_toolbar_style(Gtk::TOOLBAR_TEXT);
- else if(!b && i) toolbar_top->set_toolbar_style(Gtk::TOOLBAR_ICONS);
- else if(!b &&!i) toolbar_top->hide();
-}
-
-void midgard_CG::show_NSC_active(bool b)
-{
- ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
-  if(b) eventbox_NSC_aktiv->show();
-  else  eventbox_NSC_aktiv->hide();
-}
-
-void midgard_CG::show_Hausregeln_active()
-{
- ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
-  frame_haus_status->remove();
-  Gtk::HBox *hb=manage(new class Gtk::HBox(false, 0));
-  for(std::list<Magus_Optionen::st_Haus>::const_iterator i=MOptionen->getHausregeln().begin();i!=MOptionen->getHausregeln().end();++i)
-   {
-     if(!i->active) continue;
-     Gtk::Image *p=manage(new Gtk::Image(i->bild));
-     hb->pack_start(*p);
-     if(i->active) p->show();
-   }
-  hb->show();
-  frame_haus_status->add(*hb);
-}
-
-void midgard_CG::show_wizard_active(bool b)
-{
- ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
-  if(b) {eventbox_wizard_aktiv->show(); label_wizard->show();}
-  else  {eventbox_wizard_aktiv->hide(); label_wizard->hide();}
-}
-
-
-void midgard_CG::on_checkbutton_Regionen_menu_(Gtk::CheckMenuItem *menu_item,cH_Region region)
-{
- ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
-  if(menu_item->get_active()) region->setActive(true);
-  else region->setActive(false);
-  on_checkbutton_Regionen_menu_(0,region);
-}
-
-
-void midgard_CG::on_checkbutton_Regionen_menu(gpointer gp,cH_Region region)
-{
- ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
- table_grundwerte->fill_typauswahl();
- if(notebook_main->get_current_page()==PAGE_STEIGERN)
-    table_steigern->load_for_page(table_steigern->notebook_lernen->get_current_page());
- else if(notebook_main->get_current_page()==PAGE_AUSRUESTUNG)
-    table_ausruestung->fill_new_preise();
-
- for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
-  {
-   if(!(*i)->Offiziell() && (*i)->Active()) 
-     { 
-//       pixmap_logo->hide();
-       eventbox_Original_Midgard->hide();
-       break;
-     }
-  }
-// menu_init();
- set_region_statusbar(region->Pic(),region->Active());
-}
-#endif
 
 void midgard_CG::Schummeln()
 {

@@ -50,7 +50,8 @@ std::cerr << "drag_data_delete " << path.to_string() << '\n';
 
 #include <gtk/gtktreednd.h>
 
-bool MyTreeStore::drag_data_received_vfunc(const TreeModel::Path& dest, GtkSelectionData* selection_data)
+bool MyTreeStore::drag_data_received_vfunc(const Gtk::TreeModel::Path& dest, 
+					GtkSelectionData* selection_data)
 {  GtkTreeModel *model=0;
    GtkTreePath *path=0;
    if (!gtk_tree_get_row_drag_data(selection_data,&model,&path)) 
@@ -59,12 +60,20 @@ std::cerr << "drag_data_received " << dest.to_string() << ' ' << model
 << ' ' << Gtk::TreeModel::Path(path,false).to_string() << '\n';
    if (model!=GTK_TREE_MODEL(gobj())) 
    {  std::cerr << "my model is @"<< gobj() << '\n';
-      goto out;
+//      goto out;
+    out:
+      if (path) gtk_tree_path_free(path);
+      return false;
    }
+   // von Node suchen, löschen, nach Node suchen, einfügen
+std::cerr << "gtk-tree-model-drop-append=" << get_data("gtk-tree-model-drop-append") << '\n';
    
-out:
+   Gtk::TreeIter sourceit=get_iter(Gtk::TreeModel::Path(path,false)),
+   	destit=get_iter(dest);
+   move(sourceit,destit);
+//   Gtk::TreeIter newit=insert(destit);
    if (path) gtk_tree_path_free(path);
-   return false;
+   return true;
 }
 
 void table_ausruestung::on_preise_tree_neu_drag_data_get(const Glib::RefPtr<Gdk::DragContext>&context,

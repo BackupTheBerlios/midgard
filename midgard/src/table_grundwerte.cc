@@ -58,6 +58,8 @@ void table_grundwerte::zeige_werte(bool typ2_hide)
 { 
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__); 
    if(!hauptfenster) return;
+   if (hauptfenster->notebook_main->get_current_page()!=PAGE_GRUNDWERTE) return;
+   
    block_changed=true;
   fill_typauswahl();
    fill_spezies(); // sobald Mann/Frau interessant wird
@@ -151,6 +153,7 @@ void table_grundwerte::sync_wizard(gpointer x)
 #warning wizard!
    button_grundwerte->set_sensitive(true);
    combo_typ->set_sensitive(false);
+   combo_typ2->set_sensitive(false);
    combo_spezies->set_sensitive(true);
    button_abg_werte->set_sensitive(false);
    radiobutton_stadt->set_sensitive(true);

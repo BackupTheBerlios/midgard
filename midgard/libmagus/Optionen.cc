@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.7 2003/12/19 08:29:50 christof Exp $
+// $Id: Optionen.cc,v 1.8 2004/01/08 13:32:35 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -67,14 +67,6 @@ void Optionen::setHausregeln(std::string hs,bool b)
  Ausgabe(Ausgabe::Warning, "Option "+hs+" unbekannt");
 }
 
-#if 0
-void Optionen::setAllHausregeln(bool b)
-{
-  for(std::list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
-     i->active=b;
-}
-#endif 
- 
 void Optionen::set_Original(bool active,OptionenCheckIndex index)
 {
   for(std::list<Optionen::st_OptionenCheck>::iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
