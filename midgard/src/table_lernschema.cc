@@ -160,7 +160,8 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
            break;
          }
      case MidgardBasicElement::WAFFEBESITZ :
-         {hauptfenster->getChar().List_Waffen_besitz().remove(MBE);  
+         { WaffeBesitz WB(WB,0,WB->Name(),0,0,"","");
+           hauptfenster->getChar().List_Waffen_besitz().remove(WB);  
            std::string art=WaffeBesitz(MBE).Waffe()->Art2();
            if(art=="E" || art=="W" || art=="V") waffebesitzlernen.add_EWaffe(1);
            else waffebesitzlernen.add_AWaffe(1);
