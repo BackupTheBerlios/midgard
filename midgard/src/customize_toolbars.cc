@@ -1,4 +1,4 @@
-// $Id: customize_toolbars.cc,v 1.2 2002/05/09 16:59:55 christof Exp $
+// $Id: customize_toolbars.cc,v 1.3 2002/05/09 17:13:27 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -20,6 +20,7 @@
 #include "customize_toolbars.h"
 #include <gtk--/toolbar.h>
 #include <gtk--/label.h>
+#include <gtk--/table.h>
 #include <gtk--/pixmap.h>
 #include <gtk--/button.h>
 #include <gtk--/box.h>
@@ -47,6 +48,16 @@ void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text)
       tb->set_style(show_icons ? (show_text?GTK_TOOLBAR_BOTH:GTK_TOOLBAR_ICONS)
       		:GTK_TOOLBAR_TEXT);
       // recurse ?
+   }
+   else if (Gtk::Bin::isA(w))
+   {  Gtk::Widget *child=dynamic_cast<Gtk::Bin*>(w)->get_child();
+      CustomizeToolbars(child,show_icons,show_text);
+   }
+   else if (Gtk::Table::isA(w))
+   {  Gtk::Table_Helpers::TableList &ch=dynamic_cast<Gtk::Table*>(w)->children();
+      for (Gtk::Table_Helpers::TableList::const_iterator i=ch.begin();
+      		i!=ch.end();++i)
+         CustomizeToolbars((*i)->get_widget(),show_icons,show_text);
    }
    else if (Gtk::Container::isA(w))
    {  // und nun ?
