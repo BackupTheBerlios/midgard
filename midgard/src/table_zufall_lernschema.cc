@@ -24,6 +24,7 @@
 #include "Optionen.hh"
 #include <libmagus/Datenbank.hh>
 #include <libmagus/Ausgabe.hh>
+#include <libmagus/LernListen.hh>
 
 void table_zufall::on_button_zufall_voll_clicked()
 {
@@ -165,7 +166,7 @@ void table_zufall::fill_combos()
   std::list<std::string> L;
 
   // Typen
-  fill_combo_typen(LL,nsc_allowed);
+  fill_combo_typen(nsc_allowed);
 /*  
   const std::vector<std::pair<cH_Typen,bool> > T=LernListen::getTypen(hauptfenster->getAben(),nsc_allowed);
   for(std::vector<std::pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
@@ -188,7 +189,7 @@ void table_zufall::fill_combos()
  combo_herkunft->set_popdown_strings(L);
 }
 
-void table_zufall::fill_combo_typen(const LernListen &LL,const bool nsc_allowed)
+void table_zufall::fill_combo_typen(const bool nsc_allowed)
 {
   std::list<std::string> L;
   cH_Spezies spezies=hauptfenster->getAben().Spezies();
