@@ -52,6 +52,7 @@ void midgard_CG::get_ab_re_za(const string& was)
 //  is >> FetchIStream::MapNull<int>(kosten,0);
   is >> kosten;
   SQLerror::test(__FILELINE__);
+  exec sql deallocate descriptor mydesc;
   exec sql close grad_an_ein;
   tr.close();
   Werte.add_GFP(kosten);

@@ -428,14 +428,16 @@ void midgard_CG::charakter_db_anlegen()
 {
   
    exec sql begin declare section;
-      char db_name_ch[50] ;
+      char db_name_ch[50];
+      char db_version[50];
    exec sql end declare section;
    strncpy(db_name_ch,(Werte.Name_Charakter()).c_str(),sizeof(db_name_ch));
+   strncpy(db_version,(Werte.Version()).c_str(),sizeof(db_version));
    std::cout << "Neuen Charakter "<< db_name_ch  <<" in Datenbank anlegen\n";
    exec sql insert into charaktere 
-        (charakter_name)
+        (charakter_name,version)
      values
-        (:db_name_ch);
+        (:db_name_ch,:db_version);
 
    midgard_CG::on_speichern_clicked();   
 }
