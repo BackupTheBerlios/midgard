@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.306 2003/09/12 10:17:50 christof Exp $
+// $Id: midgard_CG.cc,v 1.307 2003/09/29 10:44:24 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -223,4 +223,8 @@ void midgard_CG::on_exportieren_activate()
 void midgard_CG::on_kompletter_export_activate()
 {
    (new xml_fileselection(this,xml_fileselection::ExportFull));
+}
+
+void midgard_CG::on_schlie__en1_activate()
+{  Ausgabe(Ausgabe::Error,"Noch nicht programmiert!");
 }

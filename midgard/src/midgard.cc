@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.63 2003/09/29 09:17:10 christof Exp $
+// $Id: midgard.cc,v 1.64 2003/09/29 10:44:24 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -30,7 +30,7 @@
 
 static const unsigned steps=8;
 static Gtk::Window *progresswin;
-// Load0 und Load_current können zusammengeführt werden
+// Load0 und Load_current kÃ¶nnen zusammengefÃ¼hrt werden
 static Glib::RefPtr<Gdk::Pixbuf> Load0,Load1,Load_current;
 static unsigned current_n;
 static Gtk::Image *imag;

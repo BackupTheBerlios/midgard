@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.cc,v 1.82 2003/09/29 09:04:27 christof Exp $
+// $Id: Midgard_Info.cc,v 1.83 2003/09/29 10:44:24 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -106,3 +106,6 @@ std::string Midgard_Info::umbruch(std::string s)
  return s;
 }
 
+void Midgard_Info::lizenz_anzeigen()
+{  Ausgabe(Ausgabe::Error,"hier müsste jetzt die GPL hin");
+}
