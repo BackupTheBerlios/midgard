@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <MAGUS-data>
- <Preise/>
  <Midgard-Abenteurer Version="10">
   <Figur Name="Aneren" Spieler="Christof Petig" Zeitpunkt="Grad 7" Grad="7"/>
-  <Typ Spezies="Mensch" Geschlecht="f" Abkürzung="Hl" Überleben="Überleben im Wald" Muttersprache="Erainnisch" Stadt_Land="Stadt" Hand=""/>
+  <Typ Spezies="Mensch" Geschlecht="f" Abkürzung="Hl" berleben="Überleben Heimat" Muttersprache="Erainnisch" Stadt_Land="Stadt" Hand=""/>
   <Basiseigenschaften St="59" Gw="78" Gs="82" Ko="92" In="100" Zt="93"/>
   <abgeleiteteEigenschaften Au="40" pA="72" Wk="50" Sb="64" B="25" SG="4"/>
   <Erfolgswerte Abwehr="13" Zaubern="17" ZauberResistenz="13"/>
   <Gesundheit LP="16" AP="39"/>
   <Beschreibung Alter="28" Gestalt="breit" Gewicht="69" Größe="161" Stand="Mittelschicht" Herkunft="Erainn" Glaube="Kebechet"/>
-  <Vermögen GS="0"/>
-  <Steigern GFP="13463" AEP="27" benötigte_Tage="308.24">
-   <Praxispunkte Zaubern="1" Resistenz="1"/>
+  <Vermögen/>
+  <Steigern GFP="13463" AEP="432" KEP="5" ZEP="341" benötigte_Tage="308.24">
+   <Praxispunkte Zaubern="2" Spezial="3" Resistenz="1"/>
   </Steigern>
   <Text/>
   <Ausrüstung>
    <Rüstung>TR</Rüstung>
    <Rüstung2>OR</Rüstung2>
    <Waffe Erfolgswert="0" Bezeichnung="Magierstab"/>
-   <Gegenstand Bezeichnung="Körper" Besonderheit="" sichtbar="true">
-    <Gegenstand Bezeichnung="Hose" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Hemd" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Gürtel" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Schuhe" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Rucksack" Besonderheit="Leder" sichtbar="true">
-     <Gegenstand Bezeichnung="Decke" Besonderheit="warm"/>
-     <Gegenstand Bezeichnung="Lederbeutel" Besonderheit="" sichtbar="true"/>
-     <Gegenstand Bezeichnung="Geld" Besonderheit=""/>
+   <Gegenstand Anzahl="1" Bezeichnung="Körper" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
+    <Gegenstand Anzahl="1" Bezeichnung="Hose" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Hemd" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Gürtel" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Schuhe" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Rucksack" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
+     <Gegenstand Anzahl="1" Bezeichnung="Decke" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="warm"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Lederbeutel" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Geld" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit=""/>
     </Gegenstand>
    </Gegenstand>
   </Ausrüstung>
@@ -55,7 +54,7 @@
    <Fertigkeit Bezeichnung="Schwimmen" Wert="12"/>
    <Fertigkeit Bezeichnung="Suchen" Wert="8"/>
    <Fertigkeit Bezeichnung="TaiTschi"/>
-   <Fertigkeit Bezeichnung="Tierkunde" Wert="8"/>
+   <Fertigkeit Bezeichnung="Tierkunde" Wert="8" Praxispunkte="1"/>
    <Fertigkeit Bezeichnung="Wahrnehmung" Wert="6" Praxispunkte="1"/>
    <Fertigkeit Bezeichnung="YangScheng" Wert="4"/>
    <Fertigkeit Bezeichnung="Zauberkunde" Wert="10" Praxispunkte="3"/>
@@ -95,7 +94,7 @@
    <Zauber Bezeichnung="Seelenheilung"/>
    <Zauber Bezeichnung="Stille"/>
    <Zauber Bezeichnung="Stärke"/>
-   <Zauber Bezeichnung="Tiere rufen"/>
+   <Zauber Bezeichnung="Tiere rufen" Zusatz=""/>
    <Zauber Bezeichnung="Tiersprache" Zusatz=""/>
    <Zauber Bezeichnung="Trunk des Lebens"/>
    <Zauber Bezeichnung="Unfruchtbarkeit"/>
@@ -131,8 +130,12 @@
    <Urschrift Bezeichnung="Moravisch" Wert="8"/>
    <Urschrift Bezeichnung="Comentang" Wert="8"/>
    <Urschrift Bezeichnung="Berggnome" Wert="8"/>
-   <Optionen Name="Originalregeln" Wert="false"/>
-   <Optionen Name="NSC zulassen" Wert="false"/>
   </Fertigkeiten>
+  <Optionen>
+   <CheckOptions Name="Originalregeln" Wert="false"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="true"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="true"/>
+  </Optionen>
  </Midgard-Abenteurer>
 </MAGUS-data>
