@@ -77,6 +77,8 @@ Typen::Typen(const Tag *tag)
  min_pa=tag->getIntAttr("MinpA");
  FOR_EACH_CONST_TAG_OF(i,*tag,"Herkunft")
    vec_herkunft.push_back(i->getAttr("Name"));
+ FOR_EACH_CONST_TAG_OF(i,*tag,"Gruppe")
+   vec_gruppe.push_back(i->getAttr("Name"));
 }
 
 bool Typen::Spezialwaffe() const
@@ -112,6 +114,13 @@ bool Typen::Herkunft(const cH_Land land) const
   return true;
 }
 */
+
+
+bool Typen::Gruppe(const std::string &gruppe) const
+{
+  return std::find(vec_gruppe.begin(),vec_gruppe.end(),gruppe)!=vec_gruppe.end(); 
+}
+
 
 
 bool Typen::get_Typ_from_long(const std::vector<cH_Typen>& V,

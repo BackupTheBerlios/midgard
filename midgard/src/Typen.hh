@@ -1,4 +1,4 @@
-// $Id: Typen.hh,v 1.22 2002/06/30 07:55:31 thoma Exp $               
+// $Id: Typen.hh,v 1.23 2002/07/03 10:25:34 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -45,6 +45,8 @@ class Typen : public HandleContent
    int min_st,min_gw,min_gs,min_in,min_pa;
 
    std::vector<std::string> vec_herkunft;
+   std::vector<std::string> vec_gruppe;
+
 
 public:
    Typen(const Tag *tag);
@@ -76,6 +78,8 @@ public:
    bool Mindestwerte(const Grundwerte& Werte) const;
 //   bool Herkunft(cH_Land land) const;
    const std::vector<std::string> &get_vec_herkunft() const {return vec_herkunft;}
+   const std::vector<std::string> &get_vec_gruppe() const {return vec_gruppe;}
+   bool Gruppe(const std::string &gruppe) const;
 
 
    bool is_mage() const 
