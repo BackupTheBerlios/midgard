@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.cc,v 1.22 2004/03/10 12:23:39 thoma Exp $
+// $Id: Magus_Optionen.cc,v 1.23 2004/03/10 14:47:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -351,25 +351,9 @@ void Magus_Optionen::load_options(const std::string &filename)
   FOR_EACH_CONST_TAG_OF(i,*options,"Einstellungen")
      setString(i->getAttr("Name"),i->getAttr("Wert"));
 
-  const Tag *oregionen=data->find("Regionen");
-  if(oregionen) FOR_EACH_CONST_TAG_OF(i,*oregionen,"Region")
-   {
-     try{ 
-          cH_Region R(i->getAttr("Name"),true);
-          standard_regionen[R]=i->getBoolAttr("Wert");
-std::cout <<  standard_regionen.size()<<'\t'<<R->Name()<<' '
-<<i->getBoolAttr("Wert")<<standard_regionen[R]<<'\n';
-        }  catch (const NotFound &e)
-          {std::cout << "XXX: "<<e.what()<<'\n'; }
-   }
-std::cout <<  standard_regionen.size()<<'\n';
-for(regionen_t::const_iterator i=standard_regionen.begin();i!=standard_regionen.end();++i) 
-{
-std::cerr <<"Drinnen ist: " <<i->first->Name()<<'\t'<< i->second <<'\n';
-}
-
-
-
+  const Tag *regionen=data->find("Regionen");
+  if(regionen) FOR_EACH_CONST_TAG_OF(i,*regionen,"Region")
+    standard_regionen[i->getAttr("Name")]=i->getBoolAttr("Wert");
 
   const Tag *data2=ts.find("MAGUS-fenster"); // compat
   if (!data2) data2=data->find("Fenster");
@@ -482,7 +466,7 @@ void Magus_Optionen::save_options(const std::string &filename)
   for(regionen_t::const_iterator i=standard_regionen.begin();i!=standard_regionen.end();++i)
     {
       Tag &r=reg.push_back(Tag("Region"));
-      r.setAttr("Name",i->first->Name());
+      r.setAttr("Name",i->first);
       r.setBoolAttr("Wert",i->second);
     }
   ts.write(datei);
@@ -508,7 +492,7 @@ void Magus_Optionen::setWindowPosition(const std::string &name,int x,int y,unsig
 void Magus_Optionen::setStandardRegionen(const Abenteurer &A)
 {
    for(Abenteurer::regionen_t::const_iterator i=A.getRegionen().begin();i!=A.getRegionen().end();++i)
-     standard_regionen[i->first] = i->second;    
+     standard_regionen[i->first->Name()] = i->second;    
 }
 
 

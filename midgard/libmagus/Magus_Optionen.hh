@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.hh,v 1.19 2004/03/09 11:40:57 thoma Exp $
+// $Id: Magus_Optionen.hh,v 1.20 2004/03/10 14:47:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -194,9 +194,7 @@ class Magus_Optionen
       void pdfViewer_setzen_from_menu(pdfViewerIndex index);
       SigC::Signal0<void> &signal_history_changed() { return sig_history_geaendert; }
       
-
-//      typedef std::map<cH_Region,Model_copyable<bool> > regionen_t;
-      typedef std::map<cH_Region,bool > regionen_t;
+      typedef std::map<std::string,bool > regionen_t;
       regionen_t standard_regionen;  // aktive Standardregionen
       void setStandardRegionen(const Abenteurer &A) ;
 
