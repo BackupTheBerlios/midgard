@@ -373,7 +373,7 @@ void midgard_CG::save_ausruestung()
         (charakter_name,version,fertigkeit,wert,art,av_bonus,sl_bonus,magisch) VALUES
         (:db_name_a,:db_vers_a,:db_fert_a,:db_wert_a,:db_art_a,0,:db_self,:db_magisch_a) ;
      SQLerror::test(__FILELINE__);
-     save_ausruestung_C(0,self,i->getChildren());
+     save_ausruestung_C(self,self,i->getChildren());
    }
 }
 

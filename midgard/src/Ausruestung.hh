@@ -63,6 +63,8 @@ class AusruestungBaum
 //         }
       bool empty() const
           {  return child.empty(); }
+      void clear() 
+          {  return child.clear(); }
       size_t size() const
           {  return child.size(); }
       const_iterator begin() const

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.95 2001/12/13 22:34:08 thoma Exp $
+// $Id: midgard_CG.cc,v 1.96 2001/12/17 14:53:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -381,6 +381,7 @@ void midgard_CG::clear_listen()
    list_Zauberwerk.clear();
    list_Zauber_neu.clear();
    list_Zauberwerk_neu.clear();
+   besitz.clear();
 }
 
 void midgard_CG::clear_gtk()

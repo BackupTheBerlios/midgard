@@ -302,6 +302,30 @@ void midgard_CG::fill_preisliste()
 
 void midgard_CG::on_button_ausruestung_druck_clicked()
 {
+ ofstream fout("midgard_tmp_ausruestung.tex");
+ LaTeX_header(fout,false);           
+
+ for(AusruestungBaum::const_iterator i=besitz.begin();i!=besitz.end();++i)
+  {
+   std::string name=i->getAusruestung().Name()+" ("+i->getAusruestung().Material()+")";
+   fout << name<<'\n';
+   ausruestung_druck(fout,i->getChildren(),0);
+  }
+
+ LaTeX_footer(fout);
+ fout.close();
+ system("latex midgard_tmp_ausruestung.tex");    
+ system("dvips midgard_tmp_ausruestung.dvi");
+ system("gv midgard_tmp_ausruestung.ps &");  
 }
 
 
+void midgard_CG::ausruestung_druck(ofstream &fout,const list<AusruestungBaum> &AB,int deep)
+{
+ for(std::list<AusruestungBaum>::const_iterator i=AB.begin();i!=AB.end();++i)
+  {
+   std::string name=i->getAusruestung().Name()+" ("+i->getAusruestung().Material()+")";
+   fout << name<<'\n';
+   ausruestung_druck(fout,i->getChildren(),deep);
+  }
+}

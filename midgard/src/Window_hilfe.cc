@@ -1,4 +1,4 @@
-// $Id: Window_hilfe.cc,v 1.22 2001/08/23 20:11:45 thoma Exp $
+// $Id: Window_hilfe.cc,v 1.23 2001/12/17 14:53:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -46,44 +46,52 @@ std::string Window_hilfe::hilfetext()
 std::string s="
 1. Generierung eines neuen Charakters
 
-* Spezies wählen (wenn es KEIN Mensch sein soll)
-* Grundwerte würfeln (eventuell editieren)
-* Geschlecht wählen (wenn es KEIN Mann sein soll)
-* Charaktertyp wählen (wenn es KEIN Assassine sein soll)
+* Spezies wählen (nur wenn es kein Mensch sein soll)
+* Grundwerte würfeln (und eventuell editieren)
+   - linke Maustaste: 2x würfeln, höheres Ergebnis zählt
+   - rechte Maustaste: 9x würfeln und die betsen sechs Ergebnisse frei verteilen
+* Geschlecht wählen (wenn es kein Mann sein soll)
+* Charaktertyp wählen (wenn es kein Assassine sein soll)
 * Abgeleitete Werte würfeln (eventuell editieren)
 * Werte editieren: 'Name des Charakters' und 'Version' eintragen, unter diesen
-   beiden Angaben wird der Charakter in der Datenbank gespeichert.
+   beiden Angaben wird der Charakter in gespeichert.
 * Herkunftsland wählen
-* Muttersprache(n) wählen
 * Lernschema
 * Lernpunkte würfeln (eventuell editieren)
-* Beruf wählen
-* Erfolgswert für Beruf würfeln
+* Beruf wählen (mit der rechten Maustaste kann ein bestimmtes W% Ergebnis 
+   eingegeben vorgegeben.
 * Fertigkeiten auswählen 
 * Angeborene Fertigkeit auswürfeln (mit der RECHTEN Maustaste könenn die Fertigkeiten 
    explizit gewählt werden.)
 * Waffen auswählen
 * Spezialwaffe wählen (nicht für Zauberer und Barden)
-* Zauber auswählen (nicht für Kämpfer außer Barde und Ordenskrieger)
+* Zauber auswählen (nicht für Kämpfer außer Barde,Ordenskrieger und Tiermeister)
 * Magier wählen einen Spezialbereich
 * Geld und Waffen würfeln (oder aussuchen)
 * Rüstung auswürfeln (kann über 'Steigern' auch ausgesucht werden 
    wenn der Charakter vorher abgespeichert wird)
 * bei Bedarf Charakterbeschreibung eingeben und ausdrucken.
    Es ist zu beachten, daß die Beschriebung als LaTeX Dokument verarbeitet wird.
-   Dadurch ist gewährleistet, daß man nahezu alle Zeichen darstellen kann.
+   Dadurch ist gewährleistet, daß nahezu alle Zeichen darstellen werden können.
    Allerdings sind einige Symbole nur über LaTeX Komandos erhältlich.
    Für Anführungszeichen muß man bspw. '\\glqq' bzw '\\grqq' verwenden.
-* Charakter speichern (in der Datenbank unter dem Schlüssel 
-   'Charaktername und Version'
-* Charakter drucken (Es wird ein druckfertiges Postscriptdokument mit 'gv'
-   angezeigt, der Ausdruck kann dann aus diesem Programm heraus erfolgen. 
+   Für Aufzählungen habe ich zwei neue Listenumgebungen bereitgestellt, die mit
+   \\begin{punkte} 
+   \\item text
+   \\item text
+   ....
+   \\end{punkte}
+   bzw. dasselbe für 'punkte2' angesprochen werden können.
+* Charakter speichern 
+* Charakter drucken (Es wird ein (mehrere) druckfertige(s) 
+   Postscriptdokument(e) mit 'gv' angezeigt, der Ausdruck kann dann 
+   aus diesem Programm heraus erfolgen. 
    
 2. Steigern eines Charakters 
 (Generell gilt: Während des Steigerns wird der Charakter STÄNDIG in der 
-Datenbank abgespeichert. Daher ist es nocht nötig, den Charakter nach dem
-steigern noch einmal zu speichern.)
-Bitte lest die unten aufgeführet Anleitung zur Bedienung der Treebaselisten
+gesichert. Daher ist es nocht nötig, den Charakter nach dem
+steigern zu speichern.) Bitte beachtet auch die unten aufgeführet Anleitung 
+zur Bedienung der 'TreeBaseListen'
 
 * Charakter laden (Wenn ein Charaktername und eine Version eingetragen sind,
     wird der entsprechende Charakter geladen, ansonsten erscheint eine 
@@ -96,13 +104,16 @@ Bitte lest die unten aufgeführet Anleitung zur Bedienung der Treebaselisten
    (mit entsprechender Erhöhung der GFP). Außerdem wird für eine Steigerung der 
    Basiseigenschaften gewürfelt. Üblicherweise wird dieser Knopf betätigt,
    wenn die GFP-Grenze für einen neuen Grad übersprungen ist.
+   Es ist auch möglich, die STeigerungen für die jeweiligen Aspekte einzeln 
+   durchzuführen.
 * Fertigkeiten (Fertigkeiten laden)
    Im oberen Fenster sind die Fertigkeiten, die der Charakter kann mit
    dem jeweiligen Erfolgswert angegeben. Außerdem ist angegeben, wieviele
    GFP die nächste Stufe (nach oben bzw nach unten) kostet. Beherrscht ein
    Charakter eine Fertigkeit auf dem niedrigsten Erfolgswert, so kannn er 
-   diese auch 'verlernen'.
-   Im untern Fenster sind die erlernbaren Fertigkeiten mit entsprechenden 
+   diese auch 'verlernen'. Dadurch ist es möglich Eingabefehler rückgängig 
+   zu machen.
+   Im unteren Fenster sind die erlernbaren Fertigkeiten mit entsprechenden 
    Kosten angegeben.
 * Waffen (Waffen laden)
    Im rechten Bereich sind die Grundkenntnisse der Waffen aufgeführt.
@@ -112,12 +123,13 @@ Bitte lest die unten aufgeführet Anleitung zur Bedienung der Treebaselisten
    beherrscht (mit Erfolgswert und Kosten für die nächst höhere bzw. 
    niedirgere Stufe), unten stehen die Waffen, die der Charakter mit dem
    Erfolgswert +4 beherrscht, weil er die Grundkenntnisse in der jeweiligen
-   Waffenart besitzt. Durch ancklicken kann man Waffen steigern und lernen,
+   Waffenart besitzt. Durch Ancklicken kann man Waffen steigern und lernen,
    bzw. Grundkenntnisse lernen.
 * Zauber (Zauber laden)
    Oben die Zauber, die ein Charakter kann, unten die, die er lernen darf
    (mit Kosten). Wählt man einen Zauber aus der oberen Liste, so wird dieser
    'verlernt'.
+* KiDo funktioniert genauso wie bei den Zaubern
 * Sprachen und Schriften
    Links die Sprachen, rechts die Schriften. Oben jeweils die, die ein 
    Charakter beherrscht, unten die, die er lernen kann.
@@ -125,8 +137,7 @@ Bitte lest die unten aufgeführet Anleitung zur Bedienung der Treebaselisten
 Einigen selten benutzte Features lassen sich durch das Menu erreichen,
 das aufklappt, wenn man den RECHTEN Mausknopf betätigt.
 
-Anleitung zur TreeBase-Liste (= Tabellen fürs Steigern und die Waffen)
-
+Anleitung zur TreeBaseListe (= Tabellen fürs Steigern und die Waffen)
 * Die Listen können durch Anklicken der Kopfzeile in beliebiger Reinfolge
    sortiert werden
 * Mit der rechten Maustaste öffnet man ein (hoffentlich selbsterklärendes) Menü

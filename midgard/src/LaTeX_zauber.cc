@@ -1,4 +1,4 @@
-// $Id: LaTeX_zauber.cc,v 1.33 2001/11/08 10:15:43 thoma Exp $
+// $Id: LaTeX_zauber.cc,v 1.34 2001/12/17 14:53:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -66,6 +66,8 @@ void midgard_CG::LaTeX_zaubermittel()
 void midgard_CG::LaTeX_zauber_main(void)
 {
   ofstream fout ("midgard_tmp_document_zauber.tex");
+  LaTeX_header(fout);
+/*
   fout << "\\documentclass[a4paper,10pt,landscape]{article}\n";
   fout << "\\usepackage{german}\n\\usepackage[latin2]{inputenc}\n";
    fout << "\\usepackage[final]{epsfig}\n";
@@ -98,6 +100,7 @@ void midgard_CG::LaTeX_zauber_main(void)
    fout <<"\\IfFileExists{dracher.ps}{\\parbox{10cm}{\\epsfig{width=10cm,angle=0,file=dracher.ps}}}\n";
    fout <<"{\\parbox{10cm}{\\epsfig{width=10cm,angle=0,file="PACKAGE_DATA_DIR"dracher.ps}}}\n";
    fout <<"\\vspace*{2ex}\n";
+*/
   fout << "\\begin{tabular}{lcclccclcclp{3cm}l}\\hline\n";
   fout << " & Erfolgs- & &&&Zauber-&Reich-&\\multicolumn{1}{c}{Wirkungs-}&Wirkungs-&"
        <<"  Wirkungs-&\\multicolumn{1}{c}{Ur-}&\\multicolumn{1}{c}{Material}&\\multicolumn{1}{c}{Prozess}\\\\ \n";
@@ -116,6 +119,7 @@ void midgard_CG::LaTeX_zauber_main(void)
      fout << "\\input{midgard_tmp_myzaubermittel.tex}\n";
      fout << "\\end{tabular}\n";
    }
-  fout << "\\end{center}\n";
-  fout << "\\end{document}\n\n";
+  LaTeX_footer(fout);
+//  fout << "\\end{center}\n";
+//  fout << "\\end{document}\n\n";
 }

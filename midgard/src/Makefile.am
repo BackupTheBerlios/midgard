@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.79 2001/12/13 21:53:48 thoma Exp $
+# $Id: Makefile.am,v 1.80 2001/12/17 14:53:58 thoma Exp $
 
 USE_XML=$(shell if test `hostname` = "puck" ; then echo -DUSE_XML ; fi)
 
@@ -144,6 +144,7 @@ midgard_SOURCES = \
    steigern_EP.cc \
    xml_fileselection.cc \
    xml_fileselection_glade.cc \
+   LaTeX_header.cc \
 	LaTeX_out.cc \
    LaTeX_zauber.cc \
    LaTeX_kido.cc \

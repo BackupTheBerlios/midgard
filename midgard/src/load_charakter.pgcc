@@ -25,8 +25,6 @@ exec sql include sqlca;
 #include "xml_fileselection.hh"
 #include <Sprache.hh>
 #include <Schrift.hh>
-//#include <Spezies.hh>
-//#include <class_waffen.hh>
  
 gint midgard_CG::on_laden_release_event(GdkEventButton *ev)
 {
@@ -53,8 +51,6 @@ void midgard_CG::xml_import(const std::string& datei)
 void midgard_CG::on_laden_clicked()
 {
  on_neuer_charakter_clicked();
-//  if (werte.name_charakter =="") manage (new Window_charakter_auswahl(this));
-//  else midgard_CG::load_charakter();
  manage (new Window_charakter_auswahl(this));
 }
 
@@ -291,7 +287,7 @@ void midgard_CG::load_ausruestung()
   std::string squery = "select fertigkeit,wert,magisch,sl_bonus
       from charaktere_fertigkeiten
       where charakter_name='"+Werte.Name_Charakter()+"' and 
-            version ='"+Werte.Version()+"' and art=='Ausruestung'
+            version ='"+Werte.Version()+"' and art='Ausruestung'
             and av_bonus="+itos(0);
   strncpy(query,squery.c_str(),sizeof(query));
   exec sql prepare AFEIN_ from :query;
@@ -310,42 +306,51 @@ void midgard_CG::load_ausruestung()
       A->setParent(&besitz);
       load_ausruestung_C(adb_self,*A);
     }
+  exec sql close AFEIN;
+  tr.close();
 }
 
 void midgard_CG::load_ausruestung_C(int parent,AusruestungBaum &AB)
 {
   exec sql begin declare section;
-    char adb_name[50];
-    char adb_vers[50];
-    char adb_art[50],adb_fert[50],adb_magisch[50];
-    int adb_wert,adb_self;
-    char query[1024];
+    char acdb_name[50];
+    char acdb_vers[50];
+    char acdb_art[50],acdb_fert[50],acdb_magisch[50];
+    int acdb_wert,acdb_self;
+    char cquery[1024];
   exec sql end declare section;
-  strncpy(adb_name,Werte.Name_Charakter().c_str(),sizeof(adb_name));
-  strncpy(adb_vers,Werte.Version().c_str(),sizeof(adb_vers));
-  strncpy(adb_art,"Ausruestung",sizeof(adb_art));
-  std::string squery = "select fertigkeit,wert,magisch,sl_bonus
-      from charaktere_fertigkeiten
-      where charakter_name='"+Werte.Name_Charakter()+"' and 
-            version ='"+Werte.Version()+"' and art=='Ausruestung'
-            and av_bonus="+itos(parent);
-  strncpy(query,squery.c_str(),sizeof(query));
-  exec sql prepare ACFEIN_ from :query;
-  exec sql declare ACFEIN cursor for AFEIN_;
+  strncpy(acdb_name,Werte.Name_Charakter().c_str(),sizeof(acdb_name));
+  strncpy(acdb_vers,Werte.Version().c_str(),sizeof(acdb_vers));
+  strncpy(acdb_art,"Ausruestung",sizeof(acdb_art));
+  std::string squery = "select fertigkeit,wert,magisch,sl_bonus "
+      "from charaktere_fertigkeiten "
+      "where charakter_name='"+Werte.Name_Charakter()+"' and "
+            "version ='"+Werte.Version()+"' and art='Ausruestung' "
+            "and av_bonus="+itos(parent);
+  strncpy(cquery,squery.c_str(),sizeof(cquery));
+cout << cquery<<'\n'<<parent<<'\n';
+  exec sql prepare LCFEIN_ from :cquery;
+  exec sql declare LCFEIN cursor for LFEIN_;
   Transaction tr;
-  exec sql open ACFEIN;
+  exec sql open LCFEIN;
   SQLerror::test(__FILELINE__);
   while(true)
     {
       //av_bonus entspricht dem Parent
       //sl_bonus dem self
-      exec sql fetch ACFEIN into :adb_fert, :adb_wert,:adb_magisch, :adb_self;
+      //wert entspricht sichtbar
+      exec sql fetch LCFEIN into :acdb_fert, :acdb_wert,:acdb_magisch, :acdb_self;
+//cout << "Eingelesen: ";
+//cout << acdb_fert<<'-'<<acdb_wert<<'-'<<acdb_magisch<<'-'<<acdb_self<<'-'<<'\n';
       SQLerror::test(__FILELINE__,100);
       if (sqlca.sqlcode) break;
-      AusruestungBaum *A = &AB.push_back(Ausruestung(adb_fert,adb_magisch,adb_wert));
+      AusruestungBaum *A = &AB.push_back(Ausruestung(acdb_fert,acdb_magisch,acdb_wert));
       A->setParent(&AB);
-      load_ausruestung_C(adb_self,*A);
+//cout << "Child: "<<acdb_self<<' '<<parent<<'\n';
+      load_ausruestung_C(acdb_self,*A);
     }
+  exec sql close LCFEIN;
+  tr.close();
 }
 
 void midgard_CG::load_fertigkeiten()

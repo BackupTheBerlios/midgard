@@ -1,4 +1,4 @@
-// $Id: LaTeX_kido.cc,v 1.26 2001/11/14 09:29:52 thoma Exp $
+// $Id: LaTeX_kido.cc,v 1.27 2001/12/17 14:53:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -46,6 +46,8 @@ void midgard_CG::LaTeX_kido()
 void midgard_CG::LaTeX_kido_main(void)
 {
   ofstream fout ("midgard_tmp_document_kido.tex");
+  LaTeX_header(fout);
+/*
   fout << "\\documentclass[a4paper,10pt,landscape]{article}\n";
   fout << "\\usepackage{german}\n\\usepackage[latin2]{inputenc}\n";
    fout << "\\usepackage[final]{epsfig}\n";
@@ -78,12 +80,17 @@ void midgard_CG::LaTeX_kido_main(void)
    fout <<"\\IfFileExists{dracher.ps}{\\parbox{10cm}{\\epsfig{width=10cm,angle=0,file=dracher.ps}}}\n";
    fout <<"{\\parbox{10cm}{\\epsfig{width=10cm,angle=0,file="PACKAGE_DATA_DIR"dracher.ps}}}\n";
    fout <<"\\vspace*{2ex}\n";
+*/
+
   fout << "\\begin{tabular}{rllcp{17cm}}\n";
   fout << "\\multicolumn{5}{l}{\\large\\bf Erfolgswert KiDo: "
          <<KiDo::get_erfolgswert_kido(list_Fertigkeit)+Werte.bo_Za()<<"}\\\\\\hline\n";
   fout << " AP & HoHo & Technik & Stufe & Effekt \\\\\\hline \n";
   fout << "\\input{midgard_tmp_mykido.tex}\n";
   fout << "\\end{tabular}\n";
+  LaTeX_footer(fout);
+/*
   fout << "\\end{center}\n";
   fout << "\\end{document}\n\n";
+*/
 }

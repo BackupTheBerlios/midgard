@@ -136,19 +136,19 @@ void Window_angeb_fert::gewuerfelt()
 
 bool Window_angeb_fert::Sinn(int wurf,int wert)
 {
-  if( 1<=wurf && wurf<= 2) Werte.set_Sinn("Sehen",wert);
-  if( 3<=wurf && wurf<= 4) Werte.set_Sinn("Hören",wert);
-  if( 5<=wurf && wurf<= 6) Werte.set_Sinn("Riechen",wert);
-  if( 7<=wurf && wurf<= 8) Werte.set_Sinn("Schmecken",wert);
-  if( 9<=wurf && wurf<=10) Werte.set_Sinn("Tasten",wert);
-  if(11<=wurf && wurf<=20) Werte.set_Sinn("Sehen",wert);
-  if(21<=wurf && wurf<=30) Werte.set_Sinn("Hören",wert);
-  if(31<=wurf && wurf<=40) Werte.set_Sinn("Riechen",wert);
-  if(41<=wurf && wurf<=50) Werte.set_Sinn("Schmecken",wert);
-  if(51<=wurf && wurf<=60) Werte.set_Sinn("Tasten",wert);
-  if(61<=wurf && wurf<=65) Werte.set_Sinn("Sechster Sinn",wert);
+  if     ( 1<=wurf && wurf<= 2) Werte.set_Sinn("Sehen",wert);
+  else if( 3<=wurf && wurf<= 4) Werte.set_Sinn("Hören",wert);
+  else if( 5<=wurf && wurf<= 6) Werte.set_Sinn("Riechen",wert);
+  else if( 7<=wurf && wurf<= 8) Werte.set_Sinn("Schmecken",wert);
+  else if( 9<=wurf && wurf<=10) Werte.set_Sinn("Tasten",wert);
+  else if(11<=wurf && wurf<=20) Werte.set_Sinn("Sehen",wert);
+  else if(21<=wurf && wurf<=30) Werte.set_Sinn("Hören",wert);
+  else if(31<=wurf && wurf<=40) Werte.set_Sinn("Riechen",wert);
+  else if(41<=wurf && wurf<=50) Werte.set_Sinn("Schmecken",wert);
+  else if(51<=wurf && wurf<=60) Werte.set_Sinn("Tasten",wert);
+  else if(61<=wurf && wurf<=65) Werte.set_Sinn("Sechster Sinn",wert);
 
-  if (wurf<=60) return true;
+  else return true;
   return false;
 }
 

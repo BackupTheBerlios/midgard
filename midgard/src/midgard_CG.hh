@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.106 2001/12/17 09:38:17 thoma Exp $
+// $Id: midgard_CG.hh,v 1.107 2001/12/17 14:53:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -251,6 +251,8 @@ class midgard_CG : public midgard_CG_glade
         void LaTeX_zaubermittel();
         void LaTeX_kido_main();
         void LaTeX_kido();
+        void LaTeX_header(ofstream &fout,bool landscape=true);
+        void LaTeX_footer(ofstream &fout);
         std::string LaTeX_string(int i);
         void on_schliessen_CG_clicked();
         void on_lernpunkte_wuerfeln_clicked();
@@ -406,6 +408,7 @@ class midgard_CG : public midgard_CG_glade
         void ausruestung_laden();
         void fill_preisliste();
         void on_button_ausruestung_druck_clicked();
+        void ausruestung_druck(ofstream &fout,const list<AusruestungBaum> &AB,int deep);
         void on_clist_preisliste_select_row(gint row, gint column, GdkEvent *event);
         void on_preise_leaf_selected(cH_RowDataBase d);        
         void on_button_modi_clicked();
