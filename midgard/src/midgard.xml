@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MidgardCG-data XML-Verzeichnis="../xml">
- <MCG-include File="Regelwerk4.xml"/>
- <MCG-include File="Arkanum.xml"/>
- <MCG-include File="MeisterDerSphaeren.xml" inactive="true"/>
- <MCG-include File="TippsTricks.xml" inactive="true"/>
- <MCG-include File="Alba.xml"/>
- <MCG-include File="Eschar.xml"/>
- <MCG-include File="KanThaiPan.xml"/>
- <MCG-include File="Nahuatlan.xml"/>
- <MCG-include File="Waeland.xml"/>
- <MCG-include File="Rawindra.xml"/>
- <MCG-include File="Gildenbrief.xml"/>
- <MCG-include File="HexenzauberDruidenkraft.xml"/>
- <MCG-include File="BarbarenWutRitterEhre.xml" inactive="true"/>
- <MCG-include File="Regelwerk3.xml" inactive="true"/>
-</MidgardCG-data>
+<MAGUS-data XML-Verzeichnis="../xml">
+ <MAGUS-include File="Regelwerk4.xml"/>
+ <MAGUS-include File="Arkanum.xml"/>
+ <MAGUS-include File="MeisterDerSphaeren.xml" inactive="true"/>
+ <MAGUS-include File="TippsTricks.xml" inactive="true"/>
+ <MAGUS-include File="Alba.xml"/>
+ <MAGUS-include File="Eschar.xml"/>
+ <MAGUS-include File="KanThaiPan.xml"/>
+ <MAGUS-include File="Nahuatlan.xml"/>
+ <MAGUS-include File="Waeland.xml"/>
+ <MAGUS-include File="Rawindra.xml"/>
+ <MAGUS-include File="Gildenbrief.xml"/>
+ <MAGUS-include File="HexenzauberDruidenkraft.xml"/>
+ <MAGUS-include File="BarbarenWutRitterEhre.xml" inactive="true"/>
+ <MAGUS-include File="Regelwerk3.xml" inactive="true"/>
+</MAGUS-data>
