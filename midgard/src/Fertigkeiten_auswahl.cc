@@ -28,14 +28,16 @@
 #include <cstring>
 #include <Gtk_OStream.h>
 #include "Sprache_auswahl.hh"
-//#include "Ausnahmen.hh"
 #include "Pflicht.hh"
 
-Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const midgard_CG::st_Database& dat,const vector<cH_Typen>& Typ,
+Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,
+     const midgard_CG::st_Database& dat,const vector<cH_Typen>& Typ,
      int lernpunkte, const Grundwerte& Werte,
-     const std::list<cH_MidgardBasicElement> _list_Sprache,
-     const std::list<cH_MidgardBasicElement> _list_Schrift)
-: Database(dat),list_Sprache(_list_Sprache),list_Schrift(_list_Schrift)
+     const std::list<cH_MidgardBasicElement>& _list_Sprache,
+     const std::list<cH_MidgardBasicElement>& _list_Schrift,
+     const std::list<cH_MidgardBasicElement>& _list_Zauber)
+: Database(dat),list_Sprache(_list_Sprache),list_Schrift(_list_Schrift),
+  list_Zauber(_list_Zauber)
 {
   hauptfenster=h;
   maxpunkte = lernpunkte;
@@ -110,7 +112,8 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const midgard_CG::st_Da
         std::string serfolgswert=itos(f->Erfolgswert());
         if (serfolgswert=="0") serfolgswert="";
         if ((f->Voraussetzungen(Werte) || Werte.Spezies()->Name()!="Mensch") &&
-             !Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name(),true))
+             !Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name(),true) &&
+             hauptfenster->region_check(f->Region()) )
          { 
             Lernschema::st_index I(Typ[0]->Short(),"Fertigkeit",(*i)->Name());
             os << (*i)->Lernpunkte() <<"\t"<<f->Voraussetzung()<<"\t"

@@ -6,7 +6,9 @@ exec sql include sqlca;
 #include "Typen.hh"
 #include "Waffe.hh"
 #include "Zauber.hh"
+#include "Zauberwerk.hh"
 #include "Fertigkeiten.hh"
+
 
 Lernschema::Lernschema(Gtk::ProgressBar *progressbar)
 {

@@ -110,7 +110,7 @@ bool Beruf::Voraussetzungen(const Grundwerte& Werte,const vector<cH_Typen>& Typ)
       voraussetzung.pa<=Werte.pA() &&
       voraussetzung.sb<=Werte.Sb() &&
       voraussetzung.geschlecht!=Werte.Geschlecht() &&
-      voraussetzung.typ!=Typ[0]->Zaubern() 
+      voraussetzung.typ==Typ[0]->Zaubern() 
      )   
     return true;
  else return false ;

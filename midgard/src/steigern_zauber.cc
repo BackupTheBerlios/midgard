@@ -240,7 +240,7 @@ void midgard_CG::zauberwerk_laden()
    cH_Zauberwerk z(*i);
    if ((*i)->ist_gelernt(list_Zauberwerk)) continue ;
    if (((*i)->ist_lernbar(Typ,z->get_MapTyp()) 
-         && Zauberwerk::zauberwerk_voraussetzung(z->Name(),Werte)) 
+         && z->Voraussetzungen(list_Zauber)) 
          || checkbutton_alle_zauber->get_active() )
     if (region_check(z->Region()) )
       list_Zauberwerk_neu.push_back(*i);

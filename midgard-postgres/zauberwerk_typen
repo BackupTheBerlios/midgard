@@ -106,14 +106,6 @@ Heiltrunk (1W6) aktivieren	2	wHx	S
 Krafttrunk (1W6) aktivieren	1	wHx	S
 Krafttrunk (2W6) aktivieren	2	wHx	S
 Kraut der konzentrierten Energie	4	wHx	S
-Kriegsbemalung	1	wHx	A
-Kriegsbemalung	2	wHx	A
-Kriegsbemalung	3	wHx	A
-Kriegsbemalung	4	wHx	A
-Körperbemalung	1	wHx	A
-Körperbemalung	2	wHx	A
-Körperbemalung	3	wHx	A
-Körperbemalung	4	wHx	A
 Liebestrank aktivieren	3	wHx	G
 Pulver der Panzerhaut aktivieren	3	wHx	S
 Rauchperle aktivieren	3	wHx	S
@@ -174,14 +166,6 @@ Hauch des Winters	1	Th	G
 Krafttrunk (1W6) aktivieren	1	Th	G
 Krafttrunk (2W6) aktivieren	2	Th	G
 Kraut der konzentrierten Energie	4	Th	G
-Kriegsbemalung	1	Th	G
-Kriegsbemalung	2	Th	G
-Kriegsbemalung	3	Th	G
-Kriegsbemalung	4	Th	G
-Körperbemalung	1	Th	G
-Körperbemalung	2	Th	G
-Körperbemalung	3	Th	G
-Körperbemalung	4	Th	G
 Liebestrank aktivieren	3	Th	G
 Liebeszauber	4	Th	G
 Lähmung	5	Th	G
@@ -245,14 +229,6 @@ Heiltrunk (1W6) aktivieren	2	Dr	S
 Krafttrunk (1W6) aktivieren	1	Dr	S
 Krafttrunk (2W6) aktivieren	2	Dr	S
 Kraut der konzentrierten Energie	4	Dr	S
-Kriegsbemalung	1	Dr	A
-Kriegsbemalung	2	Dr	A
-Kriegsbemalung	3	Dr	A
-Kriegsbemalung	4	Dr	A
-Körperbemalung	1	Dr	A
-Körperbemalung	2	Dr	A
-Körperbemalung	3	Dr	A
-Körperbemalung	4	Dr	A
 Liebestrank aktivieren	3	Dr	S
 Pulver der Panzerhaut aktivieren	3	Dr	S
 Rauchperle aktivieren	3	Dr	S
@@ -315,14 +291,6 @@ Heiltrunk (1W6) aktivieren	2	gHx	S
 Krafttrunk (1W6) aktivieren	1	gHx	S
 Krafttrunk (2W6) aktivieren	2	gHx	S
 Kraut der konzentrierten Energie	4	gHx	S
-Kriegsbemalung	1	gHx	A
-Kriegsbemalung	2	gHx	A
-Kriegsbemalung	3	gHx	A
-Kriegsbemalung	4	gHx	A
-Körperbemalung	1	gHx	A
-Körperbemalung	2	gHx	A
-Körperbemalung	3	gHx	A
-Körperbemalung	4	gHx	A
 Liebestrank aktivieren	3	gHx	G
 Pulver der Panzerhaut aktivieren	3	gHx	S
 Rauchperle aktivieren	3	gHx	S
@@ -371,14 +339,6 @@ Heiltrunk (1W6) aktivieren	2	Hl	G
 Krafttrunk (1W6) aktivieren	1	Hl	G
 Krafttrunk (2W6) aktivieren	2	Hl	G
 Kraut der konzentrierten Energie	4	Hl	G
-Kriegsbemalung	1	Hl	A
-Kriegsbemalung	2	Hl	A
-Kriegsbemalung	3	Hl	A
-Kriegsbemalung	4	Hl	A
-Körperbemalung	1	Hl	A
-Körperbemalung	2	Hl	A
-Körperbemalung	3	Hl	A
-Körperbemalung	4	Hl	A
 Liebestrank aktivieren	3	Hl	S
 Pulver der Panzerhaut aktivieren	3	Hl	S
 Rauchperle aktivieren	3	Hl	S
@@ -421,14 +381,6 @@ Dämonenamulett verzaubern	3	Ma	A
 Elementaramulett verzaubern	3	Ma	A
 Geisteramulett verzaubern	4	Ma	A
 Kraut der konzentrierten Energie	4	Ma	S
-Kriegsbemalung	1	Ma	A
-Kriegsbemalung	2	Ma	A
-Kriegsbemalung	3	Ma	A
-Kriegsbemalung	4	Ma	A
-Körperbemalung	1	Ma	A
-Körperbemalung	2	Ma	A
-Körperbemalung	3	Ma	A
-Körperbemalung	4	Ma	A
 Liebestrank aktivieren	3	Ma	S
 Pulver der Panzerhaut aktivieren	3	Ma	S
 Rauchperle aktivieren	3	Ma	S
@@ -478,14 +430,6 @@ Heiltrunk (1W6) aktivieren	2	PC	S
 Krafttrunk (1W6) aktivieren	1	PC	S
 Krafttrunk (2W6) aktivieren	2	PC	S
 Kraut der konzentrierten Energie	4	PC	S
-Kriegsbemalung	1	PC	S
-Kriegsbemalung	2	PC	S
-Kriegsbemalung	3	PC	S
-Kriegsbemalung	4	PC	S
-Körperbemalung	1	PC	S
-Körperbemalung	2	PC	S
-Körperbemalung	3	PC	S
-Körperbemalung	4	PC	S
 Liebestrank aktivieren	3	PC	S
 Pulver der Panzerhaut aktivieren	3	PC	S
 Rauchperle aktivieren	3	PC	S
@@ -533,14 +477,6 @@ Heiltrunk (1W6) aktivieren	2	PF	S
 Krafttrunk (1W6) aktivieren	1	PF	S
 Krafttrunk (2W6) aktivieren	2	PF	S
 Kraut der konzentrierten Energie	4	PF	S
-Kriegsbemalung	1	PF	S
-Kriegsbemalung	2	PF	S
-Kriegsbemalung	3	PF	S
-Kriegsbemalung	4	PF	S
-Körperbemalung	1	PF	S
-Körperbemalung	2	PF	S
-Körperbemalung	3	PF	S
-Körperbemalung	4	PF	S
 Liebestrank aktivieren	3	PF	S
 Pulver der Panzerhaut aktivieren	3	PF	S
 Rauchperle aktivieren	3	PF	S
@@ -590,14 +526,6 @@ Heiltrunk (1W6) aktivieren	2	PHa	S
 Krafttrunk (1W6) aktivieren	1	PHa	S
 Krafttrunk (2W6) aktivieren	2	PHa	S
 Kraut der konzentrierten Energie	4	PHa	S
-Kriegsbemalung	1	PHa	S
-Kriegsbemalung	2	PHa	S
-Kriegsbemalung	3	PHa	S
-Kriegsbemalung	4	PHa	S
-Körperbemalung	1	PHa	S
-Körperbemalung	2	PHa	S
-Körperbemalung	3	PHa	S
-Körperbemalung	4	PHa	S
 Liebestrank aktivieren	3	PHa	S
 Pulver der Panzerhaut aktivieren	3	PHa	S
 Rauchperle aktivieren	3	PHa	S
@@ -645,14 +573,6 @@ Heiltrunk (1W6) aktivieren	2	PHe	S
 Krafttrunk (1W6) aktivieren	1	PHe	S
 Krafttrunk (2W6) aktivieren	2	PHe	S
 Kraut der konzentrierten Energie	4	PHe	S
-Kriegsbemalung	1	PHe	S
-Kriegsbemalung	2	PHe	S
-Kriegsbemalung	3	PHe	S
-Kriegsbemalung	4	PHe	S
-Körperbemalung	1	PHe	S
-Körperbemalung	2	PHe	S
-Körperbemalung	3	PHe	S
-Körperbemalung	4	PHe	S
 Liebestrank aktivieren	3	PHe	S
 Pulver der Panzerhaut aktivieren	3	PHe	S
 Rauchperle aktivieren	3	PHe	S
@@ -701,14 +621,6 @@ Heiltrunk (1W6) aktivieren	2	PK	S
 Krafttrunk (1W6) aktivieren	1	PK	S
 Krafttrunk (2W6) aktivieren	2	PK	S
 Kraut der konzentrierten Energie	4	PK	S
-Kriegsbemalung	1	PK	S
-Kriegsbemalung	2	PK	S
-Kriegsbemalung	3	PK	S
-Kriegsbemalung	4	PK	S
-Körperbemalung	1	PK	S
-Körperbemalung	2	PK	S
-Körperbemalung	3	PK	S
-Körperbemalung	4	PK	S
 Liebestrank aktivieren	3	PK	S
 Pulver der Panzerhaut aktivieren	3	PK	S
 Rauchperle aktivieren	3	PK	S
@@ -756,14 +668,6 @@ Heiltrunk (1W6) aktivieren	2	PM	S
 Krafttrunk (1W6) aktivieren	1	PM	S
 Krafttrunk (2W6) aktivieren	2	PM	S
 Kraut der konzentrierten Energie	4	PM	S
-Kriegsbemalung	1	PM	S
-Kriegsbemalung	2	PM	S
-Kriegsbemalung	3	PM	S
-Kriegsbemalung	4	PM	S
-Körperbemalung	1	PM	S
-Körperbemalung	2	PM	S
-Körperbemalung	3	PM	S
-Körperbemalung	4	PM	S
 Liebestrank aktivieren	3	PM	S
 Pulver der Panzerhaut aktivieren	3	PM	S
 Rauchperle aktivieren	3	PM	S
@@ -811,14 +715,6 @@ Heiltrunk (1W6) aktivieren	2	PT	S
 Krafttrunk (1W6) aktivieren	1	PT	S
 Krafttrunk (2W6) aktivieren	2	PT	S
 Kraut der konzentrierten Energie	4	PT	S
-Kriegsbemalung	1	PT	S
-Kriegsbemalung	2	PT	S
-Kriegsbemalung	3	PT	S
-Kriegsbemalung	4	PT	S
-Körperbemalung	1	PT	S
-Körperbemalung	2	PT	S
-Körperbemalung	3	PT	S
-Körperbemalung	4	PT	S
 Pulver der Panzerhaut aktivieren	3	PT	S
 Rauchperle aktivieren	3	PT	S
 Reckentrunk aktivieren	2	PT	S
@@ -865,14 +761,6 @@ Heiltrunk (1W6) aktivieren	2	PW	S
 Krafttrunk (1W6) aktivieren	1	PW	S
 Krafttrunk (2W6) aktivieren	2	PW	S
 Kraut der konzentrierten Energie	4	PW	S
-Kriegsbemalung	1	PW	S
-Kriegsbemalung	2	PW	S
-Kriegsbemalung	3	PW	S
-Kriegsbemalung	4	PW	S
-Körperbemalung	1	PW	S
-Körperbemalung	2	PW	S
-Körperbemalung	3	PW	S
-Körperbemalung	4	PW	S
 Liebestrank aktivieren	3	PW	S
 Pulver der Panzerhaut aktivieren	3	PW	S
 Rauchperle aktivieren	3	PW	S
@@ -919,14 +807,6 @@ Geisteramulett verzaubern	4	Sc	S
 Heiltrunk (1W6) aktivieren	2	Sc	S
 Krafttrunk (1W6) aktivieren	1	Sc	S
 Krafttrunk (2W6) aktivieren	2	Sc	S
-Kriegsbemalung	1	Sc	S
-Kriegsbemalung	2	Sc	S
-Kriegsbemalung	3	Sc	S
-Kriegsbemalung	4	Sc	S
-Körperbemalung	1	Sc	S
-Körperbemalung	2	Sc	S
-Körperbemalung	3	Sc	S
-Körperbemalung	4	Sc	S
 Liebestrank aktivieren	3	Sc	S
 Pulver der Panzerhaut aktivieren	3	Sc	S
 Rauchperle aktivieren	3	Sc	S
@@ -976,14 +856,6 @@ Heiltrunk (1W6) aktivieren	2	sHx	S
 Krafttrunk (1W6) aktivieren	1	sHx	S
 Krafttrunk (2W6) aktivieren	2	sHx	S
 Kraut der konzentrierten Energie	4	sHx	S
-Kriegsbemalung	1	sHx	A
-Kriegsbemalung	2	sHx	A
-Kriegsbemalung	3	sHx	A
-Kriegsbemalung	4	sHx	A
-Körperbemalung	1	sHx	A
-Körperbemalung	2	sHx	A
-Körperbemalung	3	sHx	A
-Körperbemalung	4	sHx	A
 Liebestrank aktivieren	3	sHx	G
 Pulver der Panzerhaut aktivieren	3	sHx	S
 Rauchperle aktivieren	3	sHx	S

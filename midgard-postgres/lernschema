@@ -4,7 +4,7 @@
 DROP INDEX "lernschema_typ_fertigkeit_p_ele";
 DROP TABLE "lernschema";
 --
--- TOC Entry ID 2 (OID 19988292)
+-- TOC Entry ID 2 (OID 26666072)
 --
 -- Name: lernschema Type: TABLE Owner: thoma
 --
@@ -22,7 +22,7 @@ CREATE TABLE "lernschema" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 19988292) TABLE DATA lernschema
+-- Data for TOC Entry ID 4 (OID 26666072) TABLE DATA lernschema
 --
 
 COPY "lernschema"  FROM stdin;
@@ -51,7 +51,6 @@ Sp	f	Wurfspeer	Waffe	5	\N	2	\N	\N
 Sp	f	Zeichensprache	Fertigkeit	1	\N	1	\N	\N
 Th	f	Blasrohr	Waffe	4	\N	4	\N	\N
 Th	f	Dolch	Waffe	4	\N	2	\N	\N
-Th	f	Körperbemalung	Fertigkeit	1	\N	2	\N	\N
 Th	f	leichte Armbrust	Waffe	4	\N	6	\N	\N
 Th	f	Magierstab	Waffe	4	\N	6	\N	\N
 Th	f	Talisman verzaubern	Fertigkeit	1	\N	2	\N	\N
@@ -184,6 +183,7 @@ PH	f	waffenloser Kampf	Waffe	4	\N	9	\N	\N
 Ri	f	Krummsäbel	Waffe	5	\N	1	\N	\N
 Ri	f	Kurzschwert	Waffe	5	\N	2	\N	\N
 Ri	f	Langschwert	Waffe	5	\N	1	\N	\N
+Ri	t	großer Schild	Waffe	1	\N	1	\N	\N
 Ri	f	Lanzenstechen	Fertigkeit	1	\N	2	\N	\N
 Ri	f	Morgenstern	Waffe	5	\N	2	\N	\N
 Ri	f	Musizieren	Fertigkeit	1	\N	2	\N	\N
@@ -197,7 +197,6 @@ Sa	f	Musizieren	Fertigkeit	1	\N	2	\N	\N
 Ord	f	Streitaxt	Waffe	5	\N	1	\N	\N
 Sc	f	Dolch	Waffe	4	\N	2	\N	\N
 Sc	f	Keule	Waffe	4	\N	2	\N	\N
-Sc	f	Körperbemalung	Fertigkeit	1	\N	2	\N	\N
 Sc	f	leichter Speer	Waffe	4	\N	2	\N	\N
 Sc	f	Speerschleuder	Waffe	4	\N	4	\N	\N
 Sc	f	Stabkeule	Waffe	4	\N	4	\N	\N
@@ -281,6 +280,7 @@ Ny	f	Langschwert	Waffe	5	\N	2	\N	\N
 Ny	f	leichte Armbrust	Waffe	5	\N	2	\N	\N
 Ny	f	Morgenstern	Waffe	5	\N	3	\N	\N
 Ny	f	Naginata	Waffe	5	\N	2	\N	\N
+Ri	t	kleiner Schild	Waffe	1	\N	1	\N	\N
 Ny	f	Sai	Waffe	5	\N	1	\N	\N
 Ord	f	Wurfmesser	Waffe	5	\N	3	\N	\N
 Ny	f	Wurfstern	Waffe	5	\N	1	\N	\N
@@ -316,6 +316,7 @@ Kd	f	Langbogen	Waffe	5	\N	3	\N	\N
 Kd	f	leichte Armbrust	Waffe	5	\N	3	\N	\N
 Kd	f	Morgenstern	Waffe	5	\N	1	\N	\N
 Kd	f	Naginata	Waffe	5	\N	3	\N	\N
+Ri	t	Lanze	Waffe	5	\N	1	\N	\N
 Kd	f	Sai	Waffe	5	\N	1	\N	\N
 Kd	f	Tonfa	Waffe	5	\N	1	\N	\N
 Ord	f	Wurfspeer	Waffe	5	\N	1	\N	\N
@@ -1126,24 +1127,20 @@ Kd	f	Lesen/Schreiben	Fertigkeit	2	\N	2	\N	\N
 Wa	f	großer Schild	Waffe	1	\N	2	\N	\N
 Sk	f	großer Schild	Waffe	1	\N	2	\N	\N
 Sö	f	großer Schild	Waffe	1	\N	1	\N	\N
+dBe	f	Dunebrast 1 beschwören	Zauber	\N	\N	2	\N	\N
 Se	f	großer Schild	Waffe	1	\N	2	\N	\N
 PK	f	großer Schild	Waffe	1	\N	3	\N	\N
 PM	f	großer Schild	Waffe	1	\N	3	\N	\N
 PF	f	großer Schild	Waffe	1	\N	3	\N	\N
-Ri	t	großer Schild	Waffe	1	\N	1	\N	\N
-Ri	t	kleiner Schild	Waffe	1	\N	1	\N	\N
-Ri	t	Lanze	Waffe	5	\N	1	\N	\N
-Th	f	Augensalbe herstellen	Zauberwerk	\N	\N	3	\N	\N
-Th	f	Augensalbe herstellen	Zauberwerk	\N	\N	3	\N	\N
-Sc	f	Kriegsbemalung	Zauberwerk	1	\N	2	\N	\N
-Th	f	Kriegsbemalung	Zauberwerk	1	\N	2	\N	\N
-dBe	f	Dunebrast 1 beschwören	Zauber	\N	\N	2	\N	\N
+Th	f	Augensalbe herstellen	Fertigkeit	\N	\N	3	\N	\N
 dBe	f	Dunebrast 2 beschwören	Zauber	\N	\N	4	\N	\N
 Ny	f	NunChaku	Waffe	5	\N	2	\N	\N
 Kd	f	NunChaku	Waffe	5	\N	1	\N	\N
 Ord	f	kleiner Schild	Waffe	1	\N	1	\N	\N
 Sc	f	Körperbemalung	Fertigkeit	1	\N	2	\N	\N
 Th	f	Körperbemalung	Fertigkeit	1	\N	2	\N	\N
+Sc	f	Kriegsbemalung	Fertigkeit	1	\N	2	\N	\N
+Th	f	Kriegsbemalung	Fertigkeit	1	\N	2	\N	\N
 Sr	f	Dolch	Waffe	5	\N	1	\N	\N
 Sr	f	Krummsäbel	Waffe	5	\N	1	\N	\N
 Sr	f	Kurzschwert	Waffe	5	\N	1	\N	\N
@@ -1198,7 +1195,7 @@ Kd	t	KiDo	Fertigkeit	10	Zt	1	\N	\N
 Kr	t	Kampf in Vollrüstung	Fertigkeit	\N	\N	1	\N	\N
 \.
 --
--- TOC Entry ID 3 (OID 19988292)
+-- TOC Entry ID 3 (OID 26666072)
 --
 -- Name: "lernschema_typ_fertigkeit_p_ele" Type: INDEX Owner: thoma
 --

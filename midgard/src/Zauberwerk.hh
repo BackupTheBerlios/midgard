@@ -14,12 +14,17 @@ class Zauberwerk : public MidgardBasicElement
 
    enum MBEE What() const {return MidgardBasicElement::ZAUBERWERK;}
    std::string What_str() const {return "Zauberwerk";}
+   struct st_vor{std::string voraussetzung; std::string op;
+          st_vor(){};
+          st_vor(std::string v,std::string o) 
+               : voraussetzung(v),op(o){} };
+   std::vector<st_vor> vec_vor;
 
-
+   void getVoraussetzungen();
    void get_Zauberwerk();
  public: 
    Zauberwerk(const std::string& n) 
-      : name(n) {get_Zauberwerk();get_map_typ();} 
+      : name(n) {get_Zauberwerk();get_map_typ();getVoraussetzungen();} 
 
    std::string Name() const {  return name; }
    std::string Art() const 
@@ -32,7 +37,7 @@ class Zauberwerk : public MidgardBasicElement
    std::string Region() const {return region;}
    std::string Preis() const { return preis; }
 
-   static bool zauberwerk_voraussetzung(const std::string& name,const Grundwerte& Werte);
+   bool Voraussetzungen(const std::list<cH_MidgardBasicElement>& listZauber) const;
 };
 
 class cH_Zauberwerk : public Handle<const Zauberwerk>

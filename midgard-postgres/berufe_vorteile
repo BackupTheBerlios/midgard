@@ -60,6 +60,7 @@ Bauer	Kriegsflegel
 Bauer	Wetterkunde
 Bauer	Tierkunde
 Bauer	Pflanzenkunde
+Dolmetscher	Sprache
 Baumeister	Rechnen
 Baumeister	Lesen/Schreiben
 Baumeister	Geschäftstüchtigkeit
@@ -97,12 +98,16 @@ Dieb	Stehlen
 Dieb	Geheimzeichen
 Dieb	Gassenwissen
 Diener	Menschenkenntnis
+Einbrecher	Schlösser öffnen
 Diplomat	Menschenkenntnis
 Diplomat	Lesen/Schreiben
 Diplomat	Beredsamkeit
 Dolmetscher	Lesen/Schreiben
+Höfling	Lesen/Schreiben
 Drucker	Sprache
 Drucker	Lesen/Schreiben
+Schreiner	Streitaxt
+Schreiner	Handaxt
 Einbrecher	Klettern
 Einbrecher	Gassenwissen
 Erdarbeiter	Athletik
@@ -141,6 +146,7 @@ Geldeintreiber	Faustkampf
 Geldverleiher	Lesen/Schreiben
 Geldverleiher	Rechnen
 Gelehrter	Sprache
+Spieler	Wahrnehmung
 Gelehrter	Sagenkunde
 Gelehrter	Lesen/Schreiben
 Gerber	Dolch
@@ -187,6 +193,7 @@ Viehzüchter	Tierkunde
 Hirte	Überleben
 Hirte	Tierkunde
 Höfling	Tanzen
+Tierarzt	Erste Hilfe
 Höfling	Beredsamkeit
 Hofnarr	Wahrnehmung
 Hofnarr	Jonglieren
@@ -225,6 +232,7 @@ Karawanenführer	Überleben in der Wüste
 Karawanenführer	Reiten
 Karawanenführer	Himmelskunde
 Kartograph	Naturkunde
+Zahnausreißer	Erste Hilfe
 Kartograph	Lesen/Schreiben
 Kaufmann	Geschäftstüchtigkeit
 Kaufmann	Beredsamkeit
@@ -253,6 +261,7 @@ Kurtisane	Verführen
 Kürschner	Geschäftstüchtigkeit
 Kunstmaler	Kalligraphie
 Kunstmaler	Sagenkunde
+Dewadasi	Verführen
 Kesselflicker	Talisman verzaubern
 Kesselflicker	Geschäftstüchtigkeit
 Kupferschmied	Talisman verzaubern
@@ -261,6 +270,7 @@ Laienprediger	Lesen/Schreiben
 Laienprediger	Beredsamkeit
 Lebensmittelhändler	Beredsamkeit
 Lebensmittelhändler	Pflanzenkunde
+Seiler	Seilkunst
 Märchenerzähler	Sagenkunde
 Märchenerzähler	Beredsamkeit
 Maurer	Klettern
@@ -354,6 +364,8 @@ Schmuggler	Rudern
 Schneider	Verkleiden
 Schreiber	Sprache
 Schreiber	Lesen/Schreiben
+Strandräuber	Streitaxt
+Strandräuber	Rudern
 Schwammtaucher	Dolch
 Schwammtaucher	Tauchen
 Schwammtaucher	Schwimmen
@@ -367,9 +379,6 @@ Seemann	Seilkunst
 Seemann	Rudern
 Seemann	Klettern
 Netzmacher	Seilkunst
-Seiler	Seilkunst
-Strandräuber	Streitaxt
-Strandräuber	Rudern
 Straßenräuber	Reiten
 Straßenräuber	Krummsäbel
 Steinbrucharbeiter	Stielhammer
@@ -479,13 +488,4 @@ Pagin	Lanzenstechen
 Wächter	Hellebarde
 Märchenerzähler	Geschichten erzählen
 Diplomat	Sprache
-Dolmetscher	Sprache
-Einbrecher	Schlösser öffnen
-Höfling	Lesen/Schreiben
-Schreiner	Streitaxt
-Schreiner	Handaxt
-Spieler	Wahrnehmung
-Tierarzt	Erste Hilfe
-Zahnausreißer	Erste Hilfe
-Dewadasi	Verführen
 \.

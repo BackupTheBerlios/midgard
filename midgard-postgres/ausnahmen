@@ -48,15 +48,9 @@ Heraldik	f	\N	\N		G	Herold	\N
 Askese	f	\N	Eschar	Sc	G	\N	\N
 Askese	f	\N	Rawindra	Hl	G	\N	\N
 Augensalbe herstellen	f	\N	Rawindra	Th	G	\N	\N
-Elefenaten lenken	f	\N	Rawindra	BW	G	\N	\N
-Elefenaten lenken	f	\N	Rawindra	Gl	G	\N	\N
-Elefenaten lenken	f	\N	Rawindra	Hä	G	\N	\N
 Elefanten lenken	f	\N	Rawindra	Kr	G	\N	\N
 Elefanten lenken	f	\N	Rawindra	Sö	G	\N	\N
 Elefanten lenken	f	\N	Rawindra	PW	G	\N	\N
-Elefenaten lenken	f	\N	Minangpahit	BW	G	\N	\N
-Elefenaten lenken	f	\N	Minangpahit	Gl	G	\N	\N
-Elefenaten lenken	f	\N	Minangpahit	Hä	G	\N	\N
 Elefanten lenken	f	\N	Minangpahit	Kr	G	\N	\N
 Elefanten lenken	f	\N	Minangpahit	Sö	G	\N	\N
 Elefanten lenken	f	\N	Minangpahit	PW	G	\N	\N
@@ -220,6 +214,12 @@ Ahnengeist beschwören	z	\N	KanThaiPan	Sc	G	\N	\N
 Ahnengeist beschwören	z	\N	KanThaiPan	PC	G	\N	\N
 Großer Hitzeschutz	z	\N	KanThaiPan	Ord	G	\N	\N
 Großer Hitzeschutz	z	\N	KanThaiPan	PW	G	\N	\N
+Elefanten lenken	f	\N	Minangpahit	BW	G	\N	\N
+Elefanten lenken	f	\N	Minangpahit	Gl	G	\N	\N
+Elefanten lenken	f	\N	Minangpahit	Hä	G	\N	\N
+Elefanten lenken	f	\N	Rawindra	BW	G	\N	\N
+Elefanten lenken	f	\N	Rawindra	Gl	G	\N	\N
+Elefanten lenken	f	\N	Rawindra	Hä	G	\N	\N
 \.
 --
 -- TOC Entry ID 3 (OID 9550212)

@@ -4,7 +4,7 @@
 DROP INDEX "steigern_fertigkeiten_name";
 DROP TABLE "steigern_fertigkeiten";
 --
--- TOC Entry ID 2 (OID 19963729)
+-- TOC Entry ID 2 (OID 26665679)
 --
 -- Name: steigern_fertigkeiten Type: TABLE Owner: thoma
 --
@@ -15,7 +15,7 @@ CREATE TABLE "steigern_fertigkeiten" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 19963729) TABLE DATA steigern_fertigkeiten
+-- Data for TOC Entry ID 4 (OID 26665679) TABLE DATA steigern_fertigkeiten
 --
 
 COPY "steigern_fertigkeiten"  FROM stdin;
@@ -142,6 +142,7 @@ Kampf in Dunkelheit	Kampf in Dunkelheit
 Lanzenstechen	Lanzenstechen
 Luftkampf	-
 Malen/Zeichnen	Kalligraphie
+Körperbemalung	Talisman verzaubern
 Schlittschuhlaufen	Bewegung
 Siegelfälschung	-
 Siegelkunde	Wissen
@@ -158,9 +159,10 @@ Schmerzen ertragen	Bewegung
 Srimara lenken	Elefanten lenken
 Natya	Bewegung
 Fallenstellen	Abenteuer
+Kriegsbemalung	Talisman verzaubern
 \.
 --
--- TOC Entry ID 3 (OID 19963729)
+-- TOC Entry ID 3 (OID 26665679)
 --
 -- Name: "steigern_fertigkeiten_name" Type: INDEX Owner: thoma
 --

@@ -4,7 +4,7 @@
 DROP INDEX "fertigkeiten_fertigkeit_region";
 DROP TABLE "fertigkeiten";
 --
--- TOC Entry ID 2 (OID 26613095)
+-- TOC Entry ID 2 (OID 26665849)
 --
 -- Name: fertigkeiten Type: TABLE Owner: thoma
 --
@@ -20,7 +20,7 @@ CREATE TABLE "fertigkeiten" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 26613095) TABLE DATA fertigkeiten
+-- Data for TOC Entry ID 4 (OID 26665849) TABLE DATA fertigkeiten
 --
 
 COPY "fertigkeiten"  FROM stdin;
@@ -37,7 +37,6 @@ COPY "fertigkeiten"  FROM stdin;
 8	15	Schmerzen ertragen	12	200	R	Sb
 4	8	Schlangen beschwören	8	200	R	Sb
 6	15	Srimara lenken	12	1000	R	Ge
-8	1	Körperbemalung	1	400		\N
 5	8	Beredsamkeit	6	200		pA
 2	\N	Heraldik	0	100	B&R	In
 4	8	Beschatten	6	300		RW
@@ -174,9 +173,12 @@ COPY "fertigkeiten"  FROM stdin;
 3	8	Überleben in der Wüste	6	50		\N
 3	15	Schlittschuhlaufen	12	100	B&R	Ge
 4	\N	Rechnen	\N	100		\N
+8	1	Körperbemalung	1	400	R	\N
+8	1	Kriegsbemalung	1	400	R	\N
+8	\N		\N	\N	\N	\N
 \.
 --
--- TOC Entry ID 3 (OID 26613095)
+-- TOC Entry ID 3 (OID 26665849)
 --
 -- Name: "fertigkeiten_fertigkeit_region" Type: INDEX Owner: thoma
 --

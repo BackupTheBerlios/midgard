@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten_auswahl.hh,v 1.27 2001/11/13 15:26:57 thoma Exp $
+// $Id: Fertigkeiten_auswahl.hh,v 1.28 2001/11/19 14:36:03 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -49,15 +49,19 @@ class Fertigkeiten_auswahl : public Fertigkeiten_auswahl_glade
         void on_close_fertigkeiten_clicked();
         std::list<cH_MidgardBasicElement> list_Fert_spez;
         std::list<cH_MidgardBasicElement> list_Fert;
+        std::list<cH_MidgardBasicElement> list_Zauberwerk;
         std::list<cH_MidgardBasicElement> list_allg_Fert;
         std::list<cH_MidgardBasicElement> list_Sprache;
         std::list<cH_MidgardBasicElement> list_Schrift;
+        std::list<cH_MidgardBasicElement> list_Zauber;
         void on_fertigkeiten_clist_auswahl_select_row(gint row, gint column, GdkEvent *event);
         void on_fertigkeiten_clist_auswahl_unselect_row(gint row, gint column, GdkEvent *event);
  public:
-        Fertigkeiten_auswahl(midgard_CG* h,const midgard_CG::st_Database& Database,const vector<cH_Typen>& Typ,
+        Fertigkeiten_auswahl(midgard_CG* h,const midgard_CG::st_Database& Database,
+                 const vector<cH_Typen>& Typ,
                  int lernpunkte, const Grundwerte& Werte,
-                 const std::list<cH_MidgardBasicElement> _list_Sprache,
-                 const std::list<cH_MidgardBasicElement> _list_Schrift);
+                 const std::list<cH_MidgardBasicElement>& _list_Sprache,
+                 const std::list<cH_MidgardBasicElement>& _list_Schrift,
+                 const std::list<cH_MidgardBasicElement>& _list_Zauber);
 };
 #endif

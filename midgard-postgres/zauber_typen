@@ -4116,7 +4116,6 @@ Bannen von Fäulnis	Ma	A
 Bannen von Hrimfolk	Ma	A
 Bannen von Hrimkin	Ma	A
 Bannen von Hunar	Ma	A
-Bannen von Hyrfolk	Ma	A
 Bannen von Hyrrkin	Ma	A
 Bannen von Jördfolk	Ma	A
 Bannen von Jördkin	Ma	A
@@ -4329,7 +4328,6 @@ Bannen von Dvergar	PT	A
 Bannen von Hrimfolk	PT	A
 Bannen von Hrimkin	PT	A
 Bannen von Hunar	PT	A
-Bannen von Hyrfolk	PT	A
 Bannen von Hyrrkin	PT	A
 Bannen von Jördfolk	PT	A
 Bannen von Jördkin	PT	A
@@ -4545,7 +4543,6 @@ Bannen von Fäulnis	Sc	A
 Bannen von Hrimfolk	Sc	A
 Bannen von Hrimkin	Sc	A
 Bannen von Hunar	Sc	A
-Bannen von Hyrfolk	Sc	A
 Bannen von Hyrrkin	Sc	A
 Bannen von Jördfolk	Sc	A
 Bannen von Jördkin	Sc	A
@@ -4773,7 +4770,6 @@ Bannen von Dvergar	Th	A
 Bannen von Hrimfolk	Th	A
 Bannen von Hrimkin	Th	A
 Bannen von Hunar	Th	A
-Bannen von Hyrfolk	Th	A
 Bannen von Hyrrkin	Th	A
 Bannen von Jördfolk	Th	A
 Bannen von Jördkin	Th	A
@@ -4904,7 +4900,6 @@ Bannen von Dvergar	dBe	A
 Bannen von Hrimfolk	dBe	A
 Bannen von Hrimkin	dBe	A
 Bannen von Hunar	dBe	A
-Bannen von Hyrfolk	dBe	A
 Bannen von Hyrrkin	dBe	A
 Bannen von Jördfolk	dBe	A
 Bannen von Jördkin	dBe	A
@@ -5044,7 +5039,6 @@ Bannen von Fäulnis	Dr	A
 Bannen von Hrimfolk	Dr	A
 Bannen von Hrimkin	Dr	A
 Bannen von Hunar	Dr	A
-Bannen von Hyrfolk	Dr	A
 Bannen von Hyrrkin	Dr	A
 Bannen von Jördfolk	Dr	A
 Bannen von Jördkin	Dr	A
@@ -5135,6 +5129,7 @@ Heilen schwerer Wunden	Dr	A
 Herbeizwingen	Dr	A
 Hexenritt	Dr	A
 Hitzsalz	Dr	A
+Bannen von Hyrrfolk	Dr	A
 Hrimdvegar beschwören	Dr	A
 Hrimdverg beschwören	Dr	A
 Hrimhune beschwören	Dr	A
@@ -5262,7 +5257,6 @@ Bannen von Dvergar	PHa	A
 Bannen von Hrimfolk	PHa	A
 Bannen von Hrimkin	PHa	A
 Bannen von Hunar	PHa	A
-Bannen von Hyrfolk	PHa	A
 Bannen von Hyrrkin	PHa	A
 Bannen von Jördfolk	PHa	A
 Bannen von Jördkin	PHa	A
@@ -5475,7 +5469,6 @@ Bannen von Dvergar	PHe	A
 Bannen von Hrimfolk	PHe	A
 Bannen von Hrimkin	PHe	A
 Bannen von Hunar	PHe	A
-Bannen von Hyrfolk	PHe	A
 Bannen von Hyrrkin	PHe	A
 Bannen von Jördfolk	PHe	A
 Bannen von Jördkin	PHe	A
@@ -5698,7 +5691,6 @@ Bannen von Dvergar	Hl	A
 Bannen von Hrimfolk	Hl	A
 Bannen von Hrimkin	Hl	A
 Bannen von Hunar	Hl	A
-Bannen von Hyrfolk	Hl	A
 Bannen von Hyrrkin	Hl	A
 Bannen von Jördfolk	Hl	A
 Bannen von Jördkin	Hl	A
@@ -5925,7 +5917,6 @@ Bannen von Fäulnis	wHx	A
 Bannen von Hrimfolk	wHx	A
 Bannen von Hrimkin	wHx	A
 Bannen von Hunar	wHx	A
-Bannen von Hyrfolk	wHx	A
 Bannen von Hyrrkin	wHx	A
 Bannen von Jördfolk	wHx	A
 Bannen von Jördkin	wHx	A
@@ -6103,7 +6094,6 @@ Bannen von Fäulnis	gHx	A
 Bannen von Hrimfolk	gHx	A
 Bannen von Hrimkin	gHx	A
 Bannen von Hunar	gHx	A
-Bannen von Hyrfolk	gHx	A
 Bannen von Hyrrkin	gHx	A
 Bannen von Jördfolk	gHx	A
 Bannen von Jördkin	gHx	A
@@ -6295,7 +6285,6 @@ Bannen von Fäulnis	sHx	A
 Bannen von Hrimfolk	sHx	A
 Bannen von Hrimkin	sHx	A
 Bannen von Hunar	sHx	A
-Bannen von Hyrfolk	sHx	A
 Bannen von Hyrrkin	sHx	A
 Bannen von Jördfolk	sHx	A
 Bannen von Jördkin	sHx	A
@@ -6475,7 +6464,6 @@ Bannen von Dvergar	PF	A
 Bannen von Hrimfolk	PF	A
 Bannen von Hrimkin	PF	A
 Bannen von Hunar	PF	A
-Bannen von Hyrfolk	PF	A
 Bannen von Hyrrkin	PF	A
 Bannen von Jördfolk	PF	A
 Bannen von Jördkin	PF	A
@@ -6679,7 +6667,6 @@ Bannen von Dvergar	PW	A
 Bannen von Hrimfolk	PW	A
 Bannen von Hrimkin	PW	A
 Bannen von Hunar	PW	A
-Bannen von Hyrfolk	PW	A
 Bannen von Hyrrkin	PW	A
 Bannen von Jördfolk	PW	A
 Bannen von Jördkin	PW	A
@@ -6890,7 +6877,6 @@ Bannen von Dvergar	PM	A
 Bannen von Hrimfolk	PM	A
 Bannen von Hrimkin	PM	A
 Bannen von Hunar	PM	A
-Bannen von Hyrfolk	PM	A
 Bannen von Hyrrkin	PM	A
 Bannen von Jördfolk	PM	A
 Bannen von Jördkin	PM	A
@@ -7104,7 +7090,6 @@ Bannen von Dvergar	PK	A
 Bannen von Hrimfolk	PK	A
 Bannen von Hrimkin	PK	A
 Bannen von Hunar	PK	A
-Bannen von Hyrfolk	PK	A
 Bannen von Hyrrkin	PK	A
 Bannen von Jördfolk	PK	A
 Bannen von Jördkin	PK	A
@@ -7487,7 +7472,6 @@ Bannen von Fäulnis	Sa	A
 Bannen von Hrimfolk	Sa	A
 Bannen von Hrimkin	Sa	A
 Bannen von Hunar	Sa	A
-Bannen von Hyrfolk	Sa	A
 Bannen von Hyrrkin	Sa	A
 Bannen von Jördfolk	Sa	A
 Bannen von Jördkin	Sa	A
@@ -7540,7 +7524,6 @@ Hrimdvegar beschwören	eBe	A
 Hrimdverg beschwören	eBe	A
 Hrimhune beschwören	eBe	A
 Schutzkreis gegen Hrimfolk	eBe	A
-Bannen von Hyrfolk	eBe	A
 Hyrrbauti beschwören	eBe	A
 Schutzkreis gegen Hyrrfolk	eBe	A
 Bergeist beschwören	eBe	A
@@ -7597,7 +7580,6 @@ Bannen von Dvergar	PC	A
 Bannen von Hrimfolk	PC	A
 Bannen von Hrimkin	PC	A
 Bannen von Hunar	PC	A
-Bannen von Hyrfolk	PC	A
 Bannen von Hyrrkin	PC	A
 Bannen von Jördfolk	PC	A
 Bannen von Jördkin	PC	A
@@ -7892,6 +7874,24 @@ Bannen von Jördfolk	eBe	A
 Bannen von Jördkin	eBe	A
 Bannen von Vindfolk	eBe	A
 Bannen von Vindskin	eBe	A
+Bannen von Hyrrfolk	Hl	A
+Bannen von Hyrrfolk	Ma	A
+Bannen von Hyrrfolk	PC	A
+Bannen von Hyrrfolk	PF	A
+Bannen von Hyrrfolk	PHa	A
+Bannen von Hyrrfolk	PHe	A
+Bannen von Hyrrfolk	PK	A
+Bannen von Hyrrfolk	PM	A
+Bannen von Hyrrfolk	PT	A
+Bannen von Hyrrfolk	PW	A
+Bannen von Hyrrfolk	Sa	A
+Bannen von Hyrrfolk	Sc	A
+Bannen von Hyrrfolk	Th	A
+Bannen von Hyrrfolk	dBe	A
+Bannen von Hyrrfolk	eBe	A
+Bannen von Hyrrfolk	gHx	A
+Bannen von Hyrrfolk	sHx	A
+Bannen von Hyrrfolk	wHx	A
 \.
 --
 -- TOC Entry ID 3 (OID 26633774)

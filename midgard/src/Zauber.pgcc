@@ -136,29 +136,7 @@ int Zauber::get_spezial_zauber_for_magier(const Grundwerte& Werte) const
  return ispez;
 }
 
-/*
-vector<std::string> Zauber::Standard(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
-{
- assert(Typ.size()==2);
- vector<std::string> s(2);
- for(map<std::string,std::string>::const_iterator i=map_typ.begin();i!=map_typ.end();++i)
-   if(Typ[0]->Short()==i->first) {s[0]=i->second; break;}
- for(map<std::string,std::string>::const_iterator i=map_typ.begin();i!=map_typ.end();++i)
-   if(Typ[1]->Short()==i->first) {s[1]=i->second; break;}
- ausnahmen.Ausnahmen_string(Name(),s);
- return s;
-}
-*/
-/*
-std::string Zauber::Standard__(const vector<cH_Typen>& Typ,const Ausnahmen& a) const
-{
- vector<std::string> s = Standard(Typ,a);
- std::string s2=s[0];
- if(Typ[0]->Short()!="" && Typ[1]->Short()!="") s2+="/";
- if(Typ[1]->Short()!="") s2+=s[1];
- return s2;
-}
-*/
+
 Zauber_All::Zauber_All(Gtk::ProgressBar *progressbar)
 {
  exec sql begin declare section;
