@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.10 2001/04/19 13:29:11 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.11 2001/04/23 10:55:31 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,6 +18,15 @@
  */
 
 #include "midgard_CG.hh"
+
+
+gint midgard_CG::on_latex_release_event(GdkEventButton *ev)
+{
+  if (ev->button==1) midgard_CG::on_latex_clicked();
+  if (ev->button==3) midgard_CG::spielleiter_export();
+  return false;
+}
+
 
 void midgard_CG::on_latex_clicked()
 {   

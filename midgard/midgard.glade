@@ -2371,11 +2371,11 @@ laden</label>
 	      <class>GtkButton</class>
 	      <child_name>Toolbar:button</child_name>
 	      <name>button10</name>
-	      <tooltip>LaTeX Charakterblatt</tooltip>
+	      <tooltip>linke Maustaste: LaTeX Charakterblatt drucken (ghostview), rechte Maustaste: Export für Spielleiter in Datei</tooltip>
 	      <signal>
-		<name>clicked</name>
-		<handler>on_latex_clicked</handler>
-		<last_modification_time>Fri, 30 Mar 2001 20:27:31 GMT</last_modification_time>
+		<name>button_release_event</name>
+		<handler>on_latex_release_event</handler>
+		<last_modification_time>Mon, 23 Apr 2001 06:07:57 GMT</last_modification_time>
 	      </signal>
 	      <label>LaTeX
 Charakterblattt</label>
@@ -2818,7 +2818,7 @@ beschreibung</label>
 	      <right_attach>4</right_attach>
 	      <top_attach>2</top_attach>
 	      <bottom_attach>3</bottom_attach>
-	      <xpad>0</xpad>
+	      <xpad>5</xpad>
 	      <ypad>0</ypad>
 	      <xexpand>False</xexpand>
 	      <yexpand>False</yexpand>
@@ -5963,22 +5963,22 @@ Praxispunkten</label>
 
 			  <widget>
 			    <class>GtkCheckButton</class>
-			    <name>checkbutton_beschwoerungen</name>
+			    <name>checkbutton_alle_zauber</name>
 			    <cxx_visibility>protected</cxx_visibility>
 			    <can_focus>True</can_focus>
 			    <signal>
 			      <name>toggled</name>
-			      <handler>on_checkbutton_beschwoerungen_toggled</handler>
-			      <last_modification_time>Fri, 20 Apr 2001 17:09:00 GMT</last_modification_time>
+			      <handler>on_checkbutton_alle_zauber_toggled</handler>
+			      <last_modification_time>Fri, 20 Apr 2001 17:13:33 GMT</last_modification_time>
 			    </signal>
-			    <label>Beschwörungen</label>
+			    <label>Alle Zauber anzeigen</label>
 			    <active>False</active>
 			    <draw_indicator>True</draw_indicator>
 			    <child>
-			      <left_attach>0</left_attach>
-			      <right_attach>1</right_attach>
-			      <top_attach>1</top_attach>
-			      <bottom_attach>2</bottom_attach>
+			      <left_attach>1</left_attach>
+			      <right_attach>2</right_attach>
+			      <top_attach>0</top_attach>
+			      <bottom_attach>1</bottom_attach>
 			      <xpad>0</xpad>
 			      <ypad>0</ypad>
 			      <xexpand>False</xexpand>
@@ -6021,22 +6021,22 @@ Praxispunkten</label>
 
 			  <widget>
 			    <class>GtkCheckButton</class>
-			    <name>checkbutton_alle_zauber</name>
+			    <name>checkbutton_beschwoerungen</name>
 			    <cxx_visibility>protected</cxx_visibility>
 			    <can_focus>True</can_focus>
 			    <signal>
 			      <name>toggled</name>
-			      <handler>on_checkbutton_alle_zauber_toggled</handler>
-			      <last_modification_time>Fri, 20 Apr 2001 17:13:33 GMT</last_modification_time>
+			      <handler>on_checkbutton_beschwoerungen_toggled</handler>
+			      <last_modification_time>Fri, 20 Apr 2001 17:09:00 GMT</last_modification_time>
 			    </signal>
-			    <label>Alle Zauber anzeigen</label>
+			    <label>Beschwörungen</label>
 			    <active>False</active>
 			    <draw_indicator>True</draw_indicator>
 			    <child>
-			      <left_attach>1</left_attach>
-			      <right_attach>2</right_attach>
-			      <top_attach>0</top_attach>
-			      <bottom_attach>1</bottom_attach>
+			      <left_attach>0</left_attach>
+			      <right_attach>1</right_attach>
+			      <top_attach>1</top_attach>
+			      <bottom_attach>2</bottom_attach>
 			      <xpad>0</xpad>
 			      <ypad>0</ypad>
 			      <xexpand>False</xexpand>

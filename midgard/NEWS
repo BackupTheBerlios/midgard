@@ -19,6 +19,16 @@ NEWS IN VERSION 0.4beta3
    und Weise möglich neue Charakterklassen hinzuzufügen, ohne daß es zu 
    Problemen mit schon abgespeichertten Charakteren kommt (wie in der 
    Vergangenheit)
+- Das von 'http://www.midgard-online.de/FAQ/Technik.pdf' geforderte Format
+   kann anstelle eines LaTeX-Dokumentes ausgegeben werden, wenn man den 
+   RECHTEN Mausknopf drückt.
+- Kleinen Bug beseitigt: Beim Starten des Programms wurden die 
+   Speziesvoraussetzungen nicht eingelesen.
+- Hilfe leicht überarbeitet.
+- Das Alter wird nur noch dann (durch auswürfeln der Lernpunkte) berechnet,
+   wenn es vorher 0 ist. 
+- Weiteren lästigen Bug entfernt: durch 'Werte editieren' wurden alle 
+   bisherigen Werte, die NICHT editiert wurden, gelöscht (z.B. Rüstung)
 
 ##########################################################################
 NEWS IN VERSION 0.4beta2

@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.15 2001/04/20 10:52:38 christof Exp $
+# $Id: Makefile.am,v 1.16 2001/04/23 10:55:31 thoma Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport
 
@@ -69,6 +69,7 @@ BUILT_SOURCES=$(BUILT_SOURCES_CG) $(BUILT_SOUCES_XML)
 midgard_xmlexport_SOURCES= $(BUILT_SOUCES_XML)
 
 midgard_SOURCES = \
+   spielleiter_export.cc \
    midgard_CG_kido.cc \
    KiDo_auswahl_glade.cc \
    midgard_CG_region_check.cc \

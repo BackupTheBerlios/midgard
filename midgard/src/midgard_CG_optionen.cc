@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.7 2001/04/19 13:29:12 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.8 2001/04/23 10:55:32 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -46,7 +46,7 @@ void midgard_CG::on_checkbutton_Rawindra_toggled()
 {   
   if (checkbutton_Rawindra->get_active()) Rawindrabool=true;
   else Rawindrabool=false;
-  midgard_CG::regnot("Region noch in Arbeit: Fabian Wagner, Fabian.Wagner@01019freenet.de");
+  midgard_CG::regnot("Region noch in Arbeit: Fabian Wagner,\n Fabian.Wagner@01019freenet.de");
 }
 
 void midgard_CG::on_checkbutton_KanThaiPan_toggled()
@@ -60,14 +60,14 @@ void midgard_CG::on_checkbutton_Nahuatlan_toggled()
 {   
   if (checkbutton_Nahuatlan->get_active()) Nahuatlanbool=true;
   else Nahuatlanbool=false;
-  midgard_CG::regnot("Region noch in Arbeit: Nils Richter, anarion@uni-muenster.de");
+  midgard_CG::regnot("Region noch in Arbeit: Nils Richter,\n anarion@uni-muenster.de");
 }
 
 void midgard_CG::on_checkbutton_Waeland_toggled()
 {   
   if (checkbutton_Waeland->get_active()) Waelandbool=true;
   else Waelandbool=false;
-  midgard_CG::regnot("Region noch in Arbeit: Stefan ????,   midgard-site@t-online.de");
+  midgard_CG::regnot("Region noch in Arbeit: Stefan Brutscher,\n   midgard-site@t-online.de");
 }
 
 void midgard_CG::on_checkbutton_Alba_toggled()

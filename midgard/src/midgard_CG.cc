@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.16 2001/04/22 21:04:21 thoma Exp $
+// $Id: midgard_CG.cc,v 1.17 2001/04/23 10:55:32 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -40,6 +40,7 @@ midgard_CG::midgard_CG()
  midgard_CG::fill_typauswahl();
  midgard_CG::fill_spezies();
  midgard_CG::typauswahl_button();
+ midgard_CG::spezieswahl_button();
  werte.version="Erschaffung";
 }
 

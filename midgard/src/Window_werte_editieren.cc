@@ -1,4 +1,4 @@
-// $Id: Window_werte_editieren.cc,v 1.6 2001/04/19 13:29:12 thoma Exp $
+// $Id: Window_werte_editieren.cc,v 1.7 2001/04/23 10:55:32 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,8 +29,6 @@
 
 void Window_werte_editieren::on_nwe_close_clicked()
 {   
-   st_werte werte;
-
    werte.st = atoi( st_ein->get_text().c_str());
    werte.ge = atoi( ge_ein->get_text().c_str());
    werte.ko = atoi( ko_ein->get_text().c_str());
@@ -88,7 +86,8 @@ void Window_werte_editieren::on_nwe_close_clicked()
    destroy();
 }
 
-Window_werte_editieren::Window_werte_editieren(midgard_CG* h,st_werte& werte)
+Window_werte_editieren::Window_werte_editieren(midgard_CG* h,st_werte& w)
+:werte(w)
 {
  hauptfenster=h;
  vstand.resize(5);

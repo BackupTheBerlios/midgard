@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.7 2001/04/19 13:29:12 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.8 2001/04/23 10:55:32 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -30,14 +30,16 @@ void midgard_CG::on_lernpunkte_wuerfeln_clicked()
   lernpunkte.waffen=random.integer(1,6)+random.integer(1,6);
   if (typ.z=="j" || typ.z == "z") lernpunkte.zauber=random.integer(1,6)+random.integer(1,6);
 
-  int age = lernpunkte.beruf + lernpunkte.fertigkeiten 
-          + lernpunkte.waffen + lernpunkte.zauber;
+  if (werte.alter=0)
+   {
+     int age = lernpunkte.beruf + lernpunkte.fertigkeiten 
+             + lernpunkte.waffen + lernpunkte.zauber;
 
-  if (typ.z=="z" ) werte.alter = age/4+19;
-  if (typ.z=="n" || typ.z=="j") werte.alter = age/4+16;
-  werte.alter *= spezies_constraint.alter;
-  alter->set_text(itos(werte.alter));
-  
+     if (typ.z=="z" ) werte.alter = age/4+19;
+     if (typ.z=="n" || typ.z=="j") werte.alter = age/4+16;
+     werte.alter *= spezies_constraint.alter;
+     alter->set_text(itos(werte.alter));
+   }
   midgard_CG::zeige_lernpunkte();
 }
 

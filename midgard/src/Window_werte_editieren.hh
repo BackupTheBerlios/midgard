@@ -1,4 +1,4 @@
-// $Id: Window_werte_editieren.hh,v 1.5 2001/04/19 13:29:12 thoma Exp $
+// $Id: Window_werte_editieren.hh,v 1.6 2001/04/23 10:55:32 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -43,11 +43,10 @@ class Window_werte_editieren : public Window_werte_editieren_glade
         friend class Window_werte_editieren_glade;
         void on_nwe_close_clicked();
         vector<string> vstand;
-
+        st_werte& werte;
         midgard_CG* hauptfenster;
         public:
-         Window_werte_editieren(midgard_CG* h,st_werte& werte);
-            
+         Window_werte_editieren(midgard_CG* h,st_werte& w);
 
 };
 #endif

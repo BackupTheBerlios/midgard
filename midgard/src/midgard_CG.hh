@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.20 2001/04/22 21:04:21 thoma Exp $
+// $Id: midgard_CG.hh,v 1.21 2001/04/23 10:55:32 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -191,6 +191,8 @@ class midgard_CG : public midgard_CG_glade
         void on_laden_clicked();
         void load_charakter();
         void on_latex_clicked();
+        gint on_latex_release_event(GdkEventButton *ev);
+        void spielleiter_export();
         void latex_beschreibung_drucken();
         void on_button_info_clicked();
         void LaTeX_zauber_main();
