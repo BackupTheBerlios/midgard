@@ -1,4 +1,4 @@
-// $Id: Region.hh,v 1.3 2002/01/17 14:33:02 thoma Exp $               
+// $Id: Region.hh,v 1.4 2002/01/17 16:26:55 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,11 +24,24 @@
 #include <vector>
 #include <string>
 #include <gtk--/progressbar.h>
+#include <gtk--/pixmap.h>
 class cH_Region;
+
+class RegionenPic
+{
+ public:
+   enum epic { Rawindra,KanThaiPan,Alba,Eschar,Gildenbrief,HD};
+   static Gtk::Pixmap* Pic(epic e) ;
+};
+
 
 class Region  : public HandleContent
 {
+ public:
+
+ private:
    std::string name,abkuerzung,file,url,maintainer,version,copyright; 
+   RegionenPic::epic pic;
    bool offiziell;
    mutable bool active;
 
@@ -46,6 +59,7 @@ class Region  : public HandleContent
    std::string Version() const {return version;}
    std::string Copyright() const {return copyright;}
    bool Offiziell() const {return offiziell;}
+   RegionenPic::epic Pic() const {return pic;}
 
    bool operator==(const Region& b) const {return Name()==b.Name();}
 
@@ -71,6 +85,7 @@ class Regionen_All
   public:
    Regionen_All(Gtk::ProgressBar *progressbar);
    std::vector<cH_Region> get_All() const {return list_All;}
+
 };
 
 #endif

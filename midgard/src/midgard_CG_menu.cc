@@ -17,6 +17,8 @@
  */
 
 #include "midgard_CG.hh"
+#include <gtk--/box.h>
+#include <gtk--/pixmap.h>
 
 void midgard_CG::menu_init()
 {
@@ -57,15 +59,21 @@ void midgard_CG::menu_init()
   regionen->set_submenu(*regionen_menu);
 
   
+  RegionenPic RPics;
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {
      Gtk::CheckMenuItem *_mi=manage(new Gtk::CheckMenuItem((*i)->Name()));         
      _mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),_mi,*i));
+     Gtk::HBox *_hb=manage(new class Gtk::HBox(false,0));
+
+     _hb->pack_start(*RegionenPic::Pic((*i)->Pic()));
+     _hb->pack_start(*_mi);
      regionen_menu->append(*_mi);
      _mi->set_active((*i)->Active());
      if(!OptionBool.Original && ((*i)->Abkuerzung()=="H&D" ||(*i)->Abkuerzung()=="G"))
         _mi->set_sensitive(false);
      _mi->show();
+     _hb->show();
    }
   menu->append(*regionen);
   regionen->show();

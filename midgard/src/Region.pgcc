@@ -22,6 +22,15 @@
 exec sql include sqlca;
 #include <gtk--/main.h>
 
+#include "../pixmaps/Eschar-trans-50.xpm"
+#include "../pixmaps/KiDo-trans-50.xpm"
+
+Gtk::Pixmap *RegionenPic::Pic(epic typ)
+{  if (typ==Eschar) return manage(new Gtk::Pixmap(Eschar_trans_50_xpm));
+   else if (typ==KanThaiPan) return manage(new Gtk::Pixmap(KiDo_trans_50_xpm));
+   else return 0;
+}
+
 
 cH_Region::cache_t cH_Region::cache;
 
@@ -43,11 +52,13 @@ Region::Region(const std::string& n)
    char db_name[50], db_abkuerzung[50], db_file[50],
         db_url[50], db_maintainer[50],db_version[50],db_copyright[100];
    bool db_offiziell;
+   int db_pic;
   exec sql end declare section;
   strncpy(db_name,Name().c_str(),sizeof(db_name));
-  exec sql select abkuerzung,file,url,maintainer,version,copyright,offiziell
+  exec sql select abkuerzung,file,url,maintainer,version,copyright,offiziell,
+         coalesce(pic,0)
       into :db_abkuerzung,:db_file,:db_url, :db_maintainer,:db_version,
-           :db_copyright,:db_offiziell;   
+           :db_copyright,:db_offiziell,:db_pic
       from regionen where name=:db_name;
   abkuerzung=db_abkuerzung;
   file=db_file;
@@ -56,6 +67,7 @@ Region::Region(const std::string& n)
   version=db_version;
   copyright=db_copyright;
   offiziell=db_offiziell;
+  pic=RegionenPic::epic(db_pic);
 }
 
 bool Region::setActive(const std::vector<cH_Region>& LR,const cH_Region& R,bool active)

@@ -1,4 +1,4 @@
-// $Id: Schrift.hh,v 1.11 2002/01/16 16:08:36 thoma Exp $               
+// $Id: Schrift.hh,v 1.12 2002/01/17 16:26:55 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,7 +36,7 @@ class Schrift : public MidgardBasicElement
   
   public:
 #ifdef USE_XML
-   Schrift(const Tag *t) : MidgardBasicElement(t,t->getAttr("Name"))
+   Schrift(const std::string& name,const Tag *t) : MidgardBasicElement(t,name)
       { get_Schrift();get_map_typ(); get_Steigern_Kosten_map();
         EP_steigern("Schreiben");
       }
@@ -71,7 +71,7 @@ class cH_Schrift : public Handle<const Schrift>
   public:
    cH_Schrift(const std::string& name);
 #ifdef USE_XML
-   cH_Schrift(const Tag *tag);
+   cH_Schrift(const std::string& name,const Tag *tag);
 #endif
 
    cH_Schrift(const cH_MidgardBasicElement &x) : Handle<const Schrift>
