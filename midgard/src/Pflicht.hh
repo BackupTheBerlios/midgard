@@ -1,4 +1,4 @@
-// $Id: Pflicht.hh,v 1.7 2002/01/12 08:12:25 thoma Exp $               
+// $Id: Pflicht.hh,v 1.8 2002/01/15 09:58:17 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,7 +25,9 @@
 #include <map>
 #include "Typen.hh"
 #include <gtk--/progressbar.h>
-
+#ifdef USE_XML
+#include "xml.h"
+#endif
 
 class Pflicht //: public HandleContent
 {
@@ -36,7 +38,13 @@ class Pflicht //: public HandleContent
          bool operator<(const pf& b) {return pflicht<b.pflicht;}
          };
       map<std::string,list<pf> > pflicht_map;
-      
+
+#ifdef USE_XML
+	typedef std::list<pf> list_pflicht_t;
+	typedef std::map<std::string,list_pflicht_t> pflicht_nach_typ_t;
+	static void SuchePflichtVerbot(const Tag *list,const string &name,
+			pflicht_nach_typ_t &pflicht_nach_typ);
+#endif
    public:
       Pflicht() {}
       Pflicht(Gtk::ProgressBar *progressbar);
