@@ -122,6 +122,10 @@ private:
 
         // drag & drop
         // for later realization
+        void on_preise_tree_neu_drag_data_get(const Glib::RefPtr<Gdk::DragContext>&context,
+                                     GtkSelectionData   *selection_data,
+                                     guint               info,
+                                     guint32             time );
 #if 0        
         enum {TARGET_STRING,TARGET_ROOTWIN,TARGET_URL};
         static const GtkTargetEntry target_table[4];
@@ -129,10 +133,6 @@ private:
 
         guint n_targets;// = sizeof(target_table) / sizeof(target_table[0]);       
 
-        void on_preise_tree_neu_drag_data_get(const Glib::RefPtr<Gdk::DragContext>&context,
-                                     GtkSelectionData   *selection_data,
-                                     guint               info,
-                                     guint32             time );
         void tree_drag_data_received(const Glib::RefPtr<Gdk::DragContext>&context,
                                   gint x,gint y,
                                   GtkSelectionData   *data,

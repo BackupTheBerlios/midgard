@@ -21,6 +21,13 @@
 #include "Data_NewPreis.hh"
 #include <Misc/mystring.h>
 
+void table_ausruestung::on_preise_tree_neu_drag_data_get(const Glib::RefPtr<Gdk::DragContext>&context,
+                                     GtkSelectionData   *selection_data,
+                                     guint               info,
+                                     guint32             time )
+{
+}
+
 #if 0
 //static  Gdk_Pixmap drag_icon;
 //#include "/tmp/testdrag_and_drop.xpm"
