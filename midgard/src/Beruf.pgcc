@@ -1,0 +1,145 @@
+#include "Beruf.hh"
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+exec sql include sqlca;
+#include "Grundwerte.hh"
+#include <gtk--/main.h>
+#include "Typen.hh"
+
+cH_Beruf::cache_t cH_Beruf::cache;
+
+cH_Beruf::cH_Beruf(const std::string& name)
+{
+ cH_Beruf *cached(cache.lookup(name));
+ if (cached) *this=*cached;
+ else
+  {
+   *this=cH_Beruf(new Beruf(name));
+   cache.Register(name,*this);
+  }
+}
+
+void Beruf::get_Beruf()
+{
+  exec sql begin declare section;
+   char db_stand[100],db_vorteil[100];
+   char db_region[10],db_geschlecht[10],db_typ[10];
+   int db_lernpunkte,db_st,db_ge,db_ko,db_in,db_zt,db_pa,db_au,db_sb; 
+   char query[1024],query2[1024],query3[1024];
+  exec sql end declare section;
+  std::string squery="select distinct lernpunkte, coalesce(st,0), 
+      coalesce(ge,0), coalesce(ko,0), coalesce(\"in\",0), 
+      coalesce(zt,0), coalesce(pa,0), coalesce(au,0), coalesce(sb,0) ,
+      coalesce(typ,''),coalesce(geschlecht,''),coalesce(region,'')
+      from berufe_voraussetzung where beruf ='"+Name()+"'";
+  strncpy(query,squery.c_str(),sizeof(query));
+  Transaction tr;
+  exec sql prepare cl_beruf_ein_ from :query ;
+  exec sql declare cl_beruf_ein cursor for cl_beruf_ein_ ;
+
+  exec sql open cl_beruf_ein;
+  SQLerror::test(__FILELINE__);
+  while (true)   
+   {
+     exec sql fetch cl_beruf_ein into :db_lernpunkte,:db_st,:db_ge,
+         :db_ko,:db_in,:db_zt,:db_pa,:db_au,:db_sb,:db_typ,:db_geschlecht,:db_region;
+     SQLerror::test(__FILELINE__,100);
+     if (sqlca.sqlcode) break;
+     lernpunkte=db_lernpunkte;
+     region=db_region;
+     voraussetzung = st_Voraussetzung(db_st,db_ge,db_ko,db_in,db_zt,db_au,db_pa,
+                                   db_sb,db_geschlecht,db_typ);
+
+     std::string squery2= "select stand from berufe_stand where beruf='"
+                           +Name()+"'";
+     strncpy(query2,squery2.c_str(),sizeof(query2));
+     exec sql prepare cl_beruf2_ein_ from :query2 ;
+     exec sql declare cl_beruf2_ein cursor for cl_beruf2_ein_ ;
+     exec sql open cl_beruf2_ein;
+     SQLerror::test(__FILELINE__);
+     while(true)
+      {
+       exec sql fetch cl_beruf2_ein into :db_stand;
+       SQLerror::test(__FILELINE__,100);
+       if (sqlca.sqlcode) break;
+       stand.push_back(db_stand);
+      }     
+     exec sql close cl_beruf2_ein;
+
+     std::string squery3= "select vorteil from berufe_vorteile where beruf='"
+                           +Name()+"'";
+     strncpy(query3,squery3.c_str(),sizeof(query3));
+     exec sql prepare cl_beruf3_ein_ from :query3 ;
+     exec sql declare cl_beruf3_ein cursor for cl_beruf3_ein_ ;
+     exec sql open cl_beruf3_ein;
+     SQLerror::test(__FILELINE__);
+     while(true)
+      {
+       exec sql fetch cl_beruf3_ein into :db_vorteil;
+       SQLerror::test(__FILELINE__,100);
+       if (sqlca.sqlcode) break;
+       vorteile.push_back(db_vorteil);
+      }     
+     exec sql close cl_beruf3_ein;
+   }
+ exec sql close cl_beruf_ein;
+ tr.close();
+// progressbar->set_percentage(1);
+}
+
+
+std::string Beruf::get_Vorteile() const
+{
+  std::string s;
+  for(vector<std::string>::const_iterator i=vorteile.begin();i!=vorteile.end();++i)
+   {  
+     s+= (*i);
+     if(i+1!=vorteile.end()) s+=", ";
+   }
+  return s;
+}
+
+bool Beruf::Voraussetzungen(const Grundwerte& Werte,const vector<cH_Typen>& Typ) const
+{
+ if ( voraussetzung.st<=Werte.St() &&
+      voraussetzung.ge<=Werte.Ge() &&
+      voraussetzung.ko<=Werte.Ko() &&
+      voraussetzung.in<=Werte.In() &&
+      voraussetzung.zt<=Werte.Zt() &&
+      voraussetzung.au<=Werte.Au() &&
+      voraussetzung.pa<=Werte.pA() &&
+      voraussetzung.sb<=Werte.Sb() &&
+      voraussetzung.geschlecht!=Werte.Geschlecht() &&
+      voraussetzung.typ!=Typ[0]->Zaubern() 
+     )   
+    return true;
+ else return false ;
+}
+
+
+Beruf_All::Beruf_All(Gtk::ProgressBar *progressbar)
+{
+ exec sql begin declare section;
+   char db_name[100];
+   int db_size;
+ exec sql end declare section;
+ exec sql select count(distinct beruf) into :db_size from berufe_voraussetzung;
+ exec sql declare BAein cursor for select beruf from berufe_voraussetzung;
+ Transaction tr;
+ exec sql open BAein;
+ SQLerror::test(__FILELINE__);
+ double count=0;
+ while(true)
+  {
+   progressbar->set_percentage(count/db_size);
+   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+   exec sql fetch BAein into :db_name;
+   SQLerror::test(__FILELINE__,100);
+   if (sqlca.sqlcode) break;
+   list_All.push_back(new Beruf(db_name));
+   ++count;
+  }
+ exec sql close BAein;
+ tr.close();
+ progressbar->set_percentage(1);
+}
