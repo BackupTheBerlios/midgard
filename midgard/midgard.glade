@@ -19116,206 +19116,8 @@ machen</label>
 
 	    <widget>
 	      <class>GtkEventBox</class>
-	      <name>eventbox20</name>
-	      <tooltip>Ein 'Spezialist' steigert seine bereits gelernten Fertigkeiten, ein 'Gebildeter' lernt bevorzugt neue Fertigkeiten.</tooltip>
-	      <child>
-		<left_attach>0</left_attach>
-		<right_attach>1</right_attach>
-		<top_attach>2</top_attach>
-		<bottom_attach>3</bottom_attach>
-		<xpad>0</xpad>
-		<ypad>0</ypad>
-		<xexpand>False</xexpand>
-		<yexpand>False</yexpand>
-		<xshrink>False</xshrink>
-		<yshrink>False</yshrink>
-		<xfill>True</xfill>
-		<yfill>True</yfill>
-	      </child>
-
-	      <widget>
-		<class>GtkTable</class>
-		<name>table171</name>
-		<rows>2</rows>
-		<columns>5</columns>
-		<homogeneous>False</homogeneous>
-		<row_spacing>0</row_spacing>
-		<column_spacing>0</column_spacing>
-
-		<widget>
-		  <class>GtkLabel</class>
-		  <name>label609</name>
-		  <label>Spezialist</label>
-		  <justify>GTK_JUSTIFY_CENTER</justify>
-		  <wrap>False</wrap>
-		  <xalign>0</xalign>
-		  <yalign>0.5</yalign>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <child>
-		    <left_attach>0</left_attach>
-		    <right_attach>2</right_attach>
-		    <top_attach>1</top_attach>
-		    <bottom_attach>2</bottom_attach>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>False</xexpand>
-		    <yexpand>False</yexpand>
-		    <xshrink>False</xshrink>
-		    <yshrink>False</yshrink>
-		    <xfill>False</xfill>
-		    <yfill>False</yfill>
-		  </child>
-		</widget>
-
-		<widget>
-		  <class>GtkLabel</class>
-		  <name>label610</name>
-		  <label>Gebildeter</label>
-		  <justify>GTK_JUSTIFY_CENTER</justify>
-		  <wrap>False</wrap>
-		  <xalign>0</xalign>
-		  <yalign>0.5</yalign>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <child>
-		    <left_attach>3</left_attach>
-		    <right_attach>5</right_attach>
-		    <top_attach>1</top_attach>
-		    <bottom_attach>2</bottom_attach>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>False</xexpand>
-		    <yexpand>False</yexpand>
-		    <xshrink>False</xshrink>
-		    <yshrink>False</yshrink>
-		    <xfill>False</xfill>
-		    <yfill>False</yfill>
-		  </child>
-		</widget>
-
-		<widget>
-		  <class>GtkLabel</class>
-		  <name>label611</name>
-		  <label></label>
-		  <justify>GTK_JUSTIFY_CENTER</justify>
-		  <wrap>False</wrap>
-		  <xalign>0</xalign>
-		  <yalign>0.5</yalign>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <child>
-		    <left_attach>2</left_attach>
-		    <right_attach>3</right_attach>
-		    <top_attach>1</top_attach>
-		    <bottom_attach>2</bottom_attach>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>True</xexpand>
-		    <yexpand>False</yexpand>
-		    <xshrink>False</xshrink>
-		    <yshrink>False</yshrink>
-		    <xfill>True</xfill>
-		    <yfill>False</yfill>
-		  </child>
-		</widget>
-
-		<widget>
-		  <class>GtkLabel</class>
-		  <name>label_allgemein</name>
-		  <cxx_visibility>protected</cxx_visibility>
-		  <label>50%</label>
-		  <justify>GTK_JUSTIFY_CENTER</justify>
-		  <wrap>False</wrap>
-		  <xalign>0</xalign>
-		  <yalign>0.5</yalign>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <child>
-		    <left_attach>4</left_attach>
-		    <right_attach>5</right_attach>
-		    <top_attach>0</top_attach>
-		    <bottom_attach>1</bottom_attach>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>False</xexpand>
-		    <yexpand>False</yexpand>
-		    <xshrink>False</xshrink>
-		    <yshrink>False</yshrink>
-		    <xfill>False</xfill>
-		    <yfill>False</yfill>
-		  </child>
-		</widget>
-
-		<widget>
-		  <class>GtkLabel</class>
-		  <name>label_spezialist</name>
-		  <cxx_visibility>protected</cxx_visibility>
-		  <label>50%</label>
-		  <justify>GTK_JUSTIFY_CENTER</justify>
-		  <wrap>False</wrap>
-		  <xalign>0</xalign>
-		  <yalign>0.5</yalign>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <child>
-		    <left_attach>0</left_attach>
-		    <right_attach>1</right_attach>
-		    <top_attach>0</top_attach>
-		    <bottom_attach>1</bottom_attach>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>False</xexpand>
-		    <yexpand>False</yexpand>
-		    <xshrink>False</xshrink>
-		    <yshrink>False</yshrink>
-		    <xfill>False</xfill>
-		    <yfill>False</yfill>
-		  </child>
-		</widget>
-
-		<widget>
-		  <class>GtkHScale</class>
-		  <name>hscale_spezial_allgemein</name>
-		  <cxx_visibility>protected</cxx_visibility>
-		  <can_focus>True</can_focus>
-		  <signal>
-		    <name>button_release_event</name>
-		    <handler>on_hscale_spezial_allgemein_button_release_event</handler>
-		    <last_modification_time>Wed, 25 Sep 2002 14:18:48 GMT</last_modification_time>
-		  </signal>
-		  <draw_value>False</draw_value>
-		  <value_pos>GTK_POS_RIGHT</value_pos>
-		  <digits>0</digits>
-		  <policy>GTK_UPDATE_CONTINUOUS</policy>
-		  <value>50</value>
-		  <lower>10</lower>
-		  <upper>90</upper>
-		  <step>1</step>
-		  <page>1</page>
-		  <page_size>0</page_size>
-		  <child>
-		    <left_attach>1</left_attach>
-		    <right_attach>4</right_attach>
-		    <top_attach>0</top_attach>
-		    <bottom_attach>1</bottom_attach>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>True</xexpand>
-		    <yexpand>True</yexpand>
-		    <xshrink>True</xshrink>
-		    <yshrink>True</yshrink>
-		    <xfill>True</xfill>
-		    <yfill>True</yfill>
-		  </child>
-		</widget>
-	      </widget>
-	    </widget>
-
-	    <widget>
-	      <class>GtkEventBox</class>
 	      <name>eventbox21</name>
-	      <tooltip>Verteilung der GFP auf unterschiedliche Bereiche.</tooltip>
+	      <tooltip>Verteilung der GFP auf unterschiedliche Bereiche. Ein 'Spezialist' steigert seine bereits gelernten Fertigkeiten, ein 'Gebildeter' lernt bevorzugt neue Fertigkeiten.</tooltip>
 	      <child>
 		<left_attach>0</left_attach>
 		<right_attach>3</right_attach>
@@ -19334,8 +19136,8 @@ machen</label>
 	      <widget>
 		<class>GtkTable</class>
 		<name>table172</name>
-		<rows>3</rows>
-		<columns>7</columns>
+		<rows>6</rows>
+		<columns>8</columns>
 		<homogeneous>False</homogeneous>
 		<row_spacing>0</row_spacing>
 		<column_spacing>0</column_spacing>
@@ -19358,8 +19160,8 @@ machen</label>
 		  <page>10</page>
 		  <page_size>10</page_size>
 		  <child>
-		    <left_attach>0</left_attach>
-		    <right_attach>1</right_attach>
+		    <left_attach>1</left_attach>
+		    <right_attach>2</right_attach>
 		    <top_attach>2</top_attach>
 		    <bottom_attach>3</bottom_attach>
 		    <xpad>0</xpad>
@@ -19391,8 +19193,8 @@ machen</label>
 		  <page>10</page>
 		  <page_size>10</page_size>
 		  <child>
-		    <left_attach>1</left_attach>
-		    <right_attach>2</right_attach>
+		    <left_attach>2</left_attach>
+		    <right_attach>3</right_attach>
 		    <top_attach>2</top_attach>
 		    <bottom_attach>3</bottom_attach>
 		    <xpad>0</xpad>
@@ -19424,8 +19226,8 @@ machen</label>
 		  <page>10</page>
 		  <page_size>10</page_size>
 		  <child>
-		    <left_attach>2</left_attach>
-		    <right_attach>3</right_attach>
+		    <left_attach>3</left_attach>
+		    <right_attach>4</right_attach>
 		    <top_attach>2</top_attach>
 		    <bottom_attach>3</bottom_attach>
 		    <xpad>0</xpad>
@@ -19457,8 +19259,8 @@ machen</label>
 		  <page>10</page>
 		  <page_size>10</page_size>
 		  <child>
-		    <left_attach>3</left_attach>
-		    <right_attach>4</right_attach>
+		    <left_attach>4</left_attach>
+		    <right_attach>5</right_attach>
 		    <top_attach>2</top_attach>
 		    <bottom_attach>3</bottom_attach>
 		    <xpad>0</xpad>
@@ -19490,8 +19292,8 @@ machen</label>
 		  <page>10</page>
 		  <page_size>10</page_size>
 		  <child>
-		    <left_attach>4</left_attach>
-		    <right_attach>5</right_attach>
+		    <left_attach>5</left_attach>
+		    <right_attach>6</right_attach>
 		    <top_attach>2</top_attach>
 		    <bottom_attach>3</bottom_attach>
 		    <xpad>0</xpad>
@@ -19523,8 +19325,8 @@ machen</label>
 		  <page>10</page>
 		  <page_size>10</page_size>
 		  <child>
-		    <left_attach>5</left_attach>
-		    <right_attach>6</right_attach>
+		    <left_attach>6</left_attach>
+		    <right_attach>7</right_attach>
 		    <top_attach>2</top_attach>
 		    <bottom_attach>3</bottom_attach>
 		    <xpad>0</xpad>
@@ -19556,8 +19358,8 @@ machen</label>
 		  <page>10</page>
 		  <page_size>10</page_size>
 		  <child>
-		    <left_attach>6</left_attach>
-		    <right_attach>7</right_attach>
+		    <left_attach>7</left_attach>
+		    <right_attach>8</right_attach>
 		    <top_attach>2</top_attach>
 		    <bottom_attach>3</bottom_attach>
 		    <xpad>0</xpad>
@@ -19583,8 +19385,8 @@ keiten</label>
 		  <xpad>0</xpad>
 		  <ypad>0</ypad>
 		  <child>
-		    <left_attach>0</left_attach>
-		    <right_attach>1</right_attach>
+		    <left_attach>1</left_attach>
+		    <right_attach>2</right_attach>
 		    <top_attach>1</top_attach>
 		    <bottom_attach>2</bottom_attach>
 		    <xpad>0</xpad>
@@ -19609,8 +19411,8 @@ keiten</label>
 		  <xpad>0</xpad>
 		  <ypad>0</ypad>
 		  <child>
-		    <left_attach>1</left_attach>
-		    <right_attach>2</right_attach>
+		    <left_attach>2</left_attach>
+		    <right_attach>3</right_attach>
 		    <top_attach>1</top_attach>
 		    <bottom_attach>2</bottom_attach>
 		    <xpad>0</xpad>
@@ -19636,8 +19438,8 @@ Grund.</label>
 		  <xpad>0</xpad>
 		  <ypad>0</ypad>
 		  <child>
-		    <left_attach>2</left_attach>
-		    <right_attach>3</right_attach>
+		    <left_attach>3</left_attach>
+		    <right_attach>4</right_attach>
 		    <top_attach>1</top_attach>
 		    <bottom_attach>2</bottom_attach>
 		    <xpad>0</xpad>
@@ -19662,8 +19464,8 @@ Grund.</label>
 		  <xpad>0</xpad>
 		  <ypad>0</ypad>
 		  <child>
-		    <left_attach>3</left_attach>
-		    <right_attach>4</right_attach>
+		    <left_attach>4</left_attach>
+		    <right_attach>5</right_attach>
 		    <top_attach>1</top_attach>
 		    <bottom_attach>2</bottom_attach>
 		    <xpad>0</xpad>
@@ -19689,8 +19491,8 @@ werk</label>
 		  <xpad>0</xpad>
 		  <ypad>0</ypad>
 		  <child>
-		    <left_attach>4</left_attach>
-		    <right_attach>5</right_attach>
+		    <left_attach>5</left_attach>
+		    <right_attach>6</right_attach>
 		    <top_attach>1</top_attach>
 		    <bottom_attach>2</bottom_attach>
 		    <xpad>0</xpad>
@@ -19715,8 +19517,8 @@ werk</label>
 		  <xpad>0</xpad>
 		  <ypad>0</ypad>
 		  <child>
-		    <left_attach>5</left_attach>
-		    <right_attach>6</right_attach>
+		    <left_attach>6</left_attach>
+		    <right_attach>7</right_attach>
 		    <top_attach>1</top_attach>
 		    <bottom_attach>2</bottom_attach>
 		    <xpad>0</xpad>
@@ -19741,8 +19543,8 @@ werk</label>
 		  <xpad>0</xpad>
 		  <ypad>0</ypad>
 		  <child>
-		    <left_attach>6</left_attach>
-		    <right_attach>7</right_attach>
+		    <left_attach>7</left_attach>
+		    <right_attach>8</right_attach>
 		    <top_attach>1</top_attach>
 		    <bottom_attach>2</bottom_attach>
 		    <xpad>0</xpad>
@@ -19753,6 +19555,418 @@ werk</label>
 		    <yshrink>False</yshrink>
 		    <xfill>True</xfill>
 		    <yfill>False</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label609</name>
+		  <label>Spezialist</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>1</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <left_attach>0</left_attach>
+		    <right_attach>1</right_attach>
+		    <top_attach>3</top_attach>
+		    <bottom_attach>4</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>False</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label610</name>
+		  <label>Gebildeter</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>0.999999</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <left_attach>0</left_attach>
+		    <right_attach>1</right_attach>
+		    <top_attach>5</top_attach>
+		    <bottom_attach>6</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>False</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label_spez_fert</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <label>50%</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>0.5</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <left_attach>1</left_attach>
+		    <right_attach>2</right_attach>
+		    <top_attach>3</top_attach>
+		    <bottom_attach>4</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>False</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label_allg_fert</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <label>50%</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>0.5</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <left_attach>1</left_attach>
+		    <right_attach>2</right_attach>
+		    <top_attach>5</top_attach>
+		    <bottom_attach>6</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>False</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkVScale</class>
+		  <name>vscale_spezallg_fert</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <can_focus>True</can_focus>
+		  <signal>
+		    <name>button_release_event</name>
+		    <handler>on_vscale_spezall_fert_button_release_event</handler>
+		    <last_modification_time>Wed, 25 Sep 2002 14:18:48 GMT</last_modification_time>
+		  </signal>
+		  <draw_value>False</draw_value>
+		  <value_pos>GTK_POS_RIGHT</value_pos>
+		  <digits>0</digits>
+		  <policy>GTK_UPDATE_CONTINUOUS</policy>
+		  <value>50</value>
+		  <lower>0</lower>
+		  <upper>100</upper>
+		  <step>1</step>
+		  <page>1</page>
+		  <page_size>0</page_size>
+		  <child>
+		    <left_attach>1</left_attach>
+		    <right_attach>2</right_attach>
+		    <top_attach>4</top_attach>
+		    <bottom_attach>5</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>True</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>False</xfill>
+		    <yfill>True</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label_spez_waff</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <label>50%</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>0.5</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <left_attach>2</left_attach>
+		    <right_attach>3</right_attach>
+		    <top_attach>3</top_attach>
+		    <bottom_attach>4</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>False</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label_spez_spra</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <label>50%</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>0.5</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <left_attach>6</left_attach>
+		    <right_attach>7</right_attach>
+		    <top_attach>3</top_attach>
+		    <bottom_attach>4</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>False</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label_spez_schr</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <label>50%</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>0.5</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <left_attach>7</left_attach>
+		    <right_attach>8</right_attach>
+		    <top_attach>3</top_attach>
+		    <bottom_attach>4</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>False</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label_allg_waff</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <label>50%</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>0.5</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <left_attach>2</left_attach>
+		    <right_attach>3</right_attach>
+		    <top_attach>5</top_attach>
+		    <bottom_attach>6</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>False</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label_allg_spra</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <label>50%</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>0.5</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <left_attach>6</left_attach>
+		    <right_attach>7</right_attach>
+		    <top_attach>5</top_attach>
+		    <bottom_attach>6</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>False</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label_allg_schr</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <label>50%</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>0.5</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <left_attach>7</left_attach>
+		    <right_attach>8</right_attach>
+		    <top_attach>5</top_attach>
+		    <bottom_attach>6</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>False</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkVScale</class>
+		  <name>vscale_spezallg_waff</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <can_focus>True</can_focus>
+		  <signal>
+		    <name>button_release_event</name>
+		    <handler>on_vscale_spezall_fert_button_release_event</handler>
+		    <last_modification_time>Wed, 25 Sep 2002 14:18:48 GMT</last_modification_time>
+		  </signal>
+		  <draw_value>False</draw_value>
+		  <value_pos>GTK_POS_RIGHT</value_pos>
+		  <digits>0</digits>
+		  <policy>GTK_UPDATE_CONTINUOUS</policy>
+		  <value>50</value>
+		  <lower>0</lower>
+		  <upper>100</upper>
+		  <step>1</step>
+		  <page>1</page>
+		  <page_size>0</page_size>
+		  <child>
+		    <left_attach>2</left_attach>
+		    <right_attach>3</right_attach>
+		    <top_attach>4</top_attach>
+		    <bottom_attach>5</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>True</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkVScale</class>
+		  <name>vscale_spezallg_spra</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <can_focus>True</can_focus>
+		  <signal>
+		    <name>button_release_event</name>
+		    <handler>on_vscale_spezall_fert_button_release_event</handler>
+		    <last_modification_time>Wed, 25 Sep 2002 14:18:48 GMT</last_modification_time>
+		  </signal>
+		  <draw_value>False</draw_value>
+		  <value_pos>GTK_POS_RIGHT</value_pos>
+		  <digits>0</digits>
+		  <policy>GTK_UPDATE_CONTINUOUS</policy>
+		  <value>50</value>
+		  <lower>0</lower>
+		  <upper>100</upper>
+		  <step>1</step>
+		  <page>1</page>
+		  <page_size>0</page_size>
+		  <child>
+		    <left_attach>6</left_attach>
+		    <right_attach>7</right_attach>
+		    <top_attach>4</top_attach>
+		    <bottom_attach>5</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>True</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkVScale</class>
+		  <name>vscale_spezallg_schr</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <can_focus>True</can_focus>
+		  <signal>
+		    <name>button_release_event</name>
+		    <handler>on_vscale_spezall_fert_button_release_event</handler>
+		    <last_modification_time>Wed, 25 Sep 2002 14:18:48 GMT</last_modification_time>
+		  </signal>
+		  <draw_value>False</draw_value>
+		  <value_pos>GTK_POS_RIGHT</value_pos>
+		  <digits>0</digits>
+		  <policy>GTK_UPDATE_CONTINUOUS</policy>
+		  <value>50</value>
+		  <lower>0</lower>
+		  <upper>100</upper>
+		  <step>1</step>
+		  <page>1</page>
+		  <page_size>0</page_size>
+		  <child>
+		    <left_attach>7</left_attach>
+		    <right_attach>8</right_attach>
+		    <top_attach>4</top_attach>
+		    <bottom_attach>5</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>True</yfill>
 		  </child>
 		</widget>
 
@@ -19769,10 +19983,10 @@ werk</label>
 übernehmen und testen</label>
 		  <relief>GTK_RELIEF_NORMAL</relief>
 		  <child>
-		    <left_attach>6</left_attach>
-		    <right_attach>7</right_attach>
-		    <top_attach>0</top_attach>
-		    <bottom_attach>1</bottom_attach>
+		    <left_attach>0</left_attach>
+		    <right_attach>1</right_attach>
+		    <top_attach>1</top_attach>
+		    <bottom_attach>2</bottom_attach>
 		    <xpad>0</xpad>
 		    <ypad>0</ypad>
 		    <xexpand>False</xexpand>
@@ -19790,7 +20004,6 @@ werk</label>
 	      <class>GtkCombo</class>
 	      <name>combo_prototyp</name>
 	      <cxx_visibility>protected</cxx_visibility>
-	      <sensitive>False</sensitive>
 	      <value_in_list>True</value_in_list>
 	      <ok_if_empty>False</ok_if_empty>
 	      <case_sensitive>False</case_sensitive>

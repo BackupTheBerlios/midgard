@@ -1,4 +1,4 @@
-// $Id: ki_speichern.cc,v 1.1 2002/09/25 20:47:38 thoma Exp $
+// $Id: ki_speichern.cc,v 1.2 2002/09/26 08:22:18 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -31,7 +31,8 @@ void ki_speichern(Tag &o)
   FetchIStream is;
 
   Query query("select name,fertigkeit,zauber,waffen,waffen_grund,zauberwerk,"
-              "sprache,schrift from ki_prototyp order by name");
+              "sprache,schrift,fert_spezialist,waff_spezialist,"
+              "spra_spezialist,schr_spezialist from ki_prototyp order by name");
   while ((query>>is).good())
    {
      Tag &proto=KI.push_back(Tag("Prototyp"));
@@ -43,5 +44,9 @@ void ki_speichern(Tag &o)
      fetch_and_set_int_attrib(is, proto, "Zauberwerk");
      fetch_and_set_int_attrib(is, proto, "Sprache");
      fetch_and_set_int_attrib(is, proto, "Schrift");
+     fetch_and_set_int_attrib(is, proto, "FertSpezialist");
+     fetch_and_set_int_attrib(is, proto, "WaffSpezialist");
+     fetch_and_set_int_attrib(is, proto, "SpraSpezialist");
+     fetch_and_set_int_attrib(is, proto, "SchrSpezialist");
    }
 }
