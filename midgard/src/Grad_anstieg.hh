@@ -63,5 +63,6 @@ private:
       int getGFP_for(ewas e,const Grundwerte& Werte) const ;
       std::string getGFP_for_str(ewas e,const Grundwerte& Werte) const ;
 
+      int getGFP(int grad) const;
 };  
 #endif

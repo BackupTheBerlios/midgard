@@ -15,36 +15,10 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
- 
-#ifndef _TABLE_ZUFALL_HH
-#  include "table_ausruestung_glade.hh"
-#  define _TABLE_ZUFALL_HH
 
-class midgard_CG;
-#include "table_zufall_glade.hh"
+#include "midgard_CG.hh"
+#include "KI.hh"
 
-
-class table_zufall : public table_zufall_glade
+void MagusKI::Steigern(int gfp)
 {
-      friend class table_zufall_glade;
-      friend class midgard_CG;
-
-      midgard_CG *hauptfenster;
-
-   public:
-      table_zufall(GlademmData *_data)
-         : table_zufall_glade(_data) , hauptfenster(0) {}
-
-
-      void init(midgard_CG *hauptfenster);
-
-   private:
-      // automatisch von glade erzeugte Methoden
-      void on_button_zufall_voll_clicked();
-      void on_togglebutton_vorgaben_toggled();
-      void on_checkbutton_werte_toggled();
-
-      void on_button_steigern_clicked();
-};
-
-#endif
+}

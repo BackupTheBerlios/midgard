@@ -399,13 +399,14 @@ int MidgardBasicElement::FErfolgswert(const Abenteurer &abenteurer,const Midgard
 {  return 0;
 }
 
-/*
 int MidgardBasicElement::Kosten(const Abenteurer &A) const 
-{return (int)(Standard_Faktor(A.getWerte(),A.getVTyp())*GrundKosten());}
+{return (int)(Standard_Faktor(A)*GrundKosten());}
 
+/*
 double MidgardBasicElement::Standard_Faktor(const Abenteurer &A) const 
 {return Standard_Faktor(A.getWerte(),A.getVTyp());}
-
+*/
+/*
 bool MidgardBasicElement::Grundfertigkeit(const Abenteurer &A) const
 {return Grundfertigkeit(A.getWerte(),A.getVTyp());}
 

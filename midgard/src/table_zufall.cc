@@ -27,6 +27,7 @@
 #include "table_zufall.hh"
 #include "midgard_CG.hh"
 #include "Zufall.hh"
+#include "KI.hh"
 
 void table_zufall::init(midgard_CG *h)
 {
@@ -94,4 +95,19 @@ void table_zufall::on_checkbutton_werte_toggled()
   if(checkbutton_werte->get_active()) frame_werte_vorgaben->show();
   else frame_werte_vorgaben->hide();
 }
+
+void table_zufall::on_button_steigern_clicked()
+{
+  int gfp;
+  spinbutton_gfp->update();
+  spinbutton_grad->update();
+  if(radiobutton_steigern_gfp->get_active()) gfp=spinbutton_gfp->get_value_as_int();
+  else { Grad_anstieg GA=hauptfenster->getDatabase().GradAnstieg;
+         int grad=spinbutton_grad->get_value_as_int();
+         gfp=hauptfenster->random.integer(GA.getGFP(grad),GA.getGFP(grad+1));
+cout << grad<<'\t'<<gfp<<'\n';
+       }
+  MagusKI(hauptfenster).Steigern(gfp);
+}
+
 
