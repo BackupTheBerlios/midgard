@@ -150,7 +150,7 @@ void midgard_CG::showChildren(Gtk::CTree_Helpers::RowList::iterator r,const list
      std::vector <string> v;
      v.push_back(i->getAusruestung().Name());
      r->subtree().push_back(Gtk::CTree_Helpers::Element(v));
-     n=--Ausruestung_tree->rows().end();
+     n=--(Ausruestung_tree->rows().end());
      n->set_data(gpointer(&*i));
      showChildren(n,i->getChildren());
    }  
@@ -173,10 +173,17 @@ void midgard_CG::showAusruestung()
      std::vector <string> v;
      v.push_back(i->getAusruestung().Name());
      Ausruestung_tree->rows().push_back(Gtk::CTree_Helpers::Element(v));
-     r=--Ausruestung_tree->rows().end();
+     r=--(Ausruestung_tree->rows().end());
      r->set_data(gpointer(&*i));
      showChildren(r,i->getChildren());
    }
+
+  for(Gtk::CTree_Helpers::RowList::const_iterator i=Ausruestung_tree->rows().begin();
+         i!=Ausruestung_tree->rows().end();++i)
+   {
+     cout << i->get_data() << '\n';
+   }
+
   r->expand_recursive();
   Ausruestung_tree->show(); 
   viewport_ausruestung->add(*Ausruestung_tree);
@@ -202,7 +209,7 @@ return;
 cout<< "Zuviele Zeilen gewählt\n";
 return;
    }
-  AusruestungBaum A=*static_cast<AusruestungBaum*>(selectionList.begin()->get_data());
+  AusruestungBaum &A=*static_cast<AusruestungBaum*>(selectionList.begin()->get_data());
 
   std::string name   =clist_preisliste->get_text(row,0);
   std::string kosten =clist_preisliste->get_text(row,1);
