@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.39 2002/01/19 17:07:33 christof Exp $
+// $Id: midgard_CG_beruf.cc,v 1.40 2002/01/27 09:01:25 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,6 +24,31 @@
 #include <Aux/SQLerror.h>
 #endif
 
+
+gint midgard_CG::on_button_beruf_release_event(GdkEventButton *ev)
+{
+  if (ev->button==1) 
+   {
+     berufe_clist->clear();
+//     list_Beruf.clear(); //macht MidgardBasicElement_uebernehmen(MBE)
+     manage(new Berufe_auswahl(this,Database,Typ,Werte,list_Fertigkeit));
+   }
+  if (ev->button==3) 
+   {
+     vbox_berufsname->show();
+     entry_berufsname->grab_focus();
+   }
+}
+
+void midgard_CG::on_entry_berufsname_activate()
+{
+  cH_MidgardBasicElement beruf(&*cH_Beruf(entry_berufsname->get_text()));
+  MidgardBasicElement_uebernehmen(beruf);
+  vbox_berufsname->hide();
+}
+
+
+/*
 void midgard_CG::on_berufe_wahl_clicked()
 {
   berufe_clist->clear();
@@ -39,6 +64,7 @@ void midgard_CG::on_berufe_wahl_clicked()
   hbox_fertigkeit->set_sensitive(true);
   table_fertigkeit->set_sensitive(true);
 }
+*/
 
 void midgard_CG::show_berufe()
 {
@@ -58,8 +84,6 @@ void midgard_CG::show_berufe()
 gint midgard_CG::on_beruf_erfolgswert_release_event(GdkEventButton *ev)
 {
 /*
-  if (ev->button==1) on_beruf_erfolgswert_clicked();
-  if (ev->button==3) beruf_erfolgswert_eingeben();
   hbox_fertigkeit->set_sensitive(true);
   table_fertigkeit->set_sensitive(true);
 */

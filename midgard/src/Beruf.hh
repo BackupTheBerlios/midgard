@@ -27,22 +27,9 @@ class Beruf : public MidgardBasicElement
 {
       std::string geschlecht; 
       int klasse;
-//      vector<std::string> stand;
       vector<std::string> vorteile;
       bool u,v,m,a,typ_k,typ_z,stadt,land;
       
-/*
-      struct st_Voraussetzung {int st;int gw;int gs;int ko;int in;int zt;int au;int pa;
-                           int sb;std::string geschlecht;std::string typ;
-         st_Voraussetzung()
-            : st(0),gw(0),gs(0),ko(0),in(0),zt(0),au(0),pa(0),sb(0) {} 
-         st_Voraussetzung(int _st,int _gw,int _gs,int _ko,int _in,int _zt,int _au,
-                       int _pa, int _sb,std::string _geschlecht,
-                       std::string _typ)
-            : st(_st),gw(_gw),gs(_gs),ko(_ko),in(_in),zt(_zt),au(_au),pa(_pa),
-              sb(_sb),geschlecht(_geschlecht),typ(_typ) {} };
-     st_Voraussetzung voraussetzung; 
-*/
      void get_Beruf();      
   public:
 //      Beruf() {}
@@ -61,11 +48,7 @@ class Beruf : public MidgardBasicElement
      bool Typ(const vector<cH_Typen>& Typ) const;
      bool Land() const {return land;}
      bool Stadt() const {return stadt;}
-//     std::string Name() const {return name;}
-//     std::string Region() const {return region;}
-//     int Lernpunkte() const {return lernpunkte;}
 
-//     bool Voraussetzungen(const Grundwerte& Werte,const vector<cH_Typen>& Typ) const;
      std::vector<string> Vorteile() const {return vorteile;}
      std::string Beruf::get_Vorteile() const;
      int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const 

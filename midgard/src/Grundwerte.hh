@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.19 2002/01/19 17:07:32 christof Exp $               
+// $Id: Grundwerte.hh,v 1.20 2002/01/27 09:01:25 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,13 +19,10 @@
 
 #ifndef CLASS_GRUND
 #define CLASS_GRUND
-//#include "itos.h"
 #include "Land.hh"
 #include "Ruestung.hh"
 #include "Spezies.hh"
 #include "Spezialgebiet.hh"
-//#include <map>
-//#include <string>
 #include "Typen.hh"
 
 class Grundwerte
@@ -43,7 +40,6 @@ class Grundwerte
    int gg,sg;
    int abwehr_wert,abwehr_pp,zaubern_wert,zauber_pp;
    int resistenz,resistenz_pp;
-//   int bo_au,bo_sc,bo_an,bo_ab,bo_za,bo_psy,bo_phs,bo_phk,
    int alter;
    std::string geschlecht;
    int gewicht,groesse,grad;
@@ -62,8 +58,6 @@ public:
    Grundwerte() : raufen(0),au(0),pa(0),sb(0), wk(0),
              b(0),lp(0),ap(0),gg(0),sg(0),abwehr_wert(0),abwehr_pp(0),
              zaubern_wert(0),zauber_pp(0),resistenz(0),resistenz_pp(0),
-//             bo_au(0),bo_sc(0),bo_an(0),bo_ab(0),bo_za(0),
-//             bo_psy(0),bo_phs(0),bo_phk(0),
              alter(0),geschlecht("m"),gewicht(0),groesse(0),grad(1),
              stand(""),glaube(""),name_charakter(""),version("Erschaffung"),
              gfp(0),steigertage(0),gold(0), silber(0), kupfer(0),
@@ -124,9 +118,7 @@ public:
    std::string Spezialisierung() const {return spezialisierung;}
 //   std::string Spezial2() const {return spezial2;}
    std::string Stand() const {return stand;}
-//   std::string Herkunft() const {return herkunft;}
    cH_Land Herkunft() const {return herkunft;}
-//   std::string &Spezies() {return spezies;}
    cH_Spezies Spezies() const {return spezies;}
    std::string Glaube() const {return glaube;}
    std::string Name_Charakter() const {return name_charakter;}

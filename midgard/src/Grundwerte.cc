@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.4 2002/01/19 17:07:32 christof Exp $               
+// $Id: Grundwerte.cc,v 1.5 2002/01/27 09:01:25 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -41,9 +41,9 @@ int Grundwerte::Raufen() const
 
 std::string Grundwerte::Gestalt() const 
 { 
-  int g1=Groesse()-100;
+//  int g1=Groesse()-100;
   int g2=Groesse()-Gewicht();
-  double ge=g2/g1;
+  double ge=100./g2;
   if(ge>1.1)      return "breit";
   else if(ge<0.9) return "schlank";
   else            return "normal";

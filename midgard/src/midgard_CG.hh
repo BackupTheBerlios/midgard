@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.144 2002/01/25 09:19:23 thoma Exp $
+// $Id: midgard_CG.hh,v 1.145 2002/01/27 09:01:25 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -263,7 +263,8 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void magier_spezialgebiet(const std::string& whattodo);
         void get_spezial_from_spezialgebiet();
         void on_zauber_wahl_clicked();
-        void on_berufe_wahl_clicked();
+        gint on_button_beruf_release_event(GdkEventButton *ev);
+        void on_entry_berufsname_activate();
         void on_kido_wahl_clicked();
         void show_kido();
         void stil_optionmenue();

@@ -23,7 +23,7 @@
 #include <Aux/Transaction.h>
 #include <Aux/SQLerror.h>
 #include "Window_charakter_auswahl.hh"
-exec sql include sqlca;
+//exec sql include sqlca;
 #include <cstring>
 #else
 #include "TagStream.hh"
@@ -605,7 +605,7 @@ void midgard_CG::load_fertigkeiten(IF_XML(const Tag *tag, const Tag *waffen_b, i
       if(sart=="Beruf")
         {
          cH_MidgardBasicElement beruf(&*cH_Beruf(db_fert));
-         cH_Beruf(beruf)->set_Erfolgswert(db_wert);
+// gibt es nicht mehr         cH_Beruf(beruf)->set_Erfolgswert(db_wert);
          list_Beruf.push_back(beruf);
         }
       if(sart=="ang.Fertigkeit")
