@@ -20,10 +20,8 @@
 #include <Aux/SQLerror.h>
 exec sql include sqlca;
 
-//void midgard_CG::get_typ_after_load(int nr, int typ_1_2)
 void midgard_CG::get_typ_after_load()
 {
-//std::cout << nr<<"\t"<<typ_1_2<<"\n";
  exec sql begin declare section ;
   char db_typs[50], db_typl[50], db_typz[5], db_ausdauer[5];
   int  db_stand, db_sb, db_ruestung;
@@ -44,7 +42,6 @@ void midgard_CG::get_typ_after_load()
   if (werte.geschlecht=="w")
   exec sql select typlw into :db_typl from typen where typl = :db_typl;
   SQLerror::test(__FILELINE__); 
- 
   if (typ_1_2==1)
   {
     Typ.set_Short(db_typs);
@@ -67,41 +64,29 @@ void midgard_CG::get_typ_after_load()
    }
  else abort();
   }
-//std::cout <<typ.l <<"\t"<<typ_2.l <<"<-\n";
- midgard_CG::get_Ausnahmen();
+//std::cout <<Typ.Name() <<"\t"<<Typ2.Name() <<"<-\n";
+//A// midgard_CG::get_Ausnahmen();
 
 //std::cout << typ.l<<"\n";
 }
 
-int midgard_CG::get_typ_nr(int typ_1_2)
+void midgard_CG::get_optionmenu_typ_nr()
 {
-//std::cout << "get_typ_nr für "<<typ_1_2<<"\n";
- exec sql begin declare section ;
-  char db_typs[5];
-  int db_typnr;
- exec sql end declare section ; 
- if (typ_1_2==1) strncpy(db_typs,Typ.Short().c_str(),sizeof(db_typs));
- else if (typ_1_2==2) strncpy(db_typs,Typ2.Short().c_str(),sizeof(db_typs));
- else abort();
-
- exec sql select typnr into :db_typnr from typen where typs = :db_typs;
- SQLerror::test(__FILELINE__,100); 
- if (sqlca.sqlcode) return 0; // Kein Charakter gewählt
- int count=0;
- if (typ_1_2==1)
+  int count;
+  for (std::vector<cH_Data_typen>::const_iterator i=vec_Typen.begin();i!=vec_Typen.end();++i)
    {
-      for (std::vector<cH_Data_typen>::const_iterator i=vec_Typen.begin();
-           i!=vec_Typen.end();++i)
-      { if(db_typnr==(*i)->Nr()) { return count ; }
-        ++count;
-      }
+    if( (*i)->Short() == Typ.Short()) break;
+    ++count;
    }
- if (typ_1_2==2)
-   {for (std::vector<cH_Data_typen>::const_iterator i=vec_Typen_2.begin();
-           i!=vec_Typen_2.end();++i)
-      { if(db_typnr==(*i)->Nr()) { return count+100 ; } // 2. Charakterklasse ab 100
-        ++count;
-      }
+  Typ.set_Nr_Optionmenu(count);
+  typauswahl->set_history(Typ.Nr_Optionmenu());
+
+  count=0;
+  for (std::vector<cH_Data_typen>::const_iterator i=vec_Typen_2.begin();i!=vec_Typen_2.end();++i)
+   {
+    if( (*i)->Short() == Typ2.Short()) break;
+    ++count;
    }
- return 0; // Kein Charakter = 1. Charakter
+  Typ2.set_Nr_Optionmenu(count);
+  typauswahl_2->set_history(Typ2.Nr_Optionmenu());
 }

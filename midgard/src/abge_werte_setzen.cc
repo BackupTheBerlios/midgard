@@ -1,4 +1,4 @@
-// $Id: abge_werte_setzen.cc,v 1.21 2001/06/27 11:24:35 thoma Exp $
+// $Id: abge_werte_setzen.cc,v 1.22 2001/06/29 09:23:29 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -97,7 +97,7 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   if (istand>=91) werte.stand = "Adel";
 
   if (Originalbool) original_midgard_check() ;
-  get_Ausnahmen();
+//A//  get_Ausnahmen();
   midgard_CG::zeige_werte(werte,"alle");
   button_herkunft->set_sensitive(true);
   button_sprache->set_sensitive(true);

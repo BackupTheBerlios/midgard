@@ -29,12 +29,14 @@ exec sql include sqlca;
 #include "midgard_CG.hh"
 #include <cstring>
 #include <Gtk_OStream.h>
+#include "class_Ausnahmen.hh"
 
 double midgard_CG::get_standard_fertigkeit(const std::string& typ, const std::string& typ_2, const std::string& fertigkeit)
 {
+   Ausnahmen ausnahmen(werte,Typ,Typ2,vec_Beruf);
    double fac;
    // gibt es eine Ausnahmeregelung?
-   fac = midgard_CG::Ausnahmen_float(fertigkeit);
+   fac = ausnahmen.Ausnahmen_float(fertigkeit);
    if (fac!=0) return fac;
 
   exec sql begin declare section;
@@ -63,9 +65,10 @@ double midgard_CG::get_standard_fertigkeit(const std::string& typ, const std::st
 
 double midgard_CG::get_standard_fertigkeit_(const std::string& ergebnis,const std::string& ergebnis2,const std::string& fertigkeit)
 {
+   Ausnahmen ausnahmen(werte,Typ,Typ2,vec_Beruf);
    double fac;
    // gibt es eine Ausnahmeregelung?
-   fac = midgard_CG::Ausnahmen_float(fertigkeit);
+   fac = ausnahmen.Ausnahmen_float(fertigkeit);
    if (fac!=0) return fac;
 
   if (ergebnis=="G" || ergebnis2=="G") return 0.5;

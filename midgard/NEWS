@@ -1,5 +1,5 @@
 ##########################################################################
-NEWS IN VERSION 0.6beta1
+NEWS IN VERSION 0.7beta0
 - Umstellung der Steigern-Listen abgeschlossen.
 - Einige Bugs beseitigt, die durch die Umstellung entstanden.
 - Einige bedeutenden(!) Umstellung im Code: Der MCG ist jetzt wesentlich
@@ -9,6 +9,11 @@ NEWS IN VERSION 0.6beta1
 - Erneute Überarbeitung der neuen Liste, deswegen ist wieder ein Update 
    von ManuProc_Widgets nötig.
 - Joachim hat die fehlenden H&D Zauber fertig abgetippt.
+- Umstellung für den gcc_3.0 begonnen, die Abwärtskompatibilität zum 
+   alten Compiler (2.95.2) bleibt erhalten.
+Umstellungsbezogene Bugs (behoben)
+Lernpunkte würfeln für Doppelklassencharaktere
+
 
 ##########################################################################
 NEWS IN VERSION 0.6beta0

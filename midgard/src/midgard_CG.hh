@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.50 2001/06/27 11:24:35 thoma Exp $
+// $Id: midgard_CG.hh,v 1.51 2001/06/29 09:23:29 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -51,6 +51,8 @@
 #include "class_kido.hh"
 #include "class_sprache_schrift.hh"
 #include "class_misc.hh"
+//#include "class_Ausnahmen.hh"
+
 
 struct st_werte{int st; int ge;int ko;int in;int zt;
              int au;int pa;int sb;int rw;int hgw;
@@ -81,14 +83,10 @@ struct st_spezies_constraint{int st;int ge;int ko;int in;int zt;int sb;int au;
       int alter;int groesse_f;int groesse_w;int groesse_s;int gestalt;
       int b_f;int b_s;};
 /*
-struct styp{std::string l;std::string s;std::string z; std::string ausdauer; int stand; int sb;
-   styp() : stand(0), sb(0) {} 
-   void clear() {*this=styp();} };
-*/
 struct st_ausnahmen{std::string name; std::string art;float fac;std::string standard;
          st_ausnahmen(std::string nn, std::string aa, float ff, std::string ss)
          :name(nn), art(aa), fac(ff), standard(ss) {}};
-
+*/
 
 extern bool Originalbool;
 extern bool Infobool;
@@ -109,16 +107,12 @@ class midgard_CG : public midgard_CG_glade
         friend class midgard_CG_glade;
         void set_tree_titles();
 
-//        std::vector<st_typen> typen_vector;
-//        std::vector<st_typen> typen_2_vector;
         std::vector<cH_Data_typen> vec_Typen;
         std::vector<cH_Data_typen> vec_Typen_2;
-        std::vector<string> vec_spezialgebiet;
-        std::vector<string> spezies_vector;
+        std::vector<std::string> vec_spezialgebiet;
+        std::vector<std::string> spezies_vector;
         std::vector<H_Data_fert> vec_Fertigkeiten;
         std::vector<H_Data_fert> vec_an_Fertigkeit;
-//        std::vector<st_ausgewaehlte_waffen> vec_waffen;
-//        std::vector<st_waffen_besitz> waffe_besitz;
         std::vector<H_Data_waffen> vec_Waffen;
         std::vector<H_Data_waffen> vec_Waffen_besitz;
         std::vector<H_Data_beruf> vec_Beruf;
@@ -131,13 +125,12 @@ class midgard_CG : public midgard_CG_glade
         std::vector<H_Data_sprache> vec_Sprachen;
         std::vector<H_Data_schrift> vec_Schriften;
         map<std::string,string> waffen_grundkenntnisse;
-        std::vector<st_ausnahmen> vec_ausnahmen;
-//        styp typ;
-//        styp typ_2;
+//        std::vector<st_ausnahmen> vec_ausnahmen;
+//        std::vector<cH_Data_Ausnahmen> vec_Ausnahmen;
         Data_typen Typ;
         Data_typen Typ2;
-//        st_lernpunkte lernpunkte;
         Lernpunkte lernpunkte;
+//        Ausnahmen ausnahmen;   
         st_spezies_constraint spezies_constraint;
 
         void regnot(std::string sadd);
@@ -145,8 +138,8 @@ class midgard_CG : public midgard_CG_glade
         void fill_typauswahl_2();
         void fill_typauswahl_fill(int typ_1_2);
         void fill_spezies();
-        void typauswahl_button(int ttyp);
-        void typauswahl_2_button(int ttyp);
+        void typauswahl_button();
+        void typauswahl_2_button();
         void angeborene_zauber();
         void on_radiobutton_frau_toggled();
         void on_radiobutton_mann_toggled();
@@ -327,6 +320,8 @@ class midgard_CG : public midgard_CG_glade
         void show_neue_sprachen();
         void sprachen_schrift();
         void show_gtk();
+        void get_typ_after_load();
+        void get_optionmenu_typ_nr();
 
         bool get_typ_s(const std::string& mod,const Data_typen& t);
    
@@ -365,13 +360,11 @@ class midgard_CG : public midgard_CG_glade
          bool Fertigkeiten_Voraussetzung(const std::string& fertigkeit);
          bool Waffen_Voraussetzung(const std::string& waffe);
          bool region_check(const std::string& region);
-         bool Ausnahmen_bool(const std::string& name);
-         void get_Ausnahmen();
-         float Ausnahmen_float(const std::string& name);
-         std::string Ausnahmen_string(const std::string& name, const std::string& alt,const std::string& alt2);
+//         bool Ausnahmen_bool(const std::string& name);
+//         void get_Ausnahmen();
+//         float Ausnahmen_float(const std::string& name);
+//         std::string Ausnahmen_string(const std::string& name, const std::string& alt,const std::string& alt2);
 //        void get_typ_after_load(int nr, int typ_1_2=1);
-        void get_typ_after_load();
-        int  get_typ_nr(int typ_1_2=1);
 
 };
 #endif

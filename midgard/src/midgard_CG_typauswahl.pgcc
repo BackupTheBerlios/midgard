@@ -96,62 +96,37 @@ t_.flush((gpointer)count);
 }
   if (typ_1_2==1) 
    { //typauswahl->set_menu(*_m);
-     typauswahl->get_menu()->deactivate.connect(SigC::bind(slot(static_cast<class midgard_CG*>(this), &midgard_CG::typauswahl_button),get_typ_nr()));
+//     typauswahl->get_menu()->deactivate.connect(SigC::bind(slot(static_cast<class midgard_CG*>(this), &midgard_CG::typauswahl_button),get_typ_nr()));
+     typauswahl->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::typauswahl_button));
    }
   if (typ_1_2==2) 
    { //typauswahl_2->set_menu(*_m);
-     typauswahl_2->get_menu()->deactivate.connect(SigC::bind(slot(static_cast<class midgard_CG*>(this), &midgard_CG::typauswahl_2_button),get_typ_nr(2)));
-   }
+//     typauswahl_2->get_menu()->deactivate.connect(SigC::bind(slot(static_cast<class midgard_CG*>(this), &midgard_CG::typauswahl_2_button),get_typ_nr(2)));
+     typauswahl_2->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::typauswahl_2_button));
+     }
 }
 
 
-void midgard_CG::typauswahl_button(int ttyp)
+void midgard_CG::typauswahl_button()
 {
- int ityp,count=0;
  int ityp_ = int(typauswahl->get_menu()->get_active()->get_user_data());
  Typ = *vec_Typen[ityp_];
 
- if (ttyp==-1) ityp_=0;
- for (std::vector<cH_Data_typen>::const_iterator i=vec_Typen.begin();
-    i!=vec_Typen.end();++i)
-    { if (count==ityp_){ityp=(*i)->Nr();break;}
-      ++count;
-    }
-// get_typ(ityp);     
- get_Ausnahmen();
+//A// get_Ausnahmen();
  show_gtk();
- if (ttyp!=-1&&(Typ.Short()=="dBe" || Typ.Short()=="eBe")) angeborene_zauber();
+ if (Typ.Short()=="dBe" || Typ.Short()=="eBe") angeborene_zauber();
 }
 
-void midgard_CG::typauswahl_2_button(int ttyp)
+void midgard_CG::typauswahl_2_button()
 {
- int ityp,count=0;
  int ityp_ = int(typauswahl_2->get_menu()->get_active()->get_user_data());
  Typ2 = *vec_Typen_2[ityp_];
 
-//std::cout << "Typ 2 = " << vec_Typen_2[ityp_]->Name()<<"\n";
- if (ttyp==-1) ityp_=0;
- for (std::vector<cH_Data_typen>::const_iterator i=vec_Typen_2.begin();
-   i!=vec_Typen_2.end();++i)
-   { if (count==ityp_){ityp=(*i)->Nr();break;}
-     ++count;
-   }
-//std::cout << "Nummern \t"<<ityp<<"="<<vec_Typen[ityp_]->Nr()<<"\t"<<ityp_<<"="<<vec_Typen[ityp_]->Nr_Optionmenu()<<"\n";
-// get_typ(ityp,2);     
- get_Ausnahmen();
+//A// get_Ausnahmen();
  show_gtk();
- if (ttyp!=-1 && (Typ2.Short()=="dBe" || Typ2.Short()=="eBe")) angeborene_zauber();
+ if (Typ2.Short()=="dBe" || Typ2.Short()=="eBe") angeborene_zauber();
 }
 
-
-/*
-int  fill_typauswahl_int(int i)
-{
-  exec sql begin declare section;
-    int 
-  exec sql end declare section;
-}
-*/
 
 void midgard_CG::fill_spezies()
 {
@@ -188,7 +163,7 @@ void midgard_CG::spezieswahl_button()
  werte.spezies = spezies_vector[ityp];
  midgard_CG::fill_typauswahl();
  midgard_CG::get_spezies_constraint();
- midgard_CG::typauswahl_button(-1);
+ midgard_CG::typauswahl_button();
 
  if (werte.spezies=="Elf")
    { manage (new Window_doppelcharaktere(this));
@@ -200,7 +175,7 @@ void midgard_CG::doppelcharaktere()
 {
    fill_typauswahl_2();
    typauswahl_2->show();
-   typauswahl_2_button(-1);
+   typauswahl_2_button();
    magie_bool=true;
 }
 

@@ -26,6 +26,7 @@ exec sql include sqlca;
 #include "WindowInfo.hh"
 #include <Aux/EntryValueIntString.h>
 #include <Aux/EntryValueEmptyInt.h>
+#include "class_Ausnahmen.hh"
 
 
 void midgard_CG::on_fertigkeiten_laden_clicked()
@@ -162,7 +163,8 @@ void midgard_CG::show_neue_fertigkeiten()
       if (sqlca.sqlcode) break;
       double fac = midgard_CG::get_standard_fertigkeit_(db_standard,db_standard2,db_fertigkeiten);
       std::string s1 = db_standard, s2 = db_standard2;
-      s1 = Ausnahmen_string(db_fertigkeiten,db_standard,"");
+      Ausnahmen ausnahmen(werte,Typ,Typ2,vec_Beruf);
+      s1 = ausnahmen.Ausnahmen_string(db_fertigkeiten,db_standard,"");
 //std::cout << "\t\t"<<s1<<"\t"<<fac<<"\n";
 //std::cout << db_fertigkeiten<<"\t"<<Fertigkeiten_Voraussetzung(db_fertigkeiten)
 //      <<"\t->"<<db_region<<"<-\t"<<BRbool<<"\t"<<region_check(db_region)<<"\n";

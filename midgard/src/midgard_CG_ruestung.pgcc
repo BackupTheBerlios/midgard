@@ -25,7 +25,6 @@ std::string midgard_CG::ruestung(const std::string& mod)
  exec sql begin declare section;
    char db_typ[5];
    char db_c_ruestung[10], db_long[30];
-   int  db_i_ruestung;
    int  db_wert;
  exec sql end declare section;
  strncpy(db_typ,Typ.Short().c_str(),sizeof(db_typ));
@@ -61,13 +60,11 @@ std::string midgard_CG::ruestung(const std::string& mod)
 
  if (mod=="wuerfeln")
   {
-    exec sql select ruestung into :db_i_ruestung from typen
-         where typs = :db_typ;
     SQLerror::test(__FILELINE__);
     Random random;
     std::string ruestung;
     int wurf = random.integer(1,100);
-    if (db_i_ruestung == 1)
+    if (Typ.Ruestung() == 1)
      {
       if ( 1 <= wurf && wurf  <= 10 ) ruestung = "OR" ;
       if (11 <= wurf && wurf  <= 20 ) ruestung = "TR" ;
@@ -77,7 +74,7 @@ std::string midgard_CG::ruestung(const std::string& mod)
       if (81 <= wurf && wurf  <= 95 ) ruestung = "LR" ;
       if (96 <= wurf && wurf  <= 100) ruestung = "LR" ;
      }    
-    if (db_i_ruestung == 2)
+    if (Typ.Ruestung()== 2)
      {
       if ( 1 <= wurf && wurf  <= 10 ) ruestung = "OR" ;
       if (11 <= wurf && wurf  <= 20 ) ruestung = "TR" ;
@@ -87,7 +84,7 @@ std::string midgard_CG::ruestung(const std::string& mod)
       if (81 <= wurf && wurf  <= 95 ) ruestung = "KR" ;
       if (96 <= wurf && wurf  <= 100) ruestung = "KR" ;
      }    
-    if (db_i_ruestung == 3)
+    if (Typ.Ruestung()== 3)
      {
       if ( 1 <= wurf && wurf  <= 10 ) ruestung = "OR" ;
       if (11 <= wurf && wurf  <= 20 ) ruestung = "TR" ;
@@ -97,7 +94,7 @@ std::string midgard_CG::ruestung(const std::string& mod)
       if (81 <= wurf && wurf  <= 95 ) ruestung = "KR" ;
       if (96 <= wurf && wurf  <= 100) ruestung = "PR" ;
      }    
-    if (db_i_ruestung == 4)
+    if (Typ.Ruestung()== 4)
      {
       if ( 1 <= wurf && wurf  <= 10 ) ruestung = "OR" ;
       if (11 <= wurf && wurf  <= 20 ) ruestung = "OR" ;

@@ -22,6 +22,7 @@
 exec sql include sqlca;
 #include <cstring>
 #include "WindowInfo.hh"
+#include "class_Ausnahmen.hh"
 
 void midgard_CG::on_zauber_laden_clicked()
 {   
@@ -113,7 +114,8 @@ void midgard_CG::show_neue_zauber()
          if (sqlca.sqlcode) break;
          double fac=midgard_CG::get_standard_zauber_(db_standard,db_standard2,db_p_element,db_s_element,db_name);
          if (fac == 0) continue;
-         std::string standard = midgard_CG::Ausnahmen_string(db_name,db_standard,db_standard2);
+         Ausnahmen ausnahmen(werte,Typ,Typ2,vec_Beruf);
+         std::string standard = ausnahmen.Ausnahmen_string(db_name,db_standard,db_standard2);
          std::string zauberart=db_zauberart;
          if (zauberart=="Zaubersalz" && !checkbutton_zaubersalze->get_active())
             continue;
@@ -313,7 +315,7 @@ void midgard_CG::show_neue_zaubermittel()
 
 
  strncpy(query,squery.c_str(),sizeof(query));
-cout << query<<"\n";
+//cout << query<<"\n";
  Transaction tr;
  exec sql prepare zauberm_ein_ from :query ;
  exec sql declare zauberm_ein cursor for zauberm_ein_ ;

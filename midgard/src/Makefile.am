@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.37 2001/06/24 13:24:52 thoma Exp $
+# $Id: Makefile.am,v 1.38 2001/06/29 09:23:29 thoma Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -48,12 +48,20 @@ Sprache_auswahl.hh Sprache_auswahl_glade.hh \
    Window_doppelcharaktere_glade.hh \
    xml_fileselection_glade.hh \
    xml_fileselection.hh \
-   class_zauber.hh
+   class_Grundwerte.hh \
+   class_Ausnahmen.hh \
+   class_kido.hh \
+   class_waffen.hh \
+   class_berufe.hh \
+   class_misc.hh \
+   class_zauber.hh \
+   class_fertigkeiten.hh \
+   class_sprache_schrift.hh
 
 
 %.cc: %.pgcc ; @ECPG@ -o $*.cc $<
 
-BUILT_SOURCES_CG = Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
+BUILT_SOURCES_CG = Ausnahmen.cc Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
    Zauber_auswahl.cc  Zauber_get_daten.cc get_standard_zauber.cc \
    get_standard_fertigkeit.cc get_standard_waffen.cc Berufe_auswahl.cc \
    save_charakter.cc  load_charakter.cc  \
@@ -65,7 +73,7 @@ BUILT_SOURCES_CG = Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
    midgard_CG_waffe_werte.cc get_berufs_vorteile.cc \
    midgard_CG_typauswahl.cc  Window_mag_bonus.cc get_Verteidigungswaffe.cc \
 	Window_angeb_fert.cc KiDo_auswahl.cc steigern_kido.cc get_kido.cc \
-   midgard_CG_Ausnahmen.cc get_standard_zaubermittel.cc \
+   get_standard_zaubermittel.cc \
    get_spezies_constraint.cc midgard_CG_magier_spezialgebiet.cc
 
 BUILT_SOUCES_XMLE=xmlexport.cc
@@ -77,6 +85,7 @@ midgard_xmlexport_SOURCES= $(BUILT_SOUCES_XMLE)
 midgard_xmlimport_SOURCES= $(BUILT_SOUCES_XMLI) Tag.cc TagStream.cc
 
 midgard_SOURCES = \
+   $(BUILT_SOURCES_CG) \
    xml_fileselection.cc \
    xml_fileselection_glade.cc \
    midgard_CG_typ_2.cc \
@@ -134,7 +143,6 @@ midgard_SOURCES = \
    grundwere_edit_setzen.cc \
    WindowInfo.cc \
    WindowInfo_glade.cc \
-   $(BUILT_SOURCES_CG) \
    itos.cc \
    Window_doppelcharaktere.cc \
    Window_doppelcharaktere_glade.cc

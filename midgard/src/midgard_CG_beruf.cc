@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.20 2001/06/27 11:24:35 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.21 2001/06/29 09:23:29 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -43,7 +43,7 @@ void midgard_CG::show_berufe()
 void midgard_CG::berufe_uebernehmen(std::vector<H_Data_beruf>& sab)
 {
    vec_Beruf = sab;
-   get_Ausnahmen();
+//A//   get_Ausnahmen();
    midgard_CG::show_berufe();
    button_beruf_erfolgswert->set_sensitive(true);
 

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.44 2001/06/27 11:24:35 thoma Exp $
+// $Id: midgard_CG.cc,v 1.45 2001/06/29 09:23:29 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -158,8 +158,8 @@ void midgard_CG::on_radiobutton_frau_toggled()
    else werte.geschlecht="m";
   midgard_CG::fill_typauswahl();
   midgard_CG::fill_typauswahl_2();
-  typauswahl->set_history(get_typ_nr());
-  typauswahl_2->set_history(get_typ_nr(2)-100);
+  typauswahl->set_history(Typ.Nr_Optionmenu());
+  typauswahl_2->set_history(Typ2.Nr_Optionmenu());
 }
 
 void midgard_CG::on_radiobutton_mann_toggled()
@@ -168,23 +168,17 @@ void midgard_CG::on_radiobutton_mann_toggled()
    else werte.geschlecht="w";
   midgard_CG::fill_typauswahl();
   midgard_CG::fill_typauswahl_2();
-  typauswahl->set_history(get_typ_nr());
-  typauswahl_2->set_history(get_typ_nr(2)-100);
+  typauswahl->set_history(Typ.Nr_Optionmenu());
+  typauswahl_2->set_history(Typ2.Nr_Optionmenu());
 }
 
 //void midgard_CG::show_gtk(int tnr,int typ_1_2)
 void midgard_CG::show_gtk()
 {
-//std::cout << "show_gtk "<<tnr<<"\t"<<typ_1_2<<"\n";
-// if (typ_1_2==1) 
-//   { //typauswahl->set_history(tnr); // Charakterklasse
-     typauswahl->set_history(Typ.Nr_Optionmenu());
-     if (vec_Typen_2.size()==0) typauswahl_2->hide();
-//   }
-// if (typ_1_2==2) 
-     else
+  typauswahl->set_history(Typ.Nr_Optionmenu());
+  if (Typ2.Short()=="") typauswahl_2->hide();
+  else
    { typauswahl_2->show(); 
-//     typauswahl_2->set_history(tnr-100);
      typauswahl_2->set_history(Typ2.Nr_Optionmenu());
    }
  fertig_typ->set_text(Typ.Name());     // Charakterklasse im Lernfenster
@@ -247,7 +241,7 @@ void midgard_CG::herkunft_uebernehmen(const std::string& s)
 {
    werte.herkunft = s;
    midgard_CG::zeige_werte(werte,"alle");
-   midgard_CG::get_Ausnahmen();
+//A//   midgard_CG::get_Ausnahmen(werte,Typ,Typ2);
 }
 
 
@@ -342,7 +336,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    vec_Zauber.clear();
    vec_Zaubermittel.clear();
    werte.clear();
-   Lernpunkte();
+   lernpunkte.clear();
    Typ.clear();
    Typ2.clear();
    vec_Typen.clear();
@@ -381,8 +375,7 @@ void midgard_CG::on_neuer_charakter_clicked()
  midgard_CG::fill_typauswahl();
  midgard_CG::fill_spezies();
  midgard_CG::spezieswahl_button();
- midgard_CG::typauswahl_button(-1);
-// show_gtk(get_typ_nr());
+ midgard_CG::typauswahl_button();
  show_gtk();
 
  // Verschwindet irgendwann
@@ -392,7 +385,14 @@ void midgard_CG::on_neuer_charakter_clicked()
 
 }
 
+/*
+void midgard_CG::get_Ausnahmen()
+{
+  ausnahmen = Ausnahmen(werte,Typ,Typ2,vec_Beruf);
 
+//  vec_Ausnahmen=A.get_Ausnahmen(werte,Typ,Typ2,vec_Beruf); 
+}
+*/
 
 void midgard_CG::on_schliessen_CG_clicked()
 {

@@ -30,11 +30,15 @@ exec sql include sqlca;
 #include <cstring>
 #include <Gtk_OStream.h>
 
+#include "class_Ausnahmen.hh"
+
 double midgard_CG::get_standard_zauber(const Data_typen& Typ, const Data_typen& Typ2, const std::string& zauber)
 {
+   Ausnahmen ausnahmen(werte,Typ,Typ2,vec_Beruf);
    double fac;
    // gibt es eine Ausnahmeregelung?
-   fac = midgard_CG::Ausnahmen_float(zauber);
+//   fac = midgard_CG::Ausnahmen_float(zauber);
+   fac = ausnahmen.Ausnahmen_float(zauber);
    if (fac!=0) return fac;
 
    //sonst
@@ -90,9 +94,11 @@ double midgard_CG::get_standard_zauber(const Data_typen& Typ, const Data_typen& 
 double midgard_CG::get_standard_zauber_(const std::string& ergebnis,const std::string& ergebnis2, 
    const std::string& p_element, const std::string& s_element, const std::string& zauber)
 {
+   Ausnahmen ausnahmen(werte,Typ,Typ2,vec_Beruf);
    double fac;
    // gibt es eine Ausnahmeregelung?
-   fac = midgard_CG::Ausnahmen_float(zauber);
+//   fac = midgard_CG::Ausnahmen_float(zauber);
+   fac = ausnahmen.Ausnahmen_float(zauber);
    if (fac!=0) return fac;
 
    if (Typ.Short() != "eBe" || (p_element=="" && s_element==""))
