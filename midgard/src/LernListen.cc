@@ -1,4 +1,4 @@
-// $Id: LernListen.cc,v 1.6 2002/09/10 10:45:21 thoma Exp $
+// $Id: LernListen.cc,v 1.7 2002/09/10 19:55:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -275,5 +275,25 @@ bool LernListen::SpracheSchrift(const cH_MidgardBasicElement& MBE)
  else if(fert=="Sprechen: Alte Sprache")
     { back=true; }  
  return back;  
+}
+
+std::list<WaffeBesitz> LernListen::getWaffenBesitz(const VAbenteurer& Aben) const
+{
+  std::list<cH_MidgardBasicElement> V=D.Waffe;
+  std::list<WaffeBesitz> L;
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=V.begin();i!=V.end();++i)
+   {
+     if(Aben.getWerte().Spezies()->istVerbotenSpielbegin(*i)) continue;
+     const cH_Waffe w(*i);
+     if (w->Grundkenntnis() == "Kampf ohne Waffen") continue;
+     if (!MidgardBasicElement_mutable(&*w).ist_gelernt(Aben.List_Waffen())) continue;
+     L.push_back(WaffeBesitz(w,w->Name(),0,0,"","")); 
+     for(std::list<Waffe::st_alias>::const_iterator j=cH_Waffe(w)->Alias().begin();j!=cH_Waffe(w)->Alias().end();++j)
+      {
+        if(region_check(j->region))
+           L.push_back(WaffeBesitz(w,j->name,0,0,"",j->region)); 
+      }
+   }
+ return L;
 }
 

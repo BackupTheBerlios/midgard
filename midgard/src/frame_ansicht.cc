@@ -27,6 +27,7 @@ void frame_ansicht::init()
  int count=0;
  for(std::list<Midgard_Optionen::st_Ober>::const_iterator i=L.begin();i!=L.end();++i)
   {
+   if(!i->show) continue;
    Gtk::CheckButton *cb=manage(new Gtk::CheckButton(i->text,0,0.5));
    cb->set_active(i->active);
    cb->toggled.connect(SigC::bind(SigC::slot(this,&frame_ansicht::element_activate),cb,i->index));

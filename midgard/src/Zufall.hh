@@ -61,6 +61,7 @@ class Zufall
       MidgardBasicElement_mutable getZusatz(MidgardBasicElement::eZusatz was,MidgardBasicElement_mutable& MBE,bool ungew=true) const;
 
       void setMuttersprache(); 
+      void setWaffenBesitz();
 
       // Lernschema
       struct st_LL{std::list<MidgardBasicElement_mutable> Fach;
@@ -80,6 +81,7 @@ class Zufall
       void Lernpunkte_verteilen(std::list<MidgardBasicElement_mutable> L,int lp,bool ungew=true);
    public:
       static void Lernpunkte_wuerfeln(Lernpunkte &lernpunkte, VAbenteurer &A, Random &random);
+      static WaffeBesitzLernen WaffenBesitz_wuerfeln(const VAbenteurer &A,int wurf);
 };
 
 #endif

@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.11 2002/06/26 14:01:18 christof Exp $
+// $Id: table_lernschema_waffen.cc,v 1.12 2002/09/10 19:55:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -19,13 +19,11 @@
 
 #include "table_grundwerte.hh"
 #include <Gtk_OStream.h>
-//#include "Fertigkeiten.hh"
-//#include "class_Beruf_Data.hh"
-//#include "Beruf.hh"
 #include <Misc/itos.h>
-//#include "Window_Waffenbesitz.hh"
 #include "class_SimpleTree.hh"
 #include "midgard_CG.hh"
+#include "LernListen.hh"
+#include "Zufall.hh"
 
 gint table_lernschema::on_button_lernschema_waffen_button_release_event(GdkEventButton *ev)
 {
@@ -96,7 +94,7 @@ void table_lernschema::show_WaffenBesitz_lernschema()
   tree_waffen_lernschema = manage(new MidgardBasicTree(MidgardBasicTree::WAFFE_LERNSCHEMA));
   tree_waffen_lernschema->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_waffen_lernschema_tree_leaf_selected));
   label_lernschma_titel->set_text("Waffenbesitz wählen");
-
+/*
   std::list<MidgardBasicElement_mutable> L;
   for(std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getDatabase().Waffe.begin();i!=hauptfenster->getDatabase().Waffe.end();++i)
    {
@@ -106,6 +104,10 @@ void table_lernschema::show_WaffenBesitz_lernschema()
      if (!MidgardBasicElement_mutable(&*w).ist_gelernt(hauptfenster->getChar().List_Waffen())) continue;
      L.push_back(WaffeBesitz(w,w->Name(),0,0,"",""));
    }
+*/
+  std::list<WaffeBesitz> L1=LernListen(hauptfenster->getDatabase()).getWaffenBesitz(hauptfenster->getChar());
+  std::list<MidgardBasicElement_mutable> L;
+  for(std::list<WaffeBesitz>::const_iterator i=L1.begin();i!=L1.end();++i) L.push_back(*i);
   MidgardBasicElement::show_list_in_tree(L,tree_waffen_lernschema,hauptfenster);
   tree_waffen_lernschema->show();
   tree_waffen_lernschema->Expand_recursively();
@@ -158,6 +160,7 @@ void table_lernschema::WaffenBesitz_lernschema_wuerfeln(int wurf)
   std::string strinfo = "Für die Waffenauswahl wurde eine "+itos(wurf)
       +" gewürfelt, die Abenteurerklasse ist "
       +hauptfenster->getChar().Typ1()->Name(hauptfenster->getWerte().Geschlecht())+" ==> ";
+/*
  int E=0,A=0;
  bool M=false;
  if (hauptfenster->getChar().Typ1()->Geld() == 1)
@@ -196,11 +199,15 @@ void table_lernschema::WaffenBesitz_lernschema_wuerfeln(int wurf)
     else if (81<=wurf&&wurf<=95 ) {      A=3; }
     else if (96<=wurf&&wurf<=100) { E=1; A=2; M=true; }
   }  
- strinfo += itos(E)+" Einhand- und "+itos(A)+" beliebige Waffen";
+*/
+ WaffeBesitzLernen wbl=Zufall::WaffenBesitz_wuerfeln(hauptfenster->getChar(),wurf);
+ strinfo += itos(wbl.EWaffe())+" Einhand- und "+itos(wbl.AWaffe())+" beliebige Waffen";
  hauptfenster->set_status(strinfo);
+/*
  waffebesitzlernen.setMagisch(M);
  waffebesitzlernen.set_EWaffe(E);
  waffebesitzlernen.set_AWaffe(A);
+*/
  show_WaffenBesitz_lernschema();
 }
 

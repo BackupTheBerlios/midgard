@@ -17707,6 +17707,7 @@ machen</label>
 	    <class>GtkFrame</class>
 	    <name>frame_vorgaben</name>
 	    <cxx_visibility>protected</cxx_visibility>
+	    <visible>False</visible>
 	    <label>Vorgaben</label>
 	    <label_xalign>0</label_xalign>
 	    <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>

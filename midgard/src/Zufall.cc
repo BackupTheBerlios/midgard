@@ -40,7 +40,7 @@ void Zufall::Voll()
    Lernschema();
 // Lücke Beruf
    hauptfenster->table_lernschema->geld_wuerfeln();
-// Lücke Waffen
+   setWaffenBesitz();
    hauptfenster->table_lernschema->on_button_ruestung_clicked(random.integer(1,100));
    hauptfenster->table_lernschema->ausruestung_setzen();
 }
@@ -55,8 +55,8 @@ void Zufall::Teil(e_Vorgabe vorgabe)
   for(B_VORGABE_BITS i=B_VORGABE_BITS(0);i<B_MAX;++i)
    {
     if(!(vorgabe&(1<<i))) continue;
-    if (i==B_Spezies) cout << "Spezies\n";
-    if (i==B_Typ) cout << "Typ\n";
+    if (i==B_Spezies) cout << "Spezies NICHT auswürfeln\n";
+    if (i==B_Typ) cout << "Typ NICHT auswürfeln\n";
    }
 }
 
@@ -67,3 +67,44 @@ void Zufall::setMuttersprache()
   Aben->setMuttersprache(sprache->Name());  
 }
 
+WaffeBesitzLernen Zufall::WaffenBesitz_wuerfeln(const VAbenteurer &A,int wurf)
+{
+  WaffeBesitzLernen l;
+  if (A.Typ1()->Geld() == 1)
+  { if      ( 1<=wurf&&wurf<=10 ) { l.set_EWaffe(3);      }
+    else if (11<=wurf&&wurf<=20 ) { l.set_EWaffe(3); l.set_AWaffe(1); }
+    else if (21<=wurf&&wurf<=30 ) { l.set_EWaffe(2); l.set_AWaffe(2); }
+    else if (31<=wurf&&wurf<=60 ) { l.set_EWaffe(3); l.set_AWaffe(2); }
+    else if (61<=wurf&&wurf<=80 ) { l.set_EWaffe(2); l.set_AWaffe(3); }
+    else if (81<=wurf&&wurf<=95 ) {      l.set_AWaffe(5); }
+    else if (96<=wurf&&wurf<=100) { l.set_EWaffe(1); l.set_AWaffe(4); l.setMagisch(true); }
+  }  
+  if (A.Typ1()->Geld() == 2)
+  { if      ( 1<=wurf&&wurf<=10 ) { l.set_EWaffe(2);      }  
+    else if (11<=wurf&&wurf<=20 ) { l.set_EWaffe(1); l.set_AWaffe(1); }  
+    else if (21<=wurf&&wurf<=30 ) { l.set_EWaffe(2); l.set_AWaffe(1); }  
+    else if (31<=wurf&&wurf<=60 ) { l.set_EWaffe(3); l.set_AWaffe(1); }  
+    else if (61<=wurf&&wurf<=80 ) { l.set_EWaffe(2); l.set_AWaffe(2); }  
+    else if (81<=wurf&&wurf<=95 ) {      l.set_AWaffe(4); }  
+    else if (96<=wurf&&wurf<=100) { l.set_EWaffe(1); l.set_AWaffe(3); l.setMagisch(true); }
+  }  
+ if (A.Typ1()->Geld() == 3)
+  { if      ( 1<=wurf&&wurf<=10 ) { l.set_EWaffe(1);      }  
+    else if (11<=wurf&&wurf<=20 ) {      l.set_AWaffe(1); }  
+    else if (21<=wurf&&wurf<=30 ) { l.set_EWaffe(2);      }  
+    else if (31<=wurf&&wurf<=60 ) { l.set_EWaffe(1); l.set_AWaffe(1); }  
+    else if (61<=wurf&&wurf<=80 ) { l.set_EWaffe(1); l.set_AWaffe(1); }  
+    else if (81<=wurf&&wurf<=95 ) {      l.set_AWaffe(2); }  
+    else if (96<=wurf&&wurf<=100) { l.set_EWaffe(1); l.set_AWaffe(1); l.setMagisch(true); }
+  }  
+ if (A.Typ1()->Geld() == 4)
+  { if      ( 1<=wurf&&wurf<=10 ) { l.set_EWaffe(2);      }  
+    else if (11<=wurf&&wurf<=20 ) { l.set_EWaffe(1); l.set_AWaffe(1); }  
+    else if (21<=wurf&&wurf<=30 ) { l.set_EWaffe(3);      }  
+    else if (31<=wurf&&wurf<=60 ) { l.set_EWaffe(2); l.set_AWaffe(1); }  
+    else if (61<=wurf&&wurf<=80 ) { l.set_EWaffe(1); l.set_AWaffe(2); }  
+    else if (81<=wurf&&wurf<=95 ) {      l.set_AWaffe(3); }  
+    else if (96<=wurf&&wurf<=100) { l.set_EWaffe(1); l.set_AWaffe(2); l.setMagisch(true); }
+  }  
+ return l;
+}

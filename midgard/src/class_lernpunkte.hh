@@ -51,4 +51,6 @@ public:
    void addZauber(int i) {zauber +=i;}
 
 };
+
+
 #endif

@@ -21,6 +21,7 @@
 #include <Gtk_OStream.h>
 #include <Misc/itos.h>
 #include "Data_waffenbesitz.hh"
+#include "LernListen.hh"
 
 void table_steigern::on_leaf_waffenbesitz_selected_alt(cH_RowDataBase d)
 {  
@@ -150,6 +151,7 @@ void  table_steigern::show_alte_waffen()
 
 void  table_steigern::lade_waffenbesitz()
 {
+/*
   std::list<WaffeBesitz> Waffe_Besitz_neu;
   const std::list<cH_MidgardBasicElement> L=hauptfenster->getCDatabase().Waffe;
   for (std::list<cH_MidgardBasicElement>::const_iterator i=L.begin();i!=L.end();++i)
@@ -171,7 +173,9 @@ void  table_steigern::lade_waffenbesitz()
          }
        }
    }
+*/
   std::vector<cH_RowDataBase> datavec;
+  std::list<WaffeBesitz> Waffe_Besitz_neu=LernListen(hauptfenster->getCDatabase()).getWaffenBesitz(hauptfenster->getChar());
   for (std::list<WaffeBesitz>::const_iterator i=Waffe_Besitz_neu.begin();i!=Waffe_Besitz_neu.end();++i)
         datavec.push_back(new Data_waffenbesitz(*i,hauptfenster));
   waffenbesitz_neu_tree->setDataVec(datavec);

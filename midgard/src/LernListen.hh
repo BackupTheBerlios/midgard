@@ -1,4 +1,4 @@
-// $Id: LernListen.hh,v 1.6 2002/09/10 10:45:21 thoma Exp $
+// $Id: LernListen.hh,v 1.7 2002/09/10 19:55:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,6 +24,7 @@
 
 class midgard_CG;
 class VAbenteurer;
+class WaffeBesitz;
 
 class LernListen
 {
@@ -49,7 +50,8 @@ class LernListen
       static std::vector<MidgardBasicElement::st_zusatz> getWaffenZusatz(const std::list<MidgardBasicElement_mutable>& WL); 
       std::vector<MidgardBasicElement::st_zusatz> getSprachenZusatz(const MidgardBasicElement_mutable &MBE,const VAbenteurer& Aben,bool nachbarland) const;
       std::vector<MidgardBasicElement::st_zusatz> getSchriftenZusatz(const MidgardBasicElement_mutable &MBE,const VAbenteurer& Aben) const;
-      
+
+      std::list<WaffeBesitz> getWaffenBesitz(const VAbenteurer& Aben) const;      
 
       std::list<MidgardBasicElement_mutable> getMBEm(const VAbenteurer& A,eMBE was, int erfolgswert=0,
                      int lernpunkte=0,std::string lernart="") const;

@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.26 2002/09/09 06:48:01 thoma Exp $
+// $Id: Optionen.hh,v 1.27 2002/09/10 19:55:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,7 +38,7 @@ class Midgard_Optionen
       enum HausIndex {Gold};
       enum OberIndex {AutoShrink,SaveFenster,Bilder,Menueleiste,Knopfleiste,
                Icons,Beschriftungen,Customize_Icons,Customize_Text,
-               Customize_Tab,Status};
+               Customize_Tab,Status,NoInfoFenster};
       enum IconIndex{Self,Ulf};
 
       struct st_strings{StringIndex index; std::string text; std::string name;
@@ -57,9 +57,9 @@ class Midgard_Optionen
       struct st_Haus{HausIndex index;std::string text;const char * const *bild;bool active;
                st_Haus(HausIndex i,std::string t,const char * const *b,bool a)
                       :index(i),text(t),bild(b),active(a) {} };
-      struct st_Ober{OberIndex index;std::string text;bool active;
-               st_Ober(OberIndex i,std::string t,bool a)
-                      :index(i),text(t),active(a) {} };
+      struct st_Ober{OberIndex index;std::string text;bool active;bool show;
+               st_Ober(OberIndex i,std::string t,bool a,bool s=true) // show=false => Wird nicht angezeigt
+                      :index(i),text(t),active(a),show(s) {} };
       struct st_Icon{IconIndex index;std::string text;bool active;
                st_Icon(IconIndex i,std::string t,bool a)
                       :index(i),text(t),active(a) {} };

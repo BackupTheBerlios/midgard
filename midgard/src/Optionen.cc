@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.76 2002/09/09 06:48:01 thoma Exp $
+// $Id: Optionen.cc,v 1.77 2002/09/10 19:55:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -249,6 +249,7 @@ void Midgard_Optionen::Ober_setzen_from_menu(OberIndex index,bool b)
         else if(index==Menueleiste) hauptfenster->show_Menueleiste(i->active);
         else if(index==Knopfleiste) hauptfenster->show_Knopfleiste(i->active);
         else if(index==Status) hauptfenster->show_Statusleiste(i->active);
+        else if(index==NoInfoFenster) ;
         else if(index==Icons) 
          { if(!b && !OberCheck(Beschriftungen).active)
             {
@@ -401,6 +402,7 @@ void Midgard_Optionen::Ober_init()
  list_Ober.push_back(st_Ober(Icons,"Icons der Knopfleiste",true));
  list_Ober.push_back(st_Ober(Beschriftungen,"Beschriftungen der Knopfleiste",true));
  list_Ober.push_back(st_Ober(Status,"Statuszeile",true));
+ list_Ober.push_back(st_Ober(NoInfoFenster,"Kein automatisches öffnen des Infofensters",false,false));
 }
 
 

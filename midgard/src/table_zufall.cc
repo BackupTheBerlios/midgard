@@ -35,6 +35,8 @@ void table_zufall::init(midgard_CG *h)
 
 void table_zufall::on_button_zufall_voll_clicked()
 {
+   bool old_value=hauptfenster->MOptionen->OberCheck(Midgard_Optionen::NoInfoFenster).active;
+   hauptfenster->MOptionen->Ober_setzen_from_menu(Midgard_Optionen::NoInfoFenster,true);
    hauptfenster->getChar().push_back();
    hauptfenster->on_neuer_charakter_clicked();
    hauptfenster->table_lernschema->init(hauptfenster);
@@ -44,10 +46,11 @@ void table_zufall::on_button_zufall_voll_clicked()
    else
     {
       Zufall::e_Vorgabe v=Zufall::e_Vorgabe(0);
-      if(checkbutton_spezies->get_active()) v=Zufall::e_Vorgabe(v|Zufall::eSpezies);
-      if(checkbutton_typ->get_active())     v=Zufall::e_Vorgabe(v|Zufall::eTyp);
+      if(!checkbutton_spezies->get_active()) v=Zufall::e_Vorgabe(v|Zufall::eSpezies);
+      if(!checkbutton_typ->get_active())     v=Zufall::e_Vorgabe(v|Zufall::eTyp);
       zufall.Teil(v);
     }
+   hauptfenster->MOptionen->Ober_setzen_from_menu(Midgard_Optionen::NoInfoFenster,old_value);
 }
 
 void table_zufall::on_togglebutton_vorgaben_toggled()

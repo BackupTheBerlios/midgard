@@ -37,12 +37,15 @@ void Zufall::Lernschema()
 }
 
 
-std::vector<MidgardBasicElement_mutable> List_to_Vector(std::list<MidgardBasicElement_mutable> L,int lp)
+std::vector<MidgardBasicElement_mutable> List_to_Vector(std::list<MidgardBasicElement_mutable> L,const VAbenteurer& Aben,int lp)
 {
   std::vector<MidgardBasicElement_mutable> V;
   for(std::list<MidgardBasicElement_mutable>::const_iterator i=L.begin();i!=L.end();++i)
    {
-     if(i->Lernpunkte()<=lp) V.push_back(*i);
+     // Vorraussetzungen?
+     if(((*i)->What()==MidgardBasicElement::FERTIGKEIT || (*i)->What()==MidgardBasicElement::WAFFE)
+          && !(*i)->Voraussetzung(Aben.getAbenteurer(),false))  continue;
+     if(i->Lernpunkte()<=lp)   V.push_back(*i);
    }
   return V;
 }
@@ -51,7 +54,7 @@ void Zufall::Lernpunkte_verteilen(std::list<MidgardBasicElement_mutable> L,int l
 {
 reloop:
   L.sort(MidgardBasicElement_mutable::sort(MidgardBasicElement_mutable::sort::LERNPUNKTE));
-  std::vector<MidgardBasicElement_mutable> V=List_to_Vector(L,lp);
+  std::vector<MidgardBasicElement_mutable> V=List_to_Vector(L,Aben,lp); // Lernpunkte und Vorraussetzungen
   while(lp>0)
    {
      if(V.begin()==V.end()) break;
@@ -59,12 +62,7 @@ reloop:
      if(V[0].Lernpunkte()==0) i=0;  // damit Fertigkeiten mit '0' Lernpunkten gelernt werden
      else i=random.integer(0,V.size()-1);
 
-cout << "A\n";      
      MidgardBasicElement_mutable M=V[i];
-cout << "B\n";
-     // Vorraussetzungen?
-     if((M->What()==MidgardBasicElement::FERTIGKEIT || M->What()==MidgardBasicElement::WAFFE)
-          && !M->Voraussetzung(Aben.getAbenteurer(),false))  continue;
 
      L.remove(M); // Die n‰chste Methode ‰ndert 'M' daher muﬂ es HIER entfernt werden
 
@@ -75,7 +73,6 @@ cout << "B\n";
           else if(M->Name()=="Gastlandsprache")
              Sprache::setErfolgswertGastlandsprache(M,Aben.getWerte().In());
        }
-cout << "lp="<<lp<<'\t'<<M.Lernpunkte()<<'\t'<<M->Name()<<'\t'<<M.Erfolgswert()<<'\n';
 
      // Fertigkeit/Zauber mit Zus‰tzen
      if(M->ZusatzEnum(Aben->getVTyp())) 
@@ -182,21 +179,68 @@ cout << "Zusatz f¸r "<<MBE->Name()<<'\n';
   if(V.empty()) return MBE;
   int i=random.integer(0,V.size()-1);
 
+  MBE.setZusatz(V[i]);
+
   MidgardBasicElement_mutable Mtmp=MBE;
+
+  if(was==MidgardBasicElement::ZLand && MBE->Name()=="Landeskunde (Heimat)")
+   {
+     Mtmp=MidgardBasicElement_mutable(&*cH_Fertigkeit("Landeskunde"));
+     Mtmp.setZusatz(Aben.getWerte().Herkunft()->Name());
+     MBE.setLernArt(MBE.LernArt()+"_Heimat");
+   }
   if(was==MidgardBasicElement::ZSprache)
        Mtmp=MidgardBasicElement_mutable(&*cH_Sprache(V[i].name));
   else if(was==MidgardBasicElement::ZSchrift)
        Mtmp=MidgardBasicElement_mutable(&*cH_Schrift(V[i].name));
 
-  if(Mtmp->What()==MidgardBasicElement::FERTIGKEIT)
-       MBE.setZusatz(V[i]);
-  else
+
+  if(MBE != Mtmp)
    {
      Mtmp.setErfolgswert(MBE.Erfolgswert());
      Mtmp.setLernpunkte(MBE.Lernpunkte());
      Mtmp.setLernArt(MBE.LernArt());
+     MBE=Mtmp;
    }
-  MBE=Mtmp;
-
   return MBE;
+}
+
+std::vector<WaffeBesitz> List_to_Vector(const std::list<WaffeBesitz>& L)
+{
+  std::vector<WaffeBesitz> V;
+  for(std::list<WaffeBesitz>::const_iterator i=L.begin();i!=L.end();++i)
+   {
+     V.push_back(*i);
+   }
+  return V;
+}
+
+void Zufall::setWaffenBesitz()
+{
+  std::list<WaffeBesitz> L=LL.getWaffenBesitz(Aben);
+  WaffeBesitzLernen wbl=WaffenBesitz_wuerfeln(Aben,random.integer(1,100));
+
+reloop:
+  if(wbl.AWaffe() == 0 && wbl.EWaffe() == 0) return;
+  std::vector<WaffeBesitz> V=List_to_Vector(L);
+  for(std::vector<WaffeBesitz>::const_iterator i=V.begin();i!=V.end();++i)
+   {
+     int i=random.integer(0,V.size()-1);
+     WaffeBesitz WB=V[i];
+     std::string art=cH_Waffe(WB)->Art2();     
+     if( (art=="E" || art=="W" || art=="V") && wbl.EWaffe()>0)
+      {
+        wbl.add_EWaffe(-1);
+        if(wbl.getMagisch())
+          {
+            WB.set_av_Bonus(1);
+            wbl.setMagisch(false);
+          }
+      }
+     else if(wbl.AWaffe()>0)  wbl.add_AWaffe(-1)  ;  
+     else continue;
+     Aben.List_Waffen_besitz().push_back(WB);
+     L.remove(WB);
+     goto reloop;
+   }
 }
