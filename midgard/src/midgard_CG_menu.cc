@@ -126,11 +126,17 @@ void midgard_CG::menu_init()
   menu_kontext->show_all();
 }
 
+#include <gtk--/menushell.h>
 void midgard_CG::menubar_init()
 {
 reloop:
   for(unsigned int i=2;i<main_menubar->items().size();++i)
     {  main_menubar->items().pop_back(); goto reloop;}
+
+//  const Gtk::MenuShell::MenuList *Gtk_ML;
+//  main_menubar->items().back();
+//  main_menubar->items().pop_back();
+//  main_menubar->items().push_back(Gtk_ML);
 
   // Ansicht
   Gtk::Menu *ansicht_menu = manage(new class Gtk::Menu());

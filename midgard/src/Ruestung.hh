@@ -1,4 +1,4 @@
-// $Id: Ruestung.hh,v 1.12 2002/06/24 10:51:30 christof Exp $               
+// $Id: Ruestung.hh,v 1.13 2002/10/04 06:20:12 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,7 +23,6 @@
 #include <Misc/CacheStatic.h>
 #include <vector>
 #include <string>
-#include <gtk--/progressbar.h>
 #include "xml.h"
 
 class Ruestung  : public HandleContentCopyable
@@ -66,7 +65,7 @@ class Ruestung_All
 {
    std::vector<cH_Ruestung> list_All;
   public:
-   Ruestung_All(Gtk::ProgressBar *progressbar);
+   Ruestung_All();
    std::vector<cH_Ruestung> get_All() const {return list_All;}
 };
 

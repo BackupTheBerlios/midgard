@@ -21,7 +21,6 @@
 #include "MidgardBasicElement.hh"
 #include "Typen.hh"
 #include "Grundwerte.hh"
-#include <gtk--/progressbar.h>
 
 class cH_Waffe;
 class WaffeBesitz;
@@ -90,7 +89,7 @@ class Waffe : public MidgardBasicElement
      int MaxErfolgswert(const Abenteurer &A) const; 
 
 
-     static std::map<std::string,std::string> fill_map_alias_waffe(Gtk::ProgressBar *progressbar);
+     static std::map<std::string,std::string> fill_map_alias_waffe();
      static std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
          const std::list<MBEmlt>& list_Waffen,
          const std::list<WaffeBesitz>& list_Waffen_besitz,
@@ -118,7 +117,7 @@ class Waffe_All
 {
    std::list<cH_MidgardBasicElement> list_All;
   public:
-   Waffe_All(Gtk::ProgressBar *progressbar);
+   Waffe_All();
    std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
 };
 

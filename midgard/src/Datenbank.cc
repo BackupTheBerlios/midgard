@@ -1,4 +1,5 @@
-// $Id: Datenbank.cc,v 1.20 2002/09/25 20:48:18 thoma Exp $               
+
+// $Id: Datenbank.cc,v 1.21 2002/10/04 06:20:12 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -60,27 +61,27 @@ void Datenbank::load(Midgard_Info* MI, midgard_CG *hauptfenster)
     xml_init(MI->get_progressbar_regionen(),hauptfenster);
     Regionen = Regionen_All(MI->get_progressbar_regionen()).get_All();
     MI->set_Regionen(Regionen);
-    Laender = Laender_All(MI->get_progressbar_laender()).get_All();
-    Ruestung = Ruestung_All(MI->get_progressbar_ruestung()).get_All();
-    lernschema = Lernschema(MI->get_progressbar_lernschema());
-    Beruf = Beruf_All(MI->get_progressbar_beruf()).get_All();
-    Fertigkeit_ang = Fertigkeiten_angeborene_All(MI->get_progressbar_ang_fert()).get_All();
-    Fertigkeit = Fertigkeiten_All(MI->get_progressbar_fertigkeiten()).get_All();
-    WaffeGrund = WaffeGrund_All(MI->get_progressbar_grundkenntnisse()).get_All();
-    Waffe = Waffe_All(MI->get_progressbar_waffen()).get_All();
-    Waffe_from_Alias = Waffe::fill_map_alias_waffe(MI->get_progressbar_aliaswaffen());
-    Zauber = Zauber_All(MI->get_progressbar_zauber()).get_All();
-    Zauberwerk = Zauberwerk_All(MI->get_progressbar_zauberwerk()).get_All();
-    Kido = KiDo_All(MI->get_progressbar_kido()).get_All();
-    Sprache = Sprachen_All(MI->get_progressbar_sprache()).get_All();
-    Schrift = Schriften_All(MI->get_progressbar_schrift()).get_All();
-//    ausnahmen = Ausnahmen(MI->get_progressbar_ausnahmen());
-    Spezies = Spezies_All(MI->get_progressbar_spezies()).get_All();
-    Typen = Typen_All(MI->get_progressbar_typen()).get_All();
-    GradAnstieg = Grad_anstieg(MI->get_progressbar_grad());
-    Spezialgebiet = Spezialgebiet_All(MI->get_progressbar_spezial()).get_All();
-    preise = Preise_All(MI->get_progressbar_preise()).get_All();
-    preisemod = PreiseMod_All(MI->get_progressbar_preise()).get_All();
+    Laender = Laender_All().get_All();
+    Ruestung = Ruestung_All().get_All();
+    lernschema = Lernschema(true);
+    Beruf = Beruf_All().get_All();
+    Fertigkeit_ang = Fertigkeiten_angeborene_All().get_All();
+    Fertigkeit = Fertigkeiten_All().get_All();
+    WaffeGrund = WaffeGrund_All().get_All();
+    Waffe = Waffe_All().get_All();
+    Waffe_from_Alias = Waffe::fill_map_alias_waffe();
+    Zauber = Zauber_All().get_All();
+    Zauberwerk = Zauberwerk_All().get_All();
+    Kido = KiDo_All().get_All();
+    Sprache = Sprachen_All().get_All();
+    Schrift = Schriften_All().get_All();
+    Spezies = Spezies_All().get_All();
+    Typen = Typen_All().get_All();
+    GradAnstieg = Grad_anstieg(true);
+    Spezialgebiet = Spezialgebiet_All().get_All();
+    preise = Preise_All().get_All();
+    preisemod = PreiseMod_All().get_All();
+    preisenewmod = PreiseNewMod_All().get_All();
     prototyp = Prototyp_All().get_All();
     MI->database_hide();  // can't do this yet
 }

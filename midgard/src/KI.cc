@@ -36,7 +36,6 @@ cout << Aben.getWerte().Grad()<<' '<<Aben.getWerte().GFP()<<'\t'<<gfp<<'\n';
      int kosten=teste_auf_gradanstieg();
      gfp-=kosten;
 cout << Aben.getWerte().Grad()<<' '<<Aben.getWerte().GFP()<<'\t'<<gfp<<'\n';
-
 /*
      if     (i>=spezial_allgemein) cerr << i<<' '<<spezial_allgemein<<"\tSteigern\t"<<was<<'\t';
      else                          cerr << i<<' '<<spezial_allgemein<<"\tNeuLenren\t"<<was<<'\t';

@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten.hh,v 1.52 2002/09/30 05:51:25 thoma Exp $               
+// $Id: Fertigkeiten.hh,v 1.53 2002/10/04 06:20:12 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,7 +21,6 @@
 #  define _FERTIGKEITEN_HH
 #include "MidgardBasicElement.hh"
 #include "Typen.hh"
-#include <gtk--/progressbar.h>
 
 class midgard_CG;
 class Abenteurer;
@@ -121,7 +120,7 @@ class Fertigkeiten_All
 {
    std::list<cH_MidgardBasicElement> list_All;
   public:
-   Fertigkeiten_All(Gtk::ProgressBar *progressbar);
+   Fertigkeiten_All();
    std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
 };
 

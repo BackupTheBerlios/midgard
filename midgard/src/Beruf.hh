@@ -19,7 +19,6 @@
 #ifndef _BERUF_HH
 #  define _BERUF_HH
 
-#include <gtk--/progressbar.h>
 #include "MidgardBasicElement.hh"
 class VAbenteurer;
 
@@ -94,7 +93,7 @@ class Beruf_All
 {
    std::list<cH_MidgardBasicElement> list_All;
   public:
-   Beruf_All(Gtk::ProgressBar *progressbar);
+   Beruf_All();
    std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
 };
 

@@ -1,4 +1,4 @@
-// $Id: Schrift.hh,v 1.24 2002/09/30 05:51:25 thoma Exp $               
+// $Id: Schrift.hh,v 1.25 2002/10/04 06:20:12 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,7 +22,6 @@
 #include "MidgardBasicElement.hh"
 #include "Typen.hh"
 #include "Fertigkeiten.hh"
-#include <gtk--/progressbar.h>
 class Abenteurer;
 
 class Schrift : public MidgardBasicElement
@@ -68,28 +67,13 @@ class cH_Schrift : public Handle<const Schrift>
 
    cH_Schrift(const cH_MidgardBasicElement &x) : Handle<const Schrift>
       (dynamic_cast<const Schrift *>(&*x)){}
-/*
-   class sort {
-      public:
-         enum esort {NAME,ERFOLGSWERT};
-      private: 
-         esort es;
-      public:
-         sort(enum esort _es):es(_es) {}
-         bool operator() (cH_Schrift x,cH_Schrift y) const
-           { switch(es) {
-               case(NAME) : return x->Name() < y->Name()  ;
-               case(ERFOLGSWERT): return x->Erfolgswert() < y->Erfolgswert();
-           }}
-    };
-*/
 };
 
 class Schriften_All
 {
    std::list<cH_MidgardBasicElement> list_All;
   public:
-   Schriften_All(Gtk::ProgressBar *progressbar);
+   Schriften_All();
    std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
 };
 

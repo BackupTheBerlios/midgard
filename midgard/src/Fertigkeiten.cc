@@ -20,7 +20,6 @@
 #include "Fertigkeiten.hh"
 #include "midgard_CG.hh"
 #include "Typen.hh"
-#include "ProgressBar.h"
 #include <LernListen.hh>
 
 cH_Fertigkeit::cache_t cH_Fertigkeit::cache;
@@ -227,17 +226,16 @@ void Fertigkeit::get_region_lp(int &lp,const Abenteurer& A,const Datenbank &D) c
 }
 
 
-Fertigkeiten_All::Fertigkeiten_All(Gtk::ProgressBar *progressbar)
+Fertigkeiten_All::Fertigkeiten_All()
 {
  const Tag *fertigkeiten=xml_data->find("Fertigkeiten");
  if (!fertigkeiten)
     cerr << "<Fertigkeiten><Fertigkeit/>... nicht gefunden\n";
  else
  {  Tag::const_iterator b=fertigkeiten->begin(),e=fertigkeiten->end();
-    double size=e-b;
     for (Tag::const_iterator i=fertigkeiten->find(b,"Fertigkeit");
     		i!=e;	i=fertigkeiten->find(i+1,"Fertigkeit"))
-    {  ProgressBar::set_percentage(progressbar,(i-b)/size);
+    {  
 // warum sowas?
 //    die Klasse cH_Fertigkeit enthält den Cache, erzeuge ich nur eine Fertigkeit, so
 //    wird sie nicht in den Cache (nach Namen) aufgenommen.
@@ -247,7 +245,6 @@ Fertigkeiten_All::Fertigkeiten_All(Gtk::ProgressBar *progressbar)
        list_All.push_back(&*(cH_Fertigkeit(&*i)));
     }
  }
- ProgressBar::set_percentage(progressbar,1);
 }  
 
 

@@ -1,4 +1,4 @@
-// $Id: Sprache.hh,v 1.33 2002/09/30 05:51:25 thoma Exp $               
+// $Id: Sprache.hh,v 1.34 2002/10/04 06:20:12 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -23,7 +23,6 @@
 #include "MidgardBasicElement.hh"
 #include "Typen.hh"
 #include "Fertigkeiten.hh"
-#include <gtk--/progressbar.h>
 class cH_Sprache;
 class Abenteurer;
 class midgard_CG;
@@ -122,7 +121,7 @@ class Sprachen_All
 {
    std::list<cH_MidgardBasicElement> list_All;
   public:
-   Sprachen_All(Gtk::ProgressBar *progressbar);
+   Sprachen_All();
    std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
 };
 

@@ -21,8 +21,6 @@
 #include <cstring>
 #include <Gtk_OStream.h>
 #include <Misc/itos.h>
-#include "ProgressBar.h"
-//#include "Grundwerte.hh"
 #include "Abenteurer.hh"
 
 cH_Schrift::cache_t cH_Schrift::cache;
@@ -108,18 +106,16 @@ bool Schrift::Mutterschrift(const Abenteurer& A) const
 }
 
 
-Schriften_All::Schriften_All(Gtk::ProgressBar *progressbar)
+Schriften_All::Schriften_All()
 {
  const Tag *schriften=xml_data->find("Schriften");
  if (schriften)
  {  Tag::const_iterator b=schriften->begin(),e=schriften->end();
-    double size=e-b;
     FOR_EACH_CONST_TAG_OF_5(i,*schriften,b,e,"Schrift")
-    {  ProgressBar::set_percentage(progressbar,(i-b)/size);
+    {  
        FOR_EACH_CONST_TAG_OF(j,*i,"Variante")
           list_All.push_back(&*(cH_Schrift(j->getAttr("Name"),&*i)));
     }
  }   
 
- ProgressBar::set_percentage(progressbar,1);
 }  

@@ -20,7 +20,6 @@
 #  define _FERTIGKEITEN_A_HH
 #include <list>
 #include "MidgardBasicElement.hh"
-#include <gtk--/progressbar.h>
 
 class Fertigkeit_angeborene : public MidgardBasicElement
 {
@@ -61,7 +60,7 @@ class Fertigkeiten_angeborene_All
 {
    std::list<cH_MidgardBasicElement> list_All;
   public : 
-   Fertigkeiten_angeborene_All(Gtk::ProgressBar *progressbar);
+   Fertigkeiten_angeborene_All();
    std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
 };
 

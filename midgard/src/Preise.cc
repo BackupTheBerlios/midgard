@@ -18,7 +18,6 @@
 
 #include "MidgardBasicElement.hh" // nur für NotFound
 #include "Preise.hh"
-#include "ProgressBar.h"
 #include <Misc/itos.h>
 
 bool operator!=(const cH_Preise &a, const string &b)
@@ -64,23 +63,21 @@ void Preise::get_Preise()
   gewicht=tag->getFloatAttr("Gewicht");
 }
 
-Preise_All::Preise_All(Gtk::ProgressBar *progressbar)
+Preise_All::Preise_All()
 {
  const Tag *preise=xml_data->find("Preise");
  if (preise)
  {  Tag::const_iterator b=preise->begin(),e=preise->end();
-    double size=(e-b)*3;
     FOR_EACH_CONST_TAG_OF_5(i,*preise,b,e,"Kaufpreis")
-    {  ProgressBar::set_percentage(progressbar,(i-b)/size);
+    {  
        list_All.push_back(cH_Preise(&*i));
     }
  }   
  const Tag *waffen=xml_data->find("Waffen");
  if (waffen)
  {  Tag::const_iterator b=waffen->begin(),e=waffen->end();
-    double size=(e-b)*3;
     FOR_EACH_CONST_TAG_OF_5(i,*waffen,b,e,"Waffe")
-    {  ProgressBar::set_percentage(progressbar,(i-b)/size+.33);
+    {  
        {  const Tag *preis=i->find("Kaufpreis");
           if (preis) 
              list_All.push_back(cH_Preise(i->getAttr("Name"),"Waffen",&*i));
@@ -95,18 +92,76 @@ Preise_All::Preise_All(Gtk::ProgressBar *progressbar)
  const Tag *ruestungen=xml_data->find("Rüstungen");
  if (ruestungen)
  {  Tag::const_iterator b=ruestungen->begin(),e=ruestungen->end();
-    double size=(e-b)*3;
     FOR_EACH_CONST_TAG_OF_5(i,*ruestungen,b,e,"Rüstung")
-    {  ProgressBar::set_percentage(progressbar,(i-b)/size+.66);
+    { 
        {  const Tag *preis=i->find("Kaufpreis");
           if (preis) 
              list_All.push_back(cH_Preise(i->getAttr("Name"),"Rüstung",&*i));
        }
     }
  }   
- ProgressBar::set_percentage(progressbar,1);
 }  
 //////////////////////////////////////////////////////////////////////
+
+cH_PreiseNewMod::cache_t cH_PreiseNewMod::cache;
+
+cH_PreiseNewMod::cH_PreiseNewMod(const Tag *tag)
+{*this=cH_PreiseNewMod(new PreiseNewMod(tag));  
+ cache.Register(tag->getAttr("Name"),*this);
+}
+
+cH_PreiseNewMod::cH_PreiseNewMod(const std::string& name, bool create)
+{
+ cH_PreiseNewMod *cached(cache.lookup(name));
+ if (cached) *this=*cached;
+ else
+  {  
+  cerr << "PreiseNewMod '" << name << "' nicht im Cache\n";
+  if (create)
+  {  
+/*
+     static Tag t2("Spruch");
+     // note that this Tag is shared ... works well for now
+     t2.setAttr("Name",name);
+     t2.setAttr("Grad","?"); 
+     t2.setAttr("Typ","?");  
+     t2.setAttr("Ursprung","?");
+     t2.setAttr("Zauberdauer","?");
+     t2.setAttr("Wirkungsziel","?");
+     t2.setAttr("Wirkungsbereich","?");
+     // Wirkungsdauer, Reichweite ???  
+     *this=cH_Zauber(&t2);
+*/
+  }
+  else throw NotFound();
+  }
+}
+
+
+
+void PreiseNewMod::getPNM()
+{
+  name=tag->getAttr("Name");
+  FOR_EACH_CONST_TAG_OF(i,*tag,"Art")
+     VS.push_back(st_preismod(i->getAttr("Spezifikation"),
+                              i->getFloatAttr("PreisFaktor")));
+}
+
+PreiseNewMod_All::PreiseNewMod_All()
+{
+  const Tag *P=xml_data->find("PreiseNeuMod");
+  if(P)
+   {
+     Tag::const_iterator b=P->begin(),e=P->end();
+     FOR_EACH_CONST_TAG_OF_5(i,*P,b,e,"PreiseModifikation")
+       list_All.push_back(cH_PreiseNewMod(&*i));
+   } 
+}
+
+
+
+
+
 //////////////////////////////////////////////////////////////////////
 cH_PreiseMod::cache_t cH_PreiseMod::cache;
 
@@ -137,18 +192,16 @@ void PreiseMod::get_PreiseMod()
 }
 
 
-PreiseMod_All::PreiseMod_All(Gtk::ProgressBar *progressbar)
+PreiseMod_All::PreiseMod_All()
 {
  const Tag *preise=xml_data->find("Preise");
  if (preise)
  {  Tag::const_iterator b=preise->begin(),e=preise->end();
-    double size=e-b;
     FOR_EACH_CONST_TAG_OF_5(i,*preise,b,e,"Modifikation")
-    {  ProgressBar::set_percentage(progressbar,(i-b)/size);
+    {  
        list_All.push_back(cH_PreiseMod(&*i));
     }
  }   
- ProgressBar::set_percentage(progressbar,1);
 }  
 
 

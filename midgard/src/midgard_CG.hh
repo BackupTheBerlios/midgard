@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.285 2002/09/30 05:51:25 thoma Exp $
+// $Id: midgard_CG.hh,v 1.286 2002/10/04 06:20:12 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -189,12 +189,7 @@ class midgard_CG : public midgard_CG_glade
         Abenteurer &getAben() {return Char.getAbenteurer();}
         void Eigenschaften_variante(int i);
         void on_neuer_charakter_clicked();
-/*
-        bool nsc_check(bool nsc_only);
-        bool region_check(const std::string& region) const;
-*/
         // Oberfläche
-//   private:
    public:
         // Oberfläche Notebook 
         enum enum_notebook_main{NOPAGE=-1,PAGE_INFO=0,PAGE_GRUNDWERTE,PAGE_LERNEN,PAGE_STEIGERN,
@@ -222,6 +217,10 @@ class midgard_CG : public midgard_CG_glade
         void menu_history_init(int oldsize);
         void menu_geschichte_selected();
         void menu_einstellungen_aendern();
+        void on_anleitung_menu_activate();
+        void on_hilfe_menu_activate();
+        void on_info_credits_menu_activate();
+        void on_news_menu_activate();
         std::list<std::string> LDateien;
         void push_back_LDateien(std::string s);
 

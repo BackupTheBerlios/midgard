@@ -20,7 +20,6 @@
 #include "Zauberwerk.hh"
 #include "midgard_CG.hh"
 #include "Typen.hh"
-#include "ProgressBar.h"
 
 
 cH_Zauberwerk::cache_t cH_Zauberwerk::cache;
@@ -135,21 +134,19 @@ bool Zauberwerk::Voraussetzungen_Fertigkeit(const std::list<MBEmlt>& listFert) c
 }
 
 
-Zauberwerk_All::Zauberwerk_All(Gtk::ProgressBar *progressbar)
+Zauberwerk_All::Zauberwerk_All()
 {
  const Tag *zauberwerke=xml_data->find("Zauberwerke");
  if (!zauberwerke)
     cerr << "<Zauberwerke><Zauberwerk/>... nicht gefunden\n";
  else
  {  Tag::const_iterator b=zauberwerke->begin(),e=zauberwerke->end();
-    double size=e-b;
     FOR_EACH_CONST_TAG_OF_5(i,*zauberwerke,b,e,"Zauberwerk")
-    {  ProgressBar::set_percentage(progressbar,(i-b)/size);
+    {  
 // warum sowas? siehe Zauber.pgcc
        list_All.push_back(&*(cH_Zauberwerk(&*i)));
     }
  }
- ProgressBar::set_percentage(progressbar,1);
 }
 
 

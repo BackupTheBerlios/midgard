@@ -21,7 +21,6 @@
 #include "midgard_CG.hh"
 #include "Typen.hh"
 #include <xml.h>
-#include "ProgressBar.h"
 #include "zufall.h"
 #include <Misc/itos.h>
 
@@ -185,16 +184,15 @@ bool Zauber::spruchrolle_wuerfeln(const Abenteurer &A,std::string &info) const
 
 
 
-Zauber_All::Zauber_All(Gtk::ProgressBar *progressbar)
+Zauber_All::Zauber_All()
 {
  const Tag *zauber=xml_data->find("Zauber");
  if (!zauber)
     cerr << "<Zauber><Spruch/>... nicht gefunden\n";
  else
  {  Tag::const_iterator b=zauber->begin(),e=zauber->end();
-    double size=e-b;
     FOR_EACH_CONST_TAG_OF_5(i,*zauber,b,e,"Spruch")
-    {  ProgressBar::set_percentage(progressbar,(i-b)/size);
+    {  
 // warum sowas?
 //    die Klasse cH_Zauber enthält den Cache, erzeuge ich nur einen Zauber, so
 //    wird er nicht in den Cache (nach Namen) aufgenommen.
@@ -204,6 +202,5 @@ Zauber_All::Zauber_All(Gtk::ProgressBar *progressbar)
        list_All.push_back(&*(cH_Zauber(&*i)));
     }
  }
- ProgressBar::set_percentage(progressbar,1);
 }
 

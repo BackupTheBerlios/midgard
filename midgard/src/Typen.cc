@@ -17,7 +17,6 @@
  */
 
 #include "Typen.hh"
-#include "ProgressBar.h"
 #include "MidgardBasicElement.hh" // für NotFound
 #include "Grundwerte.hh"
 
@@ -185,24 +184,22 @@ std::string Typen::getLernpflichtenInfo(cH_Land herkunft) const
 }
 
 
-Typen_All::Typen_All(Gtk::ProgressBar *progressbar)
+Typen_All::Typen_All()
 {
  const Tag *typen=xml_data->find("Typen");
  if (typen)
  {  Tag::const_iterator b=typen->begin(),e=typen->end();
-    double size=e-b;
     FOR_EACH_CONST_TAG_OF_5(i,*typen,b,e,"Typ")
-    {  ProgressBar::set_percentage(progressbar,(i-b)/size);
+    {  
        list_All.push_back(cH_Typen(&*i));
     }
  }   
- ProgressBar::set_percentage(progressbar,1);
 }
 
 
 
 
-bool operator==(gpointer data,const cH_Typen &t)
+bool operator==(void *data,const cH_Typen &t)
 {  return *(static_cast<Typen*>(data))==*t;
 }
 

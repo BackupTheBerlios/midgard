@@ -21,7 +21,6 @@
 #include <cstring>
 #include <Gtk_OStream.h>
 #include <Misc/itos.h>
-#include "ProgressBar.h"
 
 KiDo_Stile::KiDo_Stile()
 {
@@ -114,16 +113,14 @@ std::map<std::string,int> KiDo::maxkidostil(const std::list<MBEmlt>& list_Kido)
 }
 
 
-KiDo_All::KiDo_All(Gtk::ProgressBar *progressbar)
+KiDo_All::KiDo_All()
 {
  const Tag *Kido_Fertigkeiten=xml_data->find("Kido-Fertigkeiten");
  if (Kido_Fertigkeiten)
  {  Tag::const_iterator b=Kido_Fertigkeiten->begin(),e=Kido_Fertigkeiten->end();
-    double size=(e-b);
     FOR_EACH_CONST_TAG_OF_5(i,*Kido_Fertigkeiten,b,e,"KiDo")
-    {  ProgressBar::set_percentage(progressbar,(i-b)/size);
+    {  
        list_All.push_back(&*(cH_KiDo(&*i)));
     }
  }
- ProgressBar::set_percentage(progressbar,1);
 }  

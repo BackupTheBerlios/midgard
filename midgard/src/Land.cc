@@ -18,7 +18,6 @@
  */
 
 #include "Land.hh"
-#include "ProgressBar.h"
 #include "MidgardBasicElement.hh" // für NotFound
 #include "Abenteurer.hh"
 
@@ -89,17 +88,15 @@ Land::Land(const std::string& _kontinent, const Tag *tag)
       nachbarlaender.push_back(i->getAttr("Name"));
 }
 
-Laender_All::Laender_All(Gtk::ProgressBar *progressbar)
+Laender_All::Laender_All()
 {
  const Tag *Laender=xml_data->find("Länder");
  if (Laender)
  {  Tag::const_iterator b=Laender->begin(),e=Laender->end();
-    double size=(e-b);
     FOR_EACH_CONST_TAG_OF_5(i,*Laender,b,e,"Kontinent")
-    {  ProgressBar::set_percentage(progressbar,(i-b)/size);
+    {  
        FOR_EACH_CONST_TAG_OF(j,*i,"Land")
           list_All.push_back(cH_Land(i->getAttr("Name"),&*j));
     }
  }
- ProgressBar::set_percentage(progressbar,1);
 }

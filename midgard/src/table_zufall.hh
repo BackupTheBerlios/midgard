@@ -89,6 +89,13 @@ class table_zufall : public table_zufall_glade
         gint on_vscale_spezallg_waff_button_release_event(GdkEventButton *ev);
         gint on_vscale_spezallg_spra_button_release_event(GdkEventButton *ev);
         gint on_vscale_spezallg_schr_button_release_event(GdkEventButton *ev);
+        void on_spinbutton_fertigkeit_activate();
+        void on_spinbutton_waffen_activate();
+        void on_spinbutton_waffen_grund_activate();
+        void on_spinbutton_zauber_activate();
+        void on_spinbutton_zauberwerk_activate();
+        void on_spinbutton_sprachen_activate();
+        void on_spinbutton_schriften_activate();
 
         void on_togglebutton_prototyp_toggled();
 

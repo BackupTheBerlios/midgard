@@ -1,4 +1,4 @@
-// $Id: Spezialgebiet.hh,v 1.9 2002/06/24 10:51:30 christof Exp $               
+// $Id: Spezialgebiet.hh,v 1.10 2002/10/04 06:20:12 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -26,7 +26,6 @@
 #include <Misc/CacheStatic.h>
 #include <vector>
 #include <string>
-#include <gtk--/progressbar.h>
 #include "xml.h"
 
 class Spezialgebiet : public HandleContent
@@ -68,10 +67,10 @@ class Spezialgebiet_All
 {
       std::vector<cH_Spezialgebiet> list_All;
    public:
-      Spezialgebiet_All(Gtk::ProgressBar *progressbar);
+      Spezialgebiet_All();
       std::vector<cH_Spezialgebiet> get_All() const {return list_All;}
 };
 
-bool operator==(gpointer p,const cH_Spezialgebiet &t);
+bool operator==(void *p,const cH_Spezialgebiet &t);
   
 #endif

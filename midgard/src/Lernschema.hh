@@ -1,4 +1,4 @@
-// $Id: Lernschema.hh,v 1.10 2002/09/21 18:00:13 thoma Exp $               
+// $Id: Lernschema.hh,v 1.11 2002/10/04 06:20:12 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,7 +19,6 @@
 
 #ifndef _LERNSCHEMA_HH
 #  define _LERNSCHEMA_HH
-#include <gtk--/progressbar.h>
 #include <map>
 #include <vector>
 #include "MidgardBasicElement.hh"
@@ -54,9 +53,10 @@ class Lernschema
       std::map<st_index,st_wert> lern_map;
 
    public:
-      Lernschema() {};
-      Lernschema(Gtk::ProgressBar *progressbar);
+      Lernschema() {}; //der andere ctor war mal mit Progressbar
+      Lernschema(bool t);
 
+//      void getLernschema();
       bool get_Pflicht(const std::vector<st_index>& VI) const ;
       int get_Lernpunkte(const  std::vector<st_index>& VI) const ;
       std::list<MBEmlt> get_List(const std::string& art, 

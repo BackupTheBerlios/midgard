@@ -20,7 +20,6 @@
 #include "Beruf.hh"
 #include "Grundwerte.hh"
 #include "Abenteurer.hh"
-#include "ProgressBar.h"
 #include "Typen.hh"
 #include "itos.h"
 
@@ -111,7 +110,7 @@ bool Beruf::Typ(const vector<cH_Typen>& Typ) const
 }
 
 
-Beruf_All::Beruf_All(Gtk::ProgressBar *progressbar)
+Beruf_All::Beruf_All()
 {
  const Tag *berufe=xml_data->find("Berufe");
 // int count=0;
@@ -119,10 +118,8 @@ Beruf_All::Beruf_All(Gtk::ProgressBar *progressbar)
     cerr << "<Berufe><Beruf/>... nicht gefunden\n";
  else
  {  Tag::const_iterator b=berufe->begin(),e=berufe->end();
-    double size=e-b;
     FOR_EACH_CONST_TAG_OF_5(i,*berufe,b,e,"Beruf")
     {  // if (!((++count)&31))
-       ProgressBar::set_percentage(progressbar,(i-b)/size);
 // warum sowas?
 //    die Klasse cH_Beruf enthält den Cache, erzeuge ich nur einen Beruf, so
 //    wird er nicht in den Cache (nach Namen) aufgenommen.
@@ -132,7 +129,6 @@ Beruf_All::Beruf_All(Gtk::ProgressBar *progressbar)
        list_All.push_back(&*(cH_Beruf(&*i)));
     }
  }
- ProgressBar::set_percentage(progressbar,1);
 }
 
 

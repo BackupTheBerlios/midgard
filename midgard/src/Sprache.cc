@@ -21,7 +21,6 @@
 #include <cstring>
 #include <Gtk_OStream.h>
 #include <Misc/itos.h>
-#include "ProgressBar.h"
 #include "Schrift.hh"
 #include "Grundwerte.hh"
 #include "Abenteurer.hh"
@@ -229,17 +228,15 @@ void Sprache::setErfolgswertMutterGastlandsprache(MBEmlt &M,std::string mode,int
 
 
 
-Sprachen_All::Sprachen_All(Gtk::ProgressBar *progressbar)
+Sprachen_All::Sprachen_All()
 {
  const Tag *sprachen=xml_data->find("Sprachen");
  if (sprachen)
  {  Tag::const_iterator b=sprachen->begin(),e=sprachen->end();
-    double size=e-b;
     FOR_EACH_CONST_TAG_OF_5(i,*sprachen,b,e,"Sprache")
-    {  ProgressBar::set_percentage(progressbar,(i-b)/size);
+    { 
        list_All.push_back(&*(cH_Sprache(&*i)));
     }
  }   
- ProgressBar::set_percentage(progressbar,1);
 }  
 

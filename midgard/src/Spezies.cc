@@ -17,7 +17,6 @@
  */
 
 #include "Spezies.hh"
-#include "ProgressBar.h"
 #include "MidgardBasicElement.hh"
 #include "Grundwerte.hh"
 #include "Zauber.hh"
@@ -125,18 +124,16 @@ Spezies::Spezies(const Tag *tag)
 }
 
 
-Spezies_All::Spezies_All(Gtk::ProgressBar *progressbar)
+Spezies_All::Spezies_All()
 {
  const Tag *spezies=xml_data->find("SpeziesListe");
  if (spezies)
  {  Tag::const_iterator b=spezies->begin(),e=spezies->end();
-    double size=e-b;
     FOR_EACH_CONST_TAG_OF_5(i,*spezies,b,e,"Spezies")
-    {  ProgressBar::set_percentage(progressbar,(i-b)/size);
+    {  
        list_All.push_back(cH_Spezies(&*i));
     }
  }   
- ProgressBar::set_percentage(progressbar,1);
 }
 
 bool Spezies::Typ_erlaubt(std::string typ) const
@@ -262,7 +259,7 @@ bool Spezies::istVerbotenSpielbegin(const cH_MidgardBasicElement &mbe) const
 }
 
 
-bool operator==(gpointer data,const cH_Spezies &s)
+bool operator==(void* data,const cH_Spezies &s)
 {  return *(static_cast<Spezies*>(data))==*s;
 }
 

@@ -1,4 +1,4 @@
-// $Id: Preise.hh,v 1.17 2002/06/24 10:51:30 christof Exp $
+// $Id: Preise.hh,v 1.18 2002/10/04 06:20:12 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,7 +19,6 @@
 
 #ifndef PREISECLASS
 #define PREISECLASS
-#include <gtk--/progressbar.h>
 #include <Misc/Handles.h>
 #include <Misc/CacheStatic.h>
 #include<string>
@@ -86,7 +85,7 @@ class Preise_All
 {
    std::list<cH_Preise> list_All;
   public:
-   Preise_All(Gtk::ProgressBar *progressbar);
+   Preise_All();
    std::list<cH_Preise> get_All() const {return list_All;}
 };
 
@@ -95,6 +94,55 @@ bool operator!=(const cH_Preise &a, const string &b);
 
 
 ///////////////////////////////////
+
+class PreiseNewMod :  public HandleContent
+{
+   public: 
+      struct st_preismod{std::string spezifikation; double preis_faktor;
+             st_preismod(std::string s,double p) 
+                  :spezifikation(s),preis_faktor(p) {} };
+
+   private:
+      const Tag *tag;
+      std::string name; // Farbe | Stand | Material | ...
+      
+
+      std::vector<st_preismod> VS;  
+   public:
+      PreiseNewMod(const Tag *_tag) : tag(_tag) { getPNM(); }
+      
+      void getPNM();
+      
+      std::string Name() const {return name;}
+      const std::vector<st_preismod> &VSpezifikation() const {return VS; }
+               
+};
+
+class cH_PreiseNewMod : public Handle<const PreiseNewMod>
+{
+    typedef CacheStatic<std::string,cH_PreiseNewMod> cache_t;
+    static cache_t cache;
+    cH_PreiseNewMod(const PreiseNewMod *s) : Handle<const PreiseNewMod>(s) {};
+    friend class std::map<std::string,cH_PreiseNewMod>;
+    cH_PreiseNewMod(){}
+
+   public:
+      cH_PreiseNewMod(const std::string& name, bool create=false) ;
+      cH_PreiseNewMod(const Tag *tag);
+
+};
+
+class PreiseNewMod_All
+{
+   std::vector<cH_PreiseNewMod> list_All;
+ public:
+   PreiseNewMod_All();
+   std::vector<cH_PreiseNewMod> get_All() const {return list_All;}
+};
+           
+           
+
+
 
 class PreiseMod : public HandleContent
 {
@@ -149,7 +197,7 @@ class PreiseMod_All
 {
    std::list<cH_PreiseMod> list_All;
   public:
-   PreiseMod_All(Gtk::ProgressBar *progressbar);
+   PreiseMod_All();
    std::list<cH_PreiseMod> get_All() const {return list_All;}
 };
 

@@ -80,3 +80,20 @@ Prototyp_All::Prototyp_All()
     }
  }
 }  
+
+
+void Prototyp::setLast(const Prozente100 &p100)
+{
+  cH_Prototyp P("Letzte Einstellung",true);
+  P->fertigkeit = p100.get(Enums::sFert);
+  P->waffe = p100.get(Enums::sWaff);
+  P->waffe_grund = p100.get(Enums::sWGru);
+  P->zauber = p100.get(Enums::sZaub);
+  P->zauberwerk = p100.get(Enums::sZWerk);
+  P->sprache = p100.get(Enums::sSpra);
+  P->schrift = p100.get(Enums::sSchr);
+  P->fert_spez = p100.getS(Enums::sFert);
+  P->waff_spez = p100.getS(Enums::sWaff);
+  P->spra_spez = p100.getS(Enums::sSpra);
+  P->schr_spez = p100.getS(Enums::sSchr);
+}

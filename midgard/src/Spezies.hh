@@ -1,4 +1,4 @@
-// $Id: Spezies.hh,v 1.21 2002/09/21 18:00:13 thoma Exp $               
+// $Id: Spezies.hh,v 1.22 2002/10/04 06:20:12 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,7 +20,6 @@
 #ifndef _SPEZIES_HH
 #  define _SPEZIES_HH
 
-#include <gtk--/progressbar.h>
 #include <vector>
 #include <Misc/Handles.h>
 #include <Misc/CacheStatic.h>
@@ -141,10 +140,10 @@ class Spezies_All
 {
       std::vector<cH_Spezies> list_All;
    public:
-      Spezies_All(Gtk::ProgressBar *progressbar);
+      Spezies_All();
       std::vector<cH_Spezies> get_All() const {return list_All;}
 };
 
-bool operator==(gpointer data, const cH_Spezies &s);
+bool operator==(void *data, const cH_Spezies &s);
 
 #endif

@@ -78,6 +78,7 @@ private:
         void on_Ausruestung_tree_select_row(Gtk::CTree::Row row,gint column);
         void on_checkbutton_sichtbar_toggled();
         void fill_preisliste();
+        void fill_new_preise();
 public:
         AusruestungBaum &setStandardAusruestung(AusruestungBaum &besitz);
 private:
@@ -91,6 +92,7 @@ private:
         // Ab hier die automatischen Methoden von glade erzeugt
 private:
         
+        void on_preise_tree_neu_leaf_selected(cH_RowDataBase d);
         void on_button_modi_clicked();
         void on_preise_leaf_selected(cH_RowDataBase d);
         void on_clist_preisliste_select_row(gint row, gint column, GdkEvent *event);

@@ -1,4 +1,4 @@
-// $Id: Prototyp.hh,v 1.3 2002/09/26 13:32:41 thoma Exp $               
+// $Id: Prototyp.hh,v 1.4 2002/10/04 06:20:12 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,6 +24,7 @@
 #include <Misc/Handles.h>
 #include <Misc/CacheStatic.h>
 #include <list>
+#include <Prozente100.hh>
 
 class Prototyp : public HandleContent //Copyable
 {
@@ -50,9 +51,11 @@ class Prototyp : public HandleContent //Copyable
    int WaffSpezialist() const {return waff_spez;}
    int SpraSpezialist() const {return spra_spez;}
    int SchrSpezialist() const {return schr_spez;}
+
+   static void setLast(const Prozente100 &p);
 };
 
-class cH_Prototyp : public Handle<const Prototyp>
+class cH_Prototyp : public Handle<Prototyp>
 {
     typedef CacheStatic<std::string,cH_Prototyp> cache_t;
     static cache_t cache;
@@ -61,7 +64,7 @@ class cH_Prototyp : public Handle<const Prototyp>
  public:
     cH_Prototyp(const std::string& name  ,bool create=false);
     cH_Prototyp(const Tag *tag);
-    cH_Prototyp(const Prototyp *s) : Handle<const Prototyp>(s) {};
+    cH_Prototyp( Prototyp *s) : Handle<Prototyp>(s) {};
 };
 
 class Prototyp_All

@@ -1,4 +1,4 @@
-// $Id: Land.hh,v 1.20 2002/09/30 05:51:25 thoma Exp $               
+// $Id: Land.hh,v 1.21 2002/10/04 06:20:12 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,7 +23,6 @@
 #include <Misc/CacheStatic.h>
 #include <vector>
 #include <string>
-#include <gtk--/progressbar.h>
 #include "xml.h"
 //class cH_Typen;
 class Abenteurer;
@@ -64,7 +63,7 @@ class Laender_All
 {
    std::vector<cH_Land> list_All;
   public:
-   Laender_All(Gtk::ProgressBar *progressbar);
+   Laender_All();
    std::vector<cH_Land> get_All() const {return list_All;}
 };
 

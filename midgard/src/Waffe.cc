@@ -20,7 +20,6 @@
 #include "Waffe.hh"
 #include "midgard_CG.hh"
 #include "Typen.hh"
-#include "ProgressBar.h"
 #include <Misc/itos.h>
 
 cH_Waffe::cache_t cH_Waffe::cache;
@@ -267,7 +266,7 @@ std::string Waffe::Schwierigkeit_str() const
 
 
 
-map<std::string,std::string> Waffe::fill_map_alias_waffe(Gtk::ProgressBar *progressbar)
+map<std::string,std::string> Waffe::fill_map_alias_waffe()
 {
   map<std::string,std::string> M;
  const Tag *waffen=xml_data->find("Waffen");
@@ -275,15 +274,12 @@ map<std::string,std::string> Waffe::fill_map_alias_waffe(Gtk::ProgressBar *progr
     cerr << "<Waffen><Waffe/>... nicht gefunden\n";
  else
  {  Tag::const_iterator b=waffen->begin(),e=waffen->end();
-    double size=e-b;
     FOR_EACH_CONST_TAG_OF_5(i,*waffen,b,e,"Waffe")
-    {  ProgressBar::set_percentage(progressbar,(i-b)/size);
-       
+    {  
        FOR_EACH_CONST_TAG_OF(j,*i,"regionaleVariante")
           M[j->getAttr("Name")]=i->getAttr("Name");
     }
  }
-  ProgressBar::set_percentage(progressbar,1);
   return M;
 }
 
@@ -389,19 +385,17 @@ void Waffe::setSpezialWaffe(const std::string& name,std::list<MBEmlt>& list_Waff
 
 
 
-Waffe_All::Waffe_All(Gtk::ProgressBar *progressbar)
+Waffe_All::Waffe_All()
 {
  const Tag *waffen=xml_data->find("Waffen");
  if (!waffen)
     cerr << "<Waffen><Waffe/>... nicht gefunden\n";
  else
  {  Tag::const_iterator b=waffen->begin(),e=waffen->end();
-    double size=e-b;
     FOR_EACH_CONST_TAG_OF_5(i,*waffen,b,e,"Waffe")
-    {  ProgressBar::set_percentage(progressbar,(i-b)/size);
+    {  
 // warum sowas? siehe Zauber.pgcc
        list_All.push_back(&*(cH_Waffe(&*i)));
     }
  }
- ProgressBar::set_percentage(progressbar,1);
 }

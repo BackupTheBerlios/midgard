@@ -53,7 +53,6 @@ cout << grad<<'\t'<<gfp<<'\n';
          if(gfp<=0) return;
        }
   MagusKI mki(hauptfenster);
-//  int spezial_allgemein=int(hscale_spezial_allgemein->get_adjustment()->get_value());
   mki.VerteileGFP(gfp,prozente100);
 }
 
@@ -63,6 +62,8 @@ void table_zufall::on_radiobutton_steigern_grad_toggled()
   if(radiobutton_steigern_grad->get_active())
    {
     spinbutton_grad->set_sensitive(true);
+    spinbutton_grad->grab_focus();
+    spinbutton_grad->select_region(0,-1);
     spinbutton_gfp->set_sensitive(false);
    }
 }
@@ -72,6 +73,8 @@ void table_zufall::on_radiobutton_steigern_gfp_toggled()
   if(radiobutton_steigern_gfp->get_active())
    {
     spinbutton_gfp->set_sensitive(true);
+    spinbutton_gfp->grab_focus();
+    spinbutton_gfp->select_region(0,-1);
     spinbutton_grad->set_sensitive(false);
    }   
 }
@@ -79,12 +82,16 @@ void table_zufall::on_radiobutton_steigern_gfp_toggled()
 
 void table_zufall::fill_combo_steigern()
 {
+  static bool filled=false;
+  if(filled) return;
+  filled=true;
   std::list<std::string> L;
   std::list<cH_Prototyp> P=hauptfenster->getDatabase().prototyp;
   for(std::list<cH_Prototyp>::const_iterator i=P.begin();i!=P.end();++i)
      L.push_back((*i)->Name());
   combo_prototyp->set_popdown_strings(L);
-  if(!L.empty()) combo_prototyp->get_entry()->set_text(*L.begin());
+  if(!L.empty()) 
+     combo_prototyp->get_entry()->set_text(*L.begin());
   on_button_check100_clicked();
 
  combo_prototyp->set_sensitive(true);
@@ -122,12 +129,14 @@ void table_zufall::on_combo_prototyp_changed()
   prozente100.set(Enums::sZWerk,P->ZauberWerk());
   prozente100.set(Enums::sSpra,P->Sprache());
   prozente100.set(Enums::sSchr,P->Schrift());
-  prozente100.setS(Enums::sFert,100-P->FertSpezialist());
-  prozente100.setS(Enums::sWaff,100-P->WaffSpezialist());
-  prozente100.setS(Enums::sSpra,100-P->SpraSpezialist());
-  prozente100.setS(Enums::sSchr,100-P->SchrSpezialist());
+  prozente100.setS(Enums::sFert,P->FertSpezialist());
+  prozente100.setS(Enums::sWaff,P->WaffSpezialist());
+  prozente100.setS(Enums::sSpra,P->SpraSpezialist());
+  prozente100.setS(Enums::sSchr,P->SchrSpezialist());
 
   prozente100.check100();
+  Prototyp::setLast(prozente100);
+   
   set_bereiche_spinbuttons();    
 }
 
@@ -179,7 +188,7 @@ void table_zufall::on_button_check100_clicked()
   prozente100.set(Enums::sSchr,spinbutton_schriften->get_value_as_int());
   prozente100.check100();
   set_bereiche_spinbuttons();    
-  
+  Prototyp::setLast(prozente100);
 }
 
 
@@ -223,5 +232,46 @@ void table_zufall::on_togglebutton_prototyp_toggled()
 {
   if(togglebutton_prototyp->get_active()) frame_prototyp_mod->show();
   else frame_prototyp_mod->hide();
+}
+
+void table_zufall::on_spinbutton_fertigkeit_activate()
+{  
+  spinbutton_waffen->grab_focus();
+  spinbutton_waffen->select_region(0,-1);
+}
+
+void table_zufall::on_spinbutton_waffen_activate()
+{  
+  spinbutton_waffen_grund->grab_focus();
+  spinbutton_waffen_grund->select_region(0,-1);
+}
+
+void table_zufall::on_spinbutton_waffen_grund_activate()
+{  
+  spinbutton_zauber->grab_focus();
+  spinbutton_zauber->select_region(0,-1);
+}
+
+void table_zufall::on_spinbutton_zauber_activate()
+{  
+  spinbutton_zauberwerk->grab_focus();
+  spinbutton_zauberwerk->select_region(0,-1);
+}
+
+void table_zufall::on_spinbutton_zauberwerk_activate()
+{  
+  spinbutton_sprachen->grab_focus();
+  spinbutton_sprachen->select_region(0,-1);
+}
+
+void table_zufall::on_spinbutton_sprachen_activate()
+{  
+  spinbutton_schriften->grab_focus();
+  spinbutton_schriften->select_region(0,-1);
+}
+
+void table_zufall::on_spinbutton_schriften_activate()
+{  
+ on_button_check100_clicked();
 }
 

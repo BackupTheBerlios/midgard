@@ -19,7 +19,6 @@
 #include "WaffeGrund.hh"
 #include "midgard_CG.hh"
 #include "Typen.hh"
-#include "ProgressBar.h"
 
 cH_WaffeGrund::cache_t cH_WaffeGrund::cache;
 
@@ -51,16 +50,14 @@ void WaffeGrund::get_WaffeGrund()
    region=tag->getAttr("Region");
 }
 
-WaffeGrund_All::WaffeGrund_All(Gtk::ProgressBar *progressbar)
+WaffeGrund_All::WaffeGrund_All()
 {
  const Tag *waffengrundf=xml_data->find("Waffen-Grundkenntnisse");
  if (waffengrundf)
  {  Tag::const_iterator b=waffengrundf->begin(),e=waffengrundf->end();
-    double size=e-b;
     FOR_EACH_CONST_TAG_OF_5(i,*waffengrundf,b,e,"Waffen-Grundkenntnis")
-    {  ProgressBar::set_percentage(progressbar,(i-b)/size);
+    {  
        list_All.push_back(&*(cH_WaffeGrund(&*i)));
     }
  }   
- ProgressBar::set_percentage(progressbar,1);
 }

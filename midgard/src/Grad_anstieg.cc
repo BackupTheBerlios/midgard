@@ -19,18 +19,16 @@
 
 #include "Grad_anstieg.hh"
 #include "xml.h"
-#include "ProgressBar.h"
 #include <Misc/itos.h>
 
-Grad_anstieg::Grad_anstieg(Gtk::ProgressBar *progressbar)
-//: steigern_EP_prozent(50), grad_basiswerte(1)
+Grad_anstieg::Grad_anstieg(bool t)
 {
  const Tag *Gradanstieg=xml_data->find("Gradanstieg");
  if (Gradanstieg)
  {  Tag::const_iterator b=Gradanstieg->begin(),e=Gradanstieg->end();
-    double size=e-b;
+//    double size=e-b;
     FOR_EACH_CONST_TAG_OF_5(i,*Gradanstieg,b,e,"Grad")
-    {  ProgressBar::set_percentage(progressbar,(i-b)/size);
+    {  
        const Tag *Kosten=i->find("Kosten");
        map_grad[i->getIntAttr("Grad")]=
        	st_grad(i->getIntAttr("Abwehr"),Kosten->getIntAttr("Abwehr"),
@@ -40,7 +38,6 @@ Grad_anstieg::Grad_anstieg(Gtk::ProgressBar *progressbar)
        		Kosten->getIntAttr("Ausdauer",i->getIntAttr("AP_Kosten")));
     }
  }
- ProgressBar::set_percentage(progressbar,1);
  fill_kosten_maps();
 }
 

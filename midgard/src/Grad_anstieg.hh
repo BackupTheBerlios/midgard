@@ -18,7 +18,6 @@
 
 #ifndef _GRADANSTIEG_HH
 #  define _GRADANSTIEG_HH
-#include <gtk--/progressbar.h>
 #include <map>
 #include <Grundwerte.hh>
 
@@ -47,9 +46,12 @@ private:
 
       void fill_kosten_maps();
    public:
-      Grad_anstieg() {}
-      Grad_anstieg(Gtk::ProgressBar *progressbar) ;
+      Grad_anstieg() {};// anderer ctor war mit progressbar
+      Grad_anstieg(bool t) ;
+      
+//      void getGrad_anstieg();
 
+     
       int get_AP_Kosten(int grad) const;
       int get_MaxAbwehr(int grad) const;
       int get_Abwehr_Kosten(int erfolgswert) const ;

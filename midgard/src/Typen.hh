@@ -1,4 +1,4 @@
-// $Id: Typen.hh,v 1.30 2002/09/17 14:01:09 thoma Exp $               
+// $Id: Typen.hh,v 1.31 2002/10/04 06:20:12 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,7 +25,6 @@
 #include <Misc/CacheStatic.h>
 #include <vector>
 #include <string>
-#include <gtk--/progressbar.h>
 #include "xml.h"
 #include "Enums.hh"
 
@@ -124,10 +123,10 @@ class Typen_All
 {
       std::vector<cH_Typen> list_All;
    public:
-      Typen_All(Gtk::ProgressBar *progressbar);
+      Typen_All();
       std::vector<cH_Typen> get_All() const {return list_All;}
 };
 
-bool operator==(gpointer p,const cH_Typen &t);
+bool operator==(void *p,const cH_Typen &t);
 
 #endif

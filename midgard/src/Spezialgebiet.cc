@@ -17,7 +17,6 @@
  */
 
 #include "Spezialgebiet.hh"
-#include "ProgressBar.h"
 
 cH_Spezialgebiet::cache_t cH_Spezialgebiet::cache;
 
@@ -51,21 +50,17 @@ Spezialgebiet::Spezialgebiet(const Tag *tag)
 }
 
 
-Spezialgebiet_All::Spezialgebiet_All(Gtk::ProgressBar *progressbar)
+Spezialgebiet_All::Spezialgebiet_All()
 {
  const Tag *spezialgebiete=xml_data->find("Spezialgebiete");
  if (spezialgebiete)
  {  Tag::const_iterator b=spezialgebiete->begin(),e=spezialgebiete->end();
-    double size=e-b;
     FOR_EACH_CONST_TAG_OF_5(i,*spezialgebiete,b,e,"Spezialgebiet")
-    {  ProgressBar::set_percentage(progressbar,(i-b)/size);
        list_All.push_back(cH_Spezialgebiet(&*i));
-    }
  }   
- ProgressBar::set_percentage(progressbar,1);
 }
 
-bool operator==(gpointer data,const cH_Spezialgebiet &t)
+bool operator==(void *data,const cH_Spezialgebiet &t)
 {  
 cout << "SPEZ=" <<static_cast<Spezialgebiet*>(data)->Name()<<' '<< t->Name()<<'\n';
  return *(static_cast<Spezialgebiet*>(data))==*t;

@@ -1,4 +1,4 @@
-// $Id: Zauber.hh,v 1.43 2002/09/27 19:56:21 thoma Exp $               
+// $Id: Zauber.hh,v 1.44 2002/10/04 06:20:12 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,7 +22,6 @@
 #include "MidgardBasicElement.hh"
 #include "Typen.hh"
 class cH_Zauber;
-#include <gtk--/progressbar.h>
 class Random;
 
 class Zauber : public MidgardBasicElement
@@ -118,7 +117,7 @@ class Zauber_All
 {
    std::list<cH_MidgardBasicElement> list_All;
   public:
-   Zauber_All(Gtk::ProgressBar *progressbar);
+   Zauber_All();
    std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
 };
 

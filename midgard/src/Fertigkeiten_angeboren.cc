@@ -18,7 +18,6 @@
  */
 
 #include "Fertigkeiten_angeboren.hh"
-#include "ProgressBar.h"
 #include "Abenteurer.hh"
 
 cH_Fertigkeit_angeborene::cache_t cH_Fertigkeit_angeborene::cache;
@@ -64,16 +63,14 @@ int Fertigkeit_angeborene::FErfolgswert(const Abenteurer &a,const MBEmlt &mbem) 
 
 
 
-Fertigkeiten_angeborene_All::Fertigkeiten_angeborene_All(Gtk::ProgressBar *progressbar)
+Fertigkeiten_angeborene_All::Fertigkeiten_angeborene_All()
 {
  const Tag *angeboreneFertigkeiten=xml_data->find("angeboreneFertigkeiten");
  if (angeboreneFertigkeiten)
  {  Tag::const_iterator b=angeboreneFertigkeiten->begin(),e=angeboreneFertigkeiten->end();
-    double size=e-b;
     FOR_EACH_CONST_TAG_OF_5(i,*angeboreneFertigkeiten,b,e,"angeboreneFertigkeit")
-    {  ProgressBar::set_percentage(progressbar,(i-b)/size);
+    {  
        list_All.push_back(&*(cH_Fertigkeit_angeborene(&*i)));
     }
  }
- ProgressBar::set_percentage(progressbar,1);
 }

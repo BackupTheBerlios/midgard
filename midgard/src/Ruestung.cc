@@ -17,7 +17,6 @@
  */
 
 #include "Ruestung.hh"
-#include "ProgressBar.h"
 #include "MidgardBasicElement.hh" // für NotFound
 
 cH_Ruestung::cache_t cH_Ruestung::cache;
@@ -66,18 +65,14 @@ Ruestung::Ruestung(const Tag *tag)
      rw_verlust=b_verlust=abwehr_bonus_verlust=angriffs_bonus_verlust=0;
 }
 
-Ruestung_All::Ruestung_All(Gtk::ProgressBar *progressbar)
+Ruestung_All::Ruestung_All()
 {
  const Tag *ruestungen=xml_data->find("Rüstungen");
  if (ruestungen)
  {  Tag::const_iterator b=ruestungen->begin(),e=ruestungen->end();
-    double size=e-b;
     FOR_EACH_CONST_TAG_OF_5(i,*ruestungen,b,e,"Rüstung")
-    {  ProgressBar::set_percentage(progressbar,(i-b)/size);
        list_All.push_back(cH_Ruestung(&*i));
-    }
  }   
- ProgressBar::set_percentage(progressbar,1);
 }
 
 

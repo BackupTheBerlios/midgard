@@ -122,6 +122,27 @@ void midgard_CG::menu_einstellungen_aendern()
  notebook_main->set_page(PAGE_OPTIONEN);
 }
 
+void midgard_CG::on_anleitung_menu_activate()
+{
+  on_button_html_hilfe_clicked();
+}
+
+void midgard_CG::on_hilfe_menu_activate()
+{
+  on_button_hilfe_clicked();
+}
+
+void midgard_CG::on_info_credits_menu_activate()
+{
+ notebook_main->set_page(PAGE_INFO);
+}
+
+void midgard_CG::on_news_menu_activate()
+{
+ notebook_main->set_page(PAGE_NEWS);
+}
+
+
 
 void midgard_CG::on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page *page,guint pagenr)
 {

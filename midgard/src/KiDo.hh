@@ -1,4 +1,4 @@
-// $Id: KiDo.hh,v 1.26 2002/09/27 19:56:21 thoma Exp $               
+// $Id: KiDo.hh,v 1.27 2002/10/04 06:20:12 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,7 +23,6 @@
 #include "Typen.hh"
 //#include "Ausnahmen.hh"
 #include "Fertigkeiten.hh"
-#include <gtk--/progressbar.h>
 
 class KiDo_Stile
 {
@@ -113,7 +112,7 @@ class KiDo_All
 {
    std::list<cH_MidgardBasicElement> list_All;
   public:
-   KiDo_All(Gtk::ProgressBar *progressbar);
+   KiDo_All();
    std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
 };
 

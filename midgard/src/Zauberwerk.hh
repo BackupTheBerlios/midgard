@@ -22,7 +22,6 @@
 #include "MidgardBasicElement.hh"
 #include "Typen.hh"
 class cH_Zauberwerk;
-#include <gtk--/progressbar.h>
 
 
 class Zauberwerk : public MidgardBasicElement
@@ -116,7 +115,7 @@ class Zauberwerk_All
 {
    std::list<cH_MidgardBasicElement> list_All;
   public:
-   Zauberwerk_All(Gtk::ProgressBar *progressbar);
+   Zauberwerk_All();
    std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
 };
 

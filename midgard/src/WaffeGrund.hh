@@ -1,4 +1,4 @@
-// $Id: WaffeGrund.hh,v 1.13 2002/07/10 09:31:37 christof Exp $               
+// $Id: WaffeGrund.hh,v 1.14 2002/10/04 06:20:12 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -25,7 +25,6 @@
 #include "MidgardBasicElement.hh"
 #include "Typen.hh"
 //#include "Ausnahmen.hh"
-#include <gtk--/progressbar.h>
 
 class cH_WaffeGrund;
 
@@ -63,7 +62,7 @@ class WaffeGrund_All
 {
    std::list<cH_MidgardBasicElement> list_All;
   public:
-   WaffeGrund_All(Gtk::ProgressBar *progressbar);
+   WaffeGrund_All();
    std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
 };
 
