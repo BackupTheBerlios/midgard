@@ -8,6 +8,7 @@
  <MAGUS-include File="Alba.xml"/>
  <MAGUS-include File="Eschar.xml"/>
  <MAGUS-include File="KanThaiPan.xml"/>
+ <MAGUS-include File="Minangpahit.xml" inactive="true"/>
  <MAGUS-include File="Nahuatlan.xml"/>
  <MAGUS-include File="Rawindra.xml"/>
  <MAGUS-include File="Waeland.xml"/>

@@ -1,0 +1,30 @@
+--
+-- Selected TOC Entries:
+--
+DROP INDEX "regionen_lernen_region_name";
+DROP TABLE "regionen_lernen";
+--
+--
+--
+
+CREATE TABLE "regionen_lernen" (
+	"region" text NOT NULL,
+	"name" text NOT NULL,
+	"lp_stadt" integer,
+	"lp_land" integer
+);
+
+--
+--
+--
+
+
+COPY "regionen_lernen" FROM stdin;
+Minangpahit	Giftmischen	2	1
+\.
+--
+--
+--
+
+CREATE UNIQUE INDEX regionen_lernen_region_name ON regionen_lernen USING btree (region, name);
+

@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten.hh,v 1.45 2002/05/08 11:12:58 thoma Exp $               
+// $Id: Fertigkeiten.hh,v 1.46 2002/05/26 10:17:02 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,6 +24,7 @@
 //#include "Ausnahmen.hh"
 #include <gtk--/progressbar.h>
 
+class midgard_CG;
 
 class Fertigkeit : public MidgardBasicElement
 {
@@ -45,6 +46,11 @@ class Fertigkeit : public MidgardBasicElement
      mutable bool pflicht;
 
      void get_Fertigkeit();
+     struct st_region_lern {std::string region; int lp_stadt; int lp_land;
+         st_region_lern(std::string r,int ls, int ll)
+            :region(r),lp_stadt(ls),lp_land(ll) {} 
+           };
+     std::vector<st_region_lern> vec_region_lp;
 
   public:
      Fertigkeit(const Tag *t)
@@ -75,21 +81,13 @@ class Fertigkeit : public MidgardBasicElement
      void setPflicht(bool p) const {pflicht=p;}
      std::string Pflicht_str() const; 
      int AttributBonus(const Grundwerte& Werte) const;
+
+//     void get_region_lp(int &lp,const std::vector<cH_Region>& vec_region,const Grundwerte& Werte) const;
+     void get_region_lp(int &lp,const midgard_CG* hauptfenster) const;
 };
 
 class cH_Fertigkeit : public Handle<const Fertigkeit>
 {
-/*
-   struct st_index {std::string name; int lernpunkte; 
-      bool operator == (const st_index& b) const
-         {return (name==b.name && lernpunkte==b.lernpunkte);}
-      bool operator <  (const st_index& b) const
-         { return name < b.name ||
-             (name==b.name && lernpunkte<b.lernpunkte ); }
-      st_index(std::string n, int l):name(n),lernpunkte(l){}
-      st_index(){}
-      };
-*/
     typedef CacheStatic<std::string,cH_Fertigkeit> cache_t;
     static cache_t cache;
     friend class std::map<std::string,cH_Fertigkeit>;

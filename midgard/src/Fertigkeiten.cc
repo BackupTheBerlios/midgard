@@ -84,6 +84,10 @@ void Fertigkeit::get_Fertigkeit()
     FOR_EACH_CONST_TAG_OF(i,*tag,"Voraussetzungen_2")
       vec_voraussetzung.push_back(i->getAttr("Name"));
 
+    FOR_EACH_CONST_TAG_OF(i,*tag,"Region_Lernpunkte")
+      vec_region_lp.push_back(st_region_lern(i->getAttr("Region"),
+            i->getIntAttr("LP_Stadt"),i->getIntAttr("LP_Land")));
+
     FOR_EACH_CONST_TAG_OF(i,*tag,"Zusätze")
       Vzusatz.push_back(i->getAttr("Name"));
 
@@ -187,6 +191,20 @@ int Fertigkeit::AttributBonus(const Grundwerte& Werte) const
    if (Attribut()=="pA" && Werte.pA()>=81) ++b;
    if (Attribut()=="pA" && Werte.pA()>=96) ++b;
  return b;
+}
+
+
+void Fertigkeit::get_region_lp(int &lp,const midgard_CG* hauptfenster) const
+{
+  for(std::vector<st_region_lern>::const_iterator i=vec_region_lp.begin();i!=vec_region_lp.end();++i)
+   {
+     if(!hauptfenster->region_check(i->region)) continue;
+     if(hauptfenster->getCWerte().Herkunft()->Name()==i->region)
+       {
+         if     (hauptfenster->getCWerte().Stadt_Land()=="Land"  ) lp=i->lp_land;
+         else if(hauptfenster->getCWerte().Stadt_Land()=="Stadt" ) lp=i->lp_stadt;
+       }
+   }
 }
 
 Fertigkeiten_All::Fertigkeiten_All(Gtk::ProgressBar *progressbar)

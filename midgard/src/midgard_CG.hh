@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.245 2002/05/24 14:06:52 thoma Exp $
+// $Id: midgard_CG.hh,v 1.246 2002/05/26 10:17:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -64,6 +64,7 @@ class midgard_CG : public midgard_CG_glade //, public GeldFenster
         friend class table_steigern;
         friend class table_ausruestung;
         friend class Window_Erfahrungspunkte;
+        friend class Fertigkeit;
    private:
         // Drucken
         void on_alles_drucken();
@@ -238,6 +239,6 @@ private:
          void xml_import_stream(istream &datei);
          const std::string get_filename() const { return filename; }
          void spielleiter_export_save(const std::string& dateiname);
-         bool region_check(const std::string& region);
+         bool region_check(const std::string& region) const;
 };
 #endif

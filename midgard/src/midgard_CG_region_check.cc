@@ -1,4 +1,4 @@
-// $Id: midgard_CG_region_check.cc,v 1.26 2002/04/14 09:04:23 thoma Exp $
+// $Id: midgard_CG_region_check.cc,v 1.27 2002/05/26 10:17:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,13 +19,14 @@
 
 #include "midgard_CG.hh"
 
-bool midgard_CG::region_check(const std::string& region)
+bool midgard_CG::region_check(const std::string& region) const
 {
 //std::cout << "region = "<<"\t"<<flush<<region<<"\t"<<"\n";
   if (region=="") return true;  
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {
-     if(region==(*i)->Abkuerzung() && (*i)->Active()) return true;
+     if( (region==(*i)->Abkuerzung() || region==(*i)->Name() ) &&
+         (*i)->Active()) return true;
    }
   return false;
 }

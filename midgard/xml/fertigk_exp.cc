@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.27 2002/05/08 11:12:58 thoma Exp $
+// $Id: fertigk_exp.cc,v 1.28 2002/05/26 10:17:02 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -108,6 +108,19 @@ void fert_speichern(std::ostream &o)
       while ((queryZu>>isZu).good()) 
       {  o << "    <Zusätze";
          fetch_and_write_string_attrib(isZu, o, "Name");
+         o << "/>\n";
+      }
+    }
+
+      //********** fertigkeiten_voraussetzungen_2 **********************************
+   {  Query queryV2("select region,lp_stadt,lp_land from regionen_lernen "
+   	" where name='"+fert+"' order by region");
+      FetchIStream isV2;
+      while ((queryV2>>isV2).good()) 
+      {  o << "    <Region_Lernpunkte";
+         fetch_and_write_string_attrib(isV2, o, "Region");
+         fetch_and_write_int_attrib(isV2, o, "LP_Stadt");
+         fetch_and_write_int_attrib(isV2, o, "LP_Land");
          o << "/>\n";
       }
     }

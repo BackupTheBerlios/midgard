@@ -658,7 +658,8 @@ void table_lernschema::show_lernschema()
          }
         else
          {  fert="Allg";
-            label_lernschma_titel->set_text("Allgemeinwissen");
+            label_lernschma_titel->set_text("Allgemeinwissen ("+
+                  hauptfenster->getCWerte().Stadt_Land()+")");
          }
    }
 
@@ -676,6 +677,7 @@ void table_lernschema::show_lernschema()
          if     (hauptfenster->getCWerte().Stadt_Land()=="Land"  ) lp=f->LernLand();
          else if(hauptfenster->getCWerte().Stadt_Land()=="Stadt" ) lp=f->LernStadt();
          else {hauptfenster->set_status("Stadt oder Land wählen"); return;}
+         f->get_region_lp(lp,hauptfenster);  
          if(!togglebutton_teure_anzeigen->get_active() && lp>lernpunkte.Allgemein())
             continue;
        }
