@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Preise>
+ </Preise>
+
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Adreon McX" Spieler="Christof Petig" Zeitpunkt="Erschaffung" Grad="1"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Er" Spezialisierung="Langschwert" Stadt_Land="Stadt" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="95" Gw="86" Gs="93" Ko="90" In="97" Zt="76"/>
+  <abgeleiteteEigenschaften Au="50" pA="53" Wk="100" Sb="47" B="25"/>
+  <Erfolgswerte Abwehr="11" Zaubern="2" ZauberResistenz="10"/>
+  <Gesundheit LP="17" AP="12"/>
+  <Beschreibung Alter="21" Gestalt="schlank" Gewicht="82" Größe="180" Stand="Volk" Herkunft="Alba" Glaube="Dheis Albi"/>
+  <Vermögen GS="14"/>
+  <Steigern><Praxispunkte/></Steigern>
+  <TextPixSize>8</TextPixSize>
+  <Ausrüstung>
+    <Rüstung>TR</Rüstung>
+    <Waffe Bezeichnung="kleiner Schild"/>
+    <Waffe Bezeichnung="Langschwert"/>
+    <Waffe Bezeichnung="Dolch"/>
+    <Gegenstand Bezeichnung="Körper" sichtbar="true">
+      <Gegenstand Bezeichnung="Hose" sichtbar="true"/>
+      <Gegenstand Bezeichnung="Hemd" sichtbar="true"/>
+      <Gegenstand Bezeichnung="Gürtel" sichtbar="true"/>
+      <Gegenstand Bezeichnung="Schuhe" sichtbar="true"/>
+      <Gegenstand Bezeichnung="Rucksack" Besonderheit="Leder" sichtbar="true">
+        <Gegenstand Bezeichnung="Decke" Besonderheit="warm"/>
+        <Gegenstand Bezeichnung="Lederbeutel" sichtbar="true"/>
+        <Gegenstand Bezeichnung="Geld"/>
+      </Gegenstand>
+    </Gegenstand>
+  </Ausrüstung>
+  <Fertigkeiten>
+    <Sinne Bezeichnung="Sehen" Wert="10"/>
+    <Sinne Bezeichnung="Hören" Wert="8"/>
+    <Sinne Bezeichnung="Riechen" Wert="8"/>
+    <Sinne Bezeichnung="Schmecken" Wert="8"/>
+    <Sinne Bezeichnung="Tasten" Wert="8"/>
+    <Sinne Bezeichnung="Sechster Sinn" Wert="3"/>
+    <Beruf Bezeichnung="Bote"/>
+    <Fertigkeit Bezeichnung="Gassenwissen" Wert="7"/>
+    <Fertigkeit Bezeichnung="Himmelskunde" Wert="6"/>
+    <Fertigkeit Bezeichnung="Lippenlesen" Wert="8"/>
+    <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="7"/>
+    <Fertigkeit Bezeichnung="Reiten" Wert="11"/>
+    <Fertigkeit Bezeichnung="Seilkunst" Wert="7"/>
+    <Fertigkeit Bezeichnung="Spurenlesen" Wert="8"/>
+    <Fertigkeit Bezeichnung="Suchen" Wert="10"/>
+    <Fertigkeit Bezeichnung="Wahrnehmung" Wert="6"/>
+    <Waffe Bezeichnung="Langschwert" Wert="7"/>
+    <Waffe Bezeichnung="Dolch" Wert="5"/>
+    <Waffe Bezeichnung="kleiner Schild" Wert="5"/>
+    <Waffe Bezeichnung="Handaxt" Wert="5"/>
+    <Grundkenntnis Bezeichnung="ESchlagwaffe"/>
+    <Grundkenntnis Bezeichnung="ESchwert"/>
+    <Grundkenntnis Bezeichnung="Schilde"/>
+    <Grundkenntnis Bezeichnung="Stichwaffe"/>
+    <Sprache Bezeichnung="Albisch" Wert="20"/>
+    <Sprache Bezeichnung="Comentang" Wert="12"/>
+    <Urschrift Bezeichnung="Albisch" Wert="14"/>
+    <Optionen Name="Originalregeln" Wert="true"/>
+    <Optionen Name="NSCs zulassen" Wert="false"/>
+  </Fertigkeiten>
+ </Midgard-Abenteurer>
+</MAGUS-data>
