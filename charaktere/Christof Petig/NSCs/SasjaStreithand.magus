@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Sasja Streithand" Zeitpunkt="Erschaffung" Grad="1"/>
+  <Typ Spezies="Mensch" Geschlecht="f" Abkürzung="Hä" Überleben="Überleben im Wald" Muttersprache="Albisch" Stadt_Land="Stadt" Hand="Linkshänder"/>
+  <Basiseigenschaften St="51" Gw="90" Gs="64" Ko="33" In="86" Zt="20"/>
+  <abgeleiteteEigenschaften Au="90" pA="60" Wk="51" Sb="11" B="24"/>
+  <Erfolgswerte Abwehr="11" Zaubern="2" ZauberResistenz="10"/>
+  <Gesundheit LP="10" AP="4"/>
+  <Beschreibung Alter="20" Gestalt="normal" Gewicht="66" Größe="169" Stand="Volk" Herkunft="Alba"/>
+  <Vermögen GS="13"/>
+  <Steigern>
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>OR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="0" Bezeichnung="Langschwert"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Langschwert"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Langschwert"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Langschwert" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Langschwert" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Langschwert" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Reitpferd" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="6"/>
+   <Beruf Bezeichnung="Musikant"/>
+   <Fertigkeit Bezeichnung="Erzählen" Wert="9"/>
+   <Fertigkeit Bezeichnung="Geschäftstüchtigkeit" Wert="9"/>
+   <Fertigkeit Bezeichnung="Naturkunde" Wert="6"/>
+   <Fertigkeit Bezeichnung="Reiten" Wert="16"/>
+   <Fertigkeit Bezeichnung="Singen" Wert="8"/>
+   <Fertigkeit Bezeichnung="Tanzen" Wert="10"/>
+   <Fertigkeit Bezeichnung="Tierkunde" Wert="5"/>
+   <Fertigkeit Bezeichnung="Wahrnehmung" Wert="5"/>
+   <Waffe Bezeichnung="Langschwert" Wert="5"/>
+   <Waffe Bezeichnung="waffenloser Kampf" Wert="5"/>
+   <Grundkenntnis Bezeichnung="Einhandschwert"/>
+   <Grundkenntnis Bezeichnung="Kampf ohne Waffen"/>
+   <Sprache Bezeichnung="Albisch" Wert="19"/>
+   <Sprache Bezeichnung="Erainnisch" Wert="12"/>
+  </Fertigkeiten>
+  <Optionen>
+   <CheckOptions Name="Originalregeln" Wert="true"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+   <Hausregeln Name="Ausdauerpunkte für Nicht-Menschen nach GB51" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>

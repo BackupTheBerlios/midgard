@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Holm Adlerauge" Zeitpunkt="Erschaffung" Grad="1"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Sp" Überleben="Überleben im Wald" Muttersprache="Albisch" Stadt_Land="Stadt" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="63" Gw="75" Gs="86" Ko="83" In="60" Zt="39"/>
+  <abgeleiteteEigenschaften Au="65" pA="55" Wk="89" Sb="28" B="26"/>
+  <Erfolgswerte Abwehr="11" Zaubern="2" ZauberResistenz="10"/>
+  <Gesundheit LP="17" AP="13"/>
+  <Beschreibung Alter="20" Gestalt="schlank" Gewicht="66" Größe="179" Stand="Mittelschicht" Herkunft="Alba"/>
+  <Vermögen GS="14"/>
+  <Steigern>
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>LR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="0" Bezeichnung="Langschwert"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Bogen"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Langschwert"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Langschwert" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Bogen" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Langschwert" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Dietriche und Nachschlüssel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Bälle, Reifen und Keulen zum Jonglieren" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Erste Hilfe Ausrüstung (Salben, Heilkräuter und Verbände)" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="4"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="1"/>
+   <Beruf Bezeichnung="Arzt"/>
+   <Fertigkeit Bezeichnung="Balancieren" Wert="15"/>
+   <Fertigkeit Bezeichnung="Erste Hilfe" Wert="8"/>
+   <Fertigkeit Bezeichnung="Gaukeln" Wert="13"/>
+   <Fertigkeit Bezeichnung="Laufen" Wert="5"/>
+   <Fertigkeit Bezeichnung="Reiten" Wert="10"/>
+   <Fertigkeit Bezeichnung="Schlösser öffnen" Wert="9"/>
+   <Fertigkeit Bezeichnung="Seilkunst" Wert="7"/>
+   <Fertigkeit Bezeichnung="Winden" Wert="4"/>
+   <Waffe Bezeichnung="Bogen" Wert="5"/>
+   <Waffe Bezeichnung="Langschwert" Wert="5"/>
+   <Grundkenntnis Bezeichnung="Bögen"/>
+   <Grundkenntnis Bezeichnung="Einhandschwert"/>
+   <Sprache Bezeichnung="Albisch" Wert="14"/>
+   <Sprache Bezeichnung="Erainnisch" Wert="12"/>
+   <Sprache Bezeichnung="Halftan" Wert="9"/>
+  </Fertigkeiten>
+  <Optionen>
+   <CheckOptions Name="Originalregeln" Wert="true"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+   <Hausregeln Name="Ausdauerpunkte für Nicht-Menschen nach GB51" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>

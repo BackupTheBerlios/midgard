@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Harald Blitzstab" Zeitpunkt="Erschaffung" Grad="1"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Gl" Spezialisierung="Langschwert" Überleben="Überleben im Wald" Muttersprache="Albisch" Stadt_Land="Stadt" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="71" Gw="90" Gs="81" Ko="96" In="69" Zt="77"/>
+  <abgeleiteteEigenschaften Au="97" pA="18" Wk="45" Sb="16" B="27"/>
+  <Erfolgswerte Abwehr="11" Zaubern="2" ZauberResistenz="10"/>
+  <Gesundheit LP="19" AP="14"/>
+  <Beschreibung Alter="21" Gestalt="normal" Gewicht="80" Größe="175" Stand="Mittelschicht" Merkmale="schwaches Gedächtnis!" Herkunft="Alba"/>
+  <Vermögen GS="15"/>
+  <Steigern>
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>OR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="5" Bezeichnung="Keule"/>
+   <Waffe Erfolgswert="7" Bezeichnung="Langschwert"/>
+   <Waffe Erfolgswert="5" Bezeichnung="Kampfstab"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Keule" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Langschwert" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Kampfstab" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
+   <Beruf Bezeichnung="Waffenschmied"/>
+   <ang-Fertigkeit Bezeichnung="Robustheit" Wert="9"/>
+   <Fertigkeit Bezeichnung="Reiten" Wert="16"/>
+   <Fertigkeit Bezeichnung="Tanzen" Wert="16"/>
+   <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="5"/>
+   <Fertigkeit Bezeichnung="Glücksspiel" Wert="16"/>
+   <Fertigkeit Bezeichnung="Akrobatik" Wert="16"/>
+   <Fertigkeit Bezeichnung="Gaukeln" Wert="9"/>
+   <Fertigkeit Bezeichnung="Landeskunde" Wert="9" Zusatz="Alba"/>
+   <Fertigkeit Bezeichnung="Schwimmen" Wert="11"/>
+   <Fertigkeit Bezeichnung="Athletik" Wert="4"/>
+   <Waffe Bezeichnung="Keule" Wert="5"/>
+   <Waffe Bezeichnung="Langschwert" Wert="7"/>
+   <Waffe Bezeichnung="Kampfstab" Wert="5"/>
+   <Waffe Bezeichnung="Werfen" Wert="5"/>
+   <Grundkenntnis Bezeichnung="Einhandschlagwaffe"/>
+   <Grundkenntnis Bezeichnung="Einhandschwert"/>
+   <Grundkenntnis Bezeichnung="Kampfstab"/>
+   <Grundkenntnis Bezeichnung="Werfen"/>
+   <Sprache Bezeichnung="Albisch" Wert="18"/>
+   <Sprache Bezeichnung="Erainnisch" Wert="12"/>
+   <Sprache Bezeichnung="Waelska" Wert="4"/>
+  </Fertigkeiten>
+  <Optionen>
+   <CheckOptions Name="Originalregeln" Wert="true"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+   <Hausregeln Name="Ausdauerpunkte für Nicht-Menschen nach GB51" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>

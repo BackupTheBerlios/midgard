@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Osric von Trutzburg" Zeitpunkt="Erschaffung" Grad="1"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Kr" Spezialisierung="Langschwert" Überleben="Überleben im Wald" Muttersprache="Albisch" Stadt_Land="Stadt" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="82" Gw="52" Gs="67" Ko="96" In="99" Zt="98"/>
+  <abgeleiteteEigenschaften Au="51" pA="51" Wk="66" Sb="62" B="26"/>
+  <Erfolgswerte Abwehr="11" Zaubern="2" ZauberResistenz="10"/>
+  <Gesundheit LP="18" AP="11"/>
+  <Beschreibung Alter="22" Gestalt="breit" Gewicht="100" Größe="180" Stand="Adel" Herkunft="Alba"/>
+  <Vermögen GS="7"/>
+  <Steigern>
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>PR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="7" Bezeichnung="Langschwert"/>
+   <Waffe Erfolgswert="5" Bezeichnung="Streitkolben"/>
+   <Waffe Erfolgswert="5" Bezeichnung="Bogen"/>
+   <Waffe Erfolgswert="5" Bezeichnung="Streitkolben"/>
+   <Waffe Erfolgswert="5" Bezeichnung="Bogen"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Langschwert" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Streitkolben" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Bogen" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Streitkolben" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Bogen" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Reitpferd" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="10"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
+   <Beruf Bezeichnung="Scharfrichter"/>
+   <Fertigkeit Bezeichnung="Bogenkampf zu Pferd" Wert="15"/>
+   <Fertigkeit Bezeichnung="Erzählen" Wert="10"/>
+   <Fertigkeit Bezeichnung="Himmelskunde" Wert="6"/>
+   <Fertigkeit Bezeichnung="Kampf in Schlachtreihe" Wert="5"/>
+   <Fertigkeit Bezeichnung="Kampf in Vollrüstung" Wert="16"/>
+   <Fertigkeit Bezeichnung="Kampf zu Pferd" Wert="15"/>
+   <Fertigkeit Bezeichnung="Landeskunde" Wert="11" Zusatz="Alba"/>
+   <Fertigkeit Bezeichnung="Lippenlesen" Wert="6"/>
+   <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="6"/>
+   <Fertigkeit Bezeichnung="Reiten" Wert="15"/>
+   <Fertigkeit Bezeichnung="Seilkunst" Wert="6"/>
+   <Waffe Bezeichnung="Langschwert" Wert="7"/>
+   <Waffe Bezeichnung="Bogen" Wert="5"/>
+   <Waffe Bezeichnung="Faustkampf" Wert="5"/>
+   <Waffe Bezeichnung="Streitkolben" Wert="5"/>
+   <Grundkenntnis Bezeichnung="Bögen"/>
+   <Grundkenntnis Bezeichnung="Einhandschlagwaffe"/>
+   <Grundkenntnis Bezeichnung="Einhandschwert"/>
+   <Grundkenntnis Bezeichnung="Kampf ohne Waffen"/>
+   <Sprache Bezeichnung="Albisch" Wert="20"/>
+   <Sprache Bezeichnung="Erainnisch" Wert="12"/>
+   <Urschrift Bezeichnung="Albisch" Wert="6"/>
+  </Fertigkeiten>
+  <Optionen>
+   <CheckOptions Name="Originalregeln" Wert="true"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+   <Hausregeln Name="Ausdauerpunkte für Nicht-Menschen nach GB51" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>

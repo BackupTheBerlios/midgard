@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Brian Dank" Zeitpunkt="Erschaffung" Grad="1"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Ku" Überleben="Überleben im Wald" Muttersprache="Erainnisch" Stadt_Land="Land" Hand="Beidhändig"/>
+  <Basiseigenschaften St="41" Gw="40" Gs="64" Ko="74" In="74" Zt="80"/>
+  <abgeleiteteEigenschaften Au="41" pA="12" Wk="88" Sb="46" B="25"/>
+  <Erfolgswerte Abwehr="11" Zaubern="2" ZauberResistenz="10"/>
+  <Gesundheit LP="14" AP="9"/>
+  <Beschreibung Alter="20" Gestalt="normal" Gewicht="66" Größe="172" Stand="Adel" Herkunft="Alba"/>
+  <Vermögen GS="28"/>
+  <Steigern>
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>LR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="0" Bezeichnung="Krummsäbel"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Dolch"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Dolch"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Dolch"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Krummsäbel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Dolch" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Dolch" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Dolch" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="6"/>
+   <Beruf Bezeichnung="Zureiter"/>
+   <Fertigkeit Bezeichnung="Himmelskunde" Wert="5"/>
+   <Fertigkeit Bezeichnung="Naturkunde" Wert="5"/>
+   <Fertigkeit Bezeichnung="Reiten" Wert="10"/>
+   <Fertigkeit Bezeichnung="Schwimmen" Wert="10"/>
+   <Fertigkeit Bezeichnung="Spurenlesen" Wert="6"/>
+   <Fertigkeit Bezeichnung="Tierkunde" Wert="4"/>
+   <Fertigkeit Bezeichnung="Wahrnehmung" Wert="4"/>
+   <Fertigkeit Bezeichnung="Wetterkunde" Wert="5"/>
+   <Fertigkeit Bezeichnung="Zauberkunde" Wert="4"/>
+   <Waffe Bezeichnung="Krummsäbel" Wert="5"/>
+   <Waffe Bezeichnung="Dolch" Wert="5"/>
+   <Grundkenntnis Bezeichnung="Einhandschwert"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Sprache Bezeichnung="Erainnisch" Wert="12"/>
+   <Sprache Bezeichnung="Albisch" Wert="18"/>
+  </Fertigkeiten>
+  <Optionen>
+   <CheckOptions Name="Originalregeln" Wert="true"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+   <Hausregeln Name="Ausdauerpunkte für Nicht-Menschen nach GB51" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>
