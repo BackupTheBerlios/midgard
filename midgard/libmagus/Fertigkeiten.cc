@@ -45,6 +45,7 @@ cH_Fertigkeit::cH_Fertigkeit(const std::string& name, bool create)
   }
 }
 
+//#include <iostream>
 void Fertigkeit::get_Fertigkeit(const Tag &t)
 {
  if (t.hasAttr("Lernkosten") || t.hasAttr("Anfangswert") || t.hasAttr("Maximalwert"))
@@ -54,6 +55,7 @@ void Fertigkeit::get_Fertigkeit(const Tag &t)
   anfangswert0=t.getIntAttr("Anfangswert");
   anfangswert=t.getIntAttr("Erfolgswert");
   ungelernt=t.getIntAttr("Erfolgswert-ungelernt",-99);
+//std::cout << "Load: "<<Name()<<'\t'<<ungelernt<<'\n';
   berufskategorie=t.getIntAttr("Berufskategorie");
 //  erfolgswert=anfangswert; //Defaultwert
   kosten=t.getIntAttr("Lernkosten");
@@ -73,9 +75,9 @@ void Fertigkeit::get_Fertigkeit(const Tag &t)
      		Voraussetzungen->getIntAttr("Zt"),
      		Voraussetzungen->getIntAttr("Au"),
      		Voraussetzungen->getIntAttr("pA"),
-                Voraussetzungen->getIntAttr("Sb"),
-                Voraussetzungen->getIntAttr("RW"),
-                Voraussetzungen->getAttr("Fertigkeit"));
+         Voraussetzungen->getIntAttr("Sb"),
+         Voraussetzungen->getIntAttr("RW"),
+         Voraussetzungen->getAttr("Fertigkeit"));
   }
 
     FOR_EACH_CONST_TAG_OF(i,t,"Voraussetzungen_2")
@@ -236,7 +238,7 @@ Fertigkeiten_All::Fertigkeiten_All()
 
 Fertigkeit::Fertigkeit(const Tag &t)
       : MidgardBasicElement(t.getAttr("Name")),
-        lern_unge(),lern_land(),lern_stadt()
+        lern_unge(),lern_land(),lern_stadt(),ungelernt(-99)
 { load(t);
 }
 

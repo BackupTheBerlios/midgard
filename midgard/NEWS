@@ -2,6 +2,8 @@ Version 0.9.4
 
 - TODO unter NEWS lesbar
 - Eingebaute Debugging Funktion (Dr MinGW) unter Windows
+- Ausgabe von PP für Abwehr, Zaubern & Resistenz
+- Ausgabe von Zauberbeschreibungen (Option)
 
 -------------- TODO ----------------
 

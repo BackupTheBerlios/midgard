@@ -340,6 +340,11 @@
 
 2003/5/6 11:59:47 CEST
 	update files from .glade file
+<<<<<<< ChangeLog
+
+2003/7/9 10:47:42 CEST
+	update files from .glade file
+=======
 
 2003/9/1 18:45:53 CEST
 	update files from .glade file
@@ -360,9 +365,6 @@
 	update files from .glade file
 
 2003/9/29 10:10:21 CEST
-	update files from .glade file
-
-2003/10/13 0:04:15 CEST
 	update files from .glade file
 
 2003/10/13 12:13:27 CEST
@@ -396,13 +398,21 @@
 	update files from .glade file
 
 2003/12/16 0:10:23 CET
+<<<<<<< ChangeLog
+	update files from .glade file
+>>>>>>> 1.374
+=======
 	update files from .glade file
 
 2003/12/30 1:07:30 CET
 	update files from .glade file
+<<<<<<< ChangeLog
+>>>>>>> 1.375
+=======
 
 2004/1/21 23:18:19 CET
 	update files from .glade file
 
 2004/1/30 22:22:45 CET
 	update files from .glade file
+>>>>>>> 1.377

@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.9 2003/12/15 23:17:06 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.10 2004/02/29 11:18:45 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -991,6 +991,10 @@ void LaTeX_drucken::LaTeX_zauber(const Abenteurer &A,std::ostream &fout)
      fout << LaTeX_scale(TeX::string2TeX(z->Material()),20,"3cm") << " & " ;
      fout << z->Agens(A.getVTyp()) <<" " <<z->Prozess() <<" "<<z->Reagens() ;
      fout << "\\\\\n";
+//std::cout << "ZBD: " <<A.getOptionen().OptionenCheck(Optionen::ZauberBeschreibungDrucken).active<<'\n';
+     if(A.getOptionen().OptionenCheck(Optionen::ZauberBeschreibungDrucken).active)
+       fout <<"\\multicolumn{13}{l}{"<<LaTeX_scale(z->Beschreibung(),100,"27cm")<< "}\\\\\n";
+//       fout <<"\\multicolumn{13}{l}{\tiny"<<z->Bechreibung()<< "}\\\\\n";
    }
 }
 

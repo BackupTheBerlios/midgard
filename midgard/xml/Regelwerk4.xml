@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.37 $">
+<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.38 $">
  <SteigernKosten>
   <Kosten Fertigkeit="Bewegung" Wert11="20" Wert12="20" Wert13="50" Wert14="50" Wert15="100" Wert16="200" Wert17="400" Wert18="800" Wert19="800" Wert20="800"/>
   <Kosten Fertigkeit="Lanzenstechen" Wert2="100" Wert3="100" Wert4="150" Wert5="150" Wert6="200" Wert7="200" Wert8="400"/>
@@ -2543,7 +2543,7 @@
    <steigern_wie Fertigkeit="Wissen"/>
    <EP-Typ ZEP="true"/>
   </Fertigkeit>
-  <Fertigkeit Name="Balancieren" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="10" Erfolgswert-ungelernt="8" Attribut="Gw" Berufskategorie="1" Maximalwert="18" MaximalMitUnterweisung="18">
+  <Fertigkeit Name="Balancieren" Lernpunkte="3" Anfangswert="15" Lernkosten="60" Erfolgswert="10" Erfolgswert-ungelernt="8" Attribut="Gw" Berufskategorie="1" Maximalwert="18" MaximalMitUnterweisung="18">
    <Grund Typ="As"/>
    <Grund Typ="BW"/>
    <Grund Typ="Gl"/>

@@ -1,4 +1,4 @@
-// $Id: Optionen_GUI.cc,v 1.7 2003/12/08 07:50:14 christof Exp $
+// $Id: Optionen_GUI.cc,v 1.8 2004/02/29 11:18:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,6 +32,7 @@ Glib::RefPtr<Gdk::Pixbuf> Optionen_GUI::Check_bild(Optionen::OptionenCheckIndex 
 {  switch(i)
    {  case Optionen::Original: return MagusImage("midgard_logo_tiny.xpm");
       case Optionen::NSC_only: return MagusImage("NSC-Mode-32.xpm");
+      case Optionen::ZauberBeschreibungDrucken: return MagusImage("Zauber-trans-50.xpm");
       default: return Glib::RefPtr<Gdk::Pixbuf>();
    }
 }
