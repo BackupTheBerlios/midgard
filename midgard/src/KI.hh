@@ -43,7 +43,7 @@ class MagusKI
 
       void Steigern(int &gfp,const Enums::MBEListen was) ; 
 
-      enums eSL {eSteigern,eNeuLernen};
+      enum eSL {eSteigern,eNeuLernen};
       bool allowed_for_grad(const MBEmlt &M,eSL was);
       int teste_auf_gradanstieg();
       const Abenteurer::e_wie_steigern get_wie_steigern();
