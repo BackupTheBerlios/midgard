@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.6 2003/09/12 07:30:39 christof Exp $
+// $Id: Optionen.cc,v 1.7 2003/12/19 08:29:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -26,6 +26,7 @@ Optionen::Optionen()
 {
    Optionen_init();
    Hausregeln_init();
+   make_ausschluesse();
 }
 
 Optionen::st_OptionenCheck &Optionen::OptionenCheck(OptionenCheckIndex oi) 
@@ -90,10 +91,24 @@ void Optionen::Optionen_init()
 
 void Optionen::Hausregeln_init()
 {
- Model_ref<bool> orig=OptionenCheck(Original).active;
  list_Hausregeln.push_back(st_Haus(Gold,"1 GS entspricht 1 GFP",false));
- ausschluesse.push_back(RadioModel(orig,list_Hausregeln.back().active));
  list_Hausregeln.push_back(st_Haus(Werte100,"Grundwerte über 100 zulassen",false));
- ausschluesse.push_back(RadioModel(orig,list_Hausregeln.back().active));
 }
 
+Optionen::Optionen(const Optionen &b)
+	: list_Hausregeln(b.list_Hausregeln), list_OptionenCheck(b.list_OptionenCheck)
+{  make_ausschluesse();
+}
+
+void Optionen::operator=(const Optionen &b)
+{  list_Hausregeln=b.list_Hausregeln;
+   list_OptionenCheck=b.list_OptionenCheck;
+   make_ausschluesse();
+}
+
+void Optionen::make_ausschluesse()
+{
+ Model_ref<bool> orig=OptionenCheck(Original).active;
+ ausschluesse.push_back(RadioModel(orig,HausregelCheck(Gold).active));
+ ausschluesse.push_back(RadioModel(orig,HausregelCheck(Werte100).active));
+}

@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.5 2003/09/12 07:30:39 christof Exp $
+// $Id: Optionen.hh,v 1.6 2003/12/19 08:29:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -55,9 +55,13 @@ class Optionen
 
       void Optionen_init();
       void Hausregeln_init();
+      
+      void make_ausschluesse();
 
    public:
       Optionen();
+      Optionen(const Optionen &o);
+      void operator=(const Optionen &b);
 
       void set_Original(bool active,OptionenCheckIndex index);
 

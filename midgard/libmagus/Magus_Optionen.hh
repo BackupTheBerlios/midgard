@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.hh,v 1.14 2003/12/09 08:01:46 christof Exp $
+// $Id: Magus_Optionen.hh,v 1.15 2003/12/19 08:29:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -135,6 +135,9 @@ class Magus_Optionen
       		const std::string& name, const std::string& value);
       static std::string global_settings_load(int userid,const std::string& program,
       		const std::string& name);
+      		
+      void operator=(const Magus_Optionen &);
+      Magus_Optionen(const Magus_Optionen &);
 
    public: 
       Magus_Optionen() : geaendert() {}

@@ -90,3 +90,10 @@ was bedeutet:
 - Lernschema: Würfeln/Eingeben Button noch getrennt
 
 - Zu Anfang sind die letzten Dateien nicht dargestellt
+
+- hide 0: Würfelvariante,
+- hide 1: %Wurf für Beruf eingeben, Berufsnamen eingeben, Titel
+- hide 2: Praxispunkte*SpinButton, clist rechts 
+- hide 4: Beschreibung des Artikels (optional)
+
+- Endlosschleife beim Beenden
