@@ -1,4 +1,4 @@
-dnl $Id: petig.m4,v 1.5 2002/02/18 13:51:46 christof Exp $
+dnl $Id: petig.m4,v 1.6 2002/02/18 13:58:49 christof Exp $
 
 dnl Configure paths for some libraries
 dnl derived from kde's acinclude.m4
@@ -295,6 +295,8 @@ then
 fi
 GTKMM_INCLUDES=$GTKMM_CFLAGS
 AC_SUBST(GTKMM_INCLUDES)
+GTKMM_NODB_LIBS=$GTKMM_LIBS
+AC_SUBST(GTKMM_NODB_LIBS)
 ])
 
 AC_DEFUN(PETIG_CHECK_COMMONXX,
