@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'LATIN1';
+SET client_encoding = 'UNICODE';
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
@@ -27,34 +27,34 @@ CREATE TABLE typen_gruppe (
 --
 
 COPY typen_gruppe (typ, gruppe) FROM stdin;
-As	KÄM
+As	KÃ„M
 BN	BAR
-BN	KÄM
+BN	KÃ„M
 BS	BAR
-BS	KÄM
+BS	KÃ„M
 BW	BAR
-BW	KÄM
-Ba	KÄM
-Ba	ZKÄM
+BW	KÃ„M
+Ba	KÃ„M
+Ba	ZKÃ„M
 De	ZAU
 Dr	ZAU
 Dt	ZAU
-Er	KÄM
-Fi	KÄM
-Fi	ZKÄM
-Gl	KÄM
+Er	KÃ„M
+Fi	KÃ„M
+Fi	ZKÃ„M
+Gl	KÃ„M
 Hl	ZAU
-Hä	KÄM
-Kd	KÄM
-Kr	KÄM
-Ku	KÄM
+HÃ¤	KÃ„M
+Kd	KÃ„M
+Kr	KÃ„M
+Ku	KÃ„M
 Ma	ZAU
-Mg	KÄM
-Mg	ZKÄM
-Ny	KÄM
-Or	GKÄM
-Or	KÄM
-Or	ZKÄM
+Mg	KÃ„M
+Mg	ZKÃ„M
+Ny	KÃ„M
+Or	GKÃ„M
+Or	KÃ„M
+Or	ZKÃ„M
 PC	PRI
 PC	ZAU
 PF	PRI
@@ -72,9 +72,9 @@ PT	PRI
 PT	ZAU
 PW	PRI
 PW	ZAU
-Ri	KÄM
-Ru	KÄM
-Ru	ZKÄM
+Ri	KÃ„M
+Ru	KÃ„M
+Ru	ZKÃ„M
 Sa	ZAU
 ScN	Sc
 ScN	ZAU
@@ -82,22 +82,22 @@ ScS	Sc
 ScS	ZAU
 ScW	Sc
 ScW	ZAU
-Se	KÄM
-Sk	KÄM
-Sk	ZKÄM
-Sp	KÄM
-Sr	GKÄM
-Sr	KÄM
-Sr	ZKÄM
-Sö	KÄM
+Se	KÃ„M
+Sk	KÃ„M
+Sk	ZKÃ„M
+Sp	KÃ„M
+Sr	GKÃ„M
+Sr	KÃ„M
+Sr	ZKÃ„M
+SÃ¶	KÃ„M
 Th	ZAU
-Tm	GKÄM
-Tm	KÄM
-Tm	ZKÄM
-Tr	KÄM
-Tr	ZKÄM
+Tm	GKÃ„M
+Tm	KÃ„M
+Tm	ZKÃ„M
+Tr	KÃ„M
+Tr	ZKÃ„M
 Tt	ZAU
-Wa	KÄM
+Wa	KÃ„M
 dBe	Be
 dBe	ZAU
 eBe	Be

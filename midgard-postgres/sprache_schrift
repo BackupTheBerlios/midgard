@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'LATIN1';
+SET client_encoding = 'UNICODE';
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
@@ -54,7 +54,7 @@ KanThaiTun	KanThaiTun(5)	KanThaiTun(5)
 KanThaiTun	KanThaiTun(6)	KanThaiTun(6)
 Kelwisch	Hurritische Keilschrift	Kelwisch
 Luwisch	Hurritische Keilschrift	Luwisch
-Läinisch	Läinisch	Läinisch
+LÃ¤inisch	LÃ¤inisch	LÃ¤inisch
 Maralinga	Valianisches Alphabet	Maralinga
 Medjisisch	Tegarisch	Medjisisch
 Meketisch	Meketische Bilderschrift	Meketisch

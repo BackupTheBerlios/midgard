@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'LATIN1';
+SET client_encoding = 'UNICODE';
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
@@ -52,15 +52,15 @@ Ikengabecken	Lamaran	Ikengadialekte	I
 Inseln unter dem Westwind	Huaxal	Nahuatlanisch	\N
 Inseln unter dem Westwind	Huaxal	Trll'ng	\N
 KanThaiPan	Sirao	KanThaiTun	K
-Küstenstaaten	Lamaran	Maralinga	KS
-Küstenstaaten	Lamaran	Neu-Vallinga	KS
+KÃ¼stenstaaten	Lamaran	Maralinga	KS
+KÃ¼stenstaaten	Lamaran	Neu-Vallinga	KS
 Medjis	Sirao	Medjisisch	\N
 Minangpahit	Sirao	Minangpahitisch	M
 Moravod	Sirao	Moravisch	\N
 Nahuatlan	Huaxal	Nahuatlanisch	N
 Rawindra	Sirao	Rawindi	R
 Tegarische Steppe	Sirao	Berekusch	\N
-Tegarische Steppe	Sirao	Läinisch	\N
+Tegarische Steppe	Sirao	LÃ¤inisch	\N
 Tegarische Steppe	Sirao	Tegarisch	\N
 Urruti	Lamaran	Hurritisch	\N
 Urruti	Lamaran	Luwisch	\N

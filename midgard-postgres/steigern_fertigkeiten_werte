@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'LATIN1';
+SET client_encoding = 'UNICODE';
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
@@ -61,7 +61,7 @@ Akrobatik	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	100	100	200	200	400	800	800	800	800	800	
 Athletik	\N	\N	\N	\N	20	20	50	50	100	100	250	250	500	500	500	500	500	500	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Ballista bedienen	\N	\N	\N	\N	20	20	50	50	100	250	500	500	1000	2000	4000	4000	4000	4000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Baukunde	\N	\N	\N	\N	20	20	40	40	80	80	150	150	300	300	300	300	300	300	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Beidhändiger Kampf	\N	\N	\N	50	100	100	200	200	400	400	800	800	1600	1600	3000	3000	3000	3000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+BeidhÃ¤ndiger Kampf	\N	\N	\N	50	100	100	200	200	400	400	800	800	1600	1600	3000	3000	3000	3000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Beredsamkeit	\N	\N	\N	\N	\N	\N	50	100	250	500	500	500	500	500	500	500	500	500	500	500	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Beschatten	\N	\N	\N	\N	\N	\N	50	50	100	100	200	400	400	400	400	400	400	400	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Bewegung	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	20	20	50	50	100	200	400	800	800	800	\N	\N	\N	\N	\N	\N	\N	\N	\N
@@ -74,19 +74,19 @@ Fallen entdecken	\N	\N	\N	\N	100	100	200	200	400	400	800	800	1600	1600	1600	1600
 Fallenmechanik	\N	\N	\N	\N	100	200	400	400	800	800	1600	1600	1600	1600	1600	1600	1600	1600	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Fallenstellen	\N	\N	\N	\N	50	100	200	200	400	400	800	800	800	800	800	800	800	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Fechten	\N	\N	\N	\N	50	50	100	100	200	200	500	500	1000	1000	2000	2000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Fälschen	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	20	20	20	50	50	100	250	250	\N	250	250	\N	\N	\N	\N	\N	\N
+FÃ¤lschen	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	20	20	20	50	50	100	250	250	\N	250	250	\N	\N	\N	\N	\N	\N
 Gassenwissen	\N	\N	\N	\N	50	50	100	100	250	250	500	500	500	500	500	500	500	500	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Geheimmechanismen öffnen	\N	\N	\N	\N	100	100	200	200	400	400	800	800	1600	1600	1600	1600	1600	1600	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Geheimmechanismen Ã¶ffnen	\N	\N	\N	\N	100	100	200	200	400	400	800	800	1600	1600	1600	1600	1600	1600	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Geheimzeichen	\N	\N	\N	\N	\N	\N	10	10	10	10	10	20	50	50	50	50	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Geomantie	\N	\N	\N	\N	20	20	50	50	50	100	100	200	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Geschenke machen	\N	\N	\N	\N	\N	\N	50	100	250	500	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Geschäftstüchtigkeit	\N	\N	\N	\N	\N	\N	50	50	100	100	200	200	400	400	400	400	400	400	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Glücksspiel	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	100	100	100	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N
+GeschÃ¤ftstÃ¼chtigkeit	\N	\N	\N	\N	\N	\N	50	50	100	100	200	200	400	400	400	400	400	400	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N
+GlÃ¼cksspiel	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	100	100	100	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Heilkunde	\N	\N	\N	\N	50	50	50	100	100	200	200	400	400	400	400	400	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Himmelskunde	\N	\N	\N	\N	10	10	10	10	10	10	20	20	50	50	50	50	50	50	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Kampf in Dunkelheit	\N	\N	20	20	40	40	40	80	80	80	150	150	300	600	600	600	600	600	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Kampf in Schlachtreihe	\N	\N	\N	\N	10	10	20	20	50	100	250	250	500	1000	2000	2000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Kampf in Vollrüstung	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	100	100	200	200	400	800	800	800	800	800	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Kampf in VollrÃ¼stung	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	100	100	200	200	400	800	800	800	800	800	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Kampf vom Streitwagen	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	10	20	20	50	100	200	400	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Kampf zu Pferd	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	10	20	20	50	100	200	400	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Kampftaktik	\N	\N	\N	\N	\N	\N	20	20	50	50	100	100	200	200	400	400	400	400	400	400	\N	400	400	\N	\N	\N	\N	\N	\N
@@ -102,12 +102,12 @@ Meucheln	\N	\N	\N	\N	\N	\N	100	100	200	200	500	500	1000	1000	2000	2000	2000	2000
 Musizieren	\N	\N	\N	\N	\N	\N	\N	\N	10	10	10	20	20	20	50	50	50	50	50	50	\N	50	50	\N	\N	\N	\N	\N	\N
 NinJutsu	\N	\N	150	150	300	300	600	600	1200	1200	2400	2400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Rechnen	\N	\N	\N	\N	\N	\N	10	10	10	20	20	20	50	50	100	100	100	100	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Scharfschießen	\N	\N	\N	\N	50	50	100	100	200	200	500	500	1000	1000	2000	2000	2000	2000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+ScharfschieÃŸen	\N	\N	\N	\N	50	50	100	100	200	200	500	500	1000	1000	2000	2000	2000	2000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Schauspielern	\N	\N	\N	\N	\N	\N	10	10	50	50	100	200	400	400	400	400	400	400	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Schießen vom Streitwagen	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	10	20	20	50	100	200	400	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N
+SchieÃŸen vom Streitwagen	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	10	20	20	50	100	200	400	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Schleichen	\N	\N	\N	\N	\N	\N	200	200	400	400	800	800	800	1600	1600	1600	1600	1600	1600	1600	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Schreiben	\N	\N	\N	\N	10	10	10	10	10	10	10	10	20	50	100	200	400	400	400	400	\N	400	400	\N	\N	\N	\N	\N	\N
-Schätzen	\N	\N	\N	\N	10	10	10	20	20	20	50	50	100	100	100	100	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+SchÃ¤tzen	\N	\N	\N	\N	10	10	10	20	20	20	50	50	100	100	100	100	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Seilkunst	\N	\N	\N	\N	\N	\N	10	10	20	20	50	50	100	100	100	100	100	100	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Siebter Sinn	\N	\N	500	500	500	500	500	500	500	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Sprache	\N	\N	\N	\N	10	10	10	20	20	20	50	50	100	100	200	200	400	400	400	400	\N	400	400	\N	\N	\N	\N	\N	\N
@@ -120,8 +120,8 @@ Tauchen	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	50	50	100	200	400	800	800	800	800	800	\N	\
 Teezeremonie	\N	\N	\N	\N	\N	\N	10	10	10	20	20	50	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Thaumatographie	\N	\N	\N	\N	100	100	200	200	400	400	800	800	1600	1600	1600	1600	1600	1600	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Trinken	\N	50	100	200	400	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Verführen	\N	\N	\N	\N	\N	\N	10	10	50	50	100	200	400	400	400	400	400	400	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Verhören	\N	\N	\N	\N	\N	\N	20	20	50	100	200	400	800	800	800	800	800	800	800	800	\N	\N	\N	\N	\N	\N	\N	\N	\N
+VerfÃ¼hren	\N	\N	\N	\N	\N	\N	10	10	50	50	100	200	400	400	400	400	400	400	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N
+VerhÃ¶ren	\N	\N	\N	\N	\N	\N	20	20	50	100	200	400	800	800	800	800	800	800	800	800	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Verkleiden	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	20	20	20	50	50	100	250	250	\N	250	250	\N	\N	\N	\N	\N	\N
 Wahrnehmung	\N	\N	\N	\N	100	300	300	300	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Wetterkunde	\N	\N	5	5	13	13	13	25	25	50	50	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
@@ -130,7 +130,7 @@ Wissen	\N	\N	\N	\N	50	50	50	100	100	200	200	400	400	400	400	400	400	400	\N	\N	\N
 YangScheng	\N	200	500	1000	2000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Zeichensprache	\N	\N	\N	\N	10	10	10	10	20	50	100	100	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Zunge verschlucken	\N	\N	\N	\N	\N	\N	\N	\N	50	100	200	400	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Überleben	\N	\N	\N	\N	\N	\N	10	10	10	20	20	50	100	100	100	100	100	100	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Ãœberleben	\N	\N	\N	\N	\N	\N	10	10	10	20	20	50	100	100	100	100	100	100	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N
 \.
 --
 --

@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'LATIN1';
+SET client_encoding = 'UNICODE';
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
@@ -57,7 +57,7 @@ Elf	sHx	\N
 Elf	wHx	\N
 Halbling	Ba	\N
 Halbling	Hl	\N
-Halbling	Hä	\N
+Halbling	HÃ¤	\N
 Halbling	PF	\N
 Halbling	PW	\N
 Halbling	Sp	\N
@@ -78,13 +78,13 @@ Waldgnom	Wa	\N
 Waldgnom	gHx	\N
 Waldgnom	sHx	\N
 Waldgnom	wHx	\N
-Zwerg	Hä	\N
+Zwerg	HÃ¤	\N
 Zwerg	Kr	\N
 Zwerg	PF	\N
 Zwerg	PHa	\N
 Zwerg	PHe	\N
 Zwerg	PK	\N
-Zwerg	Sö	\N
+Zwerg	SÃ¶	\N
 Zwerg	Th	\N
 Zwerg	To	\N
 Zwerg	eBe	\N

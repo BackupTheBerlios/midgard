@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'LATIN1';
+SET client_encoding = 'UNICODE';
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
@@ -29,10 +29,10 @@ CREATE TABLE preise_mod_spez (
 COPY preise_mod_spez (modi_art, spezifikation, preis_faktor) FROM stdin;
 Farbe	blau	3
 Farbe	gelb	2
-Farbe	grün	2
+Farbe	grÃ¼n	2
 Farbe	purpur	20
 Farbe	rot	4
-Farbe	ungefärbt	1
+Farbe	ungefÃ¤rbt	1
 Material_K	Baumwolle	2
 Material_K	Leder	2
 Material_K	Leinen	1

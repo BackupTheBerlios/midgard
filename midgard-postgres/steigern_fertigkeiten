@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'LATIN1';
+SET client_encoding = 'UNICODE';
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
@@ -32,7 +32,7 @@ Abrichten	Abrichten
 Akribie	Wissen
 Akrobatik	Akrobatik
 Alchimie	Wissen
-Askese	Beidhändiger Kampf
+Askese	BeidhÃ¤ndiger Kampf
 Astrologie	Wissen
 Athletik	Athletik
 Augensalbe herstellen	Wissen
@@ -40,17 +40,17 @@ Balancieren	Bewegung
 Ballista bedienen	Ballista bedienen
 Ballspiel	Bewegung
 Baukunde	Baukunde
-Beidhändiger Kampf	Beidhändiger Kampf
+BeidhÃ¤ndiger Kampf	BeidhÃ¤ndiger Kampf
 Beredsamkeit	Beredsamkeit
 Beschatten	Beschatten
 Bogen vom Streitwagen	Bogenkampf zu Pferd
 Bogenkampf zu Pferd	Bogenkampf zu Pferd
 Brettspiel	Brettspiel
 Dichten	Dichten
-Dämonenkunde	Wissen
+DÃ¤monenkunde	Wissen
 Elefanten lenken	Elefanten lenken
 Erste Hilfe	Erste Hilfe
-Erzählen	Dichten
+ErzÃ¤hlen	Dichten
 Fallen entdecken	Fallen entdecken
 Fallenmechanik	Fallenmechanik
 Fallenstellen	Fallenstellen
@@ -59,18 +59,18 @@ Fechten	Fechten
 Fechten tevarrischer Stil	-
 FengSchui	Wissen
 FengTsu	Bewegung
-Fälschen	Verkleiden
+FÃ¤lschen	Verkleiden
 Gassenwissen	Gassenwissen
 Gastlandsprache	Sprache
 Gaukeln	Dichten
-Geheimmechanismen öffnen	Geheimmechanismen öffnen
+Geheimmechanismen Ã¶ffnen	Geheimmechanismen Ã¶ffnen
 Geheimzeichen	Geheimzeichen
-Geländelauf	Bewegung
+GelÃ¤ndelauf	Bewegung
 Geomantie	Geomantie
 Geschenke machen	Beredsamkeit
-Geschäftstüchtigkeit	Geschäftstüchtigkeit
+GeschÃ¤ftstÃ¼chtigkeit	GeschÃ¤ftstÃ¼chtigkeit
 Giftmischen	Wissen
-Glücksspiel	Glücksspiel
+GlÃ¼cksspiel	GlÃ¼cksspiel
 Heilkunde	Wissen
 Himmelskunde	Himmelskunde
 IaiJutsu	Bewegung
@@ -79,7 +79,7 @@ Kalligraphie	Kalligraphie
 Kamelreiten	Bewegung
 Kampf in Dunkelheit	Kampf in Dunkelheit
 Kampf in Schlachtreihe	Kampf in Schlachtreihe
-Kampf in Vollrüstung	Kampf in Vollrüstung
+Kampf in VollrÃ¼stung	Kampf in VollrÃ¼stung
 Kampf vom Streitwagen	Kampf vom Streitwagen
 Kampf zu Elefant	Kampf zu Pferd
 Kampf zu Kamel	Kampf zu Pferd
@@ -87,15 +87,15 @@ Kampf zu Pferd	Kampf zu Pferd
 Kampftaktik	Kampftaktik
 KarumiJutsu	Bewegung
 Katapult bedienen	Ballista bedienen
-Kenntnis der Fünf Klassiker	-
-Kenntnis der fünf Klassiker	Wissen
+Kenntnis der FÃ¼nf Klassiker	-
+Kenntnis der fÃ¼nf Klassiker	Wissen
 KentoYobu	-
 KiDo	KiDo
 Klettern	Bewegung
-Kräuterkunde	Wissen
+KrÃ¤uterkunde	Wissen
 KujKuri	Zeichensprache
 KujNoIu	-
-Körperkontrolle	Bewegung
+KÃ¶rperkontrolle	Bewegung
 Landeskunde	Wissen
 Laufen	Laufen
 Lesen von Geisterschrift	Lesen von Zauberschrift
@@ -103,7 +103,7 @@ Lesen von Zauberrunen	Lesen von Zauberschrift
 Lesen von Zauberschrift	Lesen von Zauberschrift
 LiYao	LiYao
 Lippenlesen	Lippenlesen
-Meditieren	Verhören
+Meditieren	VerhÃ¶ren
 Menschenkenntnis	Menschenkenntnis
 Meucheln	Meucheln
 MiChen	-
@@ -121,21 +121,21 @@ Rechnen	Rechnen
 Reiten	Bewegung
 Rudern	Bewegung
 Sagenkunde	Wissen
-Scharfschießen	Scharfschießen
+ScharfschieÃŸen	ScharfschieÃŸen
 Schauspielern	Schauspielern
-Schießen vom Streitwagen	Schießen vom Streitwagen
-Schiffsführung	Kampftaktik
+SchieÃŸen vom Streitwagen	SchieÃŸen vom Streitwagen
+SchiffsfÃ¼hrung	Kampftaktik
 SchiyoKi	-
-Schlangen beschwören	Wissen
+Schlangen beschwÃ¶ren	Wissen
 Schleichen	Schleichen
 Schlittenfahren	Bewegung
 Schlittschuhlaufen	Bewegung
-Schlösser öffnen	Schleichen
+SchlÃ¶sser Ã¶ffnen	Schleichen
 Schmerzen ertragen	Bewegung
 Schreiben	Schreiben
 Schwerttanz	Bewegung
 Schwimmen	Bewegung
-Schätzen	Schätzen
+SchÃ¤tzen	SchÃ¤tzen
 Seemannsgang	Bewegung
 Seilkunst	Seilkunst
 Siebter Sinn	Siebter Sinn
@@ -155,14 +155,14 @@ TaiTschi	Wissen
 Tanzen	Tanzen
 Tarnen	Schleichen
 Tauchen	Tauchen
-Teezeremonie	Überleben
+Teezeremonie	Ãœberleben
 Thaumatographie	Thaumatographie
 Tierkunde	Wissen
 Trinken	Trinken
-Tätowieren	Verkleiden
+TÃ¤towieren	Verkleiden
 Verbergen	Suchen
-Verführen	Verführen
-Verhören	Verhören
+VerfÃ¼hren	VerfÃ¼hren
+VerhÃ¶ren	VerhÃ¶ren
 Verkleiden	Verkleiden
 Wagenlenken	Bewegung
 Wahrnehmung	Wahrnehmung
@@ -174,13 +174,13 @@ YubeChian	-
 Zauberkunde	Wissen
 Zeichensprache	Zeichensprache
 Zunge verschlucken	Zunge verschlucken
-Überleben im Dschungel	Überleben
-Überleben im Gebirge	Überleben
-Überleben im Schnee	Überleben
-Überleben im Sumpf	Überleben
-Überleben im Wald	Überleben
-Überleben in der Steppe	Überleben
-Überleben in der Wüste	Überleben
+Ãœberleben im Dschungel	Ãœberleben
+Ãœberleben im Gebirge	Ãœberleben
+Ãœberleben im Schnee	Ãœberleben
+Ãœberleben im Sumpf	Ãœberleben
+Ãœberleben im Wald	Ãœberleben
+Ãœberleben in der Steppe	Ãœberleben
+Ãœberleben in der WÃ¼ste	Ãœberleben
 \.
 --
 --

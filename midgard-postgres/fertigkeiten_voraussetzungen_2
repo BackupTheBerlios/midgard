@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'LATIN1';
+SET client_encoding = 'UNICODE';
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
@@ -42,15 +42,15 @@ Kampf zu Kamel	Kamelreiten
 Kampf zu Pferd	Reiten
 KarumiJutsu	Klettern
 KiDo	TaiTschi
-Kriegsbemalung	Körperbemalung
-Mumifizieren	Kräuterkunde
+Kriegsbemalung	KÃ¶rperbemalung
+Mumifizieren	KrÃ¤uterkunde
 Mumifizieren	Naturkunde
 Natya	Tanzen
-Schiffsführung	Himmelskunde
-Schiffsführung	Steuern
+SchiffsfÃ¼hrung	Himmelskunde
+SchiffsfÃ¼hrung	Steuern
 SchiyoKi	TaiTschi
-Schlangen beschwören	Musizieren
-Schwerttanz	Beidhändiger Kampf
+Schlangen beschwÃ¶ren	Musizieren
+Schwerttanz	BeidhÃ¤ndiger Kampf
 Tauchen	Schwimmen
 \.
 --

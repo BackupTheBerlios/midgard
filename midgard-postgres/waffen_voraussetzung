@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'LATIN1';
+SET client_encoding = 'UNICODE';
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
@@ -38,7 +38,7 @@ Wurfhammer	Kriegshammer	W
 Wurfkeule	Keule	W
 Wurfmesser	Dolch	W
 Wurfspeer	leichter Speer	W
-Wurfspieﬂ	leichter Speer	W
+Wurfspie√ü	leichter Speer	W
 \.
 --
 --

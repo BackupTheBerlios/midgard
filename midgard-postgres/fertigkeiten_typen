@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'LATIN1';
+SET client_encoding = 'UNICODE';
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
@@ -43,7 +43,7 @@ Abrichten	Fi	S
 Abrichten	Gl	S
 Abrichten	Hj	S
 Abrichten	Hl	A
-Abrichten	Hä	S
+Abrichten	HÃ¤	S
 Abrichten	Kd	S
 Abrichten	Km	A
 Abrichten	Kr	S
@@ -73,7 +73,7 @@ Abrichten	Sk	A
 Abrichten	Sp	G
 Abrichten	Sr	S
 Abrichten	Sw	G
-Abrichten	Sö	S
+Abrichten	SÃ¶	S
 Abrichten	Th	A
 Abrichten	Tm	G
 Abrichten	To	S
@@ -100,7 +100,7 @@ Adlersprung	Fi	A
 Adlersprung	Gl	A
 Adlersprung	Hj	A
 Adlersprung	Hl	A
-Adlersprung	Hä	A
+Adlersprung	HÃ¤	A
 Adlersprung	Kd	A
 Adlersprung	Km	A
 Adlersprung	Kr	A
@@ -131,7 +131,7 @@ Adlersprung	Sk	A
 Adlersprung	Sp	A
 Adlersprung	Sr	A
 Adlersprung	Sw	G
-Adlersprung	Sö	A
+Adlersprung	SÃ¶	A
 Adlersprung	Th	A
 Adlersprung	Tm	A
 Adlersprung	To	A
@@ -158,7 +158,7 @@ Akribie	Fi	A
 Akribie	Gl	A
 Akribie	Hj	A
 Akribie	Hl	A
-Akribie	Hä	A
+Akribie	HÃ¤	A
 Akribie	Kd	A
 Akribie	Km	A
 Akribie	Kr	A
@@ -189,7 +189,7 @@ Akribie	Sk	A
 Akribie	Sp	A
 Akribie	Sr	A
 Akribie	Sw	S
-Akribie	Sö	A
+Akribie	SÃ¶	A
 Akribie	Th	S
 Akribie	Tm	A
 Akribie	To	A
@@ -216,7 +216,7 @@ Akrobatik	Fi	S
 Akrobatik	Gl	G
 Akrobatik	Hj	S
 Akrobatik	Hl	A
-Akrobatik	Hä	S
+Akrobatik	HÃ¤	S
 Akrobatik	Kd	S
 Akrobatik	Km	A
 Akrobatik	Kr	S
@@ -246,7 +246,7 @@ Akrobatik	Sk	S
 Akrobatik	Sp	G
 Akrobatik	Sr	S
 Akrobatik	Sw	G
-Akrobatik	Sö	S
+Akrobatik	SÃ¶	S
 Akrobatik	Th	A
 Akrobatik	Tm	S
 Akrobatik	To	G
@@ -273,7 +273,7 @@ Alchimie	Fi	A
 Alchimie	Gl	A
 Alchimie	Hj	S
 Alchimie	Hl	S
-Alchimie	Hä	A
+Alchimie	HÃ¤	A
 Alchimie	Kd	A
 Alchimie	Km	G
 Alchimie	Kr	A
@@ -304,7 +304,7 @@ Alchimie	Sk	A
 Alchimie	Sp	A
 Alchimie	Sr	A
 Alchimie	Sw	G
-Alchimie	Sö	A
+Alchimie	SÃ¶	A
 Alchimie	Th	G
 Alchimie	Tm	A
 Alchimie	To	A
@@ -330,7 +330,7 @@ Askese	Fi	A
 Askese	Gl	A
 Askese	Hj	A
 Askese	Hl	S
-Askese	Hä	A
+Askese	HÃ¤	A
 Askese	Kd	A
 Askese	Kr	A
 Askese	MMa	S
@@ -357,7 +357,7 @@ Askese	Sk	A
 Askese	Sp	A
 Askese	Sr	A
 Askese	Sw	S
-Askese	Sö	A
+Askese	SÃ¶	A
 Askese	Th	S
 Askese	To	A
 Askese	Tr	A
@@ -381,7 +381,7 @@ Astrologie	Fi	A
 Astrologie	Gl	A
 Astrologie	Hj	S
 Astrologie	Hl	S
-Astrologie	Hä	S
+Astrologie	HÃ¤	S
 Astrologie	Kd	A
 Astrologie	Km	S
 Astrologie	Kr	A
@@ -409,7 +409,7 @@ Astrologie	Sk	S
 Astrologie	Sp	A
 Astrologie	Sr	A
 Astrologie	Sw	S
-Astrologie	Sö	A
+Astrologie	SÃ¶	A
 Astrologie	Th	G
 Astrologie	To	A
 Astrologie	Tr	A
@@ -435,7 +435,7 @@ Athletik	Fi	S
 Athletik	Gl	S
 Athletik	Hj	A
 Athletik	Hl	A
-Athletik	Hä	S
+Athletik	HÃ¤	S
 Athletik	Kd	S
 Athletik	Km	G
 Athletik	Kr	G
@@ -466,7 +466,7 @@ Athletik	Sk	S
 Athletik	Sp	S
 Athletik	Sr	S
 Athletik	Sw	A
-Athletik	Sö	G
+Athletik	SÃ¶	G
 Athletik	Th	A
 Athletik	Tm	S
 Athletik	To	A
@@ -492,7 +492,7 @@ Augensalbe herstellen	Fi	S
 Augensalbe herstellen	Gl	S
 Augensalbe herstellen	Hj	S
 Augensalbe herstellen	Hl	S
-Augensalbe herstellen	Hä	S
+Augensalbe herstellen	HÃ¤	S
 Augensalbe herstellen	Kd	S
 Augensalbe herstellen	Kr	S
 Augensalbe herstellen	MMa	S
@@ -519,7 +519,7 @@ Augensalbe herstellen	Sk	S
 Augensalbe herstellen	Sp	S
 Augensalbe herstellen	Sr	S
 Augensalbe herstellen	Sw	S
-Augensalbe herstellen	Sö	S
+Augensalbe herstellen	SÃ¶	S
 Augensalbe herstellen	Th	S
 Augensalbe herstellen	To	S
 Augensalbe herstellen	Tr	S
@@ -544,7 +544,7 @@ Balancieren	Fi	S
 Balancieren	Gl	G
 Balancieren	Hj	S
 Balancieren	Hl	S
-Balancieren	Hä	S
+Balancieren	HÃ¤	S
 Balancieren	Kd	G
 Balancieren	Km	S
 Balancieren	Kr	S
@@ -575,7 +575,7 @@ Balancieren	Sk	S
 Balancieren	Sp	G
 Balancieren	Sr	S
 Balancieren	Sw	G
-Balancieren	Sö	S
+Balancieren	SÃ¶	S
 Balancieren	Th	S
 Balancieren	Tm	S
 Balancieren	To	G
@@ -602,7 +602,7 @@ Ballista bedienen	Fi	S
 Ballista bedienen	Gl	S
 Ballista bedienen	Hj	A
 Ballista bedienen	Hl	A
-Ballista bedienen	Hä	S
+Ballista bedienen	HÃ¤	S
 Ballista bedienen	Kd	A
 Ballista bedienen	Km	S
 Ballista bedienen	Kr	G
@@ -633,7 +633,7 @@ Ballista bedienen	Sk	S
 Ballista bedienen	Sp	S
 Ballista bedienen	Sr	S
 Ballista bedienen	Sw	A
-Ballista bedienen	Sö	G
+Ballista bedienen	SÃ¶	G
 Ballista bedienen	Th	A
 Ballista bedienen	Tm	S
 Ballista bedienen	To	A
@@ -660,7 +660,7 @@ Ballspiel	Fi	A
 Ballspiel	Gl	A
 Ballspiel	Hj	A
 Ballspiel	Hl	A
-Ballspiel	Hä	A
+Ballspiel	HÃ¤	A
 Ballspiel	Kd	A
 Ballspiel	Km	A
 Ballspiel	Kr	A
@@ -691,7 +691,7 @@ Ballspiel	Sk	A
 Ballspiel	Sp	A
 Ballspiel	Sr	A
 Ballspiel	Sw	S
-Ballspiel	Sö	A
+Ballspiel	SÃ¶	A
 Ballspiel	Th	A
 Ballspiel	Tm	A
 Ballspiel	To	A
@@ -718,7 +718,7 @@ Baukunde	Fi	S
 Baukunde	Gl	S
 Baukunde	Hj	S
 Baukunde	Hl	S
-Baukunde	Hä	S
+Baukunde	HÃ¤	S
 Baukunde	Kd	S
 Baukunde	Km	S
 Baukunde	Kr	S
@@ -748,7 +748,7 @@ Baukunde	Sk	S
 Baukunde	Sp	S
 Baukunde	Sr	S
 Baukunde	Sw	S
-Baukunde	Sö	S
+Baukunde	SÃ¶	S
 Baukunde	Th	S
 Baukunde	Tm	A
 Baukunde	To	S
@@ -762,64 +762,64 @@ Baukunde	gHx	S
 Baukunde	sHx	S
 Baukunde	tBe	S
 Baukunde	wHx	S
-Beidhändiger Kampf	As	S
-Beidhändiger Kampf	BN	G
-Beidhändiger Kampf	BS	G
-Beidhändiger Kampf	BW	G
-Beidhändiger Kampf	Ba	S
-Beidhändiger Kampf	De	S
-Beidhändiger Kampf	Dr	A
-Beidhändiger Kampf	Dt	A
-Beidhändiger Kampf	Er	S
-Beidhändiger Kampf	Fi	S
-Beidhändiger Kampf	Gl	G
-Beidhändiger Kampf	Hj	S
-Beidhändiger Kampf	Hl	A
-Beidhändiger Kampf	Hä	S
-Beidhändiger Kampf	Kd	G
-Beidhändiger Kampf	Km	G
-Beidhändiger Kampf	Kr	G
-Beidhändiger Kampf	Ku	S
-Beidhändiger Kampf	MMa	A
-Beidhändiger Kampf	Ma	A
-Beidhändiger Kampf	Mg	S
-Beidhändiger Kampf	Ny	S
-Beidhändiger Kampf	Or	S
-Beidhändiger Kampf	PC	A
-Beidhändiger Kampf	PF	A
-Beidhändiger Kampf	PHa	A
-Beidhändiger Kampf	PHe	A
-Beidhändiger Kampf	PK	A
-Beidhändiger Kampf	PM	A
-Beidhändiger Kampf	PT	A
-Beidhändiger Kampf	PW	A
-Beidhändiger Kampf	Ri	G
-Beidhändiger Kampf	RiN	G
-Beidhändiger Kampf	RiS	G
-Beidhändiger Kampf	Ru	S
-Beidhändiger Kampf	Sa	A
-Beidhändiger Kampf	ScN	A
-Beidhändiger Kampf	ScS	A
-Beidhändiger Kampf	ScW	A
-Beidhändiger Kampf	Se	G
-Beidhändiger Kampf	Sk	S
-Beidhändiger Kampf	Sp	S
-Beidhändiger Kampf	Sr	S
-Beidhändiger Kampf	Sw	A
-Beidhändiger Kampf	Sö	G
-Beidhändiger Kampf	Th	A
-Beidhändiger Kampf	Tm	S
-Beidhändiger Kampf	To	A
-Beidhändiger Kampf	Tr	S
-Beidhändiger Kampf	Tt	S
-Beidhändiger Kampf	Wa	S
-Beidhändiger Kampf	Wi	S
-Beidhändiger Kampf	dBe	A
-Beidhändiger Kampf	eBe	A
-Beidhändiger Kampf	gHx	A
-Beidhändiger Kampf	sHx	A
-Beidhändiger Kampf	tBe	A
-Beidhändiger Kampf	wHx	A
+BeidhÃ¤ndiger Kampf	As	S
+BeidhÃ¤ndiger Kampf	BN	G
+BeidhÃ¤ndiger Kampf	BS	G
+BeidhÃ¤ndiger Kampf	BW	G
+BeidhÃ¤ndiger Kampf	Ba	S
+BeidhÃ¤ndiger Kampf	De	S
+BeidhÃ¤ndiger Kampf	Dr	A
+BeidhÃ¤ndiger Kampf	Dt	A
+BeidhÃ¤ndiger Kampf	Er	S
+BeidhÃ¤ndiger Kampf	Fi	S
+BeidhÃ¤ndiger Kampf	Gl	G
+BeidhÃ¤ndiger Kampf	Hj	S
+BeidhÃ¤ndiger Kampf	Hl	A
+BeidhÃ¤ndiger Kampf	HÃ¤	S
+BeidhÃ¤ndiger Kampf	Kd	G
+BeidhÃ¤ndiger Kampf	Km	G
+BeidhÃ¤ndiger Kampf	Kr	G
+BeidhÃ¤ndiger Kampf	Ku	S
+BeidhÃ¤ndiger Kampf	MMa	A
+BeidhÃ¤ndiger Kampf	Ma	A
+BeidhÃ¤ndiger Kampf	Mg	S
+BeidhÃ¤ndiger Kampf	Ny	S
+BeidhÃ¤ndiger Kampf	Or	S
+BeidhÃ¤ndiger Kampf	PC	A
+BeidhÃ¤ndiger Kampf	PF	A
+BeidhÃ¤ndiger Kampf	PHa	A
+BeidhÃ¤ndiger Kampf	PHe	A
+BeidhÃ¤ndiger Kampf	PK	A
+BeidhÃ¤ndiger Kampf	PM	A
+BeidhÃ¤ndiger Kampf	PT	A
+BeidhÃ¤ndiger Kampf	PW	A
+BeidhÃ¤ndiger Kampf	Ri	G
+BeidhÃ¤ndiger Kampf	RiN	G
+BeidhÃ¤ndiger Kampf	RiS	G
+BeidhÃ¤ndiger Kampf	Ru	S
+BeidhÃ¤ndiger Kampf	Sa	A
+BeidhÃ¤ndiger Kampf	ScN	A
+BeidhÃ¤ndiger Kampf	ScS	A
+BeidhÃ¤ndiger Kampf	ScW	A
+BeidhÃ¤ndiger Kampf	Se	G
+BeidhÃ¤ndiger Kampf	Sk	S
+BeidhÃ¤ndiger Kampf	Sp	S
+BeidhÃ¤ndiger Kampf	Sr	S
+BeidhÃ¤ndiger Kampf	Sw	A
+BeidhÃ¤ndiger Kampf	SÃ¶	G
+BeidhÃ¤ndiger Kampf	Th	A
+BeidhÃ¤ndiger Kampf	Tm	S
+BeidhÃ¤ndiger Kampf	To	A
+BeidhÃ¤ndiger Kampf	Tr	S
+BeidhÃ¤ndiger Kampf	Tt	S
+BeidhÃ¤ndiger Kampf	Wa	S
+BeidhÃ¤ndiger Kampf	Wi	S
+BeidhÃ¤ndiger Kampf	dBe	A
+BeidhÃ¤ndiger Kampf	eBe	A
+BeidhÃ¤ndiger Kampf	gHx	A
+BeidhÃ¤ndiger Kampf	sHx	A
+BeidhÃ¤ndiger Kampf	tBe	A
+BeidhÃ¤ndiger Kampf	wHx	A
 Beredsamkeit	As	S
 Beredsamkeit	BN	S
 Beredsamkeit	BS	S
@@ -833,7 +833,7 @@ Beredsamkeit	Fi	S
 Beredsamkeit	Gl	G
 Beredsamkeit	Hj	G
 Beredsamkeit	Hl	S
-Beredsamkeit	Hä	G
+Beredsamkeit	HÃ¤	G
 Beredsamkeit	Kd	S
 Beredsamkeit	Km	S
 Beredsamkeit	Kr	S
@@ -864,7 +864,7 @@ Beredsamkeit	Sk	G
 Beredsamkeit	Sp	S
 Beredsamkeit	Sr	S
 Beredsamkeit	Sw	S
-Beredsamkeit	Sö	S
+Beredsamkeit	SÃ¶	S
 Beredsamkeit	Th	S
 Beredsamkeit	Tm	S
 Beredsamkeit	To	G
@@ -891,7 +891,7 @@ Beschatten	Fi	S
 Beschatten	Gl	S
 Beschatten	Hj	S
 Beschatten	Hl	S
-Beschatten	Hä	S
+Beschatten	HÃ¤	S
 Beschatten	Kd	S
 Beschatten	Km	S
 Beschatten	Kr	S
@@ -922,7 +922,7 @@ Beschatten	Sk	S
 Beschatten	Sp	G
 Beschatten	Sr	S
 Beschatten	Sw	G
-Beschatten	Sö	S
+Beschatten	SÃ¶	S
 Beschatten	Th	S
 Beschatten	Tm	S
 Beschatten	To	G
@@ -949,7 +949,7 @@ Bogenkampf zu Pferd	Fi	A
 Bogenkampf zu Pferd	Gl	S
 Bogenkampf zu Pferd	Hj	A
 Bogenkampf zu Pferd	Hl	A
-Bogenkampf zu Pferd	Hä	S
+Bogenkampf zu Pferd	HÃ¤	S
 Bogenkampf zu Pferd	Kd	S
 Bogenkampf zu Pferd	Km	S
 Bogenkampf zu Pferd	Kr	G
@@ -980,7 +980,7 @@ Bogenkampf zu Pferd	Sk	S
 Bogenkampf zu Pferd	Sp	S
 Bogenkampf zu Pferd	Sr	S
 Bogenkampf zu Pferd	Sw	A
-Bogenkampf zu Pferd	Sö	G
+Bogenkampf zu Pferd	SÃ¶	G
 Bogenkampf zu Pferd	Th	A
 Bogenkampf zu Pferd	Tm	S
 Bogenkampf zu Pferd	To	A
@@ -1006,7 +1006,7 @@ Brettspiel	Fi	S
 Brettspiel	Gl	G
 Brettspiel	Hj	S
 Brettspiel	Hl	G
-Brettspiel	Hä	G
+Brettspiel	HÃ¤	G
 Brettspiel	Kd	S
 Brettspiel	Kr	S
 Brettspiel	MMa	S
@@ -1033,7 +1033,7 @@ Brettspiel	Sk	G
 Brettspiel	Sp	S
 Brettspiel	Sr	S
 Brettspiel	Sw	A
-Brettspiel	Sö	S
+Brettspiel	SÃ¶	S
 Brettspiel	Th	G
 Brettspiel	To	S
 Brettspiel	Tr	S
@@ -1058,7 +1058,7 @@ Dichten	Fi	S
 Dichten	Gl	S
 Dichten	Hj	S
 Dichten	Hl	S
-Dichten	Hä	S
+Dichten	HÃ¤	S
 Dichten	Kd	S
 Dichten	Km	S
 Dichten	Kr	S
@@ -1089,7 +1089,7 @@ Dichten	Sk	G
 Dichten	Sp	S
 Dichten	Sr	S
 Dichten	Sw	S
-Dichten	Sö	S
+Dichten	SÃ¶	S
 Dichten	Th	S
 Dichten	Tm	S
 Dichten	To	S
@@ -1103,65 +1103,65 @@ Dichten	gHx	S
 Dichten	sHx	S
 Dichten	tBe	S
 Dichten	wHx	S
-Dämonenkunde	As	A
-Dämonenkunde	BN	A
-Dämonenkunde	BS	A
-Dämonenkunde	BW	A
-Dämonenkunde	Ba	A
-Dämonenkunde	De	A
-Dämonenkunde	Dr	A
-Dämonenkunde	Dt	G
-Dämonenkunde	Er	A
-Dämonenkunde	Fi	A
-Dämonenkunde	Gl	A
-Dämonenkunde	Hj	S
-Dämonenkunde	Hl	A
-Dämonenkunde	Hä	A
-Dämonenkunde	Kd	A
-Dämonenkunde	Km	A
-Dämonenkunde	Kr	A
-Dämonenkunde	Ku	A
-Dämonenkunde	MMa	A
-Dämonenkunde	Ma	A
-Dämonenkunde	Mg	A
-Dämonenkunde	Nb	G
-Dämonenkunde	Ny	A
-Dämonenkunde	Or	A
-Dämonenkunde	PC	A
-Dämonenkunde	PF	A
-Dämonenkunde	PHa	A
-Dämonenkunde	PHe	A
-Dämonenkunde	PK	A
-Dämonenkunde	PM	A
-Dämonenkunde	PT	A
-Dämonenkunde	PW	A
-Dämonenkunde	Ri	A
-Dämonenkunde	RiN	A
-Dämonenkunde	RiS	A
-Dämonenkunde	Ru	A
-Dämonenkunde	Sa	A
-Dämonenkunde	ScN	A
-Dämonenkunde	ScS	A
-Dämonenkunde	ScW	A
-Dämonenkunde	Se	A
-Dämonenkunde	Sk	A
-Dämonenkunde	Sp	A
-Dämonenkunde	Sr	A
-Dämonenkunde	Sw	S
-Dämonenkunde	Sö	A
-Dämonenkunde	Th	A
-Dämonenkunde	Tm	A
-Dämonenkunde	To	A
-Dämonenkunde	Tr	A
-Dämonenkunde	Tt	A
-Dämonenkunde	Wa	A
-Dämonenkunde	Wi	A
-Dämonenkunde	dBe	S
-Dämonenkunde	eBe	S
-Dämonenkunde	gHx	A
-Dämonenkunde	sHx	A
-Dämonenkunde	tBe	S
-Dämonenkunde	wHx	A
+DÃ¤monenkunde	As	A
+DÃ¤monenkunde	BN	A
+DÃ¤monenkunde	BS	A
+DÃ¤monenkunde	BW	A
+DÃ¤monenkunde	Ba	A
+DÃ¤monenkunde	De	A
+DÃ¤monenkunde	Dr	A
+DÃ¤monenkunde	Dt	G
+DÃ¤monenkunde	Er	A
+DÃ¤monenkunde	Fi	A
+DÃ¤monenkunde	Gl	A
+DÃ¤monenkunde	Hj	S
+DÃ¤monenkunde	Hl	A
+DÃ¤monenkunde	HÃ¤	A
+DÃ¤monenkunde	Kd	A
+DÃ¤monenkunde	Km	A
+DÃ¤monenkunde	Kr	A
+DÃ¤monenkunde	Ku	A
+DÃ¤monenkunde	MMa	A
+DÃ¤monenkunde	Ma	A
+DÃ¤monenkunde	Mg	A
+DÃ¤monenkunde	Nb	G
+DÃ¤monenkunde	Ny	A
+DÃ¤monenkunde	Or	A
+DÃ¤monenkunde	PC	A
+DÃ¤monenkunde	PF	A
+DÃ¤monenkunde	PHa	A
+DÃ¤monenkunde	PHe	A
+DÃ¤monenkunde	PK	A
+DÃ¤monenkunde	PM	A
+DÃ¤monenkunde	PT	A
+DÃ¤monenkunde	PW	A
+DÃ¤monenkunde	Ri	A
+DÃ¤monenkunde	RiN	A
+DÃ¤monenkunde	RiS	A
+DÃ¤monenkunde	Ru	A
+DÃ¤monenkunde	Sa	A
+DÃ¤monenkunde	ScN	A
+DÃ¤monenkunde	ScS	A
+DÃ¤monenkunde	ScW	A
+DÃ¤monenkunde	Se	A
+DÃ¤monenkunde	Sk	A
+DÃ¤monenkunde	Sp	A
+DÃ¤monenkunde	Sr	A
+DÃ¤monenkunde	Sw	S
+DÃ¤monenkunde	SÃ¶	A
+DÃ¤monenkunde	Th	A
+DÃ¤monenkunde	Tm	A
+DÃ¤monenkunde	To	A
+DÃ¤monenkunde	Tr	A
+DÃ¤monenkunde	Tt	A
+DÃ¤monenkunde	Wa	A
+DÃ¤monenkunde	Wi	A
+DÃ¤monenkunde	dBe	S
+DÃ¤monenkunde	eBe	S
+DÃ¤monenkunde	gHx	A
+DÃ¤monenkunde	sHx	A
+DÃ¤monenkunde	tBe	S
+DÃ¤monenkunde	wHx	A
 Elefanten lenken	As	A
 Elefanten lenken	BN	A
 Elefanten lenken	BS	A
@@ -1174,7 +1174,7 @@ Elefanten lenken	Fi	A
 Elefanten lenken	Gl	A
 Elefanten lenken	Hj	A
 Elefanten lenken	Hl	A
-Elefanten lenken	Hä	A
+Elefanten lenken	HÃ¤	A
 Elefanten lenken	Kd	A
 Elefanten lenken	Kr	A
 Elefanten lenken	MMa	A
@@ -1201,7 +1201,7 @@ Elefanten lenken	Sk	A
 Elefanten lenken	Sp	A
 Elefanten lenken	Sr	S
 Elefanten lenken	Sw	S
-Elefanten lenken	Sö	A
+Elefanten lenken	SÃ¶	A
 Elefanten lenken	Th	A
 Elefanten lenken	To	A
 Elefanten lenken	Tr	A
@@ -1226,7 +1226,7 @@ Erste Hilfe	Fi	S
 Erste Hilfe	Gl	S
 Erste Hilfe	Hj	S
 Erste Hilfe	Hl	G
-Erste Hilfe	Hä	S
+Erste Hilfe	HÃ¤	S
 Erste Hilfe	Kd	S
 Erste Hilfe	Km	S
 Erste Hilfe	Kr	S
@@ -1257,7 +1257,7 @@ Erste Hilfe	Sk	S
 Erste Hilfe	Sp	S
 Erste Hilfe	Sr	S
 Erste Hilfe	Sw	S
-Erste Hilfe	Sö	S
+Erste Hilfe	SÃ¶	S
 Erste Hilfe	Th	S
 Erste Hilfe	Tm	S
 Erste Hilfe	To	S
@@ -1271,64 +1271,64 @@ Erste Hilfe	gHx	S
 Erste Hilfe	sHx	S
 Erste Hilfe	tBe	S
 Erste Hilfe	wHx	S
-Erzählen	As	S
-Erzählen	BN	S
-Erzählen	BS	S
-Erzählen	BW	S
-Erzählen	Ba	G
-Erzählen	De	S
-Erzählen	Dr	S
-Erzählen	Dt	S
-Erzählen	Er	S
-Erzählen	Fi	S
-Erzählen	Gl	G
-Erzählen	Hj	S
-Erzählen	Hl	S
-Erzählen	Hä	S
-Erzählen	Kd	S
-Erzählen	Km	S
-Erzählen	Kr	S
-Erzählen	Ku	S
-Erzählen	MMa	S
-Erzählen	Ma	S
-Erzählen	Mg	S
-Erzählen	Ny	S
-Erzählen	Or	S
-Erzählen	PC	S
-Erzählen	PF	S
-Erzählen	PHa	S
-Erzählen	PHe	S
-Erzählen	PK	S
-Erzählen	PM	S
-Erzählen	PT	S
-Erzählen	PW	S
-Erzählen	Ri	S
-Erzählen	RiN	S
-Erzählen	RiS	S
-Erzählen	Ru	S
-Erzählen	Sa	A
-Erzählen	ScN	S
-Erzählen	ScS	S
-Erzählen	ScW	S
-Erzählen	Se	G
-Erzählen	Sk	G
-Erzählen	Sp	S
-Erzählen	Sr	S
-Erzählen	Sw	S
-Erzählen	Sö	S
-Erzählen	Th	S
-Erzählen	Tm	S
-Erzählen	To	S
-Erzählen	Tr	S
-Erzählen	Tt	S
-Erzählen	Wa	S
-Erzählen	Wi	S
-Erzählen	dBe	S
-Erzählen	eBe	S
-Erzählen	gHx	S
-Erzählen	sHx	S
-Erzählen	tBe	S
-Erzählen	wHx	S
+ErzÃ¤hlen	As	S
+ErzÃ¤hlen	BN	S
+ErzÃ¤hlen	BS	S
+ErzÃ¤hlen	BW	S
+ErzÃ¤hlen	Ba	G
+ErzÃ¤hlen	De	S
+ErzÃ¤hlen	Dr	S
+ErzÃ¤hlen	Dt	S
+ErzÃ¤hlen	Er	S
+ErzÃ¤hlen	Fi	S
+ErzÃ¤hlen	Gl	G
+ErzÃ¤hlen	Hj	S
+ErzÃ¤hlen	Hl	S
+ErzÃ¤hlen	HÃ¤	S
+ErzÃ¤hlen	Kd	S
+ErzÃ¤hlen	Km	S
+ErzÃ¤hlen	Kr	S
+ErzÃ¤hlen	Ku	S
+ErzÃ¤hlen	MMa	S
+ErzÃ¤hlen	Ma	S
+ErzÃ¤hlen	Mg	S
+ErzÃ¤hlen	Ny	S
+ErzÃ¤hlen	Or	S
+ErzÃ¤hlen	PC	S
+ErzÃ¤hlen	PF	S
+ErzÃ¤hlen	PHa	S
+ErzÃ¤hlen	PHe	S
+ErzÃ¤hlen	PK	S
+ErzÃ¤hlen	PM	S
+ErzÃ¤hlen	PT	S
+ErzÃ¤hlen	PW	S
+ErzÃ¤hlen	Ri	S
+ErzÃ¤hlen	RiN	S
+ErzÃ¤hlen	RiS	S
+ErzÃ¤hlen	Ru	S
+ErzÃ¤hlen	Sa	A
+ErzÃ¤hlen	ScN	S
+ErzÃ¤hlen	ScS	S
+ErzÃ¤hlen	ScW	S
+ErzÃ¤hlen	Se	G
+ErzÃ¤hlen	Sk	G
+ErzÃ¤hlen	Sp	S
+ErzÃ¤hlen	Sr	S
+ErzÃ¤hlen	Sw	S
+ErzÃ¤hlen	SÃ¶	S
+ErzÃ¤hlen	Th	S
+ErzÃ¤hlen	Tm	S
+ErzÃ¤hlen	To	S
+ErzÃ¤hlen	Tr	S
+ErzÃ¤hlen	Tt	S
+ErzÃ¤hlen	Wa	S
+ErzÃ¤hlen	Wi	S
+ErzÃ¤hlen	dBe	S
+ErzÃ¤hlen	eBe	S
+ErzÃ¤hlen	gHx	S
+ErzÃ¤hlen	sHx	S
+ErzÃ¤hlen	tBe	S
+ErzÃ¤hlen	wHx	S
 Fallen entdecken	As	G
 Fallen entdecken	BN	S
 Fallen entdecken	BS	S
@@ -1342,7 +1342,7 @@ Fallen entdecken	Fi	A
 Fallen entdecken	Gl	S
 Fallen entdecken	Hj	S
 Fallen entdecken	Hl	A
-Fallen entdecken	Hä	G
+Fallen entdecken	HÃ¤	G
 Fallen entdecken	Kd	A
 Fallen entdecken	Km	A
 Fallen entdecken	Kr	A
@@ -1373,7 +1373,7 @@ Fallen entdecken	Sk	S
 Fallen entdecken	Sp	G
 Fallen entdecken	Sr	A
 Fallen entdecken	Sw	G
-Fallen entdecken	Sö	A
+Fallen entdecken	SÃ¶	A
 Fallen entdecken	Th	G
 Fallen entdecken	Tm	S
 Fallen entdecken	To	G
@@ -1387,57 +1387,57 @@ Fallen entdecken	gHx	A
 Fallen entdecken	sHx	A
 Fallen entdecken	tBe	A
 Fallen entdecken	wHx	A
-Fallen entschärfen	As	G
-Fallen entschärfen	BN	S
-Fallen entschärfen	BS	S
-Fallen entschärfen	BW	S
-Fallen entschärfen	Ba	S
-Fallen entschärfen	De	A
-Fallen entschärfen	Dr	A
-Fallen entschärfen	Dt	A
-Fallen entschärfen	Fi	S
-Fallen entschärfen	Gl	S
-Fallen entschärfen	Hj	S
-Fallen entschärfen	Hl	A
-Fallen entschärfen	Hä	S
-Fallen entschärfen	Kd	S
-Fallen entschärfen	Kr	A
-Fallen entschärfen	MMa	A
-Fallen entschärfen	Ma	A
-Fallen entschärfen	Mg	S
-Fallen entschärfen	Ny	G
-Fallen entschärfen	Or	S
-Fallen entschärfen	PC	A
-Fallen entschärfen	PF	A
-Fallen entschärfen	PK	A
-Fallen entschärfen	PM	A
-Fallen entschärfen	PT	A
-Fallen entschärfen	PW	A
-Fallen entschärfen	Ri	A
-Fallen entschärfen	RiN	A
-Fallen entschärfen	RiS	A
-Fallen entschärfen	Ru	S
-Fallen entschärfen	Sa	A
-Fallen entschärfen	ScN	A
-Fallen entschärfen	ScS	A
-Fallen entschärfen	ScW	A
-Fallen entschärfen	Se	S
-Fallen entschärfen	Sk	S
-Fallen entschärfen	Sp	G
-Fallen entschärfen	Sr	S
-Fallen entschärfen	Sw	S
-Fallen entschärfen	Sö	A
-Fallen entschärfen	Th	A
-Fallen entschärfen	To	G
-Fallen entschärfen	Tr	G
-Fallen entschärfen	Tt	A
-Fallen entschärfen	Wa	S
-Fallen entschärfen	dBe	A
-Fallen entschärfen	eBe	A
-Fallen entschärfen	gHx	A
-Fallen entschärfen	sHx	A
-Fallen entschärfen	tBe	A
-Fallen entschärfen	wHx	A
+Fallen entschÃ¤rfen	As	G
+Fallen entschÃ¤rfen	BN	S
+Fallen entschÃ¤rfen	BS	S
+Fallen entschÃ¤rfen	BW	S
+Fallen entschÃ¤rfen	Ba	S
+Fallen entschÃ¤rfen	De	A
+Fallen entschÃ¤rfen	Dr	A
+Fallen entschÃ¤rfen	Dt	A
+Fallen entschÃ¤rfen	Fi	S
+Fallen entschÃ¤rfen	Gl	S
+Fallen entschÃ¤rfen	Hj	S
+Fallen entschÃ¤rfen	Hl	A
+Fallen entschÃ¤rfen	HÃ¤	S
+Fallen entschÃ¤rfen	Kd	S
+Fallen entschÃ¤rfen	Kr	A
+Fallen entschÃ¤rfen	MMa	A
+Fallen entschÃ¤rfen	Ma	A
+Fallen entschÃ¤rfen	Mg	S
+Fallen entschÃ¤rfen	Ny	G
+Fallen entschÃ¤rfen	Or	S
+Fallen entschÃ¤rfen	PC	A
+Fallen entschÃ¤rfen	PF	A
+Fallen entschÃ¤rfen	PK	A
+Fallen entschÃ¤rfen	PM	A
+Fallen entschÃ¤rfen	PT	A
+Fallen entschÃ¤rfen	PW	A
+Fallen entschÃ¤rfen	Ri	A
+Fallen entschÃ¤rfen	RiN	A
+Fallen entschÃ¤rfen	RiS	A
+Fallen entschÃ¤rfen	Ru	S
+Fallen entschÃ¤rfen	Sa	A
+Fallen entschÃ¤rfen	ScN	A
+Fallen entschÃ¤rfen	ScS	A
+Fallen entschÃ¤rfen	ScW	A
+Fallen entschÃ¤rfen	Se	S
+Fallen entschÃ¤rfen	Sk	S
+Fallen entschÃ¤rfen	Sp	G
+Fallen entschÃ¤rfen	Sr	S
+Fallen entschÃ¤rfen	Sw	S
+Fallen entschÃ¤rfen	SÃ¶	A
+Fallen entschÃ¤rfen	Th	A
+Fallen entschÃ¤rfen	To	G
+Fallen entschÃ¤rfen	Tr	G
+Fallen entschÃ¤rfen	Tt	A
+Fallen entschÃ¤rfen	Wa	S
+Fallen entschÃ¤rfen	dBe	A
+Fallen entschÃ¤rfen	eBe	A
+Fallen entschÃ¤rfen	gHx	A
+Fallen entschÃ¤rfen	sHx	A
+Fallen entschÃ¤rfen	tBe	A
+Fallen entschÃ¤rfen	wHx	A
 Fallenmechanik	As	G
 Fallenmechanik	BN	S
 Fallenmechanik	BS	S
@@ -1451,7 +1451,7 @@ Fallenmechanik	Fi	A
 Fallenmechanik	Gl	S
 Fallenmechanik	Hj	A
 Fallenmechanik	Hl	A
-Fallenmechanik	Hä	G
+Fallenmechanik	HÃ¤	G
 Fallenmechanik	Kd	S
 Fallenmechanik	Km	A
 Fallenmechanik	Kr	A
@@ -1482,7 +1482,7 @@ Fallenmechanik	Sk	S
 Fallenmechanik	Sp	G
 Fallenmechanik	Sr	S
 Fallenmechanik	Sw	G
-Fallenmechanik	Sö	A
+Fallenmechanik	SÃ¶	A
 Fallenmechanik	Th	G
 Fallenmechanik	Tm	A
 Fallenmechanik	To	G
@@ -1509,7 +1509,7 @@ Fallenstellen	Fi	S
 Fallenstellen	Gl	S
 Fallenstellen	Hj	A
 Fallenstellen	Hl	A
-Fallenstellen	Hä	S
+Fallenstellen	HÃ¤	S
 Fallenstellen	Kd	S
 Fallenstellen	Km	A
 Fallenstellen	Kr	S
@@ -1540,7 +1540,7 @@ Fallenstellen	Sk	S
 Fallenstellen	Sp	A
 Fallenstellen	Sr	S
 Fallenstellen	Sw	A
-Fallenstellen	Sö	S
+Fallenstellen	SÃ¶	S
 Fallenstellen	Th	A
 Fallenstellen	Tm	G
 Fallenstellen	To	G
@@ -1567,7 +1567,7 @@ Fangen	Fi	S
 Fangen	Gl	S
 Fangen	Hj	S
 Fangen	Hl	S
-Fangen	Hä	S
+Fangen	HÃ¤	S
 Fangen	Kd	S
 Fangen	Km	S
 Fangen	Kr	S
@@ -1598,7 +1598,7 @@ Fangen	Sk	S
 Fangen	Sp	G
 Fangen	Sr	S
 Fangen	Sw	G
-Fangen	Sö	S
+Fangen	SÃ¶	S
 Fangen	Th	S
 Fangen	Tm	S
 Fangen	To	S
@@ -1625,7 +1625,7 @@ Fechten	Fi	S
 Fechten	Gl	G
 Fechten	Hj	S
 Fechten	Hl	A
-Fechten	Hä	S
+Fechten	HÃ¤	S
 Fechten	Kd	S
 Fechten	Km	A
 Fechten	Kr	S
@@ -1656,7 +1656,7 @@ Fechten	Sk	G
 Fechten	Sp	G
 Fechten	Sr	S
 Fechten	Sw	S
-Fechten	Sö	S
+Fechten	SÃ¶	S
 Fechten	Th	A
 Fechten	Tm	S
 Fechten	To	G
@@ -1683,7 +1683,7 @@ Fechten tevarrischer Stil	Fi	S
 Fechten tevarrischer Stil	Gl	G
 Fechten tevarrischer Stil	Hj	S
 Fechten tevarrischer Stil	Hl	A
-Fechten tevarrischer Stil	Hä	S
+Fechten tevarrischer Stil	HÃ¤	S
 Fechten tevarrischer Stil	Kd	S
 Fechten tevarrischer Stil	Km	A
 Fechten tevarrischer Stil	Kr	S
@@ -1714,7 +1714,7 @@ Fechten tevarrischer Stil	Sk	G
 Fechten tevarrischer Stil	Sp	G
 Fechten tevarrischer Stil	Sr	S
 Fechten tevarrischer Stil	Sw	S
-Fechten tevarrischer Stil	Sö	S
+Fechten tevarrischer Stil	SÃ¶	S
 Fechten tevarrischer Stil	Th	A
 Fechten tevarrischer Stil	Tm	S
 Fechten tevarrischer Stil	To	G
@@ -1741,7 +1741,7 @@ Federflechten	Fi	A
 Federflechten	Gl	A
 Federflechten	Hj	A
 Federflechten	Hl	A
-Federflechten	Hä	A
+Federflechten	HÃ¤	A
 Federflechten	Kd	A
 Federflechten	Km	A
 Federflechten	Kr	A
@@ -1772,7 +1772,7 @@ Federflechten	Sk	A
 Federflechten	Sp	A
 Federflechten	Sr	A
 Federflechten	Sw	S
-Federflechten	Sö	A
+Federflechten	SÃ¶	A
 Federflechten	Th	S
 Federflechten	Tm	A
 Federflechten	To	A
@@ -1798,7 +1798,7 @@ FengSchui	Fi	G
 FengSchui	Gl	S
 FengSchui	Hj	S
 FengSchui	Hl	S
-FengSchui	Hä	S
+FengSchui	HÃ¤	S
 FengSchui	Kd	G
 FengSchui	Kr	G
 FengSchui	MMa	S
@@ -1825,7 +1825,7 @@ FengSchui	Sk	S
 FengSchui	Sp	S
 FengSchui	Sr	G
 FengSchui	Sw	S
-FengSchui	Sö	G
+FengSchui	SÃ¶	G
 FengSchui	Th	S
 FengSchui	To	A
 FengSchui	Tr	S
@@ -1849,7 +1849,7 @@ FengTsu	Fi	G
 FengTsu	Gl	G
 FengTsu	Hj	S
 FengTsu	Hl	A
-FengTsu	Hä	S
+FengTsu	HÃ¤	S
 FengTsu	Kd	S
 FengTsu	Kr	G
 FengTsu	MMa	A
@@ -1876,7 +1876,7 @@ FengTsu	Sk	S
 FengTsu	Sp	S
 FengTsu	Sr	G
 FengTsu	Sw	S
-FengTsu	Sö	S
+FengTsu	SÃ¶	S
 FengTsu	Th	A
 FengTsu	To	A
 FengTsu	Tr	S
@@ -1888,64 +1888,64 @@ FengTsu	gHx	A
 FengTsu	sHx	A
 FengTsu	tBe	A
 FengTsu	wHx	A
-Fälschen	As	G
-Fälschen	BN	A
-Fälschen	BS	A
-Fälschen	BW	A
-Fälschen	Ba	S
-Fälschen	De	A
-Fälschen	Dr	A
-Fälschen	Dt	A
-Fälschen	Er	S
-Fälschen	Fi	A
-Fälschen	Gl	S
-Fälschen	Hj	S
-Fälschen	Hl	A
-Fälschen	Hä	S
-Fälschen	Kd	A
-Fälschen	Km	A
-Fälschen	Kr	A
-Fälschen	Ku	A
-Fälschen	MMa	S
-Fälschen	Ma	S
-Fälschen	Mg	S
-Fälschen	Ny	G
-Fälschen	Or	A
-Fälschen	PC	S
-Fälschen	PF	S
-Fälschen	PHa	S
-Fälschen	PHe	S
-Fälschen	PK	S
-Fälschen	PM	S
-Fälschen	PT	S
-Fälschen	PW	S
-Fälschen	Ri	A
-Fälschen	RiN	A
-Fälschen	RiS	A
-Fälschen	Ru	A
-Fälschen	Sa	A
-Fälschen	ScN	A
-Fälschen	ScS	A
-Fälschen	ScW	A
-Fälschen	Se	S
-Fälschen	Sk	S
-Fälschen	Sp	G
-Fälschen	Sr	A
-Fälschen	Sw	G
-Fälschen	Sö	A
-Fälschen	Th	S
-Fälschen	Tm	A
-Fälschen	To	G
-Fälschen	Tr	G
-Fälschen	Tt	A
-Fälschen	Wa	A
-Fälschen	Wi	A
-Fälschen	dBe	S
-Fälschen	eBe	S
-Fälschen	gHx	S
-Fälschen	sHx	S
-Fälschen	tBe	S
-Fälschen	wHx	S
+FÃ¤lschen	As	G
+FÃ¤lschen	BN	A
+FÃ¤lschen	BS	A
+FÃ¤lschen	BW	A
+FÃ¤lschen	Ba	S
+FÃ¤lschen	De	A
+FÃ¤lschen	Dr	A
+FÃ¤lschen	Dt	A
+FÃ¤lschen	Er	S
+FÃ¤lschen	Fi	A
+FÃ¤lschen	Gl	S
+FÃ¤lschen	Hj	S
+FÃ¤lschen	Hl	A
+FÃ¤lschen	HÃ¤	S
+FÃ¤lschen	Kd	A
+FÃ¤lschen	Km	A
+FÃ¤lschen	Kr	A
+FÃ¤lschen	Ku	A
+FÃ¤lschen	MMa	S
+FÃ¤lschen	Ma	S
+FÃ¤lschen	Mg	S
+FÃ¤lschen	Ny	G
+FÃ¤lschen	Or	A
+FÃ¤lschen	PC	S
+FÃ¤lschen	PF	S
+FÃ¤lschen	PHa	S
+FÃ¤lschen	PHe	S
+FÃ¤lschen	PK	S
+FÃ¤lschen	PM	S
+FÃ¤lschen	PT	S
+FÃ¤lschen	PW	S
+FÃ¤lschen	Ri	A
+FÃ¤lschen	RiN	A
+FÃ¤lschen	RiS	A
+FÃ¤lschen	Ru	A
+FÃ¤lschen	Sa	A
+FÃ¤lschen	ScN	A
+FÃ¤lschen	ScS	A
+FÃ¤lschen	ScW	A
+FÃ¤lschen	Se	S
+FÃ¤lschen	Sk	S
+FÃ¤lschen	Sp	G
+FÃ¤lschen	Sr	A
+FÃ¤lschen	Sw	G
+FÃ¤lschen	SÃ¶	A
+FÃ¤lschen	Th	S
+FÃ¤lschen	Tm	A
+FÃ¤lschen	To	G
+FÃ¤lschen	Tr	G
+FÃ¤lschen	Tt	A
+FÃ¤lschen	Wa	A
+FÃ¤lschen	Wi	A
+FÃ¤lschen	dBe	S
+FÃ¤lschen	eBe	S
+FÃ¤lschen	gHx	S
+FÃ¤lschen	sHx	S
+FÃ¤lschen	tBe	S
+FÃ¤lschen	wHx	S
 Gassenwissen	As	G
 Gassenwissen	BN	S
 Gassenwissen	BS	S
@@ -1959,7 +1959,7 @@ Gassenwissen	Fi	S
 Gassenwissen	Gl	G
 Gassenwissen	Hj	S
 Gassenwissen	Hl	S
-Gassenwissen	Hä	G
+Gassenwissen	HÃ¤	G
 Gassenwissen	Kd	S
 Gassenwissen	Kr	S
 Gassenwissen	Ku	G
@@ -1989,7 +1989,7 @@ Gassenwissen	Sk	S
 Gassenwissen	Sp	G
 Gassenwissen	Sr	S
 Gassenwissen	Sw	G
-Gassenwissen	Sö	G
+Gassenwissen	SÃ¶	G
 Gassenwissen	Th	S
 Gassenwissen	Tm	S
 Gassenwissen	To	G
@@ -2015,7 +2015,7 @@ Gaukeln	Fi	A
 Gaukeln	Gl	G
 Gaukeln	Hj	A
 Gaukeln	Hl	A
-Gaukeln	Hä	S
+Gaukeln	HÃ¤	S
 Gaukeln	Kd	S
 Gaukeln	Km	A
 Gaukeln	Kr	A
@@ -2045,7 +2045,7 @@ Gaukeln	Sk	S
 Gaukeln	Sp	G
 Gaukeln	Sr	S
 Gaukeln	Sw	G
-Gaukeln	Sö	S
+Gaukeln	SÃ¶	S
 Gaukeln	Th	A
 Gaukeln	Tm	S
 Gaukeln	To	S
@@ -2059,64 +2059,64 @@ Gaukeln	gHx	S
 Gaukeln	sHx	S
 Gaukeln	tBe	A
 Gaukeln	wHx	S
-Geheimmechanismen öffnen	As	S
-Geheimmechanismen öffnen	BN	A
-Geheimmechanismen öffnen	BS	A
-Geheimmechanismen öffnen	BW	A
-Geheimmechanismen öffnen	Ba	S
-Geheimmechanismen öffnen	De	A
-Geheimmechanismen öffnen	Dr	A
-Geheimmechanismen öffnen	Dt	S
-Geheimmechanismen öffnen	Er	G
-Geheimmechanismen öffnen	Fi	A
-Geheimmechanismen öffnen	Gl	G
-Geheimmechanismen öffnen	Hj	S
-Geheimmechanismen öffnen	Hl	S
-Geheimmechanismen öffnen	Hä	S
-Geheimmechanismen öffnen	Kd	S
-Geheimmechanismen öffnen	Km	A
-Geheimmechanismen öffnen	Kr	A
-Geheimmechanismen öffnen	Ku	S
-Geheimmechanismen öffnen	MMa	S
-Geheimmechanismen öffnen	Ma	S
-Geheimmechanismen öffnen	Mg	G
-Geheimmechanismen öffnen	Ny	S
-Geheimmechanismen öffnen	Or	A
-Geheimmechanismen öffnen	PC	S
-Geheimmechanismen öffnen	PF	S
-Geheimmechanismen öffnen	PHa	S
-Geheimmechanismen öffnen	PHe	S
-Geheimmechanismen öffnen	PK	S
-Geheimmechanismen öffnen	PM	S
-Geheimmechanismen öffnen	PT	S
-Geheimmechanismen öffnen	PW	S
-Geheimmechanismen öffnen	Ri	A
-Geheimmechanismen öffnen	RiN	A
-Geheimmechanismen öffnen	RiS	A
-Geheimmechanismen öffnen	Ru	A
-Geheimmechanismen öffnen	Sa	A
-Geheimmechanismen öffnen	ScN	A
-Geheimmechanismen öffnen	ScS	A
-Geheimmechanismen öffnen	ScW	A
-Geheimmechanismen öffnen	Se	S
-Geheimmechanismen öffnen	Sk	S
-Geheimmechanismen öffnen	Sp	G
-Geheimmechanismen öffnen	Sr	S
-Geheimmechanismen öffnen	Sw	G
-Geheimmechanismen öffnen	Sö	A
-Geheimmechanismen öffnen	Th	G
-Geheimmechanismen öffnen	Tm	A
-Geheimmechanismen öffnen	To	S
-Geheimmechanismen öffnen	Tr	G
-Geheimmechanismen öffnen	Tt	A
-Geheimmechanismen öffnen	Wa	S
-Geheimmechanismen öffnen	Wi	A
-Geheimmechanismen öffnen	dBe	S
-Geheimmechanismen öffnen	eBe	S
-Geheimmechanismen öffnen	gHx	S
-Geheimmechanismen öffnen	sHx	S
-Geheimmechanismen öffnen	tBe	S
-Geheimmechanismen öffnen	wHx	S
+Geheimmechanismen Ã¶ffnen	As	S
+Geheimmechanismen Ã¶ffnen	BN	A
+Geheimmechanismen Ã¶ffnen	BS	A
+Geheimmechanismen Ã¶ffnen	BW	A
+Geheimmechanismen Ã¶ffnen	Ba	S
+Geheimmechanismen Ã¶ffnen	De	A
+Geheimmechanismen Ã¶ffnen	Dr	A
+Geheimmechanismen Ã¶ffnen	Dt	S
+Geheimmechanismen Ã¶ffnen	Er	G
+Geheimmechanismen Ã¶ffnen	Fi	A
+Geheimmechanismen Ã¶ffnen	Gl	G
+Geheimmechanismen Ã¶ffnen	Hj	S
+Geheimmechanismen Ã¶ffnen	Hl	S
+Geheimmechanismen Ã¶ffnen	HÃ¤	S
+Geheimmechanismen Ã¶ffnen	Kd	S
+Geheimmechanismen Ã¶ffnen	Km	A
+Geheimmechanismen Ã¶ffnen	Kr	A
+Geheimmechanismen Ã¶ffnen	Ku	S
+Geheimmechanismen Ã¶ffnen	MMa	S
+Geheimmechanismen Ã¶ffnen	Ma	S
+Geheimmechanismen Ã¶ffnen	Mg	G
+Geheimmechanismen Ã¶ffnen	Ny	S
+Geheimmechanismen Ã¶ffnen	Or	A
+Geheimmechanismen Ã¶ffnen	PC	S
+Geheimmechanismen Ã¶ffnen	PF	S
+Geheimmechanismen Ã¶ffnen	PHa	S
+Geheimmechanismen Ã¶ffnen	PHe	S
+Geheimmechanismen Ã¶ffnen	PK	S
+Geheimmechanismen Ã¶ffnen	PM	S
+Geheimmechanismen Ã¶ffnen	PT	S
+Geheimmechanismen Ã¶ffnen	PW	S
+Geheimmechanismen Ã¶ffnen	Ri	A
+Geheimmechanismen Ã¶ffnen	RiN	A
+Geheimmechanismen Ã¶ffnen	RiS	A
+Geheimmechanismen Ã¶ffnen	Ru	A
+Geheimmechanismen Ã¶ffnen	Sa	A
+Geheimmechanismen Ã¶ffnen	ScN	A
+Geheimmechanismen Ã¶ffnen	ScS	A
+Geheimmechanismen Ã¶ffnen	ScW	A
+Geheimmechanismen Ã¶ffnen	Se	S
+Geheimmechanismen Ã¶ffnen	Sk	S
+Geheimmechanismen Ã¶ffnen	Sp	G
+Geheimmechanismen Ã¶ffnen	Sr	S
+Geheimmechanismen Ã¶ffnen	Sw	G
+Geheimmechanismen Ã¶ffnen	SÃ¶	A
+Geheimmechanismen Ã¶ffnen	Th	G
+Geheimmechanismen Ã¶ffnen	Tm	A
+Geheimmechanismen Ã¶ffnen	To	S
+Geheimmechanismen Ã¶ffnen	Tr	G
+Geheimmechanismen Ã¶ffnen	Tt	A
+Geheimmechanismen Ã¶ffnen	Wa	S
+Geheimmechanismen Ã¶ffnen	Wi	A
+Geheimmechanismen Ã¶ffnen	dBe	S
+Geheimmechanismen Ã¶ffnen	eBe	S
+Geheimmechanismen Ã¶ffnen	gHx	S
+Geheimmechanismen Ã¶ffnen	sHx	S
+Geheimmechanismen Ã¶ffnen	tBe	S
+Geheimmechanismen Ã¶ffnen	wHx	S
 Geheimzeichen	As	G
 Geheimzeichen	BN	S
 Geheimzeichen	BS	S
@@ -2130,7 +2130,7 @@ Geheimzeichen	Fi	S
 Geheimzeichen	Gl	S
 Geheimzeichen	Hj	S
 Geheimzeichen	Hl	S
-Geheimzeichen	Hä	G
+Geheimzeichen	HÃ¤	G
 Geheimzeichen	Kd	S
 Geheimzeichen	Km	S
 Geheimzeichen	Kr	S
@@ -2161,7 +2161,7 @@ Geheimzeichen	Sk	S
 Geheimzeichen	Sp	G
 Geheimzeichen	Sr	S
 Geheimzeichen	Sw	G
-Geheimzeichen	Sö	S
+Geheimzeichen	SÃ¶	S
 Geheimzeichen	Th	G
 Geheimzeichen	Tm	S
 Geheimzeichen	To	G
@@ -2175,64 +2175,64 @@ Geheimzeichen	gHx	G
 Geheimzeichen	sHx	G
 Geheimzeichen	tBe	S
 Geheimzeichen	wHx	G
-Geländelauf	As	S
-Geländelauf	BN	G
-Geländelauf	BS	G
-Geländelauf	BW	G
-Geländelauf	Ba	S
-Geländelauf	De	G
-Geländelauf	Dr	S
-Geländelauf	Dt	S
-Geländelauf	Er	G
-Geländelauf	Fi	G
-Geländelauf	Gl	G
-Geländelauf	Hj	S
-Geländelauf	Hl	S
-Geländelauf	Hä	S
-Geländelauf	Kd	S
-Geländelauf	Km	S
-Geländelauf	Kr	S
-Geländelauf	Ku	G
-Geländelauf	MMa	S
-Geländelauf	Ma	S
-Geländelauf	Mg	S
-Geländelauf	Ny	S
-Geländelauf	Or	S
-Geländelauf	PC	S
-Geländelauf	PF	S
-Geländelauf	PHa	S
-Geländelauf	PHe	S
-Geländelauf	PK	S
-Geländelauf	PM	S
-Geländelauf	PT	S
-Geländelauf	PW	S
-Geländelauf	Ri	S
-Geländelauf	RiN	S
-Geländelauf	RiS	S
-Geländelauf	Ru	S
-Geländelauf	Sa	G
-Geländelauf	ScN	G
-Geländelauf	ScS	S
-Geländelauf	ScW	S
-Geländelauf	Se	S
-Geländelauf	Sk	S
-Geländelauf	Sp	G
-Geländelauf	Sr	S
-Geländelauf	Sw	S
-Geländelauf	Sö	S
-Geländelauf	Th	S
-Geländelauf	Tm	G
-Geländelauf	To	S
-Geländelauf	Tr	G
-Geländelauf	Tt	G
-Geländelauf	Wa	G
-Geländelauf	Wi	G
-Geländelauf	dBe	S
-Geländelauf	eBe	S
-Geländelauf	gHx	S
-Geländelauf	sHx	S
-Geländelauf	tBe	S
-Geländelauf	wHx	S
+GelÃ¤ndelauf	As	S
+GelÃ¤ndelauf	BN	G
+GelÃ¤ndelauf	BS	G
+GelÃ¤ndelauf	BW	G
+GelÃ¤ndelauf	Ba	S
+GelÃ¤ndelauf	De	G
+GelÃ¤ndelauf	Dr	S
+GelÃ¤ndelauf	Dt	S
+GelÃ¤ndelauf	Er	G
+GelÃ¤ndelauf	Fi	G
+GelÃ¤ndelauf	Gl	G
+GelÃ¤ndelauf	Hj	S
+GelÃ¤ndelauf	Hl	S
+GelÃ¤ndelauf	HÃ¤	S
+GelÃ¤ndelauf	Kd	S
+GelÃ¤ndelauf	Km	S
+GelÃ¤ndelauf	Kr	S
+GelÃ¤ndelauf	Ku	G
+GelÃ¤ndelauf	MMa	S
+GelÃ¤ndelauf	Ma	S
+GelÃ¤ndelauf	Mg	S
+GelÃ¤ndelauf	Ny	S
+GelÃ¤ndelauf	Or	S
+GelÃ¤ndelauf	PC	S
+GelÃ¤ndelauf	PF	S
+GelÃ¤ndelauf	PHa	S
+GelÃ¤ndelauf	PHe	S
+GelÃ¤ndelauf	PK	S
+GelÃ¤ndelauf	PM	S
+GelÃ¤ndelauf	PT	S
+GelÃ¤ndelauf	PW	S
+GelÃ¤ndelauf	Ri	S
+GelÃ¤ndelauf	RiN	S
+GelÃ¤ndelauf	RiS	S
+GelÃ¤ndelauf	Ru	S
+GelÃ¤ndelauf	Sa	G
+GelÃ¤ndelauf	ScN	G
+GelÃ¤ndelauf	ScS	S
+GelÃ¤ndelauf	ScW	S
+GelÃ¤ndelauf	Se	S
+GelÃ¤ndelauf	Sk	S
+GelÃ¤ndelauf	Sp	G
+GelÃ¤ndelauf	Sr	S
+GelÃ¤ndelauf	Sw	S
+GelÃ¤ndelauf	SÃ¶	S
+GelÃ¤ndelauf	Th	S
+GelÃ¤ndelauf	Tm	G
+GelÃ¤ndelauf	To	S
+GelÃ¤ndelauf	Tr	G
+GelÃ¤ndelauf	Tt	G
+GelÃ¤ndelauf	Wa	G
+GelÃ¤ndelauf	Wi	G
+GelÃ¤ndelauf	dBe	S
+GelÃ¤ndelauf	eBe	S
+GelÃ¤ndelauf	gHx	S
+GelÃ¤ndelauf	sHx	S
+GelÃ¤ndelauf	tBe	S
+GelÃ¤ndelauf	wHx	S
 Geomantie	De	G
 Geomantie	Dr	S
 Geomantie	Hl	S
@@ -2270,7 +2270,7 @@ Geschenke machen	Fi	S
 Geschenke machen	Gl	S
 Geschenke machen	Hj	S
 Geschenke machen	Hl	S
-Geschenke machen	Hä	S
+Geschenke machen	HÃ¤	S
 Geschenke machen	Kd	S
 Geschenke machen	Kr	S
 Geschenke machen	MMa	S
@@ -2297,7 +2297,7 @@ Geschenke machen	Sk	S
 Geschenke machen	Sp	S
 Geschenke machen	Sr	S
 Geschenke machen	Sw	S
-Geschenke machen	Sö	S
+Geschenke machen	SÃ¶	S
 Geschenke machen	Th	S
 Geschenke machen	To	S
 Geschenke machen	Tr	S
@@ -2309,64 +2309,64 @@ Geschenke machen	gHx	S
 Geschenke machen	sHx	S
 Geschenke machen	tBe	S
 Geschenke machen	wHx	S
-Geschäftstüchtigkeit	As	S
-Geschäftstüchtigkeit	BN	S
-Geschäftstüchtigkeit	BS	S
-Geschäftstüchtigkeit	BW	S
-Geschäftstüchtigkeit	Ba	S
-Geschäftstüchtigkeit	De	S
-Geschäftstüchtigkeit	Dr	S
-Geschäftstüchtigkeit	Dt	S
-Geschäftstüchtigkeit	Er	S
-Geschäftstüchtigkeit	Fi	S
-Geschäftstüchtigkeit	Gl	S
-Geschäftstüchtigkeit	Hj	S
-Geschäftstüchtigkeit	Hl	S
-Geschäftstüchtigkeit	Hä	G
-Geschäftstüchtigkeit	Kd	S
-Geschäftstüchtigkeit	Km	S
-Geschäftstüchtigkeit	Kr	S
-Geschäftstüchtigkeit	Ku	S
-Geschäftstüchtigkeit	MMa	S
-Geschäftstüchtigkeit	Ma	S
-Geschäftstüchtigkeit	Mg	S
-Geschäftstüchtigkeit	Ny	S
-Geschäftstüchtigkeit	Or	S
-Geschäftstüchtigkeit	PC	S
-Geschäftstüchtigkeit	PF	S
-Geschäftstüchtigkeit	PHa	G
-Geschäftstüchtigkeit	PHe	S
-Geschäftstüchtigkeit	PK	S
-Geschäftstüchtigkeit	PM	S
-Geschäftstüchtigkeit	PT	S
-Geschäftstüchtigkeit	PW	S
-Geschäftstüchtigkeit	Ri	S
-Geschäftstüchtigkeit	RiN	S
-Geschäftstüchtigkeit	RiS	S
-Geschäftstüchtigkeit	Ru	S
-Geschäftstüchtigkeit	Sa	S
-Geschäftstüchtigkeit	ScN	S
-Geschäftstüchtigkeit	ScS	S
-Geschäftstüchtigkeit	ScW	S
-Geschäftstüchtigkeit	Se	S
-Geschäftstüchtigkeit	Sk	S
-Geschäftstüchtigkeit	Sp	S
-Geschäftstüchtigkeit	Sr	S
-Geschäftstüchtigkeit	Sw	S
-Geschäftstüchtigkeit	Sö	S
-Geschäftstüchtigkeit	Th	S
-Geschäftstüchtigkeit	Tm	S
-Geschäftstüchtigkeit	To	S
-Geschäftstüchtigkeit	Tr	S
-Geschäftstüchtigkeit	Tt	S
-Geschäftstüchtigkeit	Wa	S
-Geschäftstüchtigkeit	Wi	S
-Geschäftstüchtigkeit	dBe	S
-Geschäftstüchtigkeit	eBe	S
-Geschäftstüchtigkeit	gHx	S
-Geschäftstüchtigkeit	sHx	S
-Geschäftstüchtigkeit	tBe	S
-Geschäftstüchtigkeit	wHx	S
+GeschÃ¤ftstÃ¼chtigkeit	As	S
+GeschÃ¤ftstÃ¼chtigkeit	BN	S
+GeschÃ¤ftstÃ¼chtigkeit	BS	S
+GeschÃ¤ftstÃ¼chtigkeit	BW	S
+GeschÃ¤ftstÃ¼chtigkeit	Ba	S
+GeschÃ¤ftstÃ¼chtigkeit	De	S
+GeschÃ¤ftstÃ¼chtigkeit	Dr	S
+GeschÃ¤ftstÃ¼chtigkeit	Dt	S
+GeschÃ¤ftstÃ¼chtigkeit	Er	S
+GeschÃ¤ftstÃ¼chtigkeit	Fi	S
+GeschÃ¤ftstÃ¼chtigkeit	Gl	S
+GeschÃ¤ftstÃ¼chtigkeit	Hj	S
+GeschÃ¤ftstÃ¼chtigkeit	Hl	S
+GeschÃ¤ftstÃ¼chtigkeit	HÃ¤	G
+GeschÃ¤ftstÃ¼chtigkeit	Kd	S
+GeschÃ¤ftstÃ¼chtigkeit	Km	S
+GeschÃ¤ftstÃ¼chtigkeit	Kr	S
+GeschÃ¤ftstÃ¼chtigkeit	Ku	S
+GeschÃ¤ftstÃ¼chtigkeit	MMa	S
+GeschÃ¤ftstÃ¼chtigkeit	Ma	S
+GeschÃ¤ftstÃ¼chtigkeit	Mg	S
+GeschÃ¤ftstÃ¼chtigkeit	Ny	S
+GeschÃ¤ftstÃ¼chtigkeit	Or	S
+GeschÃ¤ftstÃ¼chtigkeit	PC	S
+GeschÃ¤ftstÃ¼chtigkeit	PF	S
+GeschÃ¤ftstÃ¼chtigkeit	PHa	G
+GeschÃ¤ftstÃ¼chtigkeit	PHe	S
+GeschÃ¤ftstÃ¼chtigkeit	PK	S
+GeschÃ¤ftstÃ¼chtigkeit	PM	S
+GeschÃ¤ftstÃ¼chtigkeit	PT	S
+GeschÃ¤ftstÃ¼chtigkeit	PW	S
+GeschÃ¤ftstÃ¼chtigkeit	Ri	S
+GeschÃ¤ftstÃ¼chtigkeit	RiN	S
+GeschÃ¤ftstÃ¼chtigkeit	RiS	S
+GeschÃ¤ftstÃ¼chtigkeit	Ru	S
+GeschÃ¤ftstÃ¼chtigkeit	Sa	S
+GeschÃ¤ftstÃ¼chtigkeit	ScN	S
+GeschÃ¤ftstÃ¼chtigkeit	ScS	S
+GeschÃ¤ftstÃ¼chtigkeit	ScW	S
+GeschÃ¤ftstÃ¼chtigkeit	Se	S
+GeschÃ¤ftstÃ¼chtigkeit	Sk	S
+GeschÃ¤ftstÃ¼chtigkeit	Sp	S
+GeschÃ¤ftstÃ¼chtigkeit	Sr	S
+GeschÃ¤ftstÃ¼chtigkeit	Sw	S
+GeschÃ¤ftstÃ¼chtigkeit	SÃ¶	S
+GeschÃ¤ftstÃ¼chtigkeit	Th	S
+GeschÃ¤ftstÃ¼chtigkeit	Tm	S
+GeschÃ¤ftstÃ¼chtigkeit	To	S
+GeschÃ¤ftstÃ¼chtigkeit	Tr	S
+GeschÃ¤ftstÃ¼chtigkeit	Tt	S
+GeschÃ¤ftstÃ¼chtigkeit	Wa	S
+GeschÃ¤ftstÃ¼chtigkeit	Wi	S
+GeschÃ¤ftstÃ¼chtigkeit	dBe	S
+GeschÃ¤ftstÃ¼chtigkeit	eBe	S
+GeschÃ¤ftstÃ¼chtigkeit	gHx	S
+GeschÃ¤ftstÃ¼chtigkeit	sHx	S
+GeschÃ¤ftstÃ¼chtigkeit	tBe	S
+GeschÃ¤ftstÃ¼chtigkeit	wHx	S
 Giftmischen	As	G
 Giftmischen	BN	S
 Giftmischen	BS	S
@@ -2380,7 +2380,7 @@ Giftmischen	Fi	A
 Giftmischen	Gl	S
 Giftmischen	Hj	S
 Giftmischen	Hl	A
-Giftmischen	Hä	S
+Giftmischen	HÃ¤	S
 Giftmischen	Kd	S
 Giftmischen	Km	A
 Giftmischen	Kr	A
@@ -2411,7 +2411,7 @@ Giftmischen	Sk	S
 Giftmischen	Sp	S
 Giftmischen	Sr	S
 Giftmischen	Sw	S
-Giftmischen	Sö	S
+Giftmischen	SÃ¶	S
 Giftmischen	Th	S
 Giftmischen	Tm	A
 Giftmischen	To	G
@@ -2425,64 +2425,64 @@ Giftmischen	gHx	G
 Giftmischen	sHx	G
 Giftmischen	tBe	S
 Giftmischen	wHx	G
-Glücksspiel	As	S
-Glücksspiel	BN	S
-Glücksspiel	BS	S
-Glücksspiel	BW	S
-Glücksspiel	Ba	G
-Glücksspiel	De	S
-Glücksspiel	Dr	S
-Glücksspiel	Dt	S
-Glücksspiel	Er	S
-Glücksspiel	Fi	S
-Glücksspiel	Gl	G
-Glücksspiel	Hj	S
-Glücksspiel	Hl	S
-Glücksspiel	Hä	G
-Glücksspiel	Kd	S
-Glücksspiel	Km	S
-Glücksspiel	Kr	S
-Glücksspiel	Ku	S
-Glücksspiel	MMa	S
-Glücksspiel	Ma	S
-Glücksspiel	Mg	S
-Glücksspiel	Ny	S
-Glücksspiel	Or	S
-Glücksspiel	PC	S
-Glücksspiel	PF	S
-Glücksspiel	PHa	S
-Glücksspiel	PHe	S
-Glücksspiel	PK	S
-Glücksspiel	PM	S
-Glücksspiel	PT	S
-Glücksspiel	PW	S
-Glücksspiel	Ri	S
-Glücksspiel	RiN	S
-Glücksspiel	RiS	S
-Glücksspiel	Ru	S
-Glücksspiel	Sa	S
-Glücksspiel	ScN	S
-Glücksspiel	ScS	S
-Glücksspiel	ScW	S
-Glücksspiel	Se	S
-Glücksspiel	Sk	G
-Glücksspiel	Sp	G
-Glücksspiel	Sr	S
-Glücksspiel	Sw	G
-Glücksspiel	Sö	G
-Glücksspiel	Th	S
-Glücksspiel	Tm	S
-Glücksspiel	To	S
-Glücksspiel	Tr	G
-Glücksspiel	Tt	S
-Glücksspiel	Wa	S
-Glücksspiel	Wi	S
-Glücksspiel	dBe	S
-Glücksspiel	eBe	S
-Glücksspiel	gHx	S
-Glücksspiel	sHx	S
-Glücksspiel	tBe	S
-Glücksspiel	wHx	S
+GlÃ¼cksspiel	As	S
+GlÃ¼cksspiel	BN	S
+GlÃ¼cksspiel	BS	S
+GlÃ¼cksspiel	BW	S
+GlÃ¼cksspiel	Ba	G
+GlÃ¼cksspiel	De	S
+GlÃ¼cksspiel	Dr	S
+GlÃ¼cksspiel	Dt	S
+GlÃ¼cksspiel	Er	S
+GlÃ¼cksspiel	Fi	S
+GlÃ¼cksspiel	Gl	G
+GlÃ¼cksspiel	Hj	S
+GlÃ¼cksspiel	Hl	S
+GlÃ¼cksspiel	HÃ¤	G
+GlÃ¼cksspiel	Kd	S
+GlÃ¼cksspiel	Km	S
+GlÃ¼cksspiel	Kr	S
+GlÃ¼cksspiel	Ku	S
+GlÃ¼cksspiel	MMa	S
+GlÃ¼cksspiel	Ma	S
+GlÃ¼cksspiel	Mg	S
+GlÃ¼cksspiel	Ny	S
+GlÃ¼cksspiel	Or	S
+GlÃ¼cksspiel	PC	S
+GlÃ¼cksspiel	PF	S
+GlÃ¼cksspiel	PHa	S
+GlÃ¼cksspiel	PHe	S
+GlÃ¼cksspiel	PK	S
+GlÃ¼cksspiel	PM	S
+GlÃ¼cksspiel	PT	S
+GlÃ¼cksspiel	PW	S
+GlÃ¼cksspiel	Ri	S
+GlÃ¼cksspiel	RiN	S
+GlÃ¼cksspiel	RiS	S
+GlÃ¼cksspiel	Ru	S
+GlÃ¼cksspiel	Sa	S
+GlÃ¼cksspiel	ScN	S
+GlÃ¼cksspiel	ScS	S
+GlÃ¼cksspiel	ScW	S
+GlÃ¼cksspiel	Se	S
+GlÃ¼cksspiel	Sk	G
+GlÃ¼cksspiel	Sp	G
+GlÃ¼cksspiel	Sr	S
+GlÃ¼cksspiel	Sw	G
+GlÃ¼cksspiel	SÃ¶	G
+GlÃ¼cksspiel	Th	S
+GlÃ¼cksspiel	Tm	S
+GlÃ¼cksspiel	To	S
+GlÃ¼cksspiel	Tr	G
+GlÃ¼cksspiel	Tt	S
+GlÃ¼cksspiel	Wa	S
+GlÃ¼cksspiel	Wi	S
+GlÃ¼cksspiel	dBe	S
+GlÃ¼cksspiel	eBe	S
+GlÃ¼cksspiel	gHx	S
+GlÃ¼cksspiel	sHx	S
+GlÃ¼cksspiel	tBe	S
+GlÃ¼cksspiel	wHx	S
 Heilkunde	As	A
 Heilkunde	Ba	A
 Heilkunde	De	S
@@ -2493,7 +2493,7 @@ Heilkunde	Fi	S
 Heilkunde	Gl	S
 Heilkunde	Hj	S
 Heilkunde	Hl	G
-Heilkunde	Hä	A
+Heilkunde	HÃ¤	A
 Heilkunde	Kd	S
 Heilkunde	Km	A
 Heilkunde	MMa	A
@@ -2534,7 +2534,7 @@ Himmelskunde	Fi	S
 Himmelskunde	Gl	S
 Himmelskunde	Hj	S
 Himmelskunde	Hl	A
-Himmelskunde	Hä	G
+Himmelskunde	HÃ¤	G
 Himmelskunde	Kd	S
 Himmelskunde	Km	A
 Himmelskunde	Kr	S
@@ -2565,7 +2565,7 @@ Himmelskunde	Sk	G
 Himmelskunde	Sp	S
 Himmelskunde	Sr	S
 Himmelskunde	Sw	A
-Himmelskunde	Sö	S
+Himmelskunde	SÃ¶	S
 Himmelskunde	Th	A
 Himmelskunde	Tm	S
 Himmelskunde	To	A
@@ -2591,7 +2591,7 @@ IaiJutsu	Fi	G
 IaiJutsu	Gl	S
 IaiJutsu	Hj	S
 IaiJutsu	Hl	A
-IaiJutsu	Hä	S
+IaiJutsu	HÃ¤	S
 IaiJutsu	Kd	S
 IaiJutsu	Kr	G
 IaiJutsu	MMa	A
@@ -2618,7 +2618,7 @@ IaiJutsu	Sk	S
 IaiJutsu	Sp	S
 IaiJutsu	Sr	G
 IaiJutsu	Sw	S
-IaiJutsu	Sö	S
+IaiJutsu	SÃ¶	S
 IaiJutsu	Th	A
 IaiJutsu	To	A
 IaiJutsu	Tr	S
@@ -2642,7 +2642,7 @@ Kamelreiten	Fi	S
 Kamelreiten	Gl	G
 Kamelreiten	Hj	S
 Kamelreiten	Hl	S
-Kamelreiten	Hä	G
+Kamelreiten	HÃ¤	G
 Kamelreiten	Kd	S
 Kamelreiten	Kr	G
 Kamelreiten	Ku	G
@@ -2670,7 +2670,7 @@ Kamelreiten	Sk	S
 Kamelreiten	Sp	S
 Kamelreiten	Sr	S
 Kamelreiten	Sw	S
-Kamelreiten	Sö	G
+Kamelreiten	SÃ¶	G
 Kamelreiten	Th	S
 Kamelreiten	To	S
 Kamelreiten	Tr	S
@@ -2695,7 +2695,7 @@ Kampf in Dunkelheit	Fi	S
 Kampf in Dunkelheit	Gl	S
 Kampf in Dunkelheit	Hj	A
 Kampf in Dunkelheit	Hl	A
-Kampf in Dunkelheit	Hä	S
+Kampf in Dunkelheit	HÃ¤	S
 Kampf in Dunkelheit	Kd	A
 Kampf in Dunkelheit	Km	A
 Kampf in Dunkelheit	Kr	S
@@ -2726,7 +2726,7 @@ Kampf in Dunkelheit	Sk	S
 Kampf in Dunkelheit	Sp	G
 Kampf in Dunkelheit	Sr	S
 Kampf in Dunkelheit	Sw	A
-Kampf in Dunkelheit	Sö	S
+Kampf in Dunkelheit	SÃ¶	S
 Kampf in Dunkelheit	Th	A
 Kampf in Dunkelheit	Tm	S
 Kampf in Dunkelheit	To	G
@@ -2753,7 +2753,7 @@ Kampf in Schlachtreihe	Fi	S
 Kampf in Schlachtreihe	Gl	S
 Kampf in Schlachtreihe	Hj	A
 Kampf in Schlachtreihe	Hl	A
-Kampf in Schlachtreihe	Hä	S
+Kampf in Schlachtreihe	HÃ¤	S
 Kampf in Schlachtreihe	Kd	A
 Kampf in Schlachtreihe	Km	G
 Kampf in Schlachtreihe	Kr	G
@@ -2784,7 +2784,7 @@ Kampf in Schlachtreihe	Sk	S
 Kampf in Schlachtreihe	Sp	S
 Kampf in Schlachtreihe	Sr	S
 Kampf in Schlachtreihe	Sw	A
-Kampf in Schlachtreihe	Sö	G
+Kampf in Schlachtreihe	SÃ¶	G
 Kampf in Schlachtreihe	Th	A
 Kampf in Schlachtreihe	Tm	S
 Kampf in Schlachtreihe	To	A
@@ -2798,64 +2798,64 @@ Kampf in Schlachtreihe	gHx	A
 Kampf in Schlachtreihe	sHx	A
 Kampf in Schlachtreihe	tBe	A
 Kampf in Schlachtreihe	wHx	A
-Kampf in Vollrüstung	As	A
-Kampf in Vollrüstung	BN	S
-Kampf in Vollrüstung	BS	S
-Kampf in Vollrüstung	BW	S
-Kampf in Vollrüstung	Ba	A
-Kampf in Vollrüstung	De	A
-Kampf in Vollrüstung	Dr	A
-Kampf in Vollrüstung	Dt	A
-Kampf in Vollrüstung	Er	S
-Kampf in Vollrüstung	Fi	A
-Kampf in Vollrüstung	Gl	S
-Kampf in Vollrüstung	Hj	S
-Kampf in Vollrüstung	Hl	A
-Kampf in Vollrüstung	Hä	S
-Kampf in Vollrüstung	Kd	S
-Kampf in Vollrüstung	Km	S
-Kampf in Vollrüstung	Kr	G
-Kampf in Vollrüstung	Ku	S
-Kampf in Vollrüstung	MMa	A
-Kampf in Vollrüstung	Ma	A
-Kampf in Vollrüstung	Mg	A
-Kampf in Vollrüstung	Ny	A
-Kampf in Vollrüstung	Or	S
-Kampf in Vollrüstung	PC	A
-Kampf in Vollrüstung	PF	A
-Kampf in Vollrüstung	PHa	A
-Kampf in Vollrüstung	PHe	A
-Kampf in Vollrüstung	PK	A
-Kampf in Vollrüstung	PM	A
-Kampf in Vollrüstung	PT	A
-Kampf in Vollrüstung	PW	A
-Kampf in Vollrüstung	Ri	G
-Kampf in Vollrüstung	RiN	G
-Kampf in Vollrüstung	RiS	G
-Kampf in Vollrüstung	Ru	S
-Kampf in Vollrüstung	Sa	S
-Kampf in Vollrüstung	ScN	A
-Kampf in Vollrüstung	ScS	A
-Kampf in Vollrüstung	ScW	A
-Kampf in Vollrüstung	Se	S
-Kampf in Vollrüstung	Sk	A
-Kampf in Vollrüstung	Sp	A
-Kampf in Vollrüstung	Sr	S
-Kampf in Vollrüstung	Sw	A
-Kampf in Vollrüstung	Sö	G
-Kampf in Vollrüstung	Th	A
-Kampf in Vollrüstung	Tm	A
-Kampf in Vollrüstung	To	A
-Kampf in Vollrüstung	Tr	A
-Kampf in Vollrüstung	Tt	A
-Kampf in Vollrüstung	Wa	S
-Kampf in Vollrüstung	Wi	A
-Kampf in Vollrüstung	dBe	A
-Kampf in Vollrüstung	eBe	A
-Kampf in Vollrüstung	gHx	A
-Kampf in Vollrüstung	sHx	A
-Kampf in Vollrüstung	tBe	A
-Kampf in Vollrüstung	wHx	A
+Kampf in VollrÃ¼stung	As	A
+Kampf in VollrÃ¼stung	BN	S
+Kampf in VollrÃ¼stung	BS	S
+Kampf in VollrÃ¼stung	BW	S
+Kampf in VollrÃ¼stung	Ba	A
+Kampf in VollrÃ¼stung	De	A
+Kampf in VollrÃ¼stung	Dr	A
+Kampf in VollrÃ¼stung	Dt	A
+Kampf in VollrÃ¼stung	Er	S
+Kampf in VollrÃ¼stung	Fi	A
+Kampf in VollrÃ¼stung	Gl	S
+Kampf in VollrÃ¼stung	Hj	S
+Kampf in VollrÃ¼stung	Hl	A
+Kampf in VollrÃ¼stung	HÃ¤	S
+Kampf in VollrÃ¼stung	Kd	S
+Kampf in VollrÃ¼stung	Km	S
+Kampf in VollrÃ¼stung	Kr	G
+Kampf in VollrÃ¼stung	Ku	S
+Kampf in VollrÃ¼stung	MMa	A
+Kampf in VollrÃ¼stung	Ma	A
+Kampf in VollrÃ¼stung	Mg	A
+Kampf in VollrÃ¼stung	Ny	A
+Kampf in VollrÃ¼stung	Or	S
+Kampf in VollrÃ¼stung	PC	A
+Kampf in VollrÃ¼stung	PF	A
+Kampf in VollrÃ¼stung	PHa	A
+Kampf in VollrÃ¼stung	PHe	A
+Kampf in VollrÃ¼stung	PK	A
+Kampf in VollrÃ¼stung	PM	A
+Kampf in VollrÃ¼stung	PT	A
+Kampf in VollrÃ¼stung	PW	A
+Kampf in VollrÃ¼stung	Ri	G
+Kampf in VollrÃ¼stung	RiN	G
+Kampf in VollrÃ¼stung	RiS	G
+Kampf in VollrÃ¼stung	Ru	S
+Kampf in VollrÃ¼stung	Sa	S
+Kampf in VollrÃ¼stung	ScN	A
+Kampf in VollrÃ¼stung	ScS	A
+Kampf in VollrÃ¼stung	ScW	A
+Kampf in VollrÃ¼stung	Se	S
+Kampf in VollrÃ¼stung	Sk	A
+Kampf in VollrÃ¼stung	Sp	A
+Kampf in VollrÃ¼stung	Sr	S
+Kampf in VollrÃ¼stung	Sw	A
+Kampf in VollrÃ¼stung	SÃ¶	G
+Kampf in VollrÃ¼stung	Th	A
+Kampf in VollrÃ¼stung	Tm	A
+Kampf in VollrÃ¼stung	To	A
+Kampf in VollrÃ¼stung	Tr	A
+Kampf in VollrÃ¼stung	Tt	A
+Kampf in VollrÃ¼stung	Wa	S
+Kampf in VollrÃ¼stung	Wi	A
+Kampf in VollrÃ¼stung	dBe	A
+Kampf in VollrÃ¼stung	eBe	A
+Kampf in VollrÃ¼stung	gHx	A
+Kampf in VollrÃ¼stung	sHx	A
+Kampf in VollrÃ¼stung	tBe	A
+Kampf in VollrÃ¼stung	wHx	A
 Kampf vom Streitwagen	As	A
 Kampf vom Streitwagen	BN	G
 Kampf vom Streitwagen	BS	G
@@ -2869,7 +2869,7 @@ Kampf vom Streitwagen	Fi	S
 Kampf vom Streitwagen	Gl	S
 Kampf vom Streitwagen	Hj	A
 Kampf vom Streitwagen	Hl	A
-Kampf vom Streitwagen	Hä	S
+Kampf vom Streitwagen	HÃ¤	S
 Kampf vom Streitwagen	Kd	S
 Kampf vom Streitwagen	Km	G
 Kampf vom Streitwagen	Kr	G
@@ -2900,7 +2900,7 @@ Kampf vom Streitwagen	Sk	S
 Kampf vom Streitwagen	Sp	A
 Kampf vom Streitwagen	Sr	S
 Kampf vom Streitwagen	Sw	A
-Kampf vom Streitwagen	Sö	G
+Kampf vom Streitwagen	SÃ¶	G
 Kampf vom Streitwagen	Th	A
 Kampf vom Streitwagen	Tm	S
 Kampf vom Streitwagen	To	A
@@ -2926,7 +2926,7 @@ Kampf zu Elefant	Fi	A
 Kampf zu Elefant	Gl	A
 Kampf zu Elefant	Hj	A
 Kampf zu Elefant	Hl	A
-Kampf zu Elefant	Hä	A
+Kampf zu Elefant	HÃ¤	A
 Kampf zu Elefant	Kd	A
 Kampf zu Elefant	Kr	A
 Kampf zu Elefant	MMa	A
@@ -2953,7 +2953,7 @@ Kampf zu Elefant	Sk	A
 Kampf zu Elefant	Sp	A
 Kampf zu Elefant	Sr	S
 Kampf zu Elefant	Sw	A
-Kampf zu Elefant	Sö	A
+Kampf zu Elefant	SÃ¶	A
 Kampf zu Elefant	Th	A
 Kampf zu Elefant	To	A
 Kampf zu Elefant	Tr	A
@@ -2977,7 +2977,7 @@ Kampf zu Kamel	Fi	S
 Kampf zu Kamel	Gl	S
 Kampf zu Kamel	Hj	A
 Kampf zu Kamel	Hl	A
-Kampf zu Kamel	Hä	S
+Kampf zu Kamel	HÃ¤	S
 Kampf zu Kamel	Kd	S
 Kampf zu Kamel	Kr	G
 Kampf zu Kamel	MMa	A
@@ -3004,7 +3004,7 @@ Kampf zu Kamel	Sk	S
 Kampf zu Kamel	Sp	S
 Kampf zu Kamel	Sr	S
 Kampf zu Kamel	Sw	A
-Kampf zu Kamel	Sö	G
+Kampf zu Kamel	SÃ¶	G
 Kampf zu Kamel	Th	A
 Kampf zu Kamel	To	A
 Kampf zu Kamel	Tr	S
@@ -3029,7 +3029,7 @@ Kampf zu Pferd	Fi	S
 Kampf zu Pferd	Gl	G
 Kampf zu Pferd	Hj	A
 Kampf zu Pferd	Hl	A
-Kampf zu Pferd	Hä	G
+Kampf zu Pferd	HÃ¤	G
 Kampf zu Pferd	Kd	A
 Kampf zu Pferd	Km	G
 Kampf zu Pferd	Kr	G
@@ -3060,7 +3060,7 @@ Kampf zu Pferd	Sk	G
 Kampf zu Pferd	Sp	A
 Kampf zu Pferd	Sr	S
 Kampf zu Pferd	Sw	A
-Kampf zu Pferd	Sö	G
+Kampf zu Pferd	SÃ¶	G
 Kampf zu Pferd	Th	A
 Kampf zu Pferd	Tm	S
 Kampf zu Pferd	To	A
@@ -3086,7 +3086,7 @@ Kampf zu Srimara	Fi	A
 Kampf zu Srimara	Gl	A
 Kampf zu Srimara	Hj	A
 Kampf zu Srimara	Hl	A
-Kampf zu Srimara	Hä	A
+Kampf zu Srimara	HÃ¤	A
 Kampf zu Srimara	Kd	A
 Kampf zu Srimara	Kr	A
 Kampf zu Srimara	MMa	A
@@ -3113,7 +3113,7 @@ Kampf zu Srimara	Sk	A
 Kampf zu Srimara	Sp	A
 Kampf zu Srimara	Sr	S
 Kampf zu Srimara	Sw	A
-Kampf zu Srimara	Sö	A
+Kampf zu Srimara	SÃ¶	A
 Kampf zu Srimara	Th	A
 Kampf zu Srimara	To	A
 Kampf zu Srimara	Tr	A
@@ -3138,7 +3138,7 @@ Kampftaktik	Fi	S
 Kampftaktik	Gl	S
 Kampftaktik	Hj	A
 Kampftaktik	Hl	A
-Kampftaktik	Hä	S
+Kampftaktik	HÃ¤	S
 Kampftaktik	Kd	A
 Kampftaktik	Km	G
 Kampftaktik	Kr	G
@@ -3169,7 +3169,7 @@ Kampftaktik	Sk	S
 Kampftaktik	Sp	A
 Kampftaktik	Sr	S
 Kampftaktik	Sw	A
-Kampftaktik	Sö	G
+Kampftaktik	SÃ¶	G
 Kampftaktik	Th	A
 Kampftaktik	Tm	S
 Kampftaktik	To	A
@@ -3195,7 +3195,7 @@ KarumiJutsu	Fi	A
 KarumiJutsu	Gl	A
 KarumiJutsu	Hj	A
 KarumiJutsu	Hl	S
-KarumiJutsu	Hä	A
+KarumiJutsu	HÃ¤	A
 KarumiJutsu	Kd	A
 KarumiJutsu	Kr	A
 KarumiJutsu	MMa	S
@@ -3222,7 +3222,7 @@ KarumiJutsu	Sk	A
 KarumiJutsu	Sp	S
 KarumiJutsu	Sr	A
 KarumiJutsu	Sw	S
-KarumiJutsu	Sö	A
+KarumiJutsu	SÃ¶	A
 KarumiJutsu	Th	S
 KarumiJutsu	To	S
 KarumiJutsu	Tr	S
@@ -3247,7 +3247,7 @@ Katapult bedienen	Fi	A
 Katapult bedienen	Gl	S
 Katapult bedienen	Hj	A
 Katapult bedienen	Hl	A
-Katapult bedienen	Hä	S
+Katapult bedienen	HÃ¤	S
 Katapult bedienen	Kd	S
 Katapult bedienen	Km	S
 Katapult bedienen	Kr	G
@@ -3278,7 +3278,7 @@ Katapult bedienen	Sk	S
 Katapult bedienen	Sp	S
 Katapult bedienen	Sr	S
 Katapult bedienen	Sw	A
-Katapult bedienen	Sö	G
+Katapult bedienen	SÃ¶	G
 Katapult bedienen	Th	A
 Katapult bedienen	Tm	S
 Katapult bedienen	To	A
@@ -3292,57 +3292,57 @@ Katapult bedienen	gHx	A
 Katapult bedienen	sHx	A
 Katapult bedienen	tBe	A
 Katapult bedienen	wHx	A
-Kenntnis der fünf Klassiker	As	S
-Kenntnis der fünf Klassiker	BN	S
-Kenntnis der fünf Klassiker	BS	S
-Kenntnis der fünf Klassiker	BW	S
-Kenntnis der fünf Klassiker	Ba	S
-Kenntnis der fünf Klassiker	De	S
-Kenntnis der fünf Klassiker	Dr	S
-Kenntnis der fünf Klassiker	Dt	S
-Kenntnis der fünf Klassiker	Fi	S
-Kenntnis der fünf Klassiker	Gl	S
-Kenntnis der fünf Klassiker	Hj	S
-Kenntnis der fünf Klassiker	Hl	S
-Kenntnis der fünf Klassiker	Hä	S
-Kenntnis der fünf Klassiker	Kd	S
-Kenntnis der fünf Klassiker	Kr	S
-Kenntnis der fünf Klassiker	MMa	S
-Kenntnis der fünf Klassiker	Ma	S
-Kenntnis der fünf Klassiker	Mg	S
-Kenntnis der fünf Klassiker	Ny	S
-Kenntnis der fünf Klassiker	Or	S
-Kenntnis der fünf Klassiker	PC	S
-Kenntnis der fünf Klassiker	PF	S
-Kenntnis der fünf Klassiker	PK	S
-Kenntnis der fünf Klassiker	PM	S
-Kenntnis der fünf Klassiker	PT	S
-Kenntnis der fünf Klassiker	PW	S
-Kenntnis der fünf Klassiker	Ri	S
-Kenntnis der fünf Klassiker	RiN	S
-Kenntnis der fünf Klassiker	RiS	S
-Kenntnis der fünf Klassiker	Ru	S
-Kenntnis der fünf Klassiker	Sa	A
-Kenntnis der fünf Klassiker	ScN	S
-Kenntnis der fünf Klassiker	ScS	S
-Kenntnis der fünf Klassiker	ScW	S
-Kenntnis der fünf Klassiker	Se	S
-Kenntnis der fünf Klassiker	Sk	S
-Kenntnis der fünf Klassiker	Sp	S
-Kenntnis der fünf Klassiker	Sr	S
-Kenntnis der fünf Klassiker	Sw	A
-Kenntnis der fünf Klassiker	Sö	S
-Kenntnis der fünf Klassiker	Th	S
-Kenntnis der fünf Klassiker	To	S
-Kenntnis der fünf Klassiker	Tr	S
-Kenntnis der fünf Klassiker	Tt	S
-Kenntnis der fünf Klassiker	Wa	S
-Kenntnis der fünf Klassiker	dBe	S
-Kenntnis der fünf Klassiker	eBe	S
-Kenntnis der fünf Klassiker	gHx	S
-Kenntnis der fünf Klassiker	sHx	S
-Kenntnis der fünf Klassiker	tBe	S
-Kenntnis der fünf Klassiker	wHx	S
+Kenntnis der fÃ¼nf Klassiker	As	S
+Kenntnis der fÃ¼nf Klassiker	BN	S
+Kenntnis der fÃ¼nf Klassiker	BS	S
+Kenntnis der fÃ¼nf Klassiker	BW	S
+Kenntnis der fÃ¼nf Klassiker	Ba	S
+Kenntnis der fÃ¼nf Klassiker	De	S
+Kenntnis der fÃ¼nf Klassiker	Dr	S
+Kenntnis der fÃ¼nf Klassiker	Dt	S
+Kenntnis der fÃ¼nf Klassiker	Fi	S
+Kenntnis der fÃ¼nf Klassiker	Gl	S
+Kenntnis der fÃ¼nf Klassiker	Hj	S
+Kenntnis der fÃ¼nf Klassiker	Hl	S
+Kenntnis der fÃ¼nf Klassiker	HÃ¤	S
+Kenntnis der fÃ¼nf Klassiker	Kd	S
+Kenntnis der fÃ¼nf Klassiker	Kr	S
+Kenntnis der fÃ¼nf Klassiker	MMa	S
+Kenntnis der fÃ¼nf Klassiker	Ma	S
+Kenntnis der fÃ¼nf Klassiker	Mg	S
+Kenntnis der fÃ¼nf Klassiker	Ny	S
+Kenntnis der fÃ¼nf Klassiker	Or	S
+Kenntnis der fÃ¼nf Klassiker	PC	S
+Kenntnis der fÃ¼nf Klassiker	PF	S
+Kenntnis der fÃ¼nf Klassiker	PK	S
+Kenntnis der fÃ¼nf Klassiker	PM	S
+Kenntnis der fÃ¼nf Klassiker	PT	S
+Kenntnis der fÃ¼nf Klassiker	PW	S
+Kenntnis der fÃ¼nf Klassiker	Ri	S
+Kenntnis der fÃ¼nf Klassiker	RiN	S
+Kenntnis der fÃ¼nf Klassiker	RiS	S
+Kenntnis der fÃ¼nf Klassiker	Ru	S
+Kenntnis der fÃ¼nf Klassiker	Sa	A
+Kenntnis der fÃ¼nf Klassiker	ScN	S
+Kenntnis der fÃ¼nf Klassiker	ScS	S
+Kenntnis der fÃ¼nf Klassiker	ScW	S
+Kenntnis der fÃ¼nf Klassiker	Se	S
+Kenntnis der fÃ¼nf Klassiker	Sk	S
+Kenntnis der fÃ¼nf Klassiker	Sp	S
+Kenntnis der fÃ¼nf Klassiker	Sr	S
+Kenntnis der fÃ¼nf Klassiker	Sw	A
+Kenntnis der fÃ¼nf Klassiker	SÃ¶	S
+Kenntnis der fÃ¼nf Klassiker	Th	S
+Kenntnis der fÃ¼nf Klassiker	To	S
+Kenntnis der fÃ¼nf Klassiker	Tr	S
+Kenntnis der fÃ¼nf Klassiker	Tt	S
+Kenntnis der fÃ¼nf Klassiker	Wa	S
+Kenntnis der fÃ¼nf Klassiker	dBe	S
+Kenntnis der fÃ¼nf Klassiker	eBe	S
+Kenntnis der fÃ¼nf Klassiker	gHx	S
+Kenntnis der fÃ¼nf Klassiker	sHx	S
+Kenntnis der fÃ¼nf Klassiker	tBe	S
+Kenntnis der fÃ¼nf Klassiker	wHx	S
 KentoYobu	As	A
 KentoYobu	BN	S
 KentoYobu	BS	S
@@ -3355,7 +3355,7 @@ KentoYobu	Fi	G
 KentoYobu	Gl	S
 KentoYobu	Hj	S
 KentoYobu	Hl	A
-KentoYobu	Hä	S
+KentoYobu	HÃ¤	S
 KentoYobu	Kd	S
 KentoYobu	Kr	G
 KentoYobu	MMa	A
@@ -3382,7 +3382,7 @@ KentoYobu	Sk	A
 KentoYobu	Sp	A
 KentoYobu	Sr	G
 KentoYobu	Sw	S
-KentoYobu	Sö	G
+KentoYobu	SÃ¶	G
 KentoYobu	Th	A
 KentoYobu	To	A
 KentoYobu	Tr	A
@@ -3406,7 +3406,7 @@ KiDo	Fi	G
 KiDo	Gl	S
 KiDo	Hj	S
 KiDo	Hl	S
-KiDo	Hä	S
+KiDo	HÃ¤	S
 KiDo	Kd	G
 KiDo	Kr	S
 KiDo	MMa	A
@@ -3433,7 +3433,7 @@ KiDo	Sk	S
 KiDo	Sp	S
 KiDo	Sr	G
 KiDo	Sw	S
-KiDo	Sö	S
+KiDo	SÃ¶	S
 KiDo	Th	A
 KiDo	To	A
 KiDo	Tr	S
@@ -3460,7 +3460,7 @@ Klettern	Fi	G
 Klettern	Gl	G
 Klettern	Hj	S
 Klettern	Hl	S
-Klettern	Hä	S
+Klettern	HÃ¤	S
 Klettern	Kd	S
 Klettern	Km	S
 Klettern	Kr	S
@@ -3491,7 +3491,7 @@ Klettern	Sk	S
 Klettern	Sp	G
 Klettern	Sr	S
 Klettern	Sw	G
-Klettern	Sö	S
+Klettern	SÃ¶	S
 Klettern	Th	S
 Klettern	Tm	S
 Klettern	To	G
@@ -3517,7 +3517,7 @@ Kriegsbemalung	Fi	S
 Kriegsbemalung	Gl	S
 Kriegsbemalung	Hj	S
 Kriegsbemalung	Hl	A
-Kriegsbemalung	Hä	S
+Kriegsbemalung	HÃ¤	S
 Kriegsbemalung	Kd	S
 Kriegsbemalung	Kr	S
 Kriegsbemalung	MMa	A
@@ -3544,7 +3544,7 @@ Kriegsbemalung	Sk	S
 Kriegsbemalung	Sp	S
 Kriegsbemalung	Sr	S
 Kriegsbemalung	Sw	S
-Kriegsbemalung	Sö	S
+Kriegsbemalung	SÃ¶	S
 Kriegsbemalung	Th	G
 Kriegsbemalung	To	S
 Kriegsbemalung	Tr	S
@@ -3556,64 +3556,64 @@ Kriegsbemalung	gHx	A
 Kriegsbemalung	sHx	A
 Kriegsbemalung	tBe	A
 Kriegsbemalung	wHx	A
-Kräuterkunde	As	S
-Kräuterkunde	BN	S
-Kräuterkunde	BS	S
-Kräuterkunde	BW	S
-Kräuterkunde	Ba	S
-Kräuterkunde	De	S
-Kräuterkunde	Dr	G
-Kräuterkunde	Dt	S
-Kräuterkunde	Er	S
-Kräuterkunde	Fi	A
-Kräuterkunde	Gl	S
-Kräuterkunde	Hj	S
-Kräuterkunde	Hl	G
-Kräuterkunde	Hä	S
-Kräuterkunde	Kd	S
-Kräuterkunde	Km	G
-Kräuterkunde	Kr	A
-Kräuterkunde	Ku	S
-Kräuterkunde	MMa	S
-Kräuterkunde	Ma	G
-Kräuterkunde	Mg	G
-Kräuterkunde	Ny	S
-Kräuterkunde	Or	A
-Kräuterkunde	PC	S
-Kräuterkunde	PF	S
-Kräuterkunde	PHa	S
-Kräuterkunde	PHe	S
-Kräuterkunde	PK	S
-Kräuterkunde	PM	S
-Kräuterkunde	PT	S
-Kräuterkunde	PW	S
-Kräuterkunde	Ri	S
-Kräuterkunde	RiN	S
-Kräuterkunde	RiS	S
-Kräuterkunde	Ru	A
-Kräuterkunde	Sa	G
-Kräuterkunde	ScN	G
-Kräuterkunde	ScS	G
-Kräuterkunde	ScW	G
-Kräuterkunde	Se	S
-Kräuterkunde	Sk	S
-Kräuterkunde	Sp	A
-Kräuterkunde	Sr	S
-Kräuterkunde	Sw	A
-Kräuterkunde	Sö	A
-Kräuterkunde	Th	S
-Kräuterkunde	Tm	A
-Kräuterkunde	To	S
-Kräuterkunde	Tr	A
-Kräuterkunde	Tt	S
-Kräuterkunde	Wa	G
-Kräuterkunde	Wi	S
-Kräuterkunde	dBe	G
-Kräuterkunde	eBe	G
-Kräuterkunde	gHx	G
-Kräuterkunde	sHx	G
-Kräuterkunde	tBe	G
-Kräuterkunde	wHx	G
+KrÃ¤uterkunde	As	S
+KrÃ¤uterkunde	BN	S
+KrÃ¤uterkunde	BS	S
+KrÃ¤uterkunde	BW	S
+KrÃ¤uterkunde	Ba	S
+KrÃ¤uterkunde	De	S
+KrÃ¤uterkunde	Dr	G
+KrÃ¤uterkunde	Dt	S
+KrÃ¤uterkunde	Er	S
+KrÃ¤uterkunde	Fi	A
+KrÃ¤uterkunde	Gl	S
+KrÃ¤uterkunde	Hj	S
+KrÃ¤uterkunde	Hl	G
+KrÃ¤uterkunde	HÃ¤	S
+KrÃ¤uterkunde	Kd	S
+KrÃ¤uterkunde	Km	G
+KrÃ¤uterkunde	Kr	A
+KrÃ¤uterkunde	Ku	S
+KrÃ¤uterkunde	MMa	S
+KrÃ¤uterkunde	Ma	G
+KrÃ¤uterkunde	Mg	G
+KrÃ¤uterkunde	Ny	S
+KrÃ¤uterkunde	Or	A
+KrÃ¤uterkunde	PC	S
+KrÃ¤uterkunde	PF	S
+KrÃ¤uterkunde	PHa	S
+KrÃ¤uterkunde	PHe	S
+KrÃ¤uterkunde	PK	S
+KrÃ¤uterkunde	PM	S
+KrÃ¤uterkunde	PT	S
+KrÃ¤uterkunde	PW	S
+KrÃ¤uterkunde	Ri	S
+KrÃ¤uterkunde	RiN	S
+KrÃ¤uterkunde	RiS	S
+KrÃ¤uterkunde	Ru	A
+KrÃ¤uterkunde	Sa	G
+KrÃ¤uterkunde	ScN	G
+KrÃ¤uterkunde	ScS	G
+KrÃ¤uterkunde	ScW	G
+KrÃ¤uterkunde	Se	S
+KrÃ¤uterkunde	Sk	S
+KrÃ¤uterkunde	Sp	A
+KrÃ¤uterkunde	Sr	S
+KrÃ¤uterkunde	Sw	A
+KrÃ¤uterkunde	SÃ¶	A
+KrÃ¤uterkunde	Th	S
+KrÃ¤uterkunde	Tm	A
+KrÃ¤uterkunde	To	S
+KrÃ¤uterkunde	Tr	A
+KrÃ¤uterkunde	Tt	S
+KrÃ¤uterkunde	Wa	G
+KrÃ¤uterkunde	Wi	S
+KrÃ¤uterkunde	dBe	G
+KrÃ¤uterkunde	eBe	G
+KrÃ¤uterkunde	gHx	G
+KrÃ¤uterkunde	sHx	G
+KrÃ¤uterkunde	tBe	G
+KrÃ¤uterkunde	wHx	G
 KujKuri	As	S
 KujKuri	BN	A
 KujKuri	BS	A
@@ -3626,7 +3626,7 @@ KujKuri	Fi	A
 KujKuri	Gl	S
 KujKuri	Hj	A
 KujKuri	Hl	A
-KujKuri	Hä	A
+KujKuri	HÃ¤	A
 KujKuri	Kd	A
 KujKuri	Kr	A
 KujKuri	MMa	A
@@ -3653,7 +3653,7 @@ KujKuri	Sk	A
 KujKuri	Sp	S
 KujKuri	Sr	A
 KujKuri	Sw	A
-KujKuri	Sö	A
+KujKuri	SÃ¶	A
 KujKuri	Th	A
 KujKuri	To	S
 KujKuri	Tr	S
@@ -3677,7 +3677,7 @@ KujNoIu	Fi	S
 KujNoIu	Gl	S
 KujNoIu	Hj	S
 KujNoIu	Hl	S
-KujNoIu	Hä	S
+KujNoIu	HÃ¤	S
 KujNoIu	Kd	S
 KujNoIu	Kr	S
 KujNoIu	MMa	S
@@ -3704,7 +3704,7 @@ KujNoIu	Sk	S
 KujNoIu	Sp	S
 KujNoIu	Sr	S
 KujNoIu	Sw	A
-KujNoIu	Sö	S
+KujNoIu	SÃ¶	S
 KujNoIu	Th	G
 KujNoIu	To	S
 KujNoIu	Tr	S
@@ -3716,108 +3716,108 @@ KujNoIu	gHx	S
 KujNoIu	sHx	S
 KujNoIu	tBe	S
 KujNoIu	wHx	S
-Körperbemalung	As	S
-Körperbemalung	BN	S
-Körperbemalung	BS	S
-Körperbemalung	BW	S
-Körperbemalung	Ba	S
-Körperbemalung	De	S
-Körperbemalung	Dr	A
-Körperbemalung	Dt	A
-Körperbemalung	Fi	S
-Körperbemalung	Gl	S
-Körperbemalung	Hj	S
-Körperbemalung	Hl	A
-Körperbemalung	Hä	S
-Körperbemalung	Kd	S
-Körperbemalung	Kr	S
-Körperbemalung	MMa	A
-Körperbemalung	Ma	A
-Körperbemalung	Mg	S
-Körperbemalung	Ny	S
-Körperbemalung	Or	S
-Körperbemalung	PC	S
-Körperbemalung	PF	S
-Körperbemalung	PK	S
-Körperbemalung	PM	S
-Körperbemalung	PT	S
-Körperbemalung	PW	S
-Körperbemalung	Ri	S
-Körperbemalung	RiN	S
-Körperbemalung	RiS	S
-Körperbemalung	Ru	S
-Körperbemalung	Sa	S
-Körperbemalung	ScN	S
-Körperbemalung	ScS	S
-Körperbemalung	ScW	S
-Körperbemalung	Se	S
-Körperbemalung	Sk	S
-Körperbemalung	Sp	S
-Körperbemalung	Sr	S
-Körperbemalung	Sw	S
-Körperbemalung	Sö	S
-Körperbemalung	Th	G
-Körperbemalung	To	S
-Körperbemalung	Tr	S
-Körperbemalung	Tt	S
-Körperbemalung	Wa	S
-Körperbemalung	dBe	A
-Körperbemalung	eBe	A
-Körperbemalung	gHx	A
-Körperbemalung	sHx	A
-Körperbemalung	tBe	A
-Körperbemalung	wHx	A
-Körperkontrolle	As	A
-Körperkontrolle	BN	A
-Körperkontrolle	BS	A
-Körperkontrolle	BW	A
-Körperkontrolle	Ba	A
-Körperkontrolle	De	A
-Körperkontrolle	Dr	A
-Körperkontrolle	Dt	A
-Körperkontrolle	Fi	A
-Körperkontrolle	Gl	A
-Körperkontrolle	Hj	A
-Körperkontrolle	Hl	A
-Körperkontrolle	Hä	A
-Körperkontrolle	Kd	A
-Körperkontrolle	Kr	A
-Körperkontrolle	MMa	A
-Körperkontrolle	Ma	A
-Körperkontrolle	Mg	A
-Körperkontrolle	Ny	A
-Körperkontrolle	Or	A
-Körperkontrolle	PC	A
-Körperkontrolle	PF	A
-Körperkontrolle	PK	A
-Körperkontrolle	PM	A
-Körperkontrolle	PT	A
-Körperkontrolle	PW	A
-Körperkontrolle	Ri	A
-Körperkontrolle	RiN	A
-Körperkontrolle	RiS	A
-Körperkontrolle	Ru	A
-Körperkontrolle	Sa	S
-Körperkontrolle	ScN	A
-Körperkontrolle	ScS	A
-Körperkontrolle	ScW	A
-Körperkontrolle	Se	A
-Körperkontrolle	Sk	A
-Körperkontrolle	Sp	A
-Körperkontrolle	Sr	S
-Körperkontrolle	Sw	S
-Körperkontrolle	Sö	A
-Körperkontrolle	Th	A
-Körperkontrolle	To	A
-Körperkontrolle	Tr	A
-Körperkontrolle	Tt	A
-Körperkontrolle	Wa	A
-Körperkontrolle	dBe	A
-Körperkontrolle	eBe	A
-Körperkontrolle	gHx	A
-Körperkontrolle	sHx	A
-Körperkontrolle	tBe	A
-Körperkontrolle	wHx	A
+KÃ¶rperbemalung	As	S
+KÃ¶rperbemalung	BN	S
+KÃ¶rperbemalung	BS	S
+KÃ¶rperbemalung	BW	S
+KÃ¶rperbemalung	Ba	S
+KÃ¶rperbemalung	De	S
+KÃ¶rperbemalung	Dr	A
+KÃ¶rperbemalung	Dt	A
+KÃ¶rperbemalung	Fi	S
+KÃ¶rperbemalung	Gl	S
+KÃ¶rperbemalung	Hj	S
+KÃ¶rperbemalung	Hl	A
+KÃ¶rperbemalung	HÃ¤	S
+KÃ¶rperbemalung	Kd	S
+KÃ¶rperbemalung	Kr	S
+KÃ¶rperbemalung	MMa	A
+KÃ¶rperbemalung	Ma	A
+KÃ¶rperbemalung	Mg	S
+KÃ¶rperbemalung	Ny	S
+KÃ¶rperbemalung	Or	S
+KÃ¶rperbemalung	PC	S
+KÃ¶rperbemalung	PF	S
+KÃ¶rperbemalung	PK	S
+KÃ¶rperbemalung	PM	S
+KÃ¶rperbemalung	PT	S
+KÃ¶rperbemalung	PW	S
+KÃ¶rperbemalung	Ri	S
+KÃ¶rperbemalung	RiN	S
+KÃ¶rperbemalung	RiS	S
+KÃ¶rperbemalung	Ru	S
+KÃ¶rperbemalung	Sa	S
+KÃ¶rperbemalung	ScN	S
+KÃ¶rperbemalung	ScS	S
+KÃ¶rperbemalung	ScW	S
+KÃ¶rperbemalung	Se	S
+KÃ¶rperbemalung	Sk	S
+KÃ¶rperbemalung	Sp	S
+KÃ¶rperbemalung	Sr	S
+KÃ¶rperbemalung	Sw	S
+KÃ¶rperbemalung	SÃ¶	S
+KÃ¶rperbemalung	Th	G
+KÃ¶rperbemalung	To	S
+KÃ¶rperbemalung	Tr	S
+KÃ¶rperbemalung	Tt	S
+KÃ¶rperbemalung	Wa	S
+KÃ¶rperbemalung	dBe	A
+KÃ¶rperbemalung	eBe	A
+KÃ¶rperbemalung	gHx	A
+KÃ¶rperbemalung	sHx	A
+KÃ¶rperbemalung	tBe	A
+KÃ¶rperbemalung	wHx	A
+KÃ¶rperkontrolle	As	A
+KÃ¶rperkontrolle	BN	A
+KÃ¶rperkontrolle	BS	A
+KÃ¶rperkontrolle	BW	A
+KÃ¶rperkontrolle	Ba	A
+KÃ¶rperkontrolle	De	A
+KÃ¶rperkontrolle	Dr	A
+KÃ¶rperkontrolle	Dt	A
+KÃ¶rperkontrolle	Fi	A
+KÃ¶rperkontrolle	Gl	A
+KÃ¶rperkontrolle	Hj	A
+KÃ¶rperkontrolle	Hl	A
+KÃ¶rperkontrolle	HÃ¤	A
+KÃ¶rperkontrolle	Kd	A
+KÃ¶rperkontrolle	Kr	A
+KÃ¶rperkontrolle	MMa	A
+KÃ¶rperkontrolle	Ma	A
+KÃ¶rperkontrolle	Mg	A
+KÃ¶rperkontrolle	Ny	A
+KÃ¶rperkontrolle	Or	A
+KÃ¶rperkontrolle	PC	A
+KÃ¶rperkontrolle	PF	A
+KÃ¶rperkontrolle	PK	A
+KÃ¶rperkontrolle	PM	A
+KÃ¶rperkontrolle	PT	A
+KÃ¶rperkontrolle	PW	A
+KÃ¶rperkontrolle	Ri	A
+KÃ¶rperkontrolle	RiN	A
+KÃ¶rperkontrolle	RiS	A
+KÃ¶rperkontrolle	Ru	A
+KÃ¶rperkontrolle	Sa	S
+KÃ¶rperkontrolle	ScN	A
+KÃ¶rperkontrolle	ScS	A
+KÃ¶rperkontrolle	ScW	A
+KÃ¶rperkontrolle	Se	A
+KÃ¶rperkontrolle	Sk	A
+KÃ¶rperkontrolle	Sp	A
+KÃ¶rperkontrolle	Sr	S
+KÃ¶rperkontrolle	Sw	S
+KÃ¶rperkontrolle	SÃ¶	A
+KÃ¶rperkontrolle	Th	A
+KÃ¶rperkontrolle	To	A
+KÃ¶rperkontrolle	Tr	A
+KÃ¶rperkontrolle	Tt	A
+KÃ¶rperkontrolle	Wa	A
+KÃ¶rperkontrolle	dBe	A
+KÃ¶rperkontrolle	eBe	A
+KÃ¶rperkontrolle	gHx	A
+KÃ¶rperkontrolle	sHx	A
+KÃ¶rperkontrolle	tBe	A
+KÃ¶rperkontrolle	wHx	A
 Landeskunde	As	S
 Landeskunde	BN	S
 Landeskunde	BS	S
@@ -3831,7 +3831,7 @@ Landeskunde	Fi	S
 Landeskunde	Gl	G
 Landeskunde	Hj	G
 Landeskunde	Hl	S
-Landeskunde	Hä	G
+Landeskunde	HÃ¤	G
 Landeskunde	Kd	S
 Landeskunde	Km	S
 Landeskunde	Kr	S
@@ -3861,7 +3861,7 @@ Landeskunde	Sk	G
 Landeskunde	Sp	S
 Landeskunde	Sr	S
 Landeskunde	Sw	S
-Landeskunde	Sö	S
+Landeskunde	SÃ¶	S
 Landeskunde	Th	S
 Landeskunde	Tm	S
 Landeskunde	To	G
@@ -3888,7 +3888,7 @@ Laufen	Fi	G
 Laufen	Gl	S
 Laufen	Hj	S
 Laufen	Hl	A
-Laufen	Hä	S
+Laufen	HÃ¤	S
 Laufen	Kd	S
 Laufen	Km	S
 Laufen	Kr	S
@@ -3919,7 +3919,7 @@ Laufen	Sk	S
 Laufen	Sp	S
 Laufen	Sr	S
 Laufen	Sw	S
-Laufen	Sö	S
+Laufen	SÃ¶	S
 Laufen	Th	S
 Laufen	Tm	G
 Laufen	To	S
@@ -3946,7 +3946,7 @@ Lesen von Geisterschrift	Fi	A
 Lesen von Geisterschrift	Gl	A
 Lesen von Geisterschrift	Hj	S
 Lesen von Geisterschrift	Hl	G
-Lesen von Geisterschrift	Hä	A
+Lesen von Geisterschrift	HÃ¤	A
 Lesen von Geisterschrift	Kd	A
 Lesen von Geisterschrift	Km	A
 Lesen von Geisterschrift	Kr	A
@@ -3977,7 +3977,7 @@ Lesen von Geisterschrift	Sk	S
 Lesen von Geisterschrift	Sp	A
 Lesen von Geisterschrift	Sr	A
 Lesen von Geisterschrift	Sw	S
-Lesen von Geisterschrift	Sö	A
+Lesen von Geisterschrift	SÃ¶	A
 Lesen von Geisterschrift	Th	S
 Lesen von Geisterschrift	Tm	A
 Lesen von Geisterschrift	To	A
@@ -4004,7 +4004,7 @@ Lesen von Zauberrunen	Fi	A
 Lesen von Zauberrunen	Gl	A
 Lesen von Zauberrunen	Hj	S
 Lesen von Zauberrunen	Hl	S
-Lesen von Zauberrunen	Hä	A
+Lesen von Zauberrunen	HÃ¤	A
 Lesen von Zauberrunen	Kd	A
 Lesen von Zauberrunen	Km	A
 Lesen von Zauberrunen	Kr	A
@@ -4035,7 +4035,7 @@ Lesen von Zauberrunen	Sk	G
 Lesen von Zauberrunen	Sp	A
 Lesen von Zauberrunen	Sr	A
 Lesen von Zauberrunen	Sw	S
-Lesen von Zauberrunen	Sö	A
+Lesen von Zauberrunen	SÃ¶	A
 Lesen von Zauberrunen	Th	G
 Lesen von Zauberrunen	Tm	A
 Lesen von Zauberrunen	To	A
@@ -4062,7 +4062,7 @@ Lesen von Zauberschrift	Fi	S
 Lesen von Zauberschrift	Gl	A
 Lesen von Zauberschrift	Hj	S
 Lesen von Zauberschrift	Hl	G
-Lesen von Zauberschrift	Hä	A
+Lesen von Zauberschrift	HÃ¤	A
 Lesen von Zauberschrift	Kd	A
 Lesen von Zauberschrift	Km	G
 Lesen von Zauberschrift	Kr	A
@@ -4093,7 +4093,7 @@ Lesen von Zauberschrift	Sk	A
 Lesen von Zauberschrift	Sp	A
 Lesen von Zauberschrift	Sr	A
 Lesen von Zauberschrift	Sw	G
-Lesen von Zauberschrift	Sö	A
+Lesen von Zauberschrift	SÃ¶	A
 Lesen von Zauberschrift	Th	G
 Lesen von Zauberschrift	Tm	A
 Lesen von Zauberschrift	To	G
@@ -4119,7 +4119,7 @@ LiYao	Fi	S
 LiYao	Gl	S
 LiYao	Hj	S
 LiYao	Hl	A
-LiYao	Hä	S
+LiYao	HÃ¤	S
 LiYao	Kd	S
 LiYao	Kr	S
 LiYao	MMa	S
@@ -4146,7 +4146,7 @@ LiYao	Sk	A
 LiYao	Sp	S
 LiYao	Sr	S
 LiYao	Sw	S
-LiYao	Sö	S
+LiYao	SÃ¶	S
 LiYao	Th	G
 LiYao	To	S
 LiYao	Tr	S
@@ -4171,7 +4171,7 @@ Lippenlesen	Fi	S
 Lippenlesen	Gl	S
 Lippenlesen	Hj	S
 Lippenlesen	Hl	S
-Lippenlesen	Hä	S
+Lippenlesen	HÃ¤	S
 Lippenlesen	Kd	S
 Lippenlesen	Km	S
 Lippenlesen	Kr	S
@@ -4202,7 +4202,7 @@ Lippenlesen	Sk	S
 Lippenlesen	Sp	S
 Lippenlesen	Sr	S
 Lippenlesen	Sw	S
-Lippenlesen	Sö	S
+Lippenlesen	SÃ¶	S
 Lippenlesen	Th	S
 Lippenlesen	Tm	S
 Lippenlesen	To	G
@@ -4229,7 +4229,7 @@ Meditieren	Fi	S
 Meditieren	Gl	A
 Meditieren	Hj	S
 Meditieren	Hl	S
-Meditieren	Hä	A
+Meditieren	HÃ¤	A
 Meditieren	Kd	G
 Meditieren	Km	S
 Meditieren	Kr	S
@@ -4257,7 +4257,7 @@ Meditieren	Sk	S
 Meditieren	Sp	A
 Meditieren	Sr	G
 Meditieren	Sw	A
-Meditieren	Sö	A
+Meditieren	SÃ¶	A
 Meditieren	Th	A
 Meditieren	Tm	G
 Meditieren	To	S
@@ -4284,7 +4284,7 @@ Menschenkenntnis	Fi	S
 Menschenkenntnis	Gl	G
 Menschenkenntnis	Hj	G
 Menschenkenntnis	Hl	G
-Menschenkenntnis	Hä	G
+Menschenkenntnis	HÃ¤	G
 Menschenkenntnis	Kd	S
 Menschenkenntnis	Km	S
 Menschenkenntnis	Kr	S
@@ -4315,7 +4315,7 @@ Menschenkenntnis	Sk	G
 Menschenkenntnis	Sp	G
 Menschenkenntnis	Sr	S
 Menschenkenntnis	Sw	G
-Menschenkenntnis	Sö	S
+Menschenkenntnis	SÃ¶	S
 Menschenkenntnis	Th	S
 Menschenkenntnis	Tm	S
 Menschenkenntnis	To	S
@@ -4342,7 +4342,7 @@ Meucheln	Fi	A
 Meucheln	Gl	S
 Meucheln	Hj	A
 Meucheln	Hl	A
-Meucheln	Hä	S
+Meucheln	HÃ¤	S
 Meucheln	Kd	S
 Meucheln	Kr	A
 Meucheln	Ku	S
@@ -4372,7 +4372,7 @@ Meucheln	Sk	A
 Meucheln	Sp	G
 Meucheln	Sr	S
 Meucheln	Sw	S
-Meucheln	Sö	S
+Meucheln	SÃ¶	S
 Meucheln	Th	A
 Meucheln	Tm	S
 Meucheln	To	G
@@ -4398,7 +4398,7 @@ MiChen	Fi	S
 MiChen	Gl	S
 MiChen	Hj	S
 MiChen	Hl	G
-MiChen	Hä	S
+MiChen	HÃ¤	S
 MiChen	Kd	S
 MiChen	Kr	S
 MiChen	MMa	A
@@ -4425,7 +4425,7 @@ MiChen	Sk	S
 MiChen	Sp	S
 MiChen	Sr	S
 MiChen	Sw	S
-MiChen	Sö	S
+MiChen	SÃ¶	S
 MiChen	Th	A
 MiChen	To	G
 MiChen	Tr	S
@@ -4449,7 +4449,7 @@ Mumifizieren	Fi	A
 Mumifizieren	Gl	A
 Mumifizieren	Hj	A
 Mumifizieren	Hl	G
-Mumifizieren	Hä	A
+Mumifizieren	HÃ¤	A
 Mumifizieren	Kd	A
 Mumifizieren	Kr	A
 Mumifizieren	MMa	S
@@ -4476,7 +4476,7 @@ Mumifizieren	Sk	A
 Mumifizieren	Sp	A
 Mumifizieren	Sr	A
 Mumifizieren	Sw	S
-Mumifizieren	Sö	A
+Mumifizieren	SÃ¶	A
 Mumifizieren	Th	A
 Mumifizieren	To	A
 Mumifizieren	Tr	A
@@ -4501,7 +4501,7 @@ Musizieren	Fi	S
 Musizieren	Gl	S
 Musizieren	Hj	S
 Musizieren	Hl	S
-Musizieren	Hä	S
+Musizieren	HÃ¤	S
 Musizieren	Kd	S
 Musizieren	Km	S
 Musizieren	Kr	S
@@ -4532,7 +4532,7 @@ Musizieren	Sk	G
 Musizieren	Sp	S
 Musizieren	Sr	S
 Musizieren	Sw	S
-Musizieren	Sö	S
+Musizieren	SÃ¶	S
 Musizieren	Th	S
 Musizieren	Tm	S
 Musizieren	To	S
@@ -4559,7 +4559,7 @@ Naturkunde	Fi	S
 Naturkunde	Gl	S
 Naturkunde	Hj	A
 Naturkunde	Hl	S
-Naturkunde	Hä	S
+Naturkunde	HÃ¤	S
 Naturkunde	Kd	S
 Naturkunde	Km	S
 Naturkunde	Kr	A
@@ -4590,7 +4590,7 @@ Naturkunde	Sk	S
 Naturkunde	Sp	A
 Naturkunde	Sr	S
 Naturkunde	Sw	A
-Naturkunde	Sö	A
+Naturkunde	SÃ¶	A
 Naturkunde	Th	S
 Naturkunde	Tm	G
 Naturkunde	To	S
@@ -4616,7 +4616,7 @@ Natya	Fi	A
 Natya	Gl	A
 Natya	Hj	A
 Natya	Hl	A
-Natya	Hä	A
+Natya	HÃ¤	A
 Natya	Kd	A
 Natya	Kr	A
 Natya	MMa	A
@@ -4643,7 +4643,7 @@ Natya	Sk	S
 Natya	Sp	A
 Natya	Sr	A
 Natya	Sw	S
-Natya	Sö	A
+Natya	SÃ¶	A
 Natya	Th	A
 Natya	To	A
 Natya	Tr	A
@@ -4667,7 +4667,7 @@ NinJutsu	Fi	A
 NinJutsu	Gl	A
 NinJutsu	Hj	A
 NinJutsu	Hl	S
-NinJutsu	Hä	A
+NinJutsu	HÃ¤	A
 NinJutsu	Kd	S
 NinJutsu	Kr	A
 NinJutsu	MMa	S
@@ -4694,7 +4694,7 @@ NinJutsu	Sk	A
 NinJutsu	Sp	S
 NinJutsu	Sr	A
 NinJutsu	Sw	S
-NinJutsu	Sö	A
+NinJutsu	SÃ¶	A
 NinJutsu	Th	S
 NinJutsu	To	S
 NinJutsu	Tr	S
@@ -4718,7 +4718,7 @@ Orakelkunst	Fi	A
 Orakelkunst	Gl	A
 Orakelkunst	Hj	A
 Orakelkunst	Hl	S
-Orakelkunst	Hä	A
+Orakelkunst	HÃ¤	A
 Orakelkunst	Kd	A
 Orakelkunst	Km	S
 Orakelkunst	Kr	A
@@ -4746,7 +4746,7 @@ Orakelkunst	Sk	A
 Orakelkunst	Sp	A
 Orakelkunst	Sr	A
 Orakelkunst	Sw	S
-Orakelkunst	Sö	A
+Orakelkunst	SÃ¶	A
 Orakelkunst	Th	S
 Orakelkunst	To	G
 Orakelkunst	Tr	A
@@ -4770,7 +4770,7 @@ Pflanzenkunde	Fi	S
 Pflanzenkunde	Gl	S
 Pflanzenkunde	Hj	A
 Pflanzenkunde	Hl	G
-Pflanzenkunde	Hä	S
+Pflanzenkunde	HÃ¤	S
 Pflanzenkunde	Kd	S
 Pflanzenkunde	Km	S
 Pflanzenkunde	Kr	A
@@ -4801,7 +4801,7 @@ Pflanzenkunde	Sk	S
 Pflanzenkunde	Sp	A
 Pflanzenkunde	Sr	S
 Pflanzenkunde	Sw	S
-Pflanzenkunde	Sö	A
+Pflanzenkunde	SÃ¶	A
 Pflanzenkunde	Th	S
 Pflanzenkunde	Tm	A
 Pflanzenkunde	To	S
@@ -4854,7 +4854,7 @@ Rechnen	Fi	A
 Rechnen	Gl	S
 Rechnen	Hj	S
 Rechnen	Hl	S
-Rechnen	Hä	G
+Rechnen	HÃ¤	G
 Rechnen	Kd	S
 Rechnen	Km	A
 Rechnen	Kr	A
@@ -4885,7 +4885,7 @@ Rechnen	Sk	S
 Rechnen	Sp	S
 Rechnen	Sr	S
 Rechnen	Sw	S
-Rechnen	Sö	A
+Rechnen	SÃ¶	A
 Rechnen	Th	G
 Rechnen	Tm	A
 Rechnen	To	S
@@ -4912,7 +4912,7 @@ Reiten	Fi	S
 Reiten	Gl	G
 Reiten	Hj	S
 Reiten	Hl	S
-Reiten	Hä	G
+Reiten	HÃ¤	G
 Reiten	Kd	A
 Reiten	Km	G
 Reiten	Kr	G
@@ -4943,7 +4943,7 @@ Reiten	Sk	G
 Reiten	Sp	G
 Reiten	Sr	A
 Reiten	Sw	S
-Reiten	Sö	G
+Reiten	SÃ¶	G
 Reiten	Th	S
 Reiten	Tm	G
 Reiten	To	S
@@ -4970,7 +4970,7 @@ Rudern	Fi	S
 Rudern	Gl	S
 Rudern	Hj	S
 Rudern	Hl	S
-Rudern	Hä	G
+Rudern	HÃ¤	G
 Rudern	Kd	S
 Rudern	Km	S
 Rudern	Kr	S
@@ -5001,7 +5001,7 @@ Rudern	Sk	S
 Rudern	Sp	S
 Rudern	Sr	S
 Rudern	Sw	S
-Rudern	Sö	S
+Rudern	SÃ¶	S
 Rudern	Th	S
 Rudern	Tm	S
 Rudern	To	S
@@ -5028,7 +5028,7 @@ Sagenkunde	Fi	S
 Sagenkunde	Gl	S
 Sagenkunde	Hj	S
 Sagenkunde	Hl	G
-Sagenkunde	Hä	S
+Sagenkunde	HÃ¤	S
 Sagenkunde	Kd	S
 Sagenkunde	Km	G
 Sagenkunde	Kr	S
@@ -5059,7 +5059,7 @@ Sagenkunde	Sk	G
 Sagenkunde	Sp	S
 Sagenkunde	Sr	S
 Sagenkunde	Sw	S
-Sagenkunde	Sö	S
+Sagenkunde	SÃ¶	S
 Sagenkunde	Th	G
 Sagenkunde	Tm	S
 Sagenkunde	To	S
@@ -5073,64 +5073,64 @@ Sagenkunde	gHx	G
 Sagenkunde	sHx	G
 Sagenkunde	tBe	G
 Sagenkunde	wHx	G
-Scharfschießen	As	G
-Scharfschießen	BN	S
-Scharfschießen	BS	S
-Scharfschießen	BW	S
-Scharfschießen	Ba	S
-Scharfschießen	De	A
-Scharfschießen	Dr	A
-Scharfschießen	Dt	A
-Scharfschießen	Er	S
-Scharfschießen	Fi	G
-Scharfschießen	Gl	S
-Scharfschießen	Hj	A
-Scharfschießen	Hl	A
-Scharfschießen	Hä	S
-Scharfschießen	Kd	S
-Scharfschießen	Km	S
-Scharfschießen	Kr	S
-Scharfschießen	Ku	G
-Scharfschießen	MMa	A
-Scharfschießen	Ma	A
-Scharfschießen	Mg	S
-Scharfschießen	Ny	G
-Scharfschießen	Or	S
-Scharfschießen	PC	A
-Scharfschießen	PF	A
-Scharfschießen	PHa	A
-Scharfschießen	PHe	A
-Scharfschießen	PK	A
-Scharfschießen	PM	A
-Scharfschießen	PT	A
-Scharfschießen	PW	A
-Scharfschießen	Ri	S
-Scharfschießen	RiN	S
-Scharfschießen	RiS	S
-Scharfschießen	Ru	G
-Scharfschießen	Sa	S
-Scharfschießen	ScN	S
-Scharfschießen	ScS	S
-Scharfschießen	ScW	S
-Scharfschießen	Se	S
-Scharfschießen	Sk	S
-Scharfschießen	Sp	S
-Scharfschießen	Sr	S
-Scharfschießen	Sw	S
-Scharfschießen	Sö	S
-Scharfschießen	Th	S
-Scharfschießen	Tm	S
-Scharfschießen	To	S
-Scharfschießen	Tr	S
-Scharfschießen	Tt	A
-Scharfschießen	Wa	G
-Scharfschießen	Wi	S
-Scharfschießen	dBe	A
-Scharfschießen	eBe	A
-Scharfschießen	gHx	A
-Scharfschießen	sHx	A
-Scharfschießen	tBe	A
-Scharfschießen	wHx	A
+ScharfschieÃŸen	As	G
+ScharfschieÃŸen	BN	S
+ScharfschieÃŸen	BS	S
+ScharfschieÃŸen	BW	S
+ScharfschieÃŸen	Ba	S
+ScharfschieÃŸen	De	A
+ScharfschieÃŸen	Dr	A
+ScharfschieÃŸen	Dt	A
+ScharfschieÃŸen	Er	S
+ScharfschieÃŸen	Fi	G
+ScharfschieÃŸen	Gl	S
+ScharfschieÃŸen	Hj	A
+ScharfschieÃŸen	Hl	A
+ScharfschieÃŸen	HÃ¤	S
+ScharfschieÃŸen	Kd	S
+ScharfschieÃŸen	Km	S
+ScharfschieÃŸen	Kr	S
+ScharfschieÃŸen	Ku	G
+ScharfschieÃŸen	MMa	A
+ScharfschieÃŸen	Ma	A
+ScharfschieÃŸen	Mg	S
+ScharfschieÃŸen	Ny	G
+ScharfschieÃŸen	Or	S
+ScharfschieÃŸen	PC	A
+ScharfschieÃŸen	PF	A
+ScharfschieÃŸen	PHa	A
+ScharfschieÃŸen	PHe	A
+ScharfschieÃŸen	PK	A
+ScharfschieÃŸen	PM	A
+ScharfschieÃŸen	PT	A
+ScharfschieÃŸen	PW	A
+ScharfschieÃŸen	Ri	S
+ScharfschieÃŸen	RiN	S
+ScharfschieÃŸen	RiS	S
+ScharfschieÃŸen	Ru	G
+ScharfschieÃŸen	Sa	S
+ScharfschieÃŸen	ScN	S
+ScharfschieÃŸen	ScS	S
+ScharfschieÃŸen	ScW	S
+ScharfschieÃŸen	Se	S
+ScharfschieÃŸen	Sk	S
+ScharfschieÃŸen	Sp	S
+ScharfschieÃŸen	Sr	S
+ScharfschieÃŸen	Sw	S
+ScharfschieÃŸen	SÃ¶	S
+ScharfschieÃŸen	Th	S
+ScharfschieÃŸen	Tm	S
+ScharfschieÃŸen	To	S
+ScharfschieÃŸen	Tr	S
+ScharfschieÃŸen	Tt	A
+ScharfschieÃŸen	Wa	G
+ScharfschieÃŸen	Wi	S
+ScharfschieÃŸen	dBe	A
+ScharfschieÃŸen	eBe	A
+ScharfschieÃŸen	gHx	A
+ScharfschieÃŸen	sHx	A
+ScharfschieÃŸen	tBe	A
+ScharfschieÃŸen	wHx	A
 Schauspielern	As	G
 Schauspielern	BN	A
 Schauspielern	BS	A
@@ -5144,7 +5144,7 @@ Schauspielern	Fi	A
 Schauspielern	Gl	G
 Schauspielern	Hj	S
 Schauspielern	Hl	S
-Schauspielern	Hä	G
+Schauspielern	HÃ¤	G
 Schauspielern	Kd	S
 Schauspielern	Km	A
 Schauspielern	Kr	A
@@ -5174,7 +5174,7 @@ Schauspielern	Sk	G
 Schauspielern	Sp	S
 Schauspielern	Sr	S
 Schauspielern	Sw	S
-Schauspielern	Sö	S
+Schauspielern	SÃ¶	S
 Schauspielern	Th	S
 Schauspielern	Tm	A
 Schauspielern	To	G
@@ -5188,121 +5188,121 @@ Schauspielern	gHx	S
 Schauspielern	sHx	S
 Schauspielern	tBe	G
 Schauspielern	wHx	S
-Schießen vom Streitwagen	As	S
-Schießen vom Streitwagen	BN	S
-Schießen vom Streitwagen	BS	G
-Schießen vom Streitwagen	BW	S
-Schießen vom Streitwagen	Ba	S
-Schießen vom Streitwagen	De	A
-Schießen vom Streitwagen	Dr	A
-Schießen vom Streitwagen	Dt	A
-Schießen vom Streitwagen	Er	S
-Schießen vom Streitwagen	Fi	S
-Schießen vom Streitwagen	Gl	S
-Schießen vom Streitwagen	Hj	A
-Schießen vom Streitwagen	Hl	A
-Schießen vom Streitwagen	Hä	S
-Schießen vom Streitwagen	Kd	S
-Schießen vom Streitwagen	Km	G
-Schießen vom Streitwagen	Kr	G
-Schießen vom Streitwagen	Ku	S
-Schießen vom Streitwagen	MMa	A
-Schießen vom Streitwagen	Ma	A
-Schießen vom Streitwagen	Mg	A
-Schießen vom Streitwagen	Ny	S
-Schießen vom Streitwagen	Or	S
-Schießen vom Streitwagen	PF	A
-Schießen vom Streitwagen	PHa	A
-Schießen vom Streitwagen	PHe	A
-Schießen vom Streitwagen	PK	A
-Schießen vom Streitwagen	PM	A
-Schießen vom Streitwagen	PT	A
-Schießen vom Streitwagen	PW	A
-Schießen vom Streitwagen	Ri	S
-Schießen vom Streitwagen	RiN	S
-Schießen vom Streitwagen	RiS	S
-Schießen vom Streitwagen	Ru	S
-Schießen vom Streitwagen	Sa	A
-Schießen vom Streitwagen	ScN	A
-Schießen vom Streitwagen	ScS	A
-Schießen vom Streitwagen	ScW	A
-Schießen vom Streitwagen	Se	S
-Schießen vom Streitwagen	Sk	S
-Schießen vom Streitwagen	Sp	S
-Schießen vom Streitwagen	Sr	S
-Schießen vom Streitwagen	Sw	A
-Schießen vom Streitwagen	Sö	G
-Schießen vom Streitwagen	Th	A
-Schießen vom Streitwagen	Tm	S
-Schießen vom Streitwagen	To	A
-Schießen vom Streitwagen	Tr	S
-Schießen vom Streitwagen	Tt	A
-Schießen vom Streitwagen	Wa	S
-Schießen vom Streitwagen	Wi	S
-Schießen vom Streitwagen	dBe	A
-Schießen vom Streitwagen	eBe	A
-Schießen vom Streitwagen	gHx	A
-Schießen vom Streitwagen	sHx	A
-Schießen vom Streitwagen	tBe	A
-Schießen vom Streitwagen	wHx	A
-Schiffsführung	As	S
-Schiffsführung	BN	S
-Schiffsführung	BS	A
-Schiffsführung	BW	A
-Schiffsführung	Ba	S
-Schiffsführung	De	A
-Schiffsführung	Dr	A
-Schiffsführung	Dt	A
-Schiffsführung	Er	S
-Schiffsführung	Fi	A
-Schiffsführung	Gl	S
-Schiffsführung	Hj	A
-Schiffsführung	Hl	A
-Schiffsführung	Hä	G
-Schiffsführung	Kd	S
-Schiffsführung	Km	S
-Schiffsführung	Kr	G
-Schiffsführung	Ku	A
-Schiffsführung	MMa	A
-Schiffsführung	Ma	A
-Schiffsführung	Mg	S
-Schiffsführung	Ny	S
-Schiffsführung	Or	S
-Schiffsführung	PC	A
-Schiffsführung	PF	A
-Schiffsführung	PHa	A
-Schiffsführung	PHe	A
-Schiffsführung	PK	S
-Schiffsführung	PM	S
-Schiffsführung	PT	A
-Schiffsführung	PW	A
-Schiffsführung	Ri	S
-Schiffsführung	RiN	S
-Schiffsführung	RiS	S
-Schiffsführung	Ru	S
-Schiffsführung	Sa	A
-Schiffsführung	ScN	A
-Schiffsführung	ScS	A
-Schiffsführung	ScW	A
-Schiffsführung	Se	G
-Schiffsführung	Sk	S
-Schiffsführung	Sp	S
-Schiffsführung	Sr	S
-Schiffsführung	Sw	A
-Schiffsführung	Sö	S
-Schiffsführung	Th	A
-Schiffsführung	Tm	S
-Schiffsführung	To	A
-Schiffsführung	Tr	S
-Schiffsführung	Tt	A
-Schiffsführung	Wa	A
-Schiffsführung	Wi	A
-Schiffsführung	dBe	A
-Schiffsführung	eBe	A
-Schiffsführung	gHx	A
-Schiffsführung	sHx	A
-Schiffsführung	tBe	A
-Schiffsführung	wHx	A
+SchieÃŸen vom Streitwagen	As	S
+SchieÃŸen vom Streitwagen	BN	S
+SchieÃŸen vom Streitwagen	BS	G
+SchieÃŸen vom Streitwagen	BW	S
+SchieÃŸen vom Streitwagen	Ba	S
+SchieÃŸen vom Streitwagen	De	A
+SchieÃŸen vom Streitwagen	Dr	A
+SchieÃŸen vom Streitwagen	Dt	A
+SchieÃŸen vom Streitwagen	Er	S
+SchieÃŸen vom Streitwagen	Fi	S
+SchieÃŸen vom Streitwagen	Gl	S
+SchieÃŸen vom Streitwagen	Hj	A
+SchieÃŸen vom Streitwagen	Hl	A
+SchieÃŸen vom Streitwagen	HÃ¤	S
+SchieÃŸen vom Streitwagen	Kd	S
+SchieÃŸen vom Streitwagen	Km	G
+SchieÃŸen vom Streitwagen	Kr	G
+SchieÃŸen vom Streitwagen	Ku	S
+SchieÃŸen vom Streitwagen	MMa	A
+SchieÃŸen vom Streitwagen	Ma	A
+SchieÃŸen vom Streitwagen	Mg	A
+SchieÃŸen vom Streitwagen	Ny	S
+SchieÃŸen vom Streitwagen	Or	S
+SchieÃŸen vom Streitwagen	PF	A
+SchieÃŸen vom Streitwagen	PHa	A
+SchieÃŸen vom Streitwagen	PHe	A
+SchieÃŸen vom Streitwagen	PK	A
+SchieÃŸen vom Streitwagen	PM	A
+SchieÃŸen vom Streitwagen	PT	A
+SchieÃŸen vom Streitwagen	PW	A
+SchieÃŸen vom Streitwagen	Ri	S
+SchieÃŸen vom Streitwagen	RiN	S
+SchieÃŸen vom Streitwagen	RiS	S
+SchieÃŸen vom Streitwagen	Ru	S
+SchieÃŸen vom Streitwagen	Sa	A
+SchieÃŸen vom Streitwagen	ScN	A
+SchieÃŸen vom Streitwagen	ScS	A
+SchieÃŸen vom Streitwagen	ScW	A
+SchieÃŸen vom Streitwagen	Se	S
+SchieÃŸen vom Streitwagen	Sk	S
+SchieÃŸen vom Streitwagen	Sp	S
+SchieÃŸen vom Streitwagen	Sr	S
+SchieÃŸen vom Streitwagen	Sw	A
+SchieÃŸen vom Streitwagen	SÃ¶	G
+SchieÃŸen vom Streitwagen	Th	A
+SchieÃŸen vom Streitwagen	Tm	S
+SchieÃŸen vom Streitwagen	To	A
+SchieÃŸen vom Streitwagen	Tr	S
+SchieÃŸen vom Streitwagen	Tt	A
+SchieÃŸen vom Streitwagen	Wa	S
+SchieÃŸen vom Streitwagen	Wi	S
+SchieÃŸen vom Streitwagen	dBe	A
+SchieÃŸen vom Streitwagen	eBe	A
+SchieÃŸen vom Streitwagen	gHx	A
+SchieÃŸen vom Streitwagen	sHx	A
+SchieÃŸen vom Streitwagen	tBe	A
+SchieÃŸen vom Streitwagen	wHx	A
+SchiffsfÃ¼hrung	As	S
+SchiffsfÃ¼hrung	BN	S
+SchiffsfÃ¼hrung	BS	A
+SchiffsfÃ¼hrung	BW	A
+SchiffsfÃ¼hrung	Ba	S
+SchiffsfÃ¼hrung	De	A
+SchiffsfÃ¼hrung	Dr	A
+SchiffsfÃ¼hrung	Dt	A
+SchiffsfÃ¼hrung	Er	S
+SchiffsfÃ¼hrung	Fi	A
+SchiffsfÃ¼hrung	Gl	S
+SchiffsfÃ¼hrung	Hj	A
+SchiffsfÃ¼hrung	Hl	A
+SchiffsfÃ¼hrung	HÃ¤	G
+SchiffsfÃ¼hrung	Kd	S
+SchiffsfÃ¼hrung	Km	S
+SchiffsfÃ¼hrung	Kr	G
+SchiffsfÃ¼hrung	Ku	A
+SchiffsfÃ¼hrung	MMa	A
+SchiffsfÃ¼hrung	Ma	A
+SchiffsfÃ¼hrung	Mg	S
+SchiffsfÃ¼hrung	Ny	S
+SchiffsfÃ¼hrung	Or	S
+SchiffsfÃ¼hrung	PC	A
+SchiffsfÃ¼hrung	PF	A
+SchiffsfÃ¼hrung	PHa	A
+SchiffsfÃ¼hrung	PHe	A
+SchiffsfÃ¼hrung	PK	S
+SchiffsfÃ¼hrung	PM	S
+SchiffsfÃ¼hrung	PT	A
+SchiffsfÃ¼hrung	PW	A
+SchiffsfÃ¼hrung	Ri	S
+SchiffsfÃ¼hrung	RiN	S
+SchiffsfÃ¼hrung	RiS	S
+SchiffsfÃ¼hrung	Ru	S
+SchiffsfÃ¼hrung	Sa	A
+SchiffsfÃ¼hrung	ScN	A
+SchiffsfÃ¼hrung	ScS	A
+SchiffsfÃ¼hrung	ScW	A
+SchiffsfÃ¼hrung	Se	G
+SchiffsfÃ¼hrung	Sk	S
+SchiffsfÃ¼hrung	Sp	S
+SchiffsfÃ¼hrung	Sr	S
+SchiffsfÃ¼hrung	Sw	A
+SchiffsfÃ¼hrung	SÃ¶	S
+SchiffsfÃ¼hrung	Th	A
+SchiffsfÃ¼hrung	Tm	S
+SchiffsfÃ¼hrung	To	A
+SchiffsfÃ¼hrung	Tr	S
+SchiffsfÃ¼hrung	Tt	A
+SchiffsfÃ¼hrung	Wa	A
+SchiffsfÃ¼hrung	Wi	A
+SchiffsfÃ¼hrung	dBe	A
+SchiffsfÃ¼hrung	eBe	A
+SchiffsfÃ¼hrung	gHx	A
+SchiffsfÃ¼hrung	sHx	A
+SchiffsfÃ¼hrung	tBe	A
+SchiffsfÃ¼hrung	wHx	A
 SchiyoKi	As	G
 SchiyoKi	BN	S
 SchiyoKi	BS	S
@@ -5315,7 +5315,7 @@ SchiyoKi	Fi	G
 SchiyoKi	Gl	S
 SchiyoKi	Hj	S
 SchiyoKi	Hl	G
-SchiyoKi	Hä	S
+SchiyoKi	HÃ¤	S
 SchiyoKi	Kd	G
 SchiyoKi	Kr	G
 SchiyoKi	MMa	S
@@ -5342,7 +5342,7 @@ SchiyoKi	Sk	S
 SchiyoKi	Sp	S
 SchiyoKi	Sr	G
 SchiyoKi	Sw	S
-SchiyoKi	Sö	S
+SchiyoKi	SÃ¶	S
 SchiyoKi	Th	A
 SchiyoKi	To	G
 SchiyoKi	Tr	S
@@ -5367,7 +5367,7 @@ Schlachtruf	Fi	G
 Schlachtruf	Gl	G
 Schlachtruf	Hj	G
 Schlachtruf	Hl	A
-Schlachtruf	Hä	G
+Schlachtruf	HÃ¤	G
 Schlachtruf	Kd	G
 Schlachtruf	Kr	G
 Schlachtruf	Ku	G
@@ -5397,7 +5397,7 @@ Schlachtruf	Sk	G
 Schlachtruf	Sp	G
 Schlachtruf	Sr	A
 Schlachtruf	Sw	S
-Schlachtruf	Sö	G
+Schlachtruf	SÃ¶	G
 Schlachtruf	Th	A
 Schlachtruf	Tm	G
 Schlachtruf	To	S
@@ -5411,57 +5411,57 @@ Schlachtruf	gHx	A
 Schlachtruf	sHx	A
 Schlachtruf	tBe	A
 Schlachtruf	wHx	A
-Schlangen beschwören	As	A
-Schlangen beschwören	BN	A
-Schlangen beschwören	BS	A
-Schlangen beschwören	BW	A
-Schlangen beschwören	Ba	A
-Schlangen beschwören	De	A
-Schlangen beschwören	Dr	A
-Schlangen beschwören	Dt	A
-Schlangen beschwören	Fi	A
-Schlangen beschwören	Gl	A
-Schlangen beschwören	Hj	A
-Schlangen beschwören	Hl	A
-Schlangen beschwören	Hä	A
-Schlangen beschwören	Kd	G
-Schlangen beschwören	Kr	A
-Schlangen beschwören	MMa	A
-Schlangen beschwören	Ma	A
-Schlangen beschwören	Mg	A
-Schlangen beschwören	Ny	G
-Schlangen beschwören	Or	A
-Schlangen beschwören	PC	A
-Schlangen beschwören	PF	A
-Schlangen beschwören	PK	A
-Schlangen beschwören	PM	A
-Schlangen beschwören	PT	A
-Schlangen beschwören	PW	A
-Schlangen beschwören	Ri	A
-Schlangen beschwören	RiN	A
-Schlangen beschwören	RiS	A
-Schlangen beschwören	Ru	A
-Schlangen beschwören	Sa	G
-Schlangen beschwören	ScN	A
-Schlangen beschwören	ScS	A
-Schlangen beschwören	ScW	A
-Schlangen beschwören	Se	A
-Schlangen beschwören	Sk	A
-Schlangen beschwören	Sp	A
-Schlangen beschwören	Sr	A
-Schlangen beschwören	Sw	S
-Schlangen beschwören	Sö	A
-Schlangen beschwören	Th	A
-Schlangen beschwören	To	A
-Schlangen beschwören	Tr	A
-Schlangen beschwören	Tt	A
-Schlangen beschwören	Wa	A
-Schlangen beschwören	dBe	A
-Schlangen beschwören	eBe	A
-Schlangen beschwören	gHx	A
-Schlangen beschwören	sHx	A
-Schlangen beschwören	tBe	A
-Schlangen beschwören	wHx	A
+Schlangen beschwÃ¶ren	As	A
+Schlangen beschwÃ¶ren	BN	A
+Schlangen beschwÃ¶ren	BS	A
+Schlangen beschwÃ¶ren	BW	A
+Schlangen beschwÃ¶ren	Ba	A
+Schlangen beschwÃ¶ren	De	A
+Schlangen beschwÃ¶ren	Dr	A
+Schlangen beschwÃ¶ren	Dt	A
+Schlangen beschwÃ¶ren	Fi	A
+Schlangen beschwÃ¶ren	Gl	A
+Schlangen beschwÃ¶ren	Hj	A
+Schlangen beschwÃ¶ren	Hl	A
+Schlangen beschwÃ¶ren	HÃ¤	A
+Schlangen beschwÃ¶ren	Kd	G
+Schlangen beschwÃ¶ren	Kr	A
+Schlangen beschwÃ¶ren	MMa	A
+Schlangen beschwÃ¶ren	Ma	A
+Schlangen beschwÃ¶ren	Mg	A
+Schlangen beschwÃ¶ren	Ny	G
+Schlangen beschwÃ¶ren	Or	A
+Schlangen beschwÃ¶ren	PC	A
+Schlangen beschwÃ¶ren	PF	A
+Schlangen beschwÃ¶ren	PK	A
+Schlangen beschwÃ¶ren	PM	A
+Schlangen beschwÃ¶ren	PT	A
+Schlangen beschwÃ¶ren	PW	A
+Schlangen beschwÃ¶ren	Ri	A
+Schlangen beschwÃ¶ren	RiN	A
+Schlangen beschwÃ¶ren	RiS	A
+Schlangen beschwÃ¶ren	Ru	A
+Schlangen beschwÃ¶ren	Sa	G
+Schlangen beschwÃ¶ren	ScN	A
+Schlangen beschwÃ¶ren	ScS	A
+Schlangen beschwÃ¶ren	ScW	A
+Schlangen beschwÃ¶ren	Se	A
+Schlangen beschwÃ¶ren	Sk	A
+Schlangen beschwÃ¶ren	Sp	A
+Schlangen beschwÃ¶ren	Sr	A
+Schlangen beschwÃ¶ren	Sw	S
+Schlangen beschwÃ¶ren	SÃ¶	A
+Schlangen beschwÃ¶ren	Th	A
+Schlangen beschwÃ¶ren	To	A
+Schlangen beschwÃ¶ren	Tr	A
+Schlangen beschwÃ¶ren	Tt	A
+Schlangen beschwÃ¶ren	Wa	A
+Schlangen beschwÃ¶ren	dBe	A
+Schlangen beschwÃ¶ren	eBe	A
+Schlangen beschwÃ¶ren	gHx	A
+Schlangen beschwÃ¶ren	sHx	A
+Schlangen beschwÃ¶ren	tBe	A
+Schlangen beschwÃ¶ren	wHx	A
 Schleichen	As	G
 Schleichen	BN	G
 Schleichen	BS	G
@@ -5475,7 +5475,7 @@ Schleichen	Fi	S
 Schleichen	Gl	G
 Schleichen	Hj	S
 Schleichen	Hl	S
-Schleichen	Hä	S
+Schleichen	HÃ¤	S
 Schleichen	Kd	S
 Schleichen	Km	G
 Schleichen	Kr	S
@@ -5506,7 +5506,7 @@ Schleichen	Sk	S
 Schleichen	Sp	G
 Schleichen	Sr	S
 Schleichen	Sw	G
-Schleichen	Sö	S
+Schleichen	SÃ¶	S
 Schleichen	Th	S
 Schleichen	Tm	S
 Schleichen	To	G
@@ -5533,7 +5533,7 @@ Schlittenfahren	Fi	S
 Schlittenfahren	Gl	S
 Schlittenfahren	Hj	S
 Schlittenfahren	Hl	S
-Schlittenfahren	Hä	G
+Schlittenfahren	HÃ¤	G
 Schlittenfahren	Kd	S
 Schlittenfahren	Km	S
 Schlittenfahren	Kr	S
@@ -5564,7 +5564,7 @@ Schlittenfahren	Sk	S
 Schlittenfahren	Sp	S
 Schlittenfahren	Sr	S
 Schlittenfahren	Sw	S
-Schlittenfahren	Sö	S
+Schlittenfahren	SÃ¶	S
 Schlittenfahren	Th	S
 Schlittenfahren	Tm	S
 Schlittenfahren	To	S
@@ -5590,7 +5590,7 @@ Schlittschuhlaufen	Fi	S
 Schlittschuhlaufen	Gl	S
 Schlittschuhlaufen	Hj	S
 Schlittschuhlaufen	Hl	S
-Schlittschuhlaufen	Hä	S
+Schlittschuhlaufen	HÃ¤	S
 Schlittschuhlaufen	Kd	S
 Schlittschuhlaufen	Kr	S
 Schlittschuhlaufen	MMa	S
@@ -5617,7 +5617,7 @@ Schlittschuhlaufen	Sk	S
 Schlittschuhlaufen	Sp	S
 Schlittschuhlaufen	Sr	S
 Schlittschuhlaufen	Sw	S
-Schlittschuhlaufen	Sö	S
+Schlittschuhlaufen	SÃ¶	S
 Schlittschuhlaufen	Th	S
 Schlittschuhlaufen	To	S
 Schlittschuhlaufen	Tr	S
@@ -5629,63 +5629,63 @@ Schlittschuhlaufen	gHx	S
 Schlittschuhlaufen	sHx	S
 Schlittschuhlaufen	tBe	S
 Schlittschuhlaufen	wHx	S
-Schlösser öffnen	As	S
-Schlösser öffnen	BN	A
-Schlösser öffnen	BS	A
-Schlösser öffnen	BW	A
-Schlösser öffnen	Ba	S
-Schlösser öffnen	De	A
-Schlösser öffnen	Dr	A
-Schlösser öffnen	Dt	A
-Schlösser öffnen	Er	G
-Schlösser öffnen	Fi	A
-Schlösser öffnen	Gl	S
-Schlösser öffnen	Hj	A
-Schlösser öffnen	Hl	A
-Schlösser öffnen	Hä	S
-Schlösser öffnen	Kd	S
-Schlösser öffnen	Kr	A
-Schlösser öffnen	Ku	S
-Schlösser öffnen	MMa	A
-Schlösser öffnen	Ma	A
-Schlösser öffnen	Mg	S
-Schlösser öffnen	Ny	S
-Schlösser öffnen	Or	A
-Schlösser öffnen	PC	A
-Schlösser öffnen	PF	A
-Schlösser öffnen	PHa	A
-Schlösser öffnen	PHe	A
-Schlösser öffnen	PK	A
-Schlösser öffnen	PM	A
-Schlösser öffnen	PT	A
-Schlösser öffnen	PW	A
-Schlösser öffnen	Ri	A
-Schlösser öffnen	RiN	A
-Schlösser öffnen	RiS	A
-Schlösser öffnen	Ru	A
-Schlösser öffnen	Sa	A
-Schlösser öffnen	ScN	A
-Schlösser öffnen	ScS	A
-Schlösser öffnen	ScW	A
-Schlösser öffnen	Se	S
-Schlösser öffnen	Sk	S
-Schlösser öffnen	Sp	G
-Schlösser öffnen	Sr	S
-Schlösser öffnen	Sw	G
-Schlösser öffnen	Sö	A
-Schlösser öffnen	Th	A
-Schlösser öffnen	Tm	A
-Schlösser öffnen	To	A
-Schlösser öffnen	Tr	G
-Schlösser öffnen	Tt	A
-Schlösser öffnen	Wa	S
-Schlösser öffnen	Wi	A
-Schlösser öffnen	dBe	A
-Schlösser öffnen	eBe	A
-Schlösser öffnen	gHx	A
-Schlösser öffnen	sHx	A
-Schlösser öffnen	tBe	A
-Schlösser öffnen	wHx	A
+SchlÃ¶sser Ã¶ffnen	As	S
+SchlÃ¶sser Ã¶ffnen	BN	A
+SchlÃ¶sser Ã¶ffnen	BS	A
+SchlÃ¶sser Ã¶ffnen	BW	A
+SchlÃ¶sser Ã¶ffnen	Ba	S
+SchlÃ¶sser Ã¶ffnen	De	A
+SchlÃ¶sser Ã¶ffnen	Dr	A
+SchlÃ¶sser Ã¶ffnen	Dt	A
+SchlÃ¶sser Ã¶ffnen	Er	G
+SchlÃ¶sser Ã¶ffnen	Fi	A
+SchlÃ¶sser Ã¶ffnen	Gl	S
+SchlÃ¶sser Ã¶ffnen	Hj	A
+SchlÃ¶sser Ã¶ffnen	Hl	A
+SchlÃ¶sser Ã¶ffnen	HÃ¤	S
+SchlÃ¶sser Ã¶ffnen	Kd	S
+SchlÃ¶sser Ã¶ffnen	Kr	A
+SchlÃ¶sser Ã¶ffnen	Ku	S
+SchlÃ¶sser Ã¶ffnen	MMa	A
+SchlÃ¶sser Ã¶ffnen	Ma	A
+SchlÃ¶sser Ã¶ffnen	Mg	S
+SchlÃ¶sser Ã¶ffnen	Ny	S
+SchlÃ¶sser Ã¶ffnen	Or	A
+SchlÃ¶sser Ã¶ffnen	PC	A
+SchlÃ¶sser Ã¶ffnen	PF	A
+SchlÃ¶sser Ã¶ffnen	PHa	A
+SchlÃ¶sser Ã¶ffnen	PHe	A
+SchlÃ¶sser Ã¶ffnen	PK	A
+SchlÃ¶sser Ã¶ffnen	PM	A
+SchlÃ¶sser Ã¶ffnen	PT	A
+SchlÃ¶sser Ã¶ffnen	PW	A
+SchlÃ¶sser Ã¶ffnen	Ri	A
+SchlÃ¶sser Ã¶ffnen	RiN	A
+SchlÃ¶sser Ã¶ffnen	RiS	A
+SchlÃ¶sser Ã¶ffnen	Ru	A
+SchlÃ¶sser Ã¶ffnen	Sa	A
+SchlÃ¶sser Ã¶ffnen	ScN	A
+SchlÃ¶sser Ã¶ffnen	ScS	A
+SchlÃ¶sser Ã¶ffnen	ScW	A
+SchlÃ¶sser Ã¶ffnen	Se	S
+SchlÃ¶sser Ã¶ffnen	Sk	S
+SchlÃ¶sser Ã¶ffnen	Sp	G
+SchlÃ¶sser Ã¶ffnen	Sr	S
+SchlÃ¶sser Ã¶ffnen	Sw	G
+SchlÃ¶sser Ã¶ffnen	SÃ¶	A
+SchlÃ¶sser Ã¶ffnen	Th	A
+SchlÃ¶sser Ã¶ffnen	Tm	A
+SchlÃ¶sser Ã¶ffnen	To	A
+SchlÃ¶sser Ã¶ffnen	Tr	G
+SchlÃ¶sser Ã¶ffnen	Tt	A
+SchlÃ¶sser Ã¶ffnen	Wa	S
+SchlÃ¶sser Ã¶ffnen	Wi	A
+SchlÃ¶sser Ã¶ffnen	dBe	A
+SchlÃ¶sser Ã¶ffnen	eBe	A
+SchlÃ¶sser Ã¶ffnen	gHx	A
+SchlÃ¶sser Ã¶ffnen	sHx	A
+SchlÃ¶sser Ã¶ffnen	tBe	A
+SchlÃ¶sser Ã¶ffnen	wHx	A
 Schmerzen ertragen	As	A
 Schmerzen ertragen	BN	A
 Schmerzen ertragen	BS	A
@@ -5698,7 +5698,7 @@ Schmerzen ertragen	Fi	A
 Schmerzen ertragen	Gl	A
 Schmerzen ertragen	Hj	A
 Schmerzen ertragen	Hl	A
-Schmerzen ertragen	Hä	A
+Schmerzen ertragen	HÃ¤	A
 Schmerzen ertragen	Kd	A
 Schmerzen ertragen	Kr	A
 Schmerzen ertragen	MMa	A
@@ -5725,7 +5725,7 @@ Schmerzen ertragen	Sk	A
 Schmerzen ertragen	Sp	A
 Schmerzen ertragen	Sr	S
 Schmerzen ertragen	Sw	S
-Schmerzen ertragen	Sö	A
+Schmerzen ertragen	SÃ¶	A
 Schmerzen ertragen	Th	A
 Schmerzen ertragen	To	A
 Schmerzen ertragen	Tr	A
@@ -5750,7 +5750,7 @@ Schreiben	Fi	S
 Schreiben	Gl	S
 Schreiben	Hj	G
 Schreiben	Hl	G
-Schreiben	Hä	G
+Schreiben	HÃ¤	G
 Schreiben	Kd	S
 Schreiben	Km	G
 Schreiben	Kr	S
@@ -5781,7 +5781,7 @@ Schreiben	Sk	G
 Schreiben	Sp	S
 Schreiben	Sr	S
 Schreiben	Sw	S
-Schreiben	Sö	S
+Schreiben	SÃ¶	S
 Schreiben	Th	S
 Schreiben	Tm	S
 Schreiben	To	S
@@ -5807,7 +5807,7 @@ Schwerttanz	Fi	G
 Schwerttanz	Gl	G
 Schwerttanz	Hj	A
 Schwerttanz	Hl	A
-Schwerttanz	Hä	A
+Schwerttanz	HÃ¤	A
 Schwerttanz	Kd	S
 Schwerttanz	Kr	G
 Schwerttanz	MMa	A
@@ -5834,7 +5834,7 @@ Schwerttanz	Sk	S
 Schwerttanz	Sp	A
 Schwerttanz	Sr	G
 Schwerttanz	Sw	S
-Schwerttanz	Sö	G
+Schwerttanz	SÃ¶	G
 Schwerttanz	Th	A
 Schwerttanz	To	S
 Schwerttanz	Tr	A
@@ -5859,7 +5859,7 @@ Schwimmen	Fi	G
 Schwimmen	Gl	G
 Schwimmen	Hj	S
 Schwimmen	Hl	S
-Schwimmen	Hä	G
+Schwimmen	HÃ¤	G
 Schwimmen	Kd	G
 Schwimmen	Km	G
 Schwimmen	Kr	G
@@ -5890,7 +5890,7 @@ Schwimmen	Sk	G
 Schwimmen	Sp	S
 Schwimmen	Sr	G
 Schwimmen	Sw	S
-Schwimmen	Sö	G
+Schwimmen	SÃ¶	G
 Schwimmen	Th	S
 Schwimmen	Tm	G
 Schwimmen	To	G
@@ -5904,62 +5904,62 @@ Schwimmen	gHx	S
 Schwimmen	sHx	S
 Schwimmen	tBe	S
 Schwimmen	wHx	S
-Schätzen	As	S
-Schätzen	BN	A
-Schätzen	BS	A
-Schätzen	BW	A
-Schätzen	Ba	S
-Schätzen	De	A
-Schätzen	Dr	S
-Schätzen	Dt	S
-Schätzen	Er	S
-Schätzen	Fi	A
-Schätzen	Gl	S
-Schätzen	Hj	S
-Schätzen	Hl	S
-Schätzen	Hä	G
-Schätzen	Kd	G
-Schätzen	Kr	S
-Schätzen	Ku	S
-Schätzen	MMa	S
-Schätzen	Ma	S
-Schätzen	Mg	S
-Schätzen	Ny	S
-Schätzen	Or	S
-Schätzen	PF	S
-Schätzen	PHa	G
-Schätzen	PHe	S
-Schätzen	PK	S
-Schätzen	PM	S
-Schätzen	PT	S
-Schätzen	PW	S
-Schätzen	Ri	S
-Schätzen	RiN	S
-Schätzen	RiS	S
-Schätzen	Ru	S
-Schätzen	Sa	S
-Schätzen	ScN	A
-Schätzen	ScS	A
-Schätzen	ScW	A
-Schätzen	Se	S
-Schätzen	Sk	S
-Schätzen	Sp	S
-Schätzen	Sr	S
-Schätzen	Sw	S
-Schätzen	Sö	S
-Schätzen	Th	G
-Schätzen	Tm	A
-Schätzen	To	S
-Schätzen	Tr	S
-Schätzen	Tt	A
-Schätzen	Wa	A
-Schätzen	Wi	A
-Schätzen	dBe	S
-Schätzen	eBe	S
-Schätzen	gHx	S
-Schätzen	sHx	S
-Schätzen	tBe	S
-Schätzen	wHx	S
+SchÃ¤tzen	As	S
+SchÃ¤tzen	BN	A
+SchÃ¤tzen	BS	A
+SchÃ¤tzen	BW	A
+SchÃ¤tzen	Ba	S
+SchÃ¤tzen	De	A
+SchÃ¤tzen	Dr	S
+SchÃ¤tzen	Dt	S
+SchÃ¤tzen	Er	S
+SchÃ¤tzen	Fi	A
+SchÃ¤tzen	Gl	S
+SchÃ¤tzen	Hj	S
+SchÃ¤tzen	Hl	S
+SchÃ¤tzen	HÃ¤	G
+SchÃ¤tzen	Kd	G
+SchÃ¤tzen	Kr	S
+SchÃ¤tzen	Ku	S
+SchÃ¤tzen	MMa	S
+SchÃ¤tzen	Ma	S
+SchÃ¤tzen	Mg	S
+SchÃ¤tzen	Ny	S
+SchÃ¤tzen	Or	S
+SchÃ¤tzen	PF	S
+SchÃ¤tzen	PHa	G
+SchÃ¤tzen	PHe	S
+SchÃ¤tzen	PK	S
+SchÃ¤tzen	PM	S
+SchÃ¤tzen	PT	S
+SchÃ¤tzen	PW	S
+SchÃ¤tzen	Ri	S
+SchÃ¤tzen	RiN	S
+SchÃ¤tzen	RiS	S
+SchÃ¤tzen	Ru	S
+SchÃ¤tzen	Sa	S
+SchÃ¤tzen	ScN	A
+SchÃ¤tzen	ScS	A
+SchÃ¤tzen	ScW	A
+SchÃ¤tzen	Se	S
+SchÃ¤tzen	Sk	S
+SchÃ¤tzen	Sp	S
+SchÃ¤tzen	Sr	S
+SchÃ¤tzen	Sw	S
+SchÃ¤tzen	SÃ¶	S
+SchÃ¤tzen	Th	G
+SchÃ¤tzen	Tm	A
+SchÃ¤tzen	To	S
+SchÃ¤tzen	Tr	S
+SchÃ¤tzen	Tt	A
+SchÃ¤tzen	Wa	A
+SchÃ¤tzen	Wi	A
+SchÃ¤tzen	dBe	S
+SchÃ¤tzen	eBe	S
+SchÃ¤tzen	gHx	S
+SchÃ¤tzen	sHx	S
+SchÃ¤tzen	tBe	S
+SchÃ¤tzen	wHx	S
 Seemannsgang	As	S
 Seemannsgang	BN	S
 Seemannsgang	BS	A
@@ -5973,7 +5973,7 @@ Seemannsgang	Fi	S
 Seemannsgang	Gl	S
 Seemannsgang	Hj	S
 Seemannsgang	Hl	A
-Seemannsgang	Hä	G
+Seemannsgang	HÃ¤	G
 Seemannsgang	Kd	G
 Seemannsgang	Km	A
 Seemannsgang	Kr	S
@@ -6003,7 +6003,7 @@ Seemannsgang	Sk	S
 Seemannsgang	Sp	S
 Seemannsgang	Sr	S
 Seemannsgang	Sw	A
-Seemannsgang	Sö	S
+Seemannsgang	SÃ¶	S
 Seemannsgang	Th	A
 Seemannsgang	Tm	S
 Seemannsgang	To	A
@@ -6030,7 +6030,7 @@ Seilkunst	Fi	S
 Seilkunst	Gl	S
 Seilkunst	Hj	S
 Seilkunst	Hl	S
-Seilkunst	Hä	G
+Seilkunst	HÃ¤	G
 Seilkunst	Kd	S
 Seilkunst	Km	S
 Seilkunst	Kr	S
@@ -6061,7 +6061,7 @@ Seilkunst	Sk	S
 Seilkunst	Sp	G
 Seilkunst	Sr	S
 Seilkunst	Sw	G
-Seilkunst	Sö	S
+Seilkunst	SÃ¶	S
 Seilkunst	Th	S
 Seilkunst	Tm	S
 Seilkunst	To	S
@@ -6092,7 +6092,7 @@ Singen	Fi	S
 Singen	Gl	S
 Singen	Hj	S
 Singen	Hl	S
-Singen	Hä	S
+Singen	HÃ¤	S
 Singen	Kd	S
 Singen	Km	S
 Singen	Kr	S
@@ -6123,7 +6123,7 @@ Singen	Sk	G
 Singen	Sp	S
 Singen	Sr	S
 Singen	Sw	S
-Singen	Sö	S
+Singen	SÃ¶	S
 Singen	Th	S
 Singen	Tm	S
 Singen	To	S
@@ -6150,7 +6150,7 @@ Skifahren	Fi	S
 Skifahren	Gl	S
 Skifahren	Hj	S
 Skifahren	Hl	S
-Skifahren	Hä	S
+Skifahren	HÃ¤	S
 Skifahren	Kd	S
 Skifahren	Km	S
 Skifahren	Kr	S
@@ -6181,7 +6181,7 @@ Skifahren	Sk	S
 Skifahren	Sp	S
 Skifahren	Sr	S
 Skifahren	Sw	S
-Skifahren	Sö	S
+Skifahren	SÃ¶	S
 Skifahren	Th	S
 Skifahren	Tm	S
 Skifahren	To	S
@@ -6208,7 +6208,7 @@ Sprache	Fi	S
 Sprache	Gl	G
 Sprache	Hj	G
 Sprache	Hl	G
-Sprache	Hä	G
+Sprache	HÃ¤	G
 Sprache	Kd	S
 Sprache	Km	S
 Sprache	Kr	S
@@ -6239,7 +6239,7 @@ Sprache	Sk	G
 Sprache	Sp	S
 Sprache	Sr	S
 Sprache	Sw	S
-Sprache	Sö	S
+Sprache	SÃ¶	S
 Sprache	Th	S
 Sprache	Tm	S
 Sprache	To	G
@@ -6266,7 +6266,7 @@ Springen	Fi	S
 Springen	Gl	G
 Springen	Hj	S
 Springen	Hl	A
-Springen	Hä	S
+Springen	HÃ¤	S
 Springen	Kd	G
 Springen	Km	A
 Springen	Kr	S
@@ -6297,7 +6297,7 @@ Springen	Sk	S
 Springen	Sp	G
 Springen	Sr	S
 Springen	Sw	G
-Springen	Sö	S
+Springen	SÃ¶	S
 Springen	Th	A
 Springen	Tm	S
 Springen	To	G
@@ -6324,7 +6324,7 @@ Spurenlesen	Fi	S
 Spurenlesen	Gl	S
 Spurenlesen	Hj	S
 Spurenlesen	Hl	A
-Spurenlesen	Hä	S
+Spurenlesen	HÃ¤	S
 Spurenlesen	Kd	S
 Spurenlesen	Km	S
 Spurenlesen	Kr	S
@@ -6355,7 +6355,7 @@ Spurenlesen	Sk	S
 Spurenlesen	Sp	S
 Spurenlesen	Sr	S
 Spurenlesen	Sw	A
-Spurenlesen	Sö	S
+Spurenlesen	SÃ¶	S
 Spurenlesen	Th	A
 Spurenlesen	Tm	G
 Spurenlesen	To	S
@@ -6381,7 +6381,7 @@ Srimara lenken	Fi	A
 Srimara lenken	Gl	A
 Srimara lenken	Hj	A
 Srimara lenken	Hl	A
-Srimara lenken	Hä	A
+Srimara lenken	HÃ¤	A
 Srimara lenken	Kd	A
 Srimara lenken	Kr	A
 Srimara lenken	MMa	A
@@ -6408,7 +6408,7 @@ Srimara lenken	Sk	A
 Srimara lenken	Sp	A
 Srimara lenken	Sr	G
 Srimara lenken	Sw	S
-Srimara lenken	Sö	A
+Srimara lenken	SÃ¶	A
 Srimara lenken	Th	A
 Srimara lenken	To	A
 Srimara lenken	Tr	A
@@ -6433,7 +6433,7 @@ Stehlen	Fi	A
 Stehlen	Gl	S
 Stehlen	Hj	A
 Stehlen	Hl	A
-Stehlen	Hä	S
+Stehlen	HÃ¤	S
 Stehlen	Kd	A
 Stehlen	Kr	A
 Stehlen	Ku	S
@@ -6463,7 +6463,7 @@ Stehlen	Sk	S
 Stehlen	Sp	G
 Stehlen	Sr	A
 Stehlen	Sw	S
-Stehlen	Sö	A
+Stehlen	SÃ¶	A
 Stehlen	Th	A
 Stehlen	Tm	A
 Stehlen	To	S
@@ -6489,7 +6489,7 @@ Steinabreibungen machen	Fi	S
 Steinabreibungen machen	Gl	S
 Steinabreibungen machen	Hj	S
 Steinabreibungen machen	Hl	S
-Steinabreibungen machen	Hä	S
+Steinabreibungen machen	HÃ¤	S
 Steinabreibungen machen	Kd	S
 Steinabreibungen machen	Kr	A
 Steinabreibungen machen	MMa	G
@@ -6516,7 +6516,7 @@ Steinabreibungen machen	Sk	S
 Steinabreibungen machen	Sp	S
 Steinabreibungen machen	Sr	S
 Steinabreibungen machen	Sw	S
-Steinabreibungen machen	Sö	A
+Steinabreibungen machen	SÃ¶	A
 Steinabreibungen machen	Th	G
 Steinabreibungen machen	To	S
 Steinabreibungen machen	Tr	S
@@ -6541,7 +6541,7 @@ Steuern	Fi	S
 Steuern	Gl	S
 Steuern	Hj	S
 Steuern	Hl	S
-Steuern	Hä	G
+Steuern	HÃ¤	G
 Steuern	Kd	S
 Steuern	Km	S
 Steuern	Kr	S
@@ -6571,7 +6571,7 @@ Steuern	Sk	S
 Steuern	Sp	S
 Steuern	Sr	S
 Steuern	Sw	S
-Steuern	Sö	S
+Steuern	SÃ¶	S
 Steuern	Th	S
 Steuern	Tm	S
 Steuern	To	S
@@ -6598,7 +6598,7 @@ Stimmen nachahmen	Fi	S
 Stimmen nachahmen	Gl	S
 Stimmen nachahmen	Hj	A
 Stimmen nachahmen	Hl	S
-Stimmen nachahmen	Hä	S
+Stimmen nachahmen	HÃ¤	S
 Stimmen nachahmen	Kd	S
 Stimmen nachahmen	Km	A
 Stimmen nachahmen	Kr	A
@@ -6629,7 +6629,7 @@ Stimmen nachahmen	Sk	G
 Stimmen nachahmen	Sp	S
 Stimmen nachahmen	Sr	S
 Stimmen nachahmen	Sw	S
-Stimmen nachahmen	Sö	S
+Stimmen nachahmen	SÃ¶	S
 Stimmen nachahmen	Th	S
 Stimmen nachahmen	Tm	A
 Stimmen nachahmen	To	G
@@ -6656,7 +6656,7 @@ Streitwagen lenken	Fi	A
 Streitwagen lenken	Gl	S
 Streitwagen lenken	Hj	A
 Streitwagen lenken	Hl	A
-Streitwagen lenken	Hä	S
+Streitwagen lenken	HÃ¤	S
 Streitwagen lenken	Kd	S
 Streitwagen lenken	Km	G
 Streitwagen lenken	Kr	G
@@ -6687,7 +6687,7 @@ Streitwagen lenken	Sk	S
 Streitwagen lenken	Sp	S
 Streitwagen lenken	Sr	S
 Streitwagen lenken	Sw	A
-Streitwagen lenken	Sö	S
+Streitwagen lenken	SÃ¶	S
 Streitwagen lenken	Th	A
 Streitwagen lenken	Tm	S
 Streitwagen lenken	To	A
@@ -6714,7 +6714,7 @@ Suchen	Fi	S
 Suchen	Gl	G
 Suchen	Hj	G
 Suchen	Hl	S
-Suchen	Hä	G
+Suchen	HÃ¤	G
 Suchen	Kd	S
 Suchen	Km	S
 Suchen	Kr	S
@@ -6744,7 +6744,7 @@ Suchen	Sk	S
 Suchen	Sp	G
 Suchen	Sr	S
 Suchen	Sw	G
-Suchen	Sö	S
+Suchen	SÃ¶	S
 Suchen	Th	S
 Suchen	Tm	S
 Suchen	To	G
@@ -6770,7 +6770,7 @@ TaiTschi	Fi	G
 TaiTschi	Gl	S
 TaiTschi	Hj	S
 TaiTschi	Hl	G
-TaiTschi	Hä	S
+TaiTschi	HÃ¤	S
 TaiTschi	Kd	G
 TaiTschi	Kr	G
 TaiTschi	MMa	S
@@ -6797,7 +6797,7 @@ TaiTschi	Sk	S
 TaiTschi	Sp	S
 TaiTschi	Sr	G
 TaiTschi	Sw	S
-TaiTschi	Sö	S
+TaiTschi	SÃ¶	S
 TaiTschi	Th	A
 TaiTschi	To	A
 TaiTschi	Tr	S
@@ -6821,7 +6821,7 @@ Talisman verzaubern	Fi	S
 Talisman verzaubern	Gl	S
 Talisman verzaubern	Hj	S
 Talisman verzaubern	Hl	A
-Talisman verzaubern	Hä	S
+Talisman verzaubern	HÃ¤	S
 Talisman verzaubern	Kd	S
 Talisman verzaubern	Kr	S
 Talisman verzaubern	MMa	A
@@ -6848,7 +6848,7 @@ Talisman verzaubern	Sk	S
 Talisman verzaubern	Sp	S
 Talisman verzaubern	Sr	S
 Talisman verzaubern	Sw	S
-Talisman verzaubern	Sö	S
+Talisman verzaubern	SÃ¶	S
 Talisman verzaubern	Th	G
 Talisman verzaubern	To	S
 Talisman verzaubern	Tr	S
@@ -6873,7 +6873,7 @@ Tanzen	Fi	S
 Tanzen	Gl	G
 Tanzen	Hj	S
 Tanzen	Hl	S
-Tanzen	Hä	S
+Tanzen	HÃ¤	S
 Tanzen	Kd	S
 Tanzen	Km	S
 Tanzen	Kr	S
@@ -6904,7 +6904,7 @@ Tanzen	Sk	S
 Tanzen	Sp	S
 Tanzen	Sr	S
 Tanzen	Sw	S
-Tanzen	Sö	S
+Tanzen	SÃ¶	S
 Tanzen	Th	S
 Tanzen	Tm	S
 Tanzen	To	S
@@ -6931,7 +6931,7 @@ Tarnen	Fi	S
 Tarnen	Gl	G
 Tarnen	Hj	S
 Tarnen	Hl	S
-Tarnen	Hä	S
+Tarnen	HÃ¤	S
 Tarnen	Kd	S
 Tarnen	Km	G
 Tarnen	Kr	S
@@ -6962,7 +6962,7 @@ Tarnen	Sk	S
 Tarnen	Sp	G
 Tarnen	Sr	S
 Tarnen	Sw	G
-Tarnen	Sö	S
+Tarnen	SÃ¶	S
 Tarnen	Th	S
 Tarnen	Tm	S
 Tarnen	To	G
@@ -6989,7 +6989,7 @@ Tauchen	Fi	S
 Tauchen	Gl	S
 Tauchen	Hj	S
 Tauchen	Hl	A
-Tauchen	Hä	S
+Tauchen	HÃ¤	S
 Tauchen	Kd	S
 Tauchen	Km	A
 Tauchen	Kr	S
@@ -7020,7 +7020,7 @@ Tauchen	Sk	S
 Tauchen	Sp	S
 Tauchen	Sr	S
 Tauchen	Sw	A
-Tauchen	Sö	S
+Tauchen	SÃ¶	S
 Tauchen	Th	A
 Tauchen	Tm	S
 Tauchen	To	S
@@ -7046,7 +7046,7 @@ Teezeremonie	Fi	A
 Teezeremonie	Gl	S
 Teezeremonie	Hj	S
 Teezeremonie	Hl	S
-Teezeremonie	Hä	S
+Teezeremonie	HÃ¤	S
 Teezeremonie	Kd	G
 Teezeremonie	Kr	S
 Teezeremonie	MMa	S
@@ -7073,7 +7073,7 @@ Teezeremonie	Sk	S
 Teezeremonie	Sp	S
 Teezeremonie	Sr	G
 Teezeremonie	Sw	S
-Teezeremonie	Sö	S
+Teezeremonie	SÃ¶	S
 Teezeremonie	Th	S
 Teezeremonie	To	S
 Teezeremonie	Tr	S
@@ -7125,7 +7125,7 @@ Tierkunde	Fi	S
 Tierkunde	Gl	S
 Tierkunde	Hj	A
 Tierkunde	Hl	G
-Tierkunde	Hä	S
+Tierkunde	HÃ¤	S
 Tierkunde	Kd	S
 Tierkunde	Km	S
 Tierkunde	Kr	A
@@ -7156,7 +7156,7 @@ Tierkunde	Sk	S
 Tierkunde	Sp	A
 Tierkunde	Sr	S
 Tierkunde	Sw	A
-Tierkunde	Sö	A
+Tierkunde	SÃ¶	A
 Tierkunde	Th	S
 Tierkunde	Tm	G
 Tierkunde	To	S
@@ -7183,7 +7183,7 @@ Trinken	Fi	S
 Trinken	Gl	G
 Trinken	Hj	S
 Trinken	Hl	S
-Trinken	Hä	S
+Trinken	HÃ¤	S
 Trinken	Kd	S
 Trinken	Km	S
 Trinken	Kr	S
@@ -7214,7 +7214,7 @@ Trinken	Sk	G
 Trinken	Sp	S
 Trinken	Sr	S
 Trinken	Sw	A
-Trinken	Sö	G
+Trinken	SÃ¶	G
 Trinken	Th	S
 Trinken	Tm	S
 Trinken	To	S
@@ -7228,64 +7228,64 @@ Trinken	gHx	S
 Trinken	sHx	S
 Trinken	tBe	S
 Trinken	wHx	S
-Tätowieren	As	A
-Tätowieren	BN	A
-Tätowieren	BS	A
-Tätowieren	BW	A
-Tätowieren	Ba	A
-Tätowieren	De	A
-Tätowieren	Dr	A
-Tätowieren	Dt	A
-Tätowieren	Er	A
-Tätowieren	Fi	A
-Tätowieren	Gl	A
-Tätowieren	Hj	A
-Tätowieren	Hl	A
-Tätowieren	Hä	A
-Tätowieren	Kd	A
-Tätowieren	Km	A
-Tätowieren	Kr	A
-Tätowieren	Ku	A
-Tätowieren	MMa	A
-Tätowieren	Ma	A
-Tätowieren	Mg	A
-Tätowieren	Ny	A
-Tätowieren	Or	A
-Tätowieren	PC	A
-Tätowieren	PF	A
-Tätowieren	PHa	A
-Tätowieren	PHe	A
-Tätowieren	PK	A
-Tätowieren	PM	A
-Tätowieren	PT	A
-Tätowieren	PW	A
-Tätowieren	Ri	A
-Tätowieren	RiN	A
-Tätowieren	RiS	A
-Tätowieren	Ru	A
-Tätowieren	Sa	A
-Tätowieren	ScN	S
-Tätowieren	ScS	S
-Tätowieren	ScW	S
-Tätowieren	Se	A
-Tätowieren	Sk	A
-Tätowieren	Sp	A
-Tätowieren	Sr	A
-Tätowieren	Sw	S
-Tätowieren	Sö	A
-Tätowieren	Th	G
-Tätowieren	Tm	A
-Tätowieren	To	A
-Tätowieren	Tr	A
-Tätowieren	Tt	A
-Tätowieren	Wa	A
-Tätowieren	Wi	A
-Tätowieren	dBe	S
-Tätowieren	eBe	S
-Tätowieren	gHx	S
-Tätowieren	sHx	S
-Tätowieren	tBe	S
-Tätowieren	wHx	S
+TÃ¤towieren	As	A
+TÃ¤towieren	BN	A
+TÃ¤towieren	BS	A
+TÃ¤towieren	BW	A
+TÃ¤towieren	Ba	A
+TÃ¤towieren	De	A
+TÃ¤towieren	Dr	A
+TÃ¤towieren	Dt	A
+TÃ¤towieren	Er	A
+TÃ¤towieren	Fi	A
+TÃ¤towieren	Gl	A
+TÃ¤towieren	Hj	A
+TÃ¤towieren	Hl	A
+TÃ¤towieren	HÃ¤	A
+TÃ¤towieren	Kd	A
+TÃ¤towieren	Km	A
+TÃ¤towieren	Kr	A
+TÃ¤towieren	Ku	A
+TÃ¤towieren	MMa	A
+TÃ¤towieren	Ma	A
+TÃ¤towieren	Mg	A
+TÃ¤towieren	Ny	A
+TÃ¤towieren	Or	A
+TÃ¤towieren	PC	A
+TÃ¤towieren	PF	A
+TÃ¤towieren	PHa	A
+TÃ¤towieren	PHe	A
+TÃ¤towieren	PK	A
+TÃ¤towieren	PM	A
+TÃ¤towieren	PT	A
+TÃ¤towieren	PW	A
+TÃ¤towieren	Ri	A
+TÃ¤towieren	RiN	A
+TÃ¤towieren	RiS	A
+TÃ¤towieren	Ru	A
+TÃ¤towieren	Sa	A
+TÃ¤towieren	ScN	S
+TÃ¤towieren	ScS	S
+TÃ¤towieren	ScW	S
+TÃ¤towieren	Se	A
+TÃ¤towieren	Sk	A
+TÃ¤towieren	Sp	A
+TÃ¤towieren	Sr	A
+TÃ¤towieren	Sw	S
+TÃ¤towieren	SÃ¶	A
+TÃ¤towieren	Th	G
+TÃ¤towieren	Tm	A
+TÃ¤towieren	To	A
+TÃ¤towieren	Tr	A
+TÃ¤towieren	Tt	A
+TÃ¤towieren	Wa	A
+TÃ¤towieren	Wi	A
+TÃ¤towieren	dBe	S
+TÃ¤towieren	eBe	S
+TÃ¤towieren	gHx	S
+TÃ¤towieren	sHx	S
+TÃ¤towieren	tBe	S
+TÃ¤towieren	wHx	S
 Verbergen	As	G
 Verbergen	BN	S
 Verbergen	BS	S
@@ -7299,7 +7299,7 @@ Verbergen	Fi	S
 Verbergen	Gl	G
 Verbergen	Hj	S
 Verbergen	Hl	S
-Verbergen	Hä	S
+Verbergen	HÃ¤	S
 Verbergen	Kd	S
 Verbergen	Km	S
 Verbergen	Kr	S
@@ -7330,7 +7330,7 @@ Verbergen	Sk	S
 Verbergen	Sp	G
 Verbergen	Sr	S
 Verbergen	Sw	G
-Verbergen	Sö	S
+Verbergen	SÃ¶	S
 Verbergen	Th	S
 Verbergen	Tm	S
 Verbergen	To	G
@@ -7344,122 +7344,122 @@ Verbergen	gHx	G
 Verbergen	sHx	G
 Verbergen	tBe	S
 Verbergen	wHx	G
-Verführen	As	S
-Verführen	BN	S
-Verführen	BS	S
-Verführen	BW	S
-Verführen	Ba	G
-Verführen	De	A
-Verführen	Dr	A
-Verführen	Dt	A
-Verführen	Er	S
-Verführen	Fi	S
-Verführen	Gl	G
-Verführen	Hj	S
-Verführen	Hl	A
-Verführen	Hä	S
-Verführen	Kd	S
-Verführen	Km	A
-Verführen	Kr	S
-Verführen	Ku	S
-Verführen	MMa	A
-Verführen	Ma	A
-Verführen	Mg	S
-Verführen	Ny	S
-Verführen	Or	S
-Verführen	PC	A
-Verführen	PF	S
-Verführen	PHa	A
-Verführen	PHe	A
-Verführen	PK	A
-Verführen	PM	A
-Verführen	PT	A
-Verführen	PW	A
-Verführen	Ri	S
-Verführen	RiN	S
-Verführen	RiS	S
-Verführen	Ru	S
-Verführen	Sa	A
-Verführen	ScN	A
-Verführen	ScS	A
-Verführen	ScW	A
-Verführen	Se	G
-Verführen	Sk	G
-Verführen	Sp	S
-Verführen	Sr	S
-Verführen	Sw	A
-Verführen	Sö	S
-Verführen	Th	A
-Verführen	Tm	S
-Verführen	To	S
-Verführen	Tr	S
-Verführen	Tt	A
-Verführen	Wa	S
-Verführen	Wi	S
-Verführen	dBe	A
-Verführen	eBe	A
-Verführen	gHx	S
-Verführen	sHx	S
-Verführen	tBe	A
-Verführen	wHx	S
-Verhören	As	S
-Verhören	BN	A
-Verhören	BS	A
-Verhören	BW	A
-Verhören	Ba	S
-Verhören	De	S
-Verhören	Dr	S
-Verhören	Dt	S
-Verhören	Er	G
-Verhören	Fi	A
-Verhören	Gl	S
-Verhören	Hj	G
-Verhören	Hl	S
-Verhören	Hä	G
-Verhören	Kd	S
-Verhören	Km	S
-Verhören	Kr	S
-Verhören	Ku	S
-Verhören	MMa	S
-Verhören	Ma	S
-Verhören	Mg	S
-Verhören	Ny	S
-Verhören	Or	S
-Verhören	PC	S
-Verhören	PF	S
-Verhören	PHa	S
-Verhören	PHe	G
-Verhören	PK	S
-Verhören	PM	S
-Verhören	PT	G
-Verhören	PW	S
-Verhören	Ri	S
-Verhören	RiN	S
-Verhören	RiS	S
-Verhören	Ru	S
-Verhören	Sa	S
-Verhören	ScN	S
-Verhören	ScS	S
-Verhören	ScW	S
-Verhören	Se	S
-Verhören	Sk	S
-Verhören	Sp	S
-Verhören	Sr	S
-Verhören	Sw	S
-Verhören	Sö	S
-Verhören	Th	S
-Verhören	Tm	A
-Verhören	To	S
-Verhören	Tr	S
-Verhören	Tt	S
-Verhören	Wa	A
-Verhören	Wi	A
-Verhören	dBe	S
-Verhören	eBe	S
-Verhören	gHx	S
-Verhören	sHx	S
-Verhören	tBe	S
-Verhören	wHx	S
+VerfÃ¼hren	As	S
+VerfÃ¼hren	BN	S
+VerfÃ¼hren	BS	S
+VerfÃ¼hren	BW	S
+VerfÃ¼hren	Ba	G
+VerfÃ¼hren	De	A
+VerfÃ¼hren	Dr	A
+VerfÃ¼hren	Dt	A
+VerfÃ¼hren	Er	S
+VerfÃ¼hren	Fi	S
+VerfÃ¼hren	Gl	G
+VerfÃ¼hren	Hj	S
+VerfÃ¼hren	Hl	A
+VerfÃ¼hren	HÃ¤	S
+VerfÃ¼hren	Kd	S
+VerfÃ¼hren	Km	A
+VerfÃ¼hren	Kr	S
+VerfÃ¼hren	Ku	S
+VerfÃ¼hren	MMa	A
+VerfÃ¼hren	Ma	A
+VerfÃ¼hren	Mg	S
+VerfÃ¼hren	Ny	S
+VerfÃ¼hren	Or	S
+VerfÃ¼hren	PC	A
+VerfÃ¼hren	PF	S
+VerfÃ¼hren	PHa	A
+VerfÃ¼hren	PHe	A
+VerfÃ¼hren	PK	A
+VerfÃ¼hren	PM	A
+VerfÃ¼hren	PT	A
+VerfÃ¼hren	PW	A
+VerfÃ¼hren	Ri	S
+VerfÃ¼hren	RiN	S
+VerfÃ¼hren	RiS	S
+VerfÃ¼hren	Ru	S
+VerfÃ¼hren	Sa	A
+VerfÃ¼hren	ScN	A
+VerfÃ¼hren	ScS	A
+VerfÃ¼hren	ScW	A
+VerfÃ¼hren	Se	G
+VerfÃ¼hren	Sk	G
+VerfÃ¼hren	Sp	S
+VerfÃ¼hren	Sr	S
+VerfÃ¼hren	Sw	A
+VerfÃ¼hren	SÃ¶	S
+VerfÃ¼hren	Th	A
+VerfÃ¼hren	Tm	S
+VerfÃ¼hren	To	S
+VerfÃ¼hren	Tr	S
+VerfÃ¼hren	Tt	A
+VerfÃ¼hren	Wa	S
+VerfÃ¼hren	Wi	S
+VerfÃ¼hren	dBe	A
+VerfÃ¼hren	eBe	A
+VerfÃ¼hren	gHx	S
+VerfÃ¼hren	sHx	S
+VerfÃ¼hren	tBe	A
+VerfÃ¼hren	wHx	S
+VerhÃ¶ren	As	S
+VerhÃ¶ren	BN	A
+VerhÃ¶ren	BS	A
+VerhÃ¶ren	BW	A
+VerhÃ¶ren	Ba	S
+VerhÃ¶ren	De	S
+VerhÃ¶ren	Dr	S
+VerhÃ¶ren	Dt	S
+VerhÃ¶ren	Er	G
+VerhÃ¶ren	Fi	A
+VerhÃ¶ren	Gl	S
+VerhÃ¶ren	Hj	G
+VerhÃ¶ren	Hl	S
+VerhÃ¶ren	HÃ¤	G
+VerhÃ¶ren	Kd	S
+VerhÃ¶ren	Km	S
+VerhÃ¶ren	Kr	S
+VerhÃ¶ren	Ku	S
+VerhÃ¶ren	MMa	S
+VerhÃ¶ren	Ma	S
+VerhÃ¶ren	Mg	S
+VerhÃ¶ren	Ny	S
+VerhÃ¶ren	Or	S
+VerhÃ¶ren	PC	S
+VerhÃ¶ren	PF	S
+VerhÃ¶ren	PHa	S
+VerhÃ¶ren	PHe	G
+VerhÃ¶ren	PK	S
+VerhÃ¶ren	PM	S
+VerhÃ¶ren	PT	G
+VerhÃ¶ren	PW	S
+VerhÃ¶ren	Ri	S
+VerhÃ¶ren	RiN	S
+VerhÃ¶ren	RiS	S
+VerhÃ¶ren	Ru	S
+VerhÃ¶ren	Sa	S
+VerhÃ¶ren	ScN	S
+VerhÃ¶ren	ScS	S
+VerhÃ¶ren	ScW	S
+VerhÃ¶ren	Se	S
+VerhÃ¶ren	Sk	S
+VerhÃ¶ren	Sp	S
+VerhÃ¶ren	Sr	S
+VerhÃ¶ren	Sw	S
+VerhÃ¶ren	SÃ¶	S
+VerhÃ¶ren	Th	S
+VerhÃ¶ren	Tm	A
+VerhÃ¶ren	To	S
+VerhÃ¶ren	Tr	S
+VerhÃ¶ren	Tt	S
+VerhÃ¶ren	Wa	A
+VerhÃ¶ren	Wi	A
+VerhÃ¶ren	dBe	S
+VerhÃ¶ren	eBe	S
+VerhÃ¶ren	gHx	S
+VerhÃ¶ren	sHx	S
+VerhÃ¶ren	tBe	S
+VerhÃ¶ren	wHx	S
 Verkleiden	As	G
 Verkleiden	BN	S
 Verkleiden	BS	S
@@ -7473,7 +7473,7 @@ Verkleiden	Fi	A
 Verkleiden	Gl	G
 Verkleiden	Hj	A
 Verkleiden	Hl	A
-Verkleiden	Hä	S
+Verkleiden	HÃ¤	S
 Verkleiden	Kd	S
 Verkleiden	Km	A
 Verkleiden	Kr	A
@@ -7504,7 +7504,7 @@ Verkleiden	Sk	S
 Verkleiden	Sp	G
 Verkleiden	Sr	S
 Verkleiden	Sw	G
-Verkleiden	Sö	A
+Verkleiden	SÃ¶	A
 Verkleiden	Th	A
 Verkleiden	Tm	A
 Verkleiden	To	G
@@ -7531,7 +7531,7 @@ Wagenlenken	Fi	S
 Wagenlenken	Gl	S
 Wagenlenken	Hj	S
 Wagenlenken	Hl	S
-Wagenlenken	Hä	G
+Wagenlenken	HÃ¤	G
 Wagenlenken	Kd	S
 Wagenlenken	Km	G
 Wagenlenken	Kr	G
@@ -7562,7 +7562,7 @@ Wagenlenken	Sk	S
 Wagenlenken	Sp	S
 Wagenlenken	Sr	S
 Wagenlenken	Sw	S
-Wagenlenken	Sö	S
+Wagenlenken	SÃ¶	S
 Wagenlenken	Th	S
 Wagenlenken	Tm	S
 Wagenlenken	To	S
@@ -7589,7 +7589,7 @@ Wahrnehmung	Fi	S
 Wahrnehmung	Gl	S
 Wahrnehmung	Hj	G
 Wahrnehmung	Hl	S
-Wahrnehmung	Hä	S
+Wahrnehmung	HÃ¤	S
 Wahrnehmung	Kd	S
 Wahrnehmung	Km	G
 Wahrnehmung	Kr	S
@@ -7620,7 +7620,7 @@ Wahrnehmung	Sk	S
 Wahrnehmung	Sp	S
 Wahrnehmung	Sr	S
 Wahrnehmung	Sw	S
-Wahrnehmung	Sö	S
+Wahrnehmung	SÃ¶	S
 Wahrnehmung	Th	S
 Wahrnehmung	Tm	S
 Wahrnehmung	To	S
@@ -7634,64 +7634,64 @@ Wahrnehmung	gHx	S
 Wahrnehmung	sHx	S
 Wahrnehmung	tBe	S
 Wahrnehmung	wHx	S
-Wahrsagekalender führen	As	A
-Wahrsagekalender führen	BN	A
-Wahrsagekalender führen	BS	A
-Wahrsagekalender führen	BW	A
-Wahrsagekalender führen	Ba	A
-Wahrsagekalender führen	De	A
-Wahrsagekalender führen	Dr	A
-Wahrsagekalender führen	Dt	G
-Wahrsagekalender führen	Er	A
-Wahrsagekalender führen	Fi	A
-Wahrsagekalender führen	Gl	A
-Wahrsagekalender führen	Hj	A
-Wahrsagekalender führen	Hl	A
-Wahrsagekalender führen	Hä	A
-Wahrsagekalender führen	Kd	A
-Wahrsagekalender führen	Km	A
-Wahrsagekalender führen	Kr	A
-Wahrsagekalender führen	Ku	A
-Wahrsagekalender führen	MMa	A
-Wahrsagekalender führen	Ma	A
-Wahrsagekalender führen	Mg	A
-Wahrsagekalender führen	Ny	A
-Wahrsagekalender führen	Or	A
-Wahrsagekalender führen	PC	A
-Wahrsagekalender führen	PF	A
-Wahrsagekalender führen	PHa	A
-Wahrsagekalender führen	PHe	A
-Wahrsagekalender führen	PK	A
-Wahrsagekalender führen	PM	A
-Wahrsagekalender führen	PT	A
-Wahrsagekalender führen	PW	A
-Wahrsagekalender führen	Ri	A
-Wahrsagekalender führen	RiN	A
-Wahrsagekalender führen	RiS	A
-Wahrsagekalender führen	Ru	A
-Wahrsagekalender führen	Sa	A
-Wahrsagekalender führen	ScN	A
-Wahrsagekalender führen	ScS	A
-Wahrsagekalender führen	ScW	A
-Wahrsagekalender führen	Se	A
-Wahrsagekalender führen	Sk	A
-Wahrsagekalender führen	Sp	A
-Wahrsagekalender führen	Sr	A
-Wahrsagekalender führen	Sw	S
-Wahrsagekalender führen	Sö	A
-Wahrsagekalender führen	Th	A
-Wahrsagekalender führen	Tm	A
-Wahrsagekalender führen	To	A
-Wahrsagekalender führen	Tr	A
-Wahrsagekalender führen	Tt	A
-Wahrsagekalender führen	Wa	A
-Wahrsagekalender führen	Wi	A
-Wahrsagekalender führen	dBe	A
-Wahrsagekalender führen	eBe	A
-Wahrsagekalender führen	gHx	A
-Wahrsagekalender führen	sHx	A
-Wahrsagekalender führen	tBe	A
-Wahrsagekalender führen	wHx	A
+Wahrsagekalender fÃ¼hren	As	A
+Wahrsagekalender fÃ¼hren	BN	A
+Wahrsagekalender fÃ¼hren	BS	A
+Wahrsagekalender fÃ¼hren	BW	A
+Wahrsagekalender fÃ¼hren	Ba	A
+Wahrsagekalender fÃ¼hren	De	A
+Wahrsagekalender fÃ¼hren	Dr	A
+Wahrsagekalender fÃ¼hren	Dt	G
+Wahrsagekalender fÃ¼hren	Er	A
+Wahrsagekalender fÃ¼hren	Fi	A
+Wahrsagekalender fÃ¼hren	Gl	A
+Wahrsagekalender fÃ¼hren	Hj	A
+Wahrsagekalender fÃ¼hren	Hl	A
+Wahrsagekalender fÃ¼hren	HÃ¤	A
+Wahrsagekalender fÃ¼hren	Kd	A
+Wahrsagekalender fÃ¼hren	Km	A
+Wahrsagekalender fÃ¼hren	Kr	A
+Wahrsagekalender fÃ¼hren	Ku	A
+Wahrsagekalender fÃ¼hren	MMa	A
+Wahrsagekalender fÃ¼hren	Ma	A
+Wahrsagekalender fÃ¼hren	Mg	A
+Wahrsagekalender fÃ¼hren	Ny	A
+Wahrsagekalender fÃ¼hren	Or	A
+Wahrsagekalender fÃ¼hren	PC	A
+Wahrsagekalender fÃ¼hren	PF	A
+Wahrsagekalender fÃ¼hren	PHa	A
+Wahrsagekalender fÃ¼hren	PHe	A
+Wahrsagekalender fÃ¼hren	PK	A
+Wahrsagekalender fÃ¼hren	PM	A
+Wahrsagekalender fÃ¼hren	PT	A
+Wahrsagekalender fÃ¼hren	PW	A
+Wahrsagekalender fÃ¼hren	Ri	A
+Wahrsagekalender fÃ¼hren	RiN	A
+Wahrsagekalender fÃ¼hren	RiS	A
+Wahrsagekalender fÃ¼hren	Ru	A
+Wahrsagekalender fÃ¼hren	Sa	A
+Wahrsagekalender fÃ¼hren	ScN	A
+Wahrsagekalender fÃ¼hren	ScS	A
+Wahrsagekalender fÃ¼hren	ScW	A
+Wahrsagekalender fÃ¼hren	Se	A
+Wahrsagekalender fÃ¼hren	Sk	A
+Wahrsagekalender fÃ¼hren	Sp	A
+Wahrsagekalender fÃ¼hren	Sr	A
+Wahrsagekalender fÃ¼hren	Sw	S
+Wahrsagekalender fÃ¼hren	SÃ¶	A
+Wahrsagekalender fÃ¼hren	Th	A
+Wahrsagekalender fÃ¼hren	Tm	A
+Wahrsagekalender fÃ¼hren	To	A
+Wahrsagekalender fÃ¼hren	Tr	A
+Wahrsagekalender fÃ¼hren	Tt	A
+Wahrsagekalender fÃ¼hren	Wa	A
+Wahrsagekalender fÃ¼hren	Wi	A
+Wahrsagekalender fÃ¼hren	dBe	A
+Wahrsagekalender fÃ¼hren	eBe	A
+Wahrsagekalender fÃ¼hren	gHx	A
+Wahrsagekalender fÃ¼hren	sHx	A
+Wahrsagekalender fÃ¼hren	tBe	A
+Wahrsagekalender fÃ¼hren	wHx	A
 Werfen	As	G
 Werfen	BN	S
 Werfen	BS	S
@@ -7704,7 +7704,7 @@ Werfen	Fi	S
 Werfen	Gl	G
 Werfen	Hj	S
 Werfen	Hl	S
-Werfen	Hä	S
+Werfen	HÃ¤	S
 Werfen	Kd	S
 Werfen	Kr	S
 Werfen	MMa	S
@@ -7731,7 +7731,7 @@ Werfen	Sk	S
 Werfen	Sp	G
 Werfen	Sr	S
 Werfen	Sw	S
-Werfen	Sö	S
+Werfen	SÃ¶	S
 Werfen	Th	G
 Werfen	To	A
 Werfen	Tr	G
@@ -7756,7 +7756,7 @@ Wetterkunde	Fi	S
 Wetterkunde	Gl	S
 Wetterkunde	Hj	S
 Wetterkunde	Hl	S
-Wetterkunde	Hä	S
+Wetterkunde	HÃ¤	S
 Wetterkunde	Kd	A
 Wetterkunde	Km	S
 Wetterkunde	Kr	A
@@ -7787,7 +7787,7 @@ Wetterkunde	Sk	G
 Wetterkunde	Sp	S
 Wetterkunde	Sr	S
 Wetterkunde	Sw	S
-Wetterkunde	Sö	A
+Wetterkunde	SÃ¶	A
 Wetterkunde	Th	A
 Wetterkunde	Tm	S
 Wetterkunde	To	A
@@ -7814,7 +7814,7 @@ Winden	Fi	S
 Winden	Gl	S
 Winden	Hj	A
 Winden	Hl	A
-Winden	Hä	S
+Winden	HÃ¤	S
 Winden	Kd	G
 Winden	Km	A
 Winden	Kr	A
@@ -7845,7 +7845,7 @@ Winden	Sk	S
 Winden	Sp	G
 Winden	Sr	S
 Winden	Sw	G
-Winden	Sö	A
+Winden	SÃ¶	A
 Winden	Th	A
 Winden	Tm	S
 Winden	To	G
@@ -7871,7 +7871,7 @@ YangScheng	Fi	G
 YangScheng	Gl	S
 YangScheng	Hj	S
 YangScheng	Hl	G
-YangScheng	Hä	S
+YangScheng	HÃ¤	S
 YangScheng	Kd	G
 YangScheng	Kr	A
 YangScheng	MMa	S
@@ -7898,7 +7898,7 @@ YangScheng	Sk	S
 YangScheng	Sp	S
 YangScheng	Sr	G
 YangScheng	Sw	S
-YangScheng	Sö	S
+YangScheng	SÃ¶	S
 YangScheng	Th	S
 YangScheng	To	S
 YangScheng	Tr	S
@@ -7922,7 +7922,7 @@ YubeChian	Fi	S
 YubeChian	Gl	S
 YubeChian	Hj	S
 YubeChian	Hl	G
-YubeChian	Hä	S
+YubeChian	HÃ¤	S
 YubeChian	Kd	S
 YubeChian	Kr	S
 YubeChian	MMa	A
@@ -7949,7 +7949,7 @@ YubeChian	Sk	S
 YubeChian	Sp	S
 YubeChian	Sr	S
 YubeChian	Sw	S
-YubeChian	Sö	S
+YubeChian	SÃ¶	S
 YubeChian	Th	A
 YubeChian	To	G
 YubeChian	Tr	S
@@ -7974,7 +7974,7 @@ Zauberkunde	Fi	A
 Zauberkunde	Gl	A
 Zauberkunde	Hj	S
 Zauberkunde	Hl	S
-Zauberkunde	Hä	S
+Zauberkunde	HÃ¤	S
 Zauberkunde	Kd	A
 Zauberkunde	Km	G
 Zauberkunde	Kr	A
@@ -8005,7 +8005,7 @@ Zauberkunde	Sk	G
 Zauberkunde	Sp	S
 Zauberkunde	Sr	A
 Zauberkunde	Sw	G
-Zauberkunde	Sö	A
+Zauberkunde	SÃ¶	A
 Zauberkunde	Th	G
 Zauberkunde	Tm	A
 Zauberkunde	To	G
@@ -8032,7 +8032,7 @@ Zaubern	Fi	A
 Zaubern	Gl	S
 Zaubern	Hj	S
 Zaubern	Hl	G
-Zaubern	Hä	S
+Zaubern	HÃ¤	S
 Zaubern	Kd	A
 Zaubern	Km	G
 Zaubern	Kr	A
@@ -8063,7 +8063,7 @@ Zaubern	Sk	S
 Zaubern	Sp	S
 Zaubern	Sr	S
 Zaubern	Sw	S
-Zaubern	Sö	A
+Zaubern	SÃ¶	A
 Zaubern	Th	G
 Zaubern	Tm	S
 Zaubern	To	S
@@ -8090,7 +8090,7 @@ Zeichensprache	Fi	G
 Zeichensprache	Gl	G
 Zeichensprache	Hj	S
 Zeichensprache	Hl	S
-Zeichensprache	Hä	G
+Zeichensprache	HÃ¤	G
 Zeichensprache	Kd	S
 Zeichensprache	Km	S
 Zeichensprache	Kr	S
@@ -8121,7 +8121,7 @@ Zeichensprache	Sk	S
 Zeichensprache	Sp	G
 Zeichensprache	Sr	S
 Zeichensprache	Sw	G
-Zeichensprache	Sö	S
+Zeichensprache	SÃ¶	S
 Zeichensprache	Th	S
 Zeichensprache	Tm	S
 Zeichensprache	To	G
@@ -8147,7 +8147,7 @@ Zunge verschlucken	Fi	S
 Zunge verschlucken	Gl	S
 Zunge verschlucken	Hj	S
 Zunge verschlucken	Hl	S
-Zunge verschlucken	Hä	S
+Zunge verschlucken	HÃ¤	S
 Zunge verschlucken	Kd	S
 Zunge verschlucken	Kr	S
 Zunge verschlucken	MMa	S
@@ -8174,7 +8174,7 @@ Zunge verschlucken	Sk	S
 Zunge verschlucken	Sp	S
 Zunge verschlucken	Sr	S
 Zunge verschlucken	Sw	S
-Zunge verschlucken	Sö	S
+Zunge verschlucken	SÃ¶	S
 Zunge verschlucken	Th	S
 Zunge verschlucken	To	S
 Zunge verschlucken	Tr	S
@@ -8186,412 +8186,412 @@ Zunge verschlucken	gHx	S
 Zunge verschlucken	sHx	S
 Zunge verschlucken	tBe	S
 Zunge verschlucken	wHx	S
-Überleben im Dschungel	As	S
-Überleben im Dschungel	BN	S
-Überleben im Dschungel	BS	S
-Überleben im Dschungel	BW	G
-Überleben im Dschungel	Ba	S
-Überleben im Dschungel	De	S
-Überleben im Dschungel	Dr	S
-Überleben im Dschungel	Dt	G
-Überleben im Dschungel	Er	S
-Überleben im Dschungel	Fi	A
-Überleben im Dschungel	Gl	S
-Überleben im Dschungel	Hj	S
-Überleben im Dschungel	Hl	S
-Überleben im Dschungel	Hä	G
-Überleben im Dschungel	Kd	S
-Überleben im Dschungel	Km	S
-Überleben im Dschungel	Kr	S
-Überleben im Dschungel	Ku	S
-Überleben im Dschungel	MMa	S
-Überleben im Dschungel	Ma	S
-Überleben im Dschungel	Mg	S
-Überleben im Dschungel	Ny	S
-Überleben im Dschungel	Or	S
-Überleben im Dschungel	PC	S
-Überleben im Dschungel	PF	S
-Überleben im Dschungel	PHa	S
-Überleben im Dschungel	PHe	S
-Überleben im Dschungel	PK	S
-Überleben im Dschungel	PM	S
-Überleben im Dschungel	PT	S
-Überleben im Dschungel	PW	S
-Überleben im Dschungel	Ri	S
-Überleben im Dschungel	RiN	S
-Überleben im Dschungel	RiS	S
-Überleben im Dschungel	Ru	S
-Überleben im Dschungel	Sa	S
-Überleben im Dschungel	ScN	S
-Überleben im Dschungel	ScS	S
-Überleben im Dschungel	ScW	G
-Überleben im Dschungel	Se	S
-Überleben im Dschungel	Sk	S
-Überleben im Dschungel	Sp	S
-Überleben im Dschungel	Sr	S
-Überleben im Dschungel	Sw	S
-Überleben im Dschungel	Sö	S
-Überleben im Dschungel	Th	S
-Überleben im Dschungel	Tm	S
-Überleben im Dschungel	To	S
-Überleben im Dschungel	Tr	S
-Überleben im Dschungel	Tt	S
-Überleben im Dschungel	Wa	G
-Überleben im Dschungel	Wi	S
-Überleben im Dschungel	dBe	S
-Überleben im Dschungel	eBe	S
-Überleben im Dschungel	gHx	S
-Überleben im Dschungel	sHx	S
-Überleben im Dschungel	tBe	S
-Überleben im Dschungel	wHx	S
-Überleben im Gebirge	As	S
-Überleben im Gebirge	BN	G
-Überleben im Gebirge	BS	S
-Überleben im Gebirge	BW	S
-Überleben im Gebirge	Ba	S
-Überleben im Gebirge	De	S
-Überleben im Gebirge	Dr	S
-Überleben im Gebirge	Dt	S
-Überleben im Gebirge	Er	S
-Überleben im Gebirge	Fi	G
-Überleben im Gebirge	Gl	S
-Überleben im Gebirge	Hj	S
-Überleben im Gebirge	Hl	S
-Überleben im Gebirge	Hä	S
-Überleben im Gebirge	Kd	S
-Überleben im Gebirge	Km	S
-Überleben im Gebirge	Kr	S
-Überleben im Gebirge	Ku	S
-Überleben im Gebirge	MMa	S
-Überleben im Gebirge	Ma	S
-Überleben im Gebirge	Mg	S
-Überleben im Gebirge	Ny	S
-Überleben im Gebirge	Or	S
-Überleben im Gebirge	PC	S
-Überleben im Gebirge	PF	S
-Überleben im Gebirge	PHa	S
-Überleben im Gebirge	PHe	S
-Überleben im Gebirge	PK	S
-Überleben im Gebirge	PM	S
-Überleben im Gebirge	PT	S
-Überleben im Gebirge	PW	S
-Überleben im Gebirge	Ri	S
-Überleben im Gebirge	RiN	S
-Überleben im Gebirge	RiS	S
-Überleben im Gebirge	Ru	S
-Überleben im Gebirge	Sa	S
-Überleben im Gebirge	ScN	G
-Überleben im Gebirge	ScS	S
-Überleben im Gebirge	ScW	S
-Überleben im Gebirge	Se	S
-Überleben im Gebirge	Sk	S
-Überleben im Gebirge	Sp	S
-Überleben im Gebirge	Sr	S
-Überleben im Gebirge	Sw	S
-Überleben im Gebirge	Sö	S
-Überleben im Gebirge	Th	S
-Überleben im Gebirge	Tm	S
-Überleben im Gebirge	To	S
-Überleben im Gebirge	Tr	S
-Überleben im Gebirge	Tt	S
-Überleben im Gebirge	Wa	G
-Überleben im Gebirge	Wi	S
-Überleben im Gebirge	dBe	S
-Überleben im Gebirge	eBe	S
-Überleben im Gebirge	gHx	S
-Überleben im Gebirge	sHx	S
-Überleben im Gebirge	tBe	S
-Überleben im Gebirge	wHx	S
-Überleben im Schnee	As	S
-Überleben im Schnee	BN	G
-Überleben im Schnee	BS	S
-Überleben im Schnee	BW	S
-Überleben im Schnee	Ba	S
-Überleben im Schnee	De	S
-Überleben im Schnee	Dr	S
-Überleben im Schnee	Dt	S
-Überleben im Schnee	Er	S
-Überleben im Schnee	Fi	A
-Überleben im Schnee	Gl	S
-Überleben im Schnee	Hj	S
-Überleben im Schnee	Hl	S
-Überleben im Schnee	Hä	G
-Überleben im Schnee	Kd	S
-Überleben im Schnee	Km	S
-Überleben im Schnee	Kr	S
-Überleben im Schnee	Ku	G
-Überleben im Schnee	MMa	S
-Überleben im Schnee	Ma	S
-Überleben im Schnee	Mg	S
-Überleben im Schnee	Ny	S
-Überleben im Schnee	Or	S
-Überleben im Schnee	PC	S
-Überleben im Schnee	PF	S
-Überleben im Schnee	PHa	S
-Überleben im Schnee	PHe	S
-Überleben im Schnee	PK	S
-Überleben im Schnee	PM	S
-Überleben im Schnee	PT	S
-Überleben im Schnee	PW	S
-Überleben im Schnee	Ri	S
-Überleben im Schnee	RiN	S
-Überleben im Schnee	RiS	S
-Überleben im Schnee	Ru	S
-Überleben im Schnee	Sa	S
-Überleben im Schnee	ScN	G
-Überleben im Schnee	ScS	S
-Überleben im Schnee	ScW	S
-Überleben im Schnee	Se	S
-Überleben im Schnee	Sk	S
-Überleben im Schnee	Sp	S
-Überleben im Schnee	Sr	S
-Überleben im Schnee	Sw	S
-Überleben im Schnee	Sö	S
-Überleben im Schnee	Th	S
-Überleben im Schnee	Tm	S
-Überleben im Schnee	To	S
-Überleben im Schnee	Tr	S
-Überleben im Schnee	Tt	S
-Überleben im Schnee	Wa	S
-Überleben im Schnee	Wi	S
-Überleben im Schnee	dBe	S
-Überleben im Schnee	eBe	S
-Überleben im Schnee	gHx	S
-Überleben im Schnee	sHx	S
-Überleben im Schnee	tBe	S
-Überleben im Schnee	wHx	S
-Überleben im Sumpf	As	S
-Überleben im Sumpf	BN	S
-Überleben im Sumpf	BS	S
-Überleben im Sumpf	BW	S
-Überleben im Sumpf	Ba	S
-Überleben im Sumpf	De	S
-Überleben im Sumpf	Dr	S
-Überleben im Sumpf	Dt	S
-Überleben im Sumpf	Er	S
-Überleben im Sumpf	Fi	A
-Überleben im Sumpf	Gl	S
-Überleben im Sumpf	Hj	S
-Überleben im Sumpf	Hl	S
-Überleben im Sumpf	Hä	S
-Überleben im Sumpf	Kd	S
-Überleben im Sumpf	Km	S
-Überleben im Sumpf	Kr	S
-Überleben im Sumpf	Ku	S
-Überleben im Sumpf	MMa	S
-Überleben im Sumpf	Ma	S
-Überleben im Sumpf	Mg	S
-Überleben im Sumpf	Ny	S
-Überleben im Sumpf	Or	S
-Überleben im Sumpf	PC	S
-Überleben im Sumpf	PF	S
-Überleben im Sumpf	PHa	S
-Überleben im Sumpf	PHe	S
-Überleben im Sumpf	PK	S
-Überleben im Sumpf	PM	S
-Überleben im Sumpf	PT	S
-Überleben im Sumpf	PW	S
-Überleben im Sumpf	Ri	S
-Überleben im Sumpf	RiN	S
-Überleben im Sumpf	RiS	S
-Überleben im Sumpf	Ru	S
-Überleben im Sumpf	Sa	A
-Überleben im Sumpf	ScN	S
-Überleben im Sumpf	ScS	S
-Überleben im Sumpf	ScW	S
-Überleben im Sumpf	Se	S
-Überleben im Sumpf	Sk	S
-Überleben im Sumpf	Sp	S
-Überleben im Sumpf	Sr	S
-Überleben im Sumpf	Sw	S
-Überleben im Sumpf	Sö	S
-Überleben im Sumpf	Th	S
-Überleben im Sumpf	Tm	S
-Überleben im Sumpf	To	S
-Überleben im Sumpf	Tr	S
-Überleben im Sumpf	Tt	S
-Überleben im Sumpf	Wa	S
-Überleben im Sumpf	Wi	S
-Überleben im Sumpf	dBe	S
-Überleben im Sumpf	eBe	S
-Überleben im Sumpf	gHx	S
-Überleben im Sumpf	sHx	S
-Überleben im Sumpf	tBe	S
-Überleben im Sumpf	wHx	S
-Überleben im Wald	As	S
-Überleben im Wald	BN	S
-Überleben im Wald	BS	S
-Überleben im Wald	BW	G
-Überleben im Wald	Ba	S
-Überleben im Wald	De	S
-Überleben im Wald	Dr	S
-Überleben im Wald	Dt	S
-Überleben im Wald	Er	S
-Überleben im Wald	Fi	G
-Überleben im Wald	Gl	S
-Überleben im Wald	Hj	S
-Überleben im Wald	Hl	S
-Überleben im Wald	Hä	G
-Überleben im Wald	Kd	S
-Überleben im Wald	Km	S
-Überleben im Wald	Kr	S
-Überleben im Wald	Ku	S
-Überleben im Wald	MMa	S
-Überleben im Wald	Ma	S
-Überleben im Wald	Mg	S
-Überleben im Wald	Ny	S
-Überleben im Wald	Or	S
-Überleben im Wald	PC	S
-Überleben im Wald	PF	S
-Überleben im Wald	PHa	S
-Überleben im Wald	PHe	S
-Überleben im Wald	PK	S
-Überleben im Wald	PM	S
-Überleben im Wald	PT	S
-Überleben im Wald	PW	S
-Überleben im Wald	Ri	S
-Überleben im Wald	RiN	S
-Überleben im Wald	RiS	S
-Überleben im Wald	Ru	S
-Überleben im Wald	Sa	S
-Überleben im Wald	ScN	S
-Überleben im Wald	ScS	S
-Überleben im Wald	ScW	G
-Überleben im Wald	Se	S
-Überleben im Wald	Sk	S
-Überleben im Wald	Sp	S
-Überleben im Wald	Sr	S
-Überleben im Wald	Sw	S
-Überleben im Wald	Sö	S
-Überleben im Wald	Th	S
-Überleben im Wald	Tm	S
-Überleben im Wald	To	S
-Überleben im Wald	Tr	S
-Überleben im Wald	Tt	S
-Überleben im Wald	Wa	G
-Überleben im Wald	Wi	S
-Überleben im Wald	dBe	S
-Überleben im Wald	eBe	S
-Überleben im Wald	gHx	S
-Überleben im Wald	sHx	S
-Überleben im Wald	tBe	S
-Überleben im Wald	wHx	S
-Überleben in der Steppe	As	S
-Überleben in der Steppe	BN	S
-Überleben in der Steppe	BS	G
-Überleben in der Steppe	BW	S
-Überleben in der Steppe	Ba	S
-Überleben in der Steppe	De	G
-Überleben in der Steppe	Dr	S
-Überleben in der Steppe	Dt	S
-Überleben in der Steppe	Er	S
-Überleben in der Steppe	Fi	A
-Überleben in der Steppe	Gl	S
-Überleben in der Steppe	Hj	S
-Überleben in der Steppe	Hl	S
-Überleben in der Steppe	Hä	G
-Überleben in der Steppe	Kd	S
-Überleben in der Steppe	Km	S
-Überleben in der Steppe	Kr	S
-Überleben in der Steppe	Ku	G
-Überleben in der Steppe	MMa	S
-Überleben in der Steppe	Ma	S
-Überleben in der Steppe	Mg	S
-Überleben in der Steppe	Ny	S
-Überleben in der Steppe	Or	S
-Überleben in der Steppe	PC	S
-Überleben in der Steppe	PF	S
-Überleben in der Steppe	PHa	S
-Überleben in der Steppe	PHe	S
-Überleben in der Steppe	PK	S
-Überleben in der Steppe	PM	S
-Überleben in der Steppe	PT	S
-Überleben in der Steppe	PW	S
-Überleben in der Steppe	Ri	S
-Überleben in der Steppe	RiN	S
-Überleben in der Steppe	RiS	S
-Überleben in der Steppe	Ru	S
-Überleben in der Steppe	Sa	S
-Überleben in der Steppe	ScN	S
-Überleben in der Steppe	ScS	G
-Überleben in der Steppe	ScW	S
-Überleben in der Steppe	Se	S
-Überleben in der Steppe	Sk	S
-Überleben in der Steppe	Sp	S
-Überleben in der Steppe	Sr	S
-Überleben in der Steppe	Sw	S
-Überleben in der Steppe	Sö	S
-Überleben in der Steppe	Th	S
-Überleben in der Steppe	Tm	S
-Überleben in der Steppe	To	S
-Überleben in der Steppe	Tr	S
-Überleben in der Steppe	Tt	G
-Überleben in der Steppe	Wa	S
-Überleben in der Steppe	Wi	S
-Überleben in der Steppe	dBe	S
-Überleben in der Steppe	eBe	S
-Überleben in der Steppe	gHx	S
-Überleben in der Steppe	sHx	S
-Überleben in der Steppe	tBe	S
-Überleben in der Steppe	wHx	S
-Überleben in der Wüste	As	S
-Überleben in der Wüste	BN	S
-Überleben in der Wüste	BS	G
-Überleben in der Wüste	BW	S
-Überleben in der Wüste	Ba	S
-Überleben in der Wüste	De	G
-Überleben in der Wüste	Dr	S
-Überleben in der Wüste	Dt	S
-Überleben in der Wüste	Er	S
-Überleben in der Wüste	Fi	A
-Überleben in der Wüste	Gl	S
-Überleben in der Wüste	Hj	S
-Überleben in der Wüste	Hl	S
-Überleben in der Wüste	Hä	G
-Überleben in der Wüste	Kd	S
-Überleben in der Wüste	Km	S
-Überleben in der Wüste	Kr	S
-Überleben in der Wüste	Ku	G
-Überleben in der Wüste	MMa	S
-Überleben in der Wüste	Ma	S
-Überleben in der Wüste	Mg	S
-Überleben in der Wüste	Ny	S
-Überleben in der Wüste	Or	S
-Überleben in der Wüste	PC	S
-Überleben in der Wüste	PF	S
-Überleben in der Wüste	PHa	S
-Überleben in der Wüste	PHe	S
-Überleben in der Wüste	PK	S
-Überleben in der Wüste	PM	S
-Überleben in der Wüste	PT	S
-Überleben in der Wüste	PW	S
-Überleben in der Wüste	Ri	S
-Überleben in der Wüste	RiN	S
-Überleben in der Wüste	RiS	S
-Überleben in der Wüste	Ru	S
-Überleben in der Wüste	Sa	S
-Überleben in der Wüste	ScN	S
-Überleben in der Wüste	ScS	G
-Überleben in der Wüste	ScW	S
-Überleben in der Wüste	Se	S
-Überleben in der Wüste	Sk	S
-Überleben in der Wüste	Sp	S
-Überleben in der Wüste	Sr	S
-Überleben in der Wüste	Sw	S
-Überleben in der Wüste	Sö	S
-Überleben in der Wüste	Th	S
-Überleben in der Wüste	Tm	S
-Überleben in der Wüste	To	S
-Überleben in der Wüste	Tr	S
-Überleben in der Wüste	Tt	G
-Überleben in der Wüste	Wa	S
-Überleben in der Wüste	Wi	S
-Überleben in der Wüste	dBe	S
-Überleben in der Wüste	eBe	S
-Überleben in der Wüste	gHx	S
-Überleben in der Wüste	sHx	S
-Überleben in der Wüste	tBe	S
-Überleben in der Wüste	wHx	S
+Ãœberleben im Dschungel	As	S
+Ãœberleben im Dschungel	BN	S
+Ãœberleben im Dschungel	BS	S
+Ãœberleben im Dschungel	BW	G
+Ãœberleben im Dschungel	Ba	S
+Ãœberleben im Dschungel	De	S
+Ãœberleben im Dschungel	Dr	S
+Ãœberleben im Dschungel	Dt	G
+Ãœberleben im Dschungel	Er	S
+Ãœberleben im Dschungel	Fi	A
+Ãœberleben im Dschungel	Gl	S
+Ãœberleben im Dschungel	Hj	S
+Ãœberleben im Dschungel	Hl	S
+Ãœberleben im Dschungel	HÃ¤	G
+Ãœberleben im Dschungel	Kd	S
+Ãœberleben im Dschungel	Km	S
+Ãœberleben im Dschungel	Kr	S
+Ãœberleben im Dschungel	Ku	S
+Ãœberleben im Dschungel	MMa	S
+Ãœberleben im Dschungel	Ma	S
+Ãœberleben im Dschungel	Mg	S
+Ãœberleben im Dschungel	Ny	S
+Ãœberleben im Dschungel	Or	S
+Ãœberleben im Dschungel	PC	S
+Ãœberleben im Dschungel	PF	S
+Ãœberleben im Dschungel	PHa	S
+Ãœberleben im Dschungel	PHe	S
+Ãœberleben im Dschungel	PK	S
+Ãœberleben im Dschungel	PM	S
+Ãœberleben im Dschungel	PT	S
+Ãœberleben im Dschungel	PW	S
+Ãœberleben im Dschungel	Ri	S
+Ãœberleben im Dschungel	RiN	S
+Ãœberleben im Dschungel	RiS	S
+Ãœberleben im Dschungel	Ru	S
+Ãœberleben im Dschungel	Sa	S
+Ãœberleben im Dschungel	ScN	S
+Ãœberleben im Dschungel	ScS	S
+Ãœberleben im Dschungel	ScW	G
+Ãœberleben im Dschungel	Se	S
+Ãœberleben im Dschungel	Sk	S
+Ãœberleben im Dschungel	Sp	S
+Ãœberleben im Dschungel	Sr	S
+Ãœberleben im Dschungel	Sw	S
+Ãœberleben im Dschungel	SÃ¶	S
+Ãœberleben im Dschungel	Th	S
+Ãœberleben im Dschungel	Tm	S
+Ãœberleben im Dschungel	To	S
+Ãœberleben im Dschungel	Tr	S
+Ãœberleben im Dschungel	Tt	S
+Ãœberleben im Dschungel	Wa	G
+Ãœberleben im Dschungel	Wi	S
+Ãœberleben im Dschungel	dBe	S
+Ãœberleben im Dschungel	eBe	S
+Ãœberleben im Dschungel	gHx	S
+Ãœberleben im Dschungel	sHx	S
+Ãœberleben im Dschungel	tBe	S
+Ãœberleben im Dschungel	wHx	S
+Ãœberleben im Gebirge	As	S
+Ãœberleben im Gebirge	BN	G
+Ãœberleben im Gebirge	BS	S
+Ãœberleben im Gebirge	BW	S
+Ãœberleben im Gebirge	Ba	S
+Ãœberleben im Gebirge	De	S
+Ãœberleben im Gebirge	Dr	S
+Ãœberleben im Gebirge	Dt	S
+Ãœberleben im Gebirge	Er	S
+Ãœberleben im Gebirge	Fi	G
+Ãœberleben im Gebirge	Gl	S
+Ãœberleben im Gebirge	Hj	S
+Ãœberleben im Gebirge	Hl	S
+Ãœberleben im Gebirge	HÃ¤	S
+Ãœberleben im Gebirge	Kd	S
+Ãœberleben im Gebirge	Km	S
+Ãœberleben im Gebirge	Kr	S
+Ãœberleben im Gebirge	Ku	S
+Ãœberleben im Gebirge	MMa	S
+Ãœberleben im Gebirge	Ma	S
+Ãœberleben im Gebirge	Mg	S
+Ãœberleben im Gebirge	Ny	S
+Ãœberleben im Gebirge	Or	S
+Ãœberleben im Gebirge	PC	S
+Ãœberleben im Gebirge	PF	S
+Ãœberleben im Gebirge	PHa	S
+Ãœberleben im Gebirge	PHe	S
+Ãœberleben im Gebirge	PK	S
+Ãœberleben im Gebirge	PM	S
+Ãœberleben im Gebirge	PT	S
+Ãœberleben im Gebirge	PW	S
+Ãœberleben im Gebirge	Ri	S
+Ãœberleben im Gebirge	RiN	S
+Ãœberleben im Gebirge	RiS	S
+Ãœberleben im Gebirge	Ru	S
+Ãœberleben im Gebirge	Sa	S
+Ãœberleben im Gebirge	ScN	G
+Ãœberleben im Gebirge	ScS	S
+Ãœberleben im Gebirge	ScW	S
+Ãœberleben im Gebirge	Se	S
+Ãœberleben im Gebirge	Sk	S
+Ãœberleben im Gebirge	Sp	S
+Ãœberleben im Gebirge	Sr	S
+Ãœberleben im Gebirge	Sw	S
+Ãœberleben im Gebirge	SÃ¶	S
+Ãœberleben im Gebirge	Th	S
+Ãœberleben im Gebirge	Tm	S
+Ãœberleben im Gebirge	To	S
+Ãœberleben im Gebirge	Tr	S
+Ãœberleben im Gebirge	Tt	S
+Ãœberleben im Gebirge	Wa	G
+Ãœberleben im Gebirge	Wi	S
+Ãœberleben im Gebirge	dBe	S
+Ãœberleben im Gebirge	eBe	S
+Ãœberleben im Gebirge	gHx	S
+Ãœberleben im Gebirge	sHx	S
+Ãœberleben im Gebirge	tBe	S
+Ãœberleben im Gebirge	wHx	S
+Ãœberleben im Schnee	As	S
+Ãœberleben im Schnee	BN	G
+Ãœberleben im Schnee	BS	S
+Ãœberleben im Schnee	BW	S
+Ãœberleben im Schnee	Ba	S
+Ãœberleben im Schnee	De	S
+Ãœberleben im Schnee	Dr	S
+Ãœberleben im Schnee	Dt	S
+Ãœberleben im Schnee	Er	S
+Ãœberleben im Schnee	Fi	A
+Ãœberleben im Schnee	Gl	S
+Ãœberleben im Schnee	Hj	S
+Ãœberleben im Schnee	Hl	S
+Ãœberleben im Schnee	HÃ¤	G
+Ãœberleben im Schnee	Kd	S
+Ãœberleben im Schnee	Km	S
+Ãœberleben im Schnee	Kr	S
+Ãœberleben im Schnee	Ku	G
+Ãœberleben im Schnee	MMa	S
+Ãœberleben im Schnee	Ma	S
+Ãœberleben im Schnee	Mg	S
+Ãœberleben im Schnee	Ny	S
+Ãœberleben im Schnee	Or	S
+Ãœberleben im Schnee	PC	S
+Ãœberleben im Schnee	PF	S
+Ãœberleben im Schnee	PHa	S
+Ãœberleben im Schnee	PHe	S
+Ãœberleben im Schnee	PK	S
+Ãœberleben im Schnee	PM	S
+Ãœberleben im Schnee	PT	S
+Ãœberleben im Schnee	PW	S
+Ãœberleben im Schnee	Ri	S
+Ãœberleben im Schnee	RiN	S
+Ãœberleben im Schnee	RiS	S
+Ãœberleben im Schnee	Ru	S
+Ãœberleben im Schnee	Sa	S
+Ãœberleben im Schnee	ScN	G
+Ãœberleben im Schnee	ScS	S
+Ãœberleben im Schnee	ScW	S
+Ãœberleben im Schnee	Se	S
+Ãœberleben im Schnee	Sk	S
+Ãœberleben im Schnee	Sp	S
+Ãœberleben im Schnee	Sr	S
+Ãœberleben im Schnee	Sw	S
+Ãœberleben im Schnee	SÃ¶	S
+Ãœberleben im Schnee	Th	S
+Ãœberleben im Schnee	Tm	S
+Ãœberleben im Schnee	To	S
+Ãœberleben im Schnee	Tr	S
+Ãœberleben im Schnee	Tt	S
+Ãœberleben im Schnee	Wa	S
+Ãœberleben im Schnee	Wi	S
+Ãœberleben im Schnee	dBe	S
+Ãœberleben im Schnee	eBe	S
+Ãœberleben im Schnee	gHx	S
+Ãœberleben im Schnee	sHx	S
+Ãœberleben im Schnee	tBe	S
+Ãœberleben im Schnee	wHx	S
+Ãœberleben im Sumpf	As	S
+Ãœberleben im Sumpf	BN	S
+Ãœberleben im Sumpf	BS	S
+Ãœberleben im Sumpf	BW	S
+Ãœberleben im Sumpf	Ba	S
+Ãœberleben im Sumpf	De	S
+Ãœberleben im Sumpf	Dr	S
+Ãœberleben im Sumpf	Dt	S
+Ãœberleben im Sumpf	Er	S
+Ãœberleben im Sumpf	Fi	A
+Ãœberleben im Sumpf	Gl	S
+Ãœberleben im Sumpf	Hj	S
+Ãœberleben im Sumpf	Hl	S
+Ãœberleben im Sumpf	HÃ¤	S
+Ãœberleben im Sumpf	Kd	S
+Ãœberleben im Sumpf	Km	S
+Ãœberleben im Sumpf	Kr	S
+Ãœberleben im Sumpf	Ku	S
+Ãœberleben im Sumpf	MMa	S
+Ãœberleben im Sumpf	Ma	S
+Ãœberleben im Sumpf	Mg	S
+Ãœberleben im Sumpf	Ny	S
+Ãœberleben im Sumpf	Or	S
+Ãœberleben im Sumpf	PC	S
+Ãœberleben im Sumpf	PF	S
+Ãœberleben im Sumpf	PHa	S
+Ãœberleben im Sumpf	PHe	S
+Ãœberleben im Sumpf	PK	S
+Ãœberleben im Sumpf	PM	S
+Ãœberleben im Sumpf	PT	S
+Ãœberleben im Sumpf	PW	S
+Ãœberleben im Sumpf	Ri	S
+Ãœberleben im Sumpf	RiN	S
+Ãœberleben im Sumpf	RiS	S
+Ãœberleben im Sumpf	Ru	S
+Ãœberleben im Sumpf	Sa	A
+Ãœberleben im Sumpf	ScN	S
+Ãœberleben im Sumpf	ScS	S
+Ãœberleben im Sumpf	ScW	S
+Ãœberleben im Sumpf	Se	S
+Ãœberleben im Sumpf	Sk	S
+Ãœberleben im Sumpf	Sp	S
+Ãœberleben im Sumpf	Sr	S
+Ãœberleben im Sumpf	Sw	S
+Ãœberleben im Sumpf	SÃ¶	S
+Ãœberleben im Sumpf	Th	S
+Ãœberleben im Sumpf	Tm	S
+Ãœberleben im Sumpf	To	S
+Ãœberleben im Sumpf	Tr	S
+Ãœberleben im Sumpf	Tt	S
+Ãœberleben im Sumpf	Wa	S
+Ãœberleben im Sumpf	Wi	S
+Ãœberleben im Sumpf	dBe	S
+Ãœberleben im Sumpf	eBe	S
+Ãœberleben im Sumpf	gHx	S
+Ãœberleben im Sumpf	sHx	S
+Ãœberleben im Sumpf	tBe	S
+Ãœberleben im Sumpf	wHx	S
+Ãœberleben im Wald	As	S
+Ãœberleben im Wald	BN	S
+Ãœberleben im Wald	BS	S
+Ãœberleben im Wald	BW	G
+Ãœberleben im Wald	Ba	S
+Ãœberleben im Wald	De	S
+Ãœberleben im Wald	Dr	S
+Ãœberleben im Wald	Dt	S
+Ãœberleben im Wald	Er	S
+Ãœberleben im Wald	Fi	G
+Ãœberleben im Wald	Gl	S
+Ãœberleben im Wald	Hj	S
+Ãœberleben im Wald	Hl	S
+Ãœberleben im Wald	HÃ¤	G
+Ãœberleben im Wald	Kd	S
+Ãœberleben im Wald	Km	S
+Ãœberleben im Wald	Kr	S
+Ãœberleben im Wald	Ku	S
+Ãœberleben im Wald	MMa	S
+Ãœberleben im Wald	Ma	S
+Ãœberleben im Wald	Mg	S
+Ãœberleben im Wald	Ny	S
+Ãœberleben im Wald	Or	S
+Ãœberleben im Wald	PC	S
+Ãœberleben im Wald	PF	S
+Ãœberleben im Wald	PHa	S
+Ãœberleben im Wald	PHe	S
+Ãœberleben im Wald	PK	S
+Ãœberleben im Wald	PM	S
+Ãœberleben im Wald	PT	S
+Ãœberleben im Wald	PW	S
+Ãœberleben im Wald	Ri	S
+Ãœberleben im Wald	RiN	S
+Ãœberleben im Wald	RiS	S
+Ãœberleben im Wald	Ru	S
+Ãœberleben im Wald	Sa	S
+Ãœberleben im Wald	ScN	S
+Ãœberleben im Wald	ScS	S
+Ãœberleben im Wald	ScW	G
+Ãœberleben im Wald	Se	S
+Ãœberleben im Wald	Sk	S
+Ãœberleben im Wald	Sp	S
+Ãœberleben im Wald	Sr	S
+Ãœberleben im Wald	Sw	S
+Ãœberleben im Wald	SÃ¶	S
+Ãœberleben im Wald	Th	S
+Ãœberleben im Wald	Tm	S
+Ãœberleben im Wald	To	S
+Ãœberleben im Wald	Tr	S
+Ãœberleben im Wald	Tt	S
+Ãœberleben im Wald	Wa	G
+Ãœberleben im Wald	Wi	S
+Ãœberleben im Wald	dBe	S
+Ãœberleben im Wald	eBe	S
+Ãœberleben im Wald	gHx	S
+Ãœberleben im Wald	sHx	S
+Ãœberleben im Wald	tBe	S
+Ãœberleben im Wald	wHx	S
+Ãœberleben in der Steppe	As	S
+Ãœberleben in der Steppe	BN	S
+Ãœberleben in der Steppe	BS	G
+Ãœberleben in der Steppe	BW	S
+Ãœberleben in der Steppe	Ba	S
+Ãœberleben in der Steppe	De	G
+Ãœberleben in der Steppe	Dr	S
+Ãœberleben in der Steppe	Dt	S
+Ãœberleben in der Steppe	Er	S
+Ãœberleben in der Steppe	Fi	A
+Ãœberleben in der Steppe	Gl	S
+Ãœberleben in der Steppe	Hj	S
+Ãœberleben in der Steppe	Hl	S
+Ãœberleben in der Steppe	HÃ¤	G
+Ãœberleben in der Steppe	Kd	S
+Ãœberleben in der Steppe	Km	S
+Ãœberleben in der Steppe	Kr	S
+Ãœberleben in der Steppe	Ku	G
+Ãœberleben in der Steppe	MMa	S
+Ãœberleben in der Steppe	Ma	S
+Ãœberleben in der Steppe	Mg	S
+Ãœberleben in der Steppe	Ny	S
+Ãœberleben in der Steppe	Or	S
+Ãœberleben in der Steppe	PC	S
+Ãœberleben in der Steppe	PF	S
+Ãœberleben in der Steppe	PHa	S
+Ãœberleben in der Steppe	PHe	S
+Ãœberleben in der Steppe	PK	S
+Ãœberleben in der Steppe	PM	S
+Ãœberleben in der Steppe	PT	S
+Ãœberleben in der Steppe	PW	S
+Ãœberleben in der Steppe	Ri	S
+Ãœberleben in der Steppe	RiN	S
+Ãœberleben in der Steppe	RiS	S
+Ãœberleben in der Steppe	Ru	S
+Ãœberleben in der Steppe	Sa	S
+Ãœberleben in der Steppe	ScN	S
+Ãœberleben in der Steppe	ScS	G
+Ãœberleben in der Steppe	ScW	S
+Ãœberleben in der Steppe	Se	S
+Ãœberleben in der Steppe	Sk	S
+Ãœberleben in der Steppe	Sp	S
+Ãœberleben in der Steppe	Sr	S
+Ãœberleben in der Steppe	Sw	S
+Ãœberleben in der Steppe	SÃ¶	S
+Ãœberleben in der Steppe	Th	S
+Ãœberleben in der Steppe	Tm	S
+Ãœberleben in der Steppe	To	S
+Ãœberleben in der Steppe	Tr	S
+Ãœberleben in der Steppe	Tt	G
+Ãœberleben in der Steppe	Wa	S
+Ãœberleben in der Steppe	Wi	S
+Ãœberleben in der Steppe	dBe	S
+Ãœberleben in der Steppe	eBe	S
+Ãœberleben in der Steppe	gHx	S
+Ãœberleben in der Steppe	sHx	S
+Ãœberleben in der Steppe	tBe	S
+Ãœberleben in der Steppe	wHx	S
+Ãœberleben in der WÃ¼ste	As	S
+Ãœberleben in der WÃ¼ste	BN	S
+Ãœberleben in der WÃ¼ste	BS	G
+Ãœberleben in der WÃ¼ste	BW	S
+Ãœberleben in der WÃ¼ste	Ba	S
+Ãœberleben in der WÃ¼ste	De	G
+Ãœberleben in der WÃ¼ste	Dr	S
+Ãœberleben in der WÃ¼ste	Dt	S
+Ãœberleben in der WÃ¼ste	Er	S
+Ãœberleben in der WÃ¼ste	Fi	A
+Ãœberleben in der WÃ¼ste	Gl	S
+Ãœberleben in der WÃ¼ste	Hj	S
+Ãœberleben in der WÃ¼ste	Hl	S
+Ãœberleben in der WÃ¼ste	HÃ¤	G
+Ãœberleben in der WÃ¼ste	Kd	S
+Ãœberleben in der WÃ¼ste	Km	S
+Ãœberleben in der WÃ¼ste	Kr	S
+Ãœberleben in der WÃ¼ste	Ku	G
+Ãœberleben in der WÃ¼ste	MMa	S
+Ãœberleben in der WÃ¼ste	Ma	S
+Ãœberleben in der WÃ¼ste	Mg	S
+Ãœberleben in der WÃ¼ste	Ny	S
+Ãœberleben in der WÃ¼ste	Or	S
+Ãœberleben in der WÃ¼ste	PC	S
+Ãœberleben in der WÃ¼ste	PF	S
+Ãœberleben in der WÃ¼ste	PHa	S
+Ãœberleben in der WÃ¼ste	PHe	S
+Ãœberleben in der WÃ¼ste	PK	S
+Ãœberleben in der WÃ¼ste	PM	S
+Ãœberleben in der WÃ¼ste	PT	S
+Ãœberleben in der WÃ¼ste	PW	S
+Ãœberleben in der WÃ¼ste	Ri	S
+Ãœberleben in der WÃ¼ste	RiN	S
+Ãœberleben in der WÃ¼ste	RiS	S
+Ãœberleben in der WÃ¼ste	Ru	S
+Ãœberleben in der WÃ¼ste	Sa	S
+Ãœberleben in der WÃ¼ste	ScN	S
+Ãœberleben in der WÃ¼ste	ScS	G
+Ãœberleben in der WÃ¼ste	ScW	S
+Ãœberleben in der WÃ¼ste	Se	S
+Ãœberleben in der WÃ¼ste	Sk	S
+Ãœberleben in der WÃ¼ste	Sp	S
+Ãœberleben in der WÃ¼ste	Sr	S
+Ãœberleben in der WÃ¼ste	Sw	S
+Ãœberleben in der WÃ¼ste	SÃ¶	S
+Ãœberleben in der WÃ¼ste	Th	S
+Ãœberleben in der WÃ¼ste	Tm	S
+Ãœberleben in der WÃ¼ste	To	S
+Ãœberleben in der WÃ¼ste	Tr	S
+Ãœberleben in der WÃ¼ste	Tt	G
+Ãœberleben in der WÃ¼ste	Wa	S
+Ãœberleben in der WÃ¼ste	Wi	S
+Ãœberleben in der WÃ¼ste	dBe	S
+Ãœberleben in der WÃ¼ste	eBe	S
+Ãœberleben in der WÃ¼ste	gHx	S
+Ãœberleben in der WÃ¼ste	sHx	S
+Ãœberleben in der WÃ¼ste	tBe	S
+Ãœberleben in der WÃ¼ste	wHx	S
 \.
 --
 --

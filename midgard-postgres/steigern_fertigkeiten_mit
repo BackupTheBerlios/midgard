@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'LATIN1';
+SET client_encoding = 'UNICODE';
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
@@ -40,19 +40,19 @@ Ausdauer	KEP
 Ausdauer	ZEP
 Balancieren	KEP
 Ballista bedienen	KEP
-Beidh‰ndiger Kampf	KEP
+Beidh√§ndiger Kampf	KEP
 Beredsamkeit	ZEP
 Bogenkampf zu Pferd	KEP
 Brettspiel	KEP
 Dichten	ZEP
 Elefanten lenken	KEP
-Erz‰hlen	ZEP
+Erz√§hlen	ZEP
 Fangen	KEP
 Fechten	KEP
 Fechten tevarrischer Stil	KEP
 FengTsu	KEP
 Geheimzeichen	ZEP
-Gel‰ndelauf	KEP
+Gel√§ndelauf	KEP
 Geomantie	ZEP
 Giftmischen	ZEP
 Heilkunde	ZEP
@@ -62,7 +62,7 @@ IaiJutsu	KEP
 Kamelreiten	KEP
 Kampf in Dunkelheit	KEP
 Kampf in Schlachtreihe	KEP
-Kampf in Vollr¸stung	KEP
+Kampf in Vollr√ºstung	KEP
 Kampf vom Streitwagen	KEP
 Kampf zu Elefant	KEP
 Kampf zu Kamel	KEP
@@ -75,9 +75,9 @@ KentoYobu	KEP
 KiDo	KEP
 KiDo	ZEP
 Klettern	KEP
-Kr‰uterkunde	ZEP
+Kr√§uterkunde	ZEP
 KujNoIu	ZEP
-Kˆrperkontrolle	ZEP
+K√∂rperkontrolle	ZEP
 Laufen	KEP
 Lesen von Zauberschrift	ZEP
 Meditieren	ZEP
@@ -92,9 +92,9 @@ Rechnen	ZEP
 Reiten	KEP
 Rudern	KEP
 Sagenkunde	ZEP
-Scharfschieﬂen	KEP
-Schieﬂen vom Streitwagen	KEP
-Schiffsf¸hrung	KEP
+Scharfschie√üen	KEP
+Schie√üen vom Streitwagen	KEP
+Schiffsf√ºhrung	KEP
 SchiyoKi	KEP
 SchiyoKi	ZEP
 Schleichen	KEP
@@ -103,7 +103,7 @@ Schlittschuhlaufen	KEP
 Schmerzen ertragen	ZEP
 Schwerttanz	KEP
 Schwimmen	KEP
-Sch‰tzen	ZEP
+Sch√§tzen	ZEP
 Seemannsgang	KEP
 Skifahren	KEP
 Springen	KEP
@@ -125,13 +125,13 @@ Zauber	ZEP
 Zauberkunde	ZEP
 Zaubern	ZEP
 Zeichensprache	ZEP
-‹berleben im Dschungel	ZEP
-‹berleben im Gebirge	ZEP
-‹berleben im Schnee	ZEP
-‹berleben im Sumpf	ZEP
-‹berleben im Wald	ZEP
-‹berleben in der Steppe	ZEP
-‹berleben in der W¸ste	ZEP
+√úberleben im Dschungel	ZEP
+√úberleben im Gebirge	ZEP
+√úberleben im Schnee	ZEP
+√úberleben im Sumpf	ZEP
+√úberleben im Wald	ZEP
+√úberleben in der Steppe	ZEP
+√úberleben in der W√ºste	ZEP
 \.
 --
 --

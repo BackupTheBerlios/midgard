@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'LATIN1';
+SET client_encoding = 'UNICODE';
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
@@ -48,7 +48,7 @@ COPY sprachen (fp, name, max_wert, alt, region, gruppe_1, gruppe_2, minderheit, 
 10	Dvarskar	20	\N	\N	\N	\N	\N	\N
 10	Eldalyn	20	\N	\N	6	\N	\N	\N
 10	Erainnisch	20	\N	\N	2	6	\N	\N
-10	Ferangah	20	\N	X	10	\N	\N	Die schwarze Sph‰re
+10	Ferangah	20	\N	X	10	\N	\N	Die schwarze Sph√§re
 10	Feuerinseldialekte	20	\N	\N	\N	0	\N	\N
 10	Ffomorisch	20	\N	\N	5	\N	t	\N
 10	Gnomenon	20	\N	\N	\N	\N	\N	\N
@@ -59,7 +59,7 @@ COPY sprachen (fp, name, max_wert, alt, region, gruppe_1, gruppe_2, minderheit, 
 10	KanThaiTun	20	\N	\N	\N	\N	\N	\N
 10	Kelwisch	20	t	\N	\N	\N	\N	\N
 10	Luwisch	20	t	\N	3	\N	t	\N
-10	L‰inisch	20	\N	\N	7	\N	\N	\N
+10	L√§inisch	20	\N	\N	7	\N	\N	\N
 10	Maralinga	20	t	\N	10	\N	\N	\N
 10	Medjisisch	20	\N	\N	4	\N	\N	\N
 10	Meeressprache	20	\N	G	\N	\N	\N	49

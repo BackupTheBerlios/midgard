@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'LATIN1';
+SET client_encoding = 'UNICODE';
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
@@ -31,7 +31,7 @@ CREATE TABLE waffen_grund (
 COPY waffen_grund (name, fp, region) FROM stdin;
 Armbrust	600	\N
 Blasrohr	700	\N
-Bˆgen	700	\N
+B√∂gen	700	\N
 Einhandschlagwaffe	400	\N
 Einhandschwert	600	\N
 Fesselwaffe	700	\N
@@ -45,7 +45,7 @@ Parierwaffe	300	\N
 Peitsche	900	\N
 Schild	300	\N
 Schleuder	700	\N
-Spieﬂwaffe	400	\N
+Spie√üwaffe	400	\N
 Stangenwaffe	800	\N
 Stichwaffe	400	\N
 Stielwurfwaffe	300	\N
@@ -53,8 +53,8 @@ Werfen	200	\N
 Wurfmesser	300	\N
 Wurfpfeil	400	\N
 Wurfscheibe	700	\N
-Wurfspieﬂ	200	\N
-Zauberst‰be	400	\N
+Wurfspie√ü	200	\N
+Zauberst√§be	400	\N
 Zweihandschlagwaffe	600	\N
 Zweihandschwert	800	\N
 \.

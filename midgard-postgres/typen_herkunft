@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'LATIN1';
+SET client_encoding = 'UNICODE';
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
@@ -34,7 +34,7 @@ As	Clanngadarn	\N
 As	Erainn	\N
 As	Eschar	\N
 As	KanThaiPan	\N
-As	Küstenstaaten	\N
+As	KÃ¼stenstaaten	\N
 As	Minangpahit	\N
 As	Moravod	\N
 As	Nahuatlan	\N
@@ -72,7 +72,7 @@ Ba	Fuardain	\N
 Ba	Halfdal	\N
 Ba	Inseln unter dem Westwind	\N
 Ba	KanThaiPan	\N
-Ba	Küstenstaaten	\N
+Ba	KÃ¼stenstaaten	\N
 Ba	Minangpahit	\N
 Ba	Moravod	\N
 Ba	Nahuatlan	\N
@@ -94,7 +94,7 @@ Er	Chryseia	\N
 Er	Erainn	\N
 Er	Eschar	\N
 Er	KanThaiPan	\N
-Er	Küstenstaaten	\N
+Er	KÃ¼stenstaaten	\N
 Er	Rawindra	\N
 Er	Valian	\N
 Er	Ywerddon	\N
@@ -107,7 +107,7 @@ Gl	Clanngadarn	\N
 Gl	Erainn	\N
 Gl	Eschar	\N
 Gl	KanThaiPan	\N
-Gl	Küstenstaaten	\N
+Gl	KÃ¼stenstaaten	\N
 Gl	Minangpahit	\N
 Gl	Moravod	\N
 Gl	Nahuatlan	\N
@@ -128,7 +128,7 @@ Hj	Halfdal	\N
 Hj	Ikengabecken	\N
 Hj	Inseln unter dem Westwind	\N
 Hj	KanThaiPan	\N
-Hj	Küstenstaaten	\N
+Hj	KÃ¼stenstaaten	\N
 Hj	Medjis	\N
 Hj	Minangpahit	\N
 Hj	Moravod	\N
@@ -146,37 +146,37 @@ Hl	Chryseia	\N
 Hl	Clanngadarn	\N
 Hl	Erainn	\N
 Hl	Eschar	\N
-Hl	Küstenstaaten	\N
+Hl	KÃ¼stenstaaten	\N
 Hl	Moravod	\N
 Hl	Nahuatlan	\N
 Hl	Urruti	\N
 Hl	Valian	\N
 Hl	Waeland	\N
 Hl	Ywerddon	\N
-Hä	Alba	\N
-Hä	Aran	\N
-Hä	Buluga	\N
-Hä	Chryseia	\N
-Hä	Clanngadarn	\N
-Hä	Dvarheim	\N
-Hä	Erainn	\N
-Hä	Eschar	\N
-Hä	Feuerinseln	\N
-Hä	Halfdal	\N
-Hä	Inseln unter dem Westwind	\N
-Hä	KanThaiPan	\N
-Hä	Küstenstaaten	\N
-Hä	Medjis	\N
-Hä	Minangpahit	\N
-Hä	Moravod	\N
-Hä	Nahuatlan	\N
-Hä	Rawindra	\N
-Hä	Tegarische Steppe	\N
-Hä	Urruti	\N
-Hä	Valian	\N
-Hä	Vesternesse	\N
-Hä	Waeland	\N
-Hä	Ywerddon	\N
+HÃ¤	Alba	\N
+HÃ¤	Aran	\N
+HÃ¤	Buluga	\N
+HÃ¤	Chryseia	\N
+HÃ¤	Clanngadarn	\N
+HÃ¤	Dvarheim	\N
+HÃ¤	Erainn	\N
+HÃ¤	Eschar	\N
+HÃ¤	Feuerinseln	\N
+HÃ¤	Halfdal	\N
+HÃ¤	Inseln unter dem Westwind	\N
+HÃ¤	KanThaiPan	\N
+HÃ¤	KÃ¼stenstaaten	\N
+HÃ¤	Medjis	\N
+HÃ¤	Minangpahit	\N
+HÃ¤	Moravod	\N
+HÃ¤	Nahuatlan	\N
+HÃ¤	Rawindra	\N
+HÃ¤	Tegarische Steppe	\N
+HÃ¤	Urruti	\N
+HÃ¤	Valian	\N
+HÃ¤	Vesternesse	\N
+HÃ¤	Waeland	\N
+HÃ¤	Ywerddon	\N
 Kd	KanThaiPan	\N
 Kr	Alba	\N
 Kr	Aran	\N
@@ -190,7 +190,7 @@ Kr	Feuerinseln	\N
 Kr	Halfdal	\N
 Kr	Inseln unter dem Westwind	\N
 Kr	KanThaiPan	\N
-Kr	Küstenstaaten	\N
+Kr	KÃ¼stenstaaten	\N
 Kr	Minangpahit	\N
 Kr	Moravod	\N
 Kr	Nahuatlan	\N
@@ -217,7 +217,7 @@ Ma	Clanngadarn	\N
 Ma	Erainn	\N
 Ma	Eschar	\N
 Ma	KanThaiPan	\N
-Ma	Küstenstaaten	\N
+Ma	KÃ¼stenstaaten	\N
 Ma	Minangpahit	\N
 Ma	Moravod	\N
 Ma	Nahuatlan	\N
@@ -227,7 +227,7 @@ Ma	Valian	\N
 Ma	Ywerddon	\N
 Mg	Alba	\N
 Mg	Eschar	\N
-Mg	Küstenstaaten	\N
+Mg	KÃ¼stenstaaten	\N
 Mg	Valian	\N
 Ny	KanThaiPan	\N
 Or	Alba	\N
@@ -237,7 +237,7 @@ Or	Clanngadarn	\N
 Or	Erainn	\N
 Or	Eschar	\N
 Or	KanThaiPan	\N
-Or	Küstenstaaten	\N
+Or	KÃ¼stenstaaten	\N
 Or	Minangpahit	\N
 Or	Nahuatlan	\N
 Or	Rawindra	\N
@@ -264,20 +264,20 @@ PF	Fuardain	Bogen
 PF	Halblinge	Kurzschwert
 PF	Halfdal	Kurzschwert
 PF	KanThaiPan	Kampfstab
-PF	Küstenstaaten	Magierstab
+PF	KÃ¼stenstaaten	Magierstab
 PF	Minangpahit	Handaxt
 PF	Nahuatlan	Magierstab
 PF	Rawindra	Streitkolben
 PF	Urruti	Schleuder
 PF	Urruti	Schleuder
 PF	Valian	Magierstab
-PF	Waeland	Stoßspeer
+PF	Waeland	StoÃŸspeer
 PF	Ywerddon	Bogen
 PF	Zwerge	Kampfstab
 PHa	Alba	Kriegshammer
 PHa	Chryseia	Kurzschwert
 PHa	Dvarheim	Kurzschwert
-PHa	Küstenstaaten	Dolch
+PHa	KÃ¼stenstaaten	Dolch
 PHa	Rawindra	Streitkolben
 PHa	Urruti	Kriegshammer
 PHa	Valian	Dolch
@@ -287,46 +287,46 @@ PHe	Aran	Streitkolben
 PHe	Chryseia	Kurzschwert
 PHe	Clanngadarn	Langschwert
 PHe	Dvarheim	Streitkolben
-PHe	Eschar	Krummsäbel
+PHe	Eschar	KrummsÃ¤bel
 PHe	Eschar	Streitkolben
 PHe	Fuardain	Langschwert
 PHe	KanThaiPan	Kampfstab
-PHe	Küstenstaaten	Stoßspeer
+PHe	KÃ¼stenstaaten	StoÃŸspeer
 PHe	Minangpahit	Streitkolben
 PHe	Nahuatlan	Langschwert
 PHe	Rawindra	Streitkolben
 PHe	Urruti	Kurzschwert
-PHe	Valian	Stoßspeer
+PHe	Valian	StoÃŸspeer
 PHe	Waeland	Langschwert
 PHe	Ywerddon	Langschwert
 PHe	Zwerge	Streitkolben
-PK	Alba	Stoßspeer
-PK	Aran	Krummsäbel
+PK	Alba	StoÃŸspeer
+PK	Aran	KrummsÃ¤bel
 PK	Dvarheim	Kriegshammer
 PK	Dvarheim	Streitaxt
 PK	KanThaiPan	Langschwert
 PK	KanThaiPan	Langschwert
-PK	Küstenstaaten	Langschwert
+PK	KÃ¼stenstaaten	Langschwert
 PK	Minangpahit	Streitaxt
 PK	Nahuatlan	Langschwert
-PK	Rawindra	Krummsäbel
+PK	Rawindra	KrummsÃ¤bel
 PK	Urruti	Glefe
 PK	Urruti	Kurzschwert
-PK	Urruti	Stoßspeer
+PK	Urruti	StoÃŸspeer
 PK	Valian	Kurzschwert
 PK	Waeland	Streitaxt
 PK	Zwerge	Kriegshammer
 PK	Zwerge	Streitaxt
-PM	Alba	Stoßspeer
+PM	Alba	StoÃŸspeer
 PM	Chryseia	Kurzschwert
-PM	Küstenstaaten	Dolch
+PM	KÃ¼stenstaaten	Dolch
 PM	Minangpahit	Wurfspeer
 PM	Valian	Dolch
-PM	Waeland	Stoßspeer
+PM	Waeland	StoÃŸspeer
 PT	Alba	waffenloser Kampf
 PT	Clanngadarn	Dolch
 PT	Fuardain	Dolch
-PT	Küstenstaaten	Kurzschwert
+PT	KÃ¼stenstaaten	Kurzschwert
 PT	Nahuatlan	Dolch
 PT	Rawindra	Dolch
 PT	Valian	Kurzschwert
@@ -334,16 +334,16 @@ PT	Ywerddon	Dolch
 PW	Alba	Dolch
 PW	Alba	Kampfstab
 PW	Chryseia	waffenloser Kampf
-PW	Halblinge	Stoßspeer
-PW	Halfdal	Stoßspeer
+PW	Halblinge	StoÃŸspeer
+PW	Halfdal	StoÃŸspeer
 PW	KanThaiPan	waffenloser Kampf
-PW	Küstenstaaten	waffenloser Kampf
+PW	KÃ¼stenstaaten	waffenloser Kampf
 PW	Minangpahit	Dolch
 PW	Nahuatlan	Magierstab
 PW	Rawindra	waffenloser Kampf
 PW	Waeland	Magierstab
 RiN	Alba	\N
-RiN	Küstenstaaten	\N
+RiN	KÃ¼stenstaaten	\N
 RiS	Aran	\N
 RiS	Eschar	\N
 Ru	Waeland	\N
@@ -388,7 +388,7 @@ Se	Clanngadarn	\N
 Se	Erainn	\N
 Se	Eschar	\N
 Se	KanThaiPan	\N
-Se	Küstenstaaten	\N
+Se	KÃ¼stenstaaten	\N
 Se	Minangpahit	\N
 Se	Moravod	\N
 Se	Rawindra	\N
@@ -407,7 +407,7 @@ Sp	Feuerinseln	\N
 Sp	Halfdal	\N
 Sp	Inseln unter dem Westwind	\N
 Sp	KanThaiPan	\N
-Sp	Küstenstaaten	\N
+Sp	KÃ¼stenstaaten	\N
 Sp	Medjis	\N
 Sp	Minangpahit	\N
 Sp	Moravod	\N
@@ -420,7 +420,7 @@ Sp	Vesternesse	\N
 Sp	Ywerddon	\N
 Sr	Rawindra	\N
 Steppe Tegarische	PC	Magierstab
-Steppe Tegarische	PK	Krummsäbel
+Steppe Tegarische	PK	KrummsÃ¤bel
 Sw	Alba	\N
 Sw	Aran	\N
 Sw	Buluga	\N
@@ -435,7 +435,7 @@ Sw	Halfdal	\N
 Sw	Ikengabecken	\N
 Sw	Inseln unter dem Westwind	\N
 Sw	KanThaiPan	\N
-Sw	Küstenstaaten	\N
+Sw	KÃ¼stenstaaten	\N
 Sw	Medjis	\N
 Sw	Minangpahit	\N
 Sw	Moravod	\N
@@ -447,29 +447,29 @@ Sw	Valian	\N
 Sw	Vesternesse	\N
 Sw	Waeland	\N
 Sw	Ywerddon	\N
-Sö	Alba	\N
-Sö	Aran	\N
-Sö	Chryseia	\N
-Sö	Clanngadarn	\N
-Sö	Dvarheim	\N
-Sö	Erainn	\N
-Sö	Eschar	\N
-Sö	Feuerinseln	\N
-Sö	Halfdal	\N
-Sö	Inseln unter dem Westwind	\N
-Sö	KanThaiPan	\N
-Sö	Küstenstaaten	\N
-Sö	Medjis	\N
-Sö	Minangpahit	\N
-Sö	Moravod	\N
-Sö	Nahuatlan	\N
-Sö	Rawindra	\N
-Sö	Tegarische Steppe	\N
-Sö	Urruti	\N
-Sö	Valian	\N
-Sö	Vesternesse	\N
-Sö	Waeland	\N
-Sö	Ywerddon	\N
+SÃ¶	Alba	\N
+SÃ¶	Aran	\N
+SÃ¶	Chryseia	\N
+SÃ¶	Clanngadarn	\N
+SÃ¶	Dvarheim	\N
+SÃ¶	Erainn	\N
+SÃ¶	Eschar	\N
+SÃ¶	Feuerinseln	\N
+SÃ¶	Halfdal	\N
+SÃ¶	Inseln unter dem Westwind	\N
+SÃ¶	KanThaiPan	\N
+SÃ¶	KÃ¼stenstaaten	\N
+SÃ¶	Medjis	\N
+SÃ¶	Minangpahit	\N
+SÃ¶	Moravod	\N
+SÃ¶	Nahuatlan	\N
+SÃ¶	Rawindra	\N
+SÃ¶	Tegarische Steppe	\N
+SÃ¶	Urruti	\N
+SÃ¶	Valian	\N
+SÃ¶	Vesternesse	\N
+SÃ¶	Waeland	\N
+SÃ¶	Ywerddon	\N
 Th	Alba	\N
 Th	Aran	\N
 Th	Chryseia	\N
@@ -477,7 +477,7 @@ Th	Clanngadarn	\N
 Th	Erainn	\N
 Th	Eschar	\N
 Th	KanThaiPan	\N
-Th	Küstenstaaten	\N
+Th	KÃ¼stenstaaten	\N
 Th	Minangpahit	\N
 Th	Moravod	\N
 Th	Nahuatlan	\N
@@ -499,7 +499,7 @@ To	Alba	\N
 To	Aran	\N
 To	Chryseia	\N
 To	Eschar	\N
-To	Küstenstaaten	\N
+To	KÃ¼stenstaaten	\N
 To	Moravod	\N
 To	Valian	\N
 Tr	Nahuatlan	\N
@@ -527,7 +527,7 @@ dBe	Chryseia	\N
 dBe	Eschar	\N
 dBe	Ikengabecken	\N
 dBe	KanThaiPan	\N
-dBe	Küstenstaaten	\N
+dBe	KÃ¼stenstaaten	\N
 dBe	Medjis	\N
 dBe	Moravod	\N
 dBe	Nahuatlan	\N
@@ -543,7 +543,7 @@ eBe	Chryseia	\N
 eBe	Eschar	\N
 eBe	Ikengabecken	\N
 eBe	KanThaiPan	\N
-eBe	Küstenstaaten	\N
+eBe	KÃ¼stenstaaten	\N
 eBe	Medjis	\N
 eBe	Moravod	\N
 eBe	Nahuatlan	\N
@@ -563,7 +563,7 @@ gHx	Eschar	\N
 gHx	Fuardain	\N
 gHx	Ikengabecken	\N
 gHx	KanThaiPan	\N
-gHx	Küstenstaaten	\N
+gHx	KÃ¼stenstaaten	\N
 gHx	Medjis	\N
 gHx	Minangpahit	\N
 gHx	Moravod	\N
@@ -584,7 +584,7 @@ sHx	Eschar	\N
 sHx	Fuardain	\N
 sHx	Ikengabecken	\N
 sHx	KanThaiPan	\N
-sHx	Küstenstaaten	\N
+sHx	KÃ¼stenstaaten	\N
 sHx	Medjis	\N
 sHx	Minangpahit	\N
 sHx	Moravod	\N
@@ -602,7 +602,7 @@ tBe	Chryseia	\N
 tBe	Eschar	\N
 tBe	Ikengabecken	\N
 tBe	KanThaiPan	\N
-tBe	Küstenstaaten	\N
+tBe	KÃ¼stenstaaten	\N
 tBe	Medjis	\N
 tBe	Moravod	\N
 tBe	Nahuatlan	\N
@@ -621,7 +621,7 @@ wHx	Eschar	\N
 wHx	Fuardain	\N
 wHx	Ikengabecken	\N
 wHx	KanThaiPan	\N
-wHx	Küstenstaaten	\N
+wHx	KÃ¼stenstaaten	\N
 wHx	Medjis	\N
 wHx	Minangpahit	\N
 wHx	Moravod	\N

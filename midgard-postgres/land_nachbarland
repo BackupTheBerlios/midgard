@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'LATIN1';
+SET client_encoding = 'UNICODE';
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
@@ -43,16 +43,16 @@ Aran	Valian
 Buluga	Ikengabecken
 Buluga	Urruti
 Chryseia	Erainn
-Chryseia	Küstenstaaten
+Chryseia	KÃ¼stenstaaten
 Chryseia	Valian
 Clanngadarn	Fuardain
 Clanngadarn	Waeland
 Clanngadarn	Ywerddon
 Dvarheim	Waeland
-Erainn	Küstenstaaten
+Erainn	KÃ¼stenstaaten
 Erainn	Ywerddon
 Eschar	Ikengabecken
-Eschar	Küstenstaaten
+Eschar	KÃ¼stenstaaten
 Eschar	Urruti
 Eschar	Valian
 Feuerinseln	Nahuatlan
@@ -61,7 +61,7 @@ KanThaiPan	Medjis
 KanThaiPan	Minangpahit
 KanThaiPan	Rawindra
 KanThaiPan	Tegarische Steppe
-Küstenstaaten	Valian
+KÃ¼stenstaaten	Valian
 Medjis	Moravod
 Medjis	Tegarische Steppe
 Minangpahit	Rawindra

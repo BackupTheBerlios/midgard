@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'LATIN1';
+SET client_encoding = 'UNICODE';
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
@@ -33,10 +33,10 @@ CREATE TABLE ausnahmen (
 --
 
 COPY ausnahmen (name, art, spezies, herkunft, typ, standard, beruf, stand) FROM stdin;
-Ahnengeist beschwören	z	\N	KanThaiPan	PC	G	\N	\N
-Ahnengeist beschwören	z	\N	KanThaiPan	ScN	G	\N	\N
-Ahnengeist beschwören	z	\N	KanThaiPan	ScS	G	\N	\N
-Ahnengeist beschwören	z	\N	KanThaiPan	ScW	G	\N	\N
+Ahnengeist beschwÃ¶ren	z	\N	KanThaiPan	PC	G	\N	\N
+Ahnengeist beschwÃ¶ren	z	\N	KanThaiPan	ScN	G	\N	\N
+Ahnengeist beschwÃ¶ren	z	\N	KanThaiPan	ScS	G	\N	\N
+Ahnengeist beschwÃ¶ren	z	\N	KanThaiPan	ScW	G	\N	\N
 Askese	f	\N	Eschar	ScN	G	\N	\N
 Askese	f	\N	Eschar	ScS	G	\N	\N
 Askese	f	\N	Eschar	ScW	G	\N	\N
@@ -83,16 +83,16 @@ Drachenrune	z	Berggnom	Dvarheim	Th	S	\N	\N
 Drachenrune	z	Zwerg	Dvarheim	Th	S	\N	\N
 Elefanten lenken	f	\N	Minangpahit	BW	G	\N	\N
 Elefanten lenken	f	\N	Minangpahit	Gl	G	\N	\N
-Elefanten lenken	f	\N	Minangpahit	Hä	G	\N	\N
+Elefanten lenken	f	\N	Minangpahit	HÃ¤	G	\N	\N
 Elefanten lenken	f	\N	Minangpahit	Kr	G	\N	\N
 Elefanten lenken	f	\N	Minangpahit	PW	G	\N	\N
-Elefanten lenken	f	\N	Minangpahit	Sö	G	\N	\N
+Elefanten lenken	f	\N	Minangpahit	SÃ¶	G	\N	\N
 Elefanten lenken	f	\N	Rawindra	BW	G	\N	\N
 Elefanten lenken	f	\N	Rawindra	Gl	G	\N	\N
-Elefanten lenken	f	\N	Rawindra	Hä	G	\N	\N
+Elefanten lenken	f	\N	Rawindra	HÃ¤	G	\N	\N
 Elefanten lenken	f	\N	Rawindra	Kr	G	\N	\N
 Elefanten lenken	f	\N	Rawindra	PW	G	\N	\N
-Elefanten lenken	f	\N	Rawindra	Sö	G	\N	\N
+Elefanten lenken	f	\N	Rawindra	SÃ¶	G	\N	\N
 Fainne ghuairne (Der wirbelnde Kreis)	z	\N	Erainn	Ba	G	\N	\N
 Fainne ghuairne (Der wirbelnde Kreis)	z	\N	Erainn	Hl	G	\N	\N
 Fainne ghuairne (Der wirbelnde Kreis)	z	\N	Erainn	Or	G	\N	\N
@@ -118,11 +118,11 @@ Gelbe Glocke (1. Urton Kung)	z	\N	KanThaiPan	ScS	G	\N	\N
 Gelbe Glocke (1. Urton Kung)	z	\N	KanThaiPan	ScW	G	\N	\N
 Gesichtsrune	z	Berggnom	Dvarheim	Th	S	\N	\N
 Gesichtsrune	z	Zwerg	Dvarheim	Th	S	\N	\N
-Großer Hitzeschutz	z	\N	KanThaiPan	Or	G	\N	\N
-Großer Hitzeschutz	z	\N	KanThaiPan	PW	G	\N	\N
-Grüne Flöte (5. Urton Chüeh)	z	\N	KanThaiPan	ScN	G	\N	\N
-Grüne Flöte (5. Urton Chüeh)	z	\N	KanThaiPan	ScS	G	\N	\N
-Grüne Flöte (5. Urton Chüeh)	z	\N	KanThaiPan	ScW	G	\N	\N
+GroÃŸer Hitzeschutz	z	\N	KanThaiPan	Or	G	\N	\N
+GroÃŸer Hitzeschutz	z	\N	KanThaiPan	PW	G	\N	\N
+GrÃ¼ne FlÃ¶te (5. Urton ChÃ¼eh)	z	\N	KanThaiPan	ScN	G	\N	\N
+GrÃ¼ne FlÃ¶te (5. Urton ChÃ¼eh)	z	\N	KanThaiPan	ScS	G	\N	\N
+GrÃ¼ne FlÃ¶te (5. Urton ChÃ¼eh)	z	\N	KanThaiPan	ScW	G	\N	\N
 Hagelrune	z	Berggnom	Dvarheim	Th	S	\N	\N
 Hagelrune	z	Zwerg	Dvarheim	Th	S	\N	\N
 Heilsrune	z	Berggnom	Dvarheim	Th	S	\N	\N
@@ -161,12 +161,12 @@ Kampf zu Elefanten	f	\N	Minangpahit	BS	G	\N	\N
 Kampf zu Elefanten	f	\N	Minangpahit	BW	G	\N	\N
 Kampf zu Elefanten	f	\N	Minangpahit	Ba	G	\N	\N
 Kampf zu Elefanten	f	\N	Minangpahit	Gl	G	\N	\N
-Kampf zu Elefanten	f	\N	Minangpahit	Hä	G	\N	\N
+Kampf zu Elefanten	f	\N	Minangpahit	HÃ¤	G	\N	\N
 Kampf zu Elefanten	f	\N	Minangpahit	Kr	G	\N	\N
 Kampf zu Elefanten	f	\N	Minangpahit	Or	G	\N	\N
 Kampf zu Elefanten	f	\N	Minangpahit	Se	S	\N	\N
 Kampf zu Elefanten	f	\N	Minangpahit	Sp	S	\N	\N
-Kampf zu Elefanten	f	\N	Minangpahit	Sö	G	\N	\N
+Kampf zu Elefanten	f	\N	Minangpahit	SÃ¶	G	\N	\N
 Kampf zu Elefanten	f	\N	Minangpahit	Wa	G	\N	\N
 Kampf zu Elefanten	f	\N	Rawindra	As	S	\N	\N
 Kampf zu Elefanten	f	\N	Rawindra	BN	G	\N	\N
@@ -174,12 +174,12 @@ Kampf zu Elefanten	f	\N	Rawindra	BS	G	\N	\N
 Kampf zu Elefanten	f	\N	Rawindra	BW	G	\N	\N
 Kampf zu Elefanten	f	\N	Rawindra	Ba	G	\N	\N
 Kampf zu Elefanten	f	\N	Rawindra	Gl	G	\N	\N
-Kampf zu Elefanten	f	\N	Rawindra	Hä	G	\N	\N
+Kampf zu Elefanten	f	\N	Rawindra	HÃ¤	G	\N	\N
 Kampf zu Elefanten	f	\N	Rawindra	Kr	G	\N	\N
 Kampf zu Elefanten	f	\N	Rawindra	Or	G	\N	\N
 Kampf zu Elefanten	f	\N	Rawindra	Se	S	\N	\N
 Kampf zu Elefanten	f	\N	Rawindra	Sp	S	\N	\N
-Kampf zu Elefanten	f	\N	Rawindra	Sö	G	\N	\N
+Kampf zu Elefanten	f	\N	Rawindra	SÃ¶	G	\N	\N
 Kampf zu Elefanten	f	\N	Rawindra	Wa	G	\N	\N
 Kampf zu Srimara	f	\N	Rawindra	As	S	\N	\N
 Kampf zu Srimara	f	\N	Rawindra	BN	G	\N	\N
@@ -187,57 +187,57 @@ Kampf zu Srimara	f	\N	Rawindra	BS	G	\N	\N
 Kampf zu Srimara	f	\N	Rawindra	BW	G	\N	\N
 Kampf zu Srimara	f	\N	Rawindra	Ba	G	\N	\N
 Kampf zu Srimara	f	\N	Rawindra	Gl	G	\N	\N
-Kampf zu Srimara	f	\N	Rawindra	Hä	G	\N	\N
+Kampf zu Srimara	f	\N	Rawindra	HÃ¤	G	\N	\N
 Kampf zu Srimara	f	\N	Rawindra	Kr	G	\N	\N
 Kampf zu Srimara	f	\N	Rawindra	Or	G	\N	\N
 Kampf zu Srimara	f	\N	Rawindra	Se	S	\N	\N
 Kampf zu Srimara	f	\N	Rawindra	Sp	S	\N	\N
-Kampf zu Srimara	f	\N	Rawindra	Sö	G	\N	\N
+Kampf zu Srimara	f	\N	Rawindra	SÃ¶	G	\N	\N
 Kampf zu Srimara	f	\N	Rawindra	Wa	G	\N	\N
 Klingenrune	z	Berggnom	Dvarheim	Th	S	\N	\N
 Klingenrune	z	Zwerg	Dvarheim	Th	S	\N	\N
-Kälterune	z	Berggnom	Dvarheim	Th	S	\N	\N
-Kälterune	z	Zwerg	Dvarheim	Th	S	\N	\N
-Körperkontrolle	f	\N	Rawindra	As	G	\N	\N
-Körperkontrolle	f	\N	Rawindra	BN	S	\N	\N
-Körperkontrolle	f	\N	Rawindra	BS	S	\N	\N
-Körperkontrolle	f	\N	Rawindra	BW	S	\N	\N
-Körperkontrolle	f	\N	Rawindra	Ba	G	\N	\N
-Körperkontrolle	f	\N	Rawindra	Dr	G	\N	\N
-Körperkontrolle	f	\N	Rawindra	Gl	S	\N	\N
-Körperkontrolle	f	\N	Rawindra	Hl	G	\N	\N
-Körperkontrolle	f	\N	Rawindra	Hä	S	\N	\N
-Körperkontrolle	f	\N	Rawindra	Kr	S	\N	\N
-Körperkontrolle	f	\N	Rawindra	Ma	G	\N	\N
-Körperkontrolle	f	\N	Rawindra	Or	G	\N	\N
-Körperkontrolle	f	\N	Rawindra	PC	G	\N	\N
-Körperkontrolle	f	\N	Rawindra	PF	G	\N	\N
-Körperkontrolle	f	\N	Rawindra	PH	G	\N	\N
-Körperkontrolle	f	\N	Rawindra	PK	G	\N	\N
-Körperkontrolle	f	\N	Rawindra	PM	G	\N	\N
-Körperkontrolle	f	\N	Rawindra	PT	G	\N	\N
-Körperkontrolle	f	\N	Rawindra	PW	G	\N	\N
-Körperkontrolle	f	\N	Rawindra	PW	G	\N	\N
-Körperkontrolle	f	\N	Rawindra	ScN	G	\N	\N
-Körperkontrolle	f	\N	Rawindra	ScS	G	\N	\N
-Körperkontrolle	f	\N	Rawindra	ScW	G	\N	\N
-Körperkontrolle	f	\N	Rawindra	Sp	S	\N	\N
-Körperkontrolle	f	\N	Rawindra	Sö	S	\N	\N
-Körperkontrolle	f	\N	Rawindra	Th	G	\N	\N
-Körperkontrolle	f	\N	Rawindra	Wa	S	\N	\N
-Körperkontrolle	f	\N	Rawindra	dBe	G	\N	\N
-Körperkontrolle	f	\N	Rawindra	eBe	G	\N	\N
-Körperkontrolle	f	\N	Rawindra	gHx	G	\N	\N
-Körperkontrolle	f	\N	Rawindra	sHx	G	\N	\N
-Körperkontrolle	f	\N	Rawindra	sHx	G	\N	\N
-Körperkontrolle	f	\N	Rawindra	wHx	G	\N	\N
+KÃ¤lterune	z	Berggnom	Dvarheim	Th	S	\N	\N
+KÃ¤lterune	z	Zwerg	Dvarheim	Th	S	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	As	G	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	BN	S	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	BS	S	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	BW	S	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	Ba	G	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	Dr	G	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	Gl	S	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	Hl	G	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	HÃ¤	S	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	Kr	S	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	Ma	G	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	Or	G	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	PC	G	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	PF	G	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	PH	G	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	PK	G	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	PM	G	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	PT	G	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	PW	G	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	PW	G	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	ScN	G	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	ScS	G	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	ScW	G	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	Sp	S	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	SÃ¶	S	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	Th	G	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	Wa	S	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	dBe	G	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	eBe	G	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	gHx	G	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	sHx	G	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	sHx	G	\N	\N
+KÃ¶rperkontrolle	f	\N	Rawindra	wHx	G	\N	\N
 Leomies Birneneis	z	Halbling	\N	Hl	S	\N	\N
 Leomies Birneneis	z	Halbling	\N	PF	G	\N	\N
 Leomies Birneneis	z	Halbling	\N	PW	G	\N	\N
 Liebesrune	z	Berggnom	Dvarheim	Th	S	\N	\N
 Liebesrune	z	Zwerg	Dvarheim	Th	S	\N	\N
-Lösungsrune	z	Berggnom	Dvarheim	Th	S	\N	\N
-Lösungsrune	z	Zwerg	Dvarheim	Th	S	\N	\N
+LÃ¶sungsrune	z	Berggnom	Dvarheim	Th	S	\N	\N
+LÃ¶sungsrune	z	Zwerg	Dvarheim	Th	S	\N	\N
 Meditieren	f	\N	KanThaiPan	Kr	G	\N	\N
 Meditieren	f	\N	KanThaiPan	Or	G	\N	\N
 Meditieren	f	\N	KanThaiPan	PC	G	\N	\N
@@ -275,18 +275,18 @@ Natya	f	\N	Rawindra	PH	G	\N	\N
 Natya	f	\N	Rawindra	PK	G	\N	\N
 Natya	f	\N	Rawindra	PM	G	\N	\N
 Natya	f	\N	Rawindra	PW	G	\N	\N
-NüQuang	z	\N	KanThaiPan	ScN	G	\N	\N
-NüQuang	z	\N	KanThaiPan	ScS	G	\N	\N
-NüQuang	z	\N	KanThaiPan	ScW	G	\N	\N
+NÃ¼Quang	z	\N	KanThaiPan	ScN	G	\N	\N
+NÃ¼Quang	z	\N	KanThaiPan	ScS	G	\N	\N
+NÃ¼Quang	z	\N	KanThaiPan	ScW	G	\N	\N
 Paschuyana, der Weg des Tieres	z	\N	Rawindra	pw	G	\N	\N
 Pfeilrune	z	Berggnom	Dvarheim	Th	S	\N	\N
 Pfeilrune	z	Zwerg	Dvarheim	Th	S	\N	\N
 PiPingQuang	z	\N	KanThaiPan	ScN	G	\N	\N
 PiPingQuang	z	\N	KanThaiPan	ScS	G	\N	\N
 PiPingQuang	z	\N	KanThaiPan	ScW	G	\N	\N
-PiYeúQuang	z	\N	KanThaiPan	ScN	G	\N	\N
-PiYeúQuang	z	\N	KanThaiPan	ScS	G	\N	\N
-PiYeúQuang	z	\N	KanThaiPan	ScW	G	\N	\N
+PiYeÃºQuang	z	\N	KanThaiPan	ScN	G	\N	\N
+PiYeÃºQuang	z	\N	KanThaiPan	ScS	G	\N	\N
+PiYeÃºQuang	z	\N	KanThaiPan	ScW	G	\N	\N
 Regenrune	z	Berggnom	Dvarheim	Th	S	\N	\N
 Regenrune	z	Zwerg	Dvarheim	Th	S	\N	\N
 Reiserune	z	Berggnom	Dvarheim	Th	S	\N	\N
@@ -320,25 +320,25 @@ Ruf des Herzens	z	\N	Nahuatlan	ScW	S	\N	\N
 Ruf des Herzens	z	\N	Nahuatlan	Tm	S	\N	\N
 Schildrune	z	Berggnom	Dvarheim	Th	S	\N	\N
 Schildrune	z	Zwerg	Dvarheim	Th	S	\N	\N
-Schlangen beschwören	f	\N	Rawindra	Ba	G	\N	\N
-Schlangen beschwören	f	\N	Rawindra	Dr	S	\N	\N
-Schlangen beschwören	f	\N	Rawindra	Hl	S	\N	\N
-Schlangen beschwören	f	\N	Rawindra	Ma	S	\N	\N
-Schlangen beschwören	f	\N	Rawindra	PC	S	\N	\N
-Schlangen beschwören	f	\N	Rawindra	PF	S	\N	\N
-Schlangen beschwören	f	\N	Rawindra	PH	S	\N	\N
-Schlangen beschwören	f	\N	Rawindra	PK	S	\N	\N
-Schlangen beschwören	f	\N	Rawindra	PM	S	\N	\N
-Schlangen beschwören	f	\N	Rawindra	PW	S	\N	\N
-Schlangen beschwören	f	\N	Rawindra	ScN	S	\N	\N
-Schlangen beschwören	f	\N	Rawindra	ScS	S	\N	\N
-Schlangen beschwören	f	\N	Rawindra	ScW	S	\N	\N
-Schlangen beschwören	f	\N	Rawindra	Th	S	\N	\N
-Schlangen beschwören	f	\N	Rawindra	dBe	S	\N	\N
-Schlangen beschwören	f	\N	Rawindra	eBe	S	\N	\N
-Schlangen beschwören	f	\N	Rawindra	gHx	S	\N	\N
-Schlangen beschwören	f	\N	Rawindra	sHx	S	\N	\N
-Schlangen beschwören	f	\N	Rawindra	wHx	S	\N	\N
+Schlangen beschwÃ¶ren	f	\N	Rawindra	Ba	G	\N	\N
+Schlangen beschwÃ¶ren	f	\N	Rawindra	Dr	S	\N	\N
+Schlangen beschwÃ¶ren	f	\N	Rawindra	Hl	S	\N	\N
+Schlangen beschwÃ¶ren	f	\N	Rawindra	Ma	S	\N	\N
+Schlangen beschwÃ¶ren	f	\N	Rawindra	PC	S	\N	\N
+Schlangen beschwÃ¶ren	f	\N	Rawindra	PF	S	\N	\N
+Schlangen beschwÃ¶ren	f	\N	Rawindra	PH	S	\N	\N
+Schlangen beschwÃ¶ren	f	\N	Rawindra	PK	S	\N	\N
+Schlangen beschwÃ¶ren	f	\N	Rawindra	PM	S	\N	\N
+Schlangen beschwÃ¶ren	f	\N	Rawindra	PW	S	\N	\N
+Schlangen beschwÃ¶ren	f	\N	Rawindra	ScN	S	\N	\N
+Schlangen beschwÃ¶ren	f	\N	Rawindra	ScS	S	\N	\N
+Schlangen beschwÃ¶ren	f	\N	Rawindra	ScW	S	\N	\N
+Schlangen beschwÃ¶ren	f	\N	Rawindra	Th	S	\N	\N
+Schlangen beschwÃ¶ren	f	\N	Rawindra	dBe	S	\N	\N
+Schlangen beschwÃ¶ren	f	\N	Rawindra	eBe	S	\N	\N
+Schlangen beschwÃ¶ren	f	\N	Rawindra	gHx	S	\N	\N
+Schlangen beschwÃ¶ren	f	\N	Rawindra	sHx	S	\N	\N
+Schlangen beschwÃ¶ren	f	\N	Rawindra	wHx	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	As	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	BN	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	BS	S	\N	\N
@@ -348,7 +348,7 @@ Schmerzen ertragen	f	\N	Rawindra	Ba	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	Dr	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	Gl	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	Hl	S	\N	\N
-Schmerzen ertragen	f	\N	Rawindra	Hä	S	\N	\N
+Schmerzen ertragen	f	\N	Rawindra	HÃ¤	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	Kr	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	Ma	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	Or	S	\N	\N
@@ -363,7 +363,7 @@ Schmerzen ertragen	f	\N	Rawindra	ScS	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	ScW	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	Se	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	Sr	S	\N	\N
-Schmerzen ertragen	f	\N	Rawindra	Sö	S	\N	\N
+Schmerzen ertragen	f	\N	Rawindra	SÃ¶	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	Th	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	Wa	S	\N	\N
 Schmerzen ertragen	f	\N	Rawindra	dBe	S	\N	\N
@@ -377,12 +377,12 @@ Schnellrune	z	Berggnom	Dvarheim	Th	S	\N	\N
 Schnellrune	z	Zwerg	Dvarheim	Th	S	\N	\N
 Schutzrune	z	Berggnom	Dvarheim	Th	S	\N	\N
 Schutzrune	z	Zwerg	Dvarheim	Th	S	\N	\N
-Schwarzes Horn (4. Urton Yü)	z	\N	KanThaiPan	ScN	G	\N	\N
-Schwarzes Horn (4. Urton Yü)	z	\N	KanThaiPan	ScS	G	\N	\N
-Schwarzes Horn (4. Urton Yü)	z	\N	KanThaiPan	ScW	G	\N	\N
+Schwarzes Horn (4. Urton YÃ¼)	z	\N	KanThaiPan	ScN	G	\N	\N
+Schwarzes Horn (4. Urton YÃ¼)	z	\N	KanThaiPan	ScS	G	\N	\N
+Schwarzes Horn (4. Urton YÃ¼)	z	\N	KanThaiPan	ScW	G	\N	\N
 Srimara lenken	f	\N	Rawindra	Kr	S	\N	\N
 Srimara lenken	f	\N	Rawindra	Or	S	\N	\N
-Srimara lenken	f	\N	Rawindra	Sö	S	\N	\N
+Srimara lenken	f	\N	Rawindra	SÃ¶	S	\N	\N
 Stigma	z	\N	Nahuatlan	PF	G	\N	\N
 Stigma	z	\N	Nahuatlan	PHa	G	\N	\N
 Stigma	z	\N	Nahuatlan	PHe	G	\N	\N
@@ -397,8 +397,8 @@ Stigma lokalisieren	z	\N	Nahuatlan	PK	G	\N	\N
 Stigma lokalisieren	z	\N	Nahuatlan	PM	G	\N	\N
 Stigma lokalisieren	z	\N	Nahuatlan	PT	G	\N	\N
 Stigma lokalisieren	z	\N	Nahuatlan	PW	G	\N	\N
-Stärkerune	z	Berggnom	Dvarheim	Th	S	\N	\N
-Stärkerune	z	Zwerg	Dvarheim	Th	S	\N	\N
+StÃ¤rkerune	z	Berggnom	Dvarheim	Th	S	\N	\N
+StÃ¤rkerune	z	Zwerg	Dvarheim	Th	S	\N	\N
 Tierrune	z	Berggnom	Dvarheim	Th	S	\N	\N
 Tierrune	z	Zwerg	Dvarheim	Th	S	\N	\N
 Totenrune	z	Berggnom	Dvarheim	Th	S	\N	\N
@@ -413,9 +413,9 @@ Wahrheitsrune	z	Berggnom	Dvarheim	Th	S	\N	\N
 Wahrheitsrune	z	Zwerg	Dvarheim	Th	S	\N	\N
 Wehrrune	z	Berggnom	Dvarheim	Th	S	\N	\N
 Wehrrune	z	Zwerg	Dvarheim	Th	S	\N	\N
-Weißer Jadeklangstein (3. Urton Schang)	z	\N	KanThaiPan	ScN	G	\N	\N
-Weißer Jadeklangstein (3. Urton Schang)	z	\N	KanThaiPan	ScS	G	\N	\N
-Weißer Jadeklangstein (3. Urton Schang)	z	\N	KanThaiPan	ScW	G	\N	\N
+WeiÃŸer Jadeklangstein (3. Urton Schang)	z	\N	KanThaiPan	ScN	G	\N	\N
+WeiÃŸer Jadeklangstein (3. Urton Schang)	z	\N	KanThaiPan	ScS	G	\N	\N
+WeiÃŸer Jadeklangstein (3. Urton Schang)	z	\N	KanThaiPan	ScW	G	\N	\N
 Wetterrune	z	Berggnom	Dvarheim	Th	S	\N	\N
 Wetterrune	z	Zwerg	Dvarheim	Th	S	\N	\N
 Wogenrune	z	Berggnom	Dvarheim	Th	S	\N	\N
@@ -428,12 +428,12 @@ XiengBaQuang	z	\N	KanThaiPan	ScW	G	\N	\N
 YehKiQuang	z	\N	KanThaiPan	ScN	G	\N	\N
 YehKiQuang	z	\N	KanThaiPan	ScS	G	\N	\N
 YehKiQuang	z	\N	KanThaiPan	ScW	G	\N	\N
-Überleben im Dschungel	f	\N	Ikengabecken	ScN	G	\N	\N
-Überleben im Dschungel	f	\N	Ikengabecken	ScS	G	\N	\N
-Überleben im Dschungel	f	\N	Ikengabecken	ScW	G	\N	\N
-Überleben in der Wüste	f	\N	Eschar	ScN	G	\N	\N
-Überleben in der Wüste	f	\N	Eschar	ScS	G	\N	\N
-Überleben in der Wüste	f	\N	Eschar	ScW	G	\N	\N
+Ãœberleben im Dschungel	f	\N	Ikengabecken	ScN	G	\N	\N
+Ãœberleben im Dschungel	f	\N	Ikengabecken	ScS	G	\N	\N
+Ãœberleben im Dschungel	f	\N	Ikengabecken	ScW	G	\N	\N
+Ãœberleben in der WÃ¼ste	f	\N	Eschar	ScN	G	\N	\N
+Ãœberleben in der WÃ¼ste	f	\N	Eschar	ScS	G	\N	\N
+Ãœberleben in der WÃ¼ste	f	\N	Eschar	ScW	G	\N	\N
 \.
 --
 --

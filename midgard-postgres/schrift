@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'LATIN1';
+SET client_encoding = 'UNICODE';
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
@@ -46,7 +46,7 @@ KanThaiTun(3)	Silben	100	K	\N	\N	\N
 KanThaiTun(4)	Silben	100	K	\N	\N	\N
 KanThaiTun(5)	Silben	100	K	\N	\N	\N
 KanThaiTun(6)	Silben	100	K	\N	\N	\N
-Läinisch	Bilder	20	\N	\N	\N	\N
+LÃ¤inisch	Bilder	20	\N	\N	\N	\N
 Meketische Bilderschrift	Bilder	20	\N	t	\N	\N
 Nahuatlanische Bilderschrift	Bilder	20	\N	t	\N	\N
 Nahuatlanische Knotenschrift Quipu	Bilder	20	\N	\N	\N	\N

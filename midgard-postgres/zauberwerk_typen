@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'LATIN1';
+SET client_encoding = 'UNICODE';
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
@@ -33,16 +33,16 @@ CREATE TABLE zauberwerk_typen (
 COPY zauberwerk_typen (name, stufe, typ, standard, art) FROM stdin;
 Alarm	4	Sw	G	magische Letter
 Alarm	4	Th	G	magische Letter
-Angst	1	Sw	G	Groﬂes Siegel
+Angst	1	Sw	G	Gro√ües Siegel
 Angst	1	Th	G	Augensalbe
-Angst	1	Th	G	Groﬂes Siegel
+Angst	1	Th	G	Gro√ües Siegel
 Anziehen	1	Th	G	Augensalbe
-Auslˆsen	1	Sw	G	magische Letter
-Auslˆsen	1	Th	G	magische Letter
-Bannen von Dunkelheit	1	Sw	G	Groﬂes Siegel
-Bannen von Dunkelheit	1	Th	G	Groﬂes Siegel
-Bannen von Licht	1	Sw	G	Groﬂes Siegel
-Bannen von Licht	1	Th	G	Groﬂes Siegel
+Ausl√∂sen	1	Sw	G	magische Letter
+Ausl√∂sen	1	Th	G	magische Letter
+Bannen von Dunkelheit	1	Sw	G	Gro√ües Siegel
+Bannen von Dunkelheit	1	Th	G	Gro√ües Siegel
+Bannen von Licht	1	Sw	G	Gro√ües Siegel
+Bannen von Licht	1	Th	G	Gro√ües Siegel
 Beeinflussen	3	Th	G	Augensalbe
 Berserkerpilz aktivieren	2	De	G	Pflanzliches Zaubermittel
 Berserkerpilz aktivieren	2	Dr	S	Pflanzliches Zaubermittel
@@ -86,32 +86,32 @@ Binden	G	gHx	A
 Binden	G	sHx	A	
 Binden	G	tBe	A	
 Binden	G	wHx	A	
-D‰monenamulett verzaubern	3	De	S	Amulett
-D‰monenamulett verzaubern	3	Dr	A	Amulett
-D‰monenamulett verzaubern	3	Hl	A	Amulett
-D‰monenamulett verzaubern	3	Km	A	Amulett
-D‰monenamulett verzaubern	3	Ma	A	Amulett
-D‰monenamulett verzaubern	3	PC	S	Amulett
-D‰monenamulett verzaubern	3	PF	A	Amulett
-D‰monenamulett verzaubern	3	PHa	A	Amulett
-D‰monenamulett verzaubern	3	PHe	A	Amulett
-D‰monenamulett verzaubern	3	PK	S	Amulett
-D‰monenamulett verzaubern	3	PM	A	Amulett
-D‰monenamulett verzaubern	3	PT	A	Amulett
-D‰monenamulett verzaubern	3	PW	A	Amulett
-D‰monenamulett verzaubern	3	ScN	S	Amulett
-D‰monenamulett verzaubern	3	ScS	S	Amulett
-D‰monenamulett verzaubern	3	ScW	S	Amulett
-D‰monenamulett verzaubern	3	Sw	G	Amulett
-D‰monenamulett verzaubern	3	Th	G	Amulett
-D‰monenamulett verzaubern	3	dBe	S	Amulett
-D‰monenamulett verzaubern	3	eBe	S	Amulett
-D‰monenamulett verzaubern	3	gHx	A	Amulett
-D‰monenamulett verzaubern	3	sHx	A	Amulett
-D‰monenamulett verzaubern	3	tBe	S	Amulett
-D‰monenamulett verzaubern	3	wHx	A	Amulett
-Eisiger Nebel	2	Sw	G	Groﬂes Siegel
-Eisiger Nebel	2	Th	G	Groﬂes Siegel
+D√§monenamulett verzaubern	3	De	S	Amulett
+D√§monenamulett verzaubern	3	Dr	A	Amulett
+D√§monenamulett verzaubern	3	Hl	A	Amulett
+D√§monenamulett verzaubern	3	Km	A	Amulett
+D√§monenamulett verzaubern	3	Ma	A	Amulett
+D√§monenamulett verzaubern	3	PC	S	Amulett
+D√§monenamulett verzaubern	3	PF	A	Amulett
+D√§monenamulett verzaubern	3	PHa	A	Amulett
+D√§monenamulett verzaubern	3	PHe	A	Amulett
+D√§monenamulett verzaubern	3	PK	S	Amulett
+D√§monenamulett verzaubern	3	PM	A	Amulett
+D√§monenamulett verzaubern	3	PT	A	Amulett
+D√§monenamulett verzaubern	3	PW	A	Amulett
+D√§monenamulett verzaubern	3	ScN	S	Amulett
+D√§monenamulett verzaubern	3	ScS	S	Amulett
+D√§monenamulett verzaubern	3	ScW	S	Amulett
+D√§monenamulett verzaubern	3	Sw	G	Amulett
+D√§monenamulett verzaubern	3	Th	G	Amulett
+D√§monenamulett verzaubern	3	dBe	S	Amulett
+D√§monenamulett verzaubern	3	eBe	S	Amulett
+D√§monenamulett verzaubern	3	gHx	A	Amulett
+D√§monenamulett verzaubern	3	sHx	A	Amulett
+D√§monenamulett verzaubern	3	tBe	S	Amulett
+D√§monenamulett verzaubern	3	wHx	A	Amulett
+Eisiger Nebel	2	Sw	G	Gro√ües Siegel
+Eisiger Nebel	2	Th	G	Gro√ües Siegel
 Elementaramulett verzaubern	3	De	S	Amulett
 Elementaramulett verzaubern	3	Dr	A	Amulett
 Elementaramulett verzaubern	3	Hl	A	Amulett
@@ -141,8 +141,8 @@ Farbletter (Blau)	1	Sw	G	magische Letter
 Farbletter (Blau)	1	Th	G	magische Letter
 Farbletter (Gelb)	1	Sw	G	magische Letter
 Farbletter (Gelb)	1	Th	G	magische Letter
-Farbletter (Gr¸n)	1	Sw	G	magische Letter
-Farbletter (Gr¸n)	1	Th	G	magische Letter
+Farbletter (Gr√ºn)	1	Sw	G	magische Letter
+Farbletter (Gr√ºn)	1	Th	G	magische Letter
 Farbletter (Infrarot)	1	Sw	G	magische Letter
 Farbletter (Infrarot)	1	Th	G	magische Letter
 Farbletter (Orange)	1	Sw	G	magische Letter
@@ -153,13 +153,13 @@ Farbletter (Ultraviolett)	1	Sw	G	magische Letter
 Farbletter (Ultraviolett)	1	Th	G	magische Letter
 Farbletter (Violett)	1	Sw	G	magische Letter
 Farbletter (Violett)	1	Th	G	magische Letter
-Feuerkugel	2	Sw	G	Groﬂes Siegel
+Feuerkugel	2	Sw	G	Gro√ües Siegel
 Feuerkugel	2	Sw	G	Schutzrune
-Feuerkugel	2	Th	G	Groﬂes Siegel
+Feuerkugel	2	Th	G	Gro√ües Siegel
 Feuerkugel	2	Th	G	Schutzrune
 Feuerkugel	2	To	S	Schutzrune
-Feuerring	4	Sw	G	Groﬂes Siegel
-Feuerring	4	Th	G	Groﬂes Siegel
+Feuerring	4	Sw	G	Gro√ües Siegel
+Feuerring	4	Th	G	Gro√ües Siegel
 Flohpulver aktivieren	2	Dr	S	Alchimistisches Zaubermittel
 Flohpulver aktivieren	2	Hl	S	Alchimistisches Zaubermittel
 Flohpulver aktivieren	2	PC	S	Alchimistisches Zaubermittel
@@ -178,8 +178,8 @@ Flohpulver aktivieren	2	Th	G	Alchimistisches Zaubermittel
 Flohpulver aktivieren	2	gHx	S	Alchimistisches Zaubermittel
 Flohpulver aktivieren	2	sHx	S	Alchimistisches Zaubermittel
 Flohpulver aktivieren	2	wHx	S	Alchimistisches Zaubermittel
-Funkenregen	2	Sw	G	Groﬂes Siegel
-Funkenregen	2	Th	G	Groﬂes Siegel
+Funkenregen	2	Sw	G	Gro√ües Siegel
+Funkenregen	2	Th	G	Gro√ües Siegel
 Geisteramulett verzaubern	4	De	S	Amulett
 Geisteramulett verzaubern	4	Dr	A	Amulett
 Geisteramulett verzaubern	4	Hl	A	Amulett
@@ -204,18 +204,18 @@ Geisteramulett verzaubern	4	gHx	A	Amulett
 Geisteramulett verzaubern	4	sHx	A	Amulett
 Geisteramulett verzaubern	4	tBe	S	Amulett
 Geisteramulett verzaubern	4	wHx	A	Amulett
-Ger‰uschletter (Donnern)	1	Sw	G	magische Letter
-Ger‰uschletter (Donnern)	1	Th	G	magische Letter
-Ger‰uschletter (Knarren)	1	Sw	G	magische Letter
-Ger‰uschletter (Knarren)	1	Th	G	magische Letter
-Ger‰uschletter (Knistern)	1	Sw	G	magische Letter
-Ger‰uschletter (Knistern)	1	Th	G	magische Letter
-Ger‰uschletter (Pfeifen)	1	Sw	G	magische Letter
-Ger‰uschletter (Pfeifen)	1	Th	G	magische Letter
-Graue Hand	6	Sw	G	Groﬂes Siegel
-Graue Hand	6	Th	G	Groﬂes Siegel
-Hauch des Winters	1	Sw	G	Groﬂes Siegel
-Hauch des Winters	1	Th	G	Groﬂes Siegel
+Ger√§uschletter (Donnern)	1	Sw	G	magische Letter
+Ger√§uschletter (Donnern)	1	Th	G	magische Letter
+Ger√§uschletter (Knarren)	1	Sw	G	magische Letter
+Ger√§uschletter (Knarren)	1	Th	G	magische Letter
+Ger√§uschletter (Knistern)	1	Sw	G	magische Letter
+Ger√§uschletter (Knistern)	1	Th	G	magische Letter
+Ger√§uschletter (Pfeifen)	1	Sw	G	magische Letter
+Ger√§uschletter (Pfeifen)	1	Th	G	magische Letter
+Graue Hand	6	Sw	G	Gro√ües Siegel
+Graue Hand	6	Th	G	Gro√ües Siegel
+Hauch des Winters	1	Sw	G	Gro√ües Siegel
+Hauch des Winters	1	Th	G	Gro√ües Siegel
 Heiltrunk (1W6) aktivieren	2	De	S	Alchimistisches Zaubermittel
 Heiltrunk (1W6) aktivieren	2	Dr	S	Alchimistisches Zaubermittel
 Heiltrunk (1W6) aktivieren	2	Hl	G	Alchimistisches Zaubermittel
@@ -314,22 +314,22 @@ Liebestrank aktivieren	3	sHx	G	Alchimistisches Zaubermittel
 Liebestrank aktivieren	3	tBe	S	Alchimistisches Zaubermittel
 Liebestrank aktivieren	3	wHx	G	Alchimistisches Zaubermittel
 Liebeszauber	4	Th	G	Augensalbe
-L‰hmung	5	Sw	G	Groﬂes Siegel
-L‰hmung	5	Sw	G	Schutzrune
-L‰hmung	5	Th	G	Groﬂes Siegel
-L‰hmung	5	Th	G	Schutzrune
-L‰hmung	5	To	S	Schutzrune
-Macht ¸ber Menschen	3	Th	G	Augensalbe
-Macht ¸ber die belebte Natur	2	Th	G	Augensalbe
-Namenloses Grauen	4	Sw	G	Groﬂes Siegel
+L√§hmung	5	Sw	G	Gro√ües Siegel
+L√§hmung	5	Sw	G	Schutzrune
+L√§hmung	5	Th	G	Gro√ües Siegel
+L√§hmung	5	Th	G	Schutzrune
+L√§hmung	5	To	S	Schutzrune
+Macht √ºber Menschen	3	Th	G	Augensalbe
+Macht √ºber die belebte Natur	2	Th	G	Augensalbe
+Namenloses Grauen	4	Sw	G	Gro√ües Siegel
 Namenloses Grauen	4	Sw	G	Schutzrune
-Namenloses Grauen	4	Th	G	Groﬂes Siegel
+Namenloses Grauen	4	Th	G	Gro√ües Siegel
 Namenloses Grauen	4	Th	G	Schutzrune
 Namenloses Grauen	4	To	S	Schutzrune
-Nebel	4	Sw	G	Groﬂes Siegel
-Nebel	4	Th	G	Groﬂes Siegel
-Opferletter (D‰monen)	4	Sw	G	magische Letter
-Opferletter (D‰monen)	4	Th	G	magische Letter
+Nebel	4	Sw	G	Gro√ües Siegel
+Nebel	4	Th	G	Gro√ües Siegel
+Opferletter (D√§monen)	4	Sw	G	magische Letter
+Opferletter (D√§monen)	4	Th	G	magische Letter
 Opferletter (Elemetarwesen)	4	Sw	G	magische Letter
 Opferletter (Elemetarwesen)	4	Th	G	magische Letter
 Opferletter (Elfen)	4	Sw	G	magische Letter
@@ -342,8 +342,8 @@ Opferletter (Magische Wesen)	4	Sw	G	magische Letter
 Opferletter (Magische Wesen)	4	Th	G	magische Letter
 Opferletter (Menschen)	4	Sw	G	magische Letter
 Opferletter (Menschen)	4	Th	G	magische Letter
-Opferletter (Menschen‰hnliche)	4	Sw	G	magische Letter
-Opferletter (Menschen‰hnliche)	4	Th	G	magische Letter
+Opferletter (Menschen√§hnliche)	4	Sw	G	magische Letter
+Opferletter (Menschen√§hnliche)	4	Th	G	magische Letter
 Opferletter (Orcs)	4	Sw	G	magische Letter
 Opferletter (Orcs)	4	Th	G	magische Letter
 Opferletter (Tiere)	4	Sw	G	magische Letter
@@ -436,13 +436,13 @@ Salbe der Eisenhaut aktivieren	4	Th	G	Alchimistisches Zaubermittel
 Salbe der Eisenhaut aktivieren	4	gHx	S	Alchimistisches Zaubermittel
 Salbe der Eisenhaut aktivieren	4	sHx	S	Alchimistisches Zaubermittel
 Salbe der Eisenhaut aktivieren	4	wHx	S	Alchimistisches Zaubermittel
-Salbe der Krakenh‰nde aktivieren	2	Km	S	Alchimistisches Zaubermittel
-Salbe der Krakenh‰nde aktivieren	2	Ma	S	Alchimistisches Zaubermittel
-Salbe der Krakenh‰nde aktivieren	2	Sw	G	Alchimistisches Zaubermittel
-Salbe der Krakenh‰nde aktivieren	2	Th	G	Alchimistisches Zaubermittel
-Salbe der Krakenh‰nde aktivieren	2	gHx	S	Alchimistisches Zaubermittel
-Salbe der Krakenh‰nde aktivieren	2	sHx	S	Alchimistisches Zaubermittel
-Salbe der Krakenh‰nde aktivieren	2	wHx	S	Alchimistisches Zaubermittel
+Salbe der Krakenh√§nde aktivieren	2	Km	S	Alchimistisches Zaubermittel
+Salbe der Krakenh√§nde aktivieren	2	Ma	S	Alchimistisches Zaubermittel
+Salbe der Krakenh√§nde aktivieren	2	Sw	G	Alchimistisches Zaubermittel
+Salbe der Krakenh√§nde aktivieren	2	Th	G	Alchimistisches Zaubermittel
+Salbe der Krakenh√§nde aktivieren	2	gHx	S	Alchimistisches Zaubermittel
+Salbe der Krakenh√§nde aktivieren	2	sHx	S	Alchimistisches Zaubermittel
+Salbe der Krakenh√§nde aktivieren	2	wHx	S	Alchimistisches Zaubermittel
 Schamanentrommel herstellen	G	ScN	G	
 Schamanentrommel herstellen	G	ScS	G	
 Schamanentrommel herstellen	G	ScW	G	
@@ -591,14 +591,14 @@ Schildamulett verzaubern	3	wHx	A	Amulett
 Schildamulett verzaubern	4	wHx	A	Amulett
 Schildamulett verzaubern	5	wHx	A	Amulett
 Schildamulett verzaubern	6	wHx	A	Amulett
-Schlaf	1	Sw	G	Groﬂes Siegel
+Schlaf	1	Sw	G	Gro√ües Siegel
 Schlaf	1	Sw	G	Schutzrune
-Schlaf	1	Th	G	Groﬂes Siegel
+Schlaf	1	Th	G	Gro√ües Siegel
 Schlaf	1	Th	G	Schutzrune
 Schlaf	1	To	S	Schutzrune
-Schmerzen	2	Sw	G	Groﬂes Siegel
+Schmerzen	2	Sw	G	Gro√ües Siegel
 Schmerzen	2	Sw	G	Schutzrune
-Schmerzen	2	Th	G	Groﬂes Siegel
+Schmerzen	2	Th	G	Gro√ües Siegel
 Schmerzen	2	Th	G	Schutzrune
 Schmerzen	2	To	S	Schutzrune
 Schnellkraut aktivieren	3	De	S	Pflanzliches Zaubermittel
@@ -747,8 +747,8 @@ Schutzamulett verzaubern	3	wHx	A	Amulett
 Schutzamulett verzaubern	4	wHx	A	Amulett
 Schutzamulett verzaubern	5	wHx	A	Amulett
 Schutzamulett verzaubern	6	wHx	A	Amulett
-Schw‰che	1	Sw	G	Groﬂes Siegel
-Schw‰che	1	Th	G	Groﬂes Siegel
+Schw√§che	1	Sw	G	Gro√ües Siegel
+Schw√§che	1	Th	G	Gro√ües Siegel
 Sehen in Dunkelheit	2	Th	G	Augensalbe
 Sehen von Verborgenem	2	Th	G	Augensalbe
 Spiegelamulett verzaubern	1	De	A	Amulett
@@ -878,10 +878,10 @@ Spiegelamulett verzaubern	4	wHx	A	Amulett
 Spiegelamulett verzaubern	5	wHx	A	Amulett
 Spiegelamulett verzaubern	6	wHx	A	Amulett
 Srimarameisterschaft	3	Th	G	Augensalbe
-Staubk‰mpfer	3	Sw	G	Groﬂes Siegel
-Staubk‰mpfer	3	Th	G	Groﬂes Siegel
-Stille	2	Sw	G	Groﬂes Siegel
-Stille	2	Th	G	Groﬂes Siegel
+Staubk√§mpfer	3	Sw	G	Gro√ües Siegel
+Staubk√§mpfer	3	Th	G	Gro√ües Siegel
+Stille	2	Sw	G	Gro√ües Siegel
+Stille	2	Th	G	Gro√ües Siegel
 Talisman verzaubern	1	De	S	Talisman
 Talisman verzaubern	2	De	S	Talisman
 Talisman verzaubern	3	De	S	Talisman
@@ -970,64 +970,64 @@ Talisman verzaubern	1	wHx	A	Talisman
 Talisman verzaubern	2	wHx	A	Talisman
 Talisman verzaubern	3	wHx	A	Talisman
 Talisman verzaubern	4	wHx	A	Talisman
-Tierisches Handeln	5	Sw	G	Groﬂes Siegel
+Tierisches Handeln	5	Sw	G	Gro√ües Siegel
 Tierisches Handeln	5	Th	G	Augensalbe
-Tierisches Handeln	5	Th	G	Groﬂes Siegel
-Todeshauch	3	Sw	G	Groﬂes Siegel
+Tierisches Handeln	5	Th	G	Gro√ües Siegel
+Todeshauch	3	Sw	G	Gro√ües Siegel
 Todeshauch	3	Sw	G	Schutzrune
-Todeshauch	3	Th	G	Groﬂes Siegel
+Todeshauch	3	Th	G	Gro√ües Siegel
 Todeshauch	3	Th	G	Schutzrune
 Todeshauch	3	To	S	Schutzrune
-Trunk der Macht ¸ber Hunde aktivieren	2	De	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Hunde aktivieren	2	Dr	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Hunde aktivieren	2	Hl	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Hunde aktivieren	2	Km	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Hunde aktivieren	2	Ma	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Hunde aktivieren	2	PF	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Hunde aktivieren	2	ScN	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Hunde aktivieren	2	ScS	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Hunde aktivieren	2	ScW	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Hunde aktivieren	2	Sw	G	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Hunde aktivieren	2	Th	G	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Hunde aktivieren	2	dBe	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Hunde aktivieren	2	eBe	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Hunde aktivieren	2	gHx	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Hunde aktivieren	2	sHx	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Hunde aktivieren	2	tBe	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Hunde aktivieren	2	wHx	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Menschen aktivieren	4	De	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Menschen aktivieren	4	Dr	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Menschen aktivieren	4	Hl	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Menschen aktivieren	4	Km	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Menschen aktivieren	4	Ma	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Menschen aktivieren	4	PF	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Menschen aktivieren	4	ScN	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Menschen aktivieren	4	ScS	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Menschen aktivieren	4	ScW	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Menschen aktivieren	4	Sw	G	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Menschen aktivieren	4	Th	G	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Menschen aktivieren	4	dBe	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Menschen aktivieren	4	eBe	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Menschen aktivieren	4	gHx	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Menschen aktivieren	4	sHx	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Menschen aktivieren	4	tBe	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Menschen aktivieren	4	wHx	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Orks aktivieren	3	De	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Orks aktivieren	3	Km	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Orks aktivieren	3	Ma	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Orks aktivieren	3	PC	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Orks aktivieren	3	PHe	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Orks aktivieren	3	ScN	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Orks aktivieren	3	ScS	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Orks aktivieren	3	ScW	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Orks aktivieren	3	Sw	G	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Orks aktivieren	3	Th	G	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Orks aktivieren	3	dBe	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Orks aktivieren	3	eBe	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Orks aktivieren	3	gHx	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Orks aktivieren	3	sHx	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Orks aktivieren	3	tBe	S	Alchimistisches Zaubermittel
-Trunk der Macht ¸ber Orks aktivieren	3	wHx	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Hunde aktivieren	2	De	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Hunde aktivieren	2	Dr	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Hunde aktivieren	2	Hl	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Hunde aktivieren	2	Km	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Hunde aktivieren	2	Ma	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Hunde aktivieren	2	PF	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Hunde aktivieren	2	ScN	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Hunde aktivieren	2	ScS	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Hunde aktivieren	2	ScW	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Hunde aktivieren	2	Sw	G	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Hunde aktivieren	2	Th	G	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Hunde aktivieren	2	dBe	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Hunde aktivieren	2	eBe	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Hunde aktivieren	2	gHx	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Hunde aktivieren	2	sHx	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Hunde aktivieren	2	tBe	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Hunde aktivieren	2	wHx	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Menschen aktivieren	4	De	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Menschen aktivieren	4	Dr	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Menschen aktivieren	4	Hl	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Menschen aktivieren	4	Km	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Menschen aktivieren	4	Ma	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Menschen aktivieren	4	PF	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Menschen aktivieren	4	ScN	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Menschen aktivieren	4	ScS	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Menschen aktivieren	4	ScW	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Menschen aktivieren	4	Sw	G	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Menschen aktivieren	4	Th	G	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Menschen aktivieren	4	dBe	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Menschen aktivieren	4	eBe	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Menschen aktivieren	4	gHx	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Menschen aktivieren	4	sHx	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Menschen aktivieren	4	tBe	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Menschen aktivieren	4	wHx	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Orks aktivieren	3	De	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Orks aktivieren	3	Km	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Orks aktivieren	3	Ma	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Orks aktivieren	3	PC	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Orks aktivieren	3	PHe	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Orks aktivieren	3	ScN	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Orks aktivieren	3	ScS	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Orks aktivieren	3	ScW	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Orks aktivieren	3	Sw	G	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Orks aktivieren	3	Th	G	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Orks aktivieren	3	dBe	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Orks aktivieren	3	eBe	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Orks aktivieren	3	gHx	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Orks aktivieren	3	sHx	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Orks aktivieren	3	tBe	S	Alchimistisches Zaubermittel
+Trunk der Macht √ºber Orks aktivieren	3	wHx	S	Alchimistisches Zaubermittel
 Trunk des Riesenwuchses aktivieren	4	De	S	Alchimistisches Zaubermittel
 Trunk des Riesenwuchses aktivieren	4	Dr	S	Alchimistisches Zaubermittel
 Trunk des Riesenwuchses aktivieren	4	Hl	S	Alchimistisches Zaubermittel
@@ -1136,36 +1136,36 @@ Untotenamulett verzaubern	3	gHx	A	Amulett
 Untotenamulett verzaubern	3	sHx	A	Amulett
 Untotenamulett verzaubern	3	tBe	S	Amulett
 Untotenamulett verzaubern	3	wHx	A	Amulett
-Verdorren	3	Sw	G	Groﬂes Siegel
+Verdorren	3	Sw	G	Gro√ües Siegel
 Verdorren	3	Sw	G	Schutzrune
-Verdorren	3	Th	G	Groﬂes Siegel
+Verdorren	3	Th	G	Gro√ües Siegel
 Verdorren	3	Th	G	Schutzrune
 Verdorren	3	To	S	Schutzrune
-Vereisen	4	Sw	G	Groﬂes Siegel
+Vereisen	4	Sw	G	Gro√ües Siegel
 Vereisen	4	Sw	G	Schutzrune
-Vereisen	4	Th	G	Groﬂes Siegel
+Vereisen	4	Th	G	Gro√ües Siegel
 Vereisen	4	Th	G	Schutzrune
 Vereisen	4	To	S	Schutzrune
-Verlangsamen	3	Sw	G	Groﬂes Siegel
-Verlangsamen	3	Th	G	Groﬂes Siegel
-Versetzen	4	Sw	G	Groﬂes Siegel
-Versetzen	4	Th	G	Groﬂes Siegel
-Versteinern	5	Sw	G	Groﬂes Siegel
+Verlangsamen	3	Sw	G	Gro√ües Siegel
+Verlangsamen	3	Th	G	Gro√ües Siegel
+Versetzen	4	Sw	G	Gro√ües Siegel
+Versetzen	4	Th	G	Gro√ües Siegel
+Versteinern	5	Sw	G	Gro√ües Siegel
 Versteinern	5	Sw	G	Schutzrune
-Versteinern	5	Th	G	Groﬂes Siegel
+Versteinern	5	Th	G	Gro√ües Siegel
 Versteinern	5	Th	G	Schutzrune
 Versteinern	5	To	S	Schutzrune
 Verwandeln	6	Sw	G	Schutzrune
 Verwandeln	6	Th	G	Schutzrune
 Verwandeln	6	To	S	Schutzrune
-Verwandlung	6	Sw	G	Groﬂes Siegel
-Verwandlung	6	Th	G	Groﬂes Siegel
+Verwandlung	6	Sw	G	Gro√ües Siegel
+Verwandlung	6	Th	G	Gro√ües Siegel
 Waffen verzaubern (2)	2	Th	G	
 Waffen verzaubern (4)	4	Th	G	
 Waffen verzaubern (6)	6	Th	G	
-Wahnsinn	6	Sw	G	Groﬂes Siegel
+Wahnsinn	6	Sw	G	Gro√ües Siegel
 Wahnsinn	6	Sw	G	Schutzrune
-Wahnsinn	6	Th	G	Groﬂes Siegel
+Wahnsinn	6	Th	G	Gro√ües Siegel
 Wahnsinn	6	Th	G	Schutzrune
 Wahnsinn	6	To	S	Schutzrune
 Wahrsehen	5	Th	G	Augensalbe
@@ -1213,8 +1213,8 @@ Werwesenamulett verzaubern	3	gHx	A	Amulett
 Werwesenamulett verzaubern	3	sHx	A	Amulett
 Werwesenamulett verzaubern	3	tBe	S	Amulett
 Werwesenamulett verzaubern	3	wHx	A	Amulett
-Windstoﬂ	1	Sw	G	Groﬂes Siegel
-Windstoﬂ	1	Th	G	Groﬂes Siegel
+Windsto√ü	1	Sw	G	Gro√ües Siegel
+Windsto√ü	1	Th	G	Gro√ües Siegel
 Zahlenletter (1)	1	Sw	G	magische Letter
 Zahlenletter (1)	1	Th	G	magische Letter
 Zahlenletter (10)	1	Sw	G	magische Letter
@@ -1252,8 +1252,8 @@ Zauberpergament beschriften	3	PM	S	Zauberpergament
 Zauberpergament beschriften	3	PT	S	Zauberpergament
 Zauberpergament beschriften	3	PW	G	Zauberpergament
 Zauberpergament beschriften	3	Th	G	Zauberpergament
-Zauberstimme	2	Sw	G	Groﬂes Siegel
-Zauberstimme	2	Th	G	Groﬂes Siegel
+Zauberstimme	2	Sw	G	Gro√ües Siegel
+Zauberstimme	2	Th	G	Gro√ües Siegel
 Zeitletter (Jahr)	2	Sw	G	magische Letter
 Zeitletter (Jahr)	2	Th	G	magische Letter
 Zeitletter (Mond)	2	Sw	G	magische Letter
@@ -1264,12 +1264,12 @@ Zeitletter (Tag)	2	Sw	G	magische Letter
 Zeitletter (Tag)	2	Th	G	magische Letter
 Zeitletter (Trideade)	2	Sw	G	magische Letter
 Zeitletter (Trideade)	2	Th	G	magische Letter
-Z¸ndletter (Bereich)	3	Sw	G	magische Letter
-Z¸ndletter (Bereich)	3	Th	G	magische Letter
-Z¸ndletter (Ber¸hrung)	3	Sw	G	magische Letter
-Z¸ndletter (Ber¸hrung)	3	Th	G	magische Letter
-Z¸ndletter (Schl¸sselwort)	3	Sw	G	magische Letter
-Z¸ndletter (Schl¸sselwort)	3	Th	G	magische Letter
+Z√ºndletter (Bereich)	3	Sw	G	magische Letter
+Z√ºndletter (Bereich)	3	Th	G	magische Letter
+Z√ºndletter (Ber√ºhrung)	3	Sw	G	magische Letter
+Z√ºndletter (Ber√ºhrung)	3	Th	G	magische Letter
+Z√ºndletter (Schl√ºsselwort)	3	Sw	G	magische Letter
+Z√ºndletter (Schl√ºsselwort)	3	Th	G	magische Letter
 \.
 --
 --

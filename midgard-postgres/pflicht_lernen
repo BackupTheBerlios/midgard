@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'LATIN1';
+SET client_encoding = 'UNICODE';
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
@@ -31,15 +31,15 @@ CREATE TABLE pflicht_lernen (
 --
 
 COPY pflicht_lernen (typ, pflicht, lernpunkte, verboten, spielbegin, erfolgswert) FROM stdin;
-Berggnom		0	‹berleben im Dschungel	S	\N
-Berggnom		0	‹berleben im Schnee	S	\N
-Berggnom		0	‹berleben im Sumpf	S	\N
-Berggnom		0	‹berleben im Wald	S	\N
-Berggnom		0	‹berleben in der Steppe	S	\N
-Berggnom		0	‹berleben in der W¸ste	S	\N
+Berggnom		0	√úberleben im Dschungel	S	\N
+Berggnom		0	√úberleben im Schnee	S	\N
+Berggnom		0	√úberleben im Sumpf	S	\N
+Berggnom		0	√úberleben im Wald	S	\N
+Berggnom		0	√úberleben in der Steppe	S	\N
+Berggnom		0	√úberleben in der W√ºste	S	\N
 Berggnom	Bergmann	3	\N	\N	\N
 Berggnom	Fallen entdecken	1	\N	\N	6
-Berggnom	Geheimmechanismen ˆffnen	1	\N	\N	6
+Berggnom	Geheimmechanismen √∂ffnen	1	\N	\N	6
 Berggnom	Steinmetz	3	\N	\N	\N
 Berggnom	\N	\N	Kampfstab	\N	\N
 Berggnom	\N	\N	Kriegsflegel	\N	\N
@@ -56,16 +56,16 @@ Elf		0	Ballista bedienen	S	\N
 Elf		0	Bogen zu Pferd	S	\N
 Elf		0	Fechten	S	\N
 Elf		0	Fechten tevarrischer Stil	S	\N
-Elf		0	Gesch‰ftst¸chtigkeit	S	\N
-Elf		0	Kampf in Vollr¸stung	S	\N
+Elf		0	Gesch√§ftst√ºchtigkeit	S	\N
+Elf		0	Kampf in Vollr√ºstung	S	\N
 Elf		0	Katapult bedienen	S	\N
 Elf		0	Trinken	S	\N
-Elf		0	‹berleben im Dschungel	S	\N
-Elf		0	‹berleben im Gebirge	S	\N
-Elf		0	‹berleben im Schnee	S	\N
-Elf		0	‹berleben im Sumpf	S	\N
-Elf		0	‹berleben in der Steppe	S	\N
-Elf		0	‹berleben in der W¸ste	S	\N
+Elf		0	√úberleben im Dschungel	S	\N
+Elf		0	√úberleben im Gebirge	S	\N
+Elf		0	√úberleben im Schnee	S	\N
+Elf		0	√úberleben im Sumpf	S	\N
+Elf		0	√úberleben in der Steppe	S	\N
+Elf		0	√úberleben in der W√ºste	S	\N
 Elf	Schleichen	1			8
 Elf	Spurenlesen	1			6
 Elf	Tarnen	1			8
@@ -75,12 +75,12 @@ Elf	\N	\N	Bola 	S	\N
 Elf	\N	\N	Buckler 	S	\N
 Elf	\N	\N	Faustkampf 	S	\N
 Elf	\N	\N	Fuchtel 	S	\N
-Elf	\N	\N	F‰lschen	\N	\N
+Elf	\N	\N	F√§lschen	\N	\N
 Elf	\N	\N	Garotte 	S	\N
 Elf	\N	\N	Gassenwissen	\N	\N
 Elf	\N	\N	Giftmischen	\N	\N
 Elf	\N	\N	Glefe 	S	\N
-Elf	\N	\N	Gl¸cksspiel	\N	\N
+Elf	\N	\N	Gl√ºcksspiel	\N	\N
 Elf	\N	\N	Handarmbrust 	S	\N
 Elf	\N	\N	Hellebarde 	S	\N
 Elf	\N	\N	Kampfgabeln 	S	\N
@@ -88,7 +88,7 @@ Elf	\N	\N	Kharrata 	S	\N
 Elf	\N	\N	Kompositbogen 	S	\N
 Elf	\N	\N	Kriegsflegel 	S	\N
 Elf	\N	\N	Kriegshammer 	S	\N
-Elf	\N	\N	Krumms‰bel 	S	\N
+Elf	\N	\N	Krumms√§bel 	S	\N
 Elf	\N	\N	Lasso 	S	\N
 Elf	\N	\N	Meucheln	\N	\N
 Elf	\N	\N	Morgenstern 	S	\N
@@ -99,7 +99,7 @@ Elf	\N	\N	Parierdolch 	S	\N
 Elf	\N	\N	Peitsche 	S	\N
 Elf	\N	\N	Rapier 	S	\N
 Elf	\N	\N	Schlachtbeil 	S	\N
-Elf	\N	\N	Schlˆsser ˆffnen	\N	\N
+Elf	\N	\N	Schl√∂sser √∂ffnen	\N	\N
 Elf	\N	\N	Skhallanta 	S	\N
 Elf	\N	\N	Speerschleuder 	S	\N
 Elf	\N	\N	Stabkeule 	S	\N
@@ -111,12 +111,12 @@ Elf	\N	\N	Wurfeisen 	S	\N
 Elf	\N	\N	Wurfhammer 	S	\N
 Elf	\N	\N	Wurfpfeil 	S	\N
 Elf	\N	\N	Wurfscheibe 	S	\N
-Elf	\N	\N	Wurfspieﬂ 	S	\N
+Elf	\N	\N	Wurfspie√ü 	S	\N
 Elf	\N	\N	Wurfstern 	S	\N
 Elf	\N	\N	leichte Armbrust 	S	\N
 Elf	\N	\N	schwere Armbrust 	S	\N
-Gnom	\N	\N	Anderthalbh‰nder 	S	\N
-Gnom	\N	\N	Bih‰nder 	S	\N
+Gnom	\N	\N	Anderthalbh√§nder 	S	\N
+Gnom	\N	\N	Bih√§nder 	S	\N
 Gnom	\N	\N	Bola 	S	\N
 Gnom	\N	\N	Faustkampf 	S	\N
 Gnom	\N	\N	Fuchtel 	S	\N
@@ -130,7 +130,7 @@ Gnom	\N	\N	Kharrata 	S	\N
 Gnom	\N	\N	Kompositbogen 	S	\N
 Gnom	\N	\N	Kriegsflegel 	S	\N
 Gnom	\N	\N	Kriegshammer 	S	\N
-Gnom	\N	\N	Krumms‰bel 	S	\N
+Gnom	\N	\N	Krumms√§bel 	S	\N
 Gnom	\N	\N	Langbogen 	S	\N
 Gnom	\N	\N	Langschwert 	S	\N
 Gnom	\N	\N	Lanze 	S	\N
@@ -153,21 +153,21 @@ Gnom	\N	\N	Streitaxt 	S	\N
 Gnom	\N	\N	Wurfeisen 	S	\N
 Gnom	\N	\N	Wurfhammer 	S	\N
 Gnom	\N	\N	Wurfscheibe 	S	\N
-Gnom	\N	\N	Wurfspieﬂ 	S	\N
+Gnom	\N	\N	Wurfspie√ü 	S	\N
 Gnom	\N	\N	Wurfstern 	S	\N
-Gnom	\N	\N	groﬂer Schild 	S	\N
+Gnom	\N	\N	gro√üer Schild 	S	\N
 Gnom	\N	\N	schwere Armbrust 	S	\N
-Halbling		0	‹berleben im Dschungel	S	\N
-Halbling		0	‹berleben im Gebirge	S	\N
-Halbling		0	‹berleben im Schnee	S	\N
-Halbling		0	‹berleben im Sumpf	S	\N
-Halbling		0	‹berleben im Wald	S	\N
-Halbling		0	‹berleben in der Steppe	S	\N
-Halbling		0	‹berleben in der W¸ste	S	\N
+Halbling		0	√úberleben im Dschungel	S	\N
+Halbling		0	√úberleben im Gebirge	S	\N
+Halbling		0	√úberleben im Schnee	S	\N
+Halbling		0	√úberleben im Sumpf	S	\N
+Halbling		0	√úberleben im Wald	S	\N
+Halbling		0	√úberleben in der Steppe	S	\N
+Halbling		0	√úberleben in der W√ºste	S	\N
 Halbling	Schleichen	1			10
 Halbling	Tarnen	1			10
-Halbling	\N	\N	Anderthalbh‰nder 	S	\N
-Halbling	\N	\N	Bih‰nder 	S	\N
+Halbling	\N	\N	Anderthalbh√§nder 	S	\N
+Halbling	\N	\N	Bih√§nder 	S	\N
 Halbling	\N	\N	Blasrohr 	S	\N
 Halbling	\N	\N	Bola 	S	\N
 Halbling	\N	\N	Buckler 	S	\N
@@ -184,7 +184,7 @@ Halbling	\N	\N	Kharrata 	S	\N
 Halbling	\N	\N	Kompositbogen 	S	\N
 Halbling	\N	\N	Kriegsflegel	\N	\N
 Halbling	\N	\N	Kriegsflegel 	S	\N
-Halbling	\N	\N	Krumms‰bel 	S	\N
+Halbling	\N	\N	Krumms√§bel 	S	\N
 Halbling	\N	\N	Langbogen	\N	\N
 Halbling	\N	\N	Langbogen 	S	\N
 Halbling	\N	\N	Lanze	\N	\N
@@ -213,17 +213,17 @@ Halbling	\N	\N	Wurfeisen 	S	\N
 Halbling	\N	\N	Wurfhammer 	S	\N
 Halbling	\N	\N	Wurfpfeil 	S	\N
 Halbling	\N	\N	Wurfscheibe 	S	\N
-Halbling	\N	\N	Wurfspieﬂ 	S	\N
+Halbling	\N	\N	Wurfspie√ü 	S	\N
 Halbling	\N	\N	Wurfstern	S	\N
 Halbling	\N	\N	ZSchlagwaffe	\N	\N
 Halbling	\N	\N	ZSchwert	\N	\N
-Halbling	\N	\N	groﬂer Schild 	S	\N
+Halbling	\N	\N	gro√üer Schild 	S	\N
 Halbling	\N	\N	leichte Armbrust 	S	\N
 Halbling	\N	\N	schwere Armbrust	\N	\N
 Halbling	\N	\N	schwere Armbrust 	S	\N
 Ri	\N	\N	Beschatten	\N	\N
 Ri	\N	\N	Fallenstellen	\N	\N
-Ri	\N	\N	F‰lschen	\N	\N
+Ri	\N	\N	F√§lschen	\N	\N
 Ri	\N	\N	Gassenwissen	\N	\N
 Ri	\N	\N	Giftmischen	\N	\N
 Ri	\N	\N	Kampf vom Streitwagen	\N	\N
@@ -231,12 +231,12 @@ Ri	\N	\N	Meucheln	\N	\N
 Ri	\N	\N	Stehlen	\N	\N
 Ri	\N	\N	Streitwagen lenken	\N	\N
 Ri	\N	\N	Tarnen	\N	\N
-Waldgnom		0	‹berleben im Dschungel	S	\N
-Waldgnom		0	‹berleben im Gebirge	S	\N
-Waldgnom		0	‹berleben im Schnee	S	\N
-Waldgnom		0	‹berleben im Sumpf	S	\N
-Waldgnom		0	‹berleben in der Steppe	S	\N
-Waldgnom		0	‹berleben in der W¸ste	S	\N
+Waldgnom		0	√úberleben im Dschungel	S	\N
+Waldgnom		0	√úberleben im Gebirge	S	\N
+Waldgnom		0	√úberleben im Schnee	S	\N
+Waldgnom		0	√úberleben im Sumpf	S	\N
+Waldgnom		0	√úberleben in der Steppe	S	\N
+Waldgnom		0	√úberleben in der W√ºste	S	\N
 Waldgnom	Fallenstellen	1	\N	\N	4
 Waldgnom	Spurenlesen	1	\N	\N	6
 Waldgnom	Tarnen	1	\N	\N	8
@@ -251,16 +251,16 @@ Waldgnom	\N	\N	Stockschleuder	\N	\N
 Waldgnom	\N	\N	ZSchlagwaffe	\N	\N
 Waldgnom	\N	\N	ZSchwert	\N	\N
 Waldgnom	\N	\N	schwere Armbrust	\N	\N
-Zwerg		0	‹berleben im Dschungel	S	\N
-Zwerg		0	‹berleben im Sumpf	S	\N
-Zwerg		0	‹berleben im Wald	S	\N
-Zwerg		0	‹berleben in der Steppe	S	\N
-Zwerg		0	‹berleben in der W¸ste	S	\N
+Zwerg		0	√úberleben im Dschungel	S	\N
+Zwerg		0	√úberleben im Sumpf	S	\N
+Zwerg		0	√úberleben im Wald	S	\N
+Zwerg		0	√úberleben in der Steppe	S	\N
+Zwerg		0	√úberleben in der W√ºste	S	\N
 Zwerg	Baukunde	1	\N	\N	8
 Zwerg	Bergmann	3	\N	\N	\N
 Zwerg	Steinmetz	3	\N	\N	\N
 Zwerg	Zimmermann	3	\N	\N	\N
-Zwerg	\N	\N	Bih‰nder 	S	\N
+Zwerg	\N	\N	Bih√§nder 	S	\N
 Zwerg	\N	\N	Bogen 	S	\N
 Zwerg	\N	\N	Bola 	S	\N
 Zwerg	\N	\N	Buckler 	S	\N
@@ -272,7 +272,7 @@ Zwerg	\N	\N	Kampfgabeln 	S	\N
 Zwerg	\N	\N	Kampfstab 	S	\N
 Zwerg	\N	\N	Kharrata 	S	\N
 Zwerg	\N	\N	Kompositbogen 	S	\N
-Zwerg	\N	\N	Krumms‰bel 	S	\N
+Zwerg	\N	\N	Krumms√§bel 	S	\N
 Zwerg	\N	\N	Kurzbogen 	S	\N
 Zwerg	\N	\N	Langbogen 	S	\N
 Zwerg	\N	\N	Lasso 	S	\N
@@ -290,7 +290,7 @@ Zwerg	\N	\N	Wurfmesser 	S	\N
 Zwerg	\N	\N	Wurfpfeil 	S	\N
 Zwerg	\N	\N	Wurfscheibe 	S	\N
 Zwerg	\N	\N	Wurfspeer 	S	\N
-Zwerg	\N	\N	Wurfspieﬂ 	S	\N
+Zwerg	\N	\N	Wurfspie√ü 	S	\N
 Zwerg	\N	\N	Wurfstern 	S	\N
 Zwerg	\N	\N	leichter Speer 	S	\N
 Zwerk	Trinken	1	\N	\N	12

@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'LATIN1';
+SET client_encoding = 'UNICODE';
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
@@ -51,19 +51,19 @@ Balancieren	\N	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Ballista bedienen	\N	0	\N	21	\N	\N	\N	\N	\N	\N	61
 Ballspiel	\N	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Baukunde	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
-Beidhändiger Kampf	\N	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
+BeidhÃ¤ndiger Kampf	\N	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Beredsamkeit	\N	\N	\N	61	\N	\N	61	\N	\N	\N	\N
 Beschatten	\N	61	\N	\N	\N	\N	-81	\N	0	\N	\N
-Betäuben	31	0	\N	\N	\N	\N	\N	\N	\N	\N	61
+BetÃ¤uben	31	0	\N	\N	\N	\N	\N	\N	\N	\N	61
 Bogenkampf zu Pferd	\N	\N	\N	\N	\N	\N	\N	\N	\N	Reiten	31
 Brettspiel	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
 Dichten	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
-Dämonenkunde	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
+DÃ¤monenkunde	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
 Elefanten lenken	\N	31	\N	\N	\N	\N	\N	31	\N	\N	\N
 Erste Hilfe	\N	0	\N	31	\N	\N	\N	\N	31	\N	31
-Erzählen	\N	\N	\N	31	\N	\N	31	\N	\N	\N	\N
+ErzÃ¤hlen	\N	\N	\N	31	\N	\N	31	\N	\N	\N	\N
 Fallen entdecken	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
-Fallen entschärfen	\N	61	\N	61	\N	\N	\N	\N	\N	\N	\N
+Fallen entschÃ¤rfen	\N	61	\N	61	\N	\N	\N	\N	\N	\N	\N
 Fallenmechanik	\N	0	\N	0	\N	\N	\N	\N	\N	Fallen entdecken	61
 Fallenstellen	\N	0	\N	\N	\N	\N	\N	\N	\N	\N	31
 Fangen	\N	0	\N	\N	\N	\N	\N	\N	\N	\N	31
@@ -73,18 +73,18 @@ Fechten tevarrischer Stil	\N	\N	\N	\N	\N	\N	\N	\N	\N	Fechten	\N
 Federflechten	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	81
 FengSchui	\N	\N	\N	81	\N	\N	\N	\N	\N		\N
 FengTsu	\N	61	\N	\N	\N	\N	\N	61	\N		\N
-Fälschen	\N	0	\N	0	\N	\N	\N	\N	\N		61
+FÃ¤lschen	\N	0	\N	0	\N	\N	\N	\N	\N		61
 Gassenwissen	\N	\N	\N	61	\N	\N	31	\N	\N	\N	\N
 Gastlandsprache	\N	\N	\N	1	\N	\N	\N	\N	\N	\N	\N
 Gaukeln	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12
-Geheimmechanismen öffnen	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
+Geheimmechanismen Ã¶ffnen	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
 Geheimzeichen	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
-Geländelauf	\N	31	\N	\N	\N	\N	\N	\N	0	\N	\N
+GelÃ¤ndelauf	\N	31	\N	\N	\N	\N	\N	\N	0	\N	\N
 Geomantie	\N	\N	\N	\N	61	\N	\N	\N	\N	Zaubern	\N
 Geschenke machen	\N	\N	\N	61	\N	\N	61	\N	\N		\N
-Geschäftstüchtigkeit	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
+GeschÃ¤ftstÃ¼chtigkeit	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
 Giftmischen	\N	0	\N	61	\N	\N	\N	\N	\N	\N	31
-Glücksspiel	\N	0	\N	\N	\N	\N	\N	\N	61	\N	61
+GlÃ¼cksspiel	\N	0	\N	\N	\N	\N	\N	\N	61	\N	61
 Heilkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	Erste Hilfe	\N
 Heraldik	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
 Himmelskunde	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
@@ -93,7 +93,7 @@ Kalligraphie	\N	61	\N	\N	\N	\N	\N	\N	\N	Lesen/Sreiben	\N
 Kamelreiten	\N	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Kampf in Dunkelheit	\N	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Kampf in Schlachtreihe	\N	\N	\N	\N	\N	\N	\N	\N	\N	Waffe	\N
-Kampf in Vollrüstung	61	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Kampf in VollrÃ¼stung	61	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Kampf vom Streitwagen	\N	21	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Kampf zu Elefant	\N	21	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Kampf zu Kamel	\N	21	\N	\N	\N	\N	\N	\N	\N	Kamelreiten	\N
@@ -103,17 +103,17 @@ Kampftaktik	\N	\N	\N	31	\N	\N	61	\N	\N	\N	\N
 Kanufahren	21	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
 KarumiJutsu	61	61	\N	\N	\N	\N	\N	\N	\N	Klettern	\N
 Katapult bedienen	\N	0	0	31	\N	\N	\N	\N	\N	\N	31
-Kenntnis der fünf Klassiker	\N	\N	\N	11	\N	\N	\N	\N	\N		\N
+Kenntnis der fÃ¼nf Klassiker	\N	\N	\N	11	\N	\N	\N	\N	\N		\N
 KentoYobu	\N	\N	\N	\N	21	\N	\N	\N	\N		\N
 KiDo	\N	31	\N	\N	61	\N	\N	\N	\N	TaiTschi	\N
 KiDo-Technik	\N	\N	\N	\N	\N	\N	\N	\N	\N	KiDo	\N
 Klettern	31	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Kriegsbemalung	\N	31	\N	\N	\N	\N	\N	\N	\N	Körperbemalung	\N
-Kräuterkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
+Kriegsbemalung	\N	31	\N	\N	\N	\N	\N	\N	\N	KÃ¶rperbemalung	\N
+KrÃ¤uterkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
 KujKuri	\N	21	\N	31	\N	\N	\N	\N	\N		\N
 KujNoIu	\N	31	\N	\N	\N	\N	\N	\N	\N	Thaumaturg	\N
-Körperbemalung	\N	31	\N	\N	\N	\N	\N	\N	\N	Zaubern	\N
-Körperkontrolle	\N	\N	61	61	\N	\N	\N	61	\N	\N	\N
+KÃ¶rperbemalung	\N	31	\N	\N	\N	\N	\N	\N	\N	Zaubern	\N
+KÃ¶rperkontrolle	\N	\N	61	61	\N	\N	\N	61	\N	\N	\N
 Landeskunde	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
 Landeskunde (Heimat)	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
 Laufen	\N	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
@@ -125,7 +125,7 @@ Meditieren	\N	\N	\N	\N	\N	\N	\N	21	\N		\N
 Menschenkenntnis	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
 Meucheln	31	0	\N	\N	\N	\N	\N	\N	\N	\N	61
 MiChen	\N	61	\N	61	\N	\N	\N	\N	\N		\N
-Mumifizieren	\N	31	\N	31	\N	\N	\N	\N	\N	Kräuterkunde, Naturkunde	\N
+Mumifizieren	\N	31	\N	31	\N	\N	\N	\N	\N	KrÃ¤uterkunde, Naturkunde	\N
 Musizieren	\N	0	\N	\N	\N	\N	\N	\N	31	\N	31
 Muttersprache	\N	\N	\N	1	\N	\N	\N	\N	\N	\N	\N
 Naturkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
@@ -138,26 +138,26 @@ Rechnen	\N	\N	\N	81	\N	\N	\N	\N	\N	\N	\N
 Reiten	\N	21	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Rudern	21	0	0	\N	\N	\N	\N	\N	\N	\N	21
 Sagenkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
-Scharfschießen	\N	0	0	\N	\N	\N	\N	\N	\N	\N	61
+ScharfschieÃŸen	\N	0	0	\N	\N	\N	\N	\N	\N	\N	61
 Schauspielern	\N	\N	\N	\N	\N	\N	61	\N	\N	\N	\N
-Schießen vom Streitwagen	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	31
-Schiffsführung	\N	\N	\N	31	\N	\N	61	\N	\N	\N	\N
+SchieÃŸen vom Streitwagen	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	31
+SchiffsfÃ¼hrung	\N	\N	\N	31	\N	\N	61	\N	\N	\N	\N
 SchiyoKi	\N	21	\N	\N	\N	\N	\N	21	\N	TaiTschi	\N
 Schlachtruf	\N	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Schlangen beschwören	\N	61	\N	\N	\N	\N	\N	31	\N	Musizieren	\N
+Schlangen beschwÃ¶ren	\N	61	\N	\N	\N	\N	\N	31	\N	Musizieren	\N
 Schleichen	\N	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Schlittenfahren	\N	0	\N	\N	\N	\N	\N	\N	\N	\N	21
 Schlittschuhlaufen	\N	21	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Schlösser öffnen	\N	0	\N	\N	\N	\N	\N	\N	\N	\N	61
+SchlÃ¶sser Ã¶ffnen	\N	0	\N	\N	\N	\N	\N	\N	\N	\N	61
 Schmerzen ertragen	\N	\N	\N	\N	\N	\N	\N	81	\N	\N	\N
 Schreiben	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
 Schreiben: Alte Sprache(+12)	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
 Schreiben: Muttersprache(+12)	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
 Schreiben: Muttersprache(+4)	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
 Schreiben: Muttersprache(+9)	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
-Schwerttanz	\N	61	\N	\N	\N	\N	\N	\N	\N	Beidhändiger Kampf	\N
+Schwerttanz	\N	61	\N	\N	\N	\N	\N	\N	\N	BeidhÃ¤ndiger Kampf	\N
 Schwimmen	\N	11	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Schätzen	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
+SchÃ¤tzen	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
 Seemannsgang	\N	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Segeln	11	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Seilkunst	\N	0	\N	\N	\N	\N	\N	\N	\N	\N	61
@@ -186,14 +186,14 @@ Teezeremonie	\N	\N	\N	\N	\N	\N	31	\N	\N	\N	\N
 Thaumatographie	\N	\N	\N	61	\N	\N	\N	\N	\N	Zauberkunde	\N
 Tierkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
 Trinken	\N	\N	1	\N	\N	\N	\N	\N	\N	\N	\N
-Tätowieren	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	61
+TÃ¤towieren	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	61
 Verbergen	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	0
-Verführen	\N	\N	\N	\N	\N	21	61	\N	\N	\N	\N
-Verhören	\N	\N	\N	\N	\N	\N	61	\N	\N	\N	\N
+VerfÃ¼hren	\N	\N	\N	\N	\N	21	61	\N	\N	\N	\N
+VerhÃ¶ren	\N	\N	\N	\N	\N	\N	61	\N	\N	\N	\N
 Verkleiden	\N	0	\N	31	\N	\N	\N	\N	\N	\N	31
 Wagenlenken	\N	21	\N	\N	\N	\N	\N	\N	\N	\N	21
 Wahrnehmung	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
-Wahrsagekalender führen	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
+Wahrsagekalender fÃ¼hren	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
 Wetterkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
 Winden	\N	61	\N	\N	\N	\N	\N	\N	\N	schlank	\N
 Wissen von der Magie	\N	\N	\N	11	\N	\N	\N	\N	\N	\N	\N
@@ -203,13 +203,13 @@ Zauberkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
 Zaubern	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Zeichensprache	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	31
 Zunge verschlucken	\N	\N	\N	\N	\N	\N	\N	61	\N	\N	\N
-Überleben im Dschungel	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
-Überleben im Gebirge	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
-Überleben im Schnee	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
-Überleben im Sumpf	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
-Überleben im Wald	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
-Überleben in der Steppe	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
-Überleben in der Wüste	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
+Ãœberleben im Dschungel	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
+Ãœberleben im Gebirge	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
+Ãœberleben im Schnee	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
+Ãœberleben im Sumpf	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
+Ãœberleben im Wald	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
+Ãœberleben in der Steppe	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
+Ãœberleben in der WÃ¼ste	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
 \.
 --
 --

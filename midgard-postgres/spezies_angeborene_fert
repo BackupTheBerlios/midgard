@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'LATIN1';
+SET client_encoding = 'UNICODE';
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
@@ -34,20 +34,20 @@ COPY spezies_angeborene_fert (spezies, art, name, erfolgswert, lp) FROM stdin;
 Berggnom	af	Nachtsicht	8	\N
 Berggnom	af	Robustheit	12	\N
 Berggnom	ff	Fallen entdecken	6	1
-Berggnom	ff	Geheimmechanismen ˆffnen	6	1
-Berggnom	s	Hˆren	10	\N
-Berggnom	sv	‹berleben im Dschungel	\N	\N
-Berggnom	sv	‹berleben im Schnee	\N	\N
-Berggnom	sv	‹berleben im Sumpf	\N	\N
-Berggnom	sv	‹berleben im Wald	\N	\N
-Berggnom	sv	‹berleben in der Steppe	\N	\N
-Berggnom	sv	‹berleben in der W¸ste	\N	\N
+Berggnom	ff	Geheimmechanismen √∂ffnen	6	1
+Berggnom	s	H√∂ren	10	\N
+Berggnom	sv	√úberleben im Dschungel	\N	\N
+Berggnom	sv	√úberleben im Schnee	\N	\N
+Berggnom	sv	√úberleben im Sumpf	\N	\N
+Berggnom	sv	√úberleben im Wald	\N	\N
+Berggnom	sv	√úberleben in der Steppe	\N	\N
+Berggnom	sv	√úberleben in der W√ºste	\N	\N
 Berggnom	v	Bettler	\N	\N
-Berggnom	v	Fluﬂschiffer	\N	\N
+Berggnom	v	Flu√üschiffer	\N	\N
 Berggnom	v	Grobschmied	\N	\N
 Berggnom	v	Kampfstab	\N	\N
-Berggnom	v	Kapit‰n	\N	\N
-Berggnom	v	Karawanenf¸hrer	\N	\N
+Berggnom	v	Kapit√§n	\N	\N
+Berggnom	v	Karawanenf√ºhrer	\N	\N
 Berggnom	v	Kompositbogen	\N	\N
 Berggnom	v	Kriegsflegel	\N	\N
 Berggnom	v	Kurtisane	\N	\N
@@ -56,15 +56,15 @@ Berggnom	v	Lanze	\N	\N
 Berggnom	v	Magierstecken	\N	\N
 Berggnom	v	Netz	\N	\N
 Berggnom	v	Peitsche	\N	\N
-Berggnom	v	R‰uber	\N	\N
+Berggnom	v	R√§uber	\N	\N
 Berggnom	v	Scharfrichter	\N	\N
 Berggnom	v	Schlachter	\N	\N
 Berggnom	v	Seemann	\N	\N
-Berggnom	v	Sklavenh‰ndler	\N	\N
+Berggnom	v	Sklavenh√§ndler	\N	\N
 Berggnom	v	Stangenwaffe	\N	\N
 Berggnom	v	Steuermann	\N	\N
 Berggnom	v	Stockschleuder	\N	\N
-Berggnom	v	Tr‰ger	\N	\N
+Berggnom	v	Tr√§ger	\N	\N
 Berggnom	v	Winzer	\N	\N
 Berggnom	v	Zureiter	\N	\N
 Berggnom	v	Zweihandschlagwaffe	\N	\N
@@ -85,18 +85,18 @@ Elf	sv	Faustkampf 	\N	\N
 Elf	sv	Fechten	0	0
 Elf	sv	Fuchtel 	\N	\N
 Elf	sv	Garotte 	\N	\N
-Elf	sv	Gesch‰ftst¸chtigkeit	0	0
+Elf	sv	Gesch√§ftst√ºchtigkeit	0	0
 Elf	sv	Glefe 	\N	\N
 Elf	sv	Handarmbrust	\N	\N
 Elf	sv	Hellebarde	\N	\N
-Elf	sv	Kampf in Vollr¸stung	0	0
+Elf	sv	Kampf in Vollr√ºstung	0	0
 Elf	sv	Kampfgabeln	\N	\N
 Elf	sv	Katapult bedienen	0	0
 Elf	sv	Kharrata	\N	\N
 Elf	sv	Kompositbogen	\N	\N
 Elf	sv	Kriegsflegel	\N	\N
 Elf	sv	Kriegshammer	\N	\N
-Elf	sv	Krumms‰bel	\N	\N
+Elf	sv	Krumms√§bel	\N	\N
 Elf	sv	Lasso	\N	\N
 Elf	sv	Morgenstern	\N	\N
 Elf	sv	Netz	\N	\N
@@ -117,32 +117,32 @@ Elf	sv	Wurfeisen	\N	\N
 Elf	sv	Wurfhammer	\N	\N
 Elf	sv	Wurfpfeil	\N	\N
 Elf	sv	Wurfscheibe	\N	\N
-Elf	sv	Wurfspieﬂ	\N	\N
+Elf	sv	Wurfspie√ü	\N	\N
 Elf	sv	Wurfstern	\N	\N
 Elf	sv	leichte Armbrust	\N	\N
 Elf	sv	schwere Armbrust	\N	\N
-Elf	sv	‹berleben im Dschungel	\N	\N
-Elf	sv	‹berleben im Gebirge	\N	\N
-Elf	sv	‹berleben im Schnee	\N	\N
-Elf	sv	‹berleben im Sumpf	\N	\N
-Elf	sv	‹berleben in der Steppe	\N	\N
-Elf	sv	‹berleben in der W¸ste	\N	\N
+Elf	sv	√úberleben im Dschungel	\N	\N
+Elf	sv	√úberleben im Gebirge	\N	\N
+Elf	sv	√úberleben im Schnee	\N	\N
+Elf	sv	√úberleben im Sumpf	\N	\N
+Elf	sv	√úberleben in der Steppe	\N	\N
+Elf	sv	√úberleben in der W√ºste	\N	\N
 Elf	v	Bergmann	\N	\N
-Elf	v	F‰lschen	0	0
+Elf	v	F√§lschen	0	0
 Elf	v	Gassenwissen	0	0
 Elf	v	Giftmischen	0	0
-Elf	v	Gl¸cksspiel	0	0
-Elf	v	Kr‰mer	\N	\N
+Elf	v	Gl√ºcksspiel	0	0
+Elf	v	Kr√§mer	\N	\N
 Elf	v	Meucheln	0	0
-Elf	v	Schlˆsser ˆffnen	0	0
+Elf	v	Schl√∂sser √∂ffnen	0	0
 Elf	v	Schmuggler	\N	\N
-Elf	v	Sklavenh‰ndler	\N	\N
+Elf	v	Sklavenh√§ndler	\N	\N
 Elf	v	Stehlen	0	0
 Elf	v	Winzer	\N	\N
 Elf	v	Wirt	\N	\N
 Elf	z	Erkennen der Aura	\N	\N
-Gnom	sv	Anderthalbh‰nder	\N	\N
-Gnom	sv	Bih‰nder	\N	\N
+Gnom	sv	Anderthalbh√§nder	\N	\N
+Gnom	sv	Bih√§nder	\N	\N
 Gnom	sv	Bola	\N	\N
 Gnom	sv	Faustkampf	\N	\N
 Gnom	sv	Fuchtel	\N	\N
@@ -156,7 +156,7 @@ Gnom	sv	Kharrata	\N	\N
 Gnom	sv	Kompositbogen	\N	\N
 Gnom	sv	Kriegsflegel	\N	\N
 Gnom	sv	Kriegshammer	\N	\N
-Gnom	sv	Krumms‰bel	\N	\N
+Gnom	sv	Krumms√§bel	\N	\N
 Gnom	sv	Langbogen	\N	\N
 Gnom	sv	Langschwert	\N	\N
 Gnom	sv	Lanze	\N	\N
@@ -179,16 +179,16 @@ Gnom	sv	Streitaxt	\N	\N
 Gnom	sv	Wurfeisen	\N	\N
 Gnom	sv	Wurfhammer	\N	\N
 Gnom	sv	Wurfscheibe	\N	\N
-Gnom	sv	Wurfspieﬂ	\N	\N
+Gnom	sv	Wurfspie√ü	\N	\N
 Gnom	sv	Wurfstern	\N	\N
-Gnom	sv	groﬂer Schild	\N	\N
+Gnom	sv	gro√üer Schild	\N	\N
 Gnom	sv	schwere Armbrust	\N	\N
 Halbling	af	Gute Reflexe	9	\N
 Halbling	f	Schleichen	10	1
 Halbling	f	Tarnen	10	1
 Halbling	s	Schmecken	10	\N
-Halbling	sv	Anderthalbh‰nder	\N	\N
-Halbling	sv	Bih‰nder	\N	\N
+Halbling	sv	Anderthalbh√§nder	\N	\N
+Halbling	sv	Bih√§nder	\N	\N
 Halbling	sv	Blasrohr	\N	\N
 Halbling	sv	Bola	\N	\N
 Halbling	sv	Buckler	\N	\N
@@ -203,7 +203,7 @@ Halbling	sv	Kampfstab	\N	\N
 Halbling	sv	Kharrata	\N	\N
 Halbling	sv	Kompositbogen	\N	\N
 Halbling	sv	Kriegsflegel	\N	\N
-Halbling	sv	Krumms‰bel	\N	\N
+Halbling	sv	Krumms√§bel	\N	\N
 Halbling	sv	Langbogen	\N	\N
 Halbling	sv	Lanze	\N	\N
 Halbling	sv	Lasso	\N	\N
@@ -226,25 +226,25 @@ Halbling	sv	Wurfeisen	\N	\N
 Halbling	sv	Wurfhammer	\N	\N
 Halbling	sv	Wurfpfeil	\N	\N
 Halbling	sv	Wurfscheibe	\N	\N
-Halbling	sv	Wurfspieﬂ	\N	\N
+Halbling	sv	Wurfspie√ü	\N	\N
 Halbling	sv	Wurfstern	\N	\N
-Halbling	sv	groﬂer Schild	\N	\N
+Halbling	sv	gro√üer Schild	\N	\N
 Halbling	sv	leichte Armbrust	\N	\N
 Halbling	sv	schwere Armbrust	\N	\N
-Halbling	sv	‹berleben im Dschungel	\N	\N
-Halbling	sv	‹berleben im Gebirge	\N	\N
-Halbling	sv	‹berleben im Schnee	\N	\N
-Halbling	sv	‹berleben im Sumpf	\N	\N
-Halbling	sv	‹berleben im Wald	\N	\N
-Halbling	sv	‹berleben in der Steppe	\N	\N
-Halbling	sv	‹berleben in der W¸ste	\N	\N
+Halbling	sv	√úberleben im Dschungel	\N	\N
+Halbling	sv	√úberleben im Gebirge	\N	\N
+Halbling	sv	√úberleben im Schnee	\N	\N
+Halbling	sv	√úberleben im Sumpf	\N	\N
+Halbling	sv	√úberleben im Wald	\N	\N
+Halbling	sv	√úberleben in der Steppe	\N	\N
+Halbling	sv	√úberleben in der W√ºste	\N	\N
 Halbling	v	Bergmann	\N	\N
 Halbling	v	Bootsbauer	\N	\N
 Halbling	v	Falkner	\N	\N
-Halbling	v	Fluﬂschiffer	\N	\N
+Halbling	v	Flu√üschiffer	\N	\N
 Halbling	v	Kampfstab	\N	\N
-Halbling	v	Kapit‰n	\N	\N
-Halbling	v	Karawanenf¸hrer	\N	\N
+Halbling	v	Kapit√§n	\N	\N
+Halbling	v	Karawanenf√ºhrer	\N	\N
 Halbling	v	Kompositbogen	\N	\N
 Halbling	v	Kriegsflegel	\N	\N
 Halbling	v	Langbogen	\N	\N
@@ -253,11 +253,11 @@ Halbling	v	Magierstecken	\N	\N
 Halbling	v	Netz	\N	\N
 Halbling	v	Peitsche	\N	\N
 Halbling	v	Rechtsgelehrter	\N	\N
-Halbling	v	R‰uber	\N	\N
+Halbling	v	R√§uber	\N	\N
 Halbling	v	Sattler	\N	\N
 Halbling	v	Scharfrichter	\N	\N
 Halbling	v	Seemann	\N	\N
-Halbling	v	Sklavenh‰ndler	\N	\N
+Halbling	v	Sklavenh√§ndler	\N	\N
 Halbling	v	Stadtwache	\N	\N
 Halbling	v	Stangenwaffe	\N	\N
 Halbling	v	Steuermann	\N	\N
@@ -273,19 +273,19 @@ Waldgnom	af	Robustheit	12	\N
 Waldgnom	ff	Fallenstellen	4	1
 Waldgnom	ff	Spurenlesen	6	1
 Waldgnom	ff	Tarnen	8	1
-Waldgnom	s	Hˆren	10	\N
-Waldgnom	sv	‹berleben im Dschungel	\N	\N
-Waldgnom	sv	‹berleben im Gebirge	\N	\N
-Waldgnom	sv	‹berleben im Schnee	\N	\N
-Waldgnom	sv	‹berleben im Sumpf	\N	\N
-Waldgnom	sv	‹berleben in der Steppe	\N	\N
-Waldgnom	sv	‹berleben in der W¸ste	\N	\N
+Waldgnom	s	H√∂ren	10	\N
+Waldgnom	sv	√úberleben im Dschungel	\N	\N
+Waldgnom	sv	√úberleben im Gebirge	\N	\N
+Waldgnom	sv	√úberleben im Schnee	\N	\N
+Waldgnom	sv	√úberleben im Sumpf	\N	\N
+Waldgnom	sv	√úberleben in der Steppe	\N	\N
+Waldgnom	sv	√úberleben in der W√ºste	\N	\N
 Waldgnom	v	Bettler	\N	\N
-Waldgnom	v	Fluﬂschiffer	\N	\N
+Waldgnom	v	Flu√üschiffer	\N	\N
 Waldgnom	v	Grobschmied	\N	\N
 Waldgnom	v	Kampfstab	\N	\N
-Waldgnom	v	Kapit‰n	\N	\N
-Waldgnom	v	Karawanenf¸hrer	\N	\N
+Waldgnom	v	Kapit√§n	\N	\N
+Waldgnom	v	Karawanenf√ºhrer	\N	\N
 Waldgnom	v	Kompositbogen	\N	\N
 Waldgnom	v	Kriegsflegel	\N	\N
 Waldgnom	v	Kurtisane	\N	\N
@@ -294,15 +294,15 @@ Waldgnom	v	Lanze	\N	\N
 Waldgnom	v	Magierstecken	\N	\N
 Waldgnom	v	Netz	\N	\N
 Waldgnom	v	Peitsche	\N	\N
-Waldgnom	v	R‰uber	\N	\N
+Waldgnom	v	R√§uber	\N	\N
 Waldgnom	v	Scharfrichter	\N	\N
 Waldgnom	v	Schlachter	\N	\N
 Waldgnom	v	Seemann	\N	\N
-Waldgnom	v	Sklavenh‰ndler	\N	\N
+Waldgnom	v	Sklavenh√§ndler	\N	\N
 Waldgnom	v	Stangenwaffe	\N	\N
 Waldgnom	v	Steuermann	\N	\N
 Waldgnom	v	Stockschleuder	\N	\N
-Waldgnom	v	Tr‰ger	\N	\N
+Waldgnom	v	Tr√§ger	\N	\N
 Waldgnom	v	Winzer	\N	\N
 Waldgnom	v	Zureiter	\N	\N
 Waldgnom	v	Zweihandschlagwaffe	\N	\N
@@ -312,7 +312,7 @@ Zwerg	af	Nachtsicht	8	\N
 Zwerg	af	Robustheit	9	\N
 Zwerg	f	Baukunde	8	1
 Zwerg	ff	Trinken	12	1
-Zwerg	sv	Bih‰nder	\N	\N
+Zwerg	sv	Bih√§nder	\N	\N
 Zwerg	sv	Bogen	\N	\N
 Zwerg	sv	Bola	\N	\N
 Zwerg	sv	Buckler	\N	\N
@@ -324,7 +324,7 @@ Zwerg	sv	Kampfgabeln	\N	\N
 Zwerg	sv	Kampfstab	\N	\N
 Zwerg	sv	Kharrata	\N	\N
 Zwerg	sv	Kompositbogen	\N	\N
-Zwerg	sv	Krumms‰bel	\N	\N
+Zwerg	sv	Krumms√§bel	\N	\N
 Zwerg	sv	Kurzbogen	\N	\N
 Zwerg	sv	Langbogen	\N	\N
 Zwerg	sv	Lasso	\N	\N
@@ -342,14 +342,14 @@ Zwerg	sv	Wurfmesser	\N	\N
 Zwerg	sv	Wurfpfeil	\N	\N
 Zwerg	sv	Wurfscheibe	\N	\N
 Zwerg	sv	Wurfspeer	\N	\N
-Zwerg	sv	Wurfspieﬂ	\N	\N
+Zwerg	sv	Wurfspie√ü	\N	\N
 Zwerg	sv	Wurfstern	\N	\N
 Zwerg	sv	leichter Speer	\N	\N
-Zwerg	sv	‹berleben im Dschungel	\N	\N
-Zwerg	sv	‹berleben im Sumpf	\N	\N
-Zwerg	sv	‹berleben im Wald	\N	\N
-Zwerg	sv	‹berleben in der Steppe	\N	\N
-Zwerg	sv	‹berleben in der W¸ste	\N	\N
+Zwerg	sv	√úberleben im Dschungel	\N	\N
+Zwerg	sv	√úberleben im Sumpf	\N	\N
+Zwerg	sv	√úberleben im Wald	\N	\N
+Zwerg	sv	√úberleben in der Steppe	\N	\N
+Zwerg	sv	√úberleben in der W√ºste	\N	\N
 Zwerg	v	Akrobat	\N	\N
 Zwerg	v	Barbier	\N	\N
 Zwerg	v	Bettler	\N	\N
@@ -358,13 +358,13 @@ Zwerg	v	Dieb	\N	\N
 Zwerg	v	Falkner	\N	\N
 Zwerg	v	Fallensteller	\N	\N
 Zwerg	v	Fischer	\N	\N
-Zwerg	v	Fluﬂschiffer	\N	\N
-Zwerg	v	J‰ger	\N	\N
-Zwerg	v	Kapit‰n	\N	\N
+Zwerg	v	Flu√üschiffer	\N	\N
+Zwerg	v	J√§ger	\N	\N
+Zwerg	v	Kapit√§n	\N	\N
 Zwerg	v	Kurtisane	\N	\N
 Zwerg	v	Sattler	\N	\N
 Zwerg	v	Seemann	\N	\N
-Zwerg	v	Sklavenh‰ndler	\N	\N
+Zwerg	v	Sklavenh√§ndler	\N	\N
 Zwerg	v	Steuermann	\N	\N
 Zwerg	v	Waldarbeiter	\N	\N
 Zwerg	v	Zureiter	\N	\N

@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'LATIN1';
+SET client_encoding = 'UNICODE';
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
@@ -35,19 +35,19 @@ Ma	0	Spezialgebiet	\N	\N
 Ma	1	Adept der Herrschaft	beherrscht	\N
 Ma	2	Adept der Bewegung	bewegt	\N
 Ma	3	Adept der Erkenntnis	erkennt	\N
-Ma	4	Adept der Schöpfung	erschafft	\N
-Ma	5	Adept der Veränderung	verändert	\N
+Ma	4	Adept der SchÃ¶pfung	erschafft	\N
+Ma	5	Adept der VerÃ¤nderung	verÃ¤ndert	\N
 Ma	6	Adept der Wandlung	verwandelt	\N
-Ma	7	Adept der Zerstörung	zerstört	\N
+Ma	7	Adept der ZerstÃ¶rung	zerstÃ¶rt	\N
 Ma	8	Erdmagier	Erde	\N
 Ma	9	Feuermagier	Feuer	\N
 Ma	10	Luftmagier	Luft	\N
 Ma	11	Wassermagier	Wasser	\N
 Ma	12	Eismagier	Eis	\N
-Ma	13	Adept der göttlichen Ordnung	Metall	\N
+Ma	13	Adept der gÃ¶ttlichen Ordnung	Metall	\N
 Ma	14	Adept des formbaren Chaos	Magan	\N
 Ma	15	Adept des Todes	Eis	\N
-eBe	0	Primär- und Sekundärelement	\N	\N
+eBe	0	PrimÃ¤r- und SekundÃ¤relement	\N	\N
 eBe	1	Eis Erde	Eis	Erde
 eBe	2	Erde Eis	Erde	Eis
 eBe	3	Eis Wasser	Eis	Wasser

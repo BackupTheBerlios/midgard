@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'LATIN1';
+SET client_encoding = 'UNICODE';
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
@@ -31,30 +31,30 @@ CREATE TABLE fz_zusaetze (
 
 COPY fz_zusaetze (art, name, typ, region, region_zusatz) FROM stdin;
 Abrichten	Affen	\N	\N	\N
-Abrichten	Bären	\N	\N	\N
+Abrichten	BÃ¤ren	\N	\N	\N
 Abrichten	Elefanten	\N	\N	\N
-Abrichten	Greifvögel	\N	\N	\N
+Abrichten	GreifvÃ¶gel	\N	\N	\N
 Abrichten	Hunde	\N	\N	\N
 Abrichten	Katzen	\N	\N	\N
 Abrichten	Mardertiere	\N	\N	\N
 Abrichten	Nagetiere	\N	\N	\N
 Abrichten	Papageien	\N	\N	\N
 Abrichten	Pferde	\N	\N	\N
-Abrichten	Rabenvögel	\N	\N	\N
+Abrichten	RabenvÃ¶gel	\N	\N	\N
 Geheimzeichen	Bruderschaft der Schatten	\N	E	\N
 Geheimzeichen	KanThaiPan und Minangpahit	\N	\N	\N
 Geheimzeichen	Moravische Runen	\N	\N	\N
 Geheimzeichen	Nahuatlan	\N	\N	\N
 Geheimzeichen	Ogam-Ritzungen	\N	\N	\N
-Geheimzeichen	Weißer Lotus	\N	K	\N
-Geheimzeichen	Zinken (Meer der fünf Winde)	\N	\N	\N
+Geheimzeichen	WeiÃŸer Lotus	\N	K	\N
+Geheimzeichen	Zinken (Meer der fÃ¼nf Winde)	\N	\N	\N
 Musizieren	Becken	Rhythmusinstrument	\N	\N
 Musizieren	Brettzither (Psalter)	Zupfinstrument	\N	\N
 Musizieren	Cheng (Mundorgel)	Zupfinstrument	X	Unter der Sturmdrachen
-Musizieren	Doppelflöte	Flöte	\N	\N
+Musizieren	DoppelflÃ¶te	FlÃ¶te	\N	\N
 Musizieren	Dornfiedel	Streichinstrument	\N	\N
 Musizieren	Drehleier	Streichinstrument	\N	\N
-Musizieren	Dudelsack	Flöte	\N	\N
+Musizieren	Dudelsack	FlÃ¶te	\N	\N
 Musizieren	Fiedel	Streichinstrument	\N	\N
 Musizieren	Gitarre	Zupfinstrument	\N	\N
 Musizieren	Glocken	Rhythmusinstrument	\N	\N
@@ -64,12 +64,12 @@ Musizieren	Horn	Blasinstrumente	\N	\N
 Musizieren	Krummhorn	Blasinstrumente	\N	\N
 Musizieren	Laute	Zupfinstrument	\N	\N
 Musizieren	Leier	Zupfinstrument	\N	\N
-Musizieren	Längsflöte	Flöte	\N	\N
-Musizieren	Panflöte	Flöte	\N	\N
+Musizieren	LÃ¤ngsflÃ¶te	FlÃ¶te	\N	\N
+Musizieren	PanflÃ¶te	FlÃ¶te	\N	\N
 Musizieren	Pauke	Rhythmusinstrument	\N	\N
-Musizieren	Pfeife	Flöte	\N	\N
+Musizieren	Pfeife	FlÃ¶te	\N	\N
 Musizieren	Posaune	Blasinstrument	\N	\N
-Musizieren	Querflöte	Flöte	\N	\N
+Musizieren	QuerflÃ¶te	FlÃ¶te	\N	\N
 Musizieren	Rasseln	Rhythmusinstrument	\N	\N
 Musizieren	Rebec	Streichinstrument	\N	\N
 Musizieren	Schalmei	Blasinstrumente	\N	\N
@@ -80,12 +80,12 @@ Musizieren	Trumscheit	Streichinstrument	\N	\N
 Musizieren	Zimbeln	Rhythmusinstrument	\N	\N
 Tiere rufen	Amphibien/Repilien	\N	\N	\N
 Tiere rufen	Fische	\N	\N	\N
-Tiere rufen	Säugetiere	\N	\N	\N
-Tiere rufen	Vögel	\N	\N	\N
+Tiere rufen	SÃ¤ugetiere	\N	\N	\N
+Tiere rufen	VÃ¶gel	\N	\N	\N
 Tiersprache	Amphibien/Repilien	\N	\N	\N
 Tiersprache	Fische	\N	\N	\N
-Tiersprache	Säugetiere	\N	\N	\N
-Tiersprache	Vögel	\N	\N	\N
+Tiersprache	SÃ¤ugetiere	\N	\N	\N
+Tiersprache	VÃ¶gel	\N	\N	\N
 \.
 --
 --

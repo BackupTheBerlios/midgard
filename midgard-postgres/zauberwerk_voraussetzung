@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'LATIN1';
+SET client_encoding = 'UNICODE';
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
@@ -33,43 +33,43 @@ Augensalbe	Augensalbe herstellen	\N	\N
 Berserkerpilz aktivieren	Heiliger Zorn	or	\N
 Berserkerpilz aktivieren	Wahnsinn	or	\N
 Binden	\N	\N	Thaumatographie
-Dämonenamulett verzaubern	Silberne Bannsphäre	\N	\N
-Elementaramulett verzaubern	Silberne Bannsphäre	\N	\N
+DÃ¤monenamulett verzaubern	Silberne BannsphÃ¤re	\N	\N
+Elementaramulett verzaubern	Silberne BannsphÃ¤re	\N	\N
 Flohpulver aktivieren	Schweben	\N	\N
-Geisteramulett verzaubern	Silberne Bannsphäre	\N	\N
+Geisteramulett verzaubern	Silberne BannsphÃ¤re	\N	\N
 Heiltrunk (1W6) aktivieren	Heilen von Wunden	\N	\N
 Krafttrunk (1W6) aktivieren	Handauflegen	\N	\N
 Krafttrunk (2W6) aktivieren	Handauflegen	\N	\N
 Kraut der konzentrierten Energie	Handauflegen	or	\N
-Kraut der konzentrierten Energie	Macht über das Selbst	or	\N
+Kraut der konzentrierten Energie	Macht Ã¼ber das Selbst	or	\N
 Liebestrank aktivieren	Liebeszauber	or	\N
-Liebestrank aktivieren	Macht über Menschen	or	\N
+Liebestrank aktivieren	Macht Ã¼ber Menschen	or	\N
 Pulver der Panzerhaut aktivieren	Marmorhaut	or	\N
 Pulver der Panzerhaut aktivieren	Rindenhaut	or	\N
 Rauchperle aktivieren	Rauchwolke	\N	\N
-Reckentrunk aktivieren	Stärke	\N	\N
+Reckentrunk aktivieren	StÃ¤rke	\N	\N
 Salbe der Eisenhaut aktivieren	Eisenhaut	\N	\N
-Salbe der Krakenhände aktivieren	Macht über das Selbst	and	\N
-Salbe der Krakenhände aktivieren	Zauberschloß	and	\N
+Salbe der KrakenhÃ¤nde aktivieren	Macht Ã¼ber das Selbst	and	\N
+Salbe der KrakenhÃ¤nde aktivieren	ZauberschloÃŸ	and	\N
 Schamanentrommel herstellen	Geisterlauf	\N	\N
 Schildamulett verzaubern	Flammenkreis	or	\N
-Schildamulett verzaubern	Silberne Bannsphäre	or	\N
+Schildamulett verzaubern	Silberne BannsphÃ¤re	or	\N
 Schnellkraut aktivieren	Beschleunuigen	\N	\N
 Schutzamulett verzaubern	Geistesschild	or	\N
 Schutzamulett verzaubern	Schwarze Zone	or	\N
 Schutzamulett verzaubern	Zweite Haut	or	\N
 Spiegelamulett verzaubern	Schutzamulett verzaubern	\N	\N
-Talisman verzaubern	Göttlicher Schutz vor Magie	or	\N
+Talisman verzaubern	GÃ¶ttlicher Schutz vor Magie	or	\N
 Talisman verzaubern	Magischer Kreis des Widerstehens	or	\N
-Trunk der Macht über Hunde aktivieren	Macht über die belebte Natur	\N	\N
-Trunk der Macht über Menschen aktivieren	Macht über Menschen	\N	\N
-Trunk der Macht über Orks aktivieren	Macht über Menschen	\N	\N
-Trunk des Riesenwuchses aktivieren	Vergrößern	\N	\N
+Trunk der Macht Ã¼ber Hunde aktivieren	Macht Ã¼ber die belebte Natur	\N	\N
+Trunk der Macht Ã¼ber Menschen aktivieren	Macht Ã¼ber Menschen	\N	\N
+Trunk der Macht Ã¼ber Orks aktivieren	Macht Ã¼ber Menschen	\N	\N
+Trunk des Riesenwuchses aktivieren	VergrÃ¶ÃŸern	\N	\N
 Trunk des Schwerelosigkeit aktivieren	Fliegen	or	\N
 Trunk des Schwerelosigkeit aktivieren	Schweben	or	\N
 Trunk des Unsichtbarkeit aktivieren	Unsichtbarkeit	\N	\N
 Trunk des Verwandlung aktivieren	Verwandlung	\N	\N
-Untotenamulett verzaubern	Blaue Bannsphäre or	\N	\N
+Untotenamulett verzaubern	Blaue BannsphÃ¤re or	\N	\N
 Untotenamulett verzaubern	Ring des Lebens	or	\N
 Waffen verzaubern (2)	Binden	and	\N
 Waffen verzaubern (2)	Zauberschmiede	\N	\N
@@ -77,7 +77,7 @@ Waffen verzaubern (4)	Binden	and	\N
 Waffen verzaubern (4)	Zauberschmiede	\N	\N
 Waffen verzaubern (6)	Binden	and	\N
 Waffen verzaubern (6)	Zauberschmiede	\N	\N
-Wasser weihen	Austreibung des Bösen	and	\N
+Wasser weihen	Austreibung des BÃ¶sen	and	\N
 Wasser weihen	Bannen von Finsterwerk	and	\N
 Wasser weihen	Reinigen	and	\N
 Wasser weihen	Segnen	and	\N
