@@ -20,8 +20,11 @@ NEWS IN VERSION 0.2delta1
 * Bug beim steigern Fertigkeiten 'Zaubern' beseitigt
 * Die Anzahl der Lerntage kann dem Alter hinzuaddiert werden
 * Die Datenbank ist jetzt in einer eigenen Klasse 
+* Bugs beim 'Zaubern' lernen beseitigt.
 
 TODO:
+* Editieren Gestalt
+* Automatische 'Version'
 * Spezielgebiete für Magier stürzt ab
 * Irgendwie funktioniert das mit dem Erfolgswert für waffenlosen Kampf 
    und dem dazugehörigen Abwerbonus noch nicht.

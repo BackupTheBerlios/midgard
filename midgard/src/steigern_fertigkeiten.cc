@@ -95,25 +95,29 @@ bool midgard_CG::kido_steigern_check(int wert)
 
 void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
 {  
-  MidgardBasicElement_leaf_neu(d);
 
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE();
-  if (MBE->Name()=="KiDo") {kido_bool=true;show_gtk();
+  if (MBE->Name()=="KiDo") 
+    { kido_bool=true;show_gtk();
       optionmenu_KiDo_Stile->set_sensitive(true);
       table_kido_lernen->set_sensitive(true);
       button_kido_auswahl->set_sensitive(false);
       std::string strinfo="Jetzt muß ein Stil unter 'Lernschema' -> 'KiDo' gewählt werden !!!";
-      manage (new WindowInfo(strinfo,true)); }
-  if (MBE->Name()=="Zaubern") 
+      manage (new WindowInfo(strinfo,true)); 
+      MidgardBasicElement_leaf_neu(d);      
+    }
+  else if (MBE->Name()=="Zaubern") 
       {  doppelcharaktere();
          std::string strinfo ="Jetzt unter 'Grundwerte' die zweite Charkakterklasse wählen\n";
          strinfo += " und anschließend 'Fertigkeiten neu laden' klicken\n";
          manage (new WindowInfo(strinfo,true));
          // Resistenzboni für Zauberer setzten:
          Werte.set_magBoni(Werte.bo_Psy()+3,Werte.bo_Phs()+1,Werte.bo_Phk()+3);
-         if (Werte.Zaubern_wert()==0) Werte.set_Zaubern_wert(10);
+         if (Werte.Zaubern_wert()==2) Werte.set_Zaubern_wert(10);
       }
+  else 
+     MidgardBasicElement_leaf_neu(d);
   fertigkeiten_zeigen();
 }
 
