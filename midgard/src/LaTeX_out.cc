@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.35 2001/08/23 20:11:45 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.36 2001/08/29 08:44:54 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,6 +19,7 @@
 
 #include "midgard_CG.hh"
 #include <unistd.h>
+#include <Aux/EmptyInt_4TeX.h>
 
 gint midgard_CG::on_latex_release_event(GdkEventButton *ev)
 {
@@ -115,7 +116,7 @@ void midgard_CG::LaTeX_write_values()
  else 
     fout << "\\newcommand{\\abwehrmitwaffe}{""}\n";
 
- fout << "\\newcommand{\\zauber}{"<<Werte.Zaubern_wert()<< "}\n";
+ fout << "\\newcommand{\\zauber}{"<<EmptyInt_4TeX(Werte.Zaubern_wert())<< "}\n";
  fout << "\\newcommand{\\alter}{"  <<Werte.Alter() << "}\n";
  fout << "\\newcommand{\\gestalt}{"  <<LaTeX_scale(Werte.Gestalt(),5,"0.7cm") << "}\n";
  fout << "\\newcommand{\\gewicht}{"  <<Werte.Gewicht() << "\\,kg}\n";
@@ -127,10 +128,10 @@ void midgard_CG::LaTeX_write_values()
  fout << "\\newcommand{\\glaube}{"  <<LaTeX_scale(Werte.Glaube(),10,"2.5cm") << "}\n";
  fout << "\\newcommand{\\namecharakter}{" << LaTeX_scale(Werte.Name_Charakter(),25,"4.5cm") << "}\n";
  fout << "\\newcommand{\\namespieler}{" << LaTeX_scale(Werte.Name_Spieler(),25,"4.5cm") << "}\n";
- fout << "\\newcommand{\\gfp}{\\tiny "  <<Werte.GFP() << "}\n";
- fout << "\\newcommand{\\aep}{\\tiny "  <<Werte.AEP() << "}\n";
- fout << "\\newcommand{\\kep}{\\tiny "  <<Werte.KEP() << "}\n";
- fout << "\\newcommand{\\zep}{\\tiny "  <<Werte.ZEP() << "}\n";
+ fout << "\\newcommand{\\gfp}{\\tiny "  <<EmptyInt_4TeX(Werte.GFP()) << "}\n";
+ fout << "\\newcommand{\\aep}{\\tiny "  <<EmptyInt_4TeX(Werte.AEP()) << "}\n";
+ fout << "\\newcommand{\\kep}{\\tiny "  <<EmptyInt_4TeX(Werte.KEP()) << "}\n";
+ fout << "\\newcommand{\\zep}{\\tiny "  <<EmptyInt_4TeX(Werte.ZEP()) << "}\n";
 
  double geld = Werte.Gold() + Werte.Silber()/10. + Werte.Kupfer()/100.;
  fout << "\\newcommand{\\gold}{\\tiny "  << geld << "}\n";

@@ -1,4 +1,4 @@
-// $Id: Window_werte_editieren.hh,v 1.19 2001/08/18 06:19:08 thoma Exp $
+// $Id: Window_werte_editieren.hh,v 1.20 2001/08/29 08:44:54 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -73,7 +73,7 @@ class Window_werte_editieren : public Window_werte_editieren_glade
         void phs_activate();
         void phk_activate();
         void gift_activate();
-        void wgift_activate();
+//        void wgift_activate();
         void lpb_activate();
         void kaw_activate();
         void re_activate();

@@ -274,7 +274,7 @@ void midgard_CG::on_steigern_fert_tree_neu_select(const std::string& fertigkeit,
          manage (new WindowInfo(strinfo,true));
          // Resistenzboni für Zauberer setzten:
          Werte.set_magBoni(Werte.bo_Psy()+3,Werte.bo_Phs()+1,Werte.bo_Phk()+3);
-         if (Werte.Zaubern_wert_int()==0) Werte.set_Zaubern_wert(10);
+         if (Werte.Zaubern_wert()==0) Werte.set_Zaubern_wert(10);
       }
 
   midgard_CG::show_fertigkeiten();

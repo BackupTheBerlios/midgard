@@ -101,7 +101,7 @@ void midgard_CG::on_speichern_clicked()
       db_kaw= Werte.KAW();      
       db_wlw= Werte.WLW();      
       db_abwehr       = Werte.Abwehr_wert();      
-      db_zaubern      = Werte.Zaubern_wert_int();
+      db_zaubern      = Werte.Zaubern_wert();
       db_resistenz    = Werte.Resistenz();      
       db_bo_au        = Werte.bo_Au();      
       db_bo_sc        = Werte.bo_Sc();      

@@ -1,4 +1,4 @@
-// $Id: zeige_werte.cc,v 1.19 2001/08/21 12:03:03 thoma Exp $
+// $Id: zeige_werte.cc,v 1.20 2001/08/29 08:44:55 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,7 +38,7 @@ void midgard_CG::zeige_werte(const Grundwerte& w)
        lpbasis->set_text(itos(w.LPBasis()));      
        ap->set_text(itos(w.AP()));   
        abwehr_wert->set_text(itos(w.Abwehr_wert()));
-       zaubern_wert->set_text(w.Zaubern_wert());
+       zaubern_wert->set_text(itos(w.Zaubern_wert()));
        kaw->set_text(itos(w.KAW()));
        wlw->set_text(itos(w.WLW()));
        resistenz->set_text(itos(w.Resistenz()));
@@ -68,6 +68,6 @@ void midgard_CG::zeige_werte(const Grundwerte& w)
        label_s_grad->set_text(itos(w.Grad()));
        label_s_ap->set_text(itos(w.AP()));
        label_s_abwehr->set_text(itos(w.Abwehr_wert()));
-       label_s_zaubern->set_text(w.Zaubern_wert());
+       label_s_zaubern->set_text(itos(w.Zaubern_wert()));
        label_s_resistenz->set_text(itos(w.Resistenz()));
 }

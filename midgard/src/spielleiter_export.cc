@@ -107,7 +107,7 @@ void midgard_CG::spielleiter_export()
  if (vec_Zauber.size()!=0)
    {
      fout << "\n\n";
-     fout << "Zaubern+"<<atoi((Werte.Zaubern_wert()).c_str())+Werte.bo_Za()<<": ";
+     fout << "Zaubern+"<<Werte.Zaubern_wert()+Werte.bo_Za()<<": ";
      for (std::vector<H_Data_zauber>::const_iterator i=vec_Zauber.begin();i!=vec_Zauber.end();)
       {
         fout << (*i)->Name() ;

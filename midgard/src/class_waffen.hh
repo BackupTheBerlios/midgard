@@ -110,7 +110,7 @@ class Data_waffen_sort_name
       { return x->Name() < y->Name();}};
 class Data_waffen_sort_wert
 { public : bool operator() (H_Data_waffen x, H_Data_waffen y) const   
-      { return x->Erfolgswert() < y->Erfolgswert();}}; 
+      { return x->Erfolgswert() > y->Erfolgswert();}}; 
 class Data_waffen_sort_magbonus
 { public : bool operator() (H_Data_waffen x, H_Data_waffen y) const
       { return x->av_Bonus() > y->av_Bonus();}}; 

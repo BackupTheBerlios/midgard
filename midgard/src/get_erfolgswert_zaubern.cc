@@ -1,4 +1,4 @@
-// $Id: get_erfolgswert_zaubern.cc,v 1.20 2001/06/30 20:30:06 thoma Exp $
+// $Id: get_erfolgswert_zaubern.cc,v 1.21 2001/08/29 08:44:55 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,6 +31,6 @@ int midgard_CG::get_erfolgswert_zaubern(const Data_typen& Typ,const Data_typen& 
 
 //   std::string erf = itos (atoi(werte.zaubern_wert.c_str())
 //                            +werte.bo_za + ifac + ispez) ;
-   int erf = Werte.Zaubern_wert_int()+Werte.bo_Za() + ifac + ispez ;
+   int erf = Werte.Zaubern_wert()+Werte.bo_Za() + ifac + ispez ;
    return erf;
 }

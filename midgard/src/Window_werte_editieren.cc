@@ -1,4 +1,4 @@
-// $Id: Window_werte_editieren.cc,v 1.21 2001/08/18 06:19:08 thoma Exp $
+// $Id: Window_werte_editieren.cc,v 1.22 2001/08/29 08:44:54 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -117,7 +117,7 @@ Window_werte_editieren::Window_werte_editieren(midgard_CG* h,Grundwerte& w)
  bo_phk_ein-> set_value(Werte.bo_Phk()); 
  bo_gi_ein->  set_value(Werte.bo_Gift()); 
  abwehr_ein -> set_value(Werte.Abwehr_wert());
- zaubern_ein -> set_value(Werte.Zaubern_wert_int());
+ zaubern_ein -> set_value(Werte.Zaubern_wert());
  resistenz_ein -> set_value(Werte.Resistenz());
 // gift_ein -> set_value(Werte.gift_wert());
  gfp_ein ->set_value(Werte.GFP());
@@ -298,11 +298,12 @@ void Window_werte_editieren::gift_activate()
 {   
  kaw_ein->grab_focus();
 }
+/*
 void Window_werte_editieren::wgift_activate()
 {   
  gfp_ein->grab_focus();
 }
-
+*/
 void Window_werte_editieren::lpb_activate()
 {   
  abwehr_ein->grab_focus();
@@ -315,7 +316,7 @@ void Window_werte_editieren::kaw_activate()
 
 void Window_werte_editieren::re_activate()
 {   
- gift_ein->grab_focus();
+ gfp_ein->grab_focus();
 }
 
 void Window_werte_editieren::wza_activate()

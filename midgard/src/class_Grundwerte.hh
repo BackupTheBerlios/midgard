@@ -39,9 +39,7 @@ public:
    int LP() const {return lp;}
    int AP() const {return ap;}
    int Abwehr_wert() const {return abwehr_wert;}
-   std::string Zaubern_wert() const { if (zaubern_wert==0) return "";
-                                      else return itos(zaubern_wert);}
-   int Zaubern_wert_int() const {return zaubern_wert;}
+   int Zaubern_wert() const { return zaubern_wert;}
    int Resistenz() const {return resistenz;}
    int bo_Au() const {return bo_au;}
    int bo_Sc() const {return bo_sc;}
