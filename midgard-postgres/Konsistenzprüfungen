@@ -3,7 +3,7 @@ select '======== Fertigkeiten =========' as "===============================";
 select 'vorteil?' as berufe_vorteile_4,* from berufe_vorteile_4
 where not exists (select true from fertigkeiten where fertigkeit=vorteil)
 and not exists (select true from waffen where name=vorteil) and
-vorteil!='Überleben';
+vorteil!='Ãœberleben';
 
 select 'name?' as fertigkeiten_voraussetzung,* from
 fertigkeiten_voraussetzung where not exists (select true from fertigkeiten
