@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.hh,v 1.7 2003/09/14 18:31:28 christof Exp $
+// $Id: Magus_Optionen.hh,v 1.8 2003/09/15 08:27:38 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -145,6 +145,7 @@ class Magus_Optionen
       st_Icon &IconCheck(IconIndex i) ;
       IconIndex getIconIndex() const;
       st_pdfViewer &pdfViewerCheck(pdfViewerIndex pi);
+      const st_pdfViewer &pdfViewerCheck(pdfViewerIndex pi) const;
       const st_WindowPosition &WindowPosition(const std::string &name) const;
       const std::list<std::string> &LetzteDateien() const 
       { return LDateien; }

@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.cc,v 1.6 2003/09/14 18:31:28 christof Exp $
+// $Id: Magus_Optionen.cc,v 1.7 2003/09/15 08:27:38 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -73,8 +73,7 @@ std::string Magus_Optionen::Viewer() const
   else if(pdfViewerCheck(Magus_Optionen::xpdf).active)     return "xpdf";
   else if(pdfViewerCheck(Magus_Optionen::acroread).active) return "acroread";
   else if(pdfViewerCheck(Magus_Optionen::anderer).active)  return getString(pdf_viewer);
-  else assert(!"");
-  abort();
+  return("no_legal_pdf_viewer_selected");
 #else
   return getString(pdf_viewer);
 #endif  
@@ -89,7 +88,7 @@ std::string Magus_Optionen::getString(StringIndex index) const
 
 Model_ref<std::string> Magus_Optionen::getString(StringIndex index)
 {
- for(std::list<st_strings>::const_iterator i=list_Strings.begin();i!=list_Strings.end();++i)
+ for(std::list<st_strings>::iterator i=list_Strings.begin();i!=list_Strings.end();++i)
    if(i->index==index) return i->name;    
  abort();//never get here
 }
@@ -136,10 +135,15 @@ Magus_Optionen::IconIndex Magus_Optionen::getIconIndex() const
 
 Magus_Optionen::st_pdfViewer &Magus_Optionen::pdfViewerCheck(pdfViewerIndex pi)
 {
- for(std::list<st_pdfViewer>::const_iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
+ for(std::list<st_pdfViewer>::iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
    if(i->index==pi) return *i;
  assert(!"pdfViewer: nicht gefunden");
  abort();
+}
+ 
+const Magus_Optionen::st_pdfViewer &Magus_Optionen::pdfViewerCheck(pdfViewerIndex pi) const
+{
+ return const_cast<Magus_Optionen*>(this)->pdfViewerCheck(pi);
 }
  
 void Magus_Optionen::setOptionCheck(std::string os,bool b,int wert)
