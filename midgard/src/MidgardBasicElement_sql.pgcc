@@ -176,7 +176,7 @@ void MidgardBasicElement::saveElementliste(const std::list<cH_MidgardBasicElemen
 {
   if(b.size()==0) return;
 /*
-    int db_av_bonus,db_sl_bonus;
+    int db_sl_bonus;
     char db_region[20];
     char db_wert_str[20];
     char db_magisch[1024];
@@ -184,7 +184,7 @@ void MidgardBasicElement::saveElementliste(const std::list<cH_MidgardBasicElemen
   exec sql begin declare section;
     char db_name_ch[50], db_version[50];
     char db_fertigkeit[50],db_magisch[100];
-    int db_wert;
+    int db_wert,db_praxispunkte;
     char db_what[30];
   exec sql end declare section;
   strncpy(db_name_ch,Werte.Name_Charakter().c_str(),sizeof(db_name_ch));
@@ -200,10 +200,11 @@ void MidgardBasicElement::saveElementliste(const std::list<cH_MidgardBasicElemen
      if ((*b.begin())->What()==FERTIGKEIT && (*i)->Name()=="Landeskunde")
         strncpy(db_magisch, cH_Fertigkeit(*i)->Zusatz().c_str(),sizeof(db_magisch));
      db_wert = (*i)->Erfolgswert();
+     db_praxispunkte=(*i)->Praxispunkte();
      exec sql INSERT INTO charaktere_fertigkeiten
-         (charakter_name,version,fertigkeit,wert,art,magisch)
+         (charakter_name,version,fertigkeit,wert,av_bonus,art,magisch)
        VALUES
-         (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,:db_what,:db_magisch);
+         (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,:db_praxispunkte,:db_what,:db_magisch);
      SQLerror::test(__FILELINE__);
    }
 }

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.97 2001/12/21 09:34:05 thoma Exp $
+// $Id: midgard_CG.cc,v 1.98 2001/12/27 09:39:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -41,6 +41,7 @@
 //#include "Spezies.hh"
 //#include "Typen.hh"
 #include "Praxispunkte.hh"
+#include <gtk--/notebook.h>
 
 midgard_CG::midgard_CG(int argc,char **argv)
 :menu(0)
@@ -97,6 +98,7 @@ void midgard_CG::set_tree_titles()
  std::vector<string> alte_fert;
  alte_fert.push_back("Fertigkeit");
  alte_fert.push_back("Wert");
+ alte_fert.push_back("PP");
  alte_fert.push_back("Steigern\n(nächste Stufe)");
  alte_fert.push_back("Reduzieren\n(eine Stufe)");
  alte_fert.push_back("Verlernen");
@@ -435,7 +437,11 @@ void midgard_CG::on_neuer_charakter_clicked()
    scrolledwindow_landauswahl->hide();
    table_werte_wuerfeln->hide();
    table_bw_wurf->hide();
-   
+   spinbutton_pp_eingeben->hide();
+   table_gruppe->hide();
+   table_artikel->hide();
+   button_gruppe_neu->hide(); // nicht implementiert
+
 //   button_beruf_erfolgswert->set_sensitive(false);
    button_beruf_erfolgswert->hide();
    button_fertigkeiten->set_sensitive(false);
@@ -458,6 +464,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    Nahuatlanbool=false;      checkbutton_Nahuatlan->set_active(false);
    HDbool=false;             checkbutton_HD->set_active(false);
    BRbool=false;             checkbutton_BR->set_active(false);
+   steigern_bool=true; checkbutton_EP_Geld->set_active(steigern_bool);
 
    Database.GradAnstieg.set_Grad_Basiswerte(1);
 //   vscale_EP_Gold->set_digits(Database.GradAnstieg.get_Steigern_EP_Prozent());

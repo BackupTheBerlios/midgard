@@ -38,7 +38,7 @@ class Grad_anstieg{
       int get_Zauber_Kosten(int grad);
 
       int get_Grad(int gfp) ;
-      int get_Schicksalsgunst(int gfp) ;
+      int get_Schicksalsgunst(int grad) ;
 
       void set_Grad_Anstieg(int p,int b) 
               { steigern_EP_prozent=p; grad_basiswerte=b; }

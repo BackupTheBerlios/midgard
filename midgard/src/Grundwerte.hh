@@ -20,6 +20,7 @@ class Grundwerte
    int raufen;
 
    int au,pa,sb,wk,b,lp,ap;
+   int gg,sg;
    int abwehr_wert,zaubern_wert;
    int resistenz,bo_au,bo_sc,bo_an,bo_ab,bo_za,
       bo_psy,bo_phs,bo_phk,alter;
@@ -36,7 +37,7 @@ class Grundwerte
 
 public:
    Grundwerte() : raufen(0),au(0),pa(0),sb(0), wk(0),
-             b(0),lp(0),ap(0),abwehr_wert(0),zaubern_wert(0),
+             b(0),lp(0),ap(0),gg(0),sg(0),abwehr_wert(0),zaubern_wert(0),
              resistenz(0),
              bo_au(0),bo_sc(0),bo_an(0),bo_ab(0),bo_za(0),
              bo_psy(0),bo_phs(0),bo_phk(0),
@@ -96,8 +97,8 @@ public:
    int Gewicht() const {return gewicht;}
    int Groesse() const {return groesse;}
    int Grad() const {return grad;}
-   std::string SG() const {return "";}
-   std::string GG() const {return "";}
+   int SG() const {return sg;}
+   int GG() const {return gg;}
    cH_Spezialgebiet Spezialgebiet() const {return spezialgebiet;}
    std::string Spezialisierung() const {return spezialisierung;}
 //   std::string Spezial2() const {return spezial2;}
@@ -132,6 +133,7 @@ public:
    void add_Sb(int i) {sb+=i;}
    void add_Wk(int i) {wk+=i;}
 
+   void setLP(int i) {lp=i;}
    void set_Basiswerte(int st,int gw,int gs,int ko,int in, int zt)
          {grund=st_grund(st,gw,gs,ko,in,zt);}
    void set_Abgeleitetewerte(int _au,int _pa,int _sb,int _wk,int _b,
@@ -171,6 +173,9 @@ public:
    void set_Resistenz(int i){resistenz=i;}
    void set_Grad(int i){grad=i;}
    void set_AP(int i){ap=i;}
+   void set_SG(int i){sg=i;}
+   void add_SG(int i){sg+=i;}
+   void set_GG(int i){gg=i;}
    void set_Alter(int _alter){alter=_alter;}
    void set_Geschlecht(const std::string& _geschlecht){geschlecht=_geschlecht;}
    void set_Spezialisierung(const std::string& _spezialisierung){spezialisierung=_spezialisierung;}   

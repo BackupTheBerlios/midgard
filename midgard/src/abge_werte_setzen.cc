@@ -1,4 +1,4 @@
-// $Id: abge_werte_setzen.cc,v 1.34 2001/12/21 22:46:15 thoma Exp $
+// $Id: abge_werte_setzen.cc,v 1.35 2001/12/27 09:39:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -100,18 +100,6 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   else if(ge<0.9) gestalt="schlank";
   else gestalt="normal";
 
-/*
-  if (Werte.St() >= 81) ges++;
-  if (Werte.St() >= 96) ges++;
-  if (ges<=2) 
-   { gestalt = "schlank";
-     gewicht = gewicht-(int)(gewicht*0.1) ; }
-  if (ges>=3&&ges<=4) 
-     gestalt = "normal";
-  if (ges>=5) 
-   { gestalt = "breit";
-     gewicht =  gewicht+(int)(gewicht*0.1) ; }
-*/
   int ihand=random.integer(1,20);
   std::string shand;
   if(ihand<=15) shand="Rechtshänder";
@@ -150,7 +138,6 @@ void midgard_CG::on_abge_werte_setzen_clicked()
    resistenz,gestalt,shand,gewicht,groesse,grad,stand);
 
   if (Originalbool) original_midgard_check() ;
-//  clear_Ausnahmen();
   zeige_werte(Werte);
   button_herkunft->set_sensitive(true);
   button_sprache->set_sensitive(true);

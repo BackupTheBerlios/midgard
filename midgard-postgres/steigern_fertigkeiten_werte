@@ -47,6 +47,8 @@ CREATE TABLE "steigern_fertigkeiten_werte" (
 
 COPY "steigern_fertigkeiten_werte" FROM stdin;
 Abenteuer	\N	\N	0	0	100	100	200	200	400	400	800	800	1600	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Abrichten	\N	\N	\N	\N	\N	\N	10	10	50	50	100	200	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Akrobatik	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	100	100	200	200	400	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Athletik	\N	0	0	0	20	20	50	50	100	100	250	250	500	500	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Ballista bedienen	\N	\N	\N	\N	20	20	50	50	100	250	500	500	1000	2000	4000	4000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Baukunde	\N	\N	\N	\N	20	20	40	40	80	80	150	150	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N

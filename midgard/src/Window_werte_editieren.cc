@@ -1,4 +1,4 @@
-// $Id: Window_werte_editieren.cc,v 1.29 2001/12/17 09:38:17 thoma Exp $
+// $Id: Window_werte_editieren.cc,v 1.30 2001/12/27 09:39:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -66,6 +66,8 @@ void Window_werte_editieren::on_nwe_close_clicked()
                               atoi (bo_phk_ein->get_text().c_str()));
 
    Werte.set_GFP(atoi (gfp_ein->get_text().c_str()));
+   Werte.set_GG(atoi (gg_ein->get_text().c_str()));
+   Werte.set_SG(atoi (sg_ein->get_text().c_str()));
    Werte.set_Alter(atoi( alter_ein->get_text().c_str()));
    Werte.set_Spezialisierung(spezialisierung_ein->get_text());
    Werte.set_Herkunft(cH_Land(herkunft_ein->get_text()));
@@ -337,8 +339,17 @@ void Window_werte_editieren::wab_activate()
 
 void Window_werte_editieren::gfp_activate()
 {   
+ gg_ein->grab_focus();
+}
+void Window_werte_editieren::gg_activate()
+{   
+ gg_ein->grab_focus();
+}
+void Window_werte_editieren::sg_activate()
+{   
  alter_ein->grab_focus();
 }
+
 
 void Window_werte_editieren::vers_activate()
 {   

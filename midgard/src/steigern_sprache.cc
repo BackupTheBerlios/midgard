@@ -70,7 +70,7 @@ void midgard_CG::on_leaf_selected_neue_sprache(cH_RowDataBase d)
 {  
    const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);  
    cH_MidgardBasicElement MBE = dt->getMBE();
-   if (!steigern(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
+   if (!steigern_usp(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
    Werte.add_GFP(MBE->Kosten(Typ,Database.ausnahmen));
    MidgardBasicElement::move_element(list_Sprache_neu,list_Sprache,MBE->Name());
    sprachen_zeigen();
@@ -86,7 +86,7 @@ void midgard_CG::on_leaf_selected_alte_sprache(cH_RowDataBase d)
       for (std::list<cH_MidgardBasicElement>::iterator i=list_Sprache.begin();i!= list_Sprache.end();++i)
          if ( cH_Sprache(*i)->Name() == MBE->Name()) 
             if (cH_Sprache(*i)->Maxwert()==(*i)->Erfolgswert() ) return;
-      if (!steigern(MBE->Steigern(Typ,Database.ausnahmen),&MBE)) return;
+      if (!steigern_usp(MBE->Steigern(Typ,Database.ausnahmen),&MBE)) return;
       Werte.add_GFP(MBE->Steigern(Typ,Database.ausnahmen));
       for (std::list<cH_MidgardBasicElement>::iterator i=list_Sprache.begin();i!= list_Sprache.end();++i)
          if ( cH_Sprache(*i)->Name() == MBE->Name()) cH_Sprache(*i)->add_Erfolgswert(1);
@@ -144,7 +144,7 @@ void midgard_CG::on_leaf_selected_neue_schrift(cH_RowDataBase d)
 {  
    const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);  
    cH_MidgardBasicElement MBE = dt->getMBE();
-   if (!steigern(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
+   if (!steigern_usp(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
    Werte.add_GFP(MBE->Kosten(Typ,Database.ausnahmen));
    MidgardBasicElement::move_element(list_Schrift_neu,list_Schrift,MBE->Name());
    on_sprache_laden_clicked();

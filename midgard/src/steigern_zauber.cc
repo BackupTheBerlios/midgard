@@ -71,7 +71,7 @@ void midgard_CG::on_leaf_selected_neue_zauber(cH_RowDataBase d)
   int kosten = MBE->Kosten(Typ,Database.ausnahmen);
   if(spruchrolle->get_active()) kosten/=10;
   
-  if (!steigern(kosten,&MBE)) return;
+  if (!steigern_usp(kosten,&MBE)) return;
   if (radio_spruchrolle_auto->get_active() && spruchrolle->get_active())
    {
      Werte.add_GFP(2*kosten);
@@ -183,6 +183,7 @@ void midgard_CG::on_button_zauber_sort_clicked()
       case Data_SimpleTree::URSPRUNGa_Z : list_Zauber.sort(cH_Zauber::sort(cH_Zauber::sort::URSPRUNG)); ;break;
       default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
    }
+  on_button_zaubermittel_sort_clicked(); 
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -224,7 +225,7 @@ void midgard_CG::on_leaf_selected_neue_zauberwerk(cH_RowDataBase d)
 {  
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE();
-  if (!steigern(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
+  if (!steigern_usp(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
   Werte.add_GFP(MBE->Kosten(Typ,Database.ausnahmen));  
   MidgardBasicElement::move_element(list_Zauberwerk_neu,list_Zauberwerk,MBE->Name(),cH_Zauberwerk(MBE)->Art());
   zauberwerk_zeigen();

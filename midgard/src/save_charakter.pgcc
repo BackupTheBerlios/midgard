@@ -36,6 +36,7 @@ void midgard_CG::xml_export_auswahl()
 {
   manage (new xml_fileselection(this,"save"));
   frame_steigern->show();
+  on_radio_steigern_all();
 }
  
 
@@ -54,6 +55,7 @@ void midgard_CG::xml_export(const std::string& datei)
 void midgard_CG::on_speichern_clicked()
 {
     frame_steigern->set_sensitive(true);
+   on_radio_steigern_all();
    grundwerte_speichern();
    Transaction tr;
 
@@ -222,7 +224,7 @@ void midgard_CG::grundwerte_speichern()
       char db_name_ch[50] ;
       char db_name_sp[50] ;
       char db_version[50] ;
-      int db_gfp,db_gold ,db_silber,db_kupfer;
+      int db_gfp,db_gg,db_sg,db_gold ,db_silber,db_kupfer;
       char db_ruestung[20];
       char db_spezies[50];
       int db_aep,db_kep,db_zep;
@@ -264,6 +266,8 @@ void midgard_CG::grundwerte_speichern()
       db_groesse      = Werte.Groesse();      
       db_grad         = Werte.Grad();      
       db_gfp = Werte.GFP() ;
+      db_gg = Werte.GG() ;
+      db_sg = Werte.SG() ;
       db_gold = Werte.Gold();
       db_silber = Werte.Silber();
       db_kupfer = Werte.Kupfer();
@@ -335,6 +339,8 @@ void midgard_CG::grundwerte_speichern()
       db_bo_phs      = :db_bo_phs      ,
       db_bo_phk      = :db_bo_phk      ,
       db_gfp         = :db_gfp         ,
+      gg             = :db_gg         ,
+      sg             = :db_sg         ,
       gold           = :db_gold        ,
       silber         = :db_silber      ,
       kupfer         = :db_kupfer      ,

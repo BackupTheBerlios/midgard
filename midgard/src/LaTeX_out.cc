@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.67 2001/12/25 09:31:22 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.68 2001/12/27 09:39:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -225,9 +225,14 @@ void midgard_CG::LaTeX_write_values()
    {cH_Fertigkeit_angeborene f(*i);
     std::string a = LaTeX_string(count);
     count++;
+    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<f->Name() << "}\t\t";
+    // Praxispunkte
+    std::string pp = itos(f->Praxispunkte());
+    if (pp == "0") pp = "";
+    fout << "\\newcommand{\\praxis"<<a<<"}{"  << pp << "}\n";
+    // Erfolgswert
     std::string wert = itos(f->Erfolgswert());
     if (wert == "0") wert = "";
-    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<f->Name() << "}\t\t";
     fout << "\\newcommand{\\wert"<<a<<"}{"  <<wert << "}\n";
    }
  /////////////////////////////////////////////////////////////////////////////
@@ -305,7 +310,7 @@ void midgard_CG::LaTeX_write_values()
  fout << "\\newcommand{\\waffeEy"<<"}{"<<i_waffenlos+Werte.bo_An() << "}\n";
  std::string schaden= cH_WaffeBesitz(waffenlos)->Schaden(Werte, waffenlos->Name());
  fout << "\\newcommand{\\waffeSy}{"<<schaden << "}\n";
- std::string anm = cH_WaffeBesitz(waffenlos)->Angriffsrangmod();
+ std::string anm = cH_WaffeBesitz(waffenlos)->Waffenrang();
  fout << "\\newcommand{\\waffeAy}{"<<anm << "}\n";
  std::string abm = cH_WaffeBesitz(waffenlos)->WM_Abwehr();
  fout << "\\newcommand{\\waffeVy}{"<<abm << "}\n";
@@ -329,6 +334,7 @@ void midgard_CG::LaTeX_write_values()
     else wert = itos(f->Erfolgswert());
     std::string name = f->Name();
     if(name=="Geheimmechanismen öffnen") name = "Geheimmech. öffnen";
+    if(name=="Landeskunde (Heimat)") name = "Landeskunde ("+Werte.Herkunft()->Name()+")";
 
     if (f->Voraussetzungen(Werte)) f->set_Erfolgswert(f->Ungelernt());
     else f->set_Erfolgswert(f->Ungelernt()-2);

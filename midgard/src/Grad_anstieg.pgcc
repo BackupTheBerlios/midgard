@@ -75,9 +75,7 @@ int Grad_anstieg::get_Resistenz_Kosten(int grad)
 }
 int Grad_anstieg::get_Schicksalsgunst(int grad)   
 {
-  int x=0; 
-  while(x==0)   x = map_grad[grad--].schicksalsgunst;
-  return x;
+  return map_grad[grad].schicksalsgunst;
 }
 
 int Grad_anstieg::get_Grad(int gfp) 

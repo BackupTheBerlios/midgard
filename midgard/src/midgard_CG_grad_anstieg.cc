@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.33 2001/12/21 22:46:15 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.34 2001/12/27 09:39:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -77,6 +77,13 @@ void midgard_CG::get_grundwerte()
       manage(new WindowInfo(strinfo));
       return;
    }
+  // Erhöhen der Schicksalsgunst
+  { int n=Database.GradAnstieg.get_Schicksalsgunst(Werte.Grad());
+    if(Werte.Spezies()->Name()=="Halbling") n=n+2;
+    Werte.add_SG(n);
+  }
+
+
   int z=random.integer(1,100);
   std::string stinfo="Beim Würfeln zur Erhöhung einer Eigenschaft\nfür Grad "
       + itos(Database.GradAnstieg.get_Grad_Basiswerte()+1) + " wurde eine ";
@@ -85,16 +92,31 @@ void midgard_CG::get_grundwerte()
   std::string was = "keine Erhöhung";
 
   int erh = random.integer(1,6)+1;
-  if( 81<=z && z>=83 ) { was="Stärke";           Werte.add_St(erh); }
-  if( 84<=z && z>=86 ) { was="Geschicklichkeit"; Werte.add_Gw(erh); }
-  if( 87<=z && z>=89 ) { was="Konstitution"; Werte.add_Ko(erh); }
-  if( 90<=z && z>=92 ) { was="Intelligenz"; Werte.add_In(erh); }
-  if( 93<=z && z>=95 ) { was="Zaubertalent"; Werte.add_Zt(erh); }
-  if (z==96)   { was="Aussehn"; Werte.add_Au(erh); }
-  if (z==97)   { was="persönliche Ausstrahlung"; Werte.add_pA(erh); }
-  if (z==98)   { was="Selbstbeherrschung"; Werte.add_Sb(erh); }
-//  if (z==99)   { was="Reaktionswert"; Werte.add_RW(erh); }
-//  if (z==100)  { was="Handgemengewert"; Werte.add_HGW(erh); }
+  int awko=Werte.Ko(); //alter_wert;
+  int aapb = Werte.bo_Au(); // alter Wert
+  if( 76<=z && z>=78 ) { was="Stärke";           Werte.add_St(erh); }
+  if( 79<=z && z>=81 ) { was="Geschicklichkeit"; Werte.add_Gs(erh); }
+  if( 82<=z && z>=84 ) { was="Gewandheit"; Werte.add_Gw(erh); }
+  if( 85<=z && z>=87 ) { was="Konstitution"; Werte.add_Ko(erh); }
+  if( 88<=z && z>=90 ) { was="Intelligenz"; Werte.add_In(erh); }
+  if( 91<=z && z>=93 ) { was="Zaubertalent"; Werte.add_Zt(erh); }
+  if( 94<=z && z>=95 ) { was="Selbstbeherrschung"; Werte.add_Sb(erh); }
+  if( 96<=z && z>=97 ) { was="Willenskraft"; Werte.add_Wk(erh); }
+  if( 99<=z && z>=99 ) { was="persönliche Ausstrahlung"; Werte.add_pA(erh); }
+  if (z==100)          { was="Aussehn"; Werte.add_Au(erh); }
+
+  {
+   //Setzen von abgeleiteten Werten, die durch eine Steigerung 
+   //bertoffen sein könnten:
+   grundwerte_boni_setzen();
+   Werte.set_Sinn("Sechster Sinn",Werte.Zt()/25);
+   Werte.set_Raufen((Werte.St()+Werte.Gw())/20+Werte.bo_An() );
+   if(was=="Konstitution" && (awko/10 != Werte.Ko()/10))
+         Werte.setLP(Werte.LP()-awko/10+Werte.Ko()/10);
+   if( aapb!=Werte.bo_Au() ) 
+      Werte.set_AP(Werte.AP()-aapb+Werte.bo_Au());
+  }
+
 
   stinfo += was;
   if (was != "keine Erhöhung" )
@@ -122,7 +144,7 @@ void midgard_CG::get_ausdauer(int grad)
    if (grad ==10)  { bonus_K = 30, bonus_aK = 20; bonus_Z = 10; kosten =  1500;}
    if (grad >=11)  { bonus_K = 30, bonus_aK = 20; bonus_Z = 10; kosten =  2000;}
 //   if (!steigern(kosten,"Ausdauer")) return;
-   if (!steigern(kosten)) return;
+   if (!steigern_usp(kosten)) return;
    Werte.add_GFP(kosten);
    int ap=0;
    for (int i=0;i<grad;++i) ap += random.integer(1,6);

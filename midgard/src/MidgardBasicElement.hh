@@ -23,7 +23,7 @@ class MidgardBasicElement : public HandleContent
 #endif
 	// warum ist name nicht hier drin? CP
       int kosten;
-      int mutable erfolgswert,lernpunkte;
+      int mutable praxispunkte,erfolgswert,lernpunkte;
       enum EP_t { Nicht=0, KEP=1, ZEP=2, Beides=KEP|ZEP };
       /* EP_t (CP) */ int steigern_mit_EP;
       std::map<std::string,std::string> map_typ;
@@ -34,10 +34,12 @@ class MidgardBasicElement : public HandleContent
       int GrundKosten() const {  return kosten; }
 
    public:
-      MidgardBasicElement() : IF_XML(tag(0),) kosten(0),erfolgswert(0),lernpunkte(0)
+      MidgardBasicElement() : IF_XML(tag(0),) kosten(0),praxispunkte(0),
+                              erfolgswert(0),lernpunkte(0)
                               ,steigern_mit_EP(0) {}
 #ifdef USE_XML
-      MidgardBasicElement(const Tag *t) : tag(t), kosten(0),erfolgswert(0),lernpunkte(0)
+      MidgardBasicElement(const Tag *t) : tag(t), kosten(0),praxispunkte(0),
+                               erfolgswert(0),lernpunkte(0)
                               ,steigern_mit_EP(0) {}
 #endif                              
 
@@ -54,6 +56,9 @@ class MidgardBasicElement : public HandleContent
       int Erfolgswert() const {return erfolgswert;};
       void set_Erfolgswert(int e) const {erfolgswert=e;}
       void add_Erfolgswert(int e) const {erfolgswert+=e;}
+      int Praxispunkte() const {return praxispunkte;};
+      void set_Praxispunkte(int e) const {praxispunkte=e;}
+      void add_Praxispunkte(int e) const {praxispunkte+=e;}
       int Steigern_mit_EP() const {return steigern_mit_EP;}
       virtual std::string Region() const {return "";}
       virtual enum MBEE What() const=0;

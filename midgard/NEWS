@@ -1,12 +1,36 @@
 ##########################################################################
 NEWS IN VERSION 0.1delta2
 
-* Berufswahl berücksichtigt bereits gelernte Fertigkeiten
+* Zahlreiche Bugs (Programm und Datenbank) beseitigt
+* Berufswahl berücksichtigt bereits gelernte Fertigkeiten (=+1 auf Erfolgswert)
 * Typen und Spezies geben jetzt Stadt/Land vor
 * Ausrüstung aufgrund spezieller Fertigkeiten bei Spielbeginn werden 
    berücksichtigt
 * Sinne werden auf der Oberfläche angezeigt
 * Kleinere Umbauten der Oberfläche
+* Bugs im Lernschema beseitigt (Datenbank)
+* Erweiterung der 'Ruestung' Tabelle in der Datenbank
+* Abzug von Boni für schwere Rüstungen wird im Charakterdokument berücksichtigt
+* Abzug von -2 auf Angriff und Abwehr für Vollrüstungen bei fehlender 
+   Fertigkeit wird berücksichtigt
+* Waffenrang im Charakterdokument.
+* GG und SG können editiert werden und sind jetzt im Charakterdokument
+* SG wird beim Gradanstieg erhöht
+* GG und SG in Datenbank
+* Anstieg von abgeleiteten Eigenschaften, wenn beim Gradanstieg eine 
+   Basiseigenschaft gestiegen ist
+* Neue Ausrüstungsgegenstäne können angelegt werden
+* Steigern mit Unterweisung, Selbststudium und Praxispunkten 
+     (neue Regeln) implementiert
+
+TODO:
+* Die Ausrüstung kann noch nicht geladen werden
+* Neue Ausrüstungsgegenstände sofort übernehmen
+* Spezielgebiete für Magier stürzt ab
+* Irgendwie funktioniert das mit dem Erfolgswert für waffenlosen Kampf 
+   und dem dazugehörigen Abwerbonus noch nicht.
+* Landeskunde Heimat in Universellen Fertigkeiten
+
 
 ##########################################################################
 NEWS IN VERSION 0.1delta1
@@ -33,14 +57,6 @@ NEWS IN VERSION 0.1delta1
 * Universelle Fertigkeiten im ausgedruckten Charakterdokument mit 
    Berücksichtigung der Voraussetzungen und ob eine Fertigkeit bereits
    explizit gelernt wurde.
-
-TODO:
-* Die Ausrüstung kann noch nicht geladen werden
-* Spezielgebiete für Magier stürzt ab
-* Irgendwie funktioniert das mit dem Erfolgswert für waffenlosen Kampf 
-   und dem dazugehörigen Abwerbonus noch nicht.
-* Landeskunde Heimat in Universellen Fertigkeiten
-* Berufe, wenn die Fertigkeit schon gelernt ist
 
 
 ##########################################################################

@@ -74,7 +74,9 @@ CREATE TABLE "charaktere" (
 	"gs" integer,
 	"wk" integer,
 	"hand" text,
-	"stadt_land" text
+	"stadt_land" text,
+	"gg" integer,
+	"sg" integer
 );
 
 --

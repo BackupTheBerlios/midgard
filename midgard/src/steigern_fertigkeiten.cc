@@ -54,46 +54,36 @@ void midgard_CG::on_leaf_selected_alte_fert(cH_RowDataBase d)
 {  
  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
  cH_MidgardBasicElement MBE = dt->getMBE();
+ if(radiobutton_pp_eingeben->get_active())
+  {
+   spinbutton_pp_eingeben->set_value(MBE->Praxispunkte());
+   spinbutton_pp_eingeben->show();
+   return;
+  }
 
  if (MBE->Name()=="KiDo" && kido_steigern_check(MBE->Erfolgswert())) return;
- if (radio_fert_steigern->get_active() && MBE->Steigern(Typ,Database.ausnahmen))
+ if (radiobutton_steigern->get_active() && MBE->Steigern(Typ,Database.ausnahmen))
     {
-      // Steigern mit lernen
-      if (!togglebutton_praxispunkte_fertigkeiten->get_active()) 
-         {
-            if (!steigern(MBE->Steigern(Typ,Database.ausnahmen),&MBE)) return;
-            Werte.add_GFP(MBE->Steigern(Typ,Database.ausnahmen));
-            for (std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit.begin();i!= list_Fertigkeit.end();++i )
-               if ( cH_Fertigkeit(*i)->Name() == MBE->Name()) cH_Fertigkeit(*i)->add_Erfolgswert(1); 
-         }
-      else  // Lernen mit Praxispunkten 
-         {
-            bool wuerfeln;
-            if (radiobutton_praxis_wuerfeln_fertigkeiten->get_active()) wuerfeln = true;
-            if (radiobutton_praxis_auto_fertigkeiten->get_active()) wuerfeln = false;
-//            int gelungen = praxispunkte_wuerfeln(MBE->Name(),MBE->Erfolgswert(),"Fertigkeit",wuerfeln);
-            bool gelungen = Database.praxispunkte.wuerfeln(MBE,Werte,Typ,wuerfeln);
-            if (gelungen)
-               {
-                  Werte.add_GFP(MBE->Steigern(Typ,Database.ausnahmen)/2);
-                  for (std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit.begin();i!= list_Fertigkeit.end();++i )
-                     if ( cH_Fertigkeit(*i)->Name() == MBE->Name()) cH_Fertigkeit(*i)->add_Erfolgswert(1); 
-               }
-         }     
+      if (!steigern_usp(MBE->Steigern(Typ,Database.ausnahmen),&MBE)) return;
+      Werte.add_GFP(MBE->Steigern(Typ,Database.ausnahmen));
+      for (std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit.begin();i!= list_Fertigkeit.end();++i )
+         if ( cH_Fertigkeit(*i)->Name() == MBE->Name()) 
+           cH_Fertigkeit(*i)->add_Erfolgswert(1); 
     }
-   if (radio_fert_reduzieren->get_active() && MBE->Reduzieren(Typ,Database.ausnahmen))
-         {
-            if (steigern_bool) desteigern(MBE->Reduzieren(Typ,Database.ausnahmen));
-            Werte.add_GFP(-MBE->Reduzieren(Typ,Database.ausnahmen));
-            for (std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit.begin();i!= list_Fertigkeit.end();++i )
-               if ( cH_Fertigkeit(*i)->Name() == MBE->Name()) cH_Fertigkeit(*i)->add_Erfolgswert(-1); 
-         }
-   if (radio_fert_verlernen->get_active() && MBE->Verlernen(Typ,Database.ausnahmen))
-         {
-            if (steigern_bool) desteigern(MBE->Verlernen(Typ,Database.ausnahmen));
-            Werte.add_GFP(-MBE->Verlernen(Typ,Database.ausnahmen));
-            MidgardBasicElement::move_element(list_Fertigkeit,list_Fertigkeit_neu,MBE->Name());
-         }
+   if (radiobutton_reduzieren->get_active() && MBE->Reduzieren(Typ,Database.ausnahmen))
+    {
+      if (steigern_bool) desteigern(MBE->Reduzieren(Typ,Database.ausnahmen));
+      Werte.add_GFP(-MBE->Reduzieren(Typ,Database.ausnahmen));
+      for (std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit.begin();i!= list_Fertigkeit.end();++i )
+         if ( cH_Fertigkeit(*i)->Name() == MBE->Name()) 
+           cH_Fertigkeit(*i)->add_Erfolgswert(-1); 
+    }
+   if (radiobutton_verlernen->get_active() && MBE->Verlernen(Typ,Database.ausnahmen))
+    {
+      if (steigern_bool) desteigern(MBE->Verlernen(Typ,Database.ausnahmen));
+      Werte.add_GFP(-MBE->Verlernen(Typ,Database.ausnahmen));
+      MidgardBasicElement::move_element(list_Fertigkeit,list_Fertigkeit_neu,MBE->Name());
+    }
    fertigkeiten_zeigen();
 }
 
@@ -125,7 +115,7 @@ void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE();
 
-  if (!steigern(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
+  if (!steigern_usp(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
   Werte.add_GFP(MBE->Kosten(Typ,Database.ausnahmen));
   if(MBE->Name()!="Landeskunde")
      fertigkeiten_zeigen();
@@ -147,6 +137,7 @@ void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
          Werte.set_magBoni(Werte.bo_Psy()+3,Werte.bo_Phs()+1,Werte.bo_Phk()+3);
          if (Werte.Zaubern_wert()==0) Werte.set_Zaubern_wert(10);
       }
+  fertigkeiten_zeigen();
 }
 
 void midgard_CG::fillClistLand(const cH_MidgardBasicElement &MBE)
@@ -173,24 +164,19 @@ cout << (MBE)->What()<<'\n';
   fertigkeiten_zeigen();
 }
 
-void midgard_CG::on_radio_fert_steigern_toggled()
-{
-}
-
-
-
+/*
 void midgard_CG::on_radio_fert_reduzieren_toggled()
 {
    if (radio_fert_reduzieren->get_active())
       togglebutton_praxispunkte_fertigkeiten->set_active(false);
 }
-
 void midgard_CG::on_radio_fert_verlernen_toggled()
 {
    if (radio_fert_verlernen->get_active())
       togglebutton_praxispunkte_fertigkeiten->set_active(false);
 }
-
+*/
+/*
 void midgard_CG::on_togglebutton_praxispunkte_fertigkeiten_toggled()
 {
     if (togglebutton_praxispunkte_fertigkeiten->get_active())
@@ -204,4 +190,4 @@ void midgard_CG::on_radiobutton_praxis_wuerfeln_fertigkeiten_toggled()
 void midgard_CG::on_radiobutton_praxis_auto_fertigkeiten_toggled()
 {
 }
-
+*/

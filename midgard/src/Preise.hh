@@ -10,7 +10,7 @@
 class Preise : public HandleContent
 {
    std::string name,einheit,art;
-   float kosten;
+   float kosten,gewicht;
 
    void get_Preise();
  public:
@@ -20,7 +20,10 @@ class Preise : public HandleContent
  std::string Art() const {  return art; }
  std::string Name()  const {  return name; }
  float Kosten() const { return kosten ; }
+ float Gewicht() const { return gewicht ; }
  std::string Einheit()  const {  return einheit; }
+
+ static void saveArtikel(std::string art,std::string name,int preis, std::string einheit,int gewicht);
 };
 
 
@@ -84,6 +87,8 @@ class PreiseMod : public HandleContent
  std::string Typ() const {  return typ; }
  int Nr() const {  return nr; }
  st_payload Payload() const {return payload;}
+
+// static saveGruppe(std::string art,int typ, std::string eigenschaft);
 };
 
 class cH_PreiseMod : public Handle<const PreiseMod>

@@ -29,6 +29,7 @@ class Ausruestung
      std::string SichtbarStr() const {if(sichtbar) return "*"; else return "";}
 
      void setSichtbar(bool s) {sichtbar=s;}
+
 };
 
 class AusruestungBaum

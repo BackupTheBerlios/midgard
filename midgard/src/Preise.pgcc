@@ -47,17 +47,18 @@ void Preise::get_Preise()
 {
   exec sql begin declare section;
    char db_name[1024],db_art[50],db_einheit[20];
-   float db_kosten;
+   float db_kosten,db_gewicht;
   exec sql end declare section;
 
   strncpy(db_name,Name().c_str(),sizeof(db_name));
-  exec sql select kosten,einheit,art
-       into :db_kosten,:db_einheit,:db_art
+  exec sql select kosten,einheit,art,coalesce(gewicht,0)
+       into :db_kosten,:db_einheit,:db_art,:db_gewicht
        from preise where name = :db_name;
   SQLerror::test(__FILELINE__);
   einheit=db_einheit;
   art=db_art;
   kosten=db_kosten;
+  gewicht=db_gewicht;
 }
 
 Preise_All::Preise_All(Gtk::ProgressBar *progressbar)
@@ -152,4 +153,24 @@ PreiseMod_All::PreiseMod_All(Gtk::ProgressBar *progressbar)
  tr.close();
  progressbar->set_percentage(1);
 }  
+
+
+/////////////////////////////////////////////////////////////////////////
+// Neuanlegen
+/////////////////////////////////////////////////////////////////////////
+void Preise::saveArtikel(std::string art,std::string name,int preis, std::string einheit,int gewicht)
+{
+  exec sql begin declare section;
+   char NAME[50],ART[50],EINHEIT[5];
+   int KOSTEN=preis;
+   int GEWICHT=gewicht;
+  exec sql end declare section;
+  strncpy(NAME,name.c_str(),sizeof(NAME));
+  strncpy(ART,art.c_str(),sizeof(ART));
+  strncpy(EINHEIT,einheit.c_str(),sizeof(EINHEIT));
+  exec sql insert into preise (name,kosten,einheit,art,gewicht)
+   values (:NAME,:KOSTEN,:EINHEIT,:ART,:GEWICHT);
+  SQLerror::test(__FILELINE__);
+}
+
 

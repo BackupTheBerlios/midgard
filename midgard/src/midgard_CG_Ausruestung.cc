@@ -9,6 +9,8 @@
 #include "WindowInfo.hh"
 #include <Gtk_OStream.h>
 #include <Aux/EntryValueIntString.h>
+#include <Aux/SQLerror.h>
+
 
 class Data_Preis : public RowDataBase
 {
@@ -466,3 +468,67 @@ void midgard_CG::ausruestung_druck(ofstream &fout,const list<AusruestungBaum> &A
 }
 
 
+////////////////////////////////////////////////////////////////////////
+//Neueingeben
+//von hier 
+void midgard_CG::on_button_artikel_neu_clicked()
+{
+  table_artikel->show();
+  entry_artikel_art->grab_focus();
+}
+void midgard_CG::on_button_gruppe_neu_clicked()
+{
+  table_gruppe->show();
+}
+void midgard_CG::on_entry_art_activate()
+{
+  entry_typ->grab_focus();
+}
+void midgard_CG::on_entry_typ_activate()
+{
+  entry_eigenschaft->grab_focus();
+}
+void midgard_CG::on_entry_eigenschaft_activate()
+{
+ std::string art = entry_art->get_text();
+ std::string typ = entry_typ->get_text();
+ std::string eigenschaft = entry_eigenschaft->get_text();
+ table_gruppe->hide();
+}
+// bis hier ist es nicht implementiert
+
+
+
+void midgard_CG::on_entry_artikel_art_activate()
+{
+ entry_name->grab_focus();
+}
+void midgard_CG::on_entry_name_activate()
+{
+ spinbutton_preis->grab_focus();
+}
+void midgard_CG::on_spinbutton_preis_activate()
+{
+ optionmenu_einheit->grab_focus();
+}
+void midgard_CG::on_optionmenu_einheit_deactivate()
+{
+ spinbutton_gewicht->grab_focus();
+}
+void midgard_CG::on_spinbutton_gewicht_activate()
+{
+ std::string art = entry_artikel_art->get_text();
+ std::string name = entry_name->get_text();
+ std::string einheit;
+ int ieinheit = int(optionmenu_einheit->get_menu()->get_active()->get_user_data()); 
+ if(ieinheit==optionmenu_einheit::GS) einheit="GS";
+ if(ieinheit==optionmenu_einheit::SS) einheit="SS";
+ if(ieinheit==optionmenu_einheit::KS) einheit="KS";
+ int preis = atoi( spinbutton_preis->get_text().c_str());
+ int gewicht = atoi( spinbutton_gewicht->get_text().c_str());
+
+ try{
+  Preise::saveArtikel(art,name,preis,einheit,gewicht);
+   } catch(SQLerror &e) {manage (new WindowInfo(e.what()));}
+ table_artikel->hide();
+}

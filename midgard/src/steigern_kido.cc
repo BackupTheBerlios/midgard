@@ -86,7 +86,7 @@ void midgard_CG::on_leaf_selected_neue_kido(cH_RowDataBase d)
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE();
    
-  if (!steigern(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
+  if (!steigern_usp(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
   Werte.add_GFP(MBE->Kosten(Typ,Database.ausnahmen));
   MidgardBasicElement::move_element(list_Kido_neu,list_Kido,cH_KiDo(MBE)->Hoho());
   on_kido_laden_clicked();

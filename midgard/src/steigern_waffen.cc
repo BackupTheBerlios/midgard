@@ -61,7 +61,7 @@ void midgard_CG::on_leaf_selected_neue_grund(cH_RowDataBase d)
 //  const Data_grund *dt=dynamic_cast<const Data_grund*>(&*d);
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE();
-  if (!steigern(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
+  if (!steigern_usp(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
   Werte.add_GFP(MBE->Kosten(Typ,Database.ausnahmen));
   MidgardBasicElement::move_element(list_WaffenGrund_neu,list_WaffenGrund,MBE->Name());
   on_waffen_laden_clicked();
@@ -110,7 +110,7 @@ void midgard_CG::on_leaf_selected_alte_waffen(cH_RowDataBase d)
    cH_MidgardBasicElement MBE = dt->getMBE();
    if (radio_waffen_steigern->get_active())
       {
-       if (!steigern(MBE->Steigern(Typ,Database.ausnahmen),&MBE)) return;
+       if (!steigern_usp(MBE->Steigern(Typ,Database.ausnahmen),&MBE)) return;
        if (!togglebutton_praxispunkte_waffen->get_active()) // normal Lernen
         {
           if (MBE->Erfolgswert() >=  cH_Waffe(MBE)->Maxwert(Typ)) 

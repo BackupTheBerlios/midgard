@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.110 2001/12/21 22:46:15 thoma Exp $
+// $Id: midgard_CG.hh,v 1.111 2001/12/27 09:39:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -89,6 +89,10 @@ extern bool Kuestenstaatenbool;//S
 class midgard_CG : public midgard_CG_glade
 {   
         Random random;   
+        enum enum_notebook_main{PAGE_GRUNDWERTE,PAGE_LERNEN,PAGE_STEIGERN,
+                                  PAGE_AUSRUESTUNG};
+        enum enum_notebook_lernen{PAGE_FERTIGKEITEN,PAGE_WAFFEN,PAGE_ZAUBER,
+                                  PAGE_KIDO,PAGE_SPRACHE};
    public:
         struct st_Database { std::vector<cH_Land> Laender;
                              std::vector<cH_Ruestung> Ruestung;
@@ -335,11 +339,24 @@ class midgard_CG : public midgard_CG_glade
          
         void on_button_EP_clicked();
         gint vscale_value_changed(GdkEventButton *ev);
-        bool steigern(unsigned int kosten,const cH_MidgardBasicElement *fert=0);
+        bool steigern_usp(unsigned int kosten,const cH_MidgardBasicElement *MBE=0);
         void desteigern(unsigned int kosten);
         void on_checkbutton_EP_Geld_toggled();
         void steigern_gtk();
         int steigern_womit(const std::string& fert);
+
+        void on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page* page,guint pagenr);
+        void on_notebook_lernen_switch_page(Gtk::Notebook_Helpers::Page* page,guint pagenr);
+        void load_for_page(guint pagenr);
+        void on_radio_steigern_toggled();
+        void on_radio_reduzieren_toggled();
+        void on_radio_verlernen_toggled();
+        void on_radiobutton_pp_eingeben_toggled();
+        void on_radio_steigern_all();
+        void on_radio_unterweisung_toggled();
+        void on_radio_selbst_toggled();
+        void on_radio_praxis_toggled();
+        void on_spinbutton_pp_eingeben_activate();
 
         void on_fertigkeiten_laden_clicked();
         void fertigkeiten_zeigen();
@@ -348,12 +365,9 @@ class midgard_CG : public midgard_CG_glade
         void show_neue_fertigkeiten();
         void on_leaf_selected_neue_fert(cH_RowDataBase d);
         void on_button_fertigkeiten_sort_clicked();
-        void on_radio_fert_steigern_toggled();
-        void on_radio_fert_reduzieren_toggled();
-        void on_radio_fert_verlernen_toggled();
-        void on_togglebutton_praxispunkte_fertigkeiten_toggled();
-        void on_radiobutton_praxis_wuerfeln_fertigkeiten_toggled();
-        void on_radiobutton_praxis_auto_fertigkeiten_toggled();
+//        void on_togglebutton_praxispunkte_fertigkeiten_toggled();
+//        void on_radiobutton_praxis_wuerfeln_fertigkeiten_toggled();
+//        void on_radiobutton_praxis_auto_fertigkeiten_toggled();
         int praxispunkte_wuerfeln(const std::string& fert,int alter_wert, const std::string& art,bool wuerfeln);
         bool kido_steigern_check(int wert);
         void fillClistLand(const cH_MidgardBasicElement &MBE);
@@ -435,6 +449,16 @@ class midgard_CG : public midgard_CG_glade
         void on_Ausruestung_tree_select_row(Gtk::CTree::Row row,gint column);
         void on_Ausruestung_tree_unselect_row(Gtk::CTree::Row row,gint column);
         bool tree_valid(Gtk::CTree_Helpers::SelectionList &selectionList) ;
+        void on_button_artikel_neu_clicked();
+        void on_button_gruppe_neu_clicked();
+        void on_entry_art_activate();
+        void on_entry_typ_activate();
+        void on_entry_eigenschaft_activate();
+        void on_entry_artikel_art_activate();
+        void on_entry_name_activate();
+        void on_spinbutton_preis_activate();
+        void on_optionmenu_einheit_deactivate();
+        void on_spinbutton_gewicht_activate();
    
    public:
          midgard_CG(int argc,char **argv);

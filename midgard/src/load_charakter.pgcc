@@ -63,6 +63,7 @@ void midgard_CG::select_charakter(const std::string& name, const std::string& ve
   button_sprache->set_sensitive(true);
   button_beschreibung->set_sensitive(true);
   frame_steigern->set_sensitive(true);
+  on_radio_steigern_all();
   frame_lernschema->set_sensitive(true);
 }
 
@@ -89,7 +90,7 @@ void midgard_CG::load_charakter()
       char db_name_ch[50] ;
       char db_name_sp[50] ;
       char db_version[50] ;
-      int db_gfp,db_gold,db_silber,db_kupfer;
+      int db_gfp,db_gg,db_sg,db_gold,db_silber,db_kupfer;
       char db_ruestung[20];
       char db_spezies[50];
       int db_aep,db_kep,db_zep;
@@ -149,6 +150,8 @@ void midgard_CG::load_charakter()
          db_bo_phs      ,
          db_bo_phk      ,
          db_gfp         ,
+         gg         ,
+         sg         ,
          gold        ,
          silber      ,
          kupfer      ,
@@ -208,6 +211,8 @@ void midgard_CG::load_charakter()
        :db_bo_phs      ,
        :db_bo_phk      ,
        :db_gfp         ,
+       :db_gg         ,
+       :db_sg         ,
        :db_gold        ,
        :db_silber      ,
        :db_kupfer      ,
@@ -232,6 +237,8 @@ void midgard_CG::load_charakter()
    Werte.set_Glaube(db_glaube);
    Werte.set_Namen(db_name_ch,db_name_sp,db_version) ;
    Werte.set_GFP(db_gfp);
+   Werte.set_GG(db_gg);
+   Werte.set_SG(db_sg);
    Werte.set_Beschreibung(db_beschreibung); free(db_beschreibung);
    Werte.set_Geld(db_gold,db_silber,db_kupfer);
    Werte.set_Ruestung(cH_Ruestung(db_ruestung));
@@ -378,7 +385,7 @@ void midgard_CG::load_fertigkeiten()
    char db_magisch[512],db_region[30];
   exec sql end declare section;
   std::string squery = "select fertigkeit,coalesce(wert,0),art,
-      coalesce(av_bonus,''),coalesce(sl_bonus,''),coalesce(region,''),
+      coalesce(av_bonus,0),coalesce(sl_bonus,0),coalesce(region,''),
       coalesce(magisch,'')
       from charaktere_fertigkeiten
       where charakter_name='"+Werte.Name_Charakter()+"' and 
@@ -416,6 +423,7 @@ void midgard_CG::load_fertigkeiten()
        {
          cH_MidgardBasicElement fert(new Fertigkeit(db_fert));
          fert->set_Erfolgswert(db_wert);
+         fert->set_Praxispunkte(db_av_bonus);
          if(fert->Name()=="Landeskunde") cH_Fertigkeit(fert)->setZusatz(db_magisch);
          list_Fertigkeit.push_back(fert);
          if      (fert->Name()=="KiDo") kido_bool=true;
@@ -425,6 +433,7 @@ void midgard_CG::load_fertigkeiten()
         {
          cH_MidgardBasicElement waffe(new Waffe(db_fert));
          waffe->set_Erfolgswert(db_wert);
+         waffe->set_Praxispunkte(db_av_bonus);
          list_Waffen.push_back(waffe);
         }
       if(sart=="Besitz_W")
@@ -443,9 +452,16 @@ void midgard_CG::load_fertigkeiten()
         {
          cH_MidgardBasicElement sprache(new Sprache(db_fert));
          sprache->set_Erfolgswert(db_wert);
+         sprache->set_Praxispunkte(db_av_bonus);
          list_Sprache.push_back(sprache);
         }
-      if(sart=="Urschrift")     list_Schrift.push_back(new Schrift(db_fert)) ;
+      if(sart=="Urschrift") 
+        {
+         cH_MidgardBasicElement schrift(new Schrift(db_fert));
+         schrift->set_Erfolgswert(db_wert);
+         schrift->set_Praxispunkte(db_av_bonus);
+         list_Schrift.push_back(schrift);
+        }
       if(sart=="Region")
         {
          std::string reg=db_region;

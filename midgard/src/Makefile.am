@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.82 2001/12/20 06:18:38 thoma Exp $
+# $Id: Makefile.am,v 1.83 2001/12/27 09:39:52 thoma Exp $
 
 USE_XML=$(shell if test `hostname` = "puck" ; then echo -DUSE_XML ; fi)
 
@@ -141,6 +141,7 @@ midgard_SOURCES = \
    Window_angeb_fert.cc \
    Window_Erfahrungspunkte.cc \
    Window_Erfahrungspunkte_glade.cc \
+   steigern_main.cc \
    steigern_EP.cc \
    xml_fileselection.cc \
    xml_fileselection_glade.cc \

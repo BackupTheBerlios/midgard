@@ -26,8 +26,14 @@ void midgard_CG::steigern_gtk()
 
 void midgard_CG::on_checkbutton_EP_Geld_toggled()
 {
-   if (checkbutton_EP_Geld->get_active()) steigern_bool=true;
-   else steigern_bool=false;
+   if (checkbutton_EP_Geld->get_active()) 
+      { steigern_bool=true;
+        frame_lernen_mit->set_sensitive(true);
+      }
+   else 
+      { steigern_bool=false;
+        frame_lernen_mit->set_sensitive(false);
+      }
 }
 
 void midgard_CG::on_button_EP_clicked()
@@ -56,35 +62,65 @@ void midgard_CG::Geld_uebernehmen()
 
 void midgard_CG::desteigern(unsigned int kosten)
 {
-  guint gold_k = (guint)(kosten 
+  guint gold_k=0,ep_k=0;
+  if(radiobutton_praxis->get_active())
+   {
+     ep_k = kosten ;
+   }
+  else 
+   {
+     gold_k = (guint)(kosten 
                * ((100-Database.GradAnstieg.get_Steigern_EP_Prozent())/100.));
-  guint ep_k = (guint)(kosten * (Database.GradAnstieg.get_Steigern_EP_Prozent()/100.));
+     ep_k = (guint)(kosten * (Database.GradAnstieg.get_Steigern_EP_Prozent()/100.));
+   }
   Werte.add_Gold(gold_k);
   Werte.add_AEP(ep_k);
   Geld_uebernehmen();
   EP_uebernehmen();
 }
 
-bool midgard_CG::steigern(unsigned int kosten,const cH_MidgardBasicElement* fert)
+
+bool midgard_CG::steigern_usp(unsigned int kosten,const cH_MidgardBasicElement* MBE)
 {
   if (!steigern_bool) return true;
-  // genug Geld? 
-  guint gold_k = (guint)(kosten * ((100-Database.GradAnstieg.get_Steigern_EP_Prozent())/100.));
-  guint geld = Werte.Gold();// +Werte.Silber()/10.+Werte.Kupfer()/100.;
-  if (gold_k > geld) { regnot("Zu wenig Geld um zu steigern,\n es fehlen "+itos(gold_k-geld)+" GS."); return false;}
-  
+  guint gold_k=0,ep_k=0;
+  if(radiobutton_unterweisung->get_active())
+   {
+     // genug Geld? 
+     gold_k = (guint)(kosten * ((100-Database.GradAnstieg.get_Steigern_EP_Prozent())/100.));
+     if (gold_k > Werte.Gold()) { regnot("Zu wenig Gold um zu steigern,\n es fehlen "+itos(gold_k-Werte.Gold())+" GS."); return false;}
+   }  
+/*
+  else if(radiobutton_praxis->get_active())
+   {
+     // genug Praxispunkte? 
+     pp_k = (guint)(kosten * ((100-Database.GradAnstieg.get_Steigern_EP_Prozent())/100.));
+     guint pp = 40*(*MBE)->Praxispunkte();
+     if (pp_k > pp) { regnot("Zu wenig Praxispunkte um zu steigern,\n es fehlen Praxispunkte für "+itos(pp_k-pp)+" FP.\n"
+         "(Ein Praxispunkt ist 40 FP wert.)"); return false;}
+   }  
+*/
   // genug EP?
   bool bkep=false,bzep=false;
   int womit;
-  if(fert) womit = (*fert)->Steigern_mit_EP();
+  if(MBE) womit = (*MBE)->Steigern_mit_EP();
   else womit=3;
   if(womit==1 || womit==3) bkep=true;
   if(womit==2 || womit==3) bzep=true;
 
-  guint ep_k = (guint)(kosten * (Database.GradAnstieg.get_Steigern_EP_Prozent()/100.));
+  if(radiobutton_unterweisung->get_active()) 
+      ep_k = (guint)(kosten * (Database.GradAnstieg.get_Steigern_EP_Prozent()/100.));
+  else
+      ep_k = (guint)(kosten);
   guint aep=Werte.AEP();  
   guint kep=Werte.KEP();  
   guint zep=Werte.ZEP();  
+  guint pp=0;
+  if(radiobutton_praxis->get_active())  pp=(*MBE)->Praxispunkte() ;
+  // Dafür sorgen, daß FP für Praxispunkte nicht verschenkt werden
+  while (pp>0 && pp*40 > ep_k ) --pp;
+  // Nun von den Kosten 40*pp subtrahieren
+  ep_k -= pp*40;
 
   guint ep = aep;  
   std::string sw;
@@ -94,6 +130,7 @@ bool midgard_CG::steigern(unsigned int kosten,const cH_MidgardBasicElement* fert
 
   // jetzt darf gesteigert werden ...
   Werte.add_Gold(-gold_k);  
+  (*MBE)->add_Praxispunkte(-pp);
   if(bkep)
    { if (ep_k<=kep) {Werte.add_KEP(-ep_k);ep_k =0 ;}
      else           {ep_k-=kep; Werte.set_KEP(0);} 
@@ -107,3 +144,5 @@ bool midgard_CG::steigern(unsigned int kosten,const cH_MidgardBasicElement* fert
   EP_uebernehmen();
   return true;  
 }
+
+

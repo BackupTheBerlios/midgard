@@ -22,7 +22,7 @@ class Data_SimpleTree : public RowDataBase
          const Ausnahmen& _ausnahmen,const Grundwerte &_Werte) 
    : MBE(_MBE),Typ(_Typ),ausnahmen(_ausnahmen),Werte(_Werte) {}
 
-   enum Spalten_FA {NAMEa,WERTa,STEIGERN,REDUZIEREN,VERLERNEN} ;
+   enum Spalten_FA {NAMEa,WERTa,PPa,STEIGERN,REDUZIEREN,VERLERNEN} ;
    enum Spalten_FN {NAMEn,WERTn,LERNKOSTEN,ART,VORAUSSETZUNGEN};
    enum Spalten_WA {NAMEa_W,WERTa_W,STANDARDa_W,STEIGERN_W,REDUZIEREN_W} ;
    enum Spalten_WN {NAMEn_W,WERTn_W,STANDARDn_W,VORAUSSETZUNGEN_W};
@@ -45,6 +45,7 @@ class Data_SimpleTree : public RowDataBase
        switch((Spalten_FA)seqnr) {
          case NAMEa : return cH_EntryValueIntString(MBE->Name()+" "+cH_Fertigkeit(MBE)->Zusatz());
          case WERTa : return cH_EntryValueEmptyInt(cH_Fertigkeit(MBE)->FErfolgswert(Werte)); 
+         case PPa : return cH_EntryValueEmptyInt(MBE->Praxispunkte()); 
          case STEIGERN : return cH_EntryValueEmptyInt(MBE->Steigern(Typ,ausnahmen));
          case REDUZIEREN : return cH_EntryValueEmptyInt(MBE->Reduzieren(Typ,ausnahmen));
          case VERLERNEN : return cH_EntryValueEmptyInt(MBE->Verlernen(Typ,ausnahmen)); 

@@ -18,6 +18,7 @@ CREATE TABLE "steigern_fertigkeiten_mit" (
 
 
 COPY "steigern_fertigkeiten_mit" FROM stdin;
+Abrichten	ZEP
 Askese	ZEP
 Astrologie	ZEP
 Athletik	KEP
@@ -27,6 +28,7 @@ Ausdauer	ZEP
 Balancieren	KEP
 Ballista bedienen	KEP
 Beidhändiger Kampf	KEP
+Beredsamkeit	ZEP
 Bogen vom Streitwagen	KEP
 Bogen zu Pferd	KEP
 Brettspiel	KEP
@@ -66,6 +68,7 @@ Lanzenstechen	KEP
 Laufen	KEP
 Luftkampf	KEP
 Meditieren	ZEP
+Menschenkenntnis	ZEP
 Meucheln	KEP
 MiChen	KEP
 Natya	ZEP
@@ -73,6 +76,7 @@ Pyromantie	ZEP
 Reiten	KEP
 Rudern	KEP
 Scharfschießen	KEP
+SchiffsfÃ¼hrung	KEP
 Schiffsführung	KEP
 SchiyoKi	KEP
 SchiyoKi	ZEP
@@ -90,6 +94,7 @@ Streitwagen lenken	KEP
 TaiTschi	KEP
 TaiTschi	ZEP
 Talisman verzaubern	ZEP
+Tarnen	KEP
 Tauchen	KEP
 Waffen	KEP
 Wagenlenken	KEP
