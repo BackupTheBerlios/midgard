@@ -12,6 +12,7 @@
 #include "LernListen.hh"
 #include <libmagus/Random.hh>
 #include <libmagus/Ausgabe.hh>
+#include "Wizard.hh"
 
 void table_lernschema::init(midgard_CG *h)
 {

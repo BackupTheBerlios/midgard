@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.36 2003/09/01 06:47:58 christof Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.37 2003/09/02 07:02:46 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,6 +26,7 @@
 #include <SelectMatching.h>
 #include <Misc/Trace.h>
 #include <libmagus/Random.hh>
+#include "Wizard.hh"
 
 void table_grundwerte::on_button_grundwerte()
 {

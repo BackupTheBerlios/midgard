@@ -1,4 +1,4 @@
-// $Id: table_lernschema_zauber.cc,v 1.12 2003/09/01 06:47:58 christof Exp $
+// $Id: table_lernschema_zauber.cc,v 1.13 2003/09/02 07:02:46 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,7 +22,7 @@
 #include "Zauber.hh"
 #include "midgard_CG.hh"
 #include "LernListen.hh"
-
+#include "Wizard.hh"
 
 void table_lernschema::show_magier_spezialgebiet(bool show)
 {

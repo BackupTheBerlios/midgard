@@ -21,6 +21,7 @@
 #include <SelectMatching.h>
 #include "LernListen.hh"
 #include <Misc/Trace.h>
+#include "Wizard.hh"
 
 void table_grundwerte::fill_typauswahl()
 {

@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.34 2003/09/01 06:47:58 christof Exp $
+// $Id: table_lernschema_waffen.cc,v 1.35 2003/09/02 07:02:46 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -25,6 +25,7 @@
 #include "LernListen.hh"
 #include <libmagus/Random.hh>
 #include <libmagus/Ausgabe.hh>
+#include "Wizard.hh"
 
 void table_lernschema::on_button_lernschema_waffen()
 {

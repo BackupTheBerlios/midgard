@@ -27,7 +27,7 @@
 #include <typeinfo> // for bad_cast
 static SigC::Connection connection;
 #include <libmagus/Ausgabe.hh>
-
+#include "Wizard.hh"
 #include <gdk/gdk.h>
 
 void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MBE)

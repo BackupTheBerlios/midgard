@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_abge_werte.cc,v 1.16 2003/09/01 06:47:58 christof Exp $
+// $Id: table_grundwerte_abge_werte.cc,v 1.17 2003/09/02 07:02:46 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,6 +21,7 @@
 #include "table_grundwerte.hh"
 #include <Misc/Trace.h>
 #include <libmagus/Random.hh>
+#include "Wizard.hh"
 
 void table_grundwerte::on_abge_werte_setzen_clicked()
 {
