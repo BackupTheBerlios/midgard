@@ -72,12 +72,12 @@ void midgard_CG::xml_import(const std::string& datei)
 #ifdef USE_XML
    TagStream ts(datei);
    const Tag *data=&ts;
-   const Tag *top=ts.find("Midgard-Abenteurer"); // -V8
+   const Tag *top=ts.find("Midgard-Charakter"); // -V8
    if (!top) 
    {  data=ts.find("MidgardCG-data");  // V8+
       if (!data) data=ts.find("MAGUS-data"); // V10?
       if (data) 
-      {  top=data->find("Midgard-Abenteurer");
+      {  top=data->find("Midgard-Charakter");
          if (!top) top=data->find("Midgard-Abenteurer"); // V10?
       }
    }
