@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.17 2002/01/09 08:04:58 christof Exp $
+// $Id: xml.cc,v 1.18 2002/01/09 14:19:30 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -152,7 +152,7 @@ const struct xml_liste xml_tags[] =
    {  "Länder",		"Land",		std_matching },
    {  "Preise",		"Kaufpreis",	preis_matching },
    {  "Preise",		"Modifikation",	modifikation_matching },
-   {  "Rüstungen",	"Rüstung",	std_matching },
+   {  "Rüstungen",	"Rüstung",	typ_matching },
    {  "Schriften",	"Schrift",	std_matching },
    {  "Spezialgebiete",	"Spezialgebiet",	std_matching },
    {  "SpeziesListe",	"Spezies",	std_matching },
