@@ -32,4 +32,5 @@ else
 fi
 AC_SUBST(PACKAGE_DATA_DIR)
 
-AC_OUTPUT(Makefile src/Makefile src/document_eingabe.tex pixmaps/Makefile )
+AC_OUTPUT(Makefile src/Makefile src/document_eingabe.tex pixmaps/Makefile \
+	xml/Makefile )
