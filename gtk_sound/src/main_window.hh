@@ -20,8 +20,8 @@
 class main_window : public main_window_glade
 {   
        bool killbool,repeatbool;
-       struct st_playlist {unsigned int pid;std::string name;
-            st_playlist(unsigned int p,std::string n):pid(p),name(n) {}} ;
+       struct st_playlist {unsigned int mpgpid,asdpid;std::string name;
+            st_playlist(unsigned int p,unsigned int p2,std::string n):mpgpid(p),asdpid(p2),name(n) {}} ;
         
         friend class main_window_glade;
         void on_button_close_clicked();

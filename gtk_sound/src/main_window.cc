@@ -119,11 +119,11 @@ void main_window::on_button_kill_clicked()
 {   
   for (vector<st_playlist>::iterator i=vec_playlist.begin();i!=vec_playlist.end();++i)
    {
-cout << "kill "<<(*i).pid<<"\n";
-     kill((*i).pid,9);
+cout << "kill "<<(*i).asdpid<<"\n";
+     kill((*i).asdpid,15);
+     kill((*i).mpgpid,15);
    }
   vec_playlist.clear();
-//  system("killall mpg123");
   clist_playlist->clear();
 }   
 
@@ -136,21 +136,33 @@ void main_window::play(std::string titel,std::string file)
   if(repeatbool) { com += " -Z ";  titel += " (Repeat)";}
   com+= " -sq -b10240 "+pfad+file+" | asdcat";
 
- int childpid;
- if (!(childpid=fork()))
-  {setpgrp();
-// cout << com.c_str()<<' '<<getpid() <<"\n";
-   execl("/bin/sh",  "sh","-c",com.c_str(),NULL);
-   perror("/bin/sh");
+ int fd[2];
+ if (pipe(fd)) { perror("pipe"); return; }
+ int asdpid,mpgpid;
+ if (!(asdpid=fork()))
+  {close(fd[0]);
+   dup2(fd[1],1);
+   close(fd[1]);
+   execl("/usr/bin/mpg123",  "mpg123","-sq","-b10240",
+   		repeatbool?"-Z":"-q",
+   		(pfad+file).c_str(),0);
+   perror("/usr/bin/mpg123");
    _exit(errno);
   }
+ if (!(mpgpid=fork()))
+  {close(fd[1]);
+   dup2(fd[0],0);
+   close(fd[0]);
+   execl("/usr/local/asdcat",  "asdcat",0);
+   perror("/usr/local/asdcat");
+   _exit(errno);
+  }
+  close(fd[0]); close(fd[1]);
 
- vec_playlist.push_back(st_playlist(childpid,titel));
-//cout << "childpid = "<<childpid<<"\t"<<titel<<"\n";;
+ vec_playlist.push_back(st_playlist(mpgpid,asdpid,titel));
+//cout << "asdpid = "<<asdpid<<"\t"<<titel<<"\n";;
  fill_playlist();
-
 }
-
 
 void main_window::signalhandler(int signr)
 {
@@ -178,17 +190,18 @@ void main_window::fill_playlist()
 void main_window::on_clist_playlist_select_row(gint row, gint column, GdkEvent *event)
 {
   st_playlist *sp = (st_playlist*)clist_playlist->row(row).get_data();
-cout << sp->pid <<"\t"<<sp->name<<"\n";
-  kill(sp->pid,9);
+cout << sp->asdpid <<"\t"<<sp->name<<"\n";
+  kill(sp->asdpid,15);
+  kill(sp->mpgpid,15);
   for (vector<st_playlist>::iterator i=vec_playlist.begin();i!=vec_playlist.end();++i)
-    if(sp->pid==(*i).pid) { vec_playlist.erase(i);break;}
+    if(sp->asdpid==(*i).asdpid) { vec_playlist.erase(i);break;}
   fill_playlist();
 }
 
 void main_window::remove_from_playlist(unsigned int pid)
 {
   for (vector<st_playlist>::iterator i=vec_playlist.begin();i!=vec_playlist.end();++i)
-     if(pid==(*i).pid) { vec_playlist.erase(i);break;}
+     if(asdpid==(*i).asdpid) { vec_playlist.erase(i);break;}
   fill_playlist();
 }
 
