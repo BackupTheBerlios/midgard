@@ -1,10 +1,7 @@
-# $Id: Makefile.am,v 1.175 2002/06/13 13:31:13 christof Exp $
+# $Id: Makefile.am,v 1.176 2002/06/13 19:40:43 christof Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
-
-# völlig veraltet!!!
-EXTRA_PROGRAMS = midgard_xmlexport
 
 if WINDOWS
 PORT_FILES=magus.rc registry.cc
@@ -93,15 +90,11 @@ WindowInfo_glade.hh WindowInfo.hh \
    table_lernschema_glade.hh \
    Data_waffenbesitz.hh
 
-BUILT_SOURCES= export_common.h registry.h text2c NEWS.h
+BUILT_SOURCES= registry.h text2c NEWS.h
 
-export_common.cc: ../xml/export_common.cc ; ln -sf ../xml/$@ .
-export_common.h: ../xml/export_common.h ; ln -sf ../xml/$@ .
 registry.h: ../win32/registry.h ; ln -sf ../win32/$@ .
 registry.cc: ../win32/registry.cc ; ln -sf ../win32/$@ .
 NEWS.h: ../NEWS ; ./text2c <../NEWS >NEWS.h
-
-midgard_xmlexport_SOURCES= xmlexport.cc export_common.cc
 
 magus_SOURCES = $(PORT_FILES) \
    customize_toolbars.cc \
@@ -214,8 +207,6 @@ CPPFLAGS = @CPPFLAGS@ @KOMPONENTEN_INCLUDES@ -DUSE_XML \
            -DPACKAGE_DATA_DIR=\"$(pkgdatadir)/\" $(WIN_INCLUDES) -I..
 
 magus_LDADD = $(LINK_OBJS) @LIBS@ @KOMPONENTEN_NODB_LIBS@
-
-midgard_xmlexport_LDADD = @LIBS@ @COMMONXX_LIBS@
 
 LDFLAGS = @KOMPONENTEN_LDFLAGS@ $(LINK_OPTIONS)
 
