@@ -1,113 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="TuT" Name="Kompendium" Titel="Das Kompendium" Copyright="Jürgen E. Franke" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="1" MAGUS-Bild="12" CVS="$Revision: 1.13 $">
- <Schriften/>
- <Sprachen/>
- <Typen>
-  <Typ Abkürzung="Fi" Region="TuT" MAGUS-Index="41" Bezeichnung-Mann="Fian" Bezeichnung-Frau="Fiana" kannZaubern="true" SprücheMitPraxisPunkten="Dweomer" Kultwaffe="true" Stadt="false" Ausdauer="ak">
-   <Modifikation Stand="10" Rüstung="1" Geld="2"/>
-   <Herkunft Land="Erainn" Kultwaffe="Langschwert"/>
-   <Herkunft Land="Ywerddon" Kultwaffe="Langschwert"/>
-   <Gruppe Name="KÄM"/>
-   <Gruppe Name="ZKÄM"/>
-  </Typ>
-  <Typ Abkürzung="Mg" Region="TuT" MAGUS-Index="50" Bezeichnung-Mann="Magister" Bezeichnung-Frau="Magisterin" kannZaubern="true" Lernpflichten="Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen." SchreibenPflicht="true" MinGs="31" MinIn="61" MinpA="61" Ausdauer="ak">
-   <Modifikation Stand="20" Rüstung="1" Geld="4"/>
-   <Herkunft Land="Alba"/>
-   <Herkunft Land="Eschar"/>
-   <Herkunft Land="Küstenstaaten"/>
-   <Herkunft Land="Valian"/>
-   <Gruppe Name="KÄM"/>
-   <Gruppe Name="ZKÄM"/>
-  </Typ>
-  <Typ Abkürzung="RiN" Region="TuT" MAGUS-Index="51" Bezeichnung-Mann="Ritter [Alba, Küstenstaaten]" Bezeichnung-Frau="Ritterin [Alba, Küstenstaaten]" Lernpflichten="Ritter aus Alba dürfen weder Rapier, Buckler noch Parierdolch wählen. Ritter aus den Küstenstaaten dürfen weder Kampf in Schlachtreihe noch das Schlachtbeil lernen." Ausdauer="k">
-   <Modifikation Rüstung="3" Geld="1"/>
-   <Herkunft Land="Alba"/>
-   <Herkunft Land="Küstenstaaten"/>
-  </Typ>
-  <Typ Abkürzung="RiS" Region="TuT" MAGUS-Index="52" Bezeichnung-Mann="Ritter [Aran,Eschar]" Bezeichnung-Frau="Ritterin [Aran,Eschar]" Ausdauer="k">
-   <Modifikation Rüstung="3" Geld="1"/>
-   <Herkunft Land="Aran"/>
-   <Herkunft Land="Eschar"/>
-  </Typ>
-  <Typ Abkürzung="Hj" Region="TuT" MAGUS-Index="53" Bezeichnung-Mann="Hexenjäger" Bezeichnung-Frau="Hexenjägerin" kannZaubern="true" Lernpflichten="Nur Dolch, Kurzschwert, Streitkolben oder Kriegshammer als Spezialwaffe möglich." Ausdauer="ak">
-   <Modifikation Sb="30" Rüstung="2" Geld="3"/>
-   <Herkunft Land="Alba"/>
-   <Herkunft Land="Aran"/>
-   <Herkunft Land="Buluga"/>
-   <Herkunft Land="Chryseia"/>
-   <Herkunft Land="Clanngadarn"/>
-   <Herkunft Land="Dvarheim"/>
-   <Herkunft Land="Erainn"/>
-   <Herkunft Land="Eschar"/>
-   <Herkunft Land="Feuerinseln"/>
-   <Herkunft Land="Fuardain"/>
-   <Herkunft Land="Halfdal"/>
-   <Herkunft Land="Ikengabecken"/>
-   <Herkunft Land="Inseln unter dem Westwind"/>
-   <Herkunft Land="KanThaiPan"/>
-   <Herkunft Land="Küstenstaaten"/>
-   <Herkunft Land="Medjis"/>
-   <Herkunft Land="Minangpahit"/>
-   <Herkunft Land="Moravod"/>
-   <Herkunft Land="Nahuatlan"/>
-   <Herkunft Land="Rawindra"/>
-   <Herkunft Land="Tegarische Steppe"/>
-   <Herkunft Land="Urruti"/>
-   <Herkunft Land="Valian"/>
-   <Herkunft Land="Vesternesse"/>
-   <Herkunft Land="Waeland"/>
-   <Herkunft Land="Ywerddon"/>
-  </Typ>
-  <Typ Abkürzung="Sw" Region="TuT" MAGUS-Index="54" Bezeichnung-Mann="Schattenweber" Bezeichnung-Frau="Schattenweberin" kannZaubern="true" Lernpflichten="Nur Dolch, Keule, Wurfaxt oder Wurfmesser kann als Spezialwaffe gewählt werden. Schreiben: Muttersprache +9 muß gelernt werden" SchreibenPflicht="true" Land="false" Ausdauer="ak">
-   <Modifikation Stand="10" Sb="-20" Rüstung="1" Geld="4"/>
-   <Herkunft Land="Alba"/>
-   <Herkunft Land="Aran"/>
-   <Herkunft Land="Buluga"/>
-   <Herkunft Land="Chryseia"/>
-   <Herkunft Land="Clanngadarn"/>
-   <Herkunft Land="Dvarheim"/>
-   <Herkunft Land="Erainn"/>
-   <Herkunft Land="Eschar"/>
-   <Herkunft Land="Feuerinseln"/>
-   <Herkunft Land="Fuardain"/>
-   <Herkunft Land="Halfdal"/>
-   <Herkunft Land="Ikengabecken"/>
-   <Herkunft Land="Inseln unter dem Westwind"/>
-   <Herkunft Land="KanThaiPan"/>
-   <Herkunft Land="Küstenstaaten"/>
-   <Herkunft Land="Medjis"/>
-   <Herkunft Land="Minangpahit"/>
-   <Herkunft Land="Moravod"/>
-   <Herkunft Land="Nahuatlan"/>
-   <Herkunft Land="Rawindra"/>
-   <Herkunft Land="Tegarische Steppe"/>
-   <Herkunft Land="Urruti"/>
-   <Herkunft Land="Valian"/>
-   <Herkunft Land="Vesternesse"/>
-   <Herkunft Land="Waeland"/>
-   <Herkunft Land="Ywerddon"/>
-  </Typ>
-  <Typ Abkürzung="Wi" Region="TuT" MAGUS-Index="55" Bezeichnung-Mann="Wildläufer" Bezeichnung-Frau="Wildläuferin" kannZaubern="true" SprücheMitPraxisPunkten="Dweomer" Stadt="false" Ausdauer="ak">
-   <Modifikation Rüstung="1" Geld="2"/>
-   <Herkunft Land="Alba"/>
-   <Herkunft Land="Clanngadarn"/>
-   <Herkunft Land="Moravod"/>
-  </Typ>
-  <Typ Abkürzung="To" Region="TuT" MAGUS-Index="56" Bezeichnung-Mann="Todeswirker" Bezeichnung-Frau="Todeswirkerin" kannZaubern="true" Lernpflichten="Als Spezialwaffe kann nur Dolch, Kurzschwert, Rapier, Wurfmesser oder leichte Armbrust gewählt werden." Land="false" Ausdauer="ak">
-   <Modifikation Stand="-10" Sb="30" Rüstung="1" Geld="3"/>
-   <Herkunft Land="Alba"/>
-   <Herkunft Land="Aran"/>
-   <Herkunft Land="Chryseia"/>
-   <Herkunft Land="Eschar"/>
-   <Herkunft Land="Küstenstaaten"/>
-   <Herkunft Land="Moravod"/>
-   <Herkunft Land="Valian"/>
-  </Typ>
-  <Typ Abkürzung="Km" Region="TuT" MAGUS-Index="57" Bezeichnung-Mann="Klingenmagier" Bezeichnung-Frau="Klingenmagierin" kannZaubern="true" Lernpflichten="Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen." Stadt="false" Ausdauer="k">
-   <Modifikation Stand="10" Rüstung="3" Geld="3"/>
-  </Typ>
- </Typen>
+<MAGUS-data Region="TuT" Name="Kompendium" Titel="Das Kompendium" Copyright="Jürgen E. Franke" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="1" MAGUS-Bild="12" CVS="$Revision: 1.14 $">
  <Fertigkeiten>
   <Fertigkeit Name="Geomantie" Region="TuT" Lernpunkte="4" Anfangswert="5" Lernkosten="100" Erfolgswert="4" Attribut="In" Maximalwert="12" MaximalMitUnterweisung="11">
    <Grund Typ="De"/>
@@ -1803,6 +1696,113 @@
   </Fertigkeit>
  </Fertigkeiten>
  <Berufe/>
+ <Schriften/>
+ <Sprachen/>
+ <Typen>
+  <Typ Abkürzung="Fi" Region="TuT" MAGUS-Index="41" Bezeichnung-Mann="Fian" Bezeichnung-Frau="Fiana" kannZaubern="true" SprücheMitPraxisPunkten="Dweomer" Kultwaffe="true" Stadt="false" Ausdauer="ak">
+   <Modifikation Stand="10" Rüstung="1" Geld="2"/>
+   <Herkunft Land="Erainn" Kultwaffe="Langschwert"/>
+   <Herkunft Land="Ywerddon" Kultwaffe="Langschwert"/>
+   <Gruppe Name="KÄM"/>
+   <Gruppe Name="ZKÄM"/>
+  </Typ>
+  <Typ Abkürzung="Mg" Region="TuT" MAGUS-Index="50" Bezeichnung-Mann="Magister" Bezeichnung-Frau="Magisterin" kannZaubern="true" Lernpflichten="Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen." SchreibenPflicht="true" MinGs="31" MinIn="61" MinpA="61" Ausdauer="ak">
+   <Modifikation Stand="20" Rüstung="1" Geld="4"/>
+   <Herkunft Land="Alba"/>
+   <Herkunft Land="Eschar"/>
+   <Herkunft Land="Küstenstaaten"/>
+   <Herkunft Land="Valian"/>
+   <Gruppe Name="KÄM"/>
+   <Gruppe Name="ZKÄM"/>
+  </Typ>
+  <Typ Abkürzung="RiN" Region="TuT" MAGUS-Index="51" Bezeichnung-Mann="Ritter [Alba, Küstenstaaten]" Bezeichnung-Frau="Ritterin [Alba, Küstenstaaten]" Lernpflichten="Ritter aus Alba dürfen weder Rapier, Buckler noch Parierdolch wählen. Ritter aus den Küstenstaaten dürfen weder Kampf in Schlachtreihe noch das Schlachtbeil lernen." Ausdauer="k">
+   <Modifikation Rüstung="3" Geld="1"/>
+   <Herkunft Land="Alba"/>
+   <Herkunft Land="Küstenstaaten"/>
+  </Typ>
+  <Typ Abkürzung="RiS" Region="TuT" MAGUS-Index="52" Bezeichnung-Mann="Ritter [Aran,Eschar]" Bezeichnung-Frau="Ritterin [Aran,Eschar]" Ausdauer="k">
+   <Modifikation Rüstung="3" Geld="1"/>
+   <Herkunft Land="Aran"/>
+   <Herkunft Land="Eschar"/>
+  </Typ>
+  <Typ Abkürzung="Hj" Region="TuT" MAGUS-Index="53" Bezeichnung-Mann="Hexenjäger" Bezeichnung-Frau="Hexenjägerin" kannZaubern="true" Lernpflichten="Nur Dolch, Kurzschwert, Streitkolben oder Kriegshammer als Spezialwaffe möglich." Ausdauer="ak">
+   <Modifikation Sb="30" Rüstung="2" Geld="3"/>
+   <Herkunft Land="Alba"/>
+   <Herkunft Land="Aran"/>
+   <Herkunft Land="Buluga"/>
+   <Herkunft Land="Chryseia"/>
+   <Herkunft Land="Clanngadarn"/>
+   <Herkunft Land="Dvarheim"/>
+   <Herkunft Land="Erainn"/>
+   <Herkunft Land="Eschar"/>
+   <Herkunft Land="Feuerinseln"/>
+   <Herkunft Land="Fuardain"/>
+   <Herkunft Land="Halfdal"/>
+   <Herkunft Land="Ikengabecken"/>
+   <Herkunft Land="Inseln unter dem Westwind"/>
+   <Herkunft Land="KanThaiPan"/>
+   <Herkunft Land="Küstenstaaten"/>
+   <Herkunft Land="Medjis"/>
+   <Herkunft Land="Minangpahit"/>
+   <Herkunft Land="Moravod"/>
+   <Herkunft Land="Nahuatlan"/>
+   <Herkunft Land="Rawindra"/>
+   <Herkunft Land="Tegarische Steppe"/>
+   <Herkunft Land="Urruti"/>
+   <Herkunft Land="Valian"/>
+   <Herkunft Land="Vesternesse"/>
+   <Herkunft Land="Waeland"/>
+   <Herkunft Land="Ywerddon"/>
+  </Typ>
+  <Typ Abkürzung="Sw" Region="TuT" MAGUS-Index="54" Bezeichnung-Mann="Schattenweber" Bezeichnung-Frau="Schattenweberin" kannZaubern="true" Lernpflichten="Nur Dolch, Keule, Wurfaxt oder Wurfmesser kann als Spezialwaffe gewählt werden. Schreiben: Muttersprache +9 muß gelernt werden" SchreibenPflicht="true" Land="false" Ausdauer="ak">
+   <Modifikation Stand="10" Sb="-20" Rüstung="1" Geld="4"/>
+   <Herkunft Land="Alba"/>
+   <Herkunft Land="Aran"/>
+   <Herkunft Land="Buluga"/>
+   <Herkunft Land="Chryseia"/>
+   <Herkunft Land="Clanngadarn"/>
+   <Herkunft Land="Dvarheim"/>
+   <Herkunft Land="Erainn"/>
+   <Herkunft Land="Eschar"/>
+   <Herkunft Land="Feuerinseln"/>
+   <Herkunft Land="Fuardain"/>
+   <Herkunft Land="Halfdal"/>
+   <Herkunft Land="Ikengabecken"/>
+   <Herkunft Land="Inseln unter dem Westwind"/>
+   <Herkunft Land="KanThaiPan"/>
+   <Herkunft Land="Küstenstaaten"/>
+   <Herkunft Land="Medjis"/>
+   <Herkunft Land="Minangpahit"/>
+   <Herkunft Land="Moravod"/>
+   <Herkunft Land="Nahuatlan"/>
+   <Herkunft Land="Rawindra"/>
+   <Herkunft Land="Tegarische Steppe"/>
+   <Herkunft Land="Urruti"/>
+   <Herkunft Land="Valian"/>
+   <Herkunft Land="Vesternesse"/>
+   <Herkunft Land="Waeland"/>
+   <Herkunft Land="Ywerddon"/>
+  </Typ>
+  <Typ Abkürzung="Wi" Region="TuT" MAGUS-Index="55" Bezeichnung-Mann="Wildläufer" Bezeichnung-Frau="Wildläuferin" kannZaubern="true" SprücheMitPraxisPunkten="Dweomer" Stadt="false" Ausdauer="ak">
+   <Modifikation Rüstung="1" Geld="2"/>
+   <Herkunft Land="Alba"/>
+   <Herkunft Land="Clanngadarn"/>
+   <Herkunft Land="Moravod"/>
+  </Typ>
+  <Typ Abkürzung="To" Region="TuT" MAGUS-Index="56" Bezeichnung-Mann="Todeswirker" Bezeichnung-Frau="Todeswirkerin" kannZaubern="true" Lernpflichten="Als Spezialwaffe kann nur Dolch, Kurzschwert, Rapier, Wurfmesser oder leichte Armbrust gewählt werden." Land="false" Ausdauer="ak">
+   <Modifikation Stand="-10" Sb="30" Rüstung="1" Geld="3"/>
+   <Herkunft Land="Alba"/>
+   <Herkunft Land="Aran"/>
+   <Herkunft Land="Chryseia"/>
+   <Herkunft Land="Eschar"/>
+   <Herkunft Land="Küstenstaaten"/>
+   <Herkunft Land="Moravod"/>
+   <Herkunft Land="Valian"/>
+  </Typ>
+  <Typ Abkürzung="Km" Region="TuT" MAGUS-Index="57" Bezeichnung-Mann="Klingenmagier" Bezeichnung-Frau="Klingenmagierin" kannZaubern="true" Lernpflichten="Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen." Stadt="false" Ausdauer="k">
+   <Modifikation Stand="10" Rüstung="3" Geld="3"/>
+  </Typ>
+ </Typen>
  <Rüstungen/>
  <Waffen>
   <Waffe Name="Anderthalbhänder">

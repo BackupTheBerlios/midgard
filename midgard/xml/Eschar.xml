@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="E" Name="Eschar" Titel="Die Pyramiden von Eschar" Copyright="Stephanie Lammers" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="4" MAGUS-Bild="4" CVS="$Revision: 1.13 $">
- <Schriften/>
- <Sprachen/>
- <Typen>
-  <Typ Abkürzung="De" Region="E" MAGUS-Index="46" Bezeichnung-Mann="Derwisch" Bezeichnung-Frau="Derwisch" Zauberer="true" kannZaubern="true" SprücheMitPraxisPunkten="Wunder" Ausdauer="ak">
-   <Modifikation Rüstung="1" Geld="4"/>
-   <Herkunft Land="Eschar"/>
-   <Gruppe Name="ZAU"/>
-  </Typ>
- </Typen>
+<MAGUS-data Region="E" Name="Eschar" Titel="Die Pyramiden von Eschar" Copyright="Stephanie Lammers" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="4" MAGUS-Bild="4" CVS="$Revision: 1.14 $">
  <Fertigkeiten>
   <Fertigkeit Name="Brettspiel" Region="E" Lernpunkte="1" Anfangswert="4" Lernkosten="20" Erfolgswert="2" Attribut="In" Maximalwert="18" MaximalMitUnterweisung="18">
    <Grund Typ="Ba"/>
@@ -773,6 +764,15 @@
   </Fertigkeit>
  </Fertigkeiten>
  <Berufe/>
+ <Schriften/>
+ <Sprachen/>
+ <Typen>
+  <Typ Abkürzung="De" Region="E" MAGUS-Index="46" Bezeichnung-Mann="Derwisch" Bezeichnung-Frau="Derwisch" Zauberer="true" kannZaubern="true" SprücheMitPraxisPunkten="Wunder" Ausdauer="ak">
+   <Modifikation Rüstung="1" Geld="4"/>
+   <Herkunft Land="Eschar"/>
+   <Gruppe Name="ZAU"/>
+  </Typ>
+ </Typen>
  <Rüstungen/>
  <Waffen>
   <Waffe Name="Anderthalbhänder">

@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="G" Name="Gildenbrief" Titel="Gildenbrief" Copyright="var." Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="13" MAGUS-Bild="5" CVS="$Revision: 1.11 $">
- <Schriften/>
- <Sprachen>
-  <Sprache Name="Meeressprache" Region="G" RegionZusatz="49" Kosten="10" Maximalwert="20"/>
- </Sprachen>
- <Typen>
-  <Typ Abkürzung="MMa" Region="G" MAGUS-Index="58" Bezeichnung-Mann="Meeresmagier" Bezeichnung-Frau="Meeresmagierin" Zauberer="true" kannZaubern="true" Lernpflichten="Die Alte Sprache muß Maralinga sein. Schreiben: Valinga muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen." SchreibenPflicht="true" MinIn="21" Berufswahl="z" Stadt="false" Ausdauer="z">
-   <Modifikation Stand="10" Sb="30" Rüstung="4" Geld="3"/>
-   <Herkunft Land="Valian"/>
-  </Typ>
- </Typen>
+<MAGUS-data Region="G" Name="Gildenbrief" Titel="Gildenbrief" Copyright="var." Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="13" MAGUS-Bild="5" CVS="$Revision: 1.12 $">
  <Fertigkeiten>
   <Fertigkeit Name="Abrichten">
    <Ausnahme Typ="MMa"/>
@@ -475,6 +465,16 @@
   </Fertigkeit>
  </Fertigkeiten>
  <Berufe/>
+ <Schriften/>
+ <Sprachen>
+  <Sprache Name="Meeressprache" Region="G" RegionZusatz="49" Kosten="10" Maximalwert="20"/>
+ </Sprachen>
+ <Typen>
+  <Typ Abkürzung="MMa" Region="G" MAGUS-Index="58" Bezeichnung-Mann="Meeresmagier" Bezeichnung-Frau="Meeresmagierin" Zauberer="true" kannZaubern="true" Lernpflichten="Die Alte Sprache muß Maralinga sein. Schreiben: Valinga muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen." SchreibenPflicht="true" MinIn="21" Berufswahl="z" Stadt="false" Ausdauer="z">
+   <Modifikation Stand="10" Sb="30" Rüstung="4" Geld="3"/>
+   <Herkunft Land="Valian"/>
+  </Typ>
+ </Typen>
  <Rüstungen/>
  <Waffen>
   <Waffe Name="Dreizack" Region="G" Grundkenntnisse="Spießwaffe" Schwierigkeit="4" Kategorie="Angriff" Klasse="Z" Schaden="W6+1|2W6">

@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="R" Name="Rawindra" Titel="Rawindra - Im Bann der Todesechsen" Copyright="Ludger Fischer und Thomas Kreutz" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="8" MAGUS-Bild="1" CVS="$Revision: 1.14 $">
- <Schriften/>
- <Sprachen/>
- <Typen>
-  <Typ Abkürzung="Sa" Region="R" MAGUS-Index="39" Bezeichnung-Mann="Saddhu" Bezeichnung-Frau="Saddhu" Zauberer="true" kannZaubern="true" Ausdauer="z">
-   <Modifikation Rüstung="4" Geld="1"/>
-   <Herkunft Land="Rawindra"/>
-   <Gruppe Name="ZAU"/>
-  </Typ>
-  <Typ Abkürzung="Sr" Region="R" MAGUS-Index="40" Bezeichnung-Mann="Srikumara" Bezeichnung-Frau="Srikumara" kannZaubern="true" Ausdauer="ak">
-   <Modifikation Rüstung="3" Geld="1"/>
-   <Herkunft Land="Rawindra"/>
-   <Gruppe Name="GKÄM"/>
-   <Gruppe Name="KÄM"/>
-   <Gruppe Name="ZKÄM"/>
-  </Typ>
- </Typen>
+<MAGUS-data Region="R" Name="Rawindra" Titel="Rawindra - Im Bann der Todesechsen" Copyright="Ludger Fischer und Thomas Kreutz" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="8" MAGUS-Bild="1" CVS="$Revision: 1.15 $">
  <Fertigkeiten>
   <Fertigkeit Name="Elefanten lenken" Region="R" Lernpunkte="6" Anfangswert="15" Lernkosten="1000" Erfolgswert="10" Attribut="Gw" Maximalwert="18" MaximalMitUnterweisung="18">
    <Standard Typ="Sa"/>
@@ -1308,6 +1292,22 @@
    </Vorteil>
   </Beruf>
  </Berufe>
+ <Schriften/>
+ <Sprachen/>
+ <Typen>
+  <Typ Abkürzung="Sa" Region="R" MAGUS-Index="39" Bezeichnung-Mann="Saddhu" Bezeichnung-Frau="Saddhu" Zauberer="true" kannZaubern="true" Ausdauer="z">
+   <Modifikation Rüstung="4" Geld="1"/>
+   <Herkunft Land="Rawindra"/>
+   <Gruppe Name="ZAU"/>
+  </Typ>
+  <Typ Abkürzung="Sr" Region="R" MAGUS-Index="40" Bezeichnung-Mann="Srikumara" Bezeichnung-Frau="Srikumara" kannZaubern="true" Ausdauer="ak">
+   <Modifikation Rüstung="3" Geld="1"/>
+   <Herkunft Land="Rawindra"/>
+   <Gruppe Name="GKÄM"/>
+   <Gruppe Name="KÄM"/>
+   <Gruppe Name="ZKÄM"/>
+  </Typ>
+ </Typen>
  <Rüstungen>
   <Rüstung Name="Sritrahaut" Region="R" Abkürzung="TR(R)" schütztLP="1">
    <Verlust Vollrüstung="2" BehinderungWie="TR"/>

@@ -1,26 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="N" Name="Nahuatlan" Titel="Nahuatlan - Im Land des Mondjaguars" Copyright="Alexander Huiskes" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="6" MAGUS-Bild="8" CVS="$Revision: 1.14 $">
- <Schriften/>
- <Sprachen/>
- <Typen>
-  <Typ Abkürzung="Dt" Region="N" MAGUS-Index="47" Bezeichnung-Mann="Deuter" Bezeichnung-Frau="Deuterin" Zauberer="true" kannZaubern="true" SprücheMitPraxisPunkten="null" Berufswahl="z" Ausdauer="z">
-   <Modifikation Stand="20" Rüstung="1" Geld="4"/>
-   <Herkunft Land="Nahuatlan"/>
-   <Gruppe Name="ZAU"/>
-  </Typ>
-  <Typ Abkürzung="Tt" Region="N" MAGUS-Index="48" Bezeichnung-Mann="Tempeltänzer" Bezeichnung-Frau="Tempeltänzerin" Zauberer="true" kannZaubern="true" SprücheMitPraxisPunkten="Wunder" Berufswahl="z" Ausdauer="ak">
-   <Modifikation Rüstung="1" Geld="3"/>
-   <Herkunft Land="Nahuatlan"/>
-   <Gruppe Name="ZAU"/>
-  </Typ>
-  <Typ Abkürzung="Tr" Region="N" MAGUS-Index="49" Bezeichnung-Mann="Trickser" Bezeichnung-Frau="Trickserin" kannZaubern="true" Ausdauer="ak">
-   <Modifikation Stand="-20" Sb="-20" Rüstung="1" Geld="4"/>
-   <Herkunft Land="Nahuatlan"/>
-   <Gruppe Name="KÄM"/>
-   <Gruppe Name="ZKÄM"/>
-  </Typ>
- </Typen>
+<MAGUS-data Region="N" Name="Nahuatlan" Titel="Nahuatlan - Im Land des Mondjaguars" Copyright="Alexander Huiskes" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="6" MAGUS-Bild="8" CVS="$Revision: 1.15 $">
  <Fertigkeiten>
   <Fertigkeit Name="Adlersprung" Region="N" Lernkosten="200" Attribut="Ge">
    <Grund Typ="Sw"/>
@@ -1244,6 +1224,26 @@
   </Fertigkeit>
  </Fertigkeiten>
  <Berufe/>
+ <Schriften/>
+ <Sprachen/>
+ <Typen>
+  <Typ Abkürzung="Dt" Region="N" MAGUS-Index="47" Bezeichnung-Mann="Deuter" Bezeichnung-Frau="Deuterin" Zauberer="true" kannZaubern="true" SprücheMitPraxisPunkten="null" Berufswahl="z" Ausdauer="z">
+   <Modifikation Stand="20" Rüstung="1" Geld="4"/>
+   <Herkunft Land="Nahuatlan"/>
+   <Gruppe Name="ZAU"/>
+  </Typ>
+  <Typ Abkürzung="Tt" Region="N" MAGUS-Index="48" Bezeichnung-Mann="Tempeltänzer" Bezeichnung-Frau="Tempeltänzerin" Zauberer="true" kannZaubern="true" SprücheMitPraxisPunkten="Wunder" Berufswahl="z" Ausdauer="ak">
+   <Modifikation Rüstung="1" Geld="3"/>
+   <Herkunft Land="Nahuatlan"/>
+   <Gruppe Name="ZAU"/>
+  </Typ>
+  <Typ Abkürzung="Tr" Region="N" MAGUS-Index="49" Bezeichnung-Mann="Trickser" Bezeichnung-Frau="Trickserin" kannZaubern="true" Ausdauer="ak">
+   <Modifikation Stand="-20" Sb="-20" Rüstung="1" Geld="4"/>
+   <Herkunft Land="Nahuatlan"/>
+   <Gruppe Name="KÄM"/>
+   <Gruppe Name="ZKÄM"/>
+  </Typ>
+ </Typen>
  <Rüstungen>
   <Rüstung Name="Baumwollharnisch" Region="N" Abkürzung="TR(N)" schütztLP="1">
    <Verlust BehinderungWie="TR"/>

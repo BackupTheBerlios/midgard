@@ -1,39 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="K" Name="KanThaiPan" Titel="Unter dem Schirm des Jadekaisers" Copyright="Isolde Popp" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="7" MAGUS-Bild="2" CVS="$Revision: 1.15 $">
- <Schriften>
-  <Schrift Name="KanThaiTun(1)" Region="K" Typ="Silben" Kosten="20">
-   <Variante Name="KanThaiTun(1)"/>
-  </Schrift>
-  <Schrift Name="KanThaiTun(2)" Region="K" Typ="Silben" Kosten="50">
-   <Variante Name="KanThaiTun(2)"/>
-  </Schrift>
-  <Schrift Name="KanThaiTun(3)" Region="K" Typ="Silben" Kosten="100">
-   <Variante Name="KanThaiTun(3)"/>
-  </Schrift>
-  <Schrift Name="KanThaiTun(4)" Region="K" Typ="Silben" Kosten="100">
-   <Variante Name="KanThaiTun(4)"/>
-  </Schrift>
-  <Schrift Name="KanThaiTun(5)" Region="K" Typ="Silben" Kosten="100">
-   <Variante Name="KanThaiTun(5)"/>
-  </Schrift>
-  <Schrift Name="KanThaiTun(6)" Region="K" Typ="Silben" Kosten="100">
-   <Variante Name="KanThaiTun(6)"/>
-  </Schrift>
- </Schriften>
- <Sprachen/>
- <Typen>
-  <Typ Abkürzung="Ny" Region="K" MAGUS-Index="37" Bezeichnung-Mann="Ninya" Bezeichnung-Frau="Ninya" Ausdauer="ak">
-   <Modifikation Sb="30" Rüstung="1" Geld="1"/>
-   <Herkunft Land="KanThaiPan"/>
-   <Gruppe Name="KÄM"/>
-  </Typ>
-  <Typ Abkürzung="Kd" Region="K" MAGUS-Index="38" Bezeichnung-Mann="KiDoka" Bezeichnung-Frau="KiDoka" Ausdauer="k">
-   <Modifikation Rüstung="1" Geld="4"/>
-   <Herkunft Land="KanThaiPan"/>
-   <Gruppe Name="KÄM"/>
-  </Typ>
- </Typen>
+<MAGUS-data Region="K" Name="KanThaiPan" Titel="Unter dem Schirm des Jadekaisers" Copyright="Isolde Popp" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="7" MAGUS-Bild="2" CVS="$Revision: 1.16 $">
  <Fertigkeiten>
   <Fertigkeit Name="+1 KiDo-Technik" Region="K" Lernpunkte="1" Maximalwert="18" MaximalMitUnterweisung="18">
    <Lernschema Typ="Kd" Lernpunkte="1"/>
@@ -1778,6 +1745,39 @@
   </Fertigkeit>
  </Fertigkeiten>
  <Berufe/>
+ <Schriften>
+  <Schrift Name="KanThaiTun(1)" Region="K" Typ="Silben" Kosten="20">
+   <Variante Name="KanThaiTun(1)"/>
+  </Schrift>
+  <Schrift Name="KanThaiTun(2)" Region="K" Typ="Silben" Kosten="50">
+   <Variante Name="KanThaiTun(2)"/>
+  </Schrift>
+  <Schrift Name="KanThaiTun(3)" Region="K" Typ="Silben" Kosten="100">
+   <Variante Name="KanThaiTun(3)"/>
+  </Schrift>
+  <Schrift Name="KanThaiTun(4)" Region="K" Typ="Silben" Kosten="100">
+   <Variante Name="KanThaiTun(4)"/>
+  </Schrift>
+  <Schrift Name="KanThaiTun(5)" Region="K" Typ="Silben" Kosten="100">
+   <Variante Name="KanThaiTun(5)"/>
+  </Schrift>
+  <Schrift Name="KanThaiTun(6)" Region="K" Typ="Silben" Kosten="100">
+   <Variante Name="KanThaiTun(6)"/>
+  </Schrift>
+ </Schriften>
+ <Sprachen/>
+ <Typen>
+  <Typ Abkürzung="Ny" Region="K" MAGUS-Index="37" Bezeichnung-Mann="Ninya" Bezeichnung-Frau="Ninya" Ausdauer="ak">
+   <Modifikation Sb="30" Rüstung="1" Geld="1"/>
+   <Herkunft Land="KanThaiPan"/>
+   <Gruppe Name="KÄM"/>
+  </Typ>
+  <Typ Abkürzung="Kd" Region="K" MAGUS-Index="38" Bezeichnung-Mann="KiDoka" Bezeichnung-Frau="KiDoka" Ausdauer="k">
+   <Modifikation Rüstung="1" Geld="4"/>
+   <Herkunft Land="KanThaiPan"/>
+   <Gruppe Name="KÄM"/>
+  </Typ>
+ </Typen>
  <Rüstungen>
   <Rüstung Name="Papierrüstung" Region="K" Abkürzung="TR(K)" schütztLP="1">
    <Verlust BehinderungWie="TR"/>

@@ -1,74 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <MAGUS-data Region="3">
- <Schriften/>
- <Sprachen/>
- <Typen>
-  <Typ Abkürzung="eBe" Region="3" MAGUS-Index="17" Bezeichnung-Mann="Elementarbeschwörer" Bezeichnung-Frau="Elementarbeschwörerin" Zauberer="true" kannZaubern="true" Lernpflichten="Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen." SchreibenPflicht="true" MinIn="21" Berufswahl="z" Ausdauer="z">
-   <Modifikation Stand="20" Sb="30" Rüstung="4" Geld="3"/>
-   <Herkunft Land="Alba"/>
-   <Herkunft Land="Aran"/>
-   <Herkunft Land="Buluga"/>
-   <Herkunft Land="Chryseia"/>
-   <Herkunft Land="Eschar"/>
-   <Herkunft Land="Ikengabecken"/>
-   <Herkunft Land="KanThaiPan"/>
-   <Herkunft Land="Küstenstaaten"/>
-   <Herkunft Land="Medjis"/>
-   <Herkunft Land="Moravod"/>
-   <Herkunft Land="Nahuatlan"/>
-   <Herkunft Land="Rawindra"/>
-   <Herkunft Land="Tegarische Steppe"/>
-   <Herkunft Land="Urruti"/>
-   <Herkunft Land="Valian"/>
-   <Herkunft Land="Waeland"/>
-   <Herkunft Land="Ywerddon"/>
-   <Gruppe Name="Be"/>
-   <Gruppe Name="ZAU"/>
-  </Typ>
-  <Typ Abkürzung="dBe" Region="3" MAGUS-Index="18" Bezeichnung-Mann="Dämonenbeschwörer" Bezeichnung-Frau="Dämonenbeschwörerin" Zauberer="true" kannZaubern="true" Lernpflichten="Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen." SchreibenPflicht="true" MinIn="21" Berufswahl="z" Ausdauer="z">
-   <Modifikation Stand="20" Sb="30" Rüstung="4" Geld="3"/>
-   <Herkunft Land="Alba"/>
-   <Herkunft Land="Aran"/>
-   <Herkunft Land="Buluga"/>
-   <Herkunft Land="Chryseia"/>
-   <Herkunft Land="Eschar"/>
-   <Herkunft Land="Ikengabecken"/>
-   <Herkunft Land="KanThaiPan"/>
-   <Herkunft Land="Küstenstaaten"/>
-   <Herkunft Land="Medjis"/>
-   <Herkunft Land="Moravod"/>
-   <Herkunft Land="Nahuatlan"/>
-   <Herkunft Land="Rawindra"/>
-   <Herkunft Land="Tegarische Steppe"/>
-   <Herkunft Land="Urruti"/>
-   <Herkunft Land="Valian"/>
-   <Herkunft Land="Ywerddon"/>
-   <Gruppe Name="Be"/>
-   <Gruppe Name="ZAU"/>
-  </Typ>
-  <Typ Abkürzung="tBe" Region="3" MAGUS-Index="19" Bezeichnung-Mann="Totenbeschwörer" Bezeichnung-Frau="Totenbeschwörerin" Zauberer="true" kannZaubern="true" Lernpflichten="Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen." SchreibenPflicht="true" MinIn="21" Berufswahl="z" Ausdauer="z">
-   <Modifikation Stand="20" Sb="30" Rüstung="4" Geld="3"/>
-   <Herkunft Land="Alba"/>
-   <Herkunft Land="Aran"/>
-   <Herkunft Land="Buluga"/>
-   <Herkunft Land="Chryseia"/>
-   <Herkunft Land="Eschar"/>
-   <Herkunft Land="Ikengabecken"/>
-   <Herkunft Land="KanThaiPan"/>
-   <Herkunft Land="Küstenstaaten"/>
-   <Herkunft Land="Medjis"/>
-   <Herkunft Land="Moravod"/>
-   <Herkunft Land="Nahuatlan"/>
-   <Herkunft Land="Rawindra"/>
-   <Herkunft Land="Tegarische Steppe"/>
-   <Herkunft Land="Urruti"/>
-   <Herkunft Land="Valian"/>
-   <Herkunft Land="Ywerddon"/>
-   <Gruppe Name="Be"/>
-   <Gruppe Name="ZAU"/>
-  </Typ>
- </Typen>
  <Fertigkeiten>
   <Fertigkeit Name="Abrichten">
    <Standard Typ="dBe"/>
@@ -825,6 +757,74 @@
   </Fertigkeit>
  </Fertigkeiten>
  <Berufe/>
+ <Schriften/>
+ <Sprachen/>
+ <Typen>
+  <Typ Abkürzung="eBe" Region="3" MAGUS-Index="17" Bezeichnung-Mann="Elementarbeschwörer" Bezeichnung-Frau="Elementarbeschwörerin" Zauberer="true" kannZaubern="true" Lernpflichten="Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen." SchreibenPflicht="true" MinIn="21" Berufswahl="z" Ausdauer="z">
+   <Modifikation Stand="20" Sb="30" Rüstung="4" Geld="3"/>
+   <Herkunft Land="Alba"/>
+   <Herkunft Land="Aran"/>
+   <Herkunft Land="Buluga"/>
+   <Herkunft Land="Chryseia"/>
+   <Herkunft Land="Eschar"/>
+   <Herkunft Land="Ikengabecken"/>
+   <Herkunft Land="KanThaiPan"/>
+   <Herkunft Land="Küstenstaaten"/>
+   <Herkunft Land="Medjis"/>
+   <Herkunft Land="Moravod"/>
+   <Herkunft Land="Nahuatlan"/>
+   <Herkunft Land="Rawindra"/>
+   <Herkunft Land="Tegarische Steppe"/>
+   <Herkunft Land="Urruti"/>
+   <Herkunft Land="Valian"/>
+   <Herkunft Land="Waeland"/>
+   <Herkunft Land="Ywerddon"/>
+   <Gruppe Name="Be"/>
+   <Gruppe Name="ZAU"/>
+  </Typ>
+  <Typ Abkürzung="dBe" Region="3" MAGUS-Index="18" Bezeichnung-Mann="Dämonenbeschwörer" Bezeichnung-Frau="Dämonenbeschwörerin" Zauberer="true" kannZaubern="true" Lernpflichten="Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen." SchreibenPflicht="true" MinIn="21" Berufswahl="z" Ausdauer="z">
+   <Modifikation Stand="20" Sb="30" Rüstung="4" Geld="3"/>
+   <Herkunft Land="Alba"/>
+   <Herkunft Land="Aran"/>
+   <Herkunft Land="Buluga"/>
+   <Herkunft Land="Chryseia"/>
+   <Herkunft Land="Eschar"/>
+   <Herkunft Land="Ikengabecken"/>
+   <Herkunft Land="KanThaiPan"/>
+   <Herkunft Land="Küstenstaaten"/>
+   <Herkunft Land="Medjis"/>
+   <Herkunft Land="Moravod"/>
+   <Herkunft Land="Nahuatlan"/>
+   <Herkunft Land="Rawindra"/>
+   <Herkunft Land="Tegarische Steppe"/>
+   <Herkunft Land="Urruti"/>
+   <Herkunft Land="Valian"/>
+   <Herkunft Land="Ywerddon"/>
+   <Gruppe Name="Be"/>
+   <Gruppe Name="ZAU"/>
+  </Typ>
+  <Typ Abkürzung="tBe" Region="3" MAGUS-Index="19" Bezeichnung-Mann="Totenbeschwörer" Bezeichnung-Frau="Totenbeschwörerin" Zauberer="true" kannZaubern="true" Lernpflichten="Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen." SchreibenPflicht="true" MinIn="21" Berufswahl="z" Ausdauer="z">
+   <Modifikation Stand="20" Sb="30" Rüstung="4" Geld="3"/>
+   <Herkunft Land="Alba"/>
+   <Herkunft Land="Aran"/>
+   <Herkunft Land="Buluga"/>
+   <Herkunft Land="Chryseia"/>
+   <Herkunft Land="Eschar"/>
+   <Herkunft Land="Ikengabecken"/>
+   <Herkunft Land="KanThaiPan"/>
+   <Herkunft Land="Küstenstaaten"/>
+   <Herkunft Land="Medjis"/>
+   <Herkunft Land="Moravod"/>
+   <Herkunft Land="Nahuatlan"/>
+   <Herkunft Land="Rawindra"/>
+   <Herkunft Land="Tegarische Steppe"/>
+   <Herkunft Land="Urruti"/>
+   <Herkunft Land="Valian"/>
+   <Herkunft Land="Ywerddon"/>
+   <Gruppe Name="Be"/>
+   <Gruppe Name="ZAU"/>
+  </Typ>
+ </Typen>
  <Rüstungen/>
  <Waffen>
   <Waffe Name="Pilum" Region="3" Grundkenntnisse="Wurfspieß" Schwierigkeit="2" Kategorie="Wurfwaffe" Klasse="W" Schaden="W6" erfordert="leichter Speer">

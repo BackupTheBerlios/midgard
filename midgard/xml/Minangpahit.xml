@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="M" Name="Minangpahit" Titel="Minangpahit" Copyright="?" Jahr="null" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="5" CVS="$Revision: 1.8 $">
- <Schriften/>
- <Sprachen/>
- <Typen/>
+<MAGUS-data Region="M" Name="Minangpahit" Titel="Minangpahit" Copyright="?" Jahr="null" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="5" CVS="$Revision: 1.9 $">
  <Fertigkeiten>
   <Fertigkeit Name="Elefanten lenken" Region="R">
    <regionaleBesonderheit Herkunft="Minangpahit" Typ="BW" Standard="G"/>
@@ -15,6 +12,9 @@
   </Fertigkeit>
  </Fertigkeiten>
  <Berufe/>
+ <Schriften/>
+ <Sprachen/>
+ <Typen/>
  <Rüstungen/>
  <Waffen/>
  <Waffen-Grundkenntnisse/>

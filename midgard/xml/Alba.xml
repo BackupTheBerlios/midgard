@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="A" Name="Alba" Titel="Alba - Für Clan und Krone" Copyright="Thomas Kreutz und Ludger Fischer" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="3" MAGUS-Bild="3" CVS="$Revision: 1.12 $">
+<MAGUS-data Region="A" Name="Alba" Titel="Alba - Für Clan und Krone" Copyright="Thomas Kreutz und Ludger Fischer" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="3" MAGUS-Bild="3" CVS="$Revision: 1.13 $">
+ <Fertigkeiten/>
+ <Berufe/>
  <Schriften/>
  <Sprachen>
   <Sprache Name="Dunathisch" Region="A" Kosten="10" Maximalwert="20" alteSprache="true">
@@ -8,8 +10,6 @@
   </Sprache>
  </Sprachen>
  <Typen/>
- <Fertigkeiten/>
- <Berufe/>
  <Rüstungen/>
  <Waffen>
   <Waffe Name="Anderthalbhänder">
