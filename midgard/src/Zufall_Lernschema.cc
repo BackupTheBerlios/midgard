@@ -29,11 +29,11 @@ void Zufall::Lernschema()
   Lernpunkte_wuerfeln(lernpunkte,Aben,random);
   st_LL FAUWZ_Listen=getLernlisten();
 
-  Lernpunkte_verteilen(FAUWZ_Listen.Waff,lernpunkte.Waffen());
-  Lernpunkte_verteilen(FAUWZ_Listen.Zaub,lernpunkte.Zauber());
+//  Lernpunkte_verteilen(FAUWZ_Listen.Waff,lernpunkte.Waffen());
+//  Lernpunkte_verteilen(FAUWZ_Listen.Zaub,lernpunkte.Zauber());
   Lernpunkte_verteilen(FAUWZ_Listen.Fach,lernpunkte.Fach());
-  Lernpunkte_verteilen(FAUWZ_Listen.Allg,lernpunkte.Allgemein(),false);
-  Lernpunkte_verteilen(FAUWZ_Listen.Unge,lernpunkte.Unge());
+//  Lernpunkte_verteilen(FAUWZ_Listen.Allg,lernpunkte.Allgemein(),false);
+//  Lernpunkte_verteilen(FAUWZ_Listen.Unge,lernpunkte.Unge());
 }
 
 
@@ -53,14 +53,18 @@ std::vector<MidgardBasicElement_mutable> List_to_Vector(std::list<MidgardBasicEl
 void Zufall::Lernpunkte_verteilen(std::list<MidgardBasicElement_mutable> L,int lp,bool ungew)
 {
 reloop:
-  L.sort(MidgardBasicElement_mutable::sort(MidgardBasicElement_mutable::sort::LERNPUNKTE));
+  L.sort(MidgardBasicElement_mutable::sort(MidgardBasicElement_mutable::sort::LERNPUNKTEPFLICHT));
   std::vector<MidgardBasicElement_mutable> V=List_to_Vector(L,Aben,lp); // Lernpunkte und Vorraussetzungen
   while(lp>0)
    {
      if(V.begin()==V.end()) break;
      int i;
-     if(V[0].Lernpunkte()==0) i=0;  // damit Fertigkeiten mit '0' Lernpunkten gelernt werden
+     if(V[0].Lernpunkte()==0) i=0;  // Fertigkeiten mit '0' Lernpunkten 
+     else if(V[0].Pflicht()) i=0;   // Pflichtfertigkeiten 
      else i=random.integer(0,V.size()-1);
+
+//if(i==0)
+//cout << V[0]->Name()<<'\t'<<V[0].Lernpunkte()<<'\t'<<V[0].Pflicht()<<'\n';
 
      MidgardBasicElement_mutable M=V[i];
 
@@ -130,35 +134,9 @@ Zufall::st_LL Zufall::getLernlisten()
 
 
 
-void Zufall::Lernpunkte_wuerfeln(Lernpunkte &lernpunkte, VAbenteurer &A,Random &random)
-{
-  //Speziesspezifische Fertigkeiten
-  int lpspezies=0;
-  A.List_Fertigkeit()=A.getWerte().Spezies()->getFertigkeiten(lpspezies,A.getWerte());
-
-  int fachlern=random.integer(1,6)+random.integer(1,6);
-  lernpunkte.setFach(fachlern - lpspezies);
-  lernpunkte.setAllgemein(random.integer(1,6)+1);
-  lernpunkte.setUnge(random.integer(1,6));
-  if (A.Typ2()->Short()=="") lernpunkte.setWaffen(random.integer(1,6)+random.integer(1,6));
-  else                     lernpunkte.setWaffen(random.integer(1,6)+1); // Doppelcharakter
-  if (A.Typ1()->is_mage() && A.Typ2()->Short()=="")
-      lernpunkte.setZauber(random.integer(1,6)+random.integer(1,6));
-  if (A.Typ2()->is_mage() && A.Typ2()->Short()!="") 
-      lernpunkte.setZauber(random.integer(1,6)+1);
-
-
-  int age = (lernpunkte.Allgemein() + lernpunkte.Unge()
-             + lernpunkte.Fach()
-             + lernpunkte.Waffen() + lernpunkte.Zauber())/4+16;
-  A.getWerte().setAlter( age * A.getWerte().Spezies()->AlterFaktor());
-
-}
-
-
 MidgardBasicElement_mutable Zufall::getZusatz(MidgardBasicElement::eZusatz was,MidgardBasicElement_mutable& MBE,bool ungew) const
 {
-cout << "Zusatz für "<<MBE->Name()<<'\n';
+//cout << "Zusatz für "<<MBE->Name()<<'\n';
   std::vector<MidgardBasicElement::st_zusatz> VG;
   switch(was)
    {

@@ -196,12 +196,12 @@ COPY "lernschema_4" FROM stdin;
 1	Gl	f	kleiner Schild	Waffenfertigkeiten	1
 1	Gl	f	leichter Speer	Waffenfertigkeiten	5
 1	Hl	f	Erkennen von Krankheit	Zauberkünste	0
-1	Hl	f	Erste Hilfe	Fachkenntnisse	8
 1	Hl	f	Handauflegen	Zauberkünste	0
 1	Hl	f	Kräuterkunde	Fachkenntnisse	5
 1	Hl	f	Lesen von Zauberschrift	Fachkenntnisse	12
 1	Hl	f	Liniensicht	Zauberkünste	0
 1	Hl	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	Hl	t	Erste Hilfe	Fachkenntnisse	8
 1	Hä	f	Beredsamkeit	Fachkenntnisse	8
 1	Hä	f	Dolch	Waffenfertigkeiten	5
 1	Hä	f	Geschäftstüchtigkeit	Fachkenntnisse	8
@@ -758,10 +758,10 @@ COPY "lernschema_4" FROM stdin;
 2	Hl	f	Dolch	Waffenfertigkeiten	4
 2	Hl	f	Heilen von Krankheit	Zauberkünste	0
 2	Hl	f	Heilen von Wunden	Zauberkünste	0
-2	Hl	f	Heilkunde	Fachkenntnisse	5
 2	Hl	f	Menschenkenntnis	Fachkenntnisse	5
 2	Hl	f	Reinigen	Zauberkünste	0
 2	Hl	f	Zauberkunde	Fachkenntnisse	5
+2	Hl	t	Heilkunde	Fachkenntnisse	5
 2	Hä	f	Buckler	Waffenfertigkeiten	1
 2	Hä	f	Gassenwissen	Fachkenntnisse	5
 2	Hä	f	Handaxt	Waffenfertigkeiten	5
@@ -1514,7 +1514,7 @@ COPY "lernschema_4" FROM stdin;
 3	Th	f	Alchimie	Fachkenntnisse	5
 3	Th	f	Bannen von Dunkelheit	Zauberkünste	0
 3	Th	f	Heranholen	Zauberkünste	0
-3	Th	f	Thaumatographie	Fachkenntnisse	6
+3	Th	t	Thaumatographie	Fachkenntnisse	6
 3	Tm	f	Meditieren	Fachkenntnisse	8
 3	Tm	f	Schlachtbeil	Waffenfertigkeiten	5
 3	Tm	f	Stabkeule	Waffenfertigkeiten	5

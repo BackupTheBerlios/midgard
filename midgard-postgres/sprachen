@@ -55,7 +55,7 @@ COPY "sprachen" FROM stdin;
 10	Meketisch	20	t	\N	\N	\N	\N	\N
 10	Minangpahitisch	20	\N	\N	9	\N	\N	\N
 10	Moravisch	20	\N	\N	8	\N	\N	\N
-10	Nahuatlantisch	20	\N	\N	\N	\N	\N	\N
+10	Nahuatlanisch	20	\N	\N	\N	\N	\N	\N
 10	Neu-Vallinga	20	\N	\N	10	\N	\N	\N
 10	Rawindi	20	\N	\N	9	\N	\N	\N
 10	Scharidisch	20	\N	\N	\N	\N	\N	\N

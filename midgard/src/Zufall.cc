@@ -27,12 +27,56 @@
 
 void Zufall::Voll()
 {
-   Aben->getWerte().setSpezies(getSpezies());
+  Teil(e_Vorgabe(0));
+}
+
+
+enum Zufall::B_VORGABE_BITS &operator++(enum Zufall::B_VORGABE_BITS &s)
+{  return (enum Zufall::B_VORGABE_BITS)(++(int&)s);
+}
+
+struct st_vor{bool spezies; bool typ; bool herkunft; bool st; bool gs; bool gw; bool ko; 
+                     bool in; bool zt; bool au; bool pa; bool wk; bool sb; bool b;
+              st_vor() :
+                  spezies(true),typ(true),herkunft(true),st(true),gs(true),gw(true),ko(true),
+                  in(true),zt(true),au(true),pa(true),wk(true),sb(true),b(true){}
+
+/*
+              st_vor(bool _spezies,_typ,_herkunft,_st,_gs,_gw,_ko,_in,_zt,_au,_pa,_wk,_sb,_b) :
+                  spezies(_spezies),typ(_typ),herkunft(_herkunft),st(_st),gs(_gs),gw(_gw),ko(_ko),
+                  in(_in),zt(_zt),au(_au),pa(_pa),wk(_wk),sb(_sb),b(_b){}
+*/
+              };
+      
+
+void Zufall::Teil(e_Vorgabe vorgabe)
+{
+  st_vor sv;
+  for(B_VORGABE_BITS i=B_VORGABE_BITS(0);i<B_MAX;++i)
+   {
+    if(!(vorgabe&(1<<i))) continue;
+    if (i==B_Spezies) sv.spezies=false;
+    if (i==B_Typ) sv.typ=false;
+    if (i==B_Herkunft) sv.herkunft=false;
+    if (i==B_St) sv.st=false;
+    if (i==B_Gs) sv.gs=false;
+    if (i==B_Gw) sv.gw=false;
+    if (i==B_Ko) sv.ko=false;
+    if (i==B_In) sv.in=false;
+    if (i==B_Zt) sv.zt=false;
+    if (i==B_Au) sv.au=false;
+    if (i==B_pA) sv.pa=false;
+    if (i==B_Wk) sv.wk=false;
+    if (i==B_Sb) sv.sb=false;
+    if (i==B_B)  sv.b=false;
+   }
+
+   if(sv.spezies)       Aben->getWerte().setSpezies(getSpezies());
    hauptfenster->table_grundwerte->Eigenschaften_variante(1);
    Aben->getWerte().setGeschlecht(getGeschlecht());
-   Aben->setTyp1(getTyp());
+   if(sv.typ)           Aben->setTyp1(getTyp());
    hauptfenster->table_grundwerte->on_abge_werte_setzen_clicked();
-   Aben->getWerte().setHerkunft(getLand());
+   if(sv.herkunft)      Aben->getWerte().setHerkunft(getLand());
    setMuttersprache();
    Aben->getWerte().setUeberleben(getUeberleben());
    Aben->List_Fertigkeit_ang().clear();
@@ -43,21 +87,9 @@ void Zufall::Voll()
    setWaffenBesitz();
    hauptfenster->table_lernschema->on_button_ruestung_clicked(random.integer(1,100));
    hauptfenster->table_lernschema->ausruestung_setzen();
-}
+   hauptfenster->table_grundwerte->zeige_werte();
 
 
-enum Zufall::B_VORGABE_BITS &operator++(enum Zufall::B_VORGABE_BITS &s)
-{  return (enum Zufall::B_VORGABE_BITS)(++(int&)s);
-}
-
-void Zufall::Teil(e_Vorgabe vorgabe)
-{
-  for(B_VORGABE_BITS i=B_VORGABE_BITS(0);i<B_MAX;++i)
-   {
-    if(!(vorgabe&(1<<i))) continue;
-    if (i==B_Spezies) cout << "Spezies NICHT auswürfeln\n";
-    if (i==B_Typ) cout << "Typ NICHT auswürfeln\n";
-   }
 }
 
 void Zufall::setMuttersprache()
@@ -66,6 +98,38 @@ void Zufall::setMuttersprache()
   Aben->List_Sprache().push_back(sprache);
   Aben->setMuttersprache(sprache->Name());  
 }
+
+
+////////////////////////////////////////////////////////////////////////////
+// Würfeln
+////////////////////////////////////////////////////////////////////////////
+
+void Zufall::Lernpunkte_wuerfeln(Lernpunkte &lernpunkte, VAbenteurer &A,Random &random)
+{
+  //Speziesspezifische Fertigkeiten
+  int lpspezies=0;
+  A.List_Fertigkeit()=A.getWerte().Spezies()->getFertigkeiten(lpspezies,A.getWerte());
+
+  int fachlern=random.integer(1,6)+random.integer(1,6);
+  lernpunkte.setFach(fachlern - lpspezies);
+  lernpunkte.setAllgemein(random.integer(1,6)+1);
+  lernpunkte.setUnge(random.integer(1,6));
+  if (A.Typ2()->Short()=="") lernpunkte.setWaffen(random.integer(1,6)+random.integer(1,6));
+  else                     lernpunkte.setWaffen(random.integer(1,6)+1); // Doppelcharakter
+  if (A.Typ1()->is_mage() && A.Typ2()->Short()=="")
+      lernpunkte.setZauber(random.integer(1,6)+random.integer(1,6));
+  if (A.Typ2()->is_mage() && A.Typ2()->Short()!="") 
+      lernpunkte.setZauber(random.integer(1,6)+1);
+
+
+  int age = (lernpunkte.Allgemein() + lernpunkte.Unge()
+             + lernpunkte.Fach()
+             + lernpunkte.Waffen() + lernpunkte.Zauber())/4+16;
+  A.getWerte().setAlter( age * A.getWerte().Spezies()->AlterFaktor());
+
+}
+
+
 
 WaffeBesitzLernen Zufall::WaffenBesitz_wuerfeln(const VAbenteurer &A,int wurf)
 {

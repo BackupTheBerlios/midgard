@@ -33,7 +33,8 @@ class Zufall
       Random random;
       LernListen LL;
       
-      enum B_VORGABE_BITS{B_Spezies,B_Typ,B_MAX};
+      enum B_VORGABE_BITS{B_Spezies,B_Typ,B_Herkunft,B_St,B_Gs,B_Gw,
+            B_Ko,B_In,B_Zt,B_Au,B_pA,B_Wk,B_Sb,B_B,B_MAX};
    
    public:
 
@@ -43,7 +44,12 @@ class Zufall
           LL(Database)
           {};
 
-      enum e_Vorgabe{eSpezies=1<<B_Spezies,eTyp=1<<B_Typ};
+      enum e_Vorgabe{eSpezies=1<<B_Spezies,eTyp=1<<B_Typ,
+         eHerkunft=1<<B_Herkunft,eSt=1<<B_St,eGs=1<<B_Gs,
+         eGw=1<<B_Gw,eKo=1<<B_Ko,eIn=1<<B_In,eZt=1<<B_Zt,
+         eAu=1<<B_Au,epA=1<<B_pA,eWk=1<<B_Wk,eSb=1<<B_Sb,
+         eB=1<<B_B
+        };
 
       void Voll(); // kompletten Zufallsabenteruer erzeugen
       void Teil(e_Vorgabe vorgabe);

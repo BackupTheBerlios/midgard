@@ -1,4 +1,4 @@
-// $Id: LernListen.cc,v 1.7 2002/09/10 19:55:46 thoma Exp $
+// $Id: LernListen.cc,v 1.8 2002/09/11 08:37:49 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -86,6 +86,8 @@ std::list<MidgardBasicElement_mutable> LernListen::getMBEm(const VAbenteurer& A,
        {
          VI=Lernschema::getIndex(A.getVTyp(),"Fachkenntnisse",(*i)->Name());
          i->setErfolgswert(cH_Fertigkeit(*i)->Anfangswert0()+cH_Fertigkeit(*i)->AttributBonus(A.getWerte()));
+         i->setPflicht(D.lernschema.get_Pflicht(VI));
+//cout << (*i)->Name()<<"  ?: "<<i->Erfolgswert()<<'\t'<<i->Pflicht()<<'\n';
        }
       if(was==lWaff)
          VI=Lernschema::getIndex(A.getVTyp(),"Waffenfertigkeiten",(*i)->Name());

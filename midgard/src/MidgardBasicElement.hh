@@ -223,14 +223,15 @@ class MidgardBasicElement_mutable : public cH_MidgardBasicElement
 
    class sort {
       public:
-         enum esort {LERNPUNKTE,NAME,ERFOLGSWERT};
+         enum esort {LERNPUNKTEPFLICHT,NAME,ERFOLGSWERT};
       private:
          esort es;
       public:
          sort(esort _es):es(_es) {}
          bool operator() (MidgardBasicElement_mutable x,MidgardBasicElement_mutable y) const
            { switch(es) {
-               case(LERNPUNKTE) : return x.Lernpunkte() < y.Lernpunkte()  ;
+               case(LERNPUNKTEPFLICHT) : return x.Pflicht() > y.Pflicht() ||
+                  (x.Pflicht() == y.Pflicht()  &&  x.Lernpunkte() < y.Lernpunkte() ) ;
                case(NAME) : return x->Name() < y->Name()  ;
                case(ERFOLGSWERT): return x.Erfolgswert() > y.Erfolgswert();
            }}

@@ -42,6 +42,7 @@ class table_zufall : public table_zufall_glade
       // automatisch von grale erzeugte Methoden
       void on_button_zufall_voll_clicked();
       void on_togglebutton_vorgaben_toggled();
+      void on_checkbutton_werte_toggled();
 
 };
 
