@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.56 2002/08/20 06:12:44 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.57 2002/08/20 09:06:50 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -114,20 +114,26 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  write_grundwerte(fout);
  /////////////////////////////////////////////////////////////////////////////
  // Sprachen und Schriften
- std::vector<Sprache::st_sprachen_schrift> S;
- std::list<MidgardBasicElement_mutable> verwandteSprachen;
+// std::vector<Sprache::st_sprachen_schrift> S;
+ std::vector<Sprache_und_Schrift> S;
+// std::list<MidgardBasicElement_mutable> verwandteSprachen;
  for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Sprache().begin();i!=hauptfenster->getChar().List_Sprache().end();++i)
    {  //cH_Sprache s(*i);
-      std::list<MidgardBasicElement_mutable> tmplist=cH_Sprache(*i)->VerwandteSprachen((*i).Erfolgswert(),hauptfenster->getChar().List_Sprache(),hauptfenster->getCDatabase().Sprache);
-      verwandteSprachen.splice(verwandteSprachen.end(),tmplist);
-      vector<pair<std::string,int> > vs=cH_Sprache(*i)->SchriftWert(hauptfenster->getChar().List_Schrift());
-      S.push_back(Sprache::st_sprachen_schrift(*i,vs));
+//      std::list<MidgardBasicElement_mutable> tmplist=cH_Sprache(*i)->VerwandteSprachen((*i).Erfolgswert(),hauptfenster->getChar().List_Sprache(),hauptfenster->getCDatabase().Sprache);
+//      verwandteSprachen.splice(verwandteSprachen.end(),tmplist);
+      
+      Sprache_und_Schrift sus=cH_Sprache(*i)->SchriftWert(i->Erfolgswert(),hauptfenster->getChar().List_Schrift());
+      S.push_back(sus);
+//      vector<pair<std::string,int> > vs=cH_Sprache(*i)->SchriftWert(hauptfenster->getChar().List_Schrift());
+//      S.push_back(Sprache::st_sprachen_schrift(*i,vs));
    }
- verwandteSprachen=Sprache::cleanVerwandteSprachen(verwandteSprachen);
+// verwandteSprachen=Sprache::cleanVerwandteSprachen(verwandteSprachen);
+ std::list<MidgardBasicElement_mutable> verwandteSprachen=Sprache::getVerwandteSprachen(hauptfenster->getChar().List_Sprache(),hauptfenster->getCDatabase().Sprache);
  for(std::list<MidgardBasicElement_mutable>::const_iterator i=verwandteSprachen.begin();i!=verwandteSprachen.end();++i)
    { //cH_Sprache s(*i);
      if(i->ist_gelernt(hauptfenster->getChar().List_Sprache())) continue;
-     S.push_back(Sprache::st_sprachen_schrift(*i));
+//     S.push_back(Sprache::st_sprachen_schrift(*i));
+     S.push_back(Sprache_und_Schrift(*i));
    }
  write_sprachen(fout,S);
  if(S.size()>maxsprach) bool_sprach=true;
@@ -208,7 +214,7 @@ void LaTeX_drucken::LaTeX_write_empty_values(ostream &fout,const std::string &in
  LaTeX_newsavebox(fout);
  write_grundwerte(fout,true);
  
- std::vector<Sprache::st_sprachen_schrift> L;
+ std::vector<Sprache_und_Schrift> L;
  write_sprachen(fout,L);
  fout << "\\newcommand{\\beruf}{}\n" ;
  std::list<MidgardBasicElement_mutable> F;
@@ -403,25 +409,25 @@ void LaTeX_drucken::write_grundwerte(ostream &fout,bool empty=false)
 }
 
 
-void LaTeX_drucken::write_sprachen(ostream &fout,const std::vector<Sprache::st_sprachen_schrift>& L,bool longlist=false)
+void LaTeX_drucken::write_sprachen(ostream &fout,const std::vector<Sprache_und_Schrift>& L,bool longlist=false)
 {
   unsigned int sprachanz=0;
-  for(std::vector<Sprache::st_sprachen_schrift>::const_iterator i=L.begin();i!=L.end();++i)
+  for(std::vector<Sprache_und_Schrift>::const_iterator i=L.begin();i!=L.end();++i)
    {
       std::string a = LaTeX_string(sprachanz++);
       if(a=="0") break;
       if(!longlist) fout << "\\newcommand{\\spra"<<a<<"}";
-      fout << "{\\scriptsize " << LaTeX_scale(i->sprache->Name(),20,"2.6cm") <<"}\n";
+      fout << "{\\scriptsize " << LaTeX_scale(i->getSprache()->Name(),20,"2.6cm") <<"}\n";
 
       if(!longlist) fout << "\\newcommand{\\spraw"<<a<<"}";
       else fout << " & ";
-      fout << "{\\scriptsize +"<< i->sprache.Erfolgswert() <<"}\n";
+      fout << "{\\scriptsize +"<< i->getSprache().Erfolgswert() <<"}\n";
 
       std::string ss;
-      for(vector<pair<std::string,int> >::const_iterator j=i->vs.begin();j!=i->vs.end();)
+      for(std::vector<Sprache_und_Schrift::st_sus>::const_iterator j=i->getSchriften().begin();j!=i->getSchriften().end();)
        {
-         ss+= j->first + "(+"+itos(j->second)+")";
-         if(++j!=i->vs.end())  ss+=", ";
+         ss+= j->schrift + "(+"+itos(j->wert)+")";
+         if(++j!=i->getSchriften().end())  ss+=", ";
        }
       if(!longlist) fout << "\\newcommand{\\schr"<<a<<"}";
       else fout << " & ";
@@ -578,7 +584,7 @@ void LaTeX_drucken::write_universelle(ostream &fout)
 }
 
 
-void LaTeX_drucken::write_long_list(ostream &fout,const std::vector<Sprache::st_sprachen_schrift>& S,
+void LaTeX_drucken::write_long_list(ostream &fout,const std::vector<Sprache_und_Schrift>& S,
                      const std::list<MidgardBasicElement_mutable> &F,
                      const std::list<WaffeBesitz> &WB_druck)
 {

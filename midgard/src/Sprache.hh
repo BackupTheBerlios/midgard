@@ -1,4 +1,4 @@
-// $Id: Sprache.hh,v 1.28 2002/08/20 06:12:44 thoma Exp $               
+// $Id: Sprache.hh,v 1.29 2002/08/20 09:06:50 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -27,8 +27,9 @@
 class cH_Sprache;
 class VAbenteurer;
 class midgard_CG;
+//class cH_Sprache;
+//class Sprache_und_Schrift;
 
-/*
 class Sprache_und_Schrift
 {
    public:
@@ -36,18 +37,22 @@ class Sprache_und_Schrift
              st_sus(std::string s,int w) :schrift(s),wert(w) {}};
    private:
       MidgardBasicElement_mutable sprache;
+//      cH_Sprache sprache;
       std::vector<st_sus> schriften;
    public:
       Sprache_und_Schrift(const MidgardBasicElement_mutable& M)
+//      Sprache_und_Schrift(cH_Sprache M)
          : sprache(M) {}
 
       MidgardBasicElement_mutable getSprache() const {return sprache;}
-      std::vector<st_sus> getSchriften() const {return schriften;}
+      const std::vector<st_sus>& getSchriften() const {return schriften;}
+      void push_back(std::string s,int w) {schriften.push_back(st_sus(s,w));};
 };
-*/
+
 
 class Sprache : public MidgardBasicElement
 {
+/*
   public:
          struct st_sprachen_schrift{MidgardBasicElement_mutable sprache;
                std::vector<pair<std::string,int> > vs;
@@ -57,7 +62,7 @@ class Sprache : public MidgardBasicElement
                st_sprachen_schrift(const MidgardBasicElement_mutable &s)
                     :sprache(s) {}
                };
-
+*/
   private:
      std::vector<std::string> VSchrift;
      bool alte_sprache,minderheit,muttersprache;
@@ -79,14 +84,14 @@ class Sprache : public MidgardBasicElement
 
    std::string Schriften() const;
    const std::vector<std::string> &Schrift() const  {return VSchrift; }
-   const std::vector<pair<std::string,int> > SchriftWert(const std::list<MidgardBasicElement_mutable>& list_Schrift) const;
+   const Sprache_und_Schrift SchriftWert(int erfolgswert,const std::list<MidgardBasicElement_mutable>& list_Schrift) const;
 
    bool Alte_Sprache() const {return alte_sprache;}    
    bool Minderheit() const {return minderheit;}    
    bool Muttersprache() const {return muttersprache;}    
    int MaxErfolgswert(const Grundwerte& w,const std::vector<cH_Typen>& Typ) const;
    int Kosten(const Grundwerte& w,const std::vector<cH_Typen>& Typ) const;
-//private:
+private:
    std::list<MidgardBasicElement_mutable> VerwandteSprachen(const int erfolgswert,const std::list<MidgardBasicElement_mutable>& gelernte_listSprache,const std::list<cH_MidgardBasicElement>& listSprache) const;
    static std::list<MidgardBasicElement_mutable> cleanVerwandteSprachen(std::list<MidgardBasicElement_mutable> L);
 public:
@@ -131,4 +136,7 @@ class Sprachen_All
    Sprachen_All(Gtk::ProgressBar *progressbar);
    std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
 };
+
+
+
 #endif

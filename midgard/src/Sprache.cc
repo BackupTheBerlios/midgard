@@ -98,18 +98,23 @@ std::string Sprache::Schriften() const
 
 
 
-const vector<pair<std::string,int> > Sprache::SchriftWert(const std::list<MidgardBasicElement_mutable>& list_Schrift) const 
+const Sprache_und_Schrift Sprache::SchriftWert(int erfolgswert,const std::list<MidgardBasicElement_mutable>& list_Schrift) const 
 {
- vector<pair<std::string,int> > vs;
+// vector<pair<std::string,int> > vs;
+ MidgardBasicElement_mutable mbe(&*this);
+ mbe.setErfolgswert(erfolgswert);
+ Sprache_und_Schrift sus(mbe);
  for(vector<std::string>::const_iterator i=VSchrift.begin();i!=VSchrift.end();++i)
   {  
    for(std::list<MidgardBasicElement_mutable>::const_iterator j=list_Schrift.begin();j!=list_Schrift.end();++j)
     {
       if(*i == (*j)->Name()) // Schrift ist gelernt
-        vs.push_back(pair<std::string,int>(*i,(*j).Erfolgswert()));
+         sus.push_back(*i,j->Erfolgswert());
+//        vs.push_back(pair<std::string,int>(*i,(*j).Erfolgswert()));
     }
   }
- return vs;
+// return vs;
+  return sus;
 }
 
 bool Sprache::Sprachgruppe(const std::vector<int>& V2) const
