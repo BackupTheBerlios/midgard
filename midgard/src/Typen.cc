@@ -66,6 +66,7 @@ Typen::Typen(const Tag *tag)
  land=tag->getBoolAttr("Land",true);
  stadt=tag->getBoolAttr("Stadt",true);
  sprueche_mit_pp=tag->getBoolAttr("SprücheMitPraxisPunkten");
+ nsc_only=tag->getBoolAttr("NSC_only");
 }
 
 bool Typen::Spezialwaffe() const
