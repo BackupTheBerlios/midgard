@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.36 2002/07/08 09:17:16 christof Exp $
+// $Id: fertigk_exp.cc,v 1.37 2002/07/08 09:26:31 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -206,7 +206,7 @@ void fert_speichern(Tag &o)
  }
   if (!region.empty())
  { FetchIStream is;
-   Query q("select name from lernschema_4 "
+   Query q("select distinct name from lernschema_4 "
    	"join typen on typ=typs "
    	"where (name like 'Schreiben:%' or name like 'Sprechen:%') "
    	"and region='"+region+"' "
