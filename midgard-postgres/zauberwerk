@@ -48,8 +48,8 @@ Farbletter (Orange)	200	magische Letter	1		1 GS	\N	\N
 Farbletter (Rot)	200	magische Letter	1		1 GS	\N	\N
 Farbletter (Ultraviolett)	200	magische Letter	1		1 GS	\N	\N
 Farbletter (Violett)	200	magische Letter	1		1 GS	\N	\N
-Feuerkugel	2000	Groﬂes Siegel	2	Stufe*10 min	10 GS	\N	\N
 Feuerkugel	800	Schutzrune	2	3 Stunden	5 GS	\N	\N
+Feuerkugel	2000	Groﬂes Siegel	2	Stufe*10 min	10 GS	\N	\N
 Feuerring	2000	Groﬂes Siegel	4	Stufe*10 min	10 GS	\N	\N
 Flohpulver aktivieren	400	Alchimistisches Zaubermittel	2	3 Tage	70 GS	\N	\N
 Funkenregen	400	Groﬂes Siegel	2	Stufe*10 min	10 GS	\N	\N
@@ -74,12 +74,12 @@ Kˆrperbemalung	500	Kˆrperbemalung	3	1 Tag	60/120/180 GS	\N	\N
 Kˆrperbemalung	1000	Kˆrperbemalung	4	1 Tag	100/200/300 GS	\N	\N
 Liebestrank aktivieren	800	Alchimistisches Zaubermittel	3	1 Monat	300 GS 	\N	\N
 Liebeszauber	2000	Augensalbe	4		80 GS	\N	\N
-L‰hmung	3000	Groﬂes Siegel	5	Stufe*10 min	10 GS	\N	\N
 L‰hmung	500	Schutzrune	5	3 Stunden	5 GS	\N	\N
+L‰hmung	3000	Groﬂes Siegel	5	Stufe*10 min	10 GS	\N	\N
 Macht ¸ber Menschen	500	Augensalbe	3		60 GS	\N	\N
 Macht ¸ber die belebte Natur	300	Augensalbe	2		40 GS	\N	\N
-Namenloses Grauen	1600	Groﬂes Siegel	4	Stufe*10 min	10 GS	\N	\N
 Namenloses Grauen	400	Schutzrune	4	3 Stunden	5 GS	\N	\N
+Namenloses Grauen	1600	Groﬂes Siegel	4	Stufe*10 min	10 GS	\N	\N
 Nebel	1000	Groﬂes Siegel	4	Stufe*10 min	10 GS	\N	\N
 Opferletter (D‰monen)	1000	magische Letter	4		1 GS	\N	\N
 Opferletter (Elemetarwesen)	1000	magische Letter	4		1 GS	\N	\N
@@ -106,10 +106,10 @@ Schildamulett verzaubern	300	Amulett	3	1 Monat	4000 GS/ABW	\N	\N
 Schildamulett verzaubern	400	Amulett	4	1 Monat	5000 GS/ABW	\N	\N
 Schildamulett verzaubern	500	Amulett	5	1 Monat	6000 GS/ABW	\N	\N
 Schildamulett verzaubern	600	Amulett	6	1 Monat	7000 GS/ABW	\N	\N
-Schlaf	200	Groﬂes Siegel	1	Stufe*10 min	10 GS	\N	\N
 Schlaf	100	Schutzrune	1	3 Stunden	5 GS	\N	\N
-Schmerzen	200	Groﬂes Siegel	2	Stufe*10 min	10 GS	\N	\N
+Schlaf	200	Groﬂes Siegel	1	Stufe*10 min	10 GS	\N	\N
 Schmerzen	100	Schutzrune	2	3 Stunden	5 GS	\N	\N
+Schmerzen	200	Groﬂes Siegel	2	Stufe*10 min	10 GS	\N	\N
 Schnellkraut aktivieren	800	Pflanzliches Zaubermittel	3	3 Tage	200 GS	\N	\N
 Schutzamulett verzaubern	300	Amulett	1	1 Monat	600 GS/ABW	\N	\N
 Schutzamulett verzaubern	300	Amulett	2	1 Monat	1200 GS/ABW	\N	\N
@@ -135,8 +135,8 @@ Talisman verzaubern	500	Talisman	3	1 Tag	60/120/180 GS	\N	\N
 Talisman verzaubern	1000	Talisman	4	1 Tag	100/200/300 GS	\N	\N
 Tierisches Handeln	3000	Augensalbe	5		100 GS	\N	\N
 Tierisches Handeln	3000	Groﬂes Siegel	5	Stufe*10 min	10 GS	\N	\N
-Todeshauch	800	Groﬂes Siegel	3	Stufe*10 min	10 GS	\N	\N
 Todeshauch	400	Schutzrune	3	3 Stunden	5 GS	\N	\N
+Todeshauch	800	Groﬂes Siegel	3	Stufe*10 min	10 GS	\N	\N
 Trunk der Macht ¸ber Hunde aktivieren	400	Alchimistisches Zaubermittel	2	7 Tage	200 GS 	\N	\N
 Trunk der Macht ¸ber Menschen aktivieren	800	Alchimistisches Zaubermittel	4	15 Tage	500 GS 	\N	\N
 Trunk der Macht ¸ber Orks aktivieren	600	Alchimistisches Zaubermittel	3	7 Tage	300 GS 	\N	\N
@@ -145,21 +145,21 @@ Trunk des Schwerelosigkeit aktivieren	1200	Alchimistisches Zaubermittel	4	15 Tag
 Trunk des Unsichtbarkeit aktivieren	800	Alchimistisches Zaubermittel	3	7 Tage	300 GS 	\N	\N
 Trunk des Verwandlung aktivieren	2000	Alchimistisches Zaubermittel	5	7 Tage	500 GS 	\N	\N
 Untotenamulett verzaubern	500	Amulett	3	1 Monat	20000 GS/ABW	\N	\N
-Verdorren	1000	Groﬂes Siegel	3	Stufe*10 min	10 GS	\N	\N
 Verdorren	600	Schutzrune	3	3 Stunden	5 GS	\N	\N
-Vereisen	2000	Groﬂes Siegel	4	Stufe*10 min	10 GS	\N	\N
+Verdorren	1000	Groﬂes Siegel	3	Stufe*10 min	10 GS	\N	\N
 Vereisen	1000	Schutzrune	4	3 Stunden	5 GS	\N	\N
+Vereisen	2000	Groﬂes Siegel	4	Stufe*10 min	10 GS	\N	\N
 Verlangsamen	800	Groﬂes Siegel	3	Stufe*10 min	10 GS	\N	\N
 Versetzen	2000	Groﬂes Siegel	4	Stufe*10 min	10 GS	\N	\N
-Versteinern	3000	Groﬂes Siegel	5	Stufe*10 min	10 GS	\N	\N
 Versteinern	1000	Schutzrune	5	3 Stunden	5 GS	\N	\N
+Versteinern	3000	Groﬂes Siegel	5	Stufe*10 min	10 GS	\N	\N
 Verwandeln	1000	Schutzrune	6	3 Stunden	5 GS	\N	\N
 Verwandlung	8000	Groﬂes Siegel	6	Stufe*10 min	10 GS	\N	\N
 Waffen verzaubern (2)	800		2	1 Monat	100 GS + 5*Waffenpreis	\N	\N
 Waffen verzaubern (4)	1600		4	1 Monat	200 GS + 5*Waffenpreis	\N	\N
 Waffen verzaubern (6)	3500		6	1 Monat	300 GS + 5*Waffenpreis	\N	\N
-Wahnsinn	3000	Groﬂes Siegel	6	Stufe*10 min	10 GS	\N	\N
 Wahnsinn	600	Schutzrune	6	3 Stunden	5 GS	\N	\N
+Wahnsinn	3000	Groﬂes Siegel	6	Stufe*10 min	10 GS	\N	\N
 Wahrsehen	3000	Augensalbe	5		100 GS	\N	\N
 Wasser weihen	200	Weihwasser	1	1 Tag	30 GS	\N	\N
 Weihen	20000		G			\N	\N
