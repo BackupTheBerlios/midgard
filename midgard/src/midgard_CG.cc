@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.139 2002/02/06 12:14:56 thoma Exp $
+// $Id: midgard_CG.cc,v 1.140 2002/02/06 13:53:56 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -132,12 +132,13 @@ void midgard_CG::show_gtk()
  // Magie anzeigen?
  if (Typ[0]->Zaubern()=="j" || Typ[0]->Zaubern() == "z" || magie_bool) 
    { if (Typ[0]->Short()=="Ma" || Typ[0]->Short() == "eBe") magier_spezialgebiet("show");
-     else magier_spezialgebiet("hide");
+     else 
      button_zauber->set_sensitive(true);
      table_magier_steigern->show();
    }
  else 
    { 
+     magier_spezialgebiet("hide");
      button_zauber->set_sensitive(false);
      table_magier_steigern->hide();
    }
@@ -235,12 +236,6 @@ void midgard_CG::clear_listen()
 
 void midgard_CG::clear_gtk()
 {
-//   berufe_clist->clear();
-//   waffen_clist->clear();
-//   fertigkeiten_clist->clear();
-//   zauber_clist->clear();
-//   clist_kido->clear();
-
    alte_fert_tree->clear();
    neue_fert_tree->clear();
    alte_waffen_tree->clear();
@@ -279,7 +274,6 @@ void midgard_CG::on_neuer_charakter_clicked()
    button_ruestung->set_sensitive(false);
 
    edit_lernpunkte(false);
-//   vbox_beruferfolgswert->hide();
 
    button_fachkenntnisse->set_sensitive(false);
    button_allgemeinwissen->set_sensitive(false);
@@ -297,11 +291,8 @@ void midgard_CG::on_neuer_charakter_clicked()
    table_artikel->hide();
    togglebutton_gruppe_neu->hide(); // nicht implementiert
 
-//   button_beruf_erfolgswert->set_sensitive(false);
-//   button_beruf_erfolgswert->hide();
-//   button_fertigkeiten->set_sensitive(false);
+   table_berufsname->hide();
    button_kido_auswahl->set_sensitive(false);       
-//   table_lernschema_buttons->set_sensitive(false);
 
    Werte.clear();
    lernpunkte.clear();
@@ -317,6 +308,7 @@ void midgard_CG::on_neuer_charakter_clicked()
 //cout << "HausregelCheck(EPsteigern).active "<<HausregelCheck(EPsteigern).active<<'\n';
 //   checkbutton_EP_Geld->set_active(HausregelCheck(EPsteigern).active);
    checkbutton_EP_Geld->set_active(true);
+   
 
    Database.GradAnstieg.set_Grad_Basiswerte(1);
 //   vscale_EP_Gold->set_digits(Database.GradAnstieg.get_Steigern_EP_Prozent());

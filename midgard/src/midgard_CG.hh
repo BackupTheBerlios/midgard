@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.156 2002/02/06 10:23:51 thoma Exp $
+// $Id: midgard_CG.hh,v 1.157 2002/02/06 13:53:56 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -296,29 +296,15 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         gint on_button_beruf_release_event(GdkEventButton *ev);
         void on_entry_berufsname_activate();
         void on_kido_wahl_clicked();
-//        void show_kido();
         void stil_optionmenue();
-//        void show_berufe();
-//        void show_waffen();
-//        void show_zauber();
         void zeige_lernpunkte();
-//        void zeige_notebook();
-        gint on_beruf_erfolgswert_release_event(GdkEventButton *ev);
-        void on_spinbutton_beruferfolgesert_activate();
         gint on_angeborene_fertigkeit_button_release_event(GdkEventButton *ev);
         void on_angeborene_fertigkeit_clicked();
         void on_angeborene_fertigkeit_right_clicked();
         void universal_Fertigkeiten();
         void on_spezialwaffe_clicked();
         void checkbutton_original(bool active);
-/*
-        void on_checkbutton_info_fenster_menu();
-        void on_checkbutton_pics_menu();
-*/
         void lernschema_sensitive(bool active);
-/*
-        void on_checkbutton_version_menu();
-*/
         void Pics(bool b);
         void on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_Region region);
 
