@@ -31,7 +31,7 @@ void Zauberwerk::get_Zauberwerk()
    char db_region[10];
   exec sql end declare section;
   std::string squery = "SELECT kosten_gfp, 
-      zeitaufwand,kosten, coalesce(region,'')
+      coalesce(zeitaufwand,''),kosten, coalesce(region,'')
       FROM zauberwerk 
       WHERE name = '"+Name()+"' and art = '"+Art()+"' and stufe = '"+Stufe()+"'";
    strncpy(query,squery.c_str(),sizeof(query));

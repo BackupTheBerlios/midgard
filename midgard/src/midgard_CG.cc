@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.102 2001/12/31 16:06:34 thoma Exp $
+// $Id: midgard_CG.cc,v 1.103 2002/01/03 14:54:49 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -42,6 +42,7 @@
 //#include "Typen.hh"
 #include "Praxispunkte.hh"
 #include <gtk--/notebook.h>
+#include  <Aux/SQLerror.h>
 
 midgard_CG::midgard_CG(int argc,char **argv)
 :menu(0)
@@ -57,6 +58,7 @@ midgard_CG::midgard_CG(int argc,char **argv)
 void midgard_CG::get_Database()
 {
    Midgard_Info *MI = manage(new Midgard_Info(this,true));
+   try{
    Database = st_Database( Laender_All(MI->get_progressbar_laender()).get_All(),
                            Ruestung_All(MI->get_progressbar_ruestung()).get_All(),
                            Lernschema(MI->get_progressbar_lernschema()),
@@ -80,6 +82,7 @@ void midgard_CG::get_Database()
                            Praxispunkte(MI->get_progressbar_praxispunkte()),
                            Preise_All(MI->get_progressbar_preise()).get_All(),
                            PreiseMod_All(MI->get_progressbar_preise()).get_All());
+   }catch(SQLerror &e) {cerr<< e.what()<<'\n'; return;}
    MI->on_button_close_clicked();
 }
 

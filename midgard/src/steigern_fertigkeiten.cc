@@ -118,6 +118,7 @@ void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
 
 void midgard_CG::fillClistLand(const cH_MidgardBasicElement &MBE)
 {
+  clist_landauswahl->clear();
   Gtk::OStream os(clist_landauswahl);
   for (std::vector<cH_Land>::const_iterator i=Database.Laender.begin();i!=Database.Laender.end();++i)
    {
@@ -132,7 +133,6 @@ void midgard_CG::on_clist_landauswahl_select_row(gint row, gint column, GdkEvent
 {
   std::string land = clist_landauswahl->get_text(row,0);
   MidgardBasicElement *MBE=static_cast<MidgardBasicElement*>(clist_landauswahl->selection().begin()->get_data());
-
   cH_Fertigkeit(MBE)->setZusatz(land);
   scrolledwindow_landauswahl->hide();
   on_fertigkeiten_laden_clicked();
