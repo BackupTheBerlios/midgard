@@ -13,9 +13,9 @@
   <abgeleiteteEigenschaften Au="62" pA="92" Wk="81" Sb="95" B="25" SG="5"/>
   <Erfolgswerte Abwehr="14" Zaubern="2" ZauberResistenz="13"/>
   <Gesundheit LP="16" AP="50"/>
-  <Beschreibung Alter="28" Gestalt="schlank" Gewicht="53" Größe="160" Stand="Mittelschicht" Herkunft="KanThaiPan" Glaube="ChenMen"/>
-  <Vermögen GS="250"/>
-  <Steigern GFP="7231" AEP="480" KEP="50" Basiswerte="1" benötigte_Tage="315">
+  <Beschreibung Alter="29" Gestalt="schlank" Gewicht="53" Größe="160" Stand="Mittelschicht" Herkunft="KanThaiPan" Glaube="ChenMen"/>
+  <Vermögen GS="140"/>
+  <Steigern GFP="7936" AEP="61" EPproGFP="67" Basiswerte="1" benötigte_Tage="29">
    <Praxispunkte/>
   </Steigern>
   <Text/>
@@ -52,15 +52,21 @@
    <Fertigkeit Bezeichnung="KarumiJutsu" Wert="17"/>
    <Fertigkeit Bezeichnung="KiDo" Wert="17" Praxispunkte="1"/>
    <Fertigkeit Bezeichnung="Klettern" Wert="20"/>
+   <Fertigkeit Bezeichnung="Laufen" Wert="5"/>
+   <Fertigkeit Bezeichnung="Lippenlesen" Wert="6"/>
    <Fertigkeit Bezeichnung="Meditieren" Wert="13"/>
    <Fertigkeit Bezeichnung="Meucheln" Wert="10"/>
    <Fertigkeit Bezeichnung="NinJutsu" Wert="8"/>
    <Fertigkeit Bezeichnung="Pflanzenkunde" Wert="4"/>
    <Fertigkeit Bezeichnung="Rudern" Wert="12"/>
    <Fertigkeit Bezeichnung="Scharfschießen" Wert="8" Zusatz="leichte Armbrust"/>
+   <Fertigkeit Bezeichnung="Schwimmen" Wert="10"/>
    <Fertigkeit Bezeichnung="Springen" Wert="15"/>
    <Fertigkeit Bezeichnung="TaiTschi" Wert="17"/>
    <Fertigkeit Bezeichnung="Wahrnehmung" Wert="6"/>
+   <Fertigkeit Bezeichnung="Winden" Wert="5"/>
+   <Fertigkeit Bezeichnung="Überleben im Gebirge" Wert="11"/>
+   <Fertigkeit Bezeichnung="Überleben im Schnee" Wert="9"/>
    <Waffe Bezeichnung="Dolch" Wert="11"/>
    <Waffe Bezeichnung="leichte Armbrust" Wert="10"/>
    <Waffe Bezeichnung="waffenloser Kampf" Wert="12" Praxispunkte="2"/>
