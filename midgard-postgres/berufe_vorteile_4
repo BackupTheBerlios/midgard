@@ -54,7 +54,6 @@ Gaukler	Stehlen
 Gaukler	Gassenwissen
 Goldschmied	Schlösser öffnen
 Grobschmied	Athletik
-Hirte	Überleben
 Hirte	Tierkunde
 Sklavenhändler	Menschenkenntnis
 Karawanenführer	Überleben in der Wüste
@@ -82,12 +81,10 @@ Bootsbauer	Rudern
 Schlosser	Schlösser öffnen
 Schmuggler	Schleichen
 Schreiber	Sprache
-Schreiber	Lesen/Schreiben
 Seemann	Rudern
 Seemann	Klettern
 Wagner	Wagenlenken
 Verwalter	Rechnen
-Verwalter	Lesen/Schreiben
 Vorarbeiter	Menschenkenntnis
 Vorarbeiter	Athletik
 Vorkoster	Giftmischen
@@ -108,7 +105,6 @@ Schlangenbeschwörer	Schlangen beschwören
 Dewadasi	Tanzen
 Dewadasi	Natya
 Akrobat	Akrobatik
-Alchimist	Alchimie
 Arzt	Heilkunde
 Aufseher	Menschenkenntnis
 Bergmann	Baukunde
@@ -169,4 +165,7 @@ Winzer	Schmecken+10
 Brenner	Trinken
 Brenner	Schmecken+10
 Koch	Schmecken+10
+Alchimist	Alchemie
+Schreiber	Schreiben
+Verwalter	Schreiben
 \.

@@ -134,15 +134,12 @@ Kampf zu Srimara	\N	21	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Kenntnis der fünf Klassiker	\N	\N	\N	11	\N	\N	\N	\N	\N		\N
 Abrichten	\N	\N	\N	\N	\N	\N	61	\N	\N	\N	\N
 Akrobatik	\N	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Alchemie	\N	0	\N	81	\N	\N	\N	\N	\N	\N	61
 Ballista bedienen	\N	0	\N	21	\N	\N	\N	\N	\N	\N	61
 Baukunde	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
 Beschatten	\N	61	\N	\N	\N	\N	-80	\N	0	\N	\N
 Bogen zu Pferd	\N	\N	\N	\N	\N	\N	\N	\N	\N	Reiten	31
-Erste Hilfe	\N	0	\N	31	\N	\N	\N	\N	31	31	31
 Fälschen	\N	0	\N	0	\N	\N	\N	\N	\N	Lesen/Schreiben	61
 Fallenmechanik	\N	0	\N	0	\N	\N	\N	\N	\N	\N	61
-Fallenstellen	\N	0	\N	\N	\N	\N	\N	\N	\N	31	31
 Fangen	\N	0	\N	\N	\N	\N	\N	\N	\N	\N	31
 Gassenwissen	\N	\N	\N	61	\N	\N	31	\N	\N	\N	\N
 Gaukeln	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12
@@ -165,7 +162,6 @@ Schauspielern	\N	\N	\N	\N	\N	\N	61	\N	\N	\N	\N
 Schießen vom Streitwagen	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	31
 Schiffsführung	\N	\N	\N	31	\N	\N	61	\N	\N	\N	\N
 Schlittenfahren	\N	0	\N	\N	\N	\N	\N	\N	\N	\N	21
-Schlösser öffnen	\N	0	\N	\N	\N	\N	\N	\N	\N	61	61
 Seemannsgang	\N	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Seilkunst	\N	0	\N	\N	\N	\N	\N	\N	\N	\N	61
 Singen	\N	\N	\N	\N	\N	\N	31	\N	\N		\N
@@ -189,6 +185,10 @@ Gastlandsprache	\N	\N	\N	1	\N	\N	\N	\N	\N	\N	\N
 Muttersprache	\N	\N	\N	1	\N	\N	\N	\N	\N	\N	\N
 Muttersprache schreiben	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
 Schreiben	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
+Alchemie	\N	\N	\N	81	\N	\N	\N	\N	\N	\N	61
+Fallenstellen	\N	0	\N	\N	\N	\N	\N	\N	\N	\N	31
+Erste Hilfe	\N	0	\N	31	\N	\N	\N	\N	31	\N	31
+Schlösser öffnen	\N	0	\N	\N	\N	\N	\N	\N	\N	\N	61
 \.
 --
 -- TOC Entry ID 3 (OID 30118263)
