@@ -4,156 +4,128 @@
   <title>Fenster - Grundwerte</title>
   <link rel="shortcut icon" href="image/magus-fav.ico">
   <map name="Main_Win_GW">
-  <area shape=rect coords="1,1,315,35" href="Main_Reiter.html">
-  <area shape=rect coords="4,36,355,152" href="GW_Main.html#BUTT">
-  <area shape=rect coords="2,160,439,354" href="GW_Main.html#VAL">
+    <area shape=rect coords="0,4,515,36" href="element.html#NOTE">
+    <area shape=rect coords="38,1,492,114" href="GW_Main.html#BUTT">
+    <area shape=rect coords="118,1,492,366" href="GW_Main.html#VAL">
   </map>
   <map name="GW_But">
-  <area shape=rect coords="4,4,94,76" href="#NC">
-  <area shape=rect coords="96,4,184,76" href="#SC">
-  <area shape=rect coords="186,4,276,76" href="#LC">
-  <area shape=rect coords="285,4,375,76" href="#DESCR">
-  <area shape=rect coords="378,4,467,76" href="#LATEX">
-  <area shape=rect coords="479,4,569,76" href="#CLOSE">
-  <area shape=rect coords="69,82,147,151" href="#GW_W">
-  <area shape=rect coords="149,82,206,151" href="#AW_W">
-  <area shape=rect coords="208,82,276,151" href="#EDIT">
-  <area shape=rect coords="295,82,364,151" href="#MENU">
-  <area shape=rect coords="366,82,434,151" href="#INFO">
-  <area shape=rect coords="436,82,504,151" href="#HELP">
-  <area shape=rect coords="7,163,177,194" href="#TYP">
-  <area shape=rect coords="408,163,509,194" href="#Spezies">
+  <area shape=rect coords="4,48,110,72" href="#Spezies">
+  <area shape=rect coords="112,29,176,92" href="#Mouse">
+  <area shape=rect coords="178,27,251,94" href="#GW">
+  <area shape=rect coords="252,27,333,94" href="#Geschl">
+  <area shape=rect coords="335,48,536,72" href="#Typ">
+  <area shape=rect coords="538,27,586,94" href="#Herk">
+  <area shape=rect coords="588,27,662,94" href="#AGW">
+  <area shape=rect coords="664,27,736,94" href="#WerteEdit">
   </map>
 </head>
 <body>
   <a name="TOP"></a>
-  <h2>Grundwerte</h2>
+  <h1>Grundwerte</h1>
   <p>
-  <img src="image/MCG-Full-66..png" usemap="#Main_Win_GW" alt="Hauptfenster des MCG - Grundwerte" border="0" width="629" height="358">
+  <img src="image/MAIN_GW.png" usemap="#Main_Win_GW" alt="Hauptfenster des MCG - Grundwerte" border="0" width="695" height="376">
+
   <p>
   Zurück zur <a href="element.html">Vorseite</a><br>
   <p>
   <a name="BUT"></a>
-  <h3>Die Buttons des Grundwerte im Einzelnen:</h3><p>
-  (Mit der Maus auswählen)<p>
-  <img src="image/Char-Buttons.png" usemap="#GW_But" border=0>
-  <p>
-  <a href="#"><font size="-1">zum Seitenanfang</font></a>
-  <a name="TOP_BUT"></a>
-  <h3>Obere Button-Zeile:</h3>
-  Die obere Buttonzeile beherbergt die grundlegenden Steuerfunktionen von MAGUS:<P>
-  <a name="NC"></a>
-  <img src="image/But_NC.png" alt="Button: Neuer Charakter" width="91" height="74" align="left" border="0" hspace="5">
-  <b>Neuer Abenteurer:</b><br>
-  MAGUS wird für einen neuen Abenteurer vorbereitet. alle Daten eines vorhergehenden Abenteurers werden gelöscht
-  und auf die Default-Werte zurückgesetzt.<br clear=all>
-  <p>
-  <a name="SC"></a>
-  <img src="image/But_SC.png" alt="Button Abenteurer Speichern" width="91" height="74" align="left" border="0" hspace="5">
-  <b>Abenteurer speichern:</b><br>
-  Der aktuelle Abenteurer wird in einer xml-Datei gespeichert.<br clear=all>
-  <p>
-  <a name="LC"></a>
-  <img src="image/But_LC.png" alt="Button: Abenteurer laden" width="91" height="73" align="left" border="0" hspace="5">
-  <b>Abenteurer Laden:</b><br>
-  Ein bereits vorhandener Abenteurer wird geladen.<br clear=all>
-  <p>
-  <a name="DESCR"></a>
-  <img src="image/But_DESCR.png" alt="Button: Abenteurerbeschreibung" width="92" height="73" align="left" border="0" hspace="5">
-  <b>Abenteurerbeschreibung:</b><br>
-  Es öffnet sich ein Fenster, in welchem eine Beschreibung des Abenteurers eingegeben und seperat ausgedruckt werden kann.<br clear=all>
-  <p>
-  <a name="LATEX"></a>
-  <img src="image/But_LaTeX.png" alt="Button: LaTeX" width="92" height="74" align="left" border="0" hspace="5">
-  <b>LaTeX-Abenteurerblatt:</b><br>
-  Es wird eine LaTeX-Ausgabe des Abenteurerdokuments des aktuellen Abenteurers erzeugt und in eine
-  Postscript-Datei umgewandelt. Diese wird mittels 'gv' angezeigt. Dieses Dokument kann seperat
-  gedruckt und gespeichert werden. (In der Windowsversion möglicherweise anders)<br clear=all>
-  <p>
-  <a name="CLOSE"></a>
-  <img src="image/But_CLOSE.png" alt="Button: Schließen" width="92" height="73" align="left" border="0" hspace="5">
-  <b>Schließen:</b><br>
-  Magus wird beendet<br>
-  Änderungen werden zur Zeit nicht(!) automatisch gespeichert<br clear=all>
-  <p>
-  <div align="center"><a href="#BUT"><font size="-1">zur Buttonleiste</font></a></div><p>
-
-
-  <p>
-  <h3>Untere Button-Leiste:</h3>
-  In der unteren Buttonleiste werden die grundlegenden Eigenschaften des Charakters
-  festgelegt:<P>
-  <a name="GW_W"></a>
-  <img src="image/But_GW_W.png" alt="Button: Grundwerte würflen" width="70" height="70" align="left" border="0" hspace="5">
-  <b>Grundwerte Würfeln:</b><br>
-  Auswürfeln der Grundwerte:<br>
-  Stärke, Geschicklichkeit, Gewandtheit, Konstitution, Intelligenz und Zaubertalent<br>
-  Es stehen drei Verfahren zur Auswahl:<br>
-  <i>linke Maustaste</i>: Es wird für jede Eigenschaft 2x gewürfelt und der höhere Wert automatisch übernommen<br>
-  <i>mittlere Maustaste</i>: Es wird pro Eigenschaft 2x gewürfelt, der höhere Wurf wird von Hand einer
-  Eigenschaft zugewiesen<br>
-  <i>rechte Maustaste</i>: Es wird 9x Gewürfelt, die 6 besten Würfe werden auf die Eigenschaften verteilt<br clear=all>
-  <p>
-
-  <a name="AW_W"></a>
-  <img src="image/But_AGW.png" alt="Button: Abgeleitete Werte" width="70" height="70" align="left" border="0" hspace="5">
-  <b>Abgeleitete Werte:</b><br>
-  Die abgeleiteten Werte werden ausgewürfelt und berechnet.<br clear=all>
-  <p>
-  <a name="EDIT"></a>
-  <img src="image/But_EDIT.png" alt="Button: Werte editieren" width="71" height="71" align="left" border="0" hspace="5">
-  <b>Werte editieren:</b><br>
-  Die zuvor bestimmten Werte (im <a href="#VAL">Wertebereich</a>) können zum größten Teil individuell verändert
-  werden. Alternativ besteht hier die Möglichkeit, die Werte von vorneherin an per Hand einzugeben.
+  <h3>Bedienelemente für die Grundeigenschaften:</h3>
+  <img src="image/GW_Buttons.png" usemap="#GW_But" alt="Buttons: Grundeigenschaften" width=738 height=120 align="left" border=0>
   <br clear=all>
+  (Mit der Maus auswählen)<p>
+ <table>
+   <tr>
+     <td align="center" bgcolor="#d3d3d3" valign="center"><a name="Spezies"></a><img src="image/But_Spezies.png" alt="Button: Spezies auswählen" width="100" height="26" border="0" hspace="5">  </td>
+     <td valign="top"><b>Spezies auswählen:</b><br> Über dieses Menü wird die Spezies ausgewählt (Voreingestellt: Mensch). </td>
+     <td bgcolor="#dddddd">  </td>
+   </tr>
+   <tr>
+     <td align="center" bgcolor="lightGray"><a name="Mouse"></a><img src="image/But_Mouse3.png" alt="Button: 3 Buttonmouseemulation" width=65 height=63 border=0>  </td>
+     <td><b>Wahl des Würfelverfahrens</b><br>Da unter Windows die Maustasten nicht einheitlich behandelt werden und nicht immer eine
+     dritte Maustaste vorhandden ist, kann über diesen Button das Würfelverfahren ausgwählt werden (über Optionen abschaltbar) </td>
+     <td bgcolor="#dddddd">  </td>
+   </tr>
+   <tr>
+     <td align="center" bgcolor="lightGray"><a name="GW"></a><img src="image/But_GW_W.png" alt="Button: Grundeigenschaften" width=76 height=69 border=0>  </td>
+     <td><table>
+           <tr>
+             <td><b>Grundwerte Würfeln:</b><br> Auswürfeln der Grundwerte:<br>
+               Stärke, Geschicklichkeit, Gewandtheit, Konstitution, Intelligenz und Zaubertalent<br>
+               Es stehen drei Verfahren zur Auswahl:<br>  </td>
+           </tr>
+           <tr>
+             <td><i>linke Maustaste</i>:<br> Es wird für jede Eigenschaft 2x gewürfelt und der höhere Wert automatisch übernommen (Standard)<br>  </td>
+           </tr>
+           <tr>
+             <td><i>mittlere Maustaste</i>:<br> Es wird pro Eigenschaft 2x gewürfelt, der höhere Wurf wird von Hand einer
+               Eigenschaft zugewiesen<br>  </td>
+           </tr>
+           <tr>
+             <td><i>rechte Maustaste</i>:<br> Es wird 9x Gewürfelt, die 6 besten Würfe werden auf die Eigenschaften verteilt  </td>
+           </tr>
+         </table>
+    </td>
+     <td valign="bottom" bgcolor="#dddddd" align="center">
+     <table>
+       <tr>
+         <td>  </td>
+       </tr>
+       <tr>
+         <td>  </td>
+       </tr>
+       <tr>
+         <td align="center" valign="center"><img src="image/Select_Zuweis.png" alt="Auswahl: Würfelmodi" width=386 height=65 border=0>  </td>
+       </tr>
+       <tr>
+         <td align="center" valign="center"><img src="image/Select_6of9.png" alt="Auswahl 6 von 9" width=391 height=46 border=0>  </td>
+       </tr>
+     </table>  </td>
+   </tr>
+   <tr>
+     <td align="center" bgcolor="lightGray"><a name="Geschl"></a><img src="image/Select_Geschl.png" width=81 height=67 border=0>  </td>
+     <td><b>Geschlecht auswählen:</b><br>Auswahl des Geschlecht des Abenteurers, bzw. der Abenteurerin.</td>
+     <td bgcolor="#dddddd">  </td>
+   </tr>
+   <tr>
+     <td align="center" bgcolor="lightGray"><a name="Typ"></a><img src="image/But_TYP.png" alt="Button: Abenteurertyp" width="162" height="27" align="left" border="0" hspace="5">  </td>
+     <td><b>Abenteurertyp auswählen:</b><br>
+       Über dieses Menü wird der Abenteurertyp ausgewählt. Die mögliche Auswahl richtet sich nach der gewählten Spezies
+       (Voreingestellt: Assassine wenn Mensch).</td>
+     <td bgcolor="#dddddd">  </td>
+   </tr>
+   <tr>
+     <td align="center" bgcolor="lightGray"><a name="Herk"></a><img src="image/Select_Herk.png" alt="Auswahl: Herkunft" width=51 height=67 border=0>  </td>
+     <td><b>Herkunft auswählen:</b><br>Die Herkunft (Stadt/Land) des Abentuerers wird ausgewählt </td>
+     <td bgcolor="#dddddd">  </td>
+   </tr>
+   <tr>
+     <td align="center" bgcolor="lightGray"><a name="AGW"></a><img src="image/But_AGW.png" width=75 height=68 border=0>  </td>
+     <td><b>Abgeleitete Werte:</b><br>
+       Die abgeleiteten Werte werden ausgewürfelt und berechnet.  </td>
+     <td bgcolor="#dddddd">  </td>
+   </tr>
+   <tr>
+     <td align="center" bgcolor="lightGray"><img src="image/But_EDIT.png" alt="Button: Werte editieren" width=74 height=68 border=0>  </td>
+     <td><b>Werte editieren:</b><br>
+       Die zuvor bestimmten Werte (im <a href="#VAL">Wertebereich</a>) können zum größten Teil individuell verändert
+       werden. Alternativ besteht hier die Möglichkeit, die Werte von vorneherin an per Hand einzugeben.  </td>
+     <td valign="top" bgcolor="#dddddd"><a name="WerteEdit"></a><img src="image/But_Set_Werte.png" width="80" height="51" border="0" align="left" hspace="5"><b>Werte für Grad 1 Setzen</b><br>
+     Werden Eigenschaftswerte oder abgeleitete Werte verändert oder eingegeben, so werden abhängige Werte erst über diesen Button
+     (für Grad 1!)korrekt gesetzt. Dieser Button ist nur sichtbar, wenn "Werte editieren" aktiviert ist,</td>
+   </tr>
+ </table>
   <p>
-
-  <a name="MENU"></a>
-  <img src="image/But_MENU.png" alt="Button: Menü" width="71" height="70" align="left" border="0" hspace="5">
-  <b>Menü:</b><br>
-  Über das Menü lassen sich einige Grundlegende Eigenschaften von MAGUS steuern. Es ist jederzeit auch über
-  die rechte Maustaste aufrufbar. Weitere Informationen zum Menu gibt es auf <a href="Menu.html">dieser Seite</a>.<br clear=all>
-  <p>
-
-  <a name="INFO"></a>
-  <img src="image/But_INFO.png" alt="Button: Info" width="69" height="70" align="left" border="0" hspace="5">
-  <b>Info:</b><br>
-  Hinter dem Info-Button verbirgt sich das Infofenster von MAGUS, welches bereits beim Programmstart zu sehen ist.<br clear=all>
-  <p>
-
-  <a name="HELP"></a>
-  <img src="image/But_HELP.png" alt="Button: Hilfe" width="70" height="70" align="left" border="0" hspace="5">
-  <b>Hilfe:</b><br>
-  Dieser Button führt zu einer kleinen Online-Hilfe.<br clear=all>
-  <p>
-  <div align="center"><a href="#BUT"><font size="-1">zur Buttonleiste</font></a></div><p>
-
-
-  <a name="SEL"></a><p>
-  <h3>Auswahlzeile:</h3>
-  <a name="TYP"></a>
-  <img src="image/But_TYP.png" alt="Button: Abenteurertyp" width="162" height="27" align="left" border="0" hspace="5">
-  <b>Abenteurertyp auswählen:</b><br>
-  Über dieses Menü wird der Abenteurertyp ausgewählt (Voreingestellt: Assasine).<br clear=all>
-  <p>
-  <a name="Spezies"></a>
-  <img src="image/But_Spezies.png" alt="Button: Spezies auswählen" width="100" height="26" align="left" border="0" hspace="5">
-  <b>Spezies auswählen:</b><br>
-  Über dieses Menü wird die Spezies ausgewählt (Voreingestellt: Mensch).<br clear=all>
-  <p>
-  Zusätzlich lassen sich hier noch das Geschlecht und die Herkunft des Abenteurers, resp. der Abenteurerin bestimmen.
-  <p><br>
   <div align="center"><a href="#"><font size="-1">zum Seitenanfang</font></a></div>
   <p>
   <a name="VAL"></a>
   <h3>Wertebereich:</h3>
-  <img src="image/GW-Werte.png" border="0" width="706" height="310">
+  <img src="image/GW-Werte.png" border="0" width="738" height="375">
   <br>
   <p>
   Im Werte-Fenster werden die bereits gesetzten Werte angezeigt. Die Felder, für die noch keine Werte
   vorhanden sind. bleiben leer.
   Durch das Anwählen des Buttons <a href="#EDIT">'Werte editieren'</a>  werden die Felder im Wertebereich editierbar.<br>
   <p>
-  <div align="center"><a href="#"><font size="-1">zum Seitenanfang</font></a></div>
+  <div align="center"><a href="#TOP"><font size="-1">zum Seitenanfang</font></a></div>
 </body>
 </html>
