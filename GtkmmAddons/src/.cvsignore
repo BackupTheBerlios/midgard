@@ -1,7 +1,0 @@
-.gtkmmheader*
-SearchCombo.h
-private
-.deps
-SearchCombo.cc
-Makefile.in
-Makefile
