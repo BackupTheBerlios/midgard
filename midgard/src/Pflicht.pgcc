@@ -75,12 +75,10 @@ int Pflicht::istPflicht(const std::string& spezies,const vector<H_Data_typen>& T
 {
   assert (Typ.size()==2);
   std::list<pf> list_pflicht   = const_cast<map<std::string,list<pf> > &>(pflicht_map)[spezies];
-/*
-  std::list<pf> list_pflicht_2 = pflicht_map[Typ[0]->Short()];
-  std::list<pf> list_pflicht_3 = pflicht_map[Typ[1]->Short()];
+  std::list<pf> list_pflicht_2 = const_cast<map<std::string,list<pf> > &>(pflicht_map)[Typ[0]->Short()];
+  std::list<pf> list_pflicht_3 = const_cast<map<std::string,list<pf> > &>(pflicht_map)[Typ[1]->Short()];
   list_pflicht.merge(list_pflicht_2);
   list_pflicht.merge(list_pflicht_3);
-*/  
   for(std::list<pf>::const_iterator i=list_pflicht.begin();i!=list_pflicht.end();++i)
    if(i->pflicht==name) 
       { if (le==LERNPUNKTE)  return  i->lernpunkte;
@@ -93,13 +91,11 @@ bool Pflicht::istVerboten(const std::string& spezies,const vector<H_Data_typen>&
                           const std::string& name,bool spielbeginn) const
 {
   assert (Typ.size()==2);
-  std::list<pf> list_pflicht = pflicht_map[spezies];
-/*
-  std::list<pf> list_pflicht_2 = pflicht_map[Typ[0]->Short()];
-  std::list<pf> list_pflicht_3 = pflicht_map[Typ[1]->Short()];
+  std::list<pf> list_pflicht =   const_cast<map<std::string,list<pf> > &>(pflicht_map)[spezies];
+  std::list<pf> list_pflicht_2 = const_cast<map<std::string,list<pf> > &>(pflicht_map)[Typ[0]->Short()];
+  std::list<pf> list_pflicht_3 = const_cast<map<std::string,list<pf> > &>(pflicht_map)[Typ[1]->Short()];
   list_pflicht.merge(list_pflicht_2);
   list_pflicht.merge(list_pflicht_3);
-*/  
   for(std::list<pf>::const_iterator i=list_pflicht.begin();i!=list_pflicht.end();++i)
    {  if(spielbeginn && i->verboten==name && i->spielbeginn!="") return true;
       if(i->verboten==name) return true;
