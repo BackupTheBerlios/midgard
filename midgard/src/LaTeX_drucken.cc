@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.11 2002/06/04 09:46:01 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.12 2002/06/04 13:56:11 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -885,7 +885,7 @@ void LaTeX_drucken::pdf_viewer(const std::string& file)
   system(("pdflatex --interaction scrollmode "+file+".tex").c_str());
   system((hauptfenster->getOptionen()->Viewer()+" "+file+".pdf &").c_str());
 
-//  unlink((file+".tex").c_str());
+  unlink((file+".tex").c_str());
   unlink((file+".aux").c_str());
   unlink((file+".log").c_str());
 //  unlink((file+".pdf").c_str());

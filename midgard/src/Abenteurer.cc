@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.7 2002/06/04 11:13:41 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.8 2002/06/04 13:56:11 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -42,6 +42,13 @@ std::string Abenteurer::STyp() const
 }
 
 
+const std::string Abenteurer::SErfolgswert(std::string name,const Datenbank &Database) const
+{
+  int w=Erfolgswert(name,Database);
+  if(w==-99) return "";
+  return itos(w);
+}
+
 const int Abenteurer::Erfolgswert(std::string name,const Datenbank &Database) const
 {
   for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i)
@@ -53,10 +60,9 @@ const int Abenteurer::Erfolgswert(std::string name,const Datenbank &Database) co
    {
      if(name==i->mbe->Name()) return i->mbe->Erfolgswert(); 
    }   
-  cout << name<< "nicht gefunden\n";
-  assert(!"never get here");
-  abort();
+  return -99;
 }
+
 
 const std::list<Abenteurer::st_universell> Abenteurer::CList_Universell( const Datenbank &Database) const
 {

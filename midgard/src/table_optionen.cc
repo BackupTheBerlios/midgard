@@ -14,6 +14,7 @@ void table_optionen::init()
  entry_html->set_text(hauptfenster->getOptionen()->getString(Midgard_Optionen::html_viewer));
  entry_tmp_verz->set_text(hauptfenster->getOptionen()->getString(Midgard_Optionen::tmppfad));
  entry_speicher_verz->set_text(hauptfenster->getOptionen()->getString(Midgard_Optionen::speicherpfad));
+ spinbutton_datei_history->set_value(hauptfenster->getOptionen()->DateiHistory());
  frame_drucken->init();
  frame_globale_optionen->init();
  frame_ansicht->init();
@@ -47,3 +48,9 @@ void table_optionen::on_entry_speicher_verz_changed()
       entry_speicher_verz->get_text());
 }
 
+void table_optionen::on_spinbutton_datei_history_changed()
+{
+  spinbutton_datei_history->update();
+  hauptfenster->getOptionen()->setDateiHistory(
+      spinbutton_datei_history->get_value_as_int());
+}

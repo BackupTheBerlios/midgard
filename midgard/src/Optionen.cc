@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.46 2002/06/04 10:12:53 christof Exp $
+// $Id: Optionen.cc,v 1.47 2002/06/04 13:56:11 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -266,6 +266,7 @@ void Midgard_Optionen::Optionen_init()
 
 void Midgard_Optionen::Strings_init()
 {
+  datei_history=6;
   list_Strings.push_back(st_strings(pdf_viewer,"PDF Viewer",""));
   list_Strings.push_back(st_strings(html_viewer,"HTML Viewer","mozilla"));
   list_Strings.push_back(st_strings(tmppfad,"TEMP-Pfad","$TEMP"));
@@ -382,10 +383,11 @@ void Midgard_Optionen::load_options()
   if (!data3) data3=data->find("History");
   if(data3)
    {
+     FOR_EACH_CONST_TAG_OF(i,*data3,"DateiHistory")
+       setDateiHistory(i->getIntAttr("Anzahl"));
      FOR_EACH_CONST_TAG_OF(i,*data3,"Datei")
-      hauptfenster->push_back_LDateien(i->getAttr("Name"));
+       hauptfenster->push_back_LDateien(i->getAttr("Name"));
    }
-
   hauptfenster->menu_init();
  } catch (std::exception &e) { cerr << e.what() << '\n'; }
 }
@@ -402,8 +404,9 @@ void Midgard_Optionen::save_options(WindowInfo *InfoFenster)
   TagStream ts;
   ts.setEncoding("ISO-8859-1");
 
-  Tag &data=ts.push_back(Tag("MAGUS-data"));
-  Tag &hist=data.push_back(Tag("History"));
+ Tag &data=ts.push_back(Tag("MAGUS-data"));
+ Tag &hist=data.push_back(Tag("History"));
+ hist.push_back(Tag("DateiHistory")).setIntAttr("Anzahl",DateiHistory());
  for(std::list<std::string>::const_iterator i=hauptfenster->LDateien.begin();i!=hauptfenster->LDateien.end();++i)
   { hist.push_back(Tag("Datei")).setAttr("Name",*i);
   }
@@ -422,7 +425,7 @@ void Midgard_Optionen::save_options(WindowInfo *InfoFenster)
     position.setIntAttr("Y", y);
   }
 
-  Tag &optionen=data.push_back(Tag("Optionen"));
+ Tag &optionen=data.push_back(Tag("Optionen"));
  for(std::list<st_OptionenCheck>::iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
    { Tag &opt=optionen.push_back(Tag("Option"));
      opt.setAttr("Name",i->text);

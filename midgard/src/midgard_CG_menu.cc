@@ -249,7 +249,7 @@ void midgard_CG::push_back_LDateien(std::string s)
 
   if (i!=LDateien.end()) LDateien.remove(*i);
   else 
-   { if(oldsize>5) LDateien.pop_back(); 
+   { if(oldsize>MOptionen->DateiHistory()) LDateien.pop_back(); 
    }
 
   LDateien.push_front(s);

@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.2 2002/06/04 11:13:41 thoma Exp $   
+// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.3 2002/06/04 13:56:11 thoma Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -32,7 +32,7 @@ void LaTeX_drucken::Spielleiterbogen()
  fout << "\\fbox{\\parbox[t][22cm]{18cm}{ \n";
 
  fout << "\\scalebox{0.97}{\n";
- fout << "\\begin{tabular}{|||c|||\n";
+ fout << "\\begin{tabular}{|||l|||\n";
  for(unsigned int i=0;i<hauptfenster->Char.getList().size();++i)
    fout << "c|"; // Anzahl der Spalten/Abenteurer
  fout << "||}\\hline\\hline\\hline\n";
@@ -171,7 +171,7 @@ void LaTeX_drucken::for_each(ofstream &fout,const ewhat& what)
        case SechsterSinn: fout << " & "<<i->abenteurer.getCWerte().SechsterSinn(); break; 
        case Wahrnehmung: fout << " & "<<i->abenteurer.Erfolgswert("Wahrnehmung",Database); break; 
        case Spurenlesen: fout << " & "<<i->abenteurer.Erfolgswert("Spurenlesen",Database); break; 
-       case Fallen_entdecken: fout << " & "<<i->abenteurer.Erfolgswert("Fallen entdecken",Database); break; 
+       case Fallen_entdecken: fout << " & "<<i->abenteurer.SErfolgswert("Fallen entdecken",Database); break; 
        case Sprachen: fout << "Sprachen"; break; 
        case Schriften: fout << "Schriften"; break; 
      }

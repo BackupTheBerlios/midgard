@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.15 2002/05/18 06:49:33 thoma Exp $
+// $Id: Optionen.hh,v 1.16 2002/06/04 13:56:11 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -60,6 +60,7 @@ class Midgard_Optionen
                       :index(i),text(t),active(a) {} };
 
    private:
+      int datei_history;
       std::list<st_strings> list_Strings;
       std::list<st_Haus> list_Hausregeln;
       std::list<st_Ober> list_Ober;
@@ -87,6 +88,7 @@ class Midgard_Optionen
       std::list<st_OptionenCheck> getOptionenCheck() const {return list_OptionenCheck;}
       std::list<st_OptionenExecute> getOptionenExecute() const {return list_OptionenExecute;}
       std::list<st_pdfViewer> getPDF() const {return list_pdfViewer;}
+      int DateiHistory() const {return datei_history;}
 
       void save_options(WindowInfo *InfoFenster);
       void load_options();
@@ -97,6 +99,7 @@ class Midgard_Optionen
       void setOber(std::string hs,bool b);
       void setpdfViewer(std::string is,bool b); 
       void setAllHausregeln(bool b);
+      void setDateiHistory(int i) {datei_history=i;}
 
 
       st_OptionenCheck OptionenCheck(OptionenCheckIndex oi) const ;

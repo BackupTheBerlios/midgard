@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.10 2002/06/04 11:13:41 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.11 2002/06/04 13:56:11 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -117,6 +117,7 @@ public:
 
 
    const int Erfolgswert(std::string name,const Datenbank &Database) const;
+   const std::string SErfolgswert(std::string name,const Datenbank &Database) const;
 };
 
 class VAbenteurer
