@@ -1,6 +1,6 @@
-# $Id: Makefile.am,v 1.17 2001/04/25 06:07:06 christof Exp $
+# $Id: Makefile.am,v 1.18 2001/04/25 06:16:24 christof Exp $
 
-bin_PROGRAMS = midgard midgard_xmlexport
+bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
 
 pkgdata_DATA = document_eingabe.tex \
@@ -63,10 +63,12 @@ BUILT_SOURCES_CG = Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
    get_spezies_constraint.cc midgard_CG_magier_spezialgebiet.cc
 
 BUILT_SOUCES_XMLE=xmlexport.cc
+BUILT_SOUCES_XMLI=xmlimport.cc
 
-BUILT_SOURCES=$(BUILT_SOURCES_CG) $(BUILT_SOUCES_XMLE)
+BUILT_SOURCES=$(BUILT_SOURCES_CG) $(BUILT_SOUCES_XMLE) $(BUILT_SOUCES_XMLI)
 
 midgard_xmlexport_SOURCES= $(BUILT_SOUCES_XMLE)
+midgard_xmlimport_SOURCES= $(BUILT_SOUCES_XMLE)
 
 midgard_SOURCES = \
    spielleiter_export.cc \
@@ -134,5 +136,6 @@ CXXFLAGS = @CXXFLAGS@ @COMMONXX_INCLUDES@ \
 midgard_LDADD = @LIBS@ @COMMONXX_LIBS@ @COMMONGTK_LIBS@ 
 
 midgard_xmlexport_LDADD = @LIBS@ @COMMONXX_LIBS@
+midgard_xmlimport_LDADD = @LIBS@ @COMMONXX_LIBS@
 
 LDFLAGS = @COMMONXX_LDFLAGS@
