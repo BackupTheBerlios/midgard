@@ -1,4 +1,4 @@
-// $Id: Typen.hh,v 1.8 2002/01/18 10:55:23 christof Exp $               
+// $Id: Typen.hh,v 1.9 2002/01/21 16:39:58 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -69,6 +69,10 @@ if (geschlecht=="m") return typl; else return typlw;}
 
    bool is_mage() const 
     { if(Zaubern()=="z" || Zaubern()=="j") return true; else return false; } 
+   
+   bool operator==(const Typen &b) const
+   {  return typs==b.typs;
+   }
 };
 
 class cH_Typen : public Handle<const Typen>    
@@ -93,6 +97,7 @@ class Typen_All
       Typen_All(Gtk::ProgressBar *progressbar);
       std::vector<cH_Typen> get_All() const {return list_All;}
 };
-  
+
+bool operator==(gpointer p,const cH_Typen &t);
 
 #endif
