@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.13 2002/09/13 09:46:16 thoma Exp $
+// $Id: table_lernschema_waffen.cc,v 1.14 2002/09/13 12:01:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -160,54 +160,9 @@ void table_lernschema::WaffenBesitz_lernschema_wuerfeln(int wurf)
   std::string strinfo = "Für die Waffenauswahl wurde eine "+itos(wurf)
       +" gewürfelt, die Abenteurerklasse ist "
       +hauptfenster->getChar().Typ1()->Name(hauptfenster->getWerte().Geschlecht())+" ==> ";
-/*
- int E=0,A=0;
- bool M=false;
- if (hauptfenster->getChar().Typ1()->Geld() == 1)
-  { if      ( 1<=wurf&&wurf<=10 ) { E=3;      }
-    else if (11<=wurf&&wurf<=20 ) { E=3; A=1; }
-    else if (21<=wurf&&wurf<=30 ) { E=2; A=2; }
-    else if (31<=wurf&&wurf<=60 ) { E=3; A=2; }
-    else if (61<=wurf&&wurf<=80 ) { E=2; A=3; }
-    else if (81<=wurf&&wurf<=95 ) {      A=5; }
-    else if (96<=wurf&&wurf<=100) { E=1; A=4; M=true; }
-  }  
- if (hauptfenster->getChar().Typ1()->Geld() == 2)
-  { if      ( 1<=wurf&&wurf<=10 ) { E=2;      }
-    else if (11<=wurf&&wurf<=20 ) { E=1; A=1; }
-    else if (21<=wurf&&wurf<=30 ) { E=2; A=1; }
-    else if (31<=wurf&&wurf<=60 ) { E=3; A=1; }
-    else if (61<=wurf&&wurf<=80 ) { E=2; A=2; }
-    else if (81<=wurf&&wurf<=95 ) {      A=4; }
-    else if (96<=wurf&&wurf<=100) { E=1; A=3; M=true; }
-  }  
- if (hauptfenster->getChar().Typ1()->Geld() == 3) 
-  { if      ( 1<=wurf&&wurf<=10 ) { E=1;      }
-    else if (11<=wurf&&wurf<=20 ) {      A=1; }
-    else if (21<=wurf&&wurf<=30 ) { E=2;      }
-    else if (31<=wurf&&wurf<=60 ) { E=1; A=1; }
-    else if (61<=wurf&&wurf<=80 ) { E=1; A=1; }
-    else if (81<=wurf&&wurf<=95 ) {      A=2; }
-    else if (96<=wurf&&wurf<=100) { E=1; A=1; M=true; }
-  }  
- if (hauptfenster->getChar().Typ1()->Geld() == 4) 
-  { if      ( 1<=wurf&&wurf<=10 ) { E=2;      }
-    else if (11<=wurf&&wurf<=20 ) { E=1; A=1; }
-    else if (21<=wurf&&wurf<=30 ) { E=3;      }
-    else if (31<=wurf&&wurf<=60 ) { E=2; A=1; }
-    else if (61<=wurf&&wurf<=80 ) { E=1; A=2; }
-    else if (81<=wurf&&wurf<=95 ) {      A=3; }
-    else if (96<=wurf&&wurf<=100) { E=1; A=2; M=true; }
-  }  
-*/
  waffebesitzlernen =Zufall::WaffenBesitz_wuerfeln(hauptfenster->getChar(),wurf);
  strinfo += itos(waffebesitzlernen.EWaffe())+" Einhand- und "+itos(waffebesitzlernen.AWaffe())+" beliebige Waffen";
  hauptfenster->set_status(strinfo);
-/*
- waffebesitzlernen.setMagisch(M);
- waffebesitzlernen.set_EWaffe(E);
- waffebesitzlernen.set_AWaffe(A);
-*/
  show_WaffenBesitz_lernschema();
 }
 

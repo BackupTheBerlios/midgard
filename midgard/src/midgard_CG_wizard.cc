@@ -52,7 +52,6 @@ void midgard_CG::wizard_do_something()
 
 void midgard_CG::on_neuer_abenteurer_mit_wizard_activate()
 {
-  on_neuer_charakter_clicked();
   on_wizard_starten_activate();
 }
 
@@ -66,7 +65,8 @@ void midgard_CG::on_wizard_starten_activate()
 void midgard_CG::on_wizard_beenden_activate()
 {
  if(wizard) delete(wizard);
- label_wizard->hide();
+// label_wizard->hide();
+ show_wizard_active(false);
  wizard=0;
 }
 

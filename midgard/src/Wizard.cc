@@ -22,6 +22,7 @@ Wizard::Wizard(midgard_CG* h)
 : hauptfenster(h), actual_step(START)
 {
   fill_vecwiz();
+  hauptfenster->show_wizard_active(true);
 }
 
 
