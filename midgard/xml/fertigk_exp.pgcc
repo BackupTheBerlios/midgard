@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.pgcc,v 1.19 2001/11/23 08:14:27 christof Exp $
+// $Id: fertigk_exp.pgcc,v 1.20 2001/11/23 08:31:21 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -245,7 +245,7 @@ void fert_speichern(std::ostream &o)
              fetch_and_write_int_attrib(is, o, "Wert"+itos(i));
           o << "/>\n";
        }
-       close st_f_werte_curs;
+       exec sql close st_f_werte_curs;
       }
 
       //********** ZEP oder KEP ? ****************
