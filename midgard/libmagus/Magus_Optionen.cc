@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.cc,v 1.4 2003/09/01 06:47:57 christof Exp $
+// $Id: Magus_Optionen.cc,v 1.5 2003/09/12 07:30:39 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -172,16 +172,18 @@ void Magus_Optionen::setOber(std::string hs,bool b)
 }
 
 void Magus_Optionen::setIcon(std::string hs,bool b)
-{
+{ bool found=false;
   for(std::list<st_Icon>::iterator i=list_Icon.begin();i!=list_Icon.end();++i)
    {
-    if(i->text==hs)  
+    if(i->text==hs)
       { 
         i->active=b;
-        return;
+        found=true;
+//        return;
       }
+    else if (b) i->active=false;
    }
- Ausgabe(Ausgabe::Warning,"Option "+hs+" unbekannt");
+ if (!found) Ausgabe(Ausgabe::Warning,"Option "+hs+" unbekannt");
 }
 
 void Magus_Optionen::setpdfViewer(std::string is,bool b)
@@ -234,18 +236,24 @@ void Magus_Optionen::Strings_init()
 void Magus_Optionen::pdfViewer_init()
 {
 #ifndef __MINGW32__
+  std::vector<Model_ref<bool> > v;
   list_pdfViewer.push_back(st_pdfViewer(acroread,
                            "acroread",
                            true));
+  v.push_back(list_pdfViewer.back().active);
   list_pdfViewer.push_back(st_pdfViewer(gv,
                            "gv",
                            false));
+  v.push_back(list_pdfViewer.back().active);
   list_pdfViewer.push_back(st_pdfViewer(xpdf,
                            "xpdf",
                            false));
+  v.push_back(list_pdfViewer.back().active);
   list_pdfViewer.push_back(st_pdfViewer(anderer,
                            "anderer",
                            false));
+  v.push_back(list_pdfViewer.back().active);
+  ausschluesse.push_back(RadioModel(v));
 #else
   list_pdfViewer.push_back(st_pdfViewer(anderer,
                            "PDF Programm",
@@ -276,9 +284,14 @@ void Magus_Optionen::Ober_init()
 void Magus_Optionen::Icon_init()
 {
  list_Icon.clear();  
+  std::vector<Model_ref<bool> > v;
  list_Icon.push_back(st_Icon(Self,"MAGUS-Stil",true));
+  v.push_back(list_Icon.back().active);
  list_Icon.push_back(st_Icon(Ulf,"Win32-Stil",false));
+  v.push_back(list_Icon.back().active);
  list_Icon.push_back(st_Icon(Gtk2,"Gtk2-Stil",false));
+  v.push_back(list_Icon.back().active);
+  ausschluesse.push_back(RadioModel(v));
 }
 
 // Lines marked with 'compat' are to maintain compatibility

@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.4 2003/09/01 06:47:57 christof Exp $
+// $Id: Optionen.hh,v 1.5 2003/09/12 07:30:39 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -23,6 +23,7 @@
 #include <list>
 #include <string>
 #include <BaseObjects/Model.h>
+#include <BaseObjects/RadioModel.h>
 
 class Optionen
 {
@@ -49,6 +50,8 @@ class Optionen
    private:
       std::list<st_Haus> list_Hausregeln;
       std::list<st_OptionenCheck> list_OptionenCheck; 
+      
+      std::list<RadioModel> ausschluesse;
 
       void Optionen_init();
       void Hausregeln_init();

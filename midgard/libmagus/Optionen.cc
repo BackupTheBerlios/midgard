@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.5 2003/09/01 06:47:57 christof Exp $
+// $Id: Optionen.cc,v 1.6 2003/09/12 07:30:39 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -66,12 +66,13 @@ void Optionen::setHausregeln(std::string hs,bool b)
  Ausgabe(Ausgabe::Warning, "Option "+hs+" unbekannt");
 }
 
+#if 0
 void Optionen::setAllHausregeln(bool b)
 {
   for(std::list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
      i->active=b;
 }
- 
+#endif 
  
 void Optionen::set_Original(bool active,OptionenCheckIndex index)
 {
@@ -89,7 +90,10 @@ void Optionen::Optionen_init()
 
 void Optionen::Hausregeln_init()
 {
+ Model_ref<bool> orig=OptionenCheck(Original).active;
  list_Hausregeln.push_back(st_Haus(Gold,"1 GS entspricht 1 GFP",false));
+ ausschluesse.push_back(RadioModel(orig,list_Hausregeln.back().active));
  list_Hausregeln.push_back(st_Haus(Werte100,"Grundwerte über 100 zulassen",false));
+ ausschluesse.push_back(RadioModel(orig,list_Hausregeln.back().active));
 }
 

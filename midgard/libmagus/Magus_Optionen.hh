@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.hh,v 1.5 2003/09/08 10:28:44 christof Exp $
+// $Id: Magus_Optionen.hh,v 1.6 2003/09/12 07:30:39 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -23,6 +23,7 @@
 #include <list>
 #include <string>
 #include <BaseObjects/Model.h>
+#include <BaseObjects/RadioModel.h>
 
 class Magus_Optionen
 {
@@ -100,6 +101,8 @@ class Magus_Optionen
       std::list<st_WindowPosition> list_Windows;
       Model_ref<bool> werte_eingeben;
       std::list<std::string> LDateien;
+      
+      std::list<RadioModel> ausschluesse;
 
       void Strings_init();
       void Optionen_init();
