@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.17 2002/04/11 06:11:15 thoma Exp $               
+// $Id: Grundwerte.cc,v 1.18 2002/04/17 09:04:02 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -181,7 +181,7 @@ void Grundwerte::setSinn(const std::string &name,int wert)
    {
      if((*i)->Name()==name) 
       {
-        (*i)->set_Erfolgswert(wert);
+        (*i)->setErfolgswert(wert);
         return;
       }
    }

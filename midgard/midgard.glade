@@ -20,7 +20,7 @@
     <handler>on_midgard_CG_delete_event</handler>
     <last_modification_time>Thu, 14 Feb 2002 11:37:06 GMT</last_modification_time>
   </signal>
-  <title>Midgard</title>
+  <title>Magus</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
   <position>GTK_WIN_POS_NONE</position>
   <modal>False</modal>
@@ -7100,50 +7100,6 @@ auswählen</label>
 	    </widget>
 
 	    <widget>
-	      <class>GtkScrolledWindow</class>
-	      <name>scrolledwindow_dfr3</name>
-	      <cxx_visibility>protected</cxx_visibility>
-	      <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
-	      <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
-	      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
-	      <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
-	      <child>
-		<left_attach>1</left_attach>
-		<right_attach>2</right_attach>
-		<top_attach>0</top_attach>
-		<bottom_attach>4</bottom_attach>
-		<xpad>0</xpad>
-		<ypad>0</ypad>
-		<xexpand>True</xexpand>
-		<yexpand>True</yexpand>
-		<xshrink>True</xshrink>
-		<yshrink>True</yshrink>
-		<xfill>True</xfill>
-		<yfill>True</yfill>
-	      </child>
-
-	      <widget>
-		<class>GtkViewport</class>
-		<name>viewport36</name>
-		<width>309</width>
-		<shadow_type>GTK_SHADOW_NONE</shadow_type>
-
-		<widget>
-		  <class>GtkPixmap</class>
-		  <name>pixmap_dfr3</name>
-		  <width>300</width>
-		  <cxx_visibility>protected</cxx_visibility>
-		  <filename>Gross_dfr3_pre.xpm</filename>
-		  <xalign>0.5</xalign>
-		  <yalign>0.5</yalign>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <build_insensitive>True</build_insensitive>
-		</widget>
-	      </widget>
-	    </widget>
-
-	    <widget>
 	      <class>GtkHPaned</class>
 	      <name>hpaned6</name>
 	      <handle_size>10</handle_size>
@@ -8558,6 +8514,50 @@ zeigen, die zu teuer sind</label>
 		      </widget>
 		    </widget>
 		  </widget>
+		</widget>
+	      </widget>
+	    </widget>
+
+	    <widget>
+	      <class>GtkScrolledWindow</class>
+	      <name>scrolledwindow_dfr3</name>
+	      <cxx_visibility>protected</cxx_visibility>
+	      <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
+	      <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+	      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+	      <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
+	      <child>
+		<left_attach>1</left_attach>
+		<right_attach>2</right_attach>
+		<top_attach>0</top_attach>
+		<bottom_attach>4</bottom_attach>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<xexpand>False</xexpand>
+		<yexpand>False</yexpand>
+		<xshrink>True</xshrink>
+		<yshrink>True</yshrink>
+		<xfill>True</xfill>
+		<yfill>True</yfill>
+	      </child>
+
+	      <widget>
+		<class>GtkViewport</class>
+		<name>viewport36</name>
+		<width>309</width>
+		<shadow_type>GTK_SHADOW_NONE</shadow_type>
+
+		<widget>
+		  <class>GtkPixmap</class>
+		  <name>pixmap_dfr3</name>
+		  <width>300</width>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <filename>Gross_dfr3_pre.xpm</filename>
+		  <xalign>0.5</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <build_insensitive>True</build_insensitive>
 		</widget>
 	      </widget>
 	    </widget>
