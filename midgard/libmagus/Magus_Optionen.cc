@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.cc,v 1.17 2004/03/08 20:44:05 thoma Exp $
+// $Id: Magus_Optionen.cc,v 1.18 2004/03/09 11:40:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -219,8 +219,8 @@ void Magus_Optionen::Optionen_init()
   list_OptionenCheck.push_back(st_OptionenCheck(Wizard_immer_starten, 
                            "Wizard bei jedem Programmstart starten",true));
 
-  list_OptionenCheck.push_back(st_OptionenCheck(RegionenAuswahlSpeichern, 
-                           "Regionen auswahl speichern",false));
+//  list_OptionenCheck.push_back(st_OptionenCheck(RegionenAuswahlSpeichern, 
+//                           "Regionen auswahl speichern",false));
 
 
   list_OptionenExecute.push_back(st_OptionenExecute(show_InfoWindow,"Info Fenster zeigen"));
@@ -464,16 +464,13 @@ void Magus_Optionen::save_options(const std::string &filename)
      opt.setAttr("Name",i->text);
      opt.setAttr("Wert", i->name);
    }
-  if(OptionenCheck(RegionenAuswahlSpeichern).active) 
-   {
-     Tag &reg=data.push_back(Tag("Regionen"));
-     for(regionen_t::const_iterator i=standard_regionen.begin();i!=standard_regionen.end();++i)
-      {
-        Tag &r=reg.push_back(Tag("Region"));
-        r.setAttr("Name",i->first->Name());
-        r.setBoolAttr("Wert",i->second);
-      }
-   }
+  Tag &reg=data.push_back(Tag("Regionen"));
+  for(regionen_t::const_iterator i=standard_regionen.begin();i!=standard_regionen.end();++i)
+    {
+      Tag &r=reg.push_back(Tag("Region"));
+      r.setAttr("Name",i->first->Name());
+      r.setBoolAttr("Wert",i->second);
+    }
   ts.write(datei);
   geaendert=false;
 }
@@ -492,6 +489,15 @@ void Magus_Optionen::setWindowPosition(const std::string &name,int x,int y,unsig
    }
    else list_Windows.push_back(st_WindowPosition(name,x,y,w,h));
 }
+
+#include "Abenteurer.hh"
+void Magus_Optionen::setStandardRegionen(const Abenteurer &A)
+{
+   for(Abenteurer::regionen_t::const_iterator i=A.getRegionen().begin();i!=A.getRegionen().end();++i)
+     standard_regionen[i->first] = i->second;    
+}
+
+
 
 void Magus_Optionen::global_settings_save(int userid,const std::string& program,
       		const std::string& name, const std::string& value)

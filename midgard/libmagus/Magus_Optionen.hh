@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.hh,v 1.18 2004/03/08 17:00:34 christof Exp $
+// $Id: Magus_Optionen.hh,v 1.19 2004/03/09 11:40:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -28,13 +28,15 @@
 #include <map>
 //class cH_Region;
 #include "Region.hh"
+//#include "Abenteurer.hh"
+class Abenteurer;
 
 class Magus_Optionen
 {
    public:
       enum StringIndex{pdf_viewer,html_viewer,tmppfad,speicherpfad};
       enum pdfViewerIndex {gv,acroread,xpdf,anderer};
-      enum OptionenCheckIndex {Info,RegionenAuswahlSpeichern,
+      enum OptionenCheckIndex {Info,//RegionenAuswahlSpeichern,
                             Wizard_immer_starten,Drei_Tasten_Maus,
                             Notebook_start};
       enum OptionenExecuteIndex {LernschemaSensitive,show_InfoWindow};
@@ -196,6 +198,7 @@ class Magus_Optionen
 //      typedef std::map<cH_Region,Model_copyable<bool> > regionen_t;
       typedef std::map<cH_Region,bool > regionen_t;
       regionen_t standard_regionen;  // aktive Standardregionen
+      void setStandardRegionen(const Abenteurer &A) ;
 
 //      Model_ref<bool> WerteEingebenModel() { return werte_eingeben; }
 };

@@ -1,4 +1,4 @@
-// $Id: VAbentModelProxy.cc,v 1.9 2004/03/08 14:34:10 thoma Exp $               
+// $Id: VAbentModelProxy.cc,v 1.10 2004/03/09 11:40:57 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2003 Christof Petig
  *
@@ -22,7 +22,6 @@
 #include "Datenbank.hh"
 #include "magustrace.h"
 #include <Misc/TraceNV.h>
-#include "Magus_Optionen.hh"
 
 void VAbentModelProxy::divert(VAbenteurer::st_undo &A)
 {  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,NV("st_undo",&A));
@@ -45,10 +44,7 @@ void VAbentModelProxy::divert(VAbenteurer::st_undo &A)
 void VAbentModelProxy::divert(VAbenteurer::Item &A)
 {  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,NV("Item",&A));
    for (regionen_t::iterator i=A.proxies.regionen.begin();i!=A.proxies.regionen.end();++i)
-    {
       regionen[i->first].set_model(i->second);
-      Programmoptionen.standard_regionen[i->first]=i->second;      
-    }
    for (check_t::iterator i=A.proxies.checks.begin();i!=A.proxies.checks.end();++i)
       checks[i->first].set_model(i->second);
    for (haus_t::iterator i=A.proxies.hausregeln.begin();i!=A.proxies.hausregeln.end();++i)
