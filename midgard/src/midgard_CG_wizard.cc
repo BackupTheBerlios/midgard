@@ -19,6 +19,14 @@
 #include "midgard_CG.hh"
 #include <cstring>
 
+void midgard_CG::set_wizard(std::string s)
+{
+  label_wizard->show();
+  label_wizard->set_text(s);
+}
+
+
+
 void midgard_CG::wizard_do_something()
 {
   if(!wizard) return;

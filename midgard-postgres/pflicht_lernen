@@ -61,13 +61,93 @@ Elf	Schleichen	1			8
 Elf	Spurenlesen	1			6
 Elf	Tarnen	1			8
 Elf	Wahrnehmung	1			4
+Elf	\N	\N	Blasrohr 	S	\N
+Elf	\N	\N	Bola 	S	\N
+Elf	\N	\N	Buckler 	S	\N
+Elf	\N	\N	Faustkampf 	S	\N
+Elf	\N	\N	Fuchtel 	S	\N
 Elf	\N	\N	Fälschen	\N	\N
+Elf	\N	\N	Garotte 	S	\N
 Elf	\N	\N	Gassenwissen	\N	\N
 Elf	\N	\N	Giftmischen	\N	\N
+Elf	\N	\N	Glefe 	S	\N
 Elf	\N	\N	Glücksspiel	\N	\N
+Elf	\N	\N	Handarmbrust 	S	\N
+Elf	\N	\N	Hellebarde 	S	\N
+Elf	\N	\N	Kampfgabeln 	S	\N
+Elf	\N	\N	Kharrata 	S	\N
+Elf	\N	\N	Kompositbogen 	S	\N
+Elf	\N	\N	Kriegsflegel 	S	\N
+Elf	\N	\N	Kriegshammer 	S	\N
+Elf	\N	\N	Krummsäbel 	S	\N
+Elf	\N	\N	Lasso 	S	\N
 Elf	\N	\N	Meucheln	\N	\N
+Elf	\N	\N	Morgenstern 	S	\N
+Elf	\N	\N	Netz 	S	\N
+Elf	\N	\N	Ochsenzunge 	S	\N
+Elf	\N	\N	Ogerhammer 	S	\N
+Elf	\N	\N	Parierdolch 	S	\N
+Elf	\N	\N	Peitsche 	S	\N
+Elf	\N	\N	Rapier 	S	\N
+Elf	\N	\N	Schlachtbeil 	S	\N
 Elf	\N	\N	Schlösser öffnen	\N	\N
+Elf	\N	\N	Skhallanta 	S	\N
+Elf	\N	\N	Speerschleuder 	S	\N
+Elf	\N	\N	Stabkeule 	S	\N
 Elf	\N	\N	Stehlen	\N	\N
+Elf	\N	\N	Stielhammer 	S	\N
+Elf	\N	\N	Stockschleuder 	S	\N
+Elf	\N	\N	Streitaxt 	S	\N
+Elf	\N	\N	Wurfeisen 	S	\N
+Elf	\N	\N	Wurfhammer 	S	\N
+Elf	\N	\N	Wurfpfeil 	S	\N
+Elf	\N	\N	Wurfscheibe 	S	\N
+Elf	\N	\N	Wurfspieß 	S	\N
+Elf	\N	\N	Wurfstern 	S	\N
+Elf	\N	\N	leichte Armbrust 	S	\N
+Elf	\N	\N	schwere Armbrust 	S	\N
+Gnom	\N	\N	Anderthalbhänder 	S	\N
+Gnom	\N	\N	Bihänder 	S	\N
+Gnom	\N	\N	Bola 	S	\N
+Gnom	\N	\N	Faustkampf 	S	\N
+Gnom	\N	\N	Fuchtel 	S	\N
+Gnom	\N	\N	Garotte 	S	\N
+Gnom	\N	\N	Glefe 	S	\N
+Gnom	\N	\N	Handarmbrust 	S	\N
+Gnom	\N	\N	Hellebarde 	S	\N
+Gnom	\N	\N	Kampfgabeln 	S	\N
+Gnom	\N	\N	Kampfstab 	S	\N
+Gnom	\N	\N	Kharrata 	S	\N
+Gnom	\N	\N	Kompositbogen 	S	\N
+Gnom	\N	\N	Kriegsflegel 	S	\N
+Gnom	\N	\N	Kriegshammer 	S	\N
+Gnom	\N	\N	Krummsäbel 	S	\N
+Gnom	\N	\N	Langbogen 	S	\N
+Gnom	\N	\N	Langschwert 	S	\N
+Gnom	\N	\N	Lanze 	S	\N
+Gnom	\N	\N	Lasso 	S	\N
+Gnom	\N	\N	Magierstecken 	S	\N
+Gnom	\N	\N	Morgenstern 	S	\N
+Gnom	\N	\N	Netz 	S	\N
+Gnom	\N	\N	Ochsenzunge 	S	\N
+Gnom	\N	\N	Ogerhammer 	S	\N
+Gnom	\N	\N	Parierdolch 	S	\N
+Gnom	\N	\N	Peitsche 	S	\N
+Gnom	\N	\N	Rapier 	S	\N
+Gnom	\N	\N	Schlachtbeil 	S	\N
+Gnom	\N	\N	Skhallanta 	S	\N
+Gnom	\N	\N	Speerschleuder 	S	\N
+Gnom	\N	\N	Stabkeule 	S	\N
+Gnom	\N	\N	Stielhammer 	S	\N
+Gnom	\N	\N	Stockschleuder 	S	\N
+Gnom	\N	\N	Streitaxt 	S	\N
+Gnom	\N	\N	Wurfeisen 	S	\N
+Gnom	\N	\N	Wurfhammer 	S	\N
+Gnom	\N	\N	Wurfscheibe 	S	\N
+Gnom	\N	\N	Wurfspieß 	S	\N
+Gnom	\N	\N	Wurfstern 	S	\N
+Gnom	\N	\N	großer Schild 	S	\N
+Gnom	\N	\N	schwere Armbrust 	S	\N
 Halbling		0	Überleben im Dschungel	S	\N
 Halbling		0	Überleben im Gebirge	S	\N
 Halbling		0	Überleben im Schnee	S	\N
@@ -77,17 +157,61 @@ Halbling		0	Überleben in der Steppe	S	\N
 Halbling		0	Überleben in der Wüste	S	\N
 Halbling	Schleichen	1			10
 Halbling	Tarnen	1			10
+Halbling	\N	\N	Anderthalbhänder 	S	\N
+Halbling	\N	\N	Bihänder 	S	\N
+Halbling	\N	\N	Blasrohr 	S	\N
+Halbling	\N	\N	Bola 	S	\N
+Halbling	\N	\N	Buckler 	S	\N
+Halbling	\N	\N	Faustkampf 	S	\N
+Halbling	\N	\N	Fuchtel 	S	\N
+Halbling	\N	\N	Garotte 	S	\N
+Halbling	\N	\N	Glefe 	S	\N
+Halbling	\N	\N	Handarmbrust 	S	\N
+Halbling	\N	\N	Hellebarde 	S	\N
+Halbling	\N	\N	Kampfgabeln 	S	\N
 Halbling	\N	\N	Kampfstab	\N	\N
+Halbling	\N	\N	Kampfstab 	S	\N
+Halbling	\N	\N	Kharrata 	S	\N
+Halbling	\N	\N	Kompositbogen 	S	\N
 Halbling	\N	\N	Kriegsflegel	\N	\N
+Halbling	\N	\N	Kriegsflegel 	S	\N
+Halbling	\N	\N	Krummsäbel 	S	\N
 Halbling	\N	\N	Langbogen	\N	\N
+Halbling	\N	\N	Langbogen 	S	\N
 Halbling	\N	\N	Lanze	\N	\N
+Halbling	\N	\N	Lanze 	S	\N
+Halbling	\N	\N	Lasso 	S	\N
+Halbling	\N	\N	Magierstecken 	S	\N
+Halbling	\N	\N	Morgenstern 	S	\N
 Halbling	\N	\N	Netz	\N	\N
+Halbling	\N	\N	Netz 	S	\N
+Halbling	\N	\N	Ochsenzunge 	S	\N
+Halbling	\N	\N	Ogerhammer 	S	\N
+Halbling	\N	\N	Parierdolch 	S	\N
 Halbling	\N	\N	Peitsche	\N	\N
+Halbling	\N	\N	Peitsche 	S	\N
+Halbling	\N	\N	Rapier 	S	\N
+Halbling	\N	\N	Schlachtbeil 	S	\N
+Halbling	\N	\N	Skhallanta 	S	\N
+Halbling	\N	\N	Speerschleuder 	S	\N
+Halbling	\N	\N	Stabkeule 	S	\N
 Halbling	\N	\N	Stangenwaffe	\N	\N
+Halbling	\N	\N	Stielhammer 	S	\N
 Halbling	\N	\N	Stockschleuder	\N	\N
+Halbling	\N	\N	Stockschleuder 	S	\N
+Halbling	\N	\N	Streitkolben 	S	\N
+Halbling	\N	\N	Wurfeisen 	S	\N
+Halbling	\N	\N	Wurfhammer 	S	\N
+Halbling	\N	\N	Wurfpfeil 	S	\N
+Halbling	\N	\N	Wurfscheibe 	S	\N
+Halbling	\N	\N	Wurfspieß 	S	\N
+Halbling	\N	\N	Wurfstern	S	\N
 Halbling	\N	\N	ZSchlagwaffe	\N	\N
 Halbling	\N	\N	ZSchwert	\N	\N
+Halbling	\N	\N	großer Schild 	S	\N
+Halbling	\N	\N	leichte Armbrust 	S	\N
 Halbling	\N	\N	schwere Armbrust	\N	\N
+Halbling	\N	\N	schwere Armbrust 	S	\N
 Ri	\N	\N	Beschatten	\N	\N
 Ri	\N	\N	Fallenstellen	\N	\N
 Ri	\N	\N	Fälschen	\N	\N
@@ -127,6 +251,39 @@ Zwerg	Baukunde	1	\N	\N	8
 Zwerg	Bergmann	3	\N	\N	\N
 Zwerg	Steinmetz	3	\N	\N	\N
 Zwerg	Zimmermann	3	\N	\N	\N
+Zwerg	\N	\N	Bihänder 	S	\N
+Zwerg	\N	\N	Bogen 	S	\N
+Zwerg	\N	\N	Bola 	S	\N
+Zwerg	\N	\N	Buckler 	S	\N
+Zwerg	\N	\N	Fuchtel 	S	\N
+Zwerg	\N	\N	Garotte 	S	\N
+Zwerg	\N	\N	Glefe 	S	\N
+Zwerg	\N	\N	Handarmbrust 	S	\N
+Zwerg	\N	\N	Kampfgabeln 	S	\N
+Zwerg	\N	\N	Kampfstab 	S	\N
+Zwerg	\N	\N	Kharrata 	S	\N
+Zwerg	\N	\N	Kompositbogen 	S	\N
+Zwerg	\N	\N	Krummsäbel 	S	\N
+Zwerg	\N	\N	Kurzbogen 	S	\N
+Zwerg	\N	\N	Langbogen 	S	\N
+Zwerg	\N	\N	Lasso 	S	\N
+Zwerg	\N	\N	Magierstecken 	S	\N
+Zwerg	\N	\N	Netz 	S	\N
+Zwerg	\N	\N	Ochsenzunge 	S	\N
+Zwerg	\N	\N	Ogerhammer 	S	\N
+Zwerg	\N	\N	Parierdolch 	S	\N
+Zwerg	\N	\N	Rapier 	S	\N
+Zwerg	\N	\N	Skhallanta 	S	\N
+Zwerg	\N	\N	Speerschleuder 	S	\N
+Zwerg	\N	\N	Stockschleuder 	S	\N
+Zwerg	\N	\N	Wurfeisen 	S	\N
+Zwerg	\N	\N	Wurfmesser 	S	\N
+Zwerg	\N	\N	Wurfpfeil 	S	\N
+Zwerg	\N	\N	Wurfscheibe 	S	\N
+Zwerg	\N	\N	Wurfspeer 	S	\N
+Zwerg	\N	\N	Wurfspieß 	S	\N
+Zwerg	\N	\N	Wurfstern 	S	\N
+Zwerg	\N	\N	leichter Speer 	S	\N
 Zwerk	Trinken	1	\N	\N	12
 \.
 --

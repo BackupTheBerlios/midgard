@@ -214,7 +214,8 @@ void midgard_CG::xml_import_stream(istream& datei)
 
    load_fertigkeiten(Fertigkeiten,Ausruestung,xml_version);
    Typ_Geschlecht_Spezies_setzen();
-   load_ausruestung(Ausruestung,&besitz);
+//   load_ausruestung(Ausruestung,&besitz);
+   load_ausruestung(Ausruestung,&(Werte.getBesitz()));
    
 //   filename=datei;
    set_title(Werte.Name_Abenteurer());

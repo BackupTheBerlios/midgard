@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.242 2002/05/17 10:24:28 thoma Exp $
+// $Id: midgard_CG.hh,v 1.243 2002/05/20 20:44:09 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,18 +26,14 @@
 #include <string>
 #include <gtk--/menu.h>
 #include <gtk--/menuitem.h>
-#include <gtk--/ctree.h>
 
 #include <vector>
 #include <list>
 #include "zufall.h"
 #include "Datenbank.hh"
-//#include "class_lernpunkte.hh"
-#include "Ausruestung.hh"
 class Random;
 #include <fstream>
 #include "WindowInfo.hh"
-//#include "Wizard_window.hh"
 #include "Wizard.hh"
 #include "Midgard_Undo.hh"
 #include "Optionen.hh"
@@ -63,6 +59,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         friend class table_beschreibung;
         friend class table_grundwerte;
         friend class table_lernschema;
+        friend class table_ausruestung;
    private:
         // Drucken
         void on_alles_drucken();
@@ -70,7 +67,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_leeres_abenteurerdokument_drucken();
         gint on_latex_release_event(GdkEventButton *ev);
         void on_beschreibung_drucken();
-        gint on_button_ausruestung_druck_release_event(GdkEventButton *event);
         void on_nur_sichtbares_drucken();
         void on_auch_unsichtbares_drucken();
    protected:
@@ -79,6 +75,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void undosave(std::string s); 
 
         const Datenbank &getDatabase() const {return Database;}
+        Datenbank &get_nCDatabase() {return Database;}
         Grundwerte &getWerte() {return Werte;}
         const Grundwerte &getCWerte() const {return Werte;}
         Midgard_Optionen* getOptionen() const {return MOptionen;};
@@ -102,8 +99,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
                                  LZTIERSPRACHE,LZMUSIZIEREN,LZSCHARFSCHIESSEN,
                                  LZLAND};
 
-
-//        std::vector<std::string> Vkido;
 
         friend class midgard_CG_glade;
         friend class Wizard;
@@ -133,25 +128,13 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void menu_gradanstieg_init();
         gint on_eventbox_MCG_button_press_event(GdkEventButton *event);
 
-        void set_tree_titles();
-
-//        struct st_BKategorie{bool kat_I; bool kat_II; bool kat_III; bool kat_IV;
-//             st_BKategorie(): kat_I(false),kat_II(false),kat_III(false),kat_IV(false) {}
-//             st_BKategorie(bool a,bool b, bool c, bool d)
-//               : kat_I(a),kat_II(b),kat_III(c),kat_IV(d) {}
-//             };
-//        st_BKategorie BKategorie;
-
-
         Datenbank Database;
         std::list<cH_MidgardBasicElement> list_Beruf;
-//        std::list<cH_MidgardBasicElement> list_Fertigkeit_ang_neu;
         std::list<cH_MidgardBasicElement> list_Fertigkeit_ang;
         std::list<cH_MidgardBasicElement> list_Fertigkeit;
    public:
         void setWindowPosition(int x,int y);
         void setWindowSize(int width,int height);
-//        std::list<std::string>            list_FertigkeitZusaetze;
    private:
         std::list<cH_MidgardBasicElement> list_Fertigkeit_neu;
         std::list<cH_MidgardBasicElement> list_Fertigkeit_universal;
@@ -174,20 +157,12 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
     public:
         bool fire_enabled;
     private:
-//        MidgardBasicTree *tree_lernschema;
-//        SimpleTree *Beruf_tree;
-//        MidgardBasicTree *tree_angeb_fert;
-//        MidgardBasicTree *tree_kido_lernschema;
-//        MidgardBasicTree *tree_waffen_lernschema;
-//        WaffeBesitzLernen waffebesitzlernen;
 
     private:
         bool modify_bool;
-//        int maxkido;
         bool steigern_mit_EP_bool;
 
         std::vector<cH_Typen> Typ;
-//        Lernpunkte lernpunkte;
      
      	  std::string filename;
    
@@ -200,7 +175,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
 
         void OptionenExecute_setzen_from_menu(Midgard_Optionen::OptionenExecuteIndex index);
         void Ober_setzen_from_menu(Gtk::CheckMenuItem *mi,Midgard_Optionen::OberIndex index);
-//        void optionmenu_init();
         void pdf_viewer(const std::string& file);
         SigC::Connection connection_status;
         gint timeout_status();
@@ -210,12 +184,9 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
 private:
         void set_wizard(std::string s);
    private:
-//        void on_herkunftsland_clicked();
         gint on_button_menu_button_release_event(GdkEventButton *ev);
         void Eigenschaften_variante(int i);
 
-//        void edit_sensitive(bool b);
-//        void on_abge_werte_setzen_clicked();
         void on_neuer_charakter_clicked();
         void clear_gtk();
         void clear_listen();
@@ -233,7 +204,6 @@ private:
         void on_button_ruestung_s_clicked();
         void on_button_waffen_s_clicked();
         void get_spezial_from_spezialgebiet();
-//        void universal_Fertigkeiten();
         void on_spezialwaffe_clicked();
         void checkbutton_original(bool active);
         void lernschema_sensitive(bool active);
@@ -356,46 +326,6 @@ private:
 
         void show_gtk();
 
-        void ausruestung_laden();
-        void fill_preisliste();
-        void on_clist_preisliste_select_row(gint row, gint column, GdkEvent *event);
-        void on_preise_leaf_selected(cH_RowDataBase d);        
-        void on_button_modi_clicked();
-        void show_modi();
-        void setStandardAusruestung();
-        void setFertigkeitenAusruestung(AusruestungBaum *Rucksack);
-        void InfoFensterAusruestung(std::string name,int wurf,int noetig);
-        void showAusruestung();
-        void showChildren(Gtk::CTree_Helpers::RowList::iterator r,const std::list<AusruestungBaum> &AB);
-        Gtk::CTree *Ausruestung_tree;
-        AusruestungBaum besitz;
-        struct st_modimap_index{std::string art;std::string art2;std::string typ;
-            st_modimap_index(std::string a,std::string a2,std::string t)
-               :art(a),art2(a2),typ(t) {}
-            bool operator <(const st_modimap_index b) const 
-            {return art<b.art || (art==b.art && art2<b.art2) ||
-                    (art==b.art && art2==b.art2 && typ<b.typ);} };
-        std::map<st_modimap_index,PreiseMod::st_payload> modimap;
-        void on_checkbutton_sichtbar_toggled();
-        SigC::Connection sichtbarConnection;
-        void on_ausruestung_loeschen_clicked();
-        void on_Ausruestung_tree_select_row(Gtk::CTree::Row row,gint column);
-        void on_Ausruestung_tree_unselect_row(Gtk::CTree::Row row,gint column);
-        bool tree_valid(Gtk::CTree_Helpers::SelectionList &selectionList) ;
-        void on_togglebutton_artikel_neu_toggled();
-        void on_togglebutton_gruppe_neu_toggled();
-        void on_entry_art_activate();
-        void on_entry_typ_activate();
-        void on_entry_eigenschaft_activate();
-        void on_entry_artikel_art_activate();
-        void on_entry_artikel_art2_activate();
-        void on_entry_name_activate();
-        void on_spinbutton_preis_activate();
-        void on_optionmenu_einheit_deactivate();
-        void on_spinbutton_gewicht_activate();
-        void on_checkbutton_ausruestung_geld_toggled();
-
-         
          gint on_neuer_charakter_release_event(GdkEventButton *ev);
          gint on_speichern_release_event(GdkEventButton *ev);
          void grundwerte_speichern(ostream &);
@@ -405,7 +335,6 @@ private:
          void xml_export_auswahl();
          void save_existing_filename();
          void xml_import_auswahl();
-//         void checkAngeboreneSinne();
          void speicherstream(ostream &datei);
          void show_undo_tree();
          void on_undo_leaf_selected(cH_RowDataBase d);
@@ -436,8 +365,6 @@ private:
          void xml_import_stream(istream &datei);
          const std::string get_filename() const { return filename; }
          void spielleiter_export_save(const std::string& dateiname);
-//         void MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe,
-//                                              const std::list<cH_MidgardBasicElement>& mbe2=std::list<cH_MidgardBasicElement>());
          bool region_check(const std::string& region);
          void EP_uebernehmen();
          void Geld_uebernehmen();

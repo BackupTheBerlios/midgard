@@ -71,10 +71,6 @@ void midgard_CG::Geld_uebernehmen()
   label_gold->set_text(itos(Werte.Gold()));
   label_silber->set_text(itos(Werte.Silber()));
   label_kupfer->set_text(itos(Werte.Kupfer()));
-  // und für die Ausrüstung
-  label_golda->set_text(itos(Werte.Gold()));
-  label_silbera->set_text(itos(Werte.Silber()));
-  label_kupfera->set_text(itos(Werte.Kupfer()));
 }
 
 

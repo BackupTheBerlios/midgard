@@ -121,7 +121,7 @@ void midgard_CG::speicherstream(ostream &datei)
          if (WB->Magisch().empty()) datei << "/>\n";
          else datei << '>' << Internal2Latin(WB->Magisch()) << "</Waffe>\n";
       }
-   save_ausruestung(datei, besitz.getChildren());
+   save_ausruestung(datei, Werte.getCBesitz().getChildren());
    datei << Internal2Latin("  </Ausrüstung>\n");
    
    datei << "  <Fertigkeiten>\n";   

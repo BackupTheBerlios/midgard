@@ -17,7 +17,9 @@
  */
 
 #include "midgard_CG.hh"
-#include "WindowInfo.hh"
+#include "config.h"
+#include "table_ausruestung.hh"
+//#include "WindowInfo.hh"
 #include <Gtk_OStream.h>
 #include <Aux/EntryValueIntString.h>
 #ifndef USE_XML
@@ -62,11 +64,36 @@ public:
 };
 
 
-void midgard_CG::ausruestung_laden()
+void table_ausruestung::init(midgard_CG *h)
 {
-  sichtbarConnection=checkbutton_sichtbar->toggled.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_checkbutton_sichtbar_toggled));
+   hauptfenster=h;
+   besitz=hauptfenster->getWerte().getBesitz();
+   zeige_werte();
+   ausruestung_laden();
+   table_gruppe->hide();
+   table_artikel->hide();      
+   togglebutton_gruppe_neu->hide(); // nicht implementiert
+   set_tree_titles();
+}
+   
+void table_ausruestung::set_tree_titles()
+{
+ std::vector<string> preis;
+ preis.push_back("Art");
+ preis.push_back("");
+ preis.push_back("Kategorie");
+ preis.push_back("Eigenschaft");
+ preis.push_back("Kostenfaktor");
+ preise_tree->setTitles(preis);
+} 
+
+   
+
+void table_ausruestung::ausruestung_laden()
+{
+  sichtbarConnection=checkbutton_sichtbar->toggled.connect(SigC::slot(static_cast<class table_ausruestung*>(this), &table_ausruestung::on_checkbutton_sichtbar_toggled));
   std::vector<cH_RowDataBase> datavec;
-  for(std::list<cH_PreiseMod>::iterator i=Database.preisemod.begin();i!=Database.preisemod.end();++i)
+  for(std::list<cH_PreiseMod>::const_iterator i=hauptfenster->getDatabase().preisemod.begin();i!=hauptfenster->getDatabase().preisemod.end();++i)
    {
      datavec.push_back(new Data_Preis((*i)->Art(),(*i)->Art2(),(*i)->Typ(),(*i)->Payload()));
    }
@@ -74,7 +101,7 @@ void midgard_CG::ausruestung_laden()
   showAusruestung();
 }
 
-void midgard_CG::on_preise_leaf_selected(cH_RowDataBase d)
+void table_ausruestung::on_preise_leaf_selected(cH_RowDataBase d)
 {
  static std::string art,art2;
  const Data_Preis *dt=dynamic_cast<const Data_Preis*>(&*d);
@@ -90,7 +117,7 @@ void midgard_CG::on_preise_leaf_selected(cH_RowDataBase d)
  entry_artikel_art2->set_text(art2);
 }
 
-void midgard_CG::show_modi()
+void table_ausruestung::show_modi()
 {
   viewport_modi->remove();
   Gtk::Table *table_modi = manage(new Gtk::Table(0,0,false));
@@ -118,7 +145,7 @@ void midgard_CG::show_modi()
   fill_preisliste();
 }
 
-void midgard_CG::on_button_modi_clicked()
+void table_ausruestung::on_button_modi_clicked()
 {
   modimap.clear();
   show_modi();
@@ -126,7 +153,7 @@ void midgard_CG::on_button_modi_clicked()
 
 
 
-void midgard_CG::showAusruestung()
+void table_ausruestung::showAusruestung()
 {
   if(besitz.empty()) 
       setStandardAusruestung();
@@ -170,8 +197,8 @@ void midgard_CG::showAusruestung()
 
   r->expand_recursive();
   Ausruestung_tree->show(); 
-  Ausruestung_tree->tree_select_row.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_Ausruestung_tree_select_row));
-  Ausruestung_tree->tree_unselect_row.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_Ausruestung_tree_unselect_row));
+  Ausruestung_tree->tree_select_row.connect(SigC::slot(static_cast<class table_ausruestung*>(this), &table_ausruestung::on_Ausruestung_tree_select_row));
+  Ausruestung_tree->tree_unselect_row.connect(SigC::slot(static_cast<class table_ausruestung*>(this), &table_ausruestung::on_Ausruestung_tree_unselect_row));
   for (unsigned int i=0;i<Ausruestung_tree->columns().size();++i)
          Ausruestung_tree->set_column_auto_resize(i,true);
             
@@ -180,7 +207,7 @@ void midgard_CG::showAusruestung()
   button_ausruestung_loeschen->set_sensitive(false);
 }
 
-void midgard_CG::showChildren(Gtk::CTree_Helpers::RowList::iterator r,const list<AusruestungBaum> &AB)
+void table_ausruestung::showChildren(Gtk::CTree_Helpers::RowList::iterator r,const list<AusruestungBaum> &AB)
 {
   Gtk::CTree_Helpers::RowList::iterator n;
   for(std::list<AusruestungBaum>::const_iterator i=AB.begin();i!=AB.end();++i)
@@ -198,7 +225,7 @@ void midgard_CG::showChildren(Gtk::CTree_Helpers::RowList::iterator r,const list
 
 
 
-bool midgard_CG::tree_valid(Gtk::CTree_Helpers::SelectionList &selectionList)
+bool table_ausruestung::tree_valid(Gtk::CTree_Helpers::SelectionList &selectionList)
 {
   if(selectionList.empty())
    {
@@ -215,23 +242,23 @@ bool midgard_CG::tree_valid(Gtk::CTree_Helpers::SelectionList &selectionList)
   return true;
 }
 
-void midgard_CG::on_Ausruestung_tree_unselect_row(Gtk::CTree::Row row,gint column)
+void table_ausruestung::on_Ausruestung_tree_unselect_row(Gtk::CTree::Row row,gint column)
 {
   button_ausruestung_loeschen->set_sensitive(false);
 }
 
-void midgard_CG::on_Ausruestung_tree_select_row(Gtk::CTree::Row row,gint column)
+void table_ausruestung::on_Ausruestung_tree_select_row(Gtk::CTree::Row row,gint column)
 {
   Gtk::CTree_Helpers::SelectionList selectionList = Ausruestung_tree->selection();
   if(!tree_valid(selectionList)) return;
   AusruestungBaum &A=*static_cast<AusruestungBaum*>(selectionList.begin()->get_data());
   sichtbarConnection.disconnect();
   checkbutton_sichtbar->set_active(A.getAusruestung().Sichtbar());
-  sichtbarConnection=checkbutton_sichtbar->toggled.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_checkbutton_sichtbar_toggled));
+  sichtbarConnection=checkbutton_sichtbar->toggled.connect(SigC::slot(static_cast<class table_ausruestung*>(this), &table_ausruestung::on_checkbutton_sichtbar_toggled));
   button_ausruestung_loeschen->set_sensitive(true);
 }
 
-void midgard_CG::on_checkbutton_sichtbar_toggled()
+void table_ausruestung::on_checkbutton_sichtbar_toggled()
 {
   Gtk::CTree_Helpers::SelectionList selectionList = Ausruestung_tree->selection();
   if(!tree_valid(selectionList)) return;
@@ -242,7 +269,7 @@ void midgard_CG::on_checkbutton_sichtbar_toggled()
 }
 
 
-void midgard_CG::on_ausruestung_loeschen_clicked()
+void table_ausruestung::on_ausruestung_loeschen_clicked()
 {
   Gtk::CTree_Helpers::SelectionList selectionList = Ausruestung_tree->selection();
   if(!tree_valid(selectionList)) return;
@@ -264,12 +291,12 @@ cout <<"Cell: " <<cell.get_text()<<'\n';
   showAusruestung();
 }
 
-void midgard_CG::on_checkbutton_ausruestung_geld_toggled()
+void table_ausruestung::on_checkbutton_ausruestung_geld_toggled()
 {
 }
 
 
-void midgard_CG::on_clist_preisliste_select_row(gint row, gint column, GdkEvent *event)
+void table_ausruestung::on_clist_preisliste_select_row(gint row, gint column, GdkEvent *event)
 {
   Gtk::CTree_Helpers::SelectionList selectionList = Ausruestung_tree->selection();
   if(!tree_valid(selectionList)) return;
@@ -285,10 +312,10 @@ void midgard_CG::on_clist_preisliste_select_row(gint row, gint column, GdkEvent 
      if(einheit=="GS") g=atoi(kosten.c_str());
      if(einheit=="SS") s=atoi(kosten.c_str());
      if(einheit=="KS") k=atoi(kosten.c_str());
-     Werte.addGold(-g);
-     Werte.addSilber(-s);
-     Werte.addKupfer(-k);
-     Geld_uebernehmen();
+     hauptfenster->getWerte().addGold(-g);
+     hauptfenster->getWerte().addSilber(-s);
+     hauptfenster->getWerte().addKupfer(-k);
+     zeige_werte();
    }
  std::string bez;
  for (std::map<st_modimap_index,PreiseMod::st_payload>::const_iterator i=modimap.begin();i!=modimap.end();)
@@ -304,6 +331,15 @@ void midgard_CG::on_clist_preisliste_select_row(gint row, gint column, GdkEvent 
  showAusruestung();
 }
 
+void table_ausruestung::zeige_werte()
+{
+  label_golda->set_text(itos(hauptfenster->getCWerte().Gold()));
+  label_silbera->set_text(itos(hauptfenster->getCWerte().Silber()));
+  label_kupfera->set_text(itos(hauptfenster->getCWerte().Kupfer()));
+}
+
+
+
 struct st_ausruestung{std::string name;double kosten; std::string einheit; double gewicht;
        st_ausruestung(std::string n,double k, std::string e, double g)
         : name(n),kosten(k),einheit(e),gewicht(g) {}
@@ -311,7 +347,7 @@ struct st_ausruestung{std::string name;double kosten; std::string einheit; doubl
           { return name<b.name;}
        };
 
-void midgard_CG::fill_preisliste()
+void table_ausruestung::fill_preisliste()
 {
  clist_preisliste->clear();
  if(modimap.empty()) return;
@@ -321,7 +357,7 @@ void midgard_CG::fill_preisliste()
     fak *= i->second.faktor;
    }
  std::vector<st_ausruestung> vec_aus;
- for(std::list<cH_Preise>::const_iterator i=Database.preise.begin();i!=Database.preise.end();++i)
+ for(std::list<cH_Preise>::const_iterator i=hauptfenster->getDatabase().preise.begin();i!=hauptfenster->getDatabase().preise.end();++i)
    {
     if(modimap.begin()->first.art==(*i)->Art() && modimap.begin()->first.art2==(*i)->Art2())
      vec_aus.push_back(st_ausruestung((*i)->Name(),(*i)->Kosten() * fak,(*i)->Einheit(),(*i)->Gewicht()));
@@ -339,7 +375,7 @@ void midgard_CG::fill_preisliste()
        clist_preisliste->set_column_auto_resize(i,true);
 }
 
-void midgard_CG::setStandardAusruestung()
+void table_ausruestung::setStandardAusruestung()
 {
   AusruestungBaum *Koerper = &besitz.push_back(Ausruestung("Körper"));
   Koerper->setParent(&besitz);
@@ -363,33 +399,33 @@ void midgard_CG::setStandardAusruestung()
   setFertigkeitenAusruestung(Rucksack);
 }
 
-void midgard_CG::setFertigkeitenAusruestung(AusruestungBaum *Rucksack)
+void table_ausruestung::setFertigkeitenAusruestung(AusruestungBaum *Rucksack)
 {
-  for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i)
+  for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->list_Fertigkeit.begin();i!=hauptfenster->list_Fertigkeit.end();++i)
    {
     int wurf;
-    if((*i)->Name()=="Abrichten" && 90<(wurf=random.integer(1,100)))
+    if((*i)->Name()=="Abrichten" && 90<(wurf=hauptfenster->random.integer(1,100)))
       { AusruestungBaum *Tier = &besitz.push_back(Ausruestung("Tier"));
         Tier->setParent(&besitz);
         InfoFensterAusruestung((*i)->Name(),wurf,90);
       }
-    if((*i)->Name()=="Erste Hilfe" && 5<(wurf=random.integer(1,100)))
+    if((*i)->Name()=="Erste Hilfe" && 5<(wurf=hauptfenster->random.integer(1,100)))
       { AusruestungBaum *ErsteHilfe = &Rucksack->push_back(Ausruestung("Erste Hilfe Ausrüstung (Salben, Heilkräuter und Verbände)","",false));
         ErsteHilfe->setParent(Rucksack);
         InfoFensterAusruestung((*i)->Name(),wurf,5);
       }
-    if((*i)->Name()=="Fälschen" && 50<(wurf=random.integer(1,100)))
+    if((*i)->Name()=="Fälschen" && 50<(wurf=hauptfenster->random.integer(1,100)))
       { AusruestungBaum *Faelschen = &Rucksack->push_back(Ausruestung("Hilfsmittel und Werkzeuge zum Fälschen","",false));
         Faelschen->setParent(Rucksack);
         InfoFensterAusruestung((*i)->Name(),wurf,50);
       }
-    if((*i)->Name()=="Gaukeln" && 30<(wurf=random.integer(1,100)))
+    if((*i)->Name()=="Gaukeln" && 30<(wurf=hauptfenster->random.integer(1,100)))
       { AusruestungBaum *Gaukeln = &Rucksack->push_back(Ausruestung("Bälle, Reifen und Keulen zum Jonglieren","",false));
         Gaukeln->setParent(Rucksack);
         InfoFensterAusruestung((*i)->Name(),wurf,30);
       }
     if((*i)->Name()=="Giftmischen")
-      { wurf=random.integer(1,100);
+      { wurf=hauptfenster->random.integer(1,100);
         if(wurf>98)
          { AusruestungBaum *K = &Rucksack->push_back(Ausruestung("eine Dosis 3W6 Klingengift","",false));
            K->setParent(Rucksack);
@@ -402,18 +438,18 @@ void midgard_CG::setFertigkeitenAusruestung(AusruestungBaum *Rucksack)
          }
         else InfoFensterAusruestung((*i)->Name(),wurf,90);
       }
-    if((*i)->Name()=="Glückspiel" && 50<(wurf=random.integer(1,100)))
+    if((*i)->Name()=="Glückspiel" && 50<(wurf=hauptfenster->random.integer(1,100)))
       { AusruestungBaum *G = &Rucksack->push_back(Ausruestung("geladene Würfel","",false));
         G->setParent(Rucksack);
         InfoFensterAusruestung((*i)->Name(),wurf,50);
       }
-    if((*i)->Name()=="Kampf zu Pferd" && 95<(wurf=random.integer(1,100)))
+    if((*i)->Name()=="Kampf zu Pferd" && 95<(wurf=hauptfenster->random.integer(1,100)))
       { AusruestungBaum *G = &besitz.push_back(Ausruestung("ausgeblidetes Schlachtroß"));
         G->setParent(&besitz);
         InfoFensterAusruestung((*i)->Name(),wurf,95);
       }
     if((*i)->Name()=="Musizieren")
-      { wurf=random.integer(1,100);
+      { wurf=hauptfenster->random.integer(1,100);
         if(wurf>90)
          { AusruestungBaum *K = &Rucksack->push_back(Ausruestung("magisches Instrument nach eigener Wahl","",false));
            K->setParent(Rucksack);
@@ -426,13 +462,13 @@ void midgard_CG::setFertigkeitenAusruestung(AusruestungBaum *Rucksack)
          }
         else InfoFensterAusruestung((*i)->Name(),wurf,5);
       }
-    if((*i)->Name()=="Reiten" && 70<(wurf=random.integer(1,100)))
+    if((*i)->Name()=="Reiten" && 70<(wurf=hauptfenster->random.integer(1,100)))
       { AusruestungBaum *G = &besitz.push_back(Ausruestung("Reitpferd"));
         G->setParent(&besitz);
         InfoFensterAusruestung((*i)->Name(),wurf,70);
       }
     if((*i)->Name()=="Trinken")
-      { wurf=random.integer(1,100);
+      { wurf=hauptfenster->random.integer(1,100);
         if(wurf>80)
          { AusruestungBaum *K = &Rucksack->push_back(Ausruestung("Tonkrug mit Schnaps (1 Liter","",false));
            K->setParent(Rucksack);
@@ -445,12 +481,12 @@ void midgard_CG::setFertigkeitenAusruestung(AusruestungBaum *Rucksack)
          }
         else InfoFensterAusruestung((*i)->Name(),wurf,30);
       }
-    if((*i)->Name()=="Schlösser öffnen" && 5<(wurf=random.integer(1,100)))
+    if((*i)->Name()=="Schlösser öffnen" && 5<(wurf=hauptfenster->random.integer(1,100)))
       { AusruestungBaum *G = &Rucksack->push_back(Ausruestung("Dietriche und Nachschlüssel","",false));
         G->setParent(Rucksack);
         InfoFensterAusruestung((*i)->Name(),wurf,5);
       }
-    if((*i)->Name()=="Verkleiden" && 50<(wurf=random.integer(1,100)))
+    if((*i)->Name()=="Verkleiden" && 50<(wurf=hauptfenster->random.integer(1,100)))
       { AusruestungBaum *G = &Rucksack->push_back(Ausruestung("Ausrüstung für einfache Verkleidungen","",false));
         G->setParent(Rucksack);
         InfoFensterAusruestung((*i)->Name(),wurf,50);
@@ -458,21 +494,21 @@ void midgard_CG::setFertigkeitenAusruestung(AusruestungBaum *Rucksack)
    }
 }
 
-void midgard_CG::InfoFensterAusruestung(std::string name,int wurf,int noetig)
+void table_ausruestung::InfoFensterAusruestung(std::string name,int wurf,int noetig)
 {
  std::string strinfo;
  strinfo="Für '"+name+"' wurde eine "+itos(wurf)+" gewürfelt.\n";
  strinfo += "Nötig ist mindestens eine "+itos(noetig+1)+".\n";
  if(wurf>noetig) strinfo +="==> Das reicht.\n";
  else strinfo +="==> Das reicht NICHT.\n";
- InfoFenster->AppendShow(strinfo,WindowInfo::None);
+ hauptfenster->InfoFenster->AppendShow(strinfo,WindowInfo::None);
 // manage(new WindowInfo(strinfo,false));
 }
 
 ////////////////////////////////////////////////////////////////////////
 //Neueingeben
 //von hier 
-void midgard_CG::on_togglebutton_artikel_neu_toggled()
+void table_ausruestung::on_togglebutton_artikel_neu_toggled()
 {
  if(togglebutton_artikel_neu->get_active())
   {
@@ -482,22 +518,22 @@ void midgard_CG::on_togglebutton_artikel_neu_toggled()
  else 
     table_artikel->hide();
 }
-void midgard_CG::on_togglebutton_gruppe_neu_toggled()
+void table_ausruestung::on_togglebutton_gruppe_neu_toggled()
 {
  if(togglebutton_gruppe_neu->get_active())
   table_gruppe->show();
  else 
   table_gruppe->hide();
 }
-void midgard_CG::on_entry_art_activate()
+void table_ausruestung::on_entry_art_activate()
 {
   entry_typ->grab_focus();
 }
-void midgard_CG::on_entry_typ_activate()
+void table_ausruestung::on_entry_typ_activate()
 {
   entry_eigenschaft->grab_focus();
 }
-void midgard_CG::on_entry_eigenschaft_activate()
+void table_ausruestung::on_entry_eigenschaft_activate()
 {
  std::string art = entry_art->get_text();
  std::string typ = entry_typ->get_text();
@@ -508,27 +544,27 @@ void midgard_CG::on_entry_eigenschaft_activate()
 
 
 //Neueingeben eines Artikels:
-void midgard_CG::on_entry_artikel_art_activate()
+void table_ausruestung::on_entry_artikel_art_activate()
 {
  entry_artikel_art2->grab_focus();
 }
-void midgard_CG::on_entry_artikel_art2_activate()
+void table_ausruestung::on_entry_artikel_art2_activate()
 {
  entry_name->grab_focus();
 }
-void midgard_CG::on_entry_name_activate()
+void table_ausruestung::on_entry_name_activate()
 {
  spinbutton_preis->grab_focus();
 }
-void midgard_CG::on_spinbutton_preis_activate()
+void table_ausruestung::on_spinbutton_preis_activate()
 {
  optionmenu_einheit->grab_focus();
 }
-void midgard_CG::on_optionmenu_einheit_deactivate()
+void table_ausruestung::on_optionmenu_einheit_deactivate()
 {
  spinbutton_gewicht->grab_focus();
 }
-void midgard_CG::on_spinbutton_gewicht_activate()
+void table_ausruestung::on_spinbutton_gewicht_activate()
 {
  std::string art = entry_artikel_art->get_text();
  std::string art2 = entry_artikel_art2->get_text();
@@ -542,7 +578,14 @@ void midgard_CG::on_spinbutton_gewicht_activate()
  double gewicht = atof( spinbutton_gewicht->get_text().c_str());
 
   Preise::saveArtikel(art,art2,name,preis,einheit,gewicht);
-  Database.preise.push_back(cH_Preise(name));
+  hauptfenster->get_nCDatabase().preise.push_back(cH_Preise(name));
   ausruestung_laden();
 // table_artikel->hide();
+}
+
+gint table_ausruestung::on_button_ausruestung_druck_release_event(GdkEventButton *event)
+{
+  if (event->button==1) hauptfenster->on_auch_unsichtbares_drucken();
+  if (event->button==3) hauptfenster->on_nur_sichtbares_drucken();
+  return false;
 }

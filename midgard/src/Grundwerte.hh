@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.35 2002/05/17 10:24:28 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.36 2002/05/20 20:44:09 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,6 +25,8 @@
 #include "Spezialgebiet.hh"
 #include "Typen.hh"
 #include "MidgardBasicElement.hh"
+#include "Ausruestung.hh"
+
 
 class Grundwerte
 {
@@ -62,6 +64,7 @@ class Grundwerte
 
    int steigern_EP_prozent;  
    int grad_basiswerte; 
+   AusruestungBaum besitz;
    
 public:
    Grundwerte() : raufen(0),au(0),pa(0),sb(0), wk(0),
@@ -72,8 +75,8 @@ public:
              gfp(0),steigertage(0),gold(0), silber(0), kupfer(0),
              aep(0),kep(0),zep(0),spezies("Mensch"),
              stadt_land("Stadt"), steigern_EP_prozent(50), grad_basiswerte(1)
-         { resetSinne(); }
-   void clear() {*this=Grundwerte();resetSinne();}
+         { resetSinne(); besitz.clear();}
+   void clear() {*this=Grundwerte();}
    void resetSinne() ;
    void setSt(int i) {grund.st=i;}
    void setGw(int i) {grund.gw=i;}
@@ -243,6 +246,9 @@ public:
    void addZEP(int a) {zep+=a;}
    void setKEP(int a) {kep=a;}
    void setZEP(int a) {zep=a;}
+   
+   AusruestungBaum &getBesitz() {return besitz;}
+   const AusruestungBaum &getCBesitz() const {return besitz;}
 
    int get_Steigern_EP_Prozent() const {return steigern_EP_prozent;}
    int get_Grad_Basiswerte() const {return grad_basiswerte;}

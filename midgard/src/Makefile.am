@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.163 2002/05/17 10:24:28 thoma Exp $
+# $Id: Makefile.am,v 1.164 2002/05/20 20:44:09 thoma Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -36,6 +36,8 @@ noinst_HEADERS = \
    table_beschreibung_glade.hh \
    table_grundwerte.hh \
    table_grundwerte_glade.hh \
+   table_ausruestung.hh \
+   table_ausruestung_glade.hh \
    Wizard.hh \
    table_optionen.hh \
    table_optionen_glade.hh \
@@ -106,6 +108,8 @@ NEWS.h: ../NEWS ; ./text2c <../NEWS >NEWS.h
 midgard_xmlexport_SOURCES= xmlexport.cc export_common.cc
 
 magus_SOURCES = $(PORT_FILES) \
+   table_ausruestung.cc \
+   table_ausruestung_glade.cc \
    table_lernschema_kido.cc \
    table_lernschema_fertigkeiten.cc \
    table_lernschema_waffen.cc \
@@ -120,6 +124,8 @@ magus_SOURCES = $(PORT_FILES) \
    table_beschreibung.cc \
    table_beschreibung_glade.cc \
    midgard_CG_oberflaeche.cc \
+   midgard_CG_main.cc \
+   midgard_CG_new.cc \
    Wizard.cc \
    frame_globale_optionen.cc \
    Optionen.cc \
@@ -158,7 +164,6 @@ magus_SOURCES = $(PORT_FILES) \
 	table_grundwerte_gw_wuerfeln.cc \
    table_grundwerte.cc \
    table_grundwerte_glade.cc \
-   midgard_CG_Ausruestung.cc \
 	Window_Waffenbesitz.cc \
    table_grundwerte_typauswahl.cc \
    MidgardBasicTree.cc \

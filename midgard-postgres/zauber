@@ -195,7 +195,7 @@ Eiselementargeist beschwören	6000	6	Geste	6	3	\N	Eis	Beschwörung	Magan	bewegt	Fe
 Eisenhaut	1500	4	Geste	4	\N	\N	\N	\N	Metall	verändert	Erde	15 s	B	Körper	1 Ws	2 min	dämonisch	Eisenpulver (5GS)	t	Siegel	\N	\N
 Eisiger Nebel	250	2:m²	Geste	2	\N	\N	\N	\N	Eis	erschafft	Eis	5 s	50 m	Umgebung	max 25 m²	1 min	elementar	Bergkristall (2GS)	t		\N	\N
 Eismeisterschaft	5000	9	Geste	6	\N	\N	\N	\N	Wasser	bewegt	Eis	30 s	0 m	Umgebung	1 m Uk	1 h	elementar	Eisbärzahn (5GS)	t		\N	\N
-Eiswand	400	1: m² Br	Geste	2	\N	\N	\N	\N	Eis	erschafft	Eis	10 s	15 m	Umgebung	-	10 min	elementar	Diamantsplitter (5GS)	t		\N	\N
+Eiswand	400	1:m² Br	Geste	2	\N	\N	\N	\N	Eis	erschafft	Eis	10 s	15 m	Umgebung	-	10 min	elementar	Diamantsplitter (5GS)	t		\N	\N
 Eiswandlung	600	3	Geste	3	\N	\N	\N	\N	Wasser	verwandelt	Eis	10 s	200 m	Umgebung	max 10 m³	var	elementar	Tropfen reines Wasser (5GS)	t		\N	\N
 Eldring beschwören	160	2	Geste	2	3	\N	Feuer	Beschwörung	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 5 GS	f		\N	\N
 Elementarbann	3000	#*6	Geste	5	3	\N	\N	Beschwörung	Magan	bewegt	Feuer	10 sec	15 m	Körper	var		elementar	 	f		\N	\N
@@ -205,23 +205,23 @@ Elfenfeuer	1600	4	Geste	4	\N	\N	\N	\N	Holz	erschafft	Holz	10 s	30 m	Umgebung	Str
 Elfenklinge	800	3	Geste	3	B&W	\N	\N	\N	\N	\N	\N	10 s	B	Umgebung	1 Ob	10 min			t		\N	\N
 Entfesseln	240	2	Wort	2	H&D	\N	\N	\N				20 s	0	Umgebung        1 Ob	0	dämonisch			t		\N	\N
 Entgiften	300	2	Wort	2	\N	\N	\N	\N	Magan	zerstört	Eis	30 s	3 m	Umgebung	1 Ob	0	druidisch		f		\N	\N
-Erdbeben	3000	6	Geste	5	\N	\N	\N	\N	Erde	bewegt	Erde	1 min	0	Umgebung	1 km Uk	10 min	elementar		t		\N	\N
+Erdbeben	3000	6	Geste	5	\N	\N	\N	\N	Erde	bewegt	Erde	1 min	0 m	Umgebung	1 km Uk	10 min	elementar		t		\N	\N
 Erdeelementargeist beschwören	6000	6	Geste	6	3	\N	Erde	Beschwörung	Magan	bewegt	Feuer	4 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 200 GS	f		\N	\N
-Erdfessel	800	3	Geste	3	\N	\N	\N	\N	Erde	bewegt	Erde	10 s	50 m	Umgebung	1 Ws	2 min	elementar	Honig-Erd-Gemisch	t		\N	\N
-Erdmeisterschaft	6000	9	Geste	6	\N	\N	\N	\N	Wasser	bewegt	Erde	30 s	0	Umgebung	1 m Uk	1 h	elementar	Maulwurffell	t		\N	\N
+Erdfessel	800	3	Geste	3	\N	\N	\N	\N	Erde	bewegt	Erde	10 s	50 m	Umgebung	1 Ws	2 min	elementar	Honig-Erd-Gemisch (5SS)	t		\N	\N
+Erdmeisterschaft	6000	9	Geste	6	\N	\N	\N	\N	Wasser	bewegt	Erde	30 s	0	Umgebung	1 m Uk	1 h	elementar	Maulwurffell (1SS)	t		\N	\N
 Erdrosseln	500	1*Runde	Geste	3	H&Df	\N	\N	\N	Luft	beherrscht	Wasser	1 s	50 m	Körper	1 Ws	var	finster		f		\N	t
-Erdwandlung	3000	6	Geste	5	\N	\N	\N	\N	Erde	verwandelt	Erde	20 s	0	Umgebung	1 m²	perm	elementar	Bernstein	t		\N	\N
-Erheben der Toten	10000	alle (min 11)	Wort	6	\N	\N	\N	\N	Luft	erschafft	Holz	6 h	1 m	Körper	1 Ws	0	göttlich		f		\N	\N
-Erkennen der Aura	100	1	Gedanke	1	\N	\N	\N	\N	Luft	erkennt	Luft	1 s	0	Geist	30 m Kegel	1 min	göttlich		f		\N	\N
+Erdwandlung	3000	6	Geste	5	\N	\N	\N	\N	Erde	verwandelt	Erde	20 s	B	Umgebung	1 m³	perm	elementar	Bernstein (20GS)	t		\N	\N
+Erheben der Toten	10000	alle (min 12)	Wort	6	\N	\N	\N	\N	Luft	erschafft	Holz	6 h	1 m	Körper	1 Ws	0	göttlich		f		\N	\N
+Erkennen der Aura	100	1	Gedanke	1	\N	\N	\N	\N	Luft	erkennt	Luft	1 s	0 m	Geist	30 m Kegel	1 min	göttlich		f		\N	\N
 Erkennen von Gift	1000	3	Gedanke	3	H&D	\N	\N	\N	3	0	Umgebung	10m Kegel	30 s	druidisch		nicht			t		\N	\N
-Erkennen von Krankheit	100	1	Gedanke	1	\N	\N	\N	\N	Magan	erkennt	Eis	10 min	0	Geist	1 Ws	0	druidisch		f		\N	\N
-Erkennen von Leben	80	1	Gedanke	1	\N	\N	\N	\N	Magan	erkennt	Wasser	1 s	0	Geist	15 m Kegel	1 min	dämonisch		f	Siegel	\N	\N
+Erkennen von Krankheit	100	1	Gedanke	1	\N	\N	\N	\N	Magan	erkennt	Eis	10 min	B	Geist	1 Ws	0	druidisch		f		\N	\N
+Erkennen von Leben	80	1	Gedanke	1	\N	\N	\N	\N	Magan	erkennt	Wasser	1 s	0 m	Geist	15 m Kegel	1 min	dämonisch		f	Siegel	\N	\N
 Erkennen von Metall	600	3	Gedanke	3	K	\N	\N	\N				10 sec	0	Körper	15 m Kegel	1 min			f	Siegel	\N	\N
 Erkennen von Verdammten	200	1	Gedanke	1	H&D	\N	\N	\N				1 s	0	Umgebung	30m Kegel	10 s	göttlich		f		\N	\N
 Erkennen von Zauberei	300	2	Gedanke	2	\N	\N	\N	\N	Magan	erkennt	Magan	1 s	15 m	Geist	1 m²	0	dämonisch		f	Siegel	\N	\N
 Erkurku beschwören	4000	6	Geste	6	3	\N	\N	Beschwörung	Magan	bewegt	Feuer	3,5 h	0	Umgebung	1Ws	1 h	dämonisch	Affe	f		\N	\N
 Erkurku rufen	2000	3	Geste	5	3	\N	\N	Beschwörung	Magan	bewegt	Feuer	2 h	0	Umgebung	1Ws	1 h	dämonisch		f		\N	\N
-Erscheinungen	4000	6	Geste	5	\N	\N	\N	\N	Magan	beherrscht	Feuer	20 s	30 m	Geist	3x3x3 m	2 min	dämonisch	Blütenstaub vom blauen Mohn	t	Siegel	\N	\N
+Erscheinungen	4000	6	Geste	5	\N	\N	\N	\N	Magan	beherrscht	Feuer	20 s	30 m	Geist	3x3x3 m	2 min	dämonisch	Blütenstaub vom blauen Mohn (20GS)	t	Siegel	\N	\N
 Fainne ghuairne (Der wirbelnde Kreis)	1000	6	Tanz	3	G	46	\N	Tanz	Wasser	erkennt	Luft	10 min	-	Geist	Mittänzer	1 h	druidisch	Gruppentanz (min 3)	f	\N	\N	\N
 Farbensalz	60	1	Gedanke	1	H&Df	\N	\N	\N	Magan	verändert	Holz	1 s	500 m	Umgebung	50x50cm	3 h	finster		t		\N	t
 Farbenspiel	300	1-10	Geste	2	N	\N	\N	\N	Magan	verändert	Metall	1 sec	B	Umgebung	1 Objekt	0	dämonisch	\N	f	Trickser	\N	\N
@@ -230,16 +230,16 @@ Feenzauber	800	1-4	Geste	3	\N	\N	\N	\N	Magan	verändert	Metall	10 s	15 m	Umgebung
 Fehlleistung	600	3	Geste	3	N	\N	\N	\N	Magan	beherrscht	Luft	1 sec	9 m	Geist	1 Ws	0	dämonisch	\N	f	Trickser	\N	\N
 Felldvegar beschwören	4000	5	Geste	5	3	\N	Erde	Beschwörung	Magan	bewegt	Feuer	3 h	0	Umgebung	5 Ws	1 h 	elementar	Edelstein 200 GS	f		\N	\N
 Felldverg beschwören	800	3	Geste	3	3	\N	Erde	Beschwörung	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 40 GS 	f		\N	\N
-Felsenfaust	200	2	Geste	2	\N	\N	\N	\N	Erde	verwandelt	Holz	10 s	0	Körper	1 Ws	2 min	elementar	Kieselstein	f		\N	\N
+Felsenfaust	200	2	Geste	2	\N	\N	\N	\N	Erde	verwandelt	Holz	10 s	B	Körper	1 Ws	2 min	elementar	Kieselstein (1KS)	f		\N	\N
 Fengrip beschwören	600	3	Geste	3	3	\N	Erde	Beschwörung	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 20 GS	f		\N	\N
-Fesselbann	400	Gr*2	Geste	2	\N	\N	\N	\N	Luft	erschafft	Magan	10 s	30 m	Körper	1 Ws	10 min	göttlich	Faden einer Riesenspinne	t	Runenstab	\N	\N
-Fesselrune	2000	4	Geste	4	W	\N	\N	Runen	Metall	verändert	Erde	30 min	30m	Körper	1 Ws	6 h	göttlich	Wolle und Espenholz	f	\N	\N	\N
+Fesselbann	400	2:Gr	Geste	2	\N	\N	\N	\N	Luft	erschafft	Magan	10 s	30 m	Körper	1 Ws	10 min	göttlich	Faden einer Riesenspinne (8GS)	t	Runenstab	\N	\N
+Fesselrune	2000	4	Geste	4	W	\N	\N	Runen	Metall	verändert	Erde	30 min	30 m	Körper	1 Ws	6 h	göttlich	Wolle und Espenholz	f	\N	\N	\N
 Feuerelementargeist beschwören	6000	6	Geste	6	3	\N	Feuer	Beschwörung	Magan	bewegt	Feuer	4 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 200 GS	f		\N	\N
-Feuerfinger	80	1	Geste	1	\N	\N	\N	\N	Feuer	erschafft	Feuer	1 s	0	Umgebung	Zauberer	2 min	elementar		t	Runenstab	\N	\N
-Feuerkugel	200	2	Geste	2	\N	\N	\N	\N	Feuer	erschafft	Feuer	5 s	50 m	Umgebung	3 m Uk	2 min	elementar	Blutstein	t	Runenstab	\N	\N
-Feuerlanze	1000	3	Geste	3	\N	\N	\N	\N	Feuer	erschafft	Feuer	10 s	50 m	Umgebung	Strahl	0	elementar	Korallenstück	t	Runenstab	\N	\N
-Feuerlauf	800	3	Gedanke	3	\N	\N	\N	\N	Feuer	verwandelt	Erde	10 s	0	Körper	1 Ws	10 min	elementar		t	Siegel	\N	\N
-Feuermeisterschaft	3000	6	Geste	5	\N	\N	\N	\N	Feuer	verändert	Feuer	20 s	30 m	Umgebung	2 m Uk	2 min	elementar	Stück Drachenzunge	t		\N	\N
+Feuerfinger	80	1	Geste	1	\N	\N	\N	\N	Feuer	erschafft	Feuer	1 s	0 m	Umgebung	Zauberer	2 min	elementar		t	Runenstab	\N	\N
+Feuerkugel	200	2	Geste	2	\N	\N	\N	\N	Feuer	erschafft	Feuer	5 s	50 m	Umgebung	3 m Uk	2 min	elementar	Blutstein (3GS)	t	Runenstab	\N	\N
+Feuerlanze	1000	3	Geste	3	\N	\N	\N	\N	Feuer	erschafft	Feuer	10 s	50 m	Umgebung	Strahl	0	elementar	Korallenstück (2GS)	t	Runenstab	\N	\N
+Feuerlauf	800	3	Gedanke	3	\N	\N	\N	\N	Feuer	verwandelt	Erde	10 s	-	Körper	1 Ws	10 min	elementar		t	Siegel	\N	\N
+Feuermeisterschaft	3000	6	Geste	5	\N	\N	\N	\N	Feuer	verändert	Feuer	20 s	30 m	Umgebung	2 m Uk	2 min	elementar	Stück Drachenzunge (10GS)	t		\N	\N
 Feuerregen	15000	18	Geste	G	\N	\N	\N	\N	Feuer	erschafft	Feuer	30 s	100 m	Umgebung	30 m Uk	1 min	elementar	Basaltstaub, Rubinsplitter	t		\N	\N
 Feuerring	2000	4	Geste	4	\N	\N	\N	\N	Feuer	erschafft	Feuer	15 s	0	Umgebung	6 m Uk	30 min	elementar	Zwergdrachenflügel, Zauberöl	t	Siegel	\N	\N
 Feuerschild	1000	3	Geste	3	\N	\N	\N	\N	Eis	erschafft	Eis	10 s	15 m	Umgebung	-	2 min	elementar	Diamantstaub	t	Siegel	\N	\N

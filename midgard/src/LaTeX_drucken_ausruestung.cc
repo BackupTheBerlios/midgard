@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_ausruestung.cc,v 1.1 2002/05/14 07:26:14 thoma Exp $   
+// $Id: LaTeX_drucken_ausruestung.cc,v 1.2 2002/05/20 20:44:09 thoma Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,7 +29,7 @@ void LaTeX_drucken::on_ausruestung_druck(bool unsichtbar)
  LaTeX_header(fout,false);           
 
  fout << "\\fbox{\\parbox[t][22cm]{18cm}{ \n";
- AusruestungBaum besitz=hauptfenster->besitz;
+ const AusruestungBaum besitz=hauptfenster->getCWerte().getCBesitz();
  for(AusruestungBaum::const_iterator i=besitz.begin();i!=besitz.end();++i)
   {
    if(i->getAusruestung().Sichtbar() || unsichtbar )
