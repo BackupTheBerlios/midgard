@@ -1,9 +1,9 @@
-# $Id: Makefile,v 1.50 2002/05/08 10:44:53 thoma Exp $
+# $Id: Makefile,v 1.51 2002/05/08 13:41:13 christof Exp $
 INSTALLED_TABLES=$(shell psql -t -q -c "select tablename from pg_tables where \
 		tablename not like 'pg_%' and tablename not like 'pga_%';" midgard)
 SYSTEM_TABLES=angeborene_fertigkeiten zauber ausnahmen \
 	berufe_voraussetzung_4 berufe_vorteile_4 \
-	fertigkeiten fertigkeiten_voraussetzung fertigkeiten_voraussetzung_2 \
+	fertigkeiten fertigkeiten_voraussetzung fertigkeiten_voraussetzungen_2 \
 	fertigkeiten_typen fz_zusaetze kido land lernschema_4 \
 	pflicht_lernen preise preise_modifikation \
 	spezies spezies_typen regionen ruestung schrift sprachen sprache_schrift \
