@@ -133,7 +133,6 @@ COPY "fertigkeiten"  FROM stdin;
 8	\N	Katapult bedienen	\N	100		S	S	S	S	S	S	S	G	S	G	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	S	\N	S	G	A	S	\N	\N	\N	\N	\N	\N	\N
 8	\N	Lesen von Zauberschrift	\N	60		A	S	A	A	A	A	A	A	A	A	A	A	A	S	G	G	G	G	G	S	S	S	S	G	G	G	G	G	G	G	A	A	\N	A	A	S	A	\N	\N	\N	\N	\N	\N	\N
 3	\N	Lesen/Schreiben	\N	100		S	S	S	S	S	S	G	S	S	S	S	S	S	S	G	G	G	G	G	S	S	S	S	G	G	G	G	G	G	G	S	S	\N	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
-4	\N	Rechnen	\N	100	 	S	S	A	A	A	S	G	A	S	G	A	S	A	S	S	S	S	S	S	S	S	A	G	S	S	G	S	S	S	S	S	S	\N	S	A	A	S	\N	\N	\N	\N	\N	\N	\N
 3	\N	Trinken	\N	100		S	S	G	S	S	G	S	S	S	G	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
 1	\N	Wissen von der Magie	\N	5000		S	S	S	S	S	S	S	A	S	S	A	S	S	G	G	G	G	G	G	G	G	G	G	G	G	G	G	G	G	G	S	S	\N	S	A	G	S	\N	\N	\N	\N	\N	\N	\N
 4	4	Alchemie	2	100		A	A	A	A	A	A	A	A	A	A	A	A	A	S	S	S	S	S	G	G	G	S	G	S	S	S	S	S	S	S	A	A	\N	A	A	S	A	\N	\N	\N	\N	\N	\N	\N
@@ -217,4 +216,5 @@ COPY "fertigkeiten"  FROM stdin;
 3	8	Überleben in der Steppe	6	50		S	S	S	G	S	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
 3	8	Überleben in der Wüste	6	50		S	S	S	S	S	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
 3	15	Schlittschuhlaufen	12	100	B&R	S	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	Ge	S	S	S	S	\N	\N	\N	\N	\N	\N	\N
+4	\N	Rechnen	\N	100		S	S	A	A	A	S	G	A	S	G	A	S	A	S	S	S	S	S	S	S	S	A	G	S	S	G	S	S	S	S	S	S	\N	S	A	A	S	\N	\N	\N	\N	\N	\N	\N
 \.
