@@ -110,7 +110,7 @@ bool Fertigkeit::ZusatzBool(const vector<cH_Typen>& Typ) const
 {
   if(Name()=="Abrichten" && (Typ[0]->Short()=="Tm" || Typ[1]->Short()=="Tm"))
      return false;
-  if(Vzusatz.empty() return false; 
+  if(Vzusatz.empty()) return false; 
   else return true;
 }
 
