@@ -5168,7 +5168,7 @@ Abenteurer</label>
 		  <class>GtkButton</class>
 		  <child_name>Toolbar:button</child_name>
 		  <name>button8</name>
-		  <tooltip>Abenteurer speichern</tooltip>
+		  <tooltip>Linke Maustaste: Speichern unter ....           Rechte Maustaste: Speichern.</tooltip>
 		  <signal>
 		    <name>button_release_event</name>
 		    <handler>on_speichern_release_event</handler>
@@ -15139,10 +15139,14 @@ KS
     </widget>
 
     <widget>
+      <class>Placeholder</class>
+    </widget>
+
+    <widget>
       <class>GtkScrolledWindow</class>
       <name>scrolledwindow18</name>
-      <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
-      <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+      <hscrollbar_policy>GTK_POLICY_ALWAYS</hscrollbar_policy>
+      <vscrollbar_policy>GTK_POLICY_ALWAYS</vscrollbar_policy>
       <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
       <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
       <child>

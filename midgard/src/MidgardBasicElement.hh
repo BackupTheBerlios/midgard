@@ -42,7 +42,8 @@ class NotFound : public std::exception
 class MidgardBasicElement : public HandleContent
 {
    public:
-      enum eZusatz {ZNone=0,ZTabelle,ZLand,ZWaffe,ZHerkunft};
+      enum eZusatz {ZNone=0,ZTabelle=1,ZLand=2,ZWaffe=3,ZHerkunft=4,
+                    ZSprache=5,ZSchrift=6};
    protected:
 	const Tag *tag;
 	// warum ist name nicht hier drin? CP

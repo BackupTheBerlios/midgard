@@ -424,6 +424,11 @@ Sprache&Wert&Schrift\\\hline\hline
 \end{tabular}}
 \end{minipage}
 %}
+
+\IfFileExists{midgard_tmp_myzauber.tex}{\include{midgard_tmp_document_zauber}}
+
+\IfFileExists{midgard_tmp_mykido.tex}{\include{midgard_tmp_document_kido}}
+
 \end{document}
 
 

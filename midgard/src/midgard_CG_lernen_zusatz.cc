@@ -20,6 +20,8 @@
 #include "midgard_CG.hh"
 #include "Fertigkeiten.hh"
 #include "Waffe.hh"
+#include "Sprache.hh"
+#include "Schrift.hh"
 
 static SigC::Connection connection;
 
@@ -52,6 +54,31 @@ void midgard_CG::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_Midgard
          for (std::vector<cH_Land>::const_iterator i=Database.Laender.begin();i!=Database.Laender.end();++i)
             datavec.push_back(new Data_Zusatz(MBE,(*i)->Name()));
        connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_zusatz_leaf_selected));
+       break;
+      }
+     case MidgardBasicElement::ZSprache:
+      {
+       for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Sprache.begin();i!=Database.Sprache.end();++i)
+         {
+            if(MBE->Name()=="Muttersprache" && cH_Sprache(*i)->Alte_Sprache()) continue ;
+            if(MBE->Name()=="Sprechen: Alte Sprache" && !cH_Sprache(*i)->Alte_Sprache()) continue ;
+            datavec.push_back(new Data_Zusatz(MBE,(*i)->Name()));
+         }
+       connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_zusatz_leaf_sprache_selected));
+       break;
+      }
+     case MidgardBasicElement::ZSchrift:
+      {
+       for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Schrift.begin();i!=Database.Schrift.end();++i)
+         {
+           if((*i)->ist_gelernt(list_Schrift)) continue;
+           if(!cH_Schrift(*i)->kann_Sprache(list_Sprache)) continue;
+           datavec.push_back(new Data_Zusatz(MBE,(*i)->Name()));
+         }
+       if(datavec.empty()) 
+         { regnot("Keine Schrift lernbar (Entweder keine Sprache gelernt oder es werden alle lernbaren Schriften schon beherrscht.)");
+           return;}
+       connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_zusatz_leaf_schrift_selected));
        break;
       }
      case MidgardBasicElement::ZWaffe:
@@ -101,6 +128,33 @@ void midgard_CG::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,const cH_M
        vs.push_back("");
        vs.push_back("");
       }
+     case MidgardBasicElement::ZSchrift :
+      {
+       frame_lernschema_zusatz->set_label("Schrift auswählen");
+       vs.push_back(MBE->Name());
+       vs.push_back("");
+       vs.push_back("");
+      }
+     case MidgardBasicElement::ZSprache :
+      {
+       if(MBE->Name()=="Muttersprache")
+        {
+          vector<std::string> V=Werte.Herkunft()->Sprachen();
+          vector<std::string> W;
+          for(vector<std::string>::const_iterator i=V.begin();i!=V.end();++i)
+            if(!cH_Sprache(*i)->Alte_Sprache()) W.push_back(*i) ;
+          std::string s,label;
+          for(vector<std::string>::const_iterator i=W.begin();i!=W.end();)
+              { s+=*i; if(++i!=W.end()) s+=", ";}
+          if(W.size()==1)  label ="Muttersprache ("+s+") wählen" ;
+          else label = "Eine Muttersprache wählen\n("+s+")" ;
+          frame_lernschema_zusatz->set_label(label);
+        }
+       else frame_lernschema_zusatz->set_label("Sprache auswählen");
+       vs.push_back(MBE->Name());
+       vs.push_back("");
+       vs.push_back("");
+      }
     default : break;
    }
  Tree_Lernschema_Zusatz->setTitles(vs);
@@ -127,6 +181,34 @@ void midgard_CG::on_zusatz_leaf_selected(cH_RowDataBase d)
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
   cH_MidgardBasicElement MBE=dt->getMBE();
   MBE->setZusatz(dt->getZusatz());
+  frame_lernschema_zusatz->hide();
+  zeige_werte(Werte);  
+  show_gelerntes();
+}
+
+void midgard_CG::on_zusatz_leaf_schrift_selected(cH_RowDataBase d)
+{
+  tree_lernschema->set_sensitive(true);
+  const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
+  cH_MidgardBasicElement MBE=dt->getMBE();
+  cH_MidgardBasicElement schrift(&*cH_Schrift(dt->getZusatz()));
+  schrift->set_Erfolgswert(MBE->Erfolgswert());
+  schrift->set_Lernpunkte(MBE->Lernpunkte());
+  list_Schrift.push_back(schrift);
+  frame_lernschema_zusatz->hide();
+  zeige_werte(Werte);  
+  show_gelerntes();
+}
+
+void midgard_CG::on_zusatz_leaf_sprache_selected(cH_RowDataBase d)
+{
+  tree_lernschema->set_sensitive(true);
+  const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
+  cH_MidgardBasicElement MBE=dt->getMBE();
+  cH_MidgardBasicElement sprache(&*cH_Sprache(dt->getZusatz()));
+  sprache->set_Erfolgswert(MBE->Erfolgswert());
+  sprache->set_Lernpunkte(MBE->Lernpunkte());
+  list_Sprache.push_back(sprache);
   frame_lernschema_zusatz->hide();
   zeige_werte(Werte);  
   show_gelerntes();

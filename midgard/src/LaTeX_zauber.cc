@@ -1,4 +1,4 @@
-// $Id: LaTeX_zauber.cc,v 1.41 2002/02/23 07:41:10 thoma Exp $
+// $Id: LaTeX_zauber.cc,v 1.42 2002/02/24 12:59:19 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -70,7 +70,7 @@ void midgard_CG::LaTeX_zaubermittel()
 void midgard_CG::LaTeX_zauber_main(void)
 {
   ofstream fout ("midgard_tmp_document_zauber.tex");
-  LaTeX_header(fout);
+  LaTeX_kopfzeile(fout,true,false);
   fout << "\\begin{tabular}{lcclccclcclp{3cm}l}\\hline\n";
   fout << " & Erfolgs- & &&&Zauber-&Reich-&\\multicolumn{1}{c}{Wirkungs-}&Wirkungs-&"
        <<"  Wirkungs-&\\multicolumn{1}{c}{Ur-}&\\multicolumn{1}{c}{Material}&\\multicolumn{1}{c}{Prozess}\\\\ \n";
@@ -89,7 +89,5 @@ void midgard_CG::LaTeX_zauber_main(void)
      fout << "\\input{midgard_tmp_myzaubermittel.tex}\n";
      fout << "\\end{tabular}\n";
    }
-  LaTeX_footer(fout);
-//  fout << "\\end{center}\n";
-//  fout << "\\end{document}\n\n";
+//  LaTeX_footer(fout);
 }

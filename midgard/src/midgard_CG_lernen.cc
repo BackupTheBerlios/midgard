@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.79 2002/02/21 21:56:26 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.80 2002/02/24 12:59:20 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -587,48 +587,36 @@ void midgard_CG::setTitels_for_Lernschema(const MidgardBasicElement::MBEE& what,
 
 bool midgard_CG::SpracheSchrift(const cH_MidgardBasicElement& MBE,int wert,bool auswahl)
 {
+//return false;
+
  bool launch=false;
- Sprache_auswahl::modus mod;
+// Sprache_auswahl::modus mod;
  std::string fert=MBE->Name();
 
-// if      (fert=="Geheimzeichen") 
-//    { launch=true;  mod=Sprache_auswahl::GEHEIMZEICHEN; }
-// if (fert=="Abrichten") 
-//    { launch=true;  mod=Sprache_auswahl::ABRICHTEN; }
-// else if (fert=="Tiersprache") 
-//    { launch=true;  mod=Sprache_auswahl::TIERSPRACHE; }
-// else if (fert=="Musizieren") 
-//    { launch=true;  mod=Sprache_auswahl::MUSIZIEREN; }
-// if (fert=="Scharfschieﬂen") 
-//    { launch=true;  mod=Sprache_auswahl::SCHARFSCHIESSEN; }
-// else if (fert=="Landeskunde") 
-//    { launch=true;  mod=Sprache_auswahl::LAND; }
-// else if (fert=="Landeskunde (Heimat)")
-//    { launch=true;  mod=Sprache_auswahl::HEIMATLAND; }
  if(fert=="Schreiben: Muttersprache(+12)" ||
          fert=="Schreiben: Muttersprache(+9)" ||        
          fert=="Schreiben: Muttersprache(+4)" ||
          fert=="Schreiben: Alte Sprache(+12)" ||
          fert=="Schreiben" )
-    { launch=true;  mod=Sprache_auswahl::SCHRIFT; }
+    { launch=true;  /*mod=Sprache_auswahl::SCHRIFT;*/ }
  else if(fert=="Muttersprache")
-    { launch=true;  mod=Sprache_auswahl::MUTTERSPRACHE; }
+    { launch=true; /* mod=Sprache_auswahl::MUTTERSPRACHE; */}
  else if(fert=="Gastlandsprache" ||
          fert=="Sprechen: Sprache(+4)" ||
          fert=="Sprechen: Sprache(+9)" ||
          fert=="Sprechen: Sprache(+12)")
-    { launch=true;  mod=Sprache_auswahl::NEUESPRACHE; }
+    { launch=true; /* mod=Sprache_auswahl::NEUESPRACHE;*/ }
  else if(fert=="Sprechen: Alte Sprache")
-    { launch=true;  mod=Sprache_auswahl::ALTESPRACHE; }
+    { launch=true;  /*mod=Sprache_auswahl::ALTESPRACHE; */}
 
  // Als Fertigkeiten darf man auch eine alte Sprache w‰hlen, 
  // wenn Sprache gew‰hlt ist:
- if(mod==Sprache_auswahl::NEUESPRACHE) mod=Sprache_auswahl::SPRACHE;
+// if(mod==Sprache_auswahl::NEUESPRACHE) mod=Sprache_auswahl::SPRACHE;
    
- if(auswahl && launch)
-     manage (new Sprache_auswahl(this,Database,Werte,MBE,mod,wert,
-                                 list_Waffen,
-                                 list_Sprache,list_Schrift,list_Fertigkeit));
+// if(auswahl && launch)
+//     manage (new Sprache_auswahl(this,Database,Werte,MBE,mod,wert,
+//                                 list_Waffen,
+//                                 list_Sprache,list_Schrift,list_Fertigkeit));
  return launch;
 }
 

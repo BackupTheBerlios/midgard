@@ -27,8 +27,10 @@
 
 gint midgard_CG::on_speichern_release_event(GdkEventButton *ev)
 {
-  xml_export_auswahl();
-//  steigern_aktivieren();
+  if (ev->button==3 && !filename.empty())
+     xml_export(filename);
+  else //(ev->button == 1)
+     xml_export_auswahl();
   return false;
 }
 

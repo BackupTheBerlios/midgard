@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.101 2002/02/22 09:46:34 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.102 2002/02/24 12:59:19 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,62 +35,32 @@ gint midgard_CG::on_latex_release_event(GdkEventButton *ev)
 
 void midgard_CG::on_latex_clicked(bool values=true)
 {   
+ system("rm midgard_tmp_myzauber.tex midgard_tmp_mykido.tex");
  if (!access("document_eingabe4.tex",R_OK)) // Files im aktuellen Verzeichnis?
-   {
     system("cp document_eingabe4.tex midgard_tmp_document_eingabe.tex");
-   }
  else
-   {
     system("cp "PACKAGE_DATA_DIR"document_eingabe4.tex midgard_tmp_document_eingabe.tex");
-   }
+
  if (values) LaTeX_write_values();
  else LaTeX_write_empty_values();
-/*
- system("latex midgard_tmp_document_eingabe.tex");
- system("dvips -t landscape midgard_tmp_document_eingabe.dvi");
- system("gv -seascape midgard_tmp_document_eingabe.ps &");
-*/
+
+ if (list_Zauber.size()>0 || list_Zauberwerk.size()>0)  // Zauber
+  {
+    LaTeX_zauber_main();
+    LaTeX_zauber();
+    LaTeX_zaubermittel();
+  }
+ if (list_Kido.size()>0) // KiDo
+  {
+    LaTeX_kido_main();
+    LaTeX_kido();
+  }
+
  system("pdflatex midgard_tmp_document_eingabe.tex");
  if(pdfViewerCheck(gv).active)
     system("gv midgard_tmp_document_eingabe.pdf &");
  else if (pdfViewerCheck(acroread).active)
     system("acroread midgard_tmp_document_eingabe.pdf &");
- // Zauber
- if (list_Zauber.size()>0 || list_Zauberwerk.size()>0)
- {
-    LaTeX_zauber_main();
-    LaTeX_zauber();
-    LaTeX_zaubermittel();
-/*
-    system("latex midgard_tmp_document_zauber.tex");
-    system("dvips -t landscape midgard_tmp_document_zauber.dvi");
-    system("gv -seascape midgard_tmp_document_zauber.ps &");
-*/
-    system("pdflatex midgard_tmp_document_zauber.tex");
-    if(pdfViewerCheck(gv).active)
-       system("gv midgard_tmp_document_zauber.pdf &");
-    else if (pdfViewerCheck(acroread).active)
-       system("acroread midgard_tmp_document_zauber.pdf");
-
- }
-
- // KiDo
- if (list_Kido.size()>0)
- {
-    midgard_CG::LaTeX_kido_main();
-    midgard_CG::LaTeX_kido();
-/*
-    system("latex midgard_tmp_document_kido.tex");
-    system("dvips -t landscape midgard_tmp_document_kido.dvi");
-    system("gv -seascape midgard_tmp_document_kido.ps &");
-*/
-    system("pdflatex midgard_tmp_document_kido.tex");
-    if(pdfViewerCheck(gv).active)
-      system("gv midgard_tmp_document_kido.pdf &");
-    else if (pdfViewerCheck(acroread).active)
-      system("acroread midgard_tmp_document_kido.pdf");
-
- }
 }      
 
 void midgard_CG::LaTeX_write_values()

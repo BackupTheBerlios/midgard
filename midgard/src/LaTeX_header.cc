@@ -1,4 +1,4 @@
-// $Id: LaTeX_header.cc,v 1.10 2002/02/23 07:41:10 thoma Exp $
+// $Id: LaTeX_header.cc,v 1.11 2002/02/24 12:59:19 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,18 +20,51 @@
 #include "midgard_CG.hh"
 #include <Gtk2TeX.h>
 
+void midgard_CG::LaTeX_kopfzeile(ostream &fout,bool landscape,bool newdoc)
+{
+ if(newdoc)
+  {
+    if(landscape)
+     {
+       fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(Werte.Name_Abenteurer(),25,"4.5cm") << "}\n";
+       fout << "\\newcommand{\\namespieler}{"  <<LaTeX_scale(Werte.Name_Spieler(),25,"4.5cm") << "}\n";
+     }
+    else
+     {
+       fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(Werte.Name_Abenteurer(),20,"4.cm") << "}\n";
+       fout << "\\newcommand{\\namespieler}{"  <<LaTeX_scale(Werte.Name_Spieler(),20,"4.cm") << "}\n";
+     }
+  }
+ fout << "\\begin{center}\n";
+ std::string     drache="10cm", namensbox="7cm";
+ if(!landscape) {drache="7cm" , namensbox="5cm";}
+ fout << "\\IfFileExists{drache.png}{\\parbox{"+drache+"}{\\includegraphics[width="+drache+"]{drache.png}}}\n";
+ fout << "{\\parbox{"+drache+"}{\\includegraphics[width="+drache+"]{"PACKAGE_DATA_DIR"drache.png}}}\n";
+ fout << "\\parbox[][][c]{"+namensbox+"}{\n";
+ if(!landscape) fout << "\\scriptsize\n";
+ fout << "\\LI\n";
+ fout << "\\begin{tabularx}{"+namensbox+"}{|c|X|}\\hline\n";
+ fout << "\\makebox[1.1cm]{Figur}&\\namecharakter\\\\\\hline\n";
+ fout << "\\end{tabularx}\n\n";
+ if(landscape)  fout <<"\\vspace{2mm}\\li\n";
+ else           fout <<"\\vspace{0.5mm}\\li\n";
+ fout <<"\\begin{tabularx}{"+namensbox+"}{|c|X|}\\hline\n";
+ fout <<"\\makebox[1.1cm]{Spieler}&\\namespieler\\\\\\hline\n";
+ fout <<"\\end{tabularx}\n}\n";
+ fout <<"\\IfFileExists{drache.png}{\\parbox{"+drache+"}{{\\includegraphics[width="+drache+"]{drache.png}}}}\n";
+ fout <<"{\\parbox{"+drache+"}{{\\includegraphics[width="+drache+"]{"PACKAGE_DATA_DIR"drache.png}}}}\n";
+ fout <<"\\vspace*{2ex}\n\n";
+}
+
 void midgard_CG::LaTeX_header(ostream &fout,bool landscape)
 {
  if(landscape) fout << "\\documentclass[a4paper,10pt,landscape]{article}\n" ;
  else   fout << "\\documentclass[a4paper,10pt]{article}\n";
 
  fout << "\\usepackage{german}\n\\usepackage[latin2]{inputenc}\n";
-// fout << "\\usepackage[final]{epsfig}\n";
  fout << "\\usepackage[pdftex]{graphicx}\n";
  fout << "\\usepackage{tabularx}\n";
  fout << "\\usepackage{times}\n";
-// fout << "\\usepackage{pstricks}\n";
-// fout << "\\newrgbcolor{mygray}{0.75 0.75 0.75}\n";
 
  if(landscape)
   {
@@ -87,35 +120,7 @@ void midgard_CG::LaTeX_header(ostream &fout,bool landscape)
  fout << "\\newcommand{\\li}{\\setlength{\\arrayrulewidth}{0.2mm}}\n";
  fout << "\\setlength{\\doublerulesep}{0mm}\n";
  fout << "\\begin{document}\n";
- if(landscape)
-  {
-    fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(Werte.Name_Abenteurer(),25,"4.5cm") << "}\n";
-    fout << "\\newcommand{\\namespieler}{"  <<LaTeX_scale(Werte.Name_Spieler(),25,"4.5cm") << "}\n";
-  }
- else
-  {
-    fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(Werte.Name_Abenteurer(),20,"4.cm") << "}\n";
-    fout << "\\newcommand{\\namespieler}{"  <<LaTeX_scale(Werte.Name_Spieler(),20,"4.cm") << "}\n";
-  }
- fout << "\\begin{center}\n";
- std::string     drache="10cm", namensbox="7cm";
- if(!landscape) {drache="7cm" , namensbox="5cm";}
- fout << "\\IfFileExists{drache.png}{\\parbox{"+drache+"}{\\includegraphics[width="+drache+"]{drache.png}}}\n";
- fout << "{\\parbox{"+drache+"}{\\includegraphics[width="+drache+"]{"PACKAGE_DATA_DIR"drache.png}}}\n";
- fout << "\\parbox[][][c]{"+namensbox+"}{\n";
- if(!landscape) fout << "\\scriptsize\n";
- fout << "\\LI\n";
- fout << "\\begin{tabularx}{"+namensbox+"}{|c|X|}\\hline\n";
- fout << "\\makebox[1.1cm]{Figur}&\\namecharakter\\\\\\hline\n";
- fout << "\\end{tabularx}\n\n";
- if(landscape)  fout <<"\\vspace{2mm}\\li\n";
- else           fout <<"\\vspace{0.5mm}\\li\n";
- fout <<"\\begin{tabularx}{"+namensbox+"}{|c|X|}\\hline\n";
- fout <<"\\makebox[1.1cm]{Spieler}&\\namespieler\\\\\\hline\n";
- fout <<"\\end{tabularx}\n}\n";
- fout <<"\\IfFileExists{drache.png}{\\parbox{"+drache+"}{{\\includegraphics[width="+drache+"]{drache.png}}}}\n";
- fout <<"{\\parbox{"+drache+"}{{\\includegraphics[width="+drache+"]{"PACKAGE_DATA_DIR"drache.png}}}}\n";
- fout <<"\\vspace*{2ex}\n\n";
+ LaTeX_kopfzeile(fout,landscape);
 }
 
 void midgard_CG::LaTeX_footer(ostream &fout)

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.181 2002/02/22 09:46:34 thoma Exp $
+// $Id: midgard_CG.hh,v 1.182 2002/02/24 12:59:20 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -314,6 +314,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void LaTeX_kido_main();
         void LaTeX_kido();
         void LaTeX_header(ostream &fout,bool landscape=true);
+        void LaTeX_kopfzeile(ostream &fout,bool landscape,bool newdoc=true);
         void LaTeX_footer(ostream &fout);
         std::string LaTeX_string(int i);
         void on_schliessen_CG_clicked();
@@ -422,6 +423,8 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void lernen_zusatz_titel(MidgardBasicElement::eZusatz was,const cH_MidgardBasicElement& MBE);
         void on_herkunft_leaf_selected(cH_RowDataBase d);
         void on_zusatz_leaf_selected(cH_RowDataBase d);
+        void on_zusatz_leaf_sprache_selected(cH_RowDataBase d);
+        void on_zusatz_leaf_schrift_selected(cH_RowDataBase d);
 
         void on_fertigkeiten_laden_clicked();
         void fertigkeiten_zeigen();

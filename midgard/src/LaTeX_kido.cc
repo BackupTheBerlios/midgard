@@ -1,4 +1,4 @@
-// $Id: LaTeX_kido.cc,v 1.35 2002/02/23 07:41:10 thoma Exp $
+// $Id: LaTeX_kido.cc,v 1.36 2002/02/24 12:59:19 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -49,12 +49,12 @@ void midgard_CG::LaTeX_kido()
 void midgard_CG::LaTeX_kido_main(void)
 {
   ofstream fout ("midgard_tmp_document_kido.tex");
-  LaTeX_header(fout);
+  LaTeX_kopfzeile(fout,true,false);
   fout << "\\begin{tabular}{rllcp{17cm}}\n";
   fout << "\\multicolumn{5}{l}{\\large\\bf Erfolgswert KiDo: "
          <<KiDo::get_erfolgswert_kido(list_Fertigkeit)+Werte.bo_Za()<<"}\\\\\\hline\n";
   fout << " AP & HoHo & Technik & Stufe & Effekt \\\\\\hline \n";
   fout << "\\input{midgard_tmp_mykido.tex}\n";
   fout << "\\end{tabular}\n";
-  LaTeX_footer(fout);
+//  LaTeX_footer(fout);
 }

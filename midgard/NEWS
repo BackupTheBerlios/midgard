@@ -35,22 +35,24 @@ NEWS IN VERSION 0.4delta4
    werden soll.
 * Auswahlreihnfolge von 'linksoben' -> 'rechtsunten'
 * Grundwerte < 350 => Neuwürfeln
+* Landeskunde als Berufsfähigkeit (Warnung: es ist nicht möglich den
+   bestehenden Erfolgswert für Landeskunde um eins zu erhöhen, wenn
+   man diese Fertigkeit schon beherrscht.)
+* Halftan und Dvarheim als Herkunft in Datenbank
+* mit der rechten Mausttaste kann man jetzt speichern, ohne das das 
+   fileauswahl Widget geöffnet wird.
+* Zaubern und Kido KEINE neuen Dokumente 
+* Neuimplemenation des Sprachenfensters (so wie die anderen Zusätze)
 
 TODO:
 * Laden von Optionen 
 * gv zeigt den falschen Ausschnitt des pdf Dokumentes
-* Zaubern und Kido KEINE neuen Dokumente
-* Herkunft für Nichtmenschen
-* Neuimplemenation des Sprachenfensters (so wie die anderen Zusätze)
-* Kurzanleitung drucken ... mal sehe, ob das sinnvoll ist.
+* Kurzanleitung drucken ... mal sehe, ob das sinnvoll ist. Wahrscheinlich 
+   ist es sinnvoller die HTML-Seiten in einem Browser zu starten.
 * Es sind die beiden Infofenster, die beim Auswürfeln 
    von Geld und Waffen im Lernschema auftauchen. 
    Da reagiert der "OK"- Button nicht. -> nun weiß ich warum, aber nicht
    wie man es beseitigt :-( MAT
-* Landeskunde als Berufsfähigkeit für 3 Berufe
-  (Karawanenführer, land, v,m
-   Kaufmann, stadt,m,a
-   Verwalter, land, stadt, m,a,
 * dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
   man etwas hinzufügen möchte, ist nicht gerade intuitiv
   (vielleicht drag'n'drop oder CTree verschieben)
