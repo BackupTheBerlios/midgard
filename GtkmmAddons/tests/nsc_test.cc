@@ -1,4 +1,4 @@
-/* $Id: nsc_test.cc,v 1.5 2002/09/24 15:46:21 christof Exp $ */
+/* $Id: nsc_test.cc,v 1.6 2002/11/07 10:06:15 christof Exp $ */
 /*  Gtk--addons: a collection of gtk-- addons
     Copyright (C) 1998  Adolf Petig GmbH. & Co. KG
     Developed by Christof Petig <christof.petig@wtal.de>
@@ -157,7 +157,7 @@ class testwindow : public Gtk::Window
         }
         bool delete_event_impl(GdkEventAny *)
         {
-            std::cout << "Close Window" << endl;
+            std::cout << "Close Window" << std::endl;
             Gtk::Main::instance()->quit();
             return 0;
         }

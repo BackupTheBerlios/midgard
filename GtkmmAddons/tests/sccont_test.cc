@@ -16,10 +16,11 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// $Id: sccont_test.cc,v 1.7 2002/09/24 15:46:21 christof Exp $
+// $Id: sccont_test.cc,v 1.8 2002/11/07 10:06:15 christof Exp $
 
 #include<SearchComboContent.h>
 #include <cstdio>
+#include <iostream>
 #include <gtkmm/main.h>
 #include <gtkmm/window.h>
 
@@ -48,7 +49,7 @@ class testwindow : public Gtk::Window
         }
         bool delete_event_impl(GdkEventAny *)
         {
-            std::cout << "Close Window" << endl;
+            std::cout << "Close Window" << std::endl;
             Gtk::Main::instance()->quit();
             return 0;
         }

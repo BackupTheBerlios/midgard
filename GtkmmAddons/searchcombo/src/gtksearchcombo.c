@@ -381,12 +381,16 @@ gtk_searchcombo_activate_by_enter (GtkWidget        *widget,
    // do not autocomplete if we accept any value
    if (searchcombo->value_in_list && searchcombo->autoexpand_on_activate)
    	gtk_searchcombo_complete(searchcombo);
-   if (!searchcombo->ok_if_empty && !GTK_ENTRY(searchcombo->entry)->text_length)
-	return;
    if (searchcombo->value_in_list && !gtk_searchcombo_find(searchcombo))
-   {	DEBUG(printf("!in list\n"));
-   	return;
+   {	if (searchcombo->ok_if_empty && !GTK_ENTRY(searchcombo->entry)->text_length)
+        {
+        }
+        else
+        {  DEBUG(printf("!in list\n"));
+           return;
+        }
    }
+
    gtk_searchcombo_activate(widget,searchcombo);
    searchcombo->value_selected=TRUE;
 DEBUG(printf("SCB: abe, value_selected=%d\n",searchcombo->value_selected));

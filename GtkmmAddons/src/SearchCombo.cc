@@ -54,13 +54,14 @@ void SearchCombo_signal_search_callback(GtkSearchCombo* self, gboolean* cont,Gtk
   using namespace Gtk;
   typedef SigC::Slot2<void,gboolean *,GtkSCContext> SlotType;
 
-  if(Glib::ObjectBase::_get_current_wrapper((GObject*)self)) //Don not try to call a signal on a disassociated wrapper.
+  // Do not try to call a signal on a disassociated wrapper.
+  if(Glib::ObjectBase::_get_current_wrapper((GObject*) self))
   {
     try
     {
-      SigC::SlotNode *const slot = Glib::SignalProxyNormal::data_to_slot(data);
-      (*(SlotType::Proxy)(slot->proxy_))
-          (cont,context, slot);
+      if(SigC::SlotNode *const slot = Glib::SignalProxyNormal::data_to_slot(data))
+        (*(SlotType::Proxy)(slot->proxy_))
+            (cont,context, slot);
     }
     catch(...)
     {
@@ -137,14 +138,16 @@ void SearchCombo_Class::activate_callback(GtkSearchCombo* self)
   CppObjectType *const obj = dynamic_cast<CppObjectType*>(
       Glib::ObjectBase::_get_current_wrapper((GObject*)self));
 
-  //Non-gtkmmproc-generated custom classes implicitly call the default Glib::ObjectBase constructor,
-  //which sets is_derived_. But gtkmmproc-generated classes can use this optimisation, which avoids
-  //the unnecessary parameter conversions if there is no possibility of the virtual function being overridden:
+  // Non-gtkmmproc-generated custom classes implicitly call the default
+  // Glib::ObjectBase constructor, which sets is_derived_. But gtkmmproc-
+  // generated classes can use this optimisation, which avoids the unnecessary
+  // parameter conversions if there is no possibility of the virtual function
+  // being overridden:
   if(obj && obj->is_derived_())
   {
-    try //Trap C++ exceptions which would normally be lost because this is a C callback.
+    try // Trap C++ exceptions which would normally be lost because this is a C callback.
     {
-      //Call the virtual member method, which derived classes might override.
+      // Call the virtual member method, which derived classes might override.
       obj->on_activate();
     }
     catch(...)
@@ -158,7 +161,7 @@ void SearchCombo_Class::activate_callback(GtkSearchCombo* self)
         g_type_class_peek_parent(G_OBJECT_GET_CLASS(self)) // Get the parent class of the object class (The original underlying C class).
     );
 
-    //Call the original underlying C function:
+    // Call the original underlying C function:
     if(base && base->activate)
       (*base->activate)(self);
   }
@@ -169,14 +172,16 @@ void SearchCombo_Class::search_callback(GtkSearchCombo* self, gboolean* cont, Gt
   CppObjectType *const obj = dynamic_cast<CppObjectType*>(
       Glib::ObjectBase::_get_current_wrapper((GObject*)self));
 
-  //Non-gtkmmproc-generated custom classes implicitly call the default Glib::ObjectBase constructor,
-  //which sets is_derived_. But gtkmmproc-generated classes can use this optimisation, which avoids
-  //the unnecessary parameter conversions if there is no possibility of the virtual function being overridden:
+  // Non-gtkmmproc-generated custom classes implicitly call the default
+  // Glib::ObjectBase constructor, which sets is_derived_. But gtkmmproc-
+  // generated classes can use this optimisation, which avoids the unnecessary
+  // parameter conversions if there is no possibility of the virtual function
+  // being overridden:
   if(obj && obj->is_derived_())
   {
-    try //Trap C++ exceptions which would normally be lost because this is a C callback.
+    try // Trap C++ exceptions which would normally be lost because this is a C callback.
     {
-      //Call the virtual member method, which derived classes might override.
+      // Call the virtual member method, which derived classes might override.
       obj->on_search(cont, context);
     }
     catch(...)
@@ -190,7 +195,7 @@ void SearchCombo_Class::search_callback(GtkSearchCombo* self, gboolean* cont, Gt
         g_type_class_peek_parent(G_OBJECT_GET_CLASS(self)) // Get the parent class of the object class (The original underlying C class).
     );
 
-    //Call the original underlying C function:
+    // Call the original underlying C function:
     if(base && base->search)
       (*base->search)(self, cont, context);
   }
