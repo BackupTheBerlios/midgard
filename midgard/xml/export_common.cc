@@ -1,4 +1,4 @@
-// $Id: export_common.cc,v 1.9 2002/01/27 15:14:46 christof Exp $
+// $Id: export_common.cc,v 1.10 2002/02/05 06:47:48 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -178,6 +178,12 @@ void write_float_attrib(std::ostream &o,const std::string &wert,double val, doub
 
  void write_bool_attrib(std::ostream &o,const std::string &wert,bool val, bool standard=false)
 {  if (val==standard) return;
+   o << ' ' << wert << "=\"" << (val?"true":"false") << '\"';
+}
+
+ void write_bool_attrib_force(std::ostream &o,const std::string &wert,bool val)
+{ 
+cout << val<<' '<<(val?"true":"false")<<'\n';
    o << ' ' << wert << "=\"" << (val?"true":"false") << '\"';
 }
 

@@ -125,16 +125,16 @@ void Fertigkeiten_auswahl::Allgemeinwissen()
         list_Fert_Allg.push_back(*i);
        }
    }
-   if(true)
+   if(Werte.Stadt_Land()=="Land")
       list_Fert_Allg.sort(cH_Fertigkeit::sort(cH_Fertigkeit::sort::LERN_L));
-   if(false)
+   if(Werte.Stadt_Land()=="Stadt")
       list_Fert_Allg.sort(cH_Fertigkeit::sort(cH_Fertigkeit::sort::LERN_S));
    Gtk::OStream os(allgemein_clist_auswahl);
    for(std::list<cH_MidgardBasicElement>::iterator i=list_Fert_Allg.begin();i!=list_Fert_Allg.end();++i)
       { cH_Fertigkeit f(*i);
         int lernpunkte=0;
-        if(true) lernpunkte=f->LernLand();
-        if(false) lernpunkte=f->LernStadt();
+        if(Werte.Stadt_Land()=="Land")  lernpunkte=f->LernLand();
+        if(Werte.Stadt_Land()=="Stadt") lernpunkte=f->LernStadt();
         std::string serfolgswert=itos(f->FErfolgswert(Werte));
         if (serfolgswert=="0") serfolgswert="";
         if(lernpunkte <= maxpunkte_A)

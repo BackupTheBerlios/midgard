@@ -117,6 +117,9 @@ void Fertigkeit::get_Fertigkeit()
   lern_unge=tag->getIntAttr("Lernpunkte",99); // außergewöhnliche Fertigkeit
   lern_land=tag->getIntAttr("Lernpunkte-Land",99);
   lern_stadt=tag->getIntAttr("Lernpunkte-Stadt",99);
+//cout <<Name()<<' '
+//<< tag->getIntAttr("Lernpunkte-Land",99)<<' '<<lern_land
+//<<tag->getIntAttr("Lernpunkte-Stadt",99)<<' '<<lern_stadt<<'\n';
   anfangswert0=tag->getIntAttr("Anfangswert");
   anfangswert=tag->getIntAttr("Erfolgswert");
   ungelernt=tag->getIntAttr("Erfolgswert-ungelernt",-99);

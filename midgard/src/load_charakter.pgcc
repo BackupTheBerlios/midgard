@@ -195,6 +195,8 @@ void midgard_CG::xml_import(const std::string& datei)
    else
       Werte.setEP(0,0,0);
    Werte.setStadt_Land(Typ->getAttr("Stadt_Land","Stadt")); // V8+
+   if(Werte.Stadt_Land()=="Stadt") radiobutton_stadt->set_active(true);
+   if(Werte.Stadt_Land()=="Land")  radiobutton_land->set_active(true);
    if (Steigern)
       Database.GradAnstieg.set_Grad_Anstieg(Steigern->getIntAttr("EPproGFP",50)
       	,Steigern->getIntAttr("Basiswerte",Werte.Grad()));
