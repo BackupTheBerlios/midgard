@@ -51,9 +51,9 @@ void table_grundwerte::init(midgard_CG *h)
       Glib::RefPtr<Gdk::Pixmap> pm=Gdk::Pixmap::create(h->get_window(),pb->get_width(),pb->get_height(),h->get_window()->get_depth());
       Glib::RefPtr<Gdk::GC> gc=Gdk::GC::create(pm);
       pm->draw_pixbuf(gc,pb,0,0,0,0,-1,-1,Gdk::RGB_DITHER_NORMAL,0,0);
-      Glib::RefPtr<Gtk::Style> st=grundwerte_background->get_style()->copy();
+      Glib::RefPtr<Gtk::Style> st=h->grundwerte_background->get_style()->copy();
       st->set_bg_pixmap(Gtk::STATE_NORMAL,pm);
-      grundwerte_background->set_style(st);
+      h->grundwerte_background->set_style(st);
    }
   }
   edit_werte=false;

@@ -1786,7 +1786,7 @@ Sven Rey, Markus Steinberg, Ottmar Zimmer und viele andere geholfen.</property>
 
 	      <child>
 		<widget class="GtkEventBox" id="grundwerte_background">
-		  <property agent="glademm" name="cxx_visibility">protected</property>
+		  <property agent="glademm" name="cxx_visibility">public</property>
 		  <property name="visible">True</property>
 
 		  <child>
