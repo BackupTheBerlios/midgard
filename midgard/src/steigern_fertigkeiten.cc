@@ -138,30 +138,43 @@ void midgard_CG::fillClistLand(const cH_MidgardBasicElement &MBE)
   clist_landauswahl->clear();
   Gtk::OStream os(clist_landauswahl);
 
-  if(MBE->Name()=="Landeskunde")
-     for (std::vector<cH_Land>::const_iterator i=Database.Laender.begin();i!=Database.Laender.end();++i)
-      {
-         os <<(*i)->Name()<<'\n';
-         os.flush(MBE->ref(),&HandleContent::unref);
-      }
-  else if(MBE->Name()=="Scharfschieﬂen")
-     for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Waffen.begin();i!=list_Waffen.end();++i)
-      {
-        if (cH_Waffe(*i)->Art()=="Schuﬂwaffe" || cH_Waffe(*i)->Art()=="Wurfwaffe")
+  switch (MBE->ZusatzEnum(Typ))
+   {
+     case MidgardBasicElement::ZLand :
+      {        
+        for (std::vector<cH_Land>::const_iterator i=Database.Laender.begin();i!=Database.Laender.end();++i)
          {
-           os <<(*i)->Name()<<'\n';
-           os.flush(MBE->ref(),&HandleContent::unref);
-         }
+            os <<(*i)->Name()<<'\n';
+            os.flush(MBE->ref(),&HandleContent::unref);
+          }
+        break;
       }
-  else
-    {
-      std::vector<std::string> VZ=MBE->VZusatz();
-      for (std::vector<std::string>::const_iterator i=VZ.begin();i!=VZ.end();++i)
-       {
-         os << *i <<'\n';
-         os.flush(MBE->ref(),&HandleContent::unref);
+     case MidgardBasicElement::ZWaffe :
+      {      
+        for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Waffen.begin();i!=list_Waffen.end();++i)
+         {
+           if (cH_Waffe(*i)->Art()=="Schuﬂwaffe" || cH_Waffe(*i)->Art()=="Wurfwaffe")
+            {
+              os <<(*i)->Name()<<'\n';
+              os.flush(MBE->ref(),&HandleContent::unref);
+            }
+         }
+        break;
+      }
+     case MidgardBasicElement::ZTabelle : 
+      {
+        std::vector<std::string> VZ=MBE->VZusatz();
+        for (std::vector<std::string>::const_iterator i=VZ.begin();i!=VZ.end();++i)
+           {
+             os << *i <<'\n';
+             os.flush(MBE->ref(),&HandleContent::unref);
+           }
+        break; 
        }
-    }
+     case MidgardBasicElement::ZNone :
+      {
+        assert("Never get here\n");
+      }
   scrolledwindow_landauswahl->show();
 }
 

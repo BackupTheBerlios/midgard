@@ -41,14 +41,15 @@ class NotFound : public std::exception
 
 class MidgardBasicElement : public HandleContent
 {
+   public:
+      enum eZusatz {ZNone=0,ZTabelle,ZLande,ZWaffe};
    protected:
-#ifdef USE_XML   
 	const Tag *tag;
-#endif
 	// warum ist name nicht hier drin? CP
       std::string name, region;
       int kosten;
       int mutable praxispunkte,erfolgswert,lernpunkte;
+      eZusatz enum_zusatz;
       mutable std::string zusatz; // Für Zusäte bei Fertigkeiten (z.B. Abrichten, Sprache, Geheimzeichen...)
                                   // und Zauber (Tiersprache)
       std::vector<std::string> Vzusatz;
@@ -86,9 +87,7 @@ class MidgardBasicElement : public HandleContent
       std::string Zusatz() const {return zusatz;}
       std::vector<std::string> VZusatz() const {return Vzusatz;}
       void setZusatz(std::string z) const {zusatz=z;}
-      virtual bool ZusatzBool(const vector<cH_Typen>& Typ) const 
-         { if(Vzusatz.empty()) return false; 
-           else return true; }
+      virtual eZusatz ZusatzEnum(const vector<cH_Typen>& Typ) const {return enum_zusatz;}
  
       void EP_steigern(const std::string fert);
       virtual std::string Name() const {return name;}

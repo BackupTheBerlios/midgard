@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten.hh,v 1.40 2002/02/14 10:17:25 thoma Exp $               
+// $Id: Fertigkeiten.hh,v 1.41 2002/02/14 14:13:54 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -63,7 +63,7 @@ class Fertigkeit : public MidgardBasicElement
      std::string What_str() const {return "Fertigkeit";}
 
 
-     bool Fertigkeit::ZusatzBool(const vector<cH_Typen>& Typ) const;
+     eZusatz ZusatzEnum(const vector<cH_Typen>& Typ) const;
      std::string LernArt() const {return lernart;}
      void setLernArt(std::string z) const {lernart=z;}
      std::string Attribut() const {return attribut;}

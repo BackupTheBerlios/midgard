@@ -64,7 +64,7 @@ void Fertigkeit::get_Fertigkeit()
   region=tag->getAttr("Region");
   attribut=tag->getAttr("Attribut");
   maxunterweisung=tag->getIntAttr("MaximalMitUnterweisung");
-//  zusatzbool=tag->getBoolAttr("Zusätze",false);
+  enum_zusatz=eZusatz(tag->getIntAttr("Zusätze",ZNone));
   maxerfolgswert=tag->getIntAttr("Maximalwert");
   const Tag *Voraussetzungen=tag->find("Voraussetzungen");
   if (Voraussetzungen)
@@ -106,12 +106,11 @@ std::string Fertigkeit::Pflicht_str() const
   else return "";
 }
 
-bool Fertigkeit::ZusatzBool(const vector<cH_Typen>& Typ) const
+MidgardBasicElement::eZusatz Fertigkeit::ZusatzEnum(const vector<cH_Typen>& Typ) const
 {
   if(Name()=="Abrichten" && (Typ[0]->Short()=="Tm" || Typ[1]->Short()=="Tm"))
-     return false;
-  if(Vzusatz.empty()) return false; 
-  else return true;
+     return ZNone;
+  return enum_zusatz;
 }
 
 int Fertigkeit::FErfolgswert(const Grundwerte &Werte) const

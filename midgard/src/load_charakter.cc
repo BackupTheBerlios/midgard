@@ -1,10 +1,3 @@
-/* Processed by ecpg (2.9.0) */
-/* These three include files are added by the preprocessor */
-#include <ecpgtype.h>
-#include <ecpglib.h>
-#include <ecpgerrno.h>
-#include <sqlca.h>
-#line 1 "load_charakter.pgcc"
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -242,11 +235,11 @@ void midgard_CG::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
          cH_MidgardBasicElement fert(&*cH_Fertigkeit(i->getAttr("Bezeichnung"),true));
          fert->set_Erfolgswert(i->getIntAttr("Wert"));
          fert->set_Praxispunkte(i->getIntAttr("Praxispunkte"));
-         if(cH_Fertigkeit(fert)->ZusatzBool(Typ))
+         if(cH_Fertigkeit(fert)->ZusatzEnum(Typ))
          {  fert=new Fertigkeit(*cH_Fertigkeit(fert));
             if(fert->Name()=="Landeskunde") cH_Land(i->getAttr("Zusatz"),true);
             if(fert->Name()=="Scharfschießen") cH_Waffe(i->getAttr("Zusatz"),true);
-            cH_Fertigkeit(fert)->setZusatz(i->getAttr("Zusatz"));
+            fert->setZusatz(i->getAttr("Zusatz"));
          }
          list_Fertigkeit.push_back(fert);
          if      (fert->Name()=="KiDo") kido_bool=true;
@@ -263,7 +256,14 @@ void midgard_CG::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
       if(sart=="Besitz_W")
 #endif
       else if(sart=="Zauber")
-      	  list_Zauber.push_back(&*cH_Zauber(i->getAttr("Bezeichnung"),true));
+        {
+         cH_MidgardBasicElement zauber(&*cH_Zauber(i->getAttr("Bezeichnung"),true));
+         if(zauber->ZusatzEnum(Typ))
+          { zauber=new Zauber(*cH_Zauber(zauber));
+            zauber->setZusatz(i->getAttr("Zusatz"));
+          }
+         list_Zauber.push_back(zauber);
+        }
       else if(sart=="Zauberwerk")
           list_Zauberwerk.push_back(&*cH_Zauberwerk(i->getAttr("Bezeichnung"),
           	i->getAttr("Art"),i->getAttr("Stufe"),true));
