@@ -38,7 +38,7 @@ void midgard_CG::on_zauber_laden_clicked()
  midgard_CG::show_neue_zaubermittel();
 }
 
-/*
+
 class Data_alt_zauber : public RowDataBase
 {
    string name, ursprung;
@@ -65,25 +65,19 @@ void midgard_CG::on_leaf_selected_alte_zauber(cH_RowDataBase d)
    on_steigern_zauber_tree_alt_select(dt->Name(),dt->Kosten());
 }
 
-*/
 
 void midgard_CG::show_alte_zauber()
 {
    vector<cH_RowDataBase> datavec;
-   steigern_zauber_clist_alt->clear();
-   Gtk::OStream os(steigern_zauber_clist_alt);
    for (vector<st_zauber>::iterator i=zauber.begin(); i!=zauber.end();++i)
       {
          double fac = midgard_CG::get_standard_zauber(typ,typ_2,i->name);
-         os << i->name<<"\t"<<i->ursprung<<"\t"<<i->kosten*fac<<"\n";
-//         datavec.push_back(new Data_alt_zauber(i->name,i->ursprung,i->kosten*fac));
+         datavec.push_back(new Data_alt_zauber(i->name,i->ursprung,i->kosten*fac));
       }
-   for (unsigned int i=0;i<steigern_zauber_clist_alt->columns().size();++i)
-      steigern_zauber_clist_alt->set_column_auto_resize(i,true);
-   steigern_zauber_clist_alt->set_reorderable(true);
+   alte_zauber_tree->setDataVec(datavec);
 }
 
-/*
+
 class Data_neu_zauber : public RowDataBase
 {
    string stufe, name, ursprung;
@@ -104,21 +98,21 @@ class Data_neu_zauber : public RowDataBase
    return cH_EntryValueIntString("?");
  }
  string Name() const {  return name; }
-// string Ursprung() const {  return ursprung; }  
  int Kosten() const {  return kosten; }
+ string Stufe() const {  return stufe; }  
+ string Art() const {  return art; }  
+
 };
 
 void midgard_CG::on_leaf_selected_neue_zauber(cH_RowDataBase d)
 {  const Data_neu_zauber *dt=dynamic_cast<const Data_neu_zauber*>(&*d);
-   on_steigern_zauber_tree_neu_select(dt->Name(),dt->Kosten());
+   on_steigern_zauber_tree_neu_select(dt->Name(),dt->Kosten(),dt->Stufe(),dt->Art());
 }
 
-*/
 
 void midgard_CG::show_neue_zauber()
 {
   vector<cH_RowDataBase> datavec;
-  steigern_zauber_clist_neu->clear();
   exec sql begin declare section;
    char db_name[100],db_ursprung[50];
    int db_kosten;
@@ -159,7 +153,6 @@ void midgard_CG::show_neue_zauber()
 
    exec sql open zauber_ein;
    SQLerror::test(__FILELINE__);
-   Gtk::OStream os(steigern_zauber_clist_neu);
    while (true)
       {
        if (get_typ_s("Magie",typ) && get_typ_s("Magie",typ_2)) // beide Zypen Zauberer
@@ -183,36 +176,25 @@ void midgard_CG::show_neue_zauber()
          if (midgard_CG::region_check(db_region))
           {
             if (!spruchrolle->get_active())
-             {
-               os << db_stufe <<"\t"<< db_name <<"\t"<<db_ursprung<<"\t"<<db_kosten*fac<<"\t"<<standard<<"\n";
-//         datavec.push_back(new Data_alt_zauber(db_stufe,db_name,db_ursrung,db_kosten*fac,standard));
-
-             }
+               datavec.push_back(new Data_neu_zauber(db_stufe,db_name,db_ursprung,db_kosten*fac,standard));
             else
                if (strcmp(db_spruchrolle,"nicht"))
-                {
-                  os << db_stufe <<"\t"<< db_name <<"\t"<<db_ursprung<<"\t"<<db_kosten*fac/10<<"\t"<<standard<<"\n";
-//         datavec.push_back(new Data_alt_zauber(db_stufe,db_name,db_ursrung,db_kosten*fac/10,standard));
-                }
+                  datavec.push_back(new Data_neu_zauber(db_stufe,db_name,db_ursprung,db_kosten*fac/10,standard));
           }
       }
    exec sql close zauber_ein;
+   neue_zauber_tree->setDataVec(datavec);
 
-   for (unsigned int i=0;i<steigern_zauber_clist_neu->columns().size();++i)
-      steigern_zauber_clist_neu->set_column_auto_resize(i,true);
-   steigern_zauber_clist_neu->set_reorderable(true);
    tr.commit();
 }
 
 
-void midgard_CG::on_steigern_zauber_clist_alt_select_row(gint row, gint column, GdkEvent *event)
+void midgard_CG::on_steigern_zauber_tree_alt_select(string new_zauber, int kosten)
 {   
-   string alt_zauber = steigern_zauber_clist_alt->get_text(row,0);
-   int alt_kosten = atoi(steigern_zauber_clist_alt->get_text(row,2).c_str());
-   werte.gfp -= alt_kosten;
+   werte.gfp -= kosten;
    for (vector<st_zauber>::iterator i=zauber.begin();
             i!= zauber.end();++i) 
-      if (i->name==alt_zauber) {zauber.erase(i);break;}
+      if (i->name==new_zauber) {zauber.erase(i);break;}
 
    midgard_CG::zeige_werte(werte,"alle");
 //   midgard_CG::show_zauber();
@@ -223,17 +205,14 @@ void midgard_CG::on_steigern_zauber_clist_alt_select_row(gint row, gint column, 
    midgard_CG::show_neue_zaubermittel();
 }
 
-void midgard_CG::on_steigern_zauber_clist_neu_select_row(gint row, gint column, GdkEvent *event)
+void midgard_CG::on_steigern_zauber_tree_neu_select(string new_zauber, int kosten, 
+   string stufe, string art)
 {   
-  int new_kosten = atoi(steigern_zauber_clist_neu->get_text(row,3).c_str());
-  string new_zauber = steigern_zauber_clist_neu->get_text(row,1);
   string erf = midgard_CG::get_erfolgswert_zaubern(typ,typ_2,new_zauber);
-  string stufe= steigern_zauber_clist_neu->get_text(row,0);
-  string art =steigern_zauber_clist_neu->get_text(row,4);
   
   if (radio_spruchrolle_auto->get_active() && spruchrolle->get_active())
    {
-     werte.gfp += 2*new_kosten;
+     werte.gfp += 2*kosten;
      zauber.push_back(st_zauber("0",new_zauber,erf,"0","0","0","0","0","0","0","0","0","0","0","0","0",0));
    }
   else if (radio_spruchrolle_wuerfeln->get_active() && spruchrolle->get_active())
@@ -245,13 +224,13 @@ void midgard_CG::on_steigern_zauber_clist_neu_select_row(gint row, gint column, 
       if (gelungen != 0)
         {
          zauber.push_back(st_zauber("0",new_zauber,erf,"0","0","0","0","0","0","0","0","0","0","0","0","0",0));
-         werte.gfp += new_kosten;
+         werte.gfp += kosten;
         }
-      werte.gfp += new_kosten;
+      werte.gfp += kosten;
    }
   else // normales lernen ohne Spruchrolle
    {
-     werte.gfp += new_kosten;
+     werte.gfp += kosten;
      zauber.push_back(st_zauber("0",new_zauber,erf,"0","0","0","0","0","0","0","0","0","0","0","0","0",0));
    }
 
@@ -264,21 +243,17 @@ void midgard_CG::on_steigern_zauber_clist_neu_select_row(gint row, gint column, 
   midgard_CG::show_neue_zaubermittel();
 }
 
-
 void midgard_CG::on_checkbutton_zaubersalze_toggled()
 {
- steigern_zauber_clist_neu->clear();
  clist_zaubermittel_neu->clear();
  show_neue_zauber();
 }
 void midgard_CG::on_checkbutton_beschwoerungen_toggled()
 {
- steigern_zauber_clist_neu->clear();
  show_neue_zauber();
 }
 void midgard_CG::on_checkbutton_alle_zauber_toggled()
 {
- steigern_zauber_clist_neu->clear();
  show_neue_zauber();
  show_neue_zaubermittel();
 }

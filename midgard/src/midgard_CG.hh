@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.43 2001/06/20 15:42:52 thoma Exp $
+// $Id: midgard_CG.hh,v 1.44 2001/06/21 10:33:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -285,9 +285,9 @@ class midgard_CG : public midgard_CG_glade
         void get_grundwerte();
          
         void on_fertigkeiten_laden_clicked();
-        void on_steigern_fert_clist_alt_select_row(gint row, gint column, GdkEvent *event);
+//        void on_steigern_fert_clist_alt_select_row(gint row, gint column, GdkEvent *event);
         void on_steigern_fert_tree_alt_select(string fertigkeit, int wert, int steigern, int reduzieren, int verlernen);
-        void on_steigern_fert_clist_neu_select_row(gint row, gint column, GdkEvent *event);
+//        void on_steigern_fert_clist_neu_select_row(gint row, gint column, GdkEvent *event);
         void on_steigern_fert_tree_neu_select(string fertigkeit, int wert, int lernkosten);
         void show_alte_fertigkeiten();
         void on_leaf_selected_alte_fert(cH_RowDataBase d);
@@ -327,8 +327,12 @@ class midgard_CG : public midgard_CG_glade
         void on_checkbutton_alle_zauber_toggled();
         void on_checkbutton_zaubermittel_toggled();
         int spruchrolle_wuerfeln(int istufe, string art, string zauber);
-        void on_steigern_zauber_clist_alt_select_row(gint row, gint column, GdkEvent *event);
-        void on_steigern_zauber_clist_neu_select_row(gint row, gint column, GdkEvent *event);
+//        void on_steigern_zauber_clist_alt_select_row(gint row, gint column, GdkEvent *event);
+        void on_leaf_selected_alte_zauber(cH_RowDataBase d);
+        void on_steigern_zauber_tree_alt_select(string zauber, int kosten);
+//        void on_steigern_zauber_clist_neu_select_row(gint row, gint column, GdkEvent *event);
+        void on_leaf_selected_neue_zauber(cH_RowDataBase d);
+        void on_steigern_zauber_tree_neu_select(string zauber, int kosten, string stufe, string art);
         void show_alte_zauber();
         void show_neue_zauber();
         void on_clist_zaubermittel_alt_select_row(gint row, gint column, GdkEvent *event);

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.37 2001/06/20 15:42:52 thoma Exp $
+// $Id: midgard_CG.cc,v 1.38 2001/06/21 10:33:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -58,6 +58,21 @@ void midgard_CG::set_tree_titles()
  neue_fert.push_back("Art");
  neue_fert.push_back("Vorraussetzungen");
  neue_fert_tree->setTitles(neue_fert);
+
+ vector<string> alte_zauber;
+ alte_zauber.push_back("Name");
+ alte_zauber.push_back("Ursprung");
+ alte_zauber.push_back("Lernkosten");
+ alte_zauber_tree->setTitles(alte_zauber);
+
+ vector<string> neue_zauber;
+ neue_zauber.push_back("Stufe");
+ neue_zauber.push_back("Name");
+ neue_zauber.push_back("Ursprung");
+ neue_zauber.push_back("Lernkosten");
+ neue_zauber.push_back("Art");
+ neue_zauber_tree->setTitles(neue_zauber);
+
 }
 
 void midgard_CG::on_radiobutton_frau_toggled()
@@ -262,12 +277,16 @@ void midgard_CG::on_neuer_charakter_clicked()
    clist_kido->clear();
 //   steigern_fert_clist_alt->clear();
 //   steigern_fert_clist_neu->clear();
+   alte_fert_tree->clear();
+   neue_fert_tree->clear();
    steigern_waffen_clist_alt->clear();
    steigern_waffen_clist_neu->clear();
    grundkenntnisse_clist_alt->clear();
    grundkenntnisse_clist_neu->clear();
-   steigern_zauber_clist_alt->clear();
-   steigern_zauber_clist_neu->clear();
+//   steigern_zauber_clist_alt->clear();
+//   steigern_zauber_clist_neu->clear();
+   alte_zauber_tree->clear();
+   neue_zauber_tree->clear();
    clist_zaubermittel_alt->clear();
    clist_zaubermittel_neu->clear();
    steigern_kido_clist_alt->clear();
