@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.14 2002/06/12 12:49:03 christof Exp $            
+// $Id: Abenteurer.cc,v 1.15 2002/06/12 13:03:27 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -161,14 +161,14 @@ void Abenteurer::speicherstream(ostream &datei,const Datenbank &Database,const M
    // Waffen Besitz
    for (std::list<WaffeBesitz>::const_iterator i=CList_Waffen_besitz().begin();
          i!=CList_Waffen_besitz().end();++i)
-      {  WaffeBesitz WB(*i);
+      {  
          Tag &w=Ausruestung.push_back(Tag("Waffe"));
          w.setIntAttr("Erfolgswert", i->Erfolgswert());
-         w.setAttr("Bezeichnung", WB->Name());
-         w.setIntAttr_nn("AngriffVerteidigung_Bonus", WB.av_Bonus());
-         w.setIntAttr_nn("SchadenLebenspunkte_Bonus", WB.sl_Bonus());
-         w.setAttr_ne("Region", WB->Region());
-         if (WB.Magisch().empty()) w.Value(WB.Magisch());
+         w.setAttr("Bezeichnung", i->Name());
+         w.setIntAttr_nn("AngriffVerteidigung_Bonus", i->av_Bonus());
+         w.setIntAttr_nn("SchadenLebenspunkte_Bonus", i->sl_Bonus());
+         w.setAttr_ne("Region", i->Region());
+         if (WB.Magisch().empty()) w.Value(i->Magisch());
       }
    save_ausruestung(Ausruestung, getCBesitz().getChildren());
    
@@ -613,16 +613,9 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
                         i->getAttr("Bezeichnung"),
                         i->getIntAttr("AngriffVerteidigung_Bonus"),
                         i->getIntAttr("SchadenLebenspunkte_Bonus"),
-                        i->Value());
+                        i->Value(),
+                        i->getAttr("Region"));
         List_Waffen_besitz().push_back(WB);
-/*
-        List_Waffen_besitz().push_back(new 
-	        WaffeBesitz(cH_Waffe(wn,true),
-                        i->getAttr("Bezeichnung"),
-                        i->getIntAttr("AngriffVerteidigung_Bonus"),
-                        i->getIntAttr("SchadenLebenspunkte_Bonus"),
-                        i->Value()));
-*/
     }
 }
 

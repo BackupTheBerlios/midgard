@@ -47,7 +47,6 @@ class MidgardBasicElement : public HandleContentCopyable
       struct st_ausnahmen{std::string herkunft;std::string spezies;
                           std::string typ;std::string beruf;std::string stand;
                           std::string standard;
-//             st_ausnahmen(){}
              st_ausnahmen(std::string h,std::string s,std::string t,
                           std::string b,std::string st,std::string sta) 
                         :herkunft(h),spezies(s),typ(t),beruf(b),stand(st),
@@ -61,13 +60,8 @@ class MidgardBasicElement : public HandleContentCopyable
       int kosten;
       mutable int anfangswert;
       eZusatz enum_zusatz;
-//      int mutable praxispunkte,erfolgswert,lernpunkte;
-//      enum zusatz;      
-//      mutable std::string zusatz; // Für Zusäte bei Fertigkeiten (z.B. Abrichten, Sprache, Geheimzeichen...)
-                                  // und Zauber (Tiersprache)
       std::vector<std::string> Vzusatz;
       vector<st_ausnahmen> VAusnahmen;
-//      mutable bool gelernt; // Fürs Lernschema
       bool nsc_only;
       enum EP_t { Nicht=0, KEP=1, ZEP=2, Beides=KEP|ZEP };
       /* EP_t (CP) */ int steigern_mit_EP;

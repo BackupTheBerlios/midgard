@@ -153,10 +153,9 @@ void  table_steigern::lade_waffenbesitz()
         Waffe_Besitz_neu.push_back(W);
         for (list<Waffe::st_alias>::const_iterator j=cH_Waffe(w)->Alias().begin();j!=cH_Waffe(w)->Alias().end();++j)
          {
-           WaffeBesitz W(w,0,(*j).name,0,0,"");
-cout << W->Name()<<'\t'<<(*j).name<<'\t'<<W.AliasName()<<'\n';
+           WaffeBesitz W(w,0,(*j).name,0,0,"",j->region);
            if(hauptfenster->region_check(j->region))
-                 Waffe_Besitz_neu.push_back(W);
+              Waffe_Besitz_neu.push_back(W);
          }
        }
    }
