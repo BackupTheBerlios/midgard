@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.335 2003/09/15 15:53:35 christof Exp $
+// $Id: midgard_CG.hh,v 1.336 2003/09/16 07:09:45 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -161,9 +161,8 @@ private:
 
         void set_status(const std::string &s,bool autoclean=true);
 
-	// besser noch durch MVC ersetzen!
-public:	 // würg
-	void Ober_setzen_from_menu(Magus_Optionen::OberIndex index);
+// besser in Einzelfunktionen zerlegen
+	void Ober_setzen_from_menu(gpointer x,Magus_Optionen::OberIndex index);
 
    public:
         midgard_CG(const std::vector<std::string> &dateien);

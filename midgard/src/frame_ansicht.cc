@@ -30,7 +30,7 @@ void frame_ansicht::init()
   {
    if(!i->show) continue;
    bool_CheckButton *cb = manage(new bool_CheckButton(i->active,i->text));
-   i->active.signal_changed().connect(SigC::bind(SigC::slot(*hauptfenster,&midgard_CG::Ober_setzen_from_menu),i->index));
+//   i->active.signal_changed().connect(SigC::bind(SigC::slot(*hauptfenster,&midgard_CG::Ober_setzen_from_menu),i->index));
 //i->active.signal_changed().connect(SigC::slot(&wert_changed));
    table->attach(*cb,0,1,count,count+1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
    ++count;

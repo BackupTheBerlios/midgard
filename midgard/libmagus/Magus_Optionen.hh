@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.hh,v 1.8 2003/09/15 08:27:38 christof Exp $
+// $Id: Magus_Optionen.hh,v 1.9 2003/09/16 07:09:45 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -99,7 +99,7 @@ class Magus_Optionen
       std::list<st_OptionenCheck> list_OptionenCheck; 
       std::list<st_pdfViewer> list_pdfViewer;
       std::list<st_WindowPosition> list_Windows;
-      Model_ref<bool> werte_eingeben;
+      Model<bool> werte_eingeben;
       std::list<std::string> LDateien;
       
       std::list<RadioModel> ausschluesse;

@@ -1,4 +1,4 @@
-// $Id: Optionen_GUI.cc,v 1.4 2003/09/15 15:53:35 christof Exp $
+// $Id: Optionen_GUI.cc,v 1.5 2003/09/16 07:09:45 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -78,19 +78,17 @@ void Midgard_Optionen::OptionenCheck_setzen_from_menu(OptionenCheckIndex index)
 #include <libmagus/Ausgabe.hh>
 //#include <libmagusicons/magusicons.h>
 
-void midgard_CG::Ober_setzen_from_menu(Magus_Optionen::OberIndex index)
+void midgard_CG::Ober_setzen_from_menu(gpointer x,Magus_Optionen::OberIndex index)
 {
   for(std::list<Magus_Optionen::st_Ober>::iterator i=Programmoptionen.getOber().begin();i!=Programmoptionen.getOber().end();++i)
    {
      if(i->index==index) 
       { 
+#if 0      
         if     (index==Magus_Optionen::Bilder) show_Pics(i->active);
-        else if(index==Magus_Optionen::AutoShrink) autoshrink(i->active);
         else if(index==Magus_Optionen::Menueleiste) show_Menueleiste(i->active);
         else if(index==Magus_Optionen::Knopfleiste) show_Knopfleiste(i->active);
         else if(index==Magus_Optionen::Status) show_Statusleiste(i->active);
-        else if(index==Magus_Optionen::NoInfoFenster) ;
-        else if(index==Magus_Optionen::BegruessungsFenster) ;
         else if(index==Magus_Optionen::Icons) 
          { if(!i->active && !Programmoptionen.OberCheck(Magus_Optionen::Beschriftungen).active)
             {
@@ -109,23 +107,18 @@ void midgard_CG::Ober_setzen_from_menu(Magus_Optionen::OberIndex index)
            else 
               show_Beschriftungen(i->active);
          }
-        else if(index==Magus_Optionen::Customize_Icons)
-         {
-           Gtk::CustomizeToolbars(notebook_main,
-                     i->active,Programmoptionen.OberCheck(Magus_Optionen::Customize_Text).active,
-                     Programmoptionen.OberCheck(Magus_Optionen::Customize_Tab).active);
-         }
-        else if(index==Magus_Optionen::Customize_Text)
-         {
-           Gtk::CustomizeToolbars(notebook_main,
-                     Programmoptionen.OberCheck(Magus_Optionen::Customize_Icons).active,i->active,
-                     Programmoptionen.OberCheck(Magus_Optionen::Customize_Tab).active);
-         }
-        else if(index==Magus_Optionen::Customize_Tab)
+#endif        
+        if(index==Magus_Optionen::AutoShrink) autoshrink(i->active);
+        else if(index==Magus_Optionen::NoInfoFenster) ;
+        else if(index==Magus_Optionen::BegruessungsFenster) ;
+        else if(index==Magus_Optionen::Customize_Icons
+        	|| index==Magus_Optionen::Customize_Text
+        	|| index==Magus_Optionen::Customize_Tab)
          {
            Gtk::CustomizeToolbars(notebook_main,
                      Programmoptionen.OberCheck(Magus_Optionen::Customize_Icons).active,
-                     Programmoptionen.OberCheck(Magus_Optionen::Customize_Text).active,i->active);
+                     Programmoptionen.OberCheck(Magus_Optionen::Customize_Text).active,
+                     Programmoptionen.OberCheck(Magus_Optionen::Customize_Tab).active);
          }
 //        menu_init();
         return;

@@ -34,7 +34,7 @@
 #include "zufall_steigern.hh"
 #include "Random.hh"
 
-void progress(double d)
+static void progress(double d)
 {  Ausgabe(Ausgabe::Log, "Progress " +itos(int(d*100))+ "%");
 }
 

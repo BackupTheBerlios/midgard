@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.58 2003/09/09 06:19:09 christof Exp $
+// $Id: midgard.cc,v 1.59 2003/09/16 07:09:45 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,8 +33,13 @@
 
 //#include <locale>
 
+static void progress(double d)
+{  Ausgabe(Ausgabe::Log, "Progress " +itos(int(d*100))+ "%");
+}
+
 int main(int argc, char **argv)
-{  libmagus_init0(argc,const_cast<const char **>(argv));
+{  Ausgabe::setLogLevel(Ausgabe::Debug);
+   libmagus_init0(argc,const_cast<const char **>(argv));
 #ifdef __MINGW32__ // gtkrc als Standard Ressourcen Datei
    std::string gtkrc;
    if (!getenv("GTK_RC_FILES"))
@@ -44,11 +49,14 @@ int main(int argc, char **argv)
    }
 #endif
    Gtk::Main m(&argc, &argv,true); 
+#warning loadwindow erzeugen
+   libmagus_init1(progress);
 
    std::vector<std::string> dateien;
    for (int i=1;i<argc;++i) dateien.push_back(argv[i]);
 
 //   setlocale(LC_ALL, "de_DE");
+   // WindowInfo erzeugen und an midgard_CG übergeben
    midgard_CG *magus=new midgard_CG(dateien);
    m.run(*magus);
    delete magus;
