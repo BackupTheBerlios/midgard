@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data Region="I" Name="Ikengabecken" Titel="Ikengabecken" Copyright="?" Jahr="?" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="15" MAGUS-Bild="16" CVS="$Revision: 1.1 $">
+ <Schriften/>
+ <Sprachen/>
+ <Typen/>
+ <Fertigkeiten/>
+ <Berufe/>
+ <Rüstungen/>
+ <Waffen/>
+ <Waffen-Grundkenntnisse/>
+ <Zauber/>
+ <Zauberwerke/>
+</MAGUS-data>
