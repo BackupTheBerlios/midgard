@@ -20,6 +20,7 @@
 #include <gtk--/box.h>
 #include <gtk--/pixmap.h>
 #include "../pixmaps/midgard_logo_tiny.xpm"
+#include "../pixmaps/Regio_Hausregel_small.xpm"
 
 void midgard_CG::menu_init()
 {
@@ -147,20 +148,27 @@ void midgard_CG::menu_init()
 
 //Hausregeln////////////////////////////////////////////////////////////////
   haus_menu = manage(new class Gtk::Menu());
-  Gtk::MenuItem *haus = manage(new class Gtk::MenuItem("Hausregeln"));
-  haus->set_submenu(*haus_menu);
+  Gtk::MenuItem *haus;
+  Gtk::Label *_lhaus = manage(new class Gtk::Label("Hausregeln"));
+  Gtk::Table *_tabhaus=manage(new Gtk::Table(0,0,false));
+  _tabhaus->attach(*_lhaus,1,2,0,1,0,0,0,0);
+  Gtk::Pixmap *pix_haus=manage(new Gtk::Pixmap(Regio_Hausregel_small_xpm));
+  _tab->attach(*pix_haus,0,1,0,1,0,0,0,0);
 
+  haus->set_submenu(*haus_menu);
   for(std::list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
    {
      i->menu = manage(new class Gtk::CheckMenuItem(i->text));
      haus_menu->append(*(i->menu));
      i->menu->set_active(i->active);
-     i->menu->activate.connect(SigC::slot(this,&midgard_CG::Hausregeln_setzen));
+//     i->menu->activate.connect(SigC::slot(this,&midgard_CG::Hausregeln_setzen));
+
 //     Gtk::MenuItem *haus_gold = manage(new class Gtk::MenuItem("1 GS entspricht 1 GFP"));
 //  haus_menu->append(*haus_gold);
 //  haus_gold->activate.connect(SigC::slot(this,&midgard_CG::Hausregeln_setzen));
 //  haus_gold->show();
    }  
+  haus->add(*_tabhaus);
   menu->append(*haus);
 ///////////////////////////////////////////////////////////////////////////////
 //Import/Export////////////////////////////////////////////////////////////////
