@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.127 2002/01/27 15:14:46 christof Exp $
+// $Id: midgard_CG.cc,v 1.128 2002/01/28 07:44:30 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -171,7 +171,7 @@ void midgard_CG::on_charakter_beschreibung_clicked()
 {   
   manage(new Window_charakter_beschreibung(this,Werte.Beschreibung())); 
 }   
-void midgard_CG::charakter_beschreibung_uebernehmen(const std::string& b)
+void midgard_CG::charakter_beschreibung_uebernehmen(const std::string& b,bool drucken)
 {
   Werte.setBeschreibung(b);
 #ifndef USE_XML  
@@ -179,16 +179,7 @@ void midgard_CG::charakter_beschreibung_uebernehmen(const std::string& b)
 #else
    steigern_aktivieren();
 #endif
-}
-void midgard_CG::charakter_beschreibung_drucken(const std::string& b)
-{
-  Werte.setBeschreibung(b);
-#ifndef USE_XML
-  on_speichern_clicked();
-#else
-   steigern_aktivieren();
-#endif
-  midgard_CG::latex_beschreibung_drucken();
+  if(drucken) latex_beschreibung_drucken();
 }
 
 void midgard_CG::on_button_hilfe_clicked()

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.145 2002/01/27 09:01:25 thoma Exp $
+// $Id: midgard_CG.hh,v 1.146 2002/01/28 07:44:30 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -469,8 +469,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          void doppelcharaktere();
          void xml_export(const std::string& datei);
          void xml_import(const std::string& datei);
-         void charakter_beschreibung_uebernehmen(const std::string& b);
-         void charakter_beschreibung_drucken(const std::string& b);
+         void charakter_beschreibung_uebernehmen(const std::string& b,bool drucken);
          void select_charakter(const std::string& name, const std::string& version);
          void show_fertigkeiten();
          void waffe_besitz_uebernehmen(const std::list<cH_MidgardBasicElement>& wbu);

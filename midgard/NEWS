@@ -9,6 +9,8 @@ NEWS IN VERSION 0.3delta3
 * die richtigen Callbacks für 'steigern Menü' eintragen
 * Es kann jetzt ein beliebiger Beruf eingetragen werden.
 * LaTeX Ausdruck jetzt ohne Erfolgswert für Beruf.
+* Ausrüstung und Charakterbeschreibung kann nun auch über das Menü
+   ausgedruckt werden
 
 TODO:
 * Landeskunde als Berufsfähigkeit für 3 Berufe

@@ -1,4 +1,4 @@
-// $Id: Window_charakter_beschreibung.cc,v 1.15 2001/06/27 11:24:35 thoma Exp $
+// $Id: Window_charakter_beschreibung.cc,v 1.16 2002/01/28 07:44:30 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,14 +31,14 @@
 void Window_charakter_beschreibung::on_charakter_beschreibung_uebernehmen_clicked()
 {   
  std::string b=text_charakter_beschreibung->get_chars(0,text_charakter_beschreibung->get_length());
- hauptfenster->charakter_beschreibung_uebernehmen(b);
+ hauptfenster->charakter_beschreibung_uebernehmen(b,false);
  destroy();
 }
 
 void Window_charakter_beschreibung::on_charakter_beschreibung_drucken_clicked()
 {
  std::string b=text_charakter_beschreibung->get_chars(0,text_charakter_beschreibung->get_length());
- hauptfenster->charakter_beschreibung_drucken(b);
+ hauptfenster->charakter_beschreibung_uebernehmen(b,true);
  destroy();
 }
 
