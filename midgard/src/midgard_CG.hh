@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.103 2001/12/12 09:34:46 thoma Exp $
+// $Id: midgard_CG.hh,v 1.104 2001/12/12 18:02:44 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -41,6 +41,8 @@
 #include <gtk--/main.h>
 #include <gtk--/menu.h>
 #include <gtk--/menuitem.h>
+#include <gtk--/ctree.h>
+
 #include <vector>
 #include <list>
 #include "Zauber.hh"
@@ -63,6 +65,7 @@
 #include "Lernschema.hh"
 #include "Beruf.hh"
 #include "Preise.hh"
+#include "Ausruestung.hh"
 class Random;
 
 extern bool Originalbool;
@@ -392,17 +395,16 @@ class midgard_CG : public midgard_CG_glade
 
         void ausruestung_laden();
         void fill_preisliste();
-        void fill_optionmenu_eigenschaft();
-        void fill_optionmenu_art();
-        void fill_optionmenu_typ();
-        void opt_eigenschaft();
-        void opt_art();
-        void opt_typ();
         void on_button_ausruestung_druck_clicked();
         void on_clist_preisliste_select_row(gint row, gint column, GdkEvent *event);
         void on_preise_leaf_selected(cH_RowDataBase d);        
         void on_button_modi_clicked();
         void show_modi();
+        void createAusruestungNode(const std::string &name,AusruestungBaum parent);
+        void showAusruestung();
+        void showChildren(Gtk::CTree_Helpers::RowList::iterator r,const std::list<AusruestungBaum> &AB);
+        Gtk::CTree *Ausruestung_tree;
+        AusruestungBaum besitz;
         std::map<pair<std::string,std::string>,PreiseMod::st_payload> modimap;
    
    public:

@@ -9,8 +9,6 @@
 #include <Gtk_OStream.h>
 #include <Aux/EntryValueIntString.h>
 
-#include "Ausruestung.hh"
-
 class Data_Preis : public RowDataBase
 {
      std::string art, typ, eigenschaft;
@@ -45,6 +43,7 @@ public:
 };
 
 
+/*
 class Data_Ausruestung : public RowDataBase
 {
      vector<std::string> V;
@@ -70,7 +69,8 @@ class Data_Ausruestung : public RowDataBase
 
    std::string getLast()
       {
-        for(vector<std::string>::const_iterator i=V.begin();i!=V.end();++i)
+        vector<std::string>::const_reverse_iterator e=V.rend();
+        for(vector<std::string>::const_reverse_iterator i=V.rbegin();i!=e;++i)
           if((*i)!="") return *i;
         return "";         
       }
@@ -80,19 +80,18 @@ class cH_Data_Ausruestung : public Handle<const Data_Ausruestung>
 public:
  cH_Data_Ausruestung(Data_Ausruestung *r) : Handle<const Data_Ausruestung>(r) {}
 };
- 
+*/ 
 
 
 void midgard_CG::ausruestung_laden()
 {
-//  fill_optionmenu_art();
-//  opt_art();
   std::vector<cH_RowDataBase> datavec;
   for(std::list<cH_PreiseMod>::iterator i=Database.preisemod.begin();i!=Database.preisemod.end();++i)
    {
      datavec.push_back(new Data_Preis((*i)->Art(),(*i)->Typ(),(*i)->Payload()));
    }
   preise_tree->setDataVec(datavec);
+  showAusruestung();
 }
 
 void midgard_CG::on_preise_leaf_selected(cH_RowDataBase d)
@@ -141,8 +140,70 @@ void midgard_CG::on_button_modi_clicked()
   show_modi();
 }
 
+
+
+void midgard_CG::showChildren(Gtk::CTree_Helpers::RowList::iterator r,const list<AusruestungBaum> &AB)
+{
+  Gtk::CTree_Helpers::RowList::iterator n;
+  for(std::list<AusruestungBaum>::const_iterator i=AB.begin();i!=AB.end();++i)
+   {
+     std::vector <string> v;
+     v.push_back(i->getAusruestung().Name());
+     r->subtree().push_back(Gtk::CTree_Helpers::Element(v));
+     n=--Ausruestung_tree->rows().end();
+     n->set_data(gpointer(&*i));
+     showChildren(n,i->getChildren());
+   }  
+}
+
+void midgard_CG::showAusruestung()
+{
+  if(besitz.empty()) 
+    { AusruestungBaum *Koerper = &besitz.push_back(Ausruestung("Körper"));
+      Koerper->push_back(Ausruestung("Rucksack"));
+      Koerper->push_back(Ausruestung("Sack"));
+      Koerper->push_back(Ausruestung("Hose"));
+    }
+  std::vector<std::string> title;
+  title.push_back("Titel");
+  Ausruestung_tree=manage(new Gtk::CTree(title));
+  Gtk::CTree_Helpers::RowList::iterator r;
+  for(AusruestungBaum::const_iterator i=besitz.begin();i!=besitz.end();++i)
+   {
+     std::vector <string> v;
+     v.push_back(i->getAusruestung().Name());
+     Ausruestung_tree->rows().push_back(Gtk::CTree_Helpers::Element(v));
+     r=--Ausruestung_tree->rows().end();
+     r->set_data(gpointer(&*i));
+     showChildren(r,i->getChildren());
+   }
+  r->expand_recursive();
+  Ausruestung_tree->show(); 
+  viewport_ausruestung->add(*Ausruestung_tree);
+}
+
+void midgard_CG::createAusruestungNode(const std::string &name,AusruestungBaum parent)
+{
+//  Ausruestung A(name);
+//  parent.push_back(A);
+}
+
+
 void midgard_CG::on_clist_preisliste_select_row(gint row, gint column, GdkEvent *event)
 {
+  Gtk::CTree_Helpers::SelectionList selectionList = Ausruestung_tree->selection();
+  if(selectionList.empty())
+   {
+cout<< "Keine Zeile gewählt\n";
+return;
+   }
+  if(selectionList.size()>1)
+   {
+cout<< "Zuviele Zeilen gewählt\n";
+return;
+   }
+  AusruestungBaum A=*static_cast<AusruestungBaum*>(selectionList.begin()->get_data());
+
   std::string name   =clist_preisliste->get_text(row,0);
   std::string kosten =clist_preisliste->get_text(row,1);
   std::string einheit=clist_preisliste->get_text(row,2);
@@ -163,16 +224,16 @@ void midgard_CG::on_clist_preisliste_select_row(gint row, gint column, GdkEvent 
      if(++i!=modimap.end()) bez+=", ";
    }
 
- AusruestungFull AF;
-
- bool sichtbar=true;
- std::string position;
- AF.Rein(Ausruestung(name,bez,position,sichtbar));
-
- name += " "+bez;
-  
-cout << name<<'\n';
+   bool sichtbar=true;
+cout << A.getAusruestung().Name()<<'\n';
+//   AusruestungBaum *Koerper = &besitz.push_back(Ausruestung("Körper"));
+   A.push_back(Ausruestung(name,bez,sichtbar));
+// std::string position="Körper";
+// Ausruestung a(name,bez,position,sichtbar);
+// ausruestung.push_back(AusruestungBaum());
+ showAusruestung();
 }
+
 
 void midgard_CG::fill_preisliste()
 {
@@ -195,73 +256,6 @@ void midgard_CG::fill_preisliste()
    }  
   for (unsigned int i=0;i<clist_preisliste->columns().size();++i)
        clist_preisliste->set_column_auto_resize(i,true);
-}
-
-void midgard_CG::opt_art()
-{
-//  fill_optionmenu_typ();
-}
-void midgard_CG::fill_optionmenu_art()
-{
-/*
-  {Gtk::OStream os(optionmenu_art);
-  for(std::list<cH_PreiseMod>::iterator i=Database.preisemod.begin();i!=Database.preisemod.end();++i)
-   {
-     os << (*i)->Art();
-     os.flush((gpointer)&*i);
-   }  
-  }
-  optionmenu_art->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::opt_art));
-  optionmenu_art->show();
-*/
-}
-
-
-void midgard_CG::opt_typ()
-{
-//  fill_optionmenu_eigenschaft();
-}
-void midgard_CG::fill_optionmenu_typ()
-{
-/*
-  cH_PreiseMod *art=static_cast<cH_PreiseMod*>(optionmenu_art->get_menu()->get_active()->get_user_data());
-  {Gtk::OStream os(optionmenu_typ);
-   for(std::map<std::string,vector<PreiseMod::st_vec> >::const_iterator i=(*art)->getMap().begin();i!=(*art)->getMap().end();++i)
-    {
-      os << i->first<<'\n';
-      os.flush((gpointer)&(i->first));
-    }  
-  }
-  optionmenu_typ->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::opt_typ));
-  optionmenu_typ->show();
-*/
-}
-
-void midgard_CG::opt_eigenschaft()
-{
-//  fill_preisliste();
-}
-void midgard_CG::fill_optionmenu_eigenschaft()
-{
-/*
-  {Gtk::OStream os(optionmenu_eigenschaft);
-  cH_PreiseMod *art=static_cast<cH_PreiseMod*>(optionmenu_art->get_menu()->get_active()->get_user_data());
-  std::string *typ=static_cast<std::string*>(optionmenu_typ->get_menu()->get_active()->get_user_data());
-
-  for(std::vector<PreiseMod::st_vec>::const_iterator i=(*art)->getMap()[*typ].begin();i!=(*art)->getMap()[*typ].end();++i)
-   {
-     
-//     if(i->typ==*typ)
-//      {
-cout <<"->"<< i->name<<"<-\n";
-//       os << i->name<<'\n';
-//       os.flush((gpointer)&*i);
-//      }
-   }  
-  }
-  optionmenu_eigenschaft->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::opt_eigenschaft));
-  optionmenu_eigenschaft->show();
-*/
 }
 
 
