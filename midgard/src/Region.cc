@@ -120,7 +120,7 @@ Gtk::Pixmap *RegionenPic::Pic(epic typ,Midgard_Optionen::IconIndex ii,bool tiny)
  return manage(new Gtk::Pixmap(pinguin_xpm));
 }
 
-char **RegionenPic::PicModel(epic typ,Midgard_Optionen::IconIndex ii,bool tiny)
+const char* const *RegionenPic::PicModel(epic typ,Midgard_Optionen::IconIndex ii,bool tiny)
 {  
  if(ii==Midgard_Optionen::Ulf)
  {
