@@ -136,37 +136,29 @@ bool Waffe::Voraussetzung(const Abenteurer &A,bool anzeigen) const
  if ( St()>Werte.St() || Gw()>Werte.Gw() || Gs()>Werte.Gs() ) return false;
  if(anzeigen) return true;
 
- bool fert_ok=true,waffe_ok=true;
  const std::list<MidgardBasicElement_mutable> &list_Fertigkeit=A.List_Fertigkeit();
  const std::list<MidgardBasicElement_mutable> &list_Waffen=A.List_Waffen();
+ std::list<MidgardBasicElement_mutable> L=list_Fertigkeit;
+ for(std::list<MidgardBasicElement_mutable>::const_iterator j=list_Waffen.begin();j!=list_Waffen.end();++j)
+   L.push_back(*j);
+     
  std::vector<std::string> VF=vec_voraussetzung_F;
+ for(std::vector<std::string>::const_iterator i=vec_voraussetzung_W.begin();i!=vec_voraussetzung_W.end();++i)
+   VF.push_back(*i);   
+
 FertEnd:
  for(std::vector<std::string>::iterator i=VF.begin();i!=VF.end();++i)
    {
-    for(std::list<MidgardBasicElement_mutable>::const_iterator j=list_Fertigkeit.begin();j!=list_Fertigkeit.end();++j)
+    for(std::list<MidgardBasicElement_mutable>::const_iterator j=L.begin();j!=L.end();++j)
       {
         if((*i)==(*j)->Name()) 
           { VF.erase(i);
             goto FertEnd;
           }
       }
-    fert_ok = false;
+     return false;
    }
- std::vector<std::string> VW=vec_voraussetzung_W;
-WaffEnd:
- for(std::vector<std::string>::iterator i=VW.begin();i!=VW.end();++i)
-   {
-    for(std::list<MidgardBasicElement_mutable>::const_iterator j=list_Waffen.begin();j!=list_Waffen.end();++j)
-      {
-        if((*i)==(*j)->Name()) 
-         { VW.erase(i); 
-           goto WaffEnd;
-         }
-      }
-    waffe_ok = false;
-   }
-  if(!fert_ok || !waffe_ok) return false;
-  return true;
+ return true;
 }
 
 ///////////////////////////////////////////////////////////////////

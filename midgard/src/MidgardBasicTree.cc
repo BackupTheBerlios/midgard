@@ -1,4 +1,4 @@
-// $Id: MidgardBasicTree.cc,v 1.17 2002/06/12 08:14:29 thoma Exp $
+// $Id: MidgardBasicTree.cc,v 1.18 2002/06/27 09:01:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -91,6 +91,15 @@ void MidgardBasicTree::set_tree_titles(variante V)
       vs.push_back("Steigern\n(nächste Stufe)");
       vs.push_back("Reduzieren\n(eine Stufe)"); 
       vs.push_back("Verlernen");
+      vs.push_back("Region");
+   }
+  else if(V==LONG_NEU)
+   {
+      vs.push_back("Fertigkeit");
+      vs.push_back("Wert");
+      vs.push_back("Lernkosten");  
+      vs.push_back("Art");    
+      vs.push_back("Voraussetzungen");
       vs.push_back("Region");
    }
   else if(V==LONG_NEU_WAFFE)

@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.24 2002/06/26 14:51:26 christof Exp $            
+// $Id: Abenteurer.cc,v 1.25 2002/06/27 09:01:21 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -328,7 +328,7 @@ const std::string Abenteurer::Beruf() const
 bool Abenteurer::xml_import_stream(istream& datei, Datenbank &Database,
    Midgard_Optionen *Optionen)
 {
-
+   reset();
    TagStream ts(datei);
    const Tag *data=0; // &ts.getContent();
    const Tag *top=ts.find("Midgard-Charakter");    

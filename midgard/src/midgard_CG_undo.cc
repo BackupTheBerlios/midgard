@@ -1,4 +1,4 @@
-// $Id: midgard_CG_undo.cc,v 1.8 2002/05/30 06:19:20 thoma Exp $
+// $Id: midgard_CG_undo.cc,v 1.9 2002/06/27 09:01:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -48,6 +48,8 @@ void midgard_CG::on_undo_leaf_selected(cH_RowDataBase d)
 //  xml_import(MidgardUndo.get(dt->getIndex()));
   Char.xml_import_stream(s,getDatabase(),getOptionen());
   s.freeze();
+  set_status("Alten Zustand wieder hergestellt");
+  undo_tree->unselect_all();
 }
 
 void midgard_CG::on_button_redo_clicked()

@@ -80,7 +80,8 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
       {
        for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getDatabase().Sprache.begin();i!=hauptfenster->getDatabase().Sprache.end();++i)
          {
-            if(MBE->Name()=="Muttersprache" && cH_Sprache(*i)->Alte_Sprache()) 
+            if((MBE->Name()=="Muttersprache" || (MBE->Name()=="Gastlandsprache"))
+                  && cH_Sprache(*i)->Alte_Sprache()) 
               {
                 list_FertigkeitZusaetze.push_back(MBE->Name());
                 continue ;

@@ -23,8 +23,8 @@ CREATE TABLE "spezies_angeborene_fert" (
 COPY "spezies_angeborene_fert" FROM stdin;
 Berggnom	af	Nachtsicht	8	\N
 Berggnom	af	Robustheit	12	\N
-Berggnom	f	Fallen entdecken	6	1
-Berggnom	f	Geheimmechanismen öffnen	6	1
+Berggnom	ff	Fallen entdecken	6	1
+Berggnom	ff	Geheimmechanismen öffnen	6	1
 Berggnom	s	Hören	10	\N
 Berggnom	sv	Überleben im Dschungel	\N	\N
 Berggnom	sv	Überleben im Schnee	\N	\N

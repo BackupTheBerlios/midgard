@@ -129,11 +129,16 @@ bool Fertigkeit::Voraussetzung(const Abenteurer &A,bool anzeigen) const
  if(anzeigen) return true;
 
  const std::list<MidgardBasicElement_mutable> &list_Fertigkeit=A.List_Fertigkeit();
+ const std::list<MidgardBasicElement_mutable> &list_Waffen=A.List_Waffen();
+ std::list<MidgardBasicElement_mutable> L=list_Fertigkeit;
+ for(std::list<MidgardBasicElement_mutable>::const_iterator j=list_Waffen.begin();j!=list_Waffen.end();++j)
+   L.push_back(*j);
+       
  std::vector<std::string> VF=vec_voraussetzung;
 FertEnd:
  for(std::vector<std::string>::iterator i=VF.begin();i!=VF.end();++i)
   {
-    for(std::list<MidgardBasicElement_mutable>::const_iterator j=list_Fertigkeit.begin();j!=list_Fertigkeit.end();++j)
+    for(std::list<MidgardBasicElement_mutable>::const_iterator j=L.begin();j!=L.end();++j)
      {
       if((*i)==(*j)->Name()) 
        { VF.erase(i); 
@@ -142,7 +147,7 @@ FertEnd:
      }
     return false;
   }
- return true;
+  return true;
 }
 
 

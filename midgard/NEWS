@@ -5,6 +5,13 @@ NEWS IN VERSION 0.7delta3
 * Wurfspeer nach 'Leichter Speer' lernbar (war Rechtschreibfehler in Datenbank)
 * Laden eines Charakters zeigt dessen Werte an
 * floats für Gewichte
+* Freiwillige Speziesfertigkeiten für Berggnom
+* Gastlandsprache ohne alte Sprachen
+* Oberfläche leicht überarbeitet
+* Datenbankkorrekturen
+* Fertigkeiten berücksichtigen jetzt auch Waffen als Voraussetzungen
+* Zahlreiche kleinere Bugs beseitigt
+
 
 TODO: ('-' zeigt CP an)
 * Muttersprache nach Heimatland
@@ -17,6 +24,8 @@ links).
   verschwand, das Infofenster ging auf mit der Meldung "Fehler beim
   Lernpunkte zurückstellen". Die Lernpunkte wurden auch nicht
   zurückgestellt...
+* Wenn ich die Sprache Gastland wieder verlerne, wird sie mir nicht wieder
+  im Auswahlmenu angeboten - sie bleibt deaktiviert.
 - dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
   man etwas hinzufügen möchte, ist nicht gerade intuitiv
   (vielleicht drag'n'drop oder CTree verschieben)

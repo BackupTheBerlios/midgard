@@ -32,14 +32,14 @@ COPY "sprachen" FROM stdin;
 10	Berekusch	20	\N	\N	4	\N	t	\N
 10	Bulugi	20	\N	\N	\N	\N	\N	\N
 10	Chryseisch	20	\N	\N	5	10	\N	\N
-10	Comentang	11	\N	\N	2	\N	\N	\N
+10	Comentang	20	\N	\N	2	\N	\N	\N
 10	Dunathisch	20	t	A	\N	\N	\N	\N
 10	Dunkle Sprache	20	\N	\N	\N	\N	\N	\N
 10	Dvarskar	20	\N	\N	\N	\N	\N	\N
 10	Eldalyn	20	\N	\N	6	\N	\N	\N
 10	Erainnisch	20	\N	\N	2	6	\N	\N
 10	Ferangah	20	\N	X	10	\N	\N	Die schwarze Sphäre
-10	Feuerinseldialekte	8	\N	\N	\N	0	\N	\N
+10	Feuerinseldialekte	20	\N	\N	\N	0	\N	\N
 10	Ffomorisch	20	\N	\N	5	\N	t	\N
 10	Gnomenon	20	\N	\N	\N	\N	\N	\N
 10	Halftan	20	\N	\N	1	7	\N	\N
@@ -62,7 +62,7 @@ COPY "sprachen" FROM stdin;
 10	Stammesdialekte	20	\N	\N	\N	\N	t	\N
 10	Tegarisch	20	\N	\N	4	\N	\N	\N
 10	Toquinisch	20	\N	\N	\N	\N	\N	\N
-10	Trll'ng	11	\N	\N	\N	\N	\N	\N
+10	Trll'ng	20	\N	\N	\N	\N	\N	\N
 10	Tuskisch	20	\N	\N	5	\N	\N	\N
 10	Twyneddisch	20	\N	\N	2	\N	t	\N
 10	Vallinga	20	\N	\N	10	\N	\N	\N
