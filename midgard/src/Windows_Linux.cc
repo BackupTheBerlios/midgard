@@ -1,4 +1,4 @@
-// $Id: Windows_Linux.cc,v 1.3 2002/07/08 14:52:23 christof Exp $
+// $Id: Windows_Linux.cc,v 1.4 2002/07/08 14:55:30 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -18,6 +18,9 @@
  */
 
 #include "Windows_Linux.hh"
+#ifdef __MINGW32__
+#include <windows.h>
+#endif
 
 std::string recodePathForTeX(std::string p)
 {
