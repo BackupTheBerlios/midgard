@@ -3,7 +3,7 @@
 --
 DROP TABLE "spezies_typen";
 --
--- TOC Entry ID 2 (OID 22414)
+-- TOC Entry ID 2 (OID 609434)
 --
 -- Name: spezies_typen Type: TABLE Owner: thoma
 --
@@ -15,7 +15,7 @@ CREATE TABLE "spezies_typen" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 22414) TABLE DATA spezies_typen
+-- Data for TOC Entry ID 3 (OID 609434) TABLE DATA spezies_typen
 --
 
 COPY "spezies_typen"  FROM stdin;
@@ -42,16 +42,28 @@ Zwerg	PF	\N
 Zwerg	PH	\N
 Zwerg	PK	\N
 Zwerg	Th	\N
-Gnom	Gl	\N
-Gnom	Hä	\N
-Gnom	Kr	\N
-Gnom	Sp	\N
-Gnom	Wa	\N
-Gnom	Dr	\N
-Gnom	Hl	\N
-Gnom	wHx	\N
-Gnom	gHx	\N
-Gnom	sHx	\N
-Gnom	Ma	\N
-Gnom	Th	\N
+Berggnom	Gl	\N
+Berggnom	Hä	\N
+Berggnom	Kr	\N
+Berggnom	Sp	\N
+Berggnom	Wa	\N
+Berggnom	Dr	\N
+Berggnom	Hl	\N
+Berggnom	wHx	\N
+Berggnom	gHx	\N
+Berggnom	sHx	\N
+Berggnom	Ma	\N
+Berggnom	Th	\N
+Waldgnom	Gl	\N
+Waldgnom	Hä	\N
+Waldgnom	Kr	\N
+Waldgnom	Sp	\N
+Waldgnom	Wa	\N
+Waldgnom	Dr	\N
+Waldgnom	Hl	\N
+Waldgnom	wHx	\N
+Waldgnom	gHx	\N
+Waldgnom	sHx	\N
+Waldgnom	Ma	\N
+Waldgnom	Th	\N
 \.

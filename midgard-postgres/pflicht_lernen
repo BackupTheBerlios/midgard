@@ -3,68 +3,155 @@
 --
 DROP TABLE "pflicht_lernen";
 --
--- TOC Entry ID 2 (OID 22224)
+-- TOC Entry ID 2 (OID 609569)
 --
 -- Name: pflicht_lernen Type: TABLE Owner: thoma
 --
 
 CREATE TABLE "pflicht_lernen" (
 	"typ" text,
-	"pflicht" text
+	"pflicht" text,
+	"lernpunkte" integer,
+	"verboten" text,
+	"spielbegin" text,
+	"erfolgswert" integer
 );
 
 --
--- Data for TOC Entry ID 3 (OID 22224) TABLE DATA pflicht_lernen
+-- Data for TOC Entry ID 3 (OID 609569) TABLE DATA pflicht_lernen
 --
 
 COPY "pflicht_lernen"  FROM stdin;
-Ba	Musizieren
-dBe	Lesen/Schreiben
-dBe	Wissen von der Magie
-eBe	Lesen/Schreiben
-eBe	Wissen von der Magie
-Dr	Wissen von der Magie
-Dra	Wissen von der Magie
-Hä	Geschäftstüchtigkeit
-Hl	Erste Hilfe
-Hl	Lesen/Schreiben
-Hl	Wissen von der Magie
-wHx	Wissen von der Magie
-gHx	Wissen von der Magie
-sHx	Wissen von der Magie
-Kr	Kampf in Vollrüstung
-Ma	Lesen/Schreiben
-Ma	Wissen von der Magie
-Ny	KujKuri
-Ny	NinJutsu
-PF	Lesen/Schreiben
-PF	Wissen von der Magie
-PH	Lesen/Schreiben
-PH	Wissen von der Magie
-PK	Lesen/Schreiben
-PK	Wissen von der Magie
-PM	Lesen/Schreiben
-PM	Wissen von der Magie
-PT	Lesen/Schreiben
-PT	Wissen von der Magie
-PW	Lesen/Schreiben
-PW	Wissen von der Magie
-Ri	großes Schild
-Ri	Kampf in Vollrüstung
-Ri	Kampf zu Pferd
-Ri	kleines Schild
-Ri	Langschwert
-Ri	Reiten
-Sc	Wissen von der Magie
-Sk	Dichten
-Sk	Musizieren
-Sö	Kampf in Vollrüstung
-Sp	Stehlen
-Th	Lesen/Schreiben
-Th	Wissen von der Magie
-Sp	Schlösser öffnen
-Ass	Meucheln
-Ass	Schleichen
-Ass	Tarnen
-Kd	KiDo
+Ba	Musizieren	\N	\N	\N	\N
+dBe	Lesen/Schreiben	\N	\N	\N	\N
+dBe	Wissen von der Magie	\N	\N	\N	\N
+eBe	Lesen/Schreiben	\N	\N	\N	\N
+eBe	Wissen von der Magie	\N	\N	\N	\N
+Dr	Wissen von der Magie	\N	\N	\N	\N
+Dra	Wissen von der Magie	\N	\N	\N	\N
+Hä	Geschäftstüchtigkeit	\N	\N	\N	\N
+Hl	Erste Hilfe	\N	\N	\N	\N
+Hl	Lesen/Schreiben	\N	\N	\N	\N
+Hl	Wissen von der Magie	\N	\N	\N	\N
+wHx	Wissen von der Magie	\N	\N	\N	\N
+gHx	Wissen von der Magie	\N	\N	\N	\N
+sHx	Wissen von der Magie	\N	\N	\N	\N
+Kr	Kampf in Vollrüstung	\N	\N	\N	\N
+Ma	Lesen/Schreiben	\N	\N	\N	\N
+Ma	Wissen von der Magie	\N	\N	\N	\N
+Ny	KujKuri	\N	\N	\N	\N
+Ny	NinJutsu	\N	\N	\N	\N
+PF	Lesen/Schreiben	\N	\N	\N	\N
+PF	Wissen von der Magie	\N	\N	\N	\N
+PH	Lesen/Schreiben	\N	\N	\N	\N
+PH	Wissen von der Magie	\N	\N	\N	\N
+PK	Lesen/Schreiben	\N	\N	\N	\N
+PK	Wissen von der Magie	\N	\N	\N	\N
+PM	Lesen/Schreiben	\N	\N	\N	\N
+PM	Wissen von der Magie	\N	\N	\N	\N
+PT	Lesen/Schreiben	\N	\N	\N	\N
+PT	Wissen von der Magie	\N	\N	\N	\N
+PW	Lesen/Schreiben	\N	\N	\N	\N
+PW	Wissen von der Magie	\N	\N	\N	\N
+Ri	großes Schild	\N	\N	\N	\N
+Ri	Kampf in Vollrüstung	\N	\N	\N	\N
+Ri	Kampf zu Pferd	\N	\N	\N	\N
+Ri	kleines Schild	\N	\N	\N	\N
+Ri	Langschwert	\N	\N	\N	\N
+Ri	Reiten	\N	\N	\N	\N
+Sc	Wissen von der Magie	\N	\N	\N	\N
+Sk	Dichten	\N	\N	\N	\N
+Sk	Musizieren	\N	\N	\N	\N
+Sö	Kampf in Vollrüstung	\N	\N	\N	\N
+Sp	Stehlen	\N	\N	\N	\N
+Th	Lesen/Schreiben	\N	\N	\N	\N
+Th	Wissen von der Magie	\N	\N	\N	\N
+Sp	Schlösser öffnen	\N	\N	\N	\N
+Ass	Meucheln	\N	\N	\N	\N
+Ass	Schleichen	\N	\N	\N	\N
+Ass	Tarnen	\N	\N	\N	\N
+Kd	KiDo	\N	\N	\N	\N
+Berggnom	Bergmann	3	\N	\N	\N
+Berggnom	Steinmetz	3	\N	\N	\N
+Zwerg	Bergmann	3	\N	\N	\N
+Zwerg	Steinmetz	3	\N	\N	\N
+Zwerg	Zimmermann	3	\N	\N	\N
+Berggnom	\N	\N	ZSchwert	\N	\N
+Berggnom	\N	\N	ZSchlagwaffe	\N	\N
+Berggnom	\N	\N	Stangenwaffe	\N	\N
+Waldgnom	\N	\N	ZSchwert	\N	\N
+Waldgnom	\N	\N	ZSchlagwaffe	\N	\N
+Waldgnom	\N	\N	Stangenwaffe	\N	\N
+Halbling	\N	\N	ZSchwert	\N	\N
+Halbling	\N	\N	ZSchlagwaffe	\N	\N
+Halbling	\N	\N	Stangenwaffe	\N	\N
+Berggnom	\N	\N	Lanze	\N	\N
+Berggnom	\N	\N	Kriegsflegel	\N	\N
+Berggnom	\N	\N	Kampfstab	\N	\N
+Berggnom	\N	\N	Netz	\N	\N
+Berggnom	\N	\N	Peitsche	\N	\N
+Berggnom	\N	\N	Langbogen	\N	\N
+Berggnom	\N	\N	schwere Armbrust	\N	\N
+Berggnom	\N	\N	Stockschleuder	\N	\N
+Waldgnom	\N	\N	Lanze	\N	\N
+Waldgnom	\N	\N	Kriegsflegel	\N	\N
+Waldgnom	\N	\N	Kampfstab	\N	\N
+Waldgnom	\N	\N	Netz	\N	\N
+Waldgnom	\N	\N	Peitsche	\N	\N
+Waldgnom	\N	\N	Langbogen	\N	\N
+Waldgnom	\N	\N	schwere Armbrust	\N	\N
+Waldgnom	\N	\N	Stockschleuder	\N	\N
+Halbling	\N	\N	Lanze	\N	\N
+Halbling	\N	\N	Kriegsflegel	\N	\N
+Halbling	\N	\N	Kampfstab	\N	\N
+Halbling	\N	\N	Netz	\N	\N
+Halbling	\N	\N	Peitsche	\N	\N
+Halbling	\N	\N	Langbogen	\N	\N
+Halbling	\N	\N	schwere Armbrust	\N	\N
+Halbling	\N	\N	Stockschleuder	\N	\N
+Elf	\N	\N	Gassenwissen	\N	\N
+Elf	\N	\N	Giftmischen	\N	\N
+Elf	\N	\N	Glücksspiel	\N	\N
+Elf	\N	\N	Schlösser öffnen	\N	\N
+Elf	\N	\N	Stehlen	\N	\N
+Elf		0	Kampf in Vollrüstung	S	\N
+Halbling		0	Überleben im Dschungel	S	\N
+Halbling		0	Überleben im Schnee	S	\N
+Halbling		0	Überleben in der Steppe	S	\N
+Halbling		0	Überleben im Sumpf	S	\N
+Halbling		0	Überleben im Wald	S	\N
+Halbling		0	Überleben in der Wüste	S	\N
+Halbling		0	Überleben im Gebirge	S	\N
+Elf		0	Überleben im Dschungel	S	\N
+Elf		0	Überleben im Schnee	S	\N
+Elf		0	Überleben in der Steppe	S	\N
+Elf		0	Überleben im Sumpf	S	\N
+Elf		0	Überleben in der Wüste	S	\N
+Elf		0	Überleben im Gebirge	S	\N
+Berggnom		0	Überleben im Dschungel	S	\N
+Berggnom		0	Überleben im Schnee	S	\N
+Berggnom		0	Überleben in der Steppe	S	\N
+Berggnom		0	Überleben im Sumpf	S	\N
+Berggnom		0	Überleben in der Wüste	S	\N
+Berggnom		0	Überleben im Wald	S	\N
+Waldgnom		0	Überleben im Dschungel	S	\N
+Waldgnom		0	Überleben im Schnee	S	\N
+Waldgnom		0	Überleben in der Steppe	S	\N
+Waldgnom		0	Überleben im Sumpf	S	\N
+Waldgnom		0	Überleben in der Wüste	S	\N
+Waldgnom		0	Überleben im Gebirge	S	\N
+Zwerg		0	Überleben im Dschungel	S	\N
+Zwerg		0	Überleben in der Steppe	S	\N
+Zwerg		0	Überleben im Sumpf	S	\N
+Zwerg		0	Überleben im Wald	S	\N
+Zwerg		0	Überleben in der Wüste	S	\N
+Elf	Schleichen	1			8
+Elf	Spurenlesen	1			6
+Elf	Tarnen	1			8
+Elf	Wahrnehmung	1			4
+Halbling	Schleichen	1			10
+Halbling	Tarnen	1			10
+Berggnom	Geheimmechanismen öffnen	1	\N	\N	4
+Waldgnom	Spurenlesen	1	\N	\N	4
+Waldgnom	Tarnen	1	\N	\N	4
 \.

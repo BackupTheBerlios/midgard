@@ -16,6 +16,7 @@ CREATE TABLE "charaktere_fertigkeiten" (
 	"art" text,
 	"av_bonus" integer,
 	"sl_bonus" integer,
-	"region" text
+	"region" text,
+	"magisch" text
 );
 

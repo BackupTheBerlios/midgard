@@ -172,4 +172,5 @@ COPY "fertigkeiten"  FROM stdin;
 8	\N	Kampf zu Kamel	\N	200	E	S	S	A	G	A	S	S	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	S	\N
 4	\N	Mumifizieren	\N	200	E	A	A	A	A	A	A	A	A	A	A	A	A	A	S	G	S	S	S	S	A	A	G	A	S	S	S	S	S	G	S	A	A	In
 1	\N	Pyromantie	\N	400	E	S	S	S	S	S	S	S	S	A	S	S	S	S	S	S	S	S	S	A	A	A	G	A	G	S	S	S	S	S	S	\N	\N	Zt
+0		KiDo-Technik	\N	\N	K	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	S	S	\N
 \.

@@ -3,7 +3,7 @@
 --
 DROP TABLE "lernschema";
 --
--- TOC Entry ID 2 (OID 21090)
+-- TOC Entry ID 2 (OID 607722)
 --
 -- Name: lernschema Type: TABLE Owner: thoma
 --
@@ -20,7 +20,7 @@ CREATE TABLE "lernschema" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 21090) TABLE DATA lernschema
+-- Data for TOC Entry ID 3 (OID 607722) TABLE DATA lernschema
 --
 
 COPY "lernschema"  FROM stdin;
@@ -1082,10 +1082,15 @@ Sc	Naturkunde	Fertigkeit	4	In	2	\N	\N
 Dr	Naturkunde	Fertigkeit	4	In	1	\N	\N
 Wa	waffenloser Kampf	Waffe	5	\N	4	\N	\N
 Ny	KiDo	Fertigkeit	10	Zt	1	\N	\N
+Ny	KiDo-Technik	Fertigkeit	\N	\N	1	\N	\N
+Ny	KiDo-Technik	Fertigkeit	\N	\N	1	\N	\N
 Ny	Lesen/Schreiben	Fertigkeit	\N	\N	1	\N	\N
 Ny	TaiTschi	Fertigkeit	\N	\N	2	\N	\N
 Kd	TaiTschi	Fertigkeit	\N	\N	1	\N	\N
 Kd	KiDo	Fertigkeit	10	Zt	1	\N	\N
+Kd	KiDo-Technik	Fertigkeit	\N	\N	1	\N	\N
+Kd	KiDo-Technik	Fertigkeit	\N	\N	1	\N	\N
+Kd	KiDo-Technik	Fertigkeit	\N	\N	1	\N	\N
 Kd	YangScheng	Fertigkeit	1	\N	1	\N	\N
 Kd	SchiyoKi	Fertigkeit	\N	\N	2	\N	\N
 Kd	Lesen/Schreiben	Fertigkeit	2	\N	2	\N	\N

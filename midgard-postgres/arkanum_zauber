@@ -3,7 +3,7 @@
 --
 DROP TABLE "arkanum_zauber";
 --
--- TOC Entry ID 2 (OID 18759)
+-- TOC Entry ID 2 (OID 609908)
 --
 -- Name: arkanum_zauber Type: TABLE Owner: thoma
 --
@@ -59,7 +59,7 @@ CREATE TABLE "arkanum_zauber" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 18759) TABLE DATA arkanum_zauber
+-- Data for TOC Entry ID 3 (OID 609908) TABLE DATA arkanum_zauber
 --
 
 COPY "arkanum_zauber"  FROM stdin;
@@ -109,7 +109,7 @@ Brot und Wasser	100	3	Geste	1	Holz	erschafft	Wasser	10 min	0	Umgebung	-	0	dämoni
 Feuerregen	15000	18	Geste	groß	Feuer	erschafft	Feuer	30 s	100 m	Umgebung	30 m Uk	1 min	elementar	Basaltstaub, Rubinsplitter								S	S		S		A	A	A	G	S	A	A	S	S	S					S	\N	\N	\N	\N	\N
 Hagel	12000	18	Geste	groß	Eis	erschafft	Eis	30 s	100 m	Umgebung	30 m Uk	2 min	elementar	Wasser, Diamantsplitter							S	S	S	A			A	A	A	A	S	S	G	A	G	S					S	\N	\N	\N	\N	\N
 Lied der verborgenen Kraft	1000	2	Zauberlied	3	Magan	verändert	Feuer	-	0	Körper	15 m Uk	0	druidisch		nicht				G																		G					\N	\N	\N	\N	\N
-Lied der VerfÃ¼hrung	200	2	Zauberlied	2	Wasser	beherrscht	Wasser	-	5 m	Geist	1 Ws	6 h	druidisch		nicht				G																		S					\N	\N	\N	\N	\N
+Lied der Verführung	200	2	Zauberlied	2	Wasser	beherrscht	Wasser	-	5 m	Geist	1 Ws	6 h	druidisch		nicht				G																		S					\N	\N	\N	\N	\N
 Lied der Verzweiflung	2000	2	Zauberlied	4	Magan	verändert	Luft	-	15 m	Geist	1 Ws	30 min	druidisch		nicht				G																							\N	\N	\N	\N	\N
 Lied der Zwietracht	6000	2	Zauberlied	6	Magan	beherrscht	Wasser	-	0	Geist	15 m Uk	10 min	druidisch		nicht				G																							\N	\N	\N	\N	\N
 Lied des Fesselns	200	2	Zauberlied	1	Luft	beherrscht	Luft	-	0	Geist	30 m Uk	1 min	druidisch		nicht				G																		G					\N	\N	\N	\N	\N
