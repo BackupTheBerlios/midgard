@@ -51,8 +51,8 @@ int main(int argc,char **argv)
    
 //   Abenteurer a;
 
-   Magus_Optionen Programmoptionen;
-   Programmoptionen.init();
+   Magus_Optionen Programmoptionen->
+   Programmoptionen->init();
 
  } catch (NotFound &e)
  {  Ausgabe(Ausgabe::Error, "NotFound "+ e.Name());  }

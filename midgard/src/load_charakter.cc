@@ -42,7 +42,7 @@ void midgard_CG::xml_import_history(const std::string datei)
 void midgard_CG::xml_import(const std::string& datei)
 {
   try
-  {  VAbenteurer::iterator nab=AbenteurerAuswahl::Chars.load(datei);
+  {  VAbenteurer::iterator nab=AbenteurerAuswahl::Chars->load(datei);
      push_back_LDateien(datei);
      aktiver.setAbenteurer(nab);
   }

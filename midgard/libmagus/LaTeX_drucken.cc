@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.17 2004/04/22 09:31:19 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.18 2004/05/18 13:26:57 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -70,7 +70,7 @@ std::string LaTeX_drucken::get_latex_pathname(const LaTeX_Pathnames what)
 {
   switch (what)
     {
-      case TeX_tmp : return Programmoptionen.getString(Magus_Optionen::tmppfad);
+      case TeX_tmp : return Programmoptionen->getString(Magus_Optionen::tmppfad);
       case TeX_Install : 
       {  std::string result=magus_paths::with_path("MAGUS-Logo-grey2.png",true);
          return WinLux::recodePathForTeX(result);
@@ -960,7 +960,7 @@ void LaTeX_drucken::pdf_viewer(const std::string& file,const bool tex_two_times)
 //  else if(tex_two_times)
 //     system((pdflatex+" --interaction scrollmode "+file2+".tex").c_str());
 
-  std::string pdfcommand=Programmoptionen.Viewer()+" "+file2+".pdf";
+  std::string pdfcommand=Programmoptionen->Viewer()+" "+file2+".pdf";
   Ausgabe(Ausgabe::Debug,pdfcommand);
 //  const_cast<midgard_CG*>(hauptfenster)->set_status(pdfcommand,false);
   if (!WinLux::CreateProcess(pdfcommand))

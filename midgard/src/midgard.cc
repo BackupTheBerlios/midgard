@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.84 2004/03/03 07:49:33 christof Exp $
+// $Id: midgard.cc,v 1.85 2004/05/18 13:26:58 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -143,7 +143,7 @@ int main(int argc, char **argv)
 
    for (int i=1;i<argc;++i) 
    {  try
-      {  AbenteurerAuswahl::Chars.load(argv[i]);
+      {  AbenteurerAuswahl::Chars->load(argv[i]);
       }
       catch (...)
       {
@@ -151,20 +151,20 @@ int main(int argc, char **argv)
    }
 
 //   setlocale(LC_ALL, "de_DE");
-   if(!Programmoptionen.OberCheck(Magus_Optionen::BegruessungsFenster).active
-      && AbenteurerAuswahl::Chars.empty())
-         AbenteurerAuswahl::Chars.push_back();
-   midgard_CG *magus=new midgard_CG(info,AbenteurerAuswahl::Chars.begin());
+   if(!Programmoptionen->OberCheck(Magus_Optionen::BegruessungsFenster).active
+      && AbenteurerAuswahl::Chars->empty())
+         AbenteurerAuswahl::Chars->push_back();
+   midgard_CG *magus=new midgard_CG(info,AbenteurerAuswahl::Chars->begin());
    // darf nicht eher geschehen wegen realize (background) als virtuellem callback
    magus->show();
    if (progresswin) { delete progresswin; progresswin=0; imag=0; }
    if (argc>1)
-   {  if(Programmoptionen.OberCheck(Magus_Optionen::BegruessungsFenster).active)
+   {  if(Programmoptionen->OberCheck(Magus_Optionen::BegruessungsFenster).active)
          manage(new BegruessungsWindow(magus));
    }
    m.run(*magus);
 #warning nur wenn geändert ...
-   Programmoptionen.save_options(magus_paths::MagusVerzeichnis()+"magus_optionen.xml");
+   Programmoptionen->save_options(magus_paths::MagusVerzeichnis()+"magus_optionen.xml");
    delete magus;
    delete info;
    return 0;

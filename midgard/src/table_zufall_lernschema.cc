@@ -33,11 +33,11 @@ void table_zufall::on_button_zufall_voll_clicked()
 {
    hauptfenster->WizardBeenden();
 //   Magus_Optionen *MO=hauptfenster->MOptionen;
-   bool old_value=Programmoptionen.OberCheck(Magus_Optionen::NoInfoFenster).active;
-   std::string noinfofenster=Programmoptionen.OberCheck(Magus_Optionen::NoInfoFenster).text;
-   Programmoptionen.setOber(noinfofenster,true);
+   bool old_value=Programmoptionen->OberCheck(Magus_Optionen::NoInfoFenster).active;
+   std::string noinfofenster=Programmoptionen->OberCheck(Magus_Optionen::NoInfoFenster).text;
+   Programmoptionen->setOber(noinfofenster,true);
    Abenteurer oldAben; // =hauptfenster->getAben();
-   VAbenteurer::iterator n=AbenteurerAuswahl::Chars.push_back();
+   VAbenteurer::iterator n=AbenteurerAuswahl::Chars->push_back();
    hauptfenster->getChar().setAbenteurer(n);
    Zufall zufall(n->getAbenteurer());
 
@@ -49,7 +49,7 @@ void table_zufall::on_button_zufall_voll_clicked()
       zufall.Teil(v,oldAben);
     }
    }catch (std::exception &e) { Ausgabe(Ausgabe::Error,e.what());}
-   Programmoptionen.setOber(noinfofenster,old_value);
+   Programmoptionen->setOber(noinfofenster,old_value);
    hauptfenster->LernschemaSteigern(true,true);
 }
 
@@ -167,7 +167,7 @@ void table_zufall::zeige_werte()
 void table_zufall::fill_combos()
 { // woher auch sonst diese Information sinnvoll nehmen ...
 #warning aus den Standardoptionen nehmen!!!
-  bool nsc_allowed = true; // Programmoptionen.OptionenCheck(Optionen::NSC_only).active;
+  bool nsc_allowed = true; // Programmoptionen->OptionenCheck(Optionen::NSC_only).active;
   std::list<std::string> L;
 
   // Typen

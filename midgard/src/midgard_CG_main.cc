@@ -41,7 +41,7 @@ bool midgard_CG::timeout_status()
 void midgard_CG::on_button_html_hilfe_clicked()
 {
   std::string pfad="file://"+magus_paths::with_path("index.html",false,false);
-  std::string s =Programmoptionen.getString(Magus_Optionen::html_viewer).Value()+" \""+pfad+"\"";
+  std::string s =Programmoptionen->getString(Magus_Optionen::html_viewer).Value()+" \""+pfad+"\"";
   if (!WinLux::CreateProcess(s))
      Ausgabe(Ausgabe::Error,s+" funktioniert nicht");
 }
@@ -147,9 +147,9 @@ void midgard_CG::on_schlie__en1_activate()
 {  button_schliessen->grab_focus(); // Fokuswechsel erzwingen (wegen ungenommener Änderungen)
    if (getChar()->gespeichert())
    {loeschen:
-      AbenteurerAuswahl::Chars.erase(getChar().actualIterator());
-      if (AbenteurerAuswahl::Chars.empty()) on_schliessen_CG_clicked();
-      else aktiver.setAbenteurer(AbenteurerAuswahl::Chars.begin());
+      AbenteurerAuswahl::Chars->erase(getChar().actualIterator());
+      if (AbenteurerAuswahl::Chars->empty()) on_schliessen_CG_clicked();
+      else aktiver.setAbenteurer(AbenteurerAuswahl::Chars->begin());
    }
    else
    {  MagusDialog d(this);
@@ -163,17 +163,17 @@ void midgard_CG::on_schlie__en1_activate()
 // das ist hier eigentlich beenden
 void midgard_CG::on_schliessen_CG_clicked()
 {
-  while (!AbenteurerAuswahl::Chars.empty())
+  while (!AbenteurerAuswahl::Chars->empty())
   {  VAbenteurer::iterator i=getChar().actualIterator();
      on_schlie__en1_activate();
-     if (AbenteurerAuswahl::Chars.empty()) break;
+     if (AbenteurerAuswahl::Chars->empty()) break;
      if (getChar().actualIterator()==i) return; // Abbruch
   }
 
   std::string filename="magus_optionen.xml";
   if(access(filename.c_str(),W_OK)) 
       filename=magus_paths::MagusVerzeichnis()+"magus_optionen.xml";
-  Programmoptionen.save_options(filename);
+  Programmoptionen->save_options(filename);
   Gtk::Main::instance()->quit();
 }
 

@@ -139,7 +139,7 @@ void midgard_CG::menu_init()
   regionen_menu->append(*standard_regionen);
 #if 0
   standard_regionen->signal_activate().connect(
-     SigC::bind(SigC::slot(Programmoptionen,
+     SigC::bind(SigC::slot(Programmoptionen->
       &Magus_Optionen::setStandardRegionen),getAben()));
 #else
    standard_regionen->signal_activate().connect(SigC::slot(*this,&midgard_CG::SetStandardRegionen));
@@ -152,7 +152,7 @@ void midgard_CG::menu_init()
   Gtk::MenuItem *optionen = Gtk::manage(new class Gtk::MenuItem("Ansicht & Fenster")); 
   optionen->set_submenu(*optionen_menu);
 
-  std::list<Magus_Optionen::st_OptionenExecute> OLM=Programmoptionen.getOptionenExecute();
+  std::list<Magus_Optionen::st_OptionenExecute> OLM=Programmoptionen->getOptionenExecute();
   for(std::list<Magus_Optionen::st_OptionenExecute>::iterator i=OLM.begin();i!=OLM.end();++i)
    {
     Gtk::Label *_l=Gtk::manage (new Gtk::Label(i->text));
@@ -205,7 +205,7 @@ void midgard_CG::menubar_init()
   Gtk::MenuItem *mi1 = Gtk::manage(new class Gtk::MenuItem("Ansicht & Fenster"));
   Gtk::MenuItem *mi2 = Gtk::manage(new class Gtk::MenuItem("Gestaltung"));
   
-  std::list<Magus_Optionen::st_OptionenExecute> OLM=Programmoptionen.getOptionenExecute();
+  std::list<Magus_Optionen::st_OptionenExecute> OLM=Programmoptionen->getOptionenExecute();
   for(std::list<Magus_Optionen::st_OptionenExecute>::iterator i=OLM.begin();i!=OLM.end();++i)
    {
     Gtk::Label *_l=Gtk::manage (new Gtk::Label(i->text));
@@ -221,7 +221,7 @@ void midgard_CG::menubar_init()
     mi->signal_activate().connect(SigC::bind(SigC::slot(*this,&midgard_CG::OptionenExecute_setzen_from_menu),i->index));
     menu1->append(*mi);
    } 
-  for(std::list<Magus_Optionen::st_Ober>::iterator i=Programmoptionen.getOber().begin();i!=Programmoptionen.getOber().end();++i)
+  for(std::list<Magus_Optionen::st_Ober>::iterator i=Programmoptionen->getOber().begin();i!=Programmoptionen->getOber().end();++i)
    {
     if(!i->show) continue;
     bool_CheckMenuItem *mi = Gtk::manage(new bool_CheckMenuItem(i->active,i->text));
@@ -283,8 +283,8 @@ void midgard_CG::menu_history_init(int oldsize)
   zuletzt_geladen_mi->set_submenu(*M);
   Gtk::Menu::MenuList L=M->items();
   int x=1;
-  for(std::list<std::string>::const_iterator i=Programmoptionen.LetzteDateien().begin();
-  		i!=Programmoptionen.LetzteDateien().end();++i)
+  for(std::list<std::string>::const_iterator i=Programmoptionen->LetzteDateien().begin();
+  		i!=Programmoptionen->LetzteDateien().end();++i)
    {
      if (x<10) L.push_back(Gtk::Menu_Helpers::MenuElem(*i, Gtk:: GTKMM22(Menu_Helpers::)AccelKey("<Control>"+itos(x))));
      else L.push_back(Gtk::Menu_Helpers::MenuElem(*i));
@@ -297,15 +297,15 @@ void midgard_CG::menu_history_init(int oldsize)
 
 void midgard_CG::push_back_LDateien(std::string s)
 {
-  int oldsize=Programmoptionen.LetzteDateien().size();
-  std::list<std::string>::iterator i=find(Programmoptionen.LetzteDateien().begin(),Programmoptionen.LetzteDateien().end(),s);
+  int oldsize=Programmoptionen->LetzteDateien().size();
+  std::list<std::string>::iterator i=find(Programmoptionen->LetzteDateien().begin(),Programmoptionen->LetzteDateien().end(),s);
 
-  if (i!=Programmoptionen.LetzteDateien().end()) Programmoptionen.LetzteDateien().remove(*i);
+  if (i!=Programmoptionen->LetzteDateien().end()) Programmoptionen->LetzteDateien().remove(*i);
   else 
-   { if(oldsize>Programmoptionen.DateiHistory()) Programmoptionen.LetzteDateien().pop_back(); 
+   { if(oldsize>Programmoptionen->DateiHistory()) Programmoptionen->LetzteDateien().pop_back(); 
    }
 
-  Programmoptionen.LetzteDateien().push_front(s);
+  Programmoptionen->LetzteDateien().push_front(s);
 #warning MVC
   menu_history_init(oldsize);
 }
@@ -317,5 +317,5 @@ void midgard_CG::OptionenExecute_setzen_from_menu(Magus_Optionen::OptionenExecut
 
 void midgard_CG::SetStandardRegionen() const
 {
-   Programmoptionen.setStandardRegionen(getAben());
+   Programmoptionen->setStandardRegionen(getAben());
 }

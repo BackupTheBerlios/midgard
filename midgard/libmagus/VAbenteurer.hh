@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.hh,v 1.15 2004/03/22 08:07:05 christof Exp $               
+// $Id: VAbenteurer.hh,v 1.16 2004/05/18 13:26:57 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -117,7 +117,7 @@ class VAbenteurer // : public SigC::Object // um signale zu empfangen
       iterator erase_silent(iterator i);
    public:
    
-//      VAbenteurer();
+      VAbenteurer();
       
       const std::list<Item> &getList() const {return VA;}
       std::list<Item> &getList() {return VA;}

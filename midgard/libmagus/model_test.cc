@@ -44,8 +44,8 @@ int main(int argc,char **argv)
  try {  
    libmagus_init(argc,const_cast<const char**>(argv),&progress);
    
-   VAbenteurer::iterator i=AbenteurerAuswahl::Chars.push_back();
-std::cout << "size " << AbenteurerAuswahl::Chars.size() << '\n';
+   VAbenteurer::iterator i=AbenteurerAuswahl::Chars->push_back();
+std::cout << "size " << AbenteurerAuswahl::Chars->size() << '\n';
    Abenteurer &a=i->getAbenteurer();
    a.getOptionen().OptionenCheck(Optionen::NSC_only).active.signal_changed()
    	.connect(SigC::bind(SigC::slot(&print),&a.getOptionen()
@@ -57,7 +57,7 @@ std::cout << "proxies &*i="<< &*i << "\n";
    i->proxies.checks[Optionen::NSC_only]=true;
 std::cout << "a direkt\n";
    a.getOptionen().setOptionCheck("NSC zulassen",false);
-std::cout << "size " << AbenteurerAuswahl::Chars.size() << '\n';
+std::cout << "size " << AbenteurerAuswahl::Chars->size() << '\n';
  } catch (NotFound &e)
  {  Ausgabe(Ausgabe::Error, "NotFound "+ e.Name());  }
 }

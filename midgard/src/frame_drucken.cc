@@ -19,13 +19,13 @@ void frame_drucken::init()
   bool_changed=false;
   assert(hauptfenster);
   Gtk::Table *table=Gtk::manage(new Gtk::Table(1,1,false));
-  std::list<Magus_Optionen::st_pdfViewer> L=Programmoptionen.getPDF();  
+  std::list<Magus_Optionen::st_pdfViewer> L=Programmoptionen->getPDF();  
   Gtk::RadioButton::Group _RadioMGroup_pdfViewer;
   int count=0;
   for(std::list<Magus_Optionen::st_pdfViewer>::const_iterator i=L.begin();i!=L.end();++i)
    {
      Gtk::RadioButton *rmi=Gtk::manage(new class Gtk::RadioButton(_RadioMGroup_pdfViewer,i->text));
-     ManuProC::Association(*rmi).set_model(Programmoptionen.pdfViewerCheck(i->index).active);
+     ManuProC::Association(*rmi).set_model(Programmoptionen->pdfViewerCheck(i->index).active);
 //     rmi->signal_toggled().connect(SigC::bind(SigC::slot(*this,&frame_drucken::element_activate),rmi,i->index));
      table->attach(*rmi,0,1,count,count+1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
      if(i->index==Magus_Optionen::anderer) 
@@ -35,9 +35,9 @@ void frame_drucken::init()
       }
      ++count;
    }
- entry=Gtk::manage(new class string_Entry(Programmoptionen.getString(Magus_Optionen::pdf_viewer)));
+ entry=Gtk::manage(new class string_Entry(Programmoptionen->getString(Magus_Optionen::pdf_viewer)));
 // entry->signal_changed().connect(SigC::slot(*this,&frame_drucken::entry_changed));
-// entry->set_text(Programmoptionen.Viewer());
+// entry->set_text(Programmoptionen->Viewer());
 // entry->signal_focus_out_event().connect(SigC::slot(*this,&frame_drucken::entry_focus_out));
  table->attach(*entry,0,1,count,count+1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
  table->show_all();
@@ -49,9 +49,9 @@ void frame_drucken::element_activate(Gtk::RadioButton *rb,Magus_Optionen::pdfVie
 {
  if(rb->get_active())
   {
-   Programmoptionen.pdfViewer_setzen_from_menu(index);       
+   Programmoptionen->pdfViewer_setzen_from_menu(index);       
    if(index==Magus_Optionen::anderer) 
-       Programmoptionen.setString(Magus_Optionen::pdf_viewer,entry->get_text());
+       Programmoptionen->setString(Magus_Optionen::pdf_viewer,entry->get_text());
   }
 }
 #endif
@@ -60,8 +60,8 @@ void frame_drucken::element_activate(Gtk::RadioButton *rb,Magus_Optionen::pdfVie
 void frame_drucken::entry_changed()
 {
   bool_changed=true;
-  Programmoptionen.pdfViewer_setzen_from_menu(Magus_Optionen::anderer); 
-  Programmoptionen.setString(Magus_Optionen::pdf_viewer,entry->get_text());    
+  Programmoptionen->pdfViewer_setzen_from_menu(Magus_Optionen::anderer); 
+  Programmoptionen->setString(Magus_Optionen::pdf_viewer,entry->get_text());    
 }
 
 bool frame_drucken::entry_focus_out(GdkEventFocus *ev)

@@ -24,7 +24,7 @@ void frame_globale_optionen::init()
 // assert(hauptfenster->getOptionen());
  Gtk::Table *table=manage(new Gtk::Table(1,1,false));
  int count=0;
- std::list<Magus_Optionen::st_OptionenCheck> &L=Programmoptionen.getOptionenCheck();
+ std::list<Magus_Optionen::st_OptionenCheck> &L=Programmoptionen->getOptionenCheck();
  for(std::list<Magus_Optionen::st_OptionenCheck>::iterator i=L.begin();i!=L.end();++i)
   {
    bool_CheckButton *cb = manage(new bool_CheckButton(i->active,i->text));

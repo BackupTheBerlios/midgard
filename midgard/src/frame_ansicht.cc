@@ -24,7 +24,7 @@ void frame_ansicht::init()
 {
  assert(hauptfenster);
  Gtk::Table *table=manage(new Gtk::Table(1,1,false));  
- std::list<Magus_Optionen::st_Ober> &L=Programmoptionen.getOber();
+ std::list<Magus_Optionen::st_Ober> &L=Programmoptionen->getOber();
  int count=0;
  for(std::list<Magus_Optionen::st_Ober>::iterator i=L.begin();i!=L.end();++i)
   {

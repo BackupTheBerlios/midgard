@@ -1,4 +1,4 @@
-// $Id: Optionen_GUI.cc,v 1.8 2004/02/29 11:18:51 thoma Exp $
+// $Id: Optionen_GUI.cc,v 1.9 2004/05/18 13:26:57 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -81,7 +81,7 @@ void Midgard_Optionen::OptionenCheck_setzen_from_menu(OptionenCheckIndex index)
 
 void midgard_CG::Ober_setzen_from_menu(gpointer x,Magus_Optionen::OberIndex index)
 {
-  for(std::list<Magus_Optionen::st_Ober>::iterator i=Programmoptionen.getOber().begin();i!=Programmoptionen.getOber().end();++i)
+  for(std::list<Magus_Optionen::st_Ober>::iterator i=Programmoptionen->getOber().begin();i!=Programmoptionen->getOber().end();++i)
    {
      if(i->index==index) 
       { 
@@ -91,7 +91,7 @@ void midgard_CG::Ober_setzen_from_menu(gpointer x,Magus_Optionen::OberIndex inde
         else if(index==Magus_Optionen::Knopfleiste) show_Knopfleiste(i->active);
         else if(index==Magus_Optionen::Status) show_Statusleiste(i->active);
         else if(index==Magus_Optionen::Icons) 
-         { if(!i->active && !Programmoptionen.OberCheck(Magus_Optionen::Beschriftungen).active)
+         { if(!i->active && !Programmoptionen->OberCheck(Magus_Optionen::Beschriftungen).active)
             {
               Ausgabe(Ausgabe::Error,"Beschriftungen und Icons dürfen nicht gleichzeitig nicht angewählt sein.");
 //              i->active=true;
@@ -100,7 +100,7 @@ void midgard_CG::Ober_setzen_from_menu(gpointer x,Magus_Optionen::OberIndex inde
               show_Icons(i->active);
          }
         else if(index==Magus_Optionen::Beschriftungen) 
-         { if(!i->active && !Programmoptionen.OberCheck(Magus_Optionen::Icons).active)
+         { if(!i->active && !Programmoptionen->OberCheck(Magus_Optionen::Icons).active)
             {
               Ausgabe(Ausgabe::Error,"Beschriftungen und Icons dürfen nicht gleichzeitig nicht angewählt sein.");
 //              i->active=true;
@@ -117,13 +117,13 @@ void midgard_CG::Ober_setzen_from_menu(gpointer x,Magus_Optionen::OberIndex inde
         	|| index==Magus_Optionen::Customize_Tab)
          {
            Gtk::CustomizeToolbars(notebook_main,
-                     Programmoptionen.OberCheck(Magus_Optionen::Customize_Icons).active,
-                     Programmoptionen.OberCheck(Magus_Optionen::Customize_Text).active,
-                     Programmoptionen.OberCheck(Magus_Optionen::Customize_Tab).active);
+                     Programmoptionen->OberCheck(Magus_Optionen::Customize_Icons).active,
+                     Programmoptionen->OberCheck(Magus_Optionen::Customize_Text).active,
+                     Programmoptionen->OberCheck(Magus_Optionen::Customize_Tab).active);
            Gtk::CustomizeToolbars(toolbar_top,
-                     Programmoptionen.OberCheck(Magus_Optionen::Customize_Icons).active,
-                     Programmoptionen.OberCheck(Magus_Optionen::Customize_Text).active,
-                     Programmoptionen.OberCheck(Magus_Optionen::Customize_Tab).active);
+                     Programmoptionen->OberCheck(Magus_Optionen::Customize_Icons).active,
+                     Programmoptionen->OberCheck(Magus_Optionen::Customize_Text).active,
+                     Programmoptionen->OberCheck(Magus_Optionen::Customize_Tab).active);
          }
 //        menu_init();
         return;

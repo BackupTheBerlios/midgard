@@ -66,7 +66,7 @@ std::cout << "proxies &t="<< &t << "\n";
 std::cout << "a direkt\n";
    a.getOptionen().setOptionCheck("NSC zulassen",true);
    t.getWizard().set(Wizard::GRUNDWERTE);
-std::cout << "size " << AbenteurerAuswahl::Chars.size() << '\n';
+std::cout << "size " << AbenteurerAuswahl::Chars->size() << '\n';
  } catch (NotFound &e)
  {  Ausgabe(Ausgabe::Error, "NotFound "+ e.Name());  }
 }

@@ -1,4 +1,4 @@
-// $Id: AbenteurerAuswahl.h,v 1.4 2004/01/20 08:06:10 christof Exp $               
+// $Id: AbenteurerAuswahl.h,v 1.5 2004/05/18 13:26:57 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2003 Christof Petig
  *
@@ -31,7 +31,7 @@ class AbenteurerAuswahl : public SigC::Object // um signale zu empfangen
       void divert_proxy();
 public:
       VAbentModelProxy proxies;
-      static LIBMAGUS_API VAbenteurer Chars;
+      static LIBMAGUS_API VAbenteurer *Chars;
 
       AbenteurerAuswahl();
       // these operate on the concept of a current character

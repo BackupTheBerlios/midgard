@@ -30,7 +30,7 @@ void midgard_CG::on_neuer_charakter_clicked()
 {
    ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
    on_wizard_beenden_activate();
-   aktiver.setAbenteurer(AbenteurerAuswahl::Chars.push_back());
+   aktiver.setAbenteurer(AbenteurerAuswahl::Chars->push_back());
 #warning das muss alles nun per MVC passieren   
 #if 0   
    table_lernschema->label_lernschma_titel->set_text("");

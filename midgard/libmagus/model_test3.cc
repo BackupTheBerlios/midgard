@@ -62,7 +62,7 @@ std::cout << "next_step\n";
    t.getWizard().next_step();
 std::cout << "done\n";
    t.getWizard().done(Wizard::TYP,a);
-std::cout << "size " << AbenteurerAuswahl::Chars.size() << '\n';
+std::cout << "size " << AbenteurerAuswahl::Chars->size() << '\n';
  } catch (NotFound &e)
  {  Ausgabe(Ausgabe::Error, "NotFound "+ e.Name());  }
 }

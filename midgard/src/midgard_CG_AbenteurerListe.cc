@@ -1,4 +1,4 @@
-// $Id: midgard_CG_AbenteurerListe.cc,v 1.14 2003/12/01 07:52:37 christof Exp $
+// $Id: midgard_CG_AbenteurerListe.cc,v 1.15 2004/05/18 13:26:58 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,7 +26,7 @@ void midgard_CG::fill_AbenteurerListe()
 {
   set_AbenteurerListe_Title();
   std::vector<cH_RowDataBase> datavec;
-  for(VAbenteurer::iterator i=AbenteurerAuswahl::Chars.begin();i!=AbenteurerAuswahl::Chars.end();++i)
+  for(VAbenteurer::iterator i=AbenteurerAuswahl::Chars->begin();i!=AbenteurerAuswahl::Chars->end();++i)
    {
 //     if(i->abenteurer.Name_Abenteurer()!="")
         datavec.push_back(new Data_AbenteurerListe(i));

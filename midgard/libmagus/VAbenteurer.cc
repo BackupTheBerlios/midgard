@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.cc,v 1.11 2004/04/01 06:25:29 christof Exp $            
+// $Id: VAbenteurer.cc,v 1.12 2004/05/18 13:26:57 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -174,14 +174,14 @@ void AbenteurerAuswahl::setAbenteurer(const VAbenteurer::iterator &i)
 }
 
 AbenteurerAuswahl::AbenteurerAuswahl()
-  : ai(Chars.end())
+  : ai(Chars->end())
 {  // actualIterator(); // mindestens einen erzeugen
    signal_anderer_abenteurer().connect(SigC::slot(*this,&AbenteurerAuswahl::divert_proxy));
 #warning mit undo_changed noch verbinden?   
 }
 
 bool AbenteurerAuswahl::valid() const
-{  return ai!=Chars.end();
+{  return ai!=Chars->end();
 }
 
 void AbenteurerAuswahl::divert_proxy()
@@ -189,11 +189,11 @@ void AbenteurerAuswahl::divert_proxy()
    proxies.divert(*actualIterator());
 }
 
-VAbenteurer AbenteurerAuswahl::Chars;
+VAbenteurer *AbenteurerAuswahl::Chars;
 
 VAbenteurer::iterator AbenteurerAuswahl::actualIterator()
 {  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,this);
-   if (ai==Chars.end()) ai=Chars.push_back();
+   if (ai==Chars->end()) ai=Chars->push_back();
    return ai;
 }
 
@@ -201,3 +201,5 @@ VAbenteurer::const_iterator AbenteurerAuswahl::actualIterator() const
 {  return const_cast<AbenteurerAuswahl*>(this)->actualIterator();
 }
 
+// put the ctor in a .cc file
+VAbenteurer::VAbenteurer() {}

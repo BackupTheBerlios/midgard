@@ -134,7 +134,7 @@ static void register_magus(const std::string &argv0)
 xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was)
 : hauptfenster(h),ewas(_was),VA(hauptfenster->getChar())
 {
- std::string path=Programmoptionen.getString(Magus_Optionen::speicherpfad);
+ std::string path=Programmoptionen->getString(Magus_Optionen::speicherpfad);
  std::string fname=path;
 
  // path mit / (oder \) beenden, damit der Dateiname einfach dahinter kann

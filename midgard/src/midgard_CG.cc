@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.342 2004/05/07 06:17:29 christof Exp $
+// $Id: midgard_CG.cc,v 1.343 2004/05/18 13:26:58 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -113,16 +113,16 @@ midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
   init_statusbar();
 
 #if 0
-  if (!AbenteurerAuswahl::Chars.empty())
-	aktiver.setAbenteurer(AbenteurerAuswahl::Chars.begin());
-  else if(Programmoptionen.OptionenCheck(Magus_Optionen::Wizard_immer_starten).active) 
+  if (!AbenteurerAuswahl::Chars->empty())
+	aktiver.setAbenteurer(AbenteurerAuswahl::Chars->begin());
+  else if(Programmoptionen->OptionenCheck(Magus_Optionen::Wizard_immer_starten).active) 
        on_wizard_starten_activate();
   else on_neuer_charakter_clicked();
 #endif
 
-  if(Programmoptionen.OptionenCheck(Magus_Optionen::Notebook_start).active.Value() &&
-  	Programmoptionen.OptionenCheck(Magus_Optionen::Notebook_start).wert!=-1) 
-     notebook_main->set_current_page(Programmoptionen.OptionenCheck(Magus_Optionen::Notebook_start).wert);
+  if(Programmoptionen->OptionenCheck(Magus_Optionen::Notebook_start).active.Value() &&
+  	Programmoptionen->OptionenCheck(Magus_Optionen::Notebook_start).wert!=-1) 
+     notebook_main->set_current_page(Programmoptionen->OptionenCheck(Magus_Optionen::Notebook_start).wert);
   else notebook_main->set_current_page(PAGE_GRUNDWERTE);
   
   // Optionen setzen:
@@ -145,13 +145,13 @@ midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
   signal_any_wizard_change().connect(SigC::slot(*this,&midgard_CG::wizard_changed));
   aktiver.proxies.undo_changed.connect(SigC::slot(*this,&midgard_CG::refresh));
   aktiver.signal_anderer_abenteurer().connect(SigC::slot(*this,&midgard_CG::refresh));
-  AbenteurerAuswahl::Chars.signal_changed().connect(SigC::slot(*this,&midgard_CG::refresh_char_list));
+  AbenteurerAuswahl::Chars->signal_changed().connect(SigC::slot(*this,&midgard_CG::refresh_char_list));
 //  refresh();
   aktiver.signal_anderer_abenteurer()();
   aktiver.proxies.wizard.signal_changed()(0);
-  AbenteurerAuswahl::Chars.signal_changed()();
+  AbenteurerAuswahl::Chars->signal_changed()();
 
-  if(Programmoptionen.OptionenCheck(Magus_Optionen::Wizard_immer_starten).active) 
+  if(Programmoptionen->OptionenCheck(Magus_Optionen::Wizard_immer_starten).active) 
        on_wizard_starten_activate();
 }
 
@@ -234,8 +234,8 @@ void midgard_CG::refresh()
 void midgard_CG::refresh_char_list()
 {  // if (abent_menu) delete abent_menu;
    Gtk::Menu *abent_menu=manage(new Gtk::Menu);
-   for (VAbenteurer::iterator i=AbenteurerAuswahl::Chars.begin();
-		i!=AbenteurerAuswahl::Chars.end();++i)
+   for (VAbenteurer::iterator i=AbenteurerAuswahl::Chars->begin();
+		i!=AbenteurerAuswahl::Chars->end();++i)
    {  // vielleicht noch mit Typ(Grad) ?   z.B. Aneren Hl(8)
 //      Gtk::MenuItem *mi=manage(new Gtk::MenuItem(i->getAbenteurer().Name_Abenteurer()));
       abent_menu->items().push_back(Gtk::Menu_Helpers::MenuElem(i->getAbenteurer().Name_Abenteurer()));

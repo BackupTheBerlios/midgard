@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.cc,v 1.26 2004/05/18 11:57:19 christof Exp $
+// $Id: Magus_Optionen.cc,v 1.27 2004/05/18 13:26:57 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -68,7 +68,9 @@ void Magus_Optionen::init_all()
 }
 
 void Magus_Optionen::init()
-{  Programmoptionen.init_all();
+{  assert(!Programmoptionen);
+   Programmoptionen=new Magus_Optionen;
+   Programmoptionen->init_all();
    Global_Settings::set_impl(&global_settings_load,&global_settings_save);
 }
 
@@ -469,7 +471,7 @@ void Magus_Optionen::save_options(const std::string &filename)
   geaendert=false;
 }
                                                    
-Magus_Optionen Programmoptionen;
+Magus_Optionen *Programmoptionen;
 
 static bool operator==(const Magus_Optionen::st_WindowPosition &a, const std::string &b)
 {  return a.name==b;
@@ -495,12 +497,12 @@ void Magus_Optionen::setStandardRegionen(const Abenteurer &A)
 
 void Magus_Optionen::global_settings_save(int userid,const std::string& program,
       		const std::string& name, const std::string& value)
-{  Programmoptionen.my_global_settings[st_Global_Settings_key(userid,program,name)]=value;
-   Programmoptionen.geaendert=true;
+{  Programmoptionen->my_global_settings[st_Global_Settings_key(userid,program,name)]=value;
+   Programmoptionen->geaendert=true;
 }
 std::string Magus_Optionen::global_settings_load(int userid,const std::string& program,
       		const std::string& name)
-{  return Programmoptionen.my_global_settings[st_Global_Settings_key(userid,program,name)];
+{  return Programmoptionen->my_global_settings[st_Global_Settings_key(userid,program,name)];
 }
 
 Magus_Optionen::Magus_Optionen() 
