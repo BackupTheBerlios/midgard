@@ -1,4 +1,4 @@
-// $Id: all_exp.cc,v 1.21 2003/01/24 08:50:46 christof Exp $
+// $Id: all_exp.cc,v 1.22 2003/03/10 13:19:33 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -45,6 +45,7 @@ int main(int argc, char *argv[])
    catch (std::exception) { }
    
       TagStream ts;
+      ts.setEncoding("ISO-8859-1");
       Tag &data=ts.push_back(Tag("MAGUS-data"));
       region_tags(data,region,revision);
    land_speichern(data);
