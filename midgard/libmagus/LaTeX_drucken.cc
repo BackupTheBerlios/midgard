@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.23 2004/10/15 09:26:31 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.24 2004/10/27 10:42:11 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -39,6 +39,8 @@
 #include "WaffeGrund.hh"
 // to redefine VERSION
 #include <config.h>
+#include <Misc/TraceNV.h>
+#include <magustrace.h>
 
 static std::string defFileName(const std::string &s)
 {  std::string res;
@@ -932,7 +934,7 @@ void LaTeX_drucken::LaTeX_footer(std::ostream &fout)
 }
  
 void LaTeX_drucken::pdf_viewer(const std::string& file,const bool tex_two_times)
-{
+{ ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,file,tex_two_times);
   char currentwd[10240];
   *currentwd=0;
   getcwd(currentwd,sizeof currentwd);
@@ -940,7 +942,13 @@ void LaTeX_drucken::pdf_viewer(const std::string& file,const bool tex_two_times)
   std::string pdflatex="pdflatex";
   
 #ifdef __MINGW32__ // oder direkt mit Pfad aufrufen?
-  pdflatex="\""+magus_paths::BinaryVerzeichnis()+"texmf\\miktex\\bin\\"+pdflatex+"\"";
+  static std::string TEXMF;
+  if (TEXMF.empty()) 
+  { TEXMF="TEXMF="+magus_paths::BinaryVerzeichnis()+"\\texmf";
+    putenv(TEXMF.c_str());
+  }
+  ManuProC::Trace(LibMagus::trace_channel,"",NV("TEXMF",getenv("TEXMF")));
+  pdflatex="\""+magus_paths::BinaryVerzeichnis()+"\\"+pdflatex+"\"";
 #define unlink(a) _unlink(a)
 #endif
 
@@ -949,21 +957,23 @@ void LaTeX_drucken::pdf_viewer(const std::string& file,const bool tex_two_times)
   std::string::size_type lastslash=file.rfind(WinLux::dirsep);
 
   if (lastslash!=std::string::npos)
-  {  chdir((file.substr(0,lastslash)).c_str());
+  {  ManuProC::Trace(LibMagus::trace_channel,"chdir",file.substr(0,lastslash));
+     chdir((file.substr(0,lastslash)).c_str());
      file2=file.substr(lastslash+1);
   }
 
 // oder batchmode?
 //2x wg. longtable
-  system((pdflatex+" --interaction scrollmode "+file2+".tex").c_str());
-//  if (!A.List_Zauber().empty() || !A.List_Zauberwerk().empty())  // Zauber
-  system((pdflatex+" --interaction scrollmode "+file2+".tex").c_str());
-//  else if(tex_two_times)
-//     system((pdflatex+" --interaction scrollmode "+file2+".tex").c_str());
+  std::string cmd=pdflatex+" --interaction scrollmode "+file2+".tex";
+  ManuProC::Trace(LibMagus::trace_channel,"system",cmd);
+  system(cmd.c_str());
+  ManuProC::Trace(LibMagus::trace_channel,"system",cmd);
+  system(cmd.c_str());
 
   std::string pdfcommand=Programmoptionen->Viewer()+" "+file2+".pdf";
   Ausgabe(Ausgabe::Debug,pdfcommand);
 //  const_cast<midgard_CG*>(hauptfenster)->set_status(pdfcommand,false);
+  ManuProC::Trace(LibMagus::trace_channel,"CreateProcess",pdfcommand);
   if (!WinLux::CreateProcess(pdfcommand))
      Ausgabe(Ausgabe::Error,pdfcommand+" startet nicht");
 
@@ -971,6 +981,7 @@ void LaTeX_drucken::pdf_viewer(const std::string& file,const bool tex_two_times)
   unlink((file2+".aux").c_str());
   unlink((file2+".log").c_str());
 //  unlink((pfile+".pdf").c_str());
+  ManuProC::Trace(LibMagus::trace_channel,"chdir",currentwd);
   chdir(currentwd);
 }
 
