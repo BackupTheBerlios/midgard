@@ -22,6 +22,7 @@
 #include <Gtk_OStream.h>
 #include <Misc/itos.h>
 #include "Abenteurer.hh"
+#include <iostream>
 
 cH_Schrift::cache_t cH_Schrift::cache;
 

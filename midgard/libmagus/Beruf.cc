@@ -21,7 +21,8 @@
 #include "Grundwerte.hh"
 #include "Abenteurer.hh"
 #include "Typen.hh"
-#include "itos.h"
+#include <Misc/itos.h>
+#include <iostream>
 
 cH_Beruf::cache_t cH_Beruf::cache;
 

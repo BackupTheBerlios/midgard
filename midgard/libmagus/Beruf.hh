@@ -21,7 +21,7 @@
 
 #include "MidgardBasicElement.hh"
 class VAbenteurer;
-
+#include <Misc/Tag.h>
 
 class BerufsKategorie
 {
