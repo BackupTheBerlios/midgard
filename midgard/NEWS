@@ -16,10 +16,9 @@ NEWS IN VERSION 0.7.7
 * Schaden für Raufen und Waffen, die man nicht besitzt im Spielleiterexport
 * Neuimplementation der ungelernten Sprachen und der zu den Sprachen
    gehörenden Schriften
+* Spielleiterexport mit ungelernten Sprachen, Sinnen und Schriften
 
 TODO: ('-' zeigt CP an)
-* Schreiben im Spielleiterexport
-* Automatische Sprachen im Spielleiterexport
 * Vorschlag: wäre es möglich die GFP-Liste zu verkleinern und dafür die
   sehr unleserlichen, weil in sehr kleiner Schriftgröße aufgeführten Sinne und
   Resistenzwerte etwas zu vergrößern?

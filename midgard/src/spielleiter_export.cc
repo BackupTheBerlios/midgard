@@ -25,6 +25,7 @@
 #include <Misc/itos.h>
 #include "xml_fileselection.hh"
 #include "recodestream.h"
+#include <Misc/mystring.h>
 
 void midgard_CG::on_exportieren_activate()
 {
@@ -79,8 +80,9 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
   else if(W.bo_Ab()<0) boni+="AbB" +itos(W.bo_Ab())+", ";
   if     (W.bo_An()>0) boni+="AnB+"+itos(W.bo_An())+", ";
   else if(W.bo_An()<0) boni+="AnB" +itos(W.bo_An())+", ";
-  std::string::size_type st=boni.find_last_of(",");
-  if(st!=std::string::npos) boni.erase(st,1);
+  ManuProC::remove_last_from(boni,",");
+//  std::string::size_type st=boni.find_last_of(",");
+//  if(st!=std::string::npos) boni.erase(st,1);
   if(!boni.empty()) fout <<" - "<<boni<<'\n';
 
   std::string angriff;
@@ -111,8 +113,9 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
       }
     angriff += name+"+"+itos(wert)+" ("+schaden+"), ";
    }
-  std::string::size_type st2=angriff.find_last_of(",");
-  if(st2!=std::string::npos) angriff.erase(st2,2);
+  ManuProC::remove_last_from(angriff,",");
+//  std::string::size_type st2=angriff.find_last_of(",");
+//  if(st2!=std::string::npos) angriff.erase(st2,2);
   if(!angriff.empty()) 
     { 
      fout << "\n\n";
@@ -140,17 +143,45 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
     if (wert == "+0") wert = "";
     fert+=f->Name()+wert+", " ;
    }
- std::string::size_type st3=fert.find_last_of(",");
- if(st3!=std::string::npos) fert.erase(st3,2);
- fout << fert << " - ";
+ ManuProC::remove_last_from(fert,",");
+// std::string::size_type st3=fert.find_last_of(",");
+// if(st3!=std::string::npos) fert.erase(st3,2);
+ fout << fert << "\n";
+
+ std::string sinne;
+ std::list<MidgardBasicElement_mutable> vsinne=getWerte().Sinne() ;
+ for (std::list<MidgardBasicElement_mutable>::const_iterator i=vsinne.begin();i!=vsinne.end();++i)
+  {
+      sinne += (*i)->Name()+"+"+itos(i->Erfolgswert())+", ";
+  }
+ ManuProC::remove_last_from(sinne,",");
+ fout << sinne<<"\n";
+
  std::string sprache;
  for (std::list<MidgardBasicElement_mutable>::const_iterator i=Char.List_Sprache().begin();i!=Char.List_Sprache().end();++i)
    {
       sprache += (*i)->Name()+"+"+itos(i->Erfolgswert())+", ";
    }
- std::string::size_type st4=sprache.find_last_of(",");
- if(st4!=std::string::npos) sprache.erase(st4,2);
- fout << sprache<<"\n\n";
+ std::list<MidgardBasicElement_mutable> verwandteSprachen=Sprache::getVerwandteSprachen(getChar().List_Sprache(),getCDatabase().Sprache);
+ for (std::list<MidgardBasicElement_mutable>::const_iterator i=verwandteSprachen.begin();i!=verwandteSprachen.end();++i)
+   {
+      sprache += (*i)->Name()+"+("+itos(i->Erfolgswert())+"), ";
+   }
+ ManuProC::remove_last_from(sprache,",");
+// std::string::size_type st4=sprache.find_last_of(",");
+// if(st4!=std::string::npos) sprache.erase(st4,2);
+ fout << "Sprechen: "<<sprache<<"\n";
+
+ // Schreiben
+ std::string schreiben;
+ for (std::list<MidgardBasicElement_mutable>::const_iterator i=Char.List_Schrift().begin();i!=Char.List_Schrift().end();++i)
+   {
+      schreiben += (*i)->Name()+"+"+itos(i->Erfolgswert())+", ";
+   }
+ ManuProC::remove_last_from(schreiben,",");
+ fout << "Schreiben: "<<schreiben<<"\n\n";
+
+
  // Zauber
  if (Char.List_Zauber().size()!=0)
    {
@@ -158,8 +189,9 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
      zauber+="Zaubern+"+itos(W.Zaubern_wert()+Char.getWerte().bo_Za())+": ";
      for (std::list<MidgardBasicElement_mutable>::const_iterator i=Char.List_Zauber().begin();i!=Char.List_Zauber().end();++i)
         zauber += (*i)->Name()+", ";
-     std::string::size_type st=zauber.find_last_of(",");
-     if(st!=std::string::npos) zauber.erase(st,1);
+     ManuProC::remove_last_from(zauber,",");
+//     std::string::size_type st=zauber.find_last_of(",");
+//     if(st!=std::string::npos) zauber.erase(st,1);
      fout << zauber<<"\n\n";
    }  
  fout << W.Beschreibung()<<'\n';
