@@ -1,4 +1,4 @@
-// $Id: customize_toolbars.cc,v 1.29 2003/09/01 06:47:58 christof Exp $
+// $Id: customize_toolbars.cc,v 1.30 2003/11/14 07:32:09 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -26,6 +26,7 @@
 #include <gtkmm/box.h>
 #include <gtkmm/notebook.h>
 #include <gtkmm/eventbox.h>
+#include <gtkmm/paned.h>
 #include <typeinfo>
 // bin + container sind schon dabei
 #include <iostream>
@@ -33,7 +34,7 @@
 #include <libmagus/Ausgabe.hh>
 
 static bool hasOnlyPixmaps(Gtk::Box *w)
-{  Gtk::Box_Helpers::BoxList &ch2=dynamic_cast<Gtk::Box*>(w)->children();
+{  Gtk::Box_Helpers::BoxList &ch2=w->children();
    Gtk::Box_Helpers::BoxList::iterator i2=ch2.begin();
    if (i2==ch2.end()) return false;
    for (;i2!=ch2.end();++i2)
@@ -102,6 +103,7 @@ void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text, boo
       {  if (i->get_type()==TOOLBAR_CHILD_WIDGET)
          {  CustomizeToolbars(i->get_widget(),show_icons,show_text,tab_text);
          }
+         else std::cout << "skipping tb child " << i->get_widget()->get_name() << ' ' << i->get_type() << '\n';
       }
    }
    else if (dynamic_cast<Gtk::Bin*>(w))
@@ -124,9 +126,18 @@ void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text, boo
          CustomizeTab((*i).get_tab_label(),show_icons,tab_text);
       }
    }
+   else if (dynamic_cast<Gtk::Box*>(w))
+   {  Gtk::Box_Helpers::BoxList &ch=dynamic_cast<Gtk::Box*>(w)->children();
+      for (Gtk::Box_Helpers::BoxList::iterator i=ch.begin();i!=ch.end();++i)
+         CustomizeToolbars((*i).get_widget(),show_icons,show_text,tab_text);
+   }
+   else if (dynamic_cast<Gtk::Paned*>(w))
+   {  CustomizeToolbars(dynamic_cast<Gtk::Paned*>(w)->get_child1(),show_icons,show_text,tab_text);
+      CustomizeToolbars(dynamic_cast<Gtk::Paned*>(w)->get_child2(),show_icons,show_text,tab_text);
+   }
    else if (dynamic_cast<Gtk::Container*>(w))
    {  // und nun ?
-//      std::cout << typeid(*w).name() << '\n';
+      std::cout << typeid(*w).name() << '\n';
    }
 }
 
