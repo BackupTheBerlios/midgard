@@ -1,4 +1,4 @@
-// $Id: grundwere_edit_setzen.cc,v 1.36 2002/05/08 07:01:40 thoma Exp $
+// $Id: grundwere_edit_setzen.cc,v 1.37 2002/05/11 06:51:31 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -47,58 +47,44 @@ void midgard_CG::set_all_entrys()
   Werte.setGlaube(entry_glaube->get_text());
   Werte.setHerkunft(cH_Land(entry_herkunft->get_text(),true));
 
-  gtk_spin_button_update(spinbutton_grad->gtkobj());  
-  Werte.setGrad(spinbutton_grad->get_value_as_int());
+  spinbutton_grad->update();  
+  if(spinbutton_grad->get_value_as_int() !=0)
+   {
+     Werte.setGrad(spinbutton_grad->get_value_as_int());
+     Database.GradAnstieg.set_Grad_Basiswerte(spinbutton_grad->get_value_as_int());
+   }
   int maxgfp=Database.GradAnstieg.getGFP_for(Grad_anstieg::Grad_,Werte);
-  gtk_spin_button_update(spinbutton_gfp->gtkobj());  
+  spinbutton_gfp->update();
   int gfp = spinbutton_gfp->get_value_as_int();
   if (maxgfp>gfp) gfp=maxgfp;
   Werte.setGFP(gfp);
 
-  gtk_spin_button_update(spinbutton_lp->gtkobj());  
-  Werte.setLP(spinbutton_lp->get_value_as_int());
-  gtk_spin_button_update(spinbutton_ap->gtkobj());  
-  Werte.setAP(spinbutton_ap->get_value_as_int());
-  gtk_spin_button_update(spinbutton_Cgewicht->gtkobj());  
-  Werte.setGewicht(spinbutton_Cgewicht->get_value_as_int());
-  gtk_spin_button_update(spinbutton_groesse->gtkobj());  
-  Werte.setGroesse(spinbutton_groesse->get_value_as_int());
-  gtk_spin_button_update(spinbutton_alter->gtkobj());  
-  Werte.setAlter(spinbutton_alter->get_value_as_int());
-  gtk_spin_button_update(spinbutton_tage->gtkobj());  
-  Werte.setSteigertage(spinbutton_tage->get_value_as_int());
-  gtk_spin_button_update(spinbutton_gg->gtkobj());  
-  Werte.setGG(spinbutton_gg->get_value_as_int());
-  gtk_spin_button_update(spinbutton_sg->gtkobj());  
-  Werte.setSG(spinbutton_sg->get_value_as_int());
+  spinbutton_lp->update();  Werte.setLP(spinbutton_lp->get_value_as_int());
+  spinbutton_ap->update();  Werte.setAP(spinbutton_ap->get_value_as_int());
+  spinbutton_Cgewicht->update();  Werte.setGewicht(spinbutton_Cgewicht->get_value_as_int());
+  spinbutton_groesse->update();   Werte.setGroesse(spinbutton_groesse->get_value_as_int());
+  spinbutton_alter->update();  Werte.setAlter(spinbutton_alter->get_value_as_int());
+  spinbutton_tage->update();   Werte.setSteigertage(spinbutton_tage->get_value_as_int());
+  spinbutton_gg->update();  Werte.setGG(spinbutton_gg->get_value_as_int());
+  spinbutton_sg->update();  Werte.setSG(spinbutton_sg->get_value_as_int());
 
+  spinbutton_st->update();  Werte.setSt(spinbutton_st->get_value_as_int());
+  spinbutton_gw->update();  Werte.setGw(spinbutton_gw->get_value_as_int());
+  spinbutton_gs->update();  Werte.setGs(spinbutton_gs->get_value_as_int());
+  spinbutton_ko->update();  Werte.setKo(spinbutton_ko->get_value_as_int());
+  spinbutton_in->update();  Werte.setIn(spinbutton_in->get_value_as_int());
+  spinbutton_zt->update();  Werte.setZt(spinbutton_zt->get_value_as_int());
 
-  gtk_spin_button_update(spinbutton_st->gtkobj());  
-  Werte.setSt(spinbutton_st->get_value_as_int());
-  gtk_spin_button_update(spinbutton_gw->gtkobj());  
-  Werte.setGw(spinbutton_gw->get_value_as_int());
-  gtk_spin_button_update(spinbutton_gs->gtkobj());  
-  Werte.setGs(spinbutton_gs->get_value_as_int());
-  gtk_spin_button_update(spinbutton_ko->gtkobj());  
-  Werte.setKo(spinbutton_ko->get_value_as_int());
-  gtk_spin_button_update(spinbutton_in->gtkobj());  
-  Werte.setIn(spinbutton_in->get_value_as_int());
-  gtk_spin_button_update(spinbutton_zt->gtkobj());  
-  Werte.setZt(spinbutton_zt->get_value_as_int());
-
-  gtk_spin_button_update(spinbutton_au->gtkobj());  
-  Werte.setAu(spinbutton_au->get_value_as_int());
-  gtk_spin_button_update(spinbutton_pa->gtkobj());  
-  Werte.setpA(spinbutton_pa->get_value_as_int());
-  gtk_spin_button_update(spinbutton_sb->gtkobj());  
-  Werte.setSb(spinbutton_sb->get_value_as_int());
-  gtk_spin_button_update(spinbutton_wk->gtkobj());  
-  Werte.setWk(spinbutton_wk->get_value_as_int());
-  gtk_spin_button_update(spinbutton_b->gtkobj());  
-  Werte.setB(spinbutton_b->get_value_as_int());
+  spinbutton_au->update();  Werte.setAu(spinbutton_au->get_value_as_int());
+  spinbutton_pa->update();  Werte.setpA(spinbutton_pa->get_value_as_int());
+  spinbutton_sb->update();  Werte.setSb(spinbutton_sb->get_value_as_int());
+  spinbutton_wk->update();  Werte.setWk(spinbutton_wk->get_value_as_int());
+  spinbutton_b->update();   Werte.setB(spinbutton_b->get_value_as_int());
 
   zeige_werte();
 }
+
+
 
 void midgard_CG::on_entry_nameC_activate()
 { 
@@ -129,8 +115,8 @@ void midgard_CG::on_entry_herkunft_activate()
 { set_all_entrys(); entry_glaube->grab_focus();}
 void midgard_CG::on_spinbutton_grad_activate()
 { 
-  gtk_spin_button_update(spinbutton_grad->gtkobj());  
-  Database.GradAnstieg.set_Grad_Basiswerte(spinbutton_grad->get_value_as_int());
+//  spinbutton_grad->update();
+//  Database.GradAnstieg.set_Grad_Basiswerte(spinbutton_grad->get_value_as_int());
   set_all_entrys(); spinbutton_lp->grab_focus();
 }
 void midgard_CG::on_spinbutton_lp_activate()
@@ -192,10 +178,10 @@ gint midgard_CG::on_entry_glaube_focus_out_event(GdkEventFocus *ev)
 gint midgard_CG::on_entry_herkunft_focus_out_event(GdkEventFocus *ev)
 { set_all_entrys(); return false;}
 gint midgard_CG::on_spinbutton_grad_focus_out_event(GdkEventFocus *ev)
-{ 
-  gtk_spin_button_update(spinbutton_grad->gtkobj());  
-  Database.GradAnstieg.set_Grad_Basiswerte(spinbutton_grad->get_value_as_int());
-  set_all_entrys(); return false;
+{ set_all_entrys(); return false;
+//  spinbutton_grad->update();
+//  Database.GradAnstieg.set_Grad_Basiswerte(spinbutton_grad->get_value_as_int());
+//  set_all_entrys(); return false;
 }
 gint midgard_CG::on_spinbutton_lp_focus_out_event(GdkEventFocus *ev)
 { set_all_entrys(); return false;}
@@ -226,9 +212,7 @@ gint midgard_CG::on_spinbutton_ko_focus_out_event(GdkEventFocus *ev)
 gint midgard_CG::on_spinbutton_in_focus_out_event(GdkEventFocus *ev)
 { set_all_entrys(); return false;}     
 gint midgard_CG::on_spinbutton_zt_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); 
-//  Werte.setSinn("Sechster Sinn",Werte.Zt()/25);
-  return false;}     
+{ set_all_entrys(); return false;}     
 gint midgard_CG::on_spinbutton_sb_focus_out_event(GdkEventFocus *ev)
 { set_all_entrys(); return false;}
 gint midgard_CG::on_spinbutton_wk_focus_out_event(GdkEventFocus *ev)
@@ -239,6 +223,66 @@ gint midgard_CG::on_spinbutton_pa_focus_out_event(GdkEventFocus *ev)
 { set_all_entrys(); return false;}   
 gint midgard_CG::on_spinbutton_b_focus_out_event(GdkEventFocus *ev)
 { set_all_entrys(); return false;} 
+
+gint midgard_CG::on_entry_nameC_focus_in_event(GdkEventFocus *ev)
+{ entry_nameC->select_region(0,-1); return false;}
+gint midgard_CG::on_entry_nameS_focus_in_event(GdkEventFocus *ev)
+{ entry_nameS->select_region(0,-1); return false;}
+gint midgard_CG::on_entry_version_focus_in_event(GdkEventFocus *ev)
+{ entry_version->select_region(0,-1); return false;}
+gint midgard_CG::on_entry_bezeichnung_focus_in_event(GdkEventFocus *ev)
+{ entry_bezeichnung->select_region(0,-1); return false;}
+gint midgard_CG::on_entry_merkmale_focus_in_event(GdkEventFocus *ev)
+{ entry_merkmale->select_region(0,-1); return false;}
+gint midgard_CG::on_entry_spezialisierung_focus_in_event(GdkEventFocus *ev)
+{ entry_spezialisierung->select_region(0,-1); return false;}
+gint midgard_CG::on_entry_glaube_focus_in_event(GdkEventFocus *ev)
+{ entry_glaube->select_region(0,-1); return false;}
+gint midgard_CG::on_entry_herkunft_focus_in_event(GdkEventFocus *ev)
+{ entry_herkunft->select_region(0,-1); return false;}
+gint midgard_CG::on_spinbutton_grad_focus_in_event(GdkEventFocus *ev)
+{ spinbutton_grad->select_region(0,-1); return false;}
+gint midgard_CG::on_spinbutton_lp_focus_in_event(GdkEventFocus *ev)
+{ spinbutton_lp->select_region(0,-1); return false;}
+gint midgard_CG::on_spinbutton_ap_focus_in_event(GdkEventFocus *ev)
+{ spinbutton_ap->select_region(0,-1); return false;}
+gint midgard_CG::on_spinbutton_Cgewicht_focus_in_event(GdkEventFocus *ev)
+{ spinbutton_Cgewicht->select_region(0,-1); return false;}
+gint midgard_CG::on_spinbutton_groesse_focus_in_event(GdkEventFocus *ev)
+{ spinbutton_groesse->select_region(0,-1); return false;}
+gint midgard_CG::on_spinbutton_alter_focus_in_event(GdkEventFocus *ev)
+{ spinbutton_alter->select_region(0,-1); return false;}
+gint midgard_CG::on_spinbutton_tage_focus_in_event(GdkEventFocus *ev)
+{ spinbutton_tage->select_region(0,-1); return false;}
+gint midgard_CG::on_spinbutton_gg_focus_in_event(GdkEventFocus *ev)
+{ spinbutton_gg->select_region(0,-1); return false;}
+gint midgard_CG::on_spinbutton_sg_focus_in_event(GdkEventFocus *ev)
+{ spinbutton_sg->select_region(0,-1); return false;}
+gint midgard_CG::on_spinbutton_gfp_focus_in_event(GdkEventFocus *ev)
+{ spinbutton_gfp->select_region(0,-1); return false;}
+gint midgard_CG::on_spinbutton_st_focus_in_event(GdkEventFocus *ev)
+{ spinbutton_st->select_region(0,-1); return false;}     
+gint midgard_CG::on_spinbutton_gw_focus_in_event(GdkEventFocus *ev)
+{ spinbutton_gw->select_region(0,-1); return false;}     
+gint midgard_CG::on_spinbutton_gs_focus_in_event(GdkEventFocus *ev)
+{ spinbutton_gs->select_region(0,-1); return false;}     
+gint midgard_CG::on_spinbutton_ko_focus_in_event(GdkEventFocus *ev)
+{ spinbutton_ko->select_region(0,-1); return false;}     
+gint midgard_CG::on_spinbutton_in_focus_in_event(GdkEventFocus *ev)
+{ spinbutton_in->select_region(0,-1); return false;}     
+gint midgard_CG::on_spinbutton_zt_focus_in_event(GdkEventFocus *ev)
+{ spinbutton_zt->select_region(0,-1); return false;}     
+gint midgard_CG::on_spinbutton_sb_focus_in_event(GdkEventFocus *ev)
+{ spinbutton_sb->select_region(0,-1); return false;}
+gint midgard_CG::on_spinbutton_wk_focus_in_event(GdkEventFocus *ev)
+{ spinbutton_wk->select_region(0,-1); return false;}
+gint midgard_CG::on_spinbutton_au_focus_in_event(GdkEventFocus *ev)
+{ spinbutton_au->select_region(0,-1); return false;}
+gint midgard_CG::on_spinbutton_pa_focus_in_event(GdkEventFocus *ev)
+{ spinbutton_pa->select_region(0,-1); return false;}   
+gint midgard_CG::on_spinbutton_b_focus_in_event(GdkEventFocus *ev)
+{ spinbutton_b->select_region(0,-1); return false;} 
+
 
 
 void midgard_CG::optionmenu_stand_deactivate()

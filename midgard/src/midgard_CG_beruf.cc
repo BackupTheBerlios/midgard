@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.70 2002/05/05 20:40:45 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.71 2002/05/11 06:51:31 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -57,6 +57,9 @@ void midgard_CG::on_entry_berufsname_activate()
 //    frame_berufswahl->set_sensitive(false);
   show_gelerntes();
 }
+
+gint midgard_CG::on_spinbutton_beruf_focus_in(GdkEventFocus *ev)
+{ spinbutton_beruf->select_region(0,-1); return false;}
 
 void midgard_CG::on_spinbutton_beruf_activate()
 {

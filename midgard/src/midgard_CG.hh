@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.235 2002/05/08 21:31:24 thoma Exp $
+// $Id: midgard_CG.hh,v 1.236 2002/05/11 06:51:31 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -267,6 +267,35 @@ private:
         gint on_spinbutton_au_focus_out_event(GdkEventFocus *ev);
         gint on_spinbutton_pa_focus_out_event(GdkEventFocus *ev);
         gint on_spinbutton_b_focus_out_event(GdkEventFocus *ev);
+        gint on_entry_nameC_focus_in_event(GdkEventFocus *ev);
+        gint on_entry_nameS_focus_in_event(GdkEventFocus *ev);
+        gint on_entry_version_focus_in_event(GdkEventFocus *ev);
+        gint on_entry_bezeichnung_focus_in_event(GdkEventFocus *ev);
+        gint on_entry_merkmale_focus_in_event(GdkEventFocus *ev);
+        gint on_entry_spezialisierung_focus_in_event(GdkEventFocus *ev);
+        gint on_entry_glaube_focus_in_event(GdkEventFocus *ev);
+        gint on_entry_herkunft_focus_in_event(GdkEventFocus *ev);
+        gint on_spinbutton_grad_focus_in_event(GdkEventFocus *ev);
+        gint on_spinbutton_lp_focus_in_event(GdkEventFocus *ev);
+        gint on_spinbutton_ap_focus_in_event(GdkEventFocus *ev);
+        gint on_spinbutton_Cgewicht_focus_in_event(GdkEventFocus *ev);
+        gint on_spinbutton_groesse_focus_in_event(GdkEventFocus *ev);
+        gint on_spinbutton_alter_focus_in_event(GdkEventFocus *ev);
+        gint on_spinbutton_gfp_focus_in_event(GdkEventFocus *ev);
+        gint on_spinbutton_tage_focus_in_event(GdkEventFocus *ev);
+        gint on_spinbutton_gg_focus_in_event(GdkEventFocus *ev);
+        gint on_spinbutton_sg_focus_in_event(GdkEventFocus *ev);
+        gint on_spinbutton_st_focus_in_event(GdkEventFocus *ev);
+        gint on_spinbutton_gw_focus_in_event(GdkEventFocus *ev);
+        gint on_spinbutton_gs_focus_in_event(GdkEventFocus *ev);
+        gint on_spinbutton_ko_focus_in_event(GdkEventFocus *ev);
+        gint on_spinbutton_in_focus_in_event(GdkEventFocus *ev);
+        gint on_spinbutton_zt_focus_in_event(GdkEventFocus *ev);
+        gint on_spinbutton_sb_focus_in_event(GdkEventFocus *ev);
+        gint on_spinbutton_wk_focus_in_event(GdkEventFocus *ev);
+        gint on_spinbutton_au_focus_in_event(GdkEventFocus *ev);
+        gint on_spinbutton_pa_focus_in_event(GdkEventFocus *ev);
+        gint on_spinbutton_b_focus_in_event(GdkEventFocus *ev);
 
         void edit_sensitive(bool b);
         void on_abge_werte_setzen_clicked();
@@ -278,6 +307,7 @@ private:
         void on_button_html_hilfe_clicked();
         gint on_text_charakter_beschreibung_focus_out_event(GdkEventFocus *ev);        
         gint on_spinbutton_pix_breite_focus_out_event(GdkEventFocus *ev);
+        gint on_spinbutton_pix_breite_focus_in_event(GdkEventFocus *ev);
         void on_button_beschreibung_drucken_clicked();
         void on_button_grafik_clicked();
 
@@ -325,12 +355,18 @@ private:
         void on_spinbutton_allgemein_activate();
         void on_spinbutton_unge_activate();
         void on_spinbutton_waffen_activate();
+        gint on_spinbutton_waffen_lernschema_focus_in_event(GdkEventFocus *ev);
         void on_spinbutton_zaubern_activate();
         gint on_spinbutton_fach_focus_out_event(GdkEventFocus *ev);
         gint on_spinbutton_allgemein_focus_out_event(GdkEventFocus *ev);
         gint on_spinbutton_unge_focus_out_event(GdkEventFocus *ev);
         gint on_spinbutton_waffen_focus_out_event(GdkEventFocus *ev);
         gint on_spinbutton_zaubern_focus_out_event(GdkEventFocus *ev);
+        gint on_spinbutton_fach_focus_in_event(GdkEventFocus *ev);
+        gint on_spinbutton_allgemein_focus_in_event(GdkEventFocus *ev);
+        gint on_spinbutton_unge_focus_in_event(GdkEventFocus *ev);
+        gint on_spinbutton_waffen_focus_in_event(GdkEventFocus *ev);
+        gint on_spinbutton_zaubern_focus_in_event(GdkEventFocus *ev);
         void on_togglebutton_lernpunkte_edit_toggled();
         void on_togglebutton_gelernte_anzeigen_toggled();
         void on_togglebutton_teure_anzeigen_toggled();
@@ -361,6 +397,7 @@ private:
         gint on_button_beruf_release_event(GdkEventButton *ev);
         void on_entry_berufsname_activate();
         void on_spinbutton_beruf_activate();
+        gint on_spinbutton_beruf_focus_in(GdkEventFocus *ev);         
         void on_beruf_tree_leaf_selected(cH_RowDataBase d);
         void deleteBerufsFertigekeit();
         void showBerufsLernList();

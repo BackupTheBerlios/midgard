@@ -1,4 +1,4 @@
-// $Id: midgard_CG_waffen.cc,v 1.38 2002/05/02 14:13:07 thoma Exp $
+// $Id: midgard_CG_waffen.cc,v 1.39 2002/05/11 06:51:31 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -41,6 +41,9 @@ gint midgard_CG::on_button_lernschema_waffen_button_release_event(GdkEventButton
      table_waffen_lernschema_eingabe->show();
   return 0;
 }
+
+gint midgard_CG::on_spinbutton_waffen_lernschema_focus_in_event(GdkEventFocus *ev)
+{spinbutton_waffen->select_region(0,-1); return false;}
 
 void midgard_CG::on_spinbutton_waffen_lernschema_activate()
 {

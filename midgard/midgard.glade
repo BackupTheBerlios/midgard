@@ -3879,6 +3879,11 @@ setzen</label>
 		      <handler>on_spinbutton_b_focus_out_event</handler>
 		      <last_modification_time>Sun, 20 Jan 2002 20:34:25 GMT</last_modification_time>
 		    </signal>
+		    <signal>
+		      <name>focus_in_event</name>
+		      <handler>on_spinbutton_b_focus_in_event</handler>
+		      <last_modification_time>Fri, 10 May 2002 20:43:19 GMT</last_modification_time>
+		    </signal>
 		    <climb_rate>1</climb_rate>
 		    <digits>0</digits>
 		    <numeric>False</numeric>
@@ -3922,6 +3927,11 @@ setzen</label>
 		      <name>focus_out_event</name>
 		      <handler>on_spinbutton_au_focus_out_event</handler>
 		      <last_modification_time>Sun, 20 Jan 2002 20:33:45 GMT</last_modification_time>
+		    </signal>
+		    <signal>
+		      <name>focus_in_event</name>
+		      <handler>on_spinbutton_au_focus_in_event</handler>
+		      <last_modification_time>Fri, 10 May 2002 20:42:37 GMT</last_modification_time>
 		    </signal>
 		    <climb_rate>1</climb_rate>
 		    <digits>0</digits>
@@ -3967,6 +3977,11 @@ setzen</label>
 		      <handler>on_spinbutton_pa_focus_out_event</handler>
 		      <last_modification_time>Sun, 20 Jan 2002 20:33:55 GMT</last_modification_time>
 		    </signal>
+		    <signal>
+		      <name>focus_in_event</name>
+		      <handler>on_spinbutton_pa_focus_in_event</handler>
+		      <last_modification_time>Fri, 10 May 2002 20:42:47 GMT</last_modification_time>
+		    </signal>
 		    <climb_rate>1</climb_rate>
 		    <digits>0</digits>
 		    <numeric>False</numeric>
@@ -4011,6 +4026,11 @@ setzen</label>
 		      <handler>on_spinbutton_sb_focus_out_event</handler>
 		      <last_modification_time>Sun, 20 Jan 2002 20:34:05 GMT</last_modification_time>
 		    </signal>
+		    <signal>
+		      <name>focus_in_event</name>
+		      <handler>on_spinbutton_sb_focus_in_event</handler>
+		      <last_modification_time>Fri, 10 May 2002 20:42:56 GMT</last_modification_time>
+		    </signal>
 		    <climb_rate>1</climb_rate>
 		    <digits>0</digits>
 		    <numeric>False</numeric>
@@ -4054,6 +4074,11 @@ setzen</label>
 		      <name>focus_out_event</name>
 		      <handler>on_spinbutton_wk_focus_out_event</handler>
 		      <last_modification_time>Sun, 20 Jan 2002 20:34:16 GMT</last_modification_time>
+		    </signal>
+		    <signal>
+		      <name>focus_in_event</name>
+		      <handler>on_spinbutton_wk_focus_in_event</handler>
+		      <last_modification_time>Fri, 10 May 2002 20:43:08 GMT</last_modification_time>
 		    </signal>
 		    <climb_rate>1</climb_rate>
 		    <digits>0</digits>
@@ -4306,6 +4331,11 @@ setzen</label>
 		      <handler>on_spinbutton_st_focus_out_event</handler>
 		      <last_modification_time>Sun, 20 Jan 2002 20:32:37 GMT</last_modification_time>
 		    </signal>
+		    <signal>
+		      <name>focus_in_event</name>
+		      <handler>on_spinbutton_st_focus_in_event</handler>
+		      <last_modification_time>Fri, 10 May 2002 20:41:37 GMT</last_modification_time>
+		    </signal>
 		    <climb_rate>1</climb_rate>
 		    <digits>0</digits>
 		    <numeric>False</numeric>
@@ -4349,6 +4379,11 @@ setzen</label>
 		      <name>focus_out_event</name>
 		      <handler>on_spinbutton_gs_focus_out_event</handler>
 		      <last_modification_time>Sun, 20 Jan 2002 20:32:49 GMT</last_modification_time>
+		    </signal>
+		    <signal>
+		      <name>focus_in_event</name>
+		      <handler>on_spinbutton_gs_focus_in_event</handler>
+		      <last_modification_time>Fri, 10 May 2002 20:41:48 GMT</last_modification_time>
 		    </signal>
 		    <climb_rate>1</climb_rate>
 		    <digits>0</digits>
@@ -4394,6 +4429,11 @@ setzen</label>
 		      <handler>on_spinbutton_gw_focus_out_event</handler>
 		      <last_modification_time>Sun, 20 Jan 2002 20:33:00 GMT</last_modification_time>
 		    </signal>
+		    <signal>
+		      <name>focus_in_event</name>
+		      <handler>on_spinbutton_gw_focus_in_event</handler>
+		      <last_modification_time>Fri, 10 May 2002 20:41:57 GMT</last_modification_time>
+		    </signal>
 		    <climb_rate>1</climb_rate>
 		    <digits>0</digits>
 		    <numeric>False</numeric>
@@ -4437,6 +4477,11 @@ setzen</label>
 		      <name>focus_out_event</name>
 		      <handler>on_spinbutton_ko_focus_out_event</handler>
 		      <last_modification_time>Sun, 20 Jan 2002 20:33:10 GMT</last_modification_time>
+		    </signal>
+		    <signal>
+		      <name>focus_in_event</name>
+		      <handler>on_spinbutton_ko_focus_in_event</handler>
+		      <last_modification_time>Fri, 10 May 2002 20:42:07 GMT</last_modification_time>
 		    </signal>
 		    <climb_rate>1</climb_rate>
 		    <digits>0</digits>
@@ -4482,6 +4527,11 @@ setzen</label>
 		      <handler>on_spinbutton_in_focus_out_event</handler>
 		      <last_modification_time>Sun, 20 Jan 2002 20:33:23 GMT</last_modification_time>
 		    </signal>
+		    <signal>
+		      <name>focus_in_event</name>
+		      <handler>on_spinbutton_in_focus_in_event</handler>
+		      <last_modification_time>Fri, 10 May 2002 20:42:19 GMT</last_modification_time>
+		    </signal>
 		    <climb_rate>1</climb_rate>
 		    <digits>0</digits>
 		    <numeric>False</numeric>
@@ -4524,6 +4574,11 @@ setzen</label>
 		      <name>focus_out_event</name>
 		      <handler>on_spinbutton_zt_focus_out_event</handler>
 		      <last_modification_time>Sun, 20 Jan 2002 20:33:33 GMT</last_modification_time>
+		    </signal>
+		    <signal>
+		      <name>focus_in_event</name>
+		      <handler>on_spinbutton_zt_focus_in_event</handler>
+		      <last_modification_time>Fri, 10 May 2002 20:42:28 GMT</last_modification_time>
 		    </signal>
 		    <climb_rate>1</climb_rate>
 		    <digits>0</digits>
@@ -4992,6 +5047,11 @@ setzen</label>
 		    <after>True</after>
 		    <last_modification_time>Sun, 20 Jan 2002 20:27:57 GMT</last_modification_time>
 		  </signal>
+		  <signal>
+		    <name>focus_in_event</name>
+		    <handler>on_entry_nameC_focus_in_event</handler>
+		    <last_modification_time>Fri, 10 May 2002 20:37:03 GMT</last_modification_time>
+		  </signal>
 		  <editable>True</editable>
 		  <text_visible>True</text_visible>
 		  <text_max_length>0</text_max_length>
@@ -5035,6 +5095,11 @@ setzen</label>
 		    <name>focus_out_event</name>
 		    <handler>on_spinbutton_ap_focus_out_event</handler>
 		    <last_modification_time>Sun, 20 Jan 2002 20:31:18 GMT</last_modification_time>
+		  </signal>
+		  <signal>
+		    <name>focus_in_event</name>
+		    <handler>on_spinbutton_ap_focus_in_event</handler>
+		    <last_modification_time>Fri, 10 May 2002 20:40:13 GMT</last_modification_time>
 		  </signal>
 		  <climb_rate>1</climb_rate>
 		  <digits>0</digits>
@@ -5088,6 +5153,11 @@ setzen</label>
 		    <handler>on_spinbutton_lp_focus_out_event</handler>
 		    <last_modification_time>Sun, 20 Jan 2002 20:31:08 GMT</last_modification_time>
 		  </signal>
+		  <signal>
+		    <name>focus_in_event</name>
+		    <handler>on_spinbutton_lp_focus_in_event</handler>
+		    <last_modification_time>Fri, 10 May 2002 20:40:03 GMT</last_modification_time>
+		  </signal>
 		  <climb_rate>1</climb_rate>
 		  <digits>0</digits>
 		  <numeric>False</numeric>
@@ -5139,6 +5209,11 @@ setzen</label>
 		    <name>focus_out_event</name>
 		    <handler>on_spinbutton_grad_focus_out_event</handler>
 		    <last_modification_time>Sun, 20 Jan 2002 20:30:54 GMT</last_modification_time>
+		  </signal>
+		  <signal>
+		    <name>focus_in_event</name>
+		    <handler>on_spinbutton_grad_focus_in_event</handler>
+		    <last_modification_time>Fri, 10 May 2002 20:39:52 GMT</last_modification_time>
 		  </signal>
 		  <climb_rate>1</climb_rate>
 		  <digits>0</digits>
@@ -5192,6 +5267,11 @@ setzen</label>
 		    <handler>on_spinbutton_alter_focus_out_event</handler>
 		    <last_modification_time>Sun, 20 Jan 2002 20:31:29 GMT</last_modification_time>
 		  </signal>
+		  <signal>
+		    <name>focus_in_event</name>
+		    <handler>on_spinbutton_alter_focus_in_event</handler>
+		    <last_modification_time>Fri, 10 May 2002 20:40:22 GMT</last_modification_time>
+		  </signal>
 		  <climb_rate>1</climb_rate>
 		  <digits>0</digits>
 		  <numeric>False</numeric>
@@ -5243,6 +5323,11 @@ setzen</label>
 		    <name>focus_out_event</name>
 		    <handler>on_spinbutton_Cgewicht_focus_out_event</handler>
 		    <last_modification_time>Sun, 20 Jan 2002 20:31:37 GMT</last_modification_time>
+		  </signal>
+		  <signal>
+		    <name>focus_in_event</name>
+		    <handler>on_spinbutton_Cgewicht_focus_in_event</handler>
+		    <last_modification_time>Fri, 10 May 2002 20:40:29 GMT</last_modification_time>
 		  </signal>
 		  <climb_rate>1</climb_rate>
 		  <digits>0</digits>
@@ -5296,6 +5381,11 @@ setzen</label>
 		    <handler>on_spinbutton_groesse_focus_out_event</handler>
 		    <last_modification_time>Sun, 20 Jan 2002 20:31:46 GMT</last_modification_time>
 		  </signal>
+		  <signal>
+		    <name>focus_in_event</name>
+		    <handler>on_spinbutton_groesse_focus_in_event</handler>
+		    <last_modification_time>Fri, 10 May 2002 20:40:40 GMT</last_modification_time>
+		  </signal>
 		  <climb_rate>1</climb_rate>
 		  <digits>0</digits>
 		  <numeric>False</numeric>
@@ -5348,6 +5438,11 @@ setzen</label>
 		    <after>True</after>
 		    <last_modification_time>Sun, 20 Jan 2002 20:29:38 GMT</last_modification_time>
 		  </signal>
+		  <signal>
+		    <name>focus_in_event</name>
+		    <handler>on_entry_nameS_focus_in_event</handler>
+		    <last_modification_time>Fri, 10 May 2002 20:38:49 GMT</last_modification_time>
+		  </signal>
 		  <editable>True</editable>
 		  <text_visible>True</text_visible>
 		  <text_max_length>0</text_max_length>
@@ -5390,6 +5485,11 @@ setzen</label>
 		    <name>focus_out_event</name>
 		    <handler>on_entry_version_focus_out_event</handler>
 		    <last_modification_time>Sun, 20 Jan 2002 20:29:51 GMT</last_modification_time>
+		  </signal>
+		  <signal>
+		    <name>focus_in_event</name>
+		    <handler>on_entry_version_focus_in_event</handler>
+		    <last_modification_time>Fri, 10 May 2002 20:39:08 GMT</last_modification_time>
 		  </signal>
 		  <editable>True</editable>
 		  <text_visible>True</text_visible>
@@ -5434,6 +5534,11 @@ setzen</label>
 		    <name>focus_out_event</name>
 		    <handler>on_entry_herkunft_focus_out_event</handler>
 		    <last_modification_time>Sun, 20 Jan 2002 20:30:03 GMT</last_modification_time>
+		  </signal>
+		  <signal>
+		    <name>focus_in_event</name>
+		    <handler>on_entry_herkunft_focus_in_event</handler>
+		    <last_modification_time>Fri, 10 May 2002 20:38:36 GMT</last_modification_time>
 		  </signal>
 		  <editable>True</editable>
 		  <text_visible>True</text_visible>
@@ -5520,6 +5625,11 @@ Adel
 		    <handler>on_entry_glaube_focus_out_event</handler>
 		    <last_modification_time>Sun, 20 Jan 2002 20:30:16 GMT</last_modification_time>
 		  </signal>
+		  <signal>
+		    <name>focus_in_event</name>
+		    <handler>on_entry_glaube_focus_in_event</handler>
+		    <last_modification_time>Fri, 10 May 2002 20:38:59 GMT</last_modification_time>
+		  </signal>
 		  <editable>True</editable>
 		  <text_visible>True</text_visible>
 		  <text_max_length>0</text_max_length>
@@ -5563,6 +5673,11 @@ Adel
 		    <name>focus_out_event</name>
 		    <handler>on_entry_spezialisierung_focus_out_event</handler>
 		    <last_modification_time>Sun, 20 Jan 2002 20:30:30 GMT</last_modification_time>
+		  </signal>
+		  <signal>
+		    <name>focus_in_event</name>
+		    <handler>on_entry_spezialisierung_focus_in_event</handler>
+		    <last_modification_time>Fri, 10 May 2002 20:39:21 GMT</last_modification_time>
 		  </signal>
 		  <editable>True</editable>
 		  <text_visible>True</text_visible>
@@ -5612,6 +5727,11 @@ Adel
 		      <name>focus_out_event</name>
 		      <handler>on_spinbutton_tage_focus_out_event</handler>
 		      <last_modification_time>Sun, 20 Jan 2002 20:31:58 GMT</last_modification_time>
+		    </signal>
+		    <signal>
+		      <name>focus_in_event</name>
+		      <handler>on_spinbutton_tage_focus_in_event</handler>
+		      <last_modification_time>Fri, 10 May 2002 20:40:49 GMT</last_modification_time>
 		    </signal>
 		    <climb_rate>1</climb_rate>
 		    <digits>1</digits>
@@ -5669,6 +5789,11 @@ Adel
 		      <name>focus_out_event</name>
 		      <handler>on_spinbutton_gg_focus_out_event</handler>
 		      <last_modification_time>Sun, 20 Jan 2002 20:32:06 GMT</last_modification_time>
+		    </signal>
+		    <signal>
+		      <name>focus_in_event</name>
+		      <handler>on_spinbutton_gg_focus_in_event</handler>
+		      <last_modification_time>Fri, 10 May 2002 20:40:59 GMT</last_modification_time>
 		    </signal>
 		    <climb_rate>1</climb_rate>
 		    <digits>0</digits>
@@ -5728,6 +5853,11 @@ Adel
 		      <handler>on_spinbutton_sg_focus_out_event</handler>
 		      <last_modification_time>Sun, 20 Jan 2002 20:32:23 GMT</last_modification_time>
 		    </signal>
+		    <signal>
+		      <name>focus_in_event</name>
+		      <handler>on_spinbutton_sg_focus_in_event</handler>
+		      <last_modification_time>Fri, 10 May 2002 20:41:06 GMT</last_modification_time>
+		    </signal>
 		    <climb_rate>1</climb_rate>
 		    <digits>0</digits>
 		    <numeric>False</numeric>
@@ -5785,6 +5915,11 @@ Adel
 		      <name>focus_out_event</name>
 		      <handler>on_spinbutton_gfp_focus_out_event</handler>
 		      <last_modification_time>Sun, 20 Jan 2002 20:30:43 GMT</last_modification_time>
+		    </signal>
+		    <signal>
+		      <name>focus_in_event</name>
+		      <handler>on_spinbutton_gfp_focus_in_event</handler>
+		      <last_modification_time>Fri, 10 May 2002 20:17:32 GMT</last_modification_time>
 		    </signal>
 		    <climb_rate>1</climb_rate>
 		    <digits>0</digits>
@@ -5878,6 +6013,11 @@ Beidhänder
 		    <handler>on_entry_bezeichnung_focus_out_event</handler>
 		    <last_modification_time>Thu, 28 Mar 2002 09:16:23 GMT</last_modification_time>
 		  </signal>
+		  <signal>
+		    <name>focus_in_event</name>
+		    <handler>on_entry_bezeichnung_focus_in_event</handler>
+		    <last_modification_time>Fri, 10 May 2002 20:39:32 GMT</last_modification_time>
+		  </signal>
 		  <editable>True</editable>
 		  <text_visible>True</text_visible>
 		  <text_max_length>0</text_max_length>
@@ -5921,6 +6061,11 @@ Beidhänder
 		    <name>focus_out_event</name>
 		    <handler>on_entry_merkmale_focus_out_event</handler>
 		    <last_modification_time>Tue, 07 May 2002 13:06:03 GMT</last_modification_time>
+		  </signal>
+		  <signal>
+		    <name>focus_in_event</name>
+		    <handler>on_entry_merkmale_focus_in_event</handler>
+		    <last_modification_time>Fri, 10 May 2002 20:39:43 GMT</last_modification_time>
 		  </signal>
 		  <editable>True</editable>
 		  <text_visible>True</text_visible>
@@ -6507,6 +6652,11 @@ editieren</label>
 			  <handler>on_spinbutton_fach_focus_out_event</handler>
 			  <last_modification_time>Sun, 20 Jan 2002 20:37:52 GMT</last_modification_time>
 			</signal>
+			<signal>
+			  <name>focus_in_event</name>
+			  <handler>on_spinbutton_fach_focus_in_event</handler>
+			  <last_modification_time>Fri, 10 May 2002 21:08:47 GMT</last_modification_time>
+			</signal>
 			<climb_rate>1</climb_rate>
 			<digits>0</digits>
 			<numeric>False</numeric>
@@ -6649,6 +6799,11 @@ editieren</label>
 			  <handler>on_spinbutton_allgemein_focus_out_event</handler>
 			  <last_modification_time>Sun, 20 Jan 2002 20:38:02 GMT</last_modification_time>
 			</signal>
+			<signal>
+			  <name>focus_in_event</name>
+			  <handler>on_spinbutton_allgemein_focus_in_event</handler>
+			  <last_modification_time>Fri, 10 May 2002 21:08:55 GMT</last_modification_time>
+			</signal>
 			<climb_rate>1</climb_rate>
 			<digits>0</digits>
 			<numeric>False</numeric>
@@ -6774,6 +6929,11 @@ editieren</label>
 			  <name>focus_out_event</name>
 			  <handler>on_spinbutton_waffen_focus_out_event</handler>
 			  <last_modification_time>Sun, 20 Jan 2002 20:38:31 GMT</last_modification_time>
+			</signal>
+			<signal>
+			  <name>focus_in_event</name>
+			  <handler>on_spinbutton_waffen_focus_in_event</handler>
+			  <last_modification_time>Fri, 10 May 2002 21:09:15 GMT</last_modification_time>
 			</signal>
 			<climb_rate>1</climb_rate>
 			<digits>0</digits>
@@ -6931,6 +7091,11 @@ editieren</label>
 			  <handler>on_spinbutton_zaubern_focus_out_event</handler>
 			  <last_modification_time>Sun, 20 Jan 2002 21:07:06 GMT</last_modification_time>
 			</signal>
+			<signal>
+			  <name>focus_in_event</name>
+			  <handler>on_spinbutton_zauber_focus_in_event</handler>
+			  <last_modification_time>Fri, 10 May 2002 21:09:23 GMT</last_modification_time>
+			</signal>
 			<climb_rate>1</climb_rate>
 			<digits>0</digits>
 			<numeric>False</numeric>
@@ -7052,6 +7217,11 @@ editieren</label>
 			  <name>focus_out_event</name>
 			  <handler>on_spinbutton_unge_focus_out_event</handler>
 			  <last_modification_time>Sun, 20 Jan 2002 20:38:22 GMT</last_modification_time>
+			</signal>
+			<signal>
+			  <name>focus_in_event</name>
+			  <handler>on_spinbutton_unge_focus_in_event</handler>
+			  <last_modification_time>Fri, 10 May 2002 21:09:06 GMT</last_modification_time>
 			</signal>
 			<climb_rate>1</climb_rate>
 			<digits>0</digits>
@@ -7915,6 +8085,11 @@ Beruf eingeben</label>
 			  <handler>on_spinbutton_beruf_activate</handler>
 			  <last_modification_time>Thu, 21 Feb 2002 08:26:02 GMT</last_modification_time>
 			</signal>
+			<signal>
+			  <name>focus_in_event</name>
+			  <handler>on_spinbutton_beruf_focus_in_event</handler>
+			  <last_modification_time>Fri, 10 May 2002 21:06:16 GMT</last_modification_time>
+			</signal>
 			<climb_rate>1</climb_rate>
 			<digits>0</digits>
 			<numeric>False</numeric>
@@ -8076,6 +8251,11 @@ eingeben</label>
 			<name>activate</name>
 			<handler>on_spinbutton_waffen_lernschema_activate</handler>
 			<last_modification_time>Thu, 02 May 2002 10:48:35 GMT</last_modification_time>
+		      </signal>
+		      <signal>
+			<name>focus_in_event</name>
+			<handler>on_spinbutton_waffen_lernschema_focus_in_event</handler>
+			<last_modification_time>Fri, 10 May 2002 21:14:22 GMT</last_modification_time>
 		      </signal>
 		      <climb_rate>1</climb_rate>
 		      <digits>0</digits>
@@ -13319,6 +13499,11 @@ Drucken</label>
 		  <name>focus_out_event</name>
 		  <handler>on_spinbutton_pix_breite_focus_out_event</handler>
 		  <last_modification_time>Sun, 10 Mar 2002 19:56:36 GMT</last_modification_time>
+		</signal>
+		<signal>
+		  <name>focus_in_event</name>
+		  <handler>on_spinbutton_pix_breite_focus_in_event</handler>
+		  <last_modification_time>Fri, 10 May 2002 21:07:23 GMT</last_modification_time>
 		</signal>
 		<climb_rate>1</climb_rate>
 		<digits>0</digits>

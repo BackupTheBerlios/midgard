@@ -9,6 +9,9 @@ gint midgard_CG::on_text_charakter_beschreibung_focus_out_event(GdkEventFocus *e
  return 0;
 }
 
+gint midgard_CG::on_spinbutton_pix_breite_focus_in_event(GdkEventFocus *ev)
+{ spinbutton_pix_breite->select_region(0,-1); return false; }
+
 gint midgard_CG::on_spinbutton_pix_breite_focus_out_event(GdkEventFocus *ev)
 {
  Werte.setBeschreibungPixSize(spinbutton_pix_breite->get_value_as_int());

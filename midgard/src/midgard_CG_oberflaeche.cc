@@ -1,4 +1,4 @@
-// $Id: midgard_CG_oberflaeche.cc,v 1.1 2002/05/08 21:31:24 thoma Exp $
+// $Id: midgard_CG_oberflaeche.cc,v 1.2 2002/05/11 06:51:31 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,4 +31,10 @@ void midgard_CG::setWindowSize(int width,int height)
   set_default_size(width,height);
 }
                
+void midgard_CG::autoshrink(bool b)
+{
+  //set_policy(gint allow_shrink,gint allow_grow,gint auto_shrink);
+  set_policy(true,true,b);
+}
+
                

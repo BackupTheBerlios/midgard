@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.121 2002/05/08 20:38:55 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.122 2002/05/11 06:51:31 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -135,6 +135,18 @@ gint midgard_CG::on_spinbutton_waffen_focus_out_event(GdkEventFocus *ev)
 { set_lernpunkte();  return false;}
 gint midgard_CG::on_spinbutton_zaubern_focus_out_event(GdkEventFocus *ev)
 { set_lernpunkte();  return false;}
+
+gint midgard_CG::on_spinbutton_fach_focus_in_event(GdkEventFocus *ev)
+{ spinbutton_fach->select_region(0,-1);   return false;}
+gint midgard_CG::on_spinbutton_allgemein_focus_in_event(GdkEventFocus *ev)
+{ spinbutton_allgemein->select_region(0,-1);   return false;}
+gint midgard_CG::on_spinbutton_unge_focus_in_event(GdkEventFocus *ev)
+{ spinbutton_unge->select_region(0,-1);   return false;}
+gint midgard_CG::on_spinbutton_waffen_focus_in_event(GdkEventFocus *ev)
+{ spinbutton_waffen->select_region(0,-1);   return false;}
+gint midgard_CG::on_spinbutton_zaubern_focus_in_event(GdkEventFocus *ev)
+{ spinbutton_zaubern->select_region(0,-1);   return false;}
+
 
 void midgard_CG::on_spinbutton_fach_activate()
 { set_lernpunkte(); spinbutton_allgemein->grab_focus();}

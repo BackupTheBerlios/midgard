@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.87 2002/05/08 20:38:55 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.88 2002/05/11 06:51:31 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -55,13 +55,6 @@ void midgard_CG::checkbutton_original(bool active)
     }      
   menu_init();
 }
-
-void midgard_CG::autoshrink(bool b)
-{
-  //set_policy(gint allow_shrink,gint allow_grow,gint auto_shrink);
-  set_policy(true,true,b);
-}
-
 
 void midgard_CG::lernschema_sensitive(bool active)
 {
