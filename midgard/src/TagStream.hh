@@ -92,7 +92,7 @@ public:
 	const Tag &getContent() const;
 	Tag &getContent();
 	void setContent(const Tag &c)
-	{  getContent()=c; }
+	{  try { getContent()=c; } catch (std::exception) { push_back(c); } }
 	
 	bool good();
 	
