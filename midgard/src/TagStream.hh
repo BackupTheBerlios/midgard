@@ -47,17 +47,17 @@ class TagStream : public Tag
 	char *find_wordend(char *ptr);
 	void set_pointer(char *ptr) // test for valid range
 	{  pointer=ptr-buffer; }
-	void write(ostream &o,const char *ptr)
+	void write(std::ostream &o,const char *ptr)
 	{  int size=end_pointer-(ptr-buffer);
 	   if (size>40) size=40;
 	   o.write(ptr,size);
 	}
-	static string de_xml(const string &cont);
+	static std::string de_xml(const std::string &cont);
 	void load_project_file(Tag *top);
 public:
-	const Tag *find(const string &type) const
+	const Tag *find(const std::string &type) const
 	{  return Tag::find(type); }
-	TagStream(const string &path);
+	TagStream(const std::string &path);
 	TagStream(const char *buf);
 	TagStream(istream &i);
 	~TagStream();

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_waffen.cc,v 1.19 2001/06/27 10:10:16 thoma Exp $
+// $Id: midgard_CG_waffen.cc,v 1.20 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,7 +31,7 @@ void midgard_CG::show_waffen()
 {
    waffen_clist->clear();
    Gtk::OStream os(waffen_clist);
-   for(vector<H_Data_waffen>::iterator i=vec_Waffen.begin();
+   for(std::vector<H_Data_waffen>::iterator i=vec_Waffen.begin();
          i!=vec_Waffen.end();++i)
       {
          os << (*i)->Name()<<"\t"<<(*i)->Erfolgswert()<<"\n";
@@ -42,7 +42,7 @@ void midgard_CG::show_waffen()
 
 }
 
-void midgard_CG::waffen_uebernehmen(const vector<H_Data_waffen>& saw, map<string,string> wg)
+void midgard_CG::waffen_uebernehmen(const std::vector<H_Data_waffen>& saw, map<std::string,string> wg)
 {
    vec_Waffen = saw;
    waffen_grundkenntnisse = wg;

@@ -6,14 +6,14 @@
 
 class Data_kido : public RowDataBase
 {  
-   string hoho,name,stufe;
+   std::string hoho,name,stufe;
    int ap,kosten;
-   string stil, effekt;  
+   std::string stil, effekt;  
  public:
-   Data_kido(const string& h,const string& n,const string& s1,int a,
-        int k,const string& s)
+   Data_kido(const std::string& h,const std::string& n,const std::string& s1,int a,
+        int k,const std::string& s)
        : hoho(h),name(n),stufe(s1),ap(a),kosten(k),stil(s) {}
-   Data_kido(const string& h) : hoho(h),ap(0),kosten(0) {}
+   Data_kido(const std::string& h) : hoho(h),ap(0),kosten(0) {}
 
    virtual const cH_EntryValue Value(int seqnr, gpointer gp) const
     { 
@@ -37,20 +37,20 @@ class Data_kido : public RowDataBase
         }
    return cH_EntryValueIntString("?");
  }
- string Hoho() const {  return hoho; }
+ std::string Hoho() const {  return hoho; }
  int Kosten() const {  return kosten; }
- string Name()  const {  return name; }
- string Stufe() const {  return stufe; }
+ std::string Name()  const {  return name; }
+ std::string Stufe() const {  return stufe; }
  int Ap() const {  return ap; }
- string Stil() const {  return stil; }
- string Effekt() const {  return effekt; }
+ std::string Stil() const {  return stil; }
+ std::string Effekt() const {  return effekt; }
 
  void set_Kosten(int i) {  kosten=i; }
- void set_Name(const string& s)  {  name=s; }
- void set_Stufe(const string& s)  {  stufe=s; }
+ void set_Name(const std::string& s)  {  name=s; }
+ void set_Stufe(const std::string& s)  {  stufe=s; }
  void set_Ap(int i) {   ap=i; }
- void set_Stil(const string& s) { stil=s; }
- void set_Effekt(const string& s) { effekt=s; }
+ void set_Stil(const std::string& s) { stil=s; }
+ void set_Effekt(const std::string& s) { effekt=s; }
 }; 
 
 

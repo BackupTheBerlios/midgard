@@ -33,7 +33,7 @@ exec sql include sqlca;
 
 void Window_herkunft::on_clist_herkunftsland_select_row(gint row, gint column, GdkEvent *event)
 {   
-   string land = clist_herkunftsland->get_text(row,1);
+   std::string land = clist_herkunftsland->get_text(row,1);
    hauptfenster->herkunft_uebernehmen(land);
    destroy();
 }

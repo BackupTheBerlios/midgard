@@ -1,4 +1,4 @@
-// $Id: abge_werte_setzen.cc,v 1.20 2001/06/27 10:10:16 thoma Exp $
+// $Id: abge_werte_setzen.cc,v 1.21 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -49,14 +49,14 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   if (Typ.Sb() == -20&& Typ2.Sb() == -20) werte.sb -= random.integer(1,20); 
   // Saddhu
   if (Typ.Short() == "Sa") werte.sb = 80+random.integer(1,20);
-//cout << Typ.Short()b<<"\n";
+//std::cout << Typ.Short()b<<"\n";
   midgard_CG::grundwerte_boni_setzen();
 
   // Ausdauerbonus für Typen
   if      (Typ.Ausdauer() == "k" || Typ2.Ausdauer() == "k" ) werte.bo_au_typ = 4 ;
   else if (Typ.Ausdauer() == "ak"|| Typ2.Ausdauer() == "ak" ) werte.bo_au_typ = 3 ;
   else werte.bo_au_typ = 2 ;
-//cout <<"werte.bo_au_typ\t"<<werte.bo_au_typ<<"\n";
+//std::cout <<"werte.bo_au_typ\t"<<werte.bo_au_typ<<"\n";
   // Werte würfeln und setzen
   werte.lp = random.integer(1,6)+werte.lpbasis+spezies_constraint.lpbasis ;
   werte.ap = random.integer(1,6)+werte.bo_au+werte.bo_au_typ + werte.grad*spezies_constraint.ap_grad ;
@@ -90,7 +90,7 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   int typstand = Typ.Stand();
   (typstand<Typ2.Stand())?typstand=Typ2.Stand():
   istand += typstand;
-//cout << "typstand\t"<<typstand<<"\n";
+//std::cout << "typstand\t"<<typstand<<"\n";
   if (istand<=10) werte.stand = "Unfrei";
   if (11<=istand&&istand<=50) werte.stand = "Volk";
   if (51<=istand&&istand<=90) werte.stand = "Mittelschicht";

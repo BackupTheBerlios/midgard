@@ -1,4 +1,4 @@
-// $Id: xmlimport.pgcc,v 1.18 2001/06/27 10:10:16 thoma Exp $
+// $Id: xmlimport.pgcc,v 1.19 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -30,11 +30,11 @@ bool charakter_laden(istream &i)
 //   ts.debug(15);
    Tag::const_iterator top=ts.find("Midgard-Charakter");
    if (!top || top==ts.end())
-   {  cerr << "Ist das wirklich die richtige Datei? Ich kann keinen Charakter finden.\n";
+   {  std::cerr << "Ist das wirklich die richtige Datei? Ich kann keinen Charakter finden.\n";
       return false;
    }
    if (top->getInt("Version")<3 || top->getInt("Version")>5)
-   {  cerr << "Version " << top->getInt("Version") << " wird noch nicht unterstützt\n";
+   {  std::cerr << "Version " << top->getInt("Version") << " wird noch nicht unterstützt\n";
       return false;
    }
    const Tag *Figur=top->find("Figur");
@@ -292,18 +292,18 @@ update:
 
 int main(int argc, char *argv[])
 {  
-   if (argc!=1) {cerr << "USAGE: "<<argv[0]<<" < XML_Datei \n";
+   if (argc!=1) {std::cerr << "USAGE: "<<argv[0]<<" < XML_Datei \n";
       exit(1); };
    try{
       Petig::Connection conn;
       conn.setDbase("midgard");
       Petig::dbconnect(conn);
 
-      if (!charakter_laden(cin)) return 1;
+      if (!charakter_laden(std::cin)) return 1;
       
       Petig::dbdisconnect();
    } catch (SQLerror &e)
-   {  cerr << e << '\n';
+   {  std::cerr << e << '\n';
    }
    return 0;
 }

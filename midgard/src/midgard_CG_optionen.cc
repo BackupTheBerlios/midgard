@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.21 2001/06/18 05:58:50 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.22 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -130,7 +130,7 @@ void midgard_CG::on_checkbutton_Alba_toggled()
   else Albabool=false;
 }
 
-void midgard_CG::regnot(string sadd)
+void midgard_CG::regnot(std::string sadd)
 {
   manage(new WindowInfo(sadd));
 }

@@ -48,8 +48,8 @@ void midgard_CG::on_leaf_selected_neue_kido(cH_RowDataBase d)
 
 void midgard_CG::show_alte_kido()
 {
-   vector<cH_RowDataBase> datavec;
-   for (vector<H_Data_kido>::iterator i=vec_Kido.begin(); i!=vec_Kido.end();++i)
+   std::vector<cH_RowDataBase> datavec;
+   for (std::vector<H_Data_kido>::iterator i=vec_Kido.begin(); i!=vec_Kido.end();++i)
       {
          double fac = midgard_CG::get_standard_fertigkeit(Typ.Short(),Typ2.Short(),"KiDo");
          datavec.push_back(new Data_kido((*i)->Hoho(),(*i)->Name(),(*i)->Stufe(),(*i)->Ap(),fac*(*i)->Kosten(),(*i)->Stil()));
@@ -59,26 +59,26 @@ void midgard_CG::show_alte_kido()
 
 int midgard_CG::get_erfolgswert_kido()
 {
- for (vector<H_Data_fert>::const_iterator
+ for (std::vector<H_Data_fert>::const_iterator
       i= vec_Fertigkeiten.begin();i!=vec_Fertigkeiten.end();++i)
    {
       if ((*i)->Name() == "KiDo") return (*i)->Erfolgswert(); 
    }
  // should never get here 
- string strinfo="WARNUNG: Dieser Charakter beherrscht die Fertigkeit KiDo nicht.";
+ std::string strinfo="WARNUNG: Dieser Charakter beherrscht die Fertigkeit KiDo nicht.";
  manage (new WindowInfo(strinfo));
  return 0; 
 }
 
 void midgard_CG::show_neue_kido()
 {
-  vector<H_Data_kido> new_Kido;
-  vector<cH_RowDataBase> datavec;
+  std::vector<H_Data_kido> new_Kido;
+  std::vector<cH_RowDataBase> datavec;
   exec sql begin declare section;
    char db_hoho[50];
    char query[1024];
   exec sql end declare section;
-  string stufe_constraint ="";
+  std::string stufe_constraint ="";
 
   // Stufe
   if (werte.grad<=4 || get_erfolgswert_kido()+werte.bo_za <=15)
@@ -110,7 +110,7 @@ void midgard_CG::show_neue_kido()
          stufe_constraint += " and stufe != 'Meister' ";
    }
 
-  string squery = "SELECT name_orig from kido \
+  std::string squery = "SELECT name_orig from kido \
    where name_orig not in (SELECT fertigkeit FROM charaktere_fertigkeiten \
    WHERE charakter_name = '"+werte.name_charakter+"' AND version = '"+
    werte.version+"') "+stufe_constraint+"order by 1";
@@ -133,7 +133,7 @@ void midgard_CG::show_neue_kido()
 
    midgard_CG::get_kido(new_Kido);
    double fac = midgard_CG::get_standard_fertigkeit(Typ.Short(),Typ2.Short(),"KiDo");
-   for (vector<H_Data_kido>::iterator i=new_Kido.begin();i!=new_Kido.end();++i)
+   for (std::vector<H_Data_kido>::iterator i=new_Kido.begin();i!=new_Kido.end();++i)
      {
         datavec.push_back(new Data_kido((*i)->Hoho(),(*i)->Name(),(*i)->Stufe(),(*i)->Ap(),fac*(*i)->Kosten(),(*i)->Stil()));
      }
@@ -141,17 +141,17 @@ void midgard_CG::show_neue_kido()
 }
 
 
-void midgard_CG::on_steigern_kido_tree_alt_select(const string& name,int kosten)
+void midgard_CG::on_steigern_kido_tree_alt_select(const std::string& name,int kosten)
 {   
    werte.gfp -= kosten;
-   for (vector<H_Data_kido>::iterator i=vec_Kido.begin();
+   for (std::vector<H_Data_kido>::iterator i=vec_Kido.begin();
             i!= vec_Kido.end();++i) 
       if ((*i)->Hoho()==name) {vec_Kido.erase(i);break;}
 
    on_kido_laden_clicked();
 }
 
-void midgard_CG::on_steigern_kido_tree_neu_select(const string& name, int kosten)
+void midgard_CG::on_steigern_kido_tree_neu_select(const std::string& name, int kosten)
 {   
   werte.gfp += kosten;
   vec_Kido.push_back(new Data_kido(name));
@@ -159,10 +159,10 @@ void midgard_CG::on_steigern_kido_tree_neu_select(const string& name, int kosten
   on_kido_laden_clicked();
 }
 
-int midgard_CG::maxkidostil(const string& stufe)
+int midgard_CG::maxkidostil(const std::string& stufe)
 {
   int count=0;
-  for (vector<H_Data_kido>::const_iterator i=vec_Kido.begin();
+  for (std::vector<H_Data_kido>::const_iterator i=vec_Kido.begin();
       i!=vec_Kido.end();++i)
    {
      if ((*i)->Stufe()==stufe) ++count;

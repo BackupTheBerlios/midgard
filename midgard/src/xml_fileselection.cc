@@ -23,7 +23,7 @@ void xml_fileselection::on_cancel_button1_clicked()
   destroy();
 }
 
-xml_fileselection::xml_fileselection(midgard_CG* h, string _was)
+xml_fileselection::xml_fileselection(midgard_CG* h, std::string _was)
 :was(_was)
 {
  hauptfenster=h;

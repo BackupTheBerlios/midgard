@@ -1,4 +1,4 @@
-// $Id: Window_Waffe_Geld.cc,v 1.22 2001/06/26 05:20:29 thoma Exp $
+// $Id: Window_Waffe_Geld.cc,v 1.23 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,9 +37,9 @@ void Window_Waffe_Geld::on_button_wuerfeln_clicked()
 {   
    static int count = 0;
    ++count;
-   if (count>6) { string strinfo="Schon 6x gewürfelt\n"; 
+   if (count>6) { std::string strinfo="Schon 6x gewürfelt\n"; 
       manage (new WindowInfo(strinfo)); return; }
-   string s= itos(count)+"x von 6x für Waffen oder Geld gewürfelt";
+   std::string s= itos(count)+"x von 6x für Waffen oder Geld gewürfelt";
    label_waffen_geld->set_text(s);
    Random random;
    int wurf = random.integer(1,100);
@@ -55,17 +55,17 @@ void Window_Waffe_Geld::on_button_auswaehlen_clicked()
 
 void Window_Waffe_Geld::on_button_close_clicked()
 {
-  vector<H_Data_waffen> waffe;
+  std::vector<H_Data_waffen> waffe;
   for (unsigned int i=0;i<clist_gewaehlte_waffen->rows().size();++i)
    {
-     string swaffe=clist_gewaehlte_waffen->get_text(i,0);
+     std::string swaffe=clist_gewaehlte_waffen->get_text(i,0);
      waffe.push_back(new Data_waffen(swaffe,swaffe,"",0,0,""));
    }
   hauptfenster->waffe_besitz_uebernehmen(waffe);
   destroy();
 }
 
-Window_Waffe_Geld::Window_Waffe_Geld(midgard_CG* h, st_werte& w, vector<H_Data_waffen>& wa)
+Window_Waffe_Geld::Window_Waffe_Geld(midgard_CG* h, st_werte& w, std::vector<H_Data_waffen>& wa)
 : werte(w), vec_Waffen(wa)
 {
    hauptfenster = h;
@@ -81,7 +81,7 @@ void Window_Waffe_Geld::Waffe()
  manage (new Window_waffe(-1,hauptfenster,this,werte,vec_Waffen));
 }
 
-void Window_Waffe_Geld::get_waffe(const string& waffe)
+void Window_Waffe_Geld::get_waffe(const std::string& waffe)
 {
   Gtk::OStream os(clist_gewaehlte_waffen);
   os << waffe<<"\n"; 
@@ -98,7 +98,7 @@ void Window_Waffe_Geld::Geld()
 
 void Window_Waffe_Geld::Geld(int wurf)
 {
- string stand = werte.stand;
+ std::string stand = werte.stand;
  if (stand == "Unfrei")
      {
       if ( 1 <= wurf && wurf  <= 10 ) {werte.kupfer += 1;  }
@@ -143,7 +143,7 @@ void Window_Waffe_Geld::Geld(int wurf)
       if (91 <= wurf && wurf  <= 99 ) {werte.gold   += 10;  }
       if (99 <  wurf && wurf  <= 100 ){werte.gold   += 100;  }
      }
- string strinfo ="Beim Auswürfeln von Geld wurde eine \n"+itos(wurf)+" gewürfelt\n";
+ std::string strinfo ="Beim Auswürfeln von Geld wurde eine \n"+itos(wurf)+" gewürfelt\n";
  manage (new WindowInfo(strinfo));
  gold->set_text(itos(werte.gold));
  silber->set_text(itos(werte.silber));

@@ -6,24 +6,24 @@
 
 class Data_waffen : public RowDataBase
 {
-   string name,alias,region;
+   std::string name,alias,region;
    int av_bonus, sl_bonus;
-   string magisch;
+   std::string magisch;
    int erfolgswert, lernkosten, steigern, reduzieren, verlernen,lernpunkte;
-   string grundkenntnisse, voraussetzung;
+   std::string grundkenntnisse, voraussetzung;
 
  public:
    Data_waffen() 
       : av_bonus(0),sl_bonus(0),erfolgswert(0), lernkosten(0), steigern(0), reduzieren(0), verlernen(0),lernpunkte(0)  {}
-   Data_waffen(const string& n) 
+   Data_waffen(const std::string& n) 
       : name(n),av_bonus(0),sl_bonus(0),erfolgswert(0), lernkosten(0), steigern(0), reduzieren(0), verlernen(0),lernpunkte(0) {}
-   Data_waffen(const string& n, int w, const string& v) 
+   Data_waffen(const std::string& n, int w, const std::string& v) 
       : name(n),av_bonus(0),sl_bonus(0),erfolgswert(w),lernkosten(0), steigern(0), reduzieren(0), verlernen(0),lernpunkte(0),voraussetzung(v) {}
-   Data_waffen(string n, string na, string r,int a, int s, string m)
+   Data_waffen(std::string n, std::string na, std::string r,int a, int s, std::string m)
       : name(n), alias(na), region(r),av_bonus(a),sl_bonus(s),magisch(m),erfolgswert(0), lernkosten(0), steigern(0), reduzieren(0), verlernen(0),lernpunkte(0) {} 
-   Data_waffen(const string &n,int w, int l, const string& g, const string& v)
+   Data_waffen(const std::string &n,int w, int l, const std::string& g, const std::string& v)
       : name(n),av_bonus(0),sl_bonus(0),erfolgswert(w),lernpunkte(l), grundkenntnisse(g), voraussetzung(v) {}
-   Data_waffen(const string& n, int w,int s,int r)
+   Data_waffen(const std::string& n, int w,int s,int r)
       :name(n),av_bonus(0),sl_bonus(0),erfolgswert(w),lernkosten(0),steigern(s),reduzieren(r),verlernen(0),lernpunkte(0) {}
 
 
@@ -44,21 +44,21 @@ class Data_waffen : public RowDataBase
         }
       return cH_EntryValueIntString("?");
     }
- string Name() const {  return name; }
- string Region() const {return region;}
- string Magisch() const {return magisch;}
- string Alias() const {return alias;}
+ std::string Name() const {  return name; }
+ std::string Region() const {return region;}
+ std::string Magisch() const {return magisch;}
+ std::string Alias() const {return alias;}
  int  Erfolgswert() const {  return erfolgswert; }  
  int  Lernkosten() const {  return lernkosten; }
  int  Steigern() const {  return steigern; }
  int  Reduzieren() const {  return reduzieren; }
  int  Verlernen() const {  return verlernen; }  
-// string  Attribut() const {  return attribut; }
-// string  Art() const {  return art; }
- string  Voraussetzung() const {  return voraussetzung; }
-// string  Pflicht() const {  return pflicht; }
+// std::string  Attribut() const {  return attribut; }
+// std::string  Art() const {  return art; }
+ std::string  Voraussetzung() const {  return voraussetzung; }
+// std::string  Pflicht() const {  return pflicht; }
  int  Lernpunkte() const {  return lernpunkte; }
- string Grundkenntnisse() const {return grundkenntnisse; }
+ std::string Grundkenntnisse() const {return grundkenntnisse; }
  int av_Bonus() const {return av_bonus;}
  int sl_Bonus() const {return sl_bonus;}
 
@@ -66,7 +66,7 @@ class Data_waffen : public RowDataBase
  void set_Lernpunkte(int i)  {lernpunkte=i;}
  void set_av_Bonus(int i)  {av_bonus=i;}
  void set_sl_Bonus(int i) {sl_bonus=i;}
- void set_Magisch(const string& s)  {magisch=s;}
+ void set_Magisch(const std::string& s)  {magisch=s;}
 };
 
 class H_Data_waffen : public Handle<Data_waffen>

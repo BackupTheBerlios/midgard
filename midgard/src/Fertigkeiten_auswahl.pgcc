@@ -32,14 +32,14 @@ exec sql include sqlca;
 #include <Gtk_OStream.h>
 #include "Sprache_auswahl.hh"
 
-Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
-   const string& typ_2,  int lernpunkte, const st_werte& werte)
+Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const std::string& typ,
+   const std::string& typ_2,  int lernpunkte, const st_werte& werte)
 {
   hauptfenster=h;
   maxpunkte = lernpunkte;
   fert_auswahl_lernpunkte->set_text(itos(maxpunkte));
   // Berufsvorteile
-  vector<string> vorteile=hauptfenster->Berufs_Vorteile();
+  std::vector<string> vorteile=hauptfenster->Berufs_Vorteile();
 
   // Lernschema //////////////////////////////////////////////////////////////
   exec sql begin declare section;
@@ -88,7 +88,7 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
       }
    exec sql close fert_spezies;
 
-   string squery = " select l.fertigkeit, art, wert, f.attribut, \
+   std::string squery = " select l.fertigkeit, art, wert, f.attribut, \
              min(l.lernpunkte), pflicht_lernen.typ, \
              coalesce(f.fp,0), coalesce(v.fertigkeit,''), coalesce(f.region,'') \
       from fertigkeiten f, lernschema l, pflicht_lernen, \
@@ -149,7 +149,7 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
             :db_voraussetzung, :db_region ; 
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-//cout << db_fertigkeiten<<"\n";
+//std::cout << db_fertigkeiten<<"\n";
          if (hauptfenster->region_check(db_region))
            vec_Fert.push_back(new Data_fert (db_fertigkeiten,
                idb_erfolgswert?0:db_erfolgswert,db_fp,db_voraussetzung, 
@@ -159,15 +159,15 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
    exec sql close fertigkeiten;
   
    Gtk::OStream os(fertigkeiten_clist_auswahl);
-   for(vector<H_Data_fert>::iterator i=vec_Fert.begin();i!=vec_Fert.end();++i)
+   for(std::vector<H_Data_fert>::iterator i=vec_Fert.begin();i!=vec_Fert.end();++i)
       {
         double fac=hauptfenster->get_standard_fertigkeit(typ,typ_2,(*i)->Name());
-        for (vector<string>::const_iterator j=vorteile.begin();
+        for (std::vector<string>::const_iterator j=vorteile.begin();
                j!=vorteile.end();++j)
            if ((*j)==(*i)->Name()) (*i)->set_Lernpunkte((*i)->Lernpunkte()-1);
-        string pf="";
+        std::string pf="";
         if ((*i)->Pflicht() != "") pf = "*";
-        string serfolgswert=itos((*i)->Erfolgswert());
+        std::string serfolgswert=itos((*i)->Erfolgswert());
         if (serfolgswert=="0") serfolgswert="";
         if ( (hauptfenster->Fertigkeiten_Voraussetzung((*i)->Name())
                || werte.spezies!="Mensch") &&
@@ -212,15 +212,15 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
    exec sql close an_fert;
 
    os <<"\n\n";   
-   for(vector<H_Data_fert>::iterator i=vec_allg_Fert.begin();
+   for(std::vector<H_Data_fert>::iterator i=vec_allg_Fert.begin();
                                                       i!=vec_allg_Fert.end();++i)
       {
         double fac=hauptfenster->get_standard_fertigkeit(typ,typ_2,(*i)->Name());
-        for (vector<string>::const_iterator j=vorteile.begin();
+        for (std::vector<string>::const_iterator j=vorteile.begin();
                j!=vorteile.end();++j)
            if ((*j)==(*i)->Name()) (*i)->set_Lernpunkte((*i)->Lernpunkte()-1);
-        string pf="";
-        string serfolgswert=itos((*i)->Erfolgswert());
+        std::string pf="";
+        std::string serfolgswert=itos((*i)->Erfolgswert());
         if (serfolgswert=="0") serfolgswert="";
         if (hauptfenster->Fertigkeiten_Voraussetzung((*i)->Name()) &&
             Fertigkeiten_spezies_voraussetzung((*i)->Name(),werte.spezies))
@@ -241,7 +241,7 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
 
 void Fertigkeiten_auswahl::on_close_fertigkeiten_clicked()
 {
-   vector<H_Data_fert> saf;
+   std::vector<H_Data_fert> saf;
    for (Gtk::CList::SelectionList::iterator i=fertigkeiten_clist_auswahl->selection().begin();
          i!=fertigkeiten_clist_auswahl->selection().end();++i)
      {  
@@ -249,7 +249,7 @@ void Fertigkeiten_auswahl::on_close_fertigkeiten_clicked()
 //         =static_cast<db_struct_fertigkeiten*>(i->get_data());
       H_Data_fert *ptr = static_cast<H_Data_fert*>(i->get_data());
          // ptr=&fert[i->get_row_num()];
-//       cout << ptr ->fertigkeiten << ' ' << ptr -> erfolgswert << '\n'; 
+//       std::cout << ptr ->fertigkeiten << ' ' << ptr -> erfolgswert << '\n'; 
        saf.push_back(new Data_fert((*ptr)->Name(),
                         (*ptr)->Erfolgswert(), (*ptr)->Attribut()));
      }
@@ -267,7 +267,7 @@ void Fertigkeiten_auswahl::on_fertigkeiten_clist_auswahl_select_row(gint row, gi
    maxpunkte -= atoi(fertigkeiten_clist_auswahl->get_text(row,0).c_str());
    fert_auswahl_lernpunkte->set_text(itos(maxpunkte));
    // Sprache oder Schrift?
-   string fert = fertigkeiten_clist_auswahl->get_text(row,3);
+   std::string fert = fertigkeiten_clist_auswahl->get_text(row,3);
    if (fert == "Sprache" || fert == "Lesen/Schreiben" )
     {
       if (maxpunkte >=  atoi(fertigkeiten_clist_auswahl->get_text(row,0).c_str() ))
@@ -281,7 +281,7 @@ void Fertigkeiten_auswahl::on_fertigkeiten_clist_auswahl_unselect_row(gint row, 
    fert_auswahl_lernpunkte->set_text(itos(maxpunkte));
 }
 
-bool Fertigkeiten_auswahl::Fertigkeiten_spezies_voraussetzung(const string& name,const string& spezies)
+bool Fertigkeiten_auswahl::Fertigkeiten_spezies_voraussetzung(const std::string& name,const std::string& spezies)
 {
   exec sql begin declare section;
    char db_spezies[50],db_verboten[50];

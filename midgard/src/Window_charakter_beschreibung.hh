@@ -1,4 +1,4 @@
-// $Id: Window_charakter_beschreibung.hh,v 1.14 2001/06/12 09:31:06 thoma Exp $
+// $Id: Window_charakter_beschreibung.hh,v 1.15 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -44,6 +44,6 @@ class Window_charakter_beschreibung : public Window_charakter_beschreibung_glade
         void on_charakter_beschreibung_abbrechen_clicked();
         midgard_CG* hauptfenster;
    public:
-        Window_charakter_beschreibung(midgard_CG* h,string s);
+        Window_charakter_beschreibung(midgard_CG* h,std::string s);
 };
 #endif

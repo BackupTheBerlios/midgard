@@ -30,9 +30,9 @@ exec sql include sqlca;
 #include <cstring>
 #include <Gtk_OStream.h>
 
-double midgard_CG::get_standard_waffen(const string& typ, const string& typ2, const string& waffe)
+double midgard_CG::get_standard_waffen(const std::string& typ, const std::string& typ2, const std::string& waffe)
 {
-  string swaffe="Waffen";
+  std::string swaffe="Waffen";
   if (waffe=="Peitsche") swaffe="Peitsche";
   if (waffe=="Lasso") swaffe="Lasso";
   if (waffe=="Netz") swaffe="Netz";
@@ -43,7 +43,7 @@ double midgard_CG::get_standard_waffen(const string& typ, const string& typ2, co
    char query[200];
   exec sql end declare section;
   strncpy(db_ergebnis2,"",sizeof(db_ergebnis2));
-  string squery = "select "+typ;
+  std::string squery = "select "+typ;
   if (typ2!="") squery += ", "+typ2; 
   squery += " from waffen_standard where fertigkeit = '"+swaffe+"'";
 //  snprintf(query,sizeof(query),"select %s from waffen_standard where fertigkeit = '%s'",
@@ -61,7 +61,7 @@ double midgard_CG::get_standard_waffen(const string& typ, const string& typ2, co
     SQLerror::test(__FILELINE__,100);  
 
     exec sql close fertig;
- string e1=db_ergebnis, e2=db_ergebnis2;
+ std::string e1=db_ergebnis, e2=db_ergebnis2;
  double fac;
  if      (e1=="G" || e2=="G") fac = 0.5;
  else if (e1=="S" || e2=="S") fac = 1.0;
@@ -71,11 +71,11 @@ double midgard_CG::get_standard_waffen(const string& typ, const string& typ2, co
  if (!strcmp(db_ergebnis,"S")) fac = 1.0; 
  if (!strcmp(db_ergebnis,"A")) fac = 2.0; 
 */
-//cout << typ << "\t"<<fertigkeit<<"\t"<<db_ergebnis<<"\t"<<fac<<"\n";
+//std::cout << typ << "\t"<<fertigkeit<<"\t"<<db_ergebnis<<"\t"<<fac<<"\n";
  return(fac);
 }
 
-string midgard_CG::get_region_waffen(const string& waffe, const string& region, int mod)
+std::string midgard_CG::get_region_waffen(const std::string& waffe, const std::string& region, int mod)
 {
   exec sql begin declare section;
    char db_waffe[50],db_region[10];

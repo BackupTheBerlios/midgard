@@ -1,4 +1,4 @@
-// $Id: KiDo_auswahl.hh,v 1.16 2001/06/12 09:31:05 thoma Exp $
+// $Id: KiDo_auswahl.hh,v 1.17 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,14 +36,14 @@
 #include <vector>
 class midgard_CG;
 struct st_werte;
-struct st_kido_{string name_orig;string name;int ap;int fp;
-      st_kido_(string n, string n2, int a, int f)
+struct st_kido_{std::string name_orig;std::string name;int ap;int fp;
+      st_kido_(std::string n, std::string n2, int a, int f)
       : name_orig(n),name(n2),ap(a),fp(f) {}};
 
 class KiDo_auswahl : public KiDo_auswahl_glade
 {   
         
-        vector<st_kido_> kido_technik;
+        std::vector<st_kido_> kido_technik;
         midgard_CG* hauptfenster;
         int maxkido;
         friend class KiDo_auswahl_glade;

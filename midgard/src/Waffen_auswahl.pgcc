@@ -32,11 +32,11 @@ exec sql include sqlca;
 #include <Gtk_OStream.h>
 
 
-Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const string& typ, const string& typ_2,
+Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const std::string& typ, const std::string& typ_2,
    int lernpunkte, const st_werte& werte)
 {
   hauptfenster=h;
-  vector<string> vorteile=hauptfenster->Berufs_Vorteile();
+  std::vector<string> vorteile=hauptfenster->Berufs_Vorteile();
   maxpunkte = lernpunkte;
   waffen_auswahl_lernpunkte->set_text(itos(maxpunkte));
   exec sql begin declare section;
@@ -50,7 +50,7 @@ Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const string& typ, const string& ty
    char query[1024];
   exec sql end declare section;
    
-   string squery = "select fertigkeit, l.art, max(wert), min(lernpunkte),
+   std::string squery = "select fertigkeit, l.art, max(wert), min(lernpunkte),
       grundkenntnisse, \
       coalesce(zusatz,''), coalesce(w.region,'') \
       from lernschema l, waffen w where ";
@@ -84,9 +84,9 @@ Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const string& typ, const string& ty
       }
     exec sql close waffen;
     Gtk::OStream os(waffen_clist_auswahl);
-    for(vector<H_Data_waffen>::iterator i=vec_Waffen.begin();i!=vec_Waffen.end();++i)
+    for(std::vector<H_Data_waffen>::iterator i=vec_Waffen.begin();i!=vec_Waffen.end();++i)
       {
-        for (vector<string>::const_iterator j=vorteile.begin();
+        for (std::vector<string>::const_iterator j=vorteile.begin();
                j!=vorteile.end();++j)
            if ((*j)==(*i)->Name()) (*i)->set_Lernpunkte((*i)->Lernpunkte()-1);
         if (hauptfenster->Waffen_Voraussetzung((*i)->Name()))
@@ -113,7 +113,7 @@ void Waffen_auswahl::on_waffen_clist_auswahl_select_row(gint row, gint column, G
       }
    maxpunkte -= atoi(waffen_clist_auswahl->get_text(row,0).c_str());
    waffen_auswahl_lernpunkte->set_text(itos(maxpunkte));
-   string grund = waffen_clist_auswahl->get_text(row,4);
+   std::string grund = waffen_clist_auswahl->get_text(row,4);
    waffen_grundkenntnisse[grund] = "X";
 }
 
@@ -125,13 +125,13 @@ void Waffen_auswahl::on_waffen_clist_auswahl_unselect_row(gint row, gint column,
 
 void Waffen_auswahl::on_close_waffen_clicked()
 {   
-   vector<H_Data_waffen> saw;
+   std::vector<H_Data_waffen> saw;
    for (Gtk::CList::SelectionList::iterator i=waffen_clist_auswahl->selection().begin();
          i!=waffen_clist_auswahl->selection().end();++i)
      {  
       H_Data_waffen *ptr = static_cast<H_Data_waffen*>(i->get_data());
          // ptr=&fert[i->get_row_num()];
-//       cout << ptr ->waffe << ' ' << ptr -> erfolgswert << '\n';
+//       std::cout << ptr ->waffe << ' ' << ptr -> erfolgswert << '\n';
        saw.push_back(new Data_waffen((*ptr)->Name(),(*ptr)->Erfolgswert(),"" ));
      }
   hauptfenster->waffen_uebernehmen(saw,waffen_grundkenntnisse);

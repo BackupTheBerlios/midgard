@@ -1,4 +1,4 @@
-// $Id: zeige_werte.cc,v 1.16 2001/06/18 05:58:50 thoma Exp $
+// $Id: zeige_werte.cc,v 1.17 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,7 +19,7 @@
 
 #include "midgard_CG.hh"
 
-void midgard_CG::zeige_werte(const st_werte& w, const string& welche)
+void midgard_CG::zeige_werte(const st_werte& w, const std::string& welche)
 {
  werte=w; 
  if (welche == "grund" || welche == "alle")

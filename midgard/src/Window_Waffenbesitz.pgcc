@@ -34,10 +34,10 @@ exec sql include sqlca;
 
 void Window_Waffenbesitz::on_clist_waffe_alt_select_row(gint row, gint column, GdkEvent *event)
 {   
-  string waffe = clist_waffe_alt->get_text(row,0);
+  std::string waffe = clist_waffe_alt->get_text(row,0);
   memwaffe=row;
   int count=0;
-  for (vector<H_Data_waffen>::iterator i=Waffe_Besitz.begin();
+  for (std::vector<H_Data_waffen>::iterator i=Waffe_Besitz.begin();
          i!=Waffe_Besitz.end();++i)
    { 
      if (((*i)->Region()) !="") waffe = hauptfenster->get_region_waffen(waffe,(*i)->Region(),2);
@@ -52,10 +52,10 @@ void Window_Waffenbesitz::on_clist_waffe_alt_select_row(gint row, gint column, G
 
 void Window_Waffenbesitz::on_clist_waffe_neu_select_row(gint row, gint column, GdkEvent *event)
 {   
- string waffe = clist_waffe_neu->get_text(row,0);
- string region = clist_waffe_neu->get_text(row,2);
+ std::string waffe = clist_waffe_neu->get_text(row,0);
+ std::string region = clist_waffe_neu->get_text(row,2);
  if (region!="") 
-   { string wwaffe = hauptfenster->get_region_waffen(waffe,region,2);
+   { std::string wwaffe = hauptfenster->get_region_waffen(waffe,region,2);
      Waffe_Besitz.push_back(new Data_waffen(wwaffe,waffe,region,0,0,""));
    }
  if (region=="") 
@@ -66,7 +66,7 @@ void Window_Waffenbesitz::on_clist_waffe_neu_select_row(gint row, gint column, G
 }
 
 Window_Waffenbesitz::Window_Waffenbesitz(midgard_CG* h,
-      vector<H_Data_waffen>& vw,vector<H_Data_waffen>& wb,st_werte& we )
+      std::vector<H_Data_waffen>& vw,std::vector<H_Data_waffen>& wb,st_werte& we )
 : vec_Waffen(vw), Waffe_Besitz(wb), werte(we)
 {
   mag_bonus_bool=false;
@@ -86,11 +86,11 @@ void  Window_Waffenbesitz::show_alte_waffen()
 {
   clist_waffe_alt->clear();
   Gtk::OStream os(clist_waffe_alt);  
-  for (vector<H_Data_waffen>::const_iterator i=Waffe_Besitz.begin();
+  for (std::vector<H_Data_waffen>::const_iterator i=Waffe_Besitz.begin();
             i!=Waffe_Besitz.end();++i)
    {
-     string schaden=hauptfenster->waffe_werte((*i),werte,"Schaden");
-     string bonus= "("+itos((*i)->av_Bonus())+"/"+itos((*i)->sl_Bonus())+")";
+     std::string schaden=hauptfenster->waffe_werte((*i),werte,"Schaden");
+     std::string bonus= "("+itos((*i)->av_Bonus())+"/"+itos((*i)->sl_Bonus())+")";
      if ((*i)->Magisch()=="")   bonus = "";
      if ((*i)->Region()=="")
         os << (*i)->Name() <<"\t"<<schaden<<"\t"<<bonus<<"\n";
@@ -133,8 +133,8 @@ void  Window_Waffenbesitz::show_neue_waffen()
      exec sql fetch ein into :db_waffe;
      SQLerror::test(__FILELINE__,100);
      if (sqlca.sqlcode) break;
-     string schaden=hauptfenster->waffe_werte(new Data_waffen(db_waffe,db_waffe,"",0,0,""),werte,"Schaden");
-     string waffe=db_waffe;
+     std::string schaden=hauptfenster->waffe_werte(new Data_waffen(db_waffe,db_waffe,"",0,0,""),werte,"Schaden");
+     std::string waffe=db_waffe;
      if (waffe!="waffenloser Kampf" )
         os << db_waffe<<"\t"<<schaden<<"\n";
 
@@ -144,8 +144,8 @@ void  Window_Waffenbesitz::show_neue_waffen()
       where name = :db_waffe; 
       exec sql open alias_ein;     
      SQLerror::test(__FILELINE__);
-     vector<string> aliaswaffen;
-     vector<string> aliasregion;
+     std::vector<string> aliaswaffen;
+     std::vector<string> aliasregion;
      while(true)
       {
         exec sql fetch alias_ein into :db_alias, :db_region ;
@@ -176,7 +176,7 @@ void Window_Waffenbesitz::on_checkbutton_mag_waffenbonus_toggled()
 void Window_Waffenbesitz::mag_boni_uebernehmen(H_Data_waffen& wa)
 {
   int count=0; 
-  for (vector<H_Data_waffen>::iterator i=Waffe_Besitz.begin();
+  for (std::vector<H_Data_waffen>::iterator i=Waffe_Besitz.begin();
          i!=Waffe_Besitz.end();++i)
      if (count++ == memwaffe) (*i)=wa;
   Window_Waffenbesitz::show_alte_waffen();

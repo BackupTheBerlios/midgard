@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.18 2001/06/12 09:31:06 thoma Exp $
+// $Id: WindowInfo.cc,v 1.19 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,7 +35,7 @@ void WindowInfo::on_button_info_ok_clicked()
  destroy();
 }
 
-WindowInfo::WindowInfo(const string& s,bool immer)
+WindowInfo::WindowInfo(const std::string& s,bool immer)
 {
    if (Infobool||immer) infotext->set_text(s.c_str());
    else destroy();

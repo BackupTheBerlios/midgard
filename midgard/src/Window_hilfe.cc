@@ -1,4 +1,4 @@
-// $Id: Window_hilfe.cc,v 1.19 2001/06/21 13:40:41 thoma Exp $
+// $Id: Window_hilfe.cc,v 1.20 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,13 +37,13 @@ Window_hilfe::Window_hilfe()
 {
 // text_hilfe->delete_text(0,text_hilfe->get_length());
  gint pos=0;
- string s=hilfetext();
+ std::string s=hilfetext();
  text_hilfe->insert_text(s.c_str() , s.size(), &pos);
 }
 
-string Window_hilfe::hilfetext()
+std::string Window_hilfe::hilfetext()
 {
-string s="
+std::string s="
 1. Generierung eines neuen Charakters
 
 * Spezies wählen (wenn es KEIN Mensch sein soll)

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_kido.cc,v 1.17 2001/06/26 05:20:29 thoma Exp $
+// $Id: midgard_CG_kido.cc,v 1.18 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -28,7 +28,7 @@ void midgard_CG::on_kido_wahl_clicked()
        werte.spezialisierung!="Harte Techniken" &&
        werte.spezialisierung!="Gemischte Techniken")
     {
-      string strinfo="Erst eine Technik wählen\n";
+      std::string strinfo="Erst eine Technik wählen\n";
       manage(new WindowInfo(strinfo));
       return;
     }
@@ -40,7 +40,7 @@ void midgard_CG::show_kido()
 {
    clist_kido->clear();
    Gtk::OStream os(clist_kido);
-   for (vector<H_Data_kido>::const_iterator i=vec_Kido.begin();i!=vec_Kido.end();++i)
+   for (std::vector<H_Data_kido>::const_iterator i=vec_Kido.begin();i!=vec_Kido.end();++i)
     {
       os << (*i)->Hoho()<<"\t"<<(*i)->Name()<<"\t"<<"\t"<<(*i)->Ap()<<"\t"<<(*i)->Kosten()<<"\n";
     }
@@ -48,10 +48,10 @@ void midgard_CG::show_kido()
       clist_kido->set_column_auto_resize(i,true);
 }
 
-void midgard_CG::kido_uebernehmen(vector<string>& technik)
+void midgard_CG::kido_uebernehmen(std::vector<string>& technik)
 {
    clist_kido->clear();
-   for (vector<string>::const_iterator i=technik.begin();i!=technik.end();++i)
+   for (std::vector<string>::const_iterator i=technik.begin();i!=technik.end();++i)
       vec_Kido.push_back(new Data_kido(*i));
    get_kido(vec_Kido);
    midgard_CG::show_kido();

@@ -41,7 +41,7 @@ Window_ruestung::Window_ruestung(st_werte& w,midgard_CG* h)
 : werte(w)
 {
  hauptfenster=h;
- string sru="Rüstung auswählen. Bisherige Rüstung: ("+ werte.ruestung +")";
+ std::string sru="Rüstung auswählen. Bisherige Rüstung: ("+ werte.ruestung +")";
  label_ruestung->set_text(sru.c_str());
  exec sql begin declare section;
    int lp,mst,rw,b;

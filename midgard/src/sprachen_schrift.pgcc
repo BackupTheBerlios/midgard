@@ -24,7 +24,7 @@ exec sql include sqlca;
 
 void midgard_CG::sprachen_schrift()
 {
- for(vector<H_Data_sprache>::iterator i = vec_Sprachen.begin();
+ for(std::vector<H_Data_sprache>::iterator i = vec_Sprachen.begin();
          i!=vec_Sprachen.end();++i)
    {
       exec sql begin declare section;
@@ -33,18 +33,18 @@ void midgard_CG::sprachen_schrift()
       strncpy(db_sprache,((*i)->Name()).c_str(),sizeof(db_sprache)); 
       exec sql select distinct schrift into :db_schrift from sprachen where name = :db_sprache; 
       SQLerror::test(__FILELINE__);
-      for(vector<H_Data_schrift>::iterator j = vec_Schriften.begin();
+      for(std::vector<H_Data_schrift>::iterator j = vec_Schriften.begin();
             j!=vec_Schriften.end();++j)
          {
-            string schrift = db_schrift;
-            string ktp;
+            std::string schrift = db_schrift;
+            std::string ktp;
             if (schrift==(*j)->Urschrift()) (*i)->set_Urschrift(db_schrift);
             if ((*i)->Name()=="KanThaiTun")
-               {  string ks((*j)->Urschrift(),0,10);
+               {  std::string ks((*j)->Urschrift(),0,10);
                   if (ks==(*i)->Name()) 
                    { if ((*i)->Urschrift().size()==0) (*i)->set_Urschrift(ks+" ");
                      else (*i)->set_Urschrift((*i)->Urschrift()+",");
-                     string z((*j)->Urschrift(),11,1);
+                     std::string z((*j)->Urschrift(),11,1);
                      (*i)->set_Urschrift((*i)->Urschrift() + z);
                    }
                }

@@ -6,18 +6,18 @@
 
 class Data_fert : public RowDataBase
 {
-   string name;
+   std::string name;
    int wert, lernkosten, steigern, reduzieren, verlernen;
-   string art, voraussetzungen, attribut, pflicht;
+   std::string art, voraussetzungen, attribut, pflicht;
    int lernpunkte;
  public:
-   Data_fert(const string& n, int w) : name(n),wert(w),lernkosten(0),steigern(0),reduzieren(0),verlernen(0),lernpunkte(0) {}
-   Data_fert(const string& n, int w, const string& a) : name(n),wert(w),lernkosten(0),steigern(0),reduzieren(0),verlernen(0),attribut(a),lernpunkte(0) {}
-   Data_fert(const string& n, int w,int s,int r,int v )
+   Data_fert(const std::string& n, int w) : name(n),wert(w),lernkosten(0),steigern(0),reduzieren(0),verlernen(0),lernpunkte(0) {}
+   Data_fert(const std::string& n, int w, const std::string& a) : name(n),wert(w),lernkosten(0),steigern(0),reduzieren(0),verlernen(0),attribut(a),lernpunkte(0) {}
+   Data_fert(const std::string& n, int w,int s,int r,int v )
       :name(n),wert(w),lernkosten(0),steigern(s),reduzieren(r),verlernen(v),lernpunkte(0) {}
-   Data_fert(const string& n, int w,int l,const string& a, const string& v )
+   Data_fert(const std::string& n, int w,int l,const std::string& a, const std::string& v )
       :name(n),wert(w),lernkosten(l),steigern(0),reduzieren(0),verlernen(0),art(a),voraussetzungen(v),lernpunkte(0) {}   
-   Data_fert(const string &n,int w,int fp, const string& v, const string& a,const string &p, int L)
+   Data_fert(const std::string &n,int w,int fp, const std::string& v, const std::string& a,const std::string &p, int L)
       :name(n),wert(w),lernkosten(fp),steigern(0),reduzieren(0),verlernen(0),voraussetzungen(v),attribut(a),pflicht(p),lernpunkte(L) {}   
 
 
@@ -41,17 +41,17 @@ class Data_fert : public RowDataBase
         }
       return cH_EntryValueIntString("?");
     }
- string Name() const {  return name; }
+ std::string Name() const {  return name; }
  int  Erfolgswert() const {  return wert; }  
 // cH_EntryValue  Empty_Erfolgswert() const {  return cH_EntryValueEmptyInt(wert); }  
  int  Lernkosten() const {  return lernkosten; }
  int  Steigern() const {  return steigern; }
  int  Reduzieren() const {  return reduzieren; }
  int  Verlernen() const {  return verlernen; }  
- string  Attribut() const {  return attribut; }
-// string  Art() const {  return art; }
- string  Voraussetzung() const {  return voraussetzungen; }
- string  Pflicht() const {  return pflicht; }
+ std::string  Attribut() const {  return attribut; }
+// std::string  Art() const {  return art; }
+ std::string  Voraussetzung() const {  return voraussetzungen; }
+ std::string  Pflicht() const {  return pflicht; }
  int  Lernpunkte() const {  return lernpunkte; }
 
  void set_Erfolgswert(int i) {wert=i;}

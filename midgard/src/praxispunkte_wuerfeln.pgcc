@@ -23,7 +23,7 @@
 #include <strstream>
 exec sql include sqlca;
 
-int midgard_CG::praxispunkte_wuerfeln(const string& fert,int alter_wert, const string& art, bool wuerfeln)
+int midgard_CG::praxispunkte_wuerfeln(const std::string& fert,int alter_wert, const std::string& art, bool wuerfeln)
 {
  Random random;
  exec sql begin declare section;
@@ -40,7 +40,7 @@ int midgard_CG::praxispunkte_wuerfeln(const string& fert,int alter_wert, const s
    into  :db_max_wert, :db_lernfaktor , :db_art
    from praxispunkte p,waffen w where p.name=w.art and w.name = :db_fert;
    SQLerror::test(__FILELINE__);
-   string sdb_art = db_art;
+   std::string sdb_art = db_art;
    if (Typ.Short() == "Kr" || Typ.Short() == "Sö" ) 
       {
         if (sdb_art == "Angriff" || sdb_art == "Fern") db_max_wert = 19;

@@ -34,7 +34,7 @@ exec sql include sqlca;
 
 void Sprache_auswahl::on_clist_sp_sc_select_row(gint row, gint column, GdkEvent *event)
 {   
-   string fert = clist_sp_sc->get_text(row,0);
+   std::string fert = clist_sp_sc->get_text(row,0);
    if (modus =="Sprache")
     {
        int wert = atoi(clist_sp_sc->get_text(row,2).c_str());
@@ -42,14 +42,14 @@ void Sprache_auswahl::on_clist_sp_sc_select_row(gint row, gint column, GdkEvent 
     }
    if (modus =="Lesen/Schreiben") 
     {
-      string typ  = clist_sp_sc->get_text(row,1);
+      std::string typ  = clist_sp_sc->get_text(row,1);
       hauptfenster->schrift_uebernehmen(fert,typ);
     }
    destroy();
 }
 
 
-Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const string& mod)
+Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const std::string& mod)
 {
    hauptfenster=h;
    modus = mod;

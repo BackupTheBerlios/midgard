@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.18 2001/06/27 10:10:16 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.19 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,12 +36,12 @@ void midgard_CG::get_grundwerte()
 {
   Random random;
   int z=random.integer(1,100);
-  string stinfo="Beim Würfeln zur Erhöhung einer Eigenschaft\nbeim Gradanstieg wurde eine ";
+  std::string stinfo="Beim Würfeln zur Erhöhung einer Eigenschaft\nbeim Gradanstieg wurde eine ";
   stinfo += itos(z);
   stinfo +=" gewürfelt --> ";
-//  cout << "Beim Würfeln zur Erhöhung einer Eigenschaft beim Gradanstieg\n"
+//  std::cout << "Beim Würfeln zur Erhöhung einer Eigenschaft beim Gradanstieg\n"
 //       << " wurde eine "<<z<<" gewürfelt --> ";
-  string was = "keine Erhöhung";
+  std::string was = "keine Erhöhung";
 
   int erh = random.integer(1,6)+1;
   if( 81<=z && z>=83 ) { was="Stärke";           werte.st+=erh; }
@@ -135,8 +135,8 @@ void midgard_CG::get_ausdauer(int grad)
   nap = ap + nab + werte.bo_au ;
   int nspez = werte.grad*spezies_constraint.ap_grad;
   nap += nspez;
-//  cout << "Ausdauerpunkte: "<<ap<<" + " <<nab<<" + "<<werte.bo_au<<" + "<<nspez<<" = "<<nap<<"\n";
-  string stinfo="Ausdauerpunkte: Gewürfelt + Bonus für Typ + Persönlichen Bonus + Spezies-Bonus\n";
+//  std::cout << "Ausdauerpunkte: "<<ap<<" + " <<nab<<" + "<<werte.bo_au<<" + "<<nspez<<" = "<<nap<<"\n";
+  std::string stinfo="Ausdauerpunkte: Gewürfelt + Bonus für Typ + Persönlichen Bonus + Spezies-Bonus\n";
    stinfo+=itos(ap);stinfo+="+";stinfo+=itos(nab);
    stinfo+="+";stinfo+=itos(werte.bo_au);stinfo+="=";stinfo+=itos(nap);
   manage(new WindowInfo(stinfo,true));

@@ -1,4 +1,4 @@
-// $Id: Window_hilfe.hh,v 1.14 2001/06/12 09:31:06 thoma Exp $
+// $Id: Window_hilfe.hh,v 1.15 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,7 +36,7 @@ class Window_hilfe : public Window_hilfe_glade
         
         friend class Window_hilfe_glade;
         void on_button_hilfe_schliessen_clicked();
-        string hilfetext();
+        std::string hilfetext();
    public:
         Window_hilfe();
 };

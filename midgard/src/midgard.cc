@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.17 2001/06/12 09:31:06 thoma Exp $
+// $Id: midgard.cc,v 1.18 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -41,7 +41,7 @@ int main(int argc, char **argv)
       
       Petig::dbdisconnect("midgard");
    } catch (SQLerror &e)
-   {  cerr << e << '\n';
+   {  std::cerr << e << '\n';
       return 1;
    }
    return 0;

@@ -1,4 +1,4 @@
-// $Id: LaTeX_kido.cc,v 1.17 2001/06/26 05:20:29 thoma Exp $
+// $Id: LaTeX_kido.cc,v 1.18 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,14 +22,14 @@
 
 void midgard_CG::LaTeX_kido()
 {
-  string name = "midgard_tmp_mykido.tex";
+  std::string name = "midgard_tmp_mykido.tex";
   ofstream fout(name.c_str());
 //  for (unsigned int i=0;i<vec_kido.size();++i)
-  for (vector<H_Data_kido>::const_iterator i=vec_Kido.begin();i!=vec_Kido.end();++i)
+  for (std::vector<H_Data_kido>::const_iterator i=vec_Kido.begin();i!=vec_Kido.end();++i)
    {
-     string ap = itos((*i)->Ap());
+     std::string ap = itos((*i)->Ap());
      if (ap=="0") ap="";
-     string stufe=(*i)->Stufe();
+     std::string stufe=(*i)->Stufe();
      if (stufe=="Schüler") stufe="S";
      if (stufe=="Eingeweihter") stufe="E";
      if (stufe=="Meister") stufe="M";

@@ -44,7 +44,7 @@ Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const st_werte& werte, const Data_t
    char query[1024];
   exec sql end declare section;
 
-   string squery = "select distinct l.fertigkeit, l.lernpunkte, a.ap, a.kosten \
+   std::string squery = "select distinct l.fertigkeit, l.lernpunkte, a.ap, a.kosten \
       from lernschema l, arkanum_zauber a \
       where (l.typ = '"+Typ.Short()+"' or l.typ = '"+Typ2.Short()+"') \
       and l.art = 'Zauber' and a.name = l.fertigkeit ";
@@ -52,7 +52,7 @@ Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const st_werte& werte, const Data_t
    squery += " order by lernpunkte";      
   
    strncpy(query,squery.c_str(),sizeof(query));
-//cout <<  query<<"\n";
+//std::cout <<  query<<"\n";
    Transaction tr;
     exec sql prepare zauber_ from :query;
     exec sql declare zauber cursor for zauber_;
@@ -68,7 +68,7 @@ Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const st_werte& werte, const Data_t
 
     exec sql close zauber;
     Gtk::OStream os(zauber_clist_auswahl);
-    for(vector<H_Data_zauber>::iterator i=vec_zauber.begin();i!=vec_zauber.end();++i)
+    for(std::vector<H_Data_zauber>::iterator i=vec_zauber.begin();i!=vec_zauber.end();++i)
       {
          double fac=hauptfenster->get_standard_zauber(Typ,Typ2,(*i)->Name());
          os << (*i)->Lernpunkte() <<"\t"<< (*i)->Name() <<"\t"
@@ -101,7 +101,7 @@ void Zauber_auswahl::on_zauber_clist_auswahl_unselect_row(gint row, gint column,
 
 void Zauber_auswahl::on_close_zauber_clicked()
 {   
-   vector<H_Data_zauber> saz;
+   std::vector<H_Data_zauber> saz;
    for (Gtk::CList::SelectionList::iterator i=zauber_clist_auswahl->selection().begin();
          i!=zauber_clist_auswahl->selection().end();++i)
      {  

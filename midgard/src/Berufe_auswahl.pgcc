@@ -32,7 +32,7 @@ exec sql include sqlca;
 #include <Gtk_OStream.h>
 
 
-Berufe_auswahl::Berufe_auswahl(midgard_CG* h, const string& TypZ, const string& Typ2Z, int lernpunkte, const st_werte& werte)
+Berufe_auswahl::Berufe_auswahl(midgard_CG* h, const std::string& TypZ, const std::string& Typ2Z, int lernpunkte, const st_werte& werte)
 {
   hauptfenster=h;
   maxpunkte = lernpunkte;
@@ -62,7 +62,7 @@ Berufe_auswahl::Berufe_auswahl(midgard_CG* h, const string& TypZ, const string& 
          exec sql fetch beruf_spezies into :db_beruf,:db_lernpunkte;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         string vorteile = Berufe_auswahl::Beruf_vorteile(db_beruf);         
+         std::string vorteile = Berufe_auswahl::Beruf_vorteile(db_beruf);         
          vec_Beruf.push_back(new Data_beruf(db_beruf, vorteile,werte.spezies,
                            werte.spezies,db_lernpunkte));
       }
@@ -84,14 +84,14 @@ Berufe_auswahl::Berufe_auswahl(midgard_CG* h, const string& TypZ, const string& 
                         :db_voraussetzung;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         string vorteile = Berufe_auswahl::Beruf_vorteile(db_beruf);         
+         std::string vorteile = Berufe_auswahl::Beruf_vorteile(db_beruf);         
          vec_Beruf.push_back(new Data_beruf(db_beruf, vorteile,db_voraussetzung,
                            db_stand,db_lernpunkte));
       }
     exec sql close beruf;
     tr.close();
     Gtk::OStream os(berufe_clist_auswahl);
-    for(vector<H_Data_beruf>::iterator i=vec_Beruf.begin();i!=vec_Beruf.end();++i)
+    for(std::vector<H_Data_beruf>::iterator i=vec_Beruf.begin();i!=vec_Beruf.end();++i)
       {
          if (Berufe_auswahl::berufe_voraussetzung((*i)->Name(),werte,TypZ,Typ2Z)||werte.spezies!="Mensch")
           {
@@ -126,7 +126,7 @@ void Berufe_auswahl::on_berufe_clist_auswahl_unselect_row(gint row, gint column,
 
 void Berufe_auswahl::on_close_berufe_clicked()
 {   
-   vector<H_Data_beruf> sab;
+   std::vector<H_Data_beruf> sab;
    for (Gtk::CList::SelectionList::iterator i=berufe_clist_auswahl->selection().begin();
          i!=berufe_clist_auswahl->selection().end();++i)
      {  
@@ -139,7 +139,7 @@ void Berufe_auswahl::on_close_berufe_clicked()
 
 }
 
-bool Berufe_auswahl::berufe_voraussetzung(const string& beruf, const st_werte& werte, const string& typz, const string& typ2z)
+bool Berufe_auswahl::berufe_voraussetzung(const std::string& beruf, const st_werte& werte, const std::string& typz, const std::string& typ2z)
 {
   exec sql begin declare section;
    int db_st,db_ge,db_ko,db_in,db_zt,db_pa,db_au,db_sb;
@@ -158,9 +158,9 @@ bool Berufe_auswahl::berufe_voraussetzung(const string& beruf, const st_werte& w
       :db_sb,:db_geschlecht,:db_region
    from berufe_voraussetzung where beruf= :db_beruf limit 1;
   SQLerror::test(__FILELINE__);
-//cout << beruf<<"\t->"<<db_typ<<"<-\t";
-  string geschlecht = db_geschlecht;
-//cout << "->"<<geschlecht<<"<- ->"<<werte.geschlecht<<"<-\n";
+//std::cout << beruf<<"\t->"<<db_typ<<"<-\t";
+  std::string geschlecht = db_geschlecht;
+//std::cout << "->"<<geschlecht<<"<- ->"<<werte.geschlecht<<"<-\n";
   if (   db_st<=werte.st &&
          db_ge<=werte.ge &&
          db_ko<=werte.ko &&
@@ -177,9 +177,9 @@ bool Berufe_auswahl::berufe_voraussetzung(const string& beruf, const st_werte& w
   else return false ;
 }
 
-bool Berufe_auswahl::btyp(const string& typ, const string& typz, const string& typ2z)
+bool Berufe_auswahl::btyp(const std::string& typ, const std::string& typz, const std::string& typ2z)
 {
-//cout <<"\t"<<typz<<"\t";
+//std::cout <<"\t"<<typz<<"\t";
  if (typ2z!="") return true; // Doppelklassencharakter 
  bool r;
  if       (typ=="z" && typz=="z") r=true;
@@ -187,11 +187,11 @@ bool Berufe_auswahl::btyp(const string& typ, const string& typz, const string& t
  else if  (typ=="k" && typz=="j") r=true; 
  else if  (typ=="0") r=true;
  else r = false;
-//cout << r<<"\n";
+//std::cout << r<<"\n";
  return r;
 }
 
-string Berufe_auswahl::Beruf_vorteile(const string& beruf)
+std::string Berufe_auswahl::Beruf_vorteile(const std::string& beruf)
 {
   exec sql begin declare section;
    char db_beruf[30];
@@ -201,12 +201,12 @@ string Berufe_auswahl::Beruf_vorteile(const string& beruf)
   exec sql select coalesce(vorteil,'') into :db_vorteile from berufe_vorteile
       where beruf = :db_beruf;
   SQLerror::test(__FILELINE__,100);
-  string vorteile;
+  std::string vorteile;
   for (int i=0;i<sqlca.sqlerrd[2];++i)  
    {
      vorteile += db_vorteile[i];
      if (i!=sqlca.sqlerrd[2]-1) vorteile += ", ";
    }
-//cout << db_beruf<<"\t"<<vorteile<<"\n";
+//std::cout << db_beruf<<"\t"<<vorteile<<"\n";
   return vorteile;
 }

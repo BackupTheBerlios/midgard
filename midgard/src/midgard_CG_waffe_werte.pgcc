@@ -21,10 +21,10 @@
 #include <Aux/SQLerror.h>
 #include <Gtk_OStream.h>
 exec sql include sqlca;
-int swk(vector<H_Data_waffen>& vec_Waffen);
+int swk(std::vector<H_Data_waffen>& vec_Waffen);
 
 
-string midgard_CG::waffe_werte(const H_Data_waffen& Waffe,const st_werte& werte, const string& mod)
+std::string midgard_CG::waffe_werte(const H_Data_waffen& Waffe,const st_werte& werte, const std::string& mod)
 {
   exec sql begin declare section;
    char db_waffe[50];
@@ -44,7 +44,7 @@ string midgard_CG::waffe_werte(const H_Data_waffen& Waffe,const st_werte& werte,
             :db_reich_0, :db_reich_n, :db_reich_m, :db_reich_f
       from waffen where name = :db_waffe;
   SQLerror::test(__FILELINE__);
-  string art=db_art;
+  std::string art=db_art;
   if (mod=="Verteidigung")
    {
       if (art=="Verteidigung") return "true";
@@ -52,25 +52,25 @@ string midgard_CG::waffe_werte(const H_Data_waffen& Waffe,const st_werte& werte,
    }
   if (mod=="Angriffsrangmodifikation")
    {
-      string anm = db_angriffsrangmod;
+      std::string anm = db_angriffsrangmod;
       return anm;
    }
   if (mod=="WM_Abwehr")
    {
-      string abl = db_wm_abwehr_leicht;
-      string abs = db_wm_abwehr_schwer;
+      std::string abl = db_wm_abwehr_leicht;
+      std::string abs = db_wm_abwehr_schwer;
       if (abl==""&&abs=="") return "";
       else return abl+"$|$"+abs;
    }
   if (mod=="Angriffsrangmodifikation")
    {
-      string ret = db_angriffsrangmod;
+      std::string ret = db_angriffsrangmod;
       return ret;
    }
   if (mod=="Schaden" || mod=="Schaden+mag_Bonus")
    {
      if (art=="Verteidigung") return "-"+itos(db_sb)+"AP"; /* doppeltes Minus wg. LaTeX Ausdruck */
-     string schaden = db_s1;
+     std::string schaden = db_s1;
      if (schaden=="0") return "";
      if (Waffe->Name()=="waffenloser Kampf") {schaden="W6"; db_sb=swk(vec_Waffen);}
 
@@ -88,18 +88,18 @@ string midgard_CG::waffe_werte(const H_Data_waffen& Waffe,const st_werte& werte,
  if (mod=="Fern")
    {
      if (db_reich_0==-1) return ""; // keine Fernkampfwaffe
-     string s = itos(db_reich_0)+"/"+itos(db_reich_n)+"/"
+     std::string s = itos(db_reich_0)+"/"+itos(db_reich_n)+"/"
               + itos(db_reich_m)+"/"+itos(db_reich_f); 
      return s; 
    }
  abort();
 }
 
-int swk(vector<H_Data_waffen>& vec_Waffen) 
+int swk(std::vector<H_Data_waffen>& vec_Waffen) 
 /*Schaden für waffenlosen Kampf*/
 {
    int wert = 4;
-   for (vector<H_Data_waffen>::const_iterator i=vec_Waffen.begin();
+   for (std::vector<H_Data_waffen>::const_iterator i=vec_Waffen.begin();
          i!=vec_Waffen.end();++i)
      if ((*i)->Name() == "waffenloser Kampf") 
       { wert=(*i)->Erfolgswert(); break;}

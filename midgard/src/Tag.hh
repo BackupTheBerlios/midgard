@@ -27,19 +27,19 @@
 #include <algo.h> // for find
 
 class Tag {
-    	string type;
-    	string value;
-    	vector <Tag> sub_specifications;
+    	std::string type;
+    	std::string value;
+    	std::vector <Tag> sub_specifications;
 public:
-    	Tag(const string &t,const string &v="") throw()
+    	Tag(const std::string &t,const std::string &v="") throw()
 		: type(t), value(v)
 	{}
 	Tag &push_back(const Tag t) throw()
 	{  sub_specifications.push_back(t);
 	   return *(sub_specifications.end()-1);
 	}
-	typedef vector<Tag>::iterator iterator;
-	typedef vector<Tag>::const_iterator const_iterator;
+	typedef std::vector<Tag>::iterator iterator;
+	typedef std::vector<Tag>::const_iterator const_iterator;
 	const_iterator begin() const throw()
 	{  return sub_specifications.begin(); }
 	const_iterator end() const throw()
@@ -49,11 +49,11 @@ public:
 	iterator end() throw()
 	{  return sub_specifications.end(); }
 	
-	const string Type() const throw()
+	const std::string Type() const throw()
 	{  return type; }
-	const string Value() const throw()
+	const std::string Value() const throw()
 	{  return value; }
-	void Value(const string &val) throw()
+	void Value(const std::string &val) throw()
 	{  value=val; }
 	bool        parse_bool_value() const;
 	int         parse_int_value() const;
@@ -62,25 +62,25 @@ public:
 	double      parse_double_value() const;
 	
 	// slow variants
-	const Tag *find(const string &type) const;
-	Tag *find(const string &type);
+	const Tag *find(const std::string &type) const;
+	Tag *find(const std::string &type);
 	// please prefer these finds, they are faster!
-	const_iterator find(const_iterator it,const string &type) const
+	const_iterator find(const_iterator it,const std::string &type) const
 	{  return ::find(it,end(),type); }
-	iterator find(iterator it,const string &type)
+	iterator find(iterator it,const std::string &type)
 	{  return ::find(it,end(),type); }
 	
 	// values of substructures
-	bool hasTag(const string &typ) const throw();
-	const string getString(const string &typ,const string &def="") const throw();
-	bool getBool(const string &typ,bool def=false) const throw();
-	int getInt(const string &typ,int def=-1) const throw();
-	float getFloat(const string &typ,float def=0) const throw();
-	void mark(const string &tg,const string &value) throw();
+	bool hasTag(const std::string &typ) const throw();
+	const std::string getString(const std::string &typ,const std::string &def="") const throw();
+	bool getBool(const std::string &typ,bool def=false) const throw();
+	int getInt(const std::string &typ,int def=-1) const throw();
+	float getFloat(const std::string &typ,float def=0) const throw();
+	void mark(const std::string &tg,const std::string &value) throw();
 	
-	bool operator==(const string &tp) const
+	bool operator==(const std::string &tp) const
 	{  return type==tp; }
-	bool operator!=(const string &tp) const
+	bool operator!=(const std::string &tp) const
 	{  return type!=tp; }
 	
 	void debug(int recursion_depth=2,int indent=0) const;

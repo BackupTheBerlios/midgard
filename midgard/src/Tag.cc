@@ -20,22 +20,22 @@
 #include "Tag.hh"
 #include <algo.h>
 
-const Tag *Tag::find(const string &tp) const
+const Tag *Tag::find(const std::string &tp) const
 {  const_iterator i=find(begin(),tp);
    if (i==end()) return 0;
    return &*i;
 }
 
-Tag *Tag::find(const string &tp)
+Tag *Tag::find(const std::string &tp)
 {  iterator i=find(begin(),tp);
    if (i==end()) return 0;
    return &*i;
 }
 
-static string quote_nonprintable(const string &in)
-{  string res;
+static std::string quote_nonprintable(const std::string &in)
+{  std::string res;
    static const char * const hex= "0123456789ABCDEF";
-   for (string::const_iterator i=in.begin();i!=in.end();++i)
+   for (std::string::const_iterator i=in.begin();i!=in.end();++i)
    {  if ((unsigned char)(*i)<32 || (127<=(unsigned char)(*i) && (unsigned char)(*i)<160))
          switch (*i)
          {  case '\r': res+="\\r"; break;
@@ -43,7 +43,7 @@ static string quote_nonprintable(const string &in)
             case '\n': res+="\\n"; break;
             case '\b': res+="\\b"; break;
             case '\0': res+="\\0"; break;
-            default: res+=string("\\x")+hex[(*i>>4)&0xf]+hex[*i&0xf];
+            default: res+=std::string("\\x")+hex[(*i>>4)&0xf]+hex[*i&0xf];
                break;
          }
       else res+=*i;
@@ -52,24 +52,24 @@ static string quote_nonprintable(const string &in)
 }
 
 void Tag::debug(int recursion_depth,int indent) const
-{  cout.write("                                                       ",indent);
-   cout << '"' << Type() << '"';
-   if (Value()[0]) cout << "=\"" << quote_nonprintable(Value()) << '"';
-   else cout << " @" << this;
-   cout << "\n";
+{  std::cout.write("                                                       ",indent);
+   std::cout << '"' << Type() << '"';
+   if (Value()[0]) std::cout << "=\"" << quote_nonprintable(Value()) << '"';
+   else std::cout << " @" << this;
+   std::cout << "\n";
    if (recursion_depth>2 || (recursion_depth>0 && Type()!="widget"))
       for (const_iterator i=begin();i!=end();++i)
          (*i).debug(recursion_depth-1,indent+2);
 }
 
-bool Tag::hasTag(const string &typ) const throw()
+bool Tag::hasTag(const std::string &typ) const throw()
 {  return find(begin(),typ)!=end();
 }
 
 bool Tag::parse_bool_value() const
 {  if (!strcasecmp(Value().c_str(),"true")) return true;
    if (!strcasecmp(Value().c_str(),"false")) return false;
-   cerr << "strange bool value: <" << Type() << "> \"" << Value() << "\"\n";
+   std::cerr << "strange bool value: <" << Type() << "> \"" << Value() << "\"\n";
    return parse_int_value();
 }
 
@@ -91,32 +91,32 @@ double Tag::parse_double_value() const
 {  return atof(Value().c_str());
 }
 
-const string Tag::getString(const string &typ,const string &def) const throw()
+const std::string Tag::getString(const std::string &typ,const std::string &def) const throw()
 {  const_iterator t=find(begin(),typ);
 // XXX parse &gt; &auml; etc.
    if (t!=end()) return t->Value();
    return def;
 }
 
-bool Tag::getBool(const string &typ,bool def) const throw()
+bool Tag::getBool(const std::string &typ,bool def) const throw()
 {  const_iterator t=find(begin(),typ);
    if (t==end()) return def;
    return t->parse_bool_value();
 }
 
-int Tag::getInt(const string &typ,int def) const throw()
+int Tag::getInt(const std::string &typ,int def) const throw()
 {  const_iterator t=find(begin(),typ);
    if (t==end()) return def;
    return t->parse_int_value();
 }
 
-float Tag::getFloat(const string &typ,float def) const throw()
+float Tag::getFloat(const std::string &typ,float def) const throw()
 {  const_iterator t=find(begin(),typ);
    if (t==end()) return def;
    return t->parse_float_value();
 }
 
-void Tag::mark(const string &tg,const string &value) throw()
+void Tag::mark(const std::string &tg,const std::string &value) throw()
 {  iterator t=find(begin(),tg);
    if (t==end()) push_back(Tag(tg,value));
    else (*t).Value(value);

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.22 2001/06/27 10:10:16 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.23 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,7 +31,7 @@ void midgard_CG::on_lernpunkte_wuerfeln_clicked()
   else             lernpunkte.set_Waffen(random.integer(1,6)+1); // Doppelcharakter bei Elfen
   if (Typ.Zaubern()=="j" || Typ.Zaubern() == "z" && Typ2.Short()=="") 
       lernpunkte.set_Zauber(random.integer(1,6)+random.integer(1,6));
-  if (Typ.Zaubern()=="j" || Typ.Zaubern() == "z" && Typ2.Short()!="") 
+  if (Typ2.Zaubern()=="j" || Typ2.Zaubern() == "z" && Typ2.Short()!="") 
       lernpunkte.set_Zauber(random.integer(1,6)+1);
 
   if (werte.alter==0)
@@ -79,7 +79,7 @@ void midgard_CG::on_button_geld_waffen_clicked()
   manage(new Window_Waffe_Geld::Window_Waffe_Geld(this,werte,vec_Waffen));
 }
 
-void midgard_CG::waffe_besitz_uebernehmen(const vector<H_Data_waffen>& wbu)
+void midgard_CG::waffe_besitz_uebernehmen(const std::vector<H_Data_waffen>& wbu)
 {
  vec_Waffen_besitz = wbu;
 }

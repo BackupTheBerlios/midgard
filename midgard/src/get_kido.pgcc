@@ -30,14 +30,14 @@ exec sql include sqlca;
 #include <cstring>
 #include <Gtk_OStream.h>
 
-void midgard_CG::get_kido(vector<H_Data_kido>& vec_Kido)
+void midgard_CG::get_kido(std::vector<H_Data_kido>& vec_Kido)
 {
   exec sql begin declare section;
    char db_name_orig[50],db_name[50],db_stufe[20],db_stil[20],db_effekt[1024];
    int db_fp,db_ap;
   exec sql end declare section;
 
-  for(vector<H_Data_kido>::iterator i=vec_Kido.begin();i!=vec_Kido.end();++i)
+  for(std::vector<H_Data_kido>::iterator i=vec_Kido.begin();i!=vec_Kido.end();++i)
    { 
      strncpy(db_name_orig,((*i)->Hoho()).c_str(),sizeof(db_name_orig));
      exec sql select name,stufe,stil,fp,ap,effekt

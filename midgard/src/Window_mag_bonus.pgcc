@@ -39,7 +39,7 @@ Window_mag_bonus::Window_mag_bonus(Window_Waffenbesitz* h,H_Data_waffen& wa)
    strncpy(db_waffe,(Waffe_besitz->Name()).c_str(),sizeof(db_waffe));
    exec sql select art into :db_art from waffen where name = :db_waffe;
    SQLerror::test(__FILELINE__);
-   string art = db_art;
+   std::string art = db_art;
    if (art=="Verteidigung") 
       { label_av_bonus->set_text("Abwehrbonus");
         label_SL_bonus->set_text("LP-Schutz");

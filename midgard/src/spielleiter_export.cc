@@ -22,7 +22,7 @@
 
 void midgard_CG::spielleiter_export()
 {
-  string strinfo = "Datei 'spielleiter_export.txt' enthält nun die Daten des \n";
+  std::string strinfo = "Datei 'spielleiter_export.txt' enthält nun die Daten des \n";
   strinfo +="Charakters im Format für Midgard Publikationen\n";
   manage (new WindowInfo(strinfo));
   ofstream fout("spielleiter_export.txt");
@@ -43,15 +43,15 @@ void midgard_CG::spielleiter_export()
   fout << "Angriff: ";
 
 // for (unsigned int i=0;i<vec_waffen.size();++i)
-  for(vector<H_Data_waffen>::const_iterator i=vec_Waffen.begin();i!=vec_Waffen.end();++i)
+  for(std::vector<H_Data_waffen>::const_iterator i=vec_Waffen.begin();i!=vec_Waffen.end();++i)
    {
-    string wert = itos((*i)->Erfolgswert());
+    std::string wert = itos((*i)->Erfolgswert());
 //    for (unsigned int j=0; j<waffe_besitz.size();++j)
-    for(vector<H_Data_waffen>::const_iterator j=vec_Waffen_besitz.begin();j!=vec_Waffen_besitz.end();++j)
+    for(std::vector<H_Data_waffen>::const_iterator j=vec_Waffen_besitz.begin();j!=vec_Waffen_besitz.end();++j)
      {
       if ((*j)->Name()==(*i)->Name())
        {
-         string waffenname ;
+         std::string waffenname ;
          waffenname = (*j)->Alias();
          fout <<waffenname ;
          if ((*j)->av_Bonus()!=0 || (*j)->sl_Bonus()!=0) fout <<"$^*$";
@@ -63,8 +63,8 @@ void midgard_CG::spielleiter_export()
             anbo = 0;
          int wert = (*i)->Erfolgswert() + anbo + mag_schadensbonus;
          fout << "+"<<wert << "(";
-//         string schaden=midgard_CG::waffe_werte(waffe_besitz[j],werte,"Schaden+mag_Bonus");
-         string schaden=midgard_CG::waffe_werte(*j,werte,"Schaden+mag_Bonus");
+//         std::string schaden=midgard_CG::waffe_werte(waffe_besitz[j],werte,"Schaden+mag_Bonus");
+         std::string schaden=midgard_CG::waffe_werte(*j,werte,"Schaden+mag_Bonus");
          fout << schaden << ")";
        }
       fout << ", ";
@@ -78,18 +78,18 @@ void midgard_CG::spielleiter_export()
 
  // angeborene Fertigkeiten
 // for (unsigned int i=0;i<vec_an_fertigkeit.size();++i)
- for(vector<H_Data_fert>::const_iterator i=vec_an_Fertigkeit.begin();i!=vec_an_Fertigkeit.end();++i)
+ for(std::vector<H_Data_fert>::const_iterator i=vec_an_Fertigkeit.begin();i!=vec_an_Fertigkeit.end();++i)
    {
-    string wert = "+"+itos((*i)->Erfolgswert());
+    std::string wert = "+"+itos((*i)->Erfolgswert());
     if (wert == "+0") wert = "";
     fout <<(*i)->Name() << wert ;
     fout << ", ";
    }
  // Fertigkeiten
- for(vector<H_Data_fert>::const_iterator i=vec_Fertigkeiten.begin();i!=vec_Fertigkeiten.end();++i)
+ for(std::vector<H_Data_fert>::const_iterator i=vec_Fertigkeiten.begin();i!=vec_Fertigkeiten.end();++i)
 // for (unsigned int i=0;i<vec_fertigkeiten.size();++i)
    {
-    string wert = "+"+itos((*i)->Erfolgswert());
+    std::string wert = "+"+itos((*i)->Erfolgswert());
     if (wert == "+0") wert = "";
     fout <<(*i)->Name() << wert ;
 //    if (i!=vec_fertigkeiten.size()-1) fout << ", ";
@@ -97,7 +97,7 @@ void midgard_CG::spielleiter_export()
    }
  fout << " - ";
 // for (unsigned int i=0; i<vec_sprachen.size();++i)
- for (vector<H_Data_sprache>::const_iterator i=vec_Sprachen.begin();i!=vec_Sprachen.end();++i)
+ for (std::vector<H_Data_sprache>::const_iterator i=vec_Sprachen.begin();i!=vec_Sprachen.end();++i)
    {
       fout << (*i)->Name() << " " << (*i)->Wert() ;
       if (i!=vec_Sprachen.end()) fout <<", ";
@@ -107,7 +107,7 @@ void midgard_CG::spielleiter_export()
    {
      fout << "\n\n";
      fout << "Zaubern+"<<atoi(werte.zaubern_wert.c_str())+werte.bo_za<<": ";
-     for (vector<H_Data_zauber>::const_iterator i=vec_Zauber.begin();i!=vec_Zauber.end();)
+     for (std::vector<H_Data_zauber>::const_iterator i=vec_Zauber.begin();i!=vec_Zauber.end();)
       {
         fout << (*i)->Name() ;
 //        if (i!=zauber.size()-1) fout << ", ";

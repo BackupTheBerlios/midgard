@@ -1,4 +1,4 @@
-// $Id: Window_charakter_beschreibung.cc,v 1.14 2001/06/12 09:31:06 thoma Exp $
+// $Id: Window_charakter_beschreibung.cc,v 1.15 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -30,14 +30,14 @@
 
 void Window_charakter_beschreibung::on_charakter_beschreibung_uebernehmen_clicked()
 {   
- string b=text_charakter_beschreibung->get_chars(0,text_charakter_beschreibung->get_length());
+ std::string b=text_charakter_beschreibung->get_chars(0,text_charakter_beschreibung->get_length());
  hauptfenster->charakter_beschreibung_uebernehmen(b);
  destroy();
 }
 
 void Window_charakter_beschreibung::on_charakter_beschreibung_drucken_clicked()
 {
- string b=text_charakter_beschreibung->get_chars(0,text_charakter_beschreibung->get_length());
+ std::string b=text_charakter_beschreibung->get_chars(0,text_charakter_beschreibung->get_length());
  hauptfenster->charakter_beschreibung_drucken(b);
  destroy();
 }
@@ -48,7 +48,7 @@ void Window_charakter_beschreibung::on_charakter_beschreibung_abbrechen_clicked(
   destroy();
 }
 
-Window_charakter_beschreibung::Window_charakter_beschreibung(midgard_CG* h, string s)
+Window_charakter_beschreibung::Window_charakter_beschreibung(midgard_CG* h, std::string s)
 {
   hauptfenster=h;
   text_charakter_beschreibung->delete_text(0,text_charakter_beschreibung->get_length());

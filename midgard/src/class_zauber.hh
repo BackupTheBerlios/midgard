@@ -6,33 +6,33 @@
 
 class Data_zauber : public RowDataBase
 {
-     string ap, name;
+     std::string ap, name;
      int erfolgswert;
-     string  art, stufe, zauberdauer, reichweite,
+     std::string  art, stufe, zauberdauer, reichweite,
        wirkungsziel, wirkungsbereich, wirkungsdauer, ursprung,
        material, agens, prozess, reagens, beschreibung; 
      int kosten,lernpunkte;
 
  public:
-      Data_zauber (const string& n, const string& a, int k,int l)
+      Data_zauber (const std::string& n, const std::string& a, int k,int l)
          :ap(a),name(n),erfolgswert(0),kosten(k),lernpunkte(l) {}
-      Data_zauber (const string& n, const string& u, int k)
+      Data_zauber (const std::string& n, const std::string& u, int k)
          :name(n),erfolgswert(0),ursprung(u),kosten(k),lernpunkte(0) {}
-      Data_zauber(const string& s,const string& n, const string& u, int k,
-           const string& a)
+      Data_zauber(const std::string& s,const std::string& n, const std::string& u, int k,
+           const std::string& a)
         :name(n),erfolgswert(0),art(a),stufe(s),ursprung(u),kosten(k),lernpunkte(0) {}
 
-      Data_zauber (const string& n, int e)
+      Data_zauber (const std::string& n, int e)
          :name(n),erfolgswert(e),kosten(0) {}
-      Data_zauber (const string& n)
+      Data_zauber (const std::string& n)
          :name(n),erfolgswert(0),kosten(0) {}
 /*
-      Data_zauber (const string& a1, const string& n, int er, const string& a,
-            const string& s,
-            const string& zd, const string& r, const string& zi,
-            const string& ber, const string& wd, const string& u,
-            const string& mat, const string& age, const string& pro,
-            const string& rea, const string& bes, int ko)
+      Data_zauber (const std::string& a1, const std::string& n, int er, const std::string& a,
+            const std::string& s,
+            const std::string& zd, const std::string& r, const std::string& zi,
+            const std::string& ber, const std::string& wd, const std::string& u,
+            const std::string& mat, const std::string& age, const std::string& pro,
+            const std::string& rea, const std::string& bes, int ko)
       : ap(a1), name(n), erfolgswert(er), art(a), stufe(s), zauberdauer(zd),
          reichweite(r),
          wirkungsziel(zi), wirkungsbereich(ber), wirkungsdauer(wd),
@@ -58,41 +58,41 @@ class Data_zauber : public RowDataBase
         }
    return cH_EntryValueIntString("?");
  }
- string Ap() const { return ap;}
- string Name() const {  return name; }
+ std::string Ap() const { return ap;}
+ std::string Name() const {  return name; }
  int Erfolgswert() const {return erfolgswert; }
- string Art() const { return art;}
- string Stufe() const {  return stufe; }
- string Zauberdauer() const { return zauberdauer;}
- string Reichweite() const {return reichweite;}
- string Wirkungsziel() const {return wirkungsziel;}
- string Wirkungsdauer() const {return wirkungsdauer;}
- string Wirkungsbereich() const {return wirkungsbereich;}
- string Ursprung() const {return ursprung;}
- string Material() const { return material;} 
- string Agens() const { return agens;}
- string Prozess() const { return prozess;}
- string Reagens() const { return reagens;}
- string Beschreibung() const { return beschreibung;}
+ std::string Art() const { return art;}
+ std::string Stufe() const {  return stufe; }
+ std::string Zauberdauer() const { return zauberdauer;}
+ std::string Reichweite() const {return reichweite;}
+ std::string Wirkungsziel() const {return wirkungsziel;}
+ std::string Wirkungsdauer() const {return wirkungsdauer;}
+ std::string Wirkungsbereich() const {return wirkungsbereich;}
+ std::string Ursprung() const {return ursprung;}
+ std::string Material() const { return material;} 
+ std::string Agens() const { return agens;}
+ std::string Prozess() const { return prozess;}
+ std::string Reagens() const { return reagens;}
+ std::string Beschreibung() const { return beschreibung;}
  int Kosten() const {  return kosten; }
  int Lernpunkte() const {  return lernpunkte; }
 
- void set_Ap(const string& s)  {ap=s;}
- void set_Name(const string& s)  { name=s ;}
+ void set_Ap(const std::string& s)  {ap=s;}
+ void set_Name(const std::string& s)  { name=s ;}
  void set_Erfolgswert(int s) { erfolgswert=s ;}
- void set_Art(const string& s)  {art=s;}
- void set_Stufe(const string& s)  { stufe=s ;}
- void set_Zauberdauer(const string& s)  {zauberdauer=s;}
- void set_Reichweite(const string& s)  { reichweite=s;}
- void set_Wirkungsziel(const string& s)  { wirkungsziel=s;}
- void set_Wirkungsdauer(const string& s)  { wirkungsdauer=s;}
- void set_Wirkungsbereich(const string& s)  { wirkungsbereich=s;}
- void set_Ursprung(const string& s)  { ursprung=s;}
- void set_Material(const string& s)  {material=s;} 
- void set_Agens(const string& s)  {agens=s;}
- void set_Prozess(const string& s)  {prozess=s;}
- void set_Reagens(const string& s)  {reagens=s;}
- void set_Beschreibung(const string& s)  {beschreibung=s;}
+ void set_Art(const std::string& s)  {art=s;}
+ void set_Stufe(const std::string& s)  { stufe=s ;}
+ void set_Zauberdauer(const std::string& s)  {zauberdauer=s;}
+ void set_Reichweite(const std::string& s)  { reichweite=s;}
+ void set_Wirkungsziel(const std::string& s)  { wirkungsziel=s;}
+ void set_Wirkungsdauer(const std::string& s)  { wirkungsdauer=s;}
+ void set_Wirkungsbereich(const std::string& s)  { wirkungsbereich=s;}
+ void set_Ursprung(const std::string& s)  { ursprung=s;}
+ void set_Material(const std::string& s)  {material=s;} 
+ void set_Agens(const std::string& s)  {agens=s;}
+ void set_Prozess(const std::string& s)  {prozess=s;}
+ void set_Reagens(const std::string& s)  {reagens=s;}
+ void set_Beschreibung(const std::string& s)  {beschreibung=s;}
  void set_Kosten(int i)  { kosten=i; }
 
 };
@@ -109,15 +109,15 @@ public:
 ///////////////////////////////////////////////////////////////////////////
 class Data_zaubermittel : public RowDataBase
 {
-   string stufe, name,art;
+   std::string stufe, name,art;
    int kosten;
-   string preis, zeitaufwand;   
+   std::string preis, zeitaufwand;   
 
  public:
-   Data_zaubermittel(const string& s, const string& n, const string& a, int k) : stufe(s),name(n),art(a),kosten(k){}
-   Data_zaubermittel(const string& n)        : name(n),kosten(0){}
-   Data_zaubermittel(const string& s,const string& n)  : stufe(s),name(n),kosten(0){}
-   Data_zaubermittel(const string& s,const string& n, const string& a,int k,const string& p, const string& z)
+   Data_zaubermittel(const std::string& s, const std::string& n, const std::string& a, int k) : stufe(s),name(n),art(a),kosten(k){}
+   Data_zaubermittel(const std::string& n)        : name(n),kosten(0){}
+   Data_zaubermittel(const std::string& s,const std::string& n)  : stufe(s),name(n),kosten(0){}
+   Data_zaubermittel(const std::string& s,const std::string& n, const std::string& a,int k,const std::string& p, const std::string& z)
       :stufe(s),name(n),art(a),kosten(k),preis(p),zeitaufwand(z) {}
 
    virtual const cH_EntryValue Value(int seqnr,gpointer g) const
@@ -141,19 +141,19 @@ class Data_zaubermittel : public RowDataBase
    return cH_EntryValueIntString("?");
    }
 
- string Stufe() const {  return stufe; }
- string Name() const {  return name; }
- string Art() const { return art;}
+ std::string Stufe() const {  return stufe; }
+ std::string Name() const {  return name; }
+ std::string Art() const { return art;}
  int Kosten() const {  return kosten; }
- string Preis() const { return preis;}
- string Zeitaufwand() const { return zeitaufwand;}
+ std::string Preis() const { return preis;}
+ std::string Zeitaufwand() const { return zeitaufwand;}
 
- void set_Name(const string& s)  { name=s ;}
- void set_Art(const string& s)  {art=s;}
- void set_Stufe(const string& s)  { stufe=s ;}
+ void set_Name(const std::string& s)  { name=s ;}
+ void set_Art(const std::string& s)  {art=s;}
+ void set_Stufe(const std::string& s)  { stufe=s ;}
  void set_Kosten(int s)  { kosten=s ;}
- void set_Preis(const string& s)  {preis=s;}
- void set_Zeitaufwand(const string& s)  {zeitaufwand=s;}
+ void set_Preis(const std::string& s)  {preis=s;}
+ void set_Zeitaufwand(const std::string& s)  {zeitaufwand=s;}
 
 };
 

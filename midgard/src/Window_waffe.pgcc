@@ -36,13 +36,13 @@ exec sql include sqlca;
 
 void Window_waffe::on_clist_waffe_select_row(gint row, gint column, GdkEvent *event)
 {   
-  string waffe = clist_waffe->get_text(row,0);
+  std::string waffe = clist_waffe->get_text(row,0);
   oberfenster->get_waffe(waffe);
   destroy();
 }
 
 Window_waffe::Window_waffe(int we,midgard_CG* h, 
-      Window_Waffe_Geld* o, st_werte& w, vector<H_Data_waffen>& wa)
+      Window_Waffe_Geld* o, st_werte& w, std::vector<H_Data_waffen>& wa)
 :vec_Waffen(wa) ,werte(w)
 {
   wurf=we;
@@ -53,7 +53,7 @@ Window_waffe::Window_waffe(int we,midgard_CG* h,
 }
 
 Window_waffe::Window_waffe(int we,midgard_CG* h, 
-      st_werte& w, vector<H_Data_waffen>& wa)
+      st_werte& w, std::vector<H_Data_waffen>& wa)
 :vec_Waffen(wa) ,werte(w)
 {
   wurf=we;
@@ -64,7 +64,7 @@ Window_waffe::Window_waffe(int we,midgard_CG* h,
 
 void Window_waffe::wuerfeln()
 {
- string strinfo = "Für die Waffenauswahl wurde eine "+itos(wurf)
+ std::string strinfo = "Für die Waffenauswahl wurde eine "+itos(wurf)
             +" gewürfelt,\n der Stand ist "+werte.stand+"\n ---> ";
  if ( 1<=wurf&&wurf<=10)
    {
@@ -89,7 +89,7 @@ void Window_waffe::wuerfeln()
  exec sql open ein;
  SQLerror::test(__FILELINE__);
  Gtk::OStream os(clist_waffe);
- string aartE,aartS,aartW,aartZ,aartA;
+ std::string aartE,aartS,aartW,aartZ,aartA;
  if (wurf!=-1) Window_waffe::get_art(aartE,aartS,aartW,aartZ,aartA);
  if (wurf==-1) aartA="A";
 
@@ -98,12 +98,12 @@ void Window_waffe::wuerfeln()
      exec sql fetch ein into :db_waffe, :db_grund, :db_art;
      SQLerror::test(__FILELINE__,100);
      if (sqlca.sqlcode) break;
-     string waffe=db_waffe;
+     std::string waffe=db_waffe;
 
      if (waffe == "waffenloser Kampf") continue;
-     string art = db_art;
-//     string sch = hauptfenster->waffe_werte(st_waffen_besitz(db_waffe,db_waffe,"",0,0,""),werte,"Schaden");
-     string sch = hauptfenster->waffe_werte(new Data_waffen(db_waffe,db_waffe,"",0,0,""),werte,"Schaden");
+     std::string art = db_art;
+//     std::string sch = hauptfenster->waffe_werte(st_waffen_besitz(db_waffe,db_waffe,"",0,0,""),werte,"Schaden");
+     std::string sch = hauptfenster->waffe_werte(new Data_waffen(db_waffe,db_waffe,"",0,0,""),werte,"Schaden");
      if (aartE =="E" && art=="E" )
          os << waffe <<"\t"<<db_grund<<"\t"<<sch<<"\n";
      if (aartW =="W" && art=="W" )
@@ -129,7 +129,7 @@ void Window_waffe::wuerfeln()
 }
 
 
-void Window_waffe::get_art(string& aartE,string& aartS, string& aartW, string& aartZ, string& aartA)
+void Window_waffe::get_art(std::string& aartE,std::string& aartS, std::string& aartW, std::string& aartZ, std::string& aartA)
 {
         if (werte.stand == "Unfrei")
          {
@@ -179,7 +179,7 @@ void Window_waffe::get_art(string& aartE,string& aartS, string& aartW, string& a
 
 void Window_waffe::magische_Waffe()
 {
-   string strinfo="100 gewürfelt!!! => magische Einhandwaffe\n";
+   std::string strinfo="100 gewürfelt!!! => magische Einhandwaffe\n";
       strinfo+= "bitte unter 'steigern'->'Besitztümer' einen Angriffsbonus von +1 einstellen.\n";
    manage(new WindowInfo(strinfo));   
 }

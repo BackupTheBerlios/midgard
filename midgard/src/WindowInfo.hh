@@ -1,4 +1,4 @@
-// $Id: WindowInfo.hh,v 1.17 2001/06/12 09:31:06 thoma Exp $
+// $Id: WindowInfo.hh,v 1.18 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -42,6 +42,6 @@ class WindowInfo : public WindowInfo_glade
         gint timeout();
         SigC::Connection des;
    public:
-        WindowInfo(const string& s,bool immer=false);
+        WindowInfo(const std::string& s,bool immer=false);
 };
 #endif

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_attribut_check.cc,v 1.14 2001/06/12 09:31:06 thoma Exp $
+// $Id: midgard_CG_attribut_check.cc,v 1.15 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,7 +19,7 @@
 
 #include "midgard_CG.hh"
 
-int midgard_CG::attribut_check(string at)
+int midgard_CG::attribut_check(std::string at)
 {
    int b=0;
 

@@ -20,7 +20,7 @@
 #include <Aux/SQLerror.h>
 
 
-string midgard_CG::ruestung(const string& mod)
+std::string midgard_CG::ruestung(const std::string& mod)
 {
  exec sql begin declare section;
    char db_typ[5];
@@ -65,7 +65,7 @@ string midgard_CG::ruestung(const string& mod)
          where typs = :db_typ;
     SQLerror::test(__FILELINE__);
     Random random;
-    string ruestung;
+    std::string ruestung;
     int wurf = random.integer(1,100);
     if (db_i_ruestung == 1)
      {
@@ -108,7 +108,7 @@ string midgard_CG::ruestung(const string& mod)
       if (96 <= wurf && wurf  <= 100) ruestung = "LR" ;
      }    
    werte.ruestung = ruestung;
-   string strinfo ="Beim Auswürfeln der Rüstung wurde eine\n"+itos(wurf)+" gewürfelt\n";
+   std::string strinfo ="Beim Auswürfeln der Rüstung wurde eine\n"+itos(wurf)+" gewürfelt\n";
    strinfo += "---> " + midgard_CG::ruestung("LONG");
    manage(new WindowInfo(strinfo));
    return "";

@@ -30,7 +30,7 @@ exec sql include sqlca;
 #include <cstring>
 #include <Gtk_OStream.h>
 
-double midgard_CG::get_standard_fertigkeit(const string& typ, const string& typ_2, const string& fertigkeit)
+double midgard_CG::get_standard_fertigkeit(const std::string& typ, const std::string& typ_2, const std::string& fertigkeit)
 {
    double fac;
    // gibt es eine Ausnahmeregelung?
@@ -42,7 +42,7 @@ double midgard_CG::get_standard_fertigkeit(const string& typ, const string& typ_
    char query[200];
   exec sql end declare section;
   strncpy(db_ergebnis2,"",sizeof(db_ergebnis2));
-  string squery = "select "+typ ;
+  std::string squery = "select "+typ ;
   if (typ_2!="") squery += ", " + typ_2 ; 
   squery += " from fertigkeiten where fertigkeit  = '"+fertigkeit+"'";
   strncpy(query,squery.c_str(),sizeof(query));  
@@ -61,7 +61,7 @@ double midgard_CG::get_standard_fertigkeit(const string& typ, const string& typ_
    return(get_standard_fertigkeit_(db_ergebnis,db_ergebnis2,fertigkeit));
 }
 
-double midgard_CG::get_standard_fertigkeit_(const string& ergebnis,const string& ergebnis2,const string& fertigkeit)
+double midgard_CG::get_standard_fertigkeit_(const std::string& ergebnis,const std::string& ergebnis2,const std::string& fertigkeit)
 {
    double fac;
    // gibt es eine Ausnahmeregelung?

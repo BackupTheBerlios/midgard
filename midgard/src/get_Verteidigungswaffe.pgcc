@@ -21,32 +21,32 @@
 exec sql include sqlca;
 
 
-string midgard_CG::get_Verteidigungswaffe(int ohne_waffe)
+std::string midgard_CG::get_Verteidigungswaffe(int ohne_waffe)
 {
    exec sql begin declare section;
       char db_waffe[30], db_art[30];
    exec sql end declare section;
-   vector<H_Data_waffen> Verteidigungswaffen;
+   std::vector<H_Data_waffen> Verteidigungswaffen;
    Verteidigungswaffen.push_back(new Data_waffen("waffenloser Kampf","waffenloser Kampf","",0,0,""));
-   for (vector<H_Data_waffen>::const_iterator i=vec_Waffen_besitz.begin();
+   for (std::vector<H_Data_waffen>::const_iterator i=vec_Waffen_besitz.begin();
          i!=vec_Waffen_besitz.end();++i)
      {
        strncpy(db_waffe,((*i)->Name()).c_str(),sizeof(db_waffe));
        exec sql select art into :db_art from waffen where name = :db_waffe;
        SQLerror::test(__FILELINE__);
-       string art = db_art;
+       std::string art = db_art;
        if (art=="Verteidigung" || (*i)->Name()=="Kampfstab" || (*i)->Name()=="Sai" ||
           (*i)->Name()=="Tonfa" || (*i)->Name()=="GunSen" || (*i)->Name()=="BuKasa" || 
           (*i)->Name()=="KusariGama" || (*i)->Name()=="TetsuBo" ) 
          Verteidigungswaffen.push_back(new Data_waffen((*i)->Name(),(*i)->Name(),(*i)->Region(),(*i)->av_Bonus(),(*i)->sl_Bonus(),""));
      }
-   string Vwaffewert;
-//cout << Vwaffewert<<"\n";
-   for(vector<H_Data_waffen>::const_iterator i=Verteidigungswaffen.begin();
+   std::string Vwaffewert;
+//std::cout << Vwaffewert<<"\n";
+   for(std::vector<H_Data_waffen>::const_iterator i=Verteidigungswaffen.begin();
          i!=Verteidigungswaffen.end();++i)
      {
-      vector<int> vwert;
-      for (vector<H_Data_waffen>::const_iterator j=vec_Waffen.begin();
+      std::vector<int> vwert;
+      for (std::vector<H_Data_waffen>::const_iterator j=vec_Waffen.begin();
             j!=vec_Waffen.end();++j)      
          {
             if ((*i)->Name() == (*j)->Name()) 

@@ -1,4 +1,4 @@
-// $Id: Window_charakter_auswahl.hh,v 1.15 2001/06/12 09:31:06 thoma Exp $
+// $Id: Window_charakter_auswahl.hh,v 1.16 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -41,7 +41,7 @@ class Window_charakter_auswahl : public Window_charakter_auswahl_glade
         friend class Window_charakter_auswahl_glade;
         void on_clist_charakter_auswahl_select_row(gint row, gint column, GdkEvent *event);
         void on_auswahl_abbruch_clicked();
-        void charakter_loeschen(const string& name, const string& version);
+        void charakter_loeschen(const std::string& name, const std::string& version);
         void Window_charakter_auswahl::show_charakter();
         midgard_CG* hauptfenster;
    public:

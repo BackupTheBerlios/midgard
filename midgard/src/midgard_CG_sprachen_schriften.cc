@@ -1,4 +1,4 @@
-// $Id: midgard_CG_sprachen_schriften.cc,v 1.16 2001/06/26 05:20:29 thoma Exp $
+// $Id: midgard_CG_sprachen_schriften.cc,v 1.17 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,13 +19,13 @@
 
 #include "midgard_CG.hh"
 
-void midgard_CG::sprache_uebernehmen(const string& s,int wert)
+void midgard_CG::sprache_uebernehmen(const std::string& s,int wert)
 {
    vec_Sprachen.push_back(new Data_sprache(s,"",wert,0));
    midgard_CG::sprachen_schrift();
 }
 
-void midgard_CG::schrift_uebernehmen(const string& s, const string& t)
+void midgard_CG::schrift_uebernehmen(const std::string& s, const std::string& t)
 {
    vec_Schriften.push_back(new Data_schrift(s,t));
    midgard_CG::sprachen_schrift();

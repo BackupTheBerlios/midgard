@@ -6,13 +6,13 @@
 
 class Data_sprache : public RowDataBase
 {
-     string name, urschrift;
+     std::string name, urschrift;
      int wert, steigern,reduzieren,verlernen, kosten;
 
  public:
-     Data_sprache(const string& n,const string& s,int w,int k)
+     Data_sprache(const std::string& n,const std::string& s,int w,int k)
        :name(n),urschrift(s),wert(w),steigern(0),reduzieren(0),verlernen(0),kosten(k) {}
-     Data_sprache(const string& n,int w, int s, int r, int v)
+     Data_sprache(const std::string& n,int w, int s, int r, int v)
        :name(n),wert(w),steigern(s),reduzieren(r),verlernen(v),kosten(0) {}
 
 
@@ -34,8 +34,8 @@ class Data_sprache : public RowDataBase
         }
      return cH_EntryValueIntString("?");
     }
- string Name() const {  return name; }
- string Urschrift() const {  return urschrift; }
+ std::string Name() const {  return name; }
+ std::string Urschrift() const {  return urschrift; }
  int Wert() const {  return wert; }   
  int Steigern() const {  return steigern; }
  int Reduzieren() const {  return reduzieren; }
@@ -43,7 +43,7 @@ class Data_sprache : public RowDataBase
  int Kosten() const {  return kosten; }
 
  void set_Wert(int i) {wert=i;}
- void set_Urschrift(const string& s) { urschrift=s; }
+ void set_Urschrift(const std::string& s) { urschrift=s; }
 };
 
 
@@ -58,12 +58,12 @@ public:
 ///////////////////////////////////////////////////////////////////////////
 class Data_schrift : public RowDataBase
 {  
-   string urschrift,art;
+   std::string urschrift,art;
    int kosten;
  public:
-   Data_schrift(const string& u,const string& a, int k)
+   Data_schrift(const std::string& u,const std::string& a, int k)
        :urschrift(u),art(a),kosten(k) {}
-   Data_schrift(const string& u,const string& a)
+   Data_schrift(const std::string& u,const std::string& a)
        :urschrift(u),art(a),kosten(0) {}
 
 
@@ -83,8 +83,8 @@ class Data_schrift : public RowDataBase
         }
      return cH_EntryValueIntString("?");
     }
- string Urschrift() const {  return urschrift; }
- string Art() const {  return art; }
+ std::string Urschrift() const {  return urschrift; }
+ std::string Art() const {  return art; }
  int Kosten() const {  return kosten; }
 }; 
 class H_Data_schrift : public Handle<Data_schrift>

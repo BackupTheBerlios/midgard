@@ -1,4 +1,4 @@
-// $Id: LaTeX_zauber.cc,v 1.20 2001/06/24 13:24:52 thoma Exp $
+// $Id: LaTeX_zauber.cc,v 1.21 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,9 +22,9 @@
 
 void midgard_CG::LaTeX_zauber()
 {
-  string name = "midgard_tmp_myzauber.tex";
+  std::string name = "midgard_tmp_myzauber.tex";
   ofstream fout(name.c_str());
-  for (vector<H_Data_zauber>::const_iterator i=vec_Zauber.begin();i!=vec_Zauber.end();++i)
+  for (std::vector<H_Data_zauber>::const_iterator i=vec_Zauber.begin();i!=vec_Zauber.end();++i)
    {
      fout << (*i)->Name() << " & ";
      fout << (*i)->Erfolgswert() <<" & ";
@@ -45,13 +45,13 @@ void midgard_CG::LaTeX_zauber()
 
 void midgard_CG::LaTeX_zaubermittel()
 {
-  string name = "midgard_tmp_myzaubermittel.tex";
+  std::string name = "midgard_tmp_myzaubermittel.tex";
   ofstream fout(name.c_str());
-  for (vector<H_Data_zaubermittel>::iterator i=vec_Zaubermittel.begin();
+  for (std::vector<H_Data_zaubermittel>::iterator i=vec_Zaubermittel.begin();
          i!=vec_Zaubermittel.end();++i)
    {
-     string wert ;//= itos(*i->Wert());
-     string art = (*i)->Art();
+     std::string wert ;//= itos(*i->Wert());
+     std::string art = (*i)->Art();
      if (wert=="0") wert ="";
      if (art=="AZ") art ="Alchimistisches Zaubermittel";
      if (art=="PZ") art ="Pflanzliches Zaubermittel";

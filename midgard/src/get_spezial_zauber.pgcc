@@ -30,7 +30,7 @@ exec sql include sqlca;
 #include <cstring>
 #include <Gtk_OStream.h>
 
-int midgard_CG::get_spezial_zauber(const string& typ, const string& zauber)
+int midgard_CG::get_spezial_zauber(const std::string& typ, const std::string& zauber)
 {
   exec sql begin declare section;
    char db_ergebnis[20];
@@ -52,13 +52,13 @@ int midgard_CG::get_spezial_zauber(const string& typ, const string& zauber)
     SQLerror::test(__FILELINE__);  
 
  int ispez=0;
- string ergebnis = db_ergebnis;
- string agens=db_agens;
- string prozess=db_prozess;
+ std::string ergebnis = db_ergebnis;
+ std::string agens=db_agens;
+ std::string prozess=db_prozess;
 
  if (ergebnis!="Grund" && agens==werte.spezial) ispez = 2; 
  if (ergebnis!="Grund" && prozess==werte.spezial) ispez = 2; 
 
-//cout << typ << "\t"<<zauber<<"\t"<<db_ergebnis<<"\t"<<ispez<<"\n";
+//std::cout << typ << "\t"<<zauber<<"\t"<<db_ergebnis<<"\t"<<ispez<<"\n";
  return(ispez);
 }

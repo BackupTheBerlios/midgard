@@ -47,7 +47,7 @@ void midgard_CG::on_leaf_selected_neue_sprache(cH_RowDataBase d)
 }
 
     
-void midgard_CG::on_steigern_sprache_tree_neu_select(const string& name,int kosten)
+void midgard_CG::on_steigern_sprache_tree_neu_select(const std::string& name,int kosten)
 {   
    werte.gfp += kosten;
    midgard_CG::zeige_werte(werte,"alle");
@@ -55,26 +55,26 @@ void midgard_CG::on_steigern_sprache_tree_neu_select(const string& name,int kost
    on_sprache_laden_clicked();
 }   
     
-void midgard_CG::on_steigern_sprache_tree_alt_select(const string& name,int steigern,int reduzieren,int verlernen)
+void midgard_CG::on_steigern_sprache_tree_alt_select(const std::string& name,int steigern,int reduzieren,int verlernen)
 {   
    if (radio_sprache_steigern->get_active() && steigern)
     {
       werte.gfp += steigern;
-      for (vector<H_Data_sprache>::iterator i=vec_Sprachen.begin();
+      for (std::vector<H_Data_sprache>::iterator i=vec_Sprachen.begin();
                      i!= vec_Sprachen.end();++i )
             if ( (*i)->Name() == name) (*i)->set_Wert((*i)->Wert()+1);
     }
    if (radio_sprache_reduzieren->get_active() && reduzieren )
     {
       werte.gfp -= reduzieren;
-      for (vector<H_Data_sprache>::iterator i=vec_Sprachen.begin();
+      for (std::vector<H_Data_sprache>::iterator i=vec_Sprachen.begin();
                      i!= vec_Sprachen.end();++i )
             if ( (*i)->Name() == name) (*i)->set_Wert((*i)->Wert()-1);
     }
    if (radio_sprache_verlernen->get_active() && verlernen )
     {
       werte.gfp -= verlernen;
-      for (vector<H_Data_sprache>::iterator i=vec_Sprachen.begin();
+      for (std::vector<H_Data_sprache>::iterator i=vec_Sprachen.begin();
                      i!= vec_Sprachen.end();++i )
             if ( (*i)->Name() == name) {vec_Sprachen.erase(i);break;};
     }
@@ -105,10 +105,10 @@ void midgard_CG::on_leaf_selected_alte_schrift(cH_RowDataBase d)
 
 
 
-void midgard_CG::on_steigern_schrift_tree_alt_select(const string& name, int kosten)
+void midgard_CG::on_steigern_schrift_tree_alt_select(const std::string& name, int kosten)
 {   
    werte.gfp -= kosten;
-   for (vector<H_Data_schrift>::iterator i=vec_Schriften.begin();
+   for (std::vector<H_Data_schrift>::iterator i=vec_Schriften.begin();
             i!=vec_Schriften.end();++i)
       {
          if ((*i)->Urschrift() == name) { vec_Schriften.erase(i);break;}
@@ -116,7 +116,7 @@ void midgard_CG::on_steigern_schrift_tree_alt_select(const string& name, int kos
    on_sprache_laden_clicked();
 }   
     
-void midgard_CG::on_steigern_schrift_tree_neu_select(const string& name, const string& art, int kosten)
+void midgard_CG::on_steigern_schrift_tree_neu_select(const std::string& name, const std::string& art, int kosten)
 {   
    werte.gfp += kosten;
    vec_Schriften.push_back(new Data_schrift(name,art));
@@ -126,9 +126,9 @@ void midgard_CG::on_steigern_schrift_tree_neu_select(const string& name, const s
 
 void midgard_CG::show_alte_sprachen()
 {
-   vector<cH_RowDataBase> datavec;
+   std::vector<cH_RowDataBase> datavec;
    double fac = midgard_CG::get_standard_fertigkeit(Typ.Short(),Typ2.Short(),"Sprache");
-   for (vector<H_Data_sprache>::const_iterator i=vec_Sprachen.begin();
+   for (std::vector<H_Data_sprache>::const_iterator i=vec_Sprachen.begin();
             i!=vec_Sprachen.end();++i)
       {
          exec sql begin declare section;
@@ -144,8 +144,8 @@ void midgard_CG::show_alte_sprachen()
                from sprachen where name = :db_sprache;
 
 
-         string ae = "p";  ae += itos((*i)->Wert());
-         string ne = "p";  ne += itos((*i)->Wert()+1);
+         std::string ae = "p";  ae += itos((*i)->Wert());
+         std::string ne = "p";  ne += itos((*i)->Wert()+1);
          strncpy(db_neuer_erfolgswert, ne.c_str(), sizeof(db_neuer_erfolgswert));
          strncpy(db_alter_erfolgswert, ae.c_str(), sizeof(db_alter_erfolgswert));
 
@@ -178,7 +178,7 @@ void midgard_CG::show_alte_sprachen()
 
 void midgard_CG::show_neue_sprachen()
 {
-  vector<cH_RowDataBase> datavec;
+  std::vector<cH_RowDataBase> datavec;
   exec sql begin declare section;
    char db_name[50], db_urschrift[50];
    int db_fp;
@@ -211,13 +211,13 @@ void midgard_CG::show_neue_sprachen()
 
 void midgard_CG::show_alte_schriften()
 {
-  vector<cH_RowDataBase> datavec;
+  std::vector<cH_RowDataBase> datavec;
   exec sql begin declare section;
    char db_typ[20], db_name[20];
    int db_kosten;
   exec sql end declare section;
   double fac = midgard_CG::get_standard_fertigkeit(Typ.Short(),Typ2.Short(),"Lesen/Schreiben");
-  for (vector<H_Data_schrift>::const_iterator i=vec_Schriften.begin();
+  for (std::vector<H_Data_schrift>::const_iterator i=vec_Schriften.begin();
       i!=vec_Schriften.end();++i)
    {
       strncpy(db_name,((*i)->Urschrift()).c_str(),sizeof(db_name));
@@ -230,7 +230,7 @@ void midgard_CG::show_alte_schriften()
 
 void midgard_CG::show_neue_schriften()
 {
-  vector<cH_RowDataBase> datavec;
+  std::vector<cH_RowDataBase> datavec;
   exec sql begin declare section;
    char db_name[50];
    int db_fp;

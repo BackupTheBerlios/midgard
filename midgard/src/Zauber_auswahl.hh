@@ -1,4 +1,4 @@
-// $Id: Zauber_auswahl.hh,v 1.18 2001/06/27 10:10:16 thoma Exp $
+// $Id: Zauber_auswahl.hh,v 1.19 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -48,7 +48,7 @@ class Zauber_auswahl : public Zauber_auswahl_glade
         int maxpunkte;
         midgard_CG* hauptfenster;
         friend class Zauber_auswahl_glade;
-        vector<H_Data_zauber> vec_zauber;
+        std::vector<H_Data_zauber> vec_zauber;
         void on_zauber_clist_auswahl_select_row(gint row, gint column, GdkEvent *event);
         void on_zauber_clist_auswahl_unselect_row(gint row, gint column, GdkEvent *event);
         void on_close_zauber_clicked();

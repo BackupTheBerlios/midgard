@@ -45,7 +45,7 @@ void midgard_CG::fill_typauswahl_fill(int typ_1_2)
      char db_typs[50], db_typz[5], db_ausdauer[5];
      int  db_stand, db_sb, db_ruestung;
   exec sql end declare section;
-  string squery = "select t.typl";
+  std::string squery = "select t.typl";
   if (werte.geschlecht=="w") squery +="w";
   squery +=",t.typnr,coalesce(t.region,''), t.typs,t.typz,t.stand,t.sb,t.ausdauer,t.ruestung from typen t";
   if (werte.spezies!="Mensch") 
@@ -80,7 +80,7 @@ Gtk::OStream t_((typ_1_2==1) ? typauswahl : typauswahl_2 );
             db_typs,db_typz,db_stand,db_sb,db_ausdauer,db_ruestung));
          if (typ_1_2==2)  vec_Typen_2.push_back(new Data_typen(db_typnr,count,db_typ,
             db_typs,db_typz,db_stand,db_sb,db_ausdauer,db_ruestung));
-//cout << db_typnr<<"\t"<<db_typ<<"\t"<<typen_vector.size()<<"\n";
+//std::cout << db_typnr<<"\t"<<db_typ<<"\t"<<typen_vector.size()<<"\n";
 
 /*
          _mi = manage(new Gtk::MenuItem(db_typ));
@@ -112,7 +112,7 @@ void midgard_CG::typauswahl_button(int ttyp)
  Typ = *vec_Typen[ityp_];
 
  if (ttyp==-1) ityp_=0;
- for (vector<cH_Data_typen>::const_iterator i=vec_Typen.begin();
+ for (std::vector<cH_Data_typen>::const_iterator i=vec_Typen.begin();
     i!=vec_Typen.end();++i)
     { if (count==ityp_){ityp=(*i)->Nr();break;}
       ++count;
@@ -129,14 +129,14 @@ void midgard_CG::typauswahl_2_button(int ttyp)
  int ityp_ = int(typauswahl_2->get_menu()->get_active()->get_user_data());
  Typ2 = *vec_Typen_2[ityp_];
 
-//cout << "Typ 2 = " << vec_Typen_2[ityp_]->Name()<<"\n";
+//std::cout << "Typ 2 = " << vec_Typen_2[ityp_]->Name()<<"\n";
  if (ttyp==-1) ityp_=0;
- for (vector<cH_Data_typen>::const_iterator i=vec_Typen_2.begin();
+ for (std::vector<cH_Data_typen>::const_iterator i=vec_Typen_2.begin();
    i!=vec_Typen_2.end();++i)
    { if (count==ityp_){ityp=(*i)->Nr();break;}
      ++count;
    }
-//cout << "Nummern \t"<<ityp<<"="<<vec_Typen[ityp_]->Nr()<<"\t"<<ityp_<<"="<<vec_Typen[ityp_]->Nr_Optionmenu()<<"\n";
+//std::cout << "Nummern \t"<<ityp<<"="<<vec_Typen[ityp_]->Nr()<<"\t"<<ityp_<<"="<<vec_Typen[ityp_]->Nr_Optionmenu()<<"\n";
 // get_typ(ityp,2);     
  get_Ausnahmen();
  show_gtk();

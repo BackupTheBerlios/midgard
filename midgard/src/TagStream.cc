@@ -22,16 +22,16 @@
 #include <unistd.h>
 #include <algo.h>
 
-string TagStream::de_xml(const string &cont)
-{  string ret;
-   string::const_iterator i(cont.begin());
+std::string TagStream::de_xml(const std::string &cont)
+{  std::string ret;
+   std::string::const_iterator i(cont.begin());
    while (i!=cont.end())
-   {  string::const_iterator verbatim(::find(i,cont.end(),'&'));
-      ret+=string(i,verbatim);
+   {  std::string::const_iterator verbatim(::find(i,cont.end(),'&'));
+      ret+=std::string(i,verbatim);
       if (verbatim!=cont.end())
-      {  string::const_iterator endtag(::find(verbatim,cont.end(),';'));
+      {  std::string::const_iterator endtag(::find(verbatim,cont.end(),';'));
          if (endtag!=cont.end()) ++endtag;
-         string tag(verbatim,endtag);
+         std::string tag(verbatim,endtag);
          if (tag=="&amp;") ret+='&';
          else if (tag=="&lt;") ret+='<';
          else if (tag=="&gt;") ret+='>';
@@ -47,7 +47,7 @@ string TagStream::de_xml(const string &cont)
    return ret;
 }
 
-TagStream::TagStream(const string &path) 
+TagStream::TagStream(const std::string &path) 
 	: Tag(""), read_again(false), pointer(0), end_pointer(0), is(0), ifs(0), iss(0)
 {  ifs=new ifstream(path.c_str());
    is=ifs;
@@ -99,23 +99,23 @@ char *TagStream::next_tag_pointer(Tag *parent)
    char *bra=find('<');
    char *result=bra;
    if (!bra) bra=buffer+end_pointer;
-   if (bra>buffer+pointer) parent->push_back(Tag("",de_xml(string(buffer+pointer,bra-(buffer+pointer)))));
+   if (bra>buffer+pointer) parent->push_back(Tag("",de_xml(std::string(buffer+pointer,bra-(buffer+pointer)))));
    set_pointer(bra);
    return result;
 }
 
 #if 0
 #define ERROR3(name,ptr,end) \
-	{ cerr << name " @'"; \
-	  cerr.write(ptr,ptr+10>end?end-ptr:10); \
-	  cerr << "'\n"; \
+	{ std::cerr << name " @'"; \
+	  std::cerr.write(ptr,ptr+10>end?end-ptr:10); \
+	  std::cerr << "'\n"; \
 	  return 0; \
 	}
 #endif	
 #define ERROR2(name,ptr) \
-	({ cerr << name " @'"; \
-	  cerr.write(ptr,10); \
-	  cerr << "'\n"; \
+	({ std::cerr << name " @'"; \
+	  std::cerr.write(ptr,10); \
+	  std::cerr << "'\n"; \
 	  return 0; \
 	})
 
@@ -144,7 +144,7 @@ char *TagStream::next_tag(Tag *parent)
       {  char *tagend=find_wordend(tag+2);
          if (!tagend) ERROR2("tag doesn't end",tag);
          
-         Tag *newtag(&parent->push_back(Tag(string(tag+1,tagend-(tag+1)),"")));
+         Tag *newtag(&parent->push_back(Tag(std::string(tag+1,tagend-(tag+1)),"")));
          while (tagend)
          {  while (isspace(*tagend)) tagend++;
             if (*tagend=='?')
@@ -160,8 +160,8 @@ char *TagStream::next_tag(Tag *parent)
                char *valuestart(attrend+2);
                char *valueend(find(valuestart,attrend[1]));
                if (valueend)
-               {  newtag->push_back(Tag(string(tagend,attrend-tagend),
-               		de_xml(string(valuestart,valueend-valuestart))));
+               {  newtag->push_back(Tag(std::string(tagend,attrend-tagend),
+               		de_xml(std::string(valuestart,valueend-valuestart))));
                   tagend=valueend+1;
                }
                else ERROR2("value does not end",valuestart);
@@ -175,7 +175,7 @@ char *TagStream::next_tag(Tag *parent)
          while (endcomment && endcomment[1]!='-' && endcomment[2]!='>')
             endcomment=find(endcomment+1,'-');
          if (!endcomment) ERROR2("Comment does not end",tag);
-         parent->push_back(Tag("--",string(tag+3,endcomment-(tag+3))));
+         parent->push_back(Tag("--",std::string(tag+3,endcomment-(tag+3))));
          set_pointer(endcomment+3);
          continue; // outer
       }
@@ -185,7 +185,7 @@ char *TagStream::next_tag(Tag *parent)
       {  char *tagend=find_wordend(tag+1);
          if (!tagend) ERROR2("tag doesn't end",tag);
          
-         Tag *newtag(&parent->push_back(Tag(string(tag+1,tagend-(tag+1)),"")));
+         Tag *newtag(&parent->push_back(Tag(std::string(tag+1,tagend-(tag+1)),"")));
          // read attributes
          while (tagend)
          {  while (isspace(*tagend)) tagend++;
@@ -203,8 +203,8 @@ char *TagStream::next_tag(Tag *parent)
                char *valuestart(attrend+2);
                char *valueend(find(valuestart,attrend[1]));
                if (valueend)
-               {  newtag->push_back(Tag(string(tagend,attrend-tagend),
-               		de_xml(string(valuestart,valueend-valuestart))));
+               {  newtag->push_back(Tag(std::string(tagend,attrend-tagend),
+               		de_xml(std::string(valuestart,valueend-valuestart))));
                   tagend=valueend+1;
                } else ERROR2("value does not end",valuestart);
             }
@@ -213,7 +213,7 @@ char *TagStream::next_tag(Tag *parent)
          char *tagvalue=tagend+1;
          char *valueend=find(tagvalue,'<');
          if (!valueend) ERROR2("premature value end",tagvalue);
-         newtag->Value(de_xml(string(tagvalue,valueend-tagvalue)));
+         newtag->Value(de_xml(std::string(tagvalue,valueend-tagvalue)));
          set_pointer(valueend);
          if (valueend[1]!='/') tagvalue=next_tag(newtag); // recurse
          else tagvalue=valueend;
@@ -223,8 +223,8 @@ char *TagStream::next_tag(Tag *parent)
          char *endtagend=find(tagvalue+1,'>');
          if (!endtagend) ERROR2("endtag doesn't end",valueend);
          if (memcmp(tagvalue+2,newtag->Type().c_str(),newtag->Type().size()))
-         {  cerr << "tag <" << newtag->Type() << "> ended with </";
-            cerr.write(tagvalue+2,endtagend-tagvalue-2-1) << ">\n";
+         {  std::cerr << "tag <" << newtag->Type() << "> ended with </";
+            std::cerr.write(tagvalue+2,endtagend-tagvalue-2-1) << ">\n";
          }
          set_pointer(endtagend+1);
        }

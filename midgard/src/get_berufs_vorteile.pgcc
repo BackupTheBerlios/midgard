@@ -32,11 +32,11 @@ exec sql include sqlca;
 
 vector<string> midgard_CG::Berufs_Vorteile()
 {
-  vector<string> vorteile;
+  std::vector<string> vorteile;
   exec sql begin declare section;
    char db_beruf[30], db_vorteil[30];
   exec sql end declare section;  
-  for (vector<H_Data_beruf>::const_iterator i=vec_Beruf.begin();
+  for (std::vector<H_Data_beruf>::const_iterator i=vec_Beruf.begin();
          i!=vec_Beruf.end();++i)
    {
      strncpy(db_beruf,((*i)->Name()).c_str(),sizeof(db_beruf));
@@ -56,6 +56,6 @@ vector<string> midgard_CG::Berufs_Vorteile()
      tr.close();
    }
 //for (int i=0;i<vorteile.size();++i)
-//cout << vorteile[i]<<"\n";
+//std::cout << vorteile[i]<<"\n";
  return vorteile;
 }

@@ -1,4 +1,4 @@
-// $Id: Berufe_auswahl.hh,v 1.19 2001/06/27 10:10:16 thoma Exp $
+// $Id: Berufe_auswahl.hh,v 1.20 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -44,14 +44,14 @@ class Berufe_auswahl : public Berufe_auswahl_glade
         int maxpunkte;
         midgard_CG* hauptfenster;         
         friend class Berufe_auswahl_glade;
-        vector<H_Data_beruf> vec_Beruf;
+        std::vector<H_Data_beruf> vec_Beruf;
         void on_berufe_clist_auswahl_select_row(gint row, gint column, GdkEvent *event);
         void on_berufe_clist_auswahl_unselect_row(gint row, gint column, GdkEvent *event);
         void on_close_berufe_clicked();
-        bool berufe_voraussetzung(const string& beruf, const st_werte& werte, const string& typz, const string& typ2z);
-        bool btyp(const string& typ, const string& typz, const string& typ2z);
-        string Beruf_vorteile(const string& beruf);
+        bool berufe_voraussetzung(const std::string& beruf, const st_werte& werte, const std::string& typz, const std::string& typ2z);
+        bool btyp(const std::string& typ, const std::string& typz, const std::string& typ2z);
+        std::string Beruf_vorteile(const std::string& beruf);
    public:
-        Berufe_auswahl(midgard_CG* h,const string& TypZ,const string& Typ2Z, int lernpunkte, const st_werte& werte);
+        Berufe_auswahl(midgard_CG* h,const std::string& TypZ,const std::string& Typ2Z, int lernpunkte, const st_werte& werte);
 };
 #endif

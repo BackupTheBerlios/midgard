@@ -34,8 +34,8 @@ exec sql include sqlca;
 
 void Window_charakter_auswahl::on_clist_charakter_auswahl_select_row(gint row, gint column, GdkEvent *event)
 {   
-  string name = clist_charakter_auswahl->get_text(row,0);   
-  string version = clist_charakter_auswahl->get_text(row,1);
+  std::string name = clist_charakter_auswahl->get_text(row,0);   
+  std::string version = clist_charakter_auswahl->get_text(row,1);
   if (checkbutton_loeschen->get_active()) 
     {
         Window_charakter_auswahl::charakter_loeschen(name,version);
@@ -47,7 +47,7 @@ void Window_charakter_auswahl::on_clist_charakter_auswahl_select_row(gint row, g
     }
 }
 
-void Window_charakter_auswahl::charakter_loeschen(const string& name, const string& version)
+void Window_charakter_auswahl::charakter_loeschen(const std::string& name, const std::string& version)
 {
  checkbutton_loeschen->set_active(false);
  exec sql begin declare section;

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_typ_2.cc,v 1.12 2001/06/27 10:10:16 thoma Exp $
+// $Id: midgard_CG_typ_2.cc,v 1.13 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,7 +20,7 @@
                 
 #include "midgard_CG.hh"
 
-bool midgard_CG::get_typ_s(const string& mod,const Data_typen& t)
+bool midgard_CG::get_typ_s(const std::string& mod,const Data_typen& t)
 {
   if (mod=="Magie")
    {

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_zauber.cc,v 1.24 2001/06/27 10:10:16 thoma Exp $
+// $Id: midgard_CG_zauber.cc,v 1.25 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,7 +26,7 @@ void midgard_CG::on_zauber_wahl_clicked()
   zauber_clist->clear();
   if (werte.spezial2=="" && Typ.Short()=="eBe")
    {
-      string strinfo="Erst Primär- und Sekundärelement wählen\n";
+      std::string strinfo="Erst Primär- und Sekundärelement wählen\n";
       manage(new WindowInfo(strinfo));
       return;
    }
@@ -38,7 +38,7 @@ void midgard_CG::show_zauber()
    zauber_clist->clear();
    midgard_CG::Zauber_get_Daten(vec_Zauber);
    Gtk::OStream os(zauber_clist);
-   for(vector<H_Data_zauber>::const_iterator i=vec_Zauber.begin();
+   for(std::vector<H_Data_zauber>::const_iterator i=vec_Zauber.begin();
          i!=vec_Zauber.end();++i)
       {
          os << (*i)->Name()<<"\t"<<(*i)->Erfolgswert()<<"\n";
@@ -48,11 +48,11 @@ void midgard_CG::show_zauber()
    zauber_clist->set_reorderable(true);
 }
 
-void midgard_CG::zauber_uebernehmen(const vector<H_Data_zauber>& saz)
+void midgard_CG::zauber_uebernehmen(const std::vector<H_Data_zauber>& saz)
 {
    vec_Zauber=saz;
    angeborene_zauber();
-   for(vector<H_Data_zauber>::const_iterator i=vec_Zauber.begin();
+   for(std::vector<H_Data_zauber>::const_iterator i=vec_Zauber.begin();
          i!=vec_Zauber.end();++i)
       {
          int erf = midgard_CG::get_erfolgswert_zaubern(Typ,Typ2,(*i)->Name());

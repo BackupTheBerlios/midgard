@@ -1,4 +1,4 @@
-// $Id: midgard_CG_magier_spezialgebiet.pgcc,v 1.19 2001/06/27 10:10:16 thoma Exp $
+// $Id: midgard_CG_magier_spezialgebiet.pgcc,v 1.20 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,7 +23,7 @@
 exec sql include sqlca;
 
 
-void midgard_CG::magier_spezialgebiet(const string& whattodo)
+void midgard_CG::magier_spezialgebiet(const std::string& whattodo)
 {
  if (whattodo=="show") 
    { spezialgebiet_button_fill();
@@ -68,7 +68,7 @@ void midgard_CG::spezialgebiet_button()
 {
  int i = int(option_magier_spezialgebiet->get_menu()->get_active()->get_user_data());
  if (i==0) return ;
-//cout << i<<"\n";
+//std::cout << i<<"\n";
  werte.spezialisierung=vec_spezialgebiet[i];
  get_spezial_from_spezialgebiet();
 } 
@@ -90,5 +90,5 @@ void midgard_CG::get_spezial_from_spezialgebiet()
   if (sqlca.sqlcode) return;
   werte.spezial=db_spezial;
   werte.spezial2=db_spezial2;
-//cout << werte.spezialisierung<<"<-\t"<<werte.spezial<<"\t"<<werte.spezial2<<"\n\n\n";
+//std::cout << werte.spezialisierung<<"<-\t"<<werte.spezial<<"\t"<<werte.spezial2<<"\n\n\n";
 }

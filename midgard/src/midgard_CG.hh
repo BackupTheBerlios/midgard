@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.49 2001/06/27 10:10:16 thoma Exp $
+// $Id: midgard_CG.hh,v 1.50 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -54,17 +54,17 @@
 
 struct st_werte{int st; int ge;int ko;int in;int zt;
              int au;int pa;int sb;int rw;int hgw;
-             int b;int lp;int ap;int abwehr_wert; string zaubern_wert;
+             int b;int lp;int ap;int abwehr_wert; std::string zaubern_wert;
              int resistenz; int gift_wert;
              int bo_au_typ; int bo_au; int bo_sc; int bo_an; int bo_ab; int bo_za;
              int bo_psy; int bo_phs; int bo_phk; int bo_gi;
              int kaw; int wlw; int lpbasis;
-             int alter;string gestalt; string geschlecht;
+             int alter;std::string gestalt; std::string geschlecht;
              int gewicht;int groesse;int grad;
-             string spezialisierung;string spezial;string spezial2; string stand;
-             string herkunft; string spezies;
-             string glaube; string name_charakter; string name_spieler;
-             int gfp;string version; string beschreibung; string ruestung;
+             std::string spezialisierung;std::string spezial;std::string spezial2; std::string stand;
+             std::string herkunft; std::string spezies;
+             std::string glaube; std::string name_charakter; std::string name_spieler;
+             int gfp;std::string version; std::string beschreibung; std::string ruestung;
              int gold; int silber; int kupfer;
       st_werte() : st(0),ge(0),ko(0),in(0),zt(0),au(0),pa(0),sb(0), rw(0),
              hgw(0),b(0),lp(0),ap(0),abwehr_wert(0),
@@ -81,12 +81,12 @@ struct st_spezies_constraint{int st;int ge;int ko;int in;int zt;int sb;int au;
       int alter;int groesse_f;int groesse_w;int groesse_s;int gestalt;
       int b_f;int b_s;};
 /*
-struct styp{string l;string s;string z; string ausdauer; int stand; int sb;
+struct styp{std::string l;std::string s;std::string z; std::string ausdauer; int stand; int sb;
    styp() : stand(0), sb(0) {} 
    void clear() {*this=styp();} };
 */
-struct st_ausnahmen{string name; string art;float fac;string standard;
-         st_ausnahmen(string nn, string aa, float ff, string ss)
+struct st_ausnahmen{std::string name; std::string art;float fac;std::string standard;
+         st_ausnahmen(std::string nn, std::string aa, float ff, std::string ss)
          :name(nn), art(aa), fac(ff), standard(ss) {}};
 
 
@@ -109,29 +109,29 @@ class midgard_CG : public midgard_CG_glade
         friend class midgard_CG_glade;
         void set_tree_titles();
 
-//        vector<st_typen> typen_vector;
-//        vector<st_typen> typen_2_vector;
-        vector<cH_Data_typen> vec_Typen;
-        vector<cH_Data_typen> vec_Typen_2;
-        vector<string> vec_spezialgebiet;
-        vector<string> spezies_vector;
-        vector<H_Data_fert> vec_Fertigkeiten;
-        vector<H_Data_fert> vec_an_Fertigkeit;
-//        vector<st_ausgewaehlte_waffen> vec_waffen;
-//        vector<st_waffen_besitz> waffe_besitz;
-        vector<H_Data_waffen> vec_Waffen;
-        vector<H_Data_waffen> vec_Waffen_besitz;
-        vector<H_Data_beruf> vec_Beruf;
-        vector<H_Data_zauber> vec_Zauber;
-        vector<H_Data_zaubermittel> vec_Zaubermittel;
-        vector<H_Data_kido> vec_Kido;
+//        std::vector<st_typen> typen_vector;
+//        std::vector<st_typen> typen_2_vector;
+        std::vector<cH_Data_typen> vec_Typen;
+        std::vector<cH_Data_typen> vec_Typen_2;
+        std::vector<string> vec_spezialgebiet;
+        std::vector<string> spezies_vector;
+        std::vector<H_Data_fert> vec_Fertigkeiten;
+        std::vector<H_Data_fert> vec_an_Fertigkeit;
+//        std::vector<st_ausgewaehlte_waffen> vec_waffen;
+//        std::vector<st_waffen_besitz> waffe_besitz;
+        std::vector<H_Data_waffen> vec_Waffen;
+        std::vector<H_Data_waffen> vec_Waffen_besitz;
+        std::vector<H_Data_beruf> vec_Beruf;
+        std::vector<H_Data_zauber> vec_Zauber;
+        std::vector<H_Data_zaubermittel> vec_Zaubermittel;
+        std::vector<H_Data_kido> vec_Kido;
         bool kido_bool;
         int maxkido;
         bool magie_bool;
-        vector<H_Data_sprache> vec_Sprachen;
-        vector<H_Data_schrift> vec_Schriften;
-        map<string,string> waffen_grundkenntnisse;
-        vector<st_ausnahmen> vec_ausnahmen;
+        std::vector<H_Data_sprache> vec_Sprachen;
+        std::vector<H_Data_schrift> vec_Schriften;
+        map<std::string,string> waffen_grundkenntnisse;
+        std::vector<st_ausnahmen> vec_ausnahmen;
 //        styp typ;
 //        styp typ_2;
         Data_typen Typ;
@@ -140,7 +140,7 @@ class midgard_CG : public midgard_CG_glade
         Lernpunkte lernpunkte;
         st_spezies_constraint spezies_constraint;
 
-        void regnot(string sadd);
+        void regnot(std::string sadd);
         void fill_typauswahl();
         void fill_typauswahl_2();
         void fill_typauswahl_fill(int typ_1_2);
@@ -174,13 +174,13 @@ class midgard_CG : public midgard_CG_glade
         void latex_beschreibung_drucken();
         void on_button_info_clicked();
         void LaTeX_zauber_main();
-//        string LaTeX_scale(const string& is, unsigned int maxlength, const string& scale, const st_waffen_besitz& waffe=st_waffen_besitz());
-        string LaTeX_scale(const string& is, unsigned int maxlength, const string& scale, const H_Data_waffen& waffe=new Data_waffen());
+//        std::string LaTeX_scale(const std::string& is, unsigned int maxlength, const std::string& scale, const st_waffen_besitz& waffe=st_waffen_besitz());
+        std::string LaTeX_scale(const std::string& is, unsigned int maxlength, const std::string& scale, const H_Data_waffen& waffe=new Data_waffen());
         void LaTeX_zauber();
         void LaTeX_zaubermittel();
         void LaTeX_kido_main();
         void LaTeX_kido();
-        string LaTeX_string(int i);
+        std::string LaTeX_string(int i);
         void on_schliessen_CG_clicked();
         void on_lernpunkte_wuerfeln_clicked();
         void on_lernpunkte_editieren_clicked();
@@ -189,31 +189,31 @@ class midgard_CG : public midgard_CG_glade
         void on_button_geld_s_clicked();
         void on_button_ruestung_s_clicked();
         void on_button_waffen_s_clicked();
-        string ruestung(const string& mod);
+        std::string ruestung(const std::string& mod);
         void on_waffen_clist_select_row(gint row, gint column, GdkEvent *event);   
         void on_waffen_clist_unselect_row(gint row, gint column, GdkEvent *event);
         void on_fertigkeiten_wahl_clicked();
         void on_waffen_wahl_clicked();
         void spezialgebiet_button();
         void spezialgebiet_button_fill();
-        void magier_spezialgebiet(const string& whattodo);
+        void magier_spezialgebiet(const std::string& whattodo);
         void get_spezial_from_spezialgebiet();
         void on_zauber_wahl_clicked();
         void on_berufe_wahl_clicked();
         void on_kido_wahl_clicked();
-        void get_kido(vector<H_Data_kido>& vec_Kido);
+        void get_kido(std::vector<H_Data_kido>& vec_Kido);
         int get_erfolgswert_kido();
-        int maxkidostil(const string& stufe);
+        int maxkidostil(const std::string& stufe);
         void show_kido();
         void stil_optionmenue();
-        int  get_erfolgswert_zaubern(const Data_typen& Typ,const Data_typen& Typ2,const string& name);
-        int get_spezial_zauber(const string& typ,const string& name);
+        int  get_erfolgswert_zaubern(const Data_typen& Typ,const Data_typen& Typ2,const std::string& name);
+        int get_spezial_zauber(const std::string& typ,const std::string& name);
         void show_berufe();
         void show_waffen();
         void show_zauber();
         void zeige_lernpunkte();
         void zeige_notebook();
-        void Zauber_get_Daten(vector<H_Data_zauber>& zauber);
+        void Zauber_get_Daten(std::vector<H_Data_zauber>& zauber);
         void on_beruf_erfolgswert_clicked();
         gint on_angeborene_fertigkeit_button_release_event(GdkEventButton *ev);
         void on_angeborene_fertigkeit_clicked();
@@ -240,8 +240,8 @@ class midgard_CG : public midgard_CG_glade
         void get_grundwerte();
          
         void on_fertigkeiten_laden_clicked();
-        void on_steigern_fert_tree_alt_select(const string& fertigkeit, int wert, int steigern, int reduzieren, int verlernen);
-        void on_steigern_fert_tree_neu_select(const string& fertigkeit, int wert, int lernkosten);
+        void on_steigern_fert_tree_alt_select(const std::string& fertigkeit, int wert, int steigern, int reduzieren, int verlernen);
+        void on_steigern_fert_tree_neu_select(const std::string& fertigkeit, int wert, int lernkosten);
         void show_alte_fertigkeiten();
         void on_leaf_selected_alte_fert(cH_RowDataBase d);
         void show_neue_fertigkeiten();
@@ -252,8 +252,8 @@ class midgard_CG : public midgard_CG_glade
         void on_togglebutton_praxispunkte_fertigkeiten_toggled();
         void on_radiobutton_praxis_wuerfeln_fertigkeiten_toggled();
         void on_radiobutton_praxis_auto_fertigkeiten_toggled();
-        int praxispunkte_wuerfeln(const string& fert,int alter_wert, const string& art,bool wuerfeln);
-        int attribut_check(string atr);
+        int praxispunkte_wuerfeln(const std::string& fert,int alter_wert, const std::string& art,bool wuerfeln);
+        int attribut_check(std::string atr);
         bool kido_steigern_check(int wert);
    
         void on_waffen_laden_clicked();
@@ -261,20 +261,20 @@ class midgard_CG : public midgard_CG_glade
         void show_neue_grund();
         void show_alte_waffen();
         void show_neue_waffen();
-        void on_steigern_grund_tree_alt_select(const string& name);
-        void on_steigern_grund_tree_neu_select(const string& name,int kosten);
+        void on_steigern_grund_tree_alt_select(const std::string& name);
+        void on_steigern_grund_tree_neu_select(const std::string& name,int kosten);
         void on_leaf_selected_alte_grund(cH_RowDataBase d);
         void on_leaf_selected_neue_grund(cH_RowDataBase d);
         void on_leaf_selected_alte_waffen(cH_RowDataBase d);
         void on_leaf_selected_neue_waffen(cH_RowDataBase d);
-        void on_steigern_waffen_tree_alt_select(const string& waffe, int erfolgswert, int steigern, int reduzieren);
-        void on_steigern_waffen_tree_neu_select(const string&  name, int erfolgswert);
+        void on_steigern_waffen_tree_alt_select(const std::string& waffe, int erfolgswert, int steigern, int reduzieren);
+        void on_steigern_waffen_tree_neu_select(const std::string&  name, int erfolgswert);
         void on_radio_waffen_steigern_toggled();
         void on_radio_waffen_reduzieren_toggled();
         void on_togglebutton_praxispunkte_waffen_toggled();
         void on_radiobutton_praxis_wuerfeln_waffen_toggled();
         void on_radiobutton_praxis_auto_waffen_toggled();
-        string get_Verteidigungswaffe(int ohne_waffe);
+        std::string get_Verteidigungswaffe(int ohne_waffe);
 
 
         void on_zauber_laden_clicked();
@@ -283,28 +283,28 @@ class midgard_CG : public midgard_CG_glade
         void on_checkbutton_beschwoerungen_toggled();
         void on_checkbutton_alle_zauber_toggled();
         void on_checkbutton_zaubermittel_toggled();
-        int spruchrolle_wuerfeln(int istufe, string art, string zauber);
+        int spruchrolle_wuerfeln(int istufe, std::string art, std::string zauber);
         void on_leaf_selected_alte_zauber(cH_RowDataBase d);
-        void on_steigern_zauber_tree_alt_select(const string& zauber, int kosten);
+        void on_steigern_zauber_tree_alt_select(const std::string& zauber, int kosten);
         void on_leaf_selected_neue_zauber(cH_RowDataBase d);
-        void on_steigern_zauber_tree_neu_select(const string& zauber, int kosten, const string& stufe, const string& art);
+        void on_steigern_zauber_tree_neu_select(const std::string& zauber, int kosten, const std::string& stufe, const std::string& art);
         void show_alte_zauber();
         void show_neue_zauber();
-        void on_steigern_zaubermittel_tree_alt_select(const string& name, int kosten);
-        void on_steigern_zaubermittel_tree_neu_select(const string& name, const string& stufe, int kosten);
+        void on_steigern_zaubermittel_tree_alt_select(const std::string& name, int kosten);
+        void on_steigern_zaubermittel_tree_neu_select(const std::string& name, const std::string& stufe, int kosten);
         void on_leaf_selected_alte_zaubermittel(cH_RowDataBase d);
         void on_leaf_selected_neue_zaubermittel(cH_RowDataBase d);
         void show_alte_zaubermittel();
         void show_neue_zaubermittel();
-        void get_Zaubermittel(vector<H_Data_zaubermittel>& vec_Zaubermittel);
-        float get_standard_zaubermittel(const Data_typen& Typ,const Data_typen& Typ2,const string& name);
-        bool zauberwerk_voraussetzung(const string& name);
+        void get_Zaubermittel(std::vector<H_Data_zaubermittel>& vec_Zaubermittel);
+        float get_standard_zaubermittel(const Data_typen& Typ,const Data_typen& Typ2,const std::string& name);
+        bool zauberwerk_voraussetzung(const std::string& name);
 
         void on_kido_laden_clicked();
         void on_leaf_selected_alte_kido(cH_RowDataBase d);
         void on_leaf_selected_neue_kido(cH_RowDataBase d);
-        void on_steigern_kido_tree_alt_select(const string& name,int kosten);
-        void on_steigern_kido_tree_neu_select(const string& name,int kosten);
+        void on_steigern_kido_tree_alt_select(const std::string& name,int kosten);
+        void on_steigern_kido_tree_neu_select(const std::string& name,int kosten);
         void show_alte_kido();
         void show_neue_kido();
 
@@ -312,15 +312,15 @@ class midgard_CG : public midgard_CG_glade
         void on_sprache_laden_clicked();
         void on_leaf_selected_alte_sprache(cH_RowDataBase d);
         void on_leaf_selected_neue_sprache(cH_RowDataBase d);
-        void on_steigern_sprache_tree_alt_select(const string& name,int steigern,int reduzieren,int verlernen);
-        void on_steigern_sprache_tree_neu_select(const string& name,int kosten);
+        void on_steigern_sprache_tree_alt_select(const std::string& name,int steigern,int reduzieren,int verlernen);
+        void on_steigern_sprache_tree_neu_select(const std::string& name,int kosten);
         void on_radio_sprache_steigern_toggled();
         void on_radio_sprache_reduzieren_toggled();
         void on_radio_sprache_verlernen_toggled();
         void on_leaf_selected_alte_schrift(cH_RowDataBase d);
         void on_leaf_selected_neue_schrift(cH_RowDataBase d);
-        void on_steigern_schrift_tree_alt_select(const string& name, int kosten);
-        void on_steigern_schrift_tree_neu_select(const string& name, const string& art, int kosten);
+        void on_steigern_schrift_tree_alt_select(const std::string& name, int kosten);
+        void on_steigern_schrift_tree_neu_select(const std::string& name, const std::string& art, int kosten);
         void show_alte_schriften();
         void show_neue_schriften();
         void show_alte_sprachen();
@@ -328,7 +328,7 @@ class midgard_CG : public midgard_CG_glade
         void sprachen_schrift();
         void show_gtk();
 
-        bool get_typ_s(const string& mod,const Data_typen& t);
+        bool get_typ_s(const std::string& mod,const Data_typen& t);
    
    public:
          midgard_CG();
@@ -337,38 +337,38 @@ class midgard_CG : public midgard_CG_glade
          void on_speichern_clicked();
          gint on_speichern_release_event(GdkEventButton *ev);
          gint on_laden_release_event(GdkEventButton *ev);
-         void xml_export(const string& datei);
-         void xml_import(const string& datei);
-         void charakter_beschreibung_uebernehmen(const string& b);
-         void charakter_beschreibung_drucken(const string& b);
-         void select_charakter(const string& name, const string& version);
-         void zeige_werte(const st_werte& w, const string& welche);
+         void xml_export(const std::string& datei);
+         void xml_import(const std::string& datei);
+         void charakter_beschreibung_uebernehmen(const std::string& b);
+         void charakter_beschreibung_drucken(const std::string& b);
+         void select_charakter(const std::string& name, const std::string& version);
+         void zeige_werte(const st_werte& w, const std::string& welche);
          void setze_lernpunkte(const Lernpunkte& _lernpunkte);
-         void fertigkeiten_uebernehmen(const vector<H_Data_fert>& saf);
+         void fertigkeiten_uebernehmen(const std::vector<H_Data_fert>& saf);
          void show_fertigkeiten();
-         void waffen_uebernehmen(const vector<H_Data_waffen>& saw,map<string,string> wg);
-         void waffe_besitz_uebernehmen(const vector<H_Data_waffen>& wbu);
-         void zauber_uebernehmen(const vector<H_Data_zauber>& saz);
-         void berufe_uebernehmen(vector<H_Data_beruf>& sab);
-         void kido_uebernehmen(vector<string>& technik);
-         double get_standard_zauber(const Data_typen& typ,const Data_typen& typ2, const string& zauber);
-         double get_standard_zauber_(const string& ergebnis, const string& ergebnis2, const string& p_element, const string& s_element, const string& zauber);
-         double get_standard_waffen(const string& typ, const string& typ2,const string& waffe);
-         double get_standard_fertigkeit(const string& typ, const string& typ_2,const string& fertigkeit);
-         double get_standard_fertigkeit_(const string& ergebnis,const string& ergebnis2,const string& fertigkeiten);
-         string get_region_waffen(const string& waffe, const string& region,int mod);
-         void sprache_uebernehmen(const string& s, int wert);
-         void schrift_uebernehmen(const string& s, const string& t);
-         void herkunft_uebernehmen(const string& s);
-         string waffe_werte(const H_Data_waffen& waffe,const st_werte& werte, const string& mod);
-         vector<string> Berufs_Vorteile();
-         bool Fertigkeiten_Voraussetzung(const string& fertigkeit);
-         bool Waffen_Voraussetzung(const string& waffe);
-         bool region_check(const string& region);
-         bool Ausnahmen_bool(const string& name);
+         void waffen_uebernehmen(const std::vector<H_Data_waffen>& saw,map<std::string,string> wg);
+         void waffe_besitz_uebernehmen(const std::vector<H_Data_waffen>& wbu);
+         void zauber_uebernehmen(const std::vector<H_Data_zauber>& saz);
+         void berufe_uebernehmen(std::vector<H_Data_beruf>& sab);
+         void kido_uebernehmen(std::vector<string>& technik);
+         double get_standard_zauber(const Data_typen& typ,const Data_typen& typ2, const std::string& zauber);
+         double get_standard_zauber_(const std::string& ergebnis, const std::string& ergebnis2, const std::string& p_element, const std::string& s_element, const std::string& zauber);
+         double get_standard_waffen(const std::string& typ, const std::string& typ2,const std::string& waffe);
+         double get_standard_fertigkeit(const std::string& typ, const std::string& typ_2,const std::string& fertigkeit);
+         double get_standard_fertigkeit_(const std::string& ergebnis,const std::string& ergebnis2,const std::string& fertigkeiten);
+         std::string get_region_waffen(const std::string& waffe, const std::string& region,int mod);
+         void sprache_uebernehmen(const std::string& s, int wert);
+         void schrift_uebernehmen(const std::string& s, const std::string& t);
+         void herkunft_uebernehmen(const std::string& s);
+         std::string waffe_werte(const H_Data_waffen& waffe,const st_werte& werte, const std::string& mod);
+         std::vector<string> Berufs_Vorteile();
+         bool Fertigkeiten_Voraussetzung(const std::string& fertigkeit);
+         bool Waffen_Voraussetzung(const std::string& waffe);
+         bool region_check(const std::string& region);
+         bool Ausnahmen_bool(const std::string& name);
          void get_Ausnahmen();
-         float Ausnahmen_float(const string& name);
-         string Ausnahmen_string(const string& name, const string& alt,const string& alt2);
+         float Ausnahmen_float(const std::string& name);
+         std::string Ausnahmen_string(const std::string& name, const std::string& alt,const std::string& alt2);
 //        void get_typ_after_load(int nr, int typ_1_2=1);
         void get_typ_after_load();
         int  get_typ_nr(int typ_1_2=1);

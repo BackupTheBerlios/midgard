@@ -1,4 +1,4 @@
-// $Id: xmlexport.pgcc,v 1.19 2001/06/27 10:24:12 christof Exp $
+// $Id: xmlexport.pgcc,v 1.20 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -25,7 +25,7 @@
 #include <Aux/dbconnect.h>
 exec sql include sqlca;
 
-void fetch_and_write_int(FetchIStream &is,ostream &o,const string &wert,int indent=0)
+void fetch_and_write_int(FetchIStream &is,std::ostream &o,const std::string &wert,int indent=0)
 {  int val;
    
    is >> FetchIStream::MapNull<int>(val,0);
@@ -34,7 +34,7 @@ void fetch_and_write_int(FetchIStream &is,ostream &o,const string &wert,int inde
    o << '<' << wert << '>' << val << "</" << wert << ">\n";
 }
 
-void fetch_and_write_int_attrib(FetchIStream &is,ostream &o,const string &wert)
+void fetch_and_write_int_attrib(FetchIStream &is,std::ostream &o,const std::string &wert)
 {  int val;
    
    is >> FetchIStream::MapNull<int>(val,0);
@@ -42,8 +42,8 @@ void fetch_and_write_int_attrib(FetchIStream &is,ostream &o,const string &wert)
    o << ' ' << wert << "=\"" << val << '\"';
 }
 
-void fetch_and_write_string(FetchIStream &is,ostream &o,const string &wert,int indent=0)
-{  string val;
+void fetch_and_write_string(FetchIStream &is,std::ostream &o,const std::string &wert,int indent=0)
+{  std::string val;
    
    is >> FetchIStream::MapNull<string>(val,""); 
    if (!val.size()) return;
@@ -52,8 +52,8 @@ void fetch_and_write_string(FetchIStream &is,ostream &o,const string &wert,int i
    o << '<' << wert << '>' << val << "</" << wert << ">\n";
 }
 
-void fetch_and_write_string_attrib(FetchIStream &is,ostream &o,const string &wert)
-{  string val;
+void fetch_and_write_string_attrib(FetchIStream &is,std::ostream &o,const std::string &wert)
+{  std::string val;
    
    is >> FetchIStream::MapNull<string>(val,""); 
    if (!val.size()) return;
@@ -61,7 +61,7 @@ void fetch_and_write_string_attrib(FetchIStream &is,ostream &o,const string &wer
    o << ' ' << wert << "=\"" << val << '\"';
 }
 
-void charakter_speichern(ostream &o, const string &name,const string &version="")
+void charakter_speichern(std::ostream &o, const std::string &name,const std::string &version="")
 {  exec sql begin declare section;
    char *NAME,*VERSION;
    exec sql end declare section;
@@ -181,14 +181,14 @@ void charakter_speichern(ostream &o, const string &name,const string &version=""
    {  exec sql fetch c3 into sql descriptor spalten;
       SQLerror::test(__FILELINE__,100);
       if (sqlca.sqlcode) break;
-      string typ;
+      std::string typ;
       FetchIStream is2("spalten");
       o << "    <Waffe";
       fetch_and_write_string_attrib(is2, o, "Bezeichnung");
       fetch_and_write_int_attrib(is2, o, "AngriffVerteidigung_Bonus");
       fetch_and_write_int_attrib(is2, o, "SchadenLebenspunkte_Bonus");
       fetch_and_write_string_attrib(is2, o, "Region");
-      {  string magisch;
+      {  std::string magisch;
          
          is2 >> FetchIStream::MapNull<string>(magisch,"");
          if (!magisch.size()) o << "/>\n";
@@ -211,13 +211,13 @@ void charakter_speichern(ostream &o, const string &name,const string &version=""
    {  exec sql fetch c2 into sql descriptor spalten;
       SQLerror::test(__FILELINE__,100);
       if (sqlca.sqlcode) break;
-      string typ;
+      std::string typ;
       FetchIStream is2("spalten");
       is2 >> typ;
       // oder <Beruf Wert=12>Arzt</Beruf> ?
       o << "    <"<<typ;
       if (typ!="Region") fetch_and_write_string_attrib(is2, o, "Bezeichnung");
-      else { string dummy; is2 >> dummy; }
+      else { std::string dummy; is2 >> dummy; }
       fetch_and_write_int_attrib(is2, o, "Wert");
       // dies ist wahrscheinlich unnötig ...
       fetch_and_write_string_attrib(is2, o, "Region");
@@ -233,17 +233,17 @@ void charakter_speichern(ostream &o, const string &name,const string &version=""
 
 int main(int argc, char *argv[])
 {  
-   if (argc!=3) {cerr << "FEHLER: "<<argv[0]<<" muß mit 'Charaktername' und 'Version' aufgerufen werden\n";
+   if (argc!=3) {std::cerr << "FEHLER: "<<argv[0]<<" muß mit 'Charaktername' und 'Version' aufgerufen werden\n";
       exit(1); };
    try{
       Petig::Connection conn;
       conn.setDbase("midgard");
       Petig::dbconnect(conn);
 
-   charakter_speichern(cout,argv[1],argv[2]);
+   charakter_speichern(std::cout,argv[1],argv[2]);
    Petig::dbdisconnect();
    } catch (SQLerror &e)
-   {  cerr << e << '\n';
+   {  std::cerr << e << '\n';
    }
    return 0;
 }

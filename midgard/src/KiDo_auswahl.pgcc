@@ -46,7 +46,7 @@ void KiDo_auswahl::on_clist_kido_auswahl_unselect_row(gint row, gint column, Gdk
 
 void KiDo_auswahl::on_button_close_clicked()
 {
-  vector<string> technik;
+  std::vector<string> technik;
   for(Gtk::CList::SelectionList::iterator i=clist_kido_auswahl->selection().begin();
       i!=clist_kido_auswahl->selection().end();++i)
    {
@@ -69,7 +69,7 @@ KiDo_auswahl::KiDo_auswahl(midgard_CG* h, int m, const st_werte& werte)
     int db_fp, db_ap;
     char query[1024];
    exec sql end declare section;
-   string squery;
+   std::string squery;
    squery = "select name_orig, name, fp, ap from kido \
          where stufe='Schüler' ";
    if (werte.spezialisierung != "Gemischte Techniken")
@@ -90,7 +90,7 @@ KiDo_auswahl::KiDo_auswahl(midgard_CG* h, int m, const st_werte& werte)
      }
    exec sql close ein;
    Gtk::OStream os(clist_kido_auswahl);
-   for (vector<st_kido_>::iterator i=kido_technik.begin();i!=kido_technik.end();++i)
+   for (std::vector<st_kido_>::iterator i=kido_technik.begin();i!=kido_technik.end();++i)
     {
       os << i->name_orig <<"\t"<<i->name<<"\t"<<i->ap<<"\t"<<i->fp<<"\n";
       os.flush(&*i);

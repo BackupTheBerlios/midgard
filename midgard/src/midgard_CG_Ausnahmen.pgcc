@@ -22,7 +22,7 @@
 exec sql include sqlca;
 
 
-bool midgard_CG::Ausnahmen_bool(const string& name)
+bool midgard_CG::Ausnahmen_bool(const std::string& name)
 {
  abort();
 }
@@ -34,7 +34,7 @@ void midgard_CG::get_Ausnahmen()
    char db_name[50], db_art[5], db_standard[5];
    char query[1024];
  exec sql end declare section;
- string squery;
+ std::string squery;
  for (int n=0;n<2;++n) 
   {
     if (n==0)
@@ -50,7 +50,7 @@ void midgard_CG::get_Ausnahmen()
        squery = "select name, art, standard from ausnahmen \
          where typ=null \
          and (herkunft = '"+werte.herkunft+"'";
-         for(vector<H_Data_beruf>::iterator i=vec_Beruf.begin();i!=vec_Beruf.end();++i)
+         for(std::vector<H_Data_beruf>::iterator i=vec_Beruf.begin();i!=vec_Beruf.end();++i)
             squery += " or beruf = '"+(*i)->Name()+"' ";
          squery += " or  stand = '"+werte.stand+"' )";
       }
@@ -66,8 +66,8 @@ void midgard_CG::get_Ausnahmen()
         exec sql fetch ein into :db_name, :db_art, :db_standard;
         SQLerror::test(__FILELINE__,100);
         if (sqlca.sqlcode) break;
-        string art=db_art;
-        string standard = db_standard;
+        std::string art=db_art;
+        std::string standard = db_standard;
         float fac;
         if (art=="z")
          { if (standard == "G" ) fac = 0.5;
@@ -87,23 +87,23 @@ void midgard_CG::get_Ausnahmen()
     tr.close();
    }   
 /*
- for (vector<st_ausnahmen>::const_iterator i=vec_ausnahmen.begin();
+ for (std::vector<st_ausnahmen>::const_iterator i=vec_ausnahmen.begin();
          i!=vec_ausnahmen.end();++i)
-   cout <<i->name<<"\t" <<i->art<<"\t"<<i->fac<<"\t"<<i->standard<<"\n";
+   std::cout <<i->name<<"\t" <<i->art<<"\t"<<i->fac<<"\t"<<i->standard<<"\n";
 */
 }
 
-float midgard_CG::Ausnahmen_float(const string& name)
+float midgard_CG::Ausnahmen_float(const std::string& name)
 {
- for (vector<st_ausnahmen>::const_iterator i=vec_ausnahmen.begin();
+ for (std::vector<st_ausnahmen>::const_iterator i=vec_ausnahmen.begin();
          i!=vec_ausnahmen.end();++i)
    if (i->name==name) return i->fac;
  return 0;
 }
 
-string midgard_CG::Ausnahmen_string(const string& name, const string& alt,const string& alt2)
+std::string midgard_CG::Ausnahmen_string(const std::string& name, const std::string& alt,const std::string& alt2)
 {
- for (vector<st_ausnahmen>::const_iterator i=vec_ausnahmen.begin();
+ for (std::vector<st_ausnahmen>::const_iterator i=vec_ausnahmen.begin();
          i!=vec_ausnahmen.end();++i)
    if (i->name==name) return i->standard;
   return alt+" "+alt2;

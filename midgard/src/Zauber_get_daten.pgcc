@@ -30,9 +30,9 @@ exec sql include sqlca;
 #include <cstring>
 #include <Gtk_OStream.h>
 
-void midgard_CG::Zauber_get_Daten(vector<H_Data_zauber>& zauber)
+void midgard_CG::Zauber_get_Daten(std::vector<H_Data_zauber>& zauber)
 {
- for (vector<H_Data_zauber>::iterator i=zauber.begin();i!=zauber.end();++i)
+ for (std::vector<H_Data_zauber>::iterator i=zauber.begin();i!=zauber.end();++i)
  {
   exec sql begin declare section;
    char db_name[100];

@@ -1,4 +1,4 @@
-/* $Id: itos.h,v 1.14 2001/06/12 09:31:06 thoma Exp $ */
+/* $Id: itos.h,v 1.15 2001/06/27 11:24:35 thoma Exp $ */
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,4 +18,4 @@
  */
 
 #include <string>
-string itos(int i);
+std::string itos(int i);

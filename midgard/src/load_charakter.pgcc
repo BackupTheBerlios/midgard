@@ -32,11 +32,11 @@ gint midgard_CG::on_laden_release_event(GdkEventButton *ev)
   return false;
 }
  
-void midgard_CG::xml_import(const string& datei)
+void midgard_CG::xml_import(const std::string& datei)
 {
-  string command = "midgard_xmlimport < "+datei;
+  std::string command = "midgard_xmlimport < "+datei;
   system(command.c_str());
-  string strinfo = "Charakter aus Datei "+datei+" importiert\n";
+  std::string strinfo = "Charakter aus Datei "+datei+" importiert\n";
   manage (new WindowInfo(strinfo));
   on_laden_clicked();  
 }
@@ -50,7 +50,7 @@ void midgard_CG::on_laden_clicked()
   manage (new Window_charakter_auswahl(this));
 }
 
-void midgard_CG::select_charakter(const string& name, const string& version)
+void midgard_CG::select_charakter(const std::string& name, const std::string& version)
 {
   werte.name_charakter=name;
   werte.version=version;
@@ -362,7 +362,7 @@ void midgard_CG::load_charakter()
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
          vec_Fertigkeiten.push_back(new Data_fert(db_fertigkeit,db_wert));
-         string f = db_fertigkeit;
+         std::string f = db_fertigkeit;
          if (f=="KiDo") kido_bool=true;
          if (f=="Wissen von der Magie") magie_bool=true;
       } 
@@ -399,7 +399,7 @@ void midgard_CG::load_charakter()
          exec sql fetch besitz_w into :db_fertigkeit, :db_av_bonus ,:db_sl_bonus, :db_region, :db_magisch;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         string wa = get_region_waffen(db_fertigkeit,db_region,2);         
+         std::string wa = get_region_waffen(db_fertigkeit,db_region,2);         
          vec_Waffen_besitz.push_back(new Data_waffen(wa,db_fertigkeit,db_region,db_av_bonus,db_sl_bonus,db_magisch));
       } 
    exec sql close besitz_w;
@@ -436,7 +436,7 @@ void midgard_CG::load_charakter()
          exec sql fetch zauberm into :db_fertigkeit, :db_wert ;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         string stufe = itos(db_wert); 
+         std::string stufe = itos(db_wert); 
          if (db_wert==99) stufe = "G";
          vec_Zaubermittel.push_back(new Data_zaubermittel(stufe,db_fertigkeit));
       } 
@@ -538,7 +538,7 @@ void midgard_CG::load_charakter()
       exec sql fetch r_ein into :db_region_2;
       SQLerror::test(__FILELINE__,100);
       if (sqlca.sqlcode) break;   
-      string reg=db_region_2;
+      std::string reg=db_region_2;
       if (reg=="ORIG") {Originalbool=true ; checkbutton_original->set_active(true);}
       if (reg=="A") {Albabool=true ; checkbutton_Alba->set_active(true);}
       if (reg=="E") {Escharbool=true;      checkbutton_Eschar->set_active(true);}

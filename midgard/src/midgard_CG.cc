@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.43 2001/06/27 10:10:16 thoma Exp $
+// $Id: midgard_CG.cc,v 1.44 2001/06/27 11:24:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -43,7 +43,7 @@ midgard_CG::midgard_CG()
 
 void midgard_CG::set_tree_titles()
 {
- vector<string> alte_fert;
+ std::vector<string> alte_fert;
  alte_fert.push_back("Fertigkeit");
  alte_fert.push_back("Wert");
  alte_fert.push_back("Steigern\n(nächste Stufe)");
@@ -51,7 +51,7 @@ void midgard_CG::set_tree_titles()
  alte_fert.push_back("Verlernen");
  alte_fert_tree->set_value_data(reinterpret_cast<gpointer>('A'));
  alte_fert_tree->setTitles(alte_fert);
- vector<string> neue_fert;
+ std::vector<string> neue_fert;
  neue_fert.push_back("Fertigkeit");
  neue_fert.push_back("Wert");
  neue_fert.push_back("Lernkosten");
@@ -60,35 +60,35 @@ void midgard_CG::set_tree_titles()
  neue_fert_tree->set_value_data(reinterpret_cast<gpointer>('N'));
  neue_fert_tree->setTitles(neue_fert);
 
- vector<string> alte_waffen;
+ std::vector<string> alte_waffen;
  alte_waffen.push_back("Waffe");
  alte_waffen.push_back("Wert");
  alte_waffen.push_back("Steigern\n(nächste Stufe)");
  alte_waffen.push_back("Reduzieren\n(eine Stufe)");
  alte_waffen_tree->set_value_data(reinterpret_cast<gpointer>('A'));
  alte_waffen_tree->setTitles(alte_waffen);
- vector<string> neue_waffen;
+ std::vector<string> neue_waffen;
  neue_waffen.push_back("Waffe");
  neue_waffen.push_back("Wert");
  neue_waffen.push_back("Vorraussetzung");
  neue_waffen_tree->set_value_data(reinterpret_cast<gpointer>('N'));
  neue_waffen_tree->setTitles(neue_waffen);
 
- vector<string> alte_grund;
+ std::vector<string> alte_grund;
  alte_grund.push_back("Grundkenntnisse");
  alte_grund_tree->setTitles(alte_grund);
- vector<string> neue_grund;
+ std::vector<string> neue_grund;
  neue_grund.push_back("Grundkenntnisse");
  neue_grund.push_back("Kosten");
  neue_grund_tree->setTitles(neue_grund);
  
- vector<string> alte_zauber;
+ std::vector<string> alte_zauber;
  alte_zauber.push_back("Name");
  alte_zauber.push_back("Ursprung");
  alte_zauber.push_back("Lernkosten");
  alte_zauber_tree->setTitles(alte_zauber);
  alte_zauber_tree->set_value_data(reinterpret_cast<gpointer>('A'));
- vector<string> neue_zauber;
+ std::vector<string> neue_zauber;
  neue_zauber.push_back("Stufe");
  neue_zauber.push_back("Name");
  neue_zauber.push_back("Ursprung");
@@ -97,14 +97,14 @@ void midgard_CG::set_tree_titles()
  neue_zauber_tree->set_value_data(reinterpret_cast<gpointer>('N'));
  neue_zauber_tree->setTitles(neue_zauber);
 
- vector<string> alte_zaubermittel;
+ std::vector<string> alte_zaubermittel;
  alte_zaubermittel.push_back("Stufe");
  alte_zaubermittel.push_back("Name");
  alte_zaubermittel.push_back("Art");
  alte_zaubermittel.push_back("Kosten");
  alte_zaubermittel_tree->set_value_data(reinterpret_cast<gpointer>('A'));
  alte_zaubermittel_tree->setTitles(alte_zaubermittel); 
- vector<string> neue_zaubermittel;
+ std::vector<string> neue_zaubermittel;
  neue_zaubermittel.push_back("Stufe");
  neue_zaubermittel.push_back("Name");
  neue_zaubermittel.push_back("Art");
@@ -114,7 +114,7 @@ void midgard_CG::set_tree_titles()
  neue_zaubermittel_tree->set_value_data(reinterpret_cast<gpointer>('N'));
  neue_zaubermittel_tree->setTitles(neue_zaubermittel); 
 
- vector<string> kido;
+ std::vector<string> kido;
  kido.push_back("HoHo");
  kido.push_back("Technik");
  kido.push_back("Stufe");
@@ -126,7 +126,7 @@ void midgard_CG::set_tree_titles()
  neue_kido_tree->set_value_data(reinterpret_cast<gpointer>('N'));
  neue_kido_tree->setTitles(kido);
 
- vector<string> alte_sprachen;
+ std::vector<string> alte_sprachen;
  alte_sprachen.push_back("Sprache");
  alte_sprachen.push_back("Wert");
  alte_sprachen.push_back("Steigern\n(nächste Stufe)");
@@ -134,14 +134,14 @@ void midgard_CG::set_tree_titles()
  alte_sprachen.push_back("Verlernen");
  alte_sprache_tree->set_value_data(reinterpret_cast<gpointer>('A'));
  alte_sprache_tree->setTitles(alte_sprachen);
- vector<string> neue_sprachen;
+ std::vector<string> neue_sprachen;
  neue_sprachen.push_back("Sprache");
  neue_sprachen.push_back("Urschrift");
  neue_sprachen.push_back("Lernkosten");
  neue_sprache_tree->set_value_data(reinterpret_cast<gpointer>('N'));
  neue_sprache_tree->setTitles(neue_sprachen);
 
- vector<string> schrift;
+ std::vector<string> schrift;
  schrift.push_back("Urschrift");
  schrift.push_back("Art der Schrift");
  schrift.push_back("Kosten");
@@ -175,7 +175,7 @@ void midgard_CG::on_radiobutton_mann_toggled()
 //void midgard_CG::show_gtk(int tnr,int typ_1_2)
 void midgard_CG::show_gtk()
 {
-//cout << "show_gtk "<<tnr<<"\t"<<typ_1_2<<"\n";
+//std::cout << "show_gtk "<<tnr<<"\t"<<typ_1_2<<"\n";
 // if (typ_1_2==1) 
 //   { //typauswahl->set_history(tnr); // Charakterklasse
      typauswahl->set_history(Typ.Nr_Optionmenu());
@@ -243,7 +243,7 @@ void midgard_CG::on_herkunftsland_clicked()
 {
    manage (new Window_herkunft(this));
 }
-void midgard_CG::herkunft_uebernehmen(const string& s)
+void midgard_CG::herkunft_uebernehmen(const std::string& s)
 {
    werte.herkunft = s;
    midgard_CG::zeige_werte(werte,"alle");
@@ -262,12 +262,12 @@ void midgard_CG::on_charakter_beschreibung_clicked()
 {   
   manage(new Window_charakter_beschreibung(this,werte.beschreibung)); 
 }   
-void midgard_CG::charakter_beschreibung_uebernehmen(const string& b)
+void midgard_CG::charakter_beschreibung_uebernehmen(const std::string& b)
 {
   werte.beschreibung=b;  
   on_speichern_clicked();
 }
-void midgard_CG::charakter_beschreibung_drucken(const string& b)
+void midgard_CG::charakter_beschreibung_drucken(const std::string& b)
 {
   werte.beschreibung=b;  
   on_speichern_clicked();

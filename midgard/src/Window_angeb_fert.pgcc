@@ -34,8 +34,8 @@ exec sql include sqlca;
 
 void Window_angeb_fert::on_clist_ang_fert_alt_select_row(gint row, gint column, GdkEvent *event)
 {   
-  string altf = clist_ang_fert_alt->get_text(row,0);
-  for(vector<H_Data_fert>::iterator i=vec_an_Fertigkeit.begin();
+  std::string altf = clist_ang_fert_alt->get_text(row,0);
+  for(std::vector<H_Data_fert>::iterator i=vec_an_Fertigkeit.begin();
          i!=vec_an_Fertigkeit.end();++i)
    {
      if (altf==(*i)->Name()) {vec_an_Fertigkeit.erase(i); break;}
@@ -47,7 +47,7 @@ void Window_angeb_fert::on_clist_ang_fert_alt_select_row(gint row, gint column, 
 
 void Window_angeb_fert::on_clist_ang_fert_neu_select_row(gint row, gint column, GdkEvent *event)
 {   
-  string newf = clist_ang_fert_neu->get_text(row,1);
+  std::string newf = clist_ang_fert_neu->get_text(row,1);
   int neww = atoi(clist_ang_fert_neu->get_text(row,2).c_str());
   vec_an_Fertigkeit.push_back( new Data_fert(newf,neww));
   hauptfenster->on_speichern_clicked();
@@ -61,7 +61,7 @@ void Window_angeb_fert::show_alte_afert()
 {
   clist_ang_fert_alt->clear();
   Gtk::OStream os(clist_ang_fert_alt);
-  for(vector<H_Data_fert>::const_iterator i=vec_an_Fertigkeit.begin();
+  for(std::vector<H_Data_fert>::const_iterator i=vec_an_Fertigkeit.begin();
          i!=vec_an_Fertigkeit.end();++i)
    {
      os << (*i)->Name();
@@ -100,7 +100,7 @@ void Window_angeb_fert::show_neue_afert()
   clist_ang_fert_neu->clear();
   load_af();
   Gtk::OStream os(clist_ang_fert_neu);
-  for (vector<st_af>::const_iterator i=af.begin();i!=af.end();++i)
+  for (std::vector<st_af>::const_iterator i=af.begin();i!=af.end();++i)
    {
      os << i->min <<"-"<<i->max<<"\t"<<i->name;
      if (i->wert!=0) os <<"\t"<<i->wert;
@@ -110,7 +110,7 @@ void Window_angeb_fert::show_neue_afert()
      clist_ang_fert_neu->set_column_auto_resize(i,true);
 }
 
-Window_angeb_fert::Window_angeb_fert(midgard_CG* h, vector<H_Data_fert>& vaf, 
+Window_angeb_fert::Window_angeb_fert(midgard_CG* h, std::vector<H_Data_fert>& vaf, 
    st_werte& w,int wu)
 : vec_an_Fertigkeit(vaf),werte(w),wurf(wu)
 {
@@ -120,7 +120,7 @@ Window_angeb_fert::Window_angeb_fert(midgard_CG* h, vector<H_Data_fert>& vaf,
    { label_ang_fert->set_text("100 gewürfelt --> Fertigkeit auswählen");
      show_alte_afert();
      show_neue_afert(); 
-     string strinfo="Für die Angeborene Fertigkeit\n wurde eine "
+     std::string strinfo="Für die Angeborene Fertigkeit\n wurde eine "
          +itos(wurf)+" gewürfelt.\nangeborene Fertigkeit mit RECHTER "+
          +"Maustaste auswählen.\n";
      manage(new WindowInfo(strinfo,true));
@@ -142,7 +142,7 @@ void Window_angeb_fert::on_button_close_clicked()
 void Window_angeb_fert::gewuerfelt()
 {
   load_af();
-  for (vector<st_af>::const_iterator i=af.begin();i!=af.end();++i)
+  for (std::vector<st_af>::const_iterator i=af.begin();i!=af.end();++i)
    {
      if (i->min<=wurf && wurf<=i->max) 
       {
