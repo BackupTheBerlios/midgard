@@ -27,40 +27,49 @@
 #include "Sprache_auswahl.hh"
 #include "midgard_CG.hh"
 #include <Gtk_OStream.h>
-exec sql include sqlca;
-#include <Aux/Transaction.h>
-#include <Aux/SQLerror.h>
+//exec sql include sqlca;
+//#include <Aux/Transaction.h>
+//#include <Aux/SQLerror.h>
 #include "Schrift.hh"
 #include "Sprache.hh"
 
 void Sprache_auswahl::on_clist_sp_sc_select_row(gint row, gint column, GdkEvent *event)
 {   
-   std::string fert = clist_sp_sc->get_text(row,0);
+  cH_MidgardBasicElement *s=static_cast<cH_MidgardBasicElement*>(clist_sp_sc->selection().begin()->get_data());
+  hauptfenster->MidgardBasicElement_uebernehmen(*s);
+
+/*
+//   std::string fert = clist_sp_sc->get_text(row,0);
    if (modus =="Sprache")
     {
-       int wert = atoi(clist_sp_sc->get_text(row,2).c_str());
+//       int wert = atoi(clist_sp_sc->get_text(row,2).c_str());
 //       hauptfenster->sprache_uebernehmen(fert,wert);
-       cH_MidgardBasicElement s(new Sprache(fert));
-       cH_Sprache(s)->set_Erfolgswert(wert);
-       hauptfenster->MidgardBasicElement_uebernehmen(s);
+//       cH_Sprache *s=static_cast<cH_Sprache*>(clist_sp_sc->selection().begin()->get_data());
+       cH_MidgardBasicElement *s=static_cast<cH_MidgardBasicElement*>(clist_sp_sc->selection().begin()->get_data());
+//       cH_MidgardBasicElement s(new Sprache(fert));
+//       cH_Sprache(s)->set_Erfolgswert(wert);
+//       hauptfenster->MidgardBasicElement_uebernehmen(s);
+       hauptfenster->MidgardBasicElement_uebernehmen(*s);
     }
    if (modus =="Lesen/Schreiben") 
     {
-      std::string typ  = clist_sp_sc->get_text(row,1);
+//      std::string typ  = clist_sp_sc->get_text(row,1);
 //      hauptfenster->schrift_uebernehmen(fert,typ);
-      hauptfenster->MidgardBasicElement_uebernehmen(new Schrift(fert));
+      cH_Schrift *s=static_cast<cH_Schrift*>(clist_sp_sc->selection().begin()->get_data());
+//      hauptfenster->MidgardBasicElement_uebernehmen(new Schrift(fert));
+//XXX       hauptfenster->MidgardBasicElement_uebernehmen(*s);
     }
+*/
    destroy();
 }
 
 
-Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const std::string& mod)
+Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const midgard_CG::st_Database& Database, const std::string& mod)
+ : hauptfenster(h),modus(mod)
 {
-   hauptfenster=h;
-   modus = mod;
-//   st_werte werte = hauptfenster->werte;
-   Grundwerte Werte;
+//   Grundwerte Werte;
    Gtk::OStream os(clist_sp_sc);
+/*
    exec sql begin declare section;
       char db_1[50], db_2[50];
       char db_cname[50],db_version[50];
@@ -68,12 +77,19 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const std::string& mod)
    exec sql end declare section;
   strncpy(db_cname,(Werte.Name_Charakter()).c_str(),sizeof(db_cname));
   strncpy(db_version,(Werte.Version()).c_str(),sizeof(db_version));
-   
+*/  
    if (mod == "Sprache")
       {
          sp_sc_label->set_text("Sprache wählen");
 //         label_clist_sp_1->set_text("Sprache");
 //         label_clist_sp_2->set_text("Urschrift");
+         for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Sprache.begin();i!=Database.Sprache.end();++i)
+          { 
+            cH_Sprache s(*i);
+            os << s->Name()<<s->Maxwert()<<'\n';
+            os.flush(&const_cast<cH_MidgardBasicElement&>(*i));
+          }
+/*
          Transaction tr;
          exec sql declare ein cursor for
             SELECT DISTINCT  name, land, max_wert from sprachen
@@ -91,12 +107,20 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const std::string& mod)
             }   
          tr.close();
          exec sql close ein;
+*/
       }
    if (mod == "Lesen/Schreiben")
       {
          sp_sc_label->set_text("Schrift wählen");
 //         label_clist_sp_1->set_text("Schrift");
 //         label_clist_sp_2->set_text("Typ");
+         for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Schrift.begin();i!=Database.Schrift.end();++i)
+          { 
+            cH_Schrift s(*i);
+            os << s->Name()<<s->Art_der_Schrift()<<'\n';
+            os.flush(&const_cast<cH_MidgardBasicElement&>(*i));
+          }
+/*
          Transaction tr;
          exec sql declare ein2 cursor for
             SELECT DISTINCT  name, typ from schrift WHERE  name 
@@ -115,9 +139,8 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const std::string& mod)
             }   
          tr.close();
          exec sql close ein2;
+*/
       }
    for (unsigned int i=0;i<clist_sp_sc->columns().size();++i)
       clist_sp_sc->set_column_auto_resize(i,true);
-
-
 }

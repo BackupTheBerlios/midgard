@@ -26,7 +26,7 @@
 void midgard_CG::on_schrift_laden_clicked()
 {   
    list_Schrift_neu.clear();
-   for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Schrift_alle.begin();i!=list_Schrift_alle.end();++i)
+   for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Schrift.begin();i!=Database.Schrift.end();++i)
     { cH_Schrift s(*i);
       if((*i)->ist_gelernt(list_Schrift)) continue;
       if (region_check(s->Region()) )  
@@ -39,7 +39,7 @@ void midgard_CG::on_schrift_laden_clicked()
 void midgard_CG::on_sprache_laden_clicked()
 {   
    list_Sprache_neu.clear();
-   for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Sprache_alle.begin();i!=list_Sprache_alle.end();++i)
+   for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Sprache.begin();i!=Database.Sprache.end();++i)
     { cH_Sprache s(*i);
       if((*i)->ist_gelernt(list_Sprache)) continue;
       if (region_check(s->Region()) )  

@@ -2,6 +2,7 @@
 #define CLASS_GRUND
 #include "itos.h"
 #include "Land.hh"
+#include "Ruestung.hh"
 
 class Grundwerte
 {
@@ -12,9 +13,10 @@ class Grundwerte
    std::string gestalt, geschlecht;
    int gewicht,groesse,grad;
    std::string spezialisierung, spezial, spezial2,stand,spezies,
-      glaube,name_charakter,name_spieler,version,beschreibung,ruestung;
+      glaube,name_charakter,name_spieler,version,beschreibung;
    int gfp,gold,silber,kupfer,aep,kep,zep;
    cH_Land herkunft;
+   cH_Ruestung ruestung; 
 
 public:
    Grundwerte() : st(0),ge(0),ko(0),in(0),zt(0),au(0),pa(0),sb(0), rw(0),
@@ -25,8 +27,8 @@ public:
              alter(0),geschlecht("m"),gewicht(0),groesse(0),grad(1),spezialisierung(""),
              spezial(""),spezial2(""),
              stand(""),spezies("Mensch"),glaube(""),name_charakter(""),version("Erschaffung"),
-             ruestung("OR"), gfp(0),gold(0), silber(0), kupfer(0),
-             aep(0),kep(0),zep(0) {}
+             gfp(0),gold(0), silber(0), kupfer(0),
+             aep(0),kep(0),zep(0),ruestung("OR") {}
    void clear() {*this=Grundwerte();}
 
    int St() const {return st;}
@@ -76,7 +78,7 @@ public:
    std::string Name_Spieler() const {return name_spieler;}
    std::string Version() const {return version;}
    std::string Beschreibung() const {return beschreibung;}
-   std::string Ruestung() const {return ruestung;}
+   cH_Ruestung Ruestung() const {return ruestung;}
    int GFP() const {return gfp;}
    int Gold() const {return gold;}
    int Silber() const {return silber;}
@@ -135,7 +137,7 @@ public:
    void set_Namen(const std::string& _name_charakter,std::string _name_spieler, std::string _version)
       {name_charakter=_name_charakter;name_spieler=_name_spieler;version=_version;}
    void set_Beschreibung(const std::string& _beschreibung){beschreibung=_beschreibung;}
-   void set_Ruestung(const std::string& _ruestung){ruestung=_ruestung;}
+   void set_Ruestung(const cH_Ruestung _ruestung){ruestung=_ruestung;}
    void set_GFP(int _gfp){gfp=_gfp;}
    void add_GFP(int _gfp){gfp += _gfp;}
    void set_Geld(int g,int s,int k){gold=g;silber=s;kupfer=k;}

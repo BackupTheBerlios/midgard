@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.72 2001/11/03 09:55:04 thoma Exp $
+// $Id: midgard_CG.cc,v 1.73 2001/11/04 07:22:20 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -51,12 +51,14 @@ midgard_CG::midgard_CG(int argc,char **argv)
 void midgard_CG::get_Database()
 {
    Midgard_Info *MI = manage(new Midgard_Info(true,this));
-   list_Fertigkeit_alle=Fertigkeiten_All(MI->get_Label()).get_All();
-   list_Zauber_alle=Zauber_All(MI->get_Label()).get_All();
-   list_Zauberwerk_alle=Zauberwerk_All(MI->get_Label()).get_All();
-   list_Kido_alle=KiDo_All(MI->get_Label()).get_All();
-   list_Sprache_alle=Sprachen_All(MI->get_Label()).get_All();
-   list_Schrift_alle=Schriften_All(MI->get_Label()).get_All();
+   Database = st_Database( Laender_All().get_All(),
+                           Ruestung_All().get_All(),
+                           Fertigkeiten_All(MI->get_Label()).get_All(),
+                           Zauber_All(MI->get_Label()).get_All(),
+                           Zauberwerk_All(MI->get_Label()).get_All(),
+                           KiDo_All(MI->get_Label()).get_All(),
+                           Sprachen_All(MI->get_Label()).get_All(),
+                           Schriften_All(MI->get_Label()).get_All() );
    MI->on_button_close_clicked();
 }
 
@@ -269,9 +271,9 @@ void midgard_CG::show_gtk()
 
 void midgard_CG::on_herkunftsland_clicked()
 {
-   manage (new Window_herkunft(this));
+   manage (new Window_herkunft(this,Database));
 }
-void midgard_CG::herkunft_uebernehmen(const std::string& s)
+void midgard_CG::herkunft_uebernehmen(const cH_Land& s) 
 {
    Werte.set_Herkunft(s);
    zeige_werte(Werte);
@@ -281,10 +283,8 @@ void midgard_CG::herkunft_uebernehmen(const std::string& s)
 
 void midgard_CG::on_muttersprache_clicked()
 {   
-   manage (new Sprache_auswahl(this,"Sprache"));
+   manage (new Sprache_auswahl(this,Database,"Sprache"));
 }
-
-
 
 void midgard_CG::on_charakter_beschreibung_clicked()
 {   

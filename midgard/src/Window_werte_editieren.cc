@@ -1,4 +1,4 @@
-// $Id: Window_werte_editieren.cc,v 1.23 2001/11/03 17:18:38 thoma Exp $
+// $Id: Window_werte_editieren.cc,v 1.24 2001/11/04 07:22:20 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -133,7 +133,7 @@ Window_werte_editieren::Window_werte_editieren(midgard_CG* h,Grundwerte& w)
  for (unsigned int i=0; i<vstand.size();++i)
    if (vstand[i]==Werte.Stand()) inr=i;
  optionmenu_stand->set_history(inr);
- herkunft_ein->set_text(Werte.Herkunft());
+ herkunft_ein->set_text(Werte.Herkunft()->Name());
  glaube_ein->set_text(Werte.Glaube());
  name_charakter_ein->set_text(Werte.Name_Charakter());
  name_spieler_ein->set_text(Werte.Name_Spieler());

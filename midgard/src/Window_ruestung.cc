@@ -25,24 +25,37 @@
 
 #include "config.h"
 #include "Window_ruestung.hh"
-#include <Aux/Transaction.h>
-#include <Aux/SQLerror.h>
-exec sql include sqlca;
+//#include <Aux/Transaction.h>
+//#include <Aux/SQLerror.h>
+//exec sql include sqlca;
 #include <Gtk_OStream.h>
 #include "midgard_CG.hh"
 
 void Window_ruestung::on_clist_ruestung_select_row(gint row, gint column, GdkEvent *event)
 {   
-  Werte.set_Ruestung(clist_ruestung->get_text(row,1));
-  destroy();
+  cH_Ruestung *R=static_cast<cH_Ruestung*>(clist_ruestung->selection().begin()->get_data());
+//  Werte.set_Ruestung(clist_ruestung->get_text(row,1));
+  if((*R)->Min_Staerke()<=Werte.St())
+   {
+     Werte.set_Ruestung(*R);
+     destroy();
+   }
 }
 
-Window_ruestung::Window_ruestung(Grundwerte& W,midgard_CG* h) 
-: Werte(W)
+Window_ruestung::Window_ruestung(Grundwerte& W,midgard_CG* h, const midgard_CG::st_Database& Database) 
+: Werte(W), hauptfenster(h)
 {
- hauptfenster=h;
- std::string sru="Rüstung auswählen. Bisherige Rüstung: ("+ Werte.Ruestung() +")";
+ std::string sru="Rüstung auswählen. Bisherige Rüstung: ("+ Werte.Ruestung()->Long() +")";
  label_ruestung->set_text(sru.c_str());
+ Gtk::OStream os(clist_ruestung);
+ for(std::vector<cH_Ruestung>::const_iterator i=Database.Ruestung.begin();i!=Database.Ruestung.end();++i)
+   { cH_Ruestung r(*i);
+     if (hauptfenster->region_check(r->Region()))
+        os << r->Long() <<"\t"<<r->Name()<<"\t"<<r->LP_Verlust()<<"\t"
+            <<r->Min_Staerke()<<"\t"<<r->RW_Verlust()<<"\t"<<r->B_Verlust()<<"\n";
+     os.flush(&const_cast<cH_Ruestung&>(*i));
+   } 
+/*
  exec sql begin declare section;
    int lp,mst,rw,b;
    char ru[30],rus[10];
@@ -66,6 +79,7 @@ Window_ruestung::Window_ruestung(Grundwerte& W,midgard_CG* h)
    }
  exec sql close ein;
  tr.close();
+*/
  for (unsigned int i=0;i<clist_ruestung->columns().size();++i)
    clist_ruestung->set_column_auto_resize(i,true);  
 }

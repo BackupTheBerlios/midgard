@@ -29,7 +29,7 @@ std::string midgard_CG::ruestung(const std::string& mod)
  exec sql end declare section;
  strncpy(db_typ,Typ[0]->Short().c_str(),sizeof(db_typ));
 // strncpy(db_c_ruestung,werte.ruestung.c_str(),sizeof(db_c_ruestung));
- strncpy(db_c_ruestung,(Werte.Ruestung()).c_str(),sizeof(db_c_ruestung));
+ strncpy(db_c_ruestung,(Werte.Ruestung()->Name()).c_str(),sizeof(db_c_ruestung));
  if (mod=="LONG")
   {
     exec sql select ruestung into :db_long

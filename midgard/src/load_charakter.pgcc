@@ -244,12 +244,10 @@ void midgard_CG::load_charakter()
    Werte.set_GFP(db_gfp);
    Werte.set_Beschreibung(db_beschreibung); free(db_beschreibung);
    Werte.set_Geld(db_gold,db_silber,db_kupfer);
-   Werte.set_Ruestung(db_ruestung);
+   Werte.set_Ruestung(cH_Ruestung(db_ruestung));
    Werte.set_Spezies(db_spezies) ;
    Werte.set_EP(db_aep,db_kep,db_zep);
    steigern_bool=db_steigern_bool;
-//   steigern_EP_prozent=db_steigern_EP;
-//   grad_basiswerte=db_grad_basiswerte;
    Grad_Anstieg.set_Grad_Anstieg(db_grad,db_steigern_EP,db_grad_basiswerte);
 //////////////////////////////////////////////////////////////////////////////
 
@@ -493,7 +491,7 @@ void midgard_CG::load_charakter()
 //         vec_Schriften.push_back(new Data_schrift(db_fertigkeit,""));
       } 
    exec sql close sprache;
-   midgard_CG::sprachen_schrift();
+//??? Was tut dies?  midgard_CG::sprachen_schrift();
 
 
    // Regionen ///////////////////////////////////////////////////////////

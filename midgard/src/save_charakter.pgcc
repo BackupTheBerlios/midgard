@@ -398,7 +398,7 @@ void midgard_CG::grundwerte_speichern()
    strncpy(db_version,(Werte.Version()).c_str(),sizeof(db_version));
    strncpy(db_typ_s,Typ[0]->Short().c_str(),sizeof(db_typ_s));
    strncpy(db_typ_2_s,Typ[1]->Short().c_str(),sizeof(db_typ_2_s));
-   strncpy(db_ruestung,(Werte.Ruestung()).c_str(),sizeof(db_ruestung));
+   strncpy(db_ruestung,(Werte.Ruestung()->Name()).c_str(),sizeof(db_ruestung));
    strncpy(db_spezies,(Werte.Spezies()).c_str(),sizeof(db_spezies));
    
    exec sql UPDATE charaktere SET 

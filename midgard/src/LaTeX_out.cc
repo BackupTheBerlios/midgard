@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.48 2001/11/03 17:18:38 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.49 2001/11/04 07:23:09 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -137,8 +137,9 @@ void midgard_CG::LaTeX_write_values()
  double geld = Werte.Gold() + Werte.Silber()/10. + Werte.Kupfer()/100.;
  fout << "\\newcommand{\\gold}{\\tiny "  << geld << "}\n";
 
- fout << "\\newcommand{\\ruestung}{\\scriptsize "  <<Werte.Ruestung() << "}\n";
- fout << "\\newcommand{\\ruestunglp}{\\scriptsize "  <<midgard_CG::ruestung("LP") << "}\n";
+ fout << "\\newcommand{\\ruestung}{\\scriptsize "  <<Werte.Ruestung()->Name() << "}\n";
+// fout << "\\newcommand{\\ruestunglp}{\\scriptsize "  <<midgard_CG::ruestung("LP") << "}\n";
+ fout << "\\newcommand{\\ruestunglp}{\\scriptsize "  <<Werte.Ruestung()->LP_Verlust() << "}\n";
 
  /////////////////////////////////////////////////////////////////////////////
  // Sprachen und Schriften

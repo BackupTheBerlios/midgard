@@ -25,12 +25,9 @@
 
 #include "config.h"
 #include "Window_herkunft.hh"
-#include "midgard_CG.hh"
+//#include "midgard_CG.hh"
 #include <Gtk_OStream.h>
-//exec sql include sqlca;
-//#include <Aux/Transaction.h>
-//#include <Aux/SQLerror.h>
-#include "Land.hh"
+//#include "Land.hh"
 
 void Window_herkunft::on_clist_herkunftsland_select_row(gint row, gint column, GdkEvent *event)
 {   
@@ -40,14 +37,13 @@ void Window_herkunft::on_clist_herkunftsland_select_row(gint row, gint column, G
    destroy();
 }
 
-Window_herkunft::Window_herkunft(midgard_CG* h)
+Window_herkunft::Window_herkunft(midgard_CG* h,const midgard_CG::st_Database& Database)
+: hauptfenster(h)
 {
- hauptfenster=h;
- L=Laender_All().get_All();
  Gtk::OStream os(clist_herkunftsland);
- for (std::vector<cH_Land>::const_iterator i=L.begin();i!=L.end();++i)
+ for (std::vector<cH_Land>::const_iterator i=Database.Laender.begin();i!=Database.Laender.end();++i)
   {
    os << (*i)->Kontinent()<<'\t'<<(*i)->Name()<<'\n';
-   os.flush(&*i);
+   os.flush(&const_cast<cH_Land&>(*i));
   }   
 }
