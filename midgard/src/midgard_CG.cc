@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.158 2002/02/14 11:38:06 thoma Exp $
+// $Id: midgard_CG.cc,v 1.159 2002/02/14 16:41:55 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -337,7 +337,7 @@ void midgard_CG::on_neuer_charakter_clicked()
 
    vbox_berufsname->hide();
    button_kido_auswahl->set_sensitive(false);       
-   button_angeborene_fert->hide();
+   button_angeborene_fert->set_sensitive(false);
 
    Werte.clear();
    lernpunkte.clear();

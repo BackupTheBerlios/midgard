@@ -36,7 +36,7 @@ void Sprache_auswahl::on_clist_sp_sc_select_row(gint row, gint column, GdkEvent 
      F->set_Erfolgswert(wert);
      hauptfenster->MidgardBasicElement_uebernehmen(F);
    }
-  if (mod == ABRICHTEN)
+  else if (mod == ABRICHTEN)
    {
      cH_MidgardBasicElement F(new Fertigkeit(*cH_Fertigkeit("Abrichten")));
      F->setZusatz(zusatz);
@@ -96,7 +96,7 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const Datenbank& Database,
 {
   {
    Gtk::OStream os(clist_sp_sc);
-   if (mod == GEHEIMZEICHEN || MUSIZIEREN || TIERSPRACHE || ABRICHTEN)
+   if (mod == GEHEIMZEICHEN || mod==MUSIZIEREN || mod==TIERSPRACHE || mod==ABRICHTEN)
       {
          if(mod == GEHEIMZEICHEN) sp_sc_label->set_text("Geheimzeichen wählen");
          if(mod == MUSIZIEREN) sp_sc_label->set_text("Musikinstrument wählen");

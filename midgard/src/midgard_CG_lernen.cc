@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.71 2002/02/14 16:04:35 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.72 2002/02/14 16:41:55 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,8 +37,9 @@ void midgard_CG::herkunft_uebernehmen(const cH_Land& s)
 {
    Werte.setHerkunft(s); 
    zeige_werte(Werte); 
-   button_lernpunkte->set_sensitive(true);
-   togglebutton_lernpunkte_edit->set_sensitive(true);
+   button_angeborene_fert->set_sensitive(true);
+//   button_lernpunkte->set_sensitive(true);
+//   togglebutton_lernpunkte_edit->set_sensitive(true);
 }
 
 void midgard_CG::on_lernpunkte_wuerfeln_clicked()
