@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.46 2002/07/04 09:33:22 thoma Exp $
+// $Id: land_sprache_exp.cc,v 1.47 2002/07/04 10:20:20 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -261,7 +261,7 @@ void land_speichern(Tag &o)
 #warning HACK until typen_gruppe works (here for priests)
      std::string S=typ;
      if(S[0]=='P') S="PRI";
-     Query query1("select land from typen_herkunft where typ='"+typ+"'"
+     Query query1("select land from typen_herkunft where typ='"+S+"'"
    		" order by land");
      FetchIStream is1;
      while ((query1>>is1).good())
