@@ -2,13 +2,14 @@
 NEWS IN VERSION 0.6delta5
 * Mehrere Abenteurer in EINER Session bearbeiten 
    (dafür war mal wieder ein Redisign fällig, ohne C++ 
-    wäre es undenkbar gewesen :-)
+    wäre es undenkbar gewesen ;-)
 * Speichern von Abenteurern im Speicherpfad
 * Laden der Optionen VOR dem Laden der Datenbank
 * Abfangen von 'delete_event' damit Abenteurer noch gespeichert werden können
 * Acrobat Reader blockiert nicht mehr
 * Name und Version im pdf-Dateinamen
 * Datum auf Abenteurerdokument
+* einige Bugs beseitigt
 
 TODO:
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,

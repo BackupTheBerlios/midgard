@@ -40,7 +40,6 @@ void xml_fileselection::on_ok_button1_clicked()
   {
     assert(Werte!=0);
     Werte->setBeschreibungPix(this->get_filename());
-//    hauptfenster->show_beschreibung();
   }
 #ifndef __MINGW32__  
  destroy();
@@ -59,7 +58,8 @@ xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was, Grundwerte *W)
 {
  std::string path=hauptfenster->getOptionen()->getString(Midgard_Optionen::speicherpfad);
  if(ewas==Pix) set_filename(hauptfenster->getWerte().BeschreibungPix());
- else if (ewas!=Export) set_filename(path+hauptfenster->Char.getFilename());
+ else if (ewas==Save) set_filename(path+hauptfenster->Char.getFilename());
+ else if (ewas==Load) set_filename(path);
  
 #ifdef __MINGW32__
    OPENFILENAME ofn;

@@ -355,7 +355,7 @@ Sprache&Wert&Schrift\\\hline\hline
 {\setlength{\tabcolsep}{0.2em}\renewcommand{\arraystretch}{0.8}
     \begin{tabular}[b]{l|l|l|l|l|l|l}
       \multicolumn{4}{l}{\small Grundkenntnisse in}\\\cline{2-2}\cline{4-4}\cline{6-6}   
-      Einhandschwert     &\makebox[1ex]{\usebox{\Einhandschwert}} & Stichwaffe  &\usebox{\Stichwaffe}                & Armbrust    &\usebox{\Armbrust}                   \\\cline{2-2}\cline{4-4}\cline{6-6}   
+      Einhandschwert     &\makebox[1ex]{\usebox{\Einhandschwert}} & Stichwaffe  &\makebox[1ex]{\usebox{\Stichwaffe}}                & Armbrust    &\makebox[1ex]{\usebox{\Armbrust}}                   \\\cline{2-2}\cline{4-4}\cline{6-6}   
       Einhandschlagwaffe &\usebox{\Einhandschlagwaffe}            & Spieﬂwaffe  &\usebox{\Spiesswaffe}               & Bogen       &\usebox{\Bogen}                      \\\cline{2-2}\cline{4-4}\cline{6-6}
       Zweihandschwert    &\usebox{\Zweihandschwert}               & Kettenwaffe &\usebox{\Kettenwaffe}               & Schleuder   &\usebox{\Schleuder}                  \\\cline{2-2}\cline{4-4}\cline{6-6}
       Zweihandschlagwaffe&\usebox{\Zweihandschlagwaffe}           & Fesselwaffe &\usebox{\Fesselwaffe}               & Wurfscheibe &\usebox{\Wurfscheibe}                \\\cline{2-2}\cline{4-4}\cline{6-6}

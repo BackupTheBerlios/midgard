@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.8 2002/05/30 12:36:52 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.9 2002/05/30 17:30:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -45,11 +45,11 @@ std::string LaTeX_drucken::get_latex_filename(const LaTeX_Filenames what)
   std::string version=hauptfenster->getCWerte().Version();
   std::string nv="_"+name+"__"+version+"_";
   
-  while(true)
+  while(true) // alle nicht von der shell interpretierbare Zeichen ersetzen
    {
-    string::size_type s=nv.find(" ");
-    if(s==string::npos) break;
-    else nv.replace(s,1,"_");
+    string::size_type s1=nv.find_first_of(" '");
+    if(s!=string::npos) nv.replace(s,1,"_");
+    else break;
    }
   
   switch (what)
