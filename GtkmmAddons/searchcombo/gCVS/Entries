@@ -1,0 +1,14 @@
+/.cvsignore/1.1/Thu Sep  9 08:09:06 1999//
+/AUTHORS/1.1/Thu Sep  9 08:09:06 1999//
+/COPYING/1.1/Thu Sep  9 08:09:06 1999//
+/COPYING.LIB/1.1/Thu Sep  9 08:09:06 1999//
+/ChangeLog/1.7/Mon Aug 28 12:36:13 2000//
+/Makefile.am/1.2/Wed Jul  5 12:35:34 2000//
+/NEWS/1.2/Wed Jul  5 12:35:34 2000//
+/README/1.2/Fri Oct 22 14:06:47 1999//
+/TODO/1.2/Fri Oct 22 14:06:47 1999//
+/autogen.sh/1.1/Thu Sep  9 08:09:07 1999//
+/configure.in/1.5/Mon Feb 26 14:17:03 2001//
+/makedist/1.1/Thu Sep  9 08:09:07 1999//
+D/src////
+D/tests////
