@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.hh,v 1.12 2003/11/03 13:54:12 christof Exp $
+// $Id: Magus_Optionen.hh,v 1.13 2003/11/28 07:52:29 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -115,7 +115,7 @@ class Magus_Optionen
       std::list<st_OptionenCheck> list_OptionenCheck; 
       std::list<st_pdfViewer> list_pdfViewer;
       std::list<st_WindowPosition> list_Windows;
-      Model<bool> werte_eingeben;
+//      Model<bool> werte_eingeben;
       std::list<std::string> LDateien;
       std::map<st_Global_Settings_key,std::string> my_global_settings;
       bool geaendert;
@@ -184,7 +184,7 @@ class Magus_Optionen
       void pdfViewer_setzen_from_menu(pdfViewerIndex index);
       
       
-      Model_ref<bool> WerteEingebenModel() { return werte_eingeben; }
+//      Model_ref<bool> WerteEingebenModel() { return werte_eingeben; }
 };
 
 extern LIBMAGUS_API Magus_Optionen Programmoptionen;
