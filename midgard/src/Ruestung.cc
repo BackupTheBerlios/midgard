@@ -102,34 +102,34 @@ int Ruestung::B_Verlust(const double &ueberlast,const int &maxB,bool &ew) const
       if(ueberlast<1)                       reduce=  0;
       else if(1<=ueberlast && ueberlast< 5) reduce=  4;
       else if(5<=ueberlast && ueberlast< 8) reduce=  8;
-      else if(9<=ueberlast && ueberlast<20) {reduce= 12; ew=true;}
-      reduce = maxB;
+      else if(8<=ueberlast && ueberlast<20) {reduce= 12; ew=true;}
+      else reduce = maxB;
    }
   if(b_verlust==4)
    {
       if(ueberlast<1)                       reduce=  4;
       else if(1<=ueberlast && ueberlast< 5) reduce=  8;
       else if(5<=ueberlast && ueberlast< 8) {reduce= 12; ew=true;}
-      else if(9<=ueberlast && ueberlast<20) {reduce= 18; ew=true;}
-      reduce = maxB;
+      else if(8<=ueberlast && ueberlast<20) {reduce= 18; ew=true;}
+      else reduce = maxB;
    }
   if(b_verlust==8)
    {
       if(ueberlast<1)                       reduce=  8;
       else if(1<=ueberlast && ueberlast< 5) {reduce= 12; ew=true;}
       else if(5<=ueberlast && ueberlast< 8) {reduce= 18; ew=true;}
-      reduce = maxB;
+      else reduce = maxB;
    }
   if(b_verlust==12)
    {
       if(ueberlast<1)                        reduce= 12;
       else if(1<=ueberlast && ueberlast< 5) {reduce= 18; ew=true;}
-      reduce = maxB;
+      else reduce = maxB;
    }
   if(b_verlust==16)
    {
       if(ueberlast<1)                       reduce= 16;
-      reduce = maxB;
+      else reduce = maxB;
    }   
 
   return reduce;

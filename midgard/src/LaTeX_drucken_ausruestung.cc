@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_ausruestung.cc,v 1.12 2002/10/29 07:42:36 thoma Exp $   
+// $Id: LaTeX_drucken_ausruestung.cc,v 1.13 2002/11/05 07:24:19 thoma Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,14 +36,29 @@ void LaTeX_drucken::on_ausruestung_druck(bool unsichtbar)
  LaTeX_header(fout,false);           
 
  std::string breite="18cm";
+ std::string hbreitea="9cm";
+ std::string hbreiteb="8cm";
  std::string aboxhoehe="26cm";
 
  const Abenteurer &A=hauptfenster->getAben();
- fout <<"\\parbox{"+breite+"}{";
+ fout <<"\\parbox{"+hbreitea+"}{";
  fout << "Normallast: "<<itos(A.getNormallast())<<"\\,kg\\qquad\n"
       << "Höchstlast: "<<itos(A.getHoechstlast())<<"\\,kg\\qquad\n"
       << "Schublast: " <<itos(A.getSchublast())<<"\\,kg\n\n";
- fout << "Belastung: "<<dtos1(A.getBelastung())<<"\\,kg}\n\n";
+ fout << "Belastung: "<<dtos1(A.getBelastung())<<"\\,kg}\\hfill\n";
+ fout <<"\\parbox{"+hbreiteb+"}{";
+ {
+  bool ew=false;
+  double ueberlast=A.getUeberlast();
+  int B=hauptfenster->getWerte().B();
+  int v=hauptfenster->getWerte().Ruestung(0)->B_Verlust(ueberlast,B,ew);
+cout << "XXXXXXXXXXXXX\t"<<ueberlast<<'\t'<<B<<'\t'<<ew<<'\t'<<v<<'\n';
+  if(ew) 
+    fout << "\\scriptsize Abzug auf Erfolgswürfe aufgrund von übermäßiger Belastung: --2\n\n";
+  if(v)
+    fout << "\\scriptsize Abzug auf die Bewegungsweite aufgrund übermäßiger Belastung: --"<<B<<"\n";
+ }
+ fout << "}\n\n";
 
  fout << "\\fbox{\\parbox[t]["+aboxhoehe+"]{"+breite+"}{ \n";
  const AusruestungBaum besitz=hauptfenster->getChar()->getBesitz();
@@ -77,7 +92,7 @@ void LaTeX_drucken::ausruestung_druck(std::ostream &fout,bool unsichtbar,const s
            i->getAusruestung().Material()!="standard" ) 
          name +=" ("+i->getAusruestung().Material()+")";
 
-      fout <<"\\makebox[0.7cm]{\\footnotesize "+i->getAusruestung().SGewicht()+"}"; 
+      fout <<"\\makebox[0.7cm]{\\raggedleft\\footnotesize "+i->getAusruestung().SGewicht()+"}"; 
       double fdeep = deep*0.5;
       fout << "\\hspace*{"+dtos1(fdeep)+"cm} ";
       if(i->getAusruestung().Sichtbar())  fout << name<<"\\\\\n" ;

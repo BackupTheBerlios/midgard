@@ -1,4 +1,4 @@
-// $Id: Abenteurer_besitz.cc,v 1.3 2002/10/26 07:32:24 thoma Exp $               
+// $Id: Abenteurer_besitz.cc,v 1.4 2002/11/05 07:24:18 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -24,7 +24,8 @@ void rekursiv(const std::list<AusruestungBaum> &AB, double &last)
 {
   for(std::list<AusruestungBaum>::const_iterator i=AB.begin();i!=AB.end();++i)
    {
-     last+=i->getAusruestung().Gewicht();
+     if(!i->getAusruestung().RuestungOhneGewicht())
+        last+=i->getAusruestung().Gewicht();
      std::list<AusruestungBaum> L=i->getChildren();
      rekursiv(L,last);
    }
@@ -58,13 +59,13 @@ void Abenteurer::setStandardAusruestung()
   Guertel->setParent(Koerper);
   AusruestungBaum *Schuhe=&Koerper->push_back(Ausruestung("Schuhe"));
   Schuhe->setParent(Koerper);
-  AusruestungBaum *Rucksack=&Koerper->push_back(Ausruestung("Rucksack",0,"Leder","",true));
+  AusruestungBaum *Rucksack=&Koerper->push_back(Ausruestung("Rucksack",0,"Leder","",true,false));
   Rucksack->setParent(Koerper);
-  AusruestungBaum *Decke=&Rucksack->push_back(Ausruestung("Decke",0,"warm","",false));
+  AusruestungBaum *Decke=&Rucksack->push_back(Ausruestung("Decke",0,"warm","",false,false));
   Decke->setParent(Rucksack);
   AusruestungBaum *Lederbeutel=&Rucksack->push_back(Ausruestung("Lederbeutel"));
   Lederbeutel->setParent(Guertel);
-  AusruestungBaum *Geld=&Rucksack->push_back(Ausruestung("Geld",0,"","",false));
+  AusruestungBaum *Geld=&Rucksack->push_back(Ausruestung("Geld",0,"","",false,false));
   Geld->setParent(Lederbeutel);
 
 //  return *Rucksack;
@@ -107,8 +108,8 @@ int Abenteurer::getSchublast() const
 
 double Abenteurer::getUeberlast() const
 {
-  double u=getNormallast()-getBelastung();
+  double u=getBelastung()-getNormallast();
   if (u<0) return  0;
-  else     return -u;
+  else     return  u;
 }
 

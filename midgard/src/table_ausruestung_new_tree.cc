@@ -142,7 +142,8 @@ void table_ausruestung::on_preise_tree_neu_leaf_selected(cH_RowDataBase d)
   for(std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod>::const_iterator i=M.begin();i!=M.end();++i)
      material += i->second.spezifikation + ", ";
   ManuProC::remove_last_from(material,", ");
-  Ausruestung A(dt->Ware()->Name(),dt->Ware()->Gewicht(),material,dt->Ware()->Region(),sichtbar);
+  Ausruestung A(dt->Ware()->Name(),dt->Ware()->Gewicht(),material,dt->Ware()->Region(),
+      sichtbar,dt->Ware()->Ruestung());
   
   AusruestungBaum &B=besitz->push_back(A);
   B.setParent(besitz);

@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.10 2002/11/01 10:23:48 thoma Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.11 2002/11/05 07:24:19 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -48,10 +48,7 @@ bool Abenteurer::steigere(MBEmlt &MBE,std::string &info,const e_wie_steigern wie
 
   std::list<MBEmlt> &MyList=get_known_list(MBE);
   for (std::list<MBEmlt>::iterator i=MyList.begin();i!= MyList.end();++i )
-{
-//cout << (*MBE)->Name()<<' '<<(*i)->Name()<<' '<<stufen<<'\n';
      if ( (*i) == MBE) { (*i)->addErfolgswert(stufen) ; break;}
-}
   return true;
 }
 
@@ -65,8 +62,6 @@ void Abenteurer::reduziere(MBEmlt &MBE,const e_wie_steigern &wie,const st_bool_s
 
   for (std::list<MBEmlt>::iterator i=MyList.begin();i!= MyList.end();++i )
        if ( (*i) == MBE) { (*i)->addErfolgswert(-1) ; break;}
-
-//  MBE->addErfolgswert(-1) ;
 }
 
 void Abenteurer::verlerne(MBEmlt &MBE,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern)
@@ -429,7 +424,7 @@ void Abenteurer::modify(modi_modus modus,const MBEmlt &M,const MidgardBasicEleme
 void Abenteurer::desteigern(unsigned int kosten,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern)
 {
   int gold_k=0,ep_k=0;
-  if(wie==Enums::ePraxis) ep_k = kosten ;
+  if(wie==Enums::ePraxis || Enums::eSelbststudium) ep_k = kosten ;
   else
    {  
      gold_k = getWerte().gold_kosten(kosten);
@@ -460,9 +455,7 @@ int Abenteurer::get_ausdauer(int grad, const Datenbank &Database,std::string &in
    else if (grad == 9)  { bonus_K = 27, bonus_aK = 18; bonus_Z =  9; }
    else if (grad ==10)  { bonus_K = 30, bonus_aK = 20; bonus_Z = 10; }
    else if (grad >=11)  { bonus_K = 30, bonus_aK = 20; bonus_Z = 10; }
-//   int dummy=1;
    if (!steigern_usp(wie,kosten,Enums::eAusdauer,info,bool_steigern)) return 0;
-//   if (!steigern_usp(kosten,0,dummy,eAusdauer)) return 0;
    getWerte().addGFP(kosten);
    int ap=0;
    for (int i=0;i<grad;++i) ap += random.integer(1,6);
@@ -493,9 +486,8 @@ int Abenteurer::get_ab_re_za(const e_was_steigern was,const e_wie_steigern &wie,
   int kosten;
   int grad=getWerte().Grad();
   if(!bsteigern) grad=--grad;
-//  if(!radiobutton_steigern->get_active()) grad=--grad;
-  if(grad==0) grad=1;
-  if      (was==Enums::eAbwehr)
+  if(grad==0) kosten=0;
+  else if (was==Enums::eAbwehr)
     { 
       max_wert = Database.GradAnstieg.get_MaxAbwehr(grad);
       alter_wert = getWerte().Abwehr_wert(); 
@@ -518,15 +510,13 @@ int Abenteurer::get_ab_re_za(const e_was_steigern was,const e_wie_steigern &wie,
       else return 0;
     }
   else assert(!"never get here");
-  if (alter_wert >= max_wert && bsteigern)
+  if (kosten!=0 && (alter_wert >= max_wert && bsteigern))
       { info+="Für Grad "+itos(getWerte().Grad())+" ist der Maximalwert erreicht!" ;
         return 0;}
 
-  if(bsteigern)
+  if(kosten!=0 && bsteigern)
    {
-//     int dummy=1;
      if (!steigern_usp(wie,kosten,Enums::eAusdauer,info,bool_steigern)) return 0;
-//     if(!steigern_usp(kosten,0,dummy,was) ) return 0;
      getWerte().addGFP(kosten);
      if      (was==Enums::eAbwehr)    getWerte().setAbwehr_wert(alter_wert+1);
      else if (was==Enums::eResistenz) getWerte().setResistenz(alter_wert+1);  
@@ -534,6 +524,11 @@ int Abenteurer::get_ab_re_za(const e_was_steigern was,const e_wie_steigern &wie,
    }
   else
    {  
+     if(kosten==0) 
+      { 
+        info="Minimaler Erfogswert erreicht";
+        return 0;
+      }
      if (bool_steigern.mitEP) desteigern(kosten,wie,bool_steigern);
      set_lernzeit(wie,-kosten,was);
      getWerte().addGFP(-kosten);

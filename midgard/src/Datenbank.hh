@@ -1,4 +1,4 @@
-// $Id: Datenbank.hh,v 1.15 2002/10/23 15:36:30 thoma Exp $               
+// $Id: Datenbank.hh,v 1.16 2002/11/05 07:24:19 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -63,7 +63,7 @@ class Datenbank
   Grad_anstieg GradAnstieg;
   std::vector<cH_Spezialgebiet> Spezialgebiet;
   std::list<cH_Preise> preise;
-  std::list<cH_PreiseMod> preisemod;
+//  std::list<cH_PreiseMod> preisemod;
   std::vector<cH_PreiseNewMod> preisenewmod;
 
   std::list<cH_Prototyp> prototyp;

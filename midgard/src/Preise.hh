@@ -1,4 +1,4 @@
-// $Id: Preise.hh,v 1.23 2002/11/02 22:16:33 thoma Exp $
+// $Id: Preise.hh,v 1.24 2002/11/05 07:24:19 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,6 +34,7 @@ class Preise : public HandleContent
    const Tag *tag;
    static Tag eigenerArtikel;
    bool unverkauflich;
+   bool ruestung; // Ruestung wird bei der Belastung nicht mitgezählt
 
    void get_Preise();
  public:
@@ -51,6 +52,7 @@ class Preise : public HandleContent
  std::string Region()  const {  return region; }
 
  bool Unverkauflich() const {return unverkauflich;}
+ bool Ruestung() const {return ruestung;}
  double Kosten() const { return kosten ; }
  double Gewicht() const { return gewicht ; }
  std::string Einheit()  const {  return einheit; }

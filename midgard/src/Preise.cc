@@ -62,6 +62,7 @@ void Preise::get_Preise()
   kosten=tag->getFloatAttr("Preis");
   gewicht=tag->getFloatAttr("Gewicht");
   region=tag->getAttr("Region");
+  ruestung=tag->getBoolAttr("Rüstung_ohne_Gewicht");
   if(kosten<0) {kosten=0; unverkauflich=true;}
 }
 
@@ -76,31 +77,6 @@ Preise_All::Preise_All()
     }
  }   
 /*
- const Tag *preise=xml_data->find("Preise");
- if (preise)
- {  Tag::const_iterator b=preise->begin(),e=preise->end();
-    FOR_EACH_CONST_TAG_OF_5(i,*preise,b,e,"Kaufpreis")
-    {  
-       list_All.push_back(cH_Preise(&*i));
-    }
- }   
- const Tag *waffen=xml_data->find("Waffen");
- if (waffen)
- {  Tag::const_iterator b=waffen->begin(),e=waffen->end();
-    FOR_EACH_CONST_TAG_OF_5(i,*waffen,b,e,"Waffe")
-    {  
-       {  const Tag *preis=i->find("Kaufpreis");
-          if (preis) 
-             list_All.push_back(cH_Preise(i->getAttr("Name"),"Waffen",&*i));
-       }
-       FOR_EACH_CONST_TAG_OF(j,*i,"regionaleVariante")
-       {  const Tag *preis=i->find("Kaufpreis");
-          if (preis)
-             list_All.push_back(cH_Preise(j->getAttr("Name"),"Waffen",&*i));
-       }
-    }
- }   
-*/
  const Tag *ruestungen=xml_data->find("Rüstungen");
  if (ruestungen)
  {  Tag::const_iterator b=ruestungen->begin(),e=ruestungen->end();
@@ -112,6 +88,7 @@ Preise_All::Preise_All()
        }
     }
  }   
+*/
 }  
 //////////////////////////////////////////////////////////////////////
 

@@ -68,51 +68,14 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
       bool ok=hauptfenster->getAben().steigere(MBE,info,wie,bool_steigern);
       hauptfenster->set_status(info);
       if(!ok) return false;
-
-/*
-      if ( MBE->Erfolgswert() >= (*MBE)->MaxErfolgswert(hauptfenster->getAben())) 
-          { hauptfenster->set_status("Maximal möglicher Erfolgswert erreicht");
-            return false; }
-      if(radiobutton_unterweisung->get_active())
-       {
-         if( ((*MBE).What()==MidgardBasicElement::FERTIGKEIT &&
-              MBE->Erfolgswert() >= cH_Fertigkeit(MBE->getMBE())->MaxUnterweisung()) ||
-             ((*MBE).What()==MidgardBasicElement::SPRACHE &&
-              MBE->Erfolgswert() >= cH_Fertigkeit("Sprache")->MaxUnterweisung()) ||
-             ((*MBE).What()==MidgardBasicElement::SCHRIFT &&
-              MBE->Erfolgswert() >= cH_Fertigkeit("Schreiben")->MaxUnterweisung())
-             )
-          { hauptfenster->set_status("Weitere Steigerung des Erfolgswertes ist NICHT mit Unterweisung möglich.");
-            return false; }
-       }      
-      int stufen=1;
-      int steigerkosten=MBE->Steigern(hauptfenster->getAben());
-      if (!steigern_usp(steigerkosten,&MBE,stufen)) return false;
-      hauptfenster->getChar()->getWerte().addGFP(steigerkosten);
-      for (std::list<MBEmlt>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
-         if ( (*i) == MBE) (*i).addErfolgswert(stufen) ; 
-*/
     }
  else if (radiobutton_reduzieren->get_active() && MBE->Reduzieren(hauptfenster->getAben()))
     {
       hauptfenster->getAben().reduziere(MBE,wie,bool_steigern);
-/*
-      if (checkbutton_EP_Geld->get_active()) desteigern(MBE->Reduzieren(hauptfenster->getAben()));
-      hauptfenster->getChar()->getWerte().addGFP(-MBE->Reduzieren(hauptfenster->getAben()));
-      for (std::list<MBEmlt>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
-         if ( (*i) == MBE)  (*i).addErfolgswert(-1) ; 
-*/
     }
  else if (radiobutton_verlernen->get_active() && MBE->Verlernen(hauptfenster->getAben()))
     {
       hauptfenster->getAben().verlerne(MBE,wie,bool_steigern);
-/*
-      guint verlernen = MBE->Verlernen(hauptfenster->getAben());
-      if( (*MBE).What()==MidgardBasicElement::ZAUBER && 
-          togglebutton_spruchrolle->get_active() )    verlernen/=5  ;
-      if (checkbutton_EP_Geld->get_active()) desteigern(verlernen);
-      hauptfenster->getChar()->getWerte().addGFP(-verlernen);
-*/
       Abenteurer::move_element(*MyList,*MyList_neu,MBE);
     }
  else if (radiobutton_verlernen->get_active() && (*MBE).What()==MidgardBasicElement::WAFFE)

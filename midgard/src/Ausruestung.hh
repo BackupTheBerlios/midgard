@@ -32,14 +32,15 @@ class Ausruestung
      double gewicht;
      std::string material,region;
      bool sichtbar;
+     bool ruestung_ohne_gewicht;
 
    public:
-     Ausruestung() : gewicht(0), sichtbar(false) {}
+     Ausruestung() : gewicht(0), sichtbar(false),ruestung_ohne_gewicht(false) {}
 
      Ausruestung(std::string n) 
-       : name(n), gewicht(0), sichtbar(true) {}
-     Ausruestung(std::string n,double g,std::string ma,std::string r,bool s)
-         :name(n),gewicht(g),material(ma),region(r),sichtbar(s) {}
+       : name(n), gewicht(0), sichtbar(true),ruestung_ohne_gewicht(false) {}
+     Ausruestung(std::string n,double g,std::string ma,std::string r,bool s,bool ru)
+         :name(n),gewicht(g),material(ma),region(r),sichtbar(s),ruestung_ohne_gewicht(ru) {}
 
      bool operator==(const Ausruestung& b) const
          {return name==b.name && material==b.material;}
@@ -54,9 +55,8 @@ class Ausruestung
      std::string Material() const {return material;}
      bool Sichtbar() const {return sichtbar;}
      std::string SichtbarStr() const {if(sichtbar) return "*"; else return "";}
-
      void setSichtbar(bool s) {sichtbar=s;}
-
+     bool RuestungOhneGewicht() const {return ruestung_ohne_gewicht;}
 };
 
 class AusruestungBaum

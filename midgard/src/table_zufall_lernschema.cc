@@ -36,13 +36,13 @@ void table_zufall::on_button_zufall_voll_clicked()
    hauptfenster->on_wizard_beenden_activate();
    Midgard_Optionen *MO=hauptfenster->MOptionen;
    bool old_value=MO->OberCheck(Midgard_Optionen::NoInfoFenster).active;
-//   hauptfenster->MOptionen->Ober_setzen_from_menu(Midgard_Optionen::NoInfoFenster,true);
    std::string noinfofenster=MO->OberCheck(Midgard_Optionen::NoInfoFenster).text;
    MO->setOber(noinfofenster,true);
    Abenteurer oldAben=hauptfenster->getAben();
    hauptfenster->getChar().push_back();
    hauptfenster->on_neuer_charakter_clicked();
    hauptfenster->table_lernschema->init(hauptfenster);
+   hauptfenster->table_steigern->init(hauptfenster);
    
    Zufall zufall(hauptfenster);
 
@@ -58,6 +58,7 @@ void table_zufall::on_button_zufall_voll_clicked()
    hauptfenster->frame_lernschema->set_sensitive(true);
    hauptfenster->frame_steigern->set_sensitive(true);
 }
+
 
 
 Zufall::e_Vorgabe table_zufall::getVorgaben(Abenteurer& oldAben) const

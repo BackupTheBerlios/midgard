@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.53 2002/11/02 22:16:33 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.54 2002/11/05 07:24:18 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -365,6 +365,7 @@ void Abenteurer::save_ausruestung(Tag &datei,const std::list<AusruestungBaum> &A
       Ggs.setAttr("Bezeichnung", i->getAusruestung().Name());
       Ggs.setAttr("Region", i->getAusruestung().Region());
       Ggs.setFloatAttr("Gewicht", i->getAusruestung().Gewicht());
+      Ggs.setBoolAttr("RüstungOhneGewicht",i->getAusruestung().RuestungOhneGewicht());
       Ggs.setAttr("Besonderheit", i->getAusruestung().Material());
       if (i->getAusruestung().Sichtbar()) 
          Ggs.setBoolAttr("sichtbar", i->getAusruestung().Sichtbar());
@@ -551,7 +552,8 @@ void Abenteurer::load_ausruestung(const Tag *tag, AusruestungBaum *AB)
       AusruestungBaum *A = &AB->push_back(
       	Ausruestung(i->getAttr("Bezeichnung"),i->getFloatAttr("Gewicht"),
       	         i->getAttr("Besonderheit"),
-   					i->getAttr("Region"),i->getBoolAttr("sichtbar")));
+   					i->getAttr("Region"),i->getBoolAttr("sichtbar"),
+   					i->getBoolAttr("RüstungOhneGewicht")));
       A->setParent(AB);
       load_ausruestung(&*i,A);
    }
