@@ -62,6 +62,9 @@ CREATE TABLE "charaktere" (
 	"kupfer" integer,
 	"ruestung" text,
 	"spezies" text,
-	"typ_2_s" text
+	"typ_2_s" text,
+	"aep" integer,
+	"kep" integer,
+	"zep" integer
 );
 

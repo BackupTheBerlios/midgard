@@ -3,7 +3,7 @@
 --
 DROP TABLE "waffen_region_name";
 --
--- TOC Entry ID 2 (OID 9072205)
+-- TOC Entry ID 2 (OID 13792874)
 --
 -- Name: waffen_region_name Type: TABLE Owner: thoma
 --
@@ -11,52 +11,57 @@ DROP TABLE "waffen_region_name";
 CREATE TABLE "waffen_region_name" (
 	"name" text,
 	"alias" text,
-	"region" text
+	"region" text,
+	"schaden" text,
+	"schaden_b" integer,
+	"angriffs_mod" integer
 );
 
 --
--- Data for TOC Entry ID 3 (OID 9072205) TABLE DATA waffen_region_name
+-- Data for TOC Entry ID 3 (OID 13792874) TABLE DATA waffen_region_name
 --
 
 COPY "waffen_region_name"  FROM stdin;
-Dolch	Tanto	K
-Parierdolch	Jitte	K
-Stoﬂspeer	Yari	K
-Wurfspeer	YariNage	K
-leichte Armbrust	OjuMi	K
-schwere Armbrust	SangMiau	K
-Blasrohr	FukiDake	K
-Wurfmesser	Tanto	K
-Morgenstern	KauSinKe	K
-Kampfstab	Bo	K
-Anderthalbh‰nder	Claemore	A
-Langschwert	Breitschwert	A
-Dolch	Dirgh	A
-Kurzschwert	Laingdirgh	A
-Dolch	Jambiya	E
-Dolch	Khanjar	E
-Dolch	Rilok	E
-Dolch	Telek	E
-Streitkolben	Dabus	E
-leichter Speer	Jarid	E
-Wurfspeer	Jarid	E
-Anderthalbh‰nder	Nimcha	E
-Stoﬂspeer	Rumeh	E
-Lanze	Rumeh	E
-Kumms‰bel	Saif	E
-Langschwert	Takuba	E
-Bogen	Mukantar	E
-leichte Armbrust	Ud al-Khal	E
-Kumms‰bel	Szimitar	R
-Kumms‰bel	Schimschar	R
-Anderthalbh‰nder	Hamschar	R
-Kurzschwert	Patawar	R
-Langschwert	Aschwapatawar	R
-Handaxt	Ankusch	R
-Streitaxt	Sanghala	R
-Krummms‰bel	Ma`khirr	R
-Schlachtbeil	Namikravyad	R
-Wurfaxt	Dhauram	R
-Wurfstern	Tschakram	R
-Dolch	Katar	R
+Dolch	Tanto	K	\N	\N	\N
+Parierdolch	Jitte	K	\N	\N	\N
+Stoﬂspeer	Yari	K	\N	\N	\N
+Wurfspeer	YariNage	K	\N	\N	\N
+leichte Armbrust	OjuMi	K	\N	\N	\N
+schwere Armbrust	SangMiau	K	\N	\N	\N
+Blasrohr	FukiDake	K	\N	\N	\N
+Wurfmesser	Tanto	K	\N	\N	\N
+Morgenstern	KauSinKe	K	\N	\N	\N
+Kampfstab	Bo	K	\N	\N	\N
+Anderthalbh‰nder	Claemore	A	\N	\N	\N
+Langschwert	Breitschwert	A	\N	\N	\N
+Dolch	Dirgh	A	\N	\N	\N
+Kurzschwert	Laingdirgh	A	\N	\N	\N
+Dolch	Jambiya	E	\N	\N	\N
+Dolch	Khanjar	E	\N	\N	\N
+Dolch	Rilok	E	\N	\N	\N
+Dolch	Telek	E	\N	\N	\N
+Streitkolben	Dabus	E	\N	\N	\N
+leichter Speer	Jarid	E	\N	\N	\N
+Wurfspeer	Jarid	E	\N	\N	\N
+Anderthalbh‰nder	Nimcha	E	\N	\N	\N
+Stoﬂspeer	Rumeh	E	\N	\N	\N
+Lanze	Rumeh	E	\N	\N	\N
+Kumms‰bel	Saif	E	\N	\N	\N
+Langschwert	Takuba	E	\N	\N	\N
+Bogen	Mukantar	E	\N	\N	\N
+leichte Armbrust	Ud al-Khal	E	\N	\N	\N
+Anderthalbh‰nder	Hamschar	R	\N	\N	\N
+Langschwert	Aschwapatawar	R	\N	\N	\N
+Handaxt	Ankusch	R	\N	\N	\N
+Streitaxt	Sanghala	R	\N	\N	\N
+Schlachtbeil	Namikravyad	R	\N	\N	\N
+Wurfaxt	Dhauram	R	\N	\N	\N
+Wurfstern	Tschakram	R	\N	\N	\N
+Kurzschwert	Patawar	R	W6(+2)	\N	\N
+Krumms‰bel	Szimitar	R	W6(+2)	\N	\N
+Langbogen	Aginkha (Pfeil)	R	2W6	-2	-2
+Krumms‰bel	Ma`khirr	R	W6	1	\N
+Krumms‰bel	Schimschar	R	W6(+2)	\N	\N
+Dolch	Katar	R		0	\N
+Dolch	Katar (Spreizklinge)	R	W6	0	-2
 \.
