@@ -20,3 +20,280 @@ CREATE TABLE "charaktere_fertigkeiten" (
 	"magisch" text
 );
 
+--
+-- Data for TOC Entry ID 3 (OID 23781) TABLE DATA charaktere_fertigkeiten
+--
+
+COPY "charaktere_fertigkeiten"  FROM stdin;
+\N	Erschaffung	Armbrust	0	Grundkenntnis	\N	\N	\N	\N
+Chairon	Smaskrifter	Karawanenführer	12	Beruf	\N	\N	\N	\N
+Chairon	Smaskrifter	Richtungssinn	12	ang.Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Beredsamkeit	10	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Geländelauf	12	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Geschäftstüchtigkeit	0	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Glücksspiel	15	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Himmelskunde	0	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Kampf zu Pferd	0	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Klettern	12	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Lesen/Schreiben	0	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Menschenkenntnis	7	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Rechnen	0	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Reiten	15	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Rudern	12	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Sagenkunde	2	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Schwimmen	14	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Seilkunst	8	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Spurenlesen	6	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	TaiTschi	0	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Verführen	8	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Verhören	9	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Wahrnehmung	6	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Zauberkunde	4	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Überleben im Wald	6	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Dolch	10	Waffe	\N	\N	\N	\N
+Chairon	Smaskrifter	Kriegshammer	9	Waffe	\N	\N	\N	\N
+Chairon	Smaskrifter	Langschwert	4	Waffe	\N	\N	\N	\N
+Chairon	Smaskrifter	Streitkolben	11	Waffe	\N	\N	\N	\N
+Chairon	Smaskrifter	Dolch	0	Besitz_W	0	0		
+Chairon	Smaskrifter	Streitkolben	0	Besitz_W	0	0		
+Chairon	Smaskrifter	ESchlagwaffe	0	Grundkenntnis	\N	\N	\N	\N
+Chairon	Smaskrifter	ESchwert	0	Grundkenntnis	\N	\N	\N	\N
+Chairon	Smaskrifter	Stichwaffe	0	Grundkenntnis	\N	\N	\N	\N
+Chairon	Smaskrifter	Albisch	4	Sprache	\N	\N	\N	\N
+Chairon	Smaskrifter	Chryseisch	4	Sprache	\N	\N	\N	\N
+Chairon	Smaskrifter	Gnomenon	1	Sprache	\N	\N	\N	\N
+Chairon	Smaskrifter	KanThaiTun	4	Sprache	\N	\N	\N	\N
+Chairon	Smaskrifter	Moravisch	2	Sprache	\N	\N	\N	\N
+Chairon	Smaskrifter	KanThaiTun(1)	0	Urschrift	\N	\N	\N	\N
+Chairon	Smaskrifter	Seemeister	0	Urschrift	\N	\N	\N	\N
+Chairon	Smaskrifter	Tegarisch	0	Urschrift	\N	\N	\N	\N
+Chairon	Smaskrifter	Region	\N	Region	\N	\N	A	\N
+Chairon	Smaskrifter	Region	\N	Region	\N	\N	K	\N
+ChiLi	Bastis Abenteuer	Gärtner	11	Beruf	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	Balancieren	18	Fertigkeit	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	FengSchui	8	Fertigkeit	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	KarumiJutsu	17	Fertigkeit	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	KiDo	17	Fertigkeit	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	Klettern	19	Fertigkeit	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	Meditieren	13	Fertigkeit	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	Meucheln	10	Fertigkeit	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	NinJutsu	8	Fertigkeit	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	Pflanzenkunde	9	Fertigkeit	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	Rudern	12	Fertigkeit	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	Scharfschießen	8	Fertigkeit	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	Springen	15	Fertigkeit	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	TaiTschi	0	Fertigkeit	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	Wahrnehmung	6	Fertigkeit	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	Dolch	11	Waffe	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	leichte Armbrust	10	Waffe	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	waffenloser Kampf	12	Waffe	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	Dolch	0	Besitz_W	0	0		
+ChiLi	Bastis Abenteuer	leichte Armbrust	0	Besitz_W	0	0		
+ChiLi	Bastis Abenteuer	waffenloser Kampf	0	Besitz_W	0	0		
+ChiLi	Bastis Abenteuer	Dolch	0	Besitz_W	1	2		
+ChiLi	Bastis Abenteuer	Dolch	0	Besitz_W	0	0		
+ChiLi	Bastis Abenteuer	Dolch	0	Besitz_W	0	0		
+ChiLi	Bastis Abenteuer	Dolch	0	Besitz_W	0	0		
+ChiLi	Bastis Abenteuer	leichte Armbrust	0	Besitz_W	0	0		
+ChiLi	Bastis Abenteuer	ChochoInu	0	KiDo	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	DaiUchi	0	KiDo	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	DokujaOschi	0	KiDo	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	GinZjang	0	KiDo	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	HaschiBami	0	KiDo	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	HiaPao	0	KiDo	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	HyoKobe	0	KiDo	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	KamaKusa	0	KiDo	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	KanaUchi	0	KiDo	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	KawaSui	0	KiDo	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	MuhiKabe	0	KiDo	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	NiNintai	0	KiDo	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	OjuKiba	0	KiDo	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	SchanScha	0	KiDo	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	TsiJe	0	KiDo	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	TsiLeng	0	KiDo	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	TuoKobe	0	KiDo	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	YuehSchu	0	KiDo	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	Armbrust	0	Grundkenntnis	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	Stichwaffe	0	Grundkenntnis	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	waffenloser Kampf	0	Grundkenntnis	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	Comentang	3	Sprache	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	KanThaiTun	4	Sprache	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	Neu Vallinga	4	Sprache	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	Rawindi	3	Sprache	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	KanThaiTun(1)	0	Urschrift	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	KanThaiTun(2)	0	Urschrift	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	Seemeister	0	Urschrift	\N	\N	\N	\N
+ChiLi	Bastis Abenteuer	Region	\N	Region	\N	\N	K	\N
+Stürmender Dachs	Smaskrifter	Berserkergang	0	ang.Fertigkeit	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Laufen	5	Fertigkeit	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Geländelauf	17	Fertigkeit	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Spurenlesen	9	Fertigkeit	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Fallen stellen	6	Fertigkeit	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Scharfschießen	9	Fertigkeit	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Schleichen	9	Fertigkeit	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Tierkunde	9	Fertigkeit	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Tarnen	6	Fertigkeit	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Klettern	16	Fertigkeit	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Schwimmen	14	Fertigkeit	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Fallen	16	Fertigkeit	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Überleben im Dschungel	10	Fertigkeit	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Überleben im Wald	12	Fertigkeit	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Springen	14	Fertigkeit	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Balancieren	14	Fertigkeit	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Tauchen	12	Fertigkeit	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Stimmen nachahmen	15	Fertigkeit	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Reiten	16	Fertigkeit	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Kampf zu Pferd	0	Fertigkeit	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Naturkunde	9	Fertigkeit	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Pflanzenkunde	9	Fertigkeit	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Himmelskunde	0	Fertigkeit	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Seilkunst	10	Fertigkeit	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Handaxt	12	Waffe	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Kriegshammer	11	Waffe	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Wurfaxt	11	Waffe	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	waffenloser Kampf	10	Waffe	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Dolch	10	Waffe	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Stoßspeer	10	Waffe	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	kleiner Schild	4	Waffe	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Handaxt	0	Besitz_W	0	0		
+Stürmender Dachs	Smaskrifter	Wurfaxt	0	Besitz_W	0	0		
+Stürmender Dachs	Smaskrifter	kleiner Schild	0	Besitz_W	0	0		
+Stürmender Dachs	Smaskrifter	Dolch	0	Besitz_W	0	0		
+Stürmender Dachs	Smaskrifter	Kriegshammer	0	Besitz_W	0	0		bei schw. Treffer W6-2 Feuerschaden ABW 3
+Stürmender Dachs	Smaskrifter	Stoßspeer	0	Besitz_W	1	0		Donnerechsenhorn
+Stürmender Dachs	Smaskrifter	ESchlagwaffe	0	Grundkenntnis	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Schilde	0	Grundkenntnis	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Spießwaffe	0	Grundkenntnis	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Stichwaffe	0	Grundkenntnis	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	WSchlagwaffe	0	Grundkenntnis	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	waffenloser Kampf	0	Grundkenntnis	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Stammesdialekte	4	Sprache	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Neu Vallinga	2	Sprache	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Albisch	2	Sprache	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Chryseisch	2	Sprache	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Rawindi	2	Sprache	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Moravisch	2	Sprache	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter	Scharidisch	2	Sprache	\N	\N	\N	\N
+ChiLi__	Bastis Abenteuer	Dolch	11	Besitz_W	0	0		
+ChiLi__	Bastis Abenteuer	leichte Armbrust	10	Besitz_W	0	0		
+ChiLi__	Bastis Abenteuer	waffenloser Kampf	12	Besitz_W	0	0		
+ChiLi__	Bastis Abenteuer	Gärtner	11	Beruf	0	0		
+ChiLi__	Bastis Abenteuer	Dolch	0	Besitz_W	1	2		
+ChiLi__	Bastis Abenteuer	Dolch	0	Besitz_W	0	0		
+ChiLi__	Bastis Abenteuer	Dolch	0	Besitz_W	0	0		
+ChiLi__	Bastis Abenteuer	Dolch	0	Besitz_W	0	0		
+ChiLi__	Bastis Abenteuer	leichte Armbrust	0	Besitz_W	0	0		
+ChiLi__	Bastis Abenteuer	Balancieren	18	Fertigkeit	0	0		
+ChiLi__	Bastis Abenteuer	FengSchui	8	Fertigkeit	0	0		
+ChiLi__	Bastis Abenteuer	KarumiJutsu	17	Fertigkeit	0	0		
+ChiLi__	Bastis Abenteuer	KiDo	17	Fertigkeit	0	0		
+ChiLi__	Bastis Abenteuer	Klettern	19	Fertigkeit	0	0		
+ChiLi__	Bastis Abenteuer	Meditieren	13	Fertigkeit	0	0		
+ChiLi__	Bastis Abenteuer	Meucheln	10	Fertigkeit	0	0		
+ChiLi__	Bastis Abenteuer	NinJutsu	8	Fertigkeit	0	0		
+ChiLi__	Bastis Abenteuer	Pflanzenkunde	9	Fertigkeit	0	0		
+ChiLi__	Bastis Abenteuer	Rudern	12	Fertigkeit	0	0		
+ChiLi__	Bastis Abenteuer	Scharfschießen	8	Fertigkeit	0	0		
+ChiLi__	Bastis Abenteuer	Springen	15	Fertigkeit	0	0		
+ChiLi__	Bastis Abenteuer	TaiTschi	0	Fertigkeit	0	0		
+ChiLi__	Bastis Abenteuer	Wahrnehmung	6	Fertigkeit	0	0		
+ChiLi__	Bastis Abenteuer	Armbrust	0	Grundkenntnis	0	0		
+ChiLi__	Bastis Abenteuer	Stichwaffe	0	Grundkenntnis	0	0		
+ChiLi__	Bastis Abenteuer	waffenloser Kampf	0	Grundkenntnis	0	0		
+ChiLi__	Bastis Abenteuer	ChochoInu	0	KiDo	0	0		
+ChiLi__	Bastis Abenteuer	DaiUchi	0	KiDo	0	0		
+ChiLi__	Bastis Abenteuer	DokujaOschi	0	KiDo	0	0		
+ChiLi__	Bastis Abenteuer	GinZjang	0	KiDo	0	0		
+ChiLi__	Bastis Abenteuer	HaschiBami	0	KiDo	0	0		
+ChiLi__	Bastis Abenteuer	HiaPao	0	KiDo	0	0		
+ChiLi__	Bastis Abenteuer	HyoKobe	0	KiDo	0	0		
+ChiLi__	Bastis Abenteuer	KamaKusa	0	KiDo	0	0		
+ChiLi__	Bastis Abenteuer	KanaUchi	0	KiDo	0	0		
+ChiLi__	Bastis Abenteuer	KawaSui	0	KiDo	0	0		
+ChiLi__	Bastis Abenteuer	MuhiKabe	0	KiDo	0	0		
+ChiLi__	Bastis Abenteuer	NiNintai	0	KiDo	0	0		
+ChiLi__	Bastis Abenteuer	OjuKiba	0	KiDo	0	0		
+ChiLi__	Bastis Abenteuer	SchanScha	0	KiDo	0	0		
+ChiLi__	Bastis Abenteuer	TsiJe	0	KiDo	0	0		
+ChiLi__	Bastis Abenteuer	TsiLeng	0	KiDo	0	0		
+ChiLi__	Bastis Abenteuer	TuoKobe	0	KiDo	0	0		
+ChiLi__	Bastis Abenteuer	YuehSchu	0	KiDo	0	0		
+ChiLi__	Bastis Abenteuer	Region	0	Region	0	0		
+ChiLi__	Bastis Abenteuer	Comentang	3	Sprache	0	0		
+ChiLi__	Bastis Abenteuer	KanThaiTun	4	Sprache	0	0		
+ChiLi__	Bastis Abenteuer	Neu Vallinga	4	Sprache	0	0		
+ChiLi__	Bastis Abenteuer	Rawindi	3	Sprache	0	0		
+ChiLi__	Bastis Abenteuer	KanThaiTun(1)	0	Urschrift	0	0		
+ChiLi__	Bastis Abenteuer	KanThaiTun(2)	0	Urschrift	0	0		
+ChiLi__	Bastis Abenteuer	Seemeister	0	Urschrift	0	0		
+ChiLi__	Bastis Abenteuer	Dolch	11	Waffe	0	0		
+ChiLi__	Bastis Abenteuer	leichte Armbrust	10	Waffe	0	0		
+ChiLi__	Bastis Abenteuer	waffenloser Kampf	12	Waffe	0	0		
+	Erschaffung	Region	\N	Region	\N	\N	ORIG	\N
+Aneren	Smaskrifter	Gelehrter	14	Beruf	0	0		
+Aneren	Smaskrifter	Erste Hilfe	0	Fertigkeit	0	0		
+Aneren	Smaskrifter	Kamelreiten	12	Fertigkeit	0	0		
+Aneren	Smaskrifter	Klettern	12	Fertigkeit	0	0		
+Aneren	Smaskrifter	Kräuterkunde	7	Fertigkeit	0	0		
+Aneren	Smaskrifter	Lesen von Zauberschrift	0	Fertigkeit	0	0		
+Aneren	Smaskrifter	Menschenkenntnis	4	Fertigkeit	0	0		
+Aneren	Smaskrifter	Schwimmen	12	Fertigkeit	0	0		
+Aneren	Smaskrifter	TaiTschi	0	Fertigkeit	0	0		
+Aneren	Smaskrifter	Tierkunde	3	Fertigkeit	0	0		
+Aneren	Smaskrifter	Wahrnehmung	6	Fertigkeit	0	0		
+Aneren	Smaskrifter	Wissen von der Magie	0	Fertigkeit	0	0		
+Aneren	Smaskrifter	YangScheng	2	Fertigkeit	0	0		
+Aneren	Smaskrifter	Zauberkunde	9	Fertigkeit	0	0		
+Aneren	Smaskrifter	Überleben in der Wüste	11	Fertigkeit	0	0		
+Aneren	Smaskrifter	Magierstab	0	Grundkenntnis	0	0		
+Aneren	Smaskrifter		0	Region	0	0	ORIG	
+Aneren	Smaskrifter		0	Region	0	0	E	
+Aneren	Smaskrifter		0	Region	0	0	K	
+Aneren	Smaskrifter	Albisch	4	Sprache	0	0		
+Aneren	Smaskrifter	Chryseisch	4	Sprache	0	0		
+Aneren	Smaskrifter	Comentang	2	Sprache	0	0		
+Aneren	Smaskrifter	Dvarskar	3	Sprache	0	0		
+Aneren	Smaskrifter	Eldalyn	2	Sprache	0	0		
+Aneren	Smaskrifter	Erainnisch	4	Sprache	0	0		
+Aneren	Smaskrifter	Gnomenon	3	Sprache	0	0		
+Aneren	Smaskrifter	KanThaiTun	4	Sprache	0	0		
+Aneren	Smaskrifter	Maralinga	2	Sprache	0	0		
+Aneren	Smaskrifter	Meketisch	4	Sprache	0	0		
+Aneren	Smaskrifter	Moravisch	4	Sprache	0	0		
+Aneren	Smaskrifter	Scharidisch	3	Sprache	0	0		
+Aneren	Smaskrifter	Twyneddisch	1	Sprache	0	0		
+Aneren	Smaskrifter	KanThaiTun(1)	0	Urschrift	0	0		
+Aneren	Smaskrifter	KanThaiTun(2)	0	Urschrift	0	0		
+Aneren	Smaskrifter	Meketisch	0	Urschrift	0	0		
+Aneren	Smaskrifter	Seemeister	0	Urschrift	0	0		
+Aneren	Smaskrifter	Tegarisch	0	Urschrift	0	0		
+Aneren	Smaskrifter	Magierstab	6	Waffe	0	0		
+Aneren	Smaskrifter	Allheilung	19	Zauber	0	0		
+Aneren	Smaskrifter	Austreibung des Bösen	17	Zauber	0	0		
+Aneren	Smaskrifter	Bannen von Dunkelheit	19	Zauber	0	0		
+Aneren	Smaskrifter	Bannen von Finsterwerk	17	Zauber	0	0		
+Aneren	Smaskrifter	Bannen von Gift	19	Zauber	0	0		
+Aneren	Smaskrifter	Bannen von Zauberwerk	17	Zauber	0	0		
+Aneren	Smaskrifter	Beschleunigen	19	Zauber	0	0		
+Aneren	Smaskrifter	Besänftigen	19	Zauber	0	0		
+Aneren	Smaskrifter	Erkennen von Krankheit	19	Zauber	0	0		
+Aneren	Smaskrifter	Erkennen von Leben	17	Zauber	0	0		
+Aneren	Smaskrifter	Freundesauge	19	Zauber	0	0		
+Aneren	Smaskrifter	Handauflegen	19	Zauber	0	0		
+Aneren	Smaskrifter	Heilen von Krankheit	19	Zauber	0	0		
+Aneren	Smaskrifter	Heilen von Wunden	19	Zauber	0	0		
+Aneren	Smaskrifter	Lehrersuche	0	Zauber	0	0		
+Aneren	Smaskrifter	Lähmung	19	Zauber	0	0		
+Aneren	Smaskrifter	Macht über das Selbst	17	Zauber	0	0		
+Aneren	Smaskrifter	Macht über die belebte Natur	19	Zauber	0	0		
+Aneren	Smaskrifter	Reinigen	19	Zauber	0	0		
+Aneren	Smaskrifter	Rost	17	Zauber	0	0		
+Aneren	Smaskrifter	Schmerzen	19	Zauber	0	0		
+Aneren	Smaskrifter	Stille	17	Zauber	0	0		
+Aneren	Smaskrifter	Stärke	19	Zauber	0	0		
+Aneren	Smaskrifter	Tiere rufen	19	Zauber	0	0		
+Aneren	Smaskrifter	Unsichtbarkeit	17	Zauber	0	0		
+Aneren	Smaskrifter	Vision	17	Zauber	0	0		
+Aneren	Smaskrifter	Wasser spüren	17	Zauber	0	0		
+Aneren	Smaskrifter	Zwiesprache	17	Zauber	0	0		
+\.

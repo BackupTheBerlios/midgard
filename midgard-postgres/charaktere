@@ -31,7 +31,7 @@ CREATE TABLE "charaktere" (
 	"wlw" integer,
 	"abwehr" integer,
 	"zaubern" integer,
-	"psy" integer,
+	"resistenz" integer,
 	"phs" integer,
 	"phk" integer,
 	"gift" integer,
@@ -65,3 +65,32 @@ CREATE TABLE "charaktere" (
 	"typ_2_s" text
 );
 
+--
+-- Data for TOC Entry ID 3 (OID 26990) TABLE DATA charaktere
+--
+
+COPY "charaktere"  FROM stdin;
+Chairon	Durch \
+\
+- \\glqq Eiskalte Geschäftstaktiken\\grqq: Sb +20\
+\
+- \\glqq Tai Tschi\\grqq: Sb +10; GTB +3\
+\
+Sagenkude bezieht sich auf Kanthaipan\
+\
+Chairon \
+\
+stammt aus Ikonium in Chrysea\
+\
+arbeitet für Sandobar\
+\
+ist mit Gwenifer verlobt\
+\
+\
+	Smaskrifter	Sandro	Hä	76	66	67	96	69	36	100	1	87	78	27	16	33	4	50	14	0	12	12	12	53	10	23	normal	m	67	167	6		Volk	Chryseia	Jachos	3	1	1	0	0	1	2	2	0	5	4084	341	20	83	LR	Mensch	
+ChiLi		Bastis Abenteuer	Malte Thoma	Kd	68	97	87	82	99	62	92	95	97	81	25	16	50	4	70	14	0	13	13	13	5	11	28	schlank	m	53	160	7	Harte Techniken	Mittelschicht	KanThaiPan	Chen Men	0	2	2	1	2	3	2	4	2	5	7231	0	0	0	OR	Mensch	
+Stürmender Dachs		Smaskrifter	Malte Thoma	Wa	103	98	95	62	22	83	97	79	90	106	26	17	52	15	80	14	0	13	15	15	56	12	28	breit		115	195	7	Handaxt	Volk	Ikenga Becken	Schamanistisch	0	6	5	1	2	0	0	2	2	5	8573	0	0	0	TR		
+ChiLi__		Bastis Abenteuer	Malte Thoma	Kd	68	97	87	82	99	62	92	95	97	81	25	16	50	4	70	14	0	13	13	13	5	11	28	schlank	m	53	160	7	Harte Techniken	Mittelschicht	KanThaiPan	Chen Men	0	2	2	1	2	3	2	4	2	5	7231	0	0	0	OR	Mensch	\N
+		Erschaffung		Hl	86	48	85	89	91	30	105	74	73	78	23	14	8	6	70	11	10	10	10	10	42	11	0	normal	m	0	177	1		Volk			2	2	2	0	0	2	4	4	3	5	0	0	0	0	OR	Mensch	
+Aneren		Smaskrifter	Christof Petig	Hl	59	82	92	100	93	40	72	64	78	78	25	16	39	2	80	13	17	13	13	13	53	12	28	breit	w	73	171	7		Mittelschicht	Erainn	Kebechet	0	3	0	0	1	2	9	5	6	5	6053	0	0	0	TR	Mensch	wHx
+\.
