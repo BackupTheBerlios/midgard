@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.8 2004/06/07 16:03:24 christof Exp $
+# $Id: Makefile.am,v 1.9 2004/12/15 09:17:30 christof Exp $
 
 if WINDOWS
 WIN_LDFLAGS=-no-undefined -export-symbols libmagusicons.def -L../libmagus
@@ -31,4 +31,4 @@ AM_LDFLAGS = @KOMPONENTEN2_LDFLAGS@ $(WIN_LDFLAGS)
 CLEANFILES = *~
 
 big_embedding_file.cc: embed$(EXEEXT) iconlist iconlist.ulf ../pixmaps ../pixmaps/Ulf
-	./embed$(EXEEXT) >big_embedding_file.cc
+	@NATIVE_BUILD@/libmagusicons/embed >big_embedding_file.cc

@@ -57,6 +57,13 @@ do
 done
 AC_SUBST(COMMONGTK2_ONLY)
 
+NATIVE_BUILD=`pwd`
+if test $cross_compiling = yes
+then 
+  NATIVE_BUILD=$HOME/berlios/midgard
+fi
+AC_SUBST(NATIVE_BUILD)
+
 AC_OUTPUT(Makefile src/Makefile pixmaps/Makefile \
 	xml/Makefile libmagus/Makefile libmagusicons/Makefile \
 	src/magus.rc libmagus/libmagus.rc libmagusicons/libmagusicons.rc \

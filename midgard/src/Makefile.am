@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.237 2004/11/18 16:47:10 christof Exp $
+# $Id: Makefile.am,v 1.238 2004/12/15 09:17:30 christof Exp $
 
 bin_PROGRAMS = magus$(EXEEXT)
 noinst_PROGRAMS = text2c$(EXEEXT)
@@ -76,7 +76,7 @@ BUILT_SOURCES= text2c$(EXEEXT) NEWS.h
 
 NEWS.h: ../NEWS ../TODO text2c$(EXEEXT)
 	csplit --prefix tmp_news. ../NEWS '/<<<TODO>>>/'
-	cat tmp_news.00 ../TODO tmp_news.0[1-9] | ./text2c >NEWS.h
+	cat tmp_news.00 ../TODO tmp_news.0[1-9] | @NATIVE_BUILD@/src/text2c >NEWS.h
 	rm tmp_news.??
 
 magus_SOURCES = $(PORT_FILES) \
