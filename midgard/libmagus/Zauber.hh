@@ -1,4 +1,4 @@
-// $Id: Zauber.hh,v 1.2 2003/05/07 00:02:03 christof Exp $               
+// $Id: Zauber.hh,v 1.3 2003/05/11 22:16:27 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,12 +36,11 @@ class Zauber : public MidgardBasicElement
    mutable double spruchrolle_faktor;
    mutable std::map<cH_Typen,std::string> map_typ_agens;
 
-   void get_Zauber();
+   void get_Zauber(const Tag &t);
  public: 
-   Zauber(const Tag *t) 
-      : MidgardBasicElement(t,t->getAttr("Name")),spruchrolle_faktor(1)
-   { get_Zauber();get_map_typ();EP_steigern("Zauber");} 
-
+   Zauber(const Tag &t);
+   void load(const Tag &t);
+   
    enum MBEE What() const {return MidgardBasicElement::ZAUBER;}
    std::string What_str() const {return "Zauber";}
 
@@ -92,6 +91,7 @@ class cH_Zauber : public Handle<const Zauber>
 
    cH_Zauber(const cH_MidgardBasicElement &x) : Handle<const Zauber> 
       (dynamic_cast<const Zauber *>(&*x)){}
+   static cH_Zauber load(const Tag &t,bool &is_new);
 
  class sort {
       public:
@@ -112,7 +112,8 @@ class Zauber_All
    std::list<cH_MidgardBasicElement> list_All;
   public:
    Zauber_All();
-   std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
+   void load(const Tag &t);
+   const std::list<cH_MidgardBasicElement> &get_All() const {return list_All;}
 };
 
 #endif

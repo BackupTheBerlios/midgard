@@ -71,40 +71,39 @@ cH_Zauber::cH_Zauber(const Tag *tag)
  cache.Register(tag->getAttr("Name"),*this);
 }
 
-void Zauber::get_Zauber()
+void Zauber::get_Zauber(const Tag &t)
 {
- assert(tag);
-    ursprung=tag->getAttr("Ursprung");
-    kosten=tag->getIntAttr("Lernkosten");
-    stufe=tag->getAttr("Grad");
-    spruchrolle=tag->getBoolAttr("Spruchrolle");
-    region=tag->getAttr("Region");
-    region_zusatz=tag->getAttr("RegionZusatz");
-    zauberart=tag->getAttr("Zauberart");
-    element=tag->getAttr("Element");
-    ap=tag->getAttr("AP");;
-    art=tag->getAttr("Typ");
-    zauberdauer=tag->getAttr("Zauberdauer");
-    reichweite=tag->getAttr("Reichweite");
-    wirkungsziel=tag->getAttr("Wirkungsziel");
-    wirkungsbereich=tag->getAttr("Wirkungsbereich");
-    wirkungsdauer=tag->getAttr("Wirkungsdauer");
-    material=tag->getAttr("Material");
-    agens=tag->getAttr("Agens");
-    prozess=tag->getAttr("Prozess");
-    reagens=tag->getAttr("Reagens");
-    nsc_only=tag->getBoolAttr("NSC_only",false);
+    ursprung=t.getAttr("Ursprung");
+    kosten=t.getIntAttr("Lernkosten");
+    stufe=t.getAttr("Grad");
+    spruchrolle=t.getBoolAttr("Spruchrolle");
+    region=t.getAttr("Region");
+    region_zusatz=t.getAttr("RegionZusatz");
+    zauberart=t.getAttr("Zauberart");
+    element=t.getAttr("Element");
+    ap=t.getAttr("AP");;
+    art=t.getAttr("Typ");
+    zauberdauer=t.getAttr("Zauberdauer");
+    reichweite=t.getAttr("Reichweite");
+    wirkungsziel=t.getAttr("Wirkungsziel");
+    wirkungsbereich=t.getAttr("Wirkungsbereich");
+    wirkungsdauer=t.getAttr("Wirkungsdauer");
+    material=t.getAttr("Material");
+    agens=t.getAttr("Agens");
+    prozess=t.getAttr("Prozess");
+    reagens=t.getAttr("Reagens");
+    nsc_only=t.getBoolAttr("NSC_only",false);
     
-    enum_zusatz=MidgardBasicElement::eZusatz(tag->getIntAttr("Zusätze",ZNone));
+    enum_zusatz=MidgardBasicElement::eZusatz(t.getIntAttr("Zusätze",ZNone));
 
-    FOR_EACH_CONST_TAG_OF(i,*tag,"Zusätze")
+    FOR_EACH_CONST_TAG_OF(i,tag,"Zusätze")
       Vzusatz.push_back(st_zusatz(i->getAttr("Name"),i->getAttr("Typ"),
                          i->getAttr("Region"),i->getAttr("RegionZusatz"),""));
                                
-    FOR_EACH_CONST_TAG_OF(i,*tag,"AgensTyp")
+    FOR_EACH_CONST_TAG_OF(i,tag,"AgensTyp")
          map_typ_agens[cH_Typen(i->getAttr("Typ"),true)]=i->getAttr("Agens");
 
-    FOR_EACH_CONST_TAG_OF(i,*tag,"regionaleBesonderheit")
+    FOR_EACH_CONST_TAG_OF(i,tag,"regionaleBesonderheit")
          VAusnahmen.push_back(st_ausnahmen(i->getAttr("Herkunft"),
                               i->getAttr("Spezies"),
                               i->getAttr("Typ"),
@@ -112,6 +111,15 @@ void Zauber::get_Zauber()
                               i->getAttr("Stand"),
                               i->getAttr("Standard")));
 }
+
+void Zauber::load(const Tag &t)
+{  get_Zauber(t); get_map_typ(t); EP_steigern("Zauber");
+}
+
+Zauber::Zauber(const Tag &t)
+      : MidgardBasicElement(t.getAttr("Name")),spruchrolle_faktor(1)
+{  load(t);
+} 
 
 int Zauber::Kosten_eBe(const std::string& pe,const std::string& se) const
 {
@@ -192,12 +200,22 @@ bool Zauber::spruchrolle_wuerfeln(const Abenteurer &A,std::string &info,const in
  else return false;
 }
 
-
-
-
+cH_Zauber cH_Zauber::load(const Tag &t,bool &is_new)
+{  cH_Zauber res=cache[t.getAttr("Name")];
+   if (!res)
+   {  res=new Zauber(t);
+      is_new=true;
+      cache[t.getAttr("Name")]=res;
+   }
+   else 
+   {  const_cast<Zauber&>(*res).load(t);
+   }
+   return res;
+}
 
 Zauber_All::Zauber_All()
 {
+#if 0
  const Tag *zauber=xml_data->find("Zauber");
  if (!zauber)
     std::cerr << "<Zauber><Spruch/>... nicht gefunden\n";
@@ -214,5 +232,12 @@ Zauber_All::Zauber_All()
        list_All.push_back(&*(cH_Zauber(&*i)));
     }
  }
+#endif 
 }
 
+void Zauber_All::load(const Tag &t)
+{  bool is_new=false;
+   cH_Zauber z=cH_Zauber::load(t,is_new);
+   // das &* dient dazu um aus einem cH_Zauber ein cH_MBE zu machen
+   if (is_new) list_All.push_back(&*z);
+}

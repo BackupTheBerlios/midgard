@@ -248,10 +248,11 @@ int MidgardBasicElement_mutable::Verlernen(const Abenteurer &A) const
 }
 
 
-void MidgardBasicElement::get_map_typ()
+void MidgardBasicElement::get_map_typ(const Tag &t)
 {  
- const Tag *tag=this->tag;
- 
+ const Tag *tag=&t;
+
+#warning das muss besser gelöst werden 
  if(What()==SPRACHE) 
     tag=cH_Fertigkeit("Sprache")->tag;
  else if(What()==SCHRIFT)
