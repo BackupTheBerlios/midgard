@@ -73,7 +73,7 @@ void KiDo::get_KiDo()
   effekt=db_effekt;  
 #else
   assert(tag);
-  hoho = tag->getAttr("Name"); // "Übersetzung" ?
+  deutsch = tag->getAttr("Übersetzung");
   stufe = tag->getAttr("Stufe");
   stil=tag->getAttr("Stil");
   kosten=tag->getIntAttr("Lernkosten");
