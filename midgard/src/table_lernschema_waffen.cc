@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.18 2002/09/30 05:51:25 thoma Exp $
+// $Id: table_lernschema_waffen.cc,v 1.19 2002/10/01 10:57:34 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -94,6 +94,7 @@ void table_lernschema::show_WaffenBesitz_lernschema()
   tree_waffen_lernschema = manage(new MidgardBasicTree(MidgardBasicTree::WAFFE_LERNSCHEMA));
   tree_waffen_lernschema->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_waffen_lernschema_tree_leaf_selected));
   label_lernschma_titel->set_text("Waffenbesitz wählen");
+#warning TODO
   std::list<WaffeBesitz> L1=LernListen(hauptfenster->getDatabase()).getWaffenBesitz(hauptfenster->getAben());
   std::list<MBEmlt> L;
   for(std::list<WaffeBesitz>::iterator i=L1.begin();i!=L1.end();++i) 
