@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.1 2003/05/08 06:16:11 christof Exp $
+// $Id: Optionen.hh,v 1.2 2003/05/08 10:57:48 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -31,7 +31,7 @@ class Optionen
       enum HausIndex {Gold,Werte100};
 
       struct st_OptionenCheck{OptionenCheckIndex index;std::string text;
-               Model<bool> active;
+               Model_copyable<bool> active;
                st_OptionenCheck(OptionenCheckIndex i,std::string t,bool a)
                   :index(i),text(t),active(a)
                   {}
@@ -40,7 +40,7 @@ class Optionen
                	  : index(b.index), text(b.text), active(b.active.get_value()) {}
               };
       struct st_Haus{HausIndex index;std::string text;
-               Model<bool> active;
+               Model_copyable<bool> active;
                st_Haus(HausIndex i,std::string t,bool a)
                       :index(i),text(t),active(a) {}
                st_Haus(const st_Haus &b)
