@@ -14,6 +14,8 @@ CREATE TABLE "waffen_region_name" (
 	"schaden" text,
 	"schaden_b" integer,
 	"angriffs_mod" integer,
+	"st" integer,
+	"kosten_gs" integer,
 	Constraint "waffen_region_name_pkey" Primary Key ("alias")
 );
 
@@ -23,63 +25,65 @@ CREATE TABLE "waffen_region_name" (
 
 
 COPY "waffen_region_name" FROM stdin;
-Langbogen	Aginkha (Pfeil)	R	2W6	-2	-2
-Rapier	Angushorn	N	\N	\N	\N
-Handaxt	Ankusch	R	\N	\N	\N
-Langschwert	Aschwapatawar	R	\N	\N	\N
-Speerschleuder	Atlatl	N	\N	\N	\N
-Kampfstab	Bo	K	\N	\N	\N
-Langschwert	Breitschwert	A	\N	\N	\N
-Anderthalbh‰nder	Claymore	A	\N	\N	\N
-Streitkolben	Dabus	E	\N	\N	\N
-Wurfaxt	Dhauram	R	\N	\N	\N
-Dolch	Dirgh	A	\N	\N	\N
-Fischspeer	Dreizackspeer	N	\N	\N	\N
-Blasrohr	FukiDake	K	\N	\N	\N
-Anderthalbh‰nder	Hamschar	R	\N	\N	\N
-Dolch	Jambiya	E	\N	\N	\N
-leichter Speer	Jarid	E	\N	\N	\N
-Parierdolch	Jitte	K	\N	\N	\N
-waffenloser Kampf	Kampfriemen	\N	\N	\N	\N
-Dolch	Katar	R	\N	\N	\N
-Dolch	Katar (Spreizklinge)	R	W6	0	-2
-Morgenstern	KauSinKe	K	\N	\N	\N
-Dolch	Khanjar	E	\N	\N	\N
-groﬂer Schild	Krabbenschild	N	\N	\N	\N
-Streitkolben	Kronehar	N	\N	\N	\N
-Kurzschwert	Laingdirgh	A	\N	\N	\N
-Krumms‰bel	Ma`khirr	R	W6	1	\N
-Wurfpfeil	Mague-Stacheln	N	\N	\N	\N
-Langschwert	Maquahuitl	N	\N	\N	\N
-Krumms‰bel	Maquahuitl (S)	N	\N	\N	\N
-Bih‰nder	Maquahuitl (Z)	N	\N	\N	\N
-Bogen	Mukantar	E	\N	\N	\N
-Schlachtbeil	Namikravyad	R	\N	\N	\N
-Dolch	Nazcaltek	N	\N	\N	\N
-Anderthalbh‰nder	Nimcha	E	\N	\N	\N
-Dolch	Obsidiandoclch	N	\N	\N	\N
-leichte Armbrust	OjuMi	K	\N	\N	\N
-Dolch	Opferdolch	N	\N	\N	\N
-Wurfmesser	Opfermesser	N	\N	\N	\N
-Kurzschwert	Patawar	R	W6(+2)	\N	\N
-Magierstab	Priesterstab	N	\N	\N	\N
-Dolch	Rilok	E	\N	\N	\N
-Stoﬂspeer	Rumeh	E	\N	\N	\N
-kleiner Schild	Rundschild	N	\N	\N	\N
-Kampfgabeln	Sai	K	\N	\N	\N
-Kumms‰bel	Saif	E	\N	\N	\N
-schwere Armbrust	SangMiau	K	\N	\N	\N
-Streitaxt	Sanghala	R	\N	\N	\N
-Krumms‰bel	Schimschar	R	W6(+2)	\N	\N
-Handaxt	Steinaxt	N	\N	\N	\N
-Krumms‰bel	Szimitar	R	W6(+2)	\N	\N
-Langschwert	Takuba	E	\N	\N	\N
-Dolch	Tanto	K	\N	\N	\N
-Dolch	Telek	E	\N	\N	\N
-Wurfstern	Tschakram	R	\N	\N	\N
-leichte Armbrust	Ud al-Khal	E	\N	\N	\N
-Stoﬂspeer	Yari	K	\N	\N	\N
-Wurfspeer	YariNage	K	\N	\N	\N
+Langbogen	Aginkha (Pfeil)	R	2W6	-2	-2	\N	\N
+Rapier	Angushorn	N	\N	\N	\N	\N	\N
+Handaxt	Ankusch	R	\N	\N	\N	\N	\N
+Langschwert	Aschwapatawar	R	\N	\N	\N	\N	\N
+Speerschleuder	Atlatl	N	\N	\N	\N	\N	\N
+Kampfstab	Bo	K	\N	\N	\N	\N	\N
+Langschwert	Breitschwert	A	\N	\N	\N	\N	\N
+Anderthalbh‰nder	Claymore	A	\N	\N	\N	\N	\N
+Streitkolben	Dabus	E	\N	\N	\N	\N	\N
+Wurfaxt	Dhauram	R	\N	\N	\N	\N	\N
+Dolch	Dirgh	A	\N	\N	\N	\N	\N
+Fischspeer	Dreizackspeer	N	\N	\N	\N	\N	\N
+Blasrohr	FukiDake	K	\N	\N	\N	\N	\N
+Anderthalbh‰nder	Hamschar	R	\N	\N	\N	\N	\N
+Dolch	Jambiya	E	\N	\N	\N	\N	\N
+leichter Speer	Jarid	E	\N	\N	\N	\N	\N
+Parierdolch	Jitte	K	\N	\N	\N	\N	\N
+waffenloser Kampf	Kampfriemen	\N	\N	\N	\N	\N	\N
+Dolch	Katar	R	\N	\N	\N	\N	\N
+Dolch	Katar (Spreizklinge)	R	W6	0	-2	\N	\N
+Morgenstern	KauSinKe	K	\N	\N	\N	\N	\N
+Dolch	Khanjar	E	\N	\N	\N	\N	\N
+groﬂer Schild	Krabbenschild	N	\N	\N	\N	\N	\N
+Streitkolben	Kronehar	N	\N	\N	\N	\N	\N
+Kurzschwert	Laingdirgh	A	\N	\N	\N	\N	\N
+Krumms‰bel	Ma`khirr	R	W6	1	\N	\N	\N
+Wurfpfeil	Mague-Stacheln	N	\N	\N	\N	\N	\N
+Langschwert	Maquahuitl	N	\N	\N	\N	\N	\N
+Krumms‰bel	Maquahuitl (S)	N	\N	\N	\N	\N	\N
+Bih‰nder	Maquahuitl (Z)	N	\N	\N	\N	\N	\N
+Bogen	Mukantar	E	\N	\N	\N	\N	\N
+Schlachtbeil	Namikravyad	R	\N	\N	\N	\N	\N
+Dolch	Nazcaltek	N	\N	\N	\N	\N	\N
+Anderthalbh‰nder	Nimcha	E	\N	\N	\N	\N	\N
+Dolch	Obsidiandoclch	N	\N	\N	\N	\N	\N
+leichte Armbrust	OjuMi	K	\N	\N	\N	\N	\N
+Dolch	Opferdolch	N	\N	\N	\N	\N	\N
+Wurfmesser	Opfermesser	N	\N	\N	\N	\N	\N
+Kurzschwert	Patawar	R	W6(+2)	\N	\N	\N	\N
+Magierstab	Priesterstab	N	\N	\N	\N	\N	\N
+Dolch	Rilok	E	\N	\N	\N	\N	\N
+Stoﬂspeer	Rumeh	E	\N	\N	\N	\N	\N
+kleiner Schild	Rundschild	N	\N	\N	\N	\N	\N
+Kampfgabeln	Sai	K	\N	\N	\N	\N	\N
+Kumms‰bel	Saif	E	\N	\N	\N	\N	\N
+schwere Armbrust	SangMiau	K	\N	\N	\N	\N	\N
+Streitaxt	Sanghala	R	\N	\N	\N	\N	\N
+Krumms‰bel	Schimschar	R	W6(+2)	\N	\N	\N	\N
+Handaxt	Steinaxt	N	\N	\N	\N	\N	\N
+Krumms‰bel	Szimitar	R	W6(+2)	\N	\N	\N	\N
+Langschwert	Takuba	E	\N	\N	\N	\N	\N
+Dolch	Tanto	K	\N	\N	\N	\N	\N
+Dolch	Telek	E	\N	\N	\N	\N	\N
+Wurfstern	Tschakram	R	\N	\N	\N	\N	\N
+leichte Armbrust	Ud al-Khal	E	\N	\N	\N	\N	\N
+Stoﬂspeer	Yari	K	\N	\N	\N	\N	\N
+Wurfspeer	YariNage	K	\N	\N	\N	\N	\N
+Langbogen	verst. Langbogen	\N	W6	2	\N	81	120
+Langbogen	verst. Langbogen 	\N	W6	3	\N	96	120
 \.
 --
 --
