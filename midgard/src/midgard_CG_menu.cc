@@ -61,7 +61,7 @@ void midgard_CG::menu_init()
   
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {
-     if(!(*i)->Nr()) continue;
+     if((*i)->Nr()<=0) continue;
      Gtk::CheckMenuItem *_mi=manage(new Gtk::CheckMenuItem());         
      _mi->remove();
 
@@ -78,11 +78,11 @@ void midgard_CG::menu_init()
      int row=1;
      if((*i)->Offiziell()) 
        {
-        _tab->attach(*_o,0,1,1,2,0,0,0,0);
+        _tab->attach(*_o,1,2,1,2,0,0,0,0);
         row=2;
        }
-     _tab->attach(*_l,0,1,0,1,0,0,0,0);
-     _tab->attach(*RegionenPic::Pic((*i)->Pic()),1,2,0,row,0,0,0,0);
+     _tab->attach(*_l,1,2,0,1,0,0,0,0);
+     _tab->attach(*RegionenPic::Pic((*i)->Pic()),0,1,0,row,0,0,0,0);
      _tab->set_col_spacings(10);
 
      _mi->add(*_tab);
@@ -122,6 +122,10 @@ void midgard_CG::menu_init()
   optionen_menu->append(*OptionMenu.menu_pics);
   OptionMenu.menu_pics->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_pics_menu));
   OptionMenu.menu_pics->set_active(OptionBool.Pics);
+
+  OptionMenu.menu_sensitive=manage(new Gtk::MenuItem("Lernschema auswählbar machen"));
+  optionen_menu->append(*OptionMenu.menu_sensitive);
+  OptionMenu.menu_sensitive->activate.connect(SigC::slot(this,&midgard_CG::on_lernschema_sensitive_menu));
 
   OptionMenu.menu_version=manage(new Gtk::CheckMenuItem("Versionen automatisch erzeugen\n(Deaktivierung löscht den Eintrag in 'Version')"));
   optionen_menu->append(*OptionMenu.menu_version);

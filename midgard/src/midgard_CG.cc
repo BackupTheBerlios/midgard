@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.123 2002/01/22 15:34:40 thoma Exp $
+// $Id: midgard_CG.cc,v 1.124 2002/01/23 09:00:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -89,26 +89,13 @@ void midgard_CG::set_tree_titles()
 }
 
 void midgard_CG::on_radiobutton_frau_toggled()
-{   
- on_radiobutton_mann_toggled();
-/*
-  if (radiobutton_frau->get_active()) Werte.Geschlecht()="w";
-   else Werte.setGeschlecht("m");
-  fill_typauswahl();
-  fill_typauswahl_2();
-  typauswahl->set_history(Typ[0]->Nr());
-  typauswahl_2->set_history(Typ[1]->Nr());
-*/
-}
-
+{ on_radiobutton_mann_toggled(); }
 void midgard_CG::on_radiobutton_mann_toggled()
 {
-  if (radiobutton_mann->get_active()) Werte.Geschlecht()="m";
-   else Werte.setGeschlecht("w");
+  if (radiobutton_mann->get_active()) Werte.setGeschlecht("m");
+  else Werte.setGeschlecht("w");
   fill_typauswahl();
   fill_typauswahl_2();
-//  typauswahl->set_history(Typ[0]->Nr());
-//  typauswahl_2->set_history(Typ[1]->Nr());
 }
 
 void midgard_CG::show_gtk()
@@ -207,7 +194,8 @@ void midgard_CG::on_button_hilfe_clicked()
 }
 void midgard_CG::on_button_info_clicked()
 {
-  manage(new Midgard_Info());
+  Midgard_Info *MI = manage(new Midgard_Info());
+  MI->set_Regionen(Database.Regionen);  
 }
 
 
@@ -284,10 +272,8 @@ void midgard_CG::on_neuer_charakter_clicked()
 {
 
    button_abg_werte->set_sensitive(false);
-//   button_herkunft->set_sensitive(false);
-//   button_sprache->set_sensitive(false);
    button_beschreibung->set_sensitive(false);
-   frame_steigern->set_sensitive(false);
+   frame_steigern->set_sensitive(false); // das wirkt nicht ?
    frame_lernschema->set_sensitive(false);
 
    button_lernpunkte->set_sensitive(false);
@@ -303,7 +289,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    hbox_waffen->set_sensitive(false);
    table_waffen->set_sensitive(false);
    hbox_zauber->set_sensitive(false);
-//XXX   table_magier_lernen->set_sensitive(false);
+   table_magier_lernen->set_sensitive(false);
    hbox_kido->set_sensitive(false);
    table_kido_lernen->set_sensitive(false);
    scrolledwindow_landauswahl->hide();
@@ -326,8 +312,6 @@ void midgard_CG::on_neuer_charakter_clicked()
    zeige_lernpunkte();
    zeige_werte(Werte);
    OptionBool.reset(); 
-//   Original=true; // checkbutton_original->set_active(true);
-//   Info=true;      //checkbutton_original->set_active(true);
    for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
       (*i)->setActive(false);
    menu_init();
@@ -340,7 +324,6 @@ void midgard_CG::on_neuer_charakter_clicked()
    label_EP->set_text("50%");
    label_Gold->set_text("50%");
 
-//  on_checkbutton_original_toggled();
   kido_bool=false;
   magie_bool=false;
   fill_typauswahl();

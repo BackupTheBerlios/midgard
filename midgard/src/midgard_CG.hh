@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.139 2002/01/22 15:34:40 thoma Exp $
+// $Id: midgard_CG.hh,v 1.140 2002/01/23 09:00:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -280,12 +280,11 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void universal_Fertigkeiten();
         void on_spezialwaffe_clicked();
         void on_checkbutton_original_menu();
-//        void on_checkbutton_original_toggled();
         void on_checkbutton_info_fenster_menu();
         void on_checkbutton_pics_menu();
+        void on_lernschema_sensitive_menu();
         void on_checkbutton_version_menu();
         void Pics(bool b);
-//        void on_checkbutton_info_fenster_toggled();
         void on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_Region region);
 
         void on_grad_anstieg_clicked();

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.34 2002/01/22 15:34:41 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.35 2002/01/23 09:00:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -53,6 +53,31 @@ void midgard_CG::on_checkbutton_pics_menu()
   OptionMenu.menu_pics->set_active(OptionBool.Pics);
   Pics(OptionBool.Pics);
 }
+
+void midgard_CG::on_lernschema_sensitive_menu()
+{
+   button_beschreibung->set_sensitive(true);
+   frame_steigern->set_sensitive(true);
+   frame_lernschema->set_sensitive(true);
+   button_lernpunkte->set_sensitive(true);
+   togglebutton_lernpunkte_edit->set_sensitive(true);
+   button_geld_waffen->set_sensitive(true);
+   button_ruestung->set_sensitive(true);   
+   hbox_beruf->set_sensitive(true);
+   table_beruf->set_sensitive(true);
+   hbox_fertigkeit->set_sensitive(true);
+   table_fertigkeit->set_sensitive(true);
+   hbox_waffen->set_sensitive(true);
+   table_waffen->set_sensitive(true);
+   hbox_zauber->set_sensitive(true); 
+   table_magier_lernen->set_sensitive(true);     
+   hbox_kido->set_sensitive(true);
+   table_kido_lernen->set_sensitive(true);
+   button_fertigkeiten->set_sensitive(true);
+   button_kido_auswahl->set_sensitive(true);
+}
+
+
 
 void midgard_CG::on_checkbutton_version_menu()
 {

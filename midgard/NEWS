@@ -1,6 +1,13 @@
-NEWS
+NEWS IN VERSION 0.3delta2
 
 * XML: Laden beschleunigt (Fertigkeiten/Steigern_wie + Waffen/Schwierigkeit)
+* Geschlechtsumwandlung wieder möglich
+* Standesauswahl jetzt korrekt
+* Neue Pics hinzugefügt
+* Neue Option im Menü: Das Lernschema kann jetzt 'sensibilisiert' werden.
+   (Das braucht man ab und zu, wenn man einen Charakter eingeben will.)
+* Die Regionen und die Copyright Hinweise weirden jetzt bei Programmstart 
+   dynamsich angezeigt
 
 ##########################################################################
 NEWS IN VERSION 0.3delta1

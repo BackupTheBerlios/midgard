@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.89 2002/01/22 15:34:40 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.90 2002/01/23 09:00:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -507,8 +507,9 @@ void midgard_CG::LaTeX_write_empty_values()
  for (unsigned int i=0; i<maxfert;++i)
    {
       std::string a = LaTeX_string(i);
-      fout << "\\newcommand{\\fert"<<a<<"}{\\scriptsize }\n";
-      fout << "\\newcommand{\\wert"<<a<<"}{\\scriptsize }\n";
+      fout << "\\newcommand{\\fert"<<a<<"}{}\n";
+      fout << "\\newcommand{\\praxis"<<a<<"}{}   ";
+      fout << "\\newcommand{\\wert"<<a<<"}{}\n";
    }
  // Waffen auffüllen
  unsigned int maxwaffen=8;
