@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.27 2002/01/29 16:22:45 christof Exp $
+// $Id: xml.cc,v 1.28 2002/01/29 17:28:08 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -53,7 +53,7 @@ void xml_init(Gtk::ProgressBar *progressbar, const std::string &filename)
 #endif
    double anzdateien=1;
    FOR_EACH_CONST_TAG(i,*xml_data_mutable)
-   {  if (i->Type!="MAGUS-include" && i->Type!="MCG-include") continue;
+   {  if (i->Type()!="MAGUS-include" && i->Type()!="MCG-include") continue;
       if (!i->getBoolAttr("inactive",false)) 
          ++anzdateien;
    }
@@ -61,7 +61,7 @@ void xml_init(Gtk::ProgressBar *progressbar, const std::string &filename)
 reloop:   
 //   Tag::iterator b=xml_data_mutable->begin(),e=xml_data_mutable->end();
     FOR_EACH_TAG(i,*xml_data_mutable)
-    {  if (i->Type!="MAGUS-include" && i->Type!="MCG-include") continue;
+    {  if (i->Type()!="MAGUS-include" && i->Type()!="MCG-include") continue;
        Tag *t2=&*i;
        std::string file=dir+t2->getAttr("File");
        if (t2->getBoolAttr("inactive",false))
