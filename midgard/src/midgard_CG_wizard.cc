@@ -62,6 +62,7 @@ void midgard_CG::on_neuer_abenteurer_mit_wizard_activate()
 void midgard_CG::on_wizard_starten_activate()
 {
  on_neuer_charakter_clicked();
+ MOptionen->WerteEingebenModel()=false;
  wizard = new Wizard(this);
  wizard->restart();
 }

@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.31 2003/02/25 16:50:28 christof Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.32 2003/04/23 07:35:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,7 +31,8 @@ void table_grundwerte::on_button_grundwerte_button_release_event()
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active) 
       button_grundwerte->set_sensitive(false);
-  grundwerte_wuerfeln();
+  if (hauptfenster->MOptionen->WerteEingebenModel().Value()) on_togglebutton_edit_werte_toggled();
+  else grundwerte_wuerfeln();
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::GRUNDWERTE);
 
   if(!hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active)

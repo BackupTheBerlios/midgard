@@ -370,7 +370,10 @@ void table_lernschema::lernpflichten_info()
 
 #include "Zufall.hh"
 void table_lernschema::on_lernpunkte_wuerfeln_clicked()
-{  
+{ if (hauptfenster->MOptionen->WerteEingebenModel().Value()) 
+  {  togglebutton_lernpunkte_edit->set_active(true);
+     return;
+  }
   lernpflichten_info();
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::LERNPUNKTE);
   Zufall::Lernpunkte_wuerfeln(lernpunkte,hauptfenster->getAben(),hauptfenster->random);
@@ -425,17 +428,14 @@ void table_lernschema::on_button_lernschema_geld_button_release_event()
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::GELD);
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
      button_lernschema_geld->set_sensitive(false);
-  hauptfenster->getWerte().setGeld(0,0,0);
-  geld_wuerfeln() ;
-#warning ehemals B3 eingabe!
-#if 0
-  else if (ev->button==3) 
-   {
-     gwr_auswahl=EGeld1;
+  if (hauptfenster->MOptionen->WerteEingebenModel().Value())
+  {  gwr_auswahl=EGeld1;
      set_gwr_eingabe();
-   }
-  return 0;
-#endif  
+  }
+  else
+  {  hauptfenster->getWerte().setGeld(0,0,0);
+     geld_wuerfeln() ;
+  }
 }
 
 void table_lernschema::geld_wuerfeln()
@@ -494,19 +494,16 @@ void table_lernschema::on_button_ruestung_button_release_event()
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::RUESTUNG);
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
      button_ruestung->set_sensitive(false);
+   if (!hauptfenster->MOptionen->WerteEingebenModel().Value())
    {  
      int wurf = hauptfenster->random.integer(1,100);
      on_button_ruestung_clicked(wurf);
    }
-#warning B3
-#if 0   
-  else if (ev->button==3)  
+   else 
    { //manage (new Window_ruestung(hauptfenster->getWerte(),hauptfenster,hauptfenster->getDatabase()));
      gwr_auswahl=ERuestung;
      set_gwr_eingabe();  
    }
-  return 0;
-#endif  
 }
 
 void table_lernschema::on_button_ruestung_clicked(int wurf)

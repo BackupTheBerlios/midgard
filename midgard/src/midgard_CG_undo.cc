@@ -1,4 +1,4 @@
-// $Id: midgard_CG_undo.cc,v 1.15 2003/04/15 13:49:51 christof Exp $
+// $Id: midgard_CG_undo.cc,v 1.16 2003/04/23 07:35:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -66,11 +66,45 @@ void midgard_CG::on_button_undo_clicked()
   load_for_mainpage(notebook_main->get_current_page());
 }
 
+static void PosCalc(GtkMenu *menu,gint *x,gint *y,gboolean *push_in,gpointer user_data)
+{  (*y)+=4;
+   (*push_in)=true;
+}
+
 void midgard_CG::on_undo_secondpressed(int mbutton)
-{
+{  if (undo_menu) delete undo_menu;
+   undo_menu=new Gtk::Menu();
+   const SimpleTreeModel::datavec_t &vec=undo_tree->getModel().getDataVec();
+   Midgard_Undo::const_iterator i=MidgardUndo.current_iter();
+   if (i==MidgardUndo.end()) return;
+   for (unsigned count=0; count<10; --i,++count)
+   {  assert(i->count<vec.size());
+      Gtk::MenuItem *mi=manage(new Gtk::MenuItem(i->text));
+      undo_menu->add(*mi);
+      mi->show();
+      mi->signal_activate().connect(SigC::bind(SigC::slot(*this,
+      		&midgard_CG::on_undo_leaf_selected),vec[i->count]));
+      if (i==MidgardUndo.begin()) break;
+   }
+   gtk_menu_popup(undo_menu->gobj(),0,0,&PosCalc,0,0,0);
 }
 
 void midgard_CG::on_redo_secondpressed(int mbutton)
-{
+{  if (undo_menu) delete undo_menu;
+   undo_menu=new Gtk::Menu();
+   const SimpleTreeModel::datavec_t &vec=undo_tree->getModel().getDataVec();
+   Midgard_Undo::const_iterator i=MidgardUndo.current_iter();
+   if (i==MidgardUndo.end()) return;
+   if (++i==MidgardUndo.end()) return;
+   for (unsigned count=0; count<10; ++i,++count)
+   {  if (i==MidgardUndo.end()) break;
+      assert(i->count<vec.size());
+      Gtk::MenuItem *mi=manage(new Gtk::MenuItem(i->text));
+      undo_menu->add(*mi);
+      mi->show();
+      mi->signal_activate().connect(SigC::bind(SigC::slot(*this,
+      		&midgard_CG::on_undo_leaf_selected),vec[i->count]));
+   }
+   gtk_menu_popup(undo_menu->gobj(),0,0,&PosCalc,0,0,0);
 }
 

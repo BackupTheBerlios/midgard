@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.316 2003/04/15 13:49:50 christof Exp $
+// $Id: midgard_CG.hh,v 1.317 2003/04/23 07:35:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -189,6 +189,7 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
         // Undo
    private:
         Midgard_Undo MidgardUndo;
+        Gtk::Menu *undo_menu;
         void show_undo_tree();
         void on_undo_leaf_selected(cH_RowDataBase d);
         void on_button_redo_clicked();

@@ -168,8 +168,8 @@ bool Zauber::spruchrolle_wuerfeln(const Abenteurer &A,std::string &info,const in
  x += erf_z;
  x += bonus_lesen_von_zauberschrift;
 
- info += "Lernversuch von Spruchrolle:
- gewürfelt  Spruchstufe  Ausnahme/Spezial Erfolgswert  Lesen von Zauberschrift  Gesamtergebnis\n     "
+ info += "Lernversuch von Spruchrolle:\n"
+ "gewürfelt  Spruchstufe  Ausnahme/Spezial Erfolgswert  Lesen von Zauberschrift  Gesamtergebnis\n     "
       +itos(xr)+  "            -"+itos(iStufe())+"               "
       +itos(iaus)+"             "+itos(erf_z)   +"               "+itos0p(bonus_lesen_von_zauberschrift,0,true)
       +"       =       "+ itos(x)+"\n";
