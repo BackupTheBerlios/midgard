@@ -53,6 +53,13 @@ class Data_SimpleTree : public RowDataBase
    enum Spalten_WAFFE_LERNSCHEMA {ART_WL,NAME_WL,GRUND_WL,SCHADEN_WL};
 
    virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const;
+   enum WEV {FWhat,FName,FErfolgswert,FErfolgswerBonus,
+             FWurf,FLernpunkte,FPflicht,
+             FGrundkenntnis,FZauberAP,FAttribut,FVoraussetung,FSchwierigkeit,
+             FKosten,FStandard,FGelernt,FPraxispunkt,
+             FSteigern,FReduzieren,FVerlernen,FRegion,
+             FUrsprung,FArtderSchrift};
+   const cH_EntryValue retEV(const WEV &what) const;
    const MBEmlt &getMBE() const {return MBE;}
 };
 

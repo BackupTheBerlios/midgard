@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.30 2002/09/21 18:00:13 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.31 2002/09/22 16:41:21 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -140,12 +140,14 @@ public:
 
    void setAngebFert();
    bool setAngebSinnFert(int wurf,const MBEmlt &MBE);
+   void remove_WaffenGrund() ;
 
 
    static void move_element(std::list<MBEmlt>& von,
                             std::list<MBEmlt>& nach,
                             const MBEmlt& MBE);
                                                                  
+
                                                                  
 
 };

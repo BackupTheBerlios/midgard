@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.42 2002/09/21 18:00:13 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.43 2002/09/22 16:41:21 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -717,4 +717,20 @@ void Abenteurer::move_element(std::list<MBEmlt>& von,
     }
 */
   }
+}
+
+
+void Abenteurer::remove_WaffenGrund()
+{
+reloop:
+  for(std::list<MBEmlt>::iterator i=list_WaffenGrund.begin();i!=list_WaffenGrund.end();++i)
+   {
+     bool remove=true;
+     for(std::list<MBEmlt>::const_iterator j=list_Waffen.begin();j!=list_Waffen.end();++j)
+      {
+        if(cH_Waffe(j->getMBE())->Grundkenntnis()==(*i)->Name()) 
+            {remove=false; break;}
+      }
+     if(remove) {list_WaffenGrund.remove(*i); goto reloop;}
+   }
 }

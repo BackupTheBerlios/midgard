@@ -157,7 +157,8 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
            else
             {  
              hauptfenster->getChar().List_Waffen().remove(MBE);
-              lernpunkte.addWaffen(MBE.Lernpunkte());
+             lernpunkte.addWaffen(MBE.Lernpunkte());
+             hauptfenster->getChar()->remove_WaffenGrund();
             }
            break;
          }
