@@ -34,6 +34,12 @@
 
 void table_zufall::on_button_steigern_clicked()
 {
+  if(hauptfenster->getChar().empty())
+   {
+    hauptfenster->set_status("Noch kein Abenteurer vorhanden.");
+    return;
+   }
+
   on_button_check100_clicked();
   int gfp;
   spinbutton_gfp->update();
