@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.338 2004/04/01 06:28:50 christof Exp $
+// $Id: midgard_CG.cc,v 1.339 2004/04/20 07:54:41 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -144,6 +144,7 @@ midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
   aktiver.proxies.undo_changed.connect(SigC::slot(*this,&midgard_CG::refresh));
   aktiver.signal_anderer_abenteurer().connect(SigC::slot(*this,&midgard_CG::refresh));
   AbenteurerAuswahl::Chars.signal_changed().connect(SigC::slot(*this,&midgard_CG::refresh_char_list));
+std::cout << getChar()->getAbenteurer().Spezies()->Name() << " ctor\n";
 //  refresh();
   aktiver.signal_anderer_abenteurer()();
   aktiver.proxies.wizard.signal_changed()(0);
