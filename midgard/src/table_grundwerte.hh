@@ -62,6 +62,7 @@ private:
         // Für Variante 2 + 3
         enum e_eigen{est,egw,egs,eko,ein,ezt,eMAX};
 //        friend e_eigen &operator++(e_eigen &s);
+	friend class spezies_mod_comp;
         struct st_eigen{e_eigen eigenschaft;std::string lang;std::string kurz;
         		int spezies_mod; 
                st_eigen(e_eigen e,std::string l,std::string k,int spezies_m=0)  
