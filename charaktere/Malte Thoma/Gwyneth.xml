@@ -1,84 +1,131 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<Midgard-Charakter Version="4">
-  <Figur Name="Gwyneth NiConuhil" Spieler="Malte Thoma" Zeitpunkt="Das graue Konzil" Grad="7"/>
-  <Typ Spezies="Mensch" Geschlecht="w" Abkürzung="Hl"/>
-  <Basiseigenschaften St="65" Ge="82" Ko="87" In="91" Zt="81"/>
-  <abgeleiteteEigenschaften Au="95" pA="81" Sb="61" RW="92" HGW="81" B="24" KAW="4" WLW="70"/>
-  <Erfolgswerte Abwehr="14" Zaubern="17"/>
-  <Resistenzen Resistenz="16"/>
-  <Gesundheit LP_Basis="11" LP="17" AP="38"/>
-  <Beschreibung Alter="28" Gestalt="normal" Gewicht="55" Größe="156" Stand="Adel" Herkunft="Alba" Glaube="Nathir, Dheis Albi"/>
-  <Boni Ausdauer="2" Schaden="1" Abwehr="1" Zaubern="2">
-    <Resistenzen psy="7" phs="5" phk="7" Gift="5"/>
-  </Boni>
-  <GFP>19422</GFP>
-  <Vermögen/>
+<MAGUS-data>
+ <Preise>
+  <Kaufpreis Ware="Silberbecher" Art="Ausrüstung" Art2="Behälter" Preis="5" Währung="GS"/>
+  <Kaufpreis Ware="kleiner Silbertopf" Art="Ausrüstung" Art2="Behälter" Preis="10" Währung="GS" Gewicht="2"/>
+  <Kaufpreis Ware="Mörser und Stößel" Art="Ausrüstung" Art2="Werkzeug" Preis="3" Währung="GS"/>
+ </Preise>
+
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Gwyneth Ni'Conuhil" Spieler="Malte Thoma" Zeitpunkt="Erschaffung" Grad="7"/>
+  <Typ Spezies="Mensch" Geschlecht="w" Abkürzung="Hl" Stadt_Land="Stadt" Hand="Linkshänder"/>
+  <Basiseigenschaften St="65" Gw="87" Gs="82" Ko="91" In="91" Zt="81"/>
+  <abgeleiteteEigenschaften Au="95" pA="81" Wk="60" Sb="61" B="24" SG="5"/>
+  <Erfolgswerte Abwehr="14" Zaubern="17" ZauberResistenz="13"/>
+  <Gesundheit LP="17" AP="38"/>
+  <Beschreibung Alter="28" Gestalt="normal" Gewicht="51" Größe="156" Stand="Adel" Herkunft="Alba" Glaube="Nathir, Dehis Albi"/>
+  <Vermögen GS="190"/>
+  <Steigern GFP="10295" AEP="1246" benötigte_Tage="3498"><Praxispunkte/></Steigern>
+  <TextPixSize>8</TextPixSize>
   <Ausrüstung>
     <Rüstung>LR</Rüstung>
+    <Rüstung2>OR</Rüstung2>
     <Waffe Bezeichnung="Dolch"/>
-    <Waffe Bezeichnung="Magierstab"/>
+    <Gegenstand Bezeichnung="Körper" sichtbar="true">
+      <Gegenstand Bezeichnung="Hose" sichtbar="true"/>
+      <Gegenstand Bezeichnung="Hemd" sichtbar="true"/>
+      <Gegenstand Bezeichnung="Rucksack" Besonderheit="Leder" sichtbar="true">
+        <Gegenstand Bezeichnung="Decke" Besonderheit="warm"/>
+        <Gegenstand Bezeichnung="Lederbeutel" sichtbar="true"/>
+        <Gegenstand Bezeichnung="Geld"/>
+        <Gegenstand Bezeichnung="Erste Hilfe Ausrüstung (Salben, Heilkräuter und Verbände)"/>
+        <Gegenstand Bezeichnung="Feuerstein und Zunder" sichtbar="true"/>
+        <Gegenstand Bezeichnung="Schreibfeder" sichtbar="true"/>
+        <Gegenstand Bezeichnung="1/20 Liter Tusche" sichtbar="true"/>
+        <Gegenstand Bezeichnung="30cmx30cm Pergament" sichtbar="true"/>
+        <Gegenstand Bezeichnung="Spiegel aus poliertem Metall" sichtbar="true"/>
+        <Gegenstand Bezeichnung="wasserdichte Lederhülle für Schriftrollen" sichtbar="true"/>
+        <Gegenstand Bezeichnung="Silberbecher" sichtbar="true"/>
+        <Gegenstand Bezeichnung="kleiner Silbertopf" sichtbar="true"/>
+        <Gegenstand Bezeichnung="Mörser und Stößel" sichtbar="true"/>
+      </Gegenstand>
+      <Gegenstand Bezeichnung="Kleid" Besonderheit="blau, Leder, Adel" sichtbar="true"/>
+      <Gegenstand Bezeichnung="Schuhe" Besonderheit="ungefärbt, Leder, Adel" sichtbar="true"/>
+      <Gegenstand Bezeichnung="Gürtel" Besonderheit="ungefärbt, Leder, Adel" sichtbar="true">
+        <Gegenstand Bezeichnung="Erste Hilfe-Ausrüstung" sichtbar="true"/>
+        <Gegenstand Bezeichnung="Dolch" Besonderheit="standard" sichtbar="true"/>
+      </Gegenstand>
+    </Gegenstand>
   </Ausrüstung>
   <Fertigkeiten>
-    <Fertigkeit Bezeichnung="Erste Hilfe"/>
+    <Sinn Bezeichnung="Sehen" Wert="8"/>
+    <Sinn Bezeichnung="Hören" Wert="8"/>
+    <Sinn Bezeichnung="Riechen" Wert="8"/>
+    <Sinn Bezeichnung="Schmecken" Wert="8"/>
+    <Sinn Bezeichnung="Tasten" Wert="10"/>
+    <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
+    <Fertigkeit Bezeichnung="Erste Hilfe" Wert="13"/>
+    <Fertigkeit Bezeichnung="Heilkunde" Wert="11"/>
     <Fertigkeit Bezeichnung="Kräuterkunde" Wert="6"/>
-    <Fertigkeit Bezeichnung="Lesen von Zauberschrift"/>
+    <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="14"/>
     <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="8"/>
     <Fertigkeit Bezeichnung="Reiten" Wert="12"/>
     <Fertigkeit Bezeichnung="Sagenkunde" Wert="9"/>
     <Fertigkeit Bezeichnung="Tierkunde" Wert="7"/>
     <Fertigkeit Bezeichnung="Wahrnehmung" Wert="6"/>
-    <Fertigkeit Bezeichnung="Wissen von der Magie"/>
     <Fertigkeit Bezeichnung="Zauberkunde" Wert="9"/>
-    <Grundkenntnis Bezeichnung="Magierstab"/>
-    <Grundkenntnis Bezeichnung="Stichwaffe"/>
-    <Region Region="ORIG"/>
-    <Region Region="HD"/>
-    <Sprache Bezeichnung="Albisch" Wert="4"/>
-    <Sprache Bezeichnung="Chryseisch" Wert="3"/>
-    <Sprache Bezeichnung="Comentang" Wert="3"/>
-    <Sprache Bezeichnung="Erainnisch" Wert="2"/>
-    <Sprache Bezeichnung="Maralinga" Wert="3"/>
-    <Sprache Bezeichnung="Moravisch" Wert="1"/>
-    <Urschrift Bezeichnung="Seemeister"/>
     <Waffe Bezeichnung="Dolch" Wert="8"/>
     <Waffe Bezeichnung="Magierstab" Wert="4"/>
-    <Zauber Bezeichnung="Allheilung" Wert="19"/>
-    <Zauber Bezeichnung="Angst" Wert="17"/>
-    <Zauber Bezeichnung="Austreibung des Bösen" Wert="17"/>
-    <Zauber Bezeichnung="Bannen von Dunkelheit" Wert="19"/>
-    <Zauber Bezeichnung="Bannen von Finsterwerk" Wert="17"/>
-    <Zauber Bezeichnung="Bannen von Gift" Wert="19"/>
-    <Zauber Bezeichnung="Bannen von Zauberwerk" Wert="17"/>
-    <Zauber Bezeichnung="Beschleunigen" Wert="19"/>
-    <Zauber Bezeichnung="Elfenfeuer" Wert="17"/>
-    <Zauber Bezeichnung="Entgiften" Wert="19"/>
-    <Zauber Bezeichnung="Erkennen von Krankheit" Wert="19"/>
-    <Zauber Bezeichnung="Erkennen von Leben" Wert="17"/>
-    <Zauber Bezeichnung="Flammenkreis" Wert="17"/>
-    <Zauber Bezeichnung="Freundesauge" Wert="19"/>
-    <Zauber Bezeichnung="Geistesschild" Wert="19"/>
-    <Zauber Bezeichnung="Handauflegen" Wert="19"/>
-    <Zauber Bezeichnung="Heilen schwerer Wunden" Wert="19"/>
-    <Zauber Bezeichnung="Heilen von Krankheit" Wert="19"/>
-    <Zauber Bezeichnung="Heilen von Wunden" Wert="19"/>
-    <Zauber Bezeichnung="Heranholen" Wert="19"/>
-    <Zauber Bezeichnung="Hören von Fernem" Wert="17"/>
-    <Zauber Bezeichnung="Liniensicht" Wert="19"/>
-    <Zauber Bezeichnung="Macht über das Selbst" Wert="17"/>
-    <Zauber Bezeichnung="Macht über die belebte Natur" Wert="19"/>
-    <Zauber Bezeichnung="Reinigen" Wert="19"/>
-    <Zauber Bezeichnung="Scharfblick" Wert="17"/>
-    <Zauber Bezeichnung="Schlaf" Wert="19"/>
-    <Zauber Bezeichnung="Schmerzen" Wert="19"/>
-    <Zauber Bezeichnung="Seelenheilung" Wert="19"/>
-    <Zauber Bezeichnung="Stille" Wert="17"/>
-    <Zauber Bezeichnung="Tiere rufen" Wert="19"/>
-    <Zauber Bezeichnung="Tiergestalt" Wert="19"/>
-    <Zauber Bezeichnung="Tiersprache" Wert="19"/>
-    <Zauber Bezeichnung="Unsichtbarkeit" Wert="17"/>
-    <Zauber Bezeichnung="Verlangsamen" Wert="19"/>
-    <Zauber Bezeichnung="Wahrsehen" Wert="17"/>
-    <Zauber Bezeichnung="Zwiesprache" Wert="17"/>
+    <Zauber Bezeichnung="Allheilung"/>
+    <Zauber Bezeichnung="Angst"/>
+    <Zauber Bezeichnung="Austreibung des Bösen"/>
+    <Zauber Bezeichnung="Bannen von Dunkelheit"/>
+    <Zauber Bezeichnung="Bannen von Finsterwerk"/>
+    <Zauber Bezeichnung="Bannen von Gift"/>
+    <Zauber Bezeichnung="Bannen von Zauberwerk"/>
+    <Zauber Bezeichnung="Beschleunigen"/>
+    <Zauber Bezeichnung="Elfenfeuer"/>
+    <Zauber Bezeichnung="Entgiften"/>
+    <Zauber Bezeichnung="Erkennen von Krankheit"/>
+    <Zauber Bezeichnung="Erkennen von Leben"/>
+    <Zauber Bezeichnung="Flammenkreis"/>
+    <Zauber Bezeichnung="Freundesauge"/>
+    <Zauber Bezeichnung="Geistesschild"/>
+    <Zauber Bezeichnung="Handauflegen"/>
+    <Zauber Bezeichnung="Heilen schwerer Wunden"/>
+    <Zauber Bezeichnung="Heilen von Krankheit"/>
+    <Zauber Bezeichnung="Heilen von Wunden"/>
+    <Zauber Bezeichnung="Heranholen"/>
+    <Zauber Bezeichnung="Hören von Fernem"/>
+    <Zauber Bezeichnung="Liniensicht"/>
+    <Zauber Bezeichnung="Macht über das Selbst"/>
+    <Zauber Bezeichnung="Macht über die belebte Natur"/>
+    <Zauber Bezeichnung="Reinigen"/>
+    <Zauber Bezeichnung="Scharfblick"/>
+    <Zauber Bezeichnung="Schlaf"/>
+    <Zauber Bezeichnung="Schmerzen"/>
+    <Zauber Bezeichnung="Seelenheilung"/>
+    <Zauber Bezeichnung="Stille"/>
+    <Zauber Bezeichnung="Tiere rufen"/>
+    <Zauber Bezeichnung="Tiergestalt"/>
+    <Zauber Bezeichnung="Tiersprache" Zusatz="Säugetiere"/>
+    <Zauber Bezeichnung="Unsichtbarkeit"/>
+    <Zauber Bezeichnung="Verlangsamen"/>
+    <Zauber Bezeichnung="Wahrsehen"/>
+    <Zauber Bezeichnung="Zwiesprache"/>
+    <Grundkenntnis Bezeichnung="Stichwaffe"/>
+    <Grundkenntnis Bezeichnung="Zauberstäbe"/>
+    <Sprache Bezeichnung="Albisch" Wert="19"/>
+    <Sprache Bezeichnung="Chryseisch" Wert="12"/>
+    <Sprache Bezeichnung="Comentang" Wert="11"/>
+    <Sprache Bezeichnung="Dvarskar" Wert="12"/>
+    <Sprache Bezeichnung="Erainnisch" Wert="12"/>
+    <Sprache Bezeichnung="Ferangah" Wert="12"/>
+    <Sprache Bezeichnung="Maralinga" Wert="12"/>
+    <Sprache Bezeichnung="Moravisch" Wert="4"/>
+    <Sprache Bezeichnung="Neu Vallinga" Wert="12"/>
+    <Urschrift Bezeichnung="Dvarskar" Wert="8"/>
+    <Urschrift Bezeichnung="Albisch" Wert="13"/>
+    <Urschrift Bezeichnung="Chryseisch" Wert="8"/>
+    <Urschrift Bezeichnung="Comentang" Wert="8"/>
+    <Urschrift Bezeichnung="Erainnisch" Wert="8"/>
+    <Urschrift Bezeichnung="Maralinga" Wert="8"/>
+    <Urschrift Bezeichnung="Neu Vallinga" Wert="8"/>
+    <Urschrift Bezeichnung="Ferangah" Wert="8"/>
+    <Region Name="Abenteuer" Region="X"/>
+    <Optionen Name="Originalregeln" Wert="true"/>
+    <Optionen Name="NSCs zulassen" Wert="false"/>
   </Fertigkeiten>
-</Midgard-Charakter>
+ </Midgard-Abenteurer>
+</MAGUS-data>

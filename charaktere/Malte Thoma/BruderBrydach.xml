@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Preise>
+ </Preise>
+
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Bruder Brydach" Spieler="Malte Thoma" Zeitpunkt="Basis neues Abenteuer" Grad="4"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="PK" Stadt_Land="Stadt"/>
+  <Basiseigenschaften St="99" Gw="91" Gs="104" Ko="91" In="83" Zt="35"/>
+  <abgeleiteteEigenschaften Au="62" pA="105" Wk="91" Sb="25" B="25" GG="3" SG="1"/>
+  <Erfolgswerte Abwehr="13" Zaubern="14" ZauberResistenz="12"/>
+  <Gesundheit LP="17" AP="30"/>
+  <Beschreibung Alter="24" Gestalt="normal" Gewicht="80" Größe="179" Stand="Volk" Herkunft="Ywerdon" Glaube="Plenedd, Bress, Baidd"/>
+  <Vermögen GS="99" SS="5"/>
+  <Steigern GFP="1479" AEP="201" EPproGFP="67" Basiswerte="3"><Praxispunkte/></Steigern>
+  <TextPixSize>8</TextPixSize>
+  <Ausrüstung>
+    <Rüstung>LR</Rüstung>
+    <Waffe Bezeichnung="Kampfstab"/>
+  </Ausrüstung>
+  <Fertigkeiten>
+    <Sinn Bezeichnung="Riechen" Wert="8"/>
+    <Sinn Bezeichnung="Tasten" Wert="8"/>
+    <ang-Fertigkeit Bezeichnung="Robustheit" Wert="9"/>
+    <Fertigkeit Bezeichnung="Beredsamkeit" Wert="10"/>
+    <Fertigkeit Bezeichnung="Erste Hilfe" Wert="8"/>
+    <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="13"/>
+    <Fertigkeit Bezeichnung="Reiten" Wert="16"/>
+    <Fertigkeit Bezeichnung="Sagenkunde" Wert="6"/>
+    <Fertigkeit Bezeichnung="Zauberkunde" Wert="4"/>
+    <Waffe Bezeichnung="Kampfstab" Wert="8"/>
+    <Waffe Bezeichnung="Streitkolben" Wert="6"/>
+    <Zauber Bezeichnung="Austreibung des Bösen"/>
+    <Zauber Bezeichnung="Bannen von Dunkelheit"/>
+    <Zauber Bezeichnung="Bannen von Finsterwerk"/>
+    <Zauber Bezeichnung="Erkennen der Aura"/>
+    <Zauber Bezeichnung="Felsenfaust"/>
+    <Zauber Bezeichnung="Göttlicher Schutz vor dem Bösen"/>
+    <Zauber Bezeichnung="Handauflegen"/>
+    <Zauber Bezeichnung="Heilen von Wunden"/>
+    <Zauber Bezeichnung="Segnen"/>
+    <Grundkenntnis Bezeichnung="Kampfstab"/>
+    <Grundkenntnis Bezeichnung="ESchlagwaffe"/>
+    <Sprache Bezeichnung="Albisch" Wert="13"/>
+    <Sprache Bezeichnung="Chryseisch" Wert="6"/>
+    <Sprache Bezeichnung="Erainnisch" Wert="13"/>
+    <Sprache Bezeichnung="Hochcoraniaid" Wert="13"/>
+    <Sprache Bezeichnung="Maralinga" Wert="6"/>
+    <Sprache Bezeichnung="Neu Vallinga" Wert="6"/>
+    <Sprache Bezeichnung="Scharidisch" Wert="4"/>
+    <Sprache Bezeichnung="Twyneddisch" Wert="19"/>
+    <Sprache Bezeichnung="Waelska" Wert="6"/>
+    <Urschrift Bezeichnung="Hochcoraniaid" Wert="13"/>
+    <Urschrift Bezeichnung="Twyneddisch" Wert="13"/>
+    <Urschrift Bezeichnung="Albisch" Wert="9"/>
+    <Urschrift Bezeichnung="Erainnisch" Wert="8"/>
+  </Fertigkeiten>
+ </Midgard-Abenteurer>
+</MAGUS-data>
