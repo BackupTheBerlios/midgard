@@ -49,6 +49,12 @@ void midgard_CG::save_existing_filename()
 
 void midgard_CG::xml_export(const std::string& dateiname)
 {  
+   if(Char.getCWerte().Name_Abenteurer().empty())
+    { set_status("Der Abenteurer braucht noch einen Namen"); 
+      notebook_main->set_page(PAGE_GRUNDWERTE);
+      table_grundwerte->togglebutton_edit_werte->set_active(true);
+      table_grundwerte->entry_nameC->grab_focus();
+      return;}
    Char.setFilename(dateiname);
    frame_steigern->set_sensitive(true);
 

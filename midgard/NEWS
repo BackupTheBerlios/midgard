@@ -23,6 +23,11 @@ NEWS IN VERSION 0.7delta2
 * Neue Sprachen mit PP auf +7/+9 lernen
 * Beim Laden werden gespeicherte Abenteurer ohne Namen aus der Liste entfernt
 * AbsturzBug beim MagierSpezialgebiet mit Wizard behoben
+* Nur noch Abenteurer MIT Namen können abgespeichert werden.
+   (Erstens macht nur das Sinn, zweitens verhindert das einen Absturz beim laden
+    eines Abenteurers ohne Namen:-)
+* Lernen von Fertigkeiten Absturz beseitigt
+
 
 TODO:
 * Voraussetzungen anzeigen aber nicht lernbar

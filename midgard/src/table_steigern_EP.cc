@@ -210,14 +210,16 @@ return false;
    }
   else set_lernzeit(kosten,was);
 
-  if     (MBE&&(*MBE)->What()!=MidgardBasicElement::ZAUBER) modify(PP,*MBE,"",MBE->Praxispunkte()-pp) ;
-  else if(MBE && (*MBE)->What()==MidgardBasicElement::ZAUBER) hauptfenster->getWerte().addSpezialPP(-pp) ;
-  else if(was==Resistenz)  hauptfenster->getWerte().addResistenzPP(-pp) ;
-  else if(was==Abwehr)     hauptfenster->getWerte().addAbwehrPP(-pp) ;
-  else if(was==Zaubern)    hauptfenster->getWerte().addZaubernPP(-pp) ;
-  else if(was==Ausdauer)   ;
-  else assert(!"Fehler in steigern_EP.cc");
-
+  if(pp)
+   {
+     if     (MBE&&(*MBE)->What()!=MidgardBasicElement::ZAUBER) modify(PP,*MBE,"",MBE->Praxispunkte()-pp) ;
+     else if(MBE && (*MBE)->What()==MidgardBasicElement::ZAUBER) hauptfenster->getWerte().addSpezialPP(-pp) ;
+     else if(was==Resistenz)  hauptfenster->getWerte().addResistenzPP(-pp) ;
+     else if(was==Abwehr)     hauptfenster->getWerte().addAbwehrPP(-pp) ;
+     else if(was==Zaubern)    hauptfenster->getWerte().addZaubernPP(-pp) ;
+     else if(was==Ausdauer)   ;
+     else assert(!"Fehler in steigern_EP.cc");
+   }
   if(bkep)
    { if (ep_k<=hauptfenster->getCWerte().KEP()) {hauptfenster->getWerte().addKEP(-ep_k);ep_k =0  ;}
      else                   {ep_k-=hauptfenster->getCWerte().KEP(); hauptfenster->getWerte().setKEP(0);} 
