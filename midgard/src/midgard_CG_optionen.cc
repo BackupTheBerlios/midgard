@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.54 2002/02/18 07:01:06 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.55 2002/02/18 12:59:25 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,7 +22,7 @@
 #include <fstream>
 #include "TagStream.hh"
 #include "export_common.h"
-
+#include <xml.h>
 
 void midgard_CG::regnot(const std::string& sadd)
 {
@@ -176,7 +176,7 @@ void midgard_CG::setAllHausregeln(bool b)
 
 void midgard_CG::save_options()
 {
-  ofstream datei("./midgard_optionen.xml");
+  ofstream datei("~/.midgard_optionen.xml");
   if (!datei.good())
    { 
     InfoFenster->AppendShow("Ich kann die Optionen nicht speichern");
@@ -206,24 +206,16 @@ void midgard_CG::save_options()
 
 void midgard_CG::load_options()
 {
-  TagStream ts("./midgard_optionen.xml");
+  TagStream ts("~/.midgard_optionen.xml");
   const Tag *data=ts.find("MAGUS-optionen");
   if(!data)    
     { InfoFenster->AppendShow("Optionen konnten nicht geladen werden");
       return;
     }
- data=ts.find("Optionen");                          
- for(std::list<st_Optionen>::iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
-   {
-     try{
-        i->active=data->getBoolAttr(i->text,false);     
-      }catch(const NotFound &e){}
-   }
-  for(list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
-   {
-     try{
-        i->active=data->getBoolAttr(i->text,false);     
-      }catch(const NotFound &e){}
-   }
+
+  FOR_EACH_CONST_TAG_OF(i,*data,"Optionen")
+     setOption(i->getAttr("Name"),i->getBoolAttr("Wert"));
+  FOR_EACH_CONST_TAG_OF(i,*data,"Hausregel")
+     setHausregeln(i->getAttr("Name"),i->getBoolAttr("Wert"));
 }
 

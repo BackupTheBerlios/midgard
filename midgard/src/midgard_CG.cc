@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.162 2002/02/18 07:01:06 thoma Exp $
+// $Id: midgard_CG.cc,v 1.163 2002/02/18 12:59:25 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -43,6 +43,7 @@ midgard_CG::midgard_CG(const string &datei)
   optionmenu_init();  
   Optionen_init();
   Hausregeln_init();
+  load_options();
 
   on_neuer_charakter_clicked();
   set_tree_titles();
