@@ -110,6 +110,10 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_M
          { hauptfenster->set_status("Noch keine Fernkampfwaffe gewählt.");
            hauptfenster->getChar().List_Fertigkeit().remove(MBE);
            list_FertigkeitZusaetze.remove(MBE->Name());
+           if(cH_Fertigkeit(MBE)->LernArt()=="Fach")      lernpunkte.addFach( MBE->Lernpunkte());
+           else if(cH_Fertigkeit(MBE)->LernArt()=="Allg") lernpunkte.addAllgemein( MBE->Lernpunkte());
+           else if(cH_Fertigkeit(MBE)->LernArt()=="Unge") lernpunkte.addUnge( MBE->Lernpunkte());
+           else hauptfenster->set_info("Fehler beim Lernpunkte zurückstellen");
            return;}
        connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_selected));
        break;
