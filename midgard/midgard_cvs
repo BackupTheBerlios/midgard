@@ -1,7 +1,6 @@
 #!/bin/sh
 
-if [ "$1" -eq "checkout" -o "$1" -eq "co" ] 
-then
+login() {
   echo ========= Logging in ======
   cvs -d:pserver:anonymous@cvs.ManuProC.berlios.de:/cvsroot/manuproc login <<EOF
 
@@ -12,6 +11,9 @@ EOF
   cvs -d:pserver:anonymous@cvs.midgard.berlios.de:/cvsroot/midgard login <<EOF
 
 EOF
+}
+
+checkout() {
   echo ========= Petig.m4 ========
   cvs -z3 -d:pserver:anonymous@cvs.ManuProC.berlios.de:/cvsroot/manuproc co m4
   
@@ -30,24 +32,106 @@ EOF
   
   echo ============ Midgard CG ========
   cvs -z3 -d:pserver:anonymous@cvs.midgard.berlios.de:/cvsroot/midgard co midgard
+}
+
+update() {
+  echo ========= Petig.m4 ========
+  cd m4 && cvs -z3 update -dP && cd ..
+  echo ========  ManuProC_Base ========
+  cd ManuProC_Base && cvs -z3 update -dP && cd ..
+  echo ========== GtkmmAddons ========
+  cd GtkmmAddons && cvs -z3 update -dP && cd ..
+  echo ========  ManuProC_Widgets ========
+  cd ManuProC_Widgets && cvs -z3 update -dP && cd ..
+  echo =========== Midgard-Postgres ========
+  cd midgard-postgres && cvs -z3 update -dP && cd ..
+  echo ============ Midgard CG ========
+  cd midgard && cvs -z3 update -dP && cd ..
+}
+
+configure() {
+  echo ========= Petig.m4 ========
+  echo Bitte das root Passwort angeben
+  echo (Fuer Installation von petig.m4 nach /usr/share/aclocal)
+  cd m4 && (su -c "make install" || make install ; cd ..)
+  echo ========  ManuProC_Base ========
+  cd ManuProC_Base && (./autogen.sh $* ; make ; cd ..)
+  echo ========== GtkmmAddons ========
+  cd GtkmmAddons && (cd searchcombo ; ./autogen.sh $* ; cd .. ) && \	
+  	 ( ./autogen.sh $* ; make ; cd .. )
+  echo ========  ManuProC_Widgets ========
+  cd ManuProC_Widgets && (./autogen.sh $* ; make ; cd ..)
+  echo ============ Midgard CG ========
+  cd midgard && (./autogen.sh $* ; cd ..)
+}
+
+configure_if_needed() {
+  echo ========= Petig.m4 ========
+  if [ ! -f /usr/share/aclocal/petig.m4 ]
+  then 
+    echo Bitte das root Passwort angeben
+    echo (Fuer Installation von petig.m4 nach /usr/share/aclocal)
+    cd m4 && (su -c "make install" || make install ; cd ..)
+  fi
+  echo ========  ManuProC_Base ========
+  cd ManuProC_Base && \
+  	(if [ ! -f config.status ] ; then ./autogen.sh $* ; fi ; \
+  	 make ; cd ..)
+  echo ========== GtkmmAddons ========
+  cd ManuProC_Base && \
+  	(if [ ! -f config.status ] ; \
+  	 then (cd searchcombo ; ./autogen.sh $* ; cd .. ) ; \
+  	     ./autogen.sh $* ; \
+  	 fi ; \
+  	 make ; cd ..)
+  echo ========  ManuProC_Widgets ========
+  cd ManuProC_Widgets && \
+  	(if [ ! -f config.status ] ; then ./autogen.sh $* ; fi ; \
+  	 make ; cd ..)
+  echo ============ Midgard CG ========
+  cd midgard && (./autogen.sh $* ; cd ..)
+}
+
+domake() {
+  echo ============ Midgard CG ========
+  cd midgard && ( make ; cd ..)
+}
+
+doinstall() {
+  echo ============ Midgard-PostgreSQL ========
+  cd midgard-postgres && ( make install ; cd ..)
+  echo ============ Midgard ========
+  cd midgard || exit 1
+  make install
+  echo Wenn prefix nicht speziell angegeben wurde, brauche ich jetzt das
+  echo root Passwort um Midgard nach /usr/local zu kopieren
+  su -c 'make install'
+}
+
+if [ "$1" -eq "checkout" -o "$1" -eq "co" ] 
+then
+  login
+  checkout
 elif [ "$1" -eq "update" ]
 then
-  cd ManuProCBase
-  cvs -z3 update -dP
-  cd ../midgard-postgres
-  cvs -z3 update -dP
-  cd ../midgard
-  cvs -z3 update -dP
-  cd ..
+  update
+elif [ "$1" -eq "configure" ]
+then
+  configure $2 $3 $4 $5 $6 $7 $8 $9
 elif [ "$1" -eq "make" ]
 then 
-elif [ "$1" -eq "configure" ]
-then 
+  configure_if_needed $2 $3 $4 $5 $6 $7 $8 $9 
+  domake
 elif [ "$1" -eq "install" ]
 then 
+  configure_if_needed $2 $3 $4 $5 $6 $7 $8 $9 
+  domake
+  doinstall
 else
-  echo "USAGE: $0 <Befehl>"
+  echo "USAGE: $0 <Befehl> [Argumente]"
   echo "Befehle: checkout co update configure make install"
-  echo "Normale Reihenfolge: checkout install  oder  update install"
+  echo
+  echo "Normale Reihenfolge:  checkout install  oder  update install"
+  echo
   echo "Vorsicht die Pakete werden in $PWD ausgepackt"
 fi
