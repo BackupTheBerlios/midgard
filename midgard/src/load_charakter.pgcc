@@ -238,8 +238,9 @@ void midgard_CG::Typ_Geschlecht_Spezies_setzen() // nach laden etc.
        this->Typ[0]->Short() == "Ord" || this->Typ[1]->Short() == "Ord" ||
 #endif
        this->Typ[1]->Zaubern()=="n" || this->Typ[1]->Short() == "Or")
-      label_spezialwaffe->set_text("Spezialwaffe durch \nSelektieren auswählen");
-   else label_spezialwaffe->set_text("");
+      togglebutton_spezialwaffe->show();
+   else {togglebutton_spezialwaffe->hide();
+         togglebutton_spezialwaffe->set_active(false); }
    Database.ausnahmen.set_Typ(this->Typ);
 
    menu_init();

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.159 2002/02/06 18:07:35 thoma Exp $
+// $Id: midgard_CG.hh,v 1.160 2002/02/07 07:33:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -274,8 +274,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_togglebutton_lernpunkte_edit_toggled();
         void edit_lernpunkte(bool b);
         void set_lernpunkte();
-        void on_entry_Cname_activate();
-        gint on_entry_Cname_focus_out_event(GdkEventFocus *ev);
         void on_button_fach_trans_clicked();
         void on_button_waffe_trans_clicked();
         void on_button_ruestung_clicked();
@@ -283,8 +281,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_button_geld_s_clicked();
         void on_button_ruestung_s_clicked();
         void on_button_waffen_s_clicked();
-        void on_waffen_clist_select_row(gint row, gint column, GdkEvent *event);   
-        void on_waffen_clist_unselect_row(gint row, gint column, GdkEvent *event);
         void on_lernliste_wahl_toggled();
         void spezialgebiet_button();
         void spezialgebiet_button_fill();

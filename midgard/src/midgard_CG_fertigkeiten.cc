@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.51 2002/02/06 18:09:54 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.52 2002/02/07 07:33:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,15 +24,6 @@
 #include "Fertigkeiten.hh"
 #include "Fertigkeiten_angeboren.hh"
 #include <Aux/itos.h>
-
-void midgard_CG::on_fach_fertigkeiten_wahl_clicked()
-{   
-
-  list_Fertigkeit.clear();
-  list_Sprache.clear();
-  list_Schrift.clear();
-  show_lernschema(MidgardBasicElement::FERTIGKEIT,"Fach");
-}
 
 gint midgard_CG::on_angeborene_fertigkeit_button_release_event(GdkEventButton *event)
 {

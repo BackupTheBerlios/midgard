@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.58 2002/02/06 18:07:35 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.59 2002/02/07 07:33:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -42,19 +42,6 @@ void midgard_CG::herkunft_uebernehmen(const cH_Land& s)
    togglebutton_lernpunkte_edit->set_sensitive(true);
 }
 
-void midgard_CG::on_entry_Cname_activate()         
-{
-  Werte.setAbenteurername(entry_Cname->get_text());
-  zeige_werte(Werte);
-}
-gint midgard_CG::on_entry_Cname_focus_out_event(GdkEventFocus *ev)         
-{
-  Werte.setAbenteurername(entry_Cname->get_text());
-  zeige_werte(Werte);
-  return false;
-}
-
-
 void midgard_CG::on_lernpunkte_wuerfeln_clicked()
 {
   lernpunkte.setFach(random.integer(1,6)+random.integer(1,6));
@@ -85,6 +72,8 @@ void midgard_CG::on_lernpunkte_wuerfeln_clicked()
   if(Typ[0]->Zaubern()=="j" || Typ[0]->Zaubern() == "z" || magie_bool) 
       button_zauber->set_sensitive(true);
   vbox_berufsname->set_sensitive(true);               
+
+  on_lernliste_wahl_toggled();
 }
 
 
@@ -158,6 +147,7 @@ void midgard_CG::set_lernpunkte()
   lernpunkte.setWaffen(spinbutton_waffen->get_value_as_int());
   gtk_spin_button_update(spinbutton_zauber->gtkobj());
   lernpunkte.setZauber(spinbutton_zauber->get_value_as_int());
+  on_lernliste_wahl_toggled();
 }
 
                                         
@@ -170,6 +160,8 @@ void midgard_CG::zeige_lernpunkte()
  spinbutton_waffen->set_value(lernpunkte.Waffen());
  spinbutton_zauber->set_value(lernpunkte.Zauber());
 }
+
+
 
 
 void midgard_CG::on_button_geld_waffen_clicked()
@@ -245,10 +237,15 @@ void midgard_CG::on_button_ruestung_clicked()
 }
 
 
-void on_lernliste_wahl_toggled()
+void midgard_CG::on_lernliste_wahl_toggled()
 {
   if(button_fachkenntnisse->get_active())
-      show_lernschema(MidgardBasicElement::FERTIGKEIT,"Fach");
+   {
+     list_Fertigkeit.clear();
+     list_Sprache.clear();
+     list_Schrift.clear();
+     show_lernschema(MidgardBasicElement::FERTIGKEIT,"Fach");
+   }
   if(button_allgemeinwissen->get_active())
       show_lernschema(MidgardBasicElement::FERTIGKEIT,"Allg");
   if(button_untyp_fertigkeiten->get_active())
@@ -275,10 +272,23 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
 {
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE();
+  if(togglebutton_spezialwaffe->get_active() && MBE->What()!= MidgardBasicElement::WAFFE)
+      {togglebutton_spezialwaffe->set_active(false); return ; }
   switch(MBE->What()) {
      case MidgardBasicElement::WAFFE : 
-         { list_Waffen.remove(MBE);
-           lernpunkte.addWaffen(MBE->Lernpunkte());
+         { 
+           if(togglebutton_spezialwaffe->get_active())
+            {
+             if(cH_Waffe(Werte.Spezialisierung())->ist_gelernt(list_Waffen))
+                cH_Waffe(Werte.Spezialisierung())->add_Erfolgswert(-2);
+             MBE->add_Erfolgswert(2);
+             Werte.setSpezialisierung(MBE->Name());
+            }
+           else
+            {
+              list_Waffen.remove(MBE);
+              lernpunkte.addWaffen(MBE->Lernpunkte());
+            }
            break;
          }
      case MidgardBasicElement::ZAUBER : 

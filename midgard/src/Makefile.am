@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.111 2002/02/06 10:55:36 thoma Exp $
+# $Id: Makefile.am,v 1.112 2002/02/07 07:33:17 thoma Exp $
 
 bin_PROGRAMS = midgard 
 
@@ -178,7 +178,6 @@ midgard_SOURCES = \
 	abge_werte_setzen.cc \
    zeige_werte.cc \
    midgard_CG_fertigkeiten.cc\
-   midgard_CG_waffen.cc\
    midgard_CG_zauber.cc\
    midgard_CG_beruf.cc\
 	Window_Waffe_Geld_glade.cc \

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.145 2002/02/06 16:37:27 thoma Exp $
+// $Id: midgard_CG.cc,v 1.146 2002/02/07 07:33:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -126,8 +126,10 @@ void midgard_CG::show_gtk()
  steigern_gtk();
 
  // Spezialwaffe anzeigen?
- if (Typ[0]->Zaubern()=="n" || Typ[0]->Short() == "Ord") label_spezialwaffe->set_text("Spezialwaffe durch \nSelektieren auswählen");
- else label_spezialwaffe->set_text("");
+ if (Typ[0]->Zaubern()=="n" || Typ[0]->Short() == "Ord") 
+    togglebutton_spezialwaffe->show(); 
+ else { togglebutton_spezialwaffe->set_active(false);
+        togglebutton_spezialwaffe->hide(); }
 
  // Magie anzeigen?
  if (Typ[0]->Zaubern()=="j" || Typ[0]->Zaubern() == "z" || magie_bool) 
@@ -281,6 +283,8 @@ void midgard_CG::on_neuer_charakter_clicked()
    button_waffen->set_sensitive(false);
    button_zauber->set_sensitive(false);
    vbox_berufsname->set_sensitive(false);
+   togglebutton_spezialwaffe->set_active(false);
+   togglebutton_spezialwaffe->hide();
       
    scrolledwindow_landauswahl->hide();
    table_werte_wuerfeln->hide();

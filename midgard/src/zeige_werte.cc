@@ -1,4 +1,4 @@
-// $Id: zeige_werte.cc,v 1.43 2002/02/06 16:37:27 thoma Exp $
+// $Id: zeige_werte.cc,v 1.44 2002/02/07 07:33:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -88,7 +88,6 @@ void midgard_CG::zeige_werte(const Grundwerte& w)
        entry_herkunft->set_text(w.Herkunft()->Name());
        entry_glaube->set_text(w.Glaube());
        entry_nameC->set_text(w.Name_Abenteurer());
-       entry_Cname->set_text(w.Name_Abenteurer());
        entry_nameS->set_text(w.Name_Spieler());
        entry_version->set_text(w.Version());
        gfp->set_text(itos(w.GFP()));
