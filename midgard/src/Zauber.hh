@@ -18,7 +18,7 @@ class Zauber : public MidgardBasicElement
 
    void get_Zauber();
  public: 
-#ifdef XML
+#ifdef USE_XML
    Zauber(const Tag *t) 
       : MidgardBasicElement(t), name(t->getAttr("Name"))
    { get_Zauber();get_map_typ();EP_steigern("Zauber");} 
@@ -80,7 +80,7 @@ class cH_Zauber : public Handle<const Zauber>
     cH_Zauber(){};
  public:
    cH_Zauber(const std::string& name) ;
-#ifdef XML
+#ifdef USE_XML
    cH_Zauber(const Tag *tag);
 #endif
 

@@ -5,9 +5,7 @@
 #include <string>
 #include <vector>
 #include <list>
-#ifdef XML
 #include "xml.h"
-#endif
 
 class cH_Typen;
 class Grundwerte;
@@ -20,7 +18,7 @@ class SimpleTree;
 class MidgardBasicElement : public HandleContent
 {
    protected:
-#ifdef XML   
+#ifdef USE_XML   
 	const Tag *tag;
 #endif
 	// warum ist name nicht hier drin? CP
@@ -38,7 +36,7 @@ class MidgardBasicElement : public HandleContent
    public:
       MidgardBasicElement() : IF_XML(tag(0),) kosten(0),erfolgswert(0),lernpunkte(0)
                               ,steigern_mit_EP(0) {}
-#ifdef XML
+#ifdef USE_XML
       MidgardBasicElement(const Tag *t) : tag(t), kosten(0),erfolgswert(0),lernpunkte(0)
                               ,steigern_mit_EP(0) {}
 #endif                              
