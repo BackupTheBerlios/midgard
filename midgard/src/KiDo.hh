@@ -1,4 +1,4 @@
-// $Id: KiDo.hh,v 1.14 2002/01/12 08:12:25 thoma Exp $               
+// $Id: KiDo.hh,v 1.15 2002/01/14 15:23:41 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,8 +33,13 @@ class KiDo : public MidgardBasicElement
 
    void get_KiDo();
  public:
+#ifndef USE_XML
    KiDo(const std::string& n)
      : MidgardBasicElement(n) {get_KiDo();get_map_typ();EP_steigern("KiDo");}
+#else
+   KiDo(const Tag *tag)
+     : MidgardBasicElement(tag,tag->getAttr("Name")) {get_KiDo();get_map_typ();EP_steigern("KiDo");}
+#endif     
 
  enum MBEE What() const {return MidgardBasicElement::KIDO;}
  std::string What_str() const {return "KiDo";}
@@ -66,6 +71,9 @@ class cH_KiDo : public Handle<const KiDo>
     cH_KiDo(){};
  public:
     cH_KiDo(const std::string& name);
+#ifdef USE_XML
+    cH_KiDo(const Tag *tag);
+#endif    
     cH_KiDo(const cH_MidgardBasicElement &x) : Handle<const KiDo>
       (dynamic_cast<const KiDo *>(&*x)){}
 
