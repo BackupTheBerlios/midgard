@@ -1063,4 +1063,668 @@
     <Ausnahme>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
     <Lernschema Typ="Sr" Lernpunkte="1"/>
   </Fertigkeit>
+  <angeboreneFertigkeit Name="Beidhändigkeit" Min="86" Max="87"/>
+  <angeboreneFertigkeit Name="Berserkergang" Min="88" Max="89"/>
+  <angeboreneFertigkeit Name="Gefahr spüren" Min="92" Max="93" Wert="1"/>
+  <angeboreneFertigkeit Name="Horchen" Min="94" Max="95" Wert="5"/>
+  <angeboreneFertigkeit Name="Nachtsicht" Min="96" Max="97"/>
+  <angeboreneFertigkeit Name="Richtungssinn" Min="90" Max="91" Wert="12"/>
+  <angeboreneFertigkeit Name="Wachgabe" Min="98" Max="99"/>
+  <Beruf Name="Knappe" Region="B&amp;R" Lernpunkte="9">
+    <Voraussetzungen Typ="k" Geschlecht="m"/>
+  </Beruf>
+  <Beruf Name="Pagin" Region="B&amp;R" Lernpunkte="9">
+    <Voraussetzungen Typ="k" Geschlecht="w"/>
+  </Beruf>
+  <Beruf Name="Astrologe" Region="R" Lernpunkte="7">
+    <Voraussetzungen In="81" Typ="z"/>
+  </Beruf>
+  <Beruf Name="Dewadasi" Region="R" Lernpunkte="9">
+    <Voraussetzungen St="31" pA="61" Au="81" Geschlecht="w"/>
+  </Beruf>
+  <Beruf Name="Mahaut" Region="R" Lernpunkte="5">
+    <Voraussetzungen St="31" Sb="31" Typ="k" Geschlecht="m"/>
+  </Beruf>
+  <Beruf Name="Schlangenbeschwörer" Region="R" Lernpunkte="7">
+    <Voraussetzungen St="61" Sb="31"/>
+  </Beruf>
+  <Beruf Name="Srimahaut" Region="R" Lernpunkte="5">
+    <Voraussetzungen St="31" Sb="61" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Adliger" Lernpunkte="9">
+    <Voraussetzungen In="31"/>
+  </Beruf>
+  <Beruf Name="Akrobat" Lernpunkte="7">
+    <Voraussetzungen Ge="81"/>
+  </Beruf>
+  <Beruf Name="Alchimist" Lernpunkte="9">
+    <Voraussetzungen Ge="61" In="81" Typ="z"/>
+  </Beruf>
+  <Beruf Name="Angesteller" Lernpunkte="5">
+    <Voraussetzungen In="31"/>
+  </Beruf>
+  <Beruf Name="Anstreicher" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Apotheker" Lernpunkte="9">
+    <Voraussetzungen In="61" Typ="z"/>
+  </Beruf>
+  <Beruf Name="Arbeiter" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Arzt" Lernpunkte="9">
+    <Voraussetzungen In="81" Typ="z"/>
+  </Beruf>
+  <Beruf Name="Athlet" Lernpunkte="9">
+    <Voraussetzungen St="61" Ge="61" Ko="61" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Auktionator" Lernpunkte="7">
+    <Voraussetzungen In="61" pA="31"/>
+  </Beruf>
+  <Beruf Name="Bader" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Barbier" Lernpunkte="5">
+    <Voraussetzungen Ge="31"/>
+  </Beruf>
+  <Beruf Name="Bardame" Lernpunkte="5">
+    <Voraussetzungen pA="31" Au="61" Geschlecht="w"/>
+  </Beruf>
+  <Beruf Name="Barkeeper" Lernpunkte="5">
+    <Voraussetzungen Ko="61" pA="31"/>
+  </Beruf>
+  <Beruf Name="Bauer" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Baumeister" Lernpunkte="7">
+    <Voraussetzungen In="61"/>
+  </Beruf>
+  <Beruf Name="Beamter" Lernpunkte="5">
+    <Voraussetzungen In="31"/>
+  </Beruf>
+  <Beruf Name="Bergbauingenieur" Lernpunkte="9">
+    <Voraussetzungen In="61" Typ="z"/>
+  </Beruf>
+  <Beruf Name="Bergführer" Lernpunkte="7">
+    <Voraussetzungen St="31" Ge="61" In="31" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Bergmann" Lernpunkte="7">
+    <Voraussetzungen Typ="k"/>
+  </Beruf>
+  <Beruf Name="Bettler" Lernpunkte="7">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Bildhauer" Lernpunkte="7">
+    <Voraussetzungen In="61"/>
+  </Beruf>
+  <Beruf Name="Biologe" Lernpunkte="7">
+    <Voraussetzungen In="61" Typ="z"/>
+  </Beruf>
+  <Beruf Name="Bogenmacher" Lernpunkte="5">
+    <Voraussetzungen Ge="61"/>
+  </Beruf>
+  <Beruf Name="Bootsbauer" Lernpunkte="7">
+    <Voraussetzungen Ge="31"/>
+  </Beruf>
+  <Beruf Name="Botaniker" Lernpunkte="7">
+    <Voraussetzungen In="61" Typ="z"/>
+  </Beruf>
+  <Beruf Name="Bote" Lernpunkte="7">
+    <Voraussetzungen Ge="21" Ko="61" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Brauer" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Butler" Lernpunkte="5">
+    <Voraussetzungen In="31"/>
+  </Beruf>
+  <Beruf Name="Bäcker" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Croupier" Lernpunkte="7">
+    <Voraussetzungen Ge="31" In="31"/>
+  </Beruf>
+  <Beruf Name="Dachdecker" Lernpunkte="5">
+    <Voraussetzungen Ge="31"/>
+  </Beruf>
+  <Beruf Name="Dieb" Lernpunkte="9">
+    <Voraussetzungen Ge="61"/>
+  </Beruf>
+  <Beruf Name="Diener" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Diplomat" Lernpunkte="9">
+    <Voraussetzungen In="61" pA="31"/>
+  </Beruf>
+  <Beruf Name="Dolmetscher" Lernpunkte="7">
+    <Voraussetzungen In="21"/>
+  </Beruf>
+  <Beruf Name="Drucker" Lernpunkte="7">
+    <Voraussetzungen Ge="61" In="31"/>
+  </Beruf>
+  <Beruf Name="Einbrecher" Lernpunkte="9">
+    <Voraussetzungen Ge="61"/>
+  </Beruf>
+  <Beruf Name="Erdarbeiter" Lernpunkte="5">
+    <Voraussetzungen St="31" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Exorzist" Lernpunkte="9">
+    <Voraussetzungen In="61" Zt="81" Geschlecht="P"/>
+  </Beruf>
+  <Beruf Name="Fackelmacher" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Falkner" Lernpunkte="9">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Fallenkonstrukteur" Lernpunkte="9">
+    <Voraussetzungen Ge="61" In="61"/>
+  </Beruf>
+  <Beruf Name="Fallensteller" Lernpunkte="7">
+    <Voraussetzungen Ge="31" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Fischer" Lernpunkte="5">
+    <Voraussetzungen Ko="21"/>
+  </Beruf>
+  <Beruf Name="Flußschiffer" Lernpunkte="7">
+    <Voraussetzungen Typ="k"/>
+  </Beruf>
+  <Beruf Name="Flößer" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Fuhrmann" Lernpunkte="7">
+    <Voraussetzungen Ge="21" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Färber" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Gaukler" Lernpunkte="7">
+    <Voraussetzungen Ge="81"/>
+  </Beruf>
+  <Beruf Name="Geldeintreiber" Lernpunkte="7">
+    <Voraussetzungen St="31" Ge="31" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Geldverleiher" Lernpunkte="7">
+    <Voraussetzungen In="61"/>
+  </Beruf>
+  <Beruf Name="Gelehrter" Lernpunkte="9">
+    <Voraussetzungen In="81"/>
+  </Beruf>
+  <Beruf Name="Geologe" Lernpunkte="7">
+    <Voraussetzungen In="61" Typ="z"/>
+  </Beruf>
+  <Beruf Name="Gerber" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Geschichtenerzähler" Lernpunkte="9">
+    <Voraussetzungen In="31" pA="31"/>
+  </Beruf>
+  <Beruf Name="Geschützexperte" Lernpunkte="5">
+    <Voraussetzungen Ge="61" In="61" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Gladiator" Lernpunkte="9">
+    <Voraussetzungen St="61" Ge="61" Ko="61" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Glasbläser" Lernpunkte="5">
+    <Voraussetzungen Ko="31"/>
+  </Beruf>
+  <Beruf Name="Glöckner" Lernpunkte="5">
+    <Voraussetzungen St="31" Ge="61"/>
+  </Beruf>
+  <Beruf Name="Goldschmied" Lernpunkte="7">
+    <Voraussetzungen Ge="31"/>
+  </Beruf>
+  <Beruf Name="Grabräuber" Lernpunkte="5">
+    <Voraussetzungen Ge="31"/>
+  </Beruf>
+  <Beruf Name="Graveur" Lernpunkte="5">
+    <Voraussetzungen Ge="31"/>
+  </Beruf>
+  <Beruf Name="Grobschmied" Lernpunkte="5">
+    <Voraussetzungen St="61" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Gärtner" Lernpunkte="5">
+    <Voraussetzungen Ge="31" In="31"/>
+  </Beruf>
+  <Beruf Name="Hafenarbeiter" Lernpunkte="5">
+    <Voraussetzungen St="31" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Harpunier" Lernpunkte="7">
+    <Voraussetzungen St="61" Ge="61" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Hebamme" Lernpunkte="9">
+    <Voraussetzungen Ge="31" In="31" Geschlecht="w"/>
+  </Beruf>
+  <Beruf Name="Henker" Lernpunkte="7">
+    <Voraussetzungen Ge="21" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Herold" Lernpunkte="7">
+    <Voraussetzungen In="61" pA="31"/>
+  </Beruf>
+  <Beruf Name="Hetäre" Lernpunkte="7">
+    <Voraussetzungen In="61" pA="61" Au="61" Geschlecht="w"/>
+  </Beruf>
+  <Beruf Name="Hirte" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Hofnarr" Lernpunkte="9">
+    <Voraussetzungen Ge="31" In="61" pA="31"/>
+  </Beruf>
+  <Beruf Name="Holzschnitzer" Lernpunkte="5">
+    <Voraussetzungen Ge="31"/>
+  </Beruf>
+  <Beruf Name="Hufschmied" Lernpunkte="5">
+    <Voraussetzungen St="61" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Hundeführer" Lernpunkte="9">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Höfling" Lernpunkte="7">
+    <Voraussetzungen In="61" Au="31"/>
+  </Beruf>
+  <Beruf Name="Imker" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Informant" Lernpunkte="7">
+    <Voraussetzungen In="61"/>
+  </Beruf>
+  <Beruf Name="Ingenieur" Lernpunkte="8">
+    <Voraussetzungen In="61" Typ="z"/>
+  </Beruf>
+  <Beruf Name="Inquisitor" Lernpunkte="7">
+    <Voraussetzungen In="61"/>
+  </Beruf>
+  <Beruf Name="Jurist" Lernpunkte="7">
+    <Voraussetzungen In="61" Typ="z"/>
+  </Beruf>
+  <Beruf Name="Juwelier" Lernpunkte="7">
+    <Voraussetzungen Ge="31"/>
+  </Beruf>
+  <Beruf Name="Jäger" Lernpunkte="5">
+    <Voraussetzungen Ge="31" Ko="31"/>
+  </Beruf>
+  <Beruf Name="Kammerjäger" Lernpunkte="5">
+    <Voraussetzungen In="21"/>
+  </Beruf>
+  <Beruf Name="Karawanenführer" Lernpunkte="7">
+    <Voraussetzungen Ko="31" In="61"/>
+  </Beruf>
+  <Beruf Name="Kartograph" Lernpunkte="7">
+    <Voraussetzungen In="61"/>
+  </Beruf>
+  <Beruf Name="Kaufmann" Lernpunkte="7">
+    <Voraussetzungen In="61"/>
+  </Beruf>
+  <Beruf Name="Kellner" Lernpunkte="5">
+    <Voraussetzungen Ge="21"/>
+  </Beruf>
+  <Beruf Name="Kerzenzieher" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Kesselflicker" Lernpunkte="7">
+    <Voraussetzungen Ge="31"/>
+  </Beruf>
+  <Beruf Name="Koch" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Kopfgeldjäger" Lernpunkte="9">
+    <Voraussetzungen Typ="k"/>
+  </Beruf>
+  <Beruf Name="Korbflechter" Lernpunkte="5">
+    <Voraussetzungen Ge="31"/>
+  </Beruf>
+  <Beruf Name="Krämer" Lernpunkte="7">
+    <Voraussetzungen In="21"/>
+  </Beruf>
+  <Beruf Name="Kräuterkundiger" Lernpunkte="5">
+    <Voraussetzungen In="61"/>
+  </Beruf>
+  <Beruf Name="Kunstmaler" Lernpunkte="7">
+    <Voraussetzungen Ge="61" In="31"/>
+  </Beruf>
+  <Beruf Name="Kupferschmied" Lernpunkte="7">
+    <Voraussetzungen Ge="31"/>
+  </Beruf>
+  <Beruf Name="Kurtisane" Lernpunkte="5">
+    <Voraussetzungen Au="61" Geschlecht="w"/>
+  </Beruf>
+  <Beruf Name="Köhler" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Küfer" Lernpunkte="5">
+    <Voraussetzungen Ge="21"/>
+  </Beruf>
+  <Beruf Name="Kürschner" Lernpunkte="5">
+    <Voraussetzungen Ge="31"/>
+  </Beruf>
+  <Beruf Name="Laienprediger" Lernpunkte="7">
+    <Voraussetzungen In="61" pA="61"/>
+  </Beruf>
+  <Beruf Name="Lebensmittelhändler" Lernpunkte="7">
+    <Voraussetzungen In="31"/>
+  </Beruf>
+  <Beruf Name="Lederwerker" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Mathematiker" Lernpunkte="7">
+    <Voraussetzungen In="81" Typ="z"/>
+  </Beruf>
+  <Beruf Name="Maurer" Lernpunkte="5">
+    <Voraussetzungen St="21" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Mechaniker" Lernpunkte="7">
+    <Voraussetzungen Ge="61"/>
+  </Beruf>
+  <Beruf Name="Messerschleifer" Lernpunkte="5">
+    <Voraussetzungen Ge="21"/>
+  </Beruf>
+  <Beruf Name="Metzger" Lernpunkte="5">
+    <Voraussetzungen St="21" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Musikant" Lernpunkte="5">
+    <Voraussetzungen Ge="61"/>
+  </Beruf>
+  <Beruf Name="Musikinstrumentenmacher" Lernpunkte="7">
+    <Voraussetzungen Ge="31"/>
+  </Beruf>
+  <Beruf Name="Märchenerzähler" Lernpunkte="7">
+    <Voraussetzungen pA="31"/>
+  </Beruf>
+  <Beruf Name="Müller" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Nachtwächter" Lernpunkte="5">
+    <Voraussetzungen St="31" Ge="31" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Navigator" Lernpunkte="9">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Netzmacher" Lernpunkte="5">
+    <Voraussetzungen Ge="31"/>
+  </Beruf>
+  <Beruf Name="Offizier" Lernpunkte="9">
+    <Voraussetzungen In="61" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Optiker" Lernpunkte="7">
+    <Voraussetzungen Ge="61" In="61"/>
+  </Beruf>
+  <Beruf Name="Papierhersteller" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Parfümhersteller" Lernpunkte="7">
+    <Voraussetzungen In="31"/>
+  </Beruf>
+  <Beruf Name="Pelzhändler" Lernpunkte="7">
+    <Voraussetzungen In="31"/>
+  </Beruf>
+  <Beruf Name="Perlentaucher" Lernpunkte="5">
+    <Voraussetzungen St="31" Ko="41"/>
+  </Beruf>
+  <Beruf Name="Pfadfinder" Lernpunkte="7">
+    <Voraussetzungen Ko="61" In="31"/>
+  </Beruf>
+  <Beruf Name="Pfandleiher" Lernpunkte="7">
+    <Voraussetzungen In="31"/>
+  </Beruf>
+  <Beruf Name="Pfeilmacher" Lernpunkte="5">
+    <Voraussetzungen Ge="61"/>
+  </Beruf>
+  <Beruf Name="Pferdedieb" Lernpunkte="5">
+    <Voraussetzungen Ge="31"/>
+  </Beruf>
+  <Beruf Name="Pferdehändler" Lernpunkte="7">
+    <Voraussetzungen In="31"/>
+  </Beruf>
+  <Beruf Name="Philosoph" Lernpunkte="7">
+    <Voraussetzungen In="61" Typ="z"/>
+  </Beruf>
+  <Beruf Name="Pionier" Lernpunkte="7">
+    <Voraussetzungen Ko="61" In="31"/>
+  </Beruf>
+  <Beruf Name="Rechtsgelehrter" Lernpunkte="7">
+    <Voraussetzungen In="61" Typ="z"/>
+  </Beruf>
+  <Beruf Name="Redner" Lernpunkte="7">
+    <Voraussetzungen In="61" pA="61"/>
+  </Beruf>
+  <Beruf Name="Reeder" Lernpunkte="7">
+    <Voraussetzungen In="61"/>
+  </Beruf>
+  <Beruf Name="Räuber" Lernpunkte="5">
+    <Voraussetzungen St="31" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Sattler" Lernpunkte="5">
+    <Voraussetzungen Ge="21"/>
+  </Beruf>
+  <Beruf Name="Scharfrichter" Lernpunkte="7">
+    <Voraussetzungen Ge="21" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Schauspieler" Lernpunkte="7">
+    <Voraussetzungen pA="61"/>
+  </Beruf>
+  <Beruf Name="Scherenschleifer" Lernpunkte="5">
+    <Voraussetzungen Ge="21"/>
+  </Beruf>
+  <Beruf Name="Schiffsbauer" Lernpunkte="7">
+    <Voraussetzungen Ge="31"/>
+  </Beruf>
+  <Beruf Name="Schilterer" Lernpunkte="5">
+    <Voraussetzungen Ge="31" In="31"/>
+  </Beruf>
+  <Beruf Name="Schlachter" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Schlosser" Lernpunkte="7">
+    <Voraussetzungen Ge="61"/>
+  </Beruf>
+  <Beruf Name="Schmuggler" Lernpunkte="7">
+    <Voraussetzungen Ge="21"/>
+  </Beruf>
+  <Beruf Name="Schneider" Lernpunkte="5">
+    <Voraussetzungen Ge="21"/>
+  </Beruf>
+  <Beruf Name="Schreiber" Lernpunkte="5">
+    <Voraussetzungen In="61" Typ="z"/>
+  </Beruf>
+  <Beruf Name="Schreiner" Lernpunkte="7">
+    <Voraussetzungen Ge="21"/>
+  </Beruf>
+  <Beruf Name="Schuhmacher" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Schwammtaucher" Lernpunkte="5">
+    <Voraussetzungen St="31" Ko="41"/>
+  </Beruf>
+  <Beruf Name="Schwarzbrenner" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Schwerarbeiter" Lernpunkte="5">
+    <Voraussetzungen St="31" Ko="31" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Seemann" Lernpunkte="7">
+    <Voraussetzungen St="21" Ge="21" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Segelmacher" Lernpunkte="7">
+    <Voraussetzungen Ge="31" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Seiler" Lernpunkte="5">
+    <Voraussetzungen Ge="31"/>
+  </Beruf>
+  <Beruf Name="Silberschmied" Lernpunkte="7">
+    <Voraussetzungen Ge="31"/>
+  </Beruf>
+  <Beruf Name="Sklavenaufseher" Lernpunkte="5">
+    <Voraussetzungen In="31"/>
+  </Beruf>
+  <Beruf Name="Sklavenhändler" Lernpunkte="5">
+    <Voraussetzungen In="31"/>
+  </Beruf>
+  <Beruf Name="Spieler" Lernpunkte="7">
+    <Voraussetzungen Ge="61" In="61"/>
+  </Beruf>
+  <Beruf Name="Spinnerin" Lernpunkte="5">
+    <Voraussetzungen Ge="21" Geschlecht="w"/>
+  </Beruf>
+  <Beruf Name="Spitzel" Lernpunkte="7">
+    <Voraussetzungen In="61"/>
+  </Beruf>
+  <Beruf Name="Steinbrucharbeiter" Lernpunkte="7">
+    <Voraussetzungen St="31" Ko="31" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Steinmetz" Lernpunkte="7">
+    <Voraussetzungen St="31" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Stellmacher" Lernpunkte="5">
+    <Voraussetzungen Ge="31"/>
+  </Beruf>
+  <Beruf Name="Stempelschneider" Lernpunkte="7">
+    <Voraussetzungen Ge="61"/>
+  </Beruf>
+  <Beruf Name="Steuereintreiber" Lernpunkte="5">
+    <Voraussetzungen St="31" Ge="31" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Steuermann" Lernpunkte="7">
+    <Voraussetzungen In="61" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Steuerpächter" Lernpunkte="7">
+    <Voraussetzungen In="61"/>
+  </Beruf>
+  <Beruf Name="Strandräuber" Lernpunkte="5">
+    <Voraussetzungen St="21" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Straßenräuber" Lernpunkte="5">
+    <Voraussetzungen St="31" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Teppichknüpfer" Lernpunkte="5">
+    <Voraussetzungen Ge="31"/>
+  </Beruf>
+  <Beruf Name="Theologe" Lernpunkte="7">
+    <Voraussetzungen In="61" Typ="z"/>
+  </Beruf>
+  <Beruf Name="Tierarzt" Lernpunkte="7">
+    <Voraussetzungen In="61"/>
+  </Beruf>
+  <Beruf Name="Tierausbilder" Lernpunkte="9">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Tierhändler" Lernpunkte="7">
+    <Voraussetzungen In="31"/>
+  </Beruf>
+  <Beruf Name="Tierpfleger" Lernpunkte="5">
+    <Voraussetzungen Ge="31"/>
+  </Beruf>
+  <Beruf Name="Tintenhersteller" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Tischler" Lernpunkte="7">
+    <Voraussetzungen Ge="21"/>
+  </Beruf>
+  <Beruf Name="Torfstecher" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Totengräber" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Trapper" Lernpunkte="7">
+    <Voraussetzungen Ge="31" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Träger" Lernpunkte="5">
+    <Voraussetzungen St="31" Ge="31"/>
+  </Beruf>
+  <Beruf Name="Tuchwalker" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Tänzer" Lernpunkte="5">
+    <Voraussetzungen Ge="31" pA="21"/>
+  </Beruf>
+  <Beruf Name="Töpfer" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Unteroffizier" Lernpunkte="7">
+    <Voraussetzungen St="61" Ge="61" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Untersuchungsbeamter" Lernpunkte="7">
+    <Voraussetzungen In="61" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Urbarmacher" Lernpunkte="5">
+    <Voraussetzungen St="31" Ge="31"/>
+  </Beruf>
+  <Beruf Name="Verkäufer" Lernpunkte="5">
+    <Voraussetzungen In="31"/>
+  </Beruf>
+  <Beruf Name="Verwalter" Lernpunkte="7">
+    <Voraussetzungen In="31" pA="21"/>
+  </Beruf>
+  <Beruf Name="Viehdieb" Lernpunkte="5">
+    <Voraussetzungen Ge="21"/>
+  </Beruf>
+  <Beruf Name="Viehtreiber" Lernpunkte="5">
+    <Voraussetzungen Ge="31" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Viehzüchter" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Vorarbeiter" Lernpunkte="5">
+    <Voraussetzungen In="31"/>
+  </Beruf>
+  <Beruf Name="Vorkoster" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Waffenhändler" Lernpunkte="7">
+    <Voraussetzungen In="31"/>
+  </Beruf>
+  <Beruf Name="Waffenschmied" Lernpunkte="5">
+    <Voraussetzungen St="61" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Wagner" Lernpunkte="5">
+    <Voraussetzungen Ge="31"/>
+  </Beruf>
+  <Beruf Name="Waldarbeiter" Lernpunkte="5">
+    <Voraussetzungen St="31" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Wappenhersteller" Lernpunkte="5">
+    <Voraussetzungen Ge="31" In="31"/>
+  </Beruf>
+  <Beruf Name="Weber" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Weinhändler" Lernpunkte="7">
+    <Voraussetzungen In="31"/>
+  </Beruf>
+  <Beruf Name="Werkzeugmacher" Lernpunkte="7">
+    <Voraussetzungen Ge="61" In="61"/>
+  </Beruf>
+  <Beruf Name="Wilderer" Lernpunkte="5">
+    <Voraussetzungen Ge="21" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Winzer" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Wirt" Lernpunkte="7">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Wrackberger" Lernpunkte="7">
+    <Voraussetzungen St="31" Ge="31"/>
+  </Beruf>
+  <Beruf Name="Wundheiler" Lernpunkte="9">
+    <Voraussetzungen Ge="31" In="31"/>
+  </Beruf>
+  <Beruf Name="Wächter" Lernpunkte="7">
+    <Voraussetzungen St="31" In="31" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Zahnausreißer" Lernpunkte="7">
+    <Voraussetzungen Ge="31"/>
+  </Beruf>
+  <Beruf Name="Ziegelbrenner" Lernpunkte="5">
+    <Voraussetzungen/>
+  </Beruf>
+  <Beruf Name="Zimmermann" Lernpunkte="7">
+    <Voraussetzungen St="31" Typ="k"/>
+  </Beruf>
+  <Beruf Name="Zollpächter" Lernpunkte="7">
+    <Voraussetzungen In="61"/>
+  </Beruf>
+  <Beruf Name="Zureiter" Lernpunkte="9">
+    <Voraussetzungen Ge="61" Typ="k"/>
+  </Beruf>
 </MidgardCG-data>
