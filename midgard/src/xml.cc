@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.9 2002/01/01 17:51:37 christof Exp $
+// $Id: xml.cc,v 1.10 2002/01/02 13:45:44 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -82,6 +82,7 @@ void xml_free()
 const Tag *find_Tag(const std::string &listtag, const std::string &elementtag,
 		const vector<pair<std::string,std::string> > &anforderungen)
 {const Tag *liste=xml_data->find(listtag);
+ cerr << "find_Tag("<< listtag<< "," << elementtag << ",...)\n";
  if (!liste)
     cerr << "<"<<listtag<<"><"<<elementtag<<"/>... nicht gefunden\n";
  else
