@@ -1,0 +1,7 @@
+#!/bin/sh
+pngtopnm -alpha dice16.png | pnminvert > d16m.pbm
+pngtopnm -alpha dice32.png | pnminvert > d32m.pbm
+pngtopnm dice16.png > d16.ppm
+pngtopnm dice32.png > d32.ppm
+ppmtowinicon -andppms d16.ppm d16m.pbm d32.ppm d32m.pbm > dice.ico
+rm d16m.pbm d32m.pbm d16.ppm d32.ppm
