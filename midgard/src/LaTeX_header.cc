@@ -1,4 +1,4 @@
-// $Id: LaTeX_header.cc,v 1.1 2001/12/17 16:06:34 thoma Exp $
+// $Id: LaTeX_header.cc,v 1.2 2001/12/17 16:56:42 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,6 +29,8 @@ void midgard_CG::LaTeX_header(ofstream &fout,bool landscape)
  fout << "\\usepackage[final]{epsfig}\n";
  fout << "\\usepackage{tabularx}\n";
  fout << "\\usepackage{times}\n";
+ fout << "\\usepackage{pstricks}\n";
+ fout << "\\newrgbcolor{mygray}{0.75 0.75 0.75}\n";
 
  if(landscape)
   {
@@ -40,10 +42,11 @@ void midgard_CG::LaTeX_header(ofstream &fout,bool landscape)
   }
  else
   {
-   fout << "\\setlength{\\textheight}{24.0cm}\n";
-   fout << "\\setlength{\\textwidth}{16cm}   \n";
-   fout << "\\setlength{\\evensidemargin}{0.0cm}\n";
-   fout << "\\setlength{\\oddsidemargin}{0.0cm} \n";
+   fout << "\\setlength{\\textheight}{26.0cm}\n";
+   fout << "\\setlength{\\textwidth}{19.5cm}   \n";
+   fout << "\\setlength{\\arraycolsep}{0.1cm} \n";
+   fout << "\\setlength{\\evensidemargin}{-1.5cm}\n";
+   fout << "\\setlength{\\oddsidemargin}{-1.5cm} \n";
    fout << "\\setlength{\\topmargin}{-0.4cm}    \n";
    fout << "\\setlength{\\parindent}{0em}       \n";
    fout << "\\renewcommand {\\arraystretch}{1.3}\n\n";
@@ -83,23 +86,35 @@ void midgard_CG::LaTeX_header(ofstream &fout,bool landscape)
  fout << "\\newcommand{\\li}{\\setlength{\\arrayrulewidth}{0.2mm}}\n";
  fout << "\\setlength{\\doublerulesep}{0mm}\n";
  fout << "\\begin{document}\n";
- fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(Werte.Name_Charakter(),25,"4.5cm") << "}\n";
- fout << "\\newcommand{\\namespieler}{"  <<LaTeX_scale(Werte.Name_Spieler(),25,"4.5cm") << "}\n";
+ if(landscape)
+  {
+    fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(Werte.Name_Charakter(),25,"4.5cm") << "}\n";
+    fout << "\\newcommand{\\namespieler}{"  <<LaTeX_scale(Werte.Name_Spieler(),25,"4.5cm") << "}\n";
+  }
+ else
+  {
+    fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(Werte.Name_Charakter(),20,"4.cm") << "}\n";
+    fout << "\\newcommand{\\namespieler}{"  <<LaTeX_scale(Werte.Name_Spieler(),20,"4.cm") << "}\n";
+  }
  fout << "\\begin{center}\n";
- fout << "\\IfFileExists{drache.ps}{\\parbox{10cm}{\\epsfig{width=10cm,angle=0,file=drache.ps}}}\n";
- fout << "{\\parbox{10cm}{\\epsfig{width=10cm,angle=0,file="PACKAGE_DATA_DIR"drache.ps}}}\n";
- fout << "\\parbox[][][c]{7cm}{\n";
+ std::string     drache="10cm", namensbox="7cm";
+ if(!landscape) {drache="7cm" , namensbox="5cm";}
+ fout << "\\IfFileExists{drache.ps}{\\parbox{"+drache+"}{\\epsfig{width="+drache+",angle=0,file=drache.ps}}}\n";
+ fout << "{\\parbox{"+drache+"}{\\epsfig{width="+drache+",angle=0,file="PACKAGE_DATA_DIR"drache.ps}}}\n";
+ fout << "\\parbox[][][c]{"+namensbox+"}{\n";
+ if(!landscape) fout << "\\scriptsize\n";
  fout << "\\LI\n";
- fout << "\\begin{tabularx}{7.0cm}{|c|X|}\\hline\n";
+ fout << "\\begin{tabularx}{"+namensbox+"}{|c|X|}\\hline\n";
  fout << "\\makebox[1.1cm]{Figur}&\\namecharakter\\\\\\hline\n";
  fout << "\\end{tabularx}\n\n";
- fout <<"\\vspace{2mm}\\li\n";
- fout <<"\\begin{tabularx}{7.0cm}{|c|X|}\\hline\n";
+ if(landscape)  fout <<"\\vspace{2mm}\\li\n";
+ else           fout <<"\\vspace{0.5mm}\\li\n";
+ fout <<"\\begin{tabularx}{"+namensbox+"}{|c|X|}\\hline\n";
  fout <<"\\makebox[1.1cm]{Spieler}&\\namespieler\\\\\\hline\n";
  fout <<"\\end{tabularx}\n}\n";
- fout <<"\\IfFileExists{dracher.ps}{\\parbox{10cm}{\\epsfig{width=10cm,angle=0,file=dracher.ps}}}\n";
- fout <<"{\\parbox{10cm}{\\epsfig{width=10cm,angle=0,file="PACKAGE_DATA_DIR"dracher.ps}}}\n";
- fout <<"\\vspace*{2ex}\n";
+ fout <<"\\IfFileExists{dracher.ps}{\\parbox{"+drache+"}{\\epsfig{width="+drache+",angle=0,file=dracher.ps}}}\n";
+ fout <<"{\\parbox{"+drache+"}{\\epsfig{width="+drache+",angle=0,file="PACKAGE_DATA_DIR"dracher.ps}}}\n";
+ fout <<"\\vspace*{2ex}\n\n";
 }
 
 void midgard_CG::LaTeX_footer(ofstream &fout)
