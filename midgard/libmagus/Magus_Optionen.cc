@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.cc,v 1.21 2004/03/10 11:35:42 thoma Exp $
+// $Id: Magus_Optionen.cc,v 1.22 2004/03/10 12:23:39 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -354,11 +354,22 @@ void Magus_Optionen::load_options(const std::string &filename)
   const Tag *oregionen=data->find("Regionen");
   if(oregionen) FOR_EACH_CONST_TAG_OF(i,*oregionen,"Region")
    {
-     try{ cH_Region R(i->getAttr("Name"),true);
+     try{ 
+          cH_Region R(i->getAttr("Name"),true);
           standard_regionen[R]=i->getBoolAttr("Wert");
+std::cout <<  standard_regionen.size()<<'\t'<<R->Name()<<' '
+<<i->getBoolAttr("Wert")<<standard_regionen[R]<<'\n';
         }  catch (const NotFound &e)
           {std::cout << "XXX: "<<e.what()<<'\n'; }
    }
+std::cout <<  standard_regionen.size()<<'\n';
+for(regionen_t::const_iterator i=standard_regionen.begin();i!=standard_regionen.end();++i) 
+{
+std::cerr <<"Drinnen ist: " <<i->first->Name()<<'\t'<< i->second <<'\n';
+}
+
+
+
 
   const Tag *data2=ts.find("MAGUS-fenster"); // compat
   if (!data2) data2=data->find("Fenster");
