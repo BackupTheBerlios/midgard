@@ -1,4 +1,4 @@
-// $Id: LaTeX_header.cc,v 1.6 2002/02/05 07:45:50 thoma Exp $
+// $Id: LaTeX_header.cc,v 1.7 2002/02/06 10:55:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -99,8 +99,8 @@ void midgard_CG::LaTeX_header(ostream &fout,bool landscape)
  fout << "\\begin{center}\n";
  std::string     drache="10cm", namensbox="7cm";
  if(!landscape) {drache="7cm" , namensbox="5cm";}
- fout << "\\IfFileExists{drache_l.ps}{\\parbox{"+drache+"}{\\epsfig{width="+drache+",angle=0,file=drache_l.ps}}}\n";
- fout << "{\\parbox{"+drache+"}{\\epsfig{width="+drache+",angle=0,file="PACKAGE_DATA_DIR"drache_l.ps}}}\n";
+ fout << "\\IfFileExists{drache.ps}{\\parbox{"+drache+"}{\\epsfig{width="+drache+",angle=0,file=drache.ps}}}\n";
+ fout << "{\\parbox{"+drache+"}{\\epsfig{width="+drache+",angle=0,file="PACKAGE_DATA_DIR"drache.ps}}}\n";
  fout << "\\parbox[][][c]{"+namensbox+"}{\n";
  if(!landscape) fout << "\\scriptsize\n";
  fout << "\\LI\n";
@@ -112,8 +112,8 @@ void midgard_CG::LaTeX_header(ostream &fout,bool landscape)
  fout <<"\\begin{tabularx}{"+namensbox+"}{|c|X|}\\hline\n";
  fout <<"\\makebox[1.1cm]{Spieler}&\\namespieler\\\\\\hline\n";
  fout <<"\\end{tabularx}\n}\n";
- fout <<"\\IfFileExists{drache_r.ps}{\\parbox{"+drache+"}{\\epsfig{width="+drache+",angle=0,file=drache_r.ps}}}\n";
- fout <<"{\\parbox{"+drache+"}{\\epsfig{width="+drache+",angle=0,file="PACKAGE_DATA_DIR"drache_r.ps}}}\n";
+ fout <<"\\IfFileExists{drache.ps}{\\parbox{"+drache+"}{\scalebox{-1,1}{\\epsfig{width="+drache+",angle=0,file=drache.ps}}}}\n";
+ fout <<"{\\parbox{"+drache+"}{\scalebox{-1,1}{\\epsfig{width="+drache+",angle=0,file="PACKAGE_DATA_DIR"drache.ps}}}}\n";
  fout <<"\\vspace*{2ex}\n\n";
 }
 

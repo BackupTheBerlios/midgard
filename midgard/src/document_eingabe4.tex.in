@@ -60,8 +60,8 @@
 \newsavebox{\Lasso}   
 %\input{midgard_tmp_latexwertedef}
 \input{midgard_tmp_latexwerte}
-\IfFileExists{drache_l.ps}{\parbox{10cm}{\epsfig{width=10cm,angle=0,file=drache_l.ps}}}%
-{\parbox{10cm}{\epsfig{width=10cm,angle=0,file=@PACKAGE_DATA_DIR@drache_l.ps}}}
+\IfFileExists{drache.ps}{\parbox{10cm}{\epsfig{width=10cm,angle=0,file=drache.ps}}}%
+{\parbox{10cm}{\epsfig{width=10cm,angle=0,file=@PACKAGE_DATA_DIR@drache.ps}}}
 \parbox[][][c]{7cm}{
 \LI
   \begin{tabularx}{7.0cm}{|c|X|}\hline
@@ -73,8 +73,8 @@
 \makebox[1.1cm]{Spieler}&{\namespieler}\\\hline
   \end{tabularx}
 }
-\IfFileExists{drache_r.ps}{\parbox{10cm}{\epsfig{width=10cm,angle=0,file=drache_r.ps}}}%
-{\parbox{10cm}{\epsfig{width=10cm,angle=0,file=@PACKAGE_DATA_DIR@drache_r.ps}}}
+\IfFileExists{drache.ps}{\parbox{10cm}{\scalebox{-1,1}{\epsfig{width=10cm,angle=0,file=drache.ps}}}}%
+{\parbox{10cm}{\scalebox{-1,1}{\epsfig{width=10cm,angle=0,file=@PACKAGE_DATA_DIR@drache.ps}}}}
 
 \vspace*{2ex}
 \begin{minipage}[t]{13cm}
