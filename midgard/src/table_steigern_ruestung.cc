@@ -51,16 +51,16 @@ void table_steigern::on_ruestung_selection_changed()
   
   cH_Ruestung R=(*clist_ruestung->get_selection()->get_selected())[ruestung_columns.ruestung];
 
-  if(R->Min_Staerke()<=hauptfenster->getChar().getAbenteurer().St())
+  if(R->Min_Staerke()<=hauptfenster->getChar()->St())
    {
      if(button_ruestung_1->get_active())
       {
-        hauptfenster->getChar().getAbenteurer().setRuestung1(R->Name());
+        hauptfenster->getChar()->setRuestung1(R->Name());
         button_ruestung_1->set_active(false);
       }
      else if(button_ruestung_2->get_active())
       {
-        hauptfenster->getChar().getAbenteurer().setRuestung2(R->Name());
+        hauptfenster->getChar()->setRuestung2(R->Name());
         button_ruestung_2->set_active(false);
       }
      show_label();
@@ -96,8 +96,8 @@ void table_steigern::show_label()
 // std::string sru=itos(count+1)+"te Rüstung auswählen. Bisherige Rüstungen: ("+ 
 //   Werte.Ruestung()->Long() +"/"+Werte.Ruestung(1)->Long()+")";
 // label_ruestung->set_text(sru.c_str());
-  label_ruestung_1->set_text(hauptfenster->getChar().getAbenteurer().Ruestung()->Long());
-  label_ruestung_2->set_text(hauptfenster->getChar().getAbenteurer().Ruestung(1)->Long());
+  label_ruestung_1->set_text(hauptfenster->getChar()->Ruestung()->Long());
+  label_ruestung_2->set_text(hauptfenster->getChar()->Ruestung(1)->Long());
 }
 
 table_steigern::RuestungColumns::RuestungColumns()

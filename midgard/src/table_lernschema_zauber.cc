@@ -1,4 +1,4 @@
-// $Id: table_lernschema_zauber.cc,v 1.13 2003/09/02 07:02:46 christof Exp $
+// $Id: table_lernschema_zauber.cc,v 1.14 2003/09/04 07:36:51 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -50,11 +50,11 @@ bool table_lernschema::on_combo_magier_spezialgebiet_focus_out_event(GdkEventFoc
    {
      if((*i)->Name()==combo_magier_spezialgebiet->get_entry()->get_text())
       {
-        hauptfenster->getChar().getAbenteurer().setSpezialgebiet(*i);
-        if(hauptfenster->getChar().getAbenteurer().Spezialisierung().empty())
-            hauptfenster->getChar().getAbenteurer().setSpezialisierung((*i)->Name());
+        hauptfenster->getChar()->setSpezialgebiet(*i);
+        if(hauptfenster->getChar()->Spezialisierung().empty())
+            hauptfenster->getChar()->setSpezialisierung((*i)->Name());
 // if (s=="Spezialgebiet" || s == "Primär- und Sekundärelement") return ;
-        if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::SPEZIALGEBIET);
+        if(hauptfenster->getWizard().active) hauptfenster->getWizard().next_step(Wizard::SPEZIALGEBIET);
         break;
       }
    }

@@ -1,4 +1,4 @@
-// $Id: table_lernschema_beruf.cc,v 1.30 2003/09/02 07:02:46 christof Exp $
+// $Id: table_lernschema_beruf.cc,v 1.31 2003/09/04 07:36:51 christof Exp $
 /*  Midgard Character Generator Copyright (C) 2001 Malte Thoma
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -37,9 +37,9 @@ void table_lernschema::on_button_beruf()
          "übrig, die zunächst verbraucht werden müssen.");
       return ;                                          
     }
-  if(!hauptfenster->getChar().getAbenteurer().getOptionen().OptionenCheck(Optionen::NSC_only).active)
+  if(!hauptfenster->getChar()->getOptionen().OptionenCheck(Optionen::NSC_only).active)
       button_beruf->set_sensitive(false);
-  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::BERUF1);
+  if(hauptfenster->getWizard().active) hauptfenster->getWizard().next_step(Wizard::BERUF1);
   deleteBerufsFertigekeit();
   if (Programmoptionen.WerteEingebenModel().Value())
    {
@@ -161,7 +161,7 @@ void table_lernschema::on_beruf_tree_leaf_selected(cH_RowDataBase d)
 //         hauptfenster->set_status("");
          scrolledwindow_lernen->hide();
          label_lernschma_titel->set_text("");
-         if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::BERUF);
+         if(hauptfenster->getWizard().active) hauptfenster->getWizard().next_step(Wizard::BERUF);
       }
     else
       {

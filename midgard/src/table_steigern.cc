@@ -125,9 +125,9 @@ void table_steigern::on_button_geld_s_toggled()
 
 void table_steigern::show_goldeingabe(bool b,int button)
 {
-  LabelSpin_silber->set_value(hauptfenster->getChar().getAbenteurer().Silber());
-  LabelSpin_kupfer->set_value(hauptfenster->getChar().getAbenteurer().Kupfer());
-  LabelSpin_gold->set_value(hauptfenster->getChar().getAbenteurer().Gold());
+  LabelSpin_silber->set_value(hauptfenster->getChar()->Silber());
+  LabelSpin_kupfer->set_value(hauptfenster->getChar()->Kupfer());
+  LabelSpin_gold->set_value(hauptfenster->getChar()->Gold());
   if(b)
    {
      if     (button == 1) 
@@ -174,7 +174,7 @@ void table_steigern::zeige_werte()
    label_grad_GFP->set_text(grad_GFP);
    if(grad_GFP=="erreicht") flashing_gradanstieg->setTime(1000);
    else                     flashing_gradanstieg->setTime(0);
-   if(hauptfenster->getChar().getAbenteurer().eigenschaften_steigern_erlaubt())
+   if(hauptfenster->getChar()->eigenschaften_steigern_erlaubt())
       flashing_eigenschaft->setTime(1000);
    else flashing_eigenschaft->setTime(0);
 

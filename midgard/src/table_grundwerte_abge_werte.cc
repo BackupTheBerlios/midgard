@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_abge_werte.cc,v 1.17 2003/09/02 07:02:46 christof Exp $
+// $Id: table_grundwerte_abge_werte.cc,v 1.18 2003/09/04 07:36:51 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,7 +31,7 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
      combo_typ->set_sensitive(false);
      combo_typ2->set_sensitive(false);
    }   
-  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::ABGELEITETEWERTE);
+  if(hauptfenster->getWizard().active) hauptfenster->getWizard().next_step(Wizard::ABGELEITETEWERTE);
   if(!hauptfenster->getOptionen()->OptionenCheck(Optionen::NSC_only).active) 
       button_abg_werte->set_sensitive(false);
   hauptfenster->setGrad(1);
@@ -116,7 +116,7 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
        if (11<=istand&&istand<=50) stand =  Vstand[2];
        if (51<=istand&&istand<=90) stand =  Vstand[3];
        if (istand>=91) stand =  Vstand[4];;
-       if (hauptfenster->getChar().getAbenteurer().Typ1()->Short()=="MMa") stand =  Vstand[3];
+       if (hauptfenster->getChar()->Typ1()->Short()=="MMa") stand =  Vstand[3];
      }
     else if(hauptfenster->Spezies()->Name()=="Halbling" ||
             hauptfenster->Spezies()->Name()=="Waldgnom" ||

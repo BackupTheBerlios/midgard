@@ -100,16 +100,16 @@ void table_steigern::kaempfer_lernt_zaubern()
 
  Gtk::Combo *_ct = manage(new class Gtk::Combo());
  _ct->get_entry()->set_editable(false); 
- bool nsc_allowed = hauptfenster->getChar().getAbenteurer().getOptionen().OptionenCheck(Optionen::NSC_only).active;
+ bool nsc_allowed = hauptfenster->getChar()->getOptionen().OptionenCheck(Optionen::NSC_only).active;
  const std::vector<std::pair<cH_Typen,bool> > T=LL->getTypen(hauptfenster->getChar().getAbenteurer());
  std::list<std::string> L;
  for(std::vector<std::pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
   {
     if( i->first->Zaubern()!="z") continue;
     if(i->second)
-      L.push_back(i->first->Name(hauptfenster->getChar().getAbenteurer().Geschlecht()));
+      L.push_back(i->first->Name(hauptfenster->getChar()->Geschlecht()));
     else
-      L.push_back("("+i->first->Name(hauptfenster->getChar().getAbenteurer().Geschlecht())+")");
+      L.push_back("("+i->first->Name(hauptfenster->getChar()->Geschlecht())+")");
   }
  _ct->set_popdown_strings(L);
  _ct->get_entry()->signal_changed().connect(SigC::slot(*this, &table_steigern::zaubern_klasse_gewaehlt));
@@ -137,8 +137,8 @@ void table_steigern::zaubern_klasse_gewaehlt()
    break;    
   }
 
- if (hauptfenster->getChar().getAbenteurer().Zaubern_wert()==2) 
-     hauptfenster->getChar().getAbenteurer().setZaubern_wert(10);
+ if (hauptfenster->getChar()->Zaubern_wert()==2) 
+     hauptfenster->getChar()->setZaubern_wert(10);
  frame_spezielles->remove();
  frame_spezielles->hide();
  fertigkeiten_zeigen();

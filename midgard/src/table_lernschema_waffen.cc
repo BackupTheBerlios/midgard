@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.35 2003/09/02 07:02:46 christof Exp $
+// $Id: table_lernschema_waffen.cc,v 1.36 2003/09/04 07:36:51 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -29,18 +29,18 @@
 
 void table_lernschema::on_button_lernschema_waffen()
 {
-  if(hauptfenster->getChar().getAbenteurer().List_Waffen().empty()) 
+  if(hauptfenster->getChar()->List_Waffen().empty()) 
    { Ausgabe(Ausgabe::Error,"Noch keine Waffen gewählt"); return ;}
   for(std::list<H_WaffeBesitz>::const_iterator i=hauptfenster->getChar()->List_Waffen_besitz().begin();i!=hauptfenster->getChar()->List_Waffen_besitz().end();++i)
    {
-     AusruestungBaum &AB=hauptfenster->getChar().getAbenteurer().getAusruestung_as_parent((**i)->Name());
+     AusruestungBaum &AB=hauptfenster->getChar()->getAusruestung_as_parent((**i)->Name());
      AusruestungBaum *Parent = AB.getParent();
      if(Parent)  Parent->remove(AB); 
      else Ausgabe(Ausgabe::Error,"Keine Herkunftsnode gesetzt");
    }
   hauptfenster->getChar()->List_Waffen_besitz().clear();
-  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::WAFFEN);
-  if(!hauptfenster->getChar().getAbenteurer().getOptionen().OptionenCheck(Optionen::NSC_only).active)
+  if(hauptfenster->getWizard().active) hauptfenster->getWizard().next_step(Wizard::WAFFEN);
+  if(!hauptfenster->getChar()->getOptionen().OptionenCheck(Optionen::NSC_only).active)
      button_lernschema_waffen->set_sensitive(false);
 
      table_waffen_lernschema_eingabe->hide();
@@ -153,7 +153,7 @@ void table_lernschema::on_waffen_lernschema_tree_leaf_selected(cH_RowDataBase d)
 
    hauptfenster->getChar()->List_Waffen_besitz().push_back(WB);
    {
-    AusruestungBaum &wohin=hauptfenster->getChar().getAbenteurer().getAusruestung_as_parent("Gürtel");
+    AusruestungBaum &wohin=hauptfenster->getChar()->getAusruestung_as_parent("Gürtel");
     std::string g=WB->Waffe()->Grundkenntnis();
     if(g=="Kampf ohne Waffen")
      {
@@ -161,7 +161,7 @@ void table_lernschema::on_waffen_lernschema_tree_leaf_selected(cH_RowDataBase d)
           g=="Spießwaffe" || g=="Stangenwaffe" || g=="Bögen" ||
           g=="Armbrust"
          )
-          wohin=hauptfenster->getChar().getAbenteurer().getBesitz();
+          wohin=hauptfenster->getChar()->getBesitz();
        wohin.push_back(Ausruestung((*WB)->Name()));
      }
    }
@@ -174,7 +174,7 @@ void table_lernschema::WaffenBesitz_lernschema_wuerfeln(int wurf)
 {
   std::string strinfo = "Für die Waffenauswahl wurde eine "+itos(wurf)
       +" gewürfelt, die Abenteurerklasse ist "
-      +hauptfenster->getChar()->Typ1()->Name(hauptfenster->getChar().getAbenteurer().Geschlecht())+" ==> ";
+      +hauptfenster->getChar()->Typ1()->Name(hauptfenster->getChar()->Geschlecht())+" ==> ";
  waffebesitzlernen =Zufall::WaffenBesitz_wuerfeln(hauptfenster->getChar().getAbenteurer(),wurf);
  strinfo += itos(waffebesitzlernen.EWaffe())+" Einhand- und "+itos(waffebesitzlernen.AWaffe())+" beliebige Waffen";
  Ausgabe(Ausgabe::Log,strinfo);
@@ -185,6 +185,6 @@ void table_lernschema::on_togglebutton_spezialwaffe_toggled()
 {  if (togglebutton_spezialwaffe->get_active()) scrolledwindow_lernen->hide();
    else 
      { scrolledwindow_lernen->show();
-       if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::SPEZIALWAFFE);
+       if(hauptfenster->getWizard().active) hauptfenster->getWizard().next_step(Wizard::SPEZIALWAFFE);
      }
 }

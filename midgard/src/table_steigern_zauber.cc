@@ -67,7 +67,7 @@ void table_steigern::on_leaf_selected_neue_zauber(cH_RowDataBase d)
 void table_steigern::wuerfel_lesen_von_zauberschrift()
 {
   int x= Random::W20();
-  int e=hauptfenster->getChar().getAbenteurer().Erfolgswert("Lesen von Zauberschrift").first;
+  int e=hauptfenster->getChar()->Erfolgswert("Lesen von Zauberschrift").first;
   int bonus;
   if(x+e >= 20) bonus=+4;
   else          bonus=-4;

@@ -145,20 +145,20 @@ void table_zufall::on_togglebutton_vorgaben_toggled()
 
 void table_zufall::zeige_werte()
 {
-   spinbutton_st->set_value(hauptfenster->getChar().getAbenteurer().St());
-   spinbutton_gw->set_value(hauptfenster->getChar().getAbenteurer().Gw());
-   spinbutton_gs->set_value(hauptfenster->getChar().getAbenteurer().Gs());
-   spinbutton_ko->set_value(hauptfenster->getChar().getAbenteurer().Ko());
-   spinbutton_in->set_value(hauptfenster->getChar().getAbenteurer().In());
-   spinbutton_zt->set_value(hauptfenster->getChar().getAbenteurer().Zt());
-   spinbutton_au->set_value(hauptfenster->getChar().getAbenteurer().Au());
-   spinbutton_pa->set_value(hauptfenster->getChar().getAbenteurer().pA());
-   spinbutton_sb->set_value(hauptfenster->getChar().getAbenteurer().Sb());      
-   spinbutton_wk->set_value(hauptfenster->getChar().getAbenteurer().Wk());      
-   spinbutton_b->set_value(hauptfenster->getChar().getAbenteurer().B());     
-   combo_spezies->get_entry()->set_text(hauptfenster->getChar().getAbenteurer().Spezies()->Name());
-   combo_typ ->get_entry()->set_text(hauptfenster->getChar().getAbenteurer().Typ1()->Name(hauptfenster->getChar().getAbenteurer().Geschlecht()));
-   combo_herkunft->get_entry()->set_text(hauptfenster->getChar().getAbenteurer().Herkunft()->Name());
+   spinbutton_st->set_value(hauptfenster->getChar()->St());
+   spinbutton_gw->set_value(hauptfenster->getChar()->Gw());
+   spinbutton_gs->set_value(hauptfenster->getChar()->Gs());
+   spinbutton_ko->set_value(hauptfenster->getChar()->Ko());
+   spinbutton_in->set_value(hauptfenster->getChar()->In());
+   spinbutton_zt->set_value(hauptfenster->getChar()->Zt());
+   spinbutton_au->set_value(hauptfenster->getChar()->Au());
+   spinbutton_pa->set_value(hauptfenster->getChar()->pA());
+   spinbutton_sb->set_value(hauptfenster->getChar()->Sb());      
+   spinbutton_wk->set_value(hauptfenster->getChar()->Wk());      
+   spinbutton_b->set_value(hauptfenster->getChar()->B());     
+   combo_spezies->get_entry()->set_text(hauptfenster->getChar()->Spezies()->Name());
+   combo_typ ->get_entry()->set_text(hauptfenster->getChar()->Typ1()->Name(hauptfenster->getChar()->Geschlecht()));
+   combo_herkunft->get_entry()->set_text(hauptfenster->getChar()->Herkunft()->Name());
 }
 
 void table_zufall::fill_combos()
@@ -172,7 +172,7 @@ void table_zufall::fill_combos()
 /*  
   const std::vector<std::pair<cH_Typen,bool> > T=LL.getTypen(hauptfenster->getChar().getAbenteurer(),nsc_allowed);
   for(std::vector<std::pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
-     L.push_back(i->first->Name(hauptfenster->getChar().getAbenteurer().Geschlecht()));
+     L.push_back(i->first->Name(hauptfenster->getChar()->Geschlecht()));
   combo_typ->set_popdown_strings(L);
 */
   // Spezies
@@ -194,20 +194,20 @@ void table_zufall::fill_combos()
 void table_zufall::fill_combo_typen(const LernListen &LL,const bool nsc_allowed)
 {
   std::list<std::string> L;
-  cH_Spezies spezies=hauptfenster->getChar().getAbenteurer().Spezies();
+  cH_Spezies spezies=hauptfenster->getChar()->Spezies();
 
   // ist eine Spezies in der Combo gesetzt?
   std::string ss=combo_spezies->get_entry()->get_text();
   if(Spezies::get_Spezies_from_long(Datenbank.Spezies,ss))
      spezies=Spezies::getSpezies(ss,Datenbank.Spezies)  ;
-  if (!(spezies==hauptfenster->getChar().getAbenteurer().Spezies()))
-  {  hauptfenster->getChar().getAbenteurer().setSpezies(spezies);
+  if (!(spezies==hauptfenster->getChar()->Spezies()))
+  {  hauptfenster->getChar()->setSpezies(spezies);
      Ausgabe(Ausgabe::Warning,"wie auch immer Spezies!=Spezies werden konnte (CP)");
   }
 
   const std::vector<std::pair<cH_Typen,bool> > T=LL.getTypen(hauptfenster->getChar().getAbenteurer());
   for(std::vector<std::pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
-     L.push_back(i->first->Name(hauptfenster->getChar().getAbenteurer().Geschlecht()));
+     L.push_back(i->first->Name(hauptfenster->getChar()->Geschlecht()));
   combo_typ->set_popdown_strings(L);
 }
 
@@ -299,7 +299,7 @@ bool table_zufall::on_combo_spezies_focus_out_event(GdkEventFocus *ev)
 void table_zufall::on_combo_spezies_changed()
 {  
   LernListen LL;
-//  bool nsc_allowed = hauptfenster->getChar().getAbenteurer().getOptionen().OptionenCheck(Optionen::NSC_only).active;
+//  bool nsc_allowed = hauptfenster->getChar()->getOptionen().OptionenCheck(Optionen::NSC_only).active;
   fill_combo_typen(LL,true);
 }
 

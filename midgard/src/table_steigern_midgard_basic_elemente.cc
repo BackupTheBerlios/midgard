@@ -65,17 +65,17 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
  
  if (radiobutton_steigern->get_active() && MBE->Steigern(hauptfenster->getChar().getAbenteurer()))
     {
-      bool ok=hauptfenster->getChar().getAbenteurer().steigere(MBE,info,wie,bool_steigern);
+      bool ok=hauptfenster->getChar()->steigere(MBE,info,wie,bool_steigern);
       Ausgabe(Ausgabe::Error,info);
       if(!ok) return false;
     }
  else if (radiobutton_reduzieren->get_active() && MBE->Reduzieren(hauptfenster->getChar().getAbenteurer()))
     {
-      hauptfenster->getChar().getAbenteurer().reduziere(MBE,wie,bool_steigern);
+      hauptfenster->getChar()->reduziere(MBE,wie,bool_steigern);
     }
  else if (radiobutton_verlernen->get_active() && MBE->Verlernen(hauptfenster->getChar().getAbenteurer()))
     {
-      hauptfenster->getChar().getAbenteurer().verlerne(MBE,wie,bool_steigern);
+      hauptfenster->getChar()->verlerne(MBE,wie,bool_steigern);
       Abenteurer::move_element(*MyList,*MyList_neu,MBE);
     }
  else if (radiobutton_verlernen->get_active() && (*MBE).What()==MidgardBasicElement::WAFFE)

@@ -1,4 +1,4 @@
-// $Id: table_lernschema_fertigkeiten.cc,v 1.28 2003/09/02 07:02:46 christof Exp $
+// $Id: table_lernschema_fertigkeiten.cc,v 1.29 2003/09/04 07:36:51 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -30,7 +30,7 @@
 
 void table_lernschema::on_button_angeborene_fertigkeit()
 {
-  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::ANGEBORENEFERTIGKEITEN);
+  if(hauptfenster->getWizard().active) hauptfenster->getWizard().next_step(Wizard::ANGEBORENEFERTIGKEITEN);
   hauptfenster->getChar()->setAngebFert();
   
   if (Programmoptionen.WerteEingebenModel().Value()) on_angeborene_fertigkeit_right_clicked();
@@ -40,7 +40,7 @@ void table_lernschema::on_button_angeborene_fertigkeit()
 
   button_lernpunkte->set_sensitive(true);
   togglebutton_lernpunkte_edit->set_sensitive(true);
-  if(!hauptfenster->getChar().getAbenteurer().getOptionen().OptionenCheck(Optionen::NSC_only).active)
+  if(!hauptfenster->getChar()->getOptionen().OptionenCheck(Optionen::NSC_only).active)
      button_angeborene_fert->set_sensitive(false);
 }
 
@@ -110,7 +110,7 @@ std::string table_lernschema::AngebFert_gewuerfelt(int wurf)
 void table_lernschema::setFertigkeitenAusruestung()
 {
   AusruestungBaum &koerper=hauptfenster->getChar()->getBesitz();
-  AusruestungBaum &rucksack=hauptfenster->getChar().getAbenteurer().getAusruestung_as_parent("Rucksack");
+  AusruestungBaum &rucksack=hauptfenster->getChar()->getAusruestung_as_parent("Rucksack");
   for (std::list<MBEmlt>::const_iterator i=hauptfenster->getChar()->List_Fertigkeit().begin();i!=hauptfenster->getChar()->List_Fertigkeit().end();++i)
    {
      const std::vector<Fertigkeit::st_besitz> VB=cH_Fertigkeit((*i)->getMBE())->get_vec_Besitz();

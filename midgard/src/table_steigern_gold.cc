@@ -34,7 +34,7 @@ void table_steigern::on_checkbutton_gfp()
 
 void table_steigern::on_LabelSpin_gfp_activate()
 {
-  hauptfenster->getChar().getAbenteurer().setGFP(LabelSpin_gfp->get_value());
+  hauptfenster->getChar()->setGFP(LabelSpin_gfp->get_value());
   checkbutton_gfp->set_active(false);
   checkbutton_gfp->grab_focus();
   zeige_werte();
@@ -51,7 +51,7 @@ void table_steigern::on_button_gold_eingeben()
 
 void table_steigern::on_LabelSpin_gold_activate()
 {
- hauptfenster->getChar().getAbenteurer().setGold(LabelSpin_gold->get_value());
+ hauptfenster->getChar()->setGold(LabelSpin_gold->get_value());
  LabelSpin_silber->grab_focus();
 }
 
@@ -59,7 +59,7 @@ void table_steigern::on_LabelSpin_gold_activate()
 bool table_steigern::on_spinbutton_gold_focus_out_event(GdkEventFocus *ev)
 {
  spinbutton_gold->update();
- hauptfenster->getChar().getAbenteurer().setGold(spinbutton_gold->get_value());
+ hauptfenster->getChar()->setGold(spinbutton_gold->get_value());
  return false;
 }
 
@@ -71,14 +71,14 @@ bool table_steigern::on_spinbutton_gold_focus_in_event(GdkEventFocus *ev)
 */
 void table_steigern::on_LabelSpin_silber_activate()
 {
- hauptfenster->getChar().getAbenteurer().setSilber(LabelSpin_silber->get_value());
+ hauptfenster->getChar()->setSilber(LabelSpin_silber->get_value());
  LabelSpin_kupfer->grab_focus();
 }
 /*
 bool table_steigern::on_spinbutton_silber_focus_out_event(GdkEventFocus *ev)
 {
  spinbutton_silber->update();
- hauptfenster->getChar().getAbenteurer().setSilber(spinbutton_silber->get_value_as_int());
+ hauptfenster->getChar()->setSilber(spinbutton_silber->get_value_as_int());
  return false;
 }
 
@@ -91,7 +91,7 @@ bool table_steigern::on_spinbutton_silber_focus_in_event(GdkEventFocus *ev)
 
 void table_steigern::on_LabelSpin_kupfer_activate()
 {
-  hauptfenster->getChar().getAbenteurer().setKupfer(LabelSpin_kupfer->get_value());
+  hauptfenster->getChar()->setKupfer(LabelSpin_kupfer->get_value());
   button_gold_eingeben->grab_focus();
   button_gold_eingeben->set_active(false);
 }
@@ -100,7 +100,7 @@ void table_steigern::on_LabelSpin_kupfer_activate()
 bool table_steigern::on_spinbutton_kupfer_focus_out_event(GdkEventFocus *ev)
 {
  spinbutton_kupfer->update();
- hauptfenster->getChar().getAbenteurer().setKupfer(spinbutton_kupfer->get_value_as_int());
+ hauptfenster->getChar()->setKupfer(spinbutton_kupfer->get_value_as_int());
  return false;
 }
 
@@ -115,14 +115,14 @@ bool table_steigern::on_spinbutton_kupfer_focus_in_event(GdkEventFocus *ev)
 
 void table_steigern::on_LabelSpin_aep_activate()
 {
- hauptfenster->getChar().getAbenteurer().setAEP(LabelSpin_aep->get_value());
+ hauptfenster->getChar()->setAEP(LabelSpin_aep->get_value());
  LabelSpin_kep->grab_focus();
 }
 /*
 bool table_steigern::on_spinbutton_aep_focus_out_event(GdkEventFocus *ev)
 {
  spinbutton_aep->update();
- hauptfenster->getChar().getAbenteurer().setAEP(spinbutton_aep->get_value_as_int());
+ hauptfenster->getChar()->setAEP(spinbutton_aep->get_value_as_int());
  return false;
 }
 
@@ -134,7 +134,7 @@ bool table_steigern::on_spinbutton_aep_focus_in_event(GdkEventFocus *ev)
 */
 void table_steigern::on_LabelSpin_kep_activate()
 {
- hauptfenster->getChar().getAbenteurer().setKEP(LabelSpin_kep->get_value());
+ hauptfenster->getChar()->setKEP(LabelSpin_kep->get_value());
  LabelSpin_zep->grab_focus();
 }
 
@@ -142,7 +142,7 @@ void table_steigern::on_LabelSpin_kep_activate()
 bool table_steigern::on_spinbutton_kep_focus_out_event(GdkEventFocus *ev)
 {
  spinbutton_kep->update();
- hauptfenster->getChar().getAbenteurer().setKEP(spinbutton_kep->get_value_as_int());
+ hauptfenster->getChar()->setKEP(spinbutton_kep->get_value_as_int());
  return false;
 }
 
@@ -154,7 +154,7 @@ bool table_steigern::on_spinbutton_kep_focus_in_event(GdkEventFocus *ev)
 */
 void table_steigern::on_LabelSpin_zep_activate()
 {
- hauptfenster->getChar().getAbenteurer().setZEP(LabelSpin_zep->get_value());
+ hauptfenster->getChar()->setZEP(LabelSpin_zep->get_value());
  button_EP->grab_focus();
  button_EP->set_active(false);  
 }
@@ -162,7 +162,7 @@ void table_steigern::on_LabelSpin_zep_activate()
 bool table_steigern::on_spinbutton_zep_focus_out_event(GdkEventFocus *ev)
 {
  spinbutton_zep->update();
- hauptfenster->getChar().getAbenteurer().setZEP(spinbutton_zep->get_value_as_int());
+ hauptfenster->getChar()->setZEP(spinbutton_zep->get_value_as_int());
  return false;
 }
 

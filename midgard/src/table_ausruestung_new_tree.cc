@@ -199,8 +199,8 @@ void table_ausruestung::on_preise_tree_neu_leaf_selected(cH_RowDataBase d)
   
   if(!besitz && dt->Ware()->Art()=="Neu")
    {
-     AusruestungBaum &B=hauptfenster->getChar().getAbenteurer().getBesitz().push_back(A);
-     B.setParent(&hauptfenster->getChar().getAbenteurer().getBesitz());     
+     AusruestungBaum &B=hauptfenster->getChar()->getBesitz().push_back(A);
+     B.setParent(&hauptfenster->getChar()->getBesitz());     
    }
   else if(besitz)
    {

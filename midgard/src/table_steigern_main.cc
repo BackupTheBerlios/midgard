@@ -276,7 +276,7 @@ void table_steigern::on_steigern_zusatz_leaf_selected(cH_RowDataBase d)
 {
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
   dt->getMBE()->setZusatz(dt->getZusatz());
-  if(dt->getZusatz().name==hauptfenster->getChar().getAbenteurer().Herkunft()->Name())
+  if(dt->getZusatz().name==hauptfenster->getChar()->Herkunft()->Name())
      dt->getMBE()->setErfolgswert(9);
 
   set_zusatz_sensitive(false);

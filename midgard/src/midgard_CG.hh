@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.329 2003/09/02 09:35:11 christof Exp $
+// $Id: midgard_CG.hh,v 1.330 2003/09/04 07:36:51 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,9 +33,9 @@
 #include <list>
 //#include "Datenbank.hh"
 //#include <fstream>
-//#include "Wizard.hh"
-class Wizard;
-#include "Midgard_Undo.hh"
+#include "Wizard.hh"
+//class Wizard;
+//#include "Midgard_Undo.hh"
 //#include "Optionen.hh"
 //#include "Waffe.hh"
 //#include "Abenteurer.hh"
@@ -67,9 +67,9 @@ private:
         std::vector<st_reg_status> vec_region_status;
         
         SigC::Connection connection_status;
-
-public:
-        Wizard *wizard;
+        // eigentlich muss das in VAbenteurer, damit unterschiedliche Abenteurer
+        // es unabhängig voneinander setzen können.
+        Wizard wizard;
 
 /////////////////////////////////////////////////////////////////////////////
         // Drucken
@@ -98,11 +98,10 @@ private:
         void show_Hausregeln_active();
 
         // Wizard
+        void set_wizard(std::string s);
         void on_neuer_abenteurer_mit_wizard_activate();
         void on_wizard_beenden_activate();
         void on_wizard_starten_activate();
-        void wizard_do_something();
-        void set_wizard(std::string s);
         void show_wizard_active(bool b);
 
         // Load & Save
@@ -211,5 +210,10 @@ private:
 
         void on_auch_unsichtbares_drucken();
         void on_beschreibung_drucken();
+
+	// wird von Wizard verwendet
+        void wizard_do_something(int page,const std::string &text);
+        
+        Wizard &getWizard() { return wizard; }
 };
 #endif

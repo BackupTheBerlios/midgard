@@ -99,8 +99,8 @@ void midgard_CG::load_for_mainpage(guint pagenr)
   }
  else if(pagenr==PAGE_LERNEN)
   {
-   if(wizard && wizard->ActualStep()==Wizard::LERNSCHEMA_SEITE) 
-         wizard->next_step(Wizard::LERNSCHEMA_SEITE);
+   if(wizard.active && wizard.actual_step==Wizard::LERNSCHEMA_SEITE) 
+         wizard.next_step(Wizard::LERNSCHEMA_SEITE);
    table_lernschema->init(this);
 //   show_gelerntes();
   }

@@ -1,4 +1,4 @@
-// $Id: table_steigern_grad_anstieg.cc,v 1.21 2003/09/01 06:47:58 christof Exp $
+// $Id: table_steigern_grad_anstieg.cc,v 1.22 2003/09/04 07:36:51 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,16 +27,16 @@ void table_steigern::on_grad_anstieg_clicked()
  flashing_gradanstieg->setTime(0);
  flashing_eigenschaft->setTime(0);
  radiobutton_steigern->set_active(true);
- int act_grad=hauptfenster->getChar().getAbenteurer().Grad();
- int max_grad=Datenbank.GradAnstieg.get_Grad(hauptfenster->getChar().getAbenteurer().GFP());
+ int act_grad=hauptfenster->getChar()->Grad();
+ int max_grad=Datenbank.GradAnstieg.get_Grad(hauptfenster->getChar()->GFP());
 
-//cout << act_grad<<' '<<max_grad<<'\t'<<hauptfenster->getChar().getAbenteurer().GFP()<<'\n';
+//cout << act_grad<<' '<<max_grad<<'\t'<<hauptfenster->getChar()->GFP()<<'\n';
 
-// hauptfenster->getChar().getAbenteurer().setGrad(Datenbank.GradAnstieg.get_Grad(hauptfenster->getChar().getAbenteurer().GFP()));
+// hauptfenster->getChar()->setGrad(Datenbank.GradAnstieg.get_Grad(hauptfenster->getChar()->GFP()));
 
  while(act_grad<max_grad)
   {
-    hauptfenster->getChar().getAbenteurer().setGrad(++act_grad);
+    hauptfenster->getChar()->setGrad(++act_grad);
 
     std::string info;
     hauptfenster->getChar()->get_ausdauer(act_grad,
@@ -54,13 +54,13 @@ void table_steigern::on_grad_anstieg_clicked()
 void table_steigern::on_button_grad_clicked()
 {   
   flashing_gradanstieg->setTime(0);
-  hauptfenster->getChar().getAbenteurer().setGrad(Datenbank.GradAnstieg.get_Grad(hauptfenster->getChar().getAbenteurer().GFP()));
+  hauptfenster->getChar()->setGrad(Datenbank.GradAnstieg.get_Grad(hauptfenster->getChar()->GFP()));
   zeige_werte();
 }
 void table_steigern::on_button_grad_ausdauer_clicked()
 {   
  std::string info;
- hauptfenster->getChar()->get_ausdauer(hauptfenster->getChar().getAbenteurer().Grad(),get_wie_steigern(),get_bool_steigern());
+ hauptfenster->getChar()->get_ausdauer(hauptfenster->getChar()->Grad(),get_wie_steigern(),get_bool_steigern());
 // hauptfenster->set_status(info,false);
  zeige_werte();
 }

@@ -55,7 +55,7 @@ void table_ausruestung::ausruestung_laden()
 
 void table_ausruestung::showAusruestung()
 {
-  hauptfenster->getChar().getAbenteurer().setStandardAusruestung();
+  hauptfenster->getChar()->setStandardAusruestung();
 
   besitz=0;
   std::vector<std::string> title;
@@ -84,7 +84,7 @@ void table_ausruestung::showAusruestung()
   Ausruestung_tree->get_selection()->signal_changed().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_Ausruestung_tree_select_row));
 //  Ausruestung_tree->signal_tree_unselect_row().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_Ausruestung_tree_unselect_row));
   button_ausruestung_loeschen->set_sensitive(false);
-  label_gesamtlast->set_text(dtos1(hauptfenster->getChar().getAbenteurer().getBelastung("Körper"))+" kg");
+  label_gesamtlast->set_text(dtos1(hauptfenster->getChar()->getBelastung("Körper"))+" kg");
 }
 
 
@@ -167,9 +167,9 @@ void table_ausruestung::on_checkbutton_ausruestung_geld_toggled()
 
 void table_ausruestung::zeige_werte()
 {
-  label_golda->set_text(itos(hauptfenster->getChar().getAbenteurer().Gold()));
-  label_silbera->set_text(itos(hauptfenster->getChar().getAbenteurer().Silber()));
-  label_kupfera->set_text(itos(hauptfenster->getChar().getAbenteurer().Kupfer()));
+  label_golda->set_text(itos(hauptfenster->getChar()->Gold()));
+  label_silbera->set_text(itos(hauptfenster->getChar()->Silber()));
+  label_kupfera->set_text(itos(hauptfenster->getChar()->Kupfer()));
 }
 
 void table_ausruestung::on_togglebutton_artikel_neu_toggled()

@@ -103,7 +103,7 @@ void table_lernschema::on_lernliste_wahl_toggled()
 {  
    if(button_zauber->get_active())
    {
-     if (hauptfenster->getChar().getAbenteurer().Spezialgebiet()->Spezial2()=="" && 
+     if (hauptfenster->getChar()->Spezialgebiet()->Spezial2()=="" && 
          hauptfenster->getChar()->Typ1()->Short()=="eBe")
       {
          Ausgabe(Ausgabe::Error,"Erst Primär- und Sekundärelement wählen");
@@ -119,7 +119,7 @@ void table_lernschema::on_button_waffen_clicked()
 {  
   if(hauptfenster->getChar()->Typ1()->Kultwaffe() &&hauptfenster->getChar()->List_Waffen().empty())
    {
-     Ausgabe(Ausgabe::ActionNeeded,hauptfenster->getChar()->Typ1()->Name(hauptfenster->getChar().getAbenteurer().Geschlecht())+" müssen als erstes ihre Kultwaffe wählen; fehlende Lernpunkte werden geschenkt.");
+     Ausgabe(Ausgabe::ActionNeeded,hauptfenster->getChar()->Typ1()->Name(hauptfenster->getChar()->Geschlecht())+" müssen als erstes ihre Kultwaffe wählen; fehlende Lernpunkte werden geschenkt.");
      togglebutton_teure_anzeigen->set_active(true);
    }
   button_lernschema_waffen->set_sensitive(true);
@@ -152,10 +152,10 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
                { Ausgabe(Ausgabe::Error,"Fernkampfwaffen können nur dann eine Spezialwaffe werden wenn sie max. 2 Lernpunkte gekostet haben");return;}
              else
                {  
-                hauptfenster->getChar().getAbenteurer().setSpezialisierung((*MBE)->Name());
-                Waffe::setSpezialWaffe(hauptfenster->getChar().getAbenteurer().Spezialisierung(),hauptfenster->getChar()->List_Waffen());
+                hauptfenster->getChar()->setSpezialisierung((*MBE)->Name());
+                Waffe::setSpezialWaffe(hauptfenster->getChar()->Spezialisierung(),hauptfenster->getChar()->List_Waffen());
                 togglebutton_spezialwaffe->set_active(false);
-                if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::SPEZIALWAFFE);
+                if(hauptfenster->getWizard().active) hauptfenster->getWizard().next_step(Wizard::SPEZIALWAFFE);
                }
             }  
            else
@@ -365,8 +365,8 @@ void table_lernschema::on_herkunftsland_clicked()
 
 void table_lernschema::lernpflichten_info()
 {
-  std::string t1=hauptfenster->getChar()->Typ1()->getLernpflichtenInfo(hauptfenster->getChar().getAbenteurer().Herkunft());
-  std::string t2=hauptfenster->getChar()->Typ2()->getLernpflichtenInfo(hauptfenster->getChar().getAbenteurer().Herkunft());
+  std::string t1=hauptfenster->getChar()->Typ1()->getLernpflichtenInfo(hauptfenster->getChar()->Herkunft());
+  std::string t2=hauptfenster->getChar()->Typ2()->getLernpflichtenInfo(hauptfenster->getChar()->Herkunft());
   if(!t1.empty() || !t2.empty())
       Ausgabe(Ausgabe::ActionNeeded,t1+"\n"+t2);
 }
@@ -378,13 +378,13 @@ void table_lernschema::on_lernpunkte_wuerfeln_clicked()
      return;
   }
   lernpflichten_info();
-  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::LERNPUNKTE);
+  if(hauptfenster->getWizard().active) hauptfenster->getWizard().next_step(Wizard::LERNPUNKTE);
   Zufall::Lernpunkte_wuerfeln(vabenteurer->getLernpunkte().getLernpunkte(),hauptfenster->getChar().getAbenteurer());
   show_gelerntes();
 
   zeige_lernpunkte();
 
-  if(!hauptfenster->getChar().getAbenteurer().getOptionen().OptionenCheck(Optionen::NSC_only).active)
+  if(!hauptfenster->getChar()->getOptionen().OptionenCheck(Optionen::NSC_only).active)
      button_lernpunkte->set_sensitive(false);
 
   button_sensitive(true);
@@ -428,15 +428,15 @@ void table_lernschema::edit_lernpunkte(bool b)
 
 void table_lernschema::on_button_lernschema_geld()
 {  
-  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::GELD);
-  if(!hauptfenster->getChar().getAbenteurer().getOptionen().OptionenCheck(Optionen::NSC_only).active)
+  if(hauptfenster->getWizard().active) hauptfenster->getWizard().next_step(Wizard::GELD);
+  if(!hauptfenster->getChar()->getOptionen().OptionenCheck(Optionen::NSC_only).active)
      button_lernschema_geld->set_sensitive(false);
   if (Programmoptionen.WerteEingebenModel().Value())
   {  gwr_auswahl=EGeld1;
      set_gwr_eingabe();
   }
   else
-  {  hauptfenster->getChar().getAbenteurer().setGeld(0,0,0);
+  {  hauptfenster->getChar()->setGeld(0,0,0);
      geld_wuerfeln() ;
   }
 }
@@ -479,23 +479,23 @@ void table_lernschema::lernschema_geld_wuerfeln(const std::vector<int>& VGeldwur
  else if (hauptfenster->getChar()->Typ1()->Geld() == 3) igold+=6;
  else if (hauptfenster->getChar()->Typ1()->Geld() == 4) igold+=3;
 
- if(hauptfenster->getChar().getAbenteurer().Stand()=="Adel" ) igold*=2;  
- if(hauptfenster->getChar().getAbenteurer().Stand()=="Unfrei" ) igold/=2;
+ if(hauptfenster->getChar()->Stand()=="Adel" ) igold*=2;  
+ if(hauptfenster->getChar()->Stand()=="Unfrei" ) igold/=2;
  if(VGeldwurf[0]==VGeldwurf[1] && VGeldwurf[1]==VGeldwurf[2]) igold += 100;
 
  std::string strinfo ="Beim Auswürfeln von Geld wurden "
    +itos(VGeldwurf[0])+"  "+itos(VGeldwurf[1])+"  "+itos(VGeldwurf[2])+" gewürfelt ==> "
    +itos(igold)+" Gold";
  Ausgabe(Ausgabe::Log,strinfo);   
- hauptfenster->getChar().getAbenteurer().addGold(igold);  
+ hauptfenster->getChar()->addGold(igold);  
  zeige_werte();
 }
 
 
 void table_lernschema::on_button_ruestung()
 {  
-  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::RUESTUNG);
-  if(!hauptfenster->getChar().getAbenteurer().getOptionen().OptionenCheck(Optionen::NSC_only).active)
+  if(hauptfenster->getWizard().active) hauptfenster->getWizard().next_step(Wizard::RUESTUNG);
+  if(!hauptfenster->getChar()->getOptionen().OptionenCheck(Optionen::NSC_only).active)
      button_ruestung->set_sensitive(false);
    if (!Programmoptionen.WerteEingebenModel().Value())
    {  
@@ -553,9 +553,9 @@ void table_lernschema::on_button_ruestung_clicked(int wurf)
       if (96 <= wurf && wurf  <= 100) rue = "LR" ;
    }
   if(hauptfenster->getChar()->Typ1()->Short()=="Fi") rue="KR";
-  hauptfenster->getChar().getAbenteurer().setRuestung1(rue);
+  hauptfenster->getChar()->setRuestung1(rue);
   Ausgabe(Ausgabe::Error,"Beim Auswürfeln der Rüstung wurde eine "+itos(wurf)+" gewürfelt "
-             "==> " + hauptfenster->getChar().getAbenteurer().Ruestung()->Long());
+             "==> " + hauptfenster->getChar()->Ruestung()->Long());
   zeige_werte();
 }
 
@@ -567,12 +567,12 @@ void table_lernschema::on_button_ausruestung()
 
 void table_lernschema::ausruestung_setzen()
 {
-  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::AUSRUESTUNG);
-  if(!hauptfenster->getChar().getAbenteurer().getOptionen().OptionenCheck(Optionen::NSC_only).active)
+  if(hauptfenster->getWizard().active) hauptfenster->getWizard().next_step(Wizard::AUSRUESTUNG);
+  if(!hauptfenster->getChar()->getOptionen().OptionenCheck(Optionen::NSC_only).active)
      button_ausruestung->set_sensitive(false);
   
-  hauptfenster->getChar().getAbenteurer().setStandardAusruestung();
-//  AusruestungBaum &Rucksack=hauptfenster->getChar().getAbenteurer().getBesitz();
+  hauptfenster->getChar()->setStandardAusruestung();
+//  AusruestungBaum &Rucksack=hauptfenster->getChar()->getBesitz();
 //  setFertigkeitenAusruestung(Rucksack);
   setFertigkeitenAusruestung();
 }
@@ -601,8 +601,8 @@ void table_lernschema::on_togglebutton_einschraenkungen_zusatz_anzeigen_toggled(
 void table_lernschema::zeige_werte()
 {
   zeige_lernpunkte();
-  label_ruestung_lernschema->set_text(hauptfenster->getChar().getAbenteurer().Ruestung()->Long()); 
-  label_herkunft_lernschema->set_text(hauptfenster->getChar().getAbenteurer().Herkunft()->Name());
+  label_ruestung_lernschema->set_text(hauptfenster->getChar()->Ruestung()->Long()); 
+  label_herkunft_lernschema->set_text(hauptfenster->getChar()->Herkunft()->Name());
   fertig_typ->set_text(hauptfenster->getChar()->STyp());
 
   // Spezialwaffe anzeigen?
@@ -620,8 +620,8 @@ void table_lernschema::zeige_werte()
           hauptfenster->getChar()->Typ2()->Spezialgebiet() ) 
      show_magier_spezialgebiet(true);
      else show_magier_spezialgebiet(false);
-     if(hauptfenster->getChar().getAbenteurer().Spezialgebiet()->Name()!="")
-       combo_magier_spezialgebiet->get_entry()->set_text(hauptfenster->getChar().getAbenteurer().Spezialgebiet()->Name());
+     if(hauptfenster->getChar()->Spezialgebiet()->Name()!="")
+       combo_magier_spezialgebiet->get_entry()->set_text(hauptfenster->getChar()->Spezialgebiet()->Name());
      button_zauber->set_sensitive(true);   
    }
  else
@@ -641,7 +641,7 @@ void table_lernschema::zeige_werte()
      frame_KiDo_lernschema->hide();
    }
  // KiDo Stil setzen
- combo_kido_stil->get_entry()->set_text(hauptfenster->getChar().getAbenteurer().Spezialisierung());
+ combo_kido_stil->get_entry()->set_text(hauptfenster->getChar()->Spezialisierung());
 }
 
 void table_lernschema::zeige_lernpunkte()
@@ -669,7 +669,7 @@ void table_lernschema::show_gelerntes()
   LL.push_back(hauptfenster->getChar()->List_Sprache());
   LL.push_back(hauptfenster->getChar()->List_Schrift());
   LL.push_back(hauptfenster->getChar()->List_Beruf());  
-  LL.push_back(hauptfenster->getChar().getAbenteurer().Sinne());
+  LL.push_back(hauptfenster->getChar()->Sinne());
   {
   std::list<MBEmlt> temp;
   for(std::list<H_WaffeBesitz>::iterator i=hauptfenster->getChar()->List_Waffen_besitz().begin();i!=hauptfenster->getChar()->List_Waffen_besitz().end();++i)
