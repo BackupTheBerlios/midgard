@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.pgcc,v 1.15 2001/11/19 08:34:15 christof Exp $
+// $Id: fertigk_exp.pgcc,v 1.16 2001/11/20 07:22:37 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -92,6 +92,32 @@ void fert_speichern(std::ostream &o)
          }
          o << "</Ausnahme>\n";
       }
+
+      //********** fertigkeiten_voraussetzung **********************************
+      exec sql declare cursor_vor cursor for 
+      	select st,ge,ko,"in",zt,au,pa,sb,rw, fertigkeit
+      	from fertigkeiten_voraussetzung
+      	where name=:FERTIGK 
+      	order by fertigkeit;
+      exec sql open cursor_vor;
+      while (!sqlca.sqlcode) 
+      {  exec sql fetch from cursor_vor into sql descriptor spalten;
+         if (sqlca.sqlcode) break;
+         FetchIStream is2("spalten");
+         o << "    <Voraussetzungen";
+         fetch_and_write_int_attrib(is2, o, "St");
+         fetch_and_write_int_attrib(is2, o, "Ge");
+         fetch_and_write_int_attrib(is2, o, "Ko");
+         fetch_and_write_int_attrib(is2, o, "In");
+         fetch_and_write_int_attrib(is2, o, "Zt");
+         fetch_and_write_int_attrib(is2, o, "Au");
+         fetch_and_write_int_attrib(is2, o, "pA");
+         fetch_and_write_int_attrib(is2, o, "Sb");
+         fetch_and_write_int_attrib(is2, o, "RW");
+         fetch_and_write_string_attrib(is2, o, "Fertigkeit");
+         o << "/>\n";
+      }
+      exec sql close cursor_vor;
 
       //********** Lernschema **********************************
       // wert, attribut, [p+s]_element 
