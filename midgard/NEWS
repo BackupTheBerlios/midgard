@@ -17,16 +17,11 @@ NEWS IN VERSION 0.6delta4
 * Kultwaffe für Priester kann gelernt werden, auch wenn sie mehr Lernpunkte
    kostet als vorhanden sind.
 * Redesign: Abenteurerklasse, Lernschema und Steigern in eigener 
-   Oberflächenklasse, Geld eingeben, EP eingeben
-* Goldeingabe testen
-* EP eingabe testen
+   Oberflächenklasse, Geld eingeben, EP eingeben, Rüstung, Waffenbesitz
+* KiDo Stil nach dem laden setzten
 
 
 TODO:
-* Rüstung testen
-* Waffenbesitz testen
-* KiDo nachträglich lernen (Stilauswahl) testen
-* KiDo Stil nach dem laden setzten
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
 in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
 links). 

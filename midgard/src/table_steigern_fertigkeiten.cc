@@ -88,11 +88,9 @@ void table_steigern::on_leaf_selected_neue_fert(cH_RowDataBase d)
   cH_MidgardBasicElement MBE = dt->getMBE();
   if (MBE->Name()=="KiDo") 
     { zeige_werte();
-//      optionmenu_KiDo_Stile->set_sensitive(true);
-//      button_kido_auswahl->set_sensitive(false);
       hauptfenster->InfoFenster->AppendShow("Jetzt muß ein Stil unter 'Lernschema' -> 'KiDo' gewählt werden !!!",WindowInfo::None);
+      hauptfenster->load_for_mainpage(midgard_CG::PAGE_LERNEN);
       MidgardBasicElement_leaf_neu(d);      
-//      hauptfenster->lernschema_sensitive(true);
     }
   else if (MBE->Name()=="Zaubern") 
     {  
@@ -101,6 +99,5 @@ void table_steigern::on_leaf_selected_neue_fert(cH_RowDataBase d)
   else 
      MidgardBasicElement_leaf_neu(d);
    on_fertigkeiten_laden_clicked();
-//  fertigkeiten_zeigen();
 }
 

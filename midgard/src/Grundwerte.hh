@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.38 2002/05/24 14:06:52 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.39 2002/05/25 07:21:48 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -230,8 +230,12 @@ public:
    void setBeschreibungPix(const std::string& _b){beschreibung.file=_b;}
    void setBeschreibungPixSize(int i){beschreibung.size=i;}
 //   void clearRuestung() {ruestung.clear(); }
-   void setRuestung1(cH_Ruestung r){ruestung[0]=r;}
-   void setRuestung2(cH_Ruestung r){ruestung[1]=r;}
+//   void setRuestung1(cH_Ruestung r){ruestung[0]=r;}
+//   void setRuestung2(cH_Ruestung r){ruestung[1]=r;}
+   void setRuestung1(std::string r,bool force=false)
+      {ruestung[0]=cH_Ruestung(r,force);}
+   void setRuestung2(std::string r,bool force=false)
+      {ruestung[1]=cH_Ruestung(r,force);}
    void setStadt_Land(const std::string& sl) {stadt_land=sl;}
    void setGFP(int _gfp){gfp=_gfp;}
    void addGFP(int _gfp){gfp += _gfp;}

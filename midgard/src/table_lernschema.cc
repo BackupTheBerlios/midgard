@@ -15,7 +15,7 @@
 #include "Window_Geld_eingeben.hh"
 #include "Window_ruestung.hh"
 #include <SelectMatching.h>
-
+#include "KiDo.hh"
 
 void table_lernschema::init(midgard_CG *h)
 {
@@ -479,7 +479,7 @@ void table_lernschema::on_button_ruestung_clicked()
       if (96 <= wurf && wurf  <= 100) rue = "LR" ;
    }
 //  hauptfenster->getWerte().clearRuestung();
-  hauptfenster->getWerte().setRuestung1(cH_Ruestung(rue));
+  hauptfenster->getWerte().setRuestung1(rue);
   hauptfenster->set_status("Beim Auswürfeln der Rüstung wurde eine "+itos(wurf)+" gewürfelt "
              "==> " + hauptfenster->getCWerte().Ruestung()->Long());
   zeige_werte();
@@ -534,7 +534,8 @@ void table_lernschema::zeige_werte()
    { 
      optionmenu_KiDo_Stile->show();
      frame_KiDo_lernschema->show();
-   }  
+//     Gtk::Menu_Helpers::SelectMatching(*optionmenu_KiDo_Stile,hauptfenster->getCWerte().Spezialisierung());
+    }  
  else 
    { 
      optionmenu_KiDo_Stile->hide();
@@ -545,16 +546,15 @@ void table_lernschema::zeige_werte()
 #warning TODO
 // Gtk::Menu_Helpers::SelectMatching(*optionmenu_KiDo_Stile,hauptfenster->getCWerte().Spezialisierung());
  
-/*
+ KiDo_Stile kido_stil;
  int kido_stil_nr=0;
- if (hauptfenster->getCWerte().Spezialisierung()==Vkido[2]) kido_stil_nr = 1;
- if (hauptfenster->getCWerte().Spezialisierung()==Vkido[1]) kido_stil_nr = 2;
- if (hauptfenster->getCWerte().Spezialisierung()==Vkido[3]) kido_stil_nr = 3;
+ if (hauptfenster->getCWerte().Spezialisierung()==kido_stil.hart()) kido_stil_nr = 1;
+ if (hauptfenster->getCWerte().Spezialisierung()==kido_stil.sanft()) kido_stil_nr = 2;
+ if (hauptfenster->getCWerte().Spezialisierung()==kido_stil.gemischt()) kido_stil_nr = 3;
  if (kido_stil_nr!=0)
   {   
     optionmenu_KiDo_Stile->set_history(kido_stil_nr);
   }
-*/
 }
 
 void table_lernschema::zeige_lernpunkte()

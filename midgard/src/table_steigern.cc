@@ -47,6 +47,7 @@ void table_steigern::neuer_charakter()
 {
  label_EP->set_text("50%");  
  label_Gold->set_text("50%");
+ vscale_EP_Gold->get_adjustment()->set_value(50);
  scrolledwindow_landauswahl->hide();
  spinbutton_pp_eingeben->hide(); 
  vbox_praxispunkte->hide();
@@ -204,6 +205,7 @@ void table_steigern::zeige_werte()
     button_grad_zaubern->set_sensitive(false);
     frame_pp_zaubern->set_sensitive(false);
   }
+ show_label();
 
 }
 

@@ -42,7 +42,7 @@
       <class>GtkTable</class>
       <name>main_table</name>
       <rows>4</rows>
-      <columns>4</columns>
+      <columns>1</columns>
       <homogeneous>False</homogeneous>
       <row_spacing>0</row_spacing>
       <column_spacing>0</column_spacing>
@@ -8809,15 +8809,18 @@ auswählen</label>
 	    <cxx_separate_file>True</cxx_separate_file>
 	    <cxx_separate_class>True</cxx_separate_class>
 	    <cxx_visibility>protected</cxx_visibility>
-	    <rows>4</rows>
-	    <columns>2</columns>
+	    <rows>3</rows>
+	    <columns>3</columns>
 	    <homogeneous>False</homogeneous>
 	    <row_spacing>0</row_spacing>
 	    <column_spacing>0</column_spacing>
 
 	    <widget>
-	      <class>GtkHSeparator</class>
-	      <name>hseparator21</name>
+	      <class>GtkHandleBox</class>
+	      <name>handlebox6</name>
+	      <shadow_type>GTK_SHADOW_NONE</shadow_type>
+	      <handle_position>GTK_POS_LEFT</handle_position>
+	      <snap_edge>GTK_POS_LEFT</snap_edge>
 	      <child>
 		<left_attach>0</left_attach>
 		<right_attach>2</right_attach>
@@ -8827,18 +8830,2094 @@ auswählen</label>
 		<ypad>0</ypad>
 		<xexpand>False</xexpand>
 		<yexpand>False</yexpand>
-		<xshrink>False</xshrink>
-		<yshrink>False</yshrink>
+		<xshrink>True</xshrink>
+		<yshrink>True</yshrink>
 		<xfill>True</xfill>
 		<yfill>False</yfill>
 	      </child>
+
+	      <widget>
+		<class>GtkTable</class>
+		<name>table99</name>
+		<rows>1</rows>
+		<columns>6</columns>
+		<homogeneous>False</homogeneous>
+		<row_spacing>0</row_spacing>
+		<column_spacing>0</column_spacing>
+
+		<widget>
+		  <class>GtkTable</class>
+		  <name>table72</name>
+		  <rows>3</rows>
+		  <columns>4</columns>
+		  <homogeneous>False</homogeneous>
+		  <row_spacing>0</row_spacing>
+		  <column_spacing>0</column_spacing>
+		  <child>
+		    <left_attach>2</left_attach>
+		    <right_attach>3</right_attach>
+		    <top_attach>0</top_attach>
+		    <bottom_attach>1</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>False</xfill>
+		    <yfill>True</yfill>
+		  </child>
+
+		  <widget>
+		    <class>GtkCheckButton</class>
+		    <name>button_gold_eingeben</name>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>toggled</name>
+		      <handler>on_button_geld_s_toggled</handler>
+		      <last_modification_time>Fri, 24 May 2002 09:05:06 GMT</last_modification_time>
+		    </signal>
+		    <active>False</active>
+		    <draw_indicator>False</draw_indicator>
+		    <child>
+		      <left_attach>3</left_attach>
+		      <right_attach>4</right_attach>
+		      <top_attach>2</top_attach>
+		      <bottom_attach>3</bottom_attach>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <xexpand>False</xexpand>
+		      <yexpand>False</yexpand>
+		      <xshrink>False</xshrink>
+		      <yshrink>False</yshrink>
+		      <xfill>False</xfill>
+		      <yfill>False</yfill>
+		    </child>
+
+		    <widget>
+		      <class>GtkEventBox</class>
+		      <name>eventbox7</name>
+		      <tooltip>Geld eingeben</tooltip>
+
+		      <widget>
+			<class>GtkPixmap</class>
+			<name>pixmap62</name>
+			<filename>Money-50.xpm</filename>
+			<xalign>0.5</xalign>
+			<yalign>0.5</yalign>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<build_insensitive>True</build_insensitive>
+		      </widget>
+		    </widget>
+		  </widget>
+
+		  <widget>
+		    <class>GtkHBox</class>
+		    <name>hbox30</name>
+		    <homogeneous>True</homogeneous>
+		    <spacing>0</spacing>
+		    <child>
+		      <left_attach>0</left_attach>
+		      <right_attach>3</right_attach>
+		      <top_attach>0</top_attach>
+		      <bottom_attach>1</bottom_attach>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <xexpand>False</xexpand>
+		      <yexpand>True</yexpand>
+		      <xshrink>True</xshrink>
+		      <yshrink>True</yshrink>
+		      <xfill>True</xfill>
+		      <yfill>True</yfill>
+		    </child>
+
+		    <widget>
+		      <class>GtkFrame</class>
+		      <name>frame67</name>
+		      <label>AEP</label>
+		      <label_xalign>0</label_xalign>
+		      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+		      <child>
+			<padding>0</padding>
+			<expand>True</expand>
+			<fill>True</fill>
+		      </child>
+
+		      <widget>
+			<class>GtkHBox</class>
+			<name>hbox80</name>
+			<homogeneous>False</homogeneous>
+			<spacing>0</spacing>
+
+			<widget>
+			  <class>GtkSpinButton</class>
+			  <name>spinbutton_aep</name>
+			  <width>60</width>
+			  <cxx_visibility>protected</cxx_visibility>
+			  <can_focus>True</can_focus>
+			  <signal>
+			    <name>activate</name>
+			    <handler>on_spinbutton_aep_activate</handler>
+			    <last_modification_time>Fri, 24 May 2002 09:33:53 GMT</last_modification_time>
+			  </signal>
+			  <signal>
+			    <name>focus_out_event</name>
+			    <handler>on_spinbutton_aep_focus_out_event</handler>
+			    <last_modification_time>Fri, 24 May 2002 09:33:59 GMT</last_modification_time>
+			  </signal>
+			  <signal>
+			    <name>focus_in_event</name>
+			    <handler>on_spinbutton_aep_focus_in_event</handler>
+			    <last_modification_time>Fri, 24 May 2002 09:34:04 GMT</last_modification_time>
+			  </signal>
+			  <climb_rate>1</climb_rate>
+			  <digits>0</digits>
+			  <numeric>True</numeric>
+			  <update_policy>GTK_UPDATE_ALWAYS</update_policy>
+			  <snap>False</snap>
+			  <wrap>False</wrap>
+			  <value>1</value>
+			  <lower>0</lower>
+			  <upper>100000</upper>
+			  <step>1</step>
+			  <page>10</page>
+			  <page_size>10</page_size>
+			  <child>
+			    <padding>0</padding>
+			    <expand>True</expand>
+			    <fill>True</fill>
+			  </child>
+			</widget>
+
+			<widget>
+			  <class>GtkLabel</class>
+			  <name>label_aep</name>
+			  <cxx_visibility>protected</cxx_visibility>
+			  <label>0</label>
+			  <justify>GTK_JUSTIFY_CENTER</justify>
+			  <wrap>False</wrap>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <child>
+			    <padding>0</padding>
+			    <expand>True</expand>
+			    <fill>True</fill>
+			  </child>
+			</widget>
+		      </widget>
+		    </widget>
+
+		    <widget>
+		      <class>GtkFrame</class>
+		      <name>frame68</name>
+		      <label>KEP</label>
+		      <label_xalign>0</label_xalign>
+		      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+		      <child>
+			<padding>0</padding>
+			<expand>True</expand>
+			<fill>True</fill>
+		      </child>
+
+		      <widget>
+			<class>GtkHBox</class>
+			<name>hbox81</name>
+			<homogeneous>False</homogeneous>
+			<spacing>0</spacing>
+
+			<widget>
+			  <class>GtkSpinButton</class>
+			  <name>spinbutton_kep</name>
+			  <width>60</width>
+			  <cxx_visibility>protected</cxx_visibility>
+			  <can_focus>True</can_focus>
+			  <signal>
+			    <name>activate</name>
+			    <handler>on_spinbutton_kep_activate</handler>
+			    <last_modification_time>Fri, 24 May 2002 09:33:35 GMT</last_modification_time>
+			  </signal>
+			  <signal>
+			    <name>focus_out_event</name>
+			    <handler>on_spinbutton_kep_focus_out_event</handler>
+			    <last_modification_time>Fri, 24 May 2002 09:33:40 GMT</last_modification_time>
+			  </signal>
+			  <signal>
+			    <name>focus_in_event</name>
+			    <handler>on_spinbutton_kep_focus_in_event</handler>
+			    <last_modification_time>Fri, 24 May 2002 09:33:46 GMT</last_modification_time>
+			  </signal>
+			  <climb_rate>1</climb_rate>
+			  <digits>0</digits>
+			  <numeric>True</numeric>
+			  <update_policy>GTK_UPDATE_ALWAYS</update_policy>
+			  <snap>False</snap>
+			  <wrap>False</wrap>
+			  <value>1</value>
+			  <lower>0</lower>
+			  <upper>100000</upper>
+			  <step>1</step>
+			  <page>10</page>
+			  <page_size>10</page_size>
+			  <child>
+			    <padding>0</padding>
+			    <expand>True</expand>
+			    <fill>True</fill>
+			  </child>
+			</widget>
+
+			<widget>
+			  <class>GtkLabel</class>
+			  <name>label_kep</name>
+			  <cxx_visibility>protected</cxx_visibility>
+			  <label>0</label>
+			  <justify>GTK_JUSTIFY_CENTER</justify>
+			  <wrap>False</wrap>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <child>
+			    <padding>0</padding>
+			    <expand>True</expand>
+			    <fill>True</fill>
+			  </child>
+			</widget>
+		      </widget>
+		    </widget>
+
+		    <widget>
+		      <class>GtkFrame</class>
+		      <name>frame69</name>
+		      <label>ZEP</label>
+		      <label_xalign>0</label_xalign>
+		      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+		      <child>
+			<padding>0</padding>
+			<expand>True</expand>
+			<fill>True</fill>
+		      </child>
+
+		      <widget>
+			<class>GtkHBox</class>
+			<name>hbox82</name>
+			<homogeneous>False</homogeneous>
+			<spacing>0</spacing>
+
+			<widget>
+			  <class>GtkSpinButton</class>
+			  <name>spinbutton_zep</name>
+			  <width>60</width>
+			  <cxx_visibility>protected</cxx_visibility>
+			  <can_focus>True</can_focus>
+			  <signal>
+			    <name>activate</name>
+			    <handler>on_spinbutton_zep_activate</handler>
+			    <last_modification_time>Fri, 24 May 2002 09:33:14 GMT</last_modification_time>
+			  </signal>
+			  <signal>
+			    <name>focus_out_event</name>
+			    <handler>on_spinbutton_zep_focus_out_event</handler>
+			    <last_modification_time>Fri, 24 May 2002 09:33:20 GMT</last_modification_time>
+			  </signal>
+			  <signal>
+			    <name>focus_in_event</name>
+			    <handler>on_spinbutton_zep_focus_in_event</handler>
+			    <last_modification_time>Fri, 24 May 2002 09:33:26 GMT</last_modification_time>
+			  </signal>
+			  <climb_rate>1</climb_rate>
+			  <digits>0</digits>
+			  <numeric>True</numeric>
+			  <update_policy>GTK_UPDATE_ALWAYS</update_policy>
+			  <snap>False</snap>
+			  <wrap>False</wrap>
+			  <value>1</value>
+			  <lower>0</lower>
+			  <upper>100000</upper>
+			  <step>1</step>
+			  <page>10</page>
+			  <page_size>10</page_size>
+			  <child>
+			    <padding>0</padding>
+			    <expand>True</expand>
+			    <fill>True</fill>
+			  </child>
+			</widget>
+
+			<widget>
+			  <class>GtkLabel</class>
+			  <name>label_zep</name>
+			  <cxx_visibility>protected</cxx_visibility>
+			  <label>0</label>
+			  <justify>GTK_JUSTIFY_CENTER</justify>
+			  <wrap>False</wrap>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <child>
+			    <padding>0</padding>
+			    <expand>True</expand>
+			    <fill>True</fill>
+			  </child>
+			</widget>
+		      </widget>
+		    </widget>
+		  </widget>
+
+		  <widget>
+		    <class>GtkHBox</class>
+		    <name>hbox31</name>
+		    <homogeneous>False</homogeneous>
+		    <spacing>0</spacing>
+		    <child>
+		      <left_attach>0</left_attach>
+		      <right_attach>3</right_attach>
+		      <top_attach>2</top_attach>
+		      <bottom_attach>3</bottom_attach>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <xexpand>False</xexpand>
+		      <yexpand>True</yexpand>
+		      <xshrink>False</xshrink>
+		      <yshrink>False</yshrink>
+		      <xfill>True</xfill>
+		      <yfill>True</yfill>
+		    </child>
+
+		    <widget>
+		      <class>GtkFrame</class>
+		      <name>frame70</name>
+		      <label>Gold</label>
+		      <label_xalign>0</label_xalign>
+		      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+		      <child>
+			<padding>0</padding>
+			<expand>True</expand>
+			<fill>True</fill>
+		      </child>
+
+		      <widget>
+			<class>GtkHBox</class>
+			<name>hbox77</name>
+			<homogeneous>False</homogeneous>
+			<spacing>0</spacing>
+
+			<widget>
+			  <class>GtkSpinButton</class>
+			  <name>spinbutton_gold</name>
+			  <width>60</width>
+			  <cxx_visibility>protected</cxx_visibility>
+			  <can_focus>True</can_focus>
+			  <signal>
+			    <name>activate</name>
+			    <handler>on_spinbutton_gold_activate</handler>
+			    <last_modification_time>Fri, 17 Aug 2001 13:39:37 GMT</last_modification_time>
+			  </signal>
+			  <signal>
+			    <name>focus_out_event</name>
+			    <handler>on_spinbutton_gold_focus_out_event</handler>
+			    <last_modification_time>Fri, 24 May 2002 07:21:17 GMT</last_modification_time>
+			  </signal>
+			  <signal>
+			    <name>focus_in_event</name>
+			    <handler>on_spinbutton_gold_focus_in_event</handler>
+			    <last_modification_time>Fri, 24 May 2002 07:21:24 GMT</last_modification_time>
+			  </signal>
+			  <climb_rate>1</climb_rate>
+			  <digits>0</digits>
+			  <numeric>True</numeric>
+			  <update_policy>GTK_UPDATE_ALWAYS</update_policy>
+			  <snap>False</snap>
+			  <wrap>False</wrap>
+			  <value>1</value>
+			  <lower>0</lower>
+			  <upper>100000</upper>
+			  <step>1</step>
+			  <page>10</page>
+			  <page_size>10</page_size>
+			  <child>
+			    <padding>0</padding>
+			    <expand>True</expand>
+			    <fill>True</fill>
+			  </child>
+			</widget>
+
+			<widget>
+			  <class>GtkLabel</class>
+			  <name>label_gold</name>
+			  <cxx_visibility>protected</cxx_visibility>
+			  <label>0</label>
+			  <justify>GTK_JUSTIFY_CENTER</justify>
+			  <wrap>False</wrap>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <child>
+			    <padding>0</padding>
+			    <expand>True</expand>
+			    <fill>True</fill>
+			  </child>
+			</widget>
+		      </widget>
+		    </widget>
+
+		    <widget>
+		      <class>GtkFrame</class>
+		      <name>frame71</name>
+		      <label>Silber</label>
+		      <label_xalign>0</label_xalign>
+		      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+		      <child>
+			<padding>0</padding>
+			<expand>True</expand>
+			<fill>True</fill>
+		      </child>
+
+		      <widget>
+			<class>GtkHBox</class>
+			<name>hbox78</name>
+			<homogeneous>False</homogeneous>
+			<spacing>0</spacing>
+
+			<widget>
+			  <class>GtkSpinButton</class>
+			  <name>spinbutton_silber</name>
+			  <width>60</width>
+			  <cxx_visibility>protected</cxx_visibility>
+			  <can_focus>True</can_focus>
+			  <signal>
+			    <name>activate</name>
+			    <handler>on_spinbutton_silber_activate</handler>
+			    <last_modification_time>Fri, 17 Aug 2001 13:39:46 GMT</last_modification_time>
+			  </signal>
+			  <signal>
+			    <name>focus_out_event</name>
+			    <handler>on_spinbutton_silber_focus_out_event</handler>
+			    <last_modification_time>Fri, 24 May 2002 07:21:57 GMT</last_modification_time>
+			  </signal>
+			  <signal>
+			    <name>focus_in_event</name>
+			    <handler>on_spinbutton_silber_focus_in_event</handler>
+			    <last_modification_time>Fri, 24 May 2002 07:22:04 GMT</last_modification_time>
+			  </signal>
+			  <climb_rate>1</climb_rate>
+			  <digits>0</digits>
+			  <numeric>True</numeric>
+			  <update_policy>GTK_UPDATE_ALWAYS</update_policy>
+			  <snap>False</snap>
+			  <wrap>False</wrap>
+			  <value>1</value>
+			  <lower>0</lower>
+			  <upper>100000</upper>
+			  <step>1</step>
+			  <page>10</page>
+			  <page_size>10</page_size>
+			  <child>
+			    <padding>0</padding>
+			    <expand>True</expand>
+			    <fill>True</fill>
+			  </child>
+			</widget>
+
+			<widget>
+			  <class>GtkLabel</class>
+			  <name>label_silber</name>
+			  <cxx_visibility>protected</cxx_visibility>
+			  <label>0</label>
+			  <justify>GTK_JUSTIFY_CENTER</justify>
+			  <wrap>False</wrap>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <child>
+			    <padding>0</padding>
+			    <expand>True</expand>
+			    <fill>True</fill>
+			  </child>
+			</widget>
+		      </widget>
+		    </widget>
+
+		    <widget>
+		      <class>GtkFrame</class>
+		      <name>frame72</name>
+		      <label>Kupfer</label>
+		      <label_xalign>0</label_xalign>
+		      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+		      <child>
+			<padding>0</padding>
+			<expand>True</expand>
+			<fill>True</fill>
+		      </child>
+
+		      <widget>
+			<class>GtkHBox</class>
+			<name>hbox79</name>
+			<homogeneous>False</homogeneous>
+			<spacing>0</spacing>
+
+			<widget>
+			  <class>GtkSpinButton</class>
+			  <name>spinbutton_kupfer</name>
+			  <width>60</width>
+			  <cxx_visibility>protected</cxx_visibility>
+			  <can_focus>True</can_focus>
+			  <signal>
+			    <name>activate</name>
+			    <handler>on_spinbutton_kupfer_activate</handler>
+			    <last_modification_time>Fri, 17 Aug 2001 13:39:52 GMT</last_modification_time>
+			  </signal>
+			  <signal>
+			    <name>focus_out_event</name>
+			    <handler>on_spinbutton_kupfer_focus_out_event</handler>
+			    <last_modification_time>Fri, 24 May 2002 07:22:16 GMT</last_modification_time>
+			  </signal>
+			  <signal>
+			    <name>focus_in_event</name>
+			    <handler>on_spinbutton_kupfer_focus_in_event</handler>
+			    <last_modification_time>Fri, 24 May 2002 07:22:22 GMT</last_modification_time>
+			  </signal>
+			  <climb_rate>1</climb_rate>
+			  <digits>0</digits>
+			  <numeric>True</numeric>
+			  <update_policy>GTK_UPDATE_ALWAYS</update_policy>
+			  <snap>False</snap>
+			  <wrap>False</wrap>
+			  <value>1</value>
+			  <lower>0</lower>
+			  <upper>100000</upper>
+			  <step>1</step>
+			  <page>10</page>
+			  <page_size>10</page_size>
+			  <child>
+			    <padding>0</padding>
+			    <expand>True</expand>
+			    <fill>True</fill>
+			  </child>
+			</widget>
+
+			<widget>
+			  <class>GtkLabel</class>
+			  <name>label_kupfer</name>
+			  <cxx_visibility>protected</cxx_visibility>
+			  <label>0</label>
+			  <justify>GTK_JUSTIFY_CENTER</justify>
+			  <wrap>False</wrap>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <child>
+			    <padding>0</padding>
+			    <expand>True</expand>
+			    <fill>True</fill>
+			  </child>
+			</widget>
+		      </widget>
+		    </widget>
+		  </widget>
+
+		  <widget>
+		    <class>GtkFrame</class>
+		    <name>frame41</name>
+		    <label>GFP</label>
+		    <label_xalign>0</label_xalign>
+		    <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+		    <child>
+		      <left_attach>1</left_attach>
+		      <right_attach>3</right_attach>
+		      <top_attach>1</top_attach>
+		      <bottom_attach>2</bottom_attach>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <xexpand>False</xexpand>
+		      <yexpand>False</yexpand>
+		      <xshrink>False</xshrink>
+		      <yshrink>False</yshrink>
+		      <xfill>True</xfill>
+		      <yfill>True</yfill>
+		    </child>
+
+		    <widget>
+		      <class>GtkHBox</class>
+		      <name>hbox83</name>
+		      <homogeneous>False</homogeneous>
+		      <spacing>0</spacing>
+
+		      <widget>
+			<class>GtkSpinButton</class>
+			<name>spinbutton_gfp</name>
+			<width>60</width>
+			<cxx_visibility>protected</cxx_visibility>
+			<can_focus>True</can_focus>
+			<signal>
+			  <name>activate</name>
+			  <handler>on_spinbutton_gfp_activate</handler>
+			  <last_modification_time>Fri, 24 May 2002 13:28:30 GMT</last_modification_time>
+			</signal>
+			<signal>
+			  <name>focus_out_event</name>
+			  <handler>on_spinbutton_gfp_focus_out_event</handler>
+			  <last_modification_time>Fri, 24 May 2002 13:28:36 GMT</last_modification_time>
+			</signal>
+			<signal>
+			  <name>focus_in_event</name>
+			  <handler>on_spinbutton_gfp_focus_in_event</handler>
+			  <last_modification_time>Fri, 24 May 2002 13:28:43 GMT</last_modification_time>
+			</signal>
+			<climb_rate>1</climb_rate>
+			<digits>0</digits>
+			<numeric>True</numeric>
+			<update_policy>GTK_UPDATE_ALWAYS</update_policy>
+			<snap>False</snap>
+			<wrap>False</wrap>
+			<value>1</value>
+			<lower>0</lower>
+			<upper>100000</upper>
+			<step>1</step>
+			<page>10</page>
+			<page_size>10</page_size>
+			<child>
+			  <padding>0</padding>
+			  <expand>True</expand>
+			  <fill>True</fill>
+			</child>
+		      </widget>
+
+		      <widget>
+			<class>GtkLabel</class>
+			<name>gfp</name>
+			<cxx_visibility>protected</cxx_visibility>
+			<label>0</label>
+			<justify>GTK_JUSTIFY_CENTER</justify>
+			<wrap>False</wrap>
+			<xalign>0.5</xalign>
+			<yalign>0.5</yalign>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<child>
+			  <padding>0</padding>
+			  <expand>True</expand>
+			  <fill>True</fill>
+			</child>
+		      </widget>
+		    </widget>
+		  </widget>
+
+		  <widget>
+		    <class>GtkCheckButton</class>
+		    <name>checkbutton_EP_Geld</name>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <tooltip>Ist dieser Knopf aktiviert, dann werden die Erfahrungspunkte und das Geld beim Steigern entsprechend dem eingestellten Verhältnis reduziert. Ist dieser Knof deaktiviert, so kann beliebig gesteigert werden.</tooltip>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>toggled</name>
+		      <handler>on_checkbutton_EP_Geld_toggled</handler>
+		      <last_modification_time>Thu, 16 Aug 2001 08:11:17 GMT</last_modification_time>
+		    </signal>
+		    <active>True</active>
+		    <draw_indicator>False</draw_indicator>
+		    <child>
+		      <left_attach>0</left_attach>
+		      <right_attach>1</right_attach>
+		      <top_attach>1</top_attach>
+		      <bottom_attach>2</bottom_attach>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <xexpand>False</xexpand>
+		      <yexpand>False</yexpand>
+		      <xshrink>False</xshrink>
+		      <yshrink>False</yshrink>
+		      <xfill>True</xfill>
+		      <yfill>False</yfill>
+		    </child>
+
+		    <widget>
+		      <class>GtkHBox</class>
+		      <name>hbox45</name>
+		      <homogeneous>False</homogeneous>
+		      <spacing>0</spacing>
+
+		      <widget>
+			<class>GtkPixmap</class>
+			<name>pixmap80</name>
+			<filename>EP-Steigern-50.xpm</filename>
+			<xalign>0.5</xalign>
+			<yalign>0.5</yalign>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<build_insensitive>True</build_insensitive>
+			<child>
+			  <padding>0</padding>
+			  <expand>True</expand>
+			  <fill>True</fill>
+			</child>
+		      </widget>
+
+		      <widget>
+			<class>GtkLabel</class>
+			<name>label521</name>
+			<label>Mit EP/PP
+steigern</label>
+			<justify>GTK_JUSTIFY_CENTER</justify>
+			<wrap>False</wrap>
+			<xalign>0.5</xalign>
+			<yalign>0.5</yalign>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<child>
+			  <padding>0</padding>
+			  <expand>False</expand>
+			  <fill>False</fill>
+			</child>
+		      </widget>
+		    </widget>
+		  </widget>
+
+		  <widget>
+		    <class>GtkCheckButton</class>
+		    <name>checkbutton_gfp</name>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>toggled</name>
+		      <handler>on_button_gfp_s_toggled</handler>
+		      <last_modification_time>Fri, 24 May 2002 13:27:25 GMT</last_modification_time>
+		    </signal>
+		    <active>False</active>
+		    <draw_indicator>False</draw_indicator>
+		    <child>
+		      <left_attach>3</left_attach>
+		      <right_attach>4</right_attach>
+		      <top_attach>1</top_attach>
+		      <bottom_attach>2</bottom_attach>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <xexpand>False</xexpand>
+		      <yexpand>False</yexpand>
+		      <xshrink>False</xshrink>
+		      <yshrink>False</yshrink>
+		      <xfill>True</xfill>
+		      <yfill>False</yfill>
+		    </child>
+
+		    <widget>
+		      <class>GtkEventBox</class>
+		      <name>eventbox19</name>
+		      <tooltip>GFP eingeben</tooltip>
+
+		      <widget>
+			<class>GtkPixmap</class>
+			<name>pixmap161</name>
+			<filename>Angeb_Richtung-32.xpm</filename>
+			<xalign>0.5</xalign>
+			<yalign>0.5</yalign>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<build_insensitive>True</build_insensitive>
+		      </widget>
+		    </widget>
+		  </widget>
+
+		  <widget>
+		    <class>GtkCheckButton</class>
+		    <name>button_EP</name>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <signal>
+		      <name>toggled</name>
+		      <handler>on_button_EP_toggled</handler>
+		      <last_modification_time>Fri, 24 May 2002 09:39:40 GMT</last_modification_time>
+		    </signal>
+		    <active>False</active>
+		    <draw_indicator>False</draw_indicator>
+		    <child>
+		      <left_attach>3</left_attach>
+		      <right_attach>4</right_attach>
+		      <top_attach>0</top_attach>
+		      <bottom_attach>1</bottom_attach>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <xexpand>False</xexpand>
+		      <yexpand>False</yexpand>
+		      <xshrink>False</xshrink>
+		      <yshrink>False</yshrink>
+		      <xfill>True</xfill>
+		      <yfill>False</yfill>
+		    </child>
+
+		    <widget>
+		      <class>GtkEventBox</class>
+		      <name>eventbox18</name>
+		      <tooltip>Erfahrungspunkte eingeben</tooltip>
+
+		      <widget>
+			<class>GtkPixmap</class>
+			<name>pixmap93</name>
+			<filename>EP-Eingabe2-50.xpm</filename>
+			<xalign>0.5</xalign>
+			<yalign>0.5</yalign>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<build_insensitive>True</build_insensitive>
+		      </widget>
+		    </widget>
+		  </widget>
+		</widget>
+
+		<widget>
+		  <class>GtkEventBox</class>
+		  <name>eventbox1</name>
+		  <tooltip>Einstellen des Verhältnisses zwischen Erfahrungspunkten und Gold beim Steigern. Je weiter oben, um so höher der Anteil der verwendeten EP. (Nur wenn mit 'Unterweisung' gesteigert wird.)</tooltip>
+		  <child>
+		    <left_attach>1</left_attach>
+		    <right_attach>2</right_attach>
+		    <top_attach>0</top_attach>
+		    <bottom_attach>1</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>True</xshrink>
+		    <yshrink>True</yshrink>
+		    <xfill>False</xfill>
+		    <yfill>True</yfill>
+		  </child>
+
+		  <widget>
+		    <class>GtkTable</class>
+		    <name>table73</name>
+		    <rows>3</rows>
+		    <columns>1</columns>
+		    <homogeneous>False</homogeneous>
+		    <row_spacing>0</row_spacing>
+		    <column_spacing>0</column_spacing>
+
+		    <widget>
+		      <class>GtkLabel</class>
+		      <name>label_EP</name>
+		      <cxx_visibility>protected</cxx_visibility>
+		      <label>50%</label>
+		      <justify>GTK_JUSTIFY_CENTER</justify>
+		      <wrap>False</wrap>
+		      <xalign>0</xalign>
+		      <yalign>0.5</yalign>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <child>
+			<left_attach>0</left_attach>
+			<right_attach>1</right_attach>
+			<top_attach>0</top_attach>
+			<bottom_attach>1</bottom_attach>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<xexpand>False</xexpand>
+			<yexpand>False</yexpand>
+			<xshrink>False</xshrink>
+			<yshrink>False</yshrink>
+			<xfill>False</xfill>
+			<yfill>False</yfill>
+		      </child>
+		    </widget>
+
+		    <widget>
+		      <class>GtkLabel</class>
+		      <name>label_Gold</name>
+		      <cxx_visibility>protected</cxx_visibility>
+		      <label>50%</label>
+		      <justify>GTK_JUSTIFY_CENTER</justify>
+		      <wrap>False</wrap>
+		      <xalign>0</xalign>
+		      <yalign>0.5</yalign>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <child>
+			<left_attach>0</left_attach>
+			<right_attach>1</right_attach>
+			<top_attach>2</top_attach>
+			<bottom_attach>3</bottom_attach>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<xexpand>False</xexpand>
+			<yexpand>False</yexpand>
+			<xshrink>False</xshrink>
+			<yshrink>False</yshrink>
+			<xfill>False</xfill>
+			<yfill>False</yfill>
+		      </child>
+		    </widget>
+
+		    <widget>
+		      <class>GtkVScale</class>
+		      <name>vscale_EP_Gold</name>
+		      <cxx_visibility>protected</cxx_visibility>
+		      <can_focus>True</can_focus>
+		      <signal>
+			<name>button_release_event</name>
+			<handler>vscale_value_changed</handler>
+			<last_modification_time>Wed, 15 Aug 2001 16:37:59 GMT</last_modification_time>
+		      </signal>
+		      <draw_value>False</draw_value>
+		      <value_pos>GTK_POS_TOP</value_pos>
+		      <digits>1</digits>
+		      <policy>GTK_UPDATE_CONTINUOUS</policy>
+		      <value>50</value>
+		      <lower>33</lower>
+		      <upper>68</upper>
+		      <step>1</step>
+		      <page>1</page>
+		      <page_size>1</page_size>
+		      <child>
+			<left_attach>0</left_attach>
+			<right_attach>1</right_attach>
+			<top_attach>1</top_attach>
+			<bottom_attach>2</bottom_attach>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<xexpand>False</xexpand>
+			<yexpand>True</yexpand>
+			<xshrink>False</xshrink>
+			<yshrink>False</yshrink>
+			<xfill>True</xfill>
+			<yfill>True</yfill>
+		      </child>
+		    </widget>
+		  </widget>
+		</widget>
+
+		<widget>
+		  <class>GtkFrame</class>
+		  <name>frame_lernen_mit</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <label>Steigern mit</label>
+		  <label_xalign>0</label_xalign>
+		  <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+		  <child>
+		    <left_attach>0</left_attach>
+		    <right_attach>1</right_attach>
+		    <top_attach>0</top_attach>
+		    <bottom_attach>1</bottom_attach>
+		    <xpad>5</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>False</xfill>
+		    <yfill>False</yfill>
+		  </child>
+
+		  <widget>
+		    <class>GtkTable</class>
+		    <name>table101</name>
+		    <rows>3</rows>
+		    <columns>1</columns>
+		    <homogeneous>False</homogeneous>
+		    <row_spacing>0</row_spacing>
+		    <column_spacing>0</column_spacing>
+
+		    <widget>
+		      <class>GtkRadioButton</class>
+		      <name>radiobutton_selbst</name>
+		      <cxx_visibility>protected</cxx_visibility>
+		      <tooltip>Steigern mit EP</tooltip>
+		      <can_focus>True</can_focus>
+		      <signal>
+			<name>toggled</name>
+			<handler>on_radio_selbst_toggled</handler>
+			<last_modification_time>Tue, 25 Dec 2001 14:57:34 GMT</last_modification_time>
+		      </signal>
+		      <active>False</active>
+		      <draw_indicator>False</draw_indicator>
+		      <group>lernen</group>
+		      <child>
+			<left_attach>0</left_attach>
+			<right_attach>1</right_attach>
+			<top_attach>1</top_attach>
+			<bottom_attach>2</bottom_attach>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<xexpand>False</xexpand>
+			<yexpand>False</yexpand>
+			<xshrink>False</xshrink>
+			<yshrink>False</yshrink>
+			<xfill>True</xfill>
+			<yfill>False</yfill>
+		      </child>
+
+		      <widget>
+			<class>GtkHBox</class>
+			<name>hbox42</name>
+			<homogeneous>False</homogeneous>
+			<spacing>0</spacing>
+
+			<widget>
+			  <class>GtkPixmap</class>
+			  <name>pixmap75</name>
+			  <filename>Self-Learning-32.xpm</filename>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <build_insensitive>True</build_insensitive>
+			  <child>
+			    <padding>0</padding>
+			    <expand>True</expand>
+			    <fill>True</fill>
+			  </child>
+			</widget>
+
+			<widget>
+			  <class>GtkLabel</class>
+			  <name>label518</name>
+			  <label>Selbsstudium</label>
+			  <justify>GTK_JUSTIFY_CENTER</justify>
+			  <wrap>False</wrap>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <child>
+			    <padding>0</padding>
+			    <expand>False</expand>
+			    <fill>False</fill>
+			  </child>
+			</widget>
+		      </widget>
+		    </widget>
+
+		    <widget>
+		      <class>GtkRadioButton</class>
+		      <name>radiobutton_praxis</name>
+		      <cxx_visibility>protected</cxx_visibility>
+		      <tooltip>Zum Steigern werden in erster Linie Praxispunkte verwendet. Es werden jedoch keine FP verschenkt, fehlenden FP werden durch EP aufgefüllt.</tooltip>
+		      <can_focus>True</can_focus>
+		      <signal>
+			<name>toggled</name>
+			<handler>on_radio_praxis_toggled</handler>
+			<last_modification_time>Tue, 25 Dec 2001 14:57:23 GMT</last_modification_time>
+		      </signal>
+		      <active>False</active>
+		      <draw_indicator>False</draw_indicator>
+		      <group>lernen</group>
+		      <child>
+			<left_attach>0</left_attach>
+			<right_attach>1</right_attach>
+			<top_attach>2</top_attach>
+			<bottom_attach>3</bottom_attach>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<xexpand>False</xexpand>
+			<yexpand>False</yexpand>
+			<xshrink>False</xshrink>
+			<yshrink>False</yshrink>
+			<xfill>True</xfill>
+			<yfill>False</yfill>
+		      </child>
+
+		      <widget>
+			<class>GtkHBox</class>
+			<name>hbox43</name>
+			<homogeneous>False</homogeneous>
+			<spacing>0</spacing>
+
+			<widget>
+			  <class>GtkPixmap</class>
+			  <name>pixmap76</name>
+			  <filename>Learning_by_Doing-32.xpm</filename>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <build_insensitive>True</build_insensitive>
+			  <child>
+			    <padding>0</padding>
+			    <expand>True</expand>
+			    <fill>True</fill>
+			  </child>
+			</widget>
+
+			<widget>
+			  <class>GtkLabel</class>
+			  <name>label519</name>
+			  <label>Praxis         </label>
+			  <justify>GTK_JUSTIFY_CENTER</justify>
+			  <wrap>False</wrap>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <child>
+			    <padding>0</padding>
+			    <expand>False</expand>
+			    <fill>False</fill>
+			  </child>
+			</widget>
+		      </widget>
+		    </widget>
+
+		    <widget>
+		      <class>GtkRadioButton</class>
+		      <name>radiobutton_unterweisung</name>
+		      <cxx_visibility>protected</cxx_visibility>
+		      <tooltip>Steigern mit Gold und EP</tooltip>
+		      <can_focus>True</can_focus>
+		      <signal>
+			<name>toggled</name>
+			<handler>on_radio_unterweisung_toggled</handler>
+			<last_modification_time>Tue, 25 Dec 2001 14:57:46 GMT</last_modification_time>
+		      </signal>
+		      <active>True</active>
+		      <draw_indicator>False</draw_indicator>
+		      <group>lernen</group>
+		      <child>
+			<left_attach>0</left_attach>
+			<right_attach>1</right_attach>
+			<top_attach>0</top_attach>
+			<bottom_attach>1</bottom_attach>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<xexpand>False</xexpand>
+			<yexpand>False</yexpand>
+			<xshrink>False</xshrink>
+			<yshrink>False</yshrink>
+			<xfill>True</xfill>
+			<yfill>False</yfill>
+		      </child>
+
+		      <widget>
+			<class>GtkHBox</class>
+			<name>hbox41</name>
+			<homogeneous>False</homogeneous>
+			<spacing>0</spacing>
+
+			<widget>
+			  <class>GtkPixmap</class>
+			  <name>pixmap77</name>
+			  <filename>Teacher-trans32.xpm</filename>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <build_insensitive>True</build_insensitive>
+			  <child>
+			    <padding>0</padding>
+			    <expand>True</expand>
+			    <fill>True</fill>
+			  </child>
+			</widget>
+
+			<widget>
+			  <class>GtkLabel</class>
+			  <name>label517</name>
+			  <label>Unterweisung</label>
+			  <justify>GTK_JUSTIFY_CENTER</justify>
+			  <wrap>False</wrap>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <child>
+			    <padding>0</padding>
+			    <expand>False</expand>
+			    <fill>False</fill>
+			  </child>
+			</widget>
+		      </widget>
+		    </widget>
+		  </widget>
+		</widget>
+
+		<widget>
+		  <class>GtkFrame</class>
+		  <name>frame_zauber_zusatz</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <label>Zauber</label>
+		  <label_xalign>0</label_xalign>
+		  <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+		  <child>
+		    <left_attach>5</left_attach>
+		    <right_attach>6</right_attach>
+		    <top_attach>0</top_attach>
+		    <bottom_attach>1</bottom_attach>
+		    <xpad>5</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>False</xfill>
+		    <yfill>True</yfill>
+		  </child>
+
+		  <widget>
+		    <class>GtkTable</class>
+		    <name>table102</name>
+		    <border_width>3</border_width>
+		    <rows>3</rows>
+		    <columns>2</columns>
+		    <homogeneous>False</homogeneous>
+		    <row_spacing>0</row_spacing>
+		    <column_spacing>0</column_spacing>
+
+		    <widget>
+		      <class>GtkTable</class>
+		      <name>table50</name>
+		      <rows>2</rows>
+		      <columns>1</columns>
+		      <homogeneous>False</homogeneous>
+		      <row_spacing>0</row_spacing>
+		      <column_spacing>0</column_spacing>
+		      <child>
+			<left_attach>1</left_attach>
+			<right_attach>2</right_attach>
+			<top_attach>0</top_attach>
+			<bottom_attach>1</bottom_attach>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<xexpand>True</xexpand>
+			<yexpand>True</yexpand>
+			<xshrink>False</xshrink>
+			<yshrink>False</yshrink>
+			<xfill>True</xfill>
+			<yfill>True</yfill>
+		      </child>
+
+		      <widget>
+			<class>GtkRadioButton</class>
+			<name>radio_spruchrolle_wuerfeln</name>
+			<cxx_visibility>protected</cxx_visibility>
+			<can_focus>True</can_focus>
+			<active>False</active>
+			<draw_indicator>False</draw_indicator>
+			<group>spruchrolle</group>
+			<child>
+			  <left_attach>0</left_attach>
+			  <right_attach>1</right_attach>
+			  <top_attach>0</top_attach>
+			  <bottom_attach>1</bottom_attach>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <xexpand>False</xexpand>
+			  <yexpand>True</yexpand>
+			  <xshrink>False</xshrink>
+			  <yshrink>False</yshrink>
+			  <xfill>True</xfill>
+			  <yfill>True</yfill>
+			</child>
+
+			<widget>
+			  <class>GtkPixmap</class>
+			  <name>pixmap81</name>
+			  <filename>select_wuerfeln.xpm</filename>
+			  <xalign>7.45058e-09</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <build_insensitive>True</build_insensitive>
+			</widget>
+		      </widget>
+
+		      <widget>
+			<class>GtkRadioButton</class>
+			<name>radio_spruchrolle_auto</name>
+			<cxx_visibility>protected</cxx_visibility>
+			<can_focus>True</can_focus>
+			<active>False</active>
+			<draw_indicator>False</draw_indicator>
+			<group>spruchrolle</group>
+			<child>
+			  <left_attach>0</left_attach>
+			  <right_attach>1</right_attach>
+			  <top_attach>1</top_attach>
+			  <bottom_attach>2</bottom_attach>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <xexpand>True</xexpand>
+			  <yexpand>True</yexpand>
+			  <xshrink>False</xshrink>
+			  <yshrink>False</yshrink>
+			  <xfill>True</xfill>
+			  <yfill>True</yfill>
+			</child>
+
+			<widget>
+			  <class>GtkPixmap</class>
+			  <name>pixmap82</name>
+			  <filename>select_automatisch.xpm</filename>
+			  <xalign>7.45058e-09</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <build_insensitive>True</build_insensitive>
+			</widget>
+		      </widget>
+		    </widget>
+
+		    <widget>
+		      <class>GtkToggleButton</class>
+		      <name>togglebutton_spruchrolle</name>
+		      <cxx_visibility>protected</cxx_visibility>
+		      <can_focus>True</can_focus>
+		      <signal>
+			<name>toggled</name>
+			<handler>on_spruchrolle_toggled</handler>
+			<last_modification_time>Thu, 27 Dec 2001 13:57:56 GMT</last_modification_time>
+		      </signal>
+		      <relief>GTK_RELIEF_HALF</relief>
+		      <active>False</active>
+		      <child>
+			<left_attach>0</left_attach>
+			<right_attach>1</right_attach>
+			<top_attach>0</top_attach>
+			<bottom_attach>1</bottom_attach>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<xexpand>False</xexpand>
+			<yexpand>False</yexpand>
+			<xshrink>False</xshrink>
+			<yshrink>False</yshrink>
+			<xfill>True</xfill>
+			<yfill>False</yfill>
+		      </child>
+
+		      <widget>
+			<class>GtkHBox</class>
+			<name>hbox44</name>
+			<homogeneous>False</homogeneous>
+			<spacing>0</spacing>
+
+			<widget>
+			  <class>GtkPixmap</class>
+			  <name>pixmap79</name>
+			  <filename>LearnRoll-trans-50.xpm</filename>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <build_insensitive>True</build_insensitive>
+			  <child>
+			    <padding>0</padding>
+			    <expand>False</expand>
+			    <fill>False</fill>
+			  </child>
+			</widget>
+
+			<widget>
+			  <class>GtkLabel</class>
+			  <name>label520</name>
+			  <label>Lernen mit
+Spruchrolle</label>
+			  <justify>GTK_JUSTIFY_CENTER</justify>
+			  <wrap>False</wrap>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <child>
+			    <padding>0</padding>
+			    <expand>False</expand>
+			    <fill>False</fill>
+			  </child>
+			</widget>
+		      </widget>
+		    </widget>
+
+		    <widget>
+		      <class>GtkToggleButton</class>
+		      <name>togglebutton_alle_zauber</name>
+		      <cxx_visibility>protected</cxx_visibility>
+		      <tooltip>Es kann aus ALLEN Zaubern gewählt werden</tooltip>
+		      <can_focus>True</can_focus>
+		      <signal>
+			<name>toggled</name>
+			<handler>on_togglebutton_alle_zauber_toggled</handler>
+			<last_modification_time>Thu, 24 Jan 2002 18:42:48 GMT</last_modification_time>
+		      </signal>
+		      <relief>GTK_RELIEF_NORMAL</relief>
+		      <active>False</active>
+		      <child>
+			<left_attach>0</left_attach>
+			<right_attach>1</right_attach>
+			<top_attach>1</top_attach>
+			<bottom_attach>2</bottom_attach>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<xexpand>False</xexpand>
+			<yexpand>False</yexpand>
+			<xshrink>False</xshrink>
+			<yshrink>False</yshrink>
+			<xfill>True</xfill>
+			<yfill>False</yfill>
+		      </child>
+
+		      <widget>
+			<class>GtkHBox</class>
+			<name>hbox49</name>
+			<homogeneous>False</homogeneous>
+			<spacing>0</spacing>
+
+			<widget>
+			  <class>GtkPixmap</class>
+			  <name>pixmap92</name>
+			  <filename>MAGUS_Logo_Small.xpm</filename>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <build_insensitive>True</build_insensitive>
+			  <child>
+			    <padding>0</padding>
+			    <expand>False</expand>
+			    <fill>False</fill>
+			  </child>
+			</widget>
+
+			<widget>
+			  <class>GtkLabel</class>
+			  <name>label534</name>
+			  <label>Alle Zauber
+anzeigen</label>
+			  <justify>GTK_JUSTIFY_CENTER</justify>
+			  <wrap>False</wrap>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <child>
+			    <padding>0</padding>
+			    <expand>False</expand>
+			    <fill>False</fill>
+			  </child>
+			</widget>
+		      </widget>
+		    </widget>
+
+		    <widget>
+		      <class>GtkToggleButton</class>
+		      <name>togglebutton_zaubersalze</name>
+		      <cxx_visibility>protected</cxx_visibility>
+		      <tooltip>Zaubersalze können gelernt werden</tooltip>
+		      <can_focus>True</can_focus>
+		      <signal>
+			<name>toggled</name>
+			<handler>on_togglebutton_zaubersalze_toggled</handler>
+			<last_modification_time>Thu, 24 Jan 2002 18:35:47 GMT</last_modification_time>
+		      </signal>
+		      <relief>GTK_RELIEF_NORMAL</relief>
+		      <active>False</active>
+		      <child>
+			<left_attach>0</left_attach>
+			<right_attach>1</right_attach>
+			<top_attach>2</top_attach>
+			<bottom_attach>3</bottom_attach>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<xexpand>False</xexpand>
+			<yexpand>False</yexpand>
+			<xshrink>False</xshrink>
+			<yshrink>False</yshrink>
+			<xfill>True</xfill>
+			<yfill>False</yfill>
+		      </child>
+
+		      <widget>
+			<class>GtkHBox</class>
+			<name>hbox48</name>
+			<homogeneous>False</homogeneous>
+			<spacing>0</spacing>
+
+			<widget>
+			  <class>GtkPixmap</class>
+			  <name>pixmap91</name>
+			  <filename>MAGUS_Logo_Small.xpm</filename>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <build_insensitive>True</build_insensitive>
+			  <child>
+			    <padding>0</padding>
+			    <expand>False</expand>
+			    <fill>False</fill>
+			  </child>
+			</widget>
+
+			<widget>
+			  <class>GtkLabel</class>
+			  <name>label533</name>
+			  <label>Zaubersalze
+anzeigen</label>
+			  <justify>GTK_JUSTIFY_CENTER</justify>
+			  <wrap>False</wrap>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <child>
+			    <padding>0</padding>
+			    <expand>False</expand>
+			    <fill>False</fill>
+			  </child>
+			</widget>
+		      </widget>
+		    </widget>
+
+		    <widget>
+		      <class>GtkTable</class>
+		      <name>table150</name>
+		      <rows>1</rows>
+		      <columns>1</columns>
+		      <homogeneous>False</homogeneous>
+		      <row_spacing>0</row_spacing>
+		      <column_spacing>0</column_spacing>
+		      <child>
+			<left_attach>1</left_attach>
+			<right_attach>2</right_attach>
+			<top_attach>2</top_attach>
+			<bottom_attach>3</bottom_attach>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<xexpand>False</xexpand>
+			<yexpand>False</yexpand>
+			<xshrink>False</xshrink>
+			<yshrink>False</yshrink>
+			<xfill>True</xfill>
+			<yfill>True</yfill>
+		      </child>
+		    </widget>
+		  </widget>
+		</widget>
+
+		<widget>
+		  <class>GtkFrame</class>
+		  <name>frame_fertigkeit</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <label>Fertigkeit</label>
+		  <label_xalign>0</label_xalign>
+		  <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+		  <child>
+		    <left_attach>3</left_attach>
+		    <right_attach>4</right_attach>
+		    <top_attach>0</top_attach>
+		    <bottom_attach>1</bottom_attach>
+		    <xpad>10</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>False</xfill>
+		    <yfill>False</yfill>
+		  </child>
+
+		  <widget>
+		    <class>GtkTable</class>
+		    <name>table100</name>
+		    <border_width>3</border_width>
+		    <rows>3</rows>
+		    <columns>1</columns>
+		    <homogeneous>False</homogeneous>
+		    <row_spacing>0</row_spacing>
+		    <column_spacing>0</column_spacing>
+
+		    <widget>
+		      <class>GtkRadioButton</class>
+		      <name>radiobutton_reduzieren</name>
+		      <cxx_visibility>protected</cxx_visibility>
+		      <tooltip>Ist dieser Knopf gedrückt werden die Erfolgswerte bereits gelernter Fertigkeiten (durch anklicken) reduziert.</tooltip>
+		      <can_focus>True</can_focus>
+		      <signal>
+			<name>toggled</name>
+			<handler>on_radio_reduzieren_toggled</handler>
+			<last_modification_time>Tue, 25 Dec 2001 14:47:57 GMT</last_modification_time>
+		      </signal>
+		      <active>False</active>
+		      <draw_indicator>False</draw_indicator>
+		      <group>steigern</group>
+		      <child>
+			<left_attach>0</left_attach>
+			<right_attach>1</right_attach>
+			<top_attach>1</top_attach>
+			<bottom_attach>2</bottom_attach>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<xexpand>False</xexpand>
+			<yexpand>False</yexpand>
+			<xshrink>False</xshrink>
+			<yshrink>False</yshrink>
+			<xfill>True</xfill>
+			<yfill>False</yfill>
+		      </child>
+
+		      <widget>
+			<class>GtkHBox</class>
+			<name>hbox38</name>
+			<homogeneous>False</homogeneous>
+			<spacing>0</spacing>
+
+			<widget>
+			  <class>GtkPixmap</class>
+			  <name>pixmap72</name>
+			  <filename>Reduzieren-trans-32.xpm</filename>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <build_insensitive>True</build_insensitive>
+			  <child>
+			    <padding>0</padding>
+			    <expand>True</expand>
+			    <fill>True</fill>
+			  </child>
+			</widget>
+
+			<widget>
+			  <class>GtkLabel</class>
+			  <name>label514</name>
+			  <label>Reduzieren</label>
+			  <justify>GTK_JUSTIFY_CENTER</justify>
+			  <wrap>False</wrap>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <child>
+			    <padding>0</padding>
+			    <expand>False</expand>
+			    <fill>False</fill>
+			  </child>
+			</widget>
+		      </widget>
+		    </widget>
+
+		    <widget>
+		      <class>GtkRadioButton</class>
+		      <name>radiobutton_verlernen</name>
+		      <cxx_visibility>protected</cxx_visibility>
+		      <tooltip>Ist dieser Knopf gedrückt wird eine bereits gelernter Fertigkeiten (durch anklicken) verlernt, wenn sie auf dem niedrigsten Erfolgswert beherrscht wird.</tooltip>
+		      <can_focus>True</can_focus>
+		      <signal>
+			<name>toggled</name>
+			<handler>on_radio_verlernen_toggled</handler>
+			<last_modification_time>Tue, 25 Dec 2001 14:48:07 GMT</last_modification_time>
+		      </signal>
+		      <active>False</active>
+		      <draw_indicator>False</draw_indicator>
+		      <group>steigern</group>
+		      <child>
+			<left_attach>0</left_attach>
+			<right_attach>1</right_attach>
+			<top_attach>2</top_attach>
+			<bottom_attach>3</bottom_attach>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<xexpand>False</xexpand>
+			<yexpand>False</yexpand>
+			<xshrink>False</xshrink>
+			<yshrink>False</yshrink>
+			<xfill>True</xfill>
+			<yfill>False</yfill>
+		      </child>
+
+		      <widget>
+			<class>GtkHBox</class>
+			<name>hbox39</name>
+			<homogeneous>False</homogeneous>
+			<spacing>0</spacing>
+
+			<widget>
+			  <class>GtkPixmap</class>
+			  <name>pixmap73</name>
+			  <filename>Verlernen-trans-32.xpm</filename>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <build_insensitive>True</build_insensitive>
+			  <child>
+			    <padding>0</padding>
+			    <expand>True</expand>
+			    <fill>True</fill>
+			  </child>
+			</widget>
+
+			<widget>
+			  <class>GtkLabel</class>
+			  <name>label515</name>
+			  <label>Verlernen </label>
+			  <justify>GTK_JUSTIFY_CENTER</justify>
+			  <wrap>False</wrap>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <child>
+			    <padding>0</padding>
+			    <expand>False</expand>
+			    <fill>False</fill>
+			  </child>
+			</widget>
+		      </widget>
+		    </widget>
+
+		    <widget>
+		      <class>GtkRadioButton</class>
+		      <name>radiobutton_steigern</name>
+		      <cxx_visibility>protected</cxx_visibility>
+		      <tooltip>Ist dieser Knopf gedrückt können die bereits gelernten Fertigkeiten (durch anklicken) gesteigert werden.</tooltip>
+		      <can_focus>True</can_focus>
+		      <signal>
+			<name>toggled</name>
+			<handler>on_radio_steigern_toggled</handler>
+			<last_modification_time>Tue, 25 Dec 2001 14:57:55 GMT</last_modification_time>
+		      </signal>
+		      <active>True</active>
+		      <draw_indicator>False</draw_indicator>
+		      <group>steigern</group>
+		      <child>
+			<left_attach>0</left_attach>
+			<right_attach>1</right_attach>
+			<top_attach>0</top_attach>
+			<bottom_attach>1</bottom_attach>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<xexpand>False</xexpand>
+			<yexpand>False</yexpand>
+			<xshrink>False</xshrink>
+			<yshrink>False</yshrink>
+			<xfill>True</xfill>
+			<yfill>False</yfill>
+		      </child>
+
+		      <widget>
+			<class>GtkHBox</class>
+			<name>hbox37</name>
+			<homogeneous>False</homogeneous>
+			<spacing>0</spacing>
+
+			<widget>
+			  <class>GtkPixmap</class>
+			  <name>pixmap74</name>
+			  <filename>Steigern-trans-32.xpm</filename>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <build_insensitive>True</build_insensitive>
+			  <child>
+			    <padding>0</padding>
+			    <expand>True</expand>
+			    <fill>True</fill>
+			  </child>
+			</widget>
+
+			<widget>
+			  <class>GtkLabel</class>
+			  <name>label513</name>
+			  <label>Steigern    </label>
+			  <justify>GTK_JUSTIFY_CENTER</justify>
+			  <wrap>False</wrap>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <child>
+			    <padding>0</padding>
+			    <expand>False</expand>
+			    <fill>False</fill>
+			  </child>
+			</widget>
+		      </widget>
+		    </widget>
+		  </widget>
+		</widget>
+
+		<widget>
+		  <class>GtkFrame</class>
+		  <name>frame_praxispunkte</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <label>Praxispunkte</label>
+		  <label_xalign>0</label_xalign>
+		  <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+		  <child>
+		    <left_attach>4</left_attach>
+		    <right_attach>5</right_attach>
+		    <top_attach>0</top_attach>
+		    <bottom_attach>1</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>True</xshrink>
+		    <yshrink>True</yshrink>
+		    <xfill>False</xfill>
+		    <yfill>True</yfill>
+		  </child>
+
+		  <widget>
+		    <class>GtkTable</class>
+		    <name>table110</name>
+		    <border_width>3</border_width>
+		    <rows>2</rows>
+		    <columns>2</columns>
+		    <homogeneous>False</homogeneous>
+		    <row_spacing>0</row_spacing>
+		    <column_spacing>0</column_spacing>
+
+		    <widget>
+		      <class>GtkSpinButton</class>
+		      <name>spinbutton_pp_eingeben</name>
+		      <cxx_visibility>protected</cxx_visibility>
+		      <tooltip>Eingabe mit 'Enter' bestätigen.</tooltip>
+		      <can_focus>True</can_focus>
+		      <signal>
+			<name>activate</name>
+			<handler>on_spinbutton_pp_eingeben_activate</handler>
+			<last_modification_time>Wed, 26 Dec 2001 12:22:10 GMT</last_modification_time>
+		      </signal>
+		      <climb_rate>1</climb_rate>
+		      <digits>0</digits>
+		      <numeric>False</numeric>
+		      <update_policy>GTK_UPDATE_ALWAYS</update_policy>
+		      <snap>False</snap>
+		      <wrap>False</wrap>
+		      <value>0</value>
+		      <lower>0</lower>
+		      <upper>100000</upper>
+		      <step>1</step>
+		      <page>10</page>
+		      <page_size>10</page_size>
+		      <child>
+			<left_attach>0</left_attach>
+			<right_attach>1</right_attach>
+			<top_attach>1</top_attach>
+			<bottom_attach>2</bottom_attach>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<xexpand>False</xexpand>
+			<yexpand>False</yexpand>
+			<xshrink>False</xshrink>
+			<yshrink>False</yshrink>
+			<xfill>False</xfill>
+			<yfill>False</yfill>
+		      </child>
+		    </widget>
+
+		    <widget>
+		      <class>GtkToggleButton</class>
+		      <name>togglebutton_praxispunkte</name>
+		      <cxx_visibility>protected</cxx_visibility>
+		      <can_focus>True</can_focus>
+		      <signal>
+			<name>toggled</name>
+			<handler>on_togglebutton_praxispunkte_toggled</handler>
+			<last_modification_time>Thu, 24 Jan 2002 18:27:23 GMT</last_modification_time>
+		      </signal>
+		      <relief>GTK_RELIEF_NORMAL</relief>
+		      <active>False</active>
+		      <child>
+			<left_attach>0</left_attach>
+			<right_attach>1</right_attach>
+			<top_attach>0</top_attach>
+			<bottom_attach>1</bottom_attach>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<xexpand>False</xexpand>
+			<yexpand>False</yexpand>
+			<xshrink>False</xshrink>
+			<yshrink>False</yshrink>
+			<xfill>True</xfill>
+			<yfill>False</yfill>
+		      </child>
+
+		      <widget>
+			<class>GtkHBox</class>
+			<name>hbox40</name>
+			<homogeneous>False</homogeneous>
+			<spacing>0</spacing>
+
+			<widget>
+			  <class>GtkPixmap</class>
+			  <name>pixmap78</name>
+			  <filename>PP-Eingeben-trans-32.xpm</filename>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <build_insensitive>True</build_insensitive>
+			  <child>
+			    <padding>0</padding>
+			    <expand>True</expand>
+			    <fill>True</fill>
+			  </child>
+			</widget>
+
+			<widget>
+			  <class>GtkLabel</class>
+			  <name>label516</name>
+			  <label>Praxispunkte
+eingeben</label>
+			  <justify>GTK_JUSTIFY_CENTER</justify>
+			  <wrap>False</wrap>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <child>
+			    <padding>0</padding>
+			    <expand>False</expand>
+			    <fill>False</fill>
+			  </child>
+			</widget>
+		      </widget>
+		    </widget>
+
+		    <widget>
+		      <class>GtkVBox</class>
+		      <name>vbox_praxispunkte</name>
+		      <cxx_visibility>protected</cxx_visibility>
+		      <homogeneous>False</homogeneous>
+		      <spacing>0</spacing>
+		      <child>
+			<left_attach>1</left_attach>
+			<right_attach>2</right_attach>
+			<top_attach>0</top_attach>
+			<bottom_attach>2</bottom_attach>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<xexpand>False</xexpand>
+			<yexpand>False</yexpand>
+			<xshrink>False</xshrink>
+			<yshrink>False</yshrink>
+			<xfill>False</xfill>
+			<yfill>False</yfill>
+		      </child>
+
+		      <widget>
+			<class>GtkRadioButton</class>
+			<name>radiobutton_pp_fertigkeit</name>
+			<cxx_visibility>protected</cxx_visibility>
+			<tooltip>Nach Aktivierung dieses Knopfes muß die Fertigkeit gewählt werden, für die PP eingegeben werden sollen.</tooltip>
+			<can_focus>True</can_focus>
+			<signal>
+			  <name>toggled</name>
+			  <handler>on_radiobutton_pp_fertigkeit_toggled</handler>
+			  <last_modification_time>Sun, 30 Dec 2001 14:50:31 GMT</last_modification_time>
+			</signal>
+			<label>Fertigkeit</label>
+			<active>False</active>
+			<draw_indicator>True</draw_indicator>
+			<group>praxispunkte_fuer</group>
+			<child>
+			  <padding>0</padding>
+			  <expand>False</expand>
+			  <fill>False</fill>
+			</child>
+		      </widget>
+
+		      <widget>
+			<class>GtkRadioButton</class>
+			<name>radiobutton_pp_abwehr</name>
+			<cxx_visibility>protected</cxx_visibility>
+			<can_focus>True</can_focus>
+			<signal>
+			  <name>toggled</name>
+			  <handler>on_radiobutton_pp_abwehr_toggled</handler>
+			  <last_modification_time>Sun, 30 Dec 2001 15:21:44 GMT</last_modification_time>
+			</signal>
+			<label>Abwehr</label>
+			<active>False</active>
+			<draw_indicator>True</draw_indicator>
+			<group>praxispunkte_fuer</group>
+			<child>
+			  <padding>0</padding>
+			  <expand>False</expand>
+			  <fill>False</fill>
+			</child>
+		      </widget>
+
+		      <widget>
+			<class>GtkRadioButton</class>
+			<name>radiobutton_pp_zauber</name>
+			<cxx_visibility>protected</cxx_visibility>
+			<can_focus>True</can_focus>
+			<signal>
+			  <name>toggled</name>
+			  <handler>on_radiobutton_pp_zauber_toggled</handler>
+			  <last_modification_time>Sun, 30 Dec 2001 15:21:22 GMT</last_modification_time>
+			</signal>
+			<label>Zaubern</label>
+			<active>False</active>
+			<draw_indicator>True</draw_indicator>
+			<group>praxispunkte_fuer</group>
+			<child>
+			  <padding>0</padding>
+			  <expand>False</expand>
+			  <fill>False</fill>
+			</child>
+		      </widget>
+
+		      <widget>
+			<class>GtkRadioButton</class>
+			<name>radiobutton_pp_spezial</name>
+			<cxx_visibility>protected</cxx_visibility>
+			<can_focus>True</can_focus>
+			<signal>
+			  <name>toggled</name>
+			  <handler>on_radiobutton_pp_zauber_toggled</handler>
+			  <last_modification_time>Sun, 30 Dec 2001 15:21:22 GMT</last_modification_time>
+			</signal>
+			<active>False</active>
+			<draw_indicator>True</draw_indicator>
+			<group>praxispunkte_fuer</group>
+			<child>
+			  <padding>0</padding>
+			  <expand>False</expand>
+			  <fill>False</fill>
+			</child>
+
+			<widget>
+			  <class>Placeholder</class>
+			</widget>
+		      </widget>
+
+		      <widget>
+			<class>GtkRadioButton</class>
+			<name>radiobutton_pp_resistenz</name>
+			<cxx_visibility>protected</cxx_visibility>
+			<can_focus>True</can_focus>
+			<signal>
+			  <name>toggled</name>
+			  <handler>on_radiobutton_pp_resistenz_toggled</handler>
+			  <last_modification_time>Sun, 30 Dec 2001 14:52:04 GMT</last_modification_time>
+			</signal>
+			<label>Resistenz</label>
+			<active>False</active>
+			<draw_indicator>True</draw_indicator>
+			<group>praxispunkte_fuer</group>
+			<child>
+			  <padding>0</padding>
+			  <expand>False</expand>
+			  <fill>False</fill>
+			</child>
+		      </widget>
+		    </widget>
+		  </widget>
+		</widget>
+	      </widget>
 	    </widget>
 
 	    <widget>
 	      <class>GtkTable</class>
 	      <name>table157</name>
 	      <rows>1</rows>
-	      <columns>2</columns>
+	      <columns>3</columns>
 	      <homogeneous>False</homogeneous>
 	      <row_spacing>0</row_spacing>
 	      <column_spacing>0</column_spacing>
@@ -9807,7 +11886,7 @@ auswählen</label>
 		    <widget>
 		      <class>GtkButton</class>
 		      <name>grad_anstieg</name>
-		      <tooltip>Dieser Knopf macht all das, was die darunterliegenden vier auch machen</tooltip>
+		      <tooltip>Dieser Knopf macht all das, was die darunterliegenden auch machen</tooltip>
 		      <signal>
 			<name>clicked</name>
 			<handler>on_grad_anstieg_clicked</handler>
@@ -10073,6 +12152,66 @@ auswählen</label>
 		  </widget>
 		</widget>
 	      </widget>
+
+	      <widget>
+		<class>GtkScrolledWindow</class>
+		<name>scrolledwindow_landauswahl</name>
+		<cxx_visibility>protected</cxx_visibility>
+		<hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
+		<vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+		<hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+		<vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
+		<child>
+		  <left_attach>2</left_attach>
+		  <right_attach>3</right_attach>
+		  <top_attach>0</top_attach>
+		  <bottom_attach>1</bottom_attach>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <xexpand>True</xexpand>
+		  <yexpand>False</yexpand>
+		  <xshrink>False</xshrink>
+		  <yshrink>False</yshrink>
+		  <xfill>True</xfill>
+		  <yfill>True</yfill>
+		</child>
+
+		<widget>
+		  <class>GtkViewport</class>
+		  <name>viewport24</name>
+		  <shadow_type>GTK_SHADOW_NONE</shadow_type>
+
+		  <widget>
+		    <class>GtkCList</class>
+		    <name>clist_zusatz</name>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>select_row</name>
+		      <handler>on_clist_zusatz_select_row</handler>
+		      <last_modification_time>Thu, 23 May 2002 16:48:01 GMT</last_modification_time>
+		    </signal>
+		    <columns>1</columns>
+		    <column_widths>80</column_widths>
+		    <selection_mode>GTK_SELECTION_SINGLE</selection_mode>
+		    <show_titles>True</show_titles>
+		    <shadow_type>GTK_SHADOW_IN</shadow_type>
+
+		    <widget>
+		      <class>GtkLabel</class>
+		      <child_name>CList:title</child_name>
+		      <name>label473</name>
+		      <label>Land auswählen</label>
+		      <justify>GTK_JUSTIFY_LEFT</justify>
+		      <wrap>False</wrap>
+		      <xalign>0.5</xalign>
+		      <yalign>0.5</yalign>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		    </widget>
+		  </widget>
+		</widget>
+	      </widget>
 	    </widget>
 
 	    <widget>
@@ -10094,15 +12233,15 @@ auswählen</label>
 	      <popup_enable>False</popup_enable>
 	      <child>
 		<left_attach>0</left_attach>
-		<right_attach>2</right_attach>
-		<top_attach>3</top_attach>
-		<bottom_attach>4</bottom_attach>
+		<right_attach>3</right_attach>
+		<top_attach>2</top_attach>
+		<bottom_attach>3</bottom_attach>
 		<xpad>0</xpad>
 		<ypad>0</ypad>
-		<xexpand>True</xexpand>
+		<xexpand>False</xexpand>
 		<yexpand>True</yexpand>
-		<xshrink>False</xshrink>
-		<yshrink>False</yshrink>
+		<xshrink>True</xshrink>
+		<yshrink>True</yshrink>
 		<xfill>True</xfill>
 		<yfill>True</yfill>
 	      </child>
@@ -11331,10 +13470,324 @@ auswählen</label>
 	      </widget>
 
 	      <widget>
-		<class>GtkHPaned</class>
-		<name>hpaned7</name>
-		<handle_size>10</handle_size>
-		<gutter_size>6</gutter_size>
+		<class>GtkTable</class>
+		<name>table158</name>
+		<rows>1</rows>
+		<columns>2</columns>
+		<homogeneous>False</homogeneous>
+		<row_spacing>0</row_spacing>
+		<column_spacing>0</column_spacing>
+
+		<widget>
+		  <class>GtkFrame</class>
+		  <name>frame107</name>
+		  <label>Rüstung</label>
+		  <label_xalign>0</label_xalign>
+		  <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+		  <child>
+		    <left_attach>1</left_attach>
+		    <right_attach>2</right_attach>
+		    <top_attach>0</top_attach>
+		    <bottom_attach>1</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>True</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>True</yfill>
+		  </child>
+
+		  <widget>
+		    <class>GtkTable</class>
+		    <name>table152</name>
+		    <rows>2</rows>
+		    <columns>2</columns>
+		    <homogeneous>False</homogeneous>
+		    <row_spacing>0</row_spacing>
+		    <column_spacing>0</column_spacing>
+
+		    <widget>
+		      <class>GtkCheckButton</class>
+		      <name>button_ruestung_1</name>
+		      <cxx_visibility>protected</cxx_visibility>
+		      <can_focus>True</can_focus>
+		      <signal>
+			<name>toggled</name>
+			<handler>on_button_ruestung_1_toggled</handler>
+			<last_modification_time>Fri, 24 May 2002 07:47:56 GMT</last_modification_time>
+		      </signal>
+		      <active>False</active>
+		      <draw_indicator>False</draw_indicator>
+		      <child>
+			<left_attach>0</left_attach>
+			<right_attach>1</right_attach>
+			<top_attach>0</top_attach>
+			<bottom_attach>1</bottom_attach>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<xexpand>False</xexpand>
+			<yexpand>False</yexpand>
+			<xshrink>False</xshrink>
+			<yshrink>False</yshrink>
+			<xfill>False</xfill>
+			<yfill>False</yfill>
+		      </child>
+
+		      <widget>
+			<class>GtkEventBox</class>
+			<name>eventbox9</name>
+			<tooltip>Rüstung</tooltip>
+
+			<widget>
+			  <class>GtkVBox</class>
+			  <name>vbox59</name>
+			  <homogeneous>False</homogeneous>
+			  <spacing>0</spacing>
+
+			  <widget>
+			    <class>GtkPixmap</class>
+			    <name>pixmap64</name>
+			    <filename>Armor-trans-50.xpm</filename>
+			    <xalign>0.5</xalign>
+			    <yalign>0.5</yalign>
+			    <xpad>0</xpad>
+			    <ypad>0</ypad>
+			    <build_insensitive>True</build_insensitive>
+			    <child>
+			      <padding>0</padding>
+			      <expand>True</expand>
+			      <fill>True</fill>
+			    </child>
+			  </widget>
+
+			  <widget>
+			    <class>GtkLabel</class>
+			    <name>label_ruestung_1</name>
+			    <cxx_visibility>protected</cxx_visibility>
+			    <label>1. Rüstung</label>
+			    <justify>GTK_JUSTIFY_CENTER</justify>
+			    <wrap>False</wrap>
+			    <xalign>0.5</xalign>
+			    <yalign>0.5</yalign>
+			    <xpad>0</xpad>
+			    <ypad>0</ypad>
+			    <child>
+			      <padding>0</padding>
+			      <expand>False</expand>
+			      <fill>False</fill>
+			    </child>
+			  </widget>
+			</widget>
+		      </widget>
+		    </widget>
+
+		    <widget>
+		      <class>GtkCheckButton</class>
+		      <name>button_ruestung_2</name>
+		      <cxx_visibility>protected</cxx_visibility>
+		      <can_focus>True</can_focus>
+		      <signal>
+			<name>toggled</name>
+			<handler>on_button_ruestung_2_toggled</handler>
+			<last_modification_time>Fri, 24 May 2002 08:13:51 GMT</last_modification_time>
+		      </signal>
+		      <active>False</active>
+		      <draw_indicator>False</draw_indicator>
+		      <child>
+			<left_attach>1</left_attach>
+			<right_attach>2</right_attach>
+			<top_attach>0</top_attach>
+			<bottom_attach>1</bottom_attach>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<xexpand>False</xexpand>
+			<yexpand>False</yexpand>
+			<xshrink>False</xshrink>
+			<yshrink>False</yshrink>
+			<xfill>False</xfill>
+			<yfill>False</yfill>
+		      </child>
+
+		      <widget>
+			<class>GtkEventBox</class>
+			<name>eventbox17</name>
+			<tooltip>Rüstung</tooltip>
+
+			<widget>
+			  <class>GtkVBox</class>
+			  <name>vbox60</name>
+			  <homogeneous>False</homogeneous>
+			  <spacing>0</spacing>
+
+			  <widget>
+			    <class>GtkPixmap</class>
+			    <name>pixmap159</name>
+			    <filename>Armor-trans-50.xpm</filename>
+			    <xalign>0.5</xalign>
+			    <yalign>0.5</yalign>
+			    <xpad>0</xpad>
+			    <ypad>0</ypad>
+			    <build_insensitive>True</build_insensitive>
+			    <child>
+			      <padding>0</padding>
+			      <expand>True</expand>
+			      <fill>True</fill>
+			    </child>
+			  </widget>
+
+			  <widget>
+			    <class>GtkLabel</class>
+			    <name>label_ruestung_2</name>
+			    <cxx_visibility>protected</cxx_visibility>
+			    <label>2. Rüstung</label>
+			    <justify>GTK_JUSTIFY_CENTER</justify>
+			    <wrap>False</wrap>
+			    <xalign>0.5</xalign>
+			    <yalign>0.5</yalign>
+			    <xpad>0</xpad>
+			    <ypad>0</ypad>
+			    <child>
+			      <padding>0</padding>
+			      <expand>False</expand>
+			      <fill>False</fill>
+			    </child>
+			  </widget>
+			</widget>
+		      </widget>
+		    </widget>
+
+		    <widget>
+		      <class>GtkScrolledWindow</class>
+		      <name>scrolledwindow82</name>
+		      <width>275</width>
+		      <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
+		      <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+		      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+		      <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
+		      <child>
+			<left_attach>0</left_attach>
+			<right_attach>2</right_attach>
+			<top_attach>1</top_attach>
+			<bottom_attach>2</bottom_attach>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<xexpand>True</xexpand>
+			<yexpand>True</yexpand>
+			<xshrink>True</xshrink>
+			<yshrink>True</yshrink>
+			<xfill>True</xfill>
+			<yfill>True</yfill>
+		      </child>
+
+		      <widget>
+			<class>GtkViewport</class>
+			<name>viewport45</name>
+			<shadow_type>GTK_SHADOW_NONE</shadow_type>
+
+			<widget>
+			  <class>GtkCList</class>
+			  <name>clist_ruestung</name>
+			  <cxx_visibility>protected</cxx_visibility>
+			  <can_focus>True</can_focus>
+			  <signal>
+			    <name>select_row</name>
+			    <handler>on_clist_ruestung_select_row</handler>
+			    <last_modification_time>Mon, 12 Mar 2001 18:56:02 GMT</last_modification_time>
+			  </signal>
+			  <columns>6</columns>
+			  <column_widths>43,19,40,38,35,37</column_widths>
+			  <selection_mode>GTK_SELECTION_SINGLE</selection_mode>
+			  <show_titles>True</show_titles>
+			  <shadow_type>GTK_SHADOW_NONE</shadow_type>
+
+			  <widget>
+			    <class>GtkLabel</class>
+			    <child_name>CList:title</child_name>
+			    <name>label587</name>
+			    <label>Rüstung</label>
+			    <justify>GTK_JUSTIFY_LEFT</justify>
+			    <wrap>False</wrap>
+			    <xalign>0.5</xalign>
+			    <yalign>0.5</yalign>
+			    <xpad>0</xpad>
+			    <ypad>0</ypad>
+			  </widget>
+
+			  <widget>
+			    <class>GtkLabel</class>
+			    <child_name>CList:title</child_name>
+			    <name>label588</name>
+			    <label></label>
+			    <justify>GTK_JUSTIFY_CENTER</justify>
+			    <wrap>False</wrap>
+			    <xalign>0.5</xalign>
+			    <yalign>0.5</yalign>
+			    <xpad>0</xpad>
+			    <ypad>0</ypad>
+			  </widget>
+
+			  <widget>
+			    <class>GtkLabel</class>
+			    <child_name>CList:title</child_name>
+			    <name>label589</name>
+			    <label>LP
+Verlust</label>
+			    <justify>GTK_JUSTIFY_CENTER</justify>
+			    <wrap>False</wrap>
+			    <xalign>0.5</xalign>
+			    <yalign>0.5</yalign>
+			    <xpad>0</xpad>
+			    <ypad>0</ypad>
+			  </widget>
+
+			  <widget>
+			    <class>GtkLabel</class>
+			    <child_name>CList:title</child_name>
+			    <name>label590</name>
+			    <label>min.
+Stärke</label>
+			    <justify>GTK_JUSTIFY_CENTER</justify>
+			    <wrap>False</wrap>
+			    <xalign>0.5</xalign>
+			    <yalign>0.5</yalign>
+			    <xpad>0</xpad>
+			    <ypad>0</ypad>
+			  </widget>
+
+			  <widget>
+			    <class>GtkLabel</class>
+			    <child_name>CList:title</child_name>
+			    <name>label591</name>
+			    <label>RW
+Verlust</label>
+			    <justify>GTK_JUSTIFY_CENTER</justify>
+			    <wrap>False</wrap>
+			    <xalign>0.5</xalign>
+			    <yalign>0.5</yalign>
+			    <xpad>0</xpad>
+			    <ypad>0</ypad>
+			  </widget>
+
+			  <widget>
+			    <class>GtkLabel</class>
+			    <child_name>CList:title</child_name>
+			    <name>label592</name>
+			    <label>B
+Verlust</label>
+			    <justify>GTK_JUSTIFY_CENTER</justify>
+			    <wrap>False</wrap>
+			    <xalign>0.5</xalign>
+			    <yalign>0.5</yalign>
+			    <xpad>0</xpad>
+			    <ypad>0</ypad>
+			  </widget>
+			</widget>
+		      </widget>
+		    </widget>
+		  </widget>
+		</widget>
 
 		<widget>
 		  <class>GtkFrame</class>
@@ -11343,15 +13796,28 @@ auswählen</label>
 		  <label_xalign>0</label_xalign>
 		  <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
 		  <child>
-		    <shrink>True</shrink>
-		    <resize>True</resize>
+		    <left_attach>0</left_attach>
+		    <right_attach>1</right_attach>
+		    <top_attach>0</top_attach>
+		    <bottom_attach>1</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>True</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>True</yfill>
 		  </child>
 
 		  <widget>
-		    <class>GtkVPaned</class>
-		    <name>vpaned14</name>
-		    <handle_size>10</handle_size>
-		    <gutter_size>6</gutter_size>
+		    <class>GtkTable</class>
+		    <name>table159</name>
+		    <rows>2</rows>
+		    <columns>1</columns>
+		    <homogeneous>False</homogeneous>
+		    <row_spacing>0</row_spacing>
+		    <column_spacing>0</column_spacing>
 
 		    <widget>
 		      <class>GtkTable</class>
@@ -11362,8 +13828,18 @@ auswählen</label>
 		      <row_spacing>0</row_spacing>
 		      <column_spacing>0</column_spacing>
 		      <child>
-			<shrink>True</shrink>
-			<resize>False</resize>
+			<left_attach>0</left_attach>
+			<right_attach>1</right_attach>
+			<top_attach>0</top_attach>
+			<bottom_attach>1</bottom_attach>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<xexpand>True</xexpand>
+			<yexpand>True</yexpand>
+			<xshrink>False</xshrink>
+			<yshrink>False</yshrink>
+			<xfill>True</xfill>
+			<yfill>True</yfill>
 		      </child>
 
 		      <widget>
@@ -11651,6 +14127,7 @@ eingeben</label>
 		      <widget>
 			<class>GtkScrolledWindow</class>
 			<name>scrolledwindow84</name>
+			<width>280</width>
 			<hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
 			<vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
 			<hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
@@ -11700,8 +14177,18 @@ eingeben</label>
 		      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
 		      <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
 		      <child>
-			<shrink>True</shrink>
-			<resize>True</resize>
+			<left_attach>0</left_attach>
+			<right_attach>1</right_attach>
+			<top_attach>1</top_attach>
+			<bottom_attach>2</bottom_attach>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<xexpand>True</xexpand>
+			<yexpand>True</yexpand>
+			<xshrink>False</xshrink>
+			<yshrink>False</yshrink>
+			<xfill>True</xfill>
+			<yfill>True</yfill>
 		      </child>
 
 		      <widget>
@@ -11717,306 +14204,6 @@ eingeben</label>
 			<int1>5</int1>
 			<int2>0</int2>
 			<last_modification_time>Tue, 14 Aug 2001 09:30:13 GMT</last_modification_time>
-		      </widget>
-		    </widget>
-		  </widget>
-		</widget>
-
-		<widget>
-		  <class>GtkFrame</class>
-		  <name>frame107</name>
-		  <label>Rüstung</label>
-		  <label_xalign>0</label_xalign>
-		  <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
-		  <child>
-		    <shrink>False</shrink>
-		    <resize>True</resize>
-		  </child>
-
-		  <widget>
-		    <class>GtkTable</class>
-		    <name>table152</name>
-		    <rows>2</rows>
-		    <columns>2</columns>
-		    <homogeneous>False</homogeneous>
-		    <row_spacing>0</row_spacing>
-		    <column_spacing>0</column_spacing>
-
-		    <widget>
-		      <class>GtkCheckButton</class>
-		      <name>button_ruestung_2</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <can_focus>True</can_focus>
-		      <signal>
-			<name>toggled</name>
-			<handler>on_button_ruestung_2_toggled</handler>
-			<last_modification_time>Fri, 24 May 2002 08:13:51 GMT</last_modification_time>
-		      </signal>
-		      <active>False</active>
-		      <draw_indicator>False</draw_indicator>
-		      <child>
-			<left_attach>1</left_attach>
-			<right_attach>2</right_attach>
-			<top_attach>0</top_attach>
-			<bottom_attach>1</bottom_attach>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<xexpand>False</xexpand>
-			<yexpand>False</yexpand>
-			<xshrink>False</xshrink>
-			<yshrink>False</yshrink>
-			<xfill>False</xfill>
-			<yfill>False</yfill>
-		      </child>
-
-		      <widget>
-			<class>GtkEventBox</class>
-			<name>eventbox17</name>
-			<tooltip>Rüstung</tooltip>
-
-			<widget>
-			  <class>GtkVBox</class>
-			  <name>vbox60</name>
-			  <homogeneous>False</homogeneous>
-			  <spacing>0</spacing>
-
-			  <widget>
-			    <class>GtkPixmap</class>
-			    <name>pixmap159</name>
-			    <filename>Armor-trans-50.xpm</filename>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			    <build_insensitive>True</build_insensitive>
-			    <child>
-			      <padding>0</padding>
-			      <expand>True</expand>
-			      <fill>True</fill>
-			    </child>
-			  </widget>
-
-			  <widget>
-			    <class>GtkLabel</class>
-			    <name>label_ruestung_2</name>
-			    <cxx_visibility>protected</cxx_visibility>
-			    <label>2. Rüstung</label>
-			    <justify>GTK_JUSTIFY_CENTER</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			    <child>
-			      <padding>0</padding>
-			      <expand>False</expand>
-			      <fill>False</fill>
-			    </child>
-			  </widget>
-			</widget>
-		      </widget>
-		    </widget>
-
-		    <widget>
-		      <class>GtkCheckButton</class>
-		      <name>button_ruestung_1</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <can_focus>True</can_focus>
-		      <signal>
-			<name>toggled</name>
-			<handler>on_button_ruestung_1_toggled</handler>
-			<last_modification_time>Fri, 24 May 2002 07:47:56 GMT</last_modification_time>
-		      </signal>
-		      <active>False</active>
-		      <draw_indicator>False</draw_indicator>
-		      <child>
-			<left_attach>0</left_attach>
-			<right_attach>1</right_attach>
-			<top_attach>0</top_attach>
-			<bottom_attach>1</bottom_attach>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<xexpand>False</xexpand>
-			<yexpand>False</yexpand>
-			<xshrink>False</xshrink>
-			<yshrink>False</yshrink>
-			<xfill>False</xfill>
-			<yfill>False</yfill>
-		      </child>
-
-		      <widget>
-			<class>GtkEventBox</class>
-			<name>eventbox9</name>
-			<tooltip>Rüstung</tooltip>
-
-			<widget>
-			  <class>GtkVBox</class>
-			  <name>vbox59</name>
-			  <homogeneous>False</homogeneous>
-			  <spacing>0</spacing>
-
-			  <widget>
-			    <class>GtkPixmap</class>
-			    <name>pixmap64</name>
-			    <filename>Armor-trans-50.xpm</filename>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			    <build_insensitive>True</build_insensitive>
-			    <child>
-			      <padding>0</padding>
-			      <expand>True</expand>
-			      <fill>True</fill>
-			    </child>
-			  </widget>
-
-			  <widget>
-			    <class>GtkLabel</class>
-			    <name>label_ruestung_1</name>
-			    <cxx_visibility>protected</cxx_visibility>
-			    <label>1. Rüstung</label>
-			    <justify>GTK_JUSTIFY_CENTER</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			    <child>
-			      <padding>0</padding>
-			      <expand>False</expand>
-			      <fill>False</fill>
-			    </child>
-			  </widget>
-			</widget>
-		      </widget>
-		    </widget>
-
-		    <widget>
-		      <class>GtkScrolledWindow</class>
-		      <name>scrolledwindow82</name>
-		      <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
-		      <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
-		      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
-		      <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
-		      <child>
-			<left_attach>0</left_attach>
-			<right_attach>2</right_attach>
-			<top_attach>1</top_attach>
-			<bottom_attach>2</bottom_attach>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<xexpand>True</xexpand>
-			<yexpand>True</yexpand>
-			<xshrink>True</xshrink>
-			<yshrink>True</yshrink>
-			<xfill>True</xfill>
-			<yfill>True</yfill>
-		      </child>
-
-		      <widget>
-			<class>GtkViewport</class>
-			<name>viewport45</name>
-			<shadow_type>GTK_SHADOW_NONE</shadow_type>
-
-			<widget>
-			  <class>GtkCList</class>
-			  <name>clist_ruestung</name>
-			  <cxx_visibility>protected</cxx_visibility>
-			  <can_focus>True</can_focus>
-			  <signal>
-			    <name>select_row</name>
-			    <handler>on_clist_ruestung_select_row</handler>
-			    <last_modification_time>Mon, 12 Mar 2001 18:56:02 GMT</last_modification_time>
-			  </signal>
-			  <columns>6</columns>
-			  <column_widths>80,19,80,80,80,80</column_widths>
-			  <selection_mode>GTK_SELECTION_SINGLE</selection_mode>
-			  <show_titles>True</show_titles>
-			  <shadow_type>GTK_SHADOW_IN</shadow_type>
-
-			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label587</name>
-			    <label>Rüstung</label>
-			    <justify>GTK_JUSTIFY_LEFT</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			  </widget>
-
-			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label588</name>
-			    <label> </label>
-			    <justify>GTK_JUSTIFY_LEFT</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			  </widget>
-
-			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label589</name>
-			    <label>LP
-Verlust</label>
-			    <justify>GTK_JUSTIFY_CENTER</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			  </widget>
-
-			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label590</name>
-			    <label>min.
-Stärke</label>
-			    <justify>GTK_JUSTIFY_CENTER</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			  </widget>
-
-			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label591</name>
-			    <label>RW
-Verlust</label>
-			    <justify>GTK_JUSTIFY_CENTER</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			  </widget>
-
-			  <widget>
-			    <class>GtkLabel</class>
-			    <child_name>CList:title</child_name>
-			    <name>label592</name>
-			    <label>B
-Verlust</label>
-			    <justify>GTK_JUSTIFY_CENTER</justify>
-			    <wrap>False</wrap>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			  </widget>
-			</widget>
 		      </widget>
 		    </widget>
 		  </widget>
@@ -12063,2164 +14250,6 @@ Verlust</label>
 		    <expand>True</expand>
 		    <fill>True</fill>
 		  </child>
-		</widget>
-	      </widget>
-	    </widget>
-
-	    <widget>
-	      <class>GtkHandleBox</class>
-	      <name>handlebox6</name>
-	      <shadow_type>GTK_SHADOW_NONE</shadow_type>
-	      <handle_position>GTK_POS_LEFT</handle_position>
-	      <snap_edge>GTK_POS_LEFT</snap_edge>
-	      <child>
-		<left_attach>0</left_attach>
-		<right_attach>2</right_attach>
-		<top_attach>2</top_attach>
-		<bottom_attach>3</bottom_attach>
-		<xpad>0</xpad>
-		<ypad>0</ypad>
-		<xexpand>False</xexpand>
-		<yexpand>False</yexpand>
-		<xshrink>True</xshrink>
-		<yshrink>True</yshrink>
-		<xfill>True</xfill>
-		<yfill>False</yfill>
-	      </child>
-
-	      <widget>
-		<class>GtkTable</class>
-		<name>table99</name>
-		<rows>1</rows>
-		<columns>7</columns>
-		<homogeneous>False</homogeneous>
-		<row_spacing>0</row_spacing>
-		<column_spacing>0</column_spacing>
-
-		<widget>
-		  <class>GtkTable</class>
-		  <name>table72</name>
-		  <rows>3</rows>
-		  <columns>4</columns>
-		  <homogeneous>False</homogeneous>
-		  <row_spacing>0</row_spacing>
-		  <column_spacing>0</column_spacing>
-		  <child>
-		    <left_attach>2</left_attach>
-		    <right_attach>3</right_attach>
-		    <top_attach>0</top_attach>
-		    <bottom_attach>1</bottom_attach>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>False</xexpand>
-		    <yexpand>False</yexpand>
-		    <xshrink>False</xshrink>
-		    <yshrink>False</yshrink>
-		    <xfill>False</xfill>
-		    <yfill>True</yfill>
-		  </child>
-
-		  <widget>
-		    <class>GtkCheckButton</class>
-		    <name>button_gold_eingeben</name>
-		    <cxx_visibility>protected</cxx_visibility>
-		    <can_focus>True</can_focus>
-		    <signal>
-		      <name>toggled</name>
-		      <handler>on_button_geld_s_toggled</handler>
-		      <last_modification_time>Fri, 24 May 2002 09:05:06 GMT</last_modification_time>
-		    </signal>
-		    <active>False</active>
-		    <draw_indicator>False</draw_indicator>
-		    <child>
-		      <left_attach>3</left_attach>
-		      <right_attach>4</right_attach>
-		      <top_attach>2</top_attach>
-		      <bottom_attach>3</bottom_attach>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <xexpand>False</xexpand>
-		      <yexpand>False</yexpand>
-		      <xshrink>False</xshrink>
-		      <yshrink>False</yshrink>
-		      <xfill>False</xfill>
-		      <yfill>False</yfill>
-		    </child>
-
-		    <widget>
-		      <class>GtkEventBox</class>
-		      <name>eventbox7</name>
-		      <tooltip>Geld eingeben</tooltip>
-
-		      <widget>
-			<class>GtkPixmap</class>
-			<name>pixmap62</name>
-			<filename>Money-50.xpm</filename>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<build_insensitive>True</build_insensitive>
-		      </widget>
-		    </widget>
-		  </widget>
-
-		  <widget>
-		    <class>GtkCheckButton</class>
-		    <name>button_EP</name>
-		    <cxx_visibility>protected</cxx_visibility>
-		    <signal>
-		      <name>toggled</name>
-		      <handler>on_button_EP_toggled</handler>
-		      <last_modification_time>Fri, 24 May 2002 09:39:40 GMT</last_modification_time>
-		    </signal>
-		    <active>False</active>
-		    <draw_indicator>False</draw_indicator>
-		    <child>
-		      <left_attach>3</left_attach>
-		      <right_attach>4</right_attach>
-		      <top_attach>0</top_attach>
-		      <bottom_attach>1</bottom_attach>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <xexpand>False</xexpand>
-		      <yexpand>False</yexpand>
-		      <xshrink>False</xshrink>
-		      <yshrink>False</yshrink>
-		      <xfill>True</xfill>
-		      <yfill>False</yfill>
-		    </child>
-
-		    <widget>
-		      <class>GtkEventBox</class>
-		      <name>eventbox18</name>
-		      <tooltip>Erfahrungspunkte eingeben</tooltip>
-
-		      <widget>
-			<class>GtkPixmap</class>
-			<name>pixmap93</name>
-			<filename>EP-Eingabe2-50.xpm</filename>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<build_insensitive>True</build_insensitive>
-		      </widget>
-		    </widget>
-		  </widget>
-
-		  <widget>
-		    <class>GtkHBox</class>
-		    <name>hbox30</name>
-		    <homogeneous>True</homogeneous>
-		    <spacing>0</spacing>
-		    <child>
-		      <left_attach>0</left_attach>
-		      <right_attach>3</right_attach>
-		      <top_attach>0</top_attach>
-		      <bottom_attach>1</bottom_attach>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <xexpand>False</xexpand>
-		      <yexpand>True</yexpand>
-		      <xshrink>True</xshrink>
-		      <yshrink>True</yshrink>
-		      <xfill>True</xfill>
-		      <yfill>True</yfill>
-		    </child>
-
-		    <widget>
-		      <class>GtkFrame</class>
-		      <name>frame67</name>
-		      <label>AEP</label>
-		      <label_xalign>0</label_xalign>
-		      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
-		      <child>
-			<padding>0</padding>
-			<expand>True</expand>
-			<fill>True</fill>
-		      </child>
-
-		      <widget>
-			<class>GtkHBox</class>
-			<name>hbox80</name>
-			<homogeneous>False</homogeneous>
-			<spacing>0</spacing>
-
-			<widget>
-			  <class>GtkSpinButton</class>
-			  <name>spinbutton_aep</name>
-			  <width>60</width>
-			  <cxx_visibility>protected</cxx_visibility>
-			  <can_focus>True</can_focus>
-			  <signal>
-			    <name>activate</name>
-			    <handler>on_spinbutton_aep_activate</handler>
-			    <last_modification_time>Fri, 24 May 2002 09:33:53 GMT</last_modification_time>
-			  </signal>
-			  <signal>
-			    <name>focus_out_event</name>
-			    <handler>on_spinbutton_aep_focus_out_event</handler>
-			    <last_modification_time>Fri, 24 May 2002 09:33:59 GMT</last_modification_time>
-			  </signal>
-			  <signal>
-			    <name>focus_in_event</name>
-			    <handler>on_spinbutton_aep_focus_in_event</handler>
-			    <last_modification_time>Fri, 24 May 2002 09:34:04 GMT</last_modification_time>
-			  </signal>
-			  <climb_rate>1</climb_rate>
-			  <digits>0</digits>
-			  <numeric>True</numeric>
-			  <update_policy>GTK_UPDATE_ALWAYS</update_policy>
-			  <snap>False</snap>
-			  <wrap>False</wrap>
-			  <value>1</value>
-			  <lower>0</lower>
-			  <upper>100000</upper>
-			  <step>1</step>
-			  <page>10</page>
-			  <page_size>10</page_size>
-			  <child>
-			    <padding>0</padding>
-			    <expand>True</expand>
-			    <fill>True</fill>
-			  </child>
-			</widget>
-
-			<widget>
-			  <class>GtkLabel</class>
-			  <name>label_aep</name>
-			  <cxx_visibility>protected</cxx_visibility>
-			  <label>0</label>
-			  <justify>GTK_JUSTIFY_CENTER</justify>
-			  <wrap>False</wrap>
-			  <xalign>0.5</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <child>
-			    <padding>0</padding>
-			    <expand>True</expand>
-			    <fill>True</fill>
-			  </child>
-			</widget>
-		      </widget>
-		    </widget>
-
-		    <widget>
-		      <class>GtkFrame</class>
-		      <name>frame68</name>
-		      <label>KEP</label>
-		      <label_xalign>0</label_xalign>
-		      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
-		      <child>
-			<padding>0</padding>
-			<expand>True</expand>
-			<fill>True</fill>
-		      </child>
-
-		      <widget>
-			<class>GtkHBox</class>
-			<name>hbox81</name>
-			<homogeneous>False</homogeneous>
-			<spacing>0</spacing>
-
-			<widget>
-			  <class>GtkSpinButton</class>
-			  <name>spinbutton_kep</name>
-			  <width>60</width>
-			  <cxx_visibility>protected</cxx_visibility>
-			  <can_focus>True</can_focus>
-			  <signal>
-			    <name>activate</name>
-			    <handler>on_spinbutton_kep_activate</handler>
-			    <last_modification_time>Fri, 24 May 2002 09:33:35 GMT</last_modification_time>
-			  </signal>
-			  <signal>
-			    <name>focus_out_event</name>
-			    <handler>on_spinbutton_kep_focus_out_event</handler>
-			    <last_modification_time>Fri, 24 May 2002 09:33:40 GMT</last_modification_time>
-			  </signal>
-			  <signal>
-			    <name>focus_in_event</name>
-			    <handler>on_spinbutton_kep_focus_in_event</handler>
-			    <last_modification_time>Fri, 24 May 2002 09:33:46 GMT</last_modification_time>
-			  </signal>
-			  <climb_rate>1</climb_rate>
-			  <digits>0</digits>
-			  <numeric>True</numeric>
-			  <update_policy>GTK_UPDATE_ALWAYS</update_policy>
-			  <snap>False</snap>
-			  <wrap>False</wrap>
-			  <value>1</value>
-			  <lower>0</lower>
-			  <upper>100000</upper>
-			  <step>1</step>
-			  <page>10</page>
-			  <page_size>10</page_size>
-			  <child>
-			    <padding>0</padding>
-			    <expand>True</expand>
-			    <fill>True</fill>
-			  </child>
-			</widget>
-
-			<widget>
-			  <class>GtkLabel</class>
-			  <name>label_kep</name>
-			  <cxx_visibility>protected</cxx_visibility>
-			  <label>0</label>
-			  <justify>GTK_JUSTIFY_CENTER</justify>
-			  <wrap>False</wrap>
-			  <xalign>0.5</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <child>
-			    <padding>0</padding>
-			    <expand>True</expand>
-			    <fill>True</fill>
-			  </child>
-			</widget>
-		      </widget>
-		    </widget>
-
-		    <widget>
-		      <class>GtkFrame</class>
-		      <name>frame69</name>
-		      <label>ZEP</label>
-		      <label_xalign>0</label_xalign>
-		      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
-		      <child>
-			<padding>0</padding>
-			<expand>True</expand>
-			<fill>True</fill>
-		      </child>
-
-		      <widget>
-			<class>GtkHBox</class>
-			<name>hbox82</name>
-			<homogeneous>False</homogeneous>
-			<spacing>0</spacing>
-
-			<widget>
-			  <class>GtkSpinButton</class>
-			  <name>spinbutton_zep</name>
-			  <width>60</width>
-			  <cxx_visibility>protected</cxx_visibility>
-			  <can_focus>True</can_focus>
-			  <signal>
-			    <name>activate</name>
-			    <handler>on_spinbutton_zep_activate</handler>
-			    <last_modification_time>Fri, 24 May 2002 09:33:14 GMT</last_modification_time>
-			  </signal>
-			  <signal>
-			    <name>focus_out_event</name>
-			    <handler>on_spinbutton_zep_focus_out_event</handler>
-			    <last_modification_time>Fri, 24 May 2002 09:33:20 GMT</last_modification_time>
-			  </signal>
-			  <signal>
-			    <name>focus_in_event</name>
-			    <handler>on_spinbutton_zep_focus_in_event</handler>
-			    <last_modification_time>Fri, 24 May 2002 09:33:26 GMT</last_modification_time>
-			  </signal>
-			  <climb_rate>1</climb_rate>
-			  <digits>0</digits>
-			  <numeric>True</numeric>
-			  <update_policy>GTK_UPDATE_ALWAYS</update_policy>
-			  <snap>False</snap>
-			  <wrap>False</wrap>
-			  <value>1</value>
-			  <lower>0</lower>
-			  <upper>100000</upper>
-			  <step>1</step>
-			  <page>10</page>
-			  <page_size>10</page_size>
-			  <child>
-			    <padding>0</padding>
-			    <expand>True</expand>
-			    <fill>True</fill>
-			  </child>
-			</widget>
-
-			<widget>
-			  <class>GtkLabel</class>
-			  <name>label_zep</name>
-			  <cxx_visibility>protected</cxx_visibility>
-			  <label>0</label>
-			  <justify>GTK_JUSTIFY_CENTER</justify>
-			  <wrap>False</wrap>
-			  <xalign>0.5</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <child>
-			    <padding>0</padding>
-			    <expand>True</expand>
-			    <fill>True</fill>
-			  </child>
-			</widget>
-		      </widget>
-		    </widget>
-		  </widget>
-
-		  <widget>
-		    <class>GtkHBox</class>
-		    <name>hbox31</name>
-		    <homogeneous>False</homogeneous>
-		    <spacing>0</spacing>
-		    <child>
-		      <left_attach>0</left_attach>
-		      <right_attach>3</right_attach>
-		      <top_attach>2</top_attach>
-		      <bottom_attach>3</bottom_attach>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <xexpand>False</xexpand>
-		      <yexpand>True</yexpand>
-		      <xshrink>False</xshrink>
-		      <yshrink>False</yshrink>
-		      <xfill>True</xfill>
-		      <yfill>True</yfill>
-		    </child>
-
-		    <widget>
-		      <class>GtkFrame</class>
-		      <name>frame70</name>
-		      <label>Gold</label>
-		      <label_xalign>0</label_xalign>
-		      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
-		      <child>
-			<padding>0</padding>
-			<expand>True</expand>
-			<fill>True</fill>
-		      </child>
-
-		      <widget>
-			<class>GtkHBox</class>
-			<name>hbox77</name>
-			<homogeneous>False</homogeneous>
-			<spacing>0</spacing>
-
-			<widget>
-			  <class>GtkSpinButton</class>
-			  <name>spinbutton_gold</name>
-			  <width>60</width>
-			  <cxx_visibility>protected</cxx_visibility>
-			  <can_focus>True</can_focus>
-			  <signal>
-			    <name>activate</name>
-			    <handler>on_spinbutton_gold_activate</handler>
-			    <last_modification_time>Fri, 17 Aug 2001 13:39:37 GMT</last_modification_time>
-			  </signal>
-			  <signal>
-			    <name>focus_out_event</name>
-			    <handler>on_spinbutton_gold_focus_out_event</handler>
-			    <last_modification_time>Fri, 24 May 2002 07:21:17 GMT</last_modification_time>
-			  </signal>
-			  <signal>
-			    <name>focus_in_event</name>
-			    <handler>on_spinbutton_gold_focus_in_event</handler>
-			    <last_modification_time>Fri, 24 May 2002 07:21:24 GMT</last_modification_time>
-			  </signal>
-			  <climb_rate>1</climb_rate>
-			  <digits>0</digits>
-			  <numeric>True</numeric>
-			  <update_policy>GTK_UPDATE_ALWAYS</update_policy>
-			  <snap>False</snap>
-			  <wrap>False</wrap>
-			  <value>1</value>
-			  <lower>0</lower>
-			  <upper>100000</upper>
-			  <step>1</step>
-			  <page>10</page>
-			  <page_size>10</page_size>
-			  <child>
-			    <padding>0</padding>
-			    <expand>True</expand>
-			    <fill>True</fill>
-			  </child>
-			</widget>
-
-			<widget>
-			  <class>GtkLabel</class>
-			  <name>label_gold</name>
-			  <cxx_visibility>protected</cxx_visibility>
-			  <label>0</label>
-			  <justify>GTK_JUSTIFY_CENTER</justify>
-			  <wrap>False</wrap>
-			  <xalign>0.5</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <child>
-			    <padding>0</padding>
-			    <expand>True</expand>
-			    <fill>True</fill>
-			  </child>
-			</widget>
-		      </widget>
-		    </widget>
-
-		    <widget>
-		      <class>GtkFrame</class>
-		      <name>frame71</name>
-		      <label>Silber</label>
-		      <label_xalign>0</label_xalign>
-		      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
-		      <child>
-			<padding>0</padding>
-			<expand>True</expand>
-			<fill>True</fill>
-		      </child>
-
-		      <widget>
-			<class>GtkHBox</class>
-			<name>hbox78</name>
-			<homogeneous>False</homogeneous>
-			<spacing>0</spacing>
-
-			<widget>
-			  <class>GtkSpinButton</class>
-			  <name>spinbutton_silber</name>
-			  <width>60</width>
-			  <cxx_visibility>protected</cxx_visibility>
-			  <can_focus>True</can_focus>
-			  <signal>
-			    <name>activate</name>
-			    <handler>on_spinbutton_silber_activate</handler>
-			    <last_modification_time>Fri, 17 Aug 2001 13:39:46 GMT</last_modification_time>
-			  </signal>
-			  <signal>
-			    <name>focus_out_event</name>
-			    <handler>on_spinbutton_silber_focus_out_event</handler>
-			    <last_modification_time>Fri, 24 May 2002 07:21:57 GMT</last_modification_time>
-			  </signal>
-			  <signal>
-			    <name>focus_in_event</name>
-			    <handler>on_spinbutton_silber_focus_in_event</handler>
-			    <last_modification_time>Fri, 24 May 2002 07:22:04 GMT</last_modification_time>
-			  </signal>
-			  <climb_rate>1</climb_rate>
-			  <digits>0</digits>
-			  <numeric>True</numeric>
-			  <update_policy>GTK_UPDATE_ALWAYS</update_policy>
-			  <snap>False</snap>
-			  <wrap>False</wrap>
-			  <value>1</value>
-			  <lower>0</lower>
-			  <upper>100000</upper>
-			  <step>1</step>
-			  <page>10</page>
-			  <page_size>10</page_size>
-			  <child>
-			    <padding>0</padding>
-			    <expand>True</expand>
-			    <fill>True</fill>
-			  </child>
-			</widget>
-
-			<widget>
-			  <class>GtkLabel</class>
-			  <name>label_silber</name>
-			  <cxx_visibility>protected</cxx_visibility>
-			  <label>0</label>
-			  <justify>GTK_JUSTIFY_CENTER</justify>
-			  <wrap>False</wrap>
-			  <xalign>0.5</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <child>
-			    <padding>0</padding>
-			    <expand>True</expand>
-			    <fill>True</fill>
-			  </child>
-			</widget>
-		      </widget>
-		    </widget>
-
-		    <widget>
-		      <class>GtkFrame</class>
-		      <name>frame72</name>
-		      <label>Kupfer</label>
-		      <label_xalign>0</label_xalign>
-		      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
-		      <child>
-			<padding>0</padding>
-			<expand>True</expand>
-			<fill>True</fill>
-		      </child>
-
-		      <widget>
-			<class>GtkHBox</class>
-			<name>hbox79</name>
-			<homogeneous>False</homogeneous>
-			<spacing>0</spacing>
-
-			<widget>
-			  <class>GtkSpinButton</class>
-			  <name>spinbutton_kupfer</name>
-			  <width>60</width>
-			  <cxx_visibility>protected</cxx_visibility>
-			  <can_focus>True</can_focus>
-			  <signal>
-			    <name>activate</name>
-			    <handler>on_spinbutton_kupfer_activate</handler>
-			    <last_modification_time>Fri, 17 Aug 2001 13:39:52 GMT</last_modification_time>
-			  </signal>
-			  <signal>
-			    <name>focus_out_event</name>
-			    <handler>on_spinbutton_kupfer_focus_out_event</handler>
-			    <last_modification_time>Fri, 24 May 2002 07:22:16 GMT</last_modification_time>
-			  </signal>
-			  <signal>
-			    <name>focus_in_event</name>
-			    <handler>on_spinbutton_kupfer_focus_in_event</handler>
-			    <last_modification_time>Fri, 24 May 2002 07:22:22 GMT</last_modification_time>
-			  </signal>
-			  <climb_rate>1</climb_rate>
-			  <digits>0</digits>
-			  <numeric>True</numeric>
-			  <update_policy>GTK_UPDATE_ALWAYS</update_policy>
-			  <snap>False</snap>
-			  <wrap>False</wrap>
-			  <value>1</value>
-			  <lower>0</lower>
-			  <upper>100000</upper>
-			  <step>1</step>
-			  <page>10</page>
-			  <page_size>10</page_size>
-			  <child>
-			    <padding>0</padding>
-			    <expand>True</expand>
-			    <fill>True</fill>
-			  </child>
-			</widget>
-
-			<widget>
-			  <class>GtkLabel</class>
-			  <name>label_kupfer</name>
-			  <cxx_visibility>protected</cxx_visibility>
-			  <label>0</label>
-			  <justify>GTK_JUSTIFY_CENTER</justify>
-			  <wrap>False</wrap>
-			  <xalign>0.5</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <child>
-			    <padding>0</padding>
-			    <expand>True</expand>
-			    <fill>True</fill>
-			  </child>
-			</widget>
-		      </widget>
-		    </widget>
-		  </widget>
-
-		  <widget>
-		    <class>GtkFrame</class>
-		    <name>frame41</name>
-		    <label>GFP</label>
-		    <label_xalign>0</label_xalign>
-		    <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
-		    <child>
-		      <left_attach>1</left_attach>
-		      <right_attach>3</right_attach>
-		      <top_attach>1</top_attach>
-		      <bottom_attach>2</bottom_attach>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <xexpand>False</xexpand>
-		      <yexpand>False</yexpand>
-		      <xshrink>False</xshrink>
-		      <yshrink>False</yshrink>
-		      <xfill>True</xfill>
-		      <yfill>True</yfill>
-		    </child>
-
-		    <widget>
-		      <class>GtkHBox</class>
-		      <name>hbox83</name>
-		      <homogeneous>False</homogeneous>
-		      <spacing>0</spacing>
-
-		      <widget>
-			<class>GtkSpinButton</class>
-			<name>spinbutton_gfp</name>
-			<width>60</width>
-			<cxx_visibility>protected</cxx_visibility>
-			<can_focus>True</can_focus>
-			<signal>
-			  <name>activate</name>
-			  <handler>on_spinbutton_gfp_activate</handler>
-			  <last_modification_time>Fri, 24 May 2002 13:28:30 GMT</last_modification_time>
-			</signal>
-			<signal>
-			  <name>focus_out_event</name>
-			  <handler>on_spinbutton_gfp_focus_out_event</handler>
-			  <last_modification_time>Fri, 24 May 2002 13:28:36 GMT</last_modification_time>
-			</signal>
-			<signal>
-			  <name>focus_in_event</name>
-			  <handler>on_spinbutton_gfp_focus_in_event</handler>
-			  <last_modification_time>Fri, 24 May 2002 13:28:43 GMT</last_modification_time>
-			</signal>
-			<climb_rate>1</climb_rate>
-			<digits>0</digits>
-			<numeric>True</numeric>
-			<update_policy>GTK_UPDATE_ALWAYS</update_policy>
-			<snap>False</snap>
-			<wrap>False</wrap>
-			<value>1</value>
-			<lower>0</lower>
-			<upper>100000</upper>
-			<step>1</step>
-			<page>10</page>
-			<page_size>10</page_size>
-			<child>
-			  <padding>0</padding>
-			  <expand>True</expand>
-			  <fill>True</fill>
-			</child>
-		      </widget>
-
-		      <widget>
-			<class>GtkLabel</class>
-			<name>gfp</name>
-			<cxx_visibility>protected</cxx_visibility>
-			<label>0</label>
-			<justify>GTK_JUSTIFY_CENTER</justify>
-			<wrap>False</wrap>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<child>
-			  <padding>0</padding>
-			  <expand>True</expand>
-			  <fill>True</fill>
-			</child>
-		      </widget>
-		    </widget>
-		  </widget>
-
-		  <widget>
-		    <class>GtkCheckButton</class>
-		    <name>checkbutton_EP_Geld</name>
-		    <cxx_visibility>protected</cxx_visibility>
-		    <tooltip>Ist dieser Knopf aktiviert, dann werden die Erfahrungspunkte und das Geld beim Steigern entsprechend dem eingestellten Verhältnis reduziert. Ist dieser Knof deaktiviert, so kann beliebig gesteigert werden.</tooltip>
-		    <can_focus>True</can_focus>
-		    <signal>
-		      <name>toggled</name>
-		      <handler>on_checkbutton_EP_Geld_toggled</handler>
-		      <last_modification_time>Thu, 16 Aug 2001 08:11:17 GMT</last_modification_time>
-		    </signal>
-		    <active>True</active>
-		    <draw_indicator>False</draw_indicator>
-		    <child>
-		      <left_attach>0</left_attach>
-		      <right_attach>1</right_attach>
-		      <top_attach>1</top_attach>
-		      <bottom_attach>2</bottom_attach>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <xexpand>False</xexpand>
-		      <yexpand>False</yexpand>
-		      <xshrink>False</xshrink>
-		      <yshrink>False</yshrink>
-		      <xfill>True</xfill>
-		      <yfill>False</yfill>
-		    </child>
-
-		    <widget>
-		      <class>GtkHBox</class>
-		      <name>hbox45</name>
-		      <homogeneous>False</homogeneous>
-		      <spacing>0</spacing>
-
-		      <widget>
-			<class>GtkPixmap</class>
-			<name>pixmap80</name>
-			<filename>EP-Steigern-50.xpm</filename>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<build_insensitive>True</build_insensitive>
-			<child>
-			  <padding>0</padding>
-			  <expand>True</expand>
-			  <fill>True</fill>
-			</child>
-		      </widget>
-
-		      <widget>
-			<class>GtkLabel</class>
-			<name>label521</name>
-			<label>Mit EP/PP
-steigern</label>
-			<justify>GTK_JUSTIFY_CENTER</justify>
-			<wrap>False</wrap>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<child>
-			  <padding>0</padding>
-			  <expand>False</expand>
-			  <fill>False</fill>
-			</child>
-		      </widget>
-		    </widget>
-		  </widget>
-
-		  <widget>
-		    <class>GtkCheckButton</class>
-		    <name>checkbutton_gfp</name>
-		    <cxx_visibility>protected</cxx_visibility>
-		    <can_focus>True</can_focus>
-		    <signal>
-		      <name>toggled</name>
-		      <handler>on_button_gfp_s_toggled</handler>
-		      <last_modification_time>Fri, 24 May 2002 13:27:25 GMT</last_modification_time>
-		    </signal>
-		    <active>False</active>
-		    <draw_indicator>False</draw_indicator>
-		    <child>
-		      <left_attach>3</left_attach>
-		      <right_attach>4</right_attach>
-		      <top_attach>1</top_attach>
-		      <bottom_attach>2</bottom_attach>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <xexpand>False</xexpand>
-		      <yexpand>False</yexpand>
-		      <xshrink>False</xshrink>
-		      <yshrink>False</yshrink>
-		      <xfill>True</xfill>
-		      <yfill>False</yfill>
-		    </child>
-
-		    <widget>
-		      <class>GtkEventBox</class>
-		      <name>eventbox19</name>
-		      <tooltip>GFP eingeben</tooltip>
-
-		      <widget>
-			<class>GtkPixmap</class>
-			<name>pixmap161</name>
-			<filename>Angeb_Richtung-32.xpm</filename>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<build_insensitive>True</build_insensitive>
-		      </widget>
-		    </widget>
-		  </widget>
-		</widget>
-
-		<widget>
-		  <class>GtkEventBox</class>
-		  <name>eventbox1</name>
-		  <tooltip>Einstellen des Verhältnisses zwischen Erfahrungspunkten und Gold beim Steigern. Je weiter oben, um so höher der Anteil der verwendeten EP. (Nur wenn mit 'Unterweisung' gesteigert wird.)</tooltip>
-		  <child>
-		    <left_attach>1</left_attach>
-		    <right_attach>2</right_attach>
-		    <top_attach>0</top_attach>
-		    <bottom_attach>1</bottom_attach>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>False</xexpand>
-		    <yexpand>False</yexpand>
-		    <xshrink>True</xshrink>
-		    <yshrink>True</yshrink>
-		    <xfill>False</xfill>
-		    <yfill>True</yfill>
-		  </child>
-
-		  <widget>
-		    <class>GtkTable</class>
-		    <name>table73</name>
-		    <rows>3</rows>
-		    <columns>1</columns>
-		    <homogeneous>False</homogeneous>
-		    <row_spacing>0</row_spacing>
-		    <column_spacing>0</column_spacing>
-
-		    <widget>
-		      <class>GtkLabel</class>
-		      <name>label_EP</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <label>50%</label>
-		      <justify>GTK_JUSTIFY_CENTER</justify>
-		      <wrap>False</wrap>
-		      <xalign>0</xalign>
-		      <yalign>0.5</yalign>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <child>
-			<left_attach>0</left_attach>
-			<right_attach>1</right_attach>
-			<top_attach>0</top_attach>
-			<bottom_attach>1</bottom_attach>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<xexpand>False</xexpand>
-			<yexpand>False</yexpand>
-			<xshrink>False</xshrink>
-			<yshrink>False</yshrink>
-			<xfill>False</xfill>
-			<yfill>False</yfill>
-		      </child>
-		    </widget>
-
-		    <widget>
-		      <class>GtkLabel</class>
-		      <name>label_Gold</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <label>50%</label>
-		      <justify>GTK_JUSTIFY_CENTER</justify>
-		      <wrap>False</wrap>
-		      <xalign>0</xalign>
-		      <yalign>0.5</yalign>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <child>
-			<left_attach>0</left_attach>
-			<right_attach>1</right_attach>
-			<top_attach>2</top_attach>
-			<bottom_attach>3</bottom_attach>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<xexpand>False</xexpand>
-			<yexpand>False</yexpand>
-			<xshrink>False</xshrink>
-			<yshrink>False</yshrink>
-			<xfill>False</xfill>
-			<yfill>False</yfill>
-		      </child>
-		    </widget>
-
-		    <widget>
-		      <class>GtkVScale</class>
-		      <name>vscale_EP_Gold</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <can_focus>True</can_focus>
-		      <signal>
-			<name>button_release_event</name>
-			<handler>vscale_value_changed</handler>
-			<last_modification_time>Wed, 15 Aug 2001 16:37:59 GMT</last_modification_time>
-		      </signal>
-		      <draw_value>False</draw_value>
-		      <value_pos>GTK_POS_TOP</value_pos>
-		      <digits>1</digits>
-		      <policy>GTK_UPDATE_CONTINUOUS</policy>
-		      <value>48.5</value>
-		      <lower>33</lower>
-		      <upper>68</upper>
-		      <step>1</step>
-		      <page>1</page>
-		      <page_size>1</page_size>
-		      <child>
-			<left_attach>0</left_attach>
-			<right_attach>1</right_attach>
-			<top_attach>1</top_attach>
-			<bottom_attach>2</bottom_attach>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<xexpand>False</xexpand>
-			<yexpand>True</yexpand>
-			<xshrink>False</xshrink>
-			<yshrink>False</yshrink>
-			<xfill>True</xfill>
-			<yfill>True</yfill>
-		      </child>
-		    </widget>
-		  </widget>
-		</widget>
-
-		<widget>
-		  <class>GtkFrame</class>
-		  <name>frame_lernen_mit</name>
-		  <cxx_visibility>protected</cxx_visibility>
-		  <label>Steigern mit</label>
-		  <label_xalign>0</label_xalign>
-		  <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
-		  <child>
-		    <left_attach>0</left_attach>
-		    <right_attach>1</right_attach>
-		    <top_attach>0</top_attach>
-		    <bottom_attach>1</bottom_attach>
-		    <xpad>5</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>False</xexpand>
-		    <yexpand>False</yexpand>
-		    <xshrink>False</xshrink>
-		    <yshrink>False</yshrink>
-		    <xfill>False</xfill>
-		    <yfill>False</yfill>
-		  </child>
-
-		  <widget>
-		    <class>GtkTable</class>
-		    <name>table101</name>
-		    <rows>3</rows>
-		    <columns>1</columns>
-		    <homogeneous>False</homogeneous>
-		    <row_spacing>0</row_spacing>
-		    <column_spacing>0</column_spacing>
-
-		    <widget>
-		      <class>GtkRadioButton</class>
-		      <name>radiobutton_selbst</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <tooltip>Steigern mit EP</tooltip>
-		      <can_focus>True</can_focus>
-		      <signal>
-			<name>toggled</name>
-			<handler>on_radio_selbst_toggled</handler>
-			<last_modification_time>Tue, 25 Dec 2001 14:57:34 GMT</last_modification_time>
-		      </signal>
-		      <active>False</active>
-		      <draw_indicator>False</draw_indicator>
-		      <group>lernen</group>
-		      <child>
-			<left_attach>0</left_attach>
-			<right_attach>1</right_attach>
-			<top_attach>1</top_attach>
-			<bottom_attach>2</bottom_attach>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<xexpand>False</xexpand>
-			<yexpand>False</yexpand>
-			<xshrink>False</xshrink>
-			<yshrink>False</yshrink>
-			<xfill>True</xfill>
-			<yfill>False</yfill>
-		      </child>
-
-		      <widget>
-			<class>GtkHBox</class>
-			<name>hbox42</name>
-			<homogeneous>False</homogeneous>
-			<spacing>0</spacing>
-
-			<widget>
-			  <class>GtkPixmap</class>
-			  <name>pixmap75</name>
-			  <filename>Self-Learning-32.xpm</filename>
-			  <xalign>0.5</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <build_insensitive>True</build_insensitive>
-			  <child>
-			    <padding>0</padding>
-			    <expand>True</expand>
-			    <fill>True</fill>
-			  </child>
-			</widget>
-
-			<widget>
-			  <class>GtkLabel</class>
-			  <name>label518</name>
-			  <label>Selbsstudium</label>
-			  <justify>GTK_JUSTIFY_CENTER</justify>
-			  <wrap>False</wrap>
-			  <xalign>0.5</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <child>
-			    <padding>0</padding>
-			    <expand>False</expand>
-			    <fill>False</fill>
-			  </child>
-			</widget>
-		      </widget>
-		    </widget>
-
-		    <widget>
-		      <class>GtkRadioButton</class>
-		      <name>radiobutton_praxis</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <tooltip>Zum Steigern werden in erster Linie Praxispunkte verwendet. Es werden jedoch keine FP verschenkt, fehlenden FP werden durch EP aufgefüllt.</tooltip>
-		      <can_focus>True</can_focus>
-		      <signal>
-			<name>toggled</name>
-			<handler>on_radio_praxis_toggled</handler>
-			<last_modification_time>Tue, 25 Dec 2001 14:57:23 GMT</last_modification_time>
-		      </signal>
-		      <active>False</active>
-		      <draw_indicator>False</draw_indicator>
-		      <group>lernen</group>
-		      <child>
-			<left_attach>0</left_attach>
-			<right_attach>1</right_attach>
-			<top_attach>2</top_attach>
-			<bottom_attach>3</bottom_attach>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<xexpand>False</xexpand>
-			<yexpand>False</yexpand>
-			<xshrink>False</xshrink>
-			<yshrink>False</yshrink>
-			<xfill>True</xfill>
-			<yfill>False</yfill>
-		      </child>
-
-		      <widget>
-			<class>GtkHBox</class>
-			<name>hbox43</name>
-			<homogeneous>False</homogeneous>
-			<spacing>0</spacing>
-
-			<widget>
-			  <class>GtkPixmap</class>
-			  <name>pixmap76</name>
-			  <filename>Learning_by_Doing-32.xpm</filename>
-			  <xalign>0.5</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <build_insensitive>True</build_insensitive>
-			  <child>
-			    <padding>0</padding>
-			    <expand>True</expand>
-			    <fill>True</fill>
-			  </child>
-			</widget>
-
-			<widget>
-			  <class>GtkLabel</class>
-			  <name>label519</name>
-			  <label>Praxis         </label>
-			  <justify>GTK_JUSTIFY_CENTER</justify>
-			  <wrap>False</wrap>
-			  <xalign>0.5</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <child>
-			    <padding>0</padding>
-			    <expand>False</expand>
-			    <fill>False</fill>
-			  </child>
-			</widget>
-		      </widget>
-		    </widget>
-
-		    <widget>
-		      <class>GtkRadioButton</class>
-		      <name>radiobutton_unterweisung</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <tooltip>Steigern mit Gold und EP</tooltip>
-		      <can_focus>True</can_focus>
-		      <signal>
-			<name>toggled</name>
-			<handler>on_radio_unterweisung_toggled</handler>
-			<last_modification_time>Tue, 25 Dec 2001 14:57:46 GMT</last_modification_time>
-		      </signal>
-		      <active>True</active>
-		      <draw_indicator>False</draw_indicator>
-		      <group>lernen</group>
-		      <child>
-			<left_attach>0</left_attach>
-			<right_attach>1</right_attach>
-			<top_attach>0</top_attach>
-			<bottom_attach>1</bottom_attach>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<xexpand>False</xexpand>
-			<yexpand>False</yexpand>
-			<xshrink>False</xshrink>
-			<yshrink>False</yshrink>
-			<xfill>True</xfill>
-			<yfill>False</yfill>
-		      </child>
-
-		      <widget>
-			<class>GtkHBox</class>
-			<name>hbox41</name>
-			<homogeneous>False</homogeneous>
-			<spacing>0</spacing>
-
-			<widget>
-			  <class>GtkPixmap</class>
-			  <name>pixmap77</name>
-			  <filename>Teacher-trans32.xpm</filename>
-			  <xalign>0.5</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <build_insensitive>True</build_insensitive>
-			  <child>
-			    <padding>0</padding>
-			    <expand>True</expand>
-			    <fill>True</fill>
-			  </child>
-			</widget>
-
-			<widget>
-			  <class>GtkLabel</class>
-			  <name>label517</name>
-			  <label>Unterweisung</label>
-			  <justify>GTK_JUSTIFY_CENTER</justify>
-			  <wrap>False</wrap>
-			  <xalign>0.5</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <child>
-			    <padding>0</padding>
-			    <expand>False</expand>
-			    <fill>False</fill>
-			  </child>
-			</widget>
-		      </widget>
-		    </widget>
-		  </widget>
-		</widget>
-
-		<widget>
-		  <class>GtkFrame</class>
-		  <name>frame_zauber_zusatz</name>
-		  <cxx_visibility>protected</cxx_visibility>
-		  <label>Zauber</label>
-		  <label_xalign>0</label_xalign>
-		  <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
-		  <child>
-		    <left_attach>5</left_attach>
-		    <right_attach>6</right_attach>
-		    <top_attach>0</top_attach>
-		    <bottom_attach>1</bottom_attach>
-		    <xpad>5</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>False</xexpand>
-		    <yexpand>False</yexpand>
-		    <xshrink>False</xshrink>
-		    <yshrink>False</yshrink>
-		    <xfill>False</xfill>
-		    <yfill>True</yfill>
-		  </child>
-
-		  <widget>
-		    <class>GtkTable</class>
-		    <name>table102</name>
-		    <border_width>3</border_width>
-		    <rows>3</rows>
-		    <columns>2</columns>
-		    <homogeneous>False</homogeneous>
-		    <row_spacing>0</row_spacing>
-		    <column_spacing>0</column_spacing>
-
-		    <widget>
-		      <class>GtkTable</class>
-		      <name>table50</name>
-		      <rows>2</rows>
-		      <columns>1</columns>
-		      <homogeneous>False</homogeneous>
-		      <row_spacing>0</row_spacing>
-		      <column_spacing>0</column_spacing>
-		      <child>
-			<left_attach>1</left_attach>
-			<right_attach>2</right_attach>
-			<top_attach>0</top_attach>
-			<bottom_attach>1</bottom_attach>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<xexpand>True</xexpand>
-			<yexpand>True</yexpand>
-			<xshrink>False</xshrink>
-			<yshrink>False</yshrink>
-			<xfill>True</xfill>
-			<yfill>True</yfill>
-		      </child>
-
-		      <widget>
-			<class>GtkRadioButton</class>
-			<name>radio_spruchrolle_wuerfeln</name>
-			<cxx_visibility>protected</cxx_visibility>
-			<can_focus>True</can_focus>
-			<active>False</active>
-			<draw_indicator>False</draw_indicator>
-			<group>spruchrolle</group>
-			<child>
-			  <left_attach>0</left_attach>
-			  <right_attach>1</right_attach>
-			  <top_attach>0</top_attach>
-			  <bottom_attach>1</bottom_attach>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <xexpand>False</xexpand>
-			  <yexpand>True</yexpand>
-			  <xshrink>False</xshrink>
-			  <yshrink>False</yshrink>
-			  <xfill>True</xfill>
-			  <yfill>True</yfill>
-			</child>
-
-			<widget>
-			  <class>GtkPixmap</class>
-			  <name>pixmap81</name>
-			  <filename>select_wuerfeln.xpm</filename>
-			  <xalign>7.45058e-09</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <build_insensitive>True</build_insensitive>
-			</widget>
-		      </widget>
-
-		      <widget>
-			<class>GtkRadioButton</class>
-			<name>radio_spruchrolle_auto</name>
-			<cxx_visibility>protected</cxx_visibility>
-			<can_focus>True</can_focus>
-			<active>False</active>
-			<draw_indicator>False</draw_indicator>
-			<group>spruchrolle</group>
-			<child>
-			  <left_attach>0</left_attach>
-			  <right_attach>1</right_attach>
-			  <top_attach>1</top_attach>
-			  <bottom_attach>2</bottom_attach>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <xexpand>True</xexpand>
-			  <yexpand>True</yexpand>
-			  <xshrink>False</xshrink>
-			  <yshrink>False</yshrink>
-			  <xfill>True</xfill>
-			  <yfill>True</yfill>
-			</child>
-
-			<widget>
-			  <class>GtkPixmap</class>
-			  <name>pixmap82</name>
-			  <filename>select_automatisch.xpm</filename>
-			  <xalign>7.45058e-09</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <build_insensitive>True</build_insensitive>
-			</widget>
-		      </widget>
-		    </widget>
-
-		    <widget>
-		      <class>GtkToggleButton</class>
-		      <name>togglebutton_spruchrolle</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <can_focus>True</can_focus>
-		      <signal>
-			<name>toggled</name>
-			<handler>on_spruchrolle_toggled</handler>
-			<last_modification_time>Thu, 27 Dec 2001 13:57:56 GMT</last_modification_time>
-		      </signal>
-		      <relief>GTK_RELIEF_HALF</relief>
-		      <active>False</active>
-		      <child>
-			<left_attach>0</left_attach>
-			<right_attach>1</right_attach>
-			<top_attach>0</top_attach>
-			<bottom_attach>1</bottom_attach>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<xexpand>False</xexpand>
-			<yexpand>False</yexpand>
-			<xshrink>False</xshrink>
-			<yshrink>False</yshrink>
-			<xfill>True</xfill>
-			<yfill>False</yfill>
-		      </child>
-
-		      <widget>
-			<class>GtkHBox</class>
-			<name>hbox44</name>
-			<homogeneous>False</homogeneous>
-			<spacing>0</spacing>
-
-			<widget>
-			  <class>GtkPixmap</class>
-			  <name>pixmap79</name>
-			  <filename>LearnRoll-trans-50.xpm</filename>
-			  <xalign>0.5</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <build_insensitive>True</build_insensitive>
-			  <child>
-			    <padding>0</padding>
-			    <expand>False</expand>
-			    <fill>False</fill>
-			  </child>
-			</widget>
-
-			<widget>
-			  <class>GtkLabel</class>
-			  <name>label520</name>
-			  <label>Lernen mit
-Spruchrolle</label>
-			  <justify>GTK_JUSTIFY_CENTER</justify>
-			  <wrap>False</wrap>
-			  <xalign>0.5</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <child>
-			    <padding>0</padding>
-			    <expand>False</expand>
-			    <fill>False</fill>
-			  </child>
-			</widget>
-		      </widget>
-		    </widget>
-
-		    <widget>
-		      <class>GtkToggleButton</class>
-		      <name>togglebutton_alle_zauber</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <tooltip>Es kann aus ALLEN Zaubern gewählt werden</tooltip>
-		      <can_focus>True</can_focus>
-		      <signal>
-			<name>toggled</name>
-			<handler>on_togglebutton_alle_zauber_toggled</handler>
-			<last_modification_time>Thu, 24 Jan 2002 18:42:48 GMT</last_modification_time>
-		      </signal>
-		      <relief>GTK_RELIEF_NORMAL</relief>
-		      <active>False</active>
-		      <child>
-			<left_attach>0</left_attach>
-			<right_attach>1</right_attach>
-			<top_attach>1</top_attach>
-			<bottom_attach>2</bottom_attach>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<xexpand>False</xexpand>
-			<yexpand>False</yexpand>
-			<xshrink>False</xshrink>
-			<yshrink>False</yshrink>
-			<xfill>True</xfill>
-			<yfill>False</yfill>
-		      </child>
-
-		      <widget>
-			<class>GtkHBox</class>
-			<name>hbox49</name>
-			<homogeneous>False</homogeneous>
-			<spacing>0</spacing>
-
-			<widget>
-			  <class>GtkPixmap</class>
-			  <name>pixmap92</name>
-			  <filename>MAGUS_Logo_Small.xpm</filename>
-			  <xalign>0.5</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <build_insensitive>True</build_insensitive>
-			  <child>
-			    <padding>0</padding>
-			    <expand>False</expand>
-			    <fill>False</fill>
-			  </child>
-			</widget>
-
-			<widget>
-			  <class>GtkLabel</class>
-			  <name>label534</name>
-			  <label>Alle Zauber
-anzeigen</label>
-			  <justify>GTK_JUSTIFY_CENTER</justify>
-			  <wrap>False</wrap>
-			  <xalign>0.5</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <child>
-			    <padding>0</padding>
-			    <expand>False</expand>
-			    <fill>False</fill>
-			  </child>
-			</widget>
-		      </widget>
-		    </widget>
-
-		    <widget>
-		      <class>GtkToggleButton</class>
-		      <name>togglebutton_zaubersalze</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <tooltip>Zaubersalze können gelernt werden</tooltip>
-		      <can_focus>True</can_focus>
-		      <signal>
-			<name>toggled</name>
-			<handler>on_togglebutton_zaubersalze_toggled</handler>
-			<last_modification_time>Thu, 24 Jan 2002 18:35:47 GMT</last_modification_time>
-		      </signal>
-		      <relief>GTK_RELIEF_NORMAL</relief>
-		      <active>False</active>
-		      <child>
-			<left_attach>0</left_attach>
-			<right_attach>1</right_attach>
-			<top_attach>2</top_attach>
-			<bottom_attach>3</bottom_attach>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<xexpand>False</xexpand>
-			<yexpand>False</yexpand>
-			<xshrink>False</xshrink>
-			<yshrink>False</yshrink>
-			<xfill>True</xfill>
-			<yfill>False</yfill>
-		      </child>
-
-		      <widget>
-			<class>GtkHBox</class>
-			<name>hbox48</name>
-			<homogeneous>False</homogeneous>
-			<spacing>0</spacing>
-
-			<widget>
-			  <class>GtkPixmap</class>
-			  <name>pixmap91</name>
-			  <filename>MAGUS_Logo_Small.xpm</filename>
-			  <xalign>0.5</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <build_insensitive>True</build_insensitive>
-			  <child>
-			    <padding>0</padding>
-			    <expand>False</expand>
-			    <fill>False</fill>
-			  </child>
-			</widget>
-
-			<widget>
-			  <class>GtkLabel</class>
-			  <name>label533</name>
-			  <label>Zaubersalze
-anzeigen</label>
-			  <justify>GTK_JUSTIFY_CENTER</justify>
-			  <wrap>False</wrap>
-			  <xalign>0.5</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <child>
-			    <padding>0</padding>
-			    <expand>False</expand>
-			    <fill>False</fill>
-			  </child>
-			</widget>
-		      </widget>
-		    </widget>
-
-		    <widget>
-		      <class>GtkTable</class>
-		      <name>table150</name>
-		      <rows>1</rows>
-		      <columns>1</columns>
-		      <homogeneous>False</homogeneous>
-		      <row_spacing>0</row_spacing>
-		      <column_spacing>0</column_spacing>
-		      <child>
-			<left_attach>1</left_attach>
-			<right_attach>2</right_attach>
-			<top_attach>2</top_attach>
-			<bottom_attach>3</bottom_attach>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<xexpand>False</xexpand>
-			<yexpand>False</yexpand>
-			<xshrink>False</xshrink>
-			<yshrink>False</yshrink>
-			<xfill>True</xfill>
-			<yfill>True</yfill>
-		      </child>
-		    </widget>
-		  </widget>
-		</widget>
-
-		<widget>
-		  <class>GtkFrame</class>
-		  <name>frame_fertigkeit</name>
-		  <cxx_visibility>protected</cxx_visibility>
-		  <label>Fertigkeit</label>
-		  <label_xalign>0</label_xalign>
-		  <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
-		  <child>
-		    <left_attach>3</left_attach>
-		    <right_attach>4</right_attach>
-		    <top_attach>0</top_attach>
-		    <bottom_attach>1</bottom_attach>
-		    <xpad>10</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>False</xexpand>
-		    <yexpand>False</yexpand>
-		    <xshrink>False</xshrink>
-		    <yshrink>False</yshrink>
-		    <xfill>False</xfill>
-		    <yfill>False</yfill>
-		  </child>
-
-		  <widget>
-		    <class>GtkTable</class>
-		    <name>table100</name>
-		    <border_width>3</border_width>
-		    <rows>3</rows>
-		    <columns>1</columns>
-		    <homogeneous>False</homogeneous>
-		    <row_spacing>0</row_spacing>
-		    <column_spacing>0</column_spacing>
-
-		    <widget>
-		      <class>GtkRadioButton</class>
-		      <name>radiobutton_reduzieren</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <tooltip>Ist dieser Knopf gedrückt werden die Erfolgswerte bereits gelernter Fertigkeiten (durch anklicken) reduziert.</tooltip>
-		      <can_focus>True</can_focus>
-		      <signal>
-			<name>toggled</name>
-			<handler>on_radio_reduzieren_toggled</handler>
-			<last_modification_time>Tue, 25 Dec 2001 14:47:57 GMT</last_modification_time>
-		      </signal>
-		      <active>False</active>
-		      <draw_indicator>False</draw_indicator>
-		      <group>steigern</group>
-		      <child>
-			<left_attach>0</left_attach>
-			<right_attach>1</right_attach>
-			<top_attach>1</top_attach>
-			<bottom_attach>2</bottom_attach>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<xexpand>False</xexpand>
-			<yexpand>False</yexpand>
-			<xshrink>False</xshrink>
-			<yshrink>False</yshrink>
-			<xfill>True</xfill>
-			<yfill>False</yfill>
-		      </child>
-
-		      <widget>
-			<class>GtkHBox</class>
-			<name>hbox38</name>
-			<homogeneous>False</homogeneous>
-			<spacing>0</spacing>
-
-			<widget>
-			  <class>GtkPixmap</class>
-			  <name>pixmap72</name>
-			  <filename>Reduzieren-trans-32.xpm</filename>
-			  <xalign>0.5</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <build_insensitive>True</build_insensitive>
-			  <child>
-			    <padding>0</padding>
-			    <expand>True</expand>
-			    <fill>True</fill>
-			  </child>
-			</widget>
-
-			<widget>
-			  <class>GtkLabel</class>
-			  <name>label514</name>
-			  <label>Reduzieren</label>
-			  <justify>GTK_JUSTIFY_CENTER</justify>
-			  <wrap>False</wrap>
-			  <xalign>0.5</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <child>
-			    <padding>0</padding>
-			    <expand>False</expand>
-			    <fill>False</fill>
-			  </child>
-			</widget>
-		      </widget>
-		    </widget>
-
-		    <widget>
-		      <class>GtkRadioButton</class>
-		      <name>radiobutton_verlernen</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <tooltip>Ist dieser Knopf gedrückt wird eine bereits gelernter Fertigkeiten (durch anklicken) verlernt, wenn sie auf dem niedrigsten Erfolgswert beherrscht wird.</tooltip>
-		      <can_focus>True</can_focus>
-		      <signal>
-			<name>toggled</name>
-			<handler>on_radio_verlernen_toggled</handler>
-			<last_modification_time>Tue, 25 Dec 2001 14:48:07 GMT</last_modification_time>
-		      </signal>
-		      <active>False</active>
-		      <draw_indicator>False</draw_indicator>
-		      <group>steigern</group>
-		      <child>
-			<left_attach>0</left_attach>
-			<right_attach>1</right_attach>
-			<top_attach>2</top_attach>
-			<bottom_attach>3</bottom_attach>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<xexpand>False</xexpand>
-			<yexpand>False</yexpand>
-			<xshrink>False</xshrink>
-			<yshrink>False</yshrink>
-			<xfill>True</xfill>
-			<yfill>False</yfill>
-		      </child>
-
-		      <widget>
-			<class>GtkHBox</class>
-			<name>hbox39</name>
-			<homogeneous>False</homogeneous>
-			<spacing>0</spacing>
-
-			<widget>
-			  <class>GtkPixmap</class>
-			  <name>pixmap73</name>
-			  <filename>Verlernen-trans-32.xpm</filename>
-			  <xalign>0.5</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <build_insensitive>True</build_insensitive>
-			  <child>
-			    <padding>0</padding>
-			    <expand>True</expand>
-			    <fill>True</fill>
-			  </child>
-			</widget>
-
-			<widget>
-			  <class>GtkLabel</class>
-			  <name>label515</name>
-			  <label>Verlernen </label>
-			  <justify>GTK_JUSTIFY_CENTER</justify>
-			  <wrap>False</wrap>
-			  <xalign>0.5</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <child>
-			    <padding>0</padding>
-			    <expand>False</expand>
-			    <fill>False</fill>
-			  </child>
-			</widget>
-		      </widget>
-		    </widget>
-
-		    <widget>
-		      <class>GtkRadioButton</class>
-		      <name>radiobutton_steigern</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <tooltip>Ist dieser Knopf gedrückt können die bereits gelernten Fertigkeiten (durch anklicken) gesteigert werden.</tooltip>
-		      <can_focus>True</can_focus>
-		      <signal>
-			<name>toggled</name>
-			<handler>on_radio_steigern_toggled</handler>
-			<last_modification_time>Tue, 25 Dec 2001 14:57:55 GMT</last_modification_time>
-		      </signal>
-		      <active>True</active>
-		      <draw_indicator>False</draw_indicator>
-		      <group>steigern</group>
-		      <child>
-			<left_attach>0</left_attach>
-			<right_attach>1</right_attach>
-			<top_attach>0</top_attach>
-			<bottom_attach>1</bottom_attach>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<xexpand>False</xexpand>
-			<yexpand>False</yexpand>
-			<xshrink>False</xshrink>
-			<yshrink>False</yshrink>
-			<xfill>True</xfill>
-			<yfill>False</yfill>
-		      </child>
-
-		      <widget>
-			<class>GtkHBox</class>
-			<name>hbox37</name>
-			<homogeneous>False</homogeneous>
-			<spacing>0</spacing>
-
-			<widget>
-			  <class>GtkPixmap</class>
-			  <name>pixmap74</name>
-			  <filename>Steigern-trans-32.xpm</filename>
-			  <xalign>0.5</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <build_insensitive>True</build_insensitive>
-			  <child>
-			    <padding>0</padding>
-			    <expand>True</expand>
-			    <fill>True</fill>
-			  </child>
-			</widget>
-
-			<widget>
-			  <class>GtkLabel</class>
-			  <name>label513</name>
-			  <label>Steigern    </label>
-			  <justify>GTK_JUSTIFY_CENTER</justify>
-			  <wrap>False</wrap>
-			  <xalign>0.5</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <child>
-			    <padding>0</padding>
-			    <expand>False</expand>
-			    <fill>False</fill>
-			  </child>
-			</widget>
-		      </widget>
-		    </widget>
-		  </widget>
-		</widget>
-
-		<widget>
-		  <class>GtkFrame</class>
-		  <name>frame_praxispunkte</name>
-		  <cxx_visibility>protected</cxx_visibility>
-		  <label>Praxispunkte</label>
-		  <label_xalign>0</label_xalign>
-		  <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
-		  <child>
-		    <left_attach>4</left_attach>
-		    <right_attach>5</right_attach>
-		    <top_attach>0</top_attach>
-		    <bottom_attach>1</bottom_attach>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>False</xexpand>
-		    <yexpand>False</yexpand>
-		    <xshrink>True</xshrink>
-		    <yshrink>True</yshrink>
-		    <xfill>False</xfill>
-		    <yfill>True</yfill>
-		  </child>
-
-		  <widget>
-		    <class>GtkTable</class>
-		    <name>table110</name>
-		    <border_width>3</border_width>
-		    <rows>2</rows>
-		    <columns>2</columns>
-		    <homogeneous>False</homogeneous>
-		    <row_spacing>0</row_spacing>
-		    <column_spacing>0</column_spacing>
-
-		    <widget>
-		      <class>GtkSpinButton</class>
-		      <name>spinbutton_pp_eingeben</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <tooltip>Eingabe mit 'Enter' bestätigen.</tooltip>
-		      <can_focus>True</can_focus>
-		      <signal>
-			<name>activate</name>
-			<handler>on_spinbutton_pp_eingeben_activate</handler>
-			<last_modification_time>Wed, 26 Dec 2001 12:22:10 GMT</last_modification_time>
-		      </signal>
-		      <climb_rate>1</climb_rate>
-		      <digits>0</digits>
-		      <numeric>False</numeric>
-		      <update_policy>GTK_UPDATE_ALWAYS</update_policy>
-		      <snap>False</snap>
-		      <wrap>False</wrap>
-		      <value>0</value>
-		      <lower>0</lower>
-		      <upper>100000</upper>
-		      <step>1</step>
-		      <page>10</page>
-		      <page_size>10</page_size>
-		      <child>
-			<left_attach>0</left_attach>
-			<right_attach>1</right_attach>
-			<top_attach>1</top_attach>
-			<bottom_attach>2</bottom_attach>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<xexpand>False</xexpand>
-			<yexpand>False</yexpand>
-			<xshrink>False</xshrink>
-			<yshrink>False</yshrink>
-			<xfill>False</xfill>
-			<yfill>False</yfill>
-		      </child>
-		    </widget>
-
-		    <widget>
-		      <class>GtkToggleButton</class>
-		      <name>togglebutton_praxispunkte</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <can_focus>True</can_focus>
-		      <signal>
-			<name>toggled</name>
-			<handler>on_togglebutton_praxispunkte_toggled</handler>
-			<last_modification_time>Thu, 24 Jan 2002 18:27:23 GMT</last_modification_time>
-		      </signal>
-		      <relief>GTK_RELIEF_NORMAL</relief>
-		      <active>False</active>
-		      <child>
-			<left_attach>0</left_attach>
-			<right_attach>1</right_attach>
-			<top_attach>0</top_attach>
-			<bottom_attach>1</bottom_attach>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<xexpand>False</xexpand>
-			<yexpand>False</yexpand>
-			<xshrink>False</xshrink>
-			<yshrink>False</yshrink>
-			<xfill>True</xfill>
-			<yfill>False</yfill>
-		      </child>
-
-		      <widget>
-			<class>GtkHBox</class>
-			<name>hbox40</name>
-			<homogeneous>False</homogeneous>
-			<spacing>0</spacing>
-
-			<widget>
-			  <class>GtkPixmap</class>
-			  <name>pixmap78</name>
-			  <filename>PP-Eingeben-trans-32.xpm</filename>
-			  <xalign>0.5</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <build_insensitive>True</build_insensitive>
-			  <child>
-			    <padding>0</padding>
-			    <expand>True</expand>
-			    <fill>True</fill>
-			  </child>
-			</widget>
-
-			<widget>
-			  <class>GtkLabel</class>
-			  <name>label516</name>
-			  <label>Praxispunkte
-eingeben</label>
-			  <justify>GTK_JUSTIFY_CENTER</justify>
-			  <wrap>False</wrap>
-			  <xalign>0.5</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <child>
-			    <padding>0</padding>
-			    <expand>False</expand>
-			    <fill>False</fill>
-			  </child>
-			</widget>
-		      </widget>
-		    </widget>
-
-		    <widget>
-		      <class>GtkVBox</class>
-		      <name>vbox_praxispunkte</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <homogeneous>False</homogeneous>
-		      <spacing>0</spacing>
-		      <child>
-			<left_attach>1</left_attach>
-			<right_attach>2</right_attach>
-			<top_attach>0</top_attach>
-			<bottom_attach>2</bottom_attach>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<xexpand>False</xexpand>
-			<yexpand>False</yexpand>
-			<xshrink>False</xshrink>
-			<yshrink>False</yshrink>
-			<xfill>False</xfill>
-			<yfill>False</yfill>
-		      </child>
-
-		      <widget>
-			<class>GtkRadioButton</class>
-			<name>radiobutton_pp_fertigkeit</name>
-			<cxx_visibility>protected</cxx_visibility>
-			<tooltip>Nach Aktivierung dieses Knopfes muß die Fertigkeit gewählt werden, für die PP eingegeben werden sollen.</tooltip>
-			<can_focus>True</can_focus>
-			<signal>
-			  <name>toggled</name>
-			  <handler>on_radiobutton_pp_fertigkeit_toggled</handler>
-			  <last_modification_time>Sun, 30 Dec 2001 14:50:31 GMT</last_modification_time>
-			</signal>
-			<label>Fertigkeit</label>
-			<active>False</active>
-			<draw_indicator>True</draw_indicator>
-			<group>praxispunkte_fuer</group>
-			<child>
-			  <padding>0</padding>
-			  <expand>False</expand>
-			  <fill>False</fill>
-			</child>
-		      </widget>
-
-		      <widget>
-			<class>GtkRadioButton</class>
-			<name>radiobutton_pp_abwehr</name>
-			<cxx_visibility>protected</cxx_visibility>
-			<can_focus>True</can_focus>
-			<signal>
-			  <name>toggled</name>
-			  <handler>on_radiobutton_pp_abwehr_toggled</handler>
-			  <last_modification_time>Sun, 30 Dec 2001 15:21:44 GMT</last_modification_time>
-			</signal>
-			<label>Abwehr</label>
-			<active>False</active>
-			<draw_indicator>True</draw_indicator>
-			<group>praxispunkte_fuer</group>
-			<child>
-			  <padding>0</padding>
-			  <expand>False</expand>
-			  <fill>False</fill>
-			</child>
-		      </widget>
-
-		      <widget>
-			<class>GtkRadioButton</class>
-			<name>radiobutton_pp_zauber</name>
-			<cxx_visibility>protected</cxx_visibility>
-			<can_focus>True</can_focus>
-			<signal>
-			  <name>toggled</name>
-			  <handler>on_radiobutton_pp_zauber_toggled</handler>
-			  <last_modification_time>Sun, 30 Dec 2001 15:21:22 GMT</last_modification_time>
-			</signal>
-			<label>Zaubern</label>
-			<active>False</active>
-			<draw_indicator>True</draw_indicator>
-			<group>praxispunkte_fuer</group>
-			<child>
-			  <padding>0</padding>
-			  <expand>False</expand>
-			  <fill>False</fill>
-			</child>
-		      </widget>
-
-		      <widget>
-			<class>GtkRadioButton</class>
-			<name>radiobutton_pp_spezial</name>
-			<cxx_visibility>protected</cxx_visibility>
-			<can_focus>True</can_focus>
-			<signal>
-			  <name>toggled</name>
-			  <handler>on_radiobutton_pp_zauber_toggled</handler>
-			  <last_modification_time>Sun, 30 Dec 2001 15:21:22 GMT</last_modification_time>
-			</signal>
-			<active>False</active>
-			<draw_indicator>True</draw_indicator>
-			<group>praxispunkte_fuer</group>
-			<child>
-			  <padding>0</padding>
-			  <expand>False</expand>
-			  <fill>False</fill>
-			</child>
-
-			<widget>
-			  <class>Placeholder</class>
-			</widget>
-		      </widget>
-
-		      <widget>
-			<class>GtkRadioButton</class>
-			<name>radiobutton_pp_resistenz</name>
-			<cxx_visibility>protected</cxx_visibility>
-			<can_focus>True</can_focus>
-			<signal>
-			  <name>toggled</name>
-			  <handler>on_radiobutton_pp_resistenz_toggled</handler>
-			  <last_modification_time>Sun, 30 Dec 2001 14:52:04 GMT</last_modification_time>
-			</signal>
-			<label>Resistenz</label>
-			<active>False</active>
-			<draw_indicator>True</draw_indicator>
-			<group>praxispunkte_fuer</group>
-			<child>
-			  <padding>0</padding>
-			  <expand>False</expand>
-			  <fill>False</fill>
-			</child>
-		      </widget>
-		    </widget>
-		  </widget>
-		</widget>
-
-		<widget>
-		  <class>GtkScrolledWindow</class>
-		  <name>scrolledwindow_landauswahl</name>
-		  <cxx_visibility>protected</cxx_visibility>
-		  <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
-		  <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
-		  <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
-		  <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
-		  <child>
-		    <left_attach>6</left_attach>
-		    <right_attach>7</right_attach>
-		    <top_attach>0</top_attach>
-		    <bottom_attach>1</bottom_attach>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>True</xexpand>
-		    <yexpand>False</yexpand>
-		    <xshrink>False</xshrink>
-		    <yshrink>False</yshrink>
-		    <xfill>True</xfill>
-		    <yfill>True</yfill>
-		  </child>
-
-		  <widget>
-		    <class>GtkViewport</class>
-		    <name>viewport24</name>
-		    <shadow_type>GTK_SHADOW_NONE</shadow_type>
-
-		    <widget>
-		      <class>GtkCList</class>
-		      <name>clist_zusatz</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <can_focus>True</can_focus>
-		      <signal>
-			<name>select_row</name>
-			<handler>on_clist_zusatz_select_row</handler>
-			<last_modification_time>Thu, 23 May 2002 16:48:01 GMT</last_modification_time>
-		      </signal>
-		      <columns>1</columns>
-		      <column_widths>80</column_widths>
-		      <selection_mode>GTK_SELECTION_SINGLE</selection_mode>
-		      <show_titles>True</show_titles>
-		      <shadow_type>GTK_SHADOW_IN</shadow_type>
-
-		      <widget>
-			<class>GtkLabel</class>
-			<child_name>CList:title</child_name>
-			<name>label473</name>
-			<label>Land auswählen</label>
-			<justify>GTK_JUSTIFY_LEFT</justify>
-			<wrap>False</wrap>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-		      </widget>
-		    </widget>
-		  </widget>
 		</widget>
 	      </widget>
 	    </widget>
@@ -16550,8 +16579,8 @@ KS
 	  <widget>
 	    <class>GtkScrolledWindow</class>
 	    <name>scrolledwindow76</name>
-	    <hscrollbar_policy>GTK_POLICY_ALWAYS</hscrollbar_policy>
-	    <vscrollbar_policy>GTK_POLICY_ALWAYS</vscrollbar_policy>
+	    <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
+	    <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
 	    <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
 	    <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
 	    <child>
@@ -16614,45 +16643,15 @@ KS
 		<class>GtkTable</class>
 		<name>table148</name>
 		<rows>2</rows>
-		<columns>2</columns>
+		<columns>1</columns>
 		<homogeneous>False</homogeneous>
 		<row_spacing>0</row_spacing>
 		<column_spacing>0</column_spacing>
 
 		<widget>
-		  <class>Custom</class>
-		  <name>undo_tree</name>
-		  <cxx_visibility>protected</cxx_visibility>
-		  <signal>
-		    <name>leaf_selected</name>
-		    <handler>on_undo_leaf_selected</handler>
-		    <last_modification_time>Thu, 11 Apr 2002 19:29:50 GMT</last_modification_time>
-		  </signal>
-		  <creation_function>SimpleTree</creation_function>
-		  <int1>2</int1>
-		  <int2>2</int2>
-		  <last_modification_time>Thu, 11 Apr 2002 17:10:29 GMT</last_modification_time>
-		  <child>
-		    <left_attach>1</left_attach>
-		    <right_attach>2</right_attach>
-		    <top_attach>0</top_attach>
-		    <bottom_attach>1</bottom_attach>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>True</xexpand>
-		    <yexpand>True</yexpand>
-		    <xshrink>False</xshrink>
-		    <yshrink>False</yshrink>
-		    <xfill>True</xfill>
-		    <yfill>True</yfill>
-		  </child>
-		</widget>
-
-		<widget>
 		  <class>GtkLabel</class>
 		  <name>label579</name>
-		  <label>Durch anklicken einer Zeile aus der Nebenstehenden Liste 
-wird der entsprechende Abenteurer geladen.</label>
+		  <label>Durch anklicken einer Zeile aus der Liste wird der entsprechende Abenteurer geladen.</label>
 		  <justify>GTK_JUSTIFY_LEFT</justify>
 		  <wrap>False</wrap>
 		  <xalign>0</xalign>
@@ -16668,6 +16667,35 @@ wird der entsprechende Abenteurer geladen.</label>
 		    <ypad>0</ypad>
 		    <xexpand>False</xexpand>
 		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>True</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>Custom</class>
+		  <name>undo_tree</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <signal>
+		    <name>leaf_selected</name>
+		    <handler>on_undo_leaf_selected</handler>
+		    <last_modification_time>Thu, 11 Apr 2002 19:29:50 GMT</last_modification_time>
+		  </signal>
+		  <creation_function>SimpleTree</creation_function>
+		  <int1>2</int1>
+		  <int2>2</int2>
+		  <last_modification_time>Thu, 11 Apr 2002 17:10:29 GMT</last_modification_time>
+		  <child>
+		    <left_attach>0</left_attach>
+		    <right_attach>1</right_attach>
+		    <top_attach>1</top_attach>
+		    <bottom_attach>2</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>True</xexpand>
+		    <yexpand>True</yexpand>
 		    <xshrink>False</xshrink>
 		    <yshrink>False</yshrink>
 		    <xfill>True</xfill>

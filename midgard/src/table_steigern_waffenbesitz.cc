@@ -30,7 +30,16 @@ void table_steigern::on_leaf_waffenbesitz_selected_alt(cH_RowDataBase d)
   if(!checkbutton_mag_waffenbonus->get_active()) 
    {
     const MidgardBasicElement *MBE = &static_cast<const MidgardBasicElement&>(*WB);
-    hauptfenster->getChar().List_Waffen_besitz().remove(MBE);
+    for(std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getChar().List_Waffen_besitz().begin();
+         i!=hauptfenster->getChar().List_Waffen_besitz().end();++i)
+     {
+       cH_WaffeBesitz w(*i);
+       if(w==cH_WaffeBesitz(MBE))
+         {
+            hauptfenster->getChar().List_Waffen_besitz().remove(*i);
+            break;
+         }
+     }
     show_alte_waffen();
 //    zeige_waffen();
    }

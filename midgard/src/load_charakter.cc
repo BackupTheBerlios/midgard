@@ -192,10 +192,10 @@ void midgard_CG::xml_import_stream(istream& datei)
    getWerte().setBeschreibungPixSize(atoi(top->getString("TextPixSize").c_str())); 
    getWerte().setGeld(Vermoegen->getIntAttr("GS"),Vermoegen->getIntAttr("SS"),Vermoegen->getIntAttr("KS"));
 //   getWerte().clearRuestung();
-   if (Ruestung1) getWerte().setRuestung1(cH_Ruestung(Ruestung1->Value(),true));
-   else getWerte().setRuestung1(cH_Ruestung("OR",true));
-   if (Ruestung2) getWerte().setRuestung2(cH_Ruestung(Ruestung2->Value(),true));
-   else getWerte().setRuestung2(cH_Ruestung("OR",true));
+   if (Ruestung1) getWerte().setRuestung1(Ruestung1->Value(),true);
+   else getWerte().setRuestung1("OR",true);
+   if (Ruestung2) getWerte().setRuestung2(Ruestung2->Value(),true);
+   else getWerte().setRuestung2("OR",true);
    getWerte().setSpezies(cH_Spezies(Typ->getAttr("Spezies","Mensch"),true));
    if (Steigern)       getWerte().setEP(Steigern->getIntAttr("AEP"),Steigern->getIntAttr("KEP"),Steigern->getIntAttr("ZEP"));
    else

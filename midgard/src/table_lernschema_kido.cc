@@ -1,4 +1,4 @@
-// $Id: table_lernschema_kido.cc,v 1.2 2002/05/22 17:00:45 thoma Exp $
+// $Id: table_lernschema_kido.cc,v 1.3 2002/05/25 07:21:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,8 +36,6 @@ void table_lernschema::on_kido_wahl_clicked()
     }
    hauptfenster->getChar().List_Kido().clear();
    fill_kido_lernschema();
-
-//   manage(new KiDo_auswahl(this,maxkido,Werte,Database,hauptfenster->Typ,Vkido));
 }
 
 void table_lernschema::fill_kido_lernschema()
@@ -81,21 +79,6 @@ void table_lernschema::on_tree_kido_lernschema_leaf_selected(cH_RowDataBase d)
   show_gelerntes();      
 }
 
-
-/*
-void table_lernschema::show_kido()
-{
-   clist_kido->clear();
-   Gtk::OStream os(clist_kido);
-   for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Kido.begin();i!=list_Kido.end();++i)
-    {
-      cH_KiDo kd(*i);
-      os << kd->HoHo()<<"\t"<<kd->Deutsch()<<"\t"<<kd->Ap()<<"\t"<<kd->Kosten(Werte,hauptfenster->Typ)<<"\n";
-    }
-   for (unsigned int i=0;i<clist_kido->columns().size();++i)
-      clist_kido->set_column_auto_resize(i,true);
-}
-*/
 
 void table_lernschema::kido_stil_optionmenue()
 {

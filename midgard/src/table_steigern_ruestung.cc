@@ -44,12 +44,12 @@ void table_steigern::on_clist_ruestung_select_row(gint row, gint column, GdkEven
    {
      if(button_ruestung_1->get_active())
       {
-        hauptfenster->getWerte().setRuestung1(R);
+        hauptfenster->getWerte().setRuestung1(R->Name());
         button_ruestung_1->set_active(false);
       }
      else if(button_ruestung_2->get_active())
       {
-        hauptfenster->getWerte().setRuestung2(R);
+        hauptfenster->getWerte().setRuestung2(R->Name());
         button_ruestung_2->set_active(false);
       }
      show_label();
@@ -62,6 +62,7 @@ void table_steigern::on_clist_ruestung_select_row(gint row, gint column, GdkEven
 void table_steigern::fill_ruestung() 
 {
 // show_label();
+ clist_ruestung->clear();
  Gtk::OStream os(clist_ruestung);
  for(std::vector<cH_Ruestung>::const_iterator i=hauptfenster->getCDatabase().Ruestung.begin();i!=hauptfenster->getCDatabase().Ruestung.end();++i)
    { cH_Ruestung r(*i);
@@ -80,7 +81,7 @@ void table_steigern::show_label()
 // std::string sru=itos(count+1)+"te Rüstung auswählen. Bisherige Rüstungen: ("+ 
 //   Werte.Ruestung()->Long() +"/"+Werte.Ruestung(1)->Long()+")";
 // label_ruestung->set_text(sru.c_str());
- label_ruestung_1->set_text(hauptfenster->getCWerte().Ruestung()->Long());
- label_ruestung_2->set_text(hauptfenster->getCWerte().Ruestung(1)->Long());
+  label_ruestung_1->set_text(hauptfenster->getCWerte().Ruestung()->Long());
+  label_ruestung_2->set_text(hauptfenster->getCWerte().Ruestung(1)->Long());
 }
 

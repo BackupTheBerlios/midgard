@@ -64,14 +64,18 @@ gint midgard_CG::on_neuer_charakter_release_event(GdkEventButton *ev)
 
 void midgard_CG::on_neuer_charakter_clicked()
 {
+/*
    if(modify_bool)
      {
        MOptionen->save_options(InfoFenster);
        xml_export_auswahl();
      }               
+*/
    filename="";
 //   table_grundwerte->neuer_charakter();
 
+   getWerte().clear(); 
+   Char.reset();
    table_lernschema->label_lernschma_titel->set_text("");
    frame_steigern->set_sensitive(false); // das wirkt nicht ?
    frame_lernschema->set_sensitive(false);
