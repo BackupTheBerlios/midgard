@@ -1,6 +1,6 @@
-// $Id: waffen_exp.cc,v 1.19 2002/06/06 14:29:19 christof Exp $
+// $Id: waffen_exp.cc,v 1.20 2002/06/07 08:53:40 christof Exp $
 /*  Midgard Roleplaying Character Generator
- *  Copyright (C) 2001 Christof Petig
+ *  Copyright (C) 2001-2002 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -37,17 +37,17 @@ void waffen_speichern(Tag &o)
    	" order by coalesce(region,''),lp_verlust");
   while ((query>>is).good())
   {Tag &Ruestung=Ruestungen.push_back(Tag("Rüstung"));
-   std::string ruestung=fetch_and_write_string_attrib(is, Ruestung, "Name");
-   fetch_and_write_string_attrib(is, Ruestung, "Region");
-   fetch_and_write_string_attrib(is, Ruestung, "Abkürzung");
-   fetch_and_write_int_attrib(is, Ruestung, "schütztLP");
-   fetch_and_write_int_attrib(is, Ruestung, "minimaleStärke");
+   std::string ruestung=fetch_and_set_string_attrib(is, Ruestung, "Name");
+   fetch_and_set_string_attrib(is, Ruestung, "Region");
+   fetch_and_set_string_attrib(is, Ruestung, "Abkürzung");
+   fetch_and_set_int_attrib(is, Ruestung, "schütztLP");
+   fetch_and_set_int_attrib(is, Ruestung, "minimaleStärke");
    Tag &Verlust=Ruestung.push_back(Tag("Verlust"));
-   fetch_and_write_int_attrib(is, Verlust, "RW");
-   fetch_and_write_int_attrib(is, Verlust, "B");
-   fetch_and_write_int_attrib(is, Verlust, "Abwehrbonus");
-   fetch_and_write_int_attrib(is, Verlust, "Angriffsbonus");
-   fetch_and_write_int_attrib(is, Verlust, "Vollrüstung");
+   fetch_and_set_int_attrib(is, Verlust, "RW");
+   fetch_and_set_int_attrib(is, Verlust, "B");
+   fetch_and_set_int_attrib(is, Verlust, "Abwehrbonus");
+   fetch_and_set_int_attrib(is, Verlust, "Angriffsbonus");
+   fetch_and_set_int_attrib(is, Verlust, "Vollrüstung");
    kaufpreis(Ruestung, "Rüstungen", ruestung);
   }
   }
@@ -68,40 +68,40 @@ void waffen_speichern(Tag &o)
    	" order by coalesce(region,''),art,name");
   while ((query>>is).good())
   {Tag &Waffe=Waffen.push_back(Tag("Waffe"));
-   std::string waffe=fetch_and_write_string_attrib(is, Waffe, "Name");
-   fetch_and_write_string_attrib(is, Waffe, "Region");
-   std::string grund=fetch_and_write_string_attrib(is, Waffe, "Grundkenntnisse");
-   fetch_and_write_int_attrib(is, Waffe, "Schwierigkeit",-1);
-   fetch_and_write_string_attrib(is, Waffe, "Kategorie");
-   fetch_and_write_string_attrib(is, Waffe, "Klasse");
-   fetch_and_write_string_attrib(is, Waffe, "Schaden");
-   fetch_and_write_int_attrib(is, Waffe, "Schadensbonus");
-   fetch_and_write_string_attrib(is, Waffe, "erfordert");
+   std::string waffe=fetch_and_set_string_attrib(is, Waffe, "Name");
+   fetch_and_set_string_attrib(is, Waffe, "Region");
+   std::string grund=fetch_and_set_string_attrib(is, Waffe, "Grundkenntnisse");
+   fetch_and_set_int_attrib(is, Waffe, "Schwierigkeit",-1);
+   fetch_and_set_string_attrib(is, Waffe, "Kategorie");
+   fetch_and_set_string_attrib(is, Waffe, "Klasse");
+   fetch_and_set_string_attrib(is, Waffe, "Schaden");
+   fetch_and_set_int_attrib(is, Waffe, "Schadensbonus");
+   fetch_and_set_string_attrib(is, Waffe, "erfordert");
    Tag &Mod=Waffe.push_back(Tag("Modifikationen"));
 #ifdef MIDGARD3   
-   fetch_and_write_string_attrib(is, Mod, "Angriffsrang");
+   fetch_and_set_string_attrib(is, Mod, "Angriffsrang");
 #else   
-   fetch_and_write_string_attrib(is, Mod, "Waffenrang");
+   fetch_and_set_string_attrib(is, Mod, "Waffenrang");
 #endif
-   fetch_and_write_string_attrib(is, Mod, "Abwehr-leicht");
-   fetch_and_write_string_attrib(is, Mod, "Abwehr-schwer");
+   fetch_and_set_string_attrib(is, Mod, "Abwehr-leicht");
+   fetch_and_set_string_attrib(is, Mod, "Abwehr-schwer");
    Tag &Vor=Waffe.push_back(Tag("Voraussetzungen"));
-   fetch_and_write_int_attrib(is, Vor, "St");
+   fetch_and_set_int_attrib(is, Vor, "St");
 #ifdef MIDGARD3   
-   fetch_and_write_int_attrib(is, Vor, "Ge");
+   fetch_and_set_int_attrib(is, Vor, "Ge");
 #else
-   fetch_and_write_int_attrib(is, Vor, "Gw");
-   fetch_and_write_int_attrib(is, Vor, "Gs");
+   fetch_and_set_int_attrib(is, Vor, "Gw");
+   fetch_and_set_int_attrib(is, Vor, "Gs");
 #endif   
    Tag &Rw=Waffe.push_back(Tag("Reichweite"));
-   fetch_and_write_int_attrib(is, Rw, "null");
-   fetch_and_write_int_attrib(is, Rw, "nah");
-   fetch_and_write_int_attrib(is, Rw, "mittel");
-   fetch_and_write_int_attrib(is, Rw, "fern");
+   fetch_and_set_int_attrib(is, Rw, "null");
+   fetch_and_set_int_attrib(is, Rw, "nah");
+   fetch_and_set_int_attrib(is, Rw, "mittel");
+   fetch_and_set_int_attrib(is, Rw, "fern");
 #ifndef MIDGARD3
    Tag &Lk=Waffe.push_back(Tag("Lernkosten"));
-   fetch_and_write_int_attrib(is, Lk, "Land");
-   fetch_and_write_int_attrib(is, Lk, "Stadt");
+   fetch_and_set_int_attrib(is, Lk, "Land");
+   fetch_and_set_int_attrib(is, Lk, "Stadt");
 #endif   
 
    //********** waffen_voraussetzungen *****************************
@@ -132,10 +132,10 @@ void waffen_speichern(Tag &o)
       FetchIStream is2;
       while ((query2>>is2).good()) 
       {  Tag &Rv=Waffe.push_back(Tag("regionaleVariante"));
-         std::string varian=fetch_and_write_string_attrib(is2, Rv, "Name");
-         fetch_and_write_string_attrib(is2, Rv, "Region");
-         fetch_and_write_string_attrib(is2, Rv, "Schaden");
-         fetch_and_write_int_attrib(is2, Rv, "Schadensbonus");
+         std::string varian=fetch_and_set_string_attrib(is2, Rv, "Name");
+         fetch_and_set_string_attrib(is2, Rv, "Region");
+         fetch_and_set_string_attrib(is2, Rv, "Schaden");
+         fetch_and_set_int_attrib(is2, Rv, "Schadensbonus");
          int agmod=fetch_int(is2);
          if (agmod) Rv.push_back(Tag("Modifikationen")).setIntAttr("Angriff",agmod);
          kaufpreis(Rv, "Waffen", varian);
@@ -160,10 +160,9 @@ void waffen_speichern(Tag &o)
    	+ RegionErgaenzungQuery("waffen.name","waffen_typen","Waffe","w")
    	+ "order by coalesce(region,''),name");
   while ((q >> is).good())
-  {o << "  <Waffe";
-   std::string waffe=fetch_and_write_string_attrib(is, o, "Name");
-   fetch_and_write_string_attrib(is, o, "Region");
-   o << ">\n";
+  {Tag &Waffe=Waffen.push_back(Tag("Waffe"));
+   std::string waffe=fetch_and_set_string_attrib(is, Waffe, "Name");
+   fetch_and_set_string_attrib(is, Waffe, "Region");
 
  //************************* waffen_region_name ************************  
    {  Query query2("select r.alias,r.region,coalesce(r.schaden,w.schaden),"
@@ -175,16 +174,14 @@ void waffen_speichern(Tag &o)
       	" order by r.region,r.alias");
       FetchIStream is2;
       while ((query2>>is2).good()) 
-      {  o << "    <regionaleVariante";
-         std::string varian=fetch_and_write_string_attrib(is2, o, "Name");
-         fetch_and_write_string_attrib(is2, o, "Region");
-         fetch_and_write_string_attrib(is2, o, "Schaden");
-         fetch_and_write_int_attrib(is2, o, "Schadensbonus");
-	 o << "><Modifikationen";
-         fetch_and_write_int_attrib(is2, o, "Angriff");
-         o << "/>\n";
-         kaufpreis(rV, "Waffen", varian);
-         o << "    </regionaleVariante>\n";
+      {  Tag &Rv=Waffe.push_back(Tag("regionaleVariante"));
+         std::string varian=fetch_and_set_string_attrib(is2, Rv, "Name");
+         fetch_and_set_string_attrib(is2, Rv, "Region");
+         fetch_and_set_string_attrib(is2, Rv, "Schaden");
+         fetch_and_set_int_attrib(is2, Rv, "Schadensbonus");
+         int agmod=fetch_int(is2);
+         if (agmod) Rv.push_back(Tag("Modifikationen")).setIntAttr("Angriff",agmod);
+         kaufpreis(Rv, "Waffen", varian);
       }
      }
 
@@ -196,21 +193,19 @@ void waffen_speichern(Tag &o)
 
 //******************waffen_grund************************************************
 
-  o << " <Waffen-Grundkenntnisse>\n";
+  Tag &WGke=o.push_back(Tag("Waffen-Grundkenntnisse"));
   {Query query("select name, region, fp from waffen_grund"
    	" where coalesce(region,'')='"+region+"'"
    	" order by name");
   while ((query>>is).good())
-  {o << "  <Waffen-Grundkenntnis";
-   std::string grund=fetch_and_write_string_attrib(is, o, "Name");
-   fetch_and_write_string_attrib(is, o, "Region");
-   fetch_and_write_int_attrib(is, o, "Kosten");
-   o << ">\n";
+  {Tag &WGk=WGk.push_back(Tag("Waffen-Grundkenntnis"));
+   std::string grund=fetch_and_set_string_attrib(is, WGk, "Name");
+   fetch_and_set_string_attrib(is, WGk, "Region");
+   fetch_and_set_int_attrib(is, WGk, "Kosten");
 //*************** Waffen Grund Typen ***************************
 
    // nicht erforderlich für Grundkenntnisse?
       grund_standard_ausnahme(WGk, "waffen_grund_typen", grund);
-   o << "  </Waffen-Grundkenntnis>\n";
   }
 
 //*************** andere Regionen ***************************
@@ -220,20 +215,17 @@ void waffen_speichern(Tag &o)
        	+ RegionErgaenzungQuery("waffen_grund.name","waffen_grund_typen","Waffengrund","g")
        	+ "order by coalesce(region,''),name");
       while ((q >> is).good())
-      {o << "  <Waffen-Grundkenntnis";
-       std::string grund=fetch_and_write_string_attrib(is, o, "Name");
-       fetch_and_write_string_attrib(is, o, "Region");
-       o << ">\n";
-          grund_standard_ausnahme(o, "waffen_grund_typen", grund, "", true);
-       o << "  </Waffen-Grundkenntnis>\n";
+      {Tag &WGk=WGk.push_back(Tag("Waffen-Grundkenntnis"));
+       std::string grund=fetch_and_set_string_attrib(is, WGk, "Name");
+       fetch_and_set_string_attrib(is, WGk, "Region");
+       grund_standard_ausnahme(WGk, "waffen_grund_typen", grund, "", true);
       }
    }
-   o << " </Waffen-Grundkenntnisse>\n";
   }
 
 //********************* steigern_fertigkeiten_werte ********************
  if (region.empty())
- {o << " <Waffen-Steigern>\n";
+ {Tag &WSt=o.push_back(Tag("Waffen-Steigern"));
   {Query query("select " MIDGARD3_4("name,","schwierigkeit,")
       	    "coalesce(p1,0), coalesce(p2,0), coalesce(p3,0),"
       	    "coalesce(p4,0), coalesce(p5,0), coalesce(p6,0), coalesce(p7,0),"
@@ -245,21 +237,20 @@ void waffen_speichern(Tag &o)
        		" order by " MIDGARD3_4("name","schwierigkeit"));
     FetchIStream is;
        while ((query>>is).good())
-       {  o << "    <Kosten";
+       {  Tag &k=WSt.push_back(Tag("Kosten"));
 #ifdef MIDGARD3
-          fetch_and_write_string_attrib(is, o, "Kategorie");
+          fetch_and_set_string_attrib(is, k, "Kategorie");
 #else
 	  // 0 auch ausgeben!
-          fetch_and_write_int_attrib(is, o, "Schwierigkeit",-1);
+          fetch_and_set_int_attrib(is, k, "Schwierigkeit",-1);
 #endif
           for (int i=1;i<=20;++i) 
-             fetch_and_write_int_attrib(is, o, "Wert"+itos(i));
-          o << "/>\n";
+             fetch_and_set_int_attrib(is, k, "Wert"+itos(i));
        }
    }
 
 //**************************** Waffen Typen ***************************
-   grund_standard_ausnahme(Waffen_Steigern, "waffen_typen", "Waffen");
+   grund_standard_ausnahme(WSt, "waffen_typen", "Waffen");
  }
 //******************************************************************
 }
