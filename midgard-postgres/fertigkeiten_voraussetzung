@@ -43,7 +43,7 @@ Ballspiel	\N	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Baukunde	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
 Beidhändiger Kampf	\N	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Beredsamkeit	\N	\N	\N	61	\N	\N	61	\N	\N	\N	\N
-Beschatten	\N	61	\N	\N	\N	\N	-80	\N	0	\N	\N
+Beschatten	\N	61	\N	\N	\N	\N	-81	\N	0	\N	\N
 Betäuben	31	0	\N	\N	\N	\N	\N	\N	\N	\N	61
 Bogenkampf zu Pferd	\N	\N	\N	\N	\N	\N	\N	\N	\N	Reiten	31
 Brettspiel	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
@@ -54,7 +54,7 @@ Erste Hilfe	\N	0	\N	31	\N	\N	\N	\N	31	\N	31
 Erzählen	\N	\N	\N	31	\N	\N	31	\N	\N	\N	\N
 Fallen entdecken	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
 Fallen entschärfen	\N	61	\N	61	\N	\N	\N	\N	\N	\N	\N
-Fallenmechanik	\N	0	\N	0	\N	\N	\N	\N	\N	\N	61
+Fallenmechanik	\N	0	\N	0	\N	\N	\N	\N	\N	Fallen entdecken	61
 Fallenstellen	\N	0	\N	\N	\N	\N	\N	\N	\N	\N	31
 Fangen	\N	0	\N	\N	\N	\N	\N	\N	\N	\N	31
 Faustkampf	61	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
