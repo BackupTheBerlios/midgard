@@ -26,7 +26,8 @@
 
 
 enum Zufall::eFAUWZ &operator++(enum Zufall::eFAUWZ &s)
-{  return (enum Zufall::eFAUWZ)(++(int&)s);
+{  ++(int&)s;
+   return s;
 }
 
 
