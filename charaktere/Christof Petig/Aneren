@@ -12,18 +12,19 @@
   <Boni Ausdauer="3" Abwehr="1" Zaubern="2">
     <Resistenzen psy="9" phs="5" phk="6" Gift="5"/>
   </Boni>
-  <GFP>6103</GFP>
-  <Vermögen/>
-  <Steigern Basiswerte="1"/>
+  <GFP>8353</GFP>
+  <Vermögen GS="382"/>
+  <Steigern AEP="141" EPproGFP="34" Basiswerte="1"/>
   <Ausrüstung>
     <Rüstung>TR</Rüstung>
+    <Waffe Bezeichnung="Magierstab"/>
   </Ausrüstung>
   <Fertigkeiten>
     <Beruf Bezeichnung="Gelehrter" Wert="14"/>
     <Fertigkeit Bezeichnung="Erste Hilfe"/>
     <Fertigkeit Bezeichnung="Kamelreiten" Wert="12"/>
     <Fertigkeit Bezeichnung="Klettern" Wert="12"/>
-    <Fertigkeit Bezeichnung="Kräuterkunde" Wert="7"/>
+    <Fertigkeit Bezeichnung="Kräuterkunde" Wert="11"/>
     <Fertigkeit Bezeichnung="Lesen von Zauberschrift"/>
     <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="4"/>
     <Fertigkeit Bezeichnung="Schwimmen" Wert="12"/>
@@ -32,7 +33,7 @@
     <Fertigkeit Bezeichnung="Wahrnehmung" Wert="6"/>
     <Fertigkeit Bezeichnung="Wissen von der Magie"/>
     <Fertigkeit Bezeichnung="YangScheng" Wert="2"/>
-    <Fertigkeit Bezeichnung="Zauberkunde" Wert="9"/>
+    <Fertigkeit Bezeichnung="Zauberkunde" Wert="10"/>
     <Fertigkeit Bezeichnung="Überleben in der Wüste" Wert="11"/>
     <Grundkenntnis Bezeichnung="Magierstab"/>
     <Region Region="ORIG"/>
@@ -54,6 +55,7 @@
     <Sprache Bezeichnung="Moravisch" Wert="4"/>
     <Sprache Bezeichnung="Scharidisch" Wert="3"/>
     <Sprache Bezeichnung="Twyneddisch" Wert="1"/>
+    <Urschrift Bezeichnung="Dvarskar"/>
     <Urschrift Bezeichnung="KanThaiTun(1)"/>
     <Urschrift Bezeichnung="KanThaiTun(2)"/>
     <Urschrift Bezeichnung="Meketisch"/>
@@ -71,19 +73,25 @@
     <Zauber Bezeichnung="Erkennen von Krankheit" Wert="19"/>
     <Zauber Bezeichnung="Erkennen von Leben" Wert="17"/>
     <Zauber Bezeichnung="Freundesauge" Wert="19"/>
+    <Zauber Bezeichnung="Funkenregen" Wert="19"/>
+    <Zauber Bezeichnung="Grüne Hand" Wert="19"/>
+    <Zauber Bezeichnung="Göttlicher Schutz vor dem Bösen" Wert="17"/>
     <Zauber Bezeichnung="Handauflegen" Wert="19"/>
     <Zauber Bezeichnung="Heilen von Krankheit" Wert="19"/>
     <Zauber Bezeichnung="Heilen von Wunden" Wert="19"/>
     <Zauber Bezeichnung="Lehrersuche"/>
+    <Zauber Bezeichnung="Liniensicht" Wert="19"/>
     <Zauber Bezeichnung="Lähmung" Wert="19"/>
     <Zauber Bezeichnung="Macht über das Selbst" Wert="17"/>
     <Zauber Bezeichnung="Macht über die belebte Natur" Wert="19"/>
     <Zauber Bezeichnung="Reinigen" Wert="19"/>
     <Zauber Bezeichnung="Rost" Wert="17"/>
     <Zauber Bezeichnung="Schmerzen" Wert="19"/>
+    <Zauber Bezeichnung="Seelenheilung" Wert="19"/>
     <Zauber Bezeichnung="Stille" Wert="17"/>
     <Zauber Bezeichnung="Stärke" Wert="19"/>
     <Zauber Bezeichnung="Tiere rufen" Wert="19"/>
+    <Zauber Bezeichnung="Tiersprache" Wert="19"/>
     <Zauber Bezeichnung="Trunk des Lebens" Wert="19"/>
     <Zauber Bezeichnung="Unsichtbarkeit" Wert="17"/>
     <Zauber Bezeichnung="Vision" Wert="17"/>

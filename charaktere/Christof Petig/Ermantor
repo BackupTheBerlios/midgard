@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<Midgard-Charakter Version="7">
+  <Figur Name="Ermantor" Spieler="Christof Petig" Zeitpunkt="Erschaffung" Grad="2"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Ord"/>
+  <Basiseigenschaften St="79" Ge="95" Ko="85" In="96" Zt="68"/>
+  <abgeleiteteEigenschaften Au="58" pA="110" Sb="47" RW="91" HGW="79" B="27" KAW="4" WLW="70"/>
+  <Erfolgswerte Abwehr="12" Zaubern="11"/>
+  <Resistenzen Zauber="11"/>
+  <Gesundheit LP_Basis="11" LP="14" AP="15"/>
+  <Beschreibung Alter="23" Gestalt="normal" Gewicht="70" Größe="173" Stand="Unfrei" Herkunft="Clangadan" Glaube="(Leben)"/>
+  <Boni Ausdauer="2" Schaden="2" Abwehr="1" Zaubern="1">
+    <Resistenzen psy="2" phk="1" Gift="5"/>
+  </Boni>
+  <GFP>221</GFP>
+  <Vermögen GS="40" SS="8"/>
+  <Steigern AEP="1" Basiswerte="0"/>
+  <Ausrüstung>
+    <Rüstung>KR</Rüstung>
+    <Waffe Bezeichnung="Bihänder"/>
+    <Waffe Bezeichnung="Dolch"/>
+    <Waffe Bezeichnung="Langschwert"/>
+  </Ausrüstung>
+  <Fertigkeiten>
+    <Beruf Bezeichnung="Wundheiler" Wert="10"/>
+    <Fertigkeit Bezeichnung="Erste Hilfe"/>
+    <Fertigkeit Bezeichnung="Kampf zu Pferd"/>
+    <Fertigkeit Bezeichnung="Kampftaktik" Wert="1"/>
+    <Fertigkeit Bezeichnung="Reiten" Wert="16"/>
+    <Grundkenntnis Bezeichnung="ESchwert"/>
+    <Grundkenntnis Bezeichnung="Stichwaffe"/>
+    <Grundkenntnis Bezeichnung="ZSchwert"/>
+    <Grundkenntnis Bezeichnung="waffenloser Kampf"/>
+    <Sprache Bezeichnung="Erainnisch" Wert="2"/>
+    <Sprache Bezeichnung="Twyneddisch" Wert="4"/>
+    <Urschrift Bezeichnung="Seemeister"/>
+    <Waffe Bezeichnung="Bihänder" Wert="7"/>
+    <Waffe Bezeichnung="Dolch" Wert="5"/>
+    <Waffe Bezeichnung="Langschwert" Wert="7"/>
+    <Waffe Bezeichnung="waffenloser Kampf" Wert="5"/>
+    <Zauber Bezeichnung="Erkennen der Aura" Wert="12"/>
+    <Zauber Bezeichnung="Heilen von Wunden" Wert="12"/>
+    <Zauber Bezeichnung="Heiliger Zorn" Wert="12"/>
+  </Fertigkeiten>
+</Midgard-Charakter>
