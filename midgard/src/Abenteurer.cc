@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.56 2002/11/06 20:03:26 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.57 2002/11/11 13:52:08 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -252,10 +252,11 @@ void Abenteurer::speicherstream(std::ostream &datei,const Datenbank &Database,co
    MidgardBasicElement::saveElementliste(Fertigkeiten,List_Sprache(),getWerte(),getVTyp());
    MidgardBasicElement::saveElementliste(Fertigkeiten,List_Schrift(),getWerte(),getVTyp());
 
-   // Regionen & Ähnliches
+   // Regionen & Optionen
+   Tag &Opt=Abenteurer.push_back(Tag("Optionen"));
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {  if (!(*i)->Active()) continue;
-      Tag &r=Fertigkeiten.push_back(Tag("Region"));
+      Tag &r=Opt.push_back(Tag("Region"));
       r.setAttr("Name", (*i)->Name());
       r.setAttr("Region", (*i)->Abkuerzung());
    }
@@ -265,7 +266,14 @@ void Abenteurer::speicherstream(std::ostream &datei,const Datenbank &Database,co
    {
      // Option, die mit dem C. gespeichert werden müssen
      if(i->index!=Midgard_Optionen::Original && i->index!=Midgard_Optionen::NSC_only) continue; 
-     Tag &o=Fertigkeiten.push_back(Tag("Optionen"));
+     Tag &o=Opt.push_back(Tag("CheckOptions"));
+     o.setAttr("Name", i->text);
+     o.setBoolAttr("Wert", i->active);
+   }
+   std::list<Midgard_Optionen::st_Haus> LH=const_cast<Midgard_Optionen*>(Optionen)->getHausregeln();
+   for(std::list<Midgard_Optionen::st_Haus>::const_iterator i=LH.begin();i!=LH.end();++i)
+   {
+     Tag &o=Opt.push_back(Tag("Hausregeln"));
      o.setAttr("Name", i->text);
      o.setBoolAttr("Wert", i->active);
    }
@@ -450,6 +458,7 @@ bool Abenteurer::xml_import_stream(std::istream& datei, Datenbank &Database,
        if (!Ruestung1) Ruestung1=Ausruestung->find("Rüstung");
    const Tag *Ruestung2=Ausruestung->find("Rüstung2");
    const Tag *Fertigkeiten=top->find("Fertigkeiten");
+   const Tag *Opt=top->find("Optionen");
    const Tag *Steigern=top->find("Steigern");
    const Tag *Praxispunkte=Steigern?Steigern->find("Praxispunkte"):0;
 
@@ -542,6 +551,7 @@ bool Abenteurer::xml_import_stream(std::istream& datei, Datenbank &Database,
    }
 
    load_fertigkeiten(Fertigkeiten,Ausruestung,xml_version,Database,Optionen,hauptfenster);
+   load_regionen_optionen(Opt,xml_version,Database,Optionen,hauptfenster);
    load_ausruestung(Ausruestung,&(getBesitz()));
    return true;
 }
@@ -561,11 +571,6 @@ void Abenteurer::load_ausruestung(const Tag *tag, AusruestungBaum *AB)
 
 void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version,Datenbank &Database,Midgard_Optionen *Optionen,midgard_CG *hauptfenster)
 {
-
-    for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();
-    			i!=Database.Regionen.end();++i)
-    {  Region::setActive(Database.Regionen,(*i),false);
-    }
     FOR_EACH_CONST_TAG(i,*tag)
     {
       const std::string sart=i->Type();
@@ -672,6 +677,7 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
          S->setPraxispunkte(i->getIntAttr("Praxispunkte"));
          List_Schrift().push_back(S);
         }
+// demnächst weg (geänder seit 0.8.10)
       else if(sart=="Optionen")
         {
          try{
@@ -687,6 +693,7 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
             Region::setActive(Database.Regionen,R,true);
             hauptfenster->set_region_statusbar(R->Pic(),true);
          }
+// bis hier
          catch (const NotFound &e)
          {}
         }
@@ -704,6 +711,41 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
     }
 }
 
+void Abenteurer::load_regionen_optionen(const Tag *tag, int xml_version,Datenbank &Database,Midgard_Optionen *Optionen,midgard_CG *hauptfenster)
+{
+    for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();
+    			i!=Database.Regionen.end();++i)
+    FOR_EACH_CONST_TAG(i,*tag)
+    {
+      const std::string sart=i->Type();
+      if(sart=="CheckOptions")
+        {
+         try{
+           Optionen->setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"),i->getBoolAttr("Page"));
+         }
+         catch (const NotFound &e)
+         {}
+        }
+      else if(sart=="Hausregeln")
+        {
+         try{
+           Optionen->setHausregeln(i->getAttr("Name"),i->getBoolAttr("Wert"));
+         }
+         catch (const NotFound &e)
+         {}
+        }
+      else if(sart=="Region")
+        {
+         try
+         {  cH_Region R(i->getAttr("Name",i->getAttr("Region")));
+            Region::setActive(Database.Regionen,R,true);
+            hauptfenster->set_region_statusbar(R->Pic(),true);
+         }
+         catch (const NotFound &e)
+         {}
+        }
+   }
+}
 
 
 void Abenteurer::move_element(std::list<MBEmlt>& von,

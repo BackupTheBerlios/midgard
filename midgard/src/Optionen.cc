@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.92 2002/10/30 06:11:03 thoma Exp $
+// $Id: Optionen.cc,v 1.93 2002/11/11 13:52:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -442,6 +442,7 @@ void Midgard_Optionen::Hausregeln_init()
 {
  list_Hausregeln.clear();  
  list_Hausregeln.push_back(st_Haus(Gold,"1 GS entspricht 1 GFP",Haus_32_xpm,false));
+ list_Hausregeln.push_back(st_Haus(Werte100,"Grundwerte über 100 zulassen",Haus_32_xpm,false));
 }
 
 void Midgard_Optionen::Ober_init()

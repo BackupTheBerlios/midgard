@@ -48,7 +48,7 @@ private:
         int  constraint_gw(int constraint);
         int  constraint_aw(int constraint);
         int  wuerfeln_best_of_two();
-        void original_midgard_check();
+        void midgard_check_werte100();
 
         void edit_sensitive(bool b);
         

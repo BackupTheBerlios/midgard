@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.35 2002/09/21 18:00:13 thoma Exp $
+// $Id: Optionen.hh,v 1.36 2002/11/11 13:52:09 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,7 +36,7 @@ class Midgard_Optionen
                             Wizard_immer_starten,Drei_Tasten_Maus,
                             NSC_only,Notebook_start};
       enum OptionenExecuteIndex {LernschemaSensitive,show_InfoWindow};
-      enum HausIndex {Gold};
+      enum HausIndex {Gold,Werte100};
       enum OberIndex {AutoShrink,SaveFenster,Bilder,Menueleiste,Knopfleiste,
                Icons,Beschriftungen,Customize_Icons,Customize_Text,
                Customize_Tab,Status,NoInfoFenster};

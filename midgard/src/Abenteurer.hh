@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.41 2002/10/27 18:25:23 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.42 2002/11/11 13:52:08 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -136,6 +136,7 @@ public:
    bool xml_import_stream(std::istream &datei, Datenbank &Database,Midgard_Optionen *Optionen,midgard_CG *hauptfenster);
    void load_ausruestung(const Tag *tag, AusruestungBaum *AB);
    void load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version,Datenbank &Database,Midgard_Optionen *Optionen,midgard_CG *hauptfenster);
+   void load_regionen_optionen(const Tag *tag, int xml_version,Datenbank &Database,Midgard_Optionen *Optionen,midgard_CG *hauptfenster);
 
 
    bool operator==(const Abenteurer& a) const

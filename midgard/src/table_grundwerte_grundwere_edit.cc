@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_grundwere_edit.cc,v 1.10 2002/09/23 06:34:08 thoma Exp $
+// $Id: table_grundwerte_grundwere_edit.cc,v 1.11 2002/11/11 13:52:09 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -363,8 +363,10 @@ void table_grundwerte::edit_sensitive(bool b)
 }
 
 
-void table_grundwerte::original_midgard_check()
+void table_grundwerte::midgard_check_werte100()
 {
+   if(hauptfenster->getOptionen()->HausregelCheck(Midgard_Optionen::Werte100).active)
+      return;      
    int st=hauptfenster->getWerte().St();
    int gw=hauptfenster->getWerte().Gw();
    int gs=hauptfenster->getWerte().Gs();

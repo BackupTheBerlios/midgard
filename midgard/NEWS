@@ -8,9 +8,12 @@ NEWS IN VERSION 0.8.9
 * kleinere Bugs beseitigt
 * neue Icons von Ulf
 * Verlernen im Lernschema nur noch, wenn Knopf gedrückt
+* Neue Hausregel: Werte über 100
+* Struktur des gespeicherten Abenteures etwas sinnvoller
 
 TODO: ('-' zeigt CP an)
 
+* Hausregel beim laden setzen
 * Charaktererschaffungswaffen -> Ausrüstung
 * KI wird gerade überarbeitet und verbessert
 * Ohne Namen in NEWS&Geschichte -> Wechsel des Abenteurers
