@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.1 2002/04/13 07:49:27 thoma Exp $
+// $Id: Optionen.hh,v 1.2 2002/04/14 09:04:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,6 +22,7 @@
 #include <gtk--/menu.h>
 #include <list.h>
 #include "WindowInfo.hh"
+class midgard_CG;
 
 
 class Midgard_Optionen
@@ -80,8 +81,14 @@ class Midgard_Optionen
       void Hausregeln_init();
       void pdfViewer_init();
 
+      midgard_CG* hauptfenster;
    public:
-      Midgard_Optionen();
+      Midgard_Optionen(midgard_CG* h);
+
+      std::list<st_Haus> getHausregeln() {return list_Hausregeln;}
+      std::list<st_Optionen> getOptionen() {return list_Optionen;}
+      std::list<st_OptionenM> getOptionenM() {return list_OptionenM;}
+      std::list<st_pdfViewer> getPDF() {return list_pdfViewer;}
 
       void save_options(WindowInfo *InfoFenster);
       void load_options();
@@ -95,6 +102,12 @@ class Midgard_Optionen
       st_Optionen OptionenCheck(OptionenIndex oi);
       st_Haus HausregelCheck(HausIndex hi);
       st_pdfViewer pdfViewerCheck(pdfViewerIndex pi);
+
+      void Hausregeln_setzen_from_menu(HausIndex index);
+      void Optionen_setzen_from_menu(OptionenIndex index);
+      void OptionenM_setzen_from_menu(OptionenIndex index);
+      void pdfViewer_setzen_from_menu(pdfViewerIndex index);
+
 
 };
 

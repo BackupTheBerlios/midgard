@@ -1,4 +1,4 @@
-// $Id: midgard_CG_region_check.cc,v 1.25 2002/03/14 16:55:06 thoma Exp $
+// $Id: midgard_CG_region_check.cc,v 1.26 2002/04/14 09:04:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,7 +32,7 @@ bool midgard_CG::region_check(const std::string& region)
 
 bool midgard_CG::nsc_check(bool nsc_only)
 {
-  if (nsc_only && !OptionenCheck(NSC_only).active) return false;
+  if (nsc_only && !MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active) return false;
   return true;
 }
 

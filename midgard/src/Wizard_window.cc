@@ -174,5 +174,5 @@ void Wizard_window::on_togglebutton_wizard_start_toggled()
  if(togglebutton_wizard_start->get_active()) b=true;
  else b=false;
  
- hauptfenster->setOption("Wizard bei jedem Programmstart zeigen",b);
+ hauptfenster->MOptionen->setOption("Wizard bei jedem Programmstart zeigen",b);
 }

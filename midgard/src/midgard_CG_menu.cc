@@ -27,7 +27,7 @@ void midgard_CG::menu_init()
 {
   bool memfire=fire_enabled;
   fire_enabled=false;
-  if (menu) { menu->destroy(); menu=0; haus_menuitem=0; }
+  if (menu) { menu->destroy(); menu=0; MOptionen->haus_menuitem=0; }
   menu=manage(new Gtk::Menu());
 
   Gtk::MenuItem *save = manage(new class Gtk::MenuItem("Abenteurer speichern"));
@@ -63,7 +63,8 @@ void midgard_CG::menu_init()
   latex_empty->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_latex_clicked),false));
 
   Gtk::RadioMenuItem::Group _RadioMGroup_pdfViewer;
-  for(std::list<st_pdfViewer>::iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
+  std::list<Midgard_Optionen::st_pdfViewer> LP=MOptionen->getPDF();
+  for(std::list<Midgard_Optionen::st_pdfViewer>::iterator i=LP.begin();i!=LP.end();++i)
    {
      Gtk::Label *_l=manage (new Gtk::Label(i->text));
      Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
@@ -72,8 +73,8 @@ void midgard_CG::menu_init()
      if(!i->radio_menu_item) continue;
      i->radio_menu_item = manage(new class Gtk::RadioMenuItem(_RadioMGroup_pdfViewer));
      i->radio_menu_item->add(*_tab);
-     pdfViewer_setzen_from_menu(i->index);
-     i->radio_menu_item->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::pdfViewer_setzen_from_menu),i->index));
+     MOptionen->pdfViewer_setzen_from_menu(i->index);
+     i->radio_menu_item->activate.connect(SigC::bind(SigC::slot(this,&Midgard_Optionen::pdfViewer_setzen_from_menu),i->index));
      drucken_menu->append(*(i->radio_menu_item));
    }
   menu->append(*drucken);
@@ -112,7 +113,8 @@ void midgard_CG::menu_init()
      regionen_menu->append(*_mi);
      _mi->set_active((*i)->Active());
      _mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),_mi,*i));
-     if(OptionenCheck(Original).active && !(*i)->Offiziell() )
+     if(MOptionen->OptionenCheck(Midgard_Optionen::Original).active && 
+         !(*i)->Offiziell() )
         _mi->set_sensitive(false);
    }
   menu->append(*regionen);
@@ -123,7 +125,8 @@ void midgard_CG::menu_init()
   Gtk::MenuItem *optionen = manage(new class Gtk::MenuItem("Optionen")); 
   optionen->set_submenu(*optionen_menu);
 
-  for(std::list<st_Optionen>::iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
+  std::list<Midgard_Optionen::st_Optionen> OL=MOptionen->getOptionen();
+  for(std::list<Midgard_Optionen::st_Optionen>::iterator i=OL.begin();i!=OL.end();++i)
    {
     Gtk::Label *_l=manage (new Gtk::Label(i->text));
     Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
@@ -136,11 +139,12 @@ void midgard_CG::menu_init()
     i->checkmenuitem=manage(new Gtk::CheckMenuItem());
     i->checkmenuitem->add(*_tab);    
     i->checkmenuitem->set_active(i->active);
-    Optionen_setzen_from_menu(i->index);
-    i->checkmenuitem->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::Optionen_setzen_from_menu),i->index));
+    MOptionen->Optionen_setzen_from_menu(i->index);
+    i->checkmenuitem->activate.connect(SigC::bind(SigC::slot(this,&Midgard_Optionen::Optionen_setzen_from_menu),i->index));
     optionen_menu->append(*(i->checkmenuitem));
    } 
-  for(std::list<st_OptionenM>::iterator i=list_OptionenM.begin();i!=list_OptionenM.end();++i)
+  std::list<Midgard_Optionen::st_OptionenM> OLM=MOptionen->getOptionenM();
+  for(std::list<Midgard_Optionen::st_OptionenM>::iterator i=OLM.begin();i!=OLM.end();++i)
    {
     Gtk::Label *_l=manage (new Gtk::Label(i->text));
     Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
@@ -173,7 +177,8 @@ void midgard_CG::menu_init()
 
   haus_menuitem->set_submenu(*haus_menu);
 
-  for(std::list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
+  std::list<Midgard_Optionen::st_Haus> LH=MOptionen->getHausregeln();
+  for(std::list<Midgard_Optionen::st_Haus>::iterator i=LH.begin();i!=LH.end();++i)
    {
      i->menu = manage(new class Gtk::CheckMenuItem(i->text));
      haus_menu->append(*(i->menu));
@@ -261,7 +266,7 @@ void midgard_CG::menu_gradanstieg_init()
   menu_gradanstieg->show_all();
 }
 
-
+/*
 //#include "../pixmaps/midgard_logo_tiny.xpm"
 #include "../pixmaps/Cyan-Dice-trans-50.xpm"
 
@@ -315,15 +320,16 @@ void midgard_CG::Hausregeln_init()
 void midgard_CG::pdfViewer_init()
 {
   Gtk::RadioMenuItem *menu_xpdf;
-  list_pdfViewer.push_back(st_pdfViewer(xpdf,menu_xpdf,
+  list_pdfViewer.push_back(Midgard_Optionen::st_pdfViewer(xpdf,menu_xpdf,
                            "pdf Dokument mit 'xpdf' betrachten",
                            false));
   Gtk::RadioMenuItem *menu_acroread;
-  list_pdfViewer.push_back(st_pdfViewer(acroread,menu_acroread,
+  list_pdfViewer.push_back(Midgard_Optionen::st_pdfViewer(acroread,menu_acroread,
                            "pdf Dokument mit 'acroread' betrachten",
                            true));
   Gtk::RadioMenuItem *menu_gv;
-  list_pdfViewer.push_back(st_pdfViewer(gv,menu_gv,
+  list_pdfViewer.push_back(Midgard_Optionen::st_pdfViewer(gv,menu_gv,
                            "pdf Dokument mit 'gv' betrachten",
                            false));
 }
+*/

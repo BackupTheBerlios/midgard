@@ -137,9 +137,11 @@ void midgard_CG::speicherstream(ostream &datei)
       datei << "/>\n";
    }
    // Optionen
-   for(std::list<st_Optionen>::iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
+   std::list<Midgard_Optionen::st_Optionen> LO=MOptionen->getOptionen();
+   for(std::list<Midgard_Optionen::st_Optionen>::iterator i=LO.begin();i!=LO.end();++i)
    {
-     if(i->index!=Original && i->index!=NSC_only) continue; // Einzige Option, die mit dem C. gespeichert werden muß
+     // Option, die mit dem C. gespeichert werden müssen
+     if(i->index!=Midgard_Optionen::Original && i->index!=Midgard_Optionen::NSC_only) continue; 
      datei << "    <Optionen";
      write_string_attrib(datei, "Name", i->text);
      write_bool_attrib_force(datei, "Wert", i->active);

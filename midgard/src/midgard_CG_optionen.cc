@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.69 2002/03/27 09:08:36 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.70 2002/04/14 09:04:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -28,7 +28,7 @@ void midgard_CG::regnot(const std::string& sadd)
 {
  InfoFenster->AppendShow(sadd);
 }
-
+/*
 void midgard_CG::Optionen_setzen_from_menu(OptionenIndex index)
 {
   if(!fire_enabled) return;
@@ -71,6 +71,7 @@ void midgard_CG::pdfViewer_setzen_from_menu(pdfViewerIndex index)
      i->active = i->radio_menu_item->get_active();
    }
 }
+*/
 
 
 void midgard_CG::checkbutton_original(bool active)
@@ -78,10 +79,10 @@ void midgard_CG::checkbutton_original(bool active)
   if(active) 
     { togglebutton_alle_zauber->set_sensitive(false); 
       
-      if(haus_menuitem)
+      if(MOptionen->haus_menuitem)
        {
-         setAllHausregeln(false);
-         if(haus_menuitem) haus_menuitem->set_sensitive(false);
+         MOptionen->setAllHausregeln(false);
+         if(MOptionen->haus_menuitem) MOptionen->haus_menuitem->set_sensitive(false);
        }
       pixmap_logo->show();
 //      pixmap_original_tux->hide();
@@ -90,7 +91,7 @@ void midgard_CG::checkbutton_original(bool active)
     { togglebutton_alle_zauber->set_sensitive(true); 
       pixmap_logo->hide();
       pixmap_original_tux->show();
-      if(haus_menuitem) haus_menuitem->set_sensitive(true);
+      if(MOptionen->haus_menuitem) MOptionen->haus_menuitem->set_sensitive(true);
     }      
 }
 
@@ -164,6 +165,7 @@ void midgard_CG::on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_R
 
 
 /////////////////////
+/*
 midgard_CG::st_Optionen midgard_CG::OptionenCheck(OptionenIndex oi)
 {
  for(std::list<st_Optionen>::const_iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
@@ -223,10 +225,10 @@ void midgard_CG::setpdfViewer(std::string is,bool b)
      else i->active=!b;
    }
 }
-
+*/
 
 ////////////////
-
+/*
 void midgard_CG::save_options()
 {
   ofstream datei("midgard_optionen.xml");
@@ -284,3 +286,4 @@ void midgard_CG::load_options()
   menu_init();
 }
 
+*/

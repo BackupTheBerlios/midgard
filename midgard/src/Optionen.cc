@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.1 2002/04/13 07:49:27 thoma Exp $
+// $Id: Optionen.cc,v 1.2 2002/04/14 09:04:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,10 +20,19 @@
 #include "Optionen.hh"
 #include "../pixmaps/midgard_logo_tiny.xpm"
 #include "../pixmaps/Cyan-Dice-trans-50.xpm"
-#include "MidgardBasicElement.hh" // nur für NotFound
+//#include "MidgardBasicElement.hh" // nur für NotFound
 #include <fstream>
 #include "TagStream.hh"
 #include "export_common.h"
+#include "midgard_CG.hh"
+
+Midgard_Optionen::Midgard_Optionen(midgard_CG* h)
+:hauptfenster(h),haus_menuitem(0)
+{
+   Optionen_init();
+   Hausregeln_init();
+   pdfViewer_init();
+}
 
 
 Midgard_Optionen::st_Optionen Midgard_Optionen::OptionenCheck(OptionenIndex oi)
@@ -86,6 +95,49 @@ void Midgard_Optionen::setpdfViewer(std::string is,bool b)
 }   
     
 
+void Midgard_Optionen::Optionen_setzen_from_menu(OptionenIndex index)
+{
+  if(!hauptfenster->fire_enabled) return;
+  hauptfenster->fire_enabled=false;
+  for(list<st_Optionen>::iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
+   {
+     if(i->index!=index) continue;
+     i->active = i->checkmenuitem->get_active();
+     if(i->index==Original) { hauptfenster->checkbutton_original(i->active); hauptfenster->menu_init();}
+     if(i->index==showPics) hauptfenster->Pics(i->active);
+     if(i->index==gw_wuerfeln) hauptfenster->show_gw_wuerfeln(i->active);
+     if(i->index==NSC_only) hauptfenster->on_radiobutton_mann_toggled(); // zum Neuaufbau des Typmenüs
+   }
+  hauptfenster->fire_enabled=true;
+}
+ 
+void Midgard_Optionen::OptionenM_setzen_from_menu(OptionenIndex index)
+{
+  if(index==LernschemaSensitive) hauptfenster->lernschema_sensitive(true);
+  if(index==WizardStarten) hauptfenster->wizard_starten_clicked();
+  if(index==LernschemaZusaetzeLoeschen) {hauptfenster->list_FertigkeitZusaetze.clear();
+                                         hauptfenster->on_lernliste_wahl_toggled();}   
+  if(index==show_InfoWindow) hauptfenster->InfoFenster->show();
+}
+
+void Midgard_Optionen::Hausregeln_setzen_from_menu(HausIndex index)
+{
+  for(list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
+   {
+     if(i->index!=index) continue;
+     i->active = i->menu->get_active();
+   }
+}   
+    
+void Midgard_Optionen::pdfViewer_setzen_from_menu(pdfViewerIndex index)
+{
+  for(list<st_pdfViewer>::iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
+   {
+     if(i->index!=index) continue;
+     i->active = i->radio_menu_item->get_active();
+   }
+}   
+    
 
 
 
@@ -172,8 +224,7 @@ void Midgard_Optionen::load_options()
      setHausregeln(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*data,"pdfViewer")
      setpdfViewer(i->getAttr("Name"),i->getBoolAttr("Wert"));
-// muß von der Klasse midgard_CG aufgrerufen werden:
-//  menu_init();
+  hauptfenster->menu_init();
 }
 
                                                    
