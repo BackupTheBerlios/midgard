@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.68 2003/10/13 06:33:02 christof Exp $
+// $Id: midgard.cc,v 1.69 2003/10/13 13:10:06 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,6 +29,7 @@
 #endif
 #include <iostream>
 #include <libmagus/magus_paths.h>
+#include "BegruessungsWindow.hh"
 
 static const unsigned steps=8;
 static Gtk::Window *progresswin;
