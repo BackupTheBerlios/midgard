@@ -1,4 +1,4 @@
-// $Id: embed.cc,v 1.4 2003/04/30 07:55:33 christof Exp $
+// $Id: embed.cc,v 1.5 2003/05/08 07:06:06 christof Exp $
 
 #define MAKE_PNG
 
@@ -157,6 +157,15 @@ static void embed_one_file(const std::string &file, const std::string &name, con
 #else
       system(("xpmtoppm --alphaout tmp_alpha.pbm \""+filename+"\" >tmp.ppm").c_str());
       system("pnmtopng -alpha tmp_alpha.pbm -compression 9 tmp.ppm >tmp.png");
+      struct stat st;
+      if (stat("tmp.png",&st) || !st.st_size)
+      {  std::cerr << "png (netpbm) conversion failed for " << filename << '\n';
+         system(("convert \""+filename+"\" tmp.png").c_str());
+         if (stat("tmp.png",&st) || !st.st_size)
+         {  std::cerr << "png (imagemagick) conversion failed for " << filename << '\n';
+            return;
+         }
+      }
       is.clear();
       is.open("tmp.png",std::ios_base::in);
       unsigned sz=embed_binary(name,is,domain);
