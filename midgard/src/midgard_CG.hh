@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.215 2002/04/16 10:59:36 thoma Exp $
+// $Id: midgard_CG.hh,v 1.216 2002/04/17 09:31:19 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -534,6 +534,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          bool nsc_check(bool nsc_only);
    public:
          midgard_CG(const string &datei="");
+         ~midgard_CG();
 
 	// werden von anderen Fenstern aufgerufen
          const vector<cH_Typen> &getVTyp() const {return Typ;}

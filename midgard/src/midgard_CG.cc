@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.194 2002/04/17 09:04:02 thoma Exp $
+// $Id: midgard_CG.cc,v 1.195 2002/04/17 09:31:19 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,9 +38,7 @@ midgard_CG::midgard_CG(const string &datei)
                                       // stürzt das Programm ab
   srand(time(0));
   Typ.resize(2);
-  if(InfoFenster) delete(InfoFenster);
-  InfoFenster = manage(new WindowInfo(this));
-  if(MOptionen) delete(MOptionen);
+  InfoFenster = new WindowInfo(this);
   MOptionen = new Midgard_Optionen(this); // Destruktor schrieben !?!
   table_optionen->set_Hauptfenster(this);
 
@@ -57,6 +55,14 @@ midgard_CG::midgard_CG(const string &datei)
   os << 
 #include"NEWS.h" 
    <<'\n';
+}
+
+midgard_CG::~midgard_CG()
+{  cout << "~midgard_CG()\n";
+   delete MOptionen;
+   if (menu) delete menu;
+   if (menu_gradanstieg) delete menu_gradanstieg;
+   delete InfoFenster; 
 }
 
 void midgard_CG::optionmenu_init()
