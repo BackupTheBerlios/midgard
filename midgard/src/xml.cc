@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.26 2002/01/22 20:13:32 christof Exp $
+// $Id: xml.cc,v 1.27 2002/01/29 16:22:45 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -38,7 +38,9 @@ void xml_init(Gtk::ProgressBar *progressbar, const std::string &filename)
    {  ifstream in(filename.c_str());
       top=new TagStream(in);
    }
-   xml_data_mutable=const_cast<Tag*>(top->find("MidgardCG-data"));
+   xml_data_mutable=const_cast<Tag*>(top->find("MAGUS-data"));
+   if (!xml_data_mutable) 
+      xml_data_mutable=const_cast<Tag*>(top->find("MidgardCG-data"));
    if (!xml_data_mutable) 
    {  cerr << "Ladefehler XML Datei " << filename << "\n";
       exit(2);
@@ -50,20 +52,23 @@ void xml_init(Gtk::ProgressBar *progressbar, const std::string &filename)
    dir+='/'; // Unix
 #endif
    double anzdateien=1;
-   FOR_EACH_TAG_OF(i,*xml_data_mutable,"MCG-include")
+   FOR_EACH_CONST_TAG(i,*xml_data_mutable)
+   {  if (i->Type!="MAGUS-include" && i->Type!="MCG-include") continue;
       if (!i->getBoolAttr("inactive",false)) 
          ++anzdateien;
+   }
    int count=0;
 reloop:   
 //   Tag::iterator b=xml_data_mutable->begin(),e=xml_data_mutable->end();
-    FOR_EACH_TAG_OF(i,*xml_data_mutable,"MCG-include")
-    {  Tag *t2=&*i;
+    FOR_EACH_TAG(i,*xml_data_mutable)
+    {  if (i->Type!="MAGUS-include" && i->Type!="MCG-include") continue;
+       Tag *t2=&*i;
        std::string file=dir+t2->getAttr("File");
        if (t2->getBoolAttr("inactive",false))
           continue;
        progressbar->set_percentage(++count/anzdateien);   
        while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-       t2->Type("Region"); // change Type of Tag "MCG-include" -> "Region"
+       t2->Type("Region"); // change Type of Tag "MAGUS-include" -> "Region"
        
        cerr << "loading XML " << file << '\n';
        ifstream in2(file.c_str());
@@ -71,7 +76,8 @@ reloop:
        // ab hier sollte man nicht mehr auf i, t2 zugreifen (push_back) !!!
        if (in2.good()) 
        {  TagStream ts2(in2);
-          const Tag *data2=ts2.find("MidgardCG-data");
+          const Tag *data2=ts2.find("MAGUS-data");
+          if (!data2) data2=ts2.find("MidgardCG-data");
           if (!data2)
           {  std::cerr << "XML-Datei '"<<file<<"' ist in ihrem Aufbau fehlerhaft\n";
              continue;
