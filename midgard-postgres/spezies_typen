@@ -25,7 +25,9 @@ Berggnom	Gl	\N
 Berggnom	Hl	\N
 Berggnom	Ma	\N
 Berggnom	Sp	\N
+Berggnom	Sw	\N
 Berggnom	Th	\N
+Berggnom	To	\N
 Berggnom	Wa	\N
 Berggnom	gHx	\N
 Berggnom	sHx	\N
@@ -36,6 +38,7 @@ Elf	Gl	\N
 Elf	Hl	\N
 Elf	Kr	\N
 Elf	Ma	\N
+Elf	To	\N
 Elf	Wa	\N
 Elf	gHx	\N
 Elf	sHx	\N
@@ -46,6 +49,7 @@ Halbling	Hä	\N
 Halbling	PF	\N
 Halbling	PW	\N
 Halbling	Sp	\N
+Halbling	To	\N
 Halbling	Wa	\N
 Waldgnom	As	\N
 Waldgnom	Dr	\N
@@ -54,6 +58,7 @@ Waldgnom	Hl	\N
 Waldgnom	Ma	\N
 Waldgnom	Sp	\N
 Waldgnom	Th	\N
+Waldgnom	To	\N
 Waldgnom	Wa	\N
 Waldgnom	gHx	\N
 Waldgnom	sHx	\N
@@ -66,6 +71,7 @@ Zwerg	PHe	\N
 Zwerg	PK	\N
 Zwerg	Sö	\N
 Zwerg	Th	\N
+Zwerg	To	\N
 Zwerg	eBe	\N
 \.
 --

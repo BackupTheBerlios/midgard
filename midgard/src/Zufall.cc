@@ -155,13 +155,15 @@ void Zufall::Lernpunkte_wuerfeln(Lernpunkte &lernpunkte, VAbenteurer &A,Random &
   lernpunkte.setFach(fachlern - lpspezies);
   lernpunkte.setAllgemein(random.integer(1,6)+1);
   lernpunkte.setUnge(random.integer(1,6));
-  if (A.Typ2()->Short()=="") lernpunkte.setWaffen(random.integer(1,6)+random.integer(1,6));
-  else                     lernpunkte.setWaffen(random.integer(1,6)+1); // Doppelcharakter
-  if (A.Typ1()->is_mage() && A.Typ2()->Short()=="")
-      lernpunkte.setZauber(random.integer(1,6)+random.integer(1,6));
-  if (A.Typ2()->is_mage() && A.Typ2()->Short()!="") 
-      lernpunkte.setZauber(random.integer(1,6)+1);
+  lernpunkte.setWaffen(random.integer(1,6)+random.integer(1,6));  
+  if (A.Typ1()->is_mage() lernpunkte.setZauber(random.integer(1,6)+random.integer(1,6));
 
+  // Doppelcharaktere
+  if(A.Typ2()->Short()!="" || A.Typ1()->Short()=='To' )
+   {
+      lernpunkte.setWaffen(random.integer(1,6)+1);
+      lernpunkte.setZauber(random.integer(1,6)+1);
+   }
 
   int age = (lernpunkte.Allgemein() + lernpunkte.Unge()
              + lernpunkte.Fach()

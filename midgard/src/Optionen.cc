@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.83 2002/09/18 13:21:05 thoma Exp $
+// $Id: Optionen.cc,v 1.84 2002/09/19 08:16:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -340,11 +340,20 @@ void Midgard_Optionen::pdfViewer_setzen_from_menu(pdfViewerIndex index)
      else                i->active = false ;
    }
 }   
+
+static void print_it(gpointer x)
+{  std::cout << "changed " << *(int*)x << '\n';
+} 
+
  
 void Midgard_Optionen::Optionen_init()
 {
   list_OptionenCheck.push_back(st_OptionenCheck(Original,"Originalregeln",
                            true,midgard_logo_tiny_xpm));
+
+std::cout << list_OptionenCheck.back().wert.get_value();
+list_OptionenCheck.back().wert.changed.connect(SigC::slot(&print_it)); 
+
   list_OptionenCheck.push_back(st_OptionenCheck(NSC_only,"NSC zulassen",
                            false,NSC_Mode_32_xpm));
   list_OptionenCheck.push_back(st_OptionenCheck(Drei_Tasten_Maus,
@@ -456,9 +465,9 @@ void Midgard_Optionen::load_options(const std::string &filename)
   const Tag *options=data->find("Optionen");
   if (!options) options=data; // compat
   FOR_EACH_CONST_TAG_OF(i,*options,"Optionen") // compat
-     setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"),i->getIntAttr("Page"));
+     setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"),i->getIntAttr("Page",-1));
   FOR_EACH_CONST_TAG_OF(i,*options,"Option")
-     setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"),i->getIntAttr("Page"));
+     setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"),i->getIntAttr("Page",-1));
   FOR_EACH_CONST_TAG_OF(i,*options,"Ansicht")
      setOber(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*options,"Icon")
@@ -532,7 +541,8 @@ void Midgard_Optionen::save_options(const std::string &filename,WindowInfo *Info
    { Tag &opt=optionen.push_back(Tag("Option"));
      opt.setAttr("Name",i->text);
      opt.setBoolAttr("Wert", i->active);
-     if(i->wert!=-1)  opt.setIntAttr("Page",i->wert);
+cout << "Save: "<<i->wert<<' '<<i->active<<'\n';
+     if(i->wert!=-1 && i->active)  opt.setIntAttr("Page",i->wert);
    }
  for(std::list<st_Ober>::iterator i=list_Ober.begin();i!=list_Ober.end();++i)
    { Tag &opt=optionen.push_back(Tag("Ansicht"));

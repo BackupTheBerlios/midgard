@@ -29,6 +29,12 @@ void frame_globale_optionen::set_values()
 }
 
 
+static void wert_changed(gpointer gp)
+{
+  cout << "WC: "<<  *(int*)(gp)<<'\n';
+}
+
+
 void frame_globale_optionen::init()
 {
 #if 1
@@ -57,7 +63,8 @@ cout << "AUFBAU: "<<i->text<<'\t'<<i->active<<'\t'<<i->wert<<'\n';
       int min=hauptfenster->PAGE_INFO;
       int max=hauptfenster->PAGE_ZUFALL-1;
       MVC_int_Widget *spin=manage(new MVC_int_Widget(i->wert, min, max));
-      i->active.changed.connect(SigC::bind(SigC::slot(this,&frame_globale_optionen::element_show_or_hide),spin));
+i->wert.changed.connect(SigC::slot(&wert_changed));
+      i->active.changed.connect(SigC::bind(SigC::slot(this,&frame_globale_optionen::element_show_or_hide),spin,&(i->wert)));
       t->attach(*spin,1,2,0,1,GTK_FILL,0,0,0);
     }
    else if(i->bild)
@@ -104,28 +111,14 @@ cout << "AUFBAU: "<<i->text<<'\t'<<i->active<<'\t'<<i->wert<<'\n';
 // hauptfenster->getOptionen()->OptionenCheck_setzen_from_menu(Midgard_Optionen::Notebook_start,false);
 }
 
-void frame_globale_optionen::on_spinbutton_notebookpage_changed(Midgard_Optionen::OptionenCheckIndex index)
+void frame_globale_optionen::element_show_or_hide(gpointer gp,Gtk::Widget *widget,MVC<int> *wert)
 {
-/*
-  Midgard_Optionen::st_OptionenCheck S=hauptfenster->getOptionen()->OptionenCheck(index);
-  if(!S.spin) {cerr << "Spinbutten nicht definiert\n"; return;}
-  S.spin->update();
-  int wert = S.spin->get_value_as_int();
-  hauptfenster->getOptionen()->OptionenCheck(index,wert);
-*/
-}
-
-
-void frame_globale_optionen::element_show_or_hide(gpointer gp,Gtk::Widget *widget)
-{
-cout << "Show or hide\t"<<gp<<' '<<'\n';
-
-  if(
-  
-  static_cast<bool*>(gp)
-  
-  ) widget->show();
-  else widget->hide();
+cout <<"Wert: "<< *wert<<'\n';
+  if(*static_cast<bool*>(gp)) widget->show();
+  else { 
+      widget->hide();
+//      *wert=-1;
+   }
 }
 
 

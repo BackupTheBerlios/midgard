@@ -133,6 +133,7 @@ void table_zufall::on_button_zufall_voll_clicked()
     }
    }catch (std::exception &e) { cerr << e.what()<<'\n';}
    hauptfenster->MOptionen->Ober_setzen_from_menu(Midgard_Optionen::NoInfoFenster,old_value);
+   hauptfenster->frame_lernschema->set_sensitive(false);
 }
 
 void table_zufall::on_togglebutton_vorgaben_toggled()

@@ -29,6 +29,7 @@ Anderthalbhänder	Dr	A
 Anderthalbhänder	Er	S
 Anderthalbhänder	Fi	S
 Anderthalbhänder	Gl	S
+Anderthalbhänder	Hj	S
 Anderthalbhänder	Hl	A
 Anderthalbhänder	Hä	S
 Anderthalbhänder	Kd	S
@@ -58,10 +59,13 @@ Anderthalbhänder	Se	S
 Anderthalbhänder	Sk	S
 Anderthalbhänder	Sp	S
 Anderthalbhänder	Sr	S
+Anderthalbhänder	Sw	S
 Anderthalbhänder	Sö	G
 Anderthalbhänder	Th	A
 Anderthalbhänder	Tm	S
+Anderthalbhänder	To	S
 Anderthalbhänder	Wa	S
+Anderthalbhänder	Wi	S
 Anderthalbhänder	dBe	A
 Anderthalbhänder	eBe	A
 Anderthalbhänder	gHx	A
@@ -77,6 +81,7 @@ Bihänder	Dr	A
 Bihänder	Er	S
 Bihänder	Fi	S
 Bihänder	Gl	S
+Bihänder	Hj	S
 Bihänder	Hl	A
 Bihänder	Hä	S
 Bihänder	Kd	S
@@ -106,10 +111,13 @@ Bihänder	Se	S
 Bihänder	Sk	S
 Bihänder	Sp	S
 Bihänder	Sr	S
+Bihänder	Sw	S
 Bihänder	Sö	G
 Bihänder	Th	A
 Bihänder	Tm	S
+Bihänder	To	S
 Bihänder	Wa	S
+Bihänder	Wi	S
 Bihänder	dBe	A
 Bihänder	eBe	A
 Bihänder	gHx	A
@@ -125,6 +133,7 @@ Blasrohr	Dr	A
 Blasrohr	Er	S
 Blasrohr	Fi	S
 Blasrohr	Gl	S
+Blasrohr	Hj	S
 Blasrohr	Hl	A
 Blasrohr	Hä	S
 Blasrohr	Kd	S
@@ -154,10 +163,13 @@ Blasrohr	Se	S
 Blasrohr	Sk	S
 Blasrohr	Sp	S
 Blasrohr	Sr	S
+Blasrohr	Sw	S
 Blasrohr	Sö	S
 Blasrohr	Th	S
 Blasrohr	Tm	S
+Blasrohr	To	S
 Blasrohr	Wa	S
+Blasrohr	Wi	S
 Blasrohr	dBe	A
 Blasrohr	eBe	A
 Blasrohr	gHx	A
@@ -173,6 +185,7 @@ Bogen	Dr	A
 Bogen	Er	S
 Bogen	Fi	S
 Bogen	Gl	S
+Bogen	Hj	S
 Bogen	Hl	A
 Bogen	Hä	S
 Bogen	Kd	S
@@ -202,10 +215,13 @@ Bogen	Se	S
 Bogen	Sk	S
 Bogen	Sp	S
 Bogen	Sr	S
+Bogen	Sw	S
 Bogen	Sö	G
 Bogen	Th	A
 Bogen	Tm	S
+Bogen	To	S
 Bogen	Wa	S
+Bogen	Wi	S
 Bogen	dBe	A
 Bogen	eBe	A
 Bogen	gHx	A
@@ -221,6 +237,7 @@ Bola	Dr	A
 Bola	Er	S
 Bola	Fi	S
 Bola	Gl	S
+Bola	Hj	S
 Bola	Hl	A
 Bola	Hä	S
 Bola	Kd	S
@@ -250,10 +267,13 @@ Bola	Se	S
 Bola	Sk	S
 Bola	Sp	S
 Bola	Sr	S
+Bola	Sw	S
 Bola	Sö	S
 Bola	Th	A
 Bola	Tm	S
+Bola	To	S
 Bola	Wa	S
+Bola	Wi	S
 Bola	dBe	A
 Bola	eBe	A
 Bola	gHx	A
@@ -269,6 +289,7 @@ BuKasa	Dr	A
 BuKasa	Er	S
 BuKasa	Fi	S
 BuKasa	Gl	S
+BuKasa	Hj	S
 BuKasa	Hl	A
 BuKasa	Hä	S
 BuKasa	Kd	S
@@ -298,10 +319,13 @@ BuKasa	Se	S
 BuKasa	Sk	S
 BuKasa	Sp	S
 BuKasa	Sr	S
+BuKasa	Sw	S
 BuKasa	Sö	G
 BuKasa	Th	A
 BuKasa	Tm	S
+BuKasa	To	S
 BuKasa	Wa	S
+BuKasa	Wi	S
 BuKasa	dBe	A
 BuKasa	eBe	A
 BuKasa	gHx	A
@@ -317,6 +341,7 @@ Buckler	Dr	A
 Buckler	Er	S
 Buckler	Fi	S
 Buckler	Gl	S
+Buckler	Hj	S
 Buckler	Hl	A
 Buckler	Hä	S
 Buckler	Kd	S
@@ -346,10 +371,13 @@ Buckler	Se	S
 Buckler	Sk	S
 Buckler	Sp	S
 Buckler	Sr	S
+Buckler	Sw	S
 Buckler	Sö	G
 Buckler	Th	A
 Buckler	Tm	S
+Buckler	To	S
 Buckler	Wa	S
+Buckler	Wi	S
 Buckler	dBe	A
 Buckler	eBe	A
 Buckler	gHx	A
@@ -365,6 +393,7 @@ Dolch	Dr	A
 Dolch	Er	S
 Dolch	Fi	S
 Dolch	Gl	S
+Dolch	Hj	S
 Dolch	Hl	A
 Dolch	Hä	S
 Dolch	Kd	S
@@ -394,10 +423,13 @@ Dolch	Se	S
 Dolch	Sk	S
 Dolch	Sp	S
 Dolch	Sr	S
+Dolch	Sw	S
 Dolch	Sö	G
 Dolch	Th	A
 Dolch	Tm	S
+Dolch	To	S
 Dolch	Wa	S
+Dolch	Wi	S
 Dolch	dBe	A
 Dolch	eBe	A
 Dolch	gHx	A
@@ -413,6 +445,7 @@ Faustkampf	Dr	A
 Faustkampf	Er	S
 Faustkampf	Fi	S
 Faustkampf	Gl	S
+Faustkampf	Hj	S
 Faustkampf	Hl	A
 Faustkampf	Hä	S
 Faustkampf	Kd	S
@@ -442,10 +475,13 @@ Faustkampf	Se	S
 Faustkampf	Sk	S
 Faustkampf	Sp	S
 Faustkampf	Sr	S
+Faustkampf	Sw	S
 Faustkampf	Sö	G
 Faustkampf	Th	A
 Faustkampf	Tm	S
+Faustkampf	To	S
 Faustkampf	Wa	S
+Faustkampf	Wi	S
 Faustkampf	dBe	A
 Faustkampf	eBe	A
 Faustkampf	gHx	A
@@ -461,6 +497,7 @@ Fuchtel	Dr	A
 Fuchtel	Er	S
 Fuchtel	Fi	S
 Fuchtel	Gl	S
+Fuchtel	Hj	S
 Fuchtel	Hl	A
 Fuchtel	Hä	S
 Fuchtel	Kd	S
@@ -490,10 +527,13 @@ Fuchtel	Se	S
 Fuchtel	Sk	S
 Fuchtel	Sp	S
 Fuchtel	Sr	S
+Fuchtel	Sw	S
 Fuchtel	Sö	G
 Fuchtel	Th	A
 Fuchtel	Tm	S
+Fuchtel	To	S
 Fuchtel	Wa	S
+Fuchtel	Wi	S
 Fuchtel	dBe	A
 Fuchtel	eBe	A
 Fuchtel	gHx	A
@@ -509,6 +549,7 @@ Garotte	Dr	A
 Garotte	Er	S
 Garotte	Fi	S
 Garotte	Gl	S
+Garotte	Hj	S
 Garotte	Hl	A
 Garotte	Hä	S
 Garotte	Kd	S
@@ -538,10 +579,13 @@ Garotte	Se	S
 Garotte	Sk	S
 Garotte	Sp	G
 Garotte	Sr	S
+Garotte	Sw	S
 Garotte	Sö	S
 Garotte	Th	A
 Garotte	Tm	S
+Garotte	To	S
 Garotte	Wa	S
+Garotte	Wi	S
 Garotte	dBe	A
 Garotte	eBe	A
 Garotte	gHx	A
@@ -557,6 +601,7 @@ Glefe	Dr	A
 Glefe	Er	S
 Glefe	Fi	S
 Glefe	Gl	S
+Glefe	Hj	S
 Glefe	Hl	A
 Glefe	Hä	S
 Glefe	Kd	S
@@ -586,10 +631,13 @@ Glefe	Se	S
 Glefe	Sk	S
 Glefe	Sp	S
 Glefe	Sr	S
+Glefe	Sw	S
 Glefe	Sö	G
 Glefe	Th	A
 Glefe	Tm	S
+Glefe	To	S
 Glefe	Wa	S
+Glefe	Wi	S
 Glefe	dBe	A
 Glefe	eBe	A
 Glefe	gHx	A
@@ -605,6 +653,7 @@ GunSen	Dr	A
 GunSen	Er	S
 GunSen	Fi	S
 GunSen	Gl	S
+GunSen	Hj	S
 GunSen	Hl	A
 GunSen	Hä	S
 GunSen	Kd	S
@@ -634,10 +683,13 @@ GunSen	Se	S
 GunSen	Sk	S
 GunSen	Sp	S
 GunSen	Sr	S
+GunSen	Sw	S
 GunSen	Sö	G
 GunSen	Th	A
 GunSen	Tm	S
+GunSen	To	S
 GunSen	Wa	S
+GunSen	Wi	S
 GunSen	dBe	A
 GunSen	eBe	A
 GunSen	gHx	A
@@ -653,6 +705,7 @@ Handarmbrust	Dr	A
 Handarmbrust	Er	S
 Handarmbrust	Fi	S
 Handarmbrust	Gl	S
+Handarmbrust	Hj	S
 Handarmbrust	Hl	A
 Handarmbrust	Hä	S
 Handarmbrust	Kd	S
@@ -682,10 +735,13 @@ Handarmbrust	Se	S
 Handarmbrust	Sk	S
 Handarmbrust	Sp	S
 Handarmbrust	Sr	S
+Handarmbrust	Sw	S
 Handarmbrust	Sö	G
 Handarmbrust	Th	A
 Handarmbrust	Tm	S
+Handarmbrust	To	S
 Handarmbrust	Wa	S
+Handarmbrust	Wi	S
 Handarmbrust	dBe	A
 Handarmbrust	eBe	A
 Handarmbrust	gHx	A
@@ -701,6 +757,7 @@ Handaxt	Dr	A
 Handaxt	Er	S
 Handaxt	Fi	S
 Handaxt	Gl	S
+Handaxt	Hj	S
 Handaxt	Hl	A
 Handaxt	Hä	S
 Handaxt	Kd	S
@@ -730,10 +787,13 @@ Handaxt	Se	S
 Handaxt	Sk	S
 Handaxt	Sp	S
 Handaxt	Sr	S
+Handaxt	Sw	S
 Handaxt	Sö	G
 Handaxt	Th	A
 Handaxt	Tm	S
+Handaxt	To	S
 Handaxt	Wa	S
+Handaxt	Wi	S
 Handaxt	dBe	A
 Handaxt	eBe	A
 Handaxt	gHx	A
@@ -749,6 +809,7 @@ Hellebarde	Dr	A
 Hellebarde	Er	S
 Hellebarde	Fi	S
 Hellebarde	Gl	S
+Hellebarde	Hj	S
 Hellebarde	Hl	A
 Hellebarde	Hä	S
 Hellebarde	Kd	S
@@ -778,10 +839,13 @@ Hellebarde	Se	S
 Hellebarde	Sk	S
 Hellebarde	Sp	S
 Hellebarde	Sr	S
+Hellebarde	Sw	S
 Hellebarde	Sö	G
 Hellebarde	Th	A
 Hellebarde	Tm	S
+Hellebarde	To	S
 Hellebarde	Wa	S
+Hellebarde	Wi	S
 Hellebarde	dBe	A
 Hellebarde	eBe	A
 Hellebarde	gHx	A
@@ -797,6 +861,7 @@ Kampfgabeln	Dr	A
 Kampfgabeln	Er	S
 Kampfgabeln	Fi	S
 Kampfgabeln	Gl	S
+Kampfgabeln	Hj	S
 Kampfgabeln	Hl	A
 Kampfgabeln	Hä	S
 Kampfgabeln	Kd	S
@@ -826,10 +891,13 @@ Kampfgabeln	Se	S
 Kampfgabeln	Sk	S
 Kampfgabeln	Sp	S
 Kampfgabeln	Sr	S
+Kampfgabeln	Sw	S
 Kampfgabeln	Sö	G
 Kampfgabeln	Th	A
 Kampfgabeln	Tm	S
+Kampfgabeln	To	S
 Kampfgabeln	Wa	S
+Kampfgabeln	Wi	S
 Kampfgabeln	dBe	A
 Kampfgabeln	eBe	A
 Kampfgabeln	gHx	A
@@ -845,6 +913,7 @@ Kampfstab	Dr	A
 Kampfstab	Er	S
 Kampfstab	Fi	S
 Kampfstab	Gl	S
+Kampfstab	Hj	S
 Kampfstab	Hl	A
 Kampfstab	Hä	S
 Kampfstab	Kd	S
@@ -874,10 +943,13 @@ Kampfstab	Se	S
 Kampfstab	Sk	S
 Kampfstab	Sp	S
 Kampfstab	Sr	S
+Kampfstab	Sw	S
 Kampfstab	Sö	G
 Kampfstab	Th	A
 Kampfstab	Tm	S
+Kampfstab	To	S
 Kampfstab	Wa	S
+Kampfstab	Wi	S
 Kampfstab	dBe	A
 Kampfstab	eBe	A
 Kampfstab	gHx	A
@@ -893,6 +965,7 @@ Katana	Dr	A
 Katana	Er	S
 Katana	Fi	S
 Katana	Gl	S
+Katana	Hj	S
 Katana	Hl	A
 Katana	Hä	S
 Katana	Kd	S
@@ -922,10 +995,13 @@ Katana	Se	S
 Katana	Sk	S
 Katana	Sp	S
 Katana	Sr	S
+Katana	Sw	S
 Katana	Sö	G
 Katana	Th	A
 Katana	Tm	S
+Katana	To	S
 Katana	Wa	S
+Katana	Wi	S
 Katana	dBe	A
 Katana	eBe	A
 Katana	gHx	A
@@ -941,6 +1017,7 @@ Keule	Dr	A
 Keule	Er	S
 Keule	Fi	S
 Keule	Gl	S
+Keule	Hj	S
 Keule	Hl	A
 Keule	Hä	S
 Keule	Kd	S
@@ -970,10 +1047,13 @@ Keule	Se	S
 Keule	Sk	S
 Keule	Sp	S
 Keule	Sr	S
+Keule	Sw	S
 Keule	Sö	G
 Keule	Th	A
 Keule	Tm	S
+Keule	To	S
 Keule	Wa	S
+Keule	Wi	S
 Keule	dBe	A
 Keule	eBe	A
 Keule	gHx	A
@@ -989,6 +1069,7 @@ Kharrata	Dr	A
 Kharrata	Er	S
 Kharrata	Fi	S
 Kharrata	Gl	S
+Kharrata	Hj	S
 Kharrata	Hl	A
 Kharrata	Hä	S
 Kharrata	Kd	S
@@ -1018,10 +1099,13 @@ Kharrata	Se	S
 Kharrata	Sk	S
 Kharrata	Sp	S
 Kharrata	Sr	S
+Kharrata	Sw	S
 Kharrata	Sö	S
 Kharrata	Th	A
 Kharrata	Tm	S
+Kharrata	To	S
 Kharrata	Wa	S
+Kharrata	Wi	S
 Kharrata	dBe	A
 Kharrata	eBe	A
 Kharrata	gHx	A
@@ -1037,6 +1121,7 @@ Kompositbogen	Dr	A
 Kompositbogen	Er	S
 Kompositbogen	Fi	S
 Kompositbogen	Gl	S
+Kompositbogen	Hj	S
 Kompositbogen	Hl	A
 Kompositbogen	Hä	S
 Kompositbogen	Kd	S
@@ -1066,10 +1151,13 @@ Kompositbogen	Se	S
 Kompositbogen	Sk	S
 Kompositbogen	Sp	S
 Kompositbogen	Sr	S
+Kompositbogen	Sw	S
 Kompositbogen	Sö	G
 Kompositbogen	Th	A
 Kompositbogen	Tm	S
+Kompositbogen	To	S
 Kompositbogen	Wa	S
+Kompositbogen	Wi	S
 Kompositbogen	dBe	A
 Kompositbogen	eBe	A
 Kompositbogen	gHx	A
@@ -1085,6 +1173,7 @@ Kriegsflegel	Dr	A
 Kriegsflegel	Er	S
 Kriegsflegel	Fi	S
 Kriegsflegel	Gl	S
+Kriegsflegel	Hj	S
 Kriegsflegel	Hl	A
 Kriegsflegel	Hä	S
 Kriegsflegel	Kd	S
@@ -1114,10 +1203,13 @@ Kriegsflegel	Se	S
 Kriegsflegel	Sk	S
 Kriegsflegel	Sp	S
 Kriegsflegel	Sr	S
+Kriegsflegel	Sw	S
 Kriegsflegel	Sö	G
 Kriegsflegel	Th	A
 Kriegsflegel	Tm	S
+Kriegsflegel	To	S
 Kriegsflegel	Wa	S
+Kriegsflegel	Wi	S
 Kriegsflegel	dBe	A
 Kriegsflegel	eBe	A
 Kriegsflegel	gHx	A
@@ -1133,6 +1225,7 @@ Kriegshammer	Dr	A
 Kriegshammer	Er	S
 Kriegshammer	Fi	S
 Kriegshammer	Gl	S
+Kriegshammer	Hj	S
 Kriegshammer	Hl	A
 Kriegshammer	Hä	S
 Kriegshammer	Kd	S
@@ -1162,10 +1255,13 @@ Kriegshammer	Se	S
 Kriegshammer	Sk	S
 Kriegshammer	Sp	S
 Kriegshammer	Sr	S
+Kriegshammer	Sw	S
 Kriegshammer	Sö	G
 Kriegshammer	Th	A
 Kriegshammer	Tm	S
+Kriegshammer	To	S
 Kriegshammer	Wa	S
+Kriegshammer	Wi	S
 Kriegshammer	dBe	A
 Kriegshammer	eBe	A
 Kriegshammer	gHx	A
@@ -1181,6 +1277,7 @@ Krummsäbel	Dr	A
 Krummsäbel	Er	S
 Krummsäbel	Fi	S
 Krummsäbel	Gl	S
+Krummsäbel	Hj	S
 Krummsäbel	Hl	A
 Krummsäbel	Hä	S
 Krummsäbel	Kd	S
@@ -1210,10 +1307,13 @@ Krummsäbel	Se	S
 Krummsäbel	Sk	S
 Krummsäbel	Sp	S
 Krummsäbel	Sr	S
+Krummsäbel	Sw	S
 Krummsäbel	Sö	G
 Krummsäbel	Th	A
 Krummsäbel	Tm	S
+Krummsäbel	To	S
 Krummsäbel	Wa	S
+Krummsäbel	Wi	S
 Krummsäbel	dBe	A
 Krummsäbel	eBe	A
 Krummsäbel	gHx	A
@@ -1229,6 +1329,7 @@ Kurzbogen	Dr	A
 Kurzbogen	Er	S
 Kurzbogen	Fi	S
 Kurzbogen	Gl	S
+Kurzbogen	Hj	S
 Kurzbogen	Hl	A
 Kurzbogen	Hä	S
 Kurzbogen	Kd	S
@@ -1258,10 +1359,13 @@ Kurzbogen	Se	S
 Kurzbogen	Sk	S
 Kurzbogen	Sp	S
 Kurzbogen	Sr	S
+Kurzbogen	Sw	S
 Kurzbogen	Sö	G
 Kurzbogen	Th	A
 Kurzbogen	Tm	S
+Kurzbogen	To	S
 Kurzbogen	Wa	S
+Kurzbogen	Wi	S
 Kurzbogen	dBe	A
 Kurzbogen	eBe	A
 Kurzbogen	gHx	A
@@ -1277,6 +1381,7 @@ Kurzschwert	Dr	A
 Kurzschwert	Er	S
 Kurzschwert	Fi	S
 Kurzschwert	Gl	S
+Kurzschwert	Hj	S
 Kurzschwert	Hl	A
 Kurzschwert	Hä	S
 Kurzschwert	Kd	S
@@ -1306,10 +1411,13 @@ Kurzschwert	Se	S
 Kurzschwert	Sk	S
 Kurzschwert	Sp	S
 Kurzschwert	Sr	S
+Kurzschwert	Sw	S
 Kurzschwert	Sö	G
 Kurzschwert	Th	A
 Kurzschwert	Tm	S
+Kurzschwert	To	S
 Kurzschwert	Wa	S
+Kurzschwert	Wi	S
 Kurzschwert	dBe	A
 Kurzschwert	eBe	A
 Kurzschwert	gHx	A
@@ -1325,6 +1433,7 @@ KusariGama	Dr	A
 KusariGama	Er	S
 KusariGama	Fi	S
 KusariGama	Gl	S
+KusariGama	Hj	S
 KusariGama	Hl	A
 KusariGama	Hä	S
 KusariGama	Kd	S
@@ -1354,10 +1463,13 @@ KusariGama	Se	S
 KusariGama	Sk	S
 KusariGama	Sp	S
 KusariGama	Sr	S
+KusariGama	Sw	S
 KusariGama	Sö	G
 KusariGama	Th	A
 KusariGama	Tm	S
+KusariGama	To	S
 KusariGama	Wa	S
+KusariGama	Wi	S
 KusariGama	dBe	A
 KusariGama	eBe	A
 KusariGama	gHx	A
@@ -1373,6 +1485,7 @@ Kyu	Dr	A
 Kyu	Er	S
 Kyu	Fi	S
 Kyu	Gl	S
+Kyu	Hj	S
 Kyu	Hl	A
 Kyu	Hä	S
 Kyu	Kd	S
@@ -1402,10 +1515,13 @@ Kyu	Se	S
 Kyu	Sk	S
 Kyu	Sp	S
 Kyu	Sr	S
+Kyu	Sw	S
 Kyu	Sö	G
 Kyu	Th	A
 Kyu	Tm	S
+Kyu	To	S
 Kyu	Wa	S
+Kyu	Wi	S
 Kyu	dBe	A
 Kyu	eBe	A
 Kyu	gHx	A
@@ -1421,6 +1537,7 @@ Langbogen	Dr	A
 Langbogen	Er	S
 Langbogen	Fi	S
 Langbogen	Gl	S
+Langbogen	Hj	S
 Langbogen	Hl	A
 Langbogen	Hä	S
 Langbogen	Kd	S
@@ -1450,10 +1567,13 @@ Langbogen	Se	S
 Langbogen	Sk	S
 Langbogen	Sp	S
 Langbogen	Sr	S
+Langbogen	Sw	S
 Langbogen	Sö	G
 Langbogen	Th	A
 Langbogen	Tm	S
+Langbogen	To	S
 Langbogen	Wa	S
+Langbogen	Wi	S
 Langbogen	dBe	A
 Langbogen	eBe	A
 Langbogen	gHx	A
@@ -1469,6 +1589,7 @@ Langschwert	Dr	A
 Langschwert	Er	S
 Langschwert	Fi	S
 Langschwert	Gl	S
+Langschwert	Hj	S
 Langschwert	Hl	A
 Langschwert	Hä	S
 Langschwert	Kd	S
@@ -1498,10 +1619,13 @@ Langschwert	Se	S
 Langschwert	Sk	S
 Langschwert	Sp	S
 Langschwert	Sr	S
+Langschwert	Sw	S
 Langschwert	Sö	G
 Langschwert	Th	A
 Langschwert	Tm	S
+Langschwert	To	S
 Langschwert	Wa	S
+Langschwert	Wi	S
 Langschwert	dBe	A
 Langschwert	eBe	A
 Langschwert	gHx	A
@@ -1517,6 +1641,7 @@ Lanze	Dr	A
 Lanze	Er	S
 Lanze	Fi	S
 Lanze	Gl	S
+Lanze	Hj	S
 Lanze	Hl	A
 Lanze	Hä	S
 Lanze	Kd	S
@@ -1546,10 +1671,13 @@ Lanze	Se	S
 Lanze	Sk	S
 Lanze	Sp	S
 Lanze	Sr	S
+Lanze	Sw	S
 Lanze	Sö	G
 Lanze	Th	A
 Lanze	Tm	S
+Lanze	To	S
 Lanze	Wa	S
+Lanze	Wi	S
 Lanze	dBe	A
 Lanze	eBe	A
 Lanze	gHx	A
@@ -1565,6 +1693,7 @@ Lasso	Dr	A
 Lasso	Er	S
 Lasso	Fi	S
 Lasso	Gl	S
+Lasso	Hj	S
 Lasso	Hl	A
 Lasso	Hä	S
 Lasso	Kd	S
@@ -1594,10 +1723,13 @@ Lasso	Se	S
 Lasso	Sk	S
 Lasso	Sp	S
 Lasso	Sr	S
+Lasso	Sw	S
 Lasso	Sö	S
 Lasso	Th	A
 Lasso	Tm	S
+Lasso	To	S
 Lasso	Wa	S
+Lasso	Wi	S
 Lasso	dBe	A
 Lasso	eBe	A
 Lasso	gHx	A
@@ -1605,6 +1737,7 @@ Lasso	sHx	A
 Lasso	wHx	A
 Magierstab	De	S
 Magierstab	Dr	S
+Magierstab	Hj	A
 Magierstab	Hl	S
 Magierstab	Ma	S
 Magierstab	Or	A
@@ -1620,8 +1753,10 @@ Magierstab	Ru	A
 Magierstab	ScN	S
 Magierstab	ScS	S
 Magierstab	ScW	S
+Magierstab	Sw	S
 Magierstab	Th	S
 Magierstab	Tm	A
+Magierstab	Wi	A
 Magierstab	dBe	S
 Magierstab	eBe	S
 Magierstab	gHx	S
@@ -1629,6 +1764,7 @@ Magierstab	sHx	S
 Magierstab	wHx	S
 Magierstecken	De	S
 Magierstecken	Dr	S
+Magierstecken	Hj	A
 Magierstecken	Hl	S
 Magierstecken	Ma	S
 Magierstecken	Or	A
@@ -1644,8 +1780,10 @@ Magierstecken	Ru	A
 Magierstecken	ScN	S
 Magierstecken	ScS	S
 Magierstecken	ScW	A
+Magierstecken	Sw	S
 Magierstecken	Th	S
 Magierstecken	Tm	A
+Magierstecken	Wi	A
 Magierstecken	dBe	S
 Magierstecken	eBe	S
 Magierstecken	gHx	S
@@ -1661,6 +1799,7 @@ Morgenstern	Dr	A
 Morgenstern	Er	S
 Morgenstern	Fi	S
 Morgenstern	Gl	S
+Morgenstern	Hj	S
 Morgenstern	Hl	A
 Morgenstern	Hä	S
 Morgenstern	Kd	S
@@ -1690,10 +1829,13 @@ Morgenstern	Se	S
 Morgenstern	Sk	S
 Morgenstern	Sp	S
 Morgenstern	Sr	S
+Morgenstern	Sw	S
 Morgenstern	Sö	G
 Morgenstern	Th	A
 Morgenstern	Tm	S
+Morgenstern	To	S
 Morgenstern	Wa	S
+Morgenstern	Wi	S
 Morgenstern	dBe	A
 Morgenstern	eBe	A
 Morgenstern	gHx	A
@@ -1709,6 +1851,7 @@ Naginata	Dr	A
 Naginata	Er	S
 Naginata	Fi	S
 Naginata	Gl	S
+Naginata	Hj	S
 Naginata	Hl	A
 Naginata	Hä	S
 Naginata	Kd	S
@@ -1738,10 +1881,13 @@ Naginata	Se	S
 Naginata	Sk	S
 Naginata	Sp	S
 Naginata	Sr	S
+Naginata	Sw	S
 Naginata	Sö	G
 Naginata	Th	A
 Naginata	Tm	S
+Naginata	To	S
 Naginata	Wa	S
+Naginata	Wi	S
 Naginata	dBe	A
 Naginata	eBe	A
 Naginata	gHx	A
@@ -1757,6 +1903,7 @@ Namisritra	Dr	A
 Namisritra	Er	S
 Namisritra	Fi	S
 Namisritra	Gl	S
+Namisritra	Hj	S
 Namisritra	Hl	A
 Namisritra	Hä	S
 Namisritra	Kd	S
@@ -1784,10 +1931,13 @@ Namisritra	Se	S
 Namisritra	Sk	S
 Namisritra	Sp	S
 Namisritra	Sr	S
+Namisritra	Sw	S
 Namisritra	Sö	S
 Namisritra	Th	A
 Namisritra	Tm	S
+Namisritra	To	S
 Namisritra	Wa	S
+Namisritra	Wi	S
 Namisritra	dBe	A
 Namisritra	eBe	A
 Namisritra	gHx	A
@@ -1803,6 +1953,7 @@ Netz	Dr	A
 Netz	Er	S
 Netz	Fi	S
 Netz	Gl	S
+Netz	Hj	S
 Netz	Hl	A
 Netz	Hä	S
 Netz	Kd	S
@@ -1832,10 +1983,13 @@ Netz	Se	S
 Netz	Sk	S
 Netz	Sp	S
 Netz	Sr	S
+Netz	Sw	S
 Netz	Sö	S
 Netz	Th	A
 Netz	Tm	S
+Netz	To	S
 Netz	Wa	S
+Netz	Wi	S
 Netz	dBe	A
 Netz	eBe	A
 Netz	gHx	A
@@ -1851,6 +2005,7 @@ NunChaku	Dr	A
 NunChaku	Er	S
 NunChaku	Fi	S
 NunChaku	Gl	S
+NunChaku	Hj	S
 NunChaku	Hl	A
 NunChaku	Hä	S
 NunChaku	Kd	S
@@ -1880,10 +2035,13 @@ NunChaku	Se	S
 NunChaku	Sk	S
 NunChaku	Sp	S
 NunChaku	Sr	S
+NunChaku	Sw	S
 NunChaku	Sö	G
 NunChaku	Th	A
 NunChaku	Tm	S
+NunChaku	To	S
 NunChaku	Wa	S
+NunChaku	Wi	S
 NunChaku	dBe	A
 NunChaku	eBe	A
 NunChaku	gHx	A
@@ -1899,6 +2057,7 @@ Ochsenzunge	Dr	A
 Ochsenzunge	Er	S
 Ochsenzunge	Fi	S
 Ochsenzunge	Gl	S
+Ochsenzunge	Hj	S
 Ochsenzunge	Hl	A
 Ochsenzunge	Hä	S
 Ochsenzunge	Kd	S
@@ -1928,10 +2087,13 @@ Ochsenzunge	Se	S
 Ochsenzunge	Sk	S
 Ochsenzunge	Sp	S
 Ochsenzunge	Sr	S
+Ochsenzunge	Sw	S
 Ochsenzunge	Sö	G
 Ochsenzunge	Th	A
 Ochsenzunge	Tm	S
+Ochsenzunge	To	S
 Ochsenzunge	Wa	S
+Ochsenzunge	Wi	S
 Ochsenzunge	dBe	A
 Ochsenzunge	eBe	A
 Ochsenzunge	gHx	A
@@ -1947,6 +2109,7 @@ Ogerhammer	Dr	A
 Ogerhammer	Er	S
 Ogerhammer	Fi	S
 Ogerhammer	Gl	S
+Ogerhammer	Hj	S
 Ogerhammer	Hl	A
 Ogerhammer	Hä	S
 Ogerhammer	Kd	S
@@ -1976,10 +2139,13 @@ Ogerhammer	Se	S
 Ogerhammer	Sk	S
 Ogerhammer	Sp	S
 Ogerhammer	Sr	S
+Ogerhammer	Sw	S
 Ogerhammer	Sö	S
 Ogerhammer	Th	A
 Ogerhammer	Tm	S
+Ogerhammer	To	S
 Ogerhammer	Wa	S
+Ogerhammer	Wi	S
 Ogerhammer	dBe	A
 Ogerhammer	eBe	A
 Ogerhammer	gHx	A
@@ -1995,6 +2161,7 @@ Parierdolch	Dr	A
 Parierdolch	Er	S
 Parierdolch	Fi	S
 Parierdolch	Gl	S
+Parierdolch	Hj	S
 Parierdolch	Hl	A
 Parierdolch	Hä	S
 Parierdolch	Kd	S
@@ -2024,10 +2191,13 @@ Parierdolch	Se	S
 Parierdolch	Sk	S
 Parierdolch	Sp	S
 Parierdolch	Sr	S
+Parierdolch	Sw	S
 Parierdolch	Sö	G
 Parierdolch	Th	A
 Parierdolch	Tm	S
+Parierdolch	To	S
 Parierdolch	Wa	S
+Parierdolch	Wi	S
 Parierdolch	dBe	A
 Parierdolch	eBe	A
 Parierdolch	gHx	A
@@ -2043,6 +2213,7 @@ Peitsche	Dr	A
 Peitsche	Er	S
 Peitsche	Fi	S
 Peitsche	Gl	S
+Peitsche	Hj	S
 Peitsche	Hl	A
 Peitsche	Hä	G
 Peitsche	Kd	S
@@ -2072,10 +2243,13 @@ Peitsche	Se	S
 Peitsche	Sk	S
 Peitsche	Sp	S
 Peitsche	Sr	S
+Peitsche	Sw	S
 Peitsche	Sö	S
 Peitsche	Th	A
 Peitsche	Tm	S
+Peitsche	To	S
 Peitsche	Wa	S
+Peitsche	Wi	S
 Peitsche	dBe	A
 Peitsche	eBe	A
 Peitsche	gHx	A
@@ -2091,6 +2265,7 @@ Pilum	Dr	A
 Pilum	Er	S
 Pilum	Fi	S
 Pilum	Gl	S
+Pilum	Hj	S
 Pilum	Hl	A
 Pilum	Hä	S
 Pilum	Kd	S
@@ -2120,10 +2295,13 @@ Pilum	Se	S
 Pilum	Sk	S
 Pilum	Sp	S
 Pilum	Sr	S
+Pilum	Sw	S
 Pilum	Sö	G
 Pilum	Th	A
 Pilum	Tm	S
+Pilum	To	S
 Pilum	Wa	S
+Pilum	Wi	S
 Pilum	dBe	A
 Pilum	eBe	A
 Pilum	gHx	A
@@ -2139,6 +2317,7 @@ Rapier	Dr	A
 Rapier	Er	S
 Rapier	Fi	S
 Rapier	Gl	S
+Rapier	Hj	S
 Rapier	Hl	A
 Rapier	Hä	S
 Rapier	Kd	S
@@ -2168,10 +2347,13 @@ Rapier	Se	S
 Rapier	Sk	S
 Rapier	Sp	S
 Rapier	Sr	S
+Rapier	Sw	S
 Rapier	Sö	G
 Rapier	Th	A
 Rapier	Tm	S
+Rapier	To	S
 Rapier	Wa	S
+Rapier	Wi	S
 Rapier	dBe	A
 Rapier	eBe	A
 Rapier	gHx	A
@@ -2187,6 +2369,7 @@ Sai	Dr	A
 Sai	Er	S
 Sai	Fi	S
 Sai	Gl	S
+Sai	Hj	S
 Sai	Hl	A
 Sai	Hä	S
 Sai	Kd	S
@@ -2216,10 +2399,13 @@ Sai	Se	S
 Sai	Sk	S
 Sai	Sp	S
 Sai	Sr	S
+Sai	Sw	S
 Sai	Sö	G
 Sai	Th	A
 Sai	Tm	S
+Sai	To	S
 Sai	Wa	S
+Sai	Wi	S
 Sai	dBe	A
 Sai	eBe	A
 Sai	gHx	A
@@ -2235,6 +2421,7 @@ Schlachtbeil	Dr	A
 Schlachtbeil	Er	S
 Schlachtbeil	Fi	S
 Schlachtbeil	Gl	S
+Schlachtbeil	Hj	S
 Schlachtbeil	Hl	A
 Schlachtbeil	Hä	S
 Schlachtbeil	Kd	S
@@ -2264,10 +2451,13 @@ Schlachtbeil	Se	S
 Schlachtbeil	Sk	S
 Schlachtbeil	Sp	S
 Schlachtbeil	Sr	S
+Schlachtbeil	Sw	S
 Schlachtbeil	Sö	G
 Schlachtbeil	Th	A
 Schlachtbeil	Tm	S
+Schlachtbeil	To	S
 Schlachtbeil	Wa	S
+Schlachtbeil	Wi	S
 Schlachtbeil	dBe	A
 Schlachtbeil	eBe	A
 Schlachtbeil	gHx	A
@@ -2283,6 +2473,7 @@ Schleuder	Dr	S
 Schleuder	Er	S
 Schleuder	Fi	S
 Schleuder	Gl	S
+Schleuder	Hj	S
 Schleuder	Hl	A
 Schleuder	Hä	S
 Schleuder	Kd	S
@@ -2312,10 +2503,13 @@ Schleuder	Se	S
 Schleuder	Sk	S
 Schleuder	Sp	S
 Schleuder	Sr	S
+Schleuder	Sw	S
 Schleuder	Sö	G
 Schleuder	Th	A
 Schleuder	Tm	S
+Schleuder	To	S
 Schleuder	Wa	S
+Schleuder	Wi	S
 Schleuder	dBe	A
 Schleuder	eBe	A
 Schleuder	gHx	A
@@ -2331,6 +2525,7 @@ Skhallanta	Dr	A
 Skhallanta	Er	S
 Skhallanta	Fi	S
 Skhallanta	Gl	S
+Skhallanta	Hj	S
 Skhallanta	Hl	A
 Skhallanta	Hä	S
 Skhallanta	Kd	S
@@ -2360,10 +2555,13 @@ Skhallanta	Se	S
 Skhallanta	Sk	S
 Skhallanta	Sp	S
 Skhallanta	Sr	S
+Skhallanta	Sw	S
 Skhallanta	Sö	G
 Skhallanta	Th	A
 Skhallanta	Tm	S
+Skhallanta	To	S
 Skhallanta	Wa	S
+Skhallanta	Wi	S
 Skhallanta	dBe	A
 Skhallanta	eBe	A
 Skhallanta	gHx	A
@@ -2379,6 +2577,7 @@ Speerschleuder	Dr	A
 Speerschleuder	Er	S
 Speerschleuder	Fi	S
 Speerschleuder	Gl	S
+Speerschleuder	Hj	S
 Speerschleuder	Hl	A
 Speerschleuder	Hä	S
 Speerschleuder	Kd	S
@@ -2408,10 +2607,13 @@ Speerschleuder	Se	S
 Speerschleuder	Sk	S
 Speerschleuder	Sp	S
 Speerschleuder	Sr	S
+Speerschleuder	Sw	S
 Speerschleuder	Sö	G
 Speerschleuder	Th	A
 Speerschleuder	Tm	S
+Speerschleuder	To	S
 Speerschleuder	Wa	S
+Speerschleuder	Wi	S
 Speerschleuder	dBe	A
 Speerschleuder	eBe	A
 Speerschleuder	gHx	A
@@ -2427,6 +2629,7 @@ Stabkeule	Dr	A
 Stabkeule	Er	S
 Stabkeule	Fi	S
 Stabkeule	Gl	S
+Stabkeule	Hj	S
 Stabkeule	Hl	A
 Stabkeule	Hä	S
 Stabkeule	Kd	S
@@ -2456,10 +2659,13 @@ Stabkeule	Se	S
 Stabkeule	Sk	S
 Stabkeule	Sp	S
 Stabkeule	Sr	S
+Stabkeule	Sw	S
 Stabkeule	Sö	G
 Stabkeule	Th	A
 Stabkeule	Tm	S
+Stabkeule	To	S
 Stabkeule	Wa	S
+Stabkeule	Wi	S
 Stabkeule	dBe	A
 Stabkeule	eBe	A
 Stabkeule	gHx	A
@@ -2475,6 +2681,7 @@ Stielhammer	Dr	A
 Stielhammer	Er	S
 Stielhammer	Fi	S
 Stielhammer	Gl	S
+Stielhammer	Hj	S
 Stielhammer	Hl	A
 Stielhammer	Hä	S
 Stielhammer	Kd	S
@@ -2504,10 +2711,13 @@ Stielhammer	Se	S
 Stielhammer	Sk	S
 Stielhammer	Sp	S
 Stielhammer	Sr	S
+Stielhammer	Sw	S
 Stielhammer	Sö	G
 Stielhammer	Th	A
 Stielhammer	Tm	S
+Stielhammer	To	S
 Stielhammer	Wa	S
+Stielhammer	Wi	S
 Stielhammer	dBe	A
 Stielhammer	eBe	A
 Stielhammer	gHx	A
@@ -2523,6 +2733,7 @@ Stockschleuder	Dr	S
 Stockschleuder	Er	S
 Stockschleuder	Fi	S
 Stockschleuder	Gl	S
+Stockschleuder	Hj	S
 Stockschleuder	Hl	A
 Stockschleuder	Hä	S
 Stockschleuder	Kd	S
@@ -2552,10 +2763,13 @@ Stockschleuder	Se	S
 Stockschleuder	Sk	S
 Stockschleuder	Sp	S
 Stockschleuder	Sr	S
+Stockschleuder	Sw	S
 Stockschleuder	Sö	G
 Stockschleuder	Th	A
 Stockschleuder	Tm	S
+Stockschleuder	To	S
 Stockschleuder	Wa	S
+Stockschleuder	Wi	S
 Stockschleuder	dBe	A
 Stockschleuder	eBe	A
 Stockschleuder	gHx	A
@@ -2571,6 +2785,7 @@ Stoßspeer	Dr	A
 Stoßspeer	Er	S
 Stoßspeer	Fi	S
 Stoßspeer	Gl	S
+Stoßspeer	Hj	S
 Stoßspeer	Hl	A
 Stoßspeer	Hä	S
 Stoßspeer	Kd	S
@@ -2600,10 +2815,13 @@ Stoßspeer	Se	S
 Stoßspeer	Sk	S
 Stoßspeer	Sp	S
 Stoßspeer	Sr	S
+Stoßspeer	Sw	S
 Stoßspeer	Sö	G
 Stoßspeer	Th	A
 Stoßspeer	Tm	S
+Stoßspeer	To	S
 Stoßspeer	Wa	S
+Stoßspeer	Wi	S
 Stoßspeer	dBe	A
 Stoßspeer	eBe	A
 Stoßspeer	gHx	A
@@ -2619,6 +2837,7 @@ Streitaxt	Dr	A
 Streitaxt	Er	S
 Streitaxt	Fi	S
 Streitaxt	Gl	S
+Streitaxt	Hj	S
 Streitaxt	Hl	A
 Streitaxt	Hä	S
 Streitaxt	Kd	S
@@ -2648,10 +2867,13 @@ Streitaxt	Se	S
 Streitaxt	Sk	S
 Streitaxt	Sp	S
 Streitaxt	Sr	S
+Streitaxt	Sw	S
 Streitaxt	Sö	G
 Streitaxt	Th	A
 Streitaxt	Tm	S
+Streitaxt	To	S
 Streitaxt	Wa	S
+Streitaxt	Wi	S
 Streitaxt	dBe	A
 Streitaxt	eBe	A
 Streitaxt	gHx	A
@@ -2667,6 +2889,7 @@ Streitkolben	Dr	A
 Streitkolben	Er	S
 Streitkolben	Fi	S
 Streitkolben	Gl	S
+Streitkolben	Hj	S
 Streitkolben	Hl	A
 Streitkolben	Hä	S
 Streitkolben	Kd	S
@@ -2696,10 +2919,13 @@ Streitkolben	Se	S
 Streitkolben	Sk	S
 Streitkolben	Sp	S
 Streitkolben	Sr	S
+Streitkolben	Sw	S
 Streitkolben	Sö	G
 Streitkolben	Th	A
 Streitkolben	Tm	S
+Streitkolben	To	S
 Streitkolben	Wa	S
+Streitkolben	Wi	S
 Streitkolben	dBe	A
 Streitkolben	eBe	A
 Streitkolben	gHx	A
@@ -2715,6 +2941,7 @@ TetsuBo	Dr	A
 TetsuBo	Er	S
 TetsuBo	Fi	S
 TetsuBo	Gl	S
+TetsuBo	Hj	S
 TetsuBo	Hl	A
 TetsuBo	Hä	S
 TetsuBo	Kd	S
@@ -2744,10 +2971,13 @@ TetsuBo	Se	S
 TetsuBo	Sk	S
 TetsuBo	Sp	S
 TetsuBo	Sr	S
+TetsuBo	Sw	S
 TetsuBo	Sö	G
 TetsuBo	Th	A
 TetsuBo	Tm	S
+TetsuBo	To	S
 TetsuBo	Wa	S
+TetsuBo	Wi	S
 TetsuBo	dBe	A
 TetsuBo	eBe	A
 TetsuBo	gHx	A
@@ -2763,6 +2993,7 @@ Tonfa	Dr	A
 Tonfa	Er	S
 Tonfa	Fi	S
 Tonfa	Gl	S
+Tonfa	Hj	S
 Tonfa	Hl	A
 Tonfa	Hä	S
 Tonfa	Kd	S
@@ -2792,10 +3023,13 @@ Tonfa	Se	S
 Tonfa	Sk	S
 Tonfa	Sp	S
 Tonfa	Sr	S
+Tonfa	Sw	S
 Tonfa	Sö	G
 Tonfa	Th	A
 Tonfa	Tm	S
+Tonfa	To	S
 Tonfa	Wa	S
+Tonfa	Wi	S
 Tonfa	dBe	A
 Tonfa	eBe	A
 Tonfa	gHx	A
@@ -2811,6 +3045,7 @@ Werfen	Dr	A
 Werfen	Er	S
 Werfen	Fi	S
 Werfen	Gl	G
+Werfen	Hj	S
 Werfen	Hl	A
 Werfen	Hä	S
 Werfen	Kd	S
@@ -2840,10 +3075,13 @@ Werfen	Se	G
 Werfen	Sk	S
 Werfen	Sp	G
 Werfen	Sr	S
+Werfen	Sw	S
 Werfen	Sö	S
 Werfen	Th	S
 Werfen	Tm	S
+Werfen	To	S
 Werfen	Wa	S
+Werfen	Wi	S
 Werfen	dBe	A
 Werfen	eBe	A
 Werfen	gHx	A
@@ -2859,6 +3097,7 @@ Wurfaxt	Dr	A
 Wurfaxt	Er	S
 Wurfaxt	Fi	S
 Wurfaxt	Gl	S
+Wurfaxt	Hj	S
 Wurfaxt	Hl	A
 Wurfaxt	Hä	S
 Wurfaxt	Kd	S
@@ -2888,10 +3127,13 @@ Wurfaxt	Se	S
 Wurfaxt	Sk	S
 Wurfaxt	Sp	S
 Wurfaxt	Sr	S
+Wurfaxt	Sw	S
 Wurfaxt	Sö	G
 Wurfaxt	Th	A
 Wurfaxt	Tm	S
+Wurfaxt	To	S
 Wurfaxt	Wa	S
+Wurfaxt	Wi	S
 Wurfaxt	dBe	A
 Wurfaxt	eBe	A
 Wurfaxt	gHx	A
@@ -2907,6 +3149,7 @@ Wurfeisen	Dr	A
 Wurfeisen	Er	S
 Wurfeisen	Fi	S
 Wurfeisen	Gl	S
+Wurfeisen	Hj	S
 Wurfeisen	Hl	A
 Wurfeisen	Hä	S
 Wurfeisen	Kd	S
@@ -2936,10 +3179,13 @@ Wurfeisen	Se	S
 Wurfeisen	Sk	S
 Wurfeisen	Sp	S
 Wurfeisen	Sr	S
+Wurfeisen	Sw	S
 Wurfeisen	Sö	G
 Wurfeisen	Th	A
 Wurfeisen	Tm	S
+Wurfeisen	To	S
 Wurfeisen	Wa	S
+Wurfeisen	Wi	S
 Wurfeisen	dBe	A
 Wurfeisen	eBe	A
 Wurfeisen	gHx	A
@@ -2955,6 +3201,7 @@ Wurfhammer	Dr	A
 Wurfhammer	Er	S
 Wurfhammer	Fi	S
 Wurfhammer	Gl	S
+Wurfhammer	Hj	S
 Wurfhammer	Hl	A
 Wurfhammer	Hä	S
 Wurfhammer	Kd	S
@@ -2984,10 +3231,13 @@ Wurfhammer	Se	S
 Wurfhammer	Sk	S
 Wurfhammer	Sp	S
 Wurfhammer	Sr	S
+Wurfhammer	Sw	S
 Wurfhammer	Sö	G
 Wurfhammer	Th	A
 Wurfhammer	Tm	S
+Wurfhammer	To	S
 Wurfhammer	Wa	S
+Wurfhammer	Wi	S
 Wurfhammer	dBe	A
 Wurfhammer	eBe	A
 Wurfhammer	gHx	A
@@ -3003,6 +3253,7 @@ Wurfkeule	Dr	A
 Wurfkeule	Er	S
 Wurfkeule	Fi	S
 Wurfkeule	Gl	S
+Wurfkeule	Hj	S
 Wurfkeule	Hl	A
 Wurfkeule	Hä	S
 Wurfkeule	Kd	S
@@ -3032,10 +3283,13 @@ Wurfkeule	Se	S
 Wurfkeule	Sk	S
 Wurfkeule	Sp	S
 Wurfkeule	Sr	S
+Wurfkeule	Sw	S
 Wurfkeule	Sö	G
 Wurfkeule	Th	A
 Wurfkeule	Tm	S
+Wurfkeule	To	S
 Wurfkeule	Wa	S
+Wurfkeule	Wi	S
 Wurfkeule	dBe	A
 Wurfkeule	eBe	A
 Wurfkeule	gHx	A
@@ -3051,6 +3305,7 @@ Wurfmesser	Dr	A
 Wurfmesser	Er	S
 Wurfmesser	Fi	S
 Wurfmesser	Gl	S
+Wurfmesser	Hj	S
 Wurfmesser	Hl	A
 Wurfmesser	Hä	S
 Wurfmesser	Kd	S
@@ -3080,10 +3335,13 @@ Wurfmesser	Se	S
 Wurfmesser	Sk	S
 Wurfmesser	Sp	S
 Wurfmesser	Sr	S
+Wurfmesser	Sw	S
 Wurfmesser	Sö	G
 Wurfmesser	Th	A
 Wurfmesser	Tm	S
+Wurfmesser	To	S
 Wurfmesser	Wa	S
+Wurfmesser	Wi	S
 Wurfmesser	dBe	A
 Wurfmesser	eBe	A
 Wurfmesser	gHx	A
@@ -3099,6 +3357,7 @@ Wurfpfeil	Dr	A
 Wurfpfeil	Er	S
 Wurfpfeil	Fi	S
 Wurfpfeil	Gl	S
+Wurfpfeil	Hj	S
 Wurfpfeil	Hl	A
 Wurfpfeil	Hä	S
 Wurfpfeil	Kd	S
@@ -3128,10 +3387,13 @@ Wurfpfeil	Se	S
 Wurfpfeil	Sk	S
 Wurfpfeil	Sp	S
 Wurfpfeil	Sr	S
+Wurfpfeil	Sw	S
 Wurfpfeil	Sö	G
 Wurfpfeil	Th	A
 Wurfpfeil	Tm	S
+Wurfpfeil	To	S
 Wurfpfeil	Wa	S
+Wurfpfeil	Wi	S
 Wurfpfeil	dBe	A
 Wurfpfeil	eBe	A
 Wurfpfeil	gHx	A
@@ -3147,6 +3409,7 @@ Wurfscheibe	Dr	A
 Wurfscheibe	Er	S
 Wurfscheibe	Fi	S
 Wurfscheibe	Gl	S
+Wurfscheibe	Hj	S
 Wurfscheibe	Hl	A
 Wurfscheibe	Hä	S
 Wurfscheibe	Kd	S
@@ -3176,10 +3439,13 @@ Wurfscheibe	Se	S
 Wurfscheibe	Sk	S
 Wurfscheibe	Sp	S
 Wurfscheibe	Sr	S
+Wurfscheibe	Sw	S
 Wurfscheibe	Sö	S
 Wurfscheibe	Th	A
 Wurfscheibe	Tm	S
+Wurfscheibe	To	S
 Wurfscheibe	Wa	S
+Wurfscheibe	Wi	S
 Wurfscheibe	dBe	A
 Wurfscheibe	eBe	A
 Wurfscheibe	gHx	A
@@ -3195,6 +3461,7 @@ Wurfspeer	Dr	A
 Wurfspeer	Er	S
 Wurfspeer	Fi	S
 Wurfspeer	Gl	S
+Wurfspeer	Hj	S
 Wurfspeer	Hl	A
 Wurfspeer	Hä	S
 Wurfspeer	Kd	S
@@ -3224,10 +3491,13 @@ Wurfspeer	Se	S
 Wurfspeer	Sk	S
 Wurfspeer	Sp	S
 Wurfspeer	Sr	S
+Wurfspeer	Sw	S
 Wurfspeer	Sö	G
 Wurfspeer	Th	A
 Wurfspeer	Tm	S
+Wurfspeer	To	S
 Wurfspeer	Wa	S
+Wurfspeer	Wi	S
 Wurfspeer	dBe	A
 Wurfspeer	eBe	A
 Wurfspeer	gHx	A
@@ -3243,6 +3513,7 @@ Wurfspieß	Dr	A
 Wurfspieß	Er	S
 Wurfspieß	Fi	S
 Wurfspieß	Gl	S
+Wurfspieß	Hj	S
 Wurfspieß	Hl	A
 Wurfspieß	Hä	S
 Wurfspieß	Kd	S
@@ -3272,10 +3543,13 @@ Wurfspieß	Se	S
 Wurfspieß	Sk	S
 Wurfspieß	Sp	S
 Wurfspieß	Sr	S
+Wurfspieß	Sw	S
 Wurfspieß	Sö	G
 Wurfspieß	Th	A
 Wurfspieß	Tm	S
+Wurfspieß	To	S
 Wurfspieß	Wa	S
+Wurfspieß	Wi	S
 Wurfspieß	dBe	A
 Wurfspieß	eBe	A
 Wurfspieß	gHx	A
@@ -3291,6 +3565,7 @@ Wurfstern	Dr	A
 Wurfstern	Er	S
 Wurfstern	Fi	S
 Wurfstern	Gl	S
+Wurfstern	Hj	S
 Wurfstern	Hl	A
 Wurfstern	Hä	S
 Wurfstern	Kd	S
@@ -3320,10 +3595,13 @@ Wurfstern	Se	S
 Wurfstern	Sk	S
 Wurfstern	Sp	S
 Wurfstern	Sr	S
+Wurfstern	Sw	S
 Wurfstern	Sö	S
 Wurfstern	Th	A
 Wurfstern	Tm	S
+Wurfstern	To	S
 Wurfstern	Wa	S
+Wurfstern	Wi	S
 Wurfstern	dBe	A
 Wurfstern	eBe	A
 Wurfstern	gHx	A
@@ -3339,6 +3617,7 @@ großer Schild	Dr	A
 großer Schild	Er	S
 großer Schild	Fi	S
 großer Schild	Gl	S
+großer Schild	Hj	S
 großer Schild	Hl	A
 großer Schild	Hä	S
 großer Schild	Kd	S
@@ -3368,10 +3647,13 @@ großer Schild	Se	S
 großer Schild	Sk	S
 großer Schild	Sp	S
 großer Schild	Sr	S
+großer Schild	Sw	S
 großer Schild	Sö	G
 großer Schild	Th	A
 großer Schild	Tm	S
+großer Schild	To	S
 großer Schild	Wa	S
+großer Schild	Wi	S
 großer Schild	dBe	A
 großer Schild	eBe	A
 großer Schild	gHx	A
@@ -3387,6 +3669,7 @@ kleiner Schild	Dr	A
 kleiner Schild	Er	S
 kleiner Schild	Fi	S
 kleiner Schild	Gl	S
+kleiner Schild	Hj	S
 kleiner Schild	Hl	A
 kleiner Schild	Hä	S
 kleiner Schild	Kd	S
@@ -3416,10 +3699,13 @@ kleiner Schild	Se	S
 kleiner Schild	Sk	S
 kleiner Schild	Sp	S
 kleiner Schild	Sr	S
+kleiner Schild	Sw	S
 kleiner Schild	Sö	G
 kleiner Schild	Th	A
 kleiner Schild	Tm	S
+kleiner Schild	To	S
 kleiner Schild	Wa	S
+kleiner Schild	Wi	S
 kleiner Schild	dBe	A
 kleiner Schild	eBe	A
 kleiner Schild	gHx	A
@@ -3435,6 +3721,7 @@ leichte Armbrust	Dr	A
 leichte Armbrust	Er	S
 leichte Armbrust	Fi	S
 leichte Armbrust	Gl	S
+leichte Armbrust	Hj	S
 leichte Armbrust	Hl	A
 leichte Armbrust	Hä	S
 leichte Armbrust	Kd	S
@@ -3464,10 +3751,13 @@ leichte Armbrust	Se	S
 leichte Armbrust	Sk	S
 leichte Armbrust	Sp	S
 leichte Armbrust	Sr	S
+leichte Armbrust	Sw	S
 leichte Armbrust	Sö	G
 leichte Armbrust	Th	A
 leichte Armbrust	Tm	S
+leichte Armbrust	To	S
 leichte Armbrust	Wa	S
+leichte Armbrust	Wi	S
 leichte Armbrust	dBe	A
 leichte Armbrust	eBe	A
 leichte Armbrust	gHx	A
@@ -3483,6 +3773,7 @@ leichter Speer	Dr	A
 leichter Speer	Er	S
 leichter Speer	Fi	S
 leichter Speer	Gl	S
+leichter Speer	Hj	S
 leichter Speer	Hl	A
 leichter Speer	Hä	S
 leichter Speer	Kd	S
@@ -3512,10 +3803,13 @@ leichter Speer	Se	S
 leichter Speer	Sk	S
 leichter Speer	Sp	S
 leichter Speer	Sr	S
+leichter Speer	Sw	S
 leichter Speer	Sö	G
 leichter Speer	Th	A
 leichter Speer	Tm	S
+leichter Speer	To	S
 leichter Speer	Wa	S
+leichter Speer	Wi	S
 leichter Speer	dBe	A
 leichter Speer	eBe	A
 leichter Speer	gHx	A
@@ -3531,6 +3825,7 @@ schwere Armbrust	Dr	A
 schwere Armbrust	Er	S
 schwere Armbrust	Fi	S
 schwere Armbrust	Gl	S
+schwere Armbrust	Hj	S
 schwere Armbrust	Hl	A
 schwere Armbrust	Hä	S
 schwere Armbrust	Kd	S
@@ -3560,10 +3855,13 @@ schwere Armbrust	Se	S
 schwere Armbrust	Sk	S
 schwere Armbrust	Sp	S
 schwere Armbrust	Sr	S
+schwere Armbrust	Sw	S
 schwere Armbrust	Sö	G
 schwere Armbrust	Th	A
 schwere Armbrust	Tm	S
+schwere Armbrust	To	S
 schwere Armbrust	Wa	S
+schwere Armbrust	Wi	S
 schwere Armbrust	dBe	A
 schwere Armbrust	eBe	A
 schwere Armbrust	gHx	A
@@ -3579,6 +3877,7 @@ waffenloser Kampf	Dr	A
 waffenloser Kampf	Er	S
 waffenloser Kampf	Fi	S
 waffenloser Kampf	Gl	S
+waffenloser Kampf	Hj	S
 waffenloser Kampf	Hl	A
 waffenloser Kampf	Hä	S
 waffenloser Kampf	Kd	S
@@ -3608,10 +3907,13 @@ waffenloser Kampf	Se	S
 waffenloser Kampf	Sk	S
 waffenloser Kampf	Sp	S
 waffenloser Kampf	Sr	S
+waffenloser Kampf	Sw	S
 waffenloser Kampf	Sö	G
 waffenloser Kampf	Th	A
 waffenloser Kampf	Tm	S
+waffenloser Kampf	To	S
 waffenloser Kampf	Wa	S
+waffenloser Kampf	Wi	S
 waffenloser Kampf	dBe	A
 waffenloser Kampf	eBe	A
 waffenloser Kampf	gHx	A

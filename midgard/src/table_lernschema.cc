@@ -559,7 +559,7 @@ void table_lernschema::on_button_ruestung_clicked(int wurf)
       if (81 <= wurf && wurf  <= 95 ) rue = "LR" ;
       if (96 <= wurf && wurf  <= 100) rue = "LR" ;
    }
-  if(hauptfenster->getChar().Typ1()=="Fi") rue="KR";
+  if(hauptfenster->getChar().Typ1()->Short()=="Fi") rue="KR";
   hauptfenster->getWerte().setRuestung1(rue);
   hauptfenster->set_status("Beim Auswürfeln der Rüstung wurde eine "+itos(wurf)+" gewürfelt "
              "==> " + hauptfenster->getWerte().Ruestung()->Long());

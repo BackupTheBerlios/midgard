@@ -31,6 +31,7 @@ Abrichten	Dt	A
 Abrichten	Er	A
 Abrichten	Fi	S
 Abrichten	Gl	S
+Abrichten	Hj	S
 Abrichten	Hl	A
 Abrichten	Hä	S
 Abrichten	Kd	S
@@ -59,12 +60,15 @@ Abrichten	Se	S
 Abrichten	Sk	A
 Abrichten	Sp	G
 Abrichten	Sr	S
+Abrichten	Sw	G
 Abrichten	Sö	S
 Abrichten	Th	A
 Abrichten	Tm	G
+Abrichten	To	S
 Abrichten	Tr	G
 Abrichten	Tt	S
 Abrichten	Wa	G
+Abrichten	Wi	G
 Abrichten	dBe	S
 Abrichten	eBe	S
 Abrichten	gHx	S
@@ -82,6 +86,7 @@ Adlersprung	Dt	A
 Adlersprung	Er	A
 Adlersprung	Fi	A
 Adlersprung	Gl	A
+Adlersprung	Hj	A
 Adlersprung	Hl	A
 Adlersprung	Hä	A
 Adlersprung	Kd	A
@@ -111,12 +116,15 @@ Adlersprung	Se	A
 Adlersprung	Sk	A
 Adlersprung	Sp	A
 Adlersprung	Sr	A
+Adlersprung	Sw	G
 Adlersprung	Sö	A
 Adlersprung	Th	A
 Adlersprung	Tm	A
+Adlersprung	To	A
 Adlersprung	Tr	A
 Adlersprung	Tt	A
 Adlersprung	Wa	A
+Adlersprung	Wi	A
 Adlersprung	dBe	A
 Adlersprung	eBe	A
 Adlersprung	gHx	A
@@ -134,6 +142,7 @@ Akribie	Dt	G
 Akribie	Er	A
 Akribie	Fi	A
 Akribie	Gl	A
+Akribie	Hj	A
 Akribie	Hl	A
 Akribie	Hä	A
 Akribie	Kd	A
@@ -163,12 +172,15 @@ Akribie	Se	A
 Akribie	Sk	A
 Akribie	Sp	A
 Akribie	Sr	A
+Akribie	Sw	S
 Akribie	Sö	A
 Akribie	Th	S
 Akribie	Tm	A
+Akribie	To	A
 Akribie	Tr	A
 Akribie	Tt	A
 Akribie	Wa	A
+Akribie	Wi	A
 Akribie	dBe	A
 Akribie	eBe	A
 Akribie	gHx	A
@@ -186,6 +198,7 @@ Akrobatik	Dt	A
 Akrobatik	Er	S
 Akrobatik	Fi	S
 Akrobatik	Gl	G
+Akrobatik	Hj	S
 Akrobatik	Hl	A
 Akrobatik	Hä	S
 Akrobatik	Kd	S
@@ -214,12 +227,15 @@ Akrobatik	Se	S
 Akrobatik	Sk	S
 Akrobatik	Sp	G
 Akrobatik	Sr	S
+Akrobatik	Sw	G
 Akrobatik	Sö	S
 Akrobatik	Th	A
 Akrobatik	Tm	S
+Akrobatik	To	G
 Akrobatik	Tr	G
 Akrobatik	Tt	S
 Akrobatik	Wa	G
+Akrobatik	Wi	S
 Akrobatik	dBe	A
 Akrobatik	eBe	A
 Akrobatik	gHx	A
@@ -237,6 +253,7 @@ Alchimie	Dt	S
 Alchimie	Er	A
 Alchimie	Fi	A
 Alchimie	Gl	A
+Alchimie	Hj	S
 Alchimie	Hl	S
 Alchimie	Hä	A
 Alchimie	Kd	A
@@ -266,12 +283,15 @@ Alchimie	Se	A
 Alchimie	Sk	A
 Alchimie	Sp	A
 Alchimie	Sr	A
+Alchimie	Sw	G
 Alchimie	Sö	A
 Alchimie	Th	G
 Alchimie	Tm	A
+Alchimie	To	A
 Alchimie	Tr	A
 Alchimie	Tt	S
 Alchimie	Wa	A
+Alchimie	Wi	A
 Alchimie	dBe	G
 Alchimie	eBe	G
 Alchimie	gHx	S
@@ -288,6 +308,7 @@ Askese	Dr	S
 Askese	Dt	S
 Askese	Fi	A
 Askese	Gl	A
+Askese	Hj	A
 Askese	Hl	S
 Askese	Hä	A
 Askese	Kd	A
@@ -314,8 +335,10 @@ Askese	Se	A
 Askese	Sk	A
 Askese	Sp	A
 Askese	Sr	A
+Askese	Sw	S
 Askese	Sö	A
 Askese	Th	S
+Askese	To	A
 Askese	Tr	A
 Askese	Tt	S
 Askese	Wa	A
@@ -362,11 +385,14 @@ Astrologie	Se	A
 Astrologie	Sk	S
 Astrologie	Sp	A
 Astrologie	Sr	A
+Astrologie	Sw	S
 Astrologie	Sö	A
 Astrologie	Th	G
+Astrologie	To	A
 Astrologie	Tr	A
 Astrologie	Tt	S
 Astrologie	Wa	A
+Astrologie	Wi	A
 Astrologie	dBe	S
 Astrologie	eBe	S
 Astrologie	gHx	S
@@ -384,6 +410,7 @@ Athletik	Dt	A
 Athletik	Er	S
 Athletik	Fi	S
 Athletik	Gl	S
+Athletik	Hj	A
 Athletik	Hl	A
 Athletik	Hä	S
 Athletik	Kd	S
@@ -413,12 +440,15 @@ Athletik	Se	S
 Athletik	Sk	S
 Athletik	Sp	S
 Athletik	Sr	S
+Athletik	Sw	A
 Athletik	Sö	G
 Athletik	Th	A
 Athletik	Tm	S
+Athletik	To	A
 Athletik	Tr	S
 Athletik	Tt	S
 Athletik	Wa	S
+Athletik	Wi	S
 Athletik	dBe	A
 Athletik	eBe	A
 Athletik	gHx	A
@@ -435,6 +465,7 @@ Augensalbe herstellen	Dr	S
 Augensalbe herstellen	Dt	S
 Augensalbe herstellen	Fi	S
 Augensalbe herstellen	Gl	S
+Augensalbe herstellen	Hj	S
 Augensalbe herstellen	Hl	S
 Augensalbe herstellen	Hä	S
 Augensalbe herstellen	Kd	S
@@ -461,8 +492,10 @@ Augensalbe herstellen	Se	S
 Augensalbe herstellen	Sk	S
 Augensalbe herstellen	Sp	S
 Augensalbe herstellen	Sr	S
+Augensalbe herstellen	Sw	S
 Augensalbe herstellen	Sö	S
 Augensalbe herstellen	Th	S
+Augensalbe herstellen	To	S
 Augensalbe herstellen	Tr	S
 Augensalbe herstellen	Tt	S
 Augensalbe herstellen	Wa	S
@@ -483,6 +516,7 @@ Balancieren	Dt	S
 Balancieren	Er	S
 Balancieren	Fi	S
 Balancieren	Gl	G
+Balancieren	Hj	S
 Balancieren	Hl	S
 Balancieren	Hä	S
 Balancieren	Kd	G
@@ -512,12 +546,15 @@ Balancieren	Se	G
 Balancieren	Sk	S
 Balancieren	Sp	G
 Balancieren	Sr	S
+Balancieren	Sw	G
 Balancieren	Sö	S
 Balancieren	Th	S
 Balancieren	Tm	S
+Balancieren	To	G
 Balancieren	Tr	G
 Balancieren	Tt	G
 Balancieren	Wa	G
+Balancieren	Wi	S
 Balancieren	dBe	S
 Balancieren	eBe	S
 Balancieren	gHx	S
@@ -535,6 +572,7 @@ Ballista bedienen	Dt	A
 Ballista bedienen	Er	S
 Ballista bedienen	Fi	S
 Ballista bedienen	Gl	S
+Ballista bedienen	Hj	A
 Ballista bedienen	Hl	A
 Ballista bedienen	Hä	S
 Ballista bedienen	Kd	A
@@ -564,12 +602,15 @@ Ballista bedienen	Se	G
 Ballista bedienen	Sk	S
 Ballista bedienen	Sp	S
 Ballista bedienen	Sr	S
+Ballista bedienen	Sw	A
 Ballista bedienen	Sö	G
 Ballista bedienen	Th	A
 Ballista bedienen	Tm	S
+Ballista bedienen	To	A
 Ballista bedienen	Tr	S
 Ballista bedienen	Tt	A
 Ballista bedienen	Wa	S
+Ballista bedienen	Wi	S
 Ballista bedienen	dBe	A
 Ballista bedienen	eBe	A
 Ballista bedienen	gHx	A
@@ -587,6 +628,7 @@ Ballspiel	Dt	A
 Ballspiel	Er	A
 Ballspiel	Fi	A
 Ballspiel	Gl	A
+Ballspiel	Hj	A
 Ballspiel	Hl	A
 Ballspiel	Hä	A
 Ballspiel	Kd	A
@@ -616,12 +658,15 @@ Ballspiel	Se	A
 Ballspiel	Sk	A
 Ballspiel	Sp	A
 Ballspiel	Sr	A
+Ballspiel	Sw	S
 Ballspiel	Sö	A
 Ballspiel	Th	A
 Ballspiel	Tm	A
+Ballspiel	To	A
 Ballspiel	Tr	A
 Ballspiel	Tt	A
 Ballspiel	Wa	A
+Ballspiel	Wi	A
 Ballspiel	dBe	A
 Ballspiel	eBe	A
 Ballspiel	gHx	A
@@ -639,6 +684,7 @@ Baukunde	Dt	S
 Baukunde	Er	S
 Baukunde	Fi	S
 Baukunde	Gl	S
+Baukunde	Hj	S
 Baukunde	Hl	S
 Baukunde	Hä	S
 Baukunde	Kd	S
@@ -667,12 +713,15 @@ Baukunde	Se	S
 Baukunde	Sk	S
 Baukunde	Sp	S
 Baukunde	Sr	S
+Baukunde	Sw	S
 Baukunde	Sö	S
 Baukunde	Th	S
 Baukunde	Tm	A
+Baukunde	To	S
 Baukunde	Tr	S
 Baukunde	Tt	A
 Baukunde	Wa	A
+Baukunde	Wi	A
 Baukunde	dBe	S
 Baukunde	eBe	S
 Baukunde	gHx	S
@@ -690,6 +739,7 @@ Beidhändiger Kampf	Dt	A
 Beidhändiger Kampf	Er	S
 Beidhändiger Kampf	Fi	S
 Beidhändiger Kampf	Gl	G
+Beidhändiger Kampf	Hj	S
 Beidhändiger Kampf	Hl	A
 Beidhändiger Kampf	Hä	S
 Beidhändiger Kampf	Kd	G
@@ -719,12 +769,15 @@ Beidhändiger Kampf	Se	G
 Beidhändiger Kampf	Sk	S
 Beidhändiger Kampf	Sp	S
 Beidhändiger Kampf	Sr	S
+Beidhändiger Kampf	Sw	A
 Beidhändiger Kampf	Sö	G
 Beidhändiger Kampf	Th	A
 Beidhändiger Kampf	Tm	S
+Beidhändiger Kampf	To	A
 Beidhändiger Kampf	Tr	S
 Beidhändiger Kampf	Tt	S
 Beidhändiger Kampf	Wa	S
+Beidhändiger Kampf	Wi	S
 Beidhändiger Kampf	dBe	A
 Beidhändiger Kampf	eBe	A
 Beidhändiger Kampf	gHx	A
@@ -742,6 +795,7 @@ Beredsamkeit	Dt	S
 Beredsamkeit	Er	G
 Beredsamkeit	Fi	S
 Beredsamkeit	Gl	G
+Beredsamkeit	Hj	G
 Beredsamkeit	Hl	S
 Beredsamkeit	Hä	G
 Beredsamkeit	Kd	S
@@ -771,12 +825,15 @@ Beredsamkeit	Se	G
 Beredsamkeit	Sk	G
 Beredsamkeit	Sp	S
 Beredsamkeit	Sr	S
+Beredsamkeit	Sw	S
 Beredsamkeit	Sö	S
 Beredsamkeit	Th	S
 Beredsamkeit	Tm	S
+Beredsamkeit	To	G
 Beredsamkeit	Tr	S
 Beredsamkeit	Tt	S
 Beredsamkeit	Wa	S
+Beredsamkeit	Wi	S
 Beredsamkeit	dBe	S
 Beredsamkeit	eBe	S
 Beredsamkeit	gHx	S
@@ -794,6 +851,7 @@ Beschatten	Dt	S
 Beschatten	Er	G
 Beschatten	Fi	S
 Beschatten	Gl	S
+Beschatten	Hj	S
 Beschatten	Hl	S
 Beschatten	Hä	S
 Beschatten	Kd	S
@@ -823,12 +881,15 @@ Beschatten	Se	S
 Beschatten	Sk	S
 Beschatten	Sp	G
 Beschatten	Sr	S
+Beschatten	Sw	G
 Beschatten	Sö	S
 Beschatten	Th	S
 Beschatten	Tm	S
+Beschatten	To	G
 Beschatten	Tr	G
 Beschatten	Tt	S
 Beschatten	Wa	G
+Beschatten	Wi	S
 Beschatten	dBe	S
 Beschatten	eBe	S
 Beschatten	gHx	S
@@ -846,6 +907,7 @@ Bogenkampf zu Pferd	Dt	A
 Bogenkampf zu Pferd	Er	S
 Bogenkampf zu Pferd	Fi	A
 Bogenkampf zu Pferd	Gl	S
+Bogenkampf zu Pferd	Hj	A
 Bogenkampf zu Pferd	Hl	A
 Bogenkampf zu Pferd	Hä	S
 Bogenkampf zu Pferd	Kd	S
@@ -875,12 +937,15 @@ Bogenkampf zu Pferd	Se	S
 Bogenkampf zu Pferd	Sk	S
 Bogenkampf zu Pferd	Sp	S
 Bogenkampf zu Pferd	Sr	S
+Bogenkampf zu Pferd	Sw	A
 Bogenkampf zu Pferd	Sö	G
 Bogenkampf zu Pferd	Th	A
 Bogenkampf zu Pferd	Tm	S
+Bogenkampf zu Pferd	To	A
 Bogenkampf zu Pferd	Tr	S
 Bogenkampf zu Pferd	Tt	A
 Bogenkampf zu Pferd	Wa	S
+Bogenkampf zu Pferd	Wi	S
 Bogenkampf zu Pferd	dBe	A
 Bogenkampf zu Pferd	eBe	A
 Bogenkampf zu Pferd	gHx	A
@@ -897,6 +962,7 @@ Brettspiel	Dr	G
 Brettspiel	Dt	G
 Brettspiel	Fi	S
 Brettspiel	Gl	G
+Brettspiel	Hj	S
 Brettspiel	Hl	G
 Brettspiel	Hä	G
 Brettspiel	Kd	S
@@ -923,8 +989,10 @@ Brettspiel	Se	S
 Brettspiel	Sk	G
 Brettspiel	Sp	S
 Brettspiel	Sr	S
+Brettspiel	Sw	A
 Brettspiel	Sö	S
 Brettspiel	Th	G
+Brettspiel	To	S
 Brettspiel	Tr	S
 Brettspiel	Tt	A
 Brettspiel	Wa	S
@@ -945,6 +1013,7 @@ Dichten	Dt	S
 Dichten	Er	S
 Dichten	Fi	S
 Dichten	Gl	S
+Dichten	Hj	S
 Dichten	Hl	S
 Dichten	Hä	S
 Dichten	Kd	S
@@ -974,12 +1043,15 @@ Dichten	Se	S
 Dichten	Sk	G
 Dichten	Sp	S
 Dichten	Sr	S
+Dichten	Sw	S
 Dichten	Sö	S
 Dichten	Th	S
 Dichten	Tm	S
+Dichten	To	S
 Dichten	Tr	S
 Dichten	Tt	S
 Dichten	Wa	S
+Dichten	Wi	S
 Dichten	dBe	S
 Dichten	eBe	S
 Dichten	gHx	S
@@ -997,6 +1069,7 @@ Dämonenkunde	Dt	G
 Dämonenkunde	Er	A
 Dämonenkunde	Fi	A
 Dämonenkunde	Gl	A
+Dämonenkunde	Hj	S
 Dämonenkunde	Hl	A
 Dämonenkunde	Hä	A
 Dämonenkunde	Kd	A
@@ -1027,12 +1100,15 @@ Dämonenkunde	Se	A
 Dämonenkunde	Sk	A
 Dämonenkunde	Sp	A
 Dämonenkunde	Sr	A
+Dämonenkunde	Sw	S
 Dämonenkunde	Sö	A
 Dämonenkunde	Th	A
 Dämonenkunde	Tm	A
+Dämonenkunde	To	A
 Dämonenkunde	Tr	A
 Dämonenkunde	Tt	A
 Dämonenkunde	Wa	A
+Dämonenkunde	Wi	A
 Dämonenkunde	dBe	S
 Dämonenkunde	eBe	S
 Dämonenkunde	gHx	A
@@ -1049,6 +1125,7 @@ Elefanten lenken	Dr	A
 Elefanten lenken	Dt	A
 Elefanten lenken	Fi	A
 Elefanten lenken	Gl	A
+Elefanten lenken	Hj	A
 Elefanten lenken	Hl	A
 Elefanten lenken	Hä	A
 Elefanten lenken	Kd	A
@@ -1075,8 +1152,10 @@ Elefanten lenken	Se	A
 Elefanten lenken	Sk	A
 Elefanten lenken	Sp	A
 Elefanten lenken	Sr	S
+Elefanten lenken	Sw	S
 Elefanten lenken	Sö	A
 Elefanten lenken	Th	A
+Elefanten lenken	To	A
 Elefanten lenken	Tr	A
 Elefanten lenken	Tt	A
 Elefanten lenken	Wa	A
@@ -1097,6 +1176,7 @@ Erste Hilfe	Dt	G
 Erste Hilfe	Er	S
 Erste Hilfe	Fi	S
 Erste Hilfe	Gl	S
+Erste Hilfe	Hj	S
 Erste Hilfe	Hl	G
 Erste Hilfe	Hä	S
 Erste Hilfe	Kd	S
@@ -1126,12 +1206,15 @@ Erste Hilfe	Se	S
 Erste Hilfe	Sk	S
 Erste Hilfe	Sp	S
 Erste Hilfe	Sr	S
+Erste Hilfe	Sw	S
 Erste Hilfe	Sö	S
 Erste Hilfe	Th	S
 Erste Hilfe	Tm	S
+Erste Hilfe	To	S
 Erste Hilfe	Tr	S
 Erste Hilfe	Tt	G
 Erste Hilfe	Wa	S
+Erste Hilfe	Wi	S
 Erste Hilfe	dBe	S
 Erste Hilfe	eBe	S
 Erste Hilfe	gHx	S
@@ -1149,6 +1232,7 @@ Erzählen	Dt	S
 Erzählen	Er	S
 Erzählen	Fi	S
 Erzählen	Gl	G
+Erzählen	Hj	S
 Erzählen	Hl	S
 Erzählen	Hä	S
 Erzählen	Kd	S
@@ -1178,12 +1262,15 @@ Erzählen	Se	G
 Erzählen	Sk	G
 Erzählen	Sp	S
 Erzählen	Sr	S
+Erzählen	Sw	S
 Erzählen	Sö	S
 Erzählen	Th	S
 Erzählen	Tm	S
+Erzählen	To	S
 Erzählen	Tr	S
 Erzählen	Tt	S
 Erzählen	Wa	S
+Erzählen	Wi	S
 Erzählen	dBe	S
 Erzählen	eBe	S
 Erzählen	gHx	S
@@ -1201,6 +1288,7 @@ Fallen entdecken	Dt	A
 Fallen entdecken	Er	G
 Fallen entdecken	Fi	A
 Fallen entdecken	Gl	S
+Fallen entdecken	Hj	S
 Fallen entdecken	Hl	A
 Fallen entdecken	Hä	G
 Fallen entdecken	Kd	A
@@ -1230,12 +1318,15 @@ Fallen entdecken	Se	S
 Fallen entdecken	Sk	S
 Fallen entdecken	Sp	G
 Fallen entdecken	Sr	A
+Fallen entdecken	Sw	G
 Fallen entdecken	Sö	A
 Fallen entdecken	Th	G
 Fallen entdecken	Tm	S
+Fallen entdecken	To	G
 Fallen entdecken	Tr	G
 Fallen entdecken	Tt	A
 Fallen entdecken	Wa	S
+Fallen entdecken	Wi	S
 Fallen entdecken	dBe	A
 Fallen entdecken	eBe	A
 Fallen entdecken	gHx	A
@@ -1252,6 +1343,7 @@ Fallen entschärfen	Dr	A
 Fallen entschärfen	Dt	A
 Fallen entschärfen	Fi	S
 Fallen entschärfen	Gl	S
+Fallen entschärfen	Hj	S
 Fallen entschärfen	Hl	A
 Fallen entschärfen	Hä	S
 Fallen entschärfen	Kd	S
@@ -1278,8 +1370,10 @@ Fallen entschärfen	Se	S
 Fallen entschärfen	Sk	S
 Fallen entschärfen	Sp	G
 Fallen entschärfen	Sr	S
+Fallen entschärfen	Sw	S
 Fallen entschärfen	Sö	A
 Fallen entschärfen	Th	A
+Fallen entschärfen	To	G
 Fallen entschärfen	Tr	G
 Fallen entschärfen	Tt	A
 Fallen entschärfen	Wa	S
@@ -1300,6 +1394,7 @@ Fallenmechanik	Dt	A
 Fallenmechanik	Er	S
 Fallenmechanik	Fi	A
 Fallenmechanik	Gl	S
+Fallenmechanik	Hj	A
 Fallenmechanik	Hl	A
 Fallenmechanik	Hä	G
 Fallenmechanik	Kd	S
@@ -1329,12 +1424,15 @@ Fallenmechanik	Se	S
 Fallenmechanik	Sk	S
 Fallenmechanik	Sp	G
 Fallenmechanik	Sr	S
+Fallenmechanik	Sw	G
 Fallenmechanik	Sö	A
 Fallenmechanik	Th	G
 Fallenmechanik	Tm	A
+Fallenmechanik	To	G
 Fallenmechanik	Tr	G
 Fallenmechanik	Tt	A
 Fallenmechanik	Wa	S
+Fallenmechanik	Wi	A
 Fallenmechanik	dBe	A
 Fallenmechanik	eBe	A
 Fallenmechanik	gHx	A
@@ -1352,6 +1450,7 @@ Fallenstellen	Dt	A
 Fallenstellen	Er	S
 Fallenstellen	Fi	S
 Fallenstellen	Gl	S
+Fallenstellen	Hj	A
 Fallenstellen	Hl	A
 Fallenstellen	Hä	S
 Fallenstellen	Kd	S
@@ -1381,12 +1480,15 @@ Fallenstellen	Se	S
 Fallenstellen	Sk	S
 Fallenstellen	Sp	A
 Fallenstellen	Sr	S
+Fallenstellen	Sw	A
 Fallenstellen	Sö	S
 Fallenstellen	Th	A
 Fallenstellen	Tm	G
+Fallenstellen	To	G
 Fallenstellen	Tr	A
 Fallenstellen	Tt	G
 Fallenstellen	Wa	G
+Fallenstellen	Wi	G
 Fallenstellen	dBe	A
 Fallenstellen	eBe	A
 Fallenstellen	gHx	A
@@ -1404,6 +1506,7 @@ Fangen	Dt	S
 Fangen	Er	S
 Fangen	Fi	S
 Fangen	Gl	S
+Fangen	Hj	S
 Fangen	Hl	S
 Fangen	Hä	S
 Fangen	Kd	S
@@ -1433,12 +1536,15 @@ Fangen	Se	G
 Fangen	Sk	S
 Fangen	Sp	G
 Fangen	Sr	S
+Fangen	Sw	G
 Fangen	Sö	S
 Fangen	Th	S
 Fangen	Tm	S
+Fangen	To	S
 Fangen	Tr	G
 Fangen	Tt	S
 Fangen	Wa	S
+Fangen	Wi	S
 Fangen	dBe	S
 Fangen	eBe	S
 Fangen	gHx	S
@@ -1456,6 +1562,7 @@ Fechten	Dt	A
 Fechten	Er	S
 Fechten	Fi	S
 Fechten	Gl	G
+Fechten	Hj	S
 Fechten	Hl	A
 Fechten	Hä	S
 Fechten	Kd	S
@@ -1485,12 +1592,15 @@ Fechten	Se	S
 Fechten	Sk	G
 Fechten	Sp	G
 Fechten	Sr	S
+Fechten	Sw	S
 Fechten	Sö	S
 Fechten	Th	A
 Fechten	Tm	S
+Fechten	To	G
 Fechten	Tr	G
 Fechten	Tt	A
 Fechten	Wa	S
+Fechten	Wi	S
 Fechten	dBe	A
 Fechten	eBe	A
 Fechten	gHx	A
@@ -1508,6 +1618,7 @@ Fechten tevarrischer Stil	Dt	A
 Fechten tevarrischer Stil	Er	S
 Fechten tevarrischer Stil	Fi	S
 Fechten tevarrischer Stil	Gl	G
+Fechten tevarrischer Stil	Hj	S
 Fechten tevarrischer Stil	Hl	A
 Fechten tevarrischer Stil	Hä	S
 Fechten tevarrischer Stil	Kd	S
@@ -1537,12 +1648,15 @@ Fechten tevarrischer Stil	Se	S
 Fechten tevarrischer Stil	Sk	G
 Fechten tevarrischer Stil	Sp	G
 Fechten tevarrischer Stil	Sr	S
+Fechten tevarrischer Stil	Sw	S
 Fechten tevarrischer Stil	Sö	S
 Fechten tevarrischer Stil	Th	A
 Fechten tevarrischer Stil	Tm	S
+Fechten tevarrischer Stil	To	G
 Fechten tevarrischer Stil	Tr	G
 Fechten tevarrischer Stil	Tt	A
 Fechten tevarrischer Stil	Wa	S
+Fechten tevarrischer Stil	Wi	S
 Fechten tevarrischer Stil	dBe	A
 Fechten tevarrischer Stil	eBe	A
 Fechten tevarrischer Stil	gHx	A
@@ -1560,6 +1674,7 @@ Federflechten	Dt	A
 Federflechten	Er	A
 Federflechten	Fi	A
 Federflechten	Gl	A
+Federflechten	Hj	A
 Federflechten	Hl	A
 Federflechten	Hä	A
 Federflechten	Kd	A
@@ -1589,12 +1704,15 @@ Federflechten	Se	A
 Federflechten	Sk	A
 Federflechten	Sp	A
 Federflechten	Sr	A
+Federflechten	Sw	S
 Federflechten	Sö	A
 Federflechten	Th	S
 Federflechten	Tm	A
+Federflechten	To	A
 Federflechten	Tr	A
 Federflechten	Tt	A
 Federflechten	Wa	A
+Federflechten	Wi	A
 Federflechten	dBe	A
 Federflechten	eBe	A
 Federflechten	gHx	A
@@ -1611,6 +1729,7 @@ FengSchui	Dr	S
 FengSchui	Dt	S
 FengSchui	Fi	G
 FengSchui	Gl	S
+FengSchui	Hj	S
 FengSchui	Hl	S
 FengSchui	Hä	S
 FengSchui	Kd	G
@@ -1637,8 +1756,10 @@ FengSchui	Se	S
 FengSchui	Sk	S
 FengSchui	Sp	S
 FengSchui	Sr	G
+FengSchui	Sw	S
 FengSchui	Sö	G
 FengSchui	Th	S
+FengSchui	To	A
 FengSchui	Tr	S
 FengSchui	Tt	S
 FengSchui	Wa	S
@@ -1658,6 +1779,7 @@ FengTsu	Dr	A
 FengTsu	Dt	A
 FengTsu	Fi	G
 FengTsu	Gl	G
+FengTsu	Hj	S
 FengTsu	Hl	A
 FengTsu	Hä	S
 FengTsu	Kd	S
@@ -1684,8 +1806,10 @@ FengTsu	Se	S
 FengTsu	Sk	S
 FengTsu	Sp	S
 FengTsu	Sr	G
+FengTsu	Sw	S
 FengTsu	Sö	S
 FengTsu	Th	A
+FengTsu	To	A
 FengTsu	Tr	S
 FengTsu	Tt	A
 FengTsu	Wa	S
@@ -1706,6 +1830,7 @@ Fälschen	Dt	A
 Fälschen	Er	S
 Fälschen	Fi	A
 Fälschen	Gl	S
+Fälschen	Hj	S
 Fälschen	Hl	A
 Fälschen	Hä	S
 Fälschen	Kd	A
@@ -1735,12 +1860,15 @@ Fälschen	Se	S
 Fälschen	Sk	S
 Fälschen	Sp	G
 Fälschen	Sr	A
+Fälschen	Sw	G
 Fälschen	Sö	A
 Fälschen	Th	S
 Fälschen	Tm	A
+Fälschen	To	G
 Fälschen	Tr	G
 Fälschen	Tt	A
 Fälschen	Wa	A
+Fälschen	Wi	A
 Fälschen	dBe	S
 Fälschen	eBe	S
 Fälschen	gHx	S
@@ -1758,6 +1886,7 @@ Gassenwissen	Dt	S
 Gassenwissen	Er	G
 Gassenwissen	Fi	S
 Gassenwissen	Gl	G
+Gassenwissen	Hj	S
 Gassenwissen	Hl	S
 Gassenwissen	Hä	G
 Gassenwissen	Kd	S
@@ -1787,9 +1916,11 @@ Gassenwissen	Se	G
 Gassenwissen	Sk	S
 Gassenwissen	Sp	G
 Gassenwissen	Sr	S
+Gassenwissen	Sw	G
 Gassenwissen	Sö	G
 Gassenwissen	Th	S
 Gassenwissen	Tm	S
+Gassenwissen	To	G
 Gassenwissen	Tr	G
 Gassenwissen	Tt	S
 Gassenwissen	Wa	S
@@ -1810,6 +1941,7 @@ Gaukeln	Dt	A
 Gaukeln	Er	S
 Gaukeln	Fi	A
 Gaukeln	Gl	G
+Gaukeln	Hj	A
 Gaukeln	Hl	A
 Gaukeln	Hä	S
 Gaukeln	Kd	S
@@ -1838,12 +1970,15 @@ Gaukeln	Se	S
 Gaukeln	Sk	S
 Gaukeln	Sp	G
 Gaukeln	Sr	S
+Gaukeln	Sw	G
 Gaukeln	Sö	S
 Gaukeln	Th	A
 Gaukeln	Tm	S
+Gaukeln	To	S
 Gaukeln	Tr	G
 Gaukeln	Tt	A
 Gaukeln	Wa	A
+Gaukeln	Wi	A
 Gaukeln	dBe	A
 Gaukeln	eBe	A
 Gaukeln	gHx	S
@@ -1861,6 +1996,7 @@ Geheimmechanismen öffnen	Dt	S
 Geheimmechanismen öffnen	Er	G
 Geheimmechanismen öffnen	Fi	A
 Geheimmechanismen öffnen	Gl	G
+Geheimmechanismen öffnen	Hj	S
 Geheimmechanismen öffnen	Hl	S
 Geheimmechanismen öffnen	Hä	S
 Geheimmechanismen öffnen	Kd	S
@@ -1890,12 +2026,15 @@ Geheimmechanismen öffnen	Se	S
 Geheimmechanismen öffnen	Sk	S
 Geheimmechanismen öffnen	Sp	G
 Geheimmechanismen öffnen	Sr	S
+Geheimmechanismen öffnen	Sw	G
 Geheimmechanismen öffnen	Sö	A
 Geheimmechanismen öffnen	Th	G
 Geheimmechanismen öffnen	Tm	A
+Geheimmechanismen öffnen	To	S
 Geheimmechanismen öffnen	Tr	G
 Geheimmechanismen öffnen	Tt	A
 Geheimmechanismen öffnen	Wa	S
+Geheimmechanismen öffnen	Wi	A
 Geheimmechanismen öffnen	dBe	S
 Geheimmechanismen öffnen	eBe	S
 Geheimmechanismen öffnen	gHx	S
@@ -1913,6 +2052,7 @@ Geheimzeichen	Dt	S
 Geheimzeichen	Er	G
 Geheimzeichen	Fi	S
 Geheimzeichen	Gl	S
+Geheimzeichen	Hj	S
 Geheimzeichen	Hl	S
 Geheimzeichen	Hä	G
 Geheimzeichen	Kd	S
@@ -1942,12 +2082,15 @@ Geheimzeichen	Se	S
 Geheimzeichen	Sk	S
 Geheimzeichen	Sp	G
 Geheimzeichen	Sr	S
+Geheimzeichen	Sw	G
 Geheimzeichen	Sö	S
 Geheimzeichen	Th	G
 Geheimzeichen	Tm	S
+Geheimzeichen	To	G
 Geheimzeichen	Tr	G
 Geheimzeichen	Tt	S
 Geheimzeichen	Wa	S
+Geheimzeichen	Wi	S
 Geheimzeichen	dBe	S
 Geheimzeichen	eBe	S
 Geheimzeichen	gHx	G
@@ -1965,6 +2108,7 @@ Geländelauf	Dt	S
 Geländelauf	Er	G
 Geländelauf	Fi	G
 Geländelauf	Gl	G
+Geländelauf	Hj	S
 Geländelauf	Hl	S
 Geländelauf	Hä	S
 Geländelauf	Kd	S
@@ -1994,12 +2138,15 @@ Geländelauf	Se	S
 Geländelauf	Sk	S
 Geländelauf	Sp	G
 Geländelauf	Sr	S
+Geländelauf	Sw	S
 Geländelauf	Sö	S
 Geländelauf	Th	S
 Geländelauf	Tm	G
+Geländelauf	To	S
 Geländelauf	Tr	G
 Geländelauf	Tt	G
 Geländelauf	Wa	G
+Geländelauf	Wi	G
 Geländelauf	dBe	S
 Geländelauf	eBe	S
 Geländelauf	gHx	S
@@ -2022,6 +2169,7 @@ Geomantie	ScS	G
 Geomantie	ScW	G
 Geomantie	Th	A
 Geomantie	Tm	A
+Geomantie	Wi	A
 Geomantie	dBe	A
 Geomantie	eBe	A
 Geomantie	gHx	S
@@ -2038,6 +2186,7 @@ Geschenke machen	Dr	S
 Geschenke machen	Dt	S
 Geschenke machen	Fi	S
 Geschenke machen	Gl	S
+Geschenke machen	Hj	S
 Geschenke machen	Hl	S
 Geschenke machen	Hä	S
 Geschenke machen	Kd	S
@@ -2064,8 +2213,10 @@ Geschenke machen	Se	S
 Geschenke machen	Sk	S
 Geschenke machen	Sp	S
 Geschenke machen	Sr	S
+Geschenke machen	Sw	S
 Geschenke machen	Sö	S
 Geschenke machen	Th	S
+Geschenke machen	To	S
 Geschenke machen	Tr	S
 Geschenke machen	Tt	S
 Geschenke machen	Wa	S
@@ -2086,6 +2237,7 @@ Geschäftstüchtigkeit	Dt	S
 Geschäftstüchtigkeit	Er	S
 Geschäftstüchtigkeit	Fi	S
 Geschäftstüchtigkeit	Gl	S
+Geschäftstüchtigkeit	Hj	S
 Geschäftstüchtigkeit	Hl	S
 Geschäftstüchtigkeit	Hä	G
 Geschäftstüchtigkeit	Kd	S
@@ -2115,12 +2267,15 @@ Geschäftstüchtigkeit	Se	S
 Geschäftstüchtigkeit	Sk	S
 Geschäftstüchtigkeit	Sp	S
 Geschäftstüchtigkeit	Sr	S
+Geschäftstüchtigkeit	Sw	S
 Geschäftstüchtigkeit	Sö	S
 Geschäftstüchtigkeit	Th	S
 Geschäftstüchtigkeit	Tm	S
+Geschäftstüchtigkeit	To	S
 Geschäftstüchtigkeit	Tr	S
 Geschäftstüchtigkeit	Tt	S
 Geschäftstüchtigkeit	Wa	S
+Geschäftstüchtigkeit	Wi	S
 Geschäftstüchtigkeit	dBe	S
 Geschäftstüchtigkeit	eBe	S
 Geschäftstüchtigkeit	gHx	S
@@ -2138,6 +2293,7 @@ Giftmischen	Dt	A
 Giftmischen	Er	S
 Giftmischen	Fi	A
 Giftmischen	Gl	S
+Giftmischen	Hj	S
 Giftmischen	Hl	A
 Giftmischen	Hä	S
 Giftmischen	Kd	S
@@ -2167,12 +2323,15 @@ Giftmischen	Se	S
 Giftmischen	Sk	S
 Giftmischen	Sp	S
 Giftmischen	Sr	S
+Giftmischen	Sw	S
 Giftmischen	Sö	S
 Giftmischen	Th	S
 Giftmischen	Tm	A
+Giftmischen	To	G
 Giftmischen	Tr	S
 Giftmischen	Tt	S
 Giftmischen	Wa	S
+Giftmischen	Wi	A
 Giftmischen	dBe	S
 Giftmischen	eBe	S
 Giftmischen	gHx	G
@@ -2190,6 +2349,7 @@ Glücksspiel	Dt	S
 Glücksspiel	Er	S
 Glücksspiel	Fi	S
 Glücksspiel	Gl	G
+Glücksspiel	Hj	S
 Glücksspiel	Hl	S
 Glücksspiel	Hä	G
 Glücksspiel	Kd	S
@@ -2219,12 +2379,15 @@ Glücksspiel	Se	S
 Glücksspiel	Sk	G
 Glücksspiel	Sp	G
 Glücksspiel	Sr	S
+Glücksspiel	Sw	G
 Glücksspiel	Sö	G
 Glücksspiel	Th	S
 Glücksspiel	Tm	S
+Glücksspiel	To	S
 Glücksspiel	Tr	G
 Glücksspiel	Tt	S
 Glücksspiel	Wa	S
+Glücksspiel	Wi	S
 Glücksspiel	dBe	S
 Glücksspiel	eBe	S
 Glücksspiel	gHx	S
@@ -2239,6 +2402,7 @@ Heilkunde	Dt	S
 Heilkunde	Er	S
 Heilkunde	Fi	S
 Heilkunde	Gl	S
+Heilkunde	Hj	S
 Heilkunde	Hl	G
 Heilkunde	Hä	A
 Heilkunde	Kd	S
@@ -2258,8 +2422,11 @@ Heilkunde	ScN	S
 Heilkunde	ScS	S
 Heilkunde	ScW	S
 Heilkunde	Sk	A
+Heilkunde	Sw	S
 Heilkunde	Tm	A
+Heilkunde	To	A
 Heilkunde	Tt	S
+Heilkunde	Wi	S
 Heilkunde	gHx	A
 Heilkunde	sHx	A
 Heilkunde	wHx	A
@@ -2274,6 +2441,7 @@ Himmelskunde	Dt	G
 Himmelskunde	Er	S
 Himmelskunde	Fi	S
 Himmelskunde	Gl	S
+Himmelskunde	Hj	S
 Himmelskunde	Hl	A
 Himmelskunde	Hä	G
 Himmelskunde	Kd	S
@@ -2303,12 +2471,15 @@ Himmelskunde	Se	G
 Himmelskunde	Sk	G
 Himmelskunde	Sp	S
 Himmelskunde	Sr	S
+Himmelskunde	Sw	A
 Himmelskunde	Sö	S
 Himmelskunde	Th	A
 Himmelskunde	Tm	S
+Himmelskunde	To	A
 Himmelskunde	Tr	S
 Himmelskunde	Tt	G
 Himmelskunde	Wa	G
+Himmelskunde	Wi	S
 Himmelskunde	dBe	A
 Himmelskunde	eBe	A
 Himmelskunde	gHx	A
@@ -2325,6 +2496,7 @@ IaiJutsu	Dr	A
 IaiJutsu	Dt	A
 IaiJutsu	Fi	G
 IaiJutsu	Gl	S
+IaiJutsu	Hj	S
 IaiJutsu	Hl	A
 IaiJutsu	Hä	S
 IaiJutsu	Kd	S
@@ -2351,8 +2523,10 @@ IaiJutsu	Se	S
 IaiJutsu	Sk	S
 IaiJutsu	Sp	S
 IaiJutsu	Sr	G
+IaiJutsu	Sw	S
 IaiJutsu	Sö	S
 IaiJutsu	Th	A
+IaiJutsu	To	A
 IaiJutsu	Tr	S
 IaiJutsu	Tt	A
 IaiJutsu	Wa	S
@@ -2372,6 +2546,7 @@ Kamelreiten	Dr	S
 Kamelreiten	Dt	S
 Kamelreiten	Fi	S
 Kamelreiten	Gl	G
+Kamelreiten	Hj	S
 Kamelreiten	Hl	S
 Kamelreiten	Hä	G
 Kamelreiten	Kd	S
@@ -2399,8 +2574,10 @@ Kamelreiten	Se	S
 Kamelreiten	Sk	S
 Kamelreiten	Sp	S
 Kamelreiten	Sr	S
+Kamelreiten	Sw	S
 Kamelreiten	Sö	G
 Kamelreiten	Th	S
+Kamelreiten	To	S
 Kamelreiten	Tr	S
 Kamelreiten	Tt	S
 Kamelreiten	Wa	S
@@ -2421,6 +2598,7 @@ Kampf in Dunkelheit	Dt	A
 Kampf in Dunkelheit	Er	S
 Kampf in Dunkelheit	Fi	S
 Kampf in Dunkelheit	Gl	S
+Kampf in Dunkelheit	Hj	A
 Kampf in Dunkelheit	Hl	A
 Kampf in Dunkelheit	Hä	S
 Kampf in Dunkelheit	Kd	A
@@ -2450,12 +2628,15 @@ Kampf in Dunkelheit	Se	S
 Kampf in Dunkelheit	Sk	S
 Kampf in Dunkelheit	Sp	G
 Kampf in Dunkelheit	Sr	S
+Kampf in Dunkelheit	Sw	A
 Kampf in Dunkelheit	Sö	S
 Kampf in Dunkelheit	Th	A
 Kampf in Dunkelheit	Tm	S
+Kampf in Dunkelheit	To	G
 Kampf in Dunkelheit	Tr	G
 Kampf in Dunkelheit	Tt	A
 Kampf in Dunkelheit	Wa	G
+Kampf in Dunkelheit	Wi	S
 Kampf in Dunkelheit	dBe	A
 Kampf in Dunkelheit	eBe	A
 Kampf in Dunkelheit	gHx	A
@@ -2473,6 +2654,7 @@ Kampf in Schlachtreihe	Dt	A
 Kampf in Schlachtreihe	Er	S
 Kampf in Schlachtreihe	Fi	S
 Kampf in Schlachtreihe	Gl	S
+Kampf in Schlachtreihe	Hj	A
 Kampf in Schlachtreihe	Hl	A
 Kampf in Schlachtreihe	Hä	S
 Kampf in Schlachtreihe	Kd	A
@@ -2502,12 +2684,15 @@ Kampf in Schlachtreihe	Se	S
 Kampf in Schlachtreihe	Sk	S
 Kampf in Schlachtreihe	Sp	S
 Kampf in Schlachtreihe	Sr	S
+Kampf in Schlachtreihe	Sw	A
 Kampf in Schlachtreihe	Sö	G
 Kampf in Schlachtreihe	Th	A
 Kampf in Schlachtreihe	Tm	S
+Kampf in Schlachtreihe	To	A
 Kampf in Schlachtreihe	Tr	S
 Kampf in Schlachtreihe	Tt	A
 Kampf in Schlachtreihe	Wa	S
+Kampf in Schlachtreihe	Wi	A
 Kampf in Schlachtreihe	dBe	A
 Kampf in Schlachtreihe	eBe	A
 Kampf in Schlachtreihe	gHx	A
@@ -2525,6 +2710,7 @@ Kampf in Vollrüstung	Dt	A
 Kampf in Vollrüstung	Er	S
 Kampf in Vollrüstung	Fi	A
 Kampf in Vollrüstung	Gl	S
+Kampf in Vollrüstung	Hj	S
 Kampf in Vollrüstung	Hl	A
 Kampf in Vollrüstung	Hä	S
 Kampf in Vollrüstung	Kd	S
@@ -2554,12 +2740,15 @@ Kampf in Vollrüstung	Se	S
 Kampf in Vollrüstung	Sk	A
 Kampf in Vollrüstung	Sp	A
 Kampf in Vollrüstung	Sr	S
+Kampf in Vollrüstung	Sw	A
 Kampf in Vollrüstung	Sö	G
 Kampf in Vollrüstung	Th	A
 Kampf in Vollrüstung	Tm	A
+Kampf in Vollrüstung	To	A
 Kampf in Vollrüstung	Tr	A
 Kampf in Vollrüstung	Tt	A
 Kampf in Vollrüstung	Wa	S
+Kampf in Vollrüstung	Wi	A
 Kampf in Vollrüstung	dBe	A
 Kampf in Vollrüstung	eBe	A
 Kampf in Vollrüstung	gHx	A
@@ -2577,6 +2766,7 @@ Kampf vom Streitwagen	Dt	A
 Kampf vom Streitwagen	Er	S
 Kampf vom Streitwagen	Fi	S
 Kampf vom Streitwagen	Gl	S
+Kampf vom Streitwagen	Hj	A
 Kampf vom Streitwagen	Hl	A
 Kampf vom Streitwagen	Hä	S
 Kampf vom Streitwagen	Kd	S
@@ -2606,12 +2796,15 @@ Kampf vom Streitwagen	Se	A
 Kampf vom Streitwagen	Sk	S
 Kampf vom Streitwagen	Sp	A
 Kampf vom Streitwagen	Sr	S
+Kampf vom Streitwagen	Sw	A
 Kampf vom Streitwagen	Sö	G
 Kampf vom Streitwagen	Th	A
 Kampf vom Streitwagen	Tm	S
+Kampf vom Streitwagen	To	A
 Kampf vom Streitwagen	Tr	A
 Kampf vom Streitwagen	Tt	A
 Kampf vom Streitwagen	Wa	S
+Kampf vom Streitwagen	Wi	S
 Kampf vom Streitwagen	dBe	A
 Kampf vom Streitwagen	eBe	A
 Kampf vom Streitwagen	gHx	A
@@ -2628,6 +2821,7 @@ Kampf zu Elefant	Dr	A
 Kampf zu Elefant	Dt	A
 Kampf zu Elefant	Fi	A
 Kampf zu Elefant	Gl	A
+Kampf zu Elefant	Hj	A
 Kampf zu Elefant	Hl	A
 Kampf zu Elefant	Hä	A
 Kampf zu Elefant	Kd	A
@@ -2654,8 +2848,10 @@ Kampf zu Elefant	Se	A
 Kampf zu Elefant	Sk	A
 Kampf zu Elefant	Sp	A
 Kampf zu Elefant	Sr	S
+Kampf zu Elefant	Sw	A
 Kampf zu Elefant	Sö	A
 Kampf zu Elefant	Th	A
+Kampf zu Elefant	To	A
 Kampf zu Elefant	Tr	A
 Kampf zu Elefant	Tt	A
 Kampf zu Elefant	Wa	A
@@ -2675,6 +2871,7 @@ Kampf zu Kamel	Dr	A
 Kampf zu Kamel	Dt	A
 Kampf zu Kamel	Fi	S
 Kampf zu Kamel	Gl	S
+Kampf zu Kamel	Hj	A
 Kampf zu Kamel	Hl	A
 Kampf zu Kamel	Hä	S
 Kampf zu Kamel	Kd	S
@@ -2701,8 +2898,10 @@ Kampf zu Kamel	Se	S
 Kampf zu Kamel	Sk	S
 Kampf zu Kamel	Sp	S
 Kampf zu Kamel	Sr	S
+Kampf zu Kamel	Sw	A
 Kampf zu Kamel	Sö	G
 Kampf zu Kamel	Th	A
+Kampf zu Kamel	To	A
 Kampf zu Kamel	Tr	S
 Kampf zu Kamel	Tt	A
 Kampf zu Kamel	Wa	S
@@ -2723,6 +2922,7 @@ Kampf zu Pferd	Dt	A
 Kampf zu Pferd	Er	S
 Kampf zu Pferd	Fi	S
 Kampf zu Pferd	Gl	G
+Kampf zu Pferd	Hj	A
 Kampf zu Pferd	Hl	A
 Kampf zu Pferd	Hä	G
 Kampf zu Pferd	Kd	A
@@ -2752,12 +2952,15 @@ Kampf zu Pferd	Se	A
 Kampf zu Pferd	Sk	G
 Kampf zu Pferd	Sp	A
 Kampf zu Pferd	Sr	S
+Kampf zu Pferd	Sw	A
 Kampf zu Pferd	Sö	G
 Kampf zu Pferd	Th	A
 Kampf zu Pferd	Tm	S
+Kampf zu Pferd	To	A
 Kampf zu Pferd	Tr	A
 Kampf zu Pferd	Tt	A
 Kampf zu Pferd	Wa	S
+Kampf zu Pferd	Wi	S
 Kampf zu Pferd	dBe	A
 Kampf zu Pferd	eBe	A
 Kampf zu Pferd	gHx	A
@@ -2774,6 +2977,7 @@ Kampf zu Srimara	Dr	A
 Kampf zu Srimara	Dt	A
 Kampf zu Srimara	Fi	A
 Kampf zu Srimara	Gl	A
+Kampf zu Srimara	Hj	A
 Kampf zu Srimara	Hl	A
 Kampf zu Srimara	Hä	A
 Kampf zu Srimara	Kd	A
@@ -2800,8 +3004,10 @@ Kampf zu Srimara	Se	A
 Kampf zu Srimara	Sk	A
 Kampf zu Srimara	Sp	A
 Kampf zu Srimara	Sr	S
+Kampf zu Srimara	Sw	A
 Kampf zu Srimara	Sö	A
 Kampf zu Srimara	Th	A
+Kampf zu Srimara	To	A
 Kampf zu Srimara	Tr	A
 Kampf zu Srimara	Tt	A
 Kampf zu Srimara	Wa	A
@@ -2822,6 +3028,7 @@ Kampftaktik	Dt	A
 Kampftaktik	Er	S
 Kampftaktik	Fi	S
 Kampftaktik	Gl	S
+Kampftaktik	Hj	A
 Kampftaktik	Hl	A
 Kampftaktik	Hä	S
 Kampftaktik	Kd	A
@@ -2851,12 +3058,15 @@ Kampftaktik	Se	G
 Kampftaktik	Sk	S
 Kampftaktik	Sp	A
 Kampftaktik	Sr	S
+Kampftaktik	Sw	A
 Kampftaktik	Sö	G
 Kampftaktik	Th	A
 Kampftaktik	Tm	S
+Kampftaktik	To	A
 Kampftaktik	Tr	A
 Kampftaktik	Tt	A
 Kampftaktik	Wa	S
+Kampftaktik	Wi	A
 Kampftaktik	dBe	A
 Kampftaktik	eBe	A
 Kampftaktik	gHx	A
@@ -2873,6 +3083,7 @@ KarumiJutsu	Dr	S
 KarumiJutsu	Dt	S
 KarumiJutsu	Fi	A
 KarumiJutsu	Gl	A
+KarumiJutsu	Hj	A
 KarumiJutsu	Hl	S
 KarumiJutsu	Hä	A
 KarumiJutsu	Kd	A
@@ -2899,8 +3110,10 @@ KarumiJutsu	Se	A
 KarumiJutsu	Sk	A
 KarumiJutsu	Sp	S
 KarumiJutsu	Sr	A
+KarumiJutsu	Sw	S
 KarumiJutsu	Sö	A
 KarumiJutsu	Th	S
+KarumiJutsu	To	S
 KarumiJutsu	Tr	S
 KarumiJutsu	Tt	S
 KarumiJutsu	Wa	A
@@ -2921,6 +3134,7 @@ Katapult bedienen	Dt	A
 Katapult bedienen	Er	S
 Katapult bedienen	Fi	A
 Katapult bedienen	Gl	S
+Katapult bedienen	Hj	A
 Katapult bedienen	Hl	A
 Katapult bedienen	Hä	S
 Katapult bedienen	Kd	S
@@ -2950,12 +3164,15 @@ Katapult bedienen	Se	G
 Katapult bedienen	Sk	S
 Katapult bedienen	Sp	S
 Katapult bedienen	Sr	S
+Katapult bedienen	Sw	A
 Katapult bedienen	Sö	G
 Katapult bedienen	Th	A
 Katapult bedienen	Tm	S
+Katapult bedienen	To	A
 Katapult bedienen	Tr	S
 Katapult bedienen	Tt	A
 Katapult bedienen	Wa	S
+Katapult bedienen	Wi	S
 Katapult bedienen	dBe	A
 Katapult bedienen	eBe	A
 Katapult bedienen	gHx	A
@@ -2972,6 +3189,7 @@ Kenntnis der fünf Klassiker	Dr	S
 Kenntnis der fünf Klassiker	Dt	S
 Kenntnis der fünf Klassiker	Fi	S
 Kenntnis der fünf Klassiker	Gl	S
+Kenntnis der fünf Klassiker	Hj	S
 Kenntnis der fünf Klassiker	Hl	S
 Kenntnis der fünf Klassiker	Hä	S
 Kenntnis der fünf Klassiker	Kd	S
@@ -2998,8 +3216,10 @@ Kenntnis der fünf Klassiker	Se	S
 Kenntnis der fünf Klassiker	Sk	S
 Kenntnis der fünf Klassiker	Sp	S
 Kenntnis der fünf Klassiker	Sr	S
+Kenntnis der fünf Klassiker	Sw	A
 Kenntnis der fünf Klassiker	Sö	S
 Kenntnis der fünf Klassiker	Th	S
+Kenntnis der fünf Klassiker	To	S
 Kenntnis der fünf Klassiker	Tr	S
 Kenntnis der fünf Klassiker	Tt	S
 Kenntnis der fünf Klassiker	Wa	S
@@ -3019,6 +3239,7 @@ KentoYobu	Dr	A
 KentoYobu	Dt	A
 KentoYobu	Fi	G
 KentoYobu	Gl	S
+KentoYobu	Hj	S
 KentoYobu	Hl	A
 KentoYobu	Hä	S
 KentoYobu	Kd	S
@@ -3045,8 +3266,10 @@ KentoYobu	Se	S
 KentoYobu	Sk	A
 KentoYobu	Sp	A
 KentoYobu	Sr	G
+KentoYobu	Sw	S
 KentoYobu	Sö	G
 KentoYobu	Th	A
+KentoYobu	To	A
 KentoYobu	Tr	A
 KentoYobu	Tt	A
 KentoYobu	Wa	S
@@ -3066,6 +3289,7 @@ KiDo	Dr	A
 KiDo	Dt	S
 KiDo	Fi	G
 KiDo	Gl	S
+KiDo	Hj	S
 KiDo	Hl	S
 KiDo	Hä	S
 KiDo	Kd	G
@@ -3092,8 +3316,10 @@ KiDo	Se	S
 KiDo	Sk	S
 KiDo	Sp	S
 KiDo	Sr	G
+KiDo	Sw	S
 KiDo	Sö	S
 KiDo	Th	A
+KiDo	To	A
 KiDo	Tr	S
 KiDo	Tt	S
 KiDo	Wa	S
@@ -3116,6 +3342,7 @@ Klettern	Dt	S
 Klettern	Er	S
 Klettern	Fi	G
 Klettern	Gl	G
+Klettern	Hj	S
 Klettern	Hl	S
 Klettern	Hä	S
 Klettern	Kd	S
@@ -3145,12 +3372,15 @@ Klettern	Se	G
 Klettern	Sk	S
 Klettern	Sp	G
 Klettern	Sr	S
+Klettern	Sw	G
 Klettern	Sö	S
 Klettern	Th	S
 Klettern	Tm	S
+Klettern	To	G
 Klettern	Tr	G
 Klettern	Tt	S
 Klettern	Wa	G
+Klettern	Wi	S
 Klettern	dBe	S
 Klettern	eBe	S
 Klettern	gHx	S
@@ -3167,6 +3397,7 @@ Kriegsbemalung	Dr	A
 Kriegsbemalung	Dt	A
 Kriegsbemalung	Fi	S
 Kriegsbemalung	Gl	S
+Kriegsbemalung	Hj	S
 Kriegsbemalung	Hl	A
 Kriegsbemalung	Hä	S
 Kriegsbemalung	Kd	S
@@ -3193,8 +3424,10 @@ Kriegsbemalung	Se	S
 Kriegsbemalung	Sk	S
 Kriegsbemalung	Sp	S
 Kriegsbemalung	Sr	S
+Kriegsbemalung	Sw	S
 Kriegsbemalung	Sö	S
 Kriegsbemalung	Th	G
+Kriegsbemalung	To	S
 Kriegsbemalung	Tr	S
 Kriegsbemalung	Tt	S
 Kriegsbemalung	Wa	S
@@ -3215,6 +3448,7 @@ Kräuterkunde	Dt	S
 Kräuterkunde	Er	S
 Kräuterkunde	Fi	A
 Kräuterkunde	Gl	S
+Kräuterkunde	Hj	S
 Kräuterkunde	Hl	G
 Kräuterkunde	Hä	S
 Kräuterkunde	Kd	S
@@ -3244,12 +3478,15 @@ Kräuterkunde	Se	S
 Kräuterkunde	Sk	S
 Kräuterkunde	Sp	A
 Kräuterkunde	Sr	S
+Kräuterkunde	Sw	A
 Kräuterkunde	Sö	A
 Kräuterkunde	Th	S
 Kräuterkunde	Tm	A
+Kräuterkunde	To	S
 Kräuterkunde	Tr	A
 Kräuterkunde	Tt	S
 Kräuterkunde	Wa	G
+Kräuterkunde	Wi	S
 Kräuterkunde	dBe	G
 Kräuterkunde	eBe	G
 Kräuterkunde	gHx	G
@@ -3266,6 +3503,7 @@ KujKuri	Dr	A
 KujKuri	Dt	S
 KujKuri	Fi	A
 KujKuri	Gl	S
+KujKuri	Hj	A
 KujKuri	Hl	A
 KujKuri	Hä	A
 KujKuri	Kd	A
@@ -3292,8 +3530,10 @@ KujKuri	Se	A
 KujKuri	Sk	A
 KujKuri	Sp	S
 KujKuri	Sr	A
+KujKuri	Sw	A
 KujKuri	Sö	A
 KujKuri	Th	A
+KujKuri	To	S
 KujKuri	Tr	S
 KujKuri	Tt	A
 KujKuri	Wa	A
@@ -3313,6 +3553,7 @@ KujNoIu	Dr	S
 KujNoIu	Dt	S
 KujNoIu	Fi	S
 KujNoIu	Gl	S
+KujNoIu	Hj	S
 KujNoIu	Hl	S
 KujNoIu	Hä	S
 KujNoIu	Kd	S
@@ -3339,8 +3580,10 @@ KujNoIu	Se	S
 KujNoIu	Sk	S
 KujNoIu	Sp	S
 KujNoIu	Sr	S
+KujNoIu	Sw	A
 KujNoIu	Sö	S
 KujNoIu	Th	G
+KujNoIu	To	S
 KujNoIu	Tr	S
 KujNoIu	Tt	S
 KujNoIu	Wa	S
@@ -3360,6 +3603,7 @@ Körperbemalung	Dr	A
 Körperbemalung	Dt	A
 Körperbemalung	Fi	S
 Körperbemalung	Gl	S
+Körperbemalung	Hj	S
 Körperbemalung	Hl	A
 Körperbemalung	Hä	S
 Körperbemalung	Kd	S
@@ -3386,8 +3630,10 @@ Körperbemalung	Se	S
 Körperbemalung	Sk	S
 Körperbemalung	Sp	S
 Körperbemalung	Sr	S
+Körperbemalung	Sw	S
 Körperbemalung	Sö	S
 Körperbemalung	Th	G
+Körperbemalung	To	S
 Körperbemalung	Tr	S
 Körperbemalung	Tt	S
 Körperbemalung	Wa	S
@@ -3407,6 +3653,7 @@ Körperkontrolle	Dr	A
 Körperkontrolle	Dt	A
 Körperkontrolle	Fi	A
 Körperkontrolle	Gl	A
+Körperkontrolle	Hj	A
 Körperkontrolle	Hl	A
 Körperkontrolle	Hä	A
 Körperkontrolle	Kd	A
@@ -3433,8 +3680,10 @@ Körperkontrolle	Se	A
 Körperkontrolle	Sk	A
 Körperkontrolle	Sp	A
 Körperkontrolle	Sr	S
+Körperkontrolle	Sw	S
 Körperkontrolle	Sö	A
 Körperkontrolle	Th	A
+Körperkontrolle	To	A
 Körperkontrolle	Tr	A
 Körperkontrolle	Tt	A
 Körperkontrolle	Wa	A
@@ -3455,6 +3704,7 @@ Landeskunde	Dt	S
 Landeskunde	Er	G
 Landeskunde	Fi	S
 Landeskunde	Gl	G
+Landeskunde	Hj	G
 Landeskunde	Hl	S
 Landeskunde	Hä	G
 Landeskunde	Kd	S
@@ -3483,12 +3733,15 @@ Landeskunde	Se	G
 Landeskunde	Sk	G
 Landeskunde	Sp	S
 Landeskunde	Sr	S
+Landeskunde	Sw	S
 Landeskunde	Sö	S
 Landeskunde	Th	S
 Landeskunde	Tm	S
+Landeskunde	To	G
 Landeskunde	Tr	S
 Landeskunde	Tt	S
 Landeskunde	Wa	S
+Landeskunde	Wi	S
 Landeskunde	dBe	S
 Landeskunde	eBe	S
 Landeskunde	gHx	S
@@ -3506,6 +3759,7 @@ Laufen	Dt	A
 Laufen	Er	S
 Laufen	Fi	G
 Laufen	Gl	S
+Laufen	Hj	S
 Laufen	Hl	A
 Laufen	Hä	S
 Laufen	Kd	S
@@ -3535,12 +3789,15 @@ Laufen	Se	A
 Laufen	Sk	S
 Laufen	Sp	S
 Laufen	Sr	S
+Laufen	Sw	S
 Laufen	Sö	S
 Laufen	Th	S
 Laufen	Tm	G
+Laufen	To	S
 Laufen	Tr	S
 Laufen	Tt	G
 Laufen	Wa	G
+Laufen	Wi	G
 Laufen	dBe	A
 Laufen	eBe	A
 Laufen	gHx	A
@@ -3558,6 +3815,7 @@ Lesen von Geisterschrift	Dt	S
 Lesen von Geisterschrift	Er	S
 Lesen von Geisterschrift	Fi	A
 Lesen von Geisterschrift	Gl	A
+Lesen von Geisterschrift	Hj	S
 Lesen von Geisterschrift	Hl	G
 Lesen von Geisterschrift	Hä	A
 Lesen von Geisterschrift	Kd	A
@@ -3587,12 +3845,15 @@ Lesen von Geisterschrift	Se	A
 Lesen von Geisterschrift	Sk	S
 Lesen von Geisterschrift	Sp	A
 Lesen von Geisterschrift	Sr	A
+Lesen von Geisterschrift	Sw	S
 Lesen von Geisterschrift	Sö	A
 Lesen von Geisterschrift	Th	S
 Lesen von Geisterschrift	Tm	A
+Lesen von Geisterschrift	To	A
 Lesen von Geisterschrift	Tr	A
 Lesen von Geisterschrift	Tt	S
 Lesen von Geisterschrift	Wa	A
+Lesen von Geisterschrift	Wi	A
 Lesen von Geisterschrift	dBe	S
 Lesen von Geisterschrift	eBe	S
 Lesen von Geisterschrift	gHx	G
@@ -3610,6 +3871,7 @@ Lesen von Zauberrunen	Dt	S
 Lesen von Zauberrunen	Er	A
 Lesen von Zauberrunen	Fi	A
 Lesen von Zauberrunen	Gl	A
+Lesen von Zauberrunen	Hj	S
 Lesen von Zauberrunen	Hl	S
 Lesen von Zauberrunen	Hä	A
 Lesen von Zauberrunen	Kd	A
@@ -3639,12 +3901,15 @@ Lesen von Zauberrunen	Se	A
 Lesen von Zauberrunen	Sk	G
 Lesen von Zauberrunen	Sp	A
 Lesen von Zauberrunen	Sr	A
+Lesen von Zauberrunen	Sw	S
 Lesen von Zauberrunen	Sö	A
 Lesen von Zauberrunen	Th	G
 Lesen von Zauberrunen	Tm	A
+Lesen von Zauberrunen	To	A
 Lesen von Zauberrunen	Tr	A
 Lesen von Zauberrunen	Tt	G
 Lesen von Zauberrunen	Wa	A
+Lesen von Zauberrunen	Wi	A
 Lesen von Zauberrunen	dBe	S
 Lesen von Zauberrunen	eBe	S
 Lesen von Zauberrunen	gHx	G
@@ -3662,6 +3927,7 @@ Lesen von Zauberschrift	Dt	S
 Lesen von Zauberschrift	Er	S
 Lesen von Zauberschrift	Fi	S
 Lesen von Zauberschrift	Gl	A
+Lesen von Zauberschrift	Hj	S
 Lesen von Zauberschrift	Hl	G
 Lesen von Zauberschrift	Hä	A
 Lesen von Zauberschrift	Kd	A
@@ -3691,12 +3957,15 @@ Lesen von Zauberschrift	Se	A
 Lesen von Zauberschrift	Sk	A
 Lesen von Zauberschrift	Sp	A
 Lesen von Zauberschrift	Sr	A
+Lesen von Zauberschrift	Sw	G
 Lesen von Zauberschrift	Sö	A
 Lesen von Zauberschrift	Th	G
 Lesen von Zauberschrift	Tm	A
+Lesen von Zauberschrift	To	G
 Lesen von Zauberschrift	Tr	A
 Lesen von Zauberschrift	Tt	G
 Lesen von Zauberschrift	Wa	A
+Lesen von Zauberschrift	Wi	A
 Lesen von Zauberschrift	dBe	S
 Lesen von Zauberschrift	eBe	S
 Lesen von Zauberschrift	gHx	G
@@ -3713,6 +3982,7 @@ LiYao	Dr	A
 LiYao	Dt	A
 LiYao	Fi	S
 LiYao	Gl	S
+LiYao	Hj	S
 LiYao	Hl	A
 LiYao	Hä	S
 LiYao	Kd	S
@@ -3739,8 +4009,10 @@ LiYao	Se	S
 LiYao	Sk	A
 LiYao	Sp	S
 LiYao	Sr	S
+LiYao	Sw	S
 LiYao	Sö	S
 LiYao	Th	G
+LiYao	To	S
 LiYao	Tr	S
 LiYao	Tt	A
 LiYao	Wa	A
@@ -3761,6 +4033,7 @@ Lippenlesen	Dt	S
 Lippenlesen	Er	G
 Lippenlesen	Fi	S
 Lippenlesen	Gl	S
+Lippenlesen	Hj	S
 Lippenlesen	Hl	S
 Lippenlesen	Hä	S
 Lippenlesen	Kd	S
@@ -3790,12 +4063,15 @@ Lippenlesen	Se	S
 Lippenlesen	Sk	S
 Lippenlesen	Sp	S
 Lippenlesen	Sr	S
+Lippenlesen	Sw	S
 Lippenlesen	Sö	S
 Lippenlesen	Th	S
 Lippenlesen	Tm	S
+Lippenlesen	To	G
 Lippenlesen	Tr	S
 Lippenlesen	Tt	S
 Lippenlesen	Wa	S
+Lippenlesen	Wi	S
 Lippenlesen	dBe	S
 Lippenlesen	eBe	S
 Lippenlesen	gHx	S
@@ -3813,6 +4089,7 @@ Meditieren	Dt	S
 Meditieren	Er	S
 Meditieren	Fi	S
 Meditieren	Gl	A
+Meditieren	Hj	S
 Meditieren	Hl	S
 Meditieren	Hä	A
 Meditieren	Kd	G
@@ -3839,12 +4116,15 @@ Meditieren	Se	A
 Meditieren	Sk	S
 Meditieren	Sp	A
 Meditieren	Sr	G
+Meditieren	Sw	A
 Meditieren	Sö	A
 Meditieren	Th	A
 Meditieren	Tm	G
+Meditieren	To	S
 Meditieren	Tr	A
 Meditieren	Tt	G
 Meditieren	Wa	S
+Meditieren	Wi	S
 Meditieren	dBe	S
 Meditieren	eBe	S
 Meditieren	gHx	S
@@ -3862,6 +4142,7 @@ Menschenkenntnis	Dt	G
 Menschenkenntnis	Er	G
 Menschenkenntnis	Fi	S
 Menschenkenntnis	Gl	G
+Menschenkenntnis	Hj	G
 Menschenkenntnis	Hl	G
 Menschenkenntnis	Hä	G
 Menschenkenntnis	Kd	S
@@ -3891,12 +4172,15 @@ Menschenkenntnis	Se	G
 Menschenkenntnis	Sk	G
 Menschenkenntnis	Sp	G
 Menschenkenntnis	Sr	S
+Menschenkenntnis	Sw	G
 Menschenkenntnis	Sö	S
 Menschenkenntnis	Th	S
 Menschenkenntnis	Tm	S
+Menschenkenntnis	To	S
 Menschenkenntnis	Tr	G
 Menschenkenntnis	Tt	S
 Menschenkenntnis	Wa	S
+Menschenkenntnis	Wi	S
 Menschenkenntnis	dBe	A
 Menschenkenntnis	eBe	A
 Menschenkenntnis	gHx	S
@@ -3914,6 +4198,7 @@ Meucheln	Dt	A
 Meucheln	Er	S
 Meucheln	Fi	A
 Meucheln	Gl	S
+Meucheln	Hj	A
 Meucheln	Hl	A
 Meucheln	Hä	S
 Meucheln	Kd	S
@@ -3943,12 +4228,15 @@ Meucheln	Se	S
 Meucheln	Sk	A
 Meucheln	Sp	G
 Meucheln	Sr	S
+Meucheln	Sw	S
 Meucheln	Sö	S
 Meucheln	Th	A
 Meucheln	Tm	S
+Meucheln	To	G
 Meucheln	Tr	G
 Meucheln	Tt	A
 Meucheln	Wa	S
+Meucheln	Wi	A
 Meucheln	dBe	A
 Meucheln	eBe	A
 Meucheln	gHx	A
@@ -3965,6 +4253,7 @@ MiChen	Dr	S
 MiChen	Dt	G
 MiChen	Fi	S
 MiChen	Gl	S
+MiChen	Hj	S
 MiChen	Hl	G
 MiChen	Hä	S
 MiChen	Kd	S
@@ -3991,8 +4280,10 @@ MiChen	Se	S
 MiChen	Sk	S
 MiChen	Sp	S
 MiChen	Sr	S
+MiChen	Sw	S
 MiChen	Sö	S
 MiChen	Th	A
+MiChen	To	G
 MiChen	Tr	S
 MiChen	Tt	S
 MiChen	Wa	S
@@ -4012,6 +4303,7 @@ Mumifizieren	Dr	S
 Mumifizieren	Dt	S
 Mumifizieren	Fi	A
 Mumifizieren	Gl	A
+Mumifizieren	Hj	A
 Mumifizieren	Hl	G
 Mumifizieren	Hä	A
 Mumifizieren	Kd	A
@@ -4038,8 +4330,10 @@ Mumifizieren	Se	A
 Mumifizieren	Sk	A
 Mumifizieren	Sp	A
 Mumifizieren	Sr	A
+Mumifizieren	Sw	S
 Mumifizieren	Sö	A
 Mumifizieren	Th	A
+Mumifizieren	To	A
 Mumifizieren	Tr	A
 Mumifizieren	Tt	G
 Mumifizieren	Wa	A
@@ -4060,6 +4354,7 @@ Musizieren	Dt	S
 Musizieren	Er	S
 Musizieren	Fi	S
 Musizieren	Gl	S
+Musizieren	Hj	S
 Musizieren	Hl	S
 Musizieren	Hä	S
 Musizieren	Kd	S
@@ -4089,12 +4384,15 @@ Musizieren	Se	S
 Musizieren	Sk	G
 Musizieren	Sp	S
 Musizieren	Sr	S
+Musizieren	Sw	S
 Musizieren	Sö	S
 Musizieren	Th	S
 Musizieren	Tm	S
+Musizieren	To	S
 Musizieren	Tr	S
 Musizieren	Tt	S
 Musizieren	Wa	S
+Musizieren	Wi	S
 Musizieren	dBe	S
 Musizieren	eBe	S
 Musizieren	gHx	S
@@ -4112,6 +4410,7 @@ Naturkunde	Dt	S
 Naturkunde	Er	S
 Naturkunde	Fi	S
 Naturkunde	Gl	S
+Naturkunde	Hj	A
 Naturkunde	Hl	S
 Naturkunde	Hä	S
 Naturkunde	Kd	S
@@ -4141,12 +4440,15 @@ Naturkunde	Se	S
 Naturkunde	Sk	S
 Naturkunde	Sp	A
 Naturkunde	Sr	S
+Naturkunde	Sw	A
 Naturkunde	Sö	A
 Naturkunde	Th	S
 Naturkunde	Tm	G
+Naturkunde	To	S
 Naturkunde	Tr	A
 Naturkunde	Tt	G
 Naturkunde	Wa	G
+Naturkunde	Wi	G
 Naturkunde	dBe	S
 Naturkunde	eBe	S
 Naturkunde	gHx	S
@@ -4163,6 +4465,7 @@ Natya	Dr	A
 Natya	Dt	A
 Natya	Fi	A
 Natya	Gl	A
+Natya	Hj	A
 Natya	Hl	A
 Natya	Hä	A
 Natya	Kd	A
@@ -4189,8 +4492,10 @@ Natya	Se	A
 Natya	Sk	S
 Natya	Sp	A
 Natya	Sr	A
+Natya	Sw	S
 Natya	Sö	A
 Natya	Th	A
+Natya	To	A
 Natya	Tr	A
 Natya	Tt	A
 Natya	Wa	A
@@ -4210,6 +4515,7 @@ NinJutsu	Dr	S
 NinJutsu	Dt	S
 NinJutsu	Fi	A
 NinJutsu	Gl	A
+NinJutsu	Hj	A
 NinJutsu	Hl	S
 NinJutsu	Hä	A
 NinJutsu	Kd	S
@@ -4236,8 +4542,10 @@ NinJutsu	Se	A
 NinJutsu	Sk	A
 NinJutsu	Sp	S
 NinJutsu	Sr	A
+NinJutsu	Sw	S
 NinJutsu	Sö	A
 NinJutsu	Th	S
+NinJutsu	To	S
 NinJutsu	Tr	S
 NinJutsu	Tt	S
 NinJutsu	Wa	A
@@ -4257,6 +4565,7 @@ Orakelkunst	Dr	A
 Orakelkunst	Dt	S
 Orakelkunst	Fi	A
 Orakelkunst	Gl	A
+Orakelkunst	Hj	A
 Orakelkunst	Hl	S
 Orakelkunst	Hä	A
 Orakelkunst	Kd	A
@@ -4283,6 +4592,7 @@ Orakelkunst	Se	A
 Orakelkunst	Sk	A
 Orakelkunst	Sp	A
 Orakelkunst	Sr	A
+Orakelkunst	Sw	S
 Orakelkunst	Sö	A
 Orakelkunst	Th	S
 Orakelkunst	To	G
@@ -4305,6 +4615,7 @@ Pflanzenkunde	Dt	G
 Pflanzenkunde	Er	S
 Pflanzenkunde	Fi	S
 Pflanzenkunde	Gl	S
+Pflanzenkunde	Hj	A
 Pflanzenkunde	Hl	G
 Pflanzenkunde	Hä	S
 Pflanzenkunde	Kd	S
@@ -4334,12 +4645,15 @@ Pflanzenkunde	Se	S
 Pflanzenkunde	Sk	S
 Pflanzenkunde	Sp	A
 Pflanzenkunde	Sr	S
+Pflanzenkunde	Sw	S
 Pflanzenkunde	Sö	A
 Pflanzenkunde	Th	S
 Pflanzenkunde	Tm	A
+Pflanzenkunde	To	S
 Pflanzenkunde	Tr	A
 Pflanzenkunde	Tt	S
 Pflanzenkunde	Wa	G
+Pflanzenkunde	Wi	S
 Pflanzenkunde	dBe	S
 Pflanzenkunde	eBe	S
 Pflanzenkunde	gHx	S
@@ -4382,6 +4696,7 @@ Rechnen	Dt	S
 Rechnen	Er	S
 Rechnen	Fi	A
 Rechnen	Gl	S
+Rechnen	Hj	S
 Rechnen	Hl	S
 Rechnen	Hä	G
 Rechnen	Kd	S
@@ -4411,12 +4726,15 @@ Rechnen	Se	G
 Rechnen	Sk	S
 Rechnen	Sp	S
 Rechnen	Sr	S
+Rechnen	Sw	S
 Rechnen	Sö	A
 Rechnen	Th	G
 Rechnen	Tm	A
+Rechnen	To	S
 Rechnen	Tr	S
 Rechnen	Tt	A
 Rechnen	Wa	A
+Rechnen	Wi	A
 Rechnen	dBe	S
 Rechnen	eBe	S
 Rechnen	gHx	S
@@ -4434,6 +4752,7 @@ Reiten	Dt	S
 Reiten	Er	G
 Reiten	Fi	S
 Reiten	Gl	G
+Reiten	Hj	S
 Reiten	Hl	S
 Reiten	Hä	G
 Reiten	Kd	A
@@ -4463,12 +4782,15 @@ Reiten	Se	S
 Reiten	Sk	G
 Reiten	Sp	G
 Reiten	Sr	A
+Reiten	Sw	S
 Reiten	Sö	G
 Reiten	Th	S
 Reiten	Tm	G
+Reiten	To	S
 Reiten	Tr	G
 Reiten	Tt	G
 Reiten	Wa	G
+Reiten	Wi	G
 Reiten	dBe	S
 Reiten	eBe	S
 Reiten	gHx	S
@@ -4486,6 +4808,7 @@ Rudern	Dt	S
 Rudern	Er	S
 Rudern	Fi	S
 Rudern	Gl	S
+Rudern	Hj	S
 Rudern	Hl	S
 Rudern	Hä	G
 Rudern	Kd	S
@@ -4515,12 +4838,15 @@ Rudern	Se	G
 Rudern	Sk	S
 Rudern	Sp	S
 Rudern	Sr	S
+Rudern	Sw	S
 Rudern	Sö	S
 Rudern	Th	S
 Rudern	Tm	S
+Rudern	To	S
 Rudern	Tr	S
 Rudern	Tt	S
 Rudern	Wa	G
+Rudern	Wi	S
 Rudern	dBe	S
 Rudern	eBe	S
 Rudern	gHx	S
@@ -4538,6 +4864,7 @@ Sagenkunde	Dt	G
 Sagenkunde	Er	S
 Sagenkunde	Fi	S
 Sagenkunde	Gl	S
+Sagenkunde	Hj	S
 Sagenkunde	Hl	G
 Sagenkunde	Hä	S
 Sagenkunde	Kd	S
@@ -4567,12 +4894,15 @@ Sagenkunde	Se	S
 Sagenkunde	Sk	G
 Sagenkunde	Sp	S
 Sagenkunde	Sr	S
+Sagenkunde	Sw	S
 Sagenkunde	Sö	S
 Sagenkunde	Th	G
 Sagenkunde	Tm	S
+Sagenkunde	To	S
 Sagenkunde	Tr	S
 Sagenkunde	Tt	G
 Sagenkunde	Wa	S
+Sagenkunde	Wi	S
 Sagenkunde	dBe	G
 Sagenkunde	eBe	G
 Sagenkunde	gHx	G
@@ -4590,6 +4920,7 @@ Scharfschießen	Dt	A
 Scharfschießen	Er	S
 Scharfschießen	Fi	G
 Scharfschießen	Gl	S
+Scharfschießen	Hj	A
 Scharfschießen	Hl	A
 Scharfschießen	Hä	S
 Scharfschießen	Kd	S
@@ -4619,12 +4950,15 @@ Scharfschießen	Se	S
 Scharfschießen	Sk	S
 Scharfschießen	Sp	S
 Scharfschießen	Sr	S
+Scharfschießen	Sw	S
 Scharfschießen	Sö	S
 Scharfschießen	Th	S
 Scharfschießen	Tm	S
+Scharfschießen	To	S
 Scharfschießen	Tr	S
 Scharfschießen	Tt	A
 Scharfschießen	Wa	G
+Scharfschießen	Wi	S
 Scharfschießen	dBe	A
 Scharfschießen	eBe	A
 Scharfschießen	gHx	A
@@ -4642,6 +4976,7 @@ Schauspielern	Dt	S
 Schauspielern	Er	G
 Schauspielern	Fi	A
 Schauspielern	Gl	G
+Schauspielern	Hj	S
 Schauspielern	Hl	S
 Schauspielern	Hä	G
 Schauspielern	Kd	S
@@ -4670,12 +5005,15 @@ Schauspielern	Se	S
 Schauspielern	Sk	G
 Schauspielern	Sp	S
 Schauspielern	Sr	S
+Schauspielern	Sw	S
 Schauspielern	Sö	S
 Schauspielern	Th	S
 Schauspielern	Tm	A
+Schauspielern	To	G
 Schauspielern	Tr	S
 Schauspielern	Tt	S
 Schauspielern	Wa	A
+Schauspielern	Wi	A
 Schauspielern	dBe	G
 Schauspielern	eBe	G
 Schauspielern	gHx	S
@@ -4693,6 +5031,7 @@ Schießen vom Streitwagen	Dt	A
 Schießen vom Streitwagen	Er	S
 Schießen vom Streitwagen	Fi	S
 Schießen vom Streitwagen	Gl	S
+Schießen vom Streitwagen	Hj	A
 Schießen vom Streitwagen	Hl	A
 Schießen vom Streitwagen	Hä	S
 Schießen vom Streitwagen	Kd	S
@@ -4721,12 +5060,15 @@ Schießen vom Streitwagen	Se	S
 Schießen vom Streitwagen	Sk	S
 Schießen vom Streitwagen	Sp	S
 Schießen vom Streitwagen	Sr	S
+Schießen vom Streitwagen	Sw	A
 Schießen vom Streitwagen	Sö	G
 Schießen vom Streitwagen	Th	A
 Schießen vom Streitwagen	Tm	S
+Schießen vom Streitwagen	To	A
 Schießen vom Streitwagen	Tr	S
 Schießen vom Streitwagen	Tt	A
 Schießen vom Streitwagen	Wa	S
+Schießen vom Streitwagen	Wi	S
 Schießen vom Streitwagen	dBe	A
 Schießen vom Streitwagen	eBe	A
 Schießen vom Streitwagen	gHx	A
@@ -4744,6 +5086,7 @@ Schiffsführung	Dt	A
 Schiffsführung	Er	S
 Schiffsführung	Fi	A
 Schiffsführung	Gl	S
+Schiffsführung	Hj	A
 Schiffsführung	Hl	A
 Schiffsführung	Hä	G
 Schiffsführung	Kd	S
@@ -4773,12 +5116,15 @@ Schiffsführung	Se	G
 Schiffsführung	Sk	S
 Schiffsführung	Sp	S
 Schiffsführung	Sr	S
+Schiffsführung	Sw	A
 Schiffsführung	Sö	S
 Schiffsführung	Th	A
 Schiffsführung	Tm	S
+Schiffsführung	To	A
 Schiffsführung	Tr	S
 Schiffsführung	Tt	A
 Schiffsführung	Wa	A
+Schiffsführung	Wi	A
 Schiffsführung	dBe	A
 Schiffsführung	eBe	A
 Schiffsführung	gHx	A
@@ -4795,6 +5141,7 @@ SchiyoKi	Dr	S
 SchiyoKi	Dt	G
 SchiyoKi	Fi	G
 SchiyoKi	Gl	S
+SchiyoKi	Hj	S
 SchiyoKi	Hl	G
 SchiyoKi	Hä	S
 SchiyoKi	Kd	G
@@ -4821,8 +5168,10 @@ SchiyoKi	Se	S
 SchiyoKi	Sk	S
 SchiyoKi	Sp	S
 SchiyoKi	Sr	G
+SchiyoKi	Sw	S
 SchiyoKi	Sö	S
 SchiyoKi	Th	A
+SchiyoKi	To	G
 SchiyoKi	Tr	S
 SchiyoKi	Tt	G
 SchiyoKi	Wa	G
@@ -4843,6 +5192,7 @@ Schlachtruf	Dt	A
 Schlachtruf	Er	G
 Schlachtruf	Fi	G
 Schlachtruf	Gl	G
+Schlachtruf	Hj	G
 Schlachtruf	Hl	A
 Schlachtruf	Hä	G
 Schlachtruf	Kd	G
@@ -4872,12 +5222,15 @@ Schlachtruf	Se	G
 Schlachtruf	Sk	G
 Schlachtruf	Sp	G
 Schlachtruf	Sr	A
+Schlachtruf	Sw	S
 Schlachtruf	Sö	G
 Schlachtruf	Th	A
 Schlachtruf	Tm	G
+Schlachtruf	To	S
 Schlachtruf	Tr	G
 Schlachtruf	Tt	A
 Schlachtruf	Wa	G
+Schlachtruf	Wi	G
 Schlachtruf	dBe	A
 Schlachtruf	eBe	A
 Schlachtruf	gHx	A
@@ -4894,6 +5247,7 @@ Schlangen beschwören	Dr	A
 Schlangen beschwören	Dt	A
 Schlangen beschwören	Fi	A
 Schlangen beschwören	Gl	A
+Schlangen beschwören	Hj	A
 Schlangen beschwören	Hl	A
 Schlangen beschwören	Hä	A
 Schlangen beschwören	Kd	G
@@ -4920,8 +5274,10 @@ Schlangen beschwören	Se	A
 Schlangen beschwören	Sk	A
 Schlangen beschwören	Sp	A
 Schlangen beschwören	Sr	A
+Schlangen beschwören	Sw	S
 Schlangen beschwören	Sö	A
 Schlangen beschwören	Th	A
+Schlangen beschwören	To	A
 Schlangen beschwören	Tr	A
 Schlangen beschwören	Tt	A
 Schlangen beschwören	Wa	A
@@ -4942,6 +5298,7 @@ Schleichen	Dt	S
 Schleichen	Er	G
 Schleichen	Fi	S
 Schleichen	Gl	G
+Schleichen	Hj	S
 Schleichen	Hl	S
 Schleichen	Hä	S
 Schleichen	Kd	S
@@ -4971,12 +5328,15 @@ Schleichen	Se	S
 Schleichen	Sk	S
 Schleichen	Sp	G
 Schleichen	Sr	S
+Schleichen	Sw	G
 Schleichen	Sö	S
 Schleichen	Th	S
 Schleichen	Tm	S
+Schleichen	To	G
 Schleichen	Tr	G
 Schleichen	Tt	S
 Schleichen	Wa	G
+Schleichen	Wi	G
 Schleichen	dBe	S
 Schleichen	eBe	S
 Schleichen	gHx	S
@@ -4994,6 +5354,7 @@ Schlittenfahren	Dt	S
 Schlittenfahren	Er	S
 Schlittenfahren	Fi	S
 Schlittenfahren	Gl	S
+Schlittenfahren	Hj	S
 Schlittenfahren	Hl	S
 Schlittenfahren	Hä	G
 Schlittenfahren	Kd	S
@@ -5023,12 +5384,15 @@ Schlittenfahren	Se	S
 Schlittenfahren	Sk	S
 Schlittenfahren	Sp	S
 Schlittenfahren	Sr	S
+Schlittenfahren	Sw	S
 Schlittenfahren	Sö	S
 Schlittenfahren	Th	S
 Schlittenfahren	Tm	S
+Schlittenfahren	To	S
 Schlittenfahren	Tr	S
 Schlittenfahren	Tt	S
 Schlittenfahren	Wa	S
+Schlittenfahren	Wi	S
 Schlittenfahren	dBe	S
 Schlittenfahren	eBe	S
 Schlittenfahren	gHx	S
@@ -5045,6 +5409,7 @@ Schlittschuhlaufen	Dr	S
 Schlittschuhlaufen	Dt	S
 Schlittschuhlaufen	Fi	S
 Schlittschuhlaufen	Gl	S
+Schlittschuhlaufen	Hj	S
 Schlittschuhlaufen	Hl	S
 Schlittschuhlaufen	Hä	S
 Schlittschuhlaufen	Kd	S
@@ -5071,8 +5436,10 @@ Schlittschuhlaufen	Se	S
 Schlittschuhlaufen	Sk	S
 Schlittschuhlaufen	Sp	S
 Schlittschuhlaufen	Sr	S
+Schlittschuhlaufen	Sw	S
 Schlittschuhlaufen	Sö	S
 Schlittschuhlaufen	Th	S
+Schlittschuhlaufen	To	S
 Schlittschuhlaufen	Tr	S
 Schlittschuhlaufen	Tt	S
 Schlittschuhlaufen	Wa	S
@@ -5093,6 +5460,7 @@ Schlösser öffnen	Dt	A
 Schlösser öffnen	Er	G
 Schlösser öffnen	Fi	A
 Schlösser öffnen	Gl	S
+Schlösser öffnen	Hj	A
 Schlösser öffnen	Hl	A
 Schlösser öffnen	Hä	S
 Schlösser öffnen	Kd	S
@@ -5122,12 +5490,15 @@ Schlösser öffnen	Se	S
 Schlösser öffnen	Sk	S
 Schlösser öffnen	Sp	G
 Schlösser öffnen	Sr	S
+Schlösser öffnen	Sw	G
 Schlösser öffnen	Sö	A
 Schlösser öffnen	Th	A
 Schlösser öffnen	Tm	A
+Schlösser öffnen	To	A
 Schlösser öffnen	Tr	G
 Schlösser öffnen	Tt	A
 Schlösser öffnen	Wa	S
+Schlösser öffnen	Wi	A
 Schlösser öffnen	dBe	A
 Schlösser öffnen	eBe	A
 Schlösser öffnen	gHx	A
@@ -5144,6 +5515,7 @@ Schmerzen ertragen	Dr	A
 Schmerzen ertragen	Dt	A
 Schmerzen ertragen	Fi	A
 Schmerzen ertragen	Gl	A
+Schmerzen ertragen	Hj	A
 Schmerzen ertragen	Hl	A
 Schmerzen ertragen	Hä	A
 Schmerzen ertragen	Kd	A
@@ -5170,8 +5542,10 @@ Schmerzen ertragen	Se	A
 Schmerzen ertragen	Sk	A
 Schmerzen ertragen	Sp	A
 Schmerzen ertragen	Sr	S
+Schmerzen ertragen	Sw	S
 Schmerzen ertragen	Sö	A
 Schmerzen ertragen	Th	A
+Schmerzen ertragen	To	A
 Schmerzen ertragen	Tr	A
 Schmerzen ertragen	Tt	A
 Schmerzen ertragen	Wa	A
@@ -5192,6 +5566,7 @@ Schreiben	Dt	G
 Schreiben	Er	G
 Schreiben	Fi	S
 Schreiben	Gl	S
+Schreiben	Hj	G
 Schreiben	Hl	G
 Schreiben	Hä	G
 Schreiben	Kd	S
@@ -5221,12 +5596,15 @@ Schreiben	Se	S
 Schreiben	Sk	G
 Schreiben	Sp	S
 Schreiben	Sr	S
+Schreiben	Sw	S
 Schreiben	Sö	S
 Schreiben	Th	S
 Schreiben	Tm	S
+Schreiben	To	S
 Schreiben	Tr	S
 Schreiben	Tt	S
 Schreiben	Wa	S
+Schreiben	Wi	S
 Schreiben	dBe	S
 Schreiben	eBe	S
 Schreiben	gHx	G
@@ -5243,6 +5621,7 @@ Schwerttanz	Dr	A
 Schwerttanz	Dt	A
 Schwerttanz	Fi	G
 Schwerttanz	Gl	G
+Schwerttanz	Hj	A
 Schwerttanz	Hl	A
 Schwerttanz	Hä	A
 Schwerttanz	Kd	S
@@ -5269,8 +5648,10 @@ Schwerttanz	Se	S
 Schwerttanz	Sk	S
 Schwerttanz	Sp	A
 Schwerttanz	Sr	G
+Schwerttanz	Sw	S
 Schwerttanz	Sö	G
 Schwerttanz	Th	A
+Schwerttanz	To	S
 Schwerttanz	Tr	A
 Schwerttanz	Tt	A
 Schwerttanz	Wa	A
@@ -5291,6 +5672,7 @@ Schwimmen	Dt	S
 Schwimmen	Er	G
 Schwimmen	Fi	A
 Schwimmen	Gl	G
+Schwimmen	Hj	S
 Schwimmen	Hl	S
 Schwimmen	Hä	G
 Schwimmen	Kd	G
@@ -5320,12 +5702,15 @@ Schwimmen	Se	G
 Schwimmen	Sk	G
 Schwimmen	Sp	S
 Schwimmen	Sr	G
+Schwimmen	Sw	S
 Schwimmen	Sö	G
 Schwimmen	Th	S
 Schwimmen	Tm	G
+Schwimmen	To	G
 Schwimmen	Tr	S
 Schwimmen	Tt	S
 Schwimmen	Wa	G
+Schwimmen	Wi	G
 Schwimmen	dBe	S
 Schwimmen	eBe	S
 Schwimmen	gHx	S
@@ -5343,6 +5728,7 @@ Schätzen	Dt	S
 Schätzen	Er	S
 Schätzen	Fi	A
 Schätzen	Gl	S
+Schätzen	Hj	S
 Schätzen	Hl	S
 Schätzen	Hä	G
 Schätzen	Kd	G
@@ -5371,12 +5757,15 @@ Schätzen	Se	S
 Schätzen	Sk	S
 Schätzen	Sp	S
 Schätzen	Sr	S
+Schätzen	Sw	S
 Schätzen	Sö	S
 Schätzen	Th	G
 Schätzen	Tm	A
+Schätzen	To	S
 Schätzen	Tr	S
 Schätzen	Tt	A
 Schätzen	Wa	A
+Schätzen	Wi	A
 Schätzen	dBe	S
 Schätzen	eBe	S
 Schätzen	gHx	S
@@ -5394,6 +5783,7 @@ Seemannsgang	Dt	A
 Seemannsgang	Er	S
 Seemannsgang	Fi	S
 Seemannsgang	Gl	S
+Seemannsgang	Hj	S
 Seemannsgang	Hl	A
 Seemannsgang	Hä	G
 Seemannsgang	Kd	G
@@ -5422,12 +5812,15 @@ Seemannsgang	Se	G
 Seemannsgang	Sk	S
 Seemannsgang	Sp	S
 Seemannsgang	Sr	S
+Seemannsgang	Sw	A
 Seemannsgang	Sö	S
 Seemannsgang	Th	A
 Seemannsgang	Tm	S
+Seemannsgang	To	A
 Seemannsgang	Tr	S
 Seemannsgang	Tt	S
 Seemannsgang	Wa	S
+Seemannsgang	Wi	S
 Seemannsgang	dBe	A
 Seemannsgang	eBe	A
 Seemannsgang	gHx	A
@@ -5445,6 +5838,7 @@ Seilkunst	Dt	S
 Seilkunst	Er	S
 Seilkunst	Fi	S
 Seilkunst	Gl	S
+Seilkunst	Hj	S
 Seilkunst	Hl	S
 Seilkunst	Hä	G
 Seilkunst	Kd	S
@@ -5474,12 +5868,15 @@ Seilkunst	Se	G
 Seilkunst	Sk	S
 Seilkunst	Sp	G
 Seilkunst	Sr	S
+Seilkunst	Sw	G
 Seilkunst	Sö	S
 Seilkunst	Th	S
 Seilkunst	Tm	S
+Seilkunst	To	S
 Seilkunst	Tr	G
 Seilkunst	Tt	S
 Seilkunst	Wa	S
+Seilkunst	Wi	S
 Seilkunst	dBe	S
 Seilkunst	eBe	S
 Seilkunst	gHx	S
@@ -5501,6 +5898,7 @@ Singen	Dt	S
 Singen	Er	S
 Singen	Fi	S
 Singen	Gl	S
+Singen	Hj	S
 Singen	Hl	S
 Singen	Hä	S
 Singen	Kd	S
@@ -5530,12 +5928,15 @@ Singen	Se	S
 Singen	Sk	G
 Singen	Sp	S
 Singen	Sr	S
+Singen	Sw	S
 Singen	Sö	S
 Singen	Th	S
 Singen	Tm	S
+Singen	To	S
 Singen	Tr	S
 Singen	Tt	S
 Singen	Wa	S
+Singen	Wi	S
 Singen	dBe	S
 Singen	eBe	S
 Singen	gHx	S
@@ -5553,6 +5954,7 @@ Skifahren	Dt	S
 Skifahren	Er	S
 Skifahren	Fi	S
 Skifahren	Gl	S
+Skifahren	Hj	S
 Skifahren	Hl	S
 Skifahren	Hä	S
 Skifahren	Kd	S
@@ -5582,12 +5984,15 @@ Skifahren	Se	S
 Skifahren	Sk	S
 Skifahren	Sp	S
 Skifahren	Sr	S
+Skifahren	Sw	S
 Skifahren	Sö	S
 Skifahren	Th	S
 Skifahren	Tm	S
+Skifahren	To	S
 Skifahren	Tr	S
 Skifahren	Tt	S
 Skifahren	Wa	G
+Skifahren	Wi	S
 Skifahren	dBe	S
 Skifahren	eBe	S
 Skifahren	gHx	S
@@ -5605,6 +6010,7 @@ Sprache	Dt	S
 Sprache	Er	S
 Sprache	Fi	S
 Sprache	Gl	G
+Sprache	Hj	G
 Sprache	Hl	G
 Sprache	Hä	G
 Sprache	Kd	S
@@ -5634,12 +6040,15 @@ Sprache	Se	G
 Sprache	Sk	G
 Sprache	Sp	S
 Sprache	Sr	S
+Sprache	Sw	S
 Sprache	Sö	S
 Sprache	Th	S
 Sprache	Tm	S
+Sprache	To	G
 Sprache	Tr	S
 Sprache	Tt	S
 Sprache	Wa	S
+Sprache	Wi	S
 Sprache	dBe	S
 Sprache	eBe	S
 Sprache	gHx	S
@@ -5657,6 +6066,7 @@ Springen	Dt	A
 Springen	Er	G
 Springen	Fi	S
 Springen	Gl	G
+Springen	Hj	S
 Springen	Hl	A
 Springen	Hä	S
 Springen	Kd	G
@@ -5686,12 +6096,15 @@ Springen	Se	S
 Springen	Sk	S
 Springen	Sp	G
 Springen	Sr	S
+Springen	Sw	G
 Springen	Sö	S
 Springen	Th	A
 Springen	Tm	S
+Springen	To	G
 Springen	Tr	G
 Springen	Tt	G
 Springen	Wa	G
+Springen	Wi	S
 Springen	dBe	A
 Springen	eBe	A
 Springen	gHx	A
@@ -5709,6 +6122,7 @@ Spurenlesen	Dt	G
 Spurenlesen	Er	G
 Spurenlesen	Fi	S
 Spurenlesen	Gl	S
+Spurenlesen	Hj	S
 Spurenlesen	Hl	A
 Spurenlesen	Hä	S
 Spurenlesen	Kd	S
@@ -5738,12 +6152,15 @@ Spurenlesen	Se	S
 Spurenlesen	Sk	S
 Spurenlesen	Sp	S
 Spurenlesen	Sr	S
+Spurenlesen	Sw	A
 Spurenlesen	Sö	S
 Spurenlesen	Th	A
 Spurenlesen	Tm	G
+Spurenlesen	To	S
 Spurenlesen	Tr	S
 Spurenlesen	Tt	S
 Spurenlesen	Wa	G
+Spurenlesen	Wi	G
 Spurenlesen	dBe	A
 Spurenlesen	eBe	A
 Spurenlesen	gHx	A
@@ -5760,6 +6177,7 @@ Srimara lenken	Dr	A
 Srimara lenken	Dt	A
 Srimara lenken	Fi	A
 Srimara lenken	Gl	A
+Srimara lenken	Hj	A
 Srimara lenken	Hl	A
 Srimara lenken	Hä	A
 Srimara lenken	Kd	A
@@ -5786,8 +6204,10 @@ Srimara lenken	Se	A
 Srimara lenken	Sk	A
 Srimara lenken	Sp	A
 Srimara lenken	Sr	G
+Srimara lenken	Sw	S
 Srimara lenken	Sö	A
 Srimara lenken	Th	A
+Srimara lenken	To	A
 Srimara lenken	Tr	A
 Srimara lenken	Tt	A
 Srimara lenken	Wa	A
@@ -5808,6 +6228,7 @@ Stehlen	Dt	A
 Stehlen	Er	S
 Stehlen	Fi	A
 Stehlen	Gl	S
+Stehlen	Hj	A
 Stehlen	Hl	A
 Stehlen	Hä	S
 Stehlen	Kd	A
@@ -5837,12 +6258,15 @@ Stehlen	Se	S
 Stehlen	Sk	S
 Stehlen	Sp	G
 Stehlen	Sr	A
+Stehlen	Sw	S
 Stehlen	Sö	A
 Stehlen	Th	A
 Stehlen	Tm	A
+Stehlen	To	S
 Stehlen	Tr	G
 Stehlen	Tt	A
 Stehlen	Wa	A
+Stehlen	Wi	A
 Stehlen	dBe	A
 Stehlen	eBe	A
 Stehlen	gHx	A
@@ -5859,6 +6283,7 @@ Steinabreibungen machen	Dr	S
 Steinabreibungen machen	Dt	S
 Steinabreibungen machen	Fi	S
 Steinabreibungen machen	Gl	S
+Steinabreibungen machen	Hj	S
 Steinabreibungen machen	Hl	S
 Steinabreibungen machen	Hä	S
 Steinabreibungen machen	Kd	S
@@ -5885,8 +6310,10 @@ Steinabreibungen machen	Se	A
 Steinabreibungen machen	Sk	S
 Steinabreibungen machen	Sp	S
 Steinabreibungen machen	Sr	S
+Steinabreibungen machen	Sw	S
 Steinabreibungen machen	Sö	A
 Steinabreibungen machen	Th	G
+Steinabreibungen machen	To	S
 Steinabreibungen machen	Tr	S
 Steinabreibungen machen	Tt	S
 Steinabreibungen machen	Wa	A
@@ -5907,6 +6334,7 @@ Steuern	Dt	S
 Steuern	Er	S
 Steuern	Fi	S
 Steuern	Gl	S
+Steuern	Hj	S
 Steuern	Hl	S
 Steuern	Hä	G
 Steuern	Kd	S
@@ -5935,12 +6363,15 @@ Steuern	Se	G
 Steuern	Sk	S
 Steuern	Sp	S
 Steuern	Sr	S
+Steuern	Sw	S
 Steuern	Sö	S
 Steuern	Th	S
 Steuern	Tm	S
+Steuern	To	S
 Steuern	Tr	S
 Steuern	Tt	S
 Steuern	Wa	S
+Steuern	Wi	A
 Steuern	dBe	S
 Steuern	eBe	S
 Steuern	gHx	S
@@ -5958,6 +6389,7 @@ Stimmen nachahmen	Dt	S
 Stimmen nachahmen	Er	S
 Stimmen nachahmen	Fi	S
 Stimmen nachahmen	Gl	S
+Stimmen nachahmen	Hj	A
 Stimmen nachahmen	Hl	S
 Stimmen nachahmen	Hä	S
 Stimmen nachahmen	Kd	S
@@ -5987,12 +6419,15 @@ Stimmen nachahmen	Se	S
 Stimmen nachahmen	Sk	G
 Stimmen nachahmen	Sp	S
 Stimmen nachahmen	Sr	S
+Stimmen nachahmen	Sw	S
 Stimmen nachahmen	Sö	S
 Stimmen nachahmen	Th	S
 Stimmen nachahmen	Tm	A
+Stimmen nachahmen	To	G
 Stimmen nachahmen	Tr	S
 Stimmen nachahmen	Tt	S
 Stimmen nachahmen	Wa	G
+Stimmen nachahmen	Wi	S
 Stimmen nachahmen	dBe	S
 Stimmen nachahmen	eBe	S
 Stimmen nachahmen	gHx	G
@@ -6010,6 +6445,7 @@ Streitwagen lenken	Dt	A
 Streitwagen lenken	Er	S
 Streitwagen lenken	Fi	A
 Streitwagen lenken	Gl	S
+Streitwagen lenken	Hj	A
 Streitwagen lenken	Hl	A
 Streitwagen lenken	Hä	S
 Streitwagen lenken	Kd	S
@@ -6039,12 +6475,15 @@ Streitwagen lenken	Se	S
 Streitwagen lenken	Sk	S
 Streitwagen lenken	Sp	S
 Streitwagen lenken	Sr	S
+Streitwagen lenken	Sw	A
 Streitwagen lenken	Sö	S
 Streitwagen lenken	Th	A
 Streitwagen lenken	Tm	S
+Streitwagen lenken	To	A
 Streitwagen lenken	Tr	S
 Streitwagen lenken	Tt	A
 Streitwagen lenken	Wa	S
+Streitwagen lenken	Wi	S
 Streitwagen lenken	dBe	A
 Streitwagen lenken	eBe	A
 Streitwagen lenken	gHx	A
@@ -6062,6 +6501,7 @@ Suchen	Dt	S
 Suchen	Er	G
 Suchen	Fi	S
 Suchen	Gl	G
+Suchen	Hj	G
 Suchen	Hl	S
 Suchen	Hä	G
 Suchen	Kd	S
@@ -6090,12 +6530,15 @@ Suchen	Se	S
 Suchen	Sk	S
 Suchen	Sp	G
 Suchen	Sr	S
+Suchen	Sw	G
 Suchen	Sö	S
 Suchen	Th	S
 Suchen	Tm	S
+Suchen	To	G
 Suchen	Tr	G
 Suchen	Tt	S
 Suchen	Wa	S
+Suchen	Wi	S
 Suchen	dBe	S
 Suchen	eBe	S
 Suchen	gHx	S
@@ -6112,6 +6555,7 @@ TaiTschi	Dr	S
 TaiTschi	Dt	G
 TaiTschi	Fi	G
 TaiTschi	Gl	S
+TaiTschi	Hj	S
 TaiTschi	Hl	G
 TaiTschi	Hä	S
 TaiTschi	Kd	G
@@ -6138,8 +6582,10 @@ TaiTschi	Se	S
 TaiTschi	Sk	S
 TaiTschi	Sp	S
 TaiTschi	Sr	G
+TaiTschi	Sw	S
 TaiTschi	Sö	S
 TaiTschi	Th	A
+TaiTschi	To	A
 TaiTschi	Tr	S
 TaiTschi	Tt	G
 TaiTschi	Wa	G
@@ -6159,6 +6605,7 @@ Talisman verzaubern	Dr	A
 Talisman verzaubern	Dt	A
 Talisman verzaubern	Fi	S
 Talisman verzaubern	Gl	S
+Talisman verzaubern	Hj	S
 Talisman verzaubern	Hl	A
 Talisman verzaubern	Hä	S
 Talisman verzaubern	Kd	S
@@ -6185,8 +6632,10 @@ Talisman verzaubern	Se	S
 Talisman verzaubern	Sk	S
 Talisman verzaubern	Sp	S
 Talisman verzaubern	Sr	S
+Talisman verzaubern	Sw	S
 Talisman verzaubern	Sö	S
 Talisman verzaubern	Th	G
+Talisman verzaubern	To	S
 Talisman verzaubern	Tr	S
 Talisman verzaubern	Tt	S
 Talisman verzaubern	Wa	S
@@ -6207,6 +6656,7 @@ Tanzen	Dt	S
 Tanzen	Er	S
 Tanzen	Fi	S
 Tanzen	Gl	G
+Tanzen	Hj	S
 Tanzen	Hl	S
 Tanzen	Hä	S
 Tanzen	Kd	S
@@ -6236,12 +6686,15 @@ Tanzen	Se	S
 Tanzen	Sk	S
 Tanzen	Sp	S
 Tanzen	Sr	S
+Tanzen	Sw	S
 Tanzen	Sö	S
 Tanzen	Th	S
 Tanzen	Tm	S
+Tanzen	To	S
 Tanzen	Tr	S
 Tanzen	Tt	G
 Tanzen	Wa	S
+Tanzen	Wi	S
 Tanzen	dBe	S
 Tanzen	eBe	S
 Tanzen	gHx	S
@@ -6259,6 +6712,7 @@ Tarnen	Dt	S
 Tarnen	Er	G
 Tarnen	Fi	S
 Tarnen	Gl	G
+Tarnen	Hj	S
 Tarnen	Hl	S
 Tarnen	Hä	S
 Tarnen	Kd	S
@@ -6288,12 +6742,15 @@ Tarnen	Se	S
 Tarnen	Sk	S
 Tarnen	Sp	G
 Tarnen	Sr	S
+Tarnen	Sw	G
 Tarnen	Sö	S
 Tarnen	Th	S
 Tarnen	Tm	S
+Tarnen	To	G
 Tarnen	Tr	G
 Tarnen	Tt	S
 Tarnen	Wa	G
+Tarnen	Wi	S
 Tarnen	dBe	S
 Tarnen	eBe	S
 Tarnen	gHx	S
@@ -6311,6 +6768,7 @@ Tauchen	Dt	A
 Tauchen	Er	S
 Tauchen	Fi	S
 Tauchen	Gl	S
+Tauchen	Hj	S
 Tauchen	Hl	A
 Tauchen	Hä	S
 Tauchen	Kd	S
@@ -6340,12 +6798,15 @@ Tauchen	Se	G
 Tauchen	Sk	S
 Tauchen	Sp	S
 Tauchen	Sr	S
+Tauchen	Sw	A
 Tauchen	Sö	S
 Tauchen	Th	A
 Tauchen	Tm	S
+Tauchen	To	S
 Tauchen	Tr	S
 Tauchen	Tt	S
 Tauchen	Wa	G
+Tauchen	Wi	S
 Tauchen	dBe	A
 Tauchen	eBe	A
 Tauchen	gHx	A
@@ -6362,6 +6823,7 @@ Teezeremonie	Dr	S
 Teezeremonie	Dt	S
 Teezeremonie	Fi	A
 Teezeremonie	Gl	S
+Teezeremonie	Hj	S
 Teezeremonie	Hl	S
 Teezeremonie	Hä	S
 Teezeremonie	Kd	G
@@ -6388,8 +6850,10 @@ Teezeremonie	Se	S
 Teezeremonie	Sk	S
 Teezeremonie	Sp	S
 Teezeremonie	Sr	G
+Teezeremonie	Sw	S
 Teezeremonie	Sö	S
 Teezeremonie	Th	S
+Teezeremonie	To	S
 Teezeremonie	Tr	S
 Teezeremonie	Tt	G
 Teezeremonie	Wa	S
@@ -6415,6 +6879,7 @@ Thaumatographie	Sa	A
 Thaumatographie	ScN	A
 Thaumatographie	ScS	A
 Thaumatographie	ScW	A
+Thaumatographie	Sw	G
 Thaumatographie	Th	G
 Thaumatographie	Tt	A
 Thaumatographie	dBe	A
@@ -6434,6 +6899,7 @@ Tierkunde	Dt	S
 Tierkunde	Er	S
 Tierkunde	Fi	S
 Tierkunde	Gl	S
+Tierkunde	Hj	A
 Tierkunde	Hl	G
 Tierkunde	Hä	S
 Tierkunde	Kd	S
@@ -6463,12 +6929,15 @@ Tierkunde	Se	S
 Tierkunde	Sk	S
 Tierkunde	Sp	A
 Tierkunde	Sr	S
+Tierkunde	Sw	A
 Tierkunde	Sö	A
 Tierkunde	Th	S
 Tierkunde	Tm	G
+Tierkunde	To	S
 Tierkunde	Tr	A
 Tierkunde	Tt	S
 Tierkunde	Wa	G
+Tierkunde	Wi	G
 Tierkunde	dBe	S
 Tierkunde	eBe	S
 Tierkunde	gHx	S
@@ -6486,6 +6955,7 @@ Trinken	Dt	S
 Trinken	Er	S
 Trinken	Fi	S
 Trinken	Gl	G
+Trinken	Hj	S
 Trinken	Hl	S
 Trinken	Hä	S
 Trinken	Kd	S
@@ -6515,12 +6985,15 @@ Trinken	Se	G
 Trinken	Sk	G
 Trinken	Sp	S
 Trinken	Sr	S
+Trinken	Sw	A
 Trinken	Sö	G
 Trinken	Th	S
 Trinken	Tm	S
+Trinken	To	S
 Trinken	Tr	S
 Trinken	Tt	S
 Trinken	Wa	S
+Trinken	Wi	S
 Trinken	dBe	S
 Trinken	eBe	S
 Trinken	gHx	S
@@ -6538,6 +7011,7 @@ Tätowieren	Dt	A
 Tätowieren	Er	A
 Tätowieren	Fi	A
 Tätowieren	Gl	A
+Tätowieren	Hj	A
 Tätowieren	Hl	A
 Tätowieren	Hä	A
 Tätowieren	Kd	A
@@ -6567,12 +7041,15 @@ Tätowieren	Se	A
 Tätowieren	Sk	A
 Tätowieren	Sp	A
 Tätowieren	Sr	A
+Tätowieren	Sw	S
 Tätowieren	Sö	A
 Tätowieren	Th	G
 Tätowieren	Tm	A
+Tätowieren	To	A
 Tätowieren	Tr	A
 Tätowieren	Tt	A
 Tätowieren	Wa	A
+Tätowieren	Wi	A
 Tätowieren	dBe	S
 Tätowieren	eBe	S
 Tätowieren	gHx	S
@@ -6590,6 +7067,7 @@ Verbergen	Dt	S
 Verbergen	Er	G
 Verbergen	Fi	S
 Verbergen	Gl	G
+Verbergen	Hj	S
 Verbergen	Hl	S
 Verbergen	Hä	S
 Verbergen	Kd	S
@@ -6619,12 +7097,15 @@ Verbergen	Se	S
 Verbergen	Sk	S
 Verbergen	Sp	G
 Verbergen	Sr	S
+Verbergen	Sw	G
 Verbergen	Sö	S
 Verbergen	Th	S
 Verbergen	Tm	S
+Verbergen	To	G
 Verbergen	Tr	G
 Verbergen	Tt	S
 Verbergen	Wa	S
+Verbergen	Wi	S
 Verbergen	dBe	S
 Verbergen	eBe	S
 Verbergen	gHx	G
@@ -6642,6 +7123,7 @@ Verführen	Dt	A
 Verführen	Er	S
 Verführen	Fi	S
 Verführen	Gl	G
+Verführen	Hj	S
 Verführen	Hl	A
 Verführen	Hä	S
 Verführen	Kd	S
@@ -6671,12 +7153,15 @@ Verführen	Se	G
 Verführen	Sk	G
 Verführen	Sp	S
 Verführen	Sr	S
+Verführen	Sw	A
 Verführen	Sö	S
 Verführen	Th	A
 Verführen	Tm	S
+Verführen	To	S
 Verführen	Tr	S
 Verführen	Tt	A
 Verführen	Wa	S
+Verführen	Wi	S
 Verführen	dBe	A
 Verführen	eBe	A
 Verführen	gHx	S
@@ -6694,6 +7179,7 @@ Verhören	Dt	S
 Verhören	Er	G
 Verhören	Fi	A
 Verhören	Gl	S
+Verhören	Hj	G
 Verhören	Hl	S
 Verhören	Hä	G
 Verhören	Kd	S
@@ -6723,12 +7209,15 @@ Verhören	Se	S
 Verhören	Sk	S
 Verhören	Sp	S
 Verhören	Sr	S
+Verhören	Sw	S
 Verhören	Sö	S
 Verhören	Th	S
 Verhören	Tm	A
+Verhören	To	S
 Verhören	Tr	S
 Verhören	Tt	S
 Verhören	Wa	A
+Verhören	Wi	A
 Verhören	dBe	S
 Verhören	eBe	S
 Verhören	gHx	S
@@ -6746,6 +7235,7 @@ Verkleiden	Dt	A
 Verkleiden	Er	G
 Verkleiden	Fi	A
 Verkleiden	Gl	G
+Verkleiden	Hj	A
 Verkleiden	Hl	A
 Verkleiden	Hä	S
 Verkleiden	Kd	S
@@ -6775,12 +7265,15 @@ Verkleiden	Se	S
 Verkleiden	Sk	S
 Verkleiden	Sp	G
 Verkleiden	Sr	S
+Verkleiden	Sw	G
 Verkleiden	Sö	A
 Verkleiden	Th	A
 Verkleiden	Tm	A
+Verkleiden	To	G
 Verkleiden	Tr	G
 Verkleiden	Tt	A
 Verkleiden	Wa	S
+Verkleiden	Wi	A
 Verkleiden	dBe	A
 Verkleiden	eBe	A
 Verkleiden	gHx	S
@@ -6798,6 +7291,7 @@ Wagenlenken	Dt	S
 Wagenlenken	Er	S
 Wagenlenken	Fi	S
 Wagenlenken	Gl	S
+Wagenlenken	Hj	S
 Wagenlenken	Hl	S
 Wagenlenken	Hä	G
 Wagenlenken	Kd	S
@@ -6827,12 +7321,15 @@ Wagenlenken	Se	S
 Wagenlenken	Sk	S
 Wagenlenken	Sp	S
 Wagenlenken	Sr	S
+Wagenlenken	Sw	S
 Wagenlenken	Sö	S
 Wagenlenken	Th	S
 Wagenlenken	Tm	S
+Wagenlenken	To	S
 Wagenlenken	Tr	S
 Wagenlenken	Tt	S
 Wagenlenken	Wa	S
+Wagenlenken	Wi	S
 Wagenlenken	dBe	S
 Wagenlenken	eBe	S
 Wagenlenken	gHx	S
@@ -6850,6 +7347,7 @@ Wahrnehmung	Dt	S
 Wahrnehmung	Er	G
 Wahrnehmung	Fi	S
 Wahrnehmung	Gl	S
+Wahrnehmung	Hj	G
 Wahrnehmung	Hl	S
 Wahrnehmung	Hä	S
 Wahrnehmung	Kd	S
@@ -6879,12 +7377,15 @@ Wahrnehmung	Se	G
 Wahrnehmung	Sk	S
 Wahrnehmung	Sp	S
 Wahrnehmung	Sr	S
+Wahrnehmung	Sw	S
 Wahrnehmung	Sö	S
 Wahrnehmung	Th	S
 Wahrnehmung	Tm	S
+Wahrnehmung	To	S
 Wahrnehmung	Tr	S
 Wahrnehmung	Tt	S
 Wahrnehmung	Wa	G
+Wahrnehmung	Wi	G
 Wahrnehmung	dBe	S
 Wahrnehmung	eBe	S
 Wahrnehmung	gHx	S
@@ -6902,6 +7403,7 @@ Wahrsagekalender führen	Dt	G
 Wahrsagekalender führen	Er	A
 Wahrsagekalender führen	Fi	A
 Wahrsagekalender führen	Gl	A
+Wahrsagekalender führen	Hj	A
 Wahrsagekalender führen	Hl	A
 Wahrsagekalender führen	Hä	A
 Wahrsagekalender führen	Kd	A
@@ -6931,12 +7433,15 @@ Wahrsagekalender führen	Se	A
 Wahrsagekalender führen	Sk	A
 Wahrsagekalender führen	Sp	A
 Wahrsagekalender führen	Sr	A
+Wahrsagekalender führen	Sw	S
 Wahrsagekalender führen	Sö	A
 Wahrsagekalender führen	Th	A
 Wahrsagekalender führen	Tm	A
+Wahrsagekalender führen	To	A
 Wahrsagekalender führen	Tr	A
 Wahrsagekalender führen	Tt	A
 Wahrsagekalender führen	Wa	A
+Wahrsagekalender führen	Wi	A
 Wahrsagekalender führen	dBe	A
 Wahrsagekalender führen	eBe	A
 Wahrsagekalender führen	gHx	A
@@ -6953,6 +7458,7 @@ Werfen	Dr	S
 Werfen	Dt	S
 Werfen	Fi	S
 Werfen	Gl	G
+Werfen	Hj	S
 Werfen	Hl	S
 Werfen	Hä	S
 Werfen	Kd	S
@@ -6979,8 +7485,10 @@ Werfen	Se	G
 Werfen	Sk	S
 Werfen	Sp	G
 Werfen	Sr	S
+Werfen	Sw	S
 Werfen	Sö	S
 Werfen	Th	G
+Werfen	To	A
 Werfen	Tr	G
 Werfen	Tt	S
 Werfen	Wa	S
@@ -7001,6 +7509,7 @@ Wetterkunde	Dt	S
 Wetterkunde	Er	S
 Wetterkunde	Fi	S
 Wetterkunde	Gl	S
+Wetterkunde	Hj	S
 Wetterkunde	Hl	S
 Wetterkunde	Hä	S
 Wetterkunde	Kd	A
@@ -7030,12 +7539,15 @@ Wetterkunde	Se	G
 Wetterkunde	Sk	G
 Wetterkunde	Sp	S
 Wetterkunde	Sr	S
+Wetterkunde	Sw	S
 Wetterkunde	Sö	A
 Wetterkunde	Th	A
 Wetterkunde	Tm	S
+Wetterkunde	To	A
 Wetterkunde	Tr	S
 Wetterkunde	Tt	G
 Wetterkunde	Wa	G
+Wetterkunde	Wi	S
 Wetterkunde	dBe	A
 Wetterkunde	eBe	A
 Wetterkunde	gHx	A
@@ -7053,6 +7565,7 @@ Winden	Dt	A
 Winden	Er	S
 Winden	Fi	S
 Winden	Gl	S
+Winden	Hj	A
 Winden	Hl	A
 Winden	Hä	S
 Winden	Kd	G
@@ -7082,12 +7595,15 @@ Winden	Se	S
 Winden	Sk	S
 Winden	Sp	G
 Winden	Sr	S
+Winden	Sw	G
 Winden	Sö	A
 Winden	Th	A
 Winden	Tm	S
+Winden	To	G
 Winden	Tr	G
 Winden	Tt	S
 Winden	Wa	S
+Winden	Wi	S
 Winden	dBe	A
 Winden	eBe	A
 Winden	gHx	A
@@ -7104,6 +7620,7 @@ YangScheng	Dr	S
 YangScheng	Dt	G
 YangScheng	Fi	G
 YangScheng	Gl	S
+YangScheng	Hj	S
 YangScheng	Hl	G
 YangScheng	Hä	S
 YangScheng	Kd	G
@@ -7130,8 +7647,10 @@ YangScheng	Se	A
 YangScheng	Sk	S
 YangScheng	Sp	S
 YangScheng	Sr	G
+YangScheng	Sw	S
 YangScheng	Sö	S
 YangScheng	Th	S
+YangScheng	To	S
 YangScheng	Tr	S
 YangScheng	Tt	G
 YangScheng	Wa	S
@@ -7151,6 +7670,7 @@ YubeChian	Dr	S
 YubeChian	Dt	G
 YubeChian	Fi	S
 YubeChian	Gl	S
+YubeChian	Hj	S
 YubeChian	Hl	G
 YubeChian	Hä	S
 YubeChian	Kd	S
@@ -7177,8 +7697,10 @@ YubeChian	Se	S
 YubeChian	Sk	S
 YubeChian	Sp	S
 YubeChian	Sr	S
+YubeChian	Sw	S
 YubeChian	Sö	S
 YubeChian	Th	A
+YubeChian	To	G
 YubeChian	Tr	S
 YubeChian	Tt	S
 YubeChian	Wa	S
@@ -7199,6 +7721,7 @@ Zauberkunde	Dt	G
 Zauberkunde	Er	A
 Zauberkunde	Fi	A
 Zauberkunde	Gl	A
+Zauberkunde	Hj	S
 Zauberkunde	Hl	S
 Zauberkunde	Hä	S
 Zauberkunde	Kd	A
@@ -7228,12 +7751,15 @@ Zauberkunde	Se	A
 Zauberkunde	Sk	G
 Zauberkunde	Sp	S
 Zauberkunde	Sr	A
+Zauberkunde	Sw	G
 Zauberkunde	Sö	A
 Zauberkunde	Th	G
 Zauberkunde	Tm	A
+Zauberkunde	To	G
 Zauberkunde	Tr	S
 Zauberkunde	Tt	S
 Zauberkunde	Wa	A
+Zauberkunde	Wi	A
 Zauberkunde	dBe	S
 Zauberkunde	eBe	S
 Zauberkunde	gHx	G
@@ -7251,6 +7777,7 @@ Zaubern	Dt	G
 Zaubern	Er	S
 Zaubern	Fi	A
 Zaubern	Gl	S
+Zaubern	Hj	S
 Zaubern	Hl	G
 Zaubern	Hä	S
 Zaubern	Kd	A
@@ -7280,12 +7807,15 @@ Zaubern	Se	S
 Zaubern	Sk	S
 Zaubern	Sp	S
 Zaubern	Sr	S
+Zaubern	Sw	S
 Zaubern	Sö	A
 Zaubern	Th	G
 Zaubern	Tm	S
+Zaubern	To	S
 Zaubern	Tr	S
 Zaubern	Tt	G
 Zaubern	Wa	S
+Zaubern	Wi	S
 Zaubern	dBe	G
 Zaubern	eBe	G
 Zaubern	gHx	G
@@ -7303,6 +7833,7 @@ Zeichensprache	Dt	S
 Zeichensprache	Er	G
 Zeichensprache	Fi	G
 Zeichensprache	Gl	G
+Zeichensprache	Hj	S
 Zeichensprache	Hl	S
 Zeichensprache	Hä	G
 Zeichensprache	Kd	S
@@ -7332,12 +7863,15 @@ Zeichensprache	Se	G
 Zeichensprache	Sk	S
 Zeichensprache	Sp	G
 Zeichensprache	Sr	S
+Zeichensprache	Sw	G
 Zeichensprache	Sö	S
 Zeichensprache	Th	S
 Zeichensprache	Tm	S
+Zeichensprache	To	G
 Zeichensprache	Tr	G
 Zeichensprache	Tt	S
 Zeichensprache	Wa	S
+Zeichensprache	Wi	S
 Zeichensprache	dBe	S
 Zeichensprache	eBe	S
 Zeichensprache	gHx	S
@@ -7354,6 +7888,7 @@ Zunge verschlucken	Dr	S
 Zunge verschlucken	Dt	S
 Zunge verschlucken	Fi	S
 Zunge verschlucken	Gl	S
+Zunge verschlucken	Hj	S
 Zunge verschlucken	Hl	S
 Zunge verschlucken	Hä	S
 Zunge verschlucken	Kd	S
@@ -7380,8 +7915,10 @@ Zunge verschlucken	Se	S
 Zunge verschlucken	Sk	S
 Zunge verschlucken	Sp	S
 Zunge verschlucken	Sr	S
+Zunge verschlucken	Sw	S
 Zunge verschlucken	Sö	S
 Zunge verschlucken	Th	S
+Zunge verschlucken	To	S
 Zunge verschlucken	Tr	S
 Zunge verschlucken	Tt	S
 Zunge verschlucken	Wa	S
@@ -7402,6 +7939,7 @@ Zunge verschlucken	wHx	S
 Überleben im Dschungel	Er	S
 Überleben im Dschungel	Fi	A
 Überleben im Dschungel	Gl	S
+Überleben im Dschungel	Hj	S
 Überleben im Dschungel	Hl	S
 Überleben im Dschungel	Hä	G
 Überleben im Dschungel	Kd	S
@@ -7431,12 +7969,15 @@ Zunge verschlucken	wHx	S
 Überleben im Dschungel	Sk	S
 Überleben im Dschungel	Sp	S
 Überleben im Dschungel	Sr	S
+Überleben im Dschungel	Sw	S
 Überleben im Dschungel	Sö	S
 Überleben im Dschungel	Th	S
 Überleben im Dschungel	Tm	S
+Überleben im Dschungel	To	S
 Überleben im Dschungel	Tr	S
 Überleben im Dschungel	Tt	S
 Überleben im Dschungel	Wa	G
+Überleben im Dschungel	Wi	S
 Überleben im Dschungel	dBe	S
 Überleben im Dschungel	eBe	S
 Überleben im Dschungel	gHx	S
@@ -7454,6 +7995,7 @@ Zunge verschlucken	wHx	S
 Überleben im Gebirge	Er	S
 Überleben im Gebirge	Fi	G
 Überleben im Gebirge	Gl	S
+Überleben im Gebirge	Hj	S
 Überleben im Gebirge	Hl	S
 Überleben im Gebirge	Hä	S
 Überleben im Gebirge	Kd	S
@@ -7483,12 +8025,15 @@ Zunge verschlucken	wHx	S
 Überleben im Gebirge	Sk	S
 Überleben im Gebirge	Sp	S
 Überleben im Gebirge	Sr	S
+Überleben im Gebirge	Sw	S
 Überleben im Gebirge	Sö	S
 Überleben im Gebirge	Th	S
 Überleben im Gebirge	Tm	S
+Überleben im Gebirge	To	S
 Überleben im Gebirge	Tr	S
 Überleben im Gebirge	Tt	S
 Überleben im Gebirge	Wa	G
+Überleben im Gebirge	Wi	S
 Überleben im Gebirge	dBe	S
 Überleben im Gebirge	eBe	S
 Überleben im Gebirge	gHx	S
@@ -7506,6 +8051,7 @@ Zunge verschlucken	wHx	S
 Überleben im Schnee	Er	S
 Überleben im Schnee	Fi	A
 Überleben im Schnee	Gl	S
+Überleben im Schnee	Hj	S
 Überleben im Schnee	Hl	S
 Überleben im Schnee	Hä	G
 Überleben im Schnee	Kd	S
@@ -7535,12 +8081,15 @@ Zunge verschlucken	wHx	S
 Überleben im Schnee	Sk	S
 Überleben im Schnee	Sp	S
 Überleben im Schnee	Sr	S
+Überleben im Schnee	Sw	S
 Überleben im Schnee	Sö	S
 Überleben im Schnee	Th	S
 Überleben im Schnee	Tm	S
+Überleben im Schnee	To	S
 Überleben im Schnee	Tr	S
 Überleben im Schnee	Tt	S
 Überleben im Schnee	Wa	S
+Überleben im Schnee	Wi	S
 Überleben im Schnee	dBe	S
 Überleben im Schnee	eBe	S
 Überleben im Schnee	gHx	S
@@ -7558,6 +8107,7 @@ Zunge verschlucken	wHx	S
 Überleben im Sumpf	Er	S
 Überleben im Sumpf	Fi	A
 Überleben im Sumpf	Gl	S
+Überleben im Sumpf	Hj	S
 Überleben im Sumpf	Hl	S
 Überleben im Sumpf	Hä	S
 Überleben im Sumpf	Kd	S
@@ -7587,12 +8137,15 @@ Zunge verschlucken	wHx	S
 Überleben im Sumpf	Sk	S
 Überleben im Sumpf	Sp	S
 Überleben im Sumpf	Sr	S
+Überleben im Sumpf	Sw	S
 Überleben im Sumpf	Sö	S
 Überleben im Sumpf	Th	S
 Überleben im Sumpf	Tm	S
+Überleben im Sumpf	To	S
 Überleben im Sumpf	Tr	S
 Überleben im Sumpf	Tt	S
 Überleben im Sumpf	Wa	S
+Überleben im Sumpf	Wi	S
 Überleben im Sumpf	dBe	S
 Überleben im Sumpf	eBe	S
 Überleben im Sumpf	gHx	S
@@ -7610,6 +8163,7 @@ Zunge verschlucken	wHx	S
 Überleben im Wald	Er	S
 Überleben im Wald	Fi	G
 Überleben im Wald	Gl	S
+Überleben im Wald	Hj	S
 Überleben im Wald	Hl	S
 Überleben im Wald	Hä	G
 Überleben im Wald	Kd	S
@@ -7639,12 +8193,15 @@ Zunge verschlucken	wHx	S
 Überleben im Wald	Sk	S
 Überleben im Wald	Sp	S
 Überleben im Wald	Sr	S
+Überleben im Wald	Sw	S
 Überleben im Wald	Sö	S
 Überleben im Wald	Th	S
 Überleben im Wald	Tm	S
+Überleben im Wald	To	S
 Überleben im Wald	Tr	S
 Überleben im Wald	Tt	S
 Überleben im Wald	Wa	G
+Überleben im Wald	Wi	S
 Überleben im Wald	dBe	S
 Überleben im Wald	eBe	S
 Überleben im Wald	gHx	S
@@ -7662,6 +8219,7 @@ Zunge verschlucken	wHx	S
 Überleben in der Steppe	Er	S
 Überleben in der Steppe	Fi	A
 Überleben in der Steppe	Gl	S
+Überleben in der Steppe	Hj	S
 Überleben in der Steppe	Hl	S
 Überleben in der Steppe	Hä	G
 Überleben in der Steppe	Kd	S
@@ -7691,12 +8249,15 @@ Zunge verschlucken	wHx	S
 Überleben in der Steppe	Sk	S
 Überleben in der Steppe	Sp	S
 Überleben in der Steppe	Sr	S
+Überleben in der Steppe	Sw	S
 Überleben in der Steppe	Sö	S
 Überleben in der Steppe	Th	S
 Überleben in der Steppe	Tm	S
+Überleben in der Steppe	To	S
 Überleben in der Steppe	Tr	S
 Überleben in der Steppe	Tt	G
 Überleben in der Steppe	Wa	S
+Überleben in der Steppe	Wi	S
 Überleben in der Steppe	dBe	S
 Überleben in der Steppe	eBe	S
 Überleben in der Steppe	gHx	S
@@ -7714,6 +8275,7 @@ Zunge verschlucken	wHx	S
 Überleben in der Wüste	Er	S
 Überleben in der Wüste	Fi	A
 Überleben in der Wüste	Gl	S
+Überleben in der Wüste	Hj	S
 Überleben in der Wüste	Hl	S
 Überleben in der Wüste	Hä	G
 Überleben in der Wüste	Kd	S
@@ -7743,12 +8305,15 @@ Zunge verschlucken	wHx	S
 Überleben in der Wüste	Sk	S
 Überleben in der Wüste	Sp	S
 Überleben in der Wüste	Sr	S
+Überleben in der Wüste	Sw	S
 Überleben in der Wüste	Sö	S
 Überleben in der Wüste	Th	S
 Überleben in der Wüste	Tm	S
+Überleben in der Wüste	To	S
 Überleben in der Wüste	Tr	S
 Überleben in der Wüste	Tt	G
 Überleben in der Wüste	Wa	S
+Überleben in der Wüste	Wi	S
 Überleben in der Wüste	dBe	S
 Überleben in der Wüste	eBe	S
 Überleben in der Wüste	gHx	S

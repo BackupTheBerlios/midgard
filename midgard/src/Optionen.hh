@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.33 2002/09/18 11:39:10 thoma Exp $
+// $Id: Optionen.hh,v 1.34 2002/09/19 08:16:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -51,12 +51,7 @@ class Midgard_Optionen
       struct st_OptionenExecute{OptionenExecuteIndex index;std::string text;const char * const *bild;
                st_OptionenExecute(OptionenExecuteIndex i,std::string t,const char * const * const b)
                   :index(i),text(t),bild(b) {} };
-/*
-      struct st_OptionenCheck{OptionenCheckIndex index;std::string text;bool active;const char * const *bild;int wert; Gtk::SpinButton *spin;
-               st_OptionenCheck(OptionenCheckIndex i,std::string t,bool a, const char * const * const b,int w=-1)
-                  :index(i),text(t),active(a),bild(b),wert(w),spin(0)
-                  {}};
-*/
+
       struct st_OptionenCheck{OptionenCheckIndex index;std::string text;
                MVC<bool> active;
                const char * const *bild;

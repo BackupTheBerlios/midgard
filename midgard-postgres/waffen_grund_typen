@@ -29,6 +29,7 @@ Armbrust	Dr	A
 Armbrust	Er	S
 Armbrust	Fi	S
 Armbrust	Gl	S
+Armbrust	Hj	S
 Armbrust	Hl	A
 Armbrust	Hä	S
 Armbrust	Kd	S
@@ -58,10 +59,13 @@ Armbrust	Se	S
 Armbrust	Sk	S
 Armbrust	Sp	S
 Armbrust	Sr	S
+Armbrust	Sw	S
 Armbrust	Sö	G
 Armbrust	Th	A
 Armbrust	Tm	S
+Armbrust	To	S
 Armbrust	Wa	S
+Armbrust	Wi	S
 Armbrust	dBe	A
 Armbrust	eBe	A
 Armbrust	gHx	A
@@ -77,6 +81,7 @@ Blasrohr	Dr	A
 Blasrohr	Er	S
 Blasrohr	Fi	S
 Blasrohr	Gl	S
+Blasrohr	Hj	S
 Blasrohr	Hl	A
 Blasrohr	Hä	S
 Blasrohr	Kd	S
@@ -106,10 +111,13 @@ Blasrohr	Se	S
 Blasrohr	Sk	S
 Blasrohr	Sp	S
 Blasrohr	Sr	S
+Blasrohr	Sw	S
 Blasrohr	Sö	S
 Blasrohr	Th	S
 Blasrohr	Tm	S
+Blasrohr	To	S
 Blasrohr	Wa	S
+Blasrohr	Wi	S
 Blasrohr	dBe	A
 Blasrohr	eBe	A
 Blasrohr	gHx	A
@@ -125,6 +133,7 @@ Bögen	Dr	A
 Bögen	Er	S
 Bögen	Fi	S
 Bögen	Gl	S
+Bögen	Hj	S
 Bögen	Hl	A
 Bögen	Hä	S
 Bögen	Kd	S
@@ -154,10 +163,13 @@ Bögen	Se	S
 Bögen	Sk	S
 Bögen	Sp	S
 Bögen	Sr	S
+Bögen	Sw	S
 Bögen	Sö	G
 Bögen	Th	A
 Bögen	Tm	S
+Bögen	To	S
 Bögen	Wa	S
+Bögen	Wi	S
 Bögen	dBe	A
 Bögen	eBe	A
 Bögen	gHx	A
@@ -173,6 +185,7 @@ Einhandschlagwaffe	Dr	A
 Einhandschlagwaffe	Er	S
 Einhandschlagwaffe	Fi	S
 Einhandschlagwaffe	Gl	S
+Einhandschlagwaffe	Hj	S
 Einhandschlagwaffe	Hl	A
 Einhandschlagwaffe	Hä	S
 Einhandschlagwaffe	Kd	S
@@ -202,10 +215,13 @@ Einhandschlagwaffe	Se	S
 Einhandschlagwaffe	Sk	S
 Einhandschlagwaffe	Sp	S
 Einhandschlagwaffe	Sr	S
+Einhandschlagwaffe	Sw	S
 Einhandschlagwaffe	Sö	G
 Einhandschlagwaffe	Th	A
 Einhandschlagwaffe	Tm	S
+Einhandschlagwaffe	To	S
 Einhandschlagwaffe	Wa	S
+Einhandschlagwaffe	Wi	S
 Einhandschlagwaffe	dBe	A
 Einhandschlagwaffe	eBe	A
 Einhandschlagwaffe	gHx	A
@@ -221,6 +237,7 @@ Einhandschwert	Dr	A
 Einhandschwert	Er	S
 Einhandschwert	Fi	S
 Einhandschwert	Gl	S
+Einhandschwert	Hj	S
 Einhandschwert	Hl	A
 Einhandschwert	Hä	S
 Einhandschwert	Kd	S
@@ -250,10 +267,13 @@ Einhandschwert	Se	S
 Einhandschwert	Sk	S
 Einhandschwert	Sp	S
 Einhandschwert	Sr	S
+Einhandschwert	Sw	S
 Einhandschwert	Sö	G
 Einhandschwert	Th	A
 Einhandschwert	Tm	S
+Einhandschwert	To	S
 Einhandschwert	Wa	S
+Einhandschwert	Wi	S
 Einhandschwert	dBe	A
 Einhandschwert	eBe	A
 Einhandschwert	gHx	A
@@ -269,6 +289,7 @@ Fesselwaffe	Dr	A
 Fesselwaffe	Er	S
 Fesselwaffe	Fi	S
 Fesselwaffe	Gl	S
+Fesselwaffe	Hj	S
 Fesselwaffe	Hl	A
 Fesselwaffe	Hä	S
 Fesselwaffe	Kd	S
@@ -298,10 +319,13 @@ Fesselwaffe	Se	S
 Fesselwaffe	Sk	S
 Fesselwaffe	Sp	S
 Fesselwaffe	Sr	S
+Fesselwaffe	Sw	S
 Fesselwaffe	Sö	S
 Fesselwaffe	Th	A
 Fesselwaffe	Tm	S
+Fesselwaffe	To	S
 Fesselwaffe	Wa	S
+Fesselwaffe	Wi	S
 Fesselwaffe	dBe	A
 Fesselwaffe	eBe	A
 Fesselwaffe	gHx	A
@@ -317,6 +341,7 @@ Garotte	Dr	A
 Garotte	Er	S
 Garotte	Fi	S
 Garotte	Gl	S
+Garotte	Hj	S
 Garotte	Hl	A
 Garotte	Hä	S
 Garotte	Kd	S
@@ -346,10 +371,13 @@ Garotte	Se	S
 Garotte	Sk	S
 Garotte	Sp	G
 Garotte	Sr	S
+Garotte	Sw	S
 Garotte	Sö	S
 Garotte	Th	A
 Garotte	Tm	S
+Garotte	To	S
 Garotte	Wa	S
+Garotte	Wi	S
 Garotte	dBe	A
 Garotte	eBe	A
 Garotte	gHx	A
@@ -365,6 +393,7 @@ Kampf ohne Waffen	Dr	A
 Kampf ohne Waffen	Er	S
 Kampf ohne Waffen	Fi	S
 Kampf ohne Waffen	Gl	S
+Kampf ohne Waffen	Hj	S
 Kampf ohne Waffen	Hl	A
 Kampf ohne Waffen	Hä	S
 Kampf ohne Waffen	Kd	S
@@ -394,10 +423,13 @@ Kampf ohne Waffen	Se	S
 Kampf ohne Waffen	Sk	S
 Kampf ohne Waffen	Sp	S
 Kampf ohne Waffen	Sr	S
+Kampf ohne Waffen	Sw	S
 Kampf ohne Waffen	Sö	G
 Kampf ohne Waffen	Th	A
 Kampf ohne Waffen	Tm	S
+Kampf ohne Waffen	To	S
 Kampf ohne Waffen	Wa	S
+Kampf ohne Waffen	Wi	S
 Kampf ohne Waffen	dBe	A
 Kampf ohne Waffen	eBe	A
 Kampf ohne Waffen	gHx	A
@@ -413,6 +445,7 @@ Kampfstab	Dr	A
 Kampfstab	Er	S
 Kampfstab	Fi	S
 Kampfstab	Gl	S
+Kampfstab	Hj	S
 Kampfstab	Hl	A
 Kampfstab	Hä	S
 Kampfstab	Kd	S
@@ -442,10 +475,13 @@ Kampfstab	Se	S
 Kampfstab	Sk	S
 Kampfstab	Sp	S
 Kampfstab	Sr	S
+Kampfstab	Sw	S
 Kampfstab	Sö	G
 Kampfstab	Th	A
 Kampfstab	Tm	S
+Kampfstab	To	S
 Kampfstab	Wa	S
+Kampfstab	Wi	S
 Kampfstab	dBe	A
 Kampfstab	eBe	A
 Kampfstab	gHx	A
@@ -461,6 +497,7 @@ Kettenwaffe	Dr	A
 Kettenwaffe	Er	S
 Kettenwaffe	Fi	S
 Kettenwaffe	Gl	S
+Kettenwaffe	Hj	S
 Kettenwaffe	Hl	A
 Kettenwaffe	Hä	S
 Kettenwaffe	Kd	S
@@ -490,10 +527,13 @@ Kettenwaffe	Se	S
 Kettenwaffe	Sk	S
 Kettenwaffe	Sp	S
 Kettenwaffe	Sr	S
+Kettenwaffe	Sw	S
 Kettenwaffe	Sö	G
 Kettenwaffe	Th	A
 Kettenwaffe	Tm	S
+Kettenwaffe	To	S
 Kettenwaffe	Wa	S
+Kettenwaffe	Wi	S
 Kettenwaffe	dBe	A
 Kettenwaffe	eBe	A
 Kettenwaffe	gHx	A
@@ -509,6 +549,7 @@ Kharrata	Dr	A
 Kharrata	Er	S
 Kharrata	Fi	S
 Kharrata	Gl	S
+Kharrata	Hj	S
 Kharrata	Hl	A
 Kharrata	Hä	S
 Kharrata	Kd	S
@@ -536,10 +577,13 @@ Kharrata	Se	S
 Kharrata	Sk	S
 Kharrata	Sp	S
 Kharrata	Sr	S
+Kharrata	Sw	S
 Kharrata	Sö	S
 Kharrata	Th	A
 Kharrata	Tm	S
+Kharrata	To	S
 Kharrata	Wa	S
+Kharrata	Wi	S
 Kharrata	dBe	A
 Kharrata	eBe	A
 Kharrata	gHx	A
@@ -555,6 +599,7 @@ Lasso	Dr	A
 Lasso	Er	S
 Lasso	Fi	S
 Lasso	Gl	S
+Lasso	Hj	S
 Lasso	Hl	A
 Lasso	Hä	S
 Lasso	Kd	S
@@ -582,10 +627,13 @@ Lasso	Se	S
 Lasso	Sk	S
 Lasso	Sp	S
 Lasso	Sr	S
+Lasso	Sw	S
 Lasso	Sö	G
 Lasso	Th	A
 Lasso	Tm	S
+Lasso	To	S
 Lasso	Wa	S
+Lasso	Wi	S
 Lasso	dBe	A
 Lasso	eBe	A
 Lasso	gHx	A
@@ -601,6 +649,7 @@ Namisritra	Dr	A
 Namisritra	Er	S
 Namisritra	Fi	S
 Namisritra	Gl	S
+Namisritra	Hj	S
 Namisritra	Hl	A
 Namisritra	Hä	S
 Namisritra	Kd	S
@@ -628,10 +677,13 @@ Namisritra	Se	S
 Namisritra	Sk	S
 Namisritra	Sp	S
 Namisritra	Sr	S
+Namisritra	Sw	S
 Namisritra	Sö	S
 Namisritra	Th	A
 Namisritra	Tm	S
+Namisritra	To	S
 Namisritra	Wa	S
+Namisritra	Wi	S
 Namisritra	dBe	A
 Namisritra	eBe	A
 Namisritra	gHx	A
@@ -647,6 +699,7 @@ Netz	Dr	A
 Netz	Er	S
 Netz	Fi	S
 Netz	Gl	S
+Netz	Hj	S
 Netz	Hl	A
 Netz	Hä	S
 Netz	Kd	S
@@ -674,10 +727,13 @@ Netz	Se	S
 Netz	Sk	S
 Netz	Sp	S
 Netz	Sr	S
+Netz	Sw	S
 Netz	Sö	G
 Netz	Th	A
 Netz	Tm	S
+Netz	To	S
 Netz	Wa	S
+Netz	Wi	S
 Netz	dBe	A
 Netz	eBe	A
 Netz	gHx	A
@@ -693,6 +749,7 @@ Parierwaffe	Dr	A
 Parierwaffe	Er	S
 Parierwaffe	Fi	S
 Parierwaffe	Gl	S
+Parierwaffe	Hj	S
 Parierwaffe	Hl	A
 Parierwaffe	Hä	S
 Parierwaffe	Kd	S
@@ -722,10 +779,13 @@ Parierwaffe	Se	S
 Parierwaffe	Sk	S
 Parierwaffe	Sp	S
 Parierwaffe	Sr	S
+Parierwaffe	Sw	S
 Parierwaffe	Sö	G
 Parierwaffe	Th	A
 Parierwaffe	Tm	S
+Parierwaffe	To	S
 Parierwaffe	Wa	S
+Parierwaffe	Wi	S
 Parierwaffe	dBe	A
 Parierwaffe	eBe	A
 Parierwaffe	gHx	A
@@ -741,6 +801,7 @@ Peitsche	Dr	A
 Peitsche	Er	S
 Peitsche	Fi	S
 Peitsche	Gl	S
+Peitsche	Hj	S
 Peitsche	Hl	A
 Peitsche	Hä	G
 Peitsche	Kd	S
@@ -770,10 +831,13 @@ Peitsche	Se	S
 Peitsche	Sk	S
 Peitsche	Sp	S
 Peitsche	Sr	S
+Peitsche	Sw	S
 Peitsche	Sö	S
 Peitsche	Th	A
 Peitsche	Tm	S
+Peitsche	To	S
 Peitsche	Wa	S
+Peitsche	Wi	S
 Peitsche	dBe	A
 Peitsche	eBe	A
 Peitsche	gHx	A
@@ -789,6 +853,7 @@ Schild	Dr	A
 Schild	Er	S
 Schild	Fi	S
 Schild	Gl	S
+Schild	Hj	S
 Schild	Hl	A
 Schild	Hä	S
 Schild	Kd	S
@@ -818,10 +883,13 @@ Schild	Se	S
 Schild	Sk	S
 Schild	Sp	S
 Schild	Sr	S
+Schild	Sw	S
 Schild	Sö	G
 Schild	Th	A
 Schild	Tm	S
+Schild	To	S
 Schild	Wa	S
+Schild	Wi	S
 Schild	dBe	A
 Schild	eBe	A
 Schild	gHx	A
@@ -837,6 +905,7 @@ Schleuder	Dr	S
 Schleuder	Er	S
 Schleuder	Fi	S
 Schleuder	Gl	S
+Schleuder	Hj	S
 Schleuder	Hl	A
 Schleuder	Hä	S
 Schleuder	Kd	S
@@ -866,10 +935,13 @@ Schleuder	Se	S
 Schleuder	Sk	S
 Schleuder	Sp	S
 Schleuder	Sr	S
+Schleuder	Sw	S
 Schleuder	Sö	G
 Schleuder	Th	A
 Schleuder	Tm	S
+Schleuder	To	S
 Schleuder	Wa	S
+Schleuder	Wi	S
 Schleuder	dBe	A
 Schleuder	eBe	A
 Schleuder	gHx	A
@@ -885,6 +957,7 @@ Spießwaffe	Dr	A
 Spießwaffe	Er	S
 Spießwaffe	Fi	S
 Spießwaffe	Gl	S
+Spießwaffe	Hj	S
 Spießwaffe	Hl	A
 Spießwaffe	Hä	S
 Spießwaffe	Kd	S
@@ -914,10 +987,13 @@ Spießwaffe	Se	S
 Spießwaffe	Sk	S
 Spießwaffe	Sp	S
 Spießwaffe	Sr	S
+Spießwaffe	Sw	S
 Spießwaffe	Sö	G
 Spießwaffe	Th	A
 Spießwaffe	Tm	S
+Spießwaffe	To	S
 Spießwaffe	Wa	S
+Spießwaffe	Wi	S
 Spießwaffe	dBe	A
 Spießwaffe	eBe	A
 Spießwaffe	gHx	A
@@ -933,6 +1009,7 @@ Stangenwaffe	Dr	A
 Stangenwaffe	Er	S
 Stangenwaffe	Fi	S
 Stangenwaffe	Gl	S
+Stangenwaffe	Hj	S
 Stangenwaffe	Hl	A
 Stangenwaffe	Hä	S
 Stangenwaffe	Kd	S
@@ -962,10 +1039,13 @@ Stangenwaffe	Se	S
 Stangenwaffe	Sk	S
 Stangenwaffe	Sp	S
 Stangenwaffe	Sr	S
+Stangenwaffe	Sw	S
 Stangenwaffe	Sö	G
 Stangenwaffe	Th	A
 Stangenwaffe	Tm	S
+Stangenwaffe	To	S
 Stangenwaffe	Wa	S
+Stangenwaffe	Wi	S
 Stangenwaffe	dBe	A
 Stangenwaffe	eBe	A
 Stangenwaffe	gHx	A
@@ -981,6 +1061,7 @@ Stichwaffe	Dr	A
 Stichwaffe	Er	S
 Stichwaffe	Fi	S
 Stichwaffe	Gl	S
+Stichwaffe	Hj	S
 Stichwaffe	Hl	A
 Stichwaffe	Hä	S
 Stichwaffe	Kd	S
@@ -1010,10 +1091,13 @@ Stichwaffe	Se	S
 Stichwaffe	Sk	S
 Stichwaffe	Sp	S
 Stichwaffe	Sr	S
+Stichwaffe	Sw	S
 Stichwaffe	Sö	G
 Stichwaffe	Th	A
 Stichwaffe	Tm	S
+Stichwaffe	To	S
 Stichwaffe	Wa	S
+Stichwaffe	Wi	S
 Stichwaffe	dBe	A
 Stichwaffe	eBe	A
 Stichwaffe	gHx	A
@@ -1029,6 +1113,7 @@ Stielwurfwaffe	Dr	A
 Stielwurfwaffe	Er	S
 Stielwurfwaffe	Fi	S
 Stielwurfwaffe	Gl	S
+Stielwurfwaffe	Hj	S
 Stielwurfwaffe	Hl	A
 Stielwurfwaffe	Hä	S
 Stielwurfwaffe	Kd	S
@@ -1058,10 +1143,13 @@ Stielwurfwaffe	Se	S
 Stielwurfwaffe	Sk	S
 Stielwurfwaffe	Sp	S
 Stielwurfwaffe	Sr	S
+Stielwurfwaffe	Sw	S
 Stielwurfwaffe	Sö	G
 Stielwurfwaffe	Th	A
 Stielwurfwaffe	Tm	S
+Stielwurfwaffe	To	S
 Stielwurfwaffe	Wa	S
+Stielwurfwaffe	Wi	S
 Stielwurfwaffe	dBe	A
 Stielwurfwaffe	eBe	A
 Stielwurfwaffe	gHx	A
@@ -1077,6 +1165,7 @@ Werfen	Dr	A
 Werfen	Er	S
 Werfen	Fi	S
 Werfen	Gl	G
+Werfen	Hj	S
 Werfen	Hl	A
 Werfen	Hä	S
 Werfen	Kd	S
@@ -1106,10 +1195,13 @@ Werfen	Se	G
 Werfen	Sk	S
 Werfen	Sp	G
 Werfen	Sr	S
+Werfen	Sw	S
 Werfen	Sö	G
 Werfen	Th	S
 Werfen	Tm	S
+Werfen	To	S
 Werfen	Wa	S
+Werfen	Wi	S
 Werfen	dBe	A
 Werfen	eBe	A
 Werfen	gHx	A
@@ -1125,6 +1217,7 @@ Wurfmesser	Dr	A
 Wurfmesser	Er	S
 Wurfmesser	Fi	S
 Wurfmesser	Gl	S
+Wurfmesser	Hj	S
 Wurfmesser	Hl	A
 Wurfmesser	Hä	S
 Wurfmesser	Kd	S
@@ -1154,10 +1247,13 @@ Wurfmesser	Se	S
 Wurfmesser	Sk	S
 Wurfmesser	Sp	S
 Wurfmesser	Sr	S
+Wurfmesser	Sw	S
 Wurfmesser	Sö	G
 Wurfmesser	Th	A
 Wurfmesser	Tm	S
+Wurfmesser	To	S
 Wurfmesser	Wa	S
+Wurfmesser	Wi	S
 Wurfmesser	dBe	A
 Wurfmesser	eBe	A
 Wurfmesser	gHx	A
@@ -1173,6 +1269,7 @@ Wurfpfeil	Dr	A
 Wurfpfeil	Er	S
 Wurfpfeil	Fi	S
 Wurfpfeil	Gl	S
+Wurfpfeil	Hj	S
 Wurfpfeil	Hl	A
 Wurfpfeil	Hä	S
 Wurfpfeil	Kd	S
@@ -1202,10 +1299,13 @@ Wurfpfeil	Se	S
 Wurfpfeil	Sk	S
 Wurfpfeil	Sp	S
 Wurfpfeil	Sr	S
+Wurfpfeil	Sw	S
 Wurfpfeil	Sö	G
 Wurfpfeil	Th	A
 Wurfpfeil	Tm	S
+Wurfpfeil	To	S
 Wurfpfeil	Wa	S
+Wurfpfeil	Wi	S
 Wurfpfeil	dBe	A
 Wurfpfeil	eBe	A
 Wurfpfeil	gHx	A
@@ -1221,6 +1321,7 @@ Wurfscheibe	Dr	A
 Wurfscheibe	Er	S
 Wurfscheibe	Fi	S
 Wurfscheibe	Gl	S
+Wurfscheibe	Hj	S
 Wurfscheibe	Hl	A
 Wurfscheibe	Hä	S
 Wurfscheibe	Kd	S
@@ -1250,10 +1351,13 @@ Wurfscheibe	Se	S
 Wurfscheibe	Sk	S
 Wurfscheibe	Sp	S
 Wurfscheibe	Sr	S
+Wurfscheibe	Sw	S
 Wurfscheibe	Sö	S
 Wurfscheibe	Th	A
 Wurfscheibe	Tm	S
+Wurfscheibe	To	S
 Wurfscheibe	Wa	S
+Wurfscheibe	Wi	S
 Wurfscheibe	dBe	A
 Wurfscheibe	eBe	A
 Wurfscheibe	gHx	A
@@ -1269,6 +1373,7 @@ Wurfspieß	Dr	A
 Wurfspieß	Er	S
 Wurfspieß	Fi	S
 Wurfspieß	Gl	S
+Wurfspieß	Hj	S
 Wurfspieß	Hl	A
 Wurfspieß	Hä	S
 Wurfspieß	Kd	S
@@ -1298,10 +1403,13 @@ Wurfspieß	Se	S
 Wurfspieß	Sk	S
 Wurfspieß	Sp	S
 Wurfspieß	Sr	S
+Wurfspieß	Sw	S
 Wurfspieß	Sö	G
 Wurfspieß	Th	A
 Wurfspieß	Tm	S
+Wurfspieß	To	S
 Wurfspieß	Wa	S
+Wurfspieß	Wi	S
 Wurfspieß	dBe	A
 Wurfspieß	eBe	A
 Wurfspieß	gHx	A
@@ -1309,6 +1417,7 @@ Wurfspieß	sHx	A
 Wurfspieß	wHx	A
 Zauberstäbe	De	S
 Zauberstäbe	Dr	S
+Zauberstäbe	Hj	A
 Zauberstäbe	Hl	S
 Zauberstäbe	Ma	S
 Zauberstäbe	Or	A
@@ -1325,8 +1434,10 @@ Zauberstäbe	Sa	S
 Zauberstäbe	ScN	S
 Zauberstäbe	ScS	S
 Zauberstäbe	ScW	S
+Zauberstäbe	Sw	S
 Zauberstäbe	Th	S
 Zauberstäbe	Tm	A
+Zauberstäbe	Wi	A
 Zauberstäbe	dBe	S
 Zauberstäbe	eBe	S
 Zauberstäbe	gHx	S
@@ -1342,6 +1453,7 @@ Zweihandschlagwaffe	Dr	A
 Zweihandschlagwaffe	Er	S
 Zweihandschlagwaffe	Fi	S
 Zweihandschlagwaffe	Gl	S
+Zweihandschlagwaffe	Hj	S
 Zweihandschlagwaffe	Hl	A
 Zweihandschlagwaffe	Hä	S
 Zweihandschlagwaffe	Kd	S
@@ -1371,10 +1483,13 @@ Zweihandschlagwaffe	Se	S
 Zweihandschlagwaffe	Sk	S
 Zweihandschlagwaffe	Sp	S
 Zweihandschlagwaffe	Sr	S
+Zweihandschlagwaffe	Sw	S
 Zweihandschlagwaffe	Sö	G
 Zweihandschlagwaffe	Th	A
 Zweihandschlagwaffe	Tm	S
+Zweihandschlagwaffe	To	S
 Zweihandschlagwaffe	Wa	S
+Zweihandschlagwaffe	Wi	S
 Zweihandschlagwaffe	dBe	A
 Zweihandschlagwaffe	eBe	A
 Zweihandschlagwaffe	gHx	A
@@ -1390,6 +1505,7 @@ Zweihandschwert	Dr	A
 Zweihandschwert	Er	S
 Zweihandschwert	Fi	S
 Zweihandschwert	Gl	S
+Zweihandschwert	Hj	S
 Zweihandschwert	Hl	A
 Zweihandschwert	Hä	S
 Zweihandschwert	Kd	S
@@ -1419,10 +1535,13 @@ Zweihandschwert	Se	S
 Zweihandschwert	Sk	S
 Zweihandschwert	Sp	S
 Zweihandschwert	Sr	S
+Zweihandschwert	Sw	S
 Zweihandschwert	Sö	G
 Zweihandschwert	Th	A
 Zweihandschwert	Tm	S
+Zweihandschwert	To	S
 Zweihandschwert	Wa	S
+Zweihandschwert	Wi	S
 Zweihandschwert	dBe	A
 Zweihandschwert	eBe	A
 Zweihandschwert	gHx	A

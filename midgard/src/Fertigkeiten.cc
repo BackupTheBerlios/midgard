@@ -165,7 +165,8 @@ FertEnd:
 
 MidgardBasicElement::eZusatz Fertigkeit::ZusatzEnum(const vector<cH_Typen>& Typ) const
 {
-  if(Name()=="Abrichten" && (Typ[0]->Short()=="Tm" || Typ[1]->Short()=="Tm"))
+  if(Name()=="Abrichten" && (Typ[0]->Short()=="Tm" || Typ[1]->Short()=="Tm" ||
+                             Typ[0]->Short()=="Wi" || Typ[1]->Short()=="Wi"))
      return ZNone;
   return enum_zusatz;
 }

@@ -33,7 +33,6 @@ CREATE TABLE "fertigkeiten" (
 COPY "fertigkeiten" FROM stdin;
 1	1	1	4	Sprechen: Sprache(+4)	4	0	\N	\N	In	\N	\N	20	17	5
 1	\N	\N	4	Brettspiel	2	20	E	\N	In	\N	\N	18	18	\N
-1	\N	\N	5	4	4	400	E	\N	Zt	\N	\N	12	11	\N
 1	\N	\N	5	Pyromantie	4	400	E	\N	Zt	\N	1	12	11	\N
 1	\N	\N	\N	+1 KiDo-Technik	\N	0	K	\N	\N	\N	\N	18	18	\N
 1	\N	\N	\N	+1 KiDo-Technik 	\N	0	K	\N	\N	\N	\N	18	18	\N
