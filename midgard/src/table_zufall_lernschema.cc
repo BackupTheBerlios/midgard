@@ -164,6 +164,7 @@ void table_zufall::zeige_werte()
 
 void table_zufall::fill_combos()
 { // woher auch sonst diese Information sinnvoll nehmen ...
+#warning aus den Standardoptionen nehmen!!!
   bool nsc_allowed = true; // Programmoptionen.OptionenCheck(Optionen::NSC_only).active;
   std::list<std::string> L;
 
@@ -175,12 +176,14 @@ void table_zufall::fill_combos()
      L.push_back(i->first->Name(hauptfenster->getAben().Geschlecht()));
   combo_typ->set_popdown_strings(L);
 */
+std::cout << h->getChar()->getAbenteurer().Spezies()->Name() << " tz::fc 1a\n";
   // Spezies
   L.clear();
   std::vector<cH_Spezies> S=LernListen::getSpezies(nsc_allowed);
   for(std::vector<cH_Spezies>::const_iterator i=S.begin();i!=S.end();++i)
      L.push_back((*i)->Name());
  combo_spezies->set_popdown_strings(L);
+std::cout << h->getChar()->getAbenteurer().Spezies()->Name() << " tz::fc 1b\n";
 
   // Herkunft
   L.clear();

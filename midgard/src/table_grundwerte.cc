@@ -63,13 +63,11 @@ void table_grundwerte::zeige_werte(bool typ2_hide)
    if (hauptfenster->get_current_page()!=midgard_CG::PAGE_GRUNDWERTE) return;
    
    block_changed=true;
-std::cout << abentaus->getAbenteurer().Spezies()->Name() << " pre\n";
   fill_typauswahl();
 //   fill_spezies(); // sobald Mann/Frau interessant wird
    midgard_check_werte100();
    
    Abenteurer &A=abentaus->getAbenteurer();
-std::cout << A.Spezies()->Name() << " post\n";
 
    spinbutton_st->set_value(A.St());
    spinbutton_gw->set_value(A.Gw());

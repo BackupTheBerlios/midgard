@@ -26,11 +26,15 @@
 #include "Data_Prototyp.hh"
 #include "Datenbank.hh"
 
+#include <iostream> //kann wieder weg
+
 void table_zufall::init(midgard_CG *h)
 {
   hauptfenster=h;
   checkbutton_ange_fert->hide(); // nicht richtig implementiert
+std::cout << h->getChar()->getAbenteurer().Spezies()->Name() << " tz::i 1a\n";
   fill_combos();
+std::cout << h->getChar()->getAbenteurer().Spezies()->Name() << " tz::i 1b\n";
   fill_combo_steigern();
   fill_prototyp2_list();
   zeige_werte();
@@ -38,7 +42,7 @@ void table_zufall::init(midgard_CG *h)
 
 void table_zufall::fill_prototyp2_list()
 {
-  std::list<cH_Prototyp2> L=Datenbank.prototyp2;
+  const std::list<cH_Prototyp2> &L=Datenbank.prototyp2;
   std::vector<cH_RowDataBase> datavec;
   for(std::list<cH_Prototyp2>::const_iterator i=L.begin();i!=L.end();++i)
    {
