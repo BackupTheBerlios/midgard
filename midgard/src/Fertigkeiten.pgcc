@@ -31,6 +31,7 @@ cerr << '\n';
 cH_Fertigkeit::cH_Fertigkeit(const Tag *tag)
 {assert(tag);
  *this=cH_Fertigkeit(new Fertigkeit(tag));
+cerr << "cH_Fertigkeit::cH_Fertigkeit(" << tag->getAttr("Name") << ")\n";
  cache.Register(tag->getAttr("Name"),*this);
 }
 #endif

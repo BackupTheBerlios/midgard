@@ -1,4 +1,4 @@
-// $Id: xmlexport.cc,v 1.4 2002/01/05 07:46:51 christof Exp $
+// $Id: xmlexport.cc,v 1.5 2002/01/07 10:38:14 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -203,7 +203,7 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
    o << "  </Ausrüstung>\n";
    
    o << "  <Fertigkeiten>\n";   
-  {Query query2("select art, fertigkeit, wert, region, magisch, zauberwerk_stufe "
+  {Query query2("select art, fertigkeit, wert, region, av_bonus, magisch, zauberwerk_stufe "
    	"from charaktere_fertigkeiten "
    	"where charakter_name='"+name+"' and version='"+version+"' "
    	"and art!='Besitz_W' and art!='Ausrüstung' and art!='Ausruestung' "
@@ -219,6 +219,7 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
       fetch_and_write_int_attrib(is2, o, "Wert");
       // dies ist wahrscheinlich unnötig ...
       fetch_and_write_string_attrib(is2, o, "Region");
+      fetch_and_write_int_attrib(is2, o, "Praxispunkte");
       fetch_and_write_string_attrib(is2, o, "Art"); // Zauberwerk
       fetch_and_write_string_attrib(is2, o, "Stufe"); // Zauberwerk
       o << "/>\n";

@@ -1,4 +1,4 @@
-// $Id: export_common.cc,v 1.5 2002/01/03 08:20:58 christof Exp $
+// $Id: export_common.cc,v 1.6 2002/01/07 10:38:14 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -139,7 +139,7 @@ double fetch_and_write_float_attrib(FetchIStream &is,std::ostream &o,const std::
 
  void write_bool_attrib(std::ostream &o,const std::string &wert,bool val, bool standard=false)
 {  if (val==standard) return;
-   o << ' ' << wert << "=\"" << (val?"True":"False") << '\"';
+   o << ' ' << wert << "=\"" << (val?"true":"false") << '\"';
 }
 
  bool fetch_and_write_bool_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,const bool &standard=false)
