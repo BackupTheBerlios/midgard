@@ -1,4 +1,4 @@
-// $Id: LaTeX_zauber.cc,v 1.47 2002/04/03 10:17:15 thoma Exp $
+// $Id: LaTeX_zauber.cc,v 1.48 2002/04/22 07:48:53 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,26 +22,33 @@
 #include "Zauber.hh"
 #include "Zauberwerk.hh"
 
+#ifdef __MINGW32__
+std::string utf82iso(const std::string &s);
+#define LATIN(x) utf82iso(x)
+#else
+#define LATIN(x) (x)
+#endif
+
 void midgard_CG::LaTeX_zauber(ostream &fout)
 {
   for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Zauber.begin();i!=list_Zauber.end();++i)
    {
      cH_Zauber z(*i);
-     fout << z->Name() ;
-     if(z->Zusatz()!="") fout << " ("<<z->Zusatz()<<")";
+     fout << LATIN(z->Name()) ;
+     if(!z->Zusatz().empty()) fout << " ("<<LATIN(z->Zusatz())<<")";
      fout <<" & ";
      fout << z->Erfolgswert_Z(Typ,Werte) <<" & ";
-     fout << Gtk2TeX::string2TeX(z->Ap()) << " & ";
-     fout << z->Art() << " & ";
+     fout << Gtk2TeX::string2TeX(LATIN(z->Ap())) << " & ";
+     fout << LATIN(z->Art()) << " & ";
      fout << z->Stufe() << " & ";
-     fout << z->Zauberdauer() << " & ";
-     fout << z->Reichweite() << " & ";
-     fout << z->Wirkungsziel() << " & ";
-     fout << z->Wirkungsbereich() << " & ";
-     fout << z->Wirkungsdauer() << " & ";
-     fout << z->Ursprung() << " & " ;
-     fout << LaTeX_scale(z->Material(),20,"3cm") << " & " ;
-     fout << z->Agens() <<" " <<z->Prozess() <<" "<<z->Reagens() ;
+     fout << LATIN(z->Zauberdauer()) << " & ";
+     fout << LATIN(z->Reichweite()) << " & ";
+     fout << LATIN(z->Wirkungsziel()) << " & ";
+     fout << LATIN(z->Wirkungsbereich()) << " & ";
+     fout << LATIN(z->Wirkungsdauer()) << " & ";
+     fout << LATIN(z->Ursprung()) << " & " ;
+     fout << LaTeX_scale(LATIN(z->Material()),20,"3cm") << " & " ;
+     fout << LATIN(z->Agens()) <<" " <<LATIN(z->Prozess()) <<" "<<LATIN(z->Reagens()) ;
      fout << "\\\\\n";
    }
 }
@@ -53,11 +60,11 @@ void midgard_CG::LaTeX_zaubermittel(ostream &fout)
      cH_Zauberwerk z(*i);
 //     std::string wert ;//= itos((*i)->Wert());
 //     fout << wert <<" & ";
-     fout << z->Name()  <<" & ";
-     fout << z->Art()   <<" & ";
+     fout << LATIN(z->Name())  <<" & ";
+     fout << LATIN(z->Art())   <<" & ";
      fout << z->Stufe()   <<" & ";
-     fout << z->Zeitaufwand()  <<" & ";
-     fout << z->Preis()   <<" \\\\\n ";
+     fout << LATIN(z->Zeitaufwand())  <<" & ";
+     fout << LATIN(z->Preis())   <<" \\\\\n ";
    }
 }
 

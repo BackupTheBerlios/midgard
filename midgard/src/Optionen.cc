@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.16 2002/04/22 07:36:44 thoma Exp $
+// $Id: Optionen.cc,v 1.17 2002/04/22 07:48:53 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -281,7 +281,7 @@ void Midgard_Optionen::pdfViewer_init()
         path=path.substr(0, path.size()-3);
      else if (path.size()>5 && path.substr(path.size()-5)==" \"%1\"") 
         path=path.substr(0, path.size()-5);
-     setString(pdfViewer,path);
+     setString(pdf_viewer,path);
    }
   
 #endif

@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.114 2002/04/17 09:04:02 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.115 2002/04/22 07:48:53 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,6 +24,12 @@
 #include "Waffe.hh"
 #include "Fertigkeiten_angeboren.hh"
 
+#ifdef __MINGW32__
+std::string utf82iso(const std::string &s);
+#define LATIN(x) utf82iso(x)
+#else
+#define LATIN(x) (x)
+#endif
 
 gint midgard_CG::on_latex_release_event(GdkEventButton *ev)
 {
@@ -79,7 +85,7 @@ void midgard_CG::LaTeX_write_values(ostream &fout,const std::string &install_lat
     if (Typ[1]->Name(Werte.Geschlecht())!="") 
       styp += "/"+Typ[1]->Name(Werte.Geschlecht());
   }
- fout << "\\newcommand{\\typ}{"<< LaTeX_scale(styp,10,"2.2cm") << "}\n";
+ fout << "\\newcommand{\\typ}{"<< LaTeX_scale(LATIN(styp),10,"2.2cm") << "}\n";
  fout << "\\newcommand{\\st}{"  <<Werte.St() << "}\n";
  fout << "\\newcommand{\\gs}{" <<Werte.Gs() << "}\n";
  fout << "\\newcommand{\\gw}{"  << Werte.Gw() ;
@@ -122,7 +128,7 @@ void midgard_CG::LaTeX_write_values(ostream &fout,const std::string &install_lat
  fout << "\\newcommand{\\sinnt}{"<<Werte.Tasten()<< "}\n";
  fout << "\\newcommand{\\sinnss}{"<<Werte.SechsterSinn()<< "}\n";
  
- fout << "\\newcommand{\\hand}{"<<Werte.Hand()<< "}\n";
+ fout << "\\newcommand{\\hand}{"<<LATIN(Werte.Hand())<< "}\n";
 
 
 
@@ -153,17 +159,17 @@ void midgard_CG::LaTeX_write_values(ostream &fout,const std::string &install_lat
  fout << "\\newcommand{\\zauber}{"<<EmptyInt_4TeX(Werte.Zaubern_wert())<< "}\n";
  fout << "\\newcommand{\\ppzauber}{"<<EmptyInt_4TeX(Werte.ZaubernPP())<< "}\n";
  fout << "\\newcommand{\\alter}{"  <<Werte.Alter() << "}\n";
- fout << "\\newcommand{\\gestalt}{"  <<LaTeX_scale(Werte.Gestalt(),5,"0.7cm") << "}\n";
+ fout << "\\newcommand{\\gestalt}{"  <<LaTeX_scale(LATIN(Werte.Gestalt()),5,"0.7cm") << "}\n";
  fout << "\\newcommand{\\gewicht}{"  <<Werte.Gewicht() << "\\,kg}\n";
  fout << "\\newcommand{\\koerpergroesse}{"  <<Werte.Groesse()/100. << "\\,m}\n";
- fout << "\\newcommand{\\koerpergroessebez}{"  <<Werte.GroesseBez() << "}\n";
+ fout << "\\newcommand{\\koerpergroessebez}{"  <<LATIN(Werte.GroesseBez()) << "}\n";
  fout << "\\newcommand{\\grad}{"  <<Werte.Grad() << "}\n";
- fout << "\\newcommand{\\spezialisierung}{ "  <<LaTeX_scale(Werte.Spezialisierung(),10,"2.2cm") << "}\n";
+ fout << "\\newcommand{\\spezialisierung}{ "  <<LaTeX_scale(LATIN(Werte.Spezialisierung()),10,"2.2cm") << "}\n";
  fout << "\\newcommand{\\stand}{"  <<LaTeX_scale(Werte.Stand(),10,"1.5cm") << "}\n";
- fout << "\\newcommand{\\herkunft}{"  <<LaTeX_scale(Werte.Herkunft()->Name(),10,"2.2cm") << "}\n";
- fout << "\\newcommand{\\glaube}{"  <<LaTeX_scale(Werte.Glaube(),10,"2.5cm") << "}\n";
- fout << "\\newcommand{\\namecharakter}{" << LaTeX_scale(Werte.Name_Abenteurer(),25,"4.5cm") << "}\n";
- fout << "\\newcommand{\\namespieler}{" << LaTeX_scale(Werte.Name_Spieler(),25,"4.5cm") << "}\n";
+ fout << "\\newcommand{\\herkunft}{"  <<LaTeX_scale(LATIN(Werte.Herkunft()->Name()),10,"2.2cm") << "}\n";
+ fout << "\\newcommand{\\glaube}{"  <<LaTeX_scale(LATIN(Werte.Glaube()),10,"2.5cm") << "}\n";
+ fout << "\\newcommand{\\namecharakter}{" << LaTeX_scale(LATIN(Werte.Name_Abenteurer()),25,"4.5cm") << "}\n";
+ fout << "\\newcommand{\\namespieler}{" << LaTeX_scale(LATIN(Werte.Name_Spieler()),25,"4.5cm") << "}\n";
  fout << "\\newcommand{\\gfp}{\\tiny "  <<EmptyInt_4TeX(Werte.GFP()) << "}\n";
  fout << "\\newcommand{\\aep}{\\tiny "  <<EmptyInt_4TeX(Werte.KEP()) << "}\n";
  fout << "\\newcommand{\\kep}{\\tiny "  <<EmptyInt_4TeX(Werte.ZEP()) << "}\n";
@@ -172,7 +178,7 @@ void midgard_CG::LaTeX_write_values(ostream &fout,const std::string &install_lat
  double geld = Werte.Gold() + Werte.Silber()/10. + Werte.Kupfer()/100.;
  fout << "\\newcommand{\\gold}{\\tiny "  << geld << "}\n";
 
- fout << "\\newcommand{\\ruestung}{\\scriptsize "  <<Werte.Ruestung()->Name() << "}\n";
+ fout << "\\newcommand{\\ruestung}{\\scriptsize "  <<LATIN(Werte.Ruestung()->Name()) << "}\n";
 // fout << "\\newcommand{\\ruestunglp}{\\scriptsize "  <<midgard_CG::ruestung("LP") << "}\n";
  fout << "\\newcommand{\\ruestunglp}{\\scriptsize "  <<Werte.Ruestung()->LP_Verlust() << "}\n";
 
@@ -187,7 +193,7 @@ void midgard_CG::LaTeX_write_values(ostream &fout,const std::string &install_lat
       verwandteSprachen.splice(verwandteSprachen.end(),tmplist);
 //geht nicht!!!      verwandteSprachen.splice(verwandteSprachen.end(),s->VerwandteSprachen(list_Sprache,Database.Sprache));
       std::string a = LaTeX_string(sprachanz++);
-      fout << "\\newcommand{\\spra"<<a<<"}{\\scriptsize " << LaTeX_scale(s->Name(),20,"2.6cm") <<"}\n";
+      fout << "\\newcommand{\\spra"<<a<<"}{\\scriptsize " << LaTeX_scale(LATIN(s->Name()),20,"2.6cm") <<"}\n";
       fout << "\\newcommand{\\spraw"<<a<<"}{\\scriptsize +"<< s->Erfolgswert() <<"}\n";
       vector<pair<std::string,int> > vs=s->SchriftWert(list_Schrift);
       std::string ss;
@@ -196,14 +202,14 @@ void midgard_CG::LaTeX_write_values(ostream &fout,const std::string &install_lat
          ss+= j->first + "(+"+itos(j->second)+")";
          if(++j!=vs.end())  ss+=", ";
        }
-      fout << "\\newcommand{\\schr"<<a<<"}{\\scriptsize "<< LaTeX_scale(ss,20,"2.6cm") <<"}\n";
+      fout << "\\newcommand{\\schr"<<a<<"}{\\scriptsize "<< LaTeX_scale(LATIN(ss),20,"2.6cm") <<"}\n";
    }
  verwandteSprachen=Sprache::cleanVerwandteSprachen(verwandteSprachen);
  for(std::list<cH_MidgardBasicElement>::const_iterator i=verwandteSprachen.begin();i!=verwandteSprachen.end();++i)
    { cH_Sprache s(*i);
      if(s->ist_gelernt(list_Sprache)) continue;
      std::string a = LaTeX_string(sprachanz++);
-     fout << "\\newcommand{\\spra"<<a<<"}{\\scriptsize " << LaTeX_scale(s->Name(),20,"2.6cm") <<"}\n";
+     fout << "\\newcommand{\\spra"<<a<<"}{\\scriptsize " << LaTeX_scale(LATIN(s->Name()),20,"2.6cm") <<"}\n";
      fout << "\\newcommand{\\spraw"<<a<<"}{\\scriptsize (+"<< s->Erfolgswert() <<")}\n";
      fout << "\\newcommand{\\schr"<<a<<"}{\\scriptsize "<< LaTeX_scale("",20,"2.6cm") <<"}\n";
    }
@@ -235,14 +241,14 @@ void midgard_CG::LaTeX_write_values(ostream &fout,const std::string &install_lat
  for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Beruf.begin();
          i!=list_Beruf.end();++i)
    {
-     fout << (*i)->Name(); //<<" ("<<(*i)->Erfolgswert()<<")\t";
+     fout << LATIN((*i)->Name()); //<<" ("<<(*i)->Erfolgswert()<<")\t";
    }
  fout <<"}\n";
  /////////////////////////////////////////////////////////////////////////////
  // weitere Merkmale
  fout << "\\newcommand{\\merkmale}{" ;
  if(Werte.Spezies()->Name()!="Mensch") 
-     fout << Werte.Spezies()->Name(); 
+     fout << LATIN(Werte.Spezies()->Name()); 
  fout <<"}\n";
  /////////////////////////////////////////////////////////////////////////////
  // Fertigkeiten & Waffen
@@ -253,7 +259,7 @@ void midgard_CG::LaTeX_write_values(ostream &fout,const std::string &install_lat
    {cH_Fertigkeit_angeborene f(*i);
     std::string a = LaTeX_string(count);
     count++;
-    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<f->Name() << "}   ";
+    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<LATIN(f->Name()) << "}   ";
     // Praxispunkte
     std::string pp = itos(f->Praxispunkte());
     if (pp == "0") pp = "";
@@ -271,8 +277,8 @@ void midgard_CG::LaTeX_write_values(ostream &fout,const std::string &install_lat
     count++;
     std::string wert = itos(f->Erfolgswert());
     if (wert == "0") wert = "";
-    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<f->Name()<<
-      ' '<<f->Zusatz() << "}\t\t";
+    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<LATIN(f->Name())<<
+      ' '<<LATIN(f->Zusatz()) << "}\t\t";
     // Praxispunkte
     std::string pp = itos(f->Praxispunkte());
     if (pp == "0") pp = "";
@@ -301,7 +307,7 @@ void midgard_CG::LaTeX_write_values(ostream &fout,const std::string &install_lat
     std::string a = LaTeX_string(count);
 //std::cout << "latexstring = "<<a<<"\n";
     std::string wert = itos(w->Erfolgswert());
-    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<w->Name() << "}\t\t";
+    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<LATIN(w->Name()) << "}\t\t";
     // Praxispunkte
     std::string pp = itos(w->Praxispunkte());
     if (pp == "0") pp = "";
@@ -322,7 +328,7 @@ void midgard_CG::LaTeX_write_values(ostream &fout,const std::string &install_lat
          fout << "\\newcommand{\\waffe"<<b<<"}{ " ;
          if (WB->Magisch()!="" || 
             (WB->av_Bonus()!=0 && WB->sl_Bonus()!=0)) waffenname+="$^*$ "+WB->Bonus() ;
-         fout <<LaTeX_scalemag(waffenname,20,"3cm",WB->Magisch(),WB->Waffe()->Reichweite())<< "}\n";
+         fout <<LaTeX_scalemag(LATIN(waffenname),20,"3cm",WB->Magisch(),WB->Waffe()->Reichweite())<< "}\n";
          
          // Erfolgswert für einen Verteidigungswaffen
          if (WB->Waffe()->Verteidigung())
@@ -400,7 +406,7 @@ void midgard_CG::LaTeX_write_values(ostream &fout,const std::string &install_lat
     else
      {
        ++countunifert;
-       fout <<"\\newcommand{\\uni"<<a<<"}{"<<name<< "}\t\t";
+       fout <<"\\newcommand{\\uni"<<a<<"}{"<<LATIN(name)<< "}\t\t";
        if (voraussetzung)
           fout << "\\newcommand{\\uniw"<<a<<"}{("<<wert << ")}\n";
        else
@@ -586,7 +592,7 @@ void midgard_CG::LaTeX_write_empty_values(ostream &fout,const std::string &insta
         wert = "+4";
       }
 //    f->set_Erfolgswert(f->Ungelernt());
-    fout <<"\\newcommand{\\uni"<<a<<"}{\\tiny "<<name<< "}\t\t";
+    fout <<"\\newcommand{\\uni"<<a<<"}{\\tiny "<<LATIN(name)<< "}\t\t";
     fout << "\\newcommand{\\uniw"<<a<<"}{("<<wert << ")}\n";
   } 
 
