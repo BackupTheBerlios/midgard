@@ -104,7 +104,6 @@
 	_ZNK4sigc7signal1IvPvNS_3nilEE4emitERKS1_ 
 	_ZNSt10_List_baseIN4sigc9slot_baseESaIS1_EE7__clearEv 
 	_ZNSt10_List_baseISsSaISsEED2Ev 
-	_ZNSt4listISsSaISsEE5eraseESt14_List_iteratorISsRSsPSsE 
 	_ZNSt4listISsSaISsEEaSERKS1_ 
 	_ZNSt4pairIK9cH_Region9ModelPlexIbEED1Ev 
 	_ZNSt8_Rb_treeISsSt4pairIKSsbESt10_Select1stIS2_ESt4lessISsESaIS2_EED1Ev 
