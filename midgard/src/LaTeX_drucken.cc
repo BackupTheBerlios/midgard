@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.94 2003/06/04 08:35:29 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.95 2003/06/10 08:11:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -399,7 +399,7 @@ void LaTeX_drucken::write_grundwerte(std::ostream &fout,bool empty)
      case esinnr  : sfout += itos0p(W.Riechen(),0,true   ); break ;
      case esinnsc : sfout += itos0p(W.Schmecken(),0,true ); break ;
      case esinnt  : sfout += itos0p(W.Tasten(),0,true    ); break ;
-     case esinnss : sfout += itos0p(W.SechsterSinn(),0,true); break ;
+     case esinnss : sfout += itos0p(W.SechsterSinn(),-1,true); break ;
      default : sfout += "XXX"; break;
     }
    }
