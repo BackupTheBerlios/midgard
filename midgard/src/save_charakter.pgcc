@@ -72,6 +72,7 @@ void midgard_CG::on_speichern_clicked()
       int db_aep,db_kep,db_zep;
       bool db_steigern_bool;
       int db_steigern_EP;
+      int db_grad_basiswerte;
    exec sql end declare section;
 
 
@@ -116,6 +117,7 @@ void midgard_CG::on_speichern_clicked()
       db_zep = Werte.ZEP();
       db_steigern_bool = steigern_bool;
       db_steigern_EP = steigern_EP_prozent;
+      db_grad_basiswerte = grad_basiswerte;
 
 //   strncpy(db_beschreibung,Werte.beschreibung.c_str(),sizeof(db_beschreibung));
    db_beschreibung = (char *) (Werte.Beschreibung()).c_str();
@@ -188,7 +190,8 @@ void midgard_CG::on_speichern_clicked()
       kep            = :db_kep,
       zep            = :db_zep,
       steigern_bool  = :db_steigern_bool,
-      steigern_EP_prozent  = :db_steigern_EP
+      steigern_EP_prozent  = :db_steigern_EP,
+      grad_basiswerte =:db_grad_basiswerte
       WHERE charakter_name = :db_name_ch ;
    SQLerror::test(__FILELINE__,100);
    if (sqlca.sqlcode==100) midgard_CG::charakter_db_anlegen();

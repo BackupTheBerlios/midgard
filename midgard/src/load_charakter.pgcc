@@ -96,6 +96,7 @@ void midgard_CG::load_charakter()
       int db_aep,db_kep,db_zep;
       bool db_steigern_bool;   
       int db_steigern_EP;      
+       int db_grad_basiswerte;
    exec sql end declare section;
 
  //  db_beschreibung=0; /* Ist nötig !!! */
@@ -157,7 +158,8 @@ void midgard_CG::load_charakter()
          ruestung    ,
          spezies  ,
          coalesce(aep,0), coalesce(kep,0),coalesce(zep,0),
-         coalesce(steigern_bool,'f'),coalesce(steigern_EP_prozent,50)
+         coalesce(steigern_bool,'f'),coalesce(steigern_EP_prozent,50),
+         coalesce(grad_basiswerte,1)
       FROM charaktere WHERE charakter_name= :db_name_ch
             AND version= :db_version;
 
@@ -217,7 +219,8 @@ void midgard_CG::load_charakter()
        :db_ruestung    ,
        :db_spezies     ,
        :db_aep,:db_kep,:db_zep  ,
-       :db_steigern_bool, :db_steigern_EP;
+       :db_steigern_bool, :db_steigern_EP,
+       :db_grad_basiswerte;
    SQLerror::test(__FILELINE__);
    exec sql close cha;
    Werte.set_Basiswerte(db_st,db_ge,db_ko,db_in,db_zt) ;    
@@ -241,6 +244,7 @@ void midgard_CG::load_charakter()
    Werte.set_EP(db_aep,db_kep,db_zep);
    steigern_bool=db_steigern_bool;
    steigern_EP_prozent=db_steigern_EP;
+   grad_basiswerte=db_grad_basiswerte;
 //////////////////////////////////////////////////////////////////////////////
    ///////////////////////////////////////////////////////////////////////   
    // Berufe, Fertigkeiten, Waffen und Zauber (KiDo)

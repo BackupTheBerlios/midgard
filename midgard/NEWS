@@ -6,7 +6,12 @@ NEWS IN VERSION 0.8beta1
    H&D Zauber ich habe sie nochmal(?) eingefügt.
 - Bugs aus 'arkanum_zauber' Tabelle herausgeholt
 - Zaubermaterialen werden jetzt entsprechend der Tabellenbreite skaliert
-
+- Die Erhöhung von Abwehr/Zaubern/Resistenz, Gradanstieg, Ausdauer und
+   Erhöhung der Basiswerte kann jetzt getrennt angewählt werden
+   Für letzeres ist (natürlich) nur ein Versuch pro Gradanstieg möglich.
+- In dem 'steigern'-Fenster werden jetzt auch  Grad,AP,Abwehr,Zaubern,Resistenz
+   angezeigt
+- Info Fenster überarbeitet (die M$-Portierung steht jetzt schon drin)
 
 ##########################################################################
 NEWS IN VERSION 0.8beta0

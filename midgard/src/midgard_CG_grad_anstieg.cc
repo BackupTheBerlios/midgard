@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.20 2001/06/30 20:30:06 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.21 2001/08/21 12:03:03 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,15 +26,48 @@ void midgard_CG::on_grad_anstieg_clicked()
    int old_grad      = Werte.Grad();
    get_grad(Werte.GFP());
    get_ausdauer(Werte.Grad());
-   get_abwehr_resistenz_wert(Werte.Grad());
+   get_abwehr_wert(Werte.Grad());
+   get_resistenz_wert(Werte.Grad());
    get_zauber(Werte.Grad());
    if (old_grad<Werte.Grad()) get_grundwerte();
-   if (Originalbool) original_midgard_check() ;
-   midgard_CG::zeige_werte(Werte);
+   zeige_werte(Werte);
 }
+
+void midgard_CG::on_button_grad_clicked()
+{   
+  get_grad(Werte.GFP());
+  zeige_werte(Werte);
+}
+
+void midgard_CG::on_button_grad_ausdauer_clicked()
+{   
+  get_ausdauer(Werte.Grad());
+  zeige_werte(Werte);
+}
+
+void midgard_CG::on_button_grad_basiswerte_clicked()
+{   
+  get_grundwerte();
+  zeige_werte(Werte);
+}
+
+void midgard_CG::on_button_grad_azr_clicked()
+{   
+ get_abwehr_wert(Werte.Grad());
+ get_zauber(Werte.Grad());
+ get_resistenz_wert(Werte.Grad());
+  zeige_werte(Werte);
+}
+
 
 void midgard_CG::get_grundwerte()
 {
+  if(Werte.Grad() <= grad_basiswerte) 
+   {
+      std::string strinfo = "Für diesen Grad wurde schon gewürfelt";
+      manage(new WindowInfo(strinfo));
+      return;
+   }
   Random random;
   int z=random.integer(1,100);
   std::string stinfo="Beim Würfeln zur Erhöhung einer Eigenschaft\nbeim Gradanstieg wurde eine ";
@@ -54,7 +87,7 @@ void midgard_CG::get_grundwerte()
   if (z==97)   { was="persönliche Ausstrahlung"; Werte.add_pA(erh); }
   if (z==98)   { was="Selbstbeherrschung"; Werte.add_Sb(erh); }
   if (z==99)   { was="Reaktionswert"; Werte.add_RW(erh); }
-  if (z==100)  { was="Hanggemengewert"; Werte.add_HGW(erh); }
+  if (z==100)  { was="Handgemengewert"; Werte.add_HGW(erh); }
 
   stinfo += was;
   if (was != "keine Erhöhung" )
@@ -63,6 +96,8 @@ void midgard_CG::get_grundwerte()
        midgard_CG::grundwerte_boni_setzen();
     }
   manage(new WindowInfo(stinfo,true));
+  if (Originalbool) original_midgard_check() ;
+  grad_basiswerte=Werte.Grad();
 }
 
 void midgard_CG::get_zauber(int grad)
@@ -70,33 +105,68 @@ void midgard_CG::get_zauber(int grad)
  if (Typ.Zaubern() == "z" || Typ.Zaubern() == "j" || Typ2.Zaubern() == "z" || Typ2.Zaubern() == "j")
   {  
    int kosten=0;
-   if (grad == 1)  { Werte.set_Zaubern_wert(10) ;}
-   if (grad == 2)  { Werte.set_Zaubern_wert(11) ; kosten =   10;}
-   if (grad == 3)  { Werte.set_Zaubern_wert(12) ; kosten =   10;}
-   if (grad == 4)  { Werte.set_Zaubern_wert(13) ; kosten =   20;}
-   if (grad == 5)  { Werte.set_Zaubern_wert(14) ; kosten =   30;}
-   if (grad == 6)  { Werte.set_Zaubern_wert(15) ; kosten =   70;}
-   if (grad == 7)  { Werte.set_Zaubern_wert(16) ; kosten =  150;}
-   if (grad == 8)  { Werte.set_Zaubern_wert(17) ; kosten =  300;}
-   if (grad == 9)  { Werte.set_Zaubern_wert(18) ; kosten =  600;}
-   if (grad == 10) { Werte.set_Zaubern_wert(19) ; kosten =  800;}
+   int a;
+   if (grad == 1)  { a=10 ;}
+   if (grad == 2)  { a=11 ; kosten =   10;}
+   if (grad == 3)  { a=12 ; kosten =   10;}
+   if (grad == 4)  { a=13 ; kosten =   20;}
+   if (grad == 5)  { a=14 ; kosten =   30;}
+   if (grad == 6)  { a=15 ; kosten =   70;}
+   if (grad == 7)  { a=16 ; kosten =  150;}
+   if (grad == 8)  { a=17 ; kosten =  300;}
+   if (grad == 9)  { a=18 ; kosten =  600;}
+   if (grad == 10) { a=19 ; kosten =  800;}
+   if (!steigern(kosten,"Zauber")) 
+      { std::string strinfo ="Zu wenig EP um 'Zaubern' zu steigern";
+        manage(new WindowInfo(strinfo));
+        return;
+      }
    Werte.add_GFP(kosten);
+   Werte.set_Zaubern_wert(a);
   }
 }
 
 
-void midgard_CG::get_abwehr_resistenz_wert(int grad)
+void midgard_CG::get_abwehr_wert(int grad)
 {
    int kosten=0;
-   if (grad == 1)  { Werte.set_Abwehr_wert(11); Werte.set_Resistenz(10); }
-   if (grad == 2)  { Werte.set_Abwehr_wert(12); Werte.set_Resistenz(11); kosten =   10; }
-   if (grad == 4)  { Werte.set_Abwehr_wert(13); Werte.set_Resistenz(12); kosten =   20; }
-   if (grad == 6)  { Werte.set_Abwehr_wert(14); Werte.set_Resistenz(13); kosten =   80; }
-   if (grad == 8)  { Werte.set_Abwehr_wert(15); Werte.set_Resistenz(14); kosten =  300; }
-   if (grad == 10) { Werte.set_Abwehr_wert(16); Werte.set_Resistenz(15); kosten =  700; }
-   if (grad == 12) { Werte.set_Abwehr_wert(17); Werte.set_Resistenz(16); kosten = 1000; }
-   if (grad == 14) { Werte.set_Abwehr_wert(18); Werte.set_Resistenz(17); kosten = 1500; }
+   int a;
+   if (grad == 1)  { a=11; }
+   if (grad == 2)  { a=12; kosten =   10; }
+   if (grad == 4)  { a=13; kosten =   20; }
+   if (grad == 6)  { a=14; kosten =   80; }
+   if (grad == 8)  { a=15; kosten =  300; }
+   if (grad == 10) { a=16; kosten =  700; }
+   if (grad == 12) { a=17; kosten = 1000; }
+   if (grad == 14) { a=18; kosten = 1500; }
+   if (!steigern(kosten,"Abwehr"))
+      { std::string strinfo ="Zu wenig EP um die 'Abwehr' zu steigern";
+        manage(new WindowInfo(strinfo));
+        return;
+      }
    Werte.add_GFP(kosten);  
+   Werte.set_Abwehr_wert(a);
+}
+
+void midgard_CG::get_resistenz_wert(int grad)
+{
+   int kosten=0;
+   int r;
+   if (grad == 1)  { r=10; }
+   if (grad == 2)  { r=11; kosten =   10; }
+   if (grad == 4)  { r=12; kosten =   20; }
+   if (grad == 6)  { r=13; kosten =   80; }
+   if (grad == 8)  { r=14; kosten =  300; }
+   if (grad == 10) { r=15; kosten =  700; }
+   if (grad == 12) { r=16; kosten = 1000; }
+   if (grad == 14) { r=17; kosten = 1500; }
+   if (!steigern(kosten,"Resistenz"))
+      { std::string strinfo ="Zu wenig EP um die 'Resistenz' zu steigern";
+        manage(new WindowInfo(strinfo));
+        return;
+      }
+   Werte.add_GFP(kosten);  
+   Werte.set_Resistenz(r);
 }
 
 
@@ -114,6 +184,7 @@ void midgard_CG::get_ausdauer(int grad)
    if (grad == 8)  { bonus_K = 24, bonus_aK = 16; bonus_Z =  8; kosten =  1200;}
    if (grad == 9)  { bonus_K = 27, bonus_aK = 18; bonus_Z =  9; kosten =  1500;}
    if (grad >= 10) { bonus_K = 30, bonus_aK = 20; bonus_Z = 10; kosten =  2000;}
+   if (!steigern(kosten,"Ausdauer")) return;
    Werte.add_GFP(kosten);
    int ap=0;
    Random random;
