@@ -2,6 +2,7 @@
 NEWS IN VERSION 0.7delta4
 
 * kleinere Bugs behoben
+* Absturz bei Programmende behoben!
 * 'Muttersprache' und 'Gastlandsprache' können im Lernschema wieder 
    verlernt und neu ausgesucht werden.
 * Landeskunde (Heimat): das gleiche
@@ -27,11 +28,11 @@ links).
   (vielleicht drag'n'drop oder CTree verschieben)
 - überprüfen ob gelernt/ungelernt nicht in die Überschrift der Tabelle passt
 - Würfelvarianten für Nichtmenschen!
-- Absturz bei Programmende
 - 800x600 endlich wieder funktionstüchtig machen (wenn möglich ...)
 - verschwinden alle Icons?
 - nicht-3TastenMaus: richtiges Tooltip setzen
 - alle Ausdrucke unter Windows testen
+- .magus Endung unter Windows mit Magus.exe verknüpfen (beim Speichern)
 
 ##########################################################################
 NEWS IN VERSION 0.7delta3
