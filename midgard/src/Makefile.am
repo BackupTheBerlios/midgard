@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.189 2002/08/28 07:57:42 thoma Exp $
+# $Id: Makefile.am,v 1.190 2002/09/06 11:34:45 thoma Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -120,6 +120,7 @@ magus_SOURCES = $(PORT_FILES) \
    table_steigern_zauber.cc \
    table_steigern_grad_anstieg.cc \
    table_ausruestung.cc \
+   table_ausruestung_drag_and_drop.cc \
    table_ausruestung_glade.cc \
    table_lernschema_kido.cc \
    table_lernschema_fertigkeiten.cc \

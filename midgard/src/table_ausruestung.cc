@@ -147,8 +147,6 @@ void table_ausruestung::on_button_modi_clicked()
   show_modi();
 }
 
-
-
 void table_ausruestung::showAusruestung()
 {
   if(hauptfenster->getChar().getBesitz().empty())
@@ -158,6 +156,12 @@ void table_ausruestung::showAusruestung()
   title.push_back("Material");
   title.push_back("Sichtbar");
   Ausruestung_tree=manage(new Gtk::CTree(title));
+
+  Ausruestung_tree->drag_data_received.connect(slot(this,&(table_ausruestung::tree_drag_data_received)));
+  Ausruestung_tree->drag_dest_set ( GTK_DEST_DEFAULT_ALL,
+         target_table, n_targets - 1, /* no rootwin */
+         static_cast < GdkDragAction > ( GDK_ACTION_COPY | GDK_ACTION_MOVE) );
+  
   Gtk::CTree_Helpers::RowList::iterator r;
   AusruestungBaum besitz=hauptfenster->getChar().getBesitz();
   for(AusruestungBaum::const_iterator i=besitz.begin();i!=besitz.end();++i)
@@ -293,7 +297,6 @@ void table_ausruestung::on_checkbutton_ausruestung_geld_toggled()
 {
 }
 
-
 void table_ausruestung::on_clist_preisliste_select_row(gint row, gint column, GdkEvent *event)
 {
   Gtk::CTree_Helpers::SelectionList selectionList = Ausruestung_tree->selection();
@@ -337,14 +340,6 @@ void table_ausruestung::zeige_werte()
 }
 
 
-
-struct st_ausruestung{std::string name;double kosten; std::string einheit; double gewicht;
-       st_ausruestung(std::string n,double k, std::string e, double g)
-        : name(n),kosten(k),einheit(e),gewicht(g) {}
-       bool operator<(const st_ausruestung& b) const
-          { return name<b.name;}
-       };
-
 void table_ausruestung::fill_preisliste()
 {
  clist_preisliste->clear();
@@ -354,7 +349,8 @@ void table_ausruestung::fill_preisliste()
    {
     fak *= i->second.faktor;
    }
- std::vector<st_ausruestung> vec_aus;
+// Klassenvariable wg. drag&drop// std::vector<st_ausruestung> vec_aus;
+ vec_aus.clear();
  for(std::list<cH_Preise>::const_iterator i=hauptfenster->getDatabase().preise.begin();i!=hauptfenster->getDatabase().preise.end();++i)
    {
     if(modimap.begin()->first.art==(*i)->Art() && modimap.begin()->first.art2==(*i)->Art2())
@@ -368,6 +364,7 @@ void table_ausruestung::fill_preisliste()
          << i->kosten  <<'\t'
          << i->einheit <<'\t'
          << i->gewicht <<'\n';
+       os.flush(gpointer(&*i));
    }
   for (unsigned int i=0;i<clist_preisliste->columns().size();++i)
        clist_preisliste->set_column_auto_resize(i,true);

@@ -16152,6 +16152,11 @@ KS
 		      <handler>on_clist_preisliste_select_row</handler>
 		      <last_modification_time>Sun, 25 Nov 2001 15:03:36 GMT</last_modification_time>
 		    </signal>
+		    <signal>
+		      <name>drag_data_get</name>
+		      <handler>on_clist_preisliste_drag_data_get</handler>
+		      <last_modification_time>Thu, 05 Sep 2002 16:45:30 GMT</last_modification_time>
+		    </signal>
 		    <columns>4</columns>
 		    <column_widths>80,80,80,80</column_widths>
 		    <selection_mode>GTK_SELECTION_SINGLE</selection_mode>

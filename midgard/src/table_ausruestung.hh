@@ -36,12 +36,17 @@ class table_ausruestung : public table_ausruestung_glade
         std::map<st_modimap_index,PreiseMod::st_payload> modimap;
 
 
+       struct st_ausruestung{std::string name;double kosten; std::string einheit; double gewicht;
+         st_ausruestung(std::string n,double k, std::string e, double g)
+           : name(n),kosten(k),einheit(e),gewicht(g) {}
+          bool operator<(const st_ausruestung& b) const
+             { return name<b.name;}
+          };
 
-                
 public:
         
-        table_ausruestung(GlademmData *_data) 
-            : table_ausruestung_glade(_data) , hauptfenster(0) {}
+        table_ausruestung(GlademmData *_data) ;
+//            : table_ausruestung_glade(_data) , hauptfenster(0) {}
         void init(midgard_CG *hauptfenster);
 
 private:
@@ -84,5 +89,30 @@ private:
         void on_entry_name_activate();
         void on_entry_artikel_art2_activate();
         void on_entry_artikel_art_activate();
+
+        // drag & drop
+        enum {TARGET_STRING,TARGET_ROOTWIN,TARGET_URL};
+        GtkTargetEntry target_table[4];
+        std::vector<st_ausruestung> vec_aus;
+
+        guint n_targets;// = sizeof(target_table) / sizeof(target_table[0]);       
+
+        void on_clist_preisliste_drag_data_get(GdkDragContext *context,
+                                     GtkSelectionData   *selection_data,
+                                     guint               info,
+                                     guint32             time );
+        void tree_drag_data_received(GdkDragContext *context,
+                                  gint x,gint y,
+                                  GtkSelectionData   *data,
+                                  guint info,guint32 time);
+
+
+/*
+        gboolean target_drag_drop(GdkDragContext *context,
+                                  gint            x,
+                                  gint            y,
+                                  guint           time );
+
+*/
 };
 #endif
