@@ -14,8 +14,8 @@
 BegruessungsWindow::BegruessungsWindow(midgard_CG* h) 
  : hauptfenster(h) 
 {
-  Gtk::Image *p= manage(new class Gtk::Image(KillChar_32_xpm));
-  bool_CheckButton *W = manage(new bool_CheckButton(hauptfenster->MOptionen->OberCheck(Midgard_Optionen::BegruessungsFenster).active,*p));
+  Gtk::Image *p= manage(new class Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(KillChar_32_xpm)));
+  bool_CheckButton *W = Gtk::manage(new bool_CheckButton(hauptfenster->MOptionen->OberCheck(Midgard_Optionen::BegruessungsFenster).active,*p));
   W->set_mode(false);
   W->show_all();
   table_buttons->attach(*W, 1, 2, 6, 7, Gtk::SHRINK, Gtk::SHRINK, 0, 0);
@@ -59,6 +59,6 @@ void BegruessungsWindow::on_togglebutton_never_again_toggled()
 
 void BegruessungsWindow::end()
 {
-  destroy();
+  delete this;
 }
 

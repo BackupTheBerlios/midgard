@@ -1,4 +1,4 @@
-// $Id: Midgard_Undo.hh,v 1.4 2002/10/24 07:21:01 christof Exp $
+// $Id: Midgard_Undo.hh,v 1.5 2002/12/12 09:59:35 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -48,7 +48,7 @@ class Midgard_Undo
 };
 
 #include <Misc/EntryValueIntString.h>   
-#include <rowdata.h>
+#include <RowDataBase.h>
 
 class Data_Undo : public RowDataBase
 {

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.310 2002/12/12 08:35:34 christof Exp $
+// $Id: midgard_CG.hh,v 1.311 2002/12/12 09:59:35 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -94,7 +94,7 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
         void on_alles_drucken();
         void on_abenteurerdokument_drucken();
         void on_leeres_abenteurerdokument_drucken();
-        gint on_latex_release_event(GdkEventButton *ev);
+        bool on_latex_release_event(GdkEventButton *ev);
         void on_beschreibung_drucken();
         void on_nur_sichtbares_drucken();
         void on_auch_unsichtbares_drucken();
@@ -170,8 +170,8 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
    private:
         void on_exportieren_activate();
         void on_exportieren_ranas_pdf_dokumente_activate();
-        gint on_speichern_release_event(GdkEventButton *ev);
-        gint on_laden_release_event(GdkEventButton *ev);
+        bool on_speichern_release_event(GdkEventButton *ev);
+        bool on_laden_release_event(GdkEventButton *ev);
         void xml_export_auswahl();
         void save_existing_filename();
         void xml_import_auswahl();
@@ -196,7 +196,7 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
    private:
         VAbenteurer Char;
         Datenbank Database;
-        gint on_neuer_charakter_release_event(GdkEventButton *ev);
+        bool on_neuer_charakter_release_event(GdkEventButton *ev);
         void fill_AbenteurerListe();
         void on_AbenteurerListe_leaf(cH_RowDataBase d);
         void set_AbenteurerListe_Title();
@@ -222,21 +222,21 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
                                 PAGE_NEWS,PAGE_ZUFALL};
    private:
         void on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page* page,guint pagenr);
-        gint on_eventbox_ausruestung_button_release_event(GdkEventButton *event);
-        gint on_eventbox_credits_button_release_event(GdkEventButton *event);
-        gint on_eventbox_geschichte_button_release_event(GdkEventButton *event);
-        gint on_eventbox_optionen_button_release_event(GdkEventButton *event);
-        gint on_eventbox_zufall_button_release_event(GdkEventButton *event);
-        gint on_eventbox_beschreibung_button_release_event(GdkEventButton *event);
-        gint on_eventbox_steigern_button_release_event(GdkEventButton *event);
-        gint on_eventbox_lernen_button_release_event(GdkEventButton *event);
-        gint on_eventbox_grundwerte_button_release_event(GdkEventButton *event);
+        bool on_eventbox_ausruestung_button_release_event(GdkEventButton *event);
+        bool on_eventbox_credits_button_release_event(GdkEventButton *event);
+        bool on_eventbox_geschichte_button_release_event(GdkEventButton *event);
+        bool on_eventbox_optionen_button_release_event(GdkEventButton *event);
+        bool on_eventbox_zufall_button_release_event(GdkEventButton *event);
+        bool on_eventbox_beschreibung_button_release_event(GdkEventButton *event);
+        bool on_eventbox_steigern_button_release_event(GdkEventButton *event);
+        bool on_eventbox_lernen_button_release_event(GdkEventButton *event);
+        bool on_eventbox_grundwerte_button_release_event(GdkEventButton *event);
         void load_for_mainpage(guint pagenr);
 
         // Oberfläche Menü
         Gtk::Menu *menu_kontext;
         Gtk::Box &make_gtk_box(const gchar * const *data,const std::string &label,const bool text_vor_bild=true,const bool hbox=true);
-        gint on_button_menu_button_release_event(GdkEventButton *ev);
+        bool on_button_menu_button_release_event(GdkEventButton *ev);
         void on_checkbutton_Regionen_menu_(Gtk::CheckMenuItem *menu_item,cH_Region region);
         void on_checkbutton_Regionen_menu(gpointer gp,cH_Region region);
         void menubar_init();
@@ -262,12 +262,12 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
         // Oberfläche Diverses
         void setWindowPosition(int x,int y);
         void setWindowSize(int width,int height);
-        gint on_eventbox_MCG_button_press_event(GdkEventButton *event);
+        bool on_eventbox_MCG_button_press_event(GdkEventButton *event);
         void pdf_viewer(const std::string& file);
         void on_button_html_hilfe_clicked();
         void on_button_info_clicked();
         void on_schliessen_CG_clicked();
-        gint on_midgard_CG_delete_event(GdkEventAny* event);
+        bool on_midgard_CG_delete_event(GdkEventAny* event);
 
         void checkbutton_original(bool active);
         void lernschema_sensitive(bool active);
