@@ -1,4 +1,4 @@
-// $Id: table_lernschema_kido.cc,v 1.5 2002/06/07 12:17:04 thoma Exp $
+// $Id: table_lernschema_kido.cc,v 1.6 2002/06/08 06:35:03 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -58,7 +58,7 @@ void table_lernschema::fill_kido_lernschema()
          if(kido_stil.ist_sanft(kd->Stil())) continue;
      if (kido_stil.ist_sanft(hauptfenster->getCWerte().Spezialisierung()))
          if(kido_stil.ist_hart(kd->Stil())) continue;
-     if ((*i)->ist_gelernt(hauptfenster->getCChar().CList_Kido())) continue ;
+     if (MidgardBasicElement_mutable(&*kd).ist_gelernt(hauptfenster->getCChar().CList_Kido())) continue ;
      newlist.push_back(MidgardBasicElement_mutable(*i));                                     
    }
 

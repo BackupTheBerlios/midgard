@@ -64,7 +64,7 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case LERNPUNKTEg : return cH_EntryValueIntString(MBE.Lernpunkte()); 
          case PFLICHTg : 
             { if ( MBE->What()==MidgardBasicElement::FERTIGKEIT)
-                       return cH_EntryValueIntString(cH_Fertigkeit(MBE)->Pflicht_str()); 
+                       return cH_EntryValueIntString(MBE.Pflicht_str()); 
               if ( MBE->What()==MidgardBasicElement::WAFFE)
                     return cH_EntryValueIntString(cH_Waffe(MBE)->Grundkenntnis()); 
             }
@@ -134,9 +134,9 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
            }
          case PPa : return cH_EntryValueEmptyInt(MBE.Praxispunkte()); 
          case STANDARDa : return cH_EntryValueIntString(MBE->Standard__(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp()));
-         case STEIGERN : return cH_EntryValueEmptyInt(MBE->Steigern(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp()));
-         case REDUZIEREN : return cH_EntryValueEmptyInt(MBE->Reduzieren(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp()));
-         case VERLERNEN : return cH_EntryValueEmptyInt(MBE->Verlernen(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp())); 
+         case STEIGERN : return cH_EntryValueEmptyInt(MBE.Steigern(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp()));
+         case REDUZIEREN : return cH_EntryValueEmptyInt(MBE.Reduzieren(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp()));
+         case VERLERNEN : return cH_EntryValueEmptyInt(MBE.Verlernen(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp())); 
          case REGIONa : return cH_EntryValueIntString(MBE->RegionString(hauptfenster->getCDatabase())); 
         }
       else if (Variante==MidgardBasicTree::LONG_NEU)
@@ -158,7 +158,7 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case LERNKOSTEN : 
           {
              if(MBE->What()==MidgardBasicElement::WAFFE)
-                return cH_EntryValueEmptyInt(0);//MBE->Steigern(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp())); 
+                return cH_EntryValueEmptyInt(0);//MBE.Steigern(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp())); 
              else
                 return cH_EntryValueEmptyInt(MBE->Kosten(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp()));
           }
@@ -187,9 +187,9 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case WERTsa : return cH_EntryValueIntString(MBE.Erfolgswert());
          case PPsa : return cH_EntryValueEmptyInt(MBE.Praxispunkte()); 
          case STANDARDsa : return cH_EntryValueIntString(MBE->Standard__(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp()));
-         case STEIGERNs : return cH_EntryValueEmptyInt(MBE->Steigern(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp()));
-         case REDUZIERENs : return cH_EntryValueEmptyInt(MBE->Reduzieren(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp()));
-         case VERLERNENs : return cH_EntryValueEmptyInt(MBE->Verlernen(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp())); 
+         case STEIGERNs : return cH_EntryValueEmptyInt(MBE.Steigern(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp()));
+         case REDUZIERENs : return cH_EntryValueEmptyInt(MBE.Reduzieren(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp()));
+         case VERLERNENs : return cH_EntryValueEmptyInt(MBE.Verlernen(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp())); 
         }
       else if (Variante==MidgardBasicTree::SCHRIFT_NEU)
        switch ((Spalten_SCHRIFT_NEU)seqnr) {
@@ -234,14 +234,15 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
         }
       else if (Variante==MidgardBasicTree::WAFFE_LERNSCHEMA)
        {
-        cH_WaffeBesitz wb=cH_WaffeBesitz(MBE);
-        cH_Waffe w=wb->Waffe();
+//        cH_WaffeBesitz wb=cH_WaffeBesitz(MBE);
+        WaffeBesitz wb(MBE);
+        cH_Waffe w=wb.Waffe();
         switch ((Spalten_WAFFE_LERNSCHEMA)seqnr) {
          case NAME_WL    : return cH_EntryValueIntString(MBE->Name());
          case GRUND_WL   : return cH_EntryValueIntString(w->Grundkenntnis());
          case ART_WL     : return cH_EntryValueIntString(w->Art2());
 //         case SCHADEN_WL : return cH_EntryValueIntString(w->Schaden(w->Name())+"+"+itos(w->Schaden_Bonus(w->Name())));
-         case SCHADEN_WL : return cH_EntryValueIntString(wb->Schaden(hauptfenster->getCWerte(),MBE->Name()));
+         case SCHADEN_WL : return cH_EntryValueIntString(wb.Schaden(hauptfenster->getCWerte(),MBE->Name()));
         }  
        }
       return cH_EntryValueIntString("?");

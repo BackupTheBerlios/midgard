@@ -191,7 +191,7 @@ void table_steigern::zeige_werte()
   if (hauptfenster->getCChar().is_mage())  table_magier_steigern->show() ;
   else                 table_magier_steigern->hide() ;
 
-  if(cH_Fertigkeit("KiDo")->ist_gelernt(hauptfenster->getCChar().CList_Fertigkeit()))   
+  if(MidgardBasicElement_mutable(&*cH_Fertigkeit("KiDo")).ist_gelernt(hauptfenster->getCChar().CList_Fertigkeit()))   
          table_kido_steigern->show();
   else   table_kido_steigern->hide();
 

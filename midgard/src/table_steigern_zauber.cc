@@ -28,7 +28,7 @@ void table_steigern::on_zauber_laden_clicked()
   list_Zauber_neu.clear();
   for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().Zauber.begin();i!=hauptfenster->getCDatabase().Zauber.end();++i)
     { cH_Zauber z(*i);
-      if ((*i)->ist_gelernt(hauptfenster->getCChar().CList_Zauber()) && (*i)->ZusatzEnum(hauptfenster->getCChar().getVTyp())==MidgardBasicElement::ZNone) continue ;
+      if (MidgardBasicElement_mutable(*i).ist_gelernt(hauptfenster->getCChar().CList_Zauber()) && (*i)->ZusatzEnum(hauptfenster->getCChar().getVTyp())==MidgardBasicElement::ZNone) continue ;
       if (z->Zauberart()=="Zaubersalz" && !togglebutton_zaubersalze->get_active())
          continue;
       if (z->Zauberart()=="Beschwörung" && !Region::isActive(hauptfenster->getCDatabase().Regionen,cH_Region("MdS")))
@@ -173,7 +173,7 @@ void table_steigern::zauberwerk_laden()
  for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().Zauberwerk.begin();i!=hauptfenster->getCDatabase().Zauberwerk.end();++i)
   {
    cH_Zauberwerk z(*i);
-   if ((*i)->ist_gelernt(hauptfenster->getCChar().CList_Zauberwerk())) continue ;
+   if (MidgardBasicElement_mutable(*i).ist_gelernt(hauptfenster->getCChar().CList_Zauberwerk())) continue ;
    if (((*i)->ist_lernbar(hauptfenster->getCChar().getVTyp(),z->get_MapTyp()) 
          && z->Voraussetzungen(hauptfenster->getCChar().CList_Zauber())
          && z->Voraussetzungen_Fertigkeit(hauptfenster->getCChar().CList_Fertigkeit())) 

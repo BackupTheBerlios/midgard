@@ -285,7 +285,7 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
             if(!MBE->ZusatzEnum(hauptfenster->getCChar().getVTyp()) && st==std::string::npos)// Das macht 'lernen_zusatz' automatisch
                  hauptfenster->getChar().List_Fertigkeit().push_back(MBE); 
             if(MBE->Name()=="KiDo" && hauptfenster->getCChar().CTyp1()->Short()=="Kd") maxkido+=2;
-            if(maxkido>0 && cH_Fertigkeit("KiDo")->ist_gelernt(hauptfenster->getCChar().CList_Fertigkeit()))
+            if(maxkido>0 && MidgardBasicElement_mutable(&*cH_Fertigkeit("KiDo")).ist_gelernt(hauptfenster->getCChar().CList_Fertigkeit()))
                zeige_werte();
          }
         else
@@ -569,7 +569,7 @@ void table_lernschema::zeige_werte()
      button_zauber->set_sensitive(false);
    }
  // KiDo anzeigen?
- if(cH_Fertigkeit("KiDo")->ist_gelernt(hauptfenster->getCChar().CList_Fertigkeit()))
+ if(MidgardBasicElement_mutable(&*cH_Fertigkeit("KiDo")).ist_gelernt(hauptfenster->getCChar().CList_Fertigkeit()))
    { 
      KiDo_Stile kd;
      combo_kido_stil->set_popdown_strings(kd.getVStile());
@@ -681,7 +681,7 @@ void table_lernschema::show_lernschema()
         }
       if(lp == 99  ) continue;
 
-      if(!(*i)->ist_gelernt(hauptfenster->getCChar().CList_Fertigkeit()))
+      if(!f.ist_gelernt(hauptfenster->getCChar().CList_Fertigkeit()))
         {
          if     ((*i)->Name()=="Muttersprache"   && 30<hauptfenster->getCWerte().In()&&hauptfenster->getCWerte().In()<=60) f.setErfolgswert(14);
          else if((*i)->Name()=="Muttersprache"   && hauptfenster->getCWerte().In()>60) f.setErfolgswert(18+cH_Fertigkeit(*i)->AttributBonus(hauptfenster->getCWerte()));
@@ -694,7 +694,7 @@ void table_lernschema::show_lernschema()
       if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) f.setGelernt(true);
       else {f.setGelernt(false);f.setZusatz("");}
       if((*i)->Name()=="Landeskunde (Heimat)" && (*i)->ist_gelernt(list_FertigkeitZusaetze)) f.setGelernt(true);
-      if ((*i)->ist_gelernt(hauptfenster->getCChar().CList_Fertigkeit())) f.setGelernt(true); 
+      if (f.ist_gelernt(hauptfenster->getCChar().CList_Fertigkeit())) f.setGelernt(true); 
       if(f.Gelernt()&&!togglebutton_gelernte_anzeigen->get_active()) continue;
       if(hauptfenster->getCWerte().Spezies()->istVerbotenSpielbegin(*i)) continue;
 //if((*i)->Gelernt())
@@ -712,7 +712,7 @@ void table_lernschema::show_lernschema()
        (*i).setLernArt("Fach");
        bool gelernt=false;
        bool zuteuer=false;
-       if ((*i)->ist_gelernt(hauptfenster->getCChar().CList_Fertigkeit())) gelernt=true;
+       if ((*i).ist_gelernt(hauptfenster->getCChar().CList_Fertigkeit())) gelernt=true;
        if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) gelernt=true;
        if((*i).Lernpunkte() > lernpunkte.Fach() ) zuteuer=true;
        if(zuteuer && !togglebutton_teure_anzeigen->get_active()) continue;
@@ -744,7 +744,7 @@ void table_lernschema::show_lernschema()
           std::vector<Lernschema::st_index> VI;
           if(what==MidgardBasicElement::WAFFE) 
            {
-             if ((*i)->ist_gelernt(hauptfenster->getCChar().CList_Waffen())) gelernt=true;
+             if ((*i).ist_gelernt(hauptfenster->getCChar().CList_Waffen())) gelernt=true;
              if (!cH_Waffe(*i)->SG_Voraussetzung(hauptfenster->getCWerte(),hauptfenster->getCChar().CList_Fertigkeit(),hauptfenster->getCChar().CList_Waffen())) continue ;
              if(hauptfenster->getCWerte().Spezies()->istVerbotenSpielbegin(*i)) continue;
              VI=Lernschema::getIndex(hauptfenster->getCChar().getVTyp(),"Waffenfertigkeiten",(*i)->Name());
@@ -754,19 +754,19 @@ void table_lernschema::show_lernschema()
            else if(what==MidgardBasicElement::ZAUBER)
             {
              if(hauptfenster->getCWerte().Spezies()->istVerbotenSpielbegin(*i)) continue;
-             if ((*i)->ist_gelernt(hauptfenster->getCChar().CList_Zauber()) )  gelernt=true;
-//             if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) gelernt=true;
+             if ((*i).ist_gelernt(hauptfenster->getCChar().CList_Zauber()) )  gelernt=true;
+//             if ((*i).ist_gelernt(list_FertigkeitZusaetze)) gelernt=true;
              VI=Lernschema::getIndex(hauptfenster->getCChar().getVTyp(),"Zauberkünste",(*i)->Name());
             }
            else if(what==MidgardBasicElement::FERTIGKEIT)
             {
-             if ((*i)->ist_gelernt(newlist)) continue ; // Speziesfertigkeiten
+             if ((*i).ist_gelernt(newlist)) continue ; // Speziesfertigkeiten
              if (!cH_Fertigkeit(*i)->Voraussetzungen(hauptfenster->getCWerte(),hauptfenster->getCChar().CList_Fertigkeit())) continue ;
              if(hauptfenster->getCWerte().Spezies()->istVerbotenSpielbegin(*i)) continue;
-             if ((*i)->ist_gelernt(hauptfenster->getCChar().CList_Fertigkeit())) gelernt=true;   
+             if ((*i).ist_gelernt(hauptfenster->getCChar().CList_Fertigkeit())) gelernt=true;   
              if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) gelernt=true;
              VI=Lernschema::getIndex(hauptfenster->getCChar().getVTyp(),"Fachkenntnisse",(*i)->Name());  
-             if(!(*i)->ist_gelernt(hauptfenster->getCChar().CList_Fertigkeit()))
+             if(!(*i).ist_gelernt(hauptfenster->getCChar().CList_Fertigkeit()))
                 (*i).setErfolgswert(cH_Fertigkeit(*i)->Anfangswert0()+cH_Fertigkeit(*i)->AttributBonus(hauptfenster->getCWerte()));
              (*i).setPflicht(hauptfenster->getDatabase().lernschema.get_Pflicht(VI));
            }

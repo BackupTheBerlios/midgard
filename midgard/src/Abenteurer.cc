@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.10 2002/06/07 12:17:03 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.11 2002/06/08 06:35:03 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -95,7 +95,7 @@ const std::list<Abenteurer::st_universell> Abenteurer::CList_Universell( const D
         if (!f->SG_Voraussetzung(getCWerte(),CList_Fertigkeit(),CList_Waffen()))
             {iwert=0; i->voraussetzung=false;}
       }
-     if (i->mbe->ist_gelernt(CList_Fertigkeit()) || i->mbe->ist_gelernt(CList_Waffen()))
+     if (i->mbe.ist_gelernt(CList_Fertigkeit()) || i->mbe.ist_gelernt(CList_Waffen()))
           i->gelernt=true;
      else // Erfolgswert nur dann setzen, wenn die Fertigkeit NICHT gelernt ist
           i->mbe.setErfolgswert(iwert);

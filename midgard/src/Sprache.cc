@@ -136,7 +136,7 @@ std::list<MidgardBasicElement_mutable> Sprache::VerwandteSprachen(const int erfo
   std::list<MidgardBasicElement_mutable> VS;
   for(std::list<cH_MidgardBasicElement>::const_iterator i=listSprache.begin();i!=listSprache.end();++i)
    {
-     if(erfolgswert>=10 && !(*i)->ist_gelernt(gelernte_listSprache) &&
+     if(erfolgswert>=10 && !MidgardBasicElement_mutable(*i).ist_gelernt(gelernte_listSprache) &&
         Sprachgruppe(cH_Sprache(*i)->getVSprachgruppe())) 
       {
 //         cH_MidgardBasicElement MBE=new Sprache(*cH_Sprache(*i)); // Kopie anlegen

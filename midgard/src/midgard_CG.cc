@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.233 2002/06/03 08:06:25 thoma Exp $
+// $Id: midgard_CG.cc,v 1.234 2002/06/08 06:35:03 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -75,6 +75,8 @@ midgard_CG::~midgard_CG()
 #include <Aux/itos.h>
 void midgard_CG::WaffenBesitz_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe)
 {
+ assert(!"nicht implementiert");
+/*
   if(mbe.begin()==mbe.end()) return;
   if((*mbe.begin())->What()==MidgardBasicElement::WAFFEBESITZ)
       Char.List_Waffen_besitz()=mbe;
@@ -82,6 +84,7 @@ void midgard_CG::WaffenBesitz_uebernehmen(const std::list<cH_MidgardBasicElement
   undosave(itos(mbe.size())+" "+(*mbe.begin())->What_str()+"n übernommen");
   if(notebook_main->get_current_page_num() == PAGE_LERNEN)
      table_lernschema->show_gelerntes();
+*/
 }
 
 

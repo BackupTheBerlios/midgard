@@ -85,7 +85,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
                 list_FertigkeitZusaetze.push_back(MBE->Name());
                 continue ;
               }
-            if((*i)->ist_gelernt(hauptfenster->getCChar().CList_Sprache())) continue;
+            if(MidgardBasicElement_mutable(&**i).ist_gelernt(hauptfenster->getCChar().CList_Sprache())) continue;
             datavec.push_back(new Data_Zusatz(MBE,(*i)->Name()));
          }
        connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_sprache_selected));
@@ -95,7 +95,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
       {
        for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getDatabase().Schrift.begin();i!=hauptfenster->getDatabase().Schrift.end();++i)
          {
-           if((*i)->ist_gelernt(hauptfenster->getCChar().CList_Schrift())) continue;
+           if(MidgardBasicElement_mutable(&**i).ist_gelernt(hauptfenster->getCChar().CList_Schrift())) continue;
            if(!cH_Schrift(*i)->kann_Sprache(hauptfenster->getCChar().CList_Sprache())) continue;
            datavec.push_back(new Data_Zusatz(MBE,(*i)->Name()));
          }

@@ -307,7 +307,7 @@ void table_steigern::PraxisPunkt_to_AEP(MidgardBasicElement_mutable& MBE,bool ve
   // Die übrigbleibenden Punkte in AEP umwandeln
   if(!verfallen && aep>0)
    {
-     int steiger_kosten = MBE->Steigern(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp());
+     int steiger_kosten = MBE.Steigern(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp());
      int aep_kosten = steiger_kosten-aep;
      if(aep_kosten>hauptfenster->getCWerte().AEP())
       {
@@ -331,7 +331,7 @@ void table_steigern::PraxisPunkt_to_AEP(MidgardBasicElement_mutable& MBE,bool ve
 
 int table_steigern::stufen_auf_einmal_steigern_fuer_aep(bool info,MidgardBasicElement_mutable& MBE,int &kosten,int &aep)
 {
-  int steiger_kosten = MBE->Steigern(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp());
+  int steiger_kosten = MBE.Steigern(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp());
   int stufen=0;
   int erfolgswert_mem=MBE.Erfolgswert();
   while(steiger_kosten<=aep)
@@ -340,11 +340,11 @@ int table_steigern::stufen_auf_einmal_steigern_fuer_aep(bool info,MidgardBasicEl
      ++stufen;
      aep-=steiger_kosten;
      MBE.addErfolgswert(1);
-     steiger_kosten = MBE->Steigern(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp());
+     steiger_kosten = MBE.Steigern(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp());
    }      
   if(info)
    {
-     kosten=MBE->Steigern(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp()) ; // kosten für die nächste Stufe
+     kosten=MBE.Steigern(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp()) ; // kosten für die nächste Stufe
      MBE.setErfolgswert(erfolgswert_mem);
    }
   else

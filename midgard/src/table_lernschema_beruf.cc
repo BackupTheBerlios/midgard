@@ -1,4 +1,4 @@
-// $Id: table_lernschema_beruf.cc,v 1.4 2002/06/07 12:17:04 thoma Exp $
+// $Id: table_lernschema_beruf.cc,v 1.5 2002/06/08 06:35:03 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -133,7 +133,7 @@ void table_lernschema::showBerufsLernList()
          if( (kat==1 && BKategorie.kat_I)   || (kat==2 && BKategorie.kat_II) ||
              (kat==3 && BKategorie.kat_III) || (kat==4 && BKategorie.kat_IV ) )
            {
-             if(*j!="Schmecken+10" && cH_Fertigkeit(*j)->ist_gelernt(hauptfenster->getCChar().CList_Fertigkeit()))
+             if(*j!="Schmecken+10" && MidgardBasicElement_mutable(&*cH_Fertigkeit(*j)).ist_gelernt(hauptfenster->getCChar().CList_Fertigkeit()))
                   gelerntes=true;
              else gelerntes=false;
              datavec.push_back(new Beruf_Data(kat,(*i)->Name(),*j,gelerntes));

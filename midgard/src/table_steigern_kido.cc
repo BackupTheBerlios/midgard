@@ -33,7 +33,7 @@ void table_steigern::on_kido_laden_clicked()
      }
   for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().Kido.begin();i!=hauptfenster->getCDatabase().Kido.end();++i)
    { cH_KiDo kd(*i);
-     if ((*i)->ist_gelernt(hauptfenster->getCChar().CList_Kido())) continue ;
+     if (MidgardBasicElement_mutable(&*kd).ist_gelernt(hauptfenster->getCChar().CList_Kido())) continue ;
      // Stufe
      if (hauptfenster->getCWerte().Grad()<4 || erfolgswert_kido+hauptfenster->getCWerte().bo_Za() <15)
       if(kd->Stufe()=="Eingeweihter") continue;

@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.5 2002/06/07 12:17:04 thoma Exp $
+// $Id: table_lernschema_waffen.cc,v 1.6 2002/06/08 06:35:03 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -103,7 +103,7 @@ void table_lernschema::show_WaffenBesitz_lernschema()
      if(hauptfenster->getCWerte().Spezies()->istVerbotenSpielbegin(*i)) continue;
      const cH_Waffe w(*i);
      if (w->Grundkenntnis() == "Kampf ohne Waffen") continue;
-     if (!(*i)->ist_gelernt(hauptfenster->getCChar().CList_Waffen())) continue;
+     if (!MidgardBasicElement_mutable(&*w).ist_gelernt(hauptfenster->getCChar().CList_Waffen())) continue;
 //     L.push_back(new WaffeBesitz(w,w->Name(),0,0,""));
      L.push_back(WaffeBesitz(w,-2,w->Name(),0,0,""));
    }

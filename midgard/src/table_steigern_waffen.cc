@@ -27,7 +27,7 @@ void table_steigern::on_waffen_laden_clicked()
  list_Waffen_neu.clear();
  for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().Waffe.begin();i!=hauptfenster->getCDatabase().Waffe.end();++i)
    { cH_Waffe w(*i);
-     if ((*i)->ist_gelernt(hauptfenster->getCChar().CList_Waffen())) continue ;
+     if (MidgardBasicElement_mutable(*i).ist_gelernt(hauptfenster->getCChar().CList_Waffen())) continue ;
      if(hauptfenster->getCWerte().Spezies()->istVerboten(*i)) continue;
      if (!w->Grundkenntnis_vorhanden(hauptfenster->getCChar().CList_WaffenGrund())) continue;
      if (!w->ist_lernbar(hauptfenster->getCChar().getVTyp(),w->get_MapTyp())) continue;
@@ -63,7 +63,7 @@ void table_steigern::on_waffengrund_laden_clicked()
   list_WaffenGrund_neu.clear();
   for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().WaffeGrund.begin();i!=hauptfenster->getCDatabase().WaffeGrund.end();++i)
    { cH_WaffeGrund w(*i);
-     if ((*i)->ist_gelernt(hauptfenster->getCChar().CList_WaffenGrund())) continue ;
+     if (MidgardBasicElement_mutable(*i).ist_gelernt(hauptfenster->getCChar().CList_WaffenGrund())) continue ;
      if(hauptfenster->getCWerte().Spezies()->istVerboten(*i)) continue;
      if((*i)->ist_lernbar(hauptfenster->getCChar().getVTyp(),(*i)->get_MapTyp()))
         if (hauptfenster->region_check(w->Region()) )

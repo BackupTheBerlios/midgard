@@ -27,13 +27,13 @@ void table_steigern::on_schrift_laden_clicked()
    list_Schrift_neu.clear();
    for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().Schrift.begin();i!=hauptfenster->getCDatabase().Schrift.end();++i)
     { cH_Schrift s(*i);
-      if((*i)->ist_gelernt(hauptfenster->getCChar().CList_Schrift())) continue;
+      MidgardBasicElement_mutable m(&*s);
+      if(m.ist_gelernt(hauptfenster->getCChar().CList_Schrift())) continue;
       if (hauptfenster->region_check(s->Region()) )  
          if(s->kann_Sprache(hauptfenster->getCChar().CList_Sprache()))
            { 
-             MidgardBasicElement_mutable S(*i);
-             S.setErfolgswert(cH_Fertigkeit("Schreiben")->Anfangswert());
-             list_Schrift_neu.push_back(S) ;
+             m.setErfolgswert(cH_Fertigkeit("Schreiben")->Anfangswert());
+             list_Schrift_neu.push_back(m) ;
            }
     }
    schriften_zeigen();
@@ -44,12 +44,12 @@ void table_steigern::on_sprache_laden_clicked()
    list_Sprache_neu.clear();
    for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().Sprache.begin();i!=hauptfenster->getCDatabase().Sprache.end();++i)
     { cH_Sprache s(*i);
-      if((*i)->ist_gelernt(hauptfenster->getCChar().CList_Sprache())) continue;
+      MidgardBasicElement_mutable m(&*s);
+      if(m.ist_gelernt(hauptfenster->getCChar().CList_Sprache())) continue;
       if (hauptfenster->region_check(s->Region()) )  
         {  
-           MidgardBasicElement_mutable S(*i);
-           S.setErfolgswert(cH_Fertigkeit("Sprache")->Anfangswert());
-           list_Sprache_neu.push_back(S) ;
+           m.setErfolgswert(cH_Fertigkeit("Sprache")->Anfangswert());
+           list_Sprache_neu.push_back(m) ;
         }
     }
    sprachen_zeigen();
@@ -149,7 +149,8 @@ void table_steigern::neue_schrift_wegen_sprache()
       {
        try{
         cH_Schrift s(*j);
-        if(s->ist_gelernt(hauptfenster->getCChar().CList_Schrift())) continue;
+        MidgardBasicElement_mutable m(&*s);
+        if(m.ist_gelernt(hauptfenster->getCChar().CList_Schrift())) continue;
         std::list<cH_MidgardBasicElement> gS=s->gleicheSchrift(hauptfenster->getCDatabase().Schrift);
         for(std::list<cH_MidgardBasicElement>::const_iterator k=gS.begin();k!=gS.end();++k)
          {

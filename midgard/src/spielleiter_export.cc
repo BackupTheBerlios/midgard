@@ -75,27 +75,27 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
   fout << "\n\n";
   fout << "Angriff: ";
 
-  for(std::list<cH_MidgardBasicElement>::const_iterator i=Char.CList_Waffen().begin();i!=Char.CList_Waffen().end();++i)
+  for(std::list<MidgardBasicElement_mutable>::const_iterator i=Char.CList_Waffen().begin();i!=Char.CList_Waffen().end();++i)
    {cH_Waffe w(*i);
-    std::string wert = itos(w->Erfolgswert());
-    for(std::list<cH_MidgardBasicElement>::const_iterator j=Char.CList_Waffen_besitz().begin();j!=Char.CList_Waffen_besitz().end();++j)
+    std::string wert = itos(i->Erfolgswert());
+    for(std::list<MidgardBasicElement_mutable>::const_iterator j=Char.CList_Waffen_besitz().begin();j!=Char.CList_Waffen_besitz().end();++j)
      {
-      cH_WaffeBesitz WB(*j);
-      if (WB->Waffe()->Name()==w->Name())
+      WaffeBesitz WB(*j);
+      if (WB.Waffe()->Name()==w->Name())
        {
          std::string waffenname ;
          waffenname = WB->Name();
          fout <<LATIN(waffenname) ;
-         if (WB->av_Bonus()!=0 || WB->sl_Bonus()!=0) fout <<"$^*$";
-         int mag_schadensbonus = WB->av_Bonus();
-         int ang_mod = WB->Waffe()->WM_Angriff((*j)->Name());
+         if (WB.av_Bonus()!=0 || WB.sl_Bonus()!=0) fout <<"$^*$";
+         int mag_schadensbonus = WB.av_Bonus();
+         int ang_mod = WB.Waffe()->WM_Angriff((*j)->Name());
 //         if (WB->av_Bonus()==-5 && WB->sl_Bonus()==-5) mag_schadensbonus = 0; 
          int anbo = Char.getCWerte().bo_An();
-         if (WB->Waffe()->Verteidigung())
+         if (WB.Waffe()->Verteidigung())
             anbo = 0;
-         int wert = w->Erfolgswert() + anbo + mag_schadensbonus + ang_mod;
+         int wert = j->Erfolgswert() + anbo + mag_schadensbonus + ang_mod;
          fout << "+"<<wert << "(";
-         std::string schaden=WB->Schaden(Char.getCWerte(),WB->Name());
+         std::string schaden=WB.Schaden(Char.getCWerte(),WB->Name());
          fout << schaden << ")";
        }
       fout << ", ";
@@ -108,26 +108,27 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
                     <<Char.getCWerte().Resistenz()+Char.getCWerte().bo_Phk(Char.getVTyp())<<"\n\n" ;
 
  // angeborene Fertigkeiten
- for(std::list<cH_MidgardBasicElement>::const_iterator i=Char.CList_Fertigkeit_ang().begin();i!=Char.CList_Fertigkeit_ang().end();++i)
+ for(std::list<MidgardBasicElement_mutable>::const_iterator i=Char.CList_Fertigkeit_ang().begin();i!=Char.CList_Fertigkeit_ang().end();++i)
    {cH_Fertigkeit_angeborene f(*i);
-    std::string wert = "+"+itos(f->Erfolgswert());
+    std::string wert = "+"+itos(i->Erfolgswert());
     if (wert == "+0") wert = "";
     fout <<LATIN(f->Name()) << wert ;
     fout << ", ";
    }
  // Fertigkeiten
- for(std::list<cH_MidgardBasicElement>::const_iterator i=Char.CList_Fertigkeit().begin();i!=Char.CList_Fertigkeit().end();++i)
+ for(std::list<MidgardBasicElement_mutable>::const_iterator i=Char.CList_Fertigkeit().begin();i!=Char.CList_Fertigkeit().end();++i)
    { cH_Fertigkeit f(*i);
-    std::string wert = "+"+itos(f->Erfolgswert());
+    std::string wert = "+"+itos(i->Erfolgswert());
     if (wert == "+0") wert = "";
     fout <<LATIN(f->Name()) << wert ;
 //    if (i!=vec_fertigkeiten.size()-1) fout << ", ";
     if (i != Char.CList_Fertigkeit().end()) fout << ", ";
    }
  fout << " - ";
- for (std::list<cH_MidgardBasicElement>::const_iterator i=Char.CList_Sprache().begin();i!=Char.CList_Sprache().end();++i)
+ for (std::list<MidgardBasicElement_mutable>::const_iterator i=Char.CList_Sprache().begin();i!=Char.CList_Sprache().end();++i)
    {
-      fout << LATIN(cH_Sprache(*i)->Name()) << " " << cH_Sprache(*i)->Erfolgswert() ;
+//      fout << LATIN(cH_Sprache(*i)->Name()) << " " << cH_Sprache(*i)->Erfolgswert() ;
+      fout << LATIN((*i)->Name()) << " " << i->Erfolgswert() ;
       if (i!=Char.CList_Sprache().end()) fout <<", ";
    }
   // Zauber
@@ -135,7 +136,7 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
    {
      fout << "\n\n";
      fout << "Zaubern+"<<Char.getCWerte().Zaubern_wert()+Char.getCWerte().bo_Za()<<": ";
-     for (std::list<cH_MidgardBasicElement>::const_iterator i=Char.CList_Zauber().begin();i!=Char.CList_Zauber().end();)
+     for (std::list<MidgardBasicElement_mutable>::const_iterator i=Char.CList_Zauber().begin();i!=Char.CList_Zauber().end();)
       {
         cH_Zauber z(*i);      
         fout << LATIN(z->Name()) ;

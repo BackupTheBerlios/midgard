@@ -59,28 +59,28 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
 
  //////////////////////////////////////////////////////////////////////////
 
- if (radiobutton_steigern->get_active() && MBE->Steigern(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp()))
+ if (radiobutton_steigern->get_active() && MBE.Steigern(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp()))
     {
-      if (!steigern_usp(MBE->Steigern(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp()),&MBE)) return false;
+      if (!steigern_usp(MBE.Steigern(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp()),&MBE)) return false;
       if ( MBE.Erfolgswert() >= MBE->MaxErfolgswert(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp())) 
           { hauptfenster->set_status("Maximal möglicher Erfolgswert erreicht");
             return false; }
-      hauptfenster->getChar().getWerte().addGFP(MBE->Steigern(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp()));
+      hauptfenster->getChar().getWerte().addGFP(MBE.Steigern(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp()));
       for (std::list<MidgardBasicElement_mutable>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
          if ( (*i)->Name() == MBE->Name()) 
             (*i).addErfolgswert(1); 
     }
- else if (radiobutton_reduzieren->get_active() && MBE->Reduzieren(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp()))
+ else if (radiobutton_reduzieren->get_active() && MBE.Reduzieren(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp()))
     {
-      if (checkbutton_EP_Geld->get_active()) desteigern(MBE->Reduzieren(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp()));
-      hauptfenster->getChar().getWerte().addGFP(-MBE->Reduzieren(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp()));
+      if (checkbutton_EP_Geld->get_active()) desteigern(MBE.Reduzieren(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp()));
+      hauptfenster->getChar().getWerte().addGFP(-MBE.Reduzieren(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp()));
       for (std::list<MidgardBasicElement_mutable>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
          if ( (*i)->Name() == MBE->Name())  
             (*i).addErfolgswert(-1); 
     }
- else if (radiobutton_verlernen->get_active() && MBE->Verlernen(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp()))
+ else if (radiobutton_verlernen->get_active() && MBE.Verlernen(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp()))
     {
-      guint verlernen = MBE->Verlernen(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp());
+      guint verlernen = MBE.Verlernen(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp());
       if( MBE->What()==MidgardBasicElement::ZAUBER && 
           togglebutton_spruchrolle->get_active() )    verlernen/=5  ;
       if (checkbutton_EP_Geld->get_active()) desteigern(verlernen);

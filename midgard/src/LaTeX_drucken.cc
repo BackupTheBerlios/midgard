@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.15 2002/06/07 12:17:03 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.16 2002/06/08 06:35:03 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -229,7 +229,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  verwandteSprachen=Sprache::cleanVerwandteSprachen(verwandteSprachen);
  for(std::list<MidgardBasicElement_mutable>::const_iterator i=verwandteSprachen.begin();i!=verwandteSprachen.end();++i)
    { cH_Sprache s(*i);
-     if(s->ist_gelernt(hauptfenster->getCChar().CList_Sprache())) continue;
+     if(i->ist_gelernt(hauptfenster->getCChar().CList_Sprache())) continue;
      std::string a = LaTeX_string(sprachanz++);
      fout << "\\newcommand{\\spra"<<a<<"}{\\scriptsize " << LaTeX_scale(LATIN(s->Name()),20,"2.6cm") <<"}\n";
      fout << "\\newcommand{\\spraw"<<a<<"}{\\scriptsize (+"<< (*i).Erfolgswert() <<")}\n";

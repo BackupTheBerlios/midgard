@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.29 2002/06/07 12:17:03 thoma Exp $               
+// $Id: Grundwerte.cc,v 1.30 2002/06/08 06:35:03 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -309,7 +309,7 @@ std::string Grundwerte::Ruestung_Abwehr_Verlust(const std::list<MidgardBasicElem
  int v1 = Ruestung(1)->AbwehrBonus_Verlust(bo_Ab());
  // Abzug, wenn in Vollrüstung gekämpft wird, obwohl die
  // entsprechende Fertigkeit nicht beherrscht wird.
- bool kiv_gelernt=cH_Fertigkeit("Kampf in Vollrüstung")->ist_gelernt(list_Fertigkeit);
+ bool kiv_gelernt=MidgardBasicElement_mutable(&*cH_Fertigkeit("Kampf in Vollrüstung")).ist_gelernt(list_Fertigkeit);
  if(Ruestung(0)->VollRuestungsAbzug()!=0 && !kiv_gelernt)
    v0 += Ruestung(0)->VollRuestungsAbzug();
  if(Ruestung(1)->VollRuestungsAbzug()!=0 && !kiv_gelernt)
@@ -328,7 +328,7 @@ std::string Grundwerte::Ruestung_Angriff_Verlust(const std::list<MidgardBasicEle
  int v1 = Ruestung(1)->AngriffsBonus_Verlust(bo_An());
  // Abzug, wenn in Vollrüstung gekämpft wird, obwohl die
  // entsprechende Fertigkeit nicht beherrscht wird.
- bool kiv_gelernt=cH_Fertigkeit("Kampf in Vollrüstung")->ist_gelernt(list_Fertigkeit);
+ bool kiv_gelernt=MidgardBasicElement_mutable(&*cH_Fertigkeit("Kampf in Vollrüstung")).ist_gelernt(list_Fertigkeit);
  if(Ruestung(0)->VollRuestungsAbzug()!=0 && !kiv_gelernt)
    v0 += Ruestung(0)->VollRuestungsAbzug();
  if(Ruestung(1)->VollRuestungsAbzug()!=0 && !kiv_gelernt)
