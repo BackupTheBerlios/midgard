@@ -21,7 +21,7 @@
 
 cH_Sinne::cache_t cH_Sinne::cache;
 
-cH_Sinne::cH_Sinne(const std::string& name IF_XML(,bool create))
+cH_Sinne::cH_Sinne(const std::string& name,bool create)
 {
  cH_Sinne *cached(cache.lookup(name));
  if (cached) *this=*cached;
@@ -53,12 +53,33 @@ void Sinne::get_Sinne()
 Sinne_All::Sinne_All()
 {
   list_All.clear();
+  MidgardBasicElement_mutable s1(&*cH_Sinne("Sehen",true));
+  s1.setErfolgswert(8);
+  MidgardBasicElement_mutable s2(&*cH_Sinne("Hören",true));
+  s2.setErfolgswert(8);
+  MidgardBasicElement_mutable s3(&*cH_Sinne("Riechen",true));
+  s3.setErfolgswert(8);
+  MidgardBasicElement_mutable s4(&*cH_Sinne("Schmecken",true));
+  s4.setErfolgswert(8);
+  MidgardBasicElement_mutable s5(&*cH_Sinne("Tasten",true));
+  s5.setErfolgswert(8);
+  MidgardBasicElement_mutable s6(&*cH_Sinne("Sechster Sinn",true));
+  s6.setErfolgswert(0);
+  list_All.push_back(s1);
+  list_All.push_back(s2);
+  list_All.push_back(s3);
+  list_All.push_back(s4);
+  list_All.push_back(s5);
+  list_All.push_back(s6);
+/*
   list_All.push_back(&*(cH_Sinne("Sehen",true)));
   list_All.push_back(&*(cH_Sinne("Hören",true)));
   list_All.push_back(&*(cH_Sinne("Riechen",true)));
   list_All.push_back(&*(cH_Sinne("Schmecken",true)));
   list_All.push_back(&*(cH_Sinne("Tasten",true)));
   list_All.push_back(&*(cH_Sinne("Sechster Sinn",true)));
+*/
+/*
   // Weil die Sinne gechached sind müssen die Werte explizit gesetzt werden:
   cH_Sinne("Sehen")->setAnfangswert(8);
   cH_Sinne("Hören")->setAnfangswert(8);
@@ -66,4 +87,5 @@ Sinne_All::Sinne_All()
   cH_Sinne("Schmecken")->setAnfangswert(8);
   cH_Sinne("Tasten")->setAnfangswert(8);
   cH_Sinne("Sechster Sinn")->setAnfangswert(0);
+*/
 }

@@ -47,7 +47,7 @@ class cH_Sinne : public Handle<const Sinne>
     friend class std::map<std::string,cH_Sinne>;
     cH_Sinne(){};
  public:
-    cH_Sinne(const std::string& n IF_XML(,bool create=false));
+    cH_Sinne(const std::string& n,bool create=false);
     cH_Sinne(const Tag *tag);
 
     cH_Sinne(const cH_MidgardBasicElement &x) : Handle<const Sinne>
@@ -56,10 +56,10 @@ class cH_Sinne : public Handle<const Sinne>
 
 class Sinne_All
 {
-   std::list<cH_MidgardBasicElement> list_All;
+   std::list<MidgardBasicElement_mutable> list_All;
   public:
    Sinne_All();
-   std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
+   std::list<MidgardBasicElement_mutable> get_All() const {return list_All;}
 };
 
 #endif

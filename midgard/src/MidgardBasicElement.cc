@@ -34,7 +34,7 @@
 #include "xml.h"
 #include "Datenbank.hh"
 
-std::string MidgardBasicElement_fixed::RegionString(const Datenbank &D) const
+std::string MidgardBasicElement::RegionString(const Datenbank &D) const
 {
   std::vector<cH_Region> V=D.Regionen;
   std::string s=Regionen_All::getRegionfromAbk(V,region)->Name();
@@ -44,14 +44,14 @@ std::string MidgardBasicElement_fixed::RegionString(const Datenbank &D) const
 
 
 
-void MidgardBasicElement_fixed::show_list_in_tree(
-  const std::list<cH_MidgardBasicElement>& BasicList,
+void MidgardBasicElement::show_list_in_tree(
+  const std::list<MidgardBasicElement_mutable>& BasicList,
   SimpleTree *Tree,
   const midgard_CG *hauptfenster, bool clear_me)
 {
   if (BasicList.begin()==BasicList.end() ) {Tree->clear(); return ;}
   std::vector<cH_RowDataBase> datavec;
-  for (std::list<cH_MidgardBasicElement>::const_iterator i=BasicList.begin();i!=BasicList.end();++i)
+  for (std::list<MidgardBasicElement_mutable>::const_iterator i=BasicList.begin();i!=BasicList.end();++i)
    {
 //cout << (*i)->Name()<<' '<<(*i)->Erfolgswert()<<'\n';
       datavec.push_back(new Data_SimpleTree(*i,hauptfenster));
@@ -59,11 +59,11 @@ void MidgardBasicElement_fixed::show_list_in_tree(
   Tree->setDataVec(datavec,clear_me);
 }
 
-void MidgardBasicElement::move_element(std::list<cH_MidgardBasicElement>& von,
-                                       std::list<cH_MidgardBasicElement>& nach,
-                                       const cH_MidgardBasicElement& MBE)
+void MidgardBasicElement::move_element(std::list<MidgardBasicElement_mutable>& von,
+                                       std::list<MidgardBasicElement_mutable>& nach,
+                                       const MidgardBasicElement_mutable& MBE)
 {
- for (std::list<cH_MidgardBasicElement>::iterator i=von.begin();i!= von.end();++i)
+ for (std::list<MidgardBasicElement_mutable>::iterator i=von.begin();i!= von.end();++i)
   {
    if((*i)->What()==ZAUBERWERK)
     {
@@ -80,7 +80,7 @@ void MidgardBasicElement::move_element(std::list<cH_MidgardBasicElement>& von,
   }
 }
 
-bool MidgardBasicElement_fixed::ist_lernbar(const vector<cH_Typen>& Typ,const map<std::string,std::string>& map_typ) const
+bool MidgardBasicElement::ist_lernbar(const vector<cH_Typen>& Typ,const map<std::string,std::string>& map_typ) const
 {
   for (std::vector<cH_Typen>::const_iterator i=Typ.begin();i!=Typ.end();++i)
     if (const_cast<map<std::string,std::string>& >(map_typ)[(*i)->Short()]!="") 
@@ -88,24 +88,27 @@ bool MidgardBasicElement_fixed::ist_lernbar(const vector<cH_Typen>& Typ,const ma
   return false;
 }
 
-bool MidgardBasicElement::ist_gelernt(const std::list<cH_MidgardBasicElement>& L) const
+bool MidgardBasicElement_mutable::ist_gelernt(const std::list<MidgardBasicElement_mutable>& L) const
 {
- for (std::list<cH_MidgardBasicElement>::const_iterator i=L.begin();i!=L.end();++i)
+ for (std::list<MidgardBasicElement_mutable>::const_iterator i=L.begin();i!=L.end();++i)
    {
-     if((*i)->What()==ZAUBERWERK)
+     if((*i)->What()==MidgardBasicElement::ZAUBERWERK)
       {
-        if((*i)->Name()==Name() &&
-           cH_Zauberwerk(*i)->Art()==static_cast<const Zauberwerk*>(this)->Art() &&
-           (*i)->Stufe()==Stufe())  return true ;
+        if((*i)->Name()==(*this)->Name() &&
+#warning HILFE: WIe geht der CAST?
+           cH_Zauberwerk(*i)->Art()==
+               static_cast<const Zauberwerk*>(&**this)->Art() &&
+           (*i)->Stufe()==(*this)->Stufe())  
+               return true ;
       }
      else 
       {  
-     if((*i)->Name()==Name() && (*i)->Zusatz()==Zusatz()) return true;}
+     if((*i)->Name()==(*this)->Name() && (*i).Zusatz()==Zusatz()) return true;}
    }
  return false;
 }
 
-bool MidgardBasicElement_fixed::ist_gelernt(const std::list<std::string>& L) const
+bool MidgardBasicElement::ist_gelernt(const std::list<std::string>& L) const
 {
  for (std::list<std::string>::const_iterator i=L.begin();i!=L.end();++i)
    {
@@ -114,7 +117,7 @@ bool MidgardBasicElement_fixed::ist_gelernt(const std::list<std::string>& L) con
  return false;
 }
 
-std::string MidgardBasicElement_fixed::Standard__(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
+std::string MidgardBasicElement::Standard__(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
 {
  vector<std::string> s = Standard(Werte,Typ);
  std::string s2=s[0];
@@ -123,7 +126,7 @@ std::string MidgardBasicElement_fixed::Standard__(const Grundwerte &Werte,const 
  return s2;
 }
 
-vector<std::string> MidgardBasicElement_fixed::Standard(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
+vector<std::string> MidgardBasicElement::Standard(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
 {
  assert(Typ.size()==2);
  vector<std::string> s(2);
@@ -138,7 +141,7 @@ vector<std::string> MidgardBasicElement_fixed::Standard(const Grundwerte &Werte,
  return s;
 }
 
-std::string MidgardBasicElement_fixed::AusnahmenString(const Grundwerte &Werte,const cH_Typen& Typ,const std::string s) const
+std::string MidgardBasicElement::AusnahmenString(const Grundwerte &Werte,const cH_Typen& Typ,const std::string s) const
 {
   if(Region()=="") return s;
   for(std::vector<st_ausnahmen>::const_iterator i=VAusnahmen.begin();i!=VAusnahmen.end();++i)
@@ -155,7 +158,7 @@ std::string MidgardBasicElement_fixed::AusnahmenString(const Grundwerte &Werte,c
 }
 
 
-double MidgardBasicElement_fixed::Standard_Faktor(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
+double MidgardBasicElement::Standard_Faktor(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
 {
   double fac;
   if      (standard_one_G(Standard(Werte,Typ)) ) fac = 0.5;
@@ -169,14 +172,14 @@ double MidgardBasicElement_fixed::Standard_Faktor(const Grundwerte &Werte,const 
   return fac;
 }
 
-bool MidgardBasicElement_fixed::standard_one_G(const vector<std::string>& s) const 
+bool MidgardBasicElement::standard_one_G(const vector<std::string>& s) const 
 {
  assert(s.size()==2);
  if (s[0] == "G" || s[1] =="G" ) return true;
  return false;
 }
 
-bool MidgardBasicElement_fixed::standard_all_S(const vector<std::string>& s) const 
+bool MidgardBasicElement::standard_all_S(const vector<std::string>& s) const 
 {
  assert(s.size()==2);
  if (s[0] == "S" && (s[1] =="S" || s[1]=="" )) return true;
@@ -185,7 +188,7 @@ bool MidgardBasicElement_fixed::standard_all_S(const vector<std::string>& s) con
 }
 
 
-int MidgardBasicElement_fixed::get_Steigern_Kosten(int erfolgswert) const
+int MidgardBasicElement::get_Steigern_Kosten(int erfolgswert) const
 {
 //cout << erfolgswert<<'\t'<<const_cast<std::map<int,int>& >(map_erfolgswert_kosten)[erfolgswert]<<'\t';
 //cout << map_erfolgswert_kosten.size()<<'\n';
@@ -198,40 +201,40 @@ cout << What()<<'\t'<<i->first<<'\t'<<i->second<<'\n';
  return const_cast<std::map<int,int>& >(map_erfolgswert_kosten)[erfolgswert];
 }
 
-int MidgardBasicElement_fixed::Steigern(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const 
+int MidgardBasicElement_mutable::Steigern(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const 
 { 
    int kosten=0;
    if(Erfolgswert()>0)
-      kosten = get_Steigern_Kosten(Erfolgswert()+1);
+      kosten = (*this)->get_Steigern_Kosten(Erfolgswert()+1);
    else 
-      kosten = get_Steigern_Kosten(abs(Erfolgswert())-1);
-   int back = int(Standard_Faktor(Werte,Typ)*kosten);
+      kosten = (*this)->get_Steigern_Kosten(abs(Erfolgswert())-1);
+   int back = int((*this)->Standard_Faktor(Werte,Typ)*kosten);
    return back;
 }
 
-int MidgardBasicElement_fixed::Reduzieren(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const 
+int MidgardBasicElement_mutable::Reduzieren(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const 
 {
    int kosten=0;
    if(Erfolgswert()>0)
-      kosten = get_Steigern_Kosten(Erfolgswert());
+      kosten = (*this)->get_Steigern_Kosten(Erfolgswert());
    else 
-      kosten = get_Steigern_Kosten(abs(Erfolgswert()));
-   int back = int(Standard_Faktor(Werte,Typ)*kosten);
+      kosten = (*this)->get_Steigern_Kosten(abs(Erfolgswert()));
+   int back = int((*this)->Standard_Faktor(Werte,Typ)*kosten);
    return back;
 }
 
-int MidgardBasicElement_fixed::Verlernen(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
+int MidgardBasicElement_mutable::Verlernen(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
 {
 //cout << "MidgardBasicElement::Verlernen "<<Name()<<' ' << Reduzieren(Typ,ausnahmen)<<'\n';
    if(Reduzieren(Werte,Typ)==0)
     {
-        return Kosten(Werte,Typ);
+        return (*this)->Kosten(Werte,Typ);
     }      
    else return 0;
 }
 
 
-void MidgardBasicElement_fixed::get_map_typ()
+void MidgardBasicElement::get_map_typ()
 {  
  const Tag *tag=this->tag;
  
@@ -253,7 +256,7 @@ void MidgardBasicElement_fixed::get_map_typ()
 }
  
 
-void MidgardBasicElement_fixed::get_Steigern_Kosten_map()
+void MidgardBasicElement::get_Steigern_Kosten_map()
 {
  const Tag *tag=this->tag;
  const Tag *kosten=0;
@@ -326,12 +329,12 @@ std::string utf82iso(const std::string &s);
 #endif
 
 void MidgardBasicElement::saveElementliste(ostream &datei,
-			   const std::list<cH_MidgardBasicElement>& b,
+			   const std::list<MidgardBasicElement_mutable>& b,
                            const Grundwerte& Werte,
                            const vector<cH_Typen>& Typ)
 {
   if(b.size()==0) return;
-  for (std::list<cH_MidgardBasicElement>::const_iterator i=b.begin();i!=b.end();++i)
+  for (std::list<MidgardBasicElement_mutable>::const_iterator i=b.begin();i!=b.end();++i)
    {
       // oder <Beruf Wert=12>Arzt</Beruf> ?
       std::string type=(*i)->What_str();
@@ -339,8 +342,8 @@ void MidgardBasicElement::saveElementliste(ostream &datei,
          type.replace(type.find('.'),1,"-");
       datei << "    <" << Internal2Latin(type);
       write_string_attrib(datei, "Bezeichnung", Internal2Latin((*i)->Name()));
-      write_int_attrib(datei, "Wert", (*i)->Erfolgswert());
-      write_int_attrib(datei, "Praxispunkte", (*i)->Praxispunkte());
+      write_int_attrib(datei, "Wert", (*i).Erfolgswert());
+      write_int_attrib(datei, "Praxispunkte", (*i).Praxispunkte());
 
       if ((*i)->What()==ZAUBERWERK)
       {  
@@ -348,14 +351,14 @@ void MidgardBasicElement::saveElementliste(ostream &datei,
         write_string_attrib(datei, "Stufe", Internal2Latin(cH_Zauberwerk(*i)->Stufe()));
       }
       if ((*i)->ZusatzEnum(Typ))
-         write_string_attrib(datei, "Zusatz", Internal2Latin((*i)->Zusatz()));
+         write_string_attrib(datei, "Zusatz", Internal2Latin((*i).Zusatz()));
       datei << "/>\n";
    }
 }
 
   //////////////////////////////////////////////////////////////////////
   //Steigern von Fertigkeiten  
-void MidgardBasicElement_fixed::EP_steigern(const std::string fert)
+void MidgardBasicElement::EP_steigern(const std::string fert)
 {
  const Tag *steigern=0;
  

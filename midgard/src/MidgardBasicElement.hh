@@ -110,7 +110,6 @@ class MidgardBasicElement : public HandleContentCopyable
       virtual int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const {return 0;};
       bool ist_lernbar(const vector<cH_Typen>& Typ,const map<std::string,std::string>& map_typ) const;
       bool ist_gelernt(const std::list<std::string>& L) const;
-      bool ist_gelernt(const std::list<MidgardBasicElement_mutable>& L) const;
       virtual int FErfolgswert(const Abenteurer &abenteurer,const MidgardBasicElement_mutable &mbem) const;
 
 
@@ -125,9 +124,6 @@ public:
 
       int Kosten(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const 
          {return (int)(Standard_Faktor(Werte,Typ)*GrundKosten());}
-      int Steigern(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const; 
-      int Reduzieren(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const;
-      int Verlernen(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const; 
       bool standard_one_G(const vector<std::string>& s) const ;
       bool standard_all_S(const vector<std::string>& s) const ;
       bool operator == (const MidgardBasicElement& b) const 
@@ -208,6 +204,11 @@ class MidgardBasicElement_mutable : public cH_MidgardBasicElement
      bool Pflicht() const {return pflicht;}
      void setPflicht(bool p) {pflicht=p;}
      std::string Pflicht_str() const; 
+
+     bool ist_gelernt(const std::list<MidgardBasicElement_mutable>& L) const;
+      int Steigern(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const; 
+      int Reduzieren(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const;
+      int Verlernen(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const; 
                
 
    class sort {

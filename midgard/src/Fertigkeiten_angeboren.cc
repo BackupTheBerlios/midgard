@@ -19,7 +19,7 @@
 
 #include "Fertigkeiten_angeboren.hh"
 #include "ProgressBar.h"
-#include "Grundwerte.hh"
+#include "Abenteurer.hh"
 
 cH_Fertigkeit_angeborene::cache_t cH_Fertigkeit_angeborene::cache;
 
@@ -50,15 +50,16 @@ void Fertigkeit_angeborene::get_Fertigkeit()
  assert(tag);
  min=tag->getIntAttr("Min");
  max=tag->getIntAttr("Max");
- erfolgswert=tag->getIntAttr("Wert");
+// erfolgswert=tag->getIntAttr("Wert");
+ anfangswert=tag->getIntAttr("Wert");
 }
 
 
 int Fertigkeit_angeborene::FErfolgswert(const Abenteurer &a,const MidgardBasicElement_mutable &mbem) const
 {
-  if(Name()=="Trinken") return Erfolgswert()+Werte.Ko()/10;
-  if(Name()=="Berserkergang") return Erfolgswert()-Werte.Wk()/5;
-  else return Erfolgswert();
+  if(Name()=="Trinken") return mbem.Erfolgswert()+a.getCWerte().Ko()/10;
+  if(Name()=="Berserkergang") return mbem.Erfolgswert()-a.getCWerte().Wk()/5;
+  else return mbem.Erfolgswert();
 }
 
 

@@ -101,7 +101,7 @@ void KiDo::get_KiDo()
 int KiDo::get_erfolgswert_kido(const std::list<MidgardBasicElement_mutable>& L)
 {
  for (std::list<MidgardBasicElement_mutable>::const_iterator i= L.begin();i!=L.end();++i)
-   if (cH_Fertigkeit(*i)->Name() == "KiDo") return cH_Fertigkeit(*i)->Erfolgswert();
+   if ((*i)->Name() == "KiDo") return (*i).Erfolgswert();
  abort();
 }   
 

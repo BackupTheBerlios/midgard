@@ -331,13 +331,15 @@ std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
    const Grundwerte& Werte)
 {
    std::list<cH_MidgardBasicElement> Verteidigungswaffen;
-   Verteidigungswaffen.push_back(new WaffeBesitz(
-      cH_Waffe("waffenloser Kampf"),0,"waffenloser Kampf",0,0,""));
+//   Verteidigungswaffen.push_back(new WaffeBesitz(
+//      cH_Waffe("waffenloser Kampf"),0,"waffenloser Kampf",0,0,""));
+   MidgardBasicElement_mutable wl(&*cH_Waffe("waffenloser Kampf"));
+   Verteidigungswaffen.push_back(WaffeBesitz(wl));
    for (std::list<MidgardBasicElement_mutable>::const_iterator i=list_Waffen_besitz.begin();
          i!=list_Waffen_besitz.end();++i)
      {
-       cH_WaffeBesitz WB(*i);
-       if (WB->Waffe()->Art()=="Verteidigung" || WB->Waffe()->Name()=="Kampfstab" || WB->Name()=="Sai" ||
+       WaffeBesitz WB(*i);
+       if (WB.Waffe()->Art()=="Verteidigung" || WB->Name()=="Kampfstab" || WB->Name()=="Sai" ||
           WB->Name()=="Tonfa" || WB->Name()=="GunSen" || WB->Name()=="BuKasa" || 
           WB->Name()=="KusariGama" || WB->Name()=="TetsuBo" ) 
          Verteidigungswaffen.push_back(*i);
@@ -346,7 +348,7 @@ std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
    for(std::list<cH_MidgardBasicElement>::const_iterator i=Verteidigungswaffen.begin();
          i!=Verteidigungswaffen.end();/*siehe unten*/)
      {
-      cH_WaffeBesitz WB(*i);
+      WaffeBesitz WB(*i);
       std::vector<int> vwert;
       for (std::list<MidgardBasicElement_mutable>::const_iterator j=list_Waffen.begin();j!=list_Waffen.end();++j)      
          { cH_Waffe w(*j);
@@ -367,7 +369,7 @@ std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
                   }
                  else erf_wert = j->Erfolgswert();
                  int ewert = Werte.Abwehr_wert()+Werte.bo_Ab() // Grundwerte
-                           + erf_wert + WB->av_Bonus() ;// Waffenwerte
+                           + erf_wert + WB.av_Bonus() ;// Waffenwerte
                  Vwaffewert += itos(ewert);
                }
          }
