@@ -26,7 +26,7 @@ Wizard::esteps operator++(Wizard::esteps a)
 }
 
 Wizard::Wizard(midgard_CG* h)
-: actual_step(SPEZIES)
+: hauptfenster(h), actual_step(SPEZIES)
 {
   fill_vecwiz();
 }
@@ -49,12 +49,13 @@ void Wizard::restart()
 void Wizard::evaluate_step(esteps step)
 {
   assert(vecwiz.size()>(size_t)(step));
+  
   hauptfenster->notebook_main->set_page(vecwiz[step].page);
   Gtk::OStream os(hauptfenster->LogWinWizard->get_list());
   os << vecwiz[step].text<<'\n';
   os.flush();
   hauptfenster->LogWinWizard->scroll();
-  hauptfenster->(*vecwiz[step].callback)();
+  hauptfenster->*(vecwiz[step].callback)();
 }
 
 
