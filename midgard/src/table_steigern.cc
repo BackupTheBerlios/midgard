@@ -12,13 +12,16 @@
 #include "midgard_CG.hh"
 #include "dtos1.h"
 #include "LernListen.hh"
-
+#include "../pixmaps/Anpass-trans-50.xpm"
+#include "../pixmaps/Anpass-trans-50_invers.xpm"
 
 void table_steigern::init(midgard_CG *h)
 {
   hauptfenster=h;
   if(LL) delete LL ;
   LL = new LernListen(hauptfenster->getDatabase());
+  flashing_gradanstieg->set(Anpass_trans_50_xpm,Anpass_trans_50_invers_xpm,0);
+
   zeige_werte();
   load_for_page(notebook_lernen->get_current_page_num());
   steigern_mit_EP_bool=true;
@@ -161,7 +164,11 @@ void table_steigern::zeige_werte()
    label_pp_resistenz->set_text(itos(W.ResistenzPP()));
    label_steigertage->set_text(dtos1(W.Steigertage()));
    label_alter->set_text(itos(W.Alter()));
-   label_grad_GFP->set_text(hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Grad_fehlt,W));
+   std::string grad_GFP=hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Grad_fehlt,W);
+   label_grad_GFP->set_text(grad_GFP);
+   if(grad_GFP=="erreicht") 
+      flashing_gradanstieg->setTime(1000);
+
    label_ausdauer_GFP->set_text(hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Ausdauer,W));
    label_abwehr_GFP->set_text(hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Abwehr,W));
    label_resistenz_GFP->set_text(hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Resistenz,W));

@@ -9788,14 +9788,13 @@ steigern</label>
 		      <spacing>0</spacing>
 
 		      <widget>
-			<class>GtkPixmap</class>
-			<name>pixmap124</name>
-			<filename>Anpass-trans-50.xpm</filename>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<build_insensitive>True</build_insensitive>
+			<class>Custom</class>
+			<name>flashing_gradanstieg</name>
+			<cxx_visibility>protected</cxx_visibility>
+			<creation_function>FlashingPixmap</creation_function>
+			<int1>0</int1>
+			<int2>0</int2>
+			<last_modification_time>Tue, 05 Nov 2002 14:52:25 GMT</last_modification_time>
 			<child>
 			  <padding>0</padding>
 			  <expand>True</expand>

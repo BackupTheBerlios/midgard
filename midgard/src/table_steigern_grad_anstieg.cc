@@ -1,4 +1,4 @@
-// $Id: table_steigern_grad_anstieg.cc,v 1.12 2002/11/01 10:23:48 thoma Exp $
+// $Id: table_steigern_grad_anstieg.cc,v 1.13 2002/11/06 07:47:55 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,6 +23,7 @@
 
 void table_steigern::on_grad_anstieg_clicked()
 {
+ flashing_gradanstieg->setTime(0);
  radiobutton_steigern->set_active(true);
  int act_grad=hauptfenster->getWerte().Grad();
  int max_grad=hauptfenster->getCDatabase().GradAnstieg.get_Grad(hauptfenster->getWerte().GFP());
@@ -51,6 +52,7 @@ void table_steigern::on_grad_anstieg_clicked()
 
 void table_steigern::on_button_grad_clicked()
 {   
+  flashing_gradanstieg->setTime(0);
   hauptfenster->getWerte().setGrad(hauptfenster->getCDatabase().GradAnstieg.get_Grad(hauptfenster->getWerte().GFP()));
   zeige_werte();
 }

@@ -14,6 +14,7 @@ NEWS IN VERSION 0.8.9
 * Reduzieren von Zauber, Abwehr, Grad nicht unter Minimum
 * Auf dem Ausrüstungsbogen werden Abzüge auf EW und B bei Überlast angegeben
 * Gewicht der Rüstung wird bei der Belastung nicht mitgerechnet
+* Cool: Wenn ein neuer Grad erreicht ist, dann blinkt der Grad-steigern-Knopf
 
 TODO: ('-' zeigt CP an)
 
