@@ -52,9 +52,6 @@ void table_steigern::on_LabelSpin_gfp_activate()
 // vielleicht nur ein bool?
 void table_steigern::show_goldeingabe(bool b,int do_edit)
 {
-  LabelSpin_silber->set_value(hauptfenster->getAben().Silber());
-  LabelSpin_kupfer->set_value(hauptfenster->getAben().Kupfer());
-  LabelSpin_gold->set_value(hauptfenster->getAben().Gold());
      if     (do_edit) 
        { 
          LabelSpin_silber->edit_new();
@@ -119,9 +116,6 @@ void table_steigern::on_button_EP_eingeben()
 
 void table_steigern::show_EPeingabe(bool b,int do_edit)
 {
-  LabelSpin_aep->set_value(hauptfenster->getAben().AEP());
-  LabelSpin_kep->set_value(hauptfenster->getAben().KEP());
-  LabelSpin_zep->set_value(hauptfenster->getAben().ZEP());
      if     (do_edit)
        { 
          LabelSpin_kep->edit_new();

@@ -1,13 +1,18 @@
 ##### DAS IST DAS WICHTIGSTE #########################################
 - beim Laden wird nicht alles richtig angezeigt
-- Steigern geht nicht (Reduzieren z.B.)
 - Absturz bei Auswahl der Rüstung
 - nicht-Refresh der aktuellen Zeile nach anklicken (lernen)
-- Verlernen geht nicht
 - man kann keine Verzeichnisse im Requester auswählen
 - Wizard
 - Zusatz etc in Dialog tun
 - ChoiceButtons überprüfen
+- GFP, Steigertage, nocht X GFP werden bei Neulernen nicht aktualisiert
+	(zuviel Refresh bei Gradanstieg etc?)
+- Umsortieren des oberen Baumes nicht möglich (häh?)
+- Baum klappt nicht bis zu gewählter Tiefe auf !!!
+- Menü ist weg
+- Optionen fehlen im Menü
+- Icons in Statusleiste im falschen Zustand
 
 Bugreport Sanni:
 Auswahl/Besitz: Teilweise als aufklappbare Einträge ohne Namen und 
