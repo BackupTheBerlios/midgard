@@ -1,7 +1,7 @@
 ##########################################################################
 NEWS IN VERSION 0.1delta1
 
-* Berufe funktionieren (soweit ich die neuen Regeln kenne/rate)
+* Berufe funktionieren
 * Sprachen, alte Sprachen und Schriften funktionieren (zumindest sollten sie das:-)
 * Umbau der Oberfläche begonnen
 * Landeskunde funktioniert jetzt für Heimatländer (Charaktererschaffung)
@@ -17,12 +17,15 @@ NEWS IN VERSION 0.1delta1
 * Charakterbeschreibung (Ausdruck) überarbeitet
 * Viele(!) Bugfixes
 * Waffen und Geld bei Spielbeginn nach den neuen Regeln
+* Land/Stadt kann gewählt werden
+* Das (ausdruckbare) Charakterdokument ist an die neuen Regeln angepaßt 
+* Universelle Fertigkeiten im ausgedruckten Charakterdokument mit 
+   Berücksichtigung der Voraussetzungen und ob eine Fertigkeit bereits
+   explizit gelernt wurde.
 
 TODO:
 * Landeskunde beim 'steigern' stürzt ab.
 * Die Ausrüstung kann noch nicht geladen werden
-* Das (ausdruckbare) Charakterdokument ist noch nicht an die neuen Regeln angepaßt 
-* Universelle Fertigkeiten im ausgedruckten Charakterdokument
 * Spezielgebiete für Magier stürzt ab
 * Irgendwie funktioniert das mit dem Erfolgswert für waffenlosen Kampf 
    und dem dazugehörigen Abwerbonus noch nicht.

@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.62 2001/12/20 09:14:26 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.63 2001/12/20 11:29:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -299,11 +299,7 @@ void midgard_CG::LaTeX_write_values()
   {
     cH_Fertigkeit f(*i);
     if(f->Ungelernt()!=-1)
-     {
-       if (f->Voraussetzungen(Werte)) f->set_Erfolgswert(f->Ungelernt());
-       else f->set_Erfolgswert(f->Ungelernt()-2);
        UF.push_back(*i);
-     } 
   }
  int countunifert=0;
  for(std::list<cH_MidgardBasicElement>::iterator i=UF.begin();i!=UF.end();++i)
@@ -316,15 +312,22 @@ void midgard_CG::LaTeX_write_values()
     else wert = itos(f->Erfolgswert());
     std::string name = f->Name();
     if(name=="Geheimmechanismen öffnen") name = "Geheimmech. öffnen";
-    if (!(*i)->ist_gelernt(list_Fertigkeit))
+
+    if (f->Voraussetzungen(Werte)) f->set_Erfolgswert(f->Ungelernt());
+    else f->set_Erfolgswert(f->Ungelernt()-2);
+
+    if ((*i)->ist_gelernt(list_Fertigkeit))
      {
-       fout <<"\\newcommand{\\uni"<<a<<"}{\\tiny "<<name<< "}\t\t";
-       fout << "\\newcommand{\\uniw"<<a<<"}{"  <<wert << "}\n";
+       fout <<"\\newcommand{\\uni"<<a<<"}{\\mygray\\tiny "<<name<< "}\t\t";
+       fout << "\\newcommand{\\uniw"<<a<<"}{\\mygray"  <<wert << "}\n";
      }
     else
      {
        fout <<"\\newcommand{\\uni"<<a<<"}{\\tiny "<<name<< "}\t\t";
-       fout << "\\newcommand{\\uniw"<<a<<"}{"  <<wert << "}\n";
+       if (f->Voraussetzungen(Werte))
+          fout << "\\newcommand{\\uniw"<<a<<"}{"  <<wert << "}\n";
+       else
+          fout << "\\newcommand{\\uniw"<<a<<"}{\\mygray"  <<wert << "}\n";
      }
   } 
 
