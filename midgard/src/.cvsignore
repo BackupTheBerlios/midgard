@@ -72,3 +72,6 @@ midgard_xmlimport
 midgard_CG_magier_spezialgebiet.cc
 Window_herkunft.cc
 Ausnahmen.cc
+steigern_EP_sql.cc
+midgard_CG_grad_anstieg_sql.cc
+class_grad_anstieg_sql.cc
