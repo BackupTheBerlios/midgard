@@ -351,7 +351,7 @@ Hexenhand	1000	3	Geste	3	H&D	\N	\N	\N				30 min	30m	Körper	1 Ob	1 h	dämonisch	ab
 Hexenritt	1600	4:Gr	Geste	4	\N	\N	\N	\N	Eis	beherrscht	Feuer	20 s	B	Geist	1 Ws	6 h	schwarzmagisch	Zaumzeug aus passenden Knochen & Leder, rec. (10 GS)	f		\N	\N
 Hexenschuß	2000	4	Geste	4	W	\N	\N	\N	Magan	zerstört	Feuer	20 sec	30 m	Körper	Strahl	10 min	schwarzmagisch	Schwarzdornpfeil mit Silberspitze (2GS)	t	\N	\N	\N
 Hexenspüren	100	1	Gedanke	1	N	\N	\N	\N	Magan	erkennt	Magan	1 min	var	Geist	1 Zauberer	1 h	göttlich	\N	f	\N	\N	\N
-Hexenwirbel	300	2	Geste	2	H&D	\N	\N	\N				10 min	0	Geist	1 Ort	0	dämonischj	eigenes Haar    nicht	t		\N	\N
+Hexenwirbel	300	2	Geste	2	H&D	\N	\N	\N				10 min	0	Geist	1 Ort	0	dämonisch	eigenes Haar    nicht	t		\N	\N
 Himmelsleiter	3000	6	Geste	5	\N	\N	\N	\N	Metall	erschafft	Feuer	1 min	50 m	Umgebung	-	10 min	göttlich		t		\N	\N
 Hitzeschutz	100	1	Gedanke	1	\N	\N	\N	\N	Wasser	verändert	Erde	1 s	0	Körper	Zauberer	2 min	dämonisch		t	Siegel	\N	\N
 Hitzsalz	40	1	Gedanke	1	\N	\N	\N	Zaubersalz	Feuer	zerstört	Wasser	1 s	500 m	Körper	1 Ws	1 h	dämonisch		f		\N	\N

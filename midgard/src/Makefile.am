@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.186 2002/08/26 06:43:19 thoma Exp $
+# $Id: Makefile.am,v 1.187 2002/08/26 12:19:22 thoma Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -25,7 +25,7 @@ pkgdata_DATA = magus_document_eingabe.tex \
 
 EXTRA_DIST = midgard_document_eingabe.tex.in \
       drache.png  schwert.png wurfbeil.png MAGUS-Logo-grey2.png \
-      Alba-grey.png Letter+Feather-grey.png
+      Alba-grey.png Letter+Feather-grey.png 
 
 
 noinst_HEADERS = \
