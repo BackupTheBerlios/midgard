@@ -208,10 +208,6 @@
 	</widget>
 
 	<widget>
-	  <class>Placeholder</class>
-	</widget>
-
-	<widget>
 	  <class>GtkButton</class>
 	  <child_name>Toolbar:button</child_name>
 	  <name>button_html_hilfe</name>
