@@ -184,6 +184,7 @@ std::cout << hauptfenster->getChar()->getAbenteurer().Spezies()->Name() << " tz:
   std::vector<cH_Spezies> S=LernListen::getSpezies(nsc_allowed);
   for(std::vector<cH_Spezies>::const_iterator i=S.begin();i!=S.end();++i)
      L.push_back((*i)->Name());
+std::cout << hauptfenster->getChar()->getAbenteurer().Spezies()->Name() << " tz::fc 1aa\n";
  combo_spezies->set_popdown_strings(L);
 std::cout << hauptfenster->getChar()->getAbenteurer().Spezies()->Name() << " tz::fc 1b\n";
 
@@ -199,20 +200,21 @@ std::cout << hauptfenster->getChar()->getAbenteurer().Spezies()->Name() << " tz:
 void table_zufall::fill_combo_typen(const bool nsc_allowed)
 {
   std::list<std::string> L;
-  cH_Spezies spezies=hauptfenster->getAben().Spezies();
+  cH_Spezies spezies("Mensch");
 
   // ist eine Spezies in der Combo gesetzt?
   std::string ss=combo_spezies->get_entry()->get_text();
   if(Spezies::get_Spezies_from_long(ss))
      spezies=Spezies::getSpezies(ss)  ;
-  if (!(spezies==hauptfenster->getAben().Spezies()))
-  {  hauptfenster->getAben().setSpezies(spezies);
-     Ausgabe(Ausgabe::Warning,"wie auch immer Spezies!=Spezies werden konnte (CP)");
-  }
+  else return;
+  
+  Abenteurer A;
+  A.setSpezies(spezies);
+  // Geschlecht?
 
-  const std::vector<std::pair<cH_Typen,bool> > T=LernListen::getTypen(hauptfenster->getAben());
+  const std::vector<std::pair<cH_Typen,bool> > T=LernListen::getTypen(A);
   for(std::vector<std::pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
-     L.push_back(i->first->Name(hauptfenster->getAben().Geschlecht()));
+     L.push_back(i->first->Name(A.Geschlecht()));
   combo_typ->set_popdown_strings(L);
 }
 
