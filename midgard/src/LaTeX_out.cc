@@ -34,13 +34,22 @@ void midgard_CG::on_latex_clicked()
  fout << "\\newcommand{\\bophs}{"<<werte.bo_phs<< "}\n";
  fout << "\\newcommand{\\bophk}{"<<werte.bo_phk<< "}\n";
  fout << "\\newcommand{\\bogi}{"<<werte.bo_gi<< "}\n";
- fout << "\\newcommand{\\psy}{"<<werte.psyZR_wert<<"+"<<werte.bo_psy<<"}\n";
- fout << "\\newcommand{\\phs}{"<<werte.phsZR_wert<<"+"<<werte.bo_phs<<"}\n";
- fout << "\\newcommand{\\phk}{"<<werte.phkZR_wert<<"+"<<werte.bo_phk<<"}\n";
- fout << "\\newcommand{\\gift}{"<<werte.gift_wert<<"+"<<werte.bo_gi<<"}\n";
+// fout << "\\newcommand{\\psy}{"<<werte.psyZR_wert<<"+"<<werte.bo_psy<<"}\n";
+// fout << "\\newcommand{\\phs}{"<<werte.phsZR_wert<<"+"<<werte.bo_phs<<"}\n";
+// fout << "\\newcommand{\\phk}{"<<werte.phkZR_wert<<"+"<<werte.bo_phk<<"}\n";
+// fout << "\\newcommand{\\gift}{"<<werte.gift_wert<<"+"<<werte.bo_gi<<"}\n";
+ fout << "\\newcommand{\\psy}{"<<werte.psyZR_wert+werte.bo_psy<<"}\n";
+ fout << "\\newcommand{\\phs}{"<<werte.phsZR_wert+werte.bo_phs<<"}\n";
+ fout << "\\newcommand{\\phk}{"<<werte.phkZR_wert+werte.bo_phk<<"}\n";
+ fout << "\\newcommand{\\gift}{"<<werte.gift_wert+werte.bo_gi<<"}\n";
 
  fout << "\\newcommand{\\abwehr}{"<<werte.abwehr_wert<< "}\n";
  fout << "\\newcommand{\\abwehrfinal}{"<<werte.abwehr_wert+werte.bo_ab<< "}\n";
+ int ohne_waffe=werte.abwehr_wert+werte.bo_ab;
+ string mit_waffe = midgard_CG::get_Verteidigungswaffe(ohne_waffe);
+ fout << "\\newcommand{\\abwehrmitwaffe}{"<<mit_waffe<< "}\n";
+ 
+
  fout << "\\newcommand{\\zauber}{"<<werte.zaubern_wert<< "}\n";
  fout << "\\newcommand{\\alter}{"  <<werte.alter << "}\n";
  fout << "\\newcommand{\\gestalt}{"  <<werte.gestalt << "}\n";
@@ -149,14 +158,18 @@ void midgard_CG::on_latex_clicked()
          { i_waffenlos=atoi(wert.c_str());}
     for (unsigned int j=0; j<waffe_besitz.size();++j)
      {
-      if (waffe_besitz[j]==vec_waffen[i].name)
+      if (waffe_besitz[j].name==vec_waffen[i].name)
        {
          ++countwaffen;
          string b = LaTeX_string(j);
-         fout << "\\newcommand{\\waffe"<<b<<"}{\\scriptsize "<<waffe_besitz[j] << "}\n";
-         int wert = vec_waffen[i].erfolgswert + werte.bo_an;
+         fout << "\\newcommand{\\waffe"<<b<<"}{\\scriptsize "<<waffe_besitz[j].name ;
+         if (waffe_besitz[j].av_bonus!=0 || waffe_besitz[j].sl_bonus!=0) fout <<"$^*$";
+         fout << "}\n";
+         int mag_schadensbonus = waffe_besitz[j].av_bonus;
+         if (waffe_besitz[j].av_bonus==-5 && waffe_besitz[j].sl_bonus==-5) mag_schadensbonus = 0; 
+         int wert = vec_waffen[i].erfolgswert + werte.bo_an + mag_schadensbonus;
          fout << "\\newcommand{\\waffeE"<<b<<"}{"<<wert << "}\n";
-         string schaden=midgard_CG::waffe_werte(waffe_besitz[j],werte,"Schaden");
+         string schaden=midgard_CG::waffe_werte(waffe_besitz[j],werte,"Schaden+mag_Bonus");
          fout << "\\newcommand{\\waffeS"<<b<<"}{"<<schaden << "}\n";
          string anm = midgard_CG::waffe_werte(waffe_besitz[j],werte,"Angriffsrangmodifikation");
          fout << "\\newcommand{\\waffeA"<<b<<"}{"<<anm << "}\n";
@@ -167,11 +180,11 @@ void midgard_CG::on_latex_clicked()
    }
  // waffenloser Kampf:
  fout << "\\newcommand{\\waffeEy"<<"}{"<<i_waffenlos+werte.bo_an << "}\n";
- string schaden=midgard_CG::waffe_werte("waffenloser Kampf",werte,"Schaden");
+ string schaden=midgard_CG::waffe_werte(st_waffen_besitz("waffenloser Kampf",0,0),werte,"Schaden");
  fout << "\\newcommand{\\waffeSy}{"<<schaden << "}\n";
- string anm = midgard_CG::waffe_werte("waffenloser Kampf",werte,"Angriffsrangmodifikation");
+ string anm = midgard_CG::waffe_werte(st_waffen_besitz("waffenloser Kampf",0,0),werte,"Angriffsrangmodifikation");
  fout << "\\newcommand{\\waffeAy}{"<<anm << "}\n";
- string abm = midgard_CG::waffe_werte("waffenloser Kampf",werte,"WM_Abwehr");
+ string abm = midgard_CG::waffe_werte(st_waffen_besitz("waffenloser Kampf",0,0),werte,"WM_Abwehr");
  fout << "\\newcommand{\\waffeVy}{"<<abm << "}\n";
 
  // Fertigkeiten auffüllen

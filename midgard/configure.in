@@ -2,7 +2,7 @@
 # using glademm V0.5_11c
 
 AC_INIT(src/midgard.cc)
-AM_INIT_AUTOMAKE(midgard, 0.2betha2)
+AM_INIT_AUTOMAKE(midgard, 0.3betha0)
 AM_CONFIG_HEADER(config.h)
 
 AC_ISC_POSIX
@@ -31,4 +31,4 @@ else
 fi
 AC_SUBST(PACKAGE_DATA_DIR)
 
-AC_OUTPUT(Makefile src/Makefile src/document_eingabe.tex)
+AC_OUTPUT(Makefile src/Makefile src/document_eingabe.tex pixmaps/Makefile )

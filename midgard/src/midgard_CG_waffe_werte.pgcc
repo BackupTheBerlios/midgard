@@ -6,7 +6,7 @@ exec sql include sqlca;
 int swk(vector<st_ausgewaehlte_waffen>& vec_waffen);
 
 
-string midgard_CG::waffe_werte(const string waffe,st_werte& werte, string mod)
+string midgard_CG::waffe_werte(const st_waffen_besitz& waffe,st_werte& werte, string mod)
 {
   exec sql begin declare section;
    char db_waffe[50];
@@ -15,7 +15,7 @@ string midgard_CG::waffe_werte(const string waffe,st_werte& werte, string mod)
    int  db_sb ;
    char db_angriffsrangmod[10], db_wm_abwehr_leicht[10], db_wm_abwehr_schwer[10];
   exec sql end declare section;
-  strncpy(db_waffe,waffe.c_str(),sizeof(db_waffe));
+  strncpy(db_waffe,waffe.name.c_str(),sizeof(db_waffe));
   exec sql select coalesce(schaden,''), coalesce(schaden_b,0),
       art, coalesce(angriffsrangmod,''), coalesce(wm_abwehr_leicht,''),
       coalesce(wm_abwehr_schwer,'')
@@ -41,16 +41,19 @@ string midgard_CG::waffe_werte(const string waffe,st_werte& werte, string mod)
       string ret = db_angriffsrangmod;
       return ret;
    }
-  if (mod=="Schaden")
+  if (mod=="Schaden" || mod=="Schaden+mag_Bonus")
    {
      if (art=="Verteidigung") return "-"+itos(db_sb)+"AP"; /* doppeltes Minus wg. LaTeX Ausdruck */
      string schaden = db_s1;
      if (schaden=="0") return "";
-     if (waffe=="waffenloser Kampf") {schaden="W6"; db_sb=swk(vec_waffen);}
+     if (waffe.name=="waffenloser Kampf") {schaden="W6"; db_sb=swk(vec_waffen);}
 
      int ibonus = db_sb;
      if (art!="Fern") ibonus+=werte.bo_sc;
-
+     if (mod=="Schaden+mag_Bonus")
+      {  ibonus += waffe.sl_bonus;
+         if (waffe.sl_bonus ==-5 && waffe.av_bonus ==-5) ibonus -= waffe.sl_bonus; 
+      }
      if (ibonus < 0 ) schaden += "-"+itos(ibonus); /* doppeltes Minus für LaTeX Ausdruck */
      if (ibonus == 0 ) schaden += "";
      if (ibonus > 0 ) schaden += "+"+itos(ibonus);

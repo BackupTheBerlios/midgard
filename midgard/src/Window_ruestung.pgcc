@@ -19,28 +19,32 @@ void Window_ruestung::on_clist_ruestung_select_row(gint row, gint column, GdkEve
   destroy();
 }
 
-Window_ruestung::Window_ruestung(st_werte& w) 
+Window_ruestung::Window_ruestung(st_werte& w,midgard_CG* h) 
 : werte(w)
 {
+ hauptfenster=h;
  string sru="Rüstung auswählen. Bisherige Rüstung: ("+ werte.ruestung +")";
  label_ruestung->set_text(sru.c_str());
  exec sql begin declare section;
    int lp,mst,rw,b;
    char ru[30],rus[5];
+   char db_region[10];
  exec sql end declare section;
  exec sql declare ein cursor for
    SELECT  ruestung, ruestung_s, lp_verlust, min_staerke, rw_verlust, 
-           b_verlust FROM ruestung;
+           b_verlust, coalesce(region,'')
+           FROM ruestung order by lp_verlust, ruestung_s ;
  Transaction tr;
  exec sql open ein;
  SQLerror::test(__FILELINE__);
  Gtk::OStream os(clist_ruestung);
  while(true)
    {
-     exec sql fetch ein into :ru, :rus,:lp,:mst,:rw,:b;
+     exec sql fetch ein into :ru, :rus,:lp,:mst,:rw,:b,:db_region;
      SQLerror::test(__FILELINE__,100);
      if (sqlca.sqlcode) break;
-     os << ru <<"\t"<<rus<<"\t"<<lp<<"\t"<<mst<<"\t"<<rw<<"\t"<<b<<"\n";
+     if (hauptfenster->region_check(db_region))
+        os << ru <<"\t"<<rus<<"\t"<<lp<<"\t"<<mst<<"\t"<<rw<<"\t"<<b<<"\n";
    }
  exec sql close ein;
  tr.close();

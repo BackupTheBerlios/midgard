@@ -53,3 +53,6 @@ midgard_CG_waffe_werte.cc
 Window_Waffenbesitz.cc
 get_berufs_vorteile.cc
 midgard_CG_typauswahl.cc
+Window_angeb_fert.cc
+get_Verteidigungswaffe.cc
+Window_mag_bonus.cc

@@ -84,7 +84,7 @@ void Window_waffe::wuerfeln()
 
      if (waffe == "waffenloser Kampf") continue;
      string art = db_art;
-     string sch = hauptfenster->waffe_werte(db_waffe,werte,"Schaden");
+     string sch = hauptfenster->waffe_werte(st_waffen_besitz(db_waffe,0,0),werte,"Schaden");
      if (aartE =="E" && art=="E" )
          os << waffe <<"\t"<<db_grund<<"\t"<<sch<<"\n";
      if (aartW =="W" && art=="W" )
@@ -121,7 +121,7 @@ void Window_waffe::get_art(string& aartE,string& aartS,string& aartW,string& aar
           if (61<=wurf&&wurf<=80){aartE="E";aartW="W";aartS="S";} 
           if (81<=wurf&&wurf<=90){aartA="A";} 
           if (91<=wurf&&wurf<=99){aartA="A";} 
-          if (wurf==100){aartE="E";} 
+          if (wurf==100){aartE="E";magische_Waffe();} 
          }
         if (werte.stand == "Volk")
          {
@@ -132,7 +132,7 @@ void Window_waffe::get_art(string& aartE,string& aartS,string& aartW,string& aar
           if (61<=wurf&&wurf<=80){aartE="E";aartW="W";aartS="S";} 
           if (81<=wurf&&wurf<=90){aartA="A";} 
           if (91<=wurf&&wurf<=99){aartA="A";} 
-          if (wurf==100){aartE="E";} 
+          if (wurf==100){aartE="E";magische_Waffe();} 
          }
         if (werte.stand == "Mittelschicht")
          {
@@ -143,7 +143,7 @@ void Window_waffe::get_art(string& aartE,string& aartS,string& aartW,string& aar
           if (61<=wurf&&wurf<=80){aartE="E";aartW="W";aartS="S";} 
           if (81<=wurf&&wurf<=90){aartA="A";} 
           if (91<=wurf&&wurf<=99){aartA="A";} 
-          if (wurf==100){aartE="E";} 
+          if (wurf==100){aartE="E";magische_Waffe();} 
          }
         if (werte.stand == "Adel")
          {
@@ -154,6 +154,13 @@ void Window_waffe::get_art(string& aartE,string& aartS,string& aartW,string& aar
           if (61<=wurf&&wurf<=80){aartE="E";aartZ="Z";} 
           if (81<=wurf&&wurf<=90){aartA="A";} 
           if (91<=wurf&&wurf<=99){aartA="A";} 
-          if (wurf==100){aartE="E";} 
+          if (wurf==100){aartE="E";magische_Waffe();} 
          }
+}
+
+void Window_waffe::magische_Waffe()
+{
+   string strinfo="100 gewürfelt!!! => magische Einhandwaffe\n";
+      strinfo+= "bitte unter 'steigern'->'Besitztümer' einen Angriffsbonus von +1 einstellen.\n";
+   manage(new WindowInfo(strinfo));   
 }

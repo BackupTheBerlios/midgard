@@ -1,4 +1,53 @@
 ##########################################################################
+NEWS IN VERSION 0.3betha0
+Einige kleinere Bugs beseitigt und andere kleinere 
+   Schönheitsreperaturen :-) vorgenommen.
+Alessandro hat fast alle Pixmaps fertig -> Die Oberfläche wird bunt
+Es gibt jetzt ein Info Fenster, wer seinen Namen da finden möchte, ist herzlich
+   eingeladen sich eine Region vorzuknöpfen :-)
+KanThaiPan ist als erste Region eingearbeitet:
+   - Fertigkeiten
+   - Waffen
+   - Alias Namen für Waffen
+   - SaMurai-Rüstungen
+Verteidigungsbonus beim Kampfstab und KanThai Waffen wird berücksichtigt
+Die KiDo Fähigkeiten fehlen noch :-(
+KanThaiPanische Zaubersprüche fehlen noch aus 2 Gründen:
+   1. Es gibt noch keine Einteilung in das neue Magiesystem
+   2. Es hat noch keiner vermißt bzw. danach gefragt
+Alba Region eingearbeitet (Wenn ich mich nicht verguckt habe, dann gibt es NUR
+ den Zauber 'Leomies Birneneis' und einige besondere Waffen,
+ oder habe ich etwas übersehen?
+
+==> Hier zeigt sich der Vorteil einer Datenbank!!! Es ist nahezu trivial
+die regionalen Ergänzungen vorzunehmen *freu*
+
+##########################################################################
+NEWS IN VERSION 0.2betha5
+angeborene Fertigkeiten können jetzt editiert werden (rechte Maustaste)
+Stand 'entry' durch 'optionmenu' ersetzt -> keine Falscheingabe mehr möglich.
+
+##########################################################################
+NEWS IN VERSION 0.2betha4
+Nach 'neuer Charakter' waren Abstürze möglich, da keine Charakterklasse
+   gesetzt war -> behoben
+Es können magische Waffen unter 'steigern' -> 'Besitztümer' gewählt werden,
+   wird beim Auswürfeln der Besitztümer eine 100 gewürfelt, so weist das 
+   Programm darauf hin, daß die Einstellung von Hand vorgenommen werden muß. 
+Ausdruck der Resistenzboni umformatiert.
+Ausdruck der magischen Waffen mit '*' und berücksichtigten Resistenzboni
+Ausdruck des Awehrwertes unter Berücksichtigung von (mag.) Verteidigungswaffen
+
+
+##########################################################################
+NEWS IN VERSION 0.2betha3
+Das Info Fenster vernichtet sich nach 4 Sekunden selbstständig.
+Abspeichern von Charakteren war fehlerhaft (durch die Umstellung der 
+   Charakterklassen)
+Beruf Gelehrer in Datenbank korrigiert
+
+
+##########################################################################
 NEWS IN VERSION 0.2betha2
 Hilfe leicht überarbeitet und ergänzt
 Bug bei Sprachen lernen beseitigt: GFP werden jetzt addiert
@@ -9,7 +58,7 @@ Neue Charakterklassen können nun ergänzt werden, ohne das der Quellcode
 geändert werden muß. Es reicht diese in die entsprechenden Tabellen einzutragen
 Datenbank aufgeräumt
 Info Fenster kann abgeschaltet werden.
-[ Die Regionen-Knöpfe sind ncoh ohne Funnktion ]
+[ Die Regionen-Knöpfe sind noch ohne Funktion ]
 
 ##########################################################################
 NEWS IN VERSION 0.2betha1

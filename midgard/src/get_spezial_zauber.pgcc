@@ -25,7 +25,7 @@ int midgard_CG::get_spezial_zauber(string typ, string zauber)
 
    Transaction tr;
    exec sql prepare zaub from :query ;    
-    exec sql declare zauber cursor for zaub ;
+   exec sql declare zauber cursor for zaub ;
 
     exec sql open zauber;
     SQLerror::test(__FILELINE__);

@@ -54,7 +54,11 @@ void Window_werte_editieren::on_nwe_close_clicked()
    werte.groesse = atoi( groesse_ein->get_text().c_str());
    werte.grad = atoi( grad_ein->get_text().c_str());
    werte.spezialisierung = spezialisierung_ein->get_text();
-   werte.stand = stand_ein->get_text();
+
+   int istand = int(optionmenu_stand->get_menu()->get_active()->get_user_data());
+   werte.stand=vstand[istand];
+
+//   werte.stand = stand_ein->get_text();
    werte.herkunft = herkunft_ein->get_text();
    werte.glaube = glaube_ein->get_text();
    werte.name_charakter = name_charakter_ein->get_text();
@@ -68,6 +72,13 @@ void Window_werte_editieren::on_nwe_close_clicked()
 Window_werte_editieren::Window_werte_editieren(midgard_CG* h,st_werte& werte)
 {
  hauptfenster=h;
+ vstand.resize(5);
+ vstand[1]="Unfrei";
+ vstand[2]="Volk";
+ vstand[3]="Mittelschicht";
+ vstand[4]="Adel";
+
+
  st_ein->set_value(werte.st);   
  ge_ein->set_value(werte.ge);   
  ko_ein->set_value(werte.ko);   
@@ -107,7 +118,12 @@ Window_werte_editieren::Window_werte_editieren(midgard_CG* h,st_werte& werte)
  groesse_ein->set_value(werte.groesse);   
  grad_ein->set_value(werte.grad);   
  spezialisierung_ein->set_text(werte.spezialisierung);
- stand_ein->set_text(werte.stand);
+// stand_ein->set_text(werte.stand);
+ int inr=0;
+ for (unsigned int i=0; i<vstand.size();++i)
+   if (vstand[i]==werte.stand) inr=i;
+ optionmenu_stand->get_menu()->set_active(inr);
+ optionmenu_stand->get_menu()->deactivate();
  herkunft_ein->set_text(werte.herkunft);
  glaube_ein->set_text(werte.glaube);
  name_charakter_ein->set_text(werte.name_charakter);

@@ -44,8 +44,8 @@ struct st_werte{int st; int ge;int ko;int in;int zt;
              psyZR_wert(0),phsZR_wert(0),phkZR_wert(0),gift_wert(0),
              bo_au_typ(0),bo_au(0),bo_sc(0),bo_an(0),bo_ab(0),bo_za(0),
              bo_psy(0),bo_phs(0),bo_phk(0),bo_gi(0),kaw(0),wlw(0),lpbasis(0),
-             alter(0),gewicht(0),groesse(0),grad(1),spezialisierung("~"),
-             stand("~"),herkunft("~"),glaube("~"),name_charakter("~"), gfp(0),version("Erschaffung"),
+             alter(0),gewicht(0),groesse(0),grad(1),spezialisierung(""),
+             stand(""),herkunft(""),glaube(""),name_charakter(""), gfp(0),version("Erschaffung"),
              ruestung("OR"), gold(0), silber(0), kupfer(0) {}
       void clear() {*this=st_werte();}}; 
 struct st_lernpunkte{int beruf; int fertigkeiten; int waffen; int zauber;
@@ -64,6 +64,10 @@ struct st_angeborene_fertigkeit {string name; int erfolgswert;
 struct st_ausgewaehlte_waffen {string name; int erfolgswert; 
       st_ausgewaehlte_waffen(const string n,int e)
       : name(n),erfolgswert(e) {} };
+struct st_waffen_besitz {string name; int av_bonus; int sl_bonus;
+   st_waffen_besitz(string n, int a, int s) : name(n), av_bonus(a),sl_bonus(s)
+      {}
+   st_waffen_besitz() : name(""), av_bonus(0), sl_bonus(0) {} };
 struct st_ausgewaehlte_zauber {string name; string ap; 
       st_ausgewaehlte_zauber(const string n, const string a)
       : name(n), ap(a) {} };
@@ -97,6 +101,9 @@ extern bool Infobool;
 extern bool Escharbool;
 extern bool Rawindrabool;
 extern bool KanThaiPanbool;
+extern bool Nahuatlanbool;
+extern bool Waelandbool;
+extern bool Albabool;
 
 
 class midgard_CG : public midgard_CG_glade
@@ -106,7 +113,7 @@ class midgard_CG : public midgard_CG_glade
         vector<st_ausgewaehlte_fertigkeiten> vec_fertigkeiten;
         vector<st_angeborene_fertigkeit> vec_an_fertigkeit;
         vector<st_ausgewaehlte_waffen> vec_waffen;
-        vector<string> waffe_besitz;
+        vector<st_waffen_besitz> waffe_besitz;
         vector<st_ausgewaehlte_zauber> vec_zauber;
         vector<st_ausgewaehlte_berufe> vec_beruf;
         vector<st_zauber> zauber;
@@ -116,6 +123,7 @@ class midgard_CG : public midgard_CG_glade
         styp typ;
         st_lernpunkte lernpunkte;
 
+        void regnot(string sadd);
         void fill_typauswahl();
         void typauswahl_button();
         void on_herkunftsland_clicked();
@@ -132,6 +140,7 @@ class midgard_CG : public midgard_CG_glade
         void load_charakter();
         void on_latex_clicked();
         void latex_beschreibung_drucken();
+        void on_button_info_clicked();
         void LaTeX_zauber_main();
         void LaTeX_zauber();
         string LaTeX_string(int i);
@@ -155,18 +164,22 @@ class midgard_CG : public midgard_CG_glade
         string  get_erfolgswert_zaubern(styp typ,string name);
         int get_spezial_zauber(string typ,string name);
         void show_berufe();
-        void show_fertigkeiten();
         void show_waffen();
         void show_zauber();
         void zeige_lernpunkte();
         void Zauber_get_daten(vector<st_zauber>& zauber);
         void on_beruf_erfolgswert_clicked();
-        void on_angeborene_fertigekeit_clicked();
+        gint on_angeborene_fertigkeit_button_release_event(GdkEventButton *ev);
+        void on_angeborene_fertigkeit_clicked();
+        void on_angeborene_fertigkeit_right_clicked();
         void on_spezialwaffe_clicked();
         void on_checkbutton_info_fenster_toggled();
         void on_checkbutton_Eschar_toggled();
         void on_checkbutton_Rawindra_toggled();
         void on_checkbutton_KanThaiPan_toggled();
+        void on_checkbutton_Nahuatlan_toggled();
+        void on_checkbutton_Waeland_toggled();
+        void on_checkbutton_Alba_toggled();
 
         void on_grad_anstieg_clicked();
         void get_grad(int gfp);
@@ -203,6 +216,7 @@ class midgard_CG : public midgard_CG_glade
         void on_togglebutton_praxispunkte_waffen_toggled();
         void on_radiobutton_praxis_wuerfeln_waffen_toggled();
         void on_radiobutton_praxis_auto_waffen_toggled();
+        string get_Verteidigungswaffe(int ohne_waffe);
 
 
         void on_zauber_laden_clicked();
@@ -237,8 +251,9 @@ class midgard_CG : public midgard_CG_glade
          void zeige_werte(const st_werte& w, const string welche);
          void setze_lernpunkte(st_lernpunkte& lernpunkte);
          void fertigkeiten_uebernehmen(vector<st_ausgewaehlte_fertigkeiten>& saf);
+         void show_fertigkeiten();
          void waffen_uebernehmen(vector<st_ausgewaehlte_waffen>& saw,map<string,string> wg);
-         void waffe_besitz_uebernehmen(vector<string> wbu);
+         void waffe_besitz_uebernehmen(vector<st_waffen_besitz>& wbu);
          void zauber_uebernehmen(vector<st_ausgewaehlte_zauber>& saz);
          void berufe_uebernehmen(vector<st_ausgewaehlte_berufe>& sab);
          double get_standard_zauber(string typ, string zauber);
@@ -247,9 +262,10 @@ class midgard_CG : public midgard_CG_glade
          void sprache_uebernehmen(string s, int wert);
          void schrift_uebernehmen(string s, string t);
          void herkunft_uebernehmen(string s);
-         string waffe_werte(const string waffe,st_werte& werte, string mod);
+         string waffe_werte(const st_waffen_besitz& waffe,st_werte& werte, string mod);
          vector<string> Berufs_Vorteile();
          bool Fertigkeiten_Voraussetzung(const string fertigkeit);
          bool Waffen_Voraussetzung(const string waffe);
+         bool region_check(string region);
 };
 #endif

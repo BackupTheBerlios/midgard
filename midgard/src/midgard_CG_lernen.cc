@@ -50,7 +50,7 @@ void midgard_CG::on_button_geld_waffen_clicked()
   manage(new Window_Waffe_Geld::Window_Waffe_Geld(this,werte,vec_waffen));
 }
 
-void midgard_CG::waffe_besitz_uebernehmen(vector<string> wbu)
+void midgard_CG::waffe_besitz_uebernehmen(vector<st_waffen_besitz>& wbu)
 {
  waffe_besitz = wbu;
 }

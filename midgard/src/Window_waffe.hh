@@ -31,6 +31,7 @@ class Window_waffe : public Window_waffe_glade
         void wuerfeln();
         void aussuchen();
         void get_art(string& aartE,string& aartS,string& aartW,string&Z,string& aartA);
+        void Window_waffe::magische_Waffe();
    public:
         Window_waffe::Window_waffe(int we,midgard_CG* h, 
                                     Window_Waffe_Geld* o,st_werte& w,

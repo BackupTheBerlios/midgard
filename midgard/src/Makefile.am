@@ -23,6 +23,8 @@ WindowInfo_glade.hh WindowInfo.hh Window_lernpunkte_editieren_glade.hh  \
 Window_lernpunkte_editieren.hh Window_werte_editieren_glade.hh \
 Window_werte_editieren.hh Zauber_auswahl_glade.hh Zauber_auswahl.hh \
 Sprache_auswahl.hh Sprache_auswahl_glade.hh \
+   Window_mag_bonus_glade.hh \
+   Window_mag_bonus.hh \
    Window_herkunft_glade.hh \
    Window_herkunft.hh \
    Window_hilfe_glade.hh \
@@ -36,7 +38,12 @@ Sprache_auswahl.hh Sprache_auswahl_glade.hh \
 	Window_waffe_glade.hh \
 	Window_waffe.hh \
 	Window_Waffenbesitz_glade.hh \
-	Window_Waffenbesitz.hh 
+	Window_Waffenbesitz.hh \
+	Window_angeb_fert_glade.hh \
+	Window_angeb_fert.hh \
+	Midgard_Info_glade.hh \
+	Midgard_Info.hh
+
 
 %.cc: %.pgcc ; @ECPG@ -o $*.cc $<
 
@@ -50,13 +57,18 @@ BUILT_SOURCES = Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
    Sprache_auswahl.cc Window_herkunft.cc midgard_CG_ruestung.cc \
 	Window_ruestung.cc Window_waffe.cc Window_Waffenbesitz.cc \
    midgard_CG_waffe_werte.cc get_berufs_vorteile.cc \
-   midgard_CG_typauswahl.cc
+   midgard_CG_typauswahl.cc  Window_mag_bonus.cc get_Verteidigungswaffe.cc \
+	Window_angeb_fert.cc
+
+
 
 
 
 
 midgard_SOURCES = \
-   $(BUILT_SOURCES) \
+   midgard_CG_region_check.cc \
+	Window_angeb_fert_glade.cc \
+   Window_mag_bonus_glade.cc \
    midgard_CG_optionen.cc \
 	Window_Waffenbesitz_glade.cc \
 	Window_waffe_glade.cc \
@@ -64,6 +76,8 @@ midgard_SOURCES = \
    Window_hilfe_glade.cc \
    Window_hilfe.cc \
    glademm_support.cc \
+	Midgard_Info_glade.cc \
+	Midgard_Info.cc \
 	midgard.cc \
    Sprache_auswahl_glade.cc \
    midgard_CG_attribut_check.cc \
@@ -102,6 +116,7 @@ midgard_SOURCES = \
    grundwere_edit_setzen.cc \
    WindowInfo.cc \
    WindowInfo_glade.cc \
+   $(BUILT_SOURCES) \
    itos.cc 
 
 

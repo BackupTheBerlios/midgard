@@ -13,12 +13,15 @@
 #  include "WindowInfo_glade.hh"
 #  define _WINDOWINFO_HH
 #include "glademm_support.hh"
+#include <sigc++/slot.h>
 
 class WindowInfo : public WindowInfo_glade
 {   
         
         friend class WindowInfo_glade;
         void on_button_info_ok_clicked();
+        gint timeout();
+        SigC::Connection des;
    public:
         WindowInfo(string s);
 };

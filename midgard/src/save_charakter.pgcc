@@ -62,6 +62,7 @@ void midgard_CG::on_speichern_clicked()
       int db_silber = werte.silber;
       int db_kupfer = werte.kupfer;
       char db_ruestung[20];
+      int db_av_bonus,db_sl_bonus;
    exec sql end declare section;
    db_zaubern = atoi(werte.zaubern_wert.c_str());
    strncpy(db_beschreibung,werte.beschreibung.c_str(),sizeof(db_beschreibung));
@@ -190,14 +191,16 @@ void midgard_CG::on_speichern_clicked()
             (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Waffe') ;         
             SQLerror::test(__FILELINE__);
       }
-   for (vector<string>::iterator i=waffe_besitz.begin();
+   for (vector<st_waffen_besitz>::iterator i=waffe_besitz.begin();
          i!=waffe_besitz.end();++i)
       {
-         strncpy(db_fertigkeit, (*i).c_str(),sizeof(db_fertigkeit));
+         strncpy(db_fertigkeit, i->name.c_str(),sizeof(db_fertigkeit));
+         db_av_bonus = i->av_bonus;
+         db_sl_bonus = i->sl_bonus;
          exec sql INSERT INTO charaktere_fertigkeiten
-            (charakter_name,version,fertigkeit,wert,art)
+            (charakter_name,version,fertigkeit,wert,art,av_bonus,sl_bonus)
          VALUES
-            (:db_name_ch,:db_version,:db_fertigkeit,0,'Besitz_W') ;         
+            (:db_name_ch,:db_version,:db_fertigkeit,0,'Besitz_W',:db_av_bonus,:db_sl_bonus) ;
             SQLerror::test(__FILELINE__);
       }
    for (vector<st_zauber>::iterator i=zauber.begin();

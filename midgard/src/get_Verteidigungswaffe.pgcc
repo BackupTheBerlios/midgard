@@ -1,0 +1,51 @@
+#include "midgard_CG.hh"
+#include <Aux/SQLerror.h>
+exec sql include sqlca;
+
+
+string midgard_CG::get_Verteidigungswaffe(int ohne_waffe)
+{
+   exec sql begin declare section;
+      char db_waffe[30], db_art[30];
+   exec sql end declare section;
+   vector<st_waffen_besitz> Verteidigungswaffen;
+   for (vector<st_waffen_besitz>::const_iterator i=waffe_besitz.begin();
+         i!=waffe_besitz.end();++i)
+     {
+       strncpy(db_waffe,i->name.c_str(),sizeof(db_waffe));
+       exec sql select art into :db_art from waffen where name = :db_waffe;
+       SQLerror::test(__FILELINE__);
+       string art = db_art;
+       if (art=="Verteidigung" || i->name=="Kampfstab" || i->name=="Sai" ||
+          i->name=="Tonfa" || i->name=="GunSen" || i->name=="BuKasa" || 
+          i->name=="KusariGama" || i->name=="TetsuBo") 
+         Verteidigungswaffen.push_back(st_waffen_besitz(i->name,i->av_bonus,i->sl_bonus));
+     }
+   string Vwaffewert;
+   for(vector<st_waffen_besitz>::const_iterator i=Verteidigungswaffen.begin();
+         i!=Verteidigungswaffen.end();++i)
+     {
+      vector<int> vwert;
+      for (vector<st_ausgewaehlte_waffen>::const_iterator j=vec_waffen.begin();
+            j!=vec_waffen.end();++j)      
+         {
+            if (i->name == j->name) 
+               { 
+                 int erf_wert;
+                 if (i->name=="Kampfstab"||i->name=="Sai"||i->name=="Tonfa"||i->name=="KusariGama") 
+                  {erf_wert = j->erfolgswert-5; (erf_wert<=7)?:erf_wert=7; }
+                 else if (i->name=="TetsuBo")
+                  {erf_wert = j->erfolgswert-7; (erf_wert<=7)?:erf_wert=7; }
+                 else if (i->name=="GunSen"||i->name=="BuKasa")
+                  {erf_wert = j->erfolgswert; (erf_wert<=10)?:erf_wert=10; }
+                 else erf_wert = j->erfolgswert;
+                 int ewert = werte.abwehr_wert+werte.bo_ab // Grundwerte
+                           + erf_wert + i->av_bonus ;// Waffenwerte
+                 Vwaffewert += itos(ewert);
+               }
+         }
+       if (i+1!=Verteidigungswaffen.end()) Vwaffewert += "$|$"; 
+     }
+   return Vwaffewert;
+}
+

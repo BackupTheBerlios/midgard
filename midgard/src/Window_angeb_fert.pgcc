@@ -1,0 +1,132 @@
+// generated 2001/3/27 8:26:31 CEST by thoma@ig23.
+// using glademm V0.5_11f_cvs
+//
+// newer (non customized) versions of this file go to Window_angeb_fert.cc_new
+
+// This file is for your program, I won't touch it again!
+
+#include "config.h"
+#include "Window_angeb_fert.hh"
+#include "midgard_CG.hh"
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+exec sql include sqlca;
+#include <Gtk_OStream.h>
+
+void Window_angeb_fert::on_clist_ang_fert_alt_select_row(gint row, gint column, GdkEvent *event)
+{   
+  string altf = clist_ang_fert_alt->get_text(row,0);
+  for(vector<st_angeborene_fertigkeit>::iterator i=vec_an_fertigkeit.begin();
+         i!=vec_an_fertigkeit.end();++i)
+   {
+     if (altf==i->name) {vec_an_fertigkeit.erase(i); break;}
+   }
+  hauptfenster->on_speichern_clicked();
+  show_alte_afert();
+  show_neue_afert();
+}
+
+void Window_angeb_fert::on_clist_ang_fert_neu_select_row(gint row, gint column, GdkEvent *event)
+{   
+  string newf = clist_ang_fert_neu->get_text(row,1);
+  int neww = atoi(clist_ang_fert_neu->get_text(row,2).c_str());
+  vec_an_fertigkeit.push_back(st_angeborene_fertigkeit(newf,neww));
+  hauptfenster->on_speichern_clicked();
+  if (wurf==100) { on_button_close_clicked(); return;}
+  show_alte_afert();
+  show_neue_afert();
+}
+
+
+void Window_angeb_fert::show_alte_afert()
+{
+  clist_ang_fert_alt->clear();
+  Gtk::OStream os(clist_ang_fert_alt);
+  for(vector<st_angeborene_fertigkeit>::const_iterator i=vec_an_fertigkeit.begin();
+         i!=vec_an_fertigkeit.end();++i)
+   {
+     os << i->name;
+     if (i->erfolgswert!=0) os <<"\t"<<i->erfolgswert;
+     os <<"\n"; 
+   }
+  for (unsigned int i=0;i<clist_ang_fert_alt->columns().size();++i)
+     clist_ang_fert_alt->set_column_auto_resize(i,true);
+}
+
+void Window_angeb_fert::load_af()
+{
+  af.clear();
+  exec sql begin declare section;
+   int db_min[30],db_max[30], db_erfolgswert[30];
+   char db_fert[30][30];
+   char db_cname[50],db_version[50];
+  exec sql end declare section;
+  strncpy(db_cname,werte.name_charakter.c_str(),sizeof(db_cname));
+  strncpy(db_version,werte.version.c_str(),sizeof(db_version));
+  exec sql select min,max,coalesce(wert,0),name
+      into :db_min, :db_max, :db_erfolgswert, :db_fert
+      from angeborene_fertigkeiten where name not in 
+      (select fertigkeit FROM charaktere_fertigkeiten
+        WHERE art = 'ang.Fertigkeit' 
+        AND charakter_name = :db_cname AND version = :db_version)
+      order by min;
+  SQLerror::test(__FILELINE__);
+  for (int i=0;i<sqlca.sqlerrd[2];++i)
+      af.push_back(st_af(db_min[i],db_max[i],db_fert[i],db_erfolgswert[i]));
+
+}
+
+void Window_angeb_fert::show_neue_afert() 
+{   
+  clist_ang_fert_neu->clear();
+  load_af();
+  Gtk::OStream os(clist_ang_fert_neu);
+  for (vector<st_af>::const_iterator i=af.begin();i!=af.end();++i)
+   {
+     os << i->min <<"-"<<i->max<<"\t"<<i->name;
+     if (i->wert!=0) os <<"\t"<<i->wert;
+     os <<"\n"; 
+   }
+  for (unsigned int i=0;i<clist_ang_fert_neu->columns().size();++i)
+     clist_ang_fert_neu->set_column_auto_resize(i,true);
+}
+
+Window_angeb_fert::Window_angeb_fert(midgard_CG* h, vector<st_angeborene_fertigkeit>& vaf, 
+   st_werte& w,int wu)
+: vec_an_fertigkeit(vaf),werte(w),wurf(wu)
+{
+ hauptfenster=h;
+ vec_an_fertigkeit.clear();
+ hauptfenster->on_speichern_clicked();
+ if (wurf==100) 
+   { label_ang_fert->set_text("100 gewürfelt --> Fertigkeit auswählen");
+     show_alte_afert();
+     show_neue_afert(); 
+   }
+ if (wurf==-1) 
+   { label_ang_fert->set_text("Fertigkeit(en) auswählen");
+     show_alte_afert();
+     show_neue_afert(); 
+   }
+ else gewuerfelt();
+}
+
+void Window_angeb_fert::on_button_close_clicked()
+{   
+  hauptfenster->show_fertigkeiten();
+  destroy();
+}
+
+void Window_angeb_fert::gewuerfelt()
+{
+  load_af();
+  for (vector<st_af>::const_iterator i=af.begin();i!=af.end();++i)
+   {
+     if (i->min<=wurf && wurf<=i->max) 
+      {
+         vec_an_fertigkeit.push_back(st_angeborene_fertigkeit(i->name,i->wert));
+         break;
+      }
+   }  
+  on_button_close_clicked();
+}

@@ -2,6 +2,7 @@
 #include "zufall.h"
 #include "Fertigkeiten_auswahl.hh"
 #include <Gtk_OStream.h>
+#include "Window_angeb_fert.hh"
 
 void midgard_CG::on_fertigkeiten_wahl_clicked()
 {   
@@ -16,12 +17,16 @@ void midgard_CG::show_fertigkeiten()
    for(vector<st_ausgewaehlte_fertigkeiten>::iterator i=vec_fertigkeiten.begin();
          i!=vec_fertigkeiten.end();++i)
       {
-         os << i->name<<"\t"<<i->erfolgswert<<"\n";
+         os << i->name;
+         if (i->erfolgswert!=0) os <<"\t" <<i->erfolgswert;
+         os << "\n";
       }
    for(vector<st_angeborene_fertigkeit>::iterator i=vec_an_fertigkeit.begin();
          i!=vec_an_fertigkeit.end();++i)
       {
-         os << i->name<<"\t"<<i->erfolgswert<<"\n";
+         os << i->name;
+         if (i->erfolgswert!=0) os <<"\t" <<i->erfolgswert;
+         os << "\n";
       }
    for (unsigned int i=0;i<fertigkeiten_clist->columns().size();++i)
       fertigkeiten_clist->set_column_auto_resize(i,true);
@@ -41,29 +46,34 @@ void midgard_CG::fertigkeiten_uebernehmen(vector<st_ausgewaehlte_fertigkeiten>& 
     midgard_CG::show_fertigkeiten();
 }
 
-void midgard_CG::on_angeborene_fertigekeit_clicked()
+gint midgard_CG::on_angeborene_fertigkeit_button_release_event(GdkEventButton *event)
 {
- vec_an_fertigkeit.clear();
- Random random;
- int wert = random.integer(1,100);
-//wert =97; /*debug*/
-// cout << "Für die Angeborene Fertigkeit wurde eine "<<wert<<" gewürfelt.\n";
- string stinfo="Für die Angeborene Fertigkeit\n wurde eine ";stinfo+=itos(wert);stinfo+=" gewürfelt.\n";
- manage(new WindowInfo(stinfo));
- while ( wert >= 85)
+  if (event->button==1) midgard_CG::on_angeborene_fertigkeit_clicked() ;
+  if (event->button==3) midgard_CG::on_angeborene_fertigkeit_right_clicked() ;
+  return false;
+}
+
+void midgard_CG::on_angeborene_fertigkeit_clicked()
+{
+  vec_an_fertigkeit.clear();
+  Random random;
+  int wurf = random.integer(1,100);
+//wurf = -1; /*debug*/
+  while (wurf==100)
    {
-      if (86<=wert && wert<=87) vec_an_fertigkeit.push_back(st_angeborene_fertigkeit("Beidhändigkeit",0));
-      if (88<=wert && wert<=89) vec_an_fertigkeit.push_back(st_angeborene_fertigkeit("Berserkergang",0));
-      if (90<=wert && wert<=91) vec_an_fertigkeit.push_back(st_angeborene_fertigkeit("Richtungssinn",12));
-      if (92<=wert && wert<=93) vec_an_fertigkeit.push_back(st_angeborene_fertigkeit("Gefahr spüren",1));
-      if (94<=wert && wert<=95) vec_an_fertigkeit.push_back(st_angeborene_fertigkeit("Horchen",5));
-      if (96<=wert && wert<=97) vec_an_fertigkeit.push_back(st_angeborene_fertigkeit("Nachtsicht",0));
-      if (98<=wert && wert<=99) vec_an_fertigkeit.push_back(st_angeborene_fertigkeit("Wachgabe",0));
-      if (98<=wert && wert<=99) vec_an_fertigkeit.push_back(st_angeborene_fertigkeit("Wachgabe",0));
-      if (wert == 100) vec_an_fertigkeit.push_back(st_angeborene_fertigkeit("AUSWAHL",0));
-      if (wert == 100) {wert = random.integer(1,100); break;}
-      wert = 0;
+      manage (new Window_angeb_fert(this,vec_an_fertigkeit,werte,wurf));
+      wurf = random.integer(1,100);
    }
+  manage (new Window_angeb_fert(this,vec_an_fertigkeit,werte,wurf));
+  string stinfo="Für die Angeborene Fertigkeit\n wurde eine ";stinfo+=itos(wurf);stinfo+=" gewürfelt.\n";
+  manage(new WindowInfo(stinfo));
+  midgard_CG::show_fertigkeiten();
+}
+
+void midgard_CG::on_angeborene_fertigkeit_right_clicked()
+{
+  vec_an_fertigkeit.clear();
+  manage (new Window_angeb_fert(this,vec_an_fertigkeit,werte,-1));
   midgard_CG::show_fertigkeiten();
 }
 

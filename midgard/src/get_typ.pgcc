@@ -22,5 +22,5 @@ void midgard_CG::get_typ(styp& typ)
  typ.ausdauer = db_ausdauer;
  typ.stand = db_stand;
  typ.sb = db_sb;
-
+ typ.nr=ityp;
 }

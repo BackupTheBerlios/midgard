@@ -14,7 +14,7 @@
 #include "Window_ruestung.hh"
 #include "Window_waffe.hh"
 #include "Window_Waffenbesitz.hh"
-
+#include "Midgard_Info.hh"
 
 midgard_CG::midgard_CG()
 {
@@ -30,6 +30,16 @@ void midgard_CG::typauswahl_button()
  fertig_typ->set_text(typ.l);
  if (typ.z=="n" || typ.s == "Ord") label_spezialwaffe->set_text("Spezialwaffe durch \nselektieren auswählen");
  else label_spezialwaffe->set_text("");
+ if (typ.z=="j" || typ.z == "z") 
+   { option_magier_spezialgebiet->show();
+     table_magier_lernen->show();
+     table_magier_steigern->show();
+   }
+ else 
+   { option_magier_spezialgebiet->hide();
+     table_magier_lernen->hide();
+     table_magier_steigern->hide();
+   }
 }
 
 void midgard_CG::on_herkunftsland_clicked()
@@ -71,6 +81,12 @@ void midgard_CG::on_button_hilfe_clicked()
   manage(new Window_hilfe()); 
 }
 
+void midgard_CG::on_button_info_clicked()
+{   
+  manage(new Midgard_Info());
+}
+
+
 void midgard_CG::on_button_geld_s_clicked()
 {
   manage (new  Window_Geld_eingeben(this, werte));
@@ -79,7 +95,7 @@ void midgard_CG::on_button_geld_s_clicked()
 
 void midgard_CG::on_button_ruestung_s_clicked()
 {
-  manage (new Window_ruestung(werte));
+  manage (new Window_ruestung(werte,this));
 }
 
 void midgard_CG::on_button_waffen_s_clicked()
@@ -124,6 +140,10 @@ void midgard_CG::on_neuer_charakter_clicked()
    clist_steigern_sprachen_neu->clear();
    clist_steigern_schrift_alt->clear();
    clist_steigern_schrift_neu->clear();
+
+   midgard_CG::typauswahl_button();
+   werte.version="Erschaffung";
+
 }
 
 

@@ -127,8 +127,10 @@ void midgard_CG::show_neue_waffen()
       char db_art[50];
       char db_zusatz[50];
       char query[512];
+      char db_region[10];
    exec sql end declare section;
-   snprintf(query,sizeof(query),"SELECT w.name, w.art, coalesce(w.zusatz,'') FROM  waffen w, \
+   snprintf(query,sizeof(query),"SELECT w.name, w.art, coalesce(w.zusatz,''), \
+   coalesce(w.region,'') FROM  waffen w, \
    charaktere_fertigkeiten c WHERE  w.grundkenntnisse = c.fertigkeit \
    AND c.charakter_name = '%s' AND w.name NOT IN \
    (SELECT fertigkeit FROM charaktere_fertigkeiten WHERE art = 'Waffe'
@@ -141,12 +143,13 @@ void midgard_CG::show_neue_waffen()
    SQLerror::test(__FILELINE__);
    while(true)
       {
-         exec sql fetch wa_ein into :db_waffe, :db_art, :db_zusatz;
+         exec sql fetch wa_ein into :db_waffe, :db_art, :db_zusatz, :db_region;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
          int wert=4;
          if (!strcmp(db_art,"Verteidigung")) wert = 1;
-         if  (midgard_CG::Waffen_Voraussetzung(db_waffe))
+         if  (midgard_CG::Waffen_Voraussetzung(db_waffe)
+            &&midgard_CG::region_check(db_region))
             os << db_waffe<<"\t"<<wert<<"\t"<<db_zusatz<<"\n"; 
       }
    exec sql close wa_ein;

@@ -38,6 +38,7 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
    int idb_pflicht;
    int db_fp;
    char db_voraussetzung[100];
+   char db_region[10];
   exec sql end declare section;
    strncpy(db_typ,typ.c_str(),sizeof(db_typ));    
 
@@ -107,7 +108,6 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
         if (i->pflicht != "") pf = "*";
         string serfolgswert=itos(i->erfolgswert);
         if (serfolgswert=="0") serfolgswert="";
-//        if (Fertigkeiten_auswahl::Voraussetzung(i->fertigkeiten))
         if (hauptfenster->Fertigkeiten_Voraussetzung(i->fertigkeiten))
          { os << i->lernpunkte<<"\t"<<i->voraussetzung<<"\t"<<pf<<"\t"<<i->fertigkeiten<<"\t"
                << serfolgswert<<"\t"<<i->attribut<<"\t"<<i->fp*fac<<"\n";
@@ -117,7 +117,7 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
    // andere Fertigkeiten ////////////////////////////////////////////////
    exec sql declare an_fert cursor for
       SELECT f.anfangswert0, f.lp, f.fertigkeit, 
-            f.attribut, f.fp, coalesce(v.fertigkeit,'') 
+            f.attribut, f.fp, coalesce(v.fertigkeit,''),coalesce(f.region,'') 
       FROM fertigkeiten f, fertigkeiten_voraussetzung v
       WHERE v.name = f.fertigkeit
       ORDER BY f.fertigkeit ;
@@ -128,10 +128,11 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
       {
          exec sql fetch an_fert into 
             :db_erfolgswert:idb_erfolgswert, :db_lernpunkte, :db_fertigkeiten, 
-            :db_attribut:idb_attribut, :db_fp, :db_voraussetzung ;
+            :db_attribut:idb_attribut, :db_fp, :db_voraussetzung, :db_region ;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         allg_fert.push_back(db_struct_fertigkeiten(db_lernpunkte,db_fertigkeiten,
+         if (hauptfenster->region_check(db_region))
+           allg_fert.push_back(db_struct_fertigkeiten(db_lernpunkte,db_fertigkeiten,
                idb_erfolgswert?0:db_erfolgswert, idb_attribut?"":db_attribut,
                "", db_fp, db_voraussetzung));
       }
@@ -148,8 +149,7 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
         string pf="";
         string serfolgswert=itos(i->erfolgswert);
         if (serfolgswert=="0") serfolgswert="";
-//        if (Fertigkeiten_auswahl::Voraussetzung(i->fertigkeiten))
-        if (hauptfenster->Fertigkeiten_Voraussetzung(i->fertigkeiten))
+        if (hauptfenster->Fertigkeiten_Voraussetzung(i->fertigkeiten) )
          { os << i->lernpunkte<<"\t"<<i->voraussetzung<<"\t"<<""<<"\t"<<i->fertigkeiten<<"\t"
               << serfolgswert<<"\t"<<i->attribut<<"\t"<<i->fp*fac<<"\n";
            os.flush(&*i);

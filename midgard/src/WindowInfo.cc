@@ -12,6 +12,7 @@
 
 void WindowInfo::on_button_info_ok_clicked()
 {   
+ des.disconnect();
  destroy();
 }
 
@@ -19,5 +20,12 @@ WindowInfo::WindowInfo(string s)
 {
    if (Infobool) infotext->set_text(s.c_str());
    else destroy();
-//XXX   Gtk::Main::timeout.connect(WindowInfo::WindowInfo.destroy().slot(),1000);
+   des = Gtk::Main::timeout.connect(slot(this,&WindowInfo::timeout),4000);
 }
+
+gint WindowInfo::timeout() 
+{ 
+   destroy();
+   return 0; 
+}
+

@@ -28,12 +28,14 @@ Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const string& typ, st_lernpunkte& l
    int db_erfolgswert;
    char db_grund[100];
    char db_zusatz[50];
+   char db_region[10];
   exec sql end declare section;
    strncpy(db_typ,typ.c_str(),sizeof(db_typ));
    
    Transaction tr;
     exec sql declare waffen cursor for
-      select fertigkeit, l.art, wert, lernpunkte, grundkenntnisse, coalesce(zusatz,'')
+      select fertigkeit, l.art, wert, lernpunkte, grundkenntnisse, 
+      coalesce(zusatz,''), coalesce(w.region,'')
       from lernschema l, waffen w where typ = :db_typ
       and l.art = 'Waffe' and w.name = l.fertigkeit
       order by lernpunkte ;
@@ -43,10 +45,12 @@ Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const string& typ, st_lernpunkte& l
     while (true)
       {
          exec sql fetch waffen into :db_fertigkeiten, :db_art,
-            :db_erfolgswert, :db_lernpunkte, :db_grund, :db_zusatz ;
+            :db_erfolgswert, :db_lernpunkte, :db_grund, 
+            :db_zusatz, :db_region;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         waffe.push_back(db_struct_waffe(db_lernpunkte,db_fertigkeiten,db_erfolgswert,db_grund,db_zusatz));
+         if (hauptfenster->region_check(db_region))
+            waffe.push_back(db_struct_waffe(db_lernpunkte,db_fertigkeiten,db_erfolgswert,db_grund,db_zusatz));
       }
     exec sql close waffen;
     Gtk::OStream os(waffen_clist_auswahl);
