@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.112 2002/02/07 07:33:17 thoma Exp $
+# $Id: Makefile.am,v 1.113 2002/02/07 16:43:58 thoma Exp $
 
 bin_PROGRAMS = midgard 
 
@@ -35,7 +35,7 @@ noinst_HEADERS = \
    Lernschema.hh \
    Preise.hh dtos1.h \
 WaffeGrund.hh Fertigkeiten_angeboren.hh Pflicht.hh zufall.h Berufe_auswahl_glade.hh Berufe_auswahl.hh \
-Fertigkeiten_auswahl_glade.hh Fertigkeiten_auswahl.hh glademm_support.hh \
+glademm_support.hh \
 midgard_CG_glade.hh midgard_CG.hh Waffen_auswahl_glade.hh Waffen_auswahl.hh   \
 Window_charakter_auswahl_glade.hh Window_charakter_auswahl.hh  \
 Window_charakter_beschreibung_glade.hh Window_charakter_beschreibung.hh \
@@ -116,7 +116,6 @@ midgard_SOURCES = \
    midgard_CG_Ausruestung.cc \
    Berufe_auswahl.cc \
    $(BUILT_SOURCES_CG) \
-   Fertigkeiten_auswahl.cc \
 	KiDo_auswahl.cc \
    Zauber_auswahl.cc  \
    Waffen_auswahl.cc \
@@ -168,7 +167,6 @@ midgard_SOURCES = \
    Window_charakter_auswahl_glade.cc \
    Window_charakter_beschreibung_glade.cc \
    Window_charakter_beschreibung.cc \
-   Fertigkeiten_auswahl_glade.cc \
    Waffen_auswahl_glade.cc \
    Zauber_auswahl_glade.cc \
    Berufe_auswahl_glade.cc \

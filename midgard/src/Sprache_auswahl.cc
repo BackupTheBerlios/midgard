@@ -50,7 +50,7 @@ void Sprache_auswahl::on_clist_sp_sc_select_row(gint row, gint column, GdkEvent 
 
 Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const Datenbank& Database, 
    const Grundwerte& _Werte,
-   const modus _mod,int _wert,const std::list<cH_MidgardBasicElement> *Sp,
+   const modus _mod,int _wert,const std::list<cH_MidgardBasicElement> &Sp,
                              const std::list<cH_MidgardBasicElement> &Sc,
                              const std::list<cH_MidgardBasicElement> &L)
  :mod(_mod),hauptfenster(h),Werte(_Werte) ,wert(_wert)
@@ -87,7 +87,7 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const Datenbank& Database,
          else  sp_sc_label->set_text("Sprache wählen")  ;
          for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Sprache.begin();i!=Database.Sprache.end();++i)
           { 
-            if((*i)->ist_gelernt(*Sp)) continue;
+            if((*i)->ist_gelernt(Sp)) continue;
             cH_Sprache s(*i);
             if(mod == MUTTERSPRACHE &&  s->Alte_Sprache()) continue;
             if(mod == NEUESPRACHE &&  s->Alte_Sprache()) continue;
@@ -103,7 +103,7 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const Datenbank& Database,
           { 
             if((*i)->ist_gelernt(Sc)) continue;
             cH_Schrift s(*i);
-            if(s->kann_Sprache(*Sp))
+            if(s->kann_Sprache(Sp))
              {
                os << s->Name()<<'\t'<<s->Art_der_Schrift()<<'\n';
 //               os.flush(&const_cast<cH_MidgardBasicElement&>(*i));

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.60 2002/02/07 14:15:09 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.61 2002/02/07 16:43:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -352,24 +352,17 @@ void midgard_CG::show_gelerntes()
 {
   show_sinne();
   zeige_lernpunkte();
-  
-  std::list<cH_MidgardBasicElement> FL;
-  std::list<std::list<cH_MidgardBasicElement> > LL;
-  LL.push_back(list_Fertigkeit_ang);
-  LL.push_back(list_Fertigkeit);
-  LL.push_back(list_Waffen);
-  LL.push_back(list_Zauber);
-  LL.push_back(list_Zauberwerk);
-  LL.push_back(list_Kido);
-  LL.push_back(list_WaffenGrund);
-  LL.push_back(list_Sprache);
-  LL.push_back(list_Schrift);
-  LL.push_back(list_Beruf);
 
-  for(std::list<std::list<cH_MidgardBasicElement> >::const_iterator i=LL.begin();i!=LL.end();++i)
-    for (std::list<cH_MidgardBasicElement>::const_iterator j=i->begin();j!=i->end();++j)
-      FL.push_back(*j);
-  MidgardBasicElement::show_list_in_tree(FL,tree_gelerntes,Werte,Typ,Database.ausnahmen);
+  MidgardBasicElement::show_list_in_tree(list_Fertigkeit_ang,tree_gelerntes,Werte,Typ,Database.ausnahmen,false);
+  MidgardBasicElement::show_list_in_tree(list_Fertigkeit,tree_gelerntes,Werte,Typ,Database.ausnahmen,false);
+  MidgardBasicElement::show_list_in_tree(list_Waffen,tree_gelerntes,Werte,Typ,Database.ausnahmen,false);
+  MidgardBasicElement::show_list_in_tree(list_Zauber,tree_gelerntes,Werte,Typ,Database.ausnahmen,false);
+  MidgardBasicElement::show_list_in_tree(list_Zauberwerk,tree_gelerntes,Werte,Typ,Database.ausnahmen,false);
+  MidgardBasicElement::show_list_in_tree(list_Kido,tree_gelerntes,Werte,Typ,Database.ausnahmen,false);
+  MidgardBasicElement::show_list_in_tree(list_WaffenGrund,tree_gelerntes,Werte,Typ,Database.ausnahmen,false);
+  MidgardBasicElement::show_list_in_tree(list_Sprache,tree_gelerntes,Werte,Typ,Database.ausnahmen,false);
+  MidgardBasicElement::show_list_in_tree(list_Schrift,tree_gelerntes,Werte,Typ,Database.ausnahmen,false);
+  MidgardBasicElement::show_list_in_tree(list_Beruf,tree_gelerntes,Werte,Typ,Database.ausnahmen,false);
   tree_gelerntes->Expand_recursively();
 }
 
@@ -500,7 +493,7 @@ bool midgard_CG::SpracheSchrift(const std::string& fert,int wert,bool auswahl)
 
  if(auswahl && launch)
      manage (new Sprache_auswahl(this,Database,Werte,mod,wert,
-                                 &list_Sprache,list_Schrift,list_Fertigkeit));
+                                 list_Sprache,list_Schrift,list_Fertigkeit));
  return launch;
 }
 

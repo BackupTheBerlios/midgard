@@ -127,7 +127,7 @@ class MidgardBasicElement : public HandleContent
             const std::list<cH_MidgardBasicElement>& BasicList,
             SimpleTree *Tree, 
             const Grundwerte& Werte, const vector<cH_Typen>& Typ,
-            const Ausnahmen& ausnahmen);
+            const Ausnahmen& ausnahmen,bool clear_me=true);
       static void saveElementliste(IF_XML(ostream &datei,)
       				const std::list<cH_MidgardBasicElement>& b,
                                    const Grundwerte& Werte,

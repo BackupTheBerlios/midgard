@@ -49,7 +49,7 @@ void MidgardBasicElement::show_list_in_tree(
   const std::list<cH_MidgardBasicElement>& BasicList,
   SimpleTree *Tree,
   const Grundwerte& Werte, 
-  const vector<cH_Typen>& Typ, const Ausnahmen& ausnahmen)
+  const vector<cH_Typen>& Typ, const Ausnahmen& ausnahmen,bool clear_me)
 {
   if (BasicList.begin()==BasicList.end() ) {Tree->clear(); return ;}
   std::vector<cH_RowDataBase> datavec;
@@ -57,7 +57,7 @@ void MidgardBasicElement::show_list_in_tree(
    {
       datavec.push_back(new Data_SimpleTree(*i,Typ,ausnahmen,Werte));
    }
-  Tree->setDataVec(datavec);
+  Tree->setDataVec(datavec,clear_me);
 }
 
 void MidgardBasicElement::move_element(std::list<cH_MidgardBasicElement>& von,

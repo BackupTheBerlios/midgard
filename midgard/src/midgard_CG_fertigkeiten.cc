@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.52 2002/02/07 07:33:17 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.53 2002/02/07 16:43:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,7 +18,7 @@
  */
 
 #include "midgard_CG.hh"
-#include "Fertigkeiten_auswahl.hh"
+//#include "Fertigkeiten_auswahl.hh"
 #include <Gtk_OStream.h>
 #include "Window_angeb_fert.hh"
 #include "Fertigkeiten.hh"
