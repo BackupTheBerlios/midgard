@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.19 2001/12/19 14:13:10 christof Exp $
+# $Id: Makefile.am,v 1.20 2002/01/02 15:21:43 christof Exp $
 
 EXTRA_PROGRAMS = all_exp arkanum_exp kido_exp fertigk_exp land_sprache_exp waffen_exp
 
@@ -27,12 +27,18 @@ LDFLAGS = @KOMPONENTEN_LDFLAGS@
 CLEANFILES = *~ $(BUILT_SOURCES) 
 LIBS=@LIBS@ @COMMONXX_LIBS@
 
-export: $(EXTRA_PROGRAMS)
-	./all_exp >../src/midgard.xml
+#export: $(EXTRA_PROGRAMS)
+#	./all_exp >../src/midgard.xml
+# upps, das ist von früher übrig geblieben
 
-export5: $(EXTRA_PROGRAMS)
-	./arkanum_exp >../midgard-xml/Arkanum.xml
-	./kido_exp >../../midgard-xml/KiDo.xml
-	./fertigk_exp >../../midgard-xml/Fertigkeiten.xml
-	./land_sprache_exp >../../midgard-xml/Land_Sprache.xml
-	./waffen_exp >../../midgard-xml/Waffen.xml
+export: $(EXTRA_PROGRAMS)
+	./arkanum_exp >../../midgard-xml/Arkanum.xml
+	./all_exp K >../../midgard-xml/KanThaiPan.xml
+	./all_exp R >../../midgard-xml/Rawindra.xml
+	./all_exp A >../../midgard-xml/Alba.xml
+	./all_exp "B&R" >../../midgard-xml/BarbarenWutRitterEhre.xml
+	./all_exp "H&D" >../../midgard-xml/HexenzauberDruidenkraft.xml
+	./all_exp G >../../midgard-xml/Gildenbrief.xml
+	./all_exp   >../../midgard-xml/Regelwerk4.xml
+	./all_exp 3 >../../midgard-xml/Regelwerk3.xml
+#	./all_exp 2 >../../midgard-xml/Regelwerk2.xml
