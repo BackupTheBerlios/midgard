@@ -24,6 +24,7 @@ void midgard_CG::wizard_do_nothing()
 
 void midgard_CG::wizard_do_something()
 {
+  if(!wizard) return;
   Wizard_window::esteps e=wizard->ActualStep();
   switch (e) {
       case Wizard_window::SPEZIES : 
@@ -48,24 +49,11 @@ void midgard_CG::wizard_do_something()
    }
 }
 
-/*
-void midgard_CG::on_button_wizard_wiederholen_clicked()
-{
-  wizard->same_step();  
-}
-
-void midgard_CG::on_button_wizard_weiter_clicked()
-{
-  wizard->next_step();  
-}
-*/
-
 void midgard_CG::wizard_starten_clicked()
 {
-// table_wizard->show();
  wizard = manage(new class Wizard_window(this));
  notebook_main->set_sensitive(false);
-// wizard.restart();
+ wizard->restart();
 }
 
 void midgard_CG::on_button_close_wizard_clicked()

@@ -15,6 +15,11 @@
 <widget>
   <class>GtkWindow</class>
   <name>midgard_CG</name>
+  <signal>
+    <name>delete_event</name>
+    <handler>on_midgard_CG_delete_event</handler>
+    <last_modification_time>Thu, 14 Feb 2002 11:37:06 GMT</last_modification_time>
+  </signal>
   <title>Midgard</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
   <position>GTK_WIN_POS_NONE</position>
@@ -18068,6 +18073,11 @@ eingeben</label>
 <widget>
   <class>GtkWindow</class>
   <name>Wizard_window</name>
+  <signal>
+    <name>delete_event</name>
+    <handler>on_Wizard_window_delete_event</handler>
+    <last_modification_time>Thu, 14 Feb 2002 11:30:41 GMT</last_modification_time>
+  </signal>
   <title>Wizard</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
   <position>GTK_WIN_POS_NONE</position>
@@ -18080,7 +18090,6 @@ eingeben</label>
     <class>GtkTable</class>
     <name>table_wizard</name>
     <cxx_visibility>protected</cxx_visibility>
-    <visible>False</visible>
     <rows>1</rows>
     <columns>4</columns>
     <homogeneous>False</homogeneous>

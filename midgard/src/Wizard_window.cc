@@ -22,7 +22,6 @@ Wizard_window::Wizard_window(midgard_CG* h)
 : hauptfenster(h), actual_step(SPEZIES)
 {
   fill_vecwiz();
-  restart();
 }
 
 
@@ -106,3 +105,11 @@ void Wizard_window::on_button_close_wizard_clicked()
   hauptfenster->on_button_close_wizard_clicked();
   destroy();
 }
+
+gint Wizard_window::on_Wizard_window_delete_event(GdkEventAny* event)
+{
+ hauptfenster->on_button_close_wizard_clicked();
+ return 0;
+}
+
+

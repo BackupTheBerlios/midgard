@@ -36,6 +36,7 @@ class Wizard_window : public Wizard_window_glade
       void fill_vecwiz();
       void evaluate_step(esteps step);
 
+      gint on_Wizard_window_delete_event(GdkEventAny* event);
      
         friend class Wizard_window_glade;
         void on_button_wizard_weiter_clicked();

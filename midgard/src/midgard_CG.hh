@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.172 2002/02/14 09:00:21 thoma Exp $
+// $Id: midgard_CG.hh,v 1.173 2002/02/14 11:38:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -287,6 +287,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void LaTeX_footer(ostream &fout);
         std::string LaTeX_string(int i);
         void on_schliessen_CG_clicked();
+        gint on_midgard_CG_delete_event(GdkEventAny* event);
 
 
         void on_lernpunkte_wuerfeln_clicked();
