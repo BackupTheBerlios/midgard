@@ -330,9 +330,9 @@ void table_ausruestung::on_clist_preisliste_select_row(gint row, gint column, Gd
 
 void table_ausruestung::zeige_werte()
 {
-  label_golda->set_text(itos(hauptfenster->getCWerte().Gold()));
-  label_silbera->set_text(itos(hauptfenster->getCWerte().Silber()));
-  label_kupfera->set_text(itos(hauptfenster->getCWerte().Kupfer()));
+  label_golda->set_text(itos(hauptfenster->getWerte().Gold()));
+  label_silbera->set_text(itos(hauptfenster->getWerte().Silber()));
+  label_kupfera->set_text(itos(hauptfenster->getWerte().Kupfer()));
 }
 
 
@@ -398,7 +398,7 @@ void table_ausruestung::setStandardAusruestung()
 
 void table_ausruestung::setFertigkeitenAusruestung(AusruestungBaum *Rucksack)
 {
-  for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_Fertigkeit().begin();i!=hauptfenster->getCChar().CList_Fertigkeit().end();++i)
+  for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Fertigkeit().begin();i!=hauptfenster->getChar().List_Fertigkeit().end();++i)
    {
     int wurf;
     if((*i)->Name()=="Abrichten" && 90<(wurf=hauptfenster->random.integer(1,100)))

@@ -30,9 +30,9 @@ void table_steigern::on_waffen_laden_clicked()
      Abenteurer &A=hauptfenster->getChar().getAbenteurer();
      cH_Waffe w(*i);
      MidgardBasicElement_mutable M(*i);
-     if (M.ist_gelernt(A.CList_Waffen())) continue ;
-     if(A.getCWerte().Spezies()->istVerboten(*i)) continue;
-     if (!w->Grundkenntnis_vorhanden(A.CList_WaffenGrund())) continue;
+     if (M.ist_gelernt(A.List_Waffen())) continue ;
+     if(A.getWerte().Spezies()->istVerboten(*i)) continue;
+     if (!w->Grundkenntnis_vorhanden(A.List_WaffenGrund())) continue;
      if (!w->ist_lernbar(A.getVTyp(),w->get_MapTyp())) continue;
      if (!hauptfenster->region_check(w->Region(w->Name())) ) continue;
      if (w->Voraussetzung(A))
@@ -51,9 +51,9 @@ void table_steigern::waffen_zeigen()
 {
    zeige_werte();
    MidgardBasicElement::show_list_in_tree(list_WaffenGrund_neu,neue_grund_tree,hauptfenster);
-   MidgardBasicElement::show_list_in_tree(hauptfenster->getCChar().CList_WaffenGrund()    ,alte_grund_tree,hauptfenster);
+   MidgardBasicElement::show_list_in_tree(hauptfenster->getChar().List_WaffenGrund()    ,alte_grund_tree,hauptfenster);
    MidgardBasicElement::show_list_in_tree(list_Waffen_neu,neue_waffen_tree,hauptfenster);
-   MidgardBasicElement::show_list_in_tree(hauptfenster->getCChar().CList_Waffen()    ,alte_waffen_tree,hauptfenster);
+   MidgardBasicElement::show_list_in_tree(hauptfenster->getChar().List_Waffen()    ,alte_waffen_tree,hauptfenster);
 }
 
 
@@ -70,9 +70,9 @@ void table_steigern::on_waffengrund_laden_clicked()
   list_WaffenGrund_neu.clear();
   for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().WaffeGrund.begin();i!=hauptfenster->getCDatabase().WaffeGrund.end();++i)
    { cH_WaffeGrund w(*i);
-     if (MidgardBasicElement_mutable(*i).ist_gelernt(hauptfenster->getCChar().CList_WaffenGrund())) continue ;
-     if(hauptfenster->getCWerte().Spezies()->istVerboten(*i)) continue;
-     if((*i)->ist_lernbar(hauptfenster->getCChar().getVTyp(),(*i)->get_MapTyp()))
+     if (MidgardBasicElement_mutable(*i).ist_gelernt(hauptfenster->getChar().List_WaffenGrund())) continue ;
+     if(hauptfenster->getWerte().Spezies()->istVerboten(*i)) continue;
+     if((*i)->ist_lernbar(hauptfenster->getChar().getVTyp(),(*i)->get_MapTyp()))
         if (hauptfenster->region_check(w->Region()) )
          list_WaffenGrund_neu.push_back(*i);
    }

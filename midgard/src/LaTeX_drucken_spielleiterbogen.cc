@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.10 2002/06/24 10:51:30 christof Exp $   
+// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.11 2002/06/26 14:01:18 christof Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -163,7 +163,7 @@ void LaTeX_drucken::for_each(ofstream &fout,const ewhat& what)
  std::vector<st_is> V;
  for(std::list<VAbenteurer::st_abenteurer>::const_iterator i=hauptfenster->Char.getList().begin();i!=hauptfenster->Char.getList().end();++i)
   {
-    const Grundwerte &W=i->abenteurer.getCWerte();
+    const Grundwerte &W=i->abenteurer.getWerte();
     const Abenteurer &A=i->abenteurer;
     switch(what)
      {
@@ -192,7 +192,7 @@ void LaTeX_drucken::for_each(ofstream &fout,const ewhat& what)
        case B:  V.push_back(st_is(W.B())); break;
        case Zaubern: V.push_back(st_is(W.Zaubern_wert())); break;
        case Abwehr:  V.push_back(st_is(W.Abwehr_wert())); break;
-       case Resistenz: fout << " & "<<W.Resistenzen_alle(hauptfenster->getCChar().getVTyp()); break; 
+       case Resistenz: fout << " & "<<W.Resistenzen_alle(hauptfenster->getChar().getVTyp()); break; 
        case Sehen: V.push_back(st_is(W.Sehen())); break;
        case Hoeren: V.push_back(st_is(W.Hoeren())); break;
        case Riechen: V.push_back(st_is(W.Riechen())); break;
@@ -209,10 +209,10 @@ void LaTeX_drucken::for_each(ofstream &fout,const ewhat& what)
        case Gassenwissen: V.push_back(st_is(A.Erfolgswert("Gassenwissen",Database),A.SErfolgswert("Gassenwissen",Database))); break;
        case Himmelskunde: V.push_back(st_is(A.Erfolgswert("Himmelskunde",Database),A.SErfolgswert("Himmelskunde",Database))); break;
        case Schaetzen: V.push_back(st_is(A.Erfolgswert("Schaetzen",Database),A.SErfolgswert("Schaetzen",Database))); break;
-       case angFert: list_for_each(fout,A.CList_Fertigkeit_ang(),maxlength,cm); break;
-       case Waffen: list_for_each(fout,A.CList_Waffen(),maxlength,cm); break;
-       case Sprachen: list_for_each(fout,A.CList_Sprache(),maxlength,cm); break;
-       case Schriften: list_for_each(fout,A.CList_Schrift(),maxlength,cm); break;
+       case angFert: list_for_each(fout,A.List_Fertigkeit_ang(),maxlength,cm); break;
+       case Waffen: list_for_each(fout,A.List_Waffen(),maxlength,cm); break;
+       case Sprachen: list_for_each(fout,A.List_Sprache(),maxlength,cm); break;
+       case Schriften: list_for_each(fout,A.List_Schrift(),maxlength,cm); break;
      }
    }
  int max=-1;

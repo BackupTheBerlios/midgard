@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.22 2002/06/24 10:51:30 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.23 2002/06/26 14:01:18 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -41,8 +41,8 @@ std::string utf82iso(const std::string &s);
 
 std::string LaTeX_drucken::get_latex_filename(const LaTeX_Filenames what)
 {
-  std::string name=hauptfenster->getCWerte().Name_Abenteurer();
-  std::string version=hauptfenster->getCWerte().Version();
+  std::string name=hauptfenster->getWerte().Name_Abenteurer();
+  std::string version=hauptfenster->getWerte().Version();
   std::string nv="_"+name+"__"+version+"_";
   
   while(true) // alle nicht von der shell interpretierbare Zeichen ersetzen
@@ -90,11 +90,11 @@ void LaTeX_drucken::on_latex_clicked(bool values=true)
  if (values) LaTeX_write_values(fout,installfile);
  else LaTeX_write_empty_values(fout,installfile);
 
- if (hauptfenster->getCChar().CList_Zauber().size()>0 || hauptfenster->getCChar().CList_Zauberwerk().size()>0)  // Zauber
+ if (hauptfenster->getChar().List_Zauber().size()>0 || hauptfenster->getChar().List_Zauberwerk().size()>0)  // Zauber
   {
     LaTeX_zauber_main(fout);
   }
- if (hauptfenster->getCChar().CList_Kido().size()>0) // KiDo
+ if (hauptfenster->getChar().List_Kido().size()>0) // KiDo
   {
     LaTeX_kido_main(fout);
   }
@@ -108,116 +108,116 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  fout << "\\documentclass[11pt,a4paper,landscape]{article}\n";
  LaTeX_newsavebox(fout);
  std::string styp;
- if(hauptfenster->getCWerte().Bezeichnung().size())
-  {  styp=hauptfenster->getCWerte().Bezeichnung()+" ("+hauptfenster->getCChar().CTyp1()->Short();
-     if(hauptfenster->getCChar().CTyp2()->Short().size()) styp +="/"+hauptfenster->getCChar().CTyp2()->Short();
+ if(hauptfenster->getWerte().Bezeichnung().size())
+  {  styp=hauptfenster->getWerte().Bezeichnung()+" ("+hauptfenster->getChar().Typ1()->Short();
+     if(hauptfenster->getChar().Typ2()->Short().size()) styp +="/"+hauptfenster->getChar().Typ2()->Short();
      styp+=")";
   }
  else 
-  { styp = hauptfenster->getCChar().CTyp1()->Name(hauptfenster->getCWerte().Geschlecht());
-    if (hauptfenster->getCChar().CTyp2()->Name(hauptfenster->getCWerte().Geschlecht())!="") 
-      styp += "/"+hauptfenster->getCChar().CTyp2()->Name(hauptfenster->getCWerte().Geschlecht());
+  { styp = hauptfenster->getChar().Typ1()->Name(hauptfenster->getWerte().Geschlecht());
+    if (hauptfenster->getChar().Typ2()->Name(hauptfenster->getWerte().Geschlecht())!="") 
+      styp += "/"+hauptfenster->getChar().Typ2()->Name(hauptfenster->getWerte().Geschlecht());
   }
  fout << "\\newcommand{\\typ}{"<< LaTeX_scale(LATIN(styp),10,"2.2cm") << "}\n";
- fout << "\\newcommand{\\st}{"  <<hauptfenster->getCWerte().St() << "}\n";
- fout << "\\newcommand{\\gs}{" <<hauptfenster->getCWerte().Gs() << "}\n";
- fout << "\\newcommand{\\gw}{"  << hauptfenster->getCWerte().Gw()<<hauptfenster->getCWerte().Ruestung_RW_Verlust()<<"}\n";
- fout << "\\newcommand{\\ko}{"  <<hauptfenster->getCWerte().Ko()<< "}\n";
- fout << "\\newcommand{\\inn}{" <<hauptfenster->getCWerte().In() << "}\n";
- fout << "\\newcommand{\\zt}{"  <<hauptfenster->getCWerte().Zt() << "}\n";
- fout << "\\newcommand{\\au}{"  <<hauptfenster->getCWerte().Au() << "}\n";
- fout << "\\newcommand{\\pa}{"  <<hauptfenster->getCWerte().pA() << "}\n";
- fout << "\\newcommand{\\sbb}{"  <<hauptfenster->getCWerte().Sb() << "}\n";
- fout << "\\newcommand{\\wk}{"  <<hauptfenster->getCWerte().Wk() << "}\n";
+ fout << "\\newcommand{\\st}{"  <<hauptfenster->getWerte().St() << "}\n";
+ fout << "\\newcommand{\\gs}{" <<hauptfenster->getWerte().Gs() << "}\n";
+ fout << "\\newcommand{\\gw}{"  << hauptfenster->getWerte().Gw()<<hauptfenster->getWerte().Ruestung_RW_Verlust()<<"}\n";
+ fout << "\\newcommand{\\ko}{"  <<hauptfenster->getWerte().Ko()<< "}\n";
+ fout << "\\newcommand{\\inn}{" <<hauptfenster->getWerte().In() << "}\n";
+ fout << "\\newcommand{\\zt}{"  <<hauptfenster->getWerte().Zt() << "}\n";
+ fout << "\\newcommand{\\au}{"  <<hauptfenster->getWerte().Au() << "}\n";
+ fout << "\\newcommand{\\pa}{"  <<hauptfenster->getWerte().pA() << "}\n";
+ fout << "\\newcommand{\\sbb}{"  <<hauptfenster->getWerte().Sb() << "}\n";
+ fout << "\\newcommand{\\wk}{"  <<hauptfenster->getWerte().Wk() << "}\n";
  fout << "\\newcommand{\\rw}{ X }\n";
  fout << "\\newcommand{\\hgw}{ X }\n";
- fout << "\\newcommand{\\bb}{"  <<hauptfenster->getCWerte().B()<<hauptfenster->getCWerte().Ruestung_B_Verlust()<<"}\n";
+ fout << "\\newcommand{\\bb}{"  <<hauptfenster->getWerte().B()<<hauptfenster->getWerte().Ruestung_B_Verlust()<<"}\n";
  fout << "}\n";
- fout << "\\newcommand{\\kaw}{"  <<hauptfenster->getCWerte().KAW() << "}\n";
- fout << "\\newcommand{\\geistesblitz}{"  <<hauptfenster->getCWerte().Geistesblitz() << "}\n";
- fout << "\\newcommand{\\ggn}{"  <<hauptfenster->getCWerte().GG() << "}\n";
- fout << "\\newcommand{\\sg}{"  <<hauptfenster->getCWerte().SG() << "}\n";
- fout << "\\newcommand{\\lp}{"  <<hauptfenster->getCWerte().LP() << "}\n";
- fout << "\\newcommand{\\ap}{"  <<hauptfenster->getCWerte().AP() << "}\n";
- fout << "\\newcommand{\\boau}{"<<hauptfenster->getCWerte().bo_Au()<< "}\n";
- fout << "\\newcommand{\\bosc}{"<<hauptfenster->getCWerte().bo_Sc()<< "}\n";
- fout << "\\newcommand{\\boan}{"<<hauptfenster->getCWerte().bo_An()<< "}\n";
- fout << "\\newcommand{\\boab}{"<<hauptfenster->getCWerte().bo_Ab()<< "}\n";
- fout << "\\newcommand{\\boza}{"<<hauptfenster->getCWerte().bo_Za()<< "}\n";
- fout << "\\newcommand{\\bopsy}{"<<hauptfenster->getCWerte().bo_Psy(hauptfenster->getCChar().getVTyp())<< "}\n";
- fout << "\\newcommand{\\bophs}{"<<hauptfenster->getCWerte().bo_Phs(hauptfenster->getCChar().getVTyp())<< "}\n";
- fout << "\\newcommand{\\bophk}{"<<hauptfenster->getCWerte().bo_Phk(hauptfenster->getCChar().getVTyp())<< "}\n";
+ fout << "\\newcommand{\\kaw}{"  <<hauptfenster->getWerte().KAW() << "}\n";
+ fout << "\\newcommand{\\geistesblitz}{"  <<hauptfenster->getWerte().Geistesblitz() << "}\n";
+ fout << "\\newcommand{\\ggn}{"  <<hauptfenster->getWerte().GG() << "}\n";
+ fout << "\\newcommand{\\sg}{"  <<hauptfenster->getWerte().SG() << "}\n";
+ fout << "\\newcommand{\\lp}{"  <<hauptfenster->getWerte().LP() << "}\n";
+ fout << "\\newcommand{\\ap}{"  <<hauptfenster->getWerte().AP() << "}\n";
+ fout << "\\newcommand{\\boau}{"<<hauptfenster->getWerte().bo_Au()<< "}\n";
+ fout << "\\newcommand{\\bosc}{"<<hauptfenster->getWerte().bo_Sc()<< "}\n";
+ fout << "\\newcommand{\\boan}{"<<hauptfenster->getWerte().bo_An()<< "}\n";
+ fout << "\\newcommand{\\boab}{"<<hauptfenster->getWerte().bo_Ab()<< "}\n";
+ fout << "\\newcommand{\\boza}{"<<hauptfenster->getWerte().bo_Za()<< "}\n";
+ fout << "\\newcommand{\\bopsy}{"<<hauptfenster->getWerte().bo_Psy(hauptfenster->getChar().getVTyp())<< "}\n";
+ fout << "\\newcommand{\\bophs}{"<<hauptfenster->getWerte().bo_Phs(hauptfenster->getChar().getVTyp())<< "}\n";
+ fout << "\\newcommand{\\bophk}{"<<hauptfenster->getWerte().bo_Phk(hauptfenster->getChar().getVTyp())<< "}\n";
 
  // Sinne
- fout << "\\newcommand{\\sinnse}{"<<hauptfenster->getCWerte().Sehen()<< "}\n";
- fout << "\\newcommand{\\sinnh}{"<<hauptfenster->getCWerte().Hoeren()<< "}\n";
- fout << "\\newcommand{\\sinnr}{"<<hauptfenster->getCWerte().Riechen()<< "}\n";
- fout << "\\newcommand{\\sinnsc}{"<<hauptfenster->getCWerte().Schmecken()<< "}\n";
- fout << "\\newcommand{\\sinnt}{"<<hauptfenster->getCWerte().Tasten()<< "}\n";
- fout << "\\newcommand{\\sinnss}{"<<hauptfenster->getCWerte().SechsterSinn()<< "}\n";
+ fout << "\\newcommand{\\sinnse}{"<<hauptfenster->getWerte().Sehen()<< "}\n";
+ fout << "\\newcommand{\\sinnh}{"<<hauptfenster->getWerte().Hoeren()<< "}\n";
+ fout << "\\newcommand{\\sinnr}{"<<hauptfenster->getWerte().Riechen()<< "}\n";
+ fout << "\\newcommand{\\sinnsc}{"<<hauptfenster->getWerte().Schmecken()<< "}\n";
+ fout << "\\newcommand{\\sinnt}{"<<hauptfenster->getWerte().Tasten()<< "}\n";
+ fout << "\\newcommand{\\sinnss}{"<<hauptfenster->getWerte().SechsterSinn()<< "}\n";
  
- fout << "\\newcommand{\\hand}{"<<LATIN(hauptfenster->getCWerte().Hand())<< "}\n";
+ fout << "\\newcommand{\\hand}{"<<LATIN(hauptfenster->getWerte().Hand())<< "}\n";
 
 // fout << "\\newcommand{\\bogi}{ X }\n";
- fout << "\\newcommand{\\res}{"<<hauptfenster->getCWerte().Resistenz()<<"}\n";
- fout << "\\newcommand{\\psy}{"<<hauptfenster->getCWerte().Resistenz()+hauptfenster->getCWerte().bo_Psy(hauptfenster->getCChar().getVTyp())<<"}\n";
- fout << "\\newcommand{\\ppresistenz}{"<<EmptyInt_4TeX(hauptfenster->getCWerte().ResistenzPP())<<"}\n";
- fout << "\\newcommand{\\phs}{"<<hauptfenster->getCWerte().Resistenz()+hauptfenster->getCWerte().bo_Phs(hauptfenster->getCChar().getVTyp())<<"}\n";
- fout << "\\newcommand{\\phk}{"<<hauptfenster->getCWerte().Resistenz()+hauptfenster->getCWerte().bo_Phk(hauptfenster->getCChar().getVTyp())<<"}\n";
-// fout << "\\newcommand{\\gift}{"<<3*hauptfenster->getCWerte().LP()+hauptfenster->getCWerte().bo_Gift()+ Spezies_constraint.Gift()<<"}\n";
- fout << "\\newcommand{\\gift}{"<<hauptfenster->getCWerte().Gift()<<"}\n";
+ fout << "\\newcommand{\\res}{"<<hauptfenster->getWerte().Resistenz()<<"}\n";
+ fout << "\\newcommand{\\psy}{"<<hauptfenster->getWerte().Resistenz()+hauptfenster->getWerte().bo_Psy(hauptfenster->getChar().getVTyp())<<"}\n";
+ fout << "\\newcommand{\\ppresistenz}{"<<EmptyInt_4TeX(hauptfenster->getWerte().ResistenzPP())<<"}\n";
+ fout << "\\newcommand{\\phs}{"<<hauptfenster->getWerte().Resistenz()+hauptfenster->getWerte().bo_Phs(hauptfenster->getChar().getVTyp())<<"}\n";
+ fout << "\\newcommand{\\phk}{"<<hauptfenster->getWerte().Resistenz()+hauptfenster->getWerte().bo_Phk(hauptfenster->getChar().getVTyp())<<"}\n";
+// fout << "\\newcommand{\\gift}{"<<3*hauptfenster->getWerte().LP()+hauptfenster->getWerte().bo_Gift()+ Spezies_constraint.Gift()<<"}\n";
+ fout << "\\newcommand{\\gift}{"<<hauptfenster->getWerte().Gift()<<"}\n";
 
- fout << "\\newcommand{\\raufen}{"<<hauptfenster->getCWerte().Raufen()<< "}\n";
- fout << "\\newcommand{\\abwehr}{"<<hauptfenster->getCWerte().Abwehr_wert()<< "}\n";
- fout << "\\newcommand{\\ppabwehr}{"<<EmptyInt_4TeX(hauptfenster->getCWerte().AbwehrPP())<< "}\n";
- int ohne_waffe=hauptfenster->getCWerte().Abwehr_wert()+hauptfenster->getCWerte().bo_Ab();
- std::string abwehr_verlust_string = hauptfenster->getCWerte().Ruestung_Abwehr_Verlust(hauptfenster->getCChar().CList_Fertigkeit());
+ fout << "\\newcommand{\\raufen}{"<<hauptfenster->getWerte().Raufen()<< "}\n";
+ fout << "\\newcommand{\\abwehr}{"<<hauptfenster->getWerte().Abwehr_wert()<< "}\n";
+ fout << "\\newcommand{\\ppabwehr}{"<<EmptyInt_4TeX(hauptfenster->getWerte().AbwehrPP())<< "}\n";
+ int ohne_waffe=hauptfenster->getWerte().Abwehr_wert()+hauptfenster->getWerte().bo_Ab();
+ std::string abwehr_verlust_string = hauptfenster->getWerte().Ruestung_Abwehr_Verlust(hauptfenster->getChar().List_Fertigkeit());
  fout << "\\newcommand{\\abwehrfinal}{"<<ohne_waffe<<abwehr_verlust_string<<"}\n";
 
- std::string mit_waffe = Waffe::get_Verteidigungswaffe(ohne_waffe,hauptfenster->getCChar().CList_Waffen(),hauptfenster->getCChar().CList_Waffen_besitz(),hauptfenster->getCChar().getVTyp(),hauptfenster->getCWerte());
+ std::string mit_waffe = Waffe::get_Verteidigungswaffe(ohne_waffe,hauptfenster->getChar().List_Waffen(),hauptfenster->getChar().List_Waffen_besitz(),hauptfenster->getChar().getVTyp(),hauptfenster->getWerte());
  fout << "\\newcommand{\\abwehrmitwaffe}{"<<mit_waffe<<abwehr_verlust_string<<"}\n";
 
- fout << "\\newcommand{\\zauber}{"<<EmptyInt_4TeX(hauptfenster->getCWerte().Zaubern_wert())<< "}\n";
- fout << "\\newcommand{\\ppzauber}{"<<EmptyInt_4TeX(hauptfenster->getCWerte().ZaubernPP())<< "}\n";
- fout << "\\newcommand{\\alter}{"  <<hauptfenster->getCWerte().Alter() << "}\n";
- fout << "\\newcommand{\\gestalt}{"  <<LaTeX_scale(LATIN(hauptfenster->getCWerte().Gestalt()),5,"0.7cm") << "}\n";
- fout << "\\newcommand{\\gewicht}{"  <<hauptfenster->getCWerte().Gewicht() << "\\,kg}\n";
- fout << "\\newcommand{\\koerpergroesse}{"  <<hauptfenster->getCWerte().Groesse()/100. << "\\,m}\n";
- fout << "\\newcommand{\\koerpergroessebez}{"  <<LATIN(hauptfenster->getCWerte().GroesseBez()) << "}\n";
- fout << "\\newcommand{\\grad}{"  <<hauptfenster->getCWerte().Grad() << "}\n";
- fout << "\\newcommand{\\spezialisierung}{ "  <<LaTeX_scale(LATIN(hauptfenster->getCWerte().Spezialisierung()),10,"2.2cm") << "}\n";
- fout << "\\newcommand{\\stand}{"  <<LaTeX_scale(hauptfenster->getCWerte().Stand(),10,"1.5cm") << "}\n";
- fout << "\\newcommand{\\herkunft}{"  <<LaTeX_scale(LATIN(hauptfenster->getCWerte().Herkunft()->Name()),10,"2.2cm") << "}\n";
- fout << "\\newcommand{\\glaube}{"  <<LaTeX_scale(LATIN(hauptfenster->getCWerte().Glaube()),10,"2.5cm") << "}\n";
- fout << "\\newcommand{\\namecharakter}{" << LaTeX_scale(LATIN(hauptfenster->getCWerte().Name_Abenteurer()),25,"4.5cm") << "}\n";
- fout << "\\newcommand{\\namespieler}{" << LaTeX_scale(LATIN(hauptfenster->getCWerte().Name_Spieler()),25,"4.5cm") << "}\n";
- fout << "\\newcommand{\\gfp}{\\tiny "  <<EmptyInt_4TeX(hauptfenster->getCWerte().GFP()) << "}\n";
- fout << "\\newcommand{\\aep}{\\tiny "  <<EmptyInt_4TeX(hauptfenster->getCWerte().KEP()) << "}\n";
- fout << "\\newcommand{\\kep}{\\tiny "  <<EmptyInt_4TeX(hauptfenster->getCWerte().ZEP()) << "}\n";
- fout << "\\newcommand{\\zep}{\\tiny "  <<EmptyInt_4TeX(hauptfenster->getCWerte().AEP()) << "}\n";
+ fout << "\\newcommand{\\zauber}{"<<EmptyInt_4TeX(hauptfenster->getWerte().Zaubern_wert())<< "}\n";
+ fout << "\\newcommand{\\ppzauber}{"<<EmptyInt_4TeX(hauptfenster->getWerte().ZaubernPP())<< "}\n";
+ fout << "\\newcommand{\\alter}{"  <<hauptfenster->getWerte().Alter() << "}\n";
+ fout << "\\newcommand{\\gestalt}{"  <<LaTeX_scale(LATIN(hauptfenster->getWerte().Gestalt()),5,"0.7cm") << "}\n";
+ fout << "\\newcommand{\\gewicht}{"  <<hauptfenster->getWerte().Gewicht() << "\\,kg}\n";
+ fout << "\\newcommand{\\koerpergroesse}{"  <<hauptfenster->getWerte().Groesse()/100. << "\\,m}\n";
+ fout << "\\newcommand{\\koerpergroessebez}{"  <<LATIN(hauptfenster->getWerte().GroesseBez()) << "}\n";
+ fout << "\\newcommand{\\grad}{"  <<hauptfenster->getWerte().Grad() << "}\n";
+ fout << "\\newcommand{\\spezialisierung}{ "  <<LaTeX_scale(LATIN(hauptfenster->getWerte().Spezialisierung()),10,"2.2cm") << "}\n";
+ fout << "\\newcommand{\\stand}{"  <<LaTeX_scale(hauptfenster->getWerte().Stand(),10,"1.5cm") << "}\n";
+ fout << "\\newcommand{\\herkunft}{"  <<LaTeX_scale(LATIN(hauptfenster->getWerte().Herkunft()->Name()),10,"2.2cm") << "}\n";
+ fout << "\\newcommand{\\glaube}{"  <<LaTeX_scale(LATIN(hauptfenster->getWerte().Glaube()),10,"2.5cm") << "}\n";
+ fout << "\\newcommand{\\namecharakter}{" << LaTeX_scale(LATIN(hauptfenster->getWerte().Name_Abenteurer()),25,"4.5cm") << "}\n";
+ fout << "\\newcommand{\\namespieler}{" << LaTeX_scale(LATIN(hauptfenster->getWerte().Name_Spieler()),25,"4.5cm") << "}\n";
+ fout << "\\newcommand{\\gfp}{\\tiny "  <<EmptyInt_4TeX(hauptfenster->getWerte().GFP()) << "}\n";
+ fout << "\\newcommand{\\aep}{\\tiny "  <<EmptyInt_4TeX(hauptfenster->getWerte().KEP()) << "}\n";
+ fout << "\\newcommand{\\kep}{\\tiny "  <<EmptyInt_4TeX(hauptfenster->getWerte().ZEP()) << "}\n";
+ fout << "\\newcommand{\\zep}{\\tiny "  <<EmptyInt_4TeX(hauptfenster->getWerte().AEP()) << "}\n";
 
- double geld = hauptfenster->getCWerte().Gold() + hauptfenster->getCWerte().Silber()/10. + hauptfenster->getCWerte().Kupfer()/100.;
+ double geld = hauptfenster->getWerte().Gold() + hauptfenster->getWerte().Silber()/10. + hauptfenster->getWerte().Kupfer()/100.;
  fout << "\\newcommand{\\gold}{\\tiny "  << geld << "}\n";
 
- fout << "\\newcommand{\\ruestung}{\\scriptsize "  <<LATIN(hauptfenster->getCWerte().Ruestung()->Name()) << "}\n";
- fout << "\\newcommand{\\ruestunglp}{\\scriptsize "  <<hauptfenster->getCWerte().Ruestung()->LP_Verlust() << "}\n";
- fout << "\\newcommand{\\ruestungb}{\\scriptsize "  <<LATIN(hauptfenster->getCWerte().Ruestung(1)->Name()) << "}\n";
- fout << "\\newcommand{\\ruestunglpb}{\\scriptsize "  <<hauptfenster->getCWerte().Ruestung(1)->LP_Verlust() << "}\n";
+ fout << "\\newcommand{\\ruestung}{\\scriptsize "  <<LATIN(hauptfenster->getWerte().Ruestung()->Name()) << "}\n";
+ fout << "\\newcommand{\\ruestunglp}{\\scriptsize "  <<hauptfenster->getWerte().Ruestung()->LP_Verlust() << "}\n";
+ fout << "\\newcommand{\\ruestungb}{\\scriptsize "  <<LATIN(hauptfenster->getWerte().Ruestung(1)->Name()) << "}\n";
+ fout << "\\newcommand{\\ruestunglpb}{\\scriptsize "  <<hauptfenster->getWerte().Ruestung(1)->LP_Verlust() << "}\n";
 
  /////////////////////////////////////////////////////////////////////////////
  // Sprachen und Schriften
  unsigned int sprachanz=0;
  unsigned int maxsprach=23;
  std::list<MidgardBasicElement_mutable> verwandteSprachen;
- for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_Sprache().begin();i!=hauptfenster->getCChar().CList_Sprache().end();++i)
+ for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Sprache().begin();i!=hauptfenster->getChar().List_Sprache().end();++i)
    {  cH_Sprache s(*i);
-      std::list<MidgardBasicElement_mutable> tmplist=s->VerwandteSprachen((*i).Erfolgswert(),hauptfenster->getCChar().CList_Sprache(),hauptfenster->getCDatabase().Sprache);
+      std::list<MidgardBasicElement_mutable> tmplist=s->VerwandteSprachen((*i).Erfolgswert(),hauptfenster->getChar().List_Sprache(),hauptfenster->getCDatabase().Sprache);
       verwandteSprachen.splice(verwandteSprachen.end(),tmplist);
-//geht nicht!!!      verwandteSprachen.splice(verwandteSprachen.end(),s->VerwandteSprachen(hauptfenster->getCChar().CList_Sprache,hauptfenster->Database()().Sprache));
+//geht nicht!!!      verwandteSprachen.splice(verwandteSprachen.end(),s->VerwandteSprachen(hauptfenster->getChar().List_Sprache,hauptfenster->Database()().Sprache));
       std::string a = LaTeX_string(sprachanz++);
       fout << "\\newcommand{\\spra"<<a<<"}{\\scriptsize " << LaTeX_scale(LATIN(s->Name()),20,"2.6cm") <<"}\n";
       fout << "\\newcommand{\\spraw"<<a<<"}{\\scriptsize +"<< (*i).Erfolgswert() <<"}\n";
-      vector<pair<std::string,int> > vs=s->SchriftWert(hauptfenster->getCChar().CList_Schrift());
+      vector<pair<std::string,int> > vs=s->SchriftWert(hauptfenster->getChar().List_Schrift());
       std::string ss;
       for(vector<pair<std::string,int> >::const_iterator j=vs.begin();j!=vs.end();)
        {
@@ -229,7 +229,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  verwandteSprachen=Sprache::cleanVerwandteSprachen(verwandteSprachen);
  for(std::list<MidgardBasicElement_mutable>::const_iterator i=verwandteSprachen.begin();i!=verwandteSprachen.end();++i)
    { cH_Sprache s(*i);
-     if(i->ist_gelernt(hauptfenster->getCChar().CList_Sprache())) continue;
+     if(i->ist_gelernt(hauptfenster->getChar().List_Sprache())) continue;
      std::string a = LaTeX_string(sprachanz++);
      fout << "\\newcommand{\\spra"<<a<<"}{\\scriptsize " << LaTeX_scale(LATIN(s->Name()),20,"2.6cm") <<"}\n";
      fout << "\\newcommand{\\spraw"<<a<<"}{\\scriptsize (+"<< (*i).Erfolgswert() <<")}\n";
@@ -247,7 +247,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
 
  /////////////////////////////////////////////////////////////////////////////
  // Grundfertigkeiten (Waffen)
- for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_WaffenGrund().begin();i!=hauptfenster->getCChar().CList_WaffenGrund().end();++i)
+ for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_WaffenGrund().begin();i!=hauptfenster->getChar().List_WaffenGrund().end();++i)
    {
       std::string sout = (*i)->Name();
       if (sout =="Bögen") sout = "Bogen";
@@ -261,8 +261,8 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  /////////////////////////////////////////////////////////////////////////////
  // Beruf
  fout << "\\newcommand{\\beruf}{" ;
- for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_Beruf().begin();
-         i!=hauptfenster->getCChar().CList_Beruf().end();++i)
+ for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Beruf().begin();
+         i!=hauptfenster->getChar().List_Beruf().end();++i)
    {
      fout << LATIN((*i)->Name()); //<<" ("<<(*i).Erfolgswert()<<")\t";
    }
@@ -270,15 +270,15 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  /////////////////////////////////////////////////////////////////////////////
  // weitere Merkmale
  fout << "\\newcommand{\\merkmale}{" ;
- if(hauptfenster->getCWerte().Spezies()->Name()!="Mensch")  fout << LATIN(hauptfenster->getCWerte().Spezies()->Name())<<" "; 
- fout << LATIN(hauptfenster->getCWerte().Merkmale());
+ if(hauptfenster->getWerte().Spezies()->Name()!="Mensch")  fout << LATIN(hauptfenster->getWerte().Spezies()->Name())<<" "; 
+ fout << LATIN(hauptfenster->getWerte().Merkmale());
  fout <<"}\n";
  /////////////////////////////////////////////////////////////////////////////
  // Fertigkeiten & Waffen
  /////////////////////////////////////////////////////////////////////////////
  // angeborene Fertigkeiten
  int count=0;
- for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_Fertigkeit_ang().begin();i!=hauptfenster->getCChar().CList_Fertigkeit_ang().end();++i) 
+ for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Fertigkeit_ang().begin();i!=hauptfenster->getChar().List_Fertigkeit_ang().end();++i) 
    {cH_Fertigkeit_angeborene f(*i);
     std::string a = LaTeX_string(count);
     count++;
@@ -288,13 +288,13 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
     if (pp == "0") pp = "";
     fout << "\\newcommand{\\praxis"<<a<<"}{"  << pp << "}   ";
     // Erfolgswert
-    std::string wert = itos(f->FErfolgswert(hauptfenster->getCChar().getAbenteurer(),*i));
+    std::string wert = itos(f->FErfolgswert(hauptfenster->getChar().getAbenteurer(),*i));
     if (wert == "0") wert = "";
     fout << "\\newcommand{\\wert"<<a<<"}{"  <<wert << "}\n";
    }
  /////////////////////////////////////////////////////////////////////////////
  // Fertigkeiten
- for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_Fertigkeit().begin();i!=hauptfenster->getCChar().CList_Fertigkeit().end();++i) 
+ for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Fertigkeit().begin();i!=hauptfenster->getChar().List_Fertigkeit().end();++i) 
    {cH_Fertigkeit f(*i);
     std::string a = LaTeX_string(count);
     count++;
@@ -317,8 +317,8 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  // Waffen + Waffen/Besitz
 //WL int  i_waffenlos = 4;
  unsigned int countwaffen=0;
- std::string angriffsverlust_string = hauptfenster->getCWerte().Ruestung_Angriff_Verlust(hauptfenster->getCChar().CList_Fertigkeit());
- for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_Waffen().begin();i!=hauptfenster->getCChar().CList_Waffen().end();++i)
+ std::string angriffsverlust_string = hauptfenster->getWerte().Ruestung_Angriff_Verlust(hauptfenster->getChar().List_Fertigkeit());
+ for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Waffen().begin();i!=hauptfenster->getChar().List_Waffen().end();++i)
    {cH_Waffe w(*i);
     count++;
     std::string a = LaTeX_string(count);
@@ -333,7 +333,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
     // waffenloser Kampf:
 //WL    if (w->Name()=="waffenloser Kampf") 
 //WL         { i_waffenlos=atoi(wert.c_str());}
-      for (std::list<WaffeBesitz>::const_iterator j=hauptfenster->getCChar().CList_Waffen_besitz().begin();j!=hauptfenster->getCChar().CList_Waffen_besitz().end();++j)
+      for (std::list<WaffeBesitz>::const_iterator j=hauptfenster->getChar().List_Waffen_besitz().begin();j!=hauptfenster->getChar().List_Waffen_besitz().end();++j)
      {
       WaffeBesitz WB=*j;
       if (WB.Waffe()->Name()==w->Name())
@@ -356,11 +356,11 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
          // Erfolgswert für Angriffswaffen
          else 
           {
-           int wert = (*i).Erfolgswert() + hauptfenster->getCWerte().bo_An() + WB.av_Bonus() + WB.Waffe()->WM_Angriff(WB->Name()) ;
+           int wert = (*i).Erfolgswert() + hauptfenster->getWerte().bo_An() + WB.av_Bonus() + WB.Waffe()->WM_Angriff(WB->Name()) ;
            // Angriffsbonus subtrahieren, wenn schwere Rüstung getragen wird:
            fout << "\\newcommand{\\waffeE"<<b<<"}{"<<wert<<angriffsverlust_string<<"}\n";
           }
-         std::string schaden=WB.Schaden(hauptfenster->getCWerte(),WB->Name(),true);
+         std::string schaden=WB.Schaden(hauptfenster->getWerte(),WB->Name(),true);
          fout << "\\newcommand{\\waffeS"<<b<<"}{"<<schaden << "}\n";
          std::string anm = WB.Waffe()->Waffenrang();
          fout << "\\newcommand{\\waffeA"<<b<<"}{"<<anm << "}\n";
@@ -373,8 +373,8 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
 /*
  WaffeBesitz waffenlos(cH_Waffe("waffenloser Kampf"));
  
- fout << "\\newcommand{\\waffeEy"<<"}{"<<i_waffenlos+hauptfenster->getCWerte().bo_An() << "}\n";
- std::string schaden= waffenlos.Schaden(hauptfenster->getCWerte(), waffenlos->Name(),true);
+ fout << "\\newcommand{\\waffeEy"<<"}{"<<i_waffenlos+hauptfenster->getWerte().bo_An() << "}\n";
+ std::string schaden= waffenlos.Schaden(hauptfenster->getWerte(), waffenlos->Name(),true);
  fout << "\\newcommand{\\waffeSy}{"<<schaden << "}\n";
  std::string anm = waffenlos.Waffe()->Waffenrang();
  fout << "\\newcommand{\\waffeAy}{"<<anm << "}\n";
@@ -384,7 +384,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  /////////////////////////////////////////////////////////////////////////
  // Universelle Fertigkeiten
 
- std::list<Abenteurer::st_universell> UF=hauptfenster->getCChar().CList_Universell(hauptfenster->getCDatabase());
+ std::list<Abenteurer::st_universell> UF=hauptfenster->getChar().List_Universell(hauptfenster->getCDatabase());
  int countunifert=0;
  for(std::list<Abenteurer::st_universell>::iterator i=UF.begin();i!=UF.end();++i)
   {
@@ -396,7 +396,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
     else            wert = "--"+itos(abs(iwert));
     
     if     (name=="Geheimmechanismen öffnen") name = "Geheimmech. öffnen";
-    else if(name=="Landeskunde (Heimat)") name = "Landeskunde ("+hauptfenster->getCWerte().Herkunft()->Name()+")";
+    else if(name=="Landeskunde (Heimat)") name = "Landeskunde ("+hauptfenster->getWerte().Herkunft()->Name()+")";
 
     if (!i->gelernt)
      {
@@ -727,13 +727,13 @@ void LaTeX_drucken::LaTeX_kopfzeile(ostream &fout,bool landscape,bool newdoc)
   {
     if(landscape)
      {
-       fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(hauptfenster->getCWerte().Name_Abenteurer(),25,"4.5cm") << "}\n";
-       fout << "\\newcommand{\\namespieler}{"  <<LaTeX_scale(hauptfenster->getCWerte().Name_Spieler(),25,"4.5cm") << "}\n";
+       fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(hauptfenster->getWerte().Name_Abenteurer(),25,"4.5cm") << "}\n";
+       fout << "\\newcommand{\\namespieler}{"  <<LaTeX_scale(hauptfenster->getWerte().Name_Spieler(),25,"4.5cm") << "}\n";
      }
     else
      {
-       fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(hauptfenster->getCWerte().Name_Abenteurer(),20,"4.cm") << "}\n";
-       fout << "\\newcommand{\\namespieler}{"  <<LaTeX_scale(hauptfenster->getCWerte().Name_Spieler(),20,"4.cm") << "}\n";
+       fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(hauptfenster->getWerte().Name_Abenteurer(),20,"4.cm") << "}\n";
+       fout << "\\newcommand{\\namespieler}{"  <<LaTeX_scale(hauptfenster->getWerte().Name_Spieler(),20,"4.cm") << "}\n";
      }
   }
  std::string     drache="9.9cm", namensbox="7cm";
@@ -871,13 +871,13 @@ void LaTeX_drucken::pdf_viewer(const std::string& file)
 
 void LaTeX_drucken::LaTeX_zauber(ostream &fout)
 {
-  for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_Zauber().begin();i!=hauptfenster->getCChar().CList_Zauber().end();++i)
+  for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Zauber().begin();i!=hauptfenster->getChar().List_Zauber().end();++i)
    {
      cH_Zauber z(*i);
      fout << LATIN(z->Name()) ;
      if(!(*i).Zusatz().empty()) fout << " ("<<LATIN((*i).Zusatz())<<")";
      fout <<" & ";
-     fout << z->Erfolgswert_Z(hauptfenster->getCChar().getVTyp(),hauptfenster->getCWerte()) <<" & ";
+     fout << z->Erfolgswert_Z(hauptfenster->getChar().getVTyp(),hauptfenster->getWerte()) <<" & ";
      fout << Gtk2TeX::string2TeX(LATIN(z->Ap())) << " & ";
      fout << LATIN(z->Art()) << " & ";
      fout << z->Stufe() << " & ";
@@ -888,14 +888,14 @@ void LaTeX_drucken::LaTeX_zauber(ostream &fout)
      fout << LATIN(z->Wirkungsdauer()) << " & ";
      fout << LATIN(z->Ursprung()) << " & " ;
      fout << LaTeX_scale(LATIN(z->Material()),20,"3cm") << " & " ;
-     fout << LATIN(z->Agens(hauptfenster->getCChar().getVTyp())) <<" " <<LATIN(z->Prozess()) <<" "<<LATIN(z->Reagens()) ;
+     fout << LATIN(z->Agens(hauptfenster->getChar().getVTyp())) <<" " <<LATIN(z->Prozess()) <<" "<<LATIN(z->Reagens()) ;
      fout << "\\\\\n";
    }
 }
 
 void LaTeX_drucken::LaTeX_zaubermittel(ostream &fout)
 {
-  for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_Zauberwerk().begin();i!=hauptfenster->getCChar().CList_Zauberwerk().end();++i)
+  for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Zauberwerk().begin();i!=hauptfenster->getChar().List_Zauberwerk().end();++i)
    {
      cH_Zauberwerk z(*i);
 //     std::string wert ;//= itos((*i)->Wert());
@@ -924,7 +924,7 @@ void LaTeX_drucken::LaTeX_zauber_main(ostream &fout)
   fout << "\\end{tabular}\n";
 
  
-  if (hauptfenster->getCChar().CList_Zauberwerk().size()!=0)
+  if (hauptfenster->getChar().List_Zauberwerk().size()!=0)
    {
      fout << "\\begin{tabular}{lllll}\\hline\n";
      fout << "Name&Art&Stufe&\\scriptsize Zeitaufwand&Kosten\\\\\\hline\n";
@@ -939,7 +939,7 @@ void LaTeX_drucken::LaTeX_zauber_main(ostream &fout)
 
 void LaTeX_drucken::LaTeX_kido(ostream &fout)
 {
-  for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_Kido().begin();i!=hauptfenster->getCChar().CList_Kido().end();++i)
+  for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Kido().begin();i!=hauptfenster->getChar().List_Kido().end();++i)
    {
      cH_KiDo kd(*i);
      std::string ap = itos(kd->Ap());
@@ -963,7 +963,7 @@ void LaTeX_drucken::LaTeX_kido_main(ostream &fout)
   LaTeX_kopfzeile(fout,true,false);
   fout << "\\begin{tabular}{rllcp{17cm}}\n";
   fout << "\\multicolumn{5}{l}{\\large\\bf Erfolgswert KiDo: "
-         <<KiDo::get_erfolgswert_kido(hauptfenster->getCChar().CList_Fertigkeit())+hauptfenster->getCWerte().bo_Za()<<"}\\\\\\hline\n";
+         <<KiDo::get_erfolgswert_kido(hauptfenster->getChar().List_Fertigkeit())+hauptfenster->getWerte().bo_Za()<<"}\\\\\\hline\n";
   fout << " AP & HoHo & Technik & Stufe & Effekt \\\\\\hline \n";
 
   LaTeX_kido(fout);

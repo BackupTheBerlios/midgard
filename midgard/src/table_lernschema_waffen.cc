@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.10 2002/06/25 16:44:00 christof Exp $
+// $Id: table_lernschema_waffen.cc,v 1.11 2002/06/26 14:01:18 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -100,10 +100,10 @@ void table_lernschema::show_WaffenBesitz_lernschema()
   std::list<MidgardBasicElement_mutable> L;
   for(std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getDatabase().Waffe.begin();i!=hauptfenster->getDatabase().Waffe.end();++i)
    {
-     if(hauptfenster->getCWerte().Spezies()->istVerbotenSpielbegin(*i)) continue;
+     if(hauptfenster->getWerte().Spezies()->istVerbotenSpielbegin(*i)) continue;
      const cH_Waffe w(*i);
      if (w->Grundkenntnis() == "Kampf ohne Waffen") continue;
-     if (!MidgardBasicElement_mutable(&*w).ist_gelernt(hauptfenster->getCChar().CList_Waffen())) continue;
+     if (!MidgardBasicElement_mutable(&*w).ist_gelernt(hauptfenster->getChar().List_Waffen())) continue;
      L.push_back(WaffeBesitz(w,w->Name(),0,0,"",""));
    }
   MidgardBasicElement::show_list_in_tree(L,tree_waffen_lernschema,hauptfenster);
@@ -157,10 +157,10 @@ void table_lernschema::WaffenBesitz_lernschema_wuerfeln(int wurf)
 {
   std::string strinfo = "Für die Waffenauswahl wurde eine "+itos(wurf)
       +" gewürfelt, die Abenteurerklasse ist "
-      +hauptfenster->getChar().CTyp1()->Name(hauptfenster->getCWerte().Geschlecht())+" ==> ";
+      +hauptfenster->getChar().Typ1()->Name(hauptfenster->getWerte().Geschlecht())+" ==> ";
  int E=0,A=0;
  bool M=false;
- if (hauptfenster->getChar().CTyp1()->Geld() == 1)
+ if (hauptfenster->getChar().Typ1()->Geld() == 1)
   { if      ( 1<=wurf&&wurf<=10 ) { E=3;      }
     else if (11<=wurf&&wurf<=20 ) { E=3; A=1; }
     else if (21<=wurf&&wurf<=30 ) { E=2; A=2; }
@@ -169,7 +169,7 @@ void table_lernschema::WaffenBesitz_lernschema_wuerfeln(int wurf)
     else if (81<=wurf&&wurf<=95 ) {      A=5; }
     else if (96<=wurf&&wurf<=100) { E=1; A=4; M=true; }
   }  
- if (hauptfenster->getChar().CTyp1()->Geld() == 2)
+ if (hauptfenster->getChar().Typ1()->Geld() == 2)
   { if      ( 1<=wurf&&wurf<=10 ) { E=2;      }
     else if (11<=wurf&&wurf<=20 ) { E=1; A=1; }
     else if (21<=wurf&&wurf<=30 ) { E=2; A=1; }
@@ -178,7 +178,7 @@ void table_lernschema::WaffenBesitz_lernschema_wuerfeln(int wurf)
     else if (81<=wurf&&wurf<=95 ) {      A=4; }
     else if (96<=wurf&&wurf<=100) { E=1; A=3; M=true; }
   }  
- if (hauptfenster->getChar().CTyp1()->Geld() == 3) 
+ if (hauptfenster->getChar().Typ1()->Geld() == 3) 
   { if      ( 1<=wurf&&wurf<=10 ) { E=1;      }
     else if (11<=wurf&&wurf<=20 ) {      A=1; }
     else if (21<=wurf&&wurf<=30 ) { E=2;      }
@@ -187,7 +187,7 @@ void table_lernschema::WaffenBesitz_lernschema_wuerfeln(int wurf)
     else if (81<=wurf&&wurf<=95 ) {      A=2; }
     else if (96<=wurf&&wurf<=100) { E=1; A=1; M=true; }
   }  
- if (hauptfenster->getChar().CTyp1()->Geld() == 4) 
+ if (hauptfenster->getChar().Typ1()->Geld() == 4) 
   { if      ( 1<=wurf&&wurf<=10 ) { E=2;      }
     else if (11<=wurf&&wurf<=20 ) { E=1; A=1; }
     else if (21<=wurf&&wurf<=30 ) { E=3;      }

@@ -28,13 +28,13 @@ void table_steigern::on_zauber_laden_clicked()
   list_Zauber_neu.clear();
   for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().Zauber.begin();i!=hauptfenster->getCDatabase().Zauber.end();++i)
     { cH_Zauber z(*i);
-      if (MidgardBasicElement_mutable(*i).ist_gelernt(hauptfenster->getCChar().CList_Zauber()) && (*i)->ZusatzEnum(hauptfenster->getCChar().getVTyp())==MidgardBasicElement::ZNone) continue ;
+      if (MidgardBasicElement_mutable(*i).ist_gelernt(hauptfenster->getChar().List_Zauber()) && (*i)->ZusatzEnum(hauptfenster->getChar().getVTyp())==MidgardBasicElement::ZNone) continue ;
       if (z->Zauberart()=="Zaubersalz" && !togglebutton_zaubersalze->get_active())
          continue;
       if (z->Zauberart()=="Beschwörung" && !Region::isActive(hauptfenster->getCDatabase().Regionen,cH_Region("MdS")))
          continue;
       if (togglebutton_spruchrolle->get_active() && !z->Spruchrolle() ) continue;
-      if ((*i)->ist_lernbar(hauptfenster->getCChar().getVTyp(),z->get_MapTyp()) || togglebutton_alle_zauber->get_active() )
+      if ((*i)->ist_lernbar(hauptfenster->getChar().getVTyp(),z->get_MapTyp()) || togglebutton_alle_zauber->get_active() )
       if (hauptfenster->region_check(z->Region()) && hauptfenster->nsc_check((*i)->NSC_only()))
         {
          if(togglebutton_spruchrolle->get_active()) z->setSpruchrolleFaktor(0.1);
@@ -48,11 +48,11 @@ void table_steigern::on_zauber_laden_clicked()
 void table_steigern::zauber_zeigen()
 {
 // if (Typ[0]->Zaubern()=="n" && Typ[1]->Zaubern()=="n") return;
-// if(!hauptfenster->getCChar().CTyp1()->is_mage() && !hauptfenster->getCChar().CTyp2()->is_mage() ) return;
- if(!hauptfenster->getCChar().is_mage()) return;
+// if(!hauptfenster->getChar().Typ1()->is_mage() && !hauptfenster->getChar().Typ2()->is_mage() ) return;
+ if(!hauptfenster->getChar().is_mage()) return;
  zeige_werte();
  MidgardBasicElement::show_list_in_tree(list_Zauber_neu,neue_zauber_tree,hauptfenster);
- MidgardBasicElement::show_list_in_tree(hauptfenster->getCChar().CList_Zauber(),alte_zauber_tree,hauptfenster);
+ MidgardBasicElement::show_list_in_tree(hauptfenster->getChar().List_Zauber(),alte_zauber_tree,hauptfenster);
  zauberwerk_zeigen();
 }
 
@@ -88,20 +88,20 @@ void table_steigern::on_spruchrolle_toggled()
 bool table_steigern::spruchrolle_wuerfeln(const cH_MidgardBasicElement& z)
 {
  cH_Zauber zauber(z);
- int erf_z = hauptfenster->getCWerte().Zaubern_wert() + hauptfenster->getCWerte().bo_Za() ;
+ int erf_z = hauptfenster->getWerte().Zaubern_wert() + hauptfenster->getWerte().bo_Za() ;
  int xr=hauptfenster->random.integer(1,20);
  int iaus=0;
  
- if ((hauptfenster->getCChar().CTyp1()->Short()!="Ma" && hauptfenster->getCChar().CTyp2()->Short()!="Ma") && zauber->Art()=="A") 
+ if ((hauptfenster->getChar().Typ1()->Short()!="Ma" && hauptfenster->getChar().Typ2()->Short()!="Ma") && zauber->Art()=="A") 
     iaus=-2;
 
  // Für Magier:
  std::string standard="";
- if (hauptfenster->getCChar().CTyp1()->Short()=="Ma") standard=z->Standard(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp())[0]; 
- if (hauptfenster->getCChar().CTyp2()->Short()=="Ma") standard=z->Standard(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp())[1]; 
+ if (hauptfenster->getChar().Typ1()->Short()=="Ma") standard=z->Standard(hauptfenster->getWerte(),hauptfenster->getChar().getVTyp())[0]; 
+ if (hauptfenster->getChar().Typ2()->Short()=="Ma") standard=z->Standard(hauptfenster->getWerte(),hauptfenster->getChar().getVTyp())[1]; 
  if(standard!="") 
    {
-    iaus = zauber->get_spezial_zauber_for_magier(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp(),standard); 
+    iaus = zauber->get_spezial_zauber_for_magier(hauptfenster->getWerte(),hauptfenster->getChar().getVTyp(),standard); 
     if (!iaus)
      { if (zauber->Art()=="S")  iaus=+1;
        if (zauber->Art()=="A")  iaus=-1;  }
@@ -158,7 +158,7 @@ void table_steigern::zauberwerk_zeigen()
  zauberwerk_laden();
  zeige_werte();
  MidgardBasicElement::show_list_in_tree(list_Zauberwerk_neu,neue_zaubermittel_tree,hauptfenster);
- MidgardBasicElement::show_list_in_tree(hauptfenster->getCChar().CList_Zauberwerk()    ,alte_zaubermittel_tree,hauptfenster);
+ MidgardBasicElement::show_list_in_tree(hauptfenster->getChar().List_Zauberwerk()    ,alte_zaubermittel_tree,hauptfenster);
 }
 
 void table_steigern::on_leaf_selected_neue_zauberwerk(cH_RowDataBase d)
@@ -173,10 +173,10 @@ void table_steigern::zauberwerk_laden()
  for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().Zauberwerk.begin();i!=hauptfenster->getCDatabase().Zauberwerk.end();++i)
   {
    cH_Zauberwerk z(*i);
-   if (MidgardBasicElement_mutable(*i).ist_gelernt(hauptfenster->getCChar().CList_Zauberwerk())) continue ;
-   if (((*i)->ist_lernbar(hauptfenster->getCChar().getVTyp(),z->get_MapTyp()) 
-         && z->Voraussetzungen(hauptfenster->getCChar().CList_Zauber())
-         && z->Voraussetzungen_Fertigkeit(hauptfenster->getCChar().CList_Fertigkeit())) 
+   if (MidgardBasicElement_mutable(*i).ist_gelernt(hauptfenster->getChar().List_Zauberwerk())) continue ;
+   if (((*i)->ist_lernbar(hauptfenster->getChar().getVTyp(),z->get_MapTyp()) 
+         && z->Voraussetzungen(hauptfenster->getChar().List_Zauber())
+         && z->Voraussetzungen_Fertigkeit(hauptfenster->getChar().List_Fertigkeit())) 
          || togglebutton_alle_zauber->get_active() )
      if (hauptfenster->region_check(z->Region()) )
        list_Zauberwerk_neu.push_back(*i);

@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.10 2002/06/24 10:51:30 christof Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.11 2002/06/26 14:01:18 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,10 +36,10 @@ gint table_grundwerte::on_button_grundwerte_button_release_event(GdkEventButton 
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::GRUNDWERTE);
 
   hauptfenster->getWerte().setAu(constraint_aw(
-                                 hauptfenster->getCWerte().Spezies()->Au()) );
+                                 hauptfenster->getWerte().Spezies()->Au()) );
   hauptfenster->getWerte().setpA( hauptfenster->random.integer(1,100)-30 
-                                 + 3*(hauptfenster->getCWerte().In()/10 
-                                      + hauptfenster->getCWerte().Au()/10) );
+                                 + 3*(hauptfenster->getWerte().In()/10 
+                                      + hauptfenster->getWerte().Au()/10) );
   zeige_werte(false);
   fill_typauswahl();
   fill_typauswahl_2();
@@ -133,8 +133,8 @@ void table_grundwerte::check_350(const std::vector<int>& a)
 {
   int sum=0;
   if(a.empty())
-   { sum  = hauptfenster->getCWerte().St() + hauptfenster->getCWerte().Gs() + hauptfenster->getCWerte().Gw() 
-          + hauptfenster->getCWerte().Ko() + hauptfenster->getCWerte().In() + hauptfenster->getCWerte().Zt(); 
+   { sum  = hauptfenster->getWerte().St() + hauptfenster->getWerte().Gs() + hauptfenster->getWerte().Gw() 
+          + hauptfenster->getWerte().Ko() + hauptfenster->getWerte().In() + hauptfenster->getWerte().Zt(); 
    }
   else
    {
@@ -292,12 +292,12 @@ void table_grundwerte::on_button_wert_6_clicked()
 
 void table_grundwerte::gw_wuerfeln_2x()
 {   
- hauptfenster->getWerte().setBasiswerte(constraint_gw(hauptfenster->getCWerte().Spezies()->St()),
-     constraint_gw(hauptfenster->getCWerte().Spezies()->Gw()),
-     constraint_gw(hauptfenster->getCWerte().Spezies()->Gs()),
-     constraint_gw(hauptfenster->getCWerte().Spezies()->Ko()),
-     constraint_gw(hauptfenster->getCWerte().Spezies()->In()),
-     constraint_gw(hauptfenster->getCWerte().Spezies()->Zt()));
+ hauptfenster->getWerte().setBasiswerte(constraint_gw(hauptfenster->getWerte().Spezies()->St()),
+     constraint_gw(hauptfenster->getWerte().Spezies()->Gw()),
+     constraint_gw(hauptfenster->getWerte().Spezies()->Gs()),
+     constraint_gw(hauptfenster->getWerte().Spezies()->Ko()),
+     constraint_gw(hauptfenster->getWerte().Spezies()->In()),
+     constraint_gw(hauptfenster->getWerte().Spezies()->Zt()));
 // zeige_werte(false);
 // hauptfenster->zeige_werte();
 }

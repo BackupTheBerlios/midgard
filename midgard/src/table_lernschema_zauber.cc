@@ -1,4 +1,4 @@
-// $Id: table_lernschema_zauber.cc,v 1.3 2002/05/27 13:56:07 thoma Exp $
+// $Id: table_lernschema_zauber.cc,v 1.4 2002/06/26 14:01:18 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,7 +27,7 @@ void table_lernschema::angeborene_zauber()
 {
  if (Typ[0]->Short()=="eBe" || Typ[1]->Short()=="eBe" || Typ[0]->Short()=="dBe" || Typ[1]->Short()=="dBe" ) 
     list_Zauber.push_back(&*cH_Zauber("Lehrersuche"));
- if (hauptfenster->getCWerte().Spezies()->Name()=="Elf") 
+ if (hauptfenster->getWerte().Spezies()->Name()=="Elf") 
     list_Zauber.push_back(&*cH_Zauber("Erkennen der Aura"));
 }
 */
@@ -48,8 +48,8 @@ void table_lernschema::spezialgebiet_button_fill()
 //  Gtk::OStream t_(option_magier_spezialgebiet);
   for(std::vector<cH_Spezialgebiet>::const_iterator i=hauptfenster->getDatabase().Spezialgebiet.begin();i!=hauptfenster->getDatabase().Spezialgebiet.end();++i)
    {
-    if((*i)->Typ() != hauptfenster->getCChar().CTyp1()->Short() && 
-       (*i)->Typ() != hauptfenster->getCChar().CTyp2()->Short() ) continue;
+    if((*i)->Typ() != hauptfenster->getChar().Typ1()->Short() && 
+       (*i)->Typ() != hauptfenster->getChar().Typ2()->Short() ) continue;
 //    t_ << (*i)->Name();
 //    t_.flush((*i)->ref(),&HandleContent::unref);
     L.push_back((*i)->Name());
@@ -86,7 +86,7 @@ void table_lernschema::spezialgebiet_button()
  cH_Spezialgebiet ptr = static_cast<Spezialgebiet*>(user_data);
 // if (s=="Spezialgebiet" || s == "Primär- und Sekundärelement") return ;
  hauptfenster->getWerte().setSpezialgebiet(ptr);
-//cout << hauptfenster->getCWerte().Spezialisierung()<<"\t"<<hauptfenster->getCWerte().Spezial()<<"\t"<<hauptfenster->getCWerte().Spezial2(
+//cout << hauptfenster->getWerte().Spezialisierung()<<"\t"<<hauptfenster->getWerte().Spezial()<<"\t"<<hauptfenster->getWerte().Spezial2(
  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::SPEZIALGEBIET);
 } 
 */

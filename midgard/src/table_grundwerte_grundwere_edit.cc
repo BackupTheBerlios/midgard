@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_grundwere_edit.cc,v 1.7 2002/06/16 21:08:11 thoma Exp $
+// $Id: table_grundwerte_grundwere_edit.cc,v 1.8 2002/06/26 14:01:18 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,7 +34,7 @@ void table_grundwerte::on_togglebutton_edit_werte_toggled()
 
 void table_grundwerte::on_button_grda1setzen_clicked()
 {
-  hauptfenster->getWerte().setGrad1Werte(hauptfenster->getCChar().getVTyp());
+  hauptfenster->getWerte().setGrad1Werte(hauptfenster->getChar().getVTyp());
   zeige_werte();
 }
 
@@ -52,7 +52,7 @@ void table_grundwerte::on_entry_nameC_activate()
 }
 gint table_grundwerte::on_entry_nameC_focus_out_event(GdkEventFocus *ev)
 { hauptfenster->getWerte().setNameC(entry_nameC->get_text());  
-  hauptfenster->set_title(hauptfenster->getCWerte().Name_Abenteurer());
+  hauptfenster->set_title(hauptfenster->getWerte().Name_Abenteurer());
   return false; 
 }
 
@@ -100,8 +100,8 @@ void table_grundwerte::on_spinbutton_grad_activate()
 gint table_grundwerte::on_spinbutton_grad_focus_out_event(GdkEventFocus *ev)
 {  spinbutton_grad->update(); 
    hauptfenster->getWerte().setGrad(spinbutton_grad->get_value_as_int()); 
-   hauptfenster->getWerte().set_Grad_Basiswerte(hauptfenster->getCWerte().Grad());
-   int mingfp=hauptfenster->getDatabase().GradAnstieg.getGFP_for(Grad_anstieg::Grad_,hauptfenster->getCWerte());
+   hauptfenster->getWerte().set_Grad_Basiswerte(hauptfenster->getWerte().Grad());
+   int mingfp=hauptfenster->getDatabase().GradAnstieg.getGFP_for(Grad_anstieg::Grad_,hauptfenster->getWerte());
    spinbutton_gfp->update();
    if (mingfp>spinbutton_gfp->get_value_as_int()) { hauptfenster->getWerte().setGFP(mingfp); }
    return false; 
@@ -189,7 +189,7 @@ void table_grundwerte::on_spinbutton_zt_activate()
 { spinbutton_au->grab_focus(); }     
 gint table_grundwerte::on_spinbutton_zt_focus_out_event(GdkEventFocus *ev)
 {  spinbutton_zt->update();  hauptfenster->getWerte().setZt(spinbutton_zt->get_value_as_int());
-   hauptfenster->getWerte().setSinn("Sechster Sinn",hauptfenster->getCWerte().Zt()/25);   
+   hauptfenster->getWerte().setSinn("Sechster Sinn",hauptfenster->getWerte().Zt()/25);   
    zeige_werte();
    return false;
 }     
@@ -356,12 +356,12 @@ void table_grundwerte::edit_sensitive(bool b)
 
 void table_grundwerte::original_midgard_check()
 {
-   int st=hauptfenster->getCWerte().St();
-   int gw=hauptfenster->getCWerte().Gw();
-   int gs=hauptfenster->getCWerte().Gs();
-   int ko=hauptfenster->getCWerte().Ko();
-   int in=hauptfenster->getCWerte().In();
-   int zt=hauptfenster->getCWerte().Zt();
+   int st=hauptfenster->getWerte().St();
+   int gw=hauptfenster->getWerte().Gw();
+   int gs=hauptfenster->getWerte().Gs();
+   int ko=hauptfenster->getWerte().Ko();
+   int in=hauptfenster->getWerte().In();
+   int zt=hauptfenster->getWerte().Zt();
    if (st>100) st=100;
    if (st<1)   st=1;  
    if (gw>100) gw=100;
@@ -377,10 +377,10 @@ void table_grundwerte::original_midgard_check()
    hauptfenster->getWerte().setBasiswerte(st,gw,gs,ko,in,zt);
 
 
-   int au=hauptfenster->getCWerte().Au();
-   int pa=hauptfenster->getCWerte().pA();
-   int sb=hauptfenster->getCWerte().Sb();
-   int wk=hauptfenster->getCWerte().Wk();
+   int au=hauptfenster->getWerte().Au();
+   int pa=hauptfenster->getWerte().pA();
+   int sb=hauptfenster->getWerte().Sb();
+   int wk=hauptfenster->getWerte().Wk();
    if (au>100) au=100;
    if (au<1)   au=1;  
    if (pa>100) pa=100;

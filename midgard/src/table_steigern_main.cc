@@ -39,7 +39,7 @@ void table_steigern::on_togglebutton_praxispunkte_toggled()
    {
      radiobutton_pp_fertigkeit->set_active(true);
      vbox_praxispunkte->show();
-     if(hauptfenster->getCChar().CTyp1()->is_mage() || hauptfenster->getCChar().CTyp2()->is_mage()) 
+     if(hauptfenster->getChar().Typ1()->is_mage() || hauptfenster->getChar().Typ2()->is_mage()) 
          radiobutton_pp_zauber->set_sensitive(true);
      else
          radiobutton_pp_zauber->set_sensitive(true);
@@ -59,10 +59,10 @@ void table_steigern::on_togglebutton_praxispunkte_toggled()
 
 std::string table_steigern::SpruecheMitPP()
 {
-  if(hauptfenster->getCChar().CTyp1()->SpruecheMitPP())
-       return hauptfenster->getCChar().CTyp1()->SpruecheMitPP_Text();
-  else if(hauptfenster->getCChar().CTyp2()->SpruecheMitPP())
-       return hauptfenster->getCChar().CTyp2()->SpruecheMitPP_Text();
+  if(hauptfenster->getChar().Typ1()->SpruecheMitPP())
+       return hauptfenster->getChar().Typ1()->SpruecheMitPP_Text();
+  else if(hauptfenster->getChar().Typ2()->SpruecheMitPP())
+       return hauptfenster->getChar().Typ2()->SpruecheMitPP_Text();
   else return "";
 }
 
@@ -167,13 +167,13 @@ void table_steigern::on_spinbutton_pp_eingeben_activate()
  }catch(TreeBase::noRowSelected &e) {cerr << e.what()<<'\n'; hauptfenster->set_status("Keine Zeile selektiert");}
 
   if(pagenr==PAGE_FERTIGKEITEN)
-     MidgardBasicElement::show_list_in_tree(hauptfenster->getCChar().CList_Fertigkeit(),alte_fert_tree,hauptfenster); 
+     MidgardBasicElement::show_list_in_tree(hauptfenster->getChar().List_Fertigkeit(),alte_fert_tree,hauptfenster); 
   if(pagenr==PAGE_WAFFEN)
-     MidgardBasicElement::show_list_in_tree(hauptfenster->getCChar().CList_Waffen(),alte_waffen_tree,hauptfenster); 
+     MidgardBasicElement::show_list_in_tree(hauptfenster->getChar().List_Waffen(),alte_waffen_tree,hauptfenster); 
   if(pagenr==PAGE_SPRACHE)
    {
-     MidgardBasicElement::show_list_in_tree(hauptfenster->getCChar().CList_Sprache(),alte_sprache_tree,hauptfenster); 
-     MidgardBasicElement::show_list_in_tree(hauptfenster->getCChar().CList_Schrift(),alte_schrift_tree,hauptfenster); 
+     MidgardBasicElement::show_list_in_tree(hauptfenster->getChar().List_Sprache(),alte_sprache_tree,hauptfenster); 
+     MidgardBasicElement::show_list_in_tree(hauptfenster->getChar().List_Schrift(),alte_schrift_tree,hauptfenster); 
    }
   spinbutton_pp_eingeben->hide();
 }
@@ -205,8 +205,8 @@ const MidgardBasicElement_mutable &table_steigern::getSelectedNotebookLernen() t
 
 void table_steigern::on_button_alter_clicked()
 {
-  float tage=hauptfenster->getCChar().getCWerte().Steigertage();
-  int alter=hauptfenster->getCChar().getCWerte().Alter();
+  float tage=hauptfenster->getChar().getWerte().Steigertage();
+  int alter=hauptfenster->getChar().getWerte().Alter();
   int tage_pro_jahr=360;
   while(tage>tage_pro_jahr)
    {
@@ -223,7 +223,7 @@ void table_steigern::fillClistZusatz(MidgardBasicElement_mutable &MBE)
 {
   std::vector<cH_RowDataBase> datavec;
   std::vector<std::string> title;
-  switch (MBE->ZusatzEnum(hauptfenster->getCChar().getVTyp()))
+  switch (MBE->ZusatzEnum(hauptfenster->getChar().getVTyp()))
    {
      case MidgardBasicElement::ZLand :
       {        
@@ -237,7 +237,7 @@ void table_steigern::fillClistZusatz(MidgardBasicElement_mutable &MBE)
      case MidgardBasicElement::ZWaffe :
       {      
         title.push_back("Waffe auswählen");
-        for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_Waffen().begin();i!=hauptfenster->getCChar().CList_Waffen().end();++i)
+        for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Waffen().begin();i!=hauptfenster->getChar().List_Waffen().end();++i)
          {
            if (cH_Waffe(*i)->Art()=="Schußwaffe" || cH_Waffe(*i)->Art()=="Wurfwaffe")
             {
@@ -320,7 +320,7 @@ void table_steigern::modify(modi_modus modus,const MidgardBasicElement_mutable &
            else if(modus==Zusatz)
             {
               i->setZusatz(zusatz);
-              if(zusatz==hauptfenster->getCWerte().Herkunft()->Name()) 
+              if(zusatz==hauptfenster->getWerte().Herkunft()->Name()) 
                 i->setErfolgswert(9);
             }
          }

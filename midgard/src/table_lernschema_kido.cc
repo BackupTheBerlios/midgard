@@ -1,4 +1,4 @@
-// $Id: table_lernschema_kido.cc,v 1.7 2002/06/24 10:51:30 christof Exp $
+// $Id: table_lernschema_kido.cc,v 1.8 2002/06/26 14:01:18 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,7 +29,7 @@ void table_lernschema::on_kido_wahl_clicked()
 {
    if(!button_kido_auswahl->get_active()) return;
    KiDo_Stile kido_stil;
-   if(!kido_stil.ist_gelernt(hauptfenster->getCWerte().Spezialisierung()))
+   if(!kido_stil.ist_gelernt(hauptfenster->getWerte().Spezialisierung()))
     {
       hauptfenster->set_status("Erst eine Technik wählen\n");
       return;
@@ -54,11 +54,11 @@ void table_lernschema::fill_kido_lernschema()
    {
      cH_KiDo kd(*i);
      if(kd->Stufe()!="Schüler") continue;
-     if (kido_stil.ist_hart(hauptfenster->getCWerte().Spezialisierung()))
+     if (kido_stil.ist_hart(hauptfenster->getWerte().Spezialisierung()))
          if(kido_stil.ist_sanft(kd->Stil())) continue;
-     if (kido_stil.ist_sanft(hauptfenster->getCWerte().Spezialisierung()))
+     if (kido_stil.ist_sanft(hauptfenster->getWerte().Spezialisierung()))
          if(kido_stil.ist_hart(kd->Stil())) continue;
-     if (MidgardBasicElement_mutable(&*kd).ist_gelernt(hauptfenster->getCChar().CList_Kido())) continue ;
+     if (MidgardBasicElement_mutable(&*kd).ist_gelernt(hauptfenster->getChar().List_Kido())) continue ;
      newlist.push_back(MidgardBasicElement_mutable(*i));                                     
    }
 
@@ -90,7 +90,7 @@ void table_lernschema::kido_stil_optionmenue()
   if (ityp==optionmenu_KiDo_Stile::hart) hauptfenster->getWerte().setSpezialisierung(kido_stil.hart());
   if (ityp==optionmenu_KiDo_Stile::gemischt) hauptfenster->getWerte().setSpezialisierung(kido_stil.gemischt());
   // NUR sensetiv setzen, wenn Abenteurerrschaffung also Grad=1
-  if(hauptfenster->getCWerte().Grad()==1) button_kido_auswahl->set_sensitive(true);
+  if(hauptfenster->getWerte().Grad()==1) button_kido_auswahl->set_sensitive(true);
 }
 */
 
@@ -108,7 +108,7 @@ gint table_lernschema::on_combo_kido_stil_focus_out_event(GdkEventFocus *ev)
      if(*i==combo_kido_stil->get_entry()->get_text())
       {
         hauptfenster->getWerte().setSpezialisierung(*i);                
-        if(hauptfenster->getCWerte().Grad()==1) button_kido_auswahl->set_sensitive(true);
+        if(hauptfenster->getWerte().Grad()==1) button_kido_auswahl->set_sensitive(true);
         break;
       }
    }

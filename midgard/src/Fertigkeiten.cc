@@ -103,7 +103,7 @@ void Fertigkeit::get_Fertigkeit()
 
 bool Fertigkeit::Voraussetzung(const Abenteurer &A,bool anzeigen) const 
 { 
- const Grundwerte &Werte=A.getCWerte();
+ const Grundwerte &Werte=A.getWerte();
  // Mindestwerte
  if(voraussetzung.st > 0 && voraussetzung.st > Werte.St()) return false;
  if(voraussetzung.gw > 0 && voraussetzung.gw > Werte.Gw()) return false;
@@ -128,7 +128,7 @@ bool Fertigkeit::Voraussetzung(const Abenteurer &A,bool anzeigen) const
 
  if(anzeigen) return true;
 
- const std::list<MidgardBasicElement_mutable> &list_Fertigkeit=A.CList_Fertigkeit();
+ const std::list<MidgardBasicElement_mutable> &list_Fertigkeit=A.List_Fertigkeit();
  std::vector<std::string> VF=vec_voraussetzung;
 FertEnd:
  for(std::vector<std::string>::iterator i=VF.begin();i!=VF.end();++i)
@@ -155,9 +155,9 @@ MidgardBasicElement::eZusatz Fertigkeit::ZusatzEnum(const vector<cH_Typen>& Typ)
 
 int Fertigkeit::FErfolgswert(const Abenteurer &a,const MidgardBasicElement_mutable &mbem) const
 {
-  if(Name()=="Trinken" && a.getCWerte().Spezies()->Name()!="Zwerg") 
-      return mbem.Erfolgswert()+a.getCWerte().Ko()/10;
-  if(Name()=="Berserkergang") return mbem.Erfolgswert()-a.getCWerte().Wk()/5;
+  if(Name()=="Trinken" && a.getWerte().Spezies()->Name()!="Zwerg") 
+      return mbem.Erfolgswert()+a.getWerte().Ko()/10;
+  if(Name()=="Berserkergang") return mbem.Erfolgswert()-a.getWerte().Wk()/5;
   else return mbem.Erfolgswert();
 }
 
@@ -198,10 +198,10 @@ void Fertigkeit::get_region_lp(int &lp,const midgard_CG* hauptfenster) const
   for(std::vector<st_region_lern>::const_iterator i=vec_region_lp.begin();i!=vec_region_lp.end();++i)
    {
      if(!hauptfenster->region_check(i->region)) continue;
-     if(hauptfenster->getCWerte().Herkunft()->Name()==i->region)
+     if(hauptfenster->getWerte().Herkunft()->Name()==i->region)
        {
-         if     (hauptfenster->getCWerte().Stadt_Land()=="Land"  ) lp=i->lp_land;
-         else if(hauptfenster->getCWerte().Stadt_Land()=="Stadt" ) lp=i->lp_stadt;
+         if     (hauptfenster->getWerte().Stadt_Land()=="Land"  ) lp=i->lp_land;
+         else if(hauptfenster->getWerte().Stadt_Land()=="Stadt" ) lp=i->lp_stadt;
        }
    }
 }

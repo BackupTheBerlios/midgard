@@ -28,9 +28,9 @@ void table_steigern::on_schrift_laden_clicked()
    for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().Schrift.begin();i!=hauptfenster->getCDatabase().Schrift.end();++i)
     { cH_Schrift s(*i);
       MidgardBasicElement_mutable m(&*s);
-      if(m.ist_gelernt(hauptfenster->getCChar().CList_Schrift())) continue;
+      if(m.ist_gelernt(hauptfenster->getChar().List_Schrift())) continue;
       if (hauptfenster->region_check(s->Region()) )  
-         if(s->kann_Sprache(hauptfenster->getCChar().CList_Sprache()))
+         if(s->kann_Sprache(hauptfenster->getChar().List_Sprache()))
            { 
              m.setErfolgswert(cH_Fertigkeit("Schreiben")->Anfangswert());
              list_Schrift_neu.push_back(m) ;
@@ -45,7 +45,7 @@ void table_steigern::on_sprache_laden_clicked()
    for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().Sprache.begin();i!=hauptfenster->getCDatabase().Sprache.end();++i)
     { cH_Sprache s(*i);
       MidgardBasicElement_mutable m(&*s);
-      if(m.ist_gelernt(hauptfenster->getCChar().CList_Sprache())) continue;
+      if(m.ist_gelernt(hauptfenster->getChar().List_Sprache())) continue;
       if (hauptfenster->region_check(s->Region()) )  
         {  
            m.setErfolgswert(cH_Fertigkeit("Sprache")->Anfangswert());
@@ -59,14 +59,14 @@ void table_steigern::on_sprache_laden_clicked()
 void table_steigern::schriften_zeigen()
 {
    zeige_werte();
-   MidgardBasicElement::show_list_in_tree(hauptfenster->getCChar().CList_Schrift()    ,alte_schrift_tree,hauptfenster);
+   MidgardBasicElement::show_list_in_tree(hauptfenster->getChar().List_Schrift()    ,alte_schrift_tree,hauptfenster);
    MidgardBasicElement::show_list_in_tree(list_Schrift_neu,neue_schrift_tree,hauptfenster);
 }
 
 void table_steigern::sprachen_zeigen()
 {
    zeige_werte();
-   MidgardBasicElement::show_list_in_tree(hauptfenster->getCChar().CList_Sprache()    ,alte_sprache_tree,hauptfenster);
+   MidgardBasicElement::show_list_in_tree(hauptfenster->getChar().List_Sprache()    ,alte_sprache_tree,hauptfenster);
    MidgardBasicElement::show_list_in_tree(list_Sprache_neu,neue_sprache_tree,hauptfenster);
 }
 
@@ -118,7 +118,7 @@ void table_steigern::on_leaf_selected_neue_schrift(cH_RowDataBase d)
 void table_steigern::neue_schrift_wegen_sprache()
 {
   // Alle gelernten Sprachen testen
-  for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_Sprache().begin();i!=hauptfenster->getCChar().CList_Sprache().end();++i)
+  for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Sprache().begin();i!=hauptfenster->getChar().List_Sprache().end();++i)
    {
      if((*i).Erfolgswert()<10) continue;
      // welche Schriften gehören zu dieser Sprache?
@@ -128,7 +128,7 @@ void table_steigern::neue_schrift_wegen_sprache()
        try{
         cH_Schrift s(*j);
         MidgardBasicElement_mutable m(&*s);
-        if(m.ist_gelernt(hauptfenster->getCChar().CList_Schrift())) continue;
+        if(m.ist_gelernt(hauptfenster->getChar().List_Schrift())) continue;
         std::list<cH_MidgardBasicElement> gS=s->gleicheSchrift(hauptfenster->getCDatabase().Schrift);
         for(std::list<cH_MidgardBasicElement>::const_iterator k=gS.begin();k!=gS.end();++k)
          {
@@ -149,7 +149,7 @@ void table_steigern::neue_schrift_wegen_sprache()
 int table_steigern::andereSprache_gleicheSchriftart(std::string art)
 {
   int e=0;
-  for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_Schrift().begin();i!=hauptfenster->getCChar().CList_Schrift().end();++i)
+  for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Schrift().begin();i!=hauptfenster->getChar().List_Schrift().end();++i)
    {
      if (cH_Schrift(*i)->Art_der_Schrift()==art)
         if( (*i).Erfolgswert() > e ) 

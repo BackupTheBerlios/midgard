@@ -24,30 +24,30 @@
 void table_steigern::on_kido_laden_clicked()
 {   
   list_Kido_neu.clear();
-  int erfolgswert_kido = KiDo::get_erfolgswert_kido(hauptfenster->getCChar().CList_Fertigkeit());
+  int erfolgswert_kido = KiDo::get_erfolgswert_kido(hauptfenster->getChar().List_Fertigkeit());
   KiDo_Stile kido_stil;
-  if (!kido_stil.ist_gelernt(hauptfenster->getCWerte().Spezialisierung())) 
+  if (!kido_stil.ist_gelernt(hauptfenster->getWerte().Spezialisierung())) 
      {
        hauptfenster->set_status("Erst einen KiDo-Stil wählen\n(unter 'Lernschema'->'KiDo')");
        return;
      }
   for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().Kido.begin();i!=hauptfenster->getCDatabase().Kido.end();++i)
    { cH_KiDo kd(*i);
-     if (MidgardBasicElement_mutable(&*kd).ist_gelernt(hauptfenster->getCChar().CList_Kido())) continue ;
+     if (MidgardBasicElement_mutable(&*kd).ist_gelernt(hauptfenster->getChar().List_Kido())) continue ;
      // Stufe
-     if (hauptfenster->getCWerte().Grad()<4 || erfolgswert_kido+hauptfenster->getCWerte().bo_Za() <15)
+     if (hauptfenster->getWerte().Grad()<4 || erfolgswert_kido+hauptfenster->getWerte().bo_Za() <15)
       if(kd->Stufe()=="Eingeweihter") continue;
-     if (hauptfenster->getCWerte().Grad()<6 || erfolgswert_kido+hauptfenster->getCWerte().bo_Za() <18)
+     if (hauptfenster->getWerte().Grad()<6 || erfolgswert_kido+hauptfenster->getWerte().bo_Za() <18)
       if(kd->Stufe()=="Meister") continue;
      // Stil
-     if (kido_stil.ist_hart(hauptfenster->getCWerte().Spezialisierung()))
+     if (kido_stil.ist_hart(hauptfenster->getWerte().Spezialisierung()))
        if(kido_stil.ist_sanft(kd->Stil())) continue;
-     if (kido_stil.ist_sanft(hauptfenster->getCWerte().Spezialisierung()))
+     if (kido_stil.ist_sanft(hauptfenster->getWerte().Spezialisierung()))
        if(kido_stil.ist_hart(kd->Stil())) continue;
    
      // Anzahl
-     bool gem_technik = (kido_stil.ist_gemischt(hauptfenster->getCWerte().Spezialisierung()));
-     std::map<std::string,int> MK = KiDo::maxkidostil(hauptfenster->getCChar().CList_Kido());  
+     bool gem_technik = (kido_stil.ist_gemischt(hauptfenster->getWerte().Spezialisierung()));
+     std::map<std::string,int> MK = KiDo::maxkidostil(hauptfenster->getChar().List_Kido());  
      int maxS = MK["Schüler"];
      int maxE = MK["Eingeweihter"];
      int maxM = MK["Meister"];
@@ -65,7 +65,7 @@ void table_steigern::on_kido_laden_clicked()
 void table_steigern::kido_zeigen()
 {
  zeige_werte();
- MidgardBasicElement::show_list_in_tree(hauptfenster->getCChar().CList_Kido()    ,alte_kido_tree,hauptfenster);
+ MidgardBasicElement::show_list_in_tree(hauptfenster->getChar().List_Kido()    ,alte_kido_tree,hauptfenster);
  MidgardBasicElement::show_list_in_tree(list_Kido_neu,neue_kido_tree,hauptfenster);
 }
 
@@ -83,7 +83,7 @@ void table_steigern::on_leaf_selected_neue_kido(cH_RowDataBase d)
 
 bool table_steigern::kido_steigern_check(int wert)
 {
-  if (hauptfenster->getCWerte().Grad()+10 > wert) return false;
+  if (hauptfenster->getWerte().Grad()+10 > wert) return false;
   else
    { hauptfenster->set_status("KiDo darf nur auf maximal Grad+10 gesteigert werden.\n");
      return true;

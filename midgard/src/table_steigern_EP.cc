@@ -33,10 +33,10 @@ gint table_steigern::vscale_value_changed(GdkEventButton *ev)
 
 void table_steigern::steigern_gtk()
 {
-  label_EP->set_text(itos(hauptfenster->getCWerte().get_Steigern_EP_Prozent())+"%");
-  label_Gold->set_text(itos(100-hauptfenster->getCWerte().get_Steigern_EP_Prozent())+"%");
+  label_EP->set_text(itos(hauptfenster->getWerte().get_Steigern_EP_Prozent())+"%");
+  label_Gold->set_text(itos(100-hauptfenster->getWerte().get_Steigern_EP_Prozent())+"%");
   Gtk::Adjustment *A=vscale_EP_Gold->get_adjustment();
-  A->set_value(100-hauptfenster->getCWerte().get_Steigern_EP_Prozent());
+  A->set_value(100-hauptfenster->getWerte().get_Steigern_EP_Prozent());
   if (steigern_mit_EP_bool) checkbutton_EP_Geld->set_active(true);
   else                      checkbutton_EP_Geld->set_active(false);
 }
@@ -61,9 +61,9 @@ void table_steigern::show_EPeingabe(bool b)
 {
   if(b)
    {
-     spinbutton_aep->set_value(hauptfenster->getCWerte().AEP());
-     spinbutton_kep->set_value(hauptfenster->getCWerte().KEP());
-     spinbutton_zep->set_value(hauptfenster->getCWerte().ZEP());
+     spinbutton_aep->set_value(hauptfenster->getWerte().AEP());
+     spinbutton_kep->set_value(hauptfenster->getWerte().KEP());
+     spinbutton_zep->set_value(hauptfenster->getWerte().ZEP());
      spinbutton_aep->show();
      spinbutton_kep->show();
      spinbutton_zep->show();
@@ -76,9 +76,9 @@ void table_steigern::show_EPeingabe(bool b)
      spinbutton_aep->hide();
      spinbutton_kep->hide();
      spinbutton_zep->hide();
-     label_aep->set_text(itos(hauptfenster->getCWerte().AEP()));
-     label_kep->set_text(itos(hauptfenster->getCWerte().KEP()));
-     label_zep->set_text(itos(hauptfenster->getCWerte().ZEP()));
+     label_aep->set_text(itos(hauptfenster->getWerte().AEP()));
+     label_kep->set_text(itos(hauptfenster->getWerte().KEP()));
+     label_zep->set_text(itos(hauptfenster->getWerte().ZEP()));
      label_aep->show();
      label_kep->show();
      label_zep->show();
@@ -97,8 +97,8 @@ void table_steigern::desteigern(unsigned int kosten)
    }
   else 
    {
-     gold_k = hauptfenster->getCWerte().gold_kosten(kosten);
-     ep_k = hauptfenster->getCWerte().ep_kosten(kosten);
+     gold_k = hauptfenster->getWerte().gold_kosten(kosten);
+     ep_k = hauptfenster->getWerte().ep_kosten(kosten);
    }
   if( !hauptfenster->getOptionen()->HausregelCheck(Midgard_Optionen::Gold).active ) gold_k*=10;
   set_lernzeit(-ep_k,Nichts);
@@ -161,7 +161,7 @@ bool table_steigern::steigern_usp(int &kosten,MidgardBasicElement_mutable *MBE,i
 //         kosten=rest_aep;
 //         rest_aep=0;
 //cout << use_pp<<' '<<kosten<<' '<<rest_aep<<' '<<ep_k<<'\n';
-//cout << "Abziehen = "<<MBE->Steigern(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp())<<'\n';
+//cout << "Abziehen = "<<MBE->Steigern(hauptfenster->getChar().getWerte(),hauptfenster->getChar().getVTyp())<<'\n';
 hauptfenster->set_status("Nicht implementiert");
 return false;
        }
@@ -221,12 +221,12 @@ return false;
      else assert(!"Fehler in steigern_EP.cc");
    }
   if(bkep)
-   { if (ep_k<=hauptfenster->getCWerte().KEP()) {hauptfenster->getWerte().addKEP(-ep_k);ep_k =0  ;}
-     else                   {ep_k-=hauptfenster->getCWerte().KEP(); hauptfenster->getWerte().setKEP(0);} 
+   { if (ep_k<=hauptfenster->getWerte().KEP()) {hauptfenster->getWerte().addKEP(-ep_k);ep_k =0  ;}
+     else                   {ep_k-=hauptfenster->getWerte().KEP(); hauptfenster->getWerte().setKEP(0);} 
    }
   if(bzep)
-   { if (ep_k<=hauptfenster->getCWerte().ZEP()) {hauptfenster->getWerte().addZEP(-ep_k);ep_k =0 ;}
-     else                   {  ep_k-=hauptfenster->getCWerte().ZEP(); hauptfenster->getWerte().setZEP(0);  } 
+   { if (ep_k<=hauptfenster->getWerte().ZEP()) {hauptfenster->getWerte().addZEP(-ep_k);ep_k =0 ;}
+     else                   {  ep_k-=hauptfenster->getWerte().ZEP(); hauptfenster->getWerte().setZEP(0);  } 
    }
   hauptfenster->getWerte().addAEP(-ep_k);
   zeige_werte();
@@ -235,7 +235,7 @@ return false;
 
 int table_steigern::stufen_auf_einmal_steigern_fuer_aep(MidgardBasicElement_mutable& MBE,int &kosten,int &aep)
 {
-  int steiger_kosten = MBE.Steigern(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp());
+  int steiger_kosten = MBE.Steigern(hauptfenster->getWerte(),hauptfenster->getChar().getVTyp());
   int stufen=0;
   int erfolgswert_mem=MBE.Erfolgswert();
   while(steiger_kosten<=aep)
@@ -244,7 +244,7 @@ int table_steigern::stufen_auf_einmal_steigern_fuer_aep(MidgardBasicElement_muta
      ++stufen;
      aep-=steiger_kosten;
      MBE.addErfolgswert(1);
-     steiger_kosten = MBE.Steigern(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp());
+     steiger_kosten = MBE.Steigern(hauptfenster->getWerte(),hauptfenster->getChar().getVTyp());
    }      
   if(aep>0)
    {
@@ -262,10 +262,10 @@ int table_steigern::stufen_auf_einmal_steigern_fuer_aep(MidgardBasicElement_muta
 
 bool table_steigern::genug_EP(const int ep_k,const bool bkep,const bool bzep, int &aep0,int &kep0,int &zep0)
 {
-  int aep=hauptfenster->getCWerte().AEP();  
+  int aep=hauptfenster->getWerte().AEP();  
   std::string sw;
-  if (bkep) {aep += hauptfenster->getCWerte().KEP() ;sw  =",KEP";}
-  if (bzep) {aep += hauptfenster->getCWerte().ZEP() ;sw +=",ZEP";}
+  if (bkep) {aep += hauptfenster->getWerte().KEP() ;sw  =",KEP";}
+  if (bzep) {aep += hauptfenster->getWerte().ZEP() ;sw +=",ZEP";}
   if (ep_k > aep) 
     { 
       hauptfenster->set_status("Zu wenig EP um zu steigern, es fehlen "+itos(ep_k-aep)+" Erfahrungspunkte (AEP"+sw+")."); 
@@ -281,10 +281,10 @@ int table_steigern::PP_vorrat(const MidgardBasicElement_mutable *MBE,e_was_steig
   if(radiobutton_praxis->get_active())
    { 
      if     (MBE && (*MBE)->What()!=MidgardBasicElement::ZAUBER) pp=(*MBE).Praxispunkte();
-     else if(MBE && (*MBE)->What()==MidgardBasicElement::ZAUBER) pp=hauptfenster->getCWerte().SpezialPP();
-     else if(was==Resistenz) pp=hauptfenster->getCWerte().ResistenzPP() ;
-     else if(was==Abwehr)    pp=hauptfenster->getCWerte().AbwehrPP() ;
-     else if(was==Zaubern)   pp=hauptfenster->getCWerte().ZaubernPP() ;
+     else if(MBE && (*MBE)->What()==MidgardBasicElement::ZAUBER) pp=hauptfenster->getWerte().SpezialPP();
+     else if(was==Resistenz) pp=hauptfenster->getWerte().ResistenzPP() ;
+     else if(was==Abwehr)    pp=hauptfenster->getWerte().AbwehrPP() ;
+     else if(was==Zaubern)   pp=hauptfenster->getWerte().ZaubernPP() ;
      else if(was==Ausdauer)  {hauptfenster->set_status("Ausdauer kann nicht mit Praxispunkten gesteigert werden.");return false;}
      else assert(!"Fehler in steigern_EP.cc");
    }
@@ -296,7 +296,7 @@ int table_steigern::EP_kosten(const int kosten)
 {
   int ep_k;
   if(radiobutton_unterweisung->get_active())
-      ep_k = hauptfenster->getCWerte().ep_kosten(kosten);
+      ep_k = hauptfenster->getWerte().ep_kosten(kosten);
   else
       ep_k = (int)(kosten);
   return ep_k;
@@ -328,10 +328,10 @@ int table_steigern::genug_geld(const int kosten)
 {
   if(!radiobutton_unterweisung->get_active())
      return 0; // keine Untreweisung => kein Geld nötig
-  int gold_k = hauptfenster->getCWerte().gold_kosten(kosten);
+  int gold_k = hauptfenster->getWerte().gold_kosten(kosten);
   if( !hauptfenster->getOptionen()->HausregelCheck(Midgard_Optionen::Gold).active ) gold_k*=10;
-  if (gold_k > hauptfenster->getCWerte().Gold()) 
-    { hauptfenster->set_status("Zu wenig Gold um zu steigern, es fehlt "+itos(gold_k-hauptfenster->getCWerte().Gold())+" Gold."); 
+  if (gold_k > hauptfenster->getWerte().Gold()) 
+    { hauptfenster->set_status("Zu wenig Gold um zu steigern, es fehlt "+itos(gold_k-hauptfenster->getWerte().Gold())+" Gold."); 
       return -1;
     }
   else 

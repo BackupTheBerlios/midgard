@@ -39,17 +39,17 @@ class Data_AbenteurerListe : public RowDataBase
                 if(saved) return cH_EntryValueIntString("");
                 else      return cH_EntryValueIntString("Nein");
               }
-            case NAMEA: return cH_EntryValueIntString(Char.getCWerte().Name_Abenteurer());
-            case SPIELER: return cH_EntryValueIntString(Char.getCWerte().Name_Spieler());
-            case BEZEICHNUNG: return cH_EntryValueIntString(Char.getCWerte().Bezeichnung());
-            case SPEZIES: return cH_EntryValueIntString(Char.getCWerte().Spezies()->Name());
+            case NAMEA: return cH_EntryValueIntString(Char.getWerte().Name_Abenteurer());
+            case SPIELER: return cH_EntryValueIntString(Char.getWerte().Name_Spieler());
+            case BEZEICHNUNG: return cH_EntryValueIntString(Char.getWerte().Bezeichnung());
+            case SPEZIES: return cH_EntryValueIntString(Char.getWerte().Spezies()->Name());
             case TYP: {
-               std::string s1=Char.CTyp1()->Name(Char.getCWerte().Geschlecht());
-               std::string s2=Char.CTyp2()->Name(Char.getCWerte().Geschlecht());
+               std::string s1=Char.Typ1()->Name(Char.getWerte().Geschlecht());
+               std::string s2=Char.Typ2()->Name(Char.getWerte().Geschlecht());
                if(s2!="") s1+="/"+s2;
                return cH_EntryValueIntString(s1);
               }
-            case VER: return cH_EntryValueIntString(Char.getCWerte().Version());
+            case VER: return cH_EntryValueIntString(Char.getWerte().Version());
           }
         return cH_EntryValueIntString();
        }

@@ -24,7 +24,7 @@ void table_steigern::on_button_gfp_s_toggled()
 {
  if(checkbutton_gfp->get_active())
   {
-    spinbutton_gfp->set_value(hauptfenster->getCWerte().GFP());
+    spinbutton_gfp->set_value(hauptfenster->getWerte().GFP());
     spinbutton_gfp->show();
     gfp->hide();  
     spinbutton_gfp->grab_focus();
@@ -32,7 +32,7 @@ void table_steigern::on_button_gfp_s_toggled()
  else
   {
     spinbutton_gfp->hide();
-    gfp->set_text(itos(hauptfenster->getCWerte().GFP()));
+    gfp->set_text(itos(hauptfenster->getWerte().GFP()));
     gfp->show();  
   }
 }

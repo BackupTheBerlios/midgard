@@ -81,7 +81,7 @@ void table_steigern::load_for_page(guint pagenr)
 //     frame_fertigkeit->hide();
      radiobutton_verlernen->set_active(true);
      if(pagenr==PAGE_ZAUBER) frame_zauber_zusatz->show();
-     if(hauptfenster->getCChar().CTyp1()->SpruecheMitPP() || hauptfenster->getCChar().CTyp2()->SpruecheMitPP())
+     if(hauptfenster->getChar().Typ1()->SpruecheMitPP() || hauptfenster->getChar().Typ2()->SpruecheMitPP())
         radiobutton_praxis->set_sensitive(true);
      else
         radiobutton_praxis->set_sensitive(false);
@@ -108,9 +108,9 @@ void table_steigern::show_goldeingabe(bool b)
 {
   if(b)
    {
-     spinbutton_gold->set_value(hauptfenster->getCWerte().Gold());
-     spinbutton_silber->set_value(hauptfenster->getCWerte().Silber());
-     spinbutton_kupfer->set_value(hauptfenster->getCWerte().Kupfer());
+     spinbutton_gold->set_value(hauptfenster->getWerte().Gold());
+     spinbutton_silber->set_value(hauptfenster->getWerte().Silber());
+     spinbutton_kupfer->set_value(hauptfenster->getWerte().Kupfer());
      spinbutton_gold->show();
      spinbutton_silber->show();
      spinbutton_kupfer->show();
@@ -123,9 +123,9 @@ void table_steigern::show_goldeingabe(bool b)
      spinbutton_gold->hide();
      spinbutton_silber->hide();
      spinbutton_kupfer->hide();
-     label_gold->set_text(itos(hauptfenster->getCWerte().Gold()));
-     label_silber->set_text(itos(hauptfenster->getCWerte().Silber()));
-     label_kupfer->set_text(itos(hauptfenster->getCWerte().Kupfer()));
+     label_gold->set_text(itos(hauptfenster->getWerte().Gold()));
+     label_silber->set_text(itos(hauptfenster->getWerte().Silber()));
+     label_kupfer->set_text(itos(hauptfenster->getWerte().Kupfer()));
      label_gold->show();
      label_silber->show();
      label_kupfer->show();
@@ -135,7 +135,7 @@ void table_steigern::show_goldeingabe(bool b)
 
 void table_steigern::zeige_werte()
 {
-   const Grundwerte &W=hauptfenster->getCWerte();
+   const Grundwerte &W=hauptfenster->getWerte();
    gfp->set_text(itos(W.GFP()));
 
    steigern_gtk();
@@ -156,7 +156,7 @@ void table_steigern::zeige_werte()
    label_abwehr_GFP->set_text(hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Abwehr,W));
    label_resistenz_GFP->set_text(hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Resistenz,W));
    std::string z=hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Zaubern,W);
-   if(!hauptfenster->getCChar().CTyp1()->is_mage() && !hauptfenster->getCChar().CTyp2()->is_mage()) z="";
+   if(!hauptfenster->getChar().Typ1()->is_mage() && !hauptfenster->getChar().Typ2()->is_mage()) z="";
    label_zauber_GFP->set_text(z);
 
   show_goldeingabe(false);
@@ -164,21 +164,21 @@ void table_steigern::zeige_werte()
   checkbutton_gfp->set_active(false);
   on_button_gfp_s_toggled();
 
-  steigern_typ->set_text(hauptfenster->getCChar().CTyp1()->Name(W.Geschlecht()));
-  if (hauptfenster->getCChar().CTyp2()->Name(W.Geschlecht())!="")
-      steigern_typ->set_text(hauptfenster->getCChar().CTyp1()->Name(W.Geschlecht())
-            +"/"+hauptfenster->getCChar().CTyp2()->Name(W.Geschlecht()));
+  steigern_typ->set_text(hauptfenster->getChar().Typ1()->Name(W.Geschlecht()));
+  if (hauptfenster->getChar().Typ2()->Name(W.Geschlecht())!="")
+      steigern_typ->set_text(hauptfenster->getChar().Typ1()->Name(W.Geschlecht())
+            +"/"+hauptfenster->getChar().Typ2()->Name(W.Geschlecht()));
 
   label_steigern_spezies->set_text(W.Spezies()->Name());
 
-  if (hauptfenster->getCChar().is_mage())  table_magier_steigern->show() ;
+  if (hauptfenster->getChar().is_mage())  table_magier_steigern->show() ;
   else                 table_magier_steigern->hide() ;
 
-  if(MidgardBasicElement_mutable(&*cH_Fertigkeit("KiDo")).ist_gelernt(hauptfenster->getCChar().CList_Fertigkeit()))   
+  if(MidgardBasicElement_mutable(&*cH_Fertigkeit("KiDo")).ist_gelernt(hauptfenster->getChar().List_Fertigkeit()))   
          table_kido_steigern->show();
   else   table_kido_steigern->hide();
 
-  if(!hauptfenster->getCChar().getVTyp().empty() && hauptfenster->getCChar().is_mage())
+  if(!hauptfenster->getChar().getVTyp().empty() && hauptfenster->getChar().is_mage())
   {
     button_grad_zaubern->set_sensitive(true);
     frame_pp_zaubern->set_sensitive(true);

@@ -146,7 +146,7 @@ void  table_steigern::lade_waffenbesitz()
    {
      cH_Waffe w(*i);
      if (w->Grundkenntnis() == "Kampf ohne Waffen") continue;
-      if (MidgardBasicElement_mutable(*i).ist_gelernt(hauptfenster->getCChar().CList_Waffen()))
+      if (MidgardBasicElement_mutable(*i).ist_gelernt(hauptfenster->getChar().List_Waffen()))
        {
         WaffeBesitz W(w,w->Name(),0,0,"","");
         Waffe_Besitz_neu.push_back(W);

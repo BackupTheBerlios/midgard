@@ -40,7 +40,7 @@ void table_steigern::on_clist_ruestung_select_row(gint row, gint column, GdkEven
 {   
   cH_Ruestung R=static_cast<Ruestung*>(clist_ruestung->selection().begin()->get_data());
 //  Werte.set_Ruestung(clist_ruestung->get_text(row,1));
-  if(R->Min_Staerke()<=hauptfenster->getCWerte().St())
+  if(R->Min_Staerke()<=hauptfenster->getWerte().St())
    {
      if(button_ruestung_1->get_active())
       {
@@ -81,7 +81,7 @@ void table_steigern::show_label()
 // std::string sru=itos(count+1)+"te Rüstung auswählen. Bisherige Rüstungen: ("+ 
 //   Werte.Ruestung()->Long() +"/"+Werte.Ruestung(1)->Long()+")";
 // label_ruestung->set_text(sru.c_str());
-  label_ruestung_1->set_text(hauptfenster->getCWerte().Ruestung()->Long());
-  label_ruestung_2->set_text(hauptfenster->getCWerte().Ruestung(1)->Long());
+  label_ruestung_1->set_text(hauptfenster->getWerte().Ruestung()->Long());
+  label_ruestung_2->set_text(hauptfenster->getWerte().Ruestung(1)->Long());
 }
 

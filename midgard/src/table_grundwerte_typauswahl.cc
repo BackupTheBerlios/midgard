@@ -27,9 +27,9 @@ void table_grundwerte::fill_typauswahl()
 {
   if(!hauptfenster) return;
   fill_typauswahl_fill(1);
-  if (!hauptfenster->getCChar().getVTyp().empty()) 
+  if (!hauptfenster->getChar().getVTyp().empty()) 
    {
-     combo_typ->get_entry()->set_text(hauptfenster->getCChar().CTyp1()->Name(hauptfenster->getCWerte().Geschlecht()));
+     combo_typ->get_entry()->set_text(hauptfenster->getChar().Typ1()->Name(hauptfenster->getWerte().Geschlecht()));
    }
 }
 
@@ -37,7 +37,7 @@ void table_grundwerte::fill_typauswahl_2()
 {
   if(!hauptfenster) return;
   fill_typauswahl_fill(2);
-  combo_typ2->get_entry()->set_text(hauptfenster->getCChar().CTyp2()->Name(hauptfenster->getCWerte().Geschlecht()));
+  combo_typ2->get_entry()->set_text(hauptfenster->getChar().Typ2()->Name(hauptfenster->getWerte().Geschlecht()));
 }
 
 void table_grundwerte::fill_typauswahl_fill(int typ_1_2)
@@ -46,13 +46,13 @@ void table_grundwerte::fill_typauswahl_fill(int typ_1_2)
   std::list<std::string> L;
   for(std::vector<cH_Typen>::const_iterator i=T.begin();i!=T.end();++i)
    {
-     if (hauptfenster->getCWerte().Spezies()->Name()=="Mensch" || hauptfenster->getCWerte().Spezies()->Typ_erlaubt((*i)->Short()))
+     if (hauptfenster->getWerte().Spezies()->Name()=="Mensch" || hauptfenster->getWerte().Spezies()->Typ_erlaubt((*i)->Short()))
        if (hauptfenster->region_check((*i)->Region()) && hauptfenster->nsc_check((*i)->NSC_only()))
          {
-           if((*i)->Mindestwerte(hauptfenster->getCWerte())) 
-              L.push_back((*i)->Name(hauptfenster->getCWerte().Geschlecht()));
+           if((*i)->Mindestwerte(hauptfenster->getWerte())) 
+              L.push_back((*i)->Name(hauptfenster->getWerte().Geschlecht()));
            else
-              L.push_back("("+(*i)->Name(hauptfenster->getCWerte().Geschlecht())+")");
+              L.push_back("("+(*i)->Name(hauptfenster->getWerte().Geschlecht())+")");
          }
    }
  block=true;
@@ -85,19 +85,19 @@ void table_grundwerte::typauswahl_button()
 
 // if (Typ[0]->Short()=="dBe" || Typ[0]->Short()=="eBe") angeborene_zauber();
 
- if(hauptfenster->getCWerte().Spezies()->Land()) 
+ if(hauptfenster->getWerte().Spezies()->Land()) 
    {
      radiobutton_land->set_active(true);
      radiobutton_stadt->set_sensitive(false);
      radiobutton_land->set_sensitive(true);
    }
- else if(!hauptfenster->getCChar().CTyp1()->Stadt())
+ else if(!hauptfenster->getChar().Typ1()->Stadt())
    {
      radiobutton_land->set_active(true);
      radiobutton_land->set_sensitive(true);
      radiobutton_stadt->set_sensitive(false);
    }
- else if(!hauptfenster->getCChar().CTyp1()->Land())
+ else if(!hauptfenster->getChar().Typ1()->Land())
    {
      radiobutton_stadt->set_active(true);
      radiobutton_stadt->set_sensitive(true);
@@ -175,7 +175,7 @@ void table_grundwerte::spezieswahl_button()
  fill_typauswahl();
  typauswahl_button();
 
- if (hauptfenster->getCWerte().Spezies()->Name()=="Elf")
+ if (hauptfenster->getWerte().Spezies()->Name()=="Elf")
    manage (new Window_doppelcharaktere(this));
 
  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::SPEZIES);
@@ -202,18 +202,18 @@ void table_grundwerte::on_radiobutton_frau_toggled()
 void table_grundwerte::on_radiobutton_mann_toggled()
 {
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::GESCHLECHT);
-  std::string oldG=hauptfenster->getCWerte().Geschlecht();
+  std::string oldG=hauptfenster->getWerte().Geschlecht();
   if (radiobutton_mann->get_active()) hauptfenster->getWerte().setGeschlecht("m");
   else hauptfenster->getWerte().setGeschlecht("w");
-  if(oldG!=hauptfenster->getCWerte().Geschlecht() && hauptfenster->getCWerte().Groesse() && hauptfenster->getCWerte().Spezies()->Name()=="Mensch")
+  if(oldG!=hauptfenster->getWerte().Geschlecht() && hauptfenster->getWerte().Groesse() && hauptfenster->getWerte().Spezies()->Name()=="Mensch")
    {
-     if( hauptfenster->getCWerte().Geschlecht()=="w") hauptfenster->getWerte().setGroesse(hauptfenster->getCWerte().Groesse()-10);
-     if( hauptfenster->getCWerte().Geschlecht()=="m") hauptfenster->getWerte().setGroesse(hauptfenster->getCWerte().Groesse()+10);
+     if( hauptfenster->getWerte().Geschlecht()=="w") hauptfenster->getWerte().setGroesse(hauptfenster->getWerte().Groesse()-10);
+     if( hauptfenster->getWerte().Geschlecht()=="m") hauptfenster->getWerte().setGroesse(hauptfenster->getWerte().Groesse()+10);
    }
-  if(oldG!=hauptfenster->getCWerte().Geschlecht() && hauptfenster->getCWerte().Gewicht() && hauptfenster->getCWerte().Spezies()->Name()=="Mensch")
+  if(oldG!=hauptfenster->getWerte().Geschlecht() && hauptfenster->getWerte().Gewicht() && hauptfenster->getWerte().Spezies()->Name()=="Mensch")
    {
-     if( hauptfenster->getCWerte().Geschlecht()=="w") hauptfenster->getWerte().setGewicht(hauptfenster->getCWerte().Gewicht()-4);
-     if( hauptfenster->getCWerte().Geschlecht()=="m") hauptfenster->getWerte().setGewicht(hauptfenster->getCWerte().Gewicht()+4);
+     if( hauptfenster->getWerte().Geschlecht()=="w") hauptfenster->getWerte().setGewicht(hauptfenster->getWerte().Gewicht()-4);
+     if( hauptfenster->getWerte().Geschlecht()=="m") hauptfenster->getWerte().setGewicht(hauptfenster->getWerte().Gewicht()+4);
    }
   fill_typauswahl();
   fill_typauswahl_2();
@@ -225,7 +225,7 @@ void table_grundwerte::kaempfer_lernt_zaubern()
   if(!hauptfenster) return;
   doppelcharaktere();
   hauptfenster->InfoFenster->AppendShow("Jetzt unter 'Grundwerte' die zweite Charkakterklasse wählen\n",WindowInfo::None);
-  if (hauptfenster->getCWerte().Zaubern_wert()==2) 
+  if (hauptfenster->getWerte().Zaubern_wert()==2) 
       hauptfenster->getWerte().setZaubern_wert(10);
 }
          

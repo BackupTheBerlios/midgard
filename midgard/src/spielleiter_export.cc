@@ -49,9 +49,9 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
 //  InfoFenster->AppendShow(strinfo);
   set_status(strinfo); 
   ofstream fout(dateiname.c_str());
-  Grundwerte W=Char.getCWerte();
+  Grundwerte W=Char.getWerte();
   fout << LATIN(W.Name_Abenteurer())<<", "
-      <<LATIN(Char.CTyp1()->Name(W.Geschlecht()))
+      <<LATIN(Char.Typ1()->Name(W.Geschlecht()))
       <<"               Gr "<<W.Grad()<<"\n";
   fout << LATIN(W.Stand())<<", "
        <<LATIN(W.Glaube())<<" - "
@@ -86,10 +86,10 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
   if(!boni.empty()) fout <<" - "<<boni<<'\n';
 
   std::string angriff;
-  for(std::list<MidgardBasicElement_mutable>::const_iterator i=Char.CList_Waffen().begin();i!=Char.CList_Waffen().end();++i)
+  for(std::list<MidgardBasicElement_mutable>::const_iterator i=Char.List_Waffen().begin();i!=Char.List_Waffen().end();++i)
    {cH_Waffe w(*i);
     std::string wert = itos(i->Erfolgswert());
-    for(std::list<WaffeBesitz>::const_iterator j=Char.CList_Waffen_besitz().begin();j!=Char.CList_Waffen_besitz().end();++j)
+    for(std::list<WaffeBesitz>::const_iterator j=Char.List_Waffen_besitz().begin();j!=Char.List_Waffen_besitz().end();++j)
      {
       WaffeBesitz WB=*j;
       if (WB.Waffe()->Name()==w->Name())
@@ -100,12 +100,12 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
          if (WB.av_Bonus()!=0 || WB.sl_Bonus()!=0) angriff +="$^*$";
          int mag_schadensbonus = WB.av_Bonus();
          int ang_mod = WB.Waffe()->WM_Angriff((*j)->Name());
-         int anbo = Char.getCWerte().bo_An();
+         int anbo = Char.getWerte().bo_An();
          if (WB.Waffe()->Verteidigung())
             anbo = 0;
          int wert = j->Erfolgswert() + anbo + mag_schadensbonus + ang_mod;
          angriff+="+"+itos(wert) + "(";
-         std::string schaden=WB.Schaden(Char.getCWerte(),WB->Name());
+         std::string schaden=WB.Schaden(Char.getWerte(),WB->Name());
          angriff+= schaden+ "), ";
 //         angriff+= ", ";
        }
@@ -126,14 +126,14 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
 
  // angeborene Fertigkeiten
  std::string fert;
- for(std::list<MidgardBasicElement_mutable>::const_iterator i=Char.CList_Fertigkeit_ang().begin();i!=Char.CList_Fertigkeit_ang().end();++i)
+ for(std::list<MidgardBasicElement_mutable>::const_iterator i=Char.List_Fertigkeit_ang().begin();i!=Char.List_Fertigkeit_ang().end();++i)
    {cH_Fertigkeit_angeborene f(*i);
     std::string wert = "+"+itos(i->Erfolgswert());
     if (wert == "+0") wert = "";
     fert+=LATIN(f->Name())+wert+", ";
    }
  // Fertigkeiten
- for(std::list<MidgardBasicElement_mutable>::const_iterator i=Char.CList_Fertigkeit().begin();i!=Char.CList_Fertigkeit().end();++i)
+ for(std::list<MidgardBasicElement_mutable>::const_iterator i=Char.List_Fertigkeit().begin();i!=Char.List_Fertigkeit().end();++i)
    { cH_Fertigkeit f(*i);
     std::string wert = "+"+itos(i->Erfolgswert());
     if (wert == "+0") wert = "";
@@ -143,7 +143,7 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
  if(st3!=std::string::npos) fert.erase(st3,2);
  fout << fert << " - ";
  std::string sprache;
- for (std::list<MidgardBasicElement_mutable>::const_iterator i=Char.CList_Sprache().begin();i!=Char.CList_Sprache().end();++i)
+ for (std::list<MidgardBasicElement_mutable>::const_iterator i=Char.List_Sprache().begin();i!=Char.List_Sprache().end();++i)
    {
       sprache += LATIN((*i)->Name())+"+"+itos(i->Erfolgswert())+", ";
    }
@@ -151,11 +151,11 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
  if(st4!=std::string::npos) sprache.erase(st4,2);
  fout << sprache<<"\n\n";
   // Zauber
- if (Char.CList_Zauber().size()!=0)
+ if (Char.List_Zauber().size()!=0)
    {
      std::string zauber;
-     zauber+="Zaubern+"+itos(W.Zaubern_wert()+Char.getCWerte().bo_Za())+": ";
-     for (std::list<MidgardBasicElement_mutable>::const_iterator i=Char.CList_Zauber().begin();i!=Char.CList_Zauber().end();++i)
+     zauber+="Zaubern+"+itos(W.Zaubern_wert()+Char.getWerte().bo_Za())+": ";
+     for (std::list<MidgardBasicElement_mutable>::const_iterator i=Char.List_Zauber().begin();i!=Char.List_Zauber().end();++i)
         zauber += LATIN((*i)->Name())+", ";
      std::string::size_type st=zauber.find_last_of(",");
      if(st!=std::string::npos) zauber.erase(st,1);

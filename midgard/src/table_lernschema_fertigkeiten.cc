@@ -1,4 +1,4 @@
-// $Id: table_lernschema_fertigkeiten.cc,v 1.7 2002/06/24 10:51:30 christof Exp $
+// $Id: table_lernschema_fertigkeiten.cc,v 1.8 2002/06/26 14:01:18 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,7 +31,7 @@ gint table_lernschema::on_angeborene_fertigkeit_button_release_event(GdkEventBut
 {
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::ANGEBORENEFERTIGKEITEN);
   hauptfenster->getChar().List_Fertigkeit_ang().clear();
-  hauptfenster->getChar().List_Fertigkeit_ang()=hauptfenster->getCWerte().Spezies()->getAngFertigkeiten();
+  hauptfenster->getChar().List_Fertigkeit_ang()=hauptfenster->getWerte().Spezies()->getAngFertigkeiten();
   hauptfenster->getChar().List_Zauber()=hauptfenster->getWerte().Spezies()->getZauber();
   hauptfenster->getWerte().resetSinne();
   checkAngeboreneSinne();
@@ -142,7 +142,7 @@ cout << "Sechster Sinn = "<<Werte.Sinne()["Sechster Sinn"]<<'\n';
 
 void table_lernschema::checkAngeboreneSinne()
 {
-  std::list<pair<std::string,int> > L=hauptfenster->getCWerte().Spezies()->getSinne();
+  std::list<pair<std::string,int> > L=hauptfenster->getWerte().Spezies()->getSinne();
   for(std::list<pair<std::string,int> >::const_iterator i=L.begin();i!=L.end();++i)
      hauptfenster->getWerte().setSinn(i->first,i->second);
 }

@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_abge_werte.cc,v 1.5 2002/05/30 06:19:20 thoma Exp $
+// $Id: table_grundwerte_abge_werte.cc,v 1.6 2002/06/26 14:01:18 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,19 +29,19 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
 //  Werte.setAu( constraint_aw(Werte.Spezies()->Au()) );
 //  Werte.setpA( random.integer(1,100)-30 + 3*(Werte.In()/10 + Werte.Au()/10) );
   { //Bewegungsweite
-    int b = hauptfenster->getCWerte().Spezies()->B_Bonus();
-    for (int i=0;i<hauptfenster->getCWerte().Spezies()->B_Wanz();++i) b+=hauptfenster->random.integer(1,3);
+    int b = hauptfenster->getWerte().Spezies()->B_Bonus();
+    for (int i=0;i<hauptfenster->getWerte().Spezies()->B_Wanz();++i) b+=hauptfenster->random.integer(1,3);
     hauptfenster->getWerte().setB(b);
   }
   hauptfenster->getWerte().setWk(hauptfenster->random.integer(1,100)-40 
-         + 3*(hauptfenster->getCWerte().In()/10 + hauptfenster->getCWerte().Ko()/10) );
+         + 3*(hauptfenster->getWerte().In()/10 + hauptfenster->getWerte().Ko()/10) );
   {
-    int sb = hauptfenster->random.integer(1,100) + 3*(hauptfenster->getCWerte().In()/10 
-                                       + hauptfenster->getCWerte().Wk()/10) - 30;
+    int sb = hauptfenster->random.integer(1,100) + 3*(hauptfenster->getWerte().In()/10 
+                                       + hauptfenster->getWerte().Wk()/10) - 30;
     // Boni für Selbstbeherrschung: Assassine, Beschwörer & Druide
-    sb += hauptfenster->Char.CTyp1()->Sb() + hauptfenster->Char.CTyp2()->Sb();
+    sb += hauptfenster->Char.Typ1()->Sb() + hauptfenster->Char.Typ2()->Sb();
     // Saddhu
-    if (hauptfenster->Char.CTyp1()->Short() == "Sa") sb = 80+hauptfenster->random.integer(1,20);
+    if (hauptfenster->Char.Typ1()->Short() == "Sa") sb = 80+hauptfenster->random.integer(1,20);
     hauptfenster->getWerte().setSb(sb);
   }
 
@@ -49,42 +49,42 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
   // Ausdauer
   {
     int bo_au_typ;  
-    if      (hauptfenster->Char.CTyp1()->Ausdauer() == "k" || hauptfenster->Char.CTyp2()->Ausdauer() == "k" ) bo_au_typ = 4 ;
-    else if (hauptfenster->Char.CTyp1()->Ausdauer() == "ak"|| hauptfenster->Char.CTyp2()->Ausdauer() == "ak" ) bo_au_typ = 3 ;
+    if      (hauptfenster->Char.Typ1()->Ausdauer() == "k" || hauptfenster->Char.Typ2()->Ausdauer() == "k" ) bo_au_typ = 4 ;
+    else if (hauptfenster->Char.Typ1()->Ausdauer() == "ak"|| hauptfenster->Char.Typ2()->Ausdauer() == "ak" ) bo_au_typ = 3 ;
     else bo_au_typ = 2 ;
-    int ap = hauptfenster->random.integer(1,6)+hauptfenster->getCWerte().bo_Au()+bo_au_typ 
-            + hauptfenster->getCWerte().Spezies()->AP_Bonus() ;
+    int ap = hauptfenster->random.integer(1,6)+hauptfenster->getWerte().bo_Au()+bo_au_typ 
+            + hauptfenster->getWerte().Spezies()->AP_Bonus() ;
     if (ap<4) ap=4;
     hauptfenster->getWerte().setAP(ap);
   }
   hauptfenster->getWerte().setLP(hauptfenster->random.integer(1,6)
-      +hauptfenster->getCWerte().Ko()/10+4 + hauptfenster->getCWerte().Spezies()->LP_Bonus());
+      +hauptfenster->getWerte().Ko()/10+4 + hauptfenster->getWerte().Spezies()->LP_Bonus());
 
   /////////////////////////////////////////////////////////////////////////
   // Körper und Stand
   {
-    int groesse = hauptfenster->getCWerte().Spezies()->Groesse_Bonus() 
-                +  hauptfenster->getCWerte().St()/10 ;
-    for (int i=0;i<hauptfenster->getCWerte().Spezies()->Groesse_Wanz();++i) 
-       groesse += hauptfenster->random.integer(1,hauptfenster->getCWerte().Spezies()->Groesse_Wuerfel()) ;
-    if (hauptfenster->getCWerte().Spezies()->Name()=="Mensch" && 
-         hauptfenster->getCWerte().Geschlecht()=="w")
+    int groesse = hauptfenster->getWerte().Spezies()->Groesse_Bonus() 
+                +  hauptfenster->getWerte().St()/10 ;
+    for (int i=0;i<hauptfenster->getWerte().Spezies()->Groesse_Wanz();++i) 
+       groesse += hauptfenster->random.integer(1,hauptfenster->getWerte().Spezies()->Groesse_Wuerfel()) ;
+    if (hauptfenster->getWerte().Spezies()->Name()=="Mensch" && 
+         hauptfenster->getWerte().Geschlecht()=="w")
        groesse-=10;   
     hauptfenster->getWerte().setGroesse(groesse);
   }
   {
-    int gewicht = hauptfenster->getCWerte().Spezies()->Gewicht_Bonus() 
-                  + hauptfenster->getCWerte().St()/10 
-                  + hauptfenster->getCWerte().Groesse();
-    for (int i=0;i<hauptfenster->getCWerte().Spezies()->Gewicht_Wanz();++i) 
+    int gewicht = hauptfenster->getWerte().Spezies()->Gewicht_Bonus() 
+                  + hauptfenster->getWerte().St()/10 
+                  + hauptfenster->getWerte().Groesse();
+    for (int i=0;i<hauptfenster->getWerte().Spezies()->Gewicht_Wanz();++i) 
        gewicht += hauptfenster->random.integer(1,6) ;
-    if (hauptfenster->getCWerte().Spezies()->Name()=="Mensch" && hauptfenster->getCWerte().Geschlecht()=="w")
+    if (hauptfenster->getWerte().Spezies()->Name()=="Mensch" && hauptfenster->getWerte().Geschlecht()=="w")
        gewicht-=4;   
     hauptfenster->getWerte().setGewicht(gewicht);
   }
 
   {
-    int ihand=hauptfenster->random.integer(1,20)+hauptfenster->getCWerte().Spezies()->HandBonus();
+    int ihand=hauptfenster->random.integer(1,20)+hauptfenster->getWerte().Spezies()->HandBonus();
     std::string h;
     if(ihand<=15) h=Vhand[0];
     else if (16<=ihand && ihand<=19) h=Vhand[1];
@@ -93,8 +93,8 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
   }
   {
     int istand=hauptfenster->random.integer(1,100);
-    int typstand1 = hauptfenster->Char.CTyp1()->Stand();
-    int typstand2 = hauptfenster->Char.CTyp2()->Stand();
+    int typstand1 = hauptfenster->Char.Typ1()->Stand();
+    int typstand2 = hauptfenster->Char.Typ2()->Stand();
     if(typstand1*typstand2 <= 0 ) istand += typstand1 + typstand2 ;
     else  // gleiches Vorzeichen
      { int t= (abs(typstand1)>abs(typstand2)) ? abs(typstand1) : abs(typstand2);
@@ -103,16 +103,16 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
      }
 //std::cout << "typstand\t"<<typstand<<"\n";
     std::string stand;  
-    if(hauptfenster->getCWerte().Spezies()->Name()=="Mensch")
+    if(hauptfenster->getWerte().Spezies()->Name()=="Mensch")
      {
        if (istand<=10) stand = Vstand[1];
        if (11<=istand&&istand<=50) stand =  Vstand[2];
        if (51<=istand&&istand<=90) stand =  Vstand[3];
        if (istand>=91) stand =  Vstand[4];;
      }
-    else if(hauptfenster->getCWerte().Spezies()->Name()=="Halbling" ||
-            hauptfenster->getCWerte().Spezies()->Name()=="Waldgnom" ||
-            hauptfenster->getCWerte().Spezies()->Name()=="Berggnom")
+    else if(hauptfenster->getWerte().Spezies()->Name()=="Halbling" ||
+            hauptfenster->getWerte().Spezies()->Name()=="Waldgnom" ||
+            hauptfenster->getWerte().Spezies()->Name()=="Berggnom")
      {
        if (istand<=50) stand =  Vstand[2];
        if (51<=istand) stand =  Vstand[3];
@@ -125,7 +125,7 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
      }
     hauptfenster->getWerte().setStand(stand);
    }
-  hauptfenster->getWerte().setGrad1Werte(hauptfenster->getCChar().getVTyp());
+  hauptfenster->getWerte().setGrad1Werte(hauptfenster->getChar().getVTyp());
 
   hauptfenster->table_lernschema->button_herkunft->set_sensitive(true);
   hauptfenster->frame_lernschema->set_sensitive(true);

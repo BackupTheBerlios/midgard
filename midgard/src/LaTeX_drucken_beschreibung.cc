@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_beschreibung.cc,v 1.2 2002/06/24 10:51:30 christof Exp $
+// $Id: LaTeX_drucken_beschreibung.cc,v 1.3 2002/06/26 14:01:18 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,8 +26,8 @@
 
 void LaTeX_drucken::latex_beschreibung_drucken()
 {   
- std::string figwidth=itos(hauptfenster->getCWerte().BeschreibungPixSize())+"cm";
- std::string file=hauptfenster->getCWerte().BeschreibungPix();
+ std::string figwidth=itos(hauptfenster->getWerte().BeschreibungPixSize())+"cm";
+ std::string file=hauptfenster->getWerte().BeschreibungPix();
  std::string filename=get_latex_pathname(TeX_tmp)+get_latex_filename(TeX_Beschreibung);
  ofstream fout((filename+".tex").c_str());
  LaTeX_header(fout,false); 
@@ -39,7 +39,7 @@ void LaTeX_drucken::latex_beschreibung_drucken()
    fout << "\\includegraphics[width="+figwidth+"]{"+file+"}\n";
    fout << "\\end{wrapfigure}}\n";
   }
- fout << hauptfenster->getCWerte().Beschreibung()<<"\n";
+ fout << hauptfenster->getWerte().Beschreibung()<<"\n";
  fout << "}}\n";
  LaTeX_footer(fout);
  fout.close();

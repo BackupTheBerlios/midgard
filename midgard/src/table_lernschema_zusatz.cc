@@ -64,7 +64,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
            list_FertigkeitZusaetze.push_back(MBE->Name());
            cH_MidgardBasicElement MBE_=new Fertigkeit(*cH_Fertigkeit("Landeskunde"));
            MidgardBasicElement_mutable M(&*MBE_);
-           M.setZusatz(hauptfenster->getCWerte().Herkunft()->Name());
+           M.setZusatz(hauptfenster->getWerte().Herkunft()->Name());
            M.setErfolgswert(MBE.Erfolgswert());
            M.setLernpunkte(MBE.Lernpunkte());
            hauptfenster->getChar().List_Fertigkeit().push_back(M);
@@ -90,7 +90,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
                 list_FertigkeitZusaetze.push_back(MBE->Name());
                 continue ;
               }
-            if(MidgardBasicElement_mutable(&**i).ist_gelernt(hauptfenster->getCChar().CList_Sprache())) continue;
+            if(MidgardBasicElement_mutable(&**i).ist_gelernt(hauptfenster->getChar().List_Sprache())) continue;
             datavec.push_back(new Data_Zusatz(MBE,(*i)->Name()));
          }
        connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_sprache_selected));
@@ -100,8 +100,8 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
       {
        for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getDatabase().Schrift.begin();i!=hauptfenster->getDatabase().Schrift.end();++i)
          {
-           if(MidgardBasicElement_mutable(&**i).ist_gelernt(hauptfenster->getCChar().CList_Schrift())) continue;
-           if(!cH_Schrift(*i)->kann_Sprache(hauptfenster->getCChar().CList_Sprache())) continue;
+           if(MidgardBasicElement_mutable(&**i).ist_gelernt(hauptfenster->getChar().List_Schrift())) continue;
+           if(!cH_Schrift(*i)->kann_Sprache(hauptfenster->getChar().List_Sprache())) continue;
            datavec.push_back(new Data_Zusatz(MBE,(*i)->Name()));
          }
        if(datavec.empty()) 
@@ -117,7 +117,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
       }
      case MidgardBasicElement::ZWaffe:
       {
-       for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_Waffen().begin();i!=hauptfenster->getCChar().CList_Waffen().end();++i)
+       for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Waffen().begin();i!=hauptfenster->getChar().List_Waffen().end();++i)
         if (cH_Waffe(*i)->Art()=="Schußwaffe" || cH_Waffe(*i)->Art()=="Wurfwaffe")
           datavec.push_back(new Data_Zusatz(MBE,(*i)->Name()));
        if(datavec.empty()) 
@@ -201,7 +201,7 @@ void table_lernschema::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,cons
       {
        if(MBE->Name()=="Muttersprache")
         {
-          vector<std::string> V=hauptfenster->getCWerte().Herkunft()->Sprachen();
+          vector<std::string> V=hauptfenster->getWerte().Herkunft()->Sprachen();
           vector<std::string> W;
           for(vector<std::string>::const_iterator i=V.begin();i!=V.end();++i)
             if(!cH_Sprache(*i)->Alte_Sprache()) W.push_back(*i) ;
