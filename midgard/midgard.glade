@@ -20145,16 +20145,17 @@ löschen</label>
 
     <widget>
       <class>GtkTable</class>
-      <name>table181</name>
-      <rows>6</rows>
-      <columns>2</columns>
+      <name>table_buttons</name>
+      <cxx_visibility>protected</cxx_visibility>
+      <rows>7</rows>
+      <columns>4</columns>
       <homogeneous>False</homogeneous>
       <row_spacing>0</row_spacing>
       <column_spacing>0</column_spacing>
       <child>
 	<padding>0</padding>
-	<expand>True</expand>
-	<fill>True</fill>
+	<expand>False</expand>
+	<fill>False</fill>
       </child>
 
       <widget>
@@ -20168,10 +20169,10 @@ löschen</label>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<child>
-	  <left_attach>1</left_attach>
-	  <right_attach>2</right_attach>
-	  <top_attach>0</top_attach>
-	  <bottom_attach>1</bottom_attach>
+	  <left_attach>2</left_attach>
+	  <right_attach>3</right_attach>
+	  <top_attach>1</top_attach>
+	  <bottom_attach>2</bottom_attach>
 	  <xpad>0</xpad>
 	  <ypad>0</ypad>
 	  <xexpand>False</xexpand>
@@ -20194,10 +20195,10 @@ löschen</label>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<child>
-	  <left_attach>1</left_attach>
-	  <right_attach>2</right_attach>
-	  <top_attach>1</top_attach>
-	  <bottom_attach>2</bottom_attach>
+	  <left_attach>2</left_attach>
+	  <right_attach>3</right_attach>
+	  <top_attach>2</top_attach>
+	  <bottom_attach>3</bottom_attach>
 	  <xpad>0</xpad>
 	  <ypad>0</ypad>
 	  <xexpand>False</xexpand>
@@ -20220,10 +20221,10 @@ löschen</label>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<child>
-	  <left_attach>1</left_attach>
-	  <right_attach>2</right_attach>
-	  <top_attach>2</top_attach>
-	  <bottom_attach>3</bottom_attach>
+	  <left_attach>2</left_attach>
+	  <right_attach>3</right_attach>
+	  <top_attach>3</top_attach>
+	  <bottom_attach>4</bottom_attach>
 	  <xpad>0</xpad>
 	  <ypad>0</ypad>
 	  <xexpand>False</xexpand>
@@ -20246,10 +20247,10 @@ löschen</label>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<child>
-	  <left_attach>1</left_attach>
-	  <right_attach>2</right_attach>
-	  <top_attach>3</top_attach>
-	  <bottom_attach>4</bottom_attach>
+	  <left_attach>2</left_attach>
+	  <right_attach>3</right_attach>
+	  <top_attach>4</top_attach>
+	  <bottom_attach>5</bottom_attach>
 	  <xpad>0</xpad>
 	  <ypad>0</ypad>
 	  <xexpand>False</xexpand>
@@ -20272,10 +20273,10 @@ löschen</label>
 	</signal>
 	<relief>GTK_RELIEF_NORMAL</relief>
 	<child>
-	  <left_attach>0</left_attach>
-	  <right_attach>1</right_attach>
-	  <top_attach>1</top_attach>
-	  <bottom_attach>2</bottom_attach>
+	  <left_attach>1</left_attach>
+	  <right_attach>2</right_attach>
+	  <top_attach>2</top_attach>
+	  <bottom_attach>3</bottom_attach>
 	  <xpad>0</xpad>
 	  <ypad>0</ypad>
 	  <xexpand>False</xexpand>
@@ -20309,10 +20310,10 @@ löschen</label>
 	</signal>
 	<relief>GTK_RELIEF_NORMAL</relief>
 	<child>
-	  <left_attach>0</left_attach>
-	  <right_attach>1</right_attach>
-	  <top_attach>0</top_attach>
-	  <bottom_attach>1</bottom_attach>
+	  <left_attach>1</left_attach>
+	  <right_attach>2</right_attach>
+	  <top_attach>1</top_attach>
+	  <bottom_attach>2</bottom_attach>
 	  <xpad>0</xpad>
 	  <ypad>0</ypad>
 	  <xexpand>False</xexpand>
@@ -20346,10 +20347,10 @@ löschen</label>
 	</signal>
 	<relief>GTK_RELIEF_NORMAL</relief>
 	<child>
-	  <left_attach>0</left_attach>
-	  <right_attach>1</right_attach>
-	  <top_attach>2</top_attach>
-	  <bottom_attach>3</bottom_attach>
+	  <left_attach>1</left_attach>
+	  <right_attach>2</right_attach>
+	  <top_attach>3</top_attach>
+	  <bottom_attach>4</bottom_attach>
 	  <xpad>0</xpad>
 	  <ypad>0</ypad>
 	  <xexpand>False</xexpand>
@@ -20383,10 +20384,10 @@ löschen</label>
 	</signal>
 	<relief>GTK_RELIEF_NORMAL</relief>
 	<child>
-	  <left_attach>0</left_attach>
-	  <right_attach>1</right_attach>
-	  <top_attach>3</top_attach>
-	  <bottom_attach>4</bottom_attach>
+	  <left_attach>1</left_attach>
+	  <right_attach>2</right_attach>
+	  <top_attach>4</top_attach>
+	  <bottom_attach>5</bottom_attach>
 	  <xpad>0</xpad>
 	  <ypad>0</ypad>
 	  <xexpand>False</xexpand>
@@ -20412,7 +20413,7 @@ löschen</label>
       <widget>
 	<class>GtkLabel</class>
 	<name>label645</name>
-	<label>Dieses Fenster beim nächsten Start nicht mehr zeigen.</label>
+	<label>Dieses Fenster beim nächsten Start wieder anzeigen.</label>
 	<justify>GTK_JUSTIFY_CENTER</justify>
 	<wrap>False</wrap>
 	<xalign>0</xalign>
@@ -20420,10 +20421,10 @@ löschen</label>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<child>
-	  <left_attach>1</left_attach>
-	  <right_attach>2</right_attach>
-	  <top_attach>5</top_attach>
-	  <bottom_attach>6</bottom_attach>
+	  <left_attach>2</left_attach>
+	  <right_attach>3</right_attach>
+	  <top_attach>6</top_attach>
+	  <bottom_attach>7</bottom_attach>
 	  <xpad>0</xpad>
 	  <ypad>0</ypad>
 	  <xexpand>False</xexpand>
@@ -20440,9 +20441,9 @@ löschen</label>
 	<name>hseparator23</name>
 	<child>
 	  <left_attach>0</left_attach>
-	  <right_attach>2</right_attach>
-	  <top_attach>4</top_attach>
-	  <bottom_attach>5</bottom_attach>
+	  <right_attach>4</right_attach>
+	  <top_attach>5</top_attach>
+	  <bottom_attach>6</bottom_attach>
 	  <xpad>0</xpad>
 	  <ypad>5</ypad>
 	  <xexpand>True</xexpand>
@@ -20455,43 +20456,74 @@ löschen</label>
       </widget>
 
       <widget>
-	<class>GtkToggleButton</class>
-	<name>togglebutton_never_again</name>
-	<cxx_visibility>protected</cxx_visibility>
-	<can_focus>True</can_focus>
-	<signal>
-	  <name>toggled</name>
-	  <handler>on_togglebutton_never_again_toggled</handler>
-	  <after>True</after>
-	  <last_modification_time>Sat, 16 Nov 2002 20:08:56 GMT</last_modification_time>
-	</signal>
-	<relief>GTK_RELIEF_NORMAL</relief>
-	<active>False</active>
+	<class>GtkLabel</class>
+	<name>label646</name>
+	<label></label>
+	<justify>GTK_JUSTIFY_CENTER</justify>
+	<wrap>False</wrap>
+	<xalign>0</xalign>
+	<yalign>0.5</yalign>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
 	<child>
 	  <left_attach>0</left_attach>
 	  <right_attach>1</right_attach>
-	  <top_attach>5</top_attach>
-	  <bottom_attach>6</bottom_attach>
+	  <top_attach>1</top_attach>
+	  <bottom_attach>2</bottom_attach>
 	  <xpad>0</xpad>
 	  <ypad>0</ypad>
-	  <xexpand>False</xexpand>
+	  <xexpand>True</xexpand>
+	  <yexpand>False</yexpand>
+	  <xshrink>True</xshrink>
+	  <yshrink>False</yshrink>
+	  <xfill>True</xfill>
+	  <yfill>False</yfill>
+	</child>
+      </widget>
+
+      <widget>
+	<class>GtkLabel</class>
+	<name>label647</name>
+	<label></label>
+	<justify>GTK_JUSTIFY_CENTER</justify>
+	<wrap>False</wrap>
+	<xalign>0</xalign>
+	<yalign>0.5</yalign>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<child>
+	  <left_attach>3</left_attach>
+	  <right_attach>4</right_attach>
+	  <top_attach>1</top_attach>
+	  <bottom_attach>2</bottom_attach>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <xexpand>True</xexpand>
 	  <yexpand>False</yexpand>
 	  <xshrink>True</xshrink>
 	  <yshrink>True</yshrink>
-	  <xfill>False</xfill>
+	  <xfill>True</xfill>
 	  <yfill>False</yfill>
 	</child>
+      </widget>
 
-	<widget>
-	  <class>GtkPixmap</class>
-	  <name>pixmap187</name>
-	  <filename>KillChar-32.xpm</filename>
-	  <xalign>0.5</xalign>
-	  <yalign>0.5</yalign>
+      <widget>
+	<class>GtkHSeparator</class>
+	<name>hseparator24</name>
+	<child>
+	  <left_attach>0</left_attach>
+	  <right_attach>4</right_attach>
+	  <top_attach>0</top_attach>
+	  <bottom_attach>1</bottom_attach>
 	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	  <build_insensitive>True</build_insensitive>
-	</widget>
+	  <ypad>5</ypad>
+	  <xexpand>False</xexpand>
+	  <yexpand>True</yexpand>
+	  <xshrink>True</xshrink>
+	  <yshrink>True</yshrink>
+	  <xfill>True</xfill>
+	  <yfill>True</yfill>
+	</child>
       </widget>
     </widget>
   </widget>

@@ -26,9 +26,8 @@ class BegruessungsWindow : public BegruessungsWindow_glade
         void on_button_neu_clicked();
         void on_button_zufall_clicked();
         void on_button_load_clicked();
-        void on_togglebutton_never_again_toggled();
         void end();
    public:
-        BegruessungsWindow(midgard_CG* h):hauptfenster(h) {};
+        BegruessungsWindow(midgard_CG* h);
 };
 #endif

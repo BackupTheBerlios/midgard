@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.38 2002/11/16 23:04:46 thoma Exp $
+// $Id: Optionen.hh,v 1.39 2002/11/18 09:28:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -142,9 +142,9 @@ class Midgard_Optionen
 
 
       st_OptionenCheck &OptionenCheck(OptionenCheckIndex oi) ;
-      st_Haus HausregelCheck(HausIndex hi) const ;
-      st_Ober OberCheck(OberIndex hi) const ;
-      st_Icon IconCheck(IconIndex i) const ;
+      st_Haus &HausregelCheck(HausIndex hi) ;
+      st_Ober &OberCheck(OberIndex hi)  ;
+      st_Icon &IconCheck(IconIndex i) ;
       IconIndex getIconIndex() const;
       st_pdfViewer pdfViewerCheck(pdfViewerIndex pi) const ;
 

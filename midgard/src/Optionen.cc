@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.97 2002/11/16 23:04:46 thoma Exp $
+// $Id: Optionen.cc,v 1.98 2002/11/18 09:28:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -109,25 +109,25 @@ Midgard_Optionen::st_OptionenCheck &Midgard_Optionen::OptionenCheck(OptionenChec
  abort();
 }
 
-Midgard_Optionen::st_Haus Midgard_Optionen::HausregelCheck(HausIndex hi) const
+Midgard_Optionen::st_Haus &Midgard_Optionen::HausregelCheck(HausIndex hi) 
 {
- for(std::list<st_Haus>::const_iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
+ for(std::list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
    if(i->index==hi) return *i;
  assert(!"HausregelCheck: nicht gefunden");
  abort();
 }
 
-Midgard_Optionen::st_Ober Midgard_Optionen::OberCheck(OberIndex hi) const
+Midgard_Optionen::st_Ober &Midgard_Optionen::OberCheck(OberIndex hi) 
 {
- for(std::list<st_Ober>::const_iterator i=list_Ober.begin();i!=list_Ober.end();++i)
+ for(std::list<st_Ober>::iterator i=list_Ober.begin();i!=list_Ober.end();++i)
    if(i->index==hi) return *i;
  assert(!"OberCheck: nicht gefunden");
  abort();
 }
 
-Midgard_Optionen::st_Icon Midgard_Optionen::IconCheck(IconIndex hi) const
+Midgard_Optionen::st_Icon &Midgard_Optionen::IconCheck(IconIndex hi) 
 {
- for(std::list<st_Icon>::const_iterator i=list_Icon.begin();i!=list_Icon.end();++i)
+ for(std::list<st_Icon>::iterator i=list_Icon.begin();i!=list_Icon.end();++i)
    if(i->index==hi) return *i;
  assert(!"IconCheck: nicht gefunden");
  abort();
