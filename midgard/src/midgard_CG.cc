@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.152 2002/02/12 13:36:57 thoma Exp $
+// $Id: midgard_CG.cc,v 1.153 2002/02/12 14:17:53 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -168,7 +168,7 @@ void midgard_CG::show_gtk()
    }
  else 
    { optionmenu_KiDo_Stile->hide();
-     frame_kido_lernschema->hide();     
+     frame_KiDo_lernschema->hide();     
      table_kido_steigern->hide();
    }
  // KiDo Stil setzen
