@@ -334,11 +334,14 @@ void midgard_CG::load_fertigkeiten()
          cH_Waffe(waffe)->set_Erfolgswert(db_wert);
          list_Waffen.push_back(waffe);
         }
-      if(sart=="Besitz_W")      list_Waffen_besitz.push_back(new 
-//           WaffeBesitz(cH_Waffe(Waffe::get_waffe_from_alias(db_fert)),
-//                        db_fert,db_region,db_av_bonus,db_sl_bonus,db_magisch));
-           WaffeBesitz(cH_Waffe(Database.Waffe_from_Alias[db_fert]),
+      if(sart=="Besitz_W")
+        {
+         std::string wn = Database.Waffe_from_Alias[db_fert];
+         if (wn=="") wn=db_fert; 
+         list_Waffen_besitz.push_back(new 
+           WaffeBesitz(cH_Waffe(wn),
                         db_fert,db_region,db_av_bonus,db_sl_bonus,db_magisch));
+        }
       if(sart=="Zauber")        list_Zauber.push_back(new Zauber(db_fert));
       if(sart=="Zauberwerk")    list_Zauberwerk.push_back(new Zauberwerk(db_fert));
       if(sart=="KiDo")          list_Kido.push_back(new KiDo(db_fert)) ;

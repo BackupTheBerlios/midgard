@@ -1,4 +1,4 @@
-// $Id: Window_Waffe_Geld.cc,v 1.30 2001/11/08 10:15:43 thoma Exp $
+// $Id: Window_Waffe_Geld.cc,v 1.31 2001/11/09 17:12:56 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -47,7 +47,7 @@ void Window_Waffe_Geld::on_button_wuerfeln_clicked()
    int wurf = random.integer(1,100);
    if (radio_geld->get_active()) Geld(wurf);
    if (radio_waffe->get_active())
-      manage (new Window_waffe(wurf,this,Werte,Typ,list_Waffen));
+      manage (new Window_waffe(wurf,this,Werte,Typ,Database,list_Waffen));
 }
 
 void Window_Waffe_Geld::on_button_auswaehlen_clicked()
@@ -55,7 +55,7 @@ void Window_Waffe_Geld::on_button_auswaehlen_clicked()
  if (radio_geld->get_active()) 
    manage (new Window_Geld_eingeben(this,Werte));
  if (radio_waffe->get_active()) 
-   manage (new Window_waffe(-1,this,Werte,Typ,list_Waffen));
+   manage (new Window_waffe(-1,this,Werte,Typ,Database,list_Waffen));
 }
 
 void Window_Waffe_Geld::on_button_close_clicked()
@@ -72,8 +72,10 @@ void Window_Waffe_Geld::on_button_close_clicked()
 }
 
 Window_Waffe_Geld::Window_Waffe_Geld(midgard_CG* h, Grundwerte& w,
-      const vector<cH_Typen>& T, const std::list<cH_MidgardBasicElement>& wa)
-: Werte(w), Typ(T), list_Waffen(wa)
+      const vector<cH_Typen>& T, 
+      const midgard_CG::st_Database& _Database,
+      const std::list<cH_MidgardBasicElement>& wa)
+: Database(_Database),Werte(w), Typ(T), list_Waffen(wa)
 {
    hauptfenster = h;
 }

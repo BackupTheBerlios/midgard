@@ -1,4 +1,4 @@
-// $Id: Window_Waffenbesitz.hh,v 1.27 2001/11/08 10:15:43 thoma Exp $
+// $Id: Window_Waffenbesitz.hh,v 1.28 2001/11/09 17:12:56 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,15 +38,14 @@
 #include <Waffe.hh>
 
 class midgard_CG;
-//class H_Data_waffen;
-//class H_WaffeBesitz;
-//class cH_Waffe;
 #include "MidgardBasicElement.hh"
 class Grundwerte;
 class Typen;
+#include "midgard_CG.hh"
 
 class Window_Waffenbesitz : public Window_Waffenbesitz_glade
 {   
+        midgard_CG::st_Database Database;
         midgard_CG* hauptfenster;
         std::list<cH_MidgardBasicElement> list_Waffen;
         std::list<H_WaffeBesitz> Waffe_Besitz;
@@ -70,7 +69,9 @@ class Window_Waffenbesitz : public Window_Waffenbesitz_glade
         void on_spinbutton_sl_bonus_activate();
         void on_entry_magisch_activate();
    public:
-        Window_Waffenbesitz(midgard_CG* h,const std::list<cH_MidgardBasicElement>& vw,std::list<H_WaffeBesitz>& wb,
+        Window_Waffenbesitz(midgard_CG* h,
+            const midgard_CG::st_Database& Database,
+            const std::list<cH_MidgardBasicElement>& vw,std::list<H_WaffeBesitz>& wb,
             Grundwerte& We,const vector<cH_Typen>& T);
 };
 
@@ -78,7 +79,6 @@ class Data_waffenbesitz :  public RowDataBase
 {
       H_WaffeBesitz waffe;
       Grundwerte Werte;
-//      std::string alias;
   public:
       Data_waffenbesitz(const H_WaffeBesitz& w,const Grundwerte& g)
          : waffe(w), Werte(g) {}
@@ -96,7 +96,6 @@ class Data_waffenbesitz :  public RowDataBase
          return cH_EntryValueIntString("?");
        }
       H_WaffeBesitz get_Waffe() const {return waffe;}
-//      std::string get_Alias() const {return alias;}
 };
 
 class cH_Data_waffenbesitz : public Handle<const Data_waffenbesitz>

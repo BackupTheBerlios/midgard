@@ -201,26 +201,33 @@ std::string Waffe::Region(const std::string& name) const
 }
 
 
-map<std::string,std::string> Waffe::fill_map_alias_waffe()
+map<std::string,std::string> Waffe::fill_map_alias_waffe(Gtk::ProgressBar *progressbar)
 {
   map<std::string,std::string> M;
   exec sql begin declare section;
    char db_alias[50];
    char db_name[50];
+   int db_size;
   exec sql end declare section;
+  exec sql select count(name) into :db_size from waffen_region_name;  
   exec sql declare WAliasC cursor for select name,alias from
       waffen_region_name;
   Transaction tr;  
   exec sql open WAliasC;
+  double count=0;
   while (true)
    {
+     progressbar->set_percentage(count/db_size);
+     while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
      exec sql fetch WAliasC into :db_name,:db_alias;
      SQLerror::test(__FILELINE__,100);
      if (sqlca.sqlcode) break;     
      M[db_alias]=db_name;
+     ++count;
    }
   tr.close();
   exec sql close WAliasC;
+  progressbar->set_percentage(1);
   return M;
 }
 

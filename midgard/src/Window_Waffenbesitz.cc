@@ -26,10 +26,10 @@
 #include "config.h"
 #include "Window_Waffenbesitz.hh"
 #include "midgard_CG.hh"
-#include <Aux/Transaction.h>
-#include <Aux/SQLerror.h>
+//#include <Aux/Transaction.h>
+//#include <Aux/SQLerror.h>
 //#include <Gtk_OStream.h>
-exec sql include sqlca;
+//exec sql include sqlca;
 #include "Typen.hh"
 
 
@@ -110,7 +110,7 @@ void Window_Waffenbesitz::move_waffe(std::list<H_WaffeBesitz>& von,std::list<H_W
 }
 
 Window_Waffenbesitz::Window_Waffenbesitz(midgard_CG* h,
-       midgard_CG::st_Database _Database,
+      const midgard_CG::st_Database& _Database,
       const std::list<cH_MidgardBasicElement>& vw,std::list<H_WaffeBesitz>& wb,Grundwerte& We,
       const vector<cH_Typen>& T )
 : Database(_Database), list_Waffen(vw), Waffe_Besitz(wb), Werte(We),Typ(T)

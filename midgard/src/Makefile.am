@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.69 2001/11/09 14:28:59 thoma Exp $
+# $Id: Makefile.am,v 1.70 2001/11/09 17:12:56 thoma Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -97,7 +97,6 @@ BUILT_SOURCES_CG =  \
 	KiDo_auswahl.cc \
    save_charakter.cc  load_charakter.cc  \
    Window_charakter_auswahl.cc \
-	Window_waffe.cc Window_Waffenbesitz.cc \
    get_berufs_vorteile.cc
 
 BUILT_SOUCES_XMLE=xmlexport.cc
@@ -110,6 +109,8 @@ midgard_xmlimport_SOURCES= $(BUILT_SOUCES_XMLI) Tag.cc TagStream.cc
 
 
 midgard_SOURCES = \
+	Window_Waffenbesitz.cc \
+   Window_waffe.cc \
    $(BUILT_SOURCES_CG) \
    midgard_CG_typauswahl.cc \
    MidgardBasicElement.cc \

@@ -71,7 +71,7 @@ class Waffe : public MidgardBasicElement
      int Maxwert(const vector<cH_Typen>& Typ) const;
 
 //     static std::string get_waffe_from_alias(const std::string& waffe);
-     static std::map<std::string,std::string> fill_map_alias_waffe();
+     static std::map<std::string,std::string> fill_map_alias_waffe(Gtk::ProgressBar *progressbar);
      static std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
          const std::list<cH_MidgardBasicElement>& list_Waffen,
          const std::list<H_WaffeBesitz>& list_Waffen_besitz,

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.82 2001/11/09 14:29:37 thoma Exp $
+// $Id: midgard_CG.cc,v 1.83 2001/11/09 17:12:56 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -62,7 +62,7 @@ void midgard_CG::get_Database()
                            Fertigkeiten_All(MI->get_progressbar_fertigkeiten()).get_All(),
                            WaffeGrund_All(MI->get_progressbar_grundkenntnisse()).get_All(),
                            Waffe_All(MI->get_progressbar_waffen()).get_All(),
-                           Waffe::fill_map_alias_waffe(),
+                           Waffe::fill_map_alias_waffe(MI->get_progressbar_aliaswaffen()),
                            Zauber_All(MI->get_progressbar_zauber()).get_All(),
                            Zauberwerk_All(MI->get_progressbar_zauberwerk()).get_All(),
                            KiDo_All(MI->get_progressbar_kido()).get_All(),
@@ -345,7 +345,7 @@ void midgard_CG::on_button_ruestung_s_clicked()
 }
 void midgard_CG::on_button_waffen_s_clicked()
 {
-  manage (new Window_Waffenbesitz(this,list_Waffen,list_Waffen_besitz,Werte,Typ));
+  manage (new Window_Waffenbesitz(this,Database,list_Waffen,list_Waffen_besitz,Werte,Typ));
 }
 
 

@@ -25,9 +25,6 @@
 
 #include "config.h"
 #include "Window_waffe.hh"
-#include <Aux/Transaction.h>
-#include <Aux/SQLerror.h>
-exec sql include sqlca;
 #include <Gtk_OStream.h>
 #include "itos.h"
 #include "WindowInfo.hh"
@@ -40,11 +37,12 @@ void Window_waffe::on_clist_waffe_select_row(gint row, gint column, GdkEvent *ev
   destroy();
 }
 
-Window_waffe::Window_waffe(int we, 
-      Window_Waffe_Geld* o, Grundwerte& W,const vector<cH_Typen>& T, const std::list<cH_MidgardBasicElement>& wa)
-:list_Waffen(wa) ,Werte(W), Typ(T)
+Window_waffe::Window_waffe(int _wurf, 
+      Window_Waffe_Geld* o, Grundwerte& W,const vector<cH_Typen>& T, 
+      const midgard_CG::st_Database& _Database,
+      const std::list<cH_MidgardBasicElement>& wa)
+:Database(_Database),wurf(_wurf),list_Waffen(wa) ,Werte(W), Typ(T)
 {
-  wurf=we;
   oberfenster=o;
   wuerfeln();
 }
@@ -61,50 +59,33 @@ void Window_waffe::wuerfeln()
        destroy();
        return;
    }
-  exec sql begin declare section;
-   char db_waffe[50];
-   char db_name[50], db_version[50] ;
-  exec sql end declare section;
-  strncpy(db_name,(Werte.Name_Charakter()).c_str(),sizeof(db_name));
-  strncpy(db_version,(Werte.Version()).c_str(),sizeof(db_version));
-  exec sql declare ein cursor for
-   SELECT distinct w.name FROM waffen w, charaktere_fertigkeiten  c
-   WHERE c.fertigkeit=w.name AND c.charakter_name = :db_name
-   AND c.version = :db_version AND c.art ='Waffe';
- Transaction tr;
- exec sql open ein;
- SQLerror::test(__FILELINE__);
  Gtk::OStream os(clist_waffe);
  std::string aartE,aartS,aartW,aartZ,aartA;
  if (wurf!=-1) get_art(aartE,aartS,aartW,aartZ,aartA);
  if (wurf==-1) aartA="A";
 
- while(true)
-   {
-     exec sql fetch ein into :db_waffe;
-     SQLerror::test(__FILELINE__,100);
-     if (sqlca.sqlcode) break;
-     cH_Waffe waffe(db_waffe);
-      
-     if (waffe->Name() == "waffenloser Kampf") continue;
-     if ((aartE =="E" && waffe->Art2()=="E") ||
-         (aartW =="W" && waffe->Art2()=="W") ||
-         (aartS =="S" && waffe->Art2()=="S") ||
-         (aartZ =="Z" && waffe->Art2()=="Z") ||
-         (aartA =="A") )
-       os << waffe->Name() <<"\t"<<waffe->Grundkenntnis()
-          <<"\t"<<waffe->Schaden(waffe->Name())+"+"
-            +itos(waffe->Schaden_Bonus(waffe->Name()))<<"\n";
-
-   }
-     if (aartE=="E") strinfo += "Einhandwaffe ";
-     if (aartS=="S") strinfo += "Schußwaffe " ;
-     if (aartW=="W") strinfo += "Wurfwaffe " ;
-     if (aartZ=="Z") strinfo += "Zweihandwaffe " ;
-     if (aartA=="A") strinfo += "Beliebige Waffe" ;
+ for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Waffe.begin();i!=Database.Waffe.end();++i)
+  {  
+    cH_Waffe w(*i);
+    if (w->Name() == "waffenloser Kampf") continue;
+    if ((*i)->ist_gelernt(list_Waffen))
+//     if (w->ist_lernbar(Typ,w->get_MapTyp()))
+       if  ((aartE =="E" && w->Art2()=="E") ||
+            (aartW =="W" && w->Art2()=="W") ||
+            (aartS =="S" && w->Art2()=="S") ||
+            (aartZ =="Z" && w->Art2()=="Z") ||
+            (aartA =="A") )
+         os << w->Name() <<"\t"<<w->Grundkenntnis()
+            <<"\t"<<w->Schaden(w->Name())+"+"
+            +itos(w->Schaden_Bonus(w->Name()))<<"\n";
+  }
+ if (aartE=="E") strinfo += "Einhandwaffe ";
+ if (aartS=="S") strinfo += "Schußwaffe " ;
+ if (aartW=="W") strinfo += "Wurfwaffe " ;
+ if (aartZ=="Z") strinfo += "Zweihandwaffe " ;
+ if (aartA=="A") strinfo += "Beliebige Waffe" ;
  if (wurf !=-1) manage(new WindowInfo(strinfo));
- exec sql close ein;
- tr.close();
+
  for (unsigned int i=0;i<clist_waffe->columns().size();++i)
    clist_waffe->set_column_auto_resize(i,true);  
 }

@@ -1,4 +1,4 @@
-// $Id: Window_waffe.hh,v 1.23 2001/11/08 10:15:43 thoma Exp $
+// $Id: Window_waffe.hh,v 1.24 2001/11/09 17:12:56 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,9 +38,12 @@ class Window_Waffe_Geld;
 class cH_MidgardBasicElement;
 class Grundwerte; 
 class cH_Typen;
+//struct st_Database;
+#include "midgard_CG.hh"
 
 class Window_waffe : public Window_waffe_glade
 {   
+        midgard_CG::st_Database Database;
         int wurf;
         const std::list<cH_MidgardBasicElement>& list_Waffen;        
         Grundwerte& Werte;
@@ -55,6 +58,7 @@ class Window_waffe : public Window_waffe_glade
         Window_waffe::Window_waffe(int we,
                                     Window_Waffe_Geld* o,Grundwerte& W,
                                     const vector<cH_Typen>& T,
+                                    const midgard_CG::st_Database& Database,
                                     const std::list<cH_MidgardBasicElement>& wa);
 };
 #endif
