@@ -103,12 +103,12 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
             bool erlaubt=true;
             if(MBE->Name()=="Muttersprache" || MBE->Name()=="Gastlandsprache")
              {
-               MBE.setLernArt(MBE->Name());
+               MBE.setLernArt(MBE.LernArt()+"_"+MBE->Name());
                if(MBE->Name()=="Muttersprache") // muß im Heimatland gesprochen werden
                   if(!cH_Sprache(*i)->ist_erlaubt(hauptfenster->getChar()))
                      erlaubt=false;
                if(cH_Sprache(*i)->Alte_Sprache()) continue;
-               list_FertigkeitZusaetze.push_back(MBE->Name());
+               list_FertigkeitZusaetze.push_back(MBE.LernArt());
              }
             else
              {

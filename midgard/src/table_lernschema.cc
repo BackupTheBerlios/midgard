@@ -180,30 +180,49 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
            break;
          }
      case MidgardBasicElement::FERTIGKEIT_ANG :
-         {hauptfenster->getChar().List_Fertigkeit_ang().remove(MBE);
+         { hauptfenster->getChar().List_Fertigkeit_ang().remove(MBE);
            break;
          }
      case MidgardBasicElement::FERTIGKEIT :
-         {hauptfenster->getChar().List_Fertigkeit().remove(MBE);
-           list_FertigkeitZusaetze.remove(MBE->Name());
-           if(MBE.LernArt().find("Fach")!=std::string::npos) lernpunkte.addFach( MBE.Lernpunkte());
-           if(MBE.LernArt().find("Unge")!=std::string::npos) lernpunkte.addAllgemein( MBE.Lernpunkte());
-           if(MBE.LernArt().find("Allg")!=std::string::npos) lernpunkte.addUnge( MBE.Lernpunkte());
+     case MidgardBasicElement::SPRACHE :
+     case MidgardBasicElement::SCHRIFT :
+        {
+           switch(MBE->What()) {
+             case MidgardBasicElement::FERTIGKEIT :
+                 hauptfenster->getChar().List_Fertigkeit().remove(MBE);
+                 list_FertigkeitZusaetze.remove(MBE->Name());
+                 break;
+             case MidgardBasicElement::SPRACHE :
+                 hauptfenster->getChar().List_Sprache().remove(MBE);
+                 break;
+             case MidgardBasicElement::SCHRIFT :
+                 hauptfenster->getChar().List_Schrift().remove(MBE);
+                 break;
+             default: assert(!"never get here\n");
+           }
+           if     (MBE.LernArt().find("Fach")!=std::string::npos) lernpunkte.addFach( MBE.Lernpunkte());
+           else if(MBE.LernArt().find("Allg")!=std::string::npos) lernpunkte.addAllgemein( MBE.Lernpunkte());
+           else if(MBE.LernArt().find("Unge")!=std::string::npos) lernpunkte.addUnge( MBE.Lernpunkte());
 
            if(MBE.LernArt().find("Heimat")!=std::string::npos) 
                   list_FertigkeitZusaetze.remove("Landeskunde (Heimat)");
-           if(MBE.LernArt().find("_Schreiben_Muttersprache")!=std::string::npos) 
+           else if(MBE.LernArt().find("_Schreiben_Muttersprache")!=std::string::npos) 
              { list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+4)"); 
                list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+9)"); 
                list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+12)");
              }
+           else if(MBE.LernArt().find("Muttersprache")!=std::string::npos) 
+                  list_FertigkeitZusaetze.remove(MBE.LernArt());
+           else if(MBE.LernArt().find("Gastlandsprache")!=std::string::npos) 
+                  list_FertigkeitZusaetze.remove(MBE.LernArt());
+
            else hauptfenster->set_info("Fehler beim Lernpunkte zurückstellen");
            std::string::size_type st = MBE->Name().find("KiDo-Technik");
            if(st!=std::string::npos)  --maxkido;
            break;
          }
+/*
      case MidgardBasicElement::SPRACHE :
-
           hauptfenster->getChar().List_Sprache().remove(MBE);
           if(MBE.LernArt()=="Muttersprache" || MBE.LernArt()=="Gastlandsprache")
             {   list_FertigkeitZusaetze.remove(MBE.LernArt()); break; }
@@ -212,13 +231,21 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
 
           hauptfenster->getChar().List_Schrift().remove(MBE);
 
+          if(MBE.LernArt().find("_Schreiben_Muttersprache")!=std::string::npos) 
+             { list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+4)"); 
+               list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+9)"); 
+               list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+12)");
+             }
+
+
           if(MBE.LernArt()=="Allg_Schreiben_Muttersprache")
             {  lernpunkte.addAllgemein(MBE.Lernpunkte());
                list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+4)"); 
                list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+9)");
                list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+12)"); 
                break;}
-
+*/
+/*
           if(button_fachkenntnisse->get_active())
                lernpunkte.addFach(MBE.Lernpunkte());
           else if(button_allgemeinwissen->get_active())
@@ -228,6 +255,7 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
           else hauptfenster->set_info("Da kein Fertigkeiten-Auswahl-Knopf gewählt wurde konnten die Lernpunkte ("
                  +itos(MBE.Lernpunkte())+") für das Verlernen dieser Sprache nicht gut geschrieben werden.");
           break;
+*/
      default : break;
    }
   if(MBE->What()==MidgardBasicElement::WAFFEBESITZ)
