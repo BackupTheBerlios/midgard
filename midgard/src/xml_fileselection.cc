@@ -95,7 +95,7 @@ xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was, Grundwerte *W)
  }
  set_filename(fname);
  
-std::cout << "Dateiname " << fname() << "->" << get_filename() << '\n';
+std::cout << "Dateiname " << fname << "->" << get_filename() << '\n';
 #ifdef __MINGW32__
    // TODO was ist mit '\\' am Ende ?
    // TODO path erzeugen?
