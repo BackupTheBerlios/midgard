@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.331 2003/09/04 12:17:40 christof Exp $
+// $Id: midgard_CG.hh,v 1.332 2003/09/05 08:29:29 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -207,6 +207,8 @@ private:
 
         const VAbenteurer &getChar() const {return Char;}
         VAbenteurer &getChar() {return Char;}
+	const Abenteurer &getAben() const {return Char.getAbenteurer();}
+        Abenteurer &getAben() {return Char.getAbenteurer();}
 
         void on_auch_unsichtbares_drucken();
         void on_beschreibung_drucken();

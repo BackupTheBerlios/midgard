@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.39 2003/09/05 08:03:44 christof Exp $
+// $Id: table_lernschema_waffen.cc,v 1.40 2003/09/05 08:29:29 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -38,7 +38,7 @@ void table_lernschema::on_button_lernschema_waffen()
      else Ausgabe(Ausgabe::Error,"Keine Herkunftsnode gesetzt");
    }
   hauptfenster->getChar()->List_Waffen_besitz().clear();
-  hauptfenster->getChar().getWizard().done(Wizard::WAFFEN,*(hauptfenster->getChar()));
+  hauptfenster->getChar().getWizard().done(Wizard::WAFFEN,hauptfenster->getChar().getAbenteurer());
   if(!hauptfenster->getChar()->getOptionen().OptionenCheck(Optionen::NSC_only).active)
      button_lernschema_waffen->set_sensitive(false);
 
@@ -184,6 +184,6 @@ void table_lernschema::on_togglebutton_spezialwaffe_toggled()
 {  if (togglebutton_spezialwaffe->get_active()) scrolledwindow_lernen->hide();
    else 
      { scrolledwindow_lernen->show();
-       hauptfenster->getChar().getWizard().done(Wizard::SPEZIALWAFFE,*(hauptfenster->getChar()));
+       hauptfenster->getChar().getWizard().done(Wizard::SPEZIALWAFFE,hauptfenster->getChar().getAbenteurer());
      }
 }

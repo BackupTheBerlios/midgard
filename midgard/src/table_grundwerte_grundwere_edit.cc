@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_grundwere_edit.cc,v 1.22 2003/09/05 08:03:44 christof Exp $
+// $Id: table_grundwerte_grundwere_edit.cc,v 1.23 2003/09/05 08:29:29 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -53,7 +53,7 @@ void table_grundwerte::on_entry_nameC_activate()
   if(hauptfenster->getChar().getWizard().aktiv()) 
    { 
      edit_werte=false;
-     hauptfenster->getChar().getWizard().done(Wizard::NAMEN,*(hauptfenster->getChar()));
+     hauptfenster->getChar().getWizard().done(Wizard::NAMEN,hauptfenster->getChar().getAbenteurer());
    }
   else 
    {

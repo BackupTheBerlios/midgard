@@ -154,7 +154,7 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
                 hauptfenster->getChar()->setSpezialisierung((*MBE)->Name());
                 Waffe::setSpezialWaffe(hauptfenster->getChar()->Spezialisierung(),hauptfenster->getChar()->List_Waffen());
                 togglebutton_spezialwaffe->set_active(false);
-                hauptfenster->getChar().getWizard().done(Wizard::SPEZIALWAFFE,*(hauptfenster->getChar()));
+                hauptfenster->getChar().getWizard().done(Wizard::SPEZIALWAFFE,hauptfenster->getChar().getAbenteurer());
                }
             }  
            else
@@ -377,7 +377,7 @@ void table_lernschema::on_lernpunkte_wuerfeln_clicked()
      return;
   }
   lernpflichten_info();
-  hauptfenster->getChar().getWizard().done(Wizard::LERNPUNKTE,*(hauptfenster->getChar()));
+  hauptfenster->getChar().getWizard().done(Wizard::LERNPUNKTE,hauptfenster->getChar().getAbenteurer());
   Zufall::Lernpunkte_wuerfeln(vabenteurer->getLernpunkte().getLernpunkte(),hauptfenster->getChar().getAbenteurer());
   show_gelerntes();
 
@@ -427,7 +427,7 @@ void table_lernschema::edit_lernpunkte(bool b)
 
 void table_lernschema::on_button_lernschema_geld()
 {  
-  hauptfenster->getChar().getWizard().done(Wizard::GELD,*(hauptfenster->getChar()));
+  hauptfenster->getChar().getWizard().done(Wizard::GELD,hauptfenster->getChar().getAbenteurer());
   if(!hauptfenster->getChar()->getOptionen().OptionenCheck(Optionen::NSC_only).active)
      button_lernschema_geld->set_sensitive(false);
   if (Programmoptionen.WerteEingebenModel().Value())
@@ -493,7 +493,7 @@ void table_lernschema::lernschema_geld_wuerfeln(const std::vector<int>& VGeldwur
 
 void table_lernschema::on_button_ruestung()
 {  
-  hauptfenster->getChar().getWizard().done(Wizard::RUESTUNG,*(hauptfenster->getChar()));
+  hauptfenster->getChar().getWizard().done(Wizard::RUESTUNG,hauptfenster->getChar().getAbenteurer());
   if(!hauptfenster->getChar()->getOptionen().OptionenCheck(Optionen::NSC_only).active)
      button_ruestung->set_sensitive(false);
    if (!Programmoptionen.WerteEingebenModel().Value())
@@ -566,7 +566,7 @@ void table_lernschema::on_button_ausruestung()
 
 void table_lernschema::ausruestung_setzen()
 {
-  hauptfenster->getChar().getWizard().done(Wizard::AUSRUESTUNG,*(hauptfenster->getChar()));
+  hauptfenster->getChar().getWizard().done(Wizard::AUSRUESTUNG,hauptfenster->getChar().getAbenteurer());
   if(!hauptfenster->getChar()->getOptionen().OptionenCheck(Optionen::NSC_only).active)
      button_ausruestung->set_sensitive(false);
   
