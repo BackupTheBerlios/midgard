@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.84 2002/11/20 22:26:10 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.85 2002/11/22 15:47:19 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -873,7 +873,10 @@ void LaTeX_drucken::pdf_viewer(const std::string& file)
   }
 
 // oder batchmode?
+//2x wg. longtable
   system((pdflatex+" --interaction scrollmode "+file2+".tex").c_str());
+  if (hauptfenster->getChar()->List_Zauber().size()>0 || hauptfenster->getChar()->List_Zauberwerk().size()>0)  // Zauber
+     system((pdflatex+" --interaction scrollmode "+file2+".tex").c_str());
 
   std::string pdfcommand=hauptfenster->getOptionen()->Viewer()+" "+file2+".pdf";
   const_cast<midgard_CG*>(hauptfenster)->set_status(pdfcommand,false);
@@ -933,17 +936,21 @@ void LaTeX_drucken::LaTeX_zaubermittel(std::ostream &fout)
 void LaTeX_drucken::LaTeX_zauber_main(std::ostream &fout)
 {
   fout << "\\begin{center}\n";
-  LaTeX_kopfzeile(fout,true,false);
+//  LaTeX_kopfzeile(fout,true,false);
   fout << "\\scriptsize\n";
-  fout << "\\begin{tabular}{lcclccclcclp{3cm}l}\\hline\n";
+  fout << "\\begin{longtable}{lcclccclcclp{3cm}l}\n";
+  fout <<"\\multicolumn{13}{c}{";
+  LaTeX_kopfzeile(fout,true,false);
+  fout << "}\\\\\n";
   fout << " & Erfolgs- & &&&Zauber-&Reich-&\\multicolumn{1}{c}{Wirkungs-}&Wirkungs-&"
        <<"  Wirkungs-&\\multicolumn{1}{c}{Ur-}&\\multicolumn{1}{c}{Material}&\\multicolumn{1}{c}{Prozess}\\\\ \n";
   fout << "\\raisebox{1.5ex}[-1.5ex]{Zauberformel} & wert     & "
        << "\\raisebox{1.5ex}[-1.5ex]{AP} & \\multicolumn{1}{c}{\\raisebox{1.5ex}[-1.5ex]{Art}}"
        << " & \\raisebox{1.5ex}[-1.5ex]{Stufe} & -dauer & weite&\\multicolumn{1}{c}{ziel}&bereich&"
        << "dauer&\\multicolumn{1}{c}{sprung}\\\\\\hline\n";
+  fout << "\\endhead\n";
   LaTeX_zauber(fout);
-  fout << "\\end{tabular}\n";
+  fout << "\\end{longtable}\n";
 
  
   if (hauptfenster->getChar()->List_Zauberwerk().size()!=0)
