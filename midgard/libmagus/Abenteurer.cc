@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.25 2004/11/12 09:09:45 christof Exp $            
+// $Id: Abenteurer.cc,v 1.26 2004/11/22 07:25:28 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -774,7 +774,7 @@ reloop:
    }
 }
 
-
+// wozu???
 std::list<MBEmlt> &Abenteurer::get_known_list(const Enums::MBEListen was)
 {
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
@@ -795,27 +795,25 @@ std::list<MBEmlt> &Abenteurer::get_known_list(const Enums::MBEListen was)
 
 
 std::list<MBEmlt> &Abenteurer::get_known_list(const MBEmlt &MBE)
-{
-  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
-   if((*MBE).What()==MidgardBasicElement::FERTIGKEIT) 
-         return get_known_list(Enums::sFert);
-   else if((*MBE).What()==MidgardBasicElement::WAFFE) 
-         return get_known_list(Enums::sWaff);
-   else if((*MBE).What()==MidgardBasicElement::WAFFEGRUND) 
-         return get_known_list(Enums::sWGru);
-   else if((*MBE).What()==MidgardBasicElement::ZAUBER)
-         return get_known_list(Enums::sZaub);
-   else if((*MBE).What()==MidgardBasicElement::ZAUBERWERK)
-         return get_known_list(Enums::sZWerk);
-   else if((*MBE).What()==MidgardBasicElement::KIDO) 
-         return get_known_list(Enums::sKiDo);
-   else if((*MBE).What()==MidgardBasicElement::SPRACHE) 
-         return get_known_list(Enums::sSpra);
-   else if((*MBE).What()==MidgardBasicElement::SCHRIFT)
-         return get_known_list(Enums::sSchr);
-   assert(!"never get here"); abort();
+{ ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
+  return getList((*MBE).What());
 }
  
+std::list<MBEmlt> &Abenteurer::getList(MidgardBasicElement::MBEE was)
+{ switch (was)
+  { case MidgardBasicElement::FERTIGKEIT: return List_Fertigkeit();
+    case MidgardBasicElement::WAFFE: return List_Waffen();
+    case MidgardBasicElement::WAFFEGRUND: return List_WaffenGrund();
+    case MidgardBasicElement::ZAUBER: return List_Zauber();
+    case MidgardBasicElement::ZAUBERWERK: return List_Zauberwerk();
+    case MidgardBasicElement::KIDO: return List_Kido();
+    case MidgardBasicElement::SPRACHE: return List_Sprache();
+    case MidgardBasicElement::SCHRIFT: return List_Schrift();
+    default: assert(!"Abenteurer::getList: invalid arg");
+      abort(); // silence gcc
+  }
+}
+
 std::string Abenteurer::Ruestung_B_Verlust(bool ueberlast_beruecksichtigen) const
 {
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
@@ -860,4 +858,51 @@ void Abenteurer::reset()
              list_Sprache.clear();list_Schrift.clear(); 
              Grundwerte::reset();
              setStandardAusruestung();
+}
+
+void Abenteurer::calculate_old_API(e_wie_steigern &wie, Enums::st_bool_steigern &bool_st)
+{ wie=Enums::eUnterweisung;
+  bool_st.mitEP=fpanteil>0;
+  bool_st.HausG1=getOptionen().HausregelCheck(Optionen::Gold).active;
+  bool_st.Spruchrolle= wie_steigern==ws_Spruchrolle;
+  bool_st.SpruchrolleAuto=true; // ???
+  bool_st.hoch_wie_geht=true;
+  bool_st.pp_verfallen= wie_steigern==ws_NurPraxispunkte;
+  bool_st.aep_fuellen= wie_steigern==ws_PraxispunkteFP;
+  bool_st.neue_sprache_pp= wie_steigern==ws_NurPraxispunkte || wie_steigern==ws_PraxispunkteFP;
+  if (wie_steigern==ws_NurPraxispunkte 
+      || wie_steigern==ws_PraxispunkteFP)
+    wie=Enums::ePraxis;
+  else if (wie_steigern==ws_Unterweisung && fpanteil>100)
+    wie=Enums::eSelbststudium;
+}
+
+   // true: Besonderheiten
+bool Abenteurer::ErlernenSteigern(MBEmlt &MBE)
+{ // Erlernen später ...
+  // steigern
+  e_wie_steigern wie;
+  Enums::st_bool_steigern bool_st(false,false,false,false,false,false,false,false);
+  calculate_old_API(wie,bool_st);
+  steigere(MBE,wie,bool_st);
+  return false; // welche Besonderheiten?
+}
+   // false: Fehlgeschlagen
+bool Abenteurer::ReduzierenVerlernen(MBEmlt &MBE, bool &verlernt)
+{ e_wie_steigern wie;
+  Enums::st_bool_steigern bool_st(false,false,false,false,false,false,false,false);
+  calculate_old_API(wie,bool_st);
+  verlernt=false;
+  if (MBE->Reduzieren(*this))
+    reduziere(MBE,wie,bool_st);
+  else if ((*MBE).What()==MidgardBasicElement::WAFFE)
+  { // Waffen kann man nicht verlernen
+    verlernt=true;
+  }
+  else if (MBE->Verlernen(*this)) 
+  { verlerne(MBE,wie,bool_st);
+    verlernt=true;
+  }
+  else return false;
+  return true;
 }

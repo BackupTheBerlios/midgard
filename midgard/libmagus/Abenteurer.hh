@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.25 2004/08/30 13:17:56 christof Exp $               
+// $Id: Abenteurer.hh,v 1.26 2004/11/22 07:25:28 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -88,7 +88,6 @@ public:
 
    void Steigertage2Alter();
 
-
    const std::string Beruf() const;
    const std::list<MBEmlt>& List_Beruf() const {return list_Beruf;}
    const std::list<MBEmlt>& List_Fertigkeit_ang() const {return list_Fertigkeit_ang;}
@@ -101,6 +100,22 @@ public:
    const std::list<MBEmlt>& List_Kido() const {return list_Kido;}
    const std::list<MBEmlt>& List_Sprache() const {return list_Sprache;} 
    const std::list<MBEmlt>& List_Schrift() const {return list_Schrift;}
+   std::list<MBEmlt>& List_Beruf() {return list_Beruf;}
+   std::list<MBEmlt>& List_Fertigkeit_ang() {return list_Fertigkeit_ang;}
+   std::list<MBEmlt>& List_Fertigkeit()  {return list_Fertigkeit;}
+   std::list<MBEmlt>& List_WaffenGrund() {return list_WaffenGrund;}
+   std::list<MBEmlt>& List_Waffen()  {return list_Waffen;}
+   std::list<H_WaffeBesitz>& List_Waffen_besitz() {return list_Waffen_besitz;}
+   std::list<MBEmlt>& List_Zauber()  {return list_Zauber;}
+   std::list<MBEmlt>& List_Zauberwerk()  {return list_Zauberwerk;}
+   std::list<MBEmlt>& List_Kido()  {return list_Kido;}
+   std::list<MBEmlt>& List_Sprache()  {return list_Sprache;} 
+   std::list<MBEmlt>& List_Schrift()  {return list_Schrift;}
+
+   std::list<MBEmlt> &getList(MidgardBasicElement::MBEE was);
+   std::list<MBEmlt> &get_known_list(const Enums::MBEListen was);
+   std::list<MBEmlt> &get_known_list(const MBEmlt &MBE);
+   
    struct st_universell{MBEmlt mbe;bool voraussetzung;bool gelernt;
           st_universell(MBEmlt m) 
             : mbe(m),voraussetzung(true),gelernt(false) {}};
@@ -115,27 +130,18 @@ private:
       };
 public:
 
-   std::list<MBEmlt>& List_Beruf() {return list_Beruf;}
-   std::list<MBEmlt>& List_Fertigkeit_ang() {return list_Fertigkeit_ang;}
-   std::list<MBEmlt>& List_Fertigkeit()  {return list_Fertigkeit;}
-   std::list<MBEmlt>& List_WaffenGrund() {return list_WaffenGrund;}
-   std::list<MBEmlt>& List_Waffen()  {return list_Waffen;}
-   std::list<H_WaffeBesitz>& List_Waffen_besitz() {return list_Waffen_besitz;}
-   std::list<MBEmlt>& List_Zauber()  {return list_Zauber;}
-   std::list<MBEmlt>& List_Zauberwerk()  {return list_Zauberwerk;}
-   std::list<MBEmlt>& List_Kido()  {return list_Kido;}
-   std::list<MBEmlt>& List_Sprache()  {return list_Sprache;} 
-   std::list<MBEmlt>& List_Schrift()  {return list_Schrift;}
 
    void speicherstream(std::ostream &datei);
+   bool xml_import_stream(std::istream &datei);
+private:
    void grundwerte_speichern(Tag &);
    void save_ausruestung(Tag &datei,const std::list<AusruestungBaum> &AB);
 
-   bool xml_import_stream(std::istream &datei);
    void load_ausruestung(const Tag *tag, AusruestungBaum *AB);
    void load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version);
    void load_regionen_optionen(const Tag *tag, int xml_version);
-   
+
+public:   
    Optionen &getOptionen() { return optionen; }
    const Optionen &getOptionen() const { return optionen; }
    Model_ref<bool> getRegion(const cH_Region &r) { return regionen[r]; }
@@ -162,28 +168,31 @@ public:
    // true: Besonderheiten
    bool ErlernenSteigern(MBEmlt &MBE);
    // false: Fehlgeschlagen
-   bool ReduzierenVerlernen(MBEmlt &MBE);
-   
+   bool ReduzierenVerlernen(MBEmlt &MBE, bool &verlernt);
+
    // Zum Steigern eines MBEm
    typedef Enums::e_was_steigern e_was_steigern;
    typedef Enums::e_wie_steigern e_wie_steigern;
    enum modi_modus{Zusatzmodus,PPmodus};;
    typedef Enums::st_bool_steigern st_bool_steigern;
-   void reduziere(MBEmlt &MBE,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern);
-   void verlerne(MBEmlt &MBE,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern);
-   bool steigere(MBEmlt &MBE,const e_wie_steigern wie,
+private:
+   void calculate_old_API(e_wie_steigern &wie, Enums::st_bool_steigern &bool_st);
+public:
+   __deprecated void reduziere(MBEmlt &MBE,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern);
+   __deprecated void verlerne(MBEmlt &MBE,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern);
+   __deprecated bool steigere(MBEmlt &MBE,const e_wie_steigern wie,
                  const st_bool_steigern &bool_steigern);
-   bool neu_lernen(MBEmlt &MBE,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern,const int bonus=0);
-   void move_neues_element(MBEmlt &MBE,std::list<MBEmlt> *MyList_neu,const std::list<cH_MidgardBasicElement> *alleSprachen=0);
+   __deprecated bool neu_lernen(MBEmlt &MBE,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern,const int bonus=0);
+   __deprecated void move_neues_element(MBEmlt &MBE,std::list<MBEmlt> *MyList_neu,const std::list<cH_MidgardBasicElement> *alleSprachen=0);
 
-   void desteigern(unsigned int kosten,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern);
-   bool steigern_usp(const e_wie_steigern wie,int &kosten,
+   __deprecated void desteigern(unsigned int kosten,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern);
+   __deprecated bool steigern_usp(const e_wie_steigern wie,int &kosten,
                      const e_was_steigern was,
                      const st_bool_steigern &bool_steigern)
        { int d=1; 
          MBEmlt mbe=MBEmlt(&*cH_Fertigkeit("",true));
          return steigern_usp(wie,kosten,mbe,d,was,bool_steigern);}
-   bool steigern_usp(const e_wie_steigern wie,int &kosten,MBEmlt MBE,
+   __deprecated bool steigern_usp(const e_wie_steigern wie,int &kosten,MBEmlt MBE,
                      int &stufen,const e_was_steigern was,
                      const st_bool_steigern &bool_steigern);
    void set_lernzeit(const e_wie_steigern wie,const int kosten,
@@ -205,15 +214,11 @@ public:
    void eigenschaften_steigern(int wurf=-1);
    bool eigenschaften_steigern_erlaubt() const;
   
-   std::list<MBEmlt> &get_known_list(const Enums::MBEListen was);
-   std::list<MBEmlt> &get_known_list(const MBEmlt &MBE);
 
    bool SpruchVonSpruchrolleGelernt(const std::string &zauber)
       {return find(list_Gelernt_von_Spruchrolle.begin(),list_Gelernt_von_Spruchrolle.end(),zauber)!=list_Gelernt_von_Spruchrolle.end() ; }
 
-
    bool ZauberSpruecheMitPP() const;
-
 };
 
 #endif

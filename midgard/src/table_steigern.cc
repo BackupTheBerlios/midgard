@@ -235,7 +235,8 @@ void table_steigern::zeige_werte()
 table_steigern::table_steigern(GlademmData *_data) 
          : table_steigern_glade(_data),hauptfenster(),//LL(),
             steigern_mit_EP_bool(true) 
-{  clist_ruestung->set_model(RuestungStore);
+{  RuestungStore=Gtk::ListStore::create(ruestung_columns);
+   clist_ruestung->set_model(RuestungStore);
    clist_ruestung->append_column("Rüstung",ruestung_columns.name);
    clist_ruestung->append_column("",ruestung_columns.abkz);
    clist_ruestung->append_column("LP\nVerlust",ruestung_columns.lp_verlust);
@@ -276,6 +277,7 @@ void table_steigern::Abenteurer2Window()
    {  radiobutton_praxis->set_active(true);
       togglebutton_pp_verfallen->set_active(A.wie_steigern==Grundwerte::ws_NurPraxispunkte);
       togglebutton_pp_aep_fuellen->set_active(A.wie_steigern==Grundwerte::ws_PraxispunkteFP);
+//      radiobutton_pp_hoch_wie_geht ???
    }
    else if (A.wie_steigern==Grundwerte::ws_Unterweisung)
    {  if (A.fpanteil>100) radiobutton_selbst->set_active(true);

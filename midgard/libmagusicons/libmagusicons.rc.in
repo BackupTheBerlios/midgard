@@ -1,7 +1,7 @@
 #include <winver.h>
 
 VS_VERSION_INFO VERSIONINFO
-  FILEVERSION 0,1,1,BUILDNUMBER
+  FILEVERSION 0,1,2,BUILDNUMBER
   PRODUCTVERSION @MAGUS_MAJOR_VERSION@,@MAGUS_MINOR_VERSION@,@MAGUS_MICRO_VERSION@,0
   FILEFLAGSMASK 0
   FILEFLAGS 0
@@ -14,8 +14,8 @@ VS_VERSION_INFO VERSIONINFO
       BLOCK "040904B0"
       BEGIN
 	VALUE "FileDescription", "MAGuS Icon- und Bildersammlung"
-	VALUE "FileVersion", "0.1.1.BUILDNUMBER"
-	VALUE "LegalCopyright", "Copyright © 2003 Christof Petig"
+	VALUE "FileVersion", "0.1.2.BUILDNUMBER"
+	VALUE "LegalCopyright", "Copyright (C) 2003-2004 Christof Petig, Alessandro Filippetti, Ulf Kaiser"
 	VALUE "InternalName", "libmagusicons"
 	VALUE "OriginalFilename", "libmagusicons-0.dll"
 	VALUE "ProductName", "MAGuS: Midgard Abenteurer Generieren und Steigern"

@@ -1,4 +1,4 @@
-// $Id: MidgardBasicTree.cc,v 1.30 2004/08/31 16:58:28 christof Exp $
+// $Id: MidgardBasicTree.cc,v 1.31 2004/11/22 07:25:28 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2004 Malte Thoma
@@ -72,7 +72,7 @@ void MidgardBasicTree::set_tree_titles(variante V)
    }
   else if(V==ANGEBFERT)
    {
-      vs.push_back("Würfelergebnis");
+      vs.push_back("Wurf");
       vs.push_back("Fertigkeit");
       vs.push_back("Wert");  
    }
@@ -100,7 +100,7 @@ void MidgardBasicTree::set_tree_titles(variante V)
    }
   else if(V==WAFFE_NEU)
    {
-      vs.push_back("(ungesteigert) Waffe)");
+      vs.push_back("Waffe (ungesteigert) ");
       vs.push_back("Art");    
       vs.push_back("Voraussetzungen");
       vs.push_back("Region");
@@ -147,7 +147,7 @@ void MidgardBasicTree::set_tree_titles(variante V)
      vs.push_back("Ursprung");
      vs.push_back("Lernkosten");
      vs.push_back("Art");
-      vs.push_back("Region");
+     vs.push_back("Region");
    }
   else if(V==ZAUBERWERK_ALT || V==ZAUBERWERK_NEU)
    {

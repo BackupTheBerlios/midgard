@@ -43,47 +43,30 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
  ////////////////////////////////////////////////////////////////////////
  hauptfenster->getChar().undosave((*MBE)->What_str()+" "+(*MBE)->Name()+" von "+itos(MBE->Erfolgswert())+" gesteigert(?)");
 
- std::list<MBEmlt> *MyList,*MyList_neu;
- if((*MBE).What()==MidgardBasicElement::FERTIGKEIT) 
-   { if ((*MBE)->Name()=="KiDo" && kido_steigern_check(MBE->Erfolgswert())) return false;
-     MyList     = &hauptfenster->getAben().List_Fertigkeit(); MyList_neu = &list_Fertigkeit_neu;   }
- else if((*MBE).What()==MidgardBasicElement::WAFFE) 
-   { MyList     = &hauptfenster->getAben().List_Waffen(); MyList_neu = &list_Waffen_neu;  }
- else if((*MBE).What()==MidgardBasicElement::WAFFEGRUND) 
-   { MyList     = &hauptfenster->getAben().List_WaffenGrund(); MyList_neu = &list_WaffenGrund_neu;  }
- else if((*MBE).What()==MidgardBasicElement::ZAUBER) 
-   { MyList     = &hauptfenster->getAben().List_Zauber(); MyList_neu = &list_Zauber_neu;  }
- else if((*MBE).What()==MidgardBasicElement::ZAUBERWERK) 
-   { MyList     = &hauptfenster->getAben().List_Zauberwerk(); MyList_neu = &list_Zauberwerk_neu;  }
- else if((*MBE).What()==MidgardBasicElement::KIDO) 
-   { MyList     = &hauptfenster->getAben().List_Kido(); MyList_neu = &list_Kido_neu;  }
- else if((*MBE).What()==MidgardBasicElement::SPRACHE) 
-   { MyList     = &hauptfenster->getAben().List_Sprache(); MyList_neu = &list_Sprache_neu;  }
- else if((*MBE).What()==MidgardBasicElement::SCHRIFT) 
-   { MyList     = &hauptfenster->getAben().List_Schrift(); MyList_neu = &list_Schrift_neu;  }
- else assert(!"Fehler (alt) in midgard_CG_basic_elemente.cc");
+ if((*MBE).What()==MidgardBasicElement::FERTIGKEIT 
+    && (*MBE)->Name()=="KiDo" 
+    && kido_steigern_check(MBE->Erfolgswert())) 
+   return false;
 
  //////////////////////////////////////////////////////////////////////////
- Abenteurer::e_wie_steigern wie=get_wie_steigern();
- Abenteurer::st_bool_steigern bool_steigern=get_bool_steigern();
+// Abenteurer::e_wie_steigern wie=get_wie_steigern();
+// Abenteurer::st_bool_steigern bool_steigern=get_bool_steigern();
  
  if (radiobutton_steigern->get_active() && MBE->Steigern(hauptfenster->getAben()))
     {
-      bool ok=hauptfenster->getAben().steigere(MBE,wie,bool_steigern);
-      if(!ok) return false;
+      // bool ok=
+      hauptfenster->getAben().ErlernenSteigern(MBE);
+      // if(!ok) return false;
     }
- else if (radiobutton_reduzieren->get_active() && MBE->Reduzieren(hauptfenster->getAben()))
-    {
-      hauptfenster->getAben().reduziere(MBE,wie,bool_steigern);
-    }
- else if (radiobutton_verlernen->get_active() && MBE->Verlernen(hauptfenster->getAben()))
-    {
-      hauptfenster->getAben().verlerne(MBE,wie,bool_steigern);
-      Abenteurer::move_element(*MyList,*MyList_neu,MBE);
-    }
- else if (radiobutton_verlernen->get_active() && (*MBE).What()==MidgardBasicElement::WAFFE)
-    {
-      Abenteurer::move_element(*MyList,*MyList_neu,MBE);
+ else if (radiobutton_reduzieren->get_active()
+             || radiobutton_verlernen->get_active())
+    { bool verlernt=false;
+      hauptfenster->getAben().ReduzierenVerlernen(MBE,verlernt);
+      if (verlernt) 
+      { std::list<MBEmlt> *MyList=&hauptfenster->getAben().getList((*MBE).What()),
+               *MyList_neu=&getLearnList((*MBE).What());
+        Abenteurer::move_element(*MyList,*MyList_neu,MBE);
+      }
     }
  return true;
 }
