@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.170 2002/02/13 15:45:46 thoma Exp $
+// $Id: midgard_CG.hh,v 1.171 2002/02/14 07:06:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -60,6 +60,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
 
         friend class midgard_CG_glade;
         friend class Wizard;
+        friend class Midgard_Info;
         Wizard wizard;
 
         Gtk::Menu *menu, *menu_gradanstieg;
@@ -140,6 +141,8 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
 
         void on_checkbutton_optionen_menu(st_Optionen O);
         void on_optionen_menu(st_OptionenM O);
+
+        bool modify_bool;
         bool kido_bool;
         int maxkido;
         bool magie_bool;
@@ -147,11 +150,11 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
 
         vector<cH_Typen> Typ;
         Lernpunkte lernpunkte;
-#ifdef USE_XML
-	std::string filename;
-#endif
+     
+     	  std::string filename;
    
         // Wizard
+        void on_button_close_wizard_clicked();
         void on_button_wizard_weiter_clicked();
         void on_button_wizard_wiederholen_clicked();
         void wizard_do_nothing();
@@ -533,6 +536,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          void steigern_aktivieren()
          {  frame_steigern->set_sensitive(true);
             on_radio_steigern_all();
+            modify_bool=false;
          }
 //         void on_speichern_clicked();
 };

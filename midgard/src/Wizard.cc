@@ -34,9 +34,7 @@ Wizard::Wizard(midgard_CG* h)
 
 void Wizard::next_step()
 {
-cout <<"Vor  "<<actual_step<<'\n';
   evaluate_step(++actual_step);
-cout <<"Nach "<< actual_step<<'\n';
 }
 void Wizard::same_step()
 {

@@ -76,8 +76,8 @@ int Sprache::MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ,cons
   if (w.In() < 61) return (18>maxwert ? maxwert : 18); 
 
   int ab= cH_Fertigkeit("Sprache")->MaxErfolgswert(w,Typ,ausnahmen);
-cout << "SPRACHE"<< ab<<'\n';
-  return (ab>maxwert ? maxwert : ab);
+  if(maxwert==20) return ab;
+  else return (ab>maxwert ? maxwert : ab);
 }
 
 

@@ -27,7 +27,7 @@ class midgard_CG;
 class Wizard
 {
    public:
-     enum esteps {SPEZIES,GRUNDWERTE,GESCHLECHT,TYP,STADTLAND,
+     enum esteps {START,SPEZIES,GRUNDWERTE,GESCHLECHT,TYP,STADTLAND,
                   ABGELEITETEWERTE,HERKUNFT,ANGEBORENEFERTIGKEITEN,
                   LERNPUNKTE,FERTIG,MAXSTEPS};
    private:

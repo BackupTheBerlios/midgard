@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.cc,v 1.65 2002/02/13 15:45:46 thoma Exp $
+// $Id: Midgard_Info.cc,v 1.66 2002/02/14 07:06:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,11 +25,6 @@
 void Midgard_Info::database_hide()
 {   
   frame_datenbank->hide();
-}
-
-void Midgard_Info::tux_clicked()
-{
-  midgard_CG::wizard_starten_clicked();
 }
 
 Midgard_Info::Midgard_Info()

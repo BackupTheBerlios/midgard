@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.hh,v 1.33 2002/02/13 15:45:46 thoma Exp $
+// $Id: Midgard_Info.hh,v 1.34 2002/02/14 07:06:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,6 +23,7 @@
 #include "glademm_support.hh"
 
 class cH_Region;
+class midgard_CG;
 
 #include <vector>
 
@@ -56,6 +57,5 @@ class Midgard_Info : public Midgard_Info_glade
         Gtk::ProgressBar *get_progressbar_spezial() const {return progressbar_spezial;}
         Gtk::ProgressBar *get_progressbar_preise() const {return progressbar_preise;}
         void database_hide();
-        void tux_clicked();
 };
 #endif

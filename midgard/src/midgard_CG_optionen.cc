@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.50 2002/02/13 11:21:00 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.51 2002/02/14 07:06:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -65,7 +65,7 @@ void midgard_CG::lernschema_sensitive(bool active)
    togglebutton_lernpunkte_edit->set_sensitive(true);
    button_geld_waffen->set_sensitive(true);
    button_ruestung->set_sensitive(true);   
-
+   button_angeborene_fert->show();
    
 
 //   hbox_beruf->set_sensitive(true);

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.155 2002/02/13 15:45:46 thoma Exp $
+// $Id: midgard_CG.cc,v 1.156 2002/02/14 07:06:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,7 +31,6 @@
 #include <time.h>
 #endif
 
-//midgard_CG::midgard_CG(int argc,char **argv)
 midgard_CG::midgard_CG(const string &datei)
 : InfoFenster(0), wizard(this),menu(0),menu_gradanstieg(0),
   haus_menuitem(0),Database(Midgard_Info)
@@ -48,6 +47,9 @@ midgard_CG::midgard_CG(const string &datei)
   on_neuer_charakter_clicked();
   set_tree_titles();
   if (!datei.empty()) xml_import(datei);
+
+//  notebook_main->set_page(PAGE_INFO);
+  wizard_starten_clicked();
 
   // für die NEWS
   Gtk::OStream os(list_news);
@@ -108,6 +110,10 @@ void midgard_CG::on_radiobutton_frau_toggled()
 { on_radiobutton_mann_toggled(); }
 void midgard_CG::on_radiobutton_mann_toggled()
 {
+  if(table_wizard->is_visible())
+   { radiobutton_mann->set_sensitive(false); 
+     radiobutton_frau->set_sensitive(false);
+   }
   std::string oldG=Werte.Geschlecht();
   if (radiobutton_mann->get_active()) Werte.setGeschlecht("m");
   else Werte.setGeschlecht("w");
@@ -217,7 +223,8 @@ void midgard_CG::on_button_info_clicked()
 {
 //  Midgard_Info *MI = manage(new Midgard_Info());
 //  MI->set_Regionen(Database.Regionen);  
- Midgard_Info->set_Regionen(Database.Regionen);
+// Midgard_Info->set_Regionen(Database.Regionen);
+  notebook_main->set_page(PAGE_INFO);
 }
 
 
@@ -287,6 +294,7 @@ void midgard_CG::clear_gtk()
 
 void midgard_CG::on_neuer_charakter_clicked()
 {
+   modify_bool=false;
    tree_gelerntes->clear();
    tree_lernschema->clear();
    label_lernschma_titel->set_text("");
@@ -328,6 +336,7 @@ void midgard_CG::on_neuer_charakter_clicked()
 
    vbox_berufsname->hide();
    button_kido_auswahl->set_sensitive(false);       
+   button_angeborene_fert->hide();
 
    Werte.clear();
    lernpunkte.clear();
@@ -364,6 +373,11 @@ void midgard_CG::on_neuer_charakter_clicked()
 
 void midgard_CG::on_schliessen_CG_clicked()
 {
+  if(modify_bool)
+   {
+     xml_export_auswahl();
+     return;
+   }
   system("rm midgard_tmp_*");
   Gtk::Main::instance()->quit();
 }

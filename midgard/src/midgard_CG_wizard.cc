@@ -25,14 +25,26 @@ void midgard_CG::wizard_do_nothing()
 void midgard_CG::wizard_do_something()
 {
   Wizard::esteps e=wizard.ActualStep();
-cout << e<<'\n';
   switch (e) {
+      case Wizard::SPEZIES : 
+         { optionmenu_spezies->set_sensitive(true);
+           break; }
       case Wizard::GRUNDWERTE : grundwerte_wuerfeln(); break;
+      case Wizard::GESCHLECHT : 
+         { radiobutton_mann->set_sensitive(true); 
+           radiobutton_frau->set_sensitive(true);
+           break; }
+      case Wizard::TYP : 
+         { typauswahl->set_sensitive(true);
+           break; }
+      case Wizard::STADTLAND : break;
       case Wizard::ABGELEITETEWERTE : on_abge_werte_setzen_clicked(); break;
       case Wizard::HERKUNFT : on_herkunftsland_clicked(); break;
       case Wizard::ANGEBORENEFERTIGKEITEN : on_angeborene_fertigkeit_clicked(); break;
       case Wizard::LERNPUNKTE : on_lernpunkte_wuerfeln_clicked(); break;
-      default: cout << "nicht automaitisch\n";break;
+      case Wizard::FERTIG : on_button_close_wizard_clicked(); break;
+      default: regnot("Kann nicht automatisch erfolgen, "
+               "bitte oben auswählen oder Standardwert akzeptieren\n");break;
    }
 }
 
@@ -50,6 +62,12 @@ void midgard_CG::on_button_wizard_weiter_clicked()
 void midgard_CG::wizard_starten_clicked()
 {
  table_wizard->show();
+ notebook_main->set_sensitive(false);
  wizard.restart();
 }
 
+void midgard_CG::on_button_close_wizard_clicked()
+{
+ table_wizard->hide();
+ notebook_main->set_sensitive(true);
+}

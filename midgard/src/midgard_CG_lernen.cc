@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.69 2002/02/12 14:57:00 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.70 2002/02/14 07:06:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -149,6 +149,7 @@ void midgard_CG::set_lernpunkte()
   gtk_spin_button_update(spinbutton_zauber->gtkobj());
   lernpunkte.setZauber(spinbutton_zauber->get_value_as_int());
   on_lernliste_wahl_toggled();
+  zeige_werte(Werte);
 }
 
                                         
@@ -160,6 +161,7 @@ void midgard_CG::zeige_lernpunkte()
  spinbutton_unge->set_value(lernpunkte.Unge());
  spinbutton_waffen->set_value(lernpunkte.Waffen());
  spinbutton_zauber->set_value(lernpunkte.Zauber());
+  zeige_werte(Werte);
 }
 
 
@@ -168,11 +170,7 @@ void midgard_CG::zeige_lernpunkte()
 void midgard_CG::on_button_geld_waffen_clicked()
 {   
   Werte.setGeld(0,0,0);
-#ifndef USE_XML  
-  on_speichern_clicked();
-#else
-   steigern_aktivieren();
-#endif
+  steigern_aktivieren();
   manage(new Window_Waffe_Geld(this,Werte,Typ,Database,list_Waffen));
 }
 
@@ -232,6 +230,7 @@ void midgard_CG::on_button_ruestung_clicked()
   std::string strinfo ="Beim Auswürfeln der Rüstung wurde eine\n"+itos(wurf)+" gewürfelt\n";
   strinfo += "---> " + Werte.Ruestung()->Long();
   InfoFenster->AppendShow(strinfo);
+  zeige_werte(Werte);
 }
 
 
@@ -277,11 +276,9 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
          { 
            if(togglebutton_spezialwaffe->get_active())
             {
-             if(cH_Waffe(Werte.Spezialisierung(),true)->ist_gelernt(list_Waffen))
-                cH_Waffe(Werte.Spezialisierung())->add_Erfolgswert(-2);
-cout << MBE->Name()<<' '<<MBE->Erfolgswert()<<'\n';
-             MBE->add_Erfolgswert(2);
-cout << MBE->Name()<<' '<<MBE->Erfolgswert()<<'\n';
+//             if(cH_Waffe(Werte.Spezialisierung(),true)->ist_gelernt(list_Waffen))
+//                cH_Waffe(Werte.Spezialisierung())->add_Erfolgswert(-2);
+//             MBE->add_Erfolgswert(2);
              Werte.setSpezialisierung(MBE->Name());
             }
            else
@@ -348,6 +345,7 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
 
 void midgard_CG::show_gelerntes()
 {
+  modify_bool=true; // Zum Abspeichern
   show_sinne();
   zeige_lernpunkte();
   
@@ -355,6 +353,7 @@ void midgard_CG::show_gelerntes()
   std::list<std::list<cH_MidgardBasicElement> > LL;
   LL.push_back(list_Fertigkeit_ang);
   LL.push_back(list_Fertigkeit);
+  Waffe::setSpezialWaffe(Werte.Spezialisierung(),list_Waffen);
   LL.push_back(list_Waffen);
   LL.push_back(list_Zauber);
   LL.push_back(list_Zauberwerk);
@@ -369,18 +368,6 @@ void midgard_CG::show_gelerntes()
     for (std::list<cH_MidgardBasicElement>::const_iterator j=i->begin();j!=i->end();++j)
       FL.push_back(*j);
   MidgardBasicElement::show_list_in_tree(FL,tree_gelerntes,Werte,Typ,Database.ausnahmen);
-/*
-  MidgardBasicElement::show_list_in_tree(list_Fertigkeit_ang,tree_gelerntes,Werte,Typ,Database.ausnahmen,false);
-  MidgardBasicElement::show_list_in_tree(list_Fertigkeit,tree_gelerntes,Werte,Typ,Database.ausnahmen,false);
-  MidgardBasicElement::show_list_in_tree(list_Waffen,tree_gelerntes,Werte,Typ,Database.ausnahmen,false);
-  MidgardBasicElement::show_list_in_tree(list_Zauber,tree_gelerntes,Werte,Typ,Database.ausnahmen,false);
-  MidgardBasicElement::show_list_in_tree(list_Zauberwerk,tree_gelerntes,Werte,Typ,Database.ausnahmen,false);
-  MidgardBasicElement::show_list_in_tree(list_Kido,tree_gelerntes,Werte,Typ,Database.ausnahmen,false);
-  MidgardBasicElement::show_list_in_tree(list_WaffenGrund,tree_gelerntes,Werte,Typ,Database.ausnahmen,false);
-  MidgardBasicElement::show_list_in_tree(list_Sprache,tree_gelerntes,Werte,Typ,Database.ausnahmen,false);
-  MidgardBasicElement::show_list_in_tree(list_Schrift,tree_gelerntes,Werte,Typ,Database.ausnahmen,false);
-  MidgardBasicElement::show_list_in_tree(list_Beruf,tree_gelerntes,Werte,Typ,Database.ausnahmen,false);
-*/
   tree_gelerntes->Expand_recursively();
 }
 
@@ -471,6 +458,11 @@ void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std
              if ((*i)->ist_gelernt(list_Waffen)) continue ;
              if (!cH_Waffe(*i)->SG_Voraussetzung(Werte)) continue ;
              I= Lernschema::st_index(Typ[0]->Short(),"Waffenfertigkeiten",(*i)->Name());
+//cout << "Spezial "<<Werte.Spezialisierung()<<' '<<(*i)->Name()
+//<<' '<<(*i)->Erfolgswert()<<'\t';
+//             if(Werte.Spezialisierung()==(*i)->Name()) 
+//                  (*i)->add_Erfolgswert(2);
+//cout <<' '<<(*i)->Erfolgswert()<<'\n';
            }
           else if(what==MidgardBasicElement::ZAUBER)
            {

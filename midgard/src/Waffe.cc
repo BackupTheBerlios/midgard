@@ -326,6 +326,22 @@ std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
    return Vwaffewert;
 }
 
+
+
+void Waffe::setSpezialWaffe(const std::string& name,const std::list<cH_MidgardBasicElement>& list_Waffen_gelernt)
+{
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Waffen_gelernt.begin();i!=list_Waffen_gelernt.end();++i)
+   {
+    if(name==(*i)->Name()) 
+      { 
+        (*i)->add_Erfolgswert(2);
+        break;
+      }
+   }
+}
+
+
+
 Waffe_All::Waffe_All(Gtk::ProgressBar *progressbar)
 {
  const Tag *waffen=xml_data->find("Waffen");

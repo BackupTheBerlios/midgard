@@ -101,7 +101,7 @@ class Waffe : public MidgardBasicElement
          const std::list<cH_MidgardBasicElement>& list_Waffen_besitz,
          const vector<cH_Typen>& Typ,
          const Grundwerte& Werte);
-
+     static void setSpezialWaffe(const std::string& name,const std::list<cH_MidgardBasicElement>& list_Waffen_gelernt);
 };
 
 class cH_Waffe : public Handle<const Waffe>

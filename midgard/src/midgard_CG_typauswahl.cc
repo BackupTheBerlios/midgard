@@ -52,6 +52,7 @@ void midgard_CG::fill_typauswahl_fill(int typ_1_2)
 
 void midgard_CG::typauswahl_button()
 {
+ if(table_wizard->is_visible()) typauswahl->set_sensitive(false) ; 
  cH_Typen ptr = static_cast<Typen*>(typauswahl->get_menu()->get_active()->get_user_data());
  Typ[0]=ptr;
  clear_listen();
@@ -113,6 +114,7 @@ void midgard_CG::fill_spezies()
 
 void midgard_CG::spezieswahl_button()
 {
+ if(table_wizard->is_visible()) optionmenu_spezies->set_sensitive(false) ; 
  cH_Spezies ptr = static_cast<Spezies*>(optionmenu_spezies->get_menu()->get_active()->get_user_data());
  Werte.setSpezies(ptr);
 

@@ -174,7 +174,7 @@ cout << (*MBE)->Name()<<'\t'<<womit<<'\n';
   if (bzep) {ep += zep;sw +=",ZEP";}
   if (ep_k > ep) 
       { regnot("Zu wenig EP um zu steigern,\n es fehlen "+itos(ep_k-ep)+" Erfahrungspunkte (AEP"+sw+")."); 
-cout << "Zu wenig EP\n";
+//cout << "Zu wenig EP\n";
         return false;
       }
 
