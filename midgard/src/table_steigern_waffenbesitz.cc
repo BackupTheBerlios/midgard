@@ -19,7 +19,7 @@
 #include "midgard_CG.hh"
 #include "table_steigern.hh"
 #include <Gtk_OStream.h>
-#include <Aux/itos.h>
+#include <Misc/itos.h>
 #include "Data_waffenbesitz.hh"
 
 void table_steigern::on_leaf_waffenbesitz_selected_alt(cH_RowDataBase d)

@@ -20,7 +20,7 @@
 #include "KiDo.hh"
 #include <cstring>
 #include <Gtk_OStream.h>
-#include <Aux/itos.h>
+#include <Misc/itos.h>
 #include "ProgressBar.h"
 
 KiDo_Stile::KiDo_Stile()

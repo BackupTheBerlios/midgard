@@ -10,7 +10,7 @@
 #include "midgard_CG.hh"
 #include "class_SimpleTree.hh"
 #include "Fertigkeiten.hh"
-#include <Aux/itos.h>
+#include <Misc/itos.h>
 #include "WaffeGrund.hh"
 #include <SelectMatching.h>
 #include "KiDo.hh"

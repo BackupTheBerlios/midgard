@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.9 2002/06/19 07:53:37 thoma Exp $   
+// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.10 2002/06/24 10:51:30 christof Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -21,7 +21,7 @@
 #include "LaTeX_drucken.hh"
 #include "midgard_CG.hh"
 #include "dtos1.h"
-#include <Aux/itos.h>
+#include <Misc/itos.h>
 
 void LaTeX_drucken::Spielleiterbogen()
 {

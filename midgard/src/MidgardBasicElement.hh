@@ -18,8 +18,8 @@
 
 #ifndef MIDGARDBASICELEMENT
 #define MIDGARDBASICELEMENT
-#include <Aux/Handles.h>
-#include <Aux/CacheStatic.h>
+#include <Misc/Handles.h>
+#include <Misc/CacheStatic.h>
 #include <string>
 #include <vector>
 #include <list>

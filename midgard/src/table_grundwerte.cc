@@ -8,7 +8,7 @@
 #include "config.h"
 #include "table_grundwerte.hh"
 #include "midgard_CG.hh"
-#include <Aux/itos.h>
+#include <Misc/itos.h>
 #include <SelectMatching.h>
 
 void table_grundwerte::init(midgard_CG *h)

@@ -16,7 +16,7 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#include <Aux/EntryValueIntString.h>
+#include <Misc/EntryValueIntString.h>
 #include <rowdata.h>
 class Beruf_Data : public RowDataBase
 {

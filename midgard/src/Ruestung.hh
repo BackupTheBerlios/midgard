@@ -1,4 +1,4 @@
-// $Id: Ruestung.hh,v 1.11 2002/05/24 14:06:52 thoma Exp $               
+// $Id: Ruestung.hh,v 1.12 2002/06/24 10:51:30 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,8 +19,8 @@
 
 #ifndef RUESTUNGCLASS
 #define RUESTUNGCLASS
-#include <Aux/Handles.h>
-#include <Aux/CacheStatic.h>
+#include <Misc/Handles.h>
+#include <Misc/CacheStatic.h>
 #include <vector>
 #include <string>
 #include <gtk--/progressbar.h>

@@ -20,7 +20,7 @@
 #include <fstream>
 #include "Waffe.hh"
 #include "xml_fileselection.hh"
-#include <Aux/itos.h>
+#include <Misc/itos.h>
 
 
 gint midgard_CG::on_speichern_release_event(GdkEventButton *ev)

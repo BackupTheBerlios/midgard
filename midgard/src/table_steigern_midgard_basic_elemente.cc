@@ -21,7 +21,7 @@
 #include "class_SimpleTree.hh"
 #include "Fertigkeiten.hh"
 #include "Zauber.hh"
-#include <Aux/itos.h>
+#include <Misc/itos.h>
 
 bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
 {

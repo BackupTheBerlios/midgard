@@ -22,7 +22,7 @@
 #include "Waffe.hh"
 #include <fstream>
 #include "Zauber.hh"
-#include <Aux/itos.h>
+#include <Misc/itos.h>
 #include "xml_fileselection.hh"
 
 #ifdef __MINGW32__

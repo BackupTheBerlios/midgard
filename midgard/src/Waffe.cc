@@ -21,7 +21,7 @@
 #include "midgard_CG.hh"
 #include "Typen.hh"
 #include "ProgressBar.h"
-#include <Aux/itos.h>
+#include <Misc/itos.h>
 
 cH_Waffe::cache_t cH_Waffe::cache;
 

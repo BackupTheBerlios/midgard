@@ -29,7 +29,7 @@
 #include "Schrift.hh"
 #include "class_SimpleTree.hh"
 #include "SimpleTree.hh"
-#include <Aux/itos.h>
+#include <Misc/itos.h>
 #include "export_common.h"
 #include "xml.h"
 #include "Datenbank.hh"

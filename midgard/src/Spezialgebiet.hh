@@ -1,4 +1,4 @@
-// $Id: Spezialgebiet.hh,v 1.8 2002/04/06 07:01:58 thoma Exp $               
+// $Id: Spezialgebiet.hh,v 1.9 2002/06/24 10:51:30 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -22,8 +22,8 @@
 #define CLASS_SPEZ_
 
 #include<string>
-#include <Aux/Handles.h>
-#include <Aux/CacheStatic.h>
+#include <Misc/Handles.h>
+#include <Misc/CacheStatic.h>
 #include <vector>
 #include <string>
 #include <gtk--/progressbar.h>

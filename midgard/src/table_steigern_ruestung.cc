@@ -19,7 +19,7 @@
 #include "midgard_CG.hh"
 #include "table_steigern.hh"
 #include <Gtk_OStream.h>
-#include <Aux/itos.h>
+#include <Misc/itos.h>
 
 void table_steigern::on_button_ruestung_1_toggled()
 {

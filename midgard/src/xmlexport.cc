@@ -1,4 +1,4 @@
-// $Id: xmlexport.cc,v 1.9 2002/01/29 10:45:28 thoma Exp $
+// $Id: xmlexport.cc,v 1.10 2002/06/24 10:51:30 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -18,11 +18,11 @@
  */
 
 #include <string>
-#include <Aux/FetchIStream.h>
+#include <Misc/FetchIStream.h>
 #include <iostream>
 #include <fstream>
-#include <Aux/Transaction.h>
-#include <Aux/dbconnect.h>
+#include <Misc/Transaction.h>
+#include <Misc/dbconnect.h>
 #include "../xml/export_common.h"
 #include <list>
 

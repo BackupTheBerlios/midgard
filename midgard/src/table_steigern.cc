@@ -7,7 +7,7 @@
 
 #include "config.h"
 #include "table_steigern.hh"
-#include <Aux/itos.h>
+#include <Misc/itos.h>
 #include "Fertigkeiten.hh"
 #include "midgard_CG.hh"
 #include "dtos1.h"

@@ -17,8 +17,8 @@
  */
 
 #include "class_SimpleTree.hh"
-#include <Aux/EntryValueEmptyInt.h>
-#include <Aux/EntryValueIntString.h>
+#include <Misc/EntryValueEmptyInt.h>
+#include <Misc/EntryValueIntString.h>
 #include <MidgardBasicTree.hh>
 #include <Sprache.hh>
 #include <Fertigkeiten.hh>

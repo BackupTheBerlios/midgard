@@ -1,4 +1,4 @@
-// $Id: Data_waffenbesitz.hh,v 1.5 2002/06/12 13:12:42 thoma Exp $
+// $Id: Data_waffenbesitz.hh,v 1.7 2002/06/24 10:51:30 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,7 +22,7 @@
 
 //#include <list>
 //#include <string>
-#include <Aux/EntryValueIntString.h>
+#include <Misc/EntryValueIntString.h>
 #include <Waffe.hh>
 
 #include "MidgardBasicElement.hh"
@@ -42,7 +42,9 @@ class Data_waffenbesitz :  public RowDataBase
           switch(seqnr) {
             case NAME_A : return cH_EntryValueIntString(waffe.AliasName());
             case SCHADEN_A : return cH_EntryValueIntString(waffe.Schaden(hauptfenster->getCWerte(),waffe->Name()));
-            case REGION : return cH_EntryValueIntString(Regionen_All::getRegionfromAbk(hauptfenster->getCDatabase().Regionen,waffe.Region()));
+            case REGION : return cH_EntryValueIntString(Regionen_All::
+               getRegionfromAbk(hauptfenster->getCDatabase().Regionen,
+               waffe.Waffe()->Region(waffe.AliasName()))->Name());
             case MAGBONUS : return cH_EntryValueIntString(waffe.Bonus());
             case MAGTEXT : return cH_EntryValueIntString(waffe.Magisch());
            }

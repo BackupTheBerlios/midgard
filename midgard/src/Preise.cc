@@ -19,7 +19,7 @@
 #include "MidgardBasicElement.hh" // nur für NotFound
 #include "Preise.hh"
 #include "ProgressBar.h"
-#include <Aux/itos.h>
+#include <Misc/itos.h>
 
 bool operator!=(const cH_Preise &a, const string &b)
 {  return a->Name()!=b; }

@@ -20,7 +20,7 @@
 #include "Grad_anstieg.hh"
 #include "xml.h"
 #include "ProgressBar.h"
-#include <Aux/itos.h>
+#include <Misc/itos.h>
 
 Grad_anstieg::Grad_anstieg(Gtk::ProgressBar *progressbar)
 //: steigern_EP_prozent(50), grad_basiswerte(1)

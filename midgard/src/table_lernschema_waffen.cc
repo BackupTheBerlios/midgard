@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.8 2002/06/12 18:06:12 thoma Exp $
+// $Id: table_lernschema_waffen.cc,v 1.9 2002/06/24 10:51:30 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -22,7 +22,7 @@
 //#include "Fertigkeiten.hh"
 //#include "class_Beruf_Data.hh"
 //#include "Beruf.hh"
-#include <Aux/itos.h>
+#include <Misc/itos.h>
 //#include "Window_Waffenbesitz.hh"
 #include "class_SimpleTree.hh"
 #include "midgard_CG.hh"

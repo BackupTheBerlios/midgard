@@ -21,9 +21,9 @@
 #include "midgard_CG.hh"
 //#include "WindowInfo.hh"
 #include <Gtk_OStream.h>
-#include <Aux/EntryValueIntString.h>
+#include <Misc/EntryValueIntString.h>
 #include <fstream>
-#include <Aux/itos.h>
+#include <Misc/itos.h>
 #include "dtos1.h"
 
 class Data_Preis : public RowDataBase

@@ -1,4 +1,4 @@
-// $Id: Land.hh,v 1.13 2002/01/26 09:17:41 christof Exp $               
+// $Id: Land.hh,v 1.14 2002/06/24 10:51:30 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,8 +19,8 @@
 
 #ifndef LANDCLASS
 #define LANDCLASS
-#include <Aux/Handles.h>
-#include <Aux/CacheStatic.h>
+#include <Misc/Handles.h>
+#include <Misc/CacheStatic.h>
 #include <vector>
 #include <string>
 #include <gtk--/progressbar.h>

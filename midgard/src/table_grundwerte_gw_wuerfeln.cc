@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.9 2002/06/14 07:14:08 thoma Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.10 2002/06/24 10:51:30 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,7 +22,7 @@
 #include <strstream>
 #include <algorithm>
 #include <gtk--/label.h>
-#include <Aux/itos.h>
+#include <Misc/itos.h>
 #include <SelectMatching.h>
 
 

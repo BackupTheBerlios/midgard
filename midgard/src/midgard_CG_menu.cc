@@ -20,7 +20,7 @@
 #include <gtk--/box.h>
 #include <gtk--/pixmap.h>
 #include "../pixmaps/midgard_logo_tiny.xpm"
-#include <Aux/itos.h>
+#include <Misc/itos.h>
 
 void midgard_CG::menu_init()
 {

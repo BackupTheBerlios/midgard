@@ -17,7 +17,7 @@
  */
 
 #include "midgard_CG.hh"
-#include <Aux/itos.h>
+#include <Misc/itos.h>
 
 #include "TagStream.hh"
 #include "WindowInfo.hh"

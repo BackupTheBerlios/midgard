@@ -1,4 +1,4 @@
-// $Id: Spezies.hh,v 1.14 2002/06/07 12:17:04 thoma Exp $               
+// $Id: Spezies.hh,v 1.15 2002/06/24 10:51:30 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,8 +22,8 @@
 
 #include <gtk--/progressbar.h>
 #include <vector>
-#include <Aux/Handles.h>
-#include <Aux/CacheStatic.h>
+#include <Misc/Handles.h>
+#include <Misc/CacheStatic.h>
 #include <string>
 #include "xml.h"
 #include <list>

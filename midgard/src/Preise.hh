@@ -1,4 +1,4 @@
-// $Id: Preise.hh,v 1.16 2002/04/06 07:01:58 thoma Exp $
+// $Id: Preise.hh,v 1.17 2002/06/24 10:51:30 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,8 +20,8 @@
 #ifndef PREISECLASS
 #define PREISECLASS
 #include <gtk--/progressbar.h>
-#include <Aux/Handles.h>
-#include <Aux/CacheStatic.h>
+#include <Misc/Handles.h>
+#include <Misc/CacheStatic.h>
 #include<string>
 #include<vector>
 #include<list>

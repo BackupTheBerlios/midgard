@@ -1,4 +1,4 @@
-// $Id: table_lernschema_beruf.cc,v 1.5 2002/06/08 06:35:03 thoma Exp $
+// $Id: table_lernschema_beruf.cc,v 1.6 2002/06/24 10:51:30 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,7 +23,7 @@
 #include "Fertigkeiten.hh"
 #include "class_Beruf_Data.hh"
 #include "Beruf.hh"
-#include <Aux/itos.h>
+#include <Misc/itos.h>
 #include "midgard_CG.hh"
 
 gint table_lernschema::on_button_beruf_release_event(GdkEventButton *ev)

@@ -21,7 +21,7 @@
 #include "class_SimpleTree.hh"
 #include "Zauber.hh"
 #include "Zauberwerk.hh"
-#include <Aux/itos.h>
+#include <Misc/itos.h>
 
 void table_steigern::on_zauber_laden_clicked()
 {   

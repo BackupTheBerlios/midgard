@@ -1,4 +1,4 @@
-// $Id: table_lernschema_fertigkeiten.cc,v 1.6 2002/06/20 19:06:18 thoma Exp $
+// $Id: table_lernschema_fertigkeiten.cc,v 1.7 2002/06/24 10:51:30 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,7 +23,7 @@
 //#include "Window_angeb_fert.hh"
 #include "Fertigkeiten.hh"
 #include "Fertigkeiten_angeboren.hh"
-#include <Aux/itos.h>
+#include <Misc/itos.h>
 #include "class_SimpleTree.hh"
 #include "midgard_CG.hh"
 

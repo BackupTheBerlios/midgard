@@ -20,7 +20,7 @@
 #include "table_steigern.hh"
 //#include "Window_Erfahrungspunkte.hh"
 #include <gtk--/adjustment.h>
-#include <Aux/itos.h>
+#include <Misc/itos.h>
 
 gint table_steigern::vscale_value_changed(GdkEventButton *ev)
 {

@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.44 2002/06/14 19:54:42 thoma Exp $
+// $Id: WindowInfo.cc,v 1.45 2002/06/24 10:51:30 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,7 +34,7 @@
 #include <gtk--/table.h>   
 #include <gtk--/label.h>
 #include <gtk--/box.h>
-#include <Aux/itos.h>
+#include <Misc/itos.h>
 
 void WindowInfo::on_button_abbrechen_clicked()
 {   

@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.32 2002/06/17 07:19:45 thoma Exp $               
+// $Id: Grundwerte.cc,v 1.33 2002/06/24 10:51:30 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,7 +18,7 @@
  */
 
 #include "Grundwerte.hh"
-#include <Aux/itos.h>
+#include <Misc/itos.h>
 #include "Sinne.hh"
 #include "Fertigkeiten.hh"
 

@@ -1,4 +1,4 @@
-// $Id: Midgard_Undo.hh,v 1.2 2002/04/18 17:51:07 thoma Exp $
+// $Id: Midgard_Undo.hh,v 1.3 2002/06/24 10:51:30 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -47,7 +47,7 @@ class Midgard_Undo
     std::string get(unsigned int c);
 };
 
-#include <Aux/EntryValueIntString.h>   
+#include <Misc/EntryValueIntString.h>   
 #include <rowdata.h>
 
 class Data_Undo : public RowDataBase

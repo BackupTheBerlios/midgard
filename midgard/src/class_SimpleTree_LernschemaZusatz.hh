@@ -21,7 +21,7 @@
 
 #include <rowdata.h>   
 #include "Land.hh"
-#include <Aux/EntryValueIntString.h>
+#include <Misc/EntryValueIntString.h>
 #include "MidgardBasicElement.hh"
 
 class Data_Herkunft : public RowDataBase

@@ -18,7 +18,7 @@
 
 #include "midgard_CG.hh"
 #include "table_steigern.hh"
-#include <Aux/itos.h>
+#include <Misc/itos.h>
 
 void table_steigern::on_button_gfp_s_toggled()
 {
