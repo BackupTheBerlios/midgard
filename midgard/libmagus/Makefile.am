@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.43 2004/03/31 07:00:08 christof Exp $
+# $Id: Makefile.am,v 1.44 2004/03/31 07:16:08 christof Exp $
 
 if WINDOWS
 PORT_FILES=registry.cc TeX.cc
@@ -13,7 +13,7 @@ endif
 libmagus_res.lo: libmagus.rc
 	WINDRES=i586-mingw32msvc-windres $(top_srcdir)/../ManuProC_Base/build/win32/lt-compile-resource $< $@
 
-AM_CPPFLAGS = @COMMONXX_INCLUDES@ $(WIN_INCLUDES) -I.. \
+AM_CPPFLAGS = @COMMONXX_INCLUDES@ $(WIN_INCLUDES) -I. -I.. \
 	@XMLPP_CFLAGS@ @COMMONGTK2_INCLUDES@ -Dlibmagus_COMPILATION
 
 AM_LDFLAGS = @COMMONXX_LDFLAGS@ @COMMONGTK2_LDFLAGS@ $(WIN_LDFLAGS)
