@@ -36,7 +36,6 @@ void frame_globale_optionen::init()
    i->active.changed.connect(SigC::bind(SigC::slot(this,&frame_globale_optionen::element_activate_C),i->index));
    Gtk::Table *t=manage(new Gtk::Table(0,0,false));
    t->attach(*cb,0,1,0,1,GTK_FILL,0,0,0);
-
    if(i->wert!=hauptfenster->NOPAGE) 
     {
       int min=hauptfenster->PAGE_INFO;
@@ -96,7 +95,6 @@ void frame_globale_optionen::element_activate_C(gpointer gp,Midgard_Optionen::Op
    {
     if(hauptfenster->getOptionen()->OptionenCheck(index).active)
        hauptfenster->getOptionen()->setAllHausregeln(false);
-//    init();
    }
 }
 
