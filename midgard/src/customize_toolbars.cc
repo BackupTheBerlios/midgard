@@ -1,4 +1,4 @@
-// $Id: customize_toolbars.cc,v 1.31 2003/11/25 10:53:12 christof Exp $
+// $Id: customize_toolbars.cc,v 1.32 2003/12/08 07:50:14 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -86,7 +86,7 @@ static void CustomizeButton(Gtk::Widget *w, bool show_icons, bool show_text)
 }
 
 void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text, bool tab_text)
-{  // std::cout << '+' << typeid(*w).name() << '-' << w->get_name() << '\n';
+{  if (getenv("TRACE")) std::cout << '+' << typeid(*w).name() << '-' << w->get_name() << '\n';
    if (!show_icons && !show_text) show_text=true;
    if (!show_icons && !tab_text) tab_text=true;
    if (dynamic_cast<ManuProC::ChoiceButton*>(w))
@@ -97,13 +97,15 @@ void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text, boo
    }
    else if (dynamic_cast<Gtk::Toolbar*>(w))
    {  Gtk::Toolbar *tb=dynamic_cast<Gtk::Toolbar*>(w);
-      tb->set_toolbar_style(show_icons ? (show_text?Gtk::TOOLBAR_BOTH:Gtk::TOOLBAR_ICONS)
+      tb->set_toolbar_style(show_icons 
+                ?(show_text?Gtk::TOOLBAR_BOTH:Gtk::TOOLBAR_ICONS)
       		:Gtk::TOOLBAR_TEXT);
       for (Gtk::Toolbar_Helpers::ToolList::iterator i=tb->tools().begin();i!=tb->tools().end();++i)
       {  if (i->get_type()==TOOLBAR_CHILD_WIDGET)
          {  CustomizeToolbars(i->get_widget(),show_icons,show_text,tab_text);
          }
-         else std::cout << "skipping tb child " 
+         else if (getenv("TRACE"))
+            std::cout << "skipping tb child " 
          	<< (i->get_widget()?i->get_widget()->get_name():"<NULL>")
          	<< ' ' << i->get_type() << '\n';
       }
@@ -139,10 +141,11 @@ void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text, boo
    }
    else if (dynamic_cast<Gtk::Container*>(w))
    {  // und nun ?
-      std::cout << typeid(*w).name() << '\n';
+      if (getenv("TRACE")) std::cout << typeid(*w).name() << '\n';
    }
 }
 
+#if 0
 // bail out once a widget is hidden
 
 bool Gtk::rec_hide(Gtk::Widget *w)
@@ -183,3 +186,4 @@ bool Gtk::rec_hide(Gtk::Widget *w)
    w->hide();
    return true;
 }
+#endif

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.344 2003/11/28 13:48:42 christof Exp $
+// $Id: midgard_CG.hh,v 1.345 2003/12/08 07:50:14 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,6 +29,7 @@
 #include <TreeViewUtility.h>
 #include <libmagus/AbenteurerAuswahl.h>
 #include <Misc/compiler_ports.h>
+#include <TooltipView.h>
 class WindowInfo;
 
 class midgard_CG : public midgard_CG_glade
@@ -48,6 +49,7 @@ private:
 
 	WindowInfo *InfoFenster;
         SigC::Connection connection_status;
+        TooltipViewList toolview;
 
 /////////////////////////////////////////////////////////////////////////////
         // Drucken

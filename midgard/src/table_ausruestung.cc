@@ -30,38 +30,34 @@ void table_ausruestung::init(midgard_CG *h)
 {
    besitz=0;
    hauptfenster=h;
+  hauptfenster->getChar().signal_anderer_abenteurer().connect(SigC::slot(*this,&table_ausruestung::refresh));
+  hauptfenster->getChar().proxies.undo_changed.connect(SigC::slot(*this,&table_ausruestung::refresh));
 }
 
 void table_ausruestung::refresh()
 {  zeige_werte();
-   ausruestung_laden();
-   table_gruppe->hide();
-   table_artikel->hide();      
-   togglebutton_artikel_neu->set_active(false);
-   togglebutton_gruppe_neu->set_active(false); 
+   showAusruestung();
 //   togglebutton_gruppe_neu->hide();//
    label_normallast->set_text(itos(hauptfenster->getAben().getNormallast())+" kg");
    label_hoechstlast->set_text(itos(hauptfenster->getAben().getHoechstlast())+" kg");
    label_schublast->set_text(itos(hauptfenster->getAben().getSchublast())+" kg");
+   // wenn sich die Regionen geändert haben ...
    fill_new_preise();
-   fill_all_Combos_Art_Einheit_Region();
-   fill_all_Combo_Art2();
 }
    
-   
+#if 0   
 void table_ausruestung::ausruestung_laden()
 {
-  sichtbarConnection=checkbutton_sichtbar->signal_toggled().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_checkbutton_sichtbar_toggled));
   showAusruestung();
 }
-
+#endif
 
 void table_ausruestung::showAusruestung()
 {
-  hauptfenster->getAben().setStandardAusruestung();
+//  hauptfenster->getAben().setStandardAusruestung();
 
   besitz=0;
-  std::vector<std::string> title;
+//  std::vector<std::string> title;
 
 #if 0
   Ausruestung_tree->signal_drag_data_received().connect(SigC::slot(*this,&table_ausruestung::tree_drag_data_received));
@@ -71,6 +67,7 @@ void table_ausruestung::showAusruestung()
 #endif         
   
 //  Gtk::TreeModelIterator r;
+  m_refStore->clear();
   AusruestungBaum &be=hauptfenster->getAben().getBesitz();
   for(AusruestungBaum::const_iterator i=be.begin();i!=be.end();++i)
    { Gtk::TreeModel::iterator iter = m_refStore->append();
@@ -366,7 +363,7 @@ void table_ausruestung::save_new_arikel()
 //  Datenbank.preise.push_back(cH_Preise(name));
   fill_new_preise();
   }catch(std::exception &e) {Ausgabe(Ausgabe::Error,e.what());}
-  ausruestung_laden();
+  showAusruestung();
 // table_artikel->hide();
 }
 

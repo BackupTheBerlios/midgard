@@ -154,7 +154,7 @@ void table_grundwerte::fill_spezies()
 {
  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   std::vector<std::string> L;
-  bool nsc_allowed = hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active;
+  bool nsc_allowed = hauptfenster?bool(hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active):false;
   std::vector<cH_Spezies>V=LernListen().getSpezies(nsc_allowed);
   for(std::vector<cH_Spezies>::const_iterator i=V.begin();i!=V.end();++i)
    {

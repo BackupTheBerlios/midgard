@@ -19,6 +19,7 @@ void table_grundwerte::init(midgard_CG *h)
   abentaus=&h->getChar();
 
   abentaus->signal_anderer_abenteurer().connect(SigC::bind(SigC::slot(*this,&table_grundwerte::zeige_werte),true));
+  abentaus->proxies.undo_changed.connect(SigC::bind(SigC::slot(*this,&table_grundwerte::zeige_werte),true));
 //  zeige_werte(); // noch weg
 }
 
@@ -58,7 +59,7 @@ void table_grundwerte::zeige_werte(bool typ2_hide)
    if(!hauptfenster) return;
    block_changed=true;
   fill_typauswahl();
-//   fill_spezies(); // sobald Mann/Frau interessant wird
+   fill_spezies(); // sobald Mann/Frau interessant wird
    midgard_check_werte100();
    
    Abenteurer &A=abentaus->getAbenteurer();

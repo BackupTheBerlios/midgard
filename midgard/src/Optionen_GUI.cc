@@ -1,4 +1,4 @@
-// $Id: Optionen_GUI.cc,v 1.6 2003/09/18 07:32:12 christof Exp $
+// $Id: Optionen_GUI.cc,v 1.7 2003/12/08 07:50:14 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -116,6 +116,10 @@ void midgard_CG::Ober_setzen_from_menu(gpointer x,Magus_Optionen::OberIndex inde
         	|| index==Magus_Optionen::Customize_Tab)
          {
            Gtk::CustomizeToolbars(notebook_main,
+                     Programmoptionen.OberCheck(Magus_Optionen::Customize_Icons).active,
+                     Programmoptionen.OberCheck(Magus_Optionen::Customize_Text).active,
+                     Programmoptionen.OberCheck(Magus_Optionen::Customize_Tab).active);
+           Gtk::CustomizeToolbars(toolbar_top,
                      Programmoptionen.OberCheck(Magus_Optionen::Customize_Icons).active,
                      Programmoptionen.OberCheck(Magus_Optionen::Customize_Text).active,
                      Programmoptionen.OberCheck(Magus_Optionen::Customize_Tab).active);

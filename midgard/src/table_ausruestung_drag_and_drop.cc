@@ -41,8 +41,8 @@ const GtkTargetEntry table_ausruestung::target_table[4] = {
 #endif
 
 table_ausruestung::table_ausruestung(GlademmData *_data)
-: table_ausruestung_glade(_data) , hauptfenster(0), besitz(0),
-	Ausruestung_tree(0)
+: table_ausruestung_glade(_data) , hauptfenster(), besitz(),
+	Ausruestung_tree()
 {
 //  target_table=tt;
 //  n_targets = sizeof(target_table) / sizeof(target_table[0]);
@@ -85,6 +85,14 @@ table_ausruestung::table_ausruestung(GlademmData *_data)
   Ausruestung_tree->append_column("Region",m_columns.region);
   Ausruestung_tree->show(); 
   scrolledwindow_ausruestung->add(*Ausruestung_tree);
+   table_gruppe->hide();
+   table_artikel->hide();      
+   togglebutton_artikel_neu->set_active(false);
+   togglebutton_gruppe_neu->set_active(false); 
+//   fill_new_preise();
+   fill_all_Combos_Art_Einheit_Region();
+   fill_all_Combo_Art2();
+  sichtbarConnection=checkbutton_sichtbar->signal_toggled().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_checkbutton_sichtbar_toggled));
 }
 
 #if 0

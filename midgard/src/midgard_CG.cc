@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.326 2003/12/02 07:44:40 christof Exp $
+// $Id: midgard_CG.cc,v 1.327 2003/12/08 07:50:14 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -53,7 +53,7 @@ static void ImageLabelKnopf(Gtk::Button *b, Glib::RefPtr<Gdk::Pixbuf> pb, const 
 
 midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
 : news_columns(), undo_menu(),menu_kontext(),schummeln(),
-	InfoFenster(info)
+	InfoFenster(info), toolview(_tooltips)
 { news_columns.attach_to(*list_news);
 
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
@@ -79,8 +79,9 @@ midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
 // Statusbar MVC
   bool_ImageButton *wuerfelt_butt = new bool_ImageButton(aktiver.proxies.werte_eingeben,
   	MagusImage("hand_roll.png"),MagusImage("auto_roll.png"));
-//  wuerfelt_butt->set_tooltips("Werte werden ausgewürfelt. (Hier klicken zum eingeben)",
-//  		"Werte werden eingegeben. (Hier klicken zum auswürfeln)");
+  toolview.Associate(*wuerfelt_butt,aktiver.proxies.werte_eingeben,
+  		"Werte werden ausgewürfelt. (Hier klicken zum eingeben)",
+  		"Werte werden eingegeben. (Hier klicken zum auswürfeln)");
   hbox_status->pack_start(*wuerfelt_butt, Gtk::PACK_SHRINK, 0);
   wuerfelt_butt->show();
 
@@ -277,10 +278,11 @@ void midgard_CG::refresh_char_list()
    for (VAbenteurer::iterator i=AbenteurerAuswahl::Chars.begin();
 		i!=AbenteurerAuswahl::Chars.end();++i)
    {  // vielleicht noch mit Typ(Grad) ?   z.B. Aneren Hl(8)
-      Gtk::MenuItem *mi=manage(new Gtk::MenuItem(i->getAbenteurer().Name_Abenteurer()));
-      abent_menu->add(*mi);
+//      Gtk::MenuItem *mi=manage(new Gtk::MenuItem(i->getAbenteurer().Name_Abenteurer()));
+      abent_menu->items().push_back(Gtk::Menu_Helpers::MenuElem(i->getAbenteurer().Name_Abenteurer()));
+      Gtk::MenuItem &mi=abent_menu->items().back();
       mi->show();
-      mi->signal_activate().connect(SigC::bind(SigC::slot(
+      mi.signal_activate().connect(SigC::bind(SigC::slot(
       		getChar(),&AbenteurerAuswahl::setAbenteurer_sig),i));
    }
    abenteurer_mi->set_submenu(*abent_menu);

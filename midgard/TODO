@@ -16,11 +16,6 @@ was bedeutet:
    on_eventbox_beschreibung_button_release_event
    on_eventbox_ausruestung_button_release_event
 
-- eventuell Größe neu berechnen, wenn Optionen ausgewertet wurden.
-
-- use StyleIcon for new Icons
-
-- dfr4 hinter frame4/table_grundwerte
 - kurai hinter table_kido_steigern
 - arkanum hinter table133
 - dfr3 hinter table_lernschema
@@ -38,29 +33,17 @@ was bedeutet:
 
 - Dialoge, anlegen von neuen Artikeln ...
 
-- Nachsehen ob MVC mit Abenteurern tatsächlich funktioniert
-
 - Schummeln in Abenteurer?
 
-- Preise und Lernschema sind Regionenäbhangig ...
+- Preise und Lernschema sind Regionenäbhangig ... ???
 
 - InfoWindow neu erzeugen, eventuell einfärben
 
-- Optionen werden nicht ausgewertet um Toolbar options zu setzen
-
-- DoubleButtons haben falschen Style
-
-- set_remember fehlt ganz
+- set_remember fehlt ganz (ist auch nicht notwendig)
 
 - Wizard implementieren
 
-- Model/View implementieren
-
 - mehrere Fenster, Neustart des Fensters
-
-- text/icon ja/nein bei DoubleButtons
-
-- Tooltips nach Möglichkeit (vor allem Statusbar)
 
 - Anzeigen in Statusbar sensitiv machen (Wizard, Eingeben)
 
@@ -70,23 +53,21 @@ was bedeutet:
 - Needsaction als Wizard steps implementieren ->"Jetzt ..."
 	(table_grundwerte_typauswahl.cc, table_steigern_fertigkeiten.cc)
 
-?- geladene Regionen werden nicht angezeigt - warum?
-
 - Komponenten: Entries/Spinbuttons mit many_changed+activate (wie MVC)
 	und dann in Grundwerte ersetzen (Werte ändern ...)
 
-- Tooltips in Abhängigkeit von Modellen ...
-
-- Rassen werden nicht dargestellt
+- Spezies wird nicht gesetzt
 
 - Lizenz
 
 - beim Laden Abenteurerliste nicht da?
-
-- Buttons/DoubleButtons in Toolbars nicht richtig Icon/Text
 
 - Hintergrundbilder ?
 
 - Schließen/Exit
 
 - vabenteurer->getLernpunkte()  => (*vabenteurer)->getLernpunkte()
+
+- Grafik löschen können
+
+- Auf vereinheitlichten FileRequester umstellen (slot)

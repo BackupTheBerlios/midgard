@@ -5,10 +5,13 @@
 #include "xml_fileselection.hh"
 #include "Windows_Linux.hh"
 
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+
 void table_beschreibung::init(midgard_CG *h)
 {
   hauptfenster=h;
-#warning connect -> show_beschreibung()
+  h->getChar().signal_anderer_abenteurer().connect(SigC::slot(*this,&table_beschreibung::show_beschreibung));
+  h->getChar().proxies.undo_changed.connect(SigC::slot(*this,&table_beschreibung::show_beschreibung));
 }
 
 void table_beschreibung::save_beschreibung()
@@ -72,12 +75,24 @@ void table_beschreibung::show_beschreibung()
   text_charakter_beschreibung->get_buffer()->insert(pos, hauptfenster->getAben().Beschreibung());
 
   std::string s="Bild";
-  if(hauptfenster->getAben().BeschreibungPix()!="")
+  if(!hauptfenster->getAben().BeschreibungPix().empty())
    {
-      s+=":\n"+hauptfenster->getAben().BeschreibungPix();
-      std::string ss(s,s.rfind(WinLux::dirsep)+1,s.size());
-      s=ss;
+      s=hauptfenster->getAben().BeschreibungPix();
+      std::string ss=s.substr(s.rfind(WinLux::dirsep)+1);
+      s="Bild:\n"+ss;
+      try
+      {
+      Glib::RefPtr<Gdk::Pixbuf> pb=Gdk::Pixbuf::create_from_file(hauptfenster->getAben().BeschreibungPix());
+      if (pb.is_null()) pb=MagusImage("Portrait-32.xpm");
+      else if (pb->get_height()>32)
+         pb=pb->scale_simple(int(pb->get_width()*32.0/pb->get_height()+.5),
+                                            32,Gdk::INTERP_BILINEAR);
+      grafik_image->set(pb);
+      } catch (...)
+      {  grafik_image->set(MagusImage("Portrait-32.xpm"));
+      }
    }
+  else grafik_image->set(MagusImage("Portrait-32.xpm"));
   label_grafik->set_text(s);
   spinbutton_pix_breite->set_value(hauptfenster->getAben().BeschreibungPixSize());
 }
