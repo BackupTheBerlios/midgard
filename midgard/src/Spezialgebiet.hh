@@ -1,4 +1,4 @@
-// $Id: Spezialgebiet.hh,v 1.7 2002/01/26 09:17:41 christof Exp $               
+// $Id: Spezialgebiet.hh,v 1.8 2002/04/06 07:01:58 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -38,18 +38,16 @@ class Spezialgebiet : public HandleContent
    std::string spezial2;
 
 public:
-#ifndef USE_XML
-   Spezialgebiet(const std::string& _name);
-#else
    Spezialgebiet(const Tag *tag);
-#endif   
    Spezialgebiet() : nr(0) {}
 
    std::string Typ() const {return typ;}   
    std::string Name() const {return name;}   
    std::string Spezial() const {return spezial;}   
    std::string Spezial2() const {return spezial2;}   
-   
+
+   bool operator==(const Spezialgebiet &b) const
+      {  return Name()==b.Name();  }
 };
 
 class cH_Spezialgebiet : public Handle<const Spezialgebiet>    
@@ -60,9 +58,7 @@ class cH_Spezialgebiet : public Handle<const Spezialgebiet>
   public:
    cH_Spezialgebiet() {*this=new Spezialgebiet();}
    cH_Spezialgebiet(const std::string& name);
-#ifdef USE_XML
    cH_Spezialgebiet(const Tag *tag);
-#endif
    cH_Spezialgebiet(const Spezialgebiet *s) : Handle<const Spezialgebiet>(s) {};
 
    static bool is_cached(const std::string s);
@@ -75,5 +71,7 @@ class Spezialgebiet_All
       Spezialgebiet_All(Gtk::ProgressBar *progressbar);
       std::vector<cH_Spezialgebiet> get_All() const {return list_All;}
 };
+
+bool operator==(gpointer p,const cH_Spezialgebiet &t);
   
 #endif

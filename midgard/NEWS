@@ -1,4 +1,23 @@
 ##########################################################################
+NEWS IN VERSION 0.5delta1
+
+* Abspeichern und Laden des Spezialgebietes für Magier
+* Abspeichern und Laden der 'Steigertage'
+
+TODO:
+* Steigern mehrerer Stufen mit PP
+* Waeland: Zauber
+* Nahuathlan: Komplett
+* Eschar: Derwisch
+* gv zeigt den falschen Ausschnitt des pdf Dokumentes 
+   (nur für Linux interessant)
+* Es werden nur die ersten beiden pdf viewer zur Auswahl angeboten - komisch 
+* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+
+
+##########################################################################
 NEWS IN VERSION 0.5delta0
 
 * Oberfläche leicht übearbeitet

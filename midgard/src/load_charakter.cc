@@ -46,10 +46,6 @@ void midgard_CG::xml_import_auswahl()
 }
 
 
-bool operator!=(const cH_Preise &a, const string &b)
-{  return a->Name()!=b;
-}
-
 void midgard_CG::xml_import(const std::string& datei)
 {
    on_neuer_charakter_clicked();
@@ -141,13 +137,21 @@ void midgard_CG::xml_import(const std::string& datei)
 
    Werte.setAlter(Beschreibung->getIntAttr("Alter")); 
    Werte.setGeschlecht(Typ->getAttr("Geschlecht","m"));
+   std::string spezialgebiet=Typ->getAttr("Spezialgebiet");
+   if(spezialgebiet!="") 
+     { 
+       cH_Spezialgebiet S(spezialgebiet);
+       Werte.setSpezialgebiet(S);
+     }
    Werte.setSpezialisierung(Typ->getAttr("Spezialisierung"));
    Werte.setBezeichnung(Beschreibung->getAttr("Bezeichnung"));
    Werte.setHerkunft(cH_Land(Beschreibung->getAttr("Herkunft"),true));
    Werte.setGlaube(Beschreibung->getAttr("Glaube"));
    Werte.setNamen(Figur->getAttr("Name"),Figur->getAttr("Spieler"),Figur->getAttr("Zeitpunkt"));
-   Werte.setGFP(Steigern ? Steigern->getIntAttr("GFP",    		top->getInt("GFP")) : top->getInt("GFP"));
-   Werte.setGG(abgeleiteteEigenschaften->getIntAttr("GG"));    Werte.setSG(abgeleiteteEigenschaften->getIntAttr("SG"));
+   Werte.setGFP(Steigern ? Steigern->getIntAttr("GFP", top->getInt("GFP")) : top->getInt("GFP"));
+   Werte.setSteigertage(Steigern ? Steigern->getFloatAttr("benötigte_Tage", top->getInt("benötigte_Tage")) : top->getInt("benötigte_Tage"));
+   Werte.setGG(abgeleiteteEigenschaften->getIntAttr("GG"));    
+   Werte.setSG(abgeleiteteEigenschaften->getIntAttr("SG"));
    Werte.setBeschreibung(top->getString("Text")); 
    Werte.setBeschreibungPix(top->getString("TextPix")); 
    Werte.setBeschreibungPixSize(atoi(top->getString("TextPixSize").c_str())); 
@@ -194,8 +198,11 @@ void midgard_CG::Typ_Geschlecht_Spezies_setzen() {
    menu_init();
    Gtk::Menu_Helpers::SelectMatching(*optionmenu_spezies,Werte.Spezies());
    show_gtk();
-   if(cH_Spezialgebiet::is_cached(Werte.Spezialisierung()))
-      Werte.setSpezialgebiet(cH_Spezialgebiet(Werte.Spezialisierung()));
+   if(Werte.Spezialgebiet()->Name()!="") 
+     { 
+       show_magier_spezialgebiet(true);
+       Gtk::Menu_Helpers::SelectMatching(*option_magier_spezialgebiet,Werte.Spezialgebiet());
+     }
 }
 
 

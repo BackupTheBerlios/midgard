@@ -21,6 +21,10 @@
 #include "ProgressBar.h"
 #include <Aux/itos.h>
 
+bool operator!=(const cH_Preise &a, const string &b)
+{  return a->Name()!=b; }
+
+
 cH_Preise::cache_t cH_Preise::cache;
 
 cH_Preise::cH_Preise(const std::string& name IF_XML(,bool create))

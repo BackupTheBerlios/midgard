@@ -65,3 +65,10 @@ Spezialgebiet_All::Spezialgebiet_All(Gtk::ProgressBar *progressbar)
  ProgressBar::set_percentage(progressbar,1);
 }
 
+bool operator==(gpointer data,const cH_Spezialgebiet &t)
+{  
+cout << "SPEZ=" <<static_cast<Spezialgebiet*>(data)->Name()<<' '<< t->Name()<<'\n';
+ return *(static_cast<Spezialgebiet*>(data))==*t;
+}
+
+

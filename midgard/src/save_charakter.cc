@@ -167,6 +167,7 @@ void midgard_CG::grundwerte_speichern(IF_XML(ostream &datei))
    write_string_attrib(datei, "Geschlecht", Werte.Geschlecht());
    write_string_attrib(datei, "Abkürzung", Typ[0]->Short());
    write_string_attrib(datei, "Abkürzung2", Typ[1]->Short());
+   write_string_attrib(datei, "Spezialgebiet", Werte.Spezialgebiet()->Name());
    write_string_attrib(datei, "Spezialisierung", Werte.Spezialisierung());
    write_string_attrib(datei, "Stadt_Land", Werte.Stadt_Land()); // ???
    write_string_attrib(datei, "Hand", Werte.Hand());
