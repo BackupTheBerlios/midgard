@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.5 2002/04/15 10:05:24 thoma Exp $
+// $Id: Optionen.cc,v 1.6 2002/04/15 13:46:44 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -72,7 +72,8 @@ void Midgard_Optionen::setOptionCheck(std::string os,bool b)
 {
  for(std::list<st_OptionenCheck>::iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
    if(i->text==os) 
-     { i->active=b;
+     { 
+       OptionenCheck_setzen_from_menu(i->index,b);
        return; 
      }
  throw NotFound();
