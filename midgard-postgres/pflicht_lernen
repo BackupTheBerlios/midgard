@@ -23,9 +23,6 @@ CREATE TABLE "pflicht_lernen" (
 --
 
 COPY "pflicht_lernen"  FROM stdin;
-Ri	Lanze	\N	\N	\N	\N
-Ri	groﬂer Schild	\N	\N	\N	\N
-Ri	kleiner Schild	\N	\N	\N	\N
 Berggnom	Bergmann	3	\N	\N	\N
 Berggnom	Steinmetz	3	\N	\N	\N
 Zwerg	Bergmann	3	\N	\N	\N

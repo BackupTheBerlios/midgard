@@ -175,7 +175,7 @@ void Fertigkeiten_auswahl::on_fertigkeiten_clist_auswahl_select_row(gint row, gi
       if (maxpunkte >=  atoi(fertigkeiten_clist_auswahl->get_text(row,0).c_str() ))
        {
         if (fert == "Sprache") manage (new Sprache_auswahl(hauptfenster,Database,fert,list_Sprache));
-        if (fert == "Lesen/Schreiben") manage (new Sprache_auswahl(hauptfenster,Database,fert,list_Schrift));
+        if (fert == "Lesen/Schreiben") manage (new Sprache_auswahl(hauptfenster,Database,fert,list_Sprache));
        }
     }
 }

@@ -301,7 +301,6 @@ Bannen von Götterwerk	300	4	Wort	2	\N	\N	\N	Magan	zerstört	Magan	10 s	15 m	Umgeb
 Bannen von Hrimfolk	60	2	Geste	1	\N	Eis	Beschwörung	Magan	bewegt	Eis	10 sec	15 m	Körper	1 Ws	  	elementar	 	f	
 Bannen von Hrimkin	800	6	Geste	4	\N	Eis	Beschwörung	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws		elementar	 	f	
 Bannen von Hunar	800	6	Geste	4	\N	\N	Beschwörung	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws		elementar	 	f	
-Bannen von Hyrfolk	60	2	Geste	1	\N	Feuer	Beschwörung	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws	  	elementar	 	f	
 Bannen von Hyrrkin	800	6	Geste	4	\N	Feuer	Beschwörung	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws		elementar	 	f	
 Bannen von Jördfolk	60	2	Geste	1	\N	Feuer	Beschwörung	Magan	bewegt	Erde	10 sec	15 m	Körper	1 Ws	  	elementar	 	f	
 Bannen von Jördkin	800	6	Geste	4	\N	\N	Beschwörung	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws		elementar	 	f	
@@ -641,6 +640,7 @@ Zaubermacht	600	3	Geste	3	\N	\N	\N	Magan	verändert	Wasser	10 min	0	Körper	selbst
 Zeichen des Chaos	2000	6	Geste	4	H&D	\N	\N	Metall	verändert	Luft	10 s	10 m	Körper	1 Ws	0	finster		f	
 Zurückführen	6000	var	Wort	6	H&D	\N	\N				6 h	B	Umgebung	1 Ob	0	druidisch		f	Siegel
 Zähmen	120	SGr	Wort	1	\N	\N	\N	Wasser	beherrscht	Wasser	5 s	30 m	Geist	Gr Ws	2 h	druidisch		f	
+Bannen von Hyrrfolk	60	2	Geste	1	\N	Feuer	Beschwörung	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws	  	elementar	 	f	
 \.
 --
 -- TOC Entry ID 3 (OID 26610793)

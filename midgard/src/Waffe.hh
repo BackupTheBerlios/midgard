@@ -63,7 +63,7 @@ class Waffe : public MidgardBasicElement
      int Schwierigkeit() const {return schwierigkeit;}
 //     int Lernpunkte() const {return lernpunkte;}
      int Anfangswert() const {return anfangswert;}
-     int Erfolgswert() const {return erfolgswert;};
+//     int Erfolgswert() const {return erfolgswert;};
      std::string Voraussetzung() const {return voraussetzung;}
 //     std::string Pflicht() const {if (pflicht) return "*"; return "";}
      bool Verteidigung() const {if(Art()=="Verteidigung") return true; else return false;}
@@ -106,20 +106,6 @@ class cH_Waffe : public Handle<const Waffe>
     cH_Waffe(const cH_MidgardBasicElement &x) : Handle<const Waffe>
       (dynamic_cast<const Waffe *>(&*x)){}
 
-
-   class sort {
-      public:  
-         enum esort {NAME,ERFOLGSWERT};
-      private:
-         esort es;
-      public:
-         sort(enum esort _es):es(_es) {}
-         bool operator() (cH_Waffe x,cH_Waffe y) const
-           { switch(es) {
-               case(NAME) : return x->Name() < y->Name()  ;
-               case(ERFOLGSWERT): return x->Erfolgswert() < y->Erfolgswert();
-           }}
-    };
 };
 
 class Waffe_All

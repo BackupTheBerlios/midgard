@@ -327,15 +327,15 @@ void midgard_CG::load_fertigkeiten()
       if(sart=="Fertigkeit")
        {
          cH_MidgardBasicElement fert(new Fertigkeit(db_fert));
-         cH_Fertigkeit(fert)->set_Erfolgswert(db_wert);
+         fert->set_Erfolgswert(db_wert);
          list_Fertigkeit.push_back(fert);
-         if (cH_Fertigkeit(fert)->Name()=="KiDo") kido_bool=true;
-         if (cH_Fertigkeit(fert)->Name()=="Wissen von der Magie") magie_bool=true;
+         if      (fert->Name()=="KiDo") kido_bool=true;
+         else if (fert->Name()=="Wissen von der Magie") magie_bool=true;
        }    
       if(sart=="Waffe")
         {
          cH_MidgardBasicElement waffe(new Waffe(db_fert));
-         cH_Waffe(waffe)->set_Erfolgswert(db_wert);
+         waffe->set_Erfolgswert(db_wert);
          list_Waffen.push_back(waffe);
         }
       if(sart=="Besitz_W")

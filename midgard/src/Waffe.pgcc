@@ -126,10 +126,12 @@ std::string WaffeBesitz::Schaden(const Grundwerte& Werte,const std::string& name
   if (waffe->Art()=="Verteidigung") return "-"+itos(waffe->Schaden_Bonus(name))+"AP";
   std::string s=waffe->Schaden(name);
   int sb=waffe->Schaden_Bonus(name) + sl_Bonus();
+cout << "WAFFE = "<<waffe->Name()<<'\t'<<waffe->Erfolgswert()<<'\n';
   if (Name()=="waffenloser Kampf") 
       { s="W6";
         int w = waffe->Erfolgswert();
-        if ( 4<=w && w <= 7) sb=-4;
+cout << "Erfolgswert WAFFENLOS = "<<itos(w)<<'\n';
+        if (         w <= 7) sb=-4;
         if ( 8<=w && w <=11) sb=-3;
         if (12<=w && w <=15) sb=-2;
         if (16<=w)           sb=-1;

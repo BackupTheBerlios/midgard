@@ -70,20 +70,6 @@ class cH_Fertigkeit : public Handle<const Fertigkeit>
 
     cH_Fertigkeit(const cH_MidgardBasicElement &x) : Handle<const Fertigkeit>
       (dynamic_cast<const Fertigkeit *>(&*x)){}
-
-   class sort {
-      public:
-         enum esort {NAME,ERFOLGSWERT};
-      private:
-         esort es;
-      public:
-         sort(enum esort _es):es(_es) {}
-         bool operator() (cH_Fertigkeit x,cH_Fertigkeit y) const
-           { switch(es) {
-               case(NAME) : return x->Name() < y->Name()  ;
-               case(ERFOLGSWERT): return x->Erfolgswert() < y->Erfolgswert();
-           }}
-    };
 };
 
 class Fertigkeiten_All

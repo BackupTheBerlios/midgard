@@ -98,8 +98,8 @@ void midgard_CG::on_button_fertigkeiten_sort_clicked()
 {
   std::deque<guint> seq = alte_fert_tree->get_seq();
   switch((Data_fert::Spalten_FA)seq[0]) {
-      case Data_fert::NAMEa : list_Fertigkeit.sort(cH_Fertigkeit::sort(cH_Fertigkeit::sort::NAME)); ;break;
-      case Data_fert::WERTa : list_Fertigkeit.sort(cH_Fertigkeit::sort(cH_Fertigkeit::sort::ERFOLGSWERT)); ;break;
+      case Data_fert::NAMEa : list_Fertigkeit.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME)); ;break;
+      case Data_fert::WERTa : list_Fertigkeit.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::ERFOLGSWERT)); ;break;
       default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
    }
 }

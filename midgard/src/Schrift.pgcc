@@ -65,10 +65,17 @@ void Schrift::get_Schrift()
 
 bool Schrift::kann_Sprache(const std::list<cH_MidgardBasicElement>& sprache) const
 {
+cout << "Anzahl Sprachen "<<sprache.size()<<'\n';
  for(std::list<cH_MidgardBasicElement>::const_iterator i=sprache.begin();i!=sprache.end();++i)
   {
-//cout << cH_Sprache(*i)->Urschrift()<<'\t'<<Name()<<'\n';
-   if(cH_Sprache(*i)->Urschrift() == Name() ) return true;
+cout<< (*i)->Name()<<' ' <<Name();
+   if(cH_Sprache((*i))->Urschrift() == Name())  return true;
+
+   std::string::size_type i1=Name().find_last_of("(");
+   if(i1!=std::string::npos) 
+     { std::string schrift=Name().substr(0,i1);
+       if(schrift == Name() ) return true;
+     }
   }  
  return false;
 }

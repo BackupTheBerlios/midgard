@@ -60,7 +60,6 @@ Bauer	Kriegsflegel
 Bauer	Wetterkunde
 Bauer	Tierkunde
 Bauer	Pflanzenkunde
-Baumeister	Malen/Zeichnen
 Baumeister	Rechnen
 Baumeister	Lesen/Schreiben
 Baumeister	Geschäftstüchtigkeit
@@ -98,16 +97,12 @@ Dieb	Stehlen
 Dieb	Geheimzeichen
 Dieb	Gassenwissen
 Diener	Menschenkenntnis
-Diplomat	Sprache 4
 Diplomat	Menschenkenntnis
 Diplomat	Lesen/Schreiben
 Diplomat	Beredsamkeit
 Dolmetscher	Lesen/Schreiben
-Dolmetscher	2x Sprache 4
 Drucker	Sprache
 Drucker	Lesen/Schreiben
-Einbrecher	öffnen
-Einbrecher	Schlösser
 Einbrecher	Klettern
 Einbrecher	Gassenwissen
 Erdarbeiter	Athletik
@@ -146,7 +141,6 @@ Geldeintreiber	Faustkampf
 Geldverleiher	Lesen/Schreiben
 Geldverleiher	Rechnen
 Gelehrter	Sprache
-Gelehrter	Landeskunde
 Gelehrter	Sagenkunde
 Gelehrter	Lesen/Schreiben
 Gerber	Dolch
@@ -193,7 +187,6 @@ Viehzüchter	Tierkunde
 Hirte	Überleben
 Hirte	Tierkunde
 Höfling	Tanzen
-Höfling	Lesen/schreiben
 Höfling	Beredsamkeit
 Hofnarr	Wahrnehmung
 Hofnarr	Jonglieren
@@ -232,7 +225,6 @@ Karawanenführer	Überleben in der Wüste
 Karawanenführer	Reiten
 Karawanenführer	Himmelskunde
 Kartograph	Naturkunde
-Kartograph	Malen/Zeichnen
 Kartograph	Lesen/Schreiben
 Kaufmann	Geschäftstüchtigkeit
 Kaufmann	Beredsamkeit
@@ -261,7 +253,6 @@ Kurtisane	Verführen
 Kürschner	Geschäftstüchtigkeit
 Kunstmaler	Kalligraphie
 Kunstmaler	Sagenkunde
-Kunstmaler	Malen/Zeichnen
 Kesselflicker	Talisman verzaubern
 Kesselflicker	Geschäftstüchtigkeit
 Kupferschmied	Talisman verzaubern
@@ -363,8 +354,6 @@ Schmuggler	Rudern
 Schneider	Verkleiden
 Schreiber	Sprache
 Schreiber	Lesen/Schreiben
-Schreiner	Streitakt
-Schreiner	Handxt
 Schwammtaucher	Dolch
 Schwammtaucher	Tauchen
 Schwammtaucher	Schwimmen
@@ -398,7 +387,6 @@ Steuermann	Wetterkunde
 Steuermann	Segeln
 Steuermann	Rechnen
 Steuermann	Himmelskunde
-Spieler	Wahrnehmen
 Spieler	Rechnen
 Spieler	Glücksspiel
 Tänzer	Tanzen
@@ -407,8 +395,6 @@ Theologe	Zauberkunde
 Theologe	Sagenkunde
 Theologe	Lesen/Schreiben
 Tierarzt	Lesen/Schreiben
-Tierarzt	Hilfe
-Tierarzt	Erste
 Tierarzt	Tierkunde
 Tierausbilder	Tierkunde
 Tierhändler	Tierkunde
@@ -419,7 +405,6 @@ Tischler	Handaxt
 Totengräber	Sagenkunde
 Träger	Geländelauf
 Träger	Athletik
-Unteroffizier	Einhandwaffe
 Unteroffizier	Überleben
 Unteroffizier	Kampftaktik
 Untersuchungsbeamter	Verhören
@@ -466,8 +451,6 @@ Wrackberger	Schwimmen
 Wrackberger	Rudern
 Wundheiler	Erste Hilfe
 Zahnausreißer	Kräuterkunde
-Zahnausreißer	Hilfe
-Zahnausreißer	Erste
 Zimmermann	Streitaxt
 Zimmermann	Handaxt
 Steuerpächter	Lesen/Schreiben
@@ -487,7 +470,6 @@ Schlangenbeschwörer	Musizieren
 Schlangenbeschwörer	Schlangen beschwören
 Dewadasi	Tanzen
 Dewadasi	Natya
-Dewadasy	Verführen
 Knappe	Etikette
 Knappe	Heraldik
 Pagin	Etikette
@@ -496,4 +478,14 @@ Knappe	Lanzenstechen
 Pagin	Lanzenstechen
 Wächter	Hellebarde
 Märchenerzähler	Geschichten erzählen
+Diplomat	Sprache
+Dolmetscher	Sprache
+Einbrecher	Schlösser öffnen
+Höfling	Lesen/Schreiben
+Schreiner	Streitaxt
+Schreiner	Handaxt
+Spieler	Wahrnehmung
+Tierarzt	Erste Hilfe
+Zahnausreißer	Erste Hilfe
+Dewadasi	Verführen
 \.

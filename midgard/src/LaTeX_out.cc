@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.55 2001/11/13 15:26:57 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.56 2001/11/18 09:38:40 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -134,9 +134,9 @@ void midgard_CG::LaTeX_write_values()
  fout << "\\newcommand{\\namecharakter}{" << LaTeX_scale(Werte.Name_Charakter(),25,"4.5cm") << "}\n";
  fout << "\\newcommand{\\namespieler}{" << LaTeX_scale(Werte.Name_Spieler(),25,"4.5cm") << "}\n";
  fout << "\\newcommand{\\gfp}{\\tiny "  <<EmptyInt_4TeX(Werte.GFP()) << "}\n";
- fout << "\\newcommand{\\aep}{\\tiny "  <<EmptyInt_4TeX(Werte.AEP()) << "}\n";
- fout << "\\newcommand{\\kep}{\\tiny "  <<EmptyInt_4TeX(Werte.KEP()) << "}\n";
- fout << "\\newcommand{\\zep}{\\tiny "  <<EmptyInt_4TeX(Werte.ZEP()) << "}\n";
+ fout << "\\newcommand{\\aep}{\\tiny "  <<EmptyInt_4TeX(Werte.KEP()) << "}\n";
+ fout << "\\newcommand{\\kep}{\\tiny "  <<EmptyInt_4TeX(Werte.ZEP()) << "}\n";
+ fout << "\\newcommand{\\zep}{\\tiny "  <<EmptyInt_4TeX(Werte.AEP()) << "}\n";
 
  double geld = Werte.Gold() + Werte.Silber()/10. + Werte.Kupfer()/100.;
  fout << "\\newcommand{\\gold}{\\tiny "  << geld << "}\n";

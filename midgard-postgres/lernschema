@@ -184,7 +184,6 @@ PH	f	waffenloser Kampf	Waffe	4	\N	9	\N	\N
 Ri	f	Krummsäbel	Waffe	5	\N	1	\N	\N
 Ri	f	Kurzschwert	Waffe	5	\N	2	\N	\N
 Ri	f	Langschwert	Waffe	5	\N	1	\N	\N
-Ri	f	Lanze	Waffe	5	\N	1	\N	\N
 Ri	f	Lanzenstechen	Fertigkeit	1	\N	2	\N	\N
 Ri	f	Morgenstern	Waffe	5	\N	2	\N	\N
 Ri	f	Musizieren	Fertigkeit	1	\N	2	\N	\N
@@ -282,7 +281,6 @@ Ny	f	Langschwert	Waffe	5	\N	2	\N	\N
 Ny	f	leichte Armbrust	Waffe	5	\N	2	\N	\N
 Ny	f	Morgenstern	Waffe	5	\N	3	\N	\N
 Ny	f	Naginata	Waffe	5	\N	2	\N	\N
-Ny	f	NunChako	Waffe	5	\N	2	\N	\N
 Ny	f	Sai	Waffe	5	\N	1	\N	\N
 Ord	f	Wurfmesser	Waffe	5	\N	3	\N	\N
 Ny	f	Wurfstern	Waffe	5	\N	1	\N	\N
@@ -318,7 +316,6 @@ Kd	f	Langbogen	Waffe	5	\N	3	\N	\N
 Kd	f	leichte Armbrust	Waffe	5	\N	3	\N	\N
 Kd	f	Morgenstern	Waffe	5	\N	1	\N	\N
 Kd	f	Naginata	Waffe	5	\N	3	\N	\N
-Kd	f	NunChako	Waffe	5	\N	1	\N	\N
 Kd	f	Sai	Waffe	5	\N	1	\N	\N
 Kd	f	Tonfa	Waffe	5	\N	1	\N	\N
 Ord	f	Wurfspeer	Waffe	5	\N	1	\N	\N
@@ -742,7 +739,6 @@ Kd	f	Balancieren	Fertigkeit	15	Ge	1	\N	\N
 Kd	f	Klettern	Fertigkeit	15	Ge	1	\N	\N
 PT	f	Handauflegen	Zauber	\N	\N	2	\N	\N
 Hl	f	Reinigen	Zauber	\N	\N	2	\N	\N
-Th	f	Augensalbe herstellen	Fertigkeit	\N	\N	3	\N	\N
 Th	f	Bannen von Dunkelheit	Zauber	\N	\N	3	\N	\N
 Th	f	Bittersalz	Zauber	\N	\N	1	\N	\N
 Th	f	Durstsalz	Zauber	\N	\N	2	\N	\N
@@ -899,7 +895,6 @@ Ma	f	Macht über Menschen	Zauber	\N	\N	4	\N	\N
 Ma	f	Macht über Unbelebtes	Zauber	\N	\N	2	\N	\N
 Ma	f	Sehen in Dunkelheit	Zauber	\N	\N	3	\N	\N
 Ma	f	Sehen von Verborgenem	Zauber	\N	\N	2	\N	\N
-Ri	f	kleiner Schild	Waffe	1	\N	1	\N	\N
 Gl	f	Geheimzeichen	Fertigkeit	\N	\N	2	\N	\N
 Gl	f	Tanzen	Fertigkeit	\N	\N	1	\N	\N
 Se	f	kleiner Schild	Waffe	1	\N	1	\N	\N
@@ -1016,8 +1011,6 @@ Ba	f	Lied der Tapferkeit	Zauber	\N	\N	1	\N	\N
 Ba	f	Lied des Spottes	Zauber	\N	\N	8	\N	\N
 Ba	f	Tanzen	Fertigkeit	\N	\N	1	\N	\N
 dBe	f	Bannen von Dunebargen	Zauber	\N	\N	4	\N	\N
-dBe	f	Dunebrasten 1 beschwören	Zauber	\N	\N	2	\N	\N
-dBe	f	Dunebrasten 2 beschwören	Zauber	\N	\N	4	\N	\N
 dBe	f	Kaligin 1 beschwören	Zauber	\N	\N	3	\N	\N
 dBe	f	Bannen von Kaobargen	Zauber	\N	\N	3	\N	\N
 dBe	f	Coluscar 1 beschwören	Zauber	\N	\N	2	\N	\N
@@ -1133,17 +1126,24 @@ Kd	f	Lesen/Schreiben	Fertigkeit	2	\N	2	\N	\N
 Wa	f	großer Schild	Waffe	1	\N	2	\N	\N
 Sk	f	großer Schild	Waffe	1	\N	2	\N	\N
 Sö	f	großer Schild	Waffe	1	\N	1	\N	\N
-Ri	f	großer Schild	Waffe	1	\N	1	\N	\N
 Se	f	großer Schild	Waffe	1	\N	2	\N	\N
 PK	f	großer Schild	Waffe	1	\N	3	\N	\N
 PM	f	großer Schild	Waffe	1	\N	3	\N	\N
 PF	f	großer Schild	Waffe	1	\N	3	\N	\N
+Ri	t	großer Schild	Waffe	1	\N	1	\N	\N
+Ri	t	kleiner Schild	Waffe	1	\N	1	\N	\N
+Ri	t	Lanze	Waffe	5	\N	1	\N	\N
+Th	f	Augensalbe herstellen	Zauberwerk	\N	\N	3	\N	\N
+Th	f	Augensalbe herstellen	Zauberwerk	\N	\N	3	\N	\N
+Sc	f	Kriegsbemalung	Zauberwerk	1	\N	2	\N	\N
+Th	f	Kriegsbemalung	Zauberwerk	1	\N	2	\N	\N
+dBe	f	Dunebrast 1 beschwören	Zauber	\N	\N	2	\N	\N
+dBe	f	Dunebrast 2 beschwören	Zauber	\N	\N	4	\N	\N
+Ny	f	NunChaku	Waffe	5	\N	2	\N	\N
+Kd	f	NunChaku	Waffe	5	\N	1	\N	\N
 Ord	f	kleiner Schild	Waffe	1	\N	1	\N	\N
 Sc	f	Körperbemalung	Fertigkeit	1	\N	2	\N	\N
 Th	f	Körperbemalung	Fertigkeit	1	\N	2	\N	\N
-Sc	f	Kriegsbemalung	Fertigkeit	1	\N	2	\N	\N
-Th	f	Kriegsbemalung	Fertigkeit	1	\N	2	\N	\N
-Th	f	Augensalbe	Fertigkeit	\N	\N	3	\N	\N
 Sr	f	Dolch	Waffe	5	\N	1	\N	\N
 Sr	f	Krummsäbel	Waffe	5	\N	1	\N	\N
 Sr	f	Kurzschwert	Waffe	5	\N	1	\N	\N

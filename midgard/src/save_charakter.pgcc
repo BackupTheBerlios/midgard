@@ -65,7 +65,6 @@ void midgard_CG::on_speichern_clicked()
       int db_av_bonus,db_sl_bonus;
        char db_region[20];
       char db_fertigkeit[50];
-      int db_wert;
       char db_magisch[1024];
    exec sql end declare section;
    strncpy(db_name_ch,Werte.Name_Charakter().c_str(),sizeof(db_name_ch));
@@ -73,19 +72,6 @@ void midgard_CG::on_speichern_clicked()
    // Alte einträge löschen
 
    exec sql DELETE FROM charaktere_fertigkeiten WHERE charakter_name = :db_name_ch ;
-/*
-   for (std::vector<H_Data_beruf>::const_iterator i=vec_Beruf.begin();
-         i!=vec_Beruf.end();++i)
-      {
-         strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
-         db_wert =  (*i)->Erfolgswert() ;
-         exec sql INSERT INTO charaktere_fertigkeiten
-            (charakter_name,version,fertigkeit,wert,art)
-         VALUES
-            (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Beruf') ;         
-            SQLerror::test(__FILELINE__);
-      }
-*/
    MidgardBasicElement::saveElementliste(list_Beruf,Werte,Typ,Database.ausnahmen);
    MidgardBasicElement::saveElementliste(list_Fertigkeit_ang,Werte,Typ,Database.ausnahmen);
    MidgardBasicElement::saveElementliste(list_Fertigkeit,Werte,Typ,Database.ausnahmen);

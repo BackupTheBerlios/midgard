@@ -23,6 +23,7 @@ CREATE TABLE "sprachen" (
 --
 
 COPY "sprachen"  FROM stdin;
+10	Eldalyn	4	Coraniaid	f	\N
 10	Twyneddisch	4	Seemeister	f	\N
 10	Erainnisch	4	Seemeister	f	\N
 10	Hochcoraniaid	4	Coraniaid	t	\N
@@ -52,7 +53,6 @@ COPY "sprachen"  FROM stdin;
 10	Halftan	4	Halftan	f	\N
 10	Dvarskar	4	Dvarskar	f	\N
 10	Gnomenon	4	Gnomenon	f	\N
-10	Eldalyn	4	Coraniad	f	\N
 10	Moravisch	4	Tegarisch	f	\N
 10	Vallinga	4	Seemeister	f	\N
 10	Dunathisch	4	Seemeister	t	A

@@ -73,24 +73,23 @@ int Sprache::Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) cons
 
 std::string Sprache::Urschrift(const  std::list<cH_MidgardBasicElement>& list_Schrift) const 
 {
- for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Schrift.begin();i!=list_Schrift.end();++i)
-  {
-   if((*i)->Name() == Urschrift()) 
-      return urschrift; 
-  }
- // KanThaiTun
- bool kanthaitun=false;
+ bool back=false;
  std::string s,t="(";
  for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Schrift.begin();i!=list_Schrift.end();++i)
   {
-    try{ s  = (*i)->Name().substr(0,10); }catch(...){}
-    if(Urschrift()!="KanThaiTun"||s!="KanThaiTun") continue;
-    std::string t2 = (*i)->Name().substr(11,1);
-    t+=t2+",";
-    if(s=="KanThaiTun") kanthaitun=true;
+    if((*i)->Name() == Urschrift())  return Urschrift();
+    std::string::size_type i1=(*i)->Name().find_last_of("(");
+    
+    if (i1!=std::string::npos)
+     {
+       s=(*i)->Name().substr(0,i1);
+       std::string nr = (*i)->Name().substr(i1+1,1);    
+       t+=nr+",";
+     }
+    if(s==Urschrift()) back=true;
   }
- if (kanthaitun) t=t.substr(0,t.size()-1); // letzes Komma entfernen
- if (kanthaitun) return Urschrift()+" "+t+")";
+ if (back) t=t.substr(0,t.size()-1); // letzes Komma entfernen
+ if (back) return Urschrift()+" "+t+")";
  return "";
 }
 

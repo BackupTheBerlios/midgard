@@ -41,7 +41,6 @@ class MidgardBasicElement : public HandleContent
       
       void EP_steigern(const std::string fert);
       virtual std::string Name() const=0;
-//      virtual int Erfolgswert(const vector<cH_Typen>& Typ,const Grundwerte& Werte,const Ausnahmen& ausnahmen) const {return 99;}
       int Lernpunkte() const {return lernpunkte;};
       void set_Lernpunkte(int l) const {lernpunkte=l;}
       int Erfolgswert() const {return erfolgswert;};
@@ -113,6 +112,5 @@ class cH_MidgardBasicElement : public Handle<const MidgardBasicElement>
     };
 
 };
-   
 
 #endif

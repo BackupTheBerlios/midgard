@@ -29,6 +29,7 @@
 #include <Gtk_OStream.h>
 #include "Schrift.hh"
 #include "Sprache.hh"
+#include "WindowInfo.hh"
 
 void Sprache_auswahl::on_clist_sp_sc_select_row(gint row, gint column, GdkEvent *event)
 {   
@@ -45,6 +46,7 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const midgard_CG::st_Database& D
    const std::string& mod,const std::list<cH_MidgardBasicElement>& L)
  : hauptfenster(h)
 {
+  {
    Gtk::OStream os(clist_sp_sc);
    if (mod == "Sprache")
       {
@@ -69,7 +71,12 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const midgard_CG::st_Database& D
                os.flush(&const_cast<cH_MidgardBasicElement&>(*i));
              }
           }
+         if(!clist_sp_sc->rows().size())
+            manage (new WindowInfo("Keine Sprache gewählt, deren Schrift zu lernen wäre.\n"));
       }
    for (unsigned int i=0;i<clist_sp_sc->columns().size();++i)
       clist_sp_sc->set_column_auto_resize(i,true);
+  }
+ // Leere Liste wieder zerstören
+ if(!clist_sp_sc->rows().size()) destroy();
 }

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.29 2001/11/13 15:26:57 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.30 2001/11/18 09:38:40 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -42,43 +42,40 @@ void midgard_CG::show_berufe()
    berufe_clist->set_reorderable(true);
 }
 
-/*
-void midgard_CG::berufe_uebernehmen(std::list<cH_MidgardBasicElement>& sab)
-{
-   list_Beruf = sab;
-   Database.ausnahmen.set_Beruf(list_Beruf);
-   
-   show_berufe();
-   button_beruf_erfolgswert->set_sensitive(true);
-}
-*/
-
 gint midgard_CG::on_beruf_erfolgswert_release_event(GdkEventButton *ev)
 {
   if (ev->button==1) on_beruf_erfolgswert_clicked();
-  if (ev->button==3) vbox_beruferfolgswert->show();
+  if (ev->button==3) beruf_erfolgswert_eingeben();
   hbox_fertigkeit->set_sensitive(true);
   table_fertigkeit->set_sensitive(true);
   return false;
 }
 
+void midgard_CG::beruf_erfolgswert_eingeben()
+{
+#warning 
+#warning 
+#warning Berufeserfolgswert setzen geht bisher nur für den letzen Beruf
+#warning 
+
+  for(std::list<cH_MidgardBasicElement>::iterator i=list_Beruf.begin();i!=list_Beruf.end();++i)
+   {
+     vbox_beruferfolgswert->show();
+     label_beruf_ew->set_text((*i)->Name());   
+   }
+}
+
 void midgard_CG::on_spinbutton_beruferfolgesert_activate()
 {
-/*
   gtk_spin_button_update(spinbutton_beruferfolgesert->gtkobj());
   int x=spinbutton_beruferfolgesert->get_value_as_int();
-  static unsigned int i=0;
-  list_Beruf[i]->set_Erfolgswert(x);
-  ++i;
-  if (i==list_Beruf.size())
+  std::string beruf=label_beruf_ew->get_text();
+  for(std::list<cH_MidgardBasicElement>::iterator i=list_Beruf.begin();i!=list_Beruf.end();++i)
    {
-     i=0;
-     vbox_beruferfolgswert->hide();
-     label_beruf_ew->set_text("Wert eingeben");
+     if((*i)->Name()==beruf) (*i)->set_Erfolgswert(x);
    }
-  else  label_beruf_ew->set_text(itos(i+1)+". Beruf");
-  berufe_uebernehmen(list_Beruf);
-*/
+  vbox_beruferfolgswert->hide();
+  MidgardBasicElement_uebernehmen(list_Beruf);
 }
 
 
@@ -96,8 +93,7 @@ void midgard_CG::on_beruf_erfolgswert_clicked()
     if (i==list_Beruf.begin()) (*i)->set_Erfolgswert(ausbildungswert+erfahrungswert+inbo);
     else (*i)->set_Erfolgswert(ausbildungswert+inbo);
    } 
- MidgardBasicElement_uebernehmen(list_Beruf);
-// berufe_uebernehmen(list_Beruf);
+  MidgardBasicElement_uebernehmen(list_Beruf);
 }
 
 std::vector<string> midgard_CG::Berufs_Vorteile()

@@ -182,8 +182,8 @@ void midgard_CG::on_button_waffen_sort_clicked()
 {
   std::deque<guint> seq = alte_waffen_tree->get_seq();
   switch((Data_fert::Spalten_WA)seq[0]) {
-      case Data_fert::WERTa_W : list_Waffen.sort(cH_Waffe::sort(cH_Waffe::sort::ERFOLGSWERT)); ;break;
-      case Data_fert::NAMEa_W : list_Waffen.sort(cH_Waffe::sort(cH_Waffe::sort::NAME)); ;break;
+      case Data_fert::WERTa_W : list_Waffen.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::ERFOLGSWERT)); ;break;
+      case Data_fert::NAMEa_W : list_Waffen.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME)); ;break;
       default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
    }
 }
