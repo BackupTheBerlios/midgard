@@ -123,7 +123,7 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case STEIGERN : return cH_EntryValueEmptyInt(MBE->Steigern(Werte,Typ));
          case REDUZIEREN : return cH_EntryValueEmptyInt(MBE->Reduzieren(Werte,Typ));
          case VERLERNEN : return cH_EntryValueEmptyInt(MBE->Verlernen(Werte,Typ)); 
-         case REGIONa : return cH_EntryValueEmptyInt(MBE->Region()); 
+         case REGIONa : return cH_EntryValueIntString(MBE->Region()); 
         }
       if (Variante==MidgardBasicTree::LONG_NEU)
        switch ((Spalten_LONG_NEU)seqnr) {
@@ -158,7 +158,7 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
              else
                return cH_EntryValueIntString("");
            }
-         case REGIONn : return cH_EntryValueEmptyInt(MBE->Region()); 
+         case REGIONn : return cH_EntryValueIntString(MBE->Region()); 
         }
       if (Variante==MidgardBasicTree::SPRACHE_NEU)
        switch ((Spalten_SPRACHE_NEU)seqnr) {
@@ -197,7 +197,7 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case NAMEa_G : return cH_EntryValueIntString(MBE->Name());
          case STANDARDa_G : return cH_EntryValueIntString(MBE->Standard__(Werte,Typ));
          case KOSTEN_G : return cH_EntryValueEmptyInt(MBE->Kosten(Werte,Typ)); 
-         case REGION_G : return cH_EntryValueEmptyInt(MBE->Region()); 
+         case REGION_G : return cH_EntryValueIntString(MBE->Region()); 
         }
       if (Variante==MidgardBasicTree::ZAUBER)
       switch ((Spalten_ZAUBER)seqnr) {
@@ -206,7 +206,7 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case URSPRUNGn_Z : return cH_EntryValueIntString(cH_Zauber(MBE)->Ursprung());
          case KOSTENn_Z : return cH_EntryValueEmptyInt(MBE->Kosten(Werte,Typ)*cH_Zauber(MBE)->SpruchrolleFaktor());
          case STANDARDn_Z : return cH_EntryValueIntString(MBE->Standard__(Werte,Typ));
-         case REGIONn_Z : return cH_EntryValueEmptyInt(MBE->Region()); 
+         case REGIONn_Z : return cH_EntryValueIntString(MBE->Region()); 
         }
       if (Variante==MidgardBasicTree::ZAUBERWERK)
       switch ((Spalten_ZAUBERWERK)seqnr) {
@@ -216,7 +216,7 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case KOSTENn_ZW : return cH_EntryValueEmptyInt(MBE->Kosten(Werte,Typ));
          case PREISn_ZW : return cH_EntryValueIntString(cH_Zauberwerk(MBE)->Preis()); 
          case ZEITAUFWANDn_ZW : return cH_EntryValueIntString(cH_Zauberwerk(MBE)->Zeitaufwand());
-         case REGIONn_ZW : return cH_EntryValueEmptyInt(MBE->Region()); 
+         case REGIONn_ZW : return cH_EntryValueIntString(MBE->Region()); 
         }
 /*
       if (name=="ZA")

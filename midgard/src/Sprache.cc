@@ -23,6 +23,7 @@
 #include <Aux/itos.h>
 #include "ProgressBar.h"
 #include "Schrift.hh"
+#include "Grundwerte.hh"
 
 cH_Sprache::cache_t cH_Sprache::cache;
 

@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.131 2002/03/02 18:55:21 thoma Exp $
+# $Id: Makefile.am,v 1.132 2002/03/04 08:46:37 thoma Exp $
 
 bin_PROGRAMS = midgard 
 noinst_PROGRAMS = text2c
@@ -29,7 +29,6 @@ noinst_HEADERS = \
    Fertigkeiten_angeboren.hh \
    Waffe.hh \
    KiDo.hh \
-   Ausnahmen.hh \
    Land.hh \
    Grundwerte.hh \
    Ruestung.hh \
@@ -86,7 +85,6 @@ midgard_SOURCES = \
 	load_charakter.cc  \
    save_charakter.cc \
 	Fertigkeiten_angeboren.cc \
-   Ausnahmen.cc \
    Typen.cc \
    Spezies.cc \
    Region.cc \

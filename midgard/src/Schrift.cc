@@ -22,7 +22,7 @@
 #include <Gtk_OStream.h>
 #include <Aux/itos.h>
 #include "ProgressBar.h"
-
+#include "Grundwerte.hh"
 
 cH_Schrift::cache_t cH_Schrift::cache;
 
