@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.257 2002/06/12 13:08:18 thoma Exp $
+// $Id: midgard_CG.hh,v 1.258 2002/06/13 12:55:20 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -209,8 +209,6 @@ class midgard_CG : public midgard_CG_glade
         gint timeout_status();
    protected:
         Random random;   
-
-        void WaffenBesitz_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe);
 
         void set_status(std::string s,bool autoclean=true);
    public:
