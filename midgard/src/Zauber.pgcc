@@ -27,7 +27,7 @@ cH_Zauber::cH_Zauber(const std::string& name)
 #ifdef USE_XML
 cH_Zauber::cH_Zauber(const Tag *tag)
 {*this=cH_Zauber(new Zauber(tag));
- cache.Register(tag->getAttr("Name"),this);
+ cache.Register(tag->getAttr("Name"),*this);
 }
 #endif
 

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_zauber.cc,v 1.44 2001/12/21 09:34:05 thoma Exp $
+// $Id: midgard_CG_zauber.cc,v 1.45 2001/12/23 21:38:57 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -53,9 +53,9 @@ void midgard_CG::angeborene_zauber()
 {
  try{
  if (Typ[0]->Short()=="eBe" || Typ[1]->Short()=="eBe" || Typ[0]->Short()=="dBe" || Typ[1]->Short()=="dBe" ) 
-    list_Zauber.push_back(new Zauber("Lehrersuche"));
+    list_Zauber.push_back(&*cH_Zauber("Lehrersuche"));
  if (Werte.Spezies()->Name()=="Elf") 
-    list_Zauber.push_back(new Zauber("Erkennen der Aura"));
+    list_Zauber.push_back(&*cH_Zauber("Erkennen der Aura"));
  }catch(SQLerror &e) {cerr << e <<'\n';}
 }
 
