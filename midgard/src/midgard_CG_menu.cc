@@ -47,9 +47,9 @@ void midgard_CG::menu_init()
 {
   menu_kontext=Gtk::manage(new Gtk::Menu());
 
-//Schummel-Menü/////////////////////////////////////////////////////////////////////
+//Schummel-MenÃŒ/////////////////////////////////////////////////////////////////////
   Gtk::Menu *schummel_menu = Gtk::manage(new class Gtk::Menu());
-  Gtk::MenuItem *schummel = Gtk::manage(new class Gtk::MenuItem("Original-Regel-Menü"));
+  Gtk::MenuItem *schummel = Gtk::manage(new class Gtk::MenuItem("Original-Regel-MenÃŒ"));
   schummel->set_submenu(*schummel_menu);
 
   {Gtk::MenuItem *_M=Gtk::manage(new Gtk::MenuItem(make_gtk_box(MagusImage("NSC-Mode-26.xpm"),"alle Regeln abschalten")));
@@ -91,10 +91,10 @@ void midgard_CG::menu_init()
   drucken_menu->append(*latex_beschreibung);
   latex_beschreibung->signal_activate().connect(SigC::slot(*this,&midgard_CG::on_beschreibung_drucken));
 
-  Gtk::MenuItem *latex_ausruestung = Gtk::manage(new class Gtk::MenuItem("Ausrüstungsdokument drucken (Alles)"));
+  Gtk::MenuItem *latex_ausruestung = Gtk::manage(new class Gtk::MenuItem("AusrÃŒstungsdokument drucken (Alles)"));
   drucken_menu->append(*latex_ausruestung);
   latex_ausruestung->signal_activate().connect(SigC::slot(*this,&midgard_CG::on_auch_unsichtbares_drucken));
-  Gtk::MenuItem *latex_ausruestung2 = Gtk::manage(new class Gtk::MenuItem("Ausrüstungsdokument drucken (Nur sichtbare Gegenstände)"));
+  Gtk::MenuItem *latex_ausruestung2 = Gtk::manage(new class Gtk::MenuItem("AusrÃŒstungsdokument drucken (Nur sichtbare GegenstÃ€nde)"));
   drucken_menu->append(*latex_ausruestung2);
   latex_ausruestung2->signal_activate().connect(SigC::slot(*this,&midgard_CG::on_nur_sichtbares_drucken));
 
@@ -132,7 +132,7 @@ void midgard_CG::menu_init()
          mi->setSensitive(getChar().proxies.checks[Optionen::Original],true);
    }
   regionen_menu->items().push_back(Gtk::Menu_Helpers::SeparatorElem());  
-  Gtk::MenuItem *standard_regionen = Gtk::manage(new class Gtk::MenuItem("Ausgew�hlte Regionen zum Standard machen"));
+  Gtk::MenuItem *standard_regionen = Gtk::manage(new class Gtk::MenuItem("Ausgewählte Regionen zum Standard machen"));
   regionen_menu->append(*standard_regionen);
 #if 0
   standard_regionen->signal_activate().connect(
@@ -176,7 +176,7 @@ void midgard_CG::menu_init()
 /*
 static void wert_changed(gpointer gp)
 { 
-  std::cout << "MENÜ: WC: "<<  *(bool*)(gp)<<'\n';
+  std::cout << "MENÃ: WC: "<<  *(bool*)(gp)<<'\n';
 } 
 */ 
 
@@ -257,7 +257,7 @@ void midgard_CG::menubar_init()
    }
 
   regionen_menu->items().push_back(Gtk::Menu_Helpers::SeparatorElem());  
-  Gtk::MenuItem *standard_regionen = Gtk::manage(new class Gtk::MenuItem("Ausgew�hlte Regionen zum Standard machen"));
+  Gtk::MenuItem *standard_regionen = Gtk::manage(new class Gtk::MenuItem("Ausgewählte Regionen zum Standard machen"));
   regionen_menu->items().push_back(Gtk::Menu_Helpers::MenuElem(*standard_regionen));
   standard_regionen->signal_activate().connect(SigC::slot(*this,&midgard_CG::SetStandardRegionen));
 
