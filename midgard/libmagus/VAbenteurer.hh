@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.hh,v 1.14 2004/03/22 07:49:21 christof Exp $               
+// $Id: VAbenteurer.hh,v 1.15 2004/03/22 08:07:05 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -64,6 +64,7 @@ namespace AbenteurerListe
 		const_iterator begin() const { return undos.begin(); }
 		const_iterator end() const { return undos.end(); }
 		const_iterator getUndo() const { return current_undo; }
+		iterator getUndo() { return current_undo; }
 		void setUndo(const_iterator it);
 
 		VAbentModelProxy proxies; // proxy ist erforderlich um mit dem richtigen
@@ -75,11 +76,9 @@ namespace AbenteurerListe
 		Abenteurer &getAbenteurer() { return current_undo->abenteurer; }
 		AbenteurerLernpunkte &getLernpunkte() { return current_undo->ab_lp; }
 		Wizard &getWizard() { return current_undo->wizard; }
-		st_undo &getUndo() { return *current_undo; }
 		const Abenteurer &getAbenteurer() const { return current_undo->abenteurer; }
 		const AbenteurerLernpunkte &getLernpunkte() const { return current_undo->ab_lp; }
 		const Wizard &getWizard() const { return current_undo->wizard; }
-		const st_undo &getUndo() const { return *current_undo; }
 		void modified() {bgespeichert=false;}
 		void saved() {bgespeichert=true;}
 		bool gespeichert() const {return bgespeichert;}

@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.cc,v 1.9 2004/03/22 07:49:21 christof Exp $            
+// $Id: VAbenteurer.cc,v 1.10 2004/03/22 08:07:05 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -150,7 +150,7 @@ void VAbenteurer::Item::undosave(const std::string &s)
   iterator i=unconstify(current_undo);
   ++i;
   if (i!=end()) undos.erase(i,unconstify(end()));
-  undos.push_back(getUndo());
+  undos.push_back(*getUndo());
   current_undo=--undos.end();
   modified();
   current_undo->text=s;
