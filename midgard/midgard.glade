@@ -8720,111 +8720,19 @@ auswählen</label>
 		  <spacing>0</spacing>
 
 		  <widget>
-		    <class>GtkHBox</class>
-		    <name>table119</name>
-		    <homogeneous>False</homogeneous>
-		    <spacing>0</spacing>
+		    <class>GtkPixmap</class>
+		    <name>pixmap170</name>
+		    <filename>Angeb_All-32.xpm</filename>
+		    <xalign>0.5</xalign>
+		    <yalign>0.5</yalign>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <build_insensitive>True</build_insensitive>
 		    <child>
 		      <padding>0</padding>
 		      <expand>True</expand>
 		      <fill>True</fill>
 		    </child>
-
-		    <widget>
-		      <class>GtkPixmap</class>
-		      <name>pixmap99</name>
-		      <filename>Angeb_Sicht-32.xpm</filename>
-		      <xalign>0.5</xalign>
-		      <yalign>0.5</yalign>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <build_insensitive>True</build_insensitive>
-		      <child>
-			<padding>0</padding>
-			<expand>True</expand>
-			<fill>True</fill>
-		      </child>
-		    </widget>
-
-		    <widget>
-		      <class>GtkPixmap</class>
-		      <name>pixmap105</name>
-		      <filename>Angeb_Tast-32.xpm</filename>
-		      <xalign>0.5</xalign>
-		      <yalign>0.5</yalign>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <build_insensitive>True</build_insensitive>
-		      <child>
-			<padding>0</padding>
-			<expand>True</expand>
-			<fill>True</fill>
-		      </child>
-		    </widget>
-
-		    <widget>
-		      <class>GtkPixmap</class>
-		      <name>pixmap96</name>
-		      <filename>Angeb_Ohr-32.xpm</filename>
-		      <xalign>0.5</xalign>
-		      <yalign>0.5</yalign>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <build_insensitive>True</build_insensitive>
-		      <child>
-			<padding>0</padding>
-			<expand>True</expand>
-			<fill>True</fill>
-		      </child>
-		    </widget>
-
-		    <widget>
-		      <class>GtkPixmap</class>
-		      <name>pixmap98</name>
-		      <filename>Angeb_Richtung-32.xpm</filename>
-		      <xalign>0.5</xalign>
-		      <yalign>0.5</yalign>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <build_insensitive>True</build_insensitive>
-		      <child>
-			<padding>0</padding>
-			<expand>True</expand>
-			<fill>True</fill>
-		      </child>
-		    </widget>
-
-		    <widget>
-		      <class>GtkPixmap</class>
-		      <name>pixmap97</name>
-		      <filename>Angeb_Reflex-32.xpm</filename>
-		      <xalign>0.5</xalign>
-		      <yalign>0.5</yalign>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <build_insensitive>True</build_insensitive>
-		      <child>
-			<padding>0</padding>
-			<expand>True</expand>
-			<fill>True</fill>
-		      </child>
-		    </widget>
-
-		    <widget>
-		      <class>GtkPixmap</class>
-		      <name>pixmap95</name>
-		      <filename>Angeb_Nase-32.xpm</filename>
-		      <xalign>0.5</xalign>
-		      <yalign>0.5</yalign>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <build_insensitive>True</build_insensitive>
-		      <child>
-			<padding>0</padding>
-			<expand>True</expand>
-			<fill>True</fill>
-		      </child>
-		    </widget>
 		  </widget>
 
 		  <widget>

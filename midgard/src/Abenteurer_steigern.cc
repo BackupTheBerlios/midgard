@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.1 2002/09/25 06:33:02 thoma Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.2 2002/09/25 08:12:07 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -48,7 +48,10 @@ bool Abenteurer::steigere(MBEmlt &MBE,std::string &info,const e_wie_steigern wie
 
   std::list<MBEmlt> &MyList=get_known_list(MBE);
   for (std::list<MBEmlt>::iterator i=MyList.begin();i!= MyList.end();++i )
+{
+cout << MBE->Name()<<' '<<(*i)->Name()<<' '<<stufen<<'\n';
      if ( (*i) == MBE) { (*i).addErfolgswert(stufen) ; break;}
+}
   return true;
 }
 

@@ -16,12 +16,19 @@ NEWS IN VERSION 0.8.3
    (ist aber immer noch verbesserungswürdig).
 * verbotene Typen für Menschen
 * Werte editieren setzt alten Zustand für Typen wieder her
-* Fileselector für HTML-Browser, Temporäres Verzeichnis und Speichern
-* Ausrüstungsauswahl bis auf weiteres deaktiviert
+* Fileselector für HTML-Browser, Temporäres Verzeichnis und Speichern und pdf-Viewer
+* Ausrüstungsauswahl bis zum Überarbeiten deaktiviert
+* Beim Verlernen einer Waffe wird die entsprechende Grundfähigkeit verlernt
+* Zufallsgenerator: Im 'Lernschema' können Fertigkeiten modifiziert werden.
+* Der Knopf für 'angeb. Fertigkeiten' hat nun auch ein M$-Icon 
+   (wenn man es will) und verschwindet, wenn man garkeine Icons haben will.
+* Für MAGUS-KI war ein kompletter Umbau der Steigern-API notwendig,
+   steigern/neulernen bedarf also nocheinmal intensiver Tests
+* Zufallsabenteurer mit beliebig vielen GFP können jetzt erzeugt werden.
+
 
 TODO: ('-' zeigt CP an)
 
-* Beim Verlernen einer Waffe wird die entsprechende Grundfähigkeit nicht verlernt
 * region_check und nsc_check aus Klasse midgard_CG entfernen
 * Schwarzer Balken im Lernschema bei Maximierung
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in

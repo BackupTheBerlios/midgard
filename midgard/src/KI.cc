@@ -42,7 +42,7 @@ std::vector<MBEmlt> List_to_Vector(const std::list<MBEmlt> &L)
 
 const Enums::MBEListen MagusKI::Was() const
 {
-return Enums::sFert; //DEBUG
+//return Enums::sFert; //DEBUG
 
   int min=Enums::sFert;
   int max=Enums::sZWerk;
@@ -58,8 +58,6 @@ void MagusKI::NeuLernen(int &gfp)
   std::vector<MBEmlt> V=List_to_Vector(LL);
   int j=random.integer(0,V.size()-1);
   MBEmlt M=V[j];
-cout << M->Name()<<"  neu gelernt\t";
-cout << Aben.List_Fertigkeit().size()<<'\t';
 
   std::string info;
   Enums::e_wie_steigern wie=Enums::eUnterweisung;
@@ -68,10 +66,7 @@ cout << Aben.List_Fertigkeit().size()<<'\t';
 
   if(ok) gfp-=M->Kosten(Aben);
 
-cout << "Info: "<<info<<'\n';
-
-//  get_known_list(was).push_back(M);
-cout << Aben.List_Fertigkeit().size()<<'\n';
+  get_known_list(was).push_back(M);
 }
 
 
@@ -86,7 +81,6 @@ void MagusKI::Steigern(int &gfp)
    {
      if(j==x++) 
       {
-cerr <<  (*i)->Name() << " gesteigert\n";
          std::string info;
          Enums::e_wie_steigern wie=Enums::eUnterweisung;
          Enums::st_bool_steigern bool_steigern(false,false,false,false,false,false,false,false);

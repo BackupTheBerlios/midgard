@@ -26,7 +26,7 @@ class midgard_CG;
 class MagusKI
 {
       midgard_CG *hauptfenster;
-      Abenteurer Aben;
+      Abenteurer &Aben;
       Datenbank Database;
       Random random;
       LernListen LL;
