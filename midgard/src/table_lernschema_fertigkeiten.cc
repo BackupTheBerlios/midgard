@@ -1,4 +1,4 @@
-// $Id: table_lernschema_fertigkeiten.cc,v 1.35 2003/11/28 08:49:05 christof Exp $
+// $Id: table_lernschema_fertigkeiten.cc,v 1.36 2003/12/10 07:30:25 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,6 +26,7 @@
 #include "midgard_CG.hh"
 #include <libmagus/Random.hh>
 #include <libmagus/Ausgabe.hh>
+#include <libmagus/Datenbank.hh>
 #include "Wizard.hh"
 
 void table_lernschema::on_button_angeborene_fertigkeit()

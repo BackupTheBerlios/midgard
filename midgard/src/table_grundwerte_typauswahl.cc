@@ -22,6 +22,7 @@
 #include "LernListen.hh"
 #include <Misc/Trace.h>
 #include "MagusDialog.hh"
+#include <libmagus/Datenbank.hh>
 
 void table_grundwerte::fill_typauswahl()
 {

@@ -1,4 +1,4 @@
-// $Id: table_lernschema_kido.cc,v 1.17 2003/09/01 06:47:58 christof Exp $
+// $Id: table_lernschema_kido.cc,v 1.18 2003/12/10 07:30:25 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,6 +25,7 @@
 #include <Misc/itos.h>
 #include "midgard_CG.hh"
 #include <libmagus/Ausgabe.hh>
+#include <libmagus/Datenbank.hh>
 
 void table_lernschema::on_kido_wahl_clicked()
 {

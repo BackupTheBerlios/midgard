@@ -22,6 +22,7 @@
 #include <Misc/mystring.h>
 #include <libmagus/Datenbank.hh>
 #include <libmagus/Ausgabe.hh>
+#include <libmagus/LernListen.hh>
 
 double Data_NewPreis::CalKosten() const
 {      

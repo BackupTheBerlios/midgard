@@ -25,6 +25,7 @@
 #include "Region_GUI.hh"
 #include "Optionen_GUI.hh"
 #include "WindowInfo.hh"
+#include <libmagus/Datenbank.hh>
 extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 Gtk::Box &midgard_CG::make_gtk_box(Glib::RefPtr<Gdk::Pixbuf> data,const std::string &label,const bool text_vor_bild,const bool hbox)
@@ -68,8 +69,9 @@ void midgard_CG::menu_init()
   {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(table_grundwerte->edit_werte,"Werte editieren"));
   schummel_menu->append(*_M);}
 
-  {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(table_steigern->steigern_mit_EP_bool,"Mit EP/PP steigern"));
-  schummel_menu->append(*_M);}
+//  {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(table_steigern->steigern_mit_EP_bool,"Mit EP/PP steigern"));
+//  schummel_menu->append(*_M);}
+#warning Schummeln
 
   {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(getChar().proxies.checks[Optionen::NSC_only],"NSC-Modus"));
   schummel_menu->append(*_M);}

@@ -24,6 +24,7 @@
 #include "Zauber.hh"
 #include <Misc/itos.h>
 #include <libmagus/Ausgabe.hh>
+#include <libmagus/Datenbank.hh>
 
 bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
 {

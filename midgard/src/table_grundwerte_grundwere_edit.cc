@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_grundwere_edit.cc,v 1.26 2003/11/28 07:52:21 christof Exp $
+// $Id: table_grundwerte_grundwere_edit.cc,v 1.27 2003/12/10 07:30:25 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,6 +19,7 @@
 
 #include "table_grundwerte.hh"
 #include "midgard_CG.hh"
+#include "libmagus/Datenbank.hh"
 
 static bool oldtyp_bool;
 
