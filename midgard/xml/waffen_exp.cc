@@ -1,4 +1,4 @@
-// $Id: waffen_exp.cc,v 1.7 2002/01/10 15:46:48 christof Exp $
+// $Id: waffen_exp.cc,v 1.8 2002/01/18 07:07:04 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -141,7 +141,9 @@ void waffen_speichern(std::ostream &o)
          if (is2.good())
          {  o << "    <Waffen-Grundkenntnis";
             fetch_and_write_int_attrib(is2, o, "Kosten");
-            o << "/>\n";
+            o << ">\n";
+            grund_standard_ausnahme(o, "waffen_grund_typen", waffe);
+            o << "    </Waffen-Grundkenntnis>\n";
          }
      }
       //********** Lernschema **********************************
@@ -225,7 +227,7 @@ void waffen_speichern(std::ostream &o)
 //*************** Waffen Typen ***************************
 
    // nicht erforderlich für Grundkenntnisse?
-//      grund_standard_ausnahme(o, "waffen_typen", grund);
+      grund_standard_ausnahme(o, "waffen_grund_typen", grund);
 //      lernschema(o, MIDGARD3_4("Waffe","Waffenfertigkeiten"), grund);
       pflicht_lernen(o, grund);
       verbot_lernen(o, grund);
