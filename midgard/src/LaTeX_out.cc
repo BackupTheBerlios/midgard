@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.110 2002/04/03 07:58:49 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.111 2002/04/03 10:17:15 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -62,7 +62,7 @@ void midgard_CG::on_latex_clicked(bool values=true)
  pdf_viewer(filename);
 }      
 
-void midgard_CG::LaTeX_write_values(ofstream &fout,const std::string &install_latex_file)
+void midgard_CG::LaTeX_write_values(ostream &fout,const std::string &install_latex_file)
 {
  fout << "\\documentclass[11pt,a4paper,landscape]{article}\n";
  std::string styp;
@@ -438,7 +438,7 @@ void midgard_CG::LaTeX_write_values(ofstream &fout,const std::string &install_la
 }
 
 
-void midgard_CG::LaTeX_write_empty_values(ofstream &fout,const std::string &install_latex_file)
+void midgard_CG::LaTeX_write_empty_values(ostream &fout,const std::string &install_latex_file)
 {
  fout << "\\documentclass[11pt,a4paper,landscape]{article}\n";
  fout << "\\newcommand{\\typ}{}\n";

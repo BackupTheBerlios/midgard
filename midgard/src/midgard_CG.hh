@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.199 2002/04/03 07:58:49 thoma Exp $
+// $Id: midgard_CG.hh,v 1.200 2002/04/03 10:17:15 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -301,8 +301,8 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
 
         void load_fertigkeiten(IF_XML(const Tag *tag, const Tag *waffen_b, int xml_version));
         void on_latex_clicked(bool values=true);
-        void LaTeX_write_values(ofstream &fout,const std::string &install_latex_file);
-        void LaTeX_write_empty_values(ofstream &fout,const std::string &install_latex_file);
+        void LaTeX_write_values(ostream &fout,const std::string &install_latex_file);
+        void LaTeX_write_empty_values(ostream &fout,const std::string &install_latex_file);
         gint on_latex_release_event(GdkEventButton *ev);
         enum LaTeX_Filenames {TeX_MainWerte,TeX_MainDocument,TeX_Beschreibung,TeX_Ausruestung};
         enum LaTeX_Pathnames {TeX_Install,TeX_tmp};
@@ -313,14 +313,14 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void spielleiter_export();
         void latex_beschreibung_drucken();
         void on_button_info_clicked();
-        void LaTeX_zauber_main(ofstream &fout);
+        void LaTeX_zauber_main(ostream &fout);
         std::string LaTeX_scale(const std::string& is, unsigned int maxlength, const std::string& scale);
         std::string LaTeX_scalemag(const std::string& is, unsigned int maxlength, const std::string& scale,
             const std::string& magisch,const std::string& reichweite);
-        void LaTeX_zauber(ofstream &fout);
-        void LaTeX_zaubermittel(ofstream &fout);
-        void LaTeX_kido_main(ofstream &fout);
-        void LaTeX_kido(ofstream &fout);
+        void LaTeX_zauber(ostream &fout);
+        void LaTeX_zaubermittel(ostream &fout);
+        void LaTeX_kido_main(ostream &fout);
+        void LaTeX_kido(ostream &fout);
         void LaTeX_header(ostream &fout,bool landscape=true);
         void LaTeX_kopfzeile(ostream &fout,bool landscape,bool newdoc=true);
         void LaTeX_footer(ostream &fout);

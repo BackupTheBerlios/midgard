@@ -1,4 +1,4 @@
-// $Id: LaTeX_zauber.cc,v 1.46 2002/03/29 07:02:59 thoma Exp $
+// $Id: LaTeX_zauber.cc,v 1.47 2002/04/03 10:17:15 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,7 +22,7 @@
 #include "Zauber.hh"
 #include "Zauberwerk.hh"
 
-void midgard_CG::LaTeX_zauber(ofstream &fout)
+void midgard_CG::LaTeX_zauber(ostream &fout)
 {
   for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Zauber.begin();i!=list_Zauber.end();++i)
    {
@@ -46,7 +46,7 @@ void midgard_CG::LaTeX_zauber(ofstream &fout)
    }
 }
 
-void midgard_CG::LaTeX_zaubermittel(ofstream &fout)
+void midgard_CG::LaTeX_zaubermittel(ostream &fout)
 {
   for (std::list<cH_MidgardBasicElement>::iterator i=list_Zauberwerk.begin();i!=list_Zauberwerk.end();++i)
    {
@@ -62,7 +62,7 @@ void midgard_CG::LaTeX_zaubermittel(ofstream &fout)
 }
 
 
-void midgard_CG::LaTeX_zauber_main(ofstream &fout)
+void midgard_CG::LaTeX_zauber_main(ostream &fout)
 {
   LaTeX_kopfzeile(fout,true,false);
   fout << "\\scriptsize\n";

@@ -1,4 +1,4 @@
-// $Id: LaTeX_kido.cc,v 1.38 2002/03/29 07:02:59 thoma Exp $
+// $Id: LaTeX_kido.cc,v 1.39 2002/04/03 10:17:15 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,7 +22,7 @@
 #include "KiDo.hh"
 #include <Aux/itos.h>
 
-void midgard_CG::LaTeX_kido(ofstream &fout)
+void midgard_CG::LaTeX_kido(ostream &fout)
 {
   for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Kido.begin();i!=list_Kido.end();++i)
    {
@@ -43,7 +43,7 @@ void midgard_CG::LaTeX_kido(ofstream &fout)
 }
 
 
-void midgard_CG::LaTeX_kido_main(ofstream &fout)
+void midgard_CG::LaTeX_kido_main(ostream &fout)
 {
   LaTeX_kopfzeile(fout,true,false);
   fout << "\\begin{tabular}{rllcp{17cm}}\n";
