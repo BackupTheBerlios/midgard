@@ -7,15 +7,14 @@ exec sql include sqlca;
 
 cH_Waffe::cache_t cH_Waffe::cache;
 
-cH_Waffe::cH_Waffe(const std::string& name,const vector<H_Data_typen>& Typ,
-                  int lernpunkte,bool pflicht)
+cH_Waffe::cH_Waffe(const std::string& name,int lernpunkte,bool pflicht)
 {
- st_index index(name,Typ,lernpunkte);
+ st_index index(name,lernpunkte);
  cH_Waffe *cached(cache.lookup(index));
  if (cached) *this=*cached;
  else
   {
-   *this=cH_Waffe(new Waffe(name,Typ,lernpunkte,pflicht));  
+   *this=cH_Waffe(new Waffe(name,lernpunkte,pflicht));  
    cache.Register(index,*this);
   }
 }
@@ -107,7 +106,7 @@ void Waffe::get_Alias()
 
 }
 
-
+/*
 double Waffe::Standard_Faktor() const
 {
   double fac;
@@ -130,9 +129,9 @@ bool Waffe::standard_all_S(const vector<std::string>& s) const
  if (s[1] == "S" && (s[0] =="S" || s[0]=="" )) return true;
  return false;
 }
+*/
 
-
-
+/*
 void Waffe::set_Standard(const vector<H_Data_typen>& Typ)
 {
   assert(Typ.size()==2);
@@ -166,7 +165,7 @@ void Waffe::set_Standard(const vector<H_Data_typen>& Typ)
    standard.push_back(db_ergebnis);
    standard.push_back(db_ergebnis2);
 }
-
+*/
 
 bool Waffe::SG_Voraussetzung(const Grundwerte& Werte) const
 {
@@ -268,8 +267,9 @@ std::string Waffe::get_waffe_from_alias(const std::string& alias)
   else return(db_ergebnis);
 }
 
-int Waffe::Maxwert() const
+int Waffe::Maxwert(const vector<H_Data_typen>& Typ) const
 {
+ assert(Typ.size()==2);
  int maxwert=0;
  if (Art()== "Angriff" || Art() == "Fern")
   {

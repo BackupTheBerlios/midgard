@@ -17,9 +17,9 @@
  */
 
 #include "midgard_CG.hh"
-#include <Aux/Transaction.h>
-#include <Aux/SQLerror.h>
-exec sql include sqlca;
+//#include <Aux/Transaction.h>
+//#include <Aux/SQLerror.h>
+//exec sql include sqlca;
 //#include <cstring>
 #include "zufall.h"
 #include "WaffeGrund.hh"
@@ -29,6 +29,23 @@ exec sql include sqlca;
 
 void midgard_CG::on_waffen_laden_clicked()
 {
+ list_Waffen_neu.clear();
+ cH_Pflicht pflicht(Werte.Spezies(),Typ);
+ for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Waffe.begin();i!=Database.Waffe.end();++i)
+   { cH_Waffe w(*i);
+     if ((*i)->ist_gelernt(list_Waffe)) continue ;
+     if (pflicht->istVerboten(w->Name())) continue;
+     if ((*i)->ist_lernbar(Typ,w->get_MapTyp()))
+       if (region_check(w->Region()) )
+        if (w->SG_Voraussetzungen(Werte))
+          {
+           if(w->Art()=="Verteidigung") w->set_Erfolgswert(1);
+           else w->set_Erfolgswert(4);
+           list_Waffen_neu.push_back(*i);
+          }
+   }
+
+/*
    exec sql begin declare section;
       char db_waffe[50];
       char query[1024];
@@ -62,7 +79,7 @@ void midgard_CG::on_waffen_laden_clicked()
       }
    exec sql close wa_ein;
    tr.close();
-
+*/
   on_waffengrund_laden_clicked();
   waffen_zeigen();
 }
@@ -75,11 +92,14 @@ void midgard_CG::waffen_zeigen()
    Ausnahmen ausnahmen(Werte,Typ,vec_Beruf);
    MidgardBasicElement::show_list_in_tree(list_WaffenGrund_neu,neue_grund_tree,Werte,Typ,ausnahmen,'N');
    MidgardBasicElement::show_list_in_tree(list_WaffenGrund    ,alte_grund_tree,Werte,Typ,ausnahmen,'N');
-   show_alte_waffen();
-   show_neue_waffen();
+   MidgardBasicElement::show_list_in_tree(list_Waffen_neu,neue_waffe_tree,Werte,Typ,ausnahmen,'N');
+   MidgardBasicElement::show_list_in_tree(list_Waffen    ,alte_waffe_tree,Werte,Typ,ausnahmen,'N');
+//   show_alte_waffen();
+//   show_neue_waffen();
 }
 
 
+/*
 void midgard_CG::move_waffe(std::list<cH_Waffe>& von,std::list<cH_Waffe>& nach,const std::string& name)
 {
   for (std::list<cH_Waffe>::iterator i=von.begin();i!= von.end();++i)
@@ -87,6 +107,7 @@ void midgard_CG::move_waffe(std::list<cH_Waffe>& von,std::list<cH_Waffe>& nach,c
        {nach.splice(nach.begin(),von,i);break;}
   waffen_zeigen();
 }
+*/
 /*
 void midgard_CG::move_waffegrund(std::list<cH_WaffeGrund>& von,std::list<cH_WaffeGrund>& nach,const std::string& name)
 {
@@ -142,7 +163,7 @@ void midgard_CG::get_srv_kosten(const cH_Waffe& waffe, int &steigern,int &reduzi
    reduzieren = (int)(db_schwierigkeit*db_erfolgsfaktor_r*fac);
 }
 
-
+/*
 void midgard_CG::show_alte_waffen()
 {
   std::vector<cH_RowDataBase> datavec;
@@ -154,7 +175,7 @@ void midgard_CG::show_alte_waffen()
    } 
   alte_waffen_tree->setDataVec(datavec);
 }
-
+*/
 
 void midgard_CG::on_leaf_selected_neue_grund(cH_RowDataBase d)
 {  
@@ -221,10 +242,12 @@ void midgard_CG::show_neue_grund()
 */
 void midgard_CG::on_leaf_selected_neue_waffen(cH_RowDataBase d)
 {  const Data_waffen *dt=dynamic_cast<const Data_waffen*>(&*d);
-   move_waffe(list_Waffen_neu,list_Waffen,dt->Name());
+//   move_waffe(list_Waffen_neu,list_Waffen,dt->Name());
+  MidgardBasicElement::move_element(list_Waffen_neu,list_Waffen,dt->Name());
+  waffen_zeigen();
 }
  
-
+/*
 void midgard_CG::show_neue_waffen()
 {
  std::vector<cH_RowDataBase> datavec;
@@ -232,6 +255,7 @@ void midgard_CG::show_neue_waffen()
    datavec.push_back(new Data_waffen((*i)->Name(),(*i)->Erfolgswert(),(*i)->Voraussetzung()));
  neue_waffen_tree->setDataVec(datavec);
 }
+*/
 
 void midgard_CG::on_leaf_selected_alte_grund(cH_RowDataBase d)
 {  
@@ -264,9 +288,9 @@ void midgard_CG::on_leaf_selected_alte_waffen(cH_RowDataBase d)
             }          
           Werte.add_GFP(dt->Steigern());
           if (dt->Steigern() != 0)
-          for (std::list<cH_Waffe>::const_iterator i=list_Waffen.begin();i!=list_Waffen.end();++i)
-               if ((*i)->Name()==dt->Name()) 
-                  { (*i)->set_Erfolgswert((*i)->Erfolgswert()+1); break;}
+          for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Waffen.begin();i!=list_Waffen.end();++i)
+               if (cH_Waffe(*i)->Name()==dt->Name()) 
+                  { cH_Waffe(*i)->add_Erfolgswert(1); break;}
         }
        else // steigern mit Praxispunkten
         {
@@ -280,9 +304,8 @@ void midgard_CG::on_leaf_selected_alte_waffen(cH_RowDataBase d)
             {
               Werte.add_GFP(dt->Steigern());
               if (dt->Steigern() != 0)
-              for (std::list<cH_Waffe>::const_iterator i=list_Waffen.begin();
-                i!=list_Waffen.end();++i)
-                  if ((*i)->Name()==dt->Name()) (*i)->set_Erfolgswert((*i)->Erfolgswert()+1);
+              for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Waffen.begin();i!=list_Waffen.end();++i)
+                  if (cH_Waffe(*i)->Name()==dt->Name()) cH_Waffe(*i)->add_Erfolgswert(1);
             }
         }
       }
@@ -291,9 +314,8 @@ void midgard_CG::on_leaf_selected_alte_waffen(cH_RowDataBase d)
         if (steigern_bool) desteigern(dt->Reduzieren());
         Werte.add_GFP(-dt->Reduzieren());
         if (dt->Reduzieren() != 0)
-        for (std::list<cH_Waffe>::iterator i=list_Waffen.begin();
-           i!=list_Waffen.end();++i)
-              if ((*i)->Name()==dt->Name()) (*i)->set_Erfolgswert((*i)->Erfolgswert()-1);  
+        for (std::list<cH_MidgardBasicElement>::iterator i=list_Waffen.begin();i!=list_Waffen.end();++i)
+              if (cH_Waffe(*i)->Name()==dt->Name()) cH_Waffe(*i)->add_Erfolgswert(-1);  
       }
    waffen_zeigen();
 }
@@ -326,8 +348,8 @@ void midgard_CG::on_button_waffen_sort_clicked()
 {
   std::deque<guint> seq = alte_waffen_tree->get_seq();
   switch((Data_waffen::Spalten_A)seq[0]) {
-      case Data_waffen::WERTa : list_Waffen.sort(Waffen_sort_wert()); ;break;
-      case Data_waffen::NAMEa : list_Waffen.sort(Waffen_sort_name()); ;break;
+      case Data_waffen::WERTa : list_Waffen.sort(cH_Waffe::sort(cH_Waffe::sort::ERFOLGSWERT)); ;break;
+      case Data_waffen::NAMEa : list_Waffen.sort(cH_Waffe::sort(cH_Waffe::sort::NAME)); ;break;
       default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
    }
 }

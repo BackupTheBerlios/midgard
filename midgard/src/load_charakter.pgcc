@@ -334,8 +334,8 @@ void midgard_CG::load_fertigkeiten()
        }    
       if(sart=="Waffe")
         {
-         cH_Waffe waffe(db_fert,Typ);
-         waffe->set_Erfolgswert(db_wert);
+         cH_MidgardBasicElement waffe(db_fert,Typ);
+         cH_Waffe(waffe)->set_Erfolgswert(db_wert);
          list_Waffen.push_back(waffe);
         }
       if(sart=="Besitz_W")      list_Waffen_besitz.push_back(new 

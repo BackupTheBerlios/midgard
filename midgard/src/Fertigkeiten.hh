@@ -48,9 +48,6 @@ class Fertigkeit : public MidgardBasicElement
      std::string Voraussetzung() const {return voraussetzung.fert;}
      bool Voraussetzungen(const Grundwerte& Werte) const;
      std::string Pflicht() const {if (pflicht) return "*"; return "";}
-
-     void set_Erfolgswert(int e) const {erfolgswert=e;}
-     void add_Erfolgswert(int e) const {erfolgswert+=e;}
 };
 
 class cH_Fertigkeit : public Handle<const Fertigkeit>

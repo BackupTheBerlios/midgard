@@ -87,6 +87,8 @@ void midgard_CG::on_speichern_clicked()
    Ausnahmen ausnahmen(Werte,Typ,vec_Beruf);
    MidgardBasicElement::saveElementliste(list_Fertigkeit_ang,Werte,Typ,ausnahmen);
    MidgardBasicElement::saveElementliste(list_Fertigkeit,Werte,Typ,ausnahmen);
+   MidgardBasicElement::saveElementliste(list_Waffen,Werte,Typ,ausnahmen);
+/*
    for (std::list<cH_Waffe>::const_iterator i=list_Waffen.begin();
          i!=list_Waffen.end();++i)
       {
@@ -98,6 +100,7 @@ void midgard_CG::on_speichern_clicked()
             (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Waffe') ;         
             SQLerror::test(__FILELINE__);
       }
+*/
    for (std::list<H_WaffeBesitz>::const_iterator i=list_Waffen_besitz.begin();
          i!=list_Waffen_besitz.end();++i)
       {

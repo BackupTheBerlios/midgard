@@ -29,7 +29,7 @@ class MidgardBasicElement : public HandleContent
 
 
    public:
-      enum MBEE {FERTIGKEIT,FERTIGKEIT_ANG,WAFFEN,WAFFEGRUND,ZAUBER,
+      enum MBEE {FERTIGKEIT,FERTIGKEIT_ANG,WAFFEGRUND,WAFFE,ZAUBER,
                   ZAUBERWERK,KIDO,SPRACHE,SCHRIFT} ;
       enum TREE {OLD,NEW};
 

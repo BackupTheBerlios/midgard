@@ -1,16 +1,17 @@
 #ifndef _WAFFE_HH
 #  define _WAFFE_HH
-#include <vector>
-#include <list>
-#include <Aux/Handles.h>
-#include <Aux/CacheStatic.h>
+//#include <vector>
+//#include <list>
+#include "MidgardBasicElement.hh"
 #include "class_typen.hh"
 #include "Grundwerte.hh"
-#include "itos.h"
+//#include "itos.h"
+#include <gtk--/progressbar.h>
+
 class cH_Waffe;
 class H_WaffeBesitz;
 
-class Waffe : public HandleContent
+class Waffe : public MidgardBasicElement
 {
    protected:
      Waffe(){}
@@ -28,32 +29,27 @@ class Waffe : public HandleContent
      std::string region;
      int schwierigkeit, st,ge,reichweite_0,reichweite_n,
          reichweite_m,reichweite_f;
-     int lernpunkte, anfangswert, kosten;
-     int mutable erfolgswert;
+     int lernpunkte, anfangswert;//, kosten;
      int schaden_bonus;
-     vector<std::string> standard;
      bool pflicht;
      list<st_alias> list_alias;
-     vector<H_Data_typen> Typ;     
 
      void get_Waffe();
      void get_Alias();
-     int GrundKosten() const { return kosten; }
-     void set_Standard(const vector<H_Data_typen>& Typ) ;
      int St() const {return st;}
      int Ge() const {return ge;}
   public:
-     Waffe(const std::string& n,const vector<H_Data_typen>& _Typ,
-           int l=0,bool p=false)
-      :name(n),lernpunkte(l),pflicht(p),Typ(_Typ)
-     {get_Waffe(); get_Alias(); set_Standard(Typ);}
+     Waffe(const std::string& n,int l=0,bool p=false)
+      :name(n),lernpunkte(l),pflicht(p)
+     {get_Waffe(); get_Alias(); get_map_typ(); }
+
+     enum MBEE What() const {return MidgardBasicElement::WAFFE;}
+     std::string What_str() const {return "Waffe";}
 
      std::string Name() const {return name;}
      const list<st_alias>& Alias() const {return list_alias;}     
      std::string Grundkenntnis() const {return grundkenntnisse;}
      std::string Region(const std::string& name) const ;
-     std::string Standard__() const { return standard[0]+' '+standard[1];}
-     const vector<std::string>& Standard() const {return standard;}
 
      std::string Art() const {return art;}
      std::string Art2() const {return art2;}
@@ -66,16 +62,13 @@ class Waffe : public HandleContent
 
      int Lernpunkte() const {return lernpunkte;}
      int Anfangswert() const {return anfangswert;}
-     int Kosten() const {return (int)(Standard_Faktor()*GrundKosten());};
-     double Standard_Faktor() const;
      int Erfolgswert() const {return erfolgswert;};
      std::string Voraussetzung() const {return voraussetzung;}
      std::string Pflicht() const {if (pflicht) return "*"; return "";}
      bool Verteidigung() const {if(Art()=="Verteidigung") return true; else return false;}
 
-     void set_Erfolgswert(int e) const {erfolgswert=e;}
      bool SG_Voraussetzung(const Grundwerte& Werte) const;
-     int Maxwert() const;
+     int Maxwert(const vector<H_Data_typen>& Typ) const;
 
      static std::string get_waffe_from_alias(const std::string& waffe);
      static std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
@@ -83,24 +76,18 @@ class Waffe : public HandleContent
          const std::list<H_WaffeBesitz>& list_Waffen_besitz,
          const vector<H_Data_typen>& Typ,
          const Grundwerte& Werte);
-
-
- bool standard_all_S(const vector<std::string>& s) const ;
- bool standard_one_G(const vector<std::string>& s) const ;
 };
 
 class cH_Waffe : public Handle<const Waffe>
 {
-   struct st_index {std::string name; vector<H_Data_typen> Typ;int lernpunkte;
+   struct st_index {std::string name; int lernpunkte;
       bool operator == (const st_index& b) const
-         {return (name==b.name && Typ[0]->Short() == b.Typ[0]->Short() && 
-            lernpunkte==b.lernpunkte);}
+         {return (name==b.name && lernpunkte==b.lernpunkte);}
       bool operator <  (const st_index& b) const
          { return name < b.name ||
-             (name==b.name && Typ[0]->Short()<b.Typ[0]->Short()) ||
-             (name==b.name && Typ[0]->Short()==b.Typ[0]->Short() && lernpunkte<b.lernpunkte ); }
-      st_index(std::string n, const vector<H_Data_typen>& T,int l)
-         :name(n),Typ(T),lernpunkte(l){}
+             (name==b.name && lernpunkte<b.lernpunkte ); }
+      st_index(std::string n, int l)
+         :name(n),lernpunkte(l){}
       st_index(){}
       };
     typedef CacheStatic<st_index,cH_Waffe> cache_t;
@@ -109,9 +96,36 @@ class cH_Waffe : public Handle<const Waffe>
     cH_Waffe(Waffe *s) : Handle<const Waffe>(s) {};
     friend class std::map<st_index,cH_Waffe>;
  public:
-    cH_Waffe(const std::string& n,const vector<H_Data_typen>& Typ,
-      int l=0,bool b=false);
+    cH_Waffe(const std::string& n,int l=0,bool b=false);
+
+    cH_Waffe(const cH_MidgardBasicElement &x) : Handle<const Waffe>
+      (dynamic_cast<const Waffe *>(&*x)){}
+
+
+   class sort {
+      public:  
+         enum esort {NAME,ERFOLGSWERT};
+      private:
+         esort es;
+      public:
+         sort(enum esort _es):es(_es) {}
+         bool operator() (cH_Waffe x,cH_Waffe y) const
+           { switch(es) {
+               case(NAME) : return x->Name() < y->Name()  ;
+               case(ERFOLGSWERT): return x->Erfolgswert() < y->Erfolgswert();
+           }}
+    };
 };
+
+class Waffe_All
+{
+   std::list<cH_MidgardBasicElement> list_All;
+  public:
+   Waffe_All(Gtk::ProgressBar *progressbar);
+   std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
+};
+
+
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 
@@ -156,15 +170,9 @@ class H_WaffeBesitz : public Handle<WaffeBesitz>
       {return (*this)->Name()==b->Name() && (*this)->Region() == b->Region() &&
               (*this)->av_Bonus()==b->av_Bonus() && (*this)->sl_Bonus()==b->sl_Bonus() &&
                (*this)->Magisch()==b->Magisch(); }
+
 };
 
-  
-class Waffen_sort_name
-{ public : bool operator() (cH_Waffe x, cH_Waffe y) const
-      { return x->Name() < y->Name();}};
-class Waffen_sort_wert
-{ public : bool operator() (cH_Waffe x, cH_Waffe y) const
-      { return x->Erfolgswert() > y->Erfolgswert();}}; 
 class WaffenBesitz_sort_magbonus
 { public : bool operator() (H_WaffeBesitz x, H_WaffeBesitz y) const
       { return x->av_Bonus() > y->av_Bonus()  || 

@@ -2,6 +2,7 @@
 #include "class_typen.hh"
 #include "Grundwerte.hh"
 #include "Fertigkeiten.hh"
+#include "Waffe.hh"
 #include "WaffeGrund.hh"
 #include "KiDo.hh"
 #include "Zauber.hh"
@@ -57,7 +58,12 @@ void MidgardBasicElement::show_list_in_tree(
          if(variante=='N')  
             datavec.push_back(new Data_grund(w->Name(),w->Kosten(Typ,ausnahmen)));
           break; }
-       case(WAFFEN)      : break;
+       case(WAFFE)      : {cH_Waffe w(*i);
+         if(variante=='O')  
+            datavec.push_back(new Data_waffen(w->Name(),w->Erfolgswert(),w->Steigern(Typ,ausnahmen),w->Reduzieren(Typ,ausnahmen),w->Verlernen(Typ,ausnahmen)));
+         if(variante=='N')  
+            datavec.push_back(new Data_waffen(w->Name(),w->Erfolgswert(),w->Voraussetzung()));
+          break; }
        case(ZAUBER)      : {cH_Zauber z(*i);
           if (!_bool_ || (_bool_ &&  z->Spruchrolle())) 
            {int kosten=z->Kosten(Typ,ausnahmen);

@@ -21,7 +21,7 @@ void MidgardBasicElement::get_map_typ()
              +"' and stufe ='"+Stufe()+"'";
  if(What()==FERTIGKEIT )
     squery ="select typ,standard from fertigkeiten_typen where name ='"+Name()+"'";
- if(What()==WAFFEGRUND)
+ if(What()==WAFFEGRUND || What==WAFFE)
    {
     std::string name = "Waffen";
     if (Name()=="Peitsche") name="Peitsche";
