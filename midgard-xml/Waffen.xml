@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MidgardCG-data>
+ <Rüstungen>
+  <Rüstung Name="Ohne Rüstung" Abkürzung="OR"/>
+  <Rüstung Name="Textilrüstung" Abkürzung="TR" schütztLP="1"/>
+  <Rüstung Name="Lederrüstung" Abkürzung="LR" schütztLP="2"/>
+  <Rüstung Name="Kettenrüstung" Abkürzung="KR" schütztLP="3" minimaleStärke="31" B-Verlust="4"/>
+  <Rüstung Name="Plattenrüstung" Abkürzung="PR" schütztLP="4" minimaleStärke="61" RW-Verlust="25" B-Verlust="8"/>
+  <Rüstung Name="Vollrüstung" Abkürzung="VR" schütztLP="5" minimaleStärke="61" RW-Verlust="40" B-Verlust="12"/>
+  <Rüstung Name="RitterRüstung" Abkürzung="RR" schütztLP="6" minimaleStärke="81" RW-Verlust="50" B-Verlust="16"/>
+  <Rüstung Name="Papierrüstung" Region="K" Abkürzung="TR(K)" schütztLP="1"/>
+  <Rüstung Name="SaMurai-Rüstung" Region="K" Abkürzung="PR(K)" schütztLP="4" minimaleStärke="31" B-Verlust="4"/>
+  <Rüstung Name="SaMurai-Rüstung" Region="K" Abkürzung="VR(K)" schütztLP="5" minimaleStärke="61" RW-Verlust="25" B-Verlust="8"/>
+  <Rüstung Name="Sritrahaut" Region="R" Abkürzung="TR(R)" schütztLP="1"/>
+  <Rüstung Name="Dhunaka" Region="R" Abkürzung="KR(R)" schütztLP="3"/>
+  <Rüstung Name="Tschahaatha" Region="R" Abkürzung="PR(R)" schütztLP="4" B-Verlust="4"/>
+  <Rüstung Name="Tschahaatha(VR)" Region="R" Abkürzung="VR(R)" schütztLP="5" B-Verlust="8"/>
+ </Rüstungen>
+</MidgardCG-data>
