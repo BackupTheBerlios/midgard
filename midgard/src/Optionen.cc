@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.52 2002/06/12 13:08:18 thoma Exp $
+// $Id: Optionen.cc,v 1.53 2002/06/13 14:55:46 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -307,7 +307,7 @@ void Midgard_Optionen::Strings_init()
   list_Strings.push_back(st_strings(html_viewer,"HTML Viewer",CommandByExtension(".htm")));
   char *tmp=getenv("TMPDIR");
   if (!tmp) tmp=getenv("TEMP");
-  if (!tmp) tmp="C:\WINDOWS\TEMP";
+  if (!tmp) tmp="C:\\WINDOWS\\TEMP";
   list_Strings.push_back(st_strings(tmppfad,"TEMP-Pfad",tmp));
   
  {std::string save_path;
@@ -323,12 +323,13 @@ void Midgard_Optionen::Strings_init()
      {  reg_key r3(HKEY_LOCAL_MACHINE, KEY_READ, "Software", "Microsoft", "Windows",
      		"CurrentVersion", "Explorer", "User Shell Folders", NULL);
         if (r3.get_string("Personal", buf, sizeof buf, "")==ERROR_SUCCESS) save_path=buf;
-        else save_path="C:\\Eigene Dateien"
+        else save_path="C:\\Eigene Dateien";
      }
   }
   save_path+="\\Magus\\";
   // %USERPROFILE%\Anwendungsdaten\Magus ???
   list_Strings.push_back(st_strings(speicherpfad,"Speicherverzeichnis",save_path));
+ }
 #endif
 }
 
