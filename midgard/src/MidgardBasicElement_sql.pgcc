@@ -201,8 +201,10 @@ return;
     int schwierigkeit=tag->getIntAttr("Schwierigkeit");
     kosten=find_Tag("Waffen-Steigern","Kosten","Schwierigkeit",itos(schwierigkeit));
  }
- else if(What()==SPRACHE) tag=cH_Fertigkeit("Sprache")->tag;
- else if(What()==SCHRIFT) tag=cH_Fertigkeit("Schreiben")->tag;
+ else if(What()==SPRACHE) 
+ { tag=cH_Fertigkeit("Sprache")->tag; steigern_wie="Sprache"; }
+ else if(What()==SCHRIFT) 
+ { tag=cH_Fertigkeit("Schreiben")->tag; steigern_wie="Schreiben"; }
  else assert(!"get here");
 
  if (!kosten)
