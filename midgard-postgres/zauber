@@ -139,8 +139,6 @@ Damhsa Claimh (Schwerttanz)	1000	2/Tänzer	Tanz	3	G	46	\N	Tanz	Luft	verändert	Feu
 Damhsa Meallim (Locktanz)	80	2	Tanz	1	G	46	\N	Tanz	Wasser	beherrscht	Wasser	5 min	15 m	Geist	1 Ws	6 h	druidisch	Solotanz	f	\N	\N	\N
 Damhsa an Duiseacht (Tanz des Erwachens)	1600	6	Tanz	5	G	46	\N	Tanz	Magan	beherrscht	Wasser	5 min	-	Körper	Zauberer	inf	druidisch	Solotanz	f	\N	\N	\N
 Das Essen nährt...	3000	6	Geste	5	K	\N	\N	\N				1 min	0	Geist		1 h		1 p Gifttausendfüßler, 1 g GoGoNe-Pulver	f		\N	\N
-Das Lied der Erinnerung	5000	2	Zauberlied	6	H&D	\N	\N	\N	Magan	beherrscht	Luft	0	0	Geist	30m Uk	5 min+	Weltenlied	Harfe oder Laute	f		\N	\N
-Das Lied der Feier	60	1	Zauberlied	1	H&D	\N	\N	\N	Magan	beherrscht	Luft	0	0	Geist	20m Uk	2 min+	Weltenlied	Flöte, Harfe oder Laute	f		\N	\N
 Das Lied der Feier	120	0	Zauberlied	1	\N	\N	\N	\N	Luft	verändert	Luft	mind. 2 min	-	Geist	30 m Uk	30 min	Weltenlied	Flöte, Harfe oder Laute (kein Zauberinstr.)	f		\N	\N
 Das Lied der Liebe	2000	0	Zauberlied	4	\N	\N	\N	\N	Wasser	beherrscht	Wasser	in 7 Tagen 3mal spielen	15 m	Geist	1 Ws	perm	Weltenlied	Harfe oder Laute, Stimme	f		\N	\N
 Das Lied der Lockung	3000	2	Zauberlied	4	\N	\N	\N	\N	Magan	beherrscht	Wasser	-	-	Geist	200 m Kegel	1 min	Weltenlied	Flöte	f		\N	\N
@@ -222,7 +220,7 @@ Elementarbann	3000	#*6	Geste	5	3	\N	\N	Beschwörung	Magan	bewegt	Feuer	10 sec	15 
 Elementarwesen binden	7000	18	Geste	G	3	\N	\N	Beschwörung	Luft	verändert	Feuer	30 min	15 m	Geist	1 Ws	1 Jahr	elementar		f		\N	\N
 Elementenwandlung	800	6	Geste	3	\N	\N	\N	\N	var	verwandelt	var	var	5 m	Umgebung	1 m²	perm	elementar	Edelstein (50GS)	t		\N	\N
 Elfenfeuer	1600	4	Geste	4	\N	\N	\N	\N	Holz	erschafft	Holz	10 s	30 m	Umgebung	Strahl	2 min	druidisch	Brillant, rec. (300GS)	t	Runenstab	\N	\N
-Elfenklinge	800	3	Geste	3	B&W	\N	\N	\N	\N	\N	\N	10 s	B	Umgebung	1 Ob	10 min			t		\N	\N
+Elfenklinge	800	3	Geste	3	B&R	\N	\N	\N	\N	\N	\N	10 s	B	Umgebung	1 Ob	10 min			t		\N	\N
 Entfesseln	240	2	Wort	2	H&D	\N	\N	\N				20 s	0	Umgebung        1 Ob	0	dämonisch			t		\N	\N
 Entgiften	300	2	Wort	2	\N	\N	\N	\N	Magan	zerstört	Eis	30 s	3 m	Umgebung	1 Ob	0	druidisch		f		\N	\N
 Erdbeben	3000	6	Geste	5	\N	\N	\N	\N	Erde	bewegt	Erde	1 min	0 m	Umgebung	1 km Uk	10 min	elementar		t		\N	\N
@@ -414,7 +412,7 @@ Kälteschutz	100	1	Gedanke	1	\N	\N	\N	\N	Feuer	verändert	Erde	1 s	-	Körper	Zauber
 Kühlsalz	40	1	Gedanke	1	\N	\N	\N	Zaubersalz	Eis	zerstört	Feuer	1 s	500 m	Körper	1 Ws	1 h	dämonisch		f		\N	\N
 Lachsalz	60	1	Gedanke	1	\N	\N	\N	Zaubersalz	Luft	beherrscht	Luft	1 s	500 m	Geist	1 Ws	2 min	dämonisch		f		\N	\N
 Lahmsalz	80	1	Gedanke	1	H&D	\N	\N	Zaubersalz	Holz	verändert	Erde	1 s	500 m	Körper	1 Ws	1 min	dämonisch		f		\N	\N
-Laufen wie der Wind	800	3	Geste	3	B&W	\N	\N	\N	\N	\N	\N	10 s	B	Körper	1 Ws	10 min			t		\N	\N
+Laufen wie der Wind	800	3	Geste	3	B&R	\N	\N	\N	\N	\N	\N	10 s	B	Körper	1 Ws	10 min			t		\N	\N
 Lauschen	60	1	Gedanke	1	\N	\N	\N	\N	Magan	verändert	Metall	1 min	30 cm	Umgebung	-	10 min	dämonisch		f	Siegel	\N	\N
 Lebenskeule	1000	3	Geste	3	\N	\N	\N	\N	Holz	verändert	Holz	10 s	B	Umgebung	1 Ob	2 min	druidisch	Holzwaffe, rec.	f		\N	\N
 Lehrersuche	3000	2	Geste	1	3	\N	\N	Beschwörung	Luft	bewegt	Feuer	1 h	0	Umgebung	1 Ws	0	dämonisch		f		\N	\N

@@ -1465,16 +1465,43 @@ Das Essen nährt...	ScW	S	\N
 Das Essen nährt...	gHx	G	\N
 Das Essen nährt...	sHx	G	\N
 Das Essen nährt...	wHx	G	\N
-Das Lied der Erinnerung	Ba	G	\N
-Das Lied der Erinnerung	Sk	S	\N
 Das Lied der Feier	Ba	G	\N
 Das Lied der Feier	Sk	S	\N
+Das Lied der Liebe	Ba	G	\N
+Das Lied der Liebe	Sk	G	\N
+Das Lied der Lockung	Ba	G	\N
 Das Lied der Macht	Ba	G	\N
 Das Lied der Macht	Sk	S	\N
 Das Lied der Magie	Ba	G	\N
 Das Lied der Magie	Sk	S	\N
+Das Lied der Ruhe	Ba	G	\N
+Das Lied der Ruhe	Sk	G	\N
+Das Lied der Tanzlust	Ba	G	\N
+Das Lied der Tapferkeit	Ba	G	\N
+Das Lied der Tapferkeit	Sk	G	\N
+Das Lied der Verführung	Ba	G	\N
+Das Lied der Verführung	Sk	S	\N
+Das Lied der Verzweiflung	Ba	G	\N
+Das Lied der Zwietracht	Ba	G	\N
+Das Lied der verborgenen Kraft	Ba	G	\N
+Das Lied der verborgenen Kraft	Sk	G	\N
+Das Lied des Erinnerns	Ba	G	\N
+Das Lied des Erinnerns	Sk	G	\N
+Das Lied des Fesselns	Ba	G	\N
+Das Lied des Fesselns	Sk	G	\N
+Das Lied des Friedens	Ba	G	\N
+Das Lied des Friedens	Sk	G	\N
+Das Lied des Grauens	Ba	G	\N
+Das Lied des Spottes	Ba	G	\N
+Das Lied des Spottes	Sk	G	\N
+Das Lied des Vergessens	Ba	G	\N
+Das Lied des Vergessens	Sk	G	\N
 Das Lied des Verstehens	Ba	G	\N
 Das Lied des Verstehens	Sk	S	\N
+Das Lied des Wagemuts	Ba	G	\N
+Das Lied des Wagemuts	Sk	G	\N
+Das Lied des Wahnsinns	Ba	G	\N
+Das Lied des Zorns	Ba	G	\N
 Dau ed-Datin	PF	G	\N
 Dau ed-Datin	Sa	S	\N
 Dau ed-Datin	ScN	S	\N
@@ -5413,37 +5440,6 @@ Liebeszauber	ScW	G	\N
 Liebeszauber	gHx	G	\N
 Liebeszauber	sHx	G	\N
 Liebeszauber	wHx	G	\N
-Lied der Feier	Ba	G	\N
-Lied der Feier	Sk	S	\N
-Lied der Liebe	Ba	G	\N
-Lied der Liebe	Sk	G	\N
-Lied der Lockung	Ba	G	\N
-Lied der Ruhe	Ba	G	\N
-Lied der Ruhe	Sk	G	\N
-Lied der Tanzlust	Ba	G	\N
-Lied der Tapferkeit	Ba	G	\N
-Lied der Tapferkeit	Sk	G	\N
-Lied der Verführung	Ba	G	\N
-Lied der Verführung	Sk	S	\N
-Lied der Verzweiflung	Ba	G	\N
-Lied der Zwietracht	Ba	G	\N
-Lied der verborgenen Kraft	Ba	G	\N
-Lied der verborgenen Kraft	Sk	G	\N
-Lied des Erinnerns	Ba	G	\N
-Lied des Erinnerns	Sk	G	\N
-Lied des Fesselns	Ba	G	\N
-Lied des Fesselns	Sk	G	\N
-Lied des Friedens	Ba	G	\N
-Lied des Friedens	Sk	G	\N
-Lied des Grauens	Ba	G	\N
-Lied des Spottes	Ba	G	\N
-Lied des Spottes	Sk	G	\N
-Lied des Vergessens	Ba	G	\N
-Lied des Vergessens	Sk	G	\N
-Lied des Wagemuts	Ba	G	\N
-Lied des Wagemuts	Sk	G	\N
-Lied des Wahnsinns	Ba	G	\N
-Lied des Zorns	Ba	G	\N
 Lindern von Entkräftung	De	G	\N
 Lindern von Entkräftung	Dr	A	\N
 Lindern von Entkräftung	Dt	A	\N
