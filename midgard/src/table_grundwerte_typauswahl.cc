@@ -194,7 +194,7 @@ void table_grundwerte::spezieswahl_button()
    }
  if(!ok) return;
 
- hauptfenster->undosave("Spezies gewählt");
+// hauptfenster->undosave("Spezies gewählt");
  fill_typauswahl();
 // typauswahl_button();
 

@@ -19,7 +19,7 @@
 
 gint midgard_CG::on_neuer_charakter_release_event(GdkEventButton *ev)
 {
-   Char.push_back(Abenteurer());
+   Char.push_back();
    on_neuer_charakter_clicked();
    if (ev->button==1)  on_wizard_starten_activate();
    return false;
@@ -27,7 +27,7 @@ gint midgard_CG::on_neuer_charakter_release_event(GdkEventButton *ev)
 
 void midgard_CG::on_neuer_charakter_clicked()
 {
-   if(Char.empty()) Char.push_back(Abenteurer());
+   if(Char.empty()) Char.push_back();
    table_lernschema->label_lernschma_titel->set_text("");
    frame_steigern->set_sensitive(false); // das wirkt nicht ?
    frame_lernschema->set_sensitive(false);

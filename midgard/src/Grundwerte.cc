@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.34 2002/07/18 09:26:53 thoma Exp $               
+// $Id: Grundwerte.cc,v 1.35 2002/07/18 15:50:03 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -333,7 +333,8 @@ std::string Grundwerte::Ruestung_B_Verlust() const
  else if( Ruestung(0)->B_Verlust() && Ruestung(1)->B_Verlust() )
     s= "\\tiny ("+itos(B()-Ruestung(0)->B_Verlust())
          +","+itos(B()-Ruestung(1)->B_Verlust())+")";
- return s;
+ if(s!="") return "_{"+s+"}";
+ return "";
 }
 
 std::string Grundwerte::Ruestung_Abwehr_Verlust(const std::list<MidgardBasicElement_mutable>& list_Fertigkeit) const

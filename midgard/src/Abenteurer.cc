@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.32 2002/07/17 16:37:43 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.33 2002/07/18 15:50:03 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -108,11 +108,10 @@ const std::list<Abenteurer::st_universell> Abenteurer::List_Universell( const Da
 
 
 
-void VAbenteurer::push_back(Abenteurer A)
+void VAbenteurer::push_back()
 { 
-   VA.push_back(st_abenteurer(A,true)); 
+   VA.push_back(st_abenteurer()); 
    ai=--VA.end(); 
-   safed();
 }
 
 

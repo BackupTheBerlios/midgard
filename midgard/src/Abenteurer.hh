@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.24 2002/07/08 07:32:53 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.25 2002/07/18 15:50:03 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -135,7 +135,7 @@ class VAbenteurer
    public:
       struct st_abenteurer{Abenteurer abenteurer;std::string filename;
                            bool gespeichert;
-             st_abenteurer(Abenteurer A,bool g) : abenteurer(A),gespeichert(g) {}
+             st_abenteurer(const Abenteurer &A,bool g) : abenteurer(A),gespeichert(g) {}
              st_abenteurer() : abenteurer(Abenteurer()),gespeichert(true){} 
              bool operator==(const st_abenteurer& a) const 
                {return abenteurer.getWerte().Name_Abenteurer()==a.abenteurer.getWerte().Name_Abenteurer() &&
@@ -160,10 +160,10 @@ class VAbenteurer
       const Abenteurer &getCAbenteurer() const {return ai->abenteurer;}
       Abenteurer &getAbenteurer() const {return ai->abenteurer;}
       void sort_gw() {VA.sort(sort());}
-      void push_back(Abenteurer A);
+      void push_back();
       void set_Abenteurer(const Abenteurer& A);
       void modified() {ai->gespeichert=false;}
-      void safed() {ai->gespeichert=true;}
+      void saved() {ai->gespeichert=true;}
       bool gespeichert() const {return ai->gespeichert;}
       void setFilename(std::string s) {ai->filename=s;}
       const std::string &getFilename() {return ai->filename;}
@@ -171,7 +171,7 @@ class VAbenteurer
 
       bool unsaved_exist();
       bool empty() const {return VA.empty();}
-      bool size() const {return VA.size();}
+      guint size() const {return VA.size();}
       void delete_empty();
 
    // diese beiden Funktionen ersetzen den Rest der Klasse ! CP

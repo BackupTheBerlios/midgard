@@ -2,11 +2,14 @@
 NEWS IN VERSION 0.7.7
 
 * Landeskunde Heimat im Lernschema mit erhötem Erfolgswert
+* Laden mehrerer Abenteurer wieder möglich
+* Ausdruck von erhöter Begegungsweite aufgrund von 'Laufen'
 
 TODO: ('-' zeigt CP an)
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
 in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
 links). 
+* Laufen =B+Laufen-2
 - dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
   man etwas hinzufügen möchte, ist nicht gerade intuitiv
   (vielleicht drag'n'drop oder CTree verschieben)

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_AbenteurerListe.cc,v 1.6 2002/06/26 14:01:18 christof Exp $
+// $Id: midgard_CG_AbenteurerListe.cc,v 1.7 2002/07/18 15:50:03 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -48,6 +48,7 @@ void midgard_CG::on_AbenteurerListe_leaf(cH_RowDataBase d)
    {
      Char.set_Abenteurer(dt->getAbenteurer());
      set_title(getWerte().Name_Abenteurer());
+     AbenteurerListe->unselect_all();
    }
 }
 
