@@ -73,10 +73,22 @@ void Zufall::Teil(e_Vorgabe vorgabe)
    if(sv.spezies)  Aben->getWerte().setSpezies(getSpezies());
    else            Aben->getWerte().setSpezies(oldAben.getWerte().Spezies());
    hauptfenster->table_grundwerte->Eigenschaften_variante(1);
+   if(sv.st)       Aben->getWerte().setSt(oldAben.getWerte().St());
+   if(sv.gs)       Aben->getWerte().setGs(oldAben.getWerte().Gs());
+   if(sv.gw)       Aben->getWerte().setGw(oldAben.getWerte().Gw());
+   if(sv.ko)       Aben->getWerte().setKo(oldAben.getWerte().Ko());
+   if(sv.in)       Aben->getWerte().setIn(oldAben.getWerte().In());
+   if(sv.zt)       Aben->getWerte().setZt(oldAben.getWerte().Zt());
    Aben->getWerte().setGeschlecht(getGeschlecht());
    if(sv.typ)      Aben->setTyp1(getTyp());
    else            Aben->setTyp1(oldAben.Typ1());     
    hauptfenster->table_grundwerte->on_abge_werte_setzen_clicked();
+   if(sv.au)       Aben->getWerte().setAu(oldAben.getWerte().Au());
+   if(sv.pa)       Aben->getWerte().setpA(oldAben.getWerte().pA());
+   if(sv.wk)       Aben->getWerte().setWk(oldAben.getWerte().Wk());
+   if(sv.sb)       Aben->getWerte().setSb(oldAben.getWerte().Sb());
+   if(sv.b)        Aben->getWerte().setB(oldAben.getWerte().B());
+   
    if(sv.herkunft) Aben->getWerte().setHerkunft(getLand());
    else            Aben->getWerte().setHerkunft(oldAben.getWerte().Herkunft());
    setMuttersprache();

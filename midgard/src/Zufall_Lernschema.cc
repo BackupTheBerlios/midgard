@@ -29,11 +29,11 @@ void Zufall::Lernschema()
   Lernpunkte_wuerfeln(lernpunkte,Aben,random);
   st_LL FAUWZ_Listen=getLernlisten();
 
-//  Lernpunkte_verteilen(FAUWZ_Listen.Waff,lernpunkte.Waffen());
-//  Lernpunkte_verteilen(FAUWZ_Listen.Zaub,lernpunkte.Zauber());
+  Lernpunkte_verteilen(FAUWZ_Listen.Waff,lernpunkte.Waffen());
+  Lernpunkte_verteilen(FAUWZ_Listen.Zaub,lernpunkte.Zauber());
   Lernpunkte_verteilen(FAUWZ_Listen.Fach,lernpunkte.Fach());
-//  Lernpunkte_verteilen(FAUWZ_Listen.Allg,lernpunkte.Allgemein(),false);
-//  Lernpunkte_verteilen(FAUWZ_Listen.Unge,lernpunkte.Unge());
+  Lernpunkte_verteilen(FAUWZ_Listen.Allg,lernpunkte.Allgemein(),false);
+  Lernpunkte_verteilen(FAUWZ_Listen.Unge,lernpunkte.Unge());
 }
 
 

@@ -30,7 +30,6 @@
 
 void table_zufall::init(midgard_CG *h)
 {
-checkbutton_werte->set_sensitive(false);
   hauptfenster=h;
 }
 
