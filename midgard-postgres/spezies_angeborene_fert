@@ -56,9 +56,9 @@ Berggnom	v	Steuermann	\N	\N
 Berggnom	v	Stockschleuder	\N	\N
 Berggnom	v	Träger	\N	\N
 Berggnom	v	Winzer	\N	\N
-Berggnom	v	ZSchlagwaffe	\N	\N
-Berggnom	v	ZSchwert	\N	\N
 Berggnom	v	Zureiter	\N	\N
+Berggnom	v	Zweihandschlagwaffe	\N	\N
+Berggnom	v	Zweihandschwert	\N	\N
 Berggnom	v	schwere Armbrust	\N	\N
 Elf	af	Nachtsicht	8	\N
 Elf	f	Schleichen	8	1
@@ -129,9 +129,9 @@ Halbling	v	Steuermann	\N	\N
 Halbling	v	Stockschleuder	\N	\N
 Halbling	v	Waffenschmied	\N	\N
 Halbling	v	Waldarbeiter	\N	\N
-Halbling	v	ZSchlagwaffe	\N	\N
-Halbling	v	ZSchwert	\N	\N
 Halbling	v	Zureiter	\N	\N
+Halbling	v	Zweihandschlagwaffe	\N	\N
+Halbling	v	Zweihandschwert	\N	\N
 Halbling	v	schwere Armbrust	\N	\N
 Waldgnom	af	Nachtsicht	8	\N
 Waldgnom	af	Robustheit	12	\N
@@ -169,9 +169,9 @@ Waldgnom	v	Steuermann	\N	\N
 Waldgnom	v	Stockschleuder	\N	\N
 Waldgnom	v	Träger	\N	\N
 Waldgnom	v	Winzer	\N	\N
-Waldgnom	v	ZSchlagwaffe	\N	\N
-Waldgnom	v	ZSchwert	\N	\N
 Waldgnom	v	Zureiter	\N	\N
+Waldgnom	v	Zweihandschlagwaffe	\N	\N
+Waldgnom	v	Zweihandschwert	\N	\N
 Waldgnom	v	schwere Armbrust	\N	\N
 Zwerg	af	Robustheit	9	\N
 Zwerg	f	Baukunde	8	1
