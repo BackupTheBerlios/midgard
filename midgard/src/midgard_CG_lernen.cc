@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.95 2002/03/25 15:12:36 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.96 2002/03/26 08:56:32 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -358,7 +358,7 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
   cH_MidgardBasicElement MBE = dt->getMBE();
   if(MBE->Gelernt()) 
    { 
-     regnot ("Diese Fertigkeit wird schon gelernt");
+     regnot ("Diese Fertigkeit ist schon gelernt");
      tree_lernschema->unselect_all();
      return;
    }
@@ -407,10 +407,9 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
                list_Fertigkeit.push_back(MBE); 
           }
         else 
-          { list_FertigkeitZusaetze.push_back(MBE->Name());
-            SpracheSchrift(MBE,MBE->Erfolgswert(),true);
+          { // Damit Sprachen und Schriften nicht doppelt angezeigt werden
+            list_FertigkeitZusaetze.push_back(MBE->Name());
           }
-
         if(MBE->ZusatzEnum(Typ)) lernen_zusatz(MBE->ZusatzEnum(Typ),MBE);
 
         if(cH_Fertigkeit(MBE)->LernArt()=="Fach")
@@ -687,7 +686,7 @@ void midgard_CG::setTitels_for_Lernschema(const MidgardBasicElement::MBEE& what,
    }
 }
 
-bool midgard_CG::SpracheSchrift(const cH_MidgardBasicElement& MBE,int wert,bool auswahl)
+bool midgard_CG::SpracheSchrift(const cH_MidgardBasicElement& MBE)
 {
  bool launch=false;
  std::string fert=MBE->Name();
@@ -697,16 +696,16 @@ bool midgard_CG::SpracheSchrift(const cH_MidgardBasicElement& MBE,int wert,bool 
          fert=="Schreiben: Muttersprache(+4)" ||
          fert=="Schreiben: Alte Sprache(+12)" ||
          fert=="Schreiben" )
-    { launch=true;  /*mod=Sprache_auswahl::SCHRIFT;*/ }
+    { launch=true;   }
  else if(fert=="Muttersprache")
-    { launch=true; /* mod=Sprache_auswahl::MUTTERSPRACHE; */}
+    { launch=true; }
  else if(fert=="Gastlandsprache" ||
          fert=="Sprechen: Sprache(+4)" ||
          fert=="Sprechen: Sprache(+9)" ||
          fert=="Sprechen: Sprache(+12)")
-    { launch=true; /* mod=Sprache_auswahl::NEUESPRACHE;*/ }
+    { launch=true;  }
  else if(fert=="Sprechen: Alte Sprache")
-    { launch=true;  /*mod=Sprache_auswahl::ALTESPRACHE; */}
+    { launch=true; }
  return launch;
 }
 

@@ -28,8 +28,10 @@ NEWS IN VERSION 0.4delta6
 * einige Bugs im Regionenmenü behoben
 * Regionen setzen nach dem Laden eines Abenteurers funktioniert wieder
 * Optionen 'Originalregeln' und 'NSC zulassen' wird mit Abenteurer zusammen abgespeichert
-* Weitere korrekturen von Ottmar Zimmer eingearbeitet (insb. Gestaltberechnung)
-
+* Weitere Korrekturen von Ottmar Zimmer eingearbeitet (insb. Gestaltberechnung)
+* Wenn NSC zugelassen werden, werden die 'würfel' Knöpfe NICHT deaktiviert
+* Schreiben kann jetzt angeklickt werden, auch wenn man noch keine Sprache
+   gelernt hat, ohne daß es anschließend verschwindet.
 
 TODO:
 * Ausrüstung drucken, Abenteurer drucken -> absturz ??

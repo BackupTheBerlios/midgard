@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.196 2002/03/16 16:55:44 thoma Exp $
+// $Id: midgard_CG.hh,v 1.197 2002/03/26 08:56:32 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -549,7 +549,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          // Werte in der Oberfläche setzen (z.B. nach laden)
          void Typ_Geschlecht_Spezies_setzen(); // uvm.
 
-         bool SpracheSchrift(const cH_MidgardBasicElement& MBE,int wert=0,bool auswahl=false);
+         bool SpracheSchrift(const cH_MidgardBasicElement& MBE);
          bool nsc_check(bool nsc_only);
    public:
          midgard_CG(const string &datei="");
