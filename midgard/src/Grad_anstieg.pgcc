@@ -8,6 +8,7 @@ exec sql include sqlca;
 Grad_anstieg::Grad_anstieg(Gtk::ProgressBar *progressbar)
 : steigern_EP_prozent(50), grad_basiswerte(1)
 {
+#ifndef USE_XML
  exec sql begin declare section;
    int db_a,db_r,db_z,db_ak,db_rk,db_zk;
    int db_grad,db_gfp,db_schicksal;
@@ -34,6 +35,23 @@ Grad_anstieg::Grad_anstieg(Gtk::ProgressBar *progressbar)
    map_grad[db_grad] = st_grad(db_a,db_ak,db_r,db_rk,db_z,db_zk,db_gfp,db_schicksal);
    ++count;
   }
+#else
+ const Tag *Gradanstieg=xml_data->find("Gradanstieg");
+ if (Gradanstieg)
+ {  Tag::const_iterator b=Gradanstieg->begin(),e=Gradanstieg->end();
+    double size=e-b;
+    FOR_EACH_CONST_TAG_OF_5(i,*Gradanstieg,b,e,"Grad")
+    {  progressbar->set_percentage((i-b)/size);
+       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+       const Tag *Kosten=i->find("Kosten");
+       map_grad[i->getIntAttr("Grad")]=
+       	st_grad(i->getIntAttr("Abwehr"),Kosten->getIntAttr("Abwehr"),
+       		i->getIntAttr("Resistenz"),Kosten->getIntAttr("Resistenz"),
+       		i->getIntAttr("Zaubern"),Kosten->getIntAttr("Zaubern"),
+       		i->getIntAttr("GFP"), i->getIntAttr("Schicksalsgunst"));
+    }
+ }
+#endif  
  progressbar->set_percentage(1);
 }
 
