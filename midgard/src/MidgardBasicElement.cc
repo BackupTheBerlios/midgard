@@ -30,7 +30,6 @@
 #include "class_SimpleTree.hh"
 #include "SimpleTree.hh"
 #include <Misc/itos.h>
-#include "export_common.h"
 #include "xml.h"
 #include "Datenbank.hh"
 
