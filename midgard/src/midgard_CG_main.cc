@@ -97,7 +97,7 @@ void midgard_CG::load_for_mainpage(guint pagenr)
     table_grundwerte->init(this);
   }
  else if(pagenr==PAGE_LERNEN)
-  {hauptfenster->getChar().getWizard().done(Wizard::LERNSCHEMA_SEITE,hauptfenster->getAben());
+  {getChar().getWizard().done(Wizard::LERNSCHEMA_SEITE,getAben());
    table_lernschema->init(this);
   }
  else if(pagenr==PAGE_STEIGERN)
