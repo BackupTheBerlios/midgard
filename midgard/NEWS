@@ -1,7 +1,7 @@
 ##########################################################################
-NEWS IN VERSION 0.8.9
+NEWS IN VERSION 0.8.10
 
-* Wizard abschlaten bei neuladen und neuer Abenteurer OHNE Wizard
+* Wizard abschalten bei neuladen und neuer Abenteurer OHNE Wizard
 * Kleinere Bugs beseitigt (dank an Markus Steinberg)
 * Pfeile bei den KI-Schiebereglern
 * 2.Typauswahl aktiv bei Doppelcharakter
@@ -18,6 +18,8 @@ NEWS IN VERSION 0.8.9
 * Direkte Addition der Schadensboni im Ausdruck bei Waffen mit unterschiedlichen
    Schadensboni
 * PP eingeben geht wieder
+* gelernte Sprachen werden wieder angezeigt
+* Neue Sprachen Erfolgswert gefixed
 
 TODO: ('-' zeigt CP an)
 
