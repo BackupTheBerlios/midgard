@@ -255,14 +255,14 @@ void table_steigern::set_zusatz_sensitive(bool an)
  if(an)
   {
     table_handlebox1->set_sensitive(false);
-    handlebox_steigern->set_sensitive(false);
+    handlebox_steigern_3->set_sensitive(false);
     notebook_lernen->set_sensitive(false);
     scrolledwindow_landauswahl->show();
   }
  else
   {
     table_handlebox1->set_sensitive(true);
-    handlebox_steigern->set_sensitive(true);
+    handlebox_steigern_3->set_sensitive(true);
     notebook_lernen->set_sensitive(true);
     scrolledwindow_landauswahl->hide();
   }

@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.99 2002/11/19 09:55:17 thoma Exp $
+// $Id: Optionen.cc,v 1.100 2002/11/21 09:10:37 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -560,6 +560,9 @@ void Midgard_Optionen::save_options(const std::string &filename,WindowInfo *Info
     Tag &position=fenstert.push_back(Tag("Position"));
     position.setIntAttr("X", x);
     position.setIntAttr("Y", y);
+
+    // Handle-Windows
+    
   }
 
  Tag &optionen=data.push_back(Tag("Optionen"));
