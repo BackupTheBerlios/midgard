@@ -1,4 +1,4 @@
-// $Id: grundwere_edit_setzen.cc,v 1.18 2002/01/15 12:21:18 thoma Exp $
+// $Id: grundwere_edit_setzen.cc,v 1.19 2002/01/16 11:06:26 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,12 +18,9 @@
  */
 
 #include "midgard_CG.hh"
-#include "Window_werte_editieren.hh"
 
 void midgard_CG::on_togglebutton_edit_werte_toggled()
 {
-//manage(new Window_werte_editieren(this,Werte));
-
   if(togglebutton_edit_werte->get_active()) edit_sensitive(true);
   else edit_sensitive(false);
 }
