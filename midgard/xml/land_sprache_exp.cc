@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.40 2002/06/24 07:46:23 christof Exp $
+// $Id: land_sprache_exp.cc,v 1.41 2002/06/27 13:28:18 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -175,7 +175,7 @@ void land_speichern(Tag &o)
       FetchIStream is3;
       std::string typen;
       while ((query3>>is3).good()) 
-      {  Tag &a=Spezies.push_back(Tag("AngeboreneFerigkeit"));
+      {  Tag &a=Spezies.push_back(Tag("angeboreneFertigkeit"));
          fetch_and_set_string_attrib(is3, a, "Art");
          fetch_and_set_string_attrib(is3, a, "Name");
          fetch_and_set_int_attrib(is3, a, "Erfolgswert");

@@ -114,6 +114,10 @@ Spezies::Spezies(const Tag *tag)
  FOR_EACH_CONST_TAG_OF(i,*tag,"AngeboreneFerigkeit")
     vec_angebfert.push_back(st_angebfert(i->getAttr("Art"),
             i->getAttr("Name"),i->getIntAttr("Erfolgswert"),i->getIntAttr("LP")));
+ // mal sinnvoll !            
+ FOR_EACH_CONST_TAG_OF(i,*tag,"angeboreneFertigkeit")
+    vec_angebfert.push_back(st_angebfert(i->getAttr("Art"),
+            i->getAttr("Name"),i->getIntAttr("Erfolgswert"),i->getIntAttr("LP")));
 }
 
 
