@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.291 2002/12/16 08:29:28 christof Exp $
+// $Id: midgard_CG.cc,v 1.292 2003/04/15 13:49:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,6 +31,29 @@
 #include "Windows_Linux.hh"
 #include <Misc/Trace.h>
 #include <char_Pixmap.hh>
+
+static Glib::RefPtr<Gdk::Pixbuf> LoadImage(unsigned char data[], unsigned size)
+{  Glib::RefPtr<Gdk::PixbufLoader> loader=Gdk::PixbufLoader::create();
+   loader->write(data, size);
+   loader->close();
+   return loader->get_pixbuf();
+}
+
+static Glib::RefPtr<Gdk::Pixbuf> LoadImage(char **data)
+{  return Gdk::Pixbuf::create_from_xpm_data(data);
+}
+
+static void ImageLabelKnopf(Gtk::Button *b, Glib::RefPtr<Gdk::Pixbuf> pb, const Glib::ustring &t)
+{  Gtk::VBox *vbox=manage(new Gtk::VBox());
+   b->add(*vbox);
+   image=manage(new Gtk::Image(pb));
+   vbox->add(*image);
+   label=manage(new Gtk::Label(t));
+   vbox->add(*label);
+   image->show();
+   label->show();
+   vbox->show();
+}
 
 midgard_CG::midgard_CG(const std::string &_argv0,const std::string &_magus_verzeichnis,
                        const std::string &datei)
@@ -68,6 +91,24 @@ midgard_CG::midgard_CG(const std::string &_argv0,const std::string &_magus_verze
   table_optionen->init();
   menu_init();
   init_statusbar();
+
+// ToolBar: StyleIcon
+  button_neuer_charakter->add(LoadImage(StyleIcon(iNew).icon),"Neu mit Wizard",SigC::slot(*this,&midgard_CG::on_neuer_charakter_release_event));
+  button_neuer_charakter->add(LoadImage(StyleIcon(iNew).icon),"Neu ohne Wizard",SigC::slot(*this,&midgard_CG::on_neuer_charakter_clicked));
+  button_speichern->add(LoadImage(StyleIcon(iClose).icon),"Speichern",SigC::slot(*this,&midgard_CG::save_existing_filename));
+  button_speichern->add(LoadImage(StyleIcon(iClose).icon),"Speichern unter",SigC::slot(*this,&midgard_CG::xml_export_auswahl));
+  button_main_drucken->add(LoadImage(StyleIcon(iPrint).icon),"Drucken",SigC::slot(*this,&midgard_CG::on_latex_release_event));
+  ImageLabelKnopf(button_undo,LoadImage(StyleIcon(iBack).icon),StyleIcon(iBack).text);
+  ImageLabelKnopf(button_redo,LoadImage(StyleIcon(iForward).icon),StyleIcon(iForward).text);
+  
+// Statusbar MVC
+  extern const unsigned char hand_roll_png_data[],auto_roll_png_data[];
+  extern const unsigned hand_roll_png_size,auto_roll_png_size;
+  Glib::RefPtr<Gdk::Pixbuf> hand_roll=LoadImage(hand_roll_png_data, hand_roll_png_size);
+  Glib::RefPtr<Gdk::Pixbuf> auto_roll=LoadImage(auto_roll_png_data, auto_roll_png_size);
+  bool_ImageButton *wuerfelt_butt = new bool_ImageButton(MOptionen->werte_eingeben,hand_roll,auto_roll);
+  hbox_status->pack_start(*wuerfelt_butt, Gtk::PACK_SHRINK, 0);
+  
   // für die NEWS
   Gtk::OStream os(list_news);
   os << 

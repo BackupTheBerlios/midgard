@@ -44,3 +44,5 @@ umbenennen:
 - table_artikel->hide();
 
 eventuell Größe neu berechnen, wenn Optionen ausgewertet wurden.
+
+use StyleIcon for new Icons

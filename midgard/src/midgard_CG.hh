@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.315 2003/02/25 16:50:28 christof Exp $
+// $Id: midgard_CG.hh,v 1.316 2003/04/15 13:49:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -193,6 +193,8 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
         void on_undo_leaf_selected(cH_RowDataBase d);
         void on_button_redo_clicked();
         void on_button_undo_clicked();
+        void on_undo_secondpressed(int);
+        void on_redo_secondpressed(int);
    protected:
         void undosave(std::string s); 
 

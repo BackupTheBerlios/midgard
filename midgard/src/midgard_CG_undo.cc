@@ -1,4 +1,4 @@
-// $Id: midgard_CG_undo.cc,v 1.14 2002/12/18 14:33:20 christof Exp $
+// $Id: midgard_CG_undo.cc,v 1.15 2003/04/15 13:49:51 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -64,5 +64,13 @@ void midgard_CG::on_button_undo_clicked()
   s<<MidgardUndo.get_last();
   Char->xml_import_stream(s,getDatabase(),getOptionen(),this);
   load_for_mainpage(notebook_main->get_current_page());
+}
+
+void midgard_CG::on_undo_secondpressed(int mbutton)
+{
+}
+
+void midgard_CG::on_redo_secondpressed(int mbutton)
+{
 }
 
