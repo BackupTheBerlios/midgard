@@ -63,9 +63,9 @@ void table_steigern::on_notebook_lernen_switch_page(Gtk::Notebook_Helpers::Page 
 void table_steigern::load_for_page(guint pagenr)
 {
   if(pagenr==PAGE_FERTIGKEITEN)
-     on_fertigkeiten_laden_clicked();
+     fertigkeiten_zeigen();
   if(pagenr==PAGE_WAFFEN)
-     on_waffen_laden_clicked();
+     waffen_zeigen();
   if(pagenr==PAGE_ZAUBER)
      on_zauber_laden_clicked();
   if(pagenr==PAGE_KIDO)
