@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.107 2002/03/05 08:12:38 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.108 2002/03/13 09:32:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -56,11 +56,7 @@ void midgard_CG::on_latex_clicked(bool values=true)
     LaTeX_kido();
   }
 
- system("pdflatex midgard_tmp_document_eingabe.tex");
- if(pdfViewerCheck(gv).active)
-    system("gv midgard_tmp_document_eingabe.pdf &");
- else if (pdfViewerCheck(acroread).active)
-    system("acroread midgard_tmp_document_eingabe.pdf &");
+ pdf_viewer("midgard_tmp_document_eingabe");
 }      
 
 void midgard_CG::LaTeX_write_values()

@@ -70,6 +70,7 @@ void midgard_CG::menu_init()
      if(!i->radio_menu_item) continue;
      i->radio_menu_item = manage(new class Gtk::RadioMenuItem(_RadioMGroup_pdfViewer));
      i->radio_menu_item->add(*_tab);
+     pdfViewer_setzen_from_menu(i->index);
      i->radio_menu_item->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::pdfViewer_setzen_from_menu),i->index));
      drucken_menu->append(*(i->radio_menu_item));
    }
@@ -133,6 +134,7 @@ void midgard_CG::menu_init()
     i->checkmenuitem=manage(new Gtk::CheckMenuItem());
     i->checkmenuitem->add(*_tab);    
     i->checkmenuitem->set_active(i->active);
+    Optionen_setzen_from_menu(i->index);
     i->checkmenuitem->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::Optionen_setzen_from_menu),i->index));
     optionen_menu->append(*(i->checkmenuitem));
    } 
@@ -174,6 +176,7 @@ void midgard_CG::menu_init()
      i->menu = manage(new class Gtk::CheckMenuItem(i->text));
      haus_menu->append(*(i->menu));
      i->menu->set_active(i->active);
+     Hausregeln_setzen_from_menu(i->index);
      i->menu->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::Hausregeln_setzen_from_menu),i->index));
    }  
 
@@ -265,9 +268,6 @@ void midgard_CG::Optionen_init()
   list_Optionen.push_back(st_Optionen(Original,menu_original,
                            "Originalregeln",
                            true,midgard_logo_tiny_xpm));
-//  Gtk::CheckMenuItem *menu_info;
-//  list_Optionen.push_back(st_Optionen(Info,menu_info,
-//                           "Info Fenster anzeigen",true,0));
   Gtk::CheckMenuItem *menu_gw_wuerfeln;
   list_Optionen.push_back(st_Optionen(gw_wuerfeln,menu_gw_wuerfeln,
                            "Grundwerte nur mit einer Maustaste auswürfelbar machen",
@@ -315,4 +315,8 @@ void midgard_CG::pdfViewer_init()
   list_pdfViewer.push_back(st_pdfViewer(acroread,menu_acroread,
                            "pdf Dokument mit 'acroread' betrachten",
                            true));
+  Gtk::RadioMenuItem *menu_xpdf;
+  list_pdfViewer.push_back(st_pdfViewer(xpdf,menu_xpdf,
+                           "pdf Dokument mit 'xpdf' betrachten",
+                           false));
 }

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.178 2002/03/12 14:57:34 thoma Exp $
+// $Id: midgard_CG.cc,v 1.179 2002/03/13 09:32:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,29 +36,27 @@ midgard_CG::midgard_CG(const string &datei)
 {
   notebook_main->set_sensitive(true); // solange die Datenbank nicht geladen ist
                                       // stürzt das Programm ab
-  wizard_starten_bool=true;
   srand(time(0));
   if(InfoFenster) delete(InfoFenster);
   InfoFenster = manage(new WindowInfo(this));
 
+  set_tree_titles();
   optionmenu_init();  
   Optionen_init();
   Hausregeln_init();
   pdfViewer_init();
 
-
+  load_options();
   on_neuer_charakter_clicked();
-  set_tree_titles();
-  if (!datei.empty()) xml_import(datei);
-
-  notebook_main->set_page(PAGE_GRUNDWERTE);
+  notebook_main->set_page(PAGE_GRUNDWERTE); // muß nach 'on_neuer_charakter_clicked' kommen wg. Typ.resize(2)
+  if (!datei.empty()) xml_import(datei); // Charakter laden
+  else if(OptionenCheck(Wizard_immer_starten).active) wizard_starten_clicked();
   // für die NEWS
   Gtk::OStream os(list_news);
   os << 
 #include"NEWS.h" 
-<<'\n';
+   <<'\n';
 
-  load_options();
 }
 
 void midgard_CG::optionmenu_init()
@@ -123,8 +121,6 @@ void midgard_CG::on_radiobutton_mann_toggled()
    { 
      notebook_main->set_sensitive(false) ;
      wizard->next_step();
-//     radiobutton_mann->set_sensitive(false); 
-//     radiobutton_frau->set_sensitive(false);
    }
   std::string oldG=Werte.Geschlecht();
   if (radiobutton_mann->get_active()) Werte.setGeschlecht("m");
@@ -147,13 +143,10 @@ void midgard_CG::on_radiobutton_mann_toggled()
 
 void midgard_CG::show_gtk()
 {
-//  typauswahl->set_history(Typ[0]->Nr());
   if (Typ[1]->Short()=="") typauswahl_2->hide();
   else
    { typauswahl_2->show(); 
-//     typauswahl_2->set_history(Typ[1]->Nr());
    }
-//cout << "Geschlecht = " <<Werte.Geschlecht()<<'\n';
  fertig_typ->set_text(Typ[0]->Name(Werte.Geschlecht()));     // Abenteurerklasse im Lernfenster
  if (Typ[1]->Name(Werte.Geschlecht())!="") 
    fertig_typ->set_text(Typ[0]->Name(Werte.Geschlecht())+"/"+Typ[1]->Name(Werte.Geschlecht()));
@@ -207,8 +200,6 @@ void midgard_CG::show_gtk()
  if (kido_stil_nr!=0)
   {   
     optionmenu_KiDo_Stile->set_history(kido_stil_nr);
-//    checkbutton_KanThaiPan->set_active(true);
-//    KanThaiPanbool=true;
   }
 }
 
@@ -317,7 +308,6 @@ void midgard_CG::on_neuer_charakter_clicked()
    button_untyp_fertigkeiten->set_sensitive(false);
    button_waffen->set_sensitive(false);
    button_zauber->set_sensitive(false);
-//   togglebutton_gelernte_anzeigen->set_active(false);
    table_berufswahl->set_sensitive(false);
    scrolledwindow_beruf->hide();
    scrolledwindow_ange_fert->hide();
@@ -343,7 +333,6 @@ void midgard_CG::on_neuer_charakter_clicked()
    vbox_berufsname->hide();
    button_kido_auswahl->set_sensitive(false);       
    button_angeborene_fert->set_sensitive(false);
-//   button_beruf->set_sensitive(false);
 
    Werte.clear();
 
@@ -352,19 +341,14 @@ void midgard_CG::on_neuer_charakter_clicked()
    Typ.resize(2);
    zeige_lernpunkte();
    zeige_werte();
-//   OptionBool.reset(); 
    for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
       (*i)->setActive(false);
    menu_init();
-//   menu_gradanstieg_init();
-//cout << "HausregelCheck(EPsteigern).active "<<HausregelCheck(EPsteigern).active<<'\n';
-//   checkbutton_EP_Geld->set_active(HausregelCheck(EPsteigern).active);
    steigern_mit_EP_bool=true;
    checkbutton_EP_Geld->set_active(steigern_mit_EP_bool);
    
 
    Database.GradAnstieg.set_Grad_Basiswerte(1);
-//   vscale_EP_Gold->set_digits(Database.GradAnstieg.get_Steigern_EP_Prozent());
    label_EP->set_text("50%");
    label_Gold->set_text("50%");
 
@@ -375,8 +359,6 @@ void midgard_CG::on_neuer_charakter_clicked()
   spezieswahl_button();
   typauswahl_button(); // ruft clear_listen() und clear_gtk() auf
   show_gtk();
-
-//  table_wizard->hide();
 }
 
 void midgard_CG::on_schliessen_CG_clicked()

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.192 2002/03/11 20:49:37 thoma Exp $
+// $Id: midgard_CG.hh,v 1.193 2002/03/13 09:32:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -76,7 +76,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         gint on_eventbox_MCG_button_press_event(GdkEventButton *event);
 
      
-        enum pdfViewerIndex {gv,acroread};
+        enum pdfViewerIndex {gv,acroread,xpdf};
         struct st_pdfViewer {pdfViewerIndex index; 
                              Gtk::RadioMenuItem *radio_menu_item;
                              std::string text;
@@ -184,10 +184,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
      	  std::string filename;
    
         // Wizard
-        bool wizard_starten_bool;
         void on_button_close_wizard_clicked();
-//        void on_button_wizard_weiter_clicked();
-//        void on_button_wizard_wiederholen_clicked();
         void wizard_do_nothing();
         void wizard_do_something();
         void wizard_starten_clicked();
@@ -195,7 +192,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void optionmenu_init();
         void optionmenu_stand_deactivate();
         void optionmenu_hand_deactivate();
-        void pdf_viewer();
+        void pdf_viewer(const std::string& file);
         void regnot(const std::string& sadd);
         void fill_typauswahl();
         void fill_typauswahl_2();
@@ -204,8 +201,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void typauswahl_button();
         void typauswahl_2_button();
         void on_radiobutton_stadt_land_toggled();
-//        void angeborene_zauber();
-//        void angeborene_fertigkeiten();
         void on_radiobutton_frau_toggled();
         void on_radiobutton_mann_toggled();
         void spezieswahl_button();
@@ -229,7 +224,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         int  constraint_gw(int constraint);
         int  constraint_aw(int constraint);
         int  wuerfeln_best_of_two();
-//        void werte_editieren();
         void on_togglebutton_edit_werte_toggled();
         void on_button_grda1setzen_clicked();
         void set_all_entrys();
@@ -328,7 +322,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_tree_gelerntes_leaf_selected(cH_RowDataBase d);
         void on_tree_lernschema_leaf_selected(cH_RowDataBase d);
         void show_gelerntes();
-//        void show_lernschema(const MidgardBasicElement::MBEE& what,const std::string& fert="");
         void show_lernschema();
         void setTitels_for_Lernschema(const MidgardBasicElement::MBEE& what,const std::string& fert);
         void on_spinbutton_fach_activate();
@@ -546,7 +539,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          gint on_laden_release_event(GdkEventButton *ev);
          void xml_export_auswahl();
          void xml_import_auswahl();
-//         void show_sinne();
          void checkAngeboreneSinne();
 
 

@@ -497,11 +497,7 @@ void midgard_CG::on_ausruestung_druck(bool unsichtbar)
  fout << "}}\n";
  LaTeX_footer(fout);
  fout.close();
- system("pdflatex midgard_tmp_ausruestung.tex");
- if(pdfViewerCheck(gv).active)
-   system("gv midgard_tmp_ausruestung.pdf &");
- else if (pdfViewerCheck(acroread).active)
-   system("acroread midgard_tmp_ausruestung.pdf");  
+ pdf_viewer("midgard_tmp_ausruestung");
 }
 
 
@@ -597,14 +593,8 @@ void midgard_CG::on_spinbutton_gewicht_activate()
  double preis = atof( spinbutton_preis->get_text().c_str());
  double gewicht = atof( spinbutton_gewicht->get_text().c_str());
 
-#ifndef USE_XML
- try{
-#endif 
   Preise::saveArtikel(art,art2,name,preis,einheit,gewicht);
   Database.preise.push_back(cH_Preise(name));
   ausruestung_laden();
-#ifndef USE_XML
-   } catch(SQLerror &e) {manage (new WindowInfo(e.what(),false));}
-#endif
 // table_artikel->hide();
 }

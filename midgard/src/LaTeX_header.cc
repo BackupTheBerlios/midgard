@@ -1,4 +1,4 @@
-// $Id: LaTeX_header.cc,v 1.14 2002/03/10 16:45:38 thoma Exp $
+// $Id: LaTeX_header.cc,v 1.15 2002/03/13 09:32:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -130,4 +130,16 @@ void midgard_CG::LaTeX_footer(ostream &fout)
 {
   fout << "\\end{center}\n";
   fout << "\\end{document}\n\n";
+}
+
+
+void midgard_CG::pdf_viewer(const std::string& file)
+{
+  system("pdflatex "+file+".tex");
+  if(pdfViewerCheck(gv).active)
+     system("gv "+file+".pdf &");
+  else if (pdfViewerCheck(acroread).active)
+     system("acroread "+file+".pdf &");
+  else if (pdfViewerCheck(xpdf).active)
+     system("xpdf "+file+".pdf &");
 }

@@ -1,4 +1,4 @@
-// $Id: LaTeX_charakter_beschreibung.cc,v 1.24 2002/03/11 20:49:37 thoma Exp $
+// $Id: LaTeX_charakter_beschreibung.cc,v 1.25 2002/03/13 09:32:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -41,11 +41,6 @@ void midgard_CG::latex_beschreibung_drucken()
  fout << "}}\n";
  LaTeX_footer(fout);
  fout.close();
- system("pdflatex midgard_tmp_beschreibung.tex");
- if(pdfViewerCheck(gv).active)
-   system("gv midgard_tmp_beschreibung.pdf &");
- else if (pdfViewerCheck(acroread).active)
-   system("acroread midgard_tmp_beschreibung.pdf &");
-          
+ pdf_viewer("midgard_tmp_beschreibung");
 }
 
