@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.27 2004/12/21 08:17:45 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.28 2005/01/31 07:37:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -838,8 +838,8 @@ void LaTeX_drucken::LaTeX_kopfzeile(const Abenteurer &A,std::ostream &fout,bool 
  fout <<"\\makebox[1.1cm]{Spieler}&\\namespieler\\\\\\hline\n";
  fout <<"\\end{tabularx}\n}\n";
 // fout << WinLux::normal_tilde;
- if(landscape)  fout << "\\parbox{"+drache+"}{\\usebox{\\DrachenBox}}\n";
- else           fout << "\\parbox{"+drache+"}{\\usebox{\\SmallDrachenBox}}\n";
+ if(landscape)  fout << "\\parbox{"+drache+"}{\\reflectbox{\\usebox{\\DrachenBox}}}\n";
+ else           fout << "\\parbox{"+drache+"}{\\reflectbox{\\usebox{\\SmallDrachenBox}}}\n";
 // fout << WinLux::active_tilde;
  fout <<"\\vspace*{2ex}\n\n";
 }

@@ -185,7 +185,20 @@ void spielleiter_export_save(const Abenteurer &Char,const std::string& dateiname
       schreiben += (*(*i))->Name()+"+"+itos((*i)->Erfolgswert())+", ";
    }
  ManuProC::remove_last_from(schreiben,",");
- fout << "Schreiben: "<<schreiben<<"\n\n";
+ fout << "Schreiben: "<<schreiben<<'\n';
+
+ // Beruf
+ std::string beruf;
+ if(!Char.List_Beruf().empty())
+  {
+   if(Char.List_Beruf().size()==1) fout << "Beruf: ";
+   else                         fout << "Berufe: ";
+   for(std::list<MBEmlt>::const_iterator i=Char.List_Beruf().begin();i!=Char.List_Beruf().end();++i)
+      beruf += (*(*i))->Name()+", ";
+   ManuProC::remove_last_from(beruf,",");
+   fout << beruf<<'\n';      
+  }
+ fout << '\n';
 
  // WaffenGrundfertigkeiten:
  if(full)
