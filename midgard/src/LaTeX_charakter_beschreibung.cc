@@ -1,4 +1,4 @@
-// $Id: LaTeX_charakter_beschreibung.cc,v 1.16 2001/07/05 12:43:35 thoma Exp $
+// $Id: LaTeX_charakter_beschreibung.cc,v 1.17 2001/07/05 16:06:11 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,6 +18,7 @@
  */
 
 #include "midgard_CG.hh"
+#include <unistd.h>
 
 void midgard_CG::latex_beschreibung_drucken()
 {   

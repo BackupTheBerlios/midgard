@@ -160,7 +160,7 @@ void midgard_CG::fill_spezies()
 void midgard_CG::spezieswahl_button()
 {
  int ityp = int(optionmenu_spezies->get_menu()->get_active()->get_user_data());
- Werte.Spezies() = spezies_vector[ityp];
+ Werte.set_Spezies(spezies_vector[ityp]);
  midgard_CG::fill_typauswahl();
  midgard_CG::get_spezies_constraint();
  midgard_CG::typauswahl_button();

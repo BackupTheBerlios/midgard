@@ -35,6 +35,7 @@ exec sql include sqlca;
 Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const std::string& typ,
    const std::string& typ_2,  int lernpunkte, const Grundwerte& Werte)
 {
+try{
   hauptfenster=h;
   maxpunkte = lernpunkte;
   fert_auswahl_lernpunkte->set_text(itos(maxpunkte));
@@ -56,7 +57,7 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const std::string& typ,
    int db_fp;
    char db_voraussetzung[100];
    char db_region[10];
-   char query[2048];
+   char query[10240];
    char db_spezies[50];
   exec sql end declare section;
   strncpy(db_spezies,(Werte.Spezies()).c_str(),sizeof(db_spezies));
@@ -71,7 +72,7 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const std::string& typ,
          and p.pflicht  not in (select verboten from pflicht_lernen where
    typ=:db_spezies  and verboten is not null);
    exec sql open fert_spezies;
-   SQLerror::test(__FILELINE__);
+   SQLerror::test(__FILELINE__,100);
    while (true)
       {
          exec sql fetch fert_spezies into :db_lernpunkte, :db_fertigkeiten,
@@ -80,14 +81,11 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const std::string& typ,
          if (sqlca.sqlcode) break;
           vec_Fert.push_back(new Data_fert (db_fertigkeiten,
                db_erfolgswert,0,Werte.Spezies(),db_attribut,"*",db_lernpunkte));
-         
-/*         fert.push_back(db_struct_fertigkeiten(db_lernpunkte,db_fertigkeiten,
-               db_erfolgswert, db_attribut,
-               "*", 0, werte.spezies));
-*/
       }
    exec sql close fert_spezies;
 
+   // Lernschema
+#if 0
    std::string squery = " select l.fertigkeit, art, wert, f.attribut, \
              min(l.lernpunkte), pflicht_lernen.typ, \
              coalesce(f.fp,0), coalesce(v.fertigkeit,''), coalesce(f.region,'') \
@@ -120,26 +118,28 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const std::string& typ,
       group by l.fertigkeit, art, wert, f.attribut, f.fp, v.fertigkeit, 
       coalesce(f.region,'')  \
       order by min,1";
+#endif
+     std::string squery = "select l.fertigkeit, min(art), min(wert), min(f.attribut), 
+             min(l.lernpunkte) as lp, min(pflicht_lernen.typ), 
+             coalesce(min(f.fp),0), coalesce(min(v.fertigkeit),''),
+             coalesce(min(f.region),'')  
+         from ((fertigkeiten f join lernschema l using (fertigkeit))
+               join fertigkeiten_voraussetzung v on f.fertigkeit = v.name)
+            left join pflicht_lernen 
+            on l.typ=pflicht_lernen.typ and l.fertigkeit=pflicht
+         where ";
+      if (typ_2=="") squery += " l.typ = '"+typ+"' ";
+      if (typ_2!="") squery += " (l.typ = '"+typ+"' or l.typ = '"+typ_2+"') ";
+      squery +=" and art = 'Fertigkeit' 
+         and not exists (select true from pflicht_lernen where 
+            typ=:db_spezies  and verboten=l.fertigkeit) 
+         group by l.fertigkeit
+         order by lp, l.fertigkeit ";
 
    strncpy(query,squery.c_str(),sizeof(query));
    exec sql prepare sfert from :query;
    exec sql declare fertigkeiten cursor for sfert;
-//   exec sql declare fertigkeiten cursor for 
-/*
-      select l.fertigkeit, art, wert, f.attribut,
-             lernpunkte, pflicht_lernen.typ,
-             f.fp, f.voraussetzung
-      from fertigkeiten f, lernschema l left join pflicht_lernen 
-      on l.typ=pflicht_lernen.typ
-      and l.fertigkeit=pflicht_lernen.pflicht
-      where l.typ = :db_typ
-      and art = 'Fertigkeit' 
-      and (f.fertigkeit = l.fertigkeit )//or  l.fertigkeit='KiDo-Technik') ???
-      and  f.fertigkeit not in (select verboten from pflicht_lernen where 
-   typ=:db_spezies  and verboten is not null) 
-      order by lernpunkte, l.fertigkeit ;
-*/
-   exec sql open fertigkeiten;
+   exec sql open fertigkeiten using :db_spezies;
    SQLerror::test(__FILELINE__);
    while (true)
       {
@@ -235,6 +235,9 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const std::string& typ,
 
    fertigkeiten_clist_auswahl->set_selection_mode(GTK_SELECTION_MULTIPLE);
    fertigkeiten_clist_auswahl->set_reorderable(true);
+} catch (SQLerror &e)
+{ cerr << e << '\n';
+}
 }
 
 

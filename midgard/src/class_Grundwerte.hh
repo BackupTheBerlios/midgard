@@ -65,6 +65,7 @@ public:
    std::string Spezial2() const {return spezial2;}
    std::string Stand() const {return stand;}
    std::string Herkunft() const {return herkunft;}
+//   std::string &Spezies() {return spezies;}
    std::string Spezies() const {return spezies;}
    std::string Glaube() const {return glaube;}
    std::string Name_Charakter() const {return name_charakter;}
