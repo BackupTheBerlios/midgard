@@ -1,0 +1,144 @@
+<-- Midgard Charakter DTD $Version$ -->
+
+<!ENTITY % Geschlecht "(m|w)">
+<!ENTITY % Gestalt "(schmal|mittel|breit)">
+<!ENTITY % Stand "(Unfreie|Volk|Mittelschicht|Adel)">
+<!ENTITY % Typ "(As|BN|BS|BW|Ba|Dr|Fi|Gl|Hl|Hä|Kd|Kr|Ma|Ny|Or|PF|PH|PK|PM|PT|PW|Ri|Sa|Sc|Se|Sp|Sr|Sö|Th|Wa|dBe|eBe|gHx|sHx|wHx)">
+<!ENTITY % Number "CDATA">
+
+<!ELEMENT Figur EMPTY>
+<!ATTLIST Figur
+	Name	CDATA	#REQUIRED
+	Spieler	CDATA	#IMPLIED
+	Zeitpunkt	CDATA	#IMPLIED
+	Grad	%Number;	#REQUIRED>
+
+<!ELEMENT Typ EMPTY>
+<!ATTLIST Typ
+	Spezies	CDATA	"Mensch"
+	Geschlecht	%Geschlecht;	#REQUIRED
+	Abkürzung	%Typ;	#REQUIRED
+	Abkürzung2	%Typ;	#IMPLIED>
+
+<!ELEMENT Basiseigenschaften EMPTY>
+<!ATTLIST Basiseigenschaften
+	St	%Number;	#REQUIRED
+	Ge	%Number;	#REQUIRED
+	Ko	%Number;	#REQUIRED
+	In	%Number;	#REQUIRED
+	Zt	%Number;	#REQUIRED>
+
+<!ELEMENT abgeleiteteEigenschaften EMPTY>
+<!ATTLIST abgeleiteteEigenschaften
+	Au	%Number;	#REQUIRED
+	pA	%Number;	#REQUIRED
+	Sb	%Number;	#REQUIRED
+	RW	%Number;	#REQUIRED
+	HGW	%Number;	#REQUIRED
+	B	%Number;	#REQUIRED
+	KAW	%Number;	#REQUIRED
+	WLW	%Number;	#REQUIRED>
+
+<!ELEMENT Erfolgswerte EMPTY>
+<!ATTLIST Erfolgswerte
+	Abwehr	%Number;	#REQUIRED
+	Zaubern	%Number;	#IMPLIED>
+
+<!ELEMENT Resistenzen EMPTY>
+<!ATTLIST Resistenzen
+	Zauber	%Number;	#REQUIRED>
+
+<!ELEMENT Gesundheit EMPTY>
+<!ATTLIST Gesundheit
+	LP_Basis	%Number;	#REQUIRED
+	LP	%Number;	#REQUIRED
+	AP	%Number;	#REQUIRED>
+
+<!ELEMENT Beschreibung EMPTY>
+<!ATTLIST Beschreibung
+	Alter	%Number;	#REQUIRED
+	Gestalt	%Gestalt;	#REQUIRED
+	Gewicht	%Number;	#REQUIRED
+	Größe	%Number;	#REQUIRED
+	Stand	%Stand;		#REQUIRED
+	Herkunft	CDATA	#REQUIRED
+	Glaube	CDATA	#REQUIRED>
+
+<-- ResistenzBoni -->
+<!ELEMENT Resistenzen EMPTY>
+<!ATTLIST Resistenzen
+	psy	%Number;	"0"
+	phs	%Number;	"0"
+	phk	%Number;	"0"
+	Gift	%Number;	"0">
+
+<!ELEMENT Boni (Resistenzen)>
+<!ATTLIST Boni
+	Ausdauer	%Number;	"0"
+	Abwehr	%Number;	"0"
+	Zaubern	%Number;	"0"
+	Schaden	%Number;	"0">
+
+<!ELEMENT GFP #CDATA>
+
+<!ELEMENT Vermögen EMPTY>
+<!ATTLIST Vermögen
+	GS	%Number;	"0"
+	SS	%Number;	"0"
+	KS	%Number;	"0">
+
+<!ELEMENT Steigern EMPTY>
+<!ATTLIST Steigern
+	AEP	%Number;	"0"
+	KEP	%Number;	"0"
+	ZEP	%Number;	"0"
+	EPproGFP	%Number;	"50"
+	Basiswerte	%Number;	#IMPLIED>
+
+<!ELEMENT Ausrüstung>
+
+<!ELEMENT Rüstung>
+
+<!ELEMENT Waffe EMPTY>
+<!ATTLIST Waffe
+	Bezeichnung	CDATA	#REQUIRED>
+
+<!ELEMENT Fertigkeiten>
+
+<!ENTITY % FertigkeitenAtts
+	"Bezeichnung	CDATA	#REQUIRED
+	Wert	&Number;	#IMPLIED
+
+<!ELEMENT Beruf EMPTY>
+<!ATTLIST Beruf
+	&FertigkeitenAtts;>
+<!ELEMENT Fertigkeit EMPTY>
+<!ATTLIST Fertigkeit
+	&FertigkeitenAtts;>
+<!ELEMENT Grundkenntnis EMPTY>
+<!ATTLIST Grundkenntnis
+	&FertigkeitenAtts;>
+<!ELEMENT Grundkenntnis EMPTY>
+<!ATTLIST Grundkenntnis
+	&FertigkeitenAtts;>
+<!ELEMENT Sprache EMPTY>
+<!ATTLIST Sprache
+	&FertigkeitenAtts;>
+<!ELEMENT Urschrift EMPTY>
+<!ATTLIST Urschrift
+	&FertigkeitenAtts;>
+<!ELEMENT Waffe EMPTY>
+<!ATTLIST Waffe
+	&FertigkeitenAtts;>
+<!ELEMENT Zauber EMPTY>
+<!ATTLIST Zauber
+	&FertigkeitenAtts;>
+
+<!ENTITY % Region "(ORIG|INFO|E|K|HD|G)">
+<!ELEMENT Region EMPTY>
+<!ATTLIST Region
+	Region	&Region;	#REQUIRED>
+
+<!ELEMENT Midgard-Charakter (Figur)(Typ)>
+<!ATTLIST Midgard-Charakter
+	Version	%Number;	#FIXED	"7">
