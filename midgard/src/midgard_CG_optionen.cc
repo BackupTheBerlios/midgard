@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.124 2003/09/01 06:47:58 christof Exp $
+// $Id: midgard_CG_optionen.cc,v 1.125 2003/09/08 14:36:40 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,13 +24,7 @@
 #include <xml.h>
 #include <Misc/Trace.h>
 
-
-void midgard_CG::set_info(const std::string& sadd)
-{
- ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
- InfoFenster->AppendShow(sadd);
-}
-
+#if 0
 void midgard_CG::OptionenExecute_setzen_from_menu(Magus_Optionen::OptionenExecuteIndex index)
 {
  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
@@ -59,11 +53,14 @@ void midgard_CG::checkbutton_original(bool active)
     }      
 //  menu_init();
 }
+#endif
 
 void midgard_CG::lernschema_sensitive(bool active)
 {
  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
 assert(active);
+#warning hier fehlts
+#if 0
    table_lernschema->frame_lernpunkte->set_sensitive(true);
    frame_steigern->set_sensitive(true);
    frame_lernschema->set_sensitive(true);
@@ -78,29 +75,10 @@ assert(active);
    table_lernschema->button_kido_auswahl->set_sensitive(true);
    table_lernschema->button_angeborene_fert->set_sensitive(true);
    table_lernschema->button_beruf->set_sensitive(true);
+#endif   
 }
 
-
-void midgard_CG::show_Pics(bool b)
-{
- ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
- InfoFenster->show_pic(b);
- if(b)
-  {
-//    table_grundwerte->pixmap_dfr4->show();
-//    pixmap_dfr3->show();
-//    table_lernschema->scrolledwindow_dfr3->show(); 
-//    table_steigern->pixmap_kurai->show();
-  }
- else
-  {
-//    table_grundwerte->pixmap_dfr4->hide();
-//    pixmap_dfr3->hide();
-//    table_lernschema->scrolledwindow_dfr3->hide(); 
-//    table_steigern->pixmap_kurai->hide();
-  }
-}
-
+#if 0
 void midgard_CG::show_Menueleiste(bool b)
 {
  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
@@ -140,28 +118,6 @@ void midgard_CG::show_Beschriftungen(bool b)
  else if( b &&!i) toolbar_top->set_toolbar_style(Gtk::TOOLBAR_TEXT);
  else if(!b && i) toolbar_top->set_toolbar_style(Gtk::TOOLBAR_ICONS);
  else if(!b &&!i) toolbar_top->hide();
-}
-
-void midgard_CG::show_3_Tasten_Maus(bool b)
-{
- ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
-  if(b) 
-   { table_grundwerte->vbox_gw_wuerfeln->hide();
-     _tooltips.set_tip(*(table_grundwerte->button_grundwerte),"Linke Maustaste: 2x für jede Basiseigenschaft würfeln, höheres Ergebnis zählt.\n"
-                  "Mittlere Maustaste: 2x würfeln, besseren Wert einer Basiseigenschaftzuweisen das ganze 6x wiederholen.\n"
-                  "Rechte Maustaste: 9x würfeln und die besten sechs Ergebnisse frei verteilen.\n"
-                  "ACHTUNG: Die Sonderregeln für Nichtmenschen werden nur bei der ersten Variante berücksichtigt.");
-     _tooltips.set_tip(*button_main_drucken,"Linke Maustaste: LaTeX Abenteurerblatt drucken (pdf Datei).\n"
-                  "Mittlere Maustaste: Charakterbeschreibung drucken.\n"
-                  "Rechte Maustaste: Ausrüstung drucken.");
-   }
-  else 
-   { table_grundwerte->vbox_gw_wuerfeln->show();
-     _tooltips.set_tip(*(table_grundwerte->button_grundwerte),"Basiseigenschaft auswürfeln\n"
-                  "ACHTUNG: Die Sonderregeln für Nichtmenschen werden nur bei der ersten Variante berücksichtigt.\n");
-     _tooltips.set_tip(*button_main_drucken,"Linke Maustaste: LaTeX Abenteurerblatt drucken (pdf Datei).\n"
-                  "Rechte Maustaste: Ausrüstung drucken.");
-   }
 }
 
 void midgard_CG::show_NSC_active(bool b)
@@ -225,7 +181,9 @@ void midgard_CG::on_checkbutton_Regionen_menu(gpointer gp,cH_Region region)
 // menu_init();
  set_region_statusbar(region->Pic(),region->Active());
 }
+#endif
 
+#if 0
 void midgard_CG::Schummeln()
 {
   if(schummeln)
@@ -244,3 +202,4 @@ void midgard_CG::Schummeln()
      table_grundwerte->edit_werte=false;
    }
 }
+#endif
