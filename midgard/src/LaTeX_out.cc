@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.83 2002/01/16 09:37:53 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.84 2002/01/18 22:08:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,12 +35,12 @@ void midgard_CG::on_latex_clicked(bool values=true)
  if (!access("document_eingabe.tex",R_OK)) // Files im aktuellen Verzeichnis?
    {
     system("cp document_eingabe4.tex midgard_tmp_document_eingabe.tex");
-    system("cp latexwertedef.tex midgard_tmp_latexwertedef.tex");
+//    system("cp latexwertedef.tex midgard_tmp_latexwertedef.tex");
    }
  else
    {
     system("cp "PACKAGE_DATA_DIR"document_eingabe4.tex midgard_tmp_document_eingabe.tex");
-    system("cp "PACKAGE_DATA_DIR"latexwertedef.tex midgard_tmp_latexwertedef.tex");
+//    system("cp "PACKAGE_DATA_DIR"latexwertedef.tex midgard_tmp_latexwertedef.tex");
    }
  if (values) LaTeX_write_values();
  else LaTeX_write_empty_values();
@@ -132,32 +132,16 @@ void midgard_CG::LaTeX_write_values()
  fout << "\\newcommand{\\raufen}{"<<Werte.Raufen()<< "}\n";
  fout << "\\newcommand{\\abwehr}{"<<Werte.Abwehr_wert()<< "}\n";
  int ohne_waffe=Werte.Abwehr_wert()+Werte.bo_Ab();
- int abboR = Werte.Ruestung()->AbwehrBonus_Verlust(Werte.bo_Ab());
-cout << "\nohne_waffe = "<<ohne_waffe<<'='<<Werte.Abwehr_wert()<<'+'<<Werte.bo_Ab()<<'\n';
-cout << "abboR = "<<abboR<<'\n';
- std::string vollruestabzug,abbors;
- if(abboR) abbors="--"+itos(abs(abboR)); 
-cout << "abbors ="<<abbors<<'\n';
+ int abwehr_verlust = Werte.Ruestung()->AbwehrBonus_Verlust(Werte.bo_Ab());
  if(!cH_Fertigkeit("Kampf in Vollrüstung")->ist_gelernt(list_Fertigkeit) &&
       Werte.Ruestung()->VollRuestungsAbzug()!=0)
-    vollruestabzug="-"+itos(abs(Werte.Ruestung()->VollRuestungsAbzug()));
-cout << cH_Fertigkeit("Kampf in Vollrüstung")->ist_gelernt(list_Fertigkeit)
-<<' '<<Werte.Ruestung()->VollRuestungsAbzug()<<"\t->"<<vollruestabzug<<"<-\n";
- fout << "\\newcommand{\\abwehrfinal}{"<<ohne_waffe
-      << vollruestabzug<<abbors<< "}\n";
-cout << "abwehrfinal = "<<ohne_waffe<<'#'<<vollruestabzug<<'#'<<abbors<<'\n';
+   abwehr_verlust += abs(Werte.Ruestung()->VollRuestungsAbzug());
+ std::string abwehr_verlust_string;
+ if(abwehr_verlust) abwehr_verlust_string="--"+itos(abs(abwehr_verlust)); 
+ fout << "\\newcommand{\\abwehrfinal}{"<<ohne_waffe<<abwehr_verlust_string<<"}\n";
 
  std::string mit_waffe = Waffe::get_Verteidigungswaffe(ohne_waffe,list_Waffen,list_Waffen_besitz,Typ,Werte);
-cout << "mit_waffe="<<mit_waffe<<'\n';
-// if (mit_waffe.size())// != Werte.Abwehr_wert()+Werte.bo_Ab())
-//   {
-//    if(vollruestabzug.size() || mit_waffe.size())
-//       fout << "\\newcommand{\\abwehrmitwaffe}{"<<mit_waffe<<vollruestabzug<< "}\n";
-//    else  
-    fout << "\\newcommand{\\abwehrmitwaffe}{"<<mit_waffe<< "}\n";
-//   }
-// else 
-//    fout << "\\newcommand{\\abwehrmitwaffe}{""}\n";
+ fout << "\\newcommand{\\abwehrmitwaffe}{"<<mit_waffe<<abwehr_verlust_string<<"}\n";
 
  fout << "\\newcommand{\\zauber}{"<<EmptyInt_4TeX(Werte.Zaubern_wert())<< "}\n";
  fout << "\\newcommand{\\alter}{"  <<Werte.Alter() << "}\n";
@@ -190,9 +174,9 @@ cout << "mit_waffe="<<mit_waffe<<'\n';
  std::list<cH_MidgardBasicElement> verwandteSprachen;
  for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Sprache.begin();i!=list_Sprache.end();++i)
    {  cH_Sprache s(*i);
-      std::list<cH_MidgardBasicElement> tmplist=s->VerwandteSprachen(Database.Sprache);
+      std::list<cH_MidgardBasicElement> tmplist=s->VerwandteSprachen(list_Sprache,Database.Sprache);
       verwandteSprachen.splice(verwandteSprachen.end(),tmplist);
-//geht nicht!!!      verwandteSprachen.splice(verwandteSprachen.end(),s->VerwandteSprachen(Database.Sprache));
+//geht nicht!!!      verwandteSprachen.splice(verwandteSprachen.end(),s->VerwandteSprachen(list_Sprache,Database.Sprache));
       std::string a = LaTeX_string(sprachanz++);
       fout << "\\newcommand{\\spra"<<a<<"}{\\scriptsize " << LaTeX_scale(s->Name(),20,"2.6cm") <<"}\n";
       fout << "\\newcommand{\\spraw"<<a<<"}{\\scriptsize +"<< s->Erfolgswert() <<"}\n";
@@ -284,6 +268,13 @@ cout << "mit_waffe="<<mit_waffe<<'\n';
  // Waffen + Waffen/Besitz
  int  i_waffenlos = 4;
  unsigned int countwaffen=0;
+ int angriffsverlust = abs(Werte.Ruestung()->AngriffsBonus_Verlust(Werte.bo_An()));
+ // Abzug, wenn in Vollrüstung gekämpft wird, obwohl die
+ // entsprechende Fertigkeit nicht beherrscht wird.
+ if(!cH_Fertigkeit("Kampf in Vollrüstung")->ist_gelernt(list_Fertigkeit))
+       angriffsverlust += Werte.Ruestung()->VollRuestungsAbzug();
+ std::string angriffsverlust_string;
+ if (angriffsverlust) angriffsverlust_string="--"+itos(angriffsverlust);            
  for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Waffen.begin();i!=list_Waffen.end();++i)
    {cH_Waffe w(*i);
     count++;
@@ -308,21 +299,20 @@ cout << "mit_waffe="<<mit_waffe<<'\n';
          if (WB->Magisch()!="" || 
             (WB->av_Bonus()!=0 && WB->sl_Bonus()!=0)) waffenname+="$^*$ "+WB->Bonus() ;
          fout <<LaTeX_scalemag(waffenname,15,"2.5cm",WB->Magisch(),WB->Waffe()->Reichweite())<< "}\n";
-         int mag_schadensbonus = WB->av_Bonus();
-//         int abboR=Werte.Ruestung()->AbwehrBonus_Verlust(Werte.bo_An());
-         int anbo = Werte.bo_An();
-         int ang_mod = WB->Waffe()->WM_Angriff(WB->Name());
-         if (WB->Verteidigung()) {anbo = 0; /*abboR=0;*/}
-         // Endgültiger Erfolgswert für einen Angriff
-         int wert = (*i)->Erfolgswert() + anbo + mag_schadensbonus + ang_mod ;
-         // Angriffsbonus subtrahieren, wenn schwere Rüstung getragen wird:
-         std::string wertRa;
-         if(abboR!= anbo )  wertRa="--"+itos(anbo);
-         // Abzug, wenn in Vollrüstung gekämpft wird, obwohl die
-         // entsprechende Fertigkeit nicht beherrscht wird.
-         std::string wertRv;
-         if(vollruestabzug.size()) wertRv="-"+vollruestabzug;
-         fout << "\\newcommand{\\waffeE"<<b<<"}{"<<wert <<wertRa<<wertRv<< "}\n";
+         
+         // Erfolgswert für einen Verteidigungswaffen
+         if (WB->Waffe()->Verteidigung())
+          {
+           int wert = (*i)->Erfolgswert() + WB->av_Bonus() + WB->Waffe()->WM_Angriff(WB->Name()) ;
+           fout << "\\newcommand{\\waffeE"<<b<<"}{"<<itos(wert)<<"}\n";
+          }
+         // Erfolgswert für Angriffswaffen
+         else 
+          {
+           int wert = (*i)->Erfolgswert() + Werte.bo_An() + WB->av_Bonus() + WB->Waffe()->WM_Angriff(WB->Name()) ;
+           // Angriffsbonus subtrahieren, wenn schwere Rüstung getragen wird:
+           fout << "\\newcommand{\\waffeE"<<b<<"}{"<<wert<<angriffsverlust_string<<"}\n";
+          }
          std::string schaden=WB->Schaden(Werte,WB->Name());
          fout << "\\newcommand{\\waffeS"<<b<<"}{"<<schaden << "}\n";
          std::string anm = WB->Waffe()->Waffenrang();

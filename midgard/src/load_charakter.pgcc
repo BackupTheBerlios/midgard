@@ -212,6 +212,11 @@ void midgard_CG::load_charakter()
    SQLerror::test(__FILELINE__);
    exec sql close cha;
    Werte.setBasiswerte(db_st,db_gw,db_gs,db_ko,db_in,db_zt) ;    
+   Werte.setAu(db_au);
+   Werte.setpA(db_pa);
+   Werte.setSb(db_sb);
+   Werte.setWk(db_wk);
+   Werte.setB(db_b);
    Werte.setLP(db_lp);
    Werte.setAP(db_ap);
    Werte.setZaubern_wert(db_zaubern);

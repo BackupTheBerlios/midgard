@@ -5944,7 +5944,8 @@ gemischt
 
 		<widget>
 		  <class>GtkFrame</class>
-		  <name>frame87</name>
+		  <name>frame_pp_zaubern</name>
+		  <cxx_visibility>protected</cxx_visibility>
 		  <label>Zaubern</label>
 		  <label_xalign>0</label_xalign>
 		  <shadow_type>GTK_SHADOW_NONE</shadow_type>
@@ -15434,7 +15435,7 @@ Verlust</label>
   <widget>
     <class>GtkTable</class>
     <name>table49</name>
-    <rows>20</rows>
+    <rows>18</rows>
     <columns>5</columns>
     <homogeneous>False</homogeneous>
     <row_spacing>0</row_spacing>
@@ -15594,38 +15595,13 @@ Verlust</label>
     </widget>
 
     <widget>
-      <class>GtkPixmap</class>
-      <name>pixmap4</name>
-      <filename>KiDo-trans-50.xpm</filename>
-      <xalign>0.5</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <build_insensitive>True</build_insensitive>
-      <child>
-	<left_attach>0</left_attach>
-	<right_attach>1</right_attach>
-	<top_attach>7</top_attach>
-	<bottom_attach>8</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>False</xfill>
-	<yfill>False</yfill>
-      </child>
-    </widget>
-
-    <widget>
       <class>GtkHSeparator</class>
       <name>hseparator17</name>
       <child>
 	<left_attach>0</left_attach>
 	<right_attach>3</right_attach>
-	<top_attach>11</top_attach>
-	<bottom_attach>12</bottom_attach>
+	<top_attach>9</top_attach>
+	<bottom_attach>10</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>5</ypad>
 	<xexpand>False</xexpand>
@@ -15650,8 +15626,8 @@ Verlust</label>
       <child>
 	<left_attach>2</left_attach>
 	<right_attach>3</right_attach>
-	<top_attach>12</top_attach>
-	<bottom_attach>13</bottom_attach>
+	<top_attach>10</top_attach>
+	<bottom_attach>11</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -15676,8 +15652,8 @@ Verlust</label>
       <child>
 	<left_attach>2</left_attach>
 	<right_attach>3</right_attach>
-	<top_attach>14</top_attach>
-	<bottom_attach>15</bottom_attach>
+	<top_attach>12</top_attach>
+	<bottom_attach>13</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -15701,8 +15677,8 @@ Verlust</label>
       <child>
 	<left_attach>0</left_attach>
 	<right_attach>1</right_attach>
-	<top_attach>12</top_attach>
-	<bottom_attach>13</bottom_attach>
+	<top_attach>10</top_attach>
+	<bottom_attach>11</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -15726,8 +15702,8 @@ Verlust</label>
       <child>
 	<left_attach>0</left_attach>
 	<right_attach>1</right_attach>
-	<top_attach>14</top_attach>
-	<bottom_attach>15</bottom_attach>
+	<top_attach>12</top_attach>
+	<bottom_attach>13</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -15736,32 +15712,6 @@ Verlust</label>
 	<yshrink>False</yshrink>
 	<xfill>True</xfill>
 	<yfill>True</yfill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkLabel</class>
-      <name>label334</name>
-      <label>Nils Richter</label>
-      <justify>GTK_JUSTIFY_CENTER</justify>
-      <wrap>False</wrap>
-      <xalign>0</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <child>
-	<left_attach>2</left_attach>
-	<right_attach>3</right_attach>
-	<top_attach>7</top_attach>
-	<bottom_attach>8</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>False</yfill>
       </child>
     </widget>
 
@@ -15850,32 +15800,6 @@ Unterstützung</label>
 
     <widget>
       <class>GtkLabel</class>
-      <name>label333</name>
-      <label>KanThaiPan</label>
-      <justify>GTK_JUSTIFY_CENTER</justify>
-      <wrap>False</wrap>
-      <xalign>0</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <child>
-	<left_attach>1</left_attach>
-	<right_attach>2</right_attach>
-	<top_attach>7</top_attach>
-	<bottom_attach>8</bottom_attach>
-	<xpad>5</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>False</yfill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkLabel</class>
       <name>label335</name>
       <label>Download</label>
       <justify>GTK_JUSTIFY_CENTER</justify>
@@ -15887,8 +15811,8 @@ Unterstützung</label>
       <child>
 	<left_attach>1</left_attach>
 	<right_attach>2</right_attach>
-	<top_attach>12</top_attach>
-	<bottom_attach>13</bottom_attach>
+	<top_attach>10</top_attach>
+	<bottom_attach>11</bottom_attach>
 	<xpad>5</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -15913,8 +15837,8 @@ Unterstützung</label>
       <child>
 	<left_attach>1</left_attach>
 	<right_attach>2</right_attach>
-	<top_attach>14</top_attach>
-	<bottom_attach>15</bottom_attach>
+	<top_attach>12</top_attach>
+	<bottom_attach>13</bottom_attach>
 	<xpad>5</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -15932,8 +15856,8 @@ Unterstützung</label>
       <child>
 	<left_attach>0</left_attach>
 	<right_attach>3</right_attach>
-	<top_attach>15</top_attach>
-	<bottom_attach>16</bottom_attach>
+	<top_attach>13</top_attach>
+	<bottom_attach>14</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -16031,8 +15955,8 @@ Unterstützung</label>
       <child>
 	<left_attach>2</left_attach>
 	<right_attach>3</right_attach>
-	<top_attach>19</top_attach>
-	<bottom_attach>20</bottom_attach>
+	<top_attach>17</top_attach>
+	<bottom_attach>18</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -16059,135 +15983,6 @@ Unterstützung</label>
 
     <widget>
       <class>GtkLabel</class>
-      <name>label389</name>
-      <label>Sebastian Horstmann
-&amp; Malte Thoma</label>
-      <justify>GTK_JUSTIFY_LEFT</justify>
-      <wrap>True</wrap>
-      <xalign>0</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <child>
-	<left_attach>2</left_attach>
-	<right_attach>3</right_attach>
-	<top_attach>8</top_attach>
-	<bottom_attach>9</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>False</yfill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkLabel</class>
-      <name>label390</name>
-      <label>Eschar</label>
-      <justify>GTK_JUSTIFY_CENTER</justify>
-      <wrap>False</wrap>
-      <xalign>0</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <child>
-	<left_attach>1</left_attach>
-	<right_attach>2</right_attach>
-	<top_attach>8</top_attach>
-	<bottom_attach>9</bottom_attach>
-	<xpad>5</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>False</yfill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkPixmap</class>
-      <name>pixmap48</name>
-      <filename>Eschar-trans-50.xpm</filename>
-      <xalign>0.5</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <build_insensitive>True</build_insensitive>
-      <child>
-	<left_attach>0</left_attach>
-	<right_attach>1</right_attach>
-	<top_attach>8</top_attach>
-	<bottom_attach>9</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>True</yfill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkLabel</class>
-      <name>label392</name>
-      <label>Joachim Jordan</label>
-      <justify>GTK_JUSTIFY_CENTER</justify>
-      <wrap>False</wrap>
-      <xalign>0</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <child>
-	<left_attach>2</left_attach>
-	<right_attach>3</right_attach>
-	<top_attach>9</top_attach>
-	<bottom_attach>10</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>False</yfill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkPixmap</class>
-      <name>pixmap49</name>
-      <filename>Job-trans-50.xpm</filename>
-      <xalign>0.5</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <build_insensitive>True</build_insensitive>
-      <child>
-	<left_attach>0</left_attach>
-	<right_attach>1</right_attach>
-	<top_attach>9</top_attach>
-	<bottom_attach>10</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>True</yfill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkLabel</class>
       <name>label400</name>
       <label>http://developer.berlios.de/projects/midgard/</label>
       <justify>GTK_JUSTIFY_CENTER</justify>
@@ -16199,8 +15994,8 @@ Unterstützung</label>
       <child>
 	<left_attach>2</left_attach>
 	<right_attach>3</right_attach>
-	<top_attach>13</top_attach>
-	<bottom_attach>14</bottom_attach>
+	<top_attach>11</top_attach>
+	<bottom_attach>12</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -16224,8 +16019,8 @@ Unterstützung</label>
       <child>
 	<left_attach>0</left_attach>
 	<right_attach>1</right_attach>
-	<top_attach>13</top_attach>
-	<bottom_attach>14</bottom_attach>
+	<top_attach>11</top_attach>
+	<bottom_attach>12</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -16234,33 +16029,6 @@ Unterstützung</label>
 	<yshrink>False</yshrink>
 	<xfill>True</xfill>
 	<yfill>True</yfill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkLabel</class>
-      <name>label391</name>
-      <label>Hexenzauber
-&amp;Druidenkraft</label>
-      <justify>GTK_JUSTIFY_CENTER</justify>
-      <wrap>True</wrap>
-      <xalign>0</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <child>
-	<left_attach>1</left_attach>
-	<right_attach>2</right_attach>
-	<top_attach>9</top_attach>
-	<bottom_attach>10</bottom_attach>
-	<xpad>5</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>False</yfill>
       </child>
     </widget>
 
@@ -16277,8 +16045,8 @@ Unterstützung</label>
       <child>
 	<left_attach>1</left_attach>
 	<right_attach>2</right_attach>
-	<top_attach>13</top_attach>
-	<bottom_attach>14</bottom_attach>
+	<top_attach>11</top_attach>
+	<bottom_attach>12</bottom_attach>
 	<xpad>5</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -16303,8 +16071,8 @@ Unterstützung</label>
       <child>
 	<left_attach>2</left_attach>
 	<right_attach>3</right_attach>
-	<top_attach>10</top_attach>
-	<bottom_attach>11</bottom_attach>
+	<top_attach>7</top_attach>
+	<bottom_attach>8</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -16330,8 +16098,8 @@ portierung</label>
       <child>
 	<left_attach>1</left_attach>
 	<right_attach>2</right_attach>
-	<top_attach>10</top_attach>
-	<bottom_attach>11</bottom_attach>
+	<top_attach>7</top_attach>
+	<bottom_attach>8</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -16355,30 +16123,11 @@ portierung</label>
       <child>
 	<left_attach>0</left_attach>
 	<right_attach>1</right_attach>
-	<top_attach>10</top_attach>
-	<bottom_attach>11</bottom_attach>
+	<top_attach>7</top_attach>
+	<bottom_attach>8</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>True</yfill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkVSeparator</class>
-      <name>vseparator18</name>
-      <child>
-	<left_attach>3</left_attach>
-	<right_attach>4</right_attach>
-	<top_attach>0</top_attach>
-	<bottom_attach>18</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>True</xexpand>
 	<yexpand>False</yexpand>
 	<xshrink>False</xshrink>
 	<yshrink>False</yshrink>
@@ -16438,6 +16187,190 @@ portierung</label>
     </widget>
 
     <widget>
+      <class>GtkPixmap</class>
+      <name>pixmap57</name>
+      <filename>pinguin.xpm</filename>
+      <xalign>0.5</xalign>
+      <yalign>0.5</yalign>
+      <xpad>0</xpad>
+      <ypad>0</ypad>
+      <build_insensitive>True</build_insensitive>
+      <child>
+	<left_attach>0</left_attach>
+	<right_attach>1</right_attach>
+	<top_attach>14</top_attach>
+	<bottom_attach>15</bottom_attach>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<xexpand>False</xexpand>
+	<yexpand>False</yexpand>
+	<xshrink>False</xshrink>
+	<yshrink>False</yshrink>
+	<xfill>True</xfill>
+	<yfill>True</yfill>
+      </child>
+    </widget>
+
+    <widget>
+      <class>GtkPixmap</class>
+      <name>pixmap7</name>
+      <filename>Money-50.xpm</filename>
+      <xalign>0.5</xalign>
+      <yalign>0.5</yalign>
+      <xpad>0</xpad>
+      <ypad>0</ypad>
+      <build_insensitive>True</build_insensitive>
+      <child>
+	<left_attach>0</left_attach>
+	<right_attach>1</right_attach>
+	<top_attach>15</top_attach>
+	<bottom_attach>16</bottom_attach>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<xexpand>False</xexpand>
+	<yexpand>False</yexpand>
+	<xshrink>False</xshrink>
+	<yshrink>False</yshrink>
+	<xfill>True</xfill>
+	<yfill>True</yfill>
+      </child>
+    </widget>
+
+    <widget>
+      <class>GtkLabel</class>
+      <name>label401</name>
+      <label>Der MCG unterliegt der GNU Public Licence</label>
+      <justify>GTK_JUSTIFY_CENTER</justify>
+      <wrap>False</wrap>
+      <xalign>0</xalign>
+      <yalign>0.5</yalign>
+      <xpad>0</xpad>
+      <ypad>0</ypad>
+      <child>
+	<left_attach>1</left_attach>
+	<right_attach>3</right_attach>
+	<top_attach>14</top_attach>
+	<bottom_attach>15</bottom_attach>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<xexpand>False</xexpand>
+	<yexpand>False</yexpand>
+	<xshrink>False</xshrink>
+	<yshrink>False</yshrink>
+	<xfill>True</xfill>
+	<yfill>False</yfill>
+      </child>
+    </widget>
+
+    <widget>
+      <class>GtkLabel</class>
+      <name>label339</name>
+      <label>MIDGARD ist Copyright 1981-2001 by
+Verlag für F&amp;SF-Spiele, Stelzenberg</label>
+      <justify>GTK_JUSTIFY_LEFT</justify>
+      <wrap>True</wrap>
+      <xalign>0</xalign>
+      <yalign>0.5</yalign>
+      <xpad>0</xpad>
+      <ypad>0</ypad>
+      <child>
+	<left_attach>1</left_attach>
+	<right_attach>3</right_attach>
+	<top_attach>15</top_attach>
+	<bottom_attach>16</bottom_attach>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<xexpand>False</xexpand>
+	<yexpand>False</yexpand>
+	<xshrink>False</xshrink>
+	<yshrink>False</yshrink>
+	<xfill>True</xfill>
+	<yfill>False</yfill>
+      </child>
+    </widget>
+
+    <widget>
+      <class>GtkLabel</class>
+      <name>label438</name>
+      <label>Illustrationen von Werner Öckl
+copyright 2001 by Verlag für F&amp;SF-Spiele,
+Verwendung mit freundlicher Genehmigung des VFSF</label>
+      <justify>GTK_JUSTIFY_LEFT</justify>
+      <wrap>False</wrap>
+      <xalign>0</xalign>
+      <yalign>0.5</yalign>
+      <xpad>0</xpad>
+      <ypad>0</ypad>
+      <child>
+	<left_attach>1</left_attach>
+	<right_attach>3</right_attach>
+	<top_attach>16</top_attach>
+	<bottom_attach>17</bottom_attach>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<xexpand>False</xexpand>
+	<yexpand>False</yexpand>
+	<xshrink>False</xshrink>
+	<yshrink>False</yshrink>
+	<xfill>True</xfill>
+	<yfill>False</yfill>
+      </child>
+    </widget>
+
+    <widget>
+      <class>GtkPixmap</class>
+      <name>pixmap66</name>
+      <filename>pdolch_.xpm</filename>
+      <xalign>0.5</xalign>
+      <yalign>0.5</yalign>
+      <xpad>0</xpad>
+      <ypad>0</ypad>
+      <build_insensitive>True</build_insensitive>
+      <child>
+	<left_attach>0</left_attach>
+	<right_attach>1</right_attach>
+	<top_attach>16</top_attach>
+	<bottom_attach>17</bottom_attach>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<xexpand>False</xexpand>
+	<yexpand>False</yexpand>
+	<xshrink>False</xshrink>
+	<yshrink>False</yshrink>
+	<xfill>True</xfill>
+	<yfill>True</yfill>
+      </child>
+    </widget>
+
+    <widget>
+      <class>GtkLabel</class>
+      <name>label531</name>
+      <label>Beim Abtippen der Daten haben Nils Richter,
+Sebastian Horstmann, Joachim Jordan und viele
+andere geholfen.</label>
+      <justify>GTK_JUSTIFY_LEFT</justify>
+      <wrap>False</wrap>
+      <xalign>0</xalign>
+      <yalign>0.5</yalign>
+      <xpad>0</xpad>
+      <ypad>0</ypad>
+      <child>
+	<left_attach>0</left_attach>
+	<right_attach>3</right_attach>
+	<top_attach>8</top_attach>
+	<bottom_attach>9</bottom_attach>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<xexpand>False</xexpand>
+	<yexpand>False</yexpand>
+	<xshrink>False</xshrink>
+	<yshrink>False</yshrink>
+	<xfill>True</xfill>
+	<yfill>False</yfill>
+      </child>
+    </widget>
+
+    <widget>
       <class>GtkFrame</class>
       <name>frame_datenbank</name>
       <cxx_visibility>protected</cxx_visibility>
@@ -16448,7 +16381,7 @@ portierung</label>
 	<left_attach>4</left_attach>
 	<right_attach>5</right_attach>
 	<top_attach>4</top_attach>
-	<bottom_attach>18</bottom_attach>
+	<bottom_attach>17</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
 	<xexpand>False</xexpand>
@@ -17703,157 +17636,20 @@ portierung</label>
     </widget>
 
     <widget>
-      <class>GtkPixmap</class>
-      <name>pixmap57</name>
-      <filename>pinguin.xpm</filename>
-      <xalign>0.5</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <build_insensitive>True</build_insensitive>
+      <class>GtkVSeparator</class>
+      <name>vseparator18</name>
       <child>
-	<left_attach>0</left_attach>
-	<right_attach>1</right_attach>
-	<top_attach>16</top_attach>
+	<left_attach>3</left_attach>
+	<right_attach>4</right_attach>
+	<top_attach>0</top_attach>
 	<bottom_attach>17</bottom_attach>
 	<xpad>0</xpad>
 	<ypad>0</ypad>
-	<xexpand>False</xexpand>
+	<xexpand>True</xexpand>
 	<yexpand>False</yexpand>
 	<xshrink>False</xshrink>
 	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>True</yfill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkPixmap</class>
-      <name>pixmap7</name>
-      <filename>Money-50.xpm</filename>
-      <xalign>0.5</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <build_insensitive>True</build_insensitive>
-      <child>
-	<left_attach>0</left_attach>
-	<right_attach>1</right_attach>
-	<top_attach>17</top_attach>
-	<bottom_attach>18</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>True</yfill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkLabel</class>
-      <name>label401</name>
-      <label>Der MCG unterliegt der GNU Public Licence</label>
-      <justify>GTK_JUSTIFY_CENTER</justify>
-      <wrap>False</wrap>
-      <xalign>0</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <child>
-	<left_attach>1</left_attach>
-	<right_attach>3</right_attach>
-	<top_attach>16</top_attach>
-	<bottom_attach>17</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>False</yfill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkLabel</class>
-      <name>label339</name>
-      <label>MIDGARD ist Copyright 1981-2001 by
-Verlag für F&amp;SF-Spiele, Stelzenberg</label>
-      <justify>GTK_JUSTIFY_LEFT</justify>
-      <wrap>True</wrap>
-      <xalign>0</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <child>
-	<left_attach>1</left_attach>
-	<right_attach>3</right_attach>
-	<top_attach>17</top_attach>
-	<bottom_attach>18</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>False</yfill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkLabel</class>
-      <name>label438</name>
-      <label>Illustrationen der Waffen von Werner Öckl
-copyright 2001 by Verlag für F&amp;SF-Spiele,
-Verwendung mit freundlicher Genehmigung des VFSF</label>
-      <justify>GTK_JUSTIFY_LEFT</justify>
-      <wrap>False</wrap>
-      <xalign>0</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <child>
-	<left_attach>1</left_attach>
-	<right_attach>3</right_attach>
-	<top_attach>18</top_attach>
-	<bottom_attach>19</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>False</yfill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkPixmap</class>
-      <name>pixmap66</name>
-      <filename>pdolch_.xpm</filename>
-      <xalign>0.5</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <build_insensitive>True</build_insensitive>
-      <child>
-	<left_attach>0</left_attach>
-	<right_attach>1</right_attach>
-	<top_attach>18</top_attach>
-	<bottom_attach>19</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
+	<xfill>False</xfill>
 	<yfill>True</yfill>
       </child>
     </widget>

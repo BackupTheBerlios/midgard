@@ -87,6 +87,7 @@ void Waffe::get_Waffe()
    grundkenntnisse=db_grundkenntnisse;
    schwierigkeit=db_schwierigkeit;
    art=db_art;
+//cout << "Waffe, art = "<<db_art<<' '<<art<<' '<<Art()<<'\n';
    art2=db_art2;
    schaden=db_schaden;
    schaden_bonus=db_schaden_b;
@@ -213,21 +214,20 @@ std::string WaffeBesitz::Schaden(const Grundwerte& Werte,const std::string& name
   if (waffe->Art()=="Verteidigung") return "-"+itos(waffe->Schaden_Bonus(name))+"AP";
   std::string s=waffe->Schaden(name);
   int sb=waffe->Schaden_Bonus(name) + sl_Bonus();
-cout << "WAFFE = "<<waffe->Name()<<'\t'<<waffe->Erfolgswert()<<'\n';
-  if (Name()=="waffenloser Kampf") 
+//cout << "WAFFE = "<<waffe->Name()<<'\t'<<waffe->Erfolgswert()<<'\n';
+  if (Name()=="waffenloser Kampf" || Name()=="Faustkampf" ) 
       { s="W6";
         int w = waffe->Erfolgswert();
-cout << "Erfolgswert WAFFENLOS = "<<itos(w)<<'\n';
+//cout << "Erfolgswert WAFFENLOS = "<<itos(w)<<'\n';
         if (         w <= 7) sb=-4;
         if ( 8<=w && w <=11) sb=-3;
         if (12<=w && w <=15) sb=-2;
         if (16<=w)           sb=-1;
       }
   if (waffe->Art()!="Fern") sb += Werte.bo_Sc();
-  if(sb == 0) return s;
-  if(sb  > 0) return s+"+"+itos(sb);
-  if(sb  < 0) return s+"-"+itos(sb);
-  
+  if     (sb == 0) return s;
+  else if(sb  > 0) return s+"+"+itos(sb);
+  else if(sb  < 0) return s+"-"+itos(sb);
   abort(); //Never get here
 }
 

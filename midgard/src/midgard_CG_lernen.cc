@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.43 2002/01/16 10:55:25 christof Exp $
+// $Id: midgard_CG_lernen.cc,v 1.44 2002/01/18 22:08:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -144,8 +144,9 @@ void midgard_CG::on_spinbutton_waffen_activate()
 void midgard_CG::on_spinbutton_zaubern_activate()
 {
   gtk_spin_button_update(spinbutton_zauber->gtkobj());
-  lernpunkte.set_Waffen(spinbutton_zauber->get_value_as_int());
-  edit_lernpunkte(false);
+  lernpunkte.set_Zauber(spinbutton_zauber->get_value_as_int());
+//  edit_lernpunkte(false);
+  togglebutton_lernpunkte_edit->set_active(false);
 }
 
                                         

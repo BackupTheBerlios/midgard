@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.31 2002/01/18 08:40:39 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.32 2002/01/18 22:08:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,9 +31,11 @@ void midgard_CG::on_checkbutton_original_menu()
 
   if(OptionBool.Original) 
     { checkbutton_alle_zauber->set_sensitive(false); 
+      pixmap_logo->show();
     }      
   else 
     { checkbutton_alle_zauber->set_sensitive(true); 
+      pixmap_logo->hide();
     }      
 }
 

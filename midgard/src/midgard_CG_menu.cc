@@ -19,6 +19,7 @@
 #include "midgard_CG.hh"
 #include <gtk--/box.h>
 #include <gtk--/pixmap.h>
+#include "../pixmaps/midgard_logo_tiny.xpm"
 
 void midgard_CG::menu_init()
 {
@@ -28,12 +29,10 @@ void midgard_CG::menu_init()
   Gtk::MenuItem *save = manage(new class Gtk::MenuItem("Charakter speichern"));
   menu->append(*save);
   save->activate.connect(SigC::slot(this,&midgard_CG::on_speichern_clicked));
-  save->show();
 
   Gtk::MenuItem *close = manage(new class Gtk::MenuItem("MCG Beenden"));
   menu->append(*close);
   close->activate.connect(SigC::slot(this,&midgard_CG::on_schliessen_CG_clicked));
-  close->show();
 
 //Drucken ///////////////////////////////////////////////////////////////////
   Gtk::Menu *drucken_menu = manage(new class Gtk::Menu());
@@ -43,15 +42,12 @@ void midgard_CG::menu_init()
   Gtk::MenuItem *latex = manage(new class Gtk::MenuItem("Charakter drucken (LaTeX)"));
   drucken_menu->append(*latex);
   latex->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_latex_clicked),true));
-  latex->show();
 
   Gtk::MenuItem *latex_empty = manage(new class Gtk::MenuItem("Leeres Charakterdokument drucken"));
   drucken_menu->append(*latex_empty);
   latex_empty->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_latex_clicked),false));
-  latex_empty->show();
 
   menu->append(*drucken);
-  drucken->show();
 
 //Regionen/////////////////////////////////////////////////////////////////////
   Gtk::Menu *regionen_menu = manage(new class Gtk::Menu());
@@ -61,22 +57,23 @@ void midgard_CG::menu_init()
   
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {
-  //   Gtk::CheckMenuItem *_mi=manage(new Gtk::CheckMenuItem((*i)->Name()));         
+     if(!(*i)->Nr()) continue;
      Gtk::CheckMenuItem *_mi=manage(new Gtk::CheckMenuItem());         
      _mi->remove();
 
      Gtk::Label *_l=manage (new Gtk::Label((*i)->Name(),0,0));
      Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
-     Gtk::Label *_o=0;
+//     Gtk::Label *_o=0;
+     Gtk::Pixmap *_o=manage(new Gtk::Pixmap(midgard_logo_tiny_xpm));
      int row=1;
-     if(!(*i)->Offiziell()) 
+     if((*i)->Offiziell()) 
        {
-         _o=manage (new Gtk::Label("(Inoffiziell)",0,0));
-        _tab->attach(*_o,1,2,1,2,GTK_FILL,0,0,0);
+        _tab->attach(*_o,1,2,1,2,0,0,0,0);
         row=2;
        }
-     _tab->attach(*_l,1,2,0,1,GTK_FILL,0,0,0);
-     _tab->attach(*RegionenPic::Pic((*i)->Pic()),0,1,0,row,GTK_FILL,0,0,0);
+     _tab->attach(*_l,1,2,0,1,0,0,0,0);
+     _tab->attach(*RegionenPic::Pic((*i)->Pic()),0,1,0,row,0,0,0,0);
+     _tab->set_col_spacings(10);
 
      _mi->add(*_tab);
      regionen_menu->append(*_mi);
@@ -84,10 +81,8 @@ void midgard_CG::menu_init()
      _mi->set_active((*i)->Active());
      if(!OptionBool.Original && ((*i)->Abkuerzung()=="H&D" ||(*i)->Abkuerzung()=="G"))
         _mi->set_sensitive(false);
-     _mi->show_all();
    }
   menu->append(*regionen);
-  regionen->show();
 
 
 //Optionen/////////////////////////////////////////////////////////////////////
@@ -95,32 +90,35 @@ void midgard_CG::menu_init()
   Gtk::MenuItem *optionen = manage(new class Gtk::MenuItem("Optionen")); 
   optionen->set_submenu(*optionen_menu);
  
-  OptionMenu.menu_original=manage(new Gtk::CheckMenuItem("Originalregeln"));
+//  OptionMenu.menu_original=manage(new Gtk::CheckMenuItem("Originalregeln"));
+  OptionMenu.menu_original=manage(new Gtk::CheckMenuItem());
+  Gtk::Label *_l=manage (new Gtk::Label("Originalregeln"));
+  Gtk::Pixmap *_o=manage(new Gtk::Pixmap(midgard_logo_tiny_xpm));
+  Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
+  _tab->attach(*_l,0,1,0,1,GTK_FILL,0,0,0);
+  _tab->attach(*_o,1,2,0,1,GTK_FILL,0,0,0);
+  OptionMenu.menu_original->add(*_tab);
+
   optionen_menu->append(*OptionMenu.menu_original);
   OptionMenu.menu_original->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_original_menu));
   OptionMenu.menu_original->set_active(OptionBool.Original);
-  OptionMenu.menu_original->show();
 
   OptionMenu.menu_info=manage(new Gtk::CheckMenuItem("Info Fenster anzeigen"));
   optionen_menu->append(*OptionMenu.menu_info);
   OptionMenu.menu_info->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_info_fenster_menu));
   OptionMenu.menu_info->set_active(OptionBool.Info);
-  OptionMenu.menu_info->show();
 
   OptionMenu.menu_pics=manage(new Gtk::CheckMenuItem("Bilder anzeigen"));
   optionen_menu->append(*OptionMenu.menu_pics);
   OptionMenu.menu_pics->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_pics_menu));
   OptionMenu.menu_pics->set_active(OptionBool.Pics);
-  OptionMenu.menu_pics->show();
 
   OptionMenu.menu_version=manage(new Gtk::CheckMenuItem("Versionen automatisch erzeugen\n(Deaktivierung löscht den Eintrag in 'Version')"));
   optionen_menu->append(*OptionMenu.menu_version);
   OptionMenu.menu_version->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_version_menu));
   OptionMenu.menu_version->set_active(OptionBool.version);
-  OptionMenu.menu_version->show();
 
   menu->append(*optionen);
-  optionen->show();
 
 //Import/Export////////////////////////////////////////////////////////////////
   Gtk::Menu *im_ex_menu = manage(new class Gtk::Menu());
@@ -130,12 +128,10 @@ void midgard_CG::menu_init()
   Gtk::MenuItem *xml_import = manage(new class Gtk::MenuItem("xml Import"));
   im_ex_menu->append(*xml_import);
   xml_import->activate.connect(SigC::slot(this,&midgard_CG::xml_import_auswahl));
-  xml_import->show();
 
   Gtk::MenuItem *xml_export = manage(new class Gtk::MenuItem("xml Export"));
   im_ex_menu->append(*xml_export);
   xml_export->activate.connect(SigC::slot(this,&midgard_CG::xml_export_auswahl));
-  xml_export->show();
 
   Gtk::MenuItem *Elsa_export = manage(new class Gtk::MenuItem("Export im Format für gedruckte Abenteuer"));
   im_ex_menu->append(*Elsa_export);
@@ -143,8 +139,7 @@ void midgard_CG::menu_init()
   Elsa_export->show();
   
   menu->append(*im_ex);
-  im_ex->show();
 ///////////////////////////////////////////////////////////////////////////////
 
-  menu->show();
+  menu->show_all();
 }

@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.17 2002/01/15 12:21:18 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.18 2002/01/18 22:08:00 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -158,19 +158,6 @@ public:
    void setLP(int i) {lp=i;}
    void setBasiswerte(int st,int gw,int gs,int ko,int in, int zt)
          {grund=st_grund(st,gw,gs,ko,in,zt);}
-/*
-   void setAbgeleitetewerte(int _au,int _pa,int _sb,int _wk,int _b,
-         int _lp, int _ap, int _abwehr_wert,int _zaubern_wert,
-         int _resistenz,
-         std::string _hand,
-         int _gewicht,int _groesse,int _grad, std::string _stand)
-      { au=_au ;pa=_pa ;sb=_sb;wk=_wk ;b=_b ;lp=_lp ;ap=_ap ;
-         abwehr_wert=_abwehr_wert ;zaubern_wert=_zaubern_wert ;
-         resistenz=_resistenz ;
-         ; hand=_hand;
-         gewicht=_gewicht ;groesse=_groesse ;grad=_grad ;stand=_stand;
-      }
-*/
    void setGewicht(int i) {gewicht=i;}
    void setGroesse(int i) {groesse=i;}
    void setHand(std::string s) {hand=s;}

@@ -4,8 +4,14 @@ NEWS IN VERSION 0.2delta2
 * Fehlschlagendes Laden abgefangen
 * Erhöter Erfolgswert für Fachkenntnisse
 * Automatische Versionsvergabe
-* Rüstungen sortiert
+* Rüstungsauswahl sortiert
 * Waffen haben jetzt eigene Schwierigkeit (war Schwierigkeit=Grundkennts Schwierigkeit)
+* Zahlreiche Bugs rund um die Lernpunkte
+* Regionen Menü jetzt mit Icons und dynamsich erstellt
+* Offizielles Midgard Icon im Hauptfenster (wenn 'offiziell')
+* Abschalten des offiziellen Logos, wenn ein nichtoffizieller Teil verwendet wird.
+* au,pA,wk,sb,b wurden nicht geladen.
+* LaTeX Ausgabe überarbeitet (Werte für Angriff und Verteidigung; Sprachen)
 
 TODO:
 * Abwehr Wert (mit Waffe)

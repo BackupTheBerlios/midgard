@@ -1,4 +1,4 @@
-// $Id: Region.hh,v 1.5 2002/01/18 11:26:00 thoma Exp $               
+// $Id: Region.hh,v 1.6 2002/01/18 22:08:00 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -40,6 +40,7 @@ class Region  : public HandleContent
  public:
 
  private:
+   int nr;
    std::string name,abkuerzung,file,url,maintainer,version,copyright; 
    RegionenPic::epic pic;
    bool offiziell;
@@ -49,6 +50,7 @@ class Region  : public HandleContent
 //   Region() {};
    Region(const std::string& n);
 
+   int Nr()  const {return nr;}
    std::string Name() const   {return name; }
    bool Active() const {return active; }
    void setActive(bool a) const {active=a; }

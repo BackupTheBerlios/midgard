@@ -157,7 +157,7 @@ COPY "fertigkeiten" FROM stdin;
 8	\N	\N	14	Schwerttanz	12	100	K	Gw	\N	3	18	18
 8	\N	\N	15	Bogenkampf zu Pferd	10	200	\N	Gs	\N	\N	18	18
 8	\N	\N	15	Kampf in Vollrüstung	10	4000		St	\N	\N	18	16
-8	\N	\N	15	Kampf vom Streitwagen	10	200	Gw	Gw	\N	\N	18	18
+8	\N	\N	15	Kampf vom Streitwagen	10	200	\N	Gw	\N	\N	18	18
 8	\N	\N	15	Kampf zu Elefant	10	200	R	Gw	\N	\N	18	18
 8	\N	\N	15	Kampf zu Kamel	10	200	E	Gw	\N	\N	18	18
 8	\N	\N	15	Kampf zu Pferd	10	200		Gw	\N	3	18	18

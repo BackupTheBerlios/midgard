@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.89 2002/01/18 11:26:29 thoma Exp $
+# $Id: Makefile.am,v 1.90 2002/01/18 22:08:00 thoma Exp $
 
 USE_XML=$(shell if test `hostname` = "puck" ; then echo -DUSE_XML ; fi)
 
@@ -6,11 +6,11 @@ bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
 
 pkgdata_DATA = document_eingabe.tex document_eingabe4.tex \
-   latexwertedef.tex charakter_beschreibung.tex axt1.ps \
+   charakter_beschreibung.tex axt1.ps \
    drache.ps dracher.ps
 
 EXTRA_DIST = document_eingabe.tex.in document_eingabe4.tex.in \
-   latexwertedef.tex charakter_beschreibung.tex axt1.ps \
+    charakter_beschreibung.tex axt1.ps \
    drache.ps dracher.ps
 
 

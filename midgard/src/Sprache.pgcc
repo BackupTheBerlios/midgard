@@ -146,11 +146,12 @@ bool Sprache::Sprachgruppe(const std::vector<int>& V2) const
   return false;
 }
 
-std::list<cH_MidgardBasicElement> Sprache::VerwandteSprachen(const std::list<cH_MidgardBasicElement>& listSprache) const
+std::list<cH_MidgardBasicElement> Sprache::VerwandteSprachen(const std::list<cH_MidgardBasicElement>& gelernte_listSprache,const std::list<cH_MidgardBasicElement>& listSprache) const
 {
   std::list<cH_MidgardBasicElement> VS;
   for(std::list<cH_MidgardBasicElement>::const_iterator i=listSprache.begin();i!=listSprache.end();++i)
-     if(Erfolgswert()>=10 && Sprachgruppe(cH_Sprache(*i)->getVSprachgruppe())) 
+     if(Erfolgswert()>=10 && !(*i)->ist_gelernt(gelernte_listSprache) &&
+        Sprachgruppe(cH_Sprache(*i)->getVSprachgruppe())) 
       {
          cH_MidgardBasicElement MBE=new Sprache(*cH_Sprache(*i)); // Kopie anlegen
          MBE->set_Erfolgswert(Erfolgswert()-10);

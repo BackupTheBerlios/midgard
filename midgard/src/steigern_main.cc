@@ -40,9 +40,9 @@ void midgard_CG::on_radio_steigern_all()
    {
      vbox_praxispunkte->show();
      if(Typ[0]->is_mage() || Typ[1]->is_mage()) 
-         radiobutton_pp_zauber->set_active(true);
+         radiobutton_pp_zauber->show();
      else
-         radiobutton_pp_zauber->set_active(false);
+         radiobutton_pp_zauber->hide();
    }
   else
      vbox_praxispunkte->hide();
@@ -176,9 +176,15 @@ gint midgard_CG::on_eventbox_grundwerte_button_release_event(GdkEventButton *eve
 void midgard_CG::on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page *page,guint pagenr)
 {
  if(Typ[0]->is_mage() || Typ[1]->is_mage())
+  {
     button_grad_zaubern->set_sensitive(true);
+    frame_pp_zaubern->set_sensitive(true);
+  }
  else 
+  {
     button_grad_zaubern->set_sensitive(false);
+    frame_pp_zaubern->set_sensitive(false);
+  }
  if(pagenr==PAGE_STEIGERN)
    load_for_page(notebook_lernen->get_current_page_num());
  else if(pagenr==PAGE_AUSRUESTUNG)

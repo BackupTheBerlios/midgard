@@ -98,14 +98,15 @@ Ruestung_All::Ruestung_All(Gtk::ProgressBar *progressbar)
 
 int Ruestung::AbwehrBonus_Verlust(int abwehr_bonus) const
 {
- abwehr_bonus-=abwehr_bonus_verlust;
- if(abwehr_bonus<0) abwehr_bonus=0;
- return abwehr_bonus;
+  if(abwehr_bonus_verlust<=abwehr_bonus) return abwehr_bonus_verlust;
+  else return 0;
+  abort();
 } 
+
 int Ruestung::AngriffsBonus_Verlust(int angriffs_bonus) const
 {
- angriffs_bonus-=angriffs_bonus_verlust;
- if(angriffs_bonus<0) angriffs_bonus=0;
- return angriffs_bonus;
+  if(angriffs_bonus_verlust<=angriffs_bonus) return angriffs_bonus_verlust;
+  else return 0;
+  abort();
 }
 
