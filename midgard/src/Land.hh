@@ -1,4 +1,4 @@
-// $Id: Land.hh,v 1.8 2002/01/22 11:41:46 thoma Exp $               
+// $Id: Land.hh,v 1.9 2002/01/22 12:53:19 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,9 +24,7 @@
 #include <vector>
 #include <string>
 #include <gtk--/progressbar.h>
-#ifdef USE_XML
 #include "xml.h"
-#endif
 
 class Land  : public HandleContent
 {
@@ -57,7 +55,7 @@ class cH_Land : public Handle<const Land>
    cH_Land(Land *s) : Handle<const Land>(s) {};
 #ifdef USE_XML   
    cH_Land(const std::string& kontinent, const Tag *tag);
-#endif   
+#endif
    cH_Land(const std::string& name IF_XML(,bool create=false));
    cH_Land() {*this=new Land();}
 
