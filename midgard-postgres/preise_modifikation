@@ -3,7 +3,7 @@
 --
 DROP TABLE "preise_modifikation";
 --
--- TOC Entry ID 2 (OID 30113343)
+-- TOC Entry ID 2 (OID 30117571)
 --
 -- Name: preise_modifikation Type: TABLE Owner: thoma
 --
@@ -20,7 +20,7 @@ CREATE TABLE "preise_modifikation" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 30113343) TABLE DATA preise_modifikation
+-- Data for TOC Entry ID 3 (OID 30117571) TABLE DATA preise_modifikation
 --
 
 COPY "preise_modifikation"  FROM stdin;

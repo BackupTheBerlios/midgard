@@ -4,13 +4,15 @@
 DROP INDEX "fertigkeiten_fertigkeit_region";
 DROP TABLE "fertigkeiten";
 --
--- TOC Entry ID 2 (OID 26665849)
+-- TOC Entry ID 2 (OID 30117764)
 --
 -- Name: fertigkeiten Type: TABLE Owner: thoma
 --
 
 CREATE TABLE "fertigkeiten" (
 	"lp" integer,
+	"lp_land" integer,
+	"lp_stadt" integer,
 	"anfangswert0" integer,
 	"fertigkeit" text,
 	"anfangswert" integer,
@@ -20,164 +22,163 @@ CREATE TABLE "fertigkeiten" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 26665849) TABLE DATA fertigkeiten
+-- Data for TOC Entry ID 4 (OID 30117764) TABLE DATA fertigkeiten
 --
 
 COPY "fertigkeiten"  FROM stdin;
-3	15	Reiten	12	100		Ge
-6	1	Askese	1	1500	R	Sb
-4	4	Astrologie	2	400	R	\N
-6	15	Elefanten lenken	12	1000	R	Ge
-8	\N	Kampf zu Elefant	\N	200	R	
-8	\N	Kampf zu Srimara	\N	200	R	
-3	15	Körperkontrolle	12	150	R	
-4	8	Meditieren	8	200	K	Sb
-4	8	Meditieren	8	200	R	Sb
-7	\N	Natya	\N	100	R	
-8	15	Schmerzen ertragen	12	200	R	Sb
-4	8	Schlangen beschwören	8	200	R	Sb
-6	15	Srimara lenken	12	1000	R	Ge
-5	8	Beredsamkeit	6	200		pA
-2	\N	Heraldik	0	100	B&R	In
-4	8	Beschatten	6	300		RW
-2	4	Fallen entschärfen	2	400		Ge
-2	4	Fallenmechanik	2	400		Ge
-4	4	Fechten	4	800		\N
-3	4	Gassenwissen	2	200		In
-4	8	Geschichten erzählen	8	150		In
-4	15	Glücksspiel	15	200		Ge
-3	15	Kanufahren	12	100		Ge
-4	4	Kräuterkunde	2	100		In
-3	4	Menschenkenntnis	2	250		In
-5	8	Meucheln	6	800		Ge
-3	4	Fallenstellen	2	200		Ge
-4	4	Sagenkunde	2	100		In
-3	4	Schleichen	2	400		Ge
-4	4	Schlösser öffnen	2	400		Ge
-3	15	Schwimmen	12	100		Ge
-4	15	Segeln	12	100		Ge
-4	15	Seilkunst	6	50		Ge
-4	8	Singen	8	150		In
-3	15	Skifahren	12	100		Ge
-3	4	Sprache	1	10		\N
-3	15	Springen	12	100		\N
-3	4	Spurenlesen	2	400		In
-5	8	Stehlen	6	300		Ge
-4	15	Stimmen nachahmen	12	50		In
-5	15	Streitwagen lenken	12	100		Ge
-1	\N	KiDo-Technik	\N	\N	K	\N
-8	1	Talisman verzaubern	1	400		\N
-4	4	Tarnen	2	400		Ge
-2	15	Tauchen	12	200		Ko
-4	8	Verführen	8	50		pA
-4	8	Verhören	8	200		pA
-5	15	Verkleiden	12	50		In
-3	15	Wagenlenken	12	100		Ge
-4	4	Wahrnehmung	4	400		In
-4	4	Zauberkunde	2	100		In
-4	4	Fallen entdecken	2	400		In
-8	\N	Ballista bedienen	\N	100		\N
-8	\N	Bogen vom Streitwagen	\N	200		\N
-8	\N	Bogen zu Pferd	\N	200		\N
-4	\N	Erste Hilfe	\N	100		\N
-5	\N	Faustkampf	\N	500		\N
-5	\N	Fechten tevarischer Stil	\N	400		\N
-3	\N	Geheimzeichen	\N	50		\N
-9	\N	Geschäftstüchtigkeit	\N	4000		\N
-3	\N	Himmelskunde	\N	50		\N
-2	\N	Kampf in Schlachtreihe	\N	50		\N
-8	\N	Kampf vom Streitwagen	\N	200		\N
-8	\N	Katapult bedienen	\N	100		\N
-8	\N	Lesen von Zauberschrift	\N	60		\N
-3	\N	Lesen/Schreiben	\N	100		\N
-5	15	Fälschen	12	50	K	In
-3	\N	Trinken	\N	100		\N
-1	\N	Wissen von der Magie	\N	5000		\N
-4	4	Alchemie	2	100		\N
-3	15	Balancieren	12	100		Ge
-6	-4	Beidhändiger Kampf	-4	1500		\N
-5	15	Fälschen	12	50	B&R	In
-9	\N	Augensalbe herstellen	\N	200	R	
-3	8	Überleben im Dschungel	6	50		\N
-3	8	Überleben im Wald	6	50		\N
-3	8	Überleben im Gebirge	6	50		\N
-3	8	Überleben im Schnee	6	50		\N
-5	4	Giftmischen	2	100		In
-4	4	Geheimmechanismen öffnen	2	400		In
-3	4	Lippenlesen	2	250		In
-3	15	Rudern	12	100		St
-3	15	Schlittenfahren	12	100		Ge
-4	1	KujKuri	1	20	K	\N
-8	\N	KujNoIu	\N	400	K	\N
-5	4	LiYao	2	100	K	In
-8	\N	MiChen	\N	500	K	\N
-4	4	NinJutsu	2	600	K	Ge
-5	\N	Orakelkunst	\N	60	K	\N
-8	\N	SchiyoKi	\N	100	K	\N
-8	14	Schwerttanz	12	100	K	Ge
-4	\N	Steinabreibungen machen	\N	60	K	\N
-5	\N	TaiTschi	\N	100	K	\N
-5	8	Teezeremonie	6	50	K	pA
-5	1	YangScheng	1	100	K	\N
-8	\N	YubeChian	\N	200	K	\N
-4	8	Zunge verschlucken	8	200	K	\N
-8	10	KiDo	10	800	K	Zt
-4	4	FengSchui	2	100	K	In
-8	\N	FengTsu	\N	300	K	\N
-5	8	Geschenke machen	6	200	K	pA
-8	\N	IaiJutsu	\N	60	K	\N
-3	15	KarumiJutsu	12	100	K	Ge
-1	\N	Geomantie	\N	400	E	Zt
-8	\N	KentoYobu	\N	100	K	\N
-1	4	Brettspiel	2	20	E	In
-1	\N	Pyromantie	\N	400	E	Zt
-4	\N	Erzählen	\N	150	E	In
-3	15	Kamelreiten	12	100	E	Ge
-8	\N	Kampf zu Kamel	\N	200	E	\N
-3	15	Geländelauf	12	100		RW
-3	15	Klettern	12	100		Ge
-3	2	Laufen	2	50		\N
-5	4	Scharfschießen	4	800		Ge
-4	1	Zeichensprache	1	20		\N
-3	1	Athletik	1	50		\N
-8	\N	Kampf zu Pferd	\N	200		\N
-8	1	Kampftaktik	1	200		\N
-4	4	Naturkunde	2	100		In
-4	4	Pflanzenkunde	2	100		In
-4	4	Tierkunde	2	100		In
-4	4	Winden	2	250		\N
-8	\N	Kampf in Vollrüstung	\N	4000		\N
-4	\N	Mumifizieren	\N	200	E	In
-5	15	Fallen	12	200	B&R	\N
-4	8	Musizieren	8	150		\N
-3	8	Überleben in der Steppe	6	50		\N
-4	8	Verbergen	6	300	B&R	Ge
-4	5	Werfen	5	400	B&R	Ge
-4	4	Wetterkunde	2	25	B&R	In
-4	\N	Dichten	\N	150	E	In
-5	\N	Kenntnis der fünf Klassiker	\N	2500	K	\N
-3	1	Kalligraphie	1	150	B&R	Ge
-3	4	Etikette	2	200	B&R	In
-3	15	Fangen	12	100	B&R	Ge
-3	8	Jonglieren	6	200	B&R	Ge
-6	1	Kampf in Dunkelheit	1	300	B&R	Ge
-4	1	Lanzenstechen	1	200	B&R	
-8	\N	Luftkampf	\N	400	B&R	Ge
-3	1	Malen/Zeichen	1	150	B&R	Ge
-4	4	Schiffsführung	2	100	B&R	In
-4	\N	Siegelfälschung	\N	100	B&R	Ge
-4	4	Siegelkunde	2	100	B&R	In
-3	1	Singen (Stufe)	1	150	B&R	pA
-3	8	Überleben im Sumpf	6	50		\N
-3	\N	Tanzen	\N	150		Ge
-3	8	Überleben in der Wüste	6	50		\N
-3	15	Schlittschuhlaufen	12	100	B&R	Ge
-4	\N	Rechnen	\N	100		\N
-8	1	Körperbemalung	1	400	R	\N
-8	1	Kriegsbemalung	1	400	R	\N
+6	\N	\N	1	Askese	1	1500	R	Sb
+4	\N	\N	4	Astrologie	2	400	R	\N
+3	\N	\N	15	Körperkontrolle	12	150	R	
+7	\N	\N	\N	Natya	\N	100	R	
+8	\N	\N	15	Schmerzen ertragen	12	200	R	Sb
+4	\N	\N	8	Schlangen beschwören	8	200	R	Sb
+5	\N	\N	8	Beredsamkeit	6	200		pA
+2	\N	\N	\N	Heraldik	0	100	B&R	In
+4	\N	\N	15	Stimmen nachahmen	12	50		In
+1	\N	\N	\N	KiDo-Technik	\N	\N	K	\N
+9	\N	\N	\N	Augensalbe herstellen	\N	200	R	
+4	\N	\N	1	KujKuri	1	20	K	\N
+8	\N	\N	\N	KujNoIu	\N	400	K	\N
+5	\N	\N	4	LiYao	2	100	K	In
+8	\N	\N	\N	MiChen	\N	500	K	\N
+5	\N	\N	\N	Orakelkunst	\N	60	K	\N
+8	\N	\N	\N	SchiyoKi	\N	100	K	\N
+4	\N	\N	\N	Steinabreibungen machen	\N	60	K	\N
+5	\N	\N	\N	TaiTschi	\N	100	K	\N
+5	\N	\N	8	Teezeremonie	6	50	K	pA
+5	\N	\N	1	YangScheng	1	100	K	\N
+8	\N	\N	\N	YubeChian	\N	200	K	\N
+4	\N	\N	8	Zunge verschlucken	8	200	K	\N
+8	\N	\N	10	KiDo	10	800	K	Zt
+4	\N	\N	4	FengSchui	2	100	K	In
+8	\N	\N	\N	FengTsu	\N	300	K	\N
+5	\N	\N	8	Geschenke machen	6	200	K	pA
+8	\N	\N	\N	IaiJutsu	\N	60	K	\N
+1	\N	\N	\N	Geomantie	\N	400	E	Zt
+8	\N	\N	\N	KentoYobu	\N	100	K	\N
+1	\N	\N	4	Brettspiel	2	20	E	In
+1	\N	\N	\N	Pyromantie	\N	400	E	Zt
+4	\N	\N	\N	Mumifizieren	\N	200	E	In
+5	\N	\N	15	Fallen	12	200	B&R	\N
+4	\N	\N	4	Wetterkunde	2	25	B&R	In
+5	\N	\N	\N	Kenntnis der fünf Klassiker	\N	2500	K	\N
+3	\N	\N	4	Etikette	2	200	B&R	In
+4	\N	\N	1	Lanzenstechen	1	200	B&R	
+4	\N	\N	4	Siegelkunde	2	100	B&R	In
+8	\N	\N	1	Körperbemalung	1	400	R	\N
+8	\N	\N	1	Kriegsbemalung	1	400	R	\N
+3	\N	\N	15	Balancieren	10	100		Gw
+8	\N	\N	4	Ballista bedienen	4	100		Gs
+6	\N	\N	3	Beidhändiger Kampf	3	1500		Gw
+4	\N	\N	8	Beschatten	6	300		Gw
+4	\N	\N	12	Dichten	8	80		In
+4	\N	\N	6	Fallen entdecken	4	400		In
+2	\N	\N	4	Fallen entschärfen	2	400		Gs
+3	\N	\N	4	Fallenstellen	4	200		Gs
+3	\N	\N	15	Fangen	10	60		Gs
+3	\N	\N	5	Gassenwissen	4	200		In
+4	\N	\N	6	Geheimmechanismen öffnen	4	400		In
+3	\N	\N	12	Geheimzeichen	6	20		In
+3	\N	\N	15	Geländelauf	10	60		Gw
+4	\N	\N	15	Glücksspiel	15	200		Gs
+6	\N	\N	2	Kampf in Dunkelheit	2	300		Gw
+8	\N	\N	15	Kampf in Vollrüstung	10	4000		St
+8	\N	\N	15	Kampf zu Pferd	10	200		Gw
+8	\N	\N	15	Kampf vom Streitwagen	10	200	Gw	Gw
+8	\N	\N	15	Kampf zu Elefant	10	200	R	Gw
+8	\N	\N	15	Kampf zu Kamel	10	200	E	Gw
+8	\N	\N	4	Katapult bedienen	4	100		Gs
+3	\N	\N	15	Klettern	10	60		GSt
+4	\N	\N	5	Kräuterkunde	4	100		In
+3	\N	\N	4	Laufen	4	50	\N	Ko
+8	\N	\N	12	Lesen von Zauberschrift	6	20		In
+3	\N	\N	6	Lippenlesen	4	250	\N	In
+3	\N	\N	5	Menschenkenntnis	4	250		In
+4	\N	\N	5	Naturkunde	4	100	\N	In
+4	\N	\N	5	Pflanzenkunde	4	100	\N	In
+4	\N	\N	8	Rechnen	6	100		In
+3	\N	\N	15	Reiten	10	60		Gw
+3	\N	\N	15	Rudern	10	60		St
+3	\N	\N	15	Schlittenfahren	10	60		Gs
+3	\N	\N	15	Schlittschuhlaufen	10	60	B&R	Gs
+4	\N	\N	8	Schlösser öffnen	6	400		Gs
+3	\N	\N	9	Lesen/Schreiben	4	20		In
+3	\N	\N	15	Schwimmen	10	60		Gw
+3	\N	\N	15	Skifahren	10	60		Gw
+3	\N	\N	9	Sprache	4	10		In
+3	\N	\N	15	Springen	10	60		St
+3	\N	\N	6	Spurenlesen	4	400		In
+5	\N	\N	8	Stehlen	8	300		Gs
+4	\N	\N	8	Tarnen	6	400		Gw
+4	\N	\N	5	Tierkunde	4	100		In
+3	\N	\N	1	Trinken	1	100		Ko
+4	\N	\N	8	Verhören	6	150		pA
+5	\N	\N	15	Verkleiden	12	50		Gs
+3	\N	\N	15	Wagenlenken	10	60		Gs
+4	\N	\N	4	Wahrnehmung	4	300		In
+4	\N	\N	4	Winden	4	4		Gw
+4	\N	\N	5	Zauberkunde	4	100		In
+4	\N	\N	6	Zeichensprache	4	20	\N	In
+3	\N	\N	8	Überleben im Gebirge	6	50		In
+3	\N	\N	8	Überleben im Dschungel	6	50		In
+3	\N	\N	8	Überleben im Schnee	6	50		In
+3	\N	\N	8	Überleben im Sumpf	6	50		In
+3	\N	\N	8	Überleben im Wald	6	50		In
+3	\N	\N	8	Überleben in der Steppe	6	50		In
+3	\N	\N	8	Überleben in der Wüste	6	50		In
+6	\N	\N	8	Abrichten	6	400	\N	pA
+5	\N	\N	15	Akrobatik	10	120	\N	Gw
+8	\N	\N	5	Alchemie	4	100		In
+4	\N	\N	4	Athletik	4	50		St
+4	\N	\N	6	Baukunde	4	100	\N	In
+99	\N	\N	8	Erste Hilfe	6	100		Gs
+3	\N	\N	12	Erzählen	8	80		In
+4	\N	\N	4	Fallenmechanik	4	600		Gs
+6	\N	\N	4	Fechten	4	800		\N
+6	\N	\N	\N	Fechten tevarischer Stil	\N	400		\N
+6	\N	\N	15	Fälschen	12	150		Gs
+3	\N	\N	12	Gaukeln	8	80	\N	Gs
+5	\N	\N	5	Heilkunde	4	100	\N	In
+2	\N	\N	5	Himmelskunde	4	50	3	In
+99	\N	\N	5	Landeskunde	4	100	\N	In
+5	\N	\N	8	Meditieren	6	200		Wk
+6	\N	\N	8	Meucheln	6	800		Gs
+99	\N	\N	12	Musizieren	8	80		Gs
+99	\N	\N	5	Sagenkunde	4	100		In
+6	\N	\N	5	Scharfschießen	4	800		Gs
+5	\N	\N	8	Schauspielern	6	50	\N	pA
+8	\N	\N	15	SchieÃŸen von Streitwagen	10	200	\N	Gs
+6	\N	\N	8	Schiffsführung	6	150	\N	In
+4	\N	\N	8	Schleichen	6	400	\N	Gw
+4	\N	\N	5	SchÃ¤tzen	4	100	\N	In
+6	\N	\N	15	Seemannsgang	15	100	\N	Gw
+99	\N	\N	8	Seilkunst	6	50		Gs
+99	\N	\N	12	Singen	8	80		pA
+4	\N	\N	15	Steuern	10	60	\N	Gs
+6	\N	\N	15	Streitwagen lenken	10	60		Gs
+4	\N	\N	8	Suchen	6	300	\N	In
+8	\N	\N	1	Talisman verzaubern	1	400	3	\N
+99	\N	\N	15	Tanzen	10	50		Gw
+3	\N	\N	15	Tauchen	10	120		Ko
+8	\N	\N	6	Thaumatographie	8	2000	\N	In
+4	\N	\N	8	Verbergen	6	300	\N	In
+99	\N	\N	8	Verführen	6	30		pA
+1	\N	\N	\N	Wissen von der Magie	\N	5000	3	\N
+3	\N	\N	15	KarumiJutsu	12	100	K	Gw
+3	\N	\N	15	Kamelreiten	12	100	E	Gw
+3	\N	\N	1	Kalligraphie	1	150	B&R	Gs
+6	\N	\N	15	Elefanten lenken	12	1000	R	Gw
+6	\N	\N	15	Srimara lenken	12	1000	R	Gw
+4	\N	\N	4	NinJutsu	2	600	K	Gw
+8	\N	\N	14	Schwerttanz	12	100	K	Gw
+8	\N	\N	\N	Luftkampf	\N	400	B&R	Gw
+4	\N	\N	\N	Siegelfälschung	\N	100	B&R	Gs
+3	\N	\N	1	Malen/Zeichnen	1	150	B&R	Gs
+3	\N	\N	15	Kanufahren	12	100	3	Gw
+4	\N	\N	15	Segeln	12	100	3	Gw
 \.
 --
--- TOC Entry ID 3 (OID 26665849)
+-- TOC Entry ID 3 (OID 30117764)
 --
 -- Name: "fertigkeiten_fertigkeit_region" Type: INDEX Owner: thoma
 --

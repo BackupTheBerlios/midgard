@@ -12,7 +12,7 @@ DROP TABLE "fertigkeiten_voraussetzung";
 CREATE TABLE "fertigkeiten_voraussetzung" (
 	"name" text,
 	"st" integer,
-	"ge" integer,
+	"gw" integer,
 	"ko" integer,
 	"in" integer,
 	"zt" integer,
@@ -20,7 +20,8 @@ CREATE TABLE "fertigkeiten_voraussetzung" (
 	"pa" integer,
 	"sb" integer,
 	"rw" integer,
-	"fertigkeit" text
+	"fertigkeit" text,
+	"gs" integer
 );
 
 --
@@ -28,155 +29,163 @@ CREATE TABLE "fertigkeiten_voraussetzung" (
 --
 
 COPY "fertigkeiten_voraussetzung"  FROM stdin;
-Faustkampf	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Kampf in Vollrüstung	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Kanufahren	21	31	\N	\N	\N	\N	\N	\N	\N	\N
-Klettern	31	61	\N	\N	\N	\N	\N	\N	\N	\N
-Meucheln	31	61	\N	\N	\N	\N	\N	\N	\N	\N
-Rudern	21	11	\N	\N	\N	\N	\N	\N	\N	\N
-Segeln	11	61	\N	\N	\N	\N	\N	\N	\N	\N
-Springen	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Balancieren	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
-Ballista bedienen	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
-Beidhändiger Kampf	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
-Jonglieren	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
-Glücksspiel	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
-Kampf vom Streitwagen	\N	21	\N	\N	\N	\N	\N	\N	\N	\N
-Musizieren	\N	31	\N	\N	\N	\N	\N	\N	\N	\N
-Reiten	\N	21	\N	\N	\N	\N	\N	\N	\N	\N
-Scharfschießen	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
-Schleichen	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
-Schlittenfahren	\N	21	\N	\N	\N	\N	\N	\N	\N	\N
-Schlösser öffnen	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
-Schwimmen	\N	11	\N	\N	\N	\N	\N	\N	\N	\N
-Seilkunst	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
-Skifahren	\N	21	\N	\N	\N	\N	\N	\N	\N	\N
-Sprache	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Stehlen	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
-Streitwagen lenken	\N	21	\N	\N	\N	\N	\N	\N	\N	\N
-Luftkampf	\N	61	\N	\N	\N	\N	\N	\N	\N	Reiten
-Tarnen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N
-Tauchen	\N	31	61	\N	\N	\N	\N	\N	\N	\N
-Wagenlenken	\N	21	\N	\N	\N	\N	\N	\N	\N	\N
-Winden	\N	81	\N	\N	\N	\N	\N	\N	\N	\N
-Athletik	31	\N	31	\N	\N	\N	\N	\N	\N	\N
-Laufen	31	\N	61	\N	\N	\N	\N	\N	\N	\N
-Trinken	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
-Alchemie	\N	61	\N	81	\N	\N	\N	\N	\N	\N
-Erste Hilfe	\N	31	\N	31	\N	\N	\N	\N	\N	\N
-Fallen entschärfen	\N	61	\N	61	\N	\N	\N	\N	\N	\N
-Fallenmechanik	\N	61	\N	61	\N	\N	\N	\N	\N	\N
-Giftmischen	\N	31	\N	61	\N	\N	\N	\N	\N	\N
-Katapult bedienen	\N	31	\N	31	\N	\N	\N	\N	\N	\N
-Verkleiden	\N	31	\N	31	\N	\N	\N	\N	\N	\N
-Zeichensprache	\N	21	\N	31	\N	\N	\N	\N	\N	\N
-Fallen entdecken	\N	\N	\N	61	\N	\N	\N	\N	\N	\N
-Geheimmechanismen öffnen	\N	\N	\N	61	\N	\N	\N	\N	\N	\N
-Geheimzeichen	\N	\N	\N	11	\N	\N	\N	\N	\N	\N
-Geschichten erzählen	\N	\N	\N	31	\N	\N	\N	\N	\N	\N
-Geschäftstüchtigkeit	\N	\N	\N	31	\N	\N	\N	\N	\N	\N
-Himmelskunde	\N	\N	\N	21	\N	\N	\N	\N	\N	\N
-Kräuterkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N
-Lesen von Zauberschrift	\N	\N	\N	11	\N	\N	\N	\N	\N	\N
-Lesen/Schreiben	\N	\N	\N	21	\N	\N	\N	\N	\N	\N
-Lippenlesen	\N	\N	\N	31	\N	\N	\N	\N	\N	\N
-Menschenkenntnis	\N	\N	\N	31	\N	\N	\N	\N	\N	\N
-Naturkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N
-Pflanzenkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N
-Rechnen	\N	\N	\N	81	\N	\N	\N	\N	\N	\N
-Sagenkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N
-Spurenlesen	\N	\N	\N	31	\N	\N	\N	\N	\N	\N
-Stimmen nachahmen	\N	\N	\N	31	\N	\N	\N	\N	\N	\N
-Tierkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N
-Wahrnehmung	\N	\N	\N	81	\N	\N	\N	\N	\N	\N
-Wissen von der Magie	\N	\N	\N	11	\N	\N	\N	\N	\N	\N
-Zauberkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N
-Überleben im Dschungel	\N	\N	\N	21	\N	\N	\N	\N	\N	\N
-Überleben im Gebirge	\N	\N	\N	21	\N	\N	\N	\N	\N	\N
-Überleben im Schnee	\N	\N	\N	21	\N	\N	\N	\N	\N	\N
-Überleben im Sumpf	\N	\N	\N	21	\N	\N	\N	\N	\N	\N
-Überleben im Wald	\N	\N	\N	21	\N	\N	\N	\N	\N	\N
-Überleben in der Steppe	\N	\N	\N	21	\N	\N	\N	\N	\N	\N
-Überleben in der Wüste	\N	\N	\N	21	\N	\N	\N	\N	\N	\N
-Verführen	\N	\N	\N	\N	\N	21	61	\N	\N	\N
-Beredsamkeit	\N	\N	\N	61	\N	\N	61	\N	\N	\N
-Gassenwissen	\N	\N	\N	61	\N	\N	61	\N	\N	\N
-Kampftaktik	\N	\N	\N	31	\N	\N	61	\N	\N	\N
-Verhören	\N	\N	\N	\N	\N	\N	61	\N	\N	\N
-Beschatten	\N	\N	\N	\N	\N	\N	\N	\N	61	\N
-Fallen	\N	\N	\N	\N	\N	\N	\N	\N	81	\N
-Geländelauf	\N	\N	\N	\N	\N	\N	\N	\N	31	\N
-Bogen vom Streitwagen	\N	\N	\N	\N	\N	\N	\N	\N	\N	Bogen
-Bogen zu Pferd	\N	\N	\N	\N	\N	\N	\N	\N	\N	Reiten
-Fechten	\N	\N	\N	\N	\N	\N	\N	\N	\N	Rapier
-Fechten tevarischer Stil	\N	\N	\N	\N	\N	\N	\N	\N	\N	Fechten
-Kampf in Schlachtreihe	\N	\N	\N	\N	\N	\N	\N	\N	\N	Waffe
-Kampf zu Pferd	\N	\N	\N	\N	\N	\N	\N	\N	\N	Reiten
-Singen	\N	\N	\N	\N	\N	\N	\N	\N	\N	Stimme31
-Fälschen	\N	31	\N	31	\N	\N	\N	\N	\N	Lesen/Schreiben
-FengSchui	\N	\N	\N	81	\N	\N	\N	\N	\N	
-FengTsu	\N	61	\N	\N	\N	\N	\N	61	\N	
-Geschenke machen	\N	\N	\N	61	\N	\N	61	\N	\N	
-IaiJutsu	\N	31	\N	\N	\N	\N	\N	\N	\N	Einhandschwert
-KarumiJutsu	61	61	\N	\N	\N	\N	\N	\N	\N	Klettern
-Kampf in Dunkelheit	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
-KentoYobu	\N	\N	\N	\N	21	\N	\N	\N	\N	
-KujKuri	\N	21	\N	31	\N	\N	\N	\N	\N	
-KujNoIu	\N	31	\N	\N	\N	\N	\N	\N	\N	Th
-LiYao	\N	61	\N	61	\N	\N	\N	\N	\N	
-Meditieren	\N	\N	\N	\N	\N	\N	\N	21	\N	
-MiChen	\N	61	\N	61	\N	\N	\N	\N	\N	
-NinJutsu	\N	61	\N	\N	\N	\N	\N	\N	\N	
-Orakelkunst	\N	\N	\N	61	61	\N	\N	\N	\N	
-SchiyoKi	\N	21	\N	\N	\N	\N	\N	21	\N	TaiTschi
-Schwerttanz	\N	61	\N	\N	\N	\N	\N	\N	\N	Beidhändiger Kampf
-Steinabreibungen machen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N
-TaiTschi	\N	21	\N	\N	\N	\N	\N	21	\N	\N
-Teezeremonie	\N	\N	\N	\N	\N	\N	31	\N	\N	\N
-YangScheng	\N	\N	\N	\N	61	\N	\N	\N	\N	\N
-YubeChian	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
-Zunge verschlucken	\N	\N	\N	\N	\N	\N	\N	61	\N	\N
-KiDo	\N	31	\N	\N	61	\N	\N	\N	\N	TaiTschi
-Brettspiel	\N	\N	\N	31	\N	\N	\N	\N	\N	\N
-Dichten	\N	\N	\N	61	\N	\N	\N	\N	\N	\N
-Erzählen	\N	\N	\N	31	\N	\N	31	\N	\N	\N
-Geomantie	\N	\N	\N	\N	61	\N	\N	\N	\N	Wissen von der Magie
-Kamelreiten	\N	31	\N	\N	\N	\N	\N	\N	\N	\N
-Kampf zu Kamel	\N	\N	\N	\N	\N	\N	\N	\N	\N	Kamelreiten
-Mumifizieren	\N	31	\N	31	\N	\N	\N	\N	\N	Kräuterkunde, Naturkunde
-Pyromantie	\N	\N	\N	\N	61	\N	\N	\N	\N	Wissen von der Magie
-KiDo-Technik	\N	\N	\N	\N	\N	\N	\N	\N	\N	KiDo
-Kalligraphie	\N	61	\N	\N	\N	\N	\N	\N	\N	Lesen/Sreiben
-Lanzenstechen	\N	\N	\N	\N	\N	\N	\N	\N	\N	Kampf zu Pferd, Lanze
-Etikette	\N	31	\N	31	\N	\N	31	\N	\N	\N
-Fangen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N
-Heraldik	\N	\N	\N	61	\N	\N	\N	\N	\N	\N
-Talisman verzaubern	\N	31	\N	\N	\N	\N	\N	\N	\N	Wissen von der Magie
-Körperbemalung	\N	31	\N	\N	\N	\N	\N	\N	\N	Wissen von der Magie
-Kriegsbemalung	\N	31	\N	\N	\N	\N	\N	\N	\N	Körperbemalung
-Malen/Zeichen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N
-Schiffsführung	\N	\N	\N	31	\N	\N	\N	\N	\N	\N
-Schlittschuhlaufen	\N	21	\N	\N	\N	\N	\N	\N	\N	\N
-Siegelfälschung	\N	\N	\N	\N	\N	\N	\N	\N	\N	Fälschen
-Siegelkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	Lesen/Schreiben
-Tanzen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N
-Verbergen	\N	\N	\N	31	\N	\N	\N	\N	\N	\N
-Werfen	31	31	\N	\N	\N	\N	\N	\N	\N	\N
-Wetterkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N
-Singen (Stufe)	\N	\N	\N	\N	\N	\N	\N	\N	\N	Singen
-Askese	\N	\N	\N	\N	\N	\N	\N	61	\N	\N
-Astrologie	\N	\N	\N	\N	\N	\N	\N	\N	\N	Rechnen
-Augensalbe herstellen	\N	31	\N	\N	\N	\N	\N	\N	\N	Alchemie, Thaumaturgie
-Elefanten lenken	\N	31	\N	\N	\N	\N	\N	31	\N	\N
-Kampf zu Elefant	\N	21	\N	\N	\N	\N	\N	\N	\N	\N
-Natya	\N	61	\N	\N	\N	\N	61	31	\N	Tanzen
-Schmerzen ertragen	\N	\N	\N	\N	\N	\N	\N	81	\N	\N
-Schlangen beschwören	\N	61	\N	\N	\N	\N	\N	31	\N	Musizieren
-Srimara lenken	\N	31	\N	\N	\N	\N	\N	61	\N	\N
-Kampf zu Srimara	\N	21	\N	\N	\N	\N	\N	\N	\N	\N
-Körperkontrolle	\N	\N	61	61	\N	\N	\N	61	0	\N
-Fallenstellen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N
-Kenntnis der fünf Klassiker	\N	\N	\N	11	\N	\N	\N	\N	\N	
+Faustkampf	61	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Kampf in Vollrüstung	61	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Kanufahren	21	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Klettern	31	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Segeln	11	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Balancieren	\N	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Beidhändiger Kampf	\N	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Kampf vom Streitwagen	\N	21	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Reiten	\N	21	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Schleichen	\N	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Schwimmen	\N	11	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Skifahren	\N	21	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Sprache	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Luftkampf	\N	61	\N	\N	\N	\N	\N	\N	\N	Reiten	\N
+Tarnen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Tauchen	\N	31	61	\N	\N	\N	\N	\N	\N	\N	\N
+Athletik	31	\N	31	\N	\N	\N	\N	\N	\N	\N	\N
+Laufen	31	\N	61	\N	\N	\N	\N	\N	\N	\N	\N
+Fallen entschärfen	\N	61	\N	61	\N	\N	\N	\N	\N	\N	\N
+Fallen entdecken	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
+Geheimmechanismen öffnen	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
+Geschäftstüchtigkeit	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
+Himmelskunde	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
+Kräuterkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
+Lesen/Schreiben	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
+Lippenlesen	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
+Menschenkenntnis	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
+Naturkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
+Pflanzenkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
+Rechnen	\N	\N	\N	81	\N	\N	\N	\N	\N	\N	\N
+Sagenkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
+Spurenlesen	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
+Stimmen nachahmen	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
+Tierkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
+Wissen von der Magie	\N	\N	\N	11	\N	\N	\N	\N	\N	\N	\N
+Zauberkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
+Überleben im Dschungel	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
+Überleben im Gebirge	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
+Überleben im Schnee	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
+Überleben im Sumpf	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
+Überleben im Wald	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
+Überleben in der Steppe	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
+Überleben in der Wüste	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
+Verführen	\N	\N	\N	\N	\N	21	61	\N	\N	\N	\N
+Beredsamkeit	\N	\N	\N	61	\N	\N	61	\N	\N	\N	\N
+Kampftaktik	\N	\N	\N	31	\N	\N	61	\N	\N	\N	\N
+Verhören	\N	\N	\N	\N	\N	\N	61	\N	\N	\N	\N
+Fallen	\N	\N	\N	\N	\N	\N	\N	\N	81	\N	\N
+Fechten	\N	\N	\N	\N	\N	\N	\N	\N	\N	Rapier	\N
+Fechten tevarischer Stil	\N	\N	\N	\N	\N	\N	\N	\N	\N	Fechten	\N
+Kampf in Schlachtreihe	\N	\N	\N	\N	\N	\N	\N	\N	\N	Waffe	\N
+FengSchui	\N	\N	\N	81	\N	\N	\N	\N	\N		\N
+FengTsu	\N	61	\N	\N	\N	\N	\N	61	\N		\N
+Geschenke machen	\N	\N	\N	61	\N	\N	61	\N	\N		\N
+IaiJutsu	\N	31	\N	\N	\N	\N	\N	\N	\N	Einhandschwert	\N
+KarumiJutsu	61	61	\N	\N	\N	\N	\N	\N	\N	Klettern	\N
+Kampf in Dunkelheit	\N	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
+KentoYobu	\N	\N	\N	\N	21	\N	\N	\N	\N		\N
+KujKuri	\N	21	\N	31	\N	\N	\N	\N	\N		\N
+KujNoIu	\N	31	\N	\N	\N	\N	\N	\N	\N	Th	\N
+LiYao	\N	61	\N	61	\N	\N	\N	\N	\N		\N
+Meditieren	\N	\N	\N	\N	\N	\N	\N	21	\N		\N
+MiChen	\N	61	\N	61	\N	\N	\N	\N	\N		\N
+NinJutsu	\N	61	\N	\N	\N	\N	\N	\N	\N		\N
+Orakelkunst	\N	\N	\N	61	61	\N	\N	\N	\N		\N
+SchiyoKi	\N	21	\N	\N	\N	\N	\N	21	\N	TaiTschi	\N
+Schwerttanz	\N	61	\N	\N	\N	\N	\N	\N	\N	Beidhändiger Kampf	\N
+Steinabreibungen machen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
+TaiTschi	\N	21	\N	\N	\N	\N	\N	21	\N	\N	\N
+Teezeremonie	\N	\N	\N	\N	\N	\N	31	\N	\N	\N	\N
+YangScheng	\N	\N	\N	\N	61	\N	\N	\N	\N	\N	\N
+YubeChian	\N	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Zunge verschlucken	\N	\N	\N	\N	\N	\N	\N	61	\N	\N	\N
+KiDo	\N	31	\N	\N	61	\N	\N	\N	\N	TaiTschi	\N
+Brettspiel	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
+Dichten	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
+Erzählen	\N	\N	\N	31	\N	\N	31	\N	\N	\N	\N
+Geomantie	\N	\N	\N	\N	61	\N	\N	\N	\N	Wissen von der Magie	\N
+Kamelreiten	\N	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Mumifizieren	\N	31	\N	31	\N	\N	\N	\N	\N	Kräuterkunde, Naturkunde	\N
+Pyromantie	\N	\N	\N	\N	61	\N	\N	\N	\N	Wissen von der Magie	\N
+KiDo-Technik	\N	\N	\N	\N	\N	\N	\N	\N	\N	KiDo	\N
+Kalligraphie	\N	61	\N	\N	\N	\N	\N	\N	\N	Lesen/Sreiben	\N
+Lanzenstechen	\N	\N	\N	\N	\N	\N	\N	\N	\N	Kampf zu Pferd, Lanze	\N
+Etikette	\N	31	\N	31	\N	\N	31	\N	\N	\N	\N
+Heraldik	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
+Talisman verzaubern	\N	31	\N	\N	\N	\N	\N	\N	\N	Wissen von der Magie	\N
+Körperbemalung	\N	31	\N	\N	\N	\N	\N	\N	\N	Wissen von der Magie	\N
+Kriegsbemalung	\N	31	\N	\N	\N	\N	\N	\N	\N	Körperbemalung	\N
+Malen/Zeichen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Schlittschuhlaufen	\N	21	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Siegelfälschung	\N	\N	\N	\N	\N	\N	\N	\N	\N	Fälschen	\N
+Siegelkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	Lesen/Schreiben	\N
+Tanzen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Wetterkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
+Askese	\N	\N	\N	\N	\N	\N	\N	61	\N	\N	\N
+Astrologie	\N	\N	\N	\N	\N	\N	\N	\N	\N	Rechnen	\N
+Augensalbe herstellen	\N	31	\N	\N	\N	\N	\N	\N	\N	Alchemie, Thaumaturgie	\N
+Elefanten lenken	\N	31	\N	\N	\N	\N	\N	31	\N	\N	\N
+Kampf zu Elefant	\N	21	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Natya	\N	61	\N	\N	\N	\N	61	31	\N	Tanzen	\N
+Schmerzen ertragen	\N	\N	\N	\N	\N	\N	\N	81	\N	\N	\N
+Schlangen beschwören	\N	61	\N	\N	\N	\N	\N	31	\N	Musizieren	\N
+Srimara lenken	\N	31	\N	\N	\N	\N	\N	61	\N	\N	\N
+Kampf zu Srimara	\N	21	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Körperkontrolle	\N	\N	61	61	\N	\N	\N	61	0	\N	\N
+Kenntnis der fünf Klassiker	\N	\N	\N	11	\N	\N	\N	\N	\N		\N
+Abrichten	\N	\N	\N	\N	\N	\N	61	\N	\N	\N	\N
+Akrobatik	\N	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Alchemie	\N	0	\N	81	\N	\N	\N	\N	\N	\N	61
+Ballista bedienen	\N	0	\N	21	\N	\N	\N	\N	\N	\N	61
+Baukunde	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
+Beschatten	\N	61	\N	\N	\N	\N	-80	\N	0	\N	\N
+Bogen zu Pferd	\N	\N	\N	\N	\N	\N	\N	\N	\N	Reiten	31
+Erste Hilfe	\N	0	\N	31	\N	\N	\N	\N	31	31	31
+Fälschen	\N	0	\N	0	\N	\N	\N	\N	\N	Lesen/Schreiben	61
+Fallenmechanik	\N	0	\N	0	\N	\N	\N	\N	\N	\N	61
+Fallenstellen	\N	0	\N	\N	\N	\N	\N	\N	\N	31	31
+Fangen	\N	0	\N	\N	\N	\N	\N	\N	\N	\N	31
+Gassenwissen	\N	\N	\N	61	\N	\N	31	\N	\N	\N	\N
+Gaukeln	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12
+Geheimzeichen	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
+Geländelauf	\N	31	\N	\N	\N	\N	\N	\N	0	\N	\N
+Giftmischen	\N	0	\N	61	\N	\N	\N	\N	\N	\N	31
+Glücksspiel	\N	0	\N	\N	\N	\N	\N	\N	61	\N	61
+Heilkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
+Kampf zu Pferd	\N	21	\N	\N	\N	\N	\N	\N	\N	Reiten	\N
+Kampf zu Kamel	\N	21	\N	\N	\N	\N	\N	\N	\N	Kamelreiten	\N
+Katapult bedienen	\N	0	0	31	\N	\N	\N	\N	\N	\N	31
+Landeskunde	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
+Lesen von Zauberschrift	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
+Meucheln	31	0	\N	\N	\N	\N	\N	\N	\N	\N	61
+Musizieren	\N	0	\N	\N	\N	\N	\N	\N	31	\N	31
+Rudern	21	0	0	\N	\N	\N	\N	\N	\N	\N	21
+SchÃ¤tzen	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
+Scharfschießen	\N	0	0	\N	\N	\N	\N	\N	\N	\N	61
+Schauspielern	\N	\N	\N	\N	\N	\N	61	\N	\N	\N	\N
+SchieÃŸen vom Streitwagen	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	31
+Schiffsführung	\N	\N	\N	31	\N	\N	61	\N	\N	\N	\N
+Schlittenfahren	\N	0	\N	\N	\N	\N	\N	\N	\N	\N	21
+Schlösser öffnen	\N	0	\N	\N	\N	\N	\N	\N	\N	61	61
+Seemannsgang	\N	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Seilkunst	\N	0	\N	\N	\N	\N	\N	\N	\N	\N	61
+Singen	\N	\N	\N	\N	\N	\N	31	\N	\N		\N
+Springen	31	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Stehlen	\N	0	\N	\N	\N	\N	\N	\N	\N	\N	61
+Steuern	21	\N	\N	\N	\N	\N	\N	\N	\N	\N	31
+Streitwagen lenken	\N	0	\N	\N	\N	\N	\N	\N	\N	\N	21
+Suchen	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	31
+Thaumatographie	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
+Trinken	\N	\N	1	\N	\N	\N	\N	\N	\N	\N	\N
+Verbergen	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	0
+Verkleiden	\N	0	\N	31	\N	\N	\N	\N	\N	\N	31
+Wagenlenken	\N	21	\N	\N	\N	\N	\N	\N	\N	\N	21
+Wahrnehmung	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
+Winden	\N	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Zeichensprache	\N	0	\N	31	\N	\N	\N	\N	\N	\N	31
 \.
 --
 -- TOC Entry ID 3 (OID 26667275)

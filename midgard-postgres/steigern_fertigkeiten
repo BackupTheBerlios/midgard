@@ -22,54 +22,34 @@ COPY "steigern_fertigkeiten"  FROM stdin;
 Alchemie	Wissen
 Athletik	Athletik
 Balancieren	Bewegung
-Ballista bedienen	-
 Beidhändiger Kampf	Beidhändiger Kampf
 Beredsamkeit	Beredsamkeit
 Beschatten	Beschatten
-Bogen vom Streitwagen	-
-Bogen zu Pferd	-
-Erste Hilfe	-
 Fallen entschärfen	Abenteuer
 Schiffsführung	Wissen
-Fallenmechanik	Abenteuer
 Faustkampf	-
 Fechten tevarischer Stil	-
 Fechten	Fechten
 Gassenwissen	Gassenwissen
 Geländelauf	Bewegung
-Geschäftstüchtigkeit	-
-Geschichten erzählen	Geschichten erzählen
-Himmelskunde	-
-Kampf in Schlachtreihe	-
-Kampf in Vollrüstung	-
-Kampf vom Streitwagen	-
-Kampf zu Pferd	-
 Kampftaktik	Kampftaktik
 Kanufahren	Bewegung
-Katapult bedienen	-
 Klettern	Bewegung
 Kräuterkunde	Wissen
 Laufen	Laufen
-Lesen von Zauberschrift	-
-Lesen/Schreiben	-
 Lippenlesen	Lippenlesen
 Menschenkenntnis	Menschenkenntnis
 Meucheln	Meucheln
 Musizieren	Musizieren
 Naturkunde	Wissen
 Pflanzenkunde	Wissen
-Rechnen	-
 Reiten	Bewegung
 Rudern	Bewegung
 Sagenkunde	Wissen
 Scharfschießen	Scharfschießen
-Schätzen	-
-Schleichen	Abenteuer
-Schlösser öffnen	Abenteuer
 Schwimmen	Bewegung
 Segeln	Bewegung
 Seilkunst	Seilkunst
-Singen	Singen
 Skifahren	Bewegung
 Sprache	Sprache
 Springen	Bewegung
@@ -78,10 +58,8 @@ Stehlen	Stehlen
 Stimmen nachahmen	Stimmen nachahmen
 Streitwagen lenken	Bewegung
 Talisman verzaubern	Talisman verzaubern
-Tarnen	Abenteuer
 Tauchen	Tauchen
 Tierkunde	Wissen
-Trinken	-
 Verführen	Verführen
 Verhören	Verhören
 Verkleiden	Verkleiden
@@ -123,7 +101,6 @@ SchiyoKi	-
 Schwerttanz	Bewegung
 Steinabreibungen machen	-
 TaiTschi	-
-Tanzen	-
 Teezeremonie	Überleben
 YangScheng	YangScheng
 YubeChian	-
@@ -131,9 +108,7 @@ Zunge verschlucken	Verhören
 Brettspiel	Brettspiel
 Kamelreiten	Bewegung
 Geheimmechanismen öffnen	Abenteuer
-Geheimzeichen	-
 Kalligraphie	Kalligraphie
-Dichten	Kalligraphie
 Etikette	Gassenwissen
 Fangen	Bewegung
 Jonglieren	Jonglieren
@@ -146,10 +121,8 @@ Körperbemalung	Talisman verzaubern
 Schlittschuhlaufen	Bewegung
 Siegelfälschung	-
 Siegelkunde	Wissen
-Verbergen	Beschatten
 Werfen	Werfen
 Wetterkunde	Wetterkunde
-Singen (Stufe)	Kalligraphie
 Askese	BeidhÃ¤ndiger Kampf
 Astrologie	Wissen
 Augensalbe herstellen	-
@@ -158,8 +131,44 @@ Körperkontrolle	Bewegung
 Schmerzen ertragen	Bewegung
 Srimara lenken	Elefanten lenken
 Natya	Bewegung
-Fallenstellen	Abenteuer
 Kriegsbemalung	Talisman verzaubern
+Ballista bedienen	Ballista bedienen
+Baukunde	Baukunde
+Bogen zu Pferd	Bogen zu Pferd
+Dichten	Dichten
+Erste Hilfe	Erste Hilfe
+ErzÃ¤hlen	Dichten
+Fallenstellen	Fallenstellen
+Fallenmechanik	Fallenmechanik
+Gaukeln	Dichten
+Geheimzeichen	Geheimzeichen
+Geschäftstüchtigkeit	GeschÃ¤ftstÃ¼chtigkeit
+Heilkunde	Wissen
+Himmelskunde	Himmelskunde
+Kampf in Schlachtreihe	Kampf in Schlachtreihe
+Kampf in Vollrüstung	Kampf in VollrÃ¼stung
+Kampf zu Pferd	Kampf zu Pferd
+Katapult bedienen	Ballista bedienen
+Landeskunde	Wissen
+Lesen von Zauberschrift	Lesen von Zauberschrift
+Rechnen	Rechnen
+Schätzen	SchÃ¤tzen
+Schauspielern	Schauspielern
+Bogen vom Streitwagen	Bogen zu Pferd
+SchiffsfÃ¼hrung	Kampftaktik
+Schleichen	Schleichen
+Schlösser öffnen	Schleichen
+Lesen/Schreiben	Lesen/Schreiben
+Seemannsgang	Bewegung
+Singen	Dichten
+Steuern	Bewegung
+Suchen	Suchen
+Tanzen	Tanzen
+	\N
+Tarnen	Schleichen
+Thaumatographie	Thaumatographie
+Trinken	Trinken
+Verbergen	Suchen
 \.
 --
 -- TOC Entry ID 3 (OID 26665679)
