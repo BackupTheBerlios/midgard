@@ -2,8 +2,11 @@
 NEWS IN VERSION 0.1delta3
 
 * Sprachen und Schrift
-* Zahlreiche Bugs (Datenbankl und Programm) beseitigt
-
+* Zahlreiche Bugs (Datenbank und Programm) beseitigt
+* Und nochmehr Bugs, Bugs, Bugs .... beseitigt
+* Praxispunkte für Abwehr/Zauber/Resistenz: speichern, laden, setzen, anzeigen
+* Lernen von Zaubersprüchen für einige Chrakterklassen mit PP
+* Maximale Erfolgswerte für Fertigkeiten, Sprachen, Schriften und Waffen 
 
 TODO:
 * Die Ausrüstung kann noch nicht geladen werden
@@ -13,8 +16,6 @@ TODO:
    und dem dazugehörigen Abwerbonus noch nicht.
 * Landeskunde Heimat in Universellen Fertigkeiten
 * Landeskunde als Berufsfähigkeit für 3 Berufe
-* Was passiert mit fertigkeiten, die nur 'fett' zu lernen sind?
-* PP für Zaubern, Resistenz, etc.
 
 ##########################################################################
 NEWS IN VERSION 0.1delta2
