@@ -328,7 +328,7 @@ Sprache&Wert&Schrift\\\hline\hline
 \small
 \setlength{\tabcolsep}{0.3em}
     \begin{tabular}[t]{||p{2.6cm}|c|c||}\hline\hline
-      \raisebox{-1ex}[2ex][0ex]{\LARGE Waffe}&\normalsize Erfolgswert&\footnotesize Angriffsrang(mod.)\\\cline{2-3}
+      \raisebox{-1ex}[2ex][0ex]{\LARGE Waffe}&\normalsize Erfolgswert&\footnotesize Waffenrang\\\cline{2-3}
       \raisebox{-0.2ex}[1ex][0.2ex]{\footnotesize (Reichweite)}&\normalsize\raisebox{-0.2ex}[1ex][0.2ex]{Schaden}&\footnotesize Abwehrmod.\\\hline\hline\hline
       waffenloser&{\waffeEy}&\waffeAy\\\cline{2-3}
       Kampf&{\waffeSy}&\waffeVy\\\hline\hline

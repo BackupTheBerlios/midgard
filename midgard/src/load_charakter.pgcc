@@ -355,8 +355,7 @@ void midgard_CG::load_ausruestung_C(int parent,AusruestungBaum &AB)
       AusruestungBaum *A = &AB.push_back(Ausruestung(acdb_fert,acdb_magisch,acdb_wert));
       A->setParent(&AB);
 cout << "Child: "<<acdb_self<<' '<<parent<<'\t';
-cout<<A->getAusruestung().Name()<<'\n';
-//      load_ausruestung_C(acdb_self,*A);
+cout<<A->getAusruestung().Name()<<'\t'<<AB.getAusruestung().Name()<<'\n';
       V.push_back(pair<int,AusruestungBaum>(acdb_self,*A));  
      }
   exec sql close LCFEIN;

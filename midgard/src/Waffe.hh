@@ -21,7 +21,7 @@ class Waffe : public MidgardBasicElement
    private:
      std::string name, grundkenntnisse, art, art2;
      std::string schaden;
-     std::string angriffsrangmod, wm_abwehr_leicht, wm_abwehr_schwer,
+     std::string waffenrang, wm_abwehr_leicht, wm_abwehr_schwer,
          voraussetzung;
      std::string region;
      int schwierigkeit,st,gw,gs,reichweite_0,reichweite_n,
@@ -56,7 +56,7 @@ class Waffe : public MidgardBasicElement
      std::string Art2() const {return art2;}
      std::string Schaden(const std::string& name) const;
      int Schaden_Bonus(const std::string& name) const;
-     std::string Angriffsrangmod() const {return angriffsrangmod;}
+     std::string Waffenrang() const {return waffenrang;}
      std::string WM_Abwehr() const;
      int WM_Angriff(const std::string& name) const;
      std::string Reichweite() const ;

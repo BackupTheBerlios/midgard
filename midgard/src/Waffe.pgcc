@@ -25,12 +25,12 @@ void Waffe::get_Waffe()
       db_reichweite_0,db_reichweite_n,db_reichweite_m,
       db_reichweite_f,db_lern_l,db_lern_s;
    char query[1024],db_grundkenntnisse[50],db_art[50],db_art2,
-      db_region[10],db_schaden[30],db_angriffsrangmod[10],
+      db_region[10],db_schaden[30],db_waffenrang[10],
       db_wm_abwehr_leicht[10], db_wm_abwehr_schwer[10], db_voraussetzung[50];
   exec sql end declare section; 
   std::string squery ="select grundkenntnisse,schwierigkeit,art,coalesce(art_2,''),
       coalesce(schaden,''),coalesce(schaden_b,''),
-      coalesce(angriffsrangmod,''),coalesce(wm_abwehr_leicht,''),
+      coalesce(waffenrang,''),coalesce(wm_abwehr_leicht,''),
       coalesce(wm_abwehr_schwer,''),coalesce(st,0),coalesce(gw,0),coalesce(gs,0),
       coalesce(zusatz,''),
       coalesce(region,''),coalesce(reichweite_0,-1),
@@ -49,7 +49,7 @@ void Waffe::get_Waffe()
   SQLerror::test(__FILELINE__);
   exec sql fetch cl_waffen_ein into 
    :db_grundkenntnisse,:db_schwierigkeit,:db_art,:db_art2,:db_schaden,
-   :db_schaden_b,:db_angriffsrangmod,:db_wm_abwehr_leicht,:db_wm_abwehr_schwer,
+   :db_schaden_b,:db_waffenrang,:db_wm_abwehr_leicht,:db_wm_abwehr_schwer,
    :db_st,:db_gw,:db_gs,:db_voraussetzung,:db_region,:db_reichweite_0,:db_reichweite_n,
    :db_reichweite_m,:db_reichweite_f,:db_lern_l,:db_lern_s;
   SQLerror::test(__FILELINE__);
@@ -59,7 +59,7 @@ void Waffe::get_Waffe()
    art2=db_art2;
    schaden=db_schaden;
    schaden_bonus=db_schaden_b;
-   angriffsrangmod=db_angriffsrangmod;
+   waffenrang=db_waffenrang;
    wm_abwehr_leicht=db_wm_abwehr_leicht;
    wm_abwehr_schwer=db_wm_abwehr_schwer;
    st=db_st; gw=db_gw; gs=db_gs;

@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.66 2001/12/23 08:46:48 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.67 2001/12/25 09:31:22 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -288,7 +288,7 @@ void midgard_CG::LaTeX_write_values()
          fout << "\\newcommand{\\waffeE"<<b<<"}{"<<wert <<wertRa<<wertRv<< "}\n";
          std::string schaden=WB->Schaden(Werte,WB->Name());
          fout << "\\newcommand{\\waffeS"<<b<<"}{"<<schaden << "}\n";
-         std::string anm = WB->Waffe()->Angriffsrangmod();
+         std::string anm = WB->Waffe()->Waffenrang();
          fout << "\\newcommand{\\waffeA"<<b<<"}{"<<anm << "}\n";
 //         fout << "\\newcommand{\\waffeA"<<b<<"}{"<<"?" << "}\n";
          std::string abm = WB->Waffe()->WM_Abwehr();

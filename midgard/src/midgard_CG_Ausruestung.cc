@@ -126,24 +126,24 @@ void midgard_CG::showAusruestung()
 //cout << "show "<<i->getChildren().getAusruestung().Name()<<'\n';
      showChildren(r,i->getChildren());
    }
-/*
+
   for(Gtk::CTree_Helpers::RowList::const_iterator i=Ausruestung_tree->rows().begin();
          i!=Ausruestung_tree->rows().end();++i)
    {
      cout << i->get_data() << '\n';
      AusruestungBaum &A=*static_cast<AusruestungBaum*>(i->get_data());
-     cout << '\t'<<A.getAusruestung().Name();
-     cout << '\t'<<A.getChildren().size();
+     cout << '\t'<<"I am: "<<A.getAusruestung().Name();
+     cout << '\t'<<"Child Size= "<<A.getChildren().size();
      for(Gtk::CTree_Helpers::RowList::const_iterator j=i->subtree().begin();
             j!=i->subtree().end();++j)
       {
         cout << j->get_data() << '\n';
         AusruestungBaum &A=*static_cast<AusruestungBaum*>(j->get_data());
-        cout << '\t'<<A.getAusruestung().Name();
-        cout << '\t'<<A.getChildren().size();
+        cout << '\t'<<"I am: "<<A.getAusruestung().Name();
+        cout << '\t'<<"Child Size= "<<A.getChildren().size()<<'\n';
       }
    }
-*/
+
   r->expand_recursive();
   Ausruestung_tree->show(); 
   Ausruestung_tree->tree_select_row.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_Ausruestung_tree_select_row));
@@ -315,7 +315,7 @@ void midgard_CG::setStandardAusruestung()
   Decke->setParent(Rucksack);
   AusruestungBaum *Lederbeutel=&Rucksack->push_back(Ausruestung("Lederbeutel"));
   Lederbeutel->setParent(Guertel);
-  AusruestungBaum *Geld=&Rucksack->push_back(Ausruestung("Geld"));
+  AusruestungBaum *Geld=&Rucksack->push_back(Ausruestung("Geld","",false));
   Geld->setParent(Lederbeutel);
 
   setFertigkeitenAusruestung(Rucksack);
@@ -378,7 +378,7 @@ void midgard_CG::setFertigkeitenAusruestung(AusruestungBaum *Rucksack)
            InfoFenster((*i)->Name(),wurf,90);
          }
         else if (wurf>5)
-         { AusruestungBaum *K = &Rucksack->push_back(Ausruestung("instrument nach eigener Wahl","",false));
+         { AusruestungBaum *K = &Rucksack->push_back(Ausruestung("Instrument nach eigener Wahl","",false));
            K->setParent(Rucksack);
            InfoFenster((*i)->Name(),wurf,5);
          }
