@@ -1,0 +1,1570 @@
+##########################################################################
+NEWS IN VERSION 0.6delta1
+
+* PP Dweomer/Wunder/Lieder werden zum Lernen von neuem verwendet
+* Un-/Redo
+* Info Fenster Absturz-Bug behoben
+* Oberfläche überarbeitet (z.B. Berufsknopf nach oben)
+
+TODO:
+* Regionenmenü nach oben
+* Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
+* Waeland: Zauber
+* Nahuathlan: Komplett
+* Destruktor wird nicht aufgerufen
+* gv zeigt den falschen Ausschnitt des pdf Dokumentes 
+   (nur für Linux interessant)
+* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+
+Windows TODO (bitte irgendwo erwähnen)
+
+* das Icon so generieren, dass es auch unter Windows transparent ist ...
+* AcroRead wird noch nicht gefunden
+* den Windows Filerequester (nennt sich ebenfalls Explorer) verwenden (ja es geht!)
+* Abenteurer in ISO 8859-1[5] speichern, dann können sie leichter editiert/gelesen werden.
+
+##########################################################################
+NEWS IN VERSION 0.6delta0
+
+* Das Executable heißt jetzt magus (statt midgard) 
+* Abspeichern und Laden des Spezialgebietes für Magier
+* Abspeichern und Laden der 'Steigertage'
+* Spezieskorrekturen (C++ Code und Datenbank)
+* Das Lernschema setzt jetzt nur noch die Erfolgswerte der NICHTgelernten
+   Fertigkeiten 
+   => Speziesfertigkeiten behalten ihren höheren Erfolgswert
+   => Ein alter Hack ist jetzt nicht mehr nötig *freu*
+* InfoFenster überarbeitet
+* Steigern einer oder mehrerer Stufen mit PP wenn die Fertigkeit weniger 
+   als 40 FP kostet
+* Berufsfertigkeit 'Schmecken+10' kann gelernt werden
+* Kleinere Bugs beseitigt
+* Grifffelder um die meisten Knopfleisten, man kann sie abtrennen und
+  woanders aufbewahren. Am sinnvollsten mit der Leiste, die Speichern 
+  und Drucken enthält.
+* Wizard Verbesserungen von Christof
+* Implementation der Optionen komplett(!) überarbeitet
+* Gründliche(!) Oberflächenüberarbeitung
+* Code aufgeräumt
+* Zauber lernen mit PP geht
+* Eschar: Derwisch
+* PP Dweomer/Wundertaten/Bardenlieder
+* Ansichten Menü und Ansichten in 'Optionen' einstellbar
+
+TODO:
+* Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
+* PP zum lernen Zaubern
+* Un-/Redo
+* Waeland: Zauber
+* Nahuathlan: Komplett
+* Destruktor wird nicht aufgerufen
+* gv zeigt den falschen Ausschnitt des pdf Dokumentes 
+   (nur für Linux interessant)
+* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+
+Windows TODO (bitte irgendwo erwähnen)
+
+* das Icon so generieren, dass es auch unter Windows transparent ist ...
+* AcroRead wird noch nicht gefunden
+* den Windows Filerequester (nennt sich ebenfalls Explorer) verwenden (ja es geht!)
+* Abenteurer in ISO 8859-1[5] speichern, dann können sie leichter editiert/gelesen werden.
+
+
+##########################################################################
+NEWS IN VERSION 0.5delta0
+
+* Oberfläche leicht übearbeitet
+* Titel im Zusatz-Fenster(lernen) korrekt
+* Kleinere Bugs beseitigt
+* Angeborene Fertigkeiten Auswahl jetzt ohne extra Fenster (s.o.)
+   außerdem ist der Absturzbug jetzt weg.
+* Charakterbeschreibung jetzt auch im Hauptfenster (konsistenter und einfacher)
+* Der Chrakterbeschreibung kann nun eine Grafik hinzugefügt werden
+* Lernpunkte/Geld/Waffen/Rüstung nur noch einnmal wählbar
+* Anzeige der Lernauswahl springt nicht mehr zurück.
+* Code aufgeräumt
+* Negative GFP stürzen nicht mehr ab.
+* Offielles Logo wieder da
+* Waffenbesitz bei Spielbeginn funktioniert wieder
+* Zahlreiche Bugs aus der 'lernen' Routine herausgeholt
+* nach dem Laden ist 'steigern' wählbar
+* Schrift im Zaubernausdruck verkleinert -> jetzt paßt es (wieder)
+* latex & pdf-viewer code aufgeräumt
+* Laden von Optionen 
+* geladene Optionen auswerten und die Men+s entsprechend setzen
+* xpdf als neuer pdf-viewer hinzugefügt
+* latex & pdf-viewer code aufgeräumt
+* Option 'Originalregeln' wird mit Abenteurer zusammen abgespeichert
+* versteckte Ausrüstung nun wieder grau (im Ausdruck) 
+* Chaospriester ist als NSC Klassen möglich (Menü: Optionen)
+* Finstermagiersprüche sind lernbar
+* einige Bugs im Regionenmenü behoben
+* Regionen setzen nach dem Laden eines Abenteurers funktioniert wieder
+* Optionen 'Originalregeln' und 'NSC zulassen' wird mit Abenteurer zusammen abgespeichert
+* Weitere Korrekturen von Ottmar Zimmer eingearbeitet (insb. Gestaltberechnung)
+* Wenn NSC zugelassen werden, werden die 'würfel' Knöpfe NICHT deaktiviert
+* Schreiben kann jetzt angeklickt werden, auch wenn man noch keine Sprache
+   gelernt hat, ohne daß es anschließend verschwindet.
+* Runden von EP/Gold überarbeitet
+* Herkunft korrigierbar
+* Landeskunde (Heimat): Erfolgswert 
+* Erfogswert für Spezialwaffe jetzt (hoffentlich) korrekt implementiert
+* Bezeichnung für einen Charakter möglich (Ergänzung zur Klasse)
+* Neuimplementation der Kosten für Abwehr/Resistenz/Zaubern
+* LaTeX Dateien Erzeugung komplett überarbeitet (damit wird es unter Windows 
+   erst möglich zu drucken und auch unter Linux deutlich übersichtlicher.
+* Doppelklassen (Lernschema + Steigern) funktioniert
+
+
+TODO:
+* Steigern mehrerer Stufen mit PP
+* Waeland: Zauber
+* Nahuathlan: Komplett
+* Eschar: Derwisch
+* gv zeigt den falschen Ausschnitt des pdf Dokumentes 
+   (nur für Linux interessant)
+* Es werden nur die ersten beiden pdf viewer zur Auswahl angeboten - komisch 
+* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+
+##########################################################################
+NEWS IN VERSION 0.4delta5
+
+* Waffenbesitz löscht die Waffen, nicht den Besitz
+* Code aufgeräumt
+* Nichtmenschen: Pflichtfertigkeiten kennzeichnen
+* Nichtmenschen: Angeborene Fertigkeiten Bug beseitigt
+* Ob die bereits gelerneten Fertigkeiten im Lernschema angezeigt werden ist
+   nun eine Option
+* Ob zu teure Fertigkeiten im Lernschema angezeigt werden ist
+   nun eine Option
+* Nichtmenschen: Fertigkeiten nur noch einmal (mit 'Spezieslernschema') 
+   lernbar.
+* Nochmalwürfeln bei schlechen Werten jetzt möglich
+* Spezialgebietauswahl nur noch für Magier (und Beschwörer)
+* Infofenster Liste kann gelöscht werden
+* Info Fenster kann über das Menü->Optionen gezeigt werden.
+* Kampf ohne Waffen im Ausdruck ohne Fehler
+* Spezies: Datenbank, xml-Datei, Klasse und Code überarbeitet. Damit ist es 
+   jetzt trivial neue Spezies hinzuzufügen (ohne das Programm neu zu 
+   kompilieren, es reicht ein update der xml Datei(en) :-)
+* Angeborene Fertigkeiten von Spezies auch in xml Datei
+* Angeborene Sinne für Halblinge und Gnome
+* Oberfläche leicht überarbeitet
+* Bugs beseitigt
+* Komplett neues Redesign der Pflichtfertigkeiten und der Verbotenen Fertigkeiten
+   für die Spezies. Dadurch 
+   a) ist die Klasse 'Pflichten' inclusive Datenbanktabelle weggefallen.
+   b) werden die Pflichfertigkeiten bei Spielbeginn automatisch gelernt.
+* Datenbank für Rawindra, Eschar und KanThaiPan Fertigkeiten und
+   Zauberwerk überarbeitet
+   (nichtsdestotrotz warte ich noch auf die offiziellen Regeln)
+* Alle Grundkenntnisse (Waffen) ausdrucken
+* Waeland: Typen, Fertigkeiten, Runen
+* Eschar: Fertigkeiten, Zauber
+* KanThaiPan: Typen, Fertigkeiten, Zauber, KiDo (ist aber noch nicht offiziell)
+* Rawindra: Typen, Fertigkeiten, Zauber, Zauberwerk (Körperbemalung, Kriegsbemalung)
+* Alba: Zauber
+* Bug gefunden, der für das dynamische Verhalten der angezeigten Regionen 
+   zuständig war ...
+* Spezies erscheint im Ausdruck
+* Komplette Neuimpelmentierung der Ausnahmen, dadurch 
+   a) fällt diese Klasse weg (die Funktionalität ist jetzt in 
+      MidgardBasicElement drin)
+   b) funktioniert es wieder :-)
+* Tooltips Farbe -> Änderung der Datei 'gtkrc' nötig, das kann jeder 
+   selber machen
+* leeres Dokument ausdrucken geht wieder.
+* Grundkenntnis 'waffenloser Kampf' -> 'Kampf ohne Waffen'
+* Magische Waffen eingeben funktioniert
+* Waffen-alias-namen für die Regionen funktioniert beid er Waffenbesitzauswahl
+
+TODO:
+* Waeland: Zauber
+* Nahuathlan: Komplett
+* Eschar: Derwisch
+* Doppelklassen
+* Offielles Logo ist weg :-(
+* angeborene fertigkeiten können nicht aus der Liste gewählt werden (Absturz)
+* Laden von Optionen 
+* gv zeigt den falschen Ausschnitt des pdf Dokumentes 
+   (nur für Linux interessant)
+* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+
+##########################################################################
+NEWS IN VERSION 0.4delta4
+
+* viele kleinere Bugs beseitigt (Programm und Daten)
+* Lernschema: Lernreinfolge jetzt beliebig
+* Tooltip 'steigern, reduzieren, verlernen'
+* Großer Gradanstiegbutten nur steigern
+* Abspeichern von Optionen 
+* Herkunftsländer sortieren (Koplett neu implementiert)
+* Info Fenser nicht automatisch zuklappen
+* Gestallt auch dann 'breit' wenn (Größe-Gewicht)<=0
+* Leiteigenschaften bei Fertigkeiten lernen berücksichtigen
+* Neuimplementation der Zusätze beim Lernen -> weniger Fenster
+* Sprachen im Lernschma verlernen
+* Berufs-Fertigkeiten automatisch verlernen, wenn neuer Beruf gewählt wird
+* Herkunftsland und Angeborene Fertigkeiten jetzt nur einmal anwählbar
+* Fertigkeiten mit Zusätzen (incl. Sprache, Tiersprache, Landeskunde (Heimat)
+   etc.) können nur noch einmal gelernt werden. Das einzige Problem dabei ist,
+   daß die Dinge auch nach dem 'verlernen' (bsw. Maus-Tippfehler) nicht wieder
+   angezeigt werden. Für diesen (hoffentlich) seltenen Fall habe ich eine
+   Option geschaffen: 'Fertigkeiten mit Zusätzen im Lernschema wieder anzeigen'.
+* Praxispunkte für Abwehr/Zaubern/Resistenz im Ausdruck
+* Berufsauswahl neu implementiert
+* Berufsknopf kann nur EINMAL gedrückt werden.
+* Wizard ersteinmal nur über das Menü startbar 
+   (bis das Optionen laden funktioniert)
+* Lernschema mit Grund/Standard/Ausname
+* Grundwerte- und abgel. Werte Knopf deaktivieren nach clicken
+* KEP verwenden beim Waffensteigern, ZEP beim Zaubern
+* klein/mittel/groß im Ausdruck
+* Brüche getrennt abrunden
+* Ottmar Zimmers Quellcodeanmerkungen :-)
+* pdflatex statt latex
+* es kann gewählt werden, ob das Dokument mit 'gv' oder 'acroread' betrachtet 
+   werden soll.
+* Auswahlreihnfolge von 'linksoben' -> 'rechtsunten'
+* Grundwerte < 350 => Neuwürfeln
+* Landeskunde als Berufsfähigkeit (Warnung: es ist nicht möglich den
+   bestehenden Erfolgswert für Landeskunde um eins zu erhöhen, wenn
+   man diese Fertigkeit schon beherrscht.)
+* Halftan und Dvarheim als Herkunft in Datenbank
+* mit der rechten Mausttaste kann man jetzt speichern, ohne das das 
+   fileauswahl Widget geöffnet wird.
+* Zaubern und Kido KEINE neuen Dokumente 
+* Neuimplemenation des Sprachenfensters (so wie die anderen Zusätze)
+* Anzeige im Lernschema, wenn etwas schon gekonnt wird.
+* Anzeige von Fertigkeiten im Lernschema, die zu teuer sind.
+* Bilder in pngs umgewandelt (mit Sandros Hilfe)
+* Kein Absturz mehr währedn die Datenbank lädt
+* Gründliche Überarbeitung der Datenbank (fertigkeiten,waffen), dank an
+   Michael Grützki
+* Überarbeitung der Auswahl von Geld & Waffen bei Spielbeginn -> wieder ein 
+   Fenster weniger 
+* Überarbeiten der Oberfläche
+* Alessandro hat die Runen für Waeland abgetippt
+* Ich hab die Waeland Abenteurertypen und Fertigkeiten eingearbeitet
+* Michael Grützki hat die Datenbank überprüft und viele Bugs (M3->M4) gefunden.
+* Wizard geht jetzt bis zum speichern.
+* Bug bei der Waffenauswahl beseitigt
+
+TODO:
+* Tooltips Farbe
+* Laden von Optionen 
+* Waffenbesitz löscht die Waffen, nicht den Besitz
+* gv zeigt den falschen Ausschnitt des pdf Dokumentes
+* Kurzanleitung drucken ... mal sehe, ob das sinnvoll ist. Wahrscheinlich 
+   ist es sinnvoller die HTML-Seiten in einem Browser zu starten.
+* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+* Regionen
+* Doppelklassen:
+> - Bei "Elfen":
+>            -  werden die "Muss-Fertigkeiten" (Schleichen, Tarnen, etc.)
+> nicht für einen, sondern für mehr Lernpunkte angezeigt.
+>            - werden bei der Erschaffung und der Auswahl "Elf" die
+> Eigenschaftswerte nicht entsprechend der Spezies ermittelt, d.h. Mindest und
+> Höchstwerte für Eigenschaften werden vom Zufallsgenerator ignoriert.
+>           - nach Auswahl von Doppeltyp (Kriegerin/graue Hexe) bekomme ich
+> (zum Teil) negative Lernpunkte angezeigt (offenbar die vom "Zweittyp" - auch
+> bei Zaubersprüchen wird für jeden "-1" angezeigt), was dazu führt, dass ich
+> Lernpunkte hinzu bekomme, statt welche durch Auswahl von Fertigkeiten zu
+> verlieren.
+>          - Bei Doppeltypen werden Fertigekeiten offenbar zweifach
+> eingelesen, das ist sehr unübersichtlich. Außerdem bleibt das "-1"
+> Lernpunkte Problem bestehen (reproduzierbarer Fehler).
+
+##########################################################################
+NEWS IN VERSION 0.4delta3
+
+* zahlreiche Bugfixes
+* Aufgeräumt ... gündlich
+* Oberfläche überarbeitet ... ebenfalls gründlich
+* Waffenbesitz im 'gelernt' fenster anzeigen
+* Spezialwaffe auswählen geht 
+* Sprachen und Schriften lernen jetzt bis zum maximalen Erfolgswert (+22)
+* Anfang(!) Eines Wizards, der den WinsDAU bei der Charaktererschaffung an 
+   die Hand nimmt
+* NEWS jetzt auch im Programm einsehbar
+* Das Infofenster mit dem Copyright und der Datenbank ist 
+   in das Hauptfenster gewandert.
+* Max Erf. für Waffen in Abhängigkeit der Abenteurerklasse
+* Speichern vor dem Schließen (wenn etwas geändert wurde)
+* Tiersprache wie 'Geheimzeichen' (dafür war mal wieder ein sorgfältiges(!)
+   redesign nötig, ich hoffe es funktioniert ...)
+* Wizard nocheinmal umgearbeitet
+* GFP min. GradGFP
+* Man kann Fertigkeiten neu lernen, die einen Zusatz 
+   (Geheimzeichen, Tiersprache, etc.) enthalten.
+* Anzeige und LaTeX Ausdruck von Zusatz bei Zaubern (Tiersprache)
+* Sprache=Alte Sprache
+* Erfolgswerte für Zauber,Abwehr,Resistenz verlernbar
+
+TODO:
+* Kurzanleitung drucken
+* Es sind die beiden Infofenster, die beim Auswürfeln 
+   von Geld und Waffen im Lernschema auftauchen. 
+   Da reagiert der "OK"- Button nicht. -> keine Anhung warum, MAT
+*** Abspeichern und Laden von Optionen 
+*** Landeskunde als Berufsfähigkeit für 3 Berufe
+  (Karawanenführer, land, v,m
+   Kaufmann, stadt,m,a
+   Verwalter, land, stadt, m,a,
+* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+* Doppelklassen:
+> - Bei "Elfen":
+>            -  werden die "Muss-Fertigkeiten" (Schleichen, Tarnen, etc.)
+> nicht für einen, sondern für mehr Lernpunkte angezeigt.
+>            - werden bei der Erschaffung und der Auswahl "Elf" die
+> Eigenschaftswerte nicht entsprechend der Spezies ermittelt, d.h. Mindest und
+> Höchstwerte für Eigenschaften werden vom Zufallsgenerator ignoriert.
+>           - nach Auswahl von Doppeltyp (Kriegerin/graue Hexe) bekomme ich
+> (zum Teil) negative Lernpunkte angezeigt (offenbar die vom "Zweittyp" - auch
+> bei Zaubersprüchen wird für jeden "-1" angezeigt), was dazu führt, dass ich
+> Lernpunkte hinzu bekomme, statt welche durch Auswahl von Fertigkeiten zu
+> verlieren.
+>          - Bei Doppeltypen werden Fertigekeiten offenbar zweifach
+> eingelesen, das ist sehr unübersichtlich. Außerdem bleibt das "-1"
+> Lernpunkte Problem bestehen (reproduzierbarer Fehler).
+
+
+##########################################################################
+NEWS IN VERSION 0.4delta2
+
+* Jede Menge kleinerer Bugfixes
+* Goldberechnung bei Charaktererschaffung korrigiert
+* Berechnung der Resistenz (Geist+Körper) korrigiert
+* "Binden" wird angezeigt 
+* Andere Bugs bei Zauberwerk Voraussetzungen  entfernt.
+* Abrichten mit Zusatz (wie Geheimsprache) außer für Tiermeister
+* Geheimzeichen-Liste zum auswählen
+* Scharfschießen wie 'Geheimzeichen'
+* Musizieren für versch. Instrumente
+* Optionen jetzt zweigeteilt (Checkmenu und Menu)
+* Größe- und Gewichtsanpassung nach Geschlechtsumwandlung für Menschen
+
+TODO:
+* Es sind die beiden Infofenster, die beim Auswürfeln 
+   von Geld und Waffen im Lernschema auftauchen. 
+   Da reagiert der "OK"- Button nicht. -> keine Anhung warum, MAT
+* Spezialwaffe auswählen geht nicht
+* Abspeichern und Laden von Optionen 
+* Landeskunde als Berufsfähigkeit für 3 Berufe
+  (Karawanenführer, land, v,m
+   Kaufmann, stadt,m,a
+   Verwalter, land, stadt, m,a,
+* Erfolgswerte editierbar (verlernbar)
+* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+* Doppelklassen:
+> - Bei "Elfen":
+>            -  werden die "Muss-Fertigkeiten" (Schleichen, Tarnen, etc.)
+> nicht für einen, sondern für mehr Lernpunkte angezeigt.
+>            - werden bei der Erschaffung und der Auswahl "Elf" die
+> Eigenschaftswerte nicht entsprechend der Spezies ermittelt, d.h. Mindest und
+> Höchstwerte für Eigenschaften werden vom Zufallsgenerator ignoriert.
+>           - nach Auswahl von Doppeltyp (Kriegerin/graue Hexe) bekomme ich
+> (zum Teil) negative Lernpunkte angezeigt (offenbar die vom "Zweittyp" - auch
+> bei Zaubersprüchen wird für jeden "-1" angezeigt), was dazu führt, dass ich
+> Lernpunkte hinzu bekomme, statt welche durch Auswahl von Fertigkeiten zu
+> verlieren.
+>          - Bei Doppeltypen werden Fertigekeiten offenbar zweifach
+> eingelesen, das ist sehr unübersichtlich. Außerdem bleibt das "-1"
+> Lernpunkte Problem bestehen (reproduzierbarer Fehler).
+
+##########################################################################
+NEWS IN VERSION 0.4delta1
+
+* kleinere Bugfixes
+* Sinn nach 'angeborene Fertigkeiten Würfeln' korrekt angezeigt
+* Grundwerte auswürfeln für M$
+* Angeborene Fertigkeit mit Infotext
+* Bei den Berufslisten wird  berücksichtigt, welchen STAND die
+ Figur hat, genauso wie die Einschränkungen für "Kampfspezialisten" 
+ und "Zauberspezialisten" 
+* Einbrecher Bug beseitigt
+* Alte Sprache als ungewöhnliche Fertigkeit lernbar
+* Geheimzeichen mit Zusatz (so wie Landeskunde)
+* Info Fenster mit memory (Komplett neues Konzept)
+* Zaubern lernen nur mit Abfrage
+* Icon für die 'Helfer' 
+   (P.S: Wer hatte denn noch mit abtippen geholfen, ich habe nicht mehr alle
+   namen beisammen ...)
+* Startwert der Muttersprache und Gastlandsprache -> Intelligenz
+* Abenteurer Typen sind jetzt so wie im Regelbuch geordnet. Wollt 
+   Ihr wirklich noch eine andere Ordnung?
+* Pflicht lernen kennzeichnen
+
+TODO:
+* Geheimzeichen-Liste nicht gefüllt.
+* Abrichten wie Geheimsprachen außer für Tiermeister
+* Es sind die beiden Infofenster, die beim Auswürfeln 
+   von Geld und Waffen im Lernschema auftauchen. 
+   Da reagiert der "OK"- Button nicht. -> keine Anhung warum, MAT
+* Spezialwaffe auswählen geht nicht
+* Abspeichern und Laden von Optionen 
+* Landeskunde als Berufsfähigkeit für 3 Berufe
+  (Karawanenführer, land, v,m
+   Kaufmann, stadt,m,a
+   Verwalter, land, stadt, m,a,
+* Erfolgswerte editierbar (verlernbar)
+* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+* Doppelklassen:
+> - Bei "Elfen":
+>            -  werden die "Muss-Fertigkeiten" (Schleichen, Tarnen, etc.)
+> nicht für einen, sondern für mehr Lernpunkte angezeigt.
+>            - werden bei der Erschaffung und der Auswahl "Elf" die
+> Eigenschaftswerte nicht entsprechend der Spezies ermittelt, d.h. Mindest und
+> Höchstwerte für Eigenschaften werden vom Zufallsgenerator ignoriert.
+>           - nach Auswahl von Doppeltyp (Kriegerin/graue Hexe) bekomme ich
+> (zum Teil) negative Lernpunkte angezeigt (offenbar die vom "Zweittyp" - auch
+> bei Zaubersprüchen wird für jeden "-1" angezeigt), was dazu führt, dass ich
+> Lernpunkte hinzu bekomme, statt welche durch Auswahl von Fertigkeiten zu
+> verlieren.
+>          - Bei Doppeltypen werden Fertigekeiten offenbar zweifach
+> eingelesen, das ist sehr unübersichtlich. Außerdem bleibt das "-1"
+> Lernpunkte Problem bestehen (reproduzierbarer Fehler).
+
+##########################################################################
+NEWS IN VERSION 0.4delta0
+
+* viele keine Bugfixes
+* Komplette Neuimplementation des Lernschemas
+  Grund: Sinnvoller Vorschlag von Fabian Wagner
+   -> vermutlich viele neue Bugs zu suchen....
+* ZEP/KEP beim steigern verwenden
+* Stammesdialekte sind lernbar
+* Schadensbonus bei Fernkampf ignorieren
+* Erlernen "Alter Schriften","Schreiben:Muttersprache" mit +12 statt -1
+* Hausregel Gold auswerten
+* Für das "Lernen von Spruchrolle": Nur mögliche Zauber werden 
+  mit entsprechend reduzierten Lernkosten angezeigt
+* Tabellenüberschriften im Lernschema
+* Anzeige der Kosten für die Gradanpassung, etc
+* Kosten für AP steigern anzeigen
+
+
+TODO:
+* Pflicht lernen kennzeichnen
+* Es sind die beiden Infofenster, die beim Auswürfeln 
+   von Geld und Waffen im Lernschema auftauchen. 
+   Da reagiert der "OK"- Button nicht.
+* Bei den Berufslisten wird offenbar nicht berücksichtigt, welchen STAND die
+ Figur hat, ebensowenig wie die Einschränkungen für "Kampfspezialisten" (in
+ den Regelwerktabellen mit "k" ausgewiesen, dazu gehören Krieger, Söldner,
+ Assasinnen und Ordenskrieger) oder die "Zauberspezialisten" (in den
+ Regelwerktabellen mit "z" ausgewiesen, dazu gehören Beschwörer, Magier,
+ Priester, Druiden und Thaumaturgen). Vgl. auch Midgard-DFR 4. Ed., S. 56.
+* Angeborene Fertigkeit mit Infotext
+* Info Fenster mit memory
+* INFO Fenster beim 'Sprachen' lernen
+* Startwert der Muttersprache -> Intelligenz
+* Zaubern lernen nur mit Abfrage
+* Grundwerte auswürfeln für M$
+* Testen von nichtmenschlichen Spezies
+* Spezialwaffe auswählen geht nicht
+* Abspeichern und Laden von Optionen 
+* Landeskunde als Berufsfähigkeit für 3 Berufe
+  (Karawanenführer, land, v,m
+   Kaufmann, stadt,m,a
+   Verwalter, land, stadt, m,a,
+* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+* Doppelklassen:
+> - Bei "Elfen":
+>            -  werden die "Muss-Fertigkeiten" (Schleichen, Tarnen, etc.)
+> nicht für einen, sondern für mehr Lernpunkte angezeigt.
+>            - werden bei der Erschaffung und der Auswahl "Elf" die
+> Eigenschaftswerte nicht entsprechend der Spezies ermittelt, d.h. Mindest und
+> Höchstwerte für Eigenschaften werden vom Zufallsgenerator ignoriert.
+>           - nach Auswahl von Doppeltyp (Kriegerin/graue Hexe) bekomme ich
+> (zum Teil) negative Lernpunkte angezeigt (offenbar die vom "Zweittyp" - auch
+> bei Zaubersprüchen wird für jeden "-1" angezeigt), was dazu führt, dass ich
+> Lernpunkte hinzu bekomme, statt welche durch Auswahl von Fertigkeiten zu
+> verlieren.
+>          - Bei Doppeltypen werden Fertigekeiten offenbar zweifach
+> eingelesen, das ist sehr unübersichtlich. Außerdem bleibt das "-1"
+> Lernpunkte Problem bestehen (reproduzierbarer Fehler).
+* Erfolgswerte editierbar (verlernbar)
+
+##########################################################################
+NEWS IN VERSION 0.3delta4
+
+* Kleine Bugfixes
+* Lernpunkte editieren funktioniert
+* Setzen der Erfolgswerte für Grad 1 durch Knopfdruck möglich
+* Händigkeit auf dem Charakterdokument
+* Export im Spielleiterformat jetzt mit Dateiauswahl
+* Grundkennisse tauchen nicht mehr doppelt auf
+* Gift Resistenz korrekt berechnet
+* 'Laufen' Pixmap im 'Fertigkeiten auswählen' Button
+* Stadt-lernliste jetzt korrekt
+* radiobutton_[stadt|land] beim Laden setzen
+* Logo und neue Drachenbilder in LaTeX-dokument eingearbeitet
+
+TODO:
+* Testen von nichtmenschlichen Spezies
+* Abspeichern und laden von Optionen 
+* Hausregel Gold auswerten
+* Landeskunde als Berufsfähigkeit für 3 Berufe
+  (Karawanenführer, land, v,m
+   Kaufmann, stadt,m,a
+   Verwalter, land, stadt, m,a,
+* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+
+##########################################################################
+NEWS IN VERSION 0.3delta3
+
+* kleinere Bugfixes
+* Oberflächenüberarbeitung (Lernen, Steigern: Praxispunkte und Zaubern)
+* XML: Laden beschleunigt (Fertigkeiten/Steigern_wie + Waffen/Schwierigkeit)
+* Gestaltberechnung korrigiert
+* Magische Waffen funktionieren
+* die richtigen Callbacks für 'steigern Menü' eintragen
+* Es kann jetzt ein beliebiger Beruf eingetragen werden.
+* LaTeX Ausdruck jetzt ohne Erfolgswert für Beruf.
+* Ausrüstung und Charakterbeschreibung kann nun auch über das Menü
+   ausgedruckt werden
+* Ausrüestungsliste jetzt alphabetisch sortiert
+* Ausdruck der Ausrüstung jetzt mit und ohne die sichtbaren Gegenstände
+* 'Werfen' jetzt bei den universellen Fertigkeiten
+* Neuer Menüpunkt: 'Hausregeln', bislang allerdings nur für 'Gold'
+   (Wird aber noch nicht ausgewertet)
+* Umbennennung: Charaktere -> Abenteurer (ist bestimmt noch nicht vollständig)
+* Ersetzung spinbutton->set_text() in spinbutton->set_value() (noch unvollständig)
+* Editieren des Zaubertalentes -> Anpassung des Sechsten Sinnes
+* Durch Rüstung verringerte Werte für B/Gw werden nur noch ausgedruckt, 
+   wenn sie relevant sind.
+* Giftresistenz korrigiert
+* xml Umstellungsbug: 'Reichweite von Waffen' beseitigt
+* Menüumbau: Optionen jetzt intern als Liste, ebnso für Hausregeln
+* Waffen können 'verlernt' werden
+* Umbenennung M[idgard]CG->MAGUS
+* erstmalige Win32 Version
+* Durch die Einführung von 20% Schritten in den ProgressBars wurde der 
+	 Programmstart viel schneller
+
+TODO:
+* Abspeichern und laden von Optionen testen
+* Hausregel Gold auswerten
+* Landeskunde als Berufsfähigkeit für 3 Berufe
+  (Karawanenführer, land, v,m
+   Kaufmann, stadt,m,a
+   Verwalter, land, stadt, m,a,
+* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+
+##########################################################################
+NEWS IN VERSION 0.3delta2
+
+* XML: Laden beschleunigt (Fertigkeiten/Steigern_wie + Waffen/Schwierigkeit)
+* Geschlechtsumwandlung wieder möglich
+* Standesauswahl jetzt korrekt
+* Neue Pics hinzugefügt
+* Neue Option im Menü: Das Lernschema kann jetzt 'sensibilisiert' werden.
+   (Das braucht man ab und zu, wenn man einen Charakter eingeben will.)
+* Die Regionen und die Copyright Hinweise weirden jetzt bei Programmstart 
+   dynamsich angezeigt
+* Weitere Regionen hinzugefügt (auch wenn es sie noch nicht gibt)
+* Zwei überflüssige Knöpfe samt Funktionen (beim Zaubern) entfernt.
+* XML WIRD JETZT ZUM STANDARD
+
+##########################################################################
+NEWS IN VERSION 0.3delta1
+
+* Fehlschlagendes Laden abgefangen
+* Erhöter Erfolgswert für Fachkenntnisse
+* Automatische Versionsvergabe
+* Rüstungsauswahl sortiert
+* Waffen haben jetzt eigene Schwierigkeit (war Schwierigkeit=Grundkennts Schwierigkeit)
+* Zahlreiche Bugs rund um die Lernpunkte
+* Regionen Menü jetzt mit Icons und dynamsich erstellt
+* Offizielles Midgard Icon im Hauptfenster (wenn 'offiziell')
+* Abschalten des offiziellen Logos, wenn ein nichtoffizieller Teil verwendet wird.
+* au,pA,wk,sb,b wurden nicht geladen.
+* LaTeX Ausgabe überarbeitet (Werte für Angriff und Verteidigung; Sprachen)
+* Compilieren beschleunigt (Christof)
+* Lädt aus XML Datei statt Datenbank (Christof)
+* Spezialgebiete für Magier stürzt nicht mehr ab !!!
+* XML: Ich kann einen Version 3 Charakter laden, editieren und speichern !!!
+* Praxispunkte werden im Charakterdokument ausgegeben
+* Ausdrucken veränderte die Erfolgswerte (mit unangenehmen Folgen...)
+* Erfolgswert von Berserkergang korrekt
+* Erfolgswert für waffenlosen Kampf und dem dazugehöriger Abwerbonus korrekt
+* Standauswahl funktioniert
+* Handauswahl hinzugefügt (war bei Umstellung verlorengegangen)
+
+TODO:
+* Fenster beim Steigern
+* Magische Waffen besitzen (mehrere von einer Sorte)
+* Landeskunde als Berufsfähigkeit für 3 Berufe
+  (Karawanenführer, land, v,m
+   Kaufmann, stadt,m,a
+   Verwalter, land, stadt, m,a,
+* XML: Laden beschleunigen (Fertigkeiten/Steigern_wie + Waffen/Schwierigkeit)
+	cachen
+
+##########################################################################
+NEWS IN VERSION 0.2delta1
+
+* Neue angelegte Ausrüstungsgegenstände werden sofort übernommen
+* späteres Lernen von 'Landeskunde Heimat' mit erhötem Erfolgswert +9.
+* Ausrüsten ohne Geld ist möglich
+* LaTeX Charakterdokument überarbeitet: 23 Schriften können jetzt 
+   angezeigt werden
+* Bugs in der Oberfläche (Schriften) beseitigt
+* Bug bei der Berufsanzeige
+* Offizielle Preis/Ausrüstungsliste von Elsa ist eingearbeitet
+* Stadt/Land Bug beseitigt
+* Himmelskunde Bug beseitigt
+* Preisliste überarbeitet, Konzept überarbeitet
+* Korrekte Werte von Universellen Fertigkeiten
+* Bugs bei der Ausrüstung
+* Umbau der 'Regionen' in eine Tabelle -> Dynamisches Menü, Änderung der Oberfläche
+* Bug beim Muttersprace lernen beseitigt
+* Weiterer Umbau der Oberfläche incl. neuen Buttons
+* Bug beim steigern Fertigkeiten 'Zaubern' beseitigt
+* Die Anzahl der Lerntage kann dem Alter hinzuaddiert werden
+* Die Datenbank ist jetzt in einer eigenen Klasse 
+* Bugs beim 'Zaubern' lernen beseitigt.
+* Nach mehrmaligem Nachdenken bin ich zu der Überzeugung gekommen, daß es 
+   intuitiver ist, die Werte im Hauptfenster zu editieren. Daher ist der
+   Code mal wieder umgearbeitet worden. Das 'Werte_editieren_Fenster'
+   ist damit verschwunden.
+* Das gleiche für die Lernpunkte -> noch ein Fenster weg
+* Neue Bilder eingebaut
+* Die Bilder sind jetzt optional
+* Nach dem Lernen werden jetzt auch die Sprachen und Schriften angezeigt.
+* Bug beim Schadensbonus beseitigt
+
+
+TODO:
+* Editieren Gestalt
+* Automatische 'Version'
+* Spezielgebiete für Magier stürzt ab
+* Irgendwie funktioniert das mit dem Erfolgswert für waffenlosen Kampf 
+   und dem dazugehörigen Abwerbonus noch nicht.
+* Landeskunde als Berufsfähigkeit für 3 Berufe
+  (Karawanenführer, land, v,m
+   Kaufmann, stadt,m,a
+   Verwalter, land, stadt, m,a,
+* Einlesen von Charakteren aus XML (!!!)
+
+
+##########################################################################
+NEWS IN VERSION 0.1delta3
+
+* Sprachen und Schrift funktionieren richtig (hoffentlich)
+* Sprechen von verwandten Sprachen mit erniedrigtem Erfolgswert 
+   (im Charakterdokument)
+* Schriften werden automatisch auf +8 gekonnt, wenn man die Sprache und eine
+   andere Schrfit mit derselben Schriftart gutgenug beherrscht. (Alles klar?:-)
+* Zahlreiche Bugs (Datenbank und Programm) beseitigt
+* Und nochmehr Bugs, Bugs, Bugs .... beseitigt
+* Praxispunkte für Abwehr/Zauber/Resistenz: speichern, laden, setzen, anzeigen
+* Lernen von Zaubersprüchen für einige Chrakterklassen mit PP
+* Maximale Erfolgswerte für Fertigkeiten, Sprachen, Schriften und Waffen 
+* XML loading and merging (off by default)
+* Zauberwerk hat jetzt den korrekten Schlüssel, dafür mußte die 
+   charaktere_fertigkeiten eine weitere Spalte erhalten
+* Landeskunde steigern/neulernen für verschiedene Länder funktioniert.
+* und noch mehr Bugs (danke an Alessandro)
+* Landeskunde Heimat in Universellen Fertigkeiten
+* Einige(!) Interne Dinge umstrukturiert
+* Die Ausrüstung kann geladen werden
+* Im Charakterdokument sind die Sprachen und Schriften korrekt formatiert
+* Das Menü kann nun auch über einen Knopf aufgerufen werden
+   (über die rechte Maustaste ist weiterhin möglich)
+* Oberfläche weiter an neue Regeln angepaßt
+
+TODO:
+* Neue Ausrüstungsgegenstände sofort übernehmen
+* Spezielgebiete für Magier stürzt ab
+* Irgendwie funktioniert das mit dem Erfolgswert für waffenlosen Kampf 
+   und dem dazugehörigen Abwerbonus noch nicht.
+* Landeskunde als Berufsfähigkeit für 3 Berufe
+* Einlesen von Charakteren aus XML (!!!)
+* späteres Lernen von 'Landeskunde Heimat' mit erhötem Erfolgswert.
+
+##########################################################################
+NEWS IN VERSION 0.1delta2
+
+* Zahlreiche Bugs (Programm und Datenbank) beseitigt
+* Berufswahl berücksichtigt bereits gelernte Fertigkeiten (=+1 auf Erfolgswert)
+* Typen und Spezies geben jetzt Stadt/Land vor
+* Ausrüstung aufgrund spezieller Fertigkeiten bei Spielbeginn werden 
+   berücksichtigt
+* Sinne werden auf der Oberfläche angezeigt
+* Kleinere Umbauten der Oberfläche
+* Bugs im Lernschema beseitigt (Datenbank)
+* Erweiterung der 'Ruestung' Tabelle in der Datenbank
+* Abzug von Boni für schwere Rüstungen wird im Charakterdokument berücksichtigt
+* Abzug von -2 auf Angriff und Abwehr für Vollrüstungen bei fehlender 
+   Fertigkeit wird berücksichtigt
+* Waffenrang im Charakterdokument.
+* GG und SG können editiert werden und sind jetzt im Charakterdokument
+* SG wird beim Gradanstieg erhöht
+* GG und SG in Datenbank
+* Anstieg von abgeleiteten Eigenschaften, wenn beim Gradanstieg eine 
+   Basiseigenschaft gestiegen ist
+* Neue Ausrüstungsgegenstäne können angelegt werden
+* Steigern mit Unterweisung, Selbststudium und Praxispunkten 
+     (neue Regeln) implementiert
+* Gründlicher Umbau der Oberfläche incl. der Logik des Programmes
+   beim Steigern
+* Schriften haben jetzt einen steigerbaren Wert
+* Automatisches Laden der Listen
+* Automatisches Sortieren der Listen
+
+TODO:
+* Die Ausrüstung kann noch nicht geladen werden
+* Neue Ausrüstungsgegenstände sofort übernehmen
+* Spezielgebiete für Magier stürzt ab
+* Irgendwie funktioniert das mit dem Erfolgswert für waffenlosen Kampf 
+   und dem dazugehörigen Abwerbonus noch nicht.
+* Landeskunde Heimat in Universellen Fertigkeiten
+* Landeskunde als Berufsfähigkeit für 3 Berufe
+
+##########################################################################
+NEWS IN VERSION 0.1delta1
+
+* Berufe funktionieren (fast)
+* Sprachen, alte Sprachen und Schriften funktionieren (zumindest sollten sie das:-)
+* Umbau der Oberfläche begonnen
+* Landeskunde funktioniert jetzt für Heimatländer 
+   (Charaktererschaffung und Steigern)
+* Neue Grundwerte-Auswürfelmechanismen implementiert
+* Die Oberfläche für die 4.Version ist weitgehend fertig
+* Die Ausrüstungsbaum funktioniert prinzipiell
+* Ausrüstungsbaum kann abgespeichert werden
+* Die Ausrüstung kann noch nicht ausgedruckt werden
+* 'Hand' kann editiert werden
+* Zahllose Bugfixes im Programm
+* Zahllose Bugfixes in der Datenbank
+* Die Hilfe an die neuen Regeln angepaßt
+* Charakterbeschreibung (Ausdruck) überarbeitet
+* Viele(!) Bugfixes
+* Waffen und Geld bei Spielbeginn nach den neuen Regeln
+* Land/Stadt kann gewählt werden
+* Das (ausdruckbare) Charakterdokument ist an die neuen Regeln angepaßt 
+* Universelle Fertigkeiten im ausgedruckten Charakterdokument mit 
+   Berücksichtigung der Voraussetzungen und ob eine Fertigkeit bereits
+   explizit gelernt wurde.
+
+
+##########################################################################
+NEWS IN VERSION 0.1delta0
+
+Vieleicht sollte man den MCG nun in MNG umbennennen, denn
+es ist soweit, die neune Midgard Regeln sind (soweit ich sie habe)
+eingearbeitet. Ich habe beschlossen die Versionsnummern wieder von 
+vorne anfangen zu lassen, dafür habe ich das 'beta' durch ein 
+'delta' ersetzt (Konsequenterweise hätte ich bisher ein 'gamma' nehmen müssen, 
+aber lassen wir das :-)
+Wer das neue Programm testet, der sollte noch nicht zu viel erwarten, hier 
+eine (unvollständige) Mängelliste:
+
+* Berufe fehlen noch (Elsa hat mir noch nicht geschrieben was die 
+   Römischen Ziffern in der Tabelle gehören)
+* Das (ausdruckbare) Charakterdokument ist noch nicht an die neuen Regeln
+   angepaßt worden
+* Die Ausrüstung ist noch eine Baustelle, das Programm stürzt in diesem 
+   Teil mit 100% Sicherheit ab.
+* Spezielgebiete für Magier stürzt noch ab
+* Irgendwie funktioniert das mit dem Erfolgswert für waffenlosen Kampf 
+   und dem dazugehörigen Abwerbonus noch nicht.
+* Sprachen und Schriften sind noch nicht an die neuen Regeln angepaßt worden
+* Die Oberfläche ist noch im Umbau begriffen, z.B. Ziegt sie noch 'LPBasis' an
+   auch wenn der Wert weggefallen ist.
+
+Sollte sich jetzt jemand fragen, was denn überhaupt funktioniert, so sei 
+ihm gesagt: Fertigkeiten, Waffen, Zauber, Sinne, Grundwerte
+
+Es handelt sich also um eine Rumpfversion, aber für die gaaaanz neugierigen
+lohnt es sich vielleicht:-)
+
+##########################################################################
+NEWS IN VERSION 0.9beta1
+Mich an dieser Stelle über Bugs auszulassen wäre vermessen, das Programm ist
+ SO gündlich umgearbeitet worden, daß (fast) nichts mehr ist, wie es war.
+
+
+##########################################################################
+NEWS IN VERSION 0.9beta0
+- Gründeliche Umstellung auf Klassen
+- Zahlreiche Datenbank Bugs entsorgt
+- Alten Bug sei 0.7beta0 bei KiDo Stilen beseitigt
+- Zahlreiche kleinere Bugs beseitigt
+
+##########################################################################
+NEWS IN VERSION 0.8beta4
+- Körperbemalung und Kriegsbemalung sind nun 'Ramwindi' Zauberwerk
+- Umarbeiten der Steigern - Darstellung mit dem Ziel wesentlich weniger
+   Datenbankzugriffe zu benötigen (Spart Zeit)
+    # Zauber
+    # Fertigkeiten
+   
+
+##########################################################################
+NEWS IN VERSION 0.8beta3
+- Überflüssigen Code aus 'grad_anstieg' und sinnlose Tabellenspalten
+   aus 'charaktere' entfernt
+- Bug entfernt: 'Abwehr mit Verteidigungswaffen' funktionierte nicht 
+   richtig.
+- Wenn man das Programmm NICHT mit 'midgard s' startet, dann erscheint 
+   ersteinmal das Info Fenster.
+- kleinere Schönheitsreperaturen
+- Alessandros Logo eingebaut
+
+##########################################################################
+NEWS IN VERSION 0.8beta2
+- Verwenden der Funktion EmptyInt_4TeX -> dadurch wird eine Grundwertefunktion
+    überflüssig, Anpassung des Quellcodes
+- Sortieren der Waffen nach Erfolgswert jetzt nach 'größter Erfolgswert zuerst'
+- Bug beim Abw. und Res. anpassen beseitigt, bzw. auf Datenbanl umgestellt.
+- kleinere Bugs beseitigt
+- Christof hat den xml-im/export überarbeitet
+
+
+##########################################################################
+NEWS IN VERSION 0.8beta1
+- Jetzt kann man die Erfolgswerte für die gelernten Berufe nicht nur
+   würfeln, sondern auch einstellen.
+- Aus mir unbekannten Gründen fehlten einige von Joachim abgetippte
+   H&D Zauber ich habe sie nochmal(?) eingefügt.
+- Bugs aus 'arkanum_zauber' Tabelle herausgeholt
+- Zaubermaterialen werden jetzt entsprechend der Tabellenbreite skaliert
+- Die Erhöhung von Abwehr/Zaubern/Resistenz, Gradanstieg, Ausdauer und
+   Erhöhung der Basiswerte kann jetzt getrennt angewählt werden
+   Für letzeres ist (natürlich) nur ein Versuch pro Gradanstieg möglich.
+- In dem 'steigern'-Fenster werden jetzt auch  Grad,AP,Abwehr,Zaubern,Resistenz
+   angezeigt
+- Info Fenster überarbeitet (die M$-Portierung steht jetzt schon drin)
+- Bug beim Eingeben von Erfolgswerte für die gelernten Berufe beseitigt
+- Es gibt jetzt ein Menu, das über die rechte Maustaste im Hauptfenster 
+   aufklappt. Dort finden sich selten und häufig verwendete Funktionen.
+   Wenn sich noch jemand etwas wünschen sollte dann möge er es nur mitteilen ...
+- Über das Menu kann man jetzt auch ein leeres Charakterdokument ausdrucken
+
+##########################################################################
+NEWS IN VERSION 0.8beta0
+- ... und wieder etwas an der Oberfläche gebastelt 
+- Damit die Erfahrungspunkte und das Geld verrechnet werden habe ich:
+   * einen Scrollbar eingefügt
+   * einen Knopf mit dem man das wieder abschalten kann
+   * das Abspeichern und Laden von Scrollbar und Knopf implementiert
+- und die Funktionen geschrieben, mit denen es möglich ist jetzt
+   auf Wunsch Erfahrungspunkte und Geld gegen GFPs zu verrechnen.
+- die Datenbank hat eine neue Tabelle, in der steht welche Fertigkeit mit 
+   welcher Art von EPs gelernt werden kann.
+- Hilfe leicht überarbeitet
+- Das Eingeben von Werten ("Werte editieren") ist jetzt einfacher: 'Enter'
+   bewirktt jetzt ein Springen zum nächsten Eingabefeld.
+
+##########################################################################
+NEWS IN VERSION 0.7beta5
+- Oberfläche überarbeitet
+- Bug bei der Typauswahl jetzt beseitigt (vorher war es ein 'workaround':-)
+- Beim Abwählen von 'Eschar' erscheint KEIN Infofenster mehr, das nervte ...
+- Überschriftenreinfolge der 'neuen Zauber' war falsch
+- Sortierung der Sprachen nach Stufe im Ausdruck jetzt ABSTEIGEND
+- Sortierung der Zauber, Zaubermittel, Waffen und Fertigkeiten jetzt mit dem 
+   Algorithmus 'stable_sort'
+- Neue 'Sortier'-Buttons von Alessandro eingefügt
+- Besonderheiten der Rawindiwaffen in Bezug auf Schaden & Angriffsmodifikation
+   werden berücksichtigt
+- Bugs in der Datenbank beseitigt (Rawindiwaffen)
+- Die Tabellen für Waffenbesitz sind jetzt auch umgearbeitet, d.h. unter anderem
+   daß die entsprechenden Tabellen jetzt umgestellt und sortiert werden können
+   (dies macht sich dann wieder auf dem Ausdruck bemerkbar)
+- Es ist jetzt auch möglich Erfahrungspunkte (AEP,KEP,ZEP) einzugeben
+- Das Vermögen wird nun auch im Hauptschirm (beim Steigern) angezeigt.
+
+
+##########################################################################
+NEWS IN VERSION 0.7beta4
+- Grundfähigkeiten für 'Überleben ...' stimmen jetzt
+   Allerdings gibt es (soweit ich weiß keine offiziellen Regeln für 
+   die Schamanen und Händler ... oder?
+- Aufgrund eines überraschend aufgetretenen Bugs in einer Libary
+   funktionierte die Charakterklassssenauswahl nicht mehr. Das ist jetzt 
+   behoben.
+- Oberfläche leicht überarbeitet
+
+
+##########################################################################
+NEWS IN VERSION 0.7beta3
+- Anzeige der Charakterklasse nach dem Laden ging nicht
+- Anzeige der Grundkenntnisse funktionierte nicht
+- Körperbemalung ist eine Rawindi-fertigkeit
+- Heraldik ist eine B&W-fertigkeit
+- Eine größer Neuerung: Die Fertigkeiten, Zauber, Waffen, KiDo-Techniken,
+   Zaubermittel, Sprachen können jetzt nach (fast) beliebigen Kriterien
+   sortiert werden.
+
+##########################################################################
+NEWS IN VERSION 0.7beta2
+- Eine Handvoll Bugs beseitigt (Dank an Joachim fürs Melden derselben)
+
+##########################################################################
+NEWS IN VERSION 0.7beta1
+- Midgard muß nicht mehr installiert werden, es KANN auch aus dem 
+   Verzeichnis gestartete werden, in dem die Latex und Postscript FIles sind.
+- Auf der Homepage ist jetzt ein Link zu dem CVS-Install-Script
+- Bug bei der Speziesauswahl beseitigt
+- Christof hat ein grausammes Query durch eine etwas schöneres erstezt.
+
+##########################################################################
+NEWS IN VERSION 0.7beta0
+- Umstellung der Steigern-Listen abgeschlossen.
+- Einige Bugs beseitigt, die durch die Umstellung entstanden.
+- Einige bedeutenden(!) Umstellung im Code: Der MCG ist jetzt wesentlich
+   mehr an Klassen orientiert, als vorher. Durch die Umstellung könnten sich 
+   einige Bugs eingeschlichen haben. Ich bitte um ausgiebiges Testen.
+- Überarbeitung des 'Zauberwerks', da gab es noch eine Menge Bugs,
+   aber ob nun alles funktioniert weiß ich auch noch nicht so genau :-)
+- Erneute Überarbeitung der neuen Liste, deswegen ist wieder ein Update 
+   von ManuProc_Widgets, ManuProc_Base und GtkmmAddons nötig.
+- Einige umstellungsbezogene Bugs behoben
+- Joachim hat die fehlenden H&D Zauber fertig abgetippt und ich habe sie 
+   eingearbeitet.
+- Umstellung für den gcc_3.0 begonnen, die Abwärtskompatibilität zum 
+   alten Compiler (2.95.2) bleibt erhalten.
+- Lernpunkte würfeln für Doppelklassencharaktere korrigiert.
+- Die Wahl des 'Info' Knopfes wird jetzt mit dem Charakter abgespeichert.
+
+
+##########################################################################
+NEWS IN VERSION 0.6beta0
+- Die Listen für die Fertigkeiten und Zauber (beim steigern)
+   sind komplett (!!!) überartbeitet worden. Jetzt kann man diese nach 
+   Spalten ordnen (und Spalten verstecken). Dazu sind jeweils die
+   neusten Versionen von ManuProc_Base und GtkmmAddons und (NEU) 
+   ManuProC_Widgets-0.2.tar.gz nötig. Andere Listen werden folgen :-)
+   BITTE lest die überarbeitete Hilfe, damit Ihr wißt um was es geht.
+- Hilfe überarbeitet
+
+##########################################################################
+NEWS IN VERSION 0.5beta5
+- Ordenskriegerbug in Datenbank entfernt
+- Hilfe überarbeitet
+- Optionmenu neu überarbeitet
+   ACHTUNG: GtkmmAddons muß in Neuer Version neu installiert werden
+- Button 'Originalregeln' eingebaut. Defaultmäßig ist er eingeschaltet.
+   Dieser Knopf ist eine von Elsas Bedingungen, damit der MCG ein 
+   'offizielles' Produkt werden kann. Was er bewirkt sieht man, in der 
+   Minihilfe.
+- Resistenzen überarbeitet, jetzt gibt es nur noch EINE Zauberresistenz.
+   Damit einhergehend eine Überarbeitung der Oberfläche
+- Das im- exportieren eines Charakters im xml Format sollte nun korrekt
+   funktionieren. Ich habe das xml Format an die neuen Resistenzen
+   angepaßt.
+
+##########################################################################
+NEWS IN VERSION 0.5beta4
+- Bug beim Laden von Charakteren beseitigt (durch 2. Charakterklasse entstanden)
+- Bug bei den angeborenen Fertigkeiten beseitigt (100 funktionierte nicht)
+- Überarbeitung der graphischen Oberfläche: Viele Elemente werden jetzt erst
+   dann angezeigt, wenn man sie benötigt. Hat noch jemand 
+   Verbesserungsvorschläge?
+- Hilfe überarbeitet
+- Bug bei Zaubern laden beseitigt
+
+
+##########################################################################
+NEWS IN VERSION 0.5beta3
+- Charakterbeschreibung darf nun beliebig lang sein.
+- viele kleinere Bugs beseitigt
+- Info Seite leicht überarbeitet
+- xml-import Bugs beseitigt
+- Fian & Zauber (aus B&R) eingearbeitet
+- Ritter (aus B&R) eingearbeitet
+- Fertigkeiten aus B&R eingearbeitet
+- Ausnahmen bei Fertigkeiten werden berücksichtigt
+- Oberfläche und Programm vorbereitet auf 'Gildenbrief' und 'Küstenstaaten'
+   Erweiterungen
+- LaTeX Ausdruck um die universellen Fertigkeiten 'Verbergen' und 'Werfen' 
+   erweitert
+- Rawindische Fertigkeiten eingearbeitet, ob ich tatsächlich alle Ausnahmen
+   korrekt berücksichtigt habe wird erst die Zeit (und damit die Bugtests) 
+   zeigen.
+- Regionen werden auch beim Lernschema berücksichtigt
+- Regionen werden bei Waffengrundfähigkeiten berücksichtigt
+- Rawindische Waffen eingearbeitet
+- Rawindische Rüstungen eingearbeitet
+- Rawindische Zaubersprüche eingearbeitet
+
+##########################################################################
+NEWS IN VERSION 0.5beta2
+- 4 Neue Bilder von Alessandro eingefügt.
+- xml-export von Christof überarbeitet
+- xml-import von Christof fertiggestellt
+- Eschar überarbeitet (die offiziellen Angaben zu den Zaubersprüchen 
+                        habe ich eingearbeitet)
+- Beim Lernen von Doppelcharakterklassen (nur als Elf möglich) werden jetzt 
+   nur noch die günstigesten Lernbedingungen (Fertigkeiten & Waffen) angegeben.
+
+##########################################################################
+NEWS IN VERSION 0.5beta1
+- Elfen können jetzt von Spielbegin an Doppelcharakter werden
+- Bug bei 'Waffen verzaubern' beseitigt
+- Elfenzauberer beherrschen 'Erkennen der Aura' automatisch
+- Neues schön(es) großes (!) Bild von Alessandro hinzugefügt :-)
+- Kleine Bugs beseitigt
+- Beschwörer erhalten automatisch den Zauber 'Lehrersuche'
+- Graphische Oberfläche überarbeitet
+
+##########################################################################
+NEWS IN VERSION 0.5beta0
+- Ein neuer Knopf ist hinzugekommen: 'Zaubermittel anzeigen'
+   dadurch wird das steigern von Zaubern schneller, wenn der Button
+   deaktiviert ist.
+- Eine Umarbeitung der Programms macht das Zaubern steigern nochmal 
+   deutlich(!!!) schneller. 
+- War kein KiDo Stil gewählt, dann zeigte die Typauswahl immer den 
+   ersten Eintrag (statt des zweiten) an.
+- Anfangsanzeige bei 'KiDo-Stile' war falsch.
+- Wenn KiDo nachträglich gelernt wird ist es nun auch möglich Techniken 
+   zu lernen. 
+- Neuaufbau des MCG funktionierte nicht richtig, wenn man auf 'Neuer Charakter'
+   klickte.
+- Die Anzahl der KiDo-Techniken, die bei Spielbeginn gelernt werden können
+   ist jetzt korrekt implementiert.
+- Speziesabhängige Pflichtfertigkeiten und Pflichtberufe werden beim
+   lernen während der Charaktererschaffung mit entsprechenden 
+   Lernpunkten und Erfolgswerten angezeigt
+- Speziesspezifische Verbote werden berücksichtigt. 
+- Elfen und Zwerge bekommen bei Spielbeginn 'Nachtsicht'
+- Es wird auch berücksichtigt, daß einige Fertigkeiten von Spezies zwar bei 
+   Spielbeginn NICHT lernbar sind, wohl aber später.
+- Es ist möglich Waffengrundkenntnisse zu 'verlernen'.
+   Dieses Feature sollte allerdings nur dann verwendet werden, wenn
+   man sich vertippt hat, da keinerlei Kausalitätsprüfung stattfindet.
+- Unterteilung der Spezies Gnom in Wald-/Berggnom
+- Berücksichtigung des Geschlechtes bei der Berufsvoraussetzung
+- Auch auf der 'steigern'-Seite wird nun die Charakterklasse angegeben.
+- Hilfe leicht überarbeitet (Geschlecht wählen hinzugefügt)
+- Zahlreiche weitere Bugs beseitigt
+- Doppelcharakterklassen implementiert:
+   - Zauber funktionieren (Kämpfer/Zauberer oder Barde/Zauberer 
+      oder Ordenskrieger/Priester) mit richtigen Lernkosten
+   - Fertigkeiten funktionieren
+   - Waffen funktioniert
+   - Sprachen und Schriften steigern funktioniert
+   - Abspeichern/laden funktioniert
+   - Doppelklassen sind möglich wenn ein Kämpfer 'Wissen von der Magie lernt'
+   Einschränkung:
+   - Nach dem lernen von 'Wissen von der Magie' ist man ein Doppelklassencharakter
+      Es ist nicht möglich die Laufbahn als Kämpfer aufzugeben und ein 
+      1. Klassencharakter zu werden. (Aber mal ehrlich, hat jemand aml davon
+      gehöhrt, das DAS jemand wollte?)  
+   - Doppelklassen sind nicht dadurch möglich, daß ein zauberer Waffen hochgenug lernt
+   - Doppelklassen für Elfen bei Spielbeginn funktioniert zwar prinzipiell, aber die 
+      jeweils günstigsten Lernkosten werden noch(!!!) nicht berücksichtigt
+
+##########################################################################
+NEWS IN VERSION 0.4beta10
+- LaTeX output optimiert: Es wird nun zuerst getestet, wie lang eine 
+   Stringkette ist, und wenn diese eine bestimmte Länge überschreitet wird 
+   der Text so skaliert, daß er in die vorgegebene Länge paßt.
+- Fernkampfwaffen werden jetzt mit Reichweite(n) ausgedruckt
+- Einen Bug aus der Datenbank entfernt: 'Geheimmechanismen öffnen' 
+   funktionierte nicht
+- Bug beim Berechnen des Abwehrbonuses für waffenlosen Kampf und einem
+   Erfolgswert<8 entfernt
+- Umarbeitung der magischen Waffen => Möglicherweise kommt es zu Konflikten
+   mit bereits gespeicherten Charakteren die magische Waffen besitzen.
+- Für mag. Waffen kann eine kurze Beschreibung eingegeben werden.
+- Jetzt kann man dieselbe Waffe (z.B. Dolch) mehrmals 'besitzen'. Allerdings
+   ist nur eine NICHTmagische Waffe desselben Typs möglich.
+
+##########################################################################
+NEWS IN VERSION 0.4beta9
+- Boni für Angriff/Abwehr/..../Resistenzen können jetzt auch negativ sein.
+- Neuer Button 'KiDo-laden' von Alessandro
+- Die 'Fertigkeiten' Fenster werden schneller aufgebaut (Neue Programmierung)
+- Bug bei der Umschaltung männlich/weiblich und beim laden von weibl. Charakteren
+    beseitigt
+- Einige andere kleine Umprogrammierungen vorgenommen, die das Programm schneller
+   machen (sollten:)
+- Ausdruck von Gewicht und Größe in SI-Einheiten :-)
+- Alten Bug beseitigt: Jetzt können auch Fertigkeiten OHNE Erfolgswert
+   VERLERNT werden.
+- Bug: Bei Lernen der Zauber werden die GFP nicht hochgerechnet. 
+
+##########################################################################
+NEWS IN VERSION 0.4beta8
+- Beim Laden eines Charakters wurde die falsche Charakterklasse angezeigt
+- Bei nichtmenschlichen Spezies kam es beim Laden zu einem Absturz
+- Die fehlenden Pixmaps sind jetzt mit in dem tar.gz Paket
+- Bug bei der Anzeige der Charakterklasse bei Nichtmenschen beseitigt
+- Geschlechtesauswahl hinzugefügt
+- Geschlecht wird bei der Charakterklassenbezeichnung berücksichtigt
+
+ 
+##########################################################################
+NEWS IN VERSION 0.4beta7
+- Bug für 'Zauber lernen' beseitigt
+- Pixmaps für KanThaiPan und Eschar sind fertig
+- Zauber für den Finstermagier sind drin (Dank an Joachim)
+- Zauberlieder und Zaubersalze sind auch eingearbeitet (Dank an Joachim),
+	die Zaubersprüche will er noch nachreichen.
+- Der 'alle Zauber' Button funktioniert irgendwie nicht (mehr?) -> behoben
+- Tabelle 'arkanum_zauber' leicht überarbeitet 
+- Wurde eine andere Spezies gewählt funktionierte die
+	Charakterklassenerkennung nicht
+- Durch Drücken des RECHTEN Mausknopfes wird Anstelle eines LaTeX Charakter-
+	Dokumentes eine Datei exportiert, deren Format dem von Elsa
+	gefordertem für die NSC-Daten im Anhag von Abenteuer entspricht.
+	Diese Funktion sollte insbesondere für Spielleiter/Abenteuerschreiber
+	von Interesse sein. Da ich selber kaum benötigen werde bitte ich 
+	um Verbesserungsvorschläge.
+- Beim steigern (neulernen) von ZaDurch Drücken des RECHTEN Mausknopfes wird
+	Anstelle eines LaTeX Charakter-
+        Dokumentes eine Datei exportiert, deren Format dem von Elsa
+        gefordertem für die NSC-Daten im Anhag von Abenteuer entspricht.
+        Diese Funktion sollte insbesondere für
+Spielleiter/Abenteuerschreiber
+        von Interesse sein. Da ich selber kaum benötigen werde bitte ich
+        um Verbesserungsvorschläge.
+- Beim steigern (neulernen) von Zaubern wird nun auch der Ursprung eines
+	Zauberspruches angegeben.
+
+##########################################################################
+NEWS IN VERSION 0.4beta6
+- Es werden nur noch dann KiDo Techniken zum Lernen angeboten, wenn die
+   maximal mögliche Anzahl für die entsprechende Stufe noch nicht erreicht ist.
+- 'alle Zauber' wirkt nun auch auf Zauberwerk
+- fehlende Tabelle 'spezialgebiete' ergänzt
+
+##########################################################################
+NEWS IN VERSION 0.4beta5
+- Joachim Jordan und ich haben zusammen die Beschwörungen (hoffentlich) 
+   fertig gestellt. Damit sollten jetzt eigentlich Beschwörer beider Kategorien
+   lern- und steigerbar sein.
+- Elementarbeschwörer führte zu Abstürzen.
+
+##########################################################################
+NEWS IN VERSION 0.4beta4
+- Thaumaturgen können jetzt auch 'Schutzrunen', 'Große Siegel' und 
+   'magische Lettern' lernen.
+- Das mit dem Alter funktioniert erst jetzt (ich hab bei dem Vergleich ein 
+   '=' vergessen ...).
+- KanThai CHaraktere in der Tabelle 'waffen_standard' ergänzt -> führte 
+   beim steigern von Waffen zum Absturz.
+- Noch ein subtiler Bug beseitigt: Wenn man eine KiDo Fertigkeit gelernt hatte
+   dann funktionierte die Anzeige des Charaktertyps nicht. 
+- Ausdruck des KiDo Dokumentes funktionierte nicht richtig.
+
+##########################################################################
+NEWS IN VERSION 0.4beta3
+- 'Waffen verzaubern' in die Datenbank eingetragen -> kann gelernt werden 
+   wenn die Voraussetzugen dafür erfüllt sind.
+- Nach dem mail-Austausch über das XML Format ist mir aufgefallen, daß es 
+   bisher sinnloserweise in der Datenbank redundante Informationen über 
+   die erzeugten
+   Charaktere gespeichert wurden (Charakterklasse, Abkürzung und Index). 
+   Daher habe ich mich entschlossen nur noch die 
+   Abkürzung eines Charakters in der Datenbank zu speichern. Da bedeutet, 
+   daß die Tabelle 'charaktere' jetzt ein neues Format bekommen hat. Die 
+   Spalten 'typ_l' und 'typ_i' werden ab jetzt nicht mehr benötigt.
+   Dank Christofs Bemühungen um die Datenbankinstallation braucht sich aber 
+   keiner um seine alten Charaktere zu sorgen. Die alten Datanbanken können
+   weiter verwendet werden. Aber wer möchte kann die oben erwähnten Spalten 
+   löschen oder 'make fullinstall' im Verzeichnis 'tabellen' ausführen, dann
+   sollte er vorher aber einen dump seiner Charaktere angelegt haben und 
+   diesen dann anschließend wieder einspielen. Außerdem ist es auf diese Art 
+   und Weise möglich neue Charakterklassen hinzuzufügen, ohne daß es zu 
+   Problemen mit schon abgespeichertten Charakteren kommt (wie in der 
+   Vergangenheit)
+- Das von 'http://www.midgard-online.de/FAQ/Technik.pdf' geforderte Format
+   kann anstelle eines LaTeX-Dokumentes ausgegeben werden, wenn man den 
+   RECHTEN Mausknopf drückt.
+- Kleinen Bug beseitigt: Beim Starten des Programms wurden die 
+   Speziesvoraussetzungen nicht eingelesen.
+- Hilfe leicht überarbeitet.
+- Das Alter wird nur noch dann (durch auswürfeln der Lernpunkte) berechnet,
+   wenn es vorher 0 ist. 
+- Weiteren lästigen Bug entfernt: durch 'Werte editieren' wurden alle 
+   bisherigen Werte, die NICHT editiert wurden, gelöscht (z.B. Rüstung)
+
+##########################################################################
+NEWS IN VERSION 0.4beta2
+- Umstellung der Spezialgebiete von Magiern auf die Datanbankebene.
+   dadurch wird es möglich auch Elemenetarbeschwörer ein Spezialgebiet
+   (bzw.) Primär und Sekundärelement wählen zu lassen.
+- Beschwörungen können jetzt gelernt werden, allerdings stimmen die Lernkosten 
+   (noch) nicht.
+- Abspeichern der Spezialgebiete von Magieren und Beschwörern funktionierte
+   jetzt (hoffentlich!) so, daß auch NACH dem Laden die Spezialisierung 
+   berücksichtigt werden.
+- Optionales Anzeigen von Zaubersalzen und Beschwörungen beim 
+   lernen von Zaubern
+- Da es in unserer Runde ab und zu vorkommt, daß ein Zauberer einen Spruch
+   lernen darf, der eigentlich nicht für seine Charakterklasse vorgesehen ist,
+   gibt es jetzt
+   eine Möglichkeit sich ALLE Zauber zur Auswahl anzeigen zu lassen.
+   (Die Kosten für diese Zauber werden wie für Ausnahmezauber berechnet)
+
+##########################################################################
+NEWS IN VERSION 0.4beta1
+- Geldbeträge können jetzt bis 100000 eingegeben werden (war: 100) 
+- Abwehrbonus durch 'waffenlosem Kampf' wird berücksichtigt
+- kleiner Bug in Fertigkeitstabelln für Eschar beseitigt, führte zu Absturz
+- Angriffsbonus wird nicht mehr zum Erfolgsbonus von Verteidigungswaffen addiert
+- zwei kleine Bugs beim Ausdrucken von Zauberdokumenten beseitigt
+
+##########################################################################
+NEWS IN VERSION 0.4beta0
+- Es können nur noch die Charterklassen gewählt werden, die die Spezies zuläßt.
+- Modifikationen der Grundwerte anderer Spezies werden korrekt berechnet
+- Modifikationen abgeleitete Werte anderer Spezies werden berücksichtigt
+- Alchimistische und pflanzliche Zaubermittel, Talismane und Amulette 
+   herstellen kann jetzt gelernt (und ausgedruckt werden). Die jeweiligen
+   Voraussetzungen werden kontrolliert. Wasser weihen und Zauberpergament 
+   beschriften kann ebenfalls gelernt werden.
+- Eschar ist eingearbeitet, mir fehlt nur noch ein Lernschema für den 
+   Derwisch :-(
+- Durch die Einarbeitung von Eschar war es nötig sich nocheinmal mit dem 
+   Waffenbesitz zu beschäftigen: Es ist jetzt möglich, daß für eine Region
+   mehrere Aliasnamen für die selbe Waffenart existieren (Bsp.: Jamblya
+   = Dolch und Jarid = Dolch)
+- Zahllose Bugs beseitigt (Ich befürchte nur, daß durch die vielen Neuerungen
+   auch wieder einige hinzugekommen sind :-(Ich bitte um Rückmeldung)
+- Dank Christof gibt es jetzt eine Möglichkeit einen Charakter im XML-Format
+   zu exportieren. (wird über den 'Speichern-Button' angesprochen, allerdings
+   mit dem RECHTEN Mausknopf :-)
+
+##########################################################################
+NEWS IN VERSION 0.3beta6
+Fehler bei Pixmap-Namen (hoffentlich) beseitigt.
+Bug in Datenbank-backup beseitigt.
+Ausgewählte Regionen werden mit den Charakteren abgespeichert.
+
+##########################################################################
+NEWS IN VERSION 0.3beta5
+Rawindische Berufe eingearbeitet
+Rassenauswahlknopf hinzugefügt, allerdings werden NOCH keine Werte etc.
+   berücksichtigt und erst vier Rassen eingearbeitet sind.
+   Die Motivation für diesen Knopf lag in der neuen 
+   Funktion 'Ausnahmen', von der alle Besonderheiten erfaßt werden sollen
+   also auch 'Leomies Birneneis' und DAFÜR brauchte ich den Rassenknopf 
+   (Ein besserer Name dafür fällt mir nicht ein, auch wenn ich ihn aus
+   ethischen Gründen nicht mag, aber ich denke im Fantasy-genre wird 
+   er nicht falsch verstanden, wenn aber jemand eine bessere Bezeichning weiß, 
+   dann bin ich gerne bereit sie zu übernhemen.)
+Ausnahmebehandlung für Zauber programmiert, damit werden die Rassenabhängigkeit
+   und die regionale Abhängigkeit bei der Berechnung von Lernkosten
+   berücksichtigt. Bisher eingearbeitet sind Alba und KanThaiPan. 
+Christof hat mich auf eine Inkompatibilität zwischen Postgress 7.0 und 7.1
+   hingewiesen -> ist beseitigt. Aufgrund dieser Änderung gibt es jetzt 
+   erstmal eine neue Version :-)
+
+##########################################################################
+NEWS IN VERSION 0.3beta4
+Ausdruck von KiDo-Techniken MIT KURZBESCHREIBUNG (Dank an Nils) ist 
+   jetzt möglich
+Bei der Gelegenheit gleich einen Bug aus dem Zauberausdruck mit entfernt.
+ (Hat vielleicht jemand Lust und Zeit eine Kurzbeschreibung der Zauberformeln
+   einzugeben?)
+Anmerkungen: Beim KiDo habe ich versucht alle Regeln zu berücksichtigen die
+   es gibt. Wenn irgendjemanden ein Fehler auffällt, dann bitte ich um Mitteilung.
+   Einzige (mir bekannte) Ausnahme ist, daß es möglich ist Meistertechniken
+   zu wählen, da es keine Möglichkeit gibt zu testen, ob ein Charakter
+   das Te im KiDo erreicht hat. Ich weiß auch nicht, ob es sinnvoll ist dafür 
+   einen Check einzuführen, was meit ihr? Wie könnte ein solcher Test aussehn?
+
+In Planung:
+   Waeland -> Stefan ????,   midgard-site@t-online.de
+   Eschar  -> Sebastian Horstmar, horstse@uni-muenster.de
+   Nahuatlan -> Nils Richter, anarion@uni-muenster.de
+   Rawindra -> Fabian Wagner, Fabian.Wagner@01019freenet.de
+Sieht doch sehr gut für die nahe Zukunft aus ....
+
+##########################################################################
+NEWS IN VERSION 0.3beta3
+Ich habe mit mehreren hartnäckigen Bug gekämpft:
+   - Das Auswählen von länderspezifischen Waffen hat nicht richtig funktioniert
+     Dadurch kam die Waffenwahl (Besitz) völlig durcheinander. 
+   - Durch die kulturspezifischen Waffen kam es zu abstürzen, wenn das Dokument
+     ausgedruckt werden sollt
+Soweit ich das bis jetzt beurteilen kann habe ich DIESE Käfer besiegt...
+
+Außerdem funktioniert die Wahl von KiDo Techniken jetzt.
+Was (sollte) funktioniert:
+   lernen, steigern, Wahl eines KiDo Stils, Berücksichtigung des Stil,
+   Berücksichtigung der Stufen der Techniken (Schüler, Eingeweihte, Meister)
+Was nicht berücksichtigt wird:
+   Ob Te erworben wurde, muß der Spieler selber kontrollieren :-)
+Was noch fehlt sind die Icons für KiDo
+
+Ich gehe davon aus, daß es durch die (noch nciht abgeschlossene 
+Ländererweiterung noch einige Bugs gibt, ich bitte um Rückmeldung.
+
+##########################################################################
+NEWS IN VERSION 0.3beta2
+Im File auf dem Server fehlten 2 Pixmaps...
+
+##########################################################################
+NEWS IN VERSION 0.3beta1
+Weitere Pixmaps eingebaut.
+Die Pixmaps müssen nicht mehr getrennnt heruntergeladen werden, die 
+   Installation sollte einfacher sein (Ich bitte um Rückmeldung)
+'KiDo' hat als Voraussetzung 'TaiTschi'
+Die 'Zauber' Seiten in den Notebooks werden nur noch dann angezeigt, wenn 
+   auch eine entsprechende Charakterklasse gewählt wird. Entsprechendes 
+   gilt auch für die 'KiDo' Seiten in den Notebooks.
+Für Eingeweihte (und solche die es werden wollen, hier zähle ich mich mal mit dazu:-):
+Auf dem berlios-server gibt es ein CVS-Repository, in dem (dank Christof)
+   auch die Datenbank liegt. Wer näheres wissen will liest entweder ein 
+   dickes Buch, schaut sich mal die Entwicklerseite 
+   http://developer.berlios.de/projects/midgard an, oder fragt 
+   Christof.
+Auch wenn es eigentlich mehr kann als GENERIEREN, hat sich bis auf weiteres
+   der Name MCG = MidgardCharakterGenerator eingebürgert, wenn jemand einen
+   treffenderen Namen weiß, dann möge er mir den miteilen :-)
+
+COMING SOON:
+Die KiDo Datenbank ist NOCH nicht da, daher können noch keine KiDo 
+   Techniken gelernt werden, obwohl die Oberfläche dafür vorhanden ist.
+   (Nils arbeitet auf hochturen daran :-)
+Für Eschar hat sich auch jemand gefunden ... *freu*
+
+##########################################################################
+NEWS IN VERSION 0.3beta0
+Einige kleinere Bugs beseitigt und andere kleinere 
+   Schönheitsreperaturen :-) vorgenommen.
+Alessandro hat fast alle Pixmaps fertig -> Die Oberfläche wird bunt
+Es gibt jetzt ein Info Fenster, wer seinen Namen da finden möchte, ist herzlich
+   eingeladen sich eine Region vorzuknöpfen :-)
+KanThaiPan ist als erste Region eingearbeitet:
+   - Fertigkeiten
+   - Waffen
+   - Alias Namen für Waffen
+   - SaMurai-Rüstungen
+Verteidigungsbonus beim Kampfstab und KanThai Waffen wird berücksichtigt
+Die KiDo Fähigkeiten fehlen noch :-(
+KanThaiPanische Zaubersprüche fehlen noch aus 2 Gründen:
+   1. Es gibt noch keine Einteilung in das neue Magiesystem
+   2. Es hat noch keiner vermißt bzw. danach gefragt
+Alba Region eingearbeitet (Wenn ich mich nicht verguckt habe, dann gibt es NUR
+ den Zauber 'Leomies Birneneis' und einige besondere Waffen,
+ oder habe ich etwas übersehen?
+
+==> Hier zeigt sich der Vorteil einer Datenbank!!! Es ist nahezu trivial
+die regionalen Ergänzungen vorzunehmen *freu*
+
+##########################################################################
+NEWS IN VERSION 0.2beta5
+angeborene Fertigkeiten können jetzt editiert werden (rechte Maustaste)
+Stand 'entry' durch 'optionmenu' ersetzt -> keine Falscheingabe mehr möglich.
+
+##########################################################################
+NEWS IN VERSION 0.2beta4
+Nach 'neuer Charakter' waren Abstürze möglich, da keine Charakterklasse
+   gesetzt war -> behoben
+Es können magische Waffen unter 'steigern' -> 'Besitztümer' gewählt werden,
+   wird beim Auswürfeln der Besitztümer eine 100 gewürfelt, so weist das 
+   Programm darauf hin, daß die Einstellung von Hand vorgenommen werden muß. 
+Ausdruck der Resistenzboni umformatiert.
+Ausdruck der magischen Waffen mit '*' und berücksichtigten Resistenzboni
+Ausdruck des Awehrwertes unter Berücksichtigung von (mag.) Verteidigungswaffen
+
+
+##########################################################################
+NEWS IN VERSION 0.2beta3
+Das Info Fenster vernichtet sich nach 4 Sekunden selbstständig.
+Abspeichern von Charakteren war fehlerhaft (durch die Umstellung der 
+   Charakterklassen)
+Beruf Gelehrer in Datenbank korrigiert
+
+
+##########################################################################
+NEWS IN VERSION 0.2beta2
+Hilfe leicht überarbeitet und ergänzt
+Bug bei Sprachen lernen beseitigt: GFP werden jetzt addiert
+Einige Bugs aus der Datenbank beseitigt
+überflüssige  Spalten und Tabellen aus der Datenbank entfernt
+Kleinerer Bug in Oberfläche beseitigt (Zauber lernen Fenster)
+Neue Charakterklassen können nun ergänzt werden, ohne das der Quellcode
+geändert werden muß. Es reicht diese in die entsprechenden Tabellen einzutragen
+Datenbank aufgeräumt
+Info Fenster kann abgeschaltet werden.
+[ Die Regionen-Knöpfe sind noch ohne Funktion ]
+
+##########################################################################
+NEWS IN VERSION 0.2beta1
+Fehler in Datenbank beseitigt (Schilde sind maskulin nicht neutrum :-)
+   -> konten nicht gelernt werden.
+Auswürfeln der Rüstung funktioniert jetzt (hoffentlich) richtig.
+
+##########################################################################
+NEWS IN VERSION 0.2beta0
+Fertigkeit 'Fallen entdecken' führe zu einem Absturz -> behoben
+Fertigkeit 'Giftmischen' führe zu einem Absturz -> behoben
+
+Voraussetzung für Fertigkeiten werden beim lernen und beim steigern 
+   berücksichtigt (Werte) bzw. angezeigt (andere Fertigkeiten oder Waffen)
+Vorraussetzungen für Waffen werden beim lernen und steigern berücksichtigt
+   (Werte) bzw. angezeigt (andere Waffen)
+(Vielen Dank an Alessandro für das abtipen/parsen der Werte.)
+Aus der Datenbank habe ich die nicht mehr benötigte Tabelle 'berufe' entfernt
+Vorteile aufgrund der Berufswahl werden bei der Waffenwahl berücksichtigt
+Programm stürzt nicht mehr ab, wenn ein nicht Zauberer Zauber lernen will
+Graphische Oberfläche leicht überarbeitet
+Schadensbonus nur noch für Nahkampfwaffen
+
+
+##########################################################################
+NEWS IN VERSION 0.1beta1
+Fehler bei der Berufsauswahl beseitigt
+Vorteile aufgrund der Berufswahl werden bei der Fertigkeitsauswahl berücksichtigt
+
+##########################################################################
+NEWS IN VERSION 0.1beta0
+Die Waffengrundkenntnisse werden für einen 'Neuen Charakter' zurückgesetzt.
+
+##########################################################################
+NEWS IN VERSION 0.1alpha8
+Bei der Berufswahl wird der Stand berücksichtigt
+Bei der Berufswahl werden die Vorraussetzungen (St,Ge,Ko,In,pA,Au,k|z) berücksichtigt
+Rechtschreibefehler in der Datenbank beseitigt => 
+   Verhören + Glücksspiel + Schlittschulaufen funktioniert 
+   (Dank an Alessandro)
+
+##########################################################################
+NEWS IN VERSION 0.1alpha7
+Ausdruck des Charakterdokumentes sollte jetzt vollständig sein.
+(Der Dank diesbezgl. geht mal wieder an Christof:-)
+Angriffsrang und Abwehrmodifikation werden angegeben
+Einige Bugs beseitigt
+
+##########################################################################
+NEWS IN VERSION 0.1alpha6
+Einige kleinere Bugs beseitigt
+Waffen aussuchen komplett, 
+Ausdruck von Waffen, die ein Charakter besitzt mit
+   Erfolgswert und Schaden (incl. waffenl. Kampf!)
+Damit der Ausdruck wieder ohne Stopp funktioniert habe ich eine '~'
+   als Defaultwert eingetragen, da diese für LaTeX 
+   ein unsichtbares Zeichen darstellt.
+Peitsche, Lasso, Bola und Netz hinzugefügt.
+ACHTUNG: Aufgrund einer Beschränkung von LaTeX können bisher nur vier Waffen
+als Besitz ausgedruckt werden. 
+
+##########################################################################
+NEWS IN VERSION 0.1alpha5
+Bugs aus LaTeX Dokument entfernt
+Auswürfeln von Rüstung möglich -> Anzeige von Auswirkugen im Charakterblatt
+Auswürfeln von Geld bei Spielbeginn möglich -> Anzeige im Charakterblatt
+Aussuchen von Geld und Rüstung beim steigern -> Anzeige im Charakterblatt
+Beim LaTeX Dokument wird die Schrift skaliert, so daß der Text in die 
+   vorgegebenen Kästen paßt. Dadurch kommt es ab zu einem 
+   LaTeX Fehler wenn nicht alle Felder gefüllt sind, die durch '\resizebox'
+   skaliert werden sollen:
+   'Package graphics Error: Division by 0.'
+   Wenn man dann auf 's' + ENTER drückt wird aber ein korrektes Dokument 
+   erstellt. Ich wäre dankbar, wenn jemand weiß wie man diesen Fehler 
+   beseitigen (oder unterdrücken) kann (Vielleicht funktioniert eine '~'?).
+Waffen können zwar auch ausgesucht und ausgedruckt werden, 
+   ABER dieser Teil funktioniert noch nicht 100%tig, also braucht ihr hier auch keine
+   Bugs zu melden, ich veröffentliche diese Version nur, weil in der 
+   Vorherigen der Fehler im LaTeX Dokument war.
+   
+
+
+##########################################################################
+NEWS IN VERSION 0.1alpha4
+Sprachen werden im LaTeX Dokument angezeigt.
+Auf Sandros Anregung hin temporäre Dateien von 'tmp_*' in 'midgard_tmp_*' 
+   umbenannt.
+##########################################################################
+NEWS IN VERSION 0.1alpha3
+Leichte Überarbeitung der graphischen Oberfläche
+Scrollwindows eingefügt, die aus mir unbekannten Gründen 
+   verlorengeganegen waren.
+Löschen von Charakteren in der Datenbank möglich.
+   Dazu darf kein Charaktername eingetragen sein. Durch 
+   Klicken auf 'Charakter laden' bekommt man dann die 
+   Möglichkeit einen Charakter zu laden oder auch zu löschen.
+Ich habe die Fertigkeiten, die nicht zu dem Grundregelwerk gehöhren 
+   erstmal gelöscht, da sie zu einem Programmabsturz führten.
+   Ich denke auch, daß es nur mäßig Sinn macht, die Fertigkeiten
+   aus 'Barbarenwut und Ritterehere' einzubauen, da sowieso bald ein 
+   neues Regelwerk erscheinen wird. Wenn jemand von Euch diese Fertigkeiten
+   eintippen möchte, so wäre das natürlich sehr schön.
+   Am einfachsten ist es Ihr verwendet pgaccess um entsprechenden Tabellen
+   zu editieren. Im Programmcode selber muß dazu nichts geändert werden.
+   Anders sieht es mit Fertigkeiten aus den Regionen aus, die könnte man auch 
+   jetzt schon eintippen. Hat jemand Lust?
+Einfaches Updatescript hinzugefügt, das sich um das Update der Datenbank
+   kümmert und dabei die bisher erzeugten Charaktere erhält.
+
+##########################################################################
+NEWS IN VERSION 0.1alpha2
+Man einen Erfolgswert mit Praxispunkten um 1(2) Punkte höher steigern 
+kann, wenn die entsprechende Basiseigenschaft entsprechnde hoch ist.
+
+Und es gab einen Fehler in der Installationsanleitung:
+Es muß 
+'psql midgard < midgard.postgres' heißen!!!!!
+sonst bleibt die Datenbank leer. Sorry.
+
+##########################################################################
+NEWS IN VERSION 0.1alpha1
+Zahlreiche Bugs beseitigt:
+
+1. Die Lernpunkte waren nicht editierbar, jetzt sind sie es wieder.
+2. Geheimmechanismen öffnen war nicht von Beginn an lernbar (Fehler in
+der Datenbank)
+3. Das Hilfe Fenster war viel zu klein.
+4. 'Giftmischen' war in der Datenbank falsch geschrieben, konnte daher
+nicht gelernt werden.
+5. 'Überleben' in der Datenbank überarbeitet.
+6. Bogen zu Pferd funktioniert jetzt im Lernschema.
+7. Sprache im Lernschema korrigiert.
+8. Zauberkunde kostet den Elementarbeschwörer 3 Lernpunkte
+9. Priester Herrschaft/Krieg stürzte ab -> beseitigt
+10. Priester Herrschaft kosten Sagenkunde und Beredsamkeit je 2
+Lernpunkte
+
+
+##########################################################################
+NEWS IN VERSION 0.1alpha0
+Programm
+* Bugs aus der Datenbankanfrage beim Steigern und beim Zaubermaterial entfernt
+* Beachtung des maximal möglichen Erfolgswertes bei Waffenfertigkeiten für    
+   Krieger/Söldner bzw. Zauberer
+* Mit Praxispunkten kann gesteigert werden
+* Heimatland kann gewählt werden
+* Sprachen können als Muttersprache gewählt werden
+* Sprachen und Lesen/Schreiben kann gelernt + gesteigert werden
+* Zahllose sonstige Bugs entfernt
+* Gründliche Überarbeitung der Graphischen Oberfläche
+
+Datenbank
+* Überleben aufgeteilt in Regionen
+* Fertigkeit 'Fallen' hinzugefügt 
+* Sagenkunde jetzt Grundfähigkeit für ZAU
+* Sprachen und Schriften Tabellen angelegt
+* Anfangswert für Stehlen auf +8 im Lernschema für Sp korrigiert

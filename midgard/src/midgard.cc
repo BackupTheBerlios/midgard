@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.37 2002/03/25 15:12:36 thoma Exp $
+// $Id: midgard.cc,v 1.38 2002/04/25 13:08:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,22 +19,20 @@
 
 #include <gtk--/main.h>
 #include "midgard_CG.hh"
-#ifndef USE_XML   
-#include <Aux/dbconnect.h>
-#endif
 //#include <unistd.h>
 #include "xml.h"
 
 int main(int argc, char **argv)
 {   
-     Gtk::Main m(&argc, &argv,true); 
+   Gtk::Main m(&argc, &argv,true); 
    // hmm ich habe gehört, das true hilft gegen den Umlaut bug ...
    
    std::string datei;
    if (argc==2) datei=argv[1];
 
-   manage(new midgard_CG(datei));
+   midgard_CG *magus=manage(new midgard_CG(datei));
    m.run();
+//   magus->destroy();
       
    xml_free();
    return 0;
