@@ -51,8 +51,9 @@ cH_MidgardBasicElement::cH_MidgardBasicElement(const std::string& name)
 std::string MidgardBasicElement::RegionString(const Datenbank &D) const
 {
   std::vector<cH_Region> V=D.Regionen;
-  return Regionen_All::getRegionfromAbk(V,region)->Name()
-      +" ("+RegionZusatz()+")";
+  std::string s=Regionen_All::getRegionfromAbk(V,region)->Name();
+  if(!RegionZusatz().empty()) s+=" ("+RegionZusatz()+")";
+  return s;
 }
 
 

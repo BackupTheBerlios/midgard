@@ -1,4 +1,4 @@
-// $Id: zauber_exp.cc,v 1.9 2002/05/02 12:55:48 thoma Exp $
+// $Id: zauber_exp.cc,v 1.10 2002/05/02 13:52:02 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -39,7 +39,7 @@ void arkanum_speichern(std::ostream &o)
   {o << "  <Spruch";
    std::string zauber=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
-   fetch_and_write_string_attrib(is, o, "Region Zusatz");
+   fetch_and_write_string_attrib(is, o, "RegionZusatz");
    fetch_and_write_string_attrib(is, o, "Grad");
    fetch_and_write_int_attrib(is, o, "Lernkosten");
    fetch_and_write_string_attrib(is, o, "AP");
@@ -97,7 +97,7 @@ void arkanum_speichern(std::ostream &o)
   {o << "  <Spruch";
    std::string zauber=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
-   fetch_and_write_string_attrib(is, o, "Region Zusatz");
+   fetch_and_write_string_attrib(is, o, "RegionZusatz");
    o << ">\n";
 
    grund_standard_ausnahme(o, "zauber_typen",zauber,"",true);
@@ -121,7 +121,7 @@ void arkanum_speichern(std::ostream &o)
   {o << "  <Zauberwerk";
    std::string zauberwerk=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
-   fetch_and_write_string_attrib(is, o, "Region Zusatz");
+   fetch_and_write_string_attrib(is, o, "RegionZusatz");
    std::string art=fetch_and_write_string_attrib(is, o, "Art");
    std::string stufe=fetch_and_write_string_attrib(is, o, "Stufe");
    fetch_and_write_string_attrib(is, o, "Zeitaufwand");
@@ -168,7 +168,7 @@ void arkanum_speichern(std::ostream &o)
   {o << "  <Zauberwerk";
    std::string zauberwerk=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
-   fetch_and_write_string_attrib(is, o, "Region Zusatz");
+   fetch_and_write_string_attrib(is, o, "RegionZusatz");
    std::string art=fetch_and_write_string_attrib(is, o, "Art");
    std::string stufe=fetch_and_write_string_attrib(is, o, "Stufe");
    o << ">\n";
