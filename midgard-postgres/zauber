@@ -223,7 +223,7 @@ Elementarwesen binden	7000	18	Geste	G	3	\N	\N	Beschwörung	Luft	verändert	Feuer	3
 Elementenwandlung	800	6	Geste	3	\N	\N	\N	\N	var	verwandelt	var	var	5 m	Umgebung	1 m²	perm	elementar	Edelstein (50GS)	t	\N	\N	\N
 Elfenfeuer	1600	4	Geste	4	\N	\N	\N	\N	Holz	erschafft	Holz	10 s	30 m	Umgebung	Strahl	2 min	druidisch	Brillant, rec. (300GS)	t	Runenstab	\N	\N
 Elfenklinge	800	3	Geste	3	TuT	\N	\N	\N	Holz	verändert	Metall	10 s	B	Umgebung	1 Ob	10 min	druidisch		t	\N	\N	\N
-Entfesseln	240	2	Wort	2	H&D	\N	\N	\N	\N	\N	\N	20 s	0	Umgebung	1 Ob	0	dämonisch		t	\N	\N	\N
+Entfesseln	240	2	Wort	2	H&D	\N	\N	\N	\N	\N	\N	20 s	0	Umgebung	0	dämonisch	\N		t	\N	\N	\N
 Entgiften	300	2	Wort	2	\N	\N	\N	\N	Magan	zerstört	Eis	30 s	3 m	Umgebung	1 Ob	0	druidisch		f	\N	\N	\N
 Erdbeben	3000	6	Geste	5	\N	\N	\N	\N	Erde	bewegt	Erde	1 min	0 m	Umgebung	1 km Uk	10 min	elementar		t	\N	\N	\N
 Erdeelementargeist beschwören	6000	6	Geste	6	3	\N	Erde	Beschwörung	Magan	bewegt	Feuer	4 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 200 GS	f	\N	\N	\N
