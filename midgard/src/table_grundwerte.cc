@@ -47,6 +47,7 @@ table_grundwerte::table_grundwerte(GlademmData *_data)
    eventbox_werte_edit->add(*_m);
    eventbox_werte_edit->show_all();
    _m->signal_toggled().connect(SigC::slot(*this, &table_grundwerte::on_togglebutton_edit_werte_toggled),true);
+   fill_spezies();
   edit_werte=false;
   edit_sensitive(false); // noch weg ?
 }
@@ -56,6 +57,8 @@ void table_grundwerte::zeige_werte(bool typ2_hide)
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__); 
    if(!hauptfenster) return;
    block_changed=true;
+  fill_typauswahl();
+//   fill_spezies(); // sobald Mann/Frau interessant wird
    midgard_check_werte100();
    
    Abenteurer &A=abentaus->getAbenteurer();
@@ -110,6 +113,9 @@ void table_grundwerte::zeige_werte(bool typ2_hide)
    combo_hand->set_popdown_strings(A.Geschlecht()==Enums::Frau?Vhandf:Vhand);
    combo_hand->get_entry()->set_text(A.Hand());
 
+   if(A.Stadt_Land()==Enums::Land)  radiobutton_land->set_active(true);
+   if(A.Stadt_Land()==Enums::Stadt)  radiobutton_stadt->set_active(true);
+
    entry_herkunft->set_text(A.Herkunft()->Name());
    entry_glaube->set_text(A.Glaube());
    entry_nameC->set_text(A.Name_Abenteurer());
@@ -134,11 +140,13 @@ void table_grundwerte::zeige_werte(bool typ2_hide)
    block_changed=false;
 }
 
-void table_grundwerte::neuer_charakter()
-{
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__); 
-   if(!hauptfenster) return;
-   block_changed=true;
+#include <Misc/Trace.h>
+const UniqueValue::value_t table_grundwerte::trace_channel
+                  =ManuProC::Tracer::channels.get();
+
+void table_grundwerte::sync_wizard(gpointer x)
+{  //edit_sensitive();
+#warning wizard!
    button_grundwerte->set_sensitive(true);
    combo_typ->set_sensitive(false);
    combo_spezies->set_sensitive(true);
@@ -146,23 +154,4 @@ void table_grundwerte::neuer_charakter()
    radiobutton_stadt->set_sensitive(true);
    radiobutton_land->set_sensitive(true);
    frame_wuerfelvariante->hide();
-   Abenteurer &A=abentaus->getAbenteurer();
-   if(A.Stadt_Land()==Enums::Land)  radiobutton_land->set_active(true);
-   if(A.Stadt_Land()==Enums::Stadt)  radiobutton_stadt->set_active(true);
-   fill_typauswahl();
-   fill_spezies();
-   combo_spezies->get_entry()->set_text(A.Spezies()->Name());
-   combo_typ ->get_entry()->set_text(A.Typ1()->Name(A.Geschlecht()));
-   combo_typ2->get_entry()->set_text(A.Typ2()->Name(A.Geschlecht()));
-   block_changed=false;
-   zeige_werte();
-   hauptfenster->getChar().saved();
-}
-
-#include <Misc/Trace.h>
-const UniqueValue::value_t table_grundwerte::trace_channel
-                  =ManuProC::Tracer::channels.get();
-
-void table_grundwerte::sync_wizard()
-{  //edit_sensitive();
 }

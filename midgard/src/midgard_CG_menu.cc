@@ -244,23 +244,24 @@ void midgard_CG::menubar_init()
         mi->setSensitive(getChar().proxies.checks[Optionen::Original],true);
    }
  regionen_menu->show_all();
-
-
 }
 
 
 
 void midgard_CG::menu_history_init(int oldsize)
 {
-  Gtk::Menu *M=main_menubar->items()[0].get_submenu();
+  Gtk::Menu *M=manage(new Gtk::Menu); // main_menubar->items()[0].get_submenu();
+  zuletzt_geladen_mi->set_submenu(*M);
   Gtk::Menu::MenuList L=M->items();
-  for(int i=0;i<oldsize;++i) L.pop_back();
   int x=1;
-  for(std::list<std::string>::const_iterator i=Programmoptionen.LetzteDateien().begin();i!=Programmoptionen.LetzteDateien().end();++i)
+  for(std::list<std::string>::const_iterator i=Programmoptionen.LetzteDateien().begin();
+  		i!=Programmoptionen.LetzteDateien().end();++i)
    {
-     L.push_back(Gtk::Menu_Helpers::MenuElem(*i, Gtk::Menu_Helpers::AccelKey("<Control>"+itos(x))));
+     if (x<10) L.push_back(Gtk::Menu_Helpers::MenuElem(*i, Gtk::Menu_Helpers::AccelKey("<Control>"+itos(x))));
+     else L.push_back(Gtk::Menu_Helpers::MenuElem(*i));
      Gtk::MenuItem *mi=(Gtk::MenuItem *)&L.back();
      mi->signal_activate().connect(SigC::bind(SigC::slot(*static_cast<class midgard_CG*>(this), &midgard_CG::xml_import_history),*i));
+     mi->show();
      ++x;
    }
 }
@@ -276,6 +277,7 @@ void midgard_CG::push_back_LDateien(std::string s)
    }
 
   Programmoptionen.LetzteDateien().push_front(s);
+#warning MVC
   menu_history_init(oldsize);
 }
 

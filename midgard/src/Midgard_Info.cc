@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.cc,v 1.84 2003/09/29 11:01:35 christof Exp $
+// $Id: Midgard_Info.cc,v 1.85 2003/12/02 07:44:40 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -53,6 +53,9 @@ void Midgard_Info::set_Regionen(const std::vector<cH_Region>& Regionen)
      _tab->attach(*_image,0,1,row,row+1,Gtk::AttachOptions(0),Gtk::AttachOptions(0),0,0);
      _tab->attach(*_lname,1,2,row,row+1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
      _tab->attach(*_lcopy,2,3,row,row+1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
+     _lcopy->show();
+     _lname->show();
+     _image->show();
      ++row;
    }
   std::string illutxt2="Abenteurergruppe (DFR3) von Josef Ochmann\ncopyright 1985";
@@ -61,6 +64,8 @@ void Midgard_Info::set_Regionen(const std::vector<cH_Region>& Regionen)
   _li2->set_justify(Gtk::JUSTIFY_LEFT);
   _tab->attach(*_pi2,0,1,row,row+1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
   _tab->attach(*_li2,1,3,row,row+1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
+  _li2->show();
+  _pi2->show();
   ++row;
 
   std::string illutxt3="Kan Thai Krieger von Hank Wolf\ncopyright 1992";
@@ -69,6 +74,8 @@ void Midgard_Info::set_Regionen(const std::vector<cH_Region>& Regionen)
   _li3->set_justify(Gtk::JUSTIFY_LEFT);
   _tab->attach(*_pi3,0,1,row,row+1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
   _tab->attach(*_li3,1,3,row,row+1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
+  _li3->show();
+  _pi3->show();
   ++row;
 
   std::string illutxt="Alle anderen Illustrationen von Werner Öckl\ncopyright 2000-2001";
@@ -77,6 +84,8 @@ void Midgard_Info::set_Regionen(const std::vector<cH_Region>& Regionen)
   _li->set_justify(Gtk::JUSTIFY_LEFT);
   _tab->attach(*_pi,0,1,row,row+1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
   _tab->attach(*_li,1,3,row,row+1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
+  _li->show();
+  _pi->show();
   ++row;
 
   std::string copytxt="MIDGARD ist Copyright 1981-2001 by\nVerlag für F&SF-Spiele, Stelzenberg";
@@ -85,6 +94,8 @@ void Midgard_Info::set_Regionen(const std::vector<cH_Region>& Regionen)
   _lc->set_justify(Gtk::JUSTIFY_LEFT);
   _tab->attach(*_pc,0,1,row,row+1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
   _tab->attach(*_lc,1,3,row,row+1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
+  _lc->show();
+  _pc->show();
   ++row;
 
   std::string copytxt2="Sämtliche Daten und Bilder wurden mit freundlicher\nErlaubnis des VFSF entnommen, copyright 1980-2001 by Verlag\n für F&SF-Spiele, Stelzenberg";
@@ -93,6 +104,8 @@ void Midgard_Info::set_Regionen(const std::vector<cH_Region>& Regionen)
   _lc2->set_justify(Gtk::JUSTIFY_LEFT);
   _tab->attach(*_pc2,0,1,row,row+1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
   _tab->attach(*_lc2,1,3,row,row+1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
+  _lc2->show();
+  _pc2->show();
   ++row;
 
   _tab->set_col_spacings(10);

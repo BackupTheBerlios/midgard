@@ -36,25 +36,15 @@ was bedeutet:
 
   Landeskunde geht, Schreiben: Alte Sprache nicht
 
-- Undo/Redo verändern die Lernpunkte noch nicht ...
-	Undo/Redo über array<st_abenteurer> realisieren bzw Teil davon
-
 - Dialoge, anlegen von neuen Artikeln ...
 
 - Nachsehen ob MVC mit Abenteurern tatsächlich funktioniert
 
 - Schummeln in Abenteurer?
 
-- Inaktiver Wizard (nur deaktivieren) (alter Standard)
-	Aktiver Wizard (alter Wizard)
-	alles möglich (Schummeln/Auswählbar machen)
-
 - Preise und Lernschema sind Regionenäbhangig ...
 
 - InfoWindow neu erzeugen, eventuell einfärben
-
-- Größe des Hauptfensters:
-  Lernschema ändert min x, Steigern min y - warum?
 
 - Optionen werden nicht ausgewertet um Toolbar options zu setzen
 
@@ -62,14 +52,11 @@ was bedeutet:
 
 - set_remember fehlt ganz
 
-- WindowInfo zeigt nichts an ...
-
 - Wizard implementieren
 
 - Model/View implementieren
 
-- VAbenteurer herauslösen (nicht mehr an midgard_CG koppeln = mehrere
-Fenster möglich, Neustart des Fensters möglich)
+- mehrere Fenster, Neustart des Fensters
 
 - text/icon ja/nein bei DoubleButtons
 
@@ -83,9 +70,23 @@ Fenster möglich, Neustart des Fensters möglich)
 - Needsaction als Wizard steps implementieren ->"Jetzt ..."
 	(table_grundwerte_typauswahl.cc, table_steigern_fertigkeiten.cc)
 
-- geladene Regionen werden nicht angezeigt - warum?
+?- geladene Regionen werden nicht angezeigt - warum?
 
 - Komponenten: Entries/Spinbuttons mit many_changed+activate (wie MVC)
 	und dann in Grundwerte ersetzen (Werte ändern ...)
 
 - Tooltips in Abhängigkeit von Modellen ...
+
+- Rassen werden nicht dargestellt
+
+- Lizenz
+
+- beim Laden Abenteurerliste nicht da?
+
+- Buttons/DoubleButtons in Toolbars nicht richtig Icon/Text
+
+- Hintergrundbilder ?
+
+- Schließen/Exit
+
+- vabenteurer->getLernpunkte()  => (*vabenteurer)->getLernpunkte()

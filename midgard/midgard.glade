@@ -221,7 +221,7 @@
 			  <accelerator key="N" modifiers="GDK_MOD1_MASK" signal="activate"/>
 
 			  <child internal-child="image">
-			    <widget class="GtkImage" id="image48">
+			    <widget class="GtkImage" id="image67">
 			      <property name="visible">True</property>
 			      <property name="stock">gtk-new</property>
 			      <property name="icon_size">1</property>
@@ -269,7 +269,28 @@
 			  <accelerator key="O" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 
 			  <child internal-child="image">
-			    <widget class="GtkImage" id="image49">
+			    <widget class="GtkImage" id="image68">
+			      <property name="visible">True</property>
+			      <property name="stock">gtk-open</property>
+			      <property name="icon_size">1</property>
+			      <property name="xalign">0.5</property>
+			      <property name="yalign">0.5</property>
+			      <property name="xpad">0</property>
+			      <property name="ypad">0</property>
+			    </widget>
+			  </child>
+			</widget>
+		      </child>
+
+		      <child>
+			<widget class="GtkImageMenuItem" id="zuletzt_geladen_mi">
+			  <property agent="glademm" name="cxx_visibility">protected</property>
+			  <property name="visible">True</property>
+			  <property name="label" translatable="yes">zuletzt geladen ...</property>
+			  <property name="use_underline">True</property>
+
+			  <child internal-child="image">
+			    <widget class="GtkImage" id="image69">
 			      <property name="visible">True</property>
 			      <property name="stock">gtk-open</property>
 			      <property name="icon_size">1</property>
@@ -291,7 +312,7 @@
 			  <accelerator key="S" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 
 			  <child internal-child="image">
-			    <widget class="GtkImage" id="image50">
+			    <widget class="GtkImage" id="image70">
 			      <property name="visible">True</property>
 			      <property name="stock">gtk-save</property>
 			      <property name="icon_size">1</property>
@@ -312,7 +333,7 @@
 			  <signal name="activate" handler="xml_export_auswahl"/>
 
 			  <child internal-child="image">
-			    <widget class="GtkImage" id="image51">
+			    <widget class="GtkImage" id="image71">
 			      <property name="visible">True</property>
 			      <property name="stock">gtk-save-as</property>
 			      <property name="icon_size">1</property>
@@ -332,7 +353,7 @@
 			  <property name="use_underline">True</property>
 
 			  <child internal-child="image">
-			    <widget class="GtkImage" id="image52">
+			    <widget class="GtkImage" id="image72">
 			      <property name="visible">True</property>
 			      <property name="stock">gtk-convert</property>
 			      <property name="icon_size">1</property>
@@ -382,7 +403,7 @@
 			  <property name="use_underline">True</property>
 
 			  <child internal-child="image">
-			    <widget class="GtkImage" id="image53">
+			    <widget class="GtkImage" id="image73">
 			      <property name="visible">True</property>
 			      <property name="stock">gtk-print</property>
 			      <property name="icon_size">1</property>
@@ -511,7 +532,7 @@
 			  <accelerator key="W" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 
 			  <child internal-child="image">
-			    <widget class="GtkImage" id="image54">
+			    <widget class="GtkImage" id="image74">
 			      <property name="visible">True</property>
 			      <property name="stock">gtk-close</property>
 			      <property name="icon_size">1</property>
@@ -533,7 +554,7 @@
 			  <accelerator key="Q" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 
 			  <child internal-child="image">
-			    <widget class="GtkImage" id="image55">
+			    <widget class="GtkImage" id="image75">
 			      <property name="visible">True</property>
 			      <property name="stock">gtk-quit</property>
 			      <property name="icon_size">1</property>
@@ -575,7 +596,7 @@
 			  <accelerator key="Z" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 
 			  <child internal-child="image">
-			    <widget class="GtkImage" id="image56">
+			    <widget class="GtkImage" id="image76">
 			      <property name="visible">True</property>
 			      <property name="stock">gtk-undo</property>
 			      <property name="icon_size">1</property>
@@ -612,10 +633,10 @@
 	      </child>
 
 	      <child>
-		<widget class="GtkMenuItem" id="fenster1">
+		<widget class="GtkMenuItem" id="abenteurer_mi">
 		  <property agent="glademm" name="cxx_visibility">protected</property>
 		  <property name="visible">True</property>
-		  <property name="label" translatable="yes">Fenster</property>
+		  <property name="label" translatable="yes">Abenteurer</property>
 		  <property name="use_underline">True</property>
 		</widget>
 	      </child>
@@ -647,7 +668,7 @@
 			  <signal name="activate" handler="on_info_credits_menu_activate"/>
 
 			  <child internal-child="image">
-			    <widget class="GtkImage" id="image57">
+			    <widget class="GtkImage" id="image77">
 			      <property name="visible">True</property>
 			      <property name="stock">gnome-stock-about</property>
 			      <property name="icon_size">1</property>
@@ -12166,7 +12187,7 @@ Drucken</property>
 		    <widget class="GtkButton" id="button_grafik">
 		      <property agent="glademm" name="cxx_visibility">protected</property>
 		      <property name="visible">True</property>
-		      <property name="tooltip" translatable="yes">Linke Maustaste: Grafik hinzufügen.                        Rechte Maustaste: Grafik entfernen.</property>
+		      <property name="tooltip" translatable="yes">Grafik hinzufügen/wegnehmen.</property>
 		      <property name="can_focus">True</property>
 		      <property name="relief">GTK_RELIEF_NORMAL</property>
 		      <signal name="clicked" handler="on_button_grafik"/>
@@ -12178,7 +12199,8 @@ Drucken</property>
 			  <property name="spacing">0</property>
 
 			  <child>
-			    <widget class="GtkImage" id="pixmap148">
+			    <widget class="GtkImage" id="grafik_image">
+			      <property agent="glademm" name="cxx_visibility">protected</property>
 			      <property name="visible">True</property>
 			      <property name="pixbuf">Portrait-32.xpm</property>
 			      <property name="xalign">0.5</property>
@@ -15776,53 +15798,6 @@ Christof Petig</property>
 			  <property name="column_spacing">0</property>
 
 			  <child>
-			    <widget class="GtkHBox" id="hbox90">
-			      <property name="visible">True</property>
-			      <property name="homogeneous">False</property>
-			      <property name="spacing">0</property>
-
-			      <child>
-				<widget class="GtkImage" id="pixmap154">
-				  <property name="visible">True</property>
-				  <property name="pixbuf">GnuHead-trans.xpm</property>
-				  <property name="xalign">0.5</property>
-				  <property name="yalign">0.5</property>
-				  <property name="xpad">0</property>
-				  <property name="ypad">0</property>
-				</widget>
-				<packing>
-				  <property name="padding">0</property>
-				  <property name="expand">True</property>
-				  <property name="fill">True</property>
-				</packing>
-			      </child>
-
-			      <child>
-				<widget class="GtkImage" id="pixmap106">
-				  <property name="visible">True</property>
-				  <property name="pixbuf">Tux-med.xpm</property>
-				  <property name="xalign">0.5</property>
-				  <property name="yalign">0.5</property>
-				  <property name="xpad">0</property>
-				  <property name="ypad">0</property>
-				</widget>
-				<packing>
-				  <property name="padding">0</property>
-				  <property name="expand">True</property>
-				  <property name="fill">True</property>
-				</packing>
-			      </child>
-			    </widget>
-			    <packing>
-			      <property name="left_attach">0</property>
-			      <property name="right_attach">1</property>
-			      <property name="top_attach">0</property>
-			      <property name="bottom_attach">1</property>
-			      <property name="x_options">fill</property>
-			    </packing>
-			  </child>
-
-			  <child>
 			    <widget class="GtkImage" id="pixmap90">
 			      <property name="visible">True</property>
 			      <property name="pixbuf">MAGUS-Logo-Text-halb-t3.xpm</property>
@@ -15834,7 +15809,7 @@ Christof Petig</property>
 			    <packing>
 			      <property name="left_attach">0</property>
 			      <property name="right_attach">1</property>
-			      <property name="top_attach">1</property>
+			      <property name="top_attach">0</property>
 			      <property name="bottom_attach">2</property>
 			      <property name="x_options">shrink</property>
 			      <property name="y_options">expand|shrink|fill</property>

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.325 2003/12/01 11:53:55 christof Exp $
+// $Id: midgard_CG.cc,v 1.326 2003/12/02 07:44:40 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -283,5 +283,5 @@ void midgard_CG::refresh_char_list()
       mi->signal_activate().connect(SigC::bind(SigC::slot(
       		getChar(),&AbenteurerAuswahl::setAbenteurer_sig),i));
    }
-   fenster1->set_submenu(*abent_menu);
+   abenteurer_mi->set_submenu(*abent_menu);
 }
