@@ -35,11 +35,10 @@ cH_KiDo::cH_KiDo(const std::string& name IF_XML(,bool create))
  cH_KiDo *cached(cache.lookup(name));
  if (cached) *this=*cached;
  else
-#ifndef USE_XML
   {
+#ifndef USE_XML
    *this=cH_KiDo(new KiDo(name));
    cache.Register(name,*this);
-  }
 #else
   cerr << "KiDo '" << name << "' nicht im Cache\n";
   if (create)
@@ -53,6 +52,7 @@ cH_KiDo::cH_KiDo(const std::string& name IF_XML(,bool create))
   else throw NotFound();
 //  assert(!"KiDo im Cache");
 #endif  
+  }
 }
 
 #ifdef USE_XML

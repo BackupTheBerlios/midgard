@@ -36,11 +36,10 @@ cH_Sprache::cH_Sprache(const std::string& name IF_XML(,bool create))
  cH_Sprache *cached(cache.lookup(name));
  if (cached) *this=*cached;
  else
-#ifndef USE_XML
   {
+#ifndef USE_XML
    *this=cH_Sprache(new Sprache(name));
    cache.Register(name,*this);
-  }
 #else
   cerr << "Sprache '" << name << "' nicht im Cache\n";
   if (create)
@@ -52,6 +51,7 @@ cH_Sprache::cH_Sprache(const std::string& name IF_XML(,bool create))
   else throw NotFound();
 //  assert(!"Sprache im Cache");
 #endif  
+  }
 }
 
 #ifdef USE_XML

@@ -55,16 +55,16 @@ cH_Region::cH_Region(const std::string& name)
  cH_Region *cached(cache.lookup(name));
  if (cached) *this=*cached;
  else
-#ifndef USE_XML
   {
+#ifndef USE_XML
    *this=cH_Region(new Region(name));
    cache.Register(name,*this);
-  }
 #else
   cerr << "Region '" << name << "' nicht im Cache\n";
   throw NotFound();
 //  assert(!"Region im Cache");
 #endif  
+  }
 }
 
 #ifdef USE_XML

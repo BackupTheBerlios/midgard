@@ -37,11 +37,10 @@ cH_Zauberwerk::cH_Zauberwerk(const std::string& name,const std::string& art,
  cH_Zauberwerk *cached(cache.lookup(index));
  if (cached) *this=*cached;
  else
-#ifndef USE_XML
   {
+#ifndef USE_XML
    *this=cH_Zauberwerk(new Zauberwerk(name,art,stufe));
    cache.Register(index,*this);
-  }
 #else
   cerr << "Zauberwerk '" << name << "' nicht im Cache\n";
   if (create)
@@ -55,6 +54,7 @@ cH_Zauberwerk::cH_Zauberwerk(const std::string& name,const std::string& art,
   else throw NotFound();
 //  assert(!"Zauberwerk im Cache");
 #endif
+  }
 }
 
 #ifdef USE_XML

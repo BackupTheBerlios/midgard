@@ -36,11 +36,10 @@ cH_Schrift::cH_Schrift(const std::string& name IF_XML(,bool create))
  cH_Schrift *cached(cache.lookup(name));
  if (cached) *this=*cached;
  else
-#ifndef USE_XML 
   {
+#ifndef USE_XML 
    *this=cH_Schrift(new Schrift(name));
    cache.Register(name,*this);
-  }
 #else
  cerr << "Schrift '" << name << "' nicht im Cache\n";
   if (create)
@@ -53,6 +52,7 @@ cH_Schrift::cH_Schrift(const std::string& name IF_XML(,bool create))
   else throw NotFound();
 //  assert(!"Schrift im Cache");
 #endif
+  }
 }
 
 #ifdef USE_XML

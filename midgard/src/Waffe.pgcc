@@ -35,11 +35,10 @@ cH_Waffe::cH_Waffe(const std::string& name IF_XML(, bool create))
  cH_Waffe *cached(cache.lookup(name));
  if (cached) *this=*cached;
  else
-#ifndef USE_XML 
   {
+#ifndef USE_XML 
    *this=cH_Waffe(new Waffe(name));  
    cache.Register(name,*this);
-  }
 #else
   cerr << "Waffe '" << name << "' nicht im Cache\n";
   if (create)
@@ -51,6 +50,7 @@ cH_Waffe::cH_Waffe(const std::string& name IF_XML(, bool create))
   else throw NotFound();
 //  assert(!"Waffe im Cache");
 #endif
+  }
 }
 
 #ifdef USE_XML

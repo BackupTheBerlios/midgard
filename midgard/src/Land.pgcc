@@ -33,11 +33,10 @@ cH_Land::cH_Land(const std::string& name IF_XML(,bool create))
  cH_Land *cached(cache.lookup(name));
  if (cached) *this=*cached;
  else
-#ifndef USE_XML 
   {
+#ifndef USE_XML 
    *this=cH_Land(new Land(name));
    cache.Register(name,*this);
-  }
 #else
   cerr << "Land '" << name << "' nicht im Cache\n";
   if (create || name.empty()) // don t ask me ... it just works this way ...
@@ -49,6 +48,7 @@ cH_Land::cH_Land(const std::string& name IF_XML(,bool create))
   else throw NotFound();
 //  assert(!"Land im Cache"); 
 #endif
+  }
 }
 
 #ifdef USE_XML

@@ -32,11 +32,10 @@ cH_Fertigkeit_angeborene::cH_Fertigkeit_angeborene(const std::string& name IF_XM
  cH_Fertigkeit_angeborene *cached(cache.lookup(name));
  if (cached) *this=*cached;
  else
-#ifndef USE_XML
   {
+#ifndef USE_XML
    *this=cH_Fertigkeit_angeborene(new Fertigkeit_angeborene(name));
    cache.Register(name,*this);
-  }
 #else
   cerr << "angeborene Fertigkeit '" << name << "' nicht im Cache\n";
   if (create)
@@ -48,6 +47,7 @@ cH_Fertigkeit_angeborene::cH_Fertigkeit_angeborene(const std::string& name IF_XM
   else throw NotFound();
 //  assert(!"angeborene Fertigkeit im Cache");
 #endif
+  }
 }
 
 #ifdef USE_XML

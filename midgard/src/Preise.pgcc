@@ -33,12 +33,11 @@ cH_Preise::cH_Preise(const std::string& name IF_XML(,bool create))
 {
  cH_Preise *cached(cache.lookup(name));
  if (cached) *this=*cached;
-#ifndef USE_XML 
  else
   {
+#ifndef USE_XML 
    *this=cH_Preise(new Preise(name));
    cache.Register(name,*this);
-  }
 #else
   cerr << "Preis '" << name << "' nicht im Cache\n";
   if (create)
@@ -52,6 +51,7 @@ cH_Preise::cH_Preise(const std::string& name IF_XML(,bool create))
   else throw NotFound();
 //  assert(!"Preise im Cache");
 #endif
+  }
 }
 
 #ifdef USE_XML
