@@ -7104,11 +7104,12 @@ auswählen</property>
 					<widget class="Custom" id="alte_fert_tree">
 					  <property agent="glademm" name="cxx_visibility">protected</property>
 					  <property name="visible">True</property>
-					  <property name="creation_function">MidgardBasicTree(MidgardBasicTree::LONG_ALT_)</property>
+					  <property name="creation_function">MidgardBasicTree(MidgardBasicTree::FERT_ALT)</property>
 					  <property name="int1">0</property>
 					  <property name="int2">0</property>
 					  <property name="last_modification_time">Tue, 09 Jul 2002 10:42:51 GMT</property>
 					  <signal name="leaf_selected" handler="on_leaf_selected_alte_fert"/>
+					  <signal name="clicked" handler="on_leaf_selected_alte_fert2"/>
 					  <signal name="reorder" handler="on_alte_fert_reorder"/>
 					</widget>
 				      </child>
@@ -7131,7 +7132,7 @@ auswählen</property>
 					<widget class="Custom" id="neue_fert_tree">
 					  <property agent="glademm" name="cxx_visibility">protected</property>
 					  <property name="visible">True</property>
-					  <property name="creation_function">MidgardBasicTree(MidgardBasicTree::LONG_NEU)</property>
+					  <property name="creation_function">MidgardBasicTree(MidgardBasicTree::FERT_NEU)</property>
 					  <property name="int1">0</property>
 					  <property name="int2">0</property>
 					  <property name="last_modification_time">Mon, 31 Dec 2001 14:29:33 GMT</property>
@@ -7296,7 +7297,7 @@ auswählen</property>
 					    <widget class="Custom" id="neue_waffen_tree">
 					      <property agent="glademm" name="cxx_visibility">protected</property>
 					      <property name="visible">True</property>
-					      <property name="creation_function">MidgardBasicTree(MidgardBasicTree::LONG_NEU_WAFFE)</property>
+					      <property name="creation_function">MidgardBasicTree(MidgardBasicTree::WAFFE_NEU)</property>
 					      <property name="int1">0</property>
 					      <property name="int2">0</property>
 					      <property name="last_modification_time">Wed, 12 Jun 2002 06:37:31 GMT</property>

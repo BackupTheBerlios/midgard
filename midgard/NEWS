@@ -1,6 +1,11 @@
 Version 0.9.7
 - Wizard/Würfeln Buttons in der Statusleiste neu gestaltet
 - eingeklammerte Typen können jetzt ausgewählt werden
+- VAbenteurer::const_iterator statt Abenteurer* in MidgardBasicTree 
+	(behebt Absturz)
+- Optionen im Menü
+- Vereinheitlichung der MidgardBasicTree Enums
+- Vereinheitlichung des Fileselectors mit GtkmmAddons
 
 -------------- TODO ----------------
 

@@ -1,4 +1,4 @@
-// $Id: table_lernschema_fertigkeiten.cc,v 1.37 2004/01/22 07:40:18 christof Exp $
+// $Id: table_lernschema_fertigkeiten.cc,v 1.38 2004/08/31 16:58:28 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -68,7 +68,7 @@ void table_lernschema::on_angeborene_fertigkeit_right_clicked()
   list_Fertigkeit_ang_neu.clear();
   for(std::list<cH_MidgardBasicElement>::const_iterator i=L.begin();i!=L.end();++i)
     list_Fertigkeit_ang_neu.push_back(MBEmlt(*i));
-  MidgardBasicTree::show_list_in_tree(list_Fertigkeit_ang_neu,tree_angeb_fert,&hauptfenster->getAben());
+  MidgardBasicTree::show_list_in_tree(list_Fertigkeit_ang_neu,tree_angeb_fert,hauptfenster->getChar().actualIterator());
 
   scrolledwindow_lernen->show();
   tree_angeb_fert->show();
@@ -83,7 +83,7 @@ void table_lernschema::on_ang_fert_leaf_selected(cH_RowDataBase d)
 
   hauptfenster->getAben().setAngebSinnFert(F->Min(),MBE);  
   list_Fertigkeit_ang_neu.remove(MBE);
-  MidgardBasicTree::show_list_in_tree(list_Fertigkeit_ang_neu,tree_angeb_fert,&hauptfenster->getAben());
+  MidgardBasicTree::show_list_in_tree(list_Fertigkeit_ang_neu,tree_angeb_fert,hauptfenster->getChar().actualIterator());
   show_gelerntes();
   zeige_werte();
 }

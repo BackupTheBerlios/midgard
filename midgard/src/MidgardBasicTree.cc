@@ -1,6 +1,7 @@
-// $Id: MidgardBasicTree.cc,v 1.29 2004/03/18 09:06:47 christof Exp $
+// $Id: MidgardBasicTree.cc,v 1.30 2004/08/31 16:58:28 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
+ *  Copyright (C) 2004 Malte Thoma
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -21,11 +22,12 @@
 #include "class_SimpleTree.hh"
 
 MidgardBasicTree::MidgardBasicTree(variante V)
-: SimpleTree(Cols(V))
+: SimpleTree(Cols(V)), was_isses(V)
 {
   set_tree_titles(V);
   set_value_data(gpointer(V));
   get_selection()->set_mode(Gtk::SELECTION_MULTIPLE);
+  button_press_vfunc=&MidgardBasicTree::clicked_impl;
 }
 
 int MidgardBasicTree::Cols(variante V)
@@ -34,14 +36,14 @@ int MidgardBasicTree::Cols(variante V)
      case (STEIGERNZUSATZ)  : return 3;
      case (ANGEBFERT):  
      case (LERNSCHEMAZUSATZ): return 3;
-     case (LONG_NEU_WAFFE): 
+     case (WAFFE_NEU): 
      case (SPRACHE_NEU):    
      case (SCHRIFT_NEU):    
      case (WAFFEGRUND_ALT): 
      case (WAFFEGRUND_NEU):
      case (WAFFE_LERNSCHEMA): return 4;
      case (GELERNTES):      return 5;
-     case (LONG_NEU):
+     case (FERT_NEU):
      case (ZAUBER_ALT):
      case (ZAUBER_NEU):
      case (KIDO_NEU):        
@@ -50,7 +52,7 @@ int MidgardBasicTree::Cols(variante V)
      case (ZAUBERWERK_ALT):   return 7;
      case (SPRACHEN_ALT):
      case (WAFFE_ALT):        
-     case (LONG_ALT_):        return 8;
+     case (FERT_ALT):        return 8;
      case (LERNSCHEMA):
      case (SCHRIFT_ALT):      return 9;
    }
@@ -74,9 +76,9 @@ void MidgardBasicTree::set_tree_titles(variante V)
       vs.push_back("Fertigkeit");
       vs.push_back("Wert");  
    }
-  else if(V==LONG_ALT_ || V==SPRACHEN_ALT || V==WAFFE_ALT)
+  else if(V==FERT_ALT || V==SPRACHEN_ALT || V==WAFFE_ALT)
    {
-      if(V==LONG_ALT_) vs.push_back("Fertigkeit (gelernt)");
+      if(V==FERT_ALT) vs.push_back("Fertigkeit (gelernt)");
       else if(V==WAFFE_ALT) vs.push_back("Waffe (gesteigert)");
       else vs.push_back("Sprache (gelernt)");
       vs.push_back("Wert");
@@ -87,7 +89,7 @@ void MidgardBasicTree::set_tree_titles(variante V)
       vs.push_back("Verlernen");
       vs.push_back("Region");
    }
-  else if(V==LONG_NEU)
+  else if(V==FERT_NEU)
    {
       vs.push_back("Fertigkeit (ungelernt)");
       vs.push_back("Wert");
@@ -96,7 +98,7 @@ void MidgardBasicTree::set_tree_titles(variante V)
       vs.push_back("Voraussetzungen");
       vs.push_back("Region");
    }
-  else if(V==LONG_NEU_WAFFE)
+  else if(V==WAFFE_NEU)
    {
       vs.push_back("(ungesteigert) Waffe)");
       vs.push_back("Art");    
@@ -182,11 +184,17 @@ void MidgardBasicTree::set_tree_titles(variante V)
 
 void MidgardBasicTree::show_list_in_tree(
   const std::list<MBEmlt>& BasicList,
-  SimpleTree *Tree, const Abenteurer *a)
+  SimpleTree *Tree, VAbenteurer::const_iterator a)
 {
   if (BasicList.begin()==BasicList.end() ) {Tree->clear(); return ;}
   std::vector<cH_RowDataBase> datavec;
   for (std::list<MBEmlt>::const_iterator i=BasicList.begin();i!=BasicList.end();++i)
       datavec.push_back(new Data_SimpleTree(*i,a));
   Tree->setDataVec(datavec);
+}
+
+bool MidgardBasicTree::clicked_impl(SimpleTree_Basic *_this, const cH_RowDataBase &row, int col_idx)
+{  MidgardBasicTree *ths=static_cast<MidgardBasicTree*>(_this);
+   ths->_clicked(row.cast_dynamic<const Data_SimpleTree>()->getMBE());
+   return ths->was_isses==FERT_ALT; // true;
 }

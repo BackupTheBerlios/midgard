@@ -1,6 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
- *  Copyright (C) 2002 Christof Petig
+ *  Copyright (C) 2002-2004 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -18,21 +18,18 @@
  */
 
 #ifndef _XML_FILESELECTION_HH
-#  ifndef __MINGW32__
-#    include "xml_fileselection_glade.hh"
-#  endif
 #  define _XML_FILESELECTION_HH
+
+// #  include "WinFileReq.hh"
 
 class midgard_CG;
 class AbenteurerAuswahl;
-#ifdef __MINGW32__
-#include <string>
-#endif
+class WinFileReq;
 
-class xml_fileselection 
-#ifndef __MINGW32__
-			: public xml_fileselection_glade
-#endif
+#include <string>
+#include <sigc++/object.h>
+
+class xml_fileselection : public SigC::Object
 {   
   public:
         enum eAction {Save,Load,Export,ExportFull,
@@ -41,17 +38,15 @@ class xml_fileselection
         midgard_CG* hauptfenster;        
         eAction ewas;
         AbenteurerAuswahl &VA;
+        WinFileReq *reqwin;
 
-#ifndef __MINGW32__        
-        friend class xml_fileselection_glade;
-        void on_cancel_button1_clicked();
-#else
-	std::string filename;
-	std::string get_filename() const { return filename; }
-	void set_filename(const std::string &s) { filename=s; }
-#endif        
-        void on_ok_button1_clicked();
+        void on_ok_button1_clicked(const std::string &);
+        bool idle_delete();
    public:
         xml_fileselection(midgard_CG* h,eAction _was);
+        static void create(midgard_CG* h,eAction _was);
+        
+        // utility function to omit all nonalphanumeric characters
+        static std::string defFileName(const std::string &s);
 };
 #endif

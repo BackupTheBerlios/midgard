@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <glademm-callbacks>
-  <class name="MidgardBasicTree" parent="SimpleTree"/>
+  <class name="MidgardBasicTree" parent="SimpleTree">
+    <callback name="clicked" args="const MBEmlt &leaf"/>
+  </class>
 </glademm-callbacks>

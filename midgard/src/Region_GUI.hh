@@ -1,4 +1,4 @@
-// $Id: Region_GUI.hh,v 1.6 2003/09/10 07:15:43 christof Exp $               
+// $Id: Region_GUI.hh,v 1.7 2004/08/31 16:58:28 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002-2003 Christof Petig
@@ -22,14 +22,15 @@
 #define REGION_GUI_HH
 #include <libmagus/Region.hh>
 #include <gtkmm/image.h>
-//#include "Optionen.hh"
 #include <Misc/compiler_ports.h>
 
+// see also Optionen_GUI.hh
 class RegionenPic
 {
  public:
    __deprecated static Gtk::Image* Pic(RegionenPic_enum::epic e,bool tiny=false);
    static Glib::RefPtr<Gdk::Pixbuf> PicModel(RegionenPic_enum::epic e,bool tiny=false) ;
+   static Glib::RefPtr<Gdk::Pixbuf> make_tiny(const Glib::RefPtr<Gdk::Pixbuf> &orig);
 };
 
 // class Regionen_GUI

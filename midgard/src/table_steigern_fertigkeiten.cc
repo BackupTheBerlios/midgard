@@ -39,12 +39,12 @@ void table_steigern::neue_fertigkeiten_zeigen()
 {
   Abenteurer &A=hauptfenster->getAben();
   list_Fertigkeit_neu=LernListen::get_steigern_MBEm(A,Enums::sFert);
-  MidgardBasicTree::show_list_in_tree(list_Fertigkeit_neu,neue_fert_tree,&hauptfenster->getAben());
+  MidgardBasicTree::show_list_in_tree(list_Fertigkeit_neu,neue_fert_tree,hauptfenster->getChar().actualIterator());
 }
 
 void table_steigern::alte_fertigkeiten_zeigen()
 {
- MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_Fertigkeit(),alte_fert_tree,&hauptfenster->getAben());
+ MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_Fertigkeit(),alte_fert_tree,hauptfenster->getChar().actualIterator());
 }
 
 
@@ -59,6 +59,17 @@ void table_steigern::on_leaf_selected_alte_fert(cH_RowDataBase d)
    }
  if(!spinbutton_pp_eingeben->is_visible())
     alte_fert_tree->get_selection()->unselect_all();
+}
+
+void table_steigern::on_leaf_selected_alte_fert2(const MBEmlt &d)
+{cH_RowDataBase rdb=new Data_SimpleTree(d,hauptfenster->getChar().actualIterator());
+ if (MidgardBasicElement_leaf_alt(rdb))
+   {  
+      rdb.cast_dynamic<const Data_SimpleTree>()->redisplay(alte_fert_tree);
+      neue_fertigkeiten_zeigen();
+      zeige_werte();
+      if(radiobutton_verlernen->get_active()) alte_fertigkeiten_zeigen();
+   }
 }
 
 void table_steigern::on_alte_fert_reorder()

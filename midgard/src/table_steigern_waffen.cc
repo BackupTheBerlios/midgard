@@ -36,20 +36,20 @@ void table_steigern::neue_waffen_zeigen()
 {
    Abenteurer &A=hauptfenster->getAben();
    list_Waffen_neu=LernListen::get_steigern_MBEm(A,Enums::sWaff);
-   MidgardBasicTree::show_list_in_tree(list_Waffen_neu,neue_waffen_tree,&hauptfenster->getAben());
+   MidgardBasicTree::show_list_in_tree(list_Waffen_neu,neue_waffen_tree,hauptfenster->getChar().actualIterator());
 }
 
 void table_steigern::waffengrund_zeigen()
 {
   Abenteurer &A=hauptfenster->getAben();
   list_WaffenGrund_neu=LernListen::get_steigern_MBEm(A,Enums::sWGru);
-  MidgardBasicTree::show_list_in_tree(list_WaffenGrund_neu,neue_grund_tree,&hauptfenster->getAben());
-  MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_WaffenGrund()    ,alte_grund_tree,&hauptfenster->getAben());
+  MidgardBasicTree::show_list_in_tree(list_WaffenGrund_neu,neue_grund_tree,hauptfenster->getChar().actualIterator());
+  MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_WaffenGrund()    ,alte_grund_tree,hauptfenster->getChar().actualIterator());
 }
 
 void table_steigern::alte_waffen_zeigen()
 {
-   MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_Waffen()    ,alte_waffen_tree,&hauptfenster->getAben());
+   MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_Waffen()    ,alte_waffen_tree,hauptfenster->getChar().actualIterator());
 }
 
 

@@ -169,13 +169,13 @@ void table_steigern::on_spinbutton_pp_eingeben_activate()
  }catch(SimpleTree::noRowSelected &e) {Ausgabe(Ausgabe::Debug,e.what()); Ausgabe(Ausgabe::Error,"Keine Zeile selektiert");}
 
   if(pagenr==PAGE_FERTIGKEITEN)
-     MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_Fertigkeit(),alte_fert_tree,&hauptfenster->getAben()); 
+     MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_Fertigkeit(),alte_fert_tree,hauptfenster->getChar().actualIterator()); 
   if(pagenr==PAGE_WAFFEN)
-     MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_Waffen(),alte_waffen_tree,&hauptfenster->getAben()); 
+     MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_Waffen(),alte_waffen_tree,hauptfenster->getChar().actualIterator()); 
   if(pagenr==PAGE_SPRACHE)
    {
-     MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_Sprache(),alte_sprache_tree,&hauptfenster->getAben()); 
-     MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_Schrift(),alte_schrift_tree,&hauptfenster->getAben()); 
+     MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_Sprache(),alte_sprache_tree,hauptfenster->getChar().actualIterator()); 
+     MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_Schrift(),alte_schrift_tree,hauptfenster->getChar().actualIterator()); 
    }
   spinbutton_pp_eingeben->hide();
 }

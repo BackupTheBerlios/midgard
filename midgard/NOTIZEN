@@ -4,3 +4,4 @@ debuggen:
 gdb .libs/magus
 
 gtk_tree_row_reference_new_proxy
+diff -ru ~/winhome/midgard . | bzip2 -9 > /data/backup/midg_patch0819.bz2

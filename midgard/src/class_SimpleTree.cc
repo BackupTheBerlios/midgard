@@ -1,5 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
+ *  Copyright (C) 2004 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -35,10 +36,9 @@
 const cH_EntryValue Data_SimpleTree::retEV(const WEV &what) const
 {
   switch (what) {
-//      case FName: return cH_EntryValueIntString((*MBE)->Name()+" "+(*MBE).Zusatz());
       case FName: return cH_EntryValueIntGermanString((*MBE)->Name()+" "+(*MBE).Zusatz());
       case FErfolgswert: { if((*MBE).What()==MidgardBasicElement::FERTIGKEIT)
-                               return cH_EntryValueEmptyInt((*MBE)->FErfolgswert(*abenteurer,MBE)); 
+                               return cH_EntryValueEmptyInt((*MBE)->FErfolgswert(abenteurer->getAbenteurer(),MBE)); 
                            else return cH_EntryValueEmptyInt((*MBE).Erfolgswert()); }
       case FWurf: {cH_Fertigkeit_angeborene F((*MBE).getMBE()); return cH_EntryValueIntString(itos(F->Min())+"-"+itos(F->Max()));}
       case FWhat:  return cH_EntryValueIntString((*MBE).What_str());
@@ -47,8 +47,8 @@ const cH_EntryValue Data_SimpleTree::retEV(const WEV &what) const
       case FLernart: return cH_EntryValueIntString((*MBE).LernArt());
       case FPflicht: return cH_EntryValueIntString((*MBE).Pflicht_str());
       case FGrundkenntnis: return cH_EntryValueIntString(cH_Waffe((*MBE).getMBE())->Grundkenntnis());
-      case FErfolgswerBonus: { int AB = cH_Fertigkeit((*MBE).getMBE())->AttributBonus(*abenteurer);
-                               const int EW=(*MBE)->FErfolgswert(*abenteurer,MBE);
+      case FErfolgswerBonus: { int AB = cH_Fertigkeit((*MBE).getMBE())->AttributBonus(abenteurer->getAbenteurer());
+                               const int EW=(*MBE)->FErfolgswert(abenteurer->getAbenteurer(),MBE);
                                if(!AB) return cH_EntryValueEmptyInt(EW);
                                else { std::string s=itos(EW-AB)+"+"+itos(AB);
                                       return cH_EntryValueIntString(s); } }
@@ -56,22 +56,20 @@ const cH_EntryValue Data_SimpleTree::retEV(const WEV &what) const
       case FAttribut: return cH_EntryValueIntString(cH_Fertigkeit((*MBE).getMBE())->Attribut());
       case FVoraussetung: return cH_EntryValueIntString((*MBE)->Voraussetzung());
       case FSchwierigkeit: return cH_EntryValueIntString(cH_Waffe((*MBE).getMBE())->Schwierigkeit_str());
-      case FKosten: return cH_EntryValueEmptyInt((*MBE)->Kosten(*abenteurer));
-      case FStandard: return cH_EntryValueIntString((*MBE)->Standard__(*abenteurer));
+      case FKosten: return cH_EntryValueEmptyInt((*MBE)->Kosten(abenteurer->getAbenteurer()));
+      case FStandard: return cH_EntryValueIntString((*MBE)->Standard__(abenteurer->getAbenteurer()));
       case FGelernt: if ((*MBE).Gelernt()) return cH_EntryValueIntString("*"); 
                      else return cH_EntryValue();
       case FPraxispunkt: return cH_EntryValueEmptyInt((*MBE).Praxispunkte());
-      case FSteigern: return cH_EntryValueEmptyInt((*MBE).Steigern(*abenteurer));
-      case FReduzieren: return cH_EntryValueEmptyInt((*MBE).Reduzieren(*abenteurer));
-      case FVerlernen: return cH_EntryValueEmptyInt((*MBE).Verlernen(*abenteurer));
+      case FSteigern: return cH_EntryValueEmptyInt((*MBE).Steigern(abenteurer->getAbenteurer()));
+      case FReduzieren: return cH_EntryValueEmptyInt((*MBE).Reduzieren(abenteurer->getAbenteurer()));
+      case FVerlernen: return cH_EntryValueEmptyInt((*MBE).Verlernen(abenteurer->getAbenteurer()));
       case FRegion: return cH_EntryValueIntString((*MBE)->RegionString());
       case FUrsprung: return cH_EntryValueIntString(cH_Zauber((*MBE).getMBE())->Ursprung());
       case FArtderSchrift: return cH_EntryValueIntString(cH_Schrift((*MBE).getMBE())->Art_der_Schrift());
    }
  return cH_EntryValue();
 }
-
-
 
 const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
 { 
@@ -216,7 +214,6 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
        }
       return cH_EntryValue();
 }
-
 
 void Data_SimpleTree::redisplay(SimpleTree *tree) const
 {

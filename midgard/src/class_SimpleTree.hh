@@ -1,5 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
+ *  Copyright (C) 2004 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -19,24 +20,19 @@
 #ifndef _CLASS_FERT_HH
 #  define _CLASS_FERT_HH
 
-//#include <MidgardBasicElement.hh>
-#include <Waffe.hh>
-#include <Typen.hh>
+//#include <Waffe.hh>
+//#include <Typen.hh>
 #include <RowDataBase.h>
-class Abenteurer;
-//class midgard_CG;
+#include <libmagus/VAbenteurer.hh>
 
 class Data_SimpleTree : public RowDataBase
 {
  private:
    MBEmlt MBE;
-   const Abenteurer *abenteurer;
-//   const midgard_CG *hauptfenster; 
+   VAbenteurer::const_iterator abenteurer;
    
  public:
-//   Data_SimpleTree(const MBEmlt& _MBE, const midgard_CG *h) 
-//   : MBE(_MBE),hauptfenster(h) {}
-   Data_SimpleTree(const MBEmlt& _MBE, const Abenteurer *a) 
+   Data_SimpleTree(const MBEmlt& _MBE, VAbenteurer::const_iterator a) 
    : MBE(_MBE),abenteurer(a) {}
 
    enum Spalten_ANGEBFERT  {WURFaf,NAMEaf,WERTaf};
@@ -71,6 +67,4 @@ class H_Data_SimpleTree : public Handle<Data_SimpleTree>
 public:
  H_Data_SimpleTree(Data_SimpleTree *r) : Handle<Data_SimpleTree>(r) {}
 };
-
-
 #endif

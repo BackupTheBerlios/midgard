@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.42 2003/12/09 13:54:05 christof Exp $
+// $Id: table_lernschema_waffen.cc,v 1.43 2004/08/31 16:58:28 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -109,7 +109,7 @@ void table_lernschema::show_WaffenBesitz_lernschema()
   std::list<MBEmlt> L;
   for(std::list<H_WaffeBesitz>::iterator i=L1.begin();i!=L1.end();++i) 
       L.push_back(H_MidgardBasicElement_mutable(&**i));
-  MidgardBasicTree::show_list_in_tree(L,tree_waffen_lernschema,&hauptfenster->getAben());
+  MidgardBasicTree::show_list_in_tree(L,tree_waffen_lernschema,hauptfenster->getChar().actualIterator());
   tree_waffen_lernschema->show();
   tree_waffen_lernschema->Expand_recursively();
   Gtk::Table *table=manage(new Gtk::Table(1,1,false));

@@ -120,6 +120,30 @@ void midgard_CG::menu_init()
   latex_empty->signal_activate().connect(SigC::slot(*this,&midgard_CG::on_leeres_abenteurerdokument_drucken));
 
   menu_kontext->append(*drucken);
+// Abent. Optionen (Original, NSC, ...)
+ {Gtk::Menu *char_opt_menu = Gtk::manage(new class Gtk::Menu());
+  Gtk::MenuItem *char_opt = Gtk::manage(new class Gtk::MenuItem("Abent.-Einst."));
+  char_opt->set_submenu(*char_opt_menu);
+   std::list<Optionen::st_OptionenCheck> &L2=getAben().getOptionen().getOptionenCheck();
+   for(std::list<Optionen::st_OptionenCheck>::iterator i=L2.begin();i!=L2.end();++i)
+    {
+     Gtk::Table *_tab=Gtk::manage(new Gtk::Table(1,1,false));
+     Gtk::Label *_l=Gtk::manage (new Gtk::Label(i->text,0,0));
+     _tab->attach(*_l,1,2,0,1,Gtk::AttachOptions(0),Gtk::AttachOptions(0),0,0);
+     if(Optionen_GUI::Check_bild(i->index))
+      {
+        Gtk::Image *_o=Gtk::manage(new Gtk::Image(Optionen_GUI::Check_bild(i->index)));
+        _tab->attach(*_o,0,1,0,1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
+      }
+     _tab->set_col_spacings(10);
+
+     bool_CheckMenuItem *mi = Gtk::manage(new bool_CheckMenuItem(getChar().proxies.checks[i->index],*_tab));
+     char_opt_menu->append(*mi);
+#warning undosave?
+   }
+  menu_kontext->append(*char_opt);
+ }
+
 //Regionen/////////////////////////////////////////////////////////////////////
   Gtk::Menu *regionen_menu = Gtk::manage(new class Gtk::Menu());
   Gtk::MenuItem *regionen = Gtk::manage(new class Gtk::MenuItem("Regionen")); 
@@ -162,7 +186,7 @@ void midgard_CG::menu_init()
   
 
 //Optionen/////////////////////////////////////////////////////////////////////
-  Gtk::Menu *optionen_menu = Gtk::manage(new class Gtk::Menu());
+ {Gtk::Menu *optionen_menu = Gtk::manage(new class Gtk::Menu());
   Gtk::MenuItem *optionen = Gtk::manage(new class Gtk::MenuItem("Ansicht & Fenster")); 
   optionen->set_submenu(*optionen_menu);
 
@@ -183,14 +207,16 @@ void midgard_CG::menu_init()
     optionen_menu->append(*mi);
    } 
   menu_kontext->append(*optionen);
+ }
 ///////////////////////////////////////////////////////////////////////////////
+#if 0
   { Gtk::MenuItem *mi=new Gtk::MenuItem("widget properties");
     menu_kontext->append(*mi);
     mi->show();
     mi->signal_activate().connect(SigC::bind(SigC::slot(&prop_adaptor),gobj()));
   }
   menu_kontext->show_all();
-
+#endif
 ///////////
 }
 

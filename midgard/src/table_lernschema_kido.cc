@@ -1,6 +1,7 @@
-// $Id: table_lernschema_kido.cc,v 1.18 2003/12/10 07:30:25 christof Exp $
+// $Id: table_lernschema_kido.cc,v 1.19 2004/08/31 16:58:28 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
+ *  Copyright (C) 2004 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -64,7 +65,7 @@ void table_lernschema::fill_kido_lernschema()
      newlist.push_back(MBEmlt(*i));                                     
    }
 
-  MidgardBasicTree::show_list_in_tree(newlist,tree_kido_lernschema,&vabenteurer->getAbenteurer());
+  MidgardBasicTree::show_list_in_tree(newlist,tree_kido_lernschema,vabenteurer->actualIterator());
   scrolledwindow_lernen->show();
   tree_kido_lernschema->show();
   scrolledwindow_lernen->add(*tree_kido_lernschema);

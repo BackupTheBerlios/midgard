@@ -40,6 +40,8 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
   }
 
  ////////////////////////////////////////////////////////////////////////
+ hauptfenster->getChar().undosave((*MBE)->What_str()+" "+(*MBE)->Name()+" von "+itos(MBE->Erfolgswert())+" gesteigert(?)");
+
  std::list<MBEmlt> *MyList,*MyList_neu;
  if((*MBE).What()==MidgardBasicElement::FERTIGKEIT) 
    { if ((*MBE)->Name()=="KiDo" && kido_steigern_check(MBE->Erfolgswert())) return false;
@@ -82,7 +84,6 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
     {
       Abenteurer::move_element(*MyList,*MyList_neu,MBE);
     }
- hauptfenster->getChar().undosave((*MBE)->What_str()+" "+(*MBE)->Name()+" auf "+itos(MBE->Erfolgswert())+" gesteigert");
  return true;
 }
 

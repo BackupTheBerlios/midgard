@@ -42,8 +42,8 @@ void table_steigern::zauber_zeigen()
 {
  if(!hauptfenster->getAben().is_mage()) return;
  zeige_werte();
- MidgardBasicTree::show_list_in_tree(list_Zauber_neu,neue_zauber_tree,&hauptfenster->getAben());
- MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_Zauber(),alte_zauber_tree,&hauptfenster->getAben());
+ MidgardBasicTree::show_list_in_tree(list_Zauber_neu,neue_zauber_tree,hauptfenster->getChar().actualIterator());
+ MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_Zauber(),alte_zauber_tree,hauptfenster->getChar().actualIterator());
  zauberwerk_zeigen();
 }
 
@@ -140,8 +140,8 @@ void table_steigern::zauberwerk_zeigen()
 {
  zauberwerk_laden();
  zeige_werte();
- MidgardBasicTree::show_list_in_tree(list_Zauberwerk_neu,neue_zaubermittel_tree,&hauptfenster->getAben());
- MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_Zauberwerk()    ,alte_zaubermittel_tree,&hauptfenster->getAben());
+ MidgardBasicTree::show_list_in_tree(list_Zauberwerk_neu,neue_zaubermittel_tree,hauptfenster->getChar().actualIterator());
+ MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_Zauberwerk()    ,alte_zaubermittel_tree,hauptfenster->getChar().actualIterator());
 }
 
 void table_steigern::on_leaf_selected_neue_zauberwerk(cH_RowDataBase d)

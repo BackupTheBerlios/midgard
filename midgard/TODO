@@ -1,13 +1,33 @@
 ##### DAS IST DAS WICHTIGSTE #########################################
-* Wizard aktiv
++ Filerequester Umstellung beenden 
+	(fehlt nur noch die Ersetzung von xml_fileselection durch WinFileReq)
++ Absturz beim Steigern (Abenteurer* aus MidgardBasicTree eliminieren
+		z.B. über Werte cache Klasse)
+
+- Zauberbeschreibung drucken tatsächlich vom Abenteurer abhängig?
+
+- Wizard testen, vor allem die beiden Varianten des Begrüßungsfensters
+- Praxispunkte bug
+- Einstellbarer Kontrast zum Hintergrundbild
+- Dialoge statt set_insensitive(nearly_everything):
+	- Zusatz
+	- Würfelvarianten
+	- Herkunftsland etc.
+	- Spezialwaffe etc.
+- aktiver Wizard sollte focus und page direkt setzen (und wenn möglich
+	machen)
+- Hausregeln/NSC/Original optisch zu Regionen packen
+- Installer
+- TeTeX für Windows (http://tex.aanhet.net/mingtex/)
 ######################################################################
 
 #### das finde ich (CP) beunruhigend #################################
 - irgendwie werden ziemlich oft neue Abenteurer erzeugt (die Nummern gehen
-	hoch)
-- eingeklammerte Typen können nicht gewählt werden ...
+	hoch) [vermutlich in Undo]
 ######################################################################
 
+- WinFileReq sollte gtk 2.4 Requester nehmen
+- LICENSE.pdf
 - undosave _vor_ jeder Änderung (am Besten in libmagus selbst)
 * Region nach Herkunft automatisch einschalten
 * Mehrseitige Ausrüstungen
@@ -99,8 +119,21 @@ was bedeutet:
 
 - Dinge in Dialoge verschieben?
 
-- Expander ? bis dahin ist gtk2.4 Standard
-
 - hide 4: Beschreibung des Artikels (optional) ??
 
 - Zufall: steigern inaktiv?
+
+----- unwichtig ... --------------
+
+- Lernschemata vereinheitlichen:
+	"Landeskunde Heimat", "Landeskunde (Heimat)" -> "Landeskunde"->"Heimat"
+	"Überleben Heimat" -> "Überleben"->"Heimat"
+	"+1 KiDo-Technik" -> "KiDo Technik"->"#1" oder KiDo("")->"#1" ?
+	"+1 KiDo-Technik " -> "KiDo Technik"->"#2"
+	"+1 KiDo-Technik  " -> "KiDo Technik"->"#3"
+	"Schreiben: Alte Sprache(+12)" -> "Schreiben"->"Alte Sprache"
+	"Zaubern": Kosten von Grad in Fertigkeit
+
+- pimpl idiom (see there)
+
+- Landeskunde etc. nicht mehr anbieten wenn alle Untertypen erlernt wurden.

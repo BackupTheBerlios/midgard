@@ -70,8 +70,8 @@ void table_steigern::on_kido_laden_clicked()
 void table_steigern::kido_zeigen()
 {
  zeige_werte();
- MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_Kido()    ,alte_kido_tree,&hauptfenster->getAben());
- MidgardBasicTree::show_list_in_tree(list_Kido_neu,neue_kido_tree,&hauptfenster->getAben());
+ MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_Kido()    ,alte_kido_tree,hauptfenster->getChar().actualIterator());
+ MidgardBasicTree::show_list_in_tree(list_Kido_neu,neue_kido_tree,hauptfenster->getChar().actualIterator());
 }
 
 void table_steigern::on_leaf_selected_alte_kido(cH_RowDataBase d)
