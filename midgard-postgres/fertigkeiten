@@ -181,7 +181,7 @@ COPY "fertigkeiten" FROM stdin;
 99	\N	\N	5	Dämonenkunde	4	100	N	\N	In	\N	\N	\N	\N	\N
 99	\N	\N	5	Giftmischen	4	100	\N	\N	In	5	2	16	13	\N
 99	\N	\N	5	Landeskunde	4	100	\N	\N	In	\N	2	16	13	2
-99	\N	\N	5	Wetterkunde	4	50	\N	\N	In	\N	\N	16	14	\N
+99	\N	\N	5	Wetterkunde	4	50	H&D	\N	In	\N	\N	16	14	\N
 99	\N	\N	10	Ballspiel	10	60	N	\N	Gw	\N	\N	\N	\N	\N
 99	\N	\N	10	Zaubern	10	5000	\N	\N	\N	\N	\N	18	18	\N
 99	\N	\N	12	Lesen von Zauberrunen	6	20	W	\N	In	\N	\N	18	15	\N
