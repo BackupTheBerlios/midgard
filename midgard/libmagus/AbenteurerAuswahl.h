@@ -1,4 +1,4 @@
-// $Id: AbenteurerAuswahl.h,v 1.8 2004/12/13 15:08:28 christof Exp $               
+// $Id: AbenteurerAuswahl.h,v 1.9 2004/12/13 15:51:45 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2003-2004 Christof Petig
  *
@@ -66,11 +66,11 @@ public:
    class LocalUndoRememberer;
    // Sammelsignale für die einfachere Strukturierung der Oberfläche
    // so dass nicht immer _alles_ neu dargestellt werden muss
-   Signal0<void> &signal_gesteigert() // GFP, Steigertage etc geändert
+   SigC::Signal0<void> &signal_gesteigert() // GFP, Steigertage etc geändert
    { return _gesteigert; }
-   Signal0<void> &signal_werte_geaendert()
+   SigC::Signal0<void> &signal_werte_geaendert()
    { return _werte_geaendert; }
-   Signal0<void> &signal_faehigkeiten_geaendert()
+   SigC::Signal0<void> &signal_faehigkeiten_geaendert()
    { return _faehigk_geaendert; }
 };
 
