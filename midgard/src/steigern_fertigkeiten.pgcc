@@ -150,7 +150,7 @@ void midgard_CG::show_neue_fertigkeiten()
    WHERE charakter_name = '"+Werte.Name_Charakter()+"' \
    AND version = '"+Werte.Version()+"') \
    AND f.fertigkeit != 'Sprache' AND f.fertigkeit != 'Lesen/Schreiben' \
-   AND f.fertigkeit  not in (select verboten from pflicht_lernen where \
+   AND f.fertigkeit  not in (select coalesce(verboten,'') from pflicht_lernen where \
     typ='"+Werte.Spezies()+"'  and spielbegin is null) \
    AND fp is not null
    ORDER BY f.fertigkeit";
