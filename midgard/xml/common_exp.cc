@@ -1,4 +1,4 @@
-// $Id: common_exp.cc,v 1.25 2002/06/08 15:21:40 christof Exp $
+// $Id: common_exp.cc,v 1.26 2002/06/12 13:54:10 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -173,7 +173,7 @@ std::string RegionErgaenzungQuery(const std::string &attribute,
 
 void region_tags(Tag &t, const string &region)
 {  Transaction tr;
-   if (!region.empty()) t.setAttr("Region",region);
+   t.setAttr_ne("Region",region);
    Query query("select name, titel, copyright, jahr, offiziell, file, url, maintainer,"
    	" version, nr, pic"
 	" from regionen where abkuerzung='"+region+"'");
