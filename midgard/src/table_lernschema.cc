@@ -420,19 +420,22 @@ void table_lernschema::edit_lernpunkte(bool b)
 }
 
 
-bool table_lernschema::on_button_lernschema_geld_button_release_event(GdkEventButton *ev)
+void table_lernschema::on_button_lernschema_geld_button_release_event()
 {  
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::GELD);
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
      button_lernschema_geld->set_sensitive(false);
   hauptfenster->getWerte().setGeld(0,0,0);
-  if      (ev->button==1) geld_wuerfeln() ;
+  geld_wuerfeln() ;
+#warning ehemals B3 eingabe!
+#if 0
   else if (ev->button==3) 
    {
      gwr_auswahl=EGeld1;
      set_gwr_eingabe();
    }
   return 0;
+#endif  
 }
 
 void table_lernschema::geld_wuerfeln()
@@ -486,22 +489,24 @@ void table_lernschema::lernschema_geld_wuerfeln(const std::vector<int>& VGeldwur
 }
 
 
-bool table_lernschema::on_button_ruestung_button_release_event(GdkEventButton *ev)
+void table_lernschema::on_button_ruestung_button_release_event()
 {  
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::RUESTUNG);
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
      button_ruestung->set_sensitive(false);
-  if      (ev->button==1)  
    {  
      int wurf = hauptfenster->random.integer(1,100);
      on_button_ruestung_clicked(wurf);
    }
+#warning B3
+#if 0   
   else if (ev->button==3)  
    { //manage (new Window_ruestung(hauptfenster->getWerte(),hauptfenster,hauptfenster->getDatabase()));
      gwr_auswahl=ERuestung;
      set_gwr_eingabe();  
    }
   return 0;
+#endif  
 }
 
 void table_lernschema::on_button_ruestung_clicked(int wurf)
@@ -555,7 +560,7 @@ void table_lernschema::on_button_ruestung_clicked(int wurf)
 }
 
 
-bool table_lernschema::on_button_ausruestung_button_release_event(GdkEventButton *ev)
+void table_lernschema::on_button_ausruestung_button_release_event()
 {  
   ausruestung_setzen();
   return 0;

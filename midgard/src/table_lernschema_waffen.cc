@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.27 2002/12/14 23:45:11 christof Exp $
+// $Id: table_lernschema_waffen.cc,v 1.28 2003/02/25 16:50:28 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -25,7 +25,7 @@
 #include "LernListen.hh"
 #include "Zufall.hh"
 
-bool table_lernschema::on_button_lernschema_waffen_button_release_event(GdkEventButton *ev)
+void table_lernschema::on_button_lernschema_waffen_button_release_event()
 {
   if(hauptfenster->getAben().List_Waffen().empty()) 
    { hauptfenster->set_info("Fehler: Noch keine Waffen gewählt"); return false;}
@@ -41,18 +41,17 @@ bool table_lernschema::on_button_lernschema_waffen_button_release_event(GdkEvent
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
      button_lernschema_waffen->set_sensitive(false);
 
-  if  (ev->button==1)
-   {
      table_waffen_lernschema_eingabe->hide();
      int wurf = hauptfenster->random.integer(1,100);
      WaffenBesitz_lernschema_wuerfeln(wurf);     
-   }
+#if 0   
   else if (ev->button==3)
    {
      gwr_auswahl=EWaffen;
      set_gwr_eingabe();
    }
   return 0;
+#endif  
 }
 
 bool table_lernschema::on_spinbutton_waffen_lernschema_focus_in_event(GdkEventFocus *ev)

@@ -52,11 +52,11 @@ void table_steigern::on_button_EP_toggled()
 }
 */
 
-bool table_steigern::on_button_EP_eingeben_button_release_event(GdkEventButton *ev)
+void table_steigern::on_button_EP_eingeben_button_release_event()
 { 
- if(ev->button==3) button_EP->set_active(!button_EP->get_active());
+// if(ev->button==3) button_EP->set_active(!button_EP->get_active());
  show_EPeingabe(button_EP->get_active(),ev->button);
- return false;
+// return false;
 }
 
 

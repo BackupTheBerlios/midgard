@@ -177,7 +177,7 @@ private:
         void on_button_grad_resistenz_clicked();
         void on_grad_anstieg_clicked();
         void on_button_grad_basiswerte_clicked();
-        bool on_button_grad_basiswerte_button_release_event(GdkEventButton *ev);
+        void on_button_grad_basiswerte_button_release_event();
         void on_spinbutton_eigenschaften_grad_anstieg_activate();
         void on_button_alter_clicked();
         void on_LabelSpin_gfp_activate();
@@ -187,9 +187,9 @@ private:
         void on_LabelSpin_aep_activate();
         void on_LabelSpin_kep_activate();
         void on_LabelSpin_zep_activate();
-        bool on_checkbutton_gfp_button_release_event(GdkEventButton *ev);
-        bool on_button_gold_eingeben_button_release_event(GdkEventButton *ev);
-        bool on_button_EP_eingeben_button_release_event(GdkEventButton *ev);
+        void on_checkbutton_gfp_button_release_event();
+        void on_button_gold_eingeben_button_release_event();
+        void on_button_EP_eingeben_button_release_event();
         void on_ruestung_selection_changed();
         void on_button_ruestung_1_toggled();
         void on_button_ruestung_2_toggled();

@@ -365,11 +365,11 @@ void table_ausruestung::save_new_arikel()
 // table_artikel->hide();
 }
 
-bool table_ausruestung::on_button_ausruestung_druck_release_event(GdkEventButton *event)
+void table_ausruestung::on_button_ausruestung_druck_release_event()
 {
-  if (event->button==1) hauptfenster->on_auch_unsichtbares_drucken();
-  if (event->button==3) hauptfenster->on_nur_sichtbares_drucken();
-  return false;
+  hauptfenster->on_auch_unsichtbares_drucken();
+#warning B3
+//  if (event->button==3) hauptfenster->on_nur_sichtbares_drucken();
 }
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////

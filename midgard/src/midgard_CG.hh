@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.314 2002/12/18 17:58:00 christof Exp $
+// $Id: midgard_CG.hh,v 1.315 2003/02/25 16:50:28 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -96,7 +96,7 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
         void on_alles_drucken();
         void on_abenteurerdokument_drucken();
         void on_leeres_abenteurerdokument_drucken();
-        bool on_latex_release_event(GdkEventButton *ev);
+        void on_latex_release_event();
         void on_beschreibung_drucken();
         void on_nur_sichtbares_drucken();
         void on_auch_unsichtbares_drucken();
@@ -174,8 +174,8 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
    private:
         void on_exportieren_activate();
         void on_exportieren_ranas_pdf_dokumente_activate();
-        bool on_speichern_release_event(GdkEventButton *ev);
-        bool on_laden_release_event(GdkEventButton *ev);
+        void on_speichern_release_event();
+        void on_laden_release_event();
         void xml_export_auswahl();
         void save_existing_filename();
         void xml_import_auswahl();
@@ -200,7 +200,7 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
    private:
         VAbenteurer Char;
         Datenbank Database;
-        bool on_neuer_charakter_release_event(GdkEventButton *ev);
+        void on_neuer_charakter_release_event();
         void fill_AbenteurerListe();
         void on_AbenteurerListe_leaf(cH_RowDataBase d);
         void set_AbenteurerListe_Title();
@@ -240,7 +240,7 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
         // Oberfläche Menü
         Gtk::Menu *menu_kontext;
         Gtk::Box &make_gtk_box(const gchar * const *data,const std::string &label,const bool text_vor_bild=true,const bool hbox=true);
-        bool on_button_menu_button_release_event(GdkEventButton *ev);
+        void on_button_menu_button_release_event();
         void on_checkbutton_Regionen_menu_(Gtk::CheckMenuItem *menu_item,cH_Region region);
         void on_checkbutton_Regionen_menu(gpointer gp,cH_Region region);
         void menubar_init();

@@ -33,7 +33,7 @@ private:
         void on_button_grafik_clicked();
         bool on_spinbutton_pix_breite_focus_out_event(GdkEventFocus *ev);
         bool on_spinbutton_pix_breite_focus_in_event(GdkEventFocus *ev);
-        bool on_button_grafik_button_release_event(GdkEventButton *event);
+        void on_button_grafik_button_release_event();
         void on_button_fett_clicked();
         void on_button_kursiv_clicked();
         void on_button_liste_clicked();

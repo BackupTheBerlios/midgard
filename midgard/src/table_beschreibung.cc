@@ -37,14 +37,16 @@ void table_beschreibung::on_button_beschreibung_drucken_clicked()
   hauptfenster->on_beschreibung_drucken();
 }
 
-bool table_beschreibung::on_button_grafik_button_release_event(GdkEventButton *ev)
+void table_beschreibung::on_button_grafik_button_release_event()
 {
-  if (ev->button==1) on_button_grafik_clicked();
+  on_button_grafik_clicked();
+#if 0  
   if (ev->button==3) 
    { label_grafik->set_text("");
      hauptfenster->getWerte().setBeschreibungPix("");
    }
   return false;
+#endif  
 }
 
 

@@ -70,7 +70,7 @@ void show_window(Gdk_Window &W)
 }
 */
 
-bool midgard_CG::on_button_menu_button_release_event(GdkEventButton *event)
+void midgard_CG::on_button_menu_button_release_event()
 {
 /*
 Gtk::HandleBox *HB=table_steigern->handlebox_steigern_1;
@@ -84,7 +84,7 @@ std::cout << "get_window()\t"; show_window(W1);
 std::cout << "get_bin_window()\t"; show_window(W2);
 std::cout << "get_float_window()\t"; show_window(W3);
 */
-  menu_kontext->popup(event->button,event->time);
+  menu_kontext->popup(2,Gdk::CURRENT_TIME);
   return true;
 }
  

@@ -1,4 +1,4 @@
-// $Id: table_lernschema_fertigkeiten.cc,v 1.22 2002/12/12 11:20:14 christof Exp $
+// $Id: table_lernschema_fertigkeiten.cc,v 1.23 2003/02/25 16:50:28 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,13 +25,13 @@
 #include "class_SimpleTree.hh"
 #include "midgard_CG.hh"
 
-bool table_lernschema::on_angeborene_fertigkeit_button_release_event(GdkEventButton *event)
+void table_lernschema::on_angeborene_fertigkeit_button_release_event()
 {
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::ANGEBORENEFERTIGKEITEN);
   hauptfenster->getChar()->setAngebFert();
   
-  if (event->button==1) on_angeborene_fertigkeit_clicked() ;
-  if (event->button==3) on_angeborene_fertigkeit_right_clicked() ;
+  on_angeborene_fertigkeit_clicked() ;
+  //if (event->button==3) on_angeborene_fertigkeit_right_clicked() ;
   zeige_werte();
   show_gelerntes();
 
@@ -39,7 +39,6 @@ bool table_lernschema::on_angeborene_fertigkeit_button_release_event(GdkEventBut
   togglebutton_lernpunkte_edit->set_sensitive(true);
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
      button_angeborene_fert->set_sensitive(false);
-  return false;
 }
 
 void table_lernschema::on_angeborene_fertigkeit_clicked()

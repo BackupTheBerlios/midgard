@@ -24,7 +24,7 @@
 #include "xml_fileselection.hh"
 //#include <SelectMatching.h>
 
-bool midgard_CG::on_laden_release_event(GdkEventButton *ev)
+void midgard_CG::on_laden_release_event()
 {
   xml_import_auswahl();
   return false;

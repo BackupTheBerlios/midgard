@@ -23,11 +23,10 @@
 #include <Misc/itos.h>
 
 
-bool midgard_CG::on_speichern_release_event(GdkEventButton *ev)
+void midgard_CG::on_speichern_release_event()
 {
-  if (ev->button==1)  save_existing_filename();
-  else                xml_export_auswahl();
-  return false;
+  save_existing_filename();
+  //else                xml_export_auswahl();
 }
 
 void midgard_CG::xml_export_auswahl()

@@ -19,12 +19,12 @@
 #include <Misc/Trace.h>
 
 
-bool midgard_CG::on_neuer_charakter_release_event(GdkEventButton *ev)
+void midgard_CG::on_neuer_charakter_release_event()
 {
    ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
    Char.push_back();
    on_neuer_charakter_clicked();
-   if (ev->button==1)  on_wizard_starten_activate();
+   on_wizard_starten_activate();
    return false;
 }
 

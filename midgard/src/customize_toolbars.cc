@@ -1,4 +1,4 @@
-// $Id: customize_toolbars.cc,v 1.23 2002/12/13 18:35:22 christof Exp $
+// $Id: customize_toolbars.cc,v 1.24 2003/02/25 16:50:28 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -100,19 +100,10 @@ void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text, boo
    }
    else if (dynamic_cast<Gtk::Table*>(w))
    {  
-#if 1   // a bug in gtkmm-1.2
       Gtk::Table_Helpers::TableList &ch=dynamic_cast<Gtk::Table*>(w)->children();
       for (Gtk::Table_Helpers::TableList::const_iterator i=ch.begin();
       		i!=ch.end();++i)
          CustomizeToolbars((*i).get_widget(),show_icons,show_text,tab_text);
-#else
-      // G_ListWrap<GtkTableChild*>
-      for (GList *liste=Gtk::TABLE(w->gobj())->children;liste;
-      		liste=liste->next)
-      {  CustomizeToolbars(Gtk::wrap(((GtkTableChild*)(liste->data))->widget),
-      		show_icons,show_text,tab_text);
-      }
-#endif      
    }
    else if (dynamic_cast<Gtk::Notebook*>(w))
    {  Gtk::Notebook_Helpers::PageList &ch=dynamic_cast<Gtk::Notebook*>(w)->pages();
@@ -127,4 +118,43 @@ void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text, boo
    {  // und nun ?
 //      std::cout << typeid(*w).name() << '\n';
    }
+}
+
+void Gtk::rec_hide(Gtk::Widget *w)
+{  // std::cout << '+' << typeid(*w).name() << '-' << w->get_name() << '\n';
+   if (dynamic_cast<Gtk::Bin*>(w))
+   {  Gtk::Widget *child=dynamic_cast<Gtk::Bin*>(w)->get_child();
+      if (!child->is_visible()) w->hide();
+      else rec_hide(child);
+   }
+   else if (dynamic_cast<Gtk::Table*>(w))
+   {  
+      Gtk::Table_Helpers::TableList &ch=dynamic_cast<Gtk::Table*>(w)->children();
+      for (Gtk::Table_Helpers::TableList::const_iterator i=ch.begin();
+      		i!=ch.end();++i)
+      {  if ((*i).get_widget()->is_visible()) 
+         {  rec_hide((*i).get_widget());
+            return;
+         }
+      }
+      w->hide();
+   }
+   else if (dynamic_cast<Gtk::Notebook*>(w))
+   {  Gtk::Notebook_Helpers::PageList &ch=dynamic_cast<Gtk::Notebook*>(w)->pages();
+      Gtk::Notebook_Helpers::PageIterator e=ch.end();
+      for (Gtk::Notebook_Helpers::PageIterator i=ch.begin();
+      		i!=e;++i)
+      {  if ((*i).get_child()->is_visible())
+         {  rec_hide((*i).get_child());
+            return;
+         }
+      }
+      w->hide();
+   }
+   else if (dynamic_cast<Gtk::Container*>(w))
+   {  // und nun ?
+      std::cout << typeid(*w).name() << '\n';
+      w->hide();
+   }
+   else w->hide();
 }

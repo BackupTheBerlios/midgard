@@ -198,7 +198,7 @@ private:
         void on_entry_merkmale_activate();
         bool on_entry_merkmale_focus_out_event(GdkEventFocus *ev);
         bool on_entry_merkmale_focus_in_event(GdkEventFocus *ev);
-        bool on_button_grundwerte_button_release_event(GdkEventButton *ev);
+        void on_button_grundwerte_button_release_event();
         void on_radiobutton_mann_toggled();
         void on_radiobutton_frau_toggled();
         void on_radiobutton_stadt_land_toggled();
