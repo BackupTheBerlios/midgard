@@ -1,4 +1,4 @@
-// $Id: xml.h,v 1.8 2002/01/02 17:31:54 christof Exp $
+// $Id: xml.h,v 1.9 2002/01/09 08:04:58 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -37,6 +37,8 @@ struct xml_liste
 };
 
 extern const struct xml_liste xml_tags[];
+// suche nach elementtag
+const xml_liste *suche_Tageigenschaften(const std::string &list,const std::string &elem);
 #else
 #include <string>
 #define IF_XML(x,y...)

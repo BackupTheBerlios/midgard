@@ -9,7 +9,7 @@ exec sql include sqlca;
 #include "Fertigkeiten.hh"
 #include "Waffe.hh"
 
-#ifdef USE_XML
+#if 0 // def USE_XML
 static void Add(map<std::string,std::string> &map_typ, std::string typen, std::string wert)
 {  while (!typen.empty())
    {  string::size_type komma=typen.find(',');
@@ -186,22 +186,36 @@ void MidgardBasicElement::get_Steigern_Kosten_map()
 //for(std::map<int,int>::const_iterator i=map_erfolgswert_kosten.begin();i!=map_erfolgswert_kosten.end();++i)
 // cout <<Name()<<'\t'<<i->first<<'\t'<<i->second<<'\n';
 #else
+ const Tag *tag=this->tag;
+ const Tag *kosten=0;
+ std::string steigern_wie=Name();
+ 
  if(What()==FERTIGKEIT ) assert(tag);
- else if(What()==WAFFE) assert(!"get here");
+ else if(What()==WAFFE) 
+ {  tag=find_Tag("Waffen","Waffe","Name",Name());
+    int schwierigkeit=tag->getIntAttr("Schwierigkeit");
+    kosten=find_Tag("Waffen-Steigern","Kosten","Schwierigkeit",itos(schwierigkeit));
+ }
  else if(What()==SPRACHE) tag=cH_Fertigkeit("Sprache")->tag;
  else if(What()==SCHRIFT) tag=cH_Fertigkeit("Schreiben")->tag;
  else assert(!"get here");
- // steigern_wie ?
- const Tag *steigern_wie_t=tag->find("steigern_wie");
- std::string steigern_wie;
- if (steigern_wie_t) steigern_wie=steigern_wie_t->getAttr("Fertigkeit");
- if (!steigern_wie.empty() && steigern_wie!=Name())
-    steigern_wie_t=cH_Fertigkeit(steigern_wie)->tag;
- else
-    steigern_wie_t=this->tag;
- const Tag *kosten=steigern_wie_t->find("Kosten");
+
+ if (!kosten)
+ {  const Tag *steigern_wie_t=tag->find("steigern_wie");
+    if (steigern_wie_t) steigern_wie=steigern_wie_t->getAttr("Fertigkeit");
+    try
+    {  if (steigern_wie!=Name())
+          steigern_wie_t=cH_Fertigkeit(steigern_wie)->tag;
+       else
+          steigern_wie_t=this->tag;
+       assert(steigern_wie_t);
+       kosten=steigern_wie_t->find("Kosten");
+    } catch (const NotFound &e) // keine Fertigkeit
+    {  kosten=find_Tag("SteigernKosten","Kosten","Fertigkeit",steigern_wie);
+    }
+ }
  if (!kosten) 
- { cerr << "keine Kosten für '" << steigern_wie_t->getAttr("Name") << "' gefunden\n";
+ { cerr << "keine Kosten für '" << steigern_wie << "' gefunden\n";
    return;
  }
  for (int i=1;i<=19;++i)

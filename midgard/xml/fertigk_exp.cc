@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.9 2002/01/08 11:09:35 christof Exp $
+// $Id: fertigk_exp.cc,v 1.10 2002/01/09 08:04:58 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -88,7 +88,7 @@ void fert_speichern(std::ostream &o)
     }
    
       //********** Lernschema **********************************
-    lernschema(o, "Fertigkeit", fert);
+    lernschema(o, MIDGARD3_4("Fertigkeit","Fachkenntnisse"), fert);
     pflicht_lernen(o, fert);
     verbot_lernen(o, fert);
     ausnahmen(o, "f", fert);
@@ -167,7 +167,7 @@ void fert_speichern(std::ostream &o)
    o << ">\n";
 
    grund_standard_ausnahme(o, "Fertigkeit_typen",fert,"",true);
-   lernschema(o, "Fertigkeit",fert,true);
+   lernschema(o, MIDGARD3_4("Fertigkeit","Fachkenntnisse"),fert,true);
    pflicht_lernen(o, fert, true);
    verbot_lernen(o, fert, true);
    ausnahmen(o, "f", fert,true);
@@ -233,14 +233,10 @@ void fert_speichern(std::ostream &o)
    fetch_and_write_int_attrib(is, o, "Sb");
    fetch_and_write_typ_attrib(is, o, "Typ");
 #else
-   bool land=fetch_bool(is);
-   bool stadt=fetch_bool(is);
-   if (!land) write_bool_attrib(o, "Land", land);
-   if (!stadt) write_bool_attrib(o, "Stadt", stadt);
-   bool kaempfer=fetch_bool(is);
-   bool zauberer=fetch_bool(is);
-   if (!zauberer) write_bool_attrib(o, "Zauberer", zauberer);
-   if (!kaempfer) write_bool_attrib(o, "Kämpfer", land);
+   fetch_and_write_bool_attrib(is, o, "Land");
+   fetch_and_write_bool_attrib(is, o, "Stadt");
+   fetch_and_write_bool_attrib(is, o, "Kämpfer");
+   fetch_and_write_bool_attrib(is, o, "Zauberer");
 #endif
    fetch_and_write_string_attrib(is, o, "Geschlecht");
    o << "/>\n";

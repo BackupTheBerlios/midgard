@@ -12,15 +12,27 @@ cH_Beruf::cH_Beruf(const std::string& name)
 {
  cH_Beruf *cached(cache.lookup(name));
  if (cached) *this=*cached;
+#ifndef USE_XML 
  else
   {
    *this=cH_Beruf(new Beruf(name));
    cache.Register(name,*this);
   }
+#else
+  assert(!"Beruf im Cache");
+#endif  
 }
+
+#ifdef USE_XML
+cH_Beruf::cH_Beruf(const Tag *tag)
+{*this=cH_Beruf(new Beruf(tag));
+ cache.Register(tag->getAttr("Name"),*this);
+}
+#endif
 
 void Beruf::get_Beruf()
 {
+#ifndef USE_XML
   exec sql begin declare section;
    bool U,V,M,A,LAND,STADT,TYPK,TYPZ;
    char REGION[10],GESCHLECHT[10],db_vorteil[50],db_beruf[5];
@@ -67,7 +79,31 @@ void Beruf::get_Beruf()
    }
  exec sql close cl_beruf_ein;
  tr.close();
-// progressbar->set_percentage(1);
+#else
+   assert(tag);
+   const Tag *Voraussetzungen=tag->find("Voraussetzungen");
+   assert(Voraussetzungen);
+   const Tag *Stand=tag->find("Stand");
+     region=tag->getAttr("Region");
+     geschlecht=Voraussetzungen->getAttr("Geschlecht");
+     if (!Stand) u=v=m=a=true;
+     else
+     {  u=Stand->getBoolAttr("Unfrei");
+        v=Stand->getBoolAttr("Volk");
+        m=Stand->getBoolAttr("Mittelschicht");
+        a=Stand->getBoolAttr("Adel");
+     }
+     typ_k=Voraussetzungen->getBoolAttr("Kämpfer");
+     typ_z=Voraussetzungen->getBoolAttr("Zauberer");
+     stadt=Voraussetzungen->getBoolAttr("Stadt");
+     land=Voraussetzungen->getBoolAttr("Land");
+
+    const Tag *Vorteil=tag->find("Vorteil");
+    if (Vorteil)
+       for (Tag::const_iterator i=Vorteil->find(Vorteil->begin(),"Fertigkeit");
+     		i!=Vorteil->end();i=Vorteil->find(i+1,"Fertigkeit"))
+          vorteile.push_back(i->getAttr("Name"));
+#endif 
 }
 
 
@@ -125,6 +161,7 @@ bool Beruf::Voraussetzungen(const Grundwerte& Werte,const vector<cH_Typen>& Typ)
 
 Beruf_All::Beruf_All(Gtk::ProgressBar *progressbar)
 {
+#ifndef USE_XML
  exec sql begin declare section;
    char db_name[100];
    int db_size;
@@ -147,5 +184,30 @@ Beruf_All::Beruf_All(Gtk::ProgressBar *progressbar)
   }
  exec sql close BAein;
  tr.close();
+#else
+ const Tag *berufe=xml_data->find("Berufe");
+// int count=0;
+ if (!berufe)
+    cerr << "<Berufe><Beruf/>... nicht gefunden\n";
+ else
+ {  Tag::const_iterator b=berufe->begin(),e=berufe->end();
+    double size=e-b;
+    for (Tag::const_iterator i=berufe->find(b,"Beruf");
+    		i!=e;	i=berufe->find(i+1,"Beruf"))
+    {  // if (!((++count)&31))
+       {  progressbar->set_percentage((i-b)/size);
+          while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+       }
+       // sinnvoller wäre es, den Tag weiterzugeben, dann brauchen wir den oben nicht zu suchen!
+// warum sowas?
+//    die Klasse cH_Beruf enthält den Cache, erzeuge ich nur einen Beruf, so
+//    wird er nicht in den Cache (nach Namen) aufgenommen.
+//    Ich brauche aber einen cH_MidgardBasicElement, daher bilde ich einen
+//    Beruf* um danach (aus dem ebenfalls MidgardBasicElement*) ein 
+//    cH_MidgardBasicElement zu machen. Wow.
+       list_All.push_back(&*(cH_Beruf(&*i)));
+    }
+ }
+#endif
  progressbar->set_percentage(1);
 }

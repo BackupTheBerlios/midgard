@@ -94,14 +94,14 @@ public:
 	void setAttr(const std::string &name, const std::string &value);
 	
 	bool getBoolAttr(const std::string &typ,bool def=false) const throw();
-	int getIntAttr(const std::string &typ,int def=-1) const throw();
+	int getIntAttr(const std::string &typ,int def=0) const throw();
 	float getFloatAttr(const std::string &typ,float def=0) const throw();
 	
 	// values of substructures
 	bool hasTag(const std::string &typ) const throw();
 	const std::string getString(const std::string &typ,const std::string &def="") const throw();
 	bool getBool(const std::string &typ,bool def=false) const throw();
-	int getInt(const std::string &typ,int def=-1) const throw();
+	int getInt(const std::string &typ,int def=0) const throw();
 	float getFloat(const std::string &typ,float def=0) const throw();
 	void mark(const std::string &tg,const std::string &value) throw();
 	

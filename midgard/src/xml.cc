@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.16 2002/01/07 16:49:34 christof Exp $
+// $Id: xml.cc,v 1.17 2002/01/09 08:04:58 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -20,6 +20,8 @@
 #include "xml.h"
 
 #ifdef USE_XML
+
+#define PARANOIA
 #include "TagStream.hh"
 
 static TagStream *top;
@@ -79,8 +81,30 @@ void xml_free()
 
 const Tag *find_Tag(const std::string &listtag, const std::string &elementtag,
 		const vector<pair<std::string,std::string> > &anforderungen)
-{const Tag *liste=xml_data->find(listtag);
- cerr << "find_Tag("<< listtag<< "," << elementtag <<"," << anforderungen[0].second << ",...)\n";
+{
+#ifdef PARANOIA
+cerr << "find_Tag("<< listtag<< "," << elementtag <<",";
+for (vector<pair<std::string,std::string> >::const_iterator i=anforderungen.begin();i!=anforderungen.end();++i)
+cerr << '\'' << i->first << "'='" << i->second << "' ";
+cerr << ")\n";
+
+{const xml_liste *list=suche_Tageigenschaften(listtag,elementtag);
+ if (!list) cerr << "find_Tag " << listtag << ',' << elementtag << ": unbekannt\n";
+ else
+ {  const char * const *k=list->key;
+    vector<pair<std::string,std::string> >::const_iterator i=anforderungen.begin();
+    for (;*k && i!=anforderungen.end();++i,++k)
+    {  if (*k!=i->first)
+ 	  cerr << "find_Tag " << listtag << ',' << elementtag << ": key " << i->first << "!=" <<*k<<"\n";
+    }
+    if (*k)
+       cerr << "find_Tag " << listtag << ',' << elementtag << ": missing key " <<*k<<"\n";
+    else if (i!=anforderungen.end())
+       cerr << "find_Tag " << listtag << ',' << elementtag << ": additional key " <<i->first<<"\n";
+ }
+}
+#endif
+ const Tag *liste=xml_data->find(listtag);
  if (!liste)
     cerr << "<"<<listtag<<"><"<<elementtag<<"/>... nicht gefunden\n";
  else
@@ -110,6 +134,7 @@ static const char * const std_matching[] = { "Name",0 };
 static const char * const ep_matching[] = { "Fertigkeit",0 };
 static const char * const grad_matching[] = { "Grad",0 };
 static const char * const typ_matching[] = { "Abkürzung",0 };
+static const char * const verbot_matching[] = { "Typ","Fertigkeit",0 };
 static const char * const zauberwerk_matching[] = { "Name","Art","Stufe",0 };
 static const char * const preis_matching[] = { "Ware",0 }; // Region?
 static const char * const modifikation_matching[] = { "Art","Bezeichnung",0 };
@@ -132,7 +157,9 @@ const struct xml_liste xml_tags[] =
    {  "Spezialgebiete",	"Spezialgebiet",	std_matching },
    {  "SpeziesListe",	"Spezies",	std_matching },
    {  "Sprachen",	"Sprache",	std_matching },
+   {  "SteigernKosten",	"Kosten",	ep_matching },
    {  "Typen",		"Typ",		typ_matching },
+   {  "Typ-Pflichten",	"Verbot",	verbot_matching },
    {  "verwendbareEP",	"EP-Typ",	ep_matching },
    {  "Waffen-Grundkenntnisse",	"Waffen-Grundkenntnis",	std_matching },
    {  "Waffen-Steigern",	"Kosten",	waff_steig_matching },
@@ -141,11 +168,11 @@ const struct xml_liste xml_tags[] =
    {  "Zauberwerke",	"Zauberwerk",	zauberwerk_matching },
    {  (const char*)0,	(const char*)0,	(const char*const*)0 }};
    
-const xml_liste *suche_Tageigenschaften(const std::string &art)
+const xml_liste *suche_Tageigenschaften(const std::string &list, const std::string &elem)
 {  const xml_liste *result=xml_tags;
 //   cerr << "suche_Tageigenschaften " << art << '\n';
    for (;result->listtag;++result)
-      if (result->elementtag==art) return result;
+      if (result->listtag==list && result->elementtag==elem) return result;
    return 0;
 }
 
@@ -154,7 +181,7 @@ static void xml_merge(Tag *merge_here, const Tag *tomerge)
 //   cout << "merge " << merge_here->Type() << ',' << tomerge->Type() << '\n';
    for (Tag::const_iterator i=tomerge->begin();i!=tomerge->end();++i)
    {  if (i->Type().empty()) continue;
-      const xml_liste *tagprops=suche_Tageigenschaften(i->Type());
+      const xml_liste *tagprops=suche_Tageigenschaften(tomerge->Type(),i->Type());
       if (!tagprops)
       {  cerr << "Can't find properties for Tag '" << i->Type() << "'\n";
          continue;

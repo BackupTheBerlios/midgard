@@ -28,8 +28,13 @@ class Beruf : public MidgardBasicElement
      void get_Beruf();      
   public:
 //      Beruf() {}
+#ifndef USE_XML  
       Beruf(std::string n) : MidgardBasicElement(n)
           {get_Beruf();}
+#else
+      Beruf(const Tag *t) : MidgardBasicElement(t,t->getAttr("Name"))
+          {get_Beruf();}
+#endif
 
      enum MBEE What() const {return MidgardBasicElement::BERUF;}
      std::string What_str() const {return "Beruf";}
@@ -60,6 +65,9 @@ class cH_Beruf : public Handle<const Beruf>
     cH_Beruf(){};
  public:
     cH_Beruf(const std::string& n);
+#ifdef USE_XML    
+    cH_Beruf(const Tag *tag);
+#endif
 
     cH_Beruf(const cH_MidgardBasicElement &x) : Handle<const Beruf>
       (dynamic_cast<const Beruf *>(&*x)){}

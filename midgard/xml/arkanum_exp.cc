@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.cc,v 1.6 2002/01/03 08:39:20 christof Exp $
+// $Id: arkanum_exp.cc,v 1.7 2002/01/09 08:04:58 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -60,7 +60,7 @@ void arkanum_speichern(std::ostream &o)
    fetch_and_write_string_attrib(is, o, "Thaumagramm");
    o << ">\n";
    grund_standard_ausnahme(o, "zauber_typen",zauber);
-   lernschema(o, "Zauber",zauber);
+   lernschema(o, MIDGARD3_4("Zauber","Zauberkünste"),zauber);
    ausnahmen(o, "z", zauber);
       
 //****************** Beschreibung *************************
@@ -85,7 +85,7 @@ void arkanum_speichern(std::ostream &o)
    o << ">\n";
 
    grund_standard_ausnahme(o, "zauber_typen",zauber,"",true);
-   lernschema(o, "Zauber",zauber,true);
+   lernschema(o, MIDGARD3_4("Zauber","Zauberkünste"), zauber,true);
    ausnahmen(o, "z", zauber,true);
    o << "  </Spruch>\n";
   }

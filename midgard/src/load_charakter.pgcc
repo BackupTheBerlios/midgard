@@ -420,7 +420,7 @@ void midgard_CG::load_fertigkeiten()
         }
       if(sart=="Beruf")
         {
-         cH_MidgardBasicElement beruf(new Beruf(db_fert));
+         cH_MidgardBasicElement beruf(&*cH_Beruf(db_fert));
          cH_Beruf(beruf)->set_Erfolgswert(db_wert);
          list_Beruf.push_back(beruf);
         }

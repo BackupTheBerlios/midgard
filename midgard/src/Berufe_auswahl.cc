@@ -202,7 +202,7 @@ void Berufe_auswahl::fill_list()
 
 void Berufe_auswahl::einBeruf(const Beruf_Data &dt)
 {
-  cH_MidgardBasicElement mbe(new Beruf(dt.Beruf()));
+  cH_MidgardBasicElement mbe(&*cH_Beruf(dt.Beruf()));
   hauptfenster->MidgardBasicElement_uebernehmen(mbe);
   if(dt.Gelernt()) // Erfolgswert um eins erhöhen
     for (std::list<cH_MidgardBasicElement>::const_iterator k=list_fert.begin();k!=list_fert.end();++k)

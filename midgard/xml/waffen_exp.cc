@@ -1,4 +1,4 @@
-// $Id: waffen_exp.cc,v 1.5 2002/01/03 08:08:57 christof Exp $
+// $Id: waffen_exp.cc,v 1.6 2002/01/09 08:04:58 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -76,7 +76,7 @@ void waffen_speichern(std::ostream &o)
    std::string waffe=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
    std::string grund=fetch_and_write_string_attrib(is, o, "Grundkenntnisse",waffe);
-   fetch_and_write_int_attrib(is, o, "Schwierigkeit");
+   fetch_and_write_int_attrib(is, o, "Schwierigkeit",-1);
    fetch_and_write_string_attrib(is, o, "Kategorie");
    fetch_and_write_string_attrib(is, o, "Klasse");
    fetch_and_write_string_attrib(is, o, "Schaden");
@@ -144,7 +144,7 @@ void waffen_speichern(std::ostream &o)
      }
       //********** Lernschema **********************************
       // wert, attribut, [p+s]_element 
-      lernschema(o, "Waffe", waffe);
+      lernschema(o, MIDGARD3_4("Waffe","Waffenfertigkeiten"), waffe);
       pflicht_lernen(o, waffe);
       verbot_lernen(o, waffe);
 //      ausnahmen(o, "w", waffe);
@@ -178,7 +178,7 @@ void waffen_speichern(std::ostream &o)
 
 #warning regionale Variante fehlt
    grund_standard_ausnahme(o, "waffen_typen",waffe,"",true);
-   lernschema(o, "Waffe",waffe,true);
+   lernschema(o, MIDGARD3_4("Waffe","Waffenfertigkeiten"), waffe,true);
    ausnahmen(o, "w", waffe,true);
    o << "  </Waffe>\n";
   }
@@ -205,7 +205,7 @@ void waffen_speichern(std::ostream &o)
 
    // nicht erforderlich für Grundkenntnisse?
 //      grund_standard_ausnahme(o, "waffen_typen", grund);
-//      lernschema(o, "Waffe", grund);
+//      lernschema(o, MIDGARD3_4("Waffe","Waffenfertigkeiten"), grund);
       pflicht_lernen(o, grund);
       verbot_lernen(o, grund);
 //      ausnahmen(o, "w", grund);
@@ -230,8 +230,9 @@ void waffen_speichern(std::ostream &o)
        {  o << "    <Kosten";
 #ifdef MIDGARD3
           fetch_and_write_string_attrib(is, o, "Kategorie");
-#else       
-          fetch_and_write_int_attrib(is, o, "Schwierigkeit");
+#else
+	  // 0 auch ausgeben!
+          fetch_and_write_int_attrib(is, o, "Schwierigkeit",-1);
 #endif
           for (int i=1;i<=20;++i) 
              fetch_and_write_int_attrib(is, o, "Wert"+itos(i));
