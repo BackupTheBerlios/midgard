@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.23 2001/04/30 15:02:23 thoma Exp $
+// $Id: midgard_CG.hh,v 1.24 2001/05/01 08:33:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -73,6 +73,8 @@ struct st_spezies_constraint{int st;int ge;int ko;int in;int zt;int sb;int au;
       int lpbasis;int ap_grad;int gift;int m_abb; int m_psy;int m_phs; int m_phk;
       int alter;int groesse_f;int groesse_w;int groesse_s;int gestalt;
       int b_f;int b_s;};
+struct st_typen{int nr;string name;
+	st_typen(int i,string n):nr(i),name(n){}};
 struct st_lernpunkte{int beruf; int fertigkeiten; int waffen; int zauber;
       st_lernpunkte() : beruf(0),fertigkeiten(0),waffen(0),zauber(0) {}
       void clear(){*this=st_lernpunkte();} };
@@ -144,12 +146,13 @@ extern bool KanThaiPanbool;
 extern bool Nahuatlanbool;
 extern bool Waelandbool;
 extern bool Albabool;
+extern bool HDbool;
 
 
 class midgard_CG : public midgard_CG_glade
 {   
         friend class midgard_CG_glade;
-        vector<string> typen_vector;
+        vector<st_typen> typen_vector;
 //        vector<st_spezialgebiet> vec_spezialgebiet;
         vector<string> vec_spezialgebiet;
         vector<string> spezies_vector;
@@ -171,6 +174,7 @@ class midgard_CG : public midgard_CG_glade
 
         void regnot(string sadd);
         void fill_typauswahl();
+//        int  fill_typauswahl_int(int i);
         void fill_spezies();
         void typauswahl_button();
         void spezieswahl_button();
@@ -247,6 +251,7 @@ class midgard_CG : public midgard_CG_glade
         void on_checkbutton_Nahuatlan_toggled();
         void on_checkbutton_Waeland_toggled();
         void on_checkbutton_Alba_toggled();
+        void on_checkbutton_HD_toggled();
 
         void on_grad_anstieg_clicked();
         void get_grad(int gfp);

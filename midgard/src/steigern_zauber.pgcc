@@ -43,7 +43,7 @@ void midgard_CG::show_alte_zauber()
    for (vector<st_zauber>::iterator i=zauber.begin(); i!=zauber.end();++i)
       {
          double fac = midgard_CG::get_standard_zauber(typ.s,i->name);
-         os << i->name<<"\t"<<i->kosten*fac<<"\n";
+         os << i->name<<"\t"<<i->ursprung<<"\t"<<i->kosten*fac<<"\n";
       }
    for (unsigned int i=0;i<steigern_zauber_clist_alt->columns().size();++i)
       steigern_zauber_clist_alt->set_column_auto_resize(i,true);
@@ -55,7 +55,7 @@ void midgard_CG::show_neue_zauber()
 {
   steigern_zauber_clist_neu->clear();
   exec sql begin declare section;
-   char db_name[100];
+   char db_name[100],db_ursprung[50];
    int db_kosten;
    char db_stufe[10];
    char db_spruchrolle[10];
@@ -69,7 +69,7 @@ void midgard_CG::show_neue_zauber()
   if (!checkbutton_alle_zauber->get_active() )
       alle_zauber = "("+typ.s+" = 'G' OR "+typ.s+" = 'S' OR "+typ.s+" = 'A') AND ";
 //  if (typ.s!="eBe")
-    string squery = "SELECT distinct name, kosten, stufe, "+typ.s+", spruchrolle, \
+    string squery = "SELECT distinct name, ursprung, kosten, stufe, "+typ.s+", spruchrolle, \
       coalesce(region,''), coalesce(zauberart,''), coalesce(p_element,''), coalesce(s_element,'') \
       FROM arkanum_zauber WHERE "+alle_zauber+"\
       name NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten \
@@ -87,7 +87,7 @@ void midgard_CG::show_neue_zauber()
    Gtk::OStream os(steigern_zauber_clist_neu);
    while (true)
       {
-         exec sql fetch zauber_ein into :db_name, :db_kosten, :db_stufe, 
+         exec sql fetch zauber_ein into :db_name, :db_ursprung, :db_kosten, :db_stufe, 
             :db_standard, :db_spruchrolle, :db_region, :db_zauberart,
 	    :db_p_element, :db_s_element ;
          SQLerror::test(__FILELINE__,100);  
@@ -104,10 +104,10 @@ void midgard_CG::show_neue_zauber()
          if (midgard_CG::region_check(db_region))
           {
             if (!spruchrolle->get_active())
-               os << db_stufe <<"\t"<< db_name <<"\t"<<db_kosten*fac<<"\t"<<standard<<"\n";
+               os << db_stufe <<"\t"<< db_name <<"\t"<<db_ursprung<<"\t"<<db_kosten*fac<<"\t"<<standard<<"\n";
             else
                if (strcmp(db_spruchrolle,"nicht"))
-                  os << db_stufe <<"\t"<< db_name <<"\t"<<db_kosten*fac/10<<"\t"<<standard<<"\n";
+                  os << db_stufe <<"\t"<< db_name <<"\t"<<db_ursprung<<"\t"<<db_kosten*fac/10<<"\t"<<standard<<"\n";
           }
       }
    exec sql close zauber_ein;

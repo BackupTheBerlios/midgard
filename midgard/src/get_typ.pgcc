@@ -61,5 +61,11 @@ int midgard_CG::get_typ_nr()
  exec sql select typnr into :db_typnr from typen where typs = :db_typs;
  SQLerror::test(__FILELINE__,100); 
  if (sqlca.sqlcode) return 0; // Kein Charakter gewählt
- return db_typnr-1; 
+ int count=0;
+ for (vector<st_typen>::const_iterator i=typen_vector.begin();
+        i!=typen_vector.end();++i)
+   { if(db_typnr==i->nr) { return count ; }
+     ++count;
+   }
+ abort();
 }

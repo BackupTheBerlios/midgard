@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.18 2001/04/23 19:02:39 thoma Exp $
+// $Id: midgard_CG.cc,v 1.19 2001/05/01 08:33:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -54,10 +54,21 @@ void midgard_CG::spezieswahl_button()
 
 void midgard_CG::typauswahl_button()
 {
- int ityp = int(typauswahl->get_menu()->get_active()->get_user_data());
+ int ityp_ = int(typauswahl->get_menu()->get_active()->get_user_data());
+ int ityp,count=0;
+ for (vector<st_typen>::const_iterator i=typen_vector.begin();
+	i!=typen_vector.end();++i)
+   { if (count==ityp_){ityp=i->nr;break;}
+     ++count;
+   }
+//cout << ityp_<<"\t"<<ityp <<"\n";
  get_typ(ityp);
+//cout << ityp_<<"\t"<<ityp <<"\n";
  show_gtk(ityp);
+//cout << ityp_<<"\t"<<ityp <<"\n";
+//cout << typ.s <<"\t"<<typ.l<<"\n";
 }
+
 
 void midgard_CG::show_gtk(int tnr)
 {

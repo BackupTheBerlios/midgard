@@ -2631,20 +2631,40 @@ beschreibung</label>
 
 		<widget>
 		  <class>GtkCheckButton</class>
-		  <name>checkbutton_Waeland</name>
+		  <name>checkbutton_Eschar</name>
 		  <x>0</x>
-		  <y>80</y>
+		  <y>16</y>
 		  <width>0</width>
 		  <height>0</height>
 		  <cxx_visibility>protected</cxx_visibility>
-		  <tooltip>Fertigkeiten/Zauber des Waeland Quellenbuches berücksichtigen</tooltip>
+		  <tooltip>Fertigkeiten/Zauber des Eschar Quellenbuches berücksichtigen</tooltip>
 		  <can_focus>True</can_focus>
 		  <signal>
 		    <name>toggled</name>
-		    <handler>on_checkbutton_Waeland_toggled</handler>
-		    <last_modification_time>Fri, 23 Mar 2001 22:36:46 GMT</last_modification_time>
+		    <handler>on_checkbutton_Eschar_toggled</handler>
+		    <last_modification_time>Fri, 23 Mar 2001 08:08:15 GMT</last_modification_time>
 		  </signal>
-		  <label>Waeland</label>
+		  <label>Eschar</label>
+		  <active>False</active>
+		  <draw_indicator>True</draw_indicator>
+		</widget>
+
+		<widget>
+		  <class>GtkCheckButton</class>
+		  <name>checkbutton_Alba</name>
+		  <x>0</x>
+		  <y>0</y>
+		  <width>0</width>
+		  <height>0</height>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <tooltip>Fertigkeiten/Zauber des Alba Quellenbuches berücksichtigen</tooltip>
+		  <can_focus>True</can_focus>
+		  <signal>
+		    <name>toggled</name>
+		    <handler>on_checkbutton_Alba_toggled</handler>
+		    <last_modification_time>Sun, 25 Mar 2001 12:05:37 GMT</last_modification_time>
+		  </signal>
+		  <label>Alba</label>
 		  <active>False</active>
 		  <draw_indicator>True</draw_indicator>
 		</widget>
@@ -2691,40 +2711,40 @@ beschreibung</label>
 
 		<widget>
 		  <class>GtkCheckButton</class>
-		  <name>checkbutton_Eschar</name>
+		  <name>checkbutton_Waeland</name>
 		  <x>0</x>
-		  <y>16</y>
+		  <y>80</y>
 		  <width>0</width>
 		  <height>0</height>
 		  <cxx_visibility>protected</cxx_visibility>
-		  <tooltip>Fertigkeiten/Zauber des Eschar Quellenbuches berücksichtigen</tooltip>
+		  <tooltip>Fertigkeiten/Zauber des Waeland Quellenbuches berücksichtigen</tooltip>
 		  <can_focus>True</can_focus>
 		  <signal>
 		    <name>toggled</name>
-		    <handler>on_checkbutton_Eschar_toggled</handler>
-		    <last_modification_time>Fri, 23 Mar 2001 08:08:15 GMT</last_modification_time>
+		    <handler>on_checkbutton_Waeland_toggled</handler>
+		    <last_modification_time>Fri, 23 Mar 2001 22:36:46 GMT</last_modification_time>
 		  </signal>
-		  <label>Eschar</label>
+		  <label>Waeland</label>
 		  <active>False</active>
 		  <draw_indicator>True</draw_indicator>
 		</widget>
 
 		<widget>
 		  <class>GtkCheckButton</class>
-		  <name>checkbutton_Alba</name>
+		  <name>checkbutton_HD</name>
 		  <x>0</x>
-		  <y>0</y>
+		  <y>96</y>
 		  <width>0</width>
 		  <height>0</height>
 		  <cxx_visibility>protected</cxx_visibility>
-		  <tooltip>Fertigkeiten/Zauber des Alba Quellenbuches berücksichtigen</tooltip>
+		  <tooltip>Zauber des Quellenbuches 'Hexenzauber &amp; Druidenkraft</tooltip>
 		  <can_focus>True</can_focus>
 		  <signal>
 		    <name>toggled</name>
-		    <handler>on_checkbutton_Alba_toggled</handler>
-		    <last_modification_time>Sun, 25 Mar 2001 12:05:37 GMT</last_modification_time>
+		    <handler>on_checkbutton_HD_toggled</handler>
+		    <last_modification_time>Mon, 30 Apr 2001 16:30:19 GMT</last_modification_time>
 		  </signal>
-		  <label>Alba</label>
+		  <label>H&amp;D</label>
 		  <active>False</active>
 		  <draw_indicator>True</draw_indicator>
 		</widget>
@@ -6137,8 +6157,8 @@ Praxispunkten</label>
 			    <handler>on_steigern_zauber_clist_alt_select_row</handler>
 			    <last_modification_time>Thu, 15 Feb 2001 15:22:23 GMT</last_modification_time>
 			  </signal>
-			  <columns>2</columns>
-			  <column_widths>80,80</column_widths>
+			  <columns>3</columns>
+			  <column_widths>80,80,80</column_widths>
 			  <selection_mode>GTK_SELECTION_SINGLE</selection_mode>
 			  <show_titles>True</show_titles>
 			  <shadow_type>GTK_SHADOW_IN</shadow_type>
@@ -6149,6 +6169,19 @@ Praxispunkten</label>
 			    <name>label236</name>
 			    <label>Name</label>
 			    <justify>GTK_JUSTIFY_LEFT</justify>
+			    <wrap>False</wrap>
+			    <xalign>0.5</xalign>
+			    <yalign>0.5</yalign>
+			    <xpad>0</xpad>
+			    <ypad>0</ypad>
+			  </widget>
+
+			  <widget>
+			    <class>GtkLabel</class>
+			    <child_name>CList:title</child_name>
+			    <name>label393</name>
+			    <label>Ursprung</label>
+			    <justify>GTK_JUSTIFY_RIGHT</justify>
 			    <wrap>False</wrap>
 			    <xalign>0.5</xalign>
 			    <yalign>0.5</yalign>
@@ -6194,8 +6227,8 @@ Praxispunkten</label>
 			    <handler>on_steigern_zauber_clist_neu_select_row</handler>
 			    <last_modification_time>Thu, 15 Feb 2001 15:22:13 GMT</last_modification_time>
 			  </signal>
-			  <columns>4</columns>
-			  <column_widths>80,80,80,80</column_widths>
+			  <columns>5</columns>
+			  <column_widths>80,80,80,80,80</column_widths>
 			  <selection_mode>GTK_SELECTION_SINGLE</selection_mode>
 			  <show_titles>True</show_titles>
 			  <shadow_type>GTK_SHADOW_IN</shadow_type>
@@ -6218,6 +6251,19 @@ Praxispunkten</label>
 			    <child_name>CList:title</child_name>
 			    <name>label238</name>
 			    <label>Name</label>
+			    <justify>GTK_JUSTIFY_LEFT</justify>
+			    <wrap>False</wrap>
+			    <xalign>0.5</xalign>
+			    <yalign>0.5</yalign>
+			    <xpad>0</xpad>
+			    <ypad>0</ypad>
+			  </widget>
+
+			  <widget>
+			    <class>GtkLabel</class>
+			    <child_name>CList:title</child_name>
+			    <name>label394</name>
+			    <label>Ursprung</label>
 			    <justify>GTK_JUSTIFY_LEFT</justify>
 			    <wrap>False</wrap>
 			    <xalign>0.5</xalign>

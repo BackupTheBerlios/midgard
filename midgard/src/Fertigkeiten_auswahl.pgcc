@@ -109,6 +109,7 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
             :db_lernpunkte, :db_pflicht:idb_pflicht, :db_fp, :db_voraussetzung ; 
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
+//cout << db_fertigkeiten<<"\n";
          fert.push_back(db_struct_fertigkeiten(db_lernpunkte,db_fertigkeiten,
                idb_erfolgswert?0:db_erfolgswert, idb_attribut?"":db_attribut,
                idb_pflicht?"":db_pflicht, db_fp, db_voraussetzung));
