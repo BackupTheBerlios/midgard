@@ -222,7 +222,7 @@ void midgard_CG::menu_init()
   }
 #endif
 ///////////
-//  menu_kontext->show_all();
+  menu_kontext->show_all();
 }
 
 

@@ -1,4 +1,4 @@
-// $Id: Region.hh,v 1.10 2004/08/30 13:17:56 christof Exp $               
+// $Id: Region.hh,v 1.11 2004/12/12 22:15:51 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002-2004 Christof Petig
@@ -33,10 +33,10 @@ class Tag;
 
 namespace RegionenPic_enum
 {
-   enum epic {None, Rawindra,KanThaiPan,Alba,Eschar,Gildenbrief,GildenbriefBerufe,
-              HD,Waeland,
+   enum epic {None, Rawindra,KanThaiPan,Alba,Eschar,Gildenbrief,HD,Waeland,
               Nahuatlan,Arkanum,DFR,Meister_der_Sphaeren,Tipps_und_Tricks,
-              Abenteuer,HD_finster,Kuestenstaaten,Ikengabecken};
+              Abenteuer,HD_finster,Kuestenstaaten,Ikengabecken,
+              GildenbriefBerufe};
 }
 
 

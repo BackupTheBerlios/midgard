@@ -78,6 +78,7 @@ table_grundwerte::table_grundwerte(GlademmData *_data)
   edit_sensitive(false); // noch weg ?
   frame_wuerfelvariante->hide();
    
+  button_grundwerte->set_tooltips(&_tooltips);
   button_grundwerte->add(MagusImage("Dice-W100-trans-50.xpm"),"Eigenschaften\nwürfeln",
        "2x für jede Eigenschaft würfeln, das höhere Ergebnis zählt.",
        SigC::slot(*this,&table_grundwerte::on_button_grundwerte));
@@ -87,15 +88,14 @@ table_grundwerte::table_grundwerte(GlademmData *_data)
   button_grundwerte->add(MagusImage("Dice-W100-trans-50.xpm"),"Eigenschaften\nverteilen",
        "9x würfeln, die besten sechs Ergebnisse frei verteilen.",
        SigC::slot(*this,&table_grundwerte::on_button_grundwerte));
-  button_grundwerte->set_tooltips(&_tooltips);
 
+  button_geschlecht->set_tooltips(&_tooltips);
   button_geschlecht->add(MagusImage("male.png"),"männlich",SigC::slot(*this,&table_grundwerte::on_radiobutton_mann_toggled));
   button_geschlecht->add(MagusImage("female.png"),"weiblich",SigC::slot(*this,&table_grundwerte::on_radiobutton_mann_toggled));
-  button_geschlecht->set_tooltips(&_tooltips);
 
-  button_stadt_land->add("Stadt",SigC::slot(*this,&table_grundwerte::on_radiobutton_stadt_land_toggled));
-  button_stadt_land->add("Land",SigC::slot(*this,&table_grundwerte::on_radiobutton_stadt_land_toggled));
   button_stadt_land->set_tooltips(&_tooltips);
+  button_stadt_land->add(MagusImage("stadt.png"),"Stadt",SigC::slot(*this,&table_grundwerte::on_radiobutton_stadt_land_toggled));
+  button_stadt_land->add(MagusImage("land.png"),"Land",SigC::slot(*this,&table_grundwerte::on_radiobutton_stadt_land_toggled));
 }
 
 void table_grundwerte::zeige_werte(bool typ2_hide)

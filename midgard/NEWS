@@ -7,6 +7,9 @@ Version 0.9.8
 - Grafik in SteigernKnopffeld wieder da
 - Verlernen geht wieder (nur noch 1 Knopf für reduzieren/verlernen)
 - Die Auswahl von Rüstungen geht wieder
+- Die Icons der Regionen passen wieder (jemand hatte GildenbriefBerufe 
+	mittendrin eingefügt, so dass sich die Numerierung verschob)
+- Kontext-Menü ist wieder da
 
 -------------- TODO ----------------
 
