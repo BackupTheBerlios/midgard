@@ -1,4 +1,4 @@
-// $Id: customize_toolbars.cc,v 1.21 2002/12/12 08:35:34 christof Exp $
+// $Id: customize_toolbars.cc,v 1.22 2002/12/12 12:03:50 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -21,7 +21,7 @@
 #include <gtkmm/toolbar.h>
 #include <gtkmm/label.h>
 #include <gtkmm/table.h>
-#include <gtkmm/pixmap.h>
+#include <gtkmm/image.h>
 #include <gtkmm/button.h>
 #include <gtkmm/box.h>
 #include <gtkmm/notebook.h>
@@ -100,18 +100,19 @@ void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text, boo
    }
    else if (Gtk::Table::isA(w))
    {  
-#if 0   // a bug in gtkmm-1.2
+#if 1   // a bug in gtkmm-1.2
       Gtk::Table_Helpers::TableList &ch=dynamic_cast<Gtk::Table*>(w)->children();
       for (Gtk::Table_Helpers::TableList::const_iterator i=ch.begin();
       		i!=ch.end();++i)
          CustomizeToolbars(*i,show_icons,show_text,tab_text);
-#endif
+#else
       // G_ListWrap<GtkTableChild*>
       for (GList *liste=Gtk::TABLE(w->gobj())->children;liste;
       		liste=liste->next)
       {  CustomizeToolbars(Gtk::wrap(((GtkTableChild*)(liste->data))->widget),
       		show_icons,show_text,tab_text);
       }
+#endif      
    }
    else if (Gtk::Notebook::isA(w))
    {  Gtk::Notebook_Helpers::PageList &ch=dynamic_cast<Gtk::Notebook*>(w)->pages();
