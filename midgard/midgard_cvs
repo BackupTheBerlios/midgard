@@ -52,7 +52,7 @@ update() {
 configure() {
   echo ========= Petig.m4 ========
   echo Bitte das root Passwort angeben
-  echo (Fuer Installation von petig.m4 nach /usr/share/aclocal)
+  echo "(Fuer Installation von petig.m4 nach /usr/share/aclocal)"
   cd m4 && (su -c "make install" || make install ; cd ..)
   echo ========  ManuProC_Base ========
   cd ManuProC_Base && (./autogen.sh $* ; make ; cd ..)
@@ -70,7 +70,7 @@ configure_if_needed() {
   if [ ! -f /usr/share/aclocal/petig.m4 ]
   then 
     echo Bitte das root Passwort angeben
-    echo (Fuer Installation von petig.m4 nach /usr/share/aclocal)
+    echo "(Fuer Installation von petig.m4 nach /usr/share/aclocal)"
     cd m4 && (su -c "make install" || make install ; cd ..)
   fi
   echo ========  ManuProC_Base ========
@@ -108,26 +108,28 @@ doinstall() {
   su -c 'make install'
 }
 
-if [ "$1" -eq "checkout" -o "$1" -eq "co" ] 
+if [ "_$1" = "_checkout" -o "_$1" = "_co" ] 
 then
   login
   checkout
-elif [ "$1" -eq "update" ]
+elif [ "_$1" = "_update" ]
 then
   update
-elif [ "$1" -eq "configure" ]
+elif [ "_$1" = "_configure" ]
 then
   configure $2 $3 $4 $5 $6 $7 $8 $9
-elif [ "$1" -eq "make" ]
+elif [ "_$1" = "_make" ]
 then 
   configure_if_needed $2 $3 $4 $5 $6 $7 $8 $9 
   domake
-elif [ "$1" -eq "install" ]
+elif [ "_$1" = "_install" ]
 then 
   configure_if_needed $2 $3 $4 $5 $6 $7 $8 $9 
   domake
   doinstall
 else
+  echo "Midgard anonymous-CVS Installierer $Revision: 1.3 $"
+  echo
   echo "USAGE: $0 <Befehl> [Argumente]"
   echo "Befehle: checkout co update configure make install"
   echo
