@@ -176,31 +176,11 @@ void midgard_CG::on_leaf_selected_alte_waffen(cH_RowDataBase d)
    waffen_zeigen();
 }
 
-/*
-void midgard_CG::on_radio_waffen_steigern_toggled()
-{   
+void midgard_CG::on_alte_waffen_reorder()
+{
+  on_button_waffen_sort_clicked();
 }
 
-void midgard_CG::on_radio_waffen_reduzieren_toggled()
-{   
-   if (radio_waffen_reduzieren->get_active())
-      togglebutton_praxispunkte_waffen->set_active(false);
-}
-
-void midgard_CG::on_togglebutton_praxispunkte_waffen_toggled()
-{   
-   if (togglebutton_praxispunkte_waffen->get_active()) 
-      radio_waffen_steigern->set_active(true);
-}
-
-void midgard_CG::on_radiobutton_praxis_wuerfeln_waffen_toggled()
-{   
-}
-
-void midgard_CG::on_radiobutton_praxis_auto_waffen_toggled()
-{   
-}
-*/
 
 void midgard_CG::on_button_waffen_sort_clicked()
 {

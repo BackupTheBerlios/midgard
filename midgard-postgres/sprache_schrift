@@ -1,0 +1,62 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE "sprache_schrift";
+--
+--
+--
+
+CREATE TABLE "sprache_schrift" (
+	"sprache" text NOT NULL,
+	"schrift" text NOT NULL
+);
+
+--
+--
+--
+
+
+COPY "sprache_schrift" FROM stdin;
+Albisch	Valianisches Alphabet
+Altoqua	Valianisches Alphabet
+Aranisch	Aranische Silbenschrift
+Asadi	Hurritische Keilschrift
+Bulugi	Bulugische Bilderschrift
+Chryseisch	Valianisches Alphabet
+Comentang	Valianisches Alphabet
+Dunathisch	Valianisches Alphabet
+Dunkle Sprache	Arracht-Versalien
+Dvarskar	Futhark
+Eldalyn	Beth-Luis-Nion
+Erainnisch	Valianisches Alphabet
+Gnomenon	Beth-Luis-Nion
+Gnomenon	Futhark
+Halftan	Valianisches Alphabet
+Hochcoraniaid	Coraniaid-Alphabet
+Hurritisch	Hurritische Keilschrift
+KanThaiTun	KanThaiTun(1)
+KanThaiTun	KanThaiTun(2)
+KanThaiTun	KanThaiTun(3)
+KanThaiTun	KanThaiTun(4)
+KanThaiTun	KanThaiTun(5)
+KanThaiTun	KanThaiTun(6)
+Kelwisch	Hurritische Keilschrift
+Luwisch	Hurritische Keilschrift
+Läinisch	Läinisch
+Maralinga	Valianisches Alphabet
+Medjisisch	Tegarisch
+Meketische	Meketische Bilderschrift
+Minangpahitisch	Rawindisches Alphabet
+Moravisch	Valianisches Alphabet
+Nahuatlanisch	Nahuatlanische Bilderschrift
+Nahuatlanisch	Nahuatlanische Knotenschrift Quipu
+Neu Vallinga	Aranische Silbenschrift
+Rawindi	Rawindisches Alphabet
+Scharidisch	Aranische Silbenschrift
+Tegarisch	Tegarisch
+Toquinisch	Toquiische Keilschrift
+Tuskisch	Tuskische Keilschrift
+Twyneddisch	Valianisches Alphabet
+Vallinga	Valianisches Alphabet
+Waelska	Waelska
+\.

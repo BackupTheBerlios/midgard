@@ -92,6 +92,11 @@ void midgard_CG::on_leaf_selected_neue_kido(cH_RowDataBase d)
   on_kido_laden_clicked();
 }
 
+void midgard_CG::on_alte_kido_reorder()
+{
+   on_button_kido_sort_clicked();
+}
+
 
 void midgard_CG::on_button_kido_sort_clicked()
 {

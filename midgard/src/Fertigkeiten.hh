@@ -10,7 +10,7 @@ class Fertigkeit : public MidgardBasicElement
 {
      std::string attribut;
      mutable std::string zusatz; // Für verschiedene Länder bei Landeskunde
-     int /*lernpunkte,*/ lern_land,lern_stadt, anfangswert0, anfangswert,
+     int lern_unge, lern_land,lern_stadt, anfangswert0, anfangswert,
          ungelernt,berufskategorie;
      struct st_Voraussetzung {int st;int gw;int gs;int ko;int in;int zt;int au;int pa;
                            int sb;int rw;std::string fert;
@@ -30,18 +30,18 @@ class Fertigkeit : public MidgardBasicElement
   public:
 #ifndef USE_XML  
      Fertigkeit(const std::string& n)
-      : MidgardBasicElement(n),lern_land(0),lern_stadt(0),pflicht(false) 
+      : MidgardBasicElement(n),lern_unge(0),lern_land(0),lern_stadt(0),pflicht(false) 
       {get_Fertigkeit(); get_map_typ(); get_Steigern_Kosten_map();
        EP_steigern(Name());}
 #else
      Fertigkeit(const Tag *t)
-      :MidgardBasicElement(t,t->getAttr("Name")),lern_land(0),lern_stadt(0),pflicht(false) 
+      :MidgardBasicElement(t,t->getAttr("Name")),lern_unge(0),lern_land(0),lern_stadt(0),pflicht(false) 
       {get_Fertigkeit(); get_map_typ(); get_Steigern_Kosten_map();
        EP_steigern(Name());}
 #endif
 /*
     Fertigkeit(const Fertigkeit &F)
-       : attribut(F.attribut),zusatz(F.zusatz),lern_land(F.lern_land),
+       : attribut(F.attribut),zusatz(F.zusatz),lern_unge(F.lern_unge),lern_land(F.lern_land),
          lern_stadt(F.lern_stadt),anfangswert0(F.anfangswert0),
          anfangswert(F.anfangswert),ungelernt(F.ungelernt),
          berufskategorie(F.berufskategorie),voraussetzung(F.voraussetzung)
@@ -60,6 +60,7 @@ class Fertigkeit : public MidgardBasicElement
 //     std::string Region() const {return region;}
      int FErfolgswert(const Grundwerte &Werte) const;
 //     int Lernpunkte() const {return lernpunkte;}
+     int LernUnge() const {return lern_unge;}
      int LernLand() const {return lern_land;}
      int LernStadt() const {return lern_stadt;}
      int Anfangswert0() const {return anfangswert0;}

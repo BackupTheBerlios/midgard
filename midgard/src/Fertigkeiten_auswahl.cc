@@ -185,16 +185,17 @@ void Fertigkeiten_auswahl::Unge()
         list_Fert_Unge.push_back(*i);
        }
    }
-   list_Fert_Unge.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME));
+   list_Fert_Unge.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::LERNPUNKTE));
+//   list_Fert_Unge.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME));
    Gtk::OStream os(unge_clist_auswahl);
    for(std::list<cH_MidgardBasicElement>::iterator i=list_Fert_Unge.begin();i!=list_Fert_Unge.end();++i)
       { cH_Fertigkeit f(*i);
         std::string serfolgswert=itos(f->FErfolgswert(Werte));
         if (serfolgswert=="0") serfolgswert="";
-        if(f->Lernpunkte() <= maxpunkte_U)
+        if(f->LernUnge() <= maxpunkte_U)
           if ( f->Voraussetzungen(Werte) && hauptfenster->region_check(f->Region()) &&
                !Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name()))
-           { os << f->Lernpunkte()<<'\t'<<f->Voraussetzung()<<"\t"<<f->Name()<<"\t"
+           { os << f->LernUnge()<<'\t'<<f->Voraussetzung()<<"\t"<<f->Name()<<"\t"
                 << serfolgswert<<"\t"<<f->Attribut()<<"\t"<<f->Kosten(Typ,Database.ausnahmen)<<"\n";
 //             os.flush(&*i);
              os.flush(f->ref(),&HandleContent::unref);

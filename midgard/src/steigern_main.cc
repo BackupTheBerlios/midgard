@@ -36,9 +36,9 @@ void midgard_CG::on_radio_steigern_all()
   else
      frame_lernen_mit->set_sensitive(false); 
 
-//  if(radiobutton_pp_eingeben->get_active())
-     ;//spinbutton_pp_eingeben->show();
-//  else
+  if(radiobutton_pp_eingeben->get_active())
+     spinbutton_pp_eingeben->show();
+  else
      spinbutton_pp_eingeben->hide();
 }
 /////////////////////////////////////////////////////////
@@ -71,59 +71,31 @@ void midgard_CG::on_radio_praxis_toggled()
 
 void midgard_CG::on_spinbutton_pp_eingeben_activate()
 {
-  try{
-   guint pagenr = notebook_lernen->get_current_page_num();
-   cH_MidgardBasicElement *MBE;
+ guint pagenr = notebook_lernen->get_current_page_num();
+ cH_MidgardBasicElement *MBE;
+ cH_RowDataBase *rdb;
+ try{
    if(pagenr==PAGE_FERTIGKEITEN)
-    { cH_RowDataBase rdb=alte_fert_tree->getSelectedRowDataBase(); 
-      const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*rdb);
-      MBE=&const_cast<cH_MidgardBasicElement&>(dt->getMBE());
-    }
+      rdb = &(alte_fert_tree->getSelectedRowDataBase()); 
    if(pagenr==PAGE_WAFFEN)
-    { cH_RowDataBase rdb=alte_waffen_tree->getSelectedRowDataBase(); 
-      const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*rdb);
-      MBE=&const_cast<cH_MidgardBasicElement&>(dt->getMBE());
-    }
-/*
-   if(pagenr==PAGE_ZAUBER)
-    { cH_RowDataBase rdb=alte_zauber_tree->getSelectedRowDataBase(); 
-      const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*rdb);
-      MBE=&const_cast<cH_MidgardBasicElement&>(dt->getMBE());
-    }
-   if(pagenr==PAGE_KIDO)
-    { cH_RowDataBase rdb=alte_kido_tree->getSelectedRowDataBase(); 
-      const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*rdb);
-      MBE=&const_cast<cH_MidgardBasicElement&>(dt->getMBE());
-    }
-*/
+      rdb = &(alte_waffen_tree->getSelectedRowDataBase()); 
    if(pagenr==PAGE_SPRACHE)
-    { try {cH_RowDataBase rdb=alte_sprache_tree->getSelectedRowDataBase(); }
-       catch (std::exception &e) {}
-      cH_RowDataBase rdb=alte_schrift_tree->getSelectedRowDataBase();
-      const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*rdb);
-      MBE=&const_cast<cH_MidgardBasicElement&>(dt->getMBE());
+    {
+      try{ rdb = &(alte_sprache_tree->getSelectedRowDataBase()); }
+          catch (std::exception &e) {}
+      try {rdb = &(alte_schrift_tree->getSelectedRowDataBase()); }
+          catch (std::exception &e) {}
     }
+  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&**rdb);
+  MBE=&const_cast<cH_MidgardBasicElement&>(dt->getMBE());
 
-   gtk_spin_button_update(spinbutton_pp_eingeben->gtkobj());
-   (*MBE)->set_Praxispunkte(spinbutton_pp_eingeben->get_value_as_int());
-   spinbutton_pp_eingeben->hide();
-   MidgardBasicElement::show_list_in_tree(list_Fertigkeit    ,alte_fert_tree,Werte,Typ,Database.ausnahmen); 
-   on_speichern_clicked();
+  gtk_spin_button_update(spinbutton_pp_eingeben->gtkobj());
+  (*MBE)->set_Praxispunkte(spinbutton_pp_eingeben->get_value_as_int());
+  spinbutton_pp_eingeben->hide();
+  MidgardBasicElement::show_list_in_tree(list_Fertigkeit,alte_fert_tree,Werte,Typ,Database.ausnahmen); 
+  on_speichern_clicked();
   }catch(std::exception &e) {cerr << e.what()<<'\n';}
 }
-
-
-//#include "../pixmaps/LoadSkills-trans-50.xpm"
-#include "../pixmaps/Sort_Skill-trans-50.xpm"
-//#include "../pixmaps/LoadWeapon-trans-50.xpm"
-#include "../pixmaps/Sort_Weapon-trans-50.xpm"
-//#include "../pixmaps/LoadZaub-trans-50.xpm"
-#include "../pixmaps/Sort_Zauber-50.xpm"
-//#include "../pixmaps/Load-Kido-trans-50.xpm"
-#include "../pixmaps/Sort_KiDo-trans-50.xpm"
-//#include "../pixmaps/LoadLang_u_Font-trans-50.xpm"
-#include "../pixmaps/Sort_Lang-trans-50.xpm"
-
 
 void midgard_CG::on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page *page,guint pagenr)
 {
@@ -138,79 +110,16 @@ void midgard_CG::on_notebook_lernen_switch_page(Gtk::Notebook_Helpers::Page *pag
 
 void midgard_CG::load_for_page(guint pagenr)
 {
-  toolbar_fert->tools().clear();
-  std::string b1,b2,t;
-  Gtk::Pixmap *p1,*p2;
-
   if(pagenr==PAGE_FERTIGKEITEN)
-   { 
      on_fertigkeiten_laden_clicked();
-//     b1= "Fertigkeiten\n laden";
-     b2= "Fertigkeiten\nsortieren";
-//     p1= manage(new Gtk::Pixmap(LoadSkills_trans_50_xpm));
-     p2= manage(new Gtk::Pixmap(Sort_Skill_trans_50_xpm));
-     t ="Die gelernten Fertigkeiten werden in der aktuellen Reinfolge für den Ausdruck sortiert";
-   }
   if(pagenr==PAGE_WAFFEN)
-   { 
      on_waffen_laden_clicked();
-//     b1= "Waffen\n laden";
-     b2= "Waffen\nsortieren";
-//     p1= manage(new Gtk::Pixmap(LoadWeapon_trans_50_xpm));
-     p2= manage(new Gtk::Pixmap(Sort_Weapon_trans_50_xpm));
-     t ="Die gelernten Waffen werden in der aktuellen Reinfolge für den Ausdruck sortiert";
-   }
   if(pagenr==PAGE_ZAUBER)
-   { 
      on_zauber_laden_clicked();
-//     b1= "Zauber\n laden";
-     b2= "Zauber\nsortieren";
-//     p1= manage(new Gtk::Pixmap(LoadZaub_trans_50_xpm));
-     p2= manage(new Gtk::Pixmap(Sort_Zauber_50_xpm));
-     t ="Die gelernten Zauber und Zaubermittel werden in der aktuellen Reinfolge für den Ausdruck sortiert";
-   }
   if(pagenr==PAGE_KIDO)
-   { 
      on_kido_laden_clicked();
-//     b1= "Techniken laden";
-     b2= "Techniken\nsortieren";
-//     p1= manage(new Gtk::Pixmap(Load_Kido_trans_50_xpm));
-     p2= manage(new Gtk::Pixmap(Sort_KiDo_trans_50_xpm));
-     t ="Die gelernten Techniken werden in der aktuellen Reinfolge für den Ausdruck sortiert";
-   }
   if(pagenr==PAGE_SPRACHE)
-   {
      on_sprache_laden_clicked();
-//     b1= "Sprachen & Schriften laden";
-     b2= "Sprachen\nsortieren";
-//     p1= manage(new Gtk::Pixmap(LoadLang_u_Font_trans_50_xpm));
-     p2= manage(new Gtk::Pixmap(Sort_Lang_trans_50_xpm));
-     t ="Die gelernten Sprachen werden in der aktuellen Reinfolge für den Ausdruck sortiert";
-   }
-
-//  button_fert_laden = Gtk::wrap((GtkButton*)gtk_toolbar_append_element(
-//     GTK_TOOLBAR(toolbar_fert->gtkobj()), GTK_TOOLBAR_CHILD_BUTTON, 0, 
-//     b1.c_str(), 0, 0, GTK_WIDGET(p1->gtkobj()), 0, 0));
-//  toolbar_fert->tools().push_back(Gtk::Toolbar_Helpers::Space());
-  button_fert_sort = Gtk::wrap((GtkButton*)gtk_toolbar_append_element(
-     GTK_TOOLBAR(toolbar_fert->gtkobj()), GTK_TOOLBAR_CHILD_BUTTON, 0,
-     b2.c_str(), 0, 0, GTK_WIDGET(p2->gtkobj()), 0, 0));
-
-  Gtk::Tooltips _tooltips;
-  _tooltips.set_tip(*button_fert_sort,t);
-
-  // Connect Funktionen für Buttons
-  if(pagenr==PAGE_FERTIGKEITEN)
-    button_fert_sort->clicked.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_button_fertigkeiten_sort_clicked));
-  else if(pagenr==PAGE_WAFFEN)
-    button_fert_sort->clicked.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_button_zauber_sort_clicked));
-  else if(pagenr==PAGE_ZAUBER)
-    button_fert_sort->clicked.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_button_waffen_sort_clicked));
-  else if(pagenr==PAGE_KIDO)
-    button_fert_sort->clicked.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_button_kido_sort_clicked));
-  else if(pagenr==PAGE_SPRACHE)
-    button_fert_sort->clicked.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_button_sprache_sort_clicked));
-  else assert(0);
 
   // Sensitive & Show
   if(pagenr==PAGE_ZAUBER || pagenr==PAGE_KIDO)

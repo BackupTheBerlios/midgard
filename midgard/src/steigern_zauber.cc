@@ -51,6 +51,7 @@ void midgard_CG::zauber_zeigen()
 
 void midgard_CG::on_leaf_selected_alte_zauber(cH_RowDataBase d)
 {  
+/*
    const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
    cH_MidgardBasicElement MBE = dt->getMBE();
    int kosten = MBE->Kosten(Typ,Database.ausnahmen);
@@ -58,6 +59,8 @@ void midgard_CG::on_leaf_selected_alte_zauber(cH_RowDataBase d)
    if (steigern_bool) desteigern(kosten);
    Werte.add_GFP(-kosten);
    MidgardBasicElement::move_element(list_Zauber,list_Zauber_neu,MBE->Name());
+*/
+   MidgardBasicElement_leaf_alt(d);
    zauber_zeigen();
    zauberwerk_laden();
    zauberwerk_zeigen();
@@ -66,12 +69,14 @@ void midgard_CG::on_leaf_selected_alte_zauber(cH_RowDataBase d)
 
 void midgard_CG::on_leaf_selected_neue_zauber(cH_RowDataBase d)
 {  
+  MidgardBasicElement_leaf_neu(d);
+/*
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE();
   int kosten = MBE->Kosten(Typ,Database.ausnahmen);
   if(togglebutton_spruchrolle->get_active()) kosten/=10;
-  
   if (!steigern_usp(kosten,&MBE)) return;
+
   if (radio_spruchrolle_auto->get_active() && togglebutton_spruchrolle->get_active())
    {
      Werte.add_GFP(2*kosten);
@@ -92,6 +97,7 @@ void midgard_CG::on_leaf_selected_neue_zauber(cH_RowDataBase d)
      Werte.add_GFP(MBE->Kosten(Typ,Database.ausnahmen));
      MidgardBasicElement::move_element(list_Zauber_neu,list_Zauber,MBE->Name());
    }
+*/
   zauber_zeigen();
   zauberwerk_laden();
   zauberwerk_zeigen();
@@ -173,6 +179,10 @@ bool midgard_CG::spruchrolle_wuerfeln(const cH_MidgardBasicElement& z)
 }
 
 
+void midgard_CG::on_alte_zauber_reorder()
+{
+  on_button_zauber_sort_clicked();
+}
 
 void midgard_CG::on_button_zauber_sort_clicked()
 {
@@ -183,12 +193,16 @@ void midgard_CG::on_button_zauber_sort_clicked()
       case Data_SimpleTree::URSPRUNGa_Z : list_Zauber.sort(cH_Zauber::sort(cH_Zauber::sort::URSPRUNG)); ;break;
       default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
    }
-  on_button_zaubermittel_sort_clicked(); 
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 //Zauberwerk
 ///////////////////////////////////////////////////////////////////////////////
+
+void midgard_CG::on_alte_zaubermittel_reorder()
+{
+  on_button_zaubermittel_sort_clicked();
+}
 
 void midgard_CG::on_button_zaubermittel_sort_clicked()
 {
@@ -204,11 +218,14 @@ void midgard_CG::on_button_zaubermittel_sort_clicked()
 
 void midgard_CG::on_leaf_selected_alte_zauberwerk(cH_RowDataBase d)
 {  
+/*
  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
  cH_MidgardBasicElement MBE = dt->getMBE();
  if (steigern_bool) desteigern(MBE->Kosten(Typ,Database.ausnahmen));
  Werte.add_GFP(-MBE->Kosten(Typ,Database.ausnahmen));
  MidgardBasicElement::move_element(list_Zauberwerk,list_Zauberwerk_neu,MBE->Name(),cH_Zauberwerk(MBE)->Art());
+*/
+ MidgardBasicElement_leaf_alt(d);
  zauberwerk_zeigen();
 }
 
@@ -223,11 +240,14 @@ void midgard_CG::zauberwerk_zeigen()
 
 void midgard_CG::on_leaf_selected_neue_zauberwerk(cH_RowDataBase d)
 {  
+/*
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE();
   if (!steigern_usp(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
   Werte.add_GFP(MBE->Kosten(Typ,Database.ausnahmen));  
   MidgardBasicElement::move_element(list_Zauberwerk_neu,list_Zauberwerk,MBE->Name(),cH_Zauberwerk(MBE)->Art());
+*/
+  MidgardBasicElement_leaf_neu(d);
   zauberwerk_zeigen();
 }
 

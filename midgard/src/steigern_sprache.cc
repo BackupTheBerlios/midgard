@@ -113,17 +113,10 @@ void midgard_CG::on_leaf_selected_alte_sprache(cH_RowDataBase d)
    on_sprache_laden_clicked();
 }
     
-void midgard_CG::on_radio_sprache_steigern_toggled()
-{   
-}   
-    
-void midgard_CG::on_radio_sprache_reduzieren_toggled()
-{   
-}   
-    
-void midgard_CG::on_radio_sprache_verlernen_toggled()
-{   
-}   
+void midgard_CG::on_alte_sprache_reorder()
+{
+   on_button_sprache_sort_clicked();
+}
 
 void midgard_CG::on_button_sprache_sort_clicked()
 {

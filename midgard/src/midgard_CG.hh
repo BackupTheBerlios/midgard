@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.114 2001/12/28 17:48:08 thoma Exp $
+// $Id: midgard_CG.hh,v 1.115 2001/12/29 14:55:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -366,15 +366,12 @@ class midgard_CG : public midgard_CG_glade
         void on_leaf_selected_neue_fert(cH_RowDataBase d);
         void on_button_fertigkeiten_sort_clicked();
         void on_alte_fert_reorder();
-//        void on_togglebutton_praxispunkte_fertigkeiten_toggled();
-//        void on_radiobutton_praxis_wuerfeln_fertigkeiten_toggled();
-//        void on_radiobutton_praxis_auto_fertigkeiten_toggled();
-//        int praxispunkte_wuerfeln(const std::string& fert,int alter_wert, const std::string& art,bool wuerfeln);
         bool kido_steigern_check(int wert);
         void fillClistLand(const cH_MidgardBasicElement &MBE);
         void on_clist_landauswahl_select_row(gint row, gint column, GdkEvent *event);   
 
         void on_waffen_laden_clicked();
+        void on_alte_waffen_reorder();
         void on_waffengrund_laden_clicked();
         void waffen_zeigen();
         void on_leaf_selected_alte_grund(cH_RowDataBase d);
@@ -382,15 +379,9 @@ class midgard_CG : public midgard_CG_glade
         void on_leaf_selected_alte_waffen(cH_RowDataBase d);
         void on_leaf_selected_neue_waffen(cH_RowDataBase d);
         void on_button_waffen_sort_clicked();
-/*
-        void on_radio_waffen_steigern_toggled();
-        void on_radio_waffen_reduzieren_toggled();
-        void on_togglebutton_praxispunkte_waffen_toggled();
-        void on_radiobutton_praxis_wuerfeln_waffen_toggled();
-        void on_radiobutton_praxis_auto_waffen_toggled();
-*/
 
         void on_zauber_laden_clicked();
+        void on_alte_zauber_reorder();
         void zauber_zeigen();
         void on_spruchrolle_toggled();
         void on_checkbutton_zaubersalze_toggled();
@@ -405,28 +396,28 @@ class midgard_CG : public midgard_CG_glade
         void zauberwerk_laden();
         void zauberwerk_zeigen();
         void on_button_zauber_sort_clicked();
+        void on_alte_zaubermittel_reorder();
         void on_button_zaubermittel_sort_clicked();
 
         void on_kido_laden_clicked();
         void kido_zeigen();
         void on_leaf_selected_alte_kido(cH_RowDataBase d);
         void on_leaf_selected_neue_kido(cH_RowDataBase d);
+        void on_alte_kido_reorder();
         void on_button_kido_sort_clicked();
 
 
         void on_sprache_laden_clicked();
         void on_leaf_selected_alte_sprache(cH_RowDataBase d);
         void on_leaf_selected_neue_sprache(cH_RowDataBase d);
-        void on_radio_sprache_steigern_toggled();
-        void on_radio_sprache_reduzieren_toggled();
-        void on_radio_sprache_verlernen_toggled();
         void on_schrift_laden_clicked();
         void on_leaf_selected_alte_schrift(cH_RowDataBase d);
         void on_leaf_selected_neue_schrift(cH_RowDataBase d);
         void schriften_zeigen();
         void sprachen_zeigen();
+        void on_alte_sprache_reorder();
         void on_button_sprache_sort_clicked();
-        void on_button_schrift_sort_clicked();
+//        void on_button_schrift_sort_clicked();
         void show_gtk();
 
         void ausruestung_laden();

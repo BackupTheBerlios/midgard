@@ -25,6 +25,8 @@ NEWS IN VERSION 0.1delta2
 * Gründlicher Umbau der Oberfläche incl. der Logik des Programmes
    beim Steigern
 * Schriften haben jetzt einen steigerbaren Wert
+* Automatisches Laden der Listen
+* Automatisches Sortieren der Listen
 
 TODO:
 * Die Ausrüstung kann noch nicht geladen werden

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.99 2001/12/27 14:47:36 thoma Exp $
+// $Id: midgard_CG.cc,v 1.100 2001/12/29 14:55:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -99,6 +99,7 @@ void midgard_CG::set_tree_titles()
  alte_fert.push_back("Fertigkeit");
  alte_fert.push_back("Wert");
  alte_fert.push_back("PP");
+ alte_fert.push_back("");
  alte_fert.push_back("Steigern\n(nächste Stufe)");
  alte_fert.push_back("Reduzieren\n(eine Stufe)");
  alte_fert.push_back("Verlernen");
@@ -116,15 +117,16 @@ void midgard_CG::set_tree_titles()
  std::vector<string> alte_waffen;
  alte_waffen.push_back("Wert");
  alte_waffen.push_back("Waffe");
+ alte_waffen.push_back("PP");
  alte_waffen.push_back("");
  alte_waffen.push_back("Steigern\n(nächste Stufe)");
  alte_waffen.push_back("Reduzieren\n(eine Stufe)");
+ alte_waffen.push_back("Verlernen");
  alte_waffen_tree->set_value_data(gpointer("WA"));
  alte_waffen_tree->setTitles(alte_waffen);
  std::vector<string> neue_waffen;
  neue_waffen.push_back("Wert");
  neue_waffen.push_back("Waffe");
- neue_waffen.push_back("PP");
  neue_waffen.push_back("");
  neue_waffen.push_back("Voraussetzung");
  neue_waffen_tree->set_value_data(gpointer("WN"));
@@ -198,22 +200,25 @@ void midgard_CG::set_tree_titles()
  alte_sprache_tree->setTitles(alte_sprachen);
  std::vector<string> neue_sprachen;
  neue_sprachen.push_back("Sprache");
- neue_sprachen.push_back("Urschrift");
+ neue_sprachen.push_back("Schrift");
  neue_sprachen.push_back("Lernkosten");
  neue_sprache_tree->set_value_data(gpointer("SPN"));
  neue_sprache_tree->setTitles(neue_sprachen);
 
- std::vector<string> schrift;
- schrift.push_back("Urschrift");
- schrift.push_back("Art der Schrift");
- schrift.push_back("PP");
- schrift.push_back("Steigern\n(nächste Stufe)");
- schrift.push_back("Reduzieren\n(eine Stufe)");
- schrift.push_back("Verlernen");
+ std::vector<string> alte_schrift;
+ alte_schrift.push_back("Schrift");
+// schrift.push_back("Art der Schrift");
+ alte_schrift.push_back("PP");
+ alte_schrift.push_back("Steigern\n(nächste Stufe)");
+ alte_schrift.push_back("Reduzieren\n(eine Stufe)");
+ alte_schrift.push_back("Verlernen");
  alte_schrift_tree->set_value_data(gpointer("SCA"));
- alte_schrift_tree->setTitles(schrift);
+ alte_schrift_tree->setTitles(alte_schrift);
+ std::vector<string> neue_schrift;
+ neue_schrift.push_back("Schrift");
+ neue_schrift.push_back("Lernkosten");
  neue_schrift_tree->set_value_data(gpointer("SCN"));
- neue_schrift_tree->setTitles(schrift);
+ neue_schrift_tree->setTitles(neue_schrift);
 
  std::vector<string> preis;
  preis.push_back("Art");

@@ -61,7 +61,7 @@ void Fertigkeit::get_Fertigkeit()
       :db_sb,:db_rw, :db_voraussetzung;
   SQLerror::test(__FILELINE__);
 //  if (lernpunkte==0) 
-lernpunkte=db_lp;
+ lern_unge=db_lp;
 //  if (lern_land==0)
  lern_land=db_lp_l;
 //  if (lern_stadt==0)

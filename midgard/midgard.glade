@@ -5757,49 +5757,6 @@ gemischt
 	    </widget>
 
 	    <widget>
-	      <class>GtkToolbar</class>
-	      <name>toolbar_fert</name>
-	      <width>80</width>
-	      <cxx_visibility>protected</cxx_visibility>
-	      <orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
-	      <type>GTK_TOOLBAR_BOTH</type>
-	      <space_size>10</space_size>
-	      <space_style>GTK_TOOLBAR_SPACE_EMPTY</space_style>
-	      <relief>GTK_RELIEF_NORMAL</relief>
-	      <tooltips>True</tooltips>
-	      <child>
-		<left_attach>7</left_attach>
-		<right_attach>8</right_attach>
-		<top_attach>0</top_attach>
-		<bottom_attach>1</bottom_attach>
-		<xpad>0</xpad>
-		<ypad>0</ypad>
-		<xexpand>False</xexpand>
-		<yexpand>False</yexpand>
-		<xshrink>False</xshrink>
-		<yshrink>False</yshrink>
-		<xfill>False</xfill>
-		<yfill>False</yfill>
-	      </child>
-
-	      <widget>
-		<class>GtkButton</class>
-		<child_name>Toolbar:button</child_name>
-		<name>button_fert_sort</name>
-		<cxx_visibility>protected</cxx_visibility>
-		<tooltip>Die gelernten Fertigkeiten werden in der aktuellen Reinfolge für den Ausdruck sortiert</tooltip>
-		<signal>
-		  <name>clicked</name>
-		  <handler>on_button_fertigkeiten_sort_clicked</handler>
-		  <last_modification_time>Tue, 31 Jul 2001 19:08:10 GMT</last_modification_time>
-		</signal>
-		<label>Fertigkeiten
-sortieren</label>
-		<icon>Sort_Skill-trans-50.xpm</icon>
-	      </widget>
-	    </widget>
-
-	    <widget>
 	      <class>GtkTable</class>
 	      <name>table74</name>
 	      <rows>2</rows>
@@ -6667,7 +6624,7 @@ Spruchrolle</label>
 		    <widget>
 		      <class>GtkPixmap</class>
 		      <name>pixmap75</name>
-		      <filename>Reduzieren-trans-32.xpm</filename>
+		      <filename>Self-Learning-32.xpm</filename>
 		      <xalign>0.5</xalign>
 		      <yalign>0.5</yalign>
 		      <xpad>0</xpad>
@@ -6737,7 +6694,7 @@ Spruchrolle</label>
 		    <widget>
 		      <class>GtkPixmap</class>
 		      <name>pixmap76</name>
-		      <filename>Verlernen-trans-32.xpm</filename>
+		      <filename>Learning_by_Doing-32.xpm</filename>
 		      <xalign>0.5</xalign>
 		      <yalign>0.5</yalign>
 		      <xpad>0</xpad>
@@ -6807,7 +6764,7 @@ Spruchrolle</label>
 		    <widget>
 		      <class>GtkPixmap</class>
 		      <name>pixmap77</name>
-		      <filename>Steigern-trans-32.xpm</filename>
+		      <filename>Teacher-trans32.xpm</filename>
 		      <xalign>0.5</xalign>
 		      <yalign>0.5</yalign>
 		      <xpad>0</xpad>
@@ -7142,102 +7099,6 @@ Spruchrolle</label>
 	      <column_spacing>0</column_spacing>
 
 	      <widget>
-		<class>GtkVPaned</class>
-		<name>vpaned1</name>
-		<width>537</width>
-		<handle_size>10</handle_size>
-		<gutter_size>20</gutter_size>
-		<position>198</position>
-		<child>
-		  <left_attach>0</left_attach>
-		  <right_attach>4</right_attach>
-		  <top_attach>0</top_attach>
-		  <bottom_attach>1</bottom_attach>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <xexpand>False</xexpand>
-		  <yexpand>True</yexpand>
-		  <xshrink>False</xshrink>
-		  <yshrink>False</yshrink>
-		  <xfill>False</xfill>
-		  <yfill>True</yfill>
-		</child>
-
-		<widget>
-		  <class>GtkScrolledWindow</class>
-		  <name>scrolledwindow53</name>
-		  <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
-		  <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
-		  <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
-		  <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
-		  <child>
-		    <shrink>True</shrink>
-		    <resize>False</resize>
-		  </child>
-
-		  <widget>
-		    <class>GtkViewport</class>
-		    <name>viewport4</name>
-		    <shadow_type>GTK_SHADOW_NONE</shadow_type>
-
-		    <widget>
-		      <class>Custom</class>
-		      <name>alte_fert_tree</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <signal>
-			<name>leaf_selected</name>
-			<handler>on_leaf_selected_alte_fert</handler>
-			<last_modification_time>Wed, 20 Jun 2001 14:13:37 GMT</last_modification_time>
-		      </signal>
-		      <signal>
-			<name>reorder</name>
-			<handler>on_alte_fert_reorder</handler>
-			<last_modification_time>Thu, 27 Dec 2001 13:37:23 GMT</last_modification_time>
-		      </signal>
-		      <creation_function>SimpleTree</creation_function>
-		      <int1>6</int1>
-		      <int2>6</int2>
-		      <last_modification_time>Wed, 20 Jun 2001 09:42:43 GMT</last_modification_time>
-		    </widget>
-		  </widget>
-		</widget>
-
-		<widget>
-		  <class>GtkScrolledWindow</class>
-		  <name>scrolledwindow55</name>
-		  <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
-		  <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
-		  <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
-		  <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
-		  <child>
-		    <shrink>True</shrink>
-		    <resize>True</resize>
-		  </child>
-
-		  <widget>
-		    <class>GtkViewport</class>
-		    <name>viewport6</name>
-		    <shadow_type>GTK_SHADOW_NONE</shadow_type>
-
-		    <widget>
-		      <class>Custom</class>
-		      <name>neue_fert_tree</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <signal>
-			<name>leaf_selected</name>
-			<handler>on_leaf_selected_neue_fert</handler>
-			<last_modification_time>Wed, 20 Jun 2001 14:56:19 GMT</last_modification_time>
-		      </signal>
-		      <creation_function>SimpleTree</creation_function>
-		      <int1>5</int1>
-		      <int2>5</int2>
-		      <last_modification_time>Wed, 20 Jun 2001 14:55:18 GMT</last_modification_time>
-		    </widget>
-		  </widget>
-		</widget>
-	      </widget>
-
-	      <widget>
 		<class>GtkScrolledWindow</class>
 		<name>scrolledwindow_landauswahl</name>
 		<width>175</width>
@@ -7330,6 +7191,102 @@ Spruchrolle</label>
 		  <class>Placeholder</class>
 		</widget>
 	      </widget>
+
+	      <widget>
+		<class>GtkVPaned</class>
+		<name>vpaned1</name>
+		<width>537</width>
+		<handle_size>10</handle_size>
+		<gutter_size>20</gutter_size>
+		<position>198</position>
+		<child>
+		  <left_attach>0</left_attach>
+		  <right_attach>4</right_attach>
+		  <top_attach>0</top_attach>
+		  <bottom_attach>1</bottom_attach>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <xexpand>True</xexpand>
+		  <yexpand>True</yexpand>
+		  <xshrink>False</xshrink>
+		  <yshrink>False</yshrink>
+		  <xfill>True</xfill>
+		  <yfill>True</yfill>
+		</child>
+
+		<widget>
+		  <class>GtkScrolledWindow</class>
+		  <name>scrolledwindow53</name>
+		  <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
+		  <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+		  <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+		  <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
+		  <child>
+		    <shrink>True</shrink>
+		    <resize>False</resize>
+		  </child>
+
+		  <widget>
+		    <class>GtkViewport</class>
+		    <name>viewport4</name>
+		    <shadow_type>GTK_SHADOW_NONE</shadow_type>
+
+		    <widget>
+		      <class>Custom</class>
+		      <name>alte_fert_tree</name>
+		      <cxx_visibility>protected</cxx_visibility>
+		      <signal>
+			<name>leaf_selected</name>
+			<handler>on_leaf_selected_alte_fert</handler>
+			<last_modification_time>Wed, 20 Jun 2001 14:13:37 GMT</last_modification_time>
+		      </signal>
+		      <signal>
+			<name>reorder</name>
+			<handler>on_alte_fert_reorder</handler>
+			<last_modification_time>Thu, 27 Dec 2001 13:37:23 GMT</last_modification_time>
+		      </signal>
+		      <creation_function>SimpleTree</creation_function>
+		      <int1>7</int1>
+		      <int2>7</int2>
+		      <last_modification_time>Wed, 20 Jun 2001 09:42:43 GMT</last_modification_time>
+		    </widget>
+		  </widget>
+		</widget>
+
+		<widget>
+		  <class>GtkScrolledWindow</class>
+		  <name>scrolledwindow55</name>
+		  <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
+		  <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+		  <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+		  <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
+		  <child>
+		    <shrink>True</shrink>
+		    <resize>True</resize>
+		  </child>
+
+		  <widget>
+		    <class>GtkViewport</class>
+		    <name>viewport6</name>
+		    <shadow_type>GTK_SHADOW_NONE</shadow_type>
+
+		    <widget>
+		      <class>Custom</class>
+		      <name>neue_fert_tree</name>
+		      <cxx_visibility>protected</cxx_visibility>
+		      <signal>
+			<name>leaf_selected</name>
+			<handler>on_leaf_selected_neue_fert</handler>
+			<last_modification_time>Wed, 20 Jun 2001 14:56:19 GMT</last_modification_time>
+		      </signal>
+		      <creation_function>SimpleTree</creation_function>
+		      <int1>5</int1>
+		      <int2>5</int2>
+		      <last_modification_time>Wed, 20 Jun 2001 14:55:18 GMT</last_modification_time>
+		    </widget>
+		  </widget>
+		</widget>
+	      </widget>
 	    </widget>
 
 	    <widget>
@@ -7388,7 +7345,7 @@ Spruchrolle</label>
 		<width>600</width>
 		<handle_size>10</handle_size>
 		<gutter_size>10</gutter_size>
-		<position>378</position>
+		<position>499</position>
 		<child>
 		  <left_attach>0</left_attach>
 		  <right_attach>3</right_attach>
@@ -7396,7 +7353,7 @@ Spruchrolle</label>
 		  <bottom_attach>1</bottom_attach>
 		  <xpad>0</xpad>
 		  <ypad>0</ypad>
-		  <xexpand>False</xexpand>
+		  <xexpand>True</xexpand>
 		  <yexpand>True</yexpand>
 		  <xshrink>True</xshrink>
 		  <yshrink>True</yshrink>
@@ -7469,9 +7426,14 @@ Spruchrolle</label>
 			    <handler>on_leaf_selected_alte_waffen</handler>
 			    <last_modification_time>Thu, 21 Jun 2001 17:25:54 GMT</last_modification_time>
 			  </signal>
+			  <signal>
+			    <name>reorder</name>
+			    <handler>on_alte_waffen_reorder</handler>
+			    <last_modification_time>Sat, 29 Dec 2001 13:05:52 GMT</last_modification_time>
+			  </signal>
 			  <creation_function>SimpleTree</creation_function>
-			  <int1>6</int1>
-			  <int2>6</int2>
+			  <int1>7</int1>
+			  <int2>7</int2>
 			  <last_modification_time>Thu, 21 Jun 2001 17:10:37 GMT</last_modification_time>
 			</widget>
 		      </widget>
@@ -7762,6 +7724,11 @@ Spruchrolle</label>
 			    <handler>on_leaf_selected_alte_zauber</handler>
 			    <last_modification_time>Wed, 20 Jun 2001 17:07:25 GMT</last_modification_time>
 			  </signal>
+			  <signal>
+			    <name>reorder</name>
+			    <handler>on_alte_zauber_reorder</handler>
+			    <last_modification_time>Sat, 29 Dec 2001 13:07:18 GMT</last_modification_time>
+			  </signal>
 			  <creation_function>SimpleTree</creation_function>
 			  <int1>4</int1>
 			  <int2>4</int2>
@@ -7871,6 +7838,11 @@ Spruchrolle</label>
 			    <name>leaf_selected</name>
 			    <handler>on_leaf_selected_alte_zauberwerk</handler>
 			    <last_modification_time>Sun, 07 Oct 2001 06:32:43 GMT</last_modification_time>
+			  </signal>
+			  <signal>
+			    <name>reorder</name>
+			    <handler>on_alte_zaubermittel_reorder</handler>
+			    <last_modification_time>Sat, 29 Dec 2001 13:09:41 GMT</last_modification_time>
 			  </signal>
 			  <creation_function>SimpleTree</creation_function>
 			  <int1>4</int1>
@@ -8017,6 +7989,11 @@ Spruchrolle</label>
 			<name>leaf_selected</name>
 			<handler>on_leaf_selected_alte_kido</handler>
 			<last_modification_time>Fri, 22 Jun 2001 06:20:10 GMT</last_modification_time>
+		      </signal>
+		      <signal>
+			<name>reorder</name>
+			<handler>on_alte_kido_reorder</handler>
+			<last_modification_time>Sat, 29 Dec 2001 13:09:58 GMT</last_modification_time>
 		      </signal>
 		      <creation_function>SimpleTree</creation_function>
 		      <int1>6</int1>
@@ -8199,6 +8176,11 @@ Spruchrolle</label>
 			    <handler>on_leaf_selected_alte_sprache</handler>
 			    <last_modification_time>Fri, 22 Jun 2001 08:33:32 GMT</last_modification_time>
 			  </signal>
+			  <signal>
+			    <name>reorder</name>
+			    <handler>on_alte_sprache_reorder</handler>
+			    <last_modification_time>Sat, 29 Dec 2001 13:12:28 GMT</last_modification_time>
+			  </signal>
 			  <creation_function>SimpleTree</creation_function>
 			  <int1>6</int1>
 			  <int2>6</int2>
@@ -8309,8 +8291,8 @@ Spruchrolle</label>
 			    <last_modification_time>Fri, 22 Jun 2001 09:01:42 GMT</last_modification_time>
 			  </signal>
 			  <creation_function>SimpleTree</creation_function>
-			  <int1>7</int1>
-			  <int2>7</int2>
+			  <int1>6</int1>
+			  <int2>6</int2>
 			  <last_modification_time>Fri, 22 Jun 2001 06:19:28 GMT</last_modification_time>
 			</widget>
 		      </widget>
@@ -8343,8 +8325,8 @@ Spruchrolle</label>
 			    <last_modification_time>Fri, 22 Jun 2001 09:01:35 GMT</last_modification_time>
 			  </signal>
 			  <creation_function>SimpleTree</creation_function>
-			  <int1>3</int1>
-			  <int2>3</int2>
+			  <int1>2</int1>
+			  <int2>2</int2>
 			  <last_modification_time>Fri, 22 Jun 2001 06:19:28 GMT</last_modification_time>
 			</widget>
 		      </widget>

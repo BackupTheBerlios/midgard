@@ -54,46 +54,11 @@ void midgard_CG::fertigkeiten_zeigen()
 void midgard_CG::on_leaf_selected_alte_fert(cH_RowDataBase d)
 {  
  MidgardBasicElement_leaf_alt(d);
-/*
- const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
- cH_MidgardBasicElement MBE = dt->getMBE();
- if(radiobutton_pp_eingeben->get_active())
-  {
-   spinbutton_pp_eingeben->set_value(MBE->Praxispunkte());
-   spinbutton_pp_eingeben->show();
-   return;
-  }
-
- if (MBE->Name()=="KiDo" && kido_steigern_check(MBE->Erfolgswert())) return;
- if (radiobutton_steigern->get_active() && MBE->Steigern(Typ,Database.ausnahmen))
-    {
-      if (!steigern_usp(MBE->Steigern(Typ,Database.ausnahmen),&MBE)) return;
-      Werte.add_GFP(MBE->Steigern(Typ,Database.ausnahmen));
-      for (std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit.begin();i!= list_Fertigkeit.end();++i )
-         if ( cH_Fertigkeit(*i)->Name() == MBE->Name()) 
-           cH_Fertigkeit(*i)->add_Erfolgswert(1); 
-    }
-   if (radiobutton_reduzieren->get_active() && MBE->Reduzieren(Typ,Database.ausnahmen))
-    {
-      if (steigern_bool) desteigern(MBE->Reduzieren(Typ,Database.ausnahmen));
-      Werte.add_GFP(-MBE->Reduzieren(Typ,Database.ausnahmen));
-      for (std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit.begin();i!= list_Fertigkeit.end();++i )
-         if ( cH_Fertigkeit(*i)->Name() == MBE->Name()) 
-           cH_Fertigkeit(*i)->add_Erfolgswert(-1); 
-    }
-   if (radiobutton_verlernen->get_active() && MBE->Verlernen(Typ,Database.ausnahmen))
-    {
-      if (steigern_bool) desteigern(MBE->Verlernen(Typ,Database.ausnahmen));
-      Werte.add_GFP(-MBE->Verlernen(Typ,Database.ausnahmen));
-      MidgardBasicElement::move_element(list_Fertigkeit,list_Fertigkeit_neu,MBE->Name());
-    }
-*/
-   fertigkeiten_zeigen();
+ fertigkeiten_zeigen();
 }
 
 void midgard_CG::on_alte_fert_reorder()
 {
-cout << "REORDER\n";
   on_button_fertigkeiten_sort_clicked();
 }
 
@@ -125,15 +90,6 @@ void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
 
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE();
-
-/*
-  if (!steigern_usp(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
-  Werte.add_GFP(MBE->Kosten(Typ,Database.ausnahmen));
-  if(MBE->Name()!="Landeskunde")
-     fertigkeiten_zeigen();
-  else fillClistLand(MBE);
-  MidgardBasicElement::move_element(list_Fertigkeit_neu,list_Fertigkeit,MBE->Name());
-*/
 
   if (MBE->Name()=="KiDo") {kido_bool=true;show_gtk();
       optionmenu_KiDo_Stile->set_sensitive(true);

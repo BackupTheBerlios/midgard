@@ -37,8 +37,8 @@ void midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
       if (!steigern_usp(MBE->Steigern(Typ,Database.ausnahmen),&MBE)) return;
       Werte.add_GFP(MBE->Steigern(Typ,Database.ausnahmen));
       for (std::list<cH_MidgardBasicElement>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
-         if ( cH_Fertigkeit(*i)->Name() == MBE->Name()) 
-           cH_Fertigkeit(*i)->add_Erfolgswert(1); 
+         if ( (*i)->Name() == MBE->Name()) 
+            (*i)->add_Erfolgswert(1); 
     }
    if (radiobutton_reduzieren->get_active() && MBE->Reduzieren(Typ,Database.ausnahmen))
     {
@@ -50,8 +50,11 @@ void midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
     }
    if (radiobutton_verlernen->get_active() && MBE->Verlernen(Typ,Database.ausnahmen))
     {
-      if (steigern_bool) desteigern(MBE->Verlernen(Typ,Database.ausnahmen));
-      Werte.add_GFP(-MBE->Verlernen(Typ,Database.ausnahmen));
+      guint verlernen = MBE->Verlernen(Typ,Database.ausnahmen);
+      if( MBE->What()==MidgardBasicElement::ZAUBER && 
+          togglebutton_spruchrolle->get_active() )    verlernen/=5  ;
+      if (steigern_bool) desteigern(verlernen);
+      Werte.add_GFP(-verlernen);
       MidgardBasicElement::move_element(*MyList,*MyList_neu,MBE->Name());
     }
 }
@@ -62,8 +65,29 @@ void midgard_CG::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
  cH_MidgardBasicElement MBE = dt->getMBE();
 
- if (!steigern_usp(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
- Werte.add_GFP(MBE->Kosten(Typ,Database.ausnahmen));
+ guint kosten=MBE->Kosten(Typ,Database.ausnahmen);
+
+ // Lernen mit Spruchrolle: ///////////////////////////////////////////////
+ if( MBE->What()==MidgardBasicElement::ZAUBER &&
+     togglebutton_spruchrolle->get_active() ) kosten/=10;
+ /////////////////////////////////////////////////////////////////////////
+ 
+ if (!steigern_usp(kosten,&MBE)) return;
+ Werte.add_GFP(kosten);
+
+ // Lernen mit Spruchrolle: ///////////////////////////////////////////////
+ if( MBE->What()==MidgardBasicElement::ZAUBER &&
+     togglebutton_spruchrolle->get_active() &&
+     radio_spruchrolle_auto->get_active() )    Werte.add_GFP(kosten);
+ else if( MBE->What()==MidgardBasicElement::ZAUBER &&
+     togglebutton_spruchrolle->get_active() &&
+     radio_spruchrolle_wuerfeln->get_active() )   
+   {
+     if(!spruchrolle_wuerfeln(MBE)) return;
+     else Werte.add_GFP(kosten);
+   } 
+ /////////////////////////////////////////////////////////////////////////
+
 
  std::list<cH_MidgardBasicElement> *MyList,*MyList_neu;
  if(MBE->What()==MidgardBasicElement::FERTIGKEIT) 

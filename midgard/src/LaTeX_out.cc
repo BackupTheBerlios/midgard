@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.70 2001/12/28 17:48:08 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.71 2001/12/29 14:55:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -400,19 +400,24 @@ void midgard_CG::LaTeX_write_empty_values()
  ofstream fout("midgard_tmp_latexwerte.tex");
  fout << "\\newcommand{\\typ}{}\n";
  fout << "\\newcommand{\\st}{}\n";
- fout << "\\newcommand{\\gee}{}\n";
+ fout << "\\newcommand{\\gw}{}\n";
+ fout << "\\newcommand{\\gs}{}\n";
  fout << "\\newcommand{\\ko}{}\n";
  fout << "\\newcommand{\\inn}{}\n";
  fout << "\\newcommand{\\zt}{}\n";
  fout << "\\newcommand{\\au}{}\n";
  fout << "\\newcommand{\\pa}{}\n";
  fout << "\\newcommand{\\sbb}{}\n";
+ fout << "\\newcommand{\\wk}{}\n";
  fout << "\\newcommand{\\rw}{}\n";
- fout << "\\newcommand{\\hgw}{}\n";
+// fout << "\\newcommand{\\hgw}{}\n";
  fout << "\\newcommand{\\bb}{}\n";
+ fout << "\\newcommand{\\geistesblitz}{}\n";
  fout << "\\newcommand{\\kaw}{}\n";
  fout << "\\newcommand{\\wlw}{}\n";
- fout << "\\newcommand{\\lpbasis}{}\n";
+ fout << "\\newcommand{\\sg}{}\n";
+ fout << "\\newcommand{\\gs}{}\n";
+ fout << "\\newcommand{\\ggn}{}\n";
  fout << "\\newcommand{\\lp}{}\n";
  fout << "\\newcommand{\\ap}{}\n";
  fout << "\\newcommand{\\boau}{}\n";
@@ -454,8 +459,20 @@ void midgard_CG::LaTeX_write_empty_values()
 
  fout << "\\newcommand{\\ruestung}{}\n";
  fout << "\\newcommand{\\ruestunglp}{}\n";
+
+ fout << "\\newcommand{\\raufen}{}\n";
+ // SInne
+ fout << "\\newcommand{\\sinse}{}\n";
+ fout << "\\newcommand{\\sinnh}{}\n";
+ fout << "\\newcommand{\\sinnr}{}\n";
+ fout << "\\newcommand{\\sinnsc}{}\n";
+ fout << "\\newcommand{\\sinnt}{}\n";
+ fout << "\\newcommand{\\sinnss}{}\n";
+ 
+
  unsigned int sprachanz=0;
- unsigned int maxsprach=14;
+ unsigned int maxsprach=19;
+
  for (unsigned int i=sprachanz; i<maxsprach;++i) // Bis zum Ende auffüllen
    {
       std::string a = LaTeX_string(i);
