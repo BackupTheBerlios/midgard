@@ -1,4 +1,4 @@
-// $Id: magus_paths.cc,v 1.5 2003/05/09 08:19:10 christof Exp $
+// $Id: magus_paths.cc,v 1.6 2003/05/14 07:04:59 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -135,7 +135,7 @@ void magus_paths::init(const std::string &_argv0,const std::string &_magus_verze
 
 std::string magus_paths::with_path(const std::string &name,bool path_only,bool noexit)
 {
-  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,name,path_only,noexit);
   if (argv0.empty()) std::cerr << "magus_paths::with_path without init\n";
   for(std::vector<std::string>::const_iterator i=paths.begin();i!=paths.end();++i)
    {

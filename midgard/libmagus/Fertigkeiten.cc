@@ -32,43 +32,37 @@ cH_Fertigkeit::cH_Fertigkeit(const std::string& name, bool create)
  else
   {
   std::cerr << "Fertigkeit '" << name << "' nicht im Cache\n";
-  const Tag *t=find_Tag("Fertigkeiten","Fertigkeit","Name",name);
+/*  const Tag *t=find_Tag("Fertigkeiten","Fertigkeit","Name",name);
   if (t) *this=cH_Fertigkeit(t);
-  else if (create)
+  else */ if (create)
   {  static Tag t2("Fertigkeit"); 
      // note that this Tag is shared ... works well for now
      t2.setAttr("Name",name);
-     *this=cH_Fertigkeit(&t2);
+     *this=new Fertigkeit(t2);
   }
   else throw NotFound();
   }
 }
 
-cH_Fertigkeit::cH_Fertigkeit(const Tag *tag)
-{assert(tag);
- *this=cH_Fertigkeit(new Fertigkeit(tag));
- cache.Register(tag->getAttr("Name"),*this);
-}
-
-void Fertigkeit::get_Fertigkeit()
+void Fertigkeit::get_Fertigkeit(const Tag &t)
 {
-  assert(tag);
-  lern_unge=tag->getIntAttr("Lernpunkte",99); // außergewöhnliche Fertigkeit
-  lern_land=tag->getIntAttr("Lernpunkte-Land",99);
-  lern_stadt=tag->getIntAttr("Lernpunkte-Stadt",99);
-  anfangswert0=tag->getIntAttr("Anfangswert");
-  anfangswert=tag->getIntAttr("Erfolgswert");
-  ungelernt=tag->getIntAttr("Erfolgswert-ungelernt",-99);
-  berufskategorie=tag->getIntAttr("Berufskategorie");
+ if (t.hasAttr("Lernkosten"))
+ {lern_unge=t.getIntAttr("Lernpunkte",99); // außergewöhnliche Fertigkeit
+  lern_land=t.getIntAttr("Lernpunkte-Land",99);
+  lern_stadt=t.getIntAttr("Lernpunkte-Stadt",99);
+  anfangswert0=t.getIntAttr("Anfangswert");
+  anfangswert=t.getIntAttr("Erfolgswert");
+  ungelernt=t.getIntAttr("Erfolgswert-ungelernt",-99);
+  berufskategorie=t.getIntAttr("Berufskategorie");
 //  erfolgswert=anfangswert; //Defaultwert
-  kosten=tag->getIntAttr("Lernkosten");
-  region=tag->getAttr("Region");
-  region_zusatz=tag->getAttr("RegionZusatz");
-  attribut=tag->getAttr("Attribut");
-  maxunterweisung=tag->getIntAttr("MaximalMitUnterweisung");
-  enum_zusatz=eZusatz(tag->getIntAttr("Zusätze",ZNone));
-  maxerfolgswert=tag->getIntAttr("Maximalwert");
-  const Tag *Voraussetzungen=tag->find("Voraussetzungen");
+  kosten=t.getIntAttr("Lernkosten");
+  region=t.getAttr("Region");
+  region_zusatz=t.getAttr("RegionZusatz");
+  attribut=t.getAttr("Attribut");
+  maxunterweisung=t.getIntAttr("MaximalMitUnterweisung");
+  enum_zusatz=eZusatz(t.getIntAttr("Zusätze",ZNone));
+  maxerfolgswert=t.getIntAttr("Maximalwert");
+  const Tag *Voraussetzungen=t.find("Voraussetzungen");
   if (Voraussetzungen)
      voraussetzung = st_Voraussetzung(Voraussetzungen->getIntAttr("St"),
      		Voraussetzungen->getIntAttr("Gw",Voraussetzungen->getIntAttr("RW")),
@@ -81,19 +75,20 @@ void Fertigkeit::get_Fertigkeit()
                 Voraussetzungen->getIntAttr("Sb"),
                 Voraussetzungen->getIntAttr("RW"),
                 Voraussetzungen->getAttr("Fertigkeit"));
+  }
 
-    FOR_EACH_CONST_TAG_OF(i,*tag,"Voraussetzungen_2")
+    FOR_EACH_CONST_TAG_OF(i,t,"Voraussetzungen_2")
       vec_voraussetzung.push_back(i->getAttr("Name"));
 
-    FOR_EACH_CONST_TAG_OF(i,*tag,"Lernpunkte_Herkunft")
+    FOR_EACH_CONST_TAG_OF(i,t,"Lernpunkte_Herkunft")
       vec_region_lp.push_back(st_region_lern(i->getAttr("Herkunft"),
             i->getIntAttr("LP_Stadt"),i->getIntAttr("LP_Land")));
 
-    FOR_EACH_CONST_TAG_OF(i,*tag,"Zusätze")
+    FOR_EACH_CONST_TAG_OF(i,t,"Zusätze")
       Vzusatz.push_back(st_zusatz(i->getAttr("Name"),i->getAttr("Typ"),
                         i->getAttr("Region"),i->getAttr("RegionZusatz"),""));
 
-    FOR_EACH_CONST_TAG_OF(i,*tag,"regionaleBesonderheit")
+    FOR_EACH_CONST_TAG_OF(i,t,"regionaleBesonderheit")
          VAusnahmen.push_back(st_ausnahmen(i->getAttr("Herkunft"),
                               i->getAttr("Spezies"),
                               i->getAttr("Typ"),
@@ -101,7 +96,7 @@ void Fertigkeit::get_Fertigkeit()
                               i->getAttr("Stand"),
                               i->getAttr("Standard")));
 
-    FOR_EACH_CONST_TAG_OF(i,*tag,"Besitz")
+    FOR_EACH_CONST_TAG_OF(i,t,"Besitz")
       {
          e_pos epos;
          std::string pos=i->getAttr("Position");
@@ -236,6 +231,7 @@ void Fertigkeit::get_region_lp(int &lp,const Abenteurer& A,const Datenbank &D) c
 
 Fertigkeiten_All::Fertigkeiten_All()
 {
+#if 0
  const Tag *fertigkeiten=xml_data->find("Fertigkeiten");
  if (!fertigkeiten)
     std::cerr << "<Fertigkeiten><Fertigkeit/>... nicht gefunden\n";
@@ -253,6 +249,37 @@ Fertigkeiten_All::Fertigkeiten_All()
        list_All.push_back(&*(cH_Fertigkeit(&*i)));
     }
  }
+#endif 
 }  
 
+Fertigkeit::Fertigkeit(const Tag &t)
+      : MidgardBasicElement(t.getAttr("Name")),
+        lern_unge(),lern_land(),lern_stadt()
+{ load(t);
+}
 
+void Fertigkeit::load(const Tag &t)
+{get_Fertigkeit(t);get_map_typ(t);get_Steigern_Kosten_map(t);
+ EP_steigern(t);
+}
+
+cH_Fertigkeit cH_Fertigkeit::load(const Tag &t,bool &is_new)
+{  cH_Fertigkeit *res=cache.lookup(t.getAttr("Name"));
+   if (!res)
+   {  cH_Fertigkeit r2=new Fertigkeit(t);
+      is_new=true;
+      cache.Register(t.getAttr("Name"),r2);
+      return r2;
+   }
+   else 
+   {  const_cast<Fertigkeit&>(**res).load(t);
+      return *res;
+   }
+}
+
+void Fertigkeiten_All::load(std::list<cH_MidgardBasicElement> &list,const Tag &t)
+{  bool is_new=false;
+   cH_Fertigkeit z=cH_Fertigkeit::load(t,is_new);
+   // das &* dient dazu um aus einem cH_Fertigkeit ein cH_MBE zu machen
+   if (is_new) list.push_back(&*z);
+}

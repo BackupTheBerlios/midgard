@@ -1,5 +1,5 @@
 
-// $Id: Datenbank.cc,v 1.7 2003/05/13 07:08:36 christof Exp $               
+// $Id: Datenbank.cc,v 1.8 2003/05/14 07:04:59 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -54,18 +54,17 @@ Datenbank::Datenbank() : tag_eigene_artikel("MAGUS-data")
 {
 }
 
-void Datenbank::load_one(const std::string &list, const Tag &t)
-{  if (t.Type()=="Spruch") Zauber_All::load(Zauber,t);
-   else if (t.Type()=="Zauberwerk") Zauberwerk_All::load(Zauberwerk,t);
-}
-
 void Datenbank::load_list(const Tag &t)
 {  FOR_EACH_CONST_TAG(j,t)
-   {  if (j->Type()=="Zauber" || j->Type()=="Zauberwerke") 
-      {  FOR_EACH_CONST_TAG(k,*j)
-         {  load_one(j->Type(), *k);
-         }
-      }
+   {  if (j->Type()=="Zauber")
+         FOR_EACH_CONST_TAG(k,*j) Zauber_All::load(Zauber,*k);
+      else if (j->Type()=="Zauberwerke")
+         FOR_EACH_CONST_TAG(k,*j) Zauberwerk_All::load(Zauberwerk,*k);
+      else if (j->Type()=="Fertigkeiten")
+         FOR_EACH_CONST_TAG(k,*j) Fertigkeiten_All::load(Fertigkeit,*k);
+      else if (j->Type()=="verwendbareEP")
+         FOR_EACH_CONST_TAG(k,*j) 
+            Fertigkeit::EP_steigern(k->getAttr("Fertigkeit"),Fertigkeit::EP_steigern_load(*k));
    }
 }
 
@@ -79,12 +78,12 @@ void Datenbank::load(SigC::Slot1<void,double> progress,SigC::Slot1<void,const st
     lernschema = Lernschema(true);
     Beruf = Beruf_All().get_All();
     Fertigkeit_ang = Fertigkeiten_angeborene_All().get_All();
-    Fertigkeit = Fertigkeiten_All().get_All();
+//    Fertigkeit = Fertigkeiten_All().get_All();
     WaffeGrund = WaffeGrund_All().get_All();
     Waffe = Waffe_All().get_All();
     Waffe_from_Alias = Waffe::fill_map_alias_waffe();
 //    Zauber = Zauber_All().get_All();
-    Zauberwerk = Zauberwerk_All().get_All();
+//    Zauberwerk = Zauberwerk_All().get_All();
     Kido = KiDo_All().get_All();
     Sprache = Sprachen_All().get_All();
     Schrift = Schriften_All().get_All();

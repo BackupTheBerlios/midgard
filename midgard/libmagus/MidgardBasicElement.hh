@@ -68,6 +68,7 @@ class MidgardBasicElement : public HandleContentCopyable
              st_zusatz(std::string n,bool e=true):name(n),erlaubt(e) {}
              st_zusatz(std::string n,std::string t,std::string r,std::string rz,std::string lr,bool e=true)
                :name(n),erlaubt(e),typ(t),region(r),region_zusatz(rz),long_region(lr) {}};
+      enum EP_t { Nicht=0, KEP=1, ZEP=2, Beides=KEP|ZEP, EP_t_undefined };
    protected:
 	const Tag *tag; // später weg
       std::string name, region,region_zusatz;
@@ -78,10 +79,10 @@ class MidgardBasicElement : public HandleContentCopyable
       std::vector<st_zusatz> Vzusatz;
       std::vector<st_ausnahmen> VAusnahmen;
       bool nsc_only;
-      enum EP_t { Nicht=0, KEP=1, ZEP=2, Beides=KEP|ZEP };
-      /* EP_t (CP) */ int steigern_mit_EP;
+      EP_t steigern_mit_EP;
       std::map<std::string,std::string> map_typ;
       std::map<int,int> map_erfolgswert_kosten;
+      static std::map<std::string,EP_t> verwendbareEP;
       
 //      void get_map_typ() { get_map_typ(*tag); }
       void get_map_typ(const Tag &t);
@@ -90,11 +91,11 @@ class MidgardBasicElement : public HandleContentCopyable
 
    public:
       MidgardBasicElement(const std::string &n) 
-            : tag(0), name(n), kosten(0),anfangswert(0),enum_zusatz(ZNone)
-              ,nsc_only(false),steigern_mit_EP(0) {}
+            : tag(), name(n), kosten(),anfangswert(),enum_zusatz()
+              ,nsc_only(),steigern_mit_EP() {}
       MidgardBasicElement(const Tag *t,const std::string &n) 
-		: tag(t), name(n), kosten(0),anfangswert(0),enum_zusatz(ZNone)
-              ,nsc_only(false),steigern_mit_EP(0) {}
+		: tag(t), name(n), kosten(),anfangswert(),enum_zusatz()
+              ,nsc_only(),steigern_mit_EP() {}
 
       enum MBEE {BERUF,FERTIGKEIT,FERTIGKEIT_ANG,WAFFEGRUND,WAFFE,WAFFEBESITZ,
                  ZAUBER,ZAUBERWERK,KIDO,SPRACHE,SCHRIFT,SINN} ;
@@ -106,14 +107,20 @@ class MidgardBasicElement : public HandleContentCopyable
       virtual eZusatz ZusatzEnum(const std::vector<cH_Typen>& Typ) const {return enum_zusatz;}
  
       bool NSC_only() const {return nsc_only;}
-      void EP_steigern(const std::string fert);
+      static void EP_steigern(const std::string &fert,EP_t e);
+      static EP_t EP_steigern_load(const Tag &t);
+      // initialisierung: steigern wie Fertigkeit ...
+      EP_t EP_steigern(const std::string &fert);
+      void EP_steigern(EP_t e) { steigern_mit_EP=e; }
+      void EP_steigern(const Tag &t) { steigern_mit_EP=EP_steigern_load(t); }
+
       virtual std::string Name() const {return name;}
       int Anfangswert() const {return anfangswert;}
       void setAnfangswert(int i) const {anfangswert=i;}
       const std::string &Region() const {return region;}
       const std::string &RegionZusatz() const {return region_zusatz;}
       std::string RegionString(const Datenbank &D) const;
-      int Steigern_mit_EP() const {return steigern_mit_EP;}
+      EP_t Steigern_mit_EP() const {return steigern_mit_EP;}
       virtual enum MBEE What() const=0;
       virtual std::string What_str() const=0; // zum speichern
       virtual std::string Stufe() const {return "";} 
@@ -262,5 +269,8 @@ class H_MidgardBasicElement_mutable : public Handle<MidgardBasicElement_mutable>
          bool operator() (H_MidgardBasicElement_mutable x,H_MidgardBasicElement_mutable y) const;
     };
 };
+
+void operator|=(MidgardBasicElement::EP_t &a, MidgardBasicElement::EP_t b);
+bool operator&(MidgardBasicElement::EP_t a, MidgardBasicElement::EP_t b);
 
 #endif

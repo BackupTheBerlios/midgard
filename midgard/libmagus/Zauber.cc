@@ -25,6 +25,7 @@
 #include "Abenteurer.hh"
 #include <iostream>
 #include <Misc/germanstring.h>
+#include <memory>
 
 bool cH_Zauber::sort::operator() (MBEmlt _x,MBEmlt _y) const
 {  cH_Zauber x(_x->getMBE());
@@ -108,9 +109,12 @@ void Zauber::get_Zauber(const Tag &t)
                               i->getAttr("Standard")));
 }
 
+static MidgardBasicElement::EP_t Zauber_EP=MidgardBasicElement::EP_t_undefined;
+
 void Zauber::load(const Tag &t)
-{  get_Zauber(t); get_map_typ(t); 
-//   EP_steigern("Zauber"); //cachen ???
+{  get_Zauber(t); get_map_typ(t);
+   if (Zauber_EP==EP_t_undefined) Zauber_EP=EP_steigern("Zauber");
+   else EP_steigern(Zauber_EP);
 }
 
 Zauber::Zauber(const Tag &t)

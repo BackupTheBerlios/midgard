@@ -100,7 +100,7 @@ class MidgardBasicElement : public HandleContentCopyable
       virtual eZusatz ZusatzEnum(const std::vector<cH_Typen>& Typ) const {return enum_zusatz;}
  
       bool NSC_only() const {return nsc_only;}
-      void EP_steigern(const std::string fert);
+      void EP_steigern(const std::string fert="");
       virtual std::string Name() const {return name;}
       int Anfangswert() const {return anfangswert;}
       void setAnfangswert(int i) const {anfangswert=i;}

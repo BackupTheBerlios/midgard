@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten.hh,v 1.4 2003/05/13 07:08:36 christof Exp $               
+// $Id: Fertigkeiten.hh,v 1.5 2003/05/14 07:04:59 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,8 +21,7 @@
 #  define _FERTIGKEITEN_HH
 #include "MidgardBasicElement.hh"
 #include "Typen.hh"
-#include <Misc/Tag.h>
-
+class Tag;
 class Abenteurer;
 class Datenbank;
 
@@ -43,7 +42,7 @@ class Fertigkeit : public MidgardBasicElement
      st_Voraussetzung voraussetzung;
      std::vector<std::string> vec_voraussetzung;
 
-     void get_Fertigkeit();
+     void get_Fertigkeit(const Tag &t);
      struct st_region_lern {std::string region; int lp_stadt; int lp_land;
          st_region_lern(std::string r,int ls, int ll)
             :region(r),lp_stadt(ls),lp_land(ll) {} 
@@ -60,10 +59,8 @@ class Fertigkeit : public MidgardBasicElement
      std::vector<st_besitz> vec_Besitz;
 
   public:
-     Fertigkeit(const Tag *t)
-      :MidgardBasicElement(t,t->getAttr("Name")),lern_unge(0),lern_land(0),lern_stadt(0)
-      {get_Fertigkeit(); get_map_typ(*t); get_Steigern_Kosten_map(*t);
-       EP_steigern(Name());}
+     Fertigkeit(const Tag &t);
+     void load(const Tag &t);
      enum MBEE What() const {return MidgardBasicElement::FERTIGKEIT;}
      std::string What_str() const {return "Fertigkeit";}
 
@@ -96,7 +93,7 @@ class cH_Fertigkeit : public Handle<const Fertigkeit>
  public:
     cH_Fertigkeit(const Fertigkeit *s) : Handle<const Fertigkeit>(s) {};
     cH_Fertigkeit(const std::string& n,bool create=false);
-    cH_Fertigkeit(const Tag *tag);
+    static cH_Fertigkeit load(const Tag&, bool&);
 
     cH_Fertigkeit(const cH_MidgardBasicElement &x) : Handle<const Fertigkeit>
       (dynamic_cast<const Fertigkeit *>(&*x)){}
@@ -121,7 +118,8 @@ class Fertigkeiten_All
    std::list<cH_MidgardBasicElement> list_All;
   public:
    Fertigkeiten_All();
-   std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
+   const std::list<cH_MidgardBasicElement> &get_All() const {return list_All;}
+   static void load(std::list<cH_MidgardBasicElement> &list,const Tag &t);
 };
 
 #endif

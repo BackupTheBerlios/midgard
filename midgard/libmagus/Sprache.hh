@@ -1,4 +1,4 @@
-// $Id: Sprache.hh,v 1.3 2003/05/13 07:08:36 christof Exp $               
+// $Id: Sprache.hh,v 1.4 2003/05/14 07:04:59 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -27,6 +27,7 @@ class cH_Sprache;
 class Abenteurer;
 //class cH_Sprache;
 //class Sprache_und_Schrift;
+#include <Tag.h>
 
 class Sprache_und_Schrift
 {

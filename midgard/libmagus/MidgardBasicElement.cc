@@ -47,18 +47,6 @@ bool H_MidgardBasicElement_mutable::sort::operator() (H_MidgardBasicElement_muta
            }abort();
 }
 
-#if 0
-bool MidgardBasicElement_mutable::sort::operator() (MidgardBasicElement_mutable x,MidgardBasicElement_mutable y) const
-{ switch(es) {
-               case(LERNPUNKTEPFLICHT) : return x.Pflicht() > y.Pflicht() ||
-                  (x.Pflicht() == y.Pflicht()  &&  x.Lernpunkte() < y.Lernpunkte() ) ;
-               case(NAME) : return germanstring(x->Name()) < germanstring(y->Name())  ;
-               case(ERFOLGSWERT): return x.Erfolgswert() > y.Erfolgswert();
-  }
-  return false;
-}
-#endif
-
 bool MidgardBasicElement::Voraussetzung(const Abenteurer& A,bool anzeigen) const
 {std::cerr<<"ERROR in Voraussetzung\n";return false;}
 
@@ -81,21 +69,7 @@ bool MidgardBasicElement::ist_lernbar(const std::vector<cH_Typen>& Typ,const std
 bool MidgardBasicElement_mutable::ist_gelernt(const std::list<MBEmlt>& L) const
 {
  for (std::list<MBEmlt>::const_iterator i=L.begin();i!=L.end();++i)
-   {
      if(**i==*this) return true;
-/*
-     if((*i)->What()==MidgardBasicElement::ZAUBERWERK)
-      {
-        if((*i)->Name()==(*this)->Name() &&
-           cH_Zauberwerk(*i)->Art()==cH_Zauberwerk(*this)->Art() &&
-              (*i)->Stufe()==(*this)->Stufe())  
-               return true ;
-      }
-     else 
-      {  
-     if((*i)->Name()==(*this)->Name() && (*i).Zusatz()==Zusatz()) return true;}
-*/
-   }
  return false;
 }
 
@@ -141,13 +115,8 @@ bool MidgardBasicElement::Grundfertigkeit(const Abenteurer &A) const
 {
   if      (standard_one_G(Standard(A)) ) return true;
   return false;
-/*
-  std::string standard=Standard__(A);
-  std::string::size_type st=standard.find("G");
-  if(st==std::string::npos) return false;
-  return true;
-*/
 }
+
 bool MidgardBasicElement::Standardfertigkeit(const Abenteurer &A) const
 {
   if (standard_all_S(Standard(A)) ) return true;
@@ -204,14 +173,6 @@ bool MidgardBasicElement::standard_all_S(const std::vector<std::string>& s) cons
 
 int MidgardBasicElement::get_Steigern_Kosten(int erfolgswert) const
 {
-//cout << erfolgswert<<'\t'<<const_cast<std::map<int,int>& >(map_erfolgswert_kosten)[erfolgswert]<<'\t';
-//cout << map_erfolgswert_kosten.size()<<'\n';
-/*
-for(std::map<int,int>::const_iterator i=map_erfolgswert_kosten.begin();i!=map_erfolgswert_kosten.end();++i)
-{
-std::cout << What()<<'\t'<<i->first<<'\t'<<i->second<<'\n';
-}
-*/
  return const_cast<std::map<int,int>& >(map_erfolgswert_kosten)[erfolgswert];
 }
 
@@ -336,13 +297,6 @@ void MidgardBasicElement::get_Steigern_Kosten_map(const Tag &t)
     map_erfolgswert_kosten[i]=kosten->getIntAttr("Wert"+itos(i),0/*??*/);
 }
 
-#ifdef __MINGW__
-std::string utf82iso(const std::string &s);
-# define Internal2Latin(x) utf82iso(x)
-#else
-# define Internal2Latin(x) (x)
-#endif
-
 void MidgardBasicElement::saveElementliste(Tag &datei,
 			   const std::list<MBEmlt>& b,
                            const Grundwerte& Werte,
@@ -372,29 +326,35 @@ void MidgardBasicElement::saveElementliste(Tag &datei,
 
   //////////////////////////////////////////////////////////////////////
   //Steigern von Fertigkeiten  
-void MidgardBasicElement::EP_steigern(const std::string fert)
-{
- const Tag *steigern=0;
- 
- if (tag)
-    // Fertigkeit gefunden
-    steigern=tag->find("EP-Typ");
- else 
-    // globale Liste: Ausdauer, Waffen, Zauber
-  {
-    steigern=find_Tag("verwendbareEP","EP-Typ","Fertigkeit",fert);
-#warning Christof: Das funktioniert nicht :-(
-std::cout << "\n\n\nverwendbareEP "<<fert<<' '<<steigern<<'\n';
-  }
+  
+std::map<std::string,MidgardBasicElement::EP_t> MidgardBasicElement::verwendbareEP;
 
- int back=0;
- if (steigern)
- {  if (steigern->getBoolAttr("KEP")) back+=1;
-    if (steigern->getBoolAttr("ZEP")) back+=2;
- }
- steigern_mit_EP=back;
+void MidgardBasicElement::EP_steigern(const std::string &fert,EP_t e)
+{  verwendbareEP[fert]=e;
 }
 
+MidgardBasicElement::EP_t MidgardBasicElement::EP_steigern(const std::string &fert)
+{  std::map<std::string,EP_t>::const_iterator i=verwendbareEP.find(fert);
+   if (i!=verwendbareEP.end()) { steigern_mit_EP=i->second; return steigern_mit_EP; }
+   try
+   {  cH_Fertigkeit f=cH_Fertigkeit(fert);
+      steigern_mit_EP=f->Steigern_mit_EP();
+      return steigern_mit_EP;
+   } catch (const NotFound &f)
+   {  std::cerr << "EP_steigern: Fertigkeit " << fert << " (noch) unbekannt\n";
+      return Nicht;
+   }
+}
+
+MidgardBasicElement::EP_t MidgardBasicElement::EP_steigern_load(const Tag &t)
+{ EP_t res=Nicht;
+  const Tag *steigern=t.find("EP-Typ");
+  if (steigern)
+  {  if (steigern->getBoolAttr("KEP")) res|=KEP;
+     if (steigern->getBoolAttr("ZEP")) res|=ZEP;
+  }
+  return res;
+}
 
 std::string MidgardBasicElement_mutable::Pflicht_str() const
 {
@@ -409,3 +369,10 @@ int MidgardBasicElement::FErfolgswert(const Abenteurer &abenteurer,const MBEmlt 
 int MidgardBasicElement::Kosten(const Abenteurer &A) const 
 {return (int)(Standard_Faktor(A)*GrundKosten());}
 
+void operator|=(MidgardBasicElement::EP_t &a, MidgardBasicElement::EP_t b)
+{  (int&)a|=int(b);
+}
+
+bool operator&(MidgardBasicElement::EP_t a, MidgardBasicElement::EP_t b)
+{  return int(a)&int(b);
+}
