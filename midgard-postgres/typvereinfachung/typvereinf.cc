@@ -1,5 +1,6 @@
 #include <Misc/FetchIStream.h>
 #include <vector>
+#include <algorithm>
 
 class Gruppe
 {  std::vector<std::string> typen;
@@ -7,7 +8,7 @@ class Gruppe
 public:
    Gruppe(const std::string &n);
    bool member(const std::string &b) const
-   {  return std::find(
+   {  return std::find(typen.begin(),typen.end(),b)!=typen.end(); }
 };
 
 Gruppe::Gruppe(const std::string &n)
@@ -22,10 +23,10 @@ public:
    Gruppen();
 };
 
-Gruppen::Gruppen()
- : name(n)
-{  typen=Query("select typ from typen_gruppe where gruppe='"+n+"' order by typ")
+Gruppen::Gruppen() // oder by count
+{  std::vector<std::string> typen=Query("select distinct gruppe from typen_gruppe order by gruppe")
 	.FetchArray<std::string>();
+   std::copy(typen.begin(),typen.end(),back_insert_iterator<std::vector<Gruppe> >(gruppen));
 }
 
 enum gsan_t { Grund, Standard, Ausnahme, Nicht, GsanAnz, Illegal=-1 };
