@@ -14,19 +14,20 @@
 
 class Data_Preis : public RowDataBase
 {
-     std::string art, typ, eigenschaft;
+     std::string art,art2, typ, eigenschaft;
      int kosten;
      PreiseMod::st_payload preismod;
   public:
-     Data_Preis(std::string a, std::string t, PreiseMod::st_payload p)
-      : art(a),typ(t),preismod(p) {}
+     Data_Preis(std::string a, std::string a2, std::string t, PreiseMod::st_payload p)
+      : art(a),art2(a2),typ(t),preismod(p) {}
       
-     enum spalten {ART,TYP,EIGENSCHAFT,KOSTEN};
+     enum spalten {ART,ART2,TYP,EIGENSCHAFT,KOSTEN};
      
      virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const 
       {
         switch(spalten(seqnr)) {
            case ART: return cH_EntryValueIntString(art);
+           case ART2: return cH_EntryValueIntString(art2);
            case TYP: return cH_EntryValueIntString(typ);
            case EIGENSCHAFT: return cH_EntryValueIntString(preismod.name);
            case KOSTEN: return cH_EntryValueIntString(preismod.faktor);
@@ -35,6 +36,7 @@ class Data_Preis : public RowDataBase
       }
 
    std::string Art() const {return art;}
+   std::string Art2() const {return art2;}
    std::string Typ() const {return typ;}
    PreiseMod::st_payload Preismod() const {return preismod;}
 };
@@ -51,7 +53,7 @@ void midgard_CG::ausruestung_laden()
   std::vector<cH_RowDataBase> datavec;
   for(std::list<cH_PreiseMod>::iterator i=Database.preisemod.begin();i!=Database.preisemod.end();++i)
    {
-     datavec.push_back(new Data_Preis((*i)->Art(),(*i)->Typ(),(*i)->Payload()));
+     datavec.push_back(new Data_Preis((*i)->Art(),(*i)->Art2(),(*i)->Typ(),(*i)->Payload()));
    }
   preise_tree->setDataVec(datavec);
   showAusruestung();
@@ -59,14 +61,18 @@ void midgard_CG::ausruestung_laden()
 
 void midgard_CG::on_preise_leaf_selected(cH_RowDataBase d)
 {
- static std::string art;
+ static std::string art,art2;
  const Data_Preis *dt=dynamic_cast<const Data_Preis*>(&*d);
 //cout << dt->Art()<<' '<<dt->Typ()<<' '<<dt->Preismod().name<<'\n';
  std::string memart=art;
+ std::string memart2=art2;
  art=dt->Art();
- if(art!=memart) modimap.clear();
- modimap[pair<std::string,std::string>(dt->Art(),dt->Typ())]=dt->Preismod();
+ art2=dt->Art2();
+ if(art!=memart || art2!=memart2) modimap.clear();
+ modimap[st_modimap_index(dt->Art(),dt->Art2(),dt->Typ())]=dt->Preismod();
  show_modi();
+ entry_artikel_art->set_text(art);
+ entry_artikel_art2->set_text(art2);
 }
 
 void midgard_CG::show_modi()
@@ -78,7 +84,7 @@ void midgard_CG::show_modi()
   l->show();
   table_modi->attach(*l,1,2,0,1,GTK_FILL,0,0,0);
   int row=1;
-  for (std::map<pair<std::string,std::string>,PreiseMod::st_payload>::const_iterator i=modimap.begin();i!=modimap.end();++i)
+  for (std::map<st_modimap_index,PreiseMod::st_payload>::const_iterator i=modimap.begin();i!=modimap.end();++i)
    {
      Gtk::Label *l=manage (new Gtk::Label(i->second.name));
      l->set_alignment(0, 0.5);
@@ -270,7 +276,7 @@ void midgard_CG::on_clist_preisliste_select_row(gint row, gint column, GdkEvent 
      Geld_uebernehmen();
    }
  std::string bez;
- for (std::map<pair<std::string,std::string>,PreiseMod::st_payload>::const_iterator i=modimap.begin();i!=modimap.end();)
+ for (std::map<st_modimap_index,PreiseMod::st_payload>::const_iterator i=modimap.begin();i!=modimap.end();)
    {
      bez += i->second.name;
      if(++i!=modimap.end()) bez+=", ";
@@ -288,7 +294,7 @@ void midgard_CG::fill_preisliste()
  clist_preisliste->clear();
  if(modimap.empty()) return;
  double fak=1;  
- for (std::map<pair<std::string,std::string>,PreiseMod::st_payload>::const_iterator i=modimap.begin();i!=modimap.end();++i)
+ for (std::map<st_modimap_index,PreiseMod::st_payload>::const_iterator i=modimap.begin();i!=modimap.end();++i)
    {
     fak *= i->second.faktor;
    }
@@ -296,7 +302,7 @@ void midgard_CG::fill_preisliste()
  for(std::list<cH_Preise>::const_iterator i=Database.preise.begin();i!=Database.preise.end();++i)
    {
 //     if(dt->Art()==(*i)->Art())
-    if(modimap.begin()->first.first==(*i)->Art())
+    if(modimap.begin()->first.art==(*i)->Art() && modimap.begin()->first.art2==(*i)->Art2())
       os << (*i)->Name() <<'\t'
          << (*i)->Kosten() * fak <<'\t'
          << (*i)->Einheit() <<'\t'
@@ -482,7 +488,7 @@ void midgard_CG::ausruestung_druck(ofstream &fout,const list<AusruestungBaum> &A
 void midgard_CG::on_button_artikel_neu_clicked()
 {
   table_artikel->show();
-  entry_artikel_art->grab_focus();
+  entry_name->grab_focus();
 }
 void midgard_CG::on_button_gruppe_neu_clicked()
 {
@@ -509,6 +515,10 @@ void midgard_CG::on_entry_eigenschaft_activate()
 //Neueingeben eines Artikels:
 void midgard_CG::on_entry_artikel_art_activate()
 {
+ entry_artikel_art2->grab_focus();
+}
+void midgard_CG::on_entry_artikel_art2_activate()
+{
  entry_name->grab_focus();
 }
 void midgard_CG::on_entry_name_activate()
@@ -526,6 +536,7 @@ void midgard_CG::on_optionmenu_einheit_deactivate()
 void midgard_CG::on_spinbutton_gewicht_activate()
 {
  std::string art = entry_artikel_art->get_text();
+ std::string art2 = entry_artikel_art2->get_text();
  std::string name = entry_name->get_text();
  std::string einheit;
  int ieinheit = int(optionmenu_einheit->get_menu()->get_active()->get_user_data()); 
@@ -536,7 +547,7 @@ void midgard_CG::on_spinbutton_gewicht_activate()
  double gewicht = atof( spinbutton_gewicht->get_text().c_str());
 
  try{
-  Preise::saveArtikel(art,name,preis,einheit,gewicht);
+  Preise::saveArtikel(art,art2,name,preis,einheit,gewicht);
   Database.preise.push_back(cH_Preise(name));
   ausruestung_laden();
    } catch(SQLerror &e) {manage (new WindowInfo(e.what()));}

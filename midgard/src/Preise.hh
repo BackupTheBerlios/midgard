@@ -9,7 +9,7 @@
 
 class Preise : public HandleContent
 {
-   std::string name,einheit,art;
+   std::string name,einheit,art,art2;
    double kosten,gewicht;
 
    void get_Preise();
@@ -18,12 +18,14 @@ class Preise : public HandleContent
      :name(n) {get_Preise();}
 
  std::string Art() const {  return art; }
+ std::string Art2() const {  return art2; }
  std::string Name()  const {  return name; }
  double Kosten() const { return kosten ; }
  double Gewicht() const { return gewicht ; }
  std::string Einheit()  const {  return einheit; }
 
- static void saveArtikel(std::string art,std::string name,double preis, std::string einheit,double gewicht);
+ static void saveArtikel(std::string art,std::string art2,
+      std::string name,double preis, std::string einheit,double gewicht);
 };
 
 
@@ -73,15 +75,16 @@ class PreiseMod : public HandleContent
              : name(n), faktor(f) {}
           };
  private:
-   std::string art,typ;
+   std::string art,art2,typ;
    int nr;
    st_payload payload;
    void get_PreiseMod();
  public:
-   PreiseMod(const std::string& a,const std::string& t,const int& n)
-     :art(a),typ(t),nr(n) {get_PreiseMod();}
+   PreiseMod(const std::string& a,const std::string& a2,const std::string& t,const int& n)
+     :art(a),art2(a2),typ(t),nr(n) {get_PreiseMod();}
 
  std::string Art() const {  return art; }
+ std::string Art2() const {  return art2; }
  std::string Typ() const {  return typ; }
  int Nr() const {  return nr; }
  st_payload Payload() const {return payload;}
@@ -91,12 +94,14 @@ class PreiseMod : public HandleContent
 
 class cH_PreiseMod : public Handle<const PreiseMod>
 {
-   struct st_index{std::string art; std::string typ;int nr;
+   struct st_index{std::string art; std::string art2; std::string typ;int nr;
           st_index() :nr(0) {}
-          st_index(std::string a,std::string t,int n) : art(a),typ(t),nr(n) {}
+          st_index(std::string a,std::string a2,std::string t,int n) 
+               : art(a),art2(a2),typ(t),nr(n) {}
           bool operator<(const st_index& b) const
-            {return art<b.art || (art==b.art && typ<b.typ)
-                    ||(art==b.art &&typ==b.typ&&nr<b.nr) ;}          
+            {return art<b.art || (art==b.art && art2<b.art2) ||
+              ( art==b.art && art2==b.art2 && typ<b.typ)
+                    || (art==b.art && art2==b.art2 &&typ==b.typ&&nr<b.nr) ;}          
          };
 
     typedef CacheStatic<st_index,cH_PreiseMod> cache_t;
@@ -105,7 +110,7 @@ class cH_PreiseMod : public Handle<const PreiseMod>
     friend class std::map<st_index,cH_PreiseMod>;
     cH_PreiseMod(){};
  public:
-    cH_PreiseMod(const std::string& art,const std::string typ,const int &nr);
+    cH_PreiseMod(const std::string& art,const std::string& art2,const std::string typ,const int &nr);
 };
 
 class PreiseMod_All

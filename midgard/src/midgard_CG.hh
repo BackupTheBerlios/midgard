@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.121 2002/01/07 18:59:11 thoma Exp $
+// $Id: midgard_CG.hh,v 1.122 2002/01/08 17:14:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -62,7 +62,6 @@
 #include "Spezies.hh"
 #include "Typen.hh"
 #include "Grad_anstieg.hh"
-#include "Praxispunkte.hh"
 #include "Lernschema.hh"
 #include "Beruf.hh"
 #include "Preise.hh"
@@ -113,7 +112,6 @@ class midgard_CG : public midgard_CG_glade
                              std::vector<cH_Typen> Typen;
                              Grad_anstieg GradAnstieg;
                              std::vector<cH_Spezialgebiet> Spezialgebiet;
-                             Praxispunkte praxispunkte;
                              std::list<cH_Preise> preise;
                              std::list<cH_PreiseMod> preisemod;
                st_Database(){}
@@ -137,7 +135,6 @@ class midgard_CG : public midgard_CG_glade
                            std::vector<cH_Typen> T,
                            Grad_anstieg GA,
                            std::vector<cH_Spezialgebiet> SP,
-                           Praxispunkte px,
                            std::list<cH_Preise> pr,
                            std::list<cH_PreiseMod> prm )
                            : Laender(L),Ruestung(R),lernschema(l),
@@ -148,7 +145,7 @@ class midgard_CG : public midgard_CG_glade
                              Kido(K),Sprache(Sp),Schrift(Sc),
                              pflicht(p),ausnahmen(a),Spezies(S),
                              Typen(T),GradAnstieg(GA),
-                             Spezialgebiet(SP),praxispunkte(px),
+                             Spezialgebiet(SP),
                              preise(pr),preisemod(prm) {}
                            };
    private:
@@ -440,7 +437,13 @@ class midgard_CG : public midgard_CG_glade
         void showChildren(Gtk::CTree_Helpers::RowList::iterator r,const std::list<AusruestungBaum> &AB);
         Gtk::CTree *Ausruestung_tree;
         AusruestungBaum besitz;
-        std::map<pair<std::string,std::string>,PreiseMod::st_payload> modimap;
+        struct st_modimap_index{std::string art;std::string art2;std::string typ;
+            st_modimap_index(std::string a,std::string a2,std::string t)
+               :art(a),art2(a2),typ(t) {}
+            bool operator <(const st_modimap_index b) const 
+            {return art<b.art || (art==b.art && art2<b.art2) ||
+                    (art==b.art && art2==b.art2 && typ<b.typ);} };
+        std::map<st_modimap_index,PreiseMod::st_payload> modimap;
         void on_checkbutton_sichtbar_toggled();
         SigC::Connection sichtbarConnection;
         void on_ausruestung_loeschen_clicked();
@@ -453,6 +456,7 @@ class midgard_CG : public midgard_CG_glade
         void on_entry_typ_activate();
         void on_entry_eigenschaft_activate();
         void on_entry_artikel_art_activate();
+        void on_entry_artikel_art2_activate();
         void on_entry_name_activate();
         void on_spinbutton_preis_activate();
         void on_optionmenu_einheit_deactivate();

@@ -23,7 +23,7 @@ CREATE TABLE "zauberwerk_typen" (
 COPY "zauberwerk_typen" FROM stdin;
 Alarm	4	Th	G	magische Letter
 Angst	1	Th	G	Augensalbe
-Angst	1	Th	G	GroÃŸes Siegel
+Angst	1	Th	G	Großes Siegel
 Anziehen	1	Th	G	Augensalbe
 Auslösen	1	Th	G	magische Letter
 Bannen von Dunkelheit	1	Th	G	Großes Siegel
@@ -256,8 +256,8 @@ Liebestrank aktivieren	3	sHx	G	Alchimistisches Zaubermittel
 Liebestrank aktivieren	3	tBe	S	Alchimistisches Zaubermittel
 Liebestrank aktivieren	3	wHx	G	Alchimistisches Zaubermittel
 Liebeszauber	4	Th	G	Augensalbe
-LÃ¤hmung	5	Th	G	Schutzrune
 Lähmung	5	Th	G	Großes Siegel
+Lähmung	5	Th	G	Schutzrune
 Macht über Menschen	3	Th	G	Augensalbe
 Macht über die belebte Natur	2	Th	G	Augensalbe
 Namenloses Grauen	4	Th	G	Großes Siegel
@@ -799,7 +799,7 @@ Talisman verzaubern	4	gHx	A	Talisman
 Talisman verzaubern	4	sHx	A	Talisman
 Talisman verzaubern	4	wHx	A	Talisman
 Tierisches Handeln	5	Th	G	Augensalbe
-Tierisches Handeln	5	Th	G	GroÃŸes Siegel
+Tierisches Handeln	5	Th	G	Großes Siegel
 Todeshauch	3	Th	G	Großes Siegel
 Todeshauch	3	Th	G	Schutzrune
 Trunk der Macht über Hunde aktivieren	2	Dr	S	Alchimistisches Zaubermittel

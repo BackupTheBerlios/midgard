@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.104 2002/01/05 15:01:37 thoma Exp $
+// $Id: midgard_CG.cc,v 1.105 2002/01/08 17:14:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -79,7 +79,6 @@ void midgard_CG::get_Database()
                            Typen_All(MI->get_progressbar_typen()).get_All(),
                            Grad_anstieg(MI->get_progressbar_grad()),
                            Spezialgebiet_All(MI->get_progressbar_spezial()).get_All(),
-                           Praxispunkte(MI->get_progressbar_praxispunkte()),
                            Preise_All(MI->get_progressbar_preise()).get_All(),
                            PreiseMod_All(MI->get_progressbar_preise()).get_All());
    }catch(SQLerror &e) {cerr<< e.what()<<'\n'; return;}
@@ -104,146 +103,12 @@ gint midgard_CG::on_button_menu_button_release_event(GdkEventButton *event)
 
 void midgard_CG::set_tree_titles()
 {
-/*
- std::vector<string> alte_fert;
- alte_fert.push_back("Fertigkeit");
- alte_fert.push_back("Wert");
- alte_fert.push_back("PP");
- alte_fert.push_back("");
- alte_fert.push_back("Steigern\n(nächste Stufe)");
- alte_fert.push_back("Reduzieren\n(eine Stufe)");
- alte_fert.push_back("Verlernen");
- alte_fert_tree->set_value_data(gpointer("FA"));
- alte_fert_tree->setTitles(alte_fert);
- std::vector<string> neue_fert;
- neue_fert.push_back("Fertigkeit");
- neue_fert.push_back("Wert");
- neue_fert.push_back("Lernkosten");
- neue_fert.push_back("Art");
- neue_fert.push_back("Voraussetzungen");
- neue_fert_tree->set_value_data(gpointer("FN"));
- neue_fert_tree->setTitles(neue_fert);
-*/
-/*
- std::vector<string> alte_waffen;
- alte_waffen.push_back("Wert");
- alte_waffen.push_back("Waffe");
- alte_waffen.push_back("PP");
- alte_waffen.push_back("");
- alte_waffen.push_back("Steigern\n(nächste Stufe)");
- alte_waffen.push_back("Reduzieren\n(eine Stufe)");
- alte_waffen.push_back("Verlernen");
- alte_waffen_tree->set_value_data(gpointer("WA"));
- alte_waffen_tree->setTitles(alte_waffen);
-*/
-/*
- std::vector<string> neue_waffen;
- neue_waffen.push_back("Wert");
- neue_waffen.push_back("Waffe");
- neue_waffen.push_back("");
- neue_waffen.push_back("Voraussetzung");
- neue_waffen_tree->set_value_data(gpointer("WN"));
- neue_waffen_tree->setTitles(neue_waffen);
-*/
-/*
- std::vector<string> alte_grund;
- alte_grund.push_back("Grundkenntnisse");
- alte_grund.push_back("");
- alte_grund_tree->setTitles(alte_grund);
- alte_grund_tree->set_value_data(gpointer("GA"));
- std::vector<string> neue_grund;
- neue_grund.push_back("Grundkenntnisse");
- neue_grund.push_back("");
- neue_grund.push_back("Kosten");
- neue_grund_tree->set_value_data(gpointer("GN"));
- neue_grund_tree->setTitles(neue_grund);
-*/ 
-/*
- std::vector<string> alte_zauber;
- alte_zauber.push_back("Name");
- alte_zauber.push_back("Stufe");
- alte_zauber.push_back("Ursprung");
- alte_zauber.push_back("Lernkosten");
- alte_zauber_tree->setTitles(alte_zauber);
- alte_zauber_tree->set_value_data(gpointer("ZA"));
- std::vector<string> neue_zauber;
- neue_zauber.push_back("Name");
- neue_zauber.push_back("Stufe");
- neue_zauber.push_back("Ursprung");
- neue_zauber.push_back("Lernkosten");
- neue_zauber.push_back("Art");
- neue_zauber_tree->set_value_data(gpointer("ZN"));
- neue_zauber_tree->setTitles(neue_zauber);
-*/
-/*
- std::vector<string> alte_zaubermittel;
- alte_zaubermittel.push_back("Stufe");
- alte_zaubermittel.push_back("Name");
- alte_zaubermittel.push_back("Art");
- alte_zaubermittel.push_back("Kosten");
- alte_zaubermittel_tree->set_value_data(gpointer("ZWA"));
- alte_zaubermittel_tree->setTitles(alte_zaubermittel); 
- std::vector<string> neue_zaubermittel;
- neue_zaubermittel.push_back("Stufe");
- neue_zaubermittel.push_back("Name");
- neue_zaubermittel.push_back("Art");
- neue_zaubermittel.push_back("Kosten");
- neue_zaubermittel.push_back("Preis");
- neue_zaubermittel.push_back("Zeitaufwand");
- neue_zaubermittel_tree->set_value_data(gpointer("ZWN"));
- neue_zaubermittel_tree->setTitles(neue_zaubermittel); 
-*/
-/*
- std::vector<string> kido;
- kido.push_back("HoHo");
- kido.push_back("Technik");
- kido.push_back("Stufe");
- kido.push_back("AP");
- kido.push_back("Kosten");
- kido.push_back("Stil");
- alte_kido_tree->set_value_data(gpointer("KA"));
- alte_kido_tree->setTitles(kido);
- neue_kido_tree->set_value_data(gpointer("KN"));
- neue_kido_tree->setTitles(kido);
-*/
-/*
- std::vector<string> alte_sprachen;
- alte_sprachen.push_back("Sprache");
- alte_sprachen.push_back("Wert");
- alte_sprachen.push_back("PP");
- alte_sprachen.push_back("Steigern\n(nächste Stufe)");
- alte_sprachen.push_back("Reduzieren\n(eine Stufe)");
- alte_sprachen.push_back("Verlernen");
- alte_sprache_tree->set_value_data(gpointer("SPA"));
- alte_sprache_tree->setTitles(alte_sprachen);
- std::vector<string> neue_sprachen;
- neue_sprachen.push_back("Sprache");
- neue_sprachen.push_back("Schrift");
- neue_sprachen.push_back("Lernkosten");
- neue_sprache_tree->set_value_data(gpointer("SPN"));
- neue_sprache_tree->setTitles(neue_sprachen);
-*/
-/*
- std::vector<string> alte_schrift;
- alte_schrift.push_back("Schrift");
-// schrift.push_back("Art der Schrift");
- alte_schrift.push_back("Wert");
- alte_schrift.push_back("PP");
- alte_schrift.push_back("Steigern\n(nächste Stufe)");
- alte_schrift.push_back("Reduzieren\n(eine Stufe)");
- alte_schrift.push_back("Verlernen");
- alte_schrift_tree->set_value_data(gpointer("SCA"));
- alte_schrift_tree->setTitles(alte_schrift);
- std::vector<string> neue_schrift;
- neue_schrift.push_back("Schrift");
- neue_schrift.push_back("Lernkosten");
- neue_schrift_tree->set_value_data(gpointer("SCN"));
- neue_schrift_tree->setTitles(neue_schrift);
-*/
  std::vector<string> preis;
  preis.push_back("Art");
- preis.push_back("Typ");
+ preis.push_back("");
+ preis.push_back("Kategorie");
  preis.push_back("Eigenschaft");
+ preis.push_back("Kostenfaktor");
  preise_tree->setTitles(preis);
 }
 

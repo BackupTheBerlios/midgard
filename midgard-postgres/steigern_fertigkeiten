@@ -40,7 +40,6 @@ Erzählen	Dichten
 Etikette	Gassenwissen
 Fallen	Bewegung
 Fallen entdecken	Fallen entdecken
-Fallen entschärfen	Fallen entschärfen
 Fallenmechanik	Fallenmechanik
 Fallenstellen	Fallenstellen
 Fangen	Bewegung
@@ -73,7 +72,6 @@ Kampf in Vollrüstung	Kampf in Vollrüstung
 Kampf vom Streitwagen	Kampf vom Streitwagen
 Kampf zu Pferd	Kampf zu Pferd
 Kampftaktik	Kampftaktik
-Kanufahren	Bewegung
 KarumiJutsu	Bewegung
 Katapult bedienen	Ballista bedienen
 Kenntnis der Fünf Klassiker	-
@@ -126,10 +124,7 @@ Schwerttanz	Bewegung
 Schwimmen	Bewegung
 Schätzen	Schätzen
 Seemannsgang	Bewegung
-Segeln	Bewegung
 Seilkunst	Seilkunst
-Siegelfälschung	-
-Siegelkunde	Wissen
 Singen	Dichten
 Skifahren	Bewegung
 Sprache	Sprache
@@ -143,7 +138,6 @@ Stimmen nachahmen	Stimmen nachahmen
 Streitwagen lenken	Bewegung
 Suchen	Suchen
 TaiTschi	-
-Talisman verzaubern	Talisman verzaubern
 Tanzen	Tanzen
 Tarnen	Schleichen
 Tauchen	Tauchen
@@ -160,12 +154,11 @@ Wahrnehmung	Wahrnehmung
 Werfen	Werfen
 Wetterkunde	Wetterkunde
 Winden	Winden
-Wissen von der Magie	-
 YangScheng	YangScheng
 YubeChian	-
 Zauberkunde	Wissen
 Zeichensprache	Zeichensprache
-Zunge verschlucken	Verhören
+Zunge verschlucken	Zunge verschlucken
 Überleben im Dschungel	Überleben
 Überleben im Gebirge	Überleben
 Überleben im Schnee	Überleben
