@@ -13,12 +13,23 @@ cH_Zauber::cH_Zauber(const std::string& name)
 // st_index index(name);
  cH_Zauber *cached(cache.lookup(name));
  if (cached) *this=*cached;
+#ifndef XML 
  else
   {
    *this=cH_Zauber(new Zauber(name));
    cache.Register(name,*this);
   }
+#else
+  assert(!"Zauber nicht im Cache");
+#endif  
 }
+
+#ifdef XML
+cH_Zauber::cH_Zauber(const Tag *tag)
+{*this=cH_Zauber(new Zauber(tag));
+ cache.Register(tag->getAttr("Name"),this);
+}
+#endif
 
 void Zauber::get_Zauber()
 {
@@ -86,27 +97,25 @@ void Zauber::get_Zauber()
    exec sql close cl_zauber_ein;
    tr.close();
 #else // USE_XML
- const Tag *zauber=find_Tag("Zauber","Spruch","Name",name);
- if (zauber)
- {  ursprung=zauber->getAttr("Ursprung");
-    kosten=zauber->getIntAttr("Lernkosten");
-    stufe=zauber->getAttr("Grad");
-    spruchrolle=zauber->getBoolAttr("Spruchrolle");
-    region=zauber->getAttr("Region");
-    zauberart=zauber->getAttr("Zauberart");
-    element=zauber->getAttr("Element");
-    ap=zauber->getIntAttr("AP");;
-    art=zauber->getAttr("Typ");
-    zauberdauer=zauber->getAttr("Zauberdauer");
-    reichweite=zauber->getAttr("Reichweite");
-    wirkungsziel=zauber->getAttr("Wirkungsziel");
-    wirkungsbereich=zauber->getAttr("Wirkungsbereich");
-    wirkungsdauer=zauber->getAttr("Wirkungsdauer");
-    material=zauber->getAttr("Material");
-    agens=zauber->getAttr("Agens");
-    prozess=zauber->getAttr("Prozess");
-    reagens=zauber->getAttr("Reagens");
- }
+ assert(tag);
+ ursprung=tag->getAttr("Ursprung");
+    kosten=tag->getIntAttr("Lernkosten");
+    stufe=tag->getAttr("Grad");
+    spruchrolle=tag->getBoolAttr("Spruchrolle");
+    region=tag->getAttr("Region");
+    zauberart=tag->getAttr("Zauberart");
+    element=tag->getAttr("Element");
+    ap=tag->getIntAttr("AP");;
+    art=tag->getAttr("Typ");
+    zauberdauer=tag->getAttr("Zauberdauer");
+    reichweite=tag->getAttr("Reichweite");
+    wirkungsziel=tag->getAttr("Wirkungsziel");
+    wirkungsbereich=tag->getAttr("Wirkungsbereich");
+    wirkungsdauer=tag->getAttr("Wirkungsdauer");
+    material=tag->getAttr("Material");
+    agens=tag->getAttr("Agens");
+    prozess=tag->getAttr("Prozess");
+    reagens=tag->getAttr("Reagens");
 #endif   
 }
 
@@ -171,6 +180,8 @@ Zauber_All::Zauber_All(Gtk::ProgressBar *progressbar)
     {
       progressbar->set_percentage(count/db_size);
       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+#warning das registriert den Zauber aber nicht im cache - oder?
+// es müsste cH_Zauber sein
       list_All.push_back(new Zauber(db_name[i]));
       ++count;
      }
@@ -193,7 +204,13 @@ Zauber_All::Zauber_All(Gtk::ProgressBar *progressbar)
           while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
        }
        // sinnvoller wäre es, den Tag weiterzugeben, dann brauchen wir den oben nicht zu suchen!
-       list_All.push_back(new Zauber(i->getAttr("Name")));
+// warum sowas?
+//    die Klasse cH_Zauber enthält den Cache, erzeuge ich nur einen Zauber, so
+//    wird er nicht in den Cache (nach Namen) aufgenommen.
+//    Ich brauche aber einen cH_MidgardBasicElement, daher bilde ich einen
+//    Zauber* um danach (aus dem ebenfalls MidgardBasicElement*) ein 
+//    cH_MidgardBasicElement zu machen. Wow.
+       list_All.push_back(&*(new cH_Zauber(&*i)));
     }
  }
 #endif 

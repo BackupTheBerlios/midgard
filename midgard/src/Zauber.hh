@@ -18,9 +18,15 @@ class Zauber : public MidgardBasicElement
 
    void get_Zauber();
  public: 
+#ifdef XML
+   Zauber(const Tag *t) 
+      : MidgardBasicElement(t), name(t->getAttr("Name"))
+   { get_Zauber();get_map_typ();EP_steigern("Zauber");} 
+#else
    Zauber(const std::string& n) 
       : name(n)
    {get_Zauber();get_map_typ();EP_steigern("Zauber");} 
+#endif   
 
    enum MBEE What() const {return MidgardBasicElement::ZAUBER;}
    std::string What_str() const {return "Zauber";}
@@ -74,6 +80,9 @@ class cH_Zauber : public Handle<const Zauber>
     cH_Zauber(){};
  public:
    cH_Zauber(const std::string& name) ;
+#ifdef XML
+   cH_Zauber(const Tag *tag);
+#endif
 
    cH_Zauber(const cH_MidgardBasicElement &x) : Handle<const Zauber> 
       (dynamic_cast<const Zauber *>(&*x)){}

@@ -1,4 +1,4 @@
-// $Id: xml.h,v 1.4 2001/11/26 16:57:11 christof Exp $
+// $Id: xml.h,v 1.5 2001/12/22 21:31:31 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -21,7 +21,8 @@
 #define MCG_XML_H
 
 #ifdef USE_XML
-#include "TagStream.hh"
+#include "Tag.hh"
+#define IF_XML(x) x
 
 extern const Tag *xml_data;
 const Tag *find_Tag(const std::string &listtag, const std::string &elementtag,
@@ -30,6 +31,7 @@ const Tag *find_Tag(const std::string &listtag, const std::string &elementtag,
 		const std::string &name, const std::string &wert);
 #else
 #include <string>
+#define IF_XML(x)
 #endif
 
 void xml_init(const std::string &filename="midgard.xml");

@@ -5,6 +5,9 @@
 #include <string>
 #include <vector>
 #include <list>
+#ifdef XML
+#include "xml.h"
+#endif
 
 class cH_Typen;
 class Grundwerte;
@@ -17,18 +20,28 @@ class SimpleTree;
 class MidgardBasicElement : public HandleContent
 {
    protected:
+#ifdef XML   
+	const Tag *tag;
+#endif
+	// warum ist name nicht hier drin? CP
       int kosten;
       int mutable erfolgswert,lernpunkte;
-      int steigern_mit_EP; //1=KEP,2=ZEP,3=Beides
+      enum EP_t { Nicht=0, KEP=1, ZEP=2, Beides=KEP|ZEP };
+      /* EP_t (CP) */ int steigern_mit_EP;
       std::map<std::string,std::string> map_typ;
       std::map<int,int> map_erfolgswert_kosten;
+      
       void get_map_typ();
       void get_Steigern_Kosten_map();
       int GrundKosten() const {  return kosten; }
 
    public:
-      MidgardBasicElement() : kosten(0),erfolgswert(0),lernpunkte(0)
-                              ,steigern_mit_EP(0) {}                              
+      MidgardBasicElement() : IF_XML(tag(0),) kosten(0),erfolgswert(0),lernpunkte(0)
+                              ,steigern_mit_EP(0) {}
+#ifdef XML
+      MidgardBasicElement(const Tag *t) : tag(t), kosten(0),erfolgswert(0),lernpunkte(0)
+                              ,steigern_mit_EP(0) {}
+#endif                              
 
       enum MBEE {BERUF,FERTIGKEIT,FERTIGKEIT_ANG,WAFFEGRUND,WAFFE,ZAUBER,
                   ZAUBERWERK,KIDO,SPRACHE,SCHRIFT} ;
