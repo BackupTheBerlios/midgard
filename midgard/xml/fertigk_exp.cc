@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.35 2002/07/08 09:14:30 christof Exp $
+// $Id: fertigk_exp.cc,v 1.36 2002/07/08 09:17:16 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -206,11 +206,11 @@ void fert_speichern(Tag &o)
  }
   if (!region.empty())
  { FetchIStream is;
-   Query q("select lernschema_4.name from lernschema_4 "
+   Query q("select name from lernschema_4 "
    	"join typen on typ=typs "
    	"where (name like 'Schreiben:%' or name like 'Sprechen:%') "
    	"and region='"+region+"' "
-   	"order by fertigkeit");
+   	"order by name");
   while ((q >> is).good())
   {Tag &fertigk=fertigkeiten.push_back(Tag("Fertigkeit"));
    std::string fert=fetch_and_set_string_attrib(is, fertigk, "Name");
