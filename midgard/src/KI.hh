@@ -36,9 +36,6 @@ class MagusKI
       std::vector<cH_Prototyp2> vec_Prototypen;
       bool use_GSA_MBE;
 
-//      int spezial_allgemein;
-      
-
       const Enums::MBEListen Was() const;
 
       std::list<MBEmlt> NeuLernenList(const Enums::MBEListen was,const int gfp) const;

@@ -22,13 +22,16 @@
 
 class Data_AbenteurerListe : public RowDataBase
 {
-      Abenteurer Char;
+      const std::list<VAbenteurer::st_abenteurer>::iterator it;
+      const Abenteurer &Char;
       bool saved;
 
       enum spalten{NAMEA,SAVE,TYP,BEZEICHNUNG,SPEZIES,SPIELER,VER};
    public:
-      Data_AbenteurerListe(const VAbenteurer::st_abenteurer& c) 
-         : Char(c.abenteurer), saved(c.gespeichert) {}
+      Data_AbenteurerListe(const  std::list<VAbenteurer::st_abenteurer>::iterator i) 
+         : it(i), Char(it->abenteurer), saved(it->gespeichert) {}
+//      Data_AbenteurerListe(const VAbenteurer::st_abenteurer& c) 
+//         : Char(c.abenteurer), saved(c.gespeichert) {}
 
       virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
        {
@@ -53,7 +56,10 @@ class Data_AbenteurerListe : public RowDataBase
           }
         return cH_EntryValueIntString();
        }
-   Abenteurer &getAbenteurer() const {return const_cast<Abenteurer&>(Char);}
+//   Abenteurer &getAbenteurer() const {return const_cast<Abenteurer&>(Char);}
+//   const Abenteurer &getAbenteurer() const {return Char;}
+     std::list<VAbenteurer::st_abenteurer>::iterator getAbenteurer() const {return it;}
+
 };
 
 class cH_Data_AbenteurerListe : public Handle<const Data_AbenteurerListe>

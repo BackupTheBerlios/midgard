@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.109 2002/11/01 10:23:48 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.110 2002/11/11 21:19:31 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -47,14 +47,12 @@ void midgard_CG::checkbutton_original(bool active)
   if(active) 
     { table_steigern->togglebutton_alle_zauber->set_sensitive(false); 
       MOptionen->setAllHausregeln(false);
-      show_Hausregeln_active(false);
+      show_Hausregeln_active();
       eventbox_Original_Midgard->show();
-//      pixmap_logo->show();
     }      
   else 
     { table_steigern->togglebutton_alle_zauber->set_sensitive(true); 
       eventbox_Original_Midgard->hide();
-//      pixmap_logo->hide();
     }      
   menu_init();
 }
@@ -161,10 +159,19 @@ void midgard_CG::show_NSC_active(bool b)
   else  eventbox_NSC_aktiv->hide();
 }
 
-void midgard_CG::show_Hausregeln_active(bool b)
+void midgard_CG::show_Hausregeln_active()
 {
-  if(b) eventbox_haus_aktiv->show();
-  else  eventbox_haus_aktiv->hide();
+  frame_haus_status->remove();
+  Gtk::HBox *hb=manage(new class Gtk::HBox(false, 0));
+  for(std::list<Midgard_Optionen::st_Haus>::const_iterator i=MOptionen->getHausregeln().begin();i!=MOptionen->getHausregeln().end();++i)
+   {
+     if(!i->active) continue;
+     Gtk::Pixmap *p=manage(new Gtk::Pixmap(i->bild));     
+     hb->pack_start(*p);
+     if(i->active) p->show();
+   }
+  hb->show();
+  frame_haus_status->add(*hb);
 }
 
 void midgard_CG::show_wizard_active(bool b)

@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.93 2002/11/11 13:52:08 thoma Exp $
+// $Id: Optionen.cc,v 1.94 2002/11/11 21:19:31 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,7 +20,9 @@
 #include "Optionen.hh"
 #include "../pixmaps/midgard_logo_tiny.xpm"
 #include "../pixmaps/Cyan-Dice-trans-50.xpm"
-#include "../pixmaps/Haus-32.xpm"
+//#include "../pixmaps/Haus-32.xpm"
+#include "../pixmaps/Haus-1-2-1-26.xpm"
+#include "../pixmaps/Haus-Super-26.xpm"
 #include "../pixmaps/NSC-Mode-32.xpm"
 //#include "MidgardBasicElement.hh" // nur für NotFound
 #include <fstream>
@@ -276,8 +278,8 @@ void Midgard_Optionen::Hausregeln_setzen_from_menu(HausIndex index)
    {
      if(i->index==index) 
       { 
-        hauptfenster->show_Hausregeln_active(i->active);
         if(i->active) deactivate_Original();
+        hauptfenster->show_Hausregeln_active();
         return;
       }
    }
@@ -441,8 +443,8 @@ void Midgard_Optionen::pdfViewer_init()
 void Midgard_Optionen::Hausregeln_init()
 {
  list_Hausregeln.clear();  
- list_Hausregeln.push_back(st_Haus(Gold,"1 GS entspricht 1 GFP",Haus_32_xpm,false));
- list_Hausregeln.push_back(st_Haus(Werte100,"Grundwerte über 100 zulassen",Haus_32_xpm,false));
+ list_Hausregeln.push_back(st_Haus(Gold,"1 GS entspricht 1 GFP",Haus_1_2_1_26_xpm,false));
+ list_Hausregeln.push_back(st_Haus(Werte100,"Grundwerte über 100 zulassen",Haus_Super_26_xpm,false));
 }
 
 void Midgard_Optionen::Ober_init()

@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.57 2002/11/11 13:52:08 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.58 2002/11/11 21:19:31 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -124,12 +124,18 @@ cout << getAbenteurer().getWerte().Spezies()->Name()<<'\n';
 }
 
 
+void VAbenteurer::setAbenteurer(const std::list<VAbenteurer::st_abenteurer>::iterator &i)
+{
+ ai=i;
+}
+
+/*
 void VAbenteurer::set_Abenteurer(const Abenteurer& A)
 { 
    for(std::list<st_abenteurer>::iterator i=VA.begin();i!=VA.end();++i)
       if(i->abenteurer==A) ai=i;
 }
-
+*/
 bool Abenteurer::is_mage() const 
 {  
    if(Typ.size()!=2) return false;

@@ -62,6 +62,10 @@ void MagusKI::ausgabe(const st_KI& stki, const bool gesteigert,Enums::MBEListen 
    { 
      cout <<"\tGeheimzeichen:\t"<<stki.name<<'\n';
    }
+  else if(stki.e_ki==NoSteigern)
+   { 
+     cout <<"\tNoSteigern:\t"<<stki.name<<'\t'<<stki.wert<<'\n';
+   }
   else assert(!"never get here\n");
 }
 
@@ -84,12 +88,10 @@ void MagusKI::Verteile(int gfp)
         else if(stki.e_ki==EmptyList) break;
         else if(stki.e_ki==NotAllowedForGrad) ++count;
         else if(stki.e_ki==Geheimzeichen) ++count;
+        else if(stki.e_ki==NoSteigern) ++count;
         else assert(!"never get here\n");
         if(count>=MAXCOUNT) break;
       }
-//     if(gfp!=gfpmem) {gfpmem=gfp; count=0;}
-//     else ++count;
-
      int kosten=teste_auf_gradanstieg();
      gfp-=kosten;
    }

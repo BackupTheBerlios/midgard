@@ -19922,25 +19922,19 @@ werk</label>
 	</widget>
 
 	<widget>
-	  <class>GtkEventBox</class>
-	  <name>eventbox_haus_aktiv</name>
+	  <class>GtkFrame</class>
+	  <name>frame_haus_status</name>
 	  <cxx_visibility>protected</cxx_visibility>
-	  <tooltip>Dieses Icon zeigt an, daﬂ Hausregeln aktiv sind.</tooltip>
+	  <label_xalign>0</label_xalign>
+	  <shadow_type>GTK_SHADOW_NONE</shadow_type>
 	  <child>
 	    <padding>0</padding>
 	    <expand>False</expand>
-	    <fill>True</fill>
+	    <fill>False</fill>
 	  </child>
 
 	  <widget>
-	    <class>GtkPixmap</class>
-	    <name>pixmap166</name>
-	    <filename>Haus-26.xpm</filename>
-	    <xalign>0.5</xalign>
-	    <yalign>0.5</yalign>
-	    <xpad>0</xpad>
-	    <ypad>0</ypad>
-	    <build_insensitive>True</build_insensitive>
+	    <class>Placeholder</class>
 	  </widget>
 	</widget>
       </widget>
