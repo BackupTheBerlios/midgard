@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.24 2002/06/28 07:36:51 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.25 2002/06/28 13:57:40 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -639,55 +639,8 @@ std::string LaTeX_drucken::LaTeX_scalemag(const std::string& is,
 
 
 std::string LaTeX_drucken::LaTeX_string(int i)
-{
-    if(i==0) return("a");
-    if(i==1) return("b");
-    if(i==2) return("c");
-    if(i==3) return("d");
-    if(i==4) return("e");
-    if(i==5) return("f");
-    if(i==6) return("g");
-    if(i==7) return("h");
-    if(i==8) return("i");
-    if(i==9) return("j");
-    if(i==10) return("k");
-    if(i==11) return("l");
-    if(i==12) return("m");
-    if(i==13) return("n");
-    if(i==14) return("o");
-    if(i==15) return("p");
-    if(i==16) return("q");
-    if(i==17) return("r");
-    if(i==18) return("s");
-    if(i==19) return("t");
-    if(i==20) return("u");
-    if(i==21) return("v");
-    if(i==22) return("w");
-    if(i==23) return("x");
-    if(i==24) return("y");
-    if(i==25) return("z");
-    if(i==26) return("aa");
-    if(i==27) return("ab");
-    if(i==28) return("ac");
-    if(i==29) return("ad");
-    if(i==30) return("ae");
-    if(i==31) return("af");
-    if(i==32) return("ag");
-    if(i==33) return("ah");
-    if(i==34) return("ai");
-    if(i==35) return("aj");
-    if(i==36) return("ak");
-    if(i==37) return("al");
-    if(i==38) return("am");
-    if(i==39) return("an");
-    if(i==40) return("ao");
-    if(i==41) return("ap");
-    if(i==42) return("aq");
-    if(i==43) return("ar");
-    if(i==44) return("as");
-    if(i==45) return("at");
-    if(i==46) return("au");
-    if(i==47) return("av");
+{  if (i<=25) return std::string(1,char('a'+i));
+   if (i<=50) return "a"+std::string(1,char('a'+i-25));
    //Never get here
    return("0");
 }
@@ -875,7 +828,7 @@ void LaTeX_drucken::pdf_viewer(const std::string& file)
    }
 cout << "\n\nPDF VIEWER="<<file<<'\n'<<pfile<<'\n';
 
-  system((hauptfenster->getOptionen()->Viewer()+" "+pfile+".pdf &").c_str());
+  system((hauptfenster->getOptionen()->Viewer()+" \""+pfile+".pdf\" &").c_str());
 
 //  unlink((file+".tex").c_str());
   unlink((pfile+".aux").c_str());
