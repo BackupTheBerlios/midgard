@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.20 2002/04/23 20:32:26 christof Exp $
+// $Id: Optionen.cc,v 1.21 2002/04/25 08:52:44 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -264,7 +264,7 @@ void Midgard_Optionen::pdfViewer_init()
                            false));
 #else
   list_pdfViewer.push_back(st_pdfViewer(anderer,
-                           "Programm",
+                           "PDF Programm",
                            true));
 
   char pdfclass[1024];
@@ -281,6 +281,7 @@ void Midgard_Optionen::pdfViewer_init()
         path=path.substr(0, path.size()-3);
      else if (path.size()>5 && path.substr(path.size()-5)==" \"%1\"") 
         path=path.substr(0, path.size()-5);
+std::cout << "Found Acrobat Reader @" << path << '\n';
      setString(pdf_viewer,path);
    }
   

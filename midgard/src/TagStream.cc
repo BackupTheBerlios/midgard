@@ -77,7 +77,23 @@ std::string TagStream::de_xml(const std::string &cont)
       {  std::string::const_iterator endtag(::find(verbatim,cont.end(),';'));
          if (endtag!=cont.end()) ++endtag;
          std::string tag(verbatim,endtag);
-         if (tag=="&amp;") ret+='&';
+         if (tag[1]=='#' && tag[2]=='x')
+         {  int c=0;  // hex coded
+            for (std::string::const_iterator j=tag.begin()+3; 
+         	*j!=';' && j!=tag.end();++j)
+            {  if ('0' <= *j && *j<='9') c=(c<<4)+(*j-'0');
+               else c=(c<<4)+((*j-'A'+10)&0xf);
+            }
+            ret+=char(c);
+         }
+         else if (tag[1]=='#' && '0'<=tag[2] && tag[2]<='9')
+         {  int c=0;  // decimal coded
+            for (std::string::const_iterator j=tag.begin()+3; 
+         	*j!=';' && j!=tag.end();++j)
+               c=c*10+(*j-'0');
+            ret+=char(c);
+         }
+         else if (tag=="&amp;") ret+='&';
          else if (tag=="&lt;") ret+='<';
          else if (tag=="&gt;") ret+='>';
          else if (tag=="&quot;") ret+='"';
