@@ -14,8 +14,15 @@ NEWS IN VERSION 0.4delta5
 * Nochmalwürfeln bei schlechen Werten jetzt möglich
 * Spezialgebietauswahl nur noch für Magier (und Beschwörer)
 * Infofenster Liste kann gelöscht werden
+* Kampf ohne Waffen im Ausdruck ohne Fehler
+* Spezies: Datenbank, xml-Datei, Klasse und Code überarbeitet. Damit ist es 
+   jetzt trivial neue Spezies hinzuzufügen (ohne das Programm neu zu 
+   kompilieren, es reicht ein update der xml Datei(en) :-)
+* Angeborene Fertigkeiten von Spezies auch in xml Datei
+* Angeborene Sinne für Halblinge und Gnome
 
 TODO:
+* Alle Grundkenntnisse (Waffen) ausdrucken
 * Tooltips Farbe
 * Laden von Optionen 
 * gv zeigt den falschen Ausschnitt des pdf Dokumentes

@@ -1,4 +1,4 @@
-// $Id: abge_werte_setzen.cc,v 1.46 2002/02/21 21:56:26 thoma Exp $
+// $Id: abge_werte_setzen.cc,v 1.47 2002/03/01 18:56:12 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,16 +23,15 @@ void midgard_CG::on_abge_werte_setzen_clicked()
 {
   button_abg_werte->set_sensitive(false);
   Werte.setGrad(1);
-  Werte.setAu( constraint_aw(random,Werte.Spezies()->Au()) );
+  Werte.setAu( constraint_aw(Werte.Spezies()->Au()) );
   Werte.setpA( random.integer(1,100)-30 + 3*(Werte.In()/10 + Werte.Au()/10) );
-  {
-    int b = Werte.Spezies()->B_s();
-    for (int i=0;i<Werte.Spezies()->B_f();++i) b+=random.integer(1,3);
+  { //Bewegungsweite
+    int b = Werte.Spezies()->B_Bonus();
+    for (int i=0;i<Werte.Spezies()->B_Wanz();++i) b+=random.integer(1,3);
     Werte.setB(b);
   }
   Werte.setWk(random.integer(1,100)-40 + 3*(Werte.In()/10 + Werte.Ko()/10) );
   {
-//  int sb = constraint_aw(random,Werte.Spezies()->Sb()) 
     int sb = random.integer(1,100) + 3*(Werte.In()/10 + Werte.Wk()/10) - 30;
     // Boni für Selbstbeherrschung: Assassine, Beschwörer & Druide
     sb += Typ[0]->Sb() + Typ[1]->Sb();
@@ -48,53 +47,39 @@ void midgard_CG::on_abge_werte_setzen_clicked()
     if      (Typ[0]->Ausdauer() == "k" || Typ[1]->Ausdauer() == "k" ) bo_au_typ = 4 ;
     else if (Typ[0]->Ausdauer() == "ak"|| Typ[1]->Ausdauer() == "ak" ) bo_au_typ = 3 ;
     else bo_au_typ = 2 ;
-    int ap = random.integer(1,6)+Werte.bo_Au()+bo_au_typ + Werte.Grad()*Werte.Spezies()->AP_Grad() ;
+    int ap = random.integer(1,6)+Werte.bo_Au()+bo_au_typ 
+            + Werte.Spezies()->AP_Bonus() ;
     if (ap<4) ap=4;
     Werte.setAP(ap);
   }
-  Werte.setLP(random.integer(1,6)+Werte.Ko()/10+4+Werte.Spezies()->LPBasis());
+  Werte.setLP(random.integer(1,6)+Werte.Ko()/10+4 + Werte.Spezies()->LP_Bonus());
 
   /////////////////////////////////////////////////////////////////////////
   // Körper und Stand
   {
-    int groesse = Werte.Spezies()->Groesse_s() + Werte.St()/10.;
-    for (int i=0;i<Werte.Spezies()->Groesse_f();++i) 
-       groesse += random.integer(1,Werte.Spezies()->Groesse_w()) ;
+    int groesse = Werte.Spezies()->Groesse_Bonus() +  Werte.St()/10 ;
+    for (int i=0;i<Werte.Spezies()->Groesse_Wanz();++i) 
+       groesse += random.integer(1,Werte.Spezies()->Groesse_Wuerfel()) ;
     if (Werte.Spezies()->Name()=="Mensch" && Werte.Geschlecht()=="w")
        groesse-=10;   
     Werte.setGroesse(groesse);
   }
+  {
+    int gewicht = Werte.Spezies()->Gewicht_Bonus() +  Werte.St()/10 
+                  + Werte.Groesse();
+    for (int i=0;i<Werte.Spezies()->Gewicht_Wanz();++i) 
+       gewicht += random.integer(1,6) ;
+    if (Werte.Spezies()->Name()=="Mensch" && Werte.Geschlecht()=="w")
+       gewicht-=4;   
+    Werte.setGewicht(gewicht);
+  }
 
   {
-   int gewicht=0,ganz=0;
-   if(Werte.Spezies()->Name()=="Mensch" || 
-      Werte.Spezies()->Name()=="Elf" || 
-      Werte.Spezies()->Name()=="Zwerg" )
-    ganz=4;
-   else ganz=3;
-   for (int i=0;i<ganz;++i) gewicht+=random.integer(1,6) ;
-   if (Werte.Spezies()->Name()=="Mensch" && Werte.Geschlecht()=="w")
-    gewicht-=4;
-   gewicht += Werte.St()/10 + Werte.Groesse();
-   if(Werte.Spezies()->Name()=="Mensch")
-       gewicht-=120;
-    else if (Werte.Spezies()->Name()=="Elf")
-       gewicht-=128;
-    else if (Werte.Spezies()->Name()=="Halbling")
-       gewicht -=87;
-    else
-       gewicht -=90;
-   Werte.setGewicht(gewicht);
-  }
-  {
-    int ihand=random.integer(1,20);
+    int ihand=random.integer(1,20)+Werte.Spezies()->HandBonus();
     std::string h;
     if(ihand<=15) h=Vhand[0];
     else if (16<=ihand && ihand<=19) h=Vhand[1];
     else h=Vhand[2];
-    if (Werte.Spezies()->Name()=="Waldgnom" || 
-        Werte.Spezies()->Name()=="Berggnom")
-      h=Vhand[2];
     Werte.setHand(h);
   }
   {

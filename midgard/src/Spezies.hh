@@ -1,4 +1,4 @@
-// $Id: Spezies.hh,v 1.9 2002/01/26 09:17:41 christof Exp $               
+// $Id: Spezies.hh,v 1.10 2002/03/01 18:56:12 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,37 +26,47 @@
 #include <Aux/CacheStatic.h>
 #include <string>
 #include "xml.h"
+#include <list>
+
+class Grundwerte;
+class cH_MidgardBasicElement;
 
 class Spezies : public HandleContent
 {
   std::string name;
   int nr;
-  int st,gw,gs,ko,in,zt,sb,au,lpbasis,ap_grad,m_abb,
-       m_psy,m_phs,m_phk,alter, groesse_f,groesse_w, groesse_s, gestalt,
-       b_f,b_s;
+  int hand_bonus;
+  int st,gw,gs,ko,in,zt,sb,au,lp,ap_bonus,ap_grad_fak,
+       psy,psy100,phs,phs100,phk,phk100,
+       alter_fak, groesse_wanz,groesse_wuerfel,groesse_bonus, 
+       gewicht_wanz, gewicht_bonus, 
+       b_wanz,b_bonus,raufen;
   bool land;
 
 protected:   
   struct st_spez {std::string typen;int maxgrad;
          st_spez(std::string t,int m) : typen(t),maxgrad(m) {};
       };
+  struct st_angebfert {std::string art;std::string name;int erfolgswert;
+         st_angebfert(std::string a, std::string n,int e) 
+            : art(a),name(n),erfolgswert(e) {};
+      };
 private:
   std::vector<st_spez> vec_typen;
+  std::vector<st_angebfert> vec_angebfert;
 
 public:
    Spezies()
-     :st(0),gw(0),gs(0),ko(0),in(0),zt(0),sb(0),au(0),
-       lpbasis(0),ap_grad(0),m_abb(0),
-       m_psy(0),m_phs(0),m_phk(0),alter(0), 
-       groesse_f(0),groesse_w(0), groesse_s(0),
-       gestalt(0),b_f(0),b_s(0)  {}
-#ifndef USE_XML
-   Spezies(const std::string& n); 
-#else
+     :hand_bonus(0),st(0),gw(0),gs(0),ko(0),in(0),zt(0),sb(0),au(0),
+       lp(0),ap_bonus(0),ap_grad_fak(0),
+       psy(0),psy100(0),phs(0),phs100(0),phk(0),phk100(0),
+       alter_fak(0),groesse_wanz(1),groesse_wuerfel(0),groesse_bonus(0),
+       gewicht_wanz(0), gewicht_bonus(0),
+       b_wanz(0),b_bonus(0),raufen(0) {}
    Spezies(const Tag *tag);
-#endif
 
    std::string Name() const {return name;}
+   int HandBonus() const {return hand_bonus;}
    int Nr() const {return nr;}
    int St() const {return st;}
    int Gw() const {return gw;}
@@ -66,23 +76,28 @@ public:
    int Zt() const {return zt;}
    int Sb() const {return sb;}
    int Au() const {return au;}
-   int LPBasis() const {return lpbasis;}
-   int AP_Grad() const {return ap_grad;}
-   int Abb() const {return m_abb;}
-   int Psy() const {return m_psy;}
-   int Phs() const {return m_phs;}
-   int Phk() const {return m_phk;}
-   int Alter() const {return alter;}
-   int Groesse_f() const {return groesse_f;}
-   int Groesse_w() const {return groesse_w;}
-   int Groesse_s() const {return groesse_s;}
-   int Gestalt() const {return gestalt;}
-   int B_f() const {return b_f;}
-   int B_s() const {return b_s;}
-//   std::vector<st_spez> get_Vec_Typen() const {return vec_typen;}
+   int LP_Bonus() const {return lp;}
+   int AP_GradFak() const {return ap_grad_fak;}
+   int AP_Bonus() const {return ap_bonus;}
+   int Psy(const Grundwerte &W) const;
+   int Phs(const Grundwerte &W) const;
+   int Phk(const Grundwerte &W) const;
+   int AlterFaktor() const {return alter_fak;}
+   int Groesse_Bonus() const {return groesse_bonus;}
+   int Groesse_Wuerfel() const {return groesse_wuerfel;}
+   int Groesse_Wanz() const {return groesse_wanz;}
+   int Gewicht_Bonus() const {return gewicht_bonus;}
+   int Gewicht_Wanz() const {return gewicht_wanz;}
+   int B_Wanz() const {return b_wanz;}
+   int B_Bonus() const {return b_bonus;}
+   int Raufen() const {return raufen;}
    bool Typ_erlaubt(std::string typ) const;
    bool Land() const {return land;}
-   
+
+   std::list<cH_MidgardBasicElement> getZauber() const;
+   std::list<cH_MidgardBasicElement> getAngFertigkeiten() const;
+   std::list<pair<std::string,int> > getSinne() const;
+
    bool operator==(const Spezies &b) const
    {  return Name()==b.Name(); }
 };

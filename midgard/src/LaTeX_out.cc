@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.103 2002/02/28 09:34:38 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.104 2002/03/01 18:56:12 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -215,7 +215,7 @@ void midgard_CG::LaTeX_write_values()
       if (sout =="Bögen") sout = "Bogen";
       if (sout =="Wurfspieß") sout = "Wurfspiess";
       if (sout =="Spießwaffe") sout = "Spiesswaffe";
-      if (sout =="waffenloser Kampf") sout = "waffenlos";
+      if (sout =="Kampf ohne Waffen") sout = "KampfohneWaffen";
       fout << "\\sbox{\\"<<sout<<"}{\\tiny X}\n";
    }
 

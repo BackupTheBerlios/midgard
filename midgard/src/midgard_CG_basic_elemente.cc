@@ -207,7 +207,7 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasic
     if(list_Fertigkeit.empty()) // wg. Fertigkeit durch Beruf
       list_Fertigkeit=mbe;
     else 
-      list_Fertigkeit.splice(list_Fertigkeit.end(),const_cast<std::list<cH_MidgardBasicElement>& >(mbe));
+      list_Fertigkeit.insert(list_Fertigkeit.end(),mbe.begin(),mbe.end());
     maxkido=0;  if (Typ[0]->Short()=="Kd") maxkido=2;
     int KD_tech=0;
     for(std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i)
@@ -221,41 +221,23 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasic
     for (int j=0;j<KD_tech;++j)
       for(std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i)
        if (cH_Fertigkeit(*i)->Name()=="KiDo-Technik") {list_Fertigkeit.erase(i);break;}
-//    show_fertigkeiten();
-//    hbox_waffen->set_sensitive(true);
-//    table_waffen->set_sensitive(true);
    }
   if((*mbe.begin())->What()==MidgardBasicElement::WAFFE)
    {
     list_Waffen=mbe;
     list_WaffenGrund=mbe2;
-//    show_waffen();
-//    button_geld_waffen->set_sensitive(true);
-//    button_ruestung->set_sensitive(true);
-         
-//    hbox_zauber->set_sensitive(true);
-//    table_magier_lernen->set_sensitive(true);
-//    hbox_kido->set_sensitive(true);
-//    table_kido_lernen->set_sensitive(true);
    }
   if((*mbe.begin())->What()==MidgardBasicElement::ZAUBER)
    {
-    list_Zauber=mbe;
-    angeborene_zauber();
-//    show_zauber();
+    list_Zauber.insert(list_Zauber.end(),mbe.begin(),mbe.end());
    }
   if((*mbe.begin())->What()==MidgardBasicElement::WAFFEBESITZ)
    {
     list_Waffen_besitz=mbe;
-//    angeborene_zauber();
-//    show_zauber();
    }
-//cout << (*mbe.begin())->What()<<'\t'<<MidgardBasicElement::KIDO<<'\n';
   if((*mbe.begin())->What()==MidgardBasicElement::KIDO)
    {
-//    clist_kido->clear();
     list_Kido=mbe;
-//    show_kido();
    }
   show_gelerntes();
 }

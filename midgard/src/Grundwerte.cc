@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.12 2002/02/21 21:56:26 thoma Exp $               
+// $Id: Grundwerte.cc,v 1.13 2002/03/01 18:56:12 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,11 +32,7 @@ int Grundwerte::bo_Sc() const
 
 int Grundwerte::Raufen() const 
 { 
-  int r = (St()+Gw())/20 +bo_An() ;
-  if( Spezies()->Name()=="Zwerg") 
-    return r+1;
-  else 
-    return r;
+  return  (St()+Gw())/20 +bo_An() + Spezies()->Raufen();
 }
 
 std::string Grundwerte::Gestalt() const 
@@ -85,6 +81,11 @@ int Grundwerte::bo_Za() const
 
 int Grundwerte::bo_Psy(const vector<cH_Typen>& Typ) const
 {
+ int bo_psy;  
+ if(Spezies()->Psy(*this)) 
+    bo_psy = Spezies()->Psy(*this) ;
+ else
+ {
   int bo_psyZt =0;
   if (Zt()<=5)              {bo_psyZt-=2; }
   else if (6<=Zt()  && Zt()<=20) {bo_psyZt-=1; }
@@ -98,7 +99,6 @@ int Grundwerte::bo_Psy(const vector<cH_Typen>& Typ) const
   else if (81<=In() && In()<=95) { bo_psyIn+=1; }
   else if (96<=In())             { bo_psyIn+=2; }
 
-  int bo_psy;  
   // Vorzeichen unterschiedlich:
   if( bo_psyIn*bo_psyZt<=0) bo_psy = bo_psyIn+bo_psyZt;
   else 
@@ -108,14 +108,7 @@ int Grundwerte::bo_Psy(const vector<cH_Typen>& Typ) const
      // Vorzeichen setzen:
      if(bo_psyZt<0) bo_psy*=-1;
    }
-  if (Spezies()->Name()=="Elf" && Zt() < 100 ) { bo_psy=2;}
-  else if (Spezies()->Name()=="Elf" && Zt() >= 100 ) { bo_psy=3;}
-
-  if (Spezies()->Name()=="Berggnom") { bo_psy=5;}
-  else if (Spezies()->Name()=="Waldgnom") { bo_psy=5;}
-  else if (Spezies()->Name()=="Halbling") { bo_psy=5;}
-  else if (Spezies()->Name()=="Zwerg")    { bo_psy=4;}
-
+  }
   if (Typ[0]->Zaubern()=="z" || Typ[1]->Zaubern()=="z" )
     bo_psy+=3;
 
@@ -124,6 +117,11 @@ int Grundwerte::bo_Psy(const vector<cH_Typen>& Typ) const
 
 int Grundwerte::bo_Phs(const vector<cH_Typen>& Typ) const
 {
+ int bo_phs;
+ if(Spezies()->Phs(*this)) 
+    bo_phs = Spezies()->Phs(*this) ;
+ else
+ {
   int bo_phsZt =0;
   if (Zt()<=5)              {bo_phsZt-=2; }
   else if (6<=Zt()  && Zt()<=20) {bo_phsZt-=1; }
@@ -138,7 +136,6 @@ int Grundwerte::bo_Phs(const vector<cH_Typen>& Typ) const
   else if (96<=Ko())           { bo_phsKo+=2; }
 
   // Vorzeichen unterschiedlich:
-  int bo_phs;
   if( bo_phsKo*bo_phsZt<=0) bo_phs = bo_phsKo+bo_phsZt;
   else 
    {
@@ -147,14 +144,7 @@ int Grundwerte::bo_Phs(const vector<cH_Typen>& Typ) const
      // Vorzeichen setzen:
      if(bo_phsZt<0) bo_phs*=-1;
    }
-
-  if (Spezies()->Name()=="Elf" && Zt() < 100 ) { bo_phs=2;}
-  else if (Spezies()->Name()=="Elf" && Zt() >= 100 ) { bo_phs=3;}
-  if (Spezies()->Name()=="Berggnom") { bo_phs=5;}
-  else if (Spezies()->Name()=="Waldgnom") { bo_phs=5;}
-  else if (Spezies()->Name()=="Halbling") { bo_phs=5;}
-  else if (Spezies()->Name()=="Zwerg")    { bo_phs=4;}
-
+  }
   if (Typ[0]->Zaubern()=="z" || Typ[1]->Zaubern()=="z" )
     bo_phs+=3;
   else bo_phs+=2;
@@ -164,15 +154,15 @@ int Grundwerte::bo_Phs(const vector<cH_Typen>& Typ) const
 int Grundwerte::bo_Phk(const vector<cH_Typen>& Typ) const
 {
   int bo_phk =0;   
+ if(Spezies()->Phk(*this)) 
+    bo_phk = Spezies()->Phk(*this) ;
+ else
+ {
   if (Gw()<=5)              {bo_phk-=2; }
   else if (6<=Gw()  && Gw()<=20) {bo_phk-=1; }
   else if (81<=Gw() && Gw()<=95) {bo_phk+=1; }
   else if (96<=Gw())             {bo_phk+=2; }
-  if (Spezies()->Name()=="Elf")      { bo_phk=2;}
-  else if (Spezies()->Name()=="Berggnom") { bo_phk=5;}
-  else if (Spezies()->Name()=="Waldgnom") { bo_phk=5;}
-  else if (Spezies()->Name()=="Halbling") { bo_phk=5;}
-
+ }
   if (Typ[0]->Zaubern()=="z" || Typ[1]->Zaubern()=="z" )
     bo_phk+=3;
 
@@ -216,3 +206,11 @@ std::string Grundwerte::GroesseBez() const
   else if(Groesse()>165) return "mittel";
   else return "klein";
 }
+
+
+void Grundwerte::setSinnCheck(const std::string &name,int wert)
+{
+  if(sinnmap[name]>8) sinnmap[name]=8; // Speziesspezifische Fertigkeit
+  else setSinn(name,wert);
+}
+

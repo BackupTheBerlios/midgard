@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.52 2002/02/18 07:01:06 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.53 2002/03/01 18:56:12 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -166,7 +166,7 @@ void midgard_CG::get_ausdauer(int grad)
   else if (Typ[0]->Ausdauer() == "ak"|| Typ[1]->Ausdauer() == "ak") nab = bonus_aK ;
   else  nab = bonus_Z ;
   nap = ap + nab + Werte.bo_Au() ;
-  int nspez = Werte.Grad()*Werte.Spezies()->AP_Grad();
+  int nspez = Werte.Grad()*Werte.Spezies()->AP_GradFak();
   nap += nspez;
 //  std::cout << "Ausdauerpunkte: "<<ap<<" + " <<nab<<" + "<<Werte.bo()_au<<" + "<<nspez<<" = "<<nap<<"\n";
   std::string stinfo="Für Grad "+itos(Werte.Grad())+":\n";

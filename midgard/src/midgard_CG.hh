@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.186 2002/03/01 09:10:57 thoma Exp $
+// $Id: midgard_CG.hh,v 1.187 2002/03/01 18:56:12 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -202,8 +202,8 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void typauswahl_button();
         void typauswahl_2_button();
         void on_radiobutton_stadt_land_toggled();
-        void angeborene_zauber();
-        void angeborene_fertigkeiten();
+//        void angeborene_zauber();
+//        void angeborene_fertigkeiten();
         void on_radiobutton_frau_toggled();
         void on_radiobutton_mann_toggled();
         void spezieswahl_button();
@@ -224,9 +224,9 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void set_werte_label_2();
         void set_werte_label_3(Gtk::Label *L=0);
         void gw_setzen(Gtk::Label *L=0,int button=0);
-        int  constraint_gw(Random& random,int constraint);
-        int  constraint_aw(Random& random,int constraint);
-        int  wuerfeln_best_of_two(Random& random);
+        int  constraint_gw(int constraint);
+        int  constraint_aw(int constraint);
+        int  wuerfeln_best_of_two();
 //        void werte_editieren();
         void on_togglebutton_edit_werte_toggled();
         void on_button_grda1setzen_clicked();
@@ -539,7 +539,10 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          void xml_export_auswahl();
          void xml_import_auswahl();
          void zeige_werte(const Grundwerte& w);
-         void show_sinne();
+//         void show_sinne();
+         void checkAngeboreneSinne();
+
+
          bool MidgardBasicElement_leaf_alt(const cH_RowDataBase &d);
          void MidgardBasicElement_leaf_neu(const cH_RowDataBase &d);
          // Werte in der Oberfläche setzen (z.B. nach laden)

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.58 2002/03/01 09:10:57 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.59 2002/03/01 18:56:12 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,8 +29,10 @@ gint midgard_CG::on_angeborene_fertigkeit_button_release_event(GdkEventButton *e
 {
   list_Fertigkeit_ang.clear();
   Werte.resetSinne();
-  if (Werte.Spezies()->Name()=="Zwerg" || Werte.Spezies()->Name()=="Elf") 
-      list_Fertigkeit_ang.push_back(&*cH_Fertigkeit_angeborene("Nachtsicht"));
+  checkAngeboreneSinne();
+//  if (Werte.Spezies()->Name()=="Zwerg" || Werte.Spezies()->Name()=="Elf") 
+//      list_Fertigkeit_ang.push_back(&*cH_Fertigkeit_angeborene("Nachtsicht"));
+  
   if (event->button==1) on_angeborene_fertigkeit_clicked() ;
   if (event->button==3) on_angeborene_fertigkeit_right_clicked() ;
   zeige_werte(Werte);
@@ -77,25 +79,7 @@ void midgard_CG::universal_Fertigkeiten()
 }
 
 
-
-void midgard_CG::show_sinne()
-{
 /*
-   clist_sinne->clear();
-   Gtk::OStream os(clist_sinne);
-   std::map<std::string,int> Sinnmap=Werte.Sinne();
-   for(std::map<std::string,int>::const_iterator i=Sinnmap.begin();i!=Sinnmap.end();++i)
-      { 
-         os << i->first<<'\t'<<i->second<<'\n';
-      }
-   for (unsigned int i=0;i<clist_sinne->columns().size();++i)
-      clist_sinne->set_column_auto_resize(i,true);
-   clist_sinne->set_reorderable(true);
-*/
-}
-
-
-
 void midgard_CG::angeborene_fertigkeiten()
 {
  if (Werte.Spezies()->Name()=="Zwerg" ||
@@ -106,4 +90,12 @@ void midgard_CG::angeborene_fertigkeiten()
      cH_Fertigkeit_angeborene(fert_an)->set_Erfolgswert(9);
      list_Fertigkeit_ang.push_back(fert_an);
    }
+}
+*/
+
+void midgard_CG::checkAngeboreneSinne()
+{
+  std::list<pair<std::string,int> > L=Werte.Spezies()->getSinne();
+  for(std::list<pair<std::string,int> >::const_iterator i=L.begin();i!=L.end();++i)
+     Werte.setSinn(i->first,i->second);
 }

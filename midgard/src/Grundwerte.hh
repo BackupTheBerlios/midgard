@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.24 2002/02/21 21:56:26 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.25 2002/03/01 18:56:12 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -163,7 +163,8 @@ public:
    void setAbgeleitetewerte_small(int _au,int _pa,int _sb,int _wk)
       { au=_au ;pa=_pa ;sb=_sb; wk=_wk; }
 
-   void setSinn(std::string name,int wert) {sinnmap[name]=wert;}
+   void setSinn(const std::string &name,int wert) {sinnmap[name]=wert;}
+   void setSinnCheck(const std::string &name,int wert); // wg. Speziessinnen
 
    int Sehen() const {return const_cast<std::map<std::string,int>&>(sinnmap)["Sehen"];}
    int Hoeren() const {return const_cast<std::map<std::string,int>&>(sinnmap)["Hören"];}

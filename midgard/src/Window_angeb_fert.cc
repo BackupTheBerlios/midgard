@@ -134,11 +134,11 @@ void Window_angeb_fert::gewuerfelt()
 
 bool Window_angeb_fert::Sinn(int wurf,int wert)
 {
-  if     ( 1<=wurf && wurf<= 2) Werte.setSinn("Sehen",wert);
-  else if( 3<=wurf && wurf<= 4) Werte.setSinn("Hören",wert);
-  else if( 5<=wurf && wurf<= 6) Werte.setSinn("Riechen",wert);
-  else if( 7<=wurf && wurf<= 8) Werte.setSinn("Schmecken",wert);
-  else if( 9<=wurf && wurf<=10) Werte.setSinn("Tasten",wert);
+  if     ( 1<=wurf && wurf<= 2) Werte.setSinnCheck("Sehen",wert);
+  else if( 3<=wurf && wurf<= 4) Werte.setSinnCheck("Hören",wert);
+  else if( 5<=wurf && wurf<= 6) Werte.setSinnCheck("Riechen",wert);
+  else if( 7<=wurf && wurf<= 8) Werte.setSinnCheck("Schmecken",wert);
+  else if( 9<=wurf && wurf<=10) Werte.setSinnCheck("Tasten",wert);
   else if(11<=wurf && wurf<=20) Werte.setSinn("Sehen",wert);
   else if(21<=wurf && wurf<=30) Werte.setSinn("Hören",wert);
   else if(31<=wurf && wurf<=40) Werte.setSinn("Riechen",wert);

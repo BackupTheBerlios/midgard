@@ -61,7 +61,7 @@ void midgard_CG::typauswahl_button()
  clear_gtk();
  show_gtk();
  Database.ausnahmen.set_Typ(Typ);
- if (Typ[0]->Short()=="dBe" || Typ[0]->Short()=="eBe") angeborene_zauber();
+// if (Typ[0]->Short()=="dBe" || Typ[0]->Short()=="eBe") angeborene_zauber();
 
  if(Werte.Spezies()->Land()) 
    {
@@ -93,7 +93,7 @@ void midgard_CG::typauswahl_2_button()
  Typ[1]=ptr;
  show_gtk();
  Database.ausnahmen.set_Typ(Typ);
- if (Typ[1]->Short()=="dBe" || Typ[1]->Short()=="eBe") angeborene_zauber();
+// if (Typ[1]->Short()=="dBe" || Typ[1]->Short()=="eBe") angeborene_zauber();
 }
 
 
@@ -129,18 +129,24 @@ void midgard_CG::spezieswahl_button()
 
  if (Werte.Spezies()->Name()=="Elf")
    { manage (new Window_doppelcharaktere(this));
-     angeborene_zauber();
+//     angeborene_zauber();
    }
+/*
  else if (Werte.Spezies()->Name()=="Zwerg" ||
           Werte.Spezies()->Name()=="Waldgnom" ||
           Werte.Spezies()->Name()=="Berggnom")
      angeborene_fertigkeiten();
  else
    {
+*/
      typauswahl_2->hide();
      magie_bool=false;
      Typ[1]=cH_Typen();
-   }
+//   }
+ 
+ list_Fertigkeit_ang=Werte.Spezies()->getAngFertigkeiten();
+ list_Zauber=Werte.Spezies()->getZauber();
+
 }
 
 void midgard_CG::on_radiobutton_stadt_land_toggled()

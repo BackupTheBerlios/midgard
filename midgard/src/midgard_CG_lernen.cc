@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.83 2002/03/01 09:10:57 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.84 2002/03/01 18:56:12 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -53,12 +53,9 @@ void midgard_CG::on_lernpunkte_wuerfeln_clicked()
              + lernpunkte.Fach()
              + lernpunkte.Waffen() + lernpunkte.Zauber())/4+16;
 
-//     if (Typ[0]->Zaubern()=="z" ) age = age/4+19;
-//     if (Typ[0]->Zaubern()=="n" || Typ[0]->Zaubern()=="j") age = age/4+16;
-  Werte.setAlter( age * Werte.Spezies()->Alter());
+  Werte.setAlter( age * Werte.Spezies()->AlterFaktor());
   spinbutton_alter->set_value(Werte.Alter());
   zeige_lernpunkte();
-//  zeige_notebook();
 
   button_fachkenntnisse->set_sensitive(true);    
   button_allgemeinwissen->set_sensitive(true);   
@@ -437,7 +434,6 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
 void midgard_CG::show_gelerntes()
 {
   modify_bool=true; // Zum Abspeichern
-  show_sinne();
   zeige_lernpunkte();
   
   std::list<cH_MidgardBasicElement> FL;

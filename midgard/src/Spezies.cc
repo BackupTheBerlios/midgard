@@ -18,7 +18,10 @@
 
 #include "Spezies.hh"
 #include "ProgressBar.h"
-#include "MidgardBasicElement.hh" // für NotFound
+#include "MidgardBasicElement.hh"
+#include "Grundwerte.hh"
+#include "Zauber.hh"
+#include "Fertigkeiten_angeboren.hh"
 
 cH_Spezies::cache_t cH_Spezies::cache;
 
@@ -51,58 +54,56 @@ Spezies::Spezies(const Tag *tag)
 {
  nr=tag->getIntAttr("MAGUS-Index",tag->getIntAttr("MCG-Index"));
  land=tag->getBoolAttr("Land");
- 
- const Tag *Minima=tag->find("Minima");
- const Tag *Maxima=tag->find("Maxima");
- if (!Minima) Minima=tag; // similar to empty tag for this purpose
- if (!Maxima) Maxima=tag;
- st=Minima->getIntAttr("St",-Maxima->getIntAttr("St"));
- gw=Minima->getIntAttr("St",-Maxima->getIntAttr("Gw"));
- gs=Minima->getIntAttr("St",-Maxima->getIntAttr("Gs"));
- ko=Minima->getIntAttr("St",-Maxima->getIntAttr("Ko"));
- in=Minima->getIntAttr("St",-Maxima->getIntAttr("In"));
- zt=Minima->getIntAttr("St",-Maxima->getIntAttr("Zt"));
- sb=Minima->getIntAttr("St",-Maxima->getIntAttr("Sb"));
- au=Minima->getIntAttr("St",-Maxima->getIntAttr("Au"));
- 
+ hand_bonus=tag->getIntAttr("HandBonus");
+ raufen=tag->getIntAttr("RaufenBonus");
+
+ const Tag *Alter=tag->find("Alter");
+ if (Alter) alter_fak=Alter->getIntAttr("Faktor");
+ else alter_fak=1;
+
+ const Tag *Groesse=tag->find("Größe");
+ groesse_bonus=Groesse->getIntAttr("Addiere");
+ groesse_wanz=Groesse->getIntAttr("AnzahlWürfel");
+ groesse_wuerfel=Groesse->getIntAttr("Würfel");
+
+ const Tag *Gewicht=tag->find("Gewicht");
+ gewicht_bonus=Gewicht->getIntAttr("Addiere");
+ gewicht_wanz=Gewicht->getIntAttr("AnzahlWürfel");
+
+ const Tag *Bewegungsweite=tag->find("Bewegungsweite");
+ b_bonus=Bewegungsweite->getIntAttr("AnzahlWürfel");
+ b_wanz=Bewegungsweite->getIntAttr("Addiere");
+
  const Tag *Modifikation=tag->find("Modifikation");
  if (!Modifikation) Modifikation=tag;
- lpbasis=Modifikation->getIntAttr("LP_Basis");
- ap_grad=Modifikation->getIntAttr("APproGrad");
- m_abb=Modifikation->getIntAttr("Abwehr");
- gestalt=Modifikation->getIntAttr("Gestalt");
+ lp=Modifikation->getIntAttr("LP_Bonus");
+ ap_bonus=Modifikation->getIntAttr("AP_Bonus");
+ ap_grad_fak=Modifikation->getIntAttr("AP_GradFaktor");
 
  const Tag *Resistenzen=Modifikation->find("Resistenzen");
  if (!Resistenzen) Resistenzen=tag;
- m_psy=Resistenzen->getIntAttr("psy");
- m_phs=Resistenzen->getIntAttr("phs");
- m_phk=Resistenzen->getIntAttr("phk");
+ psy=Resistenzen->getIntAttr("psy");
+ phs=Resistenzen->getIntAttr("phs");
+ phk=Resistenzen->getIntAttr("phk");
+ psy100=Resistenzen->getIntAttr("psy100");
+ phs100=Resistenzen->getIntAttr("phs100");
+ phk100=Resistenzen->getIntAttr("phk100");
 
- const Tag *Alter=tag->find("Alter");
- if (Alter) alter=Alter->getIntAttr("AnzahlWürfel");
- else alter=1;
-
- const Tag *Groesse=tag->find("Größe");
- if (!Groesse)
- {  groesse_f=2;
-    groesse_w=20;
-    groesse_s=150;
- }
- else
- {  groesse_f=Groesse->getIntAttr("AnzahlWürfel");
-    groesse_w=Groesse->getIntAttr("ArtWürfel");
-    groesse_s=Groesse->getIntAttr("Addiere");
- }
- 
- const Tag *Bewegungsweite=tag->find("Bewegungsweite");
- if (Bewegungsweite) 
- {  b_f=Bewegungsweite->getIntAttr("AnzahlWürfel");
-    b_s=Bewegungsweite->getIntAttr("Addiere");
- }
- else { b_f=4; b_s=16; }
+ const Tag *Grundwerte=tag->find("Grundwerte");
+ if (!Grundwerte) Grundwerte=tag;
+ st=Grundwerte->getIntAttr("St");
+ gw=Grundwerte->getIntAttr("Gw");
+ gs=Grundwerte->getIntAttr("Gs");
+ ko=Grundwerte->getIntAttr("Ko");
+ in=Grundwerte->getIntAttr("In");
+ zt=Grundwerte->getIntAttr("Zt");
+ sb=Grundwerte->getIntAttr("Sb");
+ au=Grundwerte->getIntAttr("Au");
  
  FOR_EACH_CONST_TAG_OF(i,*tag,"Typ")
     vec_typen.push_back(st_spez(i->getAttr("Name"),i->getIntAttr("MaximalerGrad")));
+ FOR_EACH_CONST_TAG_OF(i,*tag,"Typ")
+    vec_angebfert.push_back(st_angebfert(i->getAttr("Art"),i->getAttr("Name"),i->getIntAttr("Erfolgswert")));
 }
 
 
@@ -126,6 +127,59 @@ bool Spezies::Typ_erlaubt(std::string typ) const
     if(i->typen == typ) return true ;
   return false;
 }
+
+int Spezies::Psy(const Grundwerte &W) const
+{
+  if(W.Zt()<100) return psy;
+  else return psy100;
+}
+int Spezies::Phs(const Grundwerte &W) const
+{
+  if(W.Zt()<100) return phs;
+  else return phs100;
+}
+int Spezies::Phk(const Grundwerte &W) const
+{
+  if(W.Zt()<100) return phk;
+  else return phk100;
+}
+
+std::list<cH_MidgardBasicElement> Spezies::getZauber() const
+{
+  std::list<cH_MidgardBasicElement> L;
+  for(std::vector<st_angebfert>::const_iterator i=vec_angebfert.begin();i!=vec_angebfert.end();++i)
+   {
+    if(!(i->art=="z")) continue;
+    cH_MidgardBasicElement z(&*cH_Zauber(i->name)); 
+    L.push_back(z);
+   }
+ return L;
+}
+
+std::list<cH_MidgardBasicElement> Spezies::getAngFertigkeiten() const
+{
+  std::list<cH_MidgardBasicElement> L;
+  for(std::vector<st_angebfert>::const_iterator i=vec_angebfert.begin();i!=vec_angebfert.end();++i)
+   {
+    if(!(i->art=="af")) continue;
+    cH_MidgardBasicElement f(&*cH_Fertigkeit_angeborene(i->name)); 
+    f->set_Erfolgswert(i->erfolgswert);
+    L.push_back(f);
+   }
+ return L;
+}
+
+std::list<pair<std::string,int> > Spezies::getSinne() const
+{
+  std::list<pair<std::string,int> > S;
+  for(std::vector<st_angebfert>::const_iterator i=vec_angebfert.begin();i!=vec_angebfert.end();++i)
+   {
+    if(!(i->art=="s")) continue;
+    S.push_back(pair<std::string,int>(i->name,i->erfolgswert));
+   }
+ return S;
+}
+
 
 bool operator==(gpointer data,const cH_Spezies &s)
 {  return *(static_cast<Spezies*>(data))==*s;
