@@ -32,3 +32,9 @@ Version 6->7:
 spätere Varianten von V7:	
 	Steigern/steigern -> Steigern/EPabziehen
 	+Steigern/Abwehr,Resistenz,Zaubern
+
+Version 8:
+	Midgard Auflage 4 (+Gw,+Gs,+Wk,-Ge,+Stadt_Land)
+	+Praxispunkte,+benötigte_Tage
+	Gegenstände im Besitz 
+	(Vorabversion hatte Liste mit ID=, Parent-ID= statt Baumstruktur)

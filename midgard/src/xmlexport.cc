@@ -1,4 +1,4 @@
-// $Id: xmlexport.cc,v 1.3 2002/01/04 11:15:36 christof Exp $
+// $Id: xmlexport.cc,v 1.4 2002/01/05 07:46:51 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -24,6 +24,7 @@
 #include <Aux/Transaction.h>
 #include <Aux/dbconnect.h>
 #include "../xml/export_common.h"
+#include <list>
 
 void charakter_speichern(std::ostream &o, const std::string &name,const std::string &version="")
 {  //Transaction t;
@@ -39,7 +40,9 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
    		"db_bo_gi, db_gfp, gold, silber, kupfer, "
    		"aep, kep, zep, steigern_bool, steigern_ep_prozent,"
    		"grad_basiswerte, grad_abwehr, grad_resistenz,"
-   		"grad_zaubern, beschreibung, ruestung "
+   		"grad_zaubern, steigertage, "
+   		"abwehr_pp, zaubern_pp, resistenz_pp, "
+   		"beschreibung, ruestung "
    	"from charaktere "
    	"where charakter_name='"+name+"' and version='"+version+"'");
    
@@ -131,7 +134,12 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
    fetch_and_write_int_attrib(is, o, "Abwehr", grad);
    fetch_and_write_int_attrib(is, o, "Resistenz", grad);
    fetch_and_write_int_attrib(is, o, "Zaubern", grad);
-   o << "/>\n";
+   fetch_and_write_int_attrib(is, o, "benötigte_Tage");
+   o << "><Praxispunkte";
+   fetch_and_write_int_attrib(is, o, "Abwehr");
+   fetch_and_write_int_attrib(is, o, "Zaubern");
+   fetch_and_write_int_attrib(is, o, "Resistenz");
+   o << "/></Steigern>\n";
    fetch_and_write_string(is, o, "Text", 2);
    
    o << "  <Ausrüstung>\n"; // oder Besitz?
@@ -157,21 +165,39 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
       }
    }
   }
-  {Query query2("select fertigkeit, region, magisch, av_bonus, sl_bonus "
+  {Query query2("select av_bonus, fertigkeit, region, magisch, wert, sl_bonus "
    	"from charaktere_fertigkeiten "
    	"where charakter_name='"+name+"' and version='"+version+"' "
    	"and art='Ausruestung' "
    	"order by sl_bonus");
    FetchIStream is2;
+   list<int> parent_list;
+//   parent_list.push_back(0);
+   int last_id=0;
    while ((query2>>is2).good())
-   {  std::string typ;
-      o << "    <Gegenstand";
+   {  int parent_id=fetch_int(is2);
+      if (last_id && parent_id==last_id)
+      {  o << ">\n";
+         parent_list.push_back(parent_id);
+      }
+      else 
+      {  if (last_id) o << "/>\n"; // close last 
+         while (parent_list.back()!=parent_id && !parent_list.empty())
+         {  parent_list.pop_back();
+            o << string(4+parent_list.size()*2,' ') << "</Gegenstand>\n";
+         }
+      }
+      o << string(4+parent_list.size()*2,' ') << "<Gegenstand";
       fetch_and_write_string_attrib(is2, o, "Bezeichnung");
       fetch_and_write_string_attrib(is2, o, "Region");
       fetch_and_write_string_attrib(is2, o, "Besonderheit");
-      fetch_and_write_int_attrib(is2, o, "Parent-ID");
-      fetch_and_write_int_attrib(is2, o, "ID");
-      o << "/>\n";
+      if (fetch_int(is2)) write_bool_attrib(o, "sichtbar", true);
+      last_id=fetch_int(is2);
+   }
+   if (last_id) o << "/>\n"; // close last 
+   while (!parent_list.empty())
+   {  parent_list.pop_back();
+      o << string(4+parent_list.size()*2,' ') << "</Gegenstand>\n";
    }
   }
    o << "  </Ausrüstung>\n";
@@ -214,7 +240,7 @@ int main(int argc, char *argv[])
 
    std::cout << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n";
    std::cout << "<MidgardCG-data>\n";
-   Transaction tr;
+  {Transaction tr;
    if (argc==3) charakter_speichern(std::cout,argv[1],argv[2]);
    else if (argc==2)
    {  
@@ -243,6 +269,7 @@ int main(int argc, char *argv[])
       }
    }
    std::cout << "</MidgardCG-data>\n";
+  }
    Petig::dbdisconnect();
    } catch (SQLerror &e)
    {  std::cerr << e << '\n';

@@ -20,6 +20,9 @@ cH_Fertigkeit::cH_Fertigkeit(const std::string& name)
 #else
 //  assert(!"Fertigkeit im Cache");
   cerr << "Fertigkeit '" << name << "' nicht im Cache\n";
+for (cache_t::const_iterator i=cache.begin();i!=cache.end();++i)
+cerr << i->first << ',';
+cerr << '\n';
   *this=cH_Fertigkeit(find_Tag("Fertigkeiten","Fertigkeit","Name",name));
 #endif
 }
