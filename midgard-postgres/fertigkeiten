@@ -8,7 +8,6 @@ ALTER TABLE ONLY public.fertigkeiten DROP CONSTRAINT fertigkeit_pkey;
 DROP INDEX public.fertigkeiten_fertigkeit_region;
 DROP TABLE public.fertigkeiten;
 --
--- TOC entry 2 (OID 18502)
 --
 
 CREATE TABLE fertigkeiten (
@@ -31,7 +30,6 @@ CREATE TABLE fertigkeiten (
 
 
 --
--- Data for TOC entry 5 (OID 18502)
 --
 
 COPY fertigkeiten (lp, lp_land, lp_stadt, anfangswert0, fertigkeit, anfangswert, fp, region, region_zusatz, attribut, ungelernt, berufsklasse, maxwert, maxunterweisung, zusaetze) FROM stdin;
@@ -149,13 +147,14 @@ COPY fertigkeiten (lp, lp_land, lp_stadt, anfangswert0, fertigkeit, anfangswert,
 8	\N	\N	14	Schwerttanz	12	100	K	\N	Gw	\N	3	18	18	\N
 3	3	\N	15	Schwimmen	10	60	\N	\N	Gw	3	1	18	18	\N
 4	\N	3	5	Schätzen	4	100	\N	\N	In	\N	2	16	13	\N
-99	\N	\N	12	Sprechen: Alte Sprache(+12)	12	0	\N	\N	In	\N	\N	20	17	5
+6	\N	\N	15	Seemannsgang	10	100	\N	\N	Gw	\N	2	18	18	\N
 99	2	2	8	Seilkunst	6	50	\N	\N	Gs	4	1	18	14	\N
 99	\N	\N	2	Siebter Sinn	2	500	N	\N	\N	\N	\N	\N	\N	\N
 99	1	1	12	Singen	8	80	\N	\N	pA	4	\N	20	16	\N
 3	2	\N	15	Skifahren	10	60	\N	\N	Gw	\N	\N	18	18	\N
 99	\N	\N	12	Sprache	4	10	\N	\N	In	\N	2	20	17	5
 99	\N	\N	12	Sprechen: Alte Sprache	12	0	\N	\N	In	\N	\N	20	17	5
+99	\N	\N	12	Sprechen: Alte Sprache(+12)	12	0	\N	\N	In	\N	\N	20	17	5
 3	3	3	12	Sprechen: Sprache(+12)	12	0	\N	\N	In	\N	2	20	17	5
 1	1	1	4	Sprechen: Sprache(+4)	4	0	\N	\N	In	\N	\N	20	17	5
 2	2	2	9	Sprechen: Sprache(+9)	9	0	\N	\N	In	\N	\N	20	17	5
@@ -199,19 +198,14 @@ COPY fertigkeiten (lp, lp_land, lp_stadt, anfangswert0, fertigkeit, anfangswert,
 3	3	3	8	Überleben im Wald	6	50	\N	\N	In	\N	1	18	14	\N
 3	3	3	8	Überleben in der Steppe	6	50	\N	\N	In	\N	1	18	14	\N
 3	3	3	8	Überleben in der Wüste	6	50	\N	\N	In	\N	1	18	14	\N
-6	\N	\N	15	Seemannsgang	10	100	\N	\N	Gw	\N	2	18	18	\N
 \.
-
-
 --
--- TOC entry 4 (OID 18674)
 --
 
 CREATE UNIQUE INDEX fertigkeiten_fertigkeit_region ON fertigkeiten USING btree (fertigkeit, region);
 
 
 --
--- TOC entry 3 (OID 18507)
 --
 
 ALTER TABLE ONLY fertigkeiten

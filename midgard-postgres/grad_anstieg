@@ -8,7 +8,6 @@ ALTER TABLE ONLY public.grad_anstieg DROP CONSTRAINT grad_anstieg_pkey;
 DROP INDEX public.grad_anstieg_grad;
 DROP TABLE public.grad_anstieg;
 --
--- TOC entry 2 (OID 41746)
 --
 
 CREATE TABLE grad_anstieg (
@@ -26,7 +25,6 @@ CREATE TABLE grad_anstieg (
 
 
 --
--- Data for TOC entry 5 (OID 41746)
 --
 
 COPY grad_anstieg (grad, abwehr, abwehr_kosten, resistenz, resistenz_kosten, gfp, zaubern, zaubern_kosten, schicksalsgunst, ap_kosten) FROM stdin;
@@ -46,17 +44,13 @@ COPY grad_anstieg (grad, abwehr, abwehr_kosten, resistenz, resistenz_kosten, gfp
 14	18	1500	17	1500	130000	\N	\N	3	2000
 15	\N	\N	\N	\N	150000	\N	\N	3	2000
 \.
-
-
 --
--- TOC entry 3 (OID 41765)
 --
 
 CREATE UNIQUE INDEX grad_anstieg_grad ON grad_anstieg USING btree (grad);
 
 
 --
--- TOC entry 4 (OID 41748)
 --
 
 ALTER TABLE ONLY grad_anstieg

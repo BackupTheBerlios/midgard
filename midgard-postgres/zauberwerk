@@ -8,7 +8,6 @@ ALTER TABLE ONLY public.zauberwerk DROP CONSTRAINT zauberwerk_pkey;
 DROP INDEX public.zauberwerk_name_art_stufe;
 DROP TABLE public.zauberwerk;
 --
--- TOC entry 2 (OID 40158)
 --
 
 CREATE TABLE zauberwerk (
@@ -24,7 +23,6 @@ CREATE TABLE zauberwerk (
 
 
 --
--- Data for TOC entry 5 (OID 40158)
 --
 
 COPY zauberwerk (name, kosten_gfp, art, stufe, zeitaufwand, kosten, region, region_zusatz) FROM stdin;
@@ -191,17 +189,13 @@ Zündletter (Bereich)	600	magische Letter	3		4 GS	\N	\N
 Zündletter (Berührung)	600	magische Letter	3		4 GS	\N	\N
 Zündletter (Schlüsselwort)	600	magische Letter	3		4 GS	\N	\N
 \.
-
-
 --
--- TOC entry 3 (OID 40347)
 --
 
 CREATE UNIQUE INDEX zauberwerk_name_art_stufe ON zauberwerk USING btree (name, art, stufe);
 
 
 --
--- TOC entry 4 (OID 40164)
 --
 
 ALTER TABLE ONLY zauberwerk

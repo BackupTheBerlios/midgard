@@ -9,7 +9,6 @@ DROP INDEX public.typen_typnr;
 DROP INDEX public.typen_typs;
 DROP TABLE public.typen;
 --
--- TOC entry 2 (OID 33156)
 --
 
 CREATE TABLE typen (
@@ -40,7 +39,6 @@ CREATE TABLE typen (
 
 
 --
--- Data for TOC entry 6 (OID 33156)
 --
 
 COPY typen (typnr, typs, typl, typlw, typz, ausdauer, stand, sb, ruestung, region, geld, beruf, stadt_land, sprueche_mit_pp, nsc_only, st, gw, gs, "in", pa, kultwaffe, lernpflichten, schreiben_pflicht) FROM stdin;
@@ -102,24 +100,19 @@ COPY typen (typnr, typs, typl, typlw, typz, ausdauer, stand, sb, ruestung, regio
 19	tBe	Totenbeschwörer	Totenbeschwörerin	z	z	20	30	4	3	3	z	\N	\N	\N	\N	\N	\N	21	\N	\N	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
 24	wHx	weißer Hexer	weiße Hexe	z	z	0	0	4	\N	3	\N	\N	\N	\N	\N	\N	\N	21	\N	\N	\N	\N
 \.
-
-
 --
--- TOC entry 5 (OID 33220)
 --
 
 CREATE UNIQUE INDEX typen_typs ON typen USING btree (typs);
 
 
 --
--- TOC entry 4 (OID 33221)
 --
 
 CREATE UNIQUE INDEX typen_typnr ON typen USING btree (typnr);
 
 
 --
--- TOC entry 3 (OID 33161)
 --
 
 ALTER TABLE ONLY typen

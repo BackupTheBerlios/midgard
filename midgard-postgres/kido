@@ -8,7 +8,6 @@ ALTER TABLE ONLY public.kido DROP CONSTRAINT kido_pkey;
 DROP INDEX public.kido_name_orig;
 DROP TABLE public.kido;
 --
--- TOC entry 2 (OID 27541)
 --
 
 CREATE TABLE kido (
@@ -23,7 +22,6 @@ CREATE TABLE kido (
 
 
 --
--- Data for TOC entry 5 (OID 27541)
 --
 
 COPY kido (name_orig, name, stufe, stil, fp, ap, effekt) FROM stdin;
@@ -76,17 +74,13 @@ UzuHaki	Zerstörerischer Wirbel	Eingeweihter	beide	200	2	bis zu 4x Angriff, SchB+
 HaschiBami	Zweig der Haselnuß	Schüler	beide	40	0	Aufstehen. Gilt nicht als Aktion.
 NiNintai	Zweite Ausdauer	Eingeweihter	beide	400	3	Regeneriert sofort alle AP. Nach einer Stunde: Verlust aller AP und von 3 LP. Während dieser Zeit kann die Technik nicht erneut angewendet werden.
 \.
-
-
 --
--- TOC entry 3 (OID 27596)
 --
 
 CREATE UNIQUE INDEX kido_name_orig ON kido USING btree (name_orig);
 
 
 --
--- TOC entry 4 (OID 27546)
 --
 
 ALTER TABLE ONLY kido

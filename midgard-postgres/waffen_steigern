@@ -8,7 +8,6 @@ ALTER TABLE ONLY public.waffen_steigern DROP CONSTRAINT waffen_steigern_pkey;
 DROP INDEX public.waffen_steigern_schwierigkeit;
 DROP TABLE public.waffen_steigern;
 --
--- TOC entry 2 (OID 34211)
 --
 
 CREATE TABLE waffen_steigern (
@@ -39,7 +38,6 @@ CREATE TABLE waffen_steigern (
 
 
 --
--- Data for TOC entry 5 (OID 34211)
 --
 
 COPY waffen_steigern (schwierigkeit, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p1, p20, p21, p22) FROM stdin;
@@ -52,17 +50,13 @@ COPY waffen_steigern (schwierigkeit, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p
 6	\N	\N	\N	35	35	55	70	140	280	560	1120	2100	3500	7000	7000	10500	10500	17500	\N	\N	\N	\N
 7	\N	\N	\N	40	40	60	80	160	320	640	1280	2400	4000	8000	8000	12000	12000	20000	\N	\N	\N	\N
 \.
-
-
 --
--- TOC entry 4 (OID 34223)
 --
 
 CREATE UNIQUE INDEX waffen_steigern_schwierigkeit ON waffen_steigern USING btree (schwierigkeit);
 
 
 --
--- TOC entry 3 (OID 34213)
 --
 
 ALTER TABLE ONLY waffen_steigern

@@ -8,7 +8,6 @@ ALTER TABLE ONLY public.zauberwerk_typen DROP CONSTRAINT zauberwerk_typen_pkey;
 DROP INDEX public.zauberwerk_typen_name_stufe_typ;
 DROP TABLE public.zauberwerk_typen;
 --
--- TOC entry 2 (OID 40354)
 --
 
 CREATE TABLE zauberwerk_typen (
@@ -21,7 +20,6 @@ CREATE TABLE zauberwerk_typen (
 
 
 --
--- Data for TOC entry 5 (OID 40354)
 --
 
 COPY zauberwerk_typen (name, stufe, typ, standard, art) FROM stdin;
@@ -980,7 +978,6 @@ Trunk der Macht über Hunde aktivieren	2	Ma	S	Alchimistisches Zaubermittel
 Trunk der Macht über Hunde aktivieren	2	PF	S	Alchimistisches Zaubermittel
 Trunk der Macht über Hunde aktivieren	2	ScN	S	Alchimistisches Zaubermittel
 Trunk der Macht über Hunde aktivieren	2	ScS	S	Alchimistisches Zaubermittel
-Werwesenamulett verzaubern	3	ScN	S	Amulett
 Trunk der Macht über Hunde aktivieren	2	ScW	S	Alchimistisches Zaubermittel
 Trunk der Macht über Hunde aktivieren	2	Sw	G	Alchimistisches Zaubermittel
 Trunk der Macht über Hunde aktivieren	2	Th	G	Alchimistisches Zaubermittel
@@ -1197,6 +1194,7 @@ Werwesenamulett verzaubern	3	PK	A	Amulett
 Werwesenamulett verzaubern	3	PM	A	Amulett
 Werwesenamulett verzaubern	3	PT	S	Amulett
 Werwesenamulett verzaubern	3	PW	A	Amulett
+Werwesenamulett verzaubern	3	ScN	S	Amulett
 Werwesenamulett verzaubern	3	ScS	S	Amulett
 Werwesenamulett verzaubern	3	ScW	S	Amulett
 Werwesenamulett verzaubern	3	Sw	G	Amulett
@@ -1265,17 +1263,13 @@ Zündletter (Berührung)	3	Th	G	magische Letter
 Zündletter (Schlüsselwort)	3	Sw	G	magische Letter
 Zündletter (Schlüsselwort)	3	Th	G	magische Letter
 \.
-
-
 --
--- TOC entry 3 (OID 41610)
 --
 
 CREATE UNIQUE INDEX zauberwerk_typen_name_stufe_typ ON zauberwerk_typen USING btree (name, stufe, typ, art);
 
 
 --
--- TOC entry 4 (OID 40359)
 --
 
 ALTER TABLE ONLY zauberwerk_typen

@@ -6,7 +6,6 @@ SET search_path = public, pg_catalog;
 
 DROP TABLE public.preise_mod_spez;
 --
--- TOC entry 2 (OID 30300)
 --
 
 CREATE TABLE preise_mod_spez (
@@ -17,7 +16,6 @@ CREATE TABLE preise_mod_spez (
 
 
 --
--- Data for TOC entry 3 (OID 30300)
 --
 
 COPY preise_mod_spez (modi_art, spezifikation, preis_faktor) FROM stdin;
@@ -39,5 +37,3 @@ Stand	Adel	5
 Stand	Mittelschicht	1
 Stand	Volk	0.33333
 \.
-
-

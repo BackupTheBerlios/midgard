@@ -8,7 +8,6 @@ ALTER TABLE ONLY public.spezialgebiete DROP CONSTRAINT spezialgebiete_pkey;
 DROP INDEX public.spezialgebiete_spezialgebiet;
 DROP TABLE public.spezialgebiete;
 --
--- TOC entry 2 (OID 41681)
 --
 
 CREATE TABLE spezialgebiete (
@@ -21,7 +20,6 @@ CREATE TABLE spezialgebiete (
 
 
 --
--- Data for TOC entry 5 (OID 41681)
 --
 
 COPY spezialgebiete (typ, nr, spezialgebiet, spezial, spezial2) FROM stdin;
@@ -53,17 +51,13 @@ eBe	8	Luft Feuer	Luft	Feuer
 eBe	9	Luft Wasser	Luft	Wasser
 eBe	10	Wasser Luft	Wasser	Luft
 \.
-
-
 --
--- TOC entry 4 (OID 41739)
 --
 
 CREATE UNIQUE INDEX spezialgebiete_spezialgebiet ON spezialgebiete USING btree (spezialgebiet);
 
 
 --
--- TOC entry 3 (OID 41708)
 --
 
 ALTER TABLE ONLY spezialgebiete

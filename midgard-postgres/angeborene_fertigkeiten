@@ -8,7 +8,6 @@ ALTER TABLE ONLY public.angeborene_fertigkeiten DROP CONSTRAINT angeborene_ferti
 DROP INDEX public.angeborene_fertigkeiten_name;
 DROP TABLE public.angeborene_fertigkeiten;
 --
--- TOC entry 2 (OID 16977)
 --
 
 CREATE TABLE angeborene_fertigkeiten (
@@ -20,7 +19,6 @@ CREATE TABLE angeborene_fertigkeiten (
 
 
 --
--- Data for TOC entry 5 (OID 16977)
 --
 
 COPY angeborene_fertigkeiten (min, max, name, wert) FROM stdin;
@@ -43,17 +41,13 @@ COPY angeborene_fertigkeiten (min, max, name, wert) FROM stdin;
 9	10	Tastschwäche	4
 91	95	Wachgabe	6
 \.
-
-
 --
--- TOC entry 3 (OID 17002)
 --
 
 CREATE UNIQUE INDEX angeborene_fertigkeiten_name ON angeborene_fertigkeiten USING btree (name);
 
 
 --
--- TOC entry 4 (OID 16982)
 --
 
 ALTER TABLE ONLY angeborene_fertigkeiten

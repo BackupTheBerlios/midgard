@@ -8,7 +8,6 @@ ALTER TABLE ONLY public.land_nachbarland DROP CONSTRAINT land_nachbarland_pkey;
 DROP INDEX public.land_nachbarland_land_1_land_2;
 DROP TABLE public.land_nachbarland;
 --
--- TOC entry 2 (OID 27655)
 --
 
 CREATE TABLE land_nachbarland (
@@ -18,7 +17,6 @@ CREATE TABLE land_nachbarland (
 
 
 --
--- Data for TOC entry 5 (OID 27655)
 --
 
 COPY land_nachbarland (land_1, land_2) FROM stdin;
@@ -64,17 +62,13 @@ Moravod	Valian
 Moravod	Waeland
 Tegarische Steppe	Valian
 \.
-
-
 --
--- TOC entry 3 (OID 27703)
 --
 
 CREATE UNIQUE INDEX land_nachbarland_land_1_land_2 ON land_nachbarland USING btree (land_1, land_2);
 
 
 --
--- TOC entry 4 (OID 27660)
 --
 
 ALTER TABLE ONLY land_nachbarland

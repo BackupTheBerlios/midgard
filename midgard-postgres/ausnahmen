@@ -7,7 +7,6 @@ SET search_path = public, pg_catalog;
 DROP INDEX public.ausnahmen_name;
 DROP TABLE public.ausnahmen;
 --
--- TOC entry 2 (OID 17726)
 --
 
 CREATE TABLE ausnahmen (
@@ -23,7 +22,6 @@ CREATE TABLE ausnahmen (
 
 
 --
--- Data for TOC entry 4 (OID 17726)
 --
 
 COPY ausnahmen (name, art, spezies, herkunft, typ, standard, beruf, stand) FROM stdin;
@@ -429,10 +427,7 @@ YehKiQuang	z	\N	KanThaiPan	ScW	G	\N	\N
 Überleben in der Wüste	f	\N	Eschar	ScS	G	\N	\N
 Überleben in der Wüste	f	\N	Eschar	ScW	G	\N	\N
 \.
-
-
 --
--- TOC entry 3 (OID 18132)
 --
 
 CREATE INDEX ausnahmen_name ON ausnahmen USING btree (name, art, spezies, herkunft, typ);

@@ -8,7 +8,6 @@ ALTER TABLE ONLY public.preise DROP CONSTRAINT "Preise_pkey";
 DROP INDEX public."Preise_name";
 DROP TABLE public.preise;
 --
--- TOC entry 2 (OID 7462139)
 --
 
 CREATE TABLE preise (
@@ -22,7 +21,6 @@ CREATE TABLE preise (
 
 
 --
--- Data for TOC entry 5 (OID 7462139)
 --
 
 COPY preise (art, art2, name, gewicht, kosten, einheit) FROM stdin;
@@ -84,6 +82,7 @@ Ausrüstung	Werkzeug	Hammer	1.5	5	GS
 Ausrüstung	Stoff. Draht usw.	Hand- oder Fußfessel mit Kette	2	30	GS
 Ausrüstung	Präzisionsinstrumente	Handwaage mit Waagschalen	0.5	5	GS
 Ausrüstung	Musikinstrumente	Harfe	5	100	GS
+Neu	Gebäude	Haus	0	100000	GS
 Magische Gegenstände		Heiltrank (2W6)	0.2	100	GS
 Magische Gegenstände		Heiltrank (W6)	0.2	10	GS
 Kleidung		Hemd	0	3	GS
@@ -126,6 +125,7 @@ Rüstung		Metallhelm mit Visier	2	75	GS
 Rüstung		Metallhelm ohne Visier	1.5	35	GS
 Ausrüstung	Werkzeug	Nähnadel	0	8	SS
 Ausrüstung	Tiere	Packpferd (100 kg)	0	80	GS
+Neu	Tiere	Pferd	0	100	GS
 Ausrüstung	Tiere	Pony (70 kg)	0	50	GS
 Ausrüstung	Tiere	Reitkamel	0	150	GS
 Ausrüstung	Tiere	Reitpferd (100 kg)	0	150	GS
@@ -180,20 +180,14 @@ Waffenzubehör		verzierter Waffengürtel	1	3	GS
 Ausrüstung	Übernachtung	warme Decke	2	4	GS
 Kleidung		warme Oberbekleidung	0	30	GS
 Ausrüstung	Behälter	wasserdichte Lederhülle für Schriftrollen	0	3	GS
-Neu	Tiere	Pferd	0	100	GS
-Neu	Gebäude	Haus	0	100000	GS
 \.
-
-
 --
--- TOC entry 3 (OID 7462302)
 --
 
 CREATE UNIQUE INDEX "Preise_name" ON preise USING btree (name);
 
 
 --
--- TOC entry 4 (OID 7462144)
 --
 
 ALTER TABLE ONLY preise

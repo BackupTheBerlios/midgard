@@ -8,7 +8,6 @@ ALTER TABLE ONLY public.fertigkeiten_voraussetzungen_2 DROP CONSTRAINT fertigkei
 DROP INDEX public.fertigkeiten_voraussetzungen_2_;
 DROP TABLE public.fertigkeiten_voraussetzungen_2;
 --
--- TOC entry 2 (OID 18855)
 --
 
 CREATE TABLE fertigkeiten_voraussetzungen_2 (
@@ -18,7 +17,6 @@ CREATE TABLE fertigkeiten_voraussetzungen_2 (
 
 
 --
--- Data for TOC entry 5 (OID 18855)
 --
 
 COPY fertigkeiten_voraussetzungen_2 (name, voraussetzung) FROM stdin;
@@ -45,17 +43,13 @@ Schlangen beschwören	Musizieren
 Schwerttanz	Beidhändiger Kampf
 Tauchen	Schwimmen
 \.
-
-
 --
--- TOC entry 4 (OID 18884)
 --
 
 CREATE INDEX fertigkeiten_voraussetzungen_2_ ON fertigkeiten_voraussetzungen_2 USING btree (name, voraussetzung);
 
 
 --
--- TOC entry 3 (OID 18860)
 --
 
 ALTER TABLE ONLY fertigkeiten_voraussetzungen_2

@@ -1,0 +1,263 @@
+--
+-- PostgreSQL database dump
+--
+
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.prototyp2 DROP CONSTRAINT prototyp2_pkey;
+DROP TABLE public.prototyp2;
+--
+--
+
+CREATE TABLE prototyp2 (
+    bezeichnung text NOT NULL,
+    name text NOT NULL,
+    art character(1) NOT NULL,
+    faktor numeric(3,2) NOT NULL
+);
+
+
+--
+--
+
+COPY prototyp2 (bezeichnung, name, art, faktor) FROM stdin;
+Abenteurer	Akrobatik	F	0.80
+Abenteurer	Balancieren	F	0.70
+Abenteurer	Baukunde	F	0.80
+Abenteurer	Erste Hilfe	F	0.80
+Abenteurer	Fallen entdecken	F	0.80
+Abenteurer	Fangen	F	0.90
+Abenteurer	Gassenwissen	F	0.90
+Abenteurer	Geheimmechanismen öffnen	F	0.80
+Abenteurer	Geländelauf	F	0.70
+Abenteurer	Klettern	F	0.70
+Abenteurer	Menschenkenntnis	F	0.70
+Abenteurer	Reiten	F	0.70
+Abenteurer	Schleichen	F	0.60
+Abenteurer	Schwimmen	F	0.60
+Abenteurer	Schätzen	F	0.90
+Abenteurer	Seilkunst	F	0.80
+Abenteurer	Spurenlesen	F	0.90
+Abenteurer	Suchen	F	0.80
+Abenteurer	Tarnen	F	0.80
+Abenteurer	Tauchen	F	0.90
+Abenteurer	Verhören	F	0.90
+Abenteurer	Wahrnehmung	F	0.60
+Abenteurer	Winden	F	0.90
+Abenteurer	Zauberkunde	F	0.80
+Halbseidenes	Beschatten	F	0.70
+Halbseidenes	Betäuben	F	0.60
+Halbseidenes	Fallenmechanik	F	0.60
+Halbseidenes	Fallenstellen	F	0.60
+Halbseidenes	Fälschen	F	0.60
+Halbseidenes	Gassenwissen	F	0.50
+Halbseidenes	Geheimmechanismen öffnen	F	0.50
+Halbseidenes	Geheimzeichen	F	0.50
+Halbseidenes	Giftmischen	F	0.50
+Halbseidenes	Glücksspiel	F	0.50
+Halbseidenes	Klettern	F	0.90
+Halbseidenes	Lippenlesen	F	0.90
+Halbseidenes	Menschenkenntnis	F	0.80
+Halbseidenes	Meucheln	F	0.60
+Halbseidenes	Schauspielern	F	0.90
+Halbseidenes	Schleichen	F	0.70
+Halbseidenes	Schlösser öffnen	F	0.50
+Halbseidenes	Schätzen	F	0.70
+Halbseidenes	Seilkunst	F	0.70
+Halbseidenes	Stehlen	F	0.50
+Halbseidenes	Stimmen nachahmen	F	0.90
+Halbseidenes	Suchen	F	0.70
+Halbseidenes	Tarnen	F	0.60
+Halbseidenes	Verbergen	F	0.50
+Halbseidenes	Verführen	F	0.80
+Halbseidenes	Verhören	F	0.80
+Halbseidenes	Verkleiden	F	0.80
+Halbseidenes	Winden	F	0.90
+Halbseidenes	Zeichensprache	F	0.80
+Halbseidenes	Zunge verschlucken	F	0.70
+Heilung	Erste Hilfe	F	0.50
+Heilung	FengSchui	F	0.60
+Heilung	Giftmischen	F	0.90
+Heilung	Heilkunde	F	0.50
+Heilung	Kräuterkunde	F	0.50
+Heilung	Meditieren	F	0.80
+Heilung	Pflanzenkunde	F	0.80
+Heilung	TaiTschi	F	0.60
+Heilung	Tierkunde	F	0.80
+Heilung	YangScheng	F	0.90
+Heilung	Zauberkunde	F	0.80
+Kampf	Akrobatik	F	0.90
+Kampf	Ballista bedienen	F	0.80
+Kampf	Beidhändiger Kampf	F	0.60
+Kampf	Bogenkampf zu Pferd	F	0.50
+Kampf	Fechten	F	0.50
+Kampf	Fechten tevarrischer Stil	F	0.70
+Kampf	Geländelauf	F	0.70
+Kampf	IaiJutsu	F	0.60
+Kampf	Kamelreiten	F	0.60
+Kampf	Kampf in Dunkelheit	F	0.60
+Kampf	Kampf in Schlachtreihe	F	0.60
+Kampf	Kampf in Vollrüstung	F	0.60
+Kampf	Kampf vom Streitwagen	F	0.70
+Kampf	Kampf zu Elefant	F	0.60
+Kampf	Kampf zu Kamel	F	0.60
+Kampf	Kampf zu Pferd	F	0.60
+Kampf	Kampftaktik	F	0.50
+Kampf	Katapult bedienen	F	0.60
+Kampf	Reiten	F	0.70
+Kampf	Schießen vom Streitwagen	F	0.70
+Kampf	Schlachtruf	F	0.70
+Kampf	Schwerttanz	F	0.70
+Kampf	Srimara lenken	F	0.70
+Kampf	Streitwagen lenken	F	0.70
+Körper	Adlersprung	F	0.60
+Körper	Akrobatik	F	0.50
+Körper	Askese	F	0.60
+Körper	Athletik	F	0.60
+Körper	Balancieren	F	0.50
+Körper	Ballspiel	F	0.60
+Körper	Fangen	F	0.60
+Körper	Gaukeln	F	0.80
+Körper	Geländelauf	F	0.60
+Körper	Klettern	F	0.50
+Körper	Körperkontrolle	F	0.60
+Körper	Laufen	F	0.50
+Körper	Meditieren	F	0.90
+Körper	Reiten	F	0.70
+Körper	Rudern	F	0.90
+Körper	Schleichen	F	0.90
+Körper	Schlittenfahren	F	0.80
+Körper	Schlittschuhlaufen	F	0.80
+Körper	Schmerzen ertragen	F	0.70
+Körper	Schwimmen	F	0.60
+Körper	Seemannsgang	F	0.60
+Körper	Skifahren	F	0.70
+Körper	Springen	F	0.50
+Körper	TaiTschi	F	0.60
+Körper	Tanzen	F	0.70
+Körper	Tauchen	F	0.70
+Körper	Trinken	F	0.70
+Körper	Wagenlenken	F	0.80
+Körper	Winden	F	0.60
+Körper	YangScheng	F	0.80
+Natur	Abrichten	F	0.60
+Natur	Elefanten lenken	F	0.80
+Natur	Fallenstellen	F	0.60
+Natur	FengSchui	F	0.60
+Natur	Geomantie	F	0.60
+Natur	Himmelskunde	F	0.50
+Natur	Kamelreiten	F	0.80
+Natur	Klettern	F	0.60
+Natur	Kräuterkunde	F	0.50
+Natur	Naturkunde	F	0.50
+Natur	Pflanzenkunde	F	0.50
+Natur	Reiten	F	0.60
+Natur	Schlangen beschwören	F	0.90
+Natur	Schleichen	F	0.70
+Natur	Schwimmen	F	0.70
+Natur	Spurenlesen	F	0.60
+Natur	Tarnen	F	0.70
+Natur	Tauchen	F	0.70
+Natur	Tierkunde	F	0.50
+Natur	Wahrnehmung	F	0.70
+Natur	Wetterkunde	F	0.50
+Natur	Überleben im Dschungel	F	0.50
+Natur	Überleben im Gebirge	F	0.50
+Natur	Überleben im Schnee	F	0.50
+Natur	Überleben im Sumpf	F	0.50
+Natur	Überleben im Wald	F	0.50
+Natur	Überleben in der Steppe	F	0.50
+Natur	Überleben in der Wüste	F	0.50
+Soziales	Ballspiel	F	0.70
+Soziales	Beredsamkeit	F	0.50
+Soziales	Beschatten	F	0.60
+Soziales	Brettspiel	F	0.60
+Soziales	Dichten	F	0.60
+Soziales	Erzählen	F	0.50
+Soziales	Gassenwissen	F	0.50
+Soziales	Gaukeln	F	0.60
+Soziales	Geheimzeichen	F	0.60
+Soziales	Geschenke machen	F	0.60
+Soziales	Geschäftstüchtigkeit	F	0.60
+Soziales	Glücksspiel	F	0.60
+Soziales	Lippenlesen	F	0.80
+Soziales	Menschenkenntnis	F	0.40
+Soziales	Musizieren	F	0.60
+Soziales	Schauspielern	F	0.60
+Soziales	Singen	F	0.60
+Soziales	Stimmen nachahmen	F	0.90
+Soziales	Tanzen	F	0.60
+Soziales	Teezeremonie	F	0.60
+Soziales	Trinken	F	0.70
+Soziales	Verführen	F	0.50
+Soziales	Verhören	F	0.60
+Soziales	Verkleiden	F	0.60
+Soziales	Zeichensprache	F	0.90
+Untersuchen	Alchimie	F	0.70
+Untersuchen	Baukunde	F	0.70
+Untersuchen	Beschatten	F	0.70
+Untersuchen	Fallen entdecken	F	0.60
+Untersuchen	Gassenwissen	F	0.70
+Untersuchen	Geheimzeichen	F	0.70
+Untersuchen	Giftmischen	F	0.90
+Untersuchen	Heilkunde	F	0.90
+Untersuchen	Kräuterkunde	F	0.90
+Untersuchen	Lesen von Zauberschrift	F	0.90
+Untersuchen	Lippenlesen	F	0.90
+Untersuchen	Menschenkenntnis	F	0.60
+Untersuchen	Naturkunde	F	0.60
+Untersuchen	Pflanzenkunde	F	0.70
+Untersuchen	Schleichen	F	0.70
+Untersuchen	Schlösser öffnen	F	0.70
+Untersuchen	Schätzen	F	0.90
+Untersuchen	Spurenlesen	F	0.50
+Untersuchen	Suchen	F	0.50
+Untersuchen	Tierkunde	F	0.70
+Untersuchen	Verführen	F	0.80
+Untersuchen	Verhören	F	0.60
+Untersuchen	Verkleiden	F	0.80
+Untersuchen	Wahrnehmung	F	0.50
+Untersuchen	Zauberkunde	F	0.80
+Untersuchen	Zeichensprache	F	0.80
+Wissen	Alchimie	F	0.50
+Wissen	Astrologie	F	0.70
+Wissen	Baukunde	F	0.70
+Wissen	Dämonenkunde	F	0.70
+Wissen	Gassenwissen	F	0.90
+Wissen	Geheimzeichen	F	0.80
+Wissen	Kenntnis der fünf Klassiker	F	0.50
+Wissen	Kräuterkunde	F	0.50
+Wissen	Landeskunde	F	0.50
+Wissen	Lesen von Geisterschrift	F	0.90
+Wissen	Lesen von Zauberrunen	F	0.50
+Wissen	Lesen von Zauberschrift	F	0.50
+Wissen	Menschenkenntnis	F	0.80
+Wissen	Mumifizieren	F	0.80
+Wissen	Naturkunde	F	0.50
+Wissen	Orakelkunst	F	0.80
+Wissen	Pflanzenkunde	F	0.50
+Wissen	Pyromantie	F	0.80
+Wissen	Rechnen	F	0.50
+Wissen	Sagenkunde	F	0.50
+Wissen	Steinabreibungen machen	F	0.90
+Wissen	Teezeremonie	F	0.80
+Wissen	Thaumatographie	F	0.80
+Wissen	Tierkunde	F	0.50
+Wissen	Wahrsagekalender führen	F	0.50
+Wissen	Wetterkunde	F	0.60
+Wissen	YangScheng	F	0.80
+Wissen	Zauberkunde	F	0.50
+Wissen	Zeichensprache	F	0.60
+Wissen 	Geomantie	F	0.50
+Wissen 	Giftmischen	F	0.90
+Wissen 	Heilkunde	F	0.50
+Wissen 	Himmelskunde	F	0.50
+Wissen 	Schätzen	F	0.80
+\.
+--
+--
+
+ALTER TABLE ONLY prototyp2
+    ADD CONSTRAINT prototyp2_pkey PRIMARY KEY (bezeichnung, name, art);
+
+

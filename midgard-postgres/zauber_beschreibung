@@ -8,7 +8,6 @@ ALTER TABLE ONLY public.zauber_beschreibung DROP CONSTRAINT zauber_beschreibung_
 DROP INDEX public.zauber_beschreibung_name;
 DROP TABLE public.zauber_beschreibung;
 --
--- TOC entry 2 (OID 40041)
 --
 
 CREATE TABLE zauber_beschreibung (
@@ -18,7 +17,6 @@ CREATE TABLE zauber_beschreibung (
 
 
 --
--- Data for TOC entry 5 (OID 40041)
 --
 
 COPY zauber_beschreibung (name, beschreibung) FROM stdin;
@@ -118,17 +116,13 @@ Wächter beschwören 3	Beschören von Kaobargen. Beschwören 4 AP, Fesseln 2 AP, Ver
 Zeichen des Chaos	GZ 4. Mißlingt dem Opfer ein WW:phs(weiße Hexer, Priester und Ordenskriegen haben WM+4), wächst ihm ein leicht zu bemerkendes Chaoszeichen: Schwarz verfärbte Körperteile, glühende Augen, Klauen, Hörner usw. Die Wirkung des Zaubers dauert (Gr Fm)*(Gr Opfer). 
 Zucksalz	Das Opfer leidet unter nervösen Zuckungen, was WM-4 auf alle EW bedeutet, auch Angriff und Zaubern. pA sinkt auf ein Viertel.
 \.
-
-
 --
--- TOC entry 3 (OID 40156)
 --
 
 CREATE UNIQUE INDEX zauber_beschreibung_name ON zauber_beschreibung USING btree (name);
 
 
 --
--- TOC entry 4 (OID 40047)
 --
 
 ALTER TABLE ONLY zauber_beschreibung

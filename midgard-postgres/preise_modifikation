@@ -6,7 +6,6 @@ SET search_path = public, pg_catalog;
 
 DROP TABLE public.preise_modifikation;
 --
--- TOC entry 2 (OID 30255)
 --
 
 CREATE TABLE preise_modifikation (
@@ -20,7 +19,6 @@ CREATE TABLE preise_modifikation (
 
 
 --
--- Data for TOC entry 3 (OID 30255)
 --
 
 COPY preise_modifikation (art, art2, nr, typ, name, faktor) FROM stdin;
@@ -56,5 +54,3 @@ Waffen		2	Material	versilbert	10
 Waffen		3	Material	Alchimistenmetall	50
 Waffenzubehör		1			1
 \.
-
-

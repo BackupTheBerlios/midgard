@@ -8,7 +8,6 @@ ALTER TABLE ONLY public.steigern_fertigkeiten DROP CONSTRAINT steigern_fertigkei
 DROP INDEX public.steigern_fertigkeiten_name;
 DROP TABLE public.steigern_fertigkeiten;
 --
--- TOC entry 2 (OID 30646)
 --
 
 CREATE TABLE steigern_fertigkeiten (
@@ -18,7 +17,6 @@ CREATE TABLE steigern_fertigkeiten (
 
 
 --
--- Data for TOC entry 5 (OID 30646)
 --
 
 COPY steigern_fertigkeiten (name, wie) FROM stdin;
@@ -176,17 +174,13 @@ Zunge verschlucken	Zunge verschlucken
 Überleben in der Steppe	Überleben
 Überleben in der Wüste	Überleben
 \.
-
-
 --
--- TOC entry 3 (OID 30810)
 --
 
 CREATE UNIQUE INDEX steigern_fertigkeiten_name ON steigern_fertigkeiten USING btree (name);
 
 
 --
--- TOC entry 4 (OID 30651)
 --
 
 ALTER TABLE ONLY steigern_fertigkeiten

@@ -7,7 +7,6 @@ SET search_path = public, pg_catalog;
 ALTER TABLE ONLY public.fertigkeiten_besitz DROP CONSTRAINT fertigkeiten_besitz_pkey;
 DROP TABLE public.fertigkeiten_besitz;
 --
--- TOC entry 2 (OID 18885)
 --
 
 CREATE TABLE fertigkeiten_besitz (
@@ -19,7 +18,6 @@ CREATE TABLE fertigkeiten_besitz (
 
 
 --
--- Data for TOC entry 4 (OID 18885)
 --
 
 COPY fertigkeiten_besitz (name, gegenstand, min, "position") FROM stdin;
@@ -39,10 +37,7 @@ Trinken	Schlauch mit Wein (2 Liter)	31	Rucksack
 Trinken	Tonkrug mit Schnaps (1 Liter)	81	Rucksack
 Verkleiden	Ausrüstung für einfache Verkleidungen	6	Rucksack
 \.
-
-
 --
--- TOC entry 3 (OID 18890)
 --
 
 ALTER TABLE ONLY fertigkeiten_besitz

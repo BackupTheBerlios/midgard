@@ -7,7 +7,6 @@ SET search_path = public, pg_catalog;
 ALTER TABLE ONLY public.berufe_vorteile_4 DROP CONSTRAINT berufe_vorteile_4_pkey;
 DROP TABLE public.berufe_vorteile_4;
 --
--- TOC entry 2 (OID 18345)
 --
 
 CREATE TABLE berufe_vorteile_4 (
@@ -18,7 +17,6 @@ CREATE TABLE berufe_vorteile_4 (
 
 
 --
--- Data for TOC entry 4 (OID 18345)
 --
 
 COPY berufe_vorteile_4 (beruf, vorteil, wert) FROM stdin;
@@ -173,10 +171,7 @@ Zureiter	Abrichten	6
 Zureiter	Kampf zu Pferd	10
 Zureiter	Reiten	10
 \.
-
-
 --
--- TOC entry 3 (OID 18350)
 --
 
 ALTER TABLE ONLY berufe_vorteile_4

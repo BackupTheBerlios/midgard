@@ -9,7 +9,6 @@ DROP INDEX public.fertigkeiten_typen_name;
 DROP INDEX public.fertigkeiten_typen_name_typ;
 DROP TABLE public.fertigkeiten_typen;
 --
--- TOC entry 2 (OID 18907)
 --
 
 CREATE TABLE fertigkeiten_typen (
@@ -20,7 +19,6 @@ CREATE TABLE fertigkeiten_typen (
 
 
 --
--- Data for TOC entry 6 (OID 18907)
 --
 
 COPY fertigkeiten_typen (name, typ, standard) FROM stdin;
@@ -8587,24 +8585,19 @@ Zunge verschlucken	wHx	S
 Überleben in der Wüste	tBe	S
 Überleben in der Wüste	wHx	S
 \.
-
-
 --
--- TOC entry 4 (OID 27476)
 --
 
 CREATE UNIQUE INDEX fertigkeiten_typen_name_typ ON fertigkeiten_typen USING btree (name, typ);
 
 
 --
--- TOC entry 3 (OID 27477)
 --
 
 CREATE INDEX fertigkeiten_typen_name ON fertigkeiten_typen USING btree (name);
 
 
 --
--- TOC entry 5 (OID 18912)
 --
 
 ALTER TABLE ONLY fertigkeiten_typen

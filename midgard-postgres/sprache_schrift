@@ -7,7 +7,6 @@ SET search_path = public, pg_catalog;
 ALTER TABLE ONLY public.sprache_schrift DROP CONSTRAINT sprache_schrift_pkey;
 DROP TABLE public.sprache_schrift;
 --
--- TOC entry 2 (OID 30587)
 --
 
 CREATE TABLE sprache_schrift (
@@ -18,7 +17,6 @@ CREATE TABLE sprache_schrift (
 
 
 --
--- Data for TOC entry 4 (OID 30587)
 --
 
 COPY sprache_schrift (sprache, art_der_schrift, schrift) FROM stdin;
@@ -67,10 +65,7 @@ Vallinga	Valianisches Alphabet	Vallinga
 Waeland	Futhark	Futhark
 Waelska	Waelska	Waelska
 \.
-
-
 --
--- TOC entry 3 (OID 30593)
 --
 
 ALTER TABLE ONLY sprache_schrift

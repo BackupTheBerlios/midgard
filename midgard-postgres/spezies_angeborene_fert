@@ -8,7 +8,6 @@ ALTER TABLE ONLY public.spezies_angeborene_fert DROP CONSTRAINT spezies_angebore
 DROP INDEX public.spezies_angeborene_fert_spezies;
 DROP TABLE public.spezies_angeborene_fert;
 --
--- TOC entry 2 (OID 53904)
 --
 
 CREATE TABLE spezies_angeborene_fert (
@@ -21,7 +20,6 @@ CREATE TABLE spezies_angeborene_fert (
 
 
 --
--- Data for TOC entry 5 (OID 53904)
 --
 
 COPY spezies_angeborene_fert (spezies, art, name, erfolgswert, lp) FROM stdin;
@@ -363,17 +361,13 @@ Zwerg	v	Steuermann	\N	\N
 Zwerg	v	Waldarbeiter	\N	\N
 Zwerg	v	Zureiter	\N	\N
 \.
-
-
 --
--- TOC entry 4 (OID 54259)
 --
 
 CREATE INDEX spezies_angeborene_fert_spezies ON spezies_angeborene_fert USING btree (spezies);
 
 
 --
--- TOC entry 3 (OID 53909)
 --
 
 ALTER TABLE ONLY spezies_angeborene_fert

@@ -6,7 +6,6 @@ SET search_path = public, pg_catalog;
 
 DROP TABLE public.spezies_herkunft;
 --
--- TOC entry 2 (OID 30337)
 --
 
 CREATE TABLE spezies_herkunft (
@@ -17,7 +16,6 @@ CREATE TABLE spezies_herkunft (
 
 
 --
--- Data for TOC entry 3 (OID 30337)
 --
 
 COPY spezies_herkunft (spezies, land, sprache) FROM stdin;
@@ -31,5 +29,3 @@ Halbling	\N	Halftan
 Waldgnom	\N	Gnomenon
 Zwerg	\N	Dvarskar
 \.
-
-

@@ -8,7 +8,6 @@ ALTER TABLE ONLY public.steigern_fertigkeiten_werte DROP CONSTRAINT steigern_fer
 DROP INDEX public.steigern_fertigkeiten_werte_nam;
 DROP TABLE public.steigern_fertigkeiten_werte;
 --
--- TOC entry 2 (OID 33072)
 --
 
 CREATE TABLE steigern_fertigkeiten_werte (
@@ -46,7 +45,6 @@ CREATE TABLE steigern_fertigkeiten_werte (
 
 
 --
--- Data for TOC entry 5 (OID 33072)
 --
 
 COPY steigern_fertigkeiten_werte (name, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p0, p21, p22, p23, p24, p25, p26, p27, p28) FROM stdin;
@@ -126,17 +124,13 @@ Zeichensprache	\N	\N	\N	\N	10	10	10	10	20	50	100	100	100	100	\N	\N	\N	\N	\N	\N	\
 Zunge verschlucken	\N	\N	\N	\N	\N	\N	\N	\N	50	100	200	400	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Überleben	\N	\N	\N	\N	\N	\N	10	10	10	20	20	50	100	100	100	100	100	100	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N
 \.
-
-
 --
--- TOC entry 3 (OID 33155)
 --
 
 CREATE UNIQUE INDEX steigern_fertigkeiten_werte_nam ON steigern_fertigkeiten_werte USING btree (name);
 
 
 --
--- TOC entry 4 (OID 33078)
 --
 
 ALTER TABLE ONLY steigern_fertigkeiten_werte

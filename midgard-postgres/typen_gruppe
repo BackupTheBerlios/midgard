@@ -7,7 +7,6 @@ SET search_path = public, pg_catalog;
 ALTER TABLE ONLY public.typen_gruppe DROP CONSTRAINT typen_gruppe_pkey;
 DROP TABLE public.typen_gruppe;
 --
--- TOC entry 2 (OID 33224)
 --
 
 CREATE TABLE typen_gruppe (
@@ -17,7 +16,6 @@ CREATE TABLE typen_gruppe (
 
 
 --
--- Data for TOC entry 4 (OID 33224)
 --
 
 COPY typen_gruppe (typ, gruppe) FROM stdin;
@@ -105,10 +103,7 @@ tBe	ZAU
 wHx	Hx
 wHx	ZAU
 \.
-
-
 --
--- TOC entry 3 (OID 33230)
 --
 
 ALTER TABLE ONLY typen_gruppe

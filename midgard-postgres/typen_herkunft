@@ -6,7 +6,6 @@ SET search_path = public, pg_catalog;
 
 DROP TABLE public.typen_herkunft;
 --
--- TOC entry 2 (OID 33322)
 --
 
 CREATE TABLE typen_herkunft (
@@ -17,7 +16,6 @@ CREATE TABLE typen_herkunft (
 
 
 --
--- Data for TOC entry 3 (OID 33322)
 --
 
 COPY typen_herkunft (typ, land, kultwaffe) FROM stdin;
@@ -627,5 +625,3 @@ wHx	Valian	\N
 wHx	Waeland	\N
 wHx	Ywerddon	\N
 \.
-
-

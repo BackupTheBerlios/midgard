@@ -7,7 +7,6 @@ SET search_path = public, pg_catalog;
 ALTER TABLE ONLY public.fz_zusaetze DROP CONSTRAINT fz_zusaetze_pkey;
 DROP TABLE public.fz_zusaetze;
 --
--- TOC entry 2 (OID 27478)
 --
 
 CREATE TABLE fz_zusaetze (
@@ -20,7 +19,6 @@ CREATE TABLE fz_zusaetze (
 
 
 --
--- Data for TOC entry 4 (OID 27478)
 --
 
 COPY fz_zusaetze (art, name, typ, region, region_zusatz) FROM stdin;
@@ -81,10 +79,7 @@ Tiersprache	Fische	\N	\N	\N
 Tiersprache	Säugetiere	\N	\N	\N
 Tiersprache	Vögel	\N	\N	\N
 \.
-
-
 --
--- TOC entry 3 (OID 27483)
 --
 
 ALTER TABLE ONLY fz_zusaetze

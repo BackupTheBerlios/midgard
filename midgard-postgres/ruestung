@@ -8,7 +8,6 @@ ALTER TABLE ONLY public.ruestung DROP CONSTRAINT ruestung_pkey;
 DROP INDEX public.ruestung_ruestung_s;
 DROP TABLE public.ruestung;
 --
--- TOC entry 2 (OID 30462)
 --
 
 CREATE TABLE ruestung (
@@ -29,7 +28,6 @@ CREATE TABLE ruestung (
 
 
 --
--- Data for TOC entry 5 (OID 30462)
 --
 
 COPY ruestung (ruestung, ruestung_s, lp_verlust, min_staerke, rw_verlust, b_verlust, region, abwehr_bonus_verlust, angriffs_bonus_verlust, vollruestung, kosten_gs, gewicht, behinderung_wie) FROM stdin;
@@ -50,17 +48,13 @@ Vollrüstung	VR	5	61	40	12	\N	2	1	2	600	45	VR
 SaMurai-Rüstung	VR(K)	5	61	25	8	K	2	\N	2	\N	\N	PR
 Tschahaatha(VR)	VR(R)	5	0	0	8	R	\N	\N	2	\N	\N	PR
 \.
-
-
 --
--- TOC entry 4 (OID 30487)
 --
 
 CREATE UNIQUE INDEX ruestung_ruestung_s ON ruestung USING btree (ruestung_s);
 
 
 --
--- TOC entry 3 (OID 30469)
 --
 
 ALTER TABLE ONLY ruestung

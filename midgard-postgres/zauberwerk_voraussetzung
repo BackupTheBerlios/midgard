@@ -7,7 +7,6 @@ SET search_path = public, pg_catalog;
 DROP INDEX public.zauberwerk_voraussetzung_name;
 DROP TABLE public.zauberwerk_voraussetzung;
 --
--- TOC entry 2 (OID 41614)
 --
 
 CREATE TABLE zauberwerk_voraussetzung (
@@ -19,7 +18,6 @@ CREATE TABLE zauberwerk_voraussetzung (
 
 
 --
--- Data for TOC entry 4 (OID 41614)
 --
 
 COPY zauberwerk_voraussetzung (name, voraussetzung, verbindung, fertigkeit) FROM stdin;
@@ -78,10 +76,7 @@ Wasser weihen	Segnen	and	\N
 Werwesenamulett verzaubern	Silberstaub	\N	\N
 Zauberpergament beschriften	\N	\N	Lesen von Zauberschrift
 \.
-
-
 --
--- TOC entry 3 (OID 41675)
 --
 
 CREATE INDEX zauberwerk_voraussetzung_name ON zauberwerk_voraussetzung USING btree (name);

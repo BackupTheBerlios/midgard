@@ -8,73 +8,68 @@ ALTER TABLE ONLY public.land DROP CONSTRAINT land_pkey;
 DROP INDEX public.land_land;
 DROP TABLE public.land;
 --
--- TOC entry 2 (OID 27607)
 --
 
 CREATE TABLE land (
     land text NOT NULL,
     kontinent text,
-    sprache text NOT NULL
+    sprache text NOT NULL,
+    region text
 );
 
 
 --
--- Data for TOC entry 5 (OID 27607)
 --
 
-COPY land (land, kontinent, sprache) FROM stdin;
-Alba	Vesternesse	Albisch
-Alba	Vesternesse	Altoqua
-Alba	Vesternesse	Dunathisch
-Aran	Sirao	Aranisch
-Buluga	Lamaran	Bulugi
-Chryseia	Vesternesse	Chryseisch
-Chryseia	Vesternesse	Maralinga
-Chryseia	Vesternesse	Tuskisch
-Clanngadarn	Vesternesse	Twyneddisch
-Dvarheim	Vesternesse	Dvarskar
-Erainn	Vesternesse	Erainnisch
-Erainn	Vesternesse	Hochcoraniaid
-Eschar	Lamaran	Kelwisch
-Eschar	Lamaran	Meketisch
-Eschar	Lamaran	Scharidisch
-Feuerinseln	Huaxal	Stammesdialekte
-Fuardain	Vesternesse	Twyneddisch
-Halfdal	Vesternesse	Halftan
-Ikengabecken	Lamaran	Ikengadialekte
-Inseln unter dem Westwind	Huaxal	Nahuatlanisch
-Inseln unter dem Westwind	Huaxal	Trll'ng
-KanThaiPan	Sirao	KanThaiTun
-Küstenstaaten	Lamaran	Maralinga
-Küstenstaaten	Lamaran	Neu-Vallinga
-Medjis	Sirao	Medjisisch
-Minangpahit	Sirao	Minangpahitisch
-Moravod	Sirao	Moravisch
-Nahuatlan	Huaxal	Nahuatlanisch
-Rawindra	Sirao	Rawindi
-Tegarische Steppe	Sirao	Berekusch
-Tegarische Steppe	Sirao	Läinisch
-Tegarische Steppe	Sirao	Tegarisch
-Urruti	Lamaran	Hurritisch
-Urruti	Lamaran	Luwisch
-Valian	Valian	Maralinga
-Valian	Valian	Vallinga
-Vesternesse	Vesternesse	Comentang
-Waeland	Sirao	Waelska
-Ywerddon	Vesternesse	Erainnisch
-Ywerddon	Vesternesse	Twyneddisch
+COPY land (land, kontinent, sprache, region) FROM stdin;
+Alba	Vesternesse	Albisch	A
+Alba	Vesternesse	Altoqua	A
+Alba	Vesternesse	Dunathisch	A
+Aran	Sirao	Aranisch	\N
+Buluga	Lamaran	Bulugi	\N
+Chryseia	Vesternesse	Chryseisch	\N
+Chryseia	Vesternesse	Maralinga	\N
+Chryseia	Vesternesse	Tuskisch	\N
+Clanngadarn	Vesternesse	Twyneddisch	\N
+Dvarheim	Vesternesse	Dvarskar	\N
+Erainn	Vesternesse	Erainnisch	\N
+Erainn	Vesternesse	Hochcoraniaid	\N
+Eschar	Lamaran	Kelwisch	E
+Eschar	Lamaran	Meketisch	E
+Eschar	Lamaran	Scharidisch	E
+Feuerinseln	Huaxal	Stammesdialekte	\N
+Fuardain	Vesternesse	Twyneddisch	\N
+Halfdal	Vesternesse	Halftan	\N
+Ikengabecken	Lamaran	Ikengadialekte	I
+Inseln unter dem Westwind	Huaxal	Nahuatlanisch	\N
+Inseln unter dem Westwind	Huaxal	Trll'ng	\N
+KanThaiPan	Sirao	KanThaiTun	K
+Küstenstaaten	Lamaran	Maralinga	KS
+Küstenstaaten	Lamaran	Neu-Vallinga	KS
+Medjis	Sirao	Medjisisch	\N
+Minangpahit	Sirao	Minangpahitisch	M
+Moravod	Sirao	Moravisch	\N
+Nahuatlan	Huaxal	Nahuatlanisch	N
+Rawindra	Sirao	Rawindi	R
+Tegarische Steppe	Sirao	Berekusch	\N
+Tegarische Steppe	Sirao	Läinisch	\N
+Tegarische Steppe	Sirao	Tegarisch	\N
+Urruti	Lamaran	Hurritisch	\N
+Urruti	Lamaran	Luwisch	\N
+Valian	Valian	Maralinga	\N
+Valian	Valian	Vallinga	\N
+Vesternesse	Vesternesse	Comentang	\N
+Waeland	Sirao	Waelska	W
+Ywerddon	Vesternesse	Erainnisch	\N
+Ywerddon	Vesternesse	Twyneddisch	\N
 \.
-
-
 --
--- TOC entry 3 (OID 27654)
 --
 
 CREATE INDEX land_land ON land USING btree (land);
 
 
 --
--- TOC entry 4 (OID 27612)
 --
 
 ALTER TABLE ONLY land

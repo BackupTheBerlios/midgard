@@ -8,7 +8,6 @@ ALTER TABLE ONLY public.waffen_grund_typen DROP CONSTRAINT waffen_grund_typen_pk
 DROP INDEX public.waffen_grund_typen_name_typ;
 DROP TABLE public.waffen_grund_typen;
 --
--- TOC entry 2 (OID 38433)
 --
 
 CREATE TABLE waffen_grund_typen (
@@ -19,7 +18,6 @@ CREATE TABLE waffen_grund_typen (
 
 
 --
--- Data for TOC entry 5 (OID 38433)
 --
 
 COPY waffen_grund_typen (name, typ, standard) FROM stdin;
@@ -1612,17 +1610,13 @@ Zweihandschwert	gHx	A
 Zweihandschwert	sHx	A
 Zweihandschwert	wHx	A
 \.
-
-
 --
--- TOC entry 3 (OID 40036)
 --
 
 CREATE UNIQUE INDEX waffen_grund_typen_name_typ ON waffen_grund_typen USING btree (name, typ);
 
 
 --
--- TOC entry 4 (OID 38438)
 --
 
 ALTER TABLE ONLY waffen_grund_typen

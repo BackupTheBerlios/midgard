@@ -8,7 +8,6 @@ ALTER TABLE ONLY public.steigern_fertigkeiten_mit DROP CONSTRAINT steigern_ferti
 DROP INDEX public.steigern_fertigkeiten_mit_name;
 DROP TABLE public.steigern_fertigkeiten_mit;
 --
--- TOC entry 2 (OID 30819)
 --
 
 CREATE TABLE steigern_fertigkeiten_mit (
@@ -18,7 +17,6 @@ CREATE TABLE steigern_fertigkeiten_mit (
 
 
 --
--- Data for TOC entry 5 (OID 30819)
 --
 
 COPY steigern_fertigkeiten_mit (name, ep) FROM stdin;
@@ -127,17 +125,13 @@ Zeichensprache	ZEP
 Überleben in der Steppe	ZEP
 Überleben in der Wüste	ZEP
 \.
-
-
 --
--- TOC entry 3 (OID 32688)
 --
 
 CREATE INDEX steigern_fertigkeiten_mit_name ON steigern_fertigkeiten_mit USING btree (name);
 
 
 --
--- TOC entry 4 (OID 31022)
 --
 
 ALTER TABLE ONLY steigern_fertigkeiten_mit

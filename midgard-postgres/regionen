@@ -7,7 +7,6 @@ SET search_path = public, pg_catalog;
 ALTER TABLE ONLY public.regionen DROP CONSTRAINT regionen_pkey;
 DROP TABLE public.regionen;
 --
--- TOC entry 2 (OID 30430)
 --
 
 CREATE TABLE regionen (
@@ -27,7 +26,6 @@ CREATE TABLE regionen (
 
 
 --
--- Data for TOC entry 4 (OID 30430)
 --
 
 COPY regionen (nr, name, titel, abkuerzung, file, url, maintainer, "version", copyright, offiziell, pic, jahr) FROM stdin;
@@ -50,10 +48,7 @@ COPY regionen (nr, name, titel, abkuerzung, file, url, maintainer, "version", co
 8	Rawindra	Rawindra - Im Bann der Todesechsen	R	\N	\N	Malte Thoma	1.0	Ludger Fischer und Thomas Kreutz	t	1	\N
 9	Waeland	Waeland - Die Krieger des Nordens	W	\N	\N	Malte Thoma	1.0	Olaf Möhle, Stephanie Lammers u.a.	t	7	1991-1997
 \.
-
-
 --
--- TOC entry 3 (OID 30436)
 --
 
 ALTER TABLE ONLY regionen
