@@ -1,4 +1,4 @@
-// $Id: embed.cc,v 1.5 2003/05/08 07:06:06 christof Exp $
+// $Id: embed.cc,v 1.6 2003/05/08 09:22:15 christof Exp $
 
 #define MAKE_PNG
 
@@ -7,6 +7,7 @@
 #include <string>
 #include <fstream>
 #include <map>
+#include <sys/stat.h>
 
 static std::string path="../pixmaps/";
 
