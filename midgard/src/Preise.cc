@@ -119,32 +119,33 @@ cH_PreiseNewMod::cH_PreiseNewMod(const std::string& name, bool create)
   cerr << "PreiseNewMod '" << name << "' nicht im Cache\n";
   if (create)
   {  
-/*
      static Tag t2("Spruch");
      // note that this Tag is shared ... works well for now
      t2.setAttr("Name",name);
-     t2.setAttr("Grad","?"); 
-     t2.setAttr("Typ","?");  
-     t2.setAttr("Ursprung","?");
-     t2.setAttr("Zauberdauer","?");
-     t2.setAttr("Wirkungsziel","?");
-     t2.setAttr("Wirkungsbereich","?");
-     // Wirkungsdauer, Reichweite ???  
-     *this=cH_Zauber(&t2);
-*/
+     *this=cH_PreiseNewMod(&t2);
   }
   else throw NotFound();
   }
 }
 
 
-
 void PreiseNewMod::getPNM()
 {
   name=tag->getAttr("Name");
-  FOR_EACH_CONST_TAG_OF(i,*tag,"Art")
-     VS.push_back(st_preismod(i->getAttr("Spezifikation"),
-                              i->getFloatAttr("PreisFaktor")));
+cout << "getNewPNM: "<<name<<'\n';
+  FOR_EACH_CONST_TAG_OF(i,*tag,"Variante")
+{
+    std::string variante=i->getAttr("Name");
+cout << "\tVarante: "<<i->getAttr("Name")<<'\n';
+     FOR_EACH_CONST_TAG_OF(j,*i,variante)
+{
+cout << i->getAttr("Name")<<'\t'<<j->getAttr("Spezifikation")
+<<'  '<<j->getFloatAttr("PreisFaktor")<<'\n';
+
+       VS[variante].push_back(st_preismod(j->getAttr("Spezifikation"),
+                                 j->getFloatAttr("PreisFaktor")));
+}
+}
 }
 
 PreiseNewMod_All::PreiseNewMod_All()
@@ -153,7 +154,7 @@ PreiseNewMod_All::PreiseNewMod_All()
   if(P)
    {
      Tag::const_iterator b=P->begin(),e=P->end();
-     FOR_EACH_CONST_TAG_OF_5(i,*P,b,e,"PreiseModifikation")
+     FOR_EACH_CONST_TAG_OF_5(i,*P,b,e,"Art")
        list_All.push_back(cH_PreiseNewMod(&*i));
    } 
 }

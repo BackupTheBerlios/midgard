@@ -15566,8 +15566,8 @@ KS
 		<last_modification_time>Wed, 02 Oct 2002 19:29:10 GMT</last_modification_time>
 	      </signal>
 	      <creation_function>SimpleTree</creation_function>
-	      <int1>5</int1>
-	      <int2>5</int2>
+	      <int1>6</int1>
+	      <int2>6</int2>
 	      <last_modification_time>Wed, 02 Oct 2002 16:39:25 GMT</last_modification_time>
 	      <child>
 		<left_attach>1</left_attach>

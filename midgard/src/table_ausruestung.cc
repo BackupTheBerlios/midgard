@@ -60,41 +60,6 @@ public:
  cH_Data_Preis(Data_Preis *r) : Handle<const Data_Preis>(r) {}
 };
 
-class Data_NewPreis : public RowDataBase
-{
-      cH_Preise ware;
-      double kosten;
-      std::string spezifikation;
-  public:
-     Data_NewPreis(const cH_Preise P) : ware(P),kosten(P->Kosten()) {}
-     Data_NewPreis(const cH_Preise P,std::string s,double k) 
-         : ware(P),kosten(k),spezifikation(s) {}
-      
-     enum spalten {ART,ART2,NAME,EIGENSCHAFT,GEWICHT,KOSTEN};
-     
-     virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const 
-      {
-        switch(spalten(seqnr)) {
-           case ART: return cH_EntryValueIntString(ware->Art());
-           case ART2: return cH_EntryValueIntString(ware->Art2());
-           case NAME: return cH_EntryValueIntString(ware->Name());
-           case GEWICHT: return cH_EntryValueIntString(ware->Gewicht());
-           case EIGENSCHAFT: return cH_EntryValueIntString(spezifikation);
-           case KOSTEN: return cH_EntryValueIntString(dtos(kosten)+" "+ware->Einheit());
-         }
-        return cH_EntryValueIntString();
-      }
-   cH_Preise Ware() const {return ware;}
-   double Kosten() const {return kosten;}
-//   std::string Spezifikation() const {return spezifikation;}
-
-};
-class cH_Data_NewPreis : public Handle<const Data_NewPreis>
-{
-public:
- cH_Data_NewPreis(Data_NewPreis *r) : Handle<const Data_NewPreis>(r) {}
-};
-
 
 
 void table_ausruestung::init(midgard_CG *h)
@@ -118,15 +83,8 @@ void table_ausruestung::set_tree_titles()
  preis.push_back("Eigenschaft");
  preis.push_back("Kostenfaktor");
  preise_tree->setTitles(preis);
+}
 
- std::vector<string> preis_;
- preis_.push_back("Art");
- preis_.push_back("");
- preis_.push_back("Kategorie");
- preis_.push_back("Eigenschaft");
- preis_.push_back("Kostenfaktor");
- preise_tree_neu->setTitles(preis_);
-} 
 
    
 
@@ -527,31 +485,3 @@ gint table_ausruestung::on_button_ausruestung_druck_release_event(GdkEventButton
 }
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
-
-void table_ausruestung::fill_new_preise()
-{
-/*
-  std::vector<cH_RowDataBase> datavec;
-  for(std::list<cH_Preise>::const_iterator i=hauptfenster->getDatabase().preise.begin();i!=hauptfenster->getDatabase().preise.end();++i)
-   {
-     double preis=(*i)->Kosten();
-     std::vector<PreiseNewMod::st_preismod> VM=cH_PreiseNewMod((*i)->Art())->VSpezifikation();
-     for(std::vector<PreiseNewMod::st_preismod>::const_iterator j=VM.begin();j!=VM.end();++j)     
-      {
-        preis *= j->preis_faktor;        
-        datavec.push_back(new Data_NewPreis(*i,j->spezifikation,preis));
-      }
-     if(VM.empty()) datavec.push_back(new Data_NewPreis(*i));
-   }
-*/
-//  preise_tree_neu->setDataVec(datavec);
-}
-
-
-void table_ausruestung::on_preise_tree_neu_leaf_selected(cH_RowDataBase d)
-{
-  const Data_NewPreis *dt=dynamic_cast<const Data_NewPreis*>(&*d);
-
-cout << dt->Ware()->Name()<<'\t'<<dt->Ware()->Kosten()<<'\t'<<dt->Kosten()<<'\n';  
-
-}

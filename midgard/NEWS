@@ -4,7 +4,11 @@ NEWS IN VERSION 0.8.6
 * Nur noch ein(!) Progressbar beim Laden der Datenbank
 - xml laden beschleunigen (merge with map, reservate on vectors)
 * Hilfe Menü
-* Zufallsgenerator: Steigern Oberfläche überarbeitet
+* Zufallsgenerator: Steigern Oberfläche überarbeitet, 
+   Einstellungen bleiben erhalten
+* Neuimpelmentation der Preis-Modifikatoren in der Datenbank und der 
+   entsprechenden Klasse   
+
 
 TODO: ('-' zeigt CP an)
 

@@ -1,4 +1,4 @@
-// $Id: Preise.hh,v 1.18 2002/10/04 06:20:12 thoma Exp $
+// $Id: Preise.hh,v 1.19 2002/10/04 20:26:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -99,22 +99,25 @@ class PreiseNewMod :  public HandleContent
 {
    public: 
       struct st_preismod{std::string spezifikation; double preis_faktor;
+             st_preismod() : preis_faktor(1) {};
              st_preismod(std::string s,double p) 
                   :spezifikation(s),preis_faktor(p) {} };
 
    private:
       const Tag *tag;
-      std::string name; // Farbe | Stand | Material | ...
+      std::string name;  // Kleidung, Waffen, ...
+
+      // Farbe | Stand | Material | ...
       
 
-      std::vector<st_preismod> VS;  
+      std::map<std::string,std::vector<st_preismod> > VS;  
    public:
       PreiseNewMod(const Tag *_tag) : tag(_tag) { getPNM(); }
       
       void getPNM();
       
       std::string Name() const {return name;}
-      const std::vector<st_preismod> &VSpezifikation() const {return VS; }
+      const std::map<std::string,std::vector<st_preismod> > &VSpezifikation() const {return VS; }
                
 };
 

@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.52 2002/10/04 06:20:13 thoma Exp $
+// $Id: land_sprache_exp.cc,v 1.53 2002/10/04 20:26:19 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -302,17 +302,24 @@ void land_speichern(Tag &o)
       fetch_and_set_string_attrib(is, Dinge, "Währung");
     }
    Tag &PreiseM=o.push_back(Tag("PreiseNeuMod"));
-   Query query2("select modi_art from preise_mod order by modi_art");
+   Query query2("select distinct art1 from preise_mod order by art1");
    while ((query2>>is).good())
-    { Tag &Mod=PreiseM.push_back(Tag("PreiseModifikation"));
-      std::string pm=fetch_and_set_string_attrib(is, Mod, "Name");
-      Query q2("select spezifikation,preis_faktor from preise_mod_spez "
-               " where modi_art='"+pm+"' order by spezifikation");
+    { Tag &TArt=PreiseM.push_back(Tag("Art"));
+      std::string pm=fetch_and_set_string_attrib(is, TArt, "Name");
+      Query q("select modi_art from preise_mod where art1='"+pm+"' order by modi_art");
       FetchIStream is;
-      while ((q2>>is).good())
-       { Tag &A=Mod.push_back(Tag("Art"));
-         fetch_and_set_string_attrib(is,A,"Spezifikation");
-         fetch_and_set_string_attrib(is,A,"PreisFaktor");
+      while ((q>>is).good())
+       {
+         Tag &A=TArt.push_back(Tag("Variante"));
+         std::string ma=fetch_and_set_string_attrib(is,A,"Name");
+         Query q2("select spezifikation,preis_faktor from preise_mod_spez "
+               " where modi_art='"+ma+"' order by spezifikation");
+         FetchIStream is2;
+         while ((q2>>is2).good())
+          { Tag &A2=A.push_back(Tag(ma));
+            fetch_and_set_string_attrib(is2,A2,"Spezifikation");
+            fetch_and_set_string_attrib(is2,A2,"PreisFaktor");
+          }
        }
     }
   }

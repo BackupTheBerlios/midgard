@@ -45,6 +45,14 @@ class table_ausruestung : public table_ausruestung_glade
         midgard_CG *hauptfenster;
 //        AusruestungBaum besitz;
         Gtk::CTree *Ausruestung_tree;
+
+   public:
+        enum e_spalten{None,Farbe,Material,Stand};
+   private:
+        void fill_new_tree_titles(const std::map<e_spalten,std::string> &VSpalten);
+        pair<e_spalten,std::string> enum_from_string(const std::string &s);
+//        std::map<e_spalten,
+
         struct st_modimap_index{std::string art;std::string art2;std::string typ;
             st_modimap_index(std::string a,std::string a2,std::string t)
                 :art(a),art2(a2),typ(t) {}
