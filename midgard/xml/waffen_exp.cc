@@ -1,4 +1,4 @@
-// $Id: waffen_exp.cc,v 1.1 2001/12/19 14:12:06 christof Exp $
+// $Id: waffen_exp.cc,v 1.2 2001/12/19 14:14:54 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -20,12 +20,8 @@
 #include <fstream>
 #include <Aux/Transaction.h>
 #include <Aux/dbconnect.h>
-exec sql include sqlca;
 #include "export_common.h"
 #include <Aux/itos.h>
-
-// wegen eines bugs in epcg <=V6.1
-#define GARNIX 
 
 void waffen_speichern(std::ostream &o)
 {  
