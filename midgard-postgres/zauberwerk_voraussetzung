@@ -55,7 +55,6 @@ Dämonenamulett verzaubern	Silberne Bannsphäre	\N
 Elementaramulett verzaubern	Silberne Bannsphäre	\N
 Geisteramulett verzaubern	Silberne Bannsphäre	\N
 Schildamulett verzaubern	Silberne Bannsphäre	or
-Schildamulett verzaubern   Flammenkreis	or	\N
 Schutzamulett verzaubern	Geistesschild	or
 Schutzamulett verzaubern	Schwarze Zone	or
 Schutzamulett verzaubern	Zweite Haut	or
@@ -73,6 +72,7 @@ Waffen verzaubern (4)	Binden	and
 Waffen verzaubern (4)	Zauberschmiede	\N
 Waffen verzaubern (6)	Binden	and
 Waffen verzaubern (6)	Zauberschmiede	\N
+Schildamulett verzaubern	Flammenkreis	or
 \.
 --
 -- TOC Entry ID 3 (OID 9072725)

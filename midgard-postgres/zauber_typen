@@ -4,7 +4,7 @@
 DROP INDEX "zauber_typen_name_typ";
 DROP TABLE "zauber_typen";
 --
--- TOC Entry ID 2 (OID 26621797)
+-- TOC Entry ID 2 (OID 26633774)
 --
 -- Name: zauber_typen Type: TABLE Owner: thoma
 --
@@ -16,7 +16,7 @@ CREATE TABLE "zauber_typen" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 26621797) TABLE DATA zauber_typen
+-- Data for TOC Entry ID 4 (OID 26633774) TABLE DATA zauber_typen
 --
 
 COPY "zauber_typen"  FROM stdin;
@@ -7894,7 +7894,7 @@ Bannen von Vindfolk	eBe	A
 Bannen von Vindskin	eBe	A
 \.
 --
--- TOC Entry ID 3 (OID 26621797)
+-- TOC Entry ID 3 (OID 26633774)
 --
 -- Name: "zauber_typen_name_typ" Type: INDEX Owner: thoma
 --
