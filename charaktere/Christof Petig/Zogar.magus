@@ -1,76 +1,90 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<Midgard-Charakter Version="7">
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
   <Figur Name="Zogar" Spieler="Christof Petig" Zeitpunkt="Schriftzeichen" Grad="5"/>
-  <Typ Spezies="Zwerg" Geschlecht="m" Abkürzung="Kr" Spezialisierung="Kriegshammer"/>
-  <Basiseigenschaften St="87" Ge="85" Ko="98" In="60" Zt="92"/>
-  <abgeleiteteEigenschaften Au="48" pA="39" Sb="42" RW="85" HGW="85" B="18"/>
-  <Erfolgswerte Abwehr="13"/>
-  <Resistenzen Zauber="12"/>
+  <Typ Spezies="Zwerg" Geschlecht="m" Abkürzung="Kr" Spezialisierung="Kriegshammer" Überleben="Überleben im Gebirge" Muttersprache="Dvarskar" Stadt_Land="Land" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="87" Gw="85" Gs="85" Ko="98" In="60" Zt="92"/>
+  <abgeleiteteEigenschaften Au="48" pA="39" Wk="80" Sb="42" B="18"/>
+  <Erfolgswerte Abwehr="13" Zaubern="2" ZauberResistenz="12"/>
   <Gesundheit LP="16" AP="37"/>
-  <Beschreibung Alter="42" Gestalt="breit" Größe="138" Stand="Adel" Herkunft="Corrammassiv" Glaube="(Krieg)"/>
-  <Boni Ausdauer="6" Schaden="2" Abwehr="1" Zaubern="2">
-    <Resistenzen psy="4" phs="4" Gift="20"/>
-  </Boni>
-  <GFP>3928</GFP>
+  <Beschreibung Alter="42" Gestalt="breit" Gewicht="80" Größe="138" Stand="Adel" Herkunft="Corrammassiv" Glaube="(Krieg)"/>
   <Vermögen/>
-  <Steigern Basiswerte="0"/>
+  <Steigern GFP="3928">
+   <Praxispunkte/>
+  </Steigern>
+  <Text/>
   <Ausrüstung>
-    <Rüstung>KR</Rüstung>
-    <Waffe Bezeichnung="Dolch"/>
-    <Waffe Bezeichnung="Kriegshammer" AngriffVerteidigung_Bonus="3" SchadenLebenspunkte_Bonus="3">Gurthrauk</Waffe>
-    <Waffe Bezeichnung="Langschwert">Lothruin</Waffe>
-    <Waffe Bezeichnung="Morgenstern"/>
-    <Waffe Bezeichnung="großer Schild"/>
+   <Rüstung>KR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="0" Bezeichnung="Dolch"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Kriegshammer" AngriffVerteidigung_Bonus="3" SchadenLebenspunkte_Bonus="3">Gurthrauk</Waffe>
+   <Waffe Erfolgswert="0" Bezeichnung="Langschwert">Lothruin</Waffe>
+   <Waffe Erfolgswert="0" Bezeichnung="Morgenstern"/>
+   <Waffe Erfolgswert="0" Bezeichnung="großer Schild"/>
   </Ausrüstung>
   <Fertigkeiten>
-    <Beruf Bezeichnung="Bergmann" Wert="7"/>
-    <Beruf Bezeichnung="Waffenschmied" Wert="12"/>
-    <Fertigkeit Bezeichnung="Beidhändiger Kampf" Wert="-4"/>
-    <Fertigkeit Bezeichnung="Fallen" Wert="12"/>
-    <Fertigkeit Bezeichnung="Faustkampf"/>
-    <Fertigkeit Bezeichnung="Geländelauf" Wert="12"/>
-    <Fertigkeit Bezeichnung="Kampf in Vollrüstung"/>
-    <Fertigkeit Bezeichnung="Kampf vom Streitwagen"/>
-    <Fertigkeit Bezeichnung="Klettern" Wert="14"/>
-    <Fertigkeit Bezeichnung="Laufen" Wert="2"/>
-    <Fertigkeit Bezeichnung="Reiten" Wert="12"/>
-    <Fertigkeit Bezeichnung="Sagenkunde" Wert="6"/>
-    <Fertigkeit Bezeichnung="Springen" Wert="12"/>
-    <Fertigkeit Bezeichnung="Streitwagen lenken" Wert="16"/>
-    <Fertigkeit Bezeichnung="Wagenlenken" Wert="16"/>
-    <Grundkenntnis Bezeichnung="Bögen"/>
-    <Grundkenntnis Bezeichnung="ESchlagwaffe"/>
-    <Grundkenntnis Bezeichnung="ESchwert"/>
-    <Grundkenntnis Bezeichnung="Kettenwaffe"/>
-    <Grundkenntnis Bezeichnung="Schilde"/>
-    <Grundkenntnis Bezeichnung="Stangenwaffe"/>
-    <Grundkenntnis Bezeichnung="Stichwaffe"/>
-    <Grundkenntnis Bezeichnung="WSchlagwaffe"/>
-    <Grundkenntnis Bezeichnung="ZSchlagwaffe"/>
-    <Grundkenntnis Bezeichnung="waffenloser Kampf"/>
-    <Region Region="ORIG"/>
-    <Region Region="BR"/>
-    <Sprache Bezeichnung="Albisch" Wert="4"/>
-    <Sprache Bezeichnung="Dunathisch" Wert="2"/>
-    <Sprache Bezeichnung="Dvarskar" Wert="4"/>
-    <Sprache Bezeichnung="Eldalyn" Wert="2"/>
-    <Sprache Bezeichnung="Erainnisch" Wert="4"/>
-    <Sprache Bezeichnung="Hurritisch" Wert="2"/>
-    <Sprache Bezeichnung="Waelska" Wert="2"/>
-    <Urschrift Bezeichnung="Dvarskar"/>
-    <Urschrift Bezeichnung="Seemeister"/>
-    <Waffe Bezeichnung="Dolch" Wert="9"/>
-    <Waffe Bezeichnung="Handaxt" Wert="5"/>
-    <Waffe Bezeichnung="Kriegshammer" Wert="14"/>
-    <Waffe Bezeichnung="Langschwert" Wert="5"/>
-    <Waffe Bezeichnung="Morgenstern" Wert="7"/>
-    <Waffe Bezeichnung="Schlachtbeil" Wert="5"/>
-    <Waffe Bezeichnung="Stielhammer" Wert="5"/>
-    <Waffe Bezeichnung="Streitaxt" Wert="5"/>
-    <Waffe Bezeichnung="Wurfaxt" Wert="5"/>
-    <Waffe Bezeichnung="großer Schild" Wert="4"/>
-    <Waffe Bezeichnung="waffenloser Kampf" Wert="9"/>
-    <ang.Fertigkeit Bezeichnung="Nachtsicht"/>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
+   <Beruf Bezeichnung="Bergmann" Wert="7"/>
+   <Beruf Bezeichnung="Waffenschmied" Wert="12"/>
+   <ang-Fertigkeit Bezeichnung="Nachtsicht" Wert="8"/>
+   <ang-Fertigkeit Bezeichnung="Gute Reflexe" Wert="9"/>
+   <Fertigkeit Bezeichnung="Beidhändiger Kampf" Wert="3"/>
+   <Fertigkeit Bezeichnung="Baukunde" Wert="4"/>
+   <Fertigkeit Bezeichnung="Schätzen" Wert="10"/>
+   <Fertigkeit Bezeichnung="Fallen" Wert="12"/>
+   <Fertigkeit Bezeichnung="Faustkampf" Wert="9"/>
+   <Fertigkeit Bezeichnung="Geländelauf" Wert="12"/>
+   <Fertigkeit Bezeichnung="Kampf in Vollrüstung" Wert="10"/>
+   <Fertigkeit Bezeichnung="Kampf vom Streitwagen" Wert="10"/>
+   <Fertigkeit Bezeichnung="Klettern" Wert="14"/>
+   <Fertigkeit Bezeichnung="Laufen" Wert="2"/>
+   <Fertigkeit Bezeichnung="Reiten" Wert="12"/>
+   <Fertigkeit Bezeichnung="Sagenkunde" Wert="6"/>
+   <Fertigkeit Bezeichnung="Springen" Wert="12"/>
+   <Fertigkeit Bezeichnung="Streitwagen lenken" Wert="16"/>
+   <Fertigkeit Bezeichnung="Wagenlenken" Wert="16"/>
+   <Waffe Bezeichnung="Dolch" Wert="9"/>
+   <Waffe Bezeichnung="Handaxt" Wert="5"/>
+   <Waffe Bezeichnung="Kriegshammer" Wert="14"/>
+   <Waffe Bezeichnung="Langschwert" Wert="5"/>
+   <Waffe Bezeichnung="Morgenstern" Wert="7"/>
+   <Waffe Bezeichnung="Schlachtbeil" Wert="5"/>
+   <Waffe Bezeichnung="Stielhammer" Wert="5"/>
+   <Waffe Bezeichnung="Streitaxt" Wert="5"/>
+   <Waffe Bezeichnung="Wurfaxt" Wert="5"/>
+   <Waffe Bezeichnung="großer Schild" Wert="2"/>
+   <Waffe Bezeichnung="waffenloser Kampf" Wert="9"/>
+   <Grundkenntnis Bezeichnung="Bögen"/>
+   <Grundkenntnis Bezeichnung="Einhandschlagwaffe"/>
+   <Grundkenntnis Bezeichnung="Einhandschwert"/>
+   <Grundkenntnis Bezeichnung="Kettenwaffe"/>
+   <Grundkenntnis Bezeichnung="Schild"/>
+   <Grundkenntnis Bezeichnung="Stangenwaffe"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Grundkenntnis Bezeichnung="Stielwurfwaffe"/>
+   <Grundkenntnis Bezeichnung="Zweihandschlagwaffe"/>
+   <Grundkenntnis Bezeichnung="waffenloser Kampf"/>
+   <Sprache Bezeichnung="Albisch" Wert="13"/>
+   <Sprache Bezeichnung="Twynnedisch" Wert="6"/>
+   <Sprache Bezeichnung="Dvarskar" Wert="18"/>
+   <Sprache Bezeichnung="Eldalyn" Wert="6"/>
+   <Sprache Bezeichnung="Erainnisch" Wert="13"/>
+   <Sprache Bezeichnung="Nuhuatlanisch" Wert="6"/>
+   <Sprache Bezeichnung="Waelska" Wert="6"/>
+   <Urschrift Bezeichnung="Dvarskar" Wert="12"/>
+   <Urschrift Bezeichnung="Albisch" Wert="12"/>
   </Fertigkeiten>
-</Midgard-Charakter>
+  <Optionen>
+   <CheckOptions Name="Originalregeln" Wert="false"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="true"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="true"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>
