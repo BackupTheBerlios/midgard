@@ -35,6 +35,12 @@ bool Wizard::can_skip(const Abenteurer &A)
          return A.Sb()>1 || A.Au()>1 || A.pA()>1;
       case HERKUNFT:
          return !!A.Herkunft();
+      case KIDO_STIL:
+#warning KiDo fehlt noch      
+	 { // KiDo_Stile kido_stil;
+	   // if(kido_stil.ist_gelernt(A.Spezialisierung())) return true;
+	 }
+         return false;
 #warning ...
       default:
          return false;

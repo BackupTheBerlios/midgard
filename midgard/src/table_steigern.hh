@@ -127,6 +127,7 @@ private:
         void show_neue_waffen();
         void show_alte_waffen();
 
+	void refresh();
 
          // Ab hier die automatischen Methoden von glade erzeugt
 private:

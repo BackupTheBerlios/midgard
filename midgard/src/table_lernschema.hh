@@ -92,14 +92,6 @@ private:
        void InfoFensterAusruestung(const std::string &fert_name,
                         const std::string &gegen_name,int wurf,int noetig);
        
-public:
-        
-        table_lernschema(GlademmData *_data) 
-          : table_lernschema_glade(_data), hauptfenster(),
-          tree_lernschema(),Beruf_tree(),tree_angeb_fert(),tree_kido_lernschema(),
-            tree_waffen_lernschema() {}
-        void init(midgard_CG *hauptfenster);
-
       // Ab hier die automatischen Methoden von glade erzeugt
 private:
         void on_combo_kido_stil_activate();
@@ -148,5 +140,11 @@ private:
         bool on_eventbox_zusatz_leave_notify_event(GdkEventCrossing *ev);
         void on_combo_magier_changed();
         void on_combo_kido_stil_changed();
+
+        void refresh();
+	void wizard_changed(gpointer);
+public:
+        table_lernschema(GlademmData *_data);
+        void init(midgard_CG *hauptfenster);
 };
 #endif

@@ -13,20 +13,54 @@
 #include <libmagus/Random.hh>
 #include <libmagus/Ausgabe.hh>
 
+void table_lernschema::refresh()
+{
+  show_gelerntes();
+  zeige_werte();
+}
+
+void table_lernschema::wizard_changed(gpointer p)
+{ if (vabenteurer.proxies.wizard.Value()!=Wizard::BERUF1
+	&& !vabenteurer.proxies.wizard_mode.Value()>Wizard::hints)
+     vbox_berufsname->hide();
+  else 
+  {  if (vabenteurer.proxies.werte_eingeben.Value())
+        vbox_berufsname->show();
+     else 
+        button_beruf->grep_focus();
+  }
+  
+  if (vabenteurer.proxies.wizard.Value()!=Wizard::KIDO_STIL
+          && !vabenteurer.proxies.wizard_mode.Value()>Wizard::hints)
+     button_kido_auswahl->set_sensitive(false);
+  else 
+     button_kido_auswahl->set_sensitive(true);
+
+  if (vabenteurer.proxies.wizard.Value()!=Wizard::ANGEBORENEFERTIGKEITEN 
+          && !vabenteurer.proxies.wizard_mode.Value()>Wizard::hints)
+     button_angeborene_fert->set_sensitive(false);
+  else 
+     button_angeborene_fert->set_sensitive(true);
+}
+
 void table_lernschema::init(midgard_CG *h)
 {
   hauptfenster=h;
   vabenteurer=&h->getChar();
-  vabenteurer->getLernpunkte().MaxKido()=0;
-  gwr_auswahl=ENone;
-  show_gelerntes();
-  zeige_werte();
-  
-  vbox_berufsname->hide();
-  button_kido_auswahl->set_sensitive(false);
-  button_angeborene_fert->set_sensitive(false);
+//  vabenteurer->getLernpunkte().MaxKido()=0;
+//  gwr_auswahl=ENone;
+  vabenteurer.proxies.undo_changed.connect(SigC::slot(*this,&table_lernschema::refresh));
+  vabenteurer.proxies.wizard.signal_changed().connect(SigC::slot(*this,&table_lernschema::wizard_changed));
 }
 
+table_lernschema::table_lernschema(GlademmData *_data)
+          : table_lernschema_glade(_data), hauptfenster(),
+            gwr_auswahl(ENone),
+            tree_lernschema(),Beruf_tree(),tree_angeb_fert(),
+            tree_kido_lernschema(),
+            tree_waffen_lernschema()
+{
+}
 
 void table_lernschema::on_button_waffe_trans_clicked()
 {  

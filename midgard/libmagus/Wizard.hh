@@ -21,6 +21,7 @@ private:
 public:
     // mimic a model
     operator Model_ref<esteps>() { return act_step; }
+    operator Model_ref<mode>() { return act_mode; }
     esteps Value() const { return act_step; }
     operator esteps() { return act_step; }
     bool matches(const void *gp) const { return act_step.matches(gp); }

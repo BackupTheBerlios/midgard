@@ -76,6 +76,7 @@ public:
         void init(midgard_CG *hauptfenster);
 
 private:
+	void refresh();
         void ausruestung_laden();
         void showAusruestung();
         void showChildren(Gtk::TreeModel::Children r,const std::list<AusruestungBaum> &AB);

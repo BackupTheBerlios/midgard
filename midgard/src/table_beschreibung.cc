@@ -8,7 +8,7 @@
 void table_beschreibung::init(midgard_CG *h)
 {
   hauptfenster=h;
-  show_beschreibung();
+#warning connect -> show_beschreibung()
 }
 
 void table_beschreibung::save_beschreibung()

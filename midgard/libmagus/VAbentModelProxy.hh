@@ -1,4 +1,4 @@
-// $Id: VAbentModelProxy.hh,v 1.4 2003/11/28 07:52:20 christof Exp $               
+// $Id: VAbentModelProxy.hh,v 1.5 2003/12/01 07:52:36 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2003 Christof Petig
  *
@@ -45,6 +45,7 @@ struct VAbentModelProxy
    haus_t hausregeln;
    
    ModelPlex<Wizard::esteps> wizard;
+   ModelPlex<Wizard::mode> wizard_mode;
    ModelPlex<bool> werte_eingeben;
    SignalPlex1<SigC::Signal0<void> > undo_changed;
    SignalPlex1<SigC::Signal0<void> > undo_list_changed;

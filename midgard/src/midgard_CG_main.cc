@@ -88,44 +88,6 @@ std::cout << "get_float_window()\t"; show_window(W3);
   menu_kontext->popup(2,0); // Gdk::CURRENT_TIME);
 }
  
-
-
-void midgard_CG::load_for_mainpage(guint pagenr)
-{
- if(pagenr==PAGE_GRUNDWERTE)
-  {
-    table_grundwerte->init(this);
-  }
- else if(pagenr==PAGE_LERNEN)
-  {getChar().getWizard().done(Wizard::LERNSCHEMA_SEITE,getAben());
-   table_lernschema->init(this);
-  }
- else if(pagenr==PAGE_STEIGERN)
-  {
-    table_steigern->init(this);
-  }
- else if(pagenr==PAGE_BESCHREIBUNG)
-   {
-     table_beschreibung->init(this);
-   }
- else if(pagenr==PAGE_AUSRUESTUNG)
-    table_ausruestung->init(this);
- else if(pagenr==PAGE_OPTIONEN)
-   {
-//     table_optionen->set_values();
-   }
- else if(pagenr==PAGE_NEWS)
-   {
-//    show_undo_tree();
-    fill_AbenteurerListe();
-   }
- else if(pagenr==PAGE_ZUFALL)
-   {
-     table_zufall->init(this);
-   }
-}
-
-
 void midgard_CG::menu_geschichte_selected()
 {
  notebook_main->set_current_page(PAGE_NEWS);
@@ -156,7 +118,9 @@ void midgard_CG::on_news_menu_activate()
 void midgard_CG::on_notebook_main_switch_page(GtkNotebookPage *page,guint pagenr)
 {
 //   if(Char.empty()) Char.push_back();
-   load_for_mainpage(pagenr);
+ if(pagenr==PAGE_LERNEN)
+  {getChar().getWizard().done(Wizard::LERNSCHEMA_SEITE,getAben());
+  }
 }
 
 
@@ -188,10 +152,10 @@ void midgard_CG::on_schliessen_CG_clicked()
   if(access(filename.c_str(),W_OK)) 
       filename=magus_paths::MagusVerzeichnis()+"magus_optionen.xml";
 
-  Programmoptionen.save_options(filename);
+#warning TODO: alle gespeicherten schließen, wechseln
   if(AbenteurerAuswahl::Chars.unsaved_exist())
    {
-     notebook_main->set_current_page(PAGE_NEWS);
+//     notebook_main->set_current_page(PAGE_NEWS);
      Ausgabe(Ausgabe::Warning,"Es existieren nichtgespeicherte Abenteurer");
      MagusDialog d(this);
      d.set_text("Es existieren nichtgespeicherte Abenteurer,\n soll das Programm trotzdem beendet werden?");

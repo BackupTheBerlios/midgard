@@ -1,4 +1,4 @@
-// $Id: midgard_CG_AbenteurerListe.cc,v 1.13 2003/11/28 07:52:20 christof Exp $
+// $Id: midgard_CG_AbenteurerListe.cc,v 1.14 2003/12/01 07:52:37 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -17,6 +17,7 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#if 0
 #include "midgard_CG.hh"
 #include "class_AbenteurerListe.hh"
 #include <algorithm>
@@ -75,3 +76,4 @@ void midgard_CG::set_AbenteurerListe_Title()
  vs.push_back("Version");
  AbenteurerListe->setTitles(vs);
 }
+#endif

@@ -30,7 +30,10 @@ void table_ausruestung::init(midgard_CG *h)
 {
    besitz=0;
    hauptfenster=h;
-   zeige_werte();
+}
+
+void table_ausruestung::refresh()
+{  zeige_werte();
    ausruestung_laden();
    table_gruppe->hide();
    table_artikel->hide();      
