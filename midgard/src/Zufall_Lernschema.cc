@@ -41,9 +41,18 @@ void Zufall::Lernschema()
 void Zufall::setSpezialwaffe()
 {
   if (!Aben->Typ1()->Spezialwaffe() && !Aben->Typ2()->Spezialwaffe()) return;
-  
-//  Aben->getWerte().setSpezialisierung("");      
-//  Waffe::setSpezialWaffe(Aben->getWerte().Spezialisierung(),Aben->List_Waffen());
+  std::list<MidgardBasicElement_mutable> L=Aben->List_Waffen();
+  std::vector<MidgardBasicElement_mutable> V;
+  for(std::list<MidgardBasicElement_mutable>::const_iterator i=L.begin();i!=L.end();++i)
+   {
+     if(cH_Waffe(*i)->Verteidigung()) continue;
+     if(cH_Waffe((*i))->Reichweite().empty() && i->Lernpunkte() > 1) continue;
+     if(!cH_Waffe((*i))->Reichweite().empty() && i->Lernpunkte() > 2) continue; 
+     V.push_back(*i);
+   }
+  int i=random.integer(0,V.size()-1);
+  Aben->getWerte().setSpezialisierung(V[i]->Name());      
+  Waffe::setSpezialWaffe(Aben->getWerte().Spezialisierung(),Aben->List_Waffen());
 }
 
 void Zufall::setSpezialgebiet()
