@@ -1,4 +1,4 @@
-// $Id: magus_paths.cc,v 1.1 2003/05/07 10:57:50 christof Exp $
+// $Id: magus_paths.cc,v 1.2 2003/05/07 11:27:21 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,34 +21,41 @@
 #include <iostream>
 #include "Windows_Linux.hh"
 #include <vector>
+#include <unistd.h>
 
-std::string magus_paths::with_path(const std::string &name,bool path_only,bool noexit) const
-{
-//  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
-  std::vector<std::string> V;
+std::vector<std::string> magus_paths::paths;
+std::string magus_paths::argv0;
+std::string magus_paths::magus_verzeichnis;
+
+void magus_paths::init(const std::string &_argv0,const std::string &_magus_verzeichnis)
+{  assert(paths.empty());
+   argv0=_argv0;
+   magus_verzeichnis=_magus_verzeichnis;
 #ifndef __MINGW32__ // IMHO macht das unter Win32 keinen Sinn
-
-  // vielleicht sollten wir das aktuelle Verzeichnis beim 
-  // Programmstart einmal ermitteln und nicht immer
   char currentwd[10240];
   *currentwd=0;
   getcwd(currentwd,sizeof currentwd);
-  
-  V.push_back(std::string(currentwd)+"/");
+  append_dir(std::string(currentwd)+"/");
 #endif  
-  V.push_back(magus_verzeichnis);
+  append_dir(magus_verzeichnis);
 #ifndef __MINGW32__
-  V.push_back(PACKAGE_DATA_DIR);
-  V.push_back(std::string(PACKAGE_DATA_DIR)+"/docs/");
-  V.push_back(std::string(currentwd)+"/../xml/");
-  V.push_back(std::string(currentwd)+"/../docs/");
+  append_dir(std::string(currentwd)+"/../xml/");
+  append_dir(std::string(currentwd)+"/../docs/");
 #else
-  V.push_back(BinaryVerzeichnis());
-  V.push_back(BinaryVerzeichnis()+"Daten\\");
-  V.push_back(BinaryVerzeichnis()+"Hilfe\\");
+  append_dir(BinaryVerzeichnis());
+  append_dir(BinaryVerzeichnis()+"Daten\\");
+  append_dir(BinaryVerzeichnis()+"Hilfe\\");
 #endif  
-  std::string ntmp;
-  for(std::vector<std::string>::const_iterator i=V.begin();i!=V.end();++i)
+    
+}
+
+//  append_dir(PACKAGE_DATA_DIR);
+//  append_dir(std::string(PACKAGE_DATA_DIR)+"/docs/");
+
+std::string magus_paths::with_path(const std::string &name,bool path_only,bool noexit)
+{
+//  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+  for(std::vector<std::string>::const_iterator i=paths.begin();i!=paths.end();++i)
    {
      std::string n=*i+name;
 //cout <<"Suche nach "<< n<<'\n';
@@ -62,7 +69,7 @@ std::string magus_paths::with_path(const std::string &name,bool path_only,bool n
   return("");
 }
 
-std::string magus_paths::BinaryVerzeichnis() const
+std::string magus_paths::BinaryVerzeichnis()
 {  
 //  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
    if (argv0.rfind(WinLux::dirsep)!=std::string::npos) 
@@ -70,3 +77,10 @@ std::string magus_paths::BinaryVerzeichnis() const
    else return "";
 }
 
+void magus_paths::append_dir(const std::string &name)
+{  paths.push_back(name);
+}
+
+void magus_paths::prepend_dir(const std::string &name)
+{  paths.insert(paths.begin(),name);
+}

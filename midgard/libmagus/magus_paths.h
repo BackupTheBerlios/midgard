@@ -1,4 +1,4 @@
-// $Id: magus_paths.h,v 1.1 2003/05/07 10:57:50 christof Exp $
+// $Id: magus_paths.h,v 1.2 2003/05/07 11:27:21 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,19 +21,22 @@
 #  define _MAGUS_PATHS
 
 #include <string>
+#include <vector>
 
 // small class for determining file positions (originally part of midgard_CG)
 class magus_paths
 {protected:
-        std::string argv0; // Dateiname
-        std::string magus_verzeichnis;
+        static std::string argv0; // Dateiname
+        static std::string magus_verzeichnis;
+        static std::vector<std::string> paths;
 public:
-         magus_paths(const std::string &_argv0,const std::string &_magus_verzeichnis)
-         	: argv0(_argv0), magus_verzeichnis(_magus_verzeichnis) {}
-         const std::string &MagusVerzeichnis() const {return magus_verzeichnis;}
-         const std::string &getArgv0() const { return argv0; }
-         std::string BinaryVerzeichnis() const;
-        std::string with_path(const std::string &name,bool path_only=false,bool noexit=false) const ;
+         static void init(const std::string &_argv0,const std::string &_magus_verzeichnis);
+         static const std::string &MagusVerzeichnis() {return magus_verzeichnis;}
+         static const std::string &getArgv0() { return argv0; }
+         static std::string BinaryVerzeichnis();
+         static std::string with_path(const std::string &name,bool path_only=false,bool noexit=false);
+         static void append_dir(const std::string &name);
+         static void prepend_dir(const std::string &name);
 };
 
 #endif
