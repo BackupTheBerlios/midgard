@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.42 2002/08/15 15:03:50 thoma Exp $
+// $Id: fertigk_exp.cc,v 1.43 2003/07/01 21:00:08 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -40,6 +40,31 @@ void fert_speichern(Tag &o)
 {  
    Transaction t;
    
+//*************************** Steigerungstabelle *******************
+  if (region.empty())
+  {Tag &SteigernKosten=o.push_back(Tag("SteigernKosten"));
+   Query query("select name,"
+      	    " coalesce(p0,0), coalesce(p1,0), coalesce(p2,0), coalesce(p3,0),"
+      	    " coalesce(p4,0), coalesce(p5,0), coalesce(p6,0), coalesce(p7,0),"
+      	    " coalesce(p8,0), coalesce(p9,0), coalesce(p10,0), coalesce(p11,0),"
+      	    " coalesce(p12,0), coalesce(p13,0), coalesce(p14,0), coalesce(p15,0),"
+      	    " coalesce(p16,0), coalesce(p17,0), coalesce(p18,0), coalesce(p19,0),"
+      	    " coalesce(p20,0), coalesce(p21,0), coalesce(p22,0), coalesce(p23,0),"
+      	    " coalesce(p24,0), coalesce(p25,0), coalesce(p26,0), coalesce(p27,0),"
+      	    " coalesce(p28,0)"
+       		" from steigern_fertigkeiten_werte"
+   	" where not exists (select true from fertigkeiten where name=fertigkeit)"
+       		" order by name");
+   FetchIStream is;
+  while ((query>>is).good())
+       {  Tag &f=SteigernKosten.push_back(Tag("Kosten"));
+          fetch_and_set_string_attrib(is, f, "Fertigkeit");
+          for (int i=0;i<=28;++i) 
+             fetch_and_set_int_attrib(is, f, "Wert"+itos(i));
+       }
+  }
+
+  //********************* Fertigkeiten *******************************
    Tag &fertigkeiten=o.push_back(Tag("Fertigkeiten"));
   {Query query("select fertigkeit, region, region_zusatz, lp as lernpunkte, "
   	MIDGARD3_4("","lp_land, lp_stadt, ")
@@ -48,8 +73,9 @@ void fert_speichern(Tag &o)
   	" attribut"
   	MIDGARD3_4("",", berufsklasse, maxwert, maxunterweisung, zusaetze")
   	" from fertigkeiten left join steigern_fertigkeiten on name=fertigkeit"
-  	" where coalesce(region,'')='"+region+"'"
+  	" where coalesce(region,'')=?"
   	" order by coalesce(region,''),coalesce(wie,fertigkeit)!=fertigkeit,fertigkeit");
+   query << region;
    FetchIStream is;
   while ((query>>is).good())
   {Tag &fertigk=fertigkeiten.push_back(Tag("Fertigkeit"));
@@ -80,7 +106,8 @@ void fert_speichern(Tag &o)
    {  Query query2("select st," MIDGARD3_4("ge,","gw,gs,")
    		"ko,\"in\",zt,au,pa,sb,rw, fertigkeit"
    	" from fertigkeiten_voraussetzung"
-   	" where name='"+fert+"' order by fertigkeit");
+   	" where name=? order by fertigkeit");
+      query2 << fert;
       FetchIStream is2;
       while ((query2>>is2).good()) 
       {  Tag &v=fertigk.push_back(Tag("Voraussetzungen"));
@@ -103,7 +130,8 @@ void fert_speichern(Tag &o)
     }
       //********** fertigkeiten_voraussetzungen_2 **********************************
    {  Query queryV2("select voraussetzung from fertigkeiten_voraussetzungen_2 "
-   	" where name='"+fert+"' order by voraussetzung");
+   	" where name=? order by voraussetzung");
+      queryV2 << fert;
       FetchIStream isV2;
       while ((queryV2>>isV2).good()) 
       {  
@@ -116,7 +144,8 @@ void fert_speichern(Tag &o)
 
       //********** fertigkeiten_besitz **********************************
    {  Query queryZu("select gegenstand,min,position from fertigkeiten_besitz "
-   	" where name='"+fert+"' order by min,gegenstand");
+   	" where name=? order by min,gegenstand");
+      queryZu << fert;
       FetchIStream isZu;
       while ((queryZu>>isZu).good()) 
       {  Tag &b=fertigk.push_back(Tag("Besitz"));
@@ -388,30 +417,6 @@ void fert_speichern(Tag &o)
   }
   if (ep.attbegin()!=ep.attend()) verwendbareEP.push_back(ep);
  }
-
-//*************************** Steigerungstabelle *******************
-  if (region.empty())
-  {Tag &SteigernKosten=o.push_back(Tag("SteigernKosten"));
-   Query query("select name,"
-      	    " coalesce(p0,0), coalesce(p1,0), coalesce(p2,0), coalesce(p3,0),"
-      	    " coalesce(p4,0), coalesce(p5,0), coalesce(p6,0), coalesce(p7,0),"
-      	    " coalesce(p8,0), coalesce(p9,0), coalesce(p10,0), coalesce(p11,0),"
-      	    " coalesce(p12,0), coalesce(p13,0), coalesce(p14,0), coalesce(p15,0),"
-      	    " coalesce(p16,0), coalesce(p17,0), coalesce(p18,0), coalesce(p19,0),"
-      	    " coalesce(p20,0), coalesce(p21,0), coalesce(p22,0), coalesce(p23,0),"
-      	    " coalesce(p24,0), coalesce(p25,0), coalesce(p26,0), coalesce(p27,0),"
-      	    " coalesce(p28,0)"
-       		" from steigern_fertigkeiten_werte"
-   	" where not exists (select true from fertigkeiten where name=fertigkeit)"
-       		" order by name");
-   FetchIStream is;
-  while ((query>>is).good())
-       {  Tag &f=SteigernKosten.push_back(Tag("Kosten"));
-          fetch_and_set_string_attrib(is, f, "Fertigkeit");
-          for (int i=0;i<=28;++i) 
-             fetch_and_set_int_attrib(is, f, "Wert"+itos(i));
-       }
-  }
 
 //******************************************************************
 }
