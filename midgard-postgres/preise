@@ -36,12 +36,12 @@ Ausrüstung	Behälter	1/4 Liter-Glasflasche	0.2	5	GS
 Ausrüstung	Behälter	1/4 Liter-Holzbecher	0.05	1	SS
 Ausrüstung	Behälter	1/4 Liter-Keramikamphore	0.2	5	SS
 Ausrüstung	Behälter	1/4 Liter-Zinnbecher	0.2	2	GS
-Waffe		10 Armbrustbolzen	1.5	3	GS
-Waffe		10 Blasrohrnadeln	0.05	1	GS
-Waffe		10 Bleikugeln	0.2	1	GS
+Waffen		10 Armbrustbolzen	1.5	3	GS
+Waffen		10 Blasrohrnadeln	0.05	1	GS
+Waffen		10 Bleikugeln	0.2	1	GS
 Ausrüstung	Licht und Feuer	10 Fackeln	5	3	SS
 Ausrüstung	Behälter	10 Liter-Holzeimer	1	1	GS
-Waffe		10 Pfeile	1.5	2	GS
+Waffen		10 Pfeile	1.5	2	GS
 Ausrüstung	Licht und Feuer	10 Talgkerzen	0.5	1	SS
 Ausrüstung	Licht und Feuer	10 Wachskerzen	0.5	2	GS
 Ausrüstung	Werkzeug	10 große Nägel	0.25	1	SS
@@ -60,16 +60,16 @@ Ausrüstung	Schreibmaterial	30cmx30cm Pergament	0.05	1	GS
 Ausrüstung	Behälter	5 Liter-Wasserschlauch	0.1	1	GS
 Ausrüstung	Behälter	50 Liter-Faß	5	3	GS
 Ausrüstung	Stoff. Draht usw.	5m Strickleiter	1.5	2	GS
-Waffe		Anderthalbhänder	4	200	GS
+Waffen		Anderthalbhänder	4	200	GS
 Ausrüstung	Werkzeug	Angelhaken	0.05	2	SS
-Waffe		Bihänder	5	200	GS
-Waffe		Blasrohr	2	8	GS
-Waffe		Bogen	0.6	15	GS
-Waffe		Bola	1	4	GS
+Waffen		Bihänder	5	200	GS
+Waffen		Blasrohr	2	8	GS
+Waffen		Bogen	0.6	15	GS
+Waffen		Bola	1	4	GS
 Ausrüstung	Werkzeug	Brecheisen	2	4	GS
 Ausrüstung	Musikinstrumente	Bronzehorn	3	20	GS
-Waffe		Buckler	1	10	GS
-Waffe		Dolch	0.5	5	GS
+Waffen		Buckler	1	10	GS
+Waffen		Dolch	0.5	5	GS
 Ausrüstung	Werkzeug	Einbrecherwerkzeug	1.5	50	GS
 Ausrüstung	Werkzeug	Eisenkeil	0.25	5	SS
 Ausrüstung	Heiler- und Priesterbedarf	Erste Hilfe-Ausrüstung	1	30	GS
@@ -79,20 +79,20 @@ Ausrüstung	Präzisionsinstrumente	Fernrohr (x2) 	0.5	800	GS
 Ausrüstung	Licht und Feuer	Feuerstein und Zunder	0	1	GS
 Ausrüstung	Licht und Feuer	Feuertopf aus Ton	0.5	5	SS
 Ausrüstung	Musikinstrumente	Flöte	0.3	5	GS
-Waffe		Fuchtel	2	100	GS
-Waffe		Garotte	0	5	GS
-Waffe		Glefe	3	30	GS
+Waffen		Fuchtel	2	100	GS
+Waffen		Garotte	0	5	GS
+Waffen		Glefe	3	30	GS
 Ausrüstung	Tiere	Greifvogel	0	50	GS
 Waffenzubehör		Gurt für 5 Wurfpfeile	0.3	5	GS
 Ausrüstung	Behälter	Gußeisentopf für 2 Liter	2	4	GS
 Kleidung		Gürtel	0	2	GS
 Ausrüstung	Werkzeug	Hammer	1.5	5	GS
 Ausrüstung	Stoff. Draht usw.	Hand- oder Fußfessel mit Kette	2	30	GS
-Waffe		Handarmbrust	1	100	GS
-Waffe		Handaxt	1.5	10	GS
+Waffen		Handarmbrust	1	100	GS
+Waffen		Handaxt	1.5	10	GS
 Ausrüstung	Präzisionsinstrumente	Handwaage mit Waagschalen	0.5	5	GS
 Ausrüstung	Musikinstrumente	Harfe	5	100	GS
-Waffe		Hellebarde	5	50	GS
+Waffen		Hellebarde	5	50	GS
 Kleidung		Hemd	0	3	GS
 Ausrüstung	Stoff. Draht usw.	Holzbalken (3mx10cmx10cm)	20	1	GS
 Ausrüstung	Werkzeug	Holzpflock	0.05	2	KS
@@ -100,31 +100,31 @@ Kleidung		Hose	0	5	GS
 Ausrüstung	Tiere	Huhn	0	5	SS
 Ausrüstung	Tiere	Jagdhund	0	20	GS
 Rüstung	Kettenrüstung	KR	20	100	GS
-Waffe		Kampfgabeln Paar	1.5	15	GS
+Waffen		Kampfgabeln Paar	1.5	15	GS
 Ausrüstung	Tiere	Kampfhund	0	50	GS
-Waffe		Kampfstab	2.5	10	GS
+Waffen		Kampfstab	2.5	10	GS
 Ausrüstung	Transportmittel	Karren (einspännig)	0	70	GS
 Ausrüstung	Transportmittel	Karren (zweispännig)	0	150	GS
-Waffe		Keule	2	8	GS
+Waffen		Keule	2	8	GS
 Kleidung		Kilt	0	3	GS
 Kleidung		Kleid	0	15	GS
 Ausrüstung	Transportmittel	Kleinsegler (10m lang)	0	800	GS
 Ausrüstung	Transportmittel	Kleinsegler (5m lang)	0	200	GS
-Waffe		Kompositbogen	0.7	-1	GS
+Waffen		Kompositbogen	0.7	-1	GS
 Ausrüstung	Schreibmaterial	Kreidestück	0.02	2	SS
-Waffe		Kriegsflegel	7.5	30	GS
-Waffe		Kriegshammer	2.5	12	GS
+Waffen		Kriegsflegel	7.5	30	GS
+Waffen		Kriegshammer	2.5	12	GS
 Ausrüstung	Präzisionsinstrumente	Kristallspiegel	1	200	GS
-Waffe		Krummsäbel	2.5	100	GS
-Waffe		Kurzbogen	0.5	15	GS
-Waffe		Kurzschwert	1.5	20	GS
+Waffen		Krummsäbel	2.5	100	GS
+Waffen		Kurzbogen	0.5	15	GS
+Waffen		Kurzschwert	1.5	20	GS
 Kleidung		Kutte	0	15	GS
 Waffenzubehör		Köcher für 20 Pfeile	0.3	2	GS
 Waffenzubehör		Köcher für 30 Bolzen	0.3	2	GS
-Waffe		Langbogen	1	40	GS
-Waffe		Langschwert	2.5	100	GS
-Waffe		Lanze	5	13	GS
-Waffe		Lasso	1	2	GS
+Waffen		Langbogen	1	40	GS
+Waffen		Langschwert	2.5	100	GS
+Waffen		Lanze	5	13	GS
+Waffen		Lasso	1	2	GS
 Ausrüstung	Tiere	Lastkamel (150 kg)	0	120	GS
 Ausrüstung	Licht und Feuer	Laterne	1.5	10	GS
 Ausrüstung	Licht und Feuer	Laterne. abblendbar	1.5	15	GS
@@ -138,9 +138,9 @@ Rüstung		Lederhelm	0.5	5	GS
 Ausrüstung	Behälter	Lederrucksack für 25	0.5	4	GS
 Rüstung		Lederrüstung	12.5	30	GS
 Waffenzubehör		Ledertasche für 50 Bleikugeln	0.2	3	GS
-Waffe		Leichter Speer	1.5	6	GS
-Waffe		Magierstab	1.5	15	GS
-Waffe		Magierstecken	2	20	GS
+Waffen		Leichter Speer	1.5	6	GS
+Waffen		Magierstab	1.5	15	GS
+Waffen		Magierstecken	2	20	GS
 Ausrüstung	Tiere	Maultier (90 kg)	0	60	GS
 Ausrüstung	Tiere	Maus	0	1	SS
 Rüstung		Metallarmschienen	1.5	20	GS
@@ -148,18 +148,18 @@ Rüstung		Metallbeinschienen	2.5	25	GS
 Rüstung		Metallhandschuhe	0.7	30	GS
 Rüstung		Metallhelm mit Visier	2	75	GS
 Rüstung		Metallhelm ohne Visier	1.5	35	GS
-Waffe		Morgenstern	5	40	GS
-Waffe		Netz	2	2	GS
-Waffe		NunChaku	0.5	10	GS
+Waffen		Morgenstern	5	40	GS
+Waffen		Netz	2	2	GS
+Waffen		NunChaku	0.5	10	GS
 Ausrüstung	Werkzeug	Nähnadel	0	8	SS
-Waffe		Ochsenzunge	1	10	GS
-Waffe		Ogerhammer	10	70	GS
+Waffen		Ochsenzunge	1	10	GS
+Waffen		Ogerhammer	10	70	GS
 Ausrüstung	Tiere	Packpferd (100 kg)	0	80	GS
-Waffe		Parierdolch	0.7	8	GS
-Waffe		Peitsche	1	8	GS
+Waffen		Parierdolch	0.7	8	GS
+Waffen		Peitsche	1	8	GS
 Rüstung		Plattenrüstung	35	500	GS
 Ausrüstung	Tiere	Pony (70 kg)	0	50	GS
-Waffe		Rapier	1.5	70	GS
+Waffen		Rapier	1.5	70	GS
 Ausrüstung	Tiere	Reitkamel	0	150	GS
 Ausrüstung	Tiere	Reitpferd (100 kg)	0	150	GS
 Ausrüstung	Tiere	Reitpferd, kampferprobt	0	300	GS
@@ -172,9 +172,9 @@ Ausrüstung	Präzisionsinstrumente	Sanduhr	0.5	50	GS
 Ausrüstung	Transportmittel	Sattel	0	30	GS
 Ausrüstung	Transportmittel	Satteltaschen	0	8	GS
 Ausrüstung	Werkzeug	Schaufel	1.5	5	GS
-Waffe		Schlachtbeil	5	25	GS
+Waffen		Schlachtbeil	5	25	GS
 Ausrüstung	Tiere	Schlachtroß	0	600	GS
-Waffe		Schleuder	0.1	1	GS
+Waffen		Schleuder	0.1	1	GS
 Ausrüstung	Transportmittel	Schlitten (sechsspännig)	0	80	GS
 Ausrüstung	Tiere	Schlittenhund (30 kg)	0	20	GS
 Ausrüstung	Schreibmaterial	Schreibfeder	0.005	2	SS
@@ -182,18 +182,18 @@ Ausrüstung	Schreibmaterial	Schreibpinsel	0.02	5	SS
 Kleidung		Schuhe	0	5	GS
 Ausrüstung	Schreibmaterial	Siegelwachs	0.25	1	GS
 Ausrüstung	Präzisionsinstrumente	Signalpfeife aus Metall	0.05	1	GS
-Waffe		Skhallanta	3	-1	GS
+Waffen		Skhallanta	3	-1	GS
 Ausrüstung	Transportmittel	Skier	0	8	GS
-Waffe		Speerschleuder	1.5	8	GS
+Waffen		Speerschleuder	1.5	8	GS
 Ausrüstung	Präzisionsinstrumente	Spiegel aus poliertem Metall	2	10	GS
-Waffe		Stabkeule	5	15	GS
+Waffen		Stabkeule	5	15	GS
 Kleidung		Stiefel (bis zum Knie)	0	15	GS
 Kleidung		Stiefel (halbhoch)	0	8	GS
-Waffe		Stielhammer	7.5	50	GS
-Waffe		Stockschleuder	2	7	GS
-Waffe		Stoßspeer	2.5	8	GS
-Waffe		Streitaxt	2.5	20	GS
-Waffe		Streitkolben	2.5	12	GS
+Waffen		Stielhammer	7.5	50	GS
+Waffen		Stockschleuder	2	7	GS
+Waffen		Stoßspeer	2.5	8	GS
+Waffen		Streitaxt	2.5	20	GS
+Waffen		Streitkolben	2.5	12	GS
 Rüstung		Textilrüstung TR	7.5	20	GS
 Ausrüstung	Musikinstrumente	Trommel	2	5	GS
 Kleidung		Tunika	0	5	GS
@@ -203,16 +203,16 @@ Ausrüstung	Übernachtung	Vierpersonenzelt	5	30	GS
 Rüstung		Vollrüstung	45	600	GS
 Ausrüstung	Transportmittel	Wagen (vierspännig)	0	250	GS
 Ausrüstung	Werkzeug	Wurfanker	1	10	GS
-Waffe		Wurfaxt	1.5	25	GS
-Waffe		Wurfeisen	2	30	GS
-Waffe		Wurfhammer	2.5	25	GS
-Waffe		Wurfkeule	2	12	GS
-Waffe		Wurfmesser	0.3	10	GS
-Waffe		Wurfpfeil	0.3	3	GS
-Waffe		Wurfscheibe	0.2	2	GS
-Waffe		Wurfspeer	1.5	6	GS
-Waffe		Wurfspieß	2	8	GS
-Waffe		Wurfstern	0.1	1	GS
+Waffen		Wurfaxt	1.5	25	GS
+Waffen		Wurfeisen	2	30	GS
+Waffen		Wurfhammer	2.5	25	GS
+Waffen		Wurfkeule	2	12	GS
+Waffen		Wurfmesser	0.3	10	GS
+Waffen		Wurfpfeil	0.3	3	GS
+Waffen		Wurfscheibe	0.2	2	GS
+Waffen		Wurfspeer	1.5	6	GS
+Waffen		Wurfspieß	2	8	GS
+Waffen		Wurfstern	0.1	1	GS
 Ausrüstung	Transportmittel	Zaumzeug	0	3	GS
 Ausrüstung	Schreibmaterial	Zeichenkohle	0.03	1	SS
 Ausrüstung	Tiere	Zugochse (250 kg)	0	120	GS
@@ -223,16 +223,16 @@ Waffenzubehör		einfache Schwertscheide	0.7	5	GS
 Waffenzubehör		einfacher Waffengürtel	0.3	2	GS
 Rüstung		gepolstertes Unterkleid	2.5	5	GS
 Ausrüstung	Behälter	großer Sack für 50	0.15	5	SS
-Waffe		großer Schild	5	15	GS
+Waffen		großer Schild	5	15	GS
 Ausrüstung	Behälter	kleiner Sack für 25	0.05	2	SS
-Waffe		kleiner Schild	2	10	GS
+Waffen		kleiner Schild	2	10	GS
 Ausrüstung	Präzisionsinstrumente	kleines Bronzeglöckchen	0.05	2	GS
-Waffe		leichte Armbrust	2.5	40	GS
+Waffen		leichte Armbrust	2.5	40	GS
 Ausrüstung	Behälter	metallbeschl. 20 Liter-Holztruhe	10	5	GS
 Ausrüstung	Heiler- und Priesterbedarf	religiöses Symbol an Kette (Edelmetall)	0	10	GS
 Ausrüstung	Heiler- und Priesterbedarf	religiöses Symbol an Kette (unedles Metall)	0	5	SS
-Waffe		schwere Armbrust	5	40	GS
-Waffe		starker Langbogen	1.2	120	GS
+Waffen		schwere Armbrust	5	40	GS
+Waffen		starker Langbogen	1.2	120	GS
 Rüstung	Hals-	und Nackenschutz	0.7	20	GS
 Waffenzubehör		verzierte Dolchscheide	0.2	6	GS
 Waffenzubehör		verzierte Schwertscheide	1	20	GS
