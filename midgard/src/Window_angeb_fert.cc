@@ -22,7 +22,6 @@
 #include <Gtk_OStream.h>
 #include "WindowInfo.hh"
 #include "Fertigkeiten_angeboren.hh"
-#include <Aux/itos.h>
 
 void Window_angeb_fert::fertigkeiten_zeigen()
 {
