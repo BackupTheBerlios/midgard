@@ -19,20 +19,18 @@
 #include "config.h"
 #include "Window_Waffenbesitz.hh"
 #include "midgard_CG.hh"
-//#include "Typen.hh"
 
 void Window_Waffenbesitz::on_leaf_selected_alt(cH_RowDataBase d)
 {  
   const Data_waffenbesitz *dt=dynamic_cast<const Data_waffenbesitz*>(&*d);
   cH_WaffeBesitz WB(dt->get_Waffe());
 
-
   if(!checkbutton_mag_waffenbonus->get_active()) 
    {
     const MidgardBasicElement *MBE = &static_cast<const MidgardBasicElement&>(*WB);
-//    MidgardBasicElement::move_element(Waffe_Besitz,Waffe_Besitz_neu,MBE);
-    Waffe_Besitz_neu.push_back(MBE);
-    zeige_waffen();
+    Waffe_Besitz.remove(MBE);
+    show_alte_waffen();
+//    zeige_waffen();
    }
   else 
    {
@@ -76,7 +74,8 @@ void Window_Waffenbesitz::on_entry_magisch_activate()
   } catch(std::exception &e) {cerr<<e.what()<<'\n';
    hauptfenster->set_status("Keine Waffe selektiert");
      };
-  zeige_waffen();
+//  zeige_waffen();
+  show_alte_waffen();
 }
 
 
@@ -85,9 +84,9 @@ void Window_Waffenbesitz::on_leaf_selected_neu(cH_RowDataBase d)
   const Data_waffenbesitz *dt=dynamic_cast<const Data_waffenbesitz*>(&*d);
   cH_MidgardBasicElement MBE=new WaffeBesitz(*cH_WaffeBesitz(dt->get_Waffe()));
 
-//  MidgardBasicElement::move_element(Waffe_Besitz_neu,Waffe_Besitz,MBE);
-  Waffe_Besitz_neu.remove(MBE);
-  zeige_waffen();
+  Waffe_Besitz.push_back(MBE);
+//  zeige_waffen();
+  show_alte_waffen();
 }
 
 Window_Waffenbesitz::Window_Waffenbesitz(midgard_CG* h,
@@ -108,7 +107,8 @@ Window_Waffenbesitz::Window_Waffenbesitz(midgard_CG* h,
   waffenbesitz_neu_tree->setTitles(alte_waffen);
 
   lade_waffen();
-  zeige_waffen();   
+//  zeige_waffen();   
+  show_alte_waffen();
 }
 
 void Window_Waffenbesitz::on_button_close_clicked()
@@ -117,11 +117,13 @@ void Window_Waffenbesitz::on_button_close_clicked()
    destroy();
 }
 
+/*
 void Window_Waffenbesitz::zeige_waffen()
 {
   show_alte_waffen();
   show_neue_waffen();
 }
+*/
 
 void  Window_Waffenbesitz::show_alte_waffen()
 {
@@ -133,6 +135,7 @@ void  Window_Waffenbesitz::show_alte_waffen()
   waffenbesitz_alt_tree->setDataVec(datavec);
 }
 
+/*
 void  Window_Waffenbesitz::show_neue_waffen()
 {
   std::vector<cH_RowDataBase> datavec;
@@ -141,16 +144,12 @@ void  Window_Waffenbesitz::show_neue_waffen()
         datavec.push_back(new Data_waffenbesitz(*i,hauptfenster));
   waffenbesitz_neu_tree->setDataVec(datavec);
 }
-
-void Window_Waffenbesitz::on_button_neuladen_clicked()
-{
- lade_waffen();
- zeige_waffen();
-}
+*/
 
 void  Window_Waffenbesitz::lade_waffen()
 {
-  Waffe_Besitz_neu.clear();
+//  Waffe_Besitz_neu.clear();
+  std::list<cH_MidgardBasicElement> Waffe_Besitz_neu;
   std::list<cH_MidgardBasicElement> L=hauptfenster->getDatabase().Waffe;
   for (std::list<cH_MidgardBasicElement>::const_iterator i=L.begin();i!=L.end();++i)
    {
@@ -165,6 +164,11 @@ void  Window_Waffenbesitz::lade_waffen()
          }
        }
    }
+  std::vector<cH_RowDataBase> datavec;
+  for (std::list<cH_MidgardBasicElement>::const_iterator i=Waffe_Besitz_neu.begin();i!=Waffe_Besitz_neu.end();++i)
+     if (hauptfenster->region_check(cH_WaffeBesitz(*i)->Waffe()->Region(cH_WaffeBesitz(*i)->Name())))
+        datavec.push_back(new Data_waffenbesitz(*i,hauptfenster));
+  waffenbesitz_neu_tree->setDataVec(datavec);
 }
 
 void Window_Waffenbesitz::on_checkbutton_mag_waffenbonus_toggled()

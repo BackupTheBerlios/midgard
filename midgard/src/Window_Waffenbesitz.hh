@@ -1,4 +1,4 @@
-// $Id: Window_Waffenbesitz.hh,v 1.34 2002/03/05 08:12:38 thoma Exp $
+// $Id: Window_Waffenbesitz.hh,v 1.35 2002/05/14 07:26:14 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,15 +37,14 @@ class Window_Waffenbesitz : public Window_Waffenbesitz_glade
         midgard_CG* hauptfenster;
         std::list<cH_MidgardBasicElement> list_Waffen;
         std::list<cH_MidgardBasicElement> Waffe_Besitz;
-        std::list<cH_MidgardBasicElement> Waffe_Besitz_neu;
+//        std::list<cH_MidgardBasicElement> Waffe_Besitz_neu;
         friend class Window_Waffenbesitz_glade;
         void on_leaf_selected_alt(cH_RowDataBase d);
         void on_leaf_selected_neu(cH_RowDataBase d);
         void show_alte_waffen();
-        void show_neue_waffen();
-        void on_button_neuladen_clicked();
+//        void show_neue_waffen();
         void lade_waffen();
-        void zeige_waffen();
+//        void zeige_waffen();
         void on_button_close_clicked();
         void on_alte_waffen_reorder();
         void on_checkbutton_mag_waffenbonus_toggled();
@@ -62,8 +61,6 @@ class Window_Waffenbesitz : public Window_Waffenbesitz_glade
 class Data_waffenbesitz :  public RowDataBase
 {
       cH_MidgardBasicElement waffe;
-//      Grundwerte Werte; // eine Kopie? in jeder Zeile? wenig sinnvoll CP
-//      Datenbank Database;
       const midgard_CG *hauptfenster;
   public:
       Data_waffenbesitz(const cH_MidgardBasicElement& w,const midgard_CG *h)
@@ -75,8 +72,7 @@ class Data_waffenbesitz :  public RowDataBase
          cH_WaffeBesitz W(waffe);
           switch(seqnr) {
             case NAME_A : return cH_EntryValueIntString(W->Name());
-            case SCHADEN_A : return cH_EntryValueIntString(W->Schaden(hauptfenster->getWerte(),waffe->Name()));
-//            case REGION : return cH_EntryValueIntString(Regionen_All::getRegionfromAbk(Database.Regionen,W->Waffe()->Region(W->Name()))->Name());
+            case SCHADEN_A : return cH_EntryValueIntString(W->Schaden(hauptfenster->getCWerte(),waffe->Name()));
             case REGION : return cH_EntryValueIntString(Regionen_All::getRegionfromAbk(hauptfenster->getDatabase().Regionen,W->Waffe()->Region(W->Name()))->Name());
             case MAGBONUS : return cH_EntryValueIntString(W->Bonus());
             case MAGTEXT : return cH_EntryValueIntString(W->Magisch());

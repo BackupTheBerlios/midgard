@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.157 2002/05/09 10:37:55 christof Exp $
+# $Id: Makefile.am,v 1.158 2002/05/14 07:26:14 thoma Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -30,6 +30,10 @@ EXTRA_DIST = midgard_document_eingabe.tex.in \
 
 
 noinst_HEADERS = \
+   LernListen.hh \
+   LaTeX_drucken.hh \
+   table_beschreibung.hh \
+   table_beschreibung_glade.hh \
    Wizard.hh \
    table_optionen.hh \
    table_optionen_glade.hh \
@@ -98,6 +102,11 @@ NEWS.h: ../NEWS ; ./text2c <../NEWS >NEWS.h
 midgard_xmlexport_SOURCES= xmlexport.cc export_common.cc
 
 magus_SOURCES = $(PORT_FILES) \
+   LaTeX_drucken.cc \
+   LaTeX_drucken_ausruestung.cc \
+   LaTeX_drucken_beschreibung.cc \
+   table_beschreibung.cc \
+   table_beschreibung_glade.cc \
    midgard_CG_oberflaeche.cc \
    midgard_CG_waffen.cc \
    Wizard.cc \
@@ -154,11 +163,6 @@ magus_SOURCES = $(PORT_FILES) \
    steigern_main.cc \
    steigern_EP.cc \
    xml_fileselection.cc \
-   LaTeX_header.cc \
-	LaTeX_out.cc \
-   LaTeX_zauber.cc \
-   LaTeX_kido.cc \
-   LaTeX_charakter_beschreibung.cc \
    spielleiter_export.cc \
    midgard_CG_kido.cc \
    midgard_CG_region_check.cc \
@@ -173,7 +177,7 @@ magus_SOURCES = $(PORT_FILES) \
 	midgard.cc \
    midgard_CG_lernen.cc \
    midgard_CG_lernen_zusatz.cc \
-   midgard_CG_beschreibung.cc \
+   midgard_CG_drucken.cc \
    midgard_CG_grad_anstieg.cc \
 	midgard_CG_glade.cc \
 	midgard_CG.cc \
@@ -194,6 +198,13 @@ magus_SOURCES = $(PORT_FILES) \
    Midgard_Undo.cc \
    Tag.cc TagStream.cc xml.cc export_common.cc \
    ProgressBar.cc 
+
+#   LaTeX_header.cc \
+#   LaTeX_out.cc \
+#   LaTeX_zauber.cc \
+#   LaTeX_kido.cc \
+#   LaTeX_charakter_beschreibung.cc \
+
 
 CXXFLAGS = @CXXFLAGS@ @KOMPONENTEN_INCLUDES@ -DUSE_XML \
            -DPACKAGE_DATA_DIR=\"$(pkgdatadir)/\" $(WIN_INCLUDES)

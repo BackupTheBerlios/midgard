@@ -50,22 +50,22 @@ void midgard_CG::menu_init()
 
   Gtk::MenuItem *latex = manage(new class Gtk::MenuItem("Abenteurer drucken (LaTeX)"));
   drucken_menu->append(*latex);
-  latex->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_latex_clicked),true));
+  latex->activate.connect(SigC::slot(this,&midgard_CG::on_abenteurerdokument_drucken));
 
   Gtk::MenuItem *latex_beschreibung = manage(new class Gtk::MenuItem("Abenteurerbeschreibung drucken"));
   drucken_menu->append(*latex_beschreibung);
-  latex_beschreibung->activate.connect(SigC::slot(this,&midgard_CG::latex_beschreibung_drucken));
+  latex_beschreibung->activate.connect(SigC::slot(this,&midgard_CG::on_beschreibung_drucken));
 
   Gtk::MenuItem *latex_ausruestung = manage(new class Gtk::MenuItem("Ausrüstungsdokument drucken (Alles)"));
   drucken_menu->append(*latex_ausruestung);
-  latex_ausruestung->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_ausruestung_druck),true));
+  latex_ausruestung->activate.connect(SigC::slot(this,&midgard_CG::on_auch_unsichtbares_drucken));
   Gtk::MenuItem *latex_ausruestung2 = manage(new class Gtk::MenuItem("Ausrüstungsdokument drucken (Nur sichtbare Gegenstände)"));
   drucken_menu->append(*latex_ausruestung2);
-  latex_ausruestung2->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_ausruestung_druck),false));
+  latex_ausruestung2->activate.connect(SigC::slot(this,&midgard_CG::on_nur_sichtbares_drucken));
 
   Gtk::MenuItem *latex_empty = manage(new class Gtk::MenuItem("Leeres Abenteurerdokument drucken"));
   drucken_menu->append(*latex_empty);
-  latex_empty->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_latex_clicked),false));
+  latex_empty->activate.connect(SigC::slot(this,&midgard_CG::on_leeres_abenteurerdokument_drucken));
 /*
   Gtk::RadioMenuItem::Group _RadioMGroup_pdfViewer;
   std::list<Midgard_Optionen::st_pdfViewer> LP=MOptionen->getPDF();

@@ -147,6 +147,7 @@ void midgard_CG::neue_schrift_wegen_sprache()
      std::vector<std::string> VS=cH_Sprache(*i)->Schrift();
      for(std::vector<std::string>::const_iterator j=VS.begin();j!=VS.end();++j)
       {
+       try{
         cH_Schrift s(*j);
         if(s->ist_gelernt(list_Schrift)) continue;
         std::list<cH_MidgardBasicElement> gS=s->gleicheSchrift(Database.Schrift);
@@ -160,6 +161,7 @@ void midgard_CG::neue_schrift_wegen_sprache()
               list_Schrift.push_back(*k); 
             }
          }
+        }catch(NotFound) {set_status("FEHLER: Schrift "+*j+" ist unbekannt.");}
       }
    }  
 }

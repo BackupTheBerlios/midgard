@@ -208,6 +208,7 @@ void midgard_CG::xml_import_stream(istream& datei)
    load_ausruestung(Ausruestung,&besitz);
    
 //   filename=datei;
+   set_title(Werte.Name_Abenteurer());
    load_for_mainpage(notebook_main->get_current_page_num());
 }
 

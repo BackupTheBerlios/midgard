@@ -159,6 +159,7 @@ void midgard_CG::speicherstream(ostream &datei)
    datei << "  </Fertigkeiten>\n";   
    datei << " </Midgard-Abenteurer>\n";
    datei << "</MAGUS-data>\n";
+   set_title(Werte.Name_Abenteurer());
 }
 
 

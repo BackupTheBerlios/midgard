@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.13 2002/05/08 21:31:24 thoma Exp $
+// $Id: Optionen.hh,v 1.14 2002/05/14 07:26:14 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -78,16 +78,16 @@ class Midgard_Optionen
    public:
       Midgard_Optionen(midgard_CG* h);
 
-      std::string Viewer() ;
+      std::string Viewer() const;
 
-      std::string getString(StringIndex index);
+      std::string getString(StringIndex index) const;
       void setString(StringIndex index,std::string n);
 
-      std::list<st_Haus> getHausregeln() {return list_Hausregeln;}
-      std::list<st_Ober> getOber() {return list_Ober;}
-      std::list<st_OptionenCheck> getOptionenCheck() {return list_OptionenCheck;}
-      std::list<st_OptionenExecute> getOptionenExecute() {return list_OptionenExecute;}
-      std::list<st_pdfViewer> getPDF() {return list_pdfViewer;}
+      std::list<st_Haus> getHausregeln() const {return list_Hausregeln;}
+      std::list<st_Ober> getOber() const {return list_Ober;}
+      std::list<st_OptionenCheck> getOptionenCheck() const {return list_OptionenCheck;}
+      std::list<st_OptionenExecute> getOptionenExecute() const {return list_OptionenExecute;}
+      std::list<st_pdfViewer> getPDF() const {return list_pdfViewer;}
 
       void save_options(WindowInfo *InfoFenster);
       void load_options();
@@ -100,10 +100,10 @@ class Midgard_Optionen
       void setAllHausregeln(bool b);
 
 
-      st_OptionenCheck OptionenCheck(OptionenCheckIndex oi);
-      st_Haus HausregelCheck(HausIndex hi);
-      st_Ober OberCheck(OberIndex hi);
-      st_pdfViewer pdfViewerCheck(pdfViewerIndex pi);
+      st_OptionenCheck OptionenCheck(OptionenCheckIndex oi) const ;
+      st_Haus HausregelCheck(HausIndex hi) const ;
+      st_Ober OberCheck(OberIndex hi) const ;
+      st_pdfViewer pdfViewerCheck(pdfViewerIndex pi) const ;
 
       void Hausregeln_setzen_from_menu(HausIndex index,bool b);
       void Ober_setzen_from_menu(OberIndex index,bool b);

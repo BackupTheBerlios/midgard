@@ -51,7 +51,7 @@ Al-Karama	800	3	Tanz	3	E	\N	\N	Tanz	Luft	erkennt	Luft	10 min	5 m	Körper	1 Ws	8 h
 Al-Mahram	400	3	Tanz	2	E	\N	\N	Tanz	Luft	beherrscht	Eis	5 min	0	Geist	6 m Uk	30 min	göttlich	\N	f	\N	\N	\N
 Al-Mutadid	800	3	Tanz	3	E	\N	\N	Tanz	Luft	beherrscht	Feuer	5 min	0	Umgebung	6m Uk	30 min	göttlich		f		\N	\N
 Al-Tarka	800	3	Tanz	3	E	\N	\N	Tanz	Luft	beherrscht	Luft	5 min	0	Geist	15 m Uk	-	göttlich		f		\N	\N
-Allheilung	2500	6	Geste	5	\N	\N	\N	\N	Holz	erschafft	Erde	30 min	0	Körper	1 Ws	0	göttlich		f		\N	\N
+Allheilung	2500	6	Geste	5	\N	\N	\N	\N	Holz	erschafft	Erde	30 min	B	Körper	1 Ws	0	göttlich		f		\N	\N
 Alpträume	1500	2*Gr	Wort	4	H&Df	\N	\N	\N	Metall	verändert	Luft	1 min	500 m	Geist	1-4 Ws	var	finster		f		\N	t
 Altern	5000	var	Geste	6	H&Df	\N	\N	\N	Eis	verändert	Erde	2 min	10 m	Körper	1 Ws	1 Tag	finster	Zu Staub zerfallene Schädelknochen	f		\N	t
 Angst	120	#Ws	Wort	1	\N	\N	\N	\N	Feuer	beherrscht	Wasser	1 s	30 m	Geist	max 10 Ws	10 min	druidisch		t		\N	\N
@@ -61,7 +61,7 @@ Auflösung	10000	9	Geste	6	\N	\N	\N	\N	Magan	zerstört	Metall	30 s	30 m	Umgebung	1
 Augenschleier	200	1*Gr	Geste	2	H&D	\N	\N					1 s	50 m	Geist	1 Ws	1 min	dämonisch		t		\N	\N
 Austreibung des Bösen	500	5	Wort	2	\N	\N	\N	\N	Magan	bewegt	Feuer	10 s	15 m	Körper	1 Ws	10 min	göttlich		f		\N	\N
 Austreibung des Guten	500	5	Wort	2	\N	\N	\N	\N	Magan	bewegt	Feuer	10 s	15 m	Körper	1 Ws	10 min	dämonisch		f		\N	\N
-Automat schaffen	2400	9	Geste	5	\N	\N	\N	\N	Magan	verändert	Metall	1 h	0	Umgebung	1 Ob	perm	dämonisch		f	Siegel	\N	\N
+Automat schaffen	2400	9	Geste	5	\N	\N	\N	\N	Magan	verändert	Metall	1 h	B	Umgebung	1 Ob	perm	dämonisch		f	Siegel	\N	\N
 Ballade der Begierde	300	1	Zauberlied	3	H&D	\N	\N	\N	Magan	beherrscht	Luft	5 min	0	Geist	1 Ws	perm	druidisch	Harfe oder Laute	f		\N	\N
 Ballader der besiegten Gier	1500	1	Zauberlied	4	H&D	\N	\N		Magan	beherrscht	Luft	10 min	0	Geist	1 Ws	perm	druidisch	Harfe oder Laute	f		\N	\N
 Ballbalance	100	1	Geste	1/Ball	N	\N	\N	\N	Magan	verändert	Metall	5 sec	B	Umgebung	1-10 Objekte	Grad min	dämonisch	Gummiball (25KS)	f	Trickser	\N	\N

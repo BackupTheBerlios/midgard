@@ -469,64 +469,6 @@ void midgard_CG::InfoFensterAusruestung(std::string name,int wurf,int noetig)
 // manage(new WindowInfo(strinfo,false));
 }
 
-gint midgard_CG::on_button_ausruestung_druck_release_event(GdkEventButton *event)
-{
-  if (event->button==1) on_ausruestung_druck(true);
-  if (event->button==3) on_ausruestung_druck(false);
-  return false;
-}
-
-void midgard_CG::on_nur_sichtbares_drucken()
-{on_ausruestung_druck(false); }
-void midgard_CG::on_auch_unsichtbares_drucken()
-{on_ausruestung_druck(true); }
-
-
-void midgard_CG::on_ausruestung_druck(bool unsichtbar)
-{
- std::string filename=get_latex_pathname(TeX_tmp)+get_latex_filename(TeX_Ausruestung);
- ofstream fout((filename+".tex").c_str());
- LaTeX_header(fout,false);           
-
- fout << "\\fbox{\\parbox[t][22cm]{18cm}{ \n";
- for(AusruestungBaum::const_iterator i=besitz.begin();i!=besitz.end();++i)
-  {
-   if(i->getAusruestung().Sichtbar() || unsichtbar )
-    {      
-      std::string name=i->getAusruestung().Name();
-      if (!i->getAusruestung().Material().empty()) name +=" ("+i->getAusruestung().Material()+")";
-      if(i->getAusruestung().Sichtbar())  fout << name<<"\\\\\n" ;
-      else                                fout <<"\\textcolor{mygray}{"<< name<<"}\\\\\n" ;
-      ausruestung_druck(fout,unsichtbar,i->getChildren(),1);
-     }
-  }
- fout << "}}\n";
- LaTeX_footer(fout);
- fout.close();
- pdf_viewer(filename);
-}
-
-
-void midgard_CG::ausruestung_druck(ostream &fout,bool unsichtbar,const list<AusruestungBaum> &AB,int deep)
-{
- for(std::list<AusruestungBaum>::const_iterator i=AB.begin();i!=AB.end();++i)
-  {
-   if(i->getAusruestung().Sichtbar() || unsichtbar)
-    {      
-      std::string name=i->getAusruestung().Name();
-      if (!i->getAusruestung().Material().empty() &&
-           i->getAusruestung().Material()!="standard" ) 
-         name +=" ("+i->getAusruestung().Material()+")";
-      double fdeep = deep*0.5;
-      fout << "\\hspace*{"+dtos1(fdeep)+"cm} ";
-      if(i->getAusruestung().Sichtbar())  fout << name<<"\\\\\n" ;
-      else                                 fout <<"\\textcolor{mygray}{"<< name<<"}\\\\\n" ;
-      ausruestung_druck(fout,unsichtbar,i->getChildren(),deep+1);
-     }
-  }
-}
-
-
 ////////////////////////////////////////////////////////////////////////
 //Neueingeben
 //von hier 

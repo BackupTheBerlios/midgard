@@ -1,3 +1,11 @@
+cvs add table_beschreibung.hh table_beschreibung_glade.hh 
+table_beschreibung_glade.cc table_beschreibung.cc midgard_CG_drucken.cc
+LaTeX_drucken_ausruestung.cc LernListen.hh LaTeX_drucken_beschreibung.cc
+
+cvs delete midgard_CG_beschreibung.cc LaTeX_zauber.cc LaTeX_header.cc
+   LaTeX_out.cc LaTeX_kido.cc LaTeX_charakter_beschreibung.cc
+
+
 ##########################################################################
 NEWS IN VERSION 0.6delta3
 
@@ -5,7 +13,7 @@ NEWS IN VERSION 0.6delta3
 * Der Windows Port verwendet den Explorer um Dateien auszuwählen
 * Abenteurer werden auch unter Windows nun in ISO 8859-1 gespeichert
 * Nahuatlan Fertigkeiten: Im Prinzip 'Ja', aber m.E. ist einiges mehr als
-   überholt, außerdem habe ich die Ausnahemn für die Einheimischen nicht 
+   überholt, außerdem habe ich die Ausnahmen für die Einheimischen nicht 
    berücksichtigt. Ergänzungs- und Änderungswünsche nehme ich aber gerne 
    entgegen, wenn sie konkret(!) formuliert werden :-)
 * Nahuatlan Aliasnamen für Waffen und Schilde
@@ -48,10 +56,15 @@ NEWS IN VERSION 0.6delta3
            - Abenteurerbeschreibung
            - Alles
            - leeres Dokument
+* Waffenbesitz: Neuladen: überflüssiger Knopf ist weg
+* Redesign (Zerteilen) der Klassen begonnen: Drucken, Beschreibung
 
 TODO:
+* Ausdruck für Lange Listen
+* Searchcombo für Typen
+* Agens für Hl/Dr
 * Gildenbrief funktioniert nicht
-* Waffenbesitz: Neuladen: überflüssiger Knopf ist weg
+* pdf Dokument abspeichern
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
 * Destruktor wird nicht aufgerufen
 * gv zeigt den falschen Ausschnitt des pdf Dokumentes 

@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.33 2002/05/10 06:02:25 thoma Exp $
+// $Id: Optionen.cc,v 1.34 2002/05/14 07:26:14 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -42,7 +42,7 @@ Midgard_Optionen::Midgard_Optionen(midgard_CG* h)
    pdfViewer_init();
 }
 
-std::string Midgard_Optionen::Viewer()
+std::string Midgard_Optionen::Viewer() const
 {
 #ifndef __MINGW32__
   if     (pdfViewerCheck(Midgard_Optionen::gv).active)       return "gv";
@@ -56,7 +56,7 @@ std::string Midgard_Optionen::Viewer()
 #endif  
 }
 
-std::string Midgard_Optionen::getString(StringIndex index)
+std::string Midgard_Optionen::getString(StringIndex index) const 
 {
  for(std::list<st_strings>::const_iterator i=list_Strings.begin();i!=list_Strings.end();++i)
    if(i->index==index) return i->name;    
@@ -69,7 +69,7 @@ void Midgard_Optionen::setString(StringIndex index,std::string n)
    if(i->index==index) { i->name=n; return; }
 }
 
-Midgard_Optionen::st_OptionenCheck Midgard_Optionen::OptionenCheck(OptionenCheckIndex oi)
+Midgard_Optionen::st_OptionenCheck Midgard_Optionen::OptionenCheck(OptionenCheckIndex oi) const
 {
  for(std::list<st_OptionenCheck>::const_iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
    if(i->index==oi) return *i;
@@ -77,7 +77,7 @@ Midgard_Optionen::st_OptionenCheck Midgard_Optionen::OptionenCheck(OptionenCheck
  abort();
 }
 
-Midgard_Optionen::st_Haus Midgard_Optionen::HausregelCheck(HausIndex hi)
+Midgard_Optionen::st_Haus Midgard_Optionen::HausregelCheck(HausIndex hi) const
 {
  for(std::list<st_Haus>::const_iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
    if(i->index==hi) return *i;
@@ -85,7 +85,7 @@ Midgard_Optionen::st_Haus Midgard_Optionen::HausregelCheck(HausIndex hi)
  abort();
 }
 
-Midgard_Optionen::st_Ober Midgard_Optionen::OberCheck(OberIndex hi)
+Midgard_Optionen::st_Ober Midgard_Optionen::OberCheck(OberIndex hi) const
 {
  for(std::list<st_Ober>::const_iterator i=list_Ober.begin();i!=list_Ober.end();++i)
    if(i->index==hi) return *i;
@@ -93,7 +93,7 @@ Midgard_Optionen::st_Ober Midgard_Optionen::OberCheck(OberIndex hi)
  abort();
 }
 
-Midgard_Optionen::st_pdfViewer Midgard_Optionen::pdfViewerCheck(pdfViewerIndex pi)
+Midgard_Optionen::st_pdfViewer Midgard_Optionen::pdfViewerCheck(pdfViewerIndex pi) const 
 {
  for(std::list<st_pdfViewer>::const_iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
    if(i->index==pi) return *i;

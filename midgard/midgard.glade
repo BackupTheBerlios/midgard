@@ -965,7 +965,7 @@ andere geholfen.</label>
 		<widget>
 		  <class>GtkTable</class>
 		  <name>table77</name>
-		  <rows>8</rows>
+		  <rows>7</rows>
 		  <columns>6</columns>
 		  <homogeneous>False</homogeneous>
 		  <row_spacing>0</row_spacing>
@@ -974,7 +974,7 @@ andere geholfen.</label>
 		  <widget>
 		    <class>GtkLabel</class>
 		    <name>label412</name>
-		    <label></label>
+		    <label>Länder</label>
 		    <justify>GTK_JUSTIFY_CENTER</justify>
 		    <wrap>False</wrap>
 		    <xalign>0</xalign>
@@ -1184,62 +1184,6 @@ andere geholfen.</label>
 		      <right_attach>2</right_attach>
 		      <top_attach>6</top_attach>
 		      <bottom_attach>7</bottom_attach>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <xexpand>False</xexpand>
-		      <yexpand>False</yexpand>
-		      <xshrink>False</xshrink>
-		      <yshrink>False</yshrink>
-		      <xfill>True</xfill>
-		      <yfill>False</yfill>
-		    </child>
-		  </widget>
-
-		  <widget>
-		    <class>GtkLabel</class>
-		    <name>label421</name>
-		    <label>Grundkenntnisse</label>
-		    <justify>GTK_JUSTIFY_CENTER</justify>
-		    <wrap>False</wrap>
-		    <xalign>0</xalign>
-		    <yalign>0.5</yalign>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <child>
-		      <left_attach>0</left_attach>
-		      <right_attach>1</right_attach>
-		      <top_attach>7</top_attach>
-		      <bottom_attach>8</bottom_attach>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <xexpand>False</xexpand>
-		      <yexpand>False</yexpand>
-		      <xshrink>False</xshrink>
-		      <yshrink>False</yshrink>
-		      <xfill>True</xfill>
-		      <yfill>False</yfill>
-		    </child>
-		  </widget>
-
-		  <widget>
-		    <class>GtkProgressBar</class>
-		    <name>progressbar_grundkenntnisse</name>
-		    <cxx_visibility>protected</cxx_visibility>
-		    <value>0</value>
-		    <lower>0</lower>
-		    <upper>100</upper>
-		    <bar_style>GTK_PROGRESS_CONTINUOUS</bar_style>
-		    <orientation>GTK_PROGRESS_LEFT_TO_RIGHT</orientation>
-		    <activity_mode>False</activity_mode>
-		    <show_text>False</show_text>
-		    <format>%P %%</format>
-		    <text_xalign>0.5</text_xalign>
-		    <text_yalign>0.5</text_yalign>
-		    <child>
-		      <left_attach>1</left_attach>
-		      <right_attach>2</right_attach>
-		      <top_attach>7</top_attach>
-		      <bottom_attach>8</bottom_attach>
 		      <xpad>0</xpad>
 		      <ypad>0</ypad>
 		      <xexpand>False</xexpand>
@@ -1700,6 +1644,36 @@ andere geholfen.</label>
 		  </widget>
 
 		  <widget>
+		    <class>GtkProgressBar</class>
+		    <name>progressbar_schrift</name>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <value>0</value>
+		    <lower>0</lower>
+		    <upper>100</upper>
+		    <bar_style>GTK_PROGRESS_CONTINUOUS</bar_style>
+		    <orientation>GTK_PROGRESS_LEFT_TO_RIGHT</orientation>
+		    <activity_mode>False</activity_mode>
+		    <show_text>False</show_text>
+		    <format>%P %%</format>
+		    <text_xalign>0.5</text_xalign>
+		    <text_yalign>0.5</text_yalign>
+		    <child>
+		      <left_attach>5</left_attach>
+		      <right_attach>6</right_attach>
+		      <top_attach>0</top_attach>
+		      <bottom_attach>1</bottom_attach>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <xexpand>False</xexpand>
+		      <yexpand>False</yexpand>
+		      <xshrink>False</xshrink>
+		      <yshrink>False</yshrink>
+		      <xfill>True</xfill>
+		      <yfill>False</yfill>
+		    </child>
+		  </widget>
+
+		  <widget>
 		    <class>GtkLabel</class>
 		    <name>label419</name>
 		    <label>Schriften</label>
@@ -1710,10 +1684,10 @@ andere geholfen.</label>
 		    <xpad>0</xpad>
 		    <ypad>0</ypad>
 		    <child>
-		      <left_attach>2</left_attach>
-		      <right_attach>3</right_attach>
-		      <top_attach>6</top_attach>
-		      <bottom_attach>7</bottom_attach>
+		      <left_attach>4</left_attach>
+		      <right_attach>5</right_attach>
+		      <top_attach>0</top_attach>
+		      <bottom_attach>1</bottom_attach>
 		      <xpad>0</xpad>
 		      <ypad>0</ypad>
 		      <xexpand>False</xexpand>
@@ -1738,8 +1712,8 @@ andere geholfen.</label>
 		    <child>
 		      <left_attach>2</left_attach>
 		      <right_attach>3</right_attach>
-		      <top_attach>5</top_attach>
-		      <bottom_attach>6</bottom_attach>
+		      <top_attach>6</top_attach>
+		      <bottom_attach>7</bottom_attach>
 		      <xpad>0</xpad>
 		      <ypad>0</ypad>
 		      <xexpand>False</xexpand>
@@ -1764,8 +1738,8 @@ andere geholfen.</label>
 		    <child>
 		      <left_attach>2</left_attach>
 		      <right_attach>3</right_attach>
-		      <top_attach>4</top_attach>
-		      <bottom_attach>5</bottom_attach>
+		      <top_attach>5</top_attach>
+		      <bottom_attach>6</bottom_attach>
 		      <xpad>0</xpad>
 		      <ypad>0</ypad>
 		      <xexpand>False</xexpand>
@@ -1790,6 +1764,32 @@ andere geholfen.</label>
 		    <child>
 		      <left_attach>2</left_attach>
 		      <right_attach>3</right_attach>
+		      <top_attach>4</top_attach>
+		      <bottom_attach>5</bottom_attach>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <xexpand>False</xexpand>
+		      <yexpand>False</yexpand>
+		      <xshrink>False</xshrink>
+		      <yshrink>False</yshrink>
+		      <xfill>True</xfill>
+		      <yfill>False</yfill>
+		    </child>
+		  </widget>
+
+		  <widget>
+		    <class>GtkLabel</class>
+		    <name>label416</name>
+		    <label>Zauber</label>
+		    <justify>GTK_JUSTIFY_CENTER</justify>
+		    <wrap>False</wrap>
+		    <xalign>0</xalign>
+		    <yalign>0.5</yalign>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <child>
+		      <left_attach>2</left_attach>
+		      <right_attach>3</right_attach>
 		      <top_attach>3</top_attach>
 		      <bottom_attach>4</bottom_attach>
 		      <xpad>0</xpad>
@@ -1804,24 +1804,46 @@ andere geholfen.</label>
 		  </widget>
 
 		  <widget>
-		    <class>GtkProgressBar</class>
-		    <name>progressbar_schrift</name>
-		    <cxx_visibility>protected</cxx_visibility>
-		    <value>0</value>
-		    <lower>0</lower>
-		    <upper>100</upper>
-		    <bar_style>GTK_PROGRESS_CONTINUOUS</bar_style>
-		    <orientation>GTK_PROGRESS_LEFT_TO_RIGHT</orientation>
-		    <activity_mode>False</activity_mode>
-		    <show_text>False</show_text>
-		    <format>%P %%</format>
-		    <text_xalign>0.5</text_xalign>
-		    <text_yalign>0.5</text_yalign>
+		    <class>GtkLabel</class>
+		    <name>label430</name>
+		    <label>Regionale Waffen</label>
+		    <justify>GTK_JUSTIFY_CENTER</justify>
+		    <wrap>False</wrap>
+		    <xalign>0</xalign>
+		    <yalign>0.5</yalign>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
 		    <child>
-		      <left_attach>3</left_attach>
-		      <right_attach>4</right_attach>
-		      <top_attach>6</top_attach>
-		      <bottom_attach>7</bottom_attach>
+		      <left_attach>2</left_attach>
+		      <right_attach>3</right_attach>
+		      <top_attach>2</top_attach>
+		      <bottom_attach>3</bottom_attach>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <xexpand>False</xexpand>
+		      <yexpand>False</yexpand>
+		      <xshrink>False</xshrink>
+		      <yshrink>False</yshrink>
+		      <xfill>True</xfill>
+		      <yfill>False</yfill>
+		    </child>
+		  </widget>
+
+		  <widget>
+		    <class>GtkLabel</class>
+		    <name>label422</name>
+		    <label>Waffen</label>
+		    <justify>GTK_JUSTIFY_CENTER</justify>
+		    <wrap>False</wrap>
+		    <xalign>0</xalign>
+		    <yalign>0.5</yalign>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <child>
+		      <left_attach>2</left_attach>
+		      <right_attach>3</right_attach>
+		      <top_attach>1</top_attach>
+		      <bottom_attach>2</bottom_attach>
 		      <xpad>0</xpad>
 		      <ypad>0</ypad>
 		      <xexpand>False</xexpand>
@@ -1850,6 +1872,36 @@ andere geholfen.</label>
 		    <child>
 		      <left_attach>3</left_attach>
 		      <right_attach>4</right_attach>
+		      <top_attach>6</top_attach>
+		      <bottom_attach>7</bottom_attach>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <xexpand>False</xexpand>
+		      <yexpand>False</yexpand>
+		      <xshrink>False</xshrink>
+		      <yshrink>False</yshrink>
+		      <xfill>True</xfill>
+		      <yfill>False</yfill>
+		    </child>
+		  </widget>
+
+		  <widget>
+		    <class>GtkProgressBar</class>
+		    <name>progressbar_kido</name>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <value>0</value>
+		    <lower>0</lower>
+		    <upper>100</upper>
+		    <bar_style>GTK_PROGRESS_CONTINUOUS</bar_style>
+		    <orientation>GTK_PROGRESS_LEFT_TO_RIGHT</orientation>
+		    <activity_mode>False</activity_mode>
+		    <show_text>False</show_text>
+		    <format>%P %%</format>
+		    <text_xalign>0.5</text_xalign>
+		    <text_yalign>0.5</text_yalign>
+		    <child>
+		      <left_attach>3</left_attach>
+		      <right_attach>4</right_attach>
 		      <top_attach>5</top_attach>
 		      <bottom_attach>6</bottom_attach>
 		      <xpad>0</xpad>
@@ -1865,7 +1917,7 @@ andere geholfen.</label>
 
 		  <widget>
 		    <class>GtkProgressBar</class>
-		    <name>progressbar_kido</name>
+		    <name>progressbar_zauberwerk</name>
 		    <cxx_visibility>protected</cxx_visibility>
 		    <value>0</value>
 		    <lower>0</lower>
@@ -1895,7 +1947,7 @@ andere geholfen.</label>
 
 		  <widget>
 		    <class>GtkProgressBar</class>
-		    <name>progressbar_zauberwerk</name>
+		    <name>progressbar_zauber</name>
 		    <cxx_visibility>protected</cxx_visibility>
 		    <value>0</value>
 		    <lower>0</lower>
@@ -1925,88 +1977,6 @@ andere geholfen.</label>
 
 		  <widget>
 		    <class>GtkProgressBar</class>
-		    <name>progressbar_zauber</name>
-		    <cxx_visibility>protected</cxx_visibility>
-		    <value>0</value>
-		    <lower>0</lower>
-		    <upper>100</upper>
-		    <bar_style>GTK_PROGRESS_CONTINUOUS</bar_style>
-		    <orientation>GTK_PROGRESS_LEFT_TO_RIGHT</orientation>
-		    <activity_mode>False</activity_mode>
-		    <show_text>False</show_text>
-		    <format>%P %%</format>
-		    <text_xalign>0.5</text_xalign>
-		    <text_yalign>0.5</text_yalign>
-		    <child>
-		      <left_attach>3</left_attach>
-		      <right_attach>4</right_attach>
-		      <top_attach>2</top_attach>
-		      <bottom_attach>3</bottom_attach>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <xexpand>False</xexpand>
-		      <yexpand>False</yexpand>
-		      <xshrink>False</xshrink>
-		      <yshrink>False</yshrink>
-		      <xfill>True</xfill>
-		      <yfill>False</yfill>
-		    </child>
-		  </widget>
-
-		  <widget>
-		    <class>GtkLabel</class>
-		    <name>label416</name>
-		    <label>Zauber</label>
-		    <justify>GTK_JUSTIFY_CENTER</justify>
-		    <wrap>False</wrap>
-		    <xalign>0</xalign>
-		    <yalign>0.5</yalign>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <child>
-		      <left_attach>2</left_attach>
-		      <right_attach>3</right_attach>
-		      <top_attach>2</top_attach>
-		      <bottom_attach>3</bottom_attach>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <xexpand>False</xexpand>
-		      <yexpand>False</yexpand>
-		      <xshrink>False</xshrink>
-		      <yshrink>False</yshrink>
-		      <xfill>True</xfill>
-		      <yfill>False</yfill>
-		    </child>
-		  </widget>
-
-		  <widget>
-		    <class>GtkLabel</class>
-		    <name>label430</name>
-		    <label>Regionale Waffen</label>
-		    <justify>GTK_JUSTIFY_CENTER</justify>
-		    <wrap>False</wrap>
-		    <xalign>0</xalign>
-		    <yalign>0.5</yalign>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <child>
-		      <left_attach>2</left_attach>
-		      <right_attach>3</right_attach>
-		      <top_attach>1</top_attach>
-		      <bottom_attach>2</bottom_attach>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <xexpand>False</xexpand>
-		      <yexpand>False</yexpand>
-		      <xshrink>False</xshrink>
-		      <yshrink>False</yshrink>
-		      <xfill>True</xfill>
-		      <yfill>False</yfill>
-		    </child>
-		  </widget>
-
-		  <widget>
-		    <class>GtkProgressBar</class>
 		    <name>progressbar_aliaswaffen</name>
 		    <cxx_visibility>protected</cxx_visibility>
 		    <value>0</value>
@@ -2022,6 +1992,36 @@ andere geholfen.</label>
 		    <child>
 		      <left_attach>3</left_attach>
 		      <right_attach>4</right_attach>
+		      <top_attach>2</top_attach>
+		      <bottom_attach>3</bottom_attach>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <xexpand>False</xexpand>
+		      <yexpand>False</yexpand>
+		      <xshrink>False</xshrink>
+		      <yshrink>False</yshrink>
+		      <xfill>True</xfill>
+		      <yfill>False</yfill>
+		    </child>
+		  </widget>
+
+		  <widget>
+		    <class>GtkProgressBar</class>
+		    <name>progressbar_waffen</name>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <value>0</value>
+		    <lower>0</lower>
+		    <upper>100</upper>
+		    <bar_style>GTK_PROGRESS_CONTINUOUS</bar_style>
+		    <orientation>GTK_PROGRESS_LEFT_TO_RIGHT</orientation>
+		    <activity_mode>False</activity_mode>
+		    <show_text>False</show_text>
+		    <format>%P %%</format>
+		    <text_xalign>0.5</text_xalign>
+		    <text_yalign>0.5</text_yalign>
+		    <child>
+		      <left_attach>3</left_attach>
+		      <right_attach>4</right_attach>
 		      <top_attach>1</top_attach>
 		      <bottom_attach>2</bottom_attach>
 		      <xpad>0</xpad>
@@ -2037,8 +2037,8 @@ andere geholfen.</label>
 
 		  <widget>
 		    <class>GtkLabel</class>
-		    <name>label422</name>
-		    <label>Waffen</label>
+		    <name>label421</name>
+		    <label>Grundkenntnisse</label>
 		    <justify>GTK_JUSTIFY_CENTER</justify>
 		    <wrap>False</wrap>
 		    <xalign>0</xalign>
@@ -2063,7 +2063,7 @@ andere geholfen.</label>
 
 		  <widget>
 		    <class>GtkProgressBar</class>
-		    <name>progressbar_waffen</name>
+		    <name>progressbar_grundkenntnisse</name>
 		    <cxx_visibility>protected</cxx_visibility>
 		    <value>0</value>
 		    <lower>0</lower>
@@ -2305,7 +2305,7 @@ andere geholfen.</label>
 
 	  <widget>
 	    <class>GtkTable</class>
-	    <name>table1</name>
+	    <name>table_grundwerte</name>
 	    <rows>7</rows>
 	    <columns>5</columns>
 	    <homogeneous>False</homogeneous>
@@ -13207,7 +13207,10 @@ eingeben</label>
 
 	<widget>
 	  <class>GtkTable</class>
-	  <name>table23</name>
+	  <name>table_beschreibung</name>
+	  <cxx_separate_file>True</cxx_separate_file>
+	  <cxx_separate_class>True</cxx_separate_class>
+	  <cxx_visibility>protected</cxx_visibility>
 	  <rows>2</rows>
 	  <columns>2</columns>
 	  <homogeneous>False</homogeneous>
@@ -16147,11 +16150,17 @@ wird der entsprechende Abenteurer geladen.</label>
 
 		  <widget>
 		    <class>GtkMenuItem</class>
+		    <name>trennlinie4</name>
+		    <right_justify>False</right_justify>
+		  </widget>
+
+		  <widget>
+		    <class>GtkMenuItem</class>
 		    <name>leeres_abenteurerblatt</name>
 		    <signal>
 		      <name>activate</name>
-		      <handler>on_leeres_abenteurerblatt_drucken</handler>
-		      <last_modification_time>Mon, 13 May 2002 12:17:03 GMT</last_modification_time>
+		      <handler>on_leeres_abenteurerdokument_drucken</handler>
+		      <last_modification_time>Tue, 14 May 2002 06:11:40 GMT</last_modification_time>
 		    </signal>
 		    <label>Leeres Abenteurerblatt</label>
 		    <right_justify>False</right_justify>
@@ -17461,81 +17470,6 @@ Verlust</label>
     </widget>
 
     <widget>
-      <class>GtkHBox</class>
-      <name>hbox18</name>
-      <homogeneous>False</homogeneous>
-      <spacing>0</spacing>
-      <child>
-	<left_attach>2</left_attach>
-	<right_attach>3</right_attach>
-	<top_attach>3</top_attach>
-	<bottom_attach>4</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>3</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>False</xfill>
-	<yfill>False</yfill>
-      </child>
-
-      <widget>
-	<class>Placeholder</class>
-      </widget>
-
-      <widget>
-	<class>GtkToolbar</class>
-	<name>toolbar29</name>
-	<border_width>5</border_width>
-	<orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
-	<type>GTK_TOOLBAR_BOTH</type>
-	<space_size>10</space_size>
-	<space_style>GTK_TOOLBAR_SPACE_EMPTY</space_style>
-	<relief>GTK_RELIEF_NORMAL</relief>
-	<tooltips>True</tooltips>
-	<child>
-	  <padding>0</padding>
-	  <expand>False</expand>
-	  <fill>False</fill>
-	</child>
-
-	<widget>
-	  <class>GtkButton</class>
-	  <child_name>Toolbar:button</child_name>
-	  <name>button_neuladen</name>
-	  <signal>
-	    <name>clicked</name>
-	    <handler>on_button_neuladen_clicked</handler>
-	    <last_modification_time>Mon, 15 Oct 2001 06:38:35 GMT</last_modification_time>
-	  </signal>
-	  <label>Neu laden</label>
-	  <icon>LoadWeapon-trans-50.xpm</icon>
-	</widget>
-
-	<widget>
-	  <class>GtkButton</class>
-	  <child_name>Toolbar:button</child_name>
-	  <name>button58</name>
-	  <signal>
-	    <name>clicked</name>
-	    <handler>on_button_close_clicked</handler>
-	    <last_modification_time>Tue, 03 Apr 2001 21:32:37 GMT</last_modification_time>
-	  </signal>
-	  <label></label>
-	  <icon>SchliessenIII-50.xpm</icon>
-	  <child>
-	    <new_group>True</new_group>
-	  </child>
-	</widget>
-      </widget>
-
-      <widget>
-	<class>Placeholder</class>
-      </widget>
-    </widget>
-
-    <widget>
       <class>GtkScrolledWindow</class>
       <name>scrolledwindow56</name>
       <width>300</width>
@@ -17623,8 +17557,8 @@ Verlust</label>
 	<active>False</active>
 	<draw_indicator>False</draw_indicator>
 	<child>
-	  <left_attach>1</left_attach>
-	  <right_attach>2</right_attach>
+	  <left_attach>0</left_attach>
+	  <right_attach>1</right_attach>
 	  <top_attach>0</top_attach>
 	  <bottom_attach>1</bottom_attach>
 	  <xpad>0</xpad>
@@ -17984,6 +17918,71 @@ eingeben</label>
 	    <yshrink>False</yshrink>
 	    <xfill>True</xfill>
 	    <yfill>False</yfill>
+	  </child>
+	</widget>
+      </widget>
+    </widget>
+
+    <widget>
+      <class>GtkButton</class>
+      <name>button58</name>
+      <signal>
+	<name>clicked</name>
+	<handler>on_button_close_clicked</handler>
+	<last_modification_time>Tue, 03 Apr 2001 21:32:37 GMT</last_modification_time>
+      </signal>
+      <relief>GTK_RELIEF_NORMAL</relief>
+      <child>
+	<left_attach>2</left_attach>
+	<right_attach>3</right_attach>
+	<top_attach>3</top_attach>
+	<bottom_attach>4</bottom_attach>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<xexpand>False</xexpand>
+	<yexpand>False</yexpand>
+	<xshrink>False</xshrink>
+	<yshrink>False</yshrink>
+	<xfill>False</xfill>
+	<yfill>False</yfill>
+      </child>
+
+      <widget>
+	<class>GtkHBox</class>
+	<name>hbox75</name>
+	<homogeneous>False</homogeneous>
+	<spacing>0</spacing>
+
+	<widget>
+	  <class>GtkPixmap</class>
+	  <name>pixmap155</name>
+	  <filename>Claymore-50.xpm</filename>
+	  <xalign>0.5</xalign>
+	  <yalign>0.5</yalign>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <build_insensitive>True</build_insensitive>
+	  <child>
+	    <padding>0</padding>
+	    <expand>True</expand>
+	    <fill>True</fill>
+	  </child>
+	</widget>
+
+	<widget>
+	  <class>GtkLabel</class>
+	  <name>label581</name>
+	  <label>Zurück</label>
+	  <justify>GTK_JUSTIFY_CENTER</justify>
+	  <wrap>False</wrap>
+	  <xalign>0.5</xalign>
+	  <yalign>0.5</yalign>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <child>
+	    <padding>0</padding>
+	    <expand>False</expand>
+	    <fill>False</fill>
 	  </child>
 	</widget>
       </widget>

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.238 2002/05/13 14:43:54 thoma Exp $
+// $Id: midgard_CG.hh,v 1.239 2002/05/14 07:26:14 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -50,6 +50,43 @@ class GeldFenster
 
 class midgard_CG : public midgard_CG_glade, public GeldFenster
 {   
+/////////////////////////////////////////////////////////////////////////////
+        friend class LaTeX_drucken;
+        friend class Window_Waffenbesitz;
+        friend class Data_waffenbesitz;
+        friend class Data_SimpleTree;
+      
+        friend class xml_fileselection;
+        friend class frame_globale_optionen;
+        friend class frame_ansicht;
+        friend class table_optionen;
+   private:
+        // Drucken
+        void on_alles_drucken();
+        void on_abenteurerdokument_drucken();
+        void on_leeres_abenteurerdokument_drucken();
+        gint on_latex_release_event(GdkEventButton *ev);
+        void on_beschreibung_drucken();
+        gint on_button_ausruestung_druck_release_event(GdkEventButton *event);
+        void on_nur_sichtbares_drucken();
+        void on_auch_unsichtbares_drucken();
+//        void on_ausruestung_druck(bool unsichtbar);
+//        void ausruestung_druck(ostream &fout,bool unsichtbar,const list<AusruestungBaum> &AB,int deep);
+   protected:
+        void undosave(std::string s); 
+//        void latex_beschreibung_drucken();
+
+        const Datenbank &getDatabase() const {return Database;}
+        Grundwerte &getWerte() {return Werte;}
+        const Grundwerte &getCWerte() const {return Werte;}
+        Midgard_Optionen* getOptionen() const {return MOptionen;};
+   public:
+        void show_beschreibung() {table_beschreibung->init(this);}
+
+
+//////////////////////////////////////////////////////////
+
+
    public:
         WindowInfo *InfoFenster;
    private:
@@ -72,6 +109,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         friend class Midgard_Optionen;
         friend class Midgard_Info;
         friend class frame_drucken;
+        friend class table_beschreibung;
         Midgard_Undo MidgardUndo;
         Wizard *wizard;
         Midgard_Optionen *MOptionen;
@@ -113,7 +151,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
    public:
         void setWindowPosition(int x,int y);
         void setWindowSize(int width,int height);
-        Midgard_Optionen* getOptionen() {return MOptionen;};
         std::list<std::string>            list_FertigkeitZusaetze;
    private:
         std::list<cH_MidgardBasicElement> list_Fertigkeit_neu;
@@ -147,7 +184,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
     private:
         bool modify_bool;
         int maxkido;
-//        bool magie_bool;
         bool steigern_mit_EP_bool;
 
         vector<cH_Typen> Typ;
@@ -304,46 +340,39 @@ private:
         void clear_listen();
         void on_button_hilfe_clicked();
         void on_button_html_hilfe_clicked();
-        gint on_text_charakter_beschreibung_focus_out_event(GdkEventFocus *ev);        
-        gint on_spinbutton_pix_breite_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_pix_breite_focus_in_event(GdkEventFocus *ev);
-        void on_button_beschreibung_drucken_clicked();
-        void on_beschreibung_drucken();
-        void on_button_grafik_clicked();
+//        gint on_text_charakter_beschreibung_focus_out_event(GdkEventFocus *ev);        
+//        gint on_spinbutton_pix_breite_focus_out_event(GdkEventFocus *ev);
+//        gint on_spinbutton_pix_breite_focus_in_event(GdkEventFocus *ev);
+//        void on_button_beschreibung_drucken_clicked();
+//        void on_button_grafik_clicked();
         
-        void on_alles_drucken();
 
         void load_fertigkeiten(IF_XML(const Tag *tag, const Tag *waffen_b, int xml_version));
-        void on_latex_clicked(bool values=true);
         // needed for menu connection, you can't pass any data or default args
-        void on_drucken_clicked();
-        void on_abenteurerdokument_drucken();
-        void on_leeres_abenteurerblatt_drucken() {on_latex_clicked(false);}
-        void LaTeX_newsavebox(ostream &fout);
-        void LaTeX_write_values(ostream &fout,const std::string &install_latex_file);
-        void LaTeX_write_empty_values(ostream &fout,const std::string &install_latex_file);
-        gint on_latex_release_event(GdkEventButton *ev);
-        enum LaTeX_Filenames {TeX_MainWerte,TeX_MainDocument,TeX_Beschreibung,TeX_Ausruestung};
-        enum LaTeX_Pathnames {TeX_Install,TeX_tmp};
-        std::string get_latex_filename(const LaTeX_Filenames what);
-        std::string get_latex_pathname(const LaTeX_Pathnames what);
-        enum SystemComms {RM/*,CP*/};
-        std::string system_comm(SystemComms);
+//        void on_drucken_clicked();
+//        void LaTeX_newsavebox(ostream &fout);
+//        void LaTeX_write_values(ostream &fout,const std::string &install_latex_file);
+//        void LaTeX_write_empty_values(ostream &fout,const std::string &install_latex_file);
+//        enum LaTeX_Filenames {TeX_MainWerte,TeX_MainDocument,TeX_Beschreibung,TeX_Ausruestung};
+//        enum LaTeX_Pathnames {TeX_Install,TeX_tmp};
+//        std::string get_latex_filename(const LaTeX_Filenames what);
+//        std::string get_latex_pathname(const LaTeX_Pathnames what);
+//        enum SystemComms {RM/*,CP*/};
+//        std::string system_comm(SystemComms);
         void on_exportieren_activate();
-        void latex_beschreibung_drucken();
         void on_button_info_clicked();
-        void LaTeX_zauber_main(ostream &fout);
-        std::string LaTeX_scale(const std::string& is, unsigned int maxlength, const std::string& scale);
-        std::string LaTeX_scalemag(const std::string& is, unsigned int maxlength, const std::string& scale,
-            const std::string& magisch,const std::string& reichweite);
-        void LaTeX_zauber(ostream &fout);
-        void LaTeX_zaubermittel(ostream &fout);
-        void LaTeX_kido_main(ostream &fout);
-        void LaTeX_kido(ostream &fout);
-        void LaTeX_header(ostream &fout,bool landscape=true);
-        void LaTeX_kopfzeile(ostream &fout,bool landscape,bool newdoc=true);
-        void LaTeX_footer(ostream &fout);
-        std::string LaTeX_string(int i);
+//        void LaTeX_zauber_main(ostream &fout);
+//        std::string LaTeX_scale(const std::string& is, unsigned int maxlength, const std::string& scale);
+//        std::string LaTeX_scalemag(const std::string& is, unsigned int maxlength, const std::string& scale,
+//            const std::string& magisch,const std::string& reichweite);
+//        void LaTeX_zauber(ostream &fout);
+//        void LaTeX_zaubermittel(ostream &fout);
+//        void LaTeX_kido_main(ostream &fout);
+//        void LaTeX_kido(ostream &fout);
+//        void LaTeX_header(ostream &fout,bool landscape=true);
+//        void LaTeX_kopfzeile(ostream &fout,bool landscape,bool newdoc=true);
+//        void LaTeX_footer(ostream &fout);
+//        std::string LaTeX_string(int i);
         void on_schliessen_CG_clicked();
         gint on_midgard_CG_delete_event(GdkEventAny* event);
 
@@ -549,11 +578,6 @@ private:
 
         void ausruestung_laden();
         void fill_preisliste();
-        gint on_button_ausruestung_druck_release_event(GdkEventButton *event);
-        void on_nur_sichtbares_drucken();
-        void on_auch_unsichtbares_drucken();
-        void on_ausruestung_druck(bool unsichtbar);
-        void ausruestung_druck(ostream &fout,bool unsichtbar,const list<AusruestungBaum> &AB,int deep);
         void on_clist_preisliste_select_row(gint row, gint column, GdkEvent *event);
         void on_preise_leaf_selected(cH_RowDataBase d);        
         void on_button_modi_clicked();
@@ -603,7 +627,6 @@ private:
          void xml_import_auswahl();
          void checkAngeboreneSinne();
          void speicherstream(ostream &datei);
-         void undosave(std::string s); 
          void show_undo_tree();
          void on_undo_leaf_selected(cH_RowDataBase d);
          void on_button_redo_clicked();
@@ -616,16 +639,15 @@ private:
 
          bool SpracheSchrift(const cH_MidgardBasicElement& MBE);
          bool nsc_check(bool nsc_only);
+         
+
    public:
          midgard_CG(const string &datei="");
          ~midgard_CG();
 
 	// werden von anderen Fenstern aufgerufen
          const vector<cH_Typen> &getVTyp() const {return Typ;}
-         const Datenbank &getDatabase() const {return Database;}
-         const Grundwerte &getWerte() const {return Werte;}
          void zeige_werte();
-         void show_beschreibung();
  
          cH_MidgardBasicElement getSelectedNotebookLernen();
          void kaempfer_lernt_zaubern(cH_MidgardBasicElement& MBE);
@@ -642,5 +664,8 @@ private:
          bool region_check(const std::string& region);
          void EP_uebernehmen();
          void Geld_uebernehmen();
+         
+
+
 };
 #endif

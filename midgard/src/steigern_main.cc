@@ -224,6 +224,8 @@ void midgard_CG::on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page *page,
  load_for_mainpage(pagenr);
 }
 
+#include "table_beschreibung.hh"
+
 void midgard_CG::load_for_mainpage(guint pagenr)
 {if(!Typ.empty() && (Typ[0]->is_mage() || Typ[1]->is_mage()))
   {
@@ -260,7 +262,8 @@ void midgard_CG::load_for_mainpage(guint pagenr)
   }
  else if(pagenr==PAGE_BESCHREIBUNG)
    {
-    show_beschreibung();
+     table_beschreibung->init(this);
+//    show_beschreibung();
    }
  else if(pagenr==PAGE_AUSRUESTUNG)
     ausruestung_laden();
