@@ -160,7 +160,7 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
  int dummy=1;
  if(neue_sprache_mit_pp) 
    { set_lernzeit(kosten,Nichts);
-     if(MBE->Grundfertigkeit(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp());
+     if(MBE->Grundfertigkeit(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp()))
           MBE.setErfolgswert(9);
      else MBE.setErfolgswert(7);
    }

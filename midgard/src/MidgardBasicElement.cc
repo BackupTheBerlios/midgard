@@ -147,7 +147,7 @@ bool MidgardBasicElement::Grundfertigkeit(const Grundwerte &Werte,const vector<c
 {
   std::string standard=Standard__(Werte,Typ);
   std::string::size_type st=standard.find("G");
-  if(st==std::string::nopos) return false;
+  if(st==std::string::npos) return false;
   return true;
 }
 
