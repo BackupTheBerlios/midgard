@@ -9,8 +9,8 @@ NEWS IN VERSION 0.8.11
 * Waffenausdruck korrekt formatiert
 * Freischalten des Lernschemas und des Steigerns durch 
    'Werte für Grad 1 setzen'
-* viele kleinere und größere (AbsturzBugs) Bugfixes
-* Überarbeitet 'steigern_mit ZEP/KEP' LIste (Danke an Markus Steinberg)
+* sehr viele kleinere und größere (AbsturzBugs) Bugfixes
+* Überarbeitet 'steigern_mit ZEP/KEP' Liste (Danke an Markus Steinberg)
 * Bugfix: Zauberer lernen Angriffswaffe nur bis +14
 * abschaltbares Begrüßungsfenster (prima Idee von Andre (Sam) Paus)
 * Hilfe-Fenster entfernt
@@ -18,6 +18,7 @@ NEWS IN VERSION 0.8.11
 * Charaktererschaffungswaffen werden automatisch der Ausrüstung angegliedert
 * Status-Zeilen im Info-Fenster anzeigbar
 * Starten etwas beschleunigt
+* Addition von EP/Gold/GFP möglich (anstelle von Direkteingabe des Wertes)
 
 TODO: ('-' zeigt CP an)
 

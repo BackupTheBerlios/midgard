@@ -68,6 +68,9 @@ gint table_steigern::on_button_EP_eingeben_button_release_event(GdkEventButton *
 
 void table_steigern::show_EPeingabe(bool b,int button)
 {
+  LabelSpin_aep->set_value(hauptfenster->getWerte().AEP());
+  LabelSpin_kep->set_value(hauptfenster->getWerte().KEP());
+  LabelSpin_zep->set_value(hauptfenster->getWerte().ZEP());
   if(b)
    {   
      if     (button == 1)

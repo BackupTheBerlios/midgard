@@ -1,4 +1,4 @@
-// $Id: table_steigern_grad_anstieg.cc,v 1.14 2002/11/16 23:04:46 thoma Exp $
+// $Id: table_steigern_grad_anstieg.cc,v 1.15 2002/11/20 08:40:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -107,7 +107,7 @@ void table_steigern::on_spinbutton_eigenschaften_grad_anstieg_activate()
 void table_steigern::get_grundwerte(int wurf)
 {
   std::string info;
-  hauptfenster->getChar()->eigenschaften_steigern(info,hauptfenster->getCDatabase());
+  hauptfenster->getChar()->eigenschaften_steigern(info,hauptfenster->getCDatabase(),wurf);
   hauptfenster->set_status(info);
   zeige_werte();
 }

@@ -8896,10 +8896,10 @@ eing.</label>
 			<handler>on_LabelSpin_aep_activate</handler>
 			<last_modification_time>Fri, 15 Nov 2002 15:04:24 GMT</last_modification_time>
 		      </signal>
-		      <creation_function>LabelSpin(0,0,100000)</creation_function>
+		      <creation_function>LabelSpin(0,-1000,100000)</creation_function>
 		      <int1>0</int1>
 		      <int2>0</int2>
-		      <last_modification_time>Fri, 15 Nov 2002 12:50:16 GMT</last_modification_time>
+		      <last_modification_time>Wed, 20 Nov 2002 07:30:49 GMT</last_modification_time>
 		    </widget>
 		  </widget>
 
@@ -8924,10 +8924,10 @@ eing.</label>
 			<handler>on_LabelSpin_kep_activate</handler>
 			<last_modification_time>Fri, 15 Nov 2002 15:04:31 GMT</last_modification_time>
 		      </signal>
-		      <creation_function>LabelSpin(0,0,100000)</creation_function>
+		      <creation_function>LabelSpin(0,-10000,100000)</creation_function>
 		      <int1>0</int1>
 		      <int2>0</int2>
-		      <last_modification_time>Fri, 15 Nov 2002 12:50:16 GMT</last_modification_time>
+		      <last_modification_time>Wed, 20 Nov 2002 07:30:58 GMT</last_modification_time>
 		    </widget>
 		  </widget>
 
@@ -8952,10 +8952,10 @@ eing.</label>
 			<handler>on_LabelSpin_zep_activate</handler>
 			<last_modification_time>Fri, 15 Nov 2002 15:04:38 GMT</last_modification_time>
 		      </signal>
-		      <creation_function>LabelSpin(0,0,100000)</creation_function>
+		      <creation_function>LabelSpin(0,-10000,100000)</creation_function>
 		      <int1>0</int1>
 		      <int2>0</int2>
-		      <last_modification_time>Fri, 15 Nov 2002 12:50:16 GMT</last_modification_time>
+		      <last_modification_time>Wed, 20 Nov 2002 07:31:04 GMT</last_modification_time>
 		    </widget>
 		  </widget>
 		</widget>
@@ -9001,10 +9001,10 @@ eing.</label>
 			<handler>on_LabelSpin_gold_activate</handler>
 			<last_modification_time>Fri, 15 Nov 2002 14:55:58 GMT</last_modification_time>
 		      </signal>
-		      <creation_function>LabelSpin(0,0,100000)</creation_function>
+		      <creation_function>LabelSpin(0,-10000,100000)</creation_function>
 		      <int1>0</int1>
 		      <int2>0</int2>
-		      <last_modification_time>Fri, 15 Nov 2002 12:50:16 GMT</last_modification_time>
+		      <last_modification_time>Wed, 20 Nov 2002 07:30:36 GMT</last_modification_time>
 		    </widget>
 		  </widget>
 
@@ -9029,10 +9029,10 @@ eing.</label>
 			<handler>on_LabelSpin_silber_activate</handler>
 			<last_modification_time>Fri, 15 Nov 2002 14:56:06 GMT</last_modification_time>
 		      </signal>
-		      <creation_function>LabelSpin(0,0,100000)</creation_function>
+		      <creation_function>LabelSpin(0,-10000,100000)</creation_function>
 		      <int1>0</int1>
 		      <int2>0</int2>
-		      <last_modification_time>Fri, 15 Nov 2002 12:50:16 GMT</last_modification_time>
+		      <last_modification_time>Wed, 20 Nov 2002 07:30:31 GMT</last_modification_time>
 		    </widget>
 		  </widget>
 
@@ -9057,10 +9057,10 @@ eing.</label>
 			<handler>on_LabelSpin_kupfer_activate</handler>
 			<last_modification_time>Fri, 15 Nov 2002 14:56:14 GMT</last_modification_time>
 		      </signal>
-		      <creation_function>LabelSpin(0,0,100000)</creation_function>
+		      <creation_function>LabelSpin(0,-10000,100000)</creation_function>
 		      <int1>0</int1>
 		      <int2>0</int2>
-		      <last_modification_time>Fri, 15 Nov 2002 12:50:16 GMT</last_modification_time>
+		      <last_modification_time>Wed, 20 Nov 2002 07:30:43 GMT</last_modification_time>
 		    </widget>
 		  </widget>
 		</widget>

@@ -132,7 +132,6 @@ void Grund_Standard_Ausnahme_MBE::check100()
 {
    int summe=Gprozent+Sprozent+Aprozent;
    if(!summe) {Gprozent=100;}
-cout << "Vor: "<<summe<<'='<<Gprozent<<'+'<<Sprozent<<'+'<<Aprozent<<'\n';
    if(summe!=100)
     {
       Gprozent*=100./summe;
@@ -140,10 +139,8 @@ cout << "Vor: "<<summe<<'='<<Gprozent<<'+'<<Sprozent<<'+'<<Aprozent<<'\n';
       Aprozent*=100./summe;
     }
    summe=Gprozent+Sprozent+Aprozent;
-cout << "Zwischen: "<<summe<<'='<<Gprozent<<'+'<<Sprozent<<'+'<<Aprozent<<'\n';
    if(summe!=100) Gprozent=100-Aprozent-Sprozent;
    if(Gprozent<0) {Gprozent=0; Aprozent=100-Sprozent;}
-cout << "Nach: "<<summe<<'='<<Gprozent<<'+'<<Sprozent<<'+'<<Aprozent<<'\n';
    summe=Gprozent+Sprozent+Aprozent;
    assert(summe==100);
 }

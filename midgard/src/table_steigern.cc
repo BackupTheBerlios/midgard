@@ -119,6 +119,9 @@ void table_steigern::on_button_geld_s_toggled()
 
 void table_steigern::show_goldeingabe(bool b,int button)
 {
+  LabelSpin_silber->set_value(hauptfenster->getWerte().Silber());
+  LabelSpin_kupfer->set_value(hauptfenster->getWerte().Kupfer());
+  LabelSpin_gold->set_value(hauptfenster->getWerte().Gold());
   if(b)
    {
      if     (button == 1) 
@@ -147,7 +150,6 @@ void table_steigern::zeige_werte()
 {
    const Grundwerte &W=hauptfenster->getWerte();
     LabelSpin_gfp->set_value(W.GFP());
-//   gfp->set_text(itos(W.GFP()));
 
    steigern_gtk();
   
@@ -176,9 +178,9 @@ void table_steigern::zeige_werte()
 
   show_goldeingabe(false);
   show_EPeingabe(false);
+  
   checkbutton_gfp->set_active(false);
   LabelSpin_gfp->deaktivate();
-//  on_button_gfp_s_toggled();
 
   steigern_typ->set_text(hauptfenster->getChar()->Typ1()->Name(W.Geschlecht()));
   if (hauptfenster->getChar()->Typ2()->Name(W.Geschlecht())!="")
