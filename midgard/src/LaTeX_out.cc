@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.111 2002/04/03 10:17:15 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.112 2002/04/06 15:30:59 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -65,6 +65,7 @@ void midgard_CG::on_latex_clicked(bool values=true)
 void midgard_CG::LaTeX_write_values(ostream &fout,const std::string &install_latex_file)
 {
  fout << "\\documentclass[11pt,a4paper,landscape]{article}\n";
+ LaTeX_newsavebox(fout);
  std::string styp;
  if(Werte.Bezeichnung().size())
   {  styp=Werte.Bezeichnung()+" ("+Typ[0]->Short();

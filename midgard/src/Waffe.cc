@@ -344,10 +344,8 @@ void Waffe::setSpezialWaffe(const std::string& name,const std::list<cH_MidgardBa
   for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Waffen_gelernt.begin();i!=list_Waffen_gelernt.end();++i)
    {
     if(name==(*i)->Name()) 
-      { 
-        (*i)->add_Erfolgswert(2);
-        break;
-      }
+        (*i)->set_Erfolgswert(7);
+    else (*i)->set_Erfolgswert(5);
    }
 }
 

@@ -1,4 +1,4 @@
-// $Id: LaTeX_header.cc,v 1.18 2002/04/03 07:58:49 thoma Exp $
+// $Id: LaTeX_header.cc,v 1.19 2002/04/06 15:30:59 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -53,6 +53,36 @@ std::string midgard_CG::system_comm(SystemComms what)
   abort(); //never get here
 }
 
+
+void midgard_CG::LaTeX_newsavebox(ostream &fout)
+{
+ fout << "\\newsavebox{\\ESchwert}    \n";
+ fout << "\\newsavebox{\\Stichwaffe}  \n";
+ fout << "\\newsavebox{\\ESchlagwaffe}\n";
+ fout << "\\newsavebox{\\Spiesswaffe}\n";
+ fout << "\\newsavebox{\\ZSchwert}\n";
+ fout << "\\newsavebox{\\ZSchlagwaffe}\n";
+ fout << "\\newsavebox{\\Stangenwaffe}   \n";
+ fout << "\\newsavebox{\\Kettenwaffe}    \n";
+ fout << "\\newsavebox{\\KampfohneWaffen}\n";
+ fout << "\\newsavebox{\\Zauberstaebe}   \n";
+ fout << "\\newsavebox{\\Wurfspiess}     \n";
+ fout << "\\newsavebox{\\Stielwurfwaffe} \n";
+ fout << "\\newsavebox{\\Wurfscheibe}    \n";
+ fout << "\\newsavebox{\\Fesselwaffe}    \n";
+ fout << "\\newsavebox{\\Armbrust}       \n";
+ fout << "\\newsavebox{\\Bogen}          \n";
+ fout << "\\newsavebox{\\Schleuder}\n";
+ fout << "\\newsavebox{\\Schilde}\n";
+ fout << "\\newsavebox{\\Parierwaffe}\n";
+ fout << "\\newsavebox{\\Kampfstab}\n";
+ fout << "\\newsavebox{\\Peitsche} \n";
+ fout << "\\newsavebox{\\Garotte}  \n";
+ fout << "\\newsavebox{\\Wurfmesser}\n";
+ fout << "\\newsavebox{\\Blasrohr}  \n";
+ fout << "\\newsavebox{\\Wurfpfeil} \n";
+ fout << "\\newsavebox{\\Werfen}    \n";
+}
 
 
 

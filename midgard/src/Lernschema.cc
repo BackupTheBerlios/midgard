@@ -53,7 +53,8 @@ Lernschema::Lernschema(Gtk::ProgressBar *progressbar)
 }
 
 std::list<cH_MidgardBasicElement> Lernschema::get_List(const std::string& art, 
-                                          const vector<cH_Typen>& Typ) const
+      const vector<cH_Typen>& Typ,
+      const std::list<cH_MidgardBasicElement>& Gelerntes) const
 {
  std::list<cH_MidgardBasicElement> L;
  for(std::map<st_index,st_wert>::const_iterator i=lern_map.begin();i!=lern_map.end();++i)
@@ -64,13 +65,17 @@ std::list<cH_MidgardBasicElement> Lernschema::get_List(const std::string& art,
       if(art=="Fachkenntnisse") 
          { 
            cH_MidgardBasicElement fert(&*cH_Fertigkeit(i->first.fertigkeit));
-           cH_Fertigkeit(fert)->set_Erfolgswert(i->second.erfolgswert);
+           // Erfolgswert nur dann setzen, wenn die Fertigkeit noch nicht gelernt wurde
+           if(!fert->ist_gelernt(Gelerntes))
+              cH_Fertigkeit(fert)->set_Erfolgswert(i->second.erfolgswert);
            L.push_back(fert); 
          }
       if(art=="Waffenfertigkeiten") 
          { 
            cH_MidgardBasicElement waffe(&*cH_Waffe(i->first.fertigkeit));
-           cH_Waffe(waffe)->set_Erfolgswert(i->second.erfolgswert);
+           // Erfolgswert nur dann setzen, wenn die Fertigkeit noch nicht gelernt wurde
+           if(!waffe->ist_gelernt(Gelerntes))
+              cH_Waffe(waffe)->set_Erfolgswert(i->second.erfolgswert);
            L.push_back(waffe); 
          }
       if(art=="Zauberkünste") 

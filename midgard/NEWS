@@ -3,6 +3,13 @@ NEWS IN VERSION 0.5delta1
 
 * Abspeichern und Laden des Spezialgebietes für Magier
 * Abspeichern und Laden der 'Steigertage'
+* Spezieskorrekturen (C++ Code und Datenbank)
+* Das Lernschema setzt jetzt nur noch die Erfolgswerte der NICHTgelernten
+   Fertigkeiten 
+   => Speziesfertigkeiten behalten ihren höheren Erfolgswert
+   => Ein alter Hack ist jetzt nicht mehr nötig *freu*
+
+   
 
 TODO:
 * Steigern mehrerer Stufen mit PP

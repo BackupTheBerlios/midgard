@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.98 2002/04/05 07:05:06 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.99 2002/04/06 15:30:59 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -311,7 +311,10 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
               if(cH_Waffe(MBE)->Verteidigung())
                regnot("Eine Verteidingungswaffe kann keine Spezialwaffe werden.");
              else
+              {
                Werte.setSpezialisierung(MBE->Name());
+               Waffe::setSpezialWaffe(Werte.Spezialisierung(),list_Waffen);
+              }
             }
            else
             {
@@ -354,7 +357,7 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
      default : break;
    }
   show_lernschema(); // Lernschema setzt die Erfolgswerte zurück
-  Waffe::setSpezialWaffe(Werte.Spezialisierung(),list_Waffen);
+//  Waffe::setSpezialWaffe(Werte.Spezialisierung(),list_Waffen);
   show_gelerntes();
 }
 
@@ -427,13 +430,8 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
         break; }
     default : break;
    }
-#warning Aus irgendwelchen Gründen setzet 'show_lernschema' den Erfolgswert 
-#warning NICHT auf den richtigen Wert, obwohl der dann eigentlich korrekt
-#warning angezeigt wird. Daher dieser HAck mit dem Erfolgswert.
-  int e=MBE->Erfolgswert();
   show_lernschema();
   show_gelerntes();
-  MBE->set_Erfolgswert(e);
 }
 
 void midgard_CG::show_gelerntes()
@@ -529,7 +527,6 @@ void midgard_CG::show_lernschema()
          else (*i)->setGelernt(true); 
         }
       if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) (*i)->setGelernt(true); //continue ;
-//      if(Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name())) continue;
       if(Werte.Spezies()->istVerbotenSpielbegin(*i)) continue;
       newlist.push_back(*i);
      }
@@ -549,11 +546,11 @@ void midgard_CG::show_lernschema()
   if(fert!="Unge" && fert!="Allg" )
     {
       if(what==MidgardBasicElement::WAFFE)
-         LW=Database.lernschema.get_List("Waffenfertigkeiten",Typ);
+         LW=Database.lernschema.get_List("Waffenfertigkeiten",Typ,list_Waffen);
       if(what==MidgardBasicElement::ZAUBER)
-         LW=Database.lernschema.get_List("Zauberkünste",Typ);
+         LW=Database.lernschema.get_List("Zauberkünste",Typ,list_Zauber);
       if(what==MidgardBasicElement::FERTIGKEIT)
-         LW=Database.lernschema.get_List("Fachkenntnisse",Typ);
+         LW=Database.lernschema.get_List("Fachkenntnisse",Typ,list_Fertigkeit);
       for(std::list<cH_MidgardBasicElement>::const_iterator i=LW.begin();i!=LW.end();++i)
         {
           bool gelernt=false;

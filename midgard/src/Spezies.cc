@@ -80,8 +80,8 @@ Spezies::Spezies(const Tag *tag)
 
  const Tag *Bewegungsweite=tag->find("Bewegungsweite");
  if (!Bewegungsweite) Bewegungsweite=tag;
- b_bonus=Bewegungsweite->getIntAttr("AnzahlWürfel");
- b_wanz=Bewegungsweite->getIntAttr("Addiere");
+ b_bonus=Bewegungsweite->getIntAttr("Addiere");
+ b_wanz=Bewegungsweite->getIntAttr("AnzahlWürfel");
 
  const Tag *Modifikation=tag->find("Modifikation");
  if (!Modifikation) Modifikation=tag;
