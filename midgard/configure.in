@@ -18,18 +18,19 @@ AC_LANG_CPLUSPLUS
 
 PETIG_CHECK_KOMPONENTEN
 
+if echo __MINGW32__ | cpp | fgrep -q __MINGW32__
+then mingw=false
+else mingw=true
+fi
+AM_CONDITIONAL(WINDOWS, test x$mingw = xtrue)
+
 AC_ARG_ENABLE(utf8, [  --enable-utf8	Recode to UTF8],
 	[case "${enableval}" in
 	  yes) utf8=true ;;
 	  no)  utf8=false ;;
 	  *) AC_MSG_ERROR(bad value ${enableval} for --enable-utf8) ;; 
-	 esac],[if echo __MINGW32__ | cpp | fgrep -q __MINGW32__
-	 	then utf8=false
-	 	else utf8=true
-	 	fi])
+	 esac],[utf8=$mingw])
 AM_CONDITIONAL(UTF8, test x$utf8 = xtrue)
-# make this sane once we use gtk 2.0
-AM_CONDITIONAL(WINDOWS, test x$utf8 = xtrue)
 
 dnl Set PACKAGE_DATA_DIR in config.h.
 if test "x${prefix}" = "xNONE"; then
