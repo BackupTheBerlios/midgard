@@ -1,4 +1,4 @@
-// $Id: ki_speichern.cc,v 1.3 2003/09/01 06:47:59 christof Exp $
+// $Id: ki_speichern.cc,v 1.4 2003/09/09 06:17:55 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -28,7 +28,7 @@ void ki_speichern(Tag &o)
   Tag &KI=o.push_back(Tag("KI"));
 
   Transaction tr;
-  FetchIStream is;
+  FetchIStream is,is2;
 
   Query query("select name,fertigkeit,zauber,waffen,waffen_grund,zauberwerk,"
               "sprache,schrift,fert_spezialist,waff_spezialist,"
@@ -48,5 +48,25 @@ void ki_speichern(Tag &o)
      fetch_and_set_int_attrib(is, proto, "WaffSpezialist");
      fetch_and_set_int_attrib(is, proto, "SpraSpezialist");
      fetch_and_set_int_attrib(is, proto, "SchrSpezialist");
+   }
+  Query query2("select distinct bezeichnung "
+              "from prototyp2 order by bezeichnung");
+  while ((query2>>is).good())
+   {
+     Tag &proto=KI.push_back(Tag("Prototyp2"));
+     std::string n=fetch_and_set_string_attrib(is, proto, "Name");
+     Query query2("select art,name,faktor "
+                   "from prototyp2 "
+                   "where bezeichnung=? "
+                   "order by art,name");
+     query3 << n;
+     
+     while ((query3>>is2).good())
+     {  std::string x;
+        is2 >> x;
+        Tag &proto_sub=proto.push_back(Tag(x=="F"?"Fertigkeit":"Zauber"));
+        fetch_and_set_string_attrib(is2, proto_sub, "Name");
+        fetch_and_set_float_attrib(is2, proto_sub, "Faktor");
+     }
    }
 }
