@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.269 2002/07/11 06:55:58 thoma Exp $
+// $Id: midgard_CG.hh,v 1.270 2002/08/26 14:22:14 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -56,6 +56,7 @@ class midgard_CG : public midgard_CG_glade
         friend class xml_fileselection;
         friend class frame_globale_optionen;
         friend class frame_ansicht;
+        friend class frame_icons;
         friend class table_optionen;
         friend class table_beschreibung;
         friend class table_grundwerte;

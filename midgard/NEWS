@@ -23,6 +23,7 @@ NEWS IN VERSION 0.7.7
 * Graphik in Beschreibung
 
 TODO: ('-' zeigt CP an)
+* Schwarzer Balken im Lernschema bei Maximierung
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
   der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 
 * Ausrüstungsauswahl stürzt ab

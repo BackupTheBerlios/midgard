@@ -18,6 +18,7 @@ void table_optionen::init()
  frame_drucken->init();
  frame_globale_optionen->init();
  frame_ansicht->init();
+ frame_icons->init();
 }
 
 void table_optionen::set_Hauptfenster(midgard_CG *h) 
@@ -26,6 +27,7 @@ void table_optionen::set_Hauptfenster(midgard_CG *h)
   frame_drucken->set_Hauptfenster(h);
   frame_globale_optionen->set_Hauptfenster(h);
   frame_ansicht->set_Hauptfenster(h);
+  frame_icons->set_Hauptfenster(h);
 }
 
 

@@ -9805,7 +9805,7 @@ eingeben</label>
 		    <handler>on_button_alter_clicked</handler>
 		    <last_modification_time>Thu, 10 Jan 2002 17:47:02 GMT</last_modification_time>
 		  </signal>
-		  <relief>GTK_RELIEF_NORMAL</relief>
+		  <relief>GTK_RELIEF_NONE</relief>
 		  <child>
 		    <left_attach>5</left_attach>
 		    <right_attach>6</right_attach>
@@ -17211,35 +17211,6 @@ KS
 
 	  <widget>
 	    <class>GtkFrame</class>
-	    <name>frame_drucken</name>
-	    <cxx_separate_file>True</cxx_separate_file>
-	    <cxx_separate_class>True</cxx_separate_class>
-	    <cxx_visibility>protected</cxx_visibility>
-	    <label>PDF Viewer</label>
-	    <label_xalign>0</label_xalign>
-	    <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
-	    <child>
-	      <left_attach>2</left_attach>
-	      <right_attach>3</right_attach>
-	      <top_attach>0</top_attach>
-	      <bottom_attach>1</bottom_attach>
-	      <xpad>0</xpad>
-	      <ypad>0</ypad>
-	      <xexpand>True</xexpand>
-	      <yexpand>False</yexpand>
-	      <xshrink>True</xshrink>
-	      <yshrink>False</yshrink>
-	      <xfill>True</xfill>
-	      <yfill>True</yfill>
-	    </child>
-
-	    <widget>
-	      <class>Placeholder</class>
-	    </widget>
-	  </widget>
-
-	  <widget>
-	    <class>GtkFrame</class>
 	    <name>frame_ansicht</name>
 	    <cxx_separate_file>True</cxx_separate_file>
 	    <cxx_separate_class>True</cxx_separate_class>
@@ -17546,6 +17517,64 @@ KS
 		<xfill>True</xfill>
 		<yfill>False</yfill>
 	      </child>
+	    </widget>
+	  </widget>
+
+	  <widget>
+	    <class>GtkFrame</class>
+	    <name>frame_drucken</name>
+	    <cxx_separate_file>True</cxx_separate_file>
+	    <cxx_separate_class>True</cxx_separate_class>
+	    <cxx_visibility>protected</cxx_visibility>
+	    <label>PDF Viewer</label>
+	    <label_xalign>0</label_xalign>
+	    <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+	    <child>
+	      <left_attach>3</left_attach>
+	      <right_attach>4</right_attach>
+	      <top_attach>0</top_attach>
+	      <bottom_attach>1</bottom_attach>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <xexpand>True</xexpand>
+	      <yexpand>False</yexpand>
+	      <xshrink>False</xshrink>
+	      <yshrink>False</yshrink>
+	      <xfill>True</xfill>
+	      <yfill>True</yfill>
+	    </child>
+
+	    <widget>
+	      <class>Placeholder</class>
+	    </widget>
+	  </widget>
+
+	  <widget>
+	    <class>GtkFrame</class>
+	    <name>frame_icons</name>
+	    <cxx_separate_file>True</cxx_separate_file>
+	    <cxx_separate_class>True</cxx_separate_class>
+	    <cxx_visibility>protected</cxx_visibility>
+	    <label>Icons</label>
+	    <label_xalign>0</label_xalign>
+	    <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+	    <child>
+	      <left_attach>2</left_attach>
+	      <right_attach>3</right_attach>
+	      <top_attach>0</top_attach>
+	      <bottom_attach>1</bottom_attach>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <xexpand>True</xexpand>
+	      <yexpand>False</yexpand>
+	      <xshrink>True</xshrink>
+	      <yshrink>False</yshrink>
+	      <xfill>True</xfill>
+	      <yfill>True</yfill>
+	    </child>
+
+	    <widget>
+	      <class>Placeholder</class>
 	    </widget>
 	  </widget>
 	</widget>

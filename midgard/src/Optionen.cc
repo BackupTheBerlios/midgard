@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.67 2002/07/10 07:55:24 thoma Exp $
+// $Id: Optionen.cc,v 1.68 2002/08/26 14:22:14 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -64,6 +64,7 @@ Midgard_Optionen::Midgard_Optionen(midgard_CG* h)
    Optionen_init();
    Hausregeln_init();
    Ober_init();
+   Icon_init();
    Strings_init();
    pdfViewer_init();
 }
@@ -119,6 +120,14 @@ Midgard_Optionen::st_Ober Midgard_Optionen::OberCheck(OberIndex hi) const
  abort();
 }
 
+Midgard_Optionen::st_Icon Midgard_Optionen::IconCheck(IconIndex hi) const
+{
+ for(std::list<st_Icon>::const_iterator i=list_Icon.begin();i!=list_Icon.end();++i)
+   if(i->index==hi) return *i;
+ assert(!"IconCheck: nicht gefunden");
+ abort();
+}
+
 Midgard_Optionen::st_pdfViewer Midgard_Optionen::pdfViewerCheck(pdfViewerIndex pi) const 
 {
  for(std::list<st_pdfViewer>::const_iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
@@ -162,6 +171,16 @@ void Midgard_Optionen::setOber(std::string hs,bool b)
   for(list<st_Ober>::iterator i=list_Ober.begin();i!=list_Ober.end();++i)
     if(i->text==hs)  
       { Ober_setzen_from_menu(i->index,b);
+        return;
+      }
+ std::cerr << "Option "<<hs<<" unbekannt\n";
+}
+
+void Midgard_Optionen::setIcon(std::string hs,bool b)
+{
+  for(list<st_Icon>::iterator i=list_Icon.begin();i!=list_Icon.end();++i)
+    if(i->text==hs)  
+      { Icon_setzen_from_menu(i->index,b);
         return;
       }
  std::cerr << "Option "<<hs<<" unbekannt\n";
@@ -271,6 +290,21 @@ void Midgard_Optionen::Ober_setzen_from_menu(OberIndex index,bool b)
       }
    }
 }   
+
+void Midgard_Optionen::Icon_setzen_from_menu(IconIndex index,bool b)
+{
+  for(list<st_Icon>::iterator i=list_Icon.begin();i!=list_Icon.end();++i)
+   {
+     if(i->index==index) 
+      { i->active = b;
+        if     (index==Self) ;
+        else if(index==Ulf) ;
+        return;
+      }
+   }
+}   
+
+
     
 void Midgard_Optionen::pdfViewer_setzen_from_menu(pdfViewerIndex index)
 {
@@ -367,6 +401,14 @@ void Midgard_Optionen::Ober_init()
  list_Ober.push_back(st_Ober(Status,"Statuszeile",true));
 }
 
+
+void Midgard_Optionen::Icon_init()
+{
+ list_Icon.clear();  
+ list_Icon.push_back(st_Icon(Self,"MAGUS Stil",true));
+ list_Icon.push_back(st_Icon(Ulf,"M$-Stil",false));
+}
+
 // Lines marked with 'compat' are to maintain compatibility
 void Midgard_Optionen::load_options(const std::string &filename)
 {try {
@@ -389,6 +431,8 @@ void Midgard_Optionen::load_options(const std::string &filename)
      setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*options,"Ansicht")
      setOber(i->getAttr("Name"),i->getBoolAttr("Wert"));
+  FOR_EACH_CONST_TAG_OF(i,*options,"Icon")
+     setIcon(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*options,"Hausregel")
      setHausregeln(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*options,"pdfViewer")
@@ -461,6 +505,11 @@ void Midgard_Optionen::save_options(const std::string &filename,WindowInfo *Info
    }
  for(std::list<st_Ober>::iterator i=list_Ober.begin();i!=list_Ober.end();++i)
    { Tag &opt=optionen.push_back(Tag("Ansicht"));
+     opt.setAttr("Name",i->text);
+     opt.setBoolAttr("Wert", i->active);
+   }
+ for(std::list<st_Icon>::iterator i=list_Icon.begin();i!=list_Icon.end();++i)
+   { Tag &opt=optionen.push_back(Tag("Icon"));
      opt.setAttr("Name",i->text);
      opt.setBoolAttr("Wert", i->active);
    }

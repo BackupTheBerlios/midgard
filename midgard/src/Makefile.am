@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.187 2002/08/26 12:19:22 thoma Exp $
+# $Id: Makefile.am,v 1.188 2002/08/26 14:22:14 thoma Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -50,6 +50,8 @@ noinst_HEADERS = \
    frame_drucken_glade.hh \
    frame_ansicht.hh \
    frame_ansicht_glade.hh \
+   frame_icons.hh \
+   frame_icons_glade.hh \
    Optionen.hh \
    Midgard_Undo.hh \
    Grad_anstieg.hh \
@@ -141,6 +143,8 @@ magus_SOURCES = $(PORT_FILES) \
    Optionen.cc \
    table_optionen.cc \
    table_optionen_glade.cc \
+   frame_icons.cc \
+   frame_icons_glade.cc \
    frame_drucken.cc \
    frame_ansicht.cc \
    frame_globale_optionen_glade.cc \

@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.22 2002/08/26 12:19:22 thoma Exp $
+// $Id: Optionen.hh,v 1.23 2002/08/26 14:22:14 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -60,12 +60,16 @@ class Midgard_Optionen
       struct st_Ober{OberIndex index;std::string text;bool active;
                st_Ober(OberIndex i,std::string t,bool a)
                       :index(i),text(t),active(a) {} };
+      struct st_Icon{IconIndex index;std::string text;bool active;
+               st_Icon(IconIndex i,std::string t,bool a)
+                      :index(i),text(t),active(a) {} };
 
    private:
       int datei_history;
       std::list<st_strings> list_Strings;
       std::list<st_Haus> list_Hausregeln;
       std::list<st_Ober> list_Ober;
+      std::list<st_Icon> list_Icon;
       std::list<st_OptionenExecute>  list_OptionenExecute;
       std::list<st_OptionenCheck> list_OptionenCheck; 
       std::list<st_pdfViewer> list_pdfViewer;
@@ -74,6 +78,7 @@ class Midgard_Optionen
       void Optionen_init();
       void Hausregeln_init();
       void Ober_init();
+      void Icon_init();
       void pdfViewer_init();
 
       midgard_CG* hauptfenster;
@@ -87,6 +92,7 @@ class Midgard_Optionen
 
       std::list<st_Haus> getHausregeln() const {return list_Hausregeln;}
       std::list<st_Ober> getOber() const {return list_Ober;}
+      std::list<st_Icon> getIcon() const {return list_Icon;}
       std::list<st_OptionenCheck> getOptionenCheck() const {return list_OptionenCheck;}
       std::list<st_OptionenExecute> getOptionenExecute() const {return list_OptionenExecute;}
       std::list<st_pdfViewer> getPDF() const {return list_pdfViewer;}
@@ -99,6 +105,7 @@ class Midgard_Optionen
       void setOptionCheck(std::string os,bool b);
       void setHausregeln(std::string hs,bool b);
       void setOber(std::string hs,bool b);
+      void setIcon(std::string hs,bool b);
       void setpdfViewer(std::string is,bool b); 
       void setAllHausregeln(bool b);
       void setDateiHistory(int i) {datei_history=i;}
@@ -107,10 +114,12 @@ class Midgard_Optionen
       st_OptionenCheck OptionenCheck(OptionenCheckIndex oi) const ;
       st_Haus HausregelCheck(HausIndex hi) const ;
       st_Ober OberCheck(OberIndex hi) const ;
+      st_Icon IconCheck(IconIndex i) const ;
       st_pdfViewer pdfViewerCheck(pdfViewerIndex pi) const ;
 
       void Hausregeln_setzen_from_menu(HausIndex index,bool b);
       void Ober_setzen_from_menu(OberIndex index,bool b);
+      void Icon_setzen_from_menu(IconIndex index,bool b);
       void OptionenCheck_setzen_from_menu(OptionenCheckIndex index,bool b);
       void OptionenExecute_setzen_from_menu(OptionenExecuteIndex index);
       void pdfViewer_setzen_from_menu(pdfViewerIndex index);

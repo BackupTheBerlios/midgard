@@ -1,4 +1,4 @@
-// $Id: zauber_exp.cc,v 1.17 2002/07/09 13:02:18 thoma Exp $
+// $Id: zauber_exp.cc,v 1.18 2002/08/26 14:23:01 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -66,7 +66,8 @@ void arkanum_speichern(Tag &o)
    ausnahmen(spruch, "z", zauber);
 
    //********** fz_zusätze **********************************
-   {  Query queryZu("select name from fz_zusaetze "
+   {  
+      Query queryZu("select name,typ,region,region_zusatz from fz_zusaetze "
       " where art='"+zauber+"' order by name");
       FetchIStream isZu;
       while ((queryZu>>isZu).good())
