@@ -120,6 +120,63 @@ Gtk::Pixmap *RegionenPic::Pic(epic typ,Midgard_Optionen::IconIndex ii,bool tiny)
  return manage(new Gtk::Pixmap(pinguin_xpm));
 }
 
+char **RegionenPic::PicModel(epic typ,Midgard_Optionen::IconIndex ii,bool tiny)
+{  
+ if(ii==Midgard_Optionen::Ulf)
+ {
+   if      (typ==Eschar)     return ulf_regionen_16_eschar_xpm;
+   else if (typ==KanThaiPan) return ulf_regionen_16_kanthaipan_xpm;
+   else if (typ==DFR)        return Regio_DFR_4_26_xpm;
+   else if (typ==Rawindra)   return ulf_regionen_16_rawindra_xpm;
+   else if (typ==Alba)       return ulf_regionen_16_alba_xpm;
+   else if (typ==Waeland)    return ulf_regionen_16_waeland_xpm;
+   else if (typ==Nahuatlan)  return ulf_regionen_16_nahuatlan_xpm;
+   else if (typ==Arkanum)    return Regio_Arkanum_26_xpm;
+   else if (typ==Gildenbrief)return ulf_regionen_16_gildenbrief_xpm;
+   else if (typ==HD)         return ulf_regionen_16_hexenzauber_xpm;
+   else if (typ==HD_finster) return ulf_regionen_16_finstermagier_xpm;
+   else if (typ==Tipps_und_Tricks) return ulf_regionen_16_kompendium_xpm;
+   else if (typ==Abenteuer)  return ulf_regionen_16_abenteuer_xpm;
+ }
+ else 
+ {
+ if(!tiny)
+  {
+   if      (typ==Eschar)     return Eschar_trans_50_xpm;
+   else if (typ==KanThaiPan) return KiDo_trans_50_xpm;
+   else if (typ==DFR)        return Regio_DFR_4_50_xpm;
+   else if (typ==Rawindra)   return Regio_Rawindra_50_xpm;
+   else if (typ==Alba)       return Regio_Alba_50_xpm;
+   else if (typ==Waeland)    return Regio_Waeland_50_xpm;
+   else if (typ==Nahuatlan)  return Regio_Nahuatlan_50_xpm;
+   else if (typ==Arkanum)    return Regio_Arkanum_50_xpm;
+   else if (typ==Gildenbrief)return Regio_Gilde_50_xpm;
+   else if (typ==HD)         return Regio_H_u_D_50_xpm;
+   else if (typ==HD_finster) return Regio_H_u_D_F_50_xpm;
+   else if (typ==Tipps_und_Tricks)  return TuT_50_xpm;
+   else if (typ==Abenteuer)  return Abwehr_50_xpm;
+  }
+ else
+  {
+   if      (typ==Eschar)     return Eschar_trans_26_xpm;
+   else if (typ==KanThaiPan) return KiDo_trans_26_xpm;
+   else if (typ==DFR)        return Regio_DFR_4_26_xpm;
+   else if (typ==Rawindra)   return Regio_Rawindra_26_xpm;
+   else if (typ==Alba)       return Regio_Alba_26_xpm;
+   else if (typ==Waeland)    return Regio_Waeland_26_xpm;
+   else if (typ==Nahuatlan)  return Regio_Nahuatlan_26_xpm;
+   else if (typ==Arkanum)    return Regio_Arkanum_26_xpm;
+   else if (typ==Gildenbrief)return Regio_Gilde_26_xpm;
+   else if (typ==HD)         return Regio_H_u_D_26_xpm;
+   else if (typ==HD_finster) return Regio_H_u_D_F_26_xpm;
+   else if (typ==Tipps_und_Tricks) return TuT_26_xpm;
+   else if (typ==Abenteuer)  return Abwehr_26_xpm;
+  }
+ }
+ return pinguin_xpm;
+}
+
+
 
 cH_Region::cache_t cH_Region::cache;
 
@@ -145,7 +202,7 @@ cH_Region::cH_Region(const Tag *tag)
 }
 
 Region::Region(const Tag *tag) 
-: name(tag->getAttr("Name")), active(false)
+: name(tag->getAttr("Name")), active(false),region_pix(0)
 {
   nr=tag->getIntAttr("MAGUS-Index");
   titel=tag->getAttr("Titel");
@@ -158,6 +215,7 @@ Region::Region(const Tag *tag)
   jahr=tag->getAttr("Jahr");
   offiziell=tag->getBoolAttr("offiziell");
   pic=RegionenPic::epic(tag->getIntAttr("MAGUS-Bild",tag->getIntAttr("MCG-Bild")));
+  region_pix=RegionenPic::PicModel(pic,Midgard_Optionen::Self);
 }
 
 bool Region::setActive(const std::vector<cH_Region>& LR,const cH_Region& R,bool active)

@@ -1,4 +1,4 @@
-// $Id: Region.hh,v 1.28 2002/12/03 15:20:42 thoma Exp $               
+// $Id: Region.hh,v 1.29 2002/12/04 08:57:22 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -39,6 +39,7 @@ class RegionenPic
               Nahuatlan,Arkanum,DFR,Meister_der_Sphaeren,Tipps_und_Tricks,
               Abenteuer,HD_finster,Kuestenstaaten,Ikengabecken};
    static Gtk::Pixmap* Pic(epic e,Midgard_Optionen::IconIndex ii,bool tiny=false) ;
+   static char **PicModel(epic e,Midgard_Optionen::IconIndex ii,bool tiny=false) ;
 };
 
 
@@ -52,6 +53,7 @@ class Region  : public HandleContent
    RegionenPic::epic pic;
    bool offiziell;
    mutable Model<bool> active;
+   mutable Model<char**> region_pix;
 
   public:
    Region(const Tag *tag);
@@ -70,6 +72,8 @@ class Region  : public HandleContent
    std::string Jahr() const {return jahr;}
    bool Offiziell() const {return offiziell;}
    RegionenPic::epic Pic() const {return pic;}
+   void setRegionPix(char **c) const {region_pix=c;}
+   Model<char**> &RegionPix() const {return region_pix;}
 
    bool operator==(const Region& b) const {return Name()==b.Name();}
 
