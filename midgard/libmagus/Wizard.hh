@@ -13,7 +13,7 @@ struct Wizard
                   BERUF1, BERUF, GELD, WAFFEN, RUESTUNG, AUSRUESTUNG,
                   SPEZIALWAFFE, SPEZIALGEBIET, NAMEN, SPEICHERN, FERTIG,
                   MAXSTEPS };
-    enum mode { Aus, Sensitive, Aktiv };
+    enum mode { Aus, Hints, Sensitive, Aktiv };
 private:
     Model_copyable<esteps> act_step;
     Model_copyable<mode> act_mode;
