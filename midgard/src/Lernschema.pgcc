@@ -66,6 +66,7 @@ std::list<cH_MidgardBasicElement> Lernschema::get_List(const std::string& art,
          { 
 //           cH_MidgardBasicElement zauber(new Zauber(i->first.fertigkeit));
 //           cH_Waffe(waffe)->set_Erfolgswert(i->second.erfolgswert);
+#warning hier auch
            L.push_back(new Zauber(i->first.fertigkeit)); 
          }
      }   
