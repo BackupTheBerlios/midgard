@@ -3448,4 +3448,33 @@
     <Ausnahme>Dr,Hl,Ma,gHx,sHx,wHx</Ausnahme>
   </Zauberwerk>
  </Zauberwerke>
+ <Spezialgebiete>
+  <Spezialgebiet Typ="Ma" Name="Spezialgebiet"/>
+  <Spezialgebiet Typ="Ma" Name="Adept der Herrschaft" MCG-Index="1" Spezialisierung="beherrscht"/>
+  <Spezialgebiet Typ="Ma" Name="Adept der Bewegung" MCG-Index="2" Spezialisierung="bewegt"/>
+  <Spezialgebiet Typ="Ma" Name="Adept der Erkenntnis" MCG-Index="3" Spezialisierung="erkennt"/>
+  <Spezialgebiet Typ="Ma" Name="Adept der Schöfung" MCG-Index="4" Spezialisierung="erschafft"/>
+  <Spezialgebiet Typ="Ma" Name="Adept der Veränderung" MCG-Index="5" Spezialisierung="verändert"/>
+  <Spezialgebiet Typ="Ma" Name="Adept der Wandlung" MCG-Index="6" Spezialisierung="verwandelt"/>
+  <Spezialgebiet Typ="Ma" Name="Adept der Zerstörung" MCG-Index="7" Spezialisierung="zerstört"/>
+  <Spezialgebiet Typ="Ma" Name="Erdmagier" MCG-Index="8" Spezialisierung="Erde"/>
+  <Spezialgebiet Typ="Ma" Name="Feuermagier" MCG-Index="9" Spezialisierung="Feuer"/>
+  <Spezialgebiet Typ="Ma" Name="Luftmagier" MCG-Index="10" Spezialisierung="Luft"/>
+  <Spezialgebiet Typ="Ma" Name="Wassermagier" MCG-Index="11" Spezialisierung="Wasser"/>
+  <Spezialgebiet Typ="Ma" Name="Eismagier" MCG-Index="12" Spezialisierung="Eis"/>
+  <Spezialgebiet Typ="Ma" Name="Adept der göttlichen Ordnung" MCG-Index="13" Spezialisierung="Metall"/>
+  <Spezialgebiet Typ="Ma" Name="Adept des formbaren Chaos" MCG-Index="14" Spezialisierung="Magan"/>
+  <Spezialgebiet Typ="Ma" Name="Adept des Todes" MCG-Index="15" Spezialisierung="Eis"/>
+  <Spezialgebiet Typ="eBe" Name="Primär- und Sekundärelement"/>
+  <Spezialgebiet Typ="eBe" Name="Eis Erde" MCG-Index="1" Spezialisierung="Eis" Sekundärelement="Erde"/>
+  <Spezialgebiet Typ="eBe" Name="Erde Eis" MCG-Index="2" Spezialisierung="Erde" Sekundärelement="Eis"/>
+  <Spezialgebiet Typ="eBe" Name="Eis Wasser" MCG-Index="3" Spezialisierung="Eis" Sekundärelement="Wasser"/>
+  <Spezialgebiet Typ="eBe" Name="Wasser Eis" MCG-Index="4" Spezialisierung="Wasser" Sekundärelement="Eis"/>
+  <Spezialgebiet Typ="eBe" Name="Erde Feuer" MCG-Index="5" Spezialisierung="Erde" Sekundärelement="Feuer"/>
+  <Spezialgebiet Typ="eBe" Name="Feuer Erde" MCG-Index="6" Spezialisierung="Feuer" Sekundärelement="Erde"/>
+  <Spezialgebiet Typ="eBe" Name="Feuer Luft" MCG-Index="7" Spezialisierung="Feuer" Sekundärelement="Luft"/>
+  <Spezialgebiet Typ="eBe" Name="Luft Feuer" MCG-Index="8" Spezialisierung="Luft" Sekundärelement="Feuer"/>
+  <Spezialgebiet Typ="eBe" Name="Luft Wasser" MCG-Index="9" Spezialisierung="Luft" Sekundärelement="Wasser"/>
+  <Spezialgebiet Typ="eBe" Name="Wasser Luft" MCG-Index="10" Spezialisierung="Wasser" Sekundärelement="Luft"/>
+ </Spezialgebiete>
 </MidgardCG-data>

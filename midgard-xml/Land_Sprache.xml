@@ -67,4 +67,59 @@
   <Schrift Name="KanThaiTun(5)" Region="K" Typ="Silben" Kosten="1000"/>
   <Schrift Name="KanThaiTun(6)" Region="K" Typ="Silben" Kosten="1000"/>
  </Schriften>
+ <SpeziesListe>
+  <Spezies Name="Berggnom" MCG:Index="2">
+    <Alter AnzahlWürfel="3"/>
+    <Größe AnzahlWürfel="2" ArtWürfel="6" Addiere="90"/>
+    <Bewegungsweite AnzahlWürfel="2" Addiere="8"/>
+    <Modifikation LP_Basis="-4" APproGrad="-3" Gestalt="-1" Abwehr="2"><Resistenzen psy="5" phs="5" phk="5" Gift="20"/></Modifikation>
+    <Minima Ge="61" Ko="31"/>
+    <Maxima St="60" Au="80"/>
+    <Typen>Dr,Gl,Hl,Hä,Kr,Ma,Sp,Th,Wa,gHx,sHx,wHx</Typen>
+  </Spezies>
+  <Spezies Name="Elf" MCG:Index="1">
+    <Alter AnzahlWürfel="4"/>
+    <Größe AnzahlWürfel="3" ArtWürfel="6" Addiere="160"/>
+    <Bewegungsweite AnzahlWürfel="4" Addiere="16"/>
+    <Modifikation LP_Basis="1" Gestalt="-2"><Resistenzen psy="2" phs="2" phk="2"/></Modifikation>
+    <Minima Ge="81" Ko="61" In="61" Zt="61" Au="81"/>
+    <Maxima St="90"/>
+    <Typen>Ba,Dr,Gl,Hl,Hx,Kr,Ma,Se,Th,Wa</Typen>
+  </Spezies>
+  <Spezies Name="Halbling" MCG:Index="4">
+    <Alter AnzahlWürfel="1"/>
+    <Größe AnzahlWürfel="3" ArtWürfel="6" Addiere="100"/>
+    <Bewegungsweite AnzahlWürfel="2" Addiere="8"/>
+    <Modifikation LP_Basis="-2" APproGrad="-2" Abwehr="1"><Resistenzen psy="5" phs="5" phk="5"/></Modifikation>
+    <Minima Ge="91"/>
+    <Maxima St="80"/>
+    <Typen>Ba,Hl,Hä,PF,PW,Sp</Typen>
+  </Spezies>
+  <Spezies Name="Mensch">
+    <Alter AnzahlWürfel="1"/>
+    <Größe AnzahlWürfel="2" ArtWürfel="20" Addiere="145"/>
+    <Bewegungsweite AnzahlWürfel="4" Addiere="16"/>
+    <Modifikation><Resistenzen/></Modifikation>
+    <Minima/>
+    <Maxima/>
+  </Spezies>
+  <Spezies Name="Waldgnom" MCG:Index="3">
+    <Alter AnzahlWürfel="3"/>
+    <Größe AnzahlWürfel="2" ArtWürfel="6" Addiere="90"/>
+    <Bewegungsweite AnzahlWürfel="2" Addiere="8"/>
+    <Modifikation LP_Basis="-4" APproGrad="-3" Gestalt="-1" Abwehr="2"><Resistenzen psy="5" phs="5" phk="5" Gift="20"/></Modifikation>
+    <Minima Ge="61" Ko="31"/>
+    <Maxima St="60" Au="80"/>
+    <Typen>Dr,Gl,Hl,Hä,Kr,Ma,Sp,Th,Wa,gHx,sHx,wHx</Typen>
+  </Spezies>
+  <Spezies Name="Zwerg" MCG:Index="5">
+    <Alter AnzahlWürfel="2"/>
+    <Größe AnzahlWürfel="2" ArtWürfel="6" Addiere="130"/>
+    <Bewegungsweite AnzahlWürfel="3" Addiere="12"/>
+    <Modifikation LP_Basis="1" Gestalt="2"><Resistenzen psy="4" phs="4" Gift="15"/></Modifikation>
+    <Minima St="61" Ko="61"/>
+    <Maxima Ge="90" Au="80"/>
+    <Typen>Hä,Kr,PF,PH,PK,Sö,Th</Typen>
+  </Spezies>
+ </SpeziesListe>
 </MidgardCG-data>
