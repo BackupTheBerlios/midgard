@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.30 2002/01/16 10:30:32 christof Exp $
+// $Id: midgard.cc,v 1.31 2002/01/19 11:21:37 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,7 +26,9 @@
 
 #include <gtk--/main.h>
 #include "midgard_CG.hh"
+#ifndef USE_XML   
 #include <Aux/dbconnect.h>
+#endif
 //#include <unistd.h>
 #include "xml.h"
 
@@ -36,12 +38,16 @@ int main(int argc, char **argv)
    xml_init();
 
    try {
+#ifndef USE_XML   
       Petig::dbconnect(Petig::Connection("","midgard"));
+#endif      
       Datenbank Database;
       manage(new midgard_CG(Database));
       m.run();
       
+#ifndef USE_XML   
       Petig::dbdisconnect("midgard");
+#endif      
    } catch (SQLerror &e)
    {  std::cerr << e << '\n';
       return 1;

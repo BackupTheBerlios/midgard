@@ -1,4 +1,4 @@
-XML todo: 8 + 5
+XML todo: 5 + 5
 
 load_charakter.o
 save_charakter.o
@@ -6,16 +6,13 @@ save_charakter.o
 xmlimport.o
 Window_charakter_auswahl.o
 
-Praxispunkte.o
-Preise.o
-Region.o
 Ruestung.o
 Spezialgebiet.o
 Spezies.o
 Sprache.o
 WaffeGrund.o
 
-XML done: 15
+XML done: 17
 
 Ausnahmen.o
 Beruf.o
@@ -27,8 +24,14 @@ Land.o
 Lernschema.o
 MidgardBasicElement_sql.o
 Pflicht.o
+Preise.o
+Region.o
 Schrift.o
 Typen.o
 Waffe.o
 Zauber.o
 Zauberwerk.o
+
+------------------------
+
+MidgardCG-data -> MAGUS-data

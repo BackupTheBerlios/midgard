@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.22 2002/01/18 08:54:11 christof Exp $
+// $Id: xml.cc,v 1.23 2002/01/19 11:21:37 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -36,16 +36,25 @@ void xml_init(const std::string &filename="midgard.xml")
       top=new TagStream(in);
    }
    xml_data_mutable=const_cast<Tag*>(top->find("MidgardCG-data"));
-   if (!xml_data_mutable) cerr << "Ladefehler XML Datei " << filename << "\n";
+   if (!xml_data_mutable) 
+   {  cerr << "Ladefehler XML Datei " << filename << "\n";
+      exit(2);
+   }
+   std::string dir=xml_data_mutable->getAttr("XML-Verzeichnis",".");
+#ifdef __MINGW32__
+   dir+='\\'; // Windows
+#else
+   dir+='/'; // Unix
+#endif
 
 reloop:   
    Tag::iterator b=xml_data_mutable->begin(),e=xml_data_mutable->end();
-    FOR_EACH_TAG_OF_5(i,*xml_data_mutable,b,e,"MCG:include")
+    FOR_EACH_TAG_OF_5(i,*xml_data_mutable,b,e,"MCG-include")
     {  Tag *t2=&*i;
-       std::string file=t2->getAttr("File");
-       if (t2->getBoolAttr("Loaded",false) || t2->getBoolAttr("inactive",false))
+       std::string file=dir+t2->getAttr("File");
+       if (t2->getBoolAttr("inactive",false))
           continue;
-       t2->setAttr("Loaded","true");
+       t2->Type("Region"); // change Type of Tag "MCG-include" -> "Region"
        
        ifstream in2(file.c_str());
        // wenn nicht, URL holen?
@@ -53,6 +62,8 @@ reloop:
        if (in2.good()) 
        {  TagStream ts2(in2);
           const Tag *data2=ts2.find("MidgardCG-data");
+          for (Tag::const_attiterator j=data2->attbegin();j!=data2->attend();++j)
+             t2->setAttr(j->first,j->second);
           FOR_EACH_CONST_TAG(j,*data2)
           {  if (j->Type().empty()) continue; // inter tag space
              Tag *merge_here;

@@ -59,6 +59,8 @@ public:
 	
 	const std::string Type() const throw()
 	{  return type; }
+	void Type(const std::string &val) throw()
+	{  type=val; }
 	const std::string Value() const throw()
 	{  return value; }
 	void Value(const std::string &val) throw()

@@ -40,6 +40,12 @@ cH_Typen::cH_Typen(const std::string& name)
 #endif  
 }
 
+#ifdef USE_XML
+cH_Typen::cH_Typen(const Tag *tag)
+{*this=cH_Typen(new Typen(tag));
+ cache.Register(tag->getAttr("Abkürzung"),*this);
+}
+#endif
 
 #ifndef USE_XML
 Typen::Typen(const std::string& n)

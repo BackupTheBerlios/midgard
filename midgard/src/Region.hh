@@ -1,6 +1,7 @@
-// $Id: Region.hh,v 1.6 2002/01/18 22:08:00 thoma Exp $               
+// $Id: Region.hh,v 1.7 2002/01/19 11:21:37 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
+ *  Copyright (C) 2002 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -25,6 +26,10 @@
 #include <string>
 #include <gtk--/progressbar.h>
 #include <gtk--/pixmap.h>
+#ifdef USE_XML
+#include "xml.h"
+#endif
+
 class cH_Region;
 
 class RegionenPic
@@ -48,7 +53,11 @@ class Region  : public HandleContent
 
   public:
 //   Region() {};
+#ifndef USE_XML
    Region(const std::string& n);
+#else
+   Region(const Tag *tag);
+#endif
 
    int Nr()  const {return nr;}
    std::string Name() const   {return name; }
@@ -78,7 +87,9 @@ class cH_Region : public Handle<const Region>
    cH_Region(Region *s) : Handle<const Region>(s) {};
 //   cH_Region() {*this=new Region();}
    cH_Region(const std::string& name);
-
+#ifdef USE_XML
+   cH_Region(const Tag *name);
+#endif
 };
 
 class Regionen_All

@@ -41,6 +41,12 @@ cH_Preise::cH_Preise(const std::string& name)
 #endif
 }
 
+#ifdef USE_XML
+cH_Preise::cH_Preise(const Tag *tag)
+{*this=cH_Preise(new Preise(tag));
+ cache.Register(tag->getAttr("Ware"),*this);
+}
+#endif
 
 void Preise::get_Preise()
 {
@@ -61,6 +67,11 @@ void Preise::get_Preise()
   kosten=db_kosten;
   gewicht=db_gewicht;
 #else
+  art=tag->getAttr("Art");
+  art2=tag->getAttr("Art2");
+  einheit=tag->getAttr("Währung");
+  kosten=tag->getFloatAttr("Preis");
+  gewicht=tag->getFloatAttr("Gewicht");
 #endif  
 }
 
@@ -90,6 +101,16 @@ Preise_All::Preise_All(Gtk::ProgressBar *progressbar)
  exec sql close Pein;
  tr.close();
 #else
+ const Tag *preise=xml_data->find("Preise");
+ if (preise)
+ {  Tag::const_iterator b=preise->begin(),e=preise->end();
+    double size=e-b;
+    FOR_EACH_CONST_TAG_OF_5(i,*preise,b,e,"Kaufpreis")
+    {  progressbar->set_percentage((i-b)/size);   
+       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+       list_All.push_back(cH_Preise(&*i));
+    }
+ }   
 #endif 
  progressbar->set_percentage(1);
 }  
@@ -113,6 +134,15 @@ cH_PreiseMod::cH_PreiseMod(const std::string& art,const std::string& art2,const 
 #endif  
 }
 
+#ifdef USE_XML
+cH_PreiseMod::cH_PreiseMod(const Tag *tag)
+{*this=cH_PreiseMod(new PreiseMod(tag));
+	// art,art2,typ,nr
+ cache.Register(st_index(tag->getAttr("Art"),tag->getAttr("Art2"),
+ 		tag->getAttr("Typ"),tag->getIntAttr("MCG-Nr")),*this);
+}
+#endif
+
 void PreiseMod::get_PreiseMod()
 {
 #ifndef USE_XML
@@ -134,6 +164,12 @@ void PreiseMod::get_PreiseMod()
   SQLerror::test(__FILELINE__);
   payload=st_payload(db_name,db_faktor);
 #else
+  assert(tag);
+  nr=tag->getIntAttr("MCG-Nr");
+  art=tag->getAttr("Art");
+  art2=tag->getAttr("Art2");
+  typ=tag->getAttr("Typ");
+  payload=st_payload(tag->getAttr("Bezeichnung"),tag->getFloatAttr("Faktor"));
 #endif  
 }
 
@@ -164,6 +200,16 @@ PreiseMod_All::PreiseMod_All(Gtk::ProgressBar *progressbar)
  exec sql close PMein;
  tr.close();
 #else
+ const Tag *preise=xml_data->find("Preise");
+ if (preise)
+ {  Tag::const_iterator b=preise->begin(),e=preise->end();
+    double size=e-b;
+    FOR_EACH_CONST_TAG_OF_5(i,*preise,b,e,"Modifikation")
+    {  progressbar->set_percentage((i-b)/size);   
+       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+       list_All.push_back(cH_PreiseMod(&*i));
+    }
+ }   
 #endif 
  progressbar->set_percentage(1);
 }  

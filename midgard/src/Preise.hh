@@ -1,4 +1,4 @@
-// $Id: Preise.hh,v 1.9 2002/01/18 14:10:50 christof Exp $
+// $Id: Preise.hh,v 1.10 2002/01/19 11:21:37 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -41,8 +41,8 @@ class Preise : public HandleContent
    Preise(const std::string& n)
      :name(n) {get_Preise();}
 #else     
-   Preise(const Tag *tag)
-     :name(tag->getAttr("Name")) {get_Preise();}
+   Preise(const Tag *_tag)
+     : name(tag->getAttr("Ware")), tag(_tag)  {get_Preise();}
 #endif
 
  std::string Art() const {  return art; }
@@ -55,9 +55,6 @@ class Preise : public HandleContent
  static void saveArtikel(std::string art,std::string art2,
       std::string name,double preis, std::string einheit,double gewicht);
 };
-
-
-
 
 class cH_Preise : public Handle<const Preise>
 {
@@ -119,7 +116,7 @@ class PreiseMod : public HandleContent
      :art(a),art2(a2),typ(t),nr(n) {get_PreiseMod();}
 #else
    PreiseMod(const Tag *_tag)
-     : tag (_tag) {get_PreiseMod();}
+     : tag (_tag), nr(0) {get_PreiseMod();}
 #endif     
 
  std::string Art() const {  return art; }

@@ -1,6 +1,6 @@
-// $Id: export_common.h,v 1.13 2002/01/08 09:40:51 christof Exp $
+// $Id: export_common.h,v 1.14 2002/01/19 11:21:37 christof Exp $
 /*  Midgard Roleplaying Character Generator
- *  Copyright (C) 2001 Christof Petig
+ *  Copyright (C) 2001-2002 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -81,3 +81,10 @@ std::string RegionErgaenzungQuery(const std::string &attribute,
 	const std::string &typtable, const std::string &lernsch_art,
 	const std::string &ausnahmen_art);
 std::string Herkunft(bool invert=false);
+void region_tags(std::ostream &os, const string &region);
+
+void arkanum_speichern(std::ostream &o);
+void land_speichern(std::ostream &o);
+void fert_speichern(std::ostream &o);
+void waffen_speichern(std::ostream &o);
+void kido_speichern(std::ostream &o);

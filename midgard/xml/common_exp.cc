@@ -1,4 +1,4 @@
-// $Id: common_exp.cc,v 1.15 2002/01/18 08:09:25 christof Exp $
+// $Id: common_exp.cc,v 1.16 2002/01/19 11:21:37 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -18,6 +18,7 @@
  */
 
 #include "export_common.h"
+#include <Aux/Transaction.h>
 
 static void schwierigkeit(std::ostream &o, 
 	const std::string &_query, const std::string &tag, int indent=4)
@@ -263,4 +264,25 @@ std::string RegionErgaenzungQuery(const std::string &attribute,
    	
    return result;
 }
+
+void region_tags(std::ostream &os, const string &region)
+{  Transaction tr;
+   write_string_attrib(std::cout,"Region",region);
+   Query query("select name, copyright, offiziell, file, url, maintainer,"
+   	" version, nr, pic"
+	" from regionen where abkuerzung='"+region+"'");
+   FetchIStream is=query.Fetch();
+   if (query.good())
+   {  fetch_and_write_string_attrib(is, std::cout, "Name");
+      fetch_and_write_string_attrib(is, std::cout, "Copyright");
+      fetch_and_write_bool_attrib(is, std::cout, "offiziell");
+      fetch_and_write_string_attrib(is, std::cout, "Dateiname");
+      fetch_and_write_string_attrib(is, std::cout, "URL");
+      fetch_and_write_string_attrib(is, std::cout, "Maintainer");
+      fetch_and_write_string_attrib(is, std::cout, "Version");
+      fetch_and_write_int_attrib(is, std::cout, "MCG-Index");
+      fetch_and_write_int_attrib(is, std::cout, "MCG-Bild");
+   }
+}
+
 #endif

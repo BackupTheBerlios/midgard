@@ -1,4 +1,4 @@
-// $Id: all_exp.cc,v 1.9 2002/01/18 08:09:25 christof Exp $
+// $Id: all_exp.cc,v 1.10 2002/01/19 11:21:37 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -24,11 +24,6 @@
 #include <Aux/FetchIStream.h>
 #include <Aux/Transaction.h>
 
-void arkanum_speichern(std::ostream &o);
-void land_speichern(std::ostream &o);
-void fert_speichern(std::ostream &o);
-void waffen_speichern(std::ostream &o);
-void kido_speichern(std::ostream &o);
 
 int main(int argc, char *argv[])
 {  Petig::PrintUncaughtExceptions();
@@ -41,20 +36,7 @@ int main(int argc, char *argv[])
    
    std::cout << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n";
    std::cout << "<MidgardCG-data";
-   write_string_attrib(std::cout,"Region",region);
-   {  Transaction tr;
-      Query query("select name, file, url, maintainer, version, nr"
-   	" from regionen where abkuerzung='"+region+"'");
-      FetchIStream is=query.Fetch();
-      if (query.good())
-      {  fetch_and_write_string_attrib(is, std::cout, "Name");
-         fetch_and_write_string_attrib(is, std::cout, "Dateiname");
-         fetch_and_write_string_attrib(is, std::cout, "URL");
-         fetch_and_write_string_attrib(is, std::cout, "Maintainer");
-         fetch_and_write_string_attrib(is, std::cout, "Version");
-         fetch_and_write_int_attrib(is, std::cout, "MCG-Index");
-      }
-   }
+   region_tags(std::cout,region);
    std::cout << ">\n";
    land_speichern(std::cout);
    fert_speichern(std::cout);

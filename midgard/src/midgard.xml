@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MidgardCG-data>
- <MCG:include File="../../midgard-xml/Regelwerk4.xml"/>
- <MCG:include File="../../midgard-xml/Arkanum.xml"/>
- <MCG:include File="../../midgard-xml/KanThaiPan.xml"/>
- <MCG:include File="../../midgard-xml/Eschar.xml"/>
- <MCG:include File="../../midgard-xml/Rawindra.xml"/>
- <MCG:include File="../../midgard-xml/Alba.xml"/>
- <MCG:include File="../../midgard-xml/Gildenbrief.xml"/>
- <MCG:include File="../../midgard-xml/HexenzauberDruidenkraft.xml"/>
- <MCG:include File="../../midgard-xml/BarbarenWutRitterEhre.xml"/>
- <MCG:include File="../../midgard-xml/Regelwerk3.xml"/>
+<MidgardCG-data XML-Verzeichnis="../../midgard-xml"/>
+ <MCG-include File="Regelwerk4.xml"/>
+ <MCG-include File="Arkanum.xml"/>
+ <MCG-include File="KanThaiPan.xml"/>
+ <MCG-include File="Eschar.xml"/>
+ <MCG-include File="Rawindra.xml"/>
+ <MCG-include File="Alba.xml"/>
+ <MCG-include File="Gildenbrief.xml"/>
+ <MCG-include File="HexenzauberDruidenkraft.xml"/>
+ <MCG-include File="BarbarenWutRitterEhre.xml"/>
+ <MCG-include File="Regelwerk3.xml"/>
 </MidgardCG-data>

@@ -1,39 +1,23 @@
-# $Id: Makefile.am,v 1.23 2002/01/10 15:46:48 christof Exp $
+# $Id: Makefile.am,v 1.24 2002/01/19 11:21:37 christof Exp $
 
-EXTRA_PROGRAMS = all_exp arkanum_exp kido_exp fertigk_exp land_sprache_exp waffen_exp
-
-%_nm.o: %_exp.cc ; $(COMPILE.cc) -DXML_NO_MAIN $(OUTPUT_OPTION) $<
-%.cc: %.pgcc ; @ECPG@ -o $*.cc $<
+EXTRA_PROGRAMS = all_exp arkanum_exp 
 
 #MIDGARD3=$(shell if test `hostname` = "puck" ; then echo -DMIDGARD3 ; fi)
 
-CXXFLAGS = @CXXFLAGS@ @KOMPONENTEN_INCLUDES@ \
-           -DPACKAGE_DATA_DIR=\"$(pkgdatadir)/\" $(MIDGARD3) \
-           -DREGION
+CXXFLAGS = @CXXFLAGS@ @KOMPONENTEN_INCLUDES@ $(MIDGARD3) -DREGION
 
-common_sources = export_common.cc common_exp.cc
+common_sources = export_common.cc common_exp.cc zauber_exp.cc 
 arkanum_exp_SOURCES= arkanum_exp.cc $(common_sources)
-kido_exp_SOURCES= kido_exp.cc $(common_sources)
-fertigk_exp_SOURCES= fertigk_exp.cc $(common_sources)
-land_sprache_exp_SOURCES= land_sprache_exp.cc $(common_sources)
-waffen_exp_SOURCES=waffen_exp.cc $(common_sources)
-all_exp_SOURCES=all_exp.cc $(common_sources)
-
-all_exp_LDADD=arkanum_nm.o kido_nm.o fertigk_nm.o land_sprache_nm.o \
-	waffen_nm.o
-all_exp_DEPENDENCIES=$(all_exp_LDADD)
+all_exp_SOURCES=all_exp.cc $(common_sources) \
+	kido_exp.cc fertigk_exp.cc land_sprache_exp.cc waffen_exp.cc
 
 LDFLAGS = @KOMPONENTEN_LDFLAGS@
 CLEANFILES = *~ $(BUILT_SOURCES) 
 LIBS=@LIBS@ @COMMONXX_LIBS@
 
-#export: $(EXTRA_PROGRAMS)
-#	./all_exp >../src/midgard.xml
-# upps, das ist von früher übrig geblieben
-
 XMLDIR=../../midgard-xml
 
-export: all_exp arkanum_exp # $(EXTRA_PROGRAMS)
+export: all_exp arkanum_exp
 	./arkanum_exp >$(XMLDIR)/Arkanum.xml
 	./all_exp K >$(XMLDIR)/KanThaiPan.xml
 	./all_exp R >$(XMLDIR)/Rawindra.xml

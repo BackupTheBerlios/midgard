@@ -1,4 +1,4 @@
-// $Id: kido_exp.cc,v 1.2 2002/01/03 08:20:58 christof Exp $
+// $Id: kido_exp.cc,v 1.3 2002/01/19 11:21:37 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -50,24 +50,3 @@ void kido_speichern(std::ostream &o)
   }
 }
 
-#ifndef XML_NO_MAIN
-int main(int argc, char *argv[])
-{  
-   try{
-      Petig::Connection conn;
-      conn.setDbase("midgard");
-      Petig::dbconnect(conn);
-      
-      if (argc>1) region=argv[1];
-
-   std::cout << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n";
-   std::cout << "<MidgardCG-data>\n";
-   kido_speichern(std::cout);
-   std::cout << "</MidgardCG-data>\n";
-   Petig::dbdisconnect();
-   } catch (SQLerror &e)
-   {  std::cerr << e << '\n';
-   }
-   return 0;
-}
-#endif
