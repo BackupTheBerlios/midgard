@@ -72,17 +72,18 @@ void Zufall::Teil(e_Vorgabe vorgabe,const Abenteurer &A)
 
    if(sv.spezies)  Aben.getWerte().setSpezies(getSpezies());
    else            Aben.getWerte().setSpezies(oldAben.getWerte().Spezies());
-   hauptfenster->table_grundwerte->Eigenschaften_variante(1);
+   Aben.getWerte().gw_wuerfeln_2x();
    if(!sv.st)       Aben.getWerte().setSt(oldAben.getWerte().St());
    if(!sv.gs)       Aben.getWerte().setGs(oldAben.getWerte().Gs());
    if(!sv.gw)       Aben.getWerte().setGw(oldAben.getWerte().Gw());
    if(!sv.ko)       Aben.getWerte().setKo(oldAben.getWerte().Ko());
    if(!sv.in)       Aben.getWerte().setIn(oldAben.getWerte().In());
    if(!sv.zt)       Aben.getWerte().setZt(oldAben.getWerte().Zt());
+   Aben.getWerte().Au_pA_wuerfeln();
    Aben.getWerte().setGeschlecht(getGeschlecht());
    if(sv.typ || !oldAben.Valid())      Aben.setTyp1(getTyp());
-   else             Aben.setTyp1(oldAben.Typ1());     
-   hauptfenster->table_grundwerte->on_abge_werte_setzen_clicked();
+   else             Aben.setTyp1(oldAben.Typ1());
+   Aben.getWerte().abge_werte_setzen(Aben);
    if(!sv.au)       Aben.getWerte().setAu(oldAben.getWerte().Au());
    if(!sv.pa)       Aben.getWerte().setpA(oldAben.getWerte().pA());
    if(!sv.wk)       Aben.getWerte().setWk(oldAben.getWerte().Wk());
@@ -97,13 +98,10 @@ void Zufall::Teil(e_Vorgabe vorgabe,const Abenteurer &A)
    else            Aben.List_Fertigkeit_ang()=oldAben.List_Fertigkeit_ang();
    Lernschema();
    setBeruf();
-#error Oh Oh    
    hauptfenster->table_lernschema->geld_wuerfeln();
    setWaffenBesitz();
    hauptfenster->table_lernschema->on_button_ruestung_clicked(Random::W100());
    hauptfenster->table_lernschema->ausruestung_setzen();
-   hauptfenster->table_grundwerte->zeige_werte();
-   hauptfenster->table_lernschema->button_sensitive(true);
 }
 
 extern std::vector<MBEmlt> List_to_Vector(std::list<MBEmlt> L,const Abenteurer& Aben,int lp);
