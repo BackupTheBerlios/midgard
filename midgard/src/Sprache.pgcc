@@ -55,13 +55,12 @@ void Sprache::get_Sprache()
   exec sql end declare section;
 
   strncpy(db_name,Name().c_str(),sizeof(db_name));
-  exec sql select distinct fp,max_wert,schrift,alt,coalesce(minderheit,f),
+  exec sql select distinct fp,max_wert,coalesce(alt,'f'),coalesce(minderheit,'f'),
        coalesce(region,''),coalesce(gruppe_1,0),coalesce(gruppe_2,0)
-       into :db_fp,:db_maxwert,:db_schrift,:db_alt,:db_minderheit,
+       into :db_fp,:db_maxwert,:db_alt,:db_minderheit,
          :db_region,:db_g1,:db_g2
        from sprachen where name = :db_name;
   SQLerror::test(__FILELINE__);
-  urschrift=db_schrift;
   region=db_region;
   alte_sprache=db_alt;
   minderheit=db_minderheit;
@@ -69,6 +68,19 @@ void Sprache::get_Sprache()
   kosten=db_fp;
   if(db_g1) V_sprachgruppe.push_back(db_g1);
   if(db_g2) V_sprachgruppe.push_back(db_g2);
+  
+  // Schriften
+  exec sql declare schriftein cursor for select schrift from 
+      sprache_schrift where sprache=:db_name;
+  exec sql open schriftein;
+  SQLerror::test(__FILELINE__);
+  while (true)
+   {
+     exec sql fetch schriftein into :db_schrift;
+     SQLerror::test(__FILELINE__,100);
+     if (sqlca.sqlcode) break;
+     VSchrift.push_back(db_schrift);
+   }
 }
 
 int Sprache::Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
@@ -77,26 +89,31 @@ int Sprache::Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) cons
   return  (int)(F->Standard_Faktor(Typ,ausnahmen) * kosten) ; 
 }
 
-std::string Sprache::Urschrift(const  std::list<cH_MidgardBasicElement>& list_Schrift) const 
+std::string Sprache::Schriften() const
 {
- bool back=false;
- std::string s,t="(";
- for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Schrift.begin();i!=list_Schrift.end();++i)
-  {
-    if((*i)->Name() == Urschrift())  return Urschrift();
-    std::string::size_type i1=(*i)->Name().find_last_of("(");
-    
-    if (i1!=std::string::npos)
-     {
-       s=(*i)->Name().substr(0,i1);
-       std::string nr = (*i)->Name().substr(i1+1,1);    
-       t+=nr+",";
-     }
-    if(s==Urschrift()) back=true;
+  std::string s;
+  for(vector<std::string>::const_iterator j=VSchrift.begin();j!=VSchrift.end();)
+   {
+     s=*j;
+     if(++j!=VSchrift.end()) s+=", ";
+   }
+  return s;
+}
+
+
+
+const vector<pair<std::string,int> > Sprache::SchriftWert(const  std::list<cH_MidgardBasicElement>& list_Schrift) const 
+{
+ vector<pair<std::string,int> > vs;
+ for(vector<std::string>::const_iterator i=VSchrift.begin();i!=VSchrift.end();++i)
+  {  
+   for(std::list<cH_MidgardBasicElement>::const_iterator j=list_Schrift.begin();j!=list_Schrift.end();++j)
+    {
+      if(*i == (*j)->Name())
+        vs.push_back(pair<std::string,int>(*i,(*j)->Erfolgswert()));
+    }
   }
- if (back) t=t.substr(0,t.size()-1); // letzes Komma entfernen
- if (back) return Urschrift()+" "+t+")";
- return "";
+ return vs;
 }
 
 bool Sprache::Sprachgruppe(const list<cH_MidgardBasicElement>& listSprache) const

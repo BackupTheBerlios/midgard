@@ -8,7 +8,7 @@
 
 class Sprache : public MidgardBasicElement
 {
-     std::string urschrift;
+     vector<std::string> VSchrift;
      int maxwert;
      bool alte_sprache,minderheit;
      vector<int> V_sprachgruppe;
@@ -23,8 +23,9 @@ class Sprache : public MidgardBasicElement
    enum MBEE What() const {return MidgardBasicElement::SPRACHE;}
    std::string What_str() const {return "Sprache";}
 
-   std::string Urschrift() const   {return urschrift; }
-   std::string Urschrift(const  std::list<cH_MidgardBasicElement>& list_Schrift) const ; 
+   std::string Schriften() const;
+   const vector<std::string> &Schrift() const  {return VSchrift; }
+   const vector<pair<std::string,int> > SchriftWert(const  std::list<cH_MidgardBasicElement>& list_Schrift) const ; 
 
    bool Alte_Sprache() const {return alte_sprache;}    
    bool Minderheit() const {return minderheit;}    

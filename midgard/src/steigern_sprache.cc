@@ -68,17 +68,22 @@ void midgard_CG::sprachen_zeigen()
 
 void midgard_CG::on_leaf_selected_neue_sprache(cH_RowDataBase d)
 {  
+   MidgardBasicElement_leaf_neu(d);
+/*
    const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);  
    cH_MidgardBasicElement MBE = dt->getMBE();
    if (!steigern_usp(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
    Werte.add_GFP(MBE->Kosten(Typ,Database.ausnahmen));
    MidgardBasicElement::move_element(list_Sprache_neu,list_Sprache,MBE->Name());
+*/
    sprachen_zeigen();
    on_schrift_laden_clicked();
 }   
     
 void midgard_CG::on_leaf_selected_alte_sprache(cH_RowDataBase d)
 {  
+  MidgardBasicElement_leaf_alt(d);
+/*
    const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);  
    cH_MidgardBasicElement MBE = dt->getMBE();
    if (radiobutton_steigern->get_active() && MBE->Steigern(Typ,Database.ausnahmen))
@@ -104,6 +109,7 @@ void midgard_CG::on_leaf_selected_alte_sprache(cH_RowDataBase d)
       Werte.add_GFP(-MBE->Verlernen(Typ,Database.ausnahmen));
       MidgardBasicElement::move_element(list_Sprache,list_Sprache_neu,MBE->Name());
     }
+*/
    on_sprache_laden_clicked();
 }
     
@@ -132,21 +138,27 @@ void midgard_CG::on_button_sprache_sort_clicked()
 
 void midgard_CG::on_leaf_selected_alte_schrift(cH_RowDataBase d)
 {  
+  MidgardBasicElement_leaf_alt(d);
+/*
    const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);  
    cH_MidgardBasicElement MBE = dt->getMBE();
    if (steigern_bool) desteigern(MBE->Kosten(Typ,Database.ausnahmen));
    Werte.add_GFP(-MBE->Kosten(Typ,Database.ausnahmen));
    MidgardBasicElement::move_element(list_Schrift,list_Schrift_neu,MBE->Name());
+*/
    on_sprache_laden_clicked();
 }   
     
 void midgard_CG::on_leaf_selected_neue_schrift(cH_RowDataBase d)
 {  
+  MidgardBasicElement_leaf_neu(d);
+/*
    const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);  
    cH_MidgardBasicElement MBE = dt->getMBE();
    if (!steigern_usp(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
    Werte.add_GFP(MBE->Kosten(Typ,Database.ausnahmen));
    MidgardBasicElement::move_element(list_Schrift_neu,list_Schrift,MBE->Name());
+*/
    on_sprache_laden_clicked();
 }   
 

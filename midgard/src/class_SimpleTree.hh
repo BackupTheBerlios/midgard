@@ -147,7 +147,7 @@ class Data_SimpleTree : public RowDataBase
      if (name=="SPN")
       switch (seqnr) {
          case NAMEn_SP : return cH_EntryValueIntString(MBE->Name());
-         case URSCHRIFT_SP : return cH_EntryValueIntString(cH_Sprache(MBE)->Urschrift());
+         case URSCHRIFT_SP : return cH_EntryValueIntString(cH_Sprache(MBE)->Schriften());
          case KOSTEN_SP : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
         }
      if (name=="SCA")

@@ -56,7 +56,7 @@ void Schrift::get_Schrift()
 
   strncpy(db_name,Name().c_str(),sizeof(db_name));
   exec sql select typ,kosten,coalesce(region,''),
-       coalesce(alt,f),coalesce(kult,f)
+       coalesce(alt,'f'),coalesce(kult,'f')
        into :db_art,:db_fp,:db_region,:db_alt,:db_kult
        from schrift where name = :db_name;
   SQLerror::test(__FILELINE__);
@@ -71,13 +71,9 @@ bool Schrift::kann_Sprache(const std::list<cH_MidgardBasicElement>& sprache) con
 {
  for(std::list<cH_MidgardBasicElement>::const_iterator i=sprache.begin();i!=sprache.end();++i)
   {
-   if(cH_Sprache((*i))->Urschrift() == Name())  return true;
-
-   std::string::size_type i1=Name().find_last_of("(");
-   if(i1!=std::string::npos) 
-     { std::string schrift=Name().substr(0,i1);
-       if(schrift == cH_Sprache((*i))->Urschrift() ) return true;
-     }
+   vector<std::string> V=cH_Sprache(*i)->Schrift();
+   for(vector<std::string>::const_iterator j=V.begin();j!=V.end();++j)
+      if(*j==Name()) return true ;
   }  
  return false;
 }

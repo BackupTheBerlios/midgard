@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.69 2001/12/27 20:46:41 christof Exp $
+// $Id: LaTeX_out.cc,v 1.70 2001/12/28 17:48:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -184,7 +184,15 @@ void midgard_CG::LaTeX_write_values()
       ++sprachanz;
       fout << "\\newcommand{\\spra"<<a<<"}{\\scriptsize " << s->Name() <<"}\n";
       fout << "\\newcommand{\\spraw"<<a<<"}{\\scriptsize "<< s->Erfolgswert() <<"}\n";
-      fout << "\\newcommand{\\schr"<<a<<"}{\\scriptsize "<< s->Urschrift(list_Schrift) <<"}\n";
+      vector<pair<std::string,int> > vs=s->SchriftWert(list_Schrift);
+      std::string ss,si;
+      for(vector<pair<std::string,int> >::const_iterator j=vs.begin();j!=vs.end();++j)
+       {
+         ss+=j->first;
+         si+=j->second;
+       }
+      fout << "\\newcommand{\\schr"<<a<<"}{\\scriptsize "<< ss <<"}\n";
+      fout << "\\newcommand{\\schrw"<<a<<"}{\\scriptsize "<< si <<"}\n";
    }
  for (unsigned int i=sprachanz; i<maxsprach;++i) // Bis zum Ende auffüllen
    {
@@ -192,6 +200,7 @@ void midgard_CG::LaTeX_write_values()
       fout << "\\newcommand{\\spra"<<a<<"}{\\scriptsize }\n";
       fout << "\\newcommand{\\spraw"<<a<<"}{\\scriptsize }\n";
       fout << "\\newcommand{\\schr"<<a<<"}{\\scriptsize }\n";
+      fout << "\\newcommand{\\schrw"<<a<<"}{\\scriptsize }\n";
    }
 
 

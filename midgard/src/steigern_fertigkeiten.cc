@@ -53,6 +53,8 @@ void midgard_CG::fertigkeiten_zeigen()
 
 void midgard_CG::on_leaf_selected_alte_fert(cH_RowDataBase d)
 {  
+ MidgardBasicElement_leaf_alt(d);
+/*
  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
  cH_MidgardBasicElement MBE = dt->getMBE();
  if(radiobutton_pp_eingeben->get_active())
@@ -85,6 +87,7 @@ void midgard_CG::on_leaf_selected_alte_fert(cH_RowDataBase d)
       Werte.add_GFP(-MBE->Verlernen(Typ,Database.ausnahmen));
       MidgardBasicElement::move_element(list_Fertigkeit,list_Fertigkeit_neu,MBE->Name());
     }
+*/
    fertigkeiten_zeigen();
 }
 
@@ -118,15 +121,19 @@ bool midgard_CG::kido_steigern_check(int wert)
 
 void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
 {  
+  MidgardBasicElement_leaf_neu(d);
+
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE();
 
+/*
   if (!steigern_usp(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
   Werte.add_GFP(MBE->Kosten(Typ,Database.ausnahmen));
   if(MBE->Name()!="Landeskunde")
      fertigkeiten_zeigen();
   else fillClistLand(MBE);
   MidgardBasicElement::move_element(list_Fertigkeit_neu,list_Fertigkeit,MBE->Name());
+*/
 
   if (MBE->Name()=="KiDo") {kido_bool=true;show_gtk();
       optionmenu_KiDo_Stile->set_sensitive(true);

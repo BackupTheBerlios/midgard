@@ -11,7 +11,6 @@ CREATE TABLE "sprachen" (
 	"fp" integer,
 	"name" text,
 	"max_wert" integer,
-	"schrift" text,
 	"alt" boolean,
 	"region" text,
 	"gruppe_1" integer,
@@ -25,53 +24,46 @@ CREATE TABLE "sprachen" (
 
 
 COPY "sprachen" FROM stdin;
-10	Albisch	18	Valianisches Alphabet	f	\N	1	2	\N
-10	Altoqua	18	Valianisches Alphabet	t	\N	1	\N	\N
-10	Aranisch	18	Aranische Silbenschrift	f	\N	\N	\N	\N
-10	Asadi	18	Hurritische Keilschrift	f	\N	3	\N	t
-10	Berekusch	18		f	\N	4	\N	t
-10	Bulugi	18	Bulugische Bilderschrift	f	\N	\N	\N	\N
-10	Chryseisch	18	Valianisches Alphabet	f	\N	5	10	\N
-10	Comentang	11	Valianisches Alphabet	f	\N	2	\N	\N
-10	Dunathisch	18	Valianisches Alphabet	t	A	\N	\N	\N
-10	Dunkle Sprache	18	Arracht-Versalien	f	\N	\N	\N	\N
-10	Dvarskar	18	Futhark	f	\N	\N	\N	\N
-10	Eldalyn	18	Beth-Luis-Nion	f	\N	6	\N	\N
-10	Erainnisch	18	Valianisches Alphabet	f	\N	2	6	\N
-10	Feuerinseldialekte	8		f	\N	\N	6	\N
-10	Ffomorisch	18		f	\N	5	\N	t
-10	Gnomenon(Berg)	18	Futhark	f	\N	\N	\N	\N
-10	Gnomenon(Wald)	18	f	f	\N	\N	\N	\N
-10	Halftan	18	Valianisches Alphabet	f	\N	1	7	\N
-10	Hochcoraniaid	18	Coraniaid-Alphabet	t	\N	6	\N	\N
-10	Hurritisch	18	Hurritische Keilschrift	f	\N	3	\N	\N
-10	Ikengadialekte	18		f	\N	\N	\N	\N
-10	KanThaiTun(1)	18	KanThaiTun(1)	f	\N	\N	\N	\N
-10	KanThaiTun(2)	18	KanThaiTun(2)	f	\N	\N	\N	\N
-10	KanThaiTun(3)	18	KanThaiTun(3)	f	\N	\N	\N	\N
-10	KanThaiTun(4)	18	KanThaiTun(4)	f	\N	\N	\N	\N
-10	KanThaiTun(5)	18	KanThaiTun(5)	f	\N	\N	\N	\N
-10	KanThaiTun(6)	18	KanThaiTun(6)	f	\N	\N	\N	\N
-10	Kelwisch	18	Hurritische Keilschrift	t	\N	\N	\N	\N
-10	Luwisch	18	Hurritische Keilschrift	t	\N	3	\N	t
-10	Läinisch	18	Läinisch	f	\N	7	\N	\N
-10	Maralinga	18	Valianisches Alphabet	t	\N	10	\N	\N
-10	Medjisisch	18	Tegarisch	f	\N	4	\N	\N
-10	Meketische	18	Meketische Bilderschrift	t	\N	\N	\N	\N
-10	Minangpahitisch	18	Rawindisches Alphabet	f	\N	9	\N	\N
-10	Moravisch	18	Valianisches Alphabet	f	\N	8	\N	\N
-10	Nahuatlanisch(Bilder)	18	Nahuatlanische Bilderschrift	f	\N	\N	\N	\N
-10	Nahuatlanisch(Knoten)	18	Nahuatlanische Knotenschrift Quipu	f	\N	\N	\N	\N
-10	Neu Vallinga	18	Aranische Silbenschrift	f	\N	10	\N	\N
-10	Rawindi	18	Rawindisches Alphabet	f	\N	9	\N	\N
-10	Scharidisch	18	Aranische Silbenschrift	f	\N	\N	\N	\N
-10	Tegarisch	18	Tegarisch	f	\N	4	\N	\N
-10	Toquinisch	18	Toquiische Keilschrift	f	\N	\N	\N	\N
-10	Trll'ng	11		f	\N	\N	\N	\N
-10	Tuskisch	18	Tuskische Keilschrift	f	\N	5	\N	\N
-10	Twyneddisch	18	Valianisches Alphabet	f	\N	2	\N	t
-10	Vallinga	18	Valianisches Alphabet	f	\N	10	\N	\N
-10	Waelska	18	Waelska	f	\N	8	\N	\N
+10	Albisch	18	\N	\N	1	2	\N
+10	Altoqua	18	t	\N	1	\N	\N
+10	Aranisch	18	\N	\N	\N	\N	\N
+10	Asadi	18	\N	\N	3	\N	t
+10	Berekusch	18	\N	\N	4	\N	t
+10	Bulugi	18	\N	\N	\N	\N	\N
+10	Chryseisch	18	\N	\N	5	10	\N
+10	Comentang	11	\N	\N	2	\N	\N
+10	Dunathisch	18	t	A	\N	\N	\N
+10	Dunkle Sprache	18	\N	\N	\N	\N	\N
+10	Dvarskar	18	\N	\N	\N	\N	\N
+10	Eldalyn	18	\N	\N	6	\N	\N
+10	Erainnisch	18	\N	\N	2	6	\N
+10	Feuerinseldialekte	8	\N	\N	\N	6	\N
+10	Ffomorisch	18	\N	\N	5	\N	t
+10	Gnomenon	18	\N	\N	\N	\N	\N
+10	Halftan	18	\N	\N	1	7	\N
+10	Hochcoraniaid	18	t	\N	6	\N	\N
+10	Hurritisch	18	\N	\N	3	\N	\N
+10	Ikengadialekte	18	\N	\N	\N	\N	\N
+10	KanThaiTun	18	\N	\N	\N	\N	\N
+10	Kelwisch	18	t	\N	\N	\N	\N
+10	Luwisch	18	t	\N	3	\N	t
+10	Läinisch	18	\N	\N	7	\N	\N
+10	Maralinga	18	t	\N	10	\N	\N
+10	Medjisisch	18	\N	\N	4	\N	\N
+10	Meketische	18	t	\N	\N	\N	\N
+10	Minangpahitisch	18	\N	\N	9	\N	\N
+10	Moravisch	18	\N	\N	8	\N	\N
+10	Nahuatlanisch	18	\N	\N	\N	\N	\N
+10	Neu Vallinga	18	\N	\N	10	\N	\N
+10	Rawindi	18	\N	\N	9	\N	\N
+10	Scharidisch	18	\N	\N	\N	\N	\N
+10	Tegarisch	18	\N	\N	4	\N	\N
+10	Toquinisch	18	\N	\N	\N	\N	\N
+10	Trll'ng	11	\N	\N	\N	\N	\N
+10	Tuskisch	18	\N	\N	5	\N	\N
+10	Twyneddisch	18	\N	\N	2	\N	t
+10	Vallinga	18	\N	\N	10	\N	\N
+10	Waelska	18	\N	\N	8	\N	\N
 \.
 --
 --

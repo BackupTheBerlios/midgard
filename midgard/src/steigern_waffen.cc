@@ -58,12 +58,15 @@ void midgard_CG::waffen_zeigen()
 
 void midgard_CG::on_leaf_selected_neue_grund(cH_RowDataBase d)
 {  
+/*
 //  const Data_grund *dt=dynamic_cast<const Data_grund*>(&*d);
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE();
   if (!steigern_usp(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
   Werte.add_GFP(MBE->Kosten(Typ,Database.ausnahmen));
   MidgardBasicElement::move_element(list_WaffenGrund_neu,list_WaffenGrund,MBE->Name());
+*/
+  MidgardBasicElement_leaf_neu(d);
   on_waffen_laden_clicked();
 }
 
@@ -83,17 +86,22 @@ void midgard_CG::on_waffengrund_laden_clicked()
 
 void midgard_CG::on_leaf_selected_neue_waffen(cH_RowDataBase d)
 {  
+/*
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   MidgardBasicElement::move_element(list_Waffen_neu,list_Waffen,dt->getMBE()->Name());
+*/
+  MidgardBasicElement_leaf_neu(d);
   waffen_zeigen();
 }
  
 void midgard_CG::on_leaf_selected_alte_grund(cH_RowDataBase d)
 {  
-  std::string strinfo="WARNUNG: Beim verlernen von Grundkenntnissen werden weder die\n";
-  strinfo +="GFP angepaßt, noch die bereits gelernten Waffen, die zu dieser\n";
-  strinfo +="Grundkenntnis gehöhren, verlernt\n";
+  std::string strinfo="WARNUNG: Beim verlernen von Grundkenntnissen werden die\n";
+  strinfo +="bereits gelernten Waffen, die zu dieser\n";
+  strinfo +="Grundkenntnis gehöhren, NICHT verlernt\n";
   WindowInfo(strinfo,true);
+/*
+
  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
  cH_MidgardBasicElement MBE = dt->getMBE();
  if (radiobutton_verlernen->get_active())
@@ -102,10 +110,15 @@ void midgard_CG::on_leaf_selected_alte_grund(cH_RowDataBase d)
      MidgardBasicElement::move_element(list_WaffenGrund,list_WaffenGrund_neu,MBE->Name());
      waffen_zeigen();
    }
+*/
+  MidgardBasicElement_leaf_alt(d);
+  waffen_zeigen();
 }
 
 void midgard_CG::on_leaf_selected_alte_waffen(cH_RowDataBase d)
 {  
+  MidgardBasicElement_leaf_alt(d);
+/*
    const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
    cH_MidgardBasicElement MBE = dt->getMBE();
    if (radiobutton_steigern->get_active())
@@ -124,6 +137,7 @@ void midgard_CG::on_leaf_selected_alte_waffen(cH_RowDataBase d)
           for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Waffen.begin();i!=list_Waffen.end();++i)
                if (cH_Waffe(*i)->Name()==MBE->Name()) 
                   { cH_Waffe(*i)->add_Erfolgswert(1); break;}
+*/
 /*
         }
        else // steigern mit Praxispunkten
@@ -144,6 +158,7 @@ void midgard_CG::on_leaf_selected_alte_waffen(cH_RowDataBase d)
             }
         }
 */
+/*
       }
    if (radiobutton_reduzieren->get_active())
       {
@@ -157,6 +172,7 @@ void midgard_CG::on_leaf_selected_alte_waffen(cH_RowDataBase d)
       {
          manage(new WindowInfo("Nicht implementiert"));
       }
+*/
    waffen_zeigen();
 }
 

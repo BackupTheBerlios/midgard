@@ -113,15 +113,15 @@ void midgard_CG::on_spinbutton_pp_eingeben_activate()
 }
 
 
-#include "../pixmaps/LoadSkills-trans-50.xpm"
+//#include "../pixmaps/LoadSkills-trans-50.xpm"
 #include "../pixmaps/Sort_Skill-trans-50.xpm"
-#include "../pixmaps/LoadWeapon-trans-50.xpm"
+//#include "../pixmaps/LoadWeapon-trans-50.xpm"
 #include "../pixmaps/Sort_Weapon-trans-50.xpm"
-#include "../pixmaps/LoadZaub-trans-50.xpm"
+//#include "../pixmaps/LoadZaub-trans-50.xpm"
 #include "../pixmaps/Sort_Zauber-50.xpm"
-#include "../pixmaps/Load-Kido-trans-50.xpm"
+//#include "../pixmaps/Load-Kido-trans-50.xpm"
 #include "../pixmaps/Sort_KiDo-trans-50.xpm"
-#include "../pixmaps/LoadLang_u_Font-trans-50.xpm"
+//#include "../pixmaps/LoadLang_u_Font-trans-50.xpm"
 #include "../pixmaps/Sort_Lang-trans-50.xpm"
 
 
@@ -213,14 +213,19 @@ void midgard_CG::load_for_page(guint pagenr)
   else assert(0);
 
   // Sensitive & Show
-  if(pagenr==PAGE_ZAUBER)
+  if(pagenr==PAGE_ZAUBER || pagenr==PAGE_KIDO)
    {
      frame_fertigkeit->set_sensitive(false);
-     frame_zauber_zusatz->show();
+     frame_lernen_mit->set_sensitive(false);
+     radiobutton_verlernen->set_active(true);
+     if(pagenr==PAGE_ZAUBER) frame_zauber_zusatz->show();
+     else                    frame_zauber_zusatz->hide();
    }
   else
    {
      frame_fertigkeit->set_sensitive(true);
+     frame_lernen_mit->set_sensitive(true);
+     radiobutton_steigern->set_active(true);
      frame_zauber_zusatz->hide();
    }
 }
