@@ -30,6 +30,10 @@ exec sql include sqlca;
 #include <cstring>
 #include <Gtk_OStream.h>
 
+#ifdef __MINGW32__
+extern "C" { int snprintf(char *str, size_t size, const  char  *format, ...); }
+#endif
+
 double midgard_CG::get_standard_waffen(const std::string& typ, const std::string& typ2, const std::string& waffe)
 {
   std::string swaffe="Waffen";

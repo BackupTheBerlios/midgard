@@ -23,6 +23,10 @@ exec sql include sqlca;
 #include <cstring>
 #include <Gtk_OStream.h>
 
+#ifdef __MINGW32__
+extern "C" { int snprintf(char *str, size_t size, const  char  *format, ...); }
+#endif
+
 float midgard_CG::get_standard_zaubermittel(const Data_typen& Typ, const Data_typen& Typ2, const std::string& name)
 {
   exec sql begin declare section;

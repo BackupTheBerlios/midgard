@@ -1,4 +1,4 @@
-// $Id: itos.cc,v 1.15 2001/06/27 11:24:35 thoma Exp $
+// $Id: itos.cc,v 1.16 2001/08/20 08:16:48 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,6 +19,10 @@
 
 #include "itos.h"
 #include <cstdio>
+
+#ifdef __MINGW32__
+extern "C" { int snprintf(char *str, size_t size, const  char  *format, ...); }
+#endif
 
 std::string itos(int i)
 {

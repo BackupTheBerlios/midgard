@@ -30,6 +30,10 @@ exec sql include sqlca;
 #include <cstring>
 #include <Gtk_OStream.h>
 
+#ifdef __MINGW32__
+extern "C" { int snprintf(char *str, size_t size, const  char  *format, ...); }
+#endif
+
 int midgard_CG::get_spezial_zauber(const std::string& typ, const std::string& zauber)
 {
   exec sql begin declare section;

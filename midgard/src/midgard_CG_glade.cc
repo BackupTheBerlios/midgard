@@ -1277,7 +1277,6 @@ midgard_CG_glade::midgard_CG_glade(
    scrolledwindow55->add(*viewport6);
    vpaned1->set_usize(578, 418);
    vpaned1->set_handle_size(10);
-   vpaned1->set_gutter_size(20);
    vpaned1->set_position(198);
    vpaned1->pack1(*scrolledwindow53, false, true);
    vpaned1->pack2(*scrolledwindow55, true, true);
@@ -1330,7 +1329,6 @@ midgard_CG_glade::midgard_CG_glade(
    scrolledwindow31->set_policy(GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
    scrolledwindow31->add(*viewport8);
    vpaned6->set_handle_size(10);
-   vpaned6->set_gutter_size(10);
    vpaned6->set_position(142);
    vpaned6->pack1(*scrolledwindow30, false, true);
    vpaned6->pack2(*scrolledwindow31, true, true);
@@ -1347,7 +1345,6 @@ midgard_CG_glade::midgard_CG_glade(
    scrolledwindow11->set_policy(GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
    scrolledwindow11->add(*viewport13);
    vpaned5->set_handle_size(10);
-   vpaned5->set_gutter_size(10);
    vpaned5->set_position(143);
    vpaned5->pack1(*scrolledwindow32, false, true);
    vpaned5->pack2(*scrolledwindow11, true, true);
@@ -1355,7 +1352,6 @@ midgard_CG_glade::midgard_CG_glade(
    vbox15->pack_start(*vpaned5);
    hpaned2->set_usize(600, 350);
    hpaned2->set_handle_size(10);
-   hpaned2->set_gutter_size(10);
    hpaned2->set_position(378);
    hpaned2->pack1(*vbox16, false, true);
    hpaned2->pack2(*vbox15, true, true);
@@ -1428,7 +1424,6 @@ midgard_CG_glade::midgard_CG_glade(
    scrolledwindow34->add(*viewport5);
    vpaned2->set_usize(491, 350);
    vpaned2->set_handle_size(10);
-   vpaned2->set_gutter_size(10);
    vpaned2->set_position(175);
    vpaned2->pack1(*scrolledwindow33, false, true);
    vpaned2->pack2(*scrolledwindow34, true, true);
@@ -1446,14 +1441,12 @@ midgard_CG_glade::midgard_CG_glade(
    scrolledwindow52->add(*viewport11);
    vpaned8->set_usize(-1, 350);
    vpaned8->set_handle_size(10);
-   vpaned8->set_gutter_size(10);
    vpaned8->set_position(175);
    vpaned8->pack1(*scrolledwindow51, false, true);
    vpaned8->pack2(*scrolledwindow52, true, true);
    vbox18->pack_start(*label380, false, false, 0);
    vbox18->pack_start(*vpaned8);
    hpaned3->set_handle_size(10);
-   hpaned3->set_gutter_size(6);
    hpaned3->set_position(-1);
    hpaned3->pack1(*vbox17, false, true);
    hpaned3->pack2(*vbox18, true, true);
@@ -1483,7 +1476,6 @@ midgard_CG_glade::midgard_CG_glade(
    scrolledwindow50->add(*viewport15);
    vpaned7->set_usize(600, 350);
    vpaned7->set_handle_size(10);
-   vpaned7->set_gutter_size(10);
    vpaned7->set_position(175);
    vpaned7->pack1(*scrolledwindow49, false, true);
    vpaned7->pack2(*scrolledwindow50, true, true);
@@ -1506,7 +1498,6 @@ midgard_CG_glade::midgard_CG_glade(
    scrolledwindow23->set_policy(GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
    scrolledwindow23->add(*viewport19);
    vpaned3->set_handle_size(10);
-   vpaned3->set_gutter_size(10);
    vpaned3->set_position(203);
    vpaned3->pack1(*scrolledwindow26, false, true);
    vpaned3->pack2(*scrolledwindow23, true, true);
@@ -1523,7 +1514,6 @@ midgard_CG_glade::midgard_CG_glade(
    scrolledwindow24->set_policy(GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
    scrolledwindow24->add(*viewport17);
    vpaned4->set_handle_size(10);
-   vpaned4->set_gutter_size(10);
    vpaned4->set_position(203);
    vpaned4->pack1(*scrolledwindow27, false, true);
    vpaned4->pack2(*scrolledwindow24, true, true);
@@ -1531,7 +1521,6 @@ midgard_CG_glade::midgard_CG_glade(
    vbox13->pack_start(*vpaned4);
    hpaned1->set_usize(731, -1);
    hpaned1->set_handle_size(10);
-   hpaned1->set_gutter_size(10);
    hpaned1->set_position(454);
    hpaned1->pack1(*vbox14, false, true);
    hpaned1->pack2(*vbox13, true, true);
