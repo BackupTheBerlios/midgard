@@ -1,5 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
+ *  Copyright (C) 2003 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -27,12 +28,39 @@
 #include "Zauberwerk.hh"
 #include "Sprache.hh"
 #include "Schrift.hh"
-#include "class_SimpleTree.hh"
-#include "SimpleTree.hh"
+//#include "class_SimpleTree.hh"
+//#include "SimpleTree.hh"
 #include <Misc/itos.h>
 #include "xml.h"
 #include "Datenbank.hh"
 #include "Abenteurer.hh"
+#include <iostream>
+#include <Misc/germanstring.h>
+
+bool H_MidgardBasicElement_mutable::sort::operator() (H_MidgardBasicElement_mutable x,H_MidgardBasicElement_mutable y) const
+{ switch(es) {
+               case(LERNPUNKTEPFLICHT) : return x->Pflicht() > y->Pflicht() ||
+                  (x->Pflicht() == y->Pflicht()  &&  x->Lernpunkte() < y->Lernpunkte() ) ;
+               case(NAME) : return germanstring((*x)->Name()) < germanstring((*y)->Name())  ;
+               case(ERFOLGSWERT): return x->Erfolgswert() > y->Erfolgswert();
+               
+           }abort();
+}
+
+#if 0
+bool MidgardBasicElement_mutable::sort::operator() (MidgardBasicElement_mutable x,MidgardBasicElement_mutable y) const
+{ switch(es) {
+               case(LERNPUNKTEPFLICHT) : return x.Pflicht() > y.Pflicht() ||
+                  (x.Pflicht() == y.Pflicht()  &&  x.Lernpunkte() < y.Lernpunkte() ) ;
+               case(NAME) : return germanstring(x->Name()) < germanstring(y->Name())  ;
+               case(ERFOLGSWERT): return x.Erfolgswert() > y.Erfolgswert();
+  }
+  return false;
+}
+#endif
+
+bool MidgardBasicElement::Voraussetzung(const Abenteurer& A,bool anzeigen) const
+{std::cerr<<"ERROR in Voraussetzung\n";return false;}
 
 std::string MidgardBasicElement::RegionString(const Datenbank &D) const
 {
@@ -41,21 +69,6 @@ std::string MidgardBasicElement::RegionString(const Datenbank &D) const
   if(!RegionZusatz().empty()) s+=" ("+RegionZusatz()+")";
   return s;
 }
-
-
-
-void MidgardBasicElement::show_list_in_tree(
-  const std::list<MBEmlt>& BasicList,
-  SimpleTree *Tree,
-  const midgard_CG *hauptfenster, bool clear_me)
-{
-  if (BasicList.begin()==BasicList.end() ) {Tree->clear(); return ;}
-  std::vector<cH_RowDataBase> datavec;
-  for (std::list<MBEmlt>::const_iterator i=BasicList.begin();i!=BasicList.end();++i)
-      datavec.push_back(new Data_SimpleTree(*i,hauptfenster));
-  Tree->setDataVec(datavec); // ,clear_me); nonsense now
-}
-
 
 bool MidgardBasicElement::ist_lernbar(const std::vector<cH_Typen>& Typ,const std::map<std::string,std::string>& map_typ) const
 {

@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.1 2003/05/06 07:12:04 christof Exp $               
+// $Id: Abenteurer.hh,v 1.2 2003/05/07 00:02:03 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -24,7 +24,8 @@
 #include "Typen.hh"
 #include <vector>
 #include "Datenbank.hh"
-#include "Optionen.hh"
+//#include "Optionen.hh"
+class Midgard_Optionen;
 #include "Waffe.hh"
 #include "Enums.hh"
 
@@ -138,10 +139,10 @@ public:
    void grundwerte_speichern(Tag &);
    void save_ausruestung(Tag &datei,const std::list<AusruestungBaum> &AB);
 
-   bool xml_import_stream(std::istream &datei, Datenbank &Database,Midgard_Optionen *Optionen,midgard_CG *hauptfenster);
+   bool xml_import_stream(std::istream &datei, Datenbank &Database,Midgard_Optionen *Optionen);
    void load_ausruestung(const Tag *tag, AusruestungBaum *AB);
-   void load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version,Datenbank &Database,Midgard_Optionen *Optionen,midgard_CG *hauptfenster);
-   void load_regionen_optionen(const Tag *tag, int xml_version,Datenbank &Database,Midgard_Optionen *Optionen,midgard_CG *hauptfenster);
+   void load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version,Datenbank &Database,Midgard_Optionen *Optionen);
+   void load_regionen_optionen(const Tag *tag, int xml_version,Datenbank &Database,Midgard_Optionen *Optionen);
 
 
    bool operator==(const Abenteurer& a) const
@@ -250,7 +251,7 @@ class VAbenteurer
 
       bool unsaved_exist();
       bool empty() const {return VA.empty();}
-      guint size() const {return VA.size();}
+      size_t size() const {return VA.size();}
       void delete_empty();
 
    const Abenteurer *operator->() const

@@ -1,4 +1,4 @@
-// $Id: Typen.hh,v 1.1 2003/05/06 07:12:04 christof Exp $               
+// $Id: Typen.hh,v 1.2 2003/05/07 00:02:03 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,12 +25,13 @@
 #include <Misc/CacheStatic.h>
 #include <vector>
 #include <string>
-#include "xml.h"
+//#include "xml.h"
 #include "Enums.hh"
 
 class Grundwerte;
 class cH_Typen;
 class cH_Land;
+class Tag;
 
 class Typen : public HandleContent
 {

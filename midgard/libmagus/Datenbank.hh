@@ -1,4 +1,4 @@
-// $Id: Datenbank.hh,v 1.1 2003/05/06 07:12:04 christof Exp $               
+// $Id: Datenbank.hh,v 1.2 2003/05/07 00:02:03 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,7 +34,7 @@
 #include "Preise.hh"
 #include "Region.hh"  
 #include "Ruestung.hh"
-#include "Midgard_Info.hh"
+//#include "Midgard_Info.hh"
 #include "Prototyp.hh"
 #include "Prototyp2.hh"
 
@@ -70,7 +70,7 @@ class Datenbank
   
    //Konstruktor
   Datenbank();
-  void load(Midgard_Info* MI,midgard_CG *hauptfenster);
+  void load(); // other arguments ! Midgard_Info* MI,midgard_CG *hauptfenster);
 };
 
 #endif

@@ -1,5 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
+ *  Copyright (C) 2003 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -23,10 +24,9 @@
 #include <string>
 #include <vector>
 #include <list>
-#include "xml.h"
-#include "Enums.hh"
-#include <iostream> // wegen eines std::cerr ...
-#include <Misc/germanstring.h>
+//#include <Tag.h>
+//#include "xml.h"
+//#include "Enums.hh"
 
 class cH_Typen;
 class Grundwerte;
@@ -37,12 +37,18 @@ class Datenbank;
 class midgard_CG;
 class MidgardBasicElement_mutable;
 class Abenteurer;
+class Tag;
 
+class H_MidgardBasicElement_mutable;
+  
+typedef H_MidgardBasicElement_mutable MBEmlt;
+  
 class NotFound : public std::exception
 {public:
 	virtual const char* what() const throw() { return "NotFound"; }
 };
 
+// dies ist eine erlernbare Fertigkeit, d.h. losgelöst von einem Abenteurer
 class MidgardBasicElement : public HandleContentCopyable
 {
    protected:
@@ -55,8 +61,8 @@ class MidgardBasicElement : public HandleContentCopyable
                         :herkunft(h),spezies(s),typ(t),beruf(b),stand(st),
                          standard(sta) {} };
  public:
-      enum eZusatz {ZNone=0,ZTabelle=1,ZLand=2,ZWaffe=3,
-                    ZHerkunft=4,ZSprache=5,ZSchrift=6,ZUeberleben=7};
+      enum eZusatz {ZNone,ZTabelle,ZLand,ZWaffe,
+                    ZHerkunft,ZSprache,ZSchrift,ZUeberleben};
       struct st_zusatz{std::string name;bool erlaubt; std::string typ;std::string region; std::string region_zusatz;
                        std::string long_region;
              st_zusatz() {}
@@ -64,7 +70,7 @@ class MidgardBasicElement : public HandleContentCopyable
              st_zusatz(std::string n,std::string t,std::string r,std::string rz,std::string lr,bool e=true)
                :name(n),erlaubt(e),typ(t),region(r),region_zusatz(rz),long_region(lr) {}};
    protected:
-	const Tag *tag;
+	const Tag *tag; // später weg
       std::string name, region,region_zusatz;
       int kosten;
       mutable int anfangswert;
@@ -92,11 +98,11 @@ class MidgardBasicElement : public HandleContentCopyable
 
       enum MBEE {BERUF,FERTIGKEIT,FERTIGKEIT_ANG,WAFFEGRUND,WAFFE,WAFFEBESITZ,
                  ZAUBER,ZAUBERWERK,KIDO,SPRACHE,SCHRIFT,SINN} ;
-      enum TREE {OLD,NEW};
+//      enum TREE {OLD,NEW}; // GUI
 
-      std::map<std::string,std::string> get_MapTyp() const {return map_typ;}
+      const std::map<std::string,std::string> &get_MapTyp() const {return map_typ;}
       
-      std::vector<st_zusatz> VZusatz() const {return Vzusatz;}
+      const std::vector<st_zusatz> &VZusatz() const {return Vzusatz;}
       virtual eZusatz ZusatzEnum(const std::vector<cH_Typen>& Typ) const {return enum_zusatz;}
  
       bool NSC_only() const {return nsc_only;}
@@ -104,8 +110,8 @@ class MidgardBasicElement : public HandleContentCopyable
       virtual std::string Name() const {return name;}
       int Anfangswert() const {return anfangswert;}
       void setAnfangswert(int i) const {anfangswert=i;}
-      std::string Region() const {return region;}
-      std::string RegionZusatz() const {return region_zusatz;}
+      const std::string &Region() const {return region;}
+      const std::string &RegionZusatz() const {return region_zusatz;}
       std::string RegionString(const Datenbank &D) const;
       int Steigern_mit_EP() const {return steigern_mit_EP;}
       virtual enum MBEE What() const=0;
@@ -118,7 +124,7 @@ class MidgardBasicElement : public HandleContentCopyable
       bool ist_gelernt(const std::list<std::string>& L) const;
       virtual int FErfolgswert(const Abenteurer &abenteurer,const MBEmlt &mbem) const;
       virtual std::string Voraussetzung() const {return "B U G";}
-      virtual bool Voraussetzung(const Abenteurer& A,bool anzeigen=true) const {std::cerr<<"ERROR in Voraussetzung\n";return false;}
+      virtual bool Voraussetzung(const Abenteurer& A,bool anzeigen=true) const;
 
       int get_Steigern_Kosten(int erfolgswert) const;
 
@@ -142,11 +148,6 @@ public:
 			&& Name()<b.Name());
          }
 
-      static void show_list_in_tree(
-            const std::list<MBEmlt>& BasicList,
-            SimpleTree *Tree, const midgard_CG *hauptfenster,
-            bool clear_me=true);
-
       static void saveElementliste(Tag &datei,
       				const std::list<MBEmlt>& b,
                                    const Grundwerte& Werte,
@@ -166,6 +167,7 @@ class cH_MidgardBasicElement : public Handle<const MidgardBasicElement>
             : Handle<const MidgardBasicElement>(r){}
 };
 
+// dies ist eine erlernte "Fertigkeit" d.h. sie hat Erfolgswert usw.
 class MidgardBasicElement_mutable : public HandleContentCopyable
 {
  private:
@@ -227,6 +229,7 @@ class MidgardBasicElement_mutable : public HandleContentCopyable
      int Reduzieren(const Abenteurer &A) const;
      int Verlernen(const Abenteurer &A) const; 
 
+// wird die Klasse hier gebraucht?
    class sort {
       public:
          enum esort {LERNPUNKTEPFLICHT,NAME,ERFOLGSWERT};
@@ -234,13 +237,7 @@ class MidgardBasicElement_mutable : public HandleContentCopyable
          esort es;
       public:
          sort(esort _es):es(_es) {}
-         bool operator() (MidgardBasicElement_mutable x,MidgardBasicElement_mutable y) const
-           { switch(es) {
-               case(LERNPUNKTEPFLICHT) : return x.Pflicht() > y.Pflicht() ||
-                  (x.Pflicht() == y.Pflicht()  &&  x.Lernpunkte() < y.Lernpunkte() ) ;
-               case(NAME) : return germanstring(x->Name()) < germanstring(y->Name())  ;
-               case(ERFOLGSWERT): return x.Erfolgswert() > y.Erfolgswert();
-           }}
+         bool operator() (MidgardBasicElement_mutable x,MidgardBasicElement_mutable y) const;
     };
 
 };
@@ -262,19 +259,8 @@ class H_MidgardBasicElement_mutable : public Handle<MidgardBasicElement_mutable>
          esort es;
       public:
          sort(esort _es):es(_es) {}
-         bool operator() (H_MidgardBasicElement_mutable x,H_MidgardBasicElement_mutable y) const
-           { switch(es) {
-               case(LERNPUNKTEPFLICHT) : return x->Pflicht() > y->Pflicht() ||
-                  (x->Pflicht() == y->Pflicht()  &&  x->Lernpunkte() < y->Lernpunkte() ) ;
-               case(NAME) : return germanstring((*x)->Name()) < germanstring((*y)->Name())  ;
-               case(ERFOLGSWERT): return x->Erfolgswert() > y->Erfolgswert();
-               
-           }abort();}
+         bool operator() (H_MidgardBasicElement_mutable x,H_MidgardBasicElement_mutable y) const;
     };
-
-
 };
-
-
 
 #endif

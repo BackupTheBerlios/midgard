@@ -1,4 +1,4 @@
-// $Id: Zauber.hh,v 1.1 2003/05/06 07:12:04 christof Exp $               
+// $Id: Zauber.hh,v 1.2 2003/05/07 00:02:03 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,7 +22,8 @@
 #include "MidgardBasicElement.hh"
 #include "Typen.hh"
 class cH_Zauber;
-class Random;
+#include <Tag.h>
+//class Random;
 
 class Zauber : public MidgardBasicElement
 {
@@ -48,7 +49,7 @@ class Zauber : public MidgardBasicElement
 
    std::string Art() const { return art;}
    std::string Stufe() const {  return stufe; }
-   int iStufe() const {  if (Stufe()=="groß") return 6; else return atoi(Stufe().c_str()); }
+   int iStufe() const;
    std::string Zauberdauer() const { return zauberdauer;}
    std::string Zauberart() const { return zauberart;}
    std::string Reichweite() const {return reichweite;}   
@@ -100,15 +101,7 @@ class cH_Zauber : public Handle<const Zauber>
       public:
          sort(enum esort _es):es(_es) {}
 //         bool operator() (cH_Zauber x,cH_Zauber y) const
-         bool operator() (MBEmlt _x,MBEmlt _y) const
-           { 
-            cH_Zauber x(_x->getMBE());
-            cH_Zauber y(_y->getMBE());
-            switch(es) {
-               case(NAME) : return germanstring(x->Name()) < germanstring(y->Name())  ;
-               case(STUFE): return x->Stufe() < y->Stufe();
-               case(URSPRUNG): return germanstring(x->Ursprung()) < germanstring(y->Ursprung()) ;
-           }}
+         bool operator() (MBEmlt _x,MBEmlt _y) const;
     };
 
 };

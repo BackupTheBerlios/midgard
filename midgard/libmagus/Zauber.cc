@@ -18,12 +18,26 @@
  */
 
 #include "Zauber.hh"
-#include "midgard_CG.hh"
 #include "Typen.hh"
 #include <xml.h>
 #include "zufall.h"
 #include <Misc/itos.h>
+#include "Abenteurer.hh"
+#include <iostream>
+#include <Misc/germanstring.h>
 
+bool cH_Zauber::sort::operator() (MBEmlt _x,MBEmlt _y) const
+{  cH_Zauber x(_x->getMBE());
+   cH_Zauber y(_y->getMBE());
+   switch(es) {
+               case(NAME) : return germanstring(x->Name()) < germanstring(y->Name())  ;
+               case(STUFE): return x->Stufe() < y->Stufe();
+               case(URSPRUNG): return germanstring(x->Ursprung()) < germanstring(y->Ursprung()) ;
+   }
+}
+
+int Zauber::iStufe() const 
+{  if (Stufe()=="groß") return 6; else return atoi(Stufe().c_str()); }
 
 cH_Zauber::cache_t cH_Zauber::cache;
 

@@ -1,4 +1,4 @@
-// $Id: Region.hh,v 1.1 2003/05/06 07:12:04 christof Exp $               
+// $Id: Region.hh,v 1.2 2003/05/07 00:02:03 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -24,23 +24,19 @@
 #include <Misc/CacheStatic.h>
 #include <vector>
 #include <string>
-#include <gtkmm/progressbar.h>
-#include <gtkmm/image.h>
-#include "xml.h"
-#include "Optionen.hh"
-#include <Model.h>
+//#include "xml.h"
+//#include "Optionen.hh"
+#include <BaseObjects/Model.h>
 
 class cH_Region;
+class Tag;
 
-class RegionenPic
+namespace RegionenPic_enum
 {
- public:
    enum epic {None, Rawindra,KanThaiPan,Alba,Eschar,Gildenbrief,HD,Waeland,
               Nahuatlan,Arkanum,DFR,Meister_der_Sphaeren,Tipps_und_Tricks,
               Abenteuer,HD_finster,Kuestenstaaten,Ikengabecken};
-   static Gtk::Image* Pic(epic e,Midgard_Optionen::IconIndex ii,bool tiny=false) ;
-   static Glib::RefPtr<Gdk::Pixbuf> PicModel(epic e,Midgard_Optionen::IconIndex ii,bool tiny=false) ;
-};
+}
 
 
 class Region  : public HandleContent
@@ -50,11 +46,9 @@ class Region  : public HandleContent
  private:
    int nr;
    std::string name,titel,abkuerzung,file,url,maintainer,version,copyright,jahr; 
-   RegionenPic::epic pic;
+   RegionenPic_enum::epic pic;
    bool offiziell;
    mutable Model<bool> active;
-   mutable Model<Glib::RefPtr<Gdk::Pixbuf> > region_pix;
-   mutable Model<Glib::RefPtr<Gdk::Pixbuf> > region_pix_small;
 
   public:
    Region(const Tag *tag);
@@ -72,11 +66,7 @@ class Region  : public HandleContent
    std::string Copyright() const {return copyright;}
    std::string Jahr() const {return jahr;}
    bool Offiziell() const {return offiziell;}
-   RegionenPic::epic Pic() const {return pic;}
-   void setRegionPix(Glib::RefPtr<Gdk::Pixbuf> c) const {region_pix=c;}
-   Model<Glib::RefPtr<Gdk::Pixbuf> > &RegionPix() const {return region_pix;}
-   void setRegionPixSmall(Glib::RefPtr<Gdk::Pixbuf> c) const {region_pix_small=c;}
-   Model<Glib::RefPtr<Gdk::Pixbuf> > &RegionPixSmall() const {return region_pix_small;}
+   RegionenPic_enum::epic Pic() const {return pic;}
 
    bool operator==(const Region& b) const {return Name()==b.Name();}
 
@@ -100,7 +90,7 @@ class Regionen_All
 {
    std::vector<cH_Region> list_All;
   public:
-   Regionen_All(Gtk::ProgressBar *progressbar);
+   Regionen_All(SigC::Slot1<void,double> progress);
    std::vector<cH_Region> get_All() const {return list_All;}
    static cH_Region Regionen_All::getRegionfromAbk(const std::vector<cH_Region>& V,const std::string &r);
 };

@@ -1,7 +1,16 @@
-# $Id: Makefile.am,v 1.1 2003/04/23 11:59:05 christof Exp $
+# $Id: Makefile.am,v 1.2 2003/05/07 00:02:03 christof Exp $
 
-CPPFLAGS = @CPPFLAGS@ @COMMONXX_INCLUDES@ $(WIN_INCLUDES) -I..
+AM_CPPFLAGS = @CPPFLAGS@ @COMMONXX_INCLUDES@ $(WIN_INCLUDES) -I.. \
+	@COMMONGTK2_INCLUDES@
 
-LDFLAGS = @COMMONXX_LDFLAGS@ $(LINK_OPTIONS)
+AM_LDFLAGS = @COMMONXX_LDFLAGS@ $(LINK_OPTIONS)
 
 CLEANFILES = *~
+
+EXTRA_PROGRAMS= test
+
+test_SOURCES=test.cc
+
+noinst_LIBRARIES=libmagus.a
+
+libmagus_a_SOURCES=MidgardBasicElement.cc Zauber.cc
