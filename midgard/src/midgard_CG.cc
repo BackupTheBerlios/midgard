@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.220 2002/05/05 20:38:46 thoma Exp $
+// $Id: midgard_CG.cc,v 1.221 2002/05/05 20:40:45 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -335,7 +335,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    frame_steigern->set_sensitive(false); // das wirkt nicht ?
    frame_lernschema->set_sensitive(false);
    togglebutton_lernpunkte_edit->set_active(false);
-   button_beruf->set_sensitiv(false);
+   button_beruf->set_sensitive(false);
 
    button_lernpunkte->set_sensitive(false);
    togglebutton_lernpunkte_edit->set_sensitive(false);

@@ -345,6 +345,8 @@ void Waffe::setSpezialWaffe(const std::string& name,const std::list<cH_MidgardBa
    {
     if(name==(*i)->Name()) 
         (*i)->setErfolgswert(7);
+    else if(cH_Waffe((*i))->Verteidigung())
+         (*i)->setErfolgswert(1);
     else (*i)->setErfolgswert(5);
    }
 }

@@ -78,12 +78,12 @@ void Wizard::fill_vecwiz()
                           &midgard_CG::wizard_do_something));
    //SPEZIES
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
-                          "Spezies auswählen (oder Eigenschaften würfeln)",
+                          "Spezies auswählen (oder Eigenschaften auf eine der drei Arten würfeln)",
                           "Spezies",
                           &midgard_CG::wizard_do_something));
    //GRUNDWERTE
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
-                          "Eigenschaften würfeln",
+                          "Eigenschaften auf eine der drei Arten würfeln (ACHTUNG: Für Nichtmenschen ist nur die Standardmethode implementiert)",
                           "Eigenschaften",
                           &midgard_CG::wizard_do_something));
    //GESCHLECHT
