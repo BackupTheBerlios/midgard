@@ -86,12 +86,10 @@ void Zauber_auswahl::on_zauber_clist_auswahl_unselect_row(gint row, gint column,
 void Zauber_auswahl::on_close_zauber_clicked()
 {   
    std::list<cH_MidgardBasicElement> saz;
-cout << "ANzahl = "<<zauber_clist_auswahl->selection().size()<<'\n';
    for (Gtk::CList::SelectionList::iterator i=zauber_clist_auswahl->selection().begin();
          i!=zauber_clist_auswahl->selection().end();++i)
      {  
        cH_MidgardBasicElement *ptr = static_cast<cH_MidgardBasicElement*>(i->get_data());
-cout << (*ptr)->Name()<<'\n';
        saz.push_back(*ptr);
      }
   hauptfenster->MidgardBasicElement_uebernehmen(saz);

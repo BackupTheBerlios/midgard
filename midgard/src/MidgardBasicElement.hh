@@ -25,9 +25,7 @@ class MidgardBasicElement : public HandleContent
       std::map<int,int> map_erfolgswert_kosten;
       void get_map_typ();
       void get_Steigern_Kosten_map();
-      vector<std::string> Standard(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const; 
       int GrundKosten() const {  return kosten; }
-
 
    public:
       MidgardBasicElement() : kosten(0),erfolgswert(0),lernpunkte(0)
@@ -54,6 +52,7 @@ class MidgardBasicElement : public HandleContent
       bool ist_lernbar(const vector<cH_Typen>& Typ,const map<std::string,std::string>& map_typ) const;
       bool ist_gelernt(const std::list<cH_MidgardBasicElement>& L) const;
       int get_Steigern_Kosten(int erfolgswert) const;
+      vector<std::string> Standard(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const; 
       std::string Standard__(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const;
       double Standard_Faktor(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const;
       int Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const 

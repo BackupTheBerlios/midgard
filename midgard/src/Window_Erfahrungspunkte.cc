@@ -12,9 +12,9 @@
 
 void Window_Erfahrungspunkte::on_button_close_clicked()
 {   
-  gtk_spin_button_update(spinbutton_AEP->gtkobj());
-  gtk_spin_button_update(spinbutton_KEP->gtkobj());
-  gtk_spin_button_update(spinbutton_ZEP->gtkobj());
+  spinbutton_AEP->update();
+  spinbutton_KEP->update();
+  spinbutton_ZEP->update();
   Werte.set_EP(spinbutton_AEP->get_value_as_int(),
                spinbutton_KEP->get_value_as_int(),
                spinbutton_ZEP->get_value_as_int());

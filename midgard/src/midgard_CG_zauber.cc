@@ -1,4 +1,4 @@
-// $Id: midgard_CG_zauber.cc,v 1.38 2001/11/21 09:45:17 thoma Exp $
+// $Id: midgard_CG_zauber.cc,v 1.39 2001/11/23 09:48:13 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,6 +20,7 @@
 #include "midgard_CG.hh"
 #include "Zauber_auswahl.hh"
 #include <Gtk_OStream.h>
+#include <Aux/SQLerror.h>
 
 void midgard_CG::on_zauber_wahl_clicked()
 {
@@ -50,10 +51,12 @@ void midgard_CG::show_zauber()
 
 void midgard_CG::angeborene_zauber()
 {
+ try{
  if (Typ[0]->Short()=="eBe" || Typ[1]->Short()=="eBe" || Typ[0]->Short()=="dBe" || Typ[1]->Short()=="dBe" ) 
     list_Zauber.push_back(new Zauber("Lehrersuche"));
  if (Werte.Spezies()->Name()=="Elf") 
     list_Zauber.push_back(new Zauber("Erkennen der Aura"));
+ }catch(SQLerror &e) {cerr << e <<'\n';}
 }
 
 void midgard_CG::magier_spezialgebiet(const std::string& whattodo)

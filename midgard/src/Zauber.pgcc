@@ -103,8 +103,10 @@ int Zauber::Erfolgswert_Z(const vector<cH_Typen>& Typ,const Grundwerte& Werte,co
    if (standard[0]=="G" || standard[1]=="G") ifac=0;
 
    int ispez=0;
-   if (Typ[0]->Short()=="Ma" || Typ[1]->Short()=="Ma") 
-      ispez = get_spezial_zauber_for_magier(Werte);
+   if (Typ[0]->Short()=="Ma")
+      ispez = get_spezial_zauber_for_magier(Werte,standard[0]);
+   if (Typ[1]->Short()=="Ma") 
+      ispez = get_spezial_zauber_for_magier(Werte,standard[1]);
 
 //cout << Name()<<' '<<Werte.Zaubern_wert()<<'+'<<Werte.bo_Za()<<'+'<<ifac<<'+'<<ispez<<'=';
    int erf = Werte.Zaubern_wert()+Werte.bo_Za() + ifac + ispez ;
@@ -112,27 +114,11 @@ int Zauber::Erfolgswert_Z(const vector<cH_Typen>& Typ,const Grundwerte& Werte,co
    return erf;
 }
 
-int Zauber::get_spezial_zauber_for_magier(const Grundwerte& Werte) const
+int Zauber::get_spezial_zauber_for_magier(const Grundwerte& Werte,const std::string& standard) const
 {
- exec sql begin declare section;
-   char db_ergebnis[20];
-   char db_agens[20];   
-   char db_prozess[20]; 
-   char db_zauber[100];
- exec sql end declare section;
- strncpy(db_zauber,Name().c_str(),sizeof(db_zauber));
- exec sql select ma,agens,prozess 
-   into :db_ergebnis, :db_agens, :db_prozess
-   from zauber where name = :db_zauber;
- SQLerror::test(__FILELINE__);
-
  int ispez=0;
- std::string ergebnis = db_ergebnis;
- std::string agens=db_agens;
- std::string prozess=db_prozess;
-
- if (ergebnis!="G" && agens==Werte.Spezialgebiet()->Spezial()) ispez = 2;
- if (ergebnis!="G" && prozess==Werte.Spezialgebiet()->Spezial()) ispez = 2;
+ if (standard!="G" && Agens()==Werte.Spezialgebiet()->Spezial()) ispez = 2;
+ if (standard!="G" && Prozess()==Werte.Spezialgebiet()->Spezial()) ispez = 2;
  return ispez;
 }
 

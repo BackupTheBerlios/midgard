@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.30 2001/11/18 09:38:40 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.31 2001/11/23 09:48:13 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -67,7 +67,7 @@ void midgard_CG::beruf_erfolgswert_eingeben()
 
 void midgard_CG::on_spinbutton_beruferfolgesert_activate()
 {
-  gtk_spin_button_update(spinbutton_beruferfolgesert->gtkobj());
+  spinbutton_beruferfolgesert->update();
   int x=spinbutton_beruferfolgesert->get_value_as_int();
   std::string beruf=label_beruf_ew->get_text();
   for(std::list<cH_MidgardBasicElement>::iterator i=list_Beruf.begin();i!=list_Beruf.end();++i)

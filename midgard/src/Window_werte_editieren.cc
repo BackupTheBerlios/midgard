@@ -1,4 +1,4 @@
-// $Id: Window_werte_editieren.cc,v 1.25 2001/11/08 10:15:43 thoma Exp $
+// $Id: Window_werte_editieren.cc,v 1.26 2001/11/23 09:48:13 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,9 +29,9 @@
 
 void Window_werte_editieren::on_nwe_close_clicked()
 {   
-   gtk_spin_button_update(alter_ein->gtkobj());
-   gtk_spin_button_update(gewicht_ein->gtkobj());
-   gtk_spin_button_update(groesse_ein->gtkobj());
+   alter_ein->update();
+   gewicht_ein->update();
+   groesse_ein->update();
    Werte.set_Basiswerte(atoi(st_ein->get_text().c_str()),
                         atoi( ge_ein->get_text().c_str()),
                         atoi( ko_ein->get_text().c_str()),

@@ -149,18 +149,20 @@ bool midgard_CG::spruchrolle_wuerfeln(const cH_MidgardBasicElement& z)
  int xr=random.integer(1,20);
  int iaus=0;
  
- if (Typ[0]->Short() != "Ma" && Typ[1]->Short() != "Ma") if (zauber->Art()=="A")  iaus=-2;
- else if (Typ[0]->Short() == "Ma" || Typ[1]->Short() == "Ma" ) 
-   {
-    iaus = zauber->get_spezial_zauber_for_magier(Werte); //iaus = 2 ?
-    if (!iaus)
-     {
-       if (zauber->Art()=="S")  iaus=+1;
-       if (zauber->Art()=="A")  iaus=-1;
-     }
-   }
- else abort();
+ if ((Typ[0]->Short()!="Ma" && Typ[1]->Short()!="Ma") && zauber->Art()=="A") 
+    iaus=-2;
 
+ // Für Magier:
+ std::string standard="";
+ if (Typ[0]->Short()=="Ma") standard=z->Standard(Typ,Database.ausnahmen)[0]; 
+ if (Typ[1]->Short()=="Ma") standard=z->Standard(Typ,Database.ausnahmen)[1]; 
+ if(standard!="") 
+   {
+    iaus = zauber->get_spezial_zauber_for_magier(Werte,standard); //iaus = 2 ?
+    if (!iaus)
+     { if (zauber->Art()=="S")  iaus=+1;
+       if (zauber->Art()=="A")  iaus=-1;  }
+   }
  
  int x = xr-zauber->iStufe();
  x += iaus;

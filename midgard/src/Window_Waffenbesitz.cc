@@ -73,8 +73,8 @@ void Window_Waffenbesitz::on_spinbutton_sl_bonus_activate()
 
 void Window_Waffenbesitz::on_entry_magisch_activate()
 {
-  gtk_spin_button_update(spinbutton_av_bonus->gtkobj());
-  gtk_spin_button_update(spinbutton_sl_bonus->gtkobj());
+  spinbutton_av_bonus->update();
+  spinbutton_sl_bonus->update();
 
   try{
   cH_Data_waffenbesitz dt(waffenbesitz_alt_tree->getSelectedRowDataBase_as<cH_Data_waffenbesitz>());
