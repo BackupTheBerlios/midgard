@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.38 2002/07/09 13:02:18 thoma Exp $
+// $Id: fertigk_exp.cc,v 1.39 2002/07/10 07:25:34 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -21,6 +21,20 @@
 #include <Misc/dbconnect.h>
 #include "export_common.h"
 #include <Misc/itos.h>
+
+static void fertigkeiten_zusätze(Tag &fertigk, const std::string &fert)
+{     Query queryZu("select name,typ,region,region_zusatz from fz_zusaetze "
+   	" where art='"+fert+"' and coalesce(region,'')='"+region
+   	+"' order by name");
+      FetchIStream isZu;
+      while ((queryZu>>isZu).good()) 
+      { Tag &z=fertigk.push_back(Tag("Zusätze")); 
+        fetch_and_set_string_attrib(isZu, z, "Name");
+        fetch_and_set_string_attrib(isZu, z, "Typ");
+        fetch_and_set_string_attrib(isZu, z, "Region");
+        fetch_and_set_string_attrib(isZu, z, "RegionZusatz");
+      }
+}
 
 void fert_speichern(Tag &o)
 {  
@@ -98,17 +112,7 @@ void fert_speichern(Tag &o)
     }
 
       //********** fertigkeiten_zusätze **********************************
-   {  Query queryZu("select name,typ,region,region_zusatz from fz_zusaetze "
-   	" where art='"+fert+"' order by name");
-      FetchIStream isZu;
-      while ((queryZu>>isZu).good()) 
-      { Tag &z=fertigk.push_back(Tag("Zusätze")); 
-        fetch_and_set_string_attrib(isZu, z, "Name");
-        fetch_and_set_string_attrib(isZu, z, "Typ");
-        fetch_and_set_string_attrib(isZu, z, "Region");
-        fetch_and_set_string_attrib(isZu, z, "RegionZusatz");
-      }
-    }
+     fertigkeiten_zusätze(fertigk, fert);
 
       //********** fertigkeiten_besitz **********************************
    {  Query queryZu("select gegenstand,min,position from fertigkeiten_besitz "
@@ -193,7 +197,9 @@ void fert_speichern(Tag &o)
      }
   }
   }
-#ifdef REGION // Lernschema für Typen dieser Region
+
+  // ------------------------------------------------------------
+  // Schwierigkeit & Lernschema für Typen dieser Region
   if (!region.empty())
  { FetchIStream is;
    Query q("select fertigkeit, region from fertigkeiten "
@@ -209,6 +215,7 @@ void fert_speichern(Tag &o)
    ausnahmen(fertigk, "f", fert,true);
   }
  }
+  // Sprachen/Schriften Lernschema für Typen aus dieser Region
   if (!region.empty())
  { FetchIStream is;
    Query q("select distinct name from lernschema_4 "
@@ -223,7 +230,23 @@ void fert_speichern(Tag &o)
    lernschema(fertigk, MIDGARD3_4("Fertigkeit","Fachkenntnisse"),fert,true);
   }
  }
-#endif
+  // Zusätze aus dieser Region
+  if (!region.empty())
+ { FetchIStream is;
+   Query q("select fertigkeit, fertigkeiten.region from fertigkeiten "
+        " where exists (select true from fz_zusaetze"
+   	  " where region='"+region+"'"
+   	  " and fertigkeit=fz_zusaetze.art) "
+   	"order by coalesce(region,''),fertigkeit");
+   	
+  while ((q >> is).good())
+  {Tag &fertigk=fertigkeiten.push_back(Tag("Fertigkeit"));
+   std::string fert=fetch_and_set_string_attrib(is, fertigk, "Name");
+   fetch_and_set_string_attrib(is, fertigk, "Region");
+
+   fertigkeiten_zusätze(fertigk, fert);
+  }
+ }
 
 //********************* angeborene Fertigkeiten ********************
   if (region.empty())
