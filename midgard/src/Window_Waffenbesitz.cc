@@ -30,7 +30,6 @@ void Window_Waffenbesitz::on_leaf_selected_alt(cH_RowDataBase d)
 
   if(!checkbutton_mag_waffenbonus->get_active()) 
    {
-//    MidgardBasicElement::move_element(Waffe_Besitz,Waffe_Besitz_neu,cH_WaffeBesitz(dt->get_Waffe())->Name());
     const MidgardBasicElement *MBE = &static_cast<const MidgardBasicElement&>(*WB);
     MidgardBasicElement::move_element(Waffe_Besitz,Waffe_Besitz_neu,MBE);
     zeige_waffen();
@@ -52,19 +51,12 @@ void Window_Waffenbesitz::on_leaf_selected_alt(cH_RowDataBase d)
      entry_magisch->set_text(WB->Magisch());
      spinbutton_av_bonus->grab_focus();
     }
-//  hauptfenster->on_speichern_clicked();
-
 }
 
 void Window_Waffenbesitz::on_spinbutton_av_bonus_activate()
-{ 
- spinbutton_sl_bonus->grab_focus();
-}
-
+{ spinbutton_sl_bonus->grab_focus(); }
 void Window_Waffenbesitz::on_spinbutton_sl_bonus_activate()
-{
- entry_magisch->grab_focus();
-}
+{ entry_magisch->grab_focus(); }
 
 void Window_Waffenbesitz::on_entry_magisch_activate()
 {
@@ -96,8 +88,11 @@ void Window_Waffenbesitz::on_entry_magisch_activate()
 void Window_Waffenbesitz::on_leaf_selected_neu(cH_RowDataBase d)
 {  
   const Data_waffenbesitz *dt=dynamic_cast<const Data_waffenbesitz*>(&*d);
-//   MidgardBasicElement::move_element(Waffe_Besitz_neu,Waffe_Besitz,dt->get_Waffe()->Name());
-  MidgardBasicElement::move_element(Waffe_Besitz_neu,Waffe_Besitz,dt->get_Waffe());
+
+  cH_MidgardBasicElement MBE=new WaffeBesitz(*cH_WaffeBesitz(dt->get_Waffe()));
+
+//  MidgardBasicElement::move_element(Waffe_Besitz_neu,Waffe_Besitz,dt->get_Waffe());
+  MidgardBasicElement::move_element(Waffe_Besitz_neu,Waffe_Besitz,MBE);
   zeige_waffen();
 }
 
