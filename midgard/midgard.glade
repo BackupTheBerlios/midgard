@@ -4172,110 +4172,26 @@ setzen</property>
 			  </child>
 
 			  <child>
-			    <widget class="GtkToolItem" id="toolitem7">
+			    <widget class="GtkToolItem" id="toolitem15">
 			      <property name="visible">True</property>
 			      <property name="visible_horizontal">True</property>
 			      <property name="visible_vertical">True</property>
-			      <property name="is_important">False</property>
+			      <property name="is_important">True</property>
 
 			      <child>
-				<widget class="GtkVBox" id="vbox_gw_wuerfeln">
+				<widget class="Custom" id="button_grundwerte">
 				  <property agent="glademm" name="cxx_visibility">protected</property>
 				  <property name="visible">True</property>
-				  <property name="homogeneous">True</property>
-				  <property name="spacing">0</property>
-
-				  <child>
-				    <widget class="GtkRadioButton" id="radiobutton_eigenschaften_standard">
-				      <property agent="glademm" name="cxx_visibility">protected</property>
-				      <property name="visible">True</property>
-				      <property name="tooltip" translatable="yes">2x für jede Eigenschaft würfeln, das höhere Ergebnis zählt.</property>
-				      <property name="can_focus">True</property>
-				      <property name="label" translatable="yes">Standard</property>
-				      <property name="use_underline">True</property>
-				      <property name="relief">GTK_RELIEF_NORMAL</property>
-				      <property name="focus_on_click">True</property>
-				      <property name="active">True</property>
-				      <property name="inconsistent">False</property>
-				      <property name="draw_indicator">True</property>
-				    </widget>
-				    <packing>
-				      <property name="padding">0</property>
-				      <property name="expand">True</property>
-				      <property name="fill">True</property>
-				    </packing>
-				  </child>
-
-				  <child>
-				    <widget class="GtkRadioButton" id="radiobutton_eigenschaften_zuweisen">
-				      <property agent="glademm" name="cxx_visibility">protected</property>
-				      <property name="visible">True</property>
-				      <property name="tooltip" translatable="yes">2x würfeln, den besseren Wert an eine Eigenschaft zuweisen, das ganze sechsmal wiederholen.</property>
-				      <property name="can_focus">True</property>
-				      <property name="label" translatable="yes">Zuweisen</property>
-				      <property name="use_underline">True</property>
-				      <property name="relief">GTK_RELIEF_NORMAL</property>
-				      <property name="focus_on_click">True</property>
-				      <property name="active">False</property>
-				      <property name="inconsistent">False</property>
-				      <property name="draw_indicator">True</property>
-				      <property name="group">radiobutton_eigenschaften_standard</property>
-				    </widget>
-				    <packing>
-				      <property name="padding">0</property>
-				      <property name="expand">True</property>
-				      <property name="fill">True</property>
-				    </packing>
-				  </child>
-
-				  <child>
-				    <widget class="GtkRadioButton" id="radiobutton_eigenschaften_69">
-				      <property agent="glademm" name="cxx_visibility">protected</property>
-				      <property name="visible">True</property>
-				      <property name="tooltip" translatable="yes">9x würfeln, die besten sechs Ergebnisse frei verteilen.</property>
-				      <property name="can_focus">True</property>
-				      <property name="label" translatable="yes">6 von 9</property>
-				      <property name="use_underline">True</property>
-				      <property name="relief">GTK_RELIEF_NORMAL</property>
-				      <property name="focus_on_click">True</property>
-				      <property name="active">False</property>
-				      <property name="inconsistent">False</property>
-				      <property name="draw_indicator">True</property>
-				      <property name="group">radiobutton_eigenschaften_standard</property>
-				    </widget>
-				    <packing>
-				      <property name="padding">0</property>
-				      <property name="expand">True</property>
-				      <property name="fill">True</property>
-				    </packing>
-				  </child>
+				  <property name="creation_function">ChoiceButton</property>
+				  <property name="int1">0</property>
+				  <property name="int2">0</property>
+				  <property name="last_modification_time">Tue, 30 Nov 2004 17:09:57 GMT</property>
 				</widget>
 			      </child>
 			    </widget>
 			    <packing>
 			      <property name="expand">False</property>
 			      <property name="homogeneous">False</property>
-			    </packing>
-			  </child>
-
-			  <child>
-			    <widget class="GtkToolButton" id="button_grundwerte">
-			      <property agent="glademm" name="cxx_visibility">protected</property>
-			      <property name="visible">True</property>
-			      <property name="tooltip" translatable="yes">Eigenschaften würfeln/eingeben</property>
-			      <property name="can_focus">True</property>
-			      <property name="label" translatable="yes">Eigen-
-schaften</property>
-			      <property name="use_underline">True</property>
-			      <property name="icon">Dice-W100-trans-50.xpm</property>
-			      <property name="visible_horizontal">True</property>
-			      <property name="visible_vertical">True</property>
-			      <property name="is_important">False</property>
-			      <signal name="clicked" handler="on_button_grundwerte"/>
-			    </widget>
-			    <packing>
-			      <property name="expand">False</property>
-			      <property name="homogeneous">True</property>
 			    </packing>
 			  </child>
 
@@ -4287,53 +4203,14 @@ schaften</property>
 			      <property name="is_important">False</property>
 
 			      <child>
-				<widget class="GtkVBox" id="vbox47">
+				<widget class="Custom" id="button_geschlecht">
+				  <property agent="glademm" name="cxx_visibility">protected</property>
 				  <property name="visible">True</property>
-				  <property name="homogeneous">False</property>
-				  <property name="spacing">0</property>
-
-				  <child>
-				    <widget class="GtkRadioButton" id="radiobutton_mann">
-				      <property agent="glademm" name="cxx_visibility">protected</property>
-				      <property name="visible">True</property>
-				      <property name="can_focus">True</property>
-				      <property name="label" translatable="yes">männlich</property>
-				      <property name="use_underline">True</property>
-				      <property name="relief">GTK_RELIEF_NORMAL</property>
-				      <property name="focus_on_click">True</property>
-				      <property name="active">True</property>
-				      <property name="inconsistent">False</property>
-				      <property name="draw_indicator">True</property>
-				      <signal name="toggled" handler="on_radiobutton_mann_toggled"/>
-				    </widget>
-				    <packing>
-				      <property name="padding">0</property>
-				      <property name="expand">False</property>
-				      <property name="fill">False</property>
-				    </packing>
-				  </child>
-
-				  <child>
-				    <widget class="GtkRadioButton" id="radiobutton_frau">
-				      <property agent="glademm" name="cxx_visibility">protected</property>
-				      <property name="visible">True</property>
-				      <property name="can_focus">True</property>
-				      <property name="label" translatable="yes">weiblich</property>
-				      <property name="use_underline">True</property>
-				      <property name="relief">GTK_RELIEF_NORMAL</property>
-				      <property name="focus_on_click">True</property>
-				      <property name="active">False</property>
-				      <property name="inconsistent">False</property>
-				      <property name="draw_indicator">True</property>
-				      <property name="group">radiobutton_mann</property>
-				      <signal name="toggled" handler="on_radiobutton_frau_toggled"/>
-				    </widget>
-				    <packing>
-				      <property name="padding">0</property>
-				      <property name="expand">False</property>
-				      <property name="fill">False</property>
-				    </packing>
-				  </child>
+				  <property name="tooltip" translatable="yes">Geschlecht</property>
+				  <property name="creation_function">ChoiceButton</property>
+				  <property name="int1">0</property>
+				  <property name="int2">0</property>
+				  <property name="last_modification_time">Tue, 30 Nov 2004 17:12:45 GMT</property>
 				</widget>
 			      </child>
 			    </widget>
@@ -4498,53 +4375,14 @@ schaften</property>
 			      <property name="is_important">False</property>
 
 			      <child>
-				<widget class="GtkVBox" id="vbox48">
+				<widget class="Custom" id="button_stadt_land">
+				  <property agent="glademm" name="cxx_visibility">protected</property>
 				  <property name="visible">True</property>
-				  <property name="homogeneous">False</property>
-				  <property name="spacing">0</property>
-
-				  <child>
-				    <widget class="GtkRadioButton" id="radiobutton_stadt">
-				      <property agent="glademm" name="cxx_visibility">protected</property>
-				      <property name="visible">True</property>
-				      <property name="can_focus">True</property>
-				      <property name="label" translatable="yes">Stadt</property>
-				      <property name="use_underline">True</property>
-				      <property name="relief">GTK_RELIEF_NORMAL</property>
-				      <property name="focus_on_click">True</property>
-				      <property name="active">False</property>
-				      <property name="inconsistent">False</property>
-				      <property name="draw_indicator">True</property>
-				      <signal name="toggled" handler="on_radiobutton_stadt_land_toggled"/>
-				    </widget>
-				    <packing>
-				      <property name="padding">0</property>
-				      <property name="expand">False</property>
-				      <property name="fill">False</property>
-				    </packing>
-				  </child>
-
-				  <child>
-				    <widget class="GtkRadioButton" id="radiobutton_land">
-				      <property agent="glademm" name="cxx_visibility">protected</property>
-				      <property name="visible">True</property>
-				      <property name="can_focus">True</property>
-				      <property name="label" translatable="yes">Land</property>
-				      <property name="use_underline">True</property>
-				      <property name="relief">GTK_RELIEF_NORMAL</property>
-				      <property name="focus_on_click">True</property>
-				      <property name="active">False</property>
-				      <property name="inconsistent">False</property>
-				      <property name="draw_indicator">True</property>
-				      <property name="group">radiobutton_stadt</property>
-				      <signal name="toggled" handler="on_radiobutton_stadt_land_toggled"/>
-				    </widget>
-				    <packing>
-				      <property name="padding">0</property>
-				      <property name="expand">False</property>
-				      <property name="fill">False</property>
-				    </packing>
-				  </child>
+				  <property name="tooltip" translatable="yes">Herkunft</property>
+				  <property name="creation_function">ChoiceButton</property>
+				  <property name="int1">0</property>
+				  <property name="int2">0</property>
+				  <property name="last_modification_time">Tue, 30 Nov 2004 17:16:20 GMT</property>
 				</widget>
 			      </child>
 			    </widget>

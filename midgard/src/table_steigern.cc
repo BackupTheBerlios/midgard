@@ -112,8 +112,8 @@ std::string Steigerntyp(const Grundwerte &W)
    }
    if (W.wie_steigern==Grundwerte::ws_Spruchrolle) 
    { if (W.wie_steigern_variante==Grundwerte::wsv_SpruchrolleAlways) 
-       return "durch Spruchrolle";
-     else return "durch Spruchrolle (MAGuS würfelt EW)";
+       return "durch Spruchrolle (ohne EW)";
+     else return "Spruchrolle (MAGuS würfelt EW)";
    }
    if (W.wie_steigern==Grundwerte::ws_Selbststudium) 
       return "im Selbststudium";
@@ -193,15 +193,11 @@ void table_steigern::zeige_werte()
 #if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
   handlebox_steigern_1->set_label(W.Spezies()->Name()+" "+W.Typ1()->Short()
       + "," + W.Typ2()->Short() + " Grad "+itos(W.Grad()));
-  handlebox_steigern_2->set_label(itos(W.GFP())+"GFP "+
-      itos(W.goldanteil.Value())+"%GS");
-  handlebox_steigern_3->set_label((W.reduzieren.Value()?"verlernen ":"lernen ")
-      +Steigerntyp(W));
 #endif
 }
 
 table_steigern::table_steigern(GlademmData *_data) 
-         : table_steigern_glade(_data),hauptfenster()
+         : table_steigern_glade(_data),hauptfenster(),block_update()
 //            steigern_mit_EP_bool(true) 
 {  RuestungStore=Gtk::ListStore::create(ruestung_columns);
    clist_ruestung->set_model(RuestungStore);
@@ -262,7 +258,8 @@ table_steigern::table_steigern(GlademmData *_data)
   button_sonder->set_style(true,true);
   
   button_rolle->add(MagusImage("Automat-32.xpm"),"Der Erfolgswurf ist gelungen.",SigC::Slot0<void>());
-  button_rolle->add(MagusImage("Green-Dice-trans-50.xpm"),"MAGuS würfelt, ob das Lernen von Spruchrolle erfolgreich ist.",SigC::Slot0<void>());
+  button_rolle->add(MagusImage("Green-Dice-trans-50.xpm"),"MAGuS würfelt, ob das Lernen\n"
+  "von Spruchrolle erfolgreich ist.",SigC::Slot0<void>());
   button_rolle->hide();
 
   button_pp_variante->add(MagusImage("Learning_by_Doing-32.xpm"),"Praxispunkte mit EP auffüllen",SigC::Slot0<void>());
@@ -285,8 +282,10 @@ enum { Button_Steigern, Button_Verlernen, Button_PP_eingeben };
 enum { Button_GoldEP, Button_1Drittel, Button_1Halb, Button_2Drittel, Button_Ohne };
 
 void table_steigern::Abenteurer2Window()
-{  Abenteurer &A=hauptfenster->getAben();
+{ if (block_update) return;
+  const Abenteurer &A=hauptfenster->getAben();
 
+  block_update=true;
    if (button_was_tun->get_index()!=Button_PP_eingeben)
      button_was_tun->set_index(A.reduzieren ? Button_Verlernen : Button_Steigern);
 
@@ -304,21 +303,31 @@ void table_steigern::Abenteurer2Window()
        button_wie_tun->set_index(Button_Unterweisung);
        break;
    }   
-   if (A.fpanteil=0)
+   if (A.fpanteil==0)
        button_sonder->set_index(Button_Ohne);
-   else if (A.fpanteil+A.goldanteil<=34)
+   else if ((A.fpanteil+A.goldanteil)<=34)
        button_sonder->set_index(Button_2Drittel);
-   else if (A.fpanteil+A.goldanteil<=51)
+   else if ((A.fpanteil+A.goldanteil)<=51)
        button_sonder->set_index(Button_1Halb);
-   else if (A.fpanteil+A.goldanteil<=67)
+   else if ((A.fpanteil+A.goldanteil)<=67)
        button_sonder->set_index(Button_1Drittel);
    else button_sonder->set_index(Button_GoldEP);
-   steigern_gtk();
+  block_update=false;
+  steigern_gtk();
+#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
+  handlebox_steigern_2->set_label(itos(A.GFP())+"GFP "+
+      itos(A.fpanteil.Value())+"%EP "+
+      itos(A.goldanteil.Value())+"%GS");
+  handlebox_steigern_3->set_label((A.reduzieren.Value()?"verlernen ":"lernen ")
+      +Steigerntyp(A));
+#endif
 }
 
 void table_steigern::Window2Abenteurer()
-{ Abenteurer &A=hauptfenster->getAben();
+{ if (block_update) return;
+  Abenteurer &A=hauptfenster->getAben();
 
+  block_update=true;
   if (button_was_tun->get_index()!=Button_PP_eingeben)
     button_was_tun->set_index(A.reduzieren ? Button_Verlernen : Button_Steigern);
 
@@ -359,12 +368,16 @@ void table_steigern::Window2Abenteurer()
   }
   if (button_was_tun->get_index()!=Button_PP_eingeben)
     A.reduzieren=button_was_tun->get_index()==Button_Verlernen;
+  block_update=false;
   steigern_gtk();
 }
 
 bool table_steigern::pp_eingeben_click(GdkEventButton*)
 { if (!togglebutton_praxispunkte->get_active())
-    togglebutton_praxispunkte->set_active(true);
+  { togglebutton_praxispunkte->set_active(true);
+    vbox_praxispunkte->show();
+  }
+  return false;
 }
 void table_steigern::button_sonder_changed()
 { Window2Abenteurer();
@@ -382,4 +395,28 @@ void table_steigern::button_ppvar_changed()
 }
 void table_steigern::button_was_tun_changed()
 { Window2Abenteurer();
+}
+
+void table_steigern::steigern_gtk()
+{ if (block_update) return;
+  const Abenteurer &A=hauptfenster->getAben();
+  block_update=true;
+  label_EP->set_text(itos(A.fpanteil)+"%");
+  label_Gold->set_text(itos(A.goldanteil)+"%");
+  int gold_add=0;
+  if ((A.fpanteil+A.goldanteil)<=34) gold_add=67;
+  else if ((A.fpanteil+A.goldanteil)<=51) gold_add=50;
+  else if ((A.fpanteil+A.goldanteil)<=67) gold_add=33;
+  if (33<=hauptfenster->getAben().fpanteil && hauptfenster->getAben().fpanteil<=67)
+  { Gtk::Adjustment *A=vscale_EP_Gold->get_adjustment();
+    A->set_value(hauptfenster->getAben().goldanteil+gold_add);
+    vscale_EP_Gold->set_sensitive(true);
+  }
+  else vscale_EP_Gold->set_sensitive(false);
+  block_update=false;
+}
+
+bool table_steigern::vscale_value_changed(GdkEventButton *ev)
+{ Window2Abenteurer();
+  return false;
 }

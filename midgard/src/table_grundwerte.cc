@@ -76,7 +76,26 @@ table_grundwerte::table_grundwerte(GlademmData *_data)
    fill_spezies();
   edit_werte=false;
   edit_sensitive(false); // noch weg ?
-   frame_wuerfelvariante->hide();
+  frame_wuerfelvariante->hide();
+   
+  button_grundwerte->add(MagusImage("Dice-W100-trans-50.xpm"),"Eigenschaften\nwürfeln",
+       "2x für jede Eigenschaft würfeln, das höhere Ergebnis zählt.",
+       SigC::slot(*this,&table_grundwerte::on_button_grundwerte));
+  button_grundwerte->add(MagusImage("Dice-W100-trans-50.xpm"),"Eigenschaften\nauswählen",
+       "2x würfeln, für den besseren Wert eine Eigenschaft aussuchen, das ganze sechsmal wiederholen.",
+       SigC::slot(*this,&table_grundwerte::on_button_grundwerte));
+  button_grundwerte->add(MagusImage("Dice-W100-trans-50.xpm"),"Eigenschaften\nverteilen",
+       "9x würfeln, die besten sechs Ergebnisse frei verteilen.",
+       SigC::slot(*this,&table_grundwerte::on_button_grundwerte));
+  button_grundwerte->set_tooltips(&_tooltips);
+
+  button_geschlecht->add(MagusImage("male.png"),"männlich",SigC::slot(*this,&table_grundwerte::on_radiobutton_mann_toggled));
+  button_geschlecht->add(MagusImage("female.png"),"weiblich",SigC::slot(*this,&table_grundwerte::on_radiobutton_mann_toggled));
+  button_geschlecht->set_tooltips(&_tooltips);
+
+  button_stadt_land->add("Stadt",SigC::slot(*this,&table_grundwerte::on_radiobutton_stadt_land_toggled));
+  button_stadt_land->add("Land",SigC::slot(*this,&table_grundwerte::on_radiobutton_stadt_land_toggled));
+  button_stadt_land->set_tooltips(&_tooltips);
 }
 
 void table_grundwerte::zeige_werte(bool typ2_hide)
@@ -142,8 +161,7 @@ void table_grundwerte::zeige_werte(bool typ2_hide)
    combo_hand->set_popdown_strings(A.Geschlecht()==Enums::Frau?Vhandf:Vhand);
    combo_hand->get_entry()->set_text(A.Hand());
 
-   if(A.Stadt_Land()==Enums::Land)  radiobutton_land->set_active(true);
-   if(A.Stadt_Land()==Enums::Stadt)  radiobutton_stadt->set_active(true);
+   button_stadt_land->set_index(A.Stadt_Land()==Enums::Stadt?0:1);
 
    entry_herkunft->set_text(A.Herkunft()->Name());
    entry_glaube->set_text(A.Glaube());
@@ -154,8 +172,7 @@ void table_grundwerte::zeige_werte(bool typ2_hide)
    entry_bezeichnung->set_text(A.Bezeichnung());
    entry_merkmale->set_text(A.Merkmale());
 
-   if (A.Geschlecht()==Enums::Frau) radiobutton_frau->set_active(true); 
-   else radiobutton_mann->set_active(true); 
+   button_geschlecht->set_index(A.Geschlecht()==Enums::Mann?0:1);
    
    if(typ2_hide)
     {
@@ -188,9 +205,7 @@ void table_grundwerte::sync_wizard(gpointer x)
    	|| between(pr.wizard.Value(),Wizard::GESCHLECHT,Wizard::TYP));
    combo_typ2->set_sensitive(always_sens 
    	|| between(pr.wizard.Value(),Wizard::GESCHLECHT,Wizard::TYP));
-   radiobutton_stadt->set_sensitive(always_sens 
-   	|| between(pr.wizard.Value(),Wizard::STADTLAND,Wizard::ABGELEITETEWERTE));
-   radiobutton_land->set_sensitive(always_sens 
+   button_stadt_land->set_sensitive(always_sens 
    	|| between(pr.wizard.Value(),Wizard::STADTLAND,Wizard::ABGELEITETEWERTE));
    button_abg_werte->set_sensitive(always_sens 
    	|| between(pr.wizard.Value(),Wizard::STADTLAND,Wizard::ABGELEITETEWERTE));

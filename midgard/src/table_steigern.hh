@@ -35,6 +35,7 @@ class table_steigern : public table_steigern_glade
 //        friend class midgard_CG;
 //        friend class Magus_Optionen; // Zum Speichern der Handle-Fenster Positionen
         midgard_CG *hauptfenster;
+        bool block_update;
 
         std::list<MBEmlt> list_Fertigkeit_neu;
         std::list<MBEmlt> list_WaffenGrund_neu;

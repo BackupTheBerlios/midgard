@@ -84,6 +84,8 @@ bool table_grundwerte::on_combo_typ__focus_out_event(GdkEventFocus *ev)
   return false;
 }
 
+enum { Button_Stadt, Button_Land };
+
 void table_grundwerte::typauswahl_button()
 {
  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
@@ -99,26 +101,21 @@ void table_grundwerte::typauswahl_button()
 
  if(hauptfenster->getAben().Spezies()->Land()) 
    {
-     radiobutton_land->set_active(true);
-     radiobutton_stadt->set_sensitive(false);
-     radiobutton_land->set_sensitive(true);
+     button_stadt_land->set_sensitive(false);
+     button_stadt_land->set_index(Button_Land);
    }
  else if(!hauptfenster->getAben().Typ1()->Stadt())
    {
-     radiobutton_land->set_active(true);
-     radiobutton_land->set_sensitive(true);
-     radiobutton_stadt->set_sensitive(false);
+     button_stadt_land->set_sensitive(false);
+     button_stadt_land->set_index(Button_Stadt);
    }
  else if(!hauptfenster->getAben().Typ1()->Land())
    {
-     radiobutton_stadt->set_active(true);
-     radiobutton_stadt->set_sensitive(true);
-     radiobutton_land->set_sensitive(false);
+     button_stadt_land->set_sensitive(false);
+     button_stadt_land->set_index(Button_Land);
    }
  else
-   {
-     radiobutton_stadt->set_sensitive(true);
-     radiobutton_land->set_sensitive(true);
+   { button_stadt_land->set_sensitive(true);
    }
 }
 
@@ -210,8 +207,8 @@ void table_grundwerte::on_radiobutton_stadt_land_toggled()
   if(block_changed) return;
   hauptfenster->getChar().getWizard().done(Wizard::STADTLAND,hauptfenster->getAben());
 
-  if(radiobutton_stadt->get_active()) hauptfenster->getAben().setStadtLand(Enums::Stadt);
-  else                                hauptfenster->getAben().setStadtLand(Enums::Land);
+  if(button_stadt_land->get_index()==Button_Land) hauptfenster->getAben().setStadtLand(Enums::Land);
+  else                                hauptfenster->getAben().setStadtLand(Enums::Stadt);
 }
 
 
@@ -224,25 +221,22 @@ void table_grundwerte::doppelcharaktere()
    fill_typauswahl_2();
 }
 
-void table_grundwerte::on_radiobutton_frau_toggled()
-{ on_radiobutton_mann_toggled(); }
 void table_grundwerte::on_radiobutton_mann_toggled()
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   if(block_changed) return;
   hauptfenster->getChar().getWizard().done(Wizard::GESCHLECHT,hauptfenster->getAben());
   Enums::geschlecht oldG=hauptfenster->getAben().Geschlecht();
-  if (radiobutton_mann->get_active()) hauptfenster->getAben().setGeschlecht(Enums::Mann);
-  else hauptfenster->getAben().setGeschlecht(Enums::Frau);
+  hauptfenster->getAben().setGeschlecht(button_geschlecht->get_index() ? Enums::Frau : Enums::Mann);
   if(oldG!=hauptfenster->getAben(). Geschlecht() && hauptfenster->getAben(). Groesse() && hauptfenster->getAben(). Spezies()->Name()=="Mensch")
    {
      if( hauptfenster->getAben(). Geschlecht()==Enums::Frau) hauptfenster->getAben(). setGroesse(hauptfenster->getAben(). Groesse()-10);
-     if( hauptfenster->getAben(). Geschlecht()==Enums::Mann) hauptfenster->getAben(). setGroesse(hauptfenster->getAben(). Groesse()+10);
+     else hauptfenster->getAben(). setGroesse(hauptfenster->getAben(). Groesse()+10);
    }
   if(oldG!=hauptfenster->getAben().Geschlecht() && hauptfenster->getAben().Gewicht() && hauptfenster->getAben().Spezies()->Name()=="Mensch")
    {
      if( hauptfenster->getAben().Geschlecht()==Enums::Frau) hauptfenster->getAben().setGewicht(hauptfenster->getAben().Gewicht()-4);
-     if( hauptfenster->getAben().Geschlecht()==Enums::Mann) hauptfenster->getAben().setGewicht(hauptfenster->getAben().Gewicht()+4);
+     else hauptfenster->getAben().setGewicht(hauptfenster->getAben().Gewicht()+4);
    }
   fill_typauswahl();
   fill_typauswahl_2();

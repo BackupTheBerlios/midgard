@@ -1,5 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
+ *  Copyright (C) 2004 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -49,12 +50,12 @@ void table_steigern::on_LabelSpin_gfp_activate()
 //////////////////////////////////////////////////////////////////////////
 
 // vielleicht nur ein bool?
-void table_steigern::show_goldeingabe(bool b,int button)
+void table_steigern::show_goldeingabe(bool b,int do_edit)
 {
   LabelSpin_silber->set_value(hauptfenster->getAben().Silber());
   LabelSpin_kupfer->set_value(hauptfenster->getAben().Kupfer());
   LabelSpin_gold->set_value(hauptfenster->getAben().Gold());
-     if     (button == 1) 
+     if     (do_edit) 
        { 
          LabelSpin_silber->edit_new();
          LabelSpin_kupfer->edit_new();
@@ -116,18 +117,18 @@ void table_steigern::on_button_EP_eingeben()
  show_EPeingabe(true,button_EP->get_index()==Button_edit);
 }
 
-void table_steigern::show_EPeingabe(bool b,int button)
+void table_steigern::show_EPeingabe(bool b,int do_edit)
 {
   LabelSpin_aep->set_value(hauptfenster->getAben().AEP());
   LabelSpin_kep->set_value(hauptfenster->getAben().KEP());
   LabelSpin_zep->set_value(hauptfenster->getAben().ZEP());
-     if     (button == 1)
+     if     (do_edit)
        { 
          LabelSpin_kep->edit_new();
          LabelSpin_zep->edit_new();
          LabelSpin_aep->edit_new();
        }
-     else if(button == 3)
+     else
        { 
          LabelSpin_kep->edit_add();
          LabelSpin_zep->edit_add();
