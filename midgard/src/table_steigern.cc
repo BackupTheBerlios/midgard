@@ -1,3 +1,20 @@
+/*  Copyright (C) 2001 Malte Thoma
+ *  Copyright (C) 2004 Christof Petig
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program; if not, write to the Free Software
+ *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ */
 
 #include "config.h"
 #include <Misc/Trace.h>
@@ -16,11 +33,9 @@ extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 void table_steigern::refresh()
 { ManuProC::Trace _t(LibMagus::trace_channel,__PRETTY_FUNCTION__);
   if (hauptfenster->get_current_page()!=midgard_CG::PAGE_STEIGERN) return;
-  flashing_gradanstieg->set(MagusImage("Anpass-trans-50.xpm"),MagusImage("Anpass-trans-50_invers.xpm"),0);
-  flashing_eigenschaft->set(MagusImage("Red-Dice-trans-50.xpm"),MagusImage("Red-Dice-trans-50_invers.xpm"),0);
 
   zeige_werte();
-  steigern_mit_EP_bool=true;
+//  steigern_mit_EP_bool=true;
 
   if(SpruecheMitPP().empty())
       { radiobutton_pp_spezial->hide();
@@ -61,20 +76,6 @@ void table_steigern::init(midgard_CG *h)
 //  h->signal_any_wizard_change().connect(SigC::slot(*this,&table_steigern::wizard_changed));
 }
 
-#if 0
-void table_steigern::neuer_charakter()
-{
- label_EP->set_text("50%");  
- label_Gold->set_text("50%");
- vscale_EP_Gold->get_adjustment()->set_value(50);
- scrolledwindow_landauswahl->hide();
- spinbutton_pp_eingeben->hide(); 
- vbox_praxispunkte->hide();
- togglebutton_praxispunkte->set_active(false);
-}
-#endif
-
-
 void table_steigern::on_notebook_lernen_switch_page(GtkNotebookPage *page,guint pagenr)
 {
 //  if(hauptfenster /*&& !hauptfenster->in_dtor*/) load_for_page(pagenr);
@@ -104,16 +105,6 @@ void table_steigern::load_for_page(guint pagenr)
      radiobutton_praxis->set_sensitive(true);
    }
 }
-
-
-
-/*
-void table_steigern::on_button_geld_s_toggled()
-{
-  show_goldeingabe(button_gold_eingeben->get_active());  
-  spinbutton_gold->grab_focus();
-}
-*/
 
 void table_steigern::show_goldeingabe(bool b,int button)
 {
@@ -159,10 +150,9 @@ std::string Steigerntyp(const Grundwerte &W)
 void table_steigern::zeige_werte()
 {
    const Abenteurer &W=hauptfenster->getAben();
-    LabelSpin_gfp->set_value(W.GFP());
+   LabelSpin_gfp->set_value(W.GFP());
 
-   steigern_gtk();
-  
+   Abenteurer2Window();
    label_s_grad->set_text(itos(W.Grad()));
    label_s_ap->set_text(itos(W.AP()));
    label_s_abwehr->set_text(itos(W.Abwehr_wert()));
@@ -174,6 +164,7 @@ void table_steigern::zeige_werte()
    label_pp_resistenz->set_text(itos(W.ResistenzPP()));
    label_steigertage->set_text(dtos1(W.Steigertage()));
    label_alter->set_text(itos(W.Alter()));
+
    std::string grad_GFP=Datenbank.GradAnstieg.getGFP_for_str(Grad_anstieg::Grad_fehlt,W);
    label_grad_GFP->set_text(grad_GFP);
    if(grad_GFP=="erreicht") flashing_gradanstieg->setTime(1000);
@@ -181,6 +172,14 @@ void table_steigern::zeige_werte()
    if(W.eigenschaften_steigern_erlaubt())
       flashing_eigenschaft->setTime(1000);
    else flashing_eigenschaft->setTime(0);
+#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
+   if (grad_GFP=="erreicht") 
+      handlebox_steigern_4->set_label("neuer Grad erreicht");
+   else if (W.eigenschaften_steigern_erlaubt())
+      handlebox_steigern_4->set_label("Eigenschaftsanstieg möglich");
+   else 
+      handlebox_steigern_4->set_label(grad_GFP);
+#endif
 
    label_ausdauer_GFP->set_text(Datenbank.GradAnstieg.getGFP_for_str(Grad_anstieg::Ausdauer,W));
    label_abwehr_GFP->set_text(Datenbank.GradAnstieg.getGFP_for_str(Grad_anstieg::Abwehr,W));
@@ -228,10 +227,8 @@ void table_steigern::zeige_werte()
       + "," + W.Typ2()->Short() + " Grad "+itos(W.Grad()));
   handlebox_steigern_2->set_label(itos(W.GFP())+"GFP "+
       itos(W.goldanteil.Value())+"%GS");
-  // oder reduzieren?
   handlebox_steigern_3->set_label((W.reduzieren.Value()?"verlernen ":"lernen ")
       +Steigerntyp(W));
-  handlebox_steigern_4->set_label("neuer Grad erreicht?");
 #endif
 }
 
@@ -249,8 +246,9 @@ table_steigern::table_steigern(GlademmData *_data)
    bool_CheckButton *_m=manage(new bool_CheckButton(steigern_mit_EP_bool,hauptfenster->make_gtk_box(MagusImage("EP-Steigern-50.xpm"),"Mit EP/PP\nsteigern",false)));
    _m->set_mode(false);
    _m->signal_toggled().connect(SigC::slot(*this, &table_steigern::on_checkbutton_EP_Geld_toggled),true);
+   _m->show();
    eventbox_eppp_steigern->add(*_m);
-   eventbox_eppp_steigern->show_all();
+   eventbox_eppp_steigern->show();
      vbox_praxispunkte->hide();
      spinbutton_pp_eingeben->hide();
  scrolledwindow_landauswahl->hide();
@@ -258,4 +256,74 @@ table_steigern::table_steigern(GlademmData *_data)
    alte_fert_tree->getModel().set_editable(Data_SimpleTree::PPa); 
    alte_fert_tree->getModel().signal_value_changed().connect(SigC::slot(*this,
      &table_steigern::fert_col_changed));
+  flashing_gradanstieg->set(MagusImage("Anpass-trans-50.xpm"),MagusImage("Anpass-trans-50_invers.xpm"),0);
+  flashing_eigenschaft->set(MagusImage("Red-Dice-trans-50.xpm"),MagusImage("Red-Dice-trans-50_invers.xpm"),0);
+}
+
+void table_steigern::Abenteurer2Window()
+{  Abenteurer &A=hauptfenster->getAben();
+   steigern_mit_EP_bool=A.fpanteil>0 || A.goldanteil>0;
+
+   if (A.reduzieren) radiobutton_reduzieren->set_active(true);
+   else radiobutton_steigern->set_active(true);
+   
+   togglebutton_spruchrolle->set_active(A.wie_steigern==Grundwerte::ws_Spruchrolle);
+   if (A.wie_steigern==Grundwerte::ws_Spruchrolle)
+   {  radiobutton_unterweisung->set_active(true);
+   }
+   else if (A.wie_steigern==Grundwerte::ws_NurPraxispunkte
+       || A.wie_steigern==Grundwerte::ws_PraxispunkteFP)
+   {  radiobutton_praxis->set_active(true);
+      togglebutton_pp_verfallen->set_active(A.wie_steigern==Grundwerte::ws_NurPraxispunkte);
+      togglebutton_pp_aep_fuellen->set_active(A.wie_steigern==Grundwerte::ws_PraxispunkteFP);
+   }
+   else if (A.wie_steigern==Grundwerte::ws_Unterweisung)
+   {  if (A.fpanteil>100) radiobutton_selbst->set_active(true);
+      else radiobutton_unterweisung->set_active(true);
+   }
+   steigern_gtk();
+}
+
+void table_steigern::Window2Abenteurer()
+{ Abenteurer &A=hauptfenster->getAben();
+  if (radiobutton_verlernen->get_active()
+        || radiobutton_reduzieren->get_active())
+     A.reduzieren=true;
+  else 
+  {  A.reduzieren=false;
+     if (togglebutton_spruchrolle->get_active())
+     {  A.wie_steigern=Grundwerte::ws_Spruchrolle;
+        A.fpanteil=10;
+        A.goldanteil=0;
+     }
+     else if (radiobutton_praxis->get_active())
+     {  A.wie_steigern=togglebutton_pp_verfallen->get_active()
+             ? Grundwerte::ws_NurPraxispunkte
+             : Grundwerte::ws_PraxispunkteFP;
+        A.goldanteil=0;
+        A.fpanteil=100;
+        // togglebutton_pp_aep_fuellen
+     }
+     else if (!steigern_mit_EP_bool) 
+     {  A.wie_steigern=Grundwerte::ws_Unterweisung;
+        // fp+goldanteil werden unten zu 0 gesetzt
+     }
+     else if (radiobutton_unterweisung->get_active()) 
+     {  A.wie_steigern=Grundwerte::ws_Unterweisung;
+        Gtk::Adjustment *adj=vscale_EP_Gold->get_adjustment();
+        int Av=int(adj->get_value());
+        A.goldanteil=Av;
+        A.fpanteil=100-Av;
+     }
+     else if (radiobutton_selbst->get_active())
+     {  A.wie_steigern=Grundwerte::ws_Unterweisung;
+        A.goldanteil=0;
+        A.fpanteil=133;
+     }
+     if (!steigern_mit_EP_bool)
+     {  A.fpanteil=0;
+        A.goldanteil=0;
+     }
+     steigern_gtk();
+  }
 }

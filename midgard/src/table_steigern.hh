@@ -204,6 +204,8 @@ private:
         void on_entry_magisch_activate();
         void on_togglebutton_pp_verfallen_toggled();
         void on_togglebutton_pp_aep_fuellen_toggled();
-
+        // wie_steigern, *anteil
+        void Window2Abenteurer();
+        void Abenteurer2Window();
 };
 #endif

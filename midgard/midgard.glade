@@ -863,7 +863,7 @@
 		      <property agent="glademm" name="cxx_visibility">protected</property>
 		      <property name="visible">True</property>
 		      <property name="n_rows">6</property>
-		      <property name="n_columns">1</property>
+		      <property name="n_columns">2</property>
 		      <property name="homogeneous">False</property>
 		      <property name="row_spacing">0</property>
 		      <property name="column_spacing">0</property>
@@ -2079,524 +2079,6 @@
 			  <property name="top_attach">2</property>
 			  <property name="bottom_attach">3</property>
 			  <property name="x_padding">10</property>
-			  <property name="x_options">shrink|fill</property>
-			  <property name="y_options">shrink</property>
-			</packing>
-		      </child>
-
-		      <child>
-			<widget class="GtkToolbar" id="toolbar2">
-			  <property name="visible">True</property>
-			  <property name="orientation">GTK_ORIENTATION_HORIZONTAL</property>
-			  <property name="toolbar_style">GTK_TOOLBAR_BOTH</property>
-			  <property name="tooltips">True</property>
-			  <property name="show_arrow">True</property>
-
-			  <child>
-			    <widget class="GtkToolItem" id="toolitem6">
-			      <property name="visible">True</property>
-			      <property name="visible_horizontal">True</property>
-			      <property name="visible_vertical">True</property>
-			      <property name="is_important">False</property>
-
-			      <child>
-				<widget class="GtkCombo" id="combo_spezies">
-				  <property agent="glademm" name="cxx_visibility">protected</property>
-				  <property name="visible">True</property>
-				  <property name="value_in_list">True</property>
-				  <property name="allow_empty">False</property>
-				  <property name="case_sensitive">False</property>
-				  <property name="enable_arrow_keys">True</property>
-				  <property name="enable_arrows_always">False</property>
-
-				  <child internal-child="entry">
-				    <widget class="GtkEntry" id="combo_spezies">
-				      <property name="visible">True</property>
-				      <property name="can_focus">True</property>
-				      <property name="editable">True</property>
-				      <property name="visibility">True</property>
-				      <property name="max_length">0</property>
-				      <property name="text" translatable="yes"></property>
-				      <property name="has_frame">True</property>
-				      <property name="invisible_char" translatable="yes">*</property>
-				      <property name="activates_default">False</property>
-				      <signal name="activate" handler="on_combo_spezies_activate"/>
-				      <signal name="focus_out_event" handler="on_combo_spezies_focus_out_event"/>
-				      <signal name="changed" handler="on_combo_spezies_changed"/>
-				    </widget>
-				  </child>
-
-				  <child internal-child="list">
-				    <widget class="GtkList" id="convertwidget9">
-				      <property name="visible">True</property>
-				      <property name="selection_mode">GTK_SELECTION_BROWSE</property>
-
-				      <child>
-					<widget class="GtkListItem" id="convertwidget10">
-					  <property name="visible">True</property>
-
-					  <child>
-					    <widget class="GtkLabel" id="convertwidget11">
-					      <property name="visible">True</property>
-					      <property name="label" translatable="yes"></property>
-					      <property name="use_underline">False</property>
-					      <property name="use_markup">False</property>
-					      <property name="justify">GTK_JUSTIFY_LEFT</property>
-					      <property name="wrap">False</property>
-					      <property name="selectable">False</property>
-					      <property name="xalign">0</property>
-					      <property name="yalign">0.5</property>
-					      <property name="xpad">0</property>
-					      <property name="ypad">0</property>
-					    </widget>
-					  </child>
-					</widget>
-				      </child>
-				    </widget>
-				  </child>
-				</widget>
-			      </child>
-			    </widget>
-			    <packing>
-			      <property name="expand">False</property>
-			      <property name="homogeneous">False</property>
-			    </packing>
-			  </child>
-
-			  <child>
-			    <widget class="GtkToolItem" id="toolitem7">
-			      <property name="visible">True</property>
-			      <property name="visible_horizontal">True</property>
-			      <property name="visible_vertical">True</property>
-			      <property name="is_important">False</property>
-
-			      <child>
-				<widget class="GtkVBox" id="vbox_gw_wuerfeln">
-				  <property agent="glademm" name="cxx_visibility">protected</property>
-				  <property name="visible">True</property>
-				  <property name="homogeneous">True</property>
-				  <property name="spacing">0</property>
-
-				  <child>
-				    <widget class="GtkRadioButton" id="radiobutton_eigenschaften_standard">
-				      <property agent="glademm" name="cxx_visibility">protected</property>
-				      <property name="visible">True</property>
-				      <property name="tooltip" translatable="yes">2x für jede Eigenschaft würfeln, das höhere Ergebnis zählt.</property>
-				      <property name="can_focus">True</property>
-				      <property name="label" translatable="yes">Standard</property>
-				      <property name="use_underline">True</property>
-				      <property name="relief">GTK_RELIEF_NORMAL</property>
-				      <property name="focus_on_click">True</property>
-				      <property name="active">True</property>
-				      <property name="inconsistent">False</property>
-				      <property name="draw_indicator">True</property>
-				    </widget>
-				    <packing>
-				      <property name="padding">0</property>
-				      <property name="expand">True</property>
-				      <property name="fill">True</property>
-				    </packing>
-				  </child>
-
-				  <child>
-				    <widget class="GtkRadioButton" id="radiobutton_eigenschaften_zuweisen">
-				      <property agent="glademm" name="cxx_visibility">protected</property>
-				      <property name="visible">True</property>
-				      <property name="tooltip" translatable="yes">2x würfeln, den besseren Wert an eine Eigenschaft zuweisen, das ganze sechsmal wiederholen.</property>
-				      <property name="can_focus">True</property>
-				      <property name="label" translatable="yes">Zuweisen</property>
-				      <property name="use_underline">True</property>
-				      <property name="relief">GTK_RELIEF_NORMAL</property>
-				      <property name="focus_on_click">True</property>
-				      <property name="active">False</property>
-				      <property name="inconsistent">False</property>
-				      <property name="draw_indicator">True</property>
-				      <property name="group">radiobutton_eigenschaften_standard</property>
-				    </widget>
-				    <packing>
-				      <property name="padding">0</property>
-				      <property name="expand">True</property>
-				      <property name="fill">True</property>
-				    </packing>
-				  </child>
-
-				  <child>
-				    <widget class="GtkRadioButton" id="radiobutton_eigenschaften_69">
-				      <property agent="glademm" name="cxx_visibility">protected</property>
-				      <property name="visible">True</property>
-				      <property name="tooltip" translatable="yes">9x würfeln, die besten sechs Ergebnisse frei verteilen.</property>
-				      <property name="can_focus">True</property>
-				      <property name="label" translatable="yes">6 von 9</property>
-				      <property name="use_underline">True</property>
-				      <property name="relief">GTK_RELIEF_NORMAL</property>
-				      <property name="focus_on_click">True</property>
-				      <property name="active">False</property>
-				      <property name="inconsistent">False</property>
-				      <property name="draw_indicator">True</property>
-				      <property name="group">radiobutton_eigenschaften_standard</property>
-				    </widget>
-				    <packing>
-				      <property name="padding">0</property>
-				      <property name="expand">True</property>
-				      <property name="fill">True</property>
-				    </packing>
-				  </child>
-				</widget>
-			      </child>
-			    </widget>
-			    <packing>
-			      <property name="expand">False</property>
-			      <property name="homogeneous">False</property>
-			    </packing>
-			  </child>
-
-			  <child>
-			    <widget class="GtkToolButton" id="button_grundwerte">
-			      <property agent="glademm" name="cxx_visibility">protected</property>
-			      <property name="visible">True</property>
-			      <property name="tooltip" translatable="yes">Eigenschaften würfeln/eingeben</property>
-			      <property name="can_focus">True</property>
-			      <property name="label" translatable="yes">Eigen-
-schaften</property>
-			      <property name="use_underline">True</property>
-			      <property name="icon">Dice-W100-trans-50.xpm</property>
-			      <property name="visible_horizontal">True</property>
-			      <property name="visible_vertical">True</property>
-			      <property name="is_important">False</property>
-			      <signal name="clicked" handler="on_button_grundwerte"/>
-			    </widget>
-			    <packing>
-			      <property name="expand">False</property>
-			      <property name="homogeneous">True</property>
-			    </packing>
-			  </child>
-
-			  <child>
-			    <widget class="GtkToolItem" id="toolitem8">
-			      <property name="visible">True</property>
-			      <property name="visible_horizontal">True</property>
-			      <property name="visible_vertical">True</property>
-			      <property name="is_important">False</property>
-
-			      <child>
-				<widget class="GtkVBox" id="vbox47">
-				  <property name="visible">True</property>
-				  <property name="homogeneous">False</property>
-				  <property name="spacing">0</property>
-
-				  <child>
-				    <widget class="GtkRadioButton" id="radiobutton_mann">
-				      <property agent="glademm" name="cxx_visibility">protected</property>
-				      <property name="visible">True</property>
-				      <property name="can_focus">True</property>
-				      <property name="label" translatable="yes">männlich</property>
-				      <property name="use_underline">True</property>
-				      <property name="relief">GTK_RELIEF_NORMAL</property>
-				      <property name="focus_on_click">True</property>
-				      <property name="active">True</property>
-				      <property name="inconsistent">False</property>
-				      <property name="draw_indicator">True</property>
-				      <signal name="toggled" handler="on_radiobutton_mann_toggled"/>
-				    </widget>
-				    <packing>
-				      <property name="padding">0</property>
-				      <property name="expand">False</property>
-				      <property name="fill">False</property>
-				    </packing>
-				  </child>
-
-				  <child>
-				    <widget class="GtkRadioButton" id="radiobutton_frau">
-				      <property agent="glademm" name="cxx_visibility">protected</property>
-				      <property name="visible">True</property>
-				      <property name="can_focus">True</property>
-				      <property name="label" translatable="yes">weiblich</property>
-				      <property name="use_underline">True</property>
-				      <property name="relief">GTK_RELIEF_NORMAL</property>
-				      <property name="focus_on_click">True</property>
-				      <property name="active">False</property>
-				      <property name="inconsistent">False</property>
-				      <property name="draw_indicator">True</property>
-				      <property name="group">radiobutton_mann</property>
-				      <signal name="toggled" handler="on_radiobutton_frau_toggled"/>
-				    </widget>
-				    <packing>
-				      <property name="padding">0</property>
-				      <property name="expand">False</property>
-				      <property name="fill">False</property>
-				    </packing>
-				  </child>
-				</widget>
-			      </child>
-			    </widget>
-			    <packing>
-			      <property name="expand">False</property>
-			      <property name="homogeneous">False</property>
-			    </packing>
-			  </child>
-
-			  <child>
-			    <widget class="GtkToolItem" id="toolitem9">
-			      <property name="visible">True</property>
-			      <property name="visible_horizontal">True</property>
-			      <property name="visible_vertical">True</property>
-			      <property name="is_important">False</property>
-
-			      <child>
-				<widget class="GtkVBox" id="vbox46">
-				  <property name="visible">True</property>
-				  <property name="homogeneous">False</property>
-				  <property name="spacing">5</property>
-
-				  <child>
-				    <widget class="GtkCombo" id="combo_typ">
-				      <property agent="glademm" name="cxx_visibility">protected</property>
-				      <property name="visible">True</property>
-				      <property name="value_in_list">True</property>
-				      <property name="allow_empty">False</property>
-				      <property name="case_sensitive">False</property>
-				      <property name="enable_arrow_keys">True</property>
-				      <property name="enable_arrows_always">False</property>
-
-				      <child internal-child="entry">
-					<widget class="GtkEntry" id="combo_typ_">
-					  <property name="visible">True</property>
-					  <property name="can_focus">True</property>
-					  <property name="editable">True</property>
-					  <property name="visibility">True</property>
-					  <property name="max_length">0</property>
-					  <property name="text" translatable="yes"></property>
-					  <property name="has_frame">True</property>
-					  <property name="invisible_char" translatable="yes">*</property>
-					  <property name="activates_default">False</property>
-					  <signal name="activate" handler="on_combo_typ_activate"/>
-					  <signal name="focus_out_event" handler="on_combo_typ__focus_out_event"/>
-					  <signal name="changed" handler="on_combo_typ__changed"/>
-					</widget>
-				      </child>
-
-				      <child internal-child="list">
-					<widget class="GtkList" id="convertwidget12">
-					  <property name="visible">True</property>
-					  <property name="selection_mode">GTK_SELECTION_BROWSE</property>
-
-					  <child>
-					    <widget class="GtkListItem" id="convertwidget13">
-					      <property name="visible">True</property>
-
-					      <child>
-						<widget class="GtkLabel" id="convertwidget14">
-						  <property name="visible">True</property>
-						  <property name="label" translatable="yes"></property>
-						  <property name="use_underline">False</property>
-						  <property name="use_markup">False</property>
-						  <property name="justify">GTK_JUSTIFY_LEFT</property>
-						  <property name="wrap">False</property>
-						  <property name="selectable">False</property>
-						  <property name="xalign">0</property>
-						  <property name="yalign">0.5</property>
-						  <property name="xpad">0</property>
-						  <property name="ypad">0</property>
-						</widget>
-					      </child>
-					    </widget>
-					  </child>
-					</widget>
-				      </child>
-				    </widget>
-				    <packing>
-				      <property name="padding">0</property>
-				      <property name="expand">False</property>
-				      <property name="fill">False</property>
-				    </packing>
-				  </child>
-
-				  <child>
-				    <widget class="GtkCombo" id="combo_typ2">
-				      <property agent="glademm" name="cxx_visibility">protected</property>
-				      <property name="visible">True</property>
-				      <property name="value_in_list">True</property>
-				      <property name="allow_empty">False</property>
-				      <property name="case_sensitive">False</property>
-				      <property name="enable_arrow_keys">True</property>
-				      <property name="enable_arrows_always">False</property>
-
-				      <child internal-child="entry">
-					<widget class="GtkEntry" id="combo_typ2_">
-					  <property name="visible">True</property>
-					  <property name="can_focus">True</property>
-					  <property name="editable">True</property>
-					  <property name="visibility">True</property>
-					  <property name="max_length">0</property>
-					  <property name="text" translatable="yes"></property>
-					  <property name="has_frame">True</property>
-					  <property name="invisible_char" translatable="yes">*</property>
-					  <property name="activates_default">False</property>
-					  <signal name="activate" handler="on_combo_typ2_activate"/>
-					  <signal name="focus_out_event" handler="on_combo_typ2_focus_out_event"/>
-					  <signal name="changed" handler="on_combo_typ2__changed"/>
-					</widget>
-				      </child>
-
-				      <child internal-child="list">
-					<widget class="GtkList" id="convertwidget15">
-					  <property name="visible">True</property>
-					  <property name="selection_mode">GTK_SELECTION_BROWSE</property>
-
-					  <child>
-					    <widget class="GtkListItem" id="convertwidget16">
-					      <property name="visible">True</property>
-
-					      <child>
-						<widget class="GtkLabel" id="convertwidget17">
-						  <property name="visible">True</property>
-						  <property name="label" translatable="yes"></property>
-						  <property name="use_underline">False</property>
-						  <property name="use_markup">False</property>
-						  <property name="justify">GTK_JUSTIFY_LEFT</property>
-						  <property name="wrap">False</property>
-						  <property name="selectable">False</property>
-						  <property name="xalign">0</property>
-						  <property name="yalign">0.5</property>
-						  <property name="xpad">0</property>
-						  <property name="ypad">0</property>
-						</widget>
-					      </child>
-					    </widget>
-					  </child>
-					</widget>
-				      </child>
-				    </widget>
-				    <packing>
-				      <property name="padding">0</property>
-				      <property name="expand">False</property>
-				      <property name="fill">False</property>
-				    </packing>
-				  </child>
-				</widget>
-			      </child>
-			    </widget>
-			    <packing>
-			      <property name="expand">False</property>
-			      <property name="homogeneous">False</property>
-			    </packing>
-			  </child>
-
-			  <child>
-			    <widget class="GtkToolItem" id="toolitem10">
-			      <property name="visible">True</property>
-			      <property name="visible_horizontal">True</property>
-			      <property name="visible_vertical">True</property>
-			      <property name="is_important">False</property>
-
-			      <child>
-				<widget class="GtkVBox" id="vbox48">
-				  <property name="visible">True</property>
-				  <property name="homogeneous">False</property>
-				  <property name="spacing">0</property>
-
-				  <child>
-				    <widget class="GtkRadioButton" id="radiobutton_stadt">
-				      <property agent="glademm" name="cxx_visibility">protected</property>
-				      <property name="visible">True</property>
-				      <property name="can_focus">True</property>
-				      <property name="label" translatable="yes">Stadt</property>
-				      <property name="use_underline">True</property>
-				      <property name="relief">GTK_RELIEF_NORMAL</property>
-				      <property name="focus_on_click">True</property>
-				      <property name="active">False</property>
-				      <property name="inconsistent">False</property>
-				      <property name="draw_indicator">True</property>
-				      <signal name="toggled" handler="on_radiobutton_stadt_land_toggled"/>
-				    </widget>
-				    <packing>
-				      <property name="padding">0</property>
-				      <property name="expand">False</property>
-				      <property name="fill">False</property>
-				    </packing>
-				  </child>
-
-				  <child>
-				    <widget class="GtkRadioButton" id="radiobutton_land">
-				      <property agent="glademm" name="cxx_visibility">protected</property>
-				      <property name="visible">True</property>
-				      <property name="can_focus">True</property>
-				      <property name="label" translatable="yes">Land</property>
-				      <property name="use_underline">True</property>
-				      <property name="relief">GTK_RELIEF_NORMAL</property>
-				      <property name="focus_on_click">True</property>
-				      <property name="active">False</property>
-				      <property name="inconsistent">False</property>
-				      <property name="draw_indicator">True</property>
-				      <property name="group">radiobutton_stadt</property>
-				      <signal name="toggled" handler="on_radiobutton_stadt_land_toggled"/>
-				    </widget>
-				    <packing>
-				      <property name="padding">0</property>
-				      <property name="expand">False</property>
-				      <property name="fill">False</property>
-				    </packing>
-				  </child>
-				</widget>
-			      </child>
-			    </widget>
-			    <packing>
-			      <property name="expand">False</property>
-			      <property name="homogeneous">False</property>
-			    </packing>
-			  </child>
-
-			  <child>
-			    <widget class="GtkToolButton" id="button_abg_werte">
-			      <property agent="glademm" name="cxx_visibility">protected</property>
-			      <property name="visible">True</property>
-			      <property name="can_focus">True</property>
-			      <property name="label" translatable="yes">Abgeleitete
-Werte</property>
-			      <property name="use_underline">True</property>
-			      <property name="icon">Dices2-trans-50.xpm</property>
-			      <property name="visible_horizontal">True</property>
-			      <property name="visible_vertical">True</property>
-			      <property name="is_important">False</property>
-			      <signal name="clicked" handler="on_abge_werte_setzen_clicked"/>
-			    </widget>
-			    <packing>
-			      <property name="expand">False</property>
-			      <property name="homogeneous">True</property>
-			    </packing>
-			  </child>
-
-			  <child>
-			    <widget class="GtkToolItem" id="eventbox_werte_edit_dummy">
-			      <property name="visible">True</property>
-			      <property name="visible_horizontal">True</property>
-			      <property name="visible_vertical">True</property>
-			      <property name="is_important">False</property>
-
-			      <child>
-				<widget class="GtkHBox" id="eventbox_werte_edit">
-				  <property agent="glademm" name="cxx_visibility">protected</property>
-				  <property name="visible">True</property>
-				  <property name="homogeneous">False</property>
-				  <property name="spacing">0</property>
-
-				  <child>
-				    <placeholder/>
-				  </child>
-				</widget>
-			      </child>
-			    </widget>
-			    <packing>
-			      <property name="expand">False</property>
-			      <property name="homogeneous">False</property>
-			    </packing>
-			  </child>
-			</widget>
-			<packing>
-			  <property name="left_attach">0</property>
-			  <property name="right_attach">1</property>
-			  <property name="top_attach">0</property>
-			  <property name="bottom_attach">1</property>
 			  <property name="x_options">shrink|fill</property>
 			  <property name="y_options">shrink</property>
 			</packing>
@@ -4605,6 +4087,524 @@ setzen</property>
 			  <property name="y_padding">5</property>
 			  <property name="x_options">fill</property>
 			  <property name="y_options"></property>
+			</packing>
+		      </child>
+
+		      <child>
+			<widget class="GtkToolbar" id="toolbar2">
+			  <property name="visible">True</property>
+			  <property name="orientation">GTK_ORIENTATION_HORIZONTAL</property>
+			  <property name="toolbar_style">GTK_TOOLBAR_BOTH</property>
+			  <property name="tooltips">True</property>
+			  <property name="show_arrow">True</property>
+
+			  <child>
+			    <widget class="GtkToolItem" id="toolitem6">
+			      <property name="visible">True</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			      <property name="is_important">False</property>
+
+			      <child>
+				<widget class="GtkCombo" id="combo_spezies">
+				  <property agent="glademm" name="cxx_visibility">protected</property>
+				  <property name="visible">True</property>
+				  <property name="value_in_list">True</property>
+				  <property name="allow_empty">False</property>
+				  <property name="case_sensitive">False</property>
+				  <property name="enable_arrow_keys">True</property>
+				  <property name="enable_arrows_always">False</property>
+
+				  <child internal-child="entry">
+				    <widget class="GtkEntry" id="combo_spezies">
+				      <property name="visible">True</property>
+				      <property name="can_focus">True</property>
+				      <property name="editable">True</property>
+				      <property name="visibility">True</property>
+				      <property name="max_length">0</property>
+				      <property name="text" translatable="yes"></property>
+				      <property name="has_frame">True</property>
+				      <property name="invisible_char" translatable="yes">*</property>
+				      <property name="activates_default">False</property>
+				      <signal name="activate" handler="on_combo_spezies_activate"/>
+				      <signal name="focus_out_event" handler="on_combo_spezies_focus_out_event"/>
+				      <signal name="changed" handler="on_combo_spezies_changed"/>
+				    </widget>
+				  </child>
+
+				  <child internal-child="list">
+				    <widget class="GtkList" id="convertwidget9">
+				      <property name="visible">True</property>
+				      <property name="selection_mode">GTK_SELECTION_BROWSE</property>
+
+				      <child>
+					<widget class="GtkListItem" id="convertwidget10">
+					  <property name="visible">True</property>
+
+					  <child>
+					    <widget class="GtkLabel" id="convertwidget11">
+					      <property name="visible">True</property>
+					      <property name="label" translatable="yes"></property>
+					      <property name="use_underline">False</property>
+					      <property name="use_markup">False</property>
+					      <property name="justify">GTK_JUSTIFY_LEFT</property>
+					      <property name="wrap">False</property>
+					      <property name="selectable">False</property>
+					      <property name="xalign">0</property>
+					      <property name="yalign">0.5</property>
+					      <property name="xpad">0</property>
+					      <property name="ypad">0</property>
+					    </widget>
+					  </child>
+					</widget>
+				      </child>
+				    </widget>
+				  </child>
+				</widget>
+			      </child>
+			    </widget>
+			    <packing>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">False</property>
+			    </packing>
+			  </child>
+
+			  <child>
+			    <widget class="GtkToolItem" id="toolitem7">
+			      <property name="visible">True</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			      <property name="is_important">False</property>
+
+			      <child>
+				<widget class="GtkVBox" id="vbox_gw_wuerfeln">
+				  <property agent="glademm" name="cxx_visibility">protected</property>
+				  <property name="visible">True</property>
+				  <property name="homogeneous">True</property>
+				  <property name="spacing">0</property>
+
+				  <child>
+				    <widget class="GtkRadioButton" id="radiobutton_eigenschaften_standard">
+				      <property agent="glademm" name="cxx_visibility">protected</property>
+				      <property name="visible">True</property>
+				      <property name="tooltip" translatable="yes">2x für jede Eigenschaft würfeln, das höhere Ergebnis zählt.</property>
+				      <property name="can_focus">True</property>
+				      <property name="label" translatable="yes">Standard</property>
+				      <property name="use_underline">True</property>
+				      <property name="relief">GTK_RELIEF_NORMAL</property>
+				      <property name="focus_on_click">True</property>
+				      <property name="active">True</property>
+				      <property name="inconsistent">False</property>
+				      <property name="draw_indicator">True</property>
+				    </widget>
+				    <packing>
+				      <property name="padding">0</property>
+				      <property name="expand">True</property>
+				      <property name="fill">True</property>
+				    </packing>
+				  </child>
+
+				  <child>
+				    <widget class="GtkRadioButton" id="radiobutton_eigenschaften_zuweisen">
+				      <property agent="glademm" name="cxx_visibility">protected</property>
+				      <property name="visible">True</property>
+				      <property name="tooltip" translatable="yes">2x würfeln, den besseren Wert an eine Eigenschaft zuweisen, das ganze sechsmal wiederholen.</property>
+				      <property name="can_focus">True</property>
+				      <property name="label" translatable="yes">Zuweisen</property>
+				      <property name="use_underline">True</property>
+				      <property name="relief">GTK_RELIEF_NORMAL</property>
+				      <property name="focus_on_click">True</property>
+				      <property name="active">False</property>
+				      <property name="inconsistent">False</property>
+				      <property name="draw_indicator">True</property>
+				      <property name="group">radiobutton_eigenschaften_standard</property>
+				    </widget>
+				    <packing>
+				      <property name="padding">0</property>
+				      <property name="expand">True</property>
+				      <property name="fill">True</property>
+				    </packing>
+				  </child>
+
+				  <child>
+				    <widget class="GtkRadioButton" id="radiobutton_eigenschaften_69">
+				      <property agent="glademm" name="cxx_visibility">protected</property>
+				      <property name="visible">True</property>
+				      <property name="tooltip" translatable="yes">9x würfeln, die besten sechs Ergebnisse frei verteilen.</property>
+				      <property name="can_focus">True</property>
+				      <property name="label" translatable="yes">6 von 9</property>
+				      <property name="use_underline">True</property>
+				      <property name="relief">GTK_RELIEF_NORMAL</property>
+				      <property name="focus_on_click">True</property>
+				      <property name="active">False</property>
+				      <property name="inconsistent">False</property>
+				      <property name="draw_indicator">True</property>
+				      <property name="group">radiobutton_eigenschaften_standard</property>
+				    </widget>
+				    <packing>
+				      <property name="padding">0</property>
+				      <property name="expand">True</property>
+				      <property name="fill">True</property>
+				    </packing>
+				  </child>
+				</widget>
+			      </child>
+			    </widget>
+			    <packing>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">False</property>
+			    </packing>
+			  </child>
+
+			  <child>
+			    <widget class="GtkToolButton" id="button_grundwerte">
+			      <property agent="glademm" name="cxx_visibility">protected</property>
+			      <property name="visible">True</property>
+			      <property name="tooltip" translatable="yes">Eigenschaften würfeln/eingeben</property>
+			      <property name="can_focus">True</property>
+			      <property name="label" translatable="yes">Eigen-
+schaften</property>
+			      <property name="use_underline">True</property>
+			      <property name="icon">Dice-W100-trans-50.xpm</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			      <property name="is_important">False</property>
+			      <signal name="clicked" handler="on_button_grundwerte"/>
+			    </widget>
+			    <packing>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">True</property>
+			    </packing>
+			  </child>
+
+			  <child>
+			    <widget class="GtkToolItem" id="toolitem8">
+			      <property name="visible">True</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			      <property name="is_important">False</property>
+
+			      <child>
+				<widget class="GtkVBox" id="vbox47">
+				  <property name="visible">True</property>
+				  <property name="homogeneous">False</property>
+				  <property name="spacing">0</property>
+
+				  <child>
+				    <widget class="GtkRadioButton" id="radiobutton_mann">
+				      <property agent="glademm" name="cxx_visibility">protected</property>
+				      <property name="visible">True</property>
+				      <property name="can_focus">True</property>
+				      <property name="label" translatable="yes">männlich</property>
+				      <property name="use_underline">True</property>
+				      <property name="relief">GTK_RELIEF_NORMAL</property>
+				      <property name="focus_on_click">True</property>
+				      <property name="active">True</property>
+				      <property name="inconsistent">False</property>
+				      <property name="draw_indicator">True</property>
+				      <signal name="toggled" handler="on_radiobutton_mann_toggled"/>
+				    </widget>
+				    <packing>
+				      <property name="padding">0</property>
+				      <property name="expand">False</property>
+				      <property name="fill">False</property>
+				    </packing>
+				  </child>
+
+				  <child>
+				    <widget class="GtkRadioButton" id="radiobutton_frau">
+				      <property agent="glademm" name="cxx_visibility">protected</property>
+				      <property name="visible">True</property>
+				      <property name="can_focus">True</property>
+				      <property name="label" translatable="yes">weiblich</property>
+				      <property name="use_underline">True</property>
+				      <property name="relief">GTK_RELIEF_NORMAL</property>
+				      <property name="focus_on_click">True</property>
+				      <property name="active">False</property>
+				      <property name="inconsistent">False</property>
+				      <property name="draw_indicator">True</property>
+				      <property name="group">radiobutton_mann</property>
+				      <signal name="toggled" handler="on_radiobutton_frau_toggled"/>
+				    </widget>
+				    <packing>
+				      <property name="padding">0</property>
+				      <property name="expand">False</property>
+				      <property name="fill">False</property>
+				    </packing>
+				  </child>
+				</widget>
+			      </child>
+			    </widget>
+			    <packing>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">False</property>
+			    </packing>
+			  </child>
+
+			  <child>
+			    <widget class="GtkToolItem" id="toolitem9">
+			      <property name="visible">True</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			      <property name="is_important">False</property>
+
+			      <child>
+				<widget class="GtkVBox" id="vbox46">
+				  <property name="visible">True</property>
+				  <property name="homogeneous">False</property>
+				  <property name="spacing">5</property>
+
+				  <child>
+				    <widget class="GtkCombo" id="combo_typ">
+				      <property agent="glademm" name="cxx_visibility">protected</property>
+				      <property name="visible">True</property>
+				      <property name="value_in_list">True</property>
+				      <property name="allow_empty">False</property>
+				      <property name="case_sensitive">False</property>
+				      <property name="enable_arrow_keys">True</property>
+				      <property name="enable_arrows_always">False</property>
+
+				      <child internal-child="entry">
+					<widget class="GtkEntry" id="combo_typ_">
+					  <property name="visible">True</property>
+					  <property name="can_focus">True</property>
+					  <property name="editable">True</property>
+					  <property name="visibility">True</property>
+					  <property name="max_length">0</property>
+					  <property name="text" translatable="yes"></property>
+					  <property name="has_frame">True</property>
+					  <property name="invisible_char" translatable="yes">*</property>
+					  <property name="activates_default">False</property>
+					  <signal name="activate" handler="on_combo_typ_activate"/>
+					  <signal name="focus_out_event" handler="on_combo_typ__focus_out_event"/>
+					  <signal name="changed" handler="on_combo_typ__changed"/>
+					</widget>
+				      </child>
+
+				      <child internal-child="list">
+					<widget class="GtkList" id="convertwidget12">
+					  <property name="visible">True</property>
+					  <property name="selection_mode">GTK_SELECTION_BROWSE</property>
+
+					  <child>
+					    <widget class="GtkListItem" id="convertwidget13">
+					      <property name="visible">True</property>
+
+					      <child>
+						<widget class="GtkLabel" id="convertwidget14">
+						  <property name="visible">True</property>
+						  <property name="label" translatable="yes"></property>
+						  <property name="use_underline">False</property>
+						  <property name="use_markup">False</property>
+						  <property name="justify">GTK_JUSTIFY_LEFT</property>
+						  <property name="wrap">False</property>
+						  <property name="selectable">False</property>
+						  <property name="xalign">0</property>
+						  <property name="yalign">0.5</property>
+						  <property name="xpad">0</property>
+						  <property name="ypad">0</property>
+						</widget>
+					      </child>
+					    </widget>
+					  </child>
+					</widget>
+				      </child>
+				    </widget>
+				    <packing>
+				      <property name="padding">0</property>
+				      <property name="expand">False</property>
+				      <property name="fill">False</property>
+				    </packing>
+				  </child>
+
+				  <child>
+				    <widget class="GtkCombo" id="combo_typ2">
+				      <property agent="glademm" name="cxx_visibility">protected</property>
+				      <property name="visible">True</property>
+				      <property name="value_in_list">True</property>
+				      <property name="allow_empty">False</property>
+				      <property name="case_sensitive">False</property>
+				      <property name="enable_arrow_keys">True</property>
+				      <property name="enable_arrows_always">False</property>
+
+				      <child internal-child="entry">
+					<widget class="GtkEntry" id="combo_typ2_">
+					  <property name="visible">True</property>
+					  <property name="can_focus">True</property>
+					  <property name="editable">True</property>
+					  <property name="visibility">True</property>
+					  <property name="max_length">0</property>
+					  <property name="text" translatable="yes"></property>
+					  <property name="has_frame">True</property>
+					  <property name="invisible_char" translatable="yes">*</property>
+					  <property name="activates_default">False</property>
+					  <signal name="activate" handler="on_combo_typ2_activate"/>
+					  <signal name="focus_out_event" handler="on_combo_typ2_focus_out_event"/>
+					  <signal name="changed" handler="on_combo_typ2__changed"/>
+					</widget>
+				      </child>
+
+				      <child internal-child="list">
+					<widget class="GtkList" id="convertwidget15">
+					  <property name="visible">True</property>
+					  <property name="selection_mode">GTK_SELECTION_BROWSE</property>
+
+					  <child>
+					    <widget class="GtkListItem" id="convertwidget16">
+					      <property name="visible">True</property>
+
+					      <child>
+						<widget class="GtkLabel" id="convertwidget17">
+						  <property name="visible">True</property>
+						  <property name="label" translatable="yes"></property>
+						  <property name="use_underline">False</property>
+						  <property name="use_markup">False</property>
+						  <property name="justify">GTK_JUSTIFY_LEFT</property>
+						  <property name="wrap">False</property>
+						  <property name="selectable">False</property>
+						  <property name="xalign">0</property>
+						  <property name="yalign">0.5</property>
+						  <property name="xpad">0</property>
+						  <property name="ypad">0</property>
+						</widget>
+					      </child>
+					    </widget>
+					  </child>
+					</widget>
+				      </child>
+				    </widget>
+				    <packing>
+				      <property name="padding">0</property>
+				      <property name="expand">False</property>
+				      <property name="fill">False</property>
+				    </packing>
+				  </child>
+				</widget>
+			      </child>
+			    </widget>
+			    <packing>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">False</property>
+			    </packing>
+			  </child>
+
+			  <child>
+			    <widget class="GtkToolItem" id="toolitem10">
+			      <property name="visible">True</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			      <property name="is_important">False</property>
+
+			      <child>
+				<widget class="GtkVBox" id="vbox48">
+				  <property name="visible">True</property>
+				  <property name="homogeneous">False</property>
+				  <property name="spacing">0</property>
+
+				  <child>
+				    <widget class="GtkRadioButton" id="radiobutton_stadt">
+				      <property agent="glademm" name="cxx_visibility">protected</property>
+				      <property name="visible">True</property>
+				      <property name="can_focus">True</property>
+				      <property name="label" translatable="yes">Stadt</property>
+				      <property name="use_underline">True</property>
+				      <property name="relief">GTK_RELIEF_NORMAL</property>
+				      <property name="focus_on_click">True</property>
+				      <property name="active">False</property>
+				      <property name="inconsistent">False</property>
+				      <property name="draw_indicator">True</property>
+				      <signal name="toggled" handler="on_radiobutton_stadt_land_toggled"/>
+				    </widget>
+				    <packing>
+				      <property name="padding">0</property>
+				      <property name="expand">False</property>
+				      <property name="fill">False</property>
+				    </packing>
+				  </child>
+
+				  <child>
+				    <widget class="GtkRadioButton" id="radiobutton_land">
+				      <property agent="glademm" name="cxx_visibility">protected</property>
+				      <property name="visible">True</property>
+				      <property name="can_focus">True</property>
+				      <property name="label" translatable="yes">Land</property>
+				      <property name="use_underline">True</property>
+				      <property name="relief">GTK_RELIEF_NORMAL</property>
+				      <property name="focus_on_click">True</property>
+				      <property name="active">False</property>
+				      <property name="inconsistent">False</property>
+				      <property name="draw_indicator">True</property>
+				      <property name="group">radiobutton_stadt</property>
+				      <signal name="toggled" handler="on_radiobutton_stadt_land_toggled"/>
+				    </widget>
+				    <packing>
+				      <property name="padding">0</property>
+				      <property name="expand">False</property>
+				      <property name="fill">False</property>
+				    </packing>
+				  </child>
+				</widget>
+			      </child>
+			    </widget>
+			    <packing>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">False</property>
+			    </packing>
+			  </child>
+
+			  <child>
+			    <widget class="GtkToolButton" id="button_abg_werte">
+			      <property agent="glademm" name="cxx_visibility">protected</property>
+			      <property name="visible">True</property>
+			      <property name="can_focus">True</property>
+			      <property name="label" translatable="yes">Abgeleitete
+Werte</property>
+			      <property name="use_underline">True</property>
+			      <property name="icon">Dices2-trans-50.xpm</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			      <property name="is_important">False</property>
+			      <signal name="clicked" handler="on_abge_werte_setzen_clicked"/>
+			    </widget>
+			    <packing>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">True</property>
+			    </packing>
+			  </child>
+
+			  <child>
+			    <widget class="GtkToolItem" id="eventbox_werte_edit_dummy">
+			      <property name="visible">True</property>
+			      <property name="visible_horizontal">True</property>
+			      <property name="visible_vertical">True</property>
+			      <property name="is_important">False</property>
+
+			      <child>
+				<widget class="GtkHBox" id="eventbox_werte_edit">
+				  <property agent="glademm" name="cxx_visibility">protected</property>
+				  <property name="visible">True</property>
+				  <property name="homogeneous">False</property>
+				  <property name="spacing">0</property>
+
+				  <child>
+				    <placeholder/>
+				  </child>
+				</widget>
+			      </child>
+			    </widget>
+			    <packing>
+			      <property name="expand">False</property>
+			      <property name="homogeneous">False</property>
+			    </packing>
+			  </child>
+			</widget>
+			<packing>
+			  <property name="left_attach">0</property>
+			  <property name="right_attach">2</property>
+			  <property name="top_attach">0</property>
+			  <property name="bottom_attach">1</property>
+			  <property name="x_options">expand|shrink|fill</property>
+			  <property name="y_options">shrink</property>
 			</packing>
 		      </child>
 		    </widget>
@@ -7063,7 +7063,7 @@ auswählen</property>
 		      <property name="show_tabs">True</property>
 		      <property name="show_border">False</property>
 		      <property name="tab_pos">GTK_POS_LEFT</property>
-		      <property name="scrollable">False</property>
+		      <property name="scrollable">True</property>
 		      <property name="enable_popup">False</property>
 		      <signal name="switch_page" handler="on_notebook_lernen_switch_page" after="yes"/>
 
@@ -7159,7 +7159,7 @@ auswählen</property>
 			</widget>
 			<packing>
 			  <property name="tab_expand">False</property>
-			  <property name="tab_fill">True</property>
+			  <property name="tab_fill">False</property>
 			</packing>
 		      </child>
 
@@ -7431,7 +7431,7 @@ auswählen</property>
 			</widget>
 			<packing>
 			  <property name="tab_expand">False</property>
-			  <property name="tab_fill">True</property>
+			  <property name="tab_fill">False</property>
 			</packing>
 		      </child>
 
@@ -7705,7 +7705,7 @@ auswählen</property>
 			</widget>
 			<packing>
 			  <property name="tab_expand">False</property>
-			  <property name="tab_fill">True</property>
+			  <property name="tab_fill">False</property>
 			</packing>
 		      </child>
 
@@ -7838,7 +7838,7 @@ auswählen</property>
 			</widget>
 			<packing>
 			  <property name="tab_expand">False</property>
-			  <property name="tab_fill">True</property>
+			  <property name="tab_fill">False</property>
 			</packing>
 		      </child>
 
@@ -8219,7 +8219,7 @@ PP lernen</property>
 			</widget>
 			<packing>
 			  <property name="tab_expand">False</property>
-			  <property name="tab_fill">True</property>
+			  <property name="tab_fill">False</property>
 			</packing>
 		      </child>
 
@@ -8264,7 +8264,7 @@ PP lernen</property>
 			    </widget>
 			    <packing>
 			      <property name="padding">0</property>
-			      <property name="expand">True</property>
+			      <property name="expand">False</property>
 			      <property name="fill">True</property>
 			    </packing>
 			  </child>
@@ -8887,8 +8887,8 @@ eingeben</property>
 			  </child>
 			</widget>
 			<packing>
-			  <property name="tab_expand">True</property>
-			  <property name="tab_fill">True</property>
+			  <property name="tab_expand">False</property>
+			  <property name="tab_fill">False</property>
 			</packing>
 		      </child>
 
@@ -8932,7 +8932,7 @@ eingeben</property>
 			    </widget>
 			    <packing>
 			      <property name="padding">0</property>
-			      <property name="expand">True</property>
+			      <property name="expand">False</property>
 			      <property name="fill">True</property>
 			    </packing>
 			  </child>
@@ -8949,31 +8949,6 @@ eingeben</property>
 		      <property name="bottom_attach">3</property>
 		      <property name="x_options">expand|shrink|fill</property>
 		      <property name="y_options">expand|shrink|fill</property>
-		    </packing>
-		  </child>
-
-		  <child>
-		    <widget class="GtkFrame" id="frame_spezielles">
-		      <property agent="glademm" name="cxx_visibility">protected</property>
-		      <property name="visible">True</property>
-		      <property name="label_xalign">0</property>
-		      <property name="label_yalign">0.5</property>
-		      <property name="shadow_type">GTK_SHADOW_IN</property>
-		      <accessibility>
-			<atkproperty name="AtkObject::accessible_name" translatable="yes">frame_spez</atkproperty>
-		      </accessibility>
-
-		      <child>
-			<placeholder/>
-		      </child>
-		    </widget>
-		    <packing>
-		      <property name="left_attach">0</property>
-		      <property name="right_attach">1</property>
-		      <property name="top_attach">1</property>
-		      <property name="bottom_attach">2</property>
-		      <property name="x_options">shrink|fill</property>
-		      <property name="y_options">shrink|fill</property>
 		    </packing>
 		  </child>
 
@@ -12486,6 +12461,30 @@ eingeben</property>
 		      <property name="bottom_attach">1</property>
 		      <property name="x_options">shrink|fill</property>
 		      <property name="y_options">shrink</property>
+		    </packing>
+		  </child>
+
+		  <child>
+		    <widget class="GtkFrame" id="frame_spezielles">
+		      <property agent="glademm" name="cxx_visibility">protected</property>
+		      <property name="label_xalign">0</property>
+		      <property name="label_yalign">0.5</property>
+		      <property name="shadow_type">GTK_SHADOW_IN</property>
+		      <accessibility>
+			<atkproperty name="AtkObject::accessible_name" translatable="yes">frame_spez</atkproperty>
+		      </accessibility>
+
+		      <child>
+			<placeholder/>
+		      </child>
+		    </widget>
+		    <packing>
+		      <property name="left_attach">0</property>
+		      <property name="right_attach">2</property>
+		      <property name="top_attach">1</property>
+		      <property name="bottom_attach">2</property>
+		      <property name="x_options">shrink|fill</property>
+		      <property name="y_options">shrink|fill</property>
 		    </packing>
 		  </child>
 		</widget>

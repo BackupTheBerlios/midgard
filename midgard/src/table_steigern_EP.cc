@@ -22,41 +22,27 @@
 #include <Misc/itos.h>
 
 bool table_steigern::vscale_value_changed(GdkEventButton *ev)
-{
-  Gtk::Adjustment *A=vscale_EP_Gold->get_adjustment();
-  int Av=(int)A->get_value();
-  hauptfenster->getAben().set_Steigern_EP_Prozent(100-Av);
+{ Window2Abenteurer();
   steigern_gtk();
   return false;
 }
 
 void table_steigern::steigern_gtk()
 {
-  label_EP->set_text(itos(hauptfenster->getAben().get_Steigern_EP_Prozent())+"%");
-  label_Gold->set_text(itos(100-hauptfenster->getAben().get_Steigern_EP_Prozent())+"%");
+  label_EP->set_text(itos(hauptfenster->getAben().fpanteil)+"%");
+  label_Gold->set_text(itos(hauptfenster->getAben().goldanteil)+"%");
   Gtk::Adjustment *A=vscale_EP_Gold->get_adjustment();
-  A->set_value(100-hauptfenster->getAben().get_Steigern_EP_Prozent());
-//  if (steigern_mit_EP_bool) checkbutton_EP_Geld->set_active(true);
-//  else                      checkbutton_EP_Geld->set_active(false);
+  A->set_value(hauptfenster->getAben().fpanteil);
 }
 
 void table_steigern::on_checkbutton_EP_Geld_toggled()
-{
+{  Window2Abenteurer();
 }
-
-/*
-void table_steigern::on_button_EP_toggled()
-{
- show_EPeingabe(button_EP->get_active());  
- spinbutton_aep->grab_focus();
-}
-*/
 
 void table_steigern::on_button_EP_eingeben()
 { 
 // if(ev->button==3) button_EP->set_active(!button_EP->get_active());
  show_EPeingabe(button_EP->get_active(),1);
-// return false;
 }
 
 
@@ -86,33 +72,6 @@ void table_steigern::show_EPeingabe(bool b,int button)
       LabelSpin_kep->deaktivate();
       LabelSpin_zep->deaktivate();
    }             
-
-/*
-  if(b)
-   {
-     spinbutton_aep->set_value(hauptfenster->getAben().AEP());
-     spinbutton_kep->set_value(hauptfenster->getAben().KEP());
-     spinbutton_zep->set_value(hauptfenster->getAben().ZEP());
-     spinbutton_aep->show();
-     spinbutton_kep->show();
-     spinbutton_zep->show();
-     label_aep->hide();
-     label_kep->hide();
-     label_zep->hide();
-   }
-  else
-   {
-     spinbutton_aep->hide();
-     spinbutton_kep->hide();
-     spinbutton_zep->hide();
-     label_aep->set_text(itos(hauptfenster->getAben().AEP()));
-     label_kep->set_text(itos(hauptfenster->getAben().KEP()));
-     label_zep->set_text(itos(hauptfenster->getAben().ZEP()));
-     label_aep->show();
-     label_kep->show();
-     label_zep->show();
-   }
-*/
 }
  
 
@@ -120,11 +79,13 @@ void table_steigern::on_togglebutton_pp_verfallen_toggled()
 {
   if(togglebutton_pp_verfallen->get_active())
    togglebutton_pp_aep_fuellen->set_active(false);  
+  Window2Abenteurer();
 }
 
 void table_steigern::on_togglebutton_pp_aep_fuellen_toggled()
 {
   if(togglebutton_pp_aep_fuellen->get_active())
    togglebutton_pp_verfallen->set_active(false);  
+  Window2Abenteurer();
 }
 

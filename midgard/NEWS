@@ -2,6 +2,10 @@ Version 0.9.6
 - Expander haben nun sinnvolle Überschriften
 - Auswahl bzgl. "wie Steigern" wird in Grundwerte festgehalten
 - NotFound (WaffeGrund) bei Verteidigungswaffen behoben
+- Wie gesteigert wird ist nun eine Eigenschaft des Abenteurers
+	(und setzt sich so nicht immer zurück)
+- Werte editieren Knopf sollte jetzt wieder da sein 
+	(ob das eine Toolbar sein sollte ...)
 
 -------------- TODO ----------------
 

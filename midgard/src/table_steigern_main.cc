@@ -71,7 +71,7 @@ std::string table_steigern::SpruecheMitPP()
 /////////////////////////////////////////////////////////
 
 void table_steigern::on_radio_unterweisung_toggled()
-{
+{ Window2Abenteurer();
  if(radiobutton_unterweisung->get_active())
   {
     steigern_gtk();
@@ -89,10 +89,10 @@ void table_steigern::on_radio_unterweisung_toggled()
   }
 }
 void table_steigern::on_radio_selbst_toggled()
-{
+{  Window2Abenteurer();
 }
 void table_steigern::on_radio_praxis_toggled()
-{
+{  Window2Abenteurer();
   if(radiobutton_praxis->get_active())
      table_pp_einstellungen->show();//set_sensitive(true);
   else

@@ -5,6 +5,7 @@
 #### das finde ich (CP) beunruhigend #################################
 - irgendwie werden ziemlich oft neue Abenteurer erzeugt (die Nummern gehen
 	hoch)
+- eingeklammerte Typen können nicht gewählt werden ...
 ######################################################################
 
 - undosave _vor_ jeder Änderung (am Besten in libmagus selbst)

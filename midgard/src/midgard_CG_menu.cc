@@ -30,7 +30,11 @@ extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 #if MPC_SIGC_VERSION > 0x120
 #  include <sigc++/bind.h>
 #endif
+#include "prop-editor.h"
 
+// nach reiflicher �berlegung bin ich zu dem Entschluss gekommen, dass
+// make_gtk_box den R�ckgabewert bereits show't (Schlie�lich ist es eine Referenz)
+// dies widerspricht zwar allen gtkmm Konventionen ... CP Jun 2004
 Gtk::Box &midgard_CG::make_gtk_box(Glib::RefPtr<Gdk::Pixbuf> data,const std::string &label,const bool text_vor_bild,const bool hbox)
 {
   Gtk::Image *_p=Gtk::manage(new Gtk::Image(data));
@@ -44,42 +48,50 @@ Gtk::Box &midgard_CG::make_gtk_box(Glib::RefPtr<Gdk::Pixbuf> data,const std::str
                        _v->pack_start(*_l,false,false); }
   _p->show();
   _l->show();
+  _v->show();
   return *_v;
 }
- 
+
+static void prop_adaptor(GtkWindow*o)
+{  create_prop_editor(G_OBJECT(o),0);
+} 
 
 void midgard_CG::menu_init()
 {
   menu_kontext=Gtk::manage(new Gtk::Menu());
 
-//Schummel-MenÃŒ/////////////////////////////////////////////////////////////////////
+//Schummel-Menü/////////////////////////////////////////////////////////////////////
   Gtk::Menu *schummel_menu = Gtk::manage(new class Gtk::Menu());
-  Gtk::MenuItem *schummel = Gtk::manage(new class Gtk::MenuItem("Original-Regel-MenÃŒ"));
+  Gtk::MenuItem *schummel = Gtk::manage(new class Gtk::MenuItem("Original-Regel-Menü"));
   schummel->set_submenu(*schummel_menu);
 
   {Gtk::MenuItem *_M=Gtk::manage(new Gtk::MenuItem(make_gtk_box(MagusImage("NSC-Mode-26.xpm"),"alle Regeln abschalten")));
   schummel_menu->append(*_M);
+  _M->show();
   _M->signal_activate().connect(SigC::slot(*this,&midgard_CG::Schummeln),true);}
 
   Gtk::MenuItem *trennlinie = (Gtk::MenuItem *)&schummel_menu->items().back();
   trennlinie->show();
 
   {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(getChar().proxies.checks[Optionen::Original],make_gtk_box(MagusImage("midgard_logo_tiny.xpm"),"Originalregeln ")));
-  schummel_menu->append(*_M);}
+  schummel_menu->append(*_M);
+  _M->show();}
 
   {Gtk::MenuItem *_M = Gtk::manage(new Gtk::MenuItem("Lernschema- und Steigern-Fenster aktivieren"));
   schummel_menu->append(*_M);
-  _M->signal_activate().connect(SigC::bind(SigC::slot(*this,&midgard_CG::OptionenExecute_setzen_from_menu),Magus_Optionen::LernschemaSensitive),true);}
+  _M->signal_activate().connect(SigC::bind(SigC::slot(*this,&midgard_CG::OptionenExecute_setzen_from_menu),Magus_Optionen::LernschemaSensitive),true);
+  _M->show();}
 
   {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(table_grundwerte->edit_werte,"Werte editieren"));
-  schummel_menu->append(*_M);}
+  schummel_menu->append(*_M);
+  _M->show();}
 
 //  {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(table_steigern->steigern_mit_EP_bool,"Mit EP/PP steigern"));
 //  schummel_menu->append(*_M);}
 #warning Schummeln
 
   {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(getChar().proxies.checks[Optionen::NSC_only],"NSC-Modus"));
-  schummel_menu->append(*_M);}
+  schummel_menu->append(*_M); _M->show();}
 
   menu_kontext->append(*schummel);
 
@@ -96,10 +108,10 @@ void midgard_CG::menu_init()
   drucken_menu->append(*latex_beschreibung);
   latex_beschreibung->signal_activate().connect(SigC::slot(*this,&midgard_CG::on_beschreibung_drucken));
 
-  Gtk::MenuItem *latex_ausruestung = Gtk::manage(new class Gtk::MenuItem("AusrÃŒstungsdokument drucken (Alles)"));
+  Gtk::MenuItem *latex_ausruestung = Gtk::manage(new class Gtk::MenuItem("Ausrüstungsdokument drucken (Alles)"));
   drucken_menu->append(*latex_ausruestung);
   latex_ausruestung->signal_activate().connect(SigC::slot(*this,&midgard_CG::on_auch_unsichtbares_drucken));
-  Gtk::MenuItem *latex_ausruestung2 = Gtk::manage(new class Gtk::MenuItem("AusrÃŒstungsdokument drucken (Nur sichtbare GegenstÃ€nde)"));
+  Gtk::MenuItem *latex_ausruestung2 = Gtk::manage(new class Gtk::MenuItem("Ausrüstungsdokument drucken (Nur sichtbare GegenstÃ€nde)"));
   drucken_menu->append(*latex_ausruestung2);
   latex_ausruestung2->signal_activate().connect(SigC::slot(*this,&midgard_CG::on_nur_sichtbares_drucken));
 
@@ -172,6 +184,11 @@ void midgard_CG::menu_init()
    } 
   menu_kontext->append(*optionen);
 ///////////////////////////////////////////////////////////////////////////////
+  { Gtk::MenuItem *mi=new Gtk::MenuItem("widget properties");
+    menu_kontext->append(*mi);
+    mi->show();
+    mi->signal_activate().connect(SigC::bind(SigC::slot(&prop_adaptor),gobj()));
+  }
   menu_kontext->show_all();
 
 ///////////
@@ -181,7 +198,7 @@ void midgard_CG::menu_init()
 /*
 static void wert_changed(gpointer gp)
 { 
-  std::cout << "MENÃ: WC: "<<  *(bool*)(gp)<<'\n';
+  std::cout << "MENÜ: WC: "<<  *(bool*)(gp)<<'\n';
 } 
 */ 
 
