@@ -47,9 +47,10 @@ double midgard_CG::get_standard_zauber(const string& typ, const string& zauber)
      snprintf(query,sizeof(query),"select coalesce(%s,'') from arkanum_zauber where name = '%s'",
                typ.c_str(), zauber.c_str());
   if (typ=="eBe")
-     snprintf(query,sizeof(query),"select coalesce(%s,'') coalesce(p_element,''),
-               coalesce(s_element,'') from arkanum_zauber where name = '%s'",
+     snprintf(query,sizeof(query),"select coalesce(%s,''), coalesce(p_element,''),\
+               coalesce(s_element,'') from arkanum_zauber where name = '%s'", \
                typ.c_str(), zauber.c_str());
+//cout << query<<"\n";
    Transaction tr;
    exec sql prepare zaub from :query ;    
    exec sql declare zauber cursor for zaub ;

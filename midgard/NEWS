@@ -1,4 +1,11 @@
 ##########################################################################
+NEWS IN VERSION 0.4beta5
+- Joachim Jordan und ich haben zusammen die Beschwörungen (hoffentlich) 
+   fertig gestellt. Damit sollten jetzt eigentlich Beschwörer beider Kategorien
+   lern- und steigerbar sein.
+- Elementarbeschwörer führte zu Abstürzen.
+
+##########################################################################
 NEWS IN VERSION 0.4beta4
 - Thaumaturgen können jetzt auch 'Schutzrunen', 'Große Siegel' und 
    'magische Lettern' lernen.

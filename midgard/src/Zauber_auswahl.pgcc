@@ -58,7 +58,7 @@ Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const st_werte& werte, const string
       order by lernpunkte ";
 
    strncpy(query,squery.c_str(),sizeof(query));
-cout <<  query<<"\n";
+//cout <<  query<<"\n";
    Transaction tr;
     exec sql prepare zauber_ from :query;
     exec sql declare zauber cursor for zauber_;
