@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<MAGUS-data Region="Arkanum" Name="Arkanum" Titel="Das Arkanum" Copyright="Jürgen E. Franke" Jahr="2000" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-1" MAGUS-Bild="9" CVS="$Revision: 1.19 $">
+<MAGUS-data Region="Arkanum" Name="Arkanum" Titel="Das Arkanum" Copyright="Jürgen E. Franke" Jahr="2000" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-1" MAGUS-Bild="9" CVS="$Revision: 1.20 $">
  <Zauber>
   <Spruch Name="Allheilung" Grad="5" Lernkosten="2500" AP="6" Typ="Geste" Ursprung="göttlich" Agens="Holz" Prozess="erschafft" Reagens="Erde" Zauberdauer="30 min" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="0">
    <Grund Typ="Hl"/>
@@ -2671,6 +2671,7 @@
    <Lernschema Typ="ScS" Lernpunkte="4"/>
    <Lernschema Typ="ScW" Lernpunkte="4"/>
    <Lernschema Typ="Th" Lernpunkte="4"/>
+   <Beschreibung>Der Zauberer kann seinen Körper im Rahmen seiner Art gesetzten Grenzen völlig beherrschen. So kann ein Mensch für die Dauer des Zaubers seine Muskeln so versteifen, da�&#x9F; er in etwa die Stärke eines Ogers erhält. Er kann die Kraft aber nur passiv anwenden (z.B. Zuhalten einer Tür, abstützen einer einstürzenden Decke, Festhalten eines Gegenstandes,...) nicht aber aktiv (z.B. gezieltes Werfen von Gegenständen, Verbiegen einer Eisenstange,...)&#x0D;</Beschreibung>
   </Spruch>
   <Spruch Name="Macht über den Tod" Grad="5" Lernkosten="2000" AP="6/9" Typ="Wort" Ursprung="dämonisch" Agens="Eis" Prozess="verändert" Reagens="Erde" Zauberdauer="1 h" Reichweite="-" Wirkungsziel="Umgebung" Wirkungsbereich="1 Ws" Wirkungsdauer="perm">
    <Grund Typ="Ma"/>
