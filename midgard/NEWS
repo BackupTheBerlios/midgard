@@ -16,6 +16,9 @@ NEWS IN VERSION 0.8.9
 * Die Abzüge auf B sind jetzt Speziesspezifisch
 * Gewicht der Rüstung wird bei der Belastung nicht mitgerechnet
 * Cool: Wenn ein neuer Grad erreicht ist, dann blinkt der Grad-steigern-Knopf
+* Vorraussetzung 'schlank' mit sinnvoller Ausgabe
+* Verbotene Waffen bei Spielbeginn wieder korrekt berücksichtigt
+* Spezialwaffen nur bis max. 1 (Nahkampf) bzw. 2 (Fernkampf) Lernpunkte
 
 TODO: ('-' zeigt CP an)
 
@@ -23,6 +26,15 @@ TODO: ('-' zeigt CP an)
 * Hilfe Menü ans Ende
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
   der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 
+> 4) Als ich das auf der Steigern-Karte rückgängig machen wollte, habe ich
+> versehentlich "Verlernen" ausgewählt. Und damit war das Schlachtbeil
+> weg... Auch mit dem Rückgängig-Button konnte ich sie nicht wieder
+> hervorzaubern. (Ich kenne die Workarounds.)
+> 10) Wenn ich eine Fertigkeit steigere, die im nach unten gescrollten
+> Bereich der Übersicht gelernte Fertigkeiten steht, springt das Fenster
+> nach dem Lernen immer nach oben, so dass ich, falls ich diese Fertigkeit
+> weiter steigern will, erst immer nach unten scrollen muss. Etwas
+> unpraktisch. 
 - dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
   man etwas hinzufügen möchte, ist nicht gerade intuitiv
   (vielleicht drag'n'drop oder CTree verschieben)
