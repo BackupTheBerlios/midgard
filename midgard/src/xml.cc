@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.39 2002/10/02 13:12:05 christof Exp $
+// $Id: xml.cc,v 1.40 2002/10/02 14:07:59 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -35,6 +35,37 @@ typedef std::map<std::string,Tag::difference_type> fastfind_t;
 static fastfind_t fastfind_cache;
 static std::string make_key(const xml_liste &tagprops,const Tag &t);
 
+static void reserve(Tag *t, const std::string &type, unsigned int sz)
+{  Tag *n=t->find(type);
+   if (!n) { t->push_back(Tag(type)); n=&(t->back()); assert(n->Type()==type); }
+   n->reserve(sz);
+}
+
+static void reserve(Tag *t)
+{  t->reserve(64);
+//   reserve(t,"Länder",8); // geht irgendwie nicht ...
+   reserve(t,"Schriften",32);
+   reserve(t,"Sprachen",64);
+   reserve(t,"SpeziesListe",16);
+   reserve(t,"Gradanstieg",16);
+   reserve(t,"Typen",64);
+   reserve(t,"Preise",256);
+   reserve(t,"Fertigkeiten",256);
+   reserve(t,"angeboreneFertigkeiten",32);
+   reserve(t,"Berufe",256);
+   reserve(t,"verwendbareEP",8);
+   reserve(t,"SteigernKosten",8);
+   reserve(t,"Rüstungen",32);
+   reserve(t,"Waffen",128);
+   reserve(t,"Waffen-Grundkenntnisse",32);
+   reserve(t,"Waffen-Steigern",16);
+   reserve(t,"KI",32);
+   reserve(t,"Zauber",1024);
+   reserve(t,"Zauberwerke",512);
+   reserve(t,"Spezialgebiete",32);
+   reserve(t,"Kido-Fertigkeiten",64);
+}
+
 void xml_init(Gtk::ProgressBar *progressbar, midgard_CG *hauptfenster)
 {  std::string filename=hauptfenster->with_path("midgard.xml");
    if (top) return; // oder merge?
@@ -49,6 +80,8 @@ void xml_init(Gtk::ProgressBar *progressbar, midgard_CG *hauptfenster)
    {  cerr << "Ladefehler XML Datei " << filename << "\n";
       exit(2);
    }
+   
+   reserve(xml_data_mutable);
    
    double anzdateien=1;
    FOR_EACH_CONST_TAG(i,*xml_data_mutable)
@@ -111,6 +144,11 @@ reloop:
 #if 0
     for (fastfind_t::const_iterator i=fastfind_cache.begin();i!=fastfind_cache.end();++i)
        std::cout << i->first << '@' << i->second << '\n';
+#endif  
+#if 1  
+    FOR_EACH_CONST_TAG(i,*xml_data_mutable)
+    {  std::cout << i->Type() << '#' << i->size() << '\n';
+    }
 #endif    
     fastfind_cache.clear();
     xml_data=xml_data_mutable;
