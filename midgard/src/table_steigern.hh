@@ -13,11 +13,11 @@
 #  include "table_steigern_glade.hh"
 #  define _TABLE_STEIGERN_HH
 class midgard_CG;
-//#include "midgard_CG.hh"
 #include "MidgardBasicElement.hh"
 #include <list>
 class LernListen;
 #include "Enums.hh"
+#include <MVC.h>
 
 class table_steigern : public table_steigern_glade
 {  
@@ -37,7 +37,7 @@ class table_steigern : public table_steigern_glade
         std::list<MBEmlt> list_Sprache_neu;
         std::list<MBEmlt> list_Schrift_neu;
 
-        bool steigern_mit_EP_bool;
+        MVC<bool> steigern_mit_EP_bool;
         enum enum_notebook_lernen{PAGE_FERTIGKEITEN,PAGE_WAFFEN,PAGE_ZAUBER,
                                   PAGE_KIDO,PAGE_SPRACHE,PAGE_BESITZ};
                                   
@@ -48,7 +48,8 @@ class table_steigern : public table_steigern_glade
 public:
         
         table_steigern(GlademmData *_data) 
-         : table_steigern_glade(_data),hauptfenster(0),LL(0) {}
+         : table_steigern_glade(_data),hauptfenster(0),LL(0),
+            steigern_mit_EP_bool(true) {}
         void init(midgard_CG *hauptfenster);
 
 private:

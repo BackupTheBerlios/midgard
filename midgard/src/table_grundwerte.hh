@@ -15,6 +15,7 @@
 
 class midgard_CG;
 #include <vector>
+#include <MVC.h>
 
 class table_grundwerte : public table_grundwerte_glade
 {  
@@ -27,11 +28,12 @@ class table_grundwerte : public table_grundwerte_glade
         midgard_CG *hauptfenster;
 
         bool block_changed;
+        MVC<bool> edit_werte;
 public:
         
         table_grundwerte(GlademmData *_data) 
             : table_grundwerte_glade(_data), hauptfenster(0),
-              block_changed(false),label(0) {}
+              block_changed(false),edit_werte(false),label(0) {}
         void init(midgard_CG *hauptfenster);
         void fill_typauswahl();  
         void fill_typauswahl_2();

@@ -36,18 +36,12 @@ void table_steigern::steigern_gtk()
   label_Gold->set_text(itos(100-hauptfenster->getWerte().get_Steigern_EP_Prozent())+"%");
   Gtk::Adjustment *A=vscale_EP_Gold->get_adjustment();
   A->set_value(100-hauptfenster->getWerte().get_Steigern_EP_Prozent());
-  if (steigern_mit_EP_bool) checkbutton_EP_Geld->set_active(true);
-  else                      checkbutton_EP_Geld->set_active(false);
+//  if (steigern_mit_EP_bool) checkbutton_EP_Geld->set_active(true);
+//  else                      checkbutton_EP_Geld->set_active(false);
 }
 
 void table_steigern::on_checkbutton_EP_Geld_toggled()
 {
-   if (checkbutton_EP_Geld->get_active()) 
-      { steigern_mit_EP_bool=true;
-      }
-   else 
-      { steigern_mit_EP_bool=false;
-      }
 }
 
 /*

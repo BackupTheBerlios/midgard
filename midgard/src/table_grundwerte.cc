@@ -11,6 +11,12 @@
 #include <Misc/itos.h>
 #include <SelectMatching.h>
 #include <Misc/Trace.h>
+#include <../pixmaps/EditChar-trans-50.xpm>
+
+#include<gtk--/label.h>
+#include<gtk--/pixmap.h>
+#include<gtk--/box.h>
+#include <MVC_bool_Widget.hh>
 
 void table_grundwerte::init(midgard_CG *h)
 {
@@ -29,7 +35,22 @@ void table_grundwerte::init(midgard_CG *h)
   Vhand[1]="Linkshänder"; 
   Vhand[2]="Beidhändig";  
 
-  togglebutton_edit_werte->set_active(false);
+  static bool only_once=false;
+  if(!only_once)
+  {
+   only_once=true;
+   Gtk::VBox *_box=manage(new Gtk::VBox());
+   Gtk::Label *_label=manage(new Gtk::Label("Werte\neditieren"));
+   Gtk::Pixmap *_pix=manage(new Gtk::Pixmap(EditChar_trans_50_xpm));
+   _box->pack_start(*_pix);
+   _box->pack_start(*_label);
+   MVC_bool_Widget *_m=manage(new MVC_bool_Widget(edit_werte,*_box));
+   _m->set_mode(false);
+   eventbox_werte_edit->add(*_m);
+   eventbox_werte_edit->show_all();
+   _m->toggled.connect_after(SigC::slot(this, &table_grundwerte::on_togglebutton_edit_werte_toggled));
+  }
+//  togglebutton_edit_werte->set_active(false);
   edit_sensitive(false);
   zeige_werte();
 }

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.302 2002/11/25 12:09:47 thoma Exp $
+// $Id: midgard_CG.hh,v 1.303 2002/11/25 22:25:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -111,7 +111,6 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
    private:
         Midgard_Optionen *MOptionen;
         void OptionenExecute_setzen_from_menu(Midgard_Optionen::OptionenExecuteIndex index);
-//        void Ober_setzen_from_menu(Gtk::CheckMenuItem *mi,Midgard_Optionen::OberIndex index);
         void Ober_element_activate(gpointer gp,Midgard_Optionen::OberIndex index);
         void autoshrink(bool b);
         void show_Pics(bool b);
@@ -127,7 +126,8 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
         enum e_icon {iNew,iOpen,iClose,iPrint,iBack,iForward,iMenu,iInfo,
                      iInstruction,iExit,iJa,iNein,iOK,iErase,
                      iEigenschaften,iAbgeleitet,
-                     iEditGrund,iAngeFert,iLernpunkte,iLernEdit,iBeruf,
+                     iEditGrund,iHerkunft,
+                     iAngeFert,iLernpunkte,iLernEdit,iBeruf,
                      iGeld,iWaffen,
                      iRuestung,iAusruestung,iEigenschaft,iBildeinfuegen,
                      iDeleteA,iDeleteAusr,

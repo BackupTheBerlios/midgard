@@ -14,6 +14,9 @@
 #include "LernListen.hh"
 #include "../pixmaps/Anpass-trans-50.xpm"
 #include "../pixmaps/Anpass-trans-50_invers.xpm"
+#include "../pixmaps/EP-Steigern-50.xpm"
+#include <MVC_bool_Widget.hh>
+
 
 void table_steigern::init(midgard_CG *h)
 {
@@ -25,7 +28,7 @@ void table_steigern::init(midgard_CG *h)
   zeige_werte();
   load_for_page(notebook_lernen->get_current_page_num());
   steigern_mit_EP_bool=true;
-  checkbutton_EP_Geld->set_active(steigern_mit_EP_bool);
+//  checkbutton_EP_Geld->set_active(steigern_mit_EP_bool);
 
   if(SpruecheMitPP().empty())
       { radiobutton_pp_spezial->hide();
@@ -39,7 +42,22 @@ void table_steigern::init(midgard_CG *h)
         radiobutton_pp_spezial->add(*l);
         frame_pp_spezial->set_label(SpruecheMitPP());
      }
-    
+
+  static bool only_once=false;
+  if(!only_once)
+  {
+   only_once=true;
+   Gtk::HBox *_box=manage(new Gtk::HBox());
+   Gtk::Label *_label=manage(new Gtk::Label("Mit EP/PP\nsteigern"));
+   Gtk::Pixmap *_pix=manage(new Gtk::Pixmap(EP_Steigern_50_xpm));
+   _box->pack_start(*_pix);
+   _box->pack_start(*_label);
+   MVC_bool_Widget *_m=manage(new MVC_bool_Widget(steigern_mit_EP_bool,*_box));
+   _m->set_mode(false);
+   _m->toggled.connect_after(SigC::slot(this, &table_steigern::on_checkbutton_EP_Geld_toggled));
+   eventbox_eppp_steigern->add(*_m);
+   eventbox_eppp_steigern->show_all();
+  }
 }
 
 void table_steigern::neuer_charakter()

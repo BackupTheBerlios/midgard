@@ -26,7 +26,7 @@ BegruessungsWindow::BegruessungsWindow(midgard_CG* h)
 
 void BegruessungsWindow::on_button_eingabe_clicked()
 {  
-   hauptfenster->table_grundwerte->togglebutton_edit_werte->set_active(true);
+   hauptfenster->table_grundwerte->edit_werte=true;
    hauptfenster->table_grundwerte->entry_nameC->grab_focus();
    end();
 }

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.282 2002/11/25 12:09:47 thoma Exp $
+// $Id: midgard_CG.cc,v 1.283 2002/11/25 22:25:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -177,7 +177,8 @@ void midgard_CG::fill_IconVec()
   // Grundwerte
   IconVec.push_back(st_buttons(table_grundwerte->button_grundwerte,iEigenschaften));
   IconVec.push_back(st_buttons(table_grundwerte->button_abg_werte,iAbgeleitet));
-  IconVec.push_back(st_buttons(table_grundwerte->togglebutton_edit_werte,iEditGrund));
+  IconVec.push_back(st_buttons(table_lernschema->button_angeborene_fert,iAngeFert));
+  IconVec.push_back(st_buttons(table_grundwerte->eventbox_werte_edit,iEditGrund));
   // Lernschema
   IconVec.push_back(st_buttons(table_lernschema->button_lernpunkte,iLernpunkte));
   IconVec.push_back(st_buttons(table_lernschema->togglebutton_lernpunkte_edit,iLernEdit));
@@ -189,6 +190,7 @@ void midgard_CG::fill_IconVec()
   IconVec.push_back(st_buttons(table_lernschema->button_ausruestung,iAusruestung));
   // Steigern
   IconVec.push_back(st_buttons(table_steigern->button_grad_basiswerte,iEigenschaft));
+//  IconVec.push_back(st_buttons(table_steigern->eventbox_eppp_steigern,???));
   IconVec.push_back(st_buttons(table_steigern->radiobutton_steigern,iButtonSteigern));
   IconVec.push_back(st_buttons(table_steigern->radiobutton_reduzieren,iButtonReduce));
   IconVec.push_back(st_buttons(table_steigern->radiobutton_verlernen,iButtonVerlernen));
@@ -207,8 +209,8 @@ void midgard_CG::fill_IconVec()
   IconVec.push_back(st_buttons(eventbox_grundwerte,iNotebookGrundwerte));
   IconVec.push_back(st_buttons(eventbox_lernen,iNotebookLernen));
   IconVec.push_back(st_buttons(eventbox_steigern,iNotebookSteigern));
-//  IconVec.push_back(st_buttons(eventbox_beschreibung,iNotebookBeschreibung));
-//  IconVec.push_back(st_buttons(eventbox_ausruestung,iNotebookAusruestung));
+//future  IconVec.push_back(st_buttons(eventbox_beschreibung,iNotebookBeschreibung));
+//future  IconVec.push_back(st_buttons(eventbox_ausruestung,iNotebookAusruestung));
   IconVec.push_back(st_buttons(eventbox_optionen,iNotebookOptionen));
   IconVec.push_back(st_buttons(eventbox_geschichte,iNotebookNEWS));
   IconVec.push_back(st_buttons(eventbox_zufall,iNotebookZufall));

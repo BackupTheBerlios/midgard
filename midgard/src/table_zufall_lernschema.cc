@@ -149,7 +149,7 @@ void table_zufall::on_togglebutton_vorgaben_toggled()
   if(togglebutton_vorgaben->get_active()) 
    {
      frame_vorgaben->show();
-     hauptfenster->table_grundwerte->togglebutton_edit_werte->set_active(true);
+//     hauptfenster->table_grundwerte->togglebutton_edit_werte->set_active(true);
    }
   else frame_vorgaben->hide();
 }

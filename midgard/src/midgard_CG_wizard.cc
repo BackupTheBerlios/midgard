@@ -45,7 +45,7 @@ void midgard_CG::wizard_do_something()
       {  table_lernschema->frame_lernpunkte->set_sensitive(true);;}
 
   if(e==Wizard::NAMEN)
-      { table_grundwerte->togglebutton_edit_werte->set_active(true);
+      { table_grundwerte->edit_werte=true;
         table_lernschema->frame_lernpunkte->set_sensitive(false);
 //        table_grundwerte->entry_nameC->grab_focus();
       }

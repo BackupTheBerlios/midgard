@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_grundwere_edit.cc,v 1.12 2002/11/16 23:04:46 thoma Exp $
+// $Id: table_grundwerte_grundwere_edit.cc,v 1.13 2002/11/25 22:25:19 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,7 +24,7 @@ static bool oldtyp_bool;
 
 void table_grundwerte::on_togglebutton_edit_werte_toggled()
 {
-  if(togglebutton_edit_werte->get_active()) 
+  if(edit_werte)
    { 
      bool m=combo_typ->is_sensitive();
      oldtyp_bool=true;
@@ -52,7 +52,8 @@ void table_grundwerte::on_entry_nameC_activate()
 { 
   if(hauptfenster->wizard) 
    { 
-     togglebutton_edit_werte->set_active(false);
+     edit_werte=false;
+//     togglebutton_edit_werte->set_active(false);
      hauptfenster->wizard->next_step(Wizard::NAMEN);
    }
   else 
