@@ -23,6 +23,7 @@
 void midgard_CG::set_status(const std::string &s,bool autoclean)
 {
   label_status->set_text(s);
+  InfoFenster->AppendShowLog(s);
   if(autoclean)
      connection_status=Gtk::Main::timeout.connect(slot(this,&midgard_CG::timeout_status),7000);
 }

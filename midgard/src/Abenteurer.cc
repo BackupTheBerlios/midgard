@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.60 2002/11/12 16:14:35 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.61 2002/11/19 09:55:16 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -416,6 +416,7 @@ bool Abenteurer::xml_import_stream(std::istream& datei, Datenbank &Database,
           +" wird noch nicht unterstützt");
    }
 */
+/*
    if (data)
    {  const Tag *Preise=data->find("Preise");
       if (Preise)
@@ -428,7 +429,7 @@ bool Abenteurer::xml_import_stream(std::istream& datei, Datenbank &Database,
             {  iter=Database.preise.erase(iter);
             }
             
-            Preise::saveArtikel(i->getAttr("Art"),i->getAttr("Art2"),name,
+            Preise::saveArtikel("",hauptfenster,i->getAttr("Art"),i->getAttr("Art2"),name,
             		i->getFloatAttr("Preis"),i->getAttr("Währung"),
             		i->getFloatAttr("Gewicht"),
             		i->getAttr("Region"));
@@ -436,7 +437,7 @@ bool Abenteurer::xml_import_stream(std::istream& datei, Datenbank &Database,
          }
       }
    }
-
+*/
    
    const Tag *Figur=top->find("Figur");
    const Tag *Typ=top->find("Typ");

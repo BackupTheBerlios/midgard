@@ -9,23 +9,30 @@ NEWS IN VERSION 0.8.11
 * Waffenausdruck korrekt formatiert
 * Freischalten des Lernschemas und des Steigerns durch 
    'Werte für Grad 1 setzen'
-* viele kleinere Bugfixes
+* viele kleinere und größere Bugfixes
 * Überarbeitet 'steigern_mit ZEP/KEP' LIste (Danke an Markus Steinberg)
 * Bugfix: Zauberer lernen Angriffswaffe nur bis +14
 * abschaltbares Begrüßungsfenster (prima Idee von Andre (Sam) Paus)
 * Hilfe-Fenster entfernt
 * Tabelle spezies_herkunft wieder füllen 
+* Charaktererschaffungswaffen werden automatisch der Ausrüstung angegliedert
+* Status-Zeilen im Info-Fenster anzeigbar
 
 TODO: ('-' zeigt CP an)
 
-* KI-Steigern nicht nur mit Unterweisung
+* KI-Steigern nicht nur mit Unterweisung oder Selbststudium 
 * Region-Icons wechseln
-* Charaktererschaffungswaffen -> Ausrüstung
-* Neue Ausrüstung eingeben
+* Neue Ausrüstung eingeben (stürzt ab)
 * Hilfe Menü ans Ende
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
   der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 
 * Deutsche Sortierung (Bärenwut vor Beschleunigen)
+> noch ein kleiner "Bug": wenn man noch keine Waffenfertigkeiten gelernt 
+> hat aber schon auf "Waffen" klickt bekommt man ne leere Liste und es 
+> geht nicht weiter, ehe man "Lernschema/Steigern auswählbar machen" findet.
+> 
+> Bug2, wenn ich eine Spezialwaffe wählen darf, aber nur Waffen mit >=2 LP 
+> gelernt habe, geht's nicht weiter.
 - Ausrüstung mit drag & drop
 - Würfelvarianten für Nichtmenschen!
 - verschwinden alle Icons? :

@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.22 2002/11/12 08:57:41 thoma Exp $
+// $Id: table_lernschema_waffen.cc,v 1.23 2002/11/19 09:55:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -148,9 +148,19 @@ void table_lernschema::on_waffen_lernschema_tree_leaf_selected(cH_RowDataBase d)
    else return;
 
    hauptfenster->getChar()->List_Waffen_besitz().push_back(WB);
-   AusruestungBaum &guertel=hauptfenster->getAben().getAusruestung_as_parent("Gürtel");
-   guertel.push_back(Ausruestung(WB->Name()));
-
+   {
+    AusruestungBaum &wohin=hauptfenster->getAben().getAusruestung_as_parent("Gürtel");
+    std::string g=WB.Waffe()->Grundkenntnis();
+    if(g=="Kampf ohne Waffen")
+     {
+       if(g=="Zweihandschwert" || g=="Zweihandschlagwaffe" ||
+          g=="Spießwaffe" || g=="Stangenwaffe" || g=="Bögen" ||
+          g=="Armbrust"
+         )
+          wohin=hauptfenster->getAben().getBesitz();
+       wohin.push_back(Ausruestung(WB->Name()));
+     }
+   }
    show_gelerntes();
    show_WaffenBesitz_lernschema();
  }catch(std::exception &e) {std::cerr << e.what()<<'\n';}

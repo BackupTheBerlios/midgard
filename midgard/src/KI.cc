@@ -309,7 +309,8 @@ int MagusKI::teste_auf_gradanstieg()
 
 const Abenteurer::e_wie_steigern MagusKI::get_wie_steigern()
 {
-  return Enums::eUnterweisung;
+//  return Enums::eUnterweisung;
+   return Enums::eSelbststudium;
 }
 
 const Enums::st_bool_steigern MagusKI::get_bool_steigern()

@@ -265,8 +265,10 @@ void table_ausruestung::on_spinbutton_gewicht_activate()
  double preis = atof( spinbutton_preis->get_text().c_str());
  double gewicht = atof( spinbutton_gewicht->get_text().c_str());
 
- std::string region="";
-  Preise::saveArtikel(art,art2,name,preis,einheit,gewicht,region);
+  std::string region="";
+  Preise::saveArtikel("",hauptfenster,
+                      art,art2,name,preis,einheit,gewicht,region);
+ // Ausruestung::save("",hauptfenster,art,art2,name,gewicht,preis,einheit,region);
   hauptfenster->getDatabase().preise.push_back(cH_Preise(name));
   ausruestung_laden();
 // table_artikel->hide();

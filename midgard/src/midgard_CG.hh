@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.300 2002/11/17 21:49:01 thoma Exp $
+// $Id: midgard_CG.hh,v 1.301 2002/11/19 09:55:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -59,6 +59,7 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
 {   
         bool in_dtor;
 /////////////////////////////////////////////////////////////////////////////
+        friend class Preise;
         friend class BegruessungsWindow;
         friend class Zufall;
         friend class MagusKI;
@@ -175,6 +176,7 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
         void xml_import_auswahl();
         void xml_import_history(const std::string datei);
    public:
+         const std::string& MagusVerzeichnis() const {return magus_verzeichnis;}
          void xml_export(const std::string& datei);
          void xml_import(const std::string& datei);
          void spielleiter_export_save(const std::string& dateiname);

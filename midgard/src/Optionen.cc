@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.98 2002/11/18 09:28:58 thoma Exp $
+// $Id: Optionen.cc,v 1.99 2002/11/19 09:55:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -535,7 +535,7 @@ void Midgard_Optionen::save_options(const std::string &filename,WindowInfo *Info
   std::ofstream datei(filename.c_str());
   if (!datei.good())
    { 
-    hauptfenster->set_status("Ich kann die Optionen nicht speichern");
+    hauptfenster->set_status("Kann die Optionen nicht speichern");
     return;
    }
   TagStream ts;

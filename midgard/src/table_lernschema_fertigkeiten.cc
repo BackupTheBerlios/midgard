@@ -1,4 +1,4 @@
-// $Id: table_lernschema_fertigkeiten.cc,v 1.19 2002/11/12 08:57:41 thoma Exp $
+// $Id: table_lernschema_fertigkeiten.cc,v 1.20 2002/11/19 09:55:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -105,7 +105,6 @@ std::string table_lernschema::AngebFert_gewuerfelt(int wurf)
  return name;
 }
 
-//void table_lernschema::setFertigkeitenAusruestung(AusruestungBaum &Rucksack)
 void table_lernschema::setFertigkeitenAusruestung()
 {
   AusruestungBaum &koerper=hauptfenster->getChar()->getBesitz();

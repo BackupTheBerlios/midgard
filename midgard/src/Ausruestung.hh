@@ -24,6 +24,7 @@
 #include <list>
 #include "dtos1.h"
 
+class midgard_CG;
 class AusruestungBaum;
 
 class Ausruestung
@@ -57,6 +58,13 @@ class Ausruestung
      std::string SichtbarStr() const {if(sichtbar) return "*"; else return "";}
      void setSichtbar(bool s) {sichtbar=s;}
      bool RuestungOhneGewicht() const {return ruestung_ohne_gewicht;}
+
+/*
+     static void save(const std::string &filename,midgard_CG *hauptfenster,
+                      const std::string &art,const std::string &art2,
+                      const std::string &name,const double &gewicht,
+                      const double &preis,const std::string &einheit);
+*/
 };
 
 class AusruestungBaum

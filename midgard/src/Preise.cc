@@ -193,18 +193,52 @@ PreiseMod_All::PreiseMod_All()
 /////////////////////////////////////////////////////////////////////////
 // Neuanlegen
 /////////////////////////////////////////////////////////////////////////
+#include <fstream>
+#include <unistd.h>  
+#include "midgard_CG.hh"
+#include "TagStream.hh"
 
 // use this tag to determine whether this is a user defined item
 Tag Preise::eigenerArtikel("Kaufpreis");
+//Tag Preise::eigenerArtikel("PreiseNeu");
 
-void Preise::saveArtikel(const std::string &art,const std::string &art2,
+void Preise::saveArtikel(const std::string &Filename,midgard_CG *hauptfenster,
+     const std::string &art,const std::string &art2,
      const std::string &name,const double &preis, const std::string &einheit,
      const double &gewicht,const std::string &region)
 {
+   std::string filename=hauptfenster->MagusVerzeichnis()+"MagusPreise.xml";
+   std::fstream datei(filename.c_str(),std::ios::in|std::ios::out);
+   if (!datei.good())
+    {
+      hauptfenster->set_status("Kann die Ausrüstung nicht speichern");
+      return;
+    }
+   TagStream ts(datei);
+   ts.setEncoding("ISO-8859-1");
+   Tag *ding;
+   if(access(filename.c_str(),W_OK)) // ist file da?
+    {
+      Tag &data=ts.push_back(Tag("MAGUS-Preise"));
+      ding=&(data.push_back(Tag("Dinge")));
+    }
+  else
+   {  
+     const Tag *data=ts.find("MAGUS-Preise");
+     ding=const_cast<Tag*>(data->find("Dinge"));
+   }
+   ding->setAttr("Art",art);
+   ding->setAttr("Art2",art2);
+   ding->setAttr("Ware",name);
+   ding->setFloatAttr("Gewicht",gewicht);
+   ding->setFloatAttr("Preis",preis);
+   ding->setAttr("Einheit",einheit);
+/*
   eigenerArtikel.setAttr("Art2",art2);
   eigenerArtikel.setAttr("Währung",einheit);
   eigenerArtikel.setAttr("Preis",dtos(preis));
   eigenerArtikel.setAttr("Gewicht",dtos(gewicht));
   eigenerArtikel.setAttr("Region",region);
+*/
   cH_Preise(name,art,&eigenerArtikel);
 }

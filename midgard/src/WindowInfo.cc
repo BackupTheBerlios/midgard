@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.51 2002/09/25 06:33:02 thoma Exp $
+// $Id: WindowInfo.cc,v 1.52 2002/11/19 09:55:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -86,11 +86,17 @@ void WindowInfo::on_button_auswahl_clicked(int connect)
 
 
 WindowInfo::WindowInfo(midgard_CG* h)
-: mystream(0), hauptfenster(h), MBE(0),was(Enums::eMBEm)
+: mystream(0), myLogstream(0),hauptfenster(h), MBE(0),was(Enums::eMBEm)
 {
+   scrolledwindow_status->hide();
+   
    if (mystream) delete mystream;
    Gtk::OStream *mystream = new Gtk::OStream(LogWin->get_list());
    ((Gtk::OStream*)mystream)->flushed.connect(SigC::slot(LogWin,&logwin::scroll));
+
+   if (myLogstream) delete myLogstream;
+   Gtk::OStream *myLogstream = new Gtk::OStream(LogWin_Status->get_list());
+   ((Gtk::OStream*)myLogstream)->flushed.connect(SigC::slot(LogWin_Status,&logwin::scroll));
 
 /*
    if(autoclean)
@@ -206,4 +212,19 @@ void WindowInfo::show_pic(bool b)
 {
  if(b) pixmap_arkanum->show();
  else  pixmap_arkanum->hide();
+}
+
+
+void WindowInfo::on_button_status_toggled()
+{
+  if(button_status->get_active()) scrolledwindow_status->show();
+  else scrolledwindow_status->hide();
+}
+
+void WindowInfo::AppendShowLog(const std::string& s)
+{ 
+  Gtk::OStream os(LogWin_Status->get_list());
+  os << s <<'\n';
+  os.flush();
+  LogWin_Status->scroll();
 }

@@ -1,4 +1,4 @@
-// $Id: WindowInfo.hh,v 1.39 2002/10/30 16:59:51 christof Exp $
+// $Id: WindowInfo.hh,v 1.40 2002/11/19 09:55:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -39,11 +39,12 @@ class WindowInfo : public WindowInfo_glade
         friend class WindowInfo_glade;
         void on_button_abbrechen_clicked();
         void on_button_bestaetigen_clicked();
+        void on_button_status_toggled();
         gint timeout();
         SigC::Connection des;
         bool autoclean;
 
-        Gtk::OStream *mystream;
+        Gtk::OStream *mystream,*myLogstream;
         void bestaetigen(bool b);
         void Flush(int anzahl);
         void on_button_erase_clicked();
@@ -60,6 +61,7 @@ class WindowInfo : public WindowInfo_glade
         void AppendShow(const std::string& s,emodus modus, Enums::e_was_steigern was,int anzahl);
         void AppendShow(const std::string& s,emodus modus, MBEmlt *MBE,int anzahl=0);
         void AppendShow(const std::string& s, emodus modus=Autoclean,int anzahl=0);
+        void AppendShowLog(const std::string& s);
         void Show() {bestaetigen(false); show();}
         void show_pic(bool b);
 };
