@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.51 2002/06/12 13:03:27 thoma Exp $
+// $Id: Optionen.cc,v 1.52 2002/06/12 13:08:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -243,18 +243,24 @@ void Midgard_Optionen::Ober_setzen_from_menu(OberIndex index,bool b)
            else 
               hauptfenster->show_Beschriftungen(i->active);
          }
-/*
-        else if(index==NIcons) 
-           hauptfenster->show_NIcons(i->active);
-        else if(index==NBeschriftungen) 
-           hauptfenster->show_NBeschriftungen(i->active);
-        else if(index==BIcons) 
-           Gtk::CustomizeToolbars(hauptfenster,i->active,
-               OberCheck(BBeschriftungen).active,OberCheck(BBeschriftungen).active);
-        else if(index==BBeschriftungen) 
-           Gtk::CustomizeToolbars(hauptfenster,OberCheck(BIcons).active,
-               i->active,i->active);
-*/
+        else if(index==Customize_Icons)
+         {
+           Gtk::CustomizeToolbars(hauptfenster->notebook_main,
+                     i->active,OberCheck(Customize_Text).active,
+                     OberCheck(Customize_Tab).active);
+         }
+        else if(index==Customize_Text)
+         {
+           Gtk::CustomizeToolbars(hauptfenster->notebook_main,
+                     OberCheck(Customize_Icons).active,i->active,
+                     OberCheck(Customize_Tab).active);
+         }
+        else if(index==Customize_Tab)
+         {
+           Gtk::CustomizeToolbars(hauptfenster->notebook_main,
+                     OberCheck(Customize_Icons).active,
+                     OberCheck(Customize_Text).active,i->active);
+         }
         hauptfenster->menu_init();
         return;
       }
@@ -363,12 +369,11 @@ void Midgard_Optionen::Ober_init()
  list_Ober.push_back(st_Ober(Bilder,"Bilder anzeigen",true));
  list_Ober.push_back(st_Ober(Menueleiste,"Menüleiste",true));
  list_Ober.push_back(st_Ober(Knopfleiste,"Knopfleiste",true));
+ list_Ober.push_back(st_Ober(Customize_Icons,"Icons anzeigen",true));
+ list_Ober.push_back(st_Ober(Customize_Text,"Text anzeigen",true));
+ list_Ober.push_back(st_Ober(Customize_Tab,"Text der Reiter anzeigen",true));
  list_Ober.push_back(st_Ober(Icons,"Icons der Knopfleiste",true));
  list_Ober.push_back(st_Ober(Beschriftungen,"Beschriftungen der Knopfleiste",true));
- list_Ober.push_back(st_Ober(NIcons,"Icons der Notebooks",true));
- list_Ober.push_back(st_Ober(NBeschriftungen,"Beschriftungen der Notebooks",true));
- list_Ober.push_back(st_Ober(BIcons,"Icons sonstiger Knöpfe",true));
- list_Ober.push_back(st_Ober(BBeschriftungen,"Beschriftungen sonstiger Knöpfe",true));
  list_Ober.push_back(st_Ober(Status,"Statuszeile",true));
 }
 

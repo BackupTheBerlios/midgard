@@ -1,7 +1,7 @@
 ##########################################################################
 NEWS IN VERSION 0.7delta0
 
-?* Steigern von neuen Waffen wieder mit richtigem Erfolgswert
+* Steigern von neuen Waffen wieder mit richtigem Erfolgswert
 * Oberfläche leicht überarbeitet
 ?* Icons/Text von sämltlichen Knöpfen läßt sich konfigurieren
 ?* AliasNamen von Waffenbesitz wieder korrekt
@@ -9,7 +9,6 @@ NEWS IN VERSION 0.7delta0
 
 TODO:
 * Mag. Waffe bei Spielbeginn testen
-* CAST in MidgardBasicElement.cc:98 korrekt?
 * Destruktor löst einen 'Speicherzugriffsfehler'aus :-( 
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
 in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50

@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.15 2002/06/12 13:03:27 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.16 2002/06/12 13:10:10 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -164,11 +164,11 @@ void Abenteurer::speicherstream(ostream &datei,const Datenbank &Database,const M
       {  
          Tag &w=Ausruestung.push_back(Tag("Waffe"));
          w.setIntAttr("Erfolgswert", i->Erfolgswert());
-         w.setAttr("Bezeichnung", i->Name());
+         w.setAttr("Bezeichnung", (*i)->Name());
          w.setIntAttr_nn("AngriffVerteidigung_Bonus", i->av_Bonus());
          w.setIntAttr_nn("SchadenLebenspunkte_Bonus", i->sl_Bonus());
          w.setAttr_ne("Region", i->Region());
-         if (WB.Magisch().empty()) w.Value(i->Magisch());
+         if (i->Magisch().empty()) w.Value(i->Magisch());
       }
    save_ausruestung(Ausruestung, getCBesitz().getChildren());
    

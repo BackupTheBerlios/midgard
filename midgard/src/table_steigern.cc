@@ -7,23 +7,15 @@
 
 #include "config.h"
 #include "table_steigern.hh"
-//#include "Window_Geld_eingeben.hh"
-//#include "Window_ruestung.hh"
-//#include "Window_Waffenbesitz.hh"
-//#include "MidgardBasicElement.hh"
 #include <Aux/itos.h>
 #include "Fertigkeiten.hh"
 #include "midgard_CG.hh"
-//#include <Aux/itos.h>
 #include "dtos1.h"
 
 void table_steigern::init(midgard_CG *h)
 {
   hauptfenster=h;
   zeige_werte();
-//  menu_gradanstieg_init();
-//  button_gold_eingeben->set_active(false);
-//  show_goldeingabe(false);
   load_for_page(notebook_lernen->get_current_page_num());
   steigern_mit_EP_bool=true;
   checkbutton_EP_Geld->set_active(steigern_mit_EP_bool);
@@ -141,18 +133,6 @@ void table_steigern::show_goldeingabe(bool b)
 }
 
 
-/*
-void table_steigern::on_button_ruestung_s_clicked()
-{
-//  manage (new Window_ruestung(hauptfenster->getWerte(),hauptfenster,hauptfenster->getCDatabase()));
-}
-*/
-/*
-void table_steigern::on_button_waffen_s_clicked()
-{
-  manage (new Window_Waffenbesitz(hauptfenster,hauptfenster->getChar().List_Waffen(),hauptfenster->getChar().List_Waffen_besitz()));
-}
-*/
 void table_steigern::zeige_werte()
 {
    gfp->set_text(itos(hauptfenster->getCWerte().GFP()));
@@ -209,65 +189,3 @@ void table_steigern::zeige_werte()
 
 }
 
-/*
-
-//////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////
-#include "../pixmaps/Anpass-trans-50.xpm"
-#include "../pixmaps/Dice-2W6-trans-50.xpm"
-#include "../pixmaps/Armor-trans-50.xpm"
-#include "../pixmaps/wizzard-trans-50.xpm"
-#include "../pixmaps/Resistenz-trans-32.xpm"
-#include "../pixmaps/Red-Dice-trans-50.xpm"
-
-struct SteigernMenueEintrag
-{    std::string text;
-     const char * const *bild;
-     void (table_steigern::* funktion)();
-
-     SteigernMenueEintrag(const std::string &t, const char * const * const b,
-     		void (table_steigern::* const f)())
-     	: text(t), bild(b), funktion(f) {}
-};
-*/
-
-/*
-void table_steigern::menu_gradanstieg_init()
-{
-  if (menu_gradanstieg) {menu_gradanstieg->destroy();menu_gradanstieg=0;}
-  menu_gradanstieg=manage(new Gtk::Menu());
-
-  std::vector<SteigernMenueEintrag> labelpic;
-  labelpic.push_back(SteigernMenueEintrag("Grad anpassen",Anpass_trans_50_xpm,
-  		&table_steigern::on_button_grad_clicked));
-  labelpic.push_back(SteigernMenueEintrag("Ausdauer würfeln",Dice_2W6_trans_50_xpm,
-  		&table_steigern::on_button_grad_ausdauer_clicked));
-  labelpic.push_back(SteigernMenueEintrag("Abwehr",Armor_trans_50_xpm,
-  		&table_steigern::on_button_grad_abwehr_clicked));
-  labelpic.push_back(SteigernMenueEintrag("Zaubern",wizzard_trans_50_xpm,
-  		&table_steigern::on_button_grad_zaubern_clicked));
-  labelpic.push_back(SteigernMenueEintrag("Resistenz",Resistenz_trans_32_xpm,
-  		&table_steigern::on_button_grad_resistenz_clicked));
-  labelpic.push_back(SteigernMenueEintrag("Basiswerte",Red_Dice_trans_50_xpm,
-  		&table_steigern::on_button_grad_basiswerte_clicked));
-
-  for(std::vector<SteigernMenueEintrag>::const_iterator i=labelpic.begin();i!=labelpic.end();++i)
-   {
-     Gtk::MenuItem *mi=manage(new Gtk::MenuItem());
-     Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
-     Gtk::Pixmap *_o=manage(new Gtk::Pixmap(i->bild));
-     _tab->attach(*_o,0,1,0,1,0,0,0,0);
-     Gtk::Label *_l=manage (new Gtk::Label(i->text,0,0));
-     _tab->attach(*_l,1,2,0,1,0,0,0,0);
-     _tab->set_col_spacings(10);
-     mi->add(*_tab);
-     mi->activate.connect(SigC::slot(this,i->funktion));
-     menu_gradanstieg->append(*mi);
-     if(i->text=="Zaubern"  && !hauptfenster->getCChar().is_mage())
-      {
-        mi->set_sensitive(false);
-      }
-   }
-  menu_gradanstieg->show_all();
-}
-*/

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.256 2002/06/04 09:46:01 thoma Exp $
+// $Id: midgard_CG.hh,v 1.257 2002/06/12 13:08:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -95,8 +95,8 @@ class midgard_CG : public midgard_CG_glade
         void show_Statusleiste(bool b);
         void show_Icons(bool b);
         void show_Beschriftungen(bool b);
-        void show_NIcons(bool b);
-        void show_NBeschriftungen(bool b);
+//        void show_NIcons(bool b);
+//        void show_NBeschriftungen(bool b);
         void show_gw_wuerfeln(bool b);
    protected:
         Midgard_Optionen* getOptionen() const {return MOptionen;};

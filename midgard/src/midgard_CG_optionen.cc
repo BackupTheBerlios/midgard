@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.92 2002/05/24 14:06:52 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.93 2002/06/12 13:03:27 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -136,6 +136,7 @@ void midgard_CG::show_Beschriftungen(bool b)
  else if(!b &&!i) toolbar_top->hide();
 }
 
+/*
 void midgard_CG::show_NIcons(bool i)
 {
 // bool b=MOptionen->OberCheck(Midgard_Optionen::NBeschriftungen).active;
@@ -178,7 +179,8 @@ void midgard_CG::show_NIcons(bool i)
    table_steigern->pixmap_ns_besitz->hide();
   }
 }
-
+*/
+/*
 void midgard_CG::show_NBeschriftungen(bool b)
 {
 // bool i=MOptionen->OberCheck(Midgard_Optionen::NIcons).active;
@@ -217,7 +219,7 @@ void midgard_CG::show_NBeschriftungen(bool b)
    table_steigern->label_ns_besitz->hide();
   }
 }
-
+*/
 
 void midgard_CG::show_gw_wuerfeln(bool b)
 {

@@ -46,8 +46,8 @@ class Waffe : public MidgardBasicElement
          reichweite_m,reichweite_f;
      int lern_land,lern_stadt, anfangswert;
      int schaden_bonus;
-     list<st_alias> list_alias;
-     vector<std::string> vec_voraussetzung_W, vec_voraussetzung_F;
+     std::list<st_alias> list_alias;
+     std::vector<std::string> vec_voraussetzung_W, vec_voraussetzung_F;
 
      void get_Waffe();
      void get_Alias();
@@ -151,17 +151,17 @@ class WaffeBesitz : public MidgardBasicElement_mutable
      cH_Waffe waffe;
      std::string alias_name;
      int av_bonus,sl_bonus;
-     std::string magisch;
+     std::string magisch,region;
 
   public:
      WaffeBesitz(const cH_Waffe& w, int e,std::string b,
-                  int a,int s, std::string m)
+                  int a,int s,const std::string &m,const std::string &r)
       :MidgardBasicElement_mutable(&*w),
-         waffe(w), alias_name(b),av_bonus(a),sl_bonus(s),magisch(m)
-         {setErfolgswert(e);}
+         waffe(w), alias_name(b),av_bonus(a),sl_bonus(s),magisch(m),region(r)
+            {setErfolgswert(e);}
 
-     WaffeBesitz(const MidgardBasicElement_mutable &b)
-       : MidgardBasicElement_mutable(b),waffe(b),av_bonus(0),sl_bonus(0) {}
+//     WaffeBesitz(const MidgardBasicElement_mutable &b)
+//       : MidgardBasicElement_mutable(b),waffe(b),av_bonus(0),sl_bonus(0) {}
 
      enum MidgardBasicElement::MBEE What() const {return MidgardBasicElement::WAFFEBESITZ;}
      std::string What_str() const {return "WaffeBesitz";}
@@ -173,6 +173,7 @@ class WaffeBesitz : public MidgardBasicElement_mutable
      std::string Bonus() const;
      std::string Magisch() const {return magisch;}
      std::string Schaden(const Grundwerte& Werte,const std::string& name,bool latex=false) const;
+     std::string Region() const {return region;}
       
      void set_av_Bonus(int a) {av_bonus=a;}
      void set_sl_Bonus(int a) {sl_bonus=a;}
