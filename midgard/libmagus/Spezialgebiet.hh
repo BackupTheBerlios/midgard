@@ -1,7 +1,7 @@
-// $Id: Spezialgebiet.hh,v 1.2 2003/05/21 07:02:14 christof Exp $               
+// $Id: Spezialgebiet.hh,v 1.3 2003/05/26 06:23:35 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
- *  Copyright (C) 2002 Christof Petig
+ *  Copyright (C) 2002-2003 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -37,13 +37,13 @@ class Spezialgebiet : public HandleContent
    std::string spezial2;
 
 public:
-   Spezialgebiet(const Tag *tag);
-   Spezialgebiet() : nr(0) {}
+   Spezialgebiet(const Tag &tag);
+   Spezialgebiet() : nr() {}
 
-   std::string Typ() const {return typ;}   
-   std::string Name() const {return name;}   
-   std::string Spezial() const {return spezial;}   
-   std::string Spezial2() const {return spezial2;}   
+   const std::string &Typ() const {return typ;}   
+   const std::string &Name() const {return name;}   
+   const std::string &Spezial() const {return spezial;}   
+   const std::string &Spezial2() const {return spezial2;}   
 
    bool operator==(const Spezialgebiet &b) const
       {  return Name()==b.Name();  }
@@ -57,18 +57,14 @@ class cH_Spezialgebiet : public Handle<const Spezialgebiet>
   public:
    cH_Spezialgebiet() {*this=new Spezialgebiet();}
    cH_Spezialgebiet(const std::string& name);
-   cH_Spezialgebiet(const Tag *tag);
+   static cH_Spezialgebiet load(const Tag &tag);
    cH_Spezialgebiet(const Spezialgebiet *s) : Handle<const Spezialgebiet>(s) {};
 
    static bool is_cached(const std::string s);
 };
  
-class Spezialgebiet_All
-{
-      std::vector<cH_Spezialgebiet> list_All;
-   public:
-      Spezialgebiet_All();
-      std::vector<cH_Spezialgebiet> get_All() const {return list_All;}
+namespace Spezialgebiet_All
+{  void load(std::vector<cH_Spezialgebiet> &list,const Tag &t);
 };
 
 bool operator==(void *p,const cH_Spezialgebiet &t);

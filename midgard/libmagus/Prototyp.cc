@@ -1,6 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
- *  Copyright (C) 2002 Christof Petig
+ *  Copyright (C) 2002-2003 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -23,12 +23,8 @@
 #include <Misc/itos.h>
 #include "Enums.hh"
 #include "Prozente100.hh"
-
-class NotFound : public std::exception
-{public:
-   virtual const char* what() const throw() { return "NotFound"; }
-};
-   
+#include "NotFound.h"
+#include <Misc/Tag.h>
 
 cH_Prototyp::cache_t cH_Prototyp::cache;
 
@@ -48,40 +44,21 @@ cH_Prototyp::cH_Prototyp(const std::string& name,bool create)
   }
 }
 
-cH_Prototyp::cH_Prototyp(const Tag *tag)
-{*this=cH_Prototyp(new Prototyp(tag));
- cache.Register(tag->getAttr("Name"),*this);
-}
-
-Prototyp::Prototyp(const Tag *tag)
+Prototyp::Prototyp(const Tag &tag)
 {
-  assert(tag);
-  name=tag->getAttr("Name");;
-  fertigkeit = tag->getIntAttr("Fertigkeit");
-  waffe = tag->getIntAttr("Waffen");
-  waffe_grund = tag->getIntAttr("WaffenGrund");
-  zauber = tag->getIntAttr("Zauber");
-  zauberwerk = tag->getIntAttr("Zauberwerk");
-  sprache = tag->getIntAttr("Sprache");
-  schrift = tag->getIntAttr("Schrift");
-  fert_spez = tag->getIntAttr("FertSpezialist");
-  waff_spez = tag->getIntAttr("WaffSpezialist");
-  spra_spez = tag->getIntAttr("SpraSpezialist");
-  schr_spez = tag->getIntAttr("SchrSpezialist");
+  name=tag.getAttr("Name");;
+  fertigkeit = tag.getIntAttr("Fertigkeit");
+  waffe = tag.getIntAttr("Waffen");
+  waffe_grund = tag.getIntAttr("WaffenGrund");
+  zauber = tag.getIntAttr("Zauber");
+  zauberwerk = tag.getIntAttr("Zauberwerk");
+  sprache = tag.getIntAttr("Sprache");
+  schrift = tag.getIntAttr("Schrift");
+  fert_spez = tag.getIntAttr("FertSpezialist");
+  waff_spez = tag.getIntAttr("WaffSpezialist");
+  spra_spez = tag.getIntAttr("SpraSpezialist");
+  schr_spez = tag.getIntAttr("SchrSpezialist");
 }
-
-Prototyp_All::Prototyp_All()
-{
- const Tag *ki=xml_data->find("KI");
-
- if (ki)
- {  Tag::const_iterator b=ki->begin(),e=ki->end();
-    FOR_EACH_CONST_TAG_OF_5(i,*ki,b,e,"Prototyp")
-    {  list_All.push_back(cH_Prototyp(&*i));
-    }
- }
-}  
-
 
 void Prototyp::setLast(const Prozente100 &p100)
 {
@@ -98,3 +75,17 @@ void Prototyp::setLast(const Prozente100 &p100)
   P->spra_spez = p100.getS(Enums::sSpra);
   P->schr_spez = p100.getS(Enums::sSchr);
 }
+
+cH_Prototyp cH_Prototyp::load(const Tag &t)
+{  cH_Prototyp *res=cache.lookup(t.getAttr("Name"));
+   assert (!res);
+   {  cH_Prototyp r2=new Prototyp(t);
+      cache.Register(t.getAttr("Name"),r2);
+      return r2;
+   }
+}
+
+void Prototyp_All::load(std::list<cH_Prototyp> &list,const Tag &t)
+{  list.push_back(cH_Prototyp::load(t));
+}
+

@@ -1,4 +1,4 @@
-// $Id: magus_paths.cc,v 1.6 2003/05/14 07:04:59 christof Exp $
+// $Id: magus_paths.cc,v 1.7 2003/05/26 06:23:35 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,6 +26,7 @@
 #include <Misc/Trace.h>
 #include <config.h> // PACKAGE_DATA_DIR
 #include <sys/stat.h>
+#include <cassert>
 
 std::vector<std::string> magus_paths::paths;
 std::string magus_paths::argv0;

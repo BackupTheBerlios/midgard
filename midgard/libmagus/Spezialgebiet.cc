@@ -18,6 +18,7 @@
 
 #include "Spezialgebiet.hh"
 #include <iostream>
+#include <Misc/Tag.h>
 
 cH_Spezialgebiet::cache_t cH_Spezialgebiet::cache;
 
@@ -37,29 +38,13 @@ bool cH_Spezialgebiet::is_cached(const std::string s)
   return false;
 }
 
-cH_Spezialgebiet::cH_Spezialgebiet(const Tag *tag)
-{*this=cH_Spezialgebiet(new Spezialgebiet(tag));
- cache.Register(tag->getAttr("Name"),*this);
-}
-
-Spezialgebiet::Spezialgebiet(const Tag *tag) 
-: nr(tag->getIntAttr("MAGUS-Index",tag->getIntAttr("MCG-Index")))
-	, name(tag->getAttr("Name"))
+Spezialgebiet::Spezialgebiet(const Tag &tag) 
+: nr(tag.getIntAttr("MAGUS-Index",tag.getIntAttr("MCG-Index")))
+	, name(tag.getAttr("Name"))
 {
- typ=tag->getAttr("Typ");
- spezial=tag->getAttr("Spezialisierung");
- spezial2=tag->getAttr("Sekundärelement");
-}
-
-
-Spezialgebiet_All::Spezialgebiet_All()
-{
- const Tag *spezialgebiete=xml_data->find("Spezialgebiete");
- if (spezialgebiete)
- {  Tag::const_iterator b=spezialgebiete->begin(),e=spezialgebiete->end();
-    FOR_EACH_CONST_TAG_OF_5(i,*spezialgebiete,b,e,"Spezialgebiet")
-       list_All.push_back(cH_Spezialgebiet(&*i));
- }   
+ typ=tag.getAttr("Typ");
+ spezial=tag.getAttr("Spezialisierung");
+ spezial2=tag.getAttr("Sekundärelement");
 }
 
 bool operator==(void *data,const cH_Spezialgebiet &t)
@@ -68,4 +53,16 @@ std::cout << "SPEZ=" <<static_cast<Spezialgebiet*>(data)->Name()<<' '<< t->Name(
  return *(static_cast<Spezialgebiet*>(data))==*t;
 }
 
+cH_Spezialgebiet cH_Spezialgebiet::load(const Tag &t)
+{  cH_Spezialgebiet *res=cache.lookup(t.getAttr("Name"));
+   assert (!res);
+   {  cH_Spezialgebiet r2=new Spezialgebiet(t);
+      cache.Register(t.getAttr("Name"),r2);
+      return r2;
+   }
+}
+
+void Spezialgebiet_All::load(std::vector<cH_Spezialgebiet> &list,const Tag &t)
+{  list.push_back(cH_Spezialgebiet::load(t));
+}
 

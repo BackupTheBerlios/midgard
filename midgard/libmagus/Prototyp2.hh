@@ -1,4 +1,4 @@
-// $Id: Prototyp2.hh,v 1.2 2003/05/21 07:02:14 christof Exp $               
+// $Id: Prototyp2.hh,v 1.3 2003/05/26 06:23:35 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -41,12 +41,10 @@ private:
    std::vector<st_protolisten> lzauber;
    std::vector<st_protolisten> lfertigkeiten;
           
-   void get_Prototyp2();
-
  public:
-   Prototyp2(const Tag *tag);
+   Prototyp2(const Tag &tag);
 
-   std::string Name() const {return name;}
+   const std::string &Name() const {return name;}
    const std::vector<st_protolisten>& LZauber() const {return lzauber;}
    const std::vector<st_protolisten>& LFertigkeiten() const {return lfertigkeiten;}
 
@@ -64,16 +62,12 @@ class cH_Prototyp2 : public Handle<Prototyp2>
     cH_Prototyp2(){};
  public:
     cH_Prototyp2(const std::string& name  ,bool create=false);
-    cH_Prototyp2(const Tag *tag);
+    static cH_Prototyp2 load(const Tag &tag);
     cH_Prototyp2( Prototyp2 *s) : Handle<Prototyp2>(s) {};
 };
 
-class Prototyp2_All
-{
-   std::list<cH_Prototyp2> list_All;
-  public:
-   Prototyp2_All();
-   std::list<cH_Prototyp2> get_All() const {return list_All;}
+namespace Prototyp2_All
+{  void load(std::list<cH_Prototyp2> &list, const Tag &t);
 };
 
 #endif

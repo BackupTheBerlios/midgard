@@ -1,4 +1,4 @@
-// $Id: Datenbank.cc,v 1.12 2003/05/21 07:02:14 christof Exp $               
+// $Id: Datenbank.cc,v 1.13 2003/05/26 06:23:35 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002-2003 Christof Petig
@@ -91,6 +91,15 @@ void Datenbank::load_list(const Tag &t)
          FOR_EACH_CONST_TAG(k,*j) // Kontinent
             FOR_EACH_CONST_TAG_OF(l,*k,"Land")
                Laender_All::load(Laender,k->getAttr("Name"),*l);
+      else if (j->Type()=="Spezialgebiete")
+         FOR_EACH_CONST_TAG_OF(k,*j,"Spezialgebiet") 
+            Spezialgebiet_All::load(Spezialgebiet,*k);
+      else if (j->Type()=="KI")
+      {  FOR_EACH_CONST_TAG_OF(k,*j,"Prototyp2") 
+            Prototyp2_All::load(prototyp2,*k);
+         FOR_EACH_CONST_TAG_OF(k,*j,"Prototyp") 
+            Prototyp_All::load(prototyp,*k);
+      }
       else if (j->Type()=="PreiseNeuMod")
          FOR_EACH_CONST_TAG(k,*j) PreiseNewMod_All::load(preisenewmod,*k);
       else if (in<std::string>(j->Type(),"Preise","PreiseNeu"))
@@ -128,11 +137,11 @@ void Datenbank::load(SigC::Slot1<void,double> progress,SigC::Slot1<void,const st
 //    Spezies = Spezies_All().get_All();
 //    Typen = Typen_All().get_All();
 //    GradAnstieg = Grad_anstieg(true);
-    Spezialgebiet = Spezialgebiet_All().get_All();
+//    Spezialgebiet = Spezialgebiet_All().get_All();
 //    preise = Preise_All(magus_paths::with_path("magus_preise.xml",false,true),tag_eigene_artikel).get_All();
 //    preisenewmod = PreiseNewMod_All().get_All();
-    prototyp = Prototyp_All().get_All();
-    prototyp2 = Prototyp2_All().get_All();
+//    prototyp = Prototyp_All().get_All();
+//    prototyp2 = Prototyp2_All().get_All();
 //    MI->database_hide();  // can't do this yet
 //    Waffe_from_Alias = Waffe::fill_map_alias_waffe();
    GradAnstieg.init_after_load();

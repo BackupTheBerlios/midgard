@@ -45,9 +45,6 @@ double Prototyp2::fac_for(const std::string &art, const std::string &name, const
   else return 10.0; // großer Wert
 }
 
-
-   
-
 cH_Prototyp2::cache_t cH_Prototyp2::cache;
 
 cH_Prototyp2::cH_Prototyp2(const std::string& name,bool create)
@@ -60,22 +57,16 @@ cH_Prototyp2::cH_Prototyp2(const std::string& name,bool create)
   if (create)
   {  Tag t2("Prototyp2"); 
      t2.setAttr("Name",name);
-     *this=cH_Prototyp2(t2);
+     *this=new Prototyp2(t2);
   }
   else throw NotFound();
   }
 }
 
-cH_Prototyp2::cH_Prototyp2(const Tag *tag)
-{*this=cH_Prototyp2(new Prototyp2(tag));
- cache.Register(tag->getAttr("Name"),*this);
-}
-
-Prototyp2::Prototyp2(const Tag *tag)
+Prototyp2::Prototyp2(const Tag &tag)
 {
-  assert(tag);
-  name=tag->getAttr("Name"); // Info, Wissen, Natur, ....
-  FOR_EACH_CONST_TAG_OF(i,*tag,"Eigenschaft")
+  name=tag.getAttr("Name"); // Info, Wissen, Natur, ....
+  FOR_EACH_CONST_TAG_OF(i,tag,"Eigenschaft")
     {
       std::string art=i->getAttr("Art");
       if     (art=="Z") lzauber.push_back(st_protolisten(
@@ -87,16 +78,15 @@ Prototyp2::Prototyp2(const Tag *tag)
 
 }
 
-Prototyp2_All::Prototyp2_All()
-{
- const Tag *ki=xml_data->find("KI");
+cH_Prototyp2 cH_Prototyp2::load(const Tag &t)
+{  cH_Prototyp2 *res=cache.lookup(t.getAttr("Name"));
+   assert (!res);
+   {  cH_Prototyp2 r2=new Prototyp2(t);
+      cache.Register(t.getAttr("Name"),r2);
+      return r2;
+   }
+}
 
- if (ki)
- {  Tag::const_iterator b=ki->begin(),e=ki->end();
-    FOR_EACH_CONST_TAG_OF_5(i,*ki,b,e,"Prototyp2")
-    {  list_All.push_back(cH_Prototyp2(&*i));
-    }
- }
-}  
-
-
+void Prototyp2_All::load(std::list<cH_Prototyp2> &list,const Tag &t)
+{  list.push_back(cH_Prototyp2::load(t));
+}
