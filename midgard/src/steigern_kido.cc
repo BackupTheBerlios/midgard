@@ -25,9 +25,9 @@ void midgard_CG::on_kido_laden_clicked()
 {   
   list_Kido_neu.clear();
   int erfolgswert_kido = KiDo::get_erfolgswert_kido(list_Fertigkeit);
-  if (Werte.Spezialisierung()!="Harte Techniken" &&
-      Werte.Spezialisierung()!="Sanfte Techniken"&&
-      Werte.Spezialisierung()!="Gemischte Techniken" ) 
+  if (Werte.Spezialisierung()!=Vkido[1] &&
+      Werte.Spezialisierung()!=Vkido[2]&&
+      Werte.Spezialisierung()!=Vkido[3] ) 
      {
        manage(new WindowInfo("Erst einen KiDo-Stil wählen\n(unter 'Lernschema'->'KiDo')"));
        return;
@@ -41,13 +41,13 @@ void midgard_CG::on_kido_laden_clicked()
      if (Werte.Grad()<6 || erfolgswert_kido+Werte.bo_Za() <18)
       if(kd->Stufe()=="Meister") continue;
      // Stil
-     if (Werte.Spezialisierung()=="Harte Techniken")
-       if(kd->Stil()=="Sanfte Techniken") continue;
-     if (Werte.Spezialisierung()=="Sanfte Techniken")
-       if(kd->Stil()=="Harte Techniken") continue;
+     if (Werte.Spezialisierung()==Vkido[2])
+       if(kd->Stil()==Vkido[1]) continue;
+     if (Werte.Spezialisierung()==Vkido[1])
+       if(kd->Stil()==Vkido[2]) continue;
    
      // Anzahl
-     bool gem_technik = (Werte.Spezialisierung()=="Gemischte Techniken");
+     bool gem_technik = (Werte.Spezialisierung()==Vkido[3]);
      std::map<std::string,int> MK = KiDo::maxkidostil(list_Kido);  
      int maxS = MK["Schüler"];
      int maxE = MK["Eingeweihter"];

@@ -57,47 +57,20 @@ void KiDo_auswahl::on_button_close_clicked()
 
 KiDo_auswahl::KiDo_auswahl(midgard_CG* h, int m, const Grundwerte& Werte,
    const Datenbank& Database,
-   const vector<cH_Typen>& Typ)
+   const vector<cH_Typen>& Typ,std::vector<std::string> Vkido)
 : maxkido(m)
 {
-//   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
    hauptfenster=h;
    label_kido_techniken->set_text("Noch "+itos(maxkido)+" Techniken auswählen");
 
-/*
-   exec sql begin declare section;
-    char db_name_orig[50];
-    char query[1024];
-   exec sql end declare section;
-   std::string squery;
-   squery = "select name_orig from kido where stufe='Schüler' ";
-   if (Werte.Spezialisierung() != "Gemischte Techniken")
-      squery += "and (stil = 'beide' or stil = '"+Werte.Spezialisierung() +"') ";
-   squery +=  " order by 1";
-   strncpy(query,squery.c_str(),sizeof(query));
-   Transaction tr;
-   exec sql prepare ein_ from :query;
-   exec sql declare ein cursor for ein_;
-   exec sql open ein;
-   SQLerror::test(__FILELINE__);
-   while (true)
-     {
-      exec sql fetch ein into :db_name_orig;
-      SQLerror::test(__FILELINE__,100);  
-      if (sqlca.sqlcode) break;
-      cH_MidgardBasicElement kido(new KiDo(db_name_orig));
-      kido_technik.push_back(kido);
-     }
-   exec sql close ein;
-*/
    for(std::list<cH_MidgardBasicElement>::const_iterator i=Database.Kido.begin();i!=Database.Kido.end();++i)
     {
       cH_KiDo kd(*i);
       if(kd->Stufe()!="Schüler") continue;
-      if (Werte.Spezialisierung()=="Harte Techniken")
-           if(kd->Stil()=="Sanfte Techniken") continue; 
-      if (Werte.Spezialisierung()=="Sanfte Techniken")
-           if(kd->Stil()=="Harte Techniken") continue;   
+      if (Werte.Spezialisierung()==Vkido[2])
+           if(kd->Stil()==Vkido[1]) continue; 
+      if (Werte.Spezialisierung()==Vkido[1])
+           if(kd->Stil()==Vkido[2]) continue;   
       kido_technik.push_back(*i);
     }
    Gtk::OStream os(clist_kido_auswahl);

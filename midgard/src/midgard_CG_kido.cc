@@ -1,4 +1,4 @@
-// $Id: midgard_CG_kido.cc,v 1.27 2002/01/14 10:29:28 thoma Exp $
+// $Id: midgard_CG_kido.cc,v 1.28 2002/01/14 10:46:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,16 +24,16 @@
 
 void midgard_CG::on_kido_wahl_clicked()
 {
-   if (Werte.Spezialisierung()!="Sanfte Techniken" && 
-       Werte.Spezialisierung()!="Harte Techniken" &&
-       Werte.Spezialisierung()!="Gemischte Techniken")
+   if (Werte.Spezialisierung()!=Vkido[1] && 
+       Werte.Spezialisierung()!=Vkido[2] &&
+       Werte.Spezialisierung()!=Vkido[3])
     {
       std::string strinfo="Erst eine Technik wählen\n";
       manage(new WindowInfo(strinfo));
       return;
     }
    list_Kido.clear();
-   manage(new KiDo_auswahl(this,maxkido,Werte,Database,Typ));
+   manage(new KiDo_auswahl(this,maxkido,Werte,Database,Typ,Vkido));
 }
 
 void midgard_CG::show_kido()
@@ -54,9 +54,9 @@ void midgard_CG::stil_optionmenue()
 //  static bool block=false;
 //  if (block==true) return;
   int ityp = int(optionmenu_KiDo_Stile->get_menu()->get_active()->get_user_data());
-  if (ityp==optionmenu_KiDo_Stile::sanft) Werte.setSpezialisierung("Sanfte Techniken");
-  if (ityp==optionmenu_KiDo_Stile::hart) Werte.setSpezialisierung("Harte Techniken");
-  if (ityp==optionmenu_KiDo_Stile::gemischt) Werte.setSpezialisierung("Gemischte Techniken");
+  if (ityp==optionmenu_KiDo_Stile::sanft) Werte.setSpezialisierung(Vkido[1]);
+  if (ityp==optionmenu_KiDo_Stile::hart) Werte.setSpezialisierung(Vkido[2]);
+  if (ityp==optionmenu_KiDo_Stile::gemischt) Werte.setSpezialisierung(Vkido[3]);
   // NUR sensetiv setzen, wenn Charaktererschaffung also Grad=1
   if(Werte.Grad()==1) button_kido_auswahl->set_sensitive(true);
 }

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.129 2002/01/14 10:29:27 thoma Exp $
+// $Id: midgard_CG.hh,v 1.130 2002/01/14 10:46:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -62,7 +62,7 @@ class midgard_CG : public midgard_CG_glade
                                   PAGE_KIDO,PAGE_SPRACHE};
 
 
-        std::vector<std::string> Vstand, Vhand;
+        std::vector<std::string> Vstand, Vhand, Vkido;
 
    private:
         friend class midgard_CG_glade;

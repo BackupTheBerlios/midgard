@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.112 2002/01/14 10:29:27 thoma Exp $
+// $Id: midgard_CG.cc,v 1.113 2002/01/14 10:46:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -50,6 +50,12 @@ midgard_CG::midgard_CG(Datenbank& _Database)
         Vhand[0]="Rechtshänder";
         Vhand[1]="Linkshänder";
         Vhand[2]="Beidhändig";
+
+        Vkido.resize(4);
+        Vkido[0]="TECHNIK";
+        Vkido[1]="Sanfte Techniken";
+        Vkido[2]="Harte Techniken";
+        Vkido[3]="Gemischte Techniken";
 
 }
 
@@ -154,9 +160,9 @@ void midgard_CG::show_gtk()
    }
  // KiDo Stil setzen
  int kido_stil_nr=0;
- if (Werte.Spezialisierung()=="Harte Techniken") kido_stil_nr = 1;
- if (Werte.Spezialisierung()=="Sanfte Techniken") kido_stil_nr = 2;
- if (Werte.Spezialisierung()=="Gemischte Techniken") kido_stil_nr = 3;
+ if (Werte.Spezialisierung()==Vkido[2]) kido_stil_nr = 1;
+ if (Werte.Spezialisierung()==Vkido[1]) kido_stil_nr = 2;
+ if (Werte.Spezialisierung()==Vkido[3]) kido_stil_nr = 3;
  if (kido_stil_nr!=0)
   {   
     optionmenu_KiDo_Stile->set_history(kido_stil_nr);
