@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.143 2002/04/16 10:17:37 christof Exp $
+# $Id: Makefile.am,v 1.144 2002/04/17 07:06:08 christof Exp $
 
 bin_PROGRAMS = midgard 
 noinst_PROGRAMS = text2c
@@ -7,7 +7,7 @@ noinst_PROGRAMS = text2c
 EXTRA_PROGRAMS = midgard_xmlexport
 
 if WINDOWS
-	RC_FILES=magus.rc
+	RC_FILES=magus.rc registry.cc
 	LINK_OPTIONS=-mwindows
 else
 	RC_FILES=
@@ -82,10 +82,12 @@ WindowInfo_glade.hh WindowInfo.hh \
    Window_Erfahrungspunkte_glade.hh \
    ProgressBar.h
 
-BUILT_SOURCES= export_common.h text2c NEWS.h
+BUILT_SOURCES= export_common.h registry.h text2c NEWS.h
 
 export_common.cc: ../xml/export_common.cc ; ln -sf ../xml/$@ .
 export_common.h: ../xml/export_common.h ; ln -sf ../xml/$@ .
+registry.h: ../win32/registry.h ; ln -sf ../win32/$@ .
+registry.cc: ../win32/registry.cc ; ln -sf ../win32/$@ .
 NEWS.h: ../NEWS ; ./text2c <../NEWS >NEWS.h
 
 midgard_xmlexport_SOURCES= xmlexport.cc export_common.cc

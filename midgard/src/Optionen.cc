@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.9 2002/04/16 06:57:24 thoma Exp $
+// $Id: Optionen.cc,v 1.10 2002/04/17 07:06:08 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,12 +37,16 @@ Midgard_Optionen::Midgard_Optionen(midgard_CG* h)
 
 std::string Midgard_Optionen::Viewer()
 {
-  if     (pdfViewerCheck(Midgard_Optionen::gv).active)       return "gv ";
-  else if(pdfViewerCheck(Midgard_Optionen::xpdf).active)     return "xpdf ";
-  else if(pdfViewerCheck(Midgard_Optionen::acroread).active) return "acroread  ";
-  else if(pdfViewerCheck(Midgard_Optionen::anderer).active)  return getString(pdf_viewer)+" ";
+#ifndef __MINGW32__
+  if     (pdfViewerCheck(Midgard_Optionen::gv).active)       return "gv";
+  else if(pdfViewerCheck(Midgard_Optionen::xpdf).active)     return "xpdf";
+  else if(pdfViewerCheck(Midgard_Optionen::acroread).active) return "acroread";
+  else if(pdfViewerCheck(Midgard_Optionen::anderer).active)  return getString(pdf_viewer);
   else assert(!"");
   abort();
+#else
+  return getString(pdf_viewer);
+#endif  
 }
 
 std::string Midgard_Optionen::getString(StringIndex index)
@@ -206,6 +210,7 @@ void Midgard_Optionen::Strings_init()
 
 void Midgard_Optionen::pdfViewer_init()
 {
+#ifndef __MINGW32__
   list_pdfViewer.push_back(st_pdfViewer(acroread,
                            "pdf Dokument mit 'acroread' betrachten",
                            true));
@@ -218,6 +223,13 @@ void Midgard_Optionen::pdfViewer_init()
   list_pdfViewer.push_back(st_pdfViewer(anderer,
                            "anderer Viewer (z.B. 'kghostview', 'ggv')",
                            false));
+#else
+  list_pdfViewer.push_back(st_pdfViewer(anderer,
+                           "Programm",
+                           true));
+  // registry
+  // setString(pdfViewer,);
+#endif
 }
 
 void Midgard_Optionen::Hausregeln_init()

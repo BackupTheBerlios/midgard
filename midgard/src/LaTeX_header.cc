@@ -1,4 +1,4 @@
-// $Id: LaTeX_header.cc,v 1.24 2002/04/16 11:29:17 thoma Exp $
+// $Id: LaTeX_header.cc,v 1.25 2002/04/17 07:06:08 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,7 +22,7 @@
 #ifndef __MINGW32__
 #include <unistd.h>
 #else
-#include <windows.h>
+#include <io.h>
 #endif
 
 std::string midgard_CG::get_latex_filename(const LaTeX_Filenames what)
@@ -226,14 +226,15 @@ void midgard_CG::pdf_viewer(const std::string& file)
      putenv(buffer2);
   }
   // GetTempPath ?
-#define unlink(a) DeleteFileA(a)
+#define unlink(a) _unlink(a)
 
 #endif
-  system(("pdflatex "+file+".tex").c_str());
-  system((MOptionen->Viewer()+file+".pdf").c_str());
+
+  system(("pdflatex --interaction scrollmode "+file+".tex").c_str());
+  system((MOptionen->Viewer()+" "+file+".pdf").c_str());
 
   unlink((file+".tex").c_str());
   unlink((file+".aux").c_str());
   unlink((file+".log").c_str());
-  unlink((file+".pdf").c_str());
+//  unlink((file+".pdf").c_str());
 }
