@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.277 2002/11/14 13:26:04 thoma Exp $
+// $Id: midgard_CG.cc,v 1.278 2002/11/16 23:04:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,6 +21,7 @@
 #include <gtk--/notebook.h>
 #include <gtk--/main.h>
 #include "Midgard_Info.hh"
+#include "BegruessungsWindow.hh"
 #include "Fertigkeiten.hh"
 #include <unistd.h>
 //#include <stdlib.h>
@@ -28,6 +29,7 @@
 #include <time.h>
 #endif
 #include "Windows_Linux.hh"
+
 
 midgard_CG::midgard_CG(const std::string &_argv0,const std::string &_magus_verzeichnis,
                        const std::string &datei)
@@ -66,6 +68,9 @@ midgard_CG::midgard_CG(const std::string &_argv0,const std::string &_magus_verze
   os << 
 #include"NEWS.h" 
    <<'\n';
+
+  if(MOptionen->OberCheck(Midgard_Optionen::BegruessungsFenster).active)
+     manage(new BegruessungsWindow(this));
 }
 
 midgard_CG::~midgard_CG()

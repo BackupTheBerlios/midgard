@@ -35,6 +35,7 @@
 void table_zufall::init(midgard_CG *h)
 {
   hauptfenster=h;
+  checkbutton_ange_fert->hide(); // nicht richtig implementiert
   fill_combos();
   fill_combo_steigern();
   fill_prototyp2_list();

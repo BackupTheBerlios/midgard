@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.207 2002/10/30 17:00:19 christof Exp $
+# $Id: Makefile.am,v 1.208 2002/11/16 23:04:46 thoma Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -30,6 +30,8 @@ EXTRA_DIST = midgard_document_eingabe.tex.in \
 
 
 noinst_HEADERS = \
+   BegruessungsWindow_glade.hh \
+   BegruessungsWindow.hh \
    Prototyp.hh \
    Prototyp2.hh \
    KI.hh \
@@ -82,8 +84,6 @@ noinst_HEADERS = \
 WaffeGrund.hh Fertigkeiten_angeboren.hh zufall.h \
 midgard_CG_glade.hh midgard_CG.hh  \
 WindowInfo_glade.hh WindowInfo.hh \
-   Window_hilfe_glade.hh \
-   Window_hilfe.hh \
 	Midgard_Info.hh \
    Midgard_Info_glade.hh \
    Tag.hh TagStream.hh \
@@ -107,6 +107,8 @@ registry.cc: ../win32/registry.cc ; ln -sf ../win32/$@ .
 NEWS.h: ../NEWS ; ./text2c <../NEWS >NEWS.h
 
 magus_SOURCES = $(PORT_FILES) \
+   BegruessungsWindow.cc \
+   BegruessungsWindow_glade.cc \
    Prototyp.cc \
    Prototyp2.cc \
    KI.cc \
@@ -212,8 +214,6 @@ magus_SOURCES = $(PORT_FILES) \
    midgard_CG_region_check.cc \
    midgard_CG_optionen.cc \
    midgard_CG_optionen_icons.cc \
-   Window_hilfe_glade.cc \
-   Window_hilfe.cc \
 	Midgard_Info.cc \
    Midgard_Info_glade.cc \
 	midgard.cc \

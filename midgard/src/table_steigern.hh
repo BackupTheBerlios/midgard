@@ -64,12 +64,10 @@ private:
         void on_radiobutton_pp_all_toggled();
         bool MidgardBasicElement_leaf_alt(const cH_RowDataBase &d);
         void MidgardBasicElement_leaf_neu(const cH_RowDataBase &d);
-        void show_goldeingabe(bool b);
-        void show_EPeingabe(bool b);
+        void show_goldeingabe(bool b,int button=0);
+        void show_EPeingabe(bool b,int button=0);
         
         // Grad anstieg
-public:
-//        enum e_was_steigern{Nichts,Ausdauer,Abwehr,Zaubern,Resistenz};
 private:
         const Enums::e_wie_steigern get_wie_steigern();
         const Enums::st_bool_steigern get_bool_steigern();
@@ -100,10 +98,12 @@ private:
         void zauberwerk_zeigen();
 
         // Sprache
-        void on_sprache_laden_clicked(bool load_old=false);
-        void on_schrift_laden_clicked(bool load_old=false);
-        void schriften_zeigen(bool load_old=false);
-        void sprachen_zeigen(bool load_old=false); 
+       void schriften_zeigen();
+       void sprachen_zeigen();
+       void alte_sprache_zeigen();
+       void alte_schrift_zeigen();
+       void neue_sprache_zeigen();
+       void neue_schrift_zeigen();
         void neue_schrift_wegen_sprache();
         int andereSprache_gleicheSchriftart(std::string art);
 
@@ -149,7 +149,6 @@ private:
         void on_notebook_lernen_switch_page(Gtk::Notebook_Helpers::Page *p0, guint p1);
         gint vscale_value_changed(GdkEventButton *ev);
         void on_checkbutton_EP_Geld_toggled();
-        void on_button_EP_toggled();
         void on_radio_selbst_toggled();
         void on_radio_praxis_toggled();
         void on_radio_unterweisung_toggled();
@@ -177,29 +176,16 @@ private:
         gint on_button_grad_basiswerte_button_release_event(GdkEventButton *ev);
         void on_spinbutton_eigenschaften_grad_anstieg_activate();
         void on_button_alter_clicked();
-        void on_button_geld_s_toggled();
-        void on_button_gfp_s_toggled();
-        void on_spinbutton_gfp_activate();
-        gint on_spinbutton_gfp_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_gfp_focus_in_event(GdkEventFocus *ev);
-        void on_spinbutton_gold_activate();
-        gint on_spinbutton_gold_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_gold_focus_in_event(GdkEventFocus *ev);
-        void on_spinbutton_silber_activate();
-        gint on_spinbutton_silber_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_silber_focus_in_event(GdkEventFocus *ev);
-        void on_spinbutton_kupfer_activate();
-        gint on_spinbutton_kupfer_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_kupfer_focus_in_event(GdkEventFocus *ev);
-        void on_spinbutton_aep_activate();
-        gint on_spinbutton_aep_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_aep_focus_in_event(GdkEventFocus *ev);
-        void on_spinbutton_kep_activate();
-        gint on_spinbutton_kep_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_kep_focus_in_event(GdkEventFocus *ev);
-        void on_spinbutton_zep_activate();
-        gint on_spinbutton_zep_focus_out_event(GdkEventFocus *ev);
-        gint on_spinbutton_zep_focus_in_event(GdkEventFocus *ev);
+        void on_LabelSpin_gfp_activate();
+        void on_LabelSpin_gold_activate();
+        void on_LabelSpin_silber_activate();
+        void on_LabelSpin_kupfer_activate();
+        void on_LabelSpin_aep_activate();
+        void on_LabelSpin_kep_activate();
+        void on_LabelSpin_zep_activate();
+        gint on_checkbutton_gfp_button_release_event(GdkEventButton *ev);
+        gint on_button_gold_eingeben_button_release_event(GdkEventButton *ev);
+        gint on_button_EP_eingeben_button_release_event(GdkEventButton *ev);
         void on_clist_ruestung_select_row(gint row, gint column, GdkEvent *event);
         void on_button_ruestung_1_toggled();
         void on_button_ruestung_2_toggled();

@@ -317,7 +317,7 @@ int Waffe::MaxErfolgswert(const Abenteurer &A) const
   }
  else
   {
-    if (A.Typ1()->Zaubern() == "z" && A.Typ2()->Short()!="") maxwert = 14;
+    if (A.Typ1()->Zaubern() == "z" && A.Typ2()->Short()=="") maxwert = 14;
     else
      {
       if     (x==1.0)  maxwert = 17;

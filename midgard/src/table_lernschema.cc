@@ -240,7 +240,7 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
   if((*MBE).What()==MidgardBasicElement::WAFFE && togglebutton_spezialwaffe->get_active())
      hauptfenster->undosave("Spezialwaffe "+(*MBE)->Name()+" gewählt");
   else
-     hauptfenster->undosave((*MBE)->Name()+" verlernt");
+     hauptfenster->undosave((*MBE)->What_str()+" "+(*MBE)->Name()+" verlernt");
 }
  
 void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
@@ -335,7 +335,7 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
         break; }
     default : break;
    }
-  hauptfenster->undosave((*MBE)->Name()+" gelernt");
+  hauptfenster->undosave((*MBE)->What_str()+" "+(*MBE)->Name()+" gelernt");
   show_lernschema();
   show_gelerntes(); 
   if(frame_lernschema_zusatz->is_visible()) scrolledwindow_lernen->set_sensitive(false);

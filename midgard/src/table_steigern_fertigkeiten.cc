@@ -50,6 +50,7 @@ void table_steigern::on_leaf_selected_alte_fert(cH_RowDataBase d)
    {  
       dynamic_cast<const Data_SimpleTree*>(&*d)->redisplay(alte_fert_tree);
       neue_fertigkeiten_zeigen();
+      zeige_werte();
       if(radiobutton_verlernen->get_active()) alte_fertigkeiten_zeigen();
    }
  if(!spinbutton_pp_eingeben->is_visible())

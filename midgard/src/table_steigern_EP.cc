@@ -50,14 +50,47 @@ void table_steigern::on_checkbutton_EP_Geld_toggled()
       }
 }
 
+/*
 void table_steigern::on_button_EP_toggled()
 {
  show_EPeingabe(button_EP->get_active());  
  spinbutton_aep->grab_focus();
 }
+*/
 
-void table_steigern::show_EPeingabe(bool b)
+gint table_steigern::on_button_EP_eingeben_button_release_event(GdkEventButton *ev)
+{ 
+ if(ev->button==3) button_EP->set_active(!button_EP->get_active());
+ show_EPeingabe(button_EP->get_active(),ev->button);
+ return false;
+}
+
+
+void table_steigern::show_EPeingabe(bool b,int button)
 {
+  if(b)
+   {   
+     if     (button == 1)
+       { 
+         LabelSpin_kep->edit_new();
+         LabelSpin_zep->edit_new();
+         LabelSpin_aep->edit_new();
+       }
+     else if(button == 3)
+       { 
+         LabelSpin_kep->edit_add();
+         LabelSpin_zep->edit_add();
+         LabelSpin_aep->edit_add();
+       }
+   }
+  else
+   {  
+      LabelSpin_aep->deaktivate();
+      LabelSpin_kep->deaktivate();
+      LabelSpin_zep->deaktivate();
+   }             
+
+/*
   if(b)
    {
      spinbutton_aep->set_value(hauptfenster->getWerte().AEP());
@@ -82,6 +115,7 @@ void table_steigern::show_EPeingabe(bool b)
      label_kep->show();
      label_zep->show();
    }
+*/
 }
  
 

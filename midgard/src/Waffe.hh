@@ -87,7 +87,7 @@ class Waffe : public MidgardBasicElement
      bool Verteidigung() const {if(Art()=="Verteidigung") return true; else return false;}
 
      bool Grundkenntnis_vorhanden(const std::list<MBEmlt>&) const;
-     int Maxwert(const std::vector<cH_Typen>& Typ) const;
+//     int Maxwert(const std::vector<cH_Typen>& Typ) const;
      int MaxErfolgswert(const Abenteurer &A) const; 
 
 

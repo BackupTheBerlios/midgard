@@ -1,4 +1,4 @@
-// $Id: table_steigern_grad_anstieg.cc,v 1.13 2002/11/06 07:47:55 thoma Exp $
+// $Id: table_steigern_grad_anstieg.cc,v 1.14 2002/11/16 23:04:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -85,7 +85,7 @@ void table_steigern::on_button_grad_basiswerte_clicked()
 gint table_steigern::on_button_grad_basiswerte_button_release_event(GdkEventButton *ev)
 {
   if (ev->button == 1) on_button_grad_basiswerte_clicked();
-  if (ev->button == 3) 
+  else if (ev->button == 3) 
    {
      spinbutton_eigenschaften_grad_anstieg->show();
      spinbutton_eigenschaften_grad_anstieg->grab_focus();

@@ -23,45 +23,55 @@
 #include "LernListen.hh"
 #include "class_SimpleTree.hh"
 
-void table_steigern::on_schrift_laden_clicked(bool load_old)
-{   
+
+void table_steigern::schriften_zeigen()
+{
+   alte_schrift_zeigen();
+   neue_schrift_zeigen();   
+   zeige_werte();
+}
+
+void table_steigern::alte_schrift_zeigen()
+{
+  MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Schrift(),alte_schrift_tree,hauptfenster);
+}
+
+void table_steigern::neue_schrift_zeigen()
+{
   Abenteurer &A=hauptfenster->getAben();
   bool nsc=hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active;
   list_Schrift_neu=LL->get_steigern_MBEm(A,Enums::sSchr,nsc);
-   schriften_zeigen(load_old);
+  MidgardBasicElement::show_list_in_tree(list_Schrift_neu,neue_schrift_tree,hauptfenster);
 }
 
-void table_steigern::on_sprache_laden_clicked(bool load_old)
+void table_steigern::sprachen_zeigen()
+{
+   neue_sprache_zeigen();
+   alte_sprache_zeigen();
+   zeige_werte();
+}
+
+void table_steigern::alte_sprache_zeigen()
+{
+  MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Sprache()    ,alte_sprache_tree,hauptfenster);
+}
+
+void table_steigern::neue_sprache_zeigen()
 {   
   Abenteurer &A=hauptfenster->getAben();
   bool nsc=hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active;
   list_Sprache_neu=LL->get_steigern_MBEm(A,Enums::sSpra,nsc);
-  sprachen_zeigen(load_old);
-  on_schrift_laden_clicked();
+   MidgardBasicElement::show_list_in_tree(list_Sprache_neu,neue_sprache_tree,hauptfenster);
+//  on_schrift_laden_clicked();
 }   
 
-void table_steigern::schriften_zeigen(bool load_old)
-{
-   zeige_werte();
-//   if(load_old)
-      MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Schrift()    ,alte_schrift_tree,hauptfenster);
-   MidgardBasicElement::show_list_in_tree(list_Schrift_neu,neue_schrift_tree,hauptfenster);
-}
-
-void table_steigern::sprachen_zeigen(bool load_old)
-{
-   zeige_werte();
-//   if(load_old)
-      MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Sprache()    ,alte_sprache_tree,hauptfenster);
-   MidgardBasicElement::show_list_in_tree(list_Sprache_neu,neue_sprache_tree,hauptfenster);
-}
 
 
 void table_steigern::on_leaf_selected_neue_sprache(cH_RowDataBase d)
 {  
   MidgardBasicElement_leaf_neu(d);
   sprachen_zeigen();
-  on_schrift_laden_clicked();
+  schriften_zeigen();
 }
     
 void table_steigern::on_leaf_selected_alte_sprache(cH_RowDataBase d)
@@ -69,9 +79,11 @@ void table_steigern::on_leaf_selected_alte_sprache(cH_RowDataBase d)
   if(MidgardBasicElement_leaf_alt(d))
    {
      neue_schrift_wegen_sprache();
-     on_sprache_laden_clicked(false);
+     neue_sprache_zeigen();
+     schriften_zeigen();
      dynamic_cast<const Data_SimpleTree*>(&*d)->redisplay(alte_sprache_tree);
    }
+  alte_sprache_tree->unselect_all();
 }
     
 void table_steigern::on_alte_sprache_reorder()
@@ -90,17 +102,17 @@ void table_steigern::on_leaf_selected_alte_schrift(cH_RowDataBase d)
   if(MidgardBasicElement_leaf_alt(d))
    {
      neue_schrift_wegen_sprache();
-     on_sprache_laden_clicked();
+     schriften_zeigen();
+//???     on_sprache_laden_clicked();
    }
 }   
     
 void table_steigern::on_leaf_selected_neue_schrift(cH_RowDataBase d)
 {  
   MidgardBasicElement_leaf_neu(d);
-  on_sprache_laden_clicked();
+  schriften_zeigen();
+//  on_sprache_laden_clicked();
 }   
-
-
 
 void table_steigern::neue_schrift_wegen_sprache()
 {

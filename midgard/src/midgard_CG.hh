@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.298 2002/11/13 10:22:41 thoma Exp $
+// $Id: midgard_CG.hh,v 1.299 2002/11/16 23:04:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -59,6 +59,7 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
 {   
         bool in_dtor;
 /////////////////////////////////////////////////////////////////////////////
+        friend class BegruessungsWindow;
         friend class Zufall;
         friend class MagusKI;
         friend class LernListen;
@@ -240,7 +241,6 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
         void menu_geschichte_selected();
         void menu_einstellungen_aendern();
         void on_anleitung_menu_activate();
-        void on_hilfe_menu_activate();
         void on_info_credits_menu_activate();
         void on_news_menu_activate();
         std::list<std::string> LDateien;
@@ -258,7 +258,6 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
         void setWindowSize(int width,int height);
         gint on_eventbox_MCG_button_press_event(GdkEventButton *event);
         void pdf_viewer(const std::string& file);
-        void on_button_hilfe_clicked();
         void on_button_html_hilfe_clicked();
         void on_button_info_clicked();
         void on_schliessen_CG_clicked();

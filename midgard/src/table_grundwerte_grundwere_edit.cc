@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_grundwere_edit.cc,v 1.11 2002/11/11 13:52:09 thoma Exp $
+// $Id: table_grundwerte_grundwere_edit.cc,v 1.12 2002/11/16 23:04:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -44,6 +44,8 @@ void table_grundwerte::on_button_grda1setzen_clicked()
 {
   hauptfenster->getWerte().setGrad1Werte(hauptfenster->getChar()->getVTyp());
   zeige_werte();
+  hauptfenster->lernschema_sensitive(true);
+  hauptfenster->frame_steigern->set_sensitive(true);
 }
 
 void table_grundwerte::on_entry_nameC_activate()

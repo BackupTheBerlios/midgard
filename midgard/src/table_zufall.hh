@@ -31,6 +31,7 @@ class table_zufall : public table_zufall_glade
 {
       friend class table_zufall_glade;
       friend class midgard_CG;
+      friend class BegruessungsWindow;
 
       midgard_CG *hauptfenster;
       Prozente100 prozente100;

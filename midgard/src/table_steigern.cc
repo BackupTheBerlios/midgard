@@ -71,7 +71,9 @@ void table_steigern::load_for_page(guint pagenr)
   if(pagenr==PAGE_KIDO)
      on_kido_laden_clicked();
   if(pagenr==PAGE_SPRACHE)
-     on_sprache_laden_clicked();
+   { sprachen_zeigen();
+     schriften_zeigen();
+   }
 
   if(pagenr==PAGE_BESITZ)
    {
@@ -107,46 +109,45 @@ void table_steigern::load_for_page(guint pagenr)
 
 
 
+/*
 void table_steigern::on_button_geld_s_toggled()
 {
-//  if(!button_gold_eingeben->get_active()) return;
   show_goldeingabe(button_gold_eingeben->get_active());  
   spinbutton_gold->grab_focus();
 }
+*/
 
-void table_steigern::show_goldeingabe(bool b)
+void table_steigern::show_goldeingabe(bool b,int button)
 {
   if(b)
    {
-     spinbutton_gold->set_value(hauptfenster->getWerte().Gold());
-     spinbutton_silber->set_value(hauptfenster->getWerte().Silber());
-     spinbutton_kupfer->set_value(hauptfenster->getWerte().Kupfer());
-     spinbutton_gold->show();
-     spinbutton_silber->show();
-     spinbutton_kupfer->show();
-     label_gold->hide();
-     label_silber->hide();
-     label_kupfer->hide();
+     if     (button == 1) 
+       { 
+         LabelSpin_silber->edit_new();
+         LabelSpin_kupfer->edit_new();
+         LabelSpin_gold->edit_new();
+       }
+     else if(button == 3) 
+       { 
+         LabelSpin_silber->edit_add();
+         LabelSpin_kupfer->edit_add();
+         LabelSpin_gold->edit_add();
+       }
    }
   else
    {
-     spinbutton_gold->hide();
-     spinbutton_silber->hide();
-     spinbutton_kupfer->hide();
-     label_gold->set_text(itos(hauptfenster->getWerte().Gold()));
-     label_silber->set_text(itos(hauptfenster->getWerte().Silber()));
-     label_kupfer->set_text(itos(hauptfenster->getWerte().Kupfer()));
-     label_gold->show();
-     label_silber->show();
-     label_kupfer->show();
-   }
+      LabelSpin_gold->deaktivate();
+      LabelSpin_silber->deaktivate();
+      LabelSpin_kupfer->deaktivate();
+   }             
 }
 
 
 void table_steigern::zeige_werte()
 {
    const Grundwerte &W=hauptfenster->getWerte();
-   gfp->set_text(itos(W.GFP()));
+    LabelSpin_gfp->set_value(W.GFP());
+//   gfp->set_text(itos(W.GFP()));
 
    steigern_gtk();
   
@@ -176,7 +177,8 @@ void table_steigern::zeige_werte()
   show_goldeingabe(false);
   show_EPeingabe(false);
   checkbutton_gfp->set_active(false);
-  on_button_gfp_s_toggled();
+  LabelSpin_gfp->deaktivate();
+//  on_button_gfp_s_toggled();
 
   steigern_typ->set_text(hauptfenster->getChar()->Typ1()->Name(W.Geschlecht()));
   if (hauptfenster->getChar()->Typ2()->Name(W.Geschlecht())!="")

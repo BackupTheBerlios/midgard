@@ -82,7 +82,7 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
     {
       Abenteurer::move_element(*MyList,*MyList_neu,MBE);
     }
- hauptfenster->undosave((*MBE)->Name()+" auf "+itos(MBE->Erfolgswert())+" gesteigert");
+ hauptfenster->undosave((*MBE)->What_str()+" "+(*MBE)->Name()+" auf "+itos(MBE->Erfolgswert())+" gesteigert");
  return true;
 }
 
@@ -168,7 +168,7 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
 //cout << "Move "<<MyList_neu->size()<<' '<<MyList->size()<<'\n';
 
  Abenteurer::move_element(*MyList_neu,*MyList,MBE);
- hauptfenster->undosave((*MBE)->Name()+" gelernt");
+ hauptfenster->undosave((*MBE)->What_str()+" "+(*MBE)->Name()+" gelernt");
 
 //cout << "Move "<<MyList_neu->size()<<' '<<MyList->size()<<'\n';
 }

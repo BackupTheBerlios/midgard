@@ -17,7 +17,6 @@
 
 #include "midgard_CG.hh"
 #include <gtk--/main.h>
-#include "Window_hilfe.hh"
 #include <unistd.h>
 #include "Windows_Linux.hh"
 
@@ -32,11 +31,6 @@ gint midgard_CG::timeout_status()
 {
   label_status->set_text("");
   return 0;
-}
-
-void midgard_CG::on_button_hilfe_clicked()
-{
-  manage(new Window_hilfe()); 
 }
 
 void midgard_CG::on_button_html_hilfe_clicked()
@@ -122,11 +116,6 @@ void midgard_CG::menu_einstellungen_aendern()
 void midgard_CG::on_anleitung_menu_activate()
 {
   on_button_html_hilfe_clicked();
-}
-
-void midgard_CG::on_hilfe_menu_activate()
-{
-  on_button_hilfe_clicked();
 }
 
 void midgard_CG::on_info_credits_menu_activate()

@@ -89,6 +89,7 @@ void table_steigern::on_leaf_selected_alte_waffen(cH_RowDataBase d)
    {
      dynamic_cast<const Data_SimpleTree*>(&*d)->redisplay(alte_waffen_tree);
      neue_waffen_zeigen();
+     zeige_werte();
      if(radiobutton_verlernen->get_active()) alte_waffen_zeigen();
    }
   if(!spinbutton_pp_eingeben->is_visible())
