@@ -1,4 +1,4 @@
-// $Id: gw_wuerfeln.cc,v 1.40 2002/03/03 08:02:14 thoma Exp $
+// $Id: gw_wuerfeln.cc,v 1.41 2002/03/06 17:06:27 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -285,7 +285,7 @@ void midgard_CG::gw_wuerfeln_2x()
      constraint_gw(Werte.Spezies()->Ko()),
      constraint_gw(Werte.Spezies()->In()),
      constraint_gw(Werte.Spezies()->Zt()));
- zeige_werte(Werte);
+ zeige_werte();
 }
 
 //static inline int max(int a,int b) { return a>b?a:b; }

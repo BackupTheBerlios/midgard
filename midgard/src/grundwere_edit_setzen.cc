@@ -1,4 +1,4 @@
-// $Id: grundwere_edit_setzen.cc,v 1.32 2002/02/21 21:56:26 thoma Exp $
+// $Id: grundwere_edit_setzen.cc,v 1.33 2002/03/06 17:06:27 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,7 +32,7 @@ void midgard_CG::on_togglebutton_edit_werte_toggled()
 void midgard_CG::on_button_grda1setzen_clicked()
 {
   Werte.setGrad1Werte(Typ);
-  zeige_werte(Werte);
+  zeige_werte();
 }
 
 void midgard_CG::set_all_entrys()
@@ -94,7 +94,7 @@ void midgard_CG::set_all_entrys()
   gtk_spin_button_update(spinbutton_b->gtkobj());  
   Werte.setB(spinbutton_b->get_value_as_int());
 
-  zeige_werte(Werte);
+  zeige_werte();
 }
 
 void midgard_CG::on_entry_nameC_activate()

@@ -64,7 +64,7 @@ void midgard_CG::on_kido_laden_clicked()
 
 void midgard_CG::kido_zeigen()
 {
- zeige_werte(Werte);
+ zeige_werte();
  MidgardBasicElement::show_list_in_tree(list_Kido    ,alte_kido_tree,this);
  MidgardBasicElement::show_list_in_tree(list_Kido_neu,neue_kido_tree,this);
 }

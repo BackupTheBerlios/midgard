@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.53 2002/03/01 18:56:12 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.54 2002/03/06 17:06:27 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -49,38 +49,38 @@ void midgard_CG::on_grad_anstieg_clicked()
     get_grundwerte();
     ++old_grad;
   }
- zeige_werte(Werte);
+ zeige_werte();
 }
 
 void midgard_CG::on_button_grad_clicked()
 {   
   Werte.setGrad(Database.GradAnstieg.get_Grad(Werte.GFP()));
-  zeige_werte(Werte);
+  zeige_werte();
 }
 void midgard_CG::on_button_grad_ausdauer_clicked()
 {   
   get_ausdauer(Werte.Grad());
-  zeige_werte(Werte);
+  zeige_werte();
 }
 void midgard_CG::on_button_grad_abwehr_clicked()
 {   
  get_ab_re_za(Abwehr);
- zeige_werte(Werte);
+ zeige_werte();
 }
 void midgard_CG::on_button_grad_zaubern_clicked()
 {   
  get_ab_re_za(Zaubern);
- zeige_werte(Werte);
+ zeige_werte();
 }
 void midgard_CG::on_button_grad_resistenz_clicked()
 {   
  get_ab_re_za(Resistenz);
- zeige_werte(Werte);
+ zeige_werte();
 }
 void midgard_CG::on_button_grad_basiswerte_clicked()
 {   
   get_grundwerte();
-  zeige_werte(Werte);
+  zeige_werte();
 }
 
 
@@ -138,7 +138,7 @@ void midgard_CG::get_grundwerte()
     }
   InfoFenster->AppendShow(stinfo,WindowInfo::None);
   Database.GradAnstieg.set_Grad_Basiswerte(1+Database.GradAnstieg.get_Grad_Basiswerte());
-  zeige_werte(Werte);
+  zeige_werte();
 }
 
 void midgard_CG::get_ausdauer(int grad)

@@ -46,7 +46,7 @@ void midgard_CG::on_waffen_laden_clicked()
 
 void midgard_CG::waffen_zeigen()
 {
-   zeige_werte(Werte);
+   zeige_werte();
    MidgardBasicElement::show_list_in_tree(list_WaffenGrund_neu,neue_grund_tree,this);
    MidgardBasicElement::show_list_in_tree(list_WaffenGrund    ,alte_grund_tree,this);
    MidgardBasicElement::show_list_in_tree(list_Waffen_neu,neue_waffen_tree,this);

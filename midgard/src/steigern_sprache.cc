@@ -53,14 +53,14 @@ void midgard_CG::on_sprache_laden_clicked()
 
 void midgard_CG::schriften_zeigen()
 {
-   zeige_werte(Werte);
+   zeige_werte();
    MidgardBasicElement::show_list_in_tree(list_Schrift    ,alte_schrift_tree,this);
    MidgardBasicElement::show_list_in_tree(list_Schrift_neu,neue_schrift_tree,this);
 }
 
 void midgard_CG::sprachen_zeigen()
 {
-   zeige_werte(Werte);
+   zeige_werte();
    MidgardBasicElement::show_list_in_tree(list_Sprache    ,alte_sprache_tree,this);
    MidgardBasicElement::show_list_in_tree(list_Sprache_neu,neue_sprache_tree,this);
 }

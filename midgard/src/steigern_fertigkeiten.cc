@@ -46,7 +46,7 @@ void midgard_CG::on_fertigkeiten_laden_clicked()
 
 void midgard_CG::fertigkeiten_zeigen()
 {
- zeige_werte(Werte);
+ zeige_werte();
  MidgardBasicElement::show_list_in_tree(list_Fertigkeit_neu,neue_fert_tree,this);
  MidgardBasicElement::show_list_in_tree(list_Fertigkeit    ,alte_fert_tree,this);
 }

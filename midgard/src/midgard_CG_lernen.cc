@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.89 2002/03/05 08:12:38 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.90 2002/03/06 17:06:27 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -153,7 +153,7 @@ void midgard_CG::set_lernpunkte()
   gtk_spin_button_update(spinbutton_zauber->gtkobj());
   lernpunkte.setZauber(spinbutton_zauber->get_value_as_int());
   on_lernliste_wahl_toggled();
-  zeige_werte(Werte);
+  zeige_werte();
 }
 
 void midgard_CG::zeige_lernpunkte()
@@ -163,7 +163,7 @@ void midgard_CG::zeige_lernpunkte()
  spinbutton_unge->set_value(lernpunkte.Unge());
  spinbutton_waffen->set_value(lernpunkte.Waffen());
  spinbutton_zauber->set_value(lernpunkte.Zauber());
- zeige_werte(Werte);
+ zeige_werte();
 
  if(lernpunkte.Fach()==0 && lernpunkte.Allgemein()==0 &&
     lernpunkte.Unge()==0 && lernpunkte.Waffen()==0 &&
@@ -272,7 +272,7 @@ void midgard_CG::on_button_ruestung_clicked()
   std::string strinfo ="Beim Auswürfeln der Rüstung wurde eine\n"+itos(wurf)+" gewürfelt\n";
   strinfo += "---> " + Werte.Ruestung()->Long();
   InfoFenster->AppendShow(strinfo);
-  zeige_werte(Werte);
+  zeige_werte();
 }
 
 

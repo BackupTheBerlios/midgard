@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.189 2002/03/05 08:12:38 thoma Exp $
+// $Id: midgard_CG.hh,v 1.190 2002/03/06 17:06:27 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -539,7 +539,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          gint on_laden_release_event(GdkEventButton *ev);
          void xml_export_auswahl();
          void xml_import_auswahl();
-         void zeige_werte(const Grundwerte& w);
 //         void show_sinne();
          void checkAngeboreneSinne();
 
@@ -557,6 +556,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          const vector<cH_Typen> &getVTyp() const {return Typ;}
          const Datenbank &getDatabase() const {return Database;}
          const Grundwerte &getWerte() const {return Werte;}
+         void zeige_werte();
  
          void kaempfer_lernt_zaubern(cH_MidgardBasicElement);
          void doppelcharaktere();

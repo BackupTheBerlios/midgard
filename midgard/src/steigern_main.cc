@@ -109,7 +109,7 @@ void midgard_CG::on_spinbutton_pp_eingeben_activate()
        Werte.setResistenzPP(PPanz);
     spinbutton_pp_eingeben->hide();
     radiobutton_steigern->get_active();
-    zeige_werte(Werte);
+    zeige_werte();
     return;
   }   
  
@@ -160,7 +160,7 @@ void midgard_CG::on_button_alter_clicked()
    }
   Werte.setAlter(alter);
   Werte.setSteigertage(tage);
-  zeige_werte(Werte);
+  zeige_werte();
 }
 
 

@@ -170,7 +170,7 @@ void midgard_CG::on_herkunft_leaf_selected(cH_RowDataBase d)
   Werte.setHerkunft(dt->getLand());
   frame_lernschema_zusatz->hide();
   tree_lernschema->set_sensitive(true);
-  zeige_werte(Werte);  
+  zeige_werte();  
   button_angeborene_fert->set_sensitive(true);
   button_herkunft->set_sensitive(false);
 }
@@ -182,7 +182,7 @@ void midgard_CG::on_zusatz_leaf_selected(cH_RowDataBase d)
   cH_MidgardBasicElement MBE=dt->getMBE();
   MBE->setZusatz(dt->getZusatz());
   frame_lernschema_zusatz->hide();
-  zeige_werte(Werte);  
+  zeige_werte();  
   show_gelerntes();
 }
 
@@ -196,7 +196,7 @@ void midgard_CG::on_zusatz_leaf_schrift_selected(cH_RowDataBase d)
   schrift->set_Lernpunkte(MBE->Lernpunkte());
   list_Schrift.push_back(schrift);
   frame_lernschema_zusatz->hide();
-  zeige_werte(Werte);  
+  zeige_werte();  
   show_gelerntes();
 }
 
@@ -210,7 +210,7 @@ void midgard_CG::on_zusatz_leaf_sprache_selected(cH_RowDataBase d)
   sprache->set_Lernpunkte(MBE->Lernpunkte());
   list_Sprache.push_back(sprache);
   frame_lernschema_zusatz->hide();
-  zeige_werte(Werte);  
+  zeige_werte();  
   show_gelerntes();
 }
 

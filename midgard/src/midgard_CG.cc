@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.173 2002/03/05 08:12:38 thoma Exp $
+// $Id: midgard_CG.cc,v 1.174 2002/03/06 17:06:27 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -144,7 +144,7 @@ void midgard_CG::on_radiobutton_mann_toggled()
 
   fill_typauswahl();
   fill_typauswahl_2();
-  zeige_werte(Werte);
+  zeige_werte();
 }
 
 void midgard_CG::show_gtk()
@@ -163,7 +163,7 @@ void midgard_CG::show_gtk()
  if (Typ[1]->Name(Werte.Geschlecht())!="") 
    steigern_typ->set_text(Typ[0]->Name(Werte.Geschlecht())+"/"+Typ[1]->Name(Werte.Geschlecht()));
  
- zeige_werte(Werte);
+ zeige_werte();
  show_gelerntes();
  EP_uebernehmen();
  Geld_uebernehmen();
@@ -366,7 +366,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    Typ.clear();
    Typ.resize(2);
    zeige_lernpunkte();
-   zeige_werte(Werte);
+   zeige_werte();
 //   OptionBool.reset(); 
    for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
       (*i)->setActive(false);
