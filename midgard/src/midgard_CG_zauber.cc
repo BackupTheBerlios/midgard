@@ -1,4 +1,4 @@
-// $Id: midgard_CG_zauber.cc,v 1.48 2002/01/21 17:48:49 christof Exp $
+// $Id: midgard_CG_zauber.cc,v 1.49 2002/01/21 19:01:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -105,7 +105,7 @@ cout << user_data<<' '<<&user_data<<'\n';
 cout << "aftercast\n";
 // if (s=="Spezialgebiet" || s == "Primär- und Sekundärelement") return ;
 cout <<"Spez="<<(ptr)->Name()<<'\n';
- Werte.set_Spezialgebiet(ptr);
+ Werte.setSpezialgebiet(ptr);
 
 cout <<"Spez="<<(ptr)->Name()<<'\n';
 // get_spezial_from_spezialgebiet();

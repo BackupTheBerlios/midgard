@@ -172,6 +172,7 @@ void midgard_CG::xml_import(const std::string& datei)
    this->Typ[0]=cH_Typen(Typ->getAttr("Abkürzung"));
    fill_typauswahl();
    typauswahl->set_history(this->Typ[0]->Nr());
+//   Gtk::Menu_Helpers::SelectMatching(typauswahl, Typ(xyz));
 
    { std::string s = Typ->getAttr("Abkürzung2");
      if(s!="") 
