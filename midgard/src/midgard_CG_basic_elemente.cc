@@ -147,7 +147,7 @@ void midgard_CG::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
 
  std::list<cH_MidgardBasicElement> *MyList,*MyList_neu;
  if(MBE->What()==MidgardBasicElement::FERTIGKEIT) 
-   { if(MBE->ZusatzBool(Typ))
+   { if(MBE->ZusatzEnum(Typ))
       {  
         MBE=new Fertigkeit(*cH_Fertigkeit(MBE));
         fillClistLand(MBE);
@@ -163,7 +163,7 @@ void midgard_CG::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
    { MyList     = &list_WaffenGrund; MyList_neu = &list_WaffenGrund_neu;  }
  else if(MBE->What()==MidgardBasicElement::ZAUBER) 
   {
-   { if(MBE->ZusatzBool(Typ))
+   { if(MBE->ZusatzEnum(Typ))
       {  
         MBE=new Zauber(*cH_Zauber(MBE));
         fillClistLand(MBE);

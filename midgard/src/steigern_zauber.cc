@@ -27,7 +27,7 @@ void midgard_CG::on_zauber_laden_clicked()
   list_Zauber_neu.clear();
   for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Zauber.begin();i!=Database.Zauber.end();++i)
     { cH_Zauber z(*i);
-      if ((*i)->ist_gelernt(list_Zauber) || !(*i)->ZusatzBool(Typ)) continue ;
+      if ((*i)->ist_gelernt(list_Zauber) || !(*i)->ZusatzEnum(Typ)) continue ;
       if (z->Zauberart()=="Zaubersalz" && !togglebutton_zaubersalze->get_active())
          continue;
       if (z->Zauberart()=="Beschwörung" && !Region::isActive(Database.Regionen,cH_Region("MdS")))

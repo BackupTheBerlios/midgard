@@ -24,6 +24,7 @@
 #include "Sprache.hh"
 #include "Waffe.hh"
 #include "Fertigkeiten.hh"
+#include "Zauber.hh"
 
 void Sprache_auswahl::on_clist_sp_sc_select_row(gint row, gint column, GdkEvent *event)
 {   

@@ -95,12 +95,14 @@ bool MidgardBasicElement::ist_gelernt(const std::list<cH_MidgardBasicElement>& L
 {
  for (std::list<cH_MidgardBasicElement>::const_iterator i=L.begin();i!=L.end();++i)
    {
+/*
      if((*i)->What()==FERTIGKEIT)
       {
         if((*i)->Name()==Name() && 
            cH_Fertigkeit(*i)->Zusatz()==static_cast<const Fertigkeit*>(this)->Zusatz()) return true;
       }
-     else if((*i)->What()==ZAUBERWERK)
+     else */
+     if((*i)->What()==ZAUBERWERK)
       {
         if((*i)->Name()==Name() &&
            cH_Zauberwerk(*i)->Art()==static_cast<const Zauberwerk*>(this)->Art() &&
@@ -108,7 +110,7 @@ bool MidgardBasicElement::ist_gelernt(const std::list<cH_MidgardBasicElement>& L
       }
      else 
       {  
-       if((*i)->Name()==Name()) return true;}
+     if((*i)->Name()==Name() && (*i)->Zusatz()==Zusatz()) return true;}
    }
  return false;
 }
@@ -320,7 +322,7 @@ void MidgardBasicElement::saveElementliste(IF_XML(ostream &datei,)
         write_string_attrib(datei, "Art", cH_Zauberwerk(*i)->Art());
         write_string_attrib(datei, "Stufe", cH_Zauberwerk(*i)->Stufe());
       }
-      if ((*i)->ZusatzBool(Typ))
+      if ((*i)->ZusatzEnum(Typ))
          write_string_attrib(datei, "Zusatz", (*i)->Zusatz());
       datei << "/>\n";
    }

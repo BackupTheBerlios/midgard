@@ -182,7 +182,7 @@ void midgard_CG::on_clist_landauswahl_select_row(gint row, gint column, GdkEvent
 {
   std::string zusatz = clist_landauswahl->get_text(row,0);
   MidgardBasicElement *MBE=static_cast<MidgardBasicElement*>(clist_landauswahl->selection().begin()->get_data());
-  cH_Fertigkeit(MBE)->setZusatz(zusatz);
+  MBE->setZusatz(zusatz);
   // Erhöter Erfolgswert für Landeskunde Heimat:
   if(zusatz==Werte.Herkunft()->Name()) MBE->set_Erfolgswert(9);
   scrolledwindow_landauswahl->hide();
