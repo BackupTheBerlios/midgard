@@ -21,13 +21,11 @@
 #include "Gtk_OStream.h"
 #include <gtkmm/optionmenu.h>
 #include <gtkmm/menuitem.h>
-//#include <cstring>
+#include <gtkmm/menu.h>
 
-// something is strange here, looks like this menu never get's destroyed
-
-void Gtk::OStream::erase_OptionMenu()
-{
-   if (mode&std::ios::trunc)  handler_data.optionmenu.menu=manage(new Gtk::Menu());
+// because of some strance gtk-1.2 bug we can't set the menu at open ??
+void Gtk::OStream::erase_OptionMenu(openmode mode)
+{  if (mode&std::ios::trunc)  handler_data.optionmenu.menu=manage(new Gtk::Menu());
    else 
    {  handler_data.optionmenu.menu=handler_data.optionmenu.widget->get_menu();
       if (!handler_data.optionmenu.menu) 
@@ -38,31 +36,13 @@ void Gtk::OStream::erase_OptionMenu()
 }
 
 void Gtk::OStream::close_OptionMenu()
-{
-   if (mode&std::ios::trunc) handler_data.optionmenu.widget->set_menu(*handler_data.optionmenu.menu);
+{  if (handler_data.optionmenu.widget->get_menu()!=handler_data.optionmenu.menu) 
+      handler_data.optionmenu.widget->set_menu(*handler_data.optionmenu.menu);
 }
 
-void Gtk::OStream::flush_OptionMenu(gpointer user_data,GtkDestroyNotify d)
-{
-    char *linebuf=data.c_str; // grrr
-
-    
-    const char *nextline=linebuf;
-    Gtk::MenuItem *item;
-    for (char *nl=strchr(nextline,'\n');nl;nextline=nl+1,nl=strchr(nextline,'\n'))
-    {
-        nl[0]=0;
-        item=manage(new Gtk::MenuItem(nextline));
-        handler_data.optionmenu.menu->append(*item);
-        item->show();
-	if (user_data) item->set_data("user_data",user_data,d);
-    }
-    if (nextline[0])
-    {
-        item=manage(new Gtk::MenuItem(nextline));
-//        assert(Gtk::OptionMenu::isA(handler_data.optionmenu.widget));
-        handler_data.optionmenu.menu->append(*item);
-        item->show();
-        if (user_data) item->set_data("user_data",user_data,d);
-    }
+void Gtk::OStream::line_OptionMenu(const std::string &line)
+{   item=manage(new Gtk::MenuItem(line));
+    handler_data.optionmenu.menu->append(*item);
+    item->show();
+    if (user_data) item->set_data("user_data",user_data,notify);
 }
