@@ -53,7 +53,7 @@ COPY "fertigkeiten" FROM stdin;
 3	3	3	8	Überleben in der Wüste	6	50		In	\N	1	18	14
 3	3	3	12	Sprechen: Sprache(+12)	12	0	\N	In	\N	\N	18	17
 3	3	\N	15	Geländelauf	10	60		Gw	8	1	18	18
-3	3	\N	15	Klettern	10	60		St	8	1	18	18
+3	3	\N	15	Klettern	10	60		Gw	8	1	18	18
 3	3	\N	15	Schwimmen	10	60		Gw	3	1	18	18
 3	\N	1	12	Erzählen	8	80		In	4	1	20	16
 3	\N	2	12	Gaukeln	8	80	\N	Gs	\N	1	20	16
@@ -87,7 +87,7 @@ COPY "fertigkeiten" FROM stdin;
 4	\N	\N	4	Astrologie	2	400	R	\N	\N	2	18	18
 4	\N	\N	4	Athletik	4	50		St	\N	1	16	14
 4	\N	\N	4	Fallenmechanik	4	600		Gs	0	\N	16	12
-4	\N	\N	4	FengSchui	2	100	K	In	\N	\N	18	18
+4	\N	\N	4	FengSchui	4	100	K	In	\N	\N	18	18
 4	\N	\N	4	NinJutsu	2	600	K	Gw	\N	\N	18	18
 4	\N	\N	4	Siegelkunde	2	100	B&R	In	\N	\N	18	18
 4	\N	\N	4	Wahrnehmung	4	300		In	2	\N	6	6
@@ -153,6 +153,7 @@ COPY "fertigkeiten" FROM stdin;
 8	\N	\N	8	Geschäftstüchtigkeit	6	2000	\N	In	8	4	18	14
 8	\N	\N	8	Kampftaktik	6	150	\N	pA	5	\N	20	16
 8	\N	\N	10	KiDo	10	800	K	Zt	\N	\N	18	18
+8	\N	\N	12	Lesen von Geisterschrift	6	20	K	In	\N	\N	18	15
 8	\N	\N	12	Lesen von Zauberschrift	6	20		In	\N	\N	18	15
 8	\N	\N	14	Schwerttanz	12	100	K	Gw	\N	3	18	18
 8	\N	\N	15	Bogenkampf zu Pferd	10	200	\N	Gs	\N	\N	18	18
