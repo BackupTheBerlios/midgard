@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.47 2002/06/17 07:19:45 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.48 2002/07/03 16:58:51 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,6 +25,7 @@
 #include "Spezialgebiet.hh"
 #include "Typen.hh"
 #include "MidgardBasicElement.hh"
+#include "Fertigkeiten.hh"
 
 
 class Grundwerte
@@ -36,6 +37,7 @@ class Grundwerte
          };         
    st_grund grund;
    std::list<MidgardBasicElement_mutable> list_Sinne;
+   MidgardBasicElement_mutable Ueberleben_angeboren;
    int raufen;
 
    int au,pa,sb,wk,b,lp,ap;
@@ -63,9 +65,13 @@ class Grundwerte
    int steigern_EP_prozent;  
    int grad_basiswerte; 
    void reset();
+
    
+
 public:
-   Grundwerte() : raufen(0),au(0),pa(0),sb(0), wk(0),
+   Grundwerte() : 
+             Ueberleben_angeboren(&*cH_Fertigkeit("Überleben Heimat",true)),
+             raufen(0),au(0),pa(0),sb(0), wk(0),
              b(0),lp(0),ap(0),gg(0),sg(0),abwehr_wert(0),abwehr_pp(0),
              zaubern_wert(0),zauber_pp(0),pp_spezialzauber(0),resistenz(0),resistenz_pp(0),
              alter(0),geschlecht("m"),gewicht(0),groesse(0),grad(1),
@@ -73,6 +79,7 @@ public:
              gfp(0),steigertage(0),gold(0), silber(0), kupfer(0),
              aep(0),kep(0),zep(0),spezies("Mensch"),
              stadt_land("Stadt"), steigern_EP_prozent(50), grad_basiswerte(1)
+             
          { reset(); }
    void resetSinne() ;
    void setSt(int i) {grund.st=i;}
@@ -95,6 +102,7 @@ public:
    int LP() const {return lp;}
    int AP() const {return ap;}
    std::list<MidgardBasicElement_mutable> Sinne() const {return list_Sinne;}
+   const MidgardBasicElement_mutable &Ueberleben() const {return Ueberleben_angeboren;};
    int Raufen() const;
    int Abwehr_wert() const {return abwehr_wert;}
    int AbwehrPP() const {return abwehr_pp;}
@@ -181,6 +189,9 @@ public:
    void setSinn(const std::string &name,int wert) ;
    void setSinnCheck(const std::string &name,int wert); // wg. Speziessinnen
    int getSinn(const std::string &name) const;
+
+   void setUeberleben(const MidgardBasicElement_mutable &m) {Ueberleben_angeboren=m;}
+
 
    int Sehen() const {return getSinn("Sehen");}
    int Hoeren() const {return getSinn("Hören");}

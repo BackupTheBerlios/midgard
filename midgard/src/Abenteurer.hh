@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.22 2002/06/26 14:18:46 christof Exp $               
+// $Id: Abenteurer.hh,v 1.23 2002/07/03 16:58:51 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -45,7 +45,7 @@ class Abenteurer
    std::list<MidgardBasicElement_mutable> list_Kido;
    std::list<MidgardBasicElement_mutable> list_Sprache; 
    std::list<MidgardBasicElement_mutable> list_Schrift;        
-   
+
 public:
    Abenteurer() {Typ.resize(2);}
 

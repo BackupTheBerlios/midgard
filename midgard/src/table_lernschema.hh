@@ -42,9 +42,7 @@ class table_lernschema : public table_lernschema_glade
         enum GWR_Auswahl {ENone,EGeld1,EGeld2,EGeld3,EWaffen,ERuestung};
         GWR_Auswahl gwr_auswahl;
         std::vector<int> VGeldwurf;
-//        MidgardBasicElement::eZusatz was_mem; // zum wiederanzeigen des Zusatzes
         std::vector<cH_RowDataBase> datavec_zusatz;
-//        MidgardBasicElement_mutable *MBE_mem; // zum wiederanzeigen des Zusatzes
         
 private:
        void show_datavec_zusatz();
@@ -53,6 +51,7 @@ private:
 
        void set_gwr_eingabe();
        void on_herkunft_leaf_selected(cH_RowDataBase d);
+       void on_herkunft_ueberleben_leaf_selected(cH_RowDataBase d);
        void on_tree_lernschema_leaf_selected(cH_RowDataBase d);
        void on_zusatz_leaf_selected(cH_RowDataBase d);
        void on_zusatz_leaf_sprache_selected(cH_RowDataBase d);

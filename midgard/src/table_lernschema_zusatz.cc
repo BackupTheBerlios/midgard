@@ -63,6 +63,18 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
        scrolledwindow_lernen->hide();
        break;
       }
+     case MidgardBasicElement::ZUeberleben:
+      {
+       for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getDatabase().Fertigkeit.begin();i!=hauptfenster->getDatabase().Fertigkeit.end();++i)
+         {
+           if((*i)->Name().find("Überleben")!=std::string::npos)
+              datavec_zusatz.push_back(new Data_Zusatz(
+                  hauptfenster->getWerte().Ueberleben(),(*i)->Name(),true));
+         }
+       connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_herkunft_ueberleben_leaf_selected));
+       scrolledwindow_lernen->hide();
+       break;
+      }
      case MidgardBasicElement::ZLand:
       {
        if(MBE->Name()=="Landeskunde (Heimat)")
@@ -278,9 +290,25 @@ void table_lernschema::on_herkunft_leaf_selected(cH_RowDataBase d)
   hauptfenster->getWerte().setHerkunft(dt->getLand());
   set_zusatz_sensitive(false);
   zeige_werte();  
-  button_angeborene_fert->set_sensitive(true);
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
      button_herkunft->set_sensitive(false);
+  MidgardBasicElement_mutable dummy=hauptfenster->getWerte().Ueberleben();
+  lernen_zusatz(MidgardBasicElement::ZUeberleben,dummy);
+}
+
+void table_lernschema::on_herkunft_ueberleben_leaf_selected(cH_RowDataBase d)
+{
+  tree_lernschema->set_sensitive(true);
+  const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
+//  MidgardBasicElement_mutable MBE=dt->getMBE();
+
+  hauptfenster->getWerte().setUeberleben(
+      MidgardBasicElement_mutable(&*cH_Fertigkeit(dt->getZusatz())));
+
+  button_angeborene_fert->set_sensitive(true);
+  set_zusatz_sensitive(false);
+  zeige_werte();  
+  show_gelerntes();
 }
 
 void table_lernschema::on_zusatz_leaf_selected(cH_RowDataBase d)

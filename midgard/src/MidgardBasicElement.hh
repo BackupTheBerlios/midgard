@@ -52,8 +52,8 @@ class MidgardBasicElement : public HandleContentCopyable
                         :herkunft(h),spezies(s),typ(t),beruf(b),stand(st),
                          standard(sta) {} };
  public:
-      enum eZusatz {ZNone=0,ZTabelle=1,ZLand=2,ZWaffe=3,ZHerkunft=4,
-                    ZSprache=5,ZSchrift=6};
+      enum eZusatz {ZNone=0,ZTabelle=1,ZLand=2,ZWaffe=3,
+                    ZHerkunft=4,ZSprache=5,ZSchrift=6,ZUeberleben=7};
    protected:
 	const Tag *tag;
       std::string name, region,region_zusatz;
@@ -173,7 +173,6 @@ class MidgardBasicElement_mutable : public cH_MidgardBasicElement
       
    
  public: 
-
       MidgardBasicElement_mutable(const cH_MidgardBasicElement  &mbe)
          : cH_MidgardBasicElement(mbe),praxispunkte(0),erfolgswert(0),
             lernpunkte(0),gelernt(false),pflicht(false) 
