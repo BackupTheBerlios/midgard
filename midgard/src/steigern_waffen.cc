@@ -19,7 +19,6 @@
 #include "midgard_CG.hh"
 #include "WaffeGrund.hh"
 #include "class_SimpleTree.hh"
-#include "Pflicht.hh"
 #include "Waffe.hh"
 
 void midgard_CG::on_waffen_laden_clicked()

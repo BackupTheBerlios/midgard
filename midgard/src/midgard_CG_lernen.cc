@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.85 2002/03/02 16:24:38 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.86 2002/03/02 18:55:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -41,7 +41,7 @@ void midgard_CG::on_lernpunkte_wuerfeln_clicked()
 {
   //Speziesspezifische Fertigkeiten
   int lpspezies=0;
-  list_Fertigkeit=Werte.Spezies()->getFertigkeiten(lpspezies);
+  list_Fertigkeit=Werte.Spezies()->getFertigkeiten(lpspezies,Werte);
   show_gelerntes();
 
   int fachlern=random.integer(1,6)+random.integer(1,6);
@@ -508,16 +508,6 @@ void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std
       else if(f->Name()=="Muttersprache"   && Werte.In()>60) f->set_Erfolgswert(18+f->AttributBonus(Werte));
       else if(f->Name()=="Gastlandsprache" && Werte.In()>30) f->set_Erfolgswert(12);
       else f->set_Erfolgswert(f->Anfangswert()+f->AttributBonus(Werte));
-/*
-      if(fert=="Fach") // Speziesfertigkeiten
-        {
-         lp=Database.pflicht.istPflicht(Werte.Spezies()->Name(),Typ,(*i)->Name(),Pflicht::LERNPUNKTE);
-         if(!lp) continue;
-         f->setPflicht(true);
-         int erf=Database.pflicht.istPflicht(Werte.Spezies()->Name(),Typ,(*i)->Name(),Pflicht::ERFOLGSWERT);
-         f->set_Erfolgswert(erf+f->AttributBonus(Werte));
-        }
-*/
       f->set_Lernpunkte(lp);
 
       if(!region_check((*i)->Region())) continue;
@@ -535,7 +525,7 @@ void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std
    }
   if(fert=="Fach") // Freiwillige Speziesfertigkeiten
    {
-     std::list<cH_MidgardBasicElement> LW=Werte.Spezies()->getFreiwilligeFertigkeiten();
+     std::list<cH_MidgardBasicElement> LW=Werte.Spezies()->getFreiwilligeFertigkeiten(Werte);
      for(std::list<cH_MidgardBasicElement>::const_iterator i=LW.begin();i!=LW.end();++i)
       {
        bool gelernt=false;
@@ -550,10 +540,8 @@ void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std
          LW=Database.lernschema.get_List("Waffenfertigkeiten",Typ);
       if(what==MidgardBasicElement::ZAUBER)
          LW=Database.lernschema.get_List("Zauberkünste",Typ);
-      if(what==MidgardBasicElement::FERTIGKEIT && fert!="Spez")
+      if(what==MidgardBasicElement::FERTIGKEIT)
          LW=Database.lernschema.get_List("Fachkenntnisse",Typ);
-      if(what==MidgardBasicElement::FERTIGKEIT && fert=="Spez")
-         LW=Werte.Spezies()->getFreiwilligeFertigkeiten();
       for(std::list<cH_MidgardBasicElement>::const_iterator i=LW.begin();i!=LW.end();++i)
         {
           bool gelernt=false;

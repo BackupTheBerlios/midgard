@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.30 2002/01/30 16:15:58 christof Exp $
+// $Id: xml.cc,v 1.31 2002/03/02 18:55:21 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -196,7 +196,7 @@ const struct xml_liste xml_tags[] =
    {  "Sprachen",	"Sprache",	std_matching },
    {  "SteigernKosten",	"Kosten",	ep_matching },
    {  "Typen",		"Typ",		typ_matching },
-   {  "Typ-Pflichten",	"Verbot",	verbot_matching },
+//   {  "Typ-Pflichten",	"Verbot",	verbot_matching },
    {  "verwendbareEP",	"EP-Typ",	ep_matching },
    {  "Waffen-Grundkenntnisse",	"Waffen-Grundkenntnis",	std_matching },
    {  "Waffen-Steigern",	"Kosten",	waff_steig_matching },

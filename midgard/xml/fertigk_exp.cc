@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.23 2002/02/14 15:42:57 thoma Exp $
+// $Id: fertigk_exp.cc,v 1.24 2002/03/02 18:55:21 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -103,8 +103,8 @@ void fert_speichern(std::ostream &o)
    
       //********** Lernschema **********************************
     lernschema(o, MIDGARD3_4("Fertigkeit","Fachkenntnisse"), fert);
-    pflicht_lernen(o, fert);
-    verbot_lernen(o, fert);
+//    pflicht_lernen(o, fert);
+//    verbot_lernen(o, fert);
     ausnahmen(o, "f", fert);
 
 // ************************* Steigern wie *****************************
@@ -182,8 +182,8 @@ void fert_speichern(std::ostream &o)
 
    grund_standard_ausnahme(o, "fertigkeiten_typen",fert,"",true);
    lernschema(o, MIDGARD3_4("Fertigkeit","Fachkenntnisse"),fert,true);
-   pflicht_lernen(o, fert, true);
-   verbot_lernen(o, fert, true);
+//   pflicht_lernen(o, fert, true);
+//   verbot_lernen(o, fert, true);
    ausnahmen(o, "f", fert,true);
    o << "  </Fertigkeit>\n";
   }
@@ -292,14 +292,15 @@ void fert_speichern(std::ostream &o)
          o << "    <Vorteil>" << vorteile << "</Vorteil>\n";
    }
 
-   pflicht_lernen(o, beruf);
-   verbot_lernen(o, beruf);
+//   pflicht_lernen(o, beruf);
+//   verbot_lernen(o, beruf);
    o << "  </Beruf>\n";
   }
   }
    o << " </Berufe>\n";
 
 //********************* Pflicht + verboten ********************
+/*
   if (region.empty())
   {o << " <Typ-Pflichten>\n";
    o << "    <-- hier stehen nur die Dinge, die nicht schon Fertigkeiten/Berufe/Waffen(grund)fert. sind -->\n";
@@ -340,7 +341,7 @@ void fert_speichern(std::ostream &o)
   }
    o << " </Typ-Pflichten>\n";
  }
-
+*/
 //********************* praxispunkte ********************
 #ifdef MIDGARD3
   if (region.empty())

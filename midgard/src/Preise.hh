@@ -1,4 +1,4 @@
-// $Id: Preise.hh,v 1.14 2002/01/26 09:17:41 christof Exp $
+// $Id: Preise.hh,v 1.15 2002/03/02 18:55:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,24 +31,17 @@ class Preise : public HandleContent
 {
    std::string name,einheit,art,art2;
    double kosten,gewicht;
-#ifdef USE_XML
    const Tag *tag;
    static Tag eigenerArtikel;
-#endif
 
    void get_Preise();
  public:
-#ifndef USE_XML 
-   Preise(const std::string& n)
-     :name(n) {get_Preise();}
-#else     
    Preise(const Tag *_tag)
      : name(_tag->getAttr("Ware")), art(_tag->getAttr("Art")), tag(_tag)  
      {get_Preise();}
    Preise(const std::string& _name, const std::string& _art, const Tag *_tag)
      : name(_name), art(_art), tag(_tag)
      {get_Preise();}
-#endif
 
  std::string Art() const {  return art; }
  std::string Art2() const {  return art2; }
@@ -56,9 +49,7 @@ class Preise : public HandleContent
  double Kosten() const { return kosten ; }
  double Gewicht() const { return gewicht ; }
  std::string Einheit()  const {  return einheit; }
-#ifdef USE_XML
  bool ist_eigener_Artikel() const { return tag==&eigenerArtikel; }
-#endif
 
  static void saveArtikel(std::string art,std::string art2,
       std::string name,double preis, std::string einheit,double gewicht);
@@ -72,11 +63,9 @@ class cH_Preise : public Handle<const Preise>
     friend class std::map<std::string,cH_Preise>;
     cH_Preise(){};
  public:
-    cH_Preise(const std::string& name IF_XML(,bool create=false));
-#ifdef USE_XML
+    cH_Preise(const std::string& name ,bool create=false);
     cH_Preise(const Tag *tag);
     cH_Preise(const std::string& name, const std::string& art, const Tag *tag);
-#endif    
 
  class sort {
       public:
@@ -112,21 +101,14 @@ class PreiseMod : public HandleContent
              : name(n), faktor(f) {}
           };
  private:
-#ifdef USE_XML
    const Tag *tag;
-#endif 
    std::string art,art2,typ;
    int nr;
    st_payload payload;
    void get_PreiseMod();
  public:
-#ifndef USE_XML 
-   PreiseMod(const std::string& a,const std::string& a2,const std::string& t,const int& n)
-     :art(a),art2(a2),typ(t),nr(n) {get_PreiseMod();}
-#else
    PreiseMod(const Tag *_tag)
      : tag (_tag), nr(0) {get_PreiseMod();}
-#endif     
 
  std::string Art() const {  return art; }
  std::string Art2() const {  return art2; }
@@ -155,9 +137,7 @@ class cH_PreiseMod : public Handle<const PreiseMod>
     cH_PreiseMod(){};
  public:
     cH_PreiseMod(const std::string& art,const std::string& art2,const std::string typ,const int &nr);
-#ifdef USE_XML
     cH_PreiseMod(const Tag *tag);
-#endif
     cH_PreiseMod(const PreiseMod *s) : Handle<const PreiseMod>(s) {};
 };
 
@@ -168,7 +148,5 @@ class PreiseMod_All
    PreiseMod_All(Gtk::ProgressBar *progressbar);
    std::list<cH_PreiseMod> get_All() const {return list_All;}
 };
-
-
 
 #endif

@@ -32,19 +32,34 @@ Berggnom	sv	Überleben im Sumpf	\N	\N
 Berggnom	sv	Überleben im Wald	\N	\N
 Berggnom	sv	Überleben in der Steppe	\N	\N
 Berggnom	sv	Überleben in der Wüste	\N	\N
+Berggnom	v	Bettler	\N	\N
+Berggnom	v	Flußschiffer	\N	\N
+Berggnom	v	Grobschmied	\N	\N
 Berggnom	v	Kampfstab	\N	\N
+Berggnom	v	Kapitän	\N	\N
+Berggnom	v	Karawanenführer	\N	\N
+Berggnom	v	Kompositbogen	\N	\N
 Berggnom	v	Kriegsflegel	\N	\N
+Berggnom	v	Kurtisane	\N	\N
 Berggnom	v	Langbogen	\N	\N
+Berggnom	v	Lanze	\N	\N
 Berggnom	v	Magierstecken	\N	\N
 Berggnom	v	Netz	\N	\N
 Berggnom	v	Peitsche	\N	\N
+Berggnom	v	Räuber	\N	\N
+Berggnom	v	Scharfrichter	\N	\N
+Berggnom	v	Schlachter	\N	\N
+Berggnom	v	Seemann	\N	\N
+Berggnom	v	Sklavenhändler	\N	\N
+Berggnom	v	Stangenwaffe	\N	\N
+Berggnom	v	Steuermann	\N	\N
 Berggnom	v	Stockschleuder	\N	\N
+Berggnom	v	Träger	\N	\N
+Berggnom	v	Winzer	\N	\N
 Berggnom	v	ZSchlagwaffe	\N	\N
+Berggnom	v	ZSchwert	\N	\N
+Berggnom	v	Zureiter	\N	\N
 Berggnom	v	schwere Armbrust	\N	\N
-Berggnom    v	Lanze	\N	\N	\N
-Berggnom    v	Stangenwaffe	\N	\N	\N
-Berggnom    v	ZSchwert	\N	\N	\N
-Berggnom    v           Kompositbogen	\N	\N	\N	\N
 Elf	af	Nachtsicht	8	\N
 Elf	f	Schleichen	8	1
 Elf	f	Spurenlesen	6	1
@@ -63,13 +78,19 @@ Elf	sv	Überleben im Schnee	\N	\N
 Elf	sv	Überleben im Sumpf	\N	\N
 Elf	sv	Überleben in der Steppe	\N	\N
 Elf	sv	Überleben in der Wüste	\N	\N
+Elf	v	Bergmann	\N	\N
 Elf	v	Fälschen	0	0
 Elf	v	Gassenwissen	0	0
 Elf	v	Giftmischen	0	0
 Elf	v	Glücksspiel	0	0
+Elf	v	Krämer	\N	\N
 Elf	v	Meucheln	0	0
 Elf	v	Schlösser öffnen	0	0
+Elf	v	Schmuggler	\N	\N
+Elf	v	Sklavenhändler	\N	\N
 Elf	v	Stehlen	0	0
+Elf	v	Winzer	\N	\N
+Elf	v	Wirt	\N	\N
 Elf	z	Erkennen der Aura	\N	\N
 Halbling	af	Gute Reflexe	9	\N
 Halbling	f	Schleichen	10	1
@@ -82,19 +103,36 @@ Halbling	sv	Überleben im Sumpf	\N	\N
 Halbling	sv	Überleben im Wald	\N	\N
 Halbling	sv	Überleben in der Steppe	\N	\N
 Halbling	sv	Überleben in der Wüste	\N	\N
+Halbling	v	Bergmann	\N	\N
+Halbling	v	Bootsbauer	\N	\N
+Halbling	v	Falkner	\N	\N
+Halbling	v	Flußschiffer	\N	\N
 Halbling	v	Kampfstab	\N	\N
+Halbling	v	Kapitän	\N	\N
+Halbling	v	Karawanenführer	\N	\N
+Halbling	v	Kompositbogen	\N	\N
 Halbling	v	Kriegsflegel	\N	\N
 Halbling	v	Langbogen	\N	\N
+Halbling	v	Lanze	\N	\N
 Halbling	v	Magierstecken	\N	\N
 Halbling	v	Netz	\N	\N
 Halbling	v	Peitsche	\N	\N
+Halbling	v	Rechtsgelehrter	\N	\N
+Halbling	v	Räuber	\N	\N
+Halbling	v	Sattler	\N	\N
+Halbling	v	Scharfrichter	\N	\N
+Halbling	v	Seemann	\N	\N
+Halbling	v	Sklavenhändler	\N	\N
+Halbling	v	Stadtwache	\N	\N
+Halbling	v	Stangenwaffe	\N	\N
+Halbling	v	Steuermann	\N	\N
 Halbling	v	Stockschleuder	\N	\N
+Halbling	v	Waffenschmied	\N	\N
+Halbling	v	Waldarbeiter	\N	\N
 Halbling	v	ZSchlagwaffe	\N	\N
+Halbling	v	ZSchwert	\N	\N
+Halbling	v	Zureiter	\N	\N
 Halbling	v	schwere Armbrust	\N	\N
-Halbling    v	Lanze	\N	\N	\N
-Halbling    v	Stangenwaffe	\N	\N	\N
-Halbling    v	ZSchwert	\N	\N	\N
-Halbling    v           Kompositbogen	\N	\N	\N	\N
 Waldgnom	af	Nachtsicht	8	\N
 Waldgnom	af	Robustheit	12	\N
 Waldgnom	f	Fallenstellen	4	1
@@ -107,19 +145,34 @@ Waldgnom	sv	Überleben im Schnee	\N	\N
 Waldgnom	sv	Überleben im Sumpf	\N	\N
 Waldgnom	sv	Überleben in der Steppe	\N	\N
 Waldgnom	sv	Überleben in der Wüste	\N	\N
+Waldgnom	v	Bettler	\N	\N
+Waldgnom	v	Flußschiffer	\N	\N
+Waldgnom	v	Grobschmied	\N	\N
 Waldgnom	v	Kampfstab	\N	\N
+Waldgnom	v	Kapitän	\N	\N
+Waldgnom	v	Karawanenführer	\N	\N
+Waldgnom	v	Kompositbogen	\N	\N
 Waldgnom	v	Kriegsflegel	\N	\N
+Waldgnom	v	Kurtisane	\N	\N
 Waldgnom	v	Langbogen	\N	\N
+Waldgnom	v	Lanze	\N	\N
 Waldgnom	v	Magierstecken	\N	\N
 Waldgnom	v	Netz	\N	\N
 Waldgnom	v	Peitsche	\N	\N
+Waldgnom	v	Räuber	\N	\N
+Waldgnom	v	Scharfrichter	\N	\N
+Waldgnom	v	Schlachter	\N	\N
+Waldgnom	v	Seemann	\N	\N
+Waldgnom	v	Sklavenhändler	\N	\N
+Waldgnom	v	Stangenwaffe	\N	\N
+Waldgnom	v	Steuermann	\N	\N
 Waldgnom	v	Stockschleuder	\N	\N
+Waldgnom	v	Träger	\N	\N
+Waldgnom	v	Winzer	\N	\N
 Waldgnom	v	ZSchlagwaffe	\N	\N
+Waldgnom	v	ZSchwert	\N	\N
+Waldgnom	v	Zureiter	\N	\N
 Waldgnom	v	schwere Armbrust	\N	\N
-Waldgnom    v	Lanze	\N	\N	\N
-Waldgnom    v	Stangenwaffe	\N	\N	\N
-Waldgnom    v	ZSchwert	\N	\N	\N
-Waldgnom    v           Kompositbogen	\N	\N	\N	\N
 Zwerg	af	Robustheit	9	\N
 Zwerg	f	Baukunde	8	1
 Zwerg	ff	Trinken	12	1
@@ -128,6 +181,24 @@ Zwerg	sv	Überleben im Sumpf	\N	\N
 Zwerg	sv	Überleben im Wald	\N	\N
 Zwerg	sv	Überleben in der Steppe	\N	\N
 Zwerg	sv	Überleben in der Wüste	\N	\N
+Zwerg	v	Akrobat	\N	\N
+Zwerg	v	Barbier	\N	\N
+Zwerg	v	Bettler	\N	\N
+Zwerg	v	Bootsbauer	\N	\N
+Zwerg	v	Dieb	\N	\N
+Zwerg	v	Falkner	\N	\N
+Zwerg	v	Fallensteller	\N	\N
+Zwerg	v	Fischer	\N	\N
+Zwerg	v	Flußschiffer	\N	\N
+Zwerg	v	Jäger	\N	\N
+Zwerg	v	Kapitän	\N	\N
+Zwerg	v	Kurtisane	\N	\N
+Zwerg	v	Sattler	\N	\N
+Zwerg	v	Seemann	\N	\N
+Zwerg	v	Sklavenhändler	\N	\N
+Zwerg	v	Steuermann	\N	\N
+Zwerg	v	Waldarbeiter	\N	\N
+Zwerg	v	Zureiter	\N	\N
 \.
 --
 --

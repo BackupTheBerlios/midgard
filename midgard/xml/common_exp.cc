@@ -1,4 +1,4 @@
-// $Id: common_exp.cc,v 1.19 2002/02/06 11:37:48 thoma Exp $
+// $Id: common_exp.cc,v 1.20 2002/03/02 18:55:21 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -125,6 +125,7 @@ void ausnahmen(std::ostream &o, const std::string &art, const std::string &name,
    }
 }
 
+/*
 void pflicht_lernen(std::ostream &o, const std::string &name, bool nur_region)
 {  std::string constraint;
   {if (nur_region || region.empty())
@@ -164,7 +165,8 @@ void pflicht_lernen(std::ostream &o, const std::string &name, bool nur_region)
    }
   }
 }
-
+*/
+/*
 void verbot_lernen(std::ostream &o, const std::string &name, bool nur_region)
 {  std::string constraint;
   {if (nur_region || region.empty())
@@ -203,6 +205,7 @@ void verbot_lernen(std::ostream &o, const std::string &name, bool nur_region)
    }
   }
 }
+*/
 
 #ifdef REGION
 std::string Herkunft(bool invert)
@@ -242,11 +245,13 @@ std::string RegionErgaenzungQuery(const std::string &attribute,
    	MIDGARD3_4("lernschema.fertigkeit","lernschema_4.name")
    	") ";
    	
+/*
    if (typtable!="waffen_grund_typen")
       result+="or exists (select true from pflicht_lernen join typen"
    	" on typ=typs where region='"+region+"'"
    	" and ("+attribute+"=pflicht_lernen.verboten"
    	" or "+attribute+"=pflicht_lernen.pflicht)) ";
+*/
 
    if (typtable!="waffen_grund_typen")
       result+="or exists (select true from ausnahmen join typen"
