@@ -188,7 +188,7 @@ void Berufe_auswahl::fill_list()
          if( (kat==1 && kat_I)   || (kat==2 && kat_II) || 
              (kat==3 && kat_III) || (kat==4 && kat_IV ) )
            {
-             if(cH_Fertigkeit(*j)->ist_gelernt(list_fert))
+             if(*j!="Schmecken+10" && cH_Fertigkeit(*j)->ist_gelernt(list_fert))
                   datavec.push_back(new Beruf_Data(kat,(*i)->Name(),*j,true));
              else
                   datavec.push_back(new Beruf_Data(kat,(*i)->Name(),*j,false));

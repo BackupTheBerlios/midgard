@@ -584,7 +584,7 @@ Vindmand beschwören	1500	4	Geste	4	3	Luft	Beschwörung	Magan	bewegt	Feuer	2 h	0	U
 Vision	1000	alle (min 2)	Geste	3	\N	\N	\N	Wasser	erkennt	Luft	6 h	0	Geist	selbst	1 h	göttlich	Lebensmittel, Kräuter, Pulver	f	
 Wachsen	1200	6	Geste	3	\N	\N	\N	Holz	verändert	Erde	20 s	0	Körper	1 Ws	10 min	dämonisch		t	Siegel
 Wagemut	200	2	Geste	2	\N	\N	\N	Luft	verändert	Feuer	5 s	15 m	Geist	1 Ws	2 min	göttlich		f	
-Wahnsinn	3000	6	Geste	6	\N	\N	\N	Magan	zerstört	Luft	20 s	15 m	Geist	1 Ws	perm	dämonisch	Birkenrinde, WahnsinnskrautblÃ¼ten	t	
+Wahnsinn	3000	6	Geste	6	\N	\N	\N	Magan	zerstört	Luft	20 s	15 m	Geist	1 Ws	perm	dämonisch	Birkenrinde, Wahnsinnskrautblüten	t	
 Wahrsehen	3000	6	Geste	5	\N	\N	\N	Magan	erkennt	Magan	20 s	15 m	Geist	3 m Uk	10 min	göttlich	vierblättriger Klee	t	
 Waldluft	80	1	Wort	1	H&D	\N	\N				10 s	0	Umgebung	12m Uk	8 h	druidisch		f	
 Wandelhand	300	2	Wort	2	\N	\N	\N	Eis	bewegt	Erde	15 s	0	Umgebung	1 Ob	10 min	dämonisch		f	
@@ -629,7 +629,7 @@ Zauberschmiede	800	3-9	Geste	3	\N	\N	\N	Magan	verändert	Metall	1 min	0	Umgebung	
 Zaubersprung	200	2	Geste	4		\N	\N	\N	\N	\N	5 s	0	Körper	1 Ws	2 min			t	
 Zauberstimme	150	2	Geste	2	\N	\N	\N	Magan	erschafft	Luft	10 min	50 m	Umgebung	-	12 h	dämonisch	Papageienzunge	t	Siegel
 Zaubertür	10000	9	Geste	6	H&D	\N	\N				30 s	B	Umgebung	1x2m Wand	2 min	dämonisch		t	Siegel
-Zauberwirklichkeit	10000	9	Geste	6	\N	\N	\N	Magan	beherrscht	Feuer	3 h	50 m	Geist	9x9x3 m	30 min	dämonisch	BlÃ¼tenstaub, Essenzen, Edelsteinsplitter	t	
+Zauberwirklichkeit	10000	9	Geste	6	\N	\N	\N	Magan	beherrscht	Feuer	3 h	50 m	Geist	9x9x3 m	30 min	dämonisch	Blütenstaub, Essenzen, Edelsteinsplitter	t	
 Zauberzunge	1500	4	Geste	4	\N	\N	\N	Luft	erkennt	Luft	1 min	0	Geist	selbst	30 min	dämonisch	Papageienhirn und -zunge	t	
 Zeichen des Chaos	2000	6	Geste	4	H&D	\N	\N	Metall	verändert	Luft	10 s	10 m	Körper	1 Ws	0	finster		f	
 Zielsuche	800	3	Geste	3	\N	\N	\N	Luft	verändert	Holz	10 s	0	Umgebung	1 Ob	10 min	druidisch		t	Siegel

@@ -89,6 +89,14 @@ int Sprache::Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) cons
   return  (int)(F->Standard_Faktor(Typ,ausnahmen) * kosten) ; 
 }
 
+int Sprache::MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const
+{
+  if     (w.In() < 31) return (11>maxwert ? maxwert : 11); 
+  else if(w.In() < 61) return (18>maxwert ? maxwert : 18); 
+  else return (20>maxwert ? maxwert : 20);
+}
+
+
 std::string Sprache::Schriften() const
 {
   std::string s;

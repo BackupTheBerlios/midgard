@@ -62,18 +62,16 @@ class Waffe : public MidgardBasicElement
      std::string Reichweite() const ;
 
      int Schwierigkeit() const {return schwierigkeit;}
-//     int Lernpunkte() const {return lernpunkte;}
      int Anfangswert() const {return anfangswert;}
-//     int Erfolgswert() const {return erfolgswert;};
      std::string Voraussetzung() const {return voraussetzung;}
-//     std::string Pflicht() const {if (pflicht) return "*"; return "";}
      bool Verteidigung() const {if(Art()=="Verteidigung") return true; else return false;}
 
      bool SG_Voraussetzung(const Grundwerte& Werte) const;
      bool Grundkenntnis_vorhanden(const std::list<cH_MidgardBasicElement>&) const;
      int Maxwert(const vector<cH_Typen>& Typ) const;
+     int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const; 
 
-//     static std::string get_waffe_from_alias(const std::string& waffe);
+
      static std::map<std::string,std::string> fill_map_alias_waffe(Gtk::ProgressBar *progressbar);
      static std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
          const std::list<cH_MidgardBasicElement>& list_Waffen,

@@ -20,6 +20,8 @@ class Fertigkeit_angeborene : public MidgardBasicElement
 
      int Min() const {return min;}
      int Max() const {return max;}
+     int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const 
+         {return 0;} //wg. virtueller Funktion
 };
 
 class cH_Fertigkeit_angeborene : public Handle<const Fertigkeit_angeborene>

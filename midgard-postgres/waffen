@@ -47,7 +47,7 @@ Buckler	\N	\N	\N	Schilde	0	Verteidigung	\N	-2	E	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Dolch	\N	\N	\N	Stichwaffe	1	Angriff	W6	-1	E	2	-2	2	\N	\N	\N	\N	\N	\N	2	2
 Faustkampf	31	21	\N	waffenloser Kampf	6	Angriff	W6	-4	E	2	-2	2	\N	\N	\N	\N	\N	\N	\N	\N
 Fuchtel	61	\N	31	Stichwaffe	4	Angriff	W6	1	E	2	-1	0	\N	\N	\N	\N	\N	\N	\N	\N
-Garotte	21	\N	61	Garotte	4	Angriff	ErwÃ¼rgen	0	E	\N	\N	\N	Meucheln	\N	\N	\N	\N	\N	\N	\N
+Garotte	21	\N	61	Garotte	4	Angriff	Erwürgen	0	E	\N	\N	\N	Meucheln	\N	\N	\N	\N	\N	\N	\N
 Glefe	11	\N	61	Stangenwaffe	5	Angriff	W6(+2)	0	E	+1/-2	0/0	0/-1	\N	\N	\N	\N	\N	\N	\N	\N
 GunSen	31	\N	61	ESchlagwaffe	5	Angriff	W6	-1	E	\N	\N	\N	\N	K	\N	\N	\N	\N	\N	\N
 Handarmbrust	\N	\N	31	Armbrust	3	Schußwaffe	W6	-1	S	\N	\N	\N	\N	\N	0	20	40	70	\N	\N

@@ -45,6 +45,9 @@ class Beruf : public MidgardBasicElement
 //     bool Voraussetzungen(const Grundwerte& Werte,const vector<cH_Typen>& Typ) const;
      std::vector<string> Vorteile() const {return vorteile;}
      std::string Beruf::get_Vorteile() const;
+     int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const 
+         {return 0;} //wg. virtueller Funktion
+
 };
 
 

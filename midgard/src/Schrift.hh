@@ -29,6 +29,7 @@ class Schrift : public MidgardBasicElement
    bool Kult() const {return kult;}
    bool Alt() const {return alt;}
    bool kann_Sprache(const std::list<cH_MidgardBasicElement>& sprache) const;
+   int Schrift::MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const;
    int Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
         { cH_Fertigkeit F("Lesen/Schreiben");
              return  (int)(F->Standard_Faktor(Typ,ausnahmen) * kosten) ; }

@@ -11,7 +11,7 @@ class Fertigkeit : public MidgardBasicElement
      std::string attribut;
      mutable std::string zusatz; // Für verschiedene Länder bei Landeskunde
      int lern_unge, lern_land,lern_stadt, anfangswert0, anfangswert,
-         ungelernt,berufskategorie;
+         ungelernt,berufskategorie,maxerfolgswert,maxunterweisung;
      struct st_Voraussetzung {int st;int gw;int gs;int ko;int in;int zt;int au;int pa;
                            int sb;int rw;std::string fert;
          st_Voraussetzung()
@@ -54,13 +54,12 @@ class Fertigkeit : public MidgardBasicElement
      std::string What_str() const {return "Fertigkeit";}
 
 
-//     std::string Name() const {return name;}
      std::string Zusatz() const {return zusatz;}
      void setZusatz(std::string z) const {zusatz=z;}
      std::string Attribut() const {return attribut;}
-//     std::string Region() const {return region;}
      int FErfolgswert(const Grundwerte &Werte) const;
-//     int Lernpunkte() const {return lernpunkte;}
+     int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const;
+     int MaxUnterweisung() const {return maxunterweisung;}
      int LernUnge() const {return lern_unge;}
      int LernLand() const {return lern_land;}
      int LernStadt() const {return lern_stadt;}

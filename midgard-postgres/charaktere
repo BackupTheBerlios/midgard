@@ -87,5 +87,18 @@ CREATE TABLE "charaktere" (
 --
 --
 
+
+COPY "charaktere" FROM stdin;
+		Erschaffung		As	38	95	77	74	61	19	21	100	1	1	24	14	7	0	0	11	2	10	\N	\N	\N	39701	23	schlank	m	67	169	1		Mittelschicht			\N	2	1	1	1	1	0	2	1	0	0	0	0	0	OR	Mensch		0	0	0	t	50	1	\N	\N	\N	86	45	Rechtshänder	Stadt	0	0	0	0	0	\N
+ChiLi		Bastis Abenteuer	Malte Thoma	Kd	68	97	87	82	99	62	92	95	97	81	25	16	50	4	70	14	0	13	\N	\N	\N	11	28	schlank	m	53	160	7	Harte Techniken	Mittelschicht	KanThaiPan	Chen Men	\N	2	2	1	2	3	2	4	2	5	8181	372	0	0	LR	Mensch		63	0	0	f	50	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+ChiLi		Verfluchte Gier	Malte Thoma	Kd	68	97	87	82	99	62	92	95	97	81	25	16	50	4	70	14	0	13	\N	\N	\N	11	28	schlank	m	53	160	7	Harte Techniken	Mittelschicht	KanThaiPan	Chen Men	\N	2	2	1	2	3	2	4	2	5	7231	372	0	0	LR	Mensch		63	0	0	f	50	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Gwyneth NiConuhil		Das graue Konzil	Malte Thoma	Hl	65	82	87	91	81	95	81	61	92	81	24	17	38	4	70	14	17	16	\N	\N	\N	11	28	normal	w	55	156	7		Adel	Alba	Nathir, Dheis Albi	\N	2	1	0	1	2	7	5	7	5	12090	0	0	0	LR	Mensch		0	0	0	f	50	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Morgan di´Mora		Erschaffung	Malte Thoma	Gl	95	98	92	81	36	59	67	8	96	104	23	16	8	8	80	11	0	10	\N	\N	\N	12	18	normal	m	65	168	1		Mittelschicht	Küstenstaaten		\N	4	3	1	2	0	0	2	2	5	0	6	5	0	KR	Mensch		0	0	0	f	50	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Stürmender Dachs		Smaskrifter	Malte Thoma	Wa	103	98	95	62	22	83	97	79	90	106	26	17	52	15	80	14	0	13	\N	\N	\N	12	28	breit	m	115	195	7	Handaxt	Volk	Ikenga Becken	Schamanistisch	\N	6	5	1	2	-1	0	2	2	5	9553	0	0	0	TR	Mensch		0	0	0	f	50	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+\.
+--
+--
+--
+
 CREATE UNIQUE INDEX charaktere_charakter_name_versi ON charaktere USING btree (charakter_name text_ops, "version" text_ops);
 

@@ -18,10 +18,8 @@ class WaffeGrund : public MidgardBasicElement
 
      enum MBEE What() const {return MidgardBasicElement::WAFFEGRUND;}
      std::string What_str() const {return "Grundkenntnis";}
-      
-
-//     std::string Name() const {return name;}
-//     std::string Region() const {return region;}
+     int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const 
+         {return 0;} //wg. virtueller Funktion
 };
 
 class cH_WaffeGrund : public Handle<const WaffeGrund>

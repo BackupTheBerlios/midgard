@@ -9,8 +9,7 @@
 class Sprache : public MidgardBasicElement
 {
      vector<std::string> VSchrift;
-     int maxwert;
-     bool alte_sprache,minderheit;
+     bool alte_sprache,minderheit,maxwert;
      vector<int> V_sprachgruppe;
 
      void get_Sprache();
@@ -29,7 +28,7 @@ class Sprache : public MidgardBasicElement
 
    bool Alte_Sprache() const {return alte_sprache;}    
    bool Minderheit() const {return minderheit;}    
-   int Maxwert() const {return maxwert;}
+   int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const;
    int Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const;
    vector<int> getVSprachgruppe() const {return V_sprachgruppe;}
    bool Sprachgruppe(const list<cH_MidgardBasicElement>& MBE) const;

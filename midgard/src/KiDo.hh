@@ -33,6 +33,8 @@ class KiDo : public MidgardBasicElement
 
  static int get_erfolgswert_kido(const std::list<cH_MidgardBasicElement>& L);
  static std::map<std::string,int> maxkidostil(const std::list<cH_MidgardBasicElement>& list_Kido);
+ int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const 
+         {return 0;} //wg. virtueller Funktion
 
 };
 

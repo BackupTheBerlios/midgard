@@ -55,6 +55,8 @@ class Zauber : public MidgardBasicElement
 //   void set_Spruchrolle(bool s) const {spruchrolle=s;}
    int Kosten_eBe(const std::string& pe,const std::string& se) const;
    int Erfolgswert_Z(const vector<cH_Typen>& Typ,const Grundwerte& Werte,const Ausnahmen& ausnahmen) const;
+   int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const 
+         {return 0;} //wg. virtueller Funktion
    int get_spezial_zauber_for_magier(const Grundwerte& Werte,const std::string& standard) const;
 
 //   static void set_Spruchrolle(std::list<cH_MidgardBasicElement>&,bool sp) const;

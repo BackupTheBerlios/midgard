@@ -53,6 +53,14 @@ void midgard_CG::fertigkeiten_zeigen()
 
 void midgard_CG::on_leaf_selected_alte_fert(cH_RowDataBase d)
 {  
+ const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
+ cH_Fertigkeit F(cH_Fertigkeit(dt->getMBE()));
+ if( radiobutton_unterweisung->get_active() && 
+     F->Erfolgswert() >= F->MaxUnterweisung())
+   {
+     regnot("Weitere Steigerung des Erfolgswertes ist NICHT mit Unterweisung möglich.");
+     return ;
+   }
  if (MidgardBasicElement_leaf_alt(d))
     fertigkeiten_zeigen();
 }

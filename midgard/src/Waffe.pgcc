@@ -123,6 +123,8 @@ bool Waffe::SG_Voraussetzung(const Grundwerte& Werte) const
   else return false ;
 }
 
+
+
 std::string WaffeBesitz::Schaden(const Grundwerte& Werte,const std::string& name) const
 {
   if (waffe->Art()=="Verteidigung") return "-"+itos(waffe->Schaden_Bonus(name))+"AP";
@@ -235,7 +237,7 @@ map<std::string,std::string> Waffe::fill_map_alias_waffe(Gtk::ProgressBar *progr
 }
 
 
-int Waffe::Maxwert(const vector<cH_Typen>& Typ) const
+int Waffe::MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const
 {
  assert(Typ.size()==2);
  int maxwert=0;
@@ -243,13 +245,13 @@ int Waffe::Maxwert(const vector<cH_Typen>& Typ) const
   {
      maxwert = 7;
      if ((Typ[0]->Short() == "Kr" || Typ[0]->Short() == "Sö") && Typ[1]->Short()=="") maxwert = 8;
-     if (Typ[0]->Zaubern() == "z" && Typ[1]->Zaubern() == "z") maxwert = 6;
+     else if (Typ[0]->Zaubern() == "z" ) maxwert = 6;
   }
  else
   {
     maxwert = 17;
     if ((Typ[0]->Short() == "Kr" || Typ[0]->Short() == "Sö") && Typ[1]->Short()=="") maxwert = 19;
-    if (Typ[0]->Zaubern() == "z" && Typ[1]->Zaubern() == "z") maxwert = 14;
+    if (Typ[0]->Zaubern() == "z" ) maxwert = 14;
   }
  return maxwert;
 }

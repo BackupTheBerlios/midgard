@@ -23,5 +23,324 @@ CREATE TABLE "charaktere_fertigkeiten" (
 --
 --
 
+
+COPY "charaktere_fertigkeiten" FROM stdin;
+	Erschaffung	Hören	8	Sinn	\N	\N	\N	\N
+	Erschaffung	Riechen	8	Sinn	\N	\N	\N	\N
+	Erschaffung	Schmecken	8	Sinn	\N	\N	\N	\N
+	Erschaffung	Sechster Sinn	2	Sinn	\N	\N	\N	\N
+	Erschaffung	Sehen	8	Sinn	\N	\N	\N	\N
+	Erschaffung	Tasten	8	Sinn	\N	\N	\N	\N
+Aneren	Smaskrifter	Albisch	4	Sprache	\N	\N	\N	\N
+Aneren	Smaskrifter	Allheilung	19	Zauber	\N	\N	\N	\N
+Aneren	Smaskrifter	Austreibung des Bösen	17	Zauber	\N	\N	\N	\N
+Aneren	Smaskrifter	Bannen von Dunkelheit	19	Zauber	\N	\N	\N	\N
+Aneren	Smaskrifter	Bannen von Finsterwerk	17	Zauber	\N	\N	\N	\N
+Aneren	Smaskrifter	Bannen von Gift	19	Zauber	\N	\N	\N	\N
+Aneren	Smaskrifter	Bannen von Zauberwerk	17	Zauber	\N	\N	\N	\N
+Aneren	Smaskrifter	Beschleunigen	19	Zauber	\N	\N	\N	\N
+Aneren	Smaskrifter	Besänftigen	19	Zauber	\N	\N	\N	\N
+Aneren	Smaskrifter	Chryseisch	4	Sprache	\N	\N	\N	\N
+Aneren	Smaskrifter	Comentang	2	Sprache	\N	\N	\N	\N
+Aneren	Smaskrifter	Dvarskar	3	Sprache	\N	\N	\N	\N
+Aneren	Smaskrifter	Eldalyn	2	Sprache	\N	\N	\N	\N
+Aneren	Smaskrifter	Erainnisch	4	Sprache	\N	\N	\N	\N
+Aneren	Smaskrifter	Erkennen von Krankheit	19	Zauber	\N	\N	\N	\N
+Aneren	Smaskrifter	Erkennen von Leben	17	Zauber	\N	\N	\N	\N
+Aneren	Smaskrifter	Erste Hilfe	0	Fertigkeit	\N	\N	\N	\N
+Aneren	Smaskrifter	Freundesauge	19	Zauber	\N	\N	\N	\N
+Aneren	Smaskrifter	Gelehrter	14	Beruf	\N	\N	\N	\N
+Aneren	Smaskrifter	Gnomenon	3	Sprache	\N	\N	\N	\N
+Aneren	Smaskrifter	Handauflegen	19	Zauber	\N	\N	\N	\N
+Aneren	Smaskrifter	Heilen von Krankheit	19	Zauber	\N	\N	\N	\N
+Aneren	Smaskrifter	Heilen von Wunden	19	Zauber	\N	\N	\N	\N
+Aneren	Smaskrifter	Kamelreiten	12	Fertigkeit	\N	\N	\N	\N
+Aneren	Smaskrifter	KanThaiTun	4	Sprache	\N	\N	\N	\N
+Aneren	Smaskrifter	KanThaiTun(1)	0	Urschrift	\N	\N	\N	\N
+Aneren	Smaskrifter	KanThaiTun(2)	0	Urschrift	\N	\N	\N	\N
+Aneren	Smaskrifter	Klettern	12	Fertigkeit	\N	\N	\N	\N
+Aneren	Smaskrifter	Kräuterkunde	7	Fertigkeit	\N	\N	\N	\N
+Aneren	Smaskrifter	Lehrersuche	0	Zauber	\N	\N	\N	\N
+Aneren	Smaskrifter	Lesen von Zauberschrift	0	Fertigkeit	\N	\N	\N	\N
+Aneren	Smaskrifter	Lähmung	19	Zauber	\N	\N	\N	\N
+Aneren	Smaskrifter	Macht über das Selbst	17	Zauber	\N	\N	\N	\N
+Aneren	Smaskrifter	Macht über die belebte Natur	19	Zauber	\N	\N	\N	\N
+Aneren	Smaskrifter	Magierstab	6	Waffe	\N	\N	\N	\N
+Aneren	Smaskrifter	Maralinga	2	Sprache	\N	\N	\N	\N
+Aneren	Smaskrifter	Meketisch	0	Urschrift	\N	\N	\N	\N
+Aneren	Smaskrifter	Meketisch	4	Sprache	\N	\N	\N	\N
+Aneren	Smaskrifter	Menschenkenntnis	4	Fertigkeit	\N	\N	\N	\N
+Aneren	Smaskrifter	Moravisch	4	Sprache	\N	\N	\N	\N
+Aneren	Smaskrifter	Region	\N	Region	\N	\N	E	\N
+Aneren	Smaskrifter	Region	\N	Region	\N	\N	INFO	\N
+Aneren	Smaskrifter	Region	\N	Region	\N	\N	K	\N
+Aneren	Smaskrifter	Region	\N	Region	\N	\N	ORIG	\N
+Aneren	Smaskrifter	Reinigen	19	Zauber	\N	\N	\N	\N
+Aneren	Smaskrifter	Rost	17	Zauber	\N	\N	\N	\N
+Aneren	Smaskrifter	Scharidisch	3	Sprache	\N	\N	\N	\N
+Aneren	Smaskrifter	Schmerzen	19	Zauber	\N	\N	\N	\N
+Aneren	Smaskrifter	Schwimmen	12	Fertigkeit	\N	\N	\N	\N
+Aneren	Smaskrifter	Seemeister	0	Urschrift	\N	\N	\N	\N
+Aneren	Smaskrifter	Stille	17	Zauber	\N	\N	\N	\N
+Aneren	Smaskrifter	Stärke	19	Zauber	\N	\N	\N	\N
+Aneren	Smaskrifter	TaiTschi	0	Fertigkeit	\N	\N	\N	\N
+Aneren	Smaskrifter	Tegarisch	0	Urschrift	\N	\N	\N	\N
+Aneren	Smaskrifter	Tiere rufen	19	Zauber	\N	\N	\N	\N
+Aneren	Smaskrifter	Tierkunde	3	Fertigkeit	\N	\N	\N	\N
+Aneren	Smaskrifter	Twyneddisch	1	Sprache	\N	\N	\N	\N
+Aneren	Smaskrifter	Unsichtbarkeit	17	Zauber	\N	\N	\N	\N
+Aneren	Smaskrifter	Vision	17	Zauber	\N	\N	\N	\N
+Aneren	Smaskrifter	Wahrnehmung	6	Fertigkeit	\N	\N	\N	\N
+Aneren	Smaskrifter	Wasser spüren	17	Zauber	\N	\N	\N	\N
+Aneren	Smaskrifter	Wissen von der Magie	0	Fertigkeit	\N	\N	\N	\N
+Aneren	Smaskrifter	YangScheng	2	Fertigkeit	\N	\N	\N	\N
+Aneren	Smaskrifter	Zauberkunde	9	Fertigkeit	\N	\N	\N	\N
+Aneren	Smaskrifter	Zauberstab	0	Grundkenntnis	\N	\N	\N	\N
+Aneren	Smaskrifter	Zwiesprache	17	Zauber	\N	\N	\N	\N
+Aneren	Smaskrifter	Überleben in der Wüste	11	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Albisch	4	Sprache	\N	\N	\N	\N
+Chairon	Smaskrifter	Beredsamkeit	10	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Chryseisch	4	Sprache	\N	\N	\N	\N
+Chairon	Smaskrifter	Dolch	0	Besitz_W	0	0		
+Chairon	Smaskrifter	Dolch	10	Waffe	\N	\N	\N	\N
+Chairon	Smaskrifter	ESchlagwaffe	0	Grundkenntnis	\N	\N	\N	\N
+Chairon	Smaskrifter	ESchwert	0	Grundkenntnis	\N	\N	\N	\N
+Chairon	Smaskrifter	Geländelauf	12	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Geschäftstüchtigkeit	0	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Glücksspiel	15	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Gnomenon	1	Sprache	\N	\N	\N	\N
+Chairon	Smaskrifter	Himmelskunde	0	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Kampf zu Pferd	0	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	KanThaiTun	4	Sprache	\N	\N	\N	\N
+Chairon	Smaskrifter	KanThaiTun(1)	0	Urschrift	\N	\N	\N	\N
+Chairon	Smaskrifter	Karawanenführer	12	Beruf	\N	\N	\N	\N
+Chairon	Smaskrifter	Klettern	12	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Kriegshammer	9	Waffe	\N	\N	\N	\N
+Chairon	Smaskrifter	Langschwert	4	Waffe	\N	\N	\N	\N
+Chairon	Smaskrifter	Lesen/Schreiben	0	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Menschenkenntnis	7	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Moravisch	2	Sprache	\N	\N	\N	\N
+Chairon	Smaskrifter	Rechnen	0	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Region	\N	Region	\N	\N	A	\N
+Chairon	Smaskrifter	Region	\N	Region	\N	\N	K	\N
+Chairon	Smaskrifter	Reiten	15	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Richtungssinn	12	ang.Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Rudern	12	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Sagenkunde	2	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Schwimmen	14	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Seemeister	0	Urschrift	\N	\N	\N	\N
+Chairon	Smaskrifter	Seilkunst	8	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Spurenlesen	6	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Stichwaffe	0	Grundkenntnis	\N	\N	\N	\N
+Chairon	Smaskrifter	Streitkolben	0	Besitz_W	0	0		
+Chairon	Smaskrifter	Streitkolben	11	Waffe	\N	\N	\N	\N
+Chairon	Smaskrifter	TaiTschi	0	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Tegarisch	0	Urschrift	\N	\N	\N	\N
+Chairon	Smaskrifter	Verführen	8	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Verhören	9	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Wahrnehmung	6	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Zauberkunde	4	Fertigkeit	\N	\N	\N	\N
+Chairon	Smaskrifter	Überleben im Wald	6	Fertigkeit	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	Armbrust	0	Grundkenntnis	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	Balancieren	18	Fertigkeit	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	ChochoInu	0	KiDo	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	Comentang	3	Sprache	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	DaiUchi	0	KiDo	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	DokujaOschi	0	KiDo	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	Dolch	0	Besitz_W	0	0		RW+4
+ChiLi	Verfluchte Gier	Dolch	0	Besitz_W	0	0		Schleichen+4
+ChiLi	Verfluchte Gier	Dolch	0	Besitz_W	0	0		Tarnen+4
+ChiLi	Verfluchte Gier	Dolch	0	Besitz_W	1	2		schw.Steindolch, Zaubern+20 'Kraftenzug' ABW 8
+ChiLi	Verfluchte Gier	Dolch	11	Waffe	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	FengSchui	8	Fertigkeit	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	GinZjang	0	KiDo	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	Gärtner	11	Beruf	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	HaschiBami	0	KiDo	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	HiaBatta	0	KiDo	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	HiaPao	0	KiDo	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	HyoKobe	0	KiDo	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	KamaKusa	0	KiDo	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	KanThaiTun	4	Sprache	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	KanThaiTun(1)	0	Urschrift	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	KanThaiTun(2)	0	Urschrift	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	KanaUchi	0	KiDo	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	KarumiJutsu	17	Fertigkeit	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	KawaSui	0	KiDo	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	KiDo	17	Fertigkeit	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	Klettern	19	Fertigkeit	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	Meditieren	13	Fertigkeit	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	Meucheln	10	Fertigkeit	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	Moravisch	3	Sprache	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	MuhiKabe	0	KiDo	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	Neu Vallinga	4	Sprache	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	NiNintai	0	KiDo	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	NinJutsu	8	Fertigkeit	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	OjuKiba	0	KiDo	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	Pflanzenkunde	9	Fertigkeit	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	Rawindi	3	Sprache	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	Region	\N	Region	\N	\N	K	\N
+ChiLi	Verfluchte Gier	Rudern	12	Fertigkeit	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	SchanScha	0	KiDo	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	Scharfschießen	8	Fertigkeit	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	Seemeister	0	Urschrift	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	Springen	15	Fertigkeit	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	Stichwaffe	0	Grundkenntnis	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	TaiTschi	0	Fertigkeit	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	TsiJe	0	KiDo	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	TsiLeng	0	KiDo	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	TuoKobe	0	KiDo	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	Wahrnehmung	6	Fertigkeit	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	YuehSchu	0	KiDo	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	leichte Armbrust	0	Besitz_W	0	0		
+ChiLi	Verfluchte Gier	leichte Armbrust	10	Waffe	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	waffenloser Kampf	0	Grundkenntnis	\N	\N	\N	\N
+ChiLi	Verfluchte Gier	waffenloser Kampf	12	Waffe	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Albisch	4	Sprache	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Allheilung	19	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Angst	17	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Austreibung des Bösen	17	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Bannen von Dunkelheit	19	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Bannen von Finsterwerk	17	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Bannen von Gift	19	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Bannen von Zauberwerk	17	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Beschleunigen	19	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Chryseisch	3	Sprache	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Comentang	3	Sprache	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Dolch	0	Besitz_W	0	0		
+Gwyneth NiConuhil	Das graue Konzil	Dolch	8	Waffe	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Elfenfeuer	17	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Entgiften	19	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Erainnisch	2	Sprache	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Erkennen von Krankheit	19	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Erkennen von Leben	17	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Erste Hilfe	0	Fertigkeit	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Flammenkreis	17	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Freundesauge	19	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Geistesschild	19	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Handauflegen	19	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Heilen schwerer Wunden	19	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Heilen von Krankheit	19	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Heilen von Wunden	19	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Heranholen	19	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Hören von Fernem	17	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Kräuterkunde	6	Fertigkeit	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Lesen von Zauberschrift	0	Fertigkeit	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Liniensicht	19	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Macht über das Selbst	17	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Macht über die belebte Natur	19	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Magierstab	4	Waffe	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Maralinga	3	Sprache	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Menschenkenntnis	8	Fertigkeit	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Moravisch	1	Sprache	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Region	\N	Region	\N	\N	HD	\N
+Gwyneth NiConuhil	Das graue Konzil	Region	\N	Region	\N	\N	ORIG	\N
+Gwyneth NiConuhil	Das graue Konzil	Reinigen	19	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Reiten	12	Fertigkeit	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Sagenkunde	9	Fertigkeit	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Scharfblick	17	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Schlaf	19	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Schmerzen	19	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Seelenheilung	19	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Seemeister	0	Urschrift	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Stichwaffe	0	Grundkenntnis	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Stille	17	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Tiere rufen	19	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Tiergestalt	19	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Tierkunde	7	Fertigkeit	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Tiersprache	19	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Unsichtbarkeit	17	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Verlangsamen	19	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Wahrnehmung	6	Fertigkeit	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Wahrsehen	17	Zauber	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Wissen von der Magie	0	Fertigkeit	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Zauberkunde	9	Fertigkeit	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Zauberstab	0	Besitz_W	0	0		
+Gwyneth NiConuhil	Das graue Konzil	Zauberstab	0	Grundkenntnis	\N	\N	\N	\N
+Gwyneth NiConuhil	Das graue Konzil	Zwiesprache	17	Zauber	\N	\N	\N	\N
+Morgan di´Mora	Erschaffung	Albisch	4	Sprache	\N	\N	\N	\N
+Morgan di´Mora	Erschaffung	Beidhändiger Kampf	-4	Fertigkeit	\N	\N	\N	\N
+Morgan di´Mora	Erschaffung	Bogen	0	Besitz_W	0	0		
+Morgan di´Mora	Erschaffung	Bogen	5	Waffe	\N	\N	\N	\N
+Morgan di´Mora	Erschaffung	Bögen	0	Grundkenntnis	\N	\N	\N	\N
+Morgan di´Mora	Erschaffung	Dolch	5	Waffe	\N	\N	\N	\N
+Morgan di´Mora	Erschaffung	Fechten	4	Fertigkeit	\N	\N	\N	\N
+Morgan di´Mora	Erschaffung	Gassenwissen	5	Fertigkeit	\N	\N	\N	\N
+Morgan di´Mora	Erschaffung	Informant	14	Beruf	\N	\N	\N	\N
+Morgan di´Mora	Erschaffung	Menschenkenntnis	5	Fertigkeit	\N	\N	\N	\N
+Morgan di´Mora	Erschaffung	Neu Vallinga	4	Sprache	\N	\N	\N	\N
+Morgan di´Mora	Erschaffung	Parierdolch	0	Besitz_W	0	0		
+Morgan di´Mora	Erschaffung	Parierdolch	1	Waffe	\N	\N	\N	\N
+Morgan di´Mora	Erschaffung	Parierwaffe	0	Grundkenntnis	\N	\N	\N	\N
+Morgan di´Mora	Erschaffung	Rapier	0	Besitz_W	0	0		
+Morgan di´Mora	Erschaffung	Rapier	7	Waffe	\N	\N	\N	\N
+Morgan di´Mora	Erschaffung	Reiten	17	Fertigkeit	\N	\N	\N	\N
+Morgan di´Mora	Erschaffung	Spießwaffe	0	Grundkenntnis	\N	\N	\N	\N
+Morgan di´Mora	Erschaffung	Stichwaffe	0	Grundkenntnis	\N	\N	\N	\N
+Morgan di´Mora	Erschaffung	Stoßspeer	5	Waffe	\N	\N	\N	\N
+Morgan di´Mora	Erschaffung	Tanzen	0	Fertigkeit	\N	\N	\N	\N
+Morgan di´Mora	Erschaffung	Verführen	8	Fertigkeit	\N	\N	\N	\N
+Morgan di´Mora	Erschaffung	Verhören	8	Fertigkeit	\N	\N	\N	\N
+Morgan di´Mora	Erschaffung	waffenloser Kampf	0	Grundkenntnis	\N	\N	\N	\N
+Morgan di´Mora	Erschaffung	waffenloser Kampf	5	Waffe	\N	\N	\N	\N
+Stürmender Dachs	Smaskrifter		0	Region	0	0	ORIG	
+Stürmender Dachs	Smaskrifter	Albisch	2	Sprache	0	0		
+Stürmender Dachs	Smaskrifter	Athletik	2	Fertigkeit	0	0		
+Stürmender Dachs	Smaskrifter	Balancieren	14	Fertigkeit	0	0		
+Stürmender Dachs	Smaskrifter	Berserkergang	0	ang.Fertigkeit	0	0		
+Stürmender Dachs	Smaskrifter	Chryseisch	2	Sprache	0	0		
+Stürmender Dachs	Smaskrifter	Dolch	0	Besitz_W	0	0		
+Stürmender Dachs	Smaskrifter	Dolch	10	Waffe	0	0		
+Stürmender Dachs	Smaskrifter	ESchlagwaffe	0	Grundkenntnis	0	0		
+Stürmender Dachs	Smaskrifter	Fallen	16	Fertigkeit	0	0		
+Stürmender Dachs	Smaskrifter	Fallenstellen	7	Fertigkeit	0	0		
+Stürmender Dachs	Smaskrifter	Faustkampf	0	Fertigkeit	0	0		
+Stürmender Dachs	Smaskrifter	Geländelauf	17	Fertigkeit	0	0		
+Stürmender Dachs	Smaskrifter	Handaxt	0	Besitz_W	0	0		
+Stürmender Dachs	Smaskrifter	Handaxt	12	Waffe	0	0		
+Stürmender Dachs	Smaskrifter	Himmelskunde	0	Fertigkeit	0	0		
+Stürmender Dachs	Smaskrifter	Ikengadialekte	4	Sprache	0	0		
+Stürmender Dachs	Smaskrifter	Kampf zu Pferd	0	Fertigkeit	0	0		
+Stürmender Dachs	Smaskrifter	Klettern	16	Fertigkeit	0	0		
+Stürmender Dachs	Smaskrifter	Kriegshammer	0	Besitz_W	0	0		bei schw. Treffer W6-2 Feuerschaden ABW 3
+Stürmender Dachs	Smaskrifter	Kriegshammer	11	Waffe	0	0		
+Stürmender Dachs	Smaskrifter	Laufen	5	Fertigkeit	0	0		
+Stürmender Dachs	Smaskrifter	Moravisch	2	Sprache	0	0		
+Stürmender Dachs	Smaskrifter	Naturkunde	9	Fertigkeit	0	0		
+Stürmender Dachs	Smaskrifter	Neu Vallinga	2	Sprache	0	0		
+Stürmender Dachs	Smaskrifter	Pflanzenkunde	9	Fertigkeit	0	0		
+Stürmender Dachs	Smaskrifter	Rawindi	2	Sprache	0	0		
+Stürmender Dachs	Smaskrifter	Reiten	16	Fertigkeit	0	0		
+Stürmender Dachs	Smaskrifter	Scharfschießen	9	Fertigkeit	0	0		
+Stürmender Dachs	Smaskrifter	Scharidisch	2	Sprache	0	0		
+Stürmender Dachs	Smaskrifter	Schilde	0	Grundkenntnis	0	0		
+Stürmender Dachs	Smaskrifter	Schleichen	9	Fertigkeit	0	0		
+Stürmender Dachs	Smaskrifter	Schlittschuhlaufen	14	Fertigkeit	0	0		
+Stürmender Dachs	Smaskrifter	Schwimmen	14	Fertigkeit	0	0		
+Stürmender Dachs	Smaskrifter	Seilkunst	10	Fertigkeit	0	0		
+Stürmender Dachs	Smaskrifter	Spießwaffe	0	Grundkenntnis	0	0		
+Stürmender Dachs	Smaskrifter	Springen	14	Fertigkeit	0	0		
+Stürmender Dachs	Smaskrifter	Spurenlesen	9	Fertigkeit	0	0		
+Stürmender Dachs	Smaskrifter	Stichwaffe	0	Grundkenntnis	0	0		
+Stürmender Dachs	Smaskrifter	Stielwurfwaffe	0	Grundkenntnis	0	0		
+Stürmender Dachs	Smaskrifter	Stimmen nachahmen	15	Fertigkeit	0	0		
+Stürmender Dachs	Smaskrifter	Stoßspeer	0	Besitz_W	1	0		Donnerechsenhorn
+Stürmender Dachs	Smaskrifter	Stoßspeer	10	Waffe	0	0		
+Stürmender Dachs	Smaskrifter	Tarnen	6	Fertigkeit	0	0		
+Stürmender Dachs	Smaskrifter	Tauchen	12	Fertigkeit	0	0		
+Stürmender Dachs	Smaskrifter	Tierkunde	9	Fertigkeit	0	0		
+Stürmender Dachs	Smaskrifter	Waelska	2	Sprache	0	0		
+Stürmender Dachs	Smaskrifter	Wurfaxt	0	Besitz_W	0	0		
+Stürmender Dachs	Smaskrifter	Wurfaxt	11	Waffe	0	0		
+Stürmender Dachs	Smaskrifter	kleiner Schild	0	Besitz_W	0	0		
+Stürmender Dachs	Smaskrifter	kleiner Schild	4	Waffe	0	0		
+Stürmender Dachs	Smaskrifter	waffenloser Kampf	0	Grundkenntnis	0	0		
+Stürmender Dachs	Smaskrifter	waffenloser Kampf	10	Waffe	0	0		
+Stürmender Dachs	Smaskrifter	Überleben im Dschungel	10	Fertigkeit	0	0		
+Stürmender Dachs	Smaskrifter	Überleben im Wald	12	Fertigkeit	0	0		
+\.
+--
+--
+--
+
 CREATE INDEX charaktere_fertigkeiten_charakt ON charaktere_fertigkeiten USING btree (charakter_name text_ops, "version" text_ops);
 

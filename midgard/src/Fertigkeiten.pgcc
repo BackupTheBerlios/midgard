@@ -39,10 +39,12 @@ void Fertigkeit::get_Fertigkeit()
    int db_lp,db_lp_l,db_lp_s,db_anfangswert0,db_anfangswert,db_ungelernt,
          db_kosten,db_berufskategorie;
    int db_st,db_gw,db_gs,db_ko,db_in,db_zt,db_pa,db_au,db_sb,db_rw;
+   int db_maxwert,db_maxunter;
    char query[1024],db_region[10],db_attribut[10],db_voraussetzung[50];
   exec sql end declare section; 
   std::string squery ="select lp,coalesce(lp_land,99),coalesce(lp_stadt,99),coalesce(anfangswert0,0),
       coalesce(anfangswert,0),coalesce(ungelernt,-1),coalesce(berufsklasse,0),
+      maxwert,maxunterweisung,
       coalesce(fp,0),coalesce(region,''),
       coalesce(attribut,''), coalesce(st,0), coalesce(gw,0),coalesce(gs,0),
       coalesce(ko,0), coalesce(\"in\",0), coalesce(zt,0),   
@@ -59,16 +61,16 @@ void Fertigkeit::get_Fertigkeit()
   exec sql open cl_fertigkeit_ein;
   SQLerror::test(__FILELINE__);
   exec sql fetch cl_fertigkeit_ein into :db_lp,:db_lp_l,:db_lp_s, 
-      :db_anfangswert0, :db_anfangswert, :db_ungelernt, :db_berufskategorie, :db_kosten, :db_region,
+      :db_anfangswert0, :db_anfangswert, :db_ungelernt, :db_berufskategorie, 
+      :db_maxwert,:db_maxunter,:db_kosten, :db_region,
       :db_attribut, :db_st,:db_gw,:db_gs,:db_ko,:db_in,:db_zt,:db_au,:db_pa,
       :db_sb,:db_rw, :db_voraussetzung;
   SQLerror::test(__FILELINE__);
-//  if (lernpunkte==0) 
  lern_unge=db_lp;
-//  if (lern_land==0)
  lern_land=db_lp_l;
-//  if (lern_stadt==0)
  lern_stadt=db_lp_s;
+ maxunterweisung=db_maxunter;
+ maxerfolgswert=db_maxwert;
   anfangswert0=db_anfangswert0;
   anfangswert=db_anfangswert;
   ungelernt=db_ungelernt;
@@ -131,6 +133,12 @@ int Fertigkeit::FErfolgswert(const Grundwerte &Werte) const
   if(Name()!="Trinken") return Erfolgswert();
   else return Erfolgswert()+Werte.Ko()/10;
 }
+
+int Fertigkeit::MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const
+{
+  return maxerfolgswert + AttributBonus(w);
+}
+
 
 
 int Fertigkeit::AttributBonus(const Grundwerte& Werte) const

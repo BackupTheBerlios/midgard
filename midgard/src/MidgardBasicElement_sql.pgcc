@@ -122,14 +122,15 @@ void MidgardBasicElement::get_Steigern_Kosten_map()
 #ifndef XML
   exec sql begin declare section;
    char query[1024];
-   int P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19;
+   int P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,P21,P22;
   exec sql end declare section;
   std::string squery ="select coalesce(p1,0),coalesce(p2,0),coalesce(p3,0),
    coalesce(p4,0),
    coalesce(p5,0),coalesce(p6,0),coalesce(p7,0),coalesce(p8,0),
    coalesce(p9,0),coalesce(p10,0),coalesce(p11,0),coalesce(p12,0),
    coalesce(p13,0),coalesce(p14,0),coalesce(p15,0),coalesce(p16,0)
-   ,coalesce(p17,0),coalesce(p18,0),coalesce(p19,0) from ";
+   ,coalesce(p17,0),coalesce(p18,0),coalesce(p19,0)
+   ,coalesce(p20,0),coalesce(p21,0),coalesce(p22,0) from ";
   if(What()==FERTIGKEIT) 
    squery += "steigern_fertigkeiten_werte w, steigern_fertigkeiten s where 
                s.wie = w.name and s.name = '"+Name()+"'"; 
@@ -148,7 +149,7 @@ void MidgardBasicElement::get_Steigern_Kosten_map()
   Transaction tr;
   exec sql open SKM_ein;
   exec sql fetch SKM_ein into :P1,:P2,:P3,:P4,:P5,:P6,:P7,:P8,:P9,
-   :P10,:P11,:P12,:P13,:P14,:P15,:P16,:P17,:P18,:P19;
+   :P10,:P11,:P12,:P13,:P14,:P15,:P16,:P17,:P18,:P19,:P20,:P21,:P22;
    map_erfolgswert_kosten[1] = P1;
    map_erfolgswert_kosten[2] = P2;
    map_erfolgswert_kosten[3] = P3;
@@ -168,6 +169,9 @@ void MidgardBasicElement::get_Steigern_Kosten_map()
    map_erfolgswert_kosten[17] = P17;
    map_erfolgswert_kosten[18] = P18;
    map_erfolgswert_kosten[19] = P19;
+   map_erfolgswert_kosten[20] = P20;
+   map_erfolgswert_kosten[21] = P21;
+   map_erfolgswert_kosten[22] = P22;
   exec sql close SKM_ein;
   tr.close();
 //if(What()==WAFFE) 

@@ -39,6 +39,8 @@ class Zauberwerk : public MidgardBasicElement
 
    bool Voraussetzungen(const std::list<cH_MidgardBasicElement>& listZauber) const;
    bool Voraussetzungen_Fertigkeit(const std::list<cH_MidgardBasicElement>& listZauber) const;
+   int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const 
+         {return 0;} //wg. virtueller Funktion
 };
 
 class cH_Zauberwerk : public Handle<const Zauberwerk>

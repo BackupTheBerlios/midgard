@@ -79,6 +79,7 @@ class MidgardBasicElement : public HandleContent
       virtual enum MBEE What() const=0;
       virtual std::string What_str() const=0; // zum speichern
       virtual std::string Stufe() const {return "";} 
+      virtual int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const=0;
       bool ist_lernbar(const vector<cH_Typen>& Typ,const map<std::string,std::string>& map_typ) const;
       bool ist_gelernt(const std::list<cH_MidgardBasicElement>& L) const;
       int get_Steigern_Kosten(int erfolgswert) const;

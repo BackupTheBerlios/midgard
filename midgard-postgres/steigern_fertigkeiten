@@ -21,7 +21,7 @@ COPY "steigern_fertigkeiten" FROM stdin;
 Abrichten	Abrichten
 Akrobatik	Akrobatik
 Alchimie	Wissen
-Askese	BeidhÃ¤ndiger Kampf
+Askese	Beidhändiger Kampf
 Astrologie	Wissen
 Athletik	Athletik
 Augensalbe herstellen	-
@@ -37,11 +37,11 @@ Brettspiel	Brettspiel
 Dichten	Dichten
 Elefanten lenken	Elefanten lenken
 Erste Hilfe	Erste Hilfe
-ErzÃ¤hlen	Dichten
+Erzählen	Dichten
 Etikette	Gassenwissen
 Fallen	Bewegung
 Fallen entdecken	Fallen entdecken
-Fallen entschärfen	Fallen entschÃ¤rfen
+Fallen entschärfen	Fallen entschärfen
 Fallenmechanik	Fallenmechanik
 Fallenstellen	Fallenstellen
 Fangen	Bewegung
@@ -54,11 +54,11 @@ Fälschen	Verkleiden
 Gassenwissen	Gassenwissen
 Gastlandsprache	Sprache
 Gaukeln	Dichten
-Geheimmechanismen öffnen	Geheimmechanismen Ã¶ffnen
+Geheimmechanismen öffnen	Geheimmechanismen öffnen
 Geheimzeichen	Geheimzeichen
 Geländelauf	Bewegung
 Geschenke machen	Beredsamkeit
-Geschäftstüchtigkeit	GeschÃ¤ftstÃ¼chtigkeit
+Geschäftstüchtigkeit	Geschäftstüchtigkeit
 Giftmischen	Wissen
 Glücksspiel	Glücksspiel
 Heilkunde	Wissen
@@ -70,7 +70,7 @@ Kalligraphie	Kalligraphie
 Kamelreiten	Bewegung
 Kampf in Dunkelheit	Kampf in Dunkelheit
 Kampf in Schlachtreihe	Kampf in Schlachtreihe
-Kampf in Vollrüstung	Kampf in VollrÃ¼stung
+Kampf in Vollrüstung	Kampf in Vollrüstung
 Kampf zu Pferd	Kampf zu Pferd
 Kampftaktik	Kampftaktik
 Kanufahren	Bewegung
@@ -112,7 +112,7 @@ Rudern	Bewegung
 Sagenkunde	Wissen
 Scharfschießen	Scharfschießen
 Schauspielern	Schauspielern
-SchiffsfÃ¼hrung	Kampftaktik
+Schiffsführung	Kampftaktik
 Schiffsführung	Wissen
 SchiyoKi	-
 Schleichen	Schleichen
@@ -123,7 +123,7 @@ Schmerzen ertragen	Bewegung
 Schreiben	Schreiben
 Schwerttanz	Bewegung
 Schwimmen	Bewegung
-Schätzen	SchÃ¤tzen
+Schätzen	Schätzen
 Seemannsgang	Bewegung
 Segeln	Bewegung
 Seilkunst	Seilkunst
