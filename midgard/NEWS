@@ -14,6 +14,8 @@ NEWS IN VERSION 0.7delta5
 * Ausdruck für lange Listen
 * gelernt/ungelernt in die Überschrift der steigern Tabellen
 * Oberfläche überarbeitet
+* Export von Waffen mit richtigem Erfolgswert
+* 'Lernen von Spruchrolle' nur noch wenn 'Lesen von Zauberschrift' gelernt ist
 
 TODO: ('-' zeigt CP an)
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,

@@ -81,8 +81,9 @@ void Zauber::get_Zauber()
     enum_zusatz=MidgardBasicElement::eZusatz(tag->getIntAttr("Zusätze",ZNone));
 
     FOR_EACH_CONST_TAG_OF(i,*tag,"Zusätze")
-         Vzusatz.push_back(i->getAttr("Name"));
-
+      Vzusatz.push_back(st_zusatz(i->getAttr("Name"),i->getAttr("Typ"),
+                         i->getAttr("Region"),i->getAttr("RegionZusatz")));
+                               
     FOR_EACH_CONST_TAG_OF(i,*tag,"AgensTyp")
          map_typ_agens[cH_Typen(i->getAttr("Typ"),true)]=i->getAttr("Agens");
 

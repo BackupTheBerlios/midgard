@@ -89,7 +89,8 @@ void Fertigkeit::get_Fertigkeit()
             i->getIntAttr("LP_Stadt"),i->getIntAttr("LP_Land")));
 
     FOR_EACH_CONST_TAG_OF(i,*tag,"Zusätze")
-      Vzusatz.push_back(i->getAttr("Name"));
+      Vzusatz.push_back(st_zusatz(i->getAttr("Name"),i->getAttr("Typ"),
+                        i->getAttr("Region"),i->getAttr("RegionZusatz")));
 
     FOR_EACH_CONST_TAG_OF(i,*tag,"regionaleBesonderheit")
          VAusnahmen.push_back(st_ausnahmen(i->getAttr("Herkunft"),

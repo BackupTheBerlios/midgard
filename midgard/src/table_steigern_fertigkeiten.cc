@@ -31,7 +31,6 @@ void table_steigern::on_fertigkeiten_laden_clicked()
    { const cH_Fertigkeit f(*i);
      if (MidgardBasicElement_mutable(*i).ist_gelernt(A.List_Fertigkeit()) && cH_Fertigkeit(*i)->ZusatzEnum(hauptfenster->getChar().getVTyp())==MidgardBasicElement::ZNone) continue ;
      if (f->Name()=="Sprache" || f->Name()=="Schreiben" || f->Name()=="KiDo-Technik") continue;
-//     if (hauptfenster->getCDatabase().pflicht.istVerboten(A.Spezies()->Name(),A.getVTyp(),f->Name())) continue;
      if(A.getWerte().Spezies()->istVerboten(*i)) continue;
      if (f->Name()=="Zaubern" && A.is_mage() ) continue;
      if (!(*i)->ist_lernbar(A.getVTyp(),f->get_MapTyp())) continue;

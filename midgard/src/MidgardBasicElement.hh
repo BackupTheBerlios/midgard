@@ -54,13 +54,17 @@ class MidgardBasicElement : public HandleContentCopyable
  public:
       enum eZusatz {ZNone=0,ZTabelle=1,ZLand=2,ZWaffe=3,
                     ZHerkunft=4,ZSprache=5,ZSchrift=6,ZUeberleben=7};
+      struct st_zusatz{std::string name;std::string typ;std::string region; std::string region_zusatz;
+             st_zusatz(std::string n,std::string t,std::string r,std::string rz)
+               :name(n),typ(t),region(r),region_zusatz(rz){}};
    protected:
 	const Tag *tag;
       std::string name, region,region_zusatz;
       int kosten;
       mutable int anfangswert;
       eZusatz enum_zusatz;
-      std::vector<std::string> Vzusatz;
+
+      std::vector<st_zusatz> Vzusatz;
       vector<st_ausnahmen> VAusnahmen;
       bool nsc_only;
       enum EP_t { Nicht=0, KEP=1, ZEP=2, Beides=KEP|ZEP };
@@ -86,7 +90,7 @@ class MidgardBasicElement : public HandleContentCopyable
 
       map<std::string,std::string> get_MapTyp() const {return map_typ;}
       
-      std::vector<std::string> VZusatz() const {return Vzusatz;}
+      std::vector<st_zusatz> VZusatz() const {return Vzusatz;}
       virtual eZusatz ZusatzEnum(const vector<cH_Typen>& Typ) const {return enum_zusatz;}
  
       bool NSC_only() const {return nsc_only;}

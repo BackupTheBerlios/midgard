@@ -249,10 +249,11 @@ void table_steigern::fillClistZusatz(MidgardBasicElement_mutable &MBE)
      case MidgardBasicElement::ZTabelle : 
       {
         title.push_back(MBE->Name()+" auswählen");
-        std::vector<std::string> VZ=MBE->VZusatz();
-        for (std::vector<std::string>::const_iterator i=VZ.begin();i!=VZ.end();++i)
+        std::vector<MidgardBasicElement::st_zusatz> VZ=MBE->VZusatz();
+        for (std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=VZ.begin();i!=VZ.end();++i)
            {
-             datavec.push_back(new Data_Zusatz(MBE,(*i),true));
+             if(hauptfenster->region_check(i->region))
+               datavec.push_back(new Data_Zusatz(MBE,i->name,true));
            }
         break; 
        }

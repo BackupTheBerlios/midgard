@@ -175,9 +175,12 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
       }
      case MidgardBasicElement::ZTabelle:
       {
-       std::vector<std::string> VG=MBE->VZusatz();
-       for (std::vector<std::string>::const_iterator i=VG.begin();i!=VG.end();++i)
-           datavec_zusatz.push_back(new Data_Zusatz(MBE,*i,true));
+       std::vector<MidgardBasicElement::st_zusatz> VG=MBE->VZusatz();
+       for (std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=VG.begin();i!=VG.end();++i)
+        {
+         if(hauptfenster->region_check(i->region))
+            datavec_zusatz.push_back(new Data_Zusatz(MBE,i->name,true));
+        }
        connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_selected));
        break;
       }
