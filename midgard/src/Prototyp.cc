@@ -69,10 +69,11 @@ void Prototyp::get_Prototyp()
 Prototyp_All::Prototyp_All()
 {
  const Tag *ki=xml_data->find("KI");
+
  if (ki)
  {  Tag::const_iterator b=ki->begin(),e=ki->end();
     FOR_EACH_CONST_TAG_OF_5(i,*ki,b,e,"Prototyp")
-    {  list_All.push_back(&*(cH_Prototyp(&*i)));
+    {  list_All.push_back(cH_Prototyp(&*i));
     }
  }
 }  
