@@ -1,0 +1,41 @@
+## $Id: configure.in,v 1.8 2001/06/29 11:40:54 christof Exp $
+#
+# process this file with GNU autoconf to produce a configure script.
+#
+# parts taken from glade--, guppi2
+
+AC_INIT(src/Gtk_OStream.h)
+AM_INIT_AUTOMAKE(GtkmmAddons, 0.5.5)
+AM_CONFIG_HEADER(config.h)
+
+#INCLUDES=-I/home/share/safeSTL
+
+AC_PREFIX_DEFAULT(/usr/local)
+
+AC_PROG_CC
+AC_PROG_CXX
+AM_PROG_LIBTOOL
+AC_LANG_CPLUSPLUS
+
+AC_SUBST(CFLAGS)
+AC_SUBST(CPPFLAGS)
+AC_SUBST(LDFLAGS)
+
+AC_HEADER_STDC
+
+# we need GTKMM
+AM_PATH_GTKMM(1.2.0,,AC_MSG_ERROR("Gtk-- 1.2.0 or newer not found or broken - see config.log for details."))
+
+AC_ARG_WITH(libname, 
+            [  --with-libname=nm	give the library a custom name.],
+            LIBNAME="$withval", LIBNAME="GtkmmAddons")
+AC_SUBST(LIBNAME)
+
+AC_CONFIG_SUBDIRS( searchcombo )
+
+dnl if we did specify 'commongtk' fall back to old locations
+
+AM_CONDITIONAL(PETIG_HACK, test "$LIBNAME" = "commongtk")
+AM_CONDITIONAL(INSTALL_WIDGET, false )
+
+AC_OUTPUT(Makefile src/Makefile tests/Makefile tests/close_window/Makefile)

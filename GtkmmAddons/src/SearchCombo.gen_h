@@ -1,0 +1,157 @@
+/* $Id: SearchCombo.gen_h,v 1.11 2002/01/30 12:01:04 christof Exp $ */
+
+/* searchcombo.h
+ * 
+ * Copyright (C) 1999 Adolf Petig GmbH & Co. KG
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Library General Public
+ * License as published by the Free Software Foundation; either
+ * version 2 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Library General Public License for more details.
+ *
+ * You should have received a copy of the GNU Library General Public
+ * License along with this library; if not, write to the Free
+ * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ */
+
+// #include <glib.h>
+#include <gtk--/box.h>
+#include <gtk--/entry.h>
+#include <gtk--/button.h>
+#include <gtk--/scrolledwindow.h>
+#include <gtk--/window.h>
+#include <gtk--/list.h>
+#include <gtk--/item.h>
+#include <gtksearchcombo.h>
+CLASS_START(Gtk);
+
+// typedef G_List<char> G_List_string;
+
+//: SearchCombo widget
+//- A combo is a compound widget which crosses a text entry area and a pull
+//- down list.  It may allow text entry or it may just allow list
+//- values depending on the settings.  
+class SearchCombo : public HBox
+{
+  WRAP_CLASS(SearchCombo,GtkSearchCombo,GTK_SEARCH_COMBO,GTK_IS_SEARCH_COMBO,
+  	searchcombo,Gtk::HBox,GtkHBox,GTK_HBOX);
+public:
+  explicit SearchCombo(bool always_fill,bool autoexpand=true);
+  WRAP_CTOR_CAST;
+  WRAP_CTOR_DEFAULT;
+  WRAP_DTOR;
+  
+  SIGNAL_SPEC("activate",both,void activate());
+  SIGNAL_SPEC("search",both,void search(gboolean*,GtkSCContext));
+  
+  WRAP_MEMBER(value,value_in_list,value_in_list,bool,guint);
+  WRAP_MEMBER(value,ok_if_empty,ok_if_empty,bool,guint);
+//  WRAP_MEMBER(value,use_arrows,use_arrows,bool,guint);
+//  WRAP_MEMBER(value,use_arrows_always,use_arrows_always,bool,guint);
+  WRAP_MEMBER(value,case_sensitive,case_sensitive,bool,guint);
+  WRAP_MEMBER(value,always_fill,always_fill,bool,guint);
+  WRAP_MEMBER(value,enable_tab,enable_tab,bool,guint);
+  WRAP_MEMBER(value,autoexpand,autoexpand,bool,guint);
+  WRAP_MEMBER(value,start_idle,start_idle,bool,guint);
+  
+  //: Allow direct text entry
+  //- Whether the text in the entry must be or not be in the list.
+  //- 
+  //- {\param value} - Set to true if the value must be in list. 
+  //- 
+  //- {\param empty} - Set to true if the text area is allowed to be empty.
+  WRAP_METHOD(
+    void gtk_searchcombo_set_value_in_list(GtkSearchCombo*,gint,gint),
+    void set_value_in_list(bool value, bool empty));
+
+  //: Sets list case sensitive 
+  //- Determines if the list items and text comparisons for
+  //- {set_use_arrows_always()} should be case sensitive.
+  WRAP_METHOD(
+    void gtk_searchcombo_set_case_sensitive(GtkSearchCombo*,gint), 
+    void set_case_sensitive(bool val));
+
+  //: Append an item.
+  WRAP_METHOD(void gtk_searchcombo_add_item(GtkSearchCombo *,const gchar *),
+  	void add_item(const string &text));
+  
+  //: clear entry+list, mark for research
+  WRAP_METHOD(void gtk_searchcombo_reset(GtkSearchCombo *),void reset());
+
+  //: set text no research
+  WRAP_METHOD(void gtk_searchcombo_set_text(GtkSearchCombo *,const gchar *),
+  	void set_text(const string &text));
+  
+  const string get_text() const;
+  
+  WRAP_METHOD(
+    void gtk_searchcombo_set_always_fill(GtkSearchCombo*,gint), 
+    void set_always_fill(bool val));
+  WRAP_METHOD(
+    void gtk_searchcombo_set_enable_tab(GtkSearchCombo*,gint), 
+    void set_enable_tab(bool val));
+  WRAP_METHOD(guint gtk_searchcombo_get_size(const GtkSearchCombo *),
+  	guint size() const);
+  //: set sensitivity
+  WRAP_METHOD(
+    void gtk_searchcombo_set_editable(GtkSearchCombo*,gint), 
+    void set_editable(bool val));
+
+  //: autoexpand - think twice!
+  WRAP_METHOD(
+    void gtk_searchcombo_set_autoexpand(GtkSearchCombo*,gint), 
+    void set_autoexpand(bool val));
+    
+  WRAP_METHOD(void gtk_searchcombo_trigger_search(GtkSearchCombo *),
+  	void trigger_search());
+
+  WRAP_METHOD(
+    void gtk_searchcombo_set_start_on_idle(GtkSearchCombo*,gint), 
+    void set_start_on_idle(bool val));
+    
+  //: please do not use this function in new programs - it's for compatibility
+  WRAP_MEMBER(value,entry,entry,Gtk::Entry*,GtkWidget*);
+  
+  WRAP_METHOD(
+    gint gtk_searchcombo_get_selected_index(GtkSearchCombo*), 
+    gint get_selected_index() const);
+   
+    bool empty() const
+    {  return !size(); }
+};
+
+
+PRIVATE_START;
+#include <gtk--/private/box_p.h>
+IMPL_START;
+//#include <private/SearchCombo_p.h>
+#include <gtk--/listitem.h>
+
+namespace Gtk
+{
+  SearchCombo::SearchCombo(bool alwaysfill,bool autoexpand)
+    : HBox((GtkHBox*)(gtk_object_new(get_type(),0)))
+  {  initialize_class();
+     set_always_fill(alwaysfill);
+     set_autoexpand(autoexpand);
+  }
+               
+  const string SearchCombo::get_text() const
+  {  return gtk_searchcombo_get_text(const_cast<GtkSearchCombo*>(gtkobj()));
+  }
+}
+
+DOCUMENTATION_START;
+
+//+ PROPERTIES(Gtk_SearchCombo)
+//. name: activate_id
+//. type: guint
+//. get:
+//. set:
+//. desc:
+

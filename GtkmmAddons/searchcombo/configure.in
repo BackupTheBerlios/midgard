@@ -1,0 +1,29 @@
+## $Id: configure.in,v 1.5 2001/02/26 14:17:03 christof Exp $
+#
+# process this file with GNU autoconf to produce a configure script.
+#
+# parts taken from glade--, guppi2
+
+AC_INIT(src/gtksearchcombo.h)
+
+AM_INIT_AUTOMAKE(gtksearchcombo, 0.3.1)
+AM_CONFIG_HEADER(config.h)
+
+AC_PREFIX_DEFAULT(/usr/local)
+
+AC_PROG_CC
+AM_PROG_LIBTOOL
+
+AC_SUBST(CFLAGS)
+AC_SUBST(CPPFLAGS)
+AC_SUBST(LDFLAGS)
+
+AC_HEADER_STDC
+
+# we need GTKMM
+AM_PATH_GTK(1.2.0,,AC_MSG_ERROR("Gtk 1.2.0 or newer not found or broken - see config.log for details."))
+
+AM_CONDITIONAL(INSTALL_WIDGET, test ! -r ../src/SearchCombo.gen_h )
+
+AC_OUTPUT(Makefile src/Makefile tests/Makefile )
+

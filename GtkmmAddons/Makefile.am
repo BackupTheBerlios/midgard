@@ -1,0 +1,16 @@
+# $Id: Makefile.am,v 1.1 1999/09/09 08:09:06 christof Exp $
+
+SUBDIRS=searchcombo src tests 
+
+EXTRA_DIST = AUTHORS TODO README configure
+
+#INCLUDES = -I/home/share/safeSTL
+#LDADD = -lefence
+
+CLEANFILES = *~
+
+mydist: clean
+	(cd ..;mv gtk $(PACKAGE)-$(VERSION);\
+	 tar --exclude \*CVS\* -cvzf $(PACKAGE)-$(VERSION).tgz $(PACKAGE)-$(VERSION);\
+	 mv $(PACKAGE)-$(VERSION) gtk \
+	)
