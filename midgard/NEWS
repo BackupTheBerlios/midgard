@@ -3,6 +3,7 @@ NEWS IN VERSION 0.6delta3
 
 * Erain: Zaubertänze (Gildenbrief 46)
 * Der Windows Port verwendet den Explorer um Dateien auszuwählen
+* Abenteurer werden auch unter Windows nun in ISO 8859-1 gespeichert
 
 TODO:
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
@@ -13,10 +14,6 @@ TODO:
 * dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
   man etwas hinzufügen möchte, ist nicht gerade intuitiv
   (vielleicht drag'n'drop oder CTree verschieben)
-
-Windows TODO (bitte irgendwo erwähnen)
-
-* Abenteurer in ISO 8859-1[5] speichern, dann können sie leichter editiert/gelesen werden.
 
 ##########################################################################
 NEWS IN VERSION 0.6delta2

@@ -64,8 +64,8 @@ xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was, Grundwerte *W)
    char buf[10240];
 
    strncpy(buf,filename.c_str(),sizeof buf);
-   ZeroMemory(&ofn, sizeof OPENFILENAME);
-   ofn.lStructSize = sizeof OPENFILENAME;
+   ZeroMemory(&ofn, sizeof (OPENFILENAME));
+   ofn.lStructSize = sizeof (OPENFILENAME);
 //   ofn.hwndOwner = hwnd;
    ofn.lpstrFile = buf;
    ofn.nMaxFile = sizeof buf;

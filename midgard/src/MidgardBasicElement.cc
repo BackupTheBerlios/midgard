@@ -371,7 +371,6 @@ void MidgardBasicElement::saveElementliste(ostream &datei,
   //Steigern von Fertigkeiten  
 void MidgardBasicElement::EP_steigern(const std::string fert)
 {
-// const Tag *tag=find_Tag("Fertigkeiten","Fertigkeit","Name",fert);
  const Tag *steigern=0;
  
  if (tag)

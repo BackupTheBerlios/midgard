@@ -32,6 +32,17 @@
 #include "KiDo.hh"
 #include "Beruf.hh"
 #include <SelectMatching.h>
+
+#ifdef __MINGW__
+std::string utf82iso(const std::string &s);
+std::string iso2utf8(const std::string &s);
+# define Latin2Screen(x) iso2utf8(x)
+# define Internal2Latin(x) utf82iso(x)
+#else
+# define Latin2Screen(x) (x)
+# define Internal2Latin(x) (x)
+#endif
+
  
 gint midgard_CG::on_laden_release_event(GdkEventButton *ev)
 {
@@ -46,7 +57,7 @@ void midgard_CG::xml_import_auswahl()
 #else
   delete
 #endif
-  (new xml_fileselection(this,xml_fileselection::Load/*"Abenteurer laden"*/));
+  (new xml_fileselection(this,xml_fileselection::Load));
 }
 
 
@@ -73,7 +84,7 @@ void midgard_CG::xml_import_stream(istream& datei)
          if (!top) top=data->find("Midgard-Abenteurer");       }
    }
       if (!top)
-   {              InfoFenster->AppendShow("(Abenteurer in) Datei "//'"+datei
+   {              InfoFenster->AppendShow("(Abenteurer in) Datei "//'"+Latin2Screen(datei)
                    " nicht gefunden.");
       return;
    }

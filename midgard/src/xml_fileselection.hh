@@ -26,6 +26,9 @@
 
 class midgard_CG;
 class Grundwerte;
+#ifdef __MINGW32__
+#include <string>
+#endif
 
 class xml_fileselection 
 #ifndef __MINGW32__
