@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.17 2002/10/24 07:21:01 christof Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.18 2002/10/24 07:58:34 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -266,9 +266,9 @@ void table_grundwerte::set_Grundwerte(e_eigen eigenschaft,int wert)
   bool all_insensitive=true;
 //  Gtk::Table_Helpers::TableList &ch=tab->children();
 //  for(Gtk::Table_Helpers::TableList::iterator i=ch.begin();i!=ch.end();++i)
-  for(GList *std::list=GTK_TABLE(tab->gtkobj())->children;std::list;list=std::list->next)
+  for(GList *liste=GTK_TABLE(tab->gtkobj())->children;liste;liste=liste->next)
    {
-     Gtk::Widget *x=Gtk::wrap(((GtkTableChild*)(std::list->data))->widget);
+     Gtk::Widget *x=Gtk::wrap(((GtkTableChild*)(liste->data))->widget);
      if(Gtk::Button::isA(x) && x->is_sensitive()) all_insensitive=false;
    }
   if(all_insensitive)
