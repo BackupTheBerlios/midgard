@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.79 2004/01/23 10:02:42 christof Exp $
+// $Id: midgard.cc,v 1.80 2004/01/23 13:26:32 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,6 +27,7 @@
 #include "WindowInfo.hh"
 #ifdef __MINGW32__
 #include <io.h>
+#include <windows.h>
 #endif
 #include <iostream>
 #include <libmagus/magus_paths.h>
