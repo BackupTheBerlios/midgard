@@ -1,4 +1,4 @@
-// $Id: itos.cc,v 1.16 2001/08/20 08:16:48 christof Exp $
+// $Id: itos.cc,v 1.17 2001/12/12 09:34:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -30,3 +30,11 @@ std::string itos(int i)
  snprintf(buffer,sizeof buffer,"%i",i);
  return(buffer);
 }
+
+std::string dtos(double i)
+{
+ char buffer[100];
+ snprintf(buffer,sizeof buffer,"%lf",i);
+ return(buffer);
+}
+   

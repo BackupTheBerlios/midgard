@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.92 2001/12/10 17:11:05 thoma Exp $
+// $Id: midgard_CG.cc,v 1.93 2001/12/12 09:34:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -208,6 +208,11 @@ void midgard_CG::set_tree_titles()
  neue_schrift_tree->set_value_data(gpointer("SCN"));
  neue_schrift_tree->setTitles(schrift);
 
+ std::vector<string> preis;
+ preis.push_back("Art");
+ preis.push_back("Typ");
+ preis.push_back("Eigenschaft");
+ preise_tree->setTitles(preis);
 }
 
 void midgard_CG::on_radiobutton_frau_toggled()
@@ -426,6 +431,7 @@ void midgard_CG::on_neuer_charakter_clicked()
 //XXX   table_magier_lernen->set_sensitive(false);
    hbox_kido->set_sensitive(false);
    table_kido_lernen->set_sensitive(false);
+   scrolledwindow_landauswahl->hide();
 
    optionmenu_art->hide();
    optionmenu_typ->hide();

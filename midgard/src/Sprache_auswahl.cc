@@ -37,14 +37,17 @@ void Sprache_auswahl::on_clist_sp_sc_select_row(gint row, gint column, GdkEvent 
   if (mod == LAND)
    {
      cH_Land *s=static_cast<cH_Land*>(clist_sp_sc->selection().begin()->get_data());
-     cH_Fertigkeit F((*s)->Name())->set_Erfolgswert(wert);
-     std::list FL.push_back(F);
-     hauptfenster->MidgardBasicElement_uebernehmen(FL);
+     cH_MidgardBasicElement F(new Fertigkeit("Landeskunde"));
+     cH_Fertigkeit(F)->setZusatz((*s)->Name());     
+     F->set_Erfolgswert(wert);
+//     std::list<cH_MidgardBasicElement> FL;
+//     FL.push_back(static_cast<cH_MidgardBasicElement&>(F));
+     hauptfenster->MidgardBasicElement_uebernehmen(F);
    }
   else 
    {
      cH_MidgardBasicElement *s=static_cast<cH_MidgardBasicElement*>(clist_sp_sc->selection().begin()->get_data());
-     else if((*s)->What()==MidgardBasicElement::SPRACHE)
+     if((*s)->What()==MidgardBasicElement::SPRACHE)
         cH_Sprache(*s)->set_Erfolgswert(wert);
      else if((*s)->What()==MidgardBasicElement::SCHRIFT)
         cH_Schrift(*s)->set_Erfolgswert(wert);
@@ -67,10 +70,7 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const midgard_CG::st_Database& D
          sp_sc_label->set_text("Land wählen");
          for (std::vector<cH_Land>::const_iterator i=Database.Laender.begin();i!=Database.Laender.end();++i)
           { 
-//            if((*i)->ist_gelernt(*L)) continue;
-//            cH_Land l(*i);
             os << (*i)->Name()<<'\t'<<wert<<'\n';
-//            os.flush(&const_cast<cH_MidgardBasicElement&>(*i));
             os.flush(&const_cast<cH_Land&>(*i));
           }
       }

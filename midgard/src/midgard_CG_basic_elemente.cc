@@ -74,6 +74,10 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const cH_MidgardBasicElement& m
     hbox_fertigkeit->set_sensitive(true); 
     table_fertigkeit->set_sensitive(true);
    }
+  if(mbe->What()==MidgardBasicElement::FERTIGKEIT)
+   {
+    list_Fertigkeit.push_back(mbe);
+   }
   if(mbe->What()==MidgardBasicElement::SPRACHE)
    {
     list_Sprache.push_back(mbe);
@@ -81,5 +85,6 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const cH_MidgardBasicElement& m
   if(mbe->What()==MidgardBasicElement::SCHRIFT)
    {
     list_Schrift.push_back(mbe);
+    show_fertigkeiten();
    }
 }

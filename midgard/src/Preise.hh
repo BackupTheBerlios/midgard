@@ -64,42 +64,45 @@ class Preise_All
 class PreiseMod : public HandleContent
 {
  public: 
-   struct st_vec{std::string name; std::string einheit;
+   struct st_payload{std::string name; std::string einheit;
                  float faktor; int min;
-          st_vec() : faktor(0),min(0){}
-          st_vec(std::string n, std::string e,
+          st_payload() : faktor(0),min(0){}
+          st_payload(std::string n, std::string e,
                  float f, int m) 
              : name(n), einheit(e), faktor(f), min(m) {}
           };
  private:
-   std::string art;
-   vector<st_vec> vec;
-   std::map<std::string,vector<st_vec> > map_mod;
-
+   std::string art,typ;
+   int nr;
+   st_payload payload;
    void get_PreiseMod();
  public:
-   PreiseMod(const std::string& a)
-     :art(a) {get_PreiseMod();}
+   PreiseMod(const std::string& a,const std::string& t,const int& n)
+     :art(a),typ(t),nr(n) {get_PreiseMod();}
 
  std::string Art() const {  return art; }
-// vector<st_vec> getVec() const {return vec_mod;}
- std::map<std::string,vector<st_vec> > getMap() const {return map_mod;}
- 
+ std::string Typ() const {  return typ; }
+ int Nr() const {  return nr; }
+ st_payload Payload() const {return payload;}
 };
-
-
-
 
 class cH_PreiseMod : public Handle<const PreiseMod>
 {
-    typedef CacheStatic<std::string,cH_PreiseMod> cache_t;
+   struct st_index{std::string art; std::string typ;int nr;
+          st_index() :nr(0) {}
+          st_index(std::string a,std::string t,int n) : art(a),typ(t),nr(n) {}
+          bool operator<(const st_index& b) const
+            {return art<b.art || (art==b.art && typ<b.typ)
+                    ||(art==b.art &&typ==b.typ&&nr<b.nr) ;}          
+         };
+
+    typedef CacheStatic<st_index,cH_PreiseMod> cache_t;
     static cache_t cache;
     cH_PreiseMod(PreiseMod *s) : Handle<const PreiseMod>(s) {};
-    friend class std::map<std::string,cH_PreiseMod>;
+    friend class std::map<st_index,cH_PreiseMod>;
     cH_PreiseMod(){};
  public:
-    cH_PreiseMod(const std::string& name);
-
+    cH_PreiseMod(const std::string& art,const std::string typ,const int &nr);
 };
 
 class PreiseMod_All

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.102 2001/12/07 08:53:00 thoma Exp $
+// $Id: midgard_CG.hh,v 1.103 2001/12/12 09:34:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -333,7 +333,9 @@ class midgard_CG : public midgard_CG_glade
         void on_radiobutton_praxis_auto_fertigkeiten_toggled();
         int praxispunkte_wuerfeln(const std::string& fert,int alter_wert, const std::string& art,bool wuerfeln);
         bool kido_steigern_check(int wert);
-   
+        void fillClistLand(const cH_MidgardBasicElement &MBE);
+        void on_clist_landauswahl_select_row(gint row, gint column, GdkEvent *event);   
+
         void on_waffen_laden_clicked();
         void on_waffengrund_laden_clicked();
         void waffen_zeigen();
@@ -398,8 +400,10 @@ class midgard_CG : public midgard_CG_glade
         void opt_typ();
         void on_button_ausruestung_druck_clicked();
         void on_clist_preisliste_select_row(gint row, gint column, GdkEvent *event);
-        
-
+        void on_preise_leaf_selected(cH_RowDataBase d);        
+        void on_button_modi_clicked();
+        void show_modi();
+        std::map<pair<std::string,std::string>,PreiseMod::st_payload> modimap;
    
    public:
          midgard_CG(int argc,char **argv);

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.37 2001/12/10 17:11:05 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.38 2001/12/12 09:34:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,16 +33,16 @@ void midgard_CG::show_fertigkeiten()
 {
    fertigkeiten_clist->clear();
    Gtk::OStream os(fertigkeiten_clist);
-   for(std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i)
-      { cH_Fertigkeit f(*i);
-         os << f->Name();
-         if (f->Erfolgswert()!=0) os <<"\t" <<f->Erfolgswert();
-         os << "\n";
-      }
    for(std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit_ang.begin();
          i!=list_Fertigkeit_ang.end();++i)
       { cH_Fertigkeit_angeborene f(*i);
          os << f->Name();
+         if (f->Erfolgswert()!=0) os <<"\t" <<f->Erfolgswert();
+         os << "\n";
+      }
+   for(std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i)
+      { cH_Fertigkeit f(*i);
+         os << f->Name()<<" "<<f->Zusatz();
          if (f->Erfolgswert()!=0) os <<"\t" <<f->Erfolgswert();
          os << "\n";
       }

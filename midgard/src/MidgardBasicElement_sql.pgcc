@@ -6,6 +6,7 @@
 exec sql include sqlca;
 #include "xml.h"
 #include "Zauberwerk.hh"
+#include "Fertigkeiten.hh"
 #include "Waffe.hh"
 
 #ifdef USE_XML
@@ -198,6 +199,8 @@ void MidgardBasicElement::saveElementliste(const std::list<cH_MidgardBasicElemen
      strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
      if ((*b.begin())->What()==ZAUBERWERK)
         strncpy(db_magisch, cH_Zauberwerk(*i)->Art().c_str(),sizeof(db_magisch));
+     if ((*b.begin())->What()==FERTIGKEIT && (*i)->Name()=="Landeskunde")
+        strncpy(db_magisch, cH_Fertigkeit(*i)->Zusatz().c_str(),sizeof(db_magisch));
      db_wert = (*i)->Erfolgswert();
      exec sql INSERT INTO charaktere_fertigkeiten
          (charakter_name,version,fertigkeit,wert,art,magisch)

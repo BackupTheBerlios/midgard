@@ -20,13 +20,14 @@
 //#include "Ausnahmen.hh"
 #include "class_SimpleTree.hh"
 #include "Pflicht.hh"
+#include <Gtk_OStream.h>
 
 void midgard_CG::on_fertigkeiten_laden_clicked()
 {
   list_Fertigkeit_neu.clear();
   for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
    { cH_Fertigkeit f(*i);
-     if ((*i)->ist_gelernt(list_Fertigkeit)) continue ;
+     if ((*i)->ist_gelernt(list_Fertigkeit) && f->Name()!="Landeskunde") continue ;
      if (f->Name()=="Sprache" || f->Name()=="Lesen/Schreiben" || f->Name()=="KiDo-Technik") continue;
      if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name())) continue;
      if ((*i)->ist_lernbar(Typ,f->get_MapTyp()))
@@ -126,8 +127,10 @@ void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
 
   if (!steigern(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
   Werte.add_GFP(MBE->Kosten(Typ,Database.ausnahmen));
+  if(MBE->Name()!="Landeskunde")
+     fertigkeiten_zeigen();
+  else fillClistLand(MBE);
   MidgardBasicElement::move_element(list_Fertigkeit_neu,list_Fertigkeit,MBE->Name());
-  fertigkeiten_zeigen();
 
   if (MBE->Name()=="KiDo") {kido_bool=true;show_gtk();
       optionmenu_KiDo_Stile->set_sensitive(true);
@@ -144,6 +147,29 @@ void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
          Werte.set_magBoni(Werte.bo_Psy()+3,Werte.bo_Phs()+1,Werte.bo_Phk()+3);
          if (Werte.Zaubern_wert()==0) Werte.set_Zaubern_wert(10);
       }
+}
+
+void midgard_CG::fillClistLand(const cH_MidgardBasicElement &MBE)
+{
+  Gtk::OStream os(clist_landauswahl);
+  for (std::vector<cH_Land>::const_iterator i=Database.Laender.begin();i!=Database.Laender.end();++i)
+   {
+     os <<(*i)->Name()<<'\n';
+     os.flush(const_cast<cH_MidgardBasicElement*>(&MBE));
+   }
+  scrolledwindow_landauswahl->show();
+}
+
+void midgard_CG::on_clist_landauswahl_select_row(gint row, gint column, GdkEvent *event)
+{
+  std::string land = clist_landauswahl->get_text(row,0);
+cout << "2 "<<land<<'\n';
+  cH_MidgardBasicElement *MBE=static_cast<cH_MidgardBasicElement*>(clist_landauswahl->selection().begin()->get_data());
+cout << (*MBE)->What()<<'\n';
+
+//  cH_Fertigkeit(*MBE)->setZusatz(land);
+  scrolledwindow_landauswahl->hide();
+  fertigkeiten_zeigen();
 }
 
 void midgard_CG::on_radio_fert_steigern_toggled()

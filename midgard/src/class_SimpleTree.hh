@@ -43,7 +43,7 @@ class Data_SimpleTree : public RowDataBase
       string name = (char*)(gp);
       if (name=="FA")
        switch((Spalten_FA)seqnr) {
-         case NAMEa : return cH_EntryValueIntString(MBE->Name());
+         case NAMEa : return cH_EntryValueIntString(MBE->Name()+" "+cH_Fertigkeit(MBE)->Zusatz());
          case WERTa : return cH_EntryValueEmptyInt(cH_Fertigkeit(MBE)->FErfolgswert(Werte)); 
          case STEIGERN : return cH_EntryValueEmptyInt(MBE->Steigern(Typ,ausnahmen));
          case REDUZIEREN : return cH_EntryValueEmptyInt(MBE->Reduzieren(Typ,ausnahmen));
@@ -51,7 +51,7 @@ class Data_SimpleTree : public RowDataBase
         }
       if (name=="FN")
        switch ((Spalten_FN)seqnr) {
-         case NAMEn : return cH_EntryValueIntString(MBE->Name());
+         case NAMEn : return cH_EntryValueIntString(MBE->Name()+" "+cH_Fertigkeit(MBE)->Zusatz());
          case WERTn : return cH_EntryValueEmptyInt(cH_Fertigkeit(MBE)->FErfolgswert(Werte)); 
          case LERNKOSTEN : return cH_EntryValueEmptyInt(MBE->Kosten(Typ,ausnahmen));
          case ART : return cH_EntryValueIntString(MBE->Standard__(Typ,ausnahmen));
