@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<MAGUS-data CVS="$Revision: 1.22 $" Copyright="Jürgen E. Franke" Jahr="2000" MAGUS-Bild="9" MAGUS-Index="-1" Maintainer="Malte Thoma" Name="Arkanum" Region="Arkanum" Titel="Das Arkanum" Version="1.0" offiziell="true">
+<MAGUS-data CVS="$Revision: 1.23 $" Copyright="Jürgen E. Franke" Jahr="2000" MAGUS-Bild="9" MAGUS-Index="-1" Maintainer="Malte Thoma" Name="Arkanum" Region="Arkanum" Titel="Das Arkanum" Version="1.0" offiziell="true">
  <Zauber>
   <Spruch AP="6" Agens="Holz" Grad="5" Lernkosten="2500" Name="Allheilung" Prozess="erschafft" Reagens="Erde" Reichweite="B" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Wirkungsziel="Körper" Zauberdauer="30 min">
    <Grund Typ="Hl"/>
@@ -3591,7 +3591,7 @@
    <Ausnahme Typ="ScN"/>
    <Ausnahme Typ="ScS"/>
    <Ausnahme Typ="ScW"/>
-   <Beschreibung>Zu Fü�&#x9F;en des Zauberers entsteht eine rund 50 cm durchmessende Kugel, die scheinbar aus massiven Stein besteht. Er kann sie mit seiner Willenskraft um 12cm pro 10 sec. auf dem Boden entlangrollen lassen. Die Kugel ist hohl und steht unter hohem Druck und wird durch die Kraft des Zauberers zusammen gehalten. Beim zerplatzen überschüttet die Kugel die Umgebung mit scharfen Steinsplittern. Die Explosion fügt Wesen auf dem Feld der Kugel 3W6 schweren Schaden zu. Wesen mit einem Feld Abstand 2W6, bei zwei Feldern 1W6 und bei drei noch 1W6-2  (Diamantsplitter; 5 GS).</Beschreibung>
+   <Beschreibung>Zu Fü�&#x9F;en des Zauberers entsteht eine rund 50 cm durchmessende Kugel, die scheinbar aus massiven Stein besteht. Er kann sie mit seiner Willenskraft um 12m pro 10 sec. auf dem Boden entlangrollen lassen. Die Kugel ist hohl und steht unter hohem Druck und wird durch die Kraft des Zauberers zusammen gehalten. Beim zerplatzen überschüttet die Kugel die Umgebung mit scharfen Steinsplittern. Die Explosion fügt Wesen auf dem Feld der Kugel 3W6 schweren Schaden zu. Wesen mit einem Feld Abstand 2W6, bei zwei Feldern 1W6 und bei drei noch 1W6-2  (Diamantsplitter; 5 GS).</Beschreibung>
   </Spruch>
   <Spruch AP="1:m" Agens="Erde" Grad="2" Lernkosten="400" Material="Bernsteinsplitter (5 GS)" Name="Steinwand" Prozess="erschafft" Reagens="Erde" Reichweite="15 m" Spruchrolle="true" Typ="Geste" Ursprung="elementar" Wirkungsbereich="-" Wirkungsdauer="10 min" Wirkungsziel="Umgebung" Zauberdauer="10 s">
    <Standard Typ="Ma"/>
