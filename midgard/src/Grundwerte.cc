@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.21 2002/05/12 08:58:09 thoma Exp $               
+// $Id: Grundwerte.cc,v 1.22 2002/05/13 07:44:33 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,12 +23,12 @@
 
 int Grundwerte::bo_Au() const 
 { 
-  return  int(Ko()/10. + St()/20.) - 7 ;
+  return  Ko()/10 + St()/20 - 7 ;
 }
 
 int Grundwerte::bo_Sc() const 
 { 
-  return  int(St()/20. + Gs()/30.) - 3 ;
+  return  St()/20 + Gs()/30 - 3 ;
 }
 
 int Grundwerte::Raufen() const 

@@ -37,6 +37,8 @@ NEWS IN VERSION 0.6delta3
 * Automatisches selektieren bei 'focus_in_event'
 * Gewichtsbug beseitigt
 * Tabtaste beim Werteeditieren springt ins 'richtige' Feld.
+* Ausdauer und Schadensbonus korrigiert
+* Schreiben Nahuatlan: Tippfehler beseitigt
 
 TODO:
 * Gildenbrief funktioniert nicht

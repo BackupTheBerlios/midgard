@@ -149,7 +149,6 @@ void midgard_CG::neue_schrift_wegen_sprache()
       {
         cH_Schrift s(*j);
         if(s->ist_gelernt(list_Schrift)) continue;
-//        std::list<cH_MidgardBasicElement> gS=s->gleicheSchrift(list_Schrift);
         std::list<cH_MidgardBasicElement> gS=s->gleicheSchrift(Database.Schrift);
         for(std::list<cH_MidgardBasicElement>::const_iterator k=gS.begin();k!=gS.end();++k)
          {
