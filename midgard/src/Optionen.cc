@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.69 2002/08/27 12:57:00 thoma Exp $
+// $Id: Optionen.cc,v 1.70 2002/08/27 18:45:59 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,7 +25,7 @@
 //#include "MidgardBasicElement.hh" // nur für NotFound
 #include <fstream>
 #include "TagStream.hh"
-#include "export_common.h"
+//#include "export_common.h"
 #include "midgard_CG.hh"
 #ifdef __MINGW32__
 #  include "registry.h"
