@@ -23,7 +23,7 @@
 
 cH_Fertigkeit_angeborene::cache_t cH_Fertigkeit_angeborene::cache;
 
-cH_Fertigkeit_angeborene::cH_Fertigkeit_angeborene(const std::string& name IF_XML(,bool create))
+cH_Fertigkeit_angeborene::cH_Fertigkeit_angeborene(const std::string& name ,bool create)
 {
  cH_Fertigkeit_angeborene *cached(cache.lookup(name));
  if (cached) *this=*cached;

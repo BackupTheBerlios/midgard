@@ -1,4 +1,4 @@
-// $Id: Spezies.hh,v 1.16 2002/06/30 20:37:08 thoma Exp $               
+// $Id: Spezies.hh,v 1.17 2002/07/10 09:31:37 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -125,7 +125,7 @@ class cH_Spezies : public Handle<const Spezies>
     cH_Spezies(){};
   public:
 //   cH_Spezies() {*this=new Spezies();}
-   cH_Spezies(const std::string& name IF_XML(,bool create=false));
+   cH_Spezies(const std::string& name ,bool create=false);
    cH_Spezies(const Tag *tag);
     cH_Spezies(const Spezies *s) : Handle<const Spezies>(s) {};
 };

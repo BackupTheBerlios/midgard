@@ -1,4 +1,4 @@
-// $Id: Typen.hh,v 1.25 2002/07/08 09:36:32 thoma Exp $               
+// $Id: Typen.hh,v 1.26 2002/07/10 09:31:37 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -108,7 +108,7 @@ class cH_Typen : public Handle<const Typen>
     friend class std::map<std::string,cH_Typen>;
   public:
    cH_Typen() {*this=new Typen();}
-   cH_Typen(const std::string& name IF_XML(,bool create=false));
+   cH_Typen(const std::string& name ,bool create=false);
    cH_Typen(const Tag *tag);
    cH_Typen(const Typen *s) : Handle<const Typen>(s) {};
 };

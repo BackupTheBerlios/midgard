@@ -23,7 +23,7 @@
 
 cH_WaffeGrund::cache_t cH_WaffeGrund::cache;
 
-cH_WaffeGrund::cH_WaffeGrund(const std::string& name IF_XML(,bool create))
+cH_WaffeGrund::cH_WaffeGrund(const std::string& name ,bool create)
 {
  cH_WaffeGrund *cached(cache.lookup(name));
  if (cached) *this=*cached;

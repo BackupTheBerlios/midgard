@@ -23,7 +23,7 @@
 
 cH_Typen::cache_t cH_Typen::cache;
 
-cH_Typen::cH_Typen(const std::string& name IF_XML(,bool create))
+cH_Typen::cH_Typen(const std::string& name ,bool create)
 {
  cH_Typen *cached(cache.lookup(name));
  if (cached) *this=*cached;

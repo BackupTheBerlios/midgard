@@ -24,7 +24,7 @@
 
 cH_Beruf::cache_t cH_Beruf::cache;
 
-cH_Beruf::cH_Beruf(const std::string& name IF_XML(,bool create))
+cH_Beruf::cH_Beruf(const std::string& name ,bool create)
 {
  cH_Beruf *cached(cache.lookup(name));
  if (cached) *this=*cached;

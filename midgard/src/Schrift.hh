@@ -1,4 +1,4 @@
-// $Id: Schrift.hh,v 1.20 2002/07/01 07:10:14 thoma Exp $               
+// $Id: Schrift.hh,v 1.21 2002/07/10 09:31:37 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -62,10 +62,8 @@ class cH_Schrift : public Handle<const Schrift>
     friend class std::map<std::string,cH_Schrift>;
     cH_Schrift(){};
   public:
-   cH_Schrift(const std::string& name IF_XML(,bool create=false));
-#ifdef USE_XML
+   cH_Schrift(const std::string& name ,bool create=false);
    cH_Schrift(const std::string& name,const Tag *tag);
-#endif
 
    cH_Schrift(const cH_MidgardBasicElement &x) : Handle<const Schrift>
       (dynamic_cast<const Schrift *>(&*x)){}

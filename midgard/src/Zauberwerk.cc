@@ -26,7 +26,7 @@
 cH_Zauberwerk::cache_t cH_Zauberwerk::cache;
 
 cH_Zauberwerk::cH_Zauberwerk(const std::string& name,const std::string& art,
-		const std::string& stufe IF_XML(,bool create))
+		const std::string& stufe ,bool create)
 {
  st_index index(name,art,stufe);
  cH_Zauberwerk *cached(cache.lookup(index));

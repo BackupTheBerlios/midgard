@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.35 2002/07/10 09:18:37 christof Exp $
+// $Id: xml.cc,v 1.36 2002/07/10 09:31:37 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -18,8 +18,7 @@
  */
 
 #include "xml.h"
-
-#ifdef USE_XML
+#include "midgard_CG.hh"
 
 //#define PARANOIA
 #define VERBOSE
@@ -280,11 +279,3 @@ static void xml_merge(Tag *merge_here, const Tag *tomerge)
    }
 }
 
-#else // no XML, no op
-
-void xml_init(const std::string &filename="midgard.xml")
-{}
-void xml_free()
-{}
-
-#endif

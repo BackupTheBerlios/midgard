@@ -48,7 +48,7 @@ class cH_Fertigkeit_angeborene : public Handle<const Fertigkeit_angeborene>
     friend class std::map<std::string,cH_Fertigkeit_angeborene>;
     cH_Fertigkeit_angeborene(){};
  public:
-    cH_Fertigkeit_angeborene(const std::string& n IF_XML(,bool create=false));
+    cH_Fertigkeit_angeborene(const std::string& n ,bool create=false);
     cH_Fertigkeit_angeborene(const Tag *tag);
     cH_Fertigkeit_angeborene(const Fertigkeit_angeborene *r) : Handle<const Fertigkeit_angeborene>(r){}
 

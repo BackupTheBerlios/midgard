@@ -22,7 +22,7 @@
 
 cH_Ruestung::cache_t cH_Ruestung::cache;
 
-cH_Ruestung::cH_Ruestung(const std::string& name IF_XML(,bool create))
+cH_Ruestung::cH_Ruestung(const std::string& name ,bool create)
 {
  cH_Ruestung *cached(cache.lookup(name));
  if (cached) *this=*cached;

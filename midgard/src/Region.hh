@@ -1,4 +1,4 @@
-// $Id: Region.hh,v 1.22 2002/07/09 13:02:18 thoma Exp $               
+// $Id: Region.hh,v 1.23 2002/07/10 09:31:37 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -26,9 +26,7 @@
 #include <string>
 #include <gtk--/progressbar.h>
 #include <gtk--/pixmap.h>
-#ifdef USE_XML
 #include "xml.h"
-#endif
 
 class cH_Region;
 

@@ -27,7 +27,7 @@ bool operator!=(const cH_Preise &a, const string &b)
 
 cH_Preise::cache_t cH_Preise::cache;
 
-cH_Preise::cH_Preise(const std::string& name IF_XML(,bool create))
+cH_Preise::cH_Preise(const std::string& name ,bool create)
 {
  cH_Preise *cached(cache.lookup(name));
  if (cached) *this=*cached;

@@ -43,17 +43,11 @@ class Zauberwerk : public MidgardBasicElement
    void getVoraussetzungenFert();
    void get_Zauberwerk();
  public:
-#ifdef USE_XML
    Zauberwerk(const Tag *t)
       : MidgardBasicElement(t,t->getAttr("Name")),
       	stufe(t->getAttr("Stufe")),art(t->getAttr("Art")) 
    {get_Zauberwerk();get_map_typ();
             getVoraussetzungen();getVoraussetzungenFert();} 
-#else
-   Zauberwerk(const std::string& n,const std::string& a,const std::string& s) 
-      : MidgardBasicElement(n),stufe(s),art(a) {get_Zauberwerk();get_map_typ();
-            getVoraussetzungen();getVoraussetzungenFert();} 
-#endif
 
 //   std::string Name() const {  return name; }
    std::string Art() const { return art; }
@@ -85,10 +79,8 @@ class cH_Zauberwerk : public Handle<const Zauberwerk>
     friend class std::map<st_index,cH_Zauberwerk>;
     cH_Zauberwerk(){};
  public:
-    cH_Zauberwerk(const std::string& name, const std::string& art,const std::string& stufe IF_XML(,bool create=false));
-#ifdef USE_XML
+    cH_Zauberwerk(const std::string& name, const std::string& art,const std::string& stufe ,bool create=false);
     cH_Zauberwerk(const Tag *tag);
-#endif
 
     cH_Zauberwerk(const cH_MidgardBasicElement &x) : Handle<const Zauberwerk>
       (dynamic_cast<const Zauberwerk *>(&*x)){}

@@ -27,7 +27,7 @@
 
 cH_Schrift::cache_t cH_Schrift::cache;
 
-cH_Schrift::cH_Schrift(const std::string& name IF_XML(,bool create))
+cH_Schrift::cH_Schrift(const std::string& name ,bool create)
 {
  cH_Schrift *cached(cache.lookup(name));
  if (cached) *this=*cached;

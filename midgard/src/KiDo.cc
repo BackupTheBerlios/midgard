@@ -62,7 +62,7 @@ bool KiDo_Stile::ist_gemischt(std::string s)
 
 cH_KiDo::cache_t cH_KiDo::cache;
 
-cH_KiDo::cH_KiDo(const std::string& name IF_XML(,bool create))
+cH_KiDo::cH_KiDo(const std::string& name ,bool create)
 {
  cH_KiDo *cached(cache.lookup(name));
  if (cached) *this=*cached;

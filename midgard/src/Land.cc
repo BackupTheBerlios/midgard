@@ -24,7 +24,7 @@
 
 cH_Land::cache_t cH_Land::cache;
 
-cH_Land::cH_Land(const std::string& name IF_XML(,bool create))
+cH_Land::cH_Land(const std::string& name ,bool create)
 {
  cH_Land *cached(cache.lookup(name));
  if (cached) *this=*cached;

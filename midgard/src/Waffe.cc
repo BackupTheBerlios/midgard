@@ -25,7 +25,7 @@
 
 cH_Waffe::cache_t cH_Waffe::cache;
 
-cH_Waffe::cH_Waffe(const std::string& name IF_XML(, bool create))
+cH_Waffe::cH_Waffe(const std::string& name , bool create)
 {
  cH_Waffe *cached(cache.lookup(name));
  if (cached) *this=*cached;

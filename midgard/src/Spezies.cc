@@ -26,7 +26,7 @@
 
 cH_Spezies::cache_t cH_Spezies::cache;
 
-cH_Spezies::cH_Spezies(const std::string& name IF_XML(,bool create))
+cH_Spezies::cH_Spezies(const std::string& name ,bool create)
 {
  cH_Spezies *cached(cache.lookup(name));
  if (cached) *this=*cached;
