@@ -86,6 +86,7 @@ void midgard_CG::typauswahl_button()
      radiobutton_land->set_sensitive(true);
    }
 }
+
 void midgard_CG::typauswahl_2_button()
 {
  cH_Typen ptr = static_cast<Typen*>(typauswahl_2->get_menu()->get_active()->get_user_data());
@@ -111,6 +112,7 @@ void midgard_CG::fill_spezies()
 void midgard_CG::spezieswahl_button()
 {
  Werte.clear();
+ zeige_werte();
  if(wizard) { 
                notebook_main->set_sensitive(false) ;
                wizard->next_step();
@@ -128,7 +130,6 @@ void midgard_CG::spezieswahl_button()
  typauswahl_2->hide();
  magie_bool=false;
  Typ[1]=cH_Typen();
- 
 }
 
 void midgard_CG::on_radiobutton_stadt_land_toggled()

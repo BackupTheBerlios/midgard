@@ -81,6 +81,7 @@ Region::Region(const Tag *tag)
 : name(tag->getAttr("Name")), active(false)
 {
   nr=tag->getIntAttr("MAGUS-Index");
+  titel=tag->getAttr("Titel");
   abkuerzung=tag->getAttr("Region");
   file=tag->getAttr("Dateiname");
   url=tag->getAttr("URL");

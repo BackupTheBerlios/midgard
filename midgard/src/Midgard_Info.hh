@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.hh,v 1.37 2002/04/12 10:04:36 christof Exp $
+// $Id: Midgard_Info.hh,v 1.38 2002/04/24 07:34:11 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -30,7 +30,8 @@ class midgard_CG;
 class Midgard_Info : public Midgard_Info_glade
 {   
         friend class Midgard_Info_glade;
-
+        
+        std::string umbruch(std::string s)
    public:
         Midgard_Info(GlademmData *data);
         void set_Regionen(const std::vector<cH_Region>& Regionen);

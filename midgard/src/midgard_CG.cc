@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.206 2002/04/23 20:32:26 christof Exp $
+// $Id: midgard_CG.cc,v 1.207 2002/04/24 07:34:11 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -353,16 +353,12 @@ void midgard_CG::on_neuer_charakter_clicked()
    button_kido_auswahl->set_sensitive(false);       
    button_angeborene_fert->set_sensitive(false);
 
-// Das macht 'Spezies.clear()' automatisch   Werte.clear();
 
    lernpunkte.clear();
    Typ.clear();
    Typ.resize(2);
-   zeige_lernpunkte();
-   zeige_werte();
    for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
       (*i)->setActive(false);
-   menu_init();
    steigern_mit_EP_bool=true;
    checkbutton_EP_Geld->set_active(steigern_mit_EP_bool);
 
@@ -372,11 +368,11 @@ void midgard_CG::on_neuer_charakter_clicked()
 
   kido_bool=false;
   magie_bool=false;
+  menu_init();
   fill_typauswahl();
   fill_spezies();
   spezieswahl_button();
-  typauswahl_button(); // ruft clear_listen() und clear_gtk() auf
-  show_gtk();
+  zeige_lernpunkte();
 }
 
 void midgard_CG::on_schliessen_CG_clicked()

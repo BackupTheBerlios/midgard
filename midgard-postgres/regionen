@@ -9,6 +9,7 @@ DROP TABLE "regionen";
 CREATE TABLE "regionen" (
 	"nr" integer NOT NULL,
 	"name" text NOT NULL,
+	"name_lang" text NOT NULL,
 	"abkuerzung" text NOT NULL,
 	"file" text,
 	"url" text,
@@ -27,18 +28,18 @@ CREATE TABLE "regionen" (
 
 
 COPY "regionen" FROM stdin;
-12	Abenteuer	X	\N	\N	Malte Thoma	1.0	var.	t	13	1981-
-3	Alba	A	\N	\N	Malte Thoma	1.0	Thomas Kreutz und Ludger Fischer	t	3	\N
--1	Arkanum	Arkanum	\N	\N	Malte Thoma	1.0	Jürgen E. Franke	t	9	2000
--2	Das Fantasy Rollenspiel		\N	\N	Malte Thoma	1.0	Jürgen E. Franke	t	10	2001
-4	Eschar	E	\N	\N	Malte Thoma	1.0	Stephanie Lammers	t	4	\N
-11	Gildenbrief	G	\N	\N	Malte Thoma	1.0	var.	f	5	\N
-10	H&D (Finstere Magie)	H&Df	\N	\N	Malte Thoma	1.0	Alexander Huiskes	t	14	1994
-9	Hexenzauber & Druidenkraft	H&D	\N	\N	Malte Thoma	1.0	Alexander Huiskes (Hrsg.)	f	6	1994
-5	KanThaiPan	K	\N	\N	Malte Thoma	1.0	Isolde Popp	f	2	\N
-2	Meister der Sphären	MdS	\N	\N	Malte Thoma	1.0	Jürgen E. Franke	t	11	\N
-8	Nahuatlan	N	\N	\N	Malte Thoma	1.0	Alexander Huiskes	t	8	\N
-6	Rawindra	R	\N	\N	Malte Thoma	1.0	Ludger Fischer und Thomas Kreutz	t	1	\N
-1	Tipps und Tricks	TuT	\N	\N	Malte Thoma	1.0	Jürgen E. Franke	t	12	\N
-7	Waeland	W	\N	\N	Malte Thoma	1.0	Olaf Möhle, Stephanie Lammers u.a.	t	7	1991-1997
+12	Abenteuer	Abenteuer	X	\N	\N	Malte Thoma	1.0	var.	t	13	1981-
+3	Alba	Alba - Für Clan und Krone	A	\N	\N	Malte Thoma	1.0	Thomas Kreutz und Ludger Fischer	t	3	\N
+-1	Arkanum	Das Arkanum	Arkanum	\N	\N	Malte Thoma	1.0	Jürgen E. Franke	t	9	2000
+-2	Das Fantasy Rollenspiel	Das Fantasy Rollenspiel	DFR	\N	\N	Malte Thoma	1.0	Jürgen E. Franke	t	10	2001
+4	Eschar	Die Pyramiden von Eschar	E	\N	\N	Malte Thoma	1.0	Stephanie Lammers	t	4	\N
+11	Gildenbrief	Gildenbreif	G	\N	\N	Malte Thoma	1.0	var.	f	5	\N
+10	H&D (Finstere Magie)	Hexenzauber und Druidenkraft	H&Df	\N	\N	Malte Thoma	1.0	Alexander Huiskes	t	14	1994
+9	Hexenzauber & Druidenkraft	Hexenzauber und Druidenkraft	H&D	\N	\N	Malte Thoma	1.0	Alexander Huiskes (Hrsg.)	f	6	1994
+5	KanThaiPan	Unter dem Schirm des Jadekaisers	K	\N	\N	Malte Thoma	1.0	Isolde Popp	f	2	\N
+2	Meister der Sphären	Meister der Sphären	MdS	\N	\N	Malte Thoma	1.0	Jürgen E. Franke	t	11	\N
+8	Nahuatlan	Nahuatlan - Im Land des Mondjaguars	N	\N	\N	Malte Thoma	1.0	Alexander Huiskes	t	8	\N
+6	Rawindra	Rawindra - Im Bann der Todesechsen	R	\N	\N	Malte Thoma	1.0	Ludger Fischer und Thomas Kreutz	t	1	\N
+1	Tipps und Tricks	Tipps und Tricks	TuT	\N	\N	Malte Thoma	1.0	Jürgen E. Franke	t	12	\N
+7	Waeland	Waeland - Die Krieger des Nordens	W	\N	\N	Malte Thoma	1.0	Olaf Möhle, Stephanie Lammers u.a.	t	7	1991-1997
 \.

@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.cc,v 1.67 2002/04/12 10:04:36 christof Exp $
+// $Id: Midgard_Info.cc,v 1.68 2002/04/24 07:34:11 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -51,13 +51,13 @@ void Midgard_Info::set_Regionen(const std::vector<cH_Region>& Regionen)
   for(std::vector<cH_Region>::const_iterator i=Regionen.begin();i!=Regionen.end();++i)
    {
      Gtk::Label *_lcopy=manage (new Gtk::Label((*i)->Copyright(),0,0));
-     Gtk::Label *_lname=manage (new Gtk::Label((*i)->Name(),0,0));
+     Gtk::Label *_lname=manage (new Gtk::Label((*i)->Titel(),0,0));
      _tab->attach(*RegionenPic::Pic((*i)->Pic()),0,1,row,row+1,0,0,0,0);
      _tab->attach(*_lname,1,2,row,row+1,GTK_FILL,0,0,0);
      _tab->attach(*_lcopy,2,3,row,row+1,GTK_FILL,0,0,0);
      ++row;
    }
-  std::string illutxt2="Abenteurergruppe (DFR3) von Josef Ochmann\ncopyright 1985 by Verlag für F&SF-Spiele,\nVerwendung mit freundlicher Genehmigung des VFSF";
+  std::string illutxt2="Abenteurergruppe (DFR3) von Josef Ochmann\ncopyright 1985";
   Gtk::Label *_li2=manage (new Gtk::Label(illutxt2,0,0));
   Gtk::Pixmap *_pi2=manage(new Gtk::Pixmap(Dfr3_50_xpm));
   _li2->set_justify(GTK_JUSTIFY_LEFT);
@@ -65,7 +65,7 @@ void Midgard_Info::set_Regionen(const std::vector<cH_Region>& Regionen)
   _tab->attach(*_li2,1,3,row,row+1,GTK_FILL,0,0,0);
   ++row;
 
-  std::string illutxt3="Kan Thai Krieger von Hank Wolf\ncopyright 1992 by Verlag für F&SF-Spiele,\nVerwendung mit freundlicher Genehmigung des VFSF";
+  std::string illutxt3="Kan Thai Krieger von Hank Wolf\ncopyright 1992";
   Gtk::Label *_li3=manage (new Gtk::Label(illutxt3,0,0));
   Gtk::Pixmap *_pi3=manage(new Gtk::Pixmap(Kurai_50_xpm));
   _li3->set_justify(GTK_JUSTIFY_LEFT);
@@ -89,7 +89,7 @@ void Midgard_Info::set_Regionen(const std::vector<cH_Region>& Regionen)
   _tab->attach(*_lc,1,3,row,row+1,GTK_FILL,0,0,0);
   ++row;
 
-  std::string copytxt2="Sämtliche Daten wurden mit freundlicher\nErlaubnis des VFSF entnommen, copyright 1980-2001 by Verlag\n für F&SF-Spiele, Stelzenberg";
+  std::string copytxt2="Sämtliche Daten und Bilder wurden mit freundlicher\nErlaubnis des VFSF entnommen, copyright 1980-2001 by Verlag\n für F&SF-Spiele, Stelzenberg";
   Gtk::Label *_lc2=manage (new Gtk::Label(copytxt2,0,0));
   Gtk::Pixmap *_pc2=manage(new Gtk::Pixmap(Money_50_xpm));
   _lc2->set_justify(GTK_JUSTIFY_LEFT);
@@ -101,3 +101,10 @@ void Midgard_Info::set_Regionen(const std::vector<cH_Region>& Regionen)
   _tab->show_all();
   frame_regionen->add(*_tab);
 }
+
+std::string Midgard_Info::umbruch(std::string s)
+{
+ s.replace(s.find("-"),1,"\n");
+ return s;
+}
+
