@@ -19,9 +19,9 @@
 #include "WaffeGrund.hh"
 #include "Typen.hh"
 #include "LernListen.hh"
-#include <iostream>
 #include "Waffe.hh"
 #include "NotFound.h"
+#include "Ausgabe.hh"
 
 cH_WaffeGrund::cache_t cH_WaffeGrund::cache;
 
@@ -31,7 +31,7 @@ cH_WaffeGrund::cH_WaffeGrund(const std::string& name ,bool create)
  if (cached) *this=*cached;
  else
   {
-  std::cerr << "Waffengrundfert. '" << name << "' nicht im Cache\n";
+  Ausgabe(Ausgabe::Warning, "Waffengrundfert. '" + name + "' nicht im Cache");
   if (create)
   {  Tag t2("Waffen-Grundkenntnis");
      t2.setAttr("Name",name);

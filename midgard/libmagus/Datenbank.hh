@@ -1,4 +1,4 @@
-// $Id: Datenbank.hh,v 1.10 2003/06/15 15:05:42 christof Exp $               
+// $Id: Datenbank.hh,v 1.11 2003/07/11 22:47:15 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -72,7 +72,7 @@ class Datenbank
   
    //Konstruktor
   Datenbank();
-  void load(SigC::Slot1<void,double> progress,SigC::Slot1<void,const std::string&> meldungen);
+  void load(SigC::Slot1<void,double> progress);
   
   // verwendet Alias map
   cH_Waffe WaffeVonBezeichnung(const std::string &name) const

@@ -20,9 +20,9 @@
 #include "Fertigkeiten.hh"
 #include "Typen.hh"
 #include <LernListen.hh>
-#include <iostream>
 #include "Abenteurer.hh"
 #include "NotFound.h"
+#include "Ausgabe.hh"
 
 cH_Fertigkeit::cache_t cH_Fertigkeit::cache;
 
@@ -32,7 +32,7 @@ cH_Fertigkeit::cH_Fertigkeit(const std::string& name, bool create)
  if (cached) *this=*cached;
  else
   {
-  std::cerr << "Fertigkeit '" << name << "' nicht im Cache\n";
+  Ausgabe(Ausgabe::Warning, "Fertigkeit '" + name + "' nicht im Cache");
 /*  const Tag *t=find_Tag("Fertigkeiten","Fertigkeit","Name",name);
   if (t) *this=cH_Fertigkeit(t);
   else */ if (create)
@@ -102,7 +102,7 @@ void Fertigkeit::get_Fertigkeit(const Tag &t)
          std::string pos=i->getAttr("Position");
          if(pos=="Besitz") epos=Besitz;
          else if(pos=="Rucksack") epos=Rucksack;
-         else {std::cerr <<"Falsche Position für "<<Name()<<'\n'; continue;}
+         else {Ausgabe(Ausgabe::Warning, "Falsche Position für "+Name()); continue;}
          vec_Besitz.push_back(st_besitz(i->getAttr("Name"),
                               i->getIntAttr("Min"),
                               epos));
@@ -231,25 +231,6 @@ void Fertigkeit::get_region_lp(int &lp,const Abenteurer& A,const Datenbank &D) c
 
 Fertigkeiten_All::Fertigkeiten_All()
 {
-#if 0
- const Tag *fertigkeiten=xml_data->find("Fertigkeiten");
- if (!fertigkeiten)
-    std::cerr << "<Fertigkeiten><Fertigkeit/>... nicht gefunden\n";
- else
- {  Tag::const_iterator b=fertigkeiten->begin(),e=fertigkeiten->end();
-    for (Tag::const_iterator i=fertigkeiten->find(b,"Fertigkeit");
-    		i!=e;	i=fertigkeiten->find(i+1,"Fertigkeit"))
-    {  
-// warum sowas?
-//    die Klasse cH_Fertigkeit enthält den Cache, erzeuge ich nur eine Fertigkeit, so
-//    wird sie nicht in den Cache (nach Namen) aufgenommen.
-//    Ich brauche aber einen cH_MidgardBasicElement, daher bilde ich einen
-//    Fertigkeit* um danach (aus dem ebenfalls MidgardBasicElement*) ein 
-//    cH_MidgardBasicElement zu machen. Wow.
-       list_All.push_back(&*(cH_Fertigkeit(&*i)));
-    }
- }
-#endif 
 }  
 
 Fertigkeit::Fertigkeit(const Tag &t)

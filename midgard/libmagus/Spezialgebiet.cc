@@ -17,8 +17,8 @@
  */
 
 #include "Spezialgebiet.hh"
-#include <iostream>
 #include <Misc/Tag.h>
+#include "Ausgabe.hh"
 
 cH_Spezialgebiet::cache_t cH_Spezialgebiet::cache;
 
@@ -26,7 +26,7 @@ cH_Spezialgebiet::cH_Spezialgebiet(const std::string& name)
 {
  cH_Spezialgebiet *cached(cache.lookup(name));
  if (cached) *this=*cached;
- else { std::cerr << "Spezialgebiet '"<<name<<"' nicht gefunden\n";
+ else { Ausgabe(Ausgabe::Fatal, "Spezialgebiet '"+name+"' nicht gefunden");
         assert(!"Spezialgebiet im Cache");
       }
 }
@@ -49,7 +49,7 @@ Spezialgebiet::Spezialgebiet(const Tag &tag)
 
 bool operator==(void *data,const cH_Spezialgebiet &t)
 {  
-std::cout << "SPEZ=" <<static_cast<Spezialgebiet*>(data)->Name()<<' '<< t->Name()<<'\n';
+//std::cout << "SPEZ=" <<static_cast<Spezialgebiet*>(data)->Name()<<' '<< t->Name()<<'\n';
  return *(static_cast<Spezialgebiet*>(data))==*t;
 }
 

@@ -1,4 +1,4 @@
-// $Id: magus_paths.cc,v 1.7 2003/05/26 06:23:35 christof Exp $
+// $Id: magus_paths.cc,v 1.8 2003/07/11 22:47:15 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,7 +18,6 @@
  */
 
 #include "magus_paths.h"
-#include <iostream>
 #include "Windows_Linux.hh"
 #include <vector>
 #include <unistd.h>
@@ -27,6 +26,7 @@
 #include <config.h> // PACKAGE_DATA_DIR
 #include <sys/stat.h>
 #include <cassert>
+#include "Ausgabe.hh"
 
 std::vector<std::string> magus_paths::paths;
 std::string magus_paths::argv0;
@@ -81,7 +81,7 @@ void magus_paths::init(const std::string &_argv0,const std::string &_magus_verze
       if(mkdir(magus_verzeichnis.c_str() NUR_LINUX(,0777) ))
       { 
 #ifndef __MINGW32__      
-         std::cerr << "Homeverzeichnis nicht schreibbar\n"; exit(1);
+         Ausgabe(Ausgabe::Fatal, "Heimatverzeichnis nicht schreibbar"); exit(1);
 #else
 	 // eigentlich ist es krank den ganzen Baum zu erzeugen, 
 	 // aber wir haben keine Wahl außer aufgeben
@@ -137,7 +137,7 @@ void magus_paths::init(const std::string &_argv0,const std::string &_magus_verze
 std::string magus_paths::with_path(const std::string &name,bool path_only,bool noexit)
 {
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,name,path_only,noexit);
-  if (argv0.empty()) std::cerr << "magus_paths::with_path without init\n";
+  if (argv0.empty()) Ausgabe(Ausgabe::Error, "magus_paths::with_path without init");
   for(std::vector<std::string>::const_iterator i=paths.begin();i!=paths.end();++i)
    {
      std::string n=*i+name;
@@ -147,7 +147,7 @@ std::string magus_paths::with_path(const std::string &name,bool path_only,bool n
         else return n;
       }
    }
-  std::cout << "File "+name+" nowhere found\n";
+  Ausgabe(Ausgabe::Warning, "File "+name+" nowhere found");
   if(!noexit) exit(1);
   return("");
 }

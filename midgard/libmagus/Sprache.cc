@@ -23,9 +23,9 @@
 #include "Schrift.hh"
 #include "Grundwerte.hh"
 #include "Abenteurer.hh"
-#include <iostream>
 #include "NotFound.h"
 #include <Misc/Tag.h>
+#include "Ausgabe.hh"
 
 cH_Sprache::cache_t cH_Sprache::cache;
 
@@ -35,7 +35,7 @@ cH_Sprache::cH_Sprache(const std::string& name,bool create)
  if (cached) *this=*cached;
  else
   {
-  std::cerr << "Sprache '" << name << "' nicht im Cache\n";
+  Ausgabe(Ausgabe::Warning, "Sprache '" + name + "' nicht im Cache");
   if (create)
   {  Tag t2("Sprache"); 
      t2.setAttr("Name",name);

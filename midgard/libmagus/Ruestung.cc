@@ -20,9 +20,9 @@
 #include "Ruestung.hh"
 #include "NotFound.h"
 #include "Grundwerte.hh"
-#include <iostream>
 #include <Misc/Tag.h>
 #include "NotFound.h"
+#include "Ausgabe.hh"
 
 cH_Ruestung::cache_t cH_Ruestung::cache;
 
@@ -32,7 +32,7 @@ cH_Ruestung::cH_Ruestung(const std::string& name ,bool create)
  if (cached) *this=*cached;
  else
   {
-  std::cerr << "Rüstung '" << name << "' nicht im Cache\n";
+  Ausgabe(Ausgabe::Warning, "Rüstung '" + name + "' nicht im Cache");
   if (create)
   {  Tag t2("Rüstung"); 
      t2.setAttr("Abkürzung",name);

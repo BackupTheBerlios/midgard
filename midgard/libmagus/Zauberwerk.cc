@@ -20,8 +20,8 @@
 #include "Zauberwerk.hh"
 //#include "Typen.hh"
 #include <Misc/Tag.h>
-#include <iostream>
 #include "NotFound.h"
+#include "Ausgabe.hh"
 
 cH_Zauberwerk::cache_t cH_Zauberwerk::cache;
 
@@ -33,7 +33,7 @@ cH_Zauberwerk::cH_Zauberwerk(const std::string& name,const std::string& art,
  if (cached) *this=*cached;
  else
   {
-  std::cerr << "Zauberwerk '" << name << "' nicht im Cache\n";
+  Ausgabe(Ausgabe::Warning, "Zauberwerk '" + name + "' nicht im Cache");
   if (create)
   {  Tag t2("Zauberwerk"); 
      t2.setAttr("Name",name);
@@ -126,23 +126,6 @@ bool Zauberwerk::Voraussetzungen_Fertigkeit(const std::list<MBEmlt>& listFert) c
  return true;
 }
 
-
-Zauberwerk_All::Zauberwerk_All()
-{
-#if 0
- const Tag *zauberwerke=xml_data->find("Zauberwerke");
- if (!zauberwerke)
-    std::cerr << "<Zauberwerke><Zauberwerk/>... nicht gefunden\n";
- else
- {  Tag::const_iterator b=zauberwerke->begin(),e=zauberwerke->end();
-    FOR_EACH_CONST_TAG_OF_5(i,*zauberwerke,b,e,"Zauberwerk")
-    {  
-// warum sowas? siehe Zauber.pgcc
-       list_All.push_back(&*(cH_Zauberwerk(&*i)));
-    }
- }
-#endif
-}
 
 Zauberwerk::Zauberwerk(const Tag &t)
       : MidgardBasicElement(t.getAttr("Name")),

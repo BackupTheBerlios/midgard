@@ -1,4 +1,4 @@
-// $Id: Abenteurer_besitz.cc,v 1.2 2003/05/07 09:50:18 christof Exp $               
+// $Id: Abenteurer_besitz.cc,v 1.3 2003/07/11 22:47:15 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -18,7 +18,6 @@
  */
 
 #include "Abenteurer.hh"
-#include <iostream>
 
 void rekursiv(const std::list<AusruestungBaum> &AB, double &last,double &GG)
 {
@@ -78,7 +77,7 @@ AusruestungBaum& Abenteurer::getAusruestung_as_parent(const std::string &name)
   AusruestungBaum *ab=&getBesitz();
   for(AusruestungBaum::iterator i=getBesitz().begin();i!=getBesitz().end();++i)
    {
-std::cout << name<<'\t'<<i->getAusruestung().Name()<<'\t'<<(name==i->getAusruestung().Name())<<'\n';
+//std::cout << name<<'\t'<<i->getAusruestung().Name()<<'\t'<<(name==i->getAusruestung().Name())<<'\n';
      if(name==i->getAusruestung().Name()) return *i;
      else ab=rekursiv(i->getChildren(),name);
    }

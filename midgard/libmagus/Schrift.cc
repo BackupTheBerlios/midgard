@@ -22,9 +22,9 @@
 #include <cstring>
 #include <Misc/itos.h>
 #include "Abenteurer.hh"
-#include <iostream>
 #include <Misc/Tag.h>
 #include "NotFound.h"
+#include "Ausgabe.hh"
 
 cH_Schrift::cache_t cH_Schrift::cache;
 
@@ -34,7 +34,7 @@ cH_Schrift::cH_Schrift(const std::string& name ,bool create)
  if (cached) *this=*cached;
  else
   {
- std::cerr << "Schrift '" << name << "' nicht im Cache\n";
+ Ausgabe(Ausgabe::Warning, "Schrift '" + name + "' nicht im Cache");
   if (create)
   {  Tag t2("Schrift"); 
      t2.setAttr("Name",name);

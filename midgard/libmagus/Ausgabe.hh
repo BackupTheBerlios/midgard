@@ -1,6 +1,6 @@
-// $Id: readxml.cc,v 1.3 2003/07/11 22:47:15 christof Exp $
-/*  glade--: C++ frontend for glade (Gtk+ User Interface Builder)
- *  Copyright (C) 1998-2002  Christof Petig
+// $Id: Ausgabe.hh,v 1.1 2003/07/11 22:47:15 christof Exp $
+/*  Midgard Character Generator
+ *  Copyright (C) 2003 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -17,17 +17,19 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// Simple TagStream testing program
+#ifndef _MIDGARD_AUSGABE_HH
+#  define _MIDGARD_AUSGABE_HH
 
-#include <Misc/TagStream.h>
+#include <string>
 
-int main(int argc, char ** argv)
-{  if (argc<2) TagStream ts(std::cin);
-   else
-   {  for (int i=1;i<argc;++i) 
-      {  // std::cout << argv[i] << '\n';
-         TagStream ts((0,std::string(argv[i])));
-      }
-   }
-   return 0;
-}
+// grundsätzlich in UTF-8 codiert
+
+struct Ausgabe
+{	enum Level { Debug, Warning, ActionNeeded, Error, Fatal, MaxLevel };
+	
+	typedef void Ausgabe_cb(Level l,const std::string &text);
+	void set(Ausgabe_cb *cb=0);
+	Ausgabe(Level l,const std::string &text);
+};
+
+#endif

@@ -20,8 +20,8 @@
 #include "Typen.hh"
 #include "NotFound.h"
 #include "Grundwerte.hh"
-#include <iostream>
 #include <Misc/Tag.h>
+#include "Ausgabe.hh"
 
 cH_Typen::cache_t cH_Typen::cache;
 
@@ -30,7 +30,7 @@ cH_Typen::cH_Typen(const std::string& name ,bool create)
  cH_Typen *cached(cache.lookup(name));
  if (cached) *this=*cached;
  else
- {std::cerr << "Typen '" << name << "' nicht im Cache\n";
+ {Ausgabe(Ausgabe::Warning, "Typen '" + name + "' nicht im Cache");
   if (create)
   {  Tag t2("Typ"); 
      t2.setAttr("Abkürzung",name);

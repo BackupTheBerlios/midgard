@@ -18,9 +18,9 @@
 
 #include "Region.hh"
 #include "NotFound.h"
-#include <iostream>
 #include <Misc/Tag.h>
 #include "xml.h"
+#include "Ausgabe.hh"
 
 cH_Region::cache_t cH_Region::cache;
 
@@ -36,7 +36,7 @@ cH_Region::cH_Region(const std::string& name,bool create)
   }
  else
   {
-  std::cerr << "Region '" << name << "' nicht im Cache\n";
+  Ausgabe(Ausgabe::Warning, "Region '" + name + "' nicht im Cache");
   throw NotFound(name);
   }
 }

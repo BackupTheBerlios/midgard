@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.16 2003/07/01 10:49:10 christof Exp $
+// $Id: xml.cc,v 1.17 2003/07/11 22:47:15 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2003 Christof Petig
  *
@@ -18,15 +18,15 @@
  */
 
 #include "xml.h"
-#include <iostream>
 #include "magus_paths.h"
 #include <Misc/TagStream.h>
 #include <Misc/compiler_ports.h>
 #include "Datenbank.hh"
 #include <fstream>
 #include <NotFound.h>
+#include "Ausgabe.hh"
 
-void xml_init(SigC::Slot1<void,double> progress,SigC::Slot1<void,const std::string&> meldungen, Datenbank &db)
+void xml_init(SigC::Slot1<void,double> progress, Datenbank &db)
 {  std::string filename=magus_paths::with_path("midgard.xml");
    std::ifstream ifs(filename.c_str());
    TagStream ts=TagStream(ifs);
@@ -54,27 +54,27 @@ void xml_init(SigC::Slot1<void,double> progress,SigC::Slot1<void,const std::stri
           try
           {  Tag &data=ts2.getContent();
              if (data.Type()!="MAGUS-data")
-             {  std::cerr << file << " ist keine Magus Datei\n";
+             {  Ausgabe(Ausgabe::Error, file+" ist keine Magus Datei");
              }
              else try
              {  db.load_region(data,file);
                 db.load_list(data);
              }
              catch (NotFound &e)
-             {  std::cerr << file << ": " << e.what() << ": " << e.Name() << '\n';
+             {  Ausgabe(Ausgabe::Error, file+": "+ e.what()+ ": "+ e.Name());
              }
              catch (std::exception &e)
-             {  std::cerr << file << ": " << e.what() << '\n';
+             {  Ausgabe(Ausgabe::Error, file+": "+ e.what());
              }
           } catch (std::exception &e)
-          {  std::cerr << file << " ist keine g�ltige XML Datei\n";
+          {  Ausgabe(Ausgabe::Error, file+" ist keine gültige XML Datei");
           }
        }
-       else std::cerr << "Kann Datei '" << file << "' nicht öffnen\n";
+       else Ausgabe(Ausgabe::Error, "Kann Datei '"+file+"' nicht öffnen");
     }
   }
   catch (...)
-  {  std::cerr << "Ladefehler XML Datei " << filename << "\n";
+  {   Ausgabe(Ausgabe::Fatal, "Ladefehler XML Datei "+ filename);
       exit(2);
   }
 }

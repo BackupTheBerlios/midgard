@@ -20,11 +20,11 @@
 #include "Waffe.hh"
 #include "Typen.hh"
 #include <Misc/itos.h>
-#include <iostream>
 #include "Abenteurer.hh"
 // #include <memory>
 #include <Misc/Tag.h>
 #include "NotFound.h"
+#include "Ausgabe.hh"
 
 cH_Waffe::cache_t cH_Waffe::cache;
 
@@ -34,7 +34,7 @@ cH_Waffe::cH_Waffe(const std::string& name , bool create)
  if (cached) *this=*cached;
  else
   {
-  std::cerr << "Waffe '" << name << "' nicht im Cache\n";
+  Ausgabe(Ausgabe::Warning, "Waffe '" + name + "' nicht im Cache");
   if (create)
   {  Tag t2("Waffe"); 
      t2.setAttr("Name",name);

@@ -19,9 +19,9 @@
 
 #include "Fertigkeiten_angeboren.hh"
 #include "Abenteurer.hh"
-#include <iostream>
 #include <Misc/Tag.h>
 #include "NotFound.h"
+#include "Ausgabe.hh"
 
 cH_Fertigkeit_angeborene::cache_t cH_Fertigkeit_angeborene::cache;
 
@@ -31,7 +31,7 @@ cH_Fertigkeit_angeborene::cH_Fertigkeit_angeborene(const std::string& name ,bool
  if (cached) *this=*cached;
  else
   {
-  std::cerr << "angeborene Fertigkeit '" << name << "' nicht im Cache\n";
+  Ausgabe(Ausgabe::Warning, "angeborene Fertigkeit '" + name + "' nicht im Cache");
   if (create)
   {  Tag t2("angeboreneFertigkeit"); 
      t2.setAttr("Name",name);

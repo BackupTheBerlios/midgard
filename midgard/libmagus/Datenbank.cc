@@ -1,4 +1,4 @@
-// $Id: Datenbank.cc,v 1.15 2003/06/15 15:05:17 christof Exp $               
+// $Id: Datenbank.cc,v 1.16 2003/07/11 22:47:15 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002-2003 Christof Petig
@@ -127,9 +127,9 @@ void Datenbank::load_list(const Tag &t)
    }
 }
 
-void Datenbank::load(SigC::Slot1<void,double> progress,SigC::Slot1<void,const std::string&> meldungen)
+void Datenbank::load(SigC::Slot1<void,double> progress)
 {
-    xml_init(progress,meldungen,*this);
+    xml_init(progress,*this);
    GradAnstieg.init_after_load();
 }
 

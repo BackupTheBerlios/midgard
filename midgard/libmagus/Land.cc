@@ -20,8 +20,8 @@
 #include "Land.hh"
 #include "NotFound.h"
 #include "Abenteurer.hh"
-#include <iostream>
 #include <Misc/Tag.h>
+#include "Ausgabe.hh"
 
 cH_Land::cache_t cH_Land::cache;
 
@@ -31,7 +31,7 @@ cH_Land::cH_Land(const std::string& name ,bool create)
  if (cached) *this=*cached;
  else
   {
-  std::cerr << "Land '" << name << "' nicht im Cache\n";
+  Ausgabe(Ausgabe::Warning, "Land '" + name + "' nicht im Cache");
   if (create || name.empty()) // don t ask me ... it just works this way ...
   {  Tag t2("Land"); 
      t2.setAttr("Name",name);

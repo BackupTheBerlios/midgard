@@ -22,8 +22,8 @@
 #include "Zauber.hh"
 #include "Fertigkeiten_angeboren.hh"
 #include "Fertigkeiten.hh"
-#include <iostream>
 #include "NotFound.h"
+#include "Ausgabe.hh"
 
 cH_Spezies::cache_t cH_Spezies::cache;
 
@@ -33,7 +33,7 @@ cH_Spezies::cH_Spezies(const std::string& name ,bool create)
  if (cached) *this=*cached;
  else
   {
-  std::cerr << "Spezies '" << name << "' nicht im Cache\n";
+  Ausgabe(Ausgabe::Warning, "Spezies '" + name + "' nicht im Cache");
   if (create)
   {  Tag t2("Spezies"); 
      t2.setAttr("Name",name);

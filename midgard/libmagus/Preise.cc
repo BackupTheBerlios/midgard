@@ -21,9 +21,9 @@
 #include <Misc/itos.h>
 #include <fstream>
 #include <Misc/TagStream.h>
-#include <iostream>
 #include "magus_paths.h"
 #include "Datenbank.hh"
+#include "Ausgabe.hh"
 
 bool operator!=(const cH_Preise &a, const std::string &b)
 {  return a->Name()!=b; }
@@ -36,7 +36,7 @@ cH_Preise::cH_Preise(const std::string& name ,bool create)
  if (cached) *this=*cached;
  else
   {
-  std::cerr << "Preis '" << name << "' nicht im Cache\n";
+  Ausgabe(Ausgabe::Warning, "Preis '" + name + "' nicht im Cache");
   if (create)
   {  Tag t2("Kaufpreis"); 
      t2.setAttr("Ware",name);
@@ -80,35 +80,6 @@ void Preise_All::load(std::list<cH_Preise> &list,const Tag &t)
    if (is_new) list.push_back(z);
 }
 
-#if 0
-Preise_All::Preise_All(const std::string &filename,Tag &tag_eigene_artikel)
-{
- try {
-   std::ifstream f(filename.c_str());
-   if (!f.good()) {std::cout << "Cannot open " << filename << '\n'; return;}
-   TagStream ts(f);
-   const Tag *data=ts.find("MAGUS-data");
-   if(!data)    
-    { std::cout << "Preise konnten nicht geladen werden";
-      ts.debug();
-      return;
-    }
-//cout << "LoadTag\t"<<tag_eigene_artikel<<'\n';
-  tag_eigene_artikel=*const_cast<Tag*>(data);
-//cout << "LoadTag\t"<<tag_eigene_artikel<<'\n';
-
-  const Tag *preise=data->find("Preise");
-  if (preise)
-   {  
-      Tag::const_iterator b=preise->begin(),e=preise->end();
-      FOR_EACH_CONST_TAG_OF_5(i,*preise,b,e,"Dinge")
-      {  
-       list_All.push_back(cH_Preise(&*i));
-      }
-    }   
- } catch (std::exception &e) { std::cerr << e.what() << '\n'; }
-}  
-#endif
 //////////////////////////////////////////////////////////////////////
 
 cH_PreiseNewMod::cache_t cH_PreiseNewMod::cache;
@@ -119,7 +90,7 @@ cH_PreiseNewMod::cH_PreiseNewMod(const std::string& name, bool create)
  if (cached) *this=*cached;
  else
   {  
-  std::cerr << "PreiseNewMod '" << name << "' nicht im Cache\n";
+  Ausgabe(Ausgabe::Warning, "PreiseNewMod '" + name + "' nicht im Cache");
   if (create)
   {  
      Tag t2("Art");

@@ -34,10 +34,10 @@
 #include "xml.h"
 #include "Datenbank.hh"
 #include "Abenteurer.hh"
-#include <iostream>
 #include <Misc/germanstring.h>
 #include <memory>
 #include "NotFound.h"
+#include "Ausgabe.hh"
 
 bool H_MidgardBasicElement_mutable::sort::operator() (H_MidgardBasicElement_mutable x,H_MidgardBasicElement_mutable y) const
 { switch(es) {
@@ -50,7 +50,7 @@ bool H_MidgardBasicElement_mutable::sort::operator() (H_MidgardBasicElement_muta
 }
 
 bool MidgardBasicElement::Voraussetzung(const Abenteurer& A,bool anzeigen) const
-{std::cerr<<"ERROR in Voraussetzung\n";return false;}
+{Ausgabe(Ausgabe::Error,"ERROR in Voraussetzung");return false;}
 
 std::string MidgardBasicElement::RegionString(const Datenbank &D) const
 {
@@ -275,7 +275,7 @@ void MidgardBasicElement::get_Steigern_Kosten_map(const Tag &t)
     const Tag *steigern_wie_t=t.find("steigern_wie");
     if (steigern_wie_t) steigern_wie=steigern_wie_t->getAttr("Fertigkeit");
     else
-    {  std::cerr << "keine Kosten für '" << Name() << "' gefunden\n";
+    {  Ausgabe(Ausgabe::Warning,"keine Kosten für '"+Name()+"' gefunden");
        return;
     }
     
@@ -295,7 +295,7 @@ void MidgardBasicElement::get_Steigern_Kosten_map(const Tag &t)
        }
     } 
     catch (const NotFound &e) // keine Fertigkeit
-    {  std::cerr << "keine Kosten für '" << Name() << '/' << steigern_wie << "' gefunden\n";
+    {  Ausgabe(Ausgabe::Warning,"keine Kosten für '"+Name()+"/"+steigern_wie+"' gefunden");
        return;
     }
  }
@@ -348,7 +348,7 @@ MidgardBasicElement::EP_t MidgardBasicElement::EP_steigern(const std::string &fe
       steigern_mit_EP=f->Steigern_mit_EP();
       return steigern_mit_EP;
    } catch (const NotFound &f)
-   {  std::cerr << "EP_steigern: Fertigkeit " << fert << " (noch) unbekannt\n";
+   {  Ausgabe(Ausgabe::Warning, "EP_steigern: Fertigkeit "+fert+" (noch) unbekannt");
       return Nicht;
    }
 }

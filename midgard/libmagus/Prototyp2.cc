@@ -19,10 +19,10 @@
 
 #include "Prototyp2.hh"
 #include <cstring>
-#include <iostream>
 #include <Misc/itos.h>
 #include "NotFound.h"
 #include <Misc/Tag.h>
+#include "Ausgabe.hh"
 
 double Prototyp2::fac_for(const std::string &art, const std::string &name, const std::vector<cH_Prototyp2> &A)
 {
@@ -33,7 +33,7 @@ double Prototyp2::fac_for(const std::string &art, const std::string &name, const
      std::vector<st_protolisten> PL;
      if     (art=="Z") PL=(*i)->LZauber();
      else if(art=="F") PL=(*i)->LFertigkeiten();
-     else {std::cerr << "Art = "<<art<<'\n'; assert(!"Art nicht definiert");}
+     else {Ausgabe(Ausgabe::Fatal,"Art = "+art); assert(!"Art nicht definiert");}
      std::vector<st_protolisten>::const_iterator j=find(PL.begin(),PL.end(),name);
      if(j!=PL.end())
       {
@@ -53,7 +53,7 @@ cH_Prototyp2::cH_Prototyp2(const std::string& name,bool create)
  if (cached) *this=*cached;
  else
   {
-  std::cerr << "Prototyp2 '" << name << "' nicht im Cache\n";
+  Ausgabe(Ausgabe::Warning, "Prototyp2 '" + name + "' nicht im Cache");
   if (create)
   {  Tag t2("Prototyp2"); 
      t2.setAttr("Name",name);
@@ -73,7 +73,7 @@ Prototyp2::Prototyp2(const Tag &tag)
                     i->getAttr("Name"),i->getFloatAttr("Faktor")));
       else if(art=="F") lfertigkeiten.push_back(st_protolisten(
                     i->getAttr("Name"),i->getFloatAttr("Faktor")));
-      else {std::cerr << "Art = "<<art<<'\n'; assert(!"Art nicht definiert");}
+      else {Ausgabe(Ausgabe::Fatal,"Art = "+art); assert(!"Art nicht definiert");}
     }
 
 }

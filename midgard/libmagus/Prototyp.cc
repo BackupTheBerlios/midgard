@@ -19,12 +19,12 @@
 
 #include "Prototyp.hh"
 #include <cstring>
-#include <iostream>
 #include <Misc/itos.h>
 #include "Enums.hh"
 #include "Prozente100.hh"
 #include "NotFound.h"
 #include <Misc/Tag.h>
+#include "Ausgabe.hh"
 
 cH_Prototyp::cache_t cH_Prototyp::cache;
 
@@ -34,7 +34,7 @@ cH_Prototyp::cH_Prototyp(const std::string& name,bool create)
  if (cached) *this=*cached;
  else
   {
-  std::cerr << "Prototyp '" << name << "' nicht im Cache\n";
+  Ausgabe(Ausgabe::Warning, "Prototyp '" + name + "' nicht im Cache");
   if (create)
   {  Tag t2("Prototyp"); 
      t2.setAttr("Name",name);

@@ -23,11 +23,11 @@
 #include "zufall.h"
 #include <Misc/itos.h>
 #include "Abenteurer.hh"
-#include <iostream>
 #include <Misc/germanstring.h>
 #include <Misc/Tag.h>
 //#include <memory>
 #include "NotFound.h"
+#include "Ausgabe.hh"
 
 bool cH_Zauber::sort::operator() (MBEmlt _x,MBEmlt _y) const
 {  cH_Zauber x(_x->getMBE());
@@ -51,7 +51,7 @@ cH_Zauber::cH_Zauber(const std::string& name, bool create)
  if (cached) *this=*cached;
  else
   {
-  std::cerr << "Zauber '" << name << "' nicht im Cache\n";
+  Ausgabe(Ausgabe::Warning, "Zauber '" + name + "' nicht im Cache");
   if (create)
   {  Tag t2("Spruch"); 
      t2.setAttr("Name",name);

@@ -20,9 +20,9 @@
 #include "KiDo.hh"
 #include <cstring>
 #include <Misc/itos.h>
-#include <iostream>
 #include <Misc/Tag.h>
 #include "NotFound.h"
+#include "Ausgabe.hh"
 
 KiDo_Stile::KiDo_Stile()
 {
@@ -69,7 +69,7 @@ cH_KiDo::cH_KiDo(const std::string& name ,bool create)
  if (cached) *this=*cached;
  else
   {
-  std::cerr << "KiDo '" << name << "' nicht im Cache\n";
+  Ausgabe(Ausgabe::Warning, "KiDo '" + name + "' nicht im Cache");
   if (create)
   {  Tag t2("KiDo"); 
      t2.setAttr("Name",name);
