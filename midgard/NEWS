@@ -16,6 +16,8 @@ NEWS IN VERSION 0.8.6
 * kleine Datenbankkorrekturen
 * Winden nur mit 'schlank' lernbar
 * keine Endlosschleife mehr beim automatischen Steigern
+* Kein Absturz mehr wenn kein Abenteurer mehr existiert und dann die Seite 
+   gewechselt wird
 
 TODO: ('-' zeigt CP an)
 

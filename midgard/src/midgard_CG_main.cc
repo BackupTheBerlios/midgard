@@ -146,7 +146,11 @@ void midgard_CG::on_news_menu_activate()
 
 void midgard_CG::on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page *page,guint pagenr)
 {
- if (!in_dtor) load_for_mainpage(pagenr);
+ if (!in_dtor) 
+  {
+   if(Char.empty()) Char.push_back();
+   load_for_mainpage(pagenr);
+  }  
 }
 
 
