@@ -13,12 +13,12 @@ NEWS IN VERSION 0.8.9
 * Reduzieren mit SELBSTSTUDIUM (kein Geld)
 * Reduzieren von Zauber, Abwehr, Grad nicht unter Minimum
 * Auf dem Ausrüstungsbogen werden Abzüge auf EW und B bei Überlast angegeben
+* Die Abzüge auf B sind jetzt Speziesspezifisch
 * Gewicht der Rüstung wird bei der Belastung nicht mitgerechnet
 * Cool: Wenn ein neuer Grad erreicht ist, dann blinkt der Grad-steigern-Knopf
 
 TODO: ('-' zeigt CP an)
 
-* Speziesspezifische Abzüge auf B 
 * Neue Ausrüstung eingeben
 * Hilfe Menü ans Ende
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in

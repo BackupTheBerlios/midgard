@@ -18,6 +18,7 @@
 
 #include "Ruestung.hh"
 #include "MidgardBasicElement.hh" // für NotFound
+#include "Grundwerte.hh"
 
 cH_Ruestung::cache_t cH_Ruestung::cache;
 
@@ -60,7 +61,7 @@ Ruestung::Ruestung(const Tag *tag)
      abwehr_bonus_verlust=Verlust->getIntAttr("Abwehrbonus");;
      angriffs_bonus_verlust=Verlust->getIntAttr("Angriffsbonus");
      vollruestungsabzug=Verlust->getIntAttr("Vollrüstung");
-     behinderung_wie=Verlust->getIntAttr("BehinderungWie");
+     behinderung_wie=Verlust->getAttr("BehinderungWie");
   }
   else
      rw_verlust=b_verlust=abwehr_bonus_verlust=angriffs_bonus_verlust=0;
@@ -92,7 +93,7 @@ int Ruestung::AngriffsBonus_Verlust(int angriffs_bonus) const
 }
 
 
-int Ruestung::B_Verlust(const double &ueberlast,const Grundwerte &Werte,bool &ew) const;
+int Ruestung::B_Verlust(const double &ueberlast,const Grundwerte &Werte,bool &ew) const
 {
    ew=false;
    int reduce;
@@ -101,32 +102,33 @@ int Ruestung::B_Verlust(const double &ueberlast,const Grundwerte &Werte,bool &ew
    if     (BW=="KR") reduce = D/6;
    else if(BW=="PR") reduce = D/3;
    else if(BW=="VR") reduce = D/2;
-   else if(BW=="RR") reduce = D*2/3;
+   else if(BW=="RR") reduce = (D*2)/3;
    else reduce=0;
 
    if     (ueberlast<1) return reduce;
    else if(ueberlast<5) 
      {
       if(BW=="OR" || BW=="TR" || BW=="LR") reduce += D/6;
-      else if(BW=="KR") reduce += D/3;
-      else if(BW=="PR") reduce += D/2;
-      else if(BW=="VR") reduce += D*3/4;
-      else              reduce  = Werte.B();
+      else if(BW=="KR")  reduce += D/3;
+      else if(BW=="PR") {reduce += D/2;       ew=true;}
+      else if(BW=="VR") {reduce += (D*3)/4;   ew=true;}
+      else              {reduce  = Werte.B(); ew=true;}
      }
    else if(ueberlast<9) 
      {
       if(BW=="OR" || BW=="TR" || BW=="LR") reduce += D/3;
-      else if(BW=="KR") reduce += D/2;
-      else if(BW=="PR") reduce += D*3/4;
-      else              reduce  = Werte.B();
+      else if(BW=="KR") {reduce += D/2;      ew=true;}
+      else if(BW=="PR") {reduce += (D*3)/4;  ew=true;}
+      else              {reduce  = Werte.B();ew=true;}
      }
    else if(ueberlast<=20) 
      {
+      ew=true;
       if(BW=="OR" || BW=="TR" || BW=="LR") reduce += D/2;
-      else if(BW=="KR") reduce += D*3/4;
-      else              reduce  = Werte.B();
+      else if(BW=="KR") reduce += (D*3)/4;   
+      else              reduce  = Werte.B(); 
      }
    else reduce = Werte.B();
-  return reduce;
+   return reduce;
 }
 

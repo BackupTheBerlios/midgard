@@ -273,7 +273,7 @@ bool Spezies::get_Spezies_from_long(const std::vector<cH_Spezies>& V,
   return false;
 }
 
-int B_Durchschnitt() const
+int Spezies::B_Durchschnitt() const
 {
   return 2*B_Wanz()+B_Bonus();
 }
