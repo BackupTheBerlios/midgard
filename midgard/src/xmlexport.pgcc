@@ -1,4 +1,4 @@
-// $Id: xmlexport.pgcc,v 1.16 2001/06/18 05:58:50 thoma Exp $
+// $Id: xmlexport.pgcc,v 1.17 2001/06/25 10:15:20 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -92,7 +92,7 @@ void charakter_speichern(ostream &o, const string &name,const string &version=""
    SQLerror::test(__FILELINE__);
    FetchIStream is("spalten");
    o << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n"
-   	"<Midgard-Charakter Version=\"4\">\n";
+   	"<Midgard-Charakter Version=\"5\">\n";
    o << "  <Figur";
    fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Spieler");
@@ -128,7 +128,7 @@ void charakter_speichern(ostream &o, const string &name,const string &version=""
    fetch_and_write_int_attrib(is, o, "Zaubern");
    o << "/>\n";
    o << "  <Resistenzen";
-   fetch_and_write_int_attrib(is, o, "Resistenz");
+   fetch_and_write_int_attrib(is, o, "Zauber");
    fetch_and_write_int_attrib(is, o, "Gift");
    o << "/>\n";
    o << "  <Gesundheit"; // schlechter Name ?

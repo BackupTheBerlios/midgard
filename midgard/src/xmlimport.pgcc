@@ -1,4 +1,4 @@
-// $Id: xmlimport.pgcc,v 1.16 2001/06/18 05:58:50 thoma Exp $
+// $Id: xmlimport.pgcc,v 1.17 2001/06/25 10:15:20 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -33,7 +33,7 @@ bool charakter_laden(istream &i)
    {  cerr << "Ist das wirklich die richtige Datei? Ich kann keinen Charakter finden.\n";
       return false;
    }
-   if (top->getInt("Version")<3 || top->getInt("Version")>4)
+   if (top->getInt("Version")<3 || top->getInt("Version")>5)
    {  cerr << "Version " << top->getInt("Version") << " wird noch nicht unterstützt\n";
       return false;
    }
@@ -132,7 +132,9 @@ bool charakter_laden(istream &i)
    db_wlw=abgeleiteteEigenschaften->getInt("WLW",0);
    db_abwehr=Erfolgswerte->getInt("Abwehr",0);
    db_zaubern=Erfolgswerte->getInt("Zaubern",0);
-   db_resistenz=Resistenzen->getInt("Resistenz",0);
+   db_resistenz=Resistenzen->getInt("Zauber", // V5
+   	Resistenzen->getInt("Resistenz", // V4.Malte
+   	Resistenzen->getInt("psy",0))); // V-4
    db_gift=Resistenzen->getInt("Gift",0);
    db_bo_au_typ=Boni->getInt("Ausdauer_Typ",0);
    db_bo_au=Boni->getInt("Ausdauer",0);
