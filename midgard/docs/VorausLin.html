@@ -1,0 +1,205 @@
+<HTML>
+<HEAD>
+<title>MAGUS - Midgard Abenteurer Generieren Und Steigern</title>
+<link rel="shortcut icon" href="image/magus-fav.ico">
+<link rel="stylesheet" type="text/css" href="magus.css">
+<style type="text/css">
+</style>
+</HEAD>
+<BODY class="body" text="#000000"><a name="TOP"></a>
+<table width="100%">
+  <tr >
+    <td class="HeadLine" align="center"> <h1 >MAGUS - Hilfe</h1> </td>
+
+  </tr>
+  <tr>
+    <td>
+    <table>
+      <tr>
+        <td>
+        <table>
+          <tr align="center">
+            <td ><a href="http://www.midgard-online.de/"><img src="image/NavBar/0-MidLogo.png" alt="Midgard-Online" width="208" height="50" border="0"></a><br>
+            <font size="-1"><a href="http://www.midgard-online.de/">http://www.midgard-online.de/</a></font> </td>
+          </tr>
+        </table>
+        <table class="NavFont">
+          <tr>
+            <td><img src="image/NavBar/0-MagLogo.png" width="31" height="50" border="0" alt="MAGUS Homepages"></td>
+            <td><a href="http://midgard.berlios.de">MAGUS - Homepage</a> </td>
+          </tr>
+          <tr>
+            <td ><img src="image/NavBar/Zauberstab4.png" alt="Startseite" width=79 height=50 border=0>  </td>
+            <td><a href="index.html">Index</a></td>
+          </tr>
+          <tr class="Active">
+            <td><img src="image/NavBar/Disk-Down.png" alt="Download" width="50" height="50" border="0">  </td>
+            <td ><a href="Download.html">Download & Installation</a><br>
+            - <a href="VorausAllg.html"><font size="-1">Voraussetzungen</font></a><br>
+            <font size="-2">&nbsp;&nbsp;-</font> <font size="-2" class="Here">Linux</font><br>
+            <font size="-2">&nbsp;&nbsp;-</font> <a href="VorausWin.html"><font size="-2">Windows</font></a><br>
+            - <a href="getit.html"><font size="-1">How To Get It</font></a><br>
+            - <a href="InstallAllg.html"><font size="-1">Installation</font></a>
+            </td>
+          </tr>
+          <tr>
+            <td><img src="image/NavBar/Fert_Lesen.png" width="50" height="50" border="0" alt="Bedienung"> </td>
+            <td><a href="BedienungMain.html">Bedienung</a></td>
+          </tr>
+          <tr>
+            <td><img src="image/NavBar/Abwehr.png" width="79" height="50" border="0" alt="Trouble">  </td>
+            <td><a href="Trouble.html">Troubleshooting</a></td>
+          </tr>
+          <tr>
+            <td><img src="image/NavBar/Info-trans.png" width="79" height="50" border="0" alt="About">  </td>
+            <td><a href="About.html">About</a></td>
+          </tr>
+        </table>
+        </td>
+        <td class="TextBox" align="center">
+        <h2><a href="VorausAllg.html">Voraussetzungen</a></h2>
+        <img src="image/Install/MAGUS-Tux-Logo-med.png" width=131 height=200 border=0><br>
+        <table>
+          <tr>
+            <td>
+            <ul>
+              <li><font size="-1" class="Here">Linux</font></li>
+              <li><font size="-1"><a href="VorausWin.html">Windows</a></font></li>
+            </ul>
+            </td>
+          </tr>
+        </table>
+
+
+        </td>
+        <td>  </td>
+      </tr>
+      <tr>
+        <td>  </td>
+        <td  class="TextBox">
+        Abhängig vom verwendeten Paket müssen zum Teil unterschiedliche Voraussetzungen erfüllt sein:
+          <ul>
+            <li><a href="#ALL">Allgemeine Voraussetzungen</a></li>
+            <li><a href="#RPM">RPM-Paket</a></li>
+            <li><a href="#CVS">CVS</a></li>
+            <li><a href="#DEV">Entwickler</a></li>
+          </ul>
+        </td>
+        <td>  </td>
+      <tr>
+        <td>  </td>
+        <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
+        <td>  </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td class="TextBox"><a name="ALL"></a>
+          <h4>Allgemeine Voraussetzungen</h4>
+          Unabhängig, ob MAGUS aus dem RPM-Paket, oder aus dem CVS verwendet wird, müssen folgende Voraussetzungen erfüllt sein:<br>
+          <ul>
+            <li>gtk+ (1.2.8 oder neuer)<br>
+            Test mit
+            <pre>'gtk-config --version'</pre>
+            Falls nicht vorhanden: <a href="http://www.fh-heilbron.de/mirrors/ftp.gimp.org/gtk/v1.2/">http://www.fh-heilbron.de/mirrors/ftp.gimp.org/gtk/v1.2/</a>  oder  <a href="http://www.gtk.org/">http://www.gtk.org/</a><br>
+            Von diesen Seiten werden die beiden Pakete 'glib-1.2.8.tar.gz' und 'gtk+1.2.3.tar.gz' benötigt.
+            </li>
+            <li>Gtk-- (1.2.4 oder neuer; Das Paket heißt bei manchen Distributionen auch Gtkmm) <br>
+            Test mit
+            <pre>'gtkmm-config --version'</pre>
+            Falls nicht vorhanden: <a href="http://gtkmm.sourceforge.net/">http://gtkmm.sourceforge.net/</a>
+            </li>
+            <li>LaTeX/PDFTeX<br>
+            Sollte bei jeder Distribution dabei sein, falls nicht, findet sich alle zu und um LaTeX unter:
+            <a href="http://www.dante.de">http://www.dante.de</a>
+            </li>
+            <li>Einen PDF-Viewer (z.B: <a href="http://www.adobe.com/products/acrobat/readstep2.html">Acrobat-Reader</a> (acroread), xpdf, Ghostview, gv, etc.)
+            </li>
+          </ul>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>  </td>
+        <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
+        <td>  </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td class="TextBox"><a name="RPM"></a>
+        <h4>RPM-Paket</h4>
+        Bisher existiert nur ein, auf einer modifiziertern SuSE 7.2 basierendes RPM-Paket.<br>
+        Diese Version sollte eigentlich mit allen SuSE-Distributionen ab 7.2 lauffähig sein.
+        Prinzipiell sollte sich das RPM-Paket auch auf anderen Systemen lauffähig sein, wenn
+        die oben aufgeführten <a href="#ALL">Voraussetzungen</a> erfüllt sind.<br>
+        Zusätzliche Voraussetzungen:<br>
+        'rpm' muss installiert sein ;-)
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>  </td>
+        <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
+        <td>  </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td class="TextBox"><a name="CVS"></a>
+        <h4>CVS</h4>
+          Die aktuellste Version von Magus findet sich im CVS. Da der Sourcecode noch kompilert
+          werden muss, müssen noch einige zusätzliche Voraussetzungen erfüllt sein:<br>
+          <ul>
+            <li>Von oben aufgeführten <a href="#ALL">Paketen</a> (ausser PDF) werden die zugehörigen Development-Pakete benötigt.
+              (Bei SuSE *-devel)
+            </li>
+            <li>cvs ;-), autogen, autoconf, automake (sollte bei allen Distributionen vorhanden sein)</li>
+            <li>C++ Compiler (gcc version 2.95.2 19991024 oder neuer, sollte bei den gängigen Distributionen vorhanden sein)<br>
+            Test mit:
+            <pre>'g++ -v'</pre></li>
+            <li>libsigc++<br>
+            Falls nicht vorhanden (z.B: SuSE 7.0 und älter):<br>
+            <a href="http://gtkmm.sourceforge.net/">http://gtkmm.sourceforge.net/</a>
+            </li>
+          </ul>
+          Weiterhin werden für den Sourcecode und das Kompilieren ca. 100MB auf der Festplatte benötigt.<br>
+          Während des Kompilierens wird jede Menge Arbeitsspeicher benötigt (>100MB ), was zu einem Absturz des
+          Compilers führen kann. (Abhilfe (bash): 'export CXXFLAGS=&quot;&quot;')
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>  </td>
+        <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
+        <td>  </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td class="TextBox"><a name="DEV"></a>
+        <h4>Entwickler</h4>
+        <ul>
+          <li>PostgreSQL 7.2 (oder neuer)<br>
+            Die Postgres Datenbank wird benötigt, wenn die XML-Dateien für MAGUS, welche die spielrelevanten Werte enthalten,
+            selbst erzeugt werden sollen.<br>
+            Benötigt wird Postgres ab Version 7.2. (Bei SuSE erst ab Version 8.0 vorhanden). Hier gibt es eine kurze <a href="Postgres.html">Anleitung</a>. </li>
+          <li>Für Mitentwickler an der grafischen Oberfläche:<br>
+            glade (ab Version 0.5.7), zu finden auf <a href="http://glade.pn.org/">http://glade.pn.org/</a></li>
+          <li>Ebenfalls für Mitentwicker der grafischen Oberfläche:<br>
+            glademm (V0.5_11e glade to Gtk-- converter) <a href="http://home.wtal.de/petig/Gtk">http://home.wtal.de/petig/Gtk</a>
+          </li>
+        </ul>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>  </td>
+        <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
+        <td>  </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td>  </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<HTML>
+<HEAD>
+<title>MAGUS - Midgard Abenteurer Generieren Und Steigern</title>
+<link rel="shortcut icon" href="image/magus-fav.ico">
+<link rel="stylesheet" type="text/css" href="magus.css">
+<style type="text/css">
+</style>
+</HEAD>
+<BODY class="body" text="#000000"><a name="TOP"></a>
+<table width="100%">
+  <tr >
+    <td class="HeadLine" align="center"> <h1 >MAGUS - Hilfe</h1> </td>
+
+  </tr>
+  <tr>
+    <td>
+    <table>
+      <tr>
+        <td>
+        <table>
+          <tr align="center">
+            <td ><a href="http://www.midgard-online.de/"><img src="image/NavBar/0-MidLogo.png" alt="Midgard-Online" width="208" height="50" border="0"></a><br>
+            <font size="-1"><a href="http://www.midgard-online.de/">http://www.midgard-online.de/</a></font> </td>
+          </tr>
+        </table>
+        <table class="NavFont">
+          <tr>
+            <td><img src="image/NavBar/0-MagLogo.png" width="31" height="50" border="0" alt="MAGUS Homepages"></td>
+            <td><a href="http://midgard.berlios.de">MAGUS - Homepage</a> </td>
+          </tr>
+          <tr>
+            <td ><img src="image/NavBar/Zauberstab4.png" alt="Startseite" width=79 height=50 border=0>  </td>
+            <td><a href="index.html">Index</a></td>
+          </tr>
+          <tr class="Active">
+            <td><img src="image/NavBar/Disk-Down.png" alt="Download" width="50" height="50" border="0">  </td>
+            <td ><a href="Download.html">Download & Installation</a><br>
+            - <a href="VorausAllg.html"><font size="-1">Voraussetzungen</font></a><br>
+            - <a href="getit.html"><font size="-1">How To Get It</font></a><br>       
+            - <a href="InstallAllg.html"><font size="-1">Installation</font><a href="BedienungMain.html"></a></a><br>
+            <font size="-2">&nbsp;&nbsp;-</font> <font size="-2" class="Here">Linux</font><br>
+            <font size="-2">&nbsp;&nbsp;-</font> <a href="InstallWin.html"><font size="-2">Windows</font></a>
+            </td>
+          </tr>
+          <tr>
+            <td><img src="image/NavBar/Fert_Lesen.png" width="50" height="50" border="0" alt="Bedienung"> </td>
+            <td><a href="BedienungMain.html">Bedienung</a></td>
+          </tr>
+          <tr>
+            <td><img src="image/NavBar/Abwehr.png" width="79" height="50" border="0" alt="Trouble">  </td>
+            <td><a href="Trouble.html">Troubleshooting</a></td>
+          </tr>
+          <tr>
+            <td><img src="image/NavBar/Info-trans.png" width="79" height="50" border="0" alt="About">  </td>
+            <td><a href="About.html">About</a></td>
+          </tr>
+        </table>
+        </td>
+        <td class="TextBox" align="center">
+        <h2><a href="InstallAllg.html">Installation</a></h2>
+            <img src="image/Install/MAGUS-Tux-Logo-med.png" width="131" height="200" border="0">
+            <table>
+              <tr>
+                <td>
+                  <ul>
+                    <li><font size="-1" class="Here">Linux</font></a></li>
+                    <li><a href="InstallWin.html"><font size="-1">Windows</font></a></li>
+                  </ul>
+                </td>
+              </tr>
+            </table>
+        </td>
+        <td>  </td>
+      </tr>
+      <tr>
+        <td>  </td>
+        <td  class="TextBox">
+        <ul>
+          <li><a href="#RPM">Installation des RPM-Paketes</a></li>
+          <li><a href="#CVS">CVS-Installation</a></li>
+        </ul>
+        </td>
+        <td>  </td>
+      </tr>
+      <tr>
+        <td>  </td>
+        <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
+        <td>  </td>
+      </tr>
+      <tr>
+        <td>  </td>
+        <td  class="TextBox"><a name="RPM"></a>
+          <h4>Installation des RPM-Paketes</h4>
+          Das rpm-Paket wird mittels 'rpm' (grafisch: xrpm oder krpm) installiert,<br>
+          Hierzu als 'root' einloggen und:
+          <pre>'rpm -i -v /Pfad/zum/paket/magus-[VERSION].i386.rpm'</pre>
+          eingeben. (Bei den grafischen Frontends die entsprechenden Optionen anwählen:
+          &quot;install&quot; und &quot;verbose&quot;)<br>
+          Bei einem Update auf eine neuere Version:
+          <pre>'rpm -U -v /Pfad/zum/paket/magus.[VERSION].i386.rpm'</pre><br>
+          Damit ist die Installation abgeschlossen.
+        </td>
+        <td>  </td>
+      </tr>
+      <tr>
+        <td>  </td>
+        <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
+        <td>  </td>
+      </tr>
+      <tr>
+        <td>  </td>
+        <td  class="TextBox"><a name="CVS"></a>
+        <h4>CVS-Installation</h4>
+        Über CVS (Current Versions System) ist die zum jeweiligen Zeitpunkt aktuellste Version
+        des Quellcodes von MAGUS erhältlich.<br>
+        <ol>
+          <li>Vor dem Checkout des Repositorys sollte ein Verzeichnis für den MAGUS-Sourcecode angelegt werden (Bspw.
+            'magus/').</li>
+          <li>Das CVS-Script
+            '<a href="http://cvs.berlios.de/cgi-bin/viewcvs.cgi/*checkout*/midgard/midgard/midgard_cvs">midgard_cvs</a>'
+            (Link speichern) herunterladen und im Verzeichnis 'magus/' speichern (ggf mit 'chmod 700 midgard_cvs'
+            ausführbar machen).
+          </li>
+          <li>Benötigte Dateien herunterladen:<br>
+          <ol>
+            <li>Online gehen</li>
+            <li><pre>'midgard_cvs checkout'</pre>
+            eingeben (Passwortabfragen mit &lt;ENTER&gt; quittieren). Abwarten, bis der Download beendet ist</li>
+            <li>Offline gehen</li>
+          </ol></li>
+          <li>Kompilieren des Sourcecodes:<br>
+            Abhängig dvon, ob Magus local oder systemweit zur Verfügung stehen soll, wird das CVS-Skript mit folgenden
+            Optionen aufgerufen:
+            <pre>'midgard_cvs make'</pre>
+            oder
+            <pre>'midgard_cvs install'</pre>
+            (bei der systemweiten Installation wird das root-Passwort benötigt)
+          </li>
+          <li>XML-Dateien:<br>
+          Wenn die PostgreSQL-Datenbank installiert ist, wird nun in das Verzeichnis:'[magus]/midgard-postgres' gewechselt
+          und die aktuellen Daten mit
+          <pre>'make install'</pre>
+          in die Datenbank geladen. Anschliessend werden im Verzeichnis '[magus/]midgard/xml' mit
+          <pre>'make export'</pre>
+          die XML-Dateien generiert. Für eine systemweite Installation müssen alle .xml-Dateien
+          in das Verzeichnis '$PREFIX/shared/magus/' kopiert werden. (Default für $PREFIX ist
+          '/usr/local/')
+          </li>
+          <li>Update:<br>
+          Ein Update über CVS erfolgt ebenfalls mit dem CVS-Script:
+          <pre>'midgard_cvs update'</pre>
+          durchgeführt. Anschliessend werden die Schritte 4 &amp; 5 erneut ausgeführt.
+          </li>
+        </ol>
+
+        </td>
+        <td>  </td>
+      </tr>
+      <tr>
+        <td>  </td>
+        <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
+        <td>  </td>
+      </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>  </td>
+  </tr>
+</table>
+</body>
+</html>
