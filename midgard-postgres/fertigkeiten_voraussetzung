@@ -29,6 +29,8 @@ CREATE TABLE "fertigkeiten_voraussetzung" (
 
 COPY "fertigkeiten_voraussetzung" FROM stdin;
 Abrichten	\N	\N	\N	\N	\N	\N	61	\N	\N	\N	\N
+Adlersprung	\N	11	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Akribie	\N	\N	\N	11	\N	\N	\N	\N	\N	\N	\N
 Akrobatik	\N	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Alchimie	\N	\N	\N	81	\N	\N	\N	\N	\N	\N	61
 Askese	\N	\N	\N	\N	\N	\N	\N	61	\N	\N	\N
@@ -37,6 +39,7 @@ Athletik	31	\N	31	\N	\N	\N	\N	\N	\N	\N	\N
 Augensalbe herstellen	\N	31	\N	\N	\N	\N	\N	\N	\N	Alchemie, Thaumaturgie	\N
 Balancieren	\N	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Ballista bedienen	\N	0	\N	21	\N	\N	\N	\N	\N	\N	61
+Ballspiel	\N	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Baukunde	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
 Beidhändiger Kampf	\N	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Beredsamkeit	\N	\N	\N	61	\N	\N	61	\N	\N	\N	\N
@@ -45,6 +48,7 @@ Betäuben	31	0	\N	\N	\N	\N	\N	\N	\N	\N	61
 Bogenkampf zu Pferd	\N	\N	\N	\N	\N	\N	\N	\N	\N	Reiten	31
 Brettspiel	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
 Dichten	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
+Dämonenkunde	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
 Elefanten lenken	\N	31	\N	\N	\N	\N	\N	31	\N	\N	\N
 Erste Hilfe	\N	0	\N	31	\N	\N	\N	\N	31	\N	31
 Erzählen	\N	\N	\N	31	\N	\N	31	\N	\N	\N	\N
@@ -56,6 +60,7 @@ Fangen	\N	0	\N	\N	\N	\N	\N	\N	\N	\N	31
 Faustkampf	61	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Fechten	\N	\N	\N	\N	\N	\N	\N	\N	\N	Rapier	\N
 Fechten tevarrischer Stil	\N	\N	\N	\N	\N	\N	\N	\N	\N	Fechten	\N
+Federflechten	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	81
 FengSchui	\N	\N	\N	81	\N	\N	\N	\N	\N		\N
 FengTsu	\N	61	\N	\N	\N	\N	\N	61	\N		\N
 Fälschen	\N	0	\N	0	\N	\N	\N	\N	\N	Lesen/Schreiben	61
@@ -128,6 +133,7 @@ Schauspielern	\N	\N	\N	\N	\N	\N	61	\N	\N	\N	\N
 Schießen vom Streitwagen	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	31
 Schiffsführung	\N	\N	\N	31	\N	\N	61	\N	\N	\N	\N
 SchiyoKi	\N	21	\N	\N	\N	\N	\N	21	\N	TaiTschi	\N
+Schlachtruf	\N	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Schlangen beschwören	\N	61	\N	\N	\N	\N	\N	31	\N	Musizieren	\N
 Schleichen	\N	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Schlittenfahren	\N	0	\N	\N	\N	\N	\N	\N	\N	\N	21
@@ -170,12 +176,14 @@ Teezeremonie	\N	\N	\N	\N	\N	\N	31	\N	\N	\N	\N
 Thaumatographie	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
 Tierkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
 Trinken	\N	\N	1	\N	\N	\N	\N	\N	\N	\N	\N
+Tätowieren	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	61
 Verbergen	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	0
 Verführen	\N	\N	\N	\N	\N	21	61	\N	\N	\N	\N
 Verhören	\N	\N	\N	\N	\N	\N	61	\N	\N	\N	\N
 Verkleiden	\N	0	\N	31	\N	\N	\N	\N	\N	\N	31
 Wagenlenken	\N	21	\N	\N	\N	\N	\N	\N	\N	\N	21
 Wahrnehmung	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
+Wahrsagekalender führen	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
 Wetterkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
 Winden	\N	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Wissen von der Magie	\N	\N	\N	11	\N	\N	\N	\N	\N	\N	\N

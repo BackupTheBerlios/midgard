@@ -19,6 +19,7 @@ CREATE TABLE "steigern_fertigkeiten" (
 
 COPY "steigern_fertigkeiten" FROM stdin;
 Abrichten	Abrichten
+Akribie	Wissen
 Akrobatik	Akrobatik
 Alchimie	Wissen
 Askese	Beidhändiger Kampf
@@ -27,6 +28,7 @@ Athletik	Athletik
 Augensalbe herstellen	Wissen
 Balancieren	Bewegung
 Ballista bedienen	Ballista bedienen
+Ballspiel	Bewegung
 Baukunde	Baukunde
 Beidhändiger Kampf	Beidhändiger Kampf
 Beredsamkeit	Beredsamkeit
@@ -35,6 +37,7 @@ Bogen vom Streitwagen	Bogenkampf zu Pferd
 Bogenkampf zu Pferd	Bogenkampf zu Pferd
 Brettspiel	Brettspiel
 Dichten	Dichten
+Dämonenkunde	Wissen
 Elefanten lenken	Elefanten lenken
 Erste Hilfe	Erste Hilfe
 Erzählen	Dichten
@@ -125,6 +128,7 @@ Schwimmen	Bewegung
 Schätzen	Schätzen
 Seemannsgang	Bewegung
 Seilkunst	Seilkunst
+Siebter Sinn	Siebter Sinn
 Singen	Dichten
 Skifahren	Bewegung
 Sprache	Sprache
@@ -145,6 +149,7 @@ Teezeremonie	Überleben
 Thaumatographie	Thaumatographie
 Tierkunde	Wissen
 Trinken	Trinken
+Tätowieren	Verkleiden
 Verbergen	Suchen
 Verführen	Verführen
 Verhören	Verhören

@@ -121,6 +121,7 @@ COPY "fertigkeiten" FROM stdin;
 5	\N	\N	8	Meditieren	6	200	\N	\N	Wk	\N	\N	18	13	\N
 5	\N	\N	8	Teezeremonie	6	50	K	\N	pA	\N	\N	18	18	\N
 5	\N	\N	15	Akrobatik	10	120	\N	\N	Gw	8	2	18	16	\N
+5	\N	\N	15	Tätowieren	12	50	N	\N	Gs	\N	\N	\N	\N	\N
 5	\N	\N	15	Verkleiden	12	50	\N	\N	Gs	5	1	20	19	\N
 5	\N	\N	\N	Kenntnis der fünf Klassiker	\N	2500	K	\N	\N	\N	\N	18	18	\N
 6	4	\N	8	Abrichten	6	400	\N	\N	pA	\N	3	18	13	1
@@ -176,15 +177,23 @@ COPY "fertigkeiten" FROM stdin;
 99	3	3	12	Schreiben: Muttersprache(+12)	12	0	\N	\N	In	\N	1	20	17	6
 99	4	4	8	Verführen	6	30	\N	\N	pA	3	1	18	13	\N
 99	\N	\N	-1	Betäuben	\N	0	\N	\N	In	6	\N	20	16	\N
+99	\N	\N	2	Siebter Sinn	2	500	N	\N	\N	\N	\N	\N	\N	\N
+99	\N	\N	5	Dämonenkunde	4	100	N	\N	In	\N	\N	\N	\N	\N
 99	\N	\N	5	Giftmischen	4	100	\N	\N	In	5	2	16	13	\N
 99	\N	\N	5	Landeskunde	4	100	\N	\N	In	\N	2	16	13	2
 99	\N	\N	5	Wetterkunde	4	50	\N	\N	In	\N	\N	16	14	\N
+99	\N	\N	10	Ballspiel	10	60	N	\N	Gw	\N	\N	\N	\N	\N
 99	\N	\N	10	Zaubern	10	5000	\N	\N	\N	\N	\N	18	18	\N
 99	\N	\N	12	Lesen von Zauberrunen	6	20	W	\N	In	\N	\N	18	15	\N
 99	\N	\N	12	Schreiben: Alte Sprache(+12)	12	0	\N	\N	In	\N	\N	20	17	6
 99	\N	\N	12	Sprache	4	10	\N	\N	In	\N	2	20	17	5
 99	\N	\N	12	Sprechen: Alte Sprache	12	0	\N	\N	In	\N	\N	20	17	5
 99	\N	\N	15	Augensalbe herstellen	12	200	R	\N	\N	\N	\N	18	18	\N
+99	\N	\N	17	Akribie	\N	100	N	\N	In	\N	\N	\N	\N	\N
+99	\N	\N	\N	Adlersprung	\N	200	N	\N	Ge	\N	\N	\N	\N	\N
+99	\N	\N	\N	Federflechten	\N	800	N	\N	Gs	\N	\N	\N	\N	\N
+99	\N	\N	\N	Schlachtruf	\N	100	N	\N	Gw	\N	\N	\N	\N	\N
+99	\N	\N	\N	Wahrsagekalender führen	\N	1000	N	\N	In	\N	\N	\N	\N	\N
 \.
 --
 --

@@ -26,6 +26,8 @@ CREATE TABLE "ruestung" (
 
 
 COPY "ruestung" FROM stdin;
+Baumwollharnisch	TR(N)	1	0	0	0	N	\N	\N	\N
+Baumwollrüstung	LR(N)	2	0	0	0	N	\N	\N	\N
 Dhunaka	KR(R)	3	0	0	0	R	\N	\N	\N
 Kettenrüstung	KR	3	31	0	4	\N	1	\N	\N
 Lederrüstung	LR	2	0	0	0	\N	0	\N	\N
