@@ -3,7 +3,7 @@
 <!ENTITY % Geschlecht "(m|w)">
 <!ENTITY % Gestalt "(schmal|mittel|breit)">
 <!ENTITY % Stand "(Unfreie|Volk|Mittelschicht|Adel)">
-<!ENTITY % Typ "(As|BN|BS|BW|Ba|Dr|Fi|Gl|Hl|Hä|Kd|Kr|Ma|Ny|Or|PF|PH|PK|PM|PT|PW|Ri|Sa|Sc|Se|Sp|Sr|Sö|Th|Wa|dBe|eBe|gHx|sHx|wHx)">
+<!ENTITY % Typ "(As|BN|BS|BW|Ba|Dr|Fi|Gl|Hl|HÃ¤|Kd|Kr|Ma|Ny|Or|PF|PH|PK|PM|PT|PW|Ri|Sa|Sc|Se|Sp|Sr|SÃ¶|Th|Wa|dBe|eBe|gHx|sHx|wHx)">
 <!ENTITY % Number "CDATA">
 
 <!ELEMENT Figur EMPTY>
@@ -17,8 +17,8 @@
 <!ATTLIST Typ
 	Spezies	CDATA	"Mensch"
 	Geschlecht	%Geschlecht;	#REQUIRED
-	Abkürzung	%Typ;	#REQUIRED
-	Abkürzung2	%Typ;	#IMPLIED>
+	AbkÃ¼rzung	%Typ;	#REQUIRED
+	AbkÃ¼rzung2	%Typ;	#IMPLIED>
 
 <!ELEMENT Basiseigenschaften EMPTY>
 <!ATTLIST Basiseigenschaften
@@ -59,7 +59,7 @@
 	Alter	%Number;	#REQUIRED
 	Gestalt	%Gestalt;	#REQUIRED
 	Gewicht	%Number;	#REQUIRED
-	Größe	%Number;	#REQUIRED
+	GrÃ¶ÃŸe	%Number;	#REQUIRED
 	Stand	%Stand;		#REQUIRED
 	Herkunft	CDATA	#REQUIRED
 	Glaube	CDATA	#REQUIRED>
@@ -81,8 +81,8 @@
 
 <!ELEMENT GFP #CDATA>
 
-<!ELEMENT Vermögen EMPTY>
-<!ATTLIST Vermögen
+<!ELEMENT VermÃ¶gen EMPTY>
+<!ATTLIST VermÃ¶gen
 	GS	%Number;	"0"
 	SS	%Number;	"0"
 	KS	%Number;	"0">
@@ -95,9 +95,9 @@
 	EPproGFP	%Number;	"50"
 	Basiswerte	%Number;	#IMPLIED>
 
-<!ELEMENT Ausrüstung>
+<!ELEMENT AusrÃ¼stung>
 
-<!ELEMENT Rüstung>
+<!ELEMENT RÃ¼stung>
 
 <!ELEMENT Waffe EMPTY>
 <!ATTLIST Waffe

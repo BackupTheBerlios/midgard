@@ -10,6 +10,10 @@
 
     xmllint (L): 
 
+- Umwandeln DTD->XSD
+
+    trang (L)
+
 - Zum Validieren eines XML Schemas eignet sich
 
     XSV (L,W):
