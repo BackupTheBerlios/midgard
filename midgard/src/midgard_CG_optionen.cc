@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.114 2002/11/28 17:56:57 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.115 2002/11/29 07:26:42 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -230,12 +230,17 @@ void midgard_CG::Schummeln()
 {
   if(schummeln)
    {
-     MOptionen->set_Original(false,Midgard_Optionen::Original);
+     MOptionen->set_Original(true,Midgard_Optionen::Original);
      MOptionen->OptionenExecute_setzen_from_menu(Midgard_Optionen::LernschemaSensitive);
      table_steigern->steigern_mit_EP_bool=false;
-     set_Original(false,Midgard_Optionen::NSC_only);
+     MOptionen->set_Original(true,Midgard_Optionen::NSC_only);
+     table_grundwerte->edit_werte=true;
    }
   else
    {
+     MOptionen->set_Original(false,Midgard_Optionen::Original);
+     table_steigern->steigern_mit_EP_bool=true;
+     MOptionen->set_Original(false,Midgard_Optionen::NSC_only);
+     table_grundwerte->edit_werte=false;
    }
 }

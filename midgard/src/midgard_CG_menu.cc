@@ -52,6 +52,9 @@ void midgard_CG::menu_init()
   schummel_menu->append(*_M);
   _M->activate.connect_after(SigC::slot(this,&midgard_CG::Schummeln));}
 
+  Gtk::MenuItem *trennlinie = (Gtk::MenuItem *)schummel_menu->items().back();
+  trennlinie->show();
+
   {MVC_boolMenu_Widget *_M=manage(new MVC_boolMenu_Widget(MOptionen->OptionenCheck(Midgard_Optionen::Original).active,make_gtk_box(midgard_logo_tiny_xpm,"Originalregeln ")));
   schummel_menu->append(*_M);}
 

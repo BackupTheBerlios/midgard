@@ -16,11 +16,14 @@ NEWS IN VERSION 0.8.12
 * Abspeichern & Laden der Handle-Fenster-Positionen
 * PP eingeben für Fertigkeiten mit Zusatz stürzt nicht mehr ab
    (Folge von Redisign + Codereduzierung)
+* Ausdruck besser formatiert
+* Universelles Trinken mit richtigem Erfolgswert
+* Neue Ausrüstung eingeben
+* Ausrüstung laden beschleunigt
 
 TODO
 
 ** Setzen der Handle-Fenster-Positionen :-(
-** Neue Ausrüstung eingeben (stürzt ab)
 * KI-Steigern nicht nur mit Unterweisung oder Selbststudium 
 * Region-Icons wechseln
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in

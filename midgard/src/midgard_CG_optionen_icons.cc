@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen_icons.cc,v 1.22 2002/11/25 22:25:18 thoma Exp $
+// $Id: midgard_CG_optionen_icons.cc,v 1.23 2002/11/29 07:26:42 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -187,7 +187,7 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iRuestung)   return st_icons("Rüstung"  ,Dice_Armor_trans_50_xpm);
      else if(typ==iAusruestung)return st_icons("Ausrüstung"  ,Dice_Ausruest_50_xpm);
      else if(typ==iBildeinfuegen)return st_icons("Abbildung"  ,Portrait_32_xpm);
-     else if(typ==iDeleteAusr  )return st_icons("Gegenstand löschen"  ,Trash_32_xpm);
+     else if(typ==iDeleteAusr  )return st_icons("Gegenstand\nlöschen"  ,Trash_32_xpm);
      else if(typ==iDeleteA     )return st_icons("Abenteurer aus\nListe löschen"  ,KillChar_32_xpm);
      else if(typ==iButtonSteigern)   return st_icons("Steigern"  ,Steigern_trans_32_xpm);
      else if(typ==iButtonReduce)   return st_icons("Reduzieren"  ,Reduzieren_trans_32_xpm);
