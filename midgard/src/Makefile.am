@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.146 2002/04/17 10:13:41 christof Exp $
+# $Id: Makefile.am,v 1.147 2002/04/18 08:14:41 christof Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -213,20 +213,33 @@ if UTF8
 %.o: %.cc
 	$(CXXCPP) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) $*.cc \
 	| ./iso2utf8 \
-	| $(CXXCOMPILE) -o $*.o -c -x c++ /dev/stdin
-	echo > .deps/$(*F).P
+	| $(CXXCOMPILE) -o $*.o -Wp,-MD,.deps/$(*F).pp -c -x c++ /dev/stdin
+	@-cp .deps/$(*F).pp .deps/$(*F).P; \
+	tr ' ' '\012' < .deps/$(*F).pp \
+	| sed -e 's/^\\$$//' -e '/^$$/ d' -e '/:$$/ d' -e 's/$$/ :/' \
+	>> .deps/$(*F).P; \
+	rm .deps/$(*F).pp
+
 midgard_CG_glade.o: $(midgard_CG_glade_o_DEPS)
 	$(CXXCPP) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) $*.cc \
 	| ./iso2utf8 \
-	| $(CXXCOMPILE) -o $*.o -O0 -c -x c++ /dev/stdin
-	echo > .deps/$(*F).P
+	| $(CXXCOMPILE) -o $*.o -Wp,-MD,.deps/$(*F).pp -O0 -c -x c++ /dev/stdin
+	@-cp .deps/$(*F).pp .deps/$(*F).P; \
+	tr ' ' '\012' < .deps/$(*F).pp \
+	| sed -e 's/^\\$$//' -e '/^$$/ d' -e '/:$$/ d' -e 's/$$/ :/' \
+	>> .deps/$(*F).P; \
+	rm .deps/$(*F).pp
 
 else
 
 # midgard_CG_glade.cc nicht optimieren, sonst explodiert der
 # Speicherverbrauch (>344MB am 2002-1-31)
 midgard_CG_glade.o: $(midgard_CG_glade_o_DEPS)
-	$(CXXCOMPILE) -O0 -c $<
-	echo > .deps/$(*F).P
+	$(CXXCOMPILE) -Wp,-MD,.deps/$(*F).pp -O0 -c $<
+	@-cp .deps/$(*F).pp .deps/$(*F).P; \
+	tr ' ' '\012' < .deps/$(*F).pp \
+	| sed -e 's/^\\$$//' -e '/^$$/ d' -e '/:$$/ d' -e 's/$$/ :/' \
+	>> .deps/$(*F).P; \
+	rm .deps/$(*F).pp
 
 endif
