@@ -75,16 +75,9 @@ class Data_fert : public RowDataBase
 class H_Data_fert : public Handle<Data_fert>
 {
 protected:
-// Data_fert *rc;
  H_Data_fert() {}
 public:
- H_Data_fert(Data_fert *r) : Handle<Data_fert>(r) {}//,rc(r){}
-/*
-   bool operator == (const Data_fert& b) const
-         {return rc->Name()==b.Name();}
-   bool operator < (const Data_fert& b) const
-         {return rc->Name()<b.Name();}
-*/
+ H_Data_fert(Data_fert *r) : Handle<Data_fert>(r) {}
 };
 
 

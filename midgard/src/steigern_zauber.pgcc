@@ -85,10 +85,10 @@ void midgard_CG::show_neue_zauber()
       if (get_typ_s("Magie",Typ) && !get_typ_s("Magie",Typ2)) alle_zauber += " AND ";
       if (get_typ_s("Magie",Typ2)) alle_zauber += "("+Typ2.Short()+" = 'G' OR "+Typ2.Short()+" = 'S' OR "+Typ2.Short()+" = 'A') AND ";
     }
-  std::string squery = "SELECT distinct z.name, z.ursprung, z.kosten, z.stufe, ";
+  std::string squery = "SELECT distinct z.name, coalesce(z.ursprung,''), z.kosten, z.stufe, ";
   if (get_typ_s("Magie",Typ)) squery+= "coalesce(z."+Typ.Short()+",''), " ;
   if (Typ2.Short()!="" && get_typ_s("Magie",Typ2)) squery += "coalesce(z."+Typ2.Short()+",''), ";
-  squery +=" z.spruchrolle, \
+  squery +=" coalesce(z.spruchrolle,''), \
       coalesce(z.region,''), coalesce(z.zauberart,''), \
       coalesce(z.p_element,''), coalesce(z.s_element,'') \
       FROM arkanum_zauber z WHERE "+alle_zauber+"\
