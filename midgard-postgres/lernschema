@@ -4,7 +4,7 @@
 DROP INDEX "lernschema_typ_fertigkeit_p_ele";
 DROP TABLE "lernschema";
 --
--- TOC Entry ID 2 (OID 26666072)
+-- TOC Entry ID 2 (OID 30105414)
 --
 -- Name: lernschema Type: TABLE Owner: thoma
 --
@@ -22,7 +22,7 @@ CREATE TABLE "lernschema" (
 );
 
 --
--- Data for TOC Entry ID 4 (OID 26666072) TABLE DATA lernschema
+-- Data for TOC Entry ID 4 (OID 30105414) TABLE DATA lernschema
 --
 
 COPY "lernschema"  FROM stdin;
@@ -745,7 +745,7 @@ Th	f	Bittersalz	Zauber	\N	\N	1	\N	\N
 Th	f	Durstsalz	Zauber	\N	\N	2	\N	\N
 Th	f	Erkennen von Zauberei	Zauber	\N	\N	2	\N	\N
 Th	f	Feuerfinger	Zauber	\N	\N	2	\N	\N
-Th	f	Hitzesalz	Zauber	\N	\N	1	\N	\N
+Th	f	Hitzsalz	Zauber	\N	\N	1	\N	\N
 Th	f	Hören von Fernem	Zauber	\N	\N	3	\N	\N
 Th	f	Hungersalz	Zauber	\N	\N	2	\N	\N
 Th	f	Jucksalz	Zauber	\N	\N	2	\N	\N
@@ -1194,7 +1194,7 @@ Kd	t	KiDo	Fertigkeit	10	Zt	1	\N	\N
 Kr	t	Kampf in Vollrüstung	Fertigkeit	\N	\N	1	\N	\N
 \.
 --
--- TOC Entry ID 3 (OID 26666072)
+-- TOC Entry ID 3 (OID 30105414)
 --
 -- Name: "lernschema_typ_fertigkeit_p_ele" Type: INDEX Owner: thoma
 --

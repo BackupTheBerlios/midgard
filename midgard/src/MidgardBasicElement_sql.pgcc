@@ -4,7 +4,7 @@
 #include <Aux/SQLerror.h>
 #include <Aux/Transaction.h>
 exec sql include sqlca;
-
+#include "Zauberwerk.hh"
 
 void MidgardBasicElement::get_map_typ()
 {  
@@ -120,23 +120,25 @@ void MidgardBasicElement::saveElementliste(const std::list<cH_MidgardBasicElemen
 */
   exec sql begin declare section;
     char db_name_ch[50], db_version[50];
-    char db_fertigkeit[50];
+    char db_fertigkeit[50],db_magisch[100];
     int db_wert;
     char db_what[30];
   exec sql end declare section;
   strncpy(db_name_ch,Werte.Name_Charakter().c_str(),sizeof(db_name_ch));
   strncpy(db_version,Werte.Version().c_str(),sizeof(db_version));
   strncpy(db_what, ((*b.begin())->What_str()).c_str(),sizeof(db_what));
-
+  strncpy(db_magisch, "",sizeof(db_magisch));
+   
   for (std::list<cH_MidgardBasicElement>::const_iterator i=b.begin();i!=b.end();++i)
    {
      strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
-//     db_wert = (*i)->Erfolgswert(Typ,Werte,ausnahmen);
+     if ((*b.begin())->What()==ZAUBERWERK)
+        strncpy(db_magisch, cH_Zauberwerk(*i)->Art().c_str(),sizeof(db_magisch));
      db_wert = (*i)->Erfolgswert();
      exec sql INSERT INTO charaktere_fertigkeiten
-         (charakter_name,version,fertigkeit,wert,art)
+         (charakter_name,version,fertigkeit,wert,art,magisch)
        VALUES
-         (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,:db_what) ;
+         (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,:db_what,:db_magisch);
      SQLerror::test(__FILELINE__);
    }
 }
