@@ -1,4 +1,4 @@
-// $Id: abge_werte_setzen.cc,v 1.45 2002/02/21 10:23:30 thoma Exp $
+// $Id: abge_werte_setzen.cc,v 1.46 2002/02/21 21:56:26 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,18 +21,19 @@
 
 void midgard_CG::on_abge_werte_setzen_clicked()
 {
+  button_abg_werte->set_sensitive(false);
   Werte.setGrad(1);
   Werte.setAu( constraint_aw(random,Werte.Spezies()->Au()) );
-  Werte.setpA( random.integer(1,100)-30 + 3*(Werte.In()/10. + Werte.Au()/10.) );
+  Werte.setpA( random.integer(1,100)-30 + 3*(Werte.In()/10 + Werte.Au()/10) );
   {
     int b = Werte.Spezies()->B_s();
     for (int i=0;i<Werte.Spezies()->B_f();++i) b+=random.integer(1,3);
     Werte.setB(b);
   }
-  Werte.setWk(random.integer(1,100)-40 + 3*(Werte.In()/10. + Werte.Ko()/10.) );
+  Werte.setWk(random.integer(1,100)-40 + 3*(Werte.In()/10 + Werte.Ko()/10) );
   {
 //  int sb = constraint_aw(random,Werte.Spezies()->Sb()) 
-    int sb = random.integer(1,100) + 3*(Werte.In()/10. + Werte.Wk()/10.) - 30;
+    int sb = random.integer(1,100) + 3*(Werte.In()/10 + Werte.Wk()/10) - 30;
     // Boni für Selbstbeherrschung: Assassine, Beschwörer & Druide
     sb += Typ[0]->Sb() + Typ[1]->Sb();
     // Saddhu
@@ -74,7 +75,7 @@ void midgard_CG::on_abge_werte_setzen_clicked()
    for (int i=0;i<ganz;++i) gewicht+=random.integer(1,6) ;
    if (Werte.Spezies()->Name()=="Mensch" && Werte.Geschlecht()=="w")
     gewicht-=4;
-   gewicht += Werte.St()/10. + Werte.Groesse();
+   gewicht += Werte.St()/10 + Werte.Groesse();
    if(Werte.Spezies()->Name()=="Mensch")
        gewicht-=120;
     else if (Werte.Spezies()->Name()=="Elf")
@@ -98,22 +99,14 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   }
   {
     int istand=random.integer(1,100);
-    int typstand = Typ[0]->Stand();
-
-/*
->     int typstand = Typ[0]->Stand();   // Anscheinend für
-> Doppelcharaktere
->     (typstand<Typ[1]->Stand()) ? typstand=Typ[1]->Stand() : istand +=
-> typstand;
-> // Falls der Standmodifikator von Typ0 < Typ1, wird typstand = Typ1,
-> sonst wird Typ1 addiert. Ne.
-> Besser: 
->     (typstand<Typ[1]->Stand()) ? istand+=Typ[1]->Stand() : istand +=
-> typstand;
-> 
-*/
-
-    (typstand<Typ[1]->Stand()) ? typstand=Typ[1]->Stand() : istand += typstand;
+    int typstand1 = Typ[0]->Stand();
+    int typstand2 = Typ[1]->Stand();
+    if(typstand1*typstand2 <= 0 ) istand += typstand1 + typstand2 ;
+    else  // gleiches Vorzeichen
+     { int t= (abs(typstand1)>abs(typstand2)) ? abs(typstand1) : abs(typstand2);
+       if (typstand1<0) t*=-1;
+       istand += t;
+     }
 //std::cout << "typstand\t"<<typstand<<"\n";
     std::string stand;  
     if(Werte.Spezies()->Name()=="Mensch")
@@ -153,7 +146,7 @@ void midgard_CG::original_midgard_check()
 {
    int st=Werte.St(),gw=Werte.Gw(),gs=Werte.Gs(),ko=Werte.Ko(),in=Werte.In(),zt=Werte.Zt();
    if (st>100) st=100;
-   if (st<1)  st=1;
+   if (st<1)   st=1;
    if (gw>100) gw=100;
    if (gw<1)   gw=1;
    if (gs>100) gs=100;

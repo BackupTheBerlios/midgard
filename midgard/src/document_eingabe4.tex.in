@@ -2,13 +2,14 @@
 %\usepackage{array}
 \usepackage{german}
 \usepackage[latin1]{inputenc}
-\usepackage[final]{epsfig}
+%\usepackage[final]{epsfig}
 %\usepackage{array}
+\usepackage[pdftex]{graphicx}
 \usepackage{tabularx}
 \usepackage{times}
-\usepackage{pstricks}
+%\usepackage{pstricks}
 
-\newrgbcolor{mygray}{0.75 0.75 0.75}
+%\newrgbcolor{mygray}{0.75 0.75 0.75}
 
 \pagestyle{empty}
 
@@ -60,8 +61,8 @@
 \newsavebox{\Lasso}   
 %\input{midgard_tmp_latexwertedef}
 \input{midgard_tmp_latexwerte}
-\IfFileExists{drache.ps}{\parbox{10cm}{\epsfig{width=10cm,angle=0,file=drache.ps}}}%
-{\parbox{10cm}{\epsfig{width=10cm,angle=0,file=@PACKAGE_DATA_DIR@drache.ps}}}
+\IfFileExists{drache.png}{\parbox{10cm}{\includegraphics[width=10cm]{drache.png}}}%
+{\parbox{10cm}{\includegraphics[width=10cm]{@PACKAGE_DATA_DIR@drache.png}}}
 \parbox[][][c]{7cm}{
 \LI
   \begin{tabularx}{7.0cm}{|c|X|}\hline
@@ -73,8 +74,8 @@
 \makebox[1.1cm]{Spieler}&{\namespieler}\\\hline
   \end{tabularx}
 }
-\IfFileExists{drache.ps}{\parbox{10cm}{\scalebox{-1 1}{\epsfig{width=10cm,angle=0,file=drache.ps}}}}%
-{\parbox{10cm}{\scalebox{-1 1}{\epsfig{width=10cm,angle=0,file=@PACKAGE_DATA_DIR@drache.ps}}}}
+%\IfFileExists{drache.png}{\parbox{10cm}{\scalebox{-1 1}{\includegraphics[width=10cm]{drache.png}}}}%
+%{\parbox{10cm}{\scalebox{-1 1}{\includegraphics[width=10cm]{@PACKAGE_DATA_DIR@drache.png}}}}
 
 \vspace*{2ex}
 \begin{minipage}[t]{13cm}
@@ -122,7 +123,7 @@ Gestalt&\makebox[0.8cm]{\gestalt}\\\hline
 Gewicht&\makebox[0.8cm]{{\gewicht}}\\\hline
 \end{tabular}\hfill
 \begin{tabular}{|c|l|}\hline
-Körpergröße&\makebox[0.8cm]{{\koerpergroesse}}\\\hline
+Körpergröße&\makebox[0.8cm]{\resizebox*{1.0cm}{1.5ex}{\koerpergroesse~(\koerpergroessebez)}}\\\hline
 \end{tabular}
 
 \vspace{1ex}
@@ -195,8 +196,8 @@ Berufe&{\beruf}\\\hline
 \end{tabular}
 
 \vspace{1ex}
-\IfFileExists{MAGUS-Logo-35mm.ps}{\parbox{1.5cm}{\epsfig{width=1.5cm,angle=0,file=MAGUS-Logo-35mm.ps}}}%
-{\parbox{1.5cm}{\epsfig{width=1.5cm,angle=0,file=@PACKAGE_DATA_DIR@MAGUS-Logo-35mm.ps}}}
+\IfFileExists{MAGUS-Logo-Text.png}{\parbox{1.5cm}{\includegraphics[width=1.5cm]{MAGUS-Logo-Text.png}}}%
+{\parbox{1.5cm}{\includegraphics[width=1.5cm]{@PACKAGE_DATA_DIR@MAGUS-Logo-Text.png}}}
 \hfill
 \parbox[t]{7.5cm}{
 \tiny
@@ -216,8 +217,8 @@ Sechster Sinn  & \sinnss   &Geistmagie    & \bopsy &Umgebungsmagie & \phk& \\
 \end{tabular}
 }
 \hfill
-\IfFileExists{wurfbeil.ps}{\parbox{2cm}{\epsfig{width=2cm,angle=0,file=wurfbeil.ps}}}%
-{\parbox{2cm}{\epsfig{width=2cm,angle=0,file=@PACKAGE_DATA_DIR@wurfbeil.ps}}}
+\IfFileExists{wurfbeil.png}{\parbox{2cm}{\includegraphics[width=2cm]{wurfbeil.png}}}%
+{\parbox{2cm}{\includegraphics[width=2cm]{@PACKAGE_DATA_DIR@wurfbeil.png}}}
 %\hfill~
 
 \parbox{6cm}
@@ -364,8 +365,8 @@ Sprache&Wert&Schrift\\\hline\hline
       &{\waffeEh}&{\waffeAh}\\\cline{2-3}
       \raisebox{1.5ex}[-1.5ex]{\makebox[2cm][l]{{\waffeh}}}&{\waffeSh}&{\waffeVh}\\\hline\hline
     \end{tabular}
-\IfFileExists{schwert.ps}{\parbox{7.5cm}{\epsfig{width=7.5cm,angle=0,file=schwert.ps}}}%
-{\parbox{7.5cm}{\epsfig{width=7.5cm,angle=0,file=@PACKAGE_DATA_DIR@schwert.ps}}}
+\IfFileExists{schwert.png}{\parbox{7.5cm}{\includegraphics[width=7.5cm]{schwert.png}}}%
+{\parbox{7.5cm}{\includegraphics[width=7.5cm]{@PACKAGE_DATA_DIR@schwert.png}}}
  \vspace*{2ex}
  \footnotesize
 \parbox{7.7cm}

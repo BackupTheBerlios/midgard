@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.23 2002/02/04 11:01:01 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.24 2002/02/21 21:56:26 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -111,6 +111,7 @@ public:
    std::string Hand() const {return hand;}
    int Gewicht() const {return gewicht;}
    int Groesse() const {return groesse;}
+   std::string GroesseBez() const ;
    int Grad() const {return grad;}
    int SG() const {return sg;}
    int GG() const {return gg;}

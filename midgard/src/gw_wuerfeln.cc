@@ -1,4 +1,4 @@
-// $Id: gw_wuerfeln.cc,v 1.32 2002/02/19 08:46:05 thoma Exp $
+// $Id: gw_wuerfeln.cc,v 1.33 2002/02/21 21:56:26 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,6 +29,7 @@ gint midgard_CG::on_button_grundwerte_button_release_event(GdkEventButton *ev)
   if (ev->button==1) grundwerte_wuerfeln();
   if (ev->button==2) Eigenschaften_variante(2);
   if (ev->button==3) Eigenschaften_variante(3);
+  button_grundwerte->set_sensitive(false);
   return false;
 }
 
@@ -44,9 +45,12 @@ void midgard_CG::grundwerte_wuerfeln()
 
 void midgard_CG::Eigenschaften_variante(int i)
 {
+  std::vector<int> a350;
   if (i==1) 
    { gw_wuerfeln_2x();
      table_werte_wuerfeln->hide();
+     std::vector<int> dummy;
+     check_350(dummy);
    }
   else if (i==2)
    {
@@ -103,9 +107,34 @@ void midgard_CG::Eigenschaften_variante(int i)
      button_wert_8->show();
      button_wert_9->show();
      table_werte_wuerfeln->show();
+     for(int i=0;i<6;++i) a350.push_back(V[i]) ;
    }
   button_abg_werte->set_sensitive(true);
+  check_350(a350);
 }
+
+void midgard_CG::check_350(const std::vector<int>& a)
+{
+  int sum=0;
+  if(a.empty())
+   { sum  = Werte.St() + Werte.Gs() + Werte.Gw() 
+          + Werte.Ko() + Werte.In() + Werte.Zt(); 
+   }
+  else
+   {
+     assert(a.size()==6);
+     for (std::vector<int>::const_iterator i=a.begin();i!=a.end();++i)
+       sum += *i;
+   }   
+  if(sum<350)
+   {  regnot("Summe der Eigenschaftswerte "+itos(sum)+" kleiner als 350. Nochmal würfeln.");
+      button_grundwerte->set_sensitive(true);
+      button_abg_werte->set_sensitive(false);
+      Werte.clear();            
+   }
+}
+
+
 
 //////////////////////////////////////////////////////////////////////////
 void midgard_CG::gw_setzen(Gtk::Label *L,int button)
@@ -124,6 +153,8 @@ void midgard_CG::gw_setzen(Gtk::Label *L,int button)
    {
     table_werte_wuerfeln->hide();
     table_bw_wurf->hide();
+    std::vector<int> dummy;
+    check_350(dummy);
     return;
    }
 

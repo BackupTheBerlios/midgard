@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.166 2002/02/21 14:30:13 thoma Exp $
+// $Id: midgard_CG.cc,v 1.167 2002/02/21 21:56:26 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -43,15 +43,15 @@ midgard_CG::midgard_CG(const string &datei)
   optionmenu_init();  
   Optionen_init();
   Hausregeln_init();
-  load_options();
+
+//X  load_options();
 
   on_neuer_charakter_clicked();
   set_tree_titles();
   if (!datei.empty()) xml_import(datei);
 
-//  notebook_main->set_page(PAGE_INFO);
-  wizard_starten_clicked();
-
+  notebook_main->set_page(PAGE_GRUNDWERTE);
+//X  wizard_starten_clicked();
   // für die NEWS
   Gtk::OStream os(list_news);
   os << 
@@ -105,6 +105,13 @@ void midgard_CG::set_tree_titles()
  preis.push_back("Eigenschaft");
  preis.push_back("Kostenfaktor");
  preise_tree->setTitles(preis);
+
+ std::vector<std::string> beruf;
+ beruf.push_back("Beruf"); 
+ beruf.push_back("Gelernt"); 
+ beruf.push_back("Fertigkeit"); 
+ beruf.push_back("Kategorie"); 
+ Beruf_tree->setTitles(beruf);          
 }
 
 void midgard_CG::on_radiobutton_frau_toggled()
@@ -304,6 +311,8 @@ void midgard_CG::on_neuer_charakter_clicked()
    tree_lernschema->clear();
    label_lernschma_titel->set_text("");
 
+
+   button_grundwerte->set_sensitive(true);
    button_abg_werte->set_sensitive(false);
    button_beschreibung->set_sensitive(false);
    frame_steigern->set_sensitive(false); // das wirkt nicht ?
@@ -323,6 +332,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    button_waffen->set_sensitive(false);
    button_zauber->set_sensitive(false);
    table_berufswahl->set_sensitive(false);
+   scrolledwindow_beruf->hide();
    label_berufskategorie->hide();
    label_berufsstern_erklaerung->hide();
    togglebutton_spezialwaffe->set_active(false);
@@ -348,6 +358,7 @@ void midgard_CG::on_neuer_charakter_clicked()
 //   button_beruf->set_sensitive(false);
 
    Werte.clear();
+
    lernpunkte.clear();
    Typ.clear();
    Typ.resize(2);

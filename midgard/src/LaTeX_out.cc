@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.99 2002/02/21 10:23:30 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.100 2002/02/21 21:56:26 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -45,19 +45,27 @@ void midgard_CG::on_latex_clicked(bool values=true)
    }
  if (values) LaTeX_write_values();
  else LaTeX_write_empty_values();
+/*
  system("latex midgard_tmp_document_eingabe.tex");
  system("dvips -t landscape midgard_tmp_document_eingabe.dvi");
  system("gv -seascape midgard_tmp_document_eingabe.ps &");
-
+*/
+ system("pdflatex midgard_tmp_document_eingabe.tex");
+ system("acroread midgard_tmp_document_eingabe.pdf");
  // Zauber
  if (list_Zauber.size()>0 || list_Zauberwerk.size()>0)
  {
     LaTeX_zauber_main();
     LaTeX_zauber();
     LaTeX_zaubermittel();
+/*
     system("latex midgard_tmp_document_zauber.tex");
     system("dvips -t landscape midgard_tmp_document_zauber.dvi");
     system("gv -seascape midgard_tmp_document_zauber.ps &");
+*/
+    system("pdflatex midgard_tmp_document_zauber.tex");
+    system("acroread midgard_tmp_document_zauber.pdf");
+
  }
 
  // KiDo
@@ -65,9 +73,14 @@ void midgard_CG::on_latex_clicked(bool values=true)
  {
     midgard_CG::LaTeX_kido_main();
     midgard_CG::LaTeX_kido();
+/*
     system("latex midgard_tmp_document_kido.tex");
     system("dvips -t landscape midgard_tmp_document_kido.dvi");
     system("gv -seascape midgard_tmp_document_kido.ps &");
+*/
+    system("pdflatex midgard_tmp_document_kido.tex");
+    system("acroread midgard_tmp_document_kido.pdf");
+
  }
 }      
 
@@ -153,6 +166,7 @@ void midgard_CG::LaTeX_write_values()
  fout << "\\newcommand{\\gestalt}{"  <<LaTeX_scale(Werte.Gestalt(),5,"0.7cm") << "}\n";
  fout << "\\newcommand{\\gewicht}{"  <<Werte.Gewicht() << "\\,kg}\n";
  fout << "\\newcommand{\\koerpergroesse}{"  <<Werte.Groesse()/100. << "\\,m}\n";
+ fout << "\\newcommand{\\koerpergroessebez}{"  <<Werte.GroesseBez() << "}\n";
  fout << "\\newcommand{\\grad}{"  <<Werte.Grad() << "}\n";
  fout << "\\newcommand{\\spezialisierung}{ "  <<LaTeX_scale(Werte.Spezialisierung(),10,"2.2cm") << "}\n";
  fout << "\\newcommand{\\stand}{"  <<LaTeX_scale(Werte.Stand(),10,"1.5cm") << "}\n";

@@ -57,11 +57,12 @@ void Wizard_window::fill_vecwiz()
 {
    //START
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
-                          "Dieser Wizard hilft einen neuen Abenteurer zu erzeugen.",
+                          "Dieser Wizard hilft einen neuen Abenteurer zu erzeugen."
+                          "'Weiter' führt jeweils den nächsten Schritt aus.",
                           &midgard_CG::wizard_do_nothing));
    //SPEZIES
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
-                          "Spezies auswählen (oder weiter)",
+                          "Spezies auswählen (oder mit 'Weiter' 'Mensch' wählen.)",
                           &midgard_CG::wizard_do_something));
    //GRUNDWERTE
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
@@ -69,15 +70,15 @@ void Wizard_window::fill_vecwiz()
                           &midgard_CG::wizard_do_something));
    //GESCHLECHT
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
-                          "Geschlecht wählen (oder weiter)",
+                          "Geschlecht wählen (oder mit 'Weiter' 'männlich' wählen.)",
                           &midgard_CG::wizard_do_something));
    //TYP
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
-                          "Abenteurertyp wählen (oder weiter)",
+                          "Abenteurertyp wählen (oder mit 'Weiter' 'Assassine' wählen.)",
                           &midgard_CG::wizard_do_something));
    //STADTLAND
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
-                          "Stadt oder Land wählen (oder weiter)",
+                          "Stadt oder Land wählen (oder mit 'Weiter' 'Stadt' wählen.)",
                           &midgard_CG::wizard_do_something));
    //ABGELEITETEWERTE
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
@@ -89,7 +90,7 @@ void Wizard_window::fill_vecwiz()
                           &midgard_CG::wizard_do_something));
    //ANGEBORENEFERTIGKEITEN
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
-                          "Für die angeborenen Fertigkeiten würfeln",
+                          "Angeborenen Fertigkeiten würfeln",
                           &midgard_CG::wizard_do_something));
    //LERNPUNKTE
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,

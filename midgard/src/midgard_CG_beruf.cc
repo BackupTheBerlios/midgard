@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.49 2002/02/21 14:30:13 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.50 2002/02/21 21:56:26 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,7 +36,7 @@ gint midgard_CG::on_button_beruf_release_event(GdkEventButton *ev)
      vbox_berufsname->show();
      entry_berufsname->grab_focus();
    }
-//  table_berufswahl->set_sensitive(false);
+  table_berufswahl->set_sensitive(false);
   return false;
 }
 
@@ -74,19 +74,29 @@ void midgard_CG::deleteBerufsFertigekeit()
 }
 
 
-void midgard_CG::showBerufsLernList(std::list<cH_MidgardBasicElement>& L)
+void midgard_CG::showBerufsLernList()
 {
+  label_lernschma_titel->set_text("Beruf");
+  std::list<cH_MidgardBasicElement> L;
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=Database.Beruf.begin();i!=Database.Beruf.end();++i)
+   {
+     if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name())) continue;
+     cH_Beruf b(*i);
+     if ( !b->Typ(Typ) ||  !b->Stand(Werte.Stand()) ) continue;
+     if(!b->Stadt() && Werte.Stadt_Land()=="Stadt") continue;
+     if(!b->Land()  && Werte.Stadt_Land()=="Land") continue;
+     L.push_back(*i);
+   }
+
   L.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME));
   std::vector<cH_RowDataBase> datavec;
   bool gelerntes=false;
-cout << "Show\n";
   for(std::list<cH_MidgardBasicElement>::const_iterator i=L.begin();i!=L.end();++i)
     {
       cH_Beruf b(*i);
       std::vector<string> fert=b->Vorteile();
       for(std::vector<string>::const_iterator j=fert.begin();j!=fert.end();++j)
        {
-cout << (*i)->Name()<<' '<<*j<<'\n';
          int kat;
          if(*j=="Schmecken+10") kat=1;
          else kat=cH_Fertigkeit(*j)->Berufskategorie();
@@ -104,7 +114,10 @@ cout << (*i)->Name()<<' '<<*j<<'\n';
        }
     }
   if(gelerntes) label_berufsstern_erklaerung->show();
-  tree_lernschema->setDataVec(datavec);
+  Beruf_tree->setDataVec(datavec);
+  Beruf_tree->Expand_recursively();
+  scrolledwindow_beruf->show();
+  scrolledwindow_lernschema->hide();
 }
 
 void midgard_CG::beruf_gewuerfelt(int wurf)
@@ -134,7 +147,41 @@ void midgard_CG::beruf_gewuerfelt(int wurf)
     BKategorie.kat_IV=true; }
     label_berufskategorie->set_text(kat);
     label_berufskategorie->show();
-// showBerufsLernList();
-  show_lernschema(MidgardBasicElement::BERUF);
+
+  showBerufsLernList();
 }
 
+void midgard_CG::on_beruf_tree_leaf_selected(cH_RowDataBase d)
+{
+    const Beruf_Data *dt=dynamic_cast<const Beruf_Data*>(&*d);
+    cH_MidgardBasicElement mbe(&*cH_Beruf(dt->Beruf()));
+    MidgardBasicElement_uebernehmen(mbe);
+    if(dt->Gelernt()) // Erfolgswert um eins erhöhen
+      for (std::list<cH_MidgardBasicElement>::const_iterator k=list_Fertigkeit.begin();k!=list_Fertigkeit.end();++k)
+        {
+          if((*k)->Name()==dt->Fert())
+           { (*k)->add_Erfolgswert(1);
+             if((*k)->What()==MidgardBasicElement::FERTIGKEIT)
+                cH_Fertigkeit(*k)->setLernArt("Beruf+");
+           }
+        }
+    else // neue Fertigkeit
+      {
+         cH_MidgardBasicElement saf(&*cH_Fertigkeit(dt->Fert()));
+         MidgardBasicElement_uebernehmen(saf,true);
+      }
+    if (!BKategorie.kat_IV || (dt->Kat()==3 || dt->Kat()==4))
+      {
+         tree_lernschema->clear();
+         label_berufskategorie->set_text("");
+         label_berufskategorie->hide();
+         label_berufsstern_erklaerung->hide();
+         scrolledwindow_beruf->hide();
+         label_lernschma_titel->set_text("");
+      }
+    else
+      {
+         BKategorie.kat_IV=false;
+      }
+ show_gelerntes();
+}

@@ -1,4 +1,4 @@
-// $Id: grundwere_edit_setzen.cc,v 1.31 2002/02/14 13:21:27 thoma Exp $
+// $Id: grundwere_edit_setzen.cc,v 1.32 2002/02/21 21:56:26 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -114,7 +114,11 @@ void midgard_CG::on_entry_glaube_activate()
 void midgard_CG::on_entry_herkunft_activate()
 { set_all_entrys(); entry_glaube->grab_focus();}
 void midgard_CG::on_spinbutton_grad_activate()
-{ set_all_entrys(); spinbutton_lp->grab_focus();}
+{ 
+  gtk_spin_button_update(spinbutton_grad->gtkobj());  
+  Database.GradAnstieg.set_Grad_Basiswerte(spinbutton_grad->get_value_as_int());
+  set_all_entrys(); spinbutton_lp->grab_focus();
+}
 void midgard_CG::on_spinbutton_lp_activate()
 { set_all_entrys(); spinbutton_ap->grab_focus();}
 void midgard_CG::on_spinbutton_ap_activate()
@@ -174,7 +178,11 @@ gint midgard_CG::on_entry_glaube_focus_out_event(GdkEventFocus *ev)
 gint midgard_CG::on_entry_herkunft_focus_out_event(GdkEventFocus *ev)
 { set_all_entrys(); return false;}
 gint midgard_CG::on_spinbutton_grad_focus_out_event(GdkEventFocus *ev)
-{ set_all_entrys(); return false;}
+{ 
+  gtk_spin_button_update(spinbutton_grad->gtkobj());  
+  Database.GradAnstieg.set_Grad_Basiswerte(spinbutton_grad->get_value_as_int());
+  set_all_entrys(); return false;
+}
 gint midgard_CG::on_spinbutton_lp_focus_out_event(GdkEventFocus *ev)
 { set_all_entrys(); return false;}
 gint midgard_CG::on_spinbutton_ap_focus_out_event(GdkEventFocus *ev)
