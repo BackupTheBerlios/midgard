@@ -26,7 +26,7 @@ void table_steigern::init(midgard_CG *h)
   flashing_gradanstieg->set(Anpass_trans_50_xpm,Anpass_trans_50_invers_xpm,0);
 
   zeige_werte();
-  load_for_page(notebook_lernen->get_current_page_num());
+  load_for_page(notebook_lernen->get_current_page());
   steigern_mit_EP_bool=true;
 //  checkbutton_EP_Geld->set_active(steigern_mit_EP_bool);
 
@@ -49,7 +49,7 @@ void table_steigern::init(midgard_CG *h)
    only_once=true;
    bool_CheckButton *_m=manage(new bool_CheckButton(steigern_mit_EP_bool,hauptfenster->make_gtk_box(EP_Steigern_50_xpm,"Mit EP/PP\nsteigern",false)));
    _m->set_mode(false);
-   _m->signal_toggled().connect_after(SigC::slot(*this, &table_steigern::on_checkbutton_EP_Geld_toggled));
+   _m->signal_toggled().connect(SigC::slot(*this, &table_steigern::on_checkbutton_EP_Geld_toggled),true);
    eventbox_eppp_steigern->add(*_m);
    eventbox_eppp_steigern->show_all();
   }
@@ -225,3 +225,15 @@ void table_steigern::zeige_werte()
 
 }
 
+table_steigern::table_steigern(GlademmData *_data) 
+         : table_steigern_glade(_data),hauptfenster(0),LL(0),
+            steigern_mit_EP_bool(true) 
+{  clist_ruestung->set_model(RuestungStore);
+   clist_ruestung->append_column("Rüstung",ruestung_columns.name);
+   clist_ruestung->append_column("",ruestung_columns.abkz);
+   clist_ruestung->append_column("LP\nVerlust",ruestung_columns.lp_verlust);
+   clist_ruestung->append_column("min.\nStärke",ruestung_columns.min_staerke);
+   clist_ruestung->append_column("Gw\nVerlust",ruestung_columns.rw_verlust);
+   clist_ruestung->append_column("B\nVerlust",ruestung_columns.b_verlust);
+   clist_ruestung->get_selection()->signal_changed().connect(SigC::slot(*this,&table_steigern::on_ruestung_selection_changed));
+}

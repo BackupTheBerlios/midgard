@@ -1,4 +1,4 @@
-// $Id: Ruestung.hh,v 1.16 2002/11/06 20:03:26 thoma Exp $               
+// $Id: Ruestung.hh,v 1.17 2002/12/13 18:35:22 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -55,10 +55,9 @@ class cH_Ruestung : public Handle<const Ruestung>
 {
     typedef CacheStatic<std::string,cH_Ruestung> cache_t;
     static cache_t cache;
-    friend class std::map<std::string,cH_Ruestung>;
-    cH_Ruestung() {}
   public:
 //   cH_Ruestung() {*this=new Ruestung();}
+   cH_Ruestung() {} // needed for e.g. Gtk::TreeModelColumn<cH_Ruestung>
    cH_Ruestung(const std::string& name, bool create=false);
    cH_Ruestung(const Tag *tag);
    cH_Ruestung(const Ruestung *s) : Handle<const Ruestung>(s) {};

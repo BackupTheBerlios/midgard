@@ -17,7 +17,7 @@
  */
 
 #include <Misc/EntryValueIntString.h>
-#include <rowdata.h>
+#include <RowDataBase.h>
 #include <Abenteurer.hh>
 
 class Data_AbenteurerListe : public RowDataBase

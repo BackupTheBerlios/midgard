@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen_icons.cc,v 1.29 2002/12/12 11:00:50 christof Exp $
+// $Id: midgard_CG_optionen_icons.cc,v 1.30 2002/12/13 18:35:22 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,9 +29,9 @@ void midgard_CG::Icons_setzen()
      st_icons I=StyleIcon(icon_counter);
      icon_counter=e_icon(int(icon_counter)+1);
 
-     if(Gtk::Image::isA((*i)->get_content())) 
+     if(dynamic_cast<Gtk::Image*>((*i)->get_content())) 
         dynamic_cast<Gtk::Image*>((*i)->get_content())->set(I.icon);
-     if(Gtk::Label::isA((*i)->get_label())) 
+     if(dynamic_cast<Gtk::Label*>((*i)->get_label())) 
         (*i)->get_label()->set_text(I.text);
    }
 
@@ -57,24 +57,24 @@ void midgard_CG::Icons_setzen()
 
 void midgard_CG::Box_setzen(Gtk::Widget *child,st_icons I)
 {
-  if(child && Gtk::Box::isA(child)) 
+  if(child && dynamic_cast<Gtk::Box*>(child)) 
    {
      Gtk::Box_Helpers::BoxList &ch=dynamic_cast<Gtk::Box*>(child)->children();
      for(Gtk::Box_Helpers::BoxList::iterator i=ch.begin();i!=ch.end();++i)
       {
-        if(Gtk::Image::isA((*i)->get_widget())) 
+        if(dynamic_cast<Gtk::Image*>((*i)->get_widget())) 
             dynamic_cast<Gtk::Image*>((*i)->get_widget())->set(I.icon);
-        if(Gtk::Label::isA((*i)->get_widget()) )
+        if(dynamic_cast<Gtk::Label*>((*i)->get_widget()) )
             dynamic_cast<Gtk::Label*>((*i)->get_widget())->set_text(I.text);
       }
    }
-  else if(child && Gtk::Bin::isA(child)) 
+  else if(child && dynamic_cast<Gtk::Bin*>(child)) 
      Box_setzen(dynamic_cast<Gtk::Bin*>(child)->get_child(),I);
 }
 
 void midgard_CG::Bin_setzen(Gtk::Widget *child,st_icons I)
 {
-  if(child && Gtk::Image::isA(child))
+  if(child && dynamic_cast<Gtk::Image*>(child))
      dynamic_cast<Gtk::Image*>(child)->set(I.icon);
 }
 

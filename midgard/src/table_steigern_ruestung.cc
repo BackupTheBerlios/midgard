@@ -18,14 +18,13 @@
 
 #include "midgard_CG.hh"
 #include "table_steigern.hh"
-#include <Gtk_OStream.h>
 #include <Misc/itos.h>
 #include <LernListen.hh>
 
 void table_steigern::on_button_ruestung_1_toggled()
 {
  if(!button_ruestung_1->get_active()) 
-   { clist_ruestung->clear();
+   { RuestungStore->clear();
      clist_ruestung->set_sensitive(false);
      return;
    }
@@ -37,7 +36,7 @@ void table_steigern::on_button_ruestung_1_toggled()
 void table_steigern::on_button_ruestung_2_toggled()
 {
  if(!button_ruestung_2->get_active())
-   { clist_ruestung->clear();
+   { RuestungStore->clear();
      clist_ruestung->set_sensitive(false);
      return;
    }
@@ -46,10 +45,11 @@ void table_steigern::on_button_ruestung_2_toggled()
 }
                 
 
-void table_steigern::on_clist_ruestung_select_row(gint row, gint column, GdkEvent *event)
-{   
-  cH_Ruestung R=static_cast<Ruestung*>(clist_ruestung->selection().begin()->get_data());
-//  Werte.set_Ruestung(clist_ruestung->get_text(row,1));
+void table_steigern::on_ruestung_selection_changed()
+{ if (clist_ruestung->get_selection()->get_selected()==RuestungStore->children().end()) return;
+  
+  cH_Ruestung R=(*clist_ruestung->get_selection()->get_selected())[ruestung_columns.ruestung];
+
   if(R->Min_Staerke()<=hauptfenster->getWerte().St())
    {
      if(button_ruestung_1->get_active())
@@ -72,18 +72,21 @@ void table_steigern::on_clist_ruestung_select_row(gint row, gint column, GdkEven
 void table_steigern::fill_ruestung() 
 {
 // show_label();
- clist_ruestung->clear();
- Gtk::OStream os(clist_ruestung);
+ RuestungStore->clear();
  std::vector<cH_Ruestung> VR=LL->getRuestung();
  for(std::vector<cH_Ruestung>::const_iterator i=VR.begin();i!=VR.end();++i)
    { cH_Ruestung r(*i);
+     Gtk::TreeModel::iterator iter = RuestungStore->append();
+
+     (*iter)[ruestung_columns.name]=r->Long();
+     (*iter)[ruestung_columns.abkz]=r->Name();
+     (*iter)[ruestung_columns.lp_verlust]=r->LP_Verlust();
+     (*iter)[ruestung_columns.min_staerke]=r->Min_Staerke();
+     (*iter)[ruestung_columns.rw_verlust]=r->RW_Verlust();
      bool dummy;
-     os << r->Long() <<"\t"<<r->Name()<<"\t"<<r->LP_Verlust()<<"\t"
-        <<r->Min_Staerke()<<"\t"<<r->RW_Verlust()<<"\t"<<r->B_Verlust(0,hauptfenster->getWerte(),dummy)<<"\n";
-     os.flush(r->ref());
+     (*iter)[ruestung_columns.b_verlust]=r->B_Verlust(0,hauptfenster->getWerte(),dummy);
+     (*iter)[ruestung_columns.ruestung]=r;
    } 
- for (unsigned int i=0;i<clist_ruestung->columns().size();++i)
-   clist_ruestung->set_column_auto_resize(i,true);  
  clist_ruestung->set_sensitive(true);
 }
 
@@ -96,3 +99,8 @@ void table_steigern::show_label()
   label_ruestung_2->set_text(hauptfenster->getWerte().Ruestung(1)->Long());
 }
 
+table_steigern::RuestungColumns::RuestungColumns()
+{  add(name); add(abkz); add(lp_verlust); 
+   add(min_staerke); add(rw_verlust); add(b_verlust);
+   add(ruestung);
+}

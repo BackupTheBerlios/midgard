@@ -18,6 +18,8 @@ class midgard_CG;
 class LernListen;
 #include "Enums.hh"
 #include <Model.h>
+#include <gtkmm/liststore.h>
+#include "Ruestung.hh"
 
 class table_steigern : public table_steigern_glade
 {  
@@ -40,12 +42,19 @@ class table_steigern : public table_steigern_glade
         Model<bool> steigern_mit_EP_bool;
         enum enum_notebook_lernen{PAGE_FERTIGKEITEN,PAGE_WAFFEN,PAGE_ZAUBER,
                                   PAGE_KIDO,PAGE_SPRACHE,PAGE_BESITZ};
+
+        Glib::RefPtr<Gtk::ListStore> RuestungStore;
+        struct RuestungColumns : public Gtk::TreeModelColumnRecord
+        {  Gtk::TreeModelColumn<Glib::ustring> name,abkz;
+           Gtk::TreeModelColumn<int> lp_verlust,min_staerke,rw_verlust,b_verlust;
+           Gtk::TreeModelColumn<cH_Ruestung> ruestung;
+           RuestungColumns();
+        };
+        RuestungColumns ruestung_columns;
                                   
 public:
         
-        table_steigern(GlademmData *_data) 
-         : table_steigern_glade(_data),hauptfenster(0),LL(0),
-            steigern_mit_EP_bool(true) {}
+        table_steigern(GlademmData *_data) ;
         void init(midgard_CG *hauptfenster);
 
 private:
@@ -184,7 +193,7 @@ private:
         bool on_checkbutton_gfp_button_release_event(GdkEventButton *ev);
         bool on_button_gold_eingeben_button_release_event(GdkEventButton *ev);
         bool on_button_EP_eingeben_button_release_event(GdkEventButton *ev);
-        void on_clist_ruestung_select_row(gint row, gint column, GdkEvent *event);
+        void on_ruestung_selection_changed();
         void on_button_ruestung_1_toggled();
         void on_button_ruestung_2_toggled();
         void on_leaf_waffenbesitz_selected_alt(cH_RowDataBase d);
