@@ -20,19 +20,36 @@
 #include "KI.hh"
 #include "zufall.h"
 #include <Misc/itos.h>
+#include "Zauber.hh"
+#include "Fertigkeiten.hh"
 
 void MagusKI::VerteileGFP(int gfp,const Prozente100 &p,
                           const Grund_Standard_Ausnahme_MBE &gsa)
 {
   prozente100=p;
   GSA_MBE=gsa;
+  vec_Prototypen.clear();
+  use_GSA_MBE=true;
+  Verteile(gfp);
+}
+
+void MagusKI::VerteileGFP(int gfp,const Prozente100 &p,const std::vector<cH_Prototyp2> &Prototypen)
+{
+  prozente100=p;
+  vec_Prototypen=Prototypen;
+  use_GSA_MBE=false;
+  Verteile(gfp);
+}
+
+void MagusKI::Verteile(int gfp)
+{
   int count=0,gfpmem=gfp; // wenn man nicht mitzählt, kann es zu Endlosschleifen kommen
   const int MAXCOUNT=100;
   while(gfp>0 && count<MAXCOUNT)
    {
      int i=random.integer(1,100);
      const Enums::MBEListen was=Was();
-     spezial_allgemein=p.getS(was);
+     int spezial_allgemein=prozente100.getS(was);
 
      if     (i<=spezial_allgemein) Steigern(gfp,was);
      else                          NeuLernen(gfp,was);
@@ -69,7 +86,9 @@ const Enums::MBEListen MagusKI::Was() const
 void MagusKI::NeuLernen(int &gfp,const Enums::MBEListen was)
 {
   std::list<MBEmlt> LL_=NeuLernenList(was,gfp);
-  std::list<MBEmlt> LL=KI_GSA_Liste(LL_);
+  std::list<MBEmlt> LL;
+  if(use_GSA_MBE)  LL=KI_GSA_Liste(LL_);
+  else             LL=KI_Prototypen_Liste(was,LL_,false);
   if(LL.empty()) return;
   std::vector<MBEmlt> V=List_to_Vector(LL);
   int j=random.integer(0,V.size()-1);
@@ -89,7 +108,9 @@ void MagusKI::NeuLernen(int &gfp,const Enums::MBEListen was)
 void MagusKI::Steigern(int &gfp,const Enums::MBEListen was) 
 {
   std::list<MBEmlt> &LL_=Aben.get_known_list(was);
-  std::list<MBEmlt> LL=KI_GSA_Liste(LL_);
+  std::list<MBEmlt> LL;
+  if(use_GSA_MBE) LL=KI_GSA_Liste(LL_);
+  else            LL=KI_Prototypen_Liste(was,LL_,true);
   if(LL.empty()) return;
   int j=random.integer(0,LL.size()-1);
   int x=0;
@@ -131,6 +152,38 @@ std::list<MBEmlt> MagusKI::NeuLernenList(const Enums::MBEListen was,const int gf
  LLD.shorten_for_GFP(LL,Aben,gfp);
  return LL;
 }
+
+
+struct st_sort{std::string name; int kosten;
+       st_sort(std::string n,int k) :name(n),kosten(k) {}
+       bool operator<(const st_sort &b) const {return kosten<b.kosten || 
+            (kosten==b.kosten && name<b.name); }
+       };
+
+std::list<MBEmlt> MagusKI::KI_Prototypen_Liste(const Enums::MBEListen was,const std::list<MBEmlt> &L,bool steigern)
+{
+  std::string Was;
+  if     (was==Enums::sFert)Was="F";
+  else if(was==Enums::sZaub)Was="Z";
+  else return L;
+  
+  std::list<st_sort> S;
+  for(std::list<MBEmlt>::const_iterator i=L.begin();i!=L.end();++i)
+   {
+     double fac=Prototyp2::fac_for(Was,(*(*i))->Name(),vec_Prototypen);
+     int kosten;
+     if(steigern)  kosten = (*i)->Steigern(Aben);
+     else          kosten = (*(*i))->Kosten(Aben);
+     S.push_back(st_sort((*(*i))->Name(),kosten*fac));
+   }
+  S.sort();
+  std::list<MBEmlt> newL;
+  if(S.empty()) return newL;
+  if     (was==Enums::sFert) newL.push_back(MBEmlt(&*cH_Fertigkeit(S.begin()->name)));
+  else if(was==Enums::sZaub) newL.push_back(MBEmlt(&*cH_Zauber(S.begin()->name)));
+  return newL;
+}
+
 
 std::list<MBEmlt> MagusKI::KI_GSA_Liste(const std::list<MBEmlt> &L)
 {

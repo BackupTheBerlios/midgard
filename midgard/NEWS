@@ -5,10 +5,10 @@ NEWS IN VERSION 0.8.8
 * 'Alles an GFP anpassen' steigert Abwehr/Resistenz/Zaubern/...
    auch bei Zwischenstufen.
 * Hausregel funktioniert wieder
+* Meeresmagier
 
 TODO: ('-' zeigt CP an)
 
-* Grundkenntnisse des Meeresmagier
 * Hilfe Menü ans Ende
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
   der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 

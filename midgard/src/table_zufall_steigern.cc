@@ -31,6 +31,7 @@
 #include "Optionen.hh"
 #include <Misc/itos.h>
 #include "Prototyp.hh"
+#include "Data_Prototyp.hh"
 
 void table_zufall::on_button_steigern_clicked()
 {
@@ -49,10 +50,28 @@ void table_zufall::on_button_steigern_clicked()
          int grad=spinbutton_grad->get_value_as_int();
          gfp=hauptfenster->random.integer(GA.getGFP(grad),GA.getGFP(grad+1));
          gfp-=hauptfenster->getWerte().GFP();
-cout << grad<<'\t'<<gfp<<'\n';
+//cout << grad<<'\t'<<gfp<<'\n';
          if(gfp<=0) return;
        }
-  MagusKI(hauptfenster).VerteileGFP(gfp,prozente100,GSA_MBE);
+  if(radiobutton_proto_verteilen->get_active())
+     MagusKI(hauptfenster).VerteileGFP(gfp,prozente100,GSA_MBE);
+  else
+   {
+     std::vector<cH_Prototyp2> Prototypen=getSelectedPrototypen();
+     MagusKI(hauptfenster).VerteileGFP(gfp,prozente100,Prototypen);
+   }
+}
+
+std::vector<cH_Prototyp2> table_zufall::getSelectedPrototypen()
+{
+  std::vector<cH_Prototyp2> P;
+  std::vector<cH_RowDataBase> VR=tree_prototyp->getSelectedRowDataBase_vec();
+  for(std::vector<cH_RowDataBase>::const_iterator i=VR.begin();i!=VR.end();++i)
+   {
+     const Data_Prototyp *dt=dynamic_cast<const Data_Prototyp*>(&**i);     
+     P.push_back(dt->getPrototyp());
+   }
+  return P;
 }
 
 

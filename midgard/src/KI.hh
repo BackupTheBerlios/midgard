@@ -33,8 +33,10 @@ class MagusKI
       LernListen LL;
       Prozente100 prozente100;
       Grund_Standard_Ausnahme_MBE GSA_MBE;
+      std::vector<cH_Prototyp2> vec_Prototypen;
+      bool use_GSA_MBE;
 
-      int spezial_allgemein;
+//      int spezial_allgemein;
       
 
       const Enums::MBEListen Was() const;
@@ -42,9 +44,11 @@ class MagusKI
       void NeuLernen(int &gfp,const Enums::MBEListen was);
       std::list<MBEmlt> NeuLernenList(const Enums::MBEListen was,const int gfp) const;
       std::list<MBEmlt> KI_GSA_Liste(const std::list<MBEmlt> &L);
+      std::list<MBEmlt> KI_Prototypen_Liste(const Enums::MBEListen was,const std::list<MBEmlt> &L,bool steigern);
 
       void Steigern(int &gfp,const Enums::MBEListen was) ; 
 
+      void Verteile(int gfp);
       enum eSL {eSteigern,eNeuLernen};
       bool allowed_for_grad(const MBEmlt &M,eSL was);
       int teste_auf_gradanstieg();
@@ -56,11 +60,12 @@ class MagusKI
       MagusKI(midgard_CG *h)
         : hauptfenster(h),  Aben(h->getChar().getAbenteurer()),
           Database(h->getCDatabase()),random(h->random) ,
-          LL(Database)
+          LL(Database),use_GSA_MBE(true)
           {};
 
       void VerteileGFP(int gfp,const Prozente100 &p,
                        const Grund_Standard_Ausnahme_MBE &gsa) ;
+      void VerteileGFP(int gfp,const Prozente100 &p,const std::vector<cH_Prototyp2> &Prototypen) ;
 
    private:
 };

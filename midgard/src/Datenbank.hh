@@ -1,4 +1,4 @@
-// $Id: Datenbank.hh,v 1.14 2002/10/04 06:20:12 thoma Exp $               
+// $Id: Datenbank.hh,v 1.15 2002/10/23 15:36:30 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,6 +36,7 @@
 #include "Ruestung.hh"
 #include "Midgard_Info.hh"
 #include "Prototyp.hh"
+#include "Prototyp2.hh"
 
 class midgard_CG;
 
@@ -66,6 +67,7 @@ class Datenbank
   std::vector<cH_PreiseNewMod> preisenewmod;
 
   std::list<cH_Prototyp> prototyp;
+  std::list<cH_Prototyp2> prototyp2;
   
    //Konstruktor
   Datenbank();

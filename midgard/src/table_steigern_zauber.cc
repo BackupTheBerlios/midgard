@@ -26,25 +26,6 @@
 
 void table_steigern::on_zauber_laden_clicked()
 {   
-/*
-  list_Zauber_neu.clear();
-  for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().Zauber.begin();i!=hauptfenster->getCDatabase().Zauber.end();++i)
-    { cH_Zauber z(*i);
-      if (MBEmlt(*i).ist_gelernt(hauptfenster->getChar()->List_Zauber()) && (*i)->ZusatzEnum(hauptfenster->getChar()->getVTyp())==MidgardBasicElement::ZNone) continue ;
-      if (z->Zauberart()=="Zaubersalz" && !togglebutton_zaubersalze->get_active())
-         continue;
-      if (z->Zauberart()=="Beschwörung" && !Region::isActive(hauptfenster->getCDatabase().Regionen,cH_Region("MdS")))
-         continue;
-      if (togglebutton_spruchrolle->get_active() && !z->Spruchrolle() ) continue;
-      if ((*i)->ist_lernbar(hauptfenster->getChar()->getVTyp(),z->get_MapTyp()) || togglebutton_alle_zauber->get_active() )
-      if (hauptfenster->region_check(z->Region()) && hauptfenster->nsc_check((*i)->NSC_only()))
-        {
-         if(togglebutton_spruchrolle->get_active()) z->setSpruchrolleFaktor(0.1);
-         else z->setSpruchrolleFaktor(1);
-         list_Zauber_neu.push_back(*i);            
-        }
-    }
-*/
  try{
   list_Zauber_neu=LL->get_steigern_Zauberliste(hauptfenster->getAben(),togglebutton_zaubersalze->get_active(),
                                            Region::isActive(hauptfenster->getCDatabase().Regionen,cH_Region("MdS",true)),
@@ -57,8 +38,6 @@ void table_steigern::on_zauber_laden_clicked()
 
 void table_steigern::zauber_zeigen()
 {
-// if (Typ[0]->Zaubern()=="n" && Typ[1]->Zaubern()=="n") return;
-// if(!hauptfenster->getChar()->Typ1()->is_mage() && !hauptfenster->getChar()->Typ2()->is_mage() ) return;
  if(!hauptfenster->getChar()->is_mage()) return;
  zeige_werte();
  MidgardBasicElement::show_list_in_tree(list_Zauber_neu,neue_zauber_tree,hauptfenster);

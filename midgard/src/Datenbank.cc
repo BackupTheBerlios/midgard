@@ -1,5 +1,5 @@
 
-// $Id: Datenbank.cc,v 1.22 2002/10/10 07:31:21 thoma Exp $               
+// $Id: Datenbank.cc,v 1.23 2002/10/23 15:36:30 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -83,5 +83,6 @@ void Datenbank::load(Midgard_Info* MI, midgard_CG *hauptfenster)
     preisemod = PreiseMod_All().get_All();
     preisenewmod = PreiseNewMod_All().get_All();
     prototyp = Prototyp_All().get_All();
+    prototyp2 = Prototyp2_All().get_All();
     MI->database_hide();  // can't do this yet
 }

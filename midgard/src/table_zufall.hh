@@ -39,6 +39,9 @@ class table_zufall : public table_zufall_glade
       void zeige_werte();
       void fill_combos();
       void fill_combo_steigern();
+      void fill_prototyp2_list();
+      void set_tree_prototyp_titels();
+      std::vector<cH_Prototyp2> getSelectedPrototypen();
       bool entry_is_a_prototyp(const std::string &e);
       void set_bereiche_spinbuttons();
       int get_spezialbildung();
@@ -102,6 +105,10 @@ class table_zufall : public table_zufall_glade
         void on_spinbutton_grund_activate();
         void on_spinbutton_standard_activate();
         void on_spinbutton_ausnahme_activate();
+
+        void on_tree_prototyp_leaf_selected(cH_RowDataBase d);
+        void on_radiobutton_proto_spezialisieren_toggled();
+        void on_radiobutton_proto_verteilen_toggled();
 
 };
 

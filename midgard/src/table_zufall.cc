@@ -29,12 +29,61 @@
 #include "Zufall.hh"
 #include "KI.hh"
 #include "Optionen.hh"
+#include "Prototyp2.hh"
+#include "Data_Prototyp.hh"
 
 void table_zufall::init(midgard_CG *h)
 {
   hauptfenster=h;
   fill_combos();
   fill_combo_steigern();
+  fill_prototyp2_list();
   zeige_werte();
+}
+
+void table_zufall::fill_prototyp2_list()
+{
+  std::list<cH_Prototyp2> L=hauptfenster->getCDatabase().prototyp2;
+  std::vector<cH_RowDataBase> datavec;
+  for(std::list<cH_Prototyp2>::const_iterator i=L.begin();i!=L.end();++i)
+   {
+     for(std::vector<Prototyp2::st_protolisten>::const_iterator j=(*i)->LZauber().begin();j!=(*i)->LZauber().end();++j)
+        datavec.push_back(new Data_Prototyp(*i,"Zauber",*j));
+     for(std::vector<Prototyp2::st_protolisten>::const_iterator j=(*i)->LFertigkeiten().begin();j!=(*i)->LFertigkeiten().end();++j)
+        datavec.push_back(new Data_Prototyp(*i,"Fertigkeiten",*j));
+   }
+  tree_prototyp->setDataVec(datavec);
+}
+
+void table_zufall::set_tree_prototyp_titels()
+{
+   std::vector<std::string> v;
+   v.push_back("Prototyp");
+   v.push_back("Art");
+   v.push_back("Name");
+   v.push_back("Faktor");
+   tree_prototyp->setTitles(v);
+}
+
+void table_zufall::on_radiobutton_proto_spezialisieren_toggled()
+{
+ if(radiobutton_proto_spezialisieren->get_active())
+  {
+   frame_spezialist_typen->set_sensitive(true);
+   frame_verteilung_auf->set_sensitive(false);
+  } 
+}
+
+void table_zufall::on_radiobutton_proto_verteilen_toggled()
+{
+ if(radiobutton_proto_verteilen->get_active())
+  {
+   frame_spezialist_typen->set_sensitive(false);
+   frame_verteilung_auf->set_sensitive(true);
+  } 
+}
+
+void table_zufall::on_tree_prototyp_leaf_selected(cH_RowDataBase d)
+{
 }
 

@@ -181,6 +181,7 @@ float Tag::getFloatAttr(const std::string &typ,float def) const throw()
    return def;
 }
 
+
 #include <cstdio>
 
 void Tag::setIntAttr(const std::string &name, int val)
