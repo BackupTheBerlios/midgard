@@ -25,11 +25,11 @@ public:
     
     void set(esteps was);
     void next_step();
-    void done(esteps was);
     
     bool can_skip(const Abenteurer &A);
     void set(esteps was,const Abenteurer &A);
     void next_step(const Abenteurer &A);
+    void skip_if_possible(const Abenteurer &A);
     void done(esteps was,const Abenteurer &A);
 };
 #endif

@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.8 2003/09/01 06:47:57 christof Exp $               
+// $Id: Grundwerte.hh,v 1.9 2003/09/05 06:20:13 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -31,7 +31,7 @@
 class Grundwerte
 {
    struct st_grund{int st;int gw;int gs;int ko;int in;int zt;
-          st_grund() :st(0),gw(0),gs(0),ko(0),in(0),zt(0) {}
+          st_grund() :st(),gw(),gs(),ko(),in(),zt() {}
           st_grund(int _st,int _gw,int _gs,int _ko,int _in,int _zt)
              :  st(_st),gw(_gw),gs(_gs),ko(_ko),in(_in),zt(_zt) {}
          };         

@@ -1,47 +1,65 @@
-#error hier geht's weiter
 
 #include "config.h"
 #include "Wizard.hh"
+#include <Misc/inbetween.h>
+#include "Abenteurer.hh"
 
-Wizard::esteps &operator++(Wizard::esteps &a)
-{  
-   a= Wizard::esteps(int(a)+1);
-   if(a==Wizard::MAXSTEPS) a=Wizard::esteps(int(Wizard::MAXSTEPS)-1);
-   return a;
+void Wizard::set(esteps was)
+{  act_step=was;
 }
 
-void Wizard::next_step(esteps e)
-{
-  actual_step=++e;
-  evaluate_step(actual_step);
+void Wizard::next_step()
+{  if (in(act_step.Value(),Inaktiv,FERTIG)) return;
+   act_step=esteps(int(act_step.Value())+1);
 }
 
-void Wizard::restart()
-{actual_step=START;
- evaluate_step(++actual_step);
-}
-
-
-void Wizard::evaluate_step(esteps step)
-{
-  assert(vecwiz.size()>(size_t)(step));
-//  std::vector<cH_Typen> Typ=hauptfenster->getVTyp();
-//cout <<"evaluate_step " <<step<<' '<<LERNSCHEMA_SEITE<<' '<<SPEZIALWAFFE<<' '<<SPEZIALGEBIET<<'\n';
-//  if(step==LERNSCHEMA_SEITE) { next_step(LERNSCHEMA_SEITE); return;}
-
-  if(step==SPEZIALWAFFE&&(!hauptfenster->getChar()->Typ1()->Spezialwaffe()&&!hauptfenster->getChar()->Typ2()->Spezialwaffe()))
-   {
-     next_step(SPEZIALWAFFE);
-     return;
+bool Wizard::can_skip(const Abenteurer &A)
+{  switch (act_step.Value())
+   {  case SPEZIALWAFFE:
+   	 return !A.Typ1()->Spezialwaffe() && !A.Typ2()->Spezialwaffe();
+      case SPEZIALGEBIET:
+         return !A.Typ1()->Spezialgebiet() && !A.Typ2()->Spezialgebiet();
+      case START:
+      case LERNSCHEMA_SEITE:
+         return true;
+      case SPEZIES:
+         return A.Spezies()->Name()!="Mensch" || A.St()>1 || A.Gw()>1;
+      case GRUNDWERTE:
+         return A.St()>1 || A.Gw()>1 || A.Gs()>1 || A.Ko()>1 || A.In()>1;
+      case GESCHLECHT:
+         return A.Geschlecht()!=Enums::Mann || A.Typ1()->Valid();
+      case TYP:
+         return A.Typ1()->Valid();
+      case STADTLAND: // !=Enums::Stadt
+      case ABGELEITETEWERTE:
+         return A.Sb()>1 || A.Au()>1 || A.pA()>1;
+      case HERKUNFT:
+         return !!A.Herkunft();
+#warning ...
+      default:
+         return false;
    }
-  if(step==SPEZIALGEBIET&&(!hauptfenster->getChar()->Typ1()->Spezialgebiet()&&!hauptfenster->getChar()->Typ2()->Spezialgebiet()))
-   {
-     next_step(SPEZIALGEBIET);
-     return;
-   }
-//  hauptfenster->notebook_main->set_current_page(vecwiz[step].page);
-//  hauptfenster->set_wizard(vecwiz[step].text);
-  hauptfenster->wizard_do_something(vecwiz[step].page,vecwiz[step].text);
+}
 
+void Wizard::set(esteps was,const Abenteurer &A)
+{  set(was);
+   skip_if_possible(A);
+}
+
+void Wizard::next_step(const Abenteurer &A)
+{  next_step();
+   skip_if_possible(A);
+}
+
+void Wizard::done(esteps was,const Abenteurer &A)
+{  if (act_step.Value()==Inaktiv) return;
+   // schauen ob das sinnvoll war - reicht das schon?
+   if (was<act_step.Value()) set(was);
+   else next_step();
+   skip_if_possible(A);
+}
+
+void Wizard::skip_if_possible(const Abenteurer &A)
+{  while (can_skip(A)) next_step();
 }
 
