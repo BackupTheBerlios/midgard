@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.19 2002/06/12 08:19:54 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.20 2002/06/12 11:05:13 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -333,9 +333,9 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
     // waffenloser Kampf:
 //WL    if (w->Name()=="waffenloser Kampf") 
 //WL         { i_waffenlos=atoi(wert.c_str());}
-      for (std::list<MidgardBasicElement_mutable>::const_iterator j=hauptfenster->getCChar().CList_Waffen_besitz().begin();j!=hauptfenster->getCChar().CList_Waffen_besitz().end();++j)
+      for (std::list<WaffeBesitz>::const_iterator j=hauptfenster->getCChar().CList_Waffen_besitz().begin();j!=hauptfenster->getCChar().CList_Waffen_besitz().end();++j)
      {
-      WaffeBesitz WB(*j);
+      WaffeBesitz WB=*j;
       if (WB.Waffe()->Name()==w->Name())
        {
          std::string b = LaTeX_string(countwaffen++);
