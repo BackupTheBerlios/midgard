@@ -1,4 +1,4 @@
-// $Id: Tag.cc,v 1.14 2001/01/31 12:13:51 christof Exp $
+// $Id: Tag.cc,v 1.15 2001/04/25 07:59:16 christof Exp $
 /*  glade--: C++ frontend for glade (Gtk+ User Interface Builder)
  *  Copyright (C) 1998  Christof Petig
  *

@@ -1,4 +1,4 @@
-// $Id: TagStream.hh,v 1.11 2000/08/28 12:34:56 christof Exp $
+// $Id: TagStream.hh,v 1.12 2001/04/25 07:59:16 christof Exp $
 /*  glade--: C++ frontend for glade (Gtk+ User Interface Builder)
  *  Copyright (C) 1998  Christof Petig
  *
