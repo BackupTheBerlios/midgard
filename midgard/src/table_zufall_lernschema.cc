@@ -176,14 +176,16 @@ void table_zufall::fill_combos()
 {
   bool nsc_allowed = hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active;
   LernListen LL(hauptfenster->getCDatabase());
+  std::list<std::string> L;
 
   // Typen
+  fill_combo_typen(LL,nsc_allowed);
+/*  
   const std::vector<pair<cH_Typen,bool> > T=LL.getTypen(hauptfenster->getAben(),nsc_allowed);
-  std::list<std::string> L;
   for(std::vector<pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
      L.push_back(i->first->Name(hauptfenster->getWerte().Geschlecht()));
   combo_typ->set_popdown_strings(L);
-
+*/
   // Spezies
   L.clear();
   std::vector<cH_Spezies> S=LL.getSpezies(nsc_allowed);
@@ -198,6 +200,22 @@ void table_zufall::fill_combos()
      L.push_back(i->first->Name());
  L.sort();
  combo_herkunft->set_popdown_strings(L);
+}
+
+void table_zufall::fill_combo_typen(const LernListen &LL,const bool nsc_allowed)
+{
+  std::list<std::string> L;
+  cH_Spezies spezies=hauptfenster->getWerte().Spezies();
+
+  // ist eine Spezies in der Combo gesetzt?
+  std::string ss=combo_spezies->get_entry()->get_text();
+  if(Spezies::get_Spezies_from_long(hauptfenster->getCDatabase().Spezies,ss))
+     spezies=Spezies::getSpezies(ss,hauptfenster->getDatabase().Spezies)  ;    
+
+  const std::vector<pair<cH_Typen,bool> > T=LL.getTypen(hauptfenster->getWerte(),spezies,nsc_allowed);
+  for(std::vector<pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
+     L.push_back(i->first->Name(hauptfenster->getWerte().Geschlecht()));
+  combo_typ->set_popdown_strings(L);
 }
 
 
@@ -282,7 +300,7 @@ void table_zufall::on_combo_spezies_activate()
 }
 
 gint table_zufall::on_combo_spezies_focus_out_event(GdkEventFocus *ev)
-{  return 0;
+{  return false;
 }
 
 void table_zufall::on_combo_spezies_changed()

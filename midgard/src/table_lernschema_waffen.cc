@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.23 2002/11/19 09:55:17 thoma Exp $
+// $Id: table_lernschema_waffen.cc,v 1.24 2002/11/21 09:00:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -27,6 +27,8 @@
 
 gint table_lernschema::on_button_lernschema_waffen_button_release_event(GdkEventButton *ev)
 {
+  if(hauptfenster->getAben().List_Waffen().empty()) 
+   { hauptfenster->set_info("Fehler: Noch keine Waffen gewählt"); return false;}
   for(std::list<WaffeBesitz>::const_iterator i=hauptfenster->getChar()->List_Waffen_besitz().begin();i!=hauptfenster->getChar()->List_Waffen_besitz().end();++i)
    {
      AusruestungBaum &AB=hauptfenster->getAben().getAusruestung_as_parent((*i)->Name());
@@ -38,6 +40,7 @@ gint table_lernschema::on_button_lernschema_waffen_button_release_event(GdkEvent
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::WAFFEN);
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
      button_lernschema_waffen->set_sensitive(false);
+
   if  (ev->button==1)
    {
      table_waffen_lernschema_eingabe->hide();
@@ -179,5 +182,8 @@ void table_lernschema::WaffenBesitz_lernschema_wuerfeln(int wurf)
 
 void table_lernschema::on_togglebutton_spezialwaffe_toggled()
 {  if (togglebutton_spezialwaffe->get_active()) scrolledwindow_lernen->hide();
-   else scrolledwindow_lernen->show();
+   else 
+     { scrolledwindow_lernen->show();
+       if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::SPEZIALWAFFE);
+     }
 }

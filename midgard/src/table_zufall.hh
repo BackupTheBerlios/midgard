@@ -39,6 +39,7 @@ class table_zufall : public table_zufall_glade
       
       void zeige_werte();
       void fill_combos();
+      void fill_combo_typen(const LernListen &LL,const bool nsc_allowed);
       void fill_combo_steigern();
       void fill_prototyp2_list();
       void set_tree_prototyp_titels();

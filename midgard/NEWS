@@ -23,10 +23,17 @@ NEWS IN VERSION 0.8.11
 * Ausdruck jetzt mit Tabelle für 3-Tage-Heilungs-Tabelle & überarbeitet
 * Korrekte Berücksichtigung des Verhältnisses von Gold/AEP beim Reduzieren
    von Fertigkeiten und Abwehr/Resisztenz/Zauber
+** Zufallsgenerator: Typenvorgabe durch aktuelle Speziesvorgabe einschränken
+** Waffen-Grundkenntnisse nur noch dann lernbar wenn auch Waffen 
+   dieser Grundkenntnis gelernt werden können
+** Wenn man im Lernschema auf 'Waffen' klickt aber noch keine Waffen
+   gelernt hatte blockierte die Oberfläche => Fixed
+** Wizard springt weiter, wenn man 'Spezialwaffe auswählen' abwählt.
+
+
 
 TODO: ('-' zeigt CP an)
 
-* WaffenGrundkenntnisse nur wenn auch Waffen dieser Art gelernt werden können
 * KI-Steigern nicht nur mit Unterweisung oder Selbststudium 
 * Region-Icons wechseln
 * Neue Ausrüstung eingeben (stürzt ab)
@@ -34,12 +41,6 @@ TODO: ('-' zeigt CP an)
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
   der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 
 * Deutsche Sortierung (Bärenwut vor Beschleunigen)
-> noch ein kleiner "Bug": wenn man noch keine Waffenfertigkeiten gelernt 
-> hat aber schon auf "Waffen" klickt bekommt man ne leere Liste und es 
-> geht nicht weiter, ehe man "Lernschema/Steigern auswählbar machen" findet.
-> 
-> Bug2, wenn ich eine Spezialwaffe wählen darf, aber nur Waffen mit >=2 LP 
-> gelernt habe, geht's nicht weiter.
 - Ausrüstung mit drag & drop
 - Würfelvarianten für Nichtmenschen!
 - verschwinden alle Icons? :

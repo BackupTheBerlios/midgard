@@ -1327,8 +1327,8 @@ portierung</label>
 		  <class>GtkLabel</class>
 		  <name>label531</name>
 		  <label>Beim Abtippen der Daten und Testen haben Michael Gruetzki, Nils Richter,
-Roland Ritthaler Sebastian Horstmann, Joachim Jordan, Alessandro Filipetti, 
-Stefan Peschl, Sven Rey, Ottmar Zimmer und viele andere geholfen.</label>
+Roland Ritthaler Sebastian Horstmann, Joachim Jordan, Stefan Peschl,
+Sven Rey, Markus Steinberg, Ottmar Zimmer und viele andere geholfen.</label>
 		  <justify>GTK_JUSTIFY_LEFT</justify>
 		  <wrap>False</wrap>
 		  <xalign>0</xalign>
@@ -8185,7 +8185,8 @@ eingeben</label>
 
 	    <widget>
 	      <class>GtkHandleBox</class>
-	      <name>handlebox4</name>
+	      <name>handlebox_steigern_1</name>
+	      <cxx_visibility>protected</cxx_visibility>
 	      <shadow_type>GTK_SHADOW_NONE</shadow_type>
 	      <handle_position>GTK_POS_LEFT</handle_position>
 	      <snap_edge>GTK_POS_TOP</snap_edge>
@@ -8749,7 +8750,8 @@ eingeben</label>
 
 	    <widget>
 	      <class>GtkHandleBox</class>
-	      <name>handlebox8</name>
+	      <name>handlebox_steigern_2</name>
+	      <cxx_visibility>protected</cxx_visibility>
 	      <shadow_type>GTK_SHADOW_NONE</shadow_type>
 	      <handle_position>GTK_POS_LEFT</handle_position>
 	      <snap_edge>GTK_POS_TOP</snap_edge>
@@ -8777,83 +8779,6 @@ eingeben</label>
 		<homogeneous>False</homogeneous>
 		<row_spacing>0</row_spacing>
 		<column_spacing>0</column_spacing>
-
-		<widget>
-		  <class>GtkCheckButton</class>
-		  <name>button_gold_eingeben</name>
-		  <cxx_visibility>protected</cxx_visibility>
-		  <can_focus>True</can_focus>
-		  <signal>
-		    <name>button_release_event</name>
-		    <handler>on_button_gold_eingeben_button_release_event</handler>
-		    <after>True</after>
-		    <last_modification_time>Fri, 15 Nov 2002 15:00:42 GMT</last_modification_time>
-		  </signal>
-		  <active>False</active>
-		  <draw_indicator>False</draw_indicator>
-		  <child>
-		    <left_attach>4</left_attach>
-		    <right_attach>5</right_attach>
-		    <top_attach>2</top_attach>
-		    <bottom_attach>3</bottom_attach>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>False</xexpand>
-		    <yexpand>False</yexpand>
-		    <xshrink>False</xshrink>
-		    <yshrink>False</yshrink>
-		    <xfill>False</xfill>
-		    <yfill>False</yfill>
-		  </child>
-
-		  <widget>
-		    <class>GtkEventBox</class>
-		    <name>eventbox7</name>
-		    <tooltip>Geld eingeben (Rechte Maustaste: ändern)
-</tooltip>
-
-		    <widget>
-		      <class>GtkHBox</class>
-		      <name>hbox99</name>
-		      <homogeneous>False</homogeneous>
-		      <spacing>0</spacing>
-
-		      <widget>
-			<class>GtkPixmap</class>
-			<name>pixmap62</name>
-			<filename>Money-50.xpm</filename>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<build_insensitive>True</build_insensitive>
-			<child>
-			  <padding>0</padding>
-			  <expand>True</expand>
-			  <fill>True</fill>
-			</child>
-		      </widget>
-
-		      <widget>
-			<class>GtkLabel</class>
-			<name>label640</name>
-			<label>Geld
-eing.</label>
-			<justify>GTK_JUSTIFY_CENTER</justify>
-			<wrap>False</wrap>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<child>
-			  <padding>0</padding>
-			  <expand>False</expand>
-			  <fill>False</fill>
-			</child>
-		      </widget>
-		    </widget>
-		  </widget>
-		</widget>
 
 		<widget>
 		  <class>GtkHBox</class>
@@ -9173,157 +9098,6 @@ steigern</label>
 		</widget>
 
 		<widget>
-		  <class>GtkCheckButton</class>
-		  <name>checkbutton_gfp</name>
-		  <cxx_visibility>protected</cxx_visibility>
-		  <can_focus>True</can_focus>
-		  <signal>
-		    <name>button_release_event</name>
-		    <handler>on_checkbutton_gfp_button_release_event</handler>
-		    <after>True</after>
-		    <last_modification_time>Fri, 15 Nov 2002 12:45:26 GMT</last_modification_time>
-		  </signal>
-		  <active>False</active>
-		  <draw_indicator>False</draw_indicator>
-		  <child>
-		    <left_attach>4</left_attach>
-		    <right_attach>5</right_attach>
-		    <top_attach>1</top_attach>
-		    <bottom_attach>2</bottom_attach>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>False</xexpand>
-		    <yexpand>False</yexpand>
-		    <xshrink>False</xshrink>
-		    <yshrink>False</yshrink>
-		    <xfill>True</xfill>
-		    <yfill>False</yfill>
-		  </child>
-
-		  <widget>
-		    <class>GtkEventBox</class>
-		    <name>eventbox19</name>
-		    <tooltip>GFP eingeben (Rechte Maustaste: ändern)</tooltip>
-
-		    <widget>
-		      <class>GtkHBox</class>
-		      <name>hbox98</name>
-		      <homogeneous>False</homogeneous>
-		      <spacing>0</spacing>
-
-		      <widget>
-			<class>GtkPixmap</class>
-			<name>pixmap161</name>
-			<filename>Helper-50.xpm</filename>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<build_insensitive>True</build_insensitive>
-			<child>
-			  <padding>0</padding>
-			  <expand>True</expand>
-			  <fill>True</fill>
-			</child>
-		      </widget>
-
-		      <widget>
-			<class>GtkLabel</class>
-			<name>label639</name>
-			<label>GFP
-eing.</label>
-			<justify>GTK_JUSTIFY_CENTER</justify>
-			<wrap>False</wrap>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<child>
-			  <padding>0</padding>
-			  <expand>False</expand>
-			  <fill>False</fill>
-			</child>
-		      </widget>
-		    </widget>
-		  </widget>
-		</widget>
-
-		<widget>
-		  <class>GtkCheckButton</class>
-		  <name>button_EP</name>
-		  <cxx_visibility>protected</cxx_visibility>
-		  <signal>
-		    <name>button_release_event</name>
-		    <handler>on_button_EP_eingeben_button_release_event</handler>
-		    <after>True</after>
-		    <last_modification_time>Fri, 15 Nov 2002 15:13:32 GMT</last_modification_time>
-		  </signal>
-		  <active>False</active>
-		  <draw_indicator>False</draw_indicator>
-		  <child>
-		    <left_attach>4</left_attach>
-		    <right_attach>5</right_attach>
-		    <top_attach>0</top_attach>
-		    <bottom_attach>1</bottom_attach>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>False</xexpand>
-		    <yexpand>False</yexpand>
-		    <xshrink>False</xshrink>
-		    <yshrink>False</yshrink>
-		    <xfill>True</xfill>
-		    <yfill>False</yfill>
-		  </child>
-
-		  <widget>
-		    <class>GtkEventBox</class>
-		    <name>eventbox18</name>
-		    <tooltip>Erfahrungspunkte eingeben (Rechte Maustaste: ändern)</tooltip>
-
-		    <widget>
-		      <class>GtkHBox</class>
-		      <name>hbox97</name>
-		      <homogeneous>False</homogeneous>
-		      <spacing>0</spacing>
-
-		      <widget>
-			<class>GtkPixmap</class>
-			<name>pixmap93</name>
-			<filename>EP-Eingabe2-50.xpm</filename>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<build_insensitive>True</build_insensitive>
-			<child>
-			  <padding>0</padding>
-			  <expand>True</expand>
-			  <fill>True</fill>
-			</child>
-		      </widget>
-
-		      <widget>
-			<class>GtkLabel</class>
-			<name>label638</name>
-			<label>EP
-eing.</label>
-			<justify>GTK_JUSTIFY_CENTER</justify>
-			<wrap>False</wrap>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<child>
-			  <padding>0</padding>
-			  <expand>False</expand>
-			  <fill>False</fill>
-			</child>
-		      </widget>
-		    </widget>
-		  </widget>
-		</widget>
-
-		<widget>
 		  <class>GtkEventBox</class>
 		  <name>eventbox1</name>
 		  <tooltip>Einstellen des Verhältnisses zwischen Erfahrungspunkten und Gold beim Steigern. Je weiter oben, um so höher der Anteil der verwendeten EP. (Nur wenn mit 'Unterweisung' gesteigert wird.)</tooltip>
@@ -9442,12 +9216,224 @@ eing.</label>
 		    </widget>
 		  </widget>
 		</widget>
+
+		<widget>
+		  <class>GtkCheckButton</class>
+		  <name>button_gold_eingeben</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <can_focus>True</can_focus>
+		  <signal>
+		    <name>button_release_event</name>
+		    <handler>on_button_gold_eingeben_button_release_event</handler>
+		    <after>True</after>
+		    <last_modification_time>Fri, 15 Nov 2002 15:00:42 GMT</last_modification_time>
+		  </signal>
+		  <active>False</active>
+		  <draw_indicator>False</draw_indicator>
+		  <child>
+		    <left_attach>4</left_attach>
+		    <right_attach>5</right_attach>
+		    <top_attach>2</top_attach>
+		    <bottom_attach>3</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>True</yexpand>
+		    <xshrink>True</xshrink>
+		    <yshrink>True</yshrink>
+		    <xfill>False</xfill>
+		    <yfill>True</yfill>
+		  </child>
+
+		  <widget>
+		    <class>GtkHBox</class>
+		    <name>hbox99</name>
+		    <homogeneous>False</homogeneous>
+		    <spacing>0</spacing>
+
+		    <widget>
+		      <class>GtkPixmap</class>
+		      <name>pixmap62</name>
+		      <filename>Money-50.xpm</filename>
+		      <xalign>0.5</xalign>
+		      <yalign>0.5</yalign>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <build_insensitive>True</build_insensitive>
+		      <child>
+			<padding>0</padding>
+			<expand>True</expand>
+			<fill>True</fill>
+		      </child>
+		    </widget>
+
+		    <widget>
+		      <class>GtkLabel</class>
+		      <name>label640</name>
+		      <label>Geld
+eing.</label>
+		      <justify>GTK_JUSTIFY_CENTER</justify>
+		      <wrap>False</wrap>
+		      <xalign>0.5</xalign>
+		      <yalign>0.5</yalign>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <child>
+			<padding>0</padding>
+			<expand>False</expand>
+			<fill>False</fill>
+		      </child>
+		    </widget>
+		  </widget>
+		</widget>
+
+		<widget>
+		  <class>GtkCheckButton</class>
+		  <name>checkbutton_gfp</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <tooltip>GFP eingeben (Rechte Maustaste: ändern)</tooltip>
+		  <can_focus>True</can_focus>
+		  <signal>
+		    <name>button_release_event</name>
+		    <handler>on_checkbutton_gfp_button_release_event</handler>
+		    <after>True</after>
+		    <last_modification_time>Fri, 15 Nov 2002 12:45:26 GMT</last_modification_time>
+		  </signal>
+		  <active>False</active>
+		  <draw_indicator>False</draw_indicator>
+		  <child>
+		    <left_attach>4</left_attach>
+		    <right_attach>5</right_attach>
+		    <top_attach>1</top_attach>
+		    <bottom_attach>2</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>True</yexpand>
+		    <xshrink>True</xshrink>
+		    <yshrink>True</yshrink>
+		    <xfill>False</xfill>
+		    <yfill>True</yfill>
+		  </child>
+
+		  <widget>
+		    <class>GtkHBox</class>
+		    <name>hbox98</name>
+		    <homogeneous>False</homogeneous>
+		    <spacing>0</spacing>
+
+		    <widget>
+		      <class>GtkPixmap</class>
+		      <name>pixmap161</name>
+		      <filename>Helper-50.xpm</filename>
+		      <xalign>0.5</xalign>
+		      <yalign>0.5</yalign>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <build_insensitive>True</build_insensitive>
+		      <child>
+			<padding>0</padding>
+			<expand>True</expand>
+			<fill>True</fill>
+		      </child>
+		    </widget>
+
+		    <widget>
+		      <class>GtkLabel</class>
+		      <name>label639</name>
+		      <label>GFP
+eing.</label>
+		      <justify>GTK_JUSTIFY_CENTER</justify>
+		      <wrap>False</wrap>
+		      <xalign>0.5</xalign>
+		      <yalign>0.5</yalign>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <child>
+			<padding>0</padding>
+			<expand>False</expand>
+			<fill>False</fill>
+		      </child>
+		    </widget>
+		  </widget>
+		</widget>
+
+		<widget>
+		  <class>GtkCheckButton</class>
+		  <name>button_EP</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <tooltip>Erfahrungspunkte eingeben (Rechte Maustaste: ändern)</tooltip>
+		  <signal>
+		    <name>button_release_event</name>
+		    <handler>on_button_EP_eingeben_button_release_event</handler>
+		    <after>True</after>
+		    <last_modification_time>Fri, 15 Nov 2002 15:13:32 GMT</last_modification_time>
+		  </signal>
+		  <active>False</active>
+		  <draw_indicator>False</draw_indicator>
+		  <child>
+		    <left_attach>4</left_attach>
+		    <right_attach>5</right_attach>
+		    <top_attach>0</top_attach>
+		    <bottom_attach>1</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>True</yexpand>
+		    <xshrink>True</xshrink>
+		    <yshrink>True</yshrink>
+		    <xfill>False</xfill>
+		    <yfill>True</yfill>
+		  </child>
+
+		  <widget>
+		    <class>GtkHBox</class>
+		    <name>hbox97</name>
+		    <homogeneous>False</homogeneous>
+		    <spacing>0</spacing>
+
+		    <widget>
+		      <class>GtkPixmap</class>
+		      <name>pixmap93</name>
+		      <filename>EP-Eingabe2-50.xpm</filename>
+		      <xalign>0.5</xalign>
+		      <yalign>0.5</yalign>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <build_insensitive>True</build_insensitive>
+		      <child>
+			<padding>0</padding>
+			<expand>True</expand>
+			<fill>True</fill>
+		      </child>
+		    </widget>
+
+		    <widget>
+		      <class>GtkLabel</class>
+		      <name>label638</name>
+		      <label>EP
+eing.</label>
+		      <justify>GTK_JUSTIFY_CENTER</justify>
+		      <wrap>False</wrap>
+		      <xalign>0.5</xalign>
+		      <yalign>0.5</yalign>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <child>
+			<padding>0</padding>
+			<expand>False</expand>
+			<fill>False</fill>
+		      </child>
+		    </widget>
+		  </widget>
+		</widget>
 	      </widget>
 	    </widget>
 
 	    <widget>
 	      <class>GtkHandleBox</class>
-	      <name>handlebox5</name>
+	      <name>handlebox_steigern_4</name>
+	      <cxx_visibility>protected</cxx_visibility>
 	      <shadow_type>GTK_SHADOW_NONE</shadow_type>
 	      <handle_position>GTK_POS_LEFT</handle_position>
 	      <snap_edge>GTK_POS_TOP</snap_edge>
@@ -10086,7 +10072,7 @@ eing.</label>
 
 	    <widget>
 	      <class>GtkHandleBox</class>
-	      <name>handlebox_steigern</name>
+	      <name>handlebox_steigern_3</name>
 	      <cxx_visibility>protected</cxx_visibility>
 	      <shadow_type>GTK_SHADOW_NONE</shadow_type>
 	      <handle_position>GTK_POS_LEFT</handle_position>

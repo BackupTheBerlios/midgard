@@ -1,4 +1,4 @@
-// $Id: LernListen_steigern.cc,v 1.7 2002/10/01 08:44:26 thoma Exp $
+// $Id: LernListen_steigern.cc,v 1.8 2002/11/21 09:00:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,9 +18,8 @@
  */  
 
 #include "LernListen.hh"
-//#include "midgard_CG.hh"
 #include "Abenteurer.hh"
-//#include "Sprache.hh"
+#include "WaffeGrund.hh"
 #include "Schrift.hh"
 #include "Zauber.hh"
 #include "Zauberwerk.hh"
@@ -66,6 +65,7 @@ std::list<MBEmlt> LernListen::get_steigern_MBEm(const Abenteurer& A,Enums::MBELi
           break;
          }
        case Enums::sWGru: {
+          if(!cH_WaffeGrund(*i)->is_sinnvoll(D.Waffe,A)) continue;
           if (MBEm->ist_gelernt(A.List_WaffenGrund()) && 
               (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
           break;

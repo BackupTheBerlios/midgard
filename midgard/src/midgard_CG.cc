@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.280 2002/11/19 15:11:15 thoma Exp $
+// $Id: midgard_CG.cc,v 1.281 2002/11/21 09:00:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -81,9 +81,6 @@ midgard_CG::~midgard_CG()
 //cout << "~midgard_CG()\n\n\n\n";
    in_dtor=true;
    delete MOptionen;
-//   if (menu) delete menu;
-//   if (table_steigern->menu_gradanstieg) table_steigern->delete menu_gradanstieg;
-//   InfoFenster->destroy(); 
    if(wizard) delete wizard;
 }
 

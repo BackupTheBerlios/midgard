@@ -1,4 +1,4 @@
-// $Id: LernListen.cc,v 1.21 2002/11/14 13:26:04 thoma Exp $
+// $Id: LernListen.cc,v 1.22 2002/11/21 09:00:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -142,17 +142,19 @@ std::vector<cH_Spezies> LernListen::getSpezies(bool nsc_allowed) const
  return V;
 }
 
-
 std::vector<pair<cH_Typen,bool> > LernListen::getTypen(const Abenteurer& A,bool nsc_allowed) const
+{return getTypen(A.getWerte(),A.getWerte().Spezies(),nsc_allowed);}
+
+std::vector<pair<cH_Typen,bool> > LernListen::getTypen(const Grundwerte &W,const cH_Spezies &S,bool nsc_allowed) const
 {
   std::vector<cH_Typen> T=D.Typen;
   std::vector<pair<cH_Typen,bool> > V;
   for(std::vector<cH_Typen>::const_iterator i=T.begin();i!=T.end();++i)
    {
-     if (A.getWerte().Spezies()->Typ_erlaubt((*i)->Short()))
-      if (region_check((*i)->Region()) && nsc_check(nsc_allowed,(*i)->NSC_only()))       
+     if (S->Typ_erlaubt((*i)->Short()))
+      if (region_check((*i)->Region()) && nsc_check(nsc_allowed,(*i)->NSC_only()))
        {
-         if((*i)->Mindestwerte(A.getWerte()))
+         if((*i)->Mindestwerte(W))
             V.push_back(std::pair<cH_Typen,bool>(*i,true));
          else 
             V.push_back(std::pair<cH_Typen,bool>(*i,false));

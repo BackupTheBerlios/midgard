@@ -61,3 +61,17 @@ WaffeGrund_All::WaffeGrund_All()
     }
  }   
 }
+
+bool WaffeGrund::is_sinnvoll(const std::list<cH_MidgardBasicElement> &WL,
+                             const Abenteurer &A) const
+{
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=WL.begin();i!=WL.end();++i)
+   {
+     if(cH_Waffe(*i)->Grundkenntnis()==Name())
+      {
+        if((*i)->Voraussetzung(A,false)) return true;
+      }
+   }
+  return false;
+}
+
