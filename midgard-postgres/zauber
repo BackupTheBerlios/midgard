@@ -49,6 +49,8 @@ Al-Karama	800	3	Geste	3	E	\N	\N	Wasser	erkennt	Luft	10 min	5 m	Körper	1 Ws	8 h	g
 Al-Mutadid	800	3	Geste	3	E	\N	\N	Magan	zerstört	Wasser	5 min	0	Umgebung	6m Uk	30 min	göttlich		f		\N	\N
 Al-Tarka	800	3	Geste	3	E	\N	\N	Feuer	beherrscht	Luft	5 min	0	Geist	15 m Uk	-	göttlich		f		\N	\N
 Allheilung	2500	6	Geste	5	\N	\N	\N	Holz	erschafft	Erde	30 min	0	Körper	1 Ws	0	göttlich		f		\N	\N
+Alpträume	1500	2*Gr	Wort	4	H&Df	\N	\N	Metall	verändert	Luft	1 min	500 m	Geist	1-4 Ws	var	finster		f		\N	t
+Altern	5000	var	Geste	6	H&Df	\N	\N	Eis	verändert	Erde	2 min	10 m	Körper	1 Ws	1 Tag	finster	Zu Staub zerfallene Schädelknochen	f		\N	t
 Angst	120	#Ws	Wort	1	\N	\N	\N	Feuer	beherrscht	Wasser	1 s	30 m	Geist	max 10 Ws	10 min	druidisch		t		\N	\N
 Anziehen	120	2	Wort	1	\N	\N	\N	Wasser	beherrscht	Wasser	10 s	30 m	Geist	1 Ws	6 h	dämonisch		f	Siegel	\N	\N
 Aufladen	15000	alle	Geste	G	H&D	\N					7*6 Tage	0	Umgebung	1 Ob		dämonisch	Einhornpulver und Essenzen	t	Siegel	\N	\N
@@ -170,6 +172,8 @@ Durstsalz	60	1	Gedanke	1	\N	\N	Zaubersalz	Wasser	verändert	Erde	1 s	500 m	Körper
 Dämonen binden	7000	18	Geste	G	3	\N	Beschwörung	Luft	verändert	Feuer	30 min	15 m	Geist	1 Ws	1 Jahr	dämonisch		f		\N	\N
 Dämonenbann	3000	#*6	Geste	5	3	\N	Beschwörung	Magan	bewegt	Feuer	10 sec	15 m	Körper	var		dämonisch	 	f		\N	\N
 Dämonenfeuer	1600	4	Geste	4	\N	\N	\N	Magan	erschafft	Magan	10 s	30 m	Umgebung	Strahl	2 min	dämonisch	Kristallphiole mit Phosphor, rec.	t	Rune	\N	\N
+Dämonenhand	10000	alle	Wort	G	H&Df	\N	\N	Feuer	bewegt	Metall	10 s	0	Umgebung	1 Ws	var	finster		f		\N	t
+Dämonenkreis	1500	4	Geste	4	H&Df	\N	\N	Feuer	beherrscht	Wasser	20 s	50 m	Körper	1m Uk	2 h	finster	Giftige Waldpilze	f		\N	t
 Dämonenschar beschwören	3000	5	Geste	5	3	\N	Beschwörung	Magan	bewegt	Feuer	3 h	0	Umgebung	1W6+2 Ws	1 h	dämonisch	Waffen	f		\N	\N
 Dämonische Eingebung	1500	4	Gedanke	4	\N	\N	\N	Magan	erkennt	Luft	30 min	0	Geist	selbst	10 min	dämonisch		f		\N	\N
 Dämonische Zaubermacht	100	1	Wort	1	\N	\N	\N	Magan	verändert	Wasser	10 min	0	Körper	selbst	1 h	schwarzmagisch		f		\N	\N
@@ -193,6 +197,7 @@ Erdbeben	3000	6	Geste	5	\N	\N	\N	Erde	bewegt	Erde	1 min	0	Umgebung	1 km Uk	10 mi
 Erdeelementargeist beschwören	6000	6	Geste	6	3	Erde	Beschwörung	Magan	bewegt	Feuer	4 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 200 GS	f		\N	\N
 Erdfessel	800	3	Geste	3	\N	\N	\N	Erde	bewegt	Erde	10 s	50 m	Umgebung	1 Ws	2 min	elementar	Honig-Erd-Gemisch	t		\N	\N
 Erdmeisterschaft	6000	9	Geste	6	\N	\N	\N	Wasser	bewegt	Erde	30 s	0	Umgebung	1 m Uk	1 h	elementar	Maulwurffell	t		\N	\N
+Erdrosseln	500	1*Runde	Geste	3	H&Df	\N	\N	Luft	beherrscht	Wasser	1 s	50 m	Körper	1 Ws	var	finster		f		\N	t
 Erdwandlung	3000	6	Geste	5	\N	\N	\N	Erde	verwandelt	Erde	20 s	0	Umgebung	1 m²	perm	elementar	Bernstein	t		\N	\N
 Erheben der Toten	10000	alle (min 11)	Wort	6	\N	\N	\N	Luft	erschafft	Holz	6 h	1 m	Körper	1 Ws	0	göttlich		f		\N	\N
 Erkennen der Aura	100	1	Gedanke	1	\N	\N	\N	Luft	erkennt	Luft	1 s	0	Geist	30 m Kegel	1 min	göttlich		f		\N	\N
@@ -205,6 +210,7 @@ Erkennen von Zauberei	300	2	Gedanke	2	\N	\N	\N	Magan	erkennt	Magan	1 s	15 m	Geis
 Erkurku beschwören	4000	6	Geste	6	3	\N	Beschwörung	Magan	bewegt	Feuer	3,5 h	0	Umgebung	1Ws	1 h	dämonisch	Affe	f		\N	\N
 Erkurku rufen	2000	3	Geste	5	3	\N	Beschwörung	Magan	bewegt	Feuer	2 h	0	Umgebung	1Ws	1 h	dämonisch		f		\N	\N
 Erscheinungen	4000	6	Geste	5	\N	\N	\N	Magan	beherrscht	Feuer	20 s	30 m	Geist	3x3x3 m	2 min	dämonisch	Blütenstaub vom blauen Mohn	t	Siegel	\N	\N
+Farbensalz	60	1	Gedanke	1	H&Df	\N	\N	Magan	verändert	Holz	1 s	500 m	Umgebung	50x50cm	3 h	finster		t		\N	t
 Feenfluch	700	3	Geste	3	\N	\N	\N	Holz	verändert	Erde	10 s	15 m	Körper	1 Ws	perm	druidisch		f		\N	\N
 Feenzauber	800	1-4	Geste	3	\N	\N	\N	Magan	verändert	Metall	10 s	15 m	Umgebung	1 Ob	w+10 min	dämonisch		f		\N	\N
 Felldvegar beschwören	4000	5	Geste	5	3	Erde	Beschwörung	Magan	bewegt	Feuer	3 h	0	Umgebung	5 Ws	1 h 	elementar	Edelstein 200 GS	f		\N	\N
@@ -225,6 +231,8 @@ Feuerschild	1000	3	Geste	3	\N	\N	\N	Eis	erschafft	Eis	10 s	15 m	Umgebung	-	2 min
 Feuerspiel	200	2	Geste	2	E	\N	\N	Feuer	verändert	Feuer	5 s	10 m	Umgebung	1m Uk	2 min	elementar		t		\N	\N
 Feuerwand	400	m	Geste	2	\N	\N	\N	Feuer	erschafft	Feuer	10 s	15 m	Umgebung	-	10 min	elementar	Rubinsplitter	t		\N	\N
 Fiebersalz	80	1	Gedanke	1	H&D	\N	Zaubersalz	Feuer	zerstört	Wasser	1 s	500 m	Körper	1 Ws	10 min	dämonisch		t		\N	\N
+Finsterer Blick	200	2	Gedanke	2	H&Df	\N	\N	Metall	verändert	Luft	1 s	12 m	Geist	1 Ws	1 h	finster		f		\N	t
+Firzars Zorn	5000	9	Wort	6	H&Df	\N	\N	Metall	verändert	Luft	10 s	30 m	Umgebung	1 Ws	2 min	finster		f		\N	t
 Fjalhune beschwören	7000	6	Geste	6	3	Erde	Beschwörung	Magan	bewegt	Feuer	4,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	f		\N	\N
 Flammende Hand	200	2	Geste	2	\N	\N	\N	Feuer	erschafft	Feuer	5 s	0	Umgebung	selbst	2 min	elementar		t	Siegel	\N	\N
 Flammenklinge	1200	6	Geste	4	\N	\N	\N	Feuer	verändert	Metall	1 min	0	Umgebung	1 Ob	10 min	elementar		t	Siegel	\N	\N
@@ -233,6 +241,7 @@ Flammenrune	800	3	Geste	3	W	\N	Runen	Wasser	zerstört	Feuer	30 min	1 m	Umgebung	1
 Fliegen	6000	9	Geste	6	\N	\N	\N	Luft	bewegt	Erde	30 s	0	Körper	selbst	1 h	dämonisch	Greifenschwungfeder	t	Siegel	\N	\N
 Fliegensalz	80	1	Gedanke	1	\N	\N	Zaubersalz	Holz	verändert	Luft	1 s	500 m	Umgebung	1 Ws/Ob	1 h	dämonisch		t		\N	\N
 Fluch des Hundes	2000	6	Geste	5	\N	\N	\N				1 s	0	Körper	1 Ws	0	dämonisch	Hundeurin       	t		\N	\N
+Flucht des Geistes	4000	9	Gedanke	5	H&Df	\N	\N	Metall	verändert	Luft	10 s	0	Geist	selbst	var	finster		f		\N	t
 Fossemand beschwören	2000	5	Geste	5	3	Wasser	Beschwörung	Magan	bewegt	Feuer	2,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	f		\N	\N
 Freundesauge	1200	4	Gedanke	4	\N	\N	\N	Wasser	beherrscht	Feuer	10 s	500 m	Geist	1 Ws	30 min	dämonisch		t	Siegel	\N	\N
 Friedensrune	5000	9	Geste	6	W	\N	Runen	Metall	beherrscht	Wasser	30 min	-	Geist	2 Wesen	0	göttlich	Goldreif (100 GS)	f	\N	\N	\N
@@ -241,12 +250,15 @@ Funkenregen	400	Gr	Geste	2	\N	\N	\N	Feuer	beherrscht	Feuer	5 s	30 m	Geist	1 Ws	1
 Funkensalz	60	1	Gedanke	1	\N	\N	Zaubersalz	Feuer	erschafft	Feuer	1 s	500 m	Umgebung	1 Ob	10 min	dämonisch		t		\N	\N
 Fährtenduft	200	1	Geste	2	H&D	\N	\N				1 min	0	Körper  Z       30 min	druidisch	Tierkot			t		\N	\N
 Färbersalz	80	1	Gedanke	1	\N	\N	Zaubersalz	Magan	verändert	Holz	1 s	500 m	Umgebung	1 Ob	1 h	dämonisch		t		\N	\N
+Fäulnis	1500	2	Geste	2	H&Df	\N	\N	Magan	zerstört	Erde	10 s	24 m	Umgebung	1 Ob	var	finster	Faules Holz	f		\N	t
 Geas	5000	9 bzw alle	Wort	6	\N	\N	\N	Holz	beherrscht	Luft	30 s	15 m	Geist	1 Ws	perm	druidisch		f		\N	\N
 Geberrune	200	2	Geste	2	W	\N	Runen	Luft	verändert	Luft	30 min	-	Geist	1 Ws	perm	göttlich	Silberscheibe in Münzgröße (2 SS)	f	\N	\N	\N
 Geist beschwören	2000	6	Geste	5	3	\N	Beschwörung	Luft	bewegt	Erde	1 h	0	Umgebung	1 Ws	10 min	dämonisch		f		\N	\N
+Geister der Finsternis	500	3	Geste	3	H&Df	\N	\N	Metall	verändert	Luft	10 s	200 m	Geist	0	10 min	finster	Marder- oder Fledermaus-schädel	f		\N	t
 Geisterlauf	1500	#Ws*4	Geste	4	\N	\N	\N	Luft	bewegt	Erde	30 min	3 m	Körper	max 7 Ws	var	göttlich	Gewänder, Toten- oder Ahnensymbole, Feuer, Kräuter	f		\N	\N
 Geisterrune	1200	4	Geste	4	W	\N	Runen	Luft	beherrscht	Feuer	30 min	-	Körper	1 Ws	10 min	göttlich	Stab aus dem Holz eines Apfelbaums	f	\N	\N	\N
 Geistesschild	1000	var	Gedanke	3	\N	\N	\N	Feuer	zerstört	Magan	1 s	0	Geist	selbst	10 min	dämonisch		t		\N	\N
+Geistesschlüssel	1500	4	Geste	4	H&Df	\N	\N	Metall	verändert	Luft	30 min	0	Geist	1 Ws	0	finster		f		\N	t
 Geizrune	200	2	Geste	2	W	\N	Runen	Luft	verändert	Luft	30 min	-	Geist	1 Ws	perm	göttlich	Pferdeschädel	f	\N	\N	\N
 Gelbe Glocke (1. Urton Kung)	800	1	Zauberlied	2	K	\N	\N				1 sec	0	Geist	30 m Uk	24 h			t		\N	\N
 Geruchsverlust	400	3	Wort	3	H&D	\N	\N				20 s	1m	Körper	1 Ws	1 h	druidisch		t	Siegel	\N	\N
@@ -255,8 +267,10 @@ Ghussat el-Masin	1600	6	Geste	4	E	\N	\N	Eis	beherrscht	Wasser	5 min	0	Geist	15 m
 Gjornhune beschwören	7000	6	Geste	6	3	Luft	Beschwörung	Magan	bewegt	Feuer	4,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	f		\N	\N
 Gletschergnom beschwören	7000	18	Geste	G	3	Eis	Beschwörung	Magan	bewegt	Feuer	5,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 500 GS	f		\N	\N
 Gletschergnom rufen	7000	18	Geste	G	3	Eis	Beschwörung	Magan	bewegt	Feuer	5,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 500 GS	f		\N	\N
+Globus der Finsternis	500	3	Geste	3	H&Df	\N	\N	Metall	verändert	Luft	20 s	0	Umgebung	3m Uk	10 min	finster	Ebenholzkugel, Obsidiankugel, schwarze Perle	f		\N	t
 Gloddvegar beschwören	4000	5	Geste	5	3	Feuer	Beschwörung	Magan	bewegt	Feuer	3 h	0	Umgebung	5 Ws	1 h 	elementar	Edelstein 200 GS	f		\N	\N
 Gloddverg beschwören	800	3	Geste	3	3	Feuer	Beschwörung	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 40 GS 	f		\N	\N
+Glühsalz	60	1	Gedanke	1	H&Df	\N	\N	Feuer	erschafft	Feuer	1 s	500 m	Umgebung		10 s	finster		t		\N	t
 Goldener Panzer	600	3	Geste	3	\N	\N	\N	Metall	verändert	Metall	10 s	0	Umgebung	1 Ws	2 min	dämonisch	Goldstaub	t	Siegel	\N	\N
 Golem schaffen	12000	alle (min 8)	Geste	G	\N	\N	\N	Holz	verändert	Erde	12 h	0	Umgebung	1 Ob	perm	göttlich	Statue	f		\N	\N
 Graue Hand	7000	9	Geste	6	\N	\N	\N	Eis	zerstört	Erde	1 s	0	Körper	1 Ws	0	schwarzmagisch		t		\N	\N
@@ -280,7 +294,6 @@ Halebant 4 beschwören	1200	4	Geste	4	3	\N	Beschwörung	Magan	bewegt	Feuer	2 h	0	U
 Hammerhand	1000	3	Geste	3	H&D	\N	\N				1 s	0	Körper	Z	2 min	dämonisch	Ginseng	t		\N	\N
 Handauflegen	100	2	Geste	1	\N	\N	\N	Holz	erschafft	Feuer	10 s	0	Körper	1 Ws	0	druidisch		f	Siegel	\N	\N
 Haram fil-Din	100	1	Geste	1	E	\N	\N	Wasser	verändert	Erde	2 min	0	Körper	selbst	30 min	elementar		f		\N	\N
-Glühsalz	60	1	Gedanke	1	H&Df	\N	\N	Feuer	erschafft	Feuer	1 s	500 m	Umgebung		10 s	finster		t		\N	t
 Hardlogi beschwören	1500	4	Geste	4	3	Feuer	Beschwörung	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 50 GS	f		\N	\N
 Harkarhune beschwören	7000	6	Geste	6	3	Feuer	Beschwörung	Magan	bewegt	Feuer	4,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	f		\N	\N
 Harkbuar beschwören	2000	5	Geste	5	3	Feuer	Beschwörung	Magan	bewegt	Feuer	2,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	f		\N	\N
@@ -311,6 +324,9 @@ Hrimhune beschwören	7000	6	Geste	6	3	Eis	Beschwörung	Magan	bewegt	Feuer	4,5 h	0	
 Hungersalz	60	1	Gedanke	1	\N	\N	Zaubersalz	Feuer	verändert	Erde	1 s	500 m	Körper	1 Ws	0	dämonisch		t		\N	\N
 Hymne der Ordnung	1000	2	Zauberlied	3	\N	\N	\N	Metall	zerstört	Magan	-	0	Umgebung	15 m Uk	1 min	druidisch		f		\N	\N
 Hyrrbauti beschwören	600	3	Geste	3	3	Feuer	Beschwörung	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 20 GS	f		\N	\N
+Höllenbote rufen	3500	alle(mind 9)	Wort	5	H&Df	Eis	\N	Metall	verändert	Luft	1 h	100 km	umgebung	1 Ws	var	finster		f		\N	t
+Höllenfeuer	2000	4*#	Geste	4	H&Df	\N	\N	Metall	verändert	Luft	15 s	50 m	Umgebung	var	0	finster	Pech und Schwefel	f		\N	t
+Höllenglocke	2000	alle(mind 9)	Gedanke	4	H&Df	\N	\N	Metall	verändert	Luft	10 s	0	Umgebung	1 km	0	finster		f		\N	t
 Hören der Geister	500	2	Gedanke	3	\N	\N	\N	Eis	erkennt	Luft	10 s	0	Körper	6 m Uk	Grad*20 s	dämonisch		f		\N	\N
 Hören von Fernem	60	1	Gedanke	1	\N	\N	\N	Magan	verändert	Wasser	1 min	0	Körper	1 Ws	10 min	dämonisch		f		\N	\N
 Hörnerklang	100	1	Wort	1	\N	\N	\N	Magan	verändert	Luft	1 s	0	Umgebung	2 km Uk	10 s	dämonisch		f	Rune	\N	\N
@@ -341,6 +357,7 @@ Klebesalz	40	1	Gedanke	1	H&D	\N	Zaubersalz	Magan	bewegt	Metall	1 s	500 m	1 Ws	Um
 Klingenrune	1200	5	Geste	4	W	\N	Runen	Magan	verändert	Metall	10 min	B	Umgebung	1 Ob	1 h	göttlich	Klingenwaffe, eigenes blut	f	\N	\N	\N
 Knallsalz	60	1	Gedanke	1	H&D	\N	Zaubersalz	Magan	verändert	Luft	1 s	500 m	Umgebung		2 min	dämonisch		t		\N	\N
 Knochenbestie	1500	4	Geste	4	\N	\N	\N	Eis	beherrscht	Holz	20 s	1 km	Umgebung	-	30 min	schwarzmagisch	Tierschädel, -knochen und -shnen, Fellstücke	f		\N	\N
+Konvulsion	1500	6	Geste	4	H&Df	\N	\N	Metall	verändert	Luft	10 s	24 m	Umgebung	1 Ws	0	finster	Wackelpudding	f		\N	t
 Kopieren	800	1#Seite	Geste	3	H&D	\N	\N				1 min pro Seite	1m	Umgebung	1 Ob	0	dämonisch	Schreibmaterial	t	Siegel	\N	\N
 Kraft entziehen	100	2	Geste	1	\N	\N	\N	Eis	zerstört	Feuer	1 s	0	Körper	1 Ws	0	schwarzmagisch		f		\N	\N
 Kravyad-Schrei	100	2	Geste	1	H&D	\N	\N				1 s     0	Körper  Z	1 min	druidisch	Stimmband eines Kravyad-Sauriers		Siegel	t		\N	\N
@@ -394,6 +411,7 @@ Lustsalz	80	1	Gedanke	1	H&D	\N	Zaubersalz	Mangan	beherrscht	Wasser	1 s	500 m	Kör
 Lähmung	3500	6	Geste	5	\N	\N	\N	Metall	verändert	Erde	20 s	30 m	Körper	1 Ws	2 4h	dämonisch	Basiliskenschuppe	t		\N	\N
 Löschsalz	80	1	Gedanke	1	\N	\N	Zaubersalz	Erde	zerstört	Feuer	1 s	500 m	Umgebung	1 Ob	0	dämonisch		t		\N	\N
 Lösungsrune	800	3	Geste	3	W	\N	Runen	Luft	zerstört	Magan	30 min	-	Umgebung	1 Ws/Ob	0	göttlich	Stück Espenholz	f	\N	\N	\N
+Macht der Finsternis	6000	9	Wort	6	H&Df	\N	\N	Metall	verändert	Luft	10 s	0	Körper	selbst	1 h	finster		f		\N	t
 Macht über Leben	2000	alle-1 (min 9)	Geste	4	\N	\N	\N	Eis	zerstört	Erde	10 s	6 m	Körper	1 Ws	2 min	dämonisch		f		\N	\N
 Macht über Menschen	500	SGr*3	Wort	3	\N	\N	\N	Magan	beherrscht	Luft	20 s	30 m	Geist	Gr Ws	var	dämonisch		f	Siegel	\N	\N
 Macht über Mumien	4000	12	Wort	6	E	\N	\N	Eis	verändert	Erde	1 h	0	Körper	1 Ws	-	dämonisch	Mumie	f		\N	\N
@@ -470,12 +488,14 @@ Saijidat el-Masin	600	6	Geste	3	E	\N	\N	Luft	beherrscht	Erde	10 min	0	Geist	15 m
 Sandmeisterschaft	6000	9	Geste	6	E	\N		Luft	bewegt	Erde	30 s	2 km	Umgebung	500m Uk	1 h	elementar	10g Sandwurmhaut	t		\N	\N
 Scharfblick	60	1	Gedanke	1	\N	\N	\N	Magan	verändert	Feuer	1 min	0	Körper	1 Ws	10 min	dämonisch		f		\N	\N
 Schattenbruder	1500	6	Geste	4	H&D	\N	\N				10 s	0	Umgebung	12m Uk	2 min	dämonisch		t	Rune	\N	\N
+Schattenroß	2000	12	Geste	4	H&Df	\N	\N	Metall	verändert	Luft	10 min	0	Körper	0	var	finster		f		\N	t
 Scheintod	2400	6	Gedanke	5	K	\N	\N				1 min	0	Körper	selbst	var			t		\N	\N
 Schildrune	400	2	Geste	2	W	\N	Runen	Magan	verändert	Holz	10 min	-	Umgebung	1 Ob	1 h	göttlich	Holzschild, Spucke	f	\N	\N	\N
 Schlachtenwahnsinn	1500	0	Geste	4	\N	\N	\N	\N	\N	\N	10 s	0	Körper	selbst	2 min			t		\N	\N
 Schlaf	120	SGr	Geste	1	\N	\N	\N	Magan	beherrscht	Wasser	1 s	30 m	Körper	3 m Uk	8 h	dämonisch		t		\N	\N
 Schlafsalz	80	1	Gedanke	1	\N	\N	Zaubersalz	Magan	beherrscht	Wasser	1 s	500 m	Körper	1 Ws	1 h	dämonisch		t		\N	\N
 Schlangenbiß	2000	4	Wort	4	\N	\N	\N	Eis	verwandelt	Holz	10 s	0	Körper	1 Ws	2 min	dämonisch	Schlangengift	f		\N	\N
+Schleichende Verderbnis	2000	8	Geste	4	H&Df	\N	\N	Metall	verändert	Luft	12 h	2 m	Körper	1 Ws	var	finster	Pergament	f		\N	t
 Schleichsalz	60	1	Gedanke	1	\N	\N	Zaubersalz	Magan	verändert	Luft	1 s	500 m	Umgebung	10 m²	8 h	dämonisch		t		\N	\N
 Schmerzen	200	2	Geste	2	\N	\N	\N	Magan	zerstört	Feuer	5 s	30 m	Körper	1 Ws	1 min	dämonisch	Silber- oder Knochennadel	t		\N	\N
 Schmerzen spüren	600	3	Gedanke	3	H&D	\N	\N				15 s	500 m	Geist   1 Ws	30 s	druidisch			t		\N	\N
@@ -492,7 +512,6 @@ Schutzkreis gegen Elementarwesen	2000	#*6	Geste	5	3	\N	Beschwörung	Luft	beherrsc
 Schutzkreis gegen Geisterwesen	1500	#*4	Geste	4	3	\N	Beschwörung	Luft	beherrscht	Eis	1 h	0	Umgebung	var	24 h	dämonisch	mag Farbe, Kreide und Zutaten	f		\N	\N
 Schutzkreis gegen Hrimfolk	40	#*1	Geste	1	3	Eis	Beschwörung	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	f		\N	\N
 Schutzkreis gegen Hunar	600	#*4	Geste	4	3	\N	Beschwörung	Luft	beherrscht	Element	1 h	0	Umgebung	var	1 h	elemtar	magische Farbe, Kreide und Zutaten	f		\N	\N
-Schattenroß	2000	12	Geste	4	H&Df	\N	\N	Metall	verändert	Luft	10 min	0	Körper	0	var	finster		f		\N	t
 Schutzkreis gegen Hyrrfolk	40	#*1	Geste	1	3	Feuer	Beschwörung	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	f		\N	\N
 Schutzkreis gegen Jördfolk	40	#*1	Geste	1	3	Feuer	Beschwörung	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	f		\N	\N
 Schutzkreis gegen Kaobargen	40	#*1	Geste	1	3	\N	Beschwörung	Luft	beherrscht	Feuer	1 h	0	Umgebung	var	24 h	elementar	mag Farbe, Kreide und Zutaten	f		\N	\N
@@ -568,12 +587,14 @@ Ungeheuerrune	800	4	Geste	3	W	\N	Runen	Luft	beherrscht	Erde	30 min	-	Umgebung	3m
 Ungeziefer bannen	1000	3-9 AP	Geste	3	H&D	\N	\N				10 min	0	Geist	6m Uk	8 h	druidisch	Schädel	t	Siegel	\N	\N
 Unheilsrune	400	2	Geste	2	W	\N	Runen	Eis	zerstört	Erde	30 min	-	Körper	1 Ws	0	göttlich	Stück Buchenholz	f	\N	\N	\N
 Unsichtbarkeit	250	Gr	Wort	2	\N	\N	\N	Luft	verändert	Metall	5 s	0	Körper	selbst	10 min	dämonisch		t	Siegel	\N	\N
+Unwetter rufen	2000	9	Wort	4	H&Df	\N	\N	Metall	verändert	Luft	1 min	0	Umgebung	150m Uk	15 min	finster		f		\N	t
 Verbotenes Wort	1400	6	Wort	4	\N	\N	\N	Magan	zerstört	Metall	5 s	0	Körper	9 m Uk	var	schwarzmagisch		f		\N	\N
 Verdorren	1000	5	Geste	3	\N	\N	\N	Eis	verändert	Erde	1 s	0	Körper	1 Ws	perm	schwarzmagisch		t		\N	\N
 Vereisen	2000	4	Geste	4	\N	\N	\N	Eis	verwandelt	Erde	1 s	0	Körper	1 Ws	perm	dämonisch		t	Rune	\N	\N
 Verfluchen	200	2	Wort	2	\N	\N	\N	Luft	verändert	Wasser	10 s	15 m	Körper	1 Ws	10 min	göttlich		t		\N	\N
 Vergangenheit beschwören	2000	6	Geste	5	3	\N	Beschwörung	Luft	bewegt	Erde	2 h	0	Umgebung	1 Ws	10 min	dämonisch		f		\N	\N
 Vergiften	800	4	Wort	3	\N	\N	\N	Eis	zerstört	Erde	30 s	3 m	Körper	3 m	0	schwarzmagisch		f		\N	\N
+Verglasen	3500	6	Gedanke	5	H&Df	\N	\N	Metall	verändert	Luft	10 s	15 m	Körper	1 Ws	0	finster		f		\N	t
 Vergrößern	800	6	Geste	3	\N	\N	\N	Magan	verändert	Metall	20 s	0	Umgebung	1 Ob	10 min	dämonisch		t	Siegel	\N	\N
 Verjüngen	15000	alle (min 8)	Geste	G	\N	\N	\N	Holz	verändert	Erde	6 h	1 m	Körper	1 Ws	0	druidisch	Phönixei, Gelee Royal	f		\N	\N
 Verkleinern	800	6	Geste	3	\N	\N	\N	Magan	verändert	Metall	20 s	0	Umgebung	1 Ob	10 min	dämonisch		t	Siegel	\N	\N
@@ -587,6 +608,7 @@ Verursachen von Krankheit	400	2	Geste	2	\N	\N	\N	Eis	verändert	Erde	1 s	0	Körper
 Verursachen von Wunden	300	3	Geste	2	\N	\N	\N	Eis	zerstört	Erde	1 s	0	Körper	1 Ws	0	schwarzmagisch		f		\N	\N
 Verwandlung	8000	>=9	Geste	6	\N	\N	\N	Holz	verwandelt	Erde	30 s	0	Körper	1 Ws	perm	dämonisch	Kern des Großen Kürbis	t	Siegel	\N	\N
 Verwirren	120	Gr	Geste	1	\N	\N	\N	Magan	beherrscht	Feuer	1 s	30 m	Geist	1 Ws	10 s	dämonisch		f		\N	\N
+Verwüstung	250	2	Geste	2	H&Df	\N	\N	Metall	verändert	Luft	30 s	0	Körper	10m Uk	0	finster	Wüstensand	f		\N	t
 Verzweiflung	2000	5	Geste	4	\N	\N	\N	Magan	verändert	Luft	10 s	0	Geist	1 Ws	1 h	dämonisch	Peyotekaktus, in Wasser gelöst	f		\N	\N
 Vinddvegar beschwören	4000	5	Geste	5	3	Luft	Beschwörung	Magan	bewegt	Feuer	3 h	0	Umgebung	5 Ws	1 h 	elementar	Edelstein 200 GS	f		\N	\N
 Vinddverg beschwören	800	3	Geste	3	3	Luft	Beschwörung	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 40 GS 	f		\N	\N
@@ -646,6 +668,7 @@ Zauberstimme	150	2	Geste	2	\N	\N	\N	Magan	erschafft	Luft	10 min	50 m	Umgebung	-	
 Zaubertür	10000	9	Geste	6	H&D	\N	\N				30 s	B	Umgebung	1x2m Wand	2 min	dämonisch		t	Siegel	\N	\N
 Zauberwirklichkeit	10000	9	Geste	6	\N	\N	\N	Magan	beherrscht	Feuer	3 h	50 m	Geist	9x9x3 m	30 min	dämonisch	Blütenstaub, Essenzen, Edelsteinsplitter	t		\N	\N
 Zauberzunge	1500	4	Geste	4	\N	\N	\N	Luft	erkennt	Luft	1 min	0	Geist	selbst	30 min	dämonisch	Papageienhirn und -zunge	t		\N	\N
+Zeichen des Chaos	2000	6	Geste	4	H&Df	\N	\N	Metall	verändert	Luft	10 s	10 m	Körper	1 Ws	0	finster		f		\N	t
 Zielsuche	800	3	Geste	3	\N	\N	\N	Luft	verändert	Holz	10 s	0	Umgebung	1 Ob	10 min	druidisch		t	Siegel	\N	\N
 Zucksalz	60	1	Gedanke	1	H&D	\N	Zaubersalz	Mangan	beherrscht	Luft	1 s	500 m	Körper	1 Ws	2 min	dämonisch		t		\N	\N
 Zurückführen	6000	var	Wort	6	H&D	\N	\N				6 h	B	Umgebung	1 Ob	0	druidisch		f	Siegel	\N	\N
@@ -654,29 +677,6 @@ Zwiesprache	100	1	Wort	1	\N	\N	\N	Feuer	erkennt	Luft	1 s	500 m	Körper	-	10 min	d
 Zwingkreis	4000	6	Geste	5	H&D	\N	\N				10 s	30m	Umgebung	6m Uk	6 h	druidisch	Kupferarmband	t		\N	\N
 Zähmen	120	SGr	Wort	1	\N	\N	\N	Wasser	beherrscht	Wasser	5 s	30 m	Geist	Gr Ws	2 h	druidisch		f		\N	\N
 Zündersalz	100	1	Gedanke	1	\N	\N	Zaubersalz	Feuer	erschafft	Feuer	1 s	500 m	Umgebung	1 Ob	0	dämonisch		t		\N	\N
-Alpträume	1500	2*Gr	Wort	4	H&Df	\N	\N	Metall	verändert	Luft	1 min	500 m	Geist	1-4 Ws	var	finster		f		\N	t
-Altern	5000	var	Geste	6	H&Df	\N	\N	Eis	verändert	Erde	2 min	10 m	Körper	1 Ws	1 Tag	finster	Zu Staub zerfallene Schädelknochen	f		\N	t
-Dämonenhand	10000	alle	Wort	G	H&Df	\N	\N	Feuer	bewegt	Metall	10 s	0	Umgebung	1 Ws	var	finster		f		\N	t
-Dämonenkreis	1500	4	Geste	4	H&Df	\N	\N	Feuer	beherrscht	Wasser	20 s	50 m	Körper	1m Uk	2 h	finster	Giftige Waldpilze	f		\N	t
-Erdrosseln	500	1*Runde	Geste	3	H&Df	\N	\N	Luft	beherrscht	Wasser	1 s	50 m	Körper	1 Ws	var	finster		f		\N	t
-Farbensalz	60	1	Gedanke	1	H&Df	\N	\N	Magan	verändert	Holz	1 s	500 m	Umgebung	50x50cm	3 h	finster		t		\N	t
-Finsterer Blick	200	2	Gedanke	2	H&Df	\N	\N	Metall	verändert	Luft	1 s	12 m	Geist	1 Ws	1 h	finster		f		\N	t
-Firzars Zorn	5000	9	Wort	6	H&Df	\N	\N	Metall	verändert	Luft	10 s	30 m	Umgebung	1 Ws	2 min	finster		f		\N	t
-Flucht des Geistes	4000	9	Gedanke	5	H&Df	\N	\N	Metall	verändert	Luft	10 s	0	Geist	selbst	var	finster		f		\N	t
-Fäulnis	1500	2	Geste	2	H&Df	\N	\N	Magan	zerstört	Erde	10 s	24 m	Umgebung	1 Ob	var	finster	Faules Holz	f		\N	t
-Geister der Finsternis	500	3	Geste	3	H&Df	\N	\N	Metall	verändert	Luft	10 s	200 m	Geist	0	10 min	finster	Marder- oder Fledermaus-schädel	f		\N	t
-Geistesschlüssel	1500	4	Geste	4	H&Df	\N	\N	Metall	verändert	Luft	30 min	0	Geist	1 Ws	0	finster		f		\N	t
-Globus der Finsternis	500	3	Geste	3	H&Df	\N	\N	Metall	verändert	Luft	20 s	0	Umgebung	3m Uk	10 min	finster	Ebenholzkugel, Obsidiankugel, schwarze Perle	f		\N	t
-Höllenbote rufen	3500	alle(mind 9)	Wort	5	H&Df	Eis	\N	Metall	verändert	Luft	1 h	100 km	umgebung	1 Ws	var	finster		f		\N	t
-Höllenfeuer	2000	4*#	Geste	4	H&Df	\N	\N	Metall	verändert	Luft	15 s	50 m	Umgebung	var	0	finster	Pech und Schwefel	f		\N	t
-Höllenglocke	2000	alle(mind 9)	Gedanke	4	H&Df	\N	\N	Metall	verändert	Luft	10 s	0	Umgebung	1 km	0	finster		f		\N	t
-Konvulsion	1500	6	Geste	4	H&Df	\N	\N	Metall	verändert	Luft	10 s	24 m	Umgebung	1 Ws	0	finster	Wackelpudding	f		\N	t
-Macht der Finsternis	6000	9	Wort	6	H&Df	\N	\N	Metall	verändert	Luft	10 s	0	Körper	selbst	1 h	finster		f		\N	t
-Schleichende Verderbnis	2000	8	Geste	4	H&Df	\N	\N	Metall	verändert	Luft	12 h	2 m	Körper	1 Ws	var	finster	Pergament	f		\N	t
-Unwetter rufen	2000	9	Wort	4	H&Df	\N	\N	Metall	verändert	Luft	1 min	0	Umgebung	150m Uk	15 min	finster		f		\N	t
-Verglasen	3500	6	Gedanke	5	H&Df	\N	\N	Metall	verändert	Luft	10 s	15 m	Körper	1 Ws	0	finster		f		\N	t
-Verwüstung	250	2	Geste	2	H&Df	\N	\N	Metall	verändert	Luft	30 s	0	Körper	10m Uk	0	finster	Wüstensand	f		\N	t
-Zeichen des Chaos	2000	6	Geste	4	H&Df	\N	\N	Metall	verändert	Luft	10 s	10 m	Körper	1 Ws	0	finster		f		\N	t
 \.
 --
 --

@@ -29,6 +29,7 @@ Abu es-Samum	sHx	S
 Abu es-Samum	wHx	S
 Abwenden von Blicken	Hl	G
 Abwenden von Blicken	Ma	S
+Abwenden von Blicken	Or	G
 Abwenden von Blicken	PHe	S
 Abwenden von Blicken	PK	A
 Abwenden von Blicken	PT	A
@@ -101,6 +102,7 @@ Al-Tarka	gHx	S
 Al-Tarka	sHx	S
 Al-Tarka	wHx	S
 Allheilung	Hl	G
+Allheilung	Or	G
 Allheilung	PF	G
 Allheilung	PHa	G
 Allheilung	PHe	G
@@ -187,6 +189,7 @@ Augenschleier	gHx	G
 Augenschleier	sHx	G
 Augenschleier	wHx	G
 Austreibung des Bösen	Hl	S
+Austreibung des Bösen	Or	G
 Austreibung des Bösen	PF	G
 Austreibung des Bösen	PHa	G
 Austreibung des Bösen	PHe	G
@@ -199,6 +202,7 @@ Austreibung des Bösen	ScN	S
 Austreibung des Bösen	ScS	S
 Austreibung des Bösen	ScW	S
 Austreibung des Bösen	Sr	G
+Austreibung des Guten	Or	G
 Austreibung des Guten	PC	G
 Austreibung des Guten	PF	S
 Austreibung des Guten	PHa	S
@@ -274,6 +278,7 @@ Bannen von Dunebargen	wHx	A
 Bannen von Dunkelheit	Dr	A
 Bannen von Dunkelheit	Hl	G
 Bannen von Dunkelheit	Ma	A
+Bannen von Dunkelheit	Or	G
 Bannen von Dunkelheit	PC	A
 Bannen von Dunkelheit	PF	G
 Bannen von Dunkelheit	PHa	G
@@ -314,6 +319,7 @@ Bannen von Dvergar	gHx	A
 Bannen von Dvergar	sHx	A
 Bannen von Dvergar	wHx	A
 Bannen von Finsterwerk	Hl	S
+Bannen von Finsterwerk	Or	G
 Bannen von Finsterwerk	PF	G
 Bannen von Finsterwerk	PHa	G
 Bannen von Finsterwerk	PHe	G
@@ -340,6 +346,7 @@ Bannen von Fäulnis	gHx	A
 Bannen von Fäulnis	sHx	A
 Bannen von Fäulnis	wHx	A
 Bannen von Gift	Hl	G
+Bannen von Gift	Or	G
 Bannen von Gift	PF	G
 Bannen von Gift	PHa	G
 Bannen von Gift	PHe	G
@@ -352,6 +359,7 @@ Bannen von Gift	ScS	S
 Bannen von Gift	ScW	S
 Bannen von Gift	Sr	G
 Bannen von Gift	Tm	A
+Bannen von Götterwerk	Or	G
 Bannen von Götterwerk	PC	G
 Bannen von Götterwerk	Sr	G
 Bannen von Götterwerk	sHx	G
@@ -538,6 +546,7 @@ Bannen von Kälte	sHx	S
 Bannen von Kälte	wHx	S
 Bannen von Licht	Dr	A
 Bannen von Licht	Ma	A
+Bannen von Licht	Or	G
 Bannen von Licht	PC	G
 Bannen von Licht	PF	A
 Bannen von Licht	PK	A
@@ -638,6 +647,7 @@ Bannen von Wiskin	wHx	A
 Bannen von Zauberwerk	Dr	A
 Bannen von Zauberwerk	Hl	S
 Bannen von Zauberwerk	Ma	S
+Bannen von Zauberwerk	Or	G
 Bannen von Zauberwerk	PC	G
 Bannen von Zauberwerk	PF	G
 Bannen von Zauberwerk	PHa	G
@@ -660,6 +670,7 @@ Bannrune	Sk	S
 Bannsphäre, Blaue	Dr	A
 Bannsphäre, Blaue	Hl	A
 Bannsphäre, Blaue	Ma	S
+Bannsphäre, Blaue	Or	G
 Bannsphäre, Blaue	PC	S
 Bannsphäre, Blaue	PF	S
 Bannsphäre, Blaue	PHa	S
@@ -683,6 +694,7 @@ Bannsphäre, Blaue	wHx	S
 Bannsphäre, Goldene	Dr	A
 Bannsphäre, Goldene	Hl	A
 Bannsphäre, Goldene	Ma	S
+Bannsphäre, Goldene	Or	G
 Bannsphäre, Goldene	PC	S
 Bannsphäre, Goldene	PF	G
 Bannsphäre, Goldene	PHa	G
@@ -727,6 +739,7 @@ Bannsphäre, Schwarze	wHx	S
 Bannsphäre, Silberne	Dr	A
 Bannsphäre, Silberne	Hl	A
 Bannsphäre, Silberne	Ma	S
+Bannsphäre, Silberne	Or	G
 Bannsphäre, Silberne	PC	G
 Bannsphäre, Silberne	PF	S
 Bannsphäre, Silberne	PHa	S
@@ -874,6 +887,7 @@ Beschleunigen	Dr	S
 Beschleunigen	Fi	G
 Beschleunigen	Hl	G
 Beschleunigen	Ma	S
+Beschleunigen	Or	G
 Beschleunigen	PC	S
 Beschleunigen	PF	S
 Beschleunigen	PHa	S
@@ -944,6 +958,7 @@ Bittersalz	wHx	S
 Blenden	De	G
 Blenden	Dr	S
 Blenden	Ma	S
+Blenden	Or	G
 Blenden	PC	S
 Blenden	PF	G
 Blenden	PHa	S
@@ -1043,6 +1058,7 @@ Blutmeisterschaft	Sa	G
 Blutmeisterschaft	ScN	A
 Blutmeisterschaft	ScS	A
 Blutmeisterschaft	ScW	A
+Blutsbrüderschaft stiften	Or	S
 Blutsbrüderschaft stiften	PK	S
 Blutsbrüderschaft stiften	Sa	G
 Blutsbrüderschaft stiften	ScN	G
@@ -1513,6 +1529,9 @@ Dschungelwand	PM	S
 Dschungelwand	PT	S
 Dschungelwand	PW	S
 Dschungelwand	Sa	S
+Dschungelwand	ScN	A
+Dschungelwand	ScS	A
+Dschungelwand	ScW	A
 Dschungelwand	gHx	S
 Dschungelwand	sHx	S
 Dschungelwand	wHx	S
@@ -1782,6 +1801,7 @@ Eiselementargeist beschwören	sHx	A
 Eiselementargeist beschwören	wHx	A
 Eisenhaut	Hl	A
 Eisenhaut	Ma	S
+Eisenhaut	Or	G
 Eisenhaut	PC	S
 Eisenhaut	PF	S
 Eisenhaut	PHa	S
@@ -1960,6 +1980,7 @@ Elfenfeuer	Dr	G
 Elfenfeuer	Fi	A
 Elfenfeuer	Hl	S
 Elfenfeuer	Ma	S
+Elfenfeuer	Or	G
 Elfenfeuer	PC	A
 Elfenfeuer	PF	S
 Elfenfeuer	PHa	S
@@ -1992,11 +2013,13 @@ Entfesseln	gHx	A
 Entfesseln	tBe	G
 Entgiften	Dr	S
 Entgiften	Hl	G
+Entgiften	Or	G
 Entgiften	PF	S
 Entgiften	PHa	S
 Entgiften	PHe	S
 Entgiften	PK	S
 Entgiften	PM	S
+Entgiften	PW	S
 Entgiften	Sa	A
 Entgiften	ScN	A
 Entgiften	ScS	A
@@ -2103,6 +2126,7 @@ Erdwandlung	gHx	S
 Erdwandlung	sHx	S
 Erdwandlung	wHx	S
 Erheben der Toten	Hl	G
+Erheben der Toten	Or	A
 Erheben der Toten	PF	G
 Erheben der Toten	PHa	A
 Erheben der Toten	PHe	G
@@ -2111,6 +2135,7 @@ Erheben der Toten	PM	S
 Erheben der Toten	PW	G
 Erheben der Toten	Sr	A
 Erkennen der Aura	Dr	S
+Erkennen der Aura	Or	G
 Erkennen der Aura	PC	G
 Erkennen der Aura	PF	G
 Erkennen der Aura	PHa	G
@@ -2127,6 +2152,7 @@ Erkennen der Aura	Sr	G
 Erkennen von Gift	Dr	G
 Erkennen von Gift	Hl	A
 Erkennen von Gift	Ma	S
+Erkennen von Gift	Or	A
 Erkennen von Gift	PC	A
 Erkennen von Gift	PF	A
 Erkennen von Gift	PHa	A
@@ -2159,6 +2185,7 @@ Erkennen von Leben	PC	A
 Erkennen von Leben	PF	S
 Erkennen von Leben	PHa	A
 Erkennen von Leben	PHe	A
+Erkennen von Leben	PK	A
 Erkennen von Leben	PM	A
 Erkennen von Leben	PT	A
 Erkennen von Leben	PW	A
@@ -2178,6 +2205,7 @@ Erkennen von Metall	gHx	A
 Erkennen von Metall	sHx	A
 Erkennen von Metall	wHx	A
 Erkennen von Verdammten	Ma	A
+Erkennen von Verdammten	Or	G
 Erkennen von Verdammten	PT	S
 Erkennen von Zauberei	Ma	G
 Erkennen von Zauberei	PW	A
@@ -2351,6 +2379,7 @@ Felldverg beschwören	wHx	A
 Felsenfaust	Dr	A
 Felsenfaust	Hl	A
 Felsenfaust	Ma	A
+Felsenfaust	Or	S
 Felsenfaust	PC	S
 Felsenfaust	PF	S
 Felsenfaust	PHa	G
@@ -2426,7 +2455,6 @@ Feuerelementargeist beschwören	ScN	A
 Feuerelementargeist beschwören	ScS	A
 Feuerelementargeist beschwören	ScW	A
 Feuerelementargeist beschwören	Th	A
-Felsenfaust	Or	S
 Feuerelementargeist beschwören	dBe	A
 Feuerelementargeist beschwören	eBe	A
 Feuerelementargeist beschwören	gHx	A
@@ -2665,6 +2693,7 @@ Flammende Hand	gHx	S
 Flammende Hand	sHx	S
 Flammende Hand	wHx	S
 Flammenklinge	Ma	S
+Flammenklinge	Or	S
 Flammenklinge	PC	S
 Flammenklinge	PF	S
 Flammenklinge	PHa	S
@@ -2681,6 +2710,7 @@ Flammenklinge	wHx	A
 Flammenkreis	Dr	S
 Flammenkreis	Hl	S
 Flammenkreis	Ma	S
+Flammenkreis	Or	S
 Flammenkreis	PC	A
 Flammenkreis	PF	S
 Flammenkreis	PHa	S
@@ -2745,6 +2775,7 @@ Fliegensalz	sHx	S
 Fliegensalz	tBe	A
 Fliegensalz	wHx	S
 Fluch des Hundes	Hl	S
+Fluch des Hundes	Or	S
 Fluch des Hundes	PC	A
 Fluch des Hundes	PF	A
 Fluch des Hundes	PHa	A
@@ -3124,6 +3155,7 @@ Glühsalz	gHx	S
 Glühsalz	sHx	S
 Glühsalz	wHx	S
 Goldener Panzer	Ma	S
+Goldener Panzer	Or	G
 Goldener Panzer	PC	S
 Goldener Panzer	PF	S
 Goldener Panzer	PHa	S
@@ -3170,6 +3202,7 @@ Grenzenlose Freude	ScW	S
 Grenzenlose Freude	gHx	S
 Grenzenlose Freude	sHx	S
 Grenzenlose Freude	wHx	S
+Großer Hitzeschutz	Or	S
 Großer Hitzeschutz	PC	A
 Großer Hitzeschutz	PF	A
 Großer Hitzeschutz	PHa	A
@@ -3200,6 +3233,7 @@ Grüne Hand	sHx	S
 Grüne Hand	wHx	S
 Götterarme	Hl	A
 Götterarme	Sa	S
+Göttliche Eingebung	Or	G
 Göttliche Eingebung	PC	G
 Göttliche Eingebung	PF	G
 Göttliche Eingebung	PHa	G
@@ -3210,6 +3244,7 @@ Göttliche Eingebung	PT	G
 Göttliche Eingebung	PW	G
 Göttliche Eingebung	Sr	G
 Göttliche Eingebung	wHx	G
+Göttliche Strafe	Or	S
 Göttliche Strafe	PC	G
 Göttliche Strafe	PF	G
 Göttliche Strafe	PHa	G
@@ -3224,6 +3259,7 @@ Göttliche Strafe	ScS	G
 Göttliche Strafe	ScW	G
 Göttliche Strafe	Sr	S
 Göttliche Strafe	wHx	G
+Göttlicher Blitz	Or	G
 Göttlicher Blitz	PC	S
 Göttlicher Blitz	PF	G
 Göttlicher Blitz	PHa	G
@@ -3233,6 +3269,7 @@ Göttlicher Blitz	PM	G
 Göttlicher Blitz	PT	G
 Göttlicher Blitz	PW	G
 Göttlicher Blitz	Sr	G
+Göttlicher Schutz vor Magie	Or	G
 Göttlicher Schutz vor Magie	PC	S
 Göttlicher Schutz vor Magie	PF	G
 Göttlicher Schutz vor Magie	PHa	G
@@ -3243,6 +3280,7 @@ Göttlicher Schutz vor Magie	PT	G
 Göttlicher Schutz vor Magie	PW	G
 Göttlicher Schutz vor Magie	Sr	G
 Göttlicher Schutz vor dem Bösen	Hl	S
+Göttlicher Schutz vor dem Bösen	Or	G
 Göttlicher Schutz vor dem Bösen	PF	G
 Göttlicher Schutz vor dem Bösen	PHa	G
 Göttlicher Schutz vor dem Bösen	PHe	G
@@ -3379,6 +3417,7 @@ Halebant 4 beschwören	gHx	A
 Halebant 4 beschwören	sHx	A
 Halebant 4 beschwören	wHx	A
 Hammerhand	Ma	G
+Hammerhand	Or	A
 Hammerhand	PC	S
 Hammerhand	PF	A
 Hammerhand	PHa	A
@@ -3395,6 +3434,7 @@ Hammerhand	wHx	S
 Handauflegen	Dr	A
 Handauflegen	Fi	G
 Handauflegen	Hl	G
+Handauflegen	Or	G
 Handauflegen	PC	S
 Handauflegen	PF	G
 Handauflegen	PHa	G
@@ -3573,6 +3613,7 @@ Haugskadi beschwören	sHx	A
 Haugskadi beschwören	wHx	A
 Heilen schwerer Wunden	Dr	A
 Heilen schwerer Wunden	Hl	G
+Heilen schwerer Wunden	Or	G
 Heilen schwerer Wunden	PC	S
 Heilen schwerer Wunden	PF	G
 Heilen schwerer Wunden	PHa	G
@@ -3588,6 +3629,7 @@ Heilen schwerer Wunden	gHx	A
 Heilen schwerer Wunden	sHx	A
 Heilen schwerer Wunden	wHx	A
 Heilen von Krankheit	Hl	G
+Heilen von Krankheit	Or	G
 Heilen von Krankheit	PC	S
 Heilen von Krankheit	PF	G
 Heilen von Krankheit	PHa	G
@@ -3602,6 +3644,7 @@ Heilen von Krankheit	ScW	G
 Heilen von Wunden	Dr	S
 Heilen von Wunden	Fi	G
 Heilen von Wunden	Hl	G
+Heilen von Wunden	Or	G
 Heilen von Wunden	PC	S
 Heilen von Wunden	PF	G
 Heilen von Wunden	PHa	G
@@ -3618,6 +3661,7 @@ Heilen von Wunden	gHx	A
 Heilen von Wunden	sHx	A
 Heilen von Wunden	wHx	A
 Heiliger Zorn	Fi	G
+Heiliger Zorn	Or	G
 Heiliger Zorn	PC	G
 Heiliger Zorn	PF	G
 Heiliger Zorn	PHa	G
@@ -3630,6 +3674,7 @@ Heiliger Zorn	ScN	S
 Heiliger Zorn	ScS	S
 Heiliger Zorn	ScW	S
 Heiliger Zorn	Sr	G
+Heiliges Wort	Or	G
 Heiliges Wort	PF	G
 Heiliges Wort	PHa	G
 Heiliges Wort	PHe	G
@@ -3662,6 +3707,7 @@ Heimstein	wHx	A
 Heranholen	Dr	S
 Heranholen	Hl	G
 Heranholen	Ma	G
+Heranholen	Or	A
 Heranholen	PC	S
 Heranholen	PF	S
 Heranholen	PHa	S
@@ -3917,6 +3963,7 @@ Hören von Fernem	wHx	S
 Hörnerklang	Dr	A
 Hörnerklang	Hl	A
 Hörnerklang	Ma	S
+Hörnerklang	Or	G
 Hörnerklang	PC	S
 Hörnerklang	PF	S
 Hörnerklang	PHa	S
@@ -4199,7 +4246,13 @@ Jurugu rufen	gHx	A
 Jurugu rufen	sHx	A
 Jurugu rufen	wHx	A
 Juwelenauge	Ma	G
+Juwelenauge	PF	S
+Juwelenauge	PHa	S
+Juwelenauge	PHe	S
+Juwelenauge	PK	S
+Juwelenauge	PM	S
 Juwelenauge	PT	S
+Juwelenauge	PW	S
 Juwelenauge	Sa	A
 Juwelenauge	ScN	A
 Juwelenauge	ScS	A
@@ -4472,6 +4525,7 @@ Kraft entziehen	sHx	A
 Kravyad-Schrei	Ba	S
 Kravyad-Schrei	Dr	S
 Kravyad-Schrei	Ma	S
+Kravyad-Schrei	Or	S
 Kravyad-Schrei	PC	S
 Kravyad-Schrei	PF	S
 Kravyad-Schrei	PHa	S
@@ -4609,6 +4663,9 @@ Lauschen	sHx	S
 Lauschen	wHx	S
 Lebenskeule	Dr	G
 Lebenskeule	Hl	S
+Lebenskeule	gHx	A
+Lebenskeule	sHx	A
+Lebenskeule	wHx	A
 Lehrersuche	Dr	S
 Lehrersuche	Hl	S
 Lehrersuche	Ma	S
@@ -4632,6 +4689,7 @@ Lehrersuche	sHx	S
 Lehrersuche	wHx	S
 Leomies Birneneis	Hl	A
 Leomies Birneneis	Ma	A
+Leomies Birneneis	Or	A
 Leomies Birneneis	PC	A
 Leomies Birneneis	PF	A
 Leomies Birneneis	PHa	A
@@ -4768,6 +4826,7 @@ Lied des Zorns	Ba	G
 Lindern von Entkräftung	Dr	A
 Lindern von Entkräftung	Fi	G
 Lindern von Entkräftung	Hl	G
+Lindern von Entkräftung	Or	S
 Lindern von Entkräftung	PC	A
 Lindern von Entkräftung	PF	A
 Lindern von Entkräftung	PHa	A
@@ -5016,6 +5075,7 @@ Macht über das Selbst	Dr	S
 Macht über das Selbst	Fi	G
 Macht über das Selbst	Hl	S
 Macht über das Selbst	Ma	G
+Macht über das Selbst	Or	S
 Macht über das Selbst	ScN	G
 Macht über das Selbst	ScS	G
 Macht über das Selbst	ScW	G
@@ -5288,6 +5348,7 @@ Marmennil beschwören	sHx	A
 Marmennil beschwören	wHx	A
 Marmorhaut	Hl	A
 Marmorhaut	Ma	S
+Marmorhaut	Or	G
 Marmorhaut	PC	S
 Marmorhaut	PF	S
 Marmorhaut	PHa	S
@@ -5837,6 +5898,7 @@ Reise zu den Sphären	wHx	A
 Reiserune	Ru	G
 Reiserune	Sk	S
 Reizen	Hl	A
+Reizen	Or	S
 Reizen	PW	G
 Reizen	ScN	S
 Reizen	ScS	S
@@ -6190,6 +6252,7 @@ Schmerzen	gHx	G
 Schmerzen	sHx	G
 Schmerzen	wHx	G
 Schmerzen spüren	Hl	S
+Schmerzen spüren	Or	S
 Schmerzen spüren	PC	A
 Schmerzen spüren	PF	A
 Schmerzen spüren	PHa	A
@@ -6249,6 +6312,7 @@ Schrumpfen	gHx	S
 Schrumpfen	sHx	S
 Schrumpfen	wHx	S
 Schutzgeist	Dr	S
+Schutzgeist	Or	G
 Schutzgeist	PC	S
 Schutzgeist	PF	S
 Schutzgeist	PHa	S
@@ -6543,6 +6607,7 @@ Schwarm	Dr	G
 Schwarm	Hl	S
 Schwarm	Ma	A
 Schwarm	PC	A
+Schwarm	PF	A
 Schwarm	Tm	S
 Schwarm	gHx	S
 Schwarm	sHx	S
@@ -6663,6 +6728,7 @@ Seele finden	gHx	A
 Seele finden	sHx	A
 Seele finden	wHx	A
 Seelenheilung	Hl	G
+Seelenheilung	Or	A
 Seelenheilung	PF	G
 Seelenheilung	PHa	S
 Seelenheilung	PHe	S
@@ -6719,6 +6785,7 @@ Seelenschock	ScW	S
 Seelenschock	gHx	S
 Seelenschock	sHx	S
 Seelenschock	wHx	S
+Segnen	Or	G
 Segnen	PC	S
 Segnen	PF	G
 Segnen	PHa	G
@@ -7495,6 +7562,7 @@ Truscan 4 beschwören	wHx	A
 Umkehrschild	Dr	A
 Umkehrschild	Hl	A
 Umkehrschild	Ma	S
+Umkehrschild	Or	A
 Umkehrschild	PC	A
 Umkehrschild	PF	A
 Umkehrschild	PHa	A
@@ -7543,6 +7611,7 @@ Unsichtbarkeit	Dr	S
 Unsichtbarkeit	Fi	S
 Unsichtbarkeit	Hl	S
 Unsichtbarkeit	Ma	S
+Unsichtbarkeit	Or	S
 Unsichtbarkeit	PC	S
 Unsichtbarkeit	PF	S
 Unsichtbarkeit	PHa	S
@@ -7595,6 +7664,7 @@ Vereisen	Th	G
 Vereisen	gHx	S
 Vereisen	sHx	S
 Vereisen	wHx	S
+Verfluchen	Or	G
 Verfluchen	PC	G
 Verfluchen	PF	G
 Verfluchen	PHa	G
@@ -7933,6 +8003,7 @@ Wachsen	wHx	S
 Wagemut	Dr	S
 Wagemut	Hl	S
 Wagemut	Ma	A
+Wagemut	Or	G
 Wagemut	PC	G
 Wagemut	PF	G
 Wagemut	PHa	G
@@ -7974,6 +8045,7 @@ Wahrsehen	Dr	S
 Wahrsehen	Fi	S
 Wahrsehen	Hl	S
 Wahrsehen	Ma	S
+Wahrsehen	Or	A
 Wahrsehen	PC	G
 Wahrsehen	PF	G
 Wahrsehen	PHa	G
@@ -8060,6 +8132,7 @@ Wandlung	Sa	G
 Warnung	Dr	A
 Warnung	Hl	S
 Warnung	Ma	S
+Warnung	Or	S
 Warnung	PC	G
 Warnung	PF	G
 Warnung	PHa	G
@@ -8422,6 +8495,7 @@ Wolkenbruch	sHx	S
 Wolkenbruch	wHx	S
 Wort der Trauer	Dr	A
 Wort der Trauer	Hl	S
+Wort der Trauer	Or	G
 Wort der Trauer	PF	G
 Wort der Trauer	PHa	G
 Wort der Trauer	PHe	G
@@ -8437,6 +8511,7 @@ Wort der Trauer	Sr	G
 Wort der Trauer	wHx	G
 Wort des Lebens	Dr	S
 Wort des Lebens	Hl	S
+Wort des Lebens	Or	G
 Wort des Lebens	PF	G
 Wort des Lebens	PHa	G
 Wort des Lebens	PHe	G
@@ -8516,12 +8591,16 @@ Zauberhand	PK	S
 Zauberhand	PM	S
 Zauberhand	PT	S
 Zauberhand	PW	S
+Zauberhand	ScN	S
+Zauberhand	ScS	S
+Zauberhand	ScW	S
 Zauberhand	gHx	G
 Zauberhand	sHx	G
 Zauberhand	wHx	G
 Zaubermacht	Dr	S
 Zaubermacht	Hl	S
 Zaubermacht	Ma	G
+Zaubermacht	Or	S
 Zaubermacht	PC	S
 Zaubermacht	PF	S
 Zaubermacht	PHa	S
@@ -8543,6 +8622,7 @@ Zaubermacht	wHx	S
 Zauberschild	Dr	A
 Zauberschild	Hl	A
 Zauberschild	Ma	S
+Zauberschild	Or	S
 Zauberschild	PC	S
 Zauberschild	PF	S
 Zauberschild	PHa	S
@@ -8587,6 +8667,7 @@ Zauberschlüssel	gHx	S
 Zauberschlüssel	sHx	S
 Zauberschlüssel	wHx	S
 Zauberschmiede	Ma	S
+Zauberschmiede	Or	S
 Zauberschmiede	PC	S
 Zauberschmiede	PF	S
 Zauberschmiede	PHa	G
@@ -8749,6 +8830,7 @@ Zwiesprache	wHx	S
 Zwingkreis	Ba	S
 Zwingkreis	Dr	S
 Zwingkreis	Hl	S
+Zwingkreis	Or	S
 Zwingkreis	PC	S
 Zwingkreis	PF	S
 Zwingkreis	PHa	G
@@ -8800,88 +8882,6 @@ Zündersalz	gHx	S
 Zündersalz	sHx	S
 Zündersalz	tBe	A
 Zündersalz	wHx	S
-Dschungelwand	ScN	A
-Dschungelwand	ScS	A
-Dschungelwand	ScW	A
-Entgiften	PW	S
-Erkennen von Leben	PK	A
-Juwelenauge	PF	S
-Juwelenauge	PHa	S
-Juwelenauge	PHe	S
-Juwelenauge	PK	S
-Juwelenauge	PM	S
-Juwelenauge	PW	S
-Zauberhand	ScN	S
-Zauberhand	ScW	S
-Zauberhand	ScS	S
-Abwenden von Blicken	Or	G
-Allheilung	Or	G
-Austreibung des Bösen	Or	G
-Austreibung des Guten	Or	G
-Bannen von Dunkelheit	Or	G
-Bannen von Finsterwerk	Or	G
-Bannen von Gift	Or	G
-Bannen von Götterwerk	Or	G
-Bannen von Licht	Or	G
-Bannen von Zauberwerk	Or	G
-Bannsphäre, Blaue	Or	G
-Bannsphäre, Goldene	Or	G
-Bannsphäre, Silberne	Or	G
-Beschleunigen	Or	G
-Blenden	Or	G
-Blutsbrüderschaft stiften	Or	S
-Eisenhaut	Or	G
-Elfenfeuer	Or	G
-Entgiften	Or	G
-Erheben der Toten	Or	A
-Erkennen der Aura	Or	G
-Erkennen von Gift	Or	A
-Erkennen von Verdammten	Or	G
-Flammenklinge	Or	S
-Flammenkreis	Or	S
-Fluch des Hundes	Or	S
-Goldener Panzer	Or	G
-Großer Hitzeschutz	Or	S
-Göttliche Eingebung	Or	G
-Göttliche Strafe	Or	S
-Göttlicher Blitz	Or	G
-Göttlicher Schutz vor Magie	Or	G
-Göttlicher Schutz vor dem Bösen	Or	G
-Hammerhand	Or	A
-Handauflegen	Or	G
-Heilen schwerer Wunden	Or	G
-Heilen von Krankheit	Or	G
-Heilen von Wunden	Or	G
-Heiliger Zorn	Or	G
-Heiliges Wort	Or	G
-Heranholen	Or	A
-Hörnerklang	Or	G
-Kravyad-Schrei	Or	S
-Leomies Birneneis	Or	A
-Lindern von Entkräftung	Or	S
-Macht über das Selbst	Or	S
-Marmorhaut	Or	G
-Reizen	Or	S
-Schmerzen spüren	Or	S
-Schutzgeist	Or	G
-Seelenheilung	Or	A
-Segnen	Or	G
-Umkehrschild	Or	A
-Unsichtbarkeit	Or	S
-Verfluchen	Or	G
-Wagemut	Or	G
-Wahrsehen	Or	A
-Warnung	Or	S
-Wort der Trauer	Or	G
-Wort des Lebens	Or	G
-Zaubermacht	Or	S
-Zauberschild	Or	S
-Zauberschmiede	Or	S
-Zwingkreis	Or	S
-Lebenskeule	gHx	A
-Lebenskeule	sHx	A
-Lebenskeule	wHx	A
-Schwarm	PF	A
 \.
 --
 --
