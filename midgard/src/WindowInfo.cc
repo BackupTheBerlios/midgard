@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.56 2002/12/14 23:45:11 christof Exp $
+// $Id: WindowInfo.cc,v 1.57 2002/12/18 17:58:00 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -59,7 +59,7 @@ void WindowInfo::on_button_bestaetigen_clicked()
 }
 
 
-void WindowInfo::on_button_auswahl_clicked(signal_int().connect)
+void WindowInfo::on_button_auswahl_clicked(int connect)
 {
  assert(Modus==PraxisPunkteMBE);
  if(MBE)
@@ -91,11 +91,11 @@ WindowInfo::WindowInfo(midgard_CG* h)
    scrolledwindow_status->hide();
    
    if (mystream) delete mystream;
-   Gtk::OStream *mystream = new Gtk::OStream(LogWin->get_list());
+   Gtk::OStream *mystream = new Gtk::OStream(LogWin->get_view());
    ((Gtk::OStream*)mystream)->signal_flushed().connect(SigC::slot(*LogWin,&logwin::scroll));
 
    if (myLogstream) delete myLogstream;
-   Gtk::OStream *myLogstream = new Gtk::OStream(LogWin_Status->get_list());
+   Gtk::OStream *myLogstream = new Gtk::OStream(LogWin_Status->get_view());
    ((Gtk::OStream*)myLogstream)->signal_flushed().connect(SigC::slot(*LogWin_Status,&logwin::scroll));
 
 /*
@@ -111,7 +111,7 @@ WindowInfo::WindowInfo(midgard_CG* h)
 void WindowInfo::AppendShow(const std::string& s, emodus modus,int anzahl)
 { 
   Modus=modus;
-  Gtk::OStream os(LogWin->get_list());
+  Gtk::OStream os(LogWin->get_view());
   os << s <<'\n';
   Flush(anzahl);
 }
@@ -130,7 +130,7 @@ void WindowInfo::AppendShow(const std::string& s, emodus modus,Enums::e_was_stei
 
 void WindowInfo::Flush(int anzahl)
 {
-  Gtk::OStream os(LogWin->get_list());
+  Gtk::OStream os(LogWin->get_view());
   os.flush();
   LogWin->scroll();
 
@@ -157,16 +157,16 @@ void WindowInfo::auswahl(int anz)
   Gtk::Table *table_auswahl = manage(new class Gtk::Table(1, anz, true));
   for(int i=0;i<anz;++i)
    {
-     Gtk::Image *p = manage(new class Gtk::Image(Excl_32_xpm));
+     Gtk::Image *p = manage(new class Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(Excl_32_xpm)));
      Gtk::Label  *l = manage(new class Gtk::Label(itos(i+1)+"."));
      Gtk::Button *b = auswahl_button(p,l,i+1);
-     table_auswahl->attach(*b, i, i+1, 0, 1, Gtk::FILL, 0, 0, 0);
+     table_auswahl->attach(*b, i, i+1, 0, 1, Gtk::FILL, Gtk::AttachOptions(0), 0, 0);
    }
   table_auswahl->show_all();
   frame_auswahl->add(*table_auswahl);
 }
 
-Gtk::Button* WindowInfo::auswahl_button(Gtk::Image *p,Gtk::Label *l,signal_int().connect)
+Gtk::Button* WindowInfo::auswahl_button(Gtk::Image *p,Gtk::Label *l,int connect)
 {
   p->set_alignment(0.5, 0.5);
   p->set_padding(0.5, 0.5);
@@ -205,7 +205,7 @@ gint WindowInfo::timeout()
 
 void WindowInfo::on_button_erase_clicked()
 {
-  LogWin->get_list()->items().clear(); 
+  LogWin->get_store()->clear();
 }
 
 void WindowInfo::show_pic(bool b)
@@ -223,7 +223,7 @@ void WindowInfo::on_button_status_toggled()
 
 void WindowInfo::AppendShowLog(const std::string& s)
 { 
-  Gtk::OStream os(LogWin_Status->get_list());
+  Gtk::OStream os(LogWin_Status->get_view());
   os << s <<'\n';
   os.flush();
   LogWin_Status->scroll();

@@ -23,7 +23,7 @@
 #include "../pixmaps/Gross_ark_pre.xpm"
 
 WindowInfo_glade::WindowInfo_glade(
-) : Gtk::Window(Gtk::WINDOW_DIALOG)
+) : Gtk::Window(Gtk::WINDOW_TOPLEVEL)
 {  
    
    Gtk::Window *WindowInfo = this;

@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.210 2002/12/12 08:27:23 christof Exp $
+# $Id: Makefile.am,v 1.211 2002/12/18 17:58:00 christof Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -227,7 +227,7 @@ magus_SOURCES = $(PORT_FILES) \
    Datenbank.cc class_SimpleTree.cc \
    dtos1.cc snprintf.c \
    Midgard_Undo.cc \
-   Tag.cc TagStream.cc xml.cc \
+   xml.cc \
    ProgressBar.cc 
 
 CXXFLAGS = @CXXFLAGS@ 

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.313 2002/12/16 08:29:28 christof Exp $
+// $Id: midgard_CG.hh,v 1.314 2002/12/18 17:58:00 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -41,6 +41,7 @@ class Random;
 #include "Abenteurer.hh"
 //#include "Region.hh"
 #include <TreeViewUtility.h>
+#include <config.h>
 
 // small class for determining file positions (originally part of midgard_CG)
 class magus_paths
