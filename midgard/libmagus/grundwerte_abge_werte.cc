@@ -1,4 +1,4 @@
-// $Id: grundwerte_abge_werte.cc,v 1.4 2003/08/02 14:55:38 christof Exp $
+// $Id: grundwerte_abge_werte.cc,v 1.5 2003/08/03 01:43:02 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -21,7 +21,7 @@
 #include "Grundwerte.hh"
 #include <Misc/Trace.h>
 #include "Abenteurer.hh"
-#include "zufall.h"
+#include "Random.hh"
 
 static const UniqueValue::value_t trace_channel=ManuProC::Tracer::channels.get();
 static ManuProC::Tracer::Environment trace_channel_e("DEBUG_GRUNDWERTE",trace_channel);

@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.cc,v 1.2 2003/08/02 14:55:38 christof Exp $
+// $Id: Magus_Optionen.cc,v 1.3 2003/08/03 01:43:02 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -28,7 +28,7 @@
 #include <cassert>
 #include <Ausgabe.hh>
 #include <magus_paths.h>
-#include <libmagusicons/magusicons.h>
+//#include <libmagusicons/magusicons.h>
 
 #ifdef __MINGW32__
 static std::string CommandByExtension(const std::string &ext)
@@ -53,13 +53,17 @@ std::cout << "Found "<<ext<<" Viewer @" << path << '\n';
 }
 #endif
 
-Magus_Optionen::Magus_Optionen()
+void Magus_Optionen::init_all()
 {
    Optionen_init();
    Ober_init();
    Icon_init();
    Strings_init();
    pdfViewer_init();
+}
+
+void Magus_Optionen::init()
+{  Programmoptionen.init_all();
 }
 
 std::string Magus_Optionen::Viewer() const
@@ -138,7 +142,6 @@ void Magus_Optionen::setOptionCheck(std::string os,bool b,int wert)
      {  
        i->active=b;
        if(wert!=-1) i->wert=wert;
-       OptionenCheck_setzen_from_menu(i->index);
        return; 
      }
  Ausgabe(Ausgabe::Warning,"Option "+os+" unbekannt");
@@ -162,7 +165,6 @@ void Magus_Optionen::setOber(std::string hs,bool b)
       { 
         i->active=b;
 //cout << "setOber: "<<hs<<'\t'<<i->active<<'\n';
-        Ober_setzen_from_menu(i->index);
         return;
       }
    }
@@ -176,7 +178,6 @@ void Magus_Optionen::setIcon(std::string hs,bool b)
     if(i->text==hs)  
       { 
         i->active=b;
-        Icon_setzen_from_menu(i->index);
         return;
       }
    }
@@ -191,113 +192,6 @@ void Magus_Optionen::setpdfViewer(std::string is,bool b)
      else i->active=!b;
    }
 }
-
-#if 0
-void Magus_Optionen::OptionenCheck_setzen_from_menu(OptionenCheckIndex index)
-{
-//  if(!hauptfenster->fire_enabled) return;
-//  hauptfenster->fire_enabled=false;
-  for(std::list<Magus_Optionen::st_OptionenCheck>::iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
-   {
-     if(i->index!=index) continue;
-     else if(i->index==Wizard_immer_starten) hauptfenster->show_wizard_active(i->active);
-     else if(i->index==Notebook_start)  
-      { //i->wert=wert;
-//        if(!i->spin) return;
-//cout << "Option: "<<i->spin<<'\n';
-//        if(i->active) i->spin->show();
-//        else i->spin->hide();
-      }
-   }
-//  hauptfenster->fire_enabled=true;
-}
- 
-void Magus_Optionen::OptionenExecute_setzen_from_menu(OptionenExecuteIndex index)
-{
-  if(index==LernschemaSensitive) hauptfenster->lernschema_sensitive(true);
-  if(index==show_InfoWindow) hauptfenster->InfoFenster->Show();
-}
-
-void Magus_Optionen::Ober_setzen_from_menu(OberIndex index)
-{
-  for(std::list<st_Ober>::iterator i=list_Ober.begin();i!=list_Ober.end();++i)
-   {
-     if(i->index==index) 
-      { 
-        if     (index==Bilder) hauptfenster->show_Pics(i->active);
-        else if(index==AutoShrink) hauptfenster->autoshrink(i->active);
-        else if(index==Menueleiste) hauptfenster->show_Menueleiste(i->active);
-        else if(index==Knopfleiste) hauptfenster->show_Knopfleiste(i->active);
-        else if(index==Status) hauptfenster->show_Statusleiste(i->active);
-        else if(index==NoInfoFenster) ;
-        else if(index==BegruessungsFenster) ;
-        else if(index==Icons) 
-         { if(!i->active && !OberCheck(Beschriftungen).active)
-            {
-              hauptfenster->set_status("Beschriftungen und Icons dürfen nicht gleichzeitig nicht angewählt sein.");
-//              i->active=true;
-            }
-           else 
-              hauptfenster->show_Icons(i->active);
-         }
-        else if(index==Beschriftungen) 
-         { if(!i->active && !OberCheck(Icons).active)
-            {
-              hauptfenster->set_status("Beschriftungen und Icons dürfen nicht gleichzeitig nicht angewählt sein.");
-//              i->active=true;
-            }
-           else 
-              hauptfenster->show_Beschriftungen(i->active);
-         }
-        else if(index==Customize_Icons)
-         {
-           Gtk::CustomizeToolbars(hauptfenster->notebook_main,
-                     i->active,OberCheck(Customize_Text).active,
-                     OberCheck(Customize_Tab).active);
-         }
-        else if(index==Customize_Text)
-         {
-           Gtk::CustomizeToolbars(hauptfenster->notebook_main,
-                     OberCheck(Customize_Icons).active,i->active,
-                     OberCheck(Customize_Tab).active);
-         }
-        else if(index==Customize_Tab)
-         {
-           Gtk::CustomizeToolbars(hauptfenster->notebook_main,
-                     OberCheck(Customize_Icons).active,
-                     OberCheck(Customize_Text).active,i->active);
-         }
-//        hauptfenster->menu_init();
-        return;
-      }
-   }
-}   
-
-void Magus_Optionen::Icon_setzen_from_menu(IconIndex index)
-{
-//  assert(b);
-  static bool setbool=true;
-  if(setbool==false) return;
-  for(std::list<st_Icon>::iterator i=list_Icon.begin();i!=list_Icon.end();++i)
-   {
-     setbool=false;
-     if(i->index!=index) i->active = false;
-   }
-  hauptfenster->Icons_setzen();
-  setbool=true;
-}   
-
-
-    
-void Magus_Optionen::pdfViewer_setzen_from_menu(pdfViewerIndex index)
-{
-  for(std::list<st_pdfViewer>::iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
-   {
-     if(i->index==index) i->active = true  ;
-     else                i->active = false ;
-   }
-}
-#endif
 
 void Magus_Optionen::Optionen_init()
 {
@@ -412,10 +306,12 @@ void Magus_Optionen::load_options(const std::string &filename)
      setOber(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*options,"Icon")
      setIcon(i->getAttr("Name"),i->getBoolAttr("Wert"));
+#if 0     
   if (IconCheck(Magus_Optionen::Self).active) MagusIcons::set_icon_style(MagusIcons::Alessandro);
   else if (IconCheck(Magus_Optionen::Ulf).active) MagusIcons::set_icon_style(MagusIcons::Ulf);
   else if (IconCheck(Magus_Optionen::Gtk2).active) MagusIcons::set_icon_style(MagusIcons::Gtk);
   else MagusIcons::set_icon_style(MagusIcons::Any);
+#endif  
   FOR_EACH_CONST_TAG_OF(i,*options,"pdfViewer")
      setpdfViewer(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*options,"Einstellungen")
@@ -522,3 +418,16 @@ void Magus_Optionen::save_options(const std::string &filename)
 }
                                                    
 Magus_Optionen Programmoptionen;
+
+static bool operator==(const Magus_Optionen::st_WindowPosition &a, const std::string &b)
+{  return a.name==b;
+}
+
+void Magus_Optionen::setWindowPosition(const std::string &name,int x,int y,unsigned w,unsigned h)
+{  std::list<st_WindowPosition>::iterator i=
+		std::find(list_Windows.begin(),list_Windows.end(),name);
+   if (i!=list_Windows.end())
+   {  i->x=x; i->y=y; i->width=w; i->height=h;
+   }
+   else list_Windows.push_back(st_WindowPosition(name,x,y,w,h));
+}

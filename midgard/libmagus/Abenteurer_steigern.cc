@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.7 2003/08/02 14:55:37 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.8 2003/08/03 01:43:02 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -22,7 +22,7 @@
 #include "Zauber.hh"
 #include "Sprache.hh"
 #include <Misc/itos.h>
-#include "zufall.h"
+#include "Random.hh"
 #include "Datenbank.hh"
 
 bool Abenteurer::steigere(MBEmlt &MBE,std::string &info,const e_wie_steigern wie,

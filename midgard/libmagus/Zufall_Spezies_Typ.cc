@@ -21,7 +21,7 @@
 #include "Spezies.hh"
 #include "Sprache.hh"
 #include "Ausgabe.hh"
-#include "zufall.h"
+#include "Random.hh"
 
 cH_Spezies Zufall::getSpezies() const
 {

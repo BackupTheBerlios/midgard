@@ -20,7 +20,7 @@
 #include "Zauber.hh"
 #include "Typen.hh"
 //#include <xml.h>
-#include "zufall.h"
+#include "Random.hh"
 #include <Misc/itos.h>
 #include "Abenteurer.hh"
 #include <Misc/germanstring.h>

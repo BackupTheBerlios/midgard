@@ -18,7 +18,7 @@
  */
 
 #include "KI.hh"
-#include "zufall.h"
+#include "Random.hh"
 #include <Misc/itos.h>
 #include "Zauber.hh"
 #include "Fertigkeiten.hh"

@@ -19,7 +19,7 @@
 
 #include "Zufall.hh"
 #include "Fertigkeiten_angeboren.hh"
-#include "zufall.h"
+#include "Random.hh"
 
 Zufall::Zufall(Abenteurer &a) 
 : Aben(a),oldAben(Aben), lernpunkte(a)
@@ -79,7 +79,7 @@ void Zufall::Teil(e_Vorgabe vorgabe,const Abenteurer &A)
    setBeruf();
    lernpunkte.geld_wuerfeln();
    setWaffenBesitz();
-   lernpunkte.on_button_ruestung_clicked(Random::W100());
+   lernpunkte.ruestung_auswaehlen(Random::W100());
    lernpunkte.ausruestung_setzen();
 }
 

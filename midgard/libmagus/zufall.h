@@ -1,4 +1,4 @@
-/* $Id: zufall.h,v 1.6 2003/08/02 22:27:43 christof Exp $ */
+/* $Id: zufall.h,v 1.7 2003/08/03 01:43:02 christof Exp $ */
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -17,20 +17,9 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
+
 #ifndef _ZUFALL_H
 #  define _ZUFALL_H 
-
-// nicht übermäßig glücklich, das in einem h File zu machen ...
-#include <stdlib.h>
-
-// namespace erzeugt warnungen ... ohne static sind sie mehrmals definiert
-struct Random {
-        static int integer(int min, int max)
-        {return min + int(((max-min+1.)*rand())/(RAND_MAX+1.0)); }
-        static int W3() { return integer(1,3); }
-        static int W6() { return integer(1,6); }
-        static int W10() { return integer(1,10); }
-        static int W20() { return integer(1,20); }
-        static int W100() { return integer(1,100); }
-};
+#warning deprecated header, use Random.hh
+#include "Random.hh"
 #endif

@@ -1,9 +1,9 @@
-# $Id: Makefile.am,v 1.32 2003/08/02 22:27:43 christof Exp $
+# $Id: Makefile.am,v 1.33 2003/08/03 01:43:02 christof Exp $
 
-AM_CPPFLAGS = @CPPFLAGS@ @COMMONXX_INCLUDES@ $(WIN_INCLUDES) -I.. \
-	@SIGC_CFLAGS@ -DSIGC1_2 @XMLPP_CFLAGS@ @COMMONGTK2_INCLUDES@
+AM_CPPFLAGS = @COMMONXX_INCLUDES@ $(WIN_INCLUDES) -I.. \
+	@XMLPP_CFLAGS@ @COMMONGTK2_INCLUDES@
 
-AM_LDFLAGS = @COMMONXX_LDFLAGS@ 
+AM_LDFLAGS = @COMMONXX_LDFLAGS@ @COMMONGTK2_LDFLAGS@
 
 CLEANFILES = *~
 
@@ -28,7 +28,7 @@ noinst_LIBRARIES=libmagus.a
 EXTRA_QUELLEN=Abenteurer_steigern.cc LernListen_steigern.cc KI.cc \
 	LaTeX_drucken_ausruestung.cc LaTeX_drucken.cc \
 	LaTeX_drucken_beschreibung.cc LaTeX_drucken_spielleiterbogen.cc \
-	grundwerte_abge_werte.cc \
+	grundwerte_abge_werte.cc grundwerte_gw_wuerfeln.cc \
 	Zufall.cc Zufall_Lernschema.cc Zufall_Spezies_Typ.cc \
 	spielleiter_export.cc Magus_Optionen.cc AbenteurerLernpunkte.cc
 
@@ -42,10 +42,10 @@ libmagus_a_SOURCES=MidgardBasicElement.cc Zauber.cc KiDo.cc \
 	Prototyp.cc Prozente100.cc  Ruestung.cc Spezialgebiet.cc \
 	xml.cc Region.cc Optionen.cc Abenteurer.cc magustrace.cc \
 	Lernschema.cc Ausgabe.cc snprintf.c $(PORT_FILES) \
-	$(EXTRA_QUELLEN)
+	$(EXTRA_QUELLEN) Random.cc
 
 test_LDADD = libmagus.a @COMMONXX_LIBS@ @SIGC_LIBS@
-torture_LDADD = libmagus.a @COMMONXX_LIBS@ @SIGC_LIBS@
+torture_LDADD = libmagus.a @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@ 
 readxml_LDADD = @COMMONXX_LIBS@ @SIGC_LIBS@
 readxml2_LDADD = @XMLPP_LIBS@
 

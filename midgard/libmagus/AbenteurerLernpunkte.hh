@@ -1,4 +1,4 @@
-// $Id: AbenteurerLernpunkte.hh,v 1.1 2003/08/02 22:29:02 christof Exp $               
+// $Id: AbenteurerLernpunkte.hh,v 1.2 2003/08/03 01:43:02 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -54,6 +54,11 @@ class AbenteurerLernpunkte
 	enum GWR_Auswahl {ENone,EGeld1,EGeld2,EGeld3,EWaffen,ERuestung};
 	std::vector<int> VGeldwurf;
 	Abenteurer &a;
+
+	void lernschema_geld_wuerfeln(const std::vector<int>& VGeldwurf);
+   	void setFertigkeitenAusruestung();
+	static void InfoAusruestung(const std::string &fert_name,
+               const std::string &gegen_name,int wurf,int noetig);
 
    public:
    	AbenteurerLernpunkte(Abenteurer &_a) 

@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.hh,v 1.2 2003/08/02 14:55:38 christof Exp $
+// $Id: Magus_Optionen.hh,v 1.3 2003/08/03 01:43:02 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -83,6 +83,9 @@ class Magus_Optionen
 	{	std::string name;
 		unsigned width,height;
 		int x,y;
+		
+		st_WindowPosition(const std::string &n,int _x,int _y,unsigned w,unsigned h)
+		 : name(n), width(w), height(h), x(_x), y(_y) {}
 	};
 	
 	static const int NOPAGE=-1;
@@ -103,9 +106,11 @@ class Magus_Optionen
       void Ober_init();
       void Icon_init();
       void pdfViewer_init();
+      void init_all();
 
-   public:
-      Magus_Optionen();
+   public: 
+      // erst nachdem magus_paths initialisiert ist
+      static void init();
 
       std::string Viewer() const;
 

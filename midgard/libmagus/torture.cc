@@ -29,9 +29,10 @@
 #include "Zufall.hh"
 #include "LaTeX_drucken.hh"
 #include "spielleiter_export.hh"
+#include "Magus_Optionen.hh"
 
 void progress(double d)
-{  Ausgabe(Ausgabe::Warning, "Progress " +itos(int(d*100))+ "%");
+{  Ausgabe(Ausgabe::Log, "Progress " +itos(int(d*100))+ "%");
 }
 
 int main(int argc,char **argv)
@@ -39,6 +40,7 @@ int main(int argc,char **argv)
 //   Datenbank db;
    if (argc>1) TagStream::host_encoding=argv[1];
    magus_paths::init(argv[0]);
+   Magus_Optionen::init();
  try {  
    Datenbank::init(&progress); // db.load(&progress);
    

@@ -26,7 +26,7 @@
 #include <Misc/relops.h>
 //#include <Misc/relops.h>
 #include "Ausgabe.hh"
-#include "zufall.h"
+#include "Random.hh"
 
 enum Zufall::eFAUWZ &operator++(enum Zufall::eFAUWZ &s)
 {  ++(int&)s;
@@ -198,9 +198,12 @@ reloop:
         {
           if(M->ist_gelernt(Aben.List_Waffen())) {List_gelerntes.push_back(M);goto reloop;}
           Aben.List_Waffen().push_back(M);
-          Aben.List_WaffenGrund().push_back(MBEmlt(&*cH_WaffeGrund(cH_Waffe(M->getMBE())->Grundkenntnis())));
-          Aben.List_WaffenGrund().sort(MBEmlt::sort(MBEmlt::sort::NAME));
-          Aben.List_WaffenGrund().unique();
+          if (!cH_Waffe(M->getMBE())->Grundkenntnis().empty())
+          {  Aben.List_WaffenGrund().push_back(MBEmlt(&*cH_WaffeGrund(cH_Waffe(M->getMBE())->Grundkenntnis())));
+             Aben.List_WaffenGrund().sort(MBEmlt::sort(MBEmlt::sort::NAME));
+             Aben.List_WaffenGrund().unique();
+          }
+          else Ausgabe(Ausgabe::Warning,"Waffe "+(*M)->Name()+" hat keine Grundkenntnisse");
         }
        else if((*M)->What()==MidgardBasicElement::ZAUBER)
         {

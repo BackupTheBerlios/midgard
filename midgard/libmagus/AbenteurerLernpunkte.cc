@@ -1,4 +1,4 @@
-// $Id: AbenteurerLernpunkte.cc,v 1.1 2003/08/02 22:29:02 christof Exp $               
+// $Id: AbenteurerLernpunkte.cc,v 1.2 2003/08/03 01:43:02 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -22,6 +22,9 @@
 #include "Abenteurer.hh"
 #include <Misc/itos.h>
 #include "Ausgabe.hh"
+#include "Random.hh"
+#include "Datenbank.hh"
+#include "Fertigkeiten_angeboren.hh"
 
 void AbenteurerLernpunkte::ruestung_auswaehlen(int wprozent)
 	// on_button_ruestung_clicked(int wurf)
@@ -73,14 +76,14 @@ void AbenteurerLernpunkte::ruestung_auswaehlen(int wprozent)
              "==> " + a.getWerte().Ruestung()->Long());
 }
 
-#if 0
-void table_lernschema::beruf_gewuerfelt(int wurf)
+void AbenteurerLernpunkte::beruf_gewuerfelt(int wurf)
 {
   std::string kat=BKategorie.wuerfeln(wurf);
   Ausgabe(Ausgabe::ActionNeeded, kat);
 }
 
-void table_lernschema::on_beruf_tree_leaf_selected(Abenteurer &A, cH_Beruf b, const st_vorteil &v)
+#if 0
+void AbenteurerLernpunkte::on_beruf_tree_leaf_selected(Abenteurer &A, cH_Beruf b, const st_vorteil &v)
 {
  try{
     cH_MidgardBasicElement cmbe(&*b);
@@ -106,3 +109,92 @@ void table_lernschema::on_beruf_tree_leaf_selected(Abenteurer &A, cH_Beruf b, co
 }
 
 #endif
+
+void AbenteurerLernpunkte::geld_wuerfeln()
+{
+     VGeldwurf.clear();
+     for(int i=0;i<3;++i) VGeldwurf.push_back(Random::W6());
+     lernschema_geld_wuerfeln(VGeldwurf);
+}
+
+void AbenteurerLernpunkte::lernschema_geld_wuerfeln(const std::vector<int>& VGeldwurf)
+{
+ assert(VGeldwurf.size()==3);
+ int igold=0;  
+ igold=VGeldwurf[0]+VGeldwurf[1]+VGeldwurf[2];
+ if      (a.Typ1()->Geld() == 1) igold-=3;
+ else if (a.Typ1()->Geld() == 2) igold+=0;
+ else if (a.Typ1()->Geld() == 3) igold+=6;
+ else if (a.Typ1()->Geld() == 4) igold+=3;
+
+ if(a.getWerte().Stand()=="Adel" ) igold*=2;  
+ if(a.getWerte().Stand()=="Unfrei" ) igold/=2;
+ if(VGeldwurf[0]==VGeldwurf[1] && VGeldwurf[1]==VGeldwurf[2]) igold += 100;
+
+ std::string strinfo ="Beim Auswürfeln von Geld wurden "
+   +itos(VGeldwurf[0])+"  "+itos(VGeldwurf[1])+"  "+itos(VGeldwurf[2])+" gewürfelt ==> "
+   +itos(igold)+" Gold";
+ Ausgabe(Ausgabe::Log,strinfo);   
+ a.getWerte().addGold(igold);  
+}
+
+void AbenteurerLernpunkte::ausruestung_setzen()
+{ a.setStandardAusruestung();
+  setFertigkeitenAusruestung();
+}
+
+std::string AbenteurerLernpunkte::AngebFert_gewuerfelt(int wurf)
+{
+  std::string name;
+  for (std::list<cH_MidgardBasicElement>::const_iterator i=Datenbank.Fertigkeit_ang.begin();i!=Datenbank.Fertigkeit_ang.end();++i)
+   {
+     if (cH_Fertigkeit_angeborene(*i)->Min()<=wurf && wurf<=cH_Fertigkeit_angeborene(*i)->Max())
+      {
+         name=(*i)->Name();
+         a.setAngebSinnFert(wurf,MBEmlt(*i));  
+         break;
+      }
+   }
+ return name;
+}
+
+void AbenteurerLernpunkte::setFertigkeitenAusruestung()
+{
+  AusruestungBaum &koerper=a.getBesitz();
+  AusruestungBaum &rucksack=a.getAusruestung_as_parent("Rucksack");
+  for (std::list<MBEmlt>::const_iterator i=a.List_Fertigkeit().begin();i!=a.List_Fertigkeit().end();++i)
+   {
+     const std::vector<Fertigkeit::st_besitz> VB=cH_Fertigkeit((*i)->getMBE())->get_vec_Besitz();
+     for(std::vector<Fertigkeit::st_besitz>::const_iterator j=VB.begin();j!=VB.end();++j)
+      {
+        int wurf=Random::W100();
+        if(wurf>=j->min)
+         {
+           AusruestungBaum *A;
+           if(j->position == Fertigkeit::Besitz)
+            {
+              A = &koerper.push_back(Ausruestung(j->name)); 
+              A->setParent(&koerper);
+            }
+           else if(j->position == Fertigkeit::Rucksack)
+            {
+              A = &rucksack.push_back(Ausruestung(j->name));
+              A->setParent(&rucksack); 
+            }
+         }
+        InfoAusruestung((*(*i))->Name(),j->name,wurf,j->min);
+      }
+   }
+}
+
+void AbenteurerLernpunkte::InfoAusruestung(const std::string &fert_name,
+               const std::string &gegen_name,int wurf,int noetig)
+{
+ std::string strinfo;
+ strinfo="Für die Fertigkeit '"+fert_name+"' wurde für '"+gegen_name+
+        "' eine "+itos(wurf)+" gewürfelt.\n";
+ strinfo += "Nötig ist mindestens eine "+itos(noetig)+".\n";
+ if(wurf>noetig) strinfo +="==> Das reicht.";
+ else strinfo +="==> Das reicht NICHT.";
+ Ausgabe(Ausgabe::Log,strinfo);
+}

@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.4 2003/08/02 14:55:37 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.5 2003/08/03 01:43:02 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -29,7 +29,7 @@
 #include "Zauber.hh"
 #include "Zauberwerk.hh"
 #include <TeX.h>
-#include "recodestream.h"
+#include <Misc/recodestream.h>
 #include "Windows_Linux.hh"
 #include "Abenteurer.hh"
 #include "Magus_Optionen.hh"

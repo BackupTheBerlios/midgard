@@ -1,4 +1,4 @@
-// $Id: grundwerte_gw_wuerfeln.cc,v 1.3 2003/08/02 14:55:38 christof Exp $
+// $Id: grundwerte_gw_wuerfeln.cc,v 1.4 2003/08/03 01:43:02 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -23,6 +23,7 @@
 #include <algorithm>
 #include <Misc/itos.h>
 #include <Misc/Trace.h>
+#include "Random.hh"
 
 static const UniqueValue::value_t trace_channel=ManuProC::Tracer::channels.get();
 static ManuProC::Tracer::Environment trace_channel_e("DEBUG_GRUNDWERTE",trace_channel);

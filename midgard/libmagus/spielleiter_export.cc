@@ -23,7 +23,7 @@
 #include <fstream>
 #include "Zauber.hh"
 #include <Misc/itos.h>
-#include "recodestream.h"
+#include <Misc/recodestream.h>
 #include <Misc/mystring.h>
 #include "Ausgabe.hh"
 #include "Abenteurer.hh"
