@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.11 2002/01/10 07:27:32 christof Exp $
+// $Id: land_sprache_exp.cc,v 1.12 2002/01/11 11:15:27 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -245,7 +245,8 @@ void land_speichern(std::ostream &o)
   }
   }
 
-  {Query query("select name, art, art2, faktor, min, einheit, typ, nr"
+  {Query query("select name, art, art2, faktor, typ, nr" 
+  		// min, einheit?
    	" from preise_modifikation"
    	" order by art,art2,typ,name");
   while ((query>>is).good())
@@ -254,8 +255,8 @@ void land_speichern(std::ostream &o)
    fetch_and_write_string_attrib(is, o, "Art");
    fetch_and_write_string_attrib(is, o, "Art2");
    fetch_and_write_float_attrib(is, o, "Faktor");
-   fetch_and_write_int_attrib(is, o, "Mindestpreis");
-   fetch_and_write_string_attrib(is, o, "Einheit");
+//   fetch_and_write_int_attrib(is, o, "Mindestpreis");
+//   fetch_and_write_string_attrib(is, o, "Einheit");
    fetch_and_write_string_attrib(is, o, "Typ");
    fetch_and_write_int_attrib(is, o, "MCG-Nr");
    o << "/>\n";

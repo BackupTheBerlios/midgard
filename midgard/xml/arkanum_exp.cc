@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.cc,v 1.8 2002/01/10 07:27:32 christof Exp $
+// $Id: arkanum_exp.cc,v 1.9 2002/01/11 11:15:27 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -152,7 +152,7 @@ void arkanum_speichern(std::ostream &o)
    std::string stufe=fetch_and_write_string_attrib(is, o, "Stufe");
    o << ">\n";
 
-   grund_standard_ausnahme(o, "zauber_typen",zauberwerk,"stufe='"+stufe+"' and art='"+art+"'",true);
+   grund_standard_ausnahme(o, "zauberwerk_typen",zauberwerk,"stufe='"+stufe+"' and art='"+art+"'",true);
 //   lernschema(o, "Zauber",zauberwerk,true);
 //   ausnahmen(o, "z", zauberwerk,true);
    o << "  </Zauberwerk>\n";

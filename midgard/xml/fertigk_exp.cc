@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.10 2002/01/09 08:04:58 christof Exp $
+// $Id: fertigk_exp.cc,v 1.11 2002/01/11 11:15:27 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -157,16 +157,16 @@ void fert_speichern(std::ostream &o)
 #ifdef REGION // Lernschema für Typen dieser Region
   if (region!="")
  { FetchIStream is;
-   Query q("select name, region from fertigkeiten "
-   	+ RegionErgaenzungQuery("fertigkeiten.name","fertigkeiten_typen","Fertigkeit","f")
-   	+ "order by coalesce(region,''),name");
+   Query q("select fertigkeit, region from fertigkeiten "
+   	+ RegionErgaenzungQuery("fertigkeiten.fertigkeit","fertigkeiten_typen","Fertigkeit","f")
+   	+ "order by coalesce(region,''),fertigkeit");
   while ((q >> is).good())
   {o << "  <Fertigkeit";
    std::string fert=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
    o << ">\n";
 
-   grund_standard_ausnahme(o, "Fertigkeit_typen",fert,"",true);
+   grund_standard_ausnahme(o, "fertigkeiten_typen",fert,"",true);
    lernschema(o, MIDGARD3_4("Fertigkeit","Fachkenntnisse"),fert,true);
    pflicht_lernen(o, fert, true);
    verbot_lernen(o, fert, true);
