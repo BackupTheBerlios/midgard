@@ -1,14 +1,7 @@
 ##########################################################################
-NEWS IN VERSION 0.7.6
+NEWS IN VERSION 0.7.7
 
-* Auf Christofs(!) Wunsch hin ist das 'delta' verschwunden :-(
-* Oberfläche überarbeitet
-* Endlich ist das Fenster wieder verkleinerbar -> 800x600 geht
-* xml export von Zusätzen zu Fertigkeiten in der richtigen Region
-* Accelerators (Tastaturabkürzungen) für Menü eingebaut
-* 'Spezies/Typ' setzen bei Auswahl, nicht erst beim verlassen des Focus.
-* Muttersprache direkt nach dem Heimatland
-* Auswahl des 'Überlebens' nicht mehr nach 'Gastlandsprache'
+* Landeskunde Heimat im Lernschema mit erhötem Erfolgswert
 
 TODO: ('-' zeigt CP an)
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
@@ -22,6 +15,26 @@ links).
 - alle Ausdrucke unter Windows testen
 - .magus Endung unter Windows mit Magus.exe verknüpfen (beim Speichern)
 - xml laden beschleunigen (merge with map, reservate on vectors)
+> 1. Export funktioniert, allerdings fehlen die Schadenswerte für Waffen, die
+> die Figur nicht besitzt - das macht sich schlecht, insbesondere bei
+> Faustkampf ... ;-))
+> 
+> Ebenso fehlt RAUFEN (mit zugehörigem EW und Schaden), diese angeborene
+> Fertigkeit sollte nach aktueller Notation hinter einem Semikolon nach den
+> Angriffswerten folgen - und vor Abwehr.
+
+##########################################################################
+NEWS IN VERSION 0.7.6
+
+* Auf Christofs(!) Wunsch hin ist das 'delta' verschwunden :-(
+* Oberfläche überarbeitet
+* Endlich ist das Fenster wieder verkleinerbar -> 800x600 geht
+* xml export von Zusätzen zu Fertigkeiten in der richtigen Region
+* Accelerators (Tastaturabkürzungen) für Menü eingebaut
+* 'Spezies/Typ' setzen bei Auswahl, nicht erst beim verlassen des Focus.
+* Muttersprache direkt nach dem Heimatland
+* Auswahl des 'Überlebens' nicht mehr nach 'Gastlandsprache'
+
 
 
 ##########################################################################

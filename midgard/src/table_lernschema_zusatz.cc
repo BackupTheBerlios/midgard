@@ -341,7 +341,13 @@ void table_lernschema::on_zusatz_leaf_selected(cH_RowDataBase d)
 
   MBE.setZusatz(dt->getZusatz());
   if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
+   {
+     if(hauptfenster->getWerte().Herkunft()->Name()==MBE.Zusatz())
+      {
+        MBE.setErfolgswert(10+cH_Fertigkeit(MBE)->AttributBonus(hauptfenster->getWerte())); 
+      }
      hauptfenster->getChar().List_Fertigkeit().push_back(MBE);
+   }
   else if(MBE->What()==MidgardBasicElement::ZAUBER)
      hauptfenster->getChar().List_Zauber().push_back(MBE);
 
