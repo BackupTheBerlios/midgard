@@ -1,4 +1,4 @@
-// $Id: Window_Waffe_Geld.cc,v 1.41 2002/02/12 13:36:57 thoma Exp $
+// $Id: Window_Waffe_Geld.cc,v 1.42 2002/02/12 14:57:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -80,7 +80,8 @@ Window_Waffe_Geld::Window_Waffe_Geld(midgard_CG* h, Grundwerte& w,
    button_geld->set_sensitive(true);
    button_waffe->set_sensitive(true);
 
-   if(list_Waffen.emtpy()) {
+   if(list_Waffen.empty()) 
+    {
       button_waffe->set_sensitive(false);
       hauptfenster->InfoFenster->AppendShow("WARNUNG: Noch keine Waffe gewählt");
     }

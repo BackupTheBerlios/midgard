@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.68 2002/02/12 13:36:57 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.69 2002/02/12 14:57:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -179,11 +179,8 @@ void midgard_CG::on_button_geld_waffen_clicked()
 void midgard_CG::waffe_besitz_uebernehmen(const std::list<cH_MidgardBasicElement>& wbu)
 {
  list_Waffen_besitz = wbu;
-#ifndef USE_XML
- on_speichern_clicked();
-#else
-   steigern_aktivieren();
-#endif
+ steigern_aktivieren();
+ show_gelerntes();
 }
 
 
