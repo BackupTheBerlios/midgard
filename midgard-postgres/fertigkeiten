@@ -22,7 +22,8 @@ CREATE TABLE "fertigkeiten" (
 	"berufsklasse" integer,
 	"maxwert" integer,
 	"maxunterweisung" integer,
-	"zusaetze" integer
+	"zusaetze" integer,
+    Constraint "fertigkeit_pkey" Primary Key ("fertigkeit")
 );
 
 --

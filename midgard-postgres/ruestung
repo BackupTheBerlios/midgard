@@ -17,7 +17,8 @@ CREATE TABLE "ruestung" (
 	"region" text,
 	"abwehr_bonus_verlust" integer,
 	"angriffs_bonus_verlust" integer,
-	"vollruestung" integer
+	"vollruestung" integer,
+   Constraint "ruestung_pkey" Primary Key ("ruestung_s")
 );
 
 --

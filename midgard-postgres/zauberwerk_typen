@@ -12,7 +12,8 @@ CREATE TABLE "zauberwerk_typen" (
 	"stufe" text NOT NULL,
 	"typ" text NOT NULL,
 	"standard" text NOT NULL,
-	"art" text
+	"art" text,
+   Constraint "zauberwerk_typen_pkey" Primary Key ("name","typ","art","stufe")
 );
 
 --

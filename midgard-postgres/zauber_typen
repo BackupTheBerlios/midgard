@@ -11,7 +11,8 @@ CREATE TABLE "zauber_typen" (
 	"name" text NOT NULL,
 	"typ" text NOT NULL,
 	"standard" text NOT NULL,
-	"agens" text
+	"agens" text,
+   Constraint "zauber_typen_pkey" Primary Key ("name","typ")
 );
 
 --

@@ -28,7 +28,8 @@ CREATE TABLE "waffen" (
 	"reichweite_m" integer,
 	"reichweite_f" integer,
 	"lern_land" integer,
-	"lern_stadt" integer
+	"lern_stadt" integer,
+   Constraint "waffen_pkey" Primary Key ("name")
 );
 
 --

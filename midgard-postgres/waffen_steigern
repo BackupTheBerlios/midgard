@@ -30,7 +30,8 @@ CREATE TABLE "waffen_steigern" (
 	"p1" integer,
 	"p20" integer,
 	"p21" integer,
-	"p22" integer
+	"p22" integer,
+   Constraint "waffen_steigern_pkey" Primary Key ("schwierigkeit")
 );
 
 --

@@ -12,7 +12,8 @@ CREATE TABLE "spezies_angeborene_fert" (
 	"art" text,
 	"name" text,
 	"erfolgswert" integer,
-	"lp" integer
+	"lp" integer,
+   Constraint "spezies_angeborene_fert_pkey" Primary Key ("spezies","art", "name")
 );
 
 --

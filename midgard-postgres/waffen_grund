@@ -10,7 +10,8 @@ DROP TABLE "waffen_grund";
 CREATE TABLE "waffen_grund" (
 	"name" text,
 	"fp" integer,
-	"region" text
+	"region" text,
+   Constraint "waffen_grund_pkey" Primary Key ("name")
 );
 
 --

@@ -10,7 +10,8 @@ CREATE TABLE "fertigkeiten_besitz" (
 	"name" text NOT NULL,
 	"gegenstand" text NOT NULL,
 	"min" integer NOT NULL,
-	"position" text
+	"position" text,
+   Constraint "fertigkeiten_besitz_pkey" Primary Key ("name","gegenstand")
 );
 
 --

@@ -16,7 +16,8 @@ CREATE TABLE "sprachen" (
 	"gruppe_1" integer,
 	"gruppe_2" integer,
 	"minderheit" boolean,
-	"region_zusatz" text
+	"region_zusatz" text,
+   Constraint "sprachen_pkey" Primary Key ("name")
 );
 
 --

@@ -13,7 +13,9 @@ CREATE TABLE "waffen_region_name" (
 	"region" text,
 	"schaden" text,
 	"schaden_b" integer,
-	"angriffs_mod" integer
+	"angriffs_mod" integer,
+   Constraint "waffen_region_name_pkey" Primary Key ("alias")
+
 );
 
 --

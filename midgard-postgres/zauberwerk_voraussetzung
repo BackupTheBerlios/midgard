@@ -12,6 +12,8 @@ CREATE TABLE "zauberwerk_voraussetzung" (
 	"voraussetzung" text,
 	"verbindung" text,
 	"fertigkeit" text
+--,
+--   Constraint "zauberwerk_voraussetzung_pkey" Primary Key ("name","voraussetzung")
 );
 
 --

@@ -13,7 +13,8 @@ CREATE TABLE "lernschema_4" (
 	"pflicht" boolean NOT NULL,
 	"name" text NOT NULL,
 	"art" text NOT NULL,
-	"wert" integer
+	"wert" integer,
+   Constraint "lernschema_4_pkey" Primary Key ("lernpunkte","name", "typ")
 );
 
 --

@@ -40,7 +40,8 @@ CREATE TABLE "spezies" (
 	"raufen" integer,
 	"land" boolean,
 	"only_nsc" boolean,
-	"weiblich" text
+	"weiblich" text,
+   Constraint "spezies_pkey" Primary Key ("spezies")
 );
 
 --

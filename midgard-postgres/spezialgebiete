@@ -12,7 +12,8 @@ CREATE TABLE "spezialgebiete" (
 	"nr" integer,
 	"spezialgebiet" text,
 	"spezial" text,
-	"spezial2" text
+	"spezial2" text,
+   Constraint "spezialgebiete_pkey" Primary Key ("typ", "nr")
 );
 
 --

@@ -11,7 +11,8 @@ CREATE TABLE "regionen_lernen" (
 	"region" text NOT NULL,
 	"name" text NOT NULL,
 	"lp_stadt" integer,
-	"lp_land" integer
+	"lp_land" integer,
+   Constraint "regionen_lernen_pkey" Primary Key ("region", "name")
 );
 
 --

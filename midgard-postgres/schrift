@@ -14,7 +14,8 @@ CREATE TABLE "schrift" (
 	"region" text,
 	"alt" boolean,
 	"kult" boolean,
-	"region_zusatz" text
+	"region_zusatz" text,
+   Constraint "schrift_pkey" Primary Key ("name")
 );
 
 --

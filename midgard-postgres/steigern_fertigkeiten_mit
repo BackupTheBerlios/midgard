@@ -9,7 +9,8 @@ DROP TABLE "steigern_fertigkeiten_mit";
 
 CREATE TABLE "steigern_fertigkeiten_mit" (
 	"name" text NOT NULL,
-	"ep" text NOT NULL
+	"ep" text NOT NULL,
+   Constraint "steigern_fertigkeiten_mit_pkey" Primary Key ("name","ep")
 );
 
 --

@@ -31,7 +31,8 @@ CREATE TABLE "typen" (
 	"pa" integer,
 	"kultwaffe" boolean,
 	"lernpflichten" text,
-	"schreiben_pflicht" boolean
+	"schreiben_pflicht" boolean,
+   Constraint "typen_pkey" Primary Key ("typs")
 );
 
 --

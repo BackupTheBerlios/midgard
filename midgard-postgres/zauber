@@ -29,7 +29,8 @@ CREATE TABLE "zauber" (
 	"spruchrolle" boolean DEFAULT 'f'::bool NOT NULL,
 	"thaumagram" text,
 	"zusaetze" integer,
-	"nsc_only" boolean
+	"nsc_only" boolean,
+   Constraint "zauber_pkey" Primary Key ("name")
 );
 
 --

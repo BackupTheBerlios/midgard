@@ -9,7 +9,8 @@ DROP TABLE "fertigkeiten_voraussetzungen_2";
 
 CREATE TABLE "fertigkeiten_voraussetzungen_2" (
 	"name" text NOT NULL,
-	"voraussetzung" text NOT NULL
+	"voraussetzung" text NOT NULL,
+   Constraint "fertigkeiten_voraus_2_pkey" Primary Key ("name","voraussetzung")
 );
 
 --
@@ -29,7 +30,6 @@ Fechten tevarrischer Stil	Fechten
 Heilkunde	Erste Hilfe
 IaiJutsu	Einhandschwert
 Kampf zu Kamel	Kamelreiten
-Kampf zu Kamel	Kamelreiten
 Kampf zu Pferd	Reiten
 KarumiJutsu	Klettern
 KiDo	TaiTschi
@@ -45,5 +45,5 @@ Schwerttanz	Beidhändiger Kampf
 --
 --
 
-CREATE INDEX fertigkeiten_voraussetzungen_2_ ON fertigkeiten_voraussetzungen_2 USING btree (name);
+CREATE INDEX fertigkeiten_voraussetzungen_2_ ON fertigkeiten_voraussetzungen_2 USING btree (name,voraussetzung);
 

@@ -15,7 +15,8 @@ CREATE TABLE "zauberwerk" (
 	"zeitaufwand" text,
 	"kosten" text,
 	"region" text,
-	"region_zusatz" text
+	"region_zusatz" text,
+   Constraint "zauberwerk_pkey" Primary Key ("name","art","stufe")
 );
 
 --

@@ -19,7 +19,8 @@ CREATE TABLE "fertigkeiten_voraussetzung" (
 	"sb" integer,
 	"rw" integer,
 	"fertigkeit" text,
-	"gs" integer
+	"gs" integer,
+   Constraint "fertigkeiten_voraussetzung_pkey" Primary Key ("name")
 );
 
 --

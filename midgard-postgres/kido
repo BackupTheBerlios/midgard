@@ -14,7 +14,8 @@ CREATE TABLE "kido" (
 	"stil" text,
 	"fp" integer,
 	"ap" integer,
-	"effekt" text
+	"effekt" text,
+   Constraint "kido_pkey" Primary Key ("name")
 );
 
 --

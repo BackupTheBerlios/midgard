@@ -11,7 +11,8 @@ CREATE TABLE "fz_zusaetze" (
 	"name" text NOT NULL,
 	"typ" text,
 	"region" text,
-	"region_zusatz" text
+	"region_zusatz" text,
+   Constraint "fz_zusaetze_pkey" Primary Key ("art","name")
 );
 
 --

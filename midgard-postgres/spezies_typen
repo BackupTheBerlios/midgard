@@ -10,7 +10,8 @@ DROP TABLE "spezies_typen";
 CREATE TABLE "spezies_typen" (
 	"spezies" text,
 	"typen" text,
-	"maxgrad" integer
+	"maxgrad" integer,
+   Constraint "spezies_typen_pkey" Primary Key ("spezies", "typen")
 );
 
 --
