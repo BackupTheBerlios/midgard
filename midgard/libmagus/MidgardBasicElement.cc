@@ -254,15 +254,15 @@ const std::map<int,int> &MidgardBasicElement::get_Steigern_Kosten_map()
 }
 
 void MidgardBasicElement::load_steigern_kosten(const Tag &t)
-{ sonstige_steigern_kosten
+{   std::map<int,int> &m=sonstige_steigern_kosten[t.getAttr("Fertigkeit")];
     for (int i=1;i<=22;++i)
-       map_erfolgswert_kosten[i]=kosten->getIntAttr("Wert"+itos(i),0);
+       m[i]=t.getIntAttr("Wert"+itos(i),0);
 }
 
 void MidgardBasicElement::load_waffen_steigern_nach_schwierigkeit(const Tag &t)
-{int schwierigkeit=
+{   std::map<int,int> &m=waffen_steigern_nach_schwierigkeit[t.getIntAttr("Schwierigkeit")];
     for (int i=1;i<=22;++i)
-       map_erfolgswert_kosten[i]=kosten->getIntAttr("Wert"+itos(i),0);
+       m[i]=t.getIntAttr("Wert"+itos(i),0);
 }
 
 void MidgardBasicElement::get_Steigern_Kosten_map(const Tag &t)

@@ -1,4 +1,4 @@
-// $Id: WaffeGrund.hh,v 1.4 2003/05/19 06:10:34 christof Exp $               
+// $Id: WaffeGrund.hh,v 1.5 2003/05/20 07:14:34 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -31,11 +31,10 @@ class LernListen;
 
 class WaffeGrund : public MidgardBasicElement
 {
-     void get_WaffeGrund();
+     void get_WaffeGrund(const Tag &t);
   public:
-     WaffeGrund(const Tag *t)
-       : MidgardBasicElement(t->getAttr("Name"))
-       {get_WaffeGrund();get_map_typ(*t);}
+     WaffeGrund(const Tag &t);
+     void load(const Tag &t);
 
      // Wenn Keine Waffe gelernt werden kann, die zu einer Grundkenntnis
      // gehört, dann ist eine Grundkenntnis nicht sinnvoll
@@ -56,19 +55,15 @@ class cH_WaffeGrund : public Handle<const WaffeGrund>
     friend class std::map<std::string,cH_WaffeGrund>;
  public:
     cH_WaffeGrund(const std::string& n ,bool create=false);
-    cH_WaffeGrund(const Tag *tag);
+    static cH_WaffeGrund load(const Tag &tag,bool &is_new);
 
     cH_WaffeGrund(const cH_MidgardBasicElement &x) : Handle<const WaffeGrund>
       (dynamic_cast<const WaffeGrund *>(&*x)){}   
 };
   
   
-class WaffeGrund_All
-{
-   std::list<cH_MidgardBasicElement> list_All;
-  public:
-   WaffeGrund_All();
-   std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
-};
+namespace WaffeGrund_All
+{  void load(std::list<cH_MidgardBasicElement> &list, const Tag &t);
+}
 
 #endif

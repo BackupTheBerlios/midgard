@@ -1,6 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
- *  Copyright (C) 2002 Christof Petig
+ *  Copyright (C) 2002-2003 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -75,26 +75,20 @@ cH_KiDo::cH_KiDo(const std::string& name ,bool create)
      t2.setAttr("Name",name);
      t2.setAttr("Übersetzung","?");
      t2.setAttr("Stil","?");
-     *this=cH_KiDo(&t2);
+     *this=new KiDo(t2);
   }
   else throw NotFound();
   }
 }
 
-cH_KiDo::cH_KiDo(const Tag *tag)
-{*this=cH_KiDo(new KiDo(tag));
- cache.Register(tag->getAttr("Name"),*this);
-}
-
-void KiDo::get_KiDo()
+void KiDo::get_KiDo(const Tag &t)
 {
-  assert(tag);
-  deutsch = tag->getAttr("Übersetzung");
-  stufe = tag->getAttr("Stufe");
-  stil=tag->getAttr("Stil");
-  kosten=tag->getIntAttr("Lernkosten");
-  ap=tag->getIntAttr("AP");
-  effekt=tag->Value();  
+  deutsch = t.getAttr("Übersetzung");
+  stufe = t.getAttr("Stufe");
+  stil=t.getAttr("Stil");
+  kosten=t.getIntAttr("Lernkosten");
+  ap=t.getIntAttr("AP");
+  effekt=t.Value();  
 }
 
 
@@ -113,15 +107,29 @@ std::map<std::string,int> KiDo::maxkidostil(const std::list<MBEmlt>& list_Kido)
   return MK;
 }
 
+static MidgardBasicElement::EP_t KiDo_EP=MidgardBasicElement::EP_t_undefined;
 
-KiDo_All::KiDo_All()
-{
- const Tag *Kido_Fertigkeiten=xml_data->find("Kido-Fertigkeiten");
- if (Kido_Fertigkeiten)
- {  Tag::const_iterator b=Kido_Fertigkeiten->begin(),e=Kido_Fertigkeiten->end();
-    FOR_EACH_CONST_TAG_OF_5(i,*Kido_Fertigkeiten,b,e,"KiDo")
-    {  
-       list_All.push_back(&*(cH_KiDo(&*i)));
-    }
- }
-}  
+KiDo::KiDo(const Tag &t)
+     : MidgardBasicElement(t.getAttr("Name")) 
+{  get_KiDo(t); get_map_typ();
+   if (KiDo_EP==EP_t_undefined) KiDo_EP=EP_steigern("KiDo");
+   else EP_steigern(KiDo_EP);
+}
+
+cH_KiDo cH_KiDo::load(const Tag &t,bool &is_new)
+{  cH_KiDo *res=cache.lookup(t.getAttr("Name"));
+   assert(!res);
+   {  cH_KiDo r2=new KiDo(t);
+      is_new=true;
+      cache.Register(t.getAttr("Name"),r2);
+      return r2;
+   }
+}
+
+void KiDo_All::load(std::list<cH_MidgardBasicElement> &list,const Tag &t)
+{  bool is_new=false;
+   cH_KiDo z=cH_KiDo::load(t,is_new);
+   // das &* dient dazu um aus einem cH_KiDo ein cH_MBE zu machen
+   if (is_new) list.push_back(&*z);
+}
+

@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.9 2003/05/19 06:10:34 christof Exp $
+// $Id: xml.cc,v 1.10 2003/05/20 07:14:34 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -48,8 +48,8 @@ static void reserve(Tag *t, const std::string &type, unsigned int sz)
 static void reserve(Tag *t)
 {  t->reserve(64);
 //   reserve(t,"Länder",8); // geht irgendwie nicht ...
-   reserve(t,"Schriften",32);
-   reserve(t,"Sprachen",64);
+//   reserve(t,"Schriften",32);
+//   reserve(t,"Sprachen",64);
    reserve(t,"SpeziesListe",16);
    reserve(t,"Gradanstieg",16);
    reserve(t,"Typen",64);
@@ -61,13 +61,13 @@ static void reserve(Tag *t)
    reserve(t,"SteigernKosten",8);
    reserve(t,"Rüstungen",32);
 //   reserve(t,"Waffen",128);
-   reserve(t,"Waffen-Grundkenntnisse",32);
-   reserve(t,"Waffen-Steigern",16);
+//   reserve(t,"Waffen-Grundkenntnisse",32);
+//   reserve(t,"Waffen-Steigern",16);
    reserve(t,"KI",32);
 //   reserve(t,"Zauber",1024);
 //   reserve(t,"Zauberwerke",512);
    reserve(t,"Spezialgebiete",32);
-   reserve(t,"Kido-Fertigkeiten",64);
+//   reserve(t,"Kido-Fertigkeiten",64);
 }
 
 void xml_init(SigC::Slot1<void,double> progress,SigC::Slot1<void,const std::string&> meldungen, Datenbank &db)
@@ -123,15 +123,18 @@ reloop:
           FOR_EACH_CONST_TAG(j,*data2)
           {  if (j->Type().empty()) continue; // inter tag space
              if (in<std::string>(j->Type(),"Zauber","Zauberwerke","Fertigkeiten","Berufe")
-             	|| in<std::string>(j->Type(),"Waffen","PreiseNeu","Preise"))
+             	|| in<std::string>(j->Type(),"Waffen","PreiseNeu","Preise","Schriften")
+             	|| in<std::string>(j->Type(),"Sprachen","Kido-Fertigkeiten","Waffen-Grundkenntnisse","Waffen-Steigern")
+             	|| in<std::string>(j->Type(),"Waffen-Grundkenntnisse","")
+             	)
                 continue;
              Tag *merge_here;
              if ((merge_here=xml_data_mutable->find(j->Type())))
-             {  // std::cout << "TODO: merge '"<< j->Type()<<"' from '"<< file << "'\n";
+             {  std::cout << "TODO: merge '"<< j->Type()<<"' from '"<< file << "'\n";
                 xml_merge(merge_here,&*j);
              }
              else 
-             {  // std::cout << "initial Tag '"<< j->Type()<<"' from '"<< file << "'\n";
+             {  std::cout << "initial Tag '"<< j->Type()<<"' from '"<< file << "'\n";
                 xml_data_mutable->push_back(*j);
                 
                 const Tag &newtag=xml_data_mutable->back();

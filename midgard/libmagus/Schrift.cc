@@ -1,5 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
+ *  Copyright (C) 2002-2003 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -37,27 +38,20 @@ cH_Schrift::cH_Schrift(const std::string& name ,bool create)
      // note that this Tag is shared ... works well for now
      t2.setAttr("Name",name);
      t2.setAttr("Typ","?");
-     *this=cH_Schrift(name, &t2);
+     *this=new Schrift(name, t2);
   }
   else throw NotFound();
   }
 }
 
-cH_Schrift::cH_Schrift(const std::string& name,const Tag *tag)
-{*this=cH_Schrift(new Schrift(name,tag));  
- cache.Register(name,*this);
-}
-
-
-void Schrift::get_Schrift()
+void Schrift::get_Schrift(const Tag &t)
 {
-  assert(tag);
-  art_der_schrift=tag->getAttr("Name");
-  region=tag->getAttr("Region");
-  region_zusatz=tag->getAttr("RegionZusatz");
-  kosten=tag->getIntAttr("Kosten");
-  alt=tag->getBoolAttr("alte_Schrift");
-  kult=tag->getBoolAttr("Kultschrift");;
+  art_der_schrift=t.getAttr("Name");
+  region=t.getAttr("Region");
+  region_zusatz=t.getAttr("RegionZusatz");
+  kosten=t.getIntAttr("Kosten");
+  alt=t.getBoolAttr("alte_Schrift");
+  kult=t.getBoolAttr("Kultschrift");;
 }
 
 bool Schrift::kann_Sprache(const std::list<MBEmlt>& sprache) const
@@ -105,17 +99,30 @@ bool Schrift::Mutterschrift(const Abenteurer& A) const
   return false;
 }
 
+static MidgardBasicElement::EP_t Schrift_EP=MidgardBasicElement::EP_t_undefined;
 
-Schriften_All::Schriften_All()
-{
- const Tag *schriften=xml_data->find("Schriften");
- if (schriften)
- {  Tag::const_iterator b=schriften->begin(),e=schriften->end();
-    FOR_EACH_CONST_TAG_OF_5(i,*schriften,b,e,"Schrift")
-    {  
-       FOR_EACH_CONST_TAG_OF(j,*i,"Variante")
-          list_All.push_back(&*(cH_Schrift(j->getAttr("Name"),&*i)));
-    }
- }   
+Schrift::Schrift(const std::string& name,const Tag &t)
+      : MidgardBasicElement(name),
+{get_Schrift(t);get_map_typ();
+ get_Steigern_Kosten_map();
+   if (Schrift_EP==EP_t_undefined) Schrift_EP=EP_steigern("Schreiben");
+   else EP_steigern(Schrift_EP);
+}
 
-}  
+cH_Schrift cH_Schrift::load(const std::string &name,const Tag &t)
+{  cH_Schrift *res=cache.lookup(name);
+   assert (!res)
+   {  cH_Schrift r2=new Schrift(name,t);
+      cache.Register(name,r2);
+      return r2;
+   }
+}
+
+void Schrift_All::load(std::list<cH_MidgardBasicElement> &list,const Tag &t)
+{  FOR_EACH_CONST_TAG_OF(j,*i,"Variante")
+   {  cH_Schrift z=cH_Schrift::load(j->getAttr("Name"),t);
+      // das &* dient dazu um aus einem cH_Schrift ein cH_MBE zu machen
+      list.push_back(&*z);
+   }
+}
+

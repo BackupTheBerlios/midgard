@@ -1,6 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
- *  Copyright (C) 2002      Christof Petig 
+ *  Copyright (C) 2002-2003 Christof Petig 
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -18,30 +18,11 @@
  */
 
 #include "Sinne.hh"
-#include <iostream>
-
-cH_Sinne::cache_t cH_Sinne::cache;
 
 cH_Sinne::cH_Sinne(const std::string& name,bool create)
 {
- cH_Sinne *cached(cache.lookup(name));
- if (cached) *this=*cached;
- else
-  {
-  std::cerr << "Sinne '" << name << "' nicht im Cache\n";
-  if (create)
-  {  static Tag t2("Sinne"); 
-     // note that this Tag is shared ... works well for now
-     t2.setAttr("Name",name);
-     *this=cH_Sinne(&t2);
-  }
-  else throw NotFound();
-  }
-}
-
-cH_Sinne::cH_Sinne(const Tag *tag)
-{*this=cH_Sinne(new Sinne(tag));
- cache.Register(tag->getAttr("Name"),*this);
+ if (create) *this=new Sinne(name);
+ else throw NotFound();
 }
 
 void Sinne::get_Sinne()
@@ -50,43 +31,24 @@ void Sinne::get_Sinne()
  else                        anfangswert=8;
 }
 
-
-Sinne_All::Sinne_All()
-{
-  list_All.clear();
-  MBEmlt s1(&*cH_Sinne("Sehen",true));
-  s1->setErfolgswert(8);
-  MBEmlt s2(&*cH_Sinne("Hören",true));
-  s2->setErfolgswert(8);
-  MBEmlt s3(&*cH_Sinne("Riechen",true));
-  s3->setErfolgswert(8);
-  MBEmlt s4(&*cH_Sinne("Schmecken",true));
-  s4->setErfolgswert(8);
-  MBEmlt s5(&*cH_Sinne("Tasten",true));
-  s5->setErfolgswert(8);
-  MBEmlt s6(&*cH_Sinne("Sechster Sinn",true));
-  s6->setErfolgswert(0);
-  list_All.push_back(s1);
-  list_All.push_back(s2);
-  list_All.push_back(s3);
-  list_All.push_back(s4);
-  list_All.push_back(s5);
-  list_All.push_back(s6);
-/*
-  list_All.push_back(&*(cH_Sinne("Sehen",true)));
-  list_All.push_back(&*(cH_Sinne("Hören",true)));
-  list_All.push_back(&*(cH_Sinne("Riechen",true)));
-  list_All.push_back(&*(cH_Sinne("Schmecken",true)));
-  list_All.push_back(&*(cH_Sinne("Tasten",true)));
-  list_All.push_back(&*(cH_Sinne("Sechster Sinn",true)));
-*/
-/*
-  // Weil die Sinne gechached sind müssen die Werte explizit gesetzt werden:
-  cH_Sinne("Sehen")->setAnfangswert(8);
-  cH_Sinne("Hören")->setAnfangswert(8);
-  cH_Sinne("Riechen")->setAnfangswert(8);
-  cH_Sinne("Schmecken")->setAnfangswert(8);
-  cH_Sinne("Tasten")->setAnfangswert(8);
-  cH_Sinne("Sechster Sinn")->setAnfangswert(0);
-*/
+Sinne::Sinne(const std::string &name)
+      : MidgardBasicElement(name)
+{get_Sinne();
 }
+
+MBEmlt cH_Sinne::init(const std::string &name)
+{  cH_MidgardBasicElement r2=new Sinne(name);
+   MBEmlt r3=r2;
+   r3->setErfolgswert(r2->Anfangswert());
+   return r3;
+}
+
+void Sinne_All::init(std::list<MBEmlt> &list)
+{  list.push_back(cH_Sinne::init("Sehen"));
+   list.push_back(cH_Sinne::init("Hören"));
+   list.push_back(cH_Sinne::init("Riechen"));
+   list.push_back(cH_Sinne::init("Schmecken"));
+   list.push_back(cH_Sinne::init("Tasten"));
+   list.push_back(cH_Sinne::init("Sechster Sinn"));
+}
+

@@ -1,4 +1,4 @@
-// $Id: Datenbank.cc,v 1.10 2003/05/19 06:10:34 christof Exp $               
+// $Id: Datenbank.cc,v 1.11 2003/05/20 07:14:34 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -66,6 +66,16 @@ void Datenbank::load_list(const Tag &t)
          FOR_EACH_CONST_TAG(k,*j) Beruf_All::load(Beruf,*k);
       else if (j->Type()=="Waffen")
          FOR_EACH_CONST_TAG(k,*j) Waffe_All::load(Waffe,*k);
+      else if (j->Type()=="Waffen-Grundkenntnisse")
+         FOR_EACH_CONST_TAG(k,*j) WaffeGrund_All::load(Waffe,*k);
+      else if (j->Type()=="Kido-Fertigkeiten")
+         FOR_EACH_CONST_TAG(k,*j) KiDo_All::load(KiDo,*k);
+      else if (j->Type()=="Sprachen")
+         FOR_EACH_CONST_TAG(k,*j) Sprachen_All::load(Sprache,*k);
+      else if (j->Type()=="Schriften")
+         FOR_EACH_CONST_TAG(k,*j) Schriften_All::load(Schrift,*k);
+      else if (j->Type()=="Waffen-Grundkenntnisse")
+         FOR_EACH_CONST_TAG(k,*j) WaffeGrund_All::load(WaffeGrund,*k);
       else if (j->Type()=="PreiseNeuMod")
          FOR_EACH_CONST_TAG(k,*j) PreiseNewMod_All::load(preisenewmod,*k);
       else if (in<std::string>(j->Type(),"Preise","PreiseNeu"))
@@ -93,13 +103,13 @@ void Datenbank::load(SigC::Slot1<void,double> progress,SigC::Slot1<void,const st
 //    Beruf = Beruf_All().get_All();
     Fertigkeit_ang = Fertigkeiten_angeborene_All().get_All();
 //    Fertigkeit = Fertigkeiten_All().get_All();
-    WaffeGrund = WaffeGrund_All().get_All();
+//    WaffeGrund = WaffeGrund_All().get_All();
 //    Waffe = Waffe_All().get_All();
 //    Zauber = Zauber_All().get_All();
 //    Zauberwerk = Zauberwerk_All().get_All();
-    Kido = KiDo_All().get_All();
-    Sprache = Sprachen_All().get_All();
-    Schrift = Schriften_All().get_All();
+//    Kido = KiDo_All().get_All();
+//    Sprache = Sprachen_All().get_All();
+//    Schrift = Schriften_All().get_All();
     Spezies = Spezies_All().get_All();
     Typen = Typen_All().get_All();
     GradAnstieg = Grad_anstieg(true);

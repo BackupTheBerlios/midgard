@@ -1,5 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
+ *  Copyright (C) 2003      Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -20,46 +21,36 @@
 #  define _SINNE_HH
 
 #include "MidgardBasicElement.hh"
-#include <Misc/Tag.h>
 
 class Sinne : public MidgardBasicElement
 {
   private:
-     void get_Sinne();      
+     void get_Sinne();
   public:
-      Sinne(const Tag *t) : MidgardBasicElement(t,t->getAttr("Name"))
-          {get_Sinne();}
+     Sinne(const std::string &name);
 
      enum MBEE What() const {return MidgardBasicElement::SINN;}
      std::string What_str() const {return "Sinn";}
 
      int MaxErfolgswert(const Grundwerte& w,const std::vector<cH_Typen>& Typ) const 
          {return 0;} //wg. virtueller Funktion
-
 };
 
 
 class cH_Sinne : public Handle<const Sinne>
 {
-    typedef CacheStatic<std::string,cH_Sinne> cache_t;
-    static cache_t cache;
     cH_Sinne(const Sinne *s) : Handle<const Sinne>(s) {};
-    friend class std::map<std::string,cH_Sinne>;
     cH_Sinne(){};
  public:
     cH_Sinne(const std::string& n,bool create=false);
-    cH_Sinne(const Tag *tag);
+    static MBEmlt init(const std::string& n);
 
     cH_Sinne(const cH_MidgardBasicElement &x) : Handle<const Sinne>
       (dynamic_cast<const Sinne *>(&*x)){}
 };
 
-class Sinne_All
-{
-   std::list<MBEmlt> list_All;
-  public:
-   Sinne_All();
-   std::list<MBEmlt> get_All() const {return list_All;}
-};
+namespace Sinne_All
+{  void init(std::list<MBEmlt> &list);
+}
 
 #endif

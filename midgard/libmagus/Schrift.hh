@@ -1,4 +1,4 @@
-// $Id: Schrift.hh,v 1.3 2003/05/19 06:10:34 christof Exp $               
+// $Id: Schrift.hh,v 1.4 2003/05/20 07:14:34 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,14 +29,11 @@ class Schrift : public MidgardBasicElement
     std::string art_der_schrift;
     bool alt,kult;
 
-     void get_Schrift();
+     void get_Schrift(const Tag &t);
      int Grundkosten() const {return kosten;}
   
   public:
-   Schrift(const std::string& name,const Tag *t) : MidgardBasicElement(t,name)
-      { get_Schrift();get_map_typ(); get_Steigern_Kosten_map();
-        EP_steigern("Schreiben");
-      }
+   Schrift(const std::string& name,const Tag &t);
    enum MBEE What() const {return MidgardBasicElement::SCHRIFT;}
    std::string What_str() const {return "Urschrift";}
 
@@ -63,18 +60,14 @@ class cH_Schrift : public Handle<const Schrift>
     cH_Schrift(){};
   public:
    cH_Schrift(const std::string& name ,bool create=false);
-   cH_Schrift(const std::string& name,const Tag *tag);
+   static cH_Schrift load(const std::string& name,const Tag &tag);
 
    cH_Schrift(const cH_MidgardBasicElement &x) : Handle<const Schrift>
       (dynamic_cast<const Schrift *>(&*x)){}
 };
 
-class Schriften_All
-{
-   std::list<cH_MidgardBasicElement> list_All;
-  public:
-   Schriften_All();
-   std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
-};
+namespace Schriften_All
+{  void load(std::list<cH_MidgardBasicElement> &list, const Tag &t);
+}
 
 #endif

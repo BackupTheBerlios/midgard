@@ -1,4 +1,4 @@
-// $Id: Sprache.hh,v 1.5 2003/05/19 06:10:34 christof Exp $               
+// $Id: Sprache.hh,v 1.6 2003/05/20 07:14:34 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -27,7 +27,8 @@ class cH_Sprache;
 class Abenteurer;
 //class cH_Sprache;
 //class Sprache_und_Schrift;
-#include <Tag.h>
+class Tag;
+//#include <Tag.h>
 
 class Sprache_und_Schrift
 {
@@ -57,16 +58,14 @@ class Sprache : public MidgardBasicElement
      int maxwert;
      std::vector<int> V_sprachgruppe;
 
-     void get_Sprache();
+     void get_Sprache(const Tag &t);
      int Grundkosten() const {return kosten;}
      bool Sprachgruppe(const std::vector<int>& V2) const;
-     std::vector<int> getVSprachgruppe() const {return V_sprachgruppe;}
+     const std::vector<int> &getVSprachgruppe() const {return V_sprachgruppe;}
 
   
   public:
-   Sprache(const Tag *t) : MidgardBasicElement(t,t->getAttr("Name"))
-      {get_Sprache();get_map_typ();get_Steigern_Kosten_map();
-         EP_steigern("Sprache");}
+   Sprache(const Tag &t);
    enum MBEE What() const {return MidgardBasicElement::SPRACHE;}
    std::string What_str() const {return "Sprache";}
 
@@ -110,19 +109,15 @@ class cH_Sprache : public Handle<const Sprache>
     cH_Sprache(){};
   public:
    cH_Sprache(const std::string& name ,bool create=false);
-   cH_Sprache(const Tag *tag);
+   static cH_Sprache load(const Tag &t,bool &is_new);
 
    cH_Sprache(const cH_MidgardBasicElement &x) : Handle<const Sprache>
       (dynamic_cast<const Sprache *>(&*x)){}
 
 };
 
-class Sprachen_All
-{
-   std::list<cH_MidgardBasicElement> list_All;
-  public:
-   Sprachen_All();
-   std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
+namespace Sprachen_All
+{  void load(std::list<cH_MidgardBasicElement> &list, const Tag &t);
 };
 
 

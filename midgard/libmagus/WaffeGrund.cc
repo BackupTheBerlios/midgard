@@ -35,33 +35,17 @@ cH_WaffeGrund::cH_WaffeGrund(const std::string& name ,bool create)
   {  static Tag t2("Waffen-Grundkenntnis");
      // note that this Tag is shared ... works well for now
      t2.setAttr("Name",name);
-     *this=cH_WaffeGrund(&t2);
+     *this=new WaffeGrund(t2);
   }
   else throw NotFound();
   }
 }
 
-cH_WaffeGrund::cH_WaffeGrund(const Tag *tag)
-{*this=cH_WaffeGrund(new WaffeGrund(tag));
- cache.Register(tag->getAttr("Name"),*this);
-}
-
-void WaffeGrund::get_WaffeGrund()
-{
-   kosten=tag->getIntAttr("Kosten");
-   region=tag->getAttr("Region");
-}
-
-WaffeGrund_All::WaffeGrund_All()
-{
- const Tag *waffengrundf=xml_data->find("Waffen-Grundkenntnisse");
- if (waffengrundf)
- {  Tag::const_iterator b=waffengrundf->begin(),e=waffengrundf->end();
-    FOR_EACH_CONST_TAG_OF_5(i,*waffengrundf,b,e,"Waffen-Grundkenntnis")
-    {  
-       list_All.push_back(&*(cH_WaffeGrund(&*i)));
-    }
- }   
+void WaffeGrund::get_WaffeGrund(const Tag &t)
+{  if (t.hasAttr("Kosten")) 
+   { kosten=t.getIntAttr("Kosten");
+     region=t.getAttr("Region");
+   }
 }
 
 bool WaffeGrund::is_sinnvoll(const std::list<cH_MidgardBasicElement> &WL,
@@ -78,5 +62,35 @@ bool WaffeGrund::is_sinnvoll(const std::list<cH_MidgardBasicElement> &WL,
       }
    }
   return false;
+}
+
+WaffeGrund::WaffeGrund(const Tag &t)
+      : MidgardBasicElement(t.getAttr("Name"))
+{ load(t);
+}
+
+void WaffeGrund::load(const Tag &t)
+{get_WaffeGrund(t);get_map_typ(t);
+}
+
+cH_WaffeGrund cH_WaffeGrund::load(const Tag &t,bool &is_new)
+{  cH_WaffeGrund *res=cache.lookup(t.getAttr("Name"));
+   if (!res)
+   {  cH_WaffeGrund r2=new WaffeGrund(t);
+      is_new=true;
+      cache.Register(t.getAttr("Name"),r2);
+      return r2;
+   }
+   else 
+   {  const_cast<WaffeGrund&>(**res).load(t);
+      return *res;
+   }
+}
+
+void WaffeGrund_All::load(std::list<cH_MidgardBasicElement> &list,const Tag &t)
+{  bool is_new=false;
+   cH_WaffeGrund z=cH_WaffeGrund::load(t,is_new);
+   // das &* dient dazu um aus einem cH_WaffeGrund ein cH_MBE zu machen
+   if (is_new) list.push_back(&*z);
 }
 

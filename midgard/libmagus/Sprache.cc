@@ -38,38 +38,33 @@ cH_Sprache::cH_Sprache(const std::string& name,bool create)
   {  static Tag t2("Sprache"); 
      // note that this Tag is shared ... works well for now
      t2.setAttr("Name",name);
-     *this=cH_Sprache(&t2);
+     *this=new Sprache(t2);
   }
   else throw NotFound();
   }
 }
 
-cH_Sprache::cH_Sprache(const Tag *tag)
-{*this=cH_Sprache(new Sprache(tag));
- cache.Register(tag->getAttr("Name"),*this);
-}
-
-void Sprache::get_Sprache()
+void Sprache::get_Sprache(const Tag &t)
 {
-  region=tag->getAttr("Region");
-  region_zusatz=tag->getAttr("RegionZusatz");
-  alte_sprache=tag->getBoolAttr("alteSprache");
-  minderheit=tag->getBoolAttr("Minderheit");
-  maxwert=tag->getIntAttr("Maximalwert");
-  kosten=tag->getIntAttr("Kosten");
-  if(tag->getIntAttr("Gruppe")) 
-     V_sprachgruppe.push_back(tag->getIntAttr("Gruppe"));
-  if(tag->getIntAttr("Gruppe2")) 
-     V_sprachgruppe.push_back(tag->getIntAttr("Gruppe2"));
+  region=t.getAttr("Region");
+  region_zusatz=t.getAttr("RegionZusatz");
+  alte_sprache=t.getBoolAttr("alteSprache");
+  minderheit=t.getBoolAttr("Minderheit");
+  maxwert=t.getIntAttr("Maximalwert");
+  kosten=t.getIntAttr("Kosten");
+  if(t.getIntAttr("Gruppe")) 
+     V_sprachgruppe.push_back(t.getIntAttr("Gruppe"));
+  if(t.getIntAttr("Gruppe2")) 
+     V_sprachgruppe.push_back(t.getIntAttr("Gruppe2"));
 
-  FOR_EACH_CONST_TAG_OF(i,*tag,"Schrift")
-     VSchrift.push_back(i->getAttr("Name",tag->getAttr("Name")));
+  FOR_EACH_CONST_TAG_OF(i,t,"Schrift")
+     VSchrift.push_back(i->getAttr("Name",Name()));
 }
 
 int Sprache::Kosten(const Abenteurer& A) const
 { 
   cH_Fertigkeit F("Sprechen: Sprache");
-  return  (int)(F->Standard_Faktor(A) * kosten) ; 
+  return  int(F->Standard_Faktor(A) * kosten) ; 
 }
 
 int Sprache::MaxErfolgswert(const Abenteurer& A) const
@@ -224,18 +219,29 @@ void Sprache::setErfolgswertMutterGastlandsprache(MBEmlt &M,std::string mode,int
   else assert(!"never get here\n");
 }
 
+static MidgardBasicElement::EP_t Sprache_EP=MidgardBasicElement::EP_t_undefined;
 
+Sprache::Sprache(const Tag &t)
+      : MidgardBasicElement(t.getAttr("Name")),
+{  get_Sprache(t); get_map_typ(); get_Steigern_Kosten_map();
+   if (Sprache_EP==EP_t_undefined) Sprache_EP=EP_steigern("Sprache");
+   else EP_steigern(Sprache_EP);
+}
 
+cH_Sprache cH_Sprache::load(const Tag &t,bool &is_new)
+{  cH_Sprache *res=cache.lookup(t.getAttr("Name"));
+   assert (!res)
+   {  cH_Sprache r2=new Sprache(t);
+      is_new=true;
+      cache.Register(t.getAttr("Name"),r2);
+      return r2;
+   }
+}
 
-Sprachen_All::Sprachen_All()
-{
- const Tag *sprachen=xml_data->find("Sprachen");
- if (sprachen)
- {  Tag::const_iterator b=sprachen->begin(),e=sprachen->end();
-    FOR_EACH_CONST_TAG_OF_5(i,*sprachen,b,e,"Sprache")
-    { 
-       list_All.push_back(&*(cH_Sprache(&*i)));
-    }
- }   
-}  
+void Sprache_All::load(std::list<cH_MidgardBasicElement> &list,const Tag &t)
+{  bool is_new=false;
+   cH_Sprache z=cH_Sprache::load(t,is_new);
+   // das &* dient dazu um aus einem cH_Sprache ein cH_MBE zu machen
+   if (is_new) list.push_back(&*z);
+}
 
