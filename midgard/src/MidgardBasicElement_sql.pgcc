@@ -8,6 +8,23 @@ exec sql include sqlca;
 #include "Zauberwerk.hh"
 
 #ifdef USE_XML
+const Tag *find_Tag(const std::string &listtag, const std::string &tag,...)
+{const Tag *liste=xml_data->find(listtag);
+ if (!liste)
+    cerr << "<"<<listtag<<"><"<<elementtag<<"/>... nicht gefunden\n";
+// hier endete Meine Mitarbeit!
+ else
+ {  Tag::const_iterator b=liste->begin(),e=liste->end();
+    for (Tag::const_iterator i=liste->find(b,elementtag);
+    		i!=e;	i=liste->find(i+1,elementtag))
+    {  if (i->getAttr("Name")!=lookfor) continue;
+       if (What()==ZAUBERWERK && i->getAttr("Stufe")!=Stufe()) continue;
+       const Tag *Grund=i->find("Grund");
+    }
+ }
+ return 0;
+}
+
 static void Add(map<std::string,std::string> map_typ, std::string typen, std::string wert)
 {  while (!typen.empty())
    {  string::size_type komma=typen.find(',');
