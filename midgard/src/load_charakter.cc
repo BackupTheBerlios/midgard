@@ -65,7 +65,7 @@ void midgard_CG::xml_import(const std::string& datei)
    on_neuer_charakter_clicked();
    frame_steigern->set_sensitive(true);
    Char.xml_import_stream(fi,this);
-   filename=datei;
+   Char.setFilename(datei);
    set_title(getWerte().Name_Abenteurer());
    load_for_mainpage(notebook_main->get_current_page_num());
 //   if(getWerte().Stadt_Land()=="Stadt") table_grundwerte->radiobutton_stadt->set_active(true);

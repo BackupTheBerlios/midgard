@@ -51,14 +51,14 @@ void midgard_CG::xml_export_auswahl()
 
 void midgard_CG::save_existing_filename()
 {
-  if(!filename.empty()) xml_export(filename);
-  else                  xml_export_auswahl();
+  if(!Char.getFilename().empty()) xml_export(Char.getFilename());
+  else                            xml_export_auswahl();
 }
 
 
 void midgard_CG::xml_export(const std::string& dateiname)
 {  
-   filename=dateiname;
+   Char.setFilename(dateiname);
    frame_steigern->set_sensitive(true);
 
    ofstream datei(dateiname.c_str());

@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.3 2002/05/29 07:49:15 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.4 2002/05/29 12:09:24 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -111,7 +111,8 @@ public:
 class VAbenteurer
 {
    public:
-      struct st_abenteurer{Abenteurer abenteurer;bool gespeichert;
+      struct st_abenteurer{Abenteurer abenteurer;std::string filename;
+                           bool gespeichert;
              st_abenteurer(Abenteurer A,bool g) : abenteurer(A),gespeichert(g) {}
              st_abenteurer() : abenteurer(Abenteurer()),gespeichert(true){} };
    private:
@@ -129,6 +130,10 @@ class VAbenteurer
          }
       void modified() {ai->gespeichert=false;}
       void safed() {ai->gespeichert=true;}
+      void setFilename(std::string s) {ai->filename=s;}
+      const std::string &getFilename() {return ai->filename;}
+
+
       bool unsaved_exist()
           { for(std::vector<st_abenteurer>::iterator i=VA.begin();i!=VA.end();++i) 
             if(i->gespeichert) return true;
