@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.65 2003/09/29 11:36:59 christof Exp $
+// $Id: midgard.cc,v 1.66 2003/09/29 11:41:28 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,15 +31,14 @@
 
 static const unsigned steps=8;
 static Gtk::Window *progresswin;
-// Load0 und Load_current können zusammengeführt werden
-static Glib::RefPtr<Gdk::Pixbuf> Load0,Load1,Load_current;
+static Glib::RefPtr<Gdk::Pixbuf> Load0,Load1;
 static unsigned current_n;
 static Gtk::Image *imag;
 
 static void progress(double d)
 {  unsigned n=unsigned(steps*d+.5);
    if (n!=current_n)
-   {  // von Load_current nach Load1 morphen
+   {  // von Load0 nach Load1 morphen
       double beta=(steps-n)/double(steps-current_n);
       double gamma=(n-beta*current_n)/double(steps);
       guchar *b_pixel,*dest_pixel;
@@ -47,7 +46,7 @@ static void progress(double d)
       unsigned rowstride = Load0->get_rowstride ();
       unsigned bytes_per_pixel = Load0->get_has_alpha() ? 4 : 3;
       b_line=Load1->get_pixels();
-      dest_line=Load_current->get_pixels();
+      dest_line=Load0->get_pixels();
       for (unsigned y=0;y<Load1->get_height();++y)
       {  b_pixel=b_line;
          dest_pixel=dest_line;
@@ -63,7 +62,7 @@ static void progress(double d)
          b_line+=rowstride;
          dest_line+=rowstride;
       }
-      imag->set(Load_current);
+      imag->set(Load0);
       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
       current_n=n;
    }
@@ -85,13 +84,12 @@ int main(int argc, char **argv)
 #warning Zeitmessung wegen Anzahl der Zwischenschritte?
    Gtk::Main m(&argc, &argv,true); 
 std::cerr << "composing images\n";
-  {Load0=MagusImage("MAGUS-Logo.png")->copy();
+   Load0=MagusImage("MAGUS-Logo.png")->copy();
    Load1=MagusImage("MAGUS-Logo.png")->copy();
    MagusImage("Loading.png")->composite(Load0,0,0,Load0->get_width(),Load0->get_height(),
    		0,0,1,1,Gdk::INTERP_NEAREST,255);
    MagusImage("Version.png")->composite(Load1,0,0,Load1->get_width(),Load1->get_height(),
    		0,0,1,1,Gdk::INTERP_NEAREST,255);
-   Load_current=Load0->copy();
 std::cerr << "displaying images\n";
    progresswin=new Gtk::Window(Gtk::WINDOW_POPUP);
    progresswin->set_position(Gtk::WIN_POS_CENTER_ALWAYS);
@@ -103,8 +101,6 @@ std::cerr << "displaying images\n";
    progresswin->show();
    while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
    libmagus_init1(progress);
-   delete progresswin;
-  }
 
    std::vector<std::string> dateien;
    for (int i=1;i<argc;++i) dateien.push_back(argv[i]);
@@ -112,6 +108,7 @@ std::cerr << "displaying images\n";
 //   setlocale(LC_ALL, "de_DE");
    // WindowInfo erzeugen und an midgard_CG übergeben
    midgard_CG *magus=new midgard_CG(dateien);
+   delete progresswin;
    m.run(*magus);
    delete magus;
    return 0;
