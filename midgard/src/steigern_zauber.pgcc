@@ -249,9 +249,9 @@ void midgard_CG::on_button_zauber_sort_clicked()
   std::vector<H_Data_zauber>::iterator IB=vec_Zauber.begin();
   std::vector<H_Data_zauber>::iterator IE=vec_Zauber.end();
   switch((Data_zauber::Spalten_A)seq[0]) {
-      case Data_zauber::NAMEa  : sort(IB,IE,Data_zauber_sort_name()); ;break;
-      case Data_zauber::STUFEa : sort(IB,IE,Data_zauber_sort_stufe()); ;break;
-      case Data_zauber::URSPRUNGa : sort(IB,IE,Data_zauber_sort_ursprung()); ;break;
+      case Data_zauber::NAMEa  : stable_sort(IB,IE,Data_zauber_sort_name()); ;break;
+      case Data_zauber::STUFEa : stable_sort(IB,IE,Data_zauber_sort_stufe()); ;break;
+      case Data_zauber::URSPRUNGa : stable_sort(IB,IE,Data_zauber_sort_ursprung()); ;break;
       default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
    }
 }
@@ -261,9 +261,9 @@ void midgard_CG::on_button_zaubermittel_sort_clicked()
   std::vector<H_Data_zaubermittel>::iterator IB=vec_Zaubermittel.begin();
   std::vector<H_Data_zaubermittel>::iterator IE=vec_Zaubermittel.end();
   switch((Data_zaubermittel::Spalten_A)seq[0]) {
-      case Data_zaubermittel::NAMEa  : sort(IB,IE,Data_zaubermittel_sort_name()) ;break;
-      case Data_zaubermittel::STUFEa : sort(IB,IE,Data_zaubermittel_sort_stufe()) ;break;
-      case Data_zaubermittel::ARTa : sort(IB,IE,Data_zaubermittel_sort_art());break;
+      case Data_zaubermittel::NAMEa  : stable_sort(IB,IE,Data_zaubermittel_sort_name()) ;break;
+      case Data_zaubermittel::STUFEa : stable_sort(IB,IE,Data_zaubermittel_sort_stufe()) ;break;
+      case Data_zaubermittel::ARTa : stable_sort(IB,IE,Data_zaubermittel_sort_art());break;
       default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
    }
 }

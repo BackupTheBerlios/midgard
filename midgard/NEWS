@@ -1,4 +1,15 @@
 ##########################################################################
+NEWS IN VERSION 0.7beta5
+- Oberfläche leicht überarbeitet
+- Bug bei der Typauswahl jetzt beseitigt (vorher war es ein 'workaround':-)
+- Beim Abwählen von 'Eschar' erscheint KEIN Infofenster mehr, das nervte ...
+- Überschriftenreinfolge der 'neuen Zauber' war falsch
+- Sortierung der Sprachen nach Stufe im Ausdruck jetzt ABSTEIGEND
+- Sortierung der Zauber, Zaubermittel, Waffen und Fertigkeiten jetzt mit dem 
+   Algorithmus 'stable_sort'
+
+
+##########################################################################
 NEWS IN VERSION 0.7beta4
 - Grundfähigkeiten für 'Überleben ...' stimmen jetzt
    Allerdings gibt es (soweit ich weiß keine offiziellen Regeln für 

@@ -1,27 +1,32 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<Midgard-Charakter Version="3">
+<Midgard-Charakter Version="4">
   <Figur Name="ChiLi" Spieler="Malte Thoma" Zeitpunkt="Bastis Abenteuer" Grad="7"/>
-  <Typ Spezies="Mensch" Abkürzung="Kd" Spezialisierung="Harte Techniken"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Kd" Spezialisierung="Harte Techniken"/>
   <Basiseigenschaften St="68" Ge="97" Ko="87" In="82" Zt="99"/>
   <abgeleiteteEigenschaften Au="62" pA="92" Sb="95" RW="97" HGW="81" B="25" KAW="4" WLW="70"/>
   <Erfolgswerte Abwehr="14"/>
-  <Resistenzen psy="13" phs="13" phk="13" Gift="5"/>
+  <Resistenzen Resistenz="13" Gift="5"/>
   <Gesundheit LP_Basis="11" LP="16" AP="50"/>
   <Beschreibung Alter="28" Gestalt="schlank" Gewicht="53" Größe="160" Stand="Mittelschicht" Herkunft="KanThaiPan" Glaube="Chen Men"/>
   <Boni Ausdauer="2" Schaden="2" Angriff="1" Abwehr="2" Zaubern="3">
     <Resistenzen psy="2" phs="4" phk="2" Gift="5"/>
   </Boni>
   <GFP>7231</GFP>
-  <Vermoegen/>
-  <Rüstung>OR</Rüstung>
+  <Vermögen/>
+  <Ausrüstung>
+    <Rüstung>OR</Rüstung>
+    <Waffe Bezeichnung="Dolch"/>
+    <Waffe Bezeichnung="Dolch" AngriffVerteidigung_Bonus="1" SchadenLebenspunkte_Bonus="2"/>
+    <Waffe Bezeichnung="Dolch"/>
+    <Waffe Bezeichnung="Dolch"/>
+    <Waffe Bezeichnung="Dolch"/>
+    <Waffe Bezeichnung="leichte Armbrust"/>
+    <Waffe Bezeichnung="leichte Armbrust"/>
+    <Waffe Bezeichnung="waffenloser Kampf"/>
+  </Ausrüstung>
   <Fertigkeiten>
     <Beruf Bezeichnung="Gärtner" Wert="11"/>
-    <Besitz_W Bezeichnung="Dolch" AngriffVerteidigung_Bonus="1" SchadenLebenspunkte_Bonus="2"/>
-    <Besitz_W Bezeichnung="Dolch"/>
-    <Besitz_W Bezeichnung="Dolch"/>
-    <Besitz_W Bezeichnung="Dolch"/>
-    <Besitz_W Bezeichnung="leichte Armbrust"/>
     <Fertigkeit Bezeichnung="Balancieren" Wert="18"/>
     <Fertigkeit Bezeichnung="FengSchui" Wert="8"/>
     <Fertigkeit Bezeichnung="KarumiJutsu" Wert="17"/>
@@ -57,7 +62,7 @@
     <KiDo Bezeichnung="TsiLeng"/>
     <KiDo Bezeichnung="TuoKobe"/>
     <KiDo Bezeichnung="YuehSchu"/>
-    <Region Bezeichnung="Region"/>
+    <Region Region="K"/>
     <Sprache Bezeichnung="Comentang" Wert="3"/>
     <Sprache Bezeichnung="KanThaiTun" Wert="4"/>
     <Sprache Bezeichnung="Neu Vallinga" Wert="4"/>

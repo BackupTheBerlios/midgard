@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<Midgard-Charakter Version="4">
+  <Figur Name="Gwyneth NiConuhil" Spieler="Malte Thoma" Zeitpunkt="Das graue Konzil" Grad="7"/>
+  <Typ Spezies="Mensch" Geschlecht="w" Abkürzung="Hl"/>
+  <Basiseigenschaften St="65" Ge="82" Ko="87" In="91" Zt="81"/>
+  <abgeleiteteEigenschaften Au="95" pA="81" Sb="61" RW="92" HGW="81" B="24" KAW="4" WLW="70"/>
+  <Erfolgswerte Abwehr="14" Zaubern="17"/>
+  <Resistenzen Resistenz="16"/>
+  <Gesundheit LP_Basis="11" LP="17" AP="38"/>
+  <Beschreibung Alter="28" Gestalt="normal" Gewicht="55" Größe="156" Stand="Adel" Herkunft="Alba" Glaube="Nathir, Dheis Albi"/>
+  <Boni Ausdauer="2" Schaden="1" Abwehr="1" Zaubern="2">
+    <Resistenzen psy="7" phs="5" phk="7" Gift="5"/>
+  </Boni>
+  <GFP>19422</GFP>
+  <Vermögen/>
+  <Ausrüstung>
+    <Rüstung>LR</Rüstung>
+    <Waffe Bezeichnung="Dolch"/>
+    <Waffe Bezeichnung="Magierstab"/>
+  </Ausrüstung>
+  <Fertigkeiten>
+    <Fertigkeit Bezeichnung="Erste Hilfe"/>
+    <Fertigkeit Bezeichnung="Kräuterkunde" Wert="6"/>
+    <Fertigkeit Bezeichnung="Lesen von Zauberschrift"/>
+    <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="8"/>
+    <Fertigkeit Bezeichnung="Reiten" Wert="12"/>
+    <Fertigkeit Bezeichnung="Sagenkunde" Wert="9"/>
+    <Fertigkeit Bezeichnung="Tierkunde" Wert="7"/>
+    <Fertigkeit Bezeichnung="Wahrnehmung" Wert="6"/>
+    <Fertigkeit Bezeichnung="Wissen von der Magie"/>
+    <Fertigkeit Bezeichnung="Zauberkunde" Wert="9"/>
+    <Grundkenntnis Bezeichnung="Magierstab"/>
+    <Grundkenntnis Bezeichnung="Stichwaffe"/>
+    <Region Region="ORIG"/>
+    <Region Region="HD"/>
+    <Sprache Bezeichnung="Albisch" Wert="4"/>
+    <Sprache Bezeichnung="Chryseisch" Wert="3"/>
+    <Sprache Bezeichnung="Comentang" Wert="3"/>
+    <Sprache Bezeichnung="Erainnisch" Wert="2"/>
+    <Sprache Bezeichnung="Maralinga" Wert="3"/>
+    <Sprache Bezeichnung="Moravisch" Wert="1"/>
+    <Urschrift Bezeichnung="Seemeister"/>
+    <Waffe Bezeichnung="Dolch" Wert="8"/>
+    <Waffe Bezeichnung="Magierstab" Wert="4"/>
+    <Zauber Bezeichnung="Allheilung" Wert="19"/>
+    <Zauber Bezeichnung="Angst" Wert="17"/>
+    <Zauber Bezeichnung="Austreibung des Bösen" Wert="17"/>
+    <Zauber Bezeichnung="Bannen von Dunkelheit" Wert="19"/>
+    <Zauber Bezeichnung="Bannen von Finsterwerk" Wert="17"/>
+    <Zauber Bezeichnung="Bannen von Gift" Wert="19"/>
+    <Zauber Bezeichnung="Bannen von Zauberwerk" Wert="17"/>
+    <Zauber Bezeichnung="Beschleunigen" Wert="19"/>
+    <Zauber Bezeichnung="Elfenfeuer" Wert="17"/>
+    <Zauber Bezeichnung="Entgiften" Wert="19"/>
+    <Zauber Bezeichnung="Erkennen von Krankheit" Wert="19"/>
+    <Zauber Bezeichnung="Erkennen von Leben" Wert="17"/>
+    <Zauber Bezeichnung="Flammenkreis" Wert="17"/>
+    <Zauber Bezeichnung="Freundesauge" Wert="19"/>
+    <Zauber Bezeichnung="Geistesschild" Wert="19"/>
+    <Zauber Bezeichnung="Handauflegen" Wert="19"/>
+    <Zauber Bezeichnung="Heilen schwerer Wunden" Wert="19"/>
+    <Zauber Bezeichnung="Heilen von Krankheit" Wert="19"/>
+    <Zauber Bezeichnung="Heilen von Wunden" Wert="19"/>
+    <Zauber Bezeichnung="Heranholen" Wert="19"/>
+    <Zauber Bezeichnung="Hören von Fernem" Wert="17"/>
+    <Zauber Bezeichnung="Liniensicht" Wert="19"/>
+    <Zauber Bezeichnung="Macht über das Selbst" Wert="17"/>
+    <Zauber Bezeichnung="Macht über die belebte Natur" Wert="19"/>
+    <Zauber Bezeichnung="Reinigen" Wert="19"/>
+    <Zauber Bezeichnung="Scharfblick" Wert="17"/>
+    <Zauber Bezeichnung="Schlaf" Wert="19"/>
+    <Zauber Bezeichnung="Schmerzen" Wert="19"/>
+    <Zauber Bezeichnung="Seelenheilung" Wert="19"/>
+    <Zauber Bezeichnung="Stille" Wert="17"/>
+    <Zauber Bezeichnung="Tiere rufen" Wert="19"/>
+    <Zauber Bezeichnung="Tiergestalt" Wert="19"/>
+    <Zauber Bezeichnung="Tiersprache" Wert="19"/>
+    <Zauber Bezeichnung="Unsichtbarkeit" Wert="17"/>
+    <Zauber Bezeichnung="Verlangsamen" Wert="19"/>
+    <Zauber Bezeichnung="Wahrsehen" Wert="17"/>
+    <Zauber Bezeichnung="Zwiesprache" Wert="17"/>
+  </Fertigkeiten>
+</Midgard-Charakter>

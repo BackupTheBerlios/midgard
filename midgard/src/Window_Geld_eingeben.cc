@@ -1,4 +1,4 @@
-// $Id: Window_Geld_eingeben.cc,v 1.15 2001/06/30 20:30:06 thoma Exp $
+// $Id: Window_Geld_eingeben.cc,v 1.16 2001/08/13 20:08:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -39,7 +39,8 @@ void Window_Geld_eingeben::on_button_close_clicked()
    destroy();
 }
 
-#warning Wieso zwei Funktionen ????
+#warning Es gibt zwei Konstruktoren, je nachdem von wo aus diese Funktion 
+#warning aufgerufen wird. Gibt es da eine bessere Lösung? MAT
 
 Window_Geld_eingeben::Window_Geld_eingeben(Window_Waffe_Geld* h,Grundwerte& w)
 : Werte(w)

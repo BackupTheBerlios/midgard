@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.23 2001/08/12 19:41:16 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.24 2001/08/13 20:08:24 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -63,7 +63,8 @@ void midgard_CG::on_checkbutton_Eschar_toggled()
 {   
   if (checkbutton_Eschar->get_active()) Escharbool=true;
   else Escharbool=false;
-  midgard_CG::regnot("Der Derwisch hat leider noch kein Lernschema :-( ");
+  if (Escharbool)
+     midgard_CG::regnot("Der Derwisch hat leider noch kein Lernschema :-( ");
   clear_Ausnahmen();
 }
 

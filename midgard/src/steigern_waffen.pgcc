@@ -370,8 +370,8 @@ void midgard_CG::on_button_waffen_sort_clicked()
   std::vector<H_Data_waffen>::iterator IB=vec_Waffen.begin();
   std::vector<H_Data_waffen>::iterator IE=vec_Waffen.end();  
   switch((Data_waffen::Spalten_A)seq[0]) {
-      case Data_waffen::WERTa : sort(IB,IE,Data_waffen_sort_wert()); ;break;
-      case Data_waffen::NAMEa        : sort(IB,IE,Data_waffen_sort_name()); ;break;
+      case Data_waffen::WERTa : stable_sort(IB,IE,Data_waffen_sort_wert()); ;break;
+      case Data_waffen::NAMEa        : stable_sort(IB,IE,Data_waffen_sort_name()); ;break;
       default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
    }
 }

@@ -1,4 +1,4 @@
-// $Id: Window_Waffe_Geld.cc,v 1.24 2001/06/30 20:30:06 thoma Exp $
+// $Id: Window_Waffe_Geld.cc,v 1.25 2001/08/13 20:08:23 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -88,14 +88,12 @@ void Window_Waffe_Geld::get_waffe(const std::string& waffe)
   os << waffe<<"\n"; 
 }
 
-
 void Window_Waffe_Geld::Geld()
 {
  gold->set_text(itos(Werte.Gold()));
  silber->set_text(itos(Werte.Silber()));
  kupfer->set_text(itos(Werte.Kupfer()));
 }
-
 
 void Window_Waffe_Geld::Geld(int wurf)
 {

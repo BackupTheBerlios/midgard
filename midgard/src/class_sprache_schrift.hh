@@ -62,7 +62,7 @@ class Data_sprache_sort_name
       { return x->Name() < y->Name();}};
 class Data_sprache_sort_wert 
 { public : bool operator() (H_Data_sprache x, H_Data_sprache y) const
-      { return x->Wert() < y->Wert();}};
+      { return x->Wert() > y->Wert();}};
 
 
 ///////////////////////////////////////////////////////////////////////////

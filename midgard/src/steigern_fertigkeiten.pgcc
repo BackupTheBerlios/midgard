@@ -114,8 +114,8 @@ void midgard_CG::on_button_fertigkeiten_sort_clicked()
   std::vector<H_Data_fert>::iterator IB=vec_Fertigkeiten.begin();
   std::vector<H_Data_fert>::iterator IE=vec_Fertigkeiten.end();
   switch((Data_fert::Spalten_A)seq[0]) {
-      case Data_fert::NAMEa : sort(IB,IE,Data_fert_sort_name()); ;break;
-      case Data_fert::WERTa : sort(IB,IE,Data_fert_sort_wert()); ;break;
+      case Data_fert::NAMEa : stable_sort(IB,IE,Data_fert_sort_name()); ;break;
+      case Data_fert::WERTa : stable_sort(IB,IE,Data_fert_sort_wert()); ;break;
       default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
    }
 }

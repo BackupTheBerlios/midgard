@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.50 2001/08/04 17:58:00 thoma Exp $
+// $Id: midgard_CG.cc,v 1.51 2001/08/13 20:08:24 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -93,8 +93,8 @@ void midgard_CG::set_tree_titles()
  alte_zauber_tree->setTitles(alte_zauber);
  alte_zauber_tree->set_value_data(reinterpret_cast<gpointer>('A'));
  std::vector<string> neue_zauber;
- neue_zauber.push_back("Stufe");
  neue_zauber.push_back("Name");
+ neue_zauber.push_back("Stufe");
  neue_zauber.push_back("Ursprung");
  neue_zauber.push_back("Lernkosten");
  neue_zauber.push_back("Art");

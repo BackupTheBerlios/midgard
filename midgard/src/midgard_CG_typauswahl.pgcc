@@ -27,12 +27,14 @@ void midgard_CG::fill_typauswahl()
 {
   vec_Typen.clear();
   fill_typauswahl_fill(1);
+  typauswahl->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::typauswahl_button));
 }
 
 void midgard_CG::fill_typauswahl_2()
 {
   vec_Typen_2.clear();
   fill_typauswahl_fill(2);
+  typauswahl_2->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::typauswahl_2_button));
 }
 
 void midgard_CG::fill_typauswahl_fill(int typ_1_2)
@@ -62,13 +64,7 @@ void midgard_CG::fill_typauswahl_fill(int typ_1_2)
   exec sql open ein;
   SQLerror::test(__FILELINE__);
 
-#if 0
   Gtk::OStream t_((typ_1_2==1) ? typauswahl : typauswahl_2 ); 
-#endif
-#if 1
-  Gtk::Menu *_m(manage(new Gtk::Menu()));
-  Gtk::MenuItem *_mi;
-#endif
   unsigned int count=0;
   while (true)
    {
@@ -84,29 +80,11 @@ void midgard_CG::fill_typauswahl_fill(int typ_1_2)
             db_typs,db_typz,db_stand,db_sb,db_ausdauer,db_ruestung));
 //std::cout << db_typnr<<"\t"<<db_typ<<"\t"<<typen_vector.size()<<"\n";
 
-#if 0
          t_ << db_typ;
          t_.flush((gpointer)count);
-#endif
-#if 1
-      _mi = manage(new Gtk::MenuItem(db_typ));
-      _m->append(*_mi);
-      _mi->show();
-      _mi->set_user_data((gpointer)count);
-#endif
          ++count;
        }
    }
-  if (typ_1_2==1) 
-{
-     typauswahl->set_menu(*_m);
-     typauswahl->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::typauswahl_button));
-}
-  if (typ_1_2==2) 
-{     
-     typauswahl_2->set_menu(*_m);
-     typauswahl_2->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::typauswahl_2_button));
-}
 }
 
 
