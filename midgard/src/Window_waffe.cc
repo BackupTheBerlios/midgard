@@ -126,6 +126,18 @@ void Window_waffe::on_clist_waffe_select_row(gint row, gint column, GdkEvent *ev
      clist_waffe->row(row).unselect();   
 }
 
+void Window_waffe::on_clist_waffe_unselect_row(gint row, gint column, GdkEvent *event)
+{   
+  std::string art= clist_waffe->get_text(row,0);
+  int E=atoi(label_anzahl_E->get_text().c_str());
+  int A=atoi(label_anzahl_A->get_text().c_str());
+
+  if( (art=="E" || art=="W" || art=="V") && E>0)
+     label_anzahl_E->set_text(itos(++E));
+  else if(A>0)
+     label_anzahl_A->set_text(itos(++A));
+}
+
 
 void Window_waffe::on_button_close_clicked()
 {
