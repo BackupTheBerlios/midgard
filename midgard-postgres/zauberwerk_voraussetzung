@@ -33,10 +33,10 @@ Augensalbe	Augensalbe herstellen	\N	\N
 Berserkerpilz aktivieren	Heiliger Zorn	or	\N
 Berserkerpilz aktivieren	Wahnsinn	or	\N
 Binden	\N	\N	Thaumatographie
-Dämonenamulett verzaubern	Silberne Bannsphäre	\N	\N
-Elementaramulett verzaubern	Silberne Bannsphäre	\N	\N
+Dämonenamulett verzaubern	Bannsphäre, Silberne	\N	\N
+Elementaramulett verzaubern	Bannsphäre, Silberne	\N	\N
 Flohpulver aktivieren	Schweben	\N	\N
-Geisteramulett verzaubern	Silberne Bannsphäre	\N	\N
+Geisteramulett verzaubern	Bannsphäre, Silberne	\N	\N
 Heiltrunk (1W6) aktivieren	Heilen von Wunden	\N	\N
 Krafttrunk (1W6) aktivieren	Handauflegen	\N	\N
 Krafttrunk (2W6) aktivieren	Handauflegen	\N	\N
@@ -52,8 +52,8 @@ Salbe der Eisenhaut aktivieren	Eisenhaut	\N	\N
 Salbe der Krakenhände aktivieren	Macht über das Selbst	and	\N
 Salbe der Krakenhände aktivieren	Zauberschloß	and	\N
 Schamanentrommel herstellen	Geisterlauf	\N	\N
+Schildamulett verzaubern	Bannsphäre, Silberne	or	\N
 Schildamulett verzaubern	Flammenkreis	or	\N
-Schildamulett verzaubern	Silberne Bannsphäre	or	\N
 Schnellkraut aktivieren	Beschleunuigen	\N	\N
 Schutzamulett verzaubern	Geistesschild	or	\N
 Schutzamulett verzaubern	Schwarze Zone	or	\N
@@ -69,7 +69,7 @@ Trunk des Schwerelosigkeit aktivieren	Fliegen	or	\N
 Trunk des Schwerelosigkeit aktivieren	Schweben	or	\N
 Trunk des Unsichtbarkeit aktivieren	Unsichtbarkeit	\N	\N
 Trunk des Verwandlung aktivieren	Verwandlung	\N	\N
-Untotenamulett verzaubern	Blaue Bannsphäre or	\N	\N
+Untotenamulett verzaubern	Bannsphäre, Blaue	or	\N
 Untotenamulett verzaubern	Ring des Lebens	or	\N
 Waffen verzaubern (2)	Binden	and	\N
 Waffen verzaubern (2)	Zauberschmiede	\N	\N
