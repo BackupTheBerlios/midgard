@@ -34,7 +34,7 @@ void midgard_CG::on_zauber_laden_clicked()
          continue;
       if (togglebutton_spruchrolle->get_active() && !z->Spruchrolle() ) continue;
       if ((*i)->ist_lernbar(Typ,z->get_MapTyp()) || togglebutton_alle_zauber->get_active() )
-       if (region_check(z->Region()) )
+       if (region_check(z->Region()) && nsc_check((*i)->NSC_only()))
         {
          if(togglebutton_spruchrolle->get_active()) z->setSpruchrolleFaktor(0.1);
          else z->setSpruchrolleFaktor(1);

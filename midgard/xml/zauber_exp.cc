@@ -1,4 +1,4 @@
-// $Id: zauber_exp.cc,v 1.7 2002/02/14 15:42:57 thoma Exp $
+// $Id: zauber_exp.cc,v 1.8 2002/04/05 07:05:06 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -31,7 +31,7 @@ void arkanum_speichern(std::ostream &o)
    	"ursprung, agens, prozess, reagens, "
    	"zauberdauer, reichweite, wirkungsziel, wirkungsbereich, "
    	"wirkungsdauer, material, "
-   	"zauberart, element, spruchrolle, thaumagram,zusaetze "
+   	"zauberart, element, spruchrolle, thaumagram,zusaetze,nsc_only "
    	"from zauber "
    	IF_REGION("where coalesce(region,'')='"+region+"' ")
    	"order by coalesce(region,''),name");
@@ -58,6 +58,7 @@ void arkanum_speichern(std::ostream &o)
    fetch_and_write_bool_attrib(is, o, "Spruchrolle");
    fetch_and_write_string_attrib(is, o, "Thaumagramm");
    fetch_and_write_int_attrib(is, o, "Zusätze");
+   fetch_and_write_bool_attrib(is, o, "NSC_only");
    o << ">\n";
    grund_standard_ausnahme(o, "zauber_typen",zauber);
    lernschema(o, MIDGARD3_4("Zauber","Zauberkünste"),zauber);

@@ -76,7 +76,6 @@ COPY "typen" FROM stdin;
 43	Sk	Skalde	Skaldin	j	ak	20	0	1	W	4	\N	\N	\N	\N
 44	Ru	Runenschneider	Runenschneiderin	j	ak	0	0	3	W	3	k	\N	t	\N
 45	PC	Chaospriester	Chaosprieserin	z	z	20	0	4	\N	3	z	z	t	t
-46	FM	Finstermagier	Finstermagierin	z	z	10	0	4	\N	3	z	\N	\N	t
 \.
 --
 --

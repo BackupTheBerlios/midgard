@@ -75,6 +75,8 @@ void Zauber::get_Zauber()
     agens=tag->getAttr("Agens");
     prozess=tag->getAttr("Prozess");
     reagens=tag->getAttr("Reagens");
+    nsc_only=tag->getBoolAttr("NSC_only",false);
+    
     enum_zusatz=MidgardBasicElement::eZusatz(tag->getIntAttr("Zusätze",ZNone));
 
     FOR_EACH_CONST_TAG_OF(i,*tag,"Zusätze")

@@ -1,4 +1,4 @@
-// $Id: Lernschema.hh,v 1.5 2002/03/25 15:12:36 thoma Exp $               
+// $Id: Lernschema.hh,v 1.6 2002/04/05 07:05:06 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -43,7 +43,7 @@ class Lernschema
       struct st_wert  {bool pflicht;int erfolgswert;
                        std::string attribut; int lernpunkte;
                        std::string p_element; std::string s_element;
-             st_wert(): pflicht(false),erfolgswert(0),lernpunkte(-1){}
+             st_wert(): pflicht(false),erfolgswert(0),lernpunkte(99){}
              st_wert (bool p,int e, std::string a, int l,
                       std::string pe, std::string se)
                       : pflicht(p),erfolgswert(e),

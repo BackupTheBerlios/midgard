@@ -59,7 +59,7 @@ std::list<cH_MidgardBasicElement> Lernschema::get_List(const std::string& art,
  for(std::map<st_index,st_wert>::const_iterator i=lern_map.begin();i!=lern_map.end();++i)
   {
    if( (i->first.typ==Typ[0]->Short() || i->first.typ==Typ[1]->Short()) &&
-       i->first.art==art)
+        i->first.art==art)
      {
       if(art=="Fachkenntnisse") 
          { 
@@ -79,6 +79,8 @@ std::list<cH_MidgardBasicElement> Lernschema::get_List(const std::string& art,
          }
      }   
   }
+ L.sort();
+ L.unique();
  return L;
 }
 

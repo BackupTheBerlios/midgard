@@ -140,6 +140,10 @@ public:
       bool standard_all_S(const vector<std::string>& s) const ;
       bool operator == (const MidgardBasicElement& b) const 
          {return What()==b.What() && Name()==b.Name();}
+      bool operator < (const MidgardBasicElement& b) const 
+         {return  Name()<b.Name() ||
+                 (Name()==b.Name() && What()<=b.What());  
+         }
 
 
       static void move_element(std::list<cH_MidgardBasicElement>& von,

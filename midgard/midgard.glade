@@ -6731,7 +6731,19 @@ Beidhänder
 			  </widget>
 
 			  <widget>
-			    <class>Placeholder</class>
+			    <class>GtkPixmap</class>
+			    <name>pixmap149</name>
+			    <filename>Fert_Lesen-32.xpm</filename>
+			    <xalign>0.5</xalign>
+			    <yalign>0.5</yalign>
+			    <xpad>0</xpad>
+			    <ypad>0</ypad>
+			    <build_insensitive>True</build_insensitive>
+			    <child>
+			      <padding>0</padding>
+			      <expand>True</expand>
+			      <fill>True</fill>
+			    </child>
 			  </widget>
 
 			  <widget>

@@ -1,5 +1,5 @@
 ##########################################################################
-NEWS IN VERSION 0.4delta6
+NEWS IN VERSION 0.5delta0
 
 * Oberfläche leicht übearbeitet
 * Titel im Zusatz-Fenster(lernen) korrekt
@@ -24,7 +24,8 @@ NEWS IN VERSION 0.4delta6
 * latex & pdf-viewer code aufgeräumt
 * Option 'Originalregeln' wird mit Abenteurer zusammen abgespeichert
 * versteckte Ausrüstung nun wieder grau (im Ausdruck) 
-* Chaospriester und Finstermagier sind als NSC Klassen möglich (Menü: Optionen)
+* Chaospriester ist als NSC Klassen möglich (Menü: Optionen)
+* Finstermagiersprüche sind lernbar
 * einige Bugs im Regionenmenü behoben
 * Regionen setzen nach dem Laden eines Abenteurers funktioniert wieder
 * Optionen 'Originalregeln' und 'NSC zulassen' wird mit Abenteurer zusammen abgespeichert
@@ -40,16 +41,14 @@ NEWS IN VERSION 0.4delta6
 * Neuimplementation der Kosten für Abwehr/Resistenz/Zaubern
 * LaTeX Dateien Erzeugung komplett überarbeitet (damit wird es unter Windows 
    erst möglich zu drucken und auch unter Linux deutlich übersichtlicher.
+* Doppelklassen (Lernschema + Steigern) funktioniert
 
 
 TODO:
-* testen von drucken für Charakterbeschreibung, Ausrüstung
 * Steigern mehrerer Stufen mit PP
-* Finstermagier: Lernschema, Fertigkeiten, Waffen, Zauber
 * Waeland: Zauber
 * Nahuathlan: Komplett
 * Eschar: Derwisch
-* Doppelklassen
 * gv zeigt den falschen Ausschnitt des pdf Dokumentes 
    (nur für Linux interessant)
 * Es werden nur die ersten beiden pdf viewer zur Auswahl angeboten - komisch 
