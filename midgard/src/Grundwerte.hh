@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.40 2002/05/28 08:59:25 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.41 2002/05/28 10:06:17 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -65,6 +65,7 @@ class Grundwerte
    int steigern_EP_prozent;  
    int grad_basiswerte; 
 //   AusruestungBaum besitz;
+   void reset();
    
 public:
    Grundwerte() : raufen(0),au(0),pa(0),sb(0), wk(0),
@@ -75,8 +76,7 @@ public:
              gfp(0),steigertage(0),gold(0), silber(0), kupfer(0),
              aep(0),kep(0),zep(0),spezies("Mensch"),
              stadt_land("Stadt"), steigern_EP_prozent(50), grad_basiswerte(1)
-         { resetSinne(); clear();}
-   void clear();
+         { reset(); }
    void resetSinne() ;
    void setSt(int i) {grund.st=i;}
    void setGw(int i) {grund.gw=i;}

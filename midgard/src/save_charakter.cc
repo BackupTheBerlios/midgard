@@ -37,6 +37,11 @@ std::string iso2utf8(const std::string &s);
 
 gint midgard_CG::on_speichern_release_event(GdkEventButton *ev)
 {
+   if(getCWerte().Name_Abenteurer()=="")
+    {
+      no_name();   
+      return false;
+    }
   if (ev->button==1)  save_existing_filename();
   else xml_export_auswahl();
   return false;

@@ -1,4 +1,24 @@
 ##########################################################################
+NEWS IN VERSION 0.6delta5
+* Mehrere Abenteurer in EINER Session bearbeiten
+
+TODO:
+* Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
+in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
+links). 
+* Fokus im Zusatzfenster einfrieren
+* xml-speicherpfad
+* Ausdruck für Lange Listen
+* Gildenbrief funktioniert nicht
+* Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
+* Destruktor wird nicht aufgerufen
+* gv zeigt den falschen Ausschnitt des pdf Dokumentes 
+   (nur für Linux interessant)
+* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+
+##########################################################################
 NEWS IN VERSION 0.6delta4
 
 * Vollrüstabzug und RW-Abzug waren vertauscht (Datenbank->xml export)
@@ -28,7 +48,6 @@ NEWS IN VERSION 0.6delta4
 
 
 TODO:
-* Mehrere Abenteurer in EINER Session bearbeiten
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
 in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
 links). 

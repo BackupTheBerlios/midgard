@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.248 2002/05/28 08:20:44 thoma Exp $
+// $Id: midgard_CG.hh,v 1.249 2002/05/28 10:06:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -149,6 +149,7 @@ class midgard_CG : public midgard_CG_glade
         void on_AbenteurerListe_leaf(cH_RowDataBase d);
 //        void insert_into_CharList(Abenteurer &A);
         void set_AbenteurerListe_Title();
+        void no_name();
         
    protected:
         const Datenbank &getCDatabase() const {return Database;}

@@ -200,7 +200,8 @@ void table_grundwerte::spezieswahl_button()
      if((*i)->Name()==spezies)
       {
         ok=true;
-        hauptfenster->getWerte().clear();
+//        hauptfenster->getWerte().clear();
+        hauptfenster->getWerte() = Grundwerte();
         hauptfenster->getWerte().setSpezies(*i);
       }
    }

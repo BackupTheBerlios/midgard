@@ -17,10 +17,24 @@
 
 #include "midgard_CG.hh"
 
+void midgard_CG::no_name()
+{
+  set_status("Bevor der alte Abenteurer keinen Namen bekommen hat, ist diese Aktion nicht möglich.",false);
+  wizard = new Wizard(this);
+  wizard->next_step(Wizard::esteps(int(Wizard::NAMEN)-1));
+//  load_for_mainpage(midgard_CG::PAGE_GRUNDWERTE);
+//  table_grundwerte->togglebutton_edit_werte->set_active(true);
+//  table_grundwerte->entry_nameC->grab_focus();
+}
 
 
 gint midgard_CG::on_neuer_charakter_release_event(GdkEventButton *ev)
 {
+   if(getCWerte().Name_Abenteurer()=="") 
+    {
+      no_name();
+      return false;
+    }
    on_neuer_charakter_clicked();
    if (ev->button==1)  on_wizard_starten_activate();
    return false;

@@ -174,7 +174,7 @@ void Wizard::fill_vecwiz()
                           &midgard_CG::wizard_do_something));
    //NAMEN
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
-                          "Namen vergeben (Eingabe mit 'Enter' abschlieﬂen",
+                          "Namen vergeben (Eingabe mit 'Enter' abschlieﬂen)",
                           "Namen",
                           &midgard_CG::wizard_do_something));
    //SPEICHERN

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.230 2002/05/27 20:36:46 thoma Exp $
+// $Id: midgard_CG.cc,v 1.231 2002/05/28 10:06:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,8 +32,8 @@
 #endif
 
 midgard_CG::midgard_CG(const string &datei)
-: InfoFenster(0), MOptionen(0),wizard(0), ansicht_menu(0),region_menu(0),menu(0),
-  Database(Midgard_Info)
+: InfoFenster(0), MOptionen(0),wizard(0),
+  Database(Midgard_Info), ansicht_menu(0),region_menu(0),menu(0)
 {
   ansicht_menu = manage(new Gtk::MenuItem("Ansicht"));
   region_menu = manage(new Gtk::MenuItem("Regionen"));

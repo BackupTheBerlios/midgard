@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.26 2002/05/25 07:21:48 thoma Exp $               
+// $Id: Grundwerte.cc,v 1.27 2002/05/28 10:06:17 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,9 +22,11 @@
 #include "Sinne.hh"
 #include "Fertigkeiten.hh"
 
-void Grundwerte::clear()
+void Grundwerte::reset()
 {
- *this=Grundwerte(); 
+// *this=Grundwerte(); 
+ resetSinne();
+ 
  ruestung.clear();
  ruestung.push_back(cH_Ruestung("OR",true));
  ruestung.push_back(cH_Ruestung("OR",true));
