@@ -32,11 +32,13 @@ void table_zufall::init(midgard_CG *h)
 {
   hauptfenster=h;
 
+/*
 for(int i=0;i<5000;++i)
 {
 cout<< i+1<<'\n';
 on_button_zufall_voll_clicked();
 }
+*/
 }
 
 void table_zufall::on_button_zufall_voll_clicked()

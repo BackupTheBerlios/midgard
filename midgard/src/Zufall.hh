@@ -93,6 +93,7 @@ class Zufall
       enum eFAUWZ {eWaffen,eZauber,eFach,eAllg,eUnge,eMAX};
       void Lernpunkte_verteilen(const eFAUWZ was,const Lernpunkte &lernpunkte,
                                 const st_LL &Listen);
+      bool knows_everything(const std::list<MidgardBasicElement_mutable> &List_gelerntes,const std::list<MidgardBasicElement_mutable> &L);
    public:
       static void Lernpunkte_wuerfeln(Lernpunkte &lernpunkte, VAbenteurer &A, Random &random);
       static WaffeBesitzLernen WaffenBesitz_wuerfeln(const VAbenteurer &A,int wurf);
