@@ -1459,7 +1459,6 @@
   <Fertigkeit Name="Augensalbe herstellen" Region="R" Lernpunkte="9" Lernkosten="200">
     <Standard>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
     <Voraussetzungen Ge="31" Fertigkeit="Alchemie, Thaumaturgie"/>
-    <Lernschema Typ="Th" Lernpunkte="3"/>
     <regionaleBesonderheit Herkunft="Rawindra" Typ="Th" Standard="G"/>
     <steigern_wie Fertigkeit="-"/>
     <EP-Typ Typ="ZEP"/>
@@ -1688,45 +1687,6 @@
     <regionaleBesonderheit Herkunft="Rawindra" Typ="Sö" Standard="S"/>
     <steigern_wie Fertigkeit="Elefanten lenken"/>
     <EP-Typ Typ="KEP"/>
-  </Fertigkeit>
-  <Fertigkeit Lernpunkte="8">
-    <Lernschema Typ="Berggnom" Pflicht="True"/>
-    <Lernschema Typ="Berggnom" Pflicht="True"/>
-    <Lernschema Typ="Berggnom" Pflicht="True"/>
-    <Lernschema Typ="Berggnom" Pflicht="True"/>
-    <Lernschema Typ="Berggnom" Pflicht="True"/>
-    <Lernschema Typ="Berggnom" Pflicht="True"/>
-    <Lernschema Typ="Elf" Pflicht="True"/>
-    <Lernschema Typ="Elf" Pflicht="True"/>
-    <Lernschema Typ="Elf" Pflicht="True"/>
-    <Lernschema Typ="Elf" Pflicht="True"/>
-    <Lernschema Typ="Elf" Pflicht="True"/>
-    <Lernschema Typ="Elf" Pflicht="True"/>
-    <Lernschema Typ="Elf" Pflicht="True"/>
-    <Lernschema Typ="Halbling" Pflicht="True"/>
-    <Lernschema Typ="Halbling" Pflicht="True"/>
-    <Lernschema Typ="Halbling" Pflicht="True"/>
-    <Lernschema Typ="Halbling" Pflicht="True"/>
-    <Lernschema Typ="Halbling" Pflicht="True"/>
-    <Lernschema Typ="Halbling" Pflicht="True"/>
-    <Lernschema Typ="Halbling" Pflicht="True"/>
-    <Lernschema Typ="Waldgnom" Pflicht="True"/>
-    <Lernschema Typ="Waldgnom" Pflicht="True"/>
-    <Lernschema Typ="Waldgnom" Pflicht="True"/>
-    <Lernschema Typ="Waldgnom" Pflicht="True"/>
-    <Lernschema Typ="Waldgnom" Pflicht="True"/>
-    <Lernschema Typ="Waldgnom" Pflicht="True"/>
-    <Lernschema Typ="Zwerg" Pflicht="True"/>
-    <Lernschema Typ="Zwerg" Pflicht="True"/>
-    <Lernschema Typ="Zwerg" Pflicht="True"/>
-    <Lernschema Typ="Zwerg" Pflicht="True"/>
-    <Lernschema Typ="Zwerg" Pflicht="True"/>
-    <Verbot Typ="Elf"/>
-    <Verbot Typ="Elf"/>
-    <Verbot Typ="Elf"/>
-    <Verbot Typ="Elf"/>
-    <Verbot Typ="Halbling"/>
-    <Verbot Typ="Halbling"/>
   </Fertigkeit>
  </Fertigkeiten>
  <angeboreneFertigkeiten>
@@ -2888,7 +2848,7 @@
   <EP-Typ Fertigkeit="Waffen" Typ="KEP"/>
   <EP-Typ Fertigkeit="Zauber" Typ="ZEP"/>
  </verwendbareEP>
- <SteigernKosten/>
+ <SteigernKosten>
     <Kosten Fertigkeit="Abenteuer" Wert3="100" Wert4="100" Wert5="200" Wert6="200" Wert7="400" Wert8="400" Wert9="800" Wert10="800" Wert11="1600" Wert12="1600"/>
     <Kosten Fertigkeit="Bewegung" Wert13="50" Wert14="50" Wert15="100" Wert16="200" Wert17="400" Wert18="800"/>
     <Kosten Fertigkeit="Meditation" Wert9="50" Wert10="100" Wert11="200" Wert12="400" Wert13="800"/>
@@ -2900,5 +2860,5 @@
     <Kosten Fertigkeit="Wissen" Wert3="20" Wert4="20" Wert5="50" Wert6="50" Wert7="50" Wert8="100" Wert9="100" Wert10="200" Wert11="200" Wert12="400" Wert13="400"/>
     <Kosten Fertigkeit="Zunge Verschlucken" Wert9="50" Wert10="100" Wert11="200" Wert12="400" Wert13="800"/>
     <Kosten Fertigkeit="Überleben" Wert7="10" Wert8="10" Wert9="10" Wert10="20" Wert11="20" Wert12="50" Wert13="100" Wert14="100"/>
- </SteigernKosten/>
+ </SteigernKosten>
 </MidgardCG-data>
