@@ -44,9 +44,10 @@ void midgard_CG::on_exportieren_activate()
 
 void midgard_CG::spielleiter_export_save(const std::string& dateiname)
 {
-  std::string strinfo = "Datei '"+dateiname+"' enthält nun die Daten des \n";
+  std::string strinfo = "Datei '"+dateiname+"' enthält nun die Daten des ";
   strinfo +="Abenteurers im Format für Midgard Publikationen\n";
-  InfoFenster->AppendShow(strinfo);
+//  InfoFenster->AppendShow(strinfo);
+  set_status(strinfo); 
   ofstream fout(dateiname.c_str());
   Grundwerte W=Char.getCWerte();
   fout << LATIN(W.Name_Abenteurer())<<", "
@@ -105,12 +106,12 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
          int wert = j->Erfolgswert() + anbo + mag_schadensbonus + ang_mod;
          angriff+="+"+itos(wert) + "(";
          std::string schaden=WB.Schaden(Char.getCWerte(),WB->Name());
-         angriff+= schaden+ ")";
+         angriff+= schaden+ "), ";
+//         angriff+= ", ";
        }
-      angriff+= ", ";
      }
    }
-  std::string::size_type st2=angriff.find_last_of(", ");
+  std::string::size_type st2=angriff.find_last_of(",");
   if(st2!=std::string::npos) angriff.erase(st2,2);
   if(!angriff.empty()) 
     { 
@@ -138,7 +139,7 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
     if (wert == "+0") wert = "";
     fert+=LATIN(f->Name())+wert+", " ;
    }
- std::string::size_type st3=fert.find_last_of(", ");
+ std::string::size_type st3=fert.find_last_of(",");
  if(st3!=std::string::npos) fert.erase(st3,2);
  fout << fert << " - ";
  std::string sprache;
@@ -146,7 +147,7 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
    {
       sprache += LATIN((*i)->Name())+"+"+itos(i->Erfolgswert())+", ";
    }
- std::string::size_type st4=sprache.find_last_of(", ");
+ std::string::size_type st4=sprache.find_last_of(",");
  if(st4!=std::string::npos) sprache.erase(st4,2);
  fout << sprache<<"\n\n";
   // Zauber
