@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.80 2002/01/09 10:05:16 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.81 2002/01/09 11:42:19 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -349,9 +349,9 @@ void midgard_CG::LaTeX_write_values()
     cH_Fertigkeit f(*i);
     std::string a = LaTeX_string(countunifert);
     std::string wert;
-    if      (f->Erfolgswert()>0) wert = "+"+itos(f->Erfolgswert());
-    else if (f->Erfolgswert()<0) wert = "--"+itos(abs(f->Erfolgswert()));
-    else wert = itos(f->Erfolgswert());
+    if      (f->Ungelernt()>0) wert = "+"+itos(f->Ungelernt());
+    else if (f->Ungelernt()<0) wert = "--"+itos(abs(f->Ungelernt()));
+    else wert = itos(f->Ungelernt());
     std::string name = f->Name();
     if(name=="Geheimmechanismen öffnen") name = "Geheimmech. öffnen";
     if(name=="Landeskunde (Heimat)") name = "Landeskunde ("+Werte.Herkunft()->Name()+")";

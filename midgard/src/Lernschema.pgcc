@@ -36,7 +36,8 @@ Lernschema::Lernschema(Gtk::ProgressBar *progressbar)
      SQLerror::test(__FILELINE__,100);
      if (sqlca.sqlcode) break; 
      lern_map[st_index(TYP,ART,FERTIGKEIT)] 
-            = st_wert(PFLICHT,WERT,ATTR,LERNPUNKTE,PE,SE); 
+//            = st_wert(PFLICHT,WERT,ATTR,LERNPUNKTE,PE,SE); 
+            = st_wert(PFLICHT,WERT,"",LERNPUNKTE,"",""); 
      ++count;
    }
 #else 
