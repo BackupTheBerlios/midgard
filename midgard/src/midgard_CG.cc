@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.264 2002/09/21 18:00:13 thoma Exp $
+// $Id: midgard_CG.cc,v 1.265 2002/09/23 08:11:59 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -164,6 +164,7 @@ void midgard_CG::fill_IconVec()
   IconVec.push_back(st_buttons(table_lernschema->button_lernpunkte,iLernpunkte));
   IconVec.push_back(st_buttons(table_lernschema->togglebutton_lernpunkte_edit,iLernEdit));
   IconVec.push_back(st_buttons(table_lernschema->button_beruf,iBeruf));
+  IconVec.push_back(st_buttons(table_lernschema->button_angeborene_fert,iAngeFert));
   IconVec.push_back(st_buttons(table_lernschema->button_lernschema_geld,iGeld));
   IconVec.push_back(st_buttons(table_lernschema->button_lernschema_waffen,iWaffen));
   IconVec.push_back(st_buttons(table_lernschema->button_ruestung,iRuestung));

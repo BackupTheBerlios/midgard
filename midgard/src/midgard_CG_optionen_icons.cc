@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen_icons.cc,v 1.11 2002/09/16 08:29:13 thoma Exp $
+// $Id: midgard_CG_optionen_icons.cc,v 1.12 2002/09/23 08:11:59 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -93,6 +93,7 @@ void midgard_CG::Bin_setzen(Gtk::Widget *child,st_icons I)
 #include "../pixmaps/Dice-2W6-trans-50.xpm" 
 #include "../pixmaps/Edit-trans-50.xpm" 
 #include "../pixmaps/Red-Dice-trans-50.xpm" 
+#include "../pixmaps/Angeb_All-32.xpm" 
 #include "../pixmaps/Job-trans-50.xpm" 
 #include "../pixmaps/Money-50.xpm" 
 #include "../pixmaps/Weapon-trans-50.xpm" 
@@ -143,6 +144,7 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iEigenschaften)return st_icons("Eigen-\nschaften",Dice_W100_trans_50_xpm);
      else if(typ==iAbgeleitet) return st_icons("Abgeleitete-\nWerte",Dices2_trans_50_xpm);
      else if(typ==iEditGrund)  return st_icons("Werte\neditieren",EditChar_trans_50_xpm);
+     else if(typ==iAngeFert) return st_icons("angeborene Fertigkeiten"  ,Angeb_All_32_xpm);
      else if(typ==iLernpunkte) return st_icons("Lernpunkte"  ,Dice_2W6_trans_50_xpm);
      else if(typ==iLernEdit)   return st_icons("Lernp. ed."  ,Edit_trans_50_xpm);
      else if(typ==iEigenschaft)return st_icons("Eigensch."  ,Red_Dice_trans_50_xpm);
@@ -172,6 +174,7 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iEigenschaften)return st_icons("Eigen-\nschaften",ulf_notebook_24_wuerfel_xpm);
      else if(typ==iAbgeleitet) return st_icons("Abgeleitete-\nWerte",ulf_notebook_24_wuerfel_xpm);
      else if(typ==iEditGrund)  return st_icons("Werte\neditieren",ulf_notebook_24_editieren_xpm);
+     else if(typ==iAngeFert) return st_icons("angeb. Fert."  ,ulf_notebook_24_wuerfel_xpm);
      else if(typ==iLernpunkte) return st_icons("Lernpunkte"  ,ulf_notebook_24_wuerfel_xpm);
      else if(typ==iLernEdit)   return st_icons("Lernp. ed."  ,ulf_notebook_24_editieren_xpm);
      else if(typ==iEigenschaft)return st_icons("Eigensch."  ,ulf_notebook_24_wuerfel_xpm);

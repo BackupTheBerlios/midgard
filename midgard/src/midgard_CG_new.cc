@@ -40,19 +40,6 @@ void midgard_CG::on_neuer_charakter_clicked()
    table_lernschema->edit_lernpunkte(false);
    table_lernschema->frame_lernschema_zusatz->hide();
 
-/*
-   table_lernschema->button_fachkenntnisse->set_sensitive(false);
-   table_lernschema->button_allgemeinwissen->set_sensitive(false);
-   table_lernschema->button_untyp_fertigkeiten->set_sensitive(false);
-   table_lernschema->button_waffen->set_sensitive(false);
-   table_lernschema->button_zauber->set_sensitive(false);
-   table_lernschema->togglebutton_spezialwaffe->set_active(false);
-   table_lernschema->button_beruf->set_sensitive(false);
-   table_lernschema->button_lernschema_geld->set_sensitive(false);
-   table_lernschema->button_lernschema_waffen->set_sensitive(false);
-   table_lernschema->button_ruestung->set_sensitive(false);
-   table_lernschema->button_ausruestung->set_sensitive(false);
-*/
    table_lernschema->button_sensitive(false);
    table_lernschema->togglebutton_spezialwaffe->hide();
       

@@ -380,7 +380,8 @@ void table_lernschema::button_sensitive(bool b)
   button_allgemeinwissen->set_sensitive(b);
   button_untyp_fertigkeiten->set_sensitive(b);
   button_waffen->set_sensitive(b);
-  if(hauptfenster->getChar()->is_mage())
+#warning Christof: Warum stürzt das Programm ab, wenn man das 'b &&' wegnimmt?
+  if(b && hauptfenster->getChar()->is_mage())
       button_zauber->set_sensitive(b);
   button_beruf->set_sensitive(b);
   button_lernschema_geld->set_sensitive(b);

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.283 2002/09/23 06:34:08 thoma Exp $
+// $Id: midgard_CG.hh,v 1.284 2002/09/23 08:11:59 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -111,7 +111,8 @@ class midgard_CG : public midgard_CG_glade
 
         enum e_icon {iNew,iOpen,iClose,iPrint,iBack,iForward,iMenu,iInfo,iHelp,
                      iInstruction,iExit,iJa,iNein,iEigenschaften,iAbgeleitet,
-                     iEditGrund,iLernpunkte,iLernEdit,iBeruf,iGeld,iWaffen,
+                     iEditGrund,iAngeFert,iLernpunkte,iLernEdit,iBeruf,
+                     iGeld,iWaffen,
                      iRuestung,iAusruestung,iEigenschaft,iBildeinfuegen,
                      iStatusWizard};
                      
