@@ -1,26 +1,29 @@
 --
--- Selected TOC Entries:
---
-DROP TABLE "preise_modifikation";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "preise_modifikation" (
-	"art" text NOT NULL,
-	"art2" text,
-	"nr" integer,
-	"typ" text,
-	"name" text NOT NULL,
-	"faktor" double precision NOT NULL
+SET search_path = public, pg_catalog;
+
+DROP TABLE public.preise_modifikation;
+--
+-- TOC entry 2 (OID 30255)
+--
+
+CREATE TABLE preise_modifikation (
+    art text NOT NULL,
+    art2 text,
+    nr integer,
+    typ text,
+    name text NOT NULL,
+    faktor double precision NOT NULL
 );
 
+
 --
---
+-- Data for TOC entry 3 (OID 30255)
 --
 
-
-COPY "preise_modifikation" FROM stdin;
+COPY preise_modifikation (art, art2, nr, typ, name, faktor) FROM stdin;
 Ausrüstung	Behälter	1			1
 Ausrüstung	Heiler- und Priesterbedarf	1			1
 Ausrüstung	Licht und Feuer	1			1
@@ -53,3 +56,5 @@ Waffen		2	Material	versilbert	10
 Waffen		3	Material	Alchimistenmetall	50
 Waffenzubehör		1			1
 \.
+
+

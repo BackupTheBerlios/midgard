@@ -1,34 +1,37 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "berufe_voraussetzung_4_beruf";
-DROP TABLE "berufe_voraussetzung_4";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "berufe_voraussetzung_4" (
-	"beruf" text NOT NULL,
-	"land" boolean,
-	"stadt" boolean,
-	"u" boolean,
-	"v" boolean,
-	"m" boolean,
-	"a" boolean,
-	"typ_k" boolean,
-	"typ_z" boolean,
-	"region" text,
-	"region_zusatz" text,
-	"geschlecht" text,
-	Constraint "berufe_voraussetzung_4_pkey" Primary Key ("beruf")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.berufe_voraussetzung_4 DROP CONSTRAINT berufe_voraussetzung_4_pkey;
+DROP INDEX public.berufe_voraussetzung_4_beruf;
+DROP TABLE public.berufe_voraussetzung_4;
+--
+-- TOC entry 2 (OID 18133)
+--
+
+CREATE TABLE berufe_voraussetzung_4 (
+    beruf text NOT NULL,
+    land boolean,
+    stadt boolean,
+    u boolean,
+    v boolean,
+    m boolean,
+    a boolean,
+    typ_k boolean,
+    typ_z boolean,
+    region text,
+    region_zusatz text,
+    geschlecht text
 );
 
+
 --
---
+-- Data for TOC entry 5 (OID 18133)
 --
 
-
-COPY "berufe_voraussetzung_4" FROM stdin;
+COPY berufe_voraussetzung_4 (beruf, land, stadt, u, v, m, a, typ_k, typ_z, region, region_zusatz, geschlecht) FROM stdin;
 Akrobat	\N	t	t	t	\N	\N	t	t	\N	\N	\N
 Alchimist	\N	t	\N	\N	t	t	\N	t	\N	\N	\N
 Arzt	\N	t	\N	\N	t	t	\N	t	\N	\N	\N
@@ -234,9 +237,20 @@ Zimmermann	t	t	\N	t	\N	\N	t	t	\N	\N	\N
 Zollpächter	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Zureiter	t	\N	\N	t	t	t	t	\N	\N	\N	\N
 \.
+
+
 --
---
+-- TOC entry 3 (OID 18344)
 --
 
 CREATE UNIQUE INDEX berufe_voraussetzung_4_beruf ON berufe_voraussetzung_4 USING btree (beruf);
+
+
+--
+-- TOC entry 4 (OID 18138)
+--
+
+ALTER TABLE ONLY berufe_voraussetzung_4
+    ADD CONSTRAINT berufe_voraussetzung_4_pkey PRIMARY KEY (beruf);
+
 

@@ -1,30 +1,33 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "waffen_region_name_alias";
-DROP TABLE "waffen_region_name";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "waffen_region_name" (
-	"name" text,
-	"alias" text NOT NULL,
-	"region" text,
-	"schaden" text,
-	"schaden_b" integer,
-	"angriffs_mod" integer,
-	"st" integer,
-	"kosten_gs" integer,
-	Constraint "waffen_region_name_pkey" Primary Key ("alias")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.waffen_region_name DROP CONSTRAINT waffen_region_name_pkey;
+DROP INDEX public.waffen_region_name_alias;
+DROP TABLE public.waffen_region_name;
+--
+-- TOC entry 2 (OID 34140)
+--
+
+CREATE TABLE waffen_region_name (
+    name text,
+    alias text NOT NULL,
+    region text,
+    schaden text,
+    schaden_b integer,
+    angriffs_mod integer,
+    st integer,
+    kosten_gs integer
 );
 
+
 --
---
+-- Data for TOC entry 5 (OID 34140)
 --
 
-
-COPY "waffen_region_name" FROM stdin;
+COPY waffen_region_name (name, alias, region, schaden, schaden_b, angriffs_mod, st, kosten_gs) FROM stdin;
 Langbogen	Aginkha (Pfeil)	R	2W6	-2	-2	\N	\N
 Rapier	Angushorn	N	\N	\N	\N	\N	\N
 Handaxt	Ankusch	R	\N	\N	\N	\N	\N
@@ -85,9 +88,20 @@ Wurfspeer	YariNage	K	\N	\N	\N	\N	\N
 Langbogen	verst. Langbogen	\N	W6	2	\N	81	120
 Langbogen	verst. Langbogen 	\N	W6	3	\N	96	120
 \.
+
+
 --
---
+-- TOC entry 3 (OID 34208)
 --
 
 CREATE UNIQUE INDEX waffen_region_name_alias ON waffen_region_name USING btree (alias);
+
+
+--
+-- TOC entry 4 (OID 34147)
+--
+
+ALTER TABLE ONLY waffen_region_name
+    ADD CONSTRAINT waffen_region_name_pkey PRIMARY KEY (alias);
+
 

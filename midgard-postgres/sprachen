@@ -1,31 +1,34 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "sprachen_name";
-DROP TABLE "sprachen";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "sprachen" (
-	"fp" integer,
-	"name" text NOT NULL,
-	"max_wert" integer,
-	"alt" boolean,
-	"region" text,
-	"gruppe_1" integer,
-	"gruppe_2" integer,
-	"minderheit" boolean,
-	"region_zusatz" text,
-	Constraint "sprachen_pkey" Primary Key ("name")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.sprachen DROP CONSTRAINT sprachen_pkey;
+DROP INDEX public.sprachen_name;
+DROP TABLE public.sprachen;
+--
+-- TOC entry 2 (OID 30532)
+--
+
+CREATE TABLE sprachen (
+    fp integer,
+    name text NOT NULL,
+    max_wert integer,
+    alt boolean,
+    region text,
+    gruppe_1 integer,
+    gruppe_2 integer,
+    minderheit boolean,
+    region_zusatz text
 );
 
+
 --
---
+-- Data for TOC entry 5 (OID 30532)
 --
 
-
-COPY "sprachen" FROM stdin;
+COPY sprachen (fp, name, max_wert, alt, region, gruppe_1, gruppe_2, minderheit, region_zusatz) FROM stdin;
 10	Albisch	20	\N	\N	1	2	\N	\N
 10	Altoqua	20	t	\N	1	\N	\N	\N
 10	Aranisch	20	\N	\N	\N	\N	\N	\N
@@ -69,9 +72,20 @@ COPY "sprachen" FROM stdin;
 10	Vallinga	20	\N	\N	10	\N	\N	\N
 10	Waelska	20	\N	\N	8	\N	\N	\N
 \.
+
+
 --
---
+-- TOC entry 3 (OID 30582)
 --
 
 CREATE UNIQUE INDEX sprachen_name ON sprachen USING btree (name);
+
+
+--
+-- TOC entry 4 (OID 30537)
+--
+
+ALTER TABLE ONLY sprachen
+    ADD CONSTRAINT sprachen_pkey PRIMARY KEY (name);
+
 

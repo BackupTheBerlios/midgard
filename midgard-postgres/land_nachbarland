@@ -1,24 +1,27 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "land_nachbarland_land_1_land_2";
-DROP TABLE "land_nachbarland";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "land_nachbarland" (
-	"land_1" text NOT NULL,
-	"land_2" text NOT NULL,
-	Constraint "land_nachbarland_pkey" Primary Key ("land_1", "land_2")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.land_nachbarland DROP CONSTRAINT land_nachbarland_pkey;
+DROP INDEX public.land_nachbarland_land_1_land_2;
+DROP TABLE public.land_nachbarland;
+--
+-- TOC entry 2 (OID 27655)
+--
+
+CREATE TABLE land_nachbarland (
+    land_1 text NOT NULL,
+    land_2 text NOT NULL
 );
 
+
 --
---
+-- Data for TOC entry 5 (OID 27655)
 --
 
-
-COPY "land_nachbarland" FROM stdin;
+COPY land_nachbarland (land_1, land_2) FROM stdin;
 Alba	Chryseia
 Alba	Clanngadarn
 Alba	Erainn
@@ -61,9 +64,20 @@ Moravod	Valian
 Moravod	Waeland
 Tegarische Steppe	Valian
 \.
+
+
 --
---
+-- TOC entry 3 (OID 27703)
 --
 
 CREATE UNIQUE INDEX land_nachbarland_land_1_land_2 ON land_nachbarland USING btree (land_1, land_2);
+
+
+--
+-- TOC entry 4 (OID 27660)
+--
+
+ALTER TABLE ONLY land_nachbarland
+    ADD CONSTRAINT land_nachbarland_pkey PRIMARY KEY (land_1, land_2);
+
 

@@ -1,26 +1,29 @@
 --
--- Selected TOC Entries:
---
-DROP TABLE "fz_zusaetze";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "fz_zusaetze" (
-	"art" text NOT NULL,
-	"name" text NOT NULL,
-	"typ" text,
-	"region" text,
-	"region_zusatz" text,
-	Constraint "fz_zusaetze_pkey" Primary Key ("art", "name")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.fz_zusaetze DROP CONSTRAINT fz_zusaetze_pkey;
+DROP TABLE public.fz_zusaetze;
+--
+-- TOC entry 2 (OID 27478)
+--
+
+CREATE TABLE fz_zusaetze (
+    art text NOT NULL,
+    name text NOT NULL,
+    typ text,
+    region text,
+    region_zusatz text
 );
 
+
 --
---
+-- Data for TOC entry 4 (OID 27478)
 --
 
-
-COPY "fz_zusaetze" FROM stdin;
+COPY fz_zusaetze (art, name, typ, region, region_zusatz) FROM stdin;
 Abrichten	Affen	\N	\N	\N
 Abrichten	Bären	\N	\N	\N
 Abrichten	Elefanten	\N	\N	\N
@@ -78,3 +81,13 @@ Tiersprache	Fische	\N	\N	\N
 Tiersprache	Säugetiere	\N	\N	\N
 Tiersprache	Vögel	\N	\N	\N
 \.
+
+
+--
+-- TOC entry 3 (OID 27483)
+--
+
+ALTER TABLE ONLY fz_zusaetze
+    ADD CONSTRAINT fz_zusaetze_pkey PRIMARY KEY (art, name);
+
+

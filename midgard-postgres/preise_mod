@@ -1,25 +1,30 @@
 --
--- Selected TOC Entries:
---
-DROP TABLE "preise_mod";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "preise_mod" (
-	"art1" text NOT NULL,
-	"art2" text,
-	"modi_art" text NOT NULL
+SET search_path = public, pg_catalog;
+
+DROP TABLE public.preise_mod;
+--
+-- TOC entry 2 (OID 30291)
+--
+
+CREATE TABLE preise_mod (
+    art1 text NOT NULL,
+    art2 text,
+    modi_art text NOT NULL
 );
 
+
 --
---
+-- Data for TOC entry 3 (OID 30291)
 --
 
-
-COPY "preise_mod" FROM stdin;
+COPY preise_mod (art1, art2, modi_art) FROM stdin;
 Kleidung		Farbe
 Kleidung		Stand
 Kleidung	\N	Material_K
 Waffen		Material_W
 \.
+
+

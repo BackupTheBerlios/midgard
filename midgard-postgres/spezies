@@ -1,55 +1,58 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "spezies_spezies";
-DROP TABLE "spezies";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "spezies" (
-	"nr" text,
-	"spezies" text NOT NULL,
-	"st" integer,
-	"gs" integer,
-	"gw" integer,
-	"ko" integer,
-	"in" integer,
-	"zt" integer,
-	"sb" integer,
-	"au" integer,
-	"lp" integer,
-	"hand_bonus" integer,
-	"ap_bonus" integer,
-	"ap_grad_fak" integer,
-	"psy" integer,
-	"psy100" integer,
-	"phs" integer,
-	"phs100" integer,
-	"phk" integer,
-	"phk100" integer,
-	"alter_fak" integer,
-	"groesse_wanz" integer,
-	"groesse_wuerfel" integer,
-	"groesse_bonus" integer,
-	"gewicht_wanz" integer,
-	"gewicht_bonus" integer,
-	"normgestalt" integer,
-	"b_wanz" integer,
-	"b_bonus" integer,
-	"raufen" integer,
-	"land" boolean,
-	"only_nsc" boolean,
-	"weiblich" text,
-	Constraint "spezies_pkey" Primary Key ("spezies")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.spezies DROP CONSTRAINT spezies_pkey;
+DROP INDEX public.spezies_spezies;
+DROP TABLE public.spezies;
+--
+-- TOC entry 2 (OID 30323)
+--
+
+CREATE TABLE spezies (
+    nr text,
+    spezies text NOT NULL,
+    st integer,
+    gs integer,
+    gw integer,
+    ko integer,
+    "in" integer,
+    zt integer,
+    sb integer,
+    au integer,
+    lp integer,
+    hand_bonus integer,
+    ap_bonus integer,
+    ap_grad_fak integer,
+    psy integer,
+    psy100 integer,
+    phs integer,
+    phs100 integer,
+    phk integer,
+    phk100 integer,
+    alter_fak integer,
+    groesse_wanz integer,
+    groesse_wuerfel integer,
+    groesse_bonus integer,
+    gewicht_wanz integer,
+    gewicht_bonus integer,
+    normgestalt integer,
+    b_wanz integer,
+    b_bonus integer,
+    raufen integer,
+    land boolean,
+    only_nsc boolean,
+    weiblich text
 );
 
+
 --
---
+-- Data for TOC entry 5 (OID 30323)
 --
 
-
-COPY "spezies" FROM stdin;
+COPY spezies (nr, spezies, st, gs, gw, ko, "in", zt, sb, au, lp, hand_bonus, ap_bonus, ap_grad_fak, psy, psy100, phs, phs100, phk, phk100, alter_fak, groesse_wanz, groesse_wuerfel, groesse_bonus, gewicht_wanz, gewicht_bonus, normgestalt, b_wanz, b_bonus, raufen, land, only_nsc, weiblich) FROM stdin;
 2	Berggnom	-60	81	81	31	\N	\N	\N	-80	-4	20	-2	-3	5	5	5	5	5	5	4	1	6	90	3	-90	-70	2	8	\N	\N	\N	Berggnomin
 1	Elf	-90	\N	81	61	61	61	\N	81	1	\N	\N	0	2	3	2	3	2	2	5	2	6	160	4	-128	-100	4	16	\N	t	\N	Elfe
 4	Halbling	-80	61	91	\N	\N	\N	\N	\N	-2	\N	-1	-2	5	5	5	5	5	5	1	2	6	100	3	-87	-70	2	8	\N	\N	\N	\N
@@ -57,9 +60,20 @@ COPY "spezies" FROM stdin;
 3	Waldgnom	-60	81	81	31	\N	\N	\N	-80	-4	20	-2	-3	5	5	5	5	5	5	4	1	6	90	3	-90	-70	2	8	\N	t	\N	Waldgnomin
 5	Zwerg	61	\N	-80	61	\N	\N	\N	-80	1	\N	\N	0	4	4	4	4	\N	\N	2	1	6	130	4	-90	-70	3	12	1	\N	\N	Zwergin
 \.
+
+
 --
---
+-- TOC entry 4 (OID 30336)
 --
 
 CREATE UNIQUE INDEX spezies_spezies ON spezies USING btree (spezies);
+
+
+--
+-- TOC entry 3 (OID 30328)
+--
+
+ALTER TABLE ONLY spezies
+    ADD CONSTRAINT spezies_pkey PRIMARY KEY (spezies);
+
 

@@ -1,25 +1,28 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "waffen_grund_typen_name_typ";
-DROP TABLE "waffen_grund_typen";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "waffen_grund_typen" (
-	"name" text NOT NULL,
-	"typ" text NOT NULL,
-	"standard" text NOT NULL,
-	Constraint "waffen_grund_typen_pkey" Primary Key ("name", "typ")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.waffen_grund_typen DROP CONSTRAINT waffen_grund_typen_pkey;
+DROP INDEX public.waffen_grund_typen_name_typ;
+DROP TABLE public.waffen_grund_typen;
+--
+-- TOC entry 2 (OID 38433)
+--
+
+CREATE TABLE waffen_grund_typen (
+    name text NOT NULL,
+    typ text NOT NULL,
+    standard text NOT NULL
 );
 
+
 --
---
+-- Data for TOC entry 5 (OID 38433)
 --
 
-
-COPY "waffen_grund_typen" FROM stdin;
+COPY waffen_grund_typen (name, typ, standard) FROM stdin;
 Armbrust	As	S
 Armbrust	BN	S
 Armbrust	BS	S
@@ -1609,9 +1612,20 @@ Zweihandschwert	gHx	A
 Zweihandschwert	sHx	A
 Zweihandschwert	wHx	A
 \.
+
+
 --
---
+-- TOC entry 3 (OID 40036)
 --
 
 CREATE UNIQUE INDEX waffen_grund_typen_name_typ ON waffen_grund_typen USING btree (name, typ);
+
+
+--
+-- TOC entry 4 (OID 38438)
+--
+
+ALTER TABLE ONLY waffen_grund_typen
+    ADD CONSTRAINT waffen_grund_typen_pkey PRIMARY KEY (name, typ);
+
 

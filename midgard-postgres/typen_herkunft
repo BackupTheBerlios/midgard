@@ -1,23 +1,26 @@
 --
--- Selected TOC Entries:
---
-DROP TABLE "typen_herkunft";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "typen_herkunft" (
-	"typ" text NOT NULL,
-	"land" text NOT NULL,
-	"kultwaffe" text
+SET search_path = public, pg_catalog;
+
+DROP TABLE public.typen_herkunft;
+--
+-- TOC entry 2 (OID 33322)
+--
+
+CREATE TABLE typen_herkunft (
+    typ text NOT NULL,
+    land text NOT NULL,
+    kultwaffe text
 );
 
+
 --
---
+-- Data for TOC entry 3 (OID 33322)
 --
 
-
-COPY "typen_herkunft" FROM stdin;
+COPY typen_herkunft (typ, land, kultwaffe) FROM stdin;
 As	Alba	\N
 As	Aran	\N
 As	Chryseia	\N
@@ -624,3 +627,5 @@ wHx	Valian	\N
 wHx	Waeland	\N
 wHx	Ywerddon	\N
 \.
+
+

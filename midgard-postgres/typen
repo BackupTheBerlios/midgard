@@ -1,46 +1,49 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "typen_typnr";
-DROP INDEX "typen_typs";
-DROP TABLE "typen";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "typen" (
-	"typnr" integer,
-	"typs" text NOT NULL,
-	"typl" text,
-	"typlw" text,
-	"typz" text,
-	"ausdauer" text,
-	"stand" integer,
-	"sb" integer,
-	"ruestung" integer,
-	"region" text,
-	"geld" integer,
-	"beruf" text,
-	"stadt_land" text,
-	"sprueche_mit_pp" text,
-	"nsc_only" boolean,
-	"st" integer,
-	"gw" integer,
-	"gs" integer,
-	"in" integer,
-	"pa" integer,
-	"kultwaffe" boolean,
-	"lernpflichten" text,
-	"schreiben_pflicht" boolean,
-	Constraint "typen_pkey" Primary Key ("typs")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.typen DROP CONSTRAINT typen_pkey;
+DROP INDEX public.typen_typnr;
+DROP INDEX public.typen_typs;
+DROP TABLE public.typen;
+--
+-- TOC entry 2 (OID 33156)
+--
+
+CREATE TABLE typen (
+    typnr integer,
+    typs text NOT NULL,
+    typl text,
+    typlw text,
+    typz text,
+    ausdauer text,
+    stand integer,
+    sb integer,
+    ruestung integer,
+    region text,
+    geld integer,
+    beruf text,
+    stadt_land text,
+    sprueche_mit_pp text,
+    nsc_only boolean,
+    st integer,
+    gw integer,
+    gs integer,
+    "in" integer,
+    pa integer,
+    kultwaffe boolean,
+    lernpflichten text,
+    schreiben_pflicht boolean
 );
 
+
 --
---
+-- Data for TOC entry 6 (OID 33156)
 --
 
-
-COPY "typen" FROM stdin;
+COPY typen (typnr, typs, typl, typlw, typz, ausdauer, stand, sb, ruestung, region, geld, beruf, stadt_land, sprueche_mit_pp, nsc_only, st, gw, gs, "in", pa, kultwaffe, lernpflichten, schreiben_pflicht) FROM stdin;
 1	As	Assassine	Assassinin	n	ak	-10	30	1	\N	1	k	\N	\N	\N	\N	61	61	\N	\N	\N	\N	\N
 2	BN	Nordlandbarbar	Nordlandbarbarin	n	k	0	0	2	\N	2	\N	l	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
 3	BS	Steppenbarbar	Steppenbarbarin	n	k	0	0	2	\N	2	\N	l	\N	\N	31	\N	31	\N	\N	\N	\N	\N
@@ -99,15 +102,27 @@ COPY "typen" FROM stdin;
 19	tBe	Totenbeschwörer	Totenbeschwörerin	z	z	20	30	4	3	3	z	\N	\N	\N	\N	\N	\N	21	\N	\N	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
 24	wHx	weißer Hexer	weiße Hexe	z	z	0	0	4	\N	3	\N	\N	\N	\N	\N	\N	\N	21	\N	\N	\N	\N
 \.
+
+
 --
---
+-- TOC entry 5 (OID 33220)
 --
 
 CREATE UNIQUE INDEX typen_typs ON typen USING btree (typs);
 
+
 --
---
+-- TOC entry 4 (OID 33221)
 --
 
 CREATE UNIQUE INDEX typen_typnr ON typen USING btree (typnr);
+
+
+--
+-- TOC entry 3 (OID 33161)
+--
+
+ALTER TABLE ONLY typen
+    ADD CONSTRAINT typen_pkey PRIMARY KEY (typs);
+
 

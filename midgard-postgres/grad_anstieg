@@ -1,32 +1,35 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "grad_anstieg_grad";
-DROP TABLE "grad_anstieg";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "grad_anstieg" (
-	"grad" integer NOT NULL,
-	"abwehr" integer,
-	"abwehr_kosten" integer,
-	"resistenz" integer,
-	"resistenz_kosten" integer,
-	"gfp" integer,
-	"zaubern" integer,
-	"zaubern_kosten" integer,
-	"schicksalsgunst" integer,
-	"ap_kosten" integer,
-	Constraint "grad_anstieg_pkey" Primary Key ("grad")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.grad_anstieg DROP CONSTRAINT grad_anstieg_pkey;
+DROP INDEX public.grad_anstieg_grad;
+DROP TABLE public.grad_anstieg;
+--
+-- TOC entry 2 (OID 41746)
+--
+
+CREATE TABLE grad_anstieg (
+    grad integer NOT NULL,
+    abwehr integer,
+    abwehr_kosten integer,
+    resistenz integer,
+    resistenz_kosten integer,
+    gfp integer,
+    zaubern integer,
+    zaubern_kosten integer,
+    schicksalsgunst integer,
+    ap_kosten integer
 );
 
+
 --
---
+-- Data for TOC entry 5 (OID 41746)
 --
 
-
-COPY "grad_anstieg" FROM stdin;
+COPY grad_anstieg (grad, abwehr, abwehr_kosten, resistenz, resistenz_kosten, gfp, zaubern, zaubern_kosten, schicksalsgunst, ap_kosten) FROM stdin;
 1	11	\N	10	\N	0	11	10	0	20
 2	12	10	11	10	200	12	10	0	20
 3	\N	\N	\N	\N	500	13	20	0	20
@@ -43,9 +46,20 @@ COPY "grad_anstieg" FROM stdin;
 14	18	1500	17	1500	130000	\N	\N	3	2000
 15	\N	\N	\N	\N	150000	\N	\N	3	2000
 \.
+
+
 --
---
+-- TOC entry 3 (OID 41765)
 --
 
 CREATE UNIQUE INDEX grad_anstieg_grad ON grad_anstieg USING btree (grad);
+
+
+--
+-- TOC entry 4 (OID 41748)
+--
+
+ALTER TABLE ONLY grad_anstieg
+    ADD CONSTRAINT grad_anstieg_pkey PRIMARY KEY (grad);
+
 

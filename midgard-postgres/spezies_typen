@@ -1,25 +1,28 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "spezies_typen_spezies";
-DROP TABLE "spezies_typen";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "spezies_typen" (
-	"spezies" text NOT NULL,
-	"typen" text NOT NULL,
-	"maxgrad" integer,
-	Constraint "spezies_typen_pkey" Primary Key ("spezies", "typen")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.spezies_typen DROP CONSTRAINT spezies_typen_pkey;
+DROP INDEX public.spezies_typen_spezies;
+DROP TABLE public.spezies_typen;
+--
+-- TOC entry 2 (OID 30354)
+--
+
+CREATE TABLE spezies_typen (
+    spezies text NOT NULL,
+    typen text NOT NULL,
+    maxgrad integer
 );
 
+
 --
---
+-- Data for TOC entry 5 (OID 30354)
 --
 
-
-COPY "spezies_typen" FROM stdin;
+COPY spezies_typen (spezies, typen, maxgrad) FROM stdin;
 Berggnom	As	\N
 Berggnom	Dr	\N
 Berggnom	Gl	\N
@@ -80,9 +83,20 @@ Zwerg	Th	\N
 Zwerg	To	\N
 Zwerg	eBe	\N
 \.
+
+
 --
---
+-- TOC entry 4 (OID 30422)
 --
 
 CREATE INDEX spezies_typen_spezies ON spezies_typen USING btree (spezies);
+
+
+--
+-- TOC entry 3 (OID 30359)
+--
+
+ALTER TABLE ONLY spezies_typen
+    ADD CONSTRAINT spezies_typen_pkey PRIMARY KEY (spezies, typen);
+
 

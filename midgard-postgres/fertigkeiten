@@ -1,37 +1,40 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "fertigkeiten_fertigkeit_region";
-DROP TABLE "fertigkeiten";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "fertigkeiten" (
-	"lp" integer,
-	"lp_land" integer,
-	"lp_stadt" integer,
-	"anfangswert0" integer,
-	"fertigkeit" text NOT NULL,
-	"anfangswert" integer,
-	"fp" integer,
-	"region" text,
-	"region_zusatz" text,
-	"attribut" text,
-	"ungelernt" integer,
-	"berufsklasse" integer,
-	"maxwert" integer,
-	"maxunterweisung" integer,
-	"zusaetze" integer,
-	Constraint "fertigkeit_pkey" Primary Key ("fertigkeit")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.fertigkeiten DROP CONSTRAINT fertigkeit_pkey;
+DROP INDEX public.fertigkeiten_fertigkeit_region;
+DROP TABLE public.fertigkeiten;
+--
+-- TOC entry 2 (OID 18502)
+--
+
+CREATE TABLE fertigkeiten (
+    lp integer,
+    lp_land integer,
+    lp_stadt integer,
+    anfangswert0 integer,
+    fertigkeit text NOT NULL,
+    anfangswert integer,
+    fp integer,
+    region text,
+    region_zusatz text,
+    attribut text,
+    ungelernt integer,
+    berufsklasse integer,
+    maxwert integer,
+    maxunterweisung integer,
+    zusaetze integer
 );
 
+
 --
---
+-- Data for TOC entry 5 (OID 18502)
 --
 
-
-COPY "fertigkeiten" FROM stdin;
+COPY fertigkeiten (lp, lp_land, lp_stadt, anfangswert0, fertigkeit, anfangswert, fp, region, region_zusatz, attribut, ungelernt, berufsklasse, maxwert, maxunterweisung, zusaetze) FROM stdin;
 1	\N	\N	\N	+1 KiDo-Technik	\N	0	K	\N	\N	\N	\N	18	18	\N
 1	\N	\N	\N	+1 KiDo-Technik 	\N	0	K	\N	\N	\N	\N	18	18	\N
 1	\N	\N	\N	+1 KiDo-Technik  	\N	0	K	\N	\N	\N	\N	18	18	\N
@@ -198,9 +201,20 @@ COPY "fertigkeiten" FROM stdin;
 3	3	3	8	Überleben in der Steppe	6	50	\N	\N	In	\N	1	18	14	\N
 3	3	3	8	Überleben in der Wüste	6	50	\N	\N	In	\N	1	18	14	\N
 \.
+
+
 --
---
+-- TOC entry 4 (OID 18674)
 --
 
 CREATE UNIQUE INDEX fertigkeiten_fertigkeit_region ON fertigkeiten USING btree (fertigkeit, region);
+
+
+--
+-- TOC entry 3 (OID 18507)
+--
+
+ALTER TABLE ONLY fertigkeiten
+    ADD CONSTRAINT fertigkeit_pkey PRIMARY KEY (fertigkeit);
+
 

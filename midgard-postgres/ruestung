@@ -1,35 +1,38 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "ruestung_ruestung_s";
-DROP TABLE "ruestung";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "ruestung" (
-	"ruestung" text,
-	"ruestung_s" text NOT NULL,
-	"lp_verlust" integer,
-	"min_staerke" integer,
-	"rw_verlust" integer,
-	"b_verlust" integer,
-	"region" text,
-	"abwehr_bonus_verlust" integer,
-	"angriffs_bonus_verlust" integer,
-	"vollruestung" integer,
-	"kosten_gs" integer,
-	"gewicht" double precision,
-	"behinderung_wie" text,
-	Constraint "ruestung_pkey" Primary Key ("ruestung_s")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.ruestung DROP CONSTRAINT ruestung_pkey;
+DROP INDEX public.ruestung_ruestung_s;
+DROP TABLE public.ruestung;
+--
+-- TOC entry 2 (OID 30462)
+--
+
+CREATE TABLE ruestung (
+    ruestung text,
+    ruestung_s text NOT NULL,
+    lp_verlust integer,
+    min_staerke integer,
+    rw_verlust integer,
+    b_verlust integer,
+    region text,
+    abwehr_bonus_verlust integer,
+    angriffs_bonus_verlust integer,
+    vollruestung integer,
+    kosten_gs integer,
+    gewicht double precision,
+    behinderung_wie text
 );
 
+
 --
---
+-- Data for TOC entry 5 (OID 30462)
 --
 
-
-COPY "ruestung" FROM stdin;
+COPY ruestung (ruestung, ruestung_s, lp_verlust, min_staerke, rw_verlust, b_verlust, region, abwehr_bonus_verlust, angriffs_bonus_verlust, vollruestung, kosten_gs, gewicht, behinderung_wie) FROM stdin;
 Kettenrüstung	KR	3	31	0	4	\N	1	\N	\N	100	20	KR
 Dhunaka	KR(R)	3	0	0	0	R	\N	\N	\N	\N	\N	LR
 Lederrüstung	LR	2	0	0	0	\N	0	\N	\N	30	12.5	LR
@@ -47,9 +50,20 @@ Vollrüstung	VR	5	61	40	12	\N	2	1	2	600	45	VR
 SaMurai-Rüstung	VR(K)	5	61	25	8	K	2	\N	2	\N	\N	PR
 Tschahaatha(VR)	VR(R)	5	0	0	8	R	\N	\N	2	\N	\N	PR
 \.
+
+
 --
---
+-- TOC entry 4 (OID 30487)
 --
 
 CREATE UNIQUE INDEX ruestung_ruestung_s ON ruestung USING btree (ruestung_s);
+
+
+--
+-- TOC entry 3 (OID 30469)
+--
+
+ALTER TABLE ONLY ruestung
+    ADD CONSTRAINT ruestung_pkey PRIMARY KEY (ruestung_s);
+
 

@@ -1,25 +1,28 @@
 --
--- Selected TOC Entries:
---
-DROP TABLE "fertigkeiten_besitz";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "fertigkeiten_besitz" (
-	"name" text NOT NULL,
-	"gegenstand" text NOT NULL,
-	"min" integer NOT NULL,
-	"position" text,
-	Constraint "fertigkeiten_besitz_pkey" Primary Key ("name", "gegenstand")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.fertigkeiten_besitz DROP CONSTRAINT fertigkeiten_besitz_pkey;
+DROP TABLE public.fertigkeiten_besitz;
+--
+-- TOC entry 2 (OID 18885)
+--
+
+CREATE TABLE fertigkeiten_besitz (
+    name text NOT NULL,
+    gegenstand text NOT NULL,
+    min integer NOT NULL,
+    "position" text
 );
 
+
 --
---
+-- Data for TOC entry 4 (OID 18885)
 --
 
-
-COPY "fertigkeiten_besitz" FROM stdin;
+COPY fertigkeiten_besitz (name, gegenstand, min, "position") FROM stdin;
 Abrichten	Tier	91	Besitz
 Erste Hilfe	Erste Hilfe Ausrüstung (Salben, Heilkräuter und Verbände)	6	Rucksack
 Fälschen	Hilfsmittel und Werkzeuge zum Fälschen	6	Rucksack
@@ -36,3 +39,13 @@ Trinken	Schlauch mit Wein (2 Liter)	31	Rucksack
 Trinken	Tonkrug mit Schnaps (1 Liter)	81	Rucksack
 Verkleiden	Ausrüstung für einfache Verkleidungen	6	Rucksack
 \.
+
+
+--
+-- TOC entry 3 (OID 18890)
+--
+
+ALTER TABLE ONLY fertigkeiten_besitz
+    ADD CONSTRAINT fertigkeiten_besitz_pkey PRIMARY KEY (name, gegenstand);
+
+

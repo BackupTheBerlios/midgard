@@ -1,27 +1,30 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "spezies_angeborene_fert_spezies";
-DROP TABLE "spezies_angeborene_fert";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "spezies_angeborene_fert" (
-	"spezies" text NOT NULL,
-	"art" text NOT NULL,
-	"name" text NOT NULL,
-	"erfolgswert" integer,
-	"lp" integer,
-	Constraint "spezies_angeborene_fert_pkey" Primary Key ("spezies", "art", "name")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.spezies_angeborene_fert DROP CONSTRAINT spezies_angeborene_fert_pkey;
+DROP INDEX public.spezies_angeborene_fert_spezies;
+DROP TABLE public.spezies_angeborene_fert;
+--
+-- TOC entry 2 (OID 53904)
+--
+
+CREATE TABLE spezies_angeborene_fert (
+    spezies text NOT NULL,
+    art text NOT NULL,
+    name text NOT NULL,
+    erfolgswert integer,
+    lp integer
 );
 
+
 --
---
+-- Data for TOC entry 5 (OID 53904)
 --
 
-
-COPY "spezies_angeborene_fert" FROM stdin;
+COPY spezies_angeborene_fert (spezies, art, name, erfolgswert, lp) FROM stdin;
 Berggnom	af	Nachtsicht	8	\N
 Berggnom	af	Robustheit	12	\N
 Berggnom	ff	Fallen entdecken	6	1
@@ -360,9 +363,20 @@ Zwerg	v	Steuermann	\N	\N
 Zwerg	v	Waldarbeiter	\N	\N
 Zwerg	v	Zureiter	\N	\N
 \.
+
+
 --
---
+-- TOC entry 4 (OID 54259)
 --
 
 CREATE INDEX spezies_angeborene_fert_spezies ON spezies_angeborene_fert USING btree (spezies);
+
+
+--
+-- TOC entry 3 (OID 53909)
+--
+
+ALTER TABLE ONLY spezies_angeborene_fert
+    ADD CONSTRAINT spezies_angeborene_fert_pkey PRIMARY KEY (spezies, art, name);
+
 

@@ -1,28 +1,31 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "Preise_name";
-DROP TABLE "preise";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "preise" (
-	"art" text NOT NULL,
-	"art2" text NOT NULL,
-	"name" text NOT NULL,
-	"gewicht" double precision,
-	"kosten" double precision NOT NULL,
-	"einheit" text NOT NULL,
-	Constraint "Preise_pkey" Primary Key ("name")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.preise DROP CONSTRAINT "Preise_pkey";
+DROP INDEX public."Preise_name";
+DROP TABLE public.preise;
+--
+-- TOC entry 2 (OID 7462139)
+--
+
+CREATE TABLE preise (
+    art text NOT NULL,
+    art2 text NOT NULL,
+    name text NOT NULL,
+    gewicht double precision,
+    kosten double precision NOT NULL,
+    einheit text NOT NULL
 );
 
+
 --
---
+-- Data for TOC entry 5 (OID 7462139)
 --
 
-
-COPY "preise" FROM stdin;
+COPY preise (art, art2, name, gewicht, kosten, einheit) FROM stdin;
 Ausrüstung	Licht und Feuer	1 Holzkohle	1	5	SS
 Ausrüstung	Behälter	1 Liter-Keramikamphore	0.4	7	SS
 Ausrüstung	Behälter	1/2 Liter-Metallflasche	0.5	10	GS
@@ -177,10 +180,23 @@ Waffenzubehör		verzierter Waffengürtel	1	3	GS
 Ausrüstung	Übernachtung	warme Decke	2	4	GS
 Kleidung		warme Oberbekleidung	0	30	GS
 Ausrüstung	Behälter	wasserdichte Lederhülle für Schriftrollen	0	3	GS
+Neu	Tiere	Pferd	0	100	GS
+Neu	Gebäude	Haus	0	100000	GS
 \.
+
+
 --
---
+-- TOC entry 3 (OID 7462302)
 --
 
 CREATE UNIQUE INDEX "Preise_name" ON preise USING btree (name);
+
+
+--
+-- TOC entry 4 (OID 7462144)
+--
+
+ALTER TABLE ONLY preise
+    ADD CONSTRAINT "Preise_pkey" PRIMARY KEY (name);
+
 

@@ -1,26 +1,29 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "fertigkeiten_typen_name";
-DROP INDEX "fertigkeiten_typen_name_typ";
-DROP TABLE "fertigkeiten_typen";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "fertigkeiten_typen" (
-	"name" text NOT NULL,
-	"typ" text NOT NULL,
-	"standard" text NOT NULL,
-	Constraint "fertigkeiten_typen_pkey" Primary Key ("name", "typ")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.fertigkeiten_typen DROP CONSTRAINT fertigkeiten_typen_pkey;
+DROP INDEX public.fertigkeiten_typen_name;
+DROP INDEX public.fertigkeiten_typen_name_typ;
+DROP TABLE public.fertigkeiten_typen;
+--
+-- TOC entry 2 (OID 18907)
+--
+
+CREATE TABLE fertigkeiten_typen (
+    name text NOT NULL,
+    typ text NOT NULL,
+    standard text NOT NULL
 );
 
+
 --
---
+-- Data for TOC entry 6 (OID 18907)
 --
 
-
-COPY "fertigkeiten_typen" FROM stdin;
+COPY fertigkeiten_typen (name, typ, standard) FROM stdin;
 Abrichten	As	S
 Abrichten	BN	S
 Abrichten	BS	S
@@ -8584,15 +8587,27 @@ Zunge verschlucken	wHx	S
 Überleben in der Wüste	tBe	S
 Überleben in der Wüste	wHx	S
 \.
+
+
 --
---
+-- TOC entry 4 (OID 27476)
 --
 
 CREATE UNIQUE INDEX fertigkeiten_typen_name_typ ON fertigkeiten_typen USING btree (name, typ);
 
+
 --
---
+-- TOC entry 3 (OID 27477)
 --
 
 CREATE INDEX fertigkeiten_typen_name ON fertigkeiten_typen USING btree (name);
+
+
+--
+-- TOC entry 5 (OID 18912)
+--
+
+ALTER TABLE ONLY fertigkeiten_typen
+    ADD CONSTRAINT fertigkeiten_typen_pkey PRIMARY KEY (name, typ);
+
 

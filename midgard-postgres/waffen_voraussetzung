@@ -1,24 +1,27 @@
 --
--- Selected TOC Entries:
---
-DROP TABLE "waffen_voraussetzung";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "waffen_voraussetzung" (
-	"name" text NOT NULL,
-	"voraussetzung" text NOT NULL,
-	"art" text NOT NULL,
-	Constraint "waffen_voraussetzung_pkey" Primary Key ("name")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.waffen_voraussetzung DROP CONSTRAINT waffen_voraussetzung_pkey;
+DROP TABLE public.waffen_voraussetzung;
+--
+-- TOC entry 2 (OID 54260)
+--
+
+CREATE TABLE waffen_voraussetzung (
+    name text NOT NULL,
+    voraussetzung text NOT NULL,
+    art text NOT NULL
 );
 
+
 --
---
+-- Data for TOC entry 4 (OID 54260)
 --
 
-
-COPY "waffen_voraussetzung" FROM stdin;
+COPY waffen_voraussetzung (name, voraussetzung, art) FROM stdin;
 Dreizackspeer	leichter Speer	W
 Garotte	Meucheln	F
 Namisritra	waffenloser Kampf	W
@@ -31,3 +34,13 @@ Wurfmesser	Dolch	W
 Wurfspeer	leichter Speer	W
 Wurfspieﬂ	leichter Speer	W
 \.
+
+
+--
+-- TOC entry 3 (OID 54265)
+--
+
+ALTER TABLE ONLY waffen_voraussetzung
+    ADD CONSTRAINT waffen_voraussetzung_pkey PRIMARY KEY (name);
+
+

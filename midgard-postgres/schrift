@@ -1,29 +1,32 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "schrift_name";
-DROP TABLE "schrift";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "schrift" (
-	"name" text NOT NULL,
-	"typ" text,
-	"kosten" integer,
-	"region" text,
-	"alt" boolean,
-	"kult" boolean,
-	"region_zusatz" text,
-	Constraint "schrift_pkey" Primary Key ("name")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.schrift DROP CONSTRAINT schrift_pkey;
+DROP INDEX public.schrift_name;
+DROP TABLE public.schrift;
+--
+-- TOC entry 2 (OID 30496)
+--
+
+CREATE TABLE schrift (
+    name text NOT NULL,
+    typ text,
+    kosten integer,
+    region text,
+    alt boolean,
+    kult boolean,
+    region_zusatz text
 );
 
+
 --
---
+-- Data for TOC entry 5 (OID 30496)
 --
 
-
-COPY "schrift" FROM stdin;
+COPY schrift (name, typ, kosten, region, alt, kult, region_zusatz) FROM stdin;
 Aranische Silbenschrift	Silben	20	\N	\N	\N	\N
 Arracht-Versalien	Versalien	20	\N	\N	\N	\N
 Baumrunen Beth-Luis-Nion	Baumrunen	20	\N	\N	\N	\N
@@ -50,9 +53,20 @@ Valianisches Alphabet	Buchstaben	20	\N	\N	\N	\N
 Waelska	Runen	20	\N	\N	\N	\N
 Zwergenrunen Futhark	Runen	20	\N	\N	\N	\N
 \.
+
+
 --
---
+-- TOC entry 3 (OID 30529)
 --
 
 CREATE UNIQUE INDEX schrift_name ON schrift USING btree (name);
+
+
+--
+-- TOC entry 4 (OID 30501)
+--
+
+ALTER TABLE ONLY schrift
+    ADD CONSTRAINT schrift_pkey PRIMARY KEY (name);
+
 

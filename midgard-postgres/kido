@@ -1,29 +1,32 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "kido_name_orig";
-DROP TABLE "kido";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "kido" (
-	"name_orig" text,
-	"name" text NOT NULL,
-	"stufe" text,
-	"stil" text,
-	"fp" integer,
-	"ap" integer,
-	"effekt" text,
-	Constraint "kido_pkey" Primary Key ("name")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.kido DROP CONSTRAINT kido_pkey;
+DROP INDEX public.kido_name_orig;
+DROP TABLE public.kido;
+--
+-- TOC entry 2 (OID 27541)
+--
+
+CREATE TABLE kido (
+    name_orig text,
+    name text NOT NULL,
+    stufe text,
+    stil text,
+    fp integer,
+    ap integer,
+    effekt text
 );
 
+
 --
---
+-- Data for TOC entry 5 (OID 27541)
 --
 
-
-COPY "kido" FROM stdin;
+COPY kido (name_orig, name, stufe, stil, fp, ap, effekt) FROM stdin;
 KawaSui	Austrocknen der Quelle	Eingeweihter	beide	200	3	Heilt 1W6 LP/AP des KiDokas. Wirkt exakt wie Heilen von Wunden.
 YuehSchu	Axt und Baum	Schüler	beide	60	0	Blockade und Angriff. Mißlingt der EW.KiDo: Nur Blockade.
 FengTsu	Bambus im Wind	Schüler	beide	100	0	Verringert leichte Schäden um 2 AP
@@ -73,9 +76,20 @@ UzuHaki	Zerstörerischer Wirbel	Eingeweihter	beide	200	2	bis zu 4x Angriff, SchB+
 HaschiBami	Zweig der Haselnuß	Schüler	beide	40	0	Aufstehen. Gilt nicht als Aktion.
 NiNintai	Zweite Ausdauer	Eingeweihter	beide	400	3	Regeneriert sofort alle AP. Nach einer Stunde: Verlust aller AP und von 3 LP. Während dieser Zeit kann die Technik nicht erneut angewendet werden.
 \.
+
+
 --
---
+-- TOC entry 3 (OID 27596)
 --
 
 CREATE UNIQUE INDEX kido_name_orig ON kido USING btree (name_orig);
+
+
+--
+-- TOC entry 4 (OID 27546)
+--
+
+ALTER TABLE ONLY kido
+    ADD CONSTRAINT kido_pkey PRIMARY KEY (name);
+
 

@@ -1,23 +1,26 @@
 --
--- Selected TOC Entries:
---
-DROP TABLE "preise_mod_spez";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "preise_mod_spez" (
-	"modi_art" text NOT NULL,
-	"spezifikation" text NOT NULL,
-	"preis_faktor" double precision NOT NULL
+SET search_path = public, pg_catalog;
+
+DROP TABLE public.preise_mod_spez;
+--
+-- TOC entry 2 (OID 30300)
+--
+
+CREATE TABLE preise_mod_spez (
+    modi_art text NOT NULL,
+    spezifikation text NOT NULL,
+    preis_faktor double precision NOT NULL
 );
 
+
 --
---
+-- Data for TOC entry 3 (OID 30300)
 --
 
-
-COPY "preise_mod_spez" FROM stdin;
+COPY preise_mod_spez (modi_art, spezifikation, preis_faktor) FROM stdin;
 Farbe	blau	3
 Farbe	gelb	2
 Farbe	grün	2
@@ -36,3 +39,5 @@ Stand	Adel	5
 Stand	Mittelschicht	1
 Stand	Volk	0.33333
 \.
+
+

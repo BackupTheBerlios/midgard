@@ -1,29 +1,32 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "ausnahmen_name";
-DROP TABLE "ausnahmen";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "ausnahmen" (
-	"name" text,
-	"art" text,
-	"spezies" text,
-	"herkunft" text,
-	"typ" text,
-	"standard" text,
-	"beruf" text,
-	"stand" text
+SET search_path = public, pg_catalog;
+
+DROP INDEX public.ausnahmen_name;
+DROP TABLE public.ausnahmen;
+--
+-- TOC entry 2 (OID 17726)
+--
+
+CREATE TABLE ausnahmen (
+    name text,
+    art text,
+    spezies text,
+    herkunft text,
+    typ text,
+    standard text,
+    beruf text,
+    stand text
 );
 
+
 --
---
+-- Data for TOC entry 4 (OID 17726)
 --
 
-
-COPY "ausnahmen" FROM stdin;
+COPY ausnahmen (name, art, spezies, herkunft, typ, standard, beruf, stand) FROM stdin;
 Ahnengeist beschwören	z	\N	KanThaiPan	PC	G	\N	\N
 Ahnengeist beschwören	z	\N	KanThaiPan	ScN	G	\N	\N
 Ahnengeist beschwören	z	\N	KanThaiPan	ScS	G	\N	\N
@@ -426,9 +429,12 @@ YehKiQuang	z	\N	KanThaiPan	ScW	G	\N	\N
 Überleben in der Wüste	f	\N	Eschar	ScS	G	\N	\N
 Überleben in der Wüste	f	\N	Eschar	ScW	G	\N	\N
 \.
+
+
 --
---
+-- TOC entry 3 (OID 18132)
 --
 
 CREATE INDEX ausnahmen_name ON ausnahmen USING btree (name, art, spezies, herkunft, typ);
+
 

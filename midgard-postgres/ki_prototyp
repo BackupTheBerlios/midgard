@@ -1,34 +1,47 @@
 --
--- Selected TOC Entries:
---
-DROP TABLE "ki_prototyp";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "ki_prototyp" (
-	"name" text NOT NULL,
-	"fertigkeit" integer NOT NULL,
-	"zauber" integer NOT NULL,
-	"waffen" integer NOT NULL,
-	"waffen_grund" integer NOT NULL,
-	"zauberwerk" integer NOT NULL,
-	"sprache" integer NOT NULL,
-	"schrift" integer NOT NULL,
-	"fert_spezialist" integer,
-	"waff_spezialist" integer,
-	"spra_spezialist" integer,
-	"schr_spezialist" integer,
-	Constraint "ki_prototyp_pkey" Primary Key ("name")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.ki_prototyp DROP CONSTRAINT ki_prototyp_pkey;
+DROP TABLE public.ki_prototyp;
+--
+-- TOC entry 2 (OID 27597)
+--
+
+CREATE TABLE ki_prototyp (
+    name text NOT NULL,
+    fertigkeit integer NOT NULL,
+    zauber integer NOT NULL,
+    waffen integer NOT NULL,
+    waffen_grund integer NOT NULL,
+    zauberwerk integer NOT NULL,
+    sprache integer NOT NULL,
+    schrift integer NOT NULL,
+    fert_spezialist integer,
+    waff_spezialist integer,
+    spra_spezialist integer,
+    schr_spezialist integer
 );
 
+
 --
---
+-- Data for TOC entry 4 (OID 27597)
 --
 
-
-COPY "ki_prototyp" FROM stdin;
+COPY ki_prototyp (name, fertigkeit, zauber, waffen, waffen_grund, zauberwerk, sprache, schrift, fert_spezialist, waff_spezialist, spra_spezialist, schr_spezialist) FROM stdin;
 Kampfprofi	30	0	60	5	0	5	0	50	80	50	50
 Test	50	0	50	0	0	0	0	50	95	50	50
 Wissenschaftler	50	0	10	0	0	25	15	50	100	50	50
 \.
+
+
+--
+-- TOC entry 3 (OID 27602)
+--
+
+ALTER TABLE ONLY ki_prototyp
+    ADD CONSTRAINT ki_prototyp_pkey PRIMARY KEY (name);
+
+

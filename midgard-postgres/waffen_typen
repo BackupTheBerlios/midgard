@@ -1,25 +1,28 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "waffen_typen_name_typ";
-DROP TABLE "waffen_typen";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "waffen_typen" (
-	"name" text NOT NULL,
-	"typ" text NOT NULL,
-	"standard" text NOT NULL,
-	Constraint "waffen_typen_pkey" Primary Key ("name", "typ")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.waffen_typen DROP CONSTRAINT waffen_typen_pkey;
+DROP INDEX public.waffen_typen_name_typ;
+DROP TABLE public.waffen_typen;
+--
+-- TOC entry 2 (OID 34225)
+--
+
+CREATE TABLE waffen_typen (
+    name text NOT NULL,
+    typ text NOT NULL,
+    standard text NOT NULL
 );
 
+
 --
---
+-- Data for TOC entry 5 (OID 34225)
 --
 
-
-COPY "waffen_typen" FROM stdin;
+COPY waffen_typen (name, typ, standard) FROM stdin;
 Anderthalbhänder	As	S
 Anderthalbhänder	BN	S
 Anderthalbhänder	BS	S
@@ -4187,9 +4190,20 @@ waffenloser Kampf	gHx	A
 waffenloser Kampf	sHx	A
 waffenloser Kampf	wHx	A
 \.
+
+
 --
---
+-- TOC entry 3 (OID 38420)
 --
 
 CREATE UNIQUE INDEX waffen_typen_name_typ ON waffen_typen USING btree (name, typ);
+
+
+--
+-- TOC entry 4 (OID 34230)
+--
+
+ALTER TABLE ONLY waffen_typen
+    ADD CONSTRAINT waffen_typen_pkey PRIMARY KEY (name, typ);
+
 

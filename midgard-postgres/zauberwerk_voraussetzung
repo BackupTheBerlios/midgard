@@ -1,25 +1,28 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "zauberwerk_voraussetzung_name";
-DROP TABLE "zauberwerk_voraussetzung";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "zauberwerk_voraussetzung" (
-	"name" text,
-	"voraussetzung" text,
-	"verbindung" text,
-	"fertigkeit" text
+SET search_path = public, pg_catalog;
+
+DROP INDEX public.zauberwerk_voraussetzung_name;
+DROP TABLE public.zauberwerk_voraussetzung;
+--
+-- TOC entry 2 (OID 41614)
+--
+
+CREATE TABLE zauberwerk_voraussetzung (
+    name text,
+    voraussetzung text,
+    verbindung text,
+    fertigkeit text
 );
 
+
 --
---
+-- Data for TOC entry 4 (OID 41614)
 --
 
-
-COPY "zauberwerk_voraussetzung" FROM stdin;
+COPY zauberwerk_voraussetzung (name, voraussetzung, verbindung, fertigkeit) FROM stdin;
 Augensalbe	Augensalbe herstellen	\N	\N
 Berserkerpilz aktivieren	Heiliger Zorn	or	\N
 Berserkerpilz aktivieren	Wahnsinn	or	\N
@@ -75,9 +78,12 @@ Wasser weihen	Segnen	and	\N
 Werwesenamulett verzaubern	Silberstaub	\N	\N
 Zauberpergament beschriften	\N	\N	Lesen von Zauberschrift
 \.
+
+
 --
---
+-- TOC entry 3 (OID 41675)
 --
 
 CREATE INDEX zauberwerk_voraussetzung_name ON zauberwerk_voraussetzung USING btree (name);
+
 

@@ -1,23 +1,26 @@
 --
--- Selected TOC Entries:
---
-DROP TABLE "typen_gruppe";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "typen_gruppe" (
-	"typ" text NOT NULL,
-	"gruppe" text NOT NULL,
-	Constraint "typen_gruppe_pkey" Primary Key ("typ", "gruppe")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.typen_gruppe DROP CONSTRAINT typen_gruppe_pkey;
+DROP TABLE public.typen_gruppe;
+--
+-- TOC entry 2 (OID 33224)
+--
+
+CREATE TABLE typen_gruppe (
+    typ text NOT NULL,
+    gruppe text NOT NULL
 );
 
+
 --
---
+-- Data for TOC entry 4 (OID 33224)
 --
 
-
-COPY "typen_gruppe" FROM stdin;
+COPY typen_gruppe (typ, gruppe) FROM stdin;
 As	KÄM
 BN	BAR
 BN	KÄM
@@ -102,3 +105,13 @@ tBe	ZAU
 wHx	Hx
 wHx	ZAU
 \.
+
+
+--
+-- TOC entry 3 (OID 33230)
+--
+
+ALTER TABLE ONLY typen_gruppe
+    ADD CONSTRAINT typen_gruppe_pkey PRIMARY KEY (typ, gruppe);
+
+

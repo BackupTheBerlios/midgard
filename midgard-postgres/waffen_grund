@@ -1,25 +1,28 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "waffen_grund_name";
-DROP TABLE "waffen_grund";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "waffen_grund" (
-	"name" text NOT NULL,
-	"fp" integer,
-	"region" text,
-	Constraint "waffen_grund_pkey" Primary Key ("name")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.waffen_grund DROP CONSTRAINT waffen_grund_pkey;
+DROP INDEX public.waffen_grund_name;
+DROP TABLE public.waffen_grund;
+--
+-- TOC entry 2 (OID 34090)
+--
+
+CREATE TABLE waffen_grund (
+    name text NOT NULL,
+    fp integer,
+    region text
 );
 
+
 --
---
+-- Data for TOC entry 5 (OID 34090)
 --
 
-
-COPY "waffen_grund" FROM stdin;
+COPY waffen_grund (name, fp, region) FROM stdin;
 Armbrust	600	\N
 Blasrohr	700	\N
 Bögen	700	\N
@@ -49,9 +52,20 @@ Zauberstäbe	400	\N
 Zweihandschlagwaffe	600	\N
 Zweihandschwert	800	\N
 \.
+
+
 --
---
+-- TOC entry 3 (OID 34129)
 --
 
 CREATE UNIQUE INDEX waffen_grund_name ON waffen_grund USING btree (name);
+
+
+--
+-- TOC entry 4 (OID 34095)
+--
+
+ALTER TABLE ONLY waffen_grund
+    ADD CONSTRAINT waffen_grund_pkey PRIMARY KEY (name);
+
 

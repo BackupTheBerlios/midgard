@@ -1,34 +1,37 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "fertigkeiten_voraussetzung_name";
-DROP TABLE "fertigkeiten_voraussetzung";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "fertigkeiten_voraussetzung" (
-	"name" text NOT NULL,
-	"st" integer,
-	"gw" integer,
-	"ko" integer,
-	"in" integer,
-	"zt" integer,
-	"au" integer,
-	"pa" integer,
-	"sb" integer,
-	"rw" integer,
-	"fertigkeit" text,
-	"gs" integer,
-	Constraint "fertigkeiten_voraussetzung_pkey" Primary Key ("name")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.fertigkeiten_voraussetzung DROP CONSTRAINT fertigkeiten_voraussetzung_pkey;
+DROP INDEX public.fertigkeiten_voraussetzung_name;
+DROP TABLE public.fertigkeiten_voraussetzung;
+--
+-- TOC entry 2 (OID 18675)
+--
+
+CREATE TABLE fertigkeiten_voraussetzung (
+    name text NOT NULL,
+    st integer,
+    gw integer,
+    ko integer,
+    "in" integer,
+    zt integer,
+    au integer,
+    pa integer,
+    sb integer,
+    rw integer,
+    fertigkeit text,
+    gs integer
 );
 
+
 --
---
+-- Data for TOC entry 5 (OID 18675)
 --
 
-
-COPY "fertigkeiten_voraussetzung" FROM stdin;
+COPY fertigkeiten_voraussetzung (name, st, gw, ko, "in", zt, au, pa, sb, rw, fertigkeit, gs) FROM stdin;
 Abrichten	\N	\N	\N	\N	\N	\N	61	\N	\N	\N	\N
 Adlersprung	\N	11	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Akribie	\N	\N	\N	11	\N	\N	\N	\N	\N	\N	\N
@@ -202,9 +205,20 @@ Zunge verschlucken	\N	\N	\N	\N	\N	\N	\N	61	\N	\N	\N
 Überleben in der Steppe	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
 Überleben in der Wüste	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
 \.
+
+
 --
---
+-- TOC entry 3 (OID 18854)
 --
 
 CREATE UNIQUE INDEX fertigkeiten_voraussetzung_name ON fertigkeiten_voraussetzung USING btree (name);
+
+
+--
+-- TOC entry 4 (OID 18680)
+--
+
+ALTER TABLE ONLY fertigkeiten_voraussetzung
+    ADD CONSTRAINT fertigkeiten_voraussetzung_pkey PRIMARY KEY (name);
+
 

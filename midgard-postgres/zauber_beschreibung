@@ -1,24 +1,27 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "zauber_beschreibung_name";
-DROP TABLE "zauber_beschreibung";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "zauber_beschreibung" (
-	"name" text NOT NULL,
-	"beschreibung" text,
-	Constraint "zauber_beschreibung_pkey" Primary Key ("name")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.zauber_beschreibung DROP CONSTRAINT zauber_beschreibung_pkey;
+DROP INDEX public.zauber_beschreibung_name;
+DROP TABLE public.zauber_beschreibung;
+--
+-- TOC entry 2 (OID 40041)
+--
+
+CREATE TABLE zauber_beschreibung (
+    name text NOT NULL,
+    beschreibung text
 );
 
+
 --
---
+-- Data for TOC entry 5 (OID 40041)
 --
 
-
-COPY "zauber_beschreibung" FROM stdin;
+COPY zauber_beschreibung (name, beschreibung) FROM stdin;
 Aggression	Das Opfer fängt mit den umgebenden Streit an, nicht aber mit dem Zauberer. Bei einem kritischen Fehler beim Zaubern fängt er Streit mit dem Zauberer an.
 Alpträume	GZ 2 je Ws. Das Opfer hat Alpträume. Jeden Tag einen WW:psy möglich. Solange der Zauber wirkt, werden keine AP regeneriert. Nach mehr Tagen als Grad Opfer siehe Entbehrungsregeln.
 Altern	GZ 30. Der Zauber läßt das Opfer schnell altern. Benötigt einen persönlichen Gegenstand des Opfers und muß ihn für die Dauer des Zaubers auf der Haut tragen. Für 1/5/20 Jahre muß der Zauberer 2/10/40 AP aufwenden. Pro Tag der Wirkung sind weitere 5 AP notwendig. Dagegen wirkt Bannen von Zauberwerk und Allheilung/Austreibung des Bösen. Beides muß innerhalb einer Stunde erfolgreich sein. Bannen von Zauberwerk beendet den Alterungsprozess. Weitere Moglichskeiten sind eigenhändiges Töten des Finstermagiers, der Magier hebt den Spruch freiwillig auf oder der Hautkontakt des Gegenstandes wird beendet.
@@ -115,9 +118,20 @@ Wächter beschwören 3	Beschören von Kaobargen. Beschwören 4 AP, Fesseln 2 AP, Ver
 Zeichen des Chaos	GZ 4. Mißlingt dem Opfer ein WW:phs(weiße Hexer, Priester und Ordenskriegen haben WM+4), wächst ihm ein leicht zu bemerkendes Chaoszeichen: Schwarz verfärbte Körperteile, glühende Augen, Klauen, Hörner usw. Die Wirkung des Zaubers dauert (Gr Fm)*(Gr Opfer). 
 Zucksalz	Das Opfer leidet unter nervösen Zuckungen, was WM-4 auf alle EW bedeutet, auch Angriff und Zaubern. pA sinkt auf ein Viertel.
 \.
+
+
 --
---
+-- TOC entry 3 (OID 40156)
 --
 
 CREATE UNIQUE INDEX zauber_beschreibung_name ON zauber_beschreibung USING btree (name);
+
+
+--
+-- TOC entry 4 (OID 40047)
+--
+
+ALTER TABLE ONLY zauber_beschreibung
+    ADD CONSTRAINT zauber_beschreibung_pkey PRIMARY KEY (name);
+
 

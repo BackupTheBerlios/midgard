@@ -1,45 +1,48 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "waffen_steigern_schwierigkeit";
-DROP TABLE "waffen_steigern";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "waffen_steigern" (
-	"schwierigkeit" integer NOT NULL,
-	"p2" integer,
-	"p3" integer,
-	"p4" integer,
-	"p5" integer,
-	"p6" integer,
-	"p7" integer,
-	"p8" integer,
-	"p9" integer,
-	"p10" integer,
-	"p11" integer,
-	"p12" integer,
-	"p13" integer,
-	"p14" integer,
-	"p15" integer,
-	"p16" integer,
-	"p17" integer,
-	"p18" integer,
-	"p19" integer,
-	"p1" integer,
-	"p20" integer,
-	"p21" integer,
-	"p22" integer,
-	Constraint "waffen_steigern_pkey" Primary Key ("schwierigkeit")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.waffen_steigern DROP CONSTRAINT waffen_steigern_pkey;
+DROP INDEX public.waffen_steigern_schwierigkeit;
+DROP TABLE public.waffen_steigern;
+--
+-- TOC entry 2 (OID 34211)
+--
+
+CREATE TABLE waffen_steigern (
+    schwierigkeit integer NOT NULL,
+    p2 integer,
+    p3 integer,
+    p4 integer,
+    p5 integer,
+    p6 integer,
+    p7 integer,
+    p8 integer,
+    p9 integer,
+    p10 integer,
+    p11 integer,
+    p12 integer,
+    p13 integer,
+    p14 integer,
+    p15 integer,
+    p16 integer,
+    p17 integer,
+    p18 integer,
+    p19 integer,
+    p1 integer,
+    p20 integer,
+    p21 integer,
+    p22 integer
 );
 
+
 --
---
+-- Data for TOC entry 5 (OID 34211)
 --
 
-
-COPY "waffen_steigern" FROM stdin;
+COPY waffen_steigern (schwierigkeit, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p1, p20, p21, p22) FROM stdin;
 0	20	100	400	1000	2000	4000	6000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 1	0	0	0	10	10	15	20	40	80	160	320	600	1000	2000	2000	3000	3000	5000	\N	\N	\N	\N
 2	0	0	0	15	15	25	30	60	120	240	480	900	1500	3000	3000	4500	4500	7500	\N	\N	\N	\N
@@ -49,9 +52,20 @@ COPY "waffen_steigern" FROM stdin;
 6	\N	\N	\N	35	35	55	70	140	280	560	1120	2100	3500	7000	7000	10500	10500	17500	\N	\N	\N	\N
 7	\N	\N	\N	40	40	60	80	160	320	640	1280	2400	4000	8000	8000	12000	12000	20000	\N	\N	\N	\N
 \.
+
+
 --
---
+-- TOC entry 4 (OID 34223)
 --
 
 CREATE UNIQUE INDEX waffen_steigern_schwierigkeit ON waffen_steigern USING btree (schwierigkeit);
+
+
+--
+-- TOC entry 3 (OID 34213)
+--
+
+ALTER TABLE ONLY waffen_steigern
+    ADD CONSTRAINT waffen_steigern_pkey PRIMARY KEY (schwierigkeit);
+
 

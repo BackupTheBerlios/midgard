@@ -1,47 +1,50 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "waffen_name";
-DROP TABLE "waffen";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "waffen" (
-	"name" text NOT NULL,
-	"st" integer,
-	"gw" integer,
-	"gs" integer,
-	"grundkenntnisse" text,
-	"schwierigkeit" integer,
-	"art" text,
-	"schaden" text,
-	"schaden_b" integer,
-	"schaden_b2" integer,
-	"art_2" text,
-	"waffenrang" text,
-	"wm_abwehr_leicht" text,
-	"wm_abwehr_schwer" text,
-	"zusatz" text,
-	"region" text,
-	"reichweite_0" integer,
-	"reichweite_n" integer,
-	"reichweite_m" integer,
-	"reichweite_f" integer,
-	"lern_land" integer,
-	"lern_stadt" integer,
-	"gewicht" double precision,
-	"kosten_gs" double precision,
-	"text" text,
-	Constraint "waffen_pkey" Primary Key ("name")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.waffen DROP CONSTRAINT waffen_pkey;
+DROP INDEX public.waffen_name;
+DROP TABLE public.waffen;
+--
+-- TOC entry 2 (OID 33949)
+--
+
+CREATE TABLE waffen (
+    name text NOT NULL,
+    st integer,
+    gw integer,
+    gs integer,
+    grundkenntnisse text,
+    schwierigkeit integer,
+    art text,
+    schaden text,
+    schaden_b integer,
+    schaden_b2 integer,
+    art_2 text,
+    waffenrang text,
+    wm_abwehr_leicht text,
+    wm_abwehr_schwer text,
+    zusatz text,
+    region text,
+    reichweite_0 integer,
+    reichweite_n integer,
+    reichweite_m integer,
+    reichweite_f integer,
+    lern_land integer,
+    lern_stadt integer,
+    gewicht double precision,
+    kosten_gs double precision,
+    text text
 );
 
+
 --
---
+-- Data for TOC entry 5 (OID 33949)
 --
 
-
-COPY "waffen" FROM stdin;
+COPY waffen (name, st, gw, gs, grundkenntnisse, schwierigkeit, art, schaden, schaden_b, schaden_b2, art_2, waffenrang, wm_abwehr_leicht, wm_abwehr_schwer, zusatz, region, reichweite_0, reichweite_n, reichweite_m, reichweite_f, lern_land, lern_stadt, gewicht, kosten_gs, text) FROM stdin;
 	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Anderthalbh‰nder	31	\N	21	Zweihandschwert	4	Angriff	W6	1	2	Z	-1	0	-1	\N	\N	\N	\N	\N	\N	\N	\N	4	200	(Einh‰ndig|Beidh‰ndig)
 Bih‰nder	81	\N	31	Zweihandschwert	6	Angriff	2W6	0	\N	Z	-2	1	-2	\N	\N	\N	\N	\N	\N	\N	\N	5	200	\N
@@ -136,9 +139,20 @@ leichter Speer	\N	\N	\N	Spieﬂwaffe	2	Angriff	W6	-1	\N	E	+1	-1	+1	\N	\N	\N	\N	\N	
 schwere Armbrust	61	\N	31	Armbrust	4	Schuﬂwaffe	2W6	-1	\N	S	\N	\N	\N	\N	\N	0	30	120	240	\N	\N	5	40	\N
 waffenloser Kampf	21	21	\N	Kampf ohne Waffen	7	Angriff	speziell	0	\N	\N	+2	-2	+2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 \.
+
+
 --
---
+-- TOC entry 3 (OID 34087)
 --
 
 CREATE UNIQUE INDEX waffen_name ON waffen USING btree (name);
+
+
+--
+-- TOC entry 4 (OID 33987)
+--
+
+ALTER TABLE ONLY waffen
+    ADD CONSTRAINT waffen_pkey PRIMARY KEY (name);
+
 

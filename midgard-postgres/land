@@ -1,25 +1,28 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "land_land";
-DROP TABLE "land";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "land" (
-	"land" text NOT NULL,
-	"kontinent" text,
-	"sprache" text NOT NULL,
-	Constraint "land_pkey" Primary Key ("land", "sprache")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.land DROP CONSTRAINT land_pkey;
+DROP INDEX public.land_land;
+DROP TABLE public.land;
+--
+-- TOC entry 2 (OID 27607)
+--
+
+CREATE TABLE land (
+    land text NOT NULL,
+    kontinent text,
+    sprache text NOT NULL
 );
 
+
 --
---
+-- Data for TOC entry 5 (OID 27607)
 --
 
-
-COPY "land" FROM stdin;
+COPY land (land, kontinent, sprache) FROM stdin;
 Alba	Vesternesse	Albisch
 Alba	Vesternesse	Altoqua
 Alba	Vesternesse	Dunathisch
@@ -61,9 +64,20 @@ Waeland	Sirao	Waelska
 Ywerddon	Vesternesse	Erainnisch
 Ywerddon	Vesternesse	Twyneddisch
 \.
+
+
 --
---
+-- TOC entry 3 (OID 27654)
 --
 
 CREATE INDEX land_land ON land USING btree (land);
+
+
+--
+-- TOC entry 4 (OID 27612)
+--
+
+ALTER TABLE ONLY land
+    ADD CONSTRAINT land_pkey PRIMARY KEY (land, sprache);
+
 

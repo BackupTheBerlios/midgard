@@ -1,27 +1,30 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "spezialgebiete_spezialgebiet";
-DROP TABLE "spezialgebiete";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "spezialgebiete" (
-	"typ" text NOT NULL,
-	"nr" integer NOT NULL,
-	"spezialgebiet" text,
-	"spezial" text,
-	"spezial2" text,
-	Constraint "spezialgebiete_pkey" Primary Key ("typ", "nr")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.spezialgebiete DROP CONSTRAINT spezialgebiete_pkey;
+DROP INDEX public.spezialgebiete_spezialgebiet;
+DROP TABLE public.spezialgebiete;
+--
+-- TOC entry 2 (OID 41681)
+--
+
+CREATE TABLE spezialgebiete (
+    typ text NOT NULL,
+    nr integer NOT NULL,
+    spezialgebiet text,
+    spezial text,
+    spezial2 text
 );
 
+
 --
---
+-- Data for TOC entry 5 (OID 41681)
 --
 
-
-COPY "spezialgebiete" FROM stdin;
+COPY spezialgebiete (typ, nr, spezialgebiet, spezial, spezial2) FROM stdin;
 Ma	0	Spezialgebiet	\N	\N
 Ma	1	Adept der Herrschaft	beherrscht	\N
 Ma	2	Adept der Bewegung	bewegt	\N
@@ -50,9 +53,20 @@ eBe	8	Luft Feuer	Luft	Feuer
 eBe	9	Luft Wasser	Luft	Wasser
 eBe	10	Wasser Luft	Wasser	Luft
 \.
+
+
 --
---
+-- TOC entry 4 (OID 41739)
 --
 
 CREATE UNIQUE INDEX spezialgebiete_spezialgebiet ON spezialgebiete USING btree (spezialgebiet);
+
+
+--
+-- TOC entry 3 (OID 41708)
+--
+
+ALTER TABLE ONLY spezialgebiete
+    ADD CONSTRAINT spezialgebiete_pkey PRIMARY KEY (typ, nr);
+
 

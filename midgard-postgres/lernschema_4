@@ -1,28 +1,31 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "lernschema_4_typ_name_wert";
-DROP TABLE "lernschema_4";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "lernschema_4" (
-	"lernpunkte" integer NOT NULL,
-	"typ" text NOT NULL,
-	"pflicht" boolean NOT NULL,
-	"name" text NOT NULL,
-	"art" text NOT NULL,
-	"wert" integer,
-	Constraint "lernschema_4_pkey" Primary Key ("lernpunkte", "name", "typ")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.lernschema_4 DROP CONSTRAINT lernschema_4_pkey;
+DROP INDEX public.lernschema_4_typ_name_wert;
+DROP TABLE public.lernschema_4;
+--
+-- TOC entry 2 (OID 27704)
+--
+
+CREATE TABLE lernschema_4 (
+    lernpunkte integer NOT NULL,
+    typ text NOT NULL,
+    pflicht boolean NOT NULL,
+    name text NOT NULL,
+    art text NOT NULL,
+    wert integer
 );
 
+
 --
---
+-- Data for TOC entry 5 (OID 27704)
 --
 
-
-COPY "lernschema_4" FROM stdin;
+COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 0	BN	f	Kampf in Schlachtreihe	Fachkenntnisse	5
 0	Kr	f	Kampf in Schlachtreihe	Fachkenntnisse	5
 0	Or	f	Kampf in Schlachtreihe	Fachkenntnisse	5
@@ -1244,6 +1247,7 @@ COPY "lernschema_4" FROM stdin;
 2	Tr	f	Schleichen	Fachkenntnisse	4
 2	Wa	f	Schleichen	Fachkenntnisse	8
 2	BN	f	Schleuder	Waffenfertigkeiten	5
+8	Ba	f	Das Loblied	Zauberkünste	0
 2	Km	f	Schleuder	Waffenfertigkeiten	5
 2	Kr	f	Schleuder	Waffenfertigkeiten	5
 2	Mg	f	Schleuder	Waffenfertigkeiten	5
@@ -2091,7 +2095,6 @@ COPY "lernschema_4" FROM stdin;
 8	Ba	f	Das Lied der Verführung	Zauberkünste	0
 8	Ba	f	Das Lied des Spottes	Zauberkünste	0
 8	Ba	f	Das Lied des Wagemuts	Zauberkünste	0
-8	Ba	f	Das Loblied	Zauberkünste	0
 8	MMa	f	Dreizack	Waffenfertigkeiten	5
 8	Hj	f	Erkennen von Zauberei	Zauberkünste	0
 8	Mg	f	Erkennen von Zauberei	Zauberkünste	0
@@ -2136,9 +2139,20 @@ COPY "lernschema_4" FROM stdin;
 9	dBe	f	waffenloser Kampf	Waffenfertigkeiten	4
 9	eBe	f	waffenloser Kampf	Waffenfertigkeiten	4
 \.
+
+
 --
---
+-- TOC entry 4 (OID 29823)
 --
 
 CREATE UNIQUE INDEX lernschema_4_typ_name_wert ON lernschema_4 USING btree (typ, name, wert);
+
+
+--
+-- TOC entry 3 (OID 27709)
+--
+
+ALTER TABLE ONLY lernschema_4
+    ADD CONSTRAINT lernschema_4_pkey PRIMARY KEY (lernpunkte, name, typ);
+
 

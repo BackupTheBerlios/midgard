@@ -1,30 +1,33 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "zauberwerk_name_art_stufe";
-DROP TABLE "zauberwerk";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "zauberwerk" (
-	"name" text NOT NULL,
-	"kosten_gfp" integer,
-	"art" text NOT NULL,
-	"stufe" text NOT NULL,
-	"zeitaufwand" text,
-	"kosten" text,
-	"region" text,
-	"region_zusatz" text,
-	Constraint "zauberwerk_pkey" Primary Key ("name", "art", "stufe")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.zauberwerk DROP CONSTRAINT zauberwerk_pkey;
+DROP INDEX public.zauberwerk_name_art_stufe;
+DROP TABLE public.zauberwerk;
+--
+-- TOC entry 2 (OID 40158)
+--
+
+CREATE TABLE zauberwerk (
+    name text NOT NULL,
+    kosten_gfp integer,
+    art text NOT NULL,
+    stufe text NOT NULL,
+    zeitaufwand text,
+    kosten text,
+    region text,
+    region_zusatz text
 );
 
+
 --
---
+-- Data for TOC entry 5 (OID 40158)
 --
 
-
-COPY "zauberwerk" FROM stdin;
+COPY zauberwerk (name, kosten_gfp, art, stufe, zeitaufwand, kosten, region, region_zusatz) FROM stdin;
 Alarm	1000	magische Letter	4		4 GS	\N	\N
 Angst	120	Augensalbe	1		20 GS	\N	\N
 Angst	200	Großes Siegel	1	Stufe*10 min	10 GS	\N	\N
@@ -188,9 +191,20 @@ Zündletter (Bereich)	600	magische Letter	3		4 GS	\N	\N
 Zündletter (Berührung)	600	magische Letter	3		4 GS	\N	\N
 Zündletter (Schlüsselwort)	600	magische Letter	3		4 GS	\N	\N
 \.
+
+
 --
---
+-- TOC entry 3 (OID 40347)
 --
 
 CREATE UNIQUE INDEX zauberwerk_name_art_stufe ON zauberwerk USING btree (name, art, stufe);
+
+
+--
+-- TOC entry 4 (OID 40164)
+--
+
+ALTER TABLE ONLY zauberwerk
+    ADD CONSTRAINT zauberwerk_pkey PRIMARY KEY (name, art, stufe);
+
 

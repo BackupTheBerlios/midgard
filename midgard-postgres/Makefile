@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.63 2002/10/08 09:26:45 thoma Exp $
+# $Id: Makefile,v 1.64 2002/12/15 22:30:09 thoma Exp $
 INSTALLED_TABLES=$(shell psql -t -q -c "select tablename from pg_tables where \
 		tablename not like 'pg_%' and tablename not like 'pga_%';" midgard)
 SYSTEM_TABLES=angeborene_fertigkeiten zauber ausnahmen \
@@ -27,7 +27,7 @@ VERSION=0.8beta2
 PACKAGE=midgard-postgres
 DIST_FILES=Makefile $(TABLES)
 
-PGDUMP_FLAGS= -c -O -R -T -i
+PGDUMP_FLAGS= -c -O -R -i
 
 all:
 	@echo $(PACKAGE) Version $(VERSION)

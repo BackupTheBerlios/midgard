@@ -1,27 +1,30 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "zauberwerk_typen_name_stufe_typ";
-DROP TABLE "zauberwerk_typen";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "zauberwerk_typen" (
-	"name" text NOT NULL,
-	"stufe" text NOT NULL,
-	"typ" text NOT NULL,
-	"standard" text NOT NULL,
-	"art" text NOT NULL,
-	Constraint "zauberwerk_typen_pkey" Primary Key ("name", "typ", "art", "stufe")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.zauberwerk_typen DROP CONSTRAINT zauberwerk_typen_pkey;
+DROP INDEX public.zauberwerk_typen_name_stufe_typ;
+DROP TABLE public.zauberwerk_typen;
+--
+-- TOC entry 2 (OID 40354)
+--
+
+CREATE TABLE zauberwerk_typen (
+    name text NOT NULL,
+    stufe text NOT NULL,
+    typ text NOT NULL,
+    standard text NOT NULL,
+    art text NOT NULL
 );
 
+
 --
---
+-- Data for TOC entry 5 (OID 40354)
 --
 
-
-COPY "zauberwerk_typen" FROM stdin;
+COPY zauberwerk_typen (name, stufe, typ, standard, art) FROM stdin;
 Alarm	4	Sw	G	magische Letter
 Alarm	4	Th	G	magische Letter
 Angst	1	Sw	G	Großes Siegel
@@ -977,6 +980,7 @@ Trunk der Macht über Hunde aktivieren	2	Ma	S	Alchimistisches Zaubermittel
 Trunk der Macht über Hunde aktivieren	2	PF	S	Alchimistisches Zaubermittel
 Trunk der Macht über Hunde aktivieren	2	ScN	S	Alchimistisches Zaubermittel
 Trunk der Macht über Hunde aktivieren	2	ScS	S	Alchimistisches Zaubermittel
+Werwesenamulett verzaubern	3	ScN	S	Amulett
 Trunk der Macht über Hunde aktivieren	2	ScW	S	Alchimistisches Zaubermittel
 Trunk der Macht über Hunde aktivieren	2	Sw	G	Alchimistisches Zaubermittel
 Trunk der Macht über Hunde aktivieren	2	Th	G	Alchimistisches Zaubermittel
@@ -1193,7 +1197,6 @@ Werwesenamulett verzaubern	3	PK	A	Amulett
 Werwesenamulett verzaubern	3	PM	A	Amulett
 Werwesenamulett verzaubern	3	PT	S	Amulett
 Werwesenamulett verzaubern	3	PW	A	Amulett
-Werwesenamulett verzaubern	3	ScN	S	Amulett
 Werwesenamulett verzaubern	3	ScS	S	Amulett
 Werwesenamulett verzaubern	3	ScW	S	Amulett
 Werwesenamulett verzaubern	3	Sw	G	Amulett
@@ -1262,9 +1265,20 @@ Zündletter (Berührung)	3	Th	G	magische Letter
 Zündletter (Schlüsselwort)	3	Sw	G	magische Letter
 Zündletter (Schlüsselwort)	3	Th	G	magische Letter
 \.
+
+
 --
---
+-- TOC entry 3 (OID 41610)
 --
 
 CREATE UNIQUE INDEX zauberwerk_typen_name_stufe_typ ON zauberwerk_typen USING btree (name, stufe, typ, art);
+
+
+--
+-- TOC entry 4 (OID 40359)
+--
+
+ALTER TABLE ONLY zauberwerk_typen
+    ADD CONSTRAINT zauberwerk_typen_pkey PRIMARY KEY (name, typ, art, stufe);
+
 

@@ -1,26 +1,29 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "zauber_typen_name_typ";
-DROP TABLE "zauber_typen";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "zauber_typen" (
-	"name" text NOT NULL,
-	"typ" text NOT NULL,
-	"standard" text NOT NULL,
-	"agens" text,
-	Constraint "zauber_typen_pkey" Primary Key ("name", "typ")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.zauber_typen DROP CONSTRAINT zauber_typen_pkey;
+DROP INDEX public.zauber_typen_name_typ;
+DROP TABLE public.zauber_typen;
+--
+-- TOC entry 2 (OID 41773)
+--
+
+CREATE TABLE zauber_typen (
+    name text NOT NULL,
+    typ text NOT NULL,
+    standard text NOT NULL,
+    agens text
 );
 
+
 --
---
+-- Data for TOC entry 5 (OID 41773)
 --
 
-
-COPY "zauber_typen" FROM stdin;
+COPY zauber_typen (name, typ, standard, agens) FROM stdin;
 Abu es-Samum	De	G	\N
 Abu es-Samum	ScN	S	\N
 Abu es-Samum	ScS	S	\N
@@ -2117,6 +2120,7 @@ Dunebrast 4 beschwören	Dr	A	\N
 Dunebrast 4 beschwören	Dt	A	\N
 Dunebrast 4 beschwören	Hl	A	\N
 Dunebrast 4 beschwören	Km	A	\N
+Zwingkreis, Blauer	eBe	S	\N
 Dunebrast 4 beschwören	MMa	A	\N
 Dunebrast 4 beschwören	Ma	A	\N
 Dunebrast 4 beschwören	PC	A	\N
@@ -4490,6 +4494,7 @@ Halebant 3 beschwören	gHx	A	\N
 Halebant 3 beschwören	sHx	A	\N
 Halebant 3 beschwören	wHx	A	\N
 Halebant 4 beschwören	De	A	\N
+Zwingkreis, Blauer	tBe	S	\N
 Halebant 4 beschwören	Dr	A	\N
 Halebant 4 beschwören	Dt	A	\N
 Halebant 4 beschwören	Hl	A	\N
@@ -6960,6 +6965,7 @@ Magischer Kreis des Verschleierns	sHx	A	\N
 Magischer Kreis des Verschleierns	tBe	S	\N
 Magischer Kreis des Verschleierns	wHx	A	\N
 Magischer Kreis des Widerstehens	De	S	\N
+Zwingkreis, Silberner	De	A	\N
 Magischer Kreis des Widerstehens	Dt	S	\N
 Magischer Kreis des Widerstehens	Hl	A	\N
 Magischer Kreis des Widerstehens	Km	S	\N
@@ -10646,6 +10652,7 @@ Vertieren	sHx	S	\N
 Vertieren	wHx	S	\N
 Verursachen schwerer Wunden	Dr	A	\N
 Verursachen schwerer Wunden	PC	G	\N
+Zwingkreis, Silberner	Hj	G	\N
 Verursachen schwerer Wunden	Sa	A	\N
 Verursachen schwerer Wunden	ScN	A	\N
 Verursachen schwerer Wunden	ScS	A	\N
@@ -12005,10 +12012,6 @@ Zwingkreis, Blauer	ScN	A	\N
 Zwingkreis, Blauer	ScS	A	\N
 Zwingkreis, Blauer	ScW	A	\N
 Zwingkreis, Blauer	dBe	S	\N
-Zwingkreis, Blauer	eBe	S	\N
-Zwingkreis, Blauer	tBe	S	\N
-Zwingkreis, Silberner	De	A	\N
-Zwingkreis, Silberner	Hj	G	\N
 Zwingkreis, Silberner	PC	S	\N
 Zwingkreis, Silberner	PF	S	\N
 Zwingkreis, Silberner	PHa	A	\N
@@ -12070,9 +12073,20 @@ Zündersalz	sHx	S	\N
 Zündersalz	tBe	A	\N
 Zündersalz	wHx	S	\N
 \.
+
+
 --
---
+-- TOC entry 3 (OID 53846)
 --
 
 CREATE UNIQUE INDEX zauber_typen_name_typ ON zauber_typen USING btree (name, typ);
+
+
+--
+-- TOC entry 4 (OID 41778)
+--
+
+ALTER TABLE ONLY zauber_typen
+    ADD CONSTRAINT zauber_typen_pkey PRIMARY KEY (name, typ);
+
 

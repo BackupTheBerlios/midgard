@@ -1,33 +1,36 @@
 --
--- Selected TOC Entries:
---
-DROP TABLE "regionen";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "regionen" (
-	"nr" integer NOT NULL,
-	"name" text NOT NULL,
-	"titel" text NOT NULL,
-	"abkuerzung" text NOT NULL,
-	"file" text,
-	"url" text,
-	"maintainer" text NOT NULL,
-	"version" text NOT NULL,
-	"copyright" text,
-	"offiziell" boolean DEFAULT 'f'::bool,
-	"pic" integer,
-	"jahr" text,
-	Constraint "regionen_pkey" Primary Key ("name")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.regionen DROP CONSTRAINT regionen_pkey;
+DROP TABLE public.regionen;
+--
+-- TOC entry 2 (OID 30430)
+--
+
+CREATE TABLE regionen (
+    nr integer NOT NULL,
+    name text NOT NULL,
+    titel text NOT NULL,
+    abkuerzung text NOT NULL,
+    file text,
+    url text,
+    maintainer text NOT NULL,
+    "version" text NOT NULL,
+    copyright text,
+    offiziell boolean DEFAULT false,
+    pic integer,
+    jahr text
 );
 
+
 --
---
+-- Data for TOC entry 4 (OID 30430)
 --
 
-
-COPY "regionen" FROM stdin;
+COPY regionen (nr, name, titel, abkuerzung, file, url, maintainer, "version", copyright, offiziell, pic, jahr) FROM stdin;
 12	Abenteuer	Abenteuer	X	\N	\N	Malte Thoma	1.0	var.	t	13	1981-
 3	Alba	Alba - Für Clan und Krone	A	\N	\N	Malte Thoma	1.0	Thomas Kreutz und Ludger Fischer	t	3	\N
 -1	Arkanum	Das Arkanum	Arkanum	\N	\N	Malte Thoma	1.0	Jürgen E. Franke	t	9	2000
@@ -47,3 +50,13 @@ COPY "regionen" FROM stdin;
 8	Rawindra	Rawindra - Im Bann der Todesechsen	R	\N	\N	Malte Thoma	1.0	Ludger Fischer und Thomas Kreutz	t	1	\N
 9	Waeland	Waeland - Die Krieger des Nordens	W	\N	\N	Malte Thoma	1.0	Olaf Möhle, Stephanie Lammers u.a.	t	7	1991-1997
 \.
+
+
+--
+-- TOC entry 3 (OID 30436)
+--
+
+ALTER TABLE ONLY regionen
+    ADD CONSTRAINT regionen_pkey PRIMARY KEY (name);
+
+

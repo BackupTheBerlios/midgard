@@ -1,24 +1,27 @@
 --
--- Selected TOC Entries:
---
-DROP INDEX "steigern_fertigkeiten_mit_name";
-DROP TABLE "steigern_fertigkeiten_mit";
---
---
+-- PostgreSQL database dump
 --
 
-CREATE TABLE "steigern_fertigkeiten_mit" (
-	"name" text NOT NULL,
-	"ep" text NOT NULL,
-	Constraint "steigern_fertigkeiten_mit_pkey" Primary Key ("name", "ep")
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.steigern_fertigkeiten_mit DROP CONSTRAINT steigern_fertigkeiten_mit_pkey;
+DROP INDEX public.steigern_fertigkeiten_mit_name;
+DROP TABLE public.steigern_fertigkeiten_mit;
+--
+-- TOC entry 2 (OID 30819)
+--
+
+CREATE TABLE steigern_fertigkeiten_mit (
+    name text NOT NULL,
+    ep text NOT NULL
 );
 
+
 --
---
+-- Data for TOC entry 5 (OID 30819)
 --
 
-
-COPY "steigern_fertigkeiten_mit" FROM stdin;
+COPY steigern_fertigkeiten_mit (name, ep) FROM stdin;
 Abrichten	ZEP
 Abwehr	KEP
 Akrobatik	KEP
@@ -124,9 +127,20 @@ Zeichensprache	ZEP
 Überleben in der Steppe	ZEP
 Überleben in der Wüste	ZEP
 \.
+
+
 --
---
+-- TOC entry 3 (OID 32688)
 --
 
 CREATE INDEX steigern_fertigkeiten_mit_name ON steigern_fertigkeiten_mit USING btree (name);
+
+
+--
+-- TOC entry 4 (OID 31022)
+--
+
+ALTER TABLE ONLY steigern_fertigkeiten_mit
+    ADD CONSTRAINT steigern_fertigkeiten_mit_pkey PRIMARY KEY (name, ep);
+
 
