@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.25 2002/01/20 19:09:36 christof Exp $
+# $Id: Makefile.am,v 1.26 2002/01/23 15:49:50 christof Exp $
 
 EXTRA_PROGRAMS = all_exp arkanum_exp 
 
@@ -18,14 +18,17 @@ LIBS=@LIBS@ @COMMONXX_LIBS@
 XMLDIR=.
 
 export: all_exp arkanum_exp
+	./all_exp   >$(XMLDIR)/Regelwerk4.xml
 	./arkanum_exp >$(XMLDIR)/Arkanum.xml
+	./all_exp MdS >$(XMLDIR)/MeisterDerSphaeren.xml
 	./all_exp K >$(XMLDIR)/KanThaiPan.xml
 	./all_exp R >$(XMLDIR)/Rawindra.xml
 	./all_exp A >$(XMLDIR)/Alba.xml
 	./all_exp E >$(XMLDIR)/Eschar.xml
-	./all_exp "B&R" >$(XMLDIR)/BarbarenWutRitterEhre.xml
+	./all_exp N >$(XMLDIR)/Nahuatlan.xml
 	./all_exp "H&D" >$(XMLDIR)/HexenzauberDruidenkraft.xml
+	./all_exp TuT >$(XMLDIR)/TippsTricks.xml
 	./all_exp G >$(XMLDIR)/Gildenbrief.xml
-	./all_exp   >$(XMLDIR)/Regelwerk4.xml
 	./all_exp 3 >$(XMLDIR)/Regelwerk3.xml
+	./all_exp "B&R" >$(XMLDIR)/BarbarenWutRitterEhre.xml
 #	./all_exp 2 >$(XMLDIR)/Regelwerk2.xml
