@@ -321,7 +321,6 @@ map<std::string,std::string> Waffe::fill_map_alias_waffe(Gtk::ProgressBar *progr
   while (true)
    {
      progressbar->set_percentage(count/db_size);
-     while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
      exec sql fetch WAliasC into :db_name,:db_alias;
      SQLerror::test(__FILELINE__,100);
      if (sqlca.sqlcode) break;     
@@ -446,7 +445,6 @@ Waffe_All::Waffe_All(Gtk::ProgressBar *progressbar)
    for (int i=0;i<j;++i)
     {
       progressbar->set_percentage(count/db_size);
-      while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
 //      list_All.push_back(new Waffe(db_name[i]));
       list_All.push_back(&*(cH_Waffe(db_name[i])));
       ++count;
@@ -463,12 +461,11 @@ Waffe_All::Waffe_All(Gtk::ProgressBar *progressbar)
  {  Tag::const_iterator b=waffen->begin(),e=waffen->end();
     double size=e-b;
     FOR_EACH_CONST_TAG_OF_5(i,*waffen,b,e,"Waffe")
-    {  progressbar->set_percentage((i-b)/size);
-       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+    {  ProgressBar::set_percentage(progressbar,(i-b)/size);
 // warum sowas? siehe Zauber.pgcc
        list_All.push_back(&*(cH_Waffe(&*i)));
     }
  }
 #endif
- progressbar->set_percentage(1);
+ ProgressBar::set_percentage(progressbar,1);
 }
