@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.115 2001/12/29 14:55:36 thoma Exp $
+// $Id: midgard_CG.hh,v 1.116 2001/12/30 08:43:42 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -339,7 +339,7 @@ class midgard_CG : public midgard_CG_glade
          
         void on_button_EP_clicked();
         gint vscale_value_changed(GdkEventButton *ev);
-        bool steigern_usp(unsigned int kosten,const cH_MidgardBasicElement *MBE=0);
+        bool steigern_usp(unsigned int kosten,const cH_MidgardBasicElement *MBE,bool brandneu);
         void desteigern(unsigned int kosten);
         void on_checkbutton_EP_Geld_toggled();
         void steigern_gtk();
@@ -481,7 +481,7 @@ class midgard_CG : public midgard_CG_glade
          void MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe,
                                               const std::list<cH_MidgardBasicElement>& mbe2=std::list<cH_MidgardBasicElement>());
          void MidgardBasicElement_uebernehmen(const cH_MidgardBasicElement& mbe);
-         void MidgardBasicElement_leaf_alt(const cH_RowDataBase &d);
+         bool MidgardBasicElement_leaf_alt(const cH_RowDataBase &d);
          void MidgardBasicElement_leaf_neu(const cH_RowDataBase &d);
          void herkunft_uebernehmen(const cH_Land& s);
 //         std::vector<string> Berufs_Vorteile();

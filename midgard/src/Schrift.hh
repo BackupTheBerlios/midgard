@@ -18,7 +18,8 @@ class Schrift : public MidgardBasicElement
   
   public:
    Schrift(const std::string& n) : MidgardBasicElement(n)
-      { get_Schrift();get_map_typ(); EP_steigern("Lesen/Schreiben");
+      { get_Schrift();get_map_typ(); get_Steigern_Kosten_map();
+        EP_steigern("Schreiben");
       }
    enum MBEE What() const {return MidgardBasicElement::SCHRIFT;}
    std::string What_str() const {return "Urschrift";}

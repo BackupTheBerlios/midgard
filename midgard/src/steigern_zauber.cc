@@ -51,19 +51,12 @@ void midgard_CG::zauber_zeigen()
 
 void midgard_CG::on_leaf_selected_alte_zauber(cH_RowDataBase d)
 {  
-/*
-   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
-   cH_MidgardBasicElement MBE = dt->getMBE();
-   int kosten = MBE->Kosten(Typ,Database.ausnahmen);
-   if(togglebutton_spruchrolle->get_active()) kosten/=5;
-   if (steigern_bool) desteigern(kosten);
-   Werte.add_GFP(-kosten);
-   MidgardBasicElement::move_element(list_Zauber,list_Zauber_neu,MBE->Name());
-*/
-   MidgardBasicElement_leaf_alt(d);
+ if(MidgardBasicElement_leaf_alt(d))
+  {
    zauber_zeigen();
    zauberwerk_laden();
    zauberwerk_zeigen();
+  }
 }
 
 

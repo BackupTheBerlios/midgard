@@ -20,7 +20,7 @@ CREATE TABLE "steigern_fertigkeiten" (
 COPY "steigern_fertigkeiten" FROM stdin;
 Abrichten	Abrichten
 Akrobatik	Akrobatik
-Alchemie	Wissen
+Alchimie	Wissen
 Askese	Beidhändiger Kampf
 Astrologie	Wissen
 Athletik	Athletik

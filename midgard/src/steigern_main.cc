@@ -36,10 +36,6 @@ void midgard_CG::on_radio_steigern_all()
   else
      frame_lernen_mit->set_sensitive(false); 
 
-  if(radiobutton_pp_eingeben->get_active())
-     spinbutton_pp_eingeben->show();
-  else
-     spinbutton_pp_eingeben->hide();
 }
 /////////////////////////////////////////////////////////
 
@@ -73,28 +69,39 @@ void midgard_CG::on_spinbutton_pp_eingeben_activate()
 {
  guint pagenr = notebook_lernen->get_current_page_num();
  cH_MidgardBasicElement *MBE;
- cH_RowDataBase *rdb;
+// cH_RowDataBase rdb;
+ const Data_SimpleTree *dt;
  try{
    if(pagenr==PAGE_FERTIGKEITEN)
-      rdb = &(alte_fert_tree->getSelectedRowDataBase()); 
+      dt=dynamic_cast<const Data_SimpleTree*>(&*(alte_fert_tree->getSelectedRowDataBase())); 
    if(pagenr==PAGE_WAFFEN)
-      rdb = &(alte_waffen_tree->getSelectedRowDataBase()); 
+      dt=dynamic_cast<const Data_SimpleTree*>(&*(alte_waffen_tree->getSelectedRowDataBase())); 
    if(pagenr==PAGE_SPRACHE)
     {
-      try{ rdb = &(alte_sprache_tree->getSelectedRowDataBase()); }
+      try{ dt=dynamic_cast<const Data_SimpleTree*>(&*(alte_sprache_tree->getSelectedRowDataBase())); }
           catch (std::exception &e) {}
-      try {rdb = &(alte_schrift_tree->getSelectedRowDataBase()); }
+      try {dt=dynamic_cast<const Data_SimpleTree*>(&*(alte_schrift_tree->getSelectedRowDataBase())); }
           catch (std::exception &e) {}
     }
-  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&**rdb);
+//  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&**rdb);
   MBE=&const_cast<cH_MidgardBasicElement&>(dt->getMBE());
 
   gtk_spin_button_update(spinbutton_pp_eingeben->gtkobj());
   (*MBE)->set_Praxispunkte(spinbutton_pp_eingeben->get_value_as_int());
-  spinbutton_pp_eingeben->hide();
-  MidgardBasicElement::show_list_in_tree(list_Fertigkeit,alte_fert_tree,Werte,Typ,Database.ausnahmen); 
+
+  if(pagenr==PAGE_FERTIGKEITEN)
+     MidgardBasicElement::show_list_in_tree(list_Fertigkeit,alte_fert_tree,Werte,Typ,Database.ausnahmen); 
+  if(pagenr==PAGE_WAFFEN)
+     MidgardBasicElement::show_list_in_tree(list_Waffen,alte_waffen_tree,Werte,Typ,Database.ausnahmen); 
+  if(pagenr==PAGE_SPRACHE)
+   {
+     MidgardBasicElement::show_list_in_tree(list_Sprache,alte_sprache_tree,Werte,Typ,Database.ausnahmen); 
+     MidgardBasicElement::show_list_in_tree(list_Schrift,alte_schrift_tree,Werte,Typ,Database.ausnahmen); 
+   }
+
   on_speichern_clicked();
   }catch(std::exception &e) {cerr << e.what()<<'\n';}
+  spinbutton_pp_eingeben->hide();
 }
 
 void midgard_CG::on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page *page,guint pagenr)

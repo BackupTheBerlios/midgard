@@ -51,7 +51,6 @@ COPY "lernschema_4" FROM stdin;
 1	As	f	Geheimzeichen	Fachkenntnisse	12
 1	As	f	Keule	Waffenfertigkeiten	5
 1	As	f	Kurzschwert	Waffenfertigkeiten	5
-1	As	f	Meucheln	Fachkenntnisse	8
 1	As	f	Parierdolch	Waffenfertigkeiten	1
 1	As	f	Schleichen	Fachkenntnisse	8
 1	As	f	Stimmen nachahmen	Fachkenntnisse	15
@@ -59,6 +58,7 @@ COPY "lernschema_4" FROM stdin;
 1	As	f	Wurfmesser	Waffenfertigkeiten	5
 1	As	f	Wurfpfeil	Waffenfertigkeiten	5
 1	As	f	Wurfstern	Waffenfertigkeiten	5
+1	As	t	Meucheln	Fachkenntnisse	8
 1	BN	f	Dolch	Waffenfertigkeiten	5
 1	BN	f	Handaxt	Waffenfertigkeiten	5
 1	BN	f	Himmelskunde	Fachkenntnisse	5
@@ -777,12 +777,12 @@ COPY "lernschema_4" FROM stdin;
 2	Ny	f	Langschwert	Waffenfertigkeiten	5
 2	Ny	f	Meditieren	Fachkenntnisse	8
 2	Ny	f	Menschenkenntnis	Fachkenntnisse	4
-2	Ny	f	Meucheln	Fachkenntnisse	8
 2	Ny	f	Naginata	Waffenfertigkeiten	5
 2	Ny	f	NunChaku	Waffenfertigkeiten	5
 2	Ny	f	TaiTschi	Fachkenntnisse	\N
 2	Ny	f	leichte Armbrust	Waffenfertigkeiten	5
 2	Ny	f	waffenloser Kampf	Waffenfertigkeiten	5
+2	Ny	t	Meucheln	Fachkenntnisse	8
 2	Or	f	Anderthalbhänder	Waffenfertigkeiten	5
 2	Or	f	Göttlicher Schutz vor dem Bösen	Zauberkünste	0
 2	Or	f	Hellebarde	Waffenfertigkeiten	5

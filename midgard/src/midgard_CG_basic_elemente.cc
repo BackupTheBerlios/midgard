@@ -2,7 +2,7 @@
 #include "class_SimpleTree.hh"
 
 
-void midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
+bool midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
 {
  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
  cH_MidgardBasicElement MBE = dt->getMBE();
@@ -10,12 +10,13 @@ void midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
   {
    spinbutton_pp_eingeben->set_value(MBE->Praxispunkte());
    spinbutton_pp_eingeben->show();
-   return;
+   return false;
   }
 
+ ////////////////////////////////////////////////////////////////////////
  std::list<cH_MidgardBasicElement> *MyList,*MyList_neu;
  if(MBE->What()==MidgardBasicElement::FERTIGKEIT) 
-   { if (MBE->Name()=="KiDo" && kido_steigern_check(MBE->Erfolgswert())) return;
+   { if (MBE->Name()=="KiDo" && kido_steigern_check(MBE->Erfolgswert())) return false;
      MyList     = &list_Fertigkeit; MyList_neu = &list_Fertigkeit_neu;   }
  else if(MBE->What()==MidgardBasicElement::WAFFE) 
    { MyList     = &list_Waffen; MyList_neu = &list_Waffen_neu;  }
@@ -26,21 +27,27 @@ void midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
  else if(MBE->What()==MidgardBasicElement::ZAUBERWERK) 
    { MyList     = &list_Zauberwerk; MyList_neu = &list_Zauberwerk_neu;  }
  else if(MBE->What()==MidgardBasicElement::SPRACHE) 
-   { if (cH_Sprache(MBE)->Maxwert()==MBE->Erfolgswert() ) return;
+   { if (cH_Sprache(MBE)->Maxwert()==MBE->Erfolgswert() ) return false;
      MyList     = &list_Sprache; MyList_neu = &list_Sprache_neu;  }
  else if(MBE->What()==MidgardBasicElement::SCHRIFT) 
    { MyList     = &list_Schrift; MyList_neu = &list_Schrift_neu;  }
  else assert(!"Fehler (alt) in midgard_CG_basic_elemente.cc");
 
+ //////////////////////////////////////////////////////////////////////////
+
  if (radiobutton_steigern->get_active() && MBE->Steigern(Typ,Database.ausnahmen))
     {
-      if (!steigern_usp(MBE->Steigern(Typ,Database.ausnahmen),&MBE)) return;
+      if (!steigern_usp(MBE->Steigern(Typ,Database.ausnahmen),&MBE,false)) return false;
+      if (MBE->What()==MidgardBasicElement::WAFFE &&
+          MBE->Erfolgswert() >=  cH_Waffe(MBE)->Maxwert(Typ)) 
+          { regnot("Maximal möglicher Erfolgswert erreicht");
+            return false; }
       Werte.add_GFP(MBE->Steigern(Typ,Database.ausnahmen));
       for (std::list<cH_MidgardBasicElement>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
          if ( (*i)->Name() == MBE->Name()) 
             (*i)->add_Erfolgswert(1); 
     }
-   if (radiobutton_reduzieren->get_active() && MBE->Reduzieren(Typ,Database.ausnahmen))
+ if (radiobutton_reduzieren->get_active() && MBE->Reduzieren(Typ,Database.ausnahmen))
     {
       if (steigern_bool) desteigern(MBE->Reduzieren(Typ,Database.ausnahmen));
       Werte.add_GFP(-MBE->Reduzieren(Typ,Database.ausnahmen));
@@ -48,7 +55,7 @@ void midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
          if ( (*i)->Name() == MBE->Name())  
             (*i)->add_Erfolgswert(-1); 
     }
-   if (radiobutton_verlernen->get_active() && MBE->Verlernen(Typ,Database.ausnahmen))
+ if (radiobutton_verlernen->get_active() && MBE->Verlernen(Typ,Database.ausnahmen))
     {
       guint verlernen = MBE->Verlernen(Typ,Database.ausnahmen);
       if( MBE->What()==MidgardBasicElement::ZAUBER && 
@@ -57,6 +64,7 @@ void midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
       Werte.add_GFP(-verlernen);
       MidgardBasicElement::move_element(*MyList,*MyList_neu,MBE->Name());
     }
+ return true;
 }
 
 
@@ -72,7 +80,7 @@ void midgard_CG::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
      togglebutton_spruchrolle->get_active() ) kosten/=10;
  /////////////////////////////////////////////////////////////////////////
  
- if (!steigern_usp(kosten,&MBE)) return;
+ if (!steigern_usp(kosten,&MBE,true)) return;
  Werte.add_GFP(kosten);
 
  // Lernen mit Spruchrolle: ///////////////////////////////////////////////
@@ -110,7 +118,9 @@ void midgard_CG::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
    { MyList     = &list_Schrift; MyList_neu = &list_Schrift_neu;  }
  else assert(!"Fehler (alt) in midgard_CG_basic_elemente.cc");
 
+cout << MBE->What()<<' '<<MyList_neu->size()<<' '<<MyList->size()<<' '<<MBE->Name()<<'\n';
  MidgardBasicElement::move_element(*MyList_neu,*MyList,MBE->Name());
+cout << MBE->What()<<' '<<MyList_neu->size()<<' '<<MyList->size()<<' '<<MBE->Name()<<'\n';
 }
 
 

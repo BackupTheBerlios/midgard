@@ -85,7 +85,7 @@ void Sprache::get_Sprache()
 
 int Sprache::Kosten(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
 { 
-  cH_Fertigkeit F("Sprache");
+  cH_Fertigkeit F("Sprechen: Sprache");
   return  (int)(F->Standard_Faktor(Typ,ausnahmen) * kosten) ; 
 }
 

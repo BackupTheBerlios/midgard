@@ -29,7 +29,9 @@ void midgard_CG::on_schrift_laden_clicked()
       if((*i)->ist_gelernt(list_Schrift)) continue;
       if (region_check(s->Region()) )  
          if(s->kann_Sprache(list_Sprache))
-            list_Schrift_neu.push_back(*i) ;
+           { s->set_Erfolgswert(cH_Fertigkeit("Schreiben")->Anfangswert());
+             list_Schrift_neu.push_back(*i) ;
+           }
     }
    schriften_zeigen();
 }
@@ -41,7 +43,7 @@ void midgard_CG::on_sprache_laden_clicked()
     { cH_Sprache s(*i);
       if((*i)->ist_gelernt(list_Sprache)) continue;
       if (region_check(s->Region()) )  
-        {  s->set_Erfolgswert(1);
+        {  s->set_Erfolgswert(cH_Fertigkeit("Sprache")->Anfangswert());
            list_Sprache_neu.push_back(*i) ;
         }
     }
@@ -68,21 +70,13 @@ void midgard_CG::sprachen_zeigen()
 
 void midgard_CG::on_leaf_selected_neue_sprache(cH_RowDataBase d)
 {  
-   MidgardBasicElement_leaf_neu(d);
-/*
-   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);  
-   cH_MidgardBasicElement MBE = dt->getMBE();
-   if (!steigern_usp(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
-   Werte.add_GFP(MBE->Kosten(Typ,Database.ausnahmen));
-   MidgardBasicElement::move_element(list_Sprache_neu,list_Sprache,MBE->Name());
-*/
-   sprachen_zeigen();
-   on_schrift_laden_clicked();
-}   
+  MidgardBasicElement_leaf_neu(d);
+  sprachen_zeigen();
+  on_schrift_laden_clicked();
+}
     
 void midgard_CG::on_leaf_selected_alte_sprache(cH_RowDataBase d)
 {  
-  MidgardBasicElement_leaf_alt(d);
 /*
    const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);  
    cH_MidgardBasicElement MBE = dt->getMBE();
@@ -110,7 +104,8 @@ void midgard_CG::on_leaf_selected_alte_sprache(cH_RowDataBase d)
       MidgardBasicElement::move_element(list_Sprache,list_Sprache_neu,MBE->Name());
     }
 */
-   on_sprache_laden_clicked();
+  if(MidgardBasicElement_leaf_alt(d))
+    on_sprache_laden_clicked();
 }
     
 void midgard_CG::on_alte_sprache_reorder()
@@ -131,7 +126,6 @@ void midgard_CG::on_button_sprache_sort_clicked()
 
 void midgard_CG::on_leaf_selected_alte_schrift(cH_RowDataBase d)
 {  
-  MidgardBasicElement_leaf_alt(d);
 /*
    const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);  
    cH_MidgardBasicElement MBE = dt->getMBE();
@@ -139,6 +133,7 @@ void midgard_CG::on_leaf_selected_alte_schrift(cH_RowDataBase d)
    Werte.add_GFP(-MBE->Kosten(Typ,Database.ausnahmen));
    MidgardBasicElement::move_element(list_Schrift,list_Schrift_neu,MBE->Name());
 */
+  if(MidgardBasicElement_leaf_alt(d))
    on_sprache_laden_clicked();
 }   
     

@@ -73,22 +73,13 @@ void midgard_CG::kido_zeigen()
 
 void midgard_CG::on_leaf_selected_alte_kido(cH_RowDataBase d)
 {  
-   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
-   cH_MidgardBasicElement MBE = dt->getMBE();
-   if (steigern_bool) desteigern(MBE->Kosten(Typ,Database.ausnahmen));
-   Werte.add_GFP(-MBE->Kosten(Typ,Database.ausnahmen));
-   MidgardBasicElement::move_element(list_Kido,list_Kido_neu,cH_KiDo(MBE)->Hoho());
-   on_kido_laden_clicked();
+  if(MidgardBasicElement_leaf_alt(d))
+     on_kido_laden_clicked();
 }
 
 void midgard_CG::on_leaf_selected_neue_kido(cH_RowDataBase d)
 {  
-  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
-  cH_MidgardBasicElement MBE = dt->getMBE();
-   
-  if (!steigern_usp(MBE->Kosten(Typ,Database.ausnahmen),&MBE)) return;
-  Werte.add_GFP(MBE->Kosten(Typ,Database.ausnahmen));
-  MidgardBasicElement::move_element(list_Kido_neu,list_Kido,cH_KiDo(MBE)->Hoho());
+  MidgardBasicElement_leaf_neu(d);
   on_kido_laden_clicked();
 }
 

@@ -130,6 +130,9 @@ void MidgardBasicElement::get_Steigern_Kosten_map()
   if(What()==SPRACHE) 
    squery += "steigern_fertigkeiten_werte w, steigern_fertigkeiten s where 
                s.wie = w.name and s.name = 'Sprache'"; 
+  if(What()==SCHRIFT) 
+   squery += "steigern_fertigkeiten_werte w, steigern_fertigkeiten s where 
+               s.wie = w.name and s.name = 'Schreiben'"; 
   if(What()==WAFFE) 
    squery += "waffen_steigern s, waffen w where 
                s.schwierigkeit = w.schwierigkeit and w.name = '"+Name()+"'"; 

@@ -165,7 +165,7 @@ int MidgardBasicElement::Reduzieren(const vector<cH_Typen>& Typ,const Ausnahmen&
 }
 int MidgardBasicElement::Verlernen(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const
 {
-cout << Name()<<' ' << Reduzieren(Typ,ausnahmen)<<'\n';
+cout << "MidgardBasicElement::Verlernen "<<Name()<<' ' << Reduzieren(Typ,ausnahmen)<<'\n';
    if(Reduzieren(Typ,ausnahmen)==0)
     {
         return Kosten(Typ,ausnahmen);

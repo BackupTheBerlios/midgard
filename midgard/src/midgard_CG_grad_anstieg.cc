@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.34 2001/12/27 09:39:52 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.35 2001/12/30 08:43:42 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -144,7 +144,7 @@ void midgard_CG::get_ausdauer(int grad)
    if (grad ==10)  { bonus_K = 30, bonus_aK = 20; bonus_Z = 10; kosten =  1500;}
    if (grad >=11)  { bonus_K = 30, bonus_aK = 20; bonus_Z = 10; kosten =  2000;}
 //   if (!steigern(kosten,"Ausdauer")) return;
-   if (!steigern_usp(kosten)) return;
+   if (!steigern_usp(kosten,0,false)) return;
    Werte.add_GFP(kosten);
    int ap=0;
    for (int i=0;i<grad;++i) ap += random.integer(1,6);

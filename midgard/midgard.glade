@@ -3990,7 +3990,7 @@ beschreibung</label>
 		<widget>
 		  <class>GtkPixmap</class>
 		  <name>pixmap70</name>
-		  <filename>Pfeil_L.xpm</filename>
+		  <filename>right_arr.xpm</filename>
 		  <xalign>0.5</xalign>
 		  <yalign>0.5</yalign>
 		  <xpad>0</xpad>
@@ -4027,7 +4027,7 @@ beschreibung</label>
 		<widget>
 		  <class>GtkPixmap</class>
 		  <name>pixmap71</name>
-		  <filename>Pfeil_R.xpm</filename>
+		  <filename>left_arr.xpm</filename>
 		  <xalign>0.5</xalign>
 		  <yalign>0.5</yalign>
 		  <xpad>0</xpad>
@@ -5829,10 +5829,8 @@ eingeben</label>
 		  <handler>on_checkbutton_EP_Geld_toggled</handler>
 		  <last_modification_time>Thu, 16 Aug 2001 08:11:17 GMT</last_modification_time>
 		</signal>
-		<label>mit EP/PP
-steigern</label>
 		<active>True</active>
-		<draw_indicator>True</draw_indicator>
+		<draw_indicator>False</draw_indicator>
 		<child>
 		  <left_attach>0</left_attach>
 		  <right_attach>1</right_attach>
@@ -5840,13 +5838,54 @@ steigern</label>
 		  <bottom_attach>1</bottom_attach>
 		  <xpad>0</xpad>
 		  <ypad>0</ypad>
-		  <xexpand>False</xexpand>
+		  <xexpand>True</xexpand>
 		  <yexpand>False</yexpand>
-		  <xshrink>False</xshrink>
+		  <xshrink>True</xshrink>
 		  <yshrink>False</yshrink>
-		  <xfill>False</xfill>
+		  <xfill>True</xfill>
 		  <yfill>False</yfill>
 		</child>
+
+		<widget>
+		  <class>GtkHBox</class>
+		  <name>hbox45</name>
+		  <homogeneous>False</homogeneous>
+		  <spacing>0</spacing>
+
+		  <widget>
+		    <class>GtkPixmap</class>
+		    <name>pixmap80</name>
+		    <filename>Teacher-trans32.xpm</filename>
+		    <xalign>0.5</xalign>
+		    <yalign>0.5</yalign>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <build_insensitive>True</build_insensitive>
+		    <child>
+		      <padding>0</padding>
+		      <expand>True</expand>
+		      <fill>True</fill>
+		    </child>
+		  </widget>
+
+		  <widget>
+		    <class>GtkLabel</class>
+		    <name>label521</name>
+		    <label>Mit EP/PP
+steigern</label>
+		    <justify>GTK_JUSTIFY_CENTER</justify>
+		    <wrap>False</wrap>
+		    <xalign>0.5</xalign>
+		    <yalign>0.5</yalign>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <child>
+		      <padding>0</padding>
+		      <expand>False</expand>
+		      <fill>False</fill>
+		    </child>
+		  </widget>
+		</widget>
 	      </widget>
 	    </widget>
 

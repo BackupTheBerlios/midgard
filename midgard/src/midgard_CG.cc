@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.100 2001/12/29 14:55:36 thoma Exp $
+// $Id: midgard_CG.cc,v 1.101 2001/12/30 08:43:42 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -208,6 +208,7 @@ void midgard_CG::set_tree_titles()
  std::vector<string> alte_schrift;
  alte_schrift.push_back("Schrift");
 // schrift.push_back("Art der Schrift");
+ alte_schrift.push_back("Wert");
  alte_schrift.push_back("PP");
  alte_schrift.push_back("Steigern\n(nächste Stufe)");
  alte_schrift.push_back("Reduzieren\n(eine Stufe)");

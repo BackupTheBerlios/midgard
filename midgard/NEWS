@@ -1,4 +1,22 @@
 ##########################################################################
+NEWS IN VERSION 0.1delta3
+
+* Sprachen und Schrift
+* Zahlreiche Bugs (Datenbankl und Programm) beseitigt
+
+
+TODO:
+* Die Ausrüstung kann noch nicht geladen werden
+* Neue Ausrüstungsgegenstände sofort übernehmen
+* Spezielgebiete für Magier stürzt ab
+* Irgendwie funktioniert das mit dem Erfolgswert für waffenlosen Kampf 
+   und dem dazugehörigen Abwerbonus noch nicht.
+* Landeskunde Heimat in Universellen Fertigkeiten
+* Landeskunde als Berufsfähigkeit für 3 Berufe
+* Was passiert mit fertigkeiten, die nur 'fett' zu lernen sind?
+* PP für Zaubern, Resistenz, etc.
+
+##########################################################################
 NEWS IN VERSION 0.1delta2
 
 * Zahlreiche Bugs (Programm und Datenbank) beseitigt

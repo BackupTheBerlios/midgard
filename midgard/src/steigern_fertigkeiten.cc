@@ -53,8 +53,8 @@ void midgard_CG::fertigkeiten_zeigen()
 
 void midgard_CG::on_leaf_selected_alte_fert(cH_RowDataBase d)
 {  
- MidgardBasicElement_leaf_alt(d);
- fertigkeiten_zeigen();
+ if (MidgardBasicElement_leaf_alt(d))
+    fertigkeiten_zeigen();
 }
 
 void midgard_CG::on_alte_fert_reorder()
@@ -90,7 +90,6 @@ void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
 
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE();
-
   if (MBE->Name()=="KiDo") {kido_bool=true;show_gtk();
       optionmenu_KiDo_Stile->set_sensitive(true);
       table_kido_lernen->set_sensitive(true);

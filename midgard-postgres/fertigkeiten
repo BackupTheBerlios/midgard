@@ -53,7 +53,7 @@ COPY "fertigkeiten" FROM stdin;
 3	3	3	8	Überleben in der Wüste	6	50		In	\N	1
 3	3	3	12	Sprechen: Sprache(+12)	12	0	\N	In	\N	\N
 3	3	\N	15	Geländelauf	10	60		Gw	8	1
-3	3	\N	15	Klettern	10	60		GSt	8	1
+3	3	\N	15	Klettern	10	60		St	8	1
 3	3	\N	15	Schwimmen	10	60		Gw	3	1
 3	\N	1	12	Erzählen	8	80		In	4	1
 3	\N	2	12	Gaukeln	8	80	\N	Gs	\N	1
@@ -151,7 +151,7 @@ COPY "fertigkeiten" FROM stdin;
 8	\N	\N	1	Talisman verzaubern	1	400	3	\N	\N	\N
 8	\N	\N	4	Ballista bedienen	4	100		Gs	\N	1
 8	\N	\N	4	Katapult bedienen	4	100		Gs	\N	\N
-8	\N	\N	5	Alchemie	4	100		In	\N	2
+8	\N	\N	5	Alchimie	4	100		In	\N	2
 8	\N	\N	6	Thaumatographie	8	2000	\N	In	\N	\N
 8	\N	\N	8	Geschäftstüchtigkeit	6	2000	2000	In	8	4
 8	\N	\N	8	Kampftaktik	6	150	\N	pA	5	\N
@@ -194,7 +194,7 @@ COPY "fertigkeiten" FROM stdin;
 99	\N	\N	5	Giftmischen	4	100	\N	In	5	2
 99	\N	\N	5	Landeskunde	4	100	\N	In	\N	2
 99	\N	\N	10	Zaubern	10	5000	\N	\N	\N	\N
-99	\N	\N	12	Sprechen: Sprache	4	10		In	\N	2
+99	\N	\N	12	Sprache	4	10		In	\N	2
 \.
 --
 --

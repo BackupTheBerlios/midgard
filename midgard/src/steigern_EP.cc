@@ -80,11 +80,11 @@ void midgard_CG::desteigern(unsigned int kosten)
 }
 
 
-bool midgard_CG::steigern_usp(unsigned int kosten,const cH_MidgardBasicElement* MBE)
+bool midgard_CG::steigern_usp(unsigned int kosten,const cH_MidgardBasicElement* MBE,bool brandneu)
 {
   if (!steigern_bool) return true;
-  if(!radiobutton_unterweisung->get_active())
-    { regnot("Neue Fertigkeiten können nur durch 'Unterweisung gelernt werden");
+  if(brandneu && !radiobutton_unterweisung->get_active())
+    { regnot("Neue Fertigkeiten können nur durch 'Unterweisung' gelernt werden");
       return false;
     }
   guint gold_k=0,ep_k=0;
@@ -111,7 +111,7 @@ bool midgard_CG::steigern_usp(unsigned int kosten,const cH_MidgardBasicElement* 
   guint kep=Werte.KEP();  
   guint zep=Werte.ZEP();  
   guint pp=0;
-  if(radiobutton_praxis->get_active())  pp=(*MBE)->Praxispunkte() ;
+  if(radiobutton_praxis->get_active() && MBE)  pp=(*MBE)->Praxispunkte() ;
   // Dafür sorgen, daß FP für Praxispunkte nicht verschenkt werden
   while (pp>0 && pp*40 > ep_k ) --pp;
   // Nun von den Kosten 40*pp subtrahieren
@@ -125,7 +125,7 @@ bool midgard_CG::steigern_usp(unsigned int kosten,const cH_MidgardBasicElement* 
 
   // jetzt darf gesteigert werden ...
   Werte.add_Gold(-gold_k);  
-  (*MBE)->add_Praxispunkte(-pp);
+  if (MBE) (*MBE)->add_Praxispunkte(-pp) ;
   if(bkep)
    { if (ep_k<=kep) {Werte.add_KEP(-ep_k);ep_k =0 ;}
      else           {ep_k-=kep; Werte.set_KEP(0);} 
