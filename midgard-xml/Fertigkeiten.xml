@@ -1072,659 +1072,1090 @@
   <angeboreneFertigkeit Name="Wachgabe" Min="98" Max="99"/>
   <Beruf Name="Knappe" Region="B&amp;R" Lernpunkte="9">
     <Voraussetzungen Typ="k" Geschlecht="m"/>
+    <Stand>Adel</Stand>
+    <Vorteil>Etikette,Heraldik,Lanzenstechen</Vorteil>
   </Beruf>
   <Beruf Name="Pagin" Region="B&amp;R" Lernpunkte="9">
     <Voraussetzungen Typ="k" Geschlecht="w"/>
+    <Stand>Adel</Stand>
+    <Vorteil>Etikette,Heraldik,Lanzenstechen</Vorteil>
   </Beruf>
   <Beruf Name="Astrologe" Region="R" Lernpunkte="7">
     <Voraussetzungen In="81" Typ="z"/>
+    <Stand>Adel,Mittelschicht</Stand>
+    <Vorteil>Rechnen,Sagenkunde</Vorteil>
   </Beruf>
   <Beruf Name="Dewadasi" Region="R" Lernpunkte="9">
     <Voraussetzungen St="31" pA="61" Au="81" Geschlecht="w"/>
+    <Stand>Adel,Mittelschicht,Unfrei,Volk</Stand>
+    <Vorteil>Natya,Tanzen</Vorteil>
   </Beruf>
   <Beruf Name="Mahaut" Region="R" Lernpunkte="5">
     <Voraussetzungen St="31" Sb="31" Typ="k" Geschlecht="m"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Elefanten lenken</Vorteil>
   </Beruf>
   <Beruf Name="Schlangenbeschwörer" Region="R" Lernpunkte="7">
     <Voraussetzungen St="61" Sb="31"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Musizieren,Schlangen beschwören</Vorteil>
   </Beruf>
   <Beruf Name="Srimahaut" Region="R" Lernpunkte="5">
     <Voraussetzungen St="31" Sb="61" Typ="k"/>
+    <Stand>Adel,Mittelschicht</Stand>
+    <Vorteil>Srimara lenken</Vorteil>
   </Beruf>
   <Beruf Name="Adliger" Lernpunkte="9">
     <Voraussetzungen In="31"/>
+    <Stand>Adel</Stand>
+    <Vorteil>Kampftaktik</Vorteil>
   </Beruf>
   <Beruf Name="Akrobat" Lernpunkte="7">
     <Voraussetzungen Ge="81"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Balancieren,Fallen,Klettern,Springen</Vorteil>
   </Beruf>
   <Beruf Name="Alchimist" Lernpunkte="9">
     <Voraussetzungen Ge="61" In="81" Typ="z"/>
+    <Stand>Adel,Mittelschicht</Stand>
+    <Vorteil>Giftmischen,Kräuterkunde,Zauberkunde</Vorteil>
   </Beruf>
   <Beruf Name="Angesteller" Lernpunkte="5">
     <Voraussetzungen In="31"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Lesen/Schreiben,Rechnen</Vorteil>
   </Beruf>
   <Beruf Name="Anstreicher" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Klettern</Vorteil>
   </Beruf>
   <Beruf Name="Apotheker" Lernpunkte="9">
     <Voraussetzungen In="61" Typ="z"/>
+    <Stand>Adel,Mittelschicht</Stand>
+    <Vorteil>Giftmischen,Kräuterkunde,Lesen/Schreiben</Vorteil>
   </Beruf>
   <Beruf Name="Arbeiter" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Athletik</Vorteil>
   </Beruf>
   <Beruf Name="Arzt" Lernpunkte="9">
     <Voraussetzungen In="81" Typ="z"/>
+    <Stand>Adel</Stand>
+    <Vorteil>Erste Hilfe,Kräuterkunde</Vorteil>
   </Beruf>
   <Beruf Name="Athlet" Lernpunkte="9">
     <Voraussetzungen St="61" Ge="61" Ko="61" Typ="k"/>
+    <Stand>Adel,Mittelschicht,Unfrei,Volk</Stand>
+    <Vorteil>Athletik,Faustkampf,Geländelauf,Laufen,Wurfspeer</Vorteil>
   </Beruf>
   <Beruf Name="Auktionator" Lernpunkte="7">
     <Voraussetzungen In="61" pA="31"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Beredsamkeit,Geschäftstüchtigkeit,Menschenkenntnis</Vorteil>
   </Beruf>
   <Beruf Name="Bader" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Erste Hilfe,Menschenkenntnis</Vorteil>
   </Beruf>
   <Beruf Name="Barbier" Lernpunkte="5">
     <Voraussetzungen Ge="31"/>
+    <Stand>Volk</Stand>
+    <Vorteil>Beredsamkeit,Dolch,Menschenkenntnis</Vorteil>
   </Beruf>
   <Beruf Name="Bardame" Lernpunkte="5">
     <Voraussetzungen pA="31" Au="61" Geschlecht="w"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Trinken,Verführen</Vorteil>
   </Beruf>
   <Beruf Name="Barkeeper" Lernpunkte="5">
     <Voraussetzungen Ko="61" pA="31"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Menschenkenntnis,Trinken</Vorteil>
   </Beruf>
   <Beruf Name="Bauer" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Adel,Mittelschicht,Unfrei,Volk</Stand>
+    <Vorteil>Kriegsflegel,Pflanzenkunde,Tierkunde,Wetterkunde</Vorteil>
   </Beruf>
   <Beruf Name="Baumeister" Lernpunkte="7">
     <Voraussetzungen In="61"/>
+    <Stand>Adel,Mittelschicht</Stand>
+    <Vorteil>Geschäftstüchtigkeit,Lesen/Schreiben,Malen/Zeichnen,Rechnen</Vorteil>
   </Beruf>
   <Beruf Name="Beamter" Lernpunkte="5">
     <Voraussetzungen In="31"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Lesen/Schreiben,Rechnen</Vorteil>
   </Beruf>
   <Beruf Name="Bergbauingenieur" Lernpunkte="9">
     <Voraussetzungen In="61" Typ="z"/>
+    <Stand>Adel,Mittelschicht</Stand>
+    <Vorteil>Lesen/Schreiben,Naturkunde,Rechnen</Vorteil>
   </Beruf>
   <Beruf Name="Bergführer" Lernpunkte="7">
     <Voraussetzungen St="31" Ge="61" In="31" Typ="k"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Klettern,Seilkunst,Wetterkunde,Überleben im Gebirge</Vorteil>
   </Beruf>
   <Beruf Name="Bergmann" Lernpunkte="7">
     <Voraussetzungen Typ="k"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Stielhammer</Vorteil>
   </Beruf>
   <Beruf Name="Bettler" Lernpunkte="7">
     <Voraussetzungen/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Gassenwissen,Geheimzeichen,Verkleiden</Vorteil>
   </Beruf>
   <Beruf Name="Bildhauer" Lernpunkte="7">
     <Voraussetzungen In="61"/>
+    <Stand>Adel,Mittelschicht</Stand>
+    <Vorteil>Kriegshammer,Sagenkunde</Vorteil>
   </Beruf>
   <Beruf Name="Biologe" Lernpunkte="7">
     <Voraussetzungen In="61" Typ="z"/>
+    <Stand>Adel,Mittelschicht</Stand>
+    <Vorteil>Lesen/Schreiben,Tierkunde</Vorteil>
   </Beruf>
   <Beruf Name="Bogenmacher" Lernpunkte="5">
     <Voraussetzungen Ge="61"/>
+    <Stand>Volk</Stand>
+    <Vorteil>Bogen,Langbogen</Vorteil>
   </Beruf>
   <Beruf Name="Bootsbauer" Lernpunkte="7">
     <Voraussetzungen Ge="31"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Handaxt,Rudern,Segeln</Vorteil>
   </Beruf>
   <Beruf Name="Botaniker" Lernpunkte="7">
     <Voraussetzungen In="61" Typ="z"/>
+    <Stand>Adel,Mittelschicht</Stand>
+    <Vorteil>Lesen/Schreiben,Pflanzenkunde</Vorteil>
   </Beruf>
   <Beruf Name="Bote" Lernpunkte="7">
     <Voraussetzungen Ge="21" Ko="61" Typ="k"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Laufen,Reiten</Vorteil>
   </Beruf>
   <Beruf Name="Brauer" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Volk</Stand>
+    <Vorteil>Trinken</Vorteil>
   </Beruf>
   <Beruf Name="Butler" Lernpunkte="5">
     <Voraussetzungen In="31"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Lesen/Schreiben,Menschenkenntnis</Vorteil>
   </Beruf>
   <Beruf Name="Bäcker" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Volk</Stand>
+    <Vorteil>Faustkampf,Pflanzenkunde</Vorteil>
   </Beruf>
   <Beruf Name="Croupier" Lernpunkte="7">
     <Voraussetzungen Ge="31" In="31"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Glücksspiel,Menschenkenntnis,Wahrnehmung</Vorteil>
   </Beruf>
   <Beruf Name="Dachdecker" Lernpunkte="5">
     <Voraussetzungen Ge="31"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Klettern</Vorteil>
   </Beruf>
   <Beruf Name="Dieb" Lernpunkte="9">
     <Voraussetzungen Ge="61"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Gassenwissen,Geheimzeichen,Stehlen</Vorteil>
   </Beruf>
   <Beruf Name="Diener" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Menschenkenntnis</Vorteil>
   </Beruf>
   <Beruf Name="Diplomat" Lernpunkte="9">
     <Voraussetzungen In="61" pA="31"/>
+    <Stand>Adel</Stand>
+    <Vorteil>Beredsamkeit,Lesen/Schreiben,Menschenkenntnis,Sprache 4</Vorteil>
   </Beruf>
   <Beruf Name="Dolmetscher" Lernpunkte="7">
     <Voraussetzungen In="21"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>2x Sprache 4,Lesen/Schreiben</Vorteil>
   </Beruf>
   <Beruf Name="Drucker" Lernpunkte="7">
     <Voraussetzungen Ge="61" In="31"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Lesen/Schreiben,Sprache</Vorteil>
   </Beruf>
   <Beruf Name="Einbrecher" Lernpunkte="9">
     <Voraussetzungen Ge="61"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Gassenwissen,Klettern,Schlösser,öffnen</Vorteil>
   </Beruf>
   <Beruf Name="Erdarbeiter" Lernpunkte="5">
     <Voraussetzungen St="31" Typ="k"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Athletik</Vorteil>
   </Beruf>
   <Beruf Name="Exorzist" Lernpunkte="9">
     <Voraussetzungen In="61" Zt="81" Geschlecht="P"/>
+    <Stand>Adel,Mittelschicht,Volk</Stand>
+    <Vorteil>Zauberkunde</Vorteil>
   </Beruf>
   <Beruf Name="Fackelmacher" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Volk</Stand>
+    <Vorteil>Dolch</Vorteil>
   </Beruf>
   <Beruf Name="Falkner" Lernpunkte="9">
     <Voraussetzungen/>
+    <Stand>Adel,Mittelschicht</Stand>
+    <Vorteil>Tierkunde</Vorteil>
   </Beruf>
   <Beruf Name="Fallenkonstrukteur" Lernpunkte="9">
     <Voraussetzungen Ge="61" In="61"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Fallenmechanik,Fallenstellen</Vorteil>
   </Beruf>
   <Beruf Name="Fallensteller" Lernpunkte="7">
     <Voraussetzungen Ge="31" Typ="k"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Fallenstellen,Spurenlesen</Vorteil>
   </Beruf>
   <Beruf Name="Fischer" Lernpunkte="5">
     <Voraussetzungen Ko="21"/>
+    <Stand>Volk</Stand>
+    <Vorteil>Rudern,Schwimmen,Segeln,Wetterkunde</Vorteil>
   </Beruf>
   <Beruf Name="Flußschiffer" Lernpunkte="7">
     <Voraussetzungen Typ="k"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Rudern,Schwimmen</Vorteil>
   </Beruf>
   <Beruf Name="Flößer" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Volk</Stand>
+    <Vorteil>Rudern,Schwimmen</Vorteil>
   </Beruf>
   <Beruf Name="Fuhrmann" Lernpunkte="7">
     <Voraussetzungen Ge="21" Typ="k"/>
+    <Stand>Volk</Stand>
+    <Vorteil>Streitwagen lenken,Wagenlenken</Vorteil>
   </Beruf>
   <Beruf Name="Färber" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Pflanzenkunde</Vorteil>
   </Beruf>
   <Beruf Name="Gaukler" Lernpunkte="7">
     <Voraussetzungen Ge="81"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Gassenwissen,Jonglieren,Stehlen,Stimmen nachahmen</Vorteil>
   </Beruf>
   <Beruf Name="Geldeintreiber" Lernpunkte="7">
     <Voraussetzungen St="31" Ge="31" Typ="k"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Faustkampf,Keule,Menschenkenntnis</Vorteil>
   </Beruf>
   <Beruf Name="Geldverleiher" Lernpunkte="7">
     <Voraussetzungen In="61"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Lesen/Schreiben,Rechnen</Vorteil>
   </Beruf>
   <Beruf Name="Gelehrter" Lernpunkte="9">
     <Voraussetzungen In="81"/>
+    <Stand>Adel,Mittelschicht</Stand>
+    <Vorteil>Landeskunde,Lesen/Schreiben,Sagenkunde,Sprache</Vorteil>
   </Beruf>
   <Beruf Name="Geologe" Lernpunkte="7">
     <Voraussetzungen In="61" Typ="z"/>
+    <Stand>Adel,Mittelschicht</Stand>
+    <Vorteil>Lesen/Schreiben,Naturkunde</Vorteil>
   </Beruf>
   <Beruf Name="Gerber" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Dolch</Vorteil>
   </Beruf>
   <Beruf Name="Geschichtenerzähler" Lernpunkte="9">
     <Voraussetzungen In="31" pA="31"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Beredsamkeit,Gassenwissen,Geschichten erzählen,Sagenkunde</Vorteil>
   </Beruf>
   <Beruf Name="Geschützexperte" Lernpunkte="5">
     <Voraussetzungen Ge="61" In="61" Typ="k"/>
+    <Stand>Adel,Mittelschicht,Volk</Stand>
+    <Vorteil>Ballista bedienen,Kampftaktik,Katapult bedienen</Vorteil>
   </Beruf>
   <Beruf Name="Gladiator" Lernpunkte="9">
     <Voraussetzungen St="61" Ge="61" Ko="61" Typ="k"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Kurzschwert</Vorteil>
   </Beruf>
   <Beruf Name="Glasbläser" Lernpunkte="5">
     <Voraussetzungen Ko="31"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Blasrohr</Vorteil>
   </Beruf>
   <Beruf Name="Glöckner" Lernpunkte="5">
     <Voraussetzungen St="31" Ge="61"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Klettern</Vorteil>
   </Beruf>
   <Beruf Name="Goldschmied" Lernpunkte="7">
     <Voraussetzungen Ge="31"/>
+    <Stand>Mittelschicht</Stand>
+    <Vorteil>Schlösser öffnen,Talisman verzaubern</Vorteil>
   </Beruf>
   <Beruf Name="Grabräuber" Lernpunkte="5">
     <Voraussetzungen Ge="31"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Fallen entdecken,Sagenkunde</Vorteil>
   </Beruf>
   <Beruf Name="Graveur" Lernpunkte="5">
     <Voraussetzungen Ge="31"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Lesen/Schreiben</Vorteil>
   </Beruf>
   <Beruf Name="Grobschmied" Lernpunkte="5">
     <Voraussetzungen St="61" Typ="k"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Athletik,Kriegshammer,Stabkeule</Vorteil>
   </Beruf>
   <Beruf Name="Gärtner" Lernpunkte="5">
     <Voraussetzungen Ge="31" In="31"/>
+    <Stand>Mittelschicht,Unfrei,Volk</Stand>
+    <Vorteil>Kräuterkunde,Pflanzenkunde,Wetterkunde</Vorteil>
   </Beruf>
   <Beruf Name="Hafenarbeiter" Lernpunkte="5">
     <Voraussetzungen St="31" Typ="k"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Athletik,Rudern</Vorteil>
   </Beruf>
   <Beruf Name="Harpunier" Lernpunkte="7">
     <Voraussetzungen St="61" Ge="61" Typ="k"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Pilum,Stoßspeer</Vorteil>
   </Beruf>
   <Beruf Name="Hebamme" Lernpunkte="9">
     <Voraussetzungen Ge="31" In="31" Geschlecht="w"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Erste Hilfe,Kräuterkunde</Vorteil>
   </Beruf>
   <Beruf Name="Henker" Lernpunkte="7">
     <Voraussetzungen Ge="21" Typ="k"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Bihänder,Schlachtbeil,Seilkunst</Vorteil>
   </Beruf>
   <Beruf Name="Herold" Lernpunkte="7">
     <Voraussetzungen In="61" pA="31"/>
+    <Stand>Adel</Stand>
+    <Vorteil>Beredsamkeit,Etikette,Heraldik,Lesen/Schreiben</Vorteil>
   </Beruf>
   <Beruf Name="Hetäre" Lernpunkte="7">
     <Voraussetzungen In="61" pA="61" Au="61" Geschlecht="w"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Menschenkenntnis,Verführen,Verkleiden</Vorteil>
   </Beruf>
   <Beruf Name="Hirte" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Tierkunde,Überleben</Vorteil>
   </Beruf>
   <Beruf Name="Hofnarr" Lernpunkte="9">
     <Voraussetzungen Ge="31" In="61" pA="31"/>
+    <Stand>Mittelschicht,Unfrei,Volk</Stand>
+    <Vorteil>Jonglieren,Menschenkenntnis,Springen,Stimmen nachahmen,Wahrnehmung</Vorteil>
   </Beruf>
   <Beruf Name="Holzschnitzer" Lernpunkte="5">
     <Voraussetzungen Ge="31"/>
+    <Stand>Volk</Stand>
+    <Vorteil>Talisman verzaubern</Vorteil>
   </Beruf>
   <Beruf Name="Hufschmied" Lernpunkte="5">
     <Voraussetzungen St="61" Typ="k"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Athletik,Kriegshammer,Stabkeule</Vorteil>
   </Beruf>
   <Beruf Name="Hundeführer" Lernpunkte="9">
     <Voraussetzungen/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Tierkunde</Vorteil>
   </Beruf>
   <Beruf Name="Höfling" Lernpunkte="7">
     <Voraussetzungen In="61" Au="31"/>
+    <Stand>Adel,Mittelschicht</Stand>
+    <Vorteil>Beredsamkeit,Lesen/schreiben,Tanzen</Vorteil>
   </Beruf>
   <Beruf Name="Imker" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Tierkunde</Vorteil>
   </Beruf>
   <Beruf Name="Informant" Lernpunkte="7">
     <Voraussetzungen In="61"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Beschatten,Gassenwissen,Verhören</Vorteil>
   </Beruf>
   <Beruf Name="Ingenieur" Lernpunkte="8">
     <Voraussetzungen In="61" Typ="z"/>
+    <Stand>Adel,Mittelschicht</Stand>
+    <Vorteil>Fallenmechanik,Lesen/Schreiben,Rechnen</Vorteil>
   </Beruf>
   <Beruf Name="Inquisitor" Lernpunkte="7">
     <Voraussetzungen In="61"/>
+    <Stand>Adel,Mittelschicht</Stand>
+    <Vorteil>Menschenkenntnis,Verhören,Zauberkunde</Vorteil>
   </Beruf>
   <Beruf Name="Jurist" Lernpunkte="7">
     <Voraussetzungen In="61" Typ="z"/>
+    <Stand>Adel,Mittelschicht,Volk</Stand>
+    <Vorteil>Beredsamkeit,Lesen/Schreiben,Verhören</Vorteil>
   </Beruf>
   <Beruf Name="Juwelier" Lernpunkte="7">
     <Voraussetzungen Ge="31"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Geschäftstüchtigkeit,Talisman verzaubern</Vorteil>
   </Beruf>
   <Beruf Name="Jäger" Lernpunkte="5">
     <Voraussetzungen Ge="31" Ko="31"/>
+    <Stand>Adel,Mittelschicht,Volk</Stand>
+    <Vorteil>Bogen,Dolch,Tierkunde</Vorteil>
   </Beruf>
   <Beruf Name="Kammerjäger" Lernpunkte="5">
     <Voraussetzungen In="21"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Giftmischen,Tierkunde</Vorteil>
   </Beruf>
   <Beruf Name="Karawanenführer" Lernpunkte="7">
     <Voraussetzungen Ko="31" In="61"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Himmelskunde,Reiten,Überleben in der Wüste</Vorteil>
   </Beruf>
   <Beruf Name="Kartograph" Lernpunkte="7">
     <Voraussetzungen In="61"/>
+    <Stand>Adel,Mittelschicht</Stand>
+    <Vorteil>Lesen/Schreiben,Malen/Zeichnen,Naturkunde</Vorteil>
   </Beruf>
   <Beruf Name="Kaufmann" Lernpunkte="7">
     <Voraussetzungen In="61"/>
+    <Stand>Adel,Mittelschicht</Stand>
+    <Vorteil>Beredsamkeit,Geschäftstüchtigkeit</Vorteil>
   </Beruf>
   <Beruf Name="Kellner" Lernpunkte="5">
     <Voraussetzungen Ge="21"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Menschenkenntnis</Vorteil>
   </Beruf>
   <Beruf Name="Kerzenzieher" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Volk</Stand>
+    <Vorteil>Dolch</Vorteil>
   </Beruf>
   <Beruf Name="Kesselflicker" Lernpunkte="7">
     <Voraussetzungen Ge="31"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Geschäftstüchtigkeit,Talisman verzaubern</Vorteil>
   </Beruf>
   <Beruf Name="Koch" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Volk</Stand>
+    <Vorteil>Kräuterkunde</Vorteil>
   </Beruf>
   <Beruf Name="Kopfgeldjäger" Lernpunkte="9">
     <Voraussetzungen Typ="k"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Beschatten,Gassenwissen,Meucheln,Scharfschießen,Spurenlesen</Vorteil>
   </Beruf>
   <Beruf Name="Korbflechter" Lernpunkte="5">
     <Voraussetzungen Ge="31"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Pflanzenkunde</Vorteil>
   </Beruf>
   <Beruf Name="Krämer" Lernpunkte="7">
     <Voraussetzungen In="21"/>
+    <Stand>Volk</Stand>
+    <Vorteil>Geschäftstüchtigkeit,Menschenkenntnis</Vorteil>
   </Beruf>
   <Beruf Name="Kräuterkundiger" Lernpunkte="5">
     <Voraussetzungen In="61"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Kräuterkunde</Vorteil>
   </Beruf>
   <Beruf Name="Kunstmaler" Lernpunkte="7">
     <Voraussetzungen Ge="61" In="31"/>
+    <Stand>Adel,Mittelschicht,Volk</Stand>
+    <Vorteil>Kalligraphie,Malen/Zeichnen,Sagenkunde</Vorteil>
   </Beruf>
   <Beruf Name="Kupferschmied" Lernpunkte="7">
     <Voraussetzungen Ge="31"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Geschäftstüchtigkeit,Talisman verzaubern</Vorteil>
   </Beruf>
   <Beruf Name="Kurtisane" Lernpunkte="5">
     <Voraussetzungen Au="61" Geschlecht="w"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Verführen,Verkleiden</Vorteil>
   </Beruf>
   <Beruf Name="Köhler" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Volk</Stand>
+    <Vorteil>Fallenstellen,Überleben im Sumpf,Überleben im Wald</Vorteil>
   </Beruf>
   <Beruf Name="Küfer" Lernpunkte="5">
     <Voraussetzungen Ge="21"/>
+    <Stand>Volk</Stand>
+    <Vorteil>Kriegshammer</Vorteil>
   </Beruf>
   <Beruf Name="Kürschner" Lernpunkte="5">
     <Voraussetzungen Ge="31"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Geschäftstüchtigkeit</Vorteil>
   </Beruf>
   <Beruf Name="Laienprediger" Lernpunkte="7">
     <Voraussetzungen In="61" pA="61"/>
+    <Stand>Adel,Mittelschicht,Unfrei,Volk</Stand>
+    <Vorteil>Beredsamkeit,Lesen/Schreiben</Vorteil>
   </Beruf>
   <Beruf Name="Lebensmittelhändler" Lernpunkte="7">
     <Voraussetzungen In="31"/>
+    <Stand>Volk</Stand>
+    <Vorteil>Beredsamkeit,Pflanzenkunde</Vorteil>
   </Beruf>
   <Beruf Name="Lederwerker" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Unfrei,Volk</Stand>
   </Beruf>
   <Beruf Name="Mathematiker" Lernpunkte="7">
     <Voraussetzungen In="81" Typ="z"/>
+    <Stand>Adel,Mittelschicht</Stand>
+    <Vorteil>Lesen/Schreiben,Rechnen,Sprache</Vorteil>
   </Beruf>
   <Beruf Name="Maurer" Lernpunkte="5">
     <Voraussetzungen St="21" Typ="k"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Athletik,Klettern</Vorteil>
   </Beruf>
   <Beruf Name="Mechaniker" Lernpunkte="7">
     <Voraussetzungen Ge="61"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Fallen entschärfen,Fallenmechanik,Geheimmechanismen öffnen</Vorteil>
   </Beruf>
   <Beruf Name="Messerschleifer" Lernpunkte="5">
     <Voraussetzungen Ge="21"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Dolch</Vorteil>
   </Beruf>
   <Beruf Name="Metzger" Lernpunkte="5">
     <Voraussetzungen St="21" Typ="k"/>
+    <Stand>Volk</Stand>
+    <Vorteil>Handaxt,Meucheln</Vorteil>
   </Beruf>
   <Beruf Name="Musikant" Lernpunkte="5">
     <Voraussetzungen Ge="61"/>
+    <Stand>Volk</Stand>
+    <Vorteil>Gassenwissen,Musizieren,Singen,Tanzen</Vorteil>
   </Beruf>
   <Beruf Name="Musikinstrumentenmacher" Lernpunkte="7">
     <Voraussetzungen Ge="31"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Musizieren</Vorteil>
   </Beruf>
   <Beruf Name="Märchenerzähler" Lernpunkte="7">
     <Voraussetzungen pA="31"/>
+    <Stand>Volk</Stand>
+    <Vorteil>Beredsamkeit,Geschichten erzählen ,Sagenkunde</Vorteil>
   </Beruf>
   <Beruf Name="Müller" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Wagenlenken</Vorteil>
   </Beruf>
   <Beruf Name="Nachtwächter" Lernpunkte="5">
     <Voraussetzungen St="31" Ge="31" Typ="k"/>
+    <Stand>Volk</Stand>
+    <Vorteil>Hellebarde,Langschwert</Vorteil>
   </Beruf>
   <Beruf Name="Navigator" Lernpunkte="9">
     <Voraussetzungen/>
+    <Stand>Adel,Mittelschicht</Stand>
+    <Vorteil>Himmelskunde,Rechnen,Segeln,Wetterkunde</Vorteil>
   </Beruf>
   <Beruf Name="Netzmacher" Lernpunkte="5">
     <Voraussetzungen Ge="31"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Seilkunst</Vorteil>
   </Beruf>
   <Beruf Name="Offizier" Lernpunkte="9">
     <Voraussetzungen In="61" Typ="k"/>
+    <Stand>Adel,Mittelschicht</Stand>
+    <Vorteil>Kampf zu Pferd,Kampftaktik,Lesen/Schreiben,Reiten</Vorteil>
   </Beruf>
   <Beruf Name="Optiker" Lernpunkte="7">
     <Voraussetzungen Ge="61" In="61"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Wahrnehmung</Vorteil>
   </Beruf>
   <Beruf Name="Papierhersteller" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Volk</Stand>
+    <Vorteil>Lesen/Schreiben</Vorteil>
   </Beruf>
   <Beruf Name="Parfümhersteller" Lernpunkte="7">
     <Voraussetzungen In="31"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Giftmischen,Pflanzenkunde</Vorteil>
   </Beruf>
   <Beruf Name="Pelzhändler" Lernpunkte="7">
     <Voraussetzungen In="31"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Geschäftstüchtigkeit,Überleben</Vorteil>
   </Beruf>
   <Beruf Name="Perlentaucher" Lernpunkte="5">
     <Voraussetzungen St="31" Ko="41"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Dolch,Schwimmen,Tauchen</Vorteil>
   </Beruf>
   <Beruf Name="Pfadfinder" Lernpunkte="7">
     <Voraussetzungen Ko="61" In="31"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Geländelauf,Spurenlesen,Überleben</Vorteil>
   </Beruf>
   <Beruf Name="Pfandleiher" Lernpunkte="7">
     <Voraussetzungen In="31"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Geschäftstüchtigkeit,Menschenkenntnis</Vorteil>
   </Beruf>
   <Beruf Name="Pfeilmacher" Lernpunkte="5">
     <Voraussetzungen Ge="61"/>
+    <Stand>Volk</Stand>
+    <Vorteil>Bogen,Langbogen</Vorteil>
   </Beruf>
   <Beruf Name="Pferdedieb" Lernpunkte="5">
     <Voraussetzungen Ge="31"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Reiten,Überleben</Vorteil>
   </Beruf>
   <Beruf Name="Pferdehändler" Lernpunkte="7">
     <Voraussetzungen In="31"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Geschäftstüchtigkeit,Reiten</Vorteil>
   </Beruf>
   <Beruf Name="Philosoph" Lernpunkte="7">
     <Voraussetzungen In="61" Typ="z"/>
+    <Stand>Adel,Mittelschicht,Volk</Stand>
+    <Vorteil>Beredsamkeit,Lesen/Schreiben,Menschenkenntnis,Sagenkunde</Vorteil>
   </Beruf>
   <Beruf Name="Pionier" Lernpunkte="7">
     <Voraussetzungen Ko="61" In="31"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Geländelauf,Spurenlesen,Überleben</Vorteil>
   </Beruf>
   <Beruf Name="Rechtsgelehrter" Lernpunkte="7">
     <Voraussetzungen In="61" Typ="z"/>
+    <Stand>Adel,Mittelschicht</Stand>
+    <Vorteil>Lesen/Schreiben,Verhören</Vorteil>
   </Beruf>
   <Beruf Name="Redner" Lernpunkte="7">
     <Voraussetzungen In="61" pA="61"/>
+    <Stand>Adel,Mittelschicht,Volk</Stand>
+    <Vorteil>Beredsamkeit,Geschichten erzählen,Menschenkenntnis</Vorteil>
   </Beruf>
   <Beruf Name="Reeder" Lernpunkte="7">
     <Voraussetzungen In="61"/>
+    <Stand>Adel,Mittelschicht,Volk</Stand>
+    <Vorteil>Geschäftstüchtigkeit,Lesen/Schreiben</Vorteil>
   </Beruf>
   <Beruf Name="Räuber" Lernpunkte="5">
     <Voraussetzungen St="31" Typ="k"/>
+    <Stand>Unfrei</Stand>
+    <Vorteil>Keule,Tarnen</Vorteil>
   </Beruf>
   <Beruf Name="Sattler" Lernpunkte="5">
     <Voraussetzungen Ge="21"/>
+    <Stand>Volk</Stand>
+    <Vorteil>Reiten</Vorteil>
   </Beruf>
   <Beruf Name="Scharfrichter" Lernpunkte="7">
     <Voraussetzungen Ge="21" Typ="k"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Bihänder,Schlachtbeil,Seilkunst</Vorteil>
   </Beruf>
   <Beruf Name="Schauspieler" Lernpunkte="7">
     <Voraussetzungen pA="61"/>
+    <Stand>Mittelschicht,Unfrei,Volk</Stand>
+    <Vorteil>Beredsamkeit,Stimmen nachahmen,Verkleiden</Vorteil>
   </Beruf>
   <Beruf Name="Scherenschleifer" Lernpunkte="5">
     <Voraussetzungen Ge="21"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Dolch</Vorteil>
   </Beruf>
   <Beruf Name="Schiffsbauer" Lernpunkte="7">
     <Voraussetzungen Ge="31"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Handaxt,Rudern,Segeln</Vorteil>
   </Beruf>
   <Beruf Name="Schilterer" Lernpunkte="5">
     <Voraussetzungen Ge="31" In="31"/>
+    <Stand>Mittelschicht</Stand>
+    <Vorteil>Lesen/Schreiben,Sagenkunde</Vorteil>
   </Beruf>
   <Beruf Name="Schlachter" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Volk</Stand>
+    <Vorteil>Handaxt,Meucheln</Vorteil>
   </Beruf>
   <Beruf Name="Schlosser" Lernpunkte="7">
     <Voraussetzungen Ge="61"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Geheimmechanismen öffnen,Schlösser öffnen</Vorteil>
   </Beruf>
   <Beruf Name="Schmuggler" Lernpunkte="7">
     <Voraussetzungen Ge="21"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Rudern,Schleichen,Segeln,Wetterkunde</Vorteil>
   </Beruf>
   <Beruf Name="Schneider" Lernpunkte="5">
     <Voraussetzungen Ge="21"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Verkleiden</Vorteil>
   </Beruf>
   <Beruf Name="Schreiber" Lernpunkte="5">
     <Voraussetzungen In="61" Typ="z"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Lesen/Schreiben,Sprache</Vorteil>
   </Beruf>
   <Beruf Name="Schreiner" Lernpunkte="7">
     <Voraussetzungen Ge="21"/>
+    <Stand>Volk</Stand>
+    <Vorteil>Handxt,Streitakt</Vorteil>
   </Beruf>
   <Beruf Name="Schuhmacher" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Volk</Stand>
   </Beruf>
   <Beruf Name="Schwammtaucher" Lernpunkte="5">
     <Voraussetzungen St="31" Ko="41"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Dolch,Schwimmen,Tauchen</Vorteil>
   </Beruf>
   <Beruf Name="Schwarzbrenner" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Trinken</Vorteil>
   </Beruf>
   <Beruf Name="Schwerarbeiter" Lernpunkte="5">
     <Voraussetzungen St="31" Ko="31" Typ="k"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Athletik,Kriegshammer</Vorteil>
   </Beruf>
   <Beruf Name="Seemann" Lernpunkte="7">
     <Voraussetzungen St="21" Ge="21" Typ="k"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Klettern,Rudern,Seilkunst</Vorteil>
   </Beruf>
   <Beruf Name="Segelmacher" Lernpunkte="7">
     <Voraussetzungen Ge="31" Typ="k"/>
+    <Stand>Volk</Stand>
+    <Vorteil>Klettern,Segeln</Vorteil>
   </Beruf>
   <Beruf Name="Seiler" Lernpunkte="5">
     <Voraussetzungen Ge="31"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Seilkunst</Vorteil>
   </Beruf>
   <Beruf Name="Silberschmied" Lernpunkte="7">
     <Voraussetzungen Ge="31"/>
+    <Stand>Mittelschicht</Stand>
+    <Vorteil>Schlösser öffnen,Talisman verzaubern</Vorteil>
   </Beruf>
   <Beruf Name="Sklavenaufseher" Lernpunkte="5">
     <Voraussetzungen In="31"/>
+    <Stand>Volk</Stand>
+    <Vorteil>Keule,Kurzschwert,Menschenkenntnis</Vorteil>
   </Beruf>
   <Beruf Name="Sklavenhändler" Lernpunkte="5">
     <Voraussetzungen In="31"/>
+    <Stand>Mittelschicht</Stand>
+    <Vorteil>Menschenkenntnis</Vorteil>
   </Beruf>
   <Beruf Name="Spieler" Lernpunkte="7">
     <Voraussetzungen Ge="61" In="61"/>
+    <Stand>Volk</Stand>
+    <Vorteil>Glücksspiel,Rechnen,Wahrnehmen</Vorteil>
   </Beruf>
   <Beruf Name="Spinnerin" Lernpunkte="5">
     <Voraussetzungen Ge="21" Geschlecht="w"/>
+    <Stand>Unfrei,Volk</Stand>
   </Beruf>
   <Beruf Name="Spitzel" Lernpunkte="7">
     <Voraussetzungen In="61"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Beschatten,Gassenwissen,Verhören</Vorteil>
   </Beruf>
   <Beruf Name="Steinbrucharbeiter" Lernpunkte="7">
     <Voraussetzungen St="31" Ko="31" Typ="k"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Athletik,Klettern,Stielhammer</Vorteil>
   </Beruf>
   <Beruf Name="Steinmetz" Lernpunkte="7">
     <Voraussetzungen St="31" Typ="k"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Athletik,Kriegshammer</Vorteil>
   </Beruf>
   <Beruf Name="Stellmacher" Lernpunkte="5">
     <Voraussetzungen Ge="31"/>
+    <Stand>Volk</Stand>
+    <Vorteil>Handaxt,Wagenlenken</Vorteil>
   </Beruf>
   <Beruf Name="Stempelschneider" Lernpunkte="7">
     <Voraussetzungen Ge="61"/>
+    <Stand>Mittelschicht</Stand>
+    <Vorteil>Fälschen,Lesen/Schreiben</Vorteil>
   </Beruf>
   <Beruf Name="Steuereintreiber" Lernpunkte="5">
     <Voraussetzungen St="31" Ge="31" Typ="k"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Faustkampf,Keule,Menschenkenntnis</Vorteil>
   </Beruf>
   <Beruf Name="Steuermann" Lernpunkte="7">
     <Voraussetzungen In="61" Typ="k"/>
+    <Stand>Mittelschicht</Stand>
+    <Vorteil>Himmelskunde,Rechnen,Segeln,Wetterkunde</Vorteil>
   </Beruf>
   <Beruf Name="Steuerpächter" Lernpunkte="7">
     <Voraussetzungen In="61"/>
+    <Stand>Adel,Mittelschicht,Volk</Stand>
+    <Vorteil>Lesen/Schreiben,Rechnen</Vorteil>
   </Beruf>
   <Beruf Name="Strandräuber" Lernpunkte="5">
     <Voraussetzungen St="21" Typ="k"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Rudern,Streitaxt</Vorteil>
   </Beruf>
   <Beruf Name="Straßenräuber" Lernpunkte="5">
     <Voraussetzungen St="31" Typ="k"/>
+    <Stand>Mittelschicht,Unfrei,Volk</Stand>
+    <Vorteil>Krummsäbel,Reiten</Vorteil>
   </Beruf>
   <Beruf Name="Teppichknüpfer" Lernpunkte="5">
     <Voraussetzungen Ge="31"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Seilkunst</Vorteil>
   </Beruf>
   <Beruf Name="Theologe" Lernpunkte="7">
     <Voraussetzungen In="61" Typ="z"/>
+    <Stand>Adel,Mittelschicht</Stand>
+    <Vorteil>Lesen/Schreiben,Sagenkunde,Zauberkunde</Vorteil>
   </Beruf>
   <Beruf Name="Tierarzt" Lernpunkte="7">
     <Voraussetzungen In="61"/>
+    <Stand>Adel,Mittelschicht</Stand>
+    <Vorteil>Erste,Hilfe,Lesen/Schreiben,Tierkunde</Vorteil>
   </Beruf>
   <Beruf Name="Tierausbilder" Lernpunkte="9">
     <Voraussetzungen/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Tierkunde</Vorteil>
   </Beruf>
   <Beruf Name="Tierhändler" Lernpunkte="7">
     <Voraussetzungen In="31"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Geschäftstüchtigkeit,Tierkunde</Vorteil>
   </Beruf>
   <Beruf Name="Tierpfleger" Lernpunkte="5">
     <Voraussetzungen Ge="31"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Tierkunde</Vorteil>
   </Beruf>
   <Beruf Name="Tintenhersteller" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Volk</Stand>
+    <Vorteil>Lesen/Schreiben</Vorteil>
   </Beruf>
   <Beruf Name="Tischler" Lernpunkte="7">
     <Voraussetzungen Ge="21"/>
+    <Stand>Volk</Stand>
+    <Vorteil>Handaxt,Kriegshammer</Vorteil>
   </Beruf>
   <Beruf Name="Torfstecher" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Volk</Stand>
+    <Vorteil>Fallenstellen,Überleben im Sumpf,Überleben im Wald</Vorteil>
   </Beruf>
   <Beruf Name="Totengräber" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Sagenkunde</Vorteil>
   </Beruf>
   <Beruf Name="Trapper" Lernpunkte="7">
     <Voraussetzungen Ge="31" Typ="k"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Fallenstellen,Spurenlesen</Vorteil>
   </Beruf>
   <Beruf Name="Träger" Lernpunkte="5">
     <Voraussetzungen St="31" Ge="31"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Athletik,Geländelauf</Vorteil>
   </Beruf>
   <Beruf Name="Tuchwalker" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Unfrei,Volk</Stand>
   </Beruf>
   <Beruf Name="Tänzer" Lernpunkte="5">
     <Voraussetzungen Ge="31" pA="21"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Tanzen</Vorteil>
   </Beruf>
   <Beruf Name="Töpfer" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Unfrei,Volk</Stand>
   </Beruf>
   <Beruf Name="Unteroffizier" Lernpunkte="7">
     <Voraussetzungen St="61" Ge="61" Typ="k"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Einhandwaffe,Kampftaktik,Überleben</Vorteil>
   </Beruf>
   <Beruf Name="Untersuchungsbeamter" Lernpunkte="7">
     <Voraussetzungen In="61" Typ="k"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Gassenwissen,Menschenkenntnis,Verhören</Vorteil>
   </Beruf>
   <Beruf Name="Urbarmacher" Lernpunkte="5">
     <Voraussetzungen St="31" Ge="31"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Pflanzenkunde,Tierkunde,Überleben</Vorteil>
   </Beruf>
   <Beruf Name="Verkäufer" Lernpunkte="5">
     <Voraussetzungen In="31"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Beredsamkeit,Menschenkenntnis</Vorteil>
   </Beruf>
   <Beruf Name="Verwalter" Lernpunkte="7">
     <Voraussetzungen In="31" pA="21"/>
+    <Stand>Adel,Mittelschicht</Stand>
+    <Vorteil>Geschäftstüchtigkeit,Lesen/Schreiben,Rechnen</Vorteil>
   </Beruf>
   <Beruf Name="Viehdieb" Lernpunkte="5">
     <Voraussetzungen Ge="21"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Geländelauf,Tierkunde</Vorteil>
   </Beruf>
   <Beruf Name="Viehtreiber" Lernpunkte="5">
     <Voraussetzungen Ge="31" Typ="k"/>
+    <Stand>Volk</Stand>
+    <Vorteil>Kampf zu Pferd,Reiten,Überleben</Vorteil>
   </Beruf>
   <Beruf Name="Viehzüchter" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Tierkunde,Überleben</Vorteil>
   </Beruf>
   <Beruf Name="Vorarbeiter" Lernpunkte="5">
     <Voraussetzungen In="31"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Athletik,Menschenkenntnis</Vorteil>
   </Beruf>
   <Beruf Name="Vorkoster" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Giftmischen,Trinken</Vorteil>
   </Beruf>
   <Beruf Name="Waffenhändler" Lernpunkte="7">
     <Voraussetzungen In="31"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Geschäftstüchtigkeit,Kampf in Vollrüstung</Vorteil>
   </Beruf>
   <Beruf Name="Waffenschmied" Lernpunkte="5">
     <Voraussetzungen St="61" Typ="k"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Athletik,Kriegshammer</Vorteil>
   </Beruf>
   <Beruf Name="Wagner" Lernpunkte="5">
     <Voraussetzungen Ge="31"/>
+    <Stand>Volk</Stand>
+    <Vorteil>Handaxt,Wagenlenken</Vorteil>
   </Beruf>
   <Beruf Name="Waldarbeiter" Lernpunkte="5">
     <Voraussetzungen St="31" Typ="k"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Geländelauf,Schlachtbeil</Vorteil>
   </Beruf>
   <Beruf Name="Wappenhersteller" Lernpunkte="5">
     <Voraussetzungen Ge="31" In="31"/>
+    <Stand>Mittelschicht</Stand>
+    <Vorteil>Lesen/Schreiben,Sagenkunde</Vorteil>
   </Beruf>
   <Beruf Name="Weber" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Unfrei,Volk</Stand>
   </Beruf>
   <Beruf Name="Weinhändler" Lernpunkte="7">
     <Voraussetzungen In="31"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Geschäftstüchtigkeit,Trinken</Vorteil>
   </Beruf>
   <Beruf Name="Werkzeugmacher" Lernpunkte="7">
     <Voraussetzungen Ge="61" In="61"/>
+    <Stand>Mittelschicht,Unfrei,Volk</Stand>
+    <Vorteil>Fallenmechanik,Talisman verzaubern</Vorteil>
   </Beruf>
   <Beruf Name="Wilderer" Lernpunkte="5">
     <Voraussetzungen Ge="21" Typ="k"/>
+    <Stand>Unfrei,Volk</Stand>
+    <Vorteil>Bogen,Fallenstellen</Vorteil>
   </Beruf>
   <Beruf Name="Winzer" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Trinken</Vorteil>
   </Beruf>
   <Beruf Name="Wirt" Lernpunkte="7">
     <Voraussetzungen/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Beredsamkeit,Menschenkenntnis</Vorteil>
   </Beruf>
   <Beruf Name="Wrackberger" Lernpunkte="7">
     <Voraussetzungen St="31" Ge="31"/>
+    <Stand>Mittelschicht,Unfrei,Volk</Stand>
+    <Vorteil>Rudern,Schwimmen,Tauchen,Wetterkunde</Vorteil>
   </Beruf>
   <Beruf Name="Wundheiler" Lernpunkte="9">
     <Voraussetzungen Ge="31" In="31"/>
+    <Stand>Adel,Mittelschicht,Unfrei,Volk</Stand>
+    <Vorteil>Erste Hilfe</Vorteil>
   </Beruf>
   <Beruf Name="Wächter" Lernpunkte="7">
     <Voraussetzungen St="31" In="31" Typ="k"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Gassenwissen,Hellebarde ,Langschwert,Menschenkenntnis</Vorteil>
   </Beruf>
   <Beruf Name="Zahnausreißer" Lernpunkte="7">
     <Voraussetzungen Ge="31"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Erste,Hilfe,Kräuterkunde</Vorteil>
   </Beruf>
   <Beruf Name="Ziegelbrenner" Lernpunkte="5">
     <Voraussetzungen/>
+    <Stand>Unfrei,Volk</Stand>
   </Beruf>
   <Beruf Name="Zimmermann" Lernpunkte="7">
     <Voraussetzungen St="31" Typ="k"/>
+    <Stand>Volk</Stand>
+    <Vorteil>Handaxt,Streitaxt</Vorteil>
   </Beruf>
   <Beruf Name="Zollpächter" Lernpunkte="7">
     <Voraussetzungen In="61"/>
+    <Stand>Adel,Mittelschicht,Volk</Stand>
+    <Vorteil>Lesen/Schreiben,Rechnen</Vorteil>
   </Beruf>
   <Beruf Name="Zureiter" Lernpunkte="9">
     <Voraussetzungen Ge="61" Typ="k"/>
+    <Stand>Mittelschicht,Volk</Stand>
+    <Vorteil>Kampf zu Pferd,Reiten</Vorteil>
   </Beruf>
 </MidgardCG-data>
