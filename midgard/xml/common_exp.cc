@@ -1,4 +1,4 @@
-// $Id: common_exp.cc,v 1.6 2001/12/12 15:56:20 christof Exp $
+// $Id: common_exp.cc,v 1.7 2001/12/16 21:47:49 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -72,7 +72,7 @@ void lernschema(ostream &o, const std::string &art, const std::string &name, boo
 	+constraint+
 	" order by lernpunkte,typ"
 #else
-	"select typ, 0 as lernpunkte, wert, pflicht"
+	"select typ, lernpunkte, wert, pflicht"
 	" from lernschema_4"
 	" where name='"+name+"' and art='"+art+"'"
 	+constraint+

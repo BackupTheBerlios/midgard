@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.pgcc,v 1.32 2001/12/12 15:56:20 christof Exp $
+// $Id: fertigk_exp.pgcc,v 1.33 2001/12/16 21:47:49 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -184,27 +184,33 @@ void fert_speichern(std::ostream &o)
 //********************* Berufe ********************
    o << " <Berufe>\n";
 #warning hier noch ge durch gs,gw ersetzen
-  {Query query("select beruf, region, lernpunkte, st, "
-  	MIDGARD3_4("ge,","ge as gw, ge as gs,")
+  {
+#ifdef MIDGARD3
+   Query query("select beruf, region, lernpunkte, st, ge,"
   	" ko, \"in\", zt, pa, au, sb, typ, geschlecht"
    	" from berufe_voraussetzung"
   	" where coalesce(region,'')='"+region+"'"
    	" order by region, beruf");
+#else
+   Query query("select beruf, region, land, stadt,"
+   	"typ_k, typ_z, geschlecht, u,v,m,a"
+   	" from berufe_voraussetzung_4"
+  	" where coalesce(region,'')='"+region+"'"
+   	" order by region, beruf");
+#endif
    FetchIStream is;
    while ((query>>is).good())
   {o << "  <Beruf";
    std::string beruf=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
+#ifdef MIDGARD3    
    fetch_and_write_int_attrib(is, o, "Lernpunkte");
+#endif
    o << ">\n";
    o << "    <Voraussetzungen";
+#ifdef MIDGARD3
    fetch_and_write_int_attrib(is, o, "St");
-#ifdef MIDGARD3   
    fetch_and_write_int_attrib(is, o, "Ge");
-#else
-   fetch_and_write_int_attrib(is, o, "Gw");
-   fetch_and_write_int_attrib(is, o, "Gs");
-#endif
    fetch_and_write_int_attrib(is, o, "Ko");
    fetch_and_write_int_attrib(is, o, "In");
    fetch_and_write_int_attrib(is, o, "Zt");
@@ -212,9 +218,20 @@ void fert_speichern(std::ostream &o)
    fetch_and_write_int_attrib(is, o, "Au");
    fetch_and_write_int_attrib(is, o, "Sb");
    fetch_and_write_typ_attrib(is, o, "Typ");
+#else
+   bool land=fetch_bool(is);
+   bool stadt=fetch_bool(is);
+   if (!land) write_bool_attrib(o, "Land", land);
+   if (!stadt) write_bool_attrib(o, "Stadt", stadt);
+   bool kaempfer=fetch_bool(is);
+   bool zauberer=fetch_bool(is);
+   if (!zauberer) write_bool_attrib(o, "Zauberer", zauberer);
+   if (!kaempfer) write_bool_attrib(o, "K@mpfer", land);
+#endif
    fetch_and_write_string_attrib(is, o, "Geschlecht");
    o << "/>\n";
    {  
+#ifdef MIDGARD3
       Query query2("select stand from berufe_stand where beruf='"+beruf
       		+"' order by stand");
       FetchIStream is2;
@@ -223,10 +240,20 @@ void fert_speichern(std::ostream &o)
       {  if (!staende.empty()) staende+=',';
          staende+=fetch_string(is2);
       }
+#else
+   string staende;
+   if (fetch_bool(is)) staende+=",U";
+   if (fetch_bool(is)) staende+=",V";
+   if (fetch_bool(is)) staende+=",M";
+   if (fetch_bool(is)) staende+=",A";
+   staende=staende.substr(1);
+#endif
       if (!staende.empty())
          o << "    <Stand>" << staende << "</Stand>\n";
    }
-   {  Query query2("select vorteil from berufe_vorteile where beruf='"+beruf
+   {  Query query2(
+#ifdef 
+   		"select vorteil from berufe_vorteile where beruf='"+beruf
       		+"' order by vorteil");
       FetchIStream is2;
       std::string vorteile;

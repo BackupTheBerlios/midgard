@@ -1,4 +1,4 @@
-// $Id: export_common.h,v 1.11 2001/12/12 15:56:20 christof Exp $
+// $Id: export_common.h,v 1.12 2001/12/16 21:47:49 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -44,6 +44,12 @@ void write_int(std::ostream &o,const std::string &wert,int val, int indent=0);
 void write_int_attrib(std::ostream &o,const std::string &wert,int val, int standard=0);
 int fetch_and_write_int(FetchIStream &is,std::ostream &o,const std::string &wert,int indent=0);
 int fetch_and_write_int_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,int standard=0);
+
+double fetch_float(FetchIStream &is,double standard=0);
+void write_float(std::ostream &o,const std::string &wert,double val, int indent=0);
+void write_float_attrib(std::ostream &o,const std::string &wert,double val, double standard=0);
+double fetch_and_write_float(FetchIStream &is,std::ostream &o,const std::string &wert,double indent=0);
+double fetch_and_write_float_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,double standard=0);
 
 std::string fetch_string(FetchIStream &is,const std::string &standard="");
 void write_string(std::ostream &o,const std::string &wert,const std::string &val,int indent=0);

@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.pgcc,v 1.11 2001/12/12 10:30:01 christof Exp $
+// $Id: land_sprache_exp.pgcc,v 1.12 2001/12/16 21:47:49 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -183,6 +183,44 @@ void land_speichern(std::ostream &o)
    o << "/></Typ>\n";
   }
    o << " </Typen>\n";
+   
+// ******************** preise ***********************
+  
+  if (region=="")
+  {o << " <Preise>\n";
+  {Query query("select name, art, kosten, einheit"
+   	" from preise"
+   	" where not exists (select true from waffen"
+   		" where waffen.name=preise.name)"
+   	" and not exists (select true from ruestung"
+   		" where ruestung.ruestung=preise.name)"
+   	" order by art,name");
+  while ((query>>is).good())
+  {o << "  <Kaufpreis";
+   fetch_and_write_string_attrib(is, o, "Ware");
+   fetch_and_write_string_attrib(is, o, "Art");
+   fetch_and_write_int_attrib(is, o, "Preis");
+   fetch_and_write_string_attrib(is, o, "Währung");
+   o << "/>\n";
+  }
+  }
+
+  {Query query("select name, art, faktor, min, einheit, typ, nr"
+   	" from preise_modifikation"
+   	" order by art,typ,name");
+  while ((query>>is).good())
+  {o << "  <Modifikation";
+   fetch_and_write_string_attrib(is, o, "Bezeichnung");
+   fetch_and_write_string_attrib(is, o, "Art");
+   fetch_and_write_float_attrib(is, o, "Faktor");
+   fetch_and_write_int_attrib(is, o, "Mindestpreis");
+   fetch_and_write_string_attrib(is, o, "Einheit");
+   fetch_and_write_string_attrib(is, o, "Typ");
+   fetch_and_int_string_attrib(is, o, "MCG:Nr");
+   o << "/>\n";
+  }
+   o << " </Preise>\n";
+  }
   }
 
 //******************************************************************

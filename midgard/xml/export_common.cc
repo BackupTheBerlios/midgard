@@ -1,4 +1,4 @@
-// $Id: export_common.cc,v 1.2 2001/12/12 10:30:01 christof Exp $
+// $Id: export_common.cc,v 1.3 2001/12/16 21:47:49 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -64,9 +64,39 @@ static const char HEX[]="0123456789ABCDEF";
    return val;
 }
 
- int fetch_and_write_int_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,int standard=0)
+int fetch_and_write_int_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,int standard=0)
 {  int val=fetch_int(is,standard);
    write_int_attrib(o,wert,val,standard);
+   return val;
+}
+
+double fetch_float(FetchIStream &is,double standard=0)
+{  double val;
+   
+   is >> FetchIStream::MapNull<double>(val,standard);
+   return val;
+}
+
+void write_float(std::ostream &o,const std::string &wert,double val, int indent=0)
+{  if (!val) return;
+   for (double i=0;i<indent;++i) o << ' ';
+   o << '<' << wert << '>' << val << "</" << wert << ">\n";
+}
+
+void write_float_attrib(std::ostream &o,const std::string &wert,double val, double standard=0)
+{  if (val==standard) return;
+   o << ' ' << wert << "=\"" << val << '\"';
+}
+
+double fetch_and_write_float(FetchIStream &is,std::ostream &o,const std::string &wert,int indent=0)
+{  double val=fetch_float(is);
+   write_float(o,wert,val,indent);
+   return val;
+}
+
+double fetch_and_write_float_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,double standard=0)
+{  double val=fetch_float(is,standard);
+   write_float_attrib(o,wert,val,standard);
    return val;
 }
 
