@@ -1,9 +1,12 @@
 ##########################################################################
 NEWS IN VERSION 0.8.4
 
+* KI: Hochspezialisiert, Allrounder
+* Steigern mit Prototyp 
+
+
 TODO: ('-' zeigt CP an)
 
-* KI: Hochspezialisiert, Allrounder
 * region_check und nsc_check aus Klasse midgard_CG entfernen
 * Schwarzer Balken im Lernschema bei Maximierung
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in

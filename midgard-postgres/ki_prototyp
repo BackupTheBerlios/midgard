@@ -1,0 +1,33 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE "ki_prototyp";
+--
+--
+--
+
+CREATE TABLE "ki_prototyp" (
+	"name" text NOT NULL,
+	"fertigkeit" integer NOT NULL,
+	"zauber" integer NOT NULL,
+	"waffen" integer NOT NULL,
+	"waffen_grund" integer NOT NULL,
+	"zauberwerk" integer NOT NULL,
+	"sprache" integer NOT NULL,
+	"schrift" integer NOT NULL,
+	"fert_spezialist" integer,
+	"waff_spezialist" integer,
+	"spra_spezialist" integer,
+	"schr_spezialist" integer,
+	Constraint "ki_prototyp_pkey" Primary Key ("name")
+);
+
+--
+--
+--
+
+
+COPY "ki_prototyp" FROM stdin;
+Kampfprofi	30	0	60	5	0	5	0	50	80	50	50
+Wissenschaftler	50	0	10	0	0	30	20	50	100	50	50
+\.

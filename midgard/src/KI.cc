@@ -28,13 +28,14 @@ void MagusKI::VerteileGFP(int gfp,const Prozente100 &p)
      int i=random.integer(1,100);
      const Enums::MBEListen was=Was();
      spezial_allgemein=p.getS(was);
-/*
+
      if     (i<=spezial_allgemein) Steigern(gfp,was);
      else                          NeuLernen(gfp,was);
-*/
+/*
      if     (i>=spezial_allgemein) cerr << i<<' '<<spezial_allgemein<<"\tSteigern\t"<<was<<'\t';
      else                          cerr << i<<' '<<spezial_allgemein<<"\tNeuLenren\t"<<was<<'\t';
 cout << "Noch "<< (gfp-=10)<<" GFP\n";
+*/
    }
 }
 

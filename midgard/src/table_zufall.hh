@@ -36,6 +36,7 @@ class table_zufall : public table_zufall_glade
       void zeige_werte();
       void fill_combos();
       void fill_combo_steigern();
+      bool entry_is_a_prototyp(const std::string &e);
       void set_bereiche_spinbuttons();
       int get_spezialbildung();
    public:

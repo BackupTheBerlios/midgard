@@ -1,4 +1,4 @@
-// $Id: Prototyp.hh,v 1.2 2002/09/26 08:15:21 thoma Exp $               
+// $Id: Prototyp.hh,v 1.3 2002/09/26 13:32:41 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,8 +35,7 @@ class Prototyp : public HandleContent //Copyable
    void get_Prototyp();
 
  public:
-   Prototyp(const Tag *tag) {get_Prototyp();}
-   const Tag *tag;
+   Prototyp(const Tag *tag);
 
    std::string Name() const {  return name; }
    int Fertigkeit() const {return fertigkeit;}

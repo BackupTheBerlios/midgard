@@ -42,10 +42,13 @@ Prozente100::Prozente100()
 void Prozente100::check100()
 {
   assert(!VWas.empty());
-  while(true)
-   {    
-     int summe=Vsumme();
-     if(summe==100) break;
+  // Erst normieren
+  int summe=Vsumme();
+  for(std::vector<st_was>::iterator i=VWas.begin();i!=VWas.end();++i)
+     i->prozent*=100./summe;
+  summe=Vsumme(); 
+  if(summe!=100) // dann den Rest verteilen
+   {
      int diff=100-summe;
      add(Enums::sFert,diff);
    }

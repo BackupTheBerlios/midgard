@@ -34,6 +34,7 @@
 
 void table_zufall::on_button_steigern_clicked()
 {
+  on_button_check100_clicked();
   int gfp;
   spinbutton_gfp->update();
   spinbutton_grad->update();
@@ -74,7 +75,6 @@ void table_zufall::fill_combo_steigern()
   if(!L.empty()) combo_prototyp->get_entry()->set_text(*L.begin());
   on_button_check100_clicked();
 
-cout << "Prototyenanzahl: "<<P.size()<<'\n';
  combo_prototyp->set_sensitive(true);
 }
 
@@ -87,10 +87,21 @@ gint table_zufall::on_combo_prototyp_focus_out_event(GdkEventFocus *ev)
   return 0;
 }
 
+bool table_zufall::entry_is_a_prototyp(const std::string &e)
+{
+  std::list<std::string> L;
+  std::list<cH_Prototyp> P=hauptfenster->getDatabase().prototyp;
+  for(std::list<cH_Prototyp>::const_iterator i=P.begin();i!=P.end();++i)
+     L.push_back((*i)->Name());
+  if(find(L.begin(),L.end(),e)==L.end()) return false;
+  return true;
+}
+
 void table_zufall::on_combo_prototyp_changed()
 {
-  if(!combo_prototyp->get_value_in_list()) return;
-  cH_Prototyp P(combo_prototyp->get_entry()->get_text());
+  std::string e=combo_prototyp->get_entry()->get_text();
+  if(!entry_is_a_prototyp(e)) return;
+  cH_Prototyp P(e);
 
   prozente100.set(Enums::sFert,P->Fertigkeit());
   prozente100.set(Enums::sWaff,P->Waffe());
@@ -126,14 +137,14 @@ void table_zufall::set_bereiche_spinbuttons()
   vscale_spezallg_waff->get_adjustment()->set_value(ww);
   vscale_spezallg_spra->get_adjustment()->set_value(wsp);
   vscale_spezallg_schr->get_adjustment()->set_value(wsc);
-  label_spez_fert->set_text(itos(wf)+"%");
-  label_spez_waff->set_text(itos(ww)+"%");
-  label_spez_spra->set_text(itos(wsp)+"%");
-  label_spez_schr->set_text(itos(wsc)+"%");
-  label_allg_fert->set_text(itos(100-wf)+"%");
-  label_allg_waff->set_text(itos(100-ww)+"%");
-  label_allg_spra->set_text(itos(100-wsp)+"%");
-  label_allg_schr->set_text(itos(100-wsc)+"%");
+  label_spez_fert->set_text(itos(100-wf)+"%");
+  label_spez_waff->set_text(itos(100-ww)+"%");
+  label_spez_spra->set_text(itos(100-wsp)+"%");
+  label_spez_schr->set_text(itos(100-wsc)+"%");
+  label_allg_fert->set_text(itos(wf)+"%");
+  label_allg_waff->set_text(itos(ww)+"%");
+  label_allg_spra->set_text(itos(wsp)+"%");
+  label_allg_schr->set_text(itos(wsc)+"%");
 }
 
 

@@ -52,10 +52,10 @@ cH_Prototyp::cH_Prototyp(const Tag *tag)
  cache.Register(tag->getAttr("Name"),*this);
 }
 
-void Prototyp::get_Prototyp()
+Prototyp::Prototyp(const Tag *tag)
 {
   assert(tag);
-/*
+  name=tag->getAttr("Name");;
   fertigkeit = tag->getIntAttr("Fertigkeit");
   waffe = tag->getIntAttr("Waffen");
   waffe_grund = tag->getIntAttr("WaffenGrund");
@@ -67,20 +67,6 @@ void Prototyp::get_Prototyp()
   waff_spez = tag->getIntAttr("WaffSpezialist");
   spra_spez = tag->getIntAttr("SpraSpezialist");
   schr_spez = tag->getIntAttr("SchrSpezialist");
-*/
-  fertigkeit = 45;
-  waffe = 20;
-  waffe_grund = 0;
-  zauber = 0;
-  zauberwerk = 0;
-  sprache = 20;
-  schrift = 15;
-
-  fert_spez = 50;
-  waff_spez =  90;
-  spra_spez = 50;
-  schr_spez = 50;
-
 }
 
 Prototyp_All::Prototyp_All()

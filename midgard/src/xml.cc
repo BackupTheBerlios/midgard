@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.36 2002/07/10 09:31:37 christof Exp $
+// $Id: xml.cc,v 1.37 2002/09/26 13:32:41 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -181,6 +181,7 @@ const struct xml_liste xml_tags[] =
    {  "Berufe",		"Beruf",	std_matching },
    {  "Fertigkeiten",	"Fertigkeit",	std_matching },
    {  "Gradanstieg",	"Grad",		grad_matching },
+   {  "KI","Prototyp",std_matching },
    {  "Kido-Fertigkeiten",	"KiDo",	std_matching },
    {  "Länder",		"Land",		std_matching },
    {  "Preise",		"Kaufpreis",	preis_matching },
