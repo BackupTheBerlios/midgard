@@ -490,7 +490,7 @@ void midgard_CG::on_ausruestung_druck(bool unsichtbar)
       std::string name=i->getAusruestung().Name();
       if (!i->getAusruestung().Material().empty()) name +=" ("+i->getAusruestung().Material()+")";
       if(i->getAusruestung().Sichtbar())  fout << name<<"\\\\\n" ;
-      else                                fout <<"{\\mygray "<< name<<"}\\\\\n" ;
+      else                                fout <<"\\textcolor{mygray}{"<< name<<"}\\\\\n" ;
       ausruestung_druck(fout,unsichtbar,i->getChildren(),1);
      }
   }
@@ -514,7 +514,7 @@ void midgard_CG::ausruestung_druck(ostream &fout,bool unsichtbar,const list<Ausr
       double fdeep = deep*0.5;
       fout << "\\hspace*{"+dtos1(fdeep)+"cm} ";
       if(i->getAusruestung().Sichtbar())  fout << name<<"\\\\\n" ;
-      else                                 fout <<"{\\mygray "<< name<<"}\\\\\n" ;
+      else                                 fout <<"\\textcolor{mygray}{"<< name<<"}\\\\\n" ;
       ausruestung_druck(fout,unsichtbar,i->getChildren(),deep+1);
      }
   }

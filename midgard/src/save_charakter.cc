@@ -139,12 +139,12 @@ void midgard_CG::xml_export(const std::string& dateiname)
       write_string_attrib(datei, "Region", (*i)->Abkuerzung());
       datei << "/>\n";
    }
-   // Optionen?
+   // Optionen
    for(std::list<st_Optionen>::iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
    {
-     if(i->index!=Original) continue; // Einzige Option, die mit dem C. gespeichert werden muﬂ
+     if(i->index!=Original || i->index!=NSC_only) continue; // Einzige Option, die mit dem C. gespeichert werden muﬂ
      datei << "     <Optionen";
-      write_string_attrib(datei, "Name", i->text);
+      write_int_attrib(datei, "Index", i->index);
       write_bool_attrib_force(datei, "Wert", i->active);
       datei << "/>\n";
      // Warnung, 'text' darf keine SPACE enthalten

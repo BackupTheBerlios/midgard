@@ -1,4 +1,4 @@
-// $Id: Typen.hh,v 1.13 2002/02/27 13:02:15 thoma Exp $               
+// $Id: Typen.hh,v 1.14 2002/03/14 07:06:24 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,22 +38,15 @@ class Typen : public HandleContent
 //   mutable int opionmenu_nr;
    bool stadt,land;
    bool sprueche_mit_pp;
+   bool nsc_only;
 
 public:
-#ifndef USE_XML
-   Typen(const std::string& n);
-#else
    Typen(const Tag *tag);
-#endif   
    Typen() : typnr(0),stand(0),sb(0),ruestung(0),geld(0),
-         stadt(true),land(true) {}
+         stadt(true),land(true),sprueche_mit_pp(false),nsc_only(false) {}
    
-//   int Nr() const {return opionmenu_nr;}
-//   void set_opionmenu_nr(int o) const {opionmenu_nr=o;}
    std::string Name(const std::string& geschlecht) const 
-      {
-//cout << "Geschlect im Typ = "<<geschlecht<<'\n';
-if (geschlecht=="m") return typl; else return typlw;}
+      { if (geschlecht=="m") return typl; else return typlw;}
    std::string Short() const {return typs;}
    std::string Zaubern() const {return typz;}
    std::string Ausdauer() const {return ausdauer;}
@@ -66,6 +59,7 @@ if (geschlecht=="m") return typl; else return typlw;}
    bool Land() const {return land;}
    bool Stadt() const {return stadt;}
    bool SpruecheMitPP() const {return sprueche_mit_pp;}
+   bool NSC_only() const {return nsc_only;}
    bool Spezialwaffe() const;
    bool Spezialgebiet() const;
 

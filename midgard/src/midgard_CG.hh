@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.193 2002/03/13 09:32:35 thoma Exp $
+// $Id: midgard_CG.hh,v 1.194 2002/03/14 07:06:24 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -87,7 +87,8 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
 
         enum OptionenIndex {Original,Info,showPics,LernschemaSensitive,
                             WizardStarten,Wizard_immer_starten,gw_wuerfeln,
-                            LernschemaZusaetzeLoeschen,show_InfoWindow};
+                            LernschemaZusaetzeLoeschen,show_InfoWindow,
+                            NSC_only};
         enum HausIndex {Gold};
 
 

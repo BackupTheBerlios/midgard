@@ -305,8 +305,7 @@ void midgard_CG::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
       else if(sart=="Optionen")
         {
          try{
-#warning TODO Optioneen stetzen
-//         OptionenCheck(i->getAttr("Name")).active=i->getBoolAttr("Wert");
+          OptionenCheck(OptionenIndex(i->getIntAttr("Index"))).active=i->getBoolAttr("Wert");
          }
          catch (const NotFound &e)
          {}

@@ -66,6 +66,7 @@ class MidgardBasicElement : public HandleContent
       std::vector<std::string> Vzusatz;
       vector<st_ausnahmen> VAusnahmen;
       mutable bool gelernt; // Fürs Lernschema
+      bool nsc_only;
       enum EP_t { Nicht=0, KEP=1, ZEP=2, Beides=KEP|ZEP };
       /* EP_t (CP) */ int steigern_mit_EP;
       std::map<std::string,std::string> map_typ;
@@ -77,15 +78,9 @@ class MidgardBasicElement : public HandleContent
 
    public:
       MidgardBasicElement(const std::string &n) 
-            : IF_XML(tag(0),) name(n), kosten(0),praxispunkte(0),
+            : tag(0), name(n), kosten(0),praxispunkte(0),
                               erfolgswert(0),lernpunkte(0),enum_zusatz(ZNone)
-                              ,gelernt(false),steigern_mit_EP(0) {}
-/*Das braucht glaube ich niemand MAT 4.3.02 
-      MidgardBasicElement(const std::string &n,const std::string &r,const std::string &rs) 
-            : IF_XML(tag(0),) name(n),region(r),region_string(rs),kosten(0),praxispunkte(0),
-                              erfolgswert(0),lernpunkte(0),enum_zusatz(ZNone)
-                              ,gelernt(false),steigern_mit_EP(0) {}
-*/
+                              ,gelernt(false),nsc_only(false),steigern_mit_EP(0) {}
       MidgardBasicElement(const Tag *t,const std::string &n) 
 		: tag(t), name(n), kosten(0),praxispunkte(0),
                                erfolgswert(0),lernpunkte(0),enum_zusatz(ZNone)
@@ -106,6 +101,7 @@ class MidgardBasicElement : public HandleContent
  
       void setGelernt(bool b) const {gelernt=b;}
       bool Gelernt() const {return gelernt;}
+      bool NSC_only() const {return nsc_only;}
       void EP_steigern(const std::string fert);
       virtual std::string Name() const {return name;}
       std::string Region() const {return region;}

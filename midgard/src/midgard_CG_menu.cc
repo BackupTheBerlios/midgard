@@ -268,6 +268,10 @@ void midgard_CG::Optionen_init()
   list_Optionen.push_back(st_Optionen(Original,menu_original,
                            "Originalregeln",
                            true,midgard_logo_tiny_xpm));
+  Gtk::CheckMenuItem *menu_nsc_only;
+  list_Optionen.push_back(st_Optionen(NSC_only,menu_nsc_only,
+                           "NSCs zulassen",
+                           false,0));
   Gtk::CheckMenuItem *menu_gw_wuerfeln;
   list_Optionen.push_back(st_Optionen(gw_wuerfeln,menu_gw_wuerfeln,
                            "Grundwerte nur mit einer Maustaste auswürfelbar machen",

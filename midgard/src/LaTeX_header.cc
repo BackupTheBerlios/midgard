@@ -1,4 +1,4 @@
-// $Id: LaTeX_header.cc,v 1.16 2002/03/13 10:48:43 thoma Exp $
+// $Id: LaTeX_header.cc,v 1.17 2002/03/14 07:06:24 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -65,9 +65,10 @@ void midgard_CG::LaTeX_header(ostream &fout,bool landscape)
  fout << "\\usepackage[pdftex]{graphicx}\n";
  fout << "\\usepackage{tabularx}\n";
  fout << "\\usepackage{times}\n";
- fout << "\\usepackage{pstricks}\n";
+ fout << "\\usepackage{color}\n";
  fout << "\\usepackage{wrapfig}\n";
- fout << "\\newrgbcolor{mygray}{0.75 0.75 0.75}\n";
+ fout << "\\definecolor{mygray}{gray}{0.75}\n";
+ 
 
  if(landscape)
   {
