@@ -1,4 +1,4 @@
-// $Id: xml.h,v 1.14 2002/10/24 07:29:17 thoma Exp $
+// $Id: xml.h,v 1.15 2002/12/12 10:36:39 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -20,7 +20,7 @@
 #ifndef MCG_XML_H
 #define MCG_XML_H
 
-#include "Tag.hh"
+#include <Misc/Tag.h>
 
 
 extern const Tag *xml_data;

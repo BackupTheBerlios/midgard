@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.66 2002/12/11 18:18:50 christof Exp $            
+// $Id: Abenteurer.cc,v 1.67 2002/12/12 10:36:39 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -19,7 +19,7 @@
 
 #include "Abenteurer.hh"
 //#include "export_common.h"
-#include "TagStream.hh"
+#include <Misc/TagStream.h>
 #include "Preise.hh"
 #include "midgard_CG.hh"
 #include <Misc/itos.h>

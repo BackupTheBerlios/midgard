@@ -20,7 +20,7 @@
 #include "Preise.hh"
 #include <Misc/itos.h>
 #include <fstream>
-#include "TagStream.hh"
+#include <Misc/TagStream.h>
 
 bool operator!=(const cH_Preise &a, const std::string &b)
 {  return a->Name()!=b; }
@@ -162,7 +162,7 @@ PreiseNewMod_All::PreiseNewMod_All()
 #include <fstream>
 #include <unistd.h>  
 #include "midgard_CG.hh"
-#include "TagStream.hh"
+#include <Misc/TagStream.h>
 
 // use this tag to determine whether this is a user defined item
 //Tag Preise::Tag_eigene_Artikel("Dinge");

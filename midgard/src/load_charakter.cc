@@ -19,7 +19,7 @@
 #include "midgard_CG.hh"
 #include <Misc/itos.h>
 
-#include "TagStream.hh"
+#include <Misc/TagStream.h>
 #include "WindowInfo.hh"
 #include "xml_fileselection.hh"
 //#include <SelectMatching.h>

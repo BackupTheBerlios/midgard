@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.118 2002/12/12 08:35:34 christof Exp $
+// $Id: midgard_CG_optionen.cc,v 1.119 2002/12/12 10:36:39 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,7 +20,7 @@
 #include "midgard_CG.hh"
 #include "WindowInfo.hh"
 #include <fstream>
-#include "TagStream.hh"
+#include <Misc/TagStream.h>
 #include <xml.h>
 #include <Misc/Trace.h>
 

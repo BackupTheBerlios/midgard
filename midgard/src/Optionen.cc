@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.107 2002/12/11 18:18:50 christof Exp $
+// $Id: Optionen.cc,v 1.108 2002/12/12 10:36:39 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,7 +26,7 @@
 #include "../pixmaps/NSC-Mode-32.xpm"
 //#include "MidgardBasicElement.hh" // nur für NotFound
 #include <fstream>
-#include "TagStream.hh"
+#include <Misc/TagStream.h>
 //#include "export_common.h"
 #include "midgard_CG.hh"
 #ifdef __MINGW32__
