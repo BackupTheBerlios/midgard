@@ -1,4 +1,4 @@
-// $Id: Ausgabe.cc,v 1.2 2003/07/15 06:09:10 christof Exp $
+// $Id: Ausgabe.cc,v 1.3 2003/08/02 22:27:43 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2003 Christof Petig
  *
@@ -39,7 +39,7 @@ extern std::string utf82iso(const std::string &s);
 #endif
 
 const char * const Verbose[Ausgabe::MaxLevel]=
-{  0,/*.Ausgabe::Warning=*/"Warnung", "Bitte Handeln",
+{  0,"Meldung",/*.Ausgabe::Warning=*/"Warnung", "Bitte Handeln",
    "Fehler", "Darf nicht sein"
 };
 

@@ -19,6 +19,7 @@
 
 #include "Zufall.hh"
 #include "Fertigkeiten_angeboren.hh"
+#include "zufall.h"
 
 Zufall::Zufall(Abenteurer &a) 
 : Aben(a),oldAben(Aben), lernpunkte(a)
@@ -26,10 +27,10 @@ Zufall::Zufall(Abenteurer &a)
 
 void Zufall::Voll()
 {
-  Teil(e_Vorgabe(0),oldAben);
+  Teil(e_Vorgabe::all,oldAben);
 }
 
-
+#if 0
 enum Zufall::B_VORGABE_BITS &operator++(enum Zufall::B_VORGABE_BITS &s)
 {  ++(int&)s;
    return s;
@@ -43,74 +44,53 @@ struct st_vor{bool spezies; bool typ; bool herkunft; bool angefert;
                   st(true),gs(true),gw(true),ko(true),
                   in(true),zt(true),au(true),pa(true),wk(true),sb(true),b(true){}
               };
-      
+#endif      
 
 void Zufall::Teil(e_Vorgabe vorgabe,const Abenteurer &A)
 { oldAben=A;
-  st_vor sv;
-  for(B_VORGABE_BITS i=B_VORGABE_BITS(0);i<B_MAX;++i)
-   {
-    if(!(vorgabe&(1<<i))) continue;
-    if (i==B_Spezies) sv.spezies=false;
-    if (i==B_Typ) sv.typ=false;
-    if (i==B_Herkunft) sv.herkunft=false;
-    if (i==B_AngeFert) sv.angefert=false;
-    if (i==B_St) sv.st=false;
-    if (i==B_Gs) sv.gs=false;
-    if (i==B_Gw) sv.gw=false;
-    if (i==B_Ko) sv.ko=false;
-    if (i==B_In) sv.in=false;
-    if (i==B_Zt) sv.zt=false;
-    if (i==B_Au) sv.au=false;
-    if (i==B_pA) sv.pa=false;
-    if (i==B_Wk) sv.wk=false;
-    if (i==B_Sb) sv.sb=false;
-    if (i==B_B)  sv.b=false;
-   }
 
-   if(sv.spezies)  Aben.getWerte().setSpezies(getSpezies());
+   if(vorgabe&B_Spezies)  Aben.getWerte().setSpezies(getSpezies());
    else            Aben.getWerte().setSpezies(oldAben.getWerte().Spezies());
    Aben.getWerte().gw_wuerfeln_2x();
-   if(!sv.st)       Aben.getWerte().setSt(oldAben.getWerte().St());
-   if(!sv.gs)       Aben.getWerte().setGs(oldAben.getWerte().Gs());
-   if(!sv.gw)       Aben.getWerte().setGw(oldAben.getWerte().Gw());
-   if(!sv.ko)       Aben.getWerte().setKo(oldAben.getWerte().Ko());
-   if(!sv.in)       Aben.getWerte().setIn(oldAben.getWerte().In());
-   if(!sv.zt)       Aben.getWerte().setZt(oldAben.getWerte().Zt());
+   if(vorgabe&B_St)       Aben.getWerte().setSt(oldAben.getWerte().St());
+   if(vorgabe&B_Gs)       Aben.getWerte().setGs(oldAben.getWerte().Gs());
+   if(vorgabe&B_Gw)       Aben.getWerte().setGw(oldAben.getWerte().Gw());
+   if(vorgabe&B_Ko)       Aben.getWerte().setKo(oldAben.getWerte().Ko());
+   if(vorgabe&B_In)       Aben.getWerte().setIn(oldAben.getWerte().In());
+   if(vorgabe&B_Zt)       Aben.getWerte().setZt(oldAben.getWerte().Zt());
    Aben.getWerte().Au_pA_wuerfeln();
    Aben.getWerte().setGeschlecht(getGeschlecht());
-   if(sv.typ || !oldAben.Valid())      Aben.setTyp1(getTyp());
+   if(!(vorgabe&B_Typ) || !oldAben.Valid())      Aben.setTyp1(getTyp());
    else             Aben.setTyp1(oldAben.Typ1());
    Aben.getWerte().abge_werte_setzen(Aben);
-   if(!sv.au)       Aben.getWerte().setAu(oldAben.getWerte().Au());
-   if(!sv.pa)       Aben.getWerte().setpA(oldAben.getWerte().pA());
-   if(!sv.wk)       Aben.getWerte().setWk(oldAben.getWerte().Wk());
-   if(!sv.sb)       Aben.getWerte().setSb(oldAben.getWerte().Sb());
-   if(!sv.b)        Aben.getWerte().setB(oldAben.getWerte().B());
+   if(vorgabe&B_Au)       Aben.getWerte().setAu(oldAben.getWerte().Au());
+   if(vorgabe&B_pA)       Aben.getWerte().setpA(oldAben.getWerte().pA());
+   if(vorgabe&B_Wk)       Aben.getWerte().setWk(oldAben.getWerte().Wk());
+   if(vorgabe&B_Sb)       Aben.getWerte().setSb(oldAben.getWerte().Sb());
+   if(vorgabe&B_B)        Aben.getWerte().setB(oldAben.getWerte().B());
    
-   if(sv.herkunft) Aben.getWerte().setHerkunft(getLand());
+   if(!(vorgabe&B_Herkunft)) Aben.getWerte().setHerkunft(getLand());
    else            Aben.getWerte().setHerkunft(oldAben.getWerte().Herkunft());
    setMuttersprache();
    Aben.getWerte().setUeberleben(getUeberleben());
-   if(sv.angefert) setAngebFert();
+   if(!(vorgabe&B_AngeFert)) setAngebFert();
    else            Aben.List_Fertigkeit_ang()=oldAben.List_Fertigkeit_ang();
    Lernschema();
    setBeruf();
-   hauptfenster->table_lernschema->geld_wuerfeln();
+   lernpunkte.geld_wuerfeln();
    setWaffenBesitz();
-   hauptfenster->table_lernschema->on_button_ruestung_clicked(Random::W100());
-   hauptfenster->table_lernschema->ausruestung_setzen();
+   lernpunkte.on_button_ruestung_clicked(Random::W100());
+   lernpunkte.ausruestung_setzen();
 }
 
 extern std::vector<MBEmlt> List_to_Vector(std::list<MBEmlt> L,const Abenteurer& Aben,int lp);
-
 
 void Zufall::setAngebFert()
 {
    Aben.setAngebFert();
    int wurf;
    do{
-      wurf=Random::integer(0,100); 
+      wurf=Random::W100(); 
       if(wurf==100) 
        { std::list<MBEmlt> L=LL.getMBEm(Aben,LernListen::lAngebFert);
          std::vector<MBEmlt> V=List_to_Vector(L,Aben,99);
@@ -119,7 +99,7 @@ void Zufall::setAngebFert()
          cH_Fertigkeit_angeborene F(V[i]->getMBE());
          Aben.setAngebSinnFert(F->Min(),V[i]);
        }
-      else hauptfenster->table_lernschema->AngebFert_gewuerfelt(wurf);
+      else lernpunkte.AngebFert_gewuerfelt(wurf);
      }while (wurf==100);
   Aben.List_Fertigkeit_ang().sort();
   Aben.List_Fertigkeit_ang().unique();

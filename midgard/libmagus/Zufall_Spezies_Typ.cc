@@ -17,18 +17,11 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// generated 2002/9/6 20:10:27 CEST by thoma@Tiger.(none)
-// using glademm V1.1.1c_cvs
-//
-// newer (non customized) versions of this file go to table_zufall.cc_new
-
-// This file is for your program, I won't touch it again!
-
 #include "Zufall.hh"
 #include "Spezies.hh"
 #include "Sprache.hh"
-#include "midgard_CG.hh"
-
+#include "Ausgabe.hh"
+#include "zufall.h"
 
 cH_Spezies Zufall::getSpezies() const
 {
@@ -54,9 +47,9 @@ cH_Typen Zufall::getTyp() const
 
 Enums::StadtLand Zufall::getStadtLand() const
 {
-  if     (hauptfenster->getWerte().Spezies()->Land()) return Enums::Land;
-  else if(!hauptfenster->getChar()->Typ1()->Stadt())  return Enums::Land;
-  else if(!hauptfenster->getChar()->Typ1()->Land()) return Enums::Stadt;
+  if     (Aben.getWerte().Spezies()->Land()) return Enums::Land;
+  else if(!Aben.Typ1()->Stadt())  return Enums::Land;
+  else if(!Aben.Typ1()->Land()) return Enums::Stadt;
 
   int i=Random::integer(0,1);
   if     (i==0) return Enums::Stadt;
@@ -73,7 +66,8 @@ cH_Land Zufall::getLand() const
     {
       if(i->second) V.push_back(i->first) ;
     }
-   if(V.empty()){std::cerr << "Konnte kein Land wählen\n"; return cH_Land("Alba");}
+   if(V.empty())
+   {  Ausgabe(Ausgabe::Warning,"Konnte kein Land wählen"); return cH_Land("Alba");}
    int i=Random::integer(0,V.size()-1);
    return V[i];   
 }

@@ -23,10 +23,12 @@
 #include <fstream>
 #include "Zauber.hh"
 #include <Misc/itos.h>
-#include "xml_fileselection.hh"
 #include "recodestream.h"
 #include <Misc/mystring.h>
 #include "Ausgabe.hh"
+#include "Abenteurer.hh"
+#include "Datenbank.hh"
+#include "spielleiter_export.hh"
 
 #if 0
 void midgard_CG::on_exportieren_activate()
@@ -40,14 +42,16 @@ void midgard_CG::on_kompletter_export_activate()
 }
 #endif
 
+static void spielleiter_export_save_zauber(const Abenteurer &Char, std::ostream& fout);
+
 void spielleiter_export_save(const Abenteurer &Char,const std::string& dateiname)
 {
-  std::string strinfo = "Datei '"+dateiname+"' enthält nun die Daten des ";
-  strinfo +="Abenteurers im Format für Midgard Publikationen\n";
-  Ausgabe(Ausgabe::Debug,strinfo);
+  std::string strinfo = "Datei '"+dateiname+"' enthält nun die Daten des "
+     "Abenteurers im Format für Midgard Publikationen";
+  Ausgabe(Ausgabe::Log,strinfo);
   std::ofstream fout2(dateiname.c_str());
   orecodestream fout(fout2);
-  Grundwerte &W=Char.getWerte();
+  const Grundwerte &W=Char.getWerte();
   fout << W.Name_Abenteurer()<<", "
       <<Char.Typ1()->Name(W.Geschlecht())
       <<"               Gr "<<W.Grad()<<"\n";
@@ -94,7 +98,7 @@ void spielleiter_export_save(const Abenteurer &Char,const std::string& dateiname
     std::string schaden;
     bool besitz=false;
     {WaffeBesitz WB(w,w->Name(),0,0,"","");
-    schaden= "$"+WB.Schaden(getWerte(),w->Name())+"$";
+    schaden= "$"+WB.Schaden(Char,w->Name())+"$";
     }
     for(std::list<H_WaffeBesitz>::const_iterator j=Char.List_Waffen_besitz().begin();j!=Char.List_Waffen_besitz().end();++j)
      {
@@ -106,7 +110,7 @@ void spielleiter_export_save(const Abenteurer &Char,const std::string& dateiname
 //LaTeX          if (WB->av_Bonus()!=0 || WB->sl_Bonus()!=0) name +="$^*$";
           if (WB->av_Bonus()!=0 || WB->sl_Bonus()!=0) name +="*";
           wert += WB->av_Bonus() + WB->Waffe()->WM_Angriff((**j)->Name());
-          schaden=WB->Schaden(Char.getWerte(),(*WB)->Name());
+          schaden=WB->Schaden(Char,(*WB)->Name());
         }
       }
     angriff += name+"+"+itos(wert)+" ("+schaden+"), ";
@@ -145,7 +149,7 @@ void spielleiter_export_save(const Abenteurer &Char,const std::string& dateiname
  fout << fert << "\n";
 
  std::string sinne;
- std::list<MBEmlt> vsinne=getWerte().Sinne() ;
+ std::list<MBEmlt> vsinne=Char.getWerte().Sinne() ;
  for (std::list<MBEmlt>::const_iterator i=vsinne.begin();i!=vsinne.end();++i)
   {
       sinne += (*(*i))->Name()+"+"+itos((*i)->Erfolgswert())+", ";
@@ -158,7 +162,7 @@ void spielleiter_export_save(const Abenteurer &Char,const std::string& dateiname
    {
       sprache += (*(*i))->Name()+"+"+itos((*i)->Erfolgswert())+", ";
    }
- std::list<MBEmlt> verwandteSprachen=Sprache::getVerwandteSprachen(getChar()->List_Sprache(),getCDatabase().Sprache);
+ std::list<MBEmlt> verwandteSprachen=Sprache::getVerwandteSprachen(Char.List_Sprache(),Datenbank.Sprache);
  for (std::list<MBEmlt>::const_iterator i=verwandteSprachen.begin();i!=verwandteSprachen.end();++i)
    {
       sprache += (*(*i))->Name()+"+("+itos((*i)->Erfolgswert())+"), ";
@@ -178,13 +182,13 @@ void spielleiter_export_save(const Abenteurer &Char,const std::string& dateiname
 
  // Zauber
  if (Char.List_Zauber().size()!=0)
-    spielleiter_export_save_zauber(fout);
+    spielleiter_export_save_zauber(Char,fout);
  fout << W.Beschreibung()<<'\n';
 }
 
-void midgard_CG::spielleiter_export_save_zauber(const Abenteurer &Char, std::ostream& fout)
+static void spielleiter_export_save_zauber(const Abenteurer &Char, std::ostream& fout)
 {
-  Grundwerte &W=Char.getWerte();
+//  Grundwerte &W=Char.getWerte();
   std::map<int,std::list<MBEmlt> > ZL;
   for (std::list<MBEmlt>::const_iterator i=Char.List_Zauber().begin();i!=Char.List_Zauber().end();++i)
      ZL[cH_Zauber((*i)->getMBE())->Erfolgswert_Z(Char)].push_back(*i);

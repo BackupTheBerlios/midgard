@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.31 2003/08/02 14:55:38 christof Exp $
+# $Id: Makefile.am,v 1.32 2003/08/02 22:27:43 christof Exp $
 
 AM_CPPFLAGS = @CPPFLAGS@ @COMMONXX_INCLUDES@ $(WIN_INCLUDES) -I.. \
 	@SIGC_CFLAGS@ -DSIGC1_2 @XMLPP_CFLAGS@ @COMMONGTK2_INCLUDES@
@@ -7,7 +7,7 @@ AM_LDFLAGS = @COMMONXX_LDFLAGS@
 
 CLEANFILES = *~
 
-EXTRA_PROGRAMS= test readxml readxml2
+EXTRA_PROGRAMS= test readxml readxml2 torture
 
 registry.h: ../win32/registry.h ; ln -sf ../win32/$@ .
 registry.cc: ../win32/registry.cc ; ln -sf ../win32/$@ .
@@ -19,6 +19,7 @@ PORT_FILES=
 endif
 
 test_SOURCES=test.cc
+torture_SOURCES=torture.cc
 readxml_SOURCES=readxml.cc
 readxml2_SOURCES=readxml2.cc
 
@@ -44,6 +45,7 @@ libmagus_a_SOURCES=MidgardBasicElement.cc Zauber.cc KiDo.cc \
 	$(EXTRA_QUELLEN)
 
 test_LDADD = libmagus.a @COMMONXX_LIBS@ @SIGC_LIBS@
+torture_LDADD = libmagus.a @COMMONXX_LIBS@ @SIGC_LIBS@
 readxml_LDADD = @COMMONXX_LIBS@ @SIGC_LIBS@
 readxml2_LDADD = @XMLPP_LIBS@
 

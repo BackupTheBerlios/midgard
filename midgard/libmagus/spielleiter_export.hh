@@ -1,6 +1,5 @@
-/* $Id: zufall.h,v 1.6 2003/08/02 22:27:43 christof Exp $ */
+// $Id: spielleiter_export.hh,v 1.1 2003/08/02 22:29:02 christof Exp $               
 /*  Midgard Character Generator
- *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -17,20 +16,13 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
-#ifndef _ZUFALL_H
-#  define _ZUFALL_H 
 
-// nicht übermäßig glücklich, das in einem h File zu machen ...
-#include <stdlib.h>
+#ifndef SPIELLEITER_EXPORT_HH
+#define SPIELLEITER_EXPORT_HH
 
-// namespace erzeugt warnungen ... ohne static sind sie mehrmals definiert
-struct Random {
-        static int integer(int min, int max)
-        {return min + int(((max-min+1.)*rand())/(RAND_MAX+1.0)); }
-        static int W3() { return integer(1,3); }
-        static int W6() { return integer(1,6); }
-        static int W10() { return integer(1,10); }
-        static int W20() { return integer(1,20); }
-        static int W100() { return integer(1,100); }
-};
+class Abenteurer;
+#include <iosfwd>
+
+void spielleiter_export_save(const Abenteurer &Char,const std::string& dateiname);
+
 #endif

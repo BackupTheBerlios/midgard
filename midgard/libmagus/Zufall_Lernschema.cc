@@ -23,15 +23,15 @@
 #include "Land.hh"
 #include "WaffeGrund.hh"
 #include "class_lernpunkte.hh"
-#include "midgard_CG.hh"
 #include <Misc/relops.h>
 //#include <Misc/relops.h>
+#include "Ausgabe.hh"
+#include "zufall.h"
 
 enum Zufall::eFAUWZ &operator++(enum Zufall::eFAUWZ &s)
 {  ++(int&)s;
    return s;
 }
-
 
 void Zufall::Lernschema()
 {
@@ -129,7 +129,7 @@ reloop:
          ci=find(V.begin(),V.end(),MBEmlt(&*cH_Fertigkeit("Schreiben: Muttersprache(+9)")));
 //         if(ci==V.end()) assert(!"Muttersprache nicht im Lernschema gefunden");
          if(ci==V.end()) 
-            { std::cerr << "Zu blöd für Schreiben: Muttersprache(+9)\n";
+            { Ausgabe(Ausgabe::Warning,"Zu blöd zum Schreiben: Muttersprache(+9)");
 //              const_cast<Lernpunkte&>(lernpunkte).set_schreiben_pflicht_allg(true);
               throw std::exception();
             }
@@ -141,14 +141,16 @@ reloop:
          mutter_12=false;
          ci=find(V.begin(),V.end(),MBEmlt(&*cH_Fertigkeit("Schreiben: Muttersprache(+12)")));
          if(ci==V.end()) 
-            { std::cerr << "Zu blöd für Schreiben: Muttersprache(+12)\n";
+            { Ausgabe(Ausgabe::Warning,"Zu blöd zum Schreiben: Muttersprache(+12)");
               const_cast<Lernpunkte&>(lernpunkte).set_schreiben_pflicht_allg(true);
               throw std::exception();
             }
 //cout << Aben.Typ1()->Name(Enums::Mann) <<" lernt Fach Sprache\n";
        }
      else i=Random::integer(0,V.size()-1);
-     }catch(std::exception &e){std::cerr << e.what()<<'\n';i=Random::integer(0,V.size()-1);} 
+     }catch(std::exception &e){
+        Ausgabe(Ausgabe::Error,std::string("Lernpunkte_verteilen: Exception ")+e.what());
+        i=Random::integer(0,V.size()-1);} 
 //if(i==0)
 //cout << V[0]->Name()<<'\t'<<V[0].Lernpunkte()<<'\t'<<V[0].Pflicht()<<'\n';
      MBEmlt M=V[0];
@@ -164,7 +166,7 @@ reloop:
      L.remove(M); // Die nächste Methode ändert 'M' daher muß es HIER entfernt werden
 
      if((*M)->What()==MidgardBasicElement::FERTIGKEIT) 
-       {  cH_Fertigkeit((*M).getMBE())->get_region_lp(lp,Aben,hauptfenster->getCDatabase()); 
+       {  cH_Fertigkeit((*M).getMBE())->get_region_lp(lp,Aben); 
           if ((*M)->Name()=="Muttersprache")
              Sprache::setErfolgswertMuttersprache(M,Aben.getWerte().In(),cH_Fertigkeit(M->getMBE())->AttributBonus(Aben.getWerte()));
           else if((*M)->Name()=="Gastlandsprache")
@@ -259,7 +261,7 @@ MBEmlt Zufall::getZusatz(MidgardBasicElement::eZusatz was,MBEmlt& MBE,bool nachb
 /*
   for (std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=VG.begin();i!=VG.end();++i)
    {
-     if(hauptfenster->region_check(i->region)) V.push_back(*i);
+     if(???char->region_check(i->region)) V.push_back(*i);
    }
 */
   if(V.empty()) return MBE;
@@ -337,8 +339,8 @@ void Zufall::setBeruf()
   std::vector<MBEmlt> V=List_to_Vector(L,Aben,99);
   if(V.empty()) return;
   int i=Random::integer(0,V.size()-1);
-  hauptfenster->getChar()->List_Beruf().clear();
-  hauptfenster->getChar()->List_Beruf().push_back(V[i]);
+  Aben.List_Beruf().clear();
+  Aben.List_Beruf().push_back(V[i]);
   
   BerufsKategorie BKat;
   BKat.wuerfeln(Random::W100());

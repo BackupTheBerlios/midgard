@@ -23,8 +23,8 @@
 #include "Enums.hh" 
 #include "AbenteurerLernpunkte.hh"
 #include "Abenteurer.hh"
-#include "zufall.h"
 #include <Misc/bitmask.h>
+#include <LernListen.hh>
 
 class Zufall
 {
