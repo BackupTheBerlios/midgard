@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.cc,v 1.16 2002/06/27 07:37:18 christof Exp $
+// $Id: arkanum_exp.cc,v 1.17 2002/10/23 16:26:48 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -29,13 +29,25 @@ int main(int argc, char *argv[])
       conn.setDbase("midgard");
       ManuProC::dbconnect(conn);
       
-      if (argc>1) region=argv[1];
+      std::string revision="$Revi""sion$";
+      std::string file="/dev/stdout";
+
+   if (argc>1) region=argv[1];
+   if (argc>2) file=argv[2];
+   
+   try
+   {  TagStream in(file);
+      revision=in.getContent().getAttr("CVS","$Revi""sion$");
+   }
+   catch (std::exception) { }
 
       TagStream ts;
       Tag &data=ts.push_back(Tag("MAGUS-data"));
       region_tags(data,region.empty()?std::string("Arkanum"):region);
       arkanum_speichern(data);
-      ts.write(std::cout);
+   {  ofstream of(file.c_str());
+      ts.write(of);
+   }
    ManuProC::dbdisconnect();
    } catch (SQLerror &e)
    {  std::cerr << e << '\n';
