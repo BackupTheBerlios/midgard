@@ -1,4 +1,13 @@
 ##########################################################################
+NEWS IN VERSION 0.5beta4
+- Bug beim Laden von Charakteren beseitigt (durch 2. Charakterklasse entstanden)
+- Bug bei den angeborenen Fertigkeiten beseitigt (100 funktionierte nicht)
+- Überarbeitung der graphischen Oberfläche: Viele Elemente werden jetzt erst
+   dann angezeigt, wenn man sie benötigt. Hat noch jemand Verbesserungsvorschläge?
+- Hilfe überarbeitet
+
+
+##########################################################################
 NEWS IN VERSION 0.5beta3
 - Charakterbeschreibung darf nun beliebig lang sein.
 - viele kleinere Bugs beseitigt

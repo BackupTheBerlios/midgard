@@ -1,4 +1,4 @@
-// $Id: Window_hilfe.cc,v 1.15 2001/05/30 15:08:16 thoma Exp $
+// $Id: Window_hilfe.cc,v 1.16 2001/06/06 19:06:42 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -46,10 +46,10 @@ string Window_hilfe::hilfetext()
 string s="
 1. Generierung eines neuen Charakters
 
-* Spezies wählen
+* Spezies wählen (wenn es KEIN Mensch sein soll)
 * Grundwerte würfeln (eventuell editieren)
-* Geschlecht wählen
-* Charaktertyp wählen
+* Geschlecht wählen (wenn es KEIN Mann sein soll)
+* Charaktertyp wählen (wenn es KEIN Assassine sein soll)
 * Abgeleitete Werte würfeln (eventuell editieren)
 * Werte editieren: 'Name des Charakters' und 'Version' eintragen, unter diesen
    beiden Angaben wird der Charakter in der Datenbank gespeichert.
@@ -59,20 +59,26 @@ string s="
 * Lernpunkte würfeln (eventuell editieren)
 * Beruf wählen
 * Erfolgswert für Beruf würfeln
-* Fertigkeiten auswählen
-* Angeborene Fertigkeit auswürfeln
+* Fertigkeiten auswählen 
+* Angeborene Fertigkeit auswürfeln (mit der RECHTEN Maustaste könenn die Fertigkeiten 
+   explizit gewählt werden.)
 * Waffen auswählen
 * Spezialwaffe wählen (nicht für Zauberer und Barden)
 * Zauber auswählen (nicht für Kämpfer außer Barde und Ordenskrieger)
 * Magier wählen einen Spezialbereich
 * Geld und Waffen würfeln (oder aussuchen)
-* Rüstung auswürfeln (kann über 'Steigern' auch ausgesucht werden)
+* Rüstung auswürfeln (kann über 'Steigern' auch ausgesucht werden 
+   wenn der Charakter vorher abgespeichert wird)
 * bei Bedarf Charakterbeschreibung eingeben und ausdrucken.
+   Es ist zu beachten, daß die Beschriebung als LaTeX Dokument verarbeitet wird.
+   Dadurch ist gewährleistet, daß man nahezu alle Zeichen darstellen kann.
+   Allerdings sind einige Symbole nur über LaTeX Komandos erhältlich.
+   Für Anführungszeichen muß man bspw. '\\glqq' bzw '\\grqq' verwenden.
 * Charakter speichern (in der Datenbank unter dem Schlüssel 
    'Charaktername und Version'
 * Charakter drucken (Es wird ein druckfertiges Postscriptdokument mit 'gv'
    angezeigt, der Ausdruck kann dann aus diesem Programm heraus erfolgen. 
-
+   
 2. Steigern eines Charakters 
 
 * Charakter laden (Wenn ein Charaktername und eine Version eingetragen sind,
@@ -106,10 +112,12 @@ string s="
    Links die Sprachen, rechts die Schriften. Oben jeweils die, die ein 
    Charakter beherrscht, unten die, die er lernen kann.
 
-Anmerkungen:
+Anmerkungen zu einigen Features
+
   Einige Funktionen, die nur selten benutzt werden, können über die rechte 
   Maustaste aufgrufen werden. Dies sind im Einzelnen:
 * Charakter speichern      -> xml-Format exportieren 
+* Charakter laden          -> xml-Format importieren 
 * LaTeX Charakterblatt     -> Export im Format für Midgard Abenteuer
 * angeborene Fertigkeiten  -> eingeben (statt würfeln) der angeborenen Fertigkeiten
 

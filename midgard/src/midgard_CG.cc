@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.32 2001/05/30 15:08:16 thoma Exp $
+// $Id: midgard_CG.cc,v 1.33 2001/06/06 19:06:42 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -187,6 +187,34 @@ void midgard_CG::on_button_waffen_s_clicked()
 
 void midgard_CG::on_neuer_charakter_clicked()
 {
+   button_abg_werte->set_sensitive(false);
+   button_herkunft->set_sensitive(false);
+   button_sprache->set_sensitive(false);
+   button_beschreibung->set_sensitive(false);
+//   frame_steigern->set_sensitive(false);
+//   frame_lernschema->set_sensitive(false);
+   frame_steigern->hide();//set_sensitive(false);
+   frame_lernschema->hide();//set_sensitive(false);
+
+   button_geld_waffen->set_sensitive(false);
+   button_ruestung->set_sensitive(false);
+
+   hbox_beruf->set_sensitive(false);
+   table_beruf->set_sensitive(false);
+   hbox_fertigkeit->set_sensitive(false);
+   table_fertigkeit->set_sensitive(false);
+   hbox_waffen->set_sensitive(false);
+   table_waffen->set_sensitive(false);
+   hbox_zauber->set_sensitive(false);
+   table_magier_lernen->set_sensitive(false);
+   hbox_kido->set_sensitive(false);
+   table_kido_lernen->set_sensitive(false);
+
+
+   button_beruf_erfolgswert->set_sensitive(false);
+   button_fertigkeiten->set_sensitive(false);
+   button_kido_auswahl->set_sensitive(false);       
+
    vec_fertigkeiten.clear();
    vec_an_fertigkeit.clear();
    vec_waffen.clear();

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.16 2001/05/30 15:08:16 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.17 2001/06/06 19:06:42 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -81,6 +81,9 @@ XXX */
        if (i->name=="KiDo-Technik") {vec_fertigkeiten.erase(i);break;}
       
    midgard_CG::show_fertigkeiten();
+
+   hbox_waffen->set_sensitive(true);
+   table_waffen->set_sensitive(true);
 }
 
 gint midgard_CG::on_angeborene_fertigkeit_button_release_event(GdkEventButton *event)
@@ -90,6 +93,7 @@ gint midgard_CG::on_angeborene_fertigkeit_button_release_event(GdkEventButton *e
       vec_an_fertigkeit.push_back(st_angeborene_fertigkeit("Nachtsicht",0));
   if (event->button==1) midgard_CG::on_angeborene_fertigkeit_clicked() ;
   if (event->button==3) midgard_CG::on_angeborene_fertigkeit_right_clicked() ;
+  button_fertigkeiten->set_sensitive(true);
   return false;
 }
 
@@ -97,7 +101,7 @@ void midgard_CG::on_angeborene_fertigkeit_clicked()
 {
   Random random;
   int wurf = random.integer(1,100);
-//wurf = -1; /*debug*/
+//wurf = 100; /*debug*/
   while (wurf==100)
    {
       manage (new Window_angeb_fert(this,vec_an_fertigkeit,werte,wurf));

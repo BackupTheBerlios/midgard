@@ -1,4 +1,4 @@
-// $Id: midgard_CG_waffen.cc,v 1.14 2001/05/30 15:08:16 thoma Exp $
+// $Id: midgard_CG_waffen.cc,v 1.15 2001/06/06 19:06:42 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -47,6 +47,14 @@ void midgard_CG::waffen_uebernehmen(vector<st_ausgewaehlte_waffen>& saw, map<str
    vec_waffen = saw;
    waffen_grundkenntnisse = wg;
    midgard_CG::show_waffen();
+   button_geld_waffen->set_sensitive(true);
+   button_ruestung->set_sensitive(true);   
+
+   hbox_zauber->set_sensitive(true); 
+   table_magier_lernen->set_sensitive(true);
+   hbox_kido->set_sensitive(true);
+   table_kido_lernen->set_sensitive(true);
+
 }
 
 void midgard_CG::on_waffen_clist_select_row(gint row, gint column, GdkEvent *event)

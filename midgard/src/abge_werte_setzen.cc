@@ -1,4 +1,4 @@
-// $Id: abge_werte_setzen.cc,v 1.15 2001/05/30 15:08:16 thoma Exp $
+// $Id: abge_werte_setzen.cc,v 1.16 2001/06/06 19:06:42 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -97,6 +97,11 @@ void midgard_CG::on_abge_werte_setzen_clicked()
 
   get_Ausnahmen();
   midgard_CG::zeige_werte(werte,"alle");
+  button_herkunft->set_sensitive(true);
+  button_sprache->set_sensitive(true);
+  button_beschreibung->set_sensitive(true);
+//  frame_steigern->show();  
+  frame_lernschema->show();
 }
 
 

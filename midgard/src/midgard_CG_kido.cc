@@ -1,4 +1,4 @@
-// $Id: midgard_CG_kido.cc,v 1.13 2001/05/30 15:08:16 thoma Exp $
+// $Id: midgard_CG_kido.cc,v 1.14 2001/06/06 19:06:42 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -65,4 +65,5 @@ void midgard_CG::stil_optionmenue()
   if (ityp==optionmenu_KiDo_Stile::sanft) werte.spezialisierung="Sanfte Techniken";
   if (ityp==optionmenu_KiDo_Stile::hart) werte.spezialisierung="Harte Techniken";
   if (ityp==optionmenu_KiDo_Stile::gemischt) werte.spezialisierung="Gemischte Techniken";
+  button_kido_auswahl->set_sensitive(true);
 }

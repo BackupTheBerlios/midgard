@@ -34,7 +34,7 @@ gint midgard_CG::on_laden_release_event(GdkEventButton *ev)
  
 void midgard_CG::xml_import(const string& datei)
 {
-cout << datei << "\n";
+//cout << datei << "\n";
   string command = "midgard_xmlimport < "+datei;
   system(command.c_str());
   string strinfo = "Charakter aus Datei "+datei+" importiert\n";
@@ -55,6 +55,14 @@ void midgard_CG::select_charakter(const string& name, const string& version)
   werte.name_charakter=name;
   werte.version=version;
   midgard_CG::load_charakter();
+  button_abg_werte->set_sensitive(true);
+  button_herkunft->set_sensitive(true);
+  button_sprache->set_sensitive(true);
+  button_beschreibung->set_sensitive(true);
+//  frame_steigern->set_sensitive(true);
+//  frame_lernschema->set_sensitive(true);
+  frame_steigern->show();
+  frame_lernschema->show();
 }
 
 
@@ -134,7 +142,7 @@ void midgard_CG::load_charakter()
          beschreibung   ,
          version        ,
          typ_s          ,
-         typ_2_s          ,
+         coalesce(typ_2_s,'')          ,
          spieler_name   ,
          st             ,
          ge             ,

@@ -1,4 +1,4 @@
-/* $Id: zufall.h,v 1.11 2001/05/30 15:08:17 thoma Exp $ */
+/* $Id: zufall.h,v 1.12 2001/06/06 19:06:42 thoma Exp $ */
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *

@@ -1,4 +1,4 @@
-// $Id: LaTeX_zauber.cc,v 1.16 2001/05/30 15:08:16 thoma Exp $
+// $Id: LaTeX_zauber.cc,v 1.17 2001/06/06 19:06:42 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *

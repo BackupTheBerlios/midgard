@@ -26,6 +26,7 @@ gint midgard_CG::on_speichern_release_event(GdkEventButton *ev)
 {
   if (ev->button==1) midgard_CG::on_speichern_clicked();
   if (ev->button==3) midgard_CG::xml_export();
+  frame_steigern->show();
   return false;
 }
 

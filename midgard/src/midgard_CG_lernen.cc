@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.17 2001/05/30 15:08:16 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.18 2001/06/06 19:06:42 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -45,11 +45,13 @@ void midgard_CG::on_lernpunkte_wuerfeln_clicked()
      alter->set_text(itos(werte.alter));
    }
   midgard_CG::zeige_lernpunkte();
+  zeige_notebook();
 }
 
 void midgard_CG::on_lernpunkte_editieren_clicked()
 {
   manage(new Window_lernpunkte_editieren(this,lernpunkte)); 
+  zeige_notebook();
 }
 
 void midgard_CG::setze_lernpunkte(st_lernpunkte& l)
@@ -82,3 +84,19 @@ void midgard_CG::waffe_besitz_uebernehmen(vector<st_waffen_besitz>& wbu)
  waffe_besitz = wbu;
 }
 
+void midgard_CG::zeige_notebook()
+{
+   hbox_beruf->set_sensitive(true);
+   table_beruf->set_sensitive(true);
+/*
+   hbox_fertigkeit->set_sensitive(true);
+   table_fertigkeit->set_sensitive(true);
+   hbox_waffen->set_sensitive(true);
+   table_waffen->set_sensitive(true);
+   hbox_zauber->set_sensitive(true); 
+   table_magier_lernen->set_sensitive(true);
+   hbox_kido->set_sensitive(true);
+   table_kido_lernen->set_sensitive(true);
+
+*/
+}

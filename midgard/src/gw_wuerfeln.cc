@@ -1,4 +1,4 @@
-// $Id: gw_wuerfeln.cc,v 1.13 2001/05/30 15:08:16 thoma Exp $
+// $Id: gw_wuerfeln.cc,v 1.14 2001/06/06 19:06:42 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,6 +37,7 @@ void midgard_CG::gw_wuerfeln()
  werte.zt = constraint_gw(random,spezies_constraint.zt);
 
  midgard_CG::zeige_werte(werte,"grund");
+ button_abg_werte->set_sensitive(true);
 }
 
 int midgard_CG::constraint_gw(Random& random,int constraint)

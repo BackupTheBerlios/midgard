@@ -2827,7 +2827,8 @@ Charakterblattt</label>
 	      <widget>
 		<class>GtkButton</class>
 		<child_name>Toolbar:button</child_name>
-		<name>button13</name>
+		<name>button_grundwerte</name>
+		<cxx_visibility>protected</cxx_visibility>
 		<signal>
 		  <name>clicked</name>
 		  <handler>gw_wuerfeln</handler>
@@ -2841,7 +2842,8 @@ würfeln</label>
 	      <widget>
 		<class>GtkButton</class>
 		<child_name>Toolbar:button</child_name>
-		<name>button14</name>
+		<name>button_abg_werte</name>
+		<cxx_visibility>protected</cxx_visibility>
 		<signal>
 		  <name>clicked</name>
 		  <handler>on_abge_werte_setzen_clicked</handler>
@@ -2869,7 +2871,8 @@ editieren</label>
 	      <widget>
 		<class>GtkButton</class>
 		<child_name>Toolbar:button</child_name>
-		<name>button16</name>
+		<name>button_herkunft</name>
+		<cxx_visibility>protected</cxx_visibility>
 		<signal>
 		  <name>clicked</name>
 		  <handler>on_herkunftsland_clicked</handler>
@@ -2886,7 +2889,8 @@ auswählen</label>
 	      <widget>
 		<class>GtkButton</class>
 		<child_name>Toolbar:button</child_name>
-		<name>button17</name>
+		<name>button_sprache</name>
+		<cxx_visibility>protected</cxx_visibility>
 		<signal>
 		  <name>clicked</name>
 		  <handler>on_muttersprache_clicked</handler>
@@ -2900,7 +2904,8 @@ wählen</label>
 	      <widget>
 		<class>GtkButton</class>
 		<child_name>Toolbar:button</child_name>
-		<name>button18</name>
+		<name>button_beschreibung</name>
+		<cxx_visibility>protected</cxx_visibility>
 		<signal>
 		  <name>clicked</name>
 		  <handler>on_charakter_beschreibung_clicked</handler>
@@ -3125,7 +3130,8 @@ beschreibung</label>
 
       <widget>
 	<class>GtkFrame</class>
-	<name>frame3</name>
+	<name>frame_lernschema</name>
+	<cxx_visibility>protected</cxx_visibility>
 	<label_xalign>0</label_xalign>
 	<shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
 
@@ -3166,7 +3172,8 @@ beschreibung</label>
 
 	    <widget>
 	      <class>GtkTable</class>
-	      <name>table31</name>
+	      <name>table_beruf</name>
+	      <cxx_visibility>protected</cxx_visibility>
 	      <rows>2</rows>
 	      <columns>3</columns>
 	      <homogeneous>False</homogeneous>
@@ -3289,7 +3296,8 @@ beschreibung</label>
 		<widget>
 		  <class>GtkButton</class>
 		  <child_name>Toolbar:button</child_name>
-		  <name>button30</name>
+		  <name>button_beruf_erfolgswert</name>
+		  <cxx_visibility>protected</cxx_visibility>
 		  <signal>
 		    <name>clicked</name>
 		    <handler>on_beruf_erfolgswert_clicked</handler>
@@ -3307,7 +3315,8 @@ beschreibung</label>
 	    <widget>
 	      <class>GtkHBox</class>
 	      <child_name>Notebook:tab</child_name>
-	      <name>hbox20</name>
+	      <name>hbox_beruf</name>
+	      <cxx_visibility>protected</cxx_visibility>
 	      <homogeneous>False</homogeneous>
 	      <spacing>0</spacing>
 
@@ -3347,7 +3356,8 @@ beschreibung</label>
 
 	    <widget>
 	      <class>GtkTable</class>
-	      <name>table32</name>
+	      <name>table_fertigkeit</name>
+	      <cxx_visibility>protected</cxx_visibility>
 	      <rows>2</rows>
 	      <columns>3</columns>
 	      <homogeneous>False</homogeneous>
@@ -3445,7 +3455,8 @@ beschreibung</label>
 		<widget>
 		  <class>GtkButton</class>
 		  <child_name>Toolbar:button</child_name>
-		  <name>button41</name>
+		  <name>button_fertigkeiten</name>
+		  <cxx_visibility>protected</cxx_visibility>
 		  <signal>
 		    <name>clicked</name>
 		    <handler>on_fertigkeiten_wahl_clicked</handler>
@@ -3477,7 +3488,8 @@ beschreibung</label>
 	    <widget>
 	      <class>GtkHBox</class>
 	      <child_name>Notebook:tab</child_name>
-	      <name>hbox21</name>
+	      <name>hbox_fertigkeit</name>
+	      <cxx_visibility>protected</cxx_visibility>
 	      <homogeneous>False</homogeneous>
 	      <spacing>0</spacing>
 
@@ -3517,7 +3529,8 @@ beschreibung</label>
 
 	    <widget>
 	      <class>GtkTable</class>
-	      <name>table33</name>
+	      <name>table_waffen</name>
+	      <cxx_visibility>protected</cxx_visibility>
 	      <rows>2</rows>
 	      <columns>3</columns>
 	      <homogeneous>False</homogeneous>
@@ -3662,7 +3675,8 @@ Waffe selektieren)</label>
 	    <widget>
 	      <class>GtkHBox</class>
 	      <child_name>Notebook:tab</child_name>
-	      <name>hbox22</name>
+	      <name>hbox_waffen</name>
+	      <cxx_visibility>protected</cxx_visibility>
 	      <homogeneous>False</homogeneous>
 	      <spacing>0</spacing>
 
@@ -3844,7 +3858,8 @@ Waffe selektieren)</label>
 	    <widget>
 	      <class>GtkHBox</class>
 	      <child_name>Notebook:tab</child_name>
-	      <name>hbox23</name>
+	      <name>hbox_zauber</name>
+	      <cxx_visibility>protected</cxx_visibility>
 	      <homogeneous>False</homogeneous>
 	      <spacing>0</spacing>
 
@@ -3867,7 +3882,7 @@ Waffe selektieren)</label>
 
 	      <widget>
 		<class>GtkPixmap</class>
-		<name>pixmap29</name>
+		<name>pixmap58</name>
 		<filename>Zauber-trans-50.xpm</filename>
 		<xalign>0.5</xalign>
 		<yalign>0.5</yalign>
@@ -4010,6 +4025,7 @@ Waffe selektieren)</label>
 		  <class>GtkButton</class>
 		  <child_name>Toolbar:button</child_name>
 		  <name>button_kido_auswahl</name>
+		  <cxx_visibility>protected</cxx_visibility>
 		  <signal>
 		    <name>clicked</name>
 		    <handler>on_kido_wahl_clicked</handler>
@@ -4062,7 +4078,8 @@ gemischt
 	    <widget>
 	      <class>GtkHBox</class>
 	      <child_name>Notebook:tab</child_name>
-	      <name>hbox30</name>
+	      <name>hbox_kido</name>
+	      <cxx_visibility>protected</cxx_visibility>
 	      <homogeneous>False</homogeneous>
 	      <spacing>0</spacing>
 
@@ -4327,7 +4344,8 @@ editieren</label>
 	    <widget>
 	      <class>GtkButton</class>
 	      <child_name>Toolbar:button</child_name>
-	      <name>button21</name>
+	      <name>button_geld_waffen</name>
+	      <cxx_visibility>protected</cxx_visibility>
 	      <signal>
 		<name>clicked</name>
 		<handler>on_button_geld_waffen_clicked</handler>
@@ -4344,7 +4362,8 @@ Waffen</label>
 	    <widget>
 	      <class>GtkButton</class>
 	      <child_name>Toolbar:button</child_name>
-	      <name>button22</name>
+	      <name>button_ruestung</name>
+	      <cxx_visibility>protected</cxx_visibility>
 	      <signal>
 		<name>clicked</name>
 		<handler>on_button_ruestung_clicked</handler>
@@ -4422,6 +4441,7 @@ würfeln</label>
 	<class>GtkLabel</class>
 	<child_name>Notebook:tab</child_name>
 	<name>fertigkeiten</name>
+	<cxx_visibility>protected</cxx_visibility>
 	<label>Lernschema</label>
 	<justify>GTK_JUSTIFY_CENTER</justify>
 	<wrap>False</wrap>
@@ -4433,7 +4453,8 @@ würfeln</label>
 
       <widget>
 	<class>GtkFrame</class>
-	<name>frame2</name>
+	<name>frame_steigern</name>
+	<cxx_visibility>protected</cxx_visibility>
 	<label_xalign>0</label_xalign>
 	<shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
 
@@ -8256,6 +8277,7 @@ Resistenz an Grad anpassen</label>
 	<class>GtkLabel</class>
 	<child_name>Notebook:tab</child_name>
 	<name>steigern</name>
+	<cxx_visibility>protected</cxx_visibility>
 	<label>Steigern</label>
 	<justify>GTK_JUSTIFY_CENTER</justify>
 	<wrap>False</wrap>
