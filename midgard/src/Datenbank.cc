@@ -1,4 +1,4 @@
-// $Id: Datenbank.cc,v 1.4 2002/01/23 09:00:51 thoma Exp $               
+// $Id: Datenbank.cc,v 1.5 2002/01/23 10:00:56 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -54,12 +54,12 @@
 Datenbank::Datenbank()
 {
     Midgard_Info *MI = manage(new Midgard_Info(true));
-    // wait for Window to appear
-    while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
 #ifndef USE_XML    
     try{
     Transaction tr;
 #endif    
+    // wait for Window to appear
+    while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
 #ifdef USE_XML
     xml_init(MI->get_progressbar_regionen());
 #endif

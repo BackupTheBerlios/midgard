@@ -116,6 +116,8 @@ void midgard_CG::xml_import(const std::string& datei)
          }
       }
    }
+
+ on_neuer_charakter_clicked();
    
    const Tag *Figur=top->find("Figur");
    const Tag *Typ=top->find("Typ");

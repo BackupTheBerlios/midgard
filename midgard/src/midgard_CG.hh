@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.141 2002/01/23 09:03:49 christof Exp $
+// $Id: midgard_CG.hh,v 1.142 2002/01/23 10:00:56 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -71,6 +71,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         struct st_OptionMenu{Gtk::CheckMenuItem *menu_original;
                              Gtk::CheckMenuItem *menu_info;
                              Gtk::CheckMenuItem *menu_pics;
+                             Gtk::MenuItem      *menu_sensitive;
                              Gtk::CheckMenuItem *menu_version;};
         st_OptionMenu OptionMenu;
 
