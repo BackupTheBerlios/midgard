@@ -39,8 +39,7 @@ void table_zufall::on_button_zufall_voll_clicked()
 //   hauptfenster->MOptionen->Ober_setzen_from_menu(Midgard_Optionen::NoInfoFenster,true);
    std::string noinfofenster=MO->OberCheck(Midgard_Optionen::NoInfoFenster).text;
    MO->setOber(noinfofenster,true);
-   LernListen LL(hauptfenster->getDatabase());
-   Abenteurer oldAben=hauptfenster->getChar().getCAbenteurer();
+   Abenteurer oldAben=hauptfenster->getAben();
    hauptfenster->getChar().push_back();
    hauptfenster->on_neuer_charakter_clicked();
    hauptfenster->table_lernschema->init(hauptfenster);
@@ -51,6 +50,19 @@ void table_zufall::on_button_zufall_voll_clicked()
    if(!togglebutton_vorgaben->get_active()) zufall.Voll();
    else
     {
+      Zufall::e_Vorgabe v=getVorgaben(oldAben);
+      zufall.Teil(v,oldAben);
+    }
+   }catch (std::exception &e) { cerr << e.what()<<'\n';}
+   MO->setOber(noinfofenster,old_value);
+   hauptfenster->frame_lernschema->set_sensitive(true);
+   hauptfenster->frame_steigern->set_sensitive(true);
+}
+
+
+Zufall::e_Vorgabe table_zufall::getVorgaben(Abenteurer& oldAben) const
+{
+   LernListen LL(hauptfenster->getDatabase());
       Zufall::e_Vorgabe v=Zufall::e_Vorgabe(0);
       if(checkbutton_spezies->get_active()) 
          { v=Zufall::e_Vorgabe(v|Zufall::eSpezies);
@@ -128,12 +140,7 @@ void table_zufall::on_button_zufall_voll_clicked()
              oldAben.getWerte().setB(spinbutton_b->get_value_as_int());
            }
         }
-      zufall.Teil(v,oldAben);
-    }
-   }catch (std::exception &e) { cerr << e.what()<<'\n';}
-   MO->setOber(noinfofenster,old_value);
-   hauptfenster->frame_lernschema->set_sensitive(true);
-   hauptfenster->frame_steigern->set_sensitive(true);
+  return v;
 }
 
 void table_zufall::on_togglebutton_vorgaben_toggled()
@@ -170,7 +177,7 @@ void table_zufall::fill_combos()
   LernListen LL(hauptfenster->getCDatabase());
 
   // Typen
-  const std::vector<pair<cH_Typen,bool> > T=LL.getTypen(hauptfenster->getChar(),nsc_allowed);
+  const std::vector<pair<cH_Typen,bool> > T=LL.getTypen(hauptfenster->getAben(),nsc_allowed);
   std::list<std::string> L;
   for(std::vector<pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
      L.push_back(i->first->Name(hauptfenster->getWerte().Geschlecht()));
@@ -185,7 +192,7 @@ void table_zufall::fill_combos()
 
   // Herkunft
   L.clear();
-   std::vector<pair<cH_Land,bool> > H=LL.getHerkunft(hauptfenster->getChar());
+   std::vector<pair<cH_Land,bool> > H=LL.getHerkunft(hauptfenster->getAben());
   for(std::vector<pair<cH_Land,bool> >::const_iterator i=H.begin();i!=H.end();++i)
      L.push_back(i->first->Name());
  L.sort();

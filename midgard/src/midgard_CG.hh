@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.284 2002/09/23 08:11:59 thoma Exp $
+// $Id: midgard_CG.hh,v 1.285 2002/09/30 05:51:25 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -185,11 +185,14 @@ class midgard_CG : public midgard_CG_glade
         const Grundwerte &getWerte() const {return Char->getWerte();}
         const VAbenteurer &getChar() const {return Char;}
         VAbenteurer &getChar() {return Char;}
+        const Abenteurer &getAben() const {return Char.getCAbenteurer();}
+        Abenteurer &getAben() {return Char.getAbenteurer();}
         void Eigenschaften_variante(int i);
         void on_neuer_charakter_clicked();
+/*
         bool nsc_check(bool nsc_only);
         bool region_check(const std::string& region) const;
-
+*/
         // Oberfläche
 //   private:
    public:

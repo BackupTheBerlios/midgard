@@ -1,4 +1,4 @@
-// $Id: Schrift.hh,v 1.23 2002/09/21 18:00:13 thoma Exp $               
+// $Id: Schrift.hh,v 1.24 2002/09/30 05:51:25 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,7 +23,7 @@
 #include "Typen.hh"
 #include "Fertigkeiten.hh"
 #include <gtk--/progressbar.h>
-class VAbenteurer;
+class Abenteurer;
 
 class Schrift : public MidgardBasicElement
 {
@@ -46,7 +46,7 @@ class Schrift : public MidgardBasicElement
    bool Kult() const {return kult;}
    bool Alt() const {return alt;}
    bool kann_Sprache(const std::list<MBEmlt>& sprache) const;
-   bool Mutterschrift(const VAbenteurer& A) const;
+   bool Mutterschrift(const Abenteurer& A) const;
 //   int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const;
    int MaxErfolgswert(const Abenteurer &A) const;
    int Kosten(const Abenteurer &A) const

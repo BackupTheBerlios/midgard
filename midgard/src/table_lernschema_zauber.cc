@@ -1,4 +1,4 @@
-// $Id: table_lernschema_zauber.cc,v 1.6 2002/09/23 06:34:08 thoma Exp $
+// $Id: table_lernschema_zauber.cc,v 1.7 2002/09/30 05:51:25 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -44,7 +44,7 @@ void table_lernschema::show_magier_spezialgebiet(bool show)
 
 void table_lernschema::spezialgebiet_button_fill()
 {
- std::vector<std::string> L=LernListen(hauptfenster->getDatabase()).getSpezialgebiet(hauptfenster->getChar());
+ std::vector<std::string> L=LernListen(hauptfenster->getDatabase()).getSpezialgebiet(hauptfenster->getAben());
  combo_magier_spezialgebiet->set_popdown_strings(L);
 }
 

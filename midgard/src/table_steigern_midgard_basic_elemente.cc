@@ -63,14 +63,14 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
  Abenteurer::e_wie_steigern wie=get_wie_steigern();
  Abenteurer::st_bool_steigern bool_steigern=get_bool_steigern();
  
- if (radiobutton_steigern->get_active() && MBE->Steigern(hauptfenster->getChar().getAbenteurer()))
+ if (radiobutton_steigern->get_active() && MBE->Steigern(hauptfenster->getAben()))
     {
-      bool ok=hauptfenster->getChar().getAbenteurer().steigere(MBE,info,wie,bool_steigern);
+      bool ok=hauptfenster->getAben().steigere(MBE,info,wie,bool_steigern);
       hauptfenster->set_status(info);
       if(!ok) return false;
 
 /*
-      if ( MBE->Erfolgswert() >= (*MBE)->MaxErfolgswert(hauptfenster->getChar().getAbenteurer())) 
+      if ( MBE->Erfolgswert() >= (*MBE)->MaxErfolgswert(hauptfenster->getAben())) 
           { hauptfenster->set_status("Maximal möglicher Erfolgswert erreicht");
             return false; }
       if(radiobutton_unterweisung->get_active())
@@ -86,28 +86,28 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
             return false; }
        }      
       int stufen=1;
-      int steigerkosten=MBE->Steigern(hauptfenster->getChar().getAbenteurer());
+      int steigerkosten=MBE->Steigern(hauptfenster->getAben());
       if (!steigern_usp(steigerkosten,&MBE,stufen)) return false;
       hauptfenster->getChar()->getWerte().addGFP(steigerkosten);
       for (std::list<MBEmlt>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
          if ( (*i) == MBE) (*i).addErfolgswert(stufen) ; 
 */
     }
- else if (radiobutton_reduzieren->get_active() && MBE->Reduzieren(hauptfenster->getChar().getAbenteurer()))
+ else if (radiobutton_reduzieren->get_active() && MBE->Reduzieren(hauptfenster->getAben()))
     {
-      hauptfenster->getChar().getAbenteurer().reduziere(MBE,wie,bool_steigern);
+      hauptfenster->getAben().reduziere(MBE,wie,bool_steigern);
 /*
-      if (checkbutton_EP_Geld->get_active()) desteigern(MBE->Reduzieren(hauptfenster->getChar().getAbenteurer()));
-      hauptfenster->getChar()->getWerte().addGFP(-MBE->Reduzieren(hauptfenster->getChar().getAbenteurer()));
+      if (checkbutton_EP_Geld->get_active()) desteigern(MBE->Reduzieren(hauptfenster->getAben()));
+      hauptfenster->getChar()->getWerte().addGFP(-MBE->Reduzieren(hauptfenster->getAben()));
       for (std::list<MBEmlt>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
          if ( (*i) == MBE)  (*i).addErfolgswert(-1) ; 
 */
     }
- else if (radiobutton_verlernen->get_active() && MBE->Verlernen(hauptfenster->getChar().getAbenteurer()))
+ else if (radiobutton_verlernen->get_active() && MBE->Verlernen(hauptfenster->getAben()))
     {
-      hauptfenster->getChar().getAbenteurer().verlerne(MBE,wie,bool_steigern);
+      hauptfenster->getAben().verlerne(MBE,wie,bool_steigern);
 /*
-      guint verlernen = MBE->Verlernen(hauptfenster->getChar().getAbenteurer());
+      guint verlernen = MBE->Verlernen(hauptfenster->getAben());
       if( (*MBE)->What()==MidgardBasicElement::ZAUBER && 
           togglebutton_spruchrolle->get_active() )    verlernen/=5  ;
       if (checkbutton_EP_Geld->get_active()) desteigern(verlernen);
@@ -146,7 +146,7 @@ const Enums::st_bool_steigern table_steigern::get_bool_steigern()
 
 void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
 {
-// Abenteurer &A=hauptfenster->getChar().getAbenteurer();
+// Abenteurer &A=hauptfenster->getAben();
  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
  MBEmlt &MBE = const_cast<MBEmlt&>(dt->getMBE());
 
@@ -186,14 +186,14 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
                      +" nicht durch Praxispunkte gelernt werden");
              return;
            }
-        else if((*MBE)->Standard__(hauptfenster->getChar().getAbenteurer())!="G")
+        else if((*MBE)->Standard__(hauptfenster->getAben())!="G")
            { hauptfenster->set_status("Nur Grundzauber können von "+hauptfenster->getChar()->Typ1()->Name(hauptfenster->getChar()->getWerte().Geschlecht())
                      +" mit Praxispunkten gelernt werden");
              return;
            }
       }
   }
- int kosten=(*MBE)->Kosten(hauptfenster->getChar().getAbenteurer());
+ int kosten=(*MBE)->Kosten(hauptfenster->getAben());
 
  // Lernen mit Spruchrolle: ///////////////////////////////////////////////
  if( (*MBE)->What()==MidgardBasicElement::ZAUBER &&
@@ -209,7 +209,7 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
  int dummy=1;
  if(neue_sprache_mit_pp) 
    { set_lernzeit(kosten,Nichts);
-     if((*MBE)->Grundfertigkeit(hauptfenster->getChar().getAbenteurer()))
+     if((*MBE)->Grundfertigkeit(hauptfenster->getAben()))
           MBE->setErfolgswert(9);
      else MBE->setErfolgswert(7);
    }
@@ -227,7 +227,7 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
      radio_spruchrolle_wuerfeln->get_active() )   
    {
      std::string info;
-     bool x=cH_Zauber(MBE->getMBE())->spruchrolle_wuerfeln(hauptfenster->getChar().getAbenteurer(),hauptfenster->random,info);
+     bool x=cH_Zauber(MBE->getMBE())->spruchrolle_wuerfeln(hauptfenster->getAben(),hauptfenster->random,info);
      hauptfenster->set_info(info);    
      if(!x) return;
      else hauptfenster->getChar()->getWerte().addGFP(kosten);

@@ -46,7 +46,7 @@ void table_steigern::on_zauber_laden_clicked()
     }
 */
  try{
-  list_Zauber_neu=LL->get_steigern_Zauberliste(hauptfenster->getChar().getAbenteurer(),togglebutton_zaubersalze->get_active(),
+  list_Zauber_neu=LL->get_steigern_Zauberliste(hauptfenster->getAben(),togglebutton_zaubersalze->get_active(),
                                            Region::isActive(hauptfenster->getCDatabase().Regionen,cH_Region("MdS",true)),
                                            hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active,
                                            togglebutton_alle_zauber->get_active(),
@@ -146,7 +146,7 @@ void table_steigern::on_leaf_selected_neue_zauberwerk(cH_RowDataBase d)
 
 void table_steigern::zauberwerk_laden()
 {
- list_Zauberwerk_neu=LL->get_steigern_ZauberWerkliste(hauptfenster->getChar().getAbenteurer(),
+ list_Zauberwerk_neu=LL->get_steigern_ZauberWerkliste(hauptfenster->getAben(),
                                                       hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active,
                                                       togglebutton_alle_zauber->get_active());
 }

@@ -19,17 +19,20 @@
 #ifndef MAGUSZUFALL
 #define MAGUSZUFALL
 
-#include "midgard_CG.hh" 
+//#include "midgard_CG.hh" 
+
 #include "Enums.hh" 
 #include "LernListen.hh"
 
-
+class midgard_CG;
 class Lernpunkte;
+#include "Abenteurer.hh"
+#include "zufall.h"
 
 class Zufall
 {
       midgard_CG *hauptfenster;
-      VAbenteurer Aben;
+      Abenteurer &Aben;
       Abenteurer oldAben;
       Datenbank Database;
       Random random;
@@ -40,11 +43,7 @@ class Zufall
 
    public:
 
-      Zufall(midgard_CG *h)
-        : hauptfenster(h),  Aben(h->getChar()),oldAben(Aben.getAbenteurer()),
-          Database(h->getCDatabase()),random(h->random) ,
-          LL(Database)
-          {};
+      Zufall(midgard_CG *h) ;
 
       enum e_Vorgabe{eSpezies=1<<B_Spezies,eTyp=1<<B_Typ,
          eHerkunft=1<<B_Herkunft,eAngeFert=1<<B_AngeFert,
@@ -57,7 +56,7 @@ class Zufall
       void Voll(); // kompletten Zufallsabenteruer erzeugen
       void Teil(e_Vorgabe vorgabe,const Abenteurer &A);
 
-//      VAbenteurer Abenteurer() const {return Aben;}
+//      Abenteurer Abenteurer() const {return Aben;}
 
    private:
       cH_Spezies getSpezies() const;
@@ -96,8 +95,8 @@ class Zufall
                                 const st_LL &Listen);
       bool knows_everything(const std::list<MBEmlt> &List_gelerntes,const std::list<MBEmlt> &L);
    public:
-      static void Lernpunkte_wuerfeln(Lernpunkte &lernpunkte, VAbenteurer &A, Random &random);
-      static WaffeBesitzLernen WaffenBesitz_wuerfeln(const VAbenteurer &A,int wurf);
+      static void Lernpunkte_wuerfeln(Lernpunkte &lernpunkte, Abenteurer &A, Random &random);
+      static WaffeBesitzLernen WaffenBesitz_wuerfeln(const Abenteurer &A,int wurf);
 };
 
 #endif

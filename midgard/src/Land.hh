@@ -1,4 +1,4 @@
-// $Id: Land.hh,v 1.19 2002/09/11 11:09:22 thoma Exp $               
+// $Id: Land.hh,v 1.20 2002/09/30 05:51:25 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,7 +26,7 @@
 #include <gtk--/progressbar.h>
 #include "xml.h"
 //class cH_Typen;
-class VAbenteurer;
+class Abenteurer;
 class cH_Land;
 
 class Land  : public HandleContent
@@ -44,7 +44,7 @@ class Land  : public HandleContent
    std::string Kontinent() const {return kontinent;}
    std::vector<std::string> Sprachen() const {return vec_sprache;}
    std::vector<std::string> Nachbarlaender() const {return nachbarlaender;}
-   bool ist_erlaubt(const VAbenteurer& A) const;
+   bool ist_erlaubt(const Abenteurer& A) const;
    static bool ist_bekannt(std::string s,const std::vector<cH_Land>& L);
 };
 

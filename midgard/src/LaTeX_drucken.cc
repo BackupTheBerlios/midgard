@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.64 2002/09/27 19:56:21 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.65 2002/09/30 05:51:25 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -358,7 +358,7 @@ void LaTeX_drucken::write_grundwerte(ostream &fout,bool empty=false)
      case eabwehrfinal:
      case eabwehrmitwaffe:
       { if(was==eabwehrfinal)    sfout += itos(W.Abwehr_wert()+W.bo_Ab());
-        if(was==eabwehrmitwaffe) sfout += Waffe::get_Verteidigungswaffe(W.Abwehr_wert()+W.bo_Ab(),hauptfenster->getChar()->List_Waffen(),hauptfenster->getChar()->List_Waffen_besitz(),hauptfenster->getChar().getAbenteurer());
+        if(was==eabwehrmitwaffe) sfout += Waffe::get_Verteidigungswaffe(W.Abwehr_wert()+W.bo_Ab(),hauptfenster->getChar()->List_Waffen(),hauptfenster->getChar()->List_Waffen_besitz(),hauptfenster->getAben());
         sfout += W.Ruestung_Abwehr_Verlust(hauptfenster->getChar()->List_Fertigkeit());
         break;
       }
@@ -463,9 +463,9 @@ void LaTeX_drucken::write_fertigkeiten(ostream &fout,const std::list<MBEmlt>& L,
 
      std::string wert;
      if((*(*i))->What()==MidgardBasicElement::FERTIGKEIT)
-       wert=itos0p(cH_Fertigkeit((*i)->getMBE())->FErfolgswert(hauptfenster->getChar().getAbenteurer(),*i),0,true);
+       wert=itos0p(cH_Fertigkeit((*i)->getMBE())->FErfolgswert(hauptfenster->getAben(),*i),0,true);
      else if((*(*i))->What()==MidgardBasicElement::FERTIGKEIT_ANG)
-       wert=itos0p(cH_Fertigkeit_angeborene((*i)->getMBE())->FErfolgswert(hauptfenster->getChar().getAbenteurer(),*i),0,true);
+       wert=itos0p(cH_Fertigkeit_angeborene((*i)->getMBE())->FErfolgswert(hauptfenster->getAben(),*i),0,true);
      else if((*(*i))->What()==MidgardBasicElement::WAFFE)
        wert=itos0p((*i)->Erfolgswert(),0,true);
      if(!longlist) fout << "\\newcommand{\\wert"<<a<<"}";
@@ -883,7 +883,7 @@ void LaTeX_drucken::LaTeX_zauber(ostream &fout)
      fout << z->Name() ;
      if(!(*i)->Zusatz().empty()) fout << " ("<<(*i)->Zusatz()<<")";
      fout <<" & ";
-     fout << z->Erfolgswert_Z(hauptfenster->getChar().getAbenteurer()) <<" & ";
+     fout << z->Erfolgswert_Z(hauptfenster->getAben()) <<" & ";
      fout << Gtk2TeX::string2TeX(z->Ap()) << " & ";
      fout << Gtk2TeX::string2TeX(z->Art())<< " & ";
      fout << Gtk2TeX::string2TeX(z->Stufe()) << " & ";

@@ -26,6 +26,8 @@
 #include "Zufall.hh"
 #include "Spezies.hh"
 #include "Sprache.hh"
+#include "midgard_CG.hh"
+
 
 cH_Spezies Zufall::getSpezies() const
 {
@@ -87,7 +89,7 @@ MBEmlt Zufall::getMuttersprache() const
   int i=random.integer(0,V.size()-1);
 
   MBEmlt sprache(&*cH_Sprache((*V[i])->Name()));
-  Sprache::setErfolgswertMuttersprache(sprache,Aben->getWerte().In(),cH_Fertigkeit("Sprache")->AttributBonus(Aben->getWerte()));
+  Sprache::setErfolgswertMuttersprache(sprache,Aben.getWerte().In(),cH_Fertigkeit("Sprache")->AttributBonus(Aben.getWerte()));
         
   return sprache;   
 }

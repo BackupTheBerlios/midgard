@@ -20,6 +20,7 @@
 #include "table_steigern.hh"
 #include <Gtk_OStream.h>
 #include <Misc/itos.h>
+#include <LernListen.hh>
 
 void table_steigern::on_button_ruestung_1_toggled()
 {
@@ -64,11 +65,11 @@ void table_steigern::fill_ruestung()
 // show_label();
  clist_ruestung->clear();
  Gtk::OStream os(clist_ruestung);
- for(std::vector<cH_Ruestung>::const_iterator i=hauptfenster->getCDatabase().Ruestung.begin();i!=hauptfenster->getCDatabase().Ruestung.end();++i)
+ std::vector<cH_Ruestung> VR=LL->getRuestung();
+ for(std::vector<cH_Ruestung>::const_iterator i=VR.begin();i!=VR.end();++i)
    { cH_Ruestung r(*i);
-     if (hauptfenster->region_check(r->Region()))
-        os << r->Long() <<"\t"<<r->Name()<<"\t"<<r->LP_Verlust()<<"\t"
-            <<r->Min_Staerke()<<"\t"<<r->RW_Verlust()<<"\t"<<r->B_Verlust()<<"\n";
+     os << r->Long() <<"\t"<<r->Name()<<"\t"<<r->LP_Verlust()<<"\t"
+        <<r->Min_Staerke()<<"\t"<<r->RW_Verlust()<<"\t"<<r->B_Verlust()<<"\n";
      os.flush(r->ref());
    } 
  for (unsigned int i=0;i<clist_ruestung->columns().size();++i)

@@ -190,7 +190,8 @@ class MidgardBasicElement_mutable : public HandleContentCopyable
          }
       const MidgardBasicElement *getMBE() const {return &*mbe;}
 
-
+      virtual enum MidgardBasicElement::MBEE What() const {return mbe->What();}
+      virtual std::string What_str() const {return mbe->What_str();}
       int Lernpunkte() const {return lernpunkte;};
       void setLernpunkte(int l) {lernpunkte=l;}
       int Erfolgswert() const {return erfolgswert;};

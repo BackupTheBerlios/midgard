@@ -1,4 +1,4 @@
-// $Id: LernListen.hh,v 1.15 2002/09/25 06:33:02 thoma Exp $
+// $Id: LernListen.hh,v 1.16 2002/09/30 05:51:25 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -45,21 +45,23 @@ class LernListen
       static bool SpracheSchrift(const cH_MidgardBasicElement& MBE);                
       
       std::vector<cH_Spezies> getSpezies(bool nsc_allowed) const ;
-      std::vector<pair<cH_Typen,bool> > getTypen(const VAbenteurer& A,bool nsc_allowed) const ;
-      std::vector<pair<cH_Land,bool> > getHerkunft(const VAbenteurer& A) const;
+      std::vector<pair<cH_Typen,bool> > getTypen(const Abenteurer& A,bool nsc_allowed) const ;
+      std::vector<pair<cH_Land,bool> > getHerkunft(const Abenteurer& A) const;
       std::vector<MidgardBasicElement::st_zusatz> getLandZusatz() const;
       std::vector<MidgardBasicElement::st_zusatz> getMBEZusatz(const MBEmlt& MBE) const;
       std::vector<MidgardBasicElement::st_zusatz> getUeberlebenZusatz() const; 
       static std::vector<MidgardBasicElement::st_zusatz> getWaffenZusatz(const std::list<MBEmlt>& WL); 
-      std::vector<MidgardBasicElement::st_zusatz> getSprachenZusatz(const MBEmlt &MBE,const VAbenteurer& Aben,bool nachbarland) const;
-      std::vector<MidgardBasicElement::st_zusatz> getSchriftenZusatz(const MBEmlt &MBE,const VAbenteurer& Aben) const;
-      std::vector<std::string> getSpezialgebiet(const VAbenteurer& A) const;
-      std::list<MBEmlt> getBeruf(const VAbenteurer& A) const;      
-      std::vector<Beruf::st_vorteil> getBerufsVorteil(const MBEmlt& beruf,const BerufsKategorie &BKat,const VAbenteurer& A) const;
+      std::vector<MidgardBasicElement::st_zusatz> getSprachenZusatz(const MBEmlt &MBE,const Abenteurer& Aben,bool nachbarland) const;
+      std::vector<MidgardBasicElement::st_zusatz> getSchriftenZusatz(const MBEmlt &MBE,const Abenteurer& Aben) const;
+      std::vector<std::string> getSpezialgebiet(const Abenteurer& A) const;
+      std::list<MBEmlt> getBeruf(const Abenteurer& A) const;      
+      std::vector<Beruf::st_vorteil> getBerufsVorteil(const MBEmlt& beruf,const BerufsKategorie &BKat,const Abenteurer& A) const;
+      std::vector<cH_Ruestung> getRuestung() const;
 
-      std::list<WaffeBesitz> getWaffenBesitz(const VAbenteurer& Aben) const;      
 
-      std::list<MBEmlt> getMBEm(const VAbenteurer& A,eMBE was, int erfolgswert=0,
+      std::list<WaffeBesitz> getWaffenBesitz(const Abenteurer& Aben) const;      
+
+      std::list<MBEmlt> getMBEm(const Abenteurer& A,eMBE was, int erfolgswert=0,
                      int lernpunkte=0,std::string lernart="") const;
 
 

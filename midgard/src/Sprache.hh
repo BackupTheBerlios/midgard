@@ -1,4 +1,4 @@
-// $Id: Sprache.hh,v 1.32 2002/09/21 18:00:13 thoma Exp $               
+// $Id: Sprache.hh,v 1.33 2002/09/30 05:51:25 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -25,7 +25,7 @@
 #include "Fertigkeiten.hh"
 #include <gtk--/progressbar.h>
 class cH_Sprache;
-class VAbenteurer;
+class Abenteurer;
 class midgard_CG;
 //class cH_Sprache;
 //class Sprache_und_Schrift;
@@ -86,7 +86,7 @@ private:
 public:
    static std::list<MBEmlt> getVerwandteSprachen(const std::list<MBEmlt>& gekonnteSprachen,const std::list<cH_MidgardBasicElement>& alleSprachen);
 
-   bool ist_erlaubt(const VAbenteurer& A,bool nachbarland=false) const;
+   bool ist_erlaubt(const Abenteurer& A,bool nachbarland=false) const;
    int getHoeherenErfolgswert(const std::list<MBEmlt>& gelernte_listSprache,
                               const std::list<cH_MidgardBasicElement>& listSprache) const;
 

@@ -23,6 +23,9 @@
 class midgard_CG;
 #include "table_zufall_glade.hh"
 #include "Prozente100.hh"
+#include "Zufall.hh"
+
+class Zufall;
 
 class table_zufall : public table_zufall_glade
 {
@@ -39,6 +42,7 @@ class table_zufall : public table_zufall_glade
       bool entry_is_a_prototyp(const std::string &e);
       void set_bereiche_spinbuttons();
       int get_spezialbildung();
+      Zufall::e_Vorgabe getVorgaben(Abenteurer& oldAben) const ;
    public:
       table_zufall(GlademmData *_data)
          : table_zufall_glade(_data) , hauptfenster(0) {}

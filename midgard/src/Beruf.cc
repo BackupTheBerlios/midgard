@@ -163,20 +163,20 @@ std::string BerufsKategorie::wuerfeln(int wurf)
 }
 
 
-bool Beruf::Berufsfertigkeit(VAbenteurer& A,st_vorteil F)
+bool Beruf::Berufsfertigkeit(Abenteurer& A,st_vorteil F)
 {
-  if(F.name=="Schmecken+10")  A->getWerte().setSinn("Schmecken",10);
+  if(F.name=="Schmecken+10")  A.getWerte().setSinn("Schmecken",10);
   else if(F.gelernt) // Erfolgswert um eins erhöhen
    {
     if(F.name=="Schreiben: Muttersprache(+12)")
-     {for(std::list<MBEmlt>::iterator k=A->List_Schrift().begin();k!=A->List_Schrift().end();++k)
+     {for(std::list<MBEmlt>::iterator k=A.List_Schrift().begin();k!=A.List_Schrift().end();++k)
        {
-         if((*(*k))->Name()==A->Muttersprache() ) 
+         if((*(*k))->Name()==A.Muttersprache() ) 
             { (*k)->addErfolgswert(1); break  ;  }
        }
      }  
     else
-     {for (std::list<MBEmlt>::iterator k=A->List_Fertigkeit().begin();k!=A->List_Fertigkeit().end();++k)
+     {for (std::list<MBEmlt>::iterator k=A.List_Fertigkeit().begin();k!=A.List_Fertigkeit().end();++k)
        {
          if((*(*k))->Name()==F.name)
            { (*k)->addErfolgswert(1);
@@ -193,10 +193,10 @@ bool Beruf::Berufsfertigkeit(VAbenteurer& A,st_vorteil F)
      MBEmlt MBE(cMBE);
      MBE->setLernArt("Beruf");
      MBE->setErfolgswert(F.wert);
-     if((*MBE)->ZusatzEnum(A->getVTyp())) return true;
-//         lernen_zusatz(MBE->ZusatzEnum(A->getVTyp()),MBE);
+     if((*MBE)->ZusatzEnum(A.getVTyp())) return true;
+//         lernen_zusatz(MBE->ZusatzEnum(A.getVTyp()),MBE);
      if((*MBE)->Name()!="Landeskunde (Heimat)")
-          A->List_Fertigkeit().push_back(MBE);
+          A.List_Fertigkeit().push_back(MBE);
    }
  return false;
 }

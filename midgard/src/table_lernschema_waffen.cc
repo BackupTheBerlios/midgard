@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.17 2002/09/27 19:56:21 thoma Exp $
+// $Id: table_lernschema_waffen.cc,v 1.18 2002/09/30 05:51:25 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -94,11 +94,11 @@ void table_lernschema::show_WaffenBesitz_lernschema()
   tree_waffen_lernschema = manage(new MidgardBasicTree(MidgardBasicTree::WAFFE_LERNSCHEMA));
   tree_waffen_lernschema->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_waffen_lernschema_tree_leaf_selected));
   label_lernschma_titel->set_text("Waffenbesitz wählen");
-  std::list<WaffeBesitz> L1=LernListen(hauptfenster->getDatabase()).getWaffenBesitz(hauptfenster->getChar());
-#warning TODO
-//  std::list<MBEmlt> L;
-//  for(std::list<WaffeBesitz>::const_iterator i=L1.begin();i!=L1.end();++i) L.push_back(*i);
-//  MidgardBasicElement::show_list_in_tree(L1,tree_waffen_lernschema,hauptfenster);
+  std::list<WaffeBesitz> L1=LernListen(hauptfenster->getDatabase()).getWaffenBesitz(hauptfenster->getAben());
+  std::list<MBEmlt> L;
+  for(std::list<WaffeBesitz>::iterator i=L1.begin();i!=L1.end();++i) 
+      L.push_back(H_MidgardBasicElement_mutable(&*i));
+  MidgardBasicElement::show_list_in_tree(L,tree_waffen_lernschema,hauptfenster);
   tree_waffen_lernschema->show();
   tree_waffen_lernschema->Expand_recursively();
   Gtk::Table *table=manage(new Gtk::Table(0,0,false));
@@ -151,7 +151,7 @@ void table_lernschema::WaffenBesitz_lernschema_wuerfeln(int wurf)
   std::string strinfo = "Für die Waffenauswahl wurde eine "+itos(wurf)
       +" gewürfelt, die Abenteurerklasse ist "
       +hauptfenster->getChar()->Typ1()->Name(hauptfenster->getWerte().Geschlecht())+" ==> ";
- waffebesitzlernen =Zufall::WaffenBesitz_wuerfeln(hauptfenster->getChar(),wurf);
+ waffebesitzlernen =Zufall::WaffenBesitz_wuerfeln(hauptfenster->getAben(),wurf);
  strinfo += itos(waffebesitzlernen.EWaffe())+" Einhand- und "+itos(waffebesitzlernen.AWaffe())+" beliebige Waffen";
  hauptfenster->set_status(strinfo);
  show_WaffenBesitz_lernschema();

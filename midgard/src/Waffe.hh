@@ -147,7 +147,6 @@ class WaffeBesitzLernen
 
 class WaffeBesitz : public MidgardBasicElement_mutable
 {
-//     cH_Waffe waffe;
      std::string alias_name;
      int av_bonus,sl_bonus;
      std::string magisch,region;
@@ -156,19 +155,13 @@ class WaffeBesitz : public MidgardBasicElement_mutable
      WaffeBesitz(const cH_Waffe& w,std::string b,
                   int a,int s,const std::string &m,const std::string &r)
       : MidgardBasicElement_mutable(&*w),
-  /*       waffe(w), */alias_name(b),av_bonus(a),sl_bonus(s),magisch(m),region(r)
+            alias_name(b),av_bonus(a),sl_bonus(s),magisch(m),region(r)
             {}
-// der nächste Ctor soll weg
-/*
-     WaffeBesitz(const MBEmlt& w) 
-         :MidgardBasicElement_mutable(*w) ,//waffe(cH_Waffe("",true)),
-         av_bonus(0),sl_bonus(0)       {}
-*/
 
      enum MidgardBasicElement::MBEE What() const {return MidgardBasicElement::WAFFEBESITZ;}
      std::string What_str() const {return "WaffeBesitz";}
 
-     cH_Waffe Waffe() const {return cH_Waffe(&*getMBE())/*waffe*/;}
+     cH_Waffe Waffe() const {return cH_Waffe(&*getMBE());}
      std::string AliasName() const {return alias_name;}
      int av_Bonus() const {return av_bonus;}
      int sl_Bonus() const {return sl_bonus;}

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_region_check.cc,v 1.27 2002/05/26 10:17:02 thoma Exp $
+// $Id: midgard_CG_region_check.cc,v 1.28 2002/09/30 05:51:25 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -17,7 +17,9 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+/*
 #include "midgard_CG.hh"
+
 
 bool midgard_CG::region_check(const std::string& region) const
 {
@@ -37,3 +39,4 @@ bool midgard_CG::nsc_check(bool nsc_only)
   return true;
 }
 
+*/

@@ -236,7 +236,7 @@ return false;
 
 int table_steigern::stufen_auf_einmal_steigern_fuer_aep(MBEmlt& MBE,int &kosten,int &aep)
 {
-  int steiger_kosten = MBE.Steigern(hauptfenster->getChar().getAbenteurer());
+  int steiger_kosten = MBE.Steigern(hauptfenster->getAben());
   int stufen=0;
   int erfolgswert_mem=MBE.Erfolgswert();
   while(steiger_kosten<=aep)
@@ -245,7 +245,7 @@ int table_steigern::stufen_auf_einmal_steigern_fuer_aep(MBEmlt& MBE,int &kosten,
      ++stufen;
      aep-=steiger_kosten;
      MBE.addErfolgswert(1);
-     steiger_kosten = MBE.Steigern(hauptfenster->getChar().getAbenteurer());
+     steiger_kosten = MBE.Steigern(hauptfenster->getAben());
    }      
   if(aep>0)
    {

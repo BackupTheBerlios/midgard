@@ -21,6 +21,7 @@
 #include "midgard_CG.hh"
 #include "Typen.hh"
 #include "ProgressBar.h"
+#include <LernListen.hh>
 
 cH_Fertigkeit::cache_t cH_Fertigkeit::cache;
 
@@ -212,15 +213,15 @@ int Fertigkeit::AttributBonus(const Grundwerte& Werte) const
 }
 
 
-void Fertigkeit::get_region_lp(int &lp,const midgard_CG *hauptfenster) const
+void Fertigkeit::get_region_lp(int &lp,const Abenteurer& A,const Datenbank &D) const
 {
   for(std::vector<st_region_lern>::const_iterator i=vec_region_lp.begin();i!=vec_region_lp.end();++i)
    {
-     if(!hauptfenster->region_check(i->region)) continue;
-     if(hauptfenster->getWerte().Herkunft()->Name()==i->region)
+     if(!LernListen(D).region_check(i->region)) continue;
+     if(A.getWerte().Herkunft()->Name()==i->region)
        {
-         if     (hauptfenster->getWerte().Stadt_Land()==Enums::Land  ) lp=i->lp_land;
-         else if(hauptfenster->getWerte().Stadt_Land()==Enums::Stadt ) lp=i->lp_stadt;
+         if     (A.getWerte().Stadt_Land()==Enums::Land  ) lp=i->lp_land;
+         else if(A.getWerte().Stadt_Land()==Enums::Stadt ) lp=i->lp_stadt;
        }
    }
 }

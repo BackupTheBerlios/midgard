@@ -56,7 +56,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
    {
      case MidgardBasicElement::ZHerkunft:
       {
-       std::vector<pair<cH_Land,bool> > L=LernListen(hauptfenster->getDatabase()).getHerkunft(hauptfenster->getChar());
+       std::vector<pair<cH_Land,bool> > L=LernListen(hauptfenster->getDatabase()).getHerkunft(hauptfenster->getAben());
        for(std::vector<pair<cH_Land,bool> >::const_iterator i=L.begin();i!=L.end();++i)
           datavec_zusatz.push_back(new Data_Herkunft(i->first,i->second));
        connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_herkunft_leaf_selected));
@@ -102,7 +102,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
            list_FertigkeitZusaetze.push_back(MBE->LernArt());
         }
        std::vector<MidgardBasicElement::st_zusatz>  V=LernListen(hauptfenster->
-            getDatabase()).getSprachenZusatz(MBE,hauptfenster->getChar(),button_allgemeinwissen->get_active());
+            getDatabase()).getSprachenZusatz(MBE,hauptfenster->getAben(),button_allgemeinwissen->get_active());
        for(std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=V.begin();i!=V.end();++i)
           datavec_zusatz.push_back(new Data_Zusatz(MBE,*i));
        connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_sprache_selected));
@@ -110,7 +110,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
       }
      case MidgardBasicElement::ZSchrift:
       {
-       std::vector<MidgardBasicElement::st_zusatz> V=LernListen(hauptfenster->getDatabase()).getSchriftenZusatz(MBE,hauptfenster->getChar());
+       std::vector<MidgardBasicElement::st_zusatz> V=LernListen(hauptfenster->getDatabase()).getSchriftenZusatz(MBE,hauptfenster->getAben());
        for(std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=V.begin();i!=V.end();++i)
           datavec_zusatz.push_back(new Data_Zusatz(MBE,*i));
        if(datavec_zusatz.empty()) 

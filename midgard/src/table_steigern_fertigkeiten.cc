@@ -25,7 +25,7 @@
 
 void table_steigern::on_fertigkeiten_laden_clicked()
 {
-  Abenteurer &A=hauptfenster->getChar().getAbenteurer();
+  Abenteurer &A=hauptfenster->getAben();
   list_Fertigkeit_neu=LL->get_steigern_MBEm(A,Enums::sFert, 
    hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active);  
  fertigkeiten_zeigen();

@@ -43,7 +43,7 @@ void table_grundwerte::fill_typauswahl_2()
 void table_grundwerte::fill_typauswahl_fill(int typ_1_2)
 {
   bool nsc_allowed = hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active;
-  const std::vector<pair<cH_Typen,bool> > T=LernListen(hauptfenster->getCDatabase()).getTypen(hauptfenster->getChar(),nsc_allowed);
+  const std::vector<pair<cH_Typen,bool> > T=LernListen(hauptfenster->getCDatabase()).getTypen(hauptfenster->getAben(),nsc_allowed);
   std::list<std::string> L;
   for(std::vector<pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
    {

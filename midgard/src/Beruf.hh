@@ -70,7 +70,7 @@ class Beruf : public MidgardBasicElement
          {return 0;} //wg. virtueller Funktion
 
       // true = Zusatzfertigkeit
-     static bool Berufsfertigkeit(VAbenteurer& A,st_vorteil F);
+     static bool Berufsfertigkeit(Abenteurer& A,st_vorteil F);
 
 };
 

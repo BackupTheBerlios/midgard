@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten.hh,v 1.51 2002/09/21 18:00:13 thoma Exp $               
+// $Id: Fertigkeiten.hh,v 1.52 2002/09/30 05:51:25 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,6 +25,7 @@
 
 class midgard_CG;
 class Abenteurer;
+class Datenbank;
 
 class Fertigkeit : public MidgardBasicElement
 {
@@ -83,7 +84,7 @@ class Fertigkeit : public MidgardBasicElement
      bool Voraussetzung(const Abenteurer& A,bool anzeigen=true) const;
      int AttributBonus(const Grundwerte& Werte) const;
 
-     void get_region_lp(int &lp,const midgard_CG* hauptfenster) const;
+     void get_region_lp(int &lp,const Abenteurer& A,const Datenbank &D) const;
      const std::vector<st_besitz> &get_vec_Besitz() const {return vec_Besitz;}
 };
 

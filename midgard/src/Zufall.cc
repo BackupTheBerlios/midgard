@@ -25,6 +25,15 @@
 
 #include "Zufall.hh"
 #include "Fertigkeiten_angeboren.hh"
+#include "midgard_CG.hh"
+
+Zufall::Zufall(midgard_CG *h) 
+: hauptfenster(h),  Aben(h->getChar().getAbenteurer()),oldAben(Aben),
+          Database(h->getCDatabase()),random(h->random) ,
+          LL(Database)
+          {};
+
+
 
 void Zufall::Voll()
 {
@@ -70,31 +79,31 @@ void Zufall::Teil(e_Vorgabe vorgabe,const Abenteurer &A)
     if (i==B_B)  sv.b=false;
    }
 
-   if(sv.spezies)  Aben->getWerte().setSpezies(getSpezies());
-   else            Aben->getWerte().setSpezies(oldAben.getWerte().Spezies());
+   if(sv.spezies)  Aben.getWerte().setSpezies(getSpezies());
+   else            Aben.getWerte().setSpezies(oldAben.getWerte().Spezies());
    hauptfenster->table_grundwerte->Eigenschaften_variante(1);
-   if(!sv.st)       Aben->getWerte().setSt(oldAben.getWerte().St());
-   if(!sv.gs)       Aben->getWerte().setGs(oldAben.getWerte().Gs());
-   if(!sv.gw)       Aben->getWerte().setGw(oldAben.getWerte().Gw());
-   if(!sv.ko)       Aben->getWerte().setKo(oldAben.getWerte().Ko());
-   if(!sv.in)       Aben->getWerte().setIn(oldAben.getWerte().In());
-   if(!sv.zt)       Aben->getWerte().setZt(oldAben.getWerte().Zt());
-   Aben->getWerte().setGeschlecht(getGeschlecht());
-   if(sv.typ || !oldAben.Valid())      Aben->setTyp1(getTyp());
-   else            Aben->setTyp1(oldAben.Typ1());     
+   if(!sv.st)       Aben.getWerte().setSt(oldAben.getWerte().St());
+   if(!sv.gs)       Aben.getWerte().setGs(oldAben.getWerte().Gs());
+   if(!sv.gw)       Aben.getWerte().setGw(oldAben.getWerte().Gw());
+   if(!sv.ko)       Aben.getWerte().setKo(oldAben.getWerte().Ko());
+   if(!sv.in)       Aben.getWerte().setIn(oldAben.getWerte().In());
+   if(!sv.zt)       Aben.getWerte().setZt(oldAben.getWerte().Zt());
+   Aben.getWerte().setGeschlecht(getGeschlecht());
+   if(sv.typ || !oldAben.Valid())      Aben.setTyp1(getTyp());
+   else             Aben.setTyp1(oldAben.Typ1());     
    hauptfenster->table_grundwerte->on_abge_werte_setzen_clicked();
-   if(!sv.au)       Aben->getWerte().setAu(oldAben.getWerte().Au());
-   if(!sv.pa)       Aben->getWerte().setpA(oldAben.getWerte().pA());
-   if(!sv.wk)       Aben->getWerte().setWk(oldAben.getWerte().Wk());
-   if(!sv.sb)       Aben->getWerte().setSb(oldAben.getWerte().Sb());
-   if(!sv.b)        Aben->getWerte().setB(oldAben.getWerte().B());
+   if(!sv.au)       Aben.getWerte().setAu(oldAben.getWerte().Au());
+   if(!sv.pa)       Aben.getWerte().setpA(oldAben.getWerte().pA());
+   if(!sv.wk)       Aben.getWerte().setWk(oldAben.getWerte().Wk());
+   if(!sv.sb)       Aben.getWerte().setSb(oldAben.getWerte().Sb());
+   if(!sv.b)        Aben.getWerte().setB(oldAben.getWerte().B());
    
-   if(sv.herkunft) Aben->getWerte().setHerkunft(getLand());
-   else            Aben->getWerte().setHerkunft(oldAben.getWerte().Herkunft());
+   if(sv.herkunft) Aben.getWerte().setHerkunft(getLand());
+   else            Aben.getWerte().setHerkunft(oldAben.getWerte().Herkunft());
    setMuttersprache();
-   Aben->getWerte().setUeberleben(getUeberleben());
+   Aben.getWerte().setUeberleben(getUeberleben());
    if(sv.angefert) setAngebFert();
-   else            Aben->List_Fertigkeit_ang()=oldAben.List_Fertigkeit_ang();
+   else            Aben.List_Fertigkeit_ang()=oldAben.List_Fertigkeit_ang();
    Lernschema();
    setBeruf();
    hauptfenster->table_lernschema->geld_wuerfeln();
@@ -105,12 +114,12 @@ void Zufall::Teil(e_Vorgabe vorgabe,const Abenteurer &A)
    hauptfenster->table_lernschema->button_sensitive(true);
 }
 
-extern std::vector<MBEmlt> List_to_Vector(std::list<MBEmlt> L,const VAbenteurer& Aben,int lp);
+extern std::vector<MBEmlt> List_to_Vector(std::list<MBEmlt> L,const Abenteurer& Aben,int lp);
 
 
 void Zufall::setAngebFert()
 {
-   Aben->setAngebFert();
+   Aben.setAngebFert();
    int wurf;
    do{
       wurf=random.integer(0,100); 
@@ -120,20 +129,20 @@ void Zufall::setAngebFert()
          if(V.empty()) break;
          int i=random.integer(0,V.size()-1);
          cH_Fertigkeit_angeborene F(V[i]->getMBE());
-         Aben->setAngebSinnFert(F->Min(),V[i]);
+         Aben.setAngebSinnFert(F->Min(),V[i]);
        }
       else hauptfenster->table_lernschema->AngebFert_gewuerfelt(wurf);
      }while (wurf==100);
-  Aben->List_Fertigkeit_ang().sort();
-  Aben->List_Fertigkeit_ang().unique();
+  Aben.List_Fertigkeit_ang().sort();
+  Aben.List_Fertigkeit_ang().unique();
 }
 
 
 void Zufall::setMuttersprache()
 {
   MBEmlt sprache=getMuttersprache();
-  Aben->List_Sprache().push_back(sprache);
-  Aben->setMuttersprache((*sprache)->Name());  
+  Aben.List_Sprache().push_back(sprache);
+  Aben.setMuttersprache((*sprache)->Name());  
 }
 
 
@@ -141,21 +150,21 @@ void Zufall::setMuttersprache()
 // Würfeln
 ////////////////////////////////////////////////////////////////////////////
 
-void Zufall::Lernpunkte_wuerfeln(Lernpunkte &lernpunkte, VAbenteurer &A,Random &random)
+void Zufall::Lernpunkte_wuerfeln(Lernpunkte &lernpunkte, Abenteurer &A,Random &random)
 {
   //Speziesspezifische Fertigkeiten
   int lpspezies=0;
-  A->List_Fertigkeit()=A->getWerte().Spezies()->getFertigkeiten(lpspezies,A->getWerte());
+  A.List_Fertigkeit()=A.getWerte().Spezies()->getFertigkeiten(lpspezies,A.getWerte());
 
   int fachlern=random.integer(1,6)+random.integer(1,6);
   lernpunkte.setFach(fachlern - lpspezies);
   lernpunkte.setAllgemein(random.integer(1,6)+1);
   lernpunkte.setUnge(random.integer(1,6));
   lernpunkte.setWaffen(random.integer(1,6)+random.integer(1,6));  
-  if (A->Typ1()->is_mage()) lernpunkte.setZauber(random.integer(1,6)+random.integer(1,6));
+  if (A.Typ1()->is_mage()) lernpunkte.setZauber(random.integer(1,6)+random.integer(1,6));
 
   // Doppelcharaktere
-  if(A->Typ2()->Short()!="" || A->Typ1()->Short()=="To" )
+  if(A.Typ2()->Short()!="" || A.Typ1()->Short()=="To" )
    {
       lernpunkte.setWaffen(random.integer(1,6)+1);
       lernpunkte.setZauber(random.integer(1,6)+1);
@@ -164,16 +173,16 @@ void Zufall::Lernpunkte_wuerfeln(Lernpunkte &lernpunkte, VAbenteurer &A,Random &
   int age = (lernpunkte.Allgemein() + lernpunkte.Unge()
              + lernpunkte.Fach()
              + lernpunkte.Waffen() + lernpunkte.Zauber())/4+16;
-  A->getWerte().setAlter( age * A->getWerte().Spezies()->AlterFaktor());
+  A.getWerte().setAlter( age * A.getWerte().Spezies()->AlterFaktor());
 
 }
 
 
 
-WaffeBesitzLernen Zufall::WaffenBesitz_wuerfeln(const VAbenteurer &A,int wurf)
+WaffeBesitzLernen Zufall::WaffenBesitz_wuerfeln(const Abenteurer &A,int wurf)
 {
   WaffeBesitzLernen l;
-  if (A->Typ1()->Geld() == 1)
+  if (A.Typ1()->Geld() == 1)
   { if      ( 1<=wurf&&wurf<=10 ) { l.set_EWaffe(3);      }
     else if (11<=wurf&&wurf<=20 ) { l.set_EWaffe(3); l.set_AWaffe(1); }
     else if (21<=wurf&&wurf<=30 ) { l.set_EWaffe(2); l.set_AWaffe(2); }
@@ -182,7 +191,7 @@ WaffeBesitzLernen Zufall::WaffenBesitz_wuerfeln(const VAbenteurer &A,int wurf)
     else if (81<=wurf&&wurf<=95 ) {      l.set_AWaffe(5); }
     else if (96<=wurf&&wurf<=100) { l.set_EWaffe(1); l.set_AWaffe(4); l.setMagisch(true); }
   }  
-  if (A->Typ1()->Geld() == 2)
+  if (A.Typ1()->Geld() == 2)
   { if      ( 1<=wurf&&wurf<=10 ) { l.set_EWaffe(2);      }  
     else if (11<=wurf&&wurf<=20 ) { l.set_EWaffe(1); l.set_AWaffe(1); }  
     else if (21<=wurf&&wurf<=30 ) { l.set_EWaffe(2); l.set_AWaffe(1); }  
@@ -191,7 +200,7 @@ WaffeBesitzLernen Zufall::WaffenBesitz_wuerfeln(const VAbenteurer &A,int wurf)
     else if (81<=wurf&&wurf<=95 ) {      l.set_AWaffe(4); }  
     else if (96<=wurf&&wurf<=100) { l.set_EWaffe(1); l.set_AWaffe(3); l.setMagisch(true); }
   }  
- if (A->Typ1()->Geld() == 3)
+ if (A.Typ1()->Geld() == 3)
   { if      ( 1<=wurf&&wurf<=10 ) { l.set_EWaffe(1);      }  
     else if (11<=wurf&&wurf<=20 ) {      l.set_AWaffe(1); }  
     else if (21<=wurf&&wurf<=30 ) { l.set_EWaffe(2);      }  
@@ -200,7 +209,7 @@ WaffeBesitzLernen Zufall::WaffenBesitz_wuerfeln(const VAbenteurer &A,int wurf)
     else if (81<=wurf&&wurf<=95 ) {      l.set_AWaffe(2); }  
     else if (96<=wurf&&wurf<=100) { l.set_EWaffe(1); l.set_AWaffe(1); l.setMagisch(true); }
   }  
- if (A->Typ1()->Geld() == 4)
+ if (A.Typ1()->Geld() == 4)
   { if      ( 1<=wurf&&wurf<=10 ) { l.set_EWaffe(2);      }  
     else if (11<=wurf&&wurf<=20 ) { l.set_EWaffe(1); l.set_AWaffe(1); }  
     else if (21<=wurf&&wurf<=30 ) { l.set_EWaffe(3);      }  
