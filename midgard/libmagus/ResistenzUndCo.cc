@@ -1,4 +1,4 @@
-// $Id: ResistenzUndCo.cc,v 1.2 2004/06/23 11:00:25 christof Exp $               
+// $Id: ResistenzUndCo.cc,v 1.3 2004/11/29 17:26:50 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2004 Christof Petig
  *
@@ -19,10 +19,10 @@
 
 #include "ResistenzUndCo.hh"
 
-Handle<ResistenzUndCo> ResistenzUndCo::Ausdauer=new ResistenzUndCo(eAusdauer);
-Handle<ResistenzUndCo> ResistenzUndCo::Abwehr=new ResistenzUndCo(eAbwehr);
-Handle<ResistenzUndCo> ResistenzUndCo::Zaubern=new ResistenzUndCo(eZaubern);
-Handle<ResistenzUndCo> ResistenzUndCo::Resistenz=new ResistenzUndCo(eResistenz);
+Handle<const ResistenzUndCo> ResistenzUndCo::Ausdauer=new ResistenzUndCo(eAusdauer);
+Handle<const ResistenzUndCo> ResistenzUndCo::Abwehr=new ResistenzUndCo(eAbwehr);
+Handle<const ResistenzUndCo> ResistenzUndCo::Zaubern=new ResistenzUndCo(eZaubern);
+Handle<const ResistenzUndCo> ResistenzUndCo::Resistenz=new ResistenzUndCo(eResistenz);
 
 std::string ResistenzUndCo::What_str(was_t was_ist_es)
 {  if (was_ist_es==eAusdauer) return "Ausdauer";
@@ -30,4 +30,14 @@ std::string ResistenzUndCo::What_str(was_t was_ist_es)
    if (was_ist_es==eZaubern) return "Zaubern";
    if (was_ist_es==eResistenz) return "Resistenz";
    return "Schrott";
+}
+
+Handle<const ResistenzUndCo> ResistenzUndCo::getMBE(was_t w)
+{ switch (w)
+  { case eAusdauer: return Ausdauer;
+    case eAbwehr: return Abwehr;
+    case eZaubern: return Zaubern;
+    case eResistenz: return Resistenz;
+  }
+  abort();
 }

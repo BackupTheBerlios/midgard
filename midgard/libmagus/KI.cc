@@ -47,7 +47,7 @@ void MagusKI::VerteileGFP(int gfp,const Prozente100 &p,const std::vector<cH_Prot
   Verteile(gfp);
 }
 
-void MagusKI::ausgabe(const st_KI& stki, const bool gesteigert,Enums::MBEListen was) const
+void MagusKI::ausgabe(const st_KI& stki, const bool gesteigert,MidgardBasicElement::MBEE was) const
 {
   std::string aktion="neu gelernt";
   if(gesteigert) aktion="gesteigert";
@@ -82,7 +82,7 @@ void MagusKI::Verteile(int gfp)
   while(gfp>0 && count<MAXCOUNT)
    {
      int i=Random::W100();
-     const Enums::MBEListen was=Was();
+     const MidgardBasicElement::MBEE was=Was();
      int spezial_allgemein=prozente100.getS(was);
 
      while(true)
@@ -116,7 +116,7 @@ std::vector<MBEmlt> List_to_Vector(const std::list<MBEmlt> &L)
 }
 
 
-const Enums::MBEListen MagusKI::Was() const
+const MidgardBasicElement::MBEE MagusKI::Was() const
 {
   int z=Random::W100();
   const std::vector<Prozente100::st_was> V=prozente100.get100V();
@@ -125,7 +125,7 @@ const Enums::MBEListen MagusKI::Was() const
   assert(!"never get here"); abort();
 }
 
-MagusKI::st_KI  MagusKI::NeuLernen(int &gfp,const Enums::MBEListen was)
+MagusKI::st_KI  MagusKI::NeuLernen(int &gfp,const MidgardBasicElement::MBEE was)
 {
   std::list<MBEmlt> LL_=NeuLernenList(was,gfp);
   std::list<MBEmlt> LL;
@@ -150,7 +150,7 @@ MagusKI::st_KI  MagusKI::NeuLernen(int &gfp,const Enums::MBEListen was)
 }
 
 
-MagusKI::st_KI MagusKI::Steigern(int &gfp,const Enums::MBEListen was) 
+MagusKI::st_KI MagusKI::Steigern(int &gfp,const MidgardBasicElement::MBEE was) 
 {
   std::list<MBEmlt> &LL_=Aben.get_known_list(was);
   std::list<MBEmlt> LL;
@@ -180,23 +180,23 @@ MagusKI::st_KI MagusKI::Steigern(int &gfp,const Enums::MBEListen was)
 }
 
 
-std::list<MBEmlt> MagusKI::NeuLernenList(const Enums::MBEListen was,const int gfp) const
+std::list<MBEmlt> MagusKI::NeuLernenList(const MidgardBasicElement::MBEE was,const int gfp) const
 {
    std::list<MBEmlt> LL;
   switch (was) {
-     case Enums::sFert: 
-     case Enums::sWaff: 
-     case Enums::sSpra: 
-     case Enums::sSchr: 
-     case Enums::sWGru: LL=LernListen::get_steigern_MBEm(Aben,was); break;
-     case Enums::sZaub: {
+     case MidgardBasicElement::FERTIGKEIT: 
+     case MidgardBasicElement::WAFFE: 
+     case MidgardBasicElement::SPRACHE: 
+     case MidgardBasicElement::SCHRIFT: 
+     case MidgardBasicElement::WAFFEGRUND: LL=LernListen::get_steigern_MBEm(Aben,was); break;
+     case MidgardBasicElement::ZAUBER: {
          bool salz=false;
          bool beschw=false;
          bool spruchrolle=false;
          LL=LernListen::get_steigern_Zauberliste(Aben,salz,beschw,false,spruchrolle); 
          break;
         }
-     case Enums::sZWerk: LL=LernListen::get_steigern_ZauberWerkliste(Aben,false); break;
+     case MidgardBasicElement::ZAUBERWERK: LL=LernListen::get_steigern_ZauberWerkliste(Aben,false); break;
      default: assert(!"never get here\n");
    }
  LernListen::shorten_for_GFP(LL,Aben,gfp);
@@ -210,11 +210,11 @@ struct st_sort{std::string name; int kosten;
             (kosten==b.kosten && name<b.name); }
        };
 
-std::list<MBEmlt> MagusKI::KI_Prototypen_Liste(const Enums::MBEListen was,const std::list<MBEmlt> &L,bool steigern)
+std::list<MBEmlt> MagusKI::KI_Prototypen_Liste(const MidgardBasicElement::MBEE was,const std::list<MBEmlt> &L,bool steigern)
 {
   std::string Was;
-  if     (was==Enums::sFert)Was="F";
-  else if(was==Enums::sZaub)Was="Z";
+  if     (was==MidgardBasicElement::FERTIGKEIT)Was="F";
+  else if(was==MidgardBasicElement::ZAUBER)Was="Z";
   else return L;
   
   std::list<st_sort> S;
@@ -229,8 +229,8 @@ std::list<MBEmlt> MagusKI::KI_Prototypen_Liste(const Enums::MBEListen was,const 
   S.sort();
   std::list<MBEmlt> newL;
   if(S.empty()) return newL;
-  if     (was==Enums::sFert) newL.push_back(MBEmlt(&*cH_Fertigkeit(S.begin()->name)));
-  else if(was==Enums::sZaub) newL.push_back(MBEmlt(&*cH_Zauber(S.begin()->name)));
+  if     (was==MidgardBasicElement::FERTIGKEIT) newL.push_back(MBEmlt(&*cH_Fertigkeit(S.begin()->name)));
+  else if(was==MidgardBasicElement::ZAUBER) newL.push_back(MBEmlt(&*cH_Zauber(S.begin()->name)));
   return newL;
 }
 
@@ -300,9 +300,9 @@ int MagusKI::teste_auf_gradanstieg()
   if(oldgrad!=Aben.Grad())
    { Aben.wie_steigern=Abenteurer::ws_Unterweisung;
      kosten+=Aben.get_ausdauer(Aben.Grad());
-     kosten+=Aben.get_ab_re_za(Enums::eAbwehr);
-     kosten+=Aben.get_ab_re_za(Enums::eResistenz);
-     kosten+=Aben.get_ab_re_za(Enums::eZaubern);
+     kosten+=Aben.get_ab_re_za(ResistenzUndCo::eAbwehr);
+     kosten+=Aben.get_ab_re_za(ResistenzUndCo::eResistenz);
+     kosten+=Aben.get_ab_re_za(ResistenzUndCo::eZaubern);
      Aben.eigenschaften_steigern();
    }  
   return kosten;

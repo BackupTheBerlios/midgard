@@ -219,6 +219,10 @@ class MidgardBasicElement_mutable : public HandleContent
                    && Zusatz()<b.Zusatz())));
          }
       const MidgardBasicElement *getMBE() const {return &*mbe;}
+      template <typename T>
+       Handle<const T> getHandle() const
+//      { return mbe.cast_dynamic<const T>(); } // geht erst ab g++ 3.4
+      { return Handle<const T>(dynamic_cast<const T*>(&*mbe)); }
 
       virtual enum MidgardBasicElement::MBEE What() const {return mbe->What();}
       virtual std::string What_str() const {return mbe->What_str();}

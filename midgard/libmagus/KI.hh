@@ -36,11 +36,11 @@ class MagusKI
       std::vector<cH_Prototyp2> vec_Prototypen;
       bool use_GSA_MBE;
 
-      const Enums::MBEListen Was() const;
+      const MidgardBasicElement::MBEE Was() const;
 
-      std::list<MBEmlt> NeuLernenList(const Enums::MBEListen was,const int gfp) const;
+      std::list<MBEmlt> NeuLernenList(const MidgardBasicElement::MBEE was,const int gfp) const;
       std::list<MBEmlt> KI_GSA_Liste(const std::list<MBEmlt> &L);
-      std::list<MBEmlt> KI_Prototypen_Liste(const Enums::MBEListen was,const std::list<MBEmlt> &L,bool steigern);
+      std::list<MBEmlt> KI_Prototypen_Liste(const MidgardBasicElement::MBEE was,const std::list<MBEmlt> &L,bool steigern);
 
       enum e_KI {OK, EmptyList, NotAllowedForGrad,Geheimzeichen,NoSteigern};
       struct st_KI {std::string name; int wert; e_KI e_ki;
@@ -50,10 +50,10 @@ class MagusKI
              st_KI(const std::string &n,const int w,const e_KI e) 
                : name(n),wert(w),e_ki(e){} };
 
-      void ausgabe(const st_KI& stki, const bool gesteigert,Enums::MBEListen was) const;
+      void ausgabe(const st_KI& stki, const bool gesteigert,MidgardBasicElement::MBEE was) const;
 
-      st_KI NeuLernen(int &gfp,const Enums::MBEListen was);
-      st_KI Steigern(int &gfp,const Enums::MBEListen was) ; 
+      st_KI NeuLernen(int &gfp,const MidgardBasicElement::MBEE was);
+      st_KI Steigern(int &gfp,const MidgardBasicElement::MBEE was) ; 
 
       void Verteile(int gfp);
       enum eSL {eSteigern,eNeuLernen,eSpeziel};

@@ -35,14 +35,14 @@ void table_steigern::waffen_zeigen()
 void table_steigern::neue_waffen_zeigen()
 {
    Abenteurer &A=hauptfenster->getAben();
-   list_Waffen_neu=LernListen::get_steigern_MBEm(A,Enums::sWaff);
+   list_Waffen_neu=LernListen::get_steigern_MBEm(A,MidgardBasicElement::WAFFE);
    MidgardBasicTree::show_list_in_tree(list_Waffen_neu,neue_waffen_tree,hauptfenster->getChar().actualIterator());
 }
 
 void table_steigern::waffengrund_zeigen()
 {
   Abenteurer &A=hauptfenster->getAben();
-  list_WaffenGrund_neu=LernListen::get_steigern_MBEm(A,Enums::sWGru);
+  list_WaffenGrund_neu=LernListen::get_steigern_MBEm(A,MidgardBasicElement::WAFFEGRUND);
   MidgardBasicTree::show_list_in_tree(list_WaffenGrund_neu,neue_grund_tree,hauptfenster->getChar().actualIterator());
   MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_WaffenGrund()    ,alte_grund_tree,hauptfenster->getChar().actualIterator());
 }

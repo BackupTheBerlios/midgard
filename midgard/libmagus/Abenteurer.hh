@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.28 2004/11/29 13:54:22 christof Exp $               
+// $Id: Abenteurer.hh,v 1.29 2004/11/29 17:26:49 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -28,6 +28,7 @@
 #include "Ruestung.hh"
 #include "Enums.hh"
 #include "Region.hh"
+#include "ResistenzUndCo.hh"
 #include <map>
 #include <Misc/compiler_ports.h>
 #include <time.h>
@@ -55,7 +56,6 @@ class Abenteurer : public Grundwerte
    
 public:
    typedef std::map<cH_Region,Model_copyable<bool> > regionen_t;
-   typedef Enums::e_was_steigern e_was_steigern;
 
 private:
    regionen_t regionen; // aktive Regionen
@@ -114,7 +114,7 @@ public:
    std::list<MBEmlt>& List_Schrift()  {return list_Schrift;}
 
    std::list<MBEmlt> &getList(MidgardBasicElement::MBEE was);
-   std::list<MBEmlt> &get_known_list(const Enums::MBEListen was);
+   std::list<MBEmlt> &get_known_list(const MidgardBasicElement::MBEE was);
    std::list<MBEmlt> &get_known_list(const MBEmlt &MBE);
    
    struct st_universell{MBEmlt mbe;bool voraussetzung;bool gelernt;
@@ -181,26 +181,26 @@ public:
    // (Kosten für) Ausdauer würfeln
    int get_ausdauer(int grad);
    // (Kosten für) Abwehr, Resistenz, Zaubern steigern
-   int get_ab_re_za(const e_was_steigern was);
+   __deprecated int get_ab_re_za(const ResistenzUndCo::was_t was);
+   int get_ab_re_za(const MBEmlt &was);
 
    void move_neues_element(MBEmlt &MBE,std::list<MBEmlt> *MyList_neu);
 private:   
    void EP_aufwenden(MidgardBasicElement::EP_t ep_t,unsigned ep_k);
-   void PP_aufwenden(unsigned pp, const MBEmlt &MBE,const e_was_steigern was=Enums::eMBEm);
+   void PP_aufwenden(unsigned pp, const MBEmlt &MBE);
 
-   // ??? Kosten für reduzieren verrechnen?
-   void desteigern(unsigned int kosten);
-   // usp?, default richtig?
+   // Kosten für reduzieren verrechnen?
+   void desteigern(unsigned kosten);
    // Unterweisung, Selbststudium, Praxispunkte
-   bool steigern_usp(int &kosten,e_was_steigern was=Enums::eMBEm);
-   bool steigern_usp(int &kosten,MBEmlt MBE,int &stufen,e_was_steigern was=Enums::eMBEm);
-   void set_lernzeit(int kosten,e_was_steigern was=Enums::eMBEm);
-   MidgardBasicElement::EP_t steigern_mit(const MBEmlt MBE,e_was_steigern was=Enums::eMBEm) const;
+   __deprecated bool steigern_usp(int &kosten,ResistenzUndCo::was_t was);
+   bool steigern_usp(int &kosten,MBEmlt MBE,int &stufen);
+   void set_lernzeit(int kosten,const MBEmlt &MBE);
+   MidgardBasicElement::EP_t steigern_mit(const MBEmlt &MBE) const;
    bool genug_EP(int ep_k,MidgardBasicElement::EP_t mit) const;
 
    int genug_geld(int kosten) const;
    int EP_kosten(const int kosten) const;
-   int PP_vorrat(const MBEmlt &MBE,e_was_steigern was=Enums::eMBEm) const;
+   int PP_vorrat(const MBEmlt &MBE) const;
 
    // Beschreibung siehe .cc
    int stufen_auf_einmal_steigern_fuer_aep(const MBEmlt& MBE,int &kosten_out,int &aep) const;

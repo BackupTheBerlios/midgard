@@ -23,19 +23,19 @@
 Prozente100::Prozente100()
 : mage(true)
 {
-   VWas.push_back(st_was(Enums::sFert,30));
-   VWas.push_back(st_was(Enums::sWaff,30));
-   VWas.push_back(st_was(Enums::sZaub,30));
-   VWas.push_back(st_was(Enums::sSpra,7));
-   VWas.push_back(st_was(Enums::sSchr,3));
-   VWas.push_back(st_was(Enums::sWGru,0));
-   VWas.push_back(st_was(Enums::sZWerk,0));
-   VWas.push_back(st_was(Enums::sKiDo,0));
+   VWas.push_back(st_was(MidgardBasicElement::FERTIGKEIT,30));
+   VWas.push_back(st_was(MidgardBasicElement::WAFFE,30));
+   VWas.push_back(st_was(MidgardBasicElement::ZAUBER,30));
+   VWas.push_back(st_was(MidgardBasicElement::SPRACHE,7));
+   VWas.push_back(st_was(MidgardBasicElement::SCHRIFT,3));
+   VWas.push_back(st_was(MidgardBasicElement::WAFFEGRUND,0));
+   VWas.push_back(st_was(MidgardBasicElement::ZAUBERWERK,0));
+   VWas.push_back(st_was(MidgardBasicElement::KIDO,0));
 
-   VSpezialist.push_back(st_was(Enums::sFert,50));
-   VSpezialist.push_back(st_was(Enums::sWaff,95));
-   VSpezialist.push_back(st_was(Enums::sSpra,50));
-   VSpezialist.push_back(st_was(Enums::sSchr,50));
+   VSpezialist.push_back(st_was(MidgardBasicElement::FERTIGKEIT,50));
+   VSpezialist.push_back(st_was(MidgardBasicElement::WAFFE,95));
+   VSpezialist.push_back(st_was(MidgardBasicElement::SPRACHE,50));
+   VSpezialist.push_back(st_was(MidgardBasicElement::SCHRIFT,50));
 
    check100();
 }
@@ -53,7 +53,7 @@ void Prozente100::check100()
   if(summe!=100) // dann den Rest verteilen
    {
      int diff=100-summe;
-     add(Enums::sFert,diff);
+     add(MidgardBasicElement::FERTIGKEIT,diff);
    }
  for(std::vector<st_was>::iterator i=VSpezialist.begin();i!=VSpezialist.end();++i)
   { if     (i->prozent<0)   i->prozent=0;
@@ -91,37 +91,37 @@ int Prozente100::Vsumme()
 void Prozente100::set_mage(bool m)
 {
   mage=m;
-  if(!mage) { set(Enums::sZaub,0); set(Enums::sZWerk,0);}
+  if(!mage) { set(MidgardBasicElement::ZAUBER,0); set(MidgardBasicElement::ZAUBERWERK,0);}
   check100(); 
 }
 
 
-void Prozente100::add(const Enums::MBEListen &was,const int prozent)
+void Prozente100::add(const MidgardBasicElement::MBEE &was,const int prozent)
 {
   for(std::vector<st_was>::iterator i=VWas.begin();i!=VWas.end();++i)
      if(was==i->was) i->prozent+=prozent;
 }
 
-void Prozente100::set(const Enums::MBEListen &was,const int prozent)
+void Prozente100::set(const MidgardBasicElement::MBEE &was,const int prozent)
 {
   for(std::vector<st_was>::iterator i=VWas.begin();i!=VWas.end();++i)
      if(was==i->was) i->prozent=prozent;
 }
 
-int Prozente100::get(const Enums::MBEListen &was) const
+int Prozente100::get(const MidgardBasicElement::MBEE &was) const
 {
   for(std::vector<st_was>::const_iterator i=VWas.begin();i!=VWas.end();++i)
      if(was==i->was) return i->prozent;
   assert(!"never get here"); abort();
 }
 
-void Prozente100::setS(const Enums::MBEListen &was,const int prozent)
+void Prozente100::setS(const MidgardBasicElement::MBEE &was,const int prozent)
 {
   for(std::vector<st_was>::iterator i=VSpezialist.begin();i!=VSpezialist.end();++i)
      if(was==i->was) i->prozent=prozent;
 }
 
-int Prozente100::getS(const Enums::MBEListen &was) const
+int Prozente100::getS(const MidgardBasicElement::MBEE &was) const
 {
   for(std::vector<st_was>::const_iterator i=VSpezialist.begin();i!=VSpezialist.end();++i)
      if(was==i->was) return i->prozent;

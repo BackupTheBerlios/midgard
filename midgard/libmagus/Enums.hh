@@ -1,4 +1,4 @@
-// $Id: Enums.hh,v 1.7 2004/11/29 13:54:22 christof Exp $               
+// $Id: Enums.hh,v 1.8 2004/11/29 17:26:50 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -22,16 +22,8 @@
 #define CLASS_ENUMS
 
 namespace Enums
-{
-   enum geschlecht{NoFM,Mann,Frau};
-   enum StadtLand{NoSL,Stadt,Land};
-
-   // Vielleicht doch besser in spezielles MBEmlt
-   enum e_was_steigern{eMBEm,eAusdauer,eAbwehr,eZaubern,eResistenz};
-
-   // </deprecated>
-   enum MBEListen {sFert,sWaff,sZaub,sSpra,sSchr,sWGru,sZWerk,sKiDo};
-
+{ enum geschlecht{NoFM,Mann,Frau};
+  enum StadtLand{NoSL,Stadt,Land};
 };
 
 #endif

@@ -101,7 +101,7 @@ private:
         // Grad anstieg
 private:
         void get_grundwerte(int wurf);
-        void get_ab_re_za(Enums::e_was_steigern was);//,bool verschenke_pp=false);
+        void get_ab_re_za(ResistenzUndCo::was_t was);//,bool verschenke_pp=false);
 
 
         // EP

@@ -38,7 +38,7 @@ void table_steigern::fertigkeiten_zeigen()
 void table_steigern::neue_fertigkeiten_zeigen()
 {
   Abenteurer &A=hauptfenster->getAben();
-  list_Fertigkeit_neu=LernListen::get_steigern_MBEm(A,Enums::sFert);
+  list_Fertigkeit_neu=LernListen::get_steigern_MBEm(A,MidgardBasicElement::FERTIGKEIT);
   MidgardBasicTree::show_list_in_tree(list_Fertigkeit_neu,neue_fert_tree,hauptfenster->getChar().actualIterator());
 }
 

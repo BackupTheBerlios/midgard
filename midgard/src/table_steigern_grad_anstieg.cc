@@ -1,4 +1,4 @@
-// $Id: table_steigern_grad_anstieg.cc,v 1.26 2004/11/29 13:54:23 christof Exp $
+// $Id: table_steigern_grad_anstieg.cc,v 1.27 2004/11/29 17:26:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -44,9 +44,9 @@ void table_steigern::on_grad_anstieg_clicked()
     hauptfenster->getAben().get_ausdauer(act_grad);
 //    hauptfenster->set_status(info);
 
-    get_ab_re_za(Enums::eAbwehr);
-    get_ab_re_za(Enums::eResistenz);
-    get_ab_re_za(Enums::eZaubern);
+    get_ab_re_za(ResistenzUndCo::eAbwehr);
+    get_ab_re_za(ResistenzUndCo::eResistenz);
+    get_ab_re_za(ResistenzUndCo::eZaubern);
     int wurf=Random::W100();
     get_grundwerte(wurf);
   }
@@ -67,15 +67,15 @@ void table_steigern::on_button_grad_ausdauer_clicked()
 }
 void table_steigern::on_button_grad_abwehr_clicked()
 {   
- get_ab_re_za(Enums::eAbwehr);
+ get_ab_re_za(ResistenzUndCo::eAbwehr);
 }
 void table_steigern::on_button_grad_zaubern_clicked()
 {   
- get_ab_re_za(Enums::eZaubern);
+ get_ab_re_za(ResistenzUndCo::eZaubern);
 }
 void table_steigern::on_button_grad_resistenz_clicked()
 {   
- get_ab_re_za(Enums::eResistenz);
+ get_ab_re_za(ResistenzUndCo::eResistenz);
 }
 void table_steigern::on_button_grad_basiswerte_clicked()
 {   
@@ -112,7 +112,7 @@ void table_steigern::get_grundwerte(int wurf)
   zeige_werte();
 }
 
-void table_steigern::get_ab_re_za(Enums::e_was_steigern was)
+void table_steigern::get_ab_re_za(ResistenzUndCo::was_t was)
 {
   hauptfenster->getAben().get_ab_re_za(was);
   zeige_werte();

@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.14 2004/11/29 13:54:22 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.15 2004/11/29 17:26:49 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -34,13 +34,12 @@ bool Abenteurer::ZauberSpruecheMitPP() const
 }
 
 // dies ist die eigentliche Steigern Funktion
-bool Abenteurer::steigern_usp(int &kosten,MBEmlt MBE,int &stufen, 
-                              const e_was_steigern was)
+bool Abenteurer::steigern_usp(int &kosten,MBEmlt MBE,int &stufen)
 {
  if (!fpanteil && !goldanteil) // Steigern OHNE EP/Gold/PP
  { if (wie_steigern==ws_Spruchrolle) 
      kosten=cH_Zauber(MBE->getMBE())->iStufe();
-   set_lernzeit(kosten,was);
+   set_lernzeit(kosten,MBE);
    return true;
  }
 
@@ -49,12 +48,12 @@ bool Abenteurer::steigern_usp(int &kosten,MBEmlt MBE,int &stufen,
   if (gold_k==-1) return false; // nicht genug Geld
 
   // EP
-  MidgardBasicElement::EP_t ep_t=steigern_mit(MBE,was);
+  MidgardBasicElement::EP_t ep_t=steigern_mit(MBE);
 
   int ep_k = EP_kosten(kosten);
 
   if(wie_steigern==ws_Praxispunkte)
-  { int pp = PP_vorrat(MBE,was);
+  { int pp = PP_vorrat(MBE);
     if(pp==-1) return false;
     if(pp==0) 
     { Ausgabe(Ausgabe::Error,(*MBE)->Name()+": Keine PP vorhanden"); 
@@ -75,7 +74,7 @@ bool Abenteurer::steigern_usp(int &kosten,MBEmlt MBE,int &stufen,
 
     unsigned use_pp=0; // soviel PP werden verwendet
     
-    if(was!=Enums::eMBEm)  // || immer genau EINE Stufe steigern
+    if (MBE->What()==MidgardBasicElement::RESISTENZ_UND_CO)  // || immer genau EINE Stufe steigern
     { stufen=1;
       use_pp = ep_k/40;
       ep_k  %= 40;
@@ -99,8 +98,8 @@ bool Abenteurer::steigern_usp(int &kosten,MBEmlt MBE,int &stufen,
 
     if(!genug_EP(ep_k,ep_t)) return false;
    
-    set_lernzeit(kosten,was); 
-    PP_aufwenden(use_pp,MBE,was);
+    set_lernzeit(kosten,MBE); 
+    PP_aufwenden(use_pp,MBE);
     EP_aufwenden(ep_t,ep_k);
     return true;
   }
@@ -112,7 +111,7 @@ bool Abenteurer::steigern_usp(int &kosten,MBEmlt MBE,int &stufen,
   addGold(-gold_k);
   if(wie_steigern==ws_Spruchrolle) 
     kosten=cH_Zauber(MBE->getMBE())->iStufe(); // ???
-  set_lernzeit(kosten,was);
+  set_lernzeit(kosten,MBE);
   EP_aufwenden(ep_t,ep_k);
   return true;  
 }
@@ -136,9 +135,10 @@ void Abenteurer::move_neues_element(MBEmlt &MBE,std::list<MBEmlt> *MyList_neu_)
  move_element(*MyList_neu_,getList((*MBE).What()),MBE);
 }
 
-void Abenteurer::set_lernzeit(int kosten, e_was_steigern was)
+void Abenteurer::set_lernzeit(int kosten, const MBEmlt &was)
 {
-  if(was==Enums::eAusdauer)
+  if(!!was && was->What()==MidgardBasicElement::RESISTENZ_UND_CO
+     && was->getHandle<ResistenzUndCo>()->WasIstEs()==ResistenzUndCo::eAusdauer)
   { addSteigertage(Grad_anstieg::AP_Maximum_Tage);
     return;
   }
@@ -158,30 +158,30 @@ void Abenteurer::set_lernzeit(int kosten, e_was_steigern was)
   }
 }   
 
-MidgardBasicElement::EP_t Abenteurer::steigern_mit(const MBEmlt MBE,e_was_steigern was) const
-{ switch (was)
-  { case Enums::eMBEm:
-      switch (MBE->getMBE()->What())
-      { case MidgardBasicElement::WAFFE: 
-        case MidgardBasicElement::WAFFEGRUND:
-          return MidgardBasicElement::KEP;
-        case MidgardBasicElement::ZAUBER:
-        case MidgardBasicElement::ZAUBERWERK:
-          return MidgardBasicElement::ZEP;
-        case MidgardBasicElement::KIDO:
-          return MidgardBasicElement::Beides;
-        default:
-          return MBE->getMBE()->Steigern_mit_EP();
-      }
-    case Enums::eAusdauer: 
-      return MidgardBasicElement::Beides;
-    case Enums::eZaubern:
-    case Enums::eResistenz: 
-      return MidgardBasicElement::ZEP;
-    case Enums::eAbwehr:
+#warning das gehört in MBE!!!
+MidgardBasicElement::EP_t Abenteurer::steigern_mit(const MBEmlt &MBE) const
+{ switch (MBE->getMBE()->What())
+  { case MidgardBasicElement::WAFFE: 
+    case MidgardBasicElement::WAFFEGRUND:
       return MidgardBasicElement::KEP;
+    case MidgardBasicElement::ZAUBER:
+    case MidgardBasicElement::ZAUBERWERK:
+      return MidgardBasicElement::ZEP;
+    case MidgardBasicElement::KIDO:
+      return MidgardBasicElement::Beides;
+    case MidgardBasicElement::RESISTENZ_UND_CO:
+      switch (MBE->getHandle<ResistenzUndCo>()->WasIstEs())
+      { case ResistenzUndCo::eAusdauer: 
+          return MidgardBasicElement::Beides;
+        case ResistenzUndCo::eZaubern:
+        case ResistenzUndCo::eResistenz: 
+          return MidgardBasicElement::ZEP;
+        case ResistenzUndCo::eAbwehr:
+          return MidgardBasicElement::KEP;
+      }
+      break;
     default:
-      assert(!"Fehler in steigern_EP.cc:steigern_usp");
+      return MBE->getMBE()->Steigern_mit_EP();
   }
   abort();
 }
@@ -231,18 +231,19 @@ int Abenteurer::EP_kosten(int kosten) const
   else return kosten;
 }
 
-int Abenteurer::PP_vorrat(const MBEmlt &MBE,const e_was_steigern was) const
+int Abenteurer::PP_vorrat(const MBEmlt &MBE) const
 {
   if(wie_steigern!=ws_Praxispunkte)
     return 0;
-  switch (was)
-  { case Enums::eMBEm: 
-      if ((*MBE).What()!=MidgardBasicElement::ZAUBER) return MBE->Praxispunkte();
-      return SpezialPP();
-    case Enums::eResistenz: return ResistenzPP() ;
-    case Enums::eAbwehr: return AbwehrPP() ;
-    case Enums::eZaubern: return ZaubernPP() ;
-    case Enums::eAusdauer: 
+  if(MBE->What()!=MidgardBasicElement::RESISTENZ_UND_CO)
+  { if ((*MBE).What()!=MidgardBasicElement::ZAUBER) return MBE->Praxispunkte();
+    return SpezialPP();
+  }
+  switch (MBE->getHandle<ResistenzUndCo>()->WasIstEs())
+  { case ResistenzUndCo::eResistenz: return ResistenzPP() ;
+    case ResistenzUndCo::eAbwehr: return AbwehrPP() ;
+    case ResistenzUndCo::eZaubern: return ZaubernPP() ;
+    case ResistenzUndCo::eAusdauer: 
       Ausgabe(Ausgabe::Error,"Ausdauer kann nicht mit Praxispunkten gesteigert werden.");
       return -1;
     default: assert(!"Fehler in steigern_EP.cc");
@@ -250,16 +251,18 @@ int Abenteurer::PP_vorrat(const MBEmlt &MBE,const e_was_steigern was) const
   abort();
 }
 
-void Abenteurer::PP_aufwenden(unsigned pp, const MBEmlt &MBE,const e_was_steigern was)
-{ switch (was)
-  { case Enums::eMBEm: 
-      if ((*MBE).What()!=MidgardBasicElement::ZAUBER) 
-        modify(PPmodus,MBE,MidgardBasicElement::st_zusatz(),MBE->Praxispunkte()-pp);
-      else addSpezialPP(-pp);
-      break;
-    case Enums::eResistenz: addResistenzPP(-pp); break;
-    case Enums::eAbwehr: addAbwehrPP(-pp); break;
-    case Enums::eZaubern: addZaubernPP(-pp); break;
+void Abenteurer::PP_aufwenden(unsigned pp, const MBEmlt &MBE)
+{ 
+  if(MBE->What()!=MidgardBasicElement::RESISTENZ_UND_CO)
+  { if ((*MBE).What()!=MidgardBasicElement::ZAUBER) 
+      modify(PPmodus,MBE,MidgardBasicElement::st_zusatz(),MBE->Praxispunkte()-pp);
+    else addSpezialPP(-pp);
+    return;
+  }
+  switch (MBE->getHandle<ResistenzUndCo>()->WasIstEs())
+  { case ResistenzUndCo::eResistenz: addResistenzPP(-pp); break;
+    case ResistenzUndCo::eAbwehr: addAbwehrPP(-pp); break;
+    case ResistenzUndCo::eZaubern: addZaubernPP(-pp); break;
     default: assert(!"Fehler in PP_aufwenden");
   }
 }
@@ -356,7 +359,7 @@ int Abenteurer::get_ausdauer(int grad)
        { bonus_K = 30, bonus_aK = 20; bonus_Z = 10;  }
        break;
    }
-   if (!steigern_usp(kosten,Enums::eAusdauer)) return 0;
+   if (!steigern_usp(kosten,ResistenzUndCo::eAusdauer)) return 0;
    addGFP(kosten);
    int ap=0;
    for (int i=0;i<grad;++i) ap += Random::W6();
@@ -382,7 +385,7 @@ int Abenteurer::get_ausdauer(int grad)
 // was bedeutet denn das? 
 // get_Abwehr_Resistenz_Zaubern
 // steigert und gibt Kosten zurück
-int Abenteurer::get_ab_re_za(const e_was_steigern was)
+int Abenteurer::get_ab_re_za(const ResistenzUndCo::was_t was)
 {
   int alter_wert, max_wert;
   int kosten;
@@ -392,19 +395,19 @@ int Abenteurer::get_ab_re_za(const e_was_steigern was)
 
   if(grad==0) kosten=0;
   else switch (was)
-  { case Enums::eAbwehr:
+  { case ResistenzUndCo::eAbwehr:
       max_wert = Datenbank.GradAnstieg.get_MaxAbwehr(grad);
       alter_wert = Abwehr_wert(); 
       kosten   = Datenbank.GradAnstieg.get_Abwehr_Kosten(alter_wert+1);
       if(reduzieren) kosten = Datenbank.GradAnstieg.get_Abwehr_Kosten(alter_wert);
       break;
-    case Enums::eResistenz:
+    case ResistenzUndCo::eResistenz:
       max_wert = Datenbank.GradAnstieg.get_MaxResistenz(grad);
       alter_wert = Resistenz(); 
       kosten   = Datenbank.GradAnstieg.get_Resistenz_Kosten(alter_wert+1);
       if(reduzieren) kosten = Datenbank.GradAnstieg.get_Resistenz_Kosten(alter_wert);
       break;
-    case Enums::eZaubern:
+    case ResistenzUndCo::eZaubern:
       if (is_mage())
        { 
          max_wert = Datenbank.GradAnstieg.get_MaxZauber(grad);
@@ -430,18 +433,23 @@ int Abenteurer::get_ab_re_za(const e_was_steigern was)
    { // hier stand eAusdauer ... was ist sinnvoller - oder?
      if (!steigern_usp(kosten,was)) return 0;
      addGFP(kosten);
-     if      (was==Enums::eAbwehr)    setAbwehr_wert(alter_wert+1);
-     else if (was==Enums::eResistenz) setResistenz(alter_wert+1);  
-     else if (was==Enums::eZaubern)   setZaubern_wert(alter_wert+1);
+     if      (was==ResistenzUndCo::eAbwehr)    setAbwehr_wert(alter_wert+1);
+     else if (was==ResistenzUndCo::eResistenz) setResistenz(alter_wert+1);  
+     else if (was==ResistenzUndCo::eZaubern)   setZaubern_wert(alter_wert+1);
    }
   else
    {  
      desteigern(kosten);
-     if      (was==Enums::eAbwehr)    setAbwehr_wert(alter_wert-1);
-     else if (was==Enums::eResistenz) setResistenz(alter_wert-1);  
-     else if (was==Enums::eZaubern)   setZaubern_wert(alter_wert-1);
+     if      (was==ResistenzUndCo::eAbwehr)    setAbwehr_wert(alter_wert-1);
+     else if (was==ResistenzUndCo::eResistenz) setResistenz(alter_wert-1);  
+     else if (was==ResistenzUndCo::eZaubern)   setZaubern_wert(alter_wert-1);
    }
   return kosten;
+}
+
+int Abenteurer::get_ab_re_za(const MBEmlt &MBE)
+{ assert (MBE->What()==MidgardBasicElement::RESISTENZ_UND_CO);
+  return get_ab_re_za(MBE->getHandle<ResistenzUndCo>()->WasIstEs());
 }
 
 bool Abenteurer::eigenschaften_steigern_erlaubt() const
@@ -598,7 +606,7 @@ bool Abenteurer::neu_lernen(MBEmlt &MBE, int bonus)
  // Lernern neuer Sprache mit PP
  if((*MBE).What()==MidgardBasicElement::SPRACHE 
        && wie_steigern==ws_Praxispunkte)
- { set_lernzeit(40); // tatsächlich???
+ { set_lernzeit(40,MBE); // tatsächlich???
    // hmmm
    if((*MBE)->Grundfertigkeit(*this))
      MBE->setErfolgswert(9);
@@ -638,14 +646,15 @@ void Abenteurer::desteigern(unsigned kosten)
     default: assert(!"desteigern: wie denn das?");
   }
   if(!optionen.HausregelCheck(Optionen::Gold).active) gold_k*=10;
-  set_lernzeit(-ep_k);
+  set_lernzeit(-ep_k,MBEmlt(0));
   addGold(gold_k);
   addAEP(ep_k);   
   addGFP(-kosten);
 }
 
-bool Abenteurer::steigern_usp(int &kosten, e_was_steigern was)
+bool Abenteurer::steigern_usp(int &kosten, ResistenzUndCo::was_t was)
 { int d=1; 
-  MBEmlt mbe=MBEmlt(&*cH_Fertigkeit("",true));
-  return steigern_usp(kosten,mbe,d,was);
+  MBEmlt mbe=MBEmlt(&*ResistenzUndCo::getMBE(was));
+  // EW setzen?
+  return steigern_usp(kosten,mbe,d);
 }

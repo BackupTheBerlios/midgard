@@ -130,17 +130,17 @@ void zufall_steigern::on_combo_prototyp_changed()
   if(!entry_is_a_prototyp(e)) return;
   cH_Prototyp P(e);
 
-  prozente100.set(Enums::sFert,P->Fertigkeit());
-  prozente100.set(Enums::sWaff,P->Waffe());
-  prozente100.set(Enums::sWGru,P->WaffeGrund());
-  prozente100.set(Enums::sZaub,P->Zauber());
-  prozente100.set(Enums::sZWerk,P->ZauberWerk());
-  prozente100.set(Enums::sSpra,P->Sprache());
-  prozente100.set(Enums::sSchr,P->Schrift());
-  prozente100.setS(Enums::sFert,P->FertSpezialist());
-  prozente100.setS(Enums::sWaff,P->WaffSpezialist());
-  prozente100.setS(Enums::sSpra,P->SpraSpezialist());
-  prozente100.setS(Enums::sSchr,P->SchrSpezialist());
+  prozente100.set(MidgardBasicElement::FERTIGKEIT,P->Fertigkeit());
+  prozente100.set(MidgardBasicElement::WAFFE,P->Waffe());
+  prozente100.set(MidgardBasicElement::WAFFEGRUND,P->WaffeGrund());
+  prozente100.set(MidgardBasicElement::ZAUBER,P->Zauber());
+  prozente100.set(MidgardBasicElement::ZAUBERWERK,P->ZauberWerk());
+  prozente100.set(MidgardBasicElement::SPRACHE,P->Sprache());
+  prozente100.set(MidgardBasicElement::SCHRIFT,P->Schrift());
+  prozente100.setS(MidgardBasicElement::FERTIGKEIT,P->FertSpezialist());
+  prozente100.setS(MidgardBasicElement::WAFFE,P->WaffSpezialist());
+  prozente100.setS(MidgardBasicElement::SPRACHE,P->SpraSpezialist());
+  prozente100.setS(MidgardBasicElement::SCHRIFT,P->SchrSpezialist());
 
   prozente100.check100();
   Prototyp::setLast(prozente100);
@@ -150,18 +150,18 @@ void zufall_steigern::on_combo_prototyp_changed()
 
 void zufall_steigern::set_bereiche_spinbuttons()
 {
-  spinbutton_fertigkeit->set_value(prozente100.get(Enums::sFert));
-  spinbutton_waffen->set_value(prozente100.get(Enums::sWaff));
-  spinbutton_waffen_grund->set_value(prozente100.get(Enums::sWGru));
-  spinbutton_zauber->set_value(prozente100.get(Enums::sZaub));
-  spinbutton_zauberwerk->set_value(prozente100.get(Enums::sZWerk));
-  spinbutton_sprachen->set_value(prozente100.get(Enums::sSpra));
-  spinbutton_schriften->set_value(prozente100.get(Enums::sSchr));
+  spinbutton_fertigkeit->set_value(prozente100.get(MidgardBasicElement::FERTIGKEIT));
+  spinbutton_waffen->set_value(prozente100.get(MidgardBasicElement::WAFFE));
+  spinbutton_waffen_grund->set_value(prozente100.get(MidgardBasicElement::WAFFEGRUND));
+  spinbutton_zauber->set_value(prozente100.get(MidgardBasicElement::ZAUBER));
+  spinbutton_zauberwerk->set_value(prozente100.get(MidgardBasicElement::ZAUBERWERK));
+  spinbutton_sprachen->set_value(prozente100.get(MidgardBasicElement::SPRACHE));
+  spinbutton_schriften->set_value(prozente100.get(MidgardBasicElement::SCHRIFT));
 
-  scale_fert->set_value(prozente100.getS(Enums::sFert));
-  scale_waffen->set_value(prozente100.getS(Enums::sWaff));
-  scale_sprachen->set_value(prozente100.getS(Enums::sSpra));
-  scale_schriften->set_value(prozente100.getS(Enums::sSchr));
+  scale_fert->set_value(prozente100.getS(MidgardBasicElement::FERTIGKEIT));
+  scale_waffen->set_value(prozente100.getS(MidgardBasicElement::WAFFE));
+  scale_sprachen->set_value(prozente100.getS(MidgardBasicElement::SPRACHE));
+  scale_schriften->set_value(prozente100.getS(MidgardBasicElement::SCHRIFT));
 
   spinbutton_grund->set_value(GSA_MBE.getG());
   spinbutton_standard->set_value(GSA_MBE.getS());
@@ -179,13 +179,13 @@ void zufall_steigern::on_button_check100_clicked()
   spinbutton_zauberwerk->update();
   spinbutton_sprachen->update();
   spinbutton_schriften->update();
-  prozente100.set(Enums::sFert,spinbutton_fertigkeit->get_value_as_int());
-  prozente100.set(Enums::sWaff,spinbutton_waffen->get_value_as_int());
-  prozente100.set(Enums::sWGru,spinbutton_waffen_grund->get_value_as_int());
-  prozente100.set(Enums::sZaub,spinbutton_zauber->get_value_as_int());
-  prozente100.set(Enums::sZWerk,spinbutton_zauberwerk->get_value_as_int());
-  prozente100.set(Enums::sSpra,spinbutton_sprachen->get_value_as_int());
-  prozente100.set(Enums::sSchr,spinbutton_schriften->get_value_as_int());
+  prozente100.set(MidgardBasicElement::FERTIGKEIT,spinbutton_fertigkeit->get_value_as_int());
+  prozente100.set(MidgardBasicElement::WAFFE,spinbutton_waffen->get_value_as_int());
+  prozente100.set(MidgardBasicElement::WAFFEGRUND,spinbutton_waffen_grund->get_value_as_int());
+  prozente100.set(MidgardBasicElement::ZAUBER,spinbutton_zauber->get_value_as_int());
+  prozente100.set(MidgardBasicElement::ZAUBERWERK,spinbutton_zauberwerk->get_value_as_int());
+  prozente100.set(MidgardBasicElement::SPRACHE,spinbutton_sprachen->get_value_as_int());
+  prozente100.set(MidgardBasicElement::SCHRIFT,spinbutton_schriften->get_value_as_int());
   prozente100.check100();
   
   spinbutton_grund->update();
@@ -203,19 +203,19 @@ void zufall_steigern::on_button_check100_clicked()
 
 void zufall_steigern::on_scale_fert_activate()
 {
-  prozente100.setS(Enums::sFert,scale_fert->get_value());
+  prozente100.setS(MidgardBasicElement::FERTIGKEIT,scale_fert->get_value());
 }
 void zufall_steigern::on_scale_waffen_activate()
 {
-  prozente100.setS(Enums::sWaff,scale_waffen->get_value());
+  prozente100.setS(MidgardBasicElement::WAFFE,scale_waffen->get_value());
 }
 void zufall_steigern::on_scale_schriften_activate()
 {
-  prozente100.setS(Enums::sSchr,scale_schriften->get_value());
+  prozente100.setS(MidgardBasicElement::SCHRIFT,scale_schriften->get_value());
 }
 void zufall_steigern::on_scale_sprachen_activate()
 {
-  prozente100.setS(Enums::sSpra,scale_sprachen->get_value());
+  prozente100.setS(MidgardBasicElement::SPRACHE,scale_sprachen->get_value());
 }
 
 void zufall_steigern::on_togglebutton_prototyp_toggled()

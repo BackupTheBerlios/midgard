@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.29 2004/11/29 13:54:22 christof Exp $            
+// $Id: Abenteurer.cc,v 1.30 2004/11/29 17:26:49 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -776,19 +776,19 @@ reloop:
 }
 
 // wozu???
-std::list<MBEmlt> &Abenteurer::get_known_list(const Enums::MBEListen was)
+std::list<MBEmlt> &Abenteurer::get_known_list(const MidgardBasicElement::MBEE was)
 {
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
   std::list<MBEmlt> *L ; 
   switch (was) {
-     case Enums::sFert: L=&List_Fertigkeit(); break;
-     case Enums::sWaff: L=&List_Waffen(); break;
-     case Enums::sSpra: L=&List_Sprache(); break;
-     case Enums::sSchr: L=&List_Schrift(); break;
-     case Enums::sWGru: L=&List_WaffenGrund(); break;
-     case Enums::sZaub: L=&List_Zauber(); break;
-     case Enums::sZWerk:L=&List_Zauberwerk(); break;
-     case Enums::sKiDo: L=&List_Kido(); break;
+     case MidgardBasicElement::FERTIGKEIT: L=&List_Fertigkeit(); break;
+     case MidgardBasicElement::WAFFE: L=&List_Waffen(); break;
+     case MidgardBasicElement::SPRACHE: L=&List_Sprache(); break;
+     case MidgardBasicElement::SCHRIFT: L=&List_Schrift(); break;
+     case MidgardBasicElement::WAFFEGRUND: L=&List_WaffenGrund(); break;
+     case MidgardBasicElement::ZAUBER: L=&List_Zauber(); break;
+     case MidgardBasicElement::ZAUBERWERK:L=&List_Zauberwerk(); break;
+     case MidgardBasicElement::KIDO: L=&List_Kido(); break;
      default: assert(!"never get here\n");
    }
  return *L;

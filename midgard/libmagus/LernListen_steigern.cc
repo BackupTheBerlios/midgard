@@ -1,4 +1,4 @@
-// $Id: LernListen_steigern.cc,v 1.6 2003/12/09 11:41:30 christof Exp $
+// $Id: LernListen_steigern.cc,v 1.7 2004/11/29 17:26:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -26,17 +26,17 @@
 #include "Zauberwerk.hh"
 #include "Datenbank.hh"
 
-std::list<MBEmlt> LernListen::get_steigern_MBEm(const Abenteurer& A,Enums::MBEListen was)
+std::list<MBEmlt> LernListen::get_steigern_MBEm(const Abenteurer& A,MidgardBasicElement::MBEE was)
 {
   std::list<cH_MidgardBasicElement> V_;
   switch(was) {
-     case Enums::sFert: V_=Datenbank.Fertigkeit; break;
-     case Enums::sWaff: V_=Datenbank.Waffe; break;
-     case Enums::sZaub: V_=Datenbank.Zauber; break;
-     case Enums::sSpra: V_=Datenbank.Sprache; break;
-     case Enums::sSchr: V_=Datenbank.Schrift; break;
-     case Enums::sWGru: V_=Datenbank.WaffeGrund; break;
-     case Enums::sZWerk:V_=Datenbank.Zauberwerk; break; 
+     case MidgardBasicElement::FERTIGKEIT: V_=Datenbank.Fertigkeit; break;
+     case MidgardBasicElement::WAFFE: V_=Datenbank.Waffe; break;
+     case MidgardBasicElement::ZAUBER: V_=Datenbank.Zauber; break;
+     case MidgardBasicElement::SPRACHE: V_=Datenbank.Sprache; break;
+     case MidgardBasicElement::SCHRIFT: V_=Datenbank.Schrift; break;
+     case MidgardBasicElement::WAFFEGRUND: V_=Datenbank.WaffeGrund; break;
+     case MidgardBasicElement::ZAUBERWERK:V_=Datenbank.Zauberwerk; break; 
      default : assert(!"never get here\n");
    }
   std::list<MBEmlt> V;
@@ -50,14 +50,14 @@ std::list<MBEmlt> LernListen::get_steigern_MBEm(const Abenteurer& A,Enums::MBELi
      if (!nsc_check(A,(*i)->NSC_only())) continue;
      MBEmlt MBEm(*i);
      switch(was) {
-       case Enums::sFert: { const cH_Fertigkeit f(*i);
+       case MidgardBasicElement::FERTIGKEIT: { const cH_Fertigkeit f(*i);
           if (MBEmlt(*i)->ist_gelernt(A.List_Fertigkeit()) && 
               (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
           if (!f->Voraussetzung(A)) continue;
           MBEm->setErfolgswert(f->Anfangswert());
           break;
          }
-       case Enums::sWaff: { const cH_Waffe w(*i);
+       case MidgardBasicElement::WAFFE: { const cH_Waffe w(*i);
           if (MBEm->ist_gelernt(A.List_Waffen()) && 
               (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
           if (!w->Grundkenntnis_vorhanden(A.List_WaffenGrund())) continue;
@@ -66,31 +66,31 @@ std::list<MBEmlt> LernListen::get_steigern_MBEm(const Abenteurer& A,Enums::MBELi
           else MBEm->setErfolgswert(4);
           break;
          }
-       case Enums::sWGru: {
+       case MidgardBasicElement::WAFFEGRUND: {
           if(!cH_WaffeGrund(*i)->is_sinnvoll(Datenbank.Waffe,A)) continue;
           if (MBEm->ist_gelernt(A.List_WaffenGrund()) && 
               (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
           break;
          }
-       case Enums::sSpra: {
+       case MidgardBasicElement::SPRACHE: {
           if (MBEm->ist_gelernt(A.List_Sprache()) && 
               (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
           MBEm->setErfolgswert(cH_Fertigkeit("Sprache")->Anfangswert());
           break;
          }
-       case Enums::sSchr: {
+       case MidgardBasicElement::SCHRIFT: {
           if (MBEm->ist_gelernt(A.List_Schrift()) && 
               (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
           if (!cH_Schrift(*i)->kann_Sprache(A.List_Sprache())) continue;
           MBEm->setErfolgswert(cH_Fertigkeit("Schreiben")->Anfangswert());
           break;
          }
-       case Enums::sZaub: { 
+       case MidgardBasicElement::ZAUBER: { 
           if (MBEm->ist_gelernt(A.List_Zauber()) && 
               (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
           break;
          }
-       case Enums::sZWerk: { 
+       case MidgardBasicElement::ZAUBERWERK: { 
           if (MBEm->ist_gelernt(A.List_Zauberwerk()) && 
               (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
           break;
@@ -105,7 +105,7 @@ std::list<MBEmlt> LernListen::get_steigern_MBEm(const Abenteurer& A,Enums::MBELi
 std::list<MBEmlt> LernListen::get_steigern_Zauberliste(const Abenteurer& A,
       bool salz,bool beschwoerung, bool alle,bool spruchrolle)
 {
-  std::list<MBEmlt> L_=get_steigern_MBEm(A,Enums::sZaub);
+  std::list<MBEmlt> L_=get_steigern_MBEm(A,MidgardBasicElement::ZAUBER);
   std::list<MBEmlt> L;
   for(std::list<MBEmlt>::const_iterator i=L_.begin();i!=L_.end();++i)
    {
@@ -127,7 +127,7 @@ std::list<MBEmlt> LernListen::get_steigern_Zauberliste(const Abenteurer& A,
 std::list<MBEmlt> LernListen::get_steigern_ZauberWerkliste(const Abenteurer& A,
      bool alle)
 {
-  std::list<MBEmlt> L_=get_steigern_MBEm(A,Enums::sZWerk);
+  std::list<MBEmlt> L_=get_steigern_MBEm(A,MidgardBasicElement::ZAUBERWERK);
   std::list<MBEmlt> L;
   for(std::list<MBEmlt>::const_iterator i=L_.begin();i!=L_.end();++i)
    { const cH_Zauberwerk z((*i)->getMBE());

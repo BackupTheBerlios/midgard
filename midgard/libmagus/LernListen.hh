@@ -1,4 +1,4 @@
-// $Id: LernListen.hh,v 1.10 2003/12/09 11:41:30 christof Exp $
+// $Id: LernListen.hh,v 1.11 2004/11/29 17:26:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -70,7 +70,7 @@ namespace LernListen
       std::list<MBEmlt> getMBEm(const Abenteurer& A,eMBE was, int erfolgswert=0,
                      int lernpunkte=0,std::string lernart="");
 
-      std::list<MBEmlt> get_steigern_MBEm(const Abenteurer& A,Enums::MBEListen was);
+      std::list<MBEmlt> get_steigern_MBEm(const Abenteurer& A,MidgardBasicElement::MBEE was);
       // beschwörung ... ist das nicht eine Region?
       std::list<MBEmlt> get_steigern_Zauberliste(const Abenteurer& A,
             bool salz,bool beschwoerung, bool alle,bool spruchrolle);

@@ -1,6 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
- *  Copyright (C) 2003 Christof Petig
+ *  Copyright (C) 2003-2004 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -20,13 +20,13 @@
 #ifndef PROZ100
 #define PROZ100
 #include <vector>
-#include "Enums.hh"
+#include "MidgardBasicElement.hh"
 
 class Prozente100{
 
    public:
-      struct st_was{Enums::MBEListen was;int prozent;
-             st_was(Enums::MBEListen w,int p):was(w),prozent(p){}
+      struct st_was{MidgardBasicElement::MBEE was;int prozent;
+             st_was(MidgardBasicElement::MBEE w,int p):was(w),prozent(p){}
                    };
    private:
       std::vector<st_was> VWas;
@@ -34,19 +34,19 @@ class Prozente100{
       bool mage;
 
       int Vsumme();
-      void add(const Enums::MBEListen &was,const int prozent);
+      void add(const MidgardBasicElement::MBEE &was,const int prozent);
       
    public:
       Prozente100();
 
       void check100();
       void set_mage(bool m);         
-      int get(const Enums::MBEListen &was) const;
-      void set(const Enums::MBEListen &was,const int prozent);
+      int get(const MidgardBasicElement::MBEE &was) const;
+      void set(const MidgardBasicElement::MBEE &was,const int prozent);
       const std::vector<st_was> get100V() const;
 
-      int getS(const Enums::MBEListen &was) const;
-      void setS(const Enums::MBEListen &was,const int prozent);
+      int getS(const MidgardBasicElement::MBEE &was) const;
+      void setS(const MidgardBasicElement::MBEE &was,const int prozent);
       
 
 };

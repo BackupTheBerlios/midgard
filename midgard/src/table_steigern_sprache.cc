@@ -40,7 +40,7 @@ void table_steigern::alte_schrift_zeigen()
 
 void table_steigern::neue_schrift_zeigen()
 {
-  list_Schrift_neu=LernListen::get_steigern_MBEm(hauptfenster->getAben(),Enums::sSchr);
+  list_Schrift_neu=LernListen::get_steigern_MBEm(hauptfenster->getAben(),MidgardBasicElement::SCHRIFT);
   MidgardBasicTree::show_list_in_tree(list_Schrift_neu,neue_schrift_tree,hauptfenster->getChar().actualIterator());
 }
 
@@ -59,7 +59,7 @@ void table_steigern::alte_sprache_zeigen()
 void table_steigern::neue_sprache_zeigen()
 {   
   Abenteurer &A=hauptfenster->getAben();
-  list_Sprache_neu=LernListen::get_steigern_MBEm(A,Enums::sSpra);
+  list_Sprache_neu=LernListen::get_steigern_MBEm(A,MidgardBasicElement::SPRACHE);
    MidgardBasicTree::show_list_in_tree(list_Sprache_neu,neue_sprache_tree,hauptfenster->getChar().actualIterator());
 //  on_schrift_laden_clicked();
 }   
