@@ -29,11 +29,8 @@ class Data_SimpleTree : public RowDataBase
 {
  private:
    MBEmlt MBE;
-//   WaffeBesitz MBE;
    const midgard_CG *hauptfenster; 
  public:
-//   Data_SimpleTree(const WaffeBesitz& _MBE, const midgard_CG *h) 
-//   : MBE(_MBE),hauptfenster(h) {}
    Data_SimpleTree(const MBEmlt& _MBE, const midgard_CG *h) 
    : MBE(_MBE),hauptfenster(h) {}
 
@@ -54,7 +51,7 @@ class Data_SimpleTree : public RowDataBase
 
    virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const;
    enum WEV {FWhat,FName,FErfolgswert,FErfolgswerBonus,
-             FWurf,FLernpunkte,FLernart,FPflicht,
+             FWurf,FLernpunkte,,FLernpunkte0,FLernart,FPflicht,
              FGrundkenntnis,FZauberAP,FAttribut,FVoraussetung,FSchwierigkeit,
              FKosten,FStandard,FGelernt,FPraxispunkt,
              FSteigern,FReduzieren,FVerlernen,FRegion,

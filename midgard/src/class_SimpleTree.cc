@@ -39,7 +39,8 @@ const cH_EntryValue Data_SimpleTree::retEV(const WEV &what) const
                            else return cH_EntryValueEmptyInt((*MBE).Erfolgswert()); }
       case FWurf: {cH_Fertigkeit_angeborene F((*MBE).getMBE()); return cH_EntryValueIntString(itos(F->Min())+"-"+itos(F->Max()));}
       case FWhat:  return cH_EntryValueIntString((*MBE).What_str());
-      case FLernpunkte: return cH_EntryValueIntString((*MBE).Lernpunkte());
+      case FLernpunkte: return cH_EntryValueEmptyInt((*MBE).Lernpunkte());
+      case FLernpunkte0: return cH_EntryValueIntString((*MBE).Lernpunkte());
       case FLernart: return cH_EntryValueIntString((*MBE).LernArt());
       case FPflicht: return cH_EntryValueIntString((*MBE).Pflicht_str());
       case FGrundkenntnis: return cH_EntryValueIntString(cH_Waffe((*MBE).getMBE())->Grundkenntnis());
@@ -88,7 +89,7 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case LERNARTgg : return retEV(FLernart); }
       else if (Variante==MidgardBasicTree::LERNSCHEMA)
        switch((Spalten_LERNSCHEMA)seqnr) {
-         case LERNPUNKTEg : return retEV(FLernpunkte);
+         case LERNPUNKTEg : return retEV(FLernpunkte0);
          case PFLICHTg : { if ( (*MBE).What()==MidgardBasicElement::FERTIGKEIT)
                                 return retEV(FPflicht); 
                            if ( (*MBE).What()==MidgardBasicElement::WAFFE)
