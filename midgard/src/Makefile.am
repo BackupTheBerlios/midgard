@@ -1,6 +1,6 @@
-# $Id: Makefile.am,v 1.14 2001/04/19 13:29:11 thoma Exp $
+# $Id: Makefile.am,v 1.15 2001/04/20 10:52:38 christof Exp $
 
-bin_PROGRAMS = midgard xml
+bin_PROGRAMS = midgard midgard_xmlexport
 
 
 pkgdata_DATA = document_eingabe.tex \
@@ -66,7 +66,7 @@ BUILT_SOUCES_XML=xml.cc
 
 BUILT_SOURCES=$(BUILT_SOURCES_CG) $(BUILT_SOUCES_XML)
 
-xml_SOURCES= $(BUILT_SOUCES_XML)
+midgard_xmlexport_SOURCES= $(BUILT_SOUCES_XML)
 
 midgard_SOURCES = \
    midgard_CG_kido.cc \
@@ -132,6 +132,6 @@ CXXFLAGS = @CXXFLAGS@ @COMMONXX_INCLUDES@ \
 
 midgard_LDADD = @LIBS@ @COMMONXX_LIBS@ @COMMONGTK_LIBS@ 
 
-xml_LDADD = @LIBS@ @COMMONXX_LIBS@
+midgard_xmlexport_LDADD = @LIBS@ @COMMONXX_LIBS@
 
 LDFLAGS = @COMMONXX_LDFLAGS@
