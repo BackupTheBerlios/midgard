@@ -1,7 +1,7 @@
 #!/bin/sh
 
 GTKMM1="-r GTKMM1"
-SIGC10="--enable-sigc1-0"
+SIGC10="--enable-sigc1-0 --disable-shared --enable-static"
 
 login() {
   echo ========= Logging in ======
@@ -110,7 +110,7 @@ then
   domake
   doinstall
 else
-  echo "Magus anonymous-CVS Installierer, Gtk1, $Revision: 1.16 $"
+  echo "Magus anonymous-CVS Installierer, Gtk1, $Revision: 1.17 $"
   echo
   echo "USAGE: $0 <Befehl> [Argumente]"
   echo "Befehle: checkout co update configure make install"
