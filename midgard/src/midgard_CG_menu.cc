@@ -145,11 +145,29 @@ void midgard_CG::menu_init()
 
   menu->append(*optionen);
 
+//Hausregeln////////////////////////////////////////////////////////////////
+  haus_menu = manage(new class Gtk::Menu());
+  Gtk::MenuItem *haus = manage(new class Gtk::MenuItem("Hausregeln"));
+  haus->set_submenu(*haus_menu);
+
+  for(std::list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
+   {
+     i->menu = manage(new class Gtk::CheckMenuItem(i->text));
+     haus_menu->append(*(i->menu));
+     i->menu->set_active(i->active);
+     i->menu->activate.connect(SigC::slot(this,&midgard_CG::Hausregeln_setzen));
+//     Gtk::MenuItem *haus_gold = manage(new class Gtk::MenuItem("1 GS entspricht 1 GFP"));
+//  haus_menu->append(*haus_gold);
+//  haus_gold->activate.connect(SigC::slot(this,&midgard_CG::Hausregeln_setzen));
+//  haus_gold->show();
+   }  
+  menu->append(*haus);
+///////////////////////////////////////////////////////////////////////////////
 //Import/Export////////////////////////////////////////////////////////////////
   Gtk::Menu *im_ex_menu = manage(new class Gtk::Menu());
   Gtk::MenuItem *im_ex = manage(new class Gtk::MenuItem("Import/Export"));
   im_ex->set_submenu(*im_ex_menu);
-
+/*
   Gtk::MenuItem *xml_import = manage(new class Gtk::MenuItem("xml Import"));
   im_ex_menu->append(*xml_import);
   xml_import->activate.connect(SigC::slot(this,&midgard_CG::xml_import_auswahl));
@@ -157,7 +175,7 @@ void midgard_CG::menu_init()
   Gtk::MenuItem *xml_export = manage(new class Gtk::MenuItem("xml Export"));
   im_ex_menu->append(*xml_export);
   xml_export->activate.connect(SigC::slot(this,&midgard_CG::xml_export_auswahl));
-
+*/
   Gtk::MenuItem *Elsa_export = manage(new class Gtk::MenuItem("Export im Format für gedruckte Abenteuer"));
   im_ex_menu->append(*Elsa_export);
   Elsa_export->activate.connect(SigC::slot(this,&midgard_CG::spielleiter_export));
@@ -229,3 +247,10 @@ void midgard_CG::menu_gradanstieg_init()
   menu_gradanstieg->show_all();
 }
 
+void midgard_CG::Hausregeln_init()
+{
+ list_Hausregeln.clear();
+ Gtk::CheckMenuItem *gold; 
+// list_Hausregeln.push_back(st_Haus("Gold",Gtk::CheckMenuItem *gold,"1 GS entspricht 1 GFP"));
+ list_Hausregeln.push_back(st_Haus("Gold",gold,"1 GS entspricht 1 GFP"));
+}

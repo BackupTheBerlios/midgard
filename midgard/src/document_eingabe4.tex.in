@@ -53,6 +53,7 @@
 \newsavebox{\Wurfstern} 
 \newsavebox{\Kampfstab} 
 \newsavebox{\Parierwaffe}
+\newsavebox{\Werfen}
 \newsavebox{\Bola}
 \newsavebox{\Netz}
 \newsavebox{\Peitsche}

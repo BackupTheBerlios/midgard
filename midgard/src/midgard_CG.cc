@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.128 2002/01/28 07:44:30 thoma Exp $
+// $Id: midgard_CG.cc,v 1.129 2002/01/29 08:01:11 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,6 +37,7 @@ midgard_CG::midgard_CG(Datenbank& _Database, const string &datei)
 {
   srand(time(0));
   optionmenu_init();  
+  Hausregeln_init();
 
   on_neuer_charakter_clicked();
   set_tree_titles();
@@ -308,6 +309,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    zeige_lernpunkte();
    zeige_werte(Werte);
    OptionBool.reset(); 
+   HausBool.reset();
    for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
       (*i)->setActive(false);
    menu_init();

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.147 2002/01/28 15:30:18 thoma Exp $
+// $Id: midgard_CG.hh,v 1.148 2002/01/29 08:01:11 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -59,6 +59,9 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         Gtk::Menu *menu, *menu_gradanstieg;
         void menu_init();
         void menu_gradanstieg_init();
+        void Hausregeln_init();
+        void Hausregeln_setzen();
+        void Hausregeln_setzen(bool b);
         gint on_eventbox_MCG_button_press_event(GdkEventButton *event);
 
         struct st_OptionBool{bool Original; bool Info; bool Pics; 
@@ -74,6 +77,17 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
                              Gtk::MenuItem      *menu_sensitive;
                              Gtk::CheckMenuItem *menu_version;};
         st_OptionMenu OptionMenu;
+
+/*        struct st_HausBool{bool Gold;
+               st_HausBool() : Gold(false) {}
+               void reset() {*this=st_HausBool();} };
+        st_HausBool HausBool;
+*/
+        Gtk::Menu *haus_menu;
+        struct st_Haus{std::string index; Gtk::CheckMenuItem *menu;std::string text;bool active;
+               st_Haus(std::string i,Gtk::CheckMenuItem *m,std::string t)
+                      :index(i),menu(m),text(t),active(false) {}
+                      };
 
         void set_tree_titles();
 
@@ -99,6 +113,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         std::list<cH_MidgardBasicElement> list_Schrift;
         std::list<cH_MidgardBasicElement> list_Schrift_neu;
 
+        std::list<st_Haus> list_Hausregeln;
         bool kido_bool;
         int maxkido;
         bool magie_bool;
