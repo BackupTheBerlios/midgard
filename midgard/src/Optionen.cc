@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.113 2003/04/25 07:12:08 christof Exp $
+// $Id: Optionen.cc,v 1.114 2003/04/30 07:50:26 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,6 +27,7 @@ extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 #endif
 #include "customize_toolbars.h"
 #include "Windows_Linux.hh"
+#include <libmagusicons/magusicons.h>
 
 #ifdef __MINGW32__
 static std::string CommandByExtension(const std::string &ext)
@@ -511,6 +512,10 @@ void Midgard_Optionen::load_options(const std::string &filename)
      setOber(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*options,"Icon")
      setIcon(i->getAttr("Name"),i->getBoolAttr("Wert"));
+  if (IconCheck(Midgard_Optionen::Self).active) MagusIcons::set_icon_style(MagusIcons::Alessandro);
+  else if (IconCheck(Midgard_Optionen::Ulf).active) MagusIcons::set_icon_style(MagusIcons::Ulf);
+  else if (IconCheck(Midgard_Optionen::Gtk2).active) MagusIcons::set_icon_style(MagusIcons::Gtk);
+  else MagusIcons::set_icon_style(MagusIcons::Any);
   FOR_EACH_CONST_TAG_OF(i,*options,"Hausregel")
      setHausregeln(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*options,"pdfViewer")

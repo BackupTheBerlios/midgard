@@ -1,4 +1,4 @@
-// $Id: customize_toolbars.cc,v 1.27 2003/02/27 14:00:02 christof Exp $
+// $Id: customize_toolbars.cc,v 1.28 2003/04/30 07:50:26 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -29,6 +29,7 @@
 #include <typeinfo>
 // bin + container sind schon dabei
 #include <iostream>
+#include <ChoiceButton.h>
 
 static bool hasOnlyPixmaps(Gtk::Box *w)
 {  Gtk::Box_Helpers::BoxList &ch2=dynamic_cast<Gtk::Box*>(w)->children();
@@ -86,14 +87,21 @@ void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text, boo
 {  // std::cout << '+' << typeid(*w).name() << '-' << w->get_name() << '\n';
    if (!show_icons && !show_text) show_text=true;
    if (!show_icons && !tab_text) tab_text=true;
-   if (dynamic_cast<Gtk::Button*>(w))
+   if (dynamic_cast<ManuProC::ChoiceButton*>(w))
+   {  dynamic_cast<ManuProC::ChoiceButton*>(w)->set_style(show_icons,show_text);
+   }
+   else if (dynamic_cast<Gtk::Button*>(w))
    {  CustomizeButton(w, show_icons, show_text);
    }
    else if (dynamic_cast<Gtk::Toolbar*>(w))
    {  Gtk::Toolbar *tb=dynamic_cast<Gtk::Toolbar*>(w);
       tb->set_toolbar_style(show_icons ? (show_text?Gtk::TOOLBAR_BOTH:Gtk::TOOLBAR_ICONS)
       		:Gtk::TOOLBAR_TEXT);
-      // recurse ?
+      for (Gtk::Toolbar_Helpers::ToolList::iterator i=tb->tools().begin();i!=tb->tools().end();++i)
+      {  if (i->get_type()==TOOLBAR_CHILD_WIDGET)
+         {  CustomizeToolbars(i->get_widget(),show_icons,show_text,tab_text);
+         }
+      }
    }
    else if (dynamic_cast<Gtk::Bin*>(w))
    {  Gtk::Widget *child=dynamic_cast<Gtk::Bin*>(w)->get_child();
