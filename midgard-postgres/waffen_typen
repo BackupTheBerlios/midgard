@@ -37,6 +37,7 @@ Anderthalbh‰nder	Kd	S
 Anderthalbh‰nder	Km	S
 Anderthalbh‰nder	Kr	G
 Anderthalbh‰nder	Ku	S
+Anderthalbh‰nder	MMa	A
 Anderthalbh‰nder	Ma	A
 Anderthalbh‰nder	Mg	S
 Anderthalbh‰nder	Ny	S
@@ -90,6 +91,7 @@ Bih‰nder	Kd	S
 Bih‰nder	Km	S
 Bih‰nder	Kr	G
 Bih‰nder	Ku	S
+Bih‰nder	MMa	A
 Bih‰nder	Ma	A
 Bih‰nder	Mg	S
 Bih‰nder	Ny	S
@@ -143,6 +145,7 @@ Blasrohr	Kd	S
 Blasrohr	Km	S
 Blasrohr	Kr	S
 Blasrohr	Ku	S
+Blasrohr	MMa	A
 Blasrohr	Ma	A
 Blasrohr	Mg	S
 Blasrohr	Ny	S
@@ -196,6 +199,7 @@ Bogen	Kd	S
 Bogen	Km	S
 Bogen	Kr	G
 Bogen	Ku	S
+Bogen	MMa	A
 Bogen	Ma	A
 Bogen	Mg	S
 Bogen	Ny	S
@@ -249,6 +253,7 @@ Bola	Kd	S
 Bola	Km	S
 Bola	Kr	S
 Bola	Ku	S
+Bola	MMa	A
 Bola	Ma	A
 Bola	Mg	S
 Bola	Ny	S
@@ -302,6 +307,7 @@ BuKasa	Kd	S
 BuKasa	Km	S
 BuKasa	Kr	G
 BuKasa	Ku	S
+BuKasa	MMa	A
 BuKasa	Ma	A
 BuKasa	Mg	S
 BuKasa	Ny	S
@@ -355,6 +361,7 @@ Buckler	Kd	S
 Buckler	Km	S
 Buckler	Kr	G
 Buckler	Ku	S
+Buckler	MMa	A
 Buckler	Ma	A
 Buckler	Mg	S
 Buckler	Ny	S
@@ -408,6 +415,7 @@ Dolch	Kd	S
 Dolch	Km	S
 Dolch	Kr	G
 Dolch	Ku	S
+Dolch	MMa	A
 Dolch	Ma	A
 Dolch	Mg	S
 Dolch	Ny	S
@@ -444,6 +452,63 @@ Dolch	eBe	A
 Dolch	gHx	A
 Dolch	sHx	A
 Dolch	wHx	A
+Dreizack	As	S
+Dreizack	BN	S
+Dreizack	BS	S
+Dreizack	BW	S
+Dreizack	Ba	S
+Dreizack	De	A
+Dreizack	Dr	A
+Dreizack	Dt	A
+Dreizack	Er	S
+Dreizack	Fi	S
+Dreizack	Gl	S
+Dreizack	Hj	A
+Dreizack	Hl	A
+Dreizack	H‰	S
+Dreizack	Kd	S
+Dreizack	Km	S
+Dreizack	Kr	G
+Dreizack	Ku	S
+Dreizack	MMa	S
+Dreizack	Ma	A
+Dreizack	Mg	S
+Dreizack	Ny	S
+Dreizack	Or	S
+Dreizack	PC	A
+Dreizack	PF	A
+Dreizack	PHa	A
+Dreizack	PHe	A
+Dreizack	PK	S
+Dreizack	PM	A
+Dreizack	PT	A
+Dreizack	PW	A
+Dreizack	RiN	S
+Dreizack	RiS	S
+Dreizack	Ru	S
+Dreizack	Sa	A
+Dreizack	ScN	A
+Dreizack	ScS	A
+Dreizack	ScW	A
+Dreizack	Se	S
+Dreizack	Sk	S
+Dreizack	Sp	S
+Dreizack	Sr	S
+Dreizack	Sw	A
+Dreizack	Sˆ	G
+Dreizack	Th	A
+Dreizack	Tm	S
+Dreizack	To	S
+Dreizack	Tr	S
+Dreizack	Tt	S
+Dreizack	Wa	S
+Dreizack	Wi	S
+Dreizack	dBe	A
+Dreizack	eBe	A
+Dreizack	gHx	A
+Dreizack	sHx	A
+Dreizack	tBe	A
+Dreizack	wHx	A
 Faustkampf	As	S
 Faustkampf	BN	S
 Faustkampf	BS	S
@@ -461,6 +526,7 @@ Faustkampf	Kd	S
 Faustkampf	Km	S
 Faustkampf	Kr	G
 Faustkampf	Ku	S
+Faustkampf	MMa	A
 Faustkampf	Ma	A
 Faustkampf	Mg	S
 Faustkampf	Ny	S
@@ -514,6 +580,7 @@ Fuchtel	Kd	S
 Fuchtel	Km	S
 Fuchtel	Kr	G
 Fuchtel	Ku	S
+Fuchtel	MMa	A
 Fuchtel	Ma	A
 Fuchtel	Mg	S
 Fuchtel	Ny	S
@@ -567,6 +634,7 @@ Garotte	Kd	S
 Garotte	Km	S
 Garotte	Kr	S
 Garotte	Ku	S
+Garotte	MMa	A
 Garotte	Ma	A
 Garotte	Mg	S
 Garotte	Ny	S
@@ -620,6 +688,7 @@ Glefe	Kd	S
 Glefe	Km	S
 Glefe	Kr	G
 Glefe	Ku	S
+Glefe	MMa	A
 Glefe	Ma	A
 Glefe	Mg	S
 Glefe	Ny	S
@@ -673,6 +742,7 @@ GunSen	Kd	S
 GunSen	Km	S
 GunSen	Kr	G
 GunSen	Ku	S
+GunSen	MMa	A
 GunSen	Ma	A
 GunSen	Mg	S
 GunSen	Ny	S
@@ -726,6 +796,7 @@ Handarmbrust	Kd	S
 Handarmbrust	Km	S
 Handarmbrust	Kr	G
 Handarmbrust	Ku	S
+Handarmbrust	MMa	A
 Handarmbrust	Ma	A
 Handarmbrust	Mg	S
 Handarmbrust	Ny	S
@@ -779,6 +850,7 @@ Handaxt	Kd	S
 Handaxt	Km	S
 Handaxt	Kr	G
 Handaxt	Ku	S
+Handaxt	MMa	A
 Handaxt	Ma	A
 Handaxt	Mg	S
 Handaxt	Ny	S
@@ -832,6 +904,7 @@ Hellebarde	Kd	S
 Hellebarde	Km	S
 Hellebarde	Kr	G
 Hellebarde	Ku	S
+Hellebarde	MMa	A
 Hellebarde	Ma	A
 Hellebarde	Mg	S
 Hellebarde	Ny	S
@@ -885,6 +958,7 @@ Kampfgabeln	Kd	S
 Kampfgabeln	Km	S
 Kampfgabeln	Kr	G
 Kampfgabeln	Ku	S
+Kampfgabeln	MMa	A
 Kampfgabeln	Ma	A
 Kampfgabeln	Mg	S
 Kampfgabeln	Ny	S
@@ -938,6 +1012,7 @@ Kampfstab	Kd	S
 Kampfstab	Km	S
 Kampfstab	Kr	G
 Kampfstab	Ku	S
+Kampfstab	MMa	A
 Kampfstab	Ma	A
 Kampfstab	Mg	S
 Kampfstab	Ny	S
@@ -991,6 +1066,7 @@ Katana	Kd	S
 Katana	Km	S
 Katana	Kr	G
 Katana	Ku	S
+Katana	MMa	A
 Katana	Ma	A
 Katana	Mg	S
 Katana	Ny	S
@@ -1044,6 +1120,7 @@ Keule	Kd	S
 Keule	Km	S
 Keule	Kr	G
 Keule	Ku	S
+Keule	MMa	A
 Keule	Ma	A
 Keule	Mg	S
 Keule	Ny	S
@@ -1097,6 +1174,7 @@ Kharrata	Kd	S
 Kharrata	Km	S
 Kharrata	Kr	S
 Kharrata	Ku	S
+Kharrata	MMa	A
 Kharrata	Ma	A
 Kharrata	Mg	S
 Kharrata	Ny	S
@@ -1150,6 +1228,7 @@ Kompositbogen	Kd	S
 Kompositbogen	Km	S
 Kompositbogen	Kr	G
 Kompositbogen	Ku	S
+Kompositbogen	MMa	A
 Kompositbogen	Ma	A
 Kompositbogen	Mg	S
 Kompositbogen	Ny	S
@@ -1203,6 +1282,7 @@ Kriegsflegel	Kd	S
 Kriegsflegel	Km	S
 Kriegsflegel	Kr	G
 Kriegsflegel	Ku	S
+Kriegsflegel	MMa	A
 Kriegsflegel	Ma	A
 Kriegsflegel	Mg	S
 Kriegsflegel	Ny	S
@@ -1256,6 +1336,7 @@ Kriegshammer	Kd	S
 Kriegshammer	Km	S
 Kriegshammer	Kr	G
 Kriegshammer	Ku	S
+Kriegshammer	MMa	A
 Kriegshammer	Ma	A
 Kriegshammer	Mg	S
 Kriegshammer	Ny	S
@@ -1309,6 +1390,7 @@ Krumms‰bel	Kd	S
 Krumms‰bel	Km	S
 Krumms‰bel	Kr	G
 Krumms‰bel	Ku	S
+Krumms‰bel	MMa	A
 Krumms‰bel	Ma	A
 Krumms‰bel	Mg	S
 Krumms‰bel	Ny	S
@@ -1362,6 +1444,7 @@ Kurzbogen	Kd	S
 Kurzbogen	Km	S
 Kurzbogen	Kr	G
 Kurzbogen	Ku	S
+Kurzbogen	MMa	A
 Kurzbogen	Ma	A
 Kurzbogen	Mg	S
 Kurzbogen	Ny	S
@@ -1415,6 +1498,7 @@ Kurzschwert	Kd	S
 Kurzschwert	Km	S
 Kurzschwert	Kr	G
 Kurzschwert	Ku	S
+Kurzschwert	MMa	A
 Kurzschwert	Ma	A
 Kurzschwert	Mg	S
 Kurzschwert	Ny	S
@@ -1468,6 +1552,7 @@ KusariGama	Kd	S
 KusariGama	Km	S
 KusariGama	Kr	G
 KusariGama	Ku	S
+KusariGama	MMa	A
 KusariGama	Ma	A
 KusariGama	Mg	S
 KusariGama	Ny	S
@@ -1521,6 +1606,7 @@ Kyu	Kd	S
 Kyu	Km	S
 Kyu	Kr	G
 Kyu	Ku	S
+Kyu	MMa	A
 Kyu	Ma	A
 Kyu	Mg	S
 Kyu	Ny	S
@@ -1574,6 +1660,7 @@ Langbogen	Kd	S
 Langbogen	Km	S
 Langbogen	Kr	G
 Langbogen	Ku	S
+Langbogen	MMa	A
 Langbogen	Ma	A
 Langbogen	Mg	S
 Langbogen	Ny	S
@@ -1627,6 +1714,7 @@ Langschwert	Kd	S
 Langschwert	Km	S
 Langschwert	Kr	G
 Langschwert	Ku	S
+Langschwert	MMa	A
 Langschwert	Ma	A
 Langschwert	Mg	S
 Langschwert	Ny	S
@@ -1680,6 +1768,7 @@ Lanze	Kd	S
 Lanze	Km	S
 Lanze	Kr	G
 Lanze	Ku	S
+Lanze	MMa	S
 Lanze	Ma	A
 Lanze	Mg	S
 Lanze	Ny	S
@@ -1733,6 +1822,7 @@ Lasso	Kd	S
 Lasso	Km	S
 Lasso	Kr	S
 Lasso	Ku	S
+Lasso	MMa	A
 Lasso	Ma	A
 Lasso	Mg	S
 Lasso	Ny	S
@@ -1774,6 +1864,7 @@ Magierstab	Dr	S
 Magierstab	Hj	A
 Magierstab	Hl	S
 Magierstab	Km	S
+Magierstab	MMa	A
 Magierstab	Ma	S
 Magierstab	Or	A
 Magierstab	PC	S
@@ -1802,6 +1893,7 @@ Magierstecken	Dr	S
 Magierstecken	Hj	A
 Magierstecken	Hl	S
 Magierstecken	Km	S
+Magierstecken	MMa	A
 Magierstecken	Ma	S
 Magierstecken	Or	A
 Magierstecken	PC	S
@@ -1842,6 +1934,7 @@ Morgenstern	Kd	S
 Morgenstern	Km	S
 Morgenstern	Kr	G
 Morgenstern	Ku	S
+Morgenstern	MMa	A
 Morgenstern	Ma	A
 Morgenstern	Mg	S
 Morgenstern	Ny	S
@@ -1895,6 +1988,7 @@ Naginata	Kd	S
 Naginata	Km	S
 Naginata	Kr	G
 Naginata	Ku	S
+Naginata	MMa	A
 Naginata	Ma	A
 Naginata	Mg	S
 Naginata	Ny	S
@@ -1948,6 +2042,7 @@ Namisritra	Kd	S
 Namisritra	Km	S
 Namisritra	Kr	S
 Namisritra	Ku	S
+Namisritra	MMa	A
 Namisritra	Ma	A
 Namisritra	Mg	S
 Namisritra	Ny	S
@@ -1999,6 +2094,7 @@ Netz	Kd	S
 Netz	Km	S
 Netz	Kr	S
 Netz	Ku	S
+Netz	MMa	A
 Netz	Ma	A
 Netz	Mg	S
 Netz	Ny	S
@@ -2052,6 +2148,7 @@ NunChaku	Kd	S
 NunChaku	Km	S
 NunChaku	Kr	G
 NunChaku	Ku	S
+NunChaku	MMa	A
 NunChaku	Ma	A
 NunChaku	Mg	S
 NunChaku	Ny	S
@@ -2105,6 +2202,7 @@ Ochsenzunge	Kd	S
 Ochsenzunge	Km	S
 Ochsenzunge	Kr	G
 Ochsenzunge	Ku	S
+Ochsenzunge	MMa	A
 Ochsenzunge	Ma	A
 Ochsenzunge	Mg	S
 Ochsenzunge	Ny	S
@@ -2158,6 +2256,7 @@ Ogerhammer	Kd	S
 Ogerhammer	Km	S
 Ogerhammer	Kr	S
 Ogerhammer	Ku	S
+Ogerhammer	MMa	A
 Ogerhammer	Ma	A
 Ogerhammer	Mg	S
 Ogerhammer	Ny	S
@@ -2211,6 +2310,7 @@ Parierdolch	Kd	S
 Parierdolch	Km	S
 Parierdolch	Kr	G
 Parierdolch	Ku	S
+Parierdolch	MMa	A
 Parierdolch	Ma	A
 Parierdolch	Mg	S
 Parierdolch	Ny	S
@@ -2264,6 +2364,7 @@ Peitsche	Kd	S
 Peitsche	Km	S
 Peitsche	Kr	S
 Peitsche	Ku	S
+Peitsche	MMa	A
 Peitsche	Ma	A
 Peitsche	Mg	S
 Peitsche	Ny	S
@@ -2317,6 +2418,7 @@ Pilum	Kd	S
 Pilum	Km	S
 Pilum	Kr	G
 Pilum	Ku	S
+Pilum	MMa	A
 Pilum	Ma	A
 Pilum	Mg	S
 Pilum	Ny	S
@@ -2370,6 +2472,7 @@ Rapier	Kd	S
 Rapier	Km	S
 Rapier	Kr	G
 Rapier	Ku	S
+Rapier	MMa	A
 Rapier	Ma	A
 Rapier	Mg	S
 Rapier	Ny	S
@@ -2423,6 +2526,7 @@ Sai	Kd	S
 Sai	Km	S
 Sai	Kr	G
 Sai	Ku	S
+Sai	MMa	A
 Sai	Ma	A
 Sai	Mg	S
 Sai	Ny	S
@@ -2476,6 +2580,7 @@ Schlachtbeil	Kd	S
 Schlachtbeil	Km	S
 Schlachtbeil	Kr	G
 Schlachtbeil	Ku	S
+Schlachtbeil	MMa	A
 Schlachtbeil	Ma	A
 Schlachtbeil	Mg	S
 Schlachtbeil	Ny	S
@@ -2529,6 +2634,7 @@ Schleuder	Kd	S
 Schleuder	Km	S
 Schleuder	Kr	G
 Schleuder	Ku	S
+Schleuder	MMa	A
 Schleuder	Ma	A
 Schleuder	Mg	S
 Schleuder	Ny	S
@@ -2582,6 +2688,7 @@ Skhallanta	Kd	S
 Skhallanta	Km	S
 Skhallanta	Kr	G
 Skhallanta	Ku	S
+Skhallanta	MMa	A
 Skhallanta	Ma	A
 Skhallanta	Mg	S
 Skhallanta	Ny	S
@@ -2635,6 +2742,7 @@ Speerschleuder	Kd	S
 Speerschleuder	Km	S
 Speerschleuder	Kr	G
 Speerschleuder	Ku	S
+Speerschleuder	MMa	A
 Speerschleuder	Ma	A
 Speerschleuder	Mg	S
 Speerschleuder	Ny	S
@@ -2688,6 +2796,7 @@ Stabkeule	Kd	S
 Stabkeule	Km	S
 Stabkeule	Kr	G
 Stabkeule	Ku	S
+Stabkeule	MMa	A
 Stabkeule	Ma	A
 Stabkeule	Mg	S
 Stabkeule	Ny	S
@@ -2741,6 +2850,7 @@ Stielhammer	Kd	S
 Stielhammer	Km	S
 Stielhammer	Kr	G
 Stielhammer	Ku	S
+Stielhammer	MMa	A
 Stielhammer	Ma	A
 Stielhammer	Mg	S
 Stielhammer	Ny	S
@@ -2794,6 +2904,7 @@ Stockschleuder	Kd	S
 Stockschleuder	Km	S
 Stockschleuder	Kr	G
 Stockschleuder	Ku	S
+Stockschleuder	MMa	A
 Stockschleuder	Ma	A
 Stockschleuder	Mg	S
 Stockschleuder	Ny	S
@@ -2847,6 +2958,7 @@ Stoﬂspeer	Kd	S
 Stoﬂspeer	Km	S
 Stoﬂspeer	Kr	G
 Stoﬂspeer	Ku	S
+Stoﬂspeer	MMa	S
 Stoﬂspeer	Ma	A
 Stoﬂspeer	Mg	S
 Stoﬂspeer	Ny	S
@@ -2900,6 +3012,7 @@ Streitaxt	Kd	S
 Streitaxt	Km	S
 Streitaxt	Kr	G
 Streitaxt	Ku	S
+Streitaxt	MMa	A
 Streitaxt	Ma	A
 Streitaxt	Mg	S
 Streitaxt	Ny	S
@@ -2953,6 +3066,7 @@ Streitkolben	Kd	S
 Streitkolben	Km	S
 Streitkolben	Kr	G
 Streitkolben	Ku	S
+Streitkolben	MMa	A
 Streitkolben	Ma	A
 Streitkolben	Mg	S
 Streitkolben	Ny	S
@@ -3006,6 +3120,7 @@ TetsuBo	Kd	S
 TetsuBo	Km	S
 TetsuBo	Kr	G
 TetsuBo	Ku	S
+TetsuBo	MMa	A
 TetsuBo	Ma	A
 TetsuBo	Mg	S
 TetsuBo	Ny	S
@@ -3059,6 +3174,7 @@ Tonfa	Kd	S
 Tonfa	Km	S
 Tonfa	Kr	G
 Tonfa	Ku	S
+Tonfa	MMa	A
 Tonfa	Ma	A
 Tonfa	Mg	S
 Tonfa	Ny	S
@@ -3112,6 +3228,7 @@ Werfen	Kd	S
 Werfen	Km	S
 Werfen	Kr	S
 Werfen	Ku	G
+Werfen	MMa	A
 Werfen	Ma	A
 Werfen	Mg	S
 Werfen	Ny	S
@@ -3165,6 +3282,7 @@ Wurfaxt	Kd	S
 Wurfaxt	Km	S
 Wurfaxt	Kr	G
 Wurfaxt	Ku	S
+Wurfaxt	MMa	A
 Wurfaxt	Ma	A
 Wurfaxt	Mg	S
 Wurfaxt	Ny	S
@@ -3218,6 +3336,7 @@ Wurfeisen	Kd	S
 Wurfeisen	Km	S
 Wurfeisen	Kr	G
 Wurfeisen	Ku	S
+Wurfeisen	MMa	A
 Wurfeisen	Ma	A
 Wurfeisen	Mg	S
 Wurfeisen	Ny	S
@@ -3271,6 +3390,7 @@ Wurfhammer	Kd	S
 Wurfhammer	Km	S
 Wurfhammer	Kr	G
 Wurfhammer	Ku	S
+Wurfhammer	MMa	A
 Wurfhammer	Ma	A
 Wurfhammer	Mg	S
 Wurfhammer	Ny	S
@@ -3324,6 +3444,7 @@ Wurfkeule	Kd	S
 Wurfkeule	Km	S
 Wurfkeule	Kr	G
 Wurfkeule	Ku	S
+Wurfkeule	MMa	A
 Wurfkeule	Ma	A
 Wurfkeule	Mg	S
 Wurfkeule	Ny	S
@@ -3377,6 +3498,7 @@ Wurfmesser	Kd	S
 Wurfmesser	Km	S
 Wurfmesser	Kr	G
 Wurfmesser	Ku	S
+Wurfmesser	MMa	A
 Wurfmesser	Ma	A
 Wurfmesser	Mg	S
 Wurfmesser	Ny	S
@@ -3430,6 +3552,7 @@ Wurfpfeil	Kd	S
 Wurfpfeil	Km	S
 Wurfpfeil	Kr	G
 Wurfpfeil	Ku	S
+Wurfpfeil	MMa	A
 Wurfpfeil	Ma	A
 Wurfpfeil	Mg	S
 Wurfpfeil	Ny	S
@@ -3483,6 +3606,7 @@ Wurfscheibe	Kd	S
 Wurfscheibe	Km	S
 Wurfscheibe	Kr	S
 Wurfscheibe	Ku	S
+Wurfscheibe	MMa	A
 Wurfscheibe	Ma	A
 Wurfscheibe	Mg	S
 Wurfscheibe	Ny	S
@@ -3536,6 +3660,7 @@ Wurfspeer	Kd	S
 Wurfspeer	Km	S
 Wurfspeer	Kr	G
 Wurfspeer	Ku	S
+Wurfspeer	MMa	A
 Wurfspeer	Ma	A
 Wurfspeer	Mg	S
 Wurfspeer	Ny	S
@@ -3589,6 +3714,7 @@ Wurfspieﬂ	Kd	S
 Wurfspieﬂ	Km	S
 Wurfspieﬂ	Kr	G
 Wurfspieﬂ	Ku	S
+Wurfspieﬂ	MMa	A
 Wurfspieﬂ	Ma	A
 Wurfspieﬂ	Mg	S
 Wurfspieﬂ	Ny	S
@@ -3642,6 +3768,7 @@ Wurfstern	Kd	S
 Wurfstern	Km	S
 Wurfstern	Kr	S
 Wurfstern	Ku	S
+Wurfstern	MMa	A
 Wurfstern	Ma	A
 Wurfstern	Mg	S
 Wurfstern	Ny	S
@@ -3678,6 +3805,63 @@ Wurfstern	eBe	A
 Wurfstern	gHx	A
 Wurfstern	sHx	A
 Wurfstern	wHx	A
+Zweizack	As	S
+Zweizack	BN	S
+Zweizack	BS	S
+Zweizack	BW	S
+Zweizack	Ba	S
+Zweizack	De	A
+Zweizack	Dr	A
+Zweizack	Dt	A
+Zweizack	Er	S
+Zweizack	Fi	S
+Zweizack	Gl	S
+Zweizack	Hj	A
+Zweizack	Hl	A
+Zweizack	H‰	S
+Zweizack	Kd	S
+Zweizack	Km	S
+Zweizack	Kr	G
+Zweizack	Ku	S
+Zweizack	MMa	S
+Zweizack	Ma	A
+Zweizack	Mg	S
+Zweizack	Ny	S
+Zweizack	Or	S
+Zweizack	PC	A
+Zweizack	PF	A
+Zweizack	PHa	A
+Zweizack	PHe	A
+Zweizack	PK	S
+Zweizack	PM	A
+Zweizack	PT	A
+Zweizack	PW	A
+Zweizack	RiN	S
+Zweizack	RiS	S
+Zweizack	Ru	S
+Zweizack	Sa	A
+Zweizack	ScN	A
+Zweizack	ScS	A
+Zweizack	ScW	A
+Zweizack	Se	S
+Zweizack	Sk	S
+Zweizack	Sp	S
+Zweizack	Sr	S
+Zweizack	Sw	A
+Zweizack	Sˆ	G
+Zweizack	Th	A
+Zweizack	Tm	S
+Zweizack	To	S
+Zweizack	Tr	S
+Zweizack	Tt	S
+Zweizack	Wa	S
+Zweizack	Wi	S
+Zweizack	dBe	A
+Zweizack	eBe	A
+Zweizack	gHx	A
+Zweizack	sHx	A
+Zweizack	tBe	A
+Zweizack	wHx	A
 groﬂer Schild	As	S
 groﬂer Schild	BN	S
 groﬂer Schild	BS	S
@@ -3695,6 +3879,7 @@ groﬂer Schild	Kd	S
 groﬂer Schild	Km	S
 groﬂer Schild	Kr	G
 groﬂer Schild	Ku	S
+groﬂer Schild	MMa	A
 groﬂer Schild	Ma	A
 groﬂer Schild	Mg	S
 groﬂer Schild	Ny	S
@@ -3748,6 +3933,7 @@ kleiner Schild	Kd	S
 kleiner Schild	Km	S
 kleiner Schild	Kr	G
 kleiner Schild	Ku	S
+kleiner Schild	MMa	A
 kleiner Schild	Ma	A
 kleiner Schild	Mg	S
 kleiner Schild	Ny	S
@@ -3801,6 +3987,7 @@ leichte Armbrust	Kd	S
 leichte Armbrust	Km	S
 leichte Armbrust	Kr	G
 leichte Armbrust	Ku	S
+leichte Armbrust	MMa	A
 leichte Armbrust	Ma	A
 leichte Armbrust	Mg	S
 leichte Armbrust	Ny	S
@@ -3854,6 +4041,7 @@ leichter Speer	Kd	S
 leichter Speer	Km	S
 leichter Speer	Kr	G
 leichter Speer	Ku	S
+leichter Speer	MMa	S
 leichter Speer	Ma	A
 leichter Speer	Mg	S
 leichter Speer	Ny	S
@@ -3907,6 +4095,7 @@ schwere Armbrust	Kd	S
 schwere Armbrust	Km	S
 schwere Armbrust	Kr	G
 schwere Armbrust	Ku	S
+schwere Armbrust	MMa	A
 schwere Armbrust	Ma	A
 schwere Armbrust	Mg	S
 schwere Armbrust	Ny	S
@@ -3960,6 +4149,7 @@ waffenloser Kampf	Kd	S
 waffenloser Kampf	Km	S
 waffenloser Kampf	Kr	G
 waffenloser Kampf	Ku	S
+waffenloser Kampf	MMa	A
 waffenloser Kampf	Ma	A
 waffenloser Kampf	Mg	S
 waffenloser Kampf	Ny	S

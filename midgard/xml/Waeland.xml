@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="W" Name="Waeland" Titel="Waeland - Die Krieger des Nordens" Copyright="Olaf Möhle, Stephanie Lammers u.a." Jahr="1991-1997" offiziell="true" Maintainer="Malte Thoma" Version="1.0" erzeugt="2002-10-17 22:01:46.820647+02" MAGUS-Index="9" MAGUS-Bild="7">
+<MAGUS-data Region="W" Name="Waeland" Titel="Waeland - Die Krieger des Nordens" Copyright="Olaf Möhle, Stephanie Lammers u.a." Jahr="1991-1997" offiziell="true" Maintainer="Malte Thoma" Version="1.0" erzeugt="2002-10-22 17:41:46.460683+02" MAGUS-Index="9" MAGUS-Bild="7">
  <Schriften>
   <Schrift Name="Futhark" Region="W" Typ="Runen" Kosten="20">
    <Variante Name="Futhark"/>

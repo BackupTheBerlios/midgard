@@ -40,6 +40,7 @@ COPY "lernschema_4" FROM stdin;
 0	PM	f	Schreiben: Alte Sprache(+12)	Fachkenntnisse	12
 0	PT	f	Schreiben: Alte Sprache(+12)	Fachkenntnisse	12
 0	PW	f	Schreiben: Alte Sprache(+12)	Fachkenntnisse	12
+0	MMa	f	Sprechen: Alte Sprache	Fachkenntnisse	9
 0	Mg	f	Sprechen: Alte Sprache	Fachkenntnisse	12
 0	PC	f	Sprechen: Alte Sprache	Fachkenntnisse	12
 0	PF	f	Sprechen: Alte Sprache	Fachkenntnisse	12
@@ -139,6 +140,7 @@ COPY "lernschema_4" FROM stdin;
 1	Dt	f	Erkennen von Krankheit	Zauberkünste	\N
 1	Hl	f	Erkennen von Krankheit	Zauberkünste	0
 1	Km	f	Erkennen von Leben	Zauberkünste	0
+1	MMa	f	Erkennen von Leben	Zauberkünste	0
 1	Ma	f	Erkennen von Leben	Zauberkünste	0
 1	Hl	t	Erste Hilfe	Fachkenntnisse	8
 1	Kd	f	Erste Hilfe	Fachkenntnisse	8
@@ -203,13 +205,16 @@ COPY "lernschema_4" FROM stdin;
 1	PK	f	Heiliger Zorn	Zauberkünste	0
 1	PM	f	Heiliger Zorn	Zauberkünste	0
 1	Km	f	Heranholen	Zauberkünste	0
+1	MMa	f	Heranholen	Zauberkünste	0
 1	Ma	f	Heranholen	Zauberkünste	0
 1	BN	f	Himmelskunde	Fachkenntnisse	5
 1	BS	f	Himmelskunde	Fachkenntnisse	5
 1	Hä	f	Himmelskunde	Fachkenntnisse	5
 1	Ku	f	Himmelskunde	Fachkenntnisse	5
+1	MMa	f	Himmelskunde	Fachkenntnisse	5
 1	Mg	f	Himmelskunde	Fachkenntnisse	5
 1	Se	f	Himmelskunde	Fachkenntnisse	5
+1	MMa	f	Hitzeschutz	Zauberkünste	0
 1	Sa	f	Hitzeschutz	Zauberkünste	\N
 1	PHa	f	Hitzeschutz 	Zauberkünste	0
 1	Sw	f	Hitzsalz	Zauberkünste	0
@@ -323,6 +328,7 @@ COPY "lernschema_4" FROM stdin;
 1	Ba	f	Lesen von Zauberschrift	Fachkenntnisse	12
 1	Hl	f	Lesen von Zauberschrift	Fachkenntnisse	12
 1	Km	f	Lesen von Zauberschrift	Fachkenntnisse	12
+1	MMa	f	Lesen von Zauberschrift	Fachkenntnisse	12
 1	Ma	f	Lesen von Zauberschrift	Fachkenntnisse	12
 1	PC	f	Lesen von Zauberschrift	Fachkenntnisse	12
 1	PF	f	Lesen von Zauberschrift	Fachkenntnisse	12
@@ -349,6 +355,7 @@ COPY "lernschema_4" FROM stdin;
 1	eBe	f	Ljosfang beschwören	Zauberkünste	\N
 1	Dt	f	Macht über das Selbst	Zauberkünste	\N
 1	Km	f	Macht über das Selbst	Zauberkünste	0
+1	MMa	f	Macht über das Selbst	Zauberkünste	0
 1	Ma	f	Macht über das Selbst	Zauberkünste	0
 1	Kd	f	Meditieren	Fachkenntnisse	8
 1	Sa	f	Meditieren	Fachkenntnisse	8
@@ -367,6 +374,7 @@ COPY "lernschema_4" FROM stdin;
 1	Sk	t	Musizieren	Fachkenntnisse	12
 1	Dr	f	Naturkunde	Fachkenntnisse	5
 1	Ku	f	Naturkunde	Fachkenntnisse	5
+1	MMa	f	Nebel wecken	Zauberkünste	0
 1	PM	f	Nebel wecken	Zauberkünste	0
 1	Sw	f	Niessalz	Zauberkünste	0
 1	Th	f	Niessalz	Zauberkünste	0
@@ -397,6 +405,7 @@ COPY "lernschema_4" FROM stdin;
 1	Sö	f	Rapier	Waffenfertigkeiten	5
 1	To	f	Rapier	Waffenfertigkeiten	5
 1	Hä	f	Rechnen	Fachkenntnisse	8
+1	MMa	f	Rechnen	Fachkenntnisse	8
 1	Mg	f	Rechnen	Fachkenntnisse	8
 1	BS	f	Reiten	Fachkenntnisse	15
 1	Gl	f	Reiten	Fachkenntnisse	15
@@ -426,6 +435,7 @@ COPY "lernschema_4" FROM stdin;
 1	Kd	f	Sai	Waffenfertigkeiten	5
 1	Ny	f	Sai	Waffenfertigkeiten	5
 1	Km	f	Scharfblick	Zauberkünste	0
+1	MMa	f	Scharfblick	Zauberkünste	0
 1	Ma	f	Scharfblick	Zauberkünste	0
 1	BN	f	Schlachtbeil	Waffenfertigkeiten	5
 1	Sa	f	Schlangen beschwören	Fachkenntnisse	\N
@@ -436,12 +446,14 @@ COPY "lernschema_4" FROM stdin;
 1	Sp	f	Schlösser öffnen	Fachkenntnisse	8
 1	Sw	f	Schlösser öffnen	Fachkenntnisse	8
 1	Sa	f	Schmerzen ertragen	Fachkenntnisse	12
+1	MMa	f	Schreiben: Alte Sprache(+4)	Fachkenntnisse	4
 1	Ba	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
 1	Dt	t	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
 1	Er	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
 1	Hj	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
 1	Hl	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
 1	Km	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	5
+1	MMa	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
 1	Ma	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
 1	Mg	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
 1	Ny	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
@@ -600,6 +612,7 @@ COPY "lernschema_4" FROM stdin;
 1	Th	f	Wehsalz	Zauberkünste	0
 1	PF	f	Wetterkunde	Fachkenntnisse	15
 1	Se	f	Wetterkunde	Fachkenntnisse	15
+1	MMa	f	Windstoß	Zauberkünste	0
 1	Sa	t	Wissen von der Magie	Fachkenntnisse	\N
 1	dBe	t	Wissen von der Magie	Fachkenntnisse	\N
 1	eBe	t	Wissen von der Magie	Fachkenntnisse	\N
@@ -813,6 +826,7 @@ COPY "lernschema_4" FROM stdin;
 2	De	f	Dolch	Waffenfertigkeiten	4
 2	Dr	f	Dolch	Waffenfertigkeiten	4
 2	Hl	f	Dolch	Waffenfertigkeiten	4
+2	MMa	f	Dolch	Waffenfertigkeiten	4
 2	Ma	f	Dolch	Waffenfertigkeiten	4
 2	PC	f	Dolch	Waffenfertigkeiten	4
 2	PHa	f	Dolch	Waffenfertigkeiten	4
@@ -937,6 +951,7 @@ COPY "lernschema_4" FROM stdin;
 2	ScN	f	Heilkunde	Fachkenntnisse	5
 2	ScS	f	Heilkunde	Fachkenntnisse	5
 2	ScW	f	Heilkunde	Fachkenntnisse	5
+2	MMa	f	Heimfeder	Zauberkünste	0
 2	Kr	f	Hellebarde	Waffenfertigkeiten	5
 2	Or	f	Hellebarde	Waffenfertigkeiten	5
 2	RiN	f	Hellebarde	Waffenfertigkeiten	5
@@ -1123,6 +1138,7 @@ COPY "lernschema_4" FROM stdin;
 2	Sw	f	Löschsalz	Zauberkünste	0
 2	Th	f	Löschsalz	Zauberkünste	0
 2	Km	f	Macht über Unbelebtes	Zauberkünste	0
+2	MMa	f	Macht über Unbelebtes	Zauberkünste	0
 2	Ma	f	Macht über Unbelebtes	Zauberkünste	0
 2	Sa	f	Macht über Unbelebtes	Zauberkünste	\N
 2	gHx	f	Macht über das Selbst	Zauberkünste	0
@@ -1249,6 +1265,7 @@ COPY "lernschema_4" FROM stdin;
 2	Wa	f	Schwimmen	Fachkenntnisse	15
 2	PHa	f	Schätzen	Fachkenntnisse	5
 2	BN	f	Seemannsgang	Fachkenntnisse	15
+2	MMa	f	Seemansgang	Fachkenntnisse	15
 2	PK	f	Segnen	Zauberkünste	0
 2	PW	f	Segnen	Zauberkünste	0
 2	Sw	f	Sehen von Verborgenem	Zauberkünste	0
@@ -1310,6 +1327,7 @@ COPY "lernschema_4" FROM stdin;
 2	Sp	f	Suchen	Fachkenntnisse	8
 2	Sw	f	Suchen	Fachkenntnisse	8
 2	To	f	Suchen	Fachkenntnisse	8
+2	MMa	f	Sumpfboden	Zauberkünster	0
 2	Ny	f	TaiTschi	Fachkenntnisse	\N
 2	Ku	f	Tarnen	Fachkenntnisse	8
 2	Sp	f	Tarnen	Fachkenntnisse	8
@@ -1437,6 +1455,7 @@ COPY "lernschema_4" FROM stdin;
 2	Gl	f	Zauberkunde	Fachkenntnisse	5
 2	Hl	f	Zauberkunde	Fachkenntnisse	5
 2	Km	f	Zauberkunde	Fachkenntnisse	5
+2	MMa	f	Zauberkunde	Fachkenntnisse	5
 2	Ma	f	Zauberkunde	Fachkenntnisse	5
 2	Mg	f	Zauberkunde	Fachkenntnisse	5
 2	PW	f	Zauberkunde	Fachkenntnisse	5
@@ -1636,6 +1655,7 @@ COPY "lernschema_4" FROM stdin;
 3	De	f	Macht über das Selbst	Zauberkünste	0
 3	To	f	Macht über das Selbst	Zauberkünste	0
 3	Km	f	Macht über die belebte Natur	Zauberkünste	0
+3	MMa	f	Macht über die belebte Natur	Zauberkünste	0
 3	Ma	f	Macht über die belebte Natur	Zauberkünste	0
 3	PC	f	Magierstab	Waffenfertigkeiten	4
 3	PT	f	Magierstab	Waffenfertigkeiten	4
@@ -1705,6 +1725,7 @@ COPY "lernschema_4" FROM stdin;
 3	eBe	f	Schutzkreis gegen Jördfolk	Zauberkünste	\N
 3	eBe	f	Schutzkreis gegen Vindfolk	Zauberkünste	\N
 3	eBe	f	Schutzkreis gegen Wisfolk	Zauberkünste	\N
+3	MMa	f	Schwimmen	Fachkenntnisse	15
 3	ScN	f	Schwingenkeule	Zauberkünste	0
 3	ScS	f	Schwingenkeule	Zauberkünste	0
 3	ScW	f	Schwingenkeule	Zauberkünste	0
@@ -1723,6 +1744,7 @@ COPY "lernschema_4" FROM stdin;
 3	Se	f	Stabkeule	Waffenfertigkeiten	5
 3	Tm	f	Stabkeule	Waffenfertigkeiten	5
 3	Tr	f	Steinaxt	Waffenfertigkeiten	5
+3	MMa	f	Steuern	Fachkenntnisse	15
 3	Gl	f	Stielhammer	Waffenfertigkeiten	5
 3	Hj	f	Stielhammer	Waffenfertigkeiten	5
 3	Or	f	Stielhammer	Waffenfertigkeiten	5
@@ -1771,6 +1793,7 @@ COPY "lernschema_4" FROM stdin;
 3	PK	f	Warnung	Zauberkünste	0
 3	PM	f	Warnung	Zauberkünste	0
 3	PW	f	Warnung	Zauberkünste	0
+3	MMa	f	Wasseratmen	Zauberkünste	0
 3	Dr	f	Wundersame Tarnung	Zauberkünste	0
 3	PHa	f	Wurfaxt	Waffenfertigkeiten	4
 3	PK	f	Wurfaxt	Waffenfertigkeiten	4
@@ -1891,6 +1914,7 @@ COPY "lernschema_4" FROM stdin;
 4	Hj	f	Erkennen von Besessenheit	Zauberkünste	0
 4	Mg	f	Erkennen von Leben	Zauberkünste	0
 4	Km	f	Erkennen von Zauberei	Zauberkünste	0
+4	MMa	f	Erkennen von Zauberei	Zauberkünste	0
 4	Ma	f	Erkennen von Zauberei	Zauberkünste	0
 4	Tr	f	Farbenspiel	Zauberkünste	\N
 4	Hj	f	Flammenkreis	Zauberkünste	0
@@ -1988,6 +2012,7 @@ COPY "lernschema_4" FROM stdin;
 4	Tm	f	Wagemut	Zauberkünste	0
 4	Sk	f	Wahrheitsrune	Zauberkünste	\N
 4	Mg	f	Wehsalz	Zauberkünste	0
+4	MMa	f	Wetterzauber	Zauberkünste	0
 4	Tt	f	Wurfmesser	Waffenfertigkeiten	5
 4	PC	f	Wurfpfeil	Waffenfertigkeiten	4
 4	PT	f	Wurfpfeil	Waffenfertigkeiten	4
@@ -2020,6 +2045,8 @@ COPY "lernschema_4" FROM stdin;
 5	PW	f	Kampfstab	Waffenfertigkeiten	4
 5	Dt	f	Keule	Waffenfertigkeiten	5
 5	PC	f	Meucheln	Fachkenntnisse	8
+5	MMa	f	Tauchen	Fachkenntnisse	15
+5	MMa	f	Thaumatographie	Fachkenntnisse	6
 5	Ma	f	Thaumatographie	Fachkenntnisse	6
 5	Tr	f	waffenloser Kampf	Waffenfertigkeiten	5
 6	Tr	f	Blumenfee	Zauberkünste	\N
@@ -2047,6 +2074,7 @@ COPY "lernschema_4" FROM stdin;
 6	gHx	f	Wurfmesser	Waffenfertigkeiten	4
 6	sHx	f	Wurfmesser	Waffenfertigkeiten	4
 6	wHx	f	Wurfmesser	Waffenfertigkeiten	4
+6	MMa	f	Zweizack	Waffenfertigkeiten	4
 6	Th	f	leichte Armbrust	Waffenfertigkeiten	4
 6	PC	f	waffenloser Kampf	Waffenfertigkeiten	4
 6	PW	f	waffenloser Kampf	Waffenfertigkeiten	4
@@ -2064,6 +2092,7 @@ COPY "lernschema_4" FROM stdin;
 8	Ba	f	Das Lied des Spottes	Zauberkünste	0
 8	Ba	f	Das Lied des Wagemuts	Zauberkünste	0
 8	Ba	f	Das Loblied	Zauberkünste	0
+8	MMa	f	Dreizack	Waffenfertigkeiten	5
 8	Hj	f	Erkennen von Zauberei	Zauberkünste	0
 8	Mg	f	Erkennen von Zauberei	Zauberkünste	0
 8	ScN	f	Faustkampf	Waffenfertigkeiten	4

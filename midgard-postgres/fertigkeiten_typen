@@ -39,6 +39,7 @@ Abrichten	Kd	S
 Abrichten	Km	A
 Abrichten	Kr	S
 Abrichten	Ku	S
+Abrichten	MMa	A
 Abrichten	Ma	A
 Abrichten	Mg	A
 Abrichten	Ny	S
@@ -95,6 +96,7 @@ Adlersprung	Kd	A
 Adlersprung	Km	A
 Adlersprung	Kr	A
 Adlersprung	Ku	A
+Adlersprung	MMa	A
 Adlersprung	Ma	A
 Adlersprung	Mg	A
 Adlersprung	Ny	A
@@ -152,6 +154,7 @@ Akribie	Kd	A
 Akribie	Km	A
 Akribie	Kr	A
 Akribie	Ku	A
+Akribie	MMa	S
 Akribie	Ma	S
 Akribie	Mg	A
 Akribie	Ny	A
@@ -209,6 +212,7 @@ Akrobatik	Kd	S
 Akrobatik	Km	A
 Akrobatik	Kr	S
 Akrobatik	Ku	S
+Akrobatik	MMa	A
 Akrobatik	Ma	A
 Akrobatik	Mg	S
 Akrobatik	Ny	S
@@ -265,6 +269,7 @@ Alchimie	Kd	A
 Alchimie	Km	G
 Alchimie	Kr	A
 Alchimie	Ku	A
+Alchimie	MMa	A
 Alchimie	Ma	G
 Alchimie	Mg	S
 Alchimie	Ny	A
@@ -319,6 +324,7 @@ Askese	Hl	S
 Askese	Hä	A
 Askese	Kd	A
 Askese	Kr	A
+Askese	MMa	S
 Askese	Ma	S
 Askese	Mg	A
 Askese	Ny	A
@@ -370,6 +376,7 @@ Astrologie	Hä	S
 Astrologie	Kd	A
 Astrologie	Km	S
 Astrologie	Kr	A
+Astrologie	MMa	S
 Astrologie	Ma	G
 Astrologie	Mg	S
 Astrologie	Ny	A
@@ -424,6 +431,7 @@ Athletik	Kd	S
 Athletik	Km	G
 Athletik	Kr	G
 Athletik	Ku	S
+Athletik	MMa	A
 Athletik	Ma	A
 Athletik	Mg	A
 Athletik	Ny	S
@@ -478,6 +486,7 @@ Augensalbe herstellen	Hl	S
 Augensalbe herstellen	Hä	S
 Augensalbe herstellen	Kd	S
 Augensalbe herstellen	Kr	S
+Augensalbe herstellen	MMa	S
 Augensalbe herstellen	Ma	S
 Augensalbe herstellen	Mg	S
 Augensalbe herstellen	Ny	S
@@ -531,6 +540,7 @@ Balancieren	Kd	G
 Balancieren	Km	S
 Balancieren	Kr	S
 Balancieren	Ku	S
+Balancieren	MMa	S
 Balancieren	Ma	S
 Balancieren	Mg	S
 Balancieren	Ny	G
@@ -588,6 +598,7 @@ Ballista bedienen	Kd	A
 Ballista bedienen	Km	S
 Ballista bedienen	Kr	G
 Ballista bedienen	Ku	S
+Ballista bedienen	MMa	A
 Ballista bedienen	Ma	A
 Ballista bedienen	Mg	S
 Ballista bedienen	Ny	S
@@ -645,6 +656,7 @@ Ballspiel	Kd	A
 Ballspiel	Km	A
 Ballspiel	Kr	A
 Ballspiel	Ku	A
+Ballspiel	MMa	A
 Ballspiel	Ma	A
 Ballspiel	Mg	A
 Ballspiel	Ny	A
@@ -702,6 +714,7 @@ Baukunde	Kd	S
 Baukunde	Km	S
 Baukunde	Kr	S
 Baukunde	Ku	S
+Baukunde	MMa	S
 Baukunde	Ma	S
 Baukunde	Mg	S
 Baukunde	Ny	S
@@ -758,6 +771,7 @@ Beidhändiger Kampf	Kd	G
 Beidhändiger Kampf	Km	A
 Beidhändiger Kampf	Kr	G
 Beidhändiger Kampf	Ku	S
+Beidhändiger Kampf	MMa	A
 Beidhändiger Kampf	Ma	A
 Beidhändiger Kampf	Mg	S
 Beidhändiger Kampf	Ny	S
@@ -815,6 +829,7 @@ Beredsamkeit	Kd	S
 Beredsamkeit	Km	S
 Beredsamkeit	Kr	S
 Beredsamkeit	Ku	S
+Beredsamkeit	MMa	S
 Beredsamkeit	Ma	S
 Beredsamkeit	Mg	G
 Beredsamkeit	Ny	S
@@ -872,6 +887,7 @@ Beschatten	Kd	S
 Beschatten	Km	S
 Beschatten	Kr	S
 Beschatten	Ku	G
+Beschatten	MMa	S
 Beschatten	Ma	S
 Beschatten	Mg	S
 Beschatten	Ny	G
@@ -929,6 +945,7 @@ Bogenkampf zu Pferd	Kd	S
 Bogenkampf zu Pferd	Km	S
 Bogenkampf zu Pferd	Kr	G
 Bogenkampf zu Pferd	Ku	G
+Bogenkampf zu Pferd	MMa	A
 Bogenkampf zu Pferd	Ma	A
 Bogenkampf zu Pferd	Mg	A
 Bogenkampf zu Pferd	Ny	S
@@ -983,6 +1000,7 @@ Brettspiel	Hl	G
 Brettspiel	Hä	G
 Brettspiel	Kd	S
 Brettspiel	Kr	S
+Brettspiel	MMa	S
 Brettspiel	Ma	G
 Brettspiel	Mg	G
 Brettspiel	Ny	S
@@ -1036,6 +1054,7 @@ Dichten	Kd	S
 Dichten	Km	S
 Dichten	Kr	S
 Dichten	Ku	S
+Dichten	MMa	S
 Dichten	Ma	S
 Dichten	Mg	S
 Dichten	Ny	S
@@ -1093,6 +1112,7 @@ Dämonenkunde	Kd	A
 Dämonenkunde	Km	A
 Dämonenkunde	Kr	A
 Dämonenkunde	Ku	A
+Dämonenkunde	MMa	A
 Dämonenkunde	Ma	A
 Dämonenkunde	Mg	A
 Dämonenkunde	Nb	G
@@ -1148,6 +1168,7 @@ Elefanten lenken	Hl	A
 Elefanten lenken	Hä	A
 Elefanten lenken	Kd	A
 Elefanten lenken	Kr	A
+Elefanten lenken	MMa	A
 Elefanten lenken	Ma	A
 Elefanten lenken	Mg	A
 Elefanten lenken	Ny	A
@@ -1201,6 +1222,7 @@ Erste Hilfe	Kd	S
 Erste Hilfe	Km	S
 Erste Hilfe	Kr	S
 Erste Hilfe	Ku	S
+Erste Hilfe	MMa	S
 Erste Hilfe	Ma	S
 Erste Hilfe	Mg	S
 Erste Hilfe	Ny	S
@@ -1258,6 +1280,7 @@ Erzählen	Kd	S
 Erzählen	Km	S
 Erzählen	Kr	S
 Erzählen	Ku	S
+Erzählen	MMa	S
 Erzählen	Ma	S
 Erzählen	Mg	S
 Erzählen	Ny	S
@@ -1315,6 +1338,7 @@ Fallen entdecken	Kd	A
 Fallen entdecken	Km	A
 Fallen entdecken	Kr	A
 Fallen entdecken	Ku	S
+Fallen entdecken	MMa	A
 Fallen entdecken	Ma	A
 Fallen entdecken	Mg	S
 Fallen entdecken	Ny	G
@@ -1369,6 +1393,7 @@ Fallen entschärfen	Hl	A
 Fallen entschärfen	Hä	S
 Fallen entschärfen	Kd	S
 Fallen entschärfen	Kr	A
+Fallen entschärfen	MMa	A
 Fallen entschärfen	Ma	A
 Fallen entschärfen	Mg	S
 Fallen entschärfen	Ny	G
@@ -1422,6 +1447,7 @@ Fallenmechanik	Kd	S
 Fallenmechanik	Km	A
 Fallenmechanik	Kr	A
 Fallenmechanik	Ku	S
+Fallenmechanik	MMa	A
 Fallenmechanik	Ma	A
 Fallenmechanik	Mg	S
 Fallenmechanik	Ny	G
@@ -1479,6 +1505,7 @@ Fallenstellen	Kd	S
 Fallenstellen	Km	A
 Fallenstellen	Kr	S
 Fallenstellen	Ku	G
+Fallenstellen	MMa	A
 Fallenstellen	Ma	A
 Fallenstellen	Mg	S
 Fallenstellen	Ny	G
@@ -1536,6 +1563,7 @@ Fangen	Kd	S
 Fangen	Km	S
 Fangen	Kr	S
 Fangen	Ku	S
+Fangen	MMa	S
 Fangen	Ma	S
 Fangen	Mg	S
 Fangen	Ny	S
@@ -1593,6 +1621,7 @@ Fechten	Kd	S
 Fechten	Km	A
 Fechten	Kr	S
 Fechten	Ku	S
+Fechten	MMa	A
 Fechten	Ma	A
 Fechten	Mg	G
 Fechten	Ny	A
@@ -1650,6 +1679,7 @@ Fechten tevarrischer Stil	Kd	S
 Fechten tevarrischer Stil	Km	A
 Fechten tevarrischer Stil	Kr	S
 Fechten tevarrischer Stil	Ku	S
+Fechten tevarrischer Stil	MMa	A
 Fechten tevarrischer Stil	Ma	A
 Fechten tevarrischer Stil	Mg	G
 Fechten tevarrischer Stil	Ny	A
@@ -1707,6 +1737,7 @@ Federflechten	Kd	A
 Federflechten	Km	A
 Federflechten	Kr	A
 Federflechten	Ku	A
+Federflechten	MMa	A
 Federflechten	Ma	A
 Federflechten	Mg	A
 Federflechten	Ny	A
@@ -1761,6 +1792,7 @@ FengSchui	Hl	S
 FengSchui	Hä	S
 FengSchui	Kd	G
 FengSchui	Kr	G
+FengSchui	MMa	S
 FengSchui	Ma	S
 FengSchui	Mg	S
 FengSchui	Ny	G
@@ -1811,6 +1843,7 @@ FengTsu	Hl	A
 FengTsu	Hä	S
 FengTsu	Kd	S
 FengTsu	Kr	G
+FengTsu	MMa	A
 FengTsu	Ma	A
 FengTsu	Mg	S
 FengTsu	Ny	G
@@ -1864,6 +1897,7 @@ Fälschen	Kd	A
 Fälschen	Km	A
 Fälschen	Kr	A
 Fälschen	Ku	A
+Fälschen	MMa	S
 Fälschen	Ma	S
 Fälschen	Mg	S
 Fälschen	Ny	G
@@ -1920,6 +1954,7 @@ Gassenwissen	Hä	G
 Gassenwissen	Kd	S
 Gassenwissen	Kr	S
 Gassenwissen	Ku	G
+Gassenwissen	MMa	S
 Gassenwissen	Ma	S
 Gassenwissen	Mg	S
 Gassenwissen	Ny	G
@@ -1976,6 +2011,7 @@ Gaukeln	Kd	S
 Gaukeln	Km	A
 Gaukeln	Kr	A
 Gaukeln	Ku	S
+Gaukeln	MMa	A
 Gaukeln	Ma	A
 Gaukeln	Mg	S
 Gaukeln	Ny	S
@@ -2032,6 +2068,7 @@ Geheimmechanismen öffnen	Kd	S
 Geheimmechanismen öffnen	Km	A
 Geheimmechanismen öffnen	Kr	A
 Geheimmechanismen öffnen	Ku	S
+Geheimmechanismen öffnen	MMa	S
 Geheimmechanismen öffnen	Ma	S
 Geheimmechanismen öffnen	Mg	G
 Geheimmechanismen öffnen	Ny	S
@@ -2089,6 +2126,7 @@ Geheimzeichen	Kd	S
 Geheimzeichen	Km	S
 Geheimzeichen	Kr	S
 Geheimzeichen	Ku	S
+Geheimzeichen	MMa	S
 Geheimzeichen	Ma	S
 Geheimzeichen	Mg	S
 Geheimzeichen	Ny	G
@@ -2146,6 +2184,7 @@ Geländelauf	Kd	S
 Geländelauf	Km	S
 Geländelauf	Kr	S
 Geländelauf	Ku	G
+Geländelauf	MMa	S
 Geländelauf	Ma	S
 Geländelauf	Mg	S
 Geländelauf	Ny	S
@@ -2189,6 +2228,7 @@ Geomantie	De	G
 Geomantie	Dr	S
 Geomantie	Hl	S
 Geomantie	Km	S
+Geomantie	MMa	A
 Geomantie	Ma	A
 Geomantie	PC	S
 Geomantie	PF	G
@@ -2224,6 +2264,7 @@ Geschenke machen	Hl	S
 Geschenke machen	Hä	S
 Geschenke machen	Kd	S
 Geschenke machen	Kr	S
+Geschenke machen	MMa	S
 Geschenke machen	Ma	S
 Geschenke machen	Mg	S
 Geschenke machen	Ny	S
@@ -2277,6 +2318,7 @@ Geschäftstüchtigkeit	Kd	S
 Geschäftstüchtigkeit	Km	S
 Geschäftstüchtigkeit	Kr	S
 Geschäftstüchtigkeit	Ku	S
+Geschäftstüchtigkeit	MMa	S
 Geschäftstüchtigkeit	Ma	S
 Geschäftstüchtigkeit	Mg	S
 Geschäftstüchtigkeit	Ny	S
@@ -2334,6 +2376,7 @@ Giftmischen	Kd	S
 Giftmischen	Km	A
 Giftmischen	Kr	A
 Giftmischen	Ku	S
+Giftmischen	MMa	S
 Giftmischen	Ma	S
 Giftmischen	Mg	A
 Giftmischen	Ny	S
@@ -2391,6 +2434,7 @@ Glücksspiel	Kd	S
 Glücksspiel	Km	S
 Glücksspiel	Kr	S
 Glücksspiel	Ku	S
+Glücksspiel	MMa	S
 Glücksspiel	Ma	S
 Glücksspiel	Mg	S
 Glücksspiel	Ny	S
@@ -2443,6 +2487,7 @@ Heilkunde	Hl	G
 Heilkunde	Hä	A
 Heilkunde	Kd	S
 Heilkunde	Km	A
+Heilkunde	MMa	A
 Heilkunde	Ma	A
 Heilkunde	Mg	G
 Heilkunde	Ny	A
@@ -2485,6 +2530,7 @@ Himmelskunde	Kd	S
 Himmelskunde	Km	A
 Himmelskunde	Kr	S
 Himmelskunde	Ku	G
+Himmelskunde	MMa	G
 Himmelskunde	Ma	A
 Himmelskunde	Mg	G
 Himmelskunde	Ny	S
@@ -2539,6 +2585,7 @@ IaiJutsu	Hl	A
 IaiJutsu	Hä	S
 IaiJutsu	Kd	S
 IaiJutsu	Kr	G
+IaiJutsu	MMa	A
 IaiJutsu	Ma	A
 IaiJutsu	Mg	S
 IaiJutsu	Ny	G
@@ -2590,6 +2637,7 @@ Kamelreiten	Hä	G
 Kamelreiten	Kd	S
 Kamelreiten	Kr	G
 Kamelreiten	Ku	G
+Kamelreiten	MMa	S
 Kamelreiten	Ma	S
 Kamelreiten	Mg	S
 Kamelreiten	Ny	S
@@ -2643,6 +2691,7 @@ Kampf in Dunkelheit	Kd	A
 Kampf in Dunkelheit	Km	A
 Kampf in Dunkelheit	Kr	S
 Kampf in Dunkelheit	Ku	S
+Kampf in Dunkelheit	MMa	A
 Kampf in Dunkelheit	Ma	A
 Kampf in Dunkelheit	Mg	S
 Kampf in Dunkelheit	Ny	A
@@ -2700,6 +2749,7 @@ Kampf in Schlachtreihe	Kd	A
 Kampf in Schlachtreihe	Km	G
 Kampf in Schlachtreihe	Kr	G
 Kampf in Schlachtreihe	Ku	S
+Kampf in Schlachtreihe	MMa	A
 Kampf in Schlachtreihe	Ma	A
 Kampf in Schlachtreihe	Mg	A
 Kampf in Schlachtreihe	Ny	S
@@ -2757,6 +2807,7 @@ Kampf in Vollrüstung	Kd	S
 Kampf in Vollrüstung	Km	S
 Kampf in Vollrüstung	Kr	G
 Kampf in Vollrüstung	Ku	S
+Kampf in Vollrüstung	MMa	A
 Kampf in Vollrüstung	Ma	A
 Kampf in Vollrüstung	Mg	A
 Kampf in Vollrüstung	Ny	A
@@ -2814,6 +2865,7 @@ Kampf vom Streitwagen	Kd	S
 Kampf vom Streitwagen	Km	G
 Kampf vom Streitwagen	Kr	G
 Kampf vom Streitwagen	Ku	S
+Kampf vom Streitwagen	MMa	A
 Kampf vom Streitwagen	Ma	A
 Kampf vom Streitwagen	Mg	A
 Kampf vom Streitwagen	Ny	A
@@ -2868,6 +2920,7 @@ Kampf zu Elefant	Hl	A
 Kampf zu Elefant	Hä	A
 Kampf zu Elefant	Kd	A
 Kampf zu Elefant	Kr	A
+Kampf zu Elefant	MMa	A
 Kampf zu Elefant	Ma	A
 Kampf zu Elefant	Mg	A
 Kampf zu Elefant	Ny	A
@@ -2918,6 +2971,7 @@ Kampf zu Kamel	Hl	A
 Kampf zu Kamel	Hä	S
 Kampf zu Kamel	Kd	S
 Kampf zu Kamel	Kr	G
+Kampf zu Kamel	MMa	A
 Kampf zu Kamel	Ma	A
 Kampf zu Kamel	Mg	S
 Kampf zu Kamel	Ny	S
@@ -2971,6 +3025,7 @@ Kampf zu Pferd	Kd	A
 Kampf zu Pferd	Km	G
 Kampf zu Pferd	Kr	G
 Kampf zu Pferd	Ku	G
+Kampf zu Pferd	MMa	A
 Kampf zu Pferd	Ma	A
 Kampf zu Pferd	Mg	S
 Kampf zu Pferd	Ny	S
@@ -3025,6 +3080,7 @@ Kampf zu Srimara	Hl	A
 Kampf zu Srimara	Hä	A
 Kampf zu Srimara	Kd	A
 Kampf zu Srimara	Kr	A
+Kampf zu Srimara	MMa	A
 Kampf zu Srimara	Ma	A
 Kampf zu Srimara	Mg	A
 Kampf zu Srimara	Ny	A
@@ -3078,6 +3134,7 @@ Kampftaktik	Kd	A
 Kampftaktik	Km	G
 Kampftaktik	Kr	G
 Kampftaktik	Ku	S
+Kampftaktik	MMa	A
 Kampftaktik	Ma	A
 Kampftaktik	Mg	S
 Kampftaktik	Ny	A
@@ -3132,6 +3189,7 @@ KarumiJutsu	Hl	S
 KarumiJutsu	Hä	A
 KarumiJutsu	Kd	A
 KarumiJutsu	Kr	A
+KarumiJutsu	MMa	S
 KarumiJutsu	Ma	S
 KarumiJutsu	Mg	A
 KarumiJutsu	Ny	G
@@ -3185,6 +3243,7 @@ Katapult bedienen	Kd	S
 Katapult bedienen	Km	S
 Katapult bedienen	Kr	G
 Katapult bedienen	Ku	S
+Katapult bedienen	MMa	A
 Katapult bedienen	Ma	A
 Katapult bedienen	Mg	S
 Katapult bedienen	Ny	S
@@ -3239,6 +3298,7 @@ Kenntnis der fünf Klassiker	Hl	S
 Kenntnis der fünf Klassiker	Hä	S
 Kenntnis der fünf Klassiker	Kd	S
 Kenntnis der fünf Klassiker	Kr	S
+Kenntnis der fünf Klassiker	MMa	S
 Kenntnis der fünf Klassiker	Ma	S
 Kenntnis der fünf Klassiker	Mg	S
 Kenntnis der fünf Klassiker	Ny	S
@@ -3289,6 +3349,7 @@ KentoYobu	Hl	A
 KentoYobu	Hä	S
 KentoYobu	Kd	S
 KentoYobu	Kr	G
+KentoYobu	MMa	A
 KentoYobu	Ma	A
 KentoYobu	Mg	A
 KentoYobu	Ny	S
@@ -3339,6 +3400,7 @@ KiDo	Hl	S
 KiDo	Hä	S
 KiDo	Kd	G
 KiDo	Kr	S
+KiDo	MMa	A
 KiDo	Ma	A
 KiDo	Mg	S
 KiDo	Ny	G
@@ -3394,6 +3456,7 @@ Klettern	Kd	S
 Klettern	Km	S
 Klettern	Kr	S
 Klettern	Ku	G
+Klettern	MMa	S
 Klettern	Ma	S
 Klettern	Mg	S
 Klettern	Ny	G
@@ -3448,6 +3511,7 @@ Kriegsbemalung	Hl	A
 Kriegsbemalung	Hä	S
 Kriegsbemalung	Kd	S
 Kriegsbemalung	Kr	S
+Kriegsbemalung	MMa	A
 Kriegsbemalung	Ma	A
 Kriegsbemalung	Mg	S
 Kriegsbemalung	Ny	S
@@ -3501,6 +3565,7 @@ Kräuterkunde	Kd	S
 Kräuterkunde	Km	G
 Kräuterkunde	Kr	A
 Kräuterkunde	Ku	S
+Kräuterkunde	MMa	S
 Kräuterkunde	Ma	G
 Kräuterkunde	Mg	G
 Kräuterkunde	Ny	S
@@ -3555,6 +3620,7 @@ KujKuri	Hl	A
 KujKuri	Hä	A
 KujKuri	Kd	A
 KujKuri	Kr	A
+KujKuri	MMa	A
 KujKuri	Ma	A
 KujKuri	Mg	A
 KujKuri	Ny	G
@@ -3605,6 +3671,7 @@ KujNoIu	Hl	S
 KujNoIu	Hä	S
 KujNoIu	Kd	S
 KujNoIu	Kr	S
+KujNoIu	MMa	S
 KujNoIu	Ma	S
 KujNoIu	Mg	S
 KujNoIu	Ny	S
@@ -3655,6 +3722,7 @@ Körperbemalung	Hl	A
 Körperbemalung	Hä	S
 Körperbemalung	Kd	S
 Körperbemalung	Kr	S
+Körperbemalung	MMa	A
 Körperbemalung	Ma	A
 Körperbemalung	Mg	S
 Körperbemalung	Ny	S
@@ -3705,6 +3773,7 @@ Körperkontrolle	Hl	A
 Körperkontrolle	Hä	A
 Körperkontrolle	Kd	A
 Körperkontrolle	Kr	A
+Körperkontrolle	MMa	A
 Körperkontrolle	Ma	A
 Körperkontrolle	Mg	A
 Körperkontrolle	Ny	A
@@ -3758,6 +3827,7 @@ Landeskunde	Kd	S
 Landeskunde	Km	S
 Landeskunde	Kr	S
 Landeskunde	Ku	S
+Landeskunde	MMa	S
 Landeskunde	Ma	S
 Landeskunde	Mg	G
 Landeskunde	Ny	S
@@ -3814,6 +3884,7 @@ Laufen	Kd	S
 Laufen	Km	S
 Laufen	Kr	S
 Laufen	Ku	G
+Laufen	MMa	A
 Laufen	Ma	A
 Laufen	Mg	S
 Laufen	Ny	G
@@ -3871,6 +3942,7 @@ Lesen von Geisterschrift	Kd	A
 Lesen von Geisterschrift	Km	A
 Lesen von Geisterschrift	Kr	A
 Lesen von Geisterschrift	Ku	A
+Lesen von Geisterschrift	MMa	G
 Lesen von Geisterschrift	Ma	G
 Lesen von Geisterschrift	Mg	S
 Lesen von Geisterschrift	Ny	A
@@ -3928,6 +4000,7 @@ Lesen von Zauberrunen	Kd	A
 Lesen von Zauberrunen	Km	A
 Lesen von Zauberrunen	Kr	A
 Lesen von Zauberrunen	Ku	A
+Lesen von Zauberrunen	MMa	S
 Lesen von Zauberrunen	Ma	S
 Lesen von Zauberrunen	Mg	S
 Lesen von Zauberrunen	Ny	A
@@ -3985,6 +4058,7 @@ Lesen von Zauberschrift	Kd	A
 Lesen von Zauberschrift	Km	G
 Lesen von Zauberschrift	Kr	A
 Lesen von Zauberschrift	Ku	A
+Lesen von Zauberschrift	MMa	G
 Lesen von Zauberschrift	Ma	G
 Lesen von Zauberschrift	Mg	S
 Lesen von Zauberschrift	Ny	A
@@ -4039,6 +4113,7 @@ LiYao	Hl	A
 LiYao	Hä	S
 LiYao	Kd	S
 LiYao	Kr	S
+LiYao	MMa	S
 LiYao	Ma	S
 LiYao	Mg	A
 LiYao	Ny	G
@@ -4092,6 +4167,7 @@ Lippenlesen	Kd	S
 Lippenlesen	Km	S
 Lippenlesen	Kr	S
 Lippenlesen	Ku	S
+Lippenlesen	MMa	S
 Lippenlesen	Ma	S
 Lippenlesen	Mg	S
 Lippenlesen	Ny	G
@@ -4149,6 +4225,7 @@ Meditieren	Kd	G
 Meditieren	Km	S
 Meditieren	Kr	S
 Meditieren	Ku	S
+Meditieren	MMa	S
 Meditieren	Ma	S
 Meditieren	Mg	S
 Meditieren	Ny	G
@@ -4203,6 +4280,7 @@ Menschenkenntnis	Kd	S
 Menschenkenntnis	Km	S
 Menschenkenntnis	Kr	S
 Menschenkenntnis	Ku	S
+Menschenkenntnis	MMa	S
 Menschenkenntnis	Ma	S
 Menschenkenntnis	Mg	S
 Menschenkenntnis	Ny	S
@@ -4259,6 +4337,7 @@ Meucheln	Hä	S
 Meucheln	Kd	S
 Meucheln	Kr	A
 Meucheln	Ku	S
+Meucheln	MMa	A
 Meucheln	Ma	A
 Meucheln	Mg	A
 Meucheln	Ny	G
@@ -4313,6 +4392,7 @@ MiChen	Hl	G
 MiChen	Hä	S
 MiChen	Kd	S
 MiChen	Kr	S
+MiChen	MMa	A
 MiChen	Ma	A
 MiChen	Mg	S
 MiChen	Ny	G
@@ -4363,6 +4443,7 @@ Mumifizieren	Hl	G
 Mumifizieren	Hä	A
 Mumifizieren	Kd	A
 Mumifizieren	Kr	A
+Mumifizieren	MMa	S
 Mumifizieren	Ma	S
 Mumifizieren	Mg	A
 Mumifizieren	Ny	A
@@ -4416,6 +4497,7 @@ Musizieren	Kd	S
 Musizieren	Km	S
 Musizieren	Kr	S
 Musizieren	Ku	S
+Musizieren	MMa	S
 Musizieren	Ma	S
 Musizieren	Mg	S
 Musizieren	Ny	S
@@ -4473,6 +4555,7 @@ Naturkunde	Kd	S
 Naturkunde	Km	S
 Naturkunde	Kr	A
 Naturkunde	Ku	G
+Naturkunde	MMa	S
 Naturkunde	Ma	S
 Naturkunde	Mg	G
 Naturkunde	Ny	G
@@ -4527,6 +4610,7 @@ Natya	Hl	A
 Natya	Hä	A
 Natya	Kd	A
 Natya	Kr	A
+Natya	MMa	A
 Natya	Ma	A
 Natya	Mg	S
 Natya	Ny	A
@@ -4577,6 +4661,7 @@ NinJutsu	Hl	S
 NinJutsu	Hä	A
 NinJutsu	Kd	S
 NinJutsu	Kr	A
+NinJutsu	MMa	S
 NinJutsu	Ma	S
 NinJutsu	Mg	A
 NinJutsu	Ny	G
@@ -4628,6 +4713,7 @@ Orakelkunst	Hä	A
 Orakelkunst	Kd	A
 Orakelkunst	Km	S
 Orakelkunst	Kr	A
+Orakelkunst	MMa	S
 Orakelkunst	Ma	S
 Orakelkunst	Mg	S
 Orakelkunst	Ny	S
@@ -4680,6 +4766,7 @@ Pflanzenkunde	Kd	S
 Pflanzenkunde	Km	S
 Pflanzenkunde	Kr	A
 Pflanzenkunde	Ku	S
+Pflanzenkunde	MMa	S
 Pflanzenkunde	Ma	S
 Pflanzenkunde	Mg	G
 Pflanzenkunde	Ny	S
@@ -4723,6 +4810,7 @@ Pyromantie	De	G
 Pyromantie	Dr	G
 Pyromantie	Hl	S
 Pyromantie	Km	A
+Pyromantie	MMa	A
 Pyromantie	Ma	A
 Pyromantie	Or	A
 Pyromantie	PC	S
@@ -4762,6 +4850,7 @@ Rechnen	Kd	S
 Rechnen	Km	A
 Rechnen	Kr	A
 Rechnen	Ku	S
+Rechnen	MMa	G
 Rechnen	Ma	S
 Rechnen	Mg	G
 Rechnen	Ny	S
@@ -4819,6 +4908,7 @@ Reiten	Kd	A
 Reiten	Km	G
 Reiten	Kr	G
 Reiten	Ku	G
+Reiten	MMa	S
 Reiten	Ma	S
 Reiten	Mg	S
 Reiten	Ny	S
@@ -4876,6 +4966,7 @@ Rudern	Kd	S
 Rudern	Km	S
 Rudern	Kr	S
 Rudern	Ku	S
+Rudern	MMa	S
 Rudern	Ma	S
 Rudern	Mg	S
 Rudern	Ny	S
@@ -4933,6 +5024,7 @@ Sagenkunde	Kd	S
 Sagenkunde	Km	G
 Sagenkunde	Kr	S
 Sagenkunde	Ku	S
+Sagenkunde	MMa	S
 Sagenkunde	Ma	G
 Sagenkunde	Mg	G
 Sagenkunde	Ny	S
@@ -4990,6 +5082,7 @@ Scharfschießen	Kd	S
 Scharfschießen	Km	S
 Scharfschießen	Kr	S
 Scharfschießen	Ku	G
+Scharfschießen	MMa	A
 Scharfschießen	Ma	A
 Scharfschießen	Mg	S
 Scharfschießen	Ny	G
@@ -5047,6 +5140,7 @@ Schauspielern	Kd	S
 Schauspielern	Km	A
 Schauspielern	Kr	A
 Schauspielern	Ku	S
+Schauspielern	MMa	S
 Schauspielern	Ma	S
 Schauspielern	Mg	S
 Schauspielern	Ny	S
@@ -5103,6 +5197,7 @@ Schießen vom Streitwagen	Kd	S
 Schießen vom Streitwagen	Km	G
 Schießen vom Streitwagen	Kr	G
 Schießen vom Streitwagen	Ku	S
+Schießen vom Streitwagen	MMa	A
 Schießen vom Streitwagen	Ma	A
 Schießen vom Streitwagen	Mg	A
 Schießen vom Streitwagen	Ny	S
@@ -5159,6 +5254,7 @@ Schiffsführung	Kd	S
 Schiffsführung	Km	S
 Schiffsführung	Kr	G
 Schiffsführung	Ku	A
+Schiffsführung	MMa	A
 Schiffsführung	Ma	A
 Schiffsführung	Mg	S
 Schiffsführung	Ny	S
@@ -5213,6 +5309,7 @@ SchiyoKi	Hl	G
 SchiyoKi	Hä	S
 SchiyoKi	Kd	G
 SchiyoKi	Kr	G
+SchiyoKi	MMa	S
 SchiyoKi	Ma	S
 SchiyoKi	Mg	S
 SchiyoKi	Ny	G
@@ -5265,6 +5362,7 @@ Schlachtruf	Hä	G
 Schlachtruf	Kd	G
 Schlachtruf	Kr	G
 Schlachtruf	Ku	G
+Schlachtruf	MMa	A
 Schlachtruf	Ma	A
 Schlachtruf	Mg	G
 Schlachtruf	Ny	G
@@ -5319,6 +5417,7 @@ Schlangen beschwören	Hl	A
 Schlangen beschwören	Hä	A
 Schlangen beschwören	Kd	G
 Schlangen beschwören	Kr	A
+Schlangen beschwören	MMa	A
 Schlangen beschwören	Ma	A
 Schlangen beschwören	Mg	A
 Schlangen beschwören	Ny	G
@@ -5372,6 +5471,7 @@ Schleichen	Kd	S
 Schleichen	Km	G
 Schleichen	Kr	S
 Schleichen	Ku	G
+Schleichen	MMa	S
 Schleichen	Ma	S
 Schleichen	Mg	S
 Schleichen	Ny	G
@@ -5429,6 +5529,7 @@ Schlittenfahren	Kd	S
 Schlittenfahren	Km	S
 Schlittenfahren	Kr	S
 Schlittenfahren	Ku	G
+Schlittenfahren	MMa	S
 Schlittenfahren	Ma	S
 Schlittenfahren	Mg	S
 Schlittenfahren	Ny	S
@@ -5483,6 +5584,7 @@ Schlittschuhlaufen	Hl	S
 Schlittschuhlaufen	Hä	S
 Schlittschuhlaufen	Kd	S
 Schlittschuhlaufen	Kr	S
+Schlittschuhlaufen	MMa	S
 Schlittschuhlaufen	Ma	S
 Schlittschuhlaufen	Mg	S
 Schlittschuhlaufen	Ny	S
@@ -5535,6 +5637,7 @@ Schlösser öffnen	Hä	S
 Schlösser öffnen	Kd	S
 Schlösser öffnen	Kr	A
 Schlösser öffnen	Ku	S
+Schlösser öffnen	MMa	A
 Schlösser öffnen	Ma	A
 Schlösser öffnen	Mg	S
 Schlösser öffnen	Ny	S
@@ -5589,6 +5692,7 @@ Schmerzen ertragen	Hl	A
 Schmerzen ertragen	Hä	A
 Schmerzen ertragen	Kd	A
 Schmerzen ertragen	Kr	A
+Schmerzen ertragen	MMa	A
 Schmerzen ertragen	Ma	A
 Schmerzen ertragen	Mg	A
 Schmerzen ertragen	Ny	A
@@ -5642,6 +5746,7 @@ Schreiben	Kd	S
 Schreiben	Km	G
 Schreiben	Kr	S
 Schreiben	Ku	S
+Schreiben	MMa	G
 Schreiben	Ma	G
 Schreiben	Mg	G
 Schreiben	Ny	S
@@ -5696,6 +5801,7 @@ Schwerttanz	Hl	A
 Schwerttanz	Hä	A
 Schwerttanz	Kd	S
 Schwerttanz	Kr	G
+Schwerttanz	MMa	A
 Schwerttanz	Ma	A
 Schwerttanz	Mg	S
 Schwerttanz	Ny	S
@@ -5749,6 +5855,7 @@ Schwimmen	Kd	G
 Schwimmen	Km	G
 Schwimmen	Kr	G
 Schwimmen	Ku	G
+Schwimmen	MMa	G
 Schwimmen	Ma	S
 Schwimmen	Mg	S
 Schwimmen	Ny	G
@@ -5805,6 +5912,7 @@ Schätzen	Hä	G
 Schätzen	Kd	G
 Schätzen	Kr	S
 Schätzen	Ku	S
+Schätzen	MMa	S
 Schätzen	Ma	S
 Schätzen	Mg	S
 Schätzen	Ny	S
@@ -5861,6 +5969,7 @@ Seemannsgang	Kd	G
 Seemannsgang	Km	A
 Seemannsgang	Kr	S
 Seemannsgang	Ku	S
+Seemannsgang	MMa	G
 Seemannsgang	Ma	A
 Seemannsgang	Mg	S
 Seemannsgang	Ny	S
@@ -5917,6 +6026,7 @@ Seilkunst	Kd	S
 Seilkunst	Km	S
 Seilkunst	Kr	S
 Seilkunst	Ku	S
+Seilkunst	MMa	S
 Seilkunst	Ma	S
 Seilkunst	Mg	S
 Seilkunst	Ny	S
@@ -5978,6 +6088,7 @@ Singen	Kd	S
 Singen	Km	S
 Singen	Kr	S
 Singen	Ku	S
+Singen	MMa	S
 Singen	Ma	S
 Singen	Mg	S
 Singen	Ny	S
@@ -6035,6 +6146,7 @@ Skifahren	Kd	S
 Skifahren	Km	S
 Skifahren	Kr	S
 Skifahren	Ku	S
+Skifahren	MMa	S
 Skifahren	Ma	S
 Skifahren	Mg	S
 Skifahren	Ny	S
@@ -6092,6 +6204,7 @@ Sprache	Kd	S
 Sprache	Km	S
 Sprache	Kr	S
 Sprache	Ku	S
+Sprache	MMa	S
 Sprache	Ma	S
 Sprache	Mg	G
 Sprache	Ny	G
@@ -6149,6 +6262,7 @@ Springen	Kd	G
 Springen	Km	A
 Springen	Kr	S
 Springen	Ku	G
+Springen	MMa	A
 Springen	Ma	A
 Springen	Mg	S
 Springen	Ny	G
@@ -6206,6 +6320,7 @@ Spurenlesen	Kd	S
 Spurenlesen	Km	S
 Spurenlesen	Kr	S
 Spurenlesen	Ku	G
+Spurenlesen	MMa	A
 Spurenlesen	Ma	A
 Spurenlesen	Mg	S
 Spurenlesen	Ny	S
@@ -6260,6 +6375,7 @@ Srimara lenken	Hl	A
 Srimara lenken	Hä	A
 Srimara lenken	Kd	A
 Srimara lenken	Kr	A
+Srimara lenken	MMa	A
 Srimara lenken	Ma	A
 Srimara lenken	Mg	A
 Srimara lenken	Ny	A
@@ -6312,6 +6428,7 @@ Stehlen	Hä	S
 Stehlen	Kd	A
 Stehlen	Kr	A
 Stehlen	Ku	S
+Stehlen	MMa	A
 Stehlen	Ma	A
 Stehlen	Mg	S
 Stehlen	Ny	S
@@ -6366,6 +6483,7 @@ Steinabreibungen machen	Hl	S
 Steinabreibungen machen	Hä	S
 Steinabreibungen machen	Kd	S
 Steinabreibungen machen	Kr	A
+Steinabreibungen machen	MMa	G
 Steinabreibungen machen	Ma	G
 Steinabreibungen machen	Mg	S
 Steinabreibungen machen	Ny	S
@@ -6419,6 +6537,7 @@ Steuern	Kd	S
 Steuern	Km	S
 Steuern	Kr	S
 Steuern	Ku	S
+Steuern	MMa	G
 Steuern	Ma	S
 Steuern	Mg	S
 Steuern	Ny	S
@@ -6475,6 +6594,7 @@ Stimmen nachahmen	Kd	S
 Stimmen nachahmen	Km	A
 Stimmen nachahmen	Kr	A
 Stimmen nachahmen	Ku	G
+Stimmen nachahmen	MMa	S
 Stimmen nachahmen	Ma	S
 Stimmen nachahmen	Mg	S
 Stimmen nachahmen	Ny	G
@@ -6532,6 +6652,7 @@ Streitwagen lenken	Kd	S
 Streitwagen lenken	Km	G
 Streitwagen lenken	Kr	G
 Streitwagen lenken	Ku	S
+Streitwagen lenken	MMa	A
 Streitwagen lenken	Ma	A
 Streitwagen lenken	Mg	A
 Streitwagen lenken	Ny	S
@@ -6589,6 +6710,7 @@ Suchen	Kd	S
 Suchen	Km	S
 Suchen	Kr	S
 Suchen	Ku	S
+Suchen	MMa	S
 Suchen	Ma	S
 Suchen	Mg	S
 Suchen	Ny	S
@@ -6642,6 +6764,7 @@ TaiTschi	Hl	G
 TaiTschi	Hä	S
 TaiTschi	Kd	G
 TaiTschi	Kr	G
+TaiTschi	MMa	S
 TaiTschi	Ma	S
 TaiTschi	Mg	S
 TaiTschi	Ny	G
@@ -6692,6 +6815,7 @@ Talisman verzaubern	Hl	A
 Talisman verzaubern	Hä	S
 Talisman verzaubern	Kd	S
 Talisman verzaubern	Kr	S
+Talisman verzaubern	MMa	A
 Talisman verzaubern	Ma	A
 Talisman verzaubern	Mg	S
 Talisman verzaubern	Ny	S
@@ -6745,6 +6869,7 @@ Tanzen	Kd	S
 Tanzen	Km	S
 Tanzen	Kr	S
 Tanzen	Ku	S
+Tanzen	MMa	S
 Tanzen	Ma	S
 Tanzen	Mg	S
 Tanzen	Ny	S
@@ -6802,6 +6927,7 @@ Tarnen	Kd	S
 Tarnen	Km	G
 Tarnen	Kr	S
 Tarnen	Ku	G
+Tarnen	MMa	S
 Tarnen	Ma	S
 Tarnen	Mg	S
 Tarnen	Ny	G
@@ -6859,6 +6985,7 @@ Tauchen	Kd	S
 Tauchen	Km	A
 Tauchen	Kr	S
 Tauchen	Ku	S
+Tauchen	MMa	G
 Tauchen	Ma	A
 Tauchen	Mg	S
 Tauchen	Ny	S
@@ -6913,6 +7040,7 @@ Teezeremonie	Hl	S
 Teezeremonie	Hä	S
 Teezeremonie	Kd	G
 Teezeremonie	Kr	S
+Teezeremonie	MMa	S
 Teezeremonie	Ma	S
 Teezeremonie	Mg	S
 Teezeremonie	Ny	S
@@ -6953,6 +7081,7 @@ Thaumatographie	Dr	A
 Thaumatographie	Dt	A
 Thaumatographie	Hl	A
 Thaumatographie	Km	G
+Thaumatographie	MMa	A
 Thaumatographie	Ma	S
 Thaumatographie	PF	A
 Thaumatographie	PHa	A
@@ -6992,6 +7121,7 @@ Tierkunde	Kd	S
 Tierkunde	Km	S
 Tierkunde	Kr	A
 Tierkunde	Ku	G
+Tierkunde	MMa	S
 Tierkunde	Ma	S
 Tierkunde	Mg	G
 Tierkunde	Ny	S
@@ -7049,6 +7179,7 @@ Trinken	Kd	S
 Trinken	Km	S
 Trinken	Kr	S
 Trinken	Ku	S
+Trinken	MMa	S
 Trinken	Ma	S
 Trinken	Mg	S
 Trinken	Ny	S
@@ -7106,6 +7237,7 @@ Tätowieren	Kd	A
 Tätowieren	Km	A
 Tätowieren	Kr	A
 Tätowieren	Ku	A
+Tätowieren	MMa	A
 Tätowieren	Ma	A
 Tätowieren	Mg	A
 Tätowieren	Ny	A
@@ -7163,6 +7295,7 @@ Verbergen	Kd	S
 Verbergen	Km	S
 Verbergen	Kr	S
 Verbergen	Ku	S
+Verbergen	MMa	S
 Verbergen	Ma	S
 Verbergen	Mg	S
 Verbergen	Ny	S
@@ -7220,6 +7353,7 @@ Verführen	Kd	S
 Verführen	Km	A
 Verführen	Kr	S
 Verführen	Ku	S
+Verführen	MMa	A
 Verführen	Ma	A
 Verführen	Mg	S
 Verführen	Ny	S
@@ -7277,6 +7411,7 @@ Verhören	Kd	S
 Verhören	Km	S
 Verhören	Kr	S
 Verhören	Ku	S
+Verhören	MMa	S
 Verhören	Ma	S
 Verhören	Mg	S
 Verhören	Ny	S
@@ -7334,6 +7469,7 @@ Verkleiden	Kd	S
 Verkleiden	Km	A
 Verkleiden	Kr	A
 Verkleiden	Ku	S
+Verkleiden	MMa	A
 Verkleiden	Ma	A
 Verkleiden	Mg	S
 Verkleiden	Ny	G
@@ -7391,6 +7527,7 @@ Wagenlenken	Kd	S
 Wagenlenken	Km	G
 Wagenlenken	Kr	G
 Wagenlenken	Ku	G
+Wagenlenken	MMa	S
 Wagenlenken	Ma	S
 Wagenlenken	Mg	S
 Wagenlenken	Ny	S
@@ -7448,6 +7585,7 @@ Wahrnehmung	Kd	S
 Wahrnehmung	Km	G
 Wahrnehmung	Kr	S
 Wahrnehmung	Ku	G
+Wahrnehmung	MMa	S
 Wahrnehmung	Ma	S
 Wahrnehmung	Mg	S
 Wahrnehmung	Ny	G
@@ -7505,6 +7643,7 @@ Wahrsagekalender führen	Kd	A
 Wahrsagekalender führen	Km	A
 Wahrsagekalender führen	Kr	A
 Wahrsagekalender führen	Ku	A
+Wahrsagekalender führen	MMa	A
 Wahrsagekalender führen	Ma	A
 Wahrsagekalender führen	Mg	A
 Wahrsagekalender führen	Ny	A
@@ -7559,6 +7698,7 @@ Werfen	Hl	S
 Werfen	Hä	S
 Werfen	Kd	S
 Werfen	Kr	S
+Werfen	MMa	S
 Werfen	Ma	S
 Werfen	Mg	S
 Werfen	Ny	S
@@ -7612,6 +7752,7 @@ Wetterkunde	Kd	A
 Wetterkunde	Km	S
 Wetterkunde	Kr	A
 Wetterkunde	Ku	G
+Wetterkunde	MMa	A
 Wetterkunde	Ma	A
 Wetterkunde	Mg	S
 Wetterkunde	Ny	A
@@ -7669,6 +7810,7 @@ Winden	Kd	G
 Winden	Km	A
 Winden	Kr	A
 Winden	Ku	S
+Winden	MMa	A
 Winden	Ma	A
 Winden	Mg	S
 Winden	Ny	G
@@ -7723,6 +7865,7 @@ YangScheng	Hl	G
 YangScheng	Hä	S
 YangScheng	Kd	G
 YangScheng	Kr	A
+YangScheng	MMa	S
 YangScheng	Ma	S
 YangScheng	Mg	S
 YangScheng	Ny	S
@@ -7773,6 +7916,7 @@ YubeChian	Hl	G
 YubeChian	Hä	S
 YubeChian	Kd	S
 YubeChian	Kr	S
+YubeChian	MMa	A
 YubeChian	Ma	A
 YubeChian	Mg	S
 YubeChian	Ny	G
@@ -7826,6 +7970,7 @@ Zauberkunde	Kd	A
 Zauberkunde	Km	G
 Zauberkunde	Kr	A
 Zauberkunde	Ku	A
+Zauberkunde	MMa	G
 Zauberkunde	Ma	G
 Zauberkunde	Mg	G
 Zauberkunde	Ny	A
@@ -7883,6 +8028,7 @@ Zaubern	Kd	A
 Zaubern	Km	G
 Zaubern	Kr	A
 Zaubern	Ku	S
+Zaubern	MMa	G
 Zaubern	Ma	G
 Zaubern	Mg	G
 Zaubern	Ny	S
@@ -7940,6 +8086,7 @@ Zeichensprache	Kd	S
 Zeichensprache	Km	S
 Zeichensprache	Kr	S
 Zeichensprache	Ku	S
+Zeichensprache	MMa	S
 Zeichensprache	Ma	S
 Zeichensprache	Mg	S
 Zeichensprache	Ny	S
@@ -7994,6 +8141,7 @@ Zunge verschlucken	Hl	S
 Zunge verschlucken	Hä	S
 Zunge verschlucken	Kd	S
 Zunge verschlucken	Kr	S
+Zunge verschlucken	MMa	S
 Zunge verschlucken	Ma	S
 Zunge verschlucken	Mg	S
 Zunge verschlucken	Ny	S
@@ -8047,6 +8195,7 @@ Zunge verschlucken	wHx	S
 Überleben im Dschungel	Km	S
 Überleben im Dschungel	Kr	S
 Überleben im Dschungel	Ku	S
+Überleben im Dschungel	MMa	S
 Überleben im Dschungel	Ma	S
 Überleben im Dschungel	Mg	S
 Überleben im Dschungel	Ny	S
@@ -8104,6 +8253,7 @@ Zunge verschlucken	wHx	S
 Überleben im Gebirge	Km	S
 Überleben im Gebirge	Kr	S
 Überleben im Gebirge	Ku	S
+Überleben im Gebirge	MMa	S
 Überleben im Gebirge	Ma	S
 Überleben im Gebirge	Mg	S
 Überleben im Gebirge	Ny	S
@@ -8161,6 +8311,7 @@ Zunge verschlucken	wHx	S
 Überleben im Schnee	Km	S
 Überleben im Schnee	Kr	S
 Überleben im Schnee	Ku	G
+Überleben im Schnee	MMa	S
 Überleben im Schnee	Ma	S
 Überleben im Schnee	Mg	S
 Überleben im Schnee	Ny	S
@@ -8218,6 +8369,7 @@ Zunge verschlucken	wHx	S
 Überleben im Sumpf	Km	S
 Überleben im Sumpf	Kr	S
 Überleben im Sumpf	Ku	S
+Überleben im Sumpf	MMa	S
 Überleben im Sumpf	Ma	S
 Überleben im Sumpf	Mg	S
 Überleben im Sumpf	Ny	S
@@ -8275,6 +8427,7 @@ Zunge verschlucken	wHx	S
 Überleben im Wald	Km	S
 Überleben im Wald	Kr	S
 Überleben im Wald	Ku	S
+Überleben im Wald	MMa	S
 Überleben im Wald	Ma	S
 Überleben im Wald	Mg	S
 Überleben im Wald	Ny	S
@@ -8332,6 +8485,7 @@ Zunge verschlucken	wHx	S
 Überleben in der Steppe	Km	S
 Überleben in der Steppe	Kr	S
 Überleben in der Steppe	Ku	G
+Überleben in der Steppe	MMa	S
 Überleben in der Steppe	Ma	S
 Überleben in der Steppe	Mg	S
 Überleben in der Steppe	Ny	S
@@ -8389,6 +8543,7 @@ Zunge verschlucken	wHx	S
 Überleben in der Wüste	Km	S
 Überleben in der Wüste	Kr	S
 Überleben in der Wüste	Ku	G
+Überleben in der Wüste	MMa	S
 Überleben in der Wüste	Ma	S
 Überleben in der Wüste	Mg	S
 Überleben in der Wüste	Ny	S

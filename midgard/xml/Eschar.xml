@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="E" Name="Eschar" Titel="Die Pyramiden von Eschar" Copyright="Stephanie Lammers" offiziell="true" Maintainer="Malte Thoma" Version="1.0" erzeugt="2002-10-17 22:01:19.203384+02" MAGUS-Index="4" MAGUS-Bild="4">
+<MAGUS-data Region="E" Name="Eschar" Titel="Die Pyramiden von Eschar" Copyright="Stephanie Lammers" offiziell="true" Maintainer="Malte Thoma" Version="1.0" erzeugt="2002-10-22 17:41:25.53878+02" MAGUS-Index="4" MAGUS-Bild="4">
  <Schriften/>
  <Sprachen/>
  <Typen>
@@ -18,7 +18,6 @@
    <Grund Typ="Gl"/>
    <Grund Typ="Hl"/>
    <Grund Typ="Hä"/>
-   <Grund Typ="MMa"/>
    <Grund Typ="Ma"/>
    <Grund Typ="Mg"/>
    <Grund Typ="PC"/>
@@ -34,6 +33,7 @@
    <Standard Typ="Hj"/>
    <Standard Typ="Kd"/>
    <Standard Typ="Kr"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Ny"/>
    <Standard Typ="Or"/>
    <Standard Typ="Ri"/>
@@ -1409,7 +1409,6 @@
   </Spruch>
   <Spruch Name="Macht über Mumien" Region="E" Grad="6" Lernkosten="4000" AP="12" Typ="Wort" Ursprung="dämonisch" Agens="Eis" Prozess="verändert" Reagens="Erde" Zauberdauer="1 h" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="-" Material="Mumie">
    <Grund Typ="Km"/>
-   <Grund Typ="MMa"/>
    <Grund Typ="Ma"/>
    <Grund Typ="PC"/>
    <Grund Typ="tBe"/>

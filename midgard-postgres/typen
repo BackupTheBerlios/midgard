@@ -59,6 +59,7 @@ COPY "typen" FROM stdin;
 57	Km	Klingenmagier	Klingenmagierin	j	k	10	0	3	TuT	3	\N	l	\N	\N	\N	\N	\N	\N	\N	\N	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	\N
 8	Kr	Krieger	Kriegerin	n	k	0	0	3	\N	1	k	\N	\N	\N	61	\N	31	\N	\N	\N	\N	\N
 9	Ku	Kundschafter	Kundschafterin	n	k	-10	0	1	\N	2	\N	l	\N	\N	\N	\N	61	61	\N	\N	\N	\N
+58	MMa	Meeresmagier	Meeresmagierin	z	z	10	30	4	G	3	z	l	\N	\N	\N	\N	\N	21	\N	\N	Die Alte Sprache muß Maralinga sein. Schreiben: Valinga muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
 25	Ma	Magier	Magierin	z	z	10	0	4	\N	3	z	\N	\N	\N	\N	\N	\N	21	\N	\N	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
 50	Mg	Magister	Magisterin	j	ak	20	0	1	TuT	4	\N	\N	\N	\N	\N	\N	31	61	61	\N	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
 37	Ny	Ninya	Ninya	n	ak	0	30	1	K	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N

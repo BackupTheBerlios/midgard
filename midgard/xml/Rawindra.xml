@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="R" Name="Rawindra" Titel="Rawindra - Im Bann der Todesechsen" Copyright="Ludger Fischer und Thomas Kreutz" offiziell="true" Maintainer="Malte Thoma" Version="1.0" erzeugt="2002-10-17 22:01:09.889914+02" MAGUS-Index="8" MAGUS-Bild="1">
+<MAGUS-data Region="R" Name="Rawindra" Titel="Rawindra - Im Bann der Todesechsen" Copyright="Ludger Fischer und Thomas Kreutz" offiziell="true" Maintainer="Malte Thoma" Version="1.0" erzeugt="2002-10-22 17:40:58.395761+02" MAGUS-Index="8" MAGUS-Bild="1">
  <Schriften/>
  <Sprachen/>
  <Typen>
@@ -148,7 +148,6 @@
    <EP-Typ ZEP="true"/>
   </Fertigkeit>
   <Fertigkeit Name="Astrologie" Region="R" Lernpunkte="4" Anfangswert="5" Lernkosten="400" Erfolgswert="4" Attribut="Zt" Berufskategorie="2" Maximalwert="12" MaximalMitUnterweisung="11">
-   <Grund Typ="MMa"/>
    <Grund Typ="Ma"/>
    <Grund Typ="PC"/>
    <Grund Typ="PF"/>
@@ -165,6 +164,7 @@
    <Standard Typ="Hl"/>
    <Standard Typ="Hä"/>
    <Standard Typ="Km"/>
+   <Standard Typ="MMa"/>
    <Standard Typ="Mg"/>
    <Standard Typ="Sa"/>
    <Standard Typ="ScN"/>

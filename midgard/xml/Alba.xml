@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="A" Name="Alba" Titel="Alba - Für Clan und Krone" Copyright="Thomas Kreutz und Ludger Fischer" offiziell="true" Maintainer="Malte Thoma" Version="1.0" erzeugt="2002-10-17 22:00:51.404463+02" MAGUS-Index="3" MAGUS-Bild="3">
+<MAGUS-data Region="A" Name="Alba" Titel="Alba - Für Clan und Krone" Copyright="Thomas Kreutz und Ludger Fischer" offiziell="true" Maintainer="Malte Thoma" Version="1.0" erzeugt="2002-10-22 17:40:14.580586+02" MAGUS-Index="3" MAGUS-Bild="3">
  <Schriften/>
  <Sprachen>
   <Sprache Name="Dunathisch" Region="A" Kosten="10" Maximalwert="20" alteSprache="true">

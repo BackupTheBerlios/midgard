@@ -349,6 +349,7 @@ Heilen von Wunden	300	3	Geste	2	\N	\N	\N	\N	Holz	erschafft	Erde	1 min	B	Körper	1
 Heiliger Zorn	100	1	Gedanke	1	\N	\N	\N	\N	Luft	verändert	Erde	1 s	-	Körper	Zauberer	2 min	göttlich		f		\N	\N
 Heiliges Wort	1400	6	Wort	4	\N	\N	\N	\N	Metall	zerstört	Magan	5 s	-	Körper	9 m Uk	var	göttlich		f		\N	\N
 Heilsrune	300	2	Geste	2	W	\N	\N	Runen	Holz	zerstört	Eis	30 min	-	Körper	1 Ws	0	göttlich	Stück Brennholz	f	\N	\N	\N
+Heimfeder	200	2	Geste	2	G	47	\N	\N	Wasser	erkennt	Luft	1 min	unbegrenzt	Umgebung	1 Obj	30 min	druidisch	Wasser, Taubenschwungfeder (2KS)	f	\N	\N	\N
 Heimstein	15000	alle (mind 9)	Geste	G	\N	\N	\N	\N	Magan	zerstört	Magan	24 h	0 m	Umgebung	50 m Uk	perm	dämonisch	Edelmetalle (500 GS)	f	Siegel	\N	\N
 Heranholen	100	1	Geste	1	\N	\N	\N	\N	Luft	bewegt	Metall	1 s	30 m	Umgebung	1 Ob	10 s	dämonisch		t	Siegel	\N	\N
 Herbeizwingen	1000	4	Geste	4	3	\N	\N	Beschwörung	Luft	bewegt	Erde	30 min	0	Umgebung	1 Ws		dämonisch	10 g Körpersusbtanz	f		\N	\N
@@ -467,6 +468,7 @@ Marid rufen	3000	9	Geste	6	3	\N	Wasser	Beschwörung	Magan	bewegt	Feuer	3 h	0	Umge
 Marmennil beschwören	1500	4	Geste	4	3	\N	Wasser	Beschwörung	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 50 GS	f		\N	\N
 Marmorhaut	1500	4	Geste	4	\N	\N	\N	\N	Erde	verändert	Erde	15 s	0	Körper	1 Ws	10 min	elementar	Marmorstaub	t	Siegel	\N	\N
 Maskieren	3000	6	Gedanke	6	N	\N	\N	\N	Magan	beherrscht	Feuer	10 sec	50 m	Geist	Z	1 h	dämonisch	\N	f	Trickser	\N	\N
+Meeressegen	800	3	Wort	3	G	47	\N	\N	Wasser	verändert	Erde	10 sec	0	Körper	Z	druidisch	druidisch	\N	f	\N	\N	\N
 Megant 1 beschwören	2000	5	Geste	5	3	\N	\N	Beschwörung	Magan	bewegt	Feuer	5 h	0	Umgebung	1 Ws	7 Tage	dämonisch	1 Sack grosse Nuesse	f		\N	\N
 Megant 2 beschwören	2000	5	Geste	5	3	\N	\N	Beschwörung	Magan	bewegt	Feuer	5 h	0	Umgebung	1 Ws	7 Tage	dämonisch	1 Faß Pflanzenöl	f		\N	\N
 Megant 3 beschwören	3000	6	Geste	6	3	\N	\N	Beschwörung	Magan	bewegt	Feuer	7,5 h	0	Umgebung	1 Ws	7 Tage	dämonisch	1 Faß Fischöl	f		\N	\N
@@ -712,6 +714,7 @@ Wetterrune	1200	9	Geste	3	W	\N	\N	Runen	Magan	verändert	Luft	30 min	-	Umgebung	1
 Wetterzauber	1000	6/500mRadius	Geste	3	\N	\N	\N	\N	Magan	verändert	Luft	10 min	0	Umgebung	var Uk	var	elementar	farbige Pulver	t		\N	\N
 Wiederkehr	5000	alle (min 10)	Wort	5	\N	\N	\N	\N	Erde	bewegt	Luft	6 h	0	Geist	1 Ws	perm	göttlich		t		\N	\N
 Wind des Todes	15000	18	Geste	G	E	\N	\N	\N	Feuer	zerstört	Wasser	30 s	0	Körper	100 m Ke	2 min	schwarzmagisch	Vulkansche, Wüstensand,Diamantstaub	t		\N	\N
+Windgunst	4000	6	Wort	5	G	47	\N	\N	Luft	bewegt	Luft	20 sec	30 m	Umgebung	1 Obj	6 h	elementar	\N	f	\N	\N	\N
 Windmeisterschaft	2000	4	Geste	4	\N	\N	\N	\N	Luft	bewegt	Luft	15 s	0	Umgebung	1 km Uk	1 h	elementar	Sturmvogelfeder	t		\N	\N
 Windstoß	120	1	Geste	1	\N	\N	\N	\N	Luft	bewegt	Luft	1 s	0	Umgebung	30 m Kegel	10 s	elementar		t	Runenstab	\N	\N
 Wirbelwind	10000	9	Geste	6	\N	\N	\N	\N	Luft	bewegt	Luft	30 s	0	Umgebung	3-6 m Uk	2 min	elementar		t		\N	\N

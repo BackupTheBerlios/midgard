@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="G" Name="Gildenbrief" Titel="Gildenbrief" Copyright="var." Maintainer="Malte Thoma" Version="1.0" erzeugt="2002-10-17 22:02:18.907243+02" MAGUS-Index="13" MAGUS-Bild="5">
+<MAGUS-data Region="G" Name="Gildenbrief" Titel="Gildenbrief" Copyright="var." Maintainer="Malte Thoma" Version="1.0" erzeugt="2002-10-22 17:42:04.186969+02" MAGUS-Index="13" MAGUS-Bild="5">
  <Schriften/>
  <Sprachen/>
  <Typen>
@@ -173,7 +173,7 @@
    <Standard Typ="MMa"/>
   </Fertigkeit>
   <Fertigkeit Name="Sagenkunde">
-   <Grund Typ="MMa"/>
+   <Standard Typ="MMa"/>
   </Fertigkeit>
   <Fertigkeit Name="Scharfschießen">
    <Ausnahme Typ="MMa"/>
@@ -316,7 +316,7 @@
    <Standard Typ="MMa"/>
   </Fertigkeit>
   <Fertigkeit Name="Brettspiel" Region="E">
-   <Grund Typ="MMa"/>
+   <Standard Typ="MMa"/>
   </Fertigkeit>
   <Fertigkeit Name="Kamelreiten" Region="E">
    <Standard Typ="MMa"/>
@@ -427,7 +427,7 @@
    <Standard Typ="MMa"/>
   </Fertigkeit>
   <Fertigkeit Name="Astrologie" Region="R">
-   <Grund Typ="MMa"/>
+   <Standard Typ="MMa"/>
   </Fertigkeit>
   <Fertigkeit Name="Augensalbe herstellen" Region="R">
    <Standard Typ="MMa"/>
@@ -1171,7 +1171,7 @@
    <Grund Typ="MMa"/>
   </Spruch>
   <Spruch Name="Bannsphäre, Silberne">
-   <Standard Typ="MMa"/>
+   <Grund Typ="MMa"/>
   </Spruch>
   <Spruch Name="Baum">
    <Ausnahme Typ="MMa"/>
@@ -1198,7 +1198,7 @@
    <Ausnahme Typ="MMa"/>
   </Spruch>
   <Spruch Name="Blitze schleudern">
-   <Standard Typ="MMa"/>
+   <Grund Typ="MMa"/>
   </Spruch>
   <Spruch Name="Brot und Wasser">
    <Standard Typ="MMa"/>
@@ -1213,7 +1213,7 @@
    <Standard Typ="MMa"/>
   </Spruch>
   <Spruch Name="Donnerkeil">
-   <Standard Typ="MMa"/>
+   <Grund Typ="MMa"/>
   </Spruch>
   <Spruch Name="Dschinni-Auge">
    <Standard Typ="MMa"/>
@@ -1381,7 +1381,7 @@
    <Ausnahme Typ="MMa"/>
   </Spruch>
   <Spruch Name="Hitzeschutz">
-   <Ausnahme Typ="MMa"/>
+   <Grund Typ="MMa"/>
    <Lernschema Typ="MMa" Lernpunkte="1"/>
   </Spruch>
   <Spruch Name="Hitzsalz">
@@ -1391,7 +1391,7 @@
    <Ausnahme Typ="MMa"/>
   </Spruch>
   <Spruch Name="Hören der Geister">
-   <Grund Typ="MMa"/>
+   <Standard Typ="MMa"/>
   </Spruch>
   <Spruch Name="Hören von Fernem">
    <Grund Typ="MMa"/>
@@ -1424,7 +1424,7 @@
    <Ausnahme Typ="MMa"/>
   </Spruch>
   <Spruch Name="Lichtrunen">
-   <Grund Typ="MMa"/>
+   <Standard Typ="MMa"/>
   </Spruch>
   <Spruch Name="Liebeszauber">
    <Ausnahme Typ="MMa"/>
@@ -1433,10 +1433,10 @@
    <Standard Typ="MMa"/>
   </Spruch>
   <Spruch Name="Luftlauf">
-   <Ausnahme Typ="MMa"/>
+   <Grund Typ="MMa"/>
   </Spruch>
   <Spruch Name="Luftsphäre">
-   <Standard Typ="MMa"/>
+   <Grund Typ="MMa"/>
   </Spruch>
   <Spruch Name="Lähmung">
    <Standard Typ="MMa"/>
@@ -1448,7 +1448,7 @@
    <Ausnahme Typ="MMa"/>
   </Spruch>
   <Spruch Name="Macht über Menschen">
-   <Grund Typ="MMa"/>
+   <Standard Typ="MMa"/>
   </Spruch>
   <Spruch Name="Macht über Unbelebtes">
    <Grund Typ="MMa"/>
@@ -1462,10 +1462,10 @@
    <Ausnahme Typ="MMa"/>
   </Spruch>
   <Spruch Name="Macht über die Sinne">
-   <Grund Typ="MMa"/>
+   <Standard Typ="MMa"/>
   </Spruch>
   <Spruch Name="Macht über die Zeit">
-   <Grund Typ="MMa"/>
+   <Standard Typ="MMa"/>
   </Spruch>
   <Spruch Name="Macht über die belebte Natur">
    <Grund Typ="MMa"/>
@@ -1496,10 +1496,10 @@
    <Standard Typ="MMa"/>
   </Spruch>
   <Spruch Name="Nebel schaffen">
-   <Standard Typ="MMa"/>
+   <Grund Typ="MMa"/>
   </Spruch>
   <Spruch Name="Nebel wecken">
-   <Ausnahme Typ="MMa"/>
+   <Grund Typ="MMa"/>
    <Lernschema Typ="MMa" Lernpunkte="1"/>
   </Spruch>
   <Spruch Name="Niessalz">
@@ -1524,16 +1524,16 @@
    <Ausnahme Typ="MMa"/>
   </Spruch>
   <Spruch Name="Regenzauber">
-   <Standard Typ="MMa"/>
+   <Grund Typ="MMa"/>
   </Spruch>
   <Spruch Name="Reinigen">
    <Ausnahme Typ="MMa"/>
   </Spruch>
   <Spruch Name="Reise der Seele">
-   <Grund Typ="MMa"/>
+   <Standard Typ="MMa"/>
   </Spruch>
   <Spruch Name="Reise in die Zeit">
-   <Grund Typ="MMa"/>
+   <Standard Typ="MMa"/>
   </Spruch>
   <Spruch Name="Reise zu den Sphären">
    <Grund Typ="MMa"/>
@@ -1585,7 +1585,7 @@
    <Standard Typ="MMa"/>
   </Spruch>
   <Spruch Name="Sehen in Dunkelheit">
-   <Grund Typ="MMa"/>
+   <Standard Typ="MMa"/>
   </Spruch>
   <Spruch Name="Sehen von Verborgenem">
    <Grund Typ="MMa"/>
@@ -1615,19 +1615,19 @@
    <Ausnahme Typ="MMa"/>
   </Spruch>
   <Spruch Name="Sturmflut">
-   <Standard Typ="MMa"/>
+   <Grund Typ="MMa"/>
   </Spruch>
   <Spruch Name="Sturmhand">
-   <Standard Typ="MMa"/>
+   <Grund Typ="MMa"/>
   </Spruch>
   <Spruch Name="Sturmwind">
-   <Standard Typ="MMa"/>
+   <Grund Typ="MMa"/>
   </Spruch>
   <Spruch Name="Stärke">
    <Standard Typ="MMa"/>
   </Spruch>
   <Spruch Name="Sumpfboden">
-   <Standard Typ="MMa"/>
+   <Grund Typ="MMa"/>
   </Spruch>
   <Spruch Name="Thursenstein">
    <Ausnahme Typ="MMa"/>
@@ -1720,43 +1720,43 @@
    <Standard Typ="MMa"/>
   </Spruch>
   <Spruch Name="Wasseratmen">
-   <Ausnahme Typ="MMa"/>
+   <Grund Typ="MMa"/>
    <Lernschema Typ="MMa" Lernpunkte="3"/>
   </Spruch>
   <Spruch Name="Wasserlauf">
-   <Ausnahme Typ="MMa"/>
+   <Grund Typ="MMa"/>
   </Spruch>
   <Spruch Name="Wassermeisterschaft">
-   <Standard Typ="MMa"/>
+   <Grund Typ="MMa"/>
   </Spruch>
   <Spruch Name="Wassersalz">
    <Ausnahme Typ="MMa"/>
   </Spruch>
   <Spruch Name="Wasserstrahl">
-   <Standard Typ="MMa"/>
+   <Grund Typ="MMa"/>
   </Spruch>
   <Spruch Name="Wasserwandlung">
-   <Standard Typ="MMa"/>
+   <Grund Typ="MMa"/>
   </Spruch>
   <Spruch Name="Wehsalz">
    <Ausnahme Typ="MMa"/>
   </Spruch>
   <Spruch Name="Wetterzauber">
-   <Standard Typ="MMa"/>
+   <Grund Typ="MMa"/>
    <Lernschema Typ="MMa" Lernpunkte="4"/>
   </Spruch>
   <Spruch Name="Wiederkehr">
    <Standard Typ="MMa"/>
   </Spruch>
   <Spruch Name="Windmeisterschaft">
-   <Standard Typ="MMa"/>
+   <Grund Typ="MMa"/>
   </Spruch>
   <Spruch Name="Windstoß">
-   <Ausnahme Typ="MMa"/>
+   <Grund Typ="MMa"/>
    <Lernschema Typ="MMa" Lernpunkte="1"/>
   </Spruch>
   <Spruch Name="Wirbelwind">
-   <Standard Typ="MMa"/>
+   <Grund Typ="MMa"/>
   </Spruch>
   <Spruch Name="Wort des Todes">
    <Ausnahme Typ="MMa"/>
@@ -2210,9 +2210,6 @@
   </Spruch>
   <Spruch Name="Luftspiegelung" Region="E">
    <Standard Typ="MMa"/>
-  </Spruch>
-  <Spruch Name="Macht über Mumien" Region="E">
-   <Grund Typ="MMa"/>
   </Spruch>
   <Spruch Name="Sandmeisterschaft" Region="E">
    <Standard Typ="MMa"/>

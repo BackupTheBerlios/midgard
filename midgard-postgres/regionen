@@ -36,6 +36,7 @@ COPY "regionen" FROM stdin;
 13	Gildenbrief	Gildenbrief	G	\N	\N	Malte Thoma	1.0	var.	f	5	\N
 11	H&D (Finstere Magie)	Hexenzauber und Druidenkraft	H&Df	\N	\N	Malte Thoma	1.0	Alexander Huiskes	t	14	1994
 10	Hexenzauber & Druidenkraft	Hexenzauber und Druidenkraft	H&D	\N	\N	Malte Thoma	1.0	Alexander Huiskes (Hrsg.)	f	6	1994
+15	Ikengabecken	Ikengabecken	I	\N	\N	Malte Thoma	1.0	?	f	16	?
 7	KanThaiPan	Unter dem Schirm des Jadekaisers	K	\N	\N	Malte Thoma	1.0	Isolde Popp	f	2	\N
 1	Kompendium	Das Kompendium	TuT	\N	\N	Malte Thoma	1.0	Jürgen E. Franke	t	12	\N
 14	Küstenstaaten & Valian	Das Reich des Seekönigs	KV	\N	\N	Malte Thoma	1.0	?	f	15	?

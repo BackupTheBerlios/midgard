@@ -46,6 +46,7 @@ Bola	21	\N	81	Fesselwaffe	7	Wurfwaffe	W6	-2	W	\N	\N	\N	\N	\N	2	10	15	20	\N	\N
 BuKasa	31	\N	61	Einhandschlagwaffe	5	Angriff	W6	0	E	\N	\N	\N	\N	K	\N	\N	\N	\N	\N	\N
 Buckler	\N	\N	\N	Schild	0	Verteidigung	\N	-2	E	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Dolch	\N	\N	\N	Stichwaffe	1	Angriff	W6	-1	E	2	-2	2	\N	\N	\N	\N	\N	\N	2	2
+Dreizack	31	\N	11	Spieﬂwaffe	4	Angriff	W6+1|2W6	\N	Z	\N	\N	\N	\N	G	\N	\N	\N	\N	\N	\N
 Dreizackspeer	31	\N	51	Wurfspieﬂ	4	Angriff	W6	4	W	\N	\N	\N	leichter Speer	N	\N	\N	\N	\N	\N	\N
 Faustkampf	31	21	\N	Kampf ohne Waffen	6	Angriff	W6	-4	E	2	-2	2	\N	\N	\N	\N	\N	\N	\N	\N
 Fuchtel	61	\N	31	Stichwaffe	4	Angriff	W6	1	E	2	-1	0	\N	\N	\N	\N	\N	\N	\N	\N
@@ -109,6 +110,7 @@ Wurfscheibe	61	\N	61	Wurfscheibe	5	Wurfwaffe	W6	-2	W	\N	\N	\N	\N	\N	0	10	20	30	\
 Wurfspeer	31	\N	21	Wurfspieﬂ	1	Wurfwaffe	W6	-1	W	\N	\N	\N	leichter Speer	\N	0	10	30	50	\N	\N
 Wurfspieﬂ	61	\N	21	Wurfspieﬂ	1	Wurfwaffe	W6	0	W	\N	\N	\N	\N	\N	0	10	20	30	\N	\N
 Wurfstern	\N	\N	61	Wurfscheibe	5	Wurfwaffe	W6	-3	W	\N	\N	\N	\N	\N	0	5	10	15	\N	\N
+Zweizack	\N	\N	11	Spieﬂwaffe	3	Angriff	W6	\N	E	\N	\N	\N	\N	G	\N	\N	\N	\N	\N	\N
 groﬂer Schild	61	\N	\N	Schild	0	Verteidigung	\N	\N	E	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 kleiner Schild	31	\N	11	Schild	0	Verteidigung	\N	-1	V	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 leichte Armbrust	\N	\N	31	Armbrust	3	Schuﬂwaffe	W6	0	S	\N	\N	\N	\N	\N	0	30	120	220	\N	\N
