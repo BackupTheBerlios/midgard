@@ -1,9 +1,12 @@
 #include "Grad_anstieg.hh"
+#ifndef USE_XML
 #include <Aux/SQLerror.h>
 #include <Aux/Transaction.h>
 exec sql include sqlca;
+#else
+#include "xml.h"
+#endif
 #include <gtk--/main.h>
-
 
 Grad_anstieg::Grad_anstieg(Gtk::ProgressBar *progressbar)
 : steigern_EP_prozent(50), grad_basiswerte(1)
