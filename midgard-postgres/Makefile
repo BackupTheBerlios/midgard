@@ -1,7 +1,7 @@
-# $Id: Makefile,v 1.30 2001/11/13 09:43:54 christof Exp $
+# $Id: Makefile,v 1.31 2001/11/14 09:32:03 christof Exp $
 INSTALLED_TABLES=$(shell psql -t -q -c "select tablename from pg_tables where \
 		tablename not like 'pg_%' and tablename not like 'pga_%';" midgard)
-SYSTEM_TABLES=angeborene_fertigkeiten arkanum_zauber ausnahmen berufe_stand \
+SYSTEM_TABLES=angeborene_fertigkeiten zauber ausnahmen berufe_stand \
 	berufe_voraussetzung berufe_vorteile  \
 	fertigkeiten fertigkeiten_voraussetzung \
 	fertigkeiten_typen kido land lernschema pflicht_lernen \
@@ -9,7 +9,7 @@ SYSTEM_TABLES=angeborene_fertigkeiten arkanum_zauber ausnahmen berufe_stand \
 	steigern_fertigkeiten steigern_fertigkeiten_mit \
 	steigern_fertigkeiten_werte typen waffen waffen_grund waffen_region_name \
 	waffen_standard waffen_steigern waffen_typen \
-	zauber_beschreibung zauberwerk \
+	zauber_beschreibung zauberwerk zauberwerk_typen \
 	zauberwerk_voraussetzung spezialgebiete grad_anstieg zauber_typen
 USER_TABLES=charaktere charaktere_fertigkeiten
 TABLES=$(SYSTEM_TABLES) $(USER_TABLES)
