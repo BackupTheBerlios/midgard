@@ -2,31 +2,31 @@
 
 <MAGUS-data>
  <Midgard-Abenteurer Version="10">
-  <Figur Name="Aneren" Spieler="Christof Petig" Zeitpunkt="nach Strandpiraten" Grad="8"/>
-  <Typ Spezies="Halbelfe" Geschlecht="f" Abkürzung="Hl" Überleben="Überleben im Wald" Muttersprache="Erainnisch" Stadt_Land="Stadt" Hand="Rechtshänderin"/>
-  <Basiseigenschaften St="59" Gw="78" Gs="82" Ko="92" In="100" Zt="93"/>
-  <abgeleiteteEigenschaften Au="40" pA="72" Wk="50" Sb="64" B="25" SG="6"/>
-  <Erfolgswerte Abwehr="15" Zaubern="17" ZauberResistenz="14"/>
-  <Gesundheit LP="16" AP="34"/>
-  <Beschreibung Alter="29" Gestalt="schlank" Gewicht="69" Größe="161" Stand="Mittelschicht" Merkmale="weiße Haare, permanent -4AP" Herkunft="Erainn" Glaube="Kebechet"/>
-  <Vermögen GS="1656" SS="4"/>
-  <Steigern GFP="16653" AEP="514" EPproGFP="33" benötigte_Tage="211.24">
-   <Praxispunkte Zaubern="2" Spezial="3" Resistenz="1"/>
+  <Figur Grad="8" Name="Aneren" Spieler="Christof Petig" Zeitpunkt="nach Strandpiraten"/>
+  <Typ Abkürzung="Hl" Geschlecht="f" Hand="Rechtshänderin" Muttersprache="Erainnisch" Spezies="Halbelfe" Stadt_Land="Stadt" Überleben="Überleben im Wald"/>
+  <Basiseigenschaften Gs="82" Gw="78" In="100" Ko="92" St="59" Zt="93"/>
+  <abgeleiteteEigenschaften Au="40" B="25" SG="6" Sb="64" Wk="50" pA="72"/>
+  <Erfolgswerte Abwehr="15" ZauberResistenz="14" Zaubern="18"/>
+  <Gesundheit AP="34" LP="16"/>
+  <Beschreibung Alter="29" Gestalt="schlank" Gewicht="69" Glaube="Kebechet" Größe="161" Herkunft="Erainn" Merkmale="weiße Haare, permanent -4AP" Stand="Mittelschicht"/>
+  <Vermögen GS="1434" SS="4"/>
+  <Steigern AEP="11" EPproGFP="33" GFP="18178" benötigte_Tage="331.24">
+   <Praxispunkte Resistenz="1" Spezial="3" Zaubern="2"/>
   </Steigern>
   <Text/>
   <Ausrüstung>
    <Rüstung>TR</Rüstung>
    <Rüstung2>OR</Rüstung2>
-   <Waffe Erfolgswert="0" Bezeichnung="Magierstab"/>
-   <Gegenstand Anzahl="1" Bezeichnung="Körper" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
-    <Gegenstand Anzahl="1" Bezeichnung="Hose" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="Hemd" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="Gürtel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="Schuhe" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="Rucksack" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
-     <Gegenstand Anzahl="1" Bezeichnung="Decke" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="warm"/>
-     <Gegenstand Anzahl="1" Bezeichnung="Lederbeutel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-     <Gegenstand Anzahl="1" Bezeichnung="Geld" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit=""/>
+   <Waffe Bezeichnung="Magierstab" Erfolgswert="9"/>
+   <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Körper" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true">
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Hose" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Hemd" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Gürtel" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Schuhe" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="Leder" Bezeichnung="Rucksack" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true">
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="warm" Bezeichnung="Decke" Gewicht="0" Region="" RüstungOhneGewicht="false"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Lederbeutel" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Geld" Gewicht="0" Region="" RüstungOhneGewicht="false"/>
     </Gegenstand>
    </Gegenstand>
   </Ausrüstung>
@@ -41,29 +41,30 @@
    <ang-Fertigkeit Bezeichnung="Geschmacksschwäche"/>
    <ang-Fertigkeit Bezeichnung="Nachtsicht" Wert="8"/>
    <Fertigkeit Bezeichnung="Erste Hilfe" Wert="12"/>
-   <Fertigkeit Bezeichnung="Heilkunde" Wert="11" Praxispunkte="1"/>
+   <Fertigkeit Bezeichnung="Heilkunde" Praxispunkte="1" Wert="11"/>
    <Fertigkeit Bezeichnung="Kamelreiten" Wert="12"/>
    <Fertigkeit Bezeichnung="Klettern" Wert="12"/>
-   <Fertigkeit Bezeichnung="Kräuterkunde" Wert="11" Praxispunkte="1"/>
+   <Fertigkeit Bezeichnung="Kräuterkunde" Praxispunkte="1" Wert="11"/>
    <Fertigkeit Bezeichnung="Landeskunde" Wert="8" Zusatz="KanThaiPan"/>
    <Fertigkeit Bezeichnung="Landeskunde" Wert="11" Zusatz="Eschar"/>
    <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="15"/>
    <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="6"/>
    <Fertigkeit Bezeichnung="Musizieren" Wert="11" Zusatz="Harfe"/>
    <Fertigkeit Bezeichnung="Naturkunde" Wert="5"/>
-   <Fertigkeit Bezeichnung="Pflanzenkunde" Wert="6"/>
+   <Fertigkeit Bezeichnung="Pflanzenkunde" Wert="7"/>
    <Fertigkeit Bezeichnung="Reiten" Wert="10"/>
    <Fertigkeit Bezeichnung="Sagenkunde" Wert="6"/>
    <Fertigkeit Bezeichnung="Schwimmen" Wert="12"/>
    <Fertigkeit Bezeichnung="Suchen" Wert="8"/>
    <Fertigkeit Bezeichnung="TaiTschi"/>
-   <Fertigkeit Bezeichnung="Tierkunde" Wert="8" Praxispunkte="1"/>
+   <Fertigkeit Bezeichnung="Tierkunde" Praxispunkte="1" Wert="8"/>
    <Fertigkeit Bezeichnung="Überleben in der Wüste" Wert="11"/>
-   <Fertigkeit Bezeichnung="Wahrnehmung" Wert="6" Praxispunkte="2"/>
+   <Fertigkeit Bezeichnung="Wahrnehmung" Praxispunkte="2" Wert="6"/>
    <Fertigkeit Bezeichnung="YangScheng" Wert="4"/>
-   <Fertigkeit Bezeichnung="Zauberkunde" Wert="10" Praxispunkte="4"/>
+   <Fertigkeit Bezeichnung="Zauberkunde" Praxispunkte="4" Wert="10"/>
    <Fertigkeit Bezeichnung="Zaubern"/>
    <Waffe Bezeichnung="Magierstab" Wert="9"/>
+   <Zauber Bezeichnung="Abwenden von Blicken"/>
    <Zauber Bezeichnung="Allheilung"/>
    <Zauber Bezeichnung="Austreibung des Bösen"/>
    <Zauber Bezeichnung="Bannen von Dunkelheit"/>
@@ -77,9 +78,11 @@
    <Zauber Bezeichnung="Erkennen von Krankheit"/>
    <Zauber Bezeichnung="Erkennen von Leben"/>
    <Zauber Bezeichnung="Erscheinungen"/>
+   <Zauber Bezeichnung="Flammenkreis"/>
    <Zauber Bezeichnung="Freundesauge"/>
    <Zauber Bezeichnung="Funkenregen"/>
    <Zauber Bezeichnung="Geistesschild"/>
+   <Zauber Bezeichnung="Geräusche dämpfen"/>
    <Zauber Bezeichnung="Göttlicher Schutz vor dem Bösen"/>
    <Zauber Bezeichnung="Grüne Hand"/>
    <Zauber Bezeichnung="Handauflegen"/>
@@ -109,6 +112,7 @@
    <Zauber Bezeichnung="Unfruchtbarkeit"/>
    <Zauber Bezeichnung="Unsichtbarkeit"/>
    <Zauber Bezeichnung="Vision"/>
+   <Zauber Bezeichnung="Waldluft"/>
    <Zauber Bezeichnung="Wasser spüren"/>
    <Zauber Bezeichnung="Wort des Lebens"/>
    <Zauber Bezeichnung="Zähmen"/>
@@ -154,16 +158,16 @@
    <Region Name="Kompendium" Region="TuT"/>
    <Region Name="Alba" Region="A"/>
    <Region Name="Eschar" Region="E"/>
-   <Region Name="KanThaiPan" Region="K"/>
    <Region Name="Nahuatlan" Region="N"/>
+   <Region Name="KanThaiPan" Region="K"/>
+   <Region Name="Hexenzauber &amp; Druidenkraft" Region="H&amp;D"/>
    <Region Name="Abenteuer" Region="X"/>
    <Region Name="Gildenbrief" Region="G"/>
-   <Region Name="Hexenzauber &amp; Druidenkraft" Region="H&amp;D"/>
    <CheckOptions Name="Originalregeln" Wert="false"/>
    <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <CheckOptions Name="Zauberbeschreibung ausdrucken" Wert="true"/>
    <Hausregeln Name="1 GS entspricht 1 GFP" Wert="true"/>
    <Hausregeln Name="Grundwerte über 100 zulassen" Wert="true"/>
-   <Hausregeln Name="Ausdauerpunkte für Nicht-Menschen nach GB51" Wert="false"/>
   </Optionen>
  </Midgard-Abenteurer>
 </MAGUS-data>
