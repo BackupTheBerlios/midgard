@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="ChinLu" Spieler="Christian" Zeitpunkt="Erschaffung" Grad="1"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Sp" Spezialisierung="Dolch" Überleben="Überleben im Wald" Muttersprache="KanThaiTun" Stadt_Land="Stadt" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="97" Gw="77" Gs="69" Ko="71" In="98" Zt="91"/>
+  <abgeleiteteEigenschaften Au="45" pA="68" Wk="100" Sb="100" B="25"/>
+  <Erfolgswerte Abwehr="11" Zaubern="2" ZauberResistenz="10"/>
+  <Gesundheit LP="13" AP="12"/>
+  <Beschreibung Alter="21" Gestalt="normal" Gewicht="80" Größe="173" Stand="Volk" Herkunft="KanThaiPan"/>
+  <Vermögen GS="18"/>
+  <Steigern>
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>LR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Gegenstand Anzahl="1" Bezeichnung="Körper" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
+    <Gegenstand Anzahl="1" Bezeichnung="Hose" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Hemd" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Gürtel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Schuhe" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Rucksack" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
+     <Gegenstand Anzahl="1" Bezeichnung="Decke" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="warm"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Lederbeutel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Geld" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit=""/>
+     <Gegenstand Anzahl="1" Bezeichnung="Dietriche und Nachschlüssel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Tonkrug mit Schnaps (1 Liter)" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    </Gegenstand>
+   </Gegenstand>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
+   <ang-Fertigkeit Bezeichnung="Richtungssinn" Wert="12"/>
+   <Fertigkeit Bezeichnung="Balancieren" Wert="15"/>
+   <Fertigkeit Bezeichnung="Fallen entdecken" Wert="8"/>
+   <Fertigkeit Bezeichnung="Fallenmechanik" Wert="4"/>
+   <Fertigkeit Bezeichnung="Himmelskunde" Wert="6"/>
+   <Fertigkeit Bezeichnung="Landeskunde" Wert="11" Zusatz="KanThaiPan"/>
+   <Fertigkeit Bezeichnung="Schlösser öffnen" Wert="8"/>
+   <Fertigkeit Bezeichnung="Spurenlesen" Wert="6"/>
+   <Fertigkeit Bezeichnung="Stehlen" Wert="8"/>
+   <Fertigkeit Bezeichnung="Trinken" Wert="1"/>
+   <Waffe Bezeichnung="waffenloser Kampf" Wert="5"/>
+   <Waffe Bezeichnung="Dolch" Wert="7"/>
+   <Waffe Bezeichnung="Kampfstab" Wert="5"/>
+   <Waffe Bezeichnung="Keule" Wert="4"/>
+   <Grundkenntnis Bezeichnung="Einhandschlagwaffe"/>
+   <Grundkenntnis Bezeichnung="Kampf ohne Waffen"/>
+   <Grundkenntnis Bezeichnung="Kampfstab"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Sprache Bezeichnung="KanThaiTun" Wert="20"/>
+  </Fertigkeiten>
+  <Optionen>
+   <CheckOptions Name="Originalregeln" Wert="false"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="true"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Radowan" Spieler="Thorsten Bartusel" Zeitpunkt="Erschaffung" Grad="1"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Hl" Überleben="Überleben im Wald" Muttersprache="Moravisch" Stadt_Land="Land" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="41" Gw="50" Gs="92" Ko="61" In="68" Zt="100"/>
+  <abgeleiteteEigenschaften Au="34" pA="1" Wk="83" Sb="70" B="27"/>
+  <Erfolgswerte Abwehr="11" Zaubern="10" ZauberResistenz="10"/>
+  <Gesundheit LP="15" AP="7"/>
+  <Beschreibung Alter="23" Gestalt="normal" Gewicht="73" Größe="178" Stand="Mittelschicht" Herkunft="Moravod"/>
+  <Vermögen GS="14"/>
+  <Steigern>
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>OR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="0" Bezeichnung="Dolch"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Magierstab"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Körper" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
+    <Gegenstand Anzahl="1" Bezeichnung="Hose" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Hemd" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Gürtel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Schuhe" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Rucksack" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
+     <Gegenstand Anzahl="1" Bezeichnung="Decke" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="warm"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Lederbeutel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Geld" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit=""/>
+    </Gegenstand>
+   </Gegenstand>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="10"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="4"/>
+   <Beruf Bezeichnung="Hirte"/>
+   <Fertigkeit Bezeichnung="Erste Hilfe" Wert="9"/>
+   <Fertigkeit Bezeichnung="Fangen" Wert="11"/>
+   <Fertigkeit Bezeichnung="Heilkunde" Wert="5"/>
+   <Fertigkeit Bezeichnung="Himmelskunde" Wert="4"/>
+   <Fertigkeit Bezeichnung="Kräuterkunde" Wert="5"/>
+   <Fertigkeit Bezeichnung="Landeskunde" Wert="9" Zusatz="Moravod"/>
+   <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="12"/>
+   <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="5"/>
+   <Fertigkeit Bezeichnung="Wagenlenken" Wert="11"/>
+   <Fertigkeit Bezeichnung="Zauberkunde" Wert="5"/>
+   <Fertigkeit Bezeichnung="Überleben im Wald" Wert="6"/>
+   <Waffe Bezeichnung="Dolch" Wert="4"/>
+   <Waffe Bezeichnung="Magierstab" Wert="4"/>
+   <Zauber Bezeichnung="Erkennen von Krankheit"/>
+   <Zauber Bezeichnung="Handauflegen"/>
+   <Zauber Bezeichnung="Heilen von Krankheit"/>
+   <Zauber Bezeichnung="Heilen von Wunden"/>
+   <Zauber Bezeichnung="Liniensicht"/>
+   <Zauber Bezeichnung="Tiersprache" Zusatz="Säugetiere"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Grundkenntnis Bezeichnung="Zauberstäbe"/>
+   <Sprache Bezeichnung="Moravisch" Wert="18"/>
+   <Sprache Bezeichnung="Waelska" Wert="12"/>
+   <Urschrift Bezeichnung="Moravisch" Wert="12"/>
+  </Fertigkeiten>
+  <Optionen>
+   <CheckOptions Name="Originalregeln" Wert="true"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Tuilja" Spieler="Malte Thoma" Zeitpunkt="Sams Kampange" Grad="6"/>
+  <Typ Spezies="Mensch" Geschlecht="f" Abkürzung="Sp" Spezialisierung="Dolch" Überleben="Überleben im Wald" Muttersprache="Erainnisch" Stadt_Land="Stadt" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="69" Gw="87" Gs="100" Ko="96" In="81" Zt="25"/>
+  <abgeleiteteEigenschaften Au="75" pA="87" Wk="1" Sb="16" B="24" GG="1" SG="3"/>
+  <Erfolgswerte Abwehr="14" Zaubern="2" ZauberResistenz="10"/>
+  <Gesundheit LP="19" AP="39"/>
+  <Beschreibung Alter="23" Gestalt="schlank" Gewicht="53" Größe="159" Stand="Volk" Herkunft="Erainn" Glaube="an sich selbst"/>
+  <Vermögen GS="133"/>
+  <Steigern GFP="4300" AEP="170" KEP="15" benötigte_Tage="131">
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>TR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="12" Bezeichnung="Dolch" AngriffVerteidigung_Bonus="1" SchadenLebenspunkte_Bonus="1"/>
+   <Waffe Erfolgswert="12" Bezeichnung="Dolch"/>
+   <Waffe Erfolgswert="3" Bezeichnung="Parierdolch"/>
+   <Waffe Erfolgswert="10" Bezeichnung="Wurfmesser"/>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="10"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="1"/>
+   <Beruf Bezeichnung="Akrobat"/>
+   <Fertigkeit Bezeichnung="Akrobatik" Wert="17"/>
+   <Fertigkeit Bezeichnung="Balancieren" Wert="17"/>
+   <Fertigkeit Bezeichnung="Fallen entdecken" Wert="5"/>
+   <Fertigkeit Bezeichnung="Fallenmechanik" Wert="6"/>
+   <Fertigkeit Bezeichnung="Gassenwissen" Wert="4"/>
+   <Fertigkeit Bezeichnung="Geheimmechanismen öffnen" Wert="4"/>
+   <Fertigkeit Bezeichnung="Geländelauf" Wert="15"/>
+   <Fertigkeit Bezeichnung="Klettern" Wert="17" Praxispunkte="1"/>
+   <Fertigkeit Bezeichnung="Laufen" Wert="5"/>
+   <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="6"/>
+   <Fertigkeit Bezeichnung="Reiten" Wert="15"/>
+   <Fertigkeit Bezeichnung="Sagenkunde" Wert="6"/>
+   <Fertigkeit Bezeichnung="Schleichen" Wert="11"/>
+   <Fertigkeit Bezeichnung="Schlösser öffnen" Wert="8"/>
+   <Fertigkeit Bezeichnung="Schwimmen" Wert="14"/>
+   <Fertigkeit Bezeichnung="Seilkunst" Wert="10"/>
+   <Fertigkeit Bezeichnung="Springen" Wert="15"/>
+   <Fertigkeit Bezeichnung="Stehlen" Wert="10"/>
+   <Fertigkeit Bezeichnung="Suchen" Wert="7"/>
+   <Fertigkeit Bezeichnung="Verführen" Wert="10"/>
+   <Fertigkeit Bezeichnung="Verkleiden" Wert="15"/>
+   <Fertigkeit Bezeichnung="Wahrnehmung" Wert="5"/>
+   <Fertigkeit Bezeichnung="Winden" Wert="5"/>
+   <Waffe Bezeichnung="Dolch" Wert="12"/>
+   <Waffe Bezeichnung="Parierdolch" Wert="3"/>
+   <Waffe Bezeichnung="Wurfmesser" Wert="10"/>
+   <Grundkenntnis Bezeichnung="Parierwaffe"/>
+   <Grundkenntnis Bezeichnung="Wurfmesser"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Sprache Bezeichnung="Albisch" Wert="12"/>
+   <Sprache Bezeichnung="Erainnisch" Wert="19"/>
+   <Sprache Bezeichnung="Moravisch" Wert="6"/>
+   <Sprache Bezeichnung="Waelska" Wert="12"/>
+  </Fertigkeiten>
+  <Optionen>
+   <CheckOptions Name="Originalregeln" Wert="true"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+   <Hausregeln Name="Ausdauerpunkte für Nicht-Menschen nach GB51" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>

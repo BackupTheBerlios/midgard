@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Godrik" Zeitpunkt="Erschaffung" Grad="1"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Hä" Überleben="Überleben im Gebirge" Muttersprache="Waelska" Stadt_Land="Stadt" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="65" Gw="83" Gs="88" Ko="71" In="95" Zt="50"/>
+  <abgeleiteteEigenschaften Au="84" pA="100" Wk="66" Sb="73" B="24"/>
+  <Erfolgswerte Abwehr="11" Zaubern="2" ZauberResistenz="10"/>
+  <Gesundheit LP="17" AP="8"/>
+  <Beschreibung Alter="21" Gestalt="normal" Gewicht="64" Größe="163" Stand="Mittelschicht" Herkunft="Waeland"/>
+  <Vermögen GS="12"/>
+  <Steigern>
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>LR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="0" Bezeichnung="schwere Armbrust"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Peitsche"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Streitaxt"/>
+   <Gegenstand Anzahl="1" Bezeichnung="schwere Armbrust" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Peitsche" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Streitaxt" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="10"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="2"/>
+   <Beruf Bezeichnung="Waffenschmied"/>
+   <Fertigkeit Bezeichnung="Beredsamkeit" Wert="10"/>
+   <Fertigkeit Bezeichnung="Geschäftstüchtigkeit" Wert="9"/>
+   <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="6"/>
+   <Fertigkeit Bezeichnung="Rechnen" Wert="9"/>
+   <Fertigkeit Bezeichnung="Wahrnehmung" Wert="5"/>
+   <Fertigkeit Bezeichnung="Verhören" Wert="10"/>
+   <Fertigkeit Bezeichnung="Spurenlesen" Wert="5"/>
+   <Fertigkeit Bezeichnung="Schätzen" Wert="6"/>
+   <Fertigkeit Bezeichnung="Seemannsgang" Wert="16"/>
+   <Fertigkeit Bezeichnung="Lippenlesen" Wert="5"/>
+   <Fertigkeit Bezeichnung="Gassenwissen" Wert="5"/>
+   <Fertigkeit Bezeichnung="Athletik" Wert="4"/>
+   <Waffe Bezeichnung="Peitsche" Wert="5"/>
+   <Waffe Bezeichnung="Streitaxt" Wert="5"/>
+   <Waffe Bezeichnung="kleiner Schild" Wert="1"/>
+   <Waffe Bezeichnung="schwere Armbrust" Wert="5"/>
+   <Waffe Bezeichnung="Langschwert" Wert="5"/>
+   <Waffe Bezeichnung="Dolch" Wert="4"/>
+   <Grundkenntnis Bezeichnung="Armbrust"/>
+   <Grundkenntnis Bezeichnung="Einhandschlagwaffe"/>
+   <Grundkenntnis Bezeichnung="Einhandschwert"/>
+   <Grundkenntnis Bezeichnung="Peitsche"/>
+   <Grundkenntnis Bezeichnung="Schild"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Sprache Bezeichnung="Waelska" Wert="19"/>
+   <Sprache Bezeichnung="Albisch" Wert="12"/>
+   <Urschrift Bezeichnung="Waelska" Wert="10"/>
+  </Fertigkeiten>
+  <Optionen>
+   <Region Name="Waeland" Region="W"/>
+   <CheckOptions Name="Originalregeln" Wert="true"/>
+   <CheckOptions Name="NSC zulassen" Wert="true"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+   <Hausregeln Name="Ausdauerpunkte für Nicht-Menschen nach GB51" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>

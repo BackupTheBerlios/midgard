@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Morganna Valdez" Zeitpunkt="Erschaffung" Grad="1"/>
+  <Typ Spezies="Mensch" Geschlecht="f" Abkürzung="Se" Spezialisierung="Streitaxt" Überleben="Überleben im Gebirge" Muttersprache="Neu-Vallinga" Stadt_Land="Land" Hand="Linkshänder"/>
+  <Basiseigenschaften St="90" Gw="98" Gs="95" Ko="66" In="63" Zt="45"/>
+  <abgeleiteteEigenschaften Au="50" pA="55" Wk="76" Sb="39" B="24"/>
+  <Erfolgswerte Abwehr="11" Zaubern="2" ZauberResistenz="10"/>
+  <Gesundheit LP="13" AP="7"/>
+  <Beschreibung Alter="21" Gestalt="normal" Gewicht="76" Größe="180" Stand="Volk" Herkunft="Küstenstaaten"/>
+  <Vermögen GS="13"/>
+  <Steigern>
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>LR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="0" Bezeichnung="Dolch"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Streitaxt"/>
+   <Waffe Erfolgswert="0" Bezeichnung="kleiner Schild"/>
+   <Waffe Erfolgswert="0" Bezeichnung="schwere Armbrust"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Körper" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
+    <Gegenstand Anzahl="1" Bezeichnung="Hose" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Hemd" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Gürtel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Schuhe" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Rucksack" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
+     <Gegenstand Anzahl="1" Bezeichnung="Decke" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="warm"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Lederbeutel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Geld" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit=""/>
+    </Gegenstand>
+   </Gegenstand>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="1"/>
+   <Beruf Bezeichnung="Schmuggler"/>
+   <ang-Fertigkeit Bezeichnung="Nachtsicht" Wert="8"/>
+   <Fertigkeit Bezeichnung="Balancieren" Wert="17"/>
+   <Fertigkeit Bezeichnung="Klettern" Wert="17"/>
+   <Fertigkeit Bezeichnung="Landeskunde" Wert="9" Zusatz="Küstenstaaten"/>
+   <Fertigkeit Bezeichnung="Rudern" Wert="16"/>
+   <Fertigkeit Bezeichnung="Schleichen" Wert="9"/>
+   <Fertigkeit Bezeichnung="Schwimmen" Wert="17"/>
+   <Fertigkeit Bezeichnung="Seemannsgang" Wert="17"/>
+   <Fertigkeit Bezeichnung="Spurenlesen" Wert="4"/>
+   <Fertigkeit Bezeichnung="Steuern" Wert="16"/>
+   <Fertigkeit Bezeichnung="Tauchen" Wert="15"/>
+   <Waffe Bezeichnung="Faustkampf" Wert="5"/>
+   <Waffe Bezeichnung="Streitaxt" Wert="7"/>
+   <Waffe Bezeichnung="kleiner Schild" Wert="1"/>
+   <Waffe Bezeichnung="Dolch" Wert="5"/>
+   <Waffe Bezeichnung="schwere Armbrust" Wert="5"/>
+   <Grundkenntnis Bezeichnung="Armbrust"/>
+   <Grundkenntnis Bezeichnung="Einhandschlagwaffe"/>
+   <Grundkenntnis Bezeichnung="Kampf ohne Waffen"/>
+   <Grundkenntnis Bezeichnung="Schild"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Sprache Bezeichnung="Neu-Vallinga" Wert="18"/>
+   <Sprache Bezeichnung="Comentang" Wert="12"/>
+   <Urschrift Bezeichnung="Neu-Vallinga" Wert="4"/>
+  </Fertigkeiten>
+  <Optionen>
+   <CheckOptions Name="Originalregeln" Wert="false"/>
+   <CheckOptions Name="NSC zulassen" Wert="true"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="true"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Fasil" Spieler="Ingo" Zeitpunkt="Erschaffung" Grad="1"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Se" Überleben="Überleben in der Steppe" Muttersprache="Scharidisch" Stadt_Land="Stadt" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="77" Gw="71" Gs="60" Ko="88" In="64" Zt="49"/>
+  <abgeleiteteEigenschaften Au="47" pA="22" Wk="78" Sb="58" B="25"/>
+  <Erfolgswerte Abwehr="11" Zaubern="2" ZauberResistenz="10"/>
+  <Gesundheit LP="18" AP="11"/>
+  <Beschreibung Alter="22" Gestalt="normal" Gewicht="89" Größe="183" Stand="Mittelschicht" Herkunft="Eschar"/>
+  <Vermögen GS="8"/>
+  <Steigern>
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>LR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="5" Bezeichnung="leichte Armbrust"/>
+   <Waffe Erfolgswert="5" Bezeichnung="Krummsäbel"/>
+   <Waffe Erfolgswert="5" Bezeichnung="Dolch"/>
+   <Waffe Erfolgswert="5" Bezeichnung="Krummsäbel"/>
+   <Gegenstand Anzahl="1" Bezeichnung="leichte Armbrust" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Krummsäbel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Dolch" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Gegenstand Anzahl="1" Bezeichnung="Krummsäbel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="10"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="1"/>
+   <Fertigkeit Bezeichnung="Seemannsgang" Wert="15"/>
+   <Fertigkeit Bezeichnung="Schwimmen" Wert="15"/>
+   <Fertigkeit Bezeichnung="Himmelskunde" Wert="5"/>
+   <Fertigkeit Bezeichnung="Steuern" Wert="15"/>
+   <Fertigkeit Bezeichnung="Tauchen" Wert="16"/>
+   <Fertigkeit Bezeichnung="Balancieren" Wert="15"/>
+   <Fertigkeit Bezeichnung="Schätzen" Wert="4"/>
+   <Fertigkeit Bezeichnung="Beidhändiger Kampf" Wert="3"/>
+   <Fertigkeit Bezeichnung="Rudern" Wert="15"/>
+   <Waffe Bezeichnung="Krummsäbel" Wert="5"/>
+   <Waffe Bezeichnung="leichte Armbrust" Wert="5"/>
+   <Waffe Bezeichnung="Faustkampf" Wert="5"/>
+   <Waffe Bezeichnung="waffenloser Kampf" Wert="5"/>
+   <Waffe Bezeichnung="Dolch" Wert="5"/>
+   <Waffe Bezeichnung="Keule" Wert="4"/>
+   <Grundkenntnis Bezeichnung="Armbrust"/>
+   <Grundkenntnis Bezeichnung="Einhandschlagwaffe"/>
+   <Grundkenntnis Bezeichnung="Einhandschwert"/>
+   <Grundkenntnis Bezeichnung="Kampf ohne Waffen"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Sprache Bezeichnung="Scharidisch" Wert="18"/>
+   <Sprache Bezeichnung="Rawindi" Wert="12"/>
+   <Urschrift Bezeichnung="Scharidisch" Wert="4"/>
+  </Fertigkeiten>
+  <Optionen>
+   <CheckOptions Name="Originalregeln" Wert="true"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+   <Hausregeln Name="Ausdauerpunkte für Nicht-Menschen nach GB51" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>
