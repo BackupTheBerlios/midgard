@@ -207,8 +207,8 @@ std::cout << "Traget Drop\n";
 }
 */
 
-void table_ausruestung::on_preise_tree_neu_drag_data_get(GdkDragContext *context,     
-                                     GtkSelectionData   *selection_data,       
+void table_ausruestung::on_preise_tree_neu_drag_data_get(GdkDragContext *context,
+                                     selection_data_t selection_data,
                                      guint               info,
                                      guint32             time )
 {
@@ -225,7 +225,8 @@ void table_ausruestung::on_preise_tree_neu_drag_data_get(GdkDragContext *context
    std::string data=itos(*adresse);
 
 std::cout << "IN: "<<data<<" at "<<*adresse<<'\t'<<'\n';
-   gtk_selection_data_set(selection_data,selection_data->target,8, 
+   gtk_selection_data_set(selection_data GTKMM_24(->gobj()),
+       selection_data GTKMM_24(->gobj())->target,8, 
        reinterpret_cast < const unsigned char * > ( data.c_str() ) ,
        data.size() );
 
