@@ -78,9 +78,9 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
   for(std::list<MidgardBasicElement_mutable>::const_iterator i=Char.CList_Waffen().begin();i!=Char.CList_Waffen().end();++i)
    {cH_Waffe w(*i);
     std::string wert = itos(i->Erfolgswert());
-    for(std::list<MidgardBasicElement_mutable>::const_iterator j=Char.CList_Waffen_besitz().begin();j!=Char.CList_Waffen_besitz().end();++j)
+    for(std::list<WaffeBesitz>::const_iterator j=Char.CList_Waffen_besitz().begin();j!=Char.CList_Waffen_besitz().end();++j)
      {
-      WaffeBesitz WB(*j);
+      WaffeBesitz WB=*j;
       if (WB.Waffe()->Name()==w->Name())
        {
          std::string waffenname ;
