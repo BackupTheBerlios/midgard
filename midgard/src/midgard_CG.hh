@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.212 2002/04/14 15:32:14 thoma Exp $
+// $Id: midgard_CG.hh,v 1.213 2002/04/15 05:45:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -217,6 +217,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void wizard_starten_clicked();
    private:
 
+        void OptionenExecute_setzen_from_menu(Midgard_Optionen::OptionenExecuteIndex index);
         void optionmenu_init();
         void optionmenu_stand_deactivate();
         void optionmenu_hand_deactivate();

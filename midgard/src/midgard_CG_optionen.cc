@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.71 2002/04/14 15:32:14 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.72 2002/04/15 05:45:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -28,6 +28,13 @@ void midgard_CG::regnot(const std::string& sadd)
 {
  InfoFenster->AppendShow(sadd);
 }
+
+void midgard_CG::OptionenExecute_setzen_from_menu(Midgard_Optionen::OptionenExecuteIndex index)
+{
+ MOptionen->OptionenExecute_setzen_from_menu(index);
+}
+
+
 /*
 void midgard_CG::Optionen_setzen_from_menu(OptionenIndex index)
 {
@@ -85,7 +92,7 @@ void midgard_CG::checkbutton_original(bool active)
     { togglebutton_alle_zauber->set_sensitive(true); 
       pixmap_logo->hide();
     }      
-#warning TODO: Menüs neu aufbauen
+  menu_init();
 }
 
 

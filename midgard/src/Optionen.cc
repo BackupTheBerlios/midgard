@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.3 2002/04/14 15:32:14 thoma Exp $
+// $Id: Optionen.cc,v 1.4 2002/04/15 05:45:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -45,13 +45,14 @@ std::string Midgard_Optionen::Viewer()
 }
 
 
-Midgard_Optionen::st_Optionen Midgard_Optionen::OptionenCheck(OptionenIndex oi)
+Midgard_Optionen::st_OptionenCheck Midgard_Optionen::OptionenCheck(OptionenCheckIndex oi)
 {
- for(std::list<st_Optionen>::const_iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
+ for(std::list<st_OptionenCheck>::const_iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
    if(i->index==oi) return *i;
  assert(!"OptionenCheck: nicht gefunden");
  abort();
 }
+
 Midgard_Optionen::st_Haus Midgard_Optionen::HausregelCheck(HausIndex hi)
 {
  for(std::list<st_Haus>::const_iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
@@ -67,9 +68,9 @@ Midgard_Optionen::st_pdfViewer Midgard_Optionen::pdfViewerCheck(pdfViewerIndex p
  abort();
 }
  
-void Midgard_Optionen::setOption(std::string os,bool b)
+void Midgard_Optionen::setOptionCheck(std::string os,bool b)
 {
- for(std::list<st_Optionen>::iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
+ for(std::list<st_OptionenCheck>::iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
    if(i->text==os) 
      { i->active=b;
        return; 
@@ -97,33 +98,30 @@ void Midgard_Optionen::setpdfViewer(std::string is,bool b)
 {
   for(list<st_pdfViewer>::iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
    {
-cout << i->text<<' '<<is<<' '<<(i->text==is)<<' '<<i->active<<'\n';
      if(i->text==is) i->active=b;
      else i->active=!b;
-cout <<'\t'<< i->text<<' '<<(i->text==is)<<' '<<i->active<<'\n';
    }
 }   
     
 
-void Midgard_Optionen::Optionen_setzen_from_menu(OptionenIndex index)
+void Midgard_Optionen::OptionenCheck_setzen_from_menu(OptionenCheckIndex index,bool b)
 {
 //  if(!hauptfenster->fire_enabled) return;
 //  hauptfenster->fire_enabled=false;
-/*
-  for(list<st_Optionen>::iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
+  std::list<Midgard_Optionen::st_OptionenCheck> L=hauptfenster->getOptionen()->getOptionenCheck();
+  for(std::list<Midgard_Optionen::st_OptionenCheck>::iterator i=L.begin();i!=L.end();++i)
    {
      if(i->index!=index) continue;
-     i->active = i->checkmenuitem->get_active();
+     i->active = b;
      if(i->index==Original) { hauptfenster->checkbutton_original(i->active); hauptfenster->menu_init();}
      if(i->index==showPics) hauptfenster->Pics(i->active);
      if(i->index==gw_wuerfeln) hauptfenster->show_gw_wuerfeln(i->active);
      if(i->index==NSC_only) hauptfenster->on_radiobutton_mann_toggled(); // zum Neuaufbau des Typmenüs
    }
 //  hauptfenster->fire_enabled=true;
-*/
 }
  
-void Midgard_Optionen::OptionenM_setzen_from_menu(OptionenIndex index)
+void Midgard_Optionen::OptionenExecute_setzen_from_menu(OptionenExecuteIndex index)
 {
   if(index==LernschemaSensitive) hauptfenster->lernschema_sensitive(true);
   if(index==WizardStarten) hauptfenster->wizard_starten_clicked();
@@ -154,22 +152,22 @@ void Midgard_Optionen::pdfViewer_setzen_from_menu(pdfViewerIndex index)
  
 void Midgard_Optionen::Optionen_init()
 {
-  list_Optionen.push_back(st_Optionen(Original,"Originalregeln",
+  list_OptionenCheck.push_back(st_OptionenCheck(Original,"Originalregeln",
                            true,midgard_logo_tiny_xpm));
-  list_Optionen.push_back(st_Optionen(NSC_only,"NSCs zulassen",
+  list_OptionenCheck.push_back(st_OptionenCheck(NSC_only,"NSCs zulassen",
                            false,0));  
-  list_Optionen.push_back(st_Optionen(gw_wuerfeln,
+  list_OptionenCheck.push_back(st_OptionenCheck(gw_wuerfeln,
                            "Grundwerte nur mit einer Maustaste auswürfelbar machen",
                            false,Cyan_Dice_trans_50_xpm));
-  list_Optionen.push_back(st_Optionen(showPics,"Bilder anzeigen",true,0));
-  list_Optionen.push_back(st_Optionen(Wizard_immer_starten, 
+  list_OptionenCheck.push_back(st_OptionenCheck(showPics,"Bilder anzeigen",true,0));
+  list_OptionenCheck.push_back(st_OptionenCheck(Wizard_immer_starten, 
                            "Wizard bei jedem Programmstart zeigen",true,0));
 
-  list_OptionenM.push_back(st_OptionenM(LernschemaSensitive,
+  list_OptionenExecute.push_back(st_OptionenExecute(LernschemaSensitive,
                            "Lernschema/Steigern auswählbar machen",0));
-  list_OptionenM.push_back(st_OptionenM(show_InfoWindow,"Info Fenster zeigen",0));
-  list_OptionenM.push_back(st_OptionenM(WizardStarten,"Wizard starten",0));
-  list_OptionenM.push_back(st_OptionenM(LernschemaZusaetzeLoeschen,
+  list_OptionenExecute.push_back(st_OptionenExecute(show_InfoWindow,"Info Fenster zeigen",0));
+  list_OptionenExecute.push_back(st_OptionenExecute(WizardStarten,"Wizard starten",0));
+  list_OptionenExecute.push_back(st_OptionenExecute(LernschemaZusaetzeLoeschen,
                            "Fertigkeiten mit Zusätzen im Lernschema wieder anzeigen",0));
 }
 
@@ -210,7 +208,7 @@ void Midgard_Optionen::load_options()
     }
 
   FOR_EACH_CONST_TAG_OF(i,*data,"Optionen")
-     setOption(i->getAttr("Name"),i->getBoolAttr("Wert"));
+     setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*data,"Hausregel")
      setHausregeln(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*data,"pdfViewer")
@@ -232,7 +230,7 @@ void Midgard_Optionen::save_options(WindowInfo *InfoFenster)
  write_string_attrib(datei, "encoding", TagStream::host_encoding);
  datei << "?>\n\n";
  datei << "<MAGUS-optionen>\n";
- for(std::list<st_Optionen>::iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
+ for(std::list<st_OptionenCheck>::iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
    {
      datei << "  <Optionen";
      write_string_attrib(datei, "Name" ,i->text);

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.186 2002/04/14 15:32:14 thoma Exp $
+// $Id: midgard_CG.cc,v 1.187 2002/04/15 05:45:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,7 +32,7 @@
 
 midgard_CG::midgard_CG(const string &datei)
 : InfoFenster(0),wizard(0), MOptionen(0),menu(0),menu_gradanstieg(0),
-  /*haus_menuitem(0),*/Database(Midgard_Info),fire_enabled(true)
+  Database(Midgard_Info),fire_enabled(true)
 {
   notebook_main->set_sensitive(true); // solange die Datenbank nicht geladen ist
                                       // stürzt das Programm ab
@@ -43,6 +43,7 @@ midgard_CG::midgard_CG(const string &datei)
 //  MOptionen = manage(new Midgard_Optionen(this)); // geht nicht
   MOptionen = new Midgard_Optionen(this); // Destruktor schrieben !?!
   frame_drucken->set_Hauptfenster(this);
+  frame_globale_optionen->set_Hauptfenster(this);
 
   set_tree_titles();
   optionmenu_init();  

@@ -21,16 +21,20 @@
 #include <gtk--/pixmap.h>
 //#include <gtk--/radiomenuitem.h>
 #include "../pixmaps/midgard_logo_tiny.xpm"
-#include "../pixmaps/Regio_Hausregel_small.xpm"
+//#include "../pixmaps/Regio_Hausregel_small.xpm"
 
 void midgard_CG::menu_init()
 {
   frame_drucken->init();
+  frame_globale_optionen->init();
 /*
   bool memfire=fire_enabled;
   fire_enabled=false;
-  if (menu) { menu->destroy(); menu=0; MOptionen->haus_menuitem=0; }
+*/
+//  if (menu) { menu->destroy(); menu=0; MOptionen->haus_menuitem=0; }
+  if (menu) { menu->destroy(); menu=0; }
   menu=manage(new Gtk::Menu());
+/*
 
   Gtk::MenuItem *save = manage(new class Gtk::MenuItem("Abenteurer speichern"));
   menu->append(*save);
@@ -39,7 +43,7 @@ void midgard_CG::menu_init()
   Gtk::MenuItem *close = manage(new class Gtk::MenuItem("MAGUS Beenden"));
   menu->append(*close);
   close->activate.connect(SigC::slot(this,&midgard_CG::on_schliessen_CG_clicked));
-
+*/
 //Drucken ///////////////////////////////////////////////////////////////////
   Gtk::Menu *drucken_menu = manage(new class Gtk::Menu());
   Gtk::MenuItem *drucken = manage(new class Gtk::MenuItem("Drucken")); 
@@ -63,7 +67,7 @@ void midgard_CG::menu_init()
   Gtk::MenuItem *latex_empty = manage(new class Gtk::MenuItem("Leeres Abenteurerdokument drucken"));
   drucken_menu->append(*latex_empty);
   latex_empty->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_latex_clicked),false));
-
+/*
   Gtk::RadioMenuItem::Group _RadioMGroup_pdfViewer;
   std::list<Midgard_Optionen::st_pdfViewer> LP=MOptionen->getPDF();
   for(std::list<Midgard_Optionen::st_pdfViewer>::iterator i=LP.begin();i!=LP.end();++i)
@@ -80,7 +84,7 @@ void midgard_CG::menu_init()
      drucken_menu->append(*(i->radio_menu_item));
    }
   menu->append(*drucken);
-
+*/
 //Regionen/////////////////////////////////////////////////////////////////////
   Gtk::Menu *regionen_menu = manage(new class Gtk::Menu());
   Gtk::MenuItem *regionen = manage(new class Gtk::MenuItem("Regionen")); 
@@ -126,7 +130,7 @@ void midgard_CG::menu_init()
   Gtk::Menu *optionen_menu = manage(new class Gtk::Menu());
   Gtk::MenuItem *optionen = manage(new class Gtk::MenuItem("Optionen")); 
   optionen->set_submenu(*optionen_menu);
-
+/*
   std::list<Midgard_Optionen::st_Optionen> OL=MOptionen->getOptionen();
   for(std::list<Midgard_Optionen::st_Optionen>::iterator i=OL.begin();i!=OL.end();++i)
    {
@@ -145,8 +149,9 @@ void midgard_CG::menu_init()
     i->checkmenuitem->activate.connect(SigC::bind(SigC::slot(this,&Midgard_Optionen::Optionen_setzen_from_menu),i->index));
     optionen_menu->append(*(i->checkmenuitem));
    } 
-  std::list<Midgard_Optionen::st_OptionenM> OLM=MOptionen->getOptionenM();
-  for(std::list<Midgard_Optionen::st_OptionenM>::iterator i=OLM.begin();i!=OLM.end();++i)
+ */
+  std::list<Midgard_Optionen::st_OptionenExecute> OLM=MOptionen->getOptionenExecute();
+  for(std::list<Midgard_Optionen::st_OptionenExecute>::iterator i=OLM.begin();i!=OLM.end();++i)
    {
     Gtk::Label *_l=manage (new Gtk::Label(i->text));
     Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
@@ -156,17 +161,14 @@ void midgard_CG::menu_init()
       Gtk::Pixmap *_o=manage(new Gtk::Pixmap(i->bild));
       _tab->attach(*_o,1,2,0,1,GTK_FILL,0,0,0);
      }
-    if(i->menuitem)
-     {
-       i->menuitem=manage(new Gtk::MenuItem());
-       i->menuitem->add(*_tab);    
-       i->menuitem->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::OptionenM_setzen_from_menu),i->index));
-       optionen_menu->append(*(i->menuitem));
-     }
+    Gtk::MenuItem *mi=manage(new Gtk::MenuItem());
+    mi->add(*_tab);    
+    mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::OptionenExecute_setzen_from_menu),i->index));
+    optionen_menu->append(*mi);
    } 
 
   menu->append(*optionen);
-
+/*
 //Hausregeln////////////////////////////////////////////////////////////////
   Gtk::Menu *haus_menu = manage(new class Gtk::Menu());
   haus_menuitem = manage(new class Gtk::MenuItem());
@@ -192,6 +194,7 @@ void midgard_CG::menu_init()
   haus_menuitem->add(*_tabhaus);
   menu->append(*haus_menuitem);
   if(OptionenCheck(Original).active) haus_menuitem->set_sensitive(false);
+*/
 ///////////////////////////////////////////////////////////////////////////////
 //Import/Export////////////////////////////////////////////////////////////////
   Gtk::Menu *im_ex_menu = manage(new class Gtk::Menu());
@@ -207,6 +210,7 @@ void midgard_CG::menu_init()
 ///////////////////////////////////////////////////////////////////////////////
 
   menu->show_all();
+/*
   fire_enabled=memfire;
 */
 }

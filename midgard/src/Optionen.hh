@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.3 2002/04/14 15:32:14 thoma Exp $
+// $Id: Optionen.hh,v 1.4 2002/04/15 05:45:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,21 +34,23 @@ class Midgard_Optionen
       void setViewer(std::string s) {viewer=s;}
       enum pdfViewerIndex {gv,acroread,xpdf,anderer};
 
-      enum OptionenIndex {Original,Info,showPics,LernschemaSensitive,
-                            WizardStarten,Wizard_immer_starten,gw_wuerfeln,
-                            LernschemaZusaetzeLoeschen,show_InfoWindow,
+      enum OptionenCheckIndex {Original,Info,showPics,
+                            Wizard_immer_starten,gw_wuerfeln,
                             NSC_only};
+      enum OptionenExecuteIndex {LernschemaSensitive,
+                            WizardStarten,
+                            LernschemaZusaetzeLoeschen,show_InfoWindow};
       enum HausIndex {Gold};
 
 
       struct st_pdfViewer{pdfViewerIndex index;std::string text;bool active;
              st_pdfViewer(pdfViewerIndex i,std::string t, bool a) 
                   : index(i),text(t),active(a) {} };
-      struct st_OptionenM{OptionenIndex index;std::string text;const char * const *bild;
-               st_OptionenM(OptionenIndex i,std::string t,const char * const * const b)
+      struct st_OptionenExecute{OptionenExecuteIndex index;std::string text;const char * const *bild;
+               st_OptionenExecute(OptionenExecuteIndex i,std::string t,const char * const * const b)
                   :index(i),text(t),bild(b) {} };
-      struct st_Optionen{OptionenIndex index;std::string text;bool active;const char * const *bild;
-               st_Optionen(OptionenIndex i,std::string t,bool a, const char * const * const b)
+      struct st_OptionenCheck{OptionenCheckIndex index;std::string text;bool active;const char * const *bild;
+               st_OptionenCheck(OptionenCheckIndex i,std::string t,bool a, const char * const * const b)
                   :index(i),text(t),active(a),bild(b)
                   {}};
       struct st_Haus{HausIndex index;std::string text;bool active;
@@ -57,8 +59,8 @@ class Midgard_Optionen
 
    private:
       std::list<st_Haus> list_Hausregeln;
-      std::list<st_Optionen>  list_Optionen;
-      std::list<st_OptionenM> list_OptionenM; 
+      std::list<st_OptionenExecute>  list_OptionenExecute;
+      std::list<st_OptionenCheck> list_OptionenCheck; 
       std::list<st_pdfViewer> list_pdfViewer;
 
       void Optionen_init();
@@ -70,26 +72,26 @@ class Midgard_Optionen
       Midgard_Optionen(midgard_CG* h);
 
       std::list<st_Haus> getHausregeln() {return list_Hausregeln;}
-      std::list<st_Optionen> getOptionen() {return list_Optionen;}
-      std::list<st_OptionenM> getOptionenM() {return list_OptionenM;}
+      std::list<st_OptionenCheck> getOptionenCheck() {return list_OptionenCheck;}
+      std::list<st_OptionenExecute> getOptionenExecute() {return list_OptionenExecute;}
       std::list<st_pdfViewer> getPDF() {return list_pdfViewer;}
 
       void save_options(WindowInfo *InfoFenster);
       void load_options();
 
-      void setOption(std::string os,bool b);
+      void setOptionCheck(std::string os,bool b);
       void setHausregeln(std::string hs,bool b);
       void setpdfViewer(std::string is,bool b); 
       void setAllHausregeln(bool b);
 
 
-      st_Optionen OptionenCheck(OptionenIndex oi);
+      st_OptionenCheck OptionenCheck(OptionenCheckIndex oi);
       st_Haus HausregelCheck(HausIndex hi);
       st_pdfViewer pdfViewerCheck(pdfViewerIndex pi);
 
       void Hausregeln_setzen_from_menu(HausIndex index);
-      void Optionen_setzen_from_menu(OptionenIndex index);
-      void OptionenM_setzen_from_menu(OptionenIndex index);
+      void OptionenCheck_setzen_from_menu(OptionenCheckIndex index,bool b);
+      void OptionenExecute_setzen_from_menu(OptionenExecuteIndex index);
       void pdfViewer_setzen_from_menu(pdfViewerIndex index);
 };
 

@@ -310,7 +310,7 @@ void midgard_CG::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
       else if(sart=="Optionen")
         {
          try{
-           MOptionen->setOption(i->getAttr("Name"),i->getBoolAttr("Wert"));
+           MOptionen->setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"));
          }
          catch (const NotFound &e)
          {}

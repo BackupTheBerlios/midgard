@@ -137,8 +137,8 @@ void midgard_CG::speicherstream(ostream &datei)
       datei << "/>\n";
    }
    // Optionen
-   std::list<Midgard_Optionen::st_Optionen> LO=MOptionen->getOptionen();
-   for(std::list<Midgard_Optionen::st_Optionen>::iterator i=LO.begin();i!=LO.end();++i)
+   std::list<Midgard_Optionen::st_OptionenCheck> LO=MOptionen->getOptionenCheck();
+   for(std::list<Midgard_Optionen::st_OptionenCheck>::iterator i=LO.begin();i!=LO.end();++i)
    {
      // Option, die mit dem C. gespeichert werden müssen
      if(i->index!=Midgard_Optionen::Original && i->index!=Midgard_Optionen::NSC_only) continue; 
