@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.44 2002/06/04 09:46:01 thoma Exp $
+// $Id: Optionen.cc,v 1.45 2002/06/04 10:07:53 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -338,37 +338,48 @@ void Midgard_Optionen::Ober_init()
  list_Ober.push_back(st_Ober(Status,"Statuszeile",true));
 }
 
+// Lines marked with 'compat' are to maintain compatibility
 void Midgard_Optionen::load_options()
 {try {
   ifstream f("midgard_optionen.xml");
   if (!f.good()) cout << "Cannot open " << "midgard_optionen.xml" << '\n';
   TagStream ts(f);
-  const Tag *data=ts.find("MAGUS-optionen");
+  // we should use ts.getContent once compatibility is not needed !
+  const Tag *data=ts.find("MAGUS-optionen"); // compat
+  if (!data) data=ts.find("MAGUS-data");
   if(!data)    
     { cout << "Optionen konnten nicht geladen werden";
       ts.debug();
       return;
     }
-  FOR_EACH_CONST_TAG_OF(i,*data,"Optionen")
+  const Tag *options=data.find("Optionen");
+  if (!options) options=data; // compat
+  FOR_EACH_CONST_TAG_OF(i,*options,"Optionen") // compat
      setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"));
-  FOR_EACH_CONST_TAG_OF(i,*data,"Ansicht")
+  FOR_EACH_CONST_TAG_OF(i,*options,"Option")
+     setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"));
+  FOR_EACH_CONST_TAG_OF(i,*options,"Ansicht")
      setOber(i->getAttr("Name"),i->getBoolAttr("Wert"));
-  FOR_EACH_CONST_TAG_OF(i,*data,"Hausregel")
+  FOR_EACH_CONST_TAG_OF(i,*options,"Hausregel")
      setHausregeln(i->getAttr("Name"),i->getBoolAttr("Wert"));
-  FOR_EACH_CONST_TAG_OF(i,*data,"pdfViewer")
+  FOR_EACH_CONST_TAG_OF(i,*options,"pdfViewer")
      setpdfViewer(i->getAttr("Name"),i->getBoolAttr("Wert"));
-  FOR_EACH_CONST_TAG_OF(i,*data,"Einstellungen")
+  FOR_EACH_CONST_TAG_OF(i,*options,"Einstellungen")
      setString(i->getAttr("Name"),i->getAttr("Wert"));
 
-  const Tag *data2=ts.find("MAGUS-fenster");
+  const Tag *data2=ts.find("MAGUS-fenster"); // compat
+  if (!data2) data2=data.find("Fenster");
   if(data2)
    {
      FOR_EACH_CONST_TAG_OF(i,*data2,"Position")
         hauptfenster->setWindowPosition(i->getIntAttr("X"),i->getIntAttr("Y"));
-     FOR_EACH_CONST_TAG_OF(i,*data2,"Groesse")
+     FOR_EACH_CONST_TAG_OF(i,*data2,"Groesse") // compat
         hauptfenster->setWindowSize(i->getIntAttr("Width"),i->getIntAttr("Height"));
+     FOR_EACH_CONST_TAG_OF(i,*data2,"Größe")
+        hauptfenster->setWindowSize(i->getIntAttr("Breite"),i->getIntAttr("Höhe"));
    }
-  const Tag *data3=ts.find("MAGUS-history");
+  const Tag *data3=ts.find("MAGUS-history"); // compat
+  if (!data3) data3=data.find("History");
   if(data3)
    {
      FOR_EACH_CONST_TAG_OF(i,*data3,"Datei")
@@ -391,28 +402,29 @@ void Midgard_Optionen::save_options(WindowInfo *InfoFenster)
   TagStream ts;
   ts.setEncoding("ISO-8859-1");
 
-  Tag &hist=ts.push_back(Tag("MAGUS-history"));
-  for(std::list<std::string>::const_iterator i=hauptfenster->LDateien.begin();i!=hauptfenster->LDateien.end();++i)
-   { hist.push_back(Tag("Datei")).setAttr("Name",*i);
-   }
+  Tag &data=ts.push_back(Tag("MAGUS-data"));
+  Tag &hist=data.push_back(Tag("History"));
+ for(std::list<std::string>::const_iterator i=hauptfenster->LDateien.begin();i!=hauptfenster->LDateien.end();++i)
+  { hist.push_back(Tag("Datei")).setAttr("Name",*i);
+  }
 
  if(OberCheck(SaveFenster).active)
-  { Tag &fenstert=ts.push_back(Tag("MAGUS-fenster"));
+  { Tag &fenstert=data.push_back(Tag("Fenster"));
     gint width,height,x,y;
     Gdk_Window fenster=hauptfenster->get_window();
     fenster.get_size(width,height);
     fenster.get_position(x,y);
-    Tag &groesse=fenstert.push_back(Tag("Groesse")); // Warum keine Umlaute? CP
-    groesse.setIntAttr("Width",width);
-    groesse.setIntAttr("Height",height);
+    Tag &groesse=fenstert.push_back(Tag("Größe"));
+    groesse.setIntAttr("Breite",width);
+    groesse.setIntAttr("Höhe",height);
     Tag &position=fenstert.push_back(Tag("Position"));
     position.setIntAttr("X", x);
     position.setIntAttr("Y", y);
   }
 
- Tag &optionen=ts.push_back(Tag("MAGUS-optionen"));
+  Tag &optionen=data.push_back(Tag("Optionen"));
  for(std::list<st_OptionenCheck>::iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
-   { Tag &opt=optionen.push_back(Tag("Optionen"));
+   { Tag &opt=optionen.push_back(Tag("Option"));
      opt.setAttr("Name",i->text);
      opt.setBoolAttr("Wert", i->active);
    }
