@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.23 2002/06/26 14:01:18 christof Exp $            
+// $Id: Abenteurer.cc,v 1.24 2002/06/26 14:51:26 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -450,7 +450,8 @@ bool Abenteurer::xml_import_stream(istream& datei, Datenbank &Database,
    getWerte().setBeschreibung(Text->Value()); 
    getWerte().setBeschreibungPix(top->getString("TextPix",Text->getAttr("Bild"))); 
    getWerte().setBeschreibungPixSize(top->getInt("TextPixSize",Text->getIntAttr("Größe")));
-   getWerte().setGeld(Vermoegen->getIntAttr("GS"),Vermoegen->getIntAttr("SS"),Vermoegen->getIntAttr("KS"));
+   if (Vermoegen)
+      getWerte().setGeld(Vermoegen->getIntAttr("GS"),Vermoegen->getIntAttr("SS"),Vermoegen->getIntAttr("KS"));
 //   getWerte().clearRuestung();
    if (Ruestung1) getWerte().setRuestung1(Ruestung1->Value(),true);
    else getWerte().setRuestung1("OR",true);

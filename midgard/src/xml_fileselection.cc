@@ -64,6 +64,27 @@ static std::string defFileName(const std::string &s)
    return res;
 }
 
+#if 0 // Dateien mit magus verknüpfen
++[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\magusfile]
++@="Midgard Abenteurer"
++"EditFlags"=hex:00,00,00,00
++
++[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\magusfile\Shell]
++@=""
++
++[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\magusfile\Shell\Magus]
++
++[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\magusfile\Shell\Magus\command]
++@="E:\\magus\\magus2.exe %1"
++
++[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\magusfile\DefaultIcon]
++@="E:\\magus\\magus2.exe,0"
++
++[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\.magus]
++@="magusfile"
++
+#endif
+
 // den aktuellen Abenteurer zu übergeben wäre deutlich sinnvoller! CP
 xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was, Grundwerte *W)
 : hauptfenster(h),ewas(_was),Werte(W)
