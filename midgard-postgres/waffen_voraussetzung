@@ -1,0 +1,31 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE "waffen_voraussetzung";
+--
+--
+--
+
+CREATE TABLE "waffen_voraussetzung" (
+	"name" text NOT NULL,
+	"voraussetzung" text NOT NULL,
+	"art" text NOT NULL
+);
+
+--
+--
+--
+
+
+COPY "waffen_voraussetzung" FROM stdin;
+Dreizackspeer	Leichter Speer	W
+Garotte	Meucheln	F
+Namisritra	waffenloser Kampf	W
+Parierdolch	Dolch	W
+Pilum	Leichter Speer	W
+Wurfaxt	Handaxt	W
+Wurfhammer	Kriegshammer	W
+Wurfkeule	Keule	W
+Wurfmesser	Doclh	W
+Wurfspeer	Leichter Speer	W
+\.

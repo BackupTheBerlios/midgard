@@ -1,0 +1,47 @@
+--
+-- Selected TOC Entries:
+--
+DROP INDEX "fertigkeiten_voraussetzungen_2_";
+DROP TABLE "fertigkeiten_voraussetzungen_2";
+--
+--
+--
+
+CREATE TABLE "fertigkeiten_voraussetzungen_2" (
+	"name" text NOT NULL,
+	"voraussetzung" text NOT NULL
+);
+
+--
+--
+--
+
+
+COPY "fertigkeiten_voraussetzungen_2" FROM stdin;
+Astrologie	Rechnen
+Augensalbe herstellen	Alchemie
+Augensalbe herstellen	Thaumaturgie
+Bogenkampf zu Pferd	Reiten
+Fechten	Rapier
+Fechten tevarrischer STil	Fechten
+Heilkunde	Erste Hilfe
+IaiJutsu	Einhandschwert
+Kampf zu Kamel	Kamelreiten
+Kampf zu Kamel	Kamelreiten
+Kampf zu Pferd	Reiten
+KarumiJutsu	Klettern
+KiDo	TaiTschi
+Kriegsbemalung	Körperbemalung
+Mumifizieren	Kräuterkunde
+Mumifizieren	Naturkunde
+Natya	Tanzen
+SchiyoKi	TaiTschi
+Schlangen beschwören	Musizieren
+Schwerttanz	Beidhändiger Kampf
+\.
+--
+--
+--
+
+CREATE INDEX fertigkeiten_voraussetzungen_2_ ON fertigkeiten_voraussetzungen_2 USING btree (name);
+
