@@ -32,8 +32,22 @@ void Sprache_auswahl::on_clist_sp_sc_select_row(gint row, gint column, GdkEvent 
   if (mod == GEHEIMZEICHEN)
    {
      cH_MidgardBasicElement F(new Fertigkeit(*cH_Fertigkeit("Geheimzeichen")));
-     cH_Fertigkeit(F)->setZusatz(zusatz);
+     F->setZusatz(zusatz);
      F->set_Erfolgswert(wert);
+     hauptfenster->MidgardBasicElement_uebernehmen(F);
+   }
+  if (mod == ABRICHTEN)
+   {
+     cH_MidgardBasicElement F(new Fertigkeit(*cH_Fertigkeit("Abrichten")));
+     F->setZusatz(zusatz);
+     F->set_Erfolgswert(wert);
+     hauptfenster->MidgardBasicElement_uebernehmen(F);
+   }
+  else if (mod == TIERSPRACHE)
+   {
+     cH_MidgardBasicElement F(new Zauber(*cH_Zauber("Tiersprache")));
+     F->setZusatz(zusatz);
+//     F->set_Erfolgswert(wert);
      hauptfenster->MidgardBasicElement_uebernehmen(F);
    }
   else if (mod == MUSIZIEREN)
@@ -82,20 +96,13 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const Datenbank& Database,
 {
   {
    Gtk::OStream os(clist_sp_sc);
-   if (mod == GEHEIMZEICHEN)
+   if (mod == GEHEIMZEICHEN || MUSIZIEREN || TIERSPRACHE || ABRICHTEN)
       {
-         sp_sc_label->set_text("Geheimzeichen wählen");
-         std::vector<std::string> VG=cH_Fertigkeit(*MBE)->VZusatz();
-         for (std::vector<std::string>::const_iterator i=VG.begin();i!=VG.end();++i)
-          { 
-            os << (*i)<<'\t'<<wert<<'\n';
-//            os.flush((*i)->ref(),&HandleContent::unref);
-          }
-      }
-   if (mod == MUSIZIEREN)
-      {
-         sp_sc_label->set_text("Musikinstrument wählen");
-         std::vector<std::string> VG=cH_Fertigkeit(*MBE)->VZusatz();
+         if(mod == GEHEIMZEICHEN) sp_sc_label->set_text("Geheimzeichen wählen");
+         if(mod == MUSIZIEREN) sp_sc_label->set_text("Musikinstrument wählen");
+         if(mod == TIERSPRACHE) sp_sc_label->set_text("Tierart wählen");
+         if(mod == ABRICHTEN) sp_sc_label->set_text("Tierart wählen");
+         std::vector<std::string> VG=(*MBE)->VZusatz();
          for (std::vector<std::string>::const_iterator i=VG.begin();i!=VG.end();++i)
           { 
             os << (*i)<<'\t'<<wert<<'\n';
