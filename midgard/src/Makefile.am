@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.127 2002/02/25 16:03:51 christof Exp $
+# $Id: Makefile.am,v 1.128 2002/02/26 08:28:38 christof Exp $
 
 bin_PROGRAMS = midgard 
 noinst_PROGRAMS = text2c
@@ -191,31 +191,23 @@ midgard_CG_glade_o_DEPS=midgard_CG_glade.cc ../config.h midgard_CG.hh \
 
 if UTF8
 
+# convert to utf8 between preprocessing and compilation
 %.o: %.cc
-	$(CPP) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
+	$(CXXCPP) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
 	$(AM_CXXFLAGS) $(CXXFLAGS) $*.cc | ./iso2utf8 | \
 	$(CXXCOMPILE) -o $*.o -c -x c++ /dev/stdin
 	echo > .deps/$(*F).P
 midgard_CG_glade.o: $(midgard_CG_glade_o_DEPS)
-	$(CPP) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
+	$(CXXCPP) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
 	$(AM_CXXFLAGS) $(CXXFLAGS) $*.cc | ./iso2utf8 | \
 	$(CXXCOMPILE) -o $*.o -O0 -c -x c++ /dev/stdin
 	echo > .deps/$(*F).P
 
-#black magic to make it cross compile with MinGW under Linux
-
-#midgard_exe_LIBS=-lManuProC_Widgets -lManuProC_Base -lGtkmmAddons \
-#	 -lgtkmm -lgdkmm -lsigc \
-#	 -lgtk-1.3 -lgdk-1.3 -lglib-1.3 -lgmodule-1.3 -lgobject-1.3
-	
-#midgard_LDFLAGS=-L../../ManuProC_Base/src -L../../GtkmmAddons/src \
-#	-L../../ManuProc_Widgets/src -L/usr/local/mingw/local/lib
-
-
-#midgard.exe: $(midgard_OBJECTS) $(midgard_DEPENDENCIES)
-#	@rm -f midgard$(EXEEXT)
-#	$(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(LDFLAGS) \
-#	  -o $@ $(midgard_LDFLAGS) $(midgard_OBJECTS) $(midgard_exe_LIBS)
+# libtool does not work when cross compiling, so link directly
+midgard$(EXEEXT): $(midgard_OBJECTS) $(midgard_DEPENDENCIES)
+	@rm -f midgard$(EXEEXT)
+	$(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(LDFLAGS) \
+	  -o $@ $(midgard_LDFLAGS) $(midgard_OBJECTS) $(midgard_LDADD)
 
 else
 
