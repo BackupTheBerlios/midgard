@@ -1,4 +1,4 @@
-// $Id: LaTeX_zauber.cc,v 1.38 2002/02/06 10:55:36 thoma Exp $
+// $Id: LaTeX_zauber.cc,v 1.39 2002/02/06 16:47:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -100,8 +100,8 @@ void midgard_CG::LaTeX_zauber_main(void)
    fout <<"\\begin{tabularx}{7.0cm}{|c|X|}\\hline\n";
    fout <<"\\makebox[1.1cm]{Spieler}&\\namespieler\\\\\\hline\n";
    fout <<"\\end{tabularx}\n}\n";
-   fout <<"\\IfFileExists{drache.ps}{\\parbox{10cm}{\scalebox{-1,1}{\\epsfig{width=10cm,angle=0,file=drache.ps}}}}\n";
-   fout <<"{\\parbox{10cm}{\scalebox{-1,1}{\\epsfig{width=10cm,angle=0,file="PACKAGE_DATA_DIR"drache.ps}}}}\n";
+   fout <<"\\IfFileExists{drache.ps}{\\parbox{10cm}{\\scalebox{-1 1}{\\epsfig{width=10cm,angle=0,file=drache.ps}}}}\n";
+   fout <<"{\\parbox{10cm}{\\scalebox{-1 1}{\\epsfig{width=10cm,angle=0,file="PACKAGE_DATA_DIR"drache.ps}}}}\n";
    fout <<"\\vspace*{2ex}\n";
 */
   fout << "\\begin{tabular}{lcclccclcclp{3cm}l}\\hline\n";
