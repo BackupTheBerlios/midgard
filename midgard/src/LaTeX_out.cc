@@ -214,19 +214,18 @@ void midgard_CG::on_latex_clicked()
  system("dvips -t landscape midgard_tmp_document_eingabe.dvi");
  system("gv -seascape midgard_tmp_document_eingabe.ps &");
 
-
-
  // Zauber
- if (zauber.size()>0)
+ if (zauber.size()>0 || vec_zaubermittel.size()>0)
  {
     midgard_CG::LaTeX_zauber_main();
     midgard_CG::LaTeX_zauber();
+    midgard_CG::LaTeX_zaubermittel();
     system("latex midgard_tmp_document_zauber.tex");
     system("dvips -t landscape midgard_tmp_document_zauber.dvi");
     system("gv -seascape midgard_tmp_document_zauber.ps &");
  }
 
- // KiDO
+ // KiDo
  if (vec_kido.size()>0)
  {
     midgard_CG::LaTeX_kido_main();

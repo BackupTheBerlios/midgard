@@ -24,6 +24,27 @@ void midgard_CG::LaTeX_zauber()
    }
 }
 
+void midgard_CG::LaTeX_zaubermittel()
+{
+  string name = "midgard_tmp_myzaubermittel.tex";
+  ofstream fout(name.c_str());
+  for (vector<st_zaubermittel>::iterator i=vec_zaubermittel.begin();
+         i!=vec_zaubermittel.end();++i)
+   {
+     string wert = itos(i->wert);
+     string art = i->art;
+     if (wert=="0") wert ="";
+     if (art=="AZ") art ="Alchimistisches Zaubermittel";
+     if (art=="PZ") art ="Pflanzliches Zaubermittel";
+     fout << wert <<" & ";
+     fout << i->name  <<" & ";
+     fout << art   <<" & ";
+     fout << i->stufe   <<" & ";
+     fout << i->zeitaufwand  <<" & ";
+     fout << i->kosten   <<" & ";
+   }
+}
+
 
 void midgard_CG::LaTeX_zauber_main(void)
 {
@@ -67,6 +88,12 @@ void midgard_CG::LaTeX_zauber_main(void)
        << "dauer&\\multicolumn{1}{c}{sprung}\\\\\\hline\n";
   fout << "\\input{midgard_tmp_myzauber.tex}\n";
   fout << "\\end{tabular}\n";
+
+  fout << "\\begin{tabular}{llllll}\\hline\n";
+  fout << "Stufe&Name&Art&Stufe&\\scriptsize Zeitaufwand&Kosten\\\\\\hline\n";
+  fout << "\\input{midgard_tmp_myzaubermittel.tex}\n";
+  fout << "\\end{tabular}\n";
+
   fout << "\\end{center}\n";
   fout << "\\end{document}\n\n";
 }

@@ -376,6 +376,25 @@ void midgard_CG::load_charakter()
       } 
    exec sql close zauber;
 
+   // Zauber
+   strncpy(db_art,"Zaubermittel",sizeof(db_art));
+   exec sql declare zauberm cursor for
+      select fertigkeit, wert  from charaktere_fertigkeiten
+      where charakter_name= :db_name_ch 
+         and version= :db_version
+         and art= :db_art;
+   exec sql open zauberm;
+   SQLerror::test(__FILELINE__);
+   while(true)
+      {
+         exec sql fetch zauberm into :db_fertigkeit, :db_wert ;
+         SQLerror::test(__FILELINE__,100);
+         if (sqlca.sqlcode) break;
+         vec_zaubermittel.push_back(st_zaubermittel(db_wert,db_fertigkeit));
+      } 
+   exec sql close zauberm;
+//   get_zaubermittel(vec_zaubermittel);
+
    // KiDo
    strncpy(db_art,"KiDo",sizeof(db_art));
    exec sql declare kido cursor for
@@ -448,6 +467,8 @@ void midgard_CG::load_charakter()
       } 
    exec sql close sprache;
    midgard_CG::sprachen_schrift();
+
+
    // Regionen
    Albabool=false;      checkbutton_Alba->set_active(false);
    Escharbool=false;      checkbutton_Eschar->set_active(false);
@@ -477,39 +498,21 @@ void midgard_CG::load_charakter()
    exec sql close r_ein;
    tr.close();
 
-
-
    typ.l = db_typ_l;
    typ.s = db_typ_s;
    typ.nr = db_typ_i;
-   fertig_typ->set_text(typ.l);
    if (typ.z=="n" || typ.s == "Ord") label_spezialwaffe->set_text("Spezialwaffe durch \nselektieren auswählen");
    else label_spezialwaffe->set_text("");
-   // KiDo Stil setzen
-   int kido_stil_nr=0;
-   if (werte.spezialisierung=="Harte Techniken") kido_stil_nr = 1;
-   if (werte.spezialisierung=="Sanfte Techniken") kido_stil_nr = 2;
-   if (werte.spezialisierung=="Gemischte Techniken") kido_stil_nr = 3;
-   if (kido_stil_nr!=0)
-    {   
-      optionmenu_KiDo_Stile->set_history(kido_stil_nr);
-      checkbutton_KanThaiPan->set_active(true);
-      midgard_CG::on_checkbutton_KanThaiPan_toggled();
-    }
-   typauswahl->set_history(typ.nr);
+
    // Rasse setzen
    exec sql begin declare section;   
     int db_nr;
    exec sql end declare section;   
    strncpy(db_spezies,werte.spezies.c_str(),sizeof(db_spezies));
    exec sql select nr into :db_nr from spezies where spezies = :db_spezies;
-   optionmenu_spezies->set_history(db_nr);
+   midgard_CG::fill_typauswahl();
+   optionmenu_spezies->set_history(db_nr); // Spezies
+   midgard_CG::get_typ();
+   midgard_CG::show_gtk();
 
-   
-   midgard_CG::zeige_werte(werte,"alle");
-   midgard_CG::show_berufe();
-   midgard_CG::show_fertigkeiten();
-   midgard_CG::show_waffen();
-   midgard_CG::show_zauber();
-   
 }

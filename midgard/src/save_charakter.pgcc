@@ -219,6 +219,17 @@ void midgard_CG::on_speichern_clicked()
             (:db_name_ch,:db_version,:db_fertigkeit,:db_wert_str,'Zauber') ;         
             SQLerror::test(__FILELINE__);
       }
+   for (vector<st_zaubermittel>::iterator i=vec_zaubermittel.begin();
+         i!=vec_zaubermittel.end();++i)
+      {
+         strncpy(db_fertigkeit, i->name.c_str(),sizeof(db_fertigkeit));
+         db_wert = i->wert ;
+         exec sql INSERT INTO charaktere_fertigkeiten
+            (charakter_name,version,fertigkeit,wert,art)
+         VALUES
+            (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Zaubermittel') ;         
+            SQLerror::test(__FILELINE__);
+      }
    for (vector<st_kido>::iterator i=vec_kido.begin();
          i!=vec_kido.end();++i)
       {

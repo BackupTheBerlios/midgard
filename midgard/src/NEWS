@@ -1,7 +1,19 @@
 ##########################################################################
+NEWS IN VERSION 0.3beta7
+Es können nur noch die Charterklassen gewählt werden, die die Rasse zuläßt.
+Tabelle für die Spezies fertiggestellt.
+Zauberwerk:
+Alchimistische und pflanzliche Zaubermittel können jetzt gelernt werden 
+und die jeweiligen Vorraussetzungen werden kontrolliert (Puh!) 
+Wasser weihen und Zauberpergament beschriften geht auch.
+Amulette und Talismane jetzt auch ...
+
+
+##########################################################################
 NEWS IN VERSION 0.3beta6
 Fehler bei Pixmap-Namen (hoffentlich) beseitigt.
 Bug in Datenbank-backup beseitigt.
+Ausgewählte Regionen werden mit den Charakteren abgespeichert.
 
 ##########################################################################
 NEWS IN VERSION 0.3beta5

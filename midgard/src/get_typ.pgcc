@@ -2,15 +2,15 @@
 #include <Aux/SQLerror.h>
 
 
-void midgard_CG::get_typ(styp& typ)
+void midgard_CG::get_typ()
 {
- int ityp = int(typauswahl->get_menu()->get_active()->get_user_data()); 
+// int ityp = int(typauswahl->get_menu()->get_active()->get_user_data()); 
 //cout << "TYP = " << ityp << "\t"<<typen_vector[ityp]<<"\n"; 
  exec sql begin declare section ;
   char db_typs[50], db_typl[50], db_typz[5], db_ausdauer[5];
   int  db_stand, db_sb;
  exec sql end declare section ; 
- strncpy(db_typl,typen_vector[ityp].c_str(),sizeof(db_typs));
+ strncpy(db_typl,typen_vector[typ.nr].c_str(),sizeof(db_typs));
 
  exec sql select typs, typz, ausdauer, stand, sb into :db_typs, :db_typz, :db_ausdauer, :db_stand, :db_sb
    from typen where typl = :db_typl;
@@ -22,5 +22,4 @@ void midgard_CG::get_typ(styp& typ)
  typ.ausdauer = db_ausdauer;
  typ.stand = db_stand;
  typ.sb = db_sb;
- typ.nr=ityp;
 }

@@ -101,6 +101,10 @@ struct st_sprachen {string name; int wert;string schrift;
 struct st_schriften {string urschrift; string typ;
       st_schriften(string u, string t) : urschrift(u),typ(t) {}};
 
+struct st_zaubermittel{int wert; string name; int gfp; string art; string stufe; 
+   string zeitaufwand; string kosten; string beschreibung;
+   st_zaubermittel(string n):wert(0),name(n),gfp(0) {};
+   st_zaubermittel(int w, string n):wert(w),name(n),gfp(0) {};};
 
 extern bool Infobool;
 extern bool Escharbool;
@@ -123,6 +127,7 @@ class midgard_CG : public midgard_CG_glade
         vector<st_ausgewaehlte_zauber> vec_zauber;
         vector<st_ausgewaehlte_berufe> vec_beruf;
         vector<st_zauber> zauber;
+        vector<st_zaubermittel> vec_zaubermittel;
         vector<st_kido> vec_kido;
         vector<st_sprachen> vec_sprachen;
         vector<st_schriften> vec_schriften;
@@ -152,6 +157,7 @@ class midgard_CG : public midgard_CG_glade
         void on_button_info_clicked();
         void LaTeX_zauber_main();
         void LaTeX_zauber();
+        void LaTeX_zaubermittel();
         void LaTeX_kido_main();
         void LaTeX_kido();
         string LaTeX_string(int i);
@@ -163,7 +169,7 @@ class midgard_CG : public midgard_CG_glade
         void on_button_geld_s_clicked();
         void on_button_ruestung_s_clicked();
         void on_button_waffen_s_clicked();
-        void get_typ(styp& typ);
+        void get_typ();
         string ruestung(string mod);
         void on_waffen_clist_select_row(gint row, gint column, GdkEvent *event);   
         void on_waffen_clist_unselect_row(gint row, gint column, GdkEvent *event);
@@ -243,6 +249,13 @@ class midgard_CG : public midgard_CG_glade
         void on_steigern_zauber_clist_neu_select_row(gint row, gint column, GdkEvent *event);
         void show_alte_zauber();
         void show_neue_zauber();
+        void on_clist_zaubermittel_alt_select_row(gint row, gint column, GdkEvent *event);
+        void on_clist_zaubermittel_neu_select_row(gint row, gint column, GdkEvent *event);
+        void show_alte_zaubermittel();
+        void show_neue_zaubermittel();
+        void get_zaubermittel(vector<st_zaubermittel>& vec_zaubermittel);
+        float get_standard_zaubermittel(const string typs,const string name);
+        bool zauberwerk_voraussetzung(string name);
 
         void on_kido_laden_clicked();
         void on_steigern_kido_clist_alt_select_row(gint row, gint column, GdkEvent *event);
@@ -264,6 +277,7 @@ class midgard_CG : public midgard_CG_glade
         void show_alte_sprachen();
         void show_neue_sprachen();
         void sprachen_schrift();
+        void show_gtk();
 
    public:
          midgard_CG();

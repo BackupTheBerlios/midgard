@@ -9,18 +9,33 @@ void midgard_CG::fill_typauswahl()
   exec sql begin declare section;
    char db_typ[50];
    char db_region[10];
+   char db_spezies[50];
   exec sql end declare section;
   Transaction tr;
-  exec sql declare ein cursor for 
+  if (werte.spezies!="Mensch")
+   {
+     strncpy(db_spezies,werte.spezies.c_str(),sizeof(db_spezies));
+     exec sql declare ein cursor for 
+       select t.typl,coalesce(t.region,'') from typen t, spezies_typen st
+       where t.typs = st.typen and st.spezies = :db_spezies order by typl;
+     exec sql open ein;
+   }
+  else
+   {   
+     exec sql declare einM cursor for 
       select typl,coalesce(region,'') from typen order by typl ;
-  exec sql open ein;
+     exec sql open einM;
+   }
   SQLerror::test(__FILELINE__);
   Gtk::Menu *_m(manage(new Gtk::Menu()));
   Gtk::MenuItem *_mi;
   unsigned int count=0;
   while (true)
    {
-      exec sql fetch ein into :db_typ, :db_region;
+      if (werte.spezies!="Mensch")
+         exec sql fetch ein into :db_typ, :db_region;
+      else
+         exec sql fetch einM into :db_typ, :db_region;
       SQLerror::test(__FILELINE__,100);
       if (sqlca.sqlcode) break;   
       if (region_check(db_region))

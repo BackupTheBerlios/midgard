@@ -28,14 +28,28 @@ void midgard_CG::spezieswahl_button()
 {
  int ityp = int(optionmenu_spezies->get_menu()->get_active()->get_user_data());
  werte.spezies = spezies_vector[ityp];
+ midgard_CG::fill_typauswahl();
 }
 
 void midgard_CG::typauswahl_button()
 {
-//cout << typ.nr<<"\n";
- get_typ(typ);
-//cout << typ.nr<<"\n";
- fertig_typ->set_text(typ.l);
+ int ityp = int(typauswahl->get_menu()->get_active()->get_user_data());
+ typ.nr=ityp;
+ get_typ();
+ show_gtk();
+}
+
+void midgard_CG::show_gtk()
+{
+ typauswahl->set_history(typ.nr); // Charakterklasse
+ fertig_typ->set_text(typ.l);     // Charakterklasse im Lernfenster
+
+   midgard_CG::zeige_werte(werte,"alle");
+   midgard_CG::show_berufe();
+   midgard_CG::show_fertigkeiten();
+   midgard_CG::show_waffen();
+   midgard_CG::show_zauber();
+
 
  // Spezialwaffe anzeigen?
  if (typ.z=="n" || typ.s == "Ord") label_spezialwaffe->set_text("Spezialwaffe durch \nselektieren auswählen");
@@ -64,7 +78,17 @@ void midgard_CG::typauswahl_button()
      table_kido_lernen->hide();
      table_kido_steigern->hide();
    }
-
+ // KiDo Stil setzen
+ int kido_stil_nr=0;
+ if (werte.spezialisierung=="Harte Techniken") kido_stil_nr = 1;
+ if (werte.spezialisierung=="Sanfte Techniken") kido_stil_nr = 2;
+ if (werte.spezialisierung=="Gemischte Techniken") kido_stil_nr = 3;
+ if (kido_stil_nr!=0)
+  {   
+    optionmenu_KiDo_Stile->set_history(kido_stil_nr);
+    checkbutton_KanThaiPan->set_active(true);
+    midgard_CG::on_checkbutton_KanThaiPan_toggled();
+  }
 }
 
 void midgard_CG::on_herkunftsland_clicked()
@@ -133,6 +157,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    vec_waffen.clear();
    waffe_besitz.clear();
    vec_zauber.clear();
+   vec_zaubermittel.clear();
    vec_kido.clear();
    vec_beruf.clear();
    vec_sprachen.clear();
@@ -157,6 +182,8 @@ void midgard_CG::on_neuer_charakter_clicked()
    grundkenntnisse_clist_neu->clear();
    steigern_zauber_clist_alt->clear();
    steigern_zauber_clist_neu->clear();
+   clist_zaubermittel_alt->clear();
+   clist_zaubermittel_neu->clear();
    steigern_kido_clist_alt->clear();
    steigern_kido_clist_neu->clear();
    clist_steigern_sprachen_alt->clear();

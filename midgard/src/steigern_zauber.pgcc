@@ -14,6 +14,8 @@ void midgard_CG::on_zauber_laden_clicked()
  midgard_CG::on_speichern_clicked();
  midgard_CG::show_alte_zauber();
  midgard_CG::show_neue_zauber();
+ midgard_CG::show_alte_zaubermittel();
+ midgard_CG::show_neue_zaubermittel();
 }
 
 
@@ -99,6 +101,8 @@ void midgard_CG::on_steigern_zauber_clist_alt_select_row(gint row, gint column, 
    midgard_CG::on_speichern_clicked();
    midgard_CG::show_alte_zauber();
    midgard_CG::show_neue_zauber();
+   midgard_CG::show_alte_zaubermittel();
+   midgard_CG::show_neue_zaubermittel();
 }
 
 void midgard_CG::on_steigern_zauber_clist_neu_select_row(gint row, gint column, GdkEvent *event)
@@ -138,6 +142,8 @@ void midgard_CG::on_steigern_zauber_clist_neu_select_row(gint row, gint column, 
   midgard_CG::zeige_werte(werte,"alle");
   midgard_CG::show_alte_zauber();
   midgard_CG::show_neue_zauber();
+   midgard_CG::show_alte_zaubermittel();
+   midgard_CG::show_neue_zaubermittel();
 }
 
 void midgard_CG::on_spruchrolle_toggled()
@@ -180,4 +186,176 @@ int midgard_CG::spruchrolle_wuerfeln(int istufe, string art, string zauber)
  strinfo.freeze(0);
  if (x>=20) return(1);
  else return(0);
+}
+
+// Zaubermittel
+
+void midgard_CG::on_clist_zaubermittel_alt_select_row(gint row, gint column, GdkEvent *event)
+{   
+   string alt_zauber = clist_zaubermittel_alt->get_text(row,0);
+   int alt_kosten = atoi(clist_zaubermittel_alt->get_text(row,1).c_str());
+   werte.gfp -= alt_kosten;
+   for (vector<st_zaubermittel>::iterator i=vec_zaubermittel.begin();
+            i!= vec_zaubermittel.end();++i) 
+      if (i->name==alt_zauber) {vec_zaubermittel.erase(i);break;}
+
+   midgard_CG::zeige_werte(werte,"alle");
+//   midgard_CG::show_zaubermittel();
+   midgard_CG::on_speichern_clicked();
+   midgard_CG::show_alte_zaubermittel();
+   midgard_CG::show_neue_zaubermittel();
+}
+
+void midgard_CG::on_clist_zaubermittel_neu_select_row(gint row, gint column, GdkEvent *event)
+{   
+  int new_kosten = atoi(clist_zaubermittel_neu->get_text(row,3).c_str());
+  string new_zaubermittel = clist_zaubermittel_neu->get_text(row,1);
+//  vec_zaubermittel.resize(vec_zaubermittel.size()+1);
+//  vec_zaubermittel[vec_zaubermittel.size()-1].name = new_zaubermittel;
+  vec_zaubermittel.push_back(st_zaubermittel(new_zaubermittel));
+  werte.gfp += new_kosten;  
+
+   get_zaubermittel(vec_zaubermittel);
+   midgard_CG::zeige_werte(werte,"alle");
+   midgard_CG::on_speichern_clicked();
+   midgard_CG::show_alte_zaubermittel();
+   midgard_CG::show_neue_zaubermittel();
+}
+
+void midgard_CG::show_alte_zaubermittel()
+{
+   clist_zaubermittel_alt->clear();
+   Gtk::OStream os(clist_zaubermittel_alt);
+   for (vector<st_zaubermittel>::iterator i=vec_zaubermittel.begin(); 
+         i!=vec_zaubermittel.end();++i)
+     os << i->name<<"\t"<<i->gfp<<"\n";
+   for (unsigned int i=0;i<clist_zaubermittel_alt->columns().size();++i)
+      clist_zaubermittel_alt->set_column_auto_resize(i,true);
+   clist_zaubermittel_alt->set_reorderable(true);
+}
+
+void midgard_CG::show_neue_zaubermittel()
+{
+ clist_zaubermittel_neu->clear();
+ exec sql begin declare section;
+   char db_name[50], db_art[50], db_zeitaufwand[30], db_preis[50],
+         db_standard[5], db_region[10];
+   int db_gfp;
+   char db_stufe[10];
+   char query[1024];
+ exec sql end declare section;
+ snprintf(query,sizeof(query),"select z.name, z.kosten_gfp, z.stufe, z.art, \
+z.zeitaufwand, z.kosten, z.%s, coalesce(z.region,'') from zauberwerk z \
+where (%s = 'G' OR %s = 'S' OR %s = 'A') \
+AND name NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten \
+WHERE charakter_name = '%s' AND version = '%s') order by art, stufe, name"
+,typ.s.c_str(),typ.s.c_str(),typ.s.c_str(),typ.s.c_str(),
+werte.name_charakter.c_str(),werte.version.c_str());
+
+ Transaction tr;
+ exec sql prepare zauberm_ein_ from :query ;
+ exec sql declare zauberm_ein cursor for zauberm_ein_ ;
+ exec sql open zauberm_ein;
+ SQLerror::test(__FILELINE__);
+ Gtk::OStream os(clist_zaubermittel_neu);
+ while (true)
+   {
+     exec sql fetch zauberm_ein into :db_name, :db_gfp, :db_stufe, 
+            :db_art, :db_zeitaufwand, :db_preis, :db_standard, :db_region ;
+     SQLerror::test(__FILELINE__,100);  
+     if (sqlca.sqlcode) break;
+     double fac= midgard_CG::get_standard_zaubermittel(typ.s,db_name);
+//     string standard = midgard_CG::Ausnahmen_string(db_name,db_standard);
+     string art=db_art ;
+     if (   midgard_CG::zauberwerk_voraussetzung(db_name) 
+         && midgard_CG::region_check(db_region))
+       {
+         if (art=="AZ") art = "Alchimistisches Zaubermittel";
+         if (art=="PZ") art = "Pflanzliches Zaubermittel";
+         os << db_stufe <<"\t"<< db_name <<"\t"<<art<<"\t"
+            << db_gfp*fac<<"\t"<<db_preis<<"\t"<<db_zeitaufwand<<"\n";
+       }
+   }
+ exec sql close zauberm_ein;
+
+ for (unsigned int i=0;i<clist_zaubermittel_neu->columns().size();++i)
+      clist_zaubermittel_neu->set_column_auto_resize(i,true);
+ clist_zaubermittel_neu->set_reorderable(true);
+
+ tr.commit();
+}
+
+void midgard_CG::get_zaubermittel(vector<st_zaubermittel>& vec_zaubermittel)
+{
+ exec sql begin declare section;
+   char db_name[50], db_art[50], db_zeitaufwand[30], db_kosten[50];
+   int db_gfp;
+   char db_stufe[10];
+ exec sql end declare section;
+ for (vector<st_zaubermittel>::iterator i=vec_zaubermittel.begin();
+      i!=vec_zaubermittel.end();++i)
+   {
+    double fac= midgard_CG::get_standard_zaubermittel(typ.s,i->name);
+    strncpy(db_name,i->name.c_str(),sizeof(db_name));
+    exec sql select kosten_gfp, art, stufe, zeitaufwand, kosten
+      into :db_gfp, :db_art, :db_stufe, :db_zeitaufwand, :db_kosten
+      from zauberwerk where name = :db_name;
+    SQLerror::test(__FILELINE__);    
+    i->gfp = db_gfp*fac;
+    i->art = db_art;
+    i->stufe=db_stufe;
+    i->zeitaufwand=db_zeitaufwand;
+    i->kosten=db_kosten;
+   }
+}
+
+bool midgard_CG::zauberwerk_voraussetzung(string name)
+{
+ exec sql begin declare section;
+   char db_name[50];
+   char db_voraus[10][50];
+   char db_operator[10][50];
+ exec sql end declare section;
+ strncpy(db_name,name.c_str(),sizeof(db_name));
+ exec sql select voraussetzung, coalesce(verbindung,'') into :db_voraus, :db_operator 
+   from zauberwerk_voraussetzung where name = :db_name;
+ SQLerror::test(__FILELINE__,100);    
+ if (sqlca.sqlcode) return true; // KEINE VORAUSSETZUNG
+ int vanz=sqlca.sqlerrd[2];
+ 
+ exec sql begin declare section;
+   char query[1024]; 
+   int db_erg;
+ exec sql end declare section;
+ vector<bool> vb;
+ for (int i=0;i<vanz;++i)
+   {
+    snprintf(query,sizeof(query),"select count(fertigkeit)\
+      from charaktere_fertigkeiten \
+      where charakter_name = '%s' and version = '%s' and fertigkeit = '%s'",
+      werte.name_charakter.c_str(),werte.version.c_str(),db_voraus[i]);
+    exec sql prepare qein_ from :query ;
+    exec sql declare qein cursor for qein_;
+    exec sql open qein;
+    SQLerror::test(__FILELINE__);
+    exec sql fetch qein into :db_erg;
+    exec sql close qein;
+    SQLerror::test(__FILELINE__);    
+    if (db_erg==0) vb.push_back(false);
+    else vb.push_back(true);
+   }
+ bool back ;
+ for (int i=0;i<vanz;++i)
+   {
+     string op = db_operator[i];     
+//cout <<name <<"\t"<< db_voraus[i]<<"\t"<<vb[i]<<"\t"<<op<<"\n";
+     // EINE VORAUSSETZUNG
+     if (op==""    && vb[i]==true ) return true;
+     if (op==""    && vb[i]==false) return false;
+     // MEHRERE VORAUSSETZUNGEN
+     if (op=="or"  && vb[i]==true) return true; // EINE BELIEBIGE
+     if (op=="and" && vb[i]==true) back = true; // ALLE NÖTIG
+     else { back=false;break;}               
+   }
+ return back;
 }
