@@ -3,7 +3,7 @@
 --
 DROP TABLE "waffen_grund";
 --
--- TOC Entry ID 2 (OID 23218)
+-- TOC Entry ID 2 (OID 23039)
 --
 -- Name: waffen_grund Type: TABLE Owner: thoma
 --
@@ -14,7 +14,7 @@ CREATE TABLE "waffen_grund" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 23218) TABLE DATA waffen_grund
+-- Data for TOC Entry ID 3 (OID 23039) TABLE DATA waffen_grund
 --
 
 COPY "waffen_grund"  FROM stdin;

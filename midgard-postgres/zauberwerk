@@ -3,7 +3,7 @@
 --
 DROP TABLE "zauberwerk";
 --
--- TOC Entry ID 2 (OID 23560)
+-- TOC Entry ID 2 (OID 23377)
 --
 -- Name: zauberwerk Type: TABLE Owner: thoma
 --
@@ -42,7 +42,7 @@ CREATE TABLE "zauberwerk" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 23560) TABLE DATA zauberwerk
+-- Data for TOC Entry ID 3 (OID 23377) TABLE DATA zauberwerk
 --
 
 COPY "zauberwerk"  FROM stdin;

@@ -3,7 +3,7 @@
 --
 DROP TABLE "arkanum_zauber";
 --
--- TOC Entry ID 2 (OID 18768)
+-- TOC Entry ID 2 (OID 18759)
 --
 -- Name: arkanum_zauber Type: TABLE Owner: thoma
 --
@@ -59,7 +59,7 @@ CREATE TABLE "arkanum_zauber" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 18768) TABLE DATA arkanum_zauber
+-- Data for TOC Entry ID 3 (OID 18759) TABLE DATA arkanum_zauber
 --
 
 COPY "arkanum_zauber"  FROM stdin;
@@ -402,32 +402,6 @@ Sadik es-Sidiki	400	4	Geste	2	Luft	beherrscht	Luft	10 min	0	Geist	15 m Uk	1 h	gö
 Dau ed-Din	2500	6	Geste	5	Metall	zerstört	Magan	10 min	0	Körper	15 m Uk	-	göttlich		nicht																				S						S	E	G	\N	\N	\N
 Al-Ghussat	2000	6	Geste	4	Eis	beherrscht	Magan	5 min	0	Geist	15 m Uk	10 min	göttlich		nicht																				S						S	E	G	\N	\N	\N
 Macht über Mumien	4000	12	Wort	6	Magan	beherrscht	Magan	1 h	0	Körper	1 Ws	-	dämonisch	Mumie	nicht					S			A		G		G								S	A		G			S	E	\N	\N	\N	\N
-Bittersalz	40	1	Gedanke	1	Eis	zerstört	Holz	1 s	500 m	Umgebung	1 Ob	0	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
-Blicksalz	80	1	Gedanke	1	Magan	beherrscht	Feuer	1 s	500 m	Umgebung	15 m Uk	10 s	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
-Durstsalz	60	1	Gedanke	1	Wasser	verändert	Erde	1 s	500 m	Körper	1 Ws	0	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
-Färbersalz	80	1	Gedanke	1	Magan	verändert	Holz	1 s	500 m	Umgebung	1 Ob	1 h	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
-Fliegensalz	80	1	Gedanke	1	Holz	verändert	Luft	1 s	500 m	Umgebung	1 Ws/Ob	1 h	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
-Funkensalz	60	1	Gedanke	1	Feuer	erschafft	Feuer	1 s	500 m	Umgebung	1 Ob	10 min	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
-Haarsalz	40	1	Gedanke	1	Holz	verändert	Erde	1 s	500 m	Körper	1 Ws	0	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
-Hitzsalz	40	1	Gedanke	1	Feuer	zerstört	Wasser	1 s	500 m	Körper	1 Ws	1 h	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
-Hungersalz	60	1	Gedanke	1	Feuer	verändert	Erde	1 s	500 m	Körper	1 Ws	0	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
-Jucksalz	40	1	Gedanke	1	Feuer	verändert	Erde	1 s	500 m	Körper	1 Ws	10 min	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
-Kühlsalz	40	1	Gedanke	1	Eis	zerstört	Feuer	1 s	500 m	Körper	1 Ws	1 h	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
-Lachsalz	60	1	Gedanke	1	Luft	beherrscht	Luft	1 s	500 m	Geist	1 Ws	2 min	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
-Löschsalz	80	1	Gedanke	1	Erde	zerstört	Feuer	1 s	500 m	Umgebung	1 Ob	0	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
-Niessalz	40	1	Gedanke	1	Holz	verändert	Erde	1 s	500 m	Körper	1 Ws	2 min	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
-Rauchsalz	60	1	Gedanke	1	Feuer	verwandelt	Luft	1 s	500 m	Umgebung	1 m Uk	10 min	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
-Rauschsalz	60	1	Gedanke	1	Wasser	verändert	Erde	1 s	500 m	Körper	1 Ws	0	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
-Riechsalz	60	1	Gedanke	1	Eis	verändert	Luft	1 s	500 m	Umgebung	1 Ws/Ob	0	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
-Rutschsalz	80	1	Gedanke	1	Eis	verändert	Metall	1 s	500 m	Umgebung	1 Ob	10 min	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
-Schlafsalz	80	1	Gedanke	1	Magan	beherrscht	Wasser	1 s	500 m	Körper	1 Ws	1 h	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
-Schleichsalz	60	1	Gedanke	1	Magan	verändert	Luft	1 s	500 m	Umgebung	10 m²	8 h	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
-Stottersalz	40	1	Gedanke	1	Magan	beherrscht	Luft	1 s	500 m	Geist	1 Ws	10 min	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
-Trampelsalz	60	1	Gedanke	1	Magan	verändert	Luft	1 s	500 m	Umgebung	10 m²	8 h	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
-Wandelsalz	80	1	Gedanke	1	Magan	verwandelt	Metall	1 s	500 m	Umgebung	1 kg	10 min	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
-Wassersalz	80	1	Gedanke	1	Wasser	beherrscht	Erde	1 s	500 m	Körper	1 Ws	0	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
-Wehsalz	40	1	Gedanke	1	Magan	bewegt	Erde	1 s	500 m	Körper	1 Ws	10 s	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
-Zündersalz	100	1	Gedanke	1	Feuer	erschafft	Feuer	1 s	500 m	Umgebung	1 Ob	0	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
 Bannsphäre, Blaue	300	2	Geste	2	Luft	beherrscht	Eis	20 s	0	Geist	3 m Uk	2 min	göttlich			Siegel				G	A	G	S	A	S	G	S	S	S	S	S	S	G	S	S	S		G	G		S	\N	\N	\N	\N	\N
 Bannsphäre, Goldene	300	2	Geste	2	Metall	zerstört	Magan	20 s	0	Umgebung	3 m Uk	2 min	göttlich							A	A	A	S	A	S	G	S	G	G	G	G	G	G	G	A	S		A			S	\N	\N	\N	\N	\N
 Schutzkreis gegen Dunebargen	160	#*2	Geste	2	Luft	beherrscht	Eis	1 h	0	Umgebung	var	24 h	dämonisch	mag Farbe, Kreide und Zutaten	nicht					G	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
@@ -528,7 +502,7 @@ Marmennil beschwören	1500	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h 	
 Dunebrast 1 beschwören	200	2	Geste	2	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h	dämonisch	1l Menschenblut	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
 Dunebrast 2 beschwören	600	3	Geste	3	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h	dämonisch	2l Menschenblut	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
 Dunebrast 3 beschwören	1400	4	Geste	4	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h	dämonisch	3l Menschenblut	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
-Schutzkreis gegen Hunar	600	#*4	Geste	4	Luft	beherrscht	Element	1 h	0	Umgebung h	var	elemtar	magische Farbe, Kreide und Zutaten	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A			Beschwörung		\N	\N
+Schutzkreis gegen Hunar	600	#*4	Geste	4	Luft	beherrscht	Element	1 h	0	Umgebung	var	1 h	elemtar	magische Farbe, Kreide und Zutaten	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A			Beschwörung		\N
 Schutzkreis gegen Dämonen	2000	#*6	Geste	5	Luft	beherrscht	Eis	3 h	0	Umgebung	var	24 h	dämonisch	magische Farbe, Kreide und Zutaten	nicht					S	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A			Beschwörung		
 Schutzkreis gegen Elementarwesen	2000	#*6	Geste	5	Luft	beherrscht	Eis	3 h	0	Umgebung	var	24 h	elementar	magische Farbe, Kreide und Zutaten	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A			Beschwörung		
 Bannen von Hunar	800	6	Geste	4	Magan	bewegt	Feuer	10 sec	15 m	Körper	1 Ws		elementar	 	nicht					A	A	G	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
@@ -633,17 +607,7 @@ Das Lied des Verstehens	1000	2	Zauberlied	5	Magan	beherrscht	Luft	3 min	0	Geist	
 Der Gesang Crescendis	120	2*h	Zauberlied	1	Magan	verändert	Erde	0	100m Uk	Körper	var	var	druidisch	Gesang plus Instrument(beliebig)	nicht				G																		S					H&D	\N	\N	\N	\N
 Die Klänge der Genesung	600	2	Zauberlied	3	Magan	veraendert	Wasser	0	0	Körper	10m Uk	var	druidisch	Flöte, Harfe oder Laute	nicht				G																		S					H&D	\N	\N	\N	\N
 Die Stimme der Gerechten	8000	alle AP(mind18)	Zauberlied	G	Magan	verändert	Magan	20 sec	0	Umgebung	50m Uk	0	druidisch	Chimäron	nicht				G																		S					H&D	\N	\N	\N	\N
-Blindsalz	100	1	Gedanke	1	Magan	beherrscht	Wasser	1 s	500 m	Körper	1 Ws	10 s	finster							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	\N	\N	\N
-Brechsalz	40	1	Gedanke	1	Feuer	verändert	Erde	1 s	500 m	Körper	1 Ws	1 min	finster							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	\N	\N	\N
-Fiebersalz	80	1	Gedanke	1	Feuer	zerstört	Wasser	1 s	500 m	Körper	1 Ws	10 min	finster							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	\N	\N	\N
-Klebesalz	40	1	Gedanke	1	Magan	bewegt	Metall	1 s	500 m	1 Ws	Umgebung	10 min	finster							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	\N	\N	\N
-Knallsalz	60	1	Gedanke	1	Magan	verändert	Luft	1 s	500 m	Umgebung		2 min	finster							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	\N	\N	\N
-Lahmsalz	80	1	Gedanke	1	Holz	verändert	Erde	1 s	500 m	Körper	1 Ws	1 min	finster							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	\N	\N	\N
-Lustsalz	80	1	Gedanke	1	Mangan	beherrscht	Wasser	1 s	500 m	Körper	1 Ws	 	finster							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	\N	\N	\N
-Nebelsalz	60	1	Gedanke	1	Wasser	verwandelt	Luft	1 s	500 m	Umgebung	2m Uk	3 h	finster							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	\N	\N	\N
 Baumtor	10000	9	Gedanke	G				30 s	0	Umgebung	selbst	2 min	druidisch		nicht						G														G							H&D				
-Trockensalz	40	1	Gedanke	1	Feuer	bewegt	Wasser	1 s	500 m	Umgebung			finster							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	\N	\N	\N
-Zucksalz	60	1	Gedanke	1	Mangan	beherrscht	Luft	1 s	500 m	Körper	1 Ws	2 min	finster							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	\N	\N	\N
 Alpträume	1500	2*Gr	Wort	4	Metall	verändert	Luft	1 min	500 m	Geist	1-4 Ws	var	finster		nicht												S									S						H&D	\N	\N	\N	\N
 Altern	5000	var	Geste	6	Eis	verändert	Erde	2 min	10 m	Körper	1 Ws	1 Tag	finster	Zu Staub zerfallene Schädelknochen	nicht												S									S						H&D	\N	\N	\N	\N
 Dämonenhand	10000	alle	Wort	G	Feuer	bewegt	Metall	10 s	0	Umgebung	1 Ws	var	finster		nicht												S									S						H&D	\N	\N	\N	\N
@@ -674,4 +638,40 @@ Bärenstärke	100	1	Geste	1				20 s	0	Körper	selbst	1 min	druidisch	Bärenfett	nich
 Bann der wahren Eigentümerschaft	10000	alle(mind 18)	Geste	G				6 h	0	Körper	1 Ob		dämonisch	Halsband eines bis zum Tode treuen Hundes	nicht	Siegel							A		S		S	A	S	S	S	A	S	S		A			G		A	H&D				
 Bannen von Fäulnis	800	4	Geste	3				10 min	0	Umgebung	1 Ob(3m*3m)	Gr*Monat	druidisch		nicht						A		A	G	A			G		G	S	S	G	S	A	A					A	H&D				
 Bruchbann	200	var	Geste	2				10 min	0	Körper	var	Gr*h	dämonisch			Siegel					A		G	A	G		S	S	S	S	S	S	S	S	A	G			G		G	H&D				
+Bittersalz	40	1	Gedanke	1	Eis	zerstört	Holz	1 s	500 m	Umgebung	1 Ob	0	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
+Blicksalz	80	1	Gedanke	1	Magan	beherrscht	Feuer	1 s	500 m	Umgebung	15 m Uk	10 s	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
+Durstsalz	60	1	Gedanke	1	Wasser	verändert	Erde	1 s	500 m	Körper	1 Ws	0	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
+Färbersalz	80	1	Gedanke	1	Magan	verändert	Holz	1 s	500 m	Umgebung	1 Ob	1 h	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
+Fliegensalz	80	1	Gedanke	1	Holz	verändert	Luft	1 s	500 m	Umgebung	1 Ws/Ob	1 h	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
+Funkensalz	60	1	Gedanke	1	Feuer	erschafft	Feuer	1 s	500 m	Umgebung	1 Ob	10 min	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
+Haarsalz	40	1	Gedanke	1	Holz	verändert	Erde	1 s	500 m	Körper	1 Ws	0	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
+Hitzsalz	40	1	Gedanke	1	Feuer	zerstört	Wasser	1 s	500 m	Körper	1 Ws	1 h	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
+Hungersalz	60	1	Gedanke	1	Feuer	verändert	Erde	1 s	500 m	Körper	1 Ws	0	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
+Jucksalz	40	1	Gedanke	1	Feuer	verändert	Erde	1 s	500 m	Körper	1 Ws	10 min	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
+Kühlsalz	40	1	Gedanke	1	Eis	zerstört	Feuer	1 s	500 m	Körper	1 Ws	1 h	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
+Lachsalz	60	1	Gedanke	1	Luft	beherrscht	Luft	1 s	500 m	Geist	1 Ws	2 min	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
+Löschsalz	80	1	Gedanke	1	Erde	zerstört	Feuer	1 s	500 m	Umgebung	1 Ob	0	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
+Niessalz	40	1	Gedanke	1	Holz	verändert	Erde	1 s	500 m	Körper	1 Ws	2 min	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
+Rauchsalz	60	1	Gedanke	1	Feuer	verwandelt	Luft	1 s	500 m	Umgebung	1 m Uk	10 min	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
+Rauschsalz	60	1	Gedanke	1	Wasser	verändert	Erde	1 s	500 m	Körper	1 Ws	0	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
+Riechsalz	60	1	Gedanke	1	Eis	verändert	Luft	1 s	500 m	Umgebung	1 Ws/Ob	0	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
+Rutschsalz	80	1	Gedanke	1	Eis	verändert	Metall	1 s	500 m	Umgebung	1 Ob	10 min	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
+Schlafsalz	80	1	Gedanke	1	Magan	beherrscht	Wasser	1 s	500 m	Körper	1 Ws	1 h	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
+Schleichsalz	60	1	Gedanke	1	Magan	verändert	Luft	1 s	500 m	Umgebung	10 m²	8 h	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
+Stottersalz	40	1	Gedanke	1	Magan	beherrscht	Luft	1 s	500 m	Geist	1 Ws	10 min	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
+Trampelsalz	60	1	Gedanke	1	Magan	verändert	Luft	1 s	500 m	Umgebung	10 m²	8 h	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
+Wandelsalz	80	1	Gedanke	1	Magan	verwandelt	Metall	1 s	500 m	Umgebung	1 kg	10 min	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
+Wassersalz	80	1	Gedanke	1	Wasser	beherrscht	Erde	1 s	500 m	Körper	1 Ws	0	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
+Wehsalz	40	1	Gedanke	1	Magan	bewegt	Erde	1 s	500 m	Körper	1 Ws	10 s	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
+Zündersalz	100	1	Gedanke	1	Feuer	erschafft	Feuer	1 s	500 m	Umgebung	1 Ob	0	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S		A	G		S	\N	\N	Zaubersalz	\N	\N
+Blindsalz	100	1	Gedanke	1	Magan	beherrscht	Wasser	1 s	500 m	Körper	1 Ws	10 s	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	Zaubersalz	\N	\N
+Brechsalz	40	1	Gedanke	1	Feuer	verändert	Erde	1 s	500 m	Körper	1 Ws	1 min	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	Zaubersalz	\N	\N
+Fiebersalz	80	1	Gedanke	1	Feuer	zerstört	Wasser	1 s	500 m	Körper	1 Ws	10 min	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	Zaubersalz	\N	\N
+Klebesalz	40	1	Gedanke	1	Magan	bewegt	Metall	1 s	500 m	1 Ws	Umgebung	10 min	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	Zaubersalz	\N	\N
+Knallsalz	60	1	Gedanke	1	Magan	verändert	Luft	1 s	500 m	Umgebung		2 min	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	Zaubersalz	\N	\N
+Lahmsalz	80	1	Gedanke	1	Holz	verändert	Erde	1 s	500 m	Körper	1 Ws	1 min	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	Zaubersalz	\N	\N
+Lustsalz	80	1	Gedanke	1	Mangan	beherrscht	Wasser	1 s	500 m	Körper	1 Ws	 	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	Zaubersalz	\N	\N
+Nebelsalz	60	1	Gedanke	1	Wasser	verwandelt	Luft	1 s	500 m	Umgebung	2m Uk	3 h	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	Zaubersalz	\N	\N
+Trockensalz	40	1	Gedanke	1	Feuer	bewegt	Wasser	1 s	500 m	Umgebung			dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	Zaubersalz	\N	\N
+Zucksalz	60	1	Gedanke	1	Mangan	beherrscht	Luft	1 s	500 m	Körper	1 Ws	2 min	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	Zaubersalz	\N	\N
 \.

@@ -3,7 +3,7 @@
 --
 DROP TABLE "charaktere";
 --
--- TOC Entry ID 2 (OID 23705)
+-- TOC Entry ID 2 (OID 26990)
 --
 -- Name: charaktere Type: TABLE Owner: thoma
 --
@@ -38,7 +38,7 @@ CREATE TABLE "charaktere" (
 	"lpbasis" integer,
 	"alter" integer,
 	"gestalt" text,
-   "geschlecht" text,
+	"geschlecht" text,
 	"gewicht" integer,
 	"groesse" integer,
 	"grad" integer,
@@ -64,9 +64,3 @@ CREATE TABLE "charaktere" (
 	"spezies" text
 );
 
---
--- Data for TOC Entry ID 3 (OID 23705) TABLE DATA charaktere
---
-
-COPY "charaktere"  FROM stdin;
-\.

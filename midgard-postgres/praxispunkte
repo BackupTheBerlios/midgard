@@ -3,7 +3,7 @@
 --
 DROP TABLE "praxispunkte";
 --
--- TOC Entry ID 2 (OID 22368)
+-- TOC Entry ID 2 (OID 22299)
 --
 -- Name: praxispunkte Type: TABLE Owner: thoma
 --
@@ -15,7 +15,7 @@ CREATE TABLE "praxispunkte" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 22368) TABLE DATA praxispunkte
+-- Data for TOC Entry ID 3 (OID 22299) TABLE DATA praxispunkte
 --
 
 COPY "praxispunkte"  FROM stdin;

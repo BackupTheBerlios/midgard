@@ -3,7 +3,7 @@
 --
 DROP TABLE "fertigkeiten_voraussetzung";
 --
--- TOC Entry ID 2 (OID 20884)
+-- TOC Entry ID 2 (OID 20859)
 --
 -- Name: fertigkeiten_voraussetzung Type: TABLE Owner: thoma
 --
@@ -23,7 +23,7 @@ CREATE TABLE "fertigkeiten_voraussetzung" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 20884) TABLE DATA fertigkeiten_voraussetzung
+-- Data for TOC Entry ID 3 (OID 20859) TABLE DATA fertigkeiten_voraussetzung
 --
 
 COPY "fertigkeiten_voraussetzung"  FROM stdin;

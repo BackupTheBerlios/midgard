@@ -3,7 +3,7 @@
 --
 DROP TABLE "spezies_typen";
 --
--- TOC Entry ID 2 (OID 22505)
+-- TOC Entry ID 2 (OID 22414)
 --
 -- Name: spezies_typen Type: TABLE Owner: thoma
 --
@@ -15,7 +15,7 @@ CREATE TABLE "spezies_typen" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 22505) TABLE DATA spezies_typen
+-- Data for TOC Entry ID 3 (OID 22414) TABLE DATA spezies_typen
 --
 
 COPY "spezies_typen"  FROM stdin;

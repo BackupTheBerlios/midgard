@@ -3,7 +3,7 @@
 --
 DROP TABLE "typen";
 --
--- TOC Entry ID 2 (OID 23036)
+-- TOC Entry ID 2 (OID 27133)
 --
 -- Name: typen Type: TABLE Owner: thoma
 --
@@ -22,7 +22,7 @@ CREATE TABLE "typen" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 23036) TABLE DATA typen
+-- Data for TOC Entry ID 3 (OID 27133) TABLE DATA typen
 --
 
 COPY "typen"  FROM stdin;

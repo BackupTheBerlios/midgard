@@ -1,5 +1,4 @@
-# $Id: Makefile,v 1.12 2001/05/04 06:36:40 thoma Exp $
-
+# $Id: Makefile,v 1.13 2001/05/05 13:23:58 thoma Exp $
 INSTALLED_TABLES=$(shell psql -t -q -c "select tablename from pg_tables where \
 		tablename not like 'pg_%' and tablename not like 'pga_%';" midgard)
 SYSTEM_TABLES=angeborene_fertigkeiten arkanum_zauber ausnahmen berufe_stand \

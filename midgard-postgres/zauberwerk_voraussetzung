@@ -3,7 +3,7 @@
 --
 DROP TABLE "zauberwerk_voraussetzung";
 --
--- TOC Entry ID 2 (OID 23767)
+-- TOC Entry ID 2 (OID 23573)
 --
 -- Name: zauberwerk_voraussetzung Type: TABLE Owner: thoma
 --
@@ -15,7 +15,7 @@ CREATE TABLE "zauberwerk_voraussetzung" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 23767) TABLE DATA zauberwerk_voraussetzung
+-- Data for TOC Entry ID 3 (OID 23573) TABLE DATA zauberwerk_voraussetzung
 --
 
 COPY "zauberwerk_voraussetzung"  FROM stdin;

@@ -3,7 +3,7 @@
 --
 DROP TABLE "berufe_voraussetzung";
 --
--- TOC Entry ID 2 (OID 19919)
+-- TOC Entry ID 2 (OID 19927)
 --
 -- Name: berufe_voraussetzung Type: TABLE Owner: thoma
 --
@@ -25,7 +25,7 @@ CREATE TABLE "berufe_voraussetzung" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 19919) TABLE DATA berufe_voraussetzung
+-- Data for TOC Entry ID 3 (OID 19927) TABLE DATA berufe_voraussetzung
 --
 
 COPY "berufe_voraussetzung"  FROM stdin;

@@ -3,7 +3,7 @@
 --
 DROP TABLE "schrift";
 --
--- TOC Entry ID 2 (OID 22630)
+-- TOC Entry ID 2 (OID 22517)
 --
 -- Name: schrift Type: TABLE Owner: thoma
 --
@@ -16,7 +16,7 @@ CREATE TABLE "schrift" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 22630) TABLE DATA schrift
+-- Data for TOC Entry ID 3 (OID 22517) TABLE DATA schrift
 --
 
 COPY "schrift"  FROM stdin;

@@ -3,7 +3,7 @@
 --
 DROP TABLE "lernschema";
 --
--- TOC Entry ID 2 (OID 26912)
+-- TOC Entry ID 2 (OID 21090)
 --
 -- Name: lernschema Type: TABLE Owner: thoma
 --
@@ -20,7 +20,7 @@ CREATE TABLE "lernschema" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 26912) TABLE DATA lernschema
+-- Data for TOC Entry ID 3 (OID 21090) TABLE DATA lernschema
 --
 
 COPY "lernschema"  FROM stdin;

@@ -3,7 +3,7 @@
 --
 DROP TABLE "steigern_fertigkeiten_werte";
 --
--- TOC Entry ID 2 (OID 22923)
+-- TOC Entry ID 2 (OID 22777)
 --
 -- Name: steigern_fertigkeiten_werte Type: TABLE Owner: thoma
 --
@@ -42,7 +42,7 @@ CREATE TABLE "steigern_fertigkeiten_werte" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 22923) TABLE DATA steigern_fertigkeiten_werte
+-- Data for TOC Entry ID 3 (OID 22777) TABLE DATA steigern_fertigkeiten_werte
 --
 
 COPY "steigern_fertigkeiten_werte"  FROM stdin;

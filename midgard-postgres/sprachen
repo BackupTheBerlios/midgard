@@ -3,7 +3,7 @@
 --
 DROP TABLE "sprachen";
 --
--- TOC Entry ID 2 (OID 22690)
+-- TOC Entry ID 2 (OID 22566)
 --
 -- Name: sprachen Type: TABLE Owner: thoma
 --
@@ -20,7 +20,7 @@ CREATE TABLE "sprachen" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 22690) TABLE DATA sprachen
+-- Data for TOC Entry ID 3 (OID 22566) TABLE DATA sprachen
 --
 
 COPY "sprachen"  FROM stdin;
