@@ -2207,28 +2207,14 @@ andere geholfen.</label>
 	  </signal>
 
 	  <widget>
-	    <class>GtkHBox</class>
+	    <class>GtkTable</class>
 	    <child_name>Notebook:tab</child_name>
-	    <name>hbox64</name>
+	    <name>table_notebook_credits</name>
+	    <rows>2</rows>
+	    <columns>2</columns>
 	    <homogeneous>False</homogeneous>
-	    <spacing>0</spacing>
-
-	    <widget>
-	      <class>GtkPixmap</class>
-	      <name>pixmap_logo</name>
-	      <cxx_visibility>protected</cxx_visibility>
-	      <filename>midgard_logo_small.xpm</filename>
-	      <xalign>0.5</xalign>
-	      <yalign>0.5</yalign>
-	      <xpad>0</xpad>
-	      <ypad>0</ypad>
-	      <build_insensitive>True</build_insensitive>
-	      <child>
-		<padding>0</padding>
-		<expand>True</expand>
-		<fill>True</fill>
-	      </child>
-	    </widget>
+	    <row_spacing>0</row_spacing>
+	    <column_spacing>0</column_spacing>
 
 	    <widget>
 	      <class>GtkPixmap</class>
@@ -2241,9 +2227,71 @@ andere geholfen.</label>
 	      <ypad>0</ypad>
 	      <build_insensitive>True</build_insensitive>
 	      <child>
-		<padding>0</padding>
-		<expand>True</expand>
-		<fill>True</fill>
+		<left_attach>1</left_attach>
+		<right_attach>2</right_attach>
+		<top_attach>0</top_attach>
+		<bottom_attach>1</bottom_attach>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<xexpand>True</xexpand>
+		<yexpand>False</yexpand>
+		<xshrink>False</xshrink>
+		<yshrink>False</yshrink>
+		<xfill>True</xfill>
+		<yfill>True</yfill>
+	      </child>
+	    </widget>
+
+	    <widget>
+	      <class>GtkLabel</class>
+	      <name>label_notebook_info</name>
+	      <cxx_visibility>protected</cxx_visibility>
+	      <label>Info &amp; Credits</label>
+	      <justify>GTK_JUSTIFY_CENTER</justify>
+	      <wrap>False</wrap>
+	      <xalign>0.5</xalign>
+	      <yalign>0.5</yalign>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <child>
+		<left_attach>0</left_attach>
+		<right_attach>2</right_attach>
+		<top_attach>1</top_attach>
+		<bottom_attach>2</bottom_attach>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<xexpand>False</xexpand>
+		<yexpand>False</yexpand>
+		<xshrink>False</xshrink>
+		<yshrink>False</yshrink>
+		<xfill>True</xfill>
+		<yfill>False</yfill>
+	      </child>
+	    </widget>
+
+	    <widget>
+	      <class>GtkPixmap</class>
+	      <name>pixmap_logo</name>
+	      <cxx_visibility>protected</cxx_visibility>
+	      <filename>midgard_logo_small.xpm</filename>
+	      <xalign>0.5</xalign>
+	      <yalign>0.5</yalign>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <build_insensitive>True</build_insensitive>
+	      <child>
+		<left_attach>0</left_attach>
+		<right_attach>1</right_attach>
+		<top_attach>0</top_attach>
+		<bottom_attach>1</bottom_attach>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<xexpand>True</xexpand>
+		<yexpand>True</yexpand>
+		<xshrink>False</xshrink>
+		<yshrink>False</yshrink>
+		<xfill>True</xfill>
+		<yfill>True</yfill>
 	      </child>
 	    </widget>
 	  </widget>
@@ -15485,12 +15533,12 @@ wird der entsprechende Abenteurer geladen.</label>
 	  <widget>
 	    <class>GtkButton</class>
 	    <child_name>Toolbar:button</child_name>
-	    <name>button7</name>
+	    <name>button_neuer_charakter</name>
 	    <tooltip>Neuer Abenteurer</tooltip>
 	    <signal>
-	      <name>clicked</name>
-	      <handler>on_neuer_charakter_clicked</handler>
-	      <last_modification_time>Fri, 30 Mar 2001 19:45:24 GMT</last_modification_time>
+	      <name>button_release_event</name>
+	      <handler>on_neuer_charakter_release_event</handler>
+	      <last_modification_time>Wed, 08 May 2002 19:58:12 GMT</last_modification_time>
 	    </signal>
 	    <label>Neu</label>
 	    <icon>NewChar-trans-50.xpm</icon>
@@ -15528,7 +15576,7 @@ wird der entsprechende Abenteurer geladen.</label>
 	    <class>GtkButton</class>
 	    <child_name>Toolbar:button</child_name>
 	    <name>button10</name>
-	    <tooltip>LaTeX Abenteurerblatt drucken (pdf Datei)</tooltip>
+	    <tooltip>Linke Maustaste: LaTeX Abenteurerblatt drucken (pdf Datei). Mittlere Maustaste: Charakterbeschreibung drucken. Rechte Maustaste: Ausrüstung drucken.</tooltip>
 	    <signal>
 	      <name>button_release_event</name>
 	      <handler>on_latex_release_event</handler>

@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.29 2002/05/08 07:01:40 thoma Exp $
+// $Id: Optionen.cc,v 1.30 2002/05/08 20:38:54 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -198,6 +198,7 @@ void Midgard_Optionen::Ober_setzen_from_menu(OberIndex index,bool b)
      if(i->index==index) 
       { i->active = b;
         if     (index==Bilder) hauptfenster->show_Pics(i->active);
+        else if(index==AutoShrink) hauptfenster->autoshrink(i->active);
         else if(index==Menueleiste) hauptfenster->show_Menueleiste(i->active);
         else if(index==Knopfleiste) hauptfenster->show_Knopfleiste(i->active);
         else if(index==Status) hauptfenster->show_Statusleiste(i->active);
@@ -319,6 +320,7 @@ void Midgard_Optionen::Hausregeln_init()
 void Midgard_Optionen::Ober_init()
 {
  list_Ober.clear();  
+ list_Ober.push_back(st_Ober(AutoShrink,"Automatisches verkleinern des Fensters",false));
  list_Ober.push_back(st_Ober(Bilder,"Bilder anzeigen",true));
  list_Ober.push_back(st_Ober(Menueleiste,"Menüleiste",true));
  list_Ober.push_back(st_Ober(Knopfleiste,"Knopfleiste",true));

@@ -122,7 +122,7 @@ void midgard_CG::spezieswahl_button()
    manage (new Window_doppelcharaktere(this));
 
  typauswahl_2->hide();
- magie_bool=false;
+// magie_bool=false;
  Typ[1]=cH_Typen();
  if(wizard) wizard->next_step(Wizard::SPEZIES);
 }
@@ -141,5 +141,5 @@ void midgard_CG::doppelcharaktere()
    fill_typauswahl_2();
    typauswahl_2->show();
    typauswahl_2_button();
-   magie_bool=true;
+//   magie_bool=true;
 }

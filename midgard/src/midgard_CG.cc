@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.222 2002/05/06 12:03:01 thoma Exp $
+// $Id: midgard_CG.cc,v 1.223 2002/05/08 20:38:54 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -59,7 +59,6 @@ midgard_CG::midgard_CG(const string &datei)
 //  Midgard_Info->database_hide();
   on_neuer_charakter_clicked();
 
-  notebook_main->set_page(PAGE_GRUNDWERTE);
   if (!datei.empty()) xml_import(datei); // Charakter laden
   else if(MOptionen->OptionenCheck(Midgard_Optionen::Wizard_immer_starten).active) on_wizard_starten_activate();
   // für die NEWS
@@ -176,7 +175,7 @@ void midgard_CG::show_gtk()
 
 
  // Magie anzeigen?
- if (Typ[0]->is_mage() || Typ[1]->is_mage() || magie_bool) 
+ if (Typ[0]->is_mage() || Typ[1]->is_mage() )//|| magie_bool) 
    { if (Typ[0]->Spezialgebiet() || Typ[1]->Spezialgebiet()) show_magier_spezialgebiet(true);
      else show_magier_spezialgebiet(false);
      button_zauber->set_sensitive(true);
@@ -189,7 +188,6 @@ void midgard_CG::show_gtk()
      table_magier_steigern->hide();
    }
  // KiDo anzeigen?
-// if (kido_bool) 
  if(cH_Fertigkeit("KiDo")->ist_gelernt(list_Fertigkeit))
    { optionmenu_KiDo_Stile->show();
      frame_KiDo_lernschema->show();     
@@ -319,15 +317,22 @@ void midgard_CG::clear_gtk()
    on_togglebutton_edit_werte_toggled();
 }
 
+gint midgard_CG::on_neuer_charakter_release_event(GdkEventButton *ev)
+{
+   on_neuer_charakter_clicked();
+   if (ev->button==1)  on_wizard_starten_activate();
+   return false;
+}
+
 void midgard_CG::on_neuer_charakter_clicked()
 {
-/*
+  notebook_main->set_page(PAGE_GRUNDWERTE);
+
    if(modify_bool)
      {
        MOptionen->save_options(InfoFenster);
        xml_export_auswahl();
      }               
-*/
    filename="";
    label_lernschma_titel->set_text("");
 
@@ -353,11 +358,6 @@ void midgard_CG::on_neuer_charakter_clicked()
    button_untyp_fertigkeiten->set_sensitive(false);
    button_waffen->set_sensitive(false);
    button_zauber->set_sensitive(false);
-//   frame_berufswahl->set_sensitive(false);
-//   scrolledwindow_beruf->hide();
-//   scrolledwindow_ange_fert->hide();
-//   label_berufskategorie->hide();
-//   label_berufsstern_erklaerung->hide();
    togglebutton_spezialwaffe->set_active(false);
    togglebutton_spezialwaffe->hide();
       
@@ -393,8 +393,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    label_EP->set_text("50%");
    label_Gold->set_text("50%");
 
-//  kido_bool=false;
-  magie_bool=false;
+//  magie_bool=false;
   menu_init();
   fill_typauswahl();
   fill_spezies();

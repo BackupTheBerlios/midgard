@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.233 2002/05/08 07:01:40 thoma Exp $
+// $Id: midgard_CG.hh,v 1.234 2002/05/08 20:38:55 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -81,6 +81,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         Gtk::Menu *menu, *menu_gradanstieg;
         Gtk::MenuItem *ansicht_menu,*region_menu;
         void menu_init();
+        void autoshrink(bool b);
         void show_Pics(bool b);
         void show_Menueleiste(bool b);
         void show_Knopfleiste(bool b);
@@ -144,9 +145,8 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
 
     private:
         bool modify_bool;
-//        bool kido_bool;
         int maxkido;
-        bool magie_bool;
+//        bool magie_bool;
         bool steigern_mit_EP_bool;
 
         vector<cH_Typen> Typ;
@@ -547,6 +547,8 @@ private:
         void on_spinbutton_gewicht_activate();
         void on_checkbutton_ausruestung_geld_toggled();
 
+         
+         gint on_neuer_charakter_release_event(GdkEventButton *ev);
          gint on_speichern_release_event(GdkEventButton *ev);
          void grundwerte_speichern(ostream &);
          void save_ausruestung(ostream &datei,const list<AusruestungBaum> &AB,const int indent=4);

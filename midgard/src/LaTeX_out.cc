@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.117 2002/05/08 11:12:58 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.118 2002/05/08 20:38:54 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,7 +34,8 @@ std::string utf82iso(const std::string &s);
 gint midgard_CG::on_latex_release_event(GdkEventButton *ev)
 {
   if (ev->button==1) on_latex_clicked();
-//  if (ev->button==3) midgard_CG::spielleiter_export();
+  if (ev->button==2) latex_beschreibung_drucken();
+  if (ev->button==3) on_ausruestung_druck(true);
   return false;
 }
 

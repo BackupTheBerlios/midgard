@@ -11,8 +11,8 @@ NEWS IN VERSION 0.6delta3
 * Nahuatlan Aliasnamen für Waffen und Schilde
 * Zahlreiche Änderungen/Bugs aufgrund des Testes von Ulf Kaiser eingearbeitet
 * Nahuathlan: Typen (bis auf den Netzbewahrer, der ändert seine 
-   Charakterklasse später, mal sehen, ob ich das jemals einbaue, soetwas ist 
-   zwar stimmungsvoll, lohnt jedoch den AUfwand für einen Abenteurergenerator 
+   Charakterklasse später, mal sehen, ob ich das jemals einbaue, so etwas ist 
+   zwar stimmungsvoll, lohnt jedoch den Aufwand für einen Abenteurergenerator 
    nicht, oder ist jemand anderer Ansicht?)
 * Überarbeiteter Wizard funktioniert jetzt bis zum Speichern, Spezialwaffe
    bzw. Spezialgebiet werden nur noch bei Bedarf abgefragt.
@@ -26,15 +26,16 @@ NEWS IN VERSION 0.6delta3
    gelernt werden
 * Zauberstabausdruckbug entfernt
 * Geschlecht 'weiblich' wird wieder geladen
-* Keleinere Datenbankkorrekturen
+* Kleinere Datenbankkorrekturen
 * Höchsteigenschaften bei Fertigkeiten berücksichtigen
 * Vorraussetzungen für Waffen und Fertigkeiten werden nicht nur angezeigt, 
    sondern auch berücksichtigt
-
+* Tiersprache im Lernschema geht wieder
+* Etliche kleinere Änderungen im Code mit aufräumen
+* Neue Option: Automatische Verkleinerung des Hauptfensters
 
 TODO:
 * Gildenbrief funktioniert nicht
-* Tiersprache im Lernschema stürzt ab
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
 * Destruktor wird nicht aufgerufen
 * gv zeigt den falschen Ausschnitt des pdf Dokumentes 

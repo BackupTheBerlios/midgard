@@ -62,7 +62,8 @@ void midgard_CG::save_existing_filename()
 
 void midgard_CG::xml_export(const std::string& dateiname)
 {  
-  frame_steigern->set_sensitive(true);
+   filename=dateiname;
+   frame_steigern->set_sensitive(true);
 
    ofstream datei(dateiname.c_str());
    if (!datei.good())

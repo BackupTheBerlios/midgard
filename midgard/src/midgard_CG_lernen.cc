@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.120 2002/05/08 11:12:58 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.121 2002/05/08 20:38:55 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -72,7 +72,7 @@ void midgard_CG::on_lernpunkte_wuerfeln_clicked()
   button_allgemeinwissen->set_sensitive(true);   
   button_untyp_fertigkeiten->set_sensitive(true);
   button_waffen->set_sensitive(true);
-  if(Typ[1]->is_mage() || Typ[1]->is_mage() || magie_bool) 
+  if(Typ[1]->is_mage() || Typ[1]->is_mage() ) //|| magie_bool) 
       button_zauber->set_sensitive(true);
   button_beruf->set_sensitive(true);
   button_lernschema_geld->set_sensitive(true);
@@ -575,10 +575,10 @@ void midgard_CG::show_lernschema()
       if ((*i)->ist_gelernt(list_Fertigkeit)) (*i)->setGelernt(true); 
       if((*i)->Gelernt()&&!togglebutton_gelernte_anzeigen->get_active()) continue;
       if(Werte.Spezies()->istVerbotenSpielbegin(*i)) continue;
-if((*i)->Gelernt())
-cout << "Was ist gelernt? "<<(*i)->Name()<<' '
-<<(*i)->ist_gelernt(list_FertigkeitZusaetze)<<' '
-<<(*i)->ist_gelernt(list_Fertigkeit)<<'\n';
+//if((*i)->Gelernt())
+//cout << "Was ist gelernt? "<<(*i)->Name()<<' '
+//<<(*i)->ist_gelernt(list_FertigkeitZusaetze)<<' '
+//<<(*i)->ist_gelernt(list_Fertigkeit)<<'\n';
       newlist.push_back(*i);
      }
    }
@@ -624,7 +624,7 @@ cout << "Was ist gelernt? "<<(*i)->Name()<<' '
            else if(what==MidgardBasicElement::ZAUBER)
             {
              if ((*i)->ist_gelernt(list_Zauber) )  gelernt=true;
-             if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) gelernt=true;
+//             if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) gelernt=true;
              VI=Lernschema::getIndex(Typ,"Zauberkünste",(*i)->Name());
             }
            else if(what==MidgardBasicElement::FERTIGKEIT)

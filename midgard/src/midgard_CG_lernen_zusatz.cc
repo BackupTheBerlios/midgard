@@ -19,6 +19,7 @@
 #include "class_SimpleTree_LernschemaZusatz.hh"
 #include "midgard_CG.hh"
 #include "Fertigkeiten.hh"
+#include "Zauber.hh"
 #include "Waffe.hh"
 #include "Sprache.hh"
 #include "Schrift.hh"
@@ -119,6 +120,8 @@ void midgard_CG::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_Midgard
 void midgard_CG::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,const cH_MidgardBasicElement& MBE)
 {
   std::vector<std::string> vs;
+  Tree_Lernschema_Zusatz->set_column_visibility(1,false);
+  Tree_Lernschema_Zusatz->set_column_visibility(2,false);
   switch(was)
    {
      case MidgardBasicElement::ZHerkunft :
@@ -127,6 +130,8 @@ void midgard_CG::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,const cH_M
        vs.push_back("Land");
        vs.push_back("Kontinent");
        vs.push_back("Sprache(n)");
+       Tree_Lernschema_Zusatz->set_column_visibility(1,true);
+       Tree_Lernschema_Zusatz->set_column_visibility(2,true);
        break;
       }
      case MidgardBasicElement::ZWaffe :
@@ -197,11 +202,20 @@ void midgard_CG::on_zusatz_leaf_selected(cH_RowDataBase d)
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
   cH_MidgardBasicElement MBE=dt->getMBE();
 
-  cH_MidgardBasicElement M=new Fertigkeit(*cH_Fertigkeit(MBE->Name()));
-  M->setZusatz(dt->getZusatz());
-  M->setErfolgswert(MBE->Erfolgswert());
-  M->setLernpunkte(MBE->Lernpunkte());
-  list_Fertigkeit.push_back(M);
+  MBE->setZusatz(dt->getZusatz());
+  MBE->setErfolgswert(MBE->Erfolgswert());
+  MBE->setLernpunkte(MBE->Lernpunkte());
+
+  if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
+   {   
+     cH_MidgardBasicElement M=new Fertigkeit(*cH_Fertigkeit(MBE->Name()));
+     list_Fertigkeit.push_back(M);
+   }
+  else if(MBE->What()==MidgardBasicElement::ZAUBER)
+   {   
+     cH_MidgardBasicElement M=new Zauber(*cH_Zauber(MBE->Name()));
+     list_Zauber.push_back(M);
+   }
 
   frame_lernschema_zusatz->hide();
   zeige_werte();  

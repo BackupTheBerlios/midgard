@@ -285,7 +285,7 @@ void midgard_CG::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
          list_Fertigkeit.push_back(fert);
 //         if      (fert->Name()=="KiDo") kido_bool=true;
 //         else 
-         if (fert->Name()=="Zaubern") magie_bool=true;
+//         if (fert->Name()=="Zaubern") magie_bool=true;
        }    
       else if(sart=="Waffe")
         {
