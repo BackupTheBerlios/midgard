@@ -1,4 +1,4 @@
-// $Id: midgard_CG_undo.cc,v 1.5 2002/04/19 06:21:57 thoma Exp $
+// $Id: midgard_CG_undo.cc,v 1.6 2002/04/23 20:18:10 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -41,18 +41,29 @@ void midgard_CG::show_undo_tree()
 void midgard_CG::on_undo_leaf_selected(cH_RowDataBase d)
 {
   const Data_Undo *dt=dynamic_cast<const Data_Undo*>(&*d);
-  xml_import(MidgardUndo.get(dt->getIndex()));
+  strstream s;
+  s<<MidgardUndo.get(dt->getIndex())<<char(0);
+//  xml_import(MidgardUndo.get(dt->getIndex()));
+  xml_import_stream(s);
+  s.freeze();
 }
 
 void midgard_CG::on_button_redo_clicked()
 {
-  xml_import(MidgardUndo.get_next());
+  strstream s;
+  s<<MidgardUndo.get_next()<<char(0);
+  xml_import_stream(s);
+  s.freeze();
+//  xml_import(MidgardUndo.get_next());
 }
 
 
 void midgard_CG::on_button_undo_clicked()
 {
-  xml_import(MidgardUndo.get_last());
+  strstream s;
+  s<<MidgardUndo.get_last()<<char(0);
+  xml_import_stream(s);
+  s.freeze();
+//  xml_import(MidgardUndo.get_last());
 }
 
-                  

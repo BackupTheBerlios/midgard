@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.77 2002/04/22 08:51:34 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.78 2002/04/23 20:18:10 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -75,9 +75,8 @@ void midgard_CG::lernschema_sensitive(bool active)
 }
 
 
-void midgard_CG::Pics(bool b)
+void midgard_CG::show_Pics(bool b)
 {
-cout <<"Pics: "<<b<<'\n';
  if(b)
   {
     pixmap_dfr4->show();
@@ -97,6 +96,37 @@ cout <<"Pics: "<<b<<'\n';
     button_steigern_kurz->show();
   }
 }
+
+void midgard_CG::show_Menueleiste(bool b)
+{
+  if(b) handlebox_menu->show();
+  else  handlebox_menu->hide();
+}
+
+void midgard_CG::show_Knopfleiste(bool b)
+{
+  if(b) griff_toolbar_top->show();
+  else  griff_toolbar_top->hide();
+}
+
+void midgard_CG::show_Icons(bool i)
+{
+ bool b=MOptionen->OberCheck(Midgard_Optionen::Beschriftungen).active;
+ if     ( b && i) toolbar_top->set_style(GTK_TOOLBAR_BOTH);
+ else if( b &&!i) toolbar_top->set_style(GTK_TOOLBAR_TEXT);
+ else if(!b && i) toolbar_top->set_style(GTK_TOOLBAR_ICONS);
+ else if(!b &&!i) toolbar_top->hide();
+}
+
+void midgard_CG::show_Beschriftungen(bool b)
+{
+ bool i=MOptionen->OberCheck(Midgard_Optionen::Icons).active;
+ if     ( b && i) toolbar_top->set_style(GTK_TOOLBAR_BOTH);
+ else if( b &&!i) toolbar_top->set_style(GTK_TOOLBAR_TEXT);
+ else if(!b && i) toolbar_top->set_style(GTK_TOOLBAR_ICONS);
+ else if(!b &&!i) toolbar_top->hide();
+}
+
 
 void midgard_CG::show_gw_wuerfeln(bool b)
 {

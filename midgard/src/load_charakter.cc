@@ -48,6 +48,13 @@ void midgard_CG::xml_import_auswahl()
 
 void midgard_CG::xml_import(const std::string& datei)
 {
+   ifstream fi(datei.c_str());
+   xml_import_stream(fi);
+   filename=datei;
+}
+
+void midgard_CG::xml_import_stream(istream& datei)
+{
    on_neuer_charakter_clicked();
    frame_steigern->set_sensitive(true);
 
@@ -62,8 +69,8 @@ void midgard_CG::xml_import(const std::string& datei)
          if (!top) top=data->find("Midgard-Abenteurer");       }
    }
       if (!top)
-   {              InfoFenster->AppendShow("(Abenteurer in) Datei '"+datei
-                   +"' nicht gefunden.");
+   {              InfoFenster->AppendShow("(Abenteurer in) Datei "//'"+datei
+                   " nicht gefunden.");
       return;
    }
    
@@ -184,7 +191,7 @@ void midgard_CG::xml_import(const std::string& datei)
    Typ_Geschlecht_Spezies_setzen();
    load_ausruestung(Ausruestung,&besitz);
    
-   filename=datei;
+//   filename=datei;
    load_for_mainpage(notebook_main->get_current_page_num());
 }
 

@@ -58,6 +58,7 @@ std::string midgard_CG::SpruecheMitPP()
        return Typ[0]->SpruecheMitPP_Text();
   else if(Typ[1]->SpruecheMitPP())
        return Typ[1]->SpruecheMitPP_Text();
+  else return "";
 }
 
 
@@ -235,7 +236,7 @@ void midgard_CG::load_for_mainpage(guint pagenr)
   {
    show_gelerntes();
   }
- if(pagenr==PAGE_STEIGERN)
+ else if(pagenr==PAGE_STEIGERN)
   {
     menu_gradanstieg_init();
     if(SpruecheMitPP().empty())
@@ -245,7 +246,7 @@ void midgard_CG::load_for_mainpage(guint pagenr)
     else
       { 
         radiobutton_pp_spezial->remove();
-        Gtk::Label *l=manage(new class Gtk::Label(SpruecheMitPP()));
+        Gtk::Label *l=manage(new class Gtk::Label(SpruecheMitPP(),0));
         l->show();
         radiobutton_pp_spezial->add(*l);
         frame_pp_spezial->set_label(SpruecheMitPP());

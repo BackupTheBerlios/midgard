@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.204 2002/04/19 17:01:41 christof Exp $
+// $Id: midgard_CG.cc,v 1.205 2002/04/23 20:18:10 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -49,9 +49,9 @@ midgard_CG::midgard_CG(const string &datei)
 
   set_tree_titles();
   optionmenu_init();  
-
   MOptionen->load_options();
   on_neuer_charakter_clicked();
+
   notebook_main->set_page(PAGE_GRUNDWERTE);
   if (!datei.empty()) xml_import(datei); // Charakter laden
   else if(MOptionen->OptionenCheck(Midgard_Optionen::Wizard_immer_starten).active) wizard_starten_clicked();
@@ -342,6 +342,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    table_artikel->hide();
    togglebutton_gruppe_neu->hide(); // nicht implementiert
 
+   togglebutton_praxispunkte->set_active(false);
 
    if(Werte.Stadt_Land()=="Land")  radiobutton_land->set_active(true);
    if(Werte.Stadt_Land()=="Stadt")  radiobutton_stadt->set_active(true);

@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.18 2002/04/22 08:51:34 thoma Exp $
+// $Id: Optionen.cc,v 1.19 2002/04/23 20:18:10 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -197,11 +197,11 @@ void Midgard_Optionen::Ober_setzen_from_menu(OberIndex index,bool b)
    {
      if(i->index==index) 
       { i->active = b;
-        if     (b && index==Bilder) hauptfenster->Pics(i->active);
-        else if(b && index==Menueleiste) ;
-        else if(b && index==Knopfleiste) ;
-        else if(b && index==Icons) ;
-        else if(b && index==Beschriftungen) ;
+        if     (index==Bilder) hauptfenster->show_Pics(i->active);
+        else if(index==Menueleiste)  hauptfenster->show_Menueleiste(i->active);
+        else if(index==Knopfleiste) hauptfenster->show_Knopfleiste(i->active);
+        else if(index==Icons) hauptfenster->show_Icons(i->active);
+        else if(index==Beschriftungen) hauptfenster->show_Beschriftungen(i->active);
         return;
       }
    }
@@ -316,6 +316,8 @@ void Midgard_Optionen::load_options()
 
   FOR_EACH_CONST_TAG_OF(i,*data,"Optionen")
      setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"));
+  FOR_EACH_CONST_TAG_OF(i,*data,"Ansicht")
+     setOber(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*data,"Hausregel")
      setHausregeln(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*data,"pdfViewer")
@@ -342,6 +344,13 @@ void Midgard_Optionen::save_options(WindowInfo *InfoFenster)
  for(std::list<st_OptionenCheck>::iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
    {
      datei << "  <Optionen";
+     write_string_attrib(datei, "Name" ,i->text);
+     write_bool_attrib_force(datei, "Wert", i->active);
+     datei << "/>\n";
+   }
+ for(std::list<st_Ober>::iterator i=list_Ober.begin();i!=list_Ober.end();++i)
+   {
+     datei << "  <Ansicht";
      write_string_attrib(datei, "Name" ,i->text);
      write_bool_attrib_force(datei, "Wert", i->active);
      datei << "/>\n";

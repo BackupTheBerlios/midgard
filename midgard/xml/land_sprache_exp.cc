@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.31 2002/03/20 19:53:53 thoma Exp $
+// $Id: land_sprache_exp.cc,v 1.32 2002/04/23 20:18:10 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -254,7 +254,7 @@ void land_speichern(std::ostream &o)
    char zauberer=fetch_string(is,"n")[0];
    write_bool_attrib(o, "Zauberer",zauberer=='z');
    write_bool_attrib(o, "kannZaubern",zauberer=='z'||zauberer=='j');
-   fetch_and_write_bool_attrib(is, o, "SprücheMitPraxisPunkten");
+   fetch_and_write_string_attrib(is, o, "SprücheMitPraxisPunkten");
    fetch_and_write_bool_attrib(is, o, "NSC_only");
    fetch_and_write_string_attrib(is, o, "Berufswahl");
    string stadt_land=fetch_string(is);

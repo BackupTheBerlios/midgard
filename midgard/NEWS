@@ -23,14 +23,15 @@ NEWS IN VERSION 0.6delta0
 * Code aufgeräumt
 * Zauber lernen mit PP geht
 * Eschar: Derwisch
+* PP Dweomer/Wundertaten/Bardenlieder
+* Ansichten Menü und Ansichten in 'Optionen' einstellbar
 
 TODO:
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
 * Un-/Redo
-* PP Dweomer/Wundertaten/Bardenlieder
-* Ansichten Menü noch ohne Funktion
 * Waeland: Zauber
 * Nahuathlan: Komplett
+* Destruktor wird nicht aufgerufen
 * gv zeigt den falschen Ausschnitt des pdf Dokumentes 
    (nur für Linux interessant)
 * dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.219 2002/04/23 08:33:02 thoma Exp $
+// $Id: midgard_CG.hh,v 1.220 2002/04/23 20:18:10 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -79,7 +79,11 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
    public:
         Midgard_Optionen* getOptionen() {return MOptionen;};
         void menu_init();
-        void Pics(bool b);
+        void show_Pics(bool b);
+        void show_Menueleiste(bool b);
+        void show_Knopfleiste(bool b);
+        void show_Icons(bool b);
+        void show_Beschriftungen(bool b);
         void show_gw_wuerfeln(bool b);
 
    private:
@@ -554,6 +558,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          void doppelcharaktere();
          void xml_export(const std::string& datei);
          void xml_import(const std::string& datei);
+         void xml_import_stream(istream &datei);
          void spielleiter_export_save(const std::string& dateiname);
          void MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe,
                                               const std::list<cH_MidgardBasicElement>& mbe2=std::list<cH_MidgardBasicElement>());

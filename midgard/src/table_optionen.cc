@@ -16,6 +16,7 @@ void table_optionen::init()
  entry_speicher_verz->set_text(hauptfenster->getOptionen()->getString(Midgard_Optionen::speicherpfad));
  frame_drucken->init();
  frame_globale_optionen->init();
+ frame_ansicht->init();
 }
 
 void table_optionen::set_Hauptfenster(midgard_CG *h) 
@@ -23,6 +24,7 @@ void table_optionen::set_Hauptfenster(midgard_CG *h)
   hauptfenster=h;
   frame_drucken->set_Hauptfenster(h);
   frame_globale_optionen->set_Hauptfenster(h);
+  frame_ansicht->set_Hauptfenster(h);
 }
 
 

@@ -49,7 +49,8 @@
 
       <widget>
 	<class>GtkHandleBox</class>
-	<name>handlebox1</name>
+	<name>handlebox_menu</name>
+	<cxx_visibility>protected</cxx_visibility>
 	<shadow_type>GTK_SHADOW_NONE</shadow_type>
 	<handle_position>GTK_POS_LEFT</handle_position>
 	<snap_edge>GTK_POS_TOP</snap_edge>
@@ -15200,7 +15201,7 @@ KS
 	    <class>GtkTable</class>
 	    <name>table146</name>
 	    <rows>3</rows>
-	    <columns>3</columns>
+	    <columns>4</columns>
 	    <homogeneous>False</homogeneous>
 	    <row_spacing>0</row_spacing>
 	    <column_spacing>0</column_spacing>
@@ -15258,8 +15259,8 @@ KS
 	      <label_xalign>0</label_xalign>
 	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
 	      <child>
-		<left_attach>1</left_attach>
-		<right_attach>2</right_attach>
+		<left_attach>2</left_attach>
+		<right_attach>3</right_attach>
 		<top_attach>0</top_attach>
 		<bottom_attach>1</bottom_attach>
 		<xpad>0</xpad>
@@ -15327,36 +15328,6 @@ KS
 	      </widget>
 
 	      <widget>
-		<class>GtkEntry</class>
-		<name>entry_html</name>
-		<cxx_visibility>protected</cxx_visibility>
-		<can_focus>True</can_focus>
-		<signal>
-		  <name>changed</name>
-		  <handler>on_entry_html_changed</handler>
-		  <last_modification_time>Tue, 16 Apr 2002 06:32:12 GMT</last_modification_time>
-		</signal>
-		<editable>True</editable>
-		<text_visible>True</text_visible>
-		<text_max_length>0</text_max_length>
-		<text>mozilla </text>
-		<child>
-		  <left_attach>1</left_attach>
-		  <right_attach>2</right_attach>
-		  <top_attach>0</top_attach>
-		  <bottom_attach>1</bottom_attach>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <xexpand>True</xexpand>
-		  <yexpand>False</yexpand>
-		  <xshrink>False</xshrink>
-		  <yshrink>False</yshrink>
-		  <xfill>True</xfill>
-		  <yfill>False</yfill>
-		</child>
-	      </widget>
-
-	      <widget>
 		<class>GtkLabel</class>
 		<name>label576</name>
 		<label>Temporäres Verzeichnis</label>
@@ -15409,6 +15380,62 @@ KS
 	      </widget>
 
 	      <widget>
+		<class>GtkLabel</class>
+		<name>label575</name>
+		<label>Pfade</label>
+		<justify>GTK_JUSTIFY_LEFT</justify>
+		<wrap>False</wrap>
+		<xalign>0.5</xalign>
+		<yalign>0.5</yalign>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<child>
+		  <left_attach>0</left_attach>
+		  <right_attach>2</right_attach>
+		  <top_attach>1</top_attach>
+		  <bottom_attach>2</bottom_attach>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <xexpand>False</xexpand>
+		  <yexpand>False</yexpand>
+		  <xshrink>False</xshrink>
+		  <yshrink>False</yshrink>
+		  <xfill>True</xfill>
+		  <yfill>False</yfill>
+		</child>
+	      </widget>
+
+	      <widget>
+		<class>GtkEntry</class>
+		<name>entry_html</name>
+		<cxx_visibility>protected</cxx_visibility>
+		<can_focus>True</can_focus>
+		<signal>
+		  <name>changed</name>
+		  <handler>on_entry_html_changed</handler>
+		  <last_modification_time>Tue, 16 Apr 2002 06:32:12 GMT</last_modification_time>
+		</signal>
+		<editable>True</editable>
+		<text_visible>True</text_visible>
+		<text_max_length>0</text_max_length>
+		<text>mozilla </text>
+		<child>
+		  <left_attach>1</left_attach>
+		  <right_attach>2</right_attach>
+		  <top_attach>0</top_attach>
+		  <bottom_attach>1</bottom_attach>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <xexpand>False</xexpand>
+		  <yexpand>False</yexpand>
+		  <xshrink>False</xshrink>
+		  <yshrink>False</yshrink>
+		  <xfill>True</xfill>
+		  <yfill>False</yfill>
+		</child>
+	      </widget>
+
+	      <widget>
 		<class>GtkEntry</class>
 		<name>entry_tmp_verz</name>
 		<cxx_visibility>protected</cxx_visibility>
@@ -15429,7 +15456,7 @@ KS
 		  <bottom_attach>3</bottom_attach>
 		  <xpad>0</xpad>
 		  <ypad>0</ypad>
-		  <xexpand>True</xexpand>
+		  <xexpand>False</xexpand>
 		  <yexpand>False</yexpand>
 		  <xshrink>False</xshrink>
 		  <yshrink>False</yshrink>
@@ -15459,32 +15486,6 @@ KS
 		  <bottom_attach>4</bottom_attach>
 		  <xpad>0</xpad>
 		  <ypad>0</ypad>
-		  <xexpand>True</xexpand>
-		  <yexpand>False</yexpand>
-		  <xshrink>False</xshrink>
-		  <yshrink>False</yshrink>
-		  <xfill>True</xfill>
-		  <yfill>False</yfill>
-		</child>
-	      </widget>
-
-	      <widget>
-		<class>GtkLabel</class>
-		<name>label575</name>
-		<label>Pfade</label>
-		<justify>GTK_JUSTIFY_LEFT</justify>
-		<wrap>False</wrap>
-		<xalign>0.5</xalign>
-		<yalign>0.5</yalign>
-		<xpad>0</xpad>
-		<ypad>0</ypad>
-		<child>
-		  <left_attach>0</left_attach>
-		  <right_attach>2</right_attach>
-		  <top_attach>1</top_attach>
-		  <bottom_attach>2</bottom_attach>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
 		  <xexpand>False</xexpand>
 		  <yexpand>False</yexpand>
 		  <xshrink>False</xshrink>
@@ -15492,6 +15493,35 @@ KS
 		  <xfill>True</xfill>
 		  <yfill>False</yfill>
 		</child>
+	      </widget>
+	    </widget>
+
+	    <widget>
+	      <class>GtkFrame</class>
+	      <name>frame_ansicht</name>
+	      <cxx_separate_file>True</cxx_separate_file>
+	      <cxx_separate_class>True</cxx_separate_class>
+	      <cxx_visibility>protected</cxx_visibility>
+	      <label>Ansicht</label>
+	      <label_xalign>0</label_xalign>
+	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+	      <child>
+		<left_attach>1</left_attach>
+		<right_attach>2</right_attach>
+		<top_attach>0</top_attach>
+		<bottom_attach>1</bottom_attach>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<xexpand>False</xexpand>
+		<yexpand>False</yexpand>
+		<xshrink>False</xshrink>
+		<yshrink>False</yshrink>
+		<xfill>True</xfill>
+		<yfill>True</yfill>
+	      </child>
+
+	      <widget>
+		<class>Placeholder</class>
 	      </widget>
 	    </widget>
 	  </widget>
