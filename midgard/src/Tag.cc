@@ -20,6 +20,10 @@
 #include "Tag.hh"
 #include <algo.h>
 
+#ifdef __MINGW32__
+extern "C" { int snprintf(char *str, size_t size, const  char  *format, ...); }
+#endif
+
 const Tag *Tag::find(const std::string &tp) const
 {  const_iterator i=find(begin(),tp);
    if (i==end()) return 0;
