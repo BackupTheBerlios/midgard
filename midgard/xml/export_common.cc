@@ -1,4 +1,4 @@
-// $Id: export_common.cc,v 1.11 2002/02/18 07:01:06 thoma Exp $
+// $Id: export_common.cc,v 1.12 2002/02/18 16:15:36 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -23,7 +23,7 @@
 std::string region;
 #endif
 
-#ifdef __MINGW32__
+#if defined( __MINGW32__) || defined(USE_XML)
 #define NO_SQL
 #endif
 

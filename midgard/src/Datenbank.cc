@@ -1,4 +1,4 @@
-// $Id: Datenbank.cc,v 1.10 2002/02/13 15:45:46 thoma Exp $               
+// $Id: Datenbank.cc,v 1.11 2002/02/18 16:15:27 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -18,8 +18,6 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#include  <Aux/SQLerror.h>   
-#include <Aux/Transaction.h>
 #include "Datenbank.hh"
 
 #include <MidgardBasicElement.hh>
