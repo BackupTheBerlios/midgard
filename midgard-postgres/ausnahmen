@@ -3,7 +3,7 @@
 --
 DROP TABLE "ausnahmen";
 --
--- TOC Entry ID 2 (OID 638454)
+-- TOC Entry ID 2 (OID 3331264)
 --
 -- Name: ausnahmen Type: TABLE Owner: thoma
 --
@@ -20,7 +20,7 @@ CREATE TABLE "ausnahmen" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 638454) TABLE DATA ausnahmen
+-- Data for TOC Entry ID 3 (OID 3331264) TABLE DATA ausnahmen
 --
 
 COPY "ausnahmen"  FROM stdin;
@@ -133,88 +133,88 @@ Körperkontrolle	f	\N	Rawindra	PM	G	\N	\N
 Körperkontrolle	f	\N	Rawindra	PK	G	\N	\N
 Körperkontrolle	f	\N	Rawindra	PT	G	\N	\N
 Körperkontrolle	f	\N	Rawindra	PC	G	\N	\N
-Meditieren	f	Rawindra	Ba	G	\N	\N	\N
-Meditieren	f	Rawindra	Dr	G	\N	\N	\N
-Meditieren	f	Rawindra	Hl	G	\N	\N	\N
-Meditieren	f	Rawindra	wHx	G	\N	\N	\N
-Meditieren	f	Rawindra	sHx	G	\N	\N	\N
-Meditieren	f	Rawindra	gHx	G	\N	\N	\N
-Meditieren	f	Rawindra	Ma	G	\N	\N	\N
-Meditieren	f	Rawindra	dBe	G	\N	\N	\N
-Meditieren	f	Rawindra	eBe	G	\N	\N	\N
-Meditieren	f	Rawindra	Sc	G	\N	\N	\N
-Meditieren	f	Rawindra	Th	G	\N	\N	\N
-Meditieren	f	Rawindra	PH	G	\N	\N	\N
-Meditieren	f	Rawindra	PF	G	\N	\N	\N
-Meditieren	f	Rawindra	PM	G	\N	\N	\N
-Meditieren	f	Rawindra	PW	G	\N	\N	\N
-Meditieren	f	Rawindra	PC	G	\N	\N	\N
-Meditieren	f	Rawindra	PK	G	\N	\N	\N
-Meditieren	f	KanThaiPan	PH	G	\N	\N	\N
-Meditieren	f	KanThaiPan	PF	G	\N	\N	\N
-Meditieren	f	KanThaiPan	PM	G	\N	\N	\N
-Meditieren	f	KanThaiPan	PW	G	\N	\N	\N
-Meditieren	f	KanThaiPan	PC	G	\N	\N	\N
-Meditieren	f	KanThaiPan	PK	G	\N	\N	\N
-Meditieren	f	KanThaiPan	Ord	G	\N	\N	\N
-Meditieren	f	KanThaiPan	Kr	G	\N	\N	\N
-Meditieren	f	KanThaiPan	Sc	G	\N	\N	\N
-Natya	f	Rawindra	PH	G	\N	\N	\N
-Natya	f	Rawindra	PF	G	\N	\N	\N
-Natya	f	Rawindra	PM	G	\N	\N	\N
-Natya	f	Rawindra	PW	G	\N	\N	\N
-Natya	f	Rawindra	PC	G	\N	\N	\N
-Natya	f	Rawindra	PK	G	\N	\N	\N
-Natya	f	Rawindra	Ba	G	\N	\N	\N
-Schlangen beschwören	f	Rawindra	Ba	G	\N	\N	\N
-Schlangen beschwören	f	Rawindra	Dr	S	\N	\N	\N
-Schlangen beschwören	f	Rawindra	Hl	S	\N	\N	\N
-Schlangen beschwören	f	Rawindra	wHx	S	\N	\N	\N
-Schlangen beschwören	f	Rawindra	sHx	S	\N	\N	\N
-Schlangen beschwören	f	Rawindra	gHx	S	\N	\N	\N
-Schlangen beschwören	f	Rawindra	Ma	S	\N	\N	\N
-Schlangen beschwören	f	Rawindra	dBe	S	\N	\N	\N
-Schlangen beschwören	f	Rawindra	eBe	S	\N	\N	\N
-Schlangen beschwören	f	Rawindra	Sc	S	\N	\N	\N
-Schlangen beschwören	f	Rawindra	Th	S	\N	\N	\N
-Schlangen beschwören	f	Rawindra	PH	S	\N	\N	\N
-Schlangen beschwören	f	Rawindra	PF	S	\N	\N	\N
-Schlangen beschwören	f	Rawindra	PM	S	\N	\N	\N
-Schlangen beschwören	f	Rawindra	PW	S	\N	\N	\N
-Schlangen beschwören	f	Rawindra	PC	S	\N	\N	\N
-Schlangen beschwören	f	Rawindra	PK	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	Ba	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	Dr	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	Hl	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	wHx	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	sHx	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	gHx	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	Ma	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	dBe	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	eBe	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	Sc	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	Th	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	PH	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	PF	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	PM	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	PW	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	PC	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	PK	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	Ass	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	Ba	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	BN	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	BS	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	BW	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	Gl	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	Hä	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	Kr	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	Ord	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	Se	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	Sö	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	Wa	S	\N	\N	\N
-Schmerzen ertragen	f	Rawindra	Sr	S	\N	\N	\N
-Srimara lenken	f	Rawindra	Kr	S	\N	\N	\N
-Srimara lenken	f	Rawindra	Ord	S	\N	\N	\N
-Srimara lenken	f	Rawindra	Sö	S	\N	\N	\N
-	\N	\N	\N	\N	\N	\N	\N
+Meditieren	f		Rawindra	Ba	G	\N	\N
+Meditieren	f		Rawindra	Dr	G	\N	\N
+Meditieren	f		Rawindra	Hl	G	\N	\N
+Meditieren	f		Rawindra	wHx	G	\N	\N
+Meditieren	f		Rawindra	sHx	G	\N	\N
+Meditieren	f		Rawindra	gHx	G	\N	\N
+Meditieren	f		Rawindra	Ma	G	\N	\N
+Meditieren	f		Rawindra	dBe	G	\N	\N
+Meditieren	f		Rawindra	eBe	G	\N	\N
+Meditieren	f		Rawindra	Sc	G	\N	\N
+Meditieren	f		Rawindra	Th	G	\N	\N
+Meditieren	f		Rawindra	PH	G	\N	\N
+Meditieren	f		Rawindra	PF	G	\N	\N
+Meditieren	f		Rawindra	PM	G	\N	\N
+Meditieren	f		Rawindra	PW	G	\N	\N
+Meditieren	f		Rawindra	PC	G	\N	\N
+Meditieren	f		Rawindra	PK	G	\N	\N
+Meditieren	f		KanThaiPan	PH	G	\N	\N
+Meditieren	f		KanThaiPan	PF	G	\N	\N
+Meditieren	f		KanThaiPan	PM	G	\N	\N
+Meditieren	f		KanThaiPan	PW	G	\N	\N
+Meditieren	f		KanThaiPan	PC	G	\N	\N
+Meditieren	f		KanThaiPan	PK	G	\N	\N
+Meditieren	f		KanThaiPan	Ord	G	\N	\N
+Meditieren	f		KanThaiPan	Kr	G	\N	\N
+Meditieren	f		KanThaiPan	Sc	G	\N	\N
+Natya	f		Rawindra	PH	G	\N	\N
+Natya	f		Rawindra	PF	G	\N	\N
+Natya	f		Rawindra	PM	G	\N	\N
+Natya	f		Rawindra	PW	G	\N	\N
+Natya	f		Rawindra	PC	G	\N	\N
+Natya	f		Rawindra	PK	G	\N	\N
+Natya	f		Rawindra	Ba	G	\N	\N
+Schlangen beschwören	f		Rawindra	Ba	G	\N	\N
+Schlangen beschwören	f		Rawindra	Dr	S	\N	\N
+Schlangen beschwören	f		Rawindra	Hl	S	\N	\N
+Schlangen beschwören	f		Rawindra	wHx	S	\N	\N
+Schlangen beschwören	f		Rawindra	sHx	S	\N	\N
+Schlangen beschwören	f		Rawindra	gHx	S	\N	\N
+Schlangen beschwören	f		Rawindra	Ma	S	\N	\N
+Schlangen beschwören	f		Rawindra	dBe	S	\N	\N
+Schlangen beschwören	f		Rawindra	eBe	S	\N	\N
+Schlangen beschwören	f		Rawindra	Sc	S	\N	\N
+Schlangen beschwören	f		Rawindra	Th	S	\N	\N
+Schlangen beschwören	f		Rawindra	PH	S	\N	\N
+Schlangen beschwören	f		Rawindra	PF	S	\N	\N
+Schlangen beschwören	f		Rawindra	PM	S	\N	\N
+Schlangen beschwören	f		Rawindra	PW	S	\N	\N
+Schlangen beschwören	f		Rawindra	PC	S	\N	\N
+Schlangen beschwören	f		Rawindra	PK	S	\N	\N
+Schmerzen ertragen	f		Rawindra	Ba	S	\N	\N
+Schmerzen ertragen	f		Rawindra	Dr	S	\N	\N
+Schmerzen ertragen	f		Rawindra	Hl	S	\N	\N
+Schmerzen ertragen	f		Rawindra	wHx	S	\N	\N
+Schmerzen ertragen	f		Rawindra	sHx	S	\N	\N
+Schmerzen ertragen	f		Rawindra	gHx	S	\N	\N
+Schmerzen ertragen	f		Rawindra	Ma	S	\N	\N
+Schmerzen ertragen	f		Rawindra	dBe	S	\N	\N
+Schmerzen ertragen	f		Rawindra	eBe	S	\N	\N
+Schmerzen ertragen	f		Rawindra	Sc	S	\N	\N
+Schmerzen ertragen	f		Rawindra	Th	S	\N	\N
+Schmerzen ertragen	f		Rawindra	PH	S	\N	\N
+Schmerzen ertragen	f		Rawindra	PF	S	\N	\N
+Schmerzen ertragen	f		Rawindra	PM	S	\N	\N
+Schmerzen ertragen	f		Rawindra	PW	S	\N	\N
+Schmerzen ertragen	f		Rawindra	PC	S	\N	\N
+Schmerzen ertragen	f		Rawindra	PK	S	\N	\N
+Schmerzen ertragen	f		Rawindra	Ass	S	\N	\N
+Schmerzen ertragen	f		Rawindra	Ba	S	\N	\N
+Schmerzen ertragen	f		Rawindra	BN	S	\N	\N
+Schmerzen ertragen	f		Rawindra	BS	S	\N	\N
+Schmerzen ertragen	f		Rawindra	BW	S	\N	\N
+Schmerzen ertragen	f		Rawindra	Gl	S	\N	\N
+Schmerzen ertragen	f		Rawindra	Hä	S	\N	\N
+Schmerzen ertragen	f		Rawindra	Kr	S	\N	\N
+Schmerzen ertragen	f		Rawindra	Ord	S	\N	\N
+Schmerzen ertragen	f		Rawindra	Se	S	\N	\N
+Schmerzen ertragen	f		Rawindra	Sö	S	\N	\N
+Schmerzen ertragen	f		Rawindra	Wa	S	\N	\N
+Schmerzen ertragen	f		Rawindra	Sr	S	\N	\N
+Srimara lenken	f		Rawindra	Kr	S	\N	\N
+Srimara lenken	f		Rawindra	Ord	S	\N	\N
+Srimara lenken	f		Rawindra	Sö	S	\N	\N
+Paschuyana, der Weg des Tieres	z		Rawindra	pw	G	\N	\N
 \.

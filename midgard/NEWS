@@ -1,16 +1,25 @@
 ##########################################################################
 NEWS IN VERSION 0.5beta3
 - Charakterbeschreibung darf nun beliebig lang sein.
-- kleinere Bugs beseitigt
+- viele kleinere Bugs beseitigt
 - Info Seite leicht überarbeitet
-- xml-import Bugs beseitigt (?)
+- xml-import Bugs beseitigt
 - Fian & Zauber (aus B&R) eingearbeitet
 - Ritter (aus B&R) eingearbeitet
 - Fertigkeiten aus B&R eingearbeitet
 - Ausnahmen bei Fertigkeiten werden berücksichtigt
 - Oberfläche und Programm vorbereitet auf 'Gildenbrief' und 'Küstenstaaten'
+   Erweiterungen
 - LaTeX Ausdruck um die universellen Fertigkeiten 'Verbergen' und 'Werfen' 
    erweitert
+- Rawindische Fertigkeiten eingearbeitet, ob ich tatsächlich alle Ausnahmen
+   korrekt berücksichtigt habe wird erst die Zeit (und damit die Bugtests) 
+   zeigen.
+- Regionen werden auch beim Lernschema berücksichtigt
+- Regionen werden bei Waffengrundfähigkeiten berücksichtigt
+- Rawindische Waffen eingearbeitet
+- Rawindische Rüstungen eingearbeitet
+- Rawindische Zaubersprüche eingearbeitet
 
 ##########################################################################
 NEWS IN VERSION 0.5beta2

@@ -3,7 +3,7 @@
 --
 DROP TABLE "arkanum_zauber";
 --
--- TOC Entry ID 2 (OID 622681)
+-- TOC Entry ID 2 (OID 3332188)
 --
 -- Name: arkanum_zauber Type: TABLE Owner: thoma
 --
@@ -62,7 +62,7 @@ CREATE TABLE "arkanum_zauber" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 622681) TABLE DATA arkanum_zauber
+-- Data for TOC Entry ID 3 (OID 3332188) TABLE DATA arkanum_zauber
 --
 
 COPY "arkanum_zauber"  FROM stdin;
@@ -97,7 +97,6 @@ Beschleunigen	800	3	Geste	3	Magan	verändert	Erde	10 s	15 m	Körper	1 Ws	2 min	däm
 Binden des Vertrauten	1000	3	Gedanke	3	Wasser	beherrscht	Wasser	1 s	0	Geist	1 km Uk	2 h	dämonisch		nicht					S	S	S	G	S												G		S			G	\N	\N	\N	\N	\N	\N		
 Blendwerk	2000	4	Geste	4	Magan	beherrscht	Feuer	10 s	50 m	Geist	1 Ws/Ob	wx10 min	dämonisch	Goldstaub		Siegel					A		G	S	S		S	S	S	S	S	S	S	S	A	G			G		G	\N	\N	\N	\N	\N	\N		A
 Blitze schleudern	1000	#*3	Geste	3	Luft	erschafft	Feuer	10 s	200 m	Umgebung	max 10 Blitze	0	dämonisch	Zitterallherz		Rune					S		S		S		S	S	S	S	G	S	S	S		S			G		S	\N	\N	\N	\N	\N	\N		
-Blutmeisterschaft	800	3	Gedanke	3	Erde	verändert	Holz	10 s	0	Körper	selbst	Grad*10 min	göttlich		nicht						A			S											A							\N	\N	\N	\N	\N	\N		A
 Blutsbrüderschaft stiften	2000	4	Geste	4	Wasser	erschafft	Luft	1 h	0	Geist	2 Ws	0	göttlich		nicht											S					S				G					G		\N	\N	\N	\N	\N	\N	S	G
 Böser Blick	400	2	Gedanke	2	Eis	zerstört	Holz	1 s	15 m	Körper	1 Ws	perm	schwarzmagisch		nicht								G				S								A	G		S				\N	\N	\N	\N	\N	\N		A
 Wahnsinn	3000	6	Geste	6	Magan	zerstört	Luft	20 s	15 m	Geist	1 Ws	perm	dämonisch	Birkenrinde, WahnsinnskrautblÃ¼ten							S		G	S	S		S	S	S	S	S	S	S	S	S	G					G	\N	\N	\N	\N	\N	\N		S
@@ -112,6 +111,7 @@ Dschinni-Auge	80	1	Geste	1	Magan	erkennt	Feuer	5 s	0	Umgebung	100 m Uk	10 min	el
 Flammende Hand	200	2	Geste	2	Feuer	erschafft	Feuer	5 s	0	Umgebung	selbst	2 min	elementar			Siegel						S	S	S	S			S	G	G	S			S		S			G		S	\N	\N	\N	\N	\N	\N		
 Stärke	120	1/Wesen	Geste	1	Magan	verändert	Erde	1 s	30 m	Körper	max 10 Ws	2 min	dämonisch	Fliegenpilz		Siegel					S		S	G	S		S	S	S	S	S	S	S	S	G	S			G	G	S	\N	\N	\N	\N	\N	\N		G
 Feuerregen	15000	18	Geste	groß	Feuer	erschafft	Feuer	30 s	100 m	Umgebung	30 m Uk	1 min	elementar	Basaltstaub, Rubinsplitter								S	S		S		A	A	A	G	S	A	A	S	S	S					S	\N	\N	\N	\N	\N	\N		S
+Blutmeisterschaft	800	3	Gedanke	3	Erde	verändert	Holz	10 s	0	Körper	selbst	Grad*10 min	göttlich		nicht						A			S											A							\N	\N	\N	\N	\N	\N		G
 Hagel	12000	18	Geste	groß	Eis	erschafft	Eis	30 s	100 m	Umgebung	30 m Uk	2 min	elementar	Wasser, Diamantsplitter							S	S	S	A			A	A	A	A	S	S	G	A	G	S					S	\N	\N	\N	\N	\N	\N		G
 Lied der verborgenen Kraft	1000	2	Zauberlied	3	Magan	verändert	Feuer	-	0	Körper	15 m Uk	0	druidisch		nicht				G																		G					\N	\N	\N	\N	\N	\N		
 Lied der Verführung	200	2	Zauberlied	2	Wasser	beherrscht	Wasser	-	5 m	Geist	1 Ws	6 h	druidisch		nicht				G																		S					\N	\N	\N	\N	\N	\N		
@@ -307,7 +307,6 @@ Wandelhand	300	2	Wort	2	Eis	bewegt	Erde	15 s	0	Umgebung	1 Ob	10 min	dämonisch		n
 Wandeln wie der Wind	100	1	Geste	1	Holz	verändert	Erde	1 s	0	Umgebung	selbst	10 min	druidisch	Flugsamenmischung							G		A	S											A	A				A	A	\N	\N	\N	\N	\N	G		A
 Zaubermacht	600	3	Geste	3	Magan	verändert	Wasser	10 min	0	Körper	selbst	1 h	dämonisch		nicht						S		S	S	G	S	S	S	S	S	S	S	S	G	S	S			G	S	S	\N	\N	\N	\N	\N	\N	S	S
 Wasseratmen	200	2	Geste	2	Luft	verwandelt	Wasser	10 s	0	Körper	1 Ws	8 h	elementar			Siegel					S	S	A	A	A		A	A	A	A	A	G	A	A	S	A			G		A	\N	\N	\N	\N	\N	S		S
-Wasserlauf	800	3	Gedanke	3	Wasser	bewegt	Erde	20 s	0	Körper	selbst	10 min	elementar			Siegel					S		A	A	A		A	A	A	A	A	S	A	A		A			G		A	\N	\N	\N	\N	\N	\N		
 Wassermeisterschaft	4000	6	Geste	5	Wasser	bewegt	Wasser	20 s	0	Umgebung	1 Ws/Ob	1 h	elementar	Perle							A		S	S	S		A	S	S	A	A	G	A	S	S	S					S	\N	\N	\N	\N	\N	\N		S
 Wasserstrahl	2000	4	Geste	4	Wasser	erschafft	Wasser	15 s	5 m	Umgebung	Strahl	1 min	elementar	Riesenkrakentrichter		Rune					S	S	S	S	S						S	G	S		S	S			G		S	\N	\N	\N	\N	\N	\N		S
 Wasserwandlung	1400	4	Geste	4	Eis	verwandelt	Wasser	15 s	200 m	Umgebung	max 10 m³	var	elementar	Tropfen reines Eis							S	S	S	S	S		A	A	A	A	A	G	G	S	S	S					S	\N	\N	\N	\N	\N	\N		S
@@ -668,7 +667,6 @@ Serkefs Todesbote	5000	6	Geste	5	Magan	erschafft	Erde	30 min	0	Umgebung	1 Ws	1W6
 Sutechs Heer	600	12	Wort	3	Luft	beherrscht	Wasser	10 sec	2 km	Geist	4W6 Ws	30 min	göttlich								S		S	S	A		A	A			G			A	S	S					S	E	\N	\N	\N	\N	\N		S
 Laufen wie der Wind	800	3	Geste	3	\N	\N	\N	10 s	B	Körper	1 Ws	10 min					\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N		\N	\N	\N	\N	G	\N	\N
 Schlachtenwahnsinn	1500	0	Geste	4	\N	\N	\N	10 s	0	Körper	selbst	2 min					\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N		\N	\N	\N	\N	G	\N	\N
-Zaubersprung	200	2	Geste	4	\N	\N	\N	5 s	0	Körper	1 Ws	2 min					\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N		\N	\N	\N	\N	G	\N	\N
 Unsichtbarkeit	250	Gr	Wort	2	Luft	verändert	Metall	5 s	0	Körper	selbst	10 min	dämonisch			Siegel					S		S	S	S	S	S	S	S	S	S	S	S	S	S	S			G		S	\N	\N	\N	\N	\N	S		S
 Macht über die Sinne	120	1-5	Geste	1	Magan	beherrscht	Feuer	10 s	50 m	Geist	selbst	2-10 min	dämonisch		nicht								S		G									A	S	S					S	\N	\N	\N	\N	\N	\N		G
 Macht über Unbelebtes	150	2	Geste	2	Feuer	bewegt	Metall	1 s	30 m	Umgebung	-	10 s	dämonisch		nicht								S		G				A						A	S					S	\N	\N	\N	\N	\N	\N		G
@@ -681,4 +679,17 @@ Seelenheilung	400	2	Wort	2	Holz	verändert	Luft	10 min	3 m	Geist	1 Ws	0	göttlich	
 Heilen von Krankheit	400	2	Geste	2	Holz	zerstört	Eis	10 min	0	Körper	1 Ws	0	druidisch		nicht									G		G	S	G	G	G	G	G	G	G	G							\N	\N	\N	\N	\N	\N		
 Heilen von Wunden	300	3	Geste	2	Holz	erschafft	Erde	1 min	0	Körper	1 Ws	0	druidisch		nicht						S		A	G		G	S	G	G	G	G	G	G	G	G	A				S	A	\N	\N	\N	\N	\N	G		
 Allheilung	2500	6	Geste	5	Holz	erschafft	Erde	30 min	0	Körper	1 Ws	0	göttlich		nicht									G		G		G	G	G	G	G	G	G	S					A		\N	\N	\N	\N	\N	\N		
+Zaubersprung	200	2	Geste	4	\N	\N	\N	5 s	0	Körper	1 Ws	2 min					\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N		\N	\N	\N	\N	G	\N	\N
+Binden von Srimara	2000	alle	Geste	4	Luft	beherrscht	Wasser	6 h	B	Geist	1 Ws	-	göttlich	Srimaraschuppe der entsprechenden Rasse	nicht		\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	A	\N	\N	\N	\N	S	\N	R	\N	\N	\N	\N	\N	S	\N
+Götterarme	1500	4	Geste	4	Holz	verändert	Erde	10 s	-	Körper	Z	10 min	göttlich		nicht		\N	\N	\N	\N	\N	\N	\N	A	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	R	\N	\N	\N	\N	\N	\N	S
+Levitation	1500	4	Gedanke	4	Luft	bewegt	Erde	20 s	-	Körper	Z	30 min	göttlich		nicht		\N	\N	\N	S	S	S	S	S	S		S	S	S	S	S	S	S	S	S	S	\N	S	S		S	R	S	\N	\N	\N	\N	\N	G
+Paschuyana, der Weg des Tieres	5000	6	Geste	5	Luft	bewegt	Luft	30 min	B	Geist	1 Ws	-	göttlich		nicht		\N	\N	\N	\N	A	\N	\N	\N	\N	\N	A	A	A	A	A	A	A	S	S	\N	\N	\N	\N	\N	\N	R	\N	\N	\N	\N	\N	\N	\N
+Rückführung	1800	4	Geste	4	Magan	erkennt	Luft	10 min	B	Geist	1 Ws	2 h	göttlich		nicht		\N	\N	\N	\N	A	\N	\N	S	\N	\N	A	A	A	A	A	A	S	A	S	\N	\N	\N	\N	\N	\N	R	\N	\N	\N	\N	\N	\N	G
+Seele finden	600	3	Geste	3	Luft	erkennt	Luft	1 min	-	Geist	1 Ws	0	göttlich	Haare des Toten	nicht		\N	\N	\N	\N	\N	\N	A	G	\N	\N	G	G	G	G	G	G	G	G	\N	A	\N	\N	\N	\N	A	R	\N	\N	\N	\N	\N	\N	G
+Der große Seiltrick	6000	6	Geste	5	Magan	bewegt	Erde	-	0	Umgebung	1 Ws	6 h	göttlich		nicht				S				S		A											S					S	R	\N	\N	\N	\N	\N		G
+Der kleine Seiltrick	1600	4	Geste	4	Magan	bewegt	Erde	-	500 m	Umgebung	1 Ws	5 min	göttlich		nicht				S				S		A											S					S	R	\N	\N	\N	\N	\N		G
+Srimarameisterschaft I	400	SGr*2	Wort	2	Magan	beherrscht	Wasser	10 s	30 m	Geist	Gr Ws	var h	dämonisch		nicht	Siegel					S		A	S	S											S					A	R	\N	\N	\N	\N		G	
+Srimarameisterschaft II	600	SGr*3	Wort	3	Magan	beherrscht	Luft	20 s	30 m	Geist	Gr Ws	var	dämonisch		nicht	Siegel					S		A	S	S											S					A	R	\N	\N	\N	\N	\N	G	
+Wasserlauf	800	3	Gedanke	3	Wasser	bewegt	Erde	20 s	0	Körper	selbst	10 min	elementar			Siegel					S		A	A	A		A	A	A	A	A	S	A	A		A			G		A	\N	\N	\N	\N	\N	\N		G
+Wandlung	6000	18	Gedanke	6	Element	verwandelt	Erde	10 sec	-	Körper	Z	6 h	elementar		nicht		\N	\N	\N	\N	\N	\N	\N	S	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	R	\N	\N	\N	\N	\N	\N	G
 \.
