@@ -40,7 +40,7 @@ void xml_fileselection::on_ok_button1_clicked()
   {
     assert(Werte!=0);
     Werte->setBeschreibungPix(this->get_filename());
-    hauptfenster->show_beschreibung();
+//    hauptfenster->show_beschreibung();
   }
 #ifndef __MINGW32__  
  destroy();

@@ -1,4 +1,4 @@
-// $Id: table_lernschema_fertigkeiten.cc,v 1.3 2002/05/22 17:00:45 thoma Exp $
+// $Id: table_lernschema_fertigkeiten.cc,v 1.4 2002/05/27 20:36:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -136,19 +136,6 @@ cout << "Sechster Sinn = "<<Werte.Sinne()["Sechster Sinn"]<<'\n';
   return true;
 }
 
-
-/*
-void table_lernschema::universal_Fertigkeiten()
-{
-  list_Fertigkeit_universal.clear();
-  for(std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
-   {
-//     if((*i)->ist_gelernt(list_Fertigkeit)) continue ;
-     if(cH_Fertigkeit(*i)->Voraussetzungen(Werte,list_Fertigkeit) && cH_Fertigkeit(*i)->Ungelernt()!=-1)
-       list_Fertigkeit_universal.push_back(*i);
-   }
-}
-*/
 
 void table_lernschema::checkAngeboreneSinne()
 {

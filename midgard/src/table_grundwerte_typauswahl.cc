@@ -92,7 +92,7 @@ void table_grundwerte::typauswahl_button()
  if(!Typen::get_Typ_from_long(hauptfenster->getCDatabase().Typen,typ))
    return;
  hauptfenster->Char.reset();
- hauptfenster->clear_gtk();
+// hauptfenster->clear_gtk();
 
  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::TYP);
 // cH_Typen ptr = static_cast<Typen*>(typauswahl->get_menu()->get_active()->get_user_data());
@@ -261,7 +261,7 @@ void table_grundwerte::on_radiobutton_mann_toggled()
    }
   fill_typauswahl();
   fill_typauswahl_2();
-  hauptfenster->zeige_werte();
+//  hauptfenster->zeige_werte();
 }
 
 void table_grundwerte::kaempfer_lernt_zaubern()

@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.4 2002/05/27 13:56:07 thoma Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.5 2002/05/27 20:36:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -297,7 +297,8 @@ void table_grundwerte::gw_wuerfeln_2x()
      constraint_gw(hauptfenster->getCWerte().Spezies()->Ko()),
      constraint_gw(hauptfenster->getCWerte().Spezies()->In()),
      constraint_gw(hauptfenster->getCWerte().Spezies()->Zt()));
- hauptfenster->zeige_werte();
+// zeige_werte(false);
+// hauptfenster->zeige_werte();
 }
 
 //static inline int max(int a,int b) { return a>b?a:b; }

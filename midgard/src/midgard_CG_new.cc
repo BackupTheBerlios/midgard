@@ -18,42 +18,6 @@
 #include "midgard_CG.hh"
 
 
-void midgard_CG::clear_listen()
-{
-//   Char.reset();
-//   table_lernschema->list_FertigkeitZusaetze.clear();
-//   list_Fertigkeit_neu.clear();
-//   list_Waffen_neu.clear();
-//   list_WaffenGrund_neu.clear();
-//   list_Kido_neu.clear();
-//   list_Sprache_neu.clear();
-//   list_Schrift_neu.clear();
-//   list_Zauber_neu.clear();
-//   list_Zauberwerk_neu.clear();
-}
-
-void midgard_CG::clear_gtk()
-{
-//   table_lernschema->tree_gelerntes->clear();
-/*
-   alte_fert_tree->clear();
-   neue_fert_tree->clear();
-   alte_waffen_tree->clear();
-   neue_waffen_tree->clear();
-   alte_grund_tree->clear();
-   neue_grund_tree->clear();
-   alte_zauber_tree->clear();
-   neue_zauber_tree->clear();
-   alte_zaubermittel_tree->clear();
-   neue_zaubermittel_tree->clear();
-   alte_kido_tree->clear();
-   neue_kido_tree->clear();
-   alte_sprache_tree->clear();
-   neue_sprache_tree->clear();
-   alte_schrift_tree->clear();
-   neue_schrift_tree->clear();
-*/
-}
 
 gint midgard_CG::on_neuer_charakter_release_event(GdkEventButton *ev)
 {
@@ -64,13 +28,6 @@ gint midgard_CG::on_neuer_charakter_release_event(GdkEventButton *ev)
 
 void midgard_CG::on_neuer_charakter_clicked()
 {
-/*
-   if(modify_bool)
-     {
-       MOptionen->save_options(InfoFenster);
-       xml_export_auswahl();
-     }               
-*/
    filename="";
 //   table_grundwerte->neuer_charakter();
 

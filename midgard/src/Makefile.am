@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.167 2002/05/25 08:38:40 thoma Exp $
+# $Id: Makefile.am,v 1.168 2002/05/27 20:36:46 thoma Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -30,6 +30,7 @@ EXTRA_DIST = midgard_document_eingabe.tex.in \
 
 
 noinst_HEADERS = \
+   class_AbenteurerListe.hh \
    Abenteurer.hh \
    LernListen.hh \
    LaTeX_drucken.hh \
@@ -102,6 +103,7 @@ NEWS.h: ../NEWS ; ./text2c <../NEWS >NEWS.h
 midgard_xmlexport_SOURCES= xmlexport.cc export_common.cc
 
 magus_SOURCES = $(PORT_FILES) \
+   midgard_CG_AbenteurerListe.cc \
    table_steigern_gold.cc \
    table_steigern_waffenbesitz.cc \
    table_steigern_ruestung.cc \
@@ -192,7 +194,6 @@ magus_SOURCES = $(PORT_FILES) \
 	midgard_CG_glade.cc \
 	midgard_CG.cc \
 	table_grundwerte_abge_werte.cc \
-   zeige_werte.cc \
    table_grundwerte_grundwere_edit.cc \
    WindowInfo.cc \
    WindowInfo_glade.cc \

@@ -34,9 +34,6 @@ gint midgard_CG::timeout_status()
   return 0;
 }
 
-
-
-
 void midgard_CG::on_button_hilfe_clicked()
 {
   manage(new Window_hilfe()); 
@@ -76,18 +73,6 @@ gint midgard_CG::on_button_menu_button_release_event(GdkEventButton *event)
 
 void midgard_CG::load_for_mainpage(guint pagenr)
 {
-/*
- if(!Char.getVTyp().empty() && Char.is_mage())
-  {
-    button_grad_zaubern->set_sensitive(true);
-    frame_pp_zaubern->set_sensitive(true);
-  }
- else 
-  {
-    button_grad_zaubern->set_sensitive(false);
-    frame_pp_zaubern->set_sensitive(false);
-  }
-*/
  if(pagenr==PAGE_GRUNDWERTE)
   {
     table_grundwerte->init(this);
@@ -101,22 +86,6 @@ void midgard_CG::load_for_mainpage(guint pagenr)
   }
  else if(pagenr==PAGE_STEIGERN)
   {
-/*
-    menu_gradanstieg_init();
-    if(SpruecheMitPP().empty())
-      { radiobutton_pp_spezial->hide();
-        frame_pp_spezial->hide();
-      }
-    else
-      { 
-        radiobutton_pp_spezial->remove();
-        Gtk::Label *l=manage(new class Gtk::Label(SpruecheMitPP(),0));
-        l->show();
-        radiobutton_pp_spezial->add(*l);
-        frame_pp_spezial->set_label(SpruecheMitPP());
-      }
-//    load_for_page(notebook_lernen->get_current_page_num());
-*/
     table_steigern->init(this);
   }
  else if(pagenr==PAGE_BESCHREIBUNG)
@@ -126,7 +95,10 @@ void midgard_CG::load_for_mainpage(guint pagenr)
  else if(pagenr==PAGE_AUSRUESTUNG)
     table_ausruestung->init(this);
  else if(pagenr==PAGE_NEWS)
+   {
     show_undo_tree();
+    fill_AbenteurerListe();
+   }
 }
 
 

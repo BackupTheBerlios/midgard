@@ -81,7 +81,8 @@ void midgard_CG::xml_import_stream(istream& datei)
       if (!data) data=ts.find("MAGUS-data");
       if (data) 
       {  top=data->find("Midgard-Charakter");
-         if (!top) top=data->find("Midgard-Abenteurer");       }
+         if (!top) top=data->find("Midgard-Abenteurer");
+      }
    }
       if (!top)
    {              InfoFenster->AppendShow("(Abenteurer in) Datei "//'"+Latin2Screen(datei)
@@ -216,41 +217,12 @@ void midgard_CG::xml_import_stream(istream& datei)
    }
 
    load_fertigkeiten(Fertigkeiten,Ausruestung,xml_version);
-//   Typ_Geschlecht_Spezies_setzen();
-//   load_ausruestung(Ausruestung,&besitz);
    load_ausruestung(Ausruestung,&(Char.getBesitz()));
    
-//   filename=datei;
    set_title(getWerte().Name_Abenteurer());
    load_for_mainpage(notebook_main->get_current_page_num());
+   insert_into_CharList(Char);
 }
-
-void midgard_CG::Typ_Geschlecht_Spezies_setzen() 
-{  
-//   if (getWerte().Geschlecht()=="w") table_grundwerte->radiobutton_frau->set_active(true);
-//   if (getWerte().Geschlecht()=="m") table_grundwerte->radiobutton_mann->set_active(true);
-
-//   table_grundwerte->fill_typauswahl();
-//   if(!Char.CTyp2()->Short().empty()) table_grundwerte->fill_typauswahl_2();
-   
-/*
-   if (this->Typ[0]->Spezialwaffe() ||  this->Typ[1]->Spezialwaffe() )
-         togglebutton_spezialwaffe->show();
-   else {togglebutton_spezialwaffe->hide();
-         togglebutton_spezialwaffe->set_active(false); }
-*/
-   menu_init();
-//   Gtk::Menu_Helpers::SelectMatching(*(table_grundwerte->optionmenu_spezies),getWerte().Spezies());
-//   show_gtk();
-/*
-   if(getWerte().Spezialgebiet()->Name()!="") 
-     { 
-       show_magier_spezialgebiet(true);
-       Gtk::Menu_Helpers::SelectMatching(*option_magier_spezialgebiet,getWerte().Spezialgebiet());
-     }
-*/
-}
-
 
 void midgard_CG::load_ausruestung(const Tag *tag, AusruestungBaum *AB)
 {  FOR_EACH_CONST_TAG_OF(i,*tag,"Gegenstand")
