@@ -1,0 +1,2 @@
+#!/bin/sh
+pg_dump -c -O -R -T -i -t $1 midgard | ./drop_all_varying >$1
