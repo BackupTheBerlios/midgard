@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.13 2002/06/12 10:59:58 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.14 2002/06/12 12:49:03 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -154,7 +154,7 @@ void Abenteurer::speicherstream(ostream &datei,const Datenbank &Database,const M
    Abenteurer.setIntAttr("Version",10);
 
    grundwerte_speichern(Abenteurer);
-   Tag Ausruestung=Abenteurer.push_back(Tag("Ausrüstung"));
+   Tag &Ausruestung=Abenteurer.push_back(Tag("Ausrüstung"));
    Ausruestung.push_back(Tag("Rüstung", getCWerte().Ruestung()->Name()));
    if (!getCWerte().Ruestung(1)->Name().empty())
      Ausruestung.push_back(Tag("Rüstung2", getCWerte().Ruestung(1)->Name()));
