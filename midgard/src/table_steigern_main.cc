@@ -244,12 +244,12 @@ void table_steigern::on_steigern_zusatz_leaf_selected(cH_RowDataBase d)
   MidgardBasicElement_mutable *M
       =const_cast<MidgardBasicElement_mutable*>(&(dt->getMBE()));
 #warning: Christof, warum geht das nicht?
-/*
+
   M->setZusatz(dt->getZusatz());
   // Erhöter Erfolgswert für Landeskunde Heimat:
   if(dt->getZusatz()==hauptfenster->getCWerte().Herkunft()->Name()) 
        M->setErfolgswert(9);
-*/
+
 /*
   std::list<MidgardBasicElement_mutable> L;
   bool found=false;

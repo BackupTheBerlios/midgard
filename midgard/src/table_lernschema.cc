@@ -282,7 +282,7 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
             std::string::size_type st = MBE->Name().find("KiDo-Technik");
             if(st!=std::string::npos) 
                { ++maxkido; list_FertigkeitZusaetze.push_back(MBE->Name());}
-            if(!MBE->ZusatzEnum(hauptfenster->getCChar().getVTyp()) && st==std::string::npos)// Das macht 'lernen_zusatz' automatisch
+            if(!MBE->ZusatzEnum(hauptfenster->getCChar().getVTyp()) && st==std::string::npos)// Das 'push_back' macht 'lernen_zusatz' automatisch
                  hauptfenster->getChar().List_Fertigkeit().push_back(MBE); 
             if(MBE->Name()=="KiDo" && hauptfenster->getCChar().CTyp1()->Short()=="Kd") maxkido+=2;
             if(maxkido>0 && MidgardBasicElement_mutable(&*cH_Fertigkeit("KiDo")).ist_gelernt(hauptfenster->getCChar().CList_Fertigkeit()))
@@ -293,7 +293,8 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
             // später: nach einhelliger Meinung sollen sie das doch 
 //            list_FertigkeitZusaetze.push_back(MBE->Name());
           }
-        if(MBE->ZusatzEnum(hauptfenster->getCChar().getVTyp())) lernen_zusatz(MBE->ZusatzEnum(hauptfenster->getCChar().getVTyp()),MBE);
+        if(MBE->ZusatzEnum(hauptfenster->getCChar().getVTyp())) 
+          lernen_zusatz(MBE->ZusatzEnum(hauptfenster->getCChar().getVTyp()),MBE);
 
         if(MBE.LernArt()=="Fach")
            lernpunkte.addFach(-MBE.Lernpunkte());
@@ -701,7 +702,7 @@ void table_lernschema::show_lernschema()
 //cout << "Was ist gelernt? "<<(*i)->Name()<<' '   
 //<<(*i)->ist_gelernt(list_FertigkeitZusaetze)<<' '
 //<<(*i)->ist_gelernt(hauptfenster->getCChar().List_Fertigkeit)<<'\n';
-      newlist.push_back(*i);
+      newlist.push_back(f);
      }
    }
   if(fert=="Fach") // Freiwillige Speziesfertigkeiten

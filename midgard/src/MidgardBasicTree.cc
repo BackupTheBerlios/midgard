@@ -1,4 +1,4 @@
-// $Id: MidgardBasicTree.cc,v 1.15 2002/05/02 10:12:02 thoma Exp $
+// $Id: MidgardBasicTree.cc,v 1.16 2002/06/10 07:54:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -48,6 +48,7 @@ int MidgardBasicTree::Cols(variante V)
      case (ZAUBERWERK):     return 7;
      case (KIDO):           return 6;
      case (WAFFE_LERNSCHEMA):return 4;
+     case (STEIGERNZUSATZ): return 1;
    }
   assert(!"MidgardBasicTree::Cols:     Falsche Variante \n");
   abort();

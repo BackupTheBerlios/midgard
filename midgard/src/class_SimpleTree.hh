@@ -51,7 +51,7 @@ class Data_SimpleTree : public RowDataBase
 
    virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const;
 //   const cH_MidgardBasicElement getMBE() const {return MBE;}
-   const MidgardBasicElement_mutable getMBE() const {return MBE;}
+   const MidgardBasicElement_mutable &getMBE() const {return MBE;}
 };
 
 class H_Data_SimpleTree : public Handle<Data_SimpleTree>

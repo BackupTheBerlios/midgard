@@ -63,6 +63,7 @@ void table_grundwerte::fill_typauswahl_fill(int typ_1_2)
 
 void table_grundwerte::on_combo_typ_activate()
 {
+//  button_abg_werte->set_sensitive(true);
   button_abg_werte->grab_focus();
 }
 
@@ -75,7 +76,6 @@ gint table_grundwerte::on_combo_typ__focus_out_event(GdkEventFocus *ev)
 
 void table_grundwerte::typauswahl_button()
 {
- button_abg_werte->set_sensitive(true);
  std::string typ=combo_typ->get_entry()->get_text();
  if(!Typen::get_Typ_from_long(hauptfenster->getCDatabase().Typen,typ))
    return;

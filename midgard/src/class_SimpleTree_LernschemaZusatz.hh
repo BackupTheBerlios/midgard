@@ -78,7 +78,7 @@ class Data_Zusatz : public RowDataBase
            }
           return cH_EntryValueIntString();
         }
-      MidgardBasicElement_mutable getMBE() const {return MBE;}
+      const MidgardBasicElement_mutable &getMBE() const {return MBE;}
       std::string getZusatz() const {return zusatz;}
 };
 

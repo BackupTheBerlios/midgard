@@ -95,7 +95,7 @@ bool MidgardBasicElement_mutable::ist_gelernt(const std::list<MidgardBasicElemen
      if((*i)->What()==MidgardBasicElement::ZAUBERWERK)
       {
         if((*i)->Name()==(*this)->Name() &&
-#warning HILFE: WIe geht der CAST?
+#warning HILFE: Wie geht der CAST?
            cH_Zauberwerk(*i)->Art()==
                static_cast<const Zauberwerk*>(&**this)->Art() &&
            (*i)->Stufe()==(*this)->Stufe())  

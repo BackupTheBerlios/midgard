@@ -44,14 +44,13 @@ public:
          : table_steigern_glade(_data),hauptfenster(0) {}
         void init(midgard_CG *hauptfenster);
 
-        MidgardBasicElement_mutable getSelectedNotebookLernen();
+        const MidgardBasicElement_mutable &getSelectedNotebookLernen();
         void load_for_page(guint pagenr);
         void zeige_werte();
         void neuer_charakter();
 
         // Main
-        void fillClistZusatz(const cH_MidgardBasicElement &MBE);
-        void on_clist_zusatz_select_row(gint row, gint column, GdkEvent *event);
+        void fillClistZusatz(MidgardBasicElement_mutable &MBE);
         void on_radio_steigern_all();
         std::string SpruecheMitPP();
         void on_radiobutton_pp_all_toggled();
@@ -128,6 +127,7 @@ public:
 
          // Ab hier die automatischen Methoden von glade erzeugt
 private:
+        void on_steigern_zusatz_leaf_selected(cH_RowDataBase d);
         void on_leaf_selected_alte_fert(cH_RowDataBase d);
         void on_alte_fert_reorder();
         void on_leaf_selected_neue_fert(cH_RowDataBase d);

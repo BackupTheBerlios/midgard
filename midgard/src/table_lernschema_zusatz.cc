@@ -61,8 +61,10 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBas
            M.setErfolgswert(MBE->Erfolgswert());
            M.setLernpunkte(MBE->Lernpunkte());
 */
-           MBE.setZusatz(hauptfenster->getCWerte().Herkunft()->Name());
-           hauptfenster->getChar().List_Fertigkeit().push_back(MBE);
+           cH_MidgardBasicElement MBE_=new Fertigkeit(*cH_Fertigkeit("Landeskunde"));
+           MidgardBasicElement_mutable M(&*MBE_);
+           M.setZusatz(hauptfenster->getCWerte().Herkunft()->Name());
+           hauptfenster->getChar().List_Fertigkeit().push_back(M);
            return;
          }
        else
@@ -257,13 +259,12 @@ void table_lernschema::on_zusatz_leaf_schrift_selected(cH_RowDataBase d)
 {
   if(tree_lernschema) tree_lernschema->set_sensitive(true);
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
-/*
-  MidgardBasicElement_mutable MBE=dt->getMBE();
+
   MidgardBasicElement_mutable schrift(&*cH_Schrift(dt->getZusatz()));
-  schrift.setErfolgswert(MBE->Erfolgswert());
-  schrift.setLernpunkte(MBE->Lernpunkte());
-*/
-  MidgardBasicElement_mutable schrift=dt->getMBE();
+  schrift.setErfolgswert(dt->getMBE().Erfolgswert());
+  schrift.setLernpunkte(dt->getMBE().Lernpunkte());
+
+//  MidgardBasicElement_mutable schrift=dt->getZusatz();
   hauptfenster->getChar().List_Schrift().push_back(schrift);
   frame_lernschema_zusatz->hide();
   zeige_werte();  
@@ -274,13 +275,11 @@ void table_lernschema::on_zusatz_leaf_sprache_selected(cH_RowDataBase d)
 {
   tree_lernschema->set_sensitive(true);
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
-/*
-  cH_MidgardBasicElement MBE=dt->getMBE();
-  cH_MidgardBasicElement sprache(&*cH_Sprache(dt->getZusatz()));
-  sprache->setErfolgswert(MBE->Erfolgswert());
-  sprache->setLernpunkte(MBE->Lernpunkte());
-*/
-  MidgardBasicElement_mutable sprache=dt->getMBE();
+
+  MidgardBasicElement_mutable sprache(&*cH_Sprache(dt->getZusatz()));
+  sprache.setErfolgswert(dt->getMBE().Erfolgswert());
+  sprache.setLernpunkte(dt->getMBE().Lernpunkte());
+
   hauptfenster->getChar().List_Sprache().push_back(sprache);
   frame_lernschema_zusatz->hide();
   zeige_werte();  
