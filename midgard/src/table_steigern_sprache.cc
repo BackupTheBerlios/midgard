@@ -20,7 +20,6 @@
 #include "table_steigern.hh"
 #include "Sprache.hh"
 #include "Schrift.hh"
-#include "LernListen.hh"
 #include "class_SimpleTree.hh"
 #include <libmagus/Ausgabe.hh>
 #include <libmagus/NotFound.h>

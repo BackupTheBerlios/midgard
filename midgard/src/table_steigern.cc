@@ -5,7 +5,6 @@
 #include "Fertigkeiten.hh"
 #include "midgard_CG.hh"
 #include "dtos1.h"
-#include "LernListen.hh"
 #include <bool_CheckButton.hh>
 extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 #include <libmagus/Ausgabe.hh>
@@ -50,8 +49,6 @@ void table_steigern::refresh()
 void table_steigern::init(midgard_CG *h)
 {
   hauptfenster=h;
-//  if(LL) delete LL ;
-//  LL = new LernListen();
   vabenteurer->signal_anderer_abenteurer().connect(SigC::slot(*this,&table_steigern::refresh));
   vabenteurer->proxies.undo_changed.connect(SigC::slot(*this,&table_steigern::refresh));
 //  vabenteurer->proxies.wizard.signal_changed().connect(SigC::slot(*this,&table_steigern::wizard_changed));

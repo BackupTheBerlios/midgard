@@ -141,8 +141,7 @@ void table_steigern::init_waffenbesitz()
 //  lade_waffenbesitz();
   show_alte_waffen();
 
-  list_WaffenBesitz_neu = LernListen()
-             .getWaffenBesitz(hauptfenster->getAben());
+  list_WaffenBesitz_neu = LernListen::getWaffenBesitz(hauptfenster->getAben());
   show_neue_waffen();
 }
 
@@ -161,7 +160,7 @@ void  table_steigern::show_alte_waffen()
 void  table_steigern::show_neue_waffen()
 {
   std::vector<cH_RowDataBase> datavec;
-//  std::list<H_WaffeBesitz> Waffe_Besitz_neu=LernListen().getWaffenBesitz(hauptfenster->getAben());
+//  std::list<H_WaffeBesitz> Waffe_Besitz_neu=LernListen::getWaffenBesitz(hauptfenster->getAben());
 //  for (std::list<H_WaffeBesitz>::const_iterator i=Waffe_Besitz_neu.begin();i!=Waffe_Besitz_neu.end();++i)
   for (std::list<H_WaffeBesitz>::const_iterator i=list_WaffenBesitz_neu.begin();i!=list_WaffenBesitz_neu.end();++i)
         datavec.push_back(new Data_waffenbesitz(*i,hauptfenster));

@@ -4,7 +4,6 @@
 class midgard_CG;
 #include "MidgardBasicElement.hh"
 #include <list>
-class LernListen;
 #include "Enums.hh"
 #include <BaseObjects/Model.h>
 #include <gtkmm/liststore.h>
@@ -17,7 +16,6 @@ class table_steigern : public table_steigern_glade
 //        friend class midgard_CG;
 //        friend class Magus_Optionen; // Zum Speichern der Handle-Fenster Positionen
         midgard_CG *hauptfenster;
-//        LernListen LL;        
 
         std::list<MBEmlt> list_Fertigkeit_neu;
         std::list<MBEmlt> list_WaffenGrund_neu;

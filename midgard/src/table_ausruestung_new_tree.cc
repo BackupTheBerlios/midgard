@@ -77,11 +77,10 @@ void table_ausruestung::fill_new_preise()
   std::list<cH_Data_NewPreis> LNP;
   std::list<cH_Preise>::const_iterator e=Datenbank.preise.end();
 //cout << "F I L L \n";
-  LernListen LL;
   for(std::list<cH_Preise>::const_iterator i=Datenbank.preise.begin();i!=e;++i)
    {
      if((*i)->Unverkauflich() && !togglebutton_unverkauflich->get_active()) continue;
-     if(LL.region_check(hauptfenster->getAben(),(*i)->Region()))
+     if(LernListen::region_check(hauptfenster->getAben(),(*i)->Region()))
          LNP.push_back(new Data_NewPreis(*i));
    }
 //cout << "F I L L 2\t"<<LNP.size()<<'\n';

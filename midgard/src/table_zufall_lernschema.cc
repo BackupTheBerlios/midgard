@@ -51,13 +51,12 @@ void table_zufall::on_button_zufall_voll_clicked()
 
 Zufall::e_Vorgabe table_zufall::getVorgaben(Abenteurer& oldAben) const
 {
-   LernListen LL;
       Zufall::e_Vorgabe v;
       if(checkbutton_spezies->get_active()) 
          { v+=Zufall::B_Spezies;
            std::string spezies=combo_spezies->get_entry()->get_text();
-           if(Spezies::get_Spezies_from_long(LL.getSpezies(true),spezies))
-              oldAben.setSpezies(Spezies::getSpezies(spezies,LL.getSpezies(true)));
+           if(Spezies::get_Spezies_from_long(LernListen::getSpezies(true),spezies))
+              oldAben.setSpezies(Spezies::getSpezies(spezies,LernListen::getSpezies(true)));
          }
       if(checkbutton_typ->get_active())  
          {  v+=Zufall::B_Typ;
@@ -163,27 +162,26 @@ void table_zufall::zeige_werte()
 void table_zufall::fill_combos()
 { // woher auch sonst diese Information sinnvoll nehmen ...
   bool nsc_allowed = true; // Programmoptionen.OptionenCheck(Optionen::NSC_only).active;
-  LernListen LL;
   std::list<std::string> L;
 
   // Typen
   fill_combo_typen(LL,nsc_allowed);
 /*  
-  const std::vector<std::pair<cH_Typen,bool> > T=LL.getTypen(hauptfenster->getAben(),nsc_allowed);
+  const std::vector<std::pair<cH_Typen,bool> > T=LernListen::getTypen(hauptfenster->getAben(),nsc_allowed);
   for(std::vector<std::pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
      L.push_back(i->first->Name(hauptfenster->getAben().Geschlecht()));
   combo_typ->set_popdown_strings(L);
 */
   // Spezies
   L.clear();
-  std::vector<cH_Spezies> S=LL.getSpezies(nsc_allowed);
+  std::vector<cH_Spezies> S=LernListen::getSpezies(nsc_allowed);
   for(std::vector<cH_Spezies>::const_iterator i=S.begin();i!=S.end();++i)
      L.push_back((*i)->Name());
  combo_spezies->set_popdown_strings(L);
 
   // Herkunft
   L.clear();
-   std::vector<std::pair<cH_Land,bool> > H=LL.getHerkunft(hauptfenster->getAben());
+   std::vector<std::pair<cH_Land,bool> > H=LernListen::getHerkunft(hauptfenster->getAben());
   for(std::vector<std::pair<cH_Land,bool> >::const_iterator i=H.begin();i!=H.end();++i)
      L.push_back(i->first->Name());
  L.sort();
@@ -204,7 +202,7 @@ void table_zufall::fill_combo_typen(const LernListen &LL,const bool nsc_allowed)
      Ausgabe(Ausgabe::Warning,"wie auch immer Spezies!=Spezies werden konnte (CP)");
   }
 
-  const std::vector<std::pair<cH_Typen,bool> > T=LL.getTypen(hauptfenster->getAben());
+  const std::vector<std::pair<cH_Typen,bool> > T=LernListen::getTypen(hauptfenster->getAben());
   for(std::vector<std::pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
      L.push_back(i->first->Name(hauptfenster->getAben().Geschlecht()));
   combo_typ->set_popdown_strings(L);
@@ -297,9 +295,10 @@ bool table_zufall::on_combo_spezies_focus_out_event(GdkEventFocus *ev)
 
 void table_zufall::on_combo_spezies_changed()
 {  
-  LernListen LL;
-//  bool nsc_allowed = hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active;
-  fill_combo_typen(LL,true);
+  bool nsc_allowed = hauptfenster
+  	?hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active
+  	:true;
+  fill_combo_typen(nsc_allowed);
 }
 
 void table_zufall::on_combo_typ_activate()

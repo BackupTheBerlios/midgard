@@ -45,7 +45,7 @@ void table_grundwerte::fill_typauswahl_2()
 void table_grundwerte::fill_typauswahl_fill(int typ_1_2)
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
-  const std::vector<std::pair<cH_Typen,bool> > T=LernListen().getTypen(hauptfenster->getAben());
+  const std::vector<std::pair<cH_Typen,bool> > T=LernListen::getTypen(hauptfenster->getAben());
   std::list<std::string> L;
   for(std::vector<std::pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
    {
@@ -155,7 +155,7 @@ void table_grundwerte::fill_spezies()
  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   std::vector<std::string> L;
   bool nsc_allowed = hauptfenster?bool(hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active):false;
-  std::vector<cH_Spezies>V=LernListen().getSpezies(nsc_allowed);
+  std::vector<cH_Spezies>V=LernListen::getSpezies(nsc_allowed);
   for(std::vector<cH_Spezies>::const_iterator i=V.begin();i!=V.end();++i)
    {
      L.push_back((*i)->Name());

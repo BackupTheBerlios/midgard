@@ -758,12 +758,11 @@ void table_lernschema::show_lernschema()
 
   std::list<MBEmlt> newlist;
   std::list<MBEmlt> LW;
-  LernListen LL;
   if(fert=="Unge" || fert=="Allg") 
    {
     std::list<MBEmlt> L; 
-    if     (fert=="Unge") L=LL.getMBEm(A,LernListen::lUnge,0,0,"Unge");
-    else if(fert=="Allg") L=LL.getMBEm(A,LernListen::lAllg,0,0,"Allg");  
+    if     (fert=="Unge") L=LernListen::getMBEm(A,LernListen::lUnge,0,0,"Unge");
+    else if(fert=="Allg") L=LernListen::getMBEm(A,LernListen::lAllg,0,0,"Allg");  
     for(std::list<MBEmlt>::const_iterator i=L.begin();i!=L.end();++i)
      {
        int lp=(*i)->Lernpunkte();
@@ -807,9 +806,9 @@ void table_lernschema::show_lernschema()
   if(fert!="Unge" && fert!="Allg" )
     {
     std::list<MBEmlt> L; 
-    if(what==MidgardBasicElement::WAFFE) L=LL.getMBEm(A,LernListen::lWaff,0,0,"Waff");
-    else if(what==MidgardBasicElement::ZAUBER)L=LL.getMBEm(A,LernListen::lZaub,0,0,"Zaub");
-    else if(what==MidgardBasicElement::FERTIGKEIT)L=LL.getMBEm(A,LernListen::lFach,0,0,"Fach");
+    if(what==MidgardBasicElement::WAFFE) L=LernListen::getMBEm(A,LernListen::lWaff,0,0,"Waff");
+    else if(what==MidgardBasicElement::ZAUBER)L=LernListen::getMBEm(A,LernListen::lZaub,0,0,"Zaub");
+    else if(what==MidgardBasicElement::FERTIGKEIT)L=LernListen::getMBEm(A,LernListen::lFach,0,0,"Fach");
     for(std::list<MBEmlt>::const_iterator i=L.begin();i!=L.end();++i)
      {
        bool gelernt=false;

@@ -56,7 +56,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
    {
      case MidgardBasicElement::ZHerkunft:
       {
-       std::vector<std::pair<cH_Land,bool> > L=LernListen().getHerkunft(hauptfenster->getAben());
+       std::vector<std::pair<cH_Land,bool> > L=LernListen::getHerkunft(hauptfenster->getAben());
        for(std::vector<std::pair<cH_Land,bool> >::const_iterator i=L.begin();i!=L.end();++i)
           datavec_zusatz.push_back(new Data_Herkunft(i->first,i->second,MBE));
        connection = Tree_Lernschema_Zusatz->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_herkunft_leaf_selected));
@@ -65,7 +65,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
       }
      case MidgardBasicElement::ZUeberleben:
       {
-       std::vector<MidgardBasicElement::st_zusatz> V=LernListen().getUeberlebenZusatz();
+       std::vector<MidgardBasicElement::st_zusatz> V=LernListen::getUeberlebenZusatz();
        for(std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=V.begin();i!=V.end();++i)
           datavec_zusatz.push_back(new Data_Zusatz(hauptfenster->getAben().Ueberleben(),*i));
        connection = Tree_Lernschema_Zusatz->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_herkunft_ueberleben_leaf_selected));
@@ -88,7 +88,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
          }
        else
          {
-           std::vector<MidgardBasicElement::st_zusatz> V=LernListen().getLandZusatz();
+           std::vector<MidgardBasicElement::st_zusatz> V=LernListen::getLandZusatz();
            for(std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=V.begin();i!=V.end();++i)
               datavec_zusatz.push_back(new Data_Zusatz(MBE,*i));
          }
@@ -103,8 +103,8 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
            MBE->setLernArt((*MBE)->Name());
            list_FertigkeitZusaetze.push_back(MBE->LernArt());
         }
-       std::vector<MidgardBasicElement::st_zusatz>  V=LernListen(
-            ).getSprachenZusatz(MBE,hauptfenster->getAben(),button_allgemeinwissen->get_active());
+       std::vector<MidgardBasicElement::st_zusatz>  V=LernListen
+            ::getSprachenZusatz(MBE,hauptfenster->getAben(),button_allgemeinwissen->get_active());
        for(std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=V.begin();i!=V.end();++i)
           datavec_zusatz.push_back(new Data_Zusatz(MBE,*i));
        connection = Tree_Lernschema_Zusatz->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_sprache_selected));
@@ -112,7 +112,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
       }
      case MidgardBasicElement::ZSchrift:
       {
-       std::vector<MidgardBasicElement::st_zusatz> V=LernListen().getSchriftenZusatz(MBE,hauptfenster->getAben());
+       std::vector<MidgardBasicElement::st_zusatz> V=LernListen::getSchriftenZusatz(MBE,hauptfenster->getAben());
        for(std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=V.begin();i!=V.end();++i)
           datavec_zusatz.push_back(new Data_Zusatz(MBE,*i));
        if(datavec_zusatz.empty()) 
@@ -151,7 +151,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
       }
      case MidgardBasicElement::ZTabelle:
       {
-       std::vector<MidgardBasicElement::st_zusatz> VG=LernListen().getMBEZusatz(hauptfenster->getAben(),MBE);
+       std::vector<MidgardBasicElement::st_zusatz> VG=LernListen::getMBEZusatz(hauptfenster->getAben(),MBE);
        for (std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=VG.begin();i!=VG.end();++i)
           datavec_zusatz.push_back(new Data_Zusatz(MBE,*i));
        connection = Tree_Lernschema_Zusatz->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_selected));

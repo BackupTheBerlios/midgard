@@ -217,19 +217,18 @@ void table_steigern::fillClistZusatz(MBEmlt &MBE)
   std::vector<cH_RowDataBase> datavec;
   std::vector<std::string> title;
   std::vector<MidgardBasicElement::st_zusatz> VZusatz;
-  LernListen LL;
   switch ((*MBE)->ZusatzEnum(hauptfenster->getAben().getVTyp()))
    {
      case MidgardBasicElement::ZLand :
       {        
         title.push_back("Land auswählen");
-        VZusatz=LL.getLandZusatz();
+        VZusatz=LernListen::getLandZusatz();
         break;
       }
      case MidgardBasicElement::ZWaffe :
       {      
         title.push_back("Waffe auswählen");
-        VZusatz=LL.getWaffenZusatz(hauptfenster->getAben().List_Waffen());
+        VZusatz=LernListen::getWaffenZusatz(hauptfenster->getAben().List_Waffen());
         break;
       }
      case MidgardBasicElement::ZTabelle : 
@@ -237,7 +236,7 @@ void table_steigern::fillClistZusatz(MBEmlt &MBE)
         title.push_back((*MBE)->Name()+" auswählen");
         title.push_back("Typ");
         title.push_back("Region");
-        VZusatz=LL.getMBEZusatz(hauptfenster->getAben(),MBE);
+        VZusatz=LernListen::getMBEZusatz(hauptfenster->getAben(),MBE);
         break; 
        }
      default : assert("Never get here\n");

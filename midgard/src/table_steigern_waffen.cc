@@ -21,7 +21,6 @@
 #include "WaffeGrund.hh"
 #include "class_SimpleTree.hh"
 #include "Waffe.hh"
-#include "LernListen.hh"
 #include <libmagus/Ausgabe.hh>
 
 void table_steigern::waffen_zeigen()

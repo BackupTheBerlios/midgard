@@ -21,7 +21,7 @@
 #include <Gtk_OStream.h>
 #include "Fertigkeiten.hh"
 #include "Waffe.hh"       
-#include "LernListen.hh"
+//#include "LernListen.hh"
 #include <libmagus/Ausgabe.hh>
 
 void table_steigern::fertigkeiten_zeigen()
