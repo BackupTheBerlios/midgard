@@ -1,4 +1,4 @@
-dnl $Id: petig.m4,v 1.13 2003/10/10 06:57:52 christof Exp $
+dnl $Id: petig.m4,v 1.14 2003/10/28 12:04:56 christof Exp $
 
 dnl Configure paths for some libraries
 dnl derived from kde's acinclude.m4
@@ -150,7 +150,12 @@ then
   AC_ARG_WITH(postgresdir,
     [  --with-postgresdir=postgresdir  where PostgreSQL is installed ],
     petig_postgresdir=$withval,
-    petig_postgresdir=`which ecpg | sed s+/bin/ecpg++`
+    [petig_postgresdir=`which ecpg | sed s+/bin/ecpg++`
+     if test ! -x "$ECPG" -a -x /usr/lib/postgresql/bin/ecpg
+     then 
+        ECPG=/usr/lib/postgresql/bin/ecpg
+     fi
+    ]
   )
   ECPG="$petig_postgresdir/bin/ecpg"
   if test ! -x "$ECPG" ; then
@@ -247,14 +252,14 @@ then
     $3_LDFLAGS=""
     $3_LIBS="$TEMP/lib$1.a"
     AC_MSG_RESULT($$3_INCLUDES)
-  elif test -r "../$4/lib$4.a"
+  elif test -r "../$4/lib$4.a" -o -r "../$4/lib$4.la"
   then 
     TEMP=`cd ../$4 ; pwd` 
     $3_INCLUDES="-I$TEMP"
     $3_LDFLAGS="-L$TEMP"
     $3_LIBS="-l$4"
     AC_MSG_RESULT($$3_INCLUDES)
-  elif test -r "../$4/src/lib$4.a"
+  elif test -r "../$4/src/lib$4.a" -o -r "../$4/src/lib$4.la"
   then 
     TEMP=`cd ../$4/src ; pwd` 
     $3_INCLUDES="-I$TEMP"
