@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.pgcc,v 1.3 2001/11/15 08:29:34 christof Exp $
+// $Id: land_sprache_exp.pgcc,v 1.4 2001/11/15 10:06:26 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -77,6 +77,93 @@ void land_speichern(std::ostream &o)
    exec sql close schrift_curs;
    SQLerror::test(__FILELINE__);
    o << " </Schriften>\n";
+
+//******************************************************************
+   o << " <SpeziesListe>\n";
+   exec sql declare spezies_curs cursor for
+   	select spezies, nr, 
+   		ap_wert, alter, groesse_f, groesse_w, groesse_s, b_f, b_s,
+   		lpbasis, ap_grad, gestalt, m_abb, 
+   		m_psy, m_phs, m_phk, gift, 
+		m_st,m_ge,m_ko,m_in,m_zt,m_sb,m_au,
+		h_st,h_ge,h_ko,h_in,h_zt,h_sb,h_au
+   	from spezies
+   	order by spezies;
+   exec sql open spezies_curs;
+   SQLerror::test(__FILELINE__);
+  while (true)
+  {exec sql fetch spezies_curs into sql descriptor spalten;
+   SQLerror::test(__FILELINE__,100);
+   if (sqlca.sqlcode) break;
+   FetchIStream is("spalten");
+   o << "  <Spezies";
+   string name=fetch_and_write_string_attrib(is, o, "Name");
+   fetch_and_write_int_attrib(is, o, "MCG:Index");
+   fetch_and_write_int_attrib(is, o, "MCG:AP_wert");
+   o << ">\n";
+   o << "    <Alter";
+   fetch_and_write_int_attrib(is, o, "AnzahlWürfel");
+   o << "/>\n";
+   o << "    <Größe";
+   fetch_and_write_int_attrib(is, o, "AnzahlWürfel");
+   fetch_and_write_int_attrib(is, o, "ArtWürfel");
+   fetch_and_write_int_attrib(is, o, "Addiere");
+   o << "/>\n";
+   o << "    <Bewegungsweite";
+   fetch_and_write_int_attrib(is, o, "AnzahlWürfel");
+   fetch_and_write_int_attrib(is, o, "Addiere");
+   o << "/>\n";
+   o << "    <Modifikation";
+   fetch_and_write_int_attrib(is, o, "LP_Basis");
+   fetch_and_write_int_attrib(is, o, "APproGrad");
+   fetch_and_write_int_attrib(is, o, "Gestalt");
+   fetch_and_write_int_attrib(is, o, "Abwehr");
+   o << "><Resistenzen";
+   fetch_and_write_int_attrib(is, o, "psy");
+   fetch_and_write_int_attrib(is, o, "phs");
+   fetch_and_write_int_attrib(is, o, "phk");
+   fetch_and_write_int_attrib(is, o, "Gift");
+   o << "/></Modifikation>\n";
+   o << "    <Minima";
+   fetch_and_write_int_attrib(is, o, "St");
+   fetch_and_write_int_attrib(is, o, "Ge");
+   fetch_and_write_int_attrib(is, o, "Ko");
+   fetch_and_write_int_attrib(is, o, "In");
+   fetch_and_write_int_attrib(is, o, "Zt");
+   fetch_and_write_int_attrib(is, o, "Sb");
+   fetch_and_write_int_attrib(is, o, "Au");
+   o << "/>\n";
+   o << "    <Maxima";
+   fetch_and_write_int_attrib(is, o, "St");
+   fetch_and_write_int_attrib(is, o, "Ge");
+   fetch_and_write_int_attrib(is, o, "Ko");
+   fetch_and_write_int_attrib(is, o, "In");
+   fetch_and_write_int_attrib(is, o, "Zt");
+   fetch_and_write_int_attrib(is, o, "Sb");
+   fetch_and_write_int_attrib(is, o, "Au");
+   o << "/>\n";
+   {  exec sql begin declare section;
+      const char *SPEZIES=name.c_str(GARNIX);
+      char TYPEN[40][40];
+      exec sql end declare section;
+      
+      exec sql select typen into :TYPEN from spezies_typen
+      	where spezies=:SPEZIES 
+      	order by spezies,typen;
+      if (!sqlca.sqlcode) 
+      {  o << "    <Typen>";
+         for (int i=0;i<sqlca.sqlerrd[2];++i)
+         {  o << typ_standardisierung(TYPEN[i]);
+            if (i+1 < sqlca.sqlerrd[2]) o << ',';
+         }
+         o << "</Typen>\n";
+      }
+   }
+   o << "  </Spezies>\n";
+  }
+   exec sql close spezies_curs;
+   SQLerror::test(__FILELINE__);
+   o << " </SpeziesListe>\n";
 
 //******************************************************************
    o << "</MidgardCG-data>\n";
