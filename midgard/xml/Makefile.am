@@ -1,12 +1,10 @@
-# $Id: Makefile.am,v 1.44 2003/01/24 08:43:42 christof Exp $
+# $Id: Makefile.am,v 1.45 2003/01/27 13:12:34 christof Exp $
 
 EXTRA_PROGRAMS = all_exp arkanum_exp 
 
 #MIDGARD3=$(shell if test `hostname` = "puck" ; then echo -DMIDGARD3 ; fi)
 
 AM_CXXFLAGS = @CXXFLAGS@ @COMMONXX_INCLUDES@ $(MIDGARD3) -DREGION
-
-BUILT_SOURCES=TagStream.hh Tag.hh
 
 common_sources = export_common.cc common_exp.cc zauber_exp.cc \
 	ki_speichern.cc
@@ -15,7 +13,7 @@ all_exp_SOURCES=all_exp.cc $(common_sources) \
 	kido_exp.cc fertigk_exp.cc land_sprache_exp.cc waffen_exp.cc
 
 AM_LDFLAGS = @COMMONXX_LDFLAGS@
-CLEANFILES = *~ $(BUILT_SOURCES) 
+CLEANFILES = *~ 
 LIBS=@LIBS@ @COMMONXX_LIBS@
 
 XMLDIR=.
