@@ -1,6 +1,4 @@
 #!/bin/sh
-# generated 2001/2/2 8:41:25 CET by thoma@ig23.
-# using glademm V0.5_11c
 
 if test ! -f install-sh ; then touch install-sh ; fi
 
@@ -15,22 +13,37 @@ else
 echo Found GNU Make at $MAKE ... good.
 fi
 
-echo This script runs configure and make...
+if which autoconf2.50 >/dev/null
+then AC_POSTFIX=2.50
+elif which autoconf >/dev/null
+then AC_POSTFIX=""
+else 
+  echo 'you need autoconfig (2.58+ recommended) to generate the Makefile'
+  exit 1
+fi
+echo `autoconf$AC_POSTFIX --version` found
+
+if which automake-1.7 >/dev/null
+then AM_POSTFIX=-1.7
+elif which automake-1.6 >/dev/null
+then AM_POSTFIX=-1.6
+elif which automake >/dev/null
+then AM_POSTFIX=""
+else
+  echo 'you need automake (1.7.8+ recommended) to generate the Makefile'
+  exit 1
+fi
+echo `automake$AM_POSTFIX --version | head -1` found
+
+echo This script runs automake/-conf, configure and make...
 echo You did remember necessary arguments for configure, right?
 
-if test ! -x `which aclocal`  
-then echo you need autoconfig and automake to generate the Makefile
-fi
-if test ! -x `which automake`  
-then echo you need automake to generate the Makefile
-fi
-
 libtoolize --force --copy
-autoheader
+autoheader$AC_POSTFIX
 if test -f /usr/share/aclocal/petig.m4
-then aclocal
-else aclocal -I macros
+then aclocal$AM_POSTFIX
+else aclocal$AM_POSTFIX -I macros
 fi
-automake --add-missing --copy --gnu
-autoconf
+automake$AM_POSTFIX --add-missing --copy --gnu
+autoconf$AC_POSTFIX
 ./configure $* && $MAKE
