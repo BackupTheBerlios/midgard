@@ -1,4 +1,14 @@
 ##########################################################################
+NEWS IN VERSION 0.6beta0
+- Die Listen für die Fertigkeiten und Zauber (beim steigern)
+   sind komplett (!!!) überartbeitet worden. Jetzt kann man diese nach 
+   Spalten ordnen (und Spalten verstecken). Dazu sind jeweils die
+   neusten Versionen von ManuProc_Base und GtkmmAddons und (NEU) 
+   ManuProC_Widgets-0.2.tar.gz nötig. Andere Listen werden folgen :-)
+   BITTE lest die überarbeitete Hilfe, damit Ihr wißt um was es geht.
+- Hilfe überarbeitet
+
+##########################################################################
 NEWS IN VERSION 0.5beta5
 - Ordenskriegerbug in Datenbank entfernt
 - Hilfe überarbeitet

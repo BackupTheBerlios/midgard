@@ -1,4 +1,4 @@
-// $Id: Window_hilfe.cc,v 1.18 2001/06/12 09:31:06 thoma Exp $
+// $Id: Window_hilfe.cc,v 1.19 2001/06/21 13:40:41 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -83,6 +83,7 @@ string s="
 (Generell gilt: Während des Steigerns wird der Charakter STÄNDIG in der 
 Datenbank abgespeichert. Daher ist es nocht nötig, den Charakter nach dem
 steigern noch einmal zu speichern.)
+Bitte lest die unten aufgeführet Anleitung zur Bedienung der Treebaselisten
 
 * Charakter laden (Wenn ein Charaktername und eine Version eingetragen sind,
     wird der entsprechende Charakter geladen, ansonsten erscheint eine 
@@ -128,6 +129,13 @@ Anmerkungen zu einigen Features
 * Charakter laden          -> xml-Format importieren 
 * LaTeX Charakterblatt     -> Export im Format für Midgard Abenteuer
 * angeborene Fertigkeiten  -> eingeben (statt würfeln) der angeborenen Fertigkeiten
+
+Anleitung zur Treebaseliste
+
+* Die Listen können durch Anklicken der Kopfzeile in beliebiger Reinfolge
+   sortiert werden
+* Mit der rechten Maustaste öffnet man ein (hoffentlich selbsterklärendes) Menü
+   
 
 ";
 return s;
