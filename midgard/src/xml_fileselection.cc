@@ -31,8 +31,10 @@ void xml_fileselection::on_ok_button1_clicked()
 {   
  if (was=="load")
    hauptfenster->xml_import(this->get_filename());
- if (was=="save")
+ else if (was=="save")
    hauptfenster->xml_export(this->get_filename());
+ else if (was=="export")
+   hauptfenster->spielleiter_export_save(this->get_filename());
  destroy();
 }
 

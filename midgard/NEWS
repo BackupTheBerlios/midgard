@@ -1,4 +1,26 @@
 ##########################################################################
+NEWS IN VERSION 0.3delta4
+
+* Lernpunkte editieren funktioniert
+* Setzen der Erfolgswerte für Grad 1 durch Knopfdruck möglich
+* Händigkeit auf dem Charakterdokument
+* Export im Spielleiterformat jetzt mit Dateiauswahl
+* Grundkennisse tauchen nicht mehr doppelt auf
+* Gift Resistenz korrekt berechnet
+* 'Laufen' Pixmap im 'Fertigkeiten auswählen' Button
+
+TODO:
+* Abspeichern und laden von Optionen 
+* Hausregel Gold auswerten
+* Landeskunde als Berufsfähigkeit für 3 Berufe
+  (Karawanenführer, land, v,m
+   Kaufmann, stadt,m,a
+   Verwalter, land, stadt, m,a,
+* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+
+##########################################################################
 NEWS IN VERSION 0.3delta3
 
 * kleinere Bugfixes

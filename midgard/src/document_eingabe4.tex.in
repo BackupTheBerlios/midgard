@@ -209,7 +209,7 @@ Schmecken      & \sinnsc   &Abwehr   & \boab  &Geistesmagie & \psy \\
 Tasten         & \sinnt    &Zaubern  & \boza  &Körpermagie & \phs \\
 Sechster Sinn  & \sinnss   &Geistmagie    & \bopsy &Umgebungsmagie & \phk \\
                &           &Körpermagie   & \bophs &Gift & \gift  \\
-               &           &Umgebungsmagie   & \bophk & & \\\hline
+\multicolumn{2}{|l|}{\hand}  &Umgebungsmagie   & \bophk & & \\\hline
 \end{tabular}
 }
 \hfill

@@ -24,13 +24,21 @@
 #include <fstream>
 #include "Zauber.hh"
 #include <Aux/itos.h>
+#include "xml_fileselection.hh"
+
 
 void midgard_CG::spielleiter_export()
 {
-  std::string strinfo = "Datei 'spielleiter_export.txt' enthält nun die Daten des \n";
+ manage (new xml_fileselection(this,"export"));
+}
+
+
+void midgard_CG::spielleiter_export_save(const std::string& dateiname)
+{
+  std::string strinfo = "Datei '"+dateiname+"' enthält nun die Daten des \n";
   strinfo +="Abenteurers im Format für Midgard Publikationen\n";
   manage (new WindowInfo(strinfo));
-  ofstream fout("spielleiter_export.txt");
+  ofstream fout(dateiname.c_str());
   fout << Werte.Name_Abenteurer()<<", "
       <<Typ[0]->Name(Werte.Geschlecht())<<",   Grad "<<Werte.Grad()<<"\n";
   fout << Werte.Stand()<<", "<<Werte.Glaube()<<" - ("<<Werte.Groesse()<<"cm) - "

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.135 2002/02/04 07:57:47 thoma Exp $
+// $Id: midgard_CG.cc,v 1.136 2002/02/04 11:01:01 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -314,7 +314,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
       (*i)->setActive(false);
    menu_init();
-   menu_gradanstieg_init();
+//   menu_gradanstieg_init();
 //cout << "HausregelCheck(EPsteigern).active "<<HausregelCheck(EPsteigern).active<<'\n';
 //   checkbutton_EP_Geld->set_active(HausregelCheck(EPsteigern).active);
    checkbutton_EP_Geld->set_active(true);

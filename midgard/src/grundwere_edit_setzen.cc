@@ -1,4 +1,4 @@
-// $Id: grundwere_edit_setzen.cc,v 1.28 2002/02/04 07:57:47 thoma Exp $
+// $Id: grundwere_edit_setzen.cc,v 1.29 2002/02/04 11:01:01 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,6 +27,12 @@ void midgard_CG::on_togglebutton_edit_werte_toggled()
      set_all_entrys(); // eigentlich überflüssig (wg. focus_leaf_event)
      edit_sensitive(false);
     }
+}
+
+void midgard_CG::on_button_grda1setzen_clicked()
+{
+  Werte.setGrad1Werte(Typ);
+  zeige_werte(Werte);
 }
 
 void midgard_CG::set_all_entrys()
@@ -195,7 +201,7 @@ gint midgard_CG::on_spinbutton_in_focus_out_event(GdkEventFocus *ev)
 { set_all_entrys(); return false;}     
 gint midgard_CG::on_spinbutton_zt_focus_out_event(GdkEventFocus *ev)
 { set_all_entrys(); 
-  Werte.setSinn("Sechster Sinn",Werte.Zt()/25);
+//  Werte.setSinn("Sechster Sinn",Werte.Zt()/25);
   return false;}     
 gint midgard_CG::on_spinbutton_sb_focus_out_event(GdkEventFocus *ev)
 { set_all_entrys(); return false;}
@@ -231,6 +237,8 @@ void midgard_CG::optionmenu_hand_deactivate()
 
 void midgard_CG::edit_sensitive(bool b)
 {
+  if(b)   button_grda1setzen->show();
+  else    button_grda1setzen->hide();
   entry_nameC->set_sensitive(b);
   entry_nameS->set_sensitive(b);
   entry_version->set_sensitive(b);

@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.96 2002/01/30 12:04:05 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.97 2002/02/04 11:01:01 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -119,7 +119,8 @@ void midgard_CG::LaTeX_write_values()
  fout << "\\newcommand{\\sinnsc}{"<<Werte.Schmecken()<< "}\n";
  fout << "\\newcommand{\\sinnt}{"<<Werte.Tasten()<< "}\n";
  fout << "\\newcommand{\\sinnss}{"<<Werte.SechsterSinn()<< "}\n";
-
+ 
+ fout << "\\newcommand{\\hand}{"<<Werte.Hand()<< "}\n";
 
 
 

@@ -190,7 +190,10 @@ void midgard_CG::on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page *page,
     frame_pp_zaubern->set_sensitive(false);
   }
  if(pagenr==PAGE_STEIGERN)
-   load_for_page(notebook_lernen->get_current_page_num());
+  {
+    menu_gradanstieg_init();
+    load_for_page(notebook_lernen->get_current_page_num());
+  }
  else if(pagenr==PAGE_AUSRUESTUNG)
     ausruestung_laden();
 }

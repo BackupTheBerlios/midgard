@@ -78,9 +78,9 @@ void Waffen_auswahl::on_waffen_clist_auswahl_select_row(gint row, gint column, G
    maxpunkte -= atoi(waffen_clist_auswahl->get_text(row,0).c_str());
    waffen_auswahl_lernpunkte->set_text(itos(maxpunkte));
    std::string grund = waffen_clist_auswahl->get_text(row,4);
-//   cH_MidgardBasicElement E(new WaffeGrund(grund));
-//   list_WaffenGrund.push_back(E);
    list_WaffenGrund.push_back(&*cH_WaffeGrund(grund));
+   list_WaffenGrund.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME));
+   list_WaffenGrund.unique();
 }
 
 void Waffen_auswahl::on_waffen_clist_auswahl_unselect_row(gint row, gint column, GdkEvent *event)

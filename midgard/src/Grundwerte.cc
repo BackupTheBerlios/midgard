@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.6 2002/01/30 12:04:05 thoma Exp $               
+// $Id: Grundwerte.cc,v 1.7 2002/02/04 11:01:01 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -178,3 +178,16 @@ std::string Grundwerte::Version() const
 // if(!b) return version;
 // return "Grad "+itos(grad);
 }
+
+void Grundwerte::setGrad1Werte(const vector<cH_Typen>& Typ)
+{
+  setSinn("Sechster Sinn",Zt()/25);
+  setAbwehr_wert(11) ;
+  setResistenz(10);
+
+  if (Typ[0]->Zaubern() == "j" || Typ[0]->Zaubern() == "z" ||
+      Typ[1]->Zaubern() == "j" || Typ[1]->Zaubern() == "z" ) 
+      setZaubern_wert(10) ;
+  else setZaubern_wert(2) ;
+}
+

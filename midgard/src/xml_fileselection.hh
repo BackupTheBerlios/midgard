@@ -42,6 +42,6 @@ class xml_fileselection : public xml_fileselection_glade
         void on_ok_button1_clicked();
         void on_cancel_button1_clicked();
    public:
-      xml_fileselection(midgard_CG* h,std::string _was);
+        xml_fileselection(midgard_CG* h,std::string _was);
 };
 #endif

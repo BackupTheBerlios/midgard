@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.22 2002/01/30 12:04:05 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.23 2002/02/04 11:01:01 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -104,7 +104,7 @@ public:
    int KAW() const {return St()/10;}
    int WLW() const {return 40+Ko()/2;}
    int Geistesblitz() const {return In()/10;}
-   int Gift() const {if(Ko()) return (30 + Ko())/2; else return 0;}
+   int Gift() const {if(Ko()) return 30 + Ko()/2; else return 0;}
    int Alter() const {return alter;}
    std::string Gestalt() const ;
    std::string Geschlecht() const {return geschlecht;}
@@ -170,6 +170,8 @@ public:
    int Schmecken() const {return const_cast<std::map<std::string,int>&>(sinnmap)["Schmecken"];}
    int Tasten() const {return const_cast<std::map<std::string,int>&>(sinnmap)["Tasten"];}
    int SechsterSinn() const {return const_cast<std::map<std::string,int>&>(sinnmap)["Sechster Sinn"];}
+
+   void setGrad1Werte(const vector<cH_Typen>& Typ);
 
    void setZaubern_wert(int i){zaubern_wert=i;}
    void setAbwehr_wert(int i){abwehr_wert=i;}

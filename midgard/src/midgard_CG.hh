@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.153 2002/02/04 07:57:47 thoma Exp $
+// $Id: midgard_CG.hh,v 1.154 2002/02/04 11:01:01 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -164,6 +164,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         int  wuerfeln_best_of_two(Random& random);
 //        void werte_editieren();
         void on_togglebutton_edit_werte_toggled();
+        void on_button_grda1setzen_clicked();
         void set_all_entrys();
         void on_entry_nameC_activate();
         void on_entry_nameS_activate();
@@ -494,6 +495,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          void doppelcharaktere();
          void xml_export(const std::string& datei);
          void xml_import(const std::string& datei);
+         void spielleiter_export_save(const std::string& dateiname);
          void charakter_beschreibung_uebernehmen(const std::string& b,bool drucken);
          void select_charakter(const std::string& name, const std::string& version);
          void show_fertigkeiten();

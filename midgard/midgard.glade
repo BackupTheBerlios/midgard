@@ -1479,7 +1479,7 @@ Beidhänder
 	      <widget>
 		<class>GtkTable</class>
 		<name>table30</name>
-		<rows>4</rows>
+		<rows>5</rows>
 		<columns>2</columns>
 		<homogeneous>False</homogeneous>
 		<row_spacing>0</row_spacing>
@@ -1695,6 +1695,76 @@ Beidhänder
 		    <xfill>True</xfill>
 		    <yfill>False</yfill>
 		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkButton</class>
+		  <name>button_grda1setzen</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <tooltip>Wird nicht der Knopf 'Abgeleitete Werte' gedrückt, weil der Charakter eingegeben wurde, so können mit diesem Knopf die Berechnung der Erfolgswerte (einschließlich des Erfolgswertes für 'Sechster Sinn') gesetzt werden.</tooltip>
+		  <can_focus>True</can_focus>
+		  <signal>
+		    <name>clicked</name>
+		    <handler>on_button_grda1setzen_clicked</handler>
+		    <last_modification_time>Mon, 04 Feb 2002 08:52:17 GMT</last_modification_time>
+		  </signal>
+		  <relief>GTK_RELIEF_NORMAL</relief>
+		  <child>
+		    <left_attach>0</left_attach>
+		    <right_attach>2</right_attach>
+		    <top_attach>4</top_attach>
+		    <bottom_attach>5</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>True</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>False</xfill>
+		    <yfill>False</yfill>
+		  </child>
+
+		  <widget>
+		    <class>GtkHBox</class>
+		    <name>hbox57</name>
+		    <homogeneous>False</homogeneous>
+		    <spacing>0</spacing>
+
+		    <widget>
+		      <class>GtkPixmap</class>
+		      <name>pixmap115</name>
+		      <filename>Fert_Laufen-32.xpm</filename>
+		      <xalign>0.5</xalign>
+		      <yalign>0.5</yalign>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <build_insensitive>True</build_insensitive>
+		      <child>
+			<padding>0</padding>
+			<expand>True</expand>
+			<fill>True</fill>
+		      </child>
+		    </widget>
+
+		    <widget>
+		      <class>GtkLabel</class>
+		      <name>label543</name>
+		      <label>Werte für
+Grad 1
+setzen</label>
+		      <justify>GTK_JUSTIFY_CENTER</justify>
+		      <wrap>False</wrap>
+		      <xalign>0.5</xalign>
+		      <yalign>0.5</yalign>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <child>
+			<padding>0</padding>
+			<expand>False</expand>
+			<fill>False</fill>
+		      </child>
+		    </widget>
+		  </widget>
 		</widget>
 	      </widget>
 	    </widget>
@@ -4304,6 +4374,7 @@ würfeln</label>
 		    <signal>
 		      <name>activate</name>
 		      <handler>on_spinbutton_unge_activate</handler>
+		      <after>True</after>
 		      <last_modification_time>Mon, 14 Jan 2002 21:56:20 GMT</last_modification_time>
 		    </signal>
 		    <signal>
@@ -4429,6 +4500,7 @@ würfeln</label>
 		    <signal>
 		      <name>activate</name>
 		      <handler>on_spinbutton_fach_activate</handler>
+		      <after>True</after>
 		      <last_modification_time>Mon, 14 Jan 2002 21:54:28 GMT</last_modification_time>
 		    </signal>
 		    <signal>
@@ -4480,6 +4552,7 @@ würfeln</label>
 		    <signal>
 		      <name>activate</name>
 		      <handler>on_spinbutton_allgemein_activate</handler>
+		      <after>True</after>
 		      <last_modification_time>Mon, 14 Jan 2002 21:56:06 GMT</last_modification_time>
 		    </signal>
 		    <signal>
@@ -4531,6 +4604,7 @@ würfeln</label>
 		    <signal>
 		      <name>activate</name>
 		      <handler>on_spinbutton_waffen_activate</handler>
+		      <after>True</after>
 		      <last_modification_time>Mon, 14 Jan 2002 21:56:37 GMT</last_modification_time>
 		    </signal>
 		    <signal>
@@ -4582,6 +4656,7 @@ würfeln</label>
 		    <signal>
 		      <name>activate</name>
 		      <handler>on_spinbutton_zaubern_activate</handler>
+		      <after>True</after>
 		      <last_modification_time>Tue, 15 Jan 2002 08:12:29 GMT</last_modification_time>
 		    </signal>
 		    <signal>
@@ -5101,6 +5176,22 @@ auswählen</label>
 			  <padding>0</padding>
 			  <expand>False</expand>
 			  <fill>False</fill>
+			</child>
+		      </widget>
+
+		      <widget>
+			<class>GtkPixmap</class>
+			<name>pixmap114</name>
+			<filename>Fert_Laufen-32.xpm</filename>
+			<xalign>0.5</xalign>
+			<yalign>0.5</yalign>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<build_insensitive>True</build_insensitive>
+			<child>
+			  <padding>0</padding>
+			  <expand>True</expand>
+			  <fill>True</fill>
 			</child>
 		      </widget>
 		    </widget>

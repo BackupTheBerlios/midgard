@@ -100,7 +100,6 @@ void midgard_CG::menu_init()
      regionen_menu->append(*_mi);
      _mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),_mi,*i));
      _mi->set_active((*i)->Active());
-//     if(!OptionBool.Original && (*i)->Offiziell() )
      if(!OptionenCheck(Original).active && (*i)->Offiziell() )
         _mi->set_sensitive(false);
    }
@@ -200,12 +199,6 @@ void midgard_CG::menu_init()
 #include "../pixmaps/Resistenz-trans-32.xpm"
 #include "../pixmaps/Red-Dice-trans-50.xpm"
 
-/* so ginge das ...
-struct midgard_CG::st_gradanstieg{const std::string label; const char** pix; void (midgard_CG::*f)();
-      const std::string l; const char** p; void (midgard_CG::*funk)();
-      : label(l),pix(p),funk(f) {} };
-*/
-
 struct SteigernMenueEintrag
 {    std::string text;
      const char * const *bild;
@@ -247,6 +240,10 @@ void midgard_CG::menu_gradanstieg_init()
      mi->add(*_tab);
      mi->activate.connect(SigC::slot(this,i->funktion));
      menu_gradanstieg->append(*mi);
+     if(i->text=="Zaubern"  && (!Typ[0]->is_mage() && !Typ[1]->is_mage() ))
+      {
+        mi->set_sensitive(false);
+      }
    }
   menu_gradanstieg->show_all();
 }

@@ -1,4 +1,4 @@
-// $Id: abge_werte_setzen.cc,v 1.42 2002/01/30 14:34:12 thoma Exp $
+// $Id: abge_werte_setzen.cc,v 1.43 2002/02/04 11:01:01 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,7 +22,6 @@
 void midgard_CG::on_abge_werte_setzen_clicked()
 {
   Werte.setGrad(1);
-  Werte.setSinn("Sechster Sinn",Werte.Zt()/25);
   Werte.setAu( constraint_aw(random,Werte.Spezies()->Au()) );
   Werte.setpA( random.integer(1,100)-30 + 3*(Werte.In()/10. + Werte.Au()/10.) );
   {
@@ -40,12 +39,6 @@ void midgard_CG::on_abge_werte_setzen_clicked()
     if (Typ[0]->Short() == "Sa") sb = 80+random.integer(1,20);
     Werte.setSb(sb);
   }
-  Werte.setAbwehr_wert(11) ;
-  if (Typ[0]->Zaubern() == "j" || Typ[0]->Zaubern() == "z" || 
-      Typ[1]->Zaubern() == "j" || Typ[1]->Zaubern() == "z" ) 
-    Werte.setZaubern_wert(10) ;
-  else Werte.setZaubern_wert(2) ;
-  Werte.setResistenz(10);
 
   ////////////////////////////////////////////////////////////////////////
   // Ausdauer
@@ -127,6 +120,7 @@ void midgard_CG::on_abge_werte_setzen_clicked()
      }
     Werte.setStand(stand);
    }
+  Werte.setGrad1Werte(Typ);
 
   if (OptionenCheck(Original).active) original_midgard_check() ;
   zeige_werte(Werte);
