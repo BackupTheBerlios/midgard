@@ -203,14 +203,14 @@ COPY "lernschema_4" FROM stdin;
 1	Hä	f	Sprechen: Sprache(+12)	Fachkenntnisse	12
 1	Hä	f	Wagenlenken	Fachkenntnisse	15
 1	Hä	f	kleiner Schild	Waffenfertigkeiten	1
+1	Kd	f	+1 KiDo-Technik	Fachkenntnisse	\N
+1	Kd	f	+1 KiDo-Technik 	Fachkenntnisse	\N
+1	Kd	f	+1 KiDo-Technik  	Fachkenntnisse	\N
 1	Kd	f	Balancieren	Fachkenntnisse	15
 1	Kd	f	Dolch	Waffenfertigkeiten	5
 1	Kd	f	Erste Hilfe	Fachkenntnisse	8
 1	Kd	f	FengSchui	Fachkenntnisse	4
 1	Kd	f	Kenntnis der fünf Klassiker	Fachkenntnisse	\N
-1	Kd	f	KiDo-Technik	Fachkenntnisse	\N
-1	Kd	f	KiDo-Technik	Fachkenntnisse	\N
-1	Kd	f	KiDo-Technik	Fachkenntnisse	\N
 1	Kd	f	Klettern	Fachkenntnisse	15
 1	Kd	f	Meditieren	Fachkenntnisse	8
 1	Kd	f	Morgenstern	Waffenfertigkeiten	5
@@ -274,6 +274,8 @@ COPY "lernschema_4" FROM stdin;
 1	Ma	f	Scharfblick	Zauberkünste	0
 1	Ma	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
 1	Ma	f	Sehen von Verborgenem	Zauberkünste	0
+1	Ny	f	+1 KiDo-Technik	Fachkenntnisse	\N
+1	Ny	f	+1 KiDo-Technik 	Fachkenntnisse	\N
 1	Ny	f	Balancieren	Fachkenntnisse	15
 1	Ny	f	Blasrohr	Waffenfertigkeiten	5
 1	Ny	f	Dolch	Waffenfertigkeiten	5
@@ -281,8 +283,6 @@ COPY "lernschema_4" FROM stdin;
 1	Ny	f	KarumiJutsu	Fachkenntnisse	15
 1	Ny	f	Kenntnis der fünf Klassiker	Fachkenntnisse	\N
 1	Ny	f	KiDo	Fachkenntnisse	10
-1	Ny	f	KiDo-Technik	Fachkenntnisse	\N
-1	Ny	f	KiDo-Technik	Fachkenntnisse	\N
 1	Ny	f	Klettern	Fachkenntnisse	15
 1	Ny	f	Orakelkunst	Fachkenntnisse	\N
 1	Ny	f	Sai	Waffenfertigkeiten	5
