@@ -14,6 +14,8 @@ CREATE TABLE "regionen" (
 	"url" text,
 	"maintainer" text NOT NULL,
 	"version" text NOT NULL,
+	"copyright" text,
+	"offiziell" boolean DEFAULT 'f'::bool,
 	Constraint "regionen_pkey" Primary Key ("name")
 );
 
@@ -23,10 +25,10 @@ CREATE TABLE "regionen" (
 
 
 COPY "regionen" FROM stdin;
-1	Alba	A	\N	\N	Malte Thoma	1.0
-2	Eschar	E	\N	\N	Malte Thoma	1.0
-6	Gildenbrief	G	\N	\N	Malte Thoma	1.0
-5	Hexenzauber & Druidenkraft	H&D	\N	\N	Malte Thoma	1.0
-3	KanThaiPan	K	\N	\N	Malte Thoma	1.0
-4	Rawindra	R	\N	\N	Malte Thoma	1.0
+1	Alba	A	\N	\N	Malte Thoma	1.0	Ludger Fischer und Thomas Kreuzer	t
+2	Eschar	E	\N	\N	Malte Thoma	1.0	Ludger Fischer und Thomas Kreuzer	t
+6	Gildenbrief	G	\N	\N	Malte Thoma	1.0	var.	f
+5	Hexenzauber & Druidenkraft	H&D	\N	\N	Malte Thoma	1.0	Alexander Huiskes	f
+3	KanThaiPan	K	\N	\N	Malte Thoma	1.0	Ludger Fischer und Thomas Kreuzer	t
+4	Rawindra	R	\N	\N	Malte Thoma	1.0	Ludger Fischer und Thomas Kreuzer	t
 \.
