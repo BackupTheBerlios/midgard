@@ -23,6 +23,7 @@
 #include "Sprache_auswahl.hh"
 #include "Pflicht.hh"
 #include "Fertigkeiten.hh"
+#include <Aux/itos.h>
 
 Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,
      const Datenbank& dat,const vector<cH_Typen>& _Typ,

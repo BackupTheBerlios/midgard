@@ -16,19 +16,13 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// generated 2001/4/3 21:37:34 CEST by thoma@ig23.
-// using glademm V0.5_11f_cvs
-//
-// newer (non customized) versions of this file go to KiDo_auswahl.cc_new
-
-// This file is for your program, I won't touch it again!
-
 #include "config.h"
 #include "KiDo_auswahl.hh"
 #include "midgard_CG.hh"
 #include <cstring>
 #include <Gtk_OStream.h>
 #include <KiDo.hh>
+#include <Aux/itos.h>
 
 void KiDo_auswahl::on_clist_kido_auswahl_select_row(gint row, gint column, GdkEvent *event)
 {   

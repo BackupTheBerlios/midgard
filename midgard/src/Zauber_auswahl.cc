@@ -22,6 +22,7 @@
 #include <Gtk_OStream.h>
 #include <gtk--/main.h>
 #include "Zauber.hh"
+#include <Aux/itos.h>
 
 Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const Grundwerte& Werte, 
    const Datenbank& Database,

@@ -21,6 +21,7 @@
 #include <Gtk_OStream.h>
 #include "Waffe.hh"
 #include "WaffeGrund.hh"
+#include <Aux/itos.h>
 
 Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const Datenbank& D,
    int lernpunkte, const Grundwerte& Werte,const vector<cH_Typen>& _Typ)
