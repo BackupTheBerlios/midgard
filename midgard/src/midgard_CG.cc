@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.292 2003/04/15 13:49:50 christof Exp $
+// $Id: midgard_CG.cc,v 1.293 2003/04/15 17:29:29 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,24 +31,26 @@
 #include "Windows_Linux.hh"
 #include <Misc/Trace.h>
 #include <char_Pixmap.hh>
+#include <gdkmm/pixbufloader.h>
+#include <bool_ImageButton.hh>
 
-static Glib::RefPtr<Gdk::Pixbuf> LoadImage(unsigned char data[], unsigned size)
+static Glib::RefPtr<Gdk::Pixbuf> LoadImage(const unsigned char data[], unsigned size)
 {  Glib::RefPtr<Gdk::PixbufLoader> loader=Gdk::PixbufLoader::create();
    loader->write(data, size);
    loader->close();
    return loader->get_pixbuf();
 }
 
-static Glib::RefPtr<Gdk::Pixbuf> LoadImage(char **data)
+static Glib::RefPtr<Gdk::Pixbuf> LoadImage(const char * const *data)
 {  return Gdk::Pixbuf::create_from_xpm_data(data);
 }
 
 static void ImageLabelKnopf(Gtk::Button *b, Glib::RefPtr<Gdk::Pixbuf> pb, const Glib::ustring &t)
 {  Gtk::VBox *vbox=manage(new Gtk::VBox());
    b->add(*vbox);
-   image=manage(new Gtk::Image(pb));
+   Gtk::Image *image=manage(new Gtk::Image(pb));
    vbox->add(*image);
-   label=manage(new Gtk::Label(t));
+   Gtk::Label *label=manage(new Gtk::Label(t));
    vbox->add(*label);
    image->show();
    label->show();
@@ -106,7 +108,7 @@ midgard_CG::midgard_CG(const std::string &_argv0,const std::string &_magus_verze
   extern const unsigned hand_roll_png_size,auto_roll_png_size;
   Glib::RefPtr<Gdk::Pixbuf> hand_roll=LoadImage(hand_roll_png_data, hand_roll_png_size);
   Glib::RefPtr<Gdk::Pixbuf> auto_roll=LoadImage(auto_roll_png_data, auto_roll_png_size);
-  bool_ImageButton *wuerfelt_butt = new bool_ImageButton(MOptionen->werte_eingeben,hand_roll,auto_roll);
+  bool_ImageButton *wuerfelt_butt = new bool_ImageButton(MOptionen->WerteEingebenModel(),hand_roll,auto_roll);
   hbox_status->pack_start(*wuerfelt_butt, Gtk::PACK_SHRINK, 0);
   
   // für die NEWS
