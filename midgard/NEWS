@@ -1,6 +1,6 @@
-cvs add LaTeX_drucken_spielleiterbogen.cc
 ##########################################################################
 NEWS IN VERSION 0.6delta6
+
 * Erster Abenteurer bei Programmstart als 'gespeichert' markieren.
 * Fenster aufpoppen, wenn nicht alle Abenteurer gespeichert beim beenden
 * Neuer Abenteurer gilt als 'gespeichert'
@@ -10,11 +10,16 @@ NEWS IN VERSION 0.6delta6
 * History für geladene Abenteurer 
 * History abspeichern
 * Impelmentierung der 'Universellen Fähigkeiten' ist in die 'Abenteurer' Klasse
-   gewandert, ist so viel(!) konsistenter und nötig für den
+   gewandert, ist so viel(!) konsistenter und war nötig für den
 * Spielleiterbogen (erste Version)
 * Abenteurer kann aus der 'History-Liste' gelöscht werden. 
    (Ebenfalls nötig für den Spielleiterbogen)
 * Anzahl der Dateien in der History einstellbar
+* Spielleiterbogen nach Gw sortiert
+* Erst NACH der Typauswahl können die abgeleiteten Fertigkeiten gewählt werden
+* Die Druckenfunktion nutzt nun ebenfalls die neue Implementierung der 
+   'Universellen Fähigkeiten'
+
 
 TODO:
 * Destruktor löst einen 'Speicherzugriffsfehler'aus :-( 
@@ -22,10 +27,9 @@ TODO:
 in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
 links). 
 * Fokus im Zusatzfenster einfrieren
-* Ausdruck für Lange Listen
+* Ausdruck für lange Listen
 * Gildenbrief funktioniert nicht
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
-* gv zeigt den falschen Ausschnitt des pdf Dokumentes (nur für Linux interessant)
 * dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
   man etwas hinzufügen möchte, ist nicht gerade intuitiv
   (vielleicht drag'n'drop oder CTree verschieben)
@@ -33,8 +37,6 @@ links).
 ##########################################################################
 NEWS IN VERSION 0.6delta5
 * Mehrere Abenteurer in EINER Session bearbeiten 
-   (dafür war mal wieder ein Redisign fällig, ohne C++ 
-    wäre es undenkbar gewesen ;-)
 * Speichern von Abenteurern im Speicherpfad
 * Laden der Optionen VOR dem Laden der Datenbank
 * Abfangen von 'delete_event' damit Abenteurer noch gespeichert werden können

@@ -33,22 +33,8 @@
 #include "export_common.h"
 #include "xml.h"
 #include "Datenbank.hh"
-/*
-cH_MidgardBasicElement::cache_t cH_MidgardBasicElement::cache;
 
-cH_MidgardBasicElement::cH_MidgardBasicElement(const std::string& name)
-{
- cH_MidgardBasicElement *cached(cache.lookup(name));
- if (cached) *this=*cached;
- else
-  {
-   *this=cH_MidgardBasicElement(new MidgardBasicElement(name));
-   cache.Register(name,*this);
-  }
-}
-*/
-
-std::string MidgardBasicElement::RegionString(const Datenbank &D) const
+std::string MidgardBasicElement_fixed::RegionString(const Datenbank &D) const
 {
   std::vector<cH_Region> V=D.Regionen;
   std::string s=Regionen_All::getRegionfromAbk(V,region)->Name();
@@ -58,7 +44,7 @@ std::string MidgardBasicElement::RegionString(const Datenbank &D) const
 
 
 
-void MidgardBasicElement::show_list_in_tree(
+void MidgardBasicElement_fixed::show_list_in_tree(
   const std::list<cH_MidgardBasicElement>& BasicList,
   SimpleTree *Tree,
   const midgard_CG *hauptfenster, bool clear_me)
@@ -94,7 +80,7 @@ void MidgardBasicElement::move_element(std::list<cH_MidgardBasicElement>& von,
   }
 }
 
-bool MidgardBasicElement::ist_lernbar(const vector<cH_Typen>& Typ,const map<std::string,std::string>& map_typ) const
+bool MidgardBasicElement_fixed::ist_lernbar(const vector<cH_Typen>& Typ,const map<std::string,std::string>& map_typ) const
 {
   for (std::vector<cH_Typen>::const_iterator i=Typ.begin();i!=Typ.end();++i)
     if (const_cast<map<std::string,std::string>& >(map_typ)[(*i)->Short()]!="") 
@@ -119,7 +105,7 @@ bool MidgardBasicElement::ist_gelernt(const std::list<cH_MidgardBasicElement>& L
  return false;
 }
 
-bool MidgardBasicElement::ist_gelernt(const std::list<std::string>& L) const
+bool MidgardBasicElement_fixed::ist_gelernt(const std::list<std::string>& L) const
 {
  for (std::list<std::string>::const_iterator i=L.begin();i!=L.end();++i)
    {
@@ -128,7 +114,7 @@ bool MidgardBasicElement::ist_gelernt(const std::list<std::string>& L) const
  return false;
 }
 
-std::string MidgardBasicElement::Standard__(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
+std::string MidgardBasicElement_fixed::Standard__(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
 {
  vector<std::string> s = Standard(Werte,Typ);
  std::string s2=s[0];
@@ -137,7 +123,7 @@ std::string MidgardBasicElement::Standard__(const Grundwerte &Werte,const vector
  return s2;
 }
 
-vector<std::string> MidgardBasicElement::Standard(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
+vector<std::string> MidgardBasicElement_fixed::Standard(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
 {
  assert(Typ.size()==2);
  vector<std::string> s(2);
@@ -152,7 +138,7 @@ vector<std::string> MidgardBasicElement::Standard(const Grundwerte &Werte,const 
  return s;
 }
 
-std::string MidgardBasicElement::AusnahmenString(const Grundwerte &Werte,const cH_Typen& Typ,const std::string s) const
+std::string MidgardBasicElement_fixed::AusnahmenString(const Grundwerte &Werte,const cH_Typen& Typ,const std::string s) const
 {
   if(Region()=="") return s;
   for(std::vector<st_ausnahmen>::const_iterator i=VAusnahmen.begin();i!=VAusnahmen.end();++i)
@@ -169,7 +155,7 @@ std::string MidgardBasicElement::AusnahmenString(const Grundwerte &Werte,const c
 }
 
 
-double MidgardBasicElement::Standard_Faktor(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
+double MidgardBasicElement_fixed::Standard_Faktor(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
 {
   double fac;
   if      (standard_one_G(Standard(Werte,Typ)) ) fac = 0.5;
@@ -183,14 +169,14 @@ double MidgardBasicElement::Standard_Faktor(const Grundwerte &Werte,const vector
   return fac;
 }
 
-bool MidgardBasicElement::standard_one_G(const vector<std::string>& s) const 
+bool MidgardBasicElement_fixed::standard_one_G(const vector<std::string>& s) const 
 {
  assert(s.size()==2);
  if (s[0] == "G" || s[1] =="G" ) return true;
  return false;
 }
 
-bool MidgardBasicElement::standard_all_S(const vector<std::string>& s) const 
+bool MidgardBasicElement_fixed::standard_all_S(const vector<std::string>& s) const 
 {
  assert(s.size()==2);
  if (s[0] == "S" && (s[1] =="S" || s[1]=="" )) return true;
@@ -199,7 +185,7 @@ bool MidgardBasicElement::standard_all_S(const vector<std::string>& s) const
 }
 
 
-int MidgardBasicElement::get_Steigern_Kosten(int erfolgswert) const
+int MidgardBasicElement_fixed::get_Steigern_Kosten(int erfolgswert) const
 {
 //cout << erfolgswert<<'\t'<<const_cast<std::map<int,int>& >(map_erfolgswert_kosten)[erfolgswert]<<'\t';
 //cout << map_erfolgswert_kosten.size()<<'\n';
@@ -212,7 +198,7 @@ cout << What()<<'\t'<<i->first<<'\t'<<i->second<<'\n';
  return const_cast<std::map<int,int>& >(map_erfolgswert_kosten)[erfolgswert];
 }
 
-int MidgardBasicElement::Steigern(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const 
+int MidgardBasicElement_fixed::Steigern(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const 
 { 
    int kosten=0;
    if(Erfolgswert()>0)
@@ -223,7 +209,7 @@ int MidgardBasicElement::Steigern(const Grundwerte &Werte,const vector<cH_Typen>
    return back;
 }
 
-int MidgardBasicElement::Reduzieren(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const 
+int MidgardBasicElement_fixed::Reduzieren(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const 
 {
    int kosten=0;
    if(Erfolgswert()>0)
@@ -234,7 +220,7 @@ int MidgardBasicElement::Reduzieren(const Grundwerte &Werte,const vector<cH_Type
    return back;
 }
 
-int MidgardBasicElement::Verlernen(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
+int MidgardBasicElement_fixed::Verlernen(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const
 {
 //cout << "MidgardBasicElement::Verlernen "<<Name()<<' ' << Reduzieren(Typ,ausnahmen)<<'\n';
    if(Reduzieren(Werte,Typ)==0)
@@ -245,7 +231,7 @@ int MidgardBasicElement::Verlernen(const Grundwerte &Werte,const vector<cH_Typen
 }
 
 
-void MidgardBasicElement::get_map_typ()
+void MidgardBasicElement_fixed::get_map_typ()
 {  
  const Tag *tag=this->tag;
  
@@ -267,7 +253,7 @@ void MidgardBasicElement::get_map_typ()
 }
  
 
-void MidgardBasicElement::get_Steigern_Kosten_map()
+void MidgardBasicElement_fixed::get_Steigern_Kosten_map()
 {
  const Tag *tag=this->tag;
  const Tag *kosten=0;
@@ -369,7 +355,7 @@ void MidgardBasicElement::saveElementliste(ostream &datei,
 
   //////////////////////////////////////////////////////////////////////
   //Steigern von Fertigkeiten  
-void MidgardBasicElement::EP_steigern(const std::string fert)
+void MidgardBasicElement_fixed::EP_steigern(const std::string fert)
 {
  const Tag *steigern=0;
  

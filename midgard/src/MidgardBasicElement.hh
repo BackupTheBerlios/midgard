@@ -40,7 +40,7 @@ class NotFound : public std::exception
 };
 #endif
 
-class MidgardBasicElement : public HandleContentCopyable
+class MidgardBasicElement_fixed : public HandleContentCopyable
 {
    private:
       // WARNUNG: Beruf wird nicht verwendet
@@ -52,20 +52,20 @@ class MidgardBasicElement : public HandleContentCopyable
                           std::string b,std::string st,std::string sta) 
                         :herkunft(h),spezies(s),typ(t),beruf(b),stand(st),
                          standard(sta) {} };
-   public:
-      enum eZusatz {ZNone=0,ZTabelle=1,ZLand=2,ZWaffe=3,ZHerkunft=4,
-                    ZSprache=5,ZSchrift=6};
+//   public:
+//      enum eZusatz {ZNone=0,ZTabelle=1,ZLand=2,ZWaffe=3,ZHerkunft=4,
+//                    ZSprache=5,ZSchrift=6};
    protected:
 	const Tag *tag;
       std::string name, region,region_zusatz;
       int kosten;
-      int mutable praxispunkte,erfolgswert,lernpunkte;
-      eZusatz enum_zusatz;
-      mutable std::string zusatz; // Für Zusäte bei Fertigkeiten (z.B. Abrichten, Sprache, Geheimzeichen...)
+//      int mutable praxispunkte,erfolgswert,lernpunkte;
+//      enum zusatz;      
+//      mutable std::string zusatz; // Für Zusäte bei Fertigkeiten (z.B. Abrichten, Sprache, Geheimzeichen...)
                                   // und Zauber (Tiersprache)
       std::vector<std::string> Vzusatz;
       vector<st_ausnahmen> VAusnahmen;
-      mutable bool gelernt; // Fürs Lernschema
+//      mutable bool gelernt; // Fürs Lernschema
       bool nsc_only;
       enum EP_t { Nicht=0, KEP=1, ZEP=2, Beides=KEP|ZEP };
       /* EP_t (CP) */ int steigern_mit_EP;
@@ -77,14 +77,12 @@ class MidgardBasicElement : public HandleContentCopyable
       int GrundKosten() const {  return kosten; }
 
    public:
-      MidgardBasicElement(const std::string &n) 
-            : tag(0), name(n), kosten(0),praxispunkte(0),
-                              erfolgswert(0),lernpunkte(0),enum_zusatz(ZNone)
-                              ,gelernt(false),nsc_only(false),steigern_mit_EP(0) {}
-      MidgardBasicElement(const Tag *t,const std::string &n) 
-		: tag(t), name(n), kosten(0),praxispunkte(0),
-                               erfolgswert(0),lernpunkte(0),enum_zusatz(ZNone)
-                              ,gelernt(false),steigern_mit_EP(0) {}
+      MidgardBasicElement_fixed(const std::string &n) 
+            : tag(0), name(n), kosten(0)
+              ,nsc_only(false),steigern_mit_EP(0) {}
+      MidgardBasicElement_fixed(const Tag *t,const std::string &n) 
+		: tag(t), name(n), kosten(0)
+              ,nsc_only(false),steigern_mit_EP(0) {}
 
       enum MBEE {BERUF,FERTIGKEIT,FERTIGKEIT_ANG,WAFFEGRUND,WAFFE,WAFFEBESITZ,
                  ZAUBER,ZAUBERWERK,KIDO,SPRACHE,SCHRIFT,SINN} ;
@@ -92,34 +90,20 @@ class MidgardBasicElement : public HandleContentCopyable
 
       map<std::string,std::string> get_MapTyp() const {return map_typ;}
       
-      std::string Zusatz() const {return zusatz;}
       std::vector<std::string> VZusatz() const {return Vzusatz;}
-      void setZusatz(std::string z) const {zusatz=z;}
-      virtual eZusatz ZusatzEnum(const vector<cH_Typen>& Typ) const {return enum_zusatz;}
  
-      void setGelernt(bool b) const {gelernt=b;}
-      bool Gelernt() const {return gelernt;}
       bool NSC_only() const {return nsc_only;}
       void EP_steigern(const std::string fert);
       virtual std::string Name() const {return name;}
       std::string Region() const {return region;}
       std::string RegionZusatz() const {return region_zusatz;}
       std::string RegionString(const Datenbank &D) const;
-      int Lernpunkte() const {return lernpunkte;};
-      void setLernpunkte(int l) const {lernpunkte=l;}
-      int Erfolgswert() const {return erfolgswert;};
-      void setErfolgswert(int e) const {erfolgswert=e;}
-      void addErfolgswert(int e) const {erfolgswert+=e;}
-      int Praxispunkte() const {return praxispunkte;};
-      void setPraxispunkte(int e) const {praxispunkte=e;}
-      void addPraxispunkte(int e) const {praxispunkte+=e;}
       int Steigern_mit_EP() const {return steigern_mit_EP;}
       virtual enum MBEE What() const=0;
       virtual std::string What_str() const=0; // zum speichern
       virtual std::string Stufe() const {return "";} 
       virtual int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const {return 0;};
       bool ist_lernbar(const vector<cH_Typen>& Typ,const map<std::string,std::string>& map_typ) const;
-      bool ist_gelernt(const std::list<cH_MidgardBasicElement>& L) const;
       bool ist_gelernt(const std::list<std::string>& L) const;
       int get_Steigern_Kosten(int erfolgswert) const;
       vector<std::string> Standard(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const; 
@@ -137,38 +121,80 @@ public:
       int Verlernen(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const; 
       bool standard_one_G(const vector<std::string>& s) const ;
       bool standard_all_S(const vector<std::string>& s) const ;
-      bool operator == (const MidgardBasicElement& b) const 
+      bool operator == (const MidgardBasicElement_fixed& b) const 
          {return What()==b.What() && Name()==b.Name();}
-      bool operator < (const MidgardBasicElement& b) const 
+      bool operator < (const MidgardBasicElement_fixed& b) const 
          {return  Name()<b.Name() ||
                  (Name()==b.Name() && What()<=b.What());  
          }
 
 
-      static void move_element(std::list<cH_MidgardBasicElement>& von,
-                               std::list<cH_MidgardBasicElement>& nach,
-                               const cH_MidgardBasicElement& MBE);
       static void show_list_in_tree(
             const std::list<cH_MidgardBasicElement>& BasicList,
             SimpleTree *Tree, const midgard_CG *hauptfenster,
             bool clear_me=true);
-      static void saveElementliste(IF_XML(ostream &datei,)
-      				const std::list<cH_MidgardBasicElement>& b,
-                                   const Grundwerte& Werte,
-                                   const vector<cH_Typen>& Typ);
 
 };
 
 
-class cH_MidgardBasicElement : public Handle<const MidgardBasicElement>
+class cH_MidgardBasicElement_fixed : public Handle<const MidgardBasicElement_fixed>
 {
-      typedef CacheStatic<std::string,cH_MidgardBasicElement> cache_t;
+      typedef CacheStatic<std::string,cH_MidgardBasicElement_fixed> cache_t;
       static cache_t cache;
-      friend class std::map<std::string,cH_MidgardBasicElement>;
-      cH_MidgardBasicElement(){}
+      friend class std::map<std::string,cH_MidgardBasicElement_fixed>;
+      cH_MidgardBasicElement_fixed(){}
    public:
-      cH_MidgardBasicElement(const MidgardBasicElement *r) 
-            : Handle<const MidgardBasicElement>(r){}
+      cH_MidgardBasicElement_fixed(const MidgardBasicElement_fixed *r) 
+            : Handle<const MidgardBasicElement_fixed>(r){}
+
+
+};
+
+class MidgardBasicElement : public cH_MidgardBasicElement_fixed
+{
+ public:
+      enum eZusatz {ZNone=0,ZTabelle=1,ZLand=2,ZWaffe=3,ZHerkunft=4,
+                    ZSprache=5,ZSchrift=6};
+ private:
+      int praxispunkte,erfolgswert,lernpunkte;
+      eZusatz enum_zusatz;
+      std::string zusatz; // Für Zusätze bei Fertigkeiten 
+                              // (z.B. Abrichten, Sprache, Geheimzeichen...)
+                              // und Zauber (Tiersprache)
+      bool gelernt; // Fürs Lernschema
+
+ public: 
+
+      MidgardBasicElement(const cH_MidgardBasicElement_fixed  &mbe)
+         : cH_MidgardBasicElement_fixed(mbe),praxispunkte(0),erfolgswert(0),
+            lernpunkte(0),enum_zusatz(ZNone),gelernt(false) {}
+
+      int Lernpunkte() const {return lernpunkte;};
+      void setLernpunkte(int l) {lernpunkte=l;}
+      int Erfolgswert() const {return erfolgswert;};
+      void setErfolgswert(int e) {erfolgswert=e;}
+      void addErfolgswert(int e) {erfolgswert+=e;}
+      int Praxispunkte() const {return praxispunkte;};
+      void setPraxispunkte(int e)  {praxispunkte=e;}
+      void addPraxispunkte(int e)  {praxispunkte+=e;}
+
+      void setGelernt(bool b)  {gelernt=b;}
+      bool Gelernt() const {return gelernt;}
+  
+      std::string Zusatz() const {return zusatz;}
+      void setZusatz(std::string z) {zusatz=z;}
+      virtual eZusatz ZusatzEnum(const vector<cH_Typen>& Typ) const {return enum_zusatz;}
+
+      bool ist_gelernt(const std::list<cH_MidgardBasicElement>& L) const;
+
+      static void move_element(std::list<cH_MidgardBasicElement>& von,
+                               std::list<cH_MidgardBasicElement>& nach,
+                               const cH_MidgardBasicElement& MBE);
+
+      static void saveElementliste(IF_XML(ostream &datei,)
+      				const std::list<cH_MidgardBasicElement>& b,
+                                   const Grundwerte& Werte,
+                                   const vector<cH_Typen>& Typ);
 
    class sort {
       public:
@@ -177,14 +203,15 @@ class cH_MidgardBasicElement : public Handle<const MidgardBasicElement>
          esort es;
       public:
          sort(esort _es):es(_es) {}
-         bool operator() (cH_MidgardBasicElement x,cH_MidgardBasicElement y) const
+         bool operator() (MidgardBasicElement x,MidgardBasicElement y) const
            { switch(es) {
-               case(LERNPUNKTE) : return x->Lernpunkte() < y->Lernpunkte()  ;
+               case(LERNPUNKTE) : return x.Lernpunkte() < y.Lernpunkte()  ;
                case(NAME) : return x->Name() < y->Name()  ;
-               case(ERFOLGSWERT): return x->Erfolgswert() > y->Erfolgswert();
+               case(ERFOLGSWERT): return x.Erfolgswert() > y.Erfolgswert();
            }}
     };
 
 };
+
 
 #endif
