@@ -96,6 +96,9 @@ void midgard_CG::on_speichern_clicked()
             (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'ang.Fertigkeit') ;         
             SQLerror::test(__FILELINE__);
       }
+   Ausnahmen ausnahmen(Werte,Typ,vec_Beruf);
+   MidgardBasicElement::saveElementliste(list_Fertigkeit,Werte,Typ,ausnahmen);
+/*
    for (std::list<cH_Fertigkeit>::const_iterator i=list_Fertigkeiten.begin();
          i!=list_Fertigkeiten.end();++i)
       {
@@ -107,6 +110,7 @@ void midgard_CG::on_speichern_clicked()
             (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Fertigkeit') ;         
             SQLerror::test(__FILELINE__);
       }
+*/
    for (std::list<cH_Waffe>::const_iterator i=list_Waffen.begin();
          i!=list_Waffen.end();++i)
       {
@@ -145,7 +149,7 @@ void midgard_CG::on_speichern_clicked()
             SQLerror::test(__FILELINE__);
       }
 */
-   Ausnahmen ausnahmen(Werte,Typ,vec_Beruf);
+//   Ausnahmen ausnahmen(Werte,Typ,vec_Beruf);
    MidgardBasicElement::saveElementliste(list_Zauber,Werte,Typ,ausnahmen);
 /*
    for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Zauber.begin();

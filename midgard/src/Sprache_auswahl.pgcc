@@ -30,7 +30,8 @@
 exec sql include sqlca;
 #include <Aux/Transaction.h>
 #include <Aux/SQLerror.h>
-
+#include "Schrift.hh"
+#include "Sprache.hh"
 
 void Sprache_auswahl::on_clist_sp_sc_select_row(gint row, gint column, GdkEvent *event)
 {   
@@ -38,12 +39,16 @@ void Sprache_auswahl::on_clist_sp_sc_select_row(gint row, gint column, GdkEvent 
    if (modus =="Sprache")
     {
        int wert = atoi(clist_sp_sc->get_text(row,2).c_str());
-       hauptfenster->sprache_uebernehmen(fert,wert);
+//       hauptfenster->sprache_uebernehmen(fert,wert);
+       cH_MidgardBasicElement s(new Sprache(fert));
+       cH_Sprache(s)->set_Erfolgswert(wert);
+       hauptfenster->MidgardBasicElement_uebernehmen(s);
     }
    if (modus =="Lesen/Schreiben") 
     {
       std::string typ  = clist_sp_sc->get_text(row,1);
-      hauptfenster->schrift_uebernehmen(fert,typ);
+//      hauptfenster->schrift_uebernehmen(fert,typ);
+      hauptfenster->MidgardBasicElement_uebernehmen(new Schrift(fert));
     }
    destroy();
 }

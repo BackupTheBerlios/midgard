@@ -19,6 +19,8 @@
 #include "midgard_CG.hh"
 #include "class_Ausnahmen.hh"
 #include "class_zauber.hh"
+#include "Sprache.hh"
+#include "Schrift.hh"
 
 
 void midgard_CG::on_sprache_laden_clicked()
@@ -32,13 +34,13 @@ void midgard_CG::on_sprache_laden_clicked()
       if (region_check(s->Region()) )  list_Schrift_neu.push_back(*i) ;
     }
 
-   list_Sprachen_neu.clear();
+   list_Sprache_neu.clear();
    Sprachen_All SPA(laden_label);
-   std::list<cH_MidgardBasicElement> list_tmp = SPA.get_All();
-   for (std::list<cH_MidgardBasicElement>::const_iterator i=list_tmp.begin();i!=list_tmp.end();++i)
+   std::list<cH_MidgardBasicElement> list_tmp2 = SPA.get_All();
+   for (std::list<cH_MidgardBasicElement>::const_iterator i=list_tmp2.begin();i!=list_tmp2.end();++i)
     { cH_Sprache s(*i);
       if((*i)->ist_gelernt(list_Sprache)) continue;
-      if (region_check(s->Region()) )  list_Schrift_neu.push_back(*i) ;
+      if (region_check(s->Region()) )  list_Sprache_neu.push_back(*i) ;
     }
 
    schriften_zeigen();
@@ -49,6 +51,7 @@ void midgard_CG::schriften_zeigen()
 {
    zeige_werte(Werte);
    on_speichern_clicked();
+   Ausnahmen ausnahmen(Werte,Typ,vec_Beruf);
    MidgardBasicElement::show_list_in_tree(list_Schrift    ,alte_schrift_tree,Werte,Typ,ausnahmen);
    MidgardBasicElement::show_list_in_tree(list_Schrift_neu,neue_schrift_tree,Werte,Typ,ausnahmen);
 }
@@ -57,16 +60,17 @@ void midgard_CG::sprachen_zeigen()
 {
    zeige_werte(Werte);
    on_speichern_clicked();
-   MidgardBasicElement::show_list_in_tree(list_Sprache    ,alte_sprachen_tree,Werte,Typ,ausnahmen,'O');
-   MidgardBasicElement::show_list_in_tree(list_Sprache_neu,neue_sprachen_tree,Werte,Typ,ausnahmen,'N');
+   Ausnahmen ausnahmen(Werte,Typ,vec_Beruf);
+   MidgardBasicElement::show_list_in_tree(list_Sprache    ,alte_sprache_tree,Werte,Typ,ausnahmen,'O');
+   MidgardBasicElement::show_list_in_tree(list_Sprache_neu,neue_sprache_tree,Werte,Typ,ausnahmen,'N');
 }
 
 
 void midgard_CG::on_leaf_selected_neue_sprache(cH_RowDataBase d)
 {  
    const Data_sprache *dt=dynamic_cast<const Data_sprache*>(&*d);  
-   if (!steigern(kosten,"Sprache")) return;
-   Werte.add_GFP(kosten);
+   if (!steigern(dt->Kosten(),"Sprache")) return;
+   Werte.add_GFP(dt->Kosten());
    MidgardBasicElement::move_element(list_Sprache_neu,list_Sprache,dt->Name());
    on_sprache_laden_clicked();
 }   
@@ -76,20 +80,20 @@ void midgard_CG::on_leaf_selected_alte_sprache(cH_RowDataBase d)
    const Data_sprache *dt=dynamic_cast<const Data_sprache*>(&*d);  
    if (radio_sprache_steigern->get_active() && dt->Steigern())
     {
-      if (!steigern(steigern,"Sprache")) return;
-      Werte.add_GFP(steigern);
-      Sprache::Steigern(list_Sprachen,dt->Name(),1);
+      if (!steigern(dt->Steigern(),"Sprache")) return;
+      Werte.add_GFP(dt->Steigern());
+      Sprache::Steigern(list_Sprache,dt->Name(),1);
     }
-   if (radio_sprache_reduzieren->get_active() && reduzieren )
+   if (radio_sprache_reduzieren->get_active() && dt->Reduzieren() )
     {
-      if (steigern_bool) desteigern(reduzieren);
-      Werte.add_GFP(-reduzieren);
-      Sprache::Steigern(list_Sprachen,dt->Name(),-1);
+      if (steigern_bool) desteigern(dt->Reduzieren());
+      Werte.add_GFP(-dt->Reduzieren());
+      Sprache::Steigern(list_Sprache,dt->Name(),-1);
     }
-   if (radio_sprache_verlernen->get_active() && verlernen )
+   if (radio_sprache_verlernen->get_active() && dt->Verlernen() )
     {
-      if (steigern_bool) desteigern(verlernen);
-      Werte.add_GFP(-verlernen);
+      if (steigern_bool) desteigern(dt->Verlernen());
+      Werte.add_GFP(-dt->Verlernen());
       MidgardBasicElement::move_element(list_Sprache,list_Sprache_neu,dt->Name());
     }
    on_sprache_laden_clicked();
@@ -130,8 +134,8 @@ void midgard_CG::on_leaf_selected_alte_schrift(cH_RowDataBase d)
 void midgard_CG::on_leaf_selected_neue_schrift(cH_RowDataBase d)
 {  
    const Data_schrift *dt=dynamic_cast<const Data_schrift*>(&*d);  
-   if (!steigern(kosten,"Lesen/Schreiben")) return;
-   Werte.add_GFP(kosten);
+   if (!steigern(dt->Kosten(),"Lesen/Schreiben")) return;
+   Werte.add_GFP(dt->Kosten());
    MidgardBasicElement::move_element(list_Schrift_neu,list_Schrift,dt->Name());
    on_sprache_laden_clicked();
 }   

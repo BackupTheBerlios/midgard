@@ -7,14 +7,14 @@ exec sql include sqlca;
 
 cH_Fertigkeit::cache_t cH_Fertigkeit::cache;
 
-cH_Fertigkeit::cH_Fertigkeit(const std::string& name,const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen,int lernpunkte,bool pflicht)
+cH_Fertigkeit::cH_Fertigkeit(const std::string& name,int lernpunkte,bool pflicht)
 {
- st_index index(name,Typ,lernpunkte);
+ st_index index(name,lernpunkte);
  cH_Fertigkeit *cached(cache.lookup(index));
  if (cached) *this=*cached;
  else
   {
-   *this=cH_Fertigkeit(new Fertigkeit(name,Typ,ausnahmen,lernpunkte,pflicht));  
+   *this=cH_Fertigkeit(new Fertigkeit(name,lernpunkte,pflicht));  
    cache.Register(index,*this);
   }
 }
@@ -23,25 +23,29 @@ void Fertigkeit::get_Fertigkeit()
 {
   exec sql begin declare section;
    int db_lp,db_anfangswert0,db_anfangswert,db_kosten;
+   int db_st,db_ge,db_ko,db_in,db_zt,db_pa,db_au,db_sb,db_rw;
    char query[1024],db_region[10],db_attribut[10],db_voraussetzung[50];
   exec sql end declare section; 
   std::string squery ="select lp,coalesce(anfangswert0,0),
       coalesce(anfangswert,0),coalesce(fp,0),coalesce(region,''),
-      coalesce(attribut,''), coalesce(v.fertigkeit,'')
+      coalesce(attribut,''), coalesce(st,0), coalesce(ge,0),
+      coalesce(ko,0), coalesce(\"in\",0), coalesce(zt,0),   
+      coalesce(au,0), coalesce(pa,0), 
+      coalesce(sb,0), coalesce(rw,0), coalesce(v.fertigkeit,'')
       from fertigkeiten f, fertigkeiten_voraussetzung v
-      where f.fertigkeit = '"+Name()+"'
-      and f.fertigkeit = v.name";
-     strncpy(query,squery.c_str(),sizeof(query));
+      where f.fertigkeit = '"+Name()+"' and f.fertigkeit = v.name";
+
+  strncpy(query,squery.c_str(),sizeof(query));
   Transaction tr;
   exec sql prepare cl_fertigkeit_ein_ from :query ;
   exec sql declare cl_fertigkeit_ein cursor for cl_fertigkeit_ein_ ;
 
-//cout << query<<'\n';
   exec sql open cl_fertigkeit_ein;
   SQLerror::test(__FILELINE__);
   exec sql fetch cl_fertigkeit_ein into :db_lp, 
       :db_anfangswert0, :db_anfangswert, :db_kosten, :db_region,
-      :db_attribut,:db_voraussetzung;
+      :db_attribut, :db_st,:db_ge,:db_ko,:db_in,:db_zt,:db_au,:db_pa,
+      :db_sb,:db_rw, :db_voraussetzung;
   SQLerror::test(__FILELINE__);
   if (lernpunkte==0) lernpunkte=db_lp;
   anfangswert0=db_anfangswert0;
@@ -49,11 +53,27 @@ void Fertigkeit::get_Fertigkeit()
   kosten=db_kosten;
   region=db_region;
   attribut=db_attribut;
-  voraussetzung=db_voraussetzung;
+  voraussetzung = st_Voraussetzung(db_st,db_ge,db_ko,db_in,db_zt,db_au,db_pa,
+                                   db_sb,db_rw,db_voraussetzung);
   exec sql close cl_fertigkeit_ein;
   tr.close();
 }
 
+bool Fertigkeit::Voraussetzungen(const Grundwerte& Werte) const 
+{
+ if ( voraussetzung.st<=Werte.St() &&
+      voraussetzung.ge<=Werte.Ge() &&
+      voraussetzung.ko<=Werte.Ko() &&
+      voraussetzung.in<=Werte.In() &&
+      voraussetzung.zt<=Werte.Zt() &&
+      voraussetzung.au<=Werte.Au() &&
+      voraussetzung.pa<=Werte.pA() &&
+      voraussetzung.sb<=Werte.Sb() &&  
+      voraussetzung.rw<=Werte.RW()
+     )   
+    return true;
+ else return false ;
+}
 
 double Fertigkeit::Standard_Faktor() const
 {
@@ -65,6 +85,7 @@ double Fertigkeit::Standard_Faktor() const
   return fac;
 }
 
+/*
 void Fertigkeit::set_Standard(const vector<H_Data_typen>& Typ)
 {
   assert(Typ.size()==2);
@@ -93,6 +114,7 @@ void Fertigkeit::set_Standard(const vector<H_Data_typen>& Typ)
    standard.push_back(db_ergebnis2);
    ausnahmen.Ausnahmen_string(Name(),standard);
 }
+*/
 
 void Fertigkeit::get_Steigern_Kosten_map()
 {
@@ -131,15 +153,39 @@ void Fertigkeit::get_Steigern_Kosten_map()
    map_erfolgswert_kosten[19] = P19;
 }
 
-int Fertigkeit::get_Steigern_Kosten(int erfolgswert)
+int Fertigkeit::get_Steigern_Kosten(int erfolgswert) const
 {
- return map_erfolgswert_kosten[erfolgswert];
+ return const_cast<std::map<int,int>& >(map_erfolgswert_kosten)[erfolgswert];
 }
-
 /*
-void Fertigkeit::set_Erfolgswert(std::list<cH_Fertigkeit> L,std::string name,int e)
+void Fertigkeit::set_Erfolgswert(std::list<cH_Fertigkeit> L,std::string name,int e) const
 {
   for (std::list<cH_Fertigkeit>::iterator i=L.begin();i!=L.end();++i)
     if ((*i)->Name()==name) {(*i)->set_Erfolgswert(e) ;break;}
 }
 */
+
+Fertigkeiten_All::Fertigkeiten_All(Gtk::Label *label)
+{
+ exec sql begin declare section;
+   char db_name[100];
+ exec sql end declare section;
+ exec sql declare FIein cursor for select distinct fertigkeit from fertigkeiten;
+ Transaction tr;
+ exec sql open FIein;
+ SQLerror::test(__FILELINE__);
+ int count=0;  
+ label->show();
+ while(true)   
+  {
+   label->set_text(itos(++count)+" Fertigkeiten geladen");
+   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+   exec sql fetch FIein into :db_name;
+   SQLerror::test(__FILELINE__,100);  
+   if (sqlca.sqlcode) break;
+   list_All.push_back(new Fertigkeit(db_name));
+  }
+ exec sql close FIein;
+ tr.close();
+ label->hide();
+}  

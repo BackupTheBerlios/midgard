@@ -94,7 +94,7 @@ class Data_schrift : public RowDataBase
         }
      return cH_EntryValueIntString("?");
     }
- std::string Urschrift() const {  return urschrift; }
+ std::string Name() const {  return urschrift; }
  std::string Art() const {  return art; }
  int Kosten() const {  return kosten; }
 }; 

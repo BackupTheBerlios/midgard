@@ -329,11 +329,12 @@ void midgard_CG::load_charakter()
          exec sql fetch fertigkeiten into :db_fertigkeit, :db_wert;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         cH_Fertigkeit fertigkeit(db_fertigkeit,Typ,Ausnahmen(Werte,Typ,vec_Beruf));
-         fertigkeit->set_Erfolgswert(db_wert);
-         list_Fertigkeiten.push_back(fertigkeit);
-         if (fertigkeit->Name()=="KiDo") kido_bool=true;
-         if (fertigkeit->Name()=="Wissen von der Magie") magie_bool=true;
+         cH_MidgardBasicElement fertigkeit(new Fertigkeit(db_fertigkeit));
+         cH_Fertigkeit(fertigkeit)->set_Erfolgswert(db_wert);
+         list_Fertigkeit.push_back(fertigkeit);
+//         list_Fertigkeiten.push_back(fertigkeit);
+         if (cH_Fertigkeit(fertigkeit)->Name()=="KiDo") kido_bool=true;
+         if (cH_Fertigkeit(fertigkeit)->Name()=="Wissen von der Magie") magie_bool=true;
       } 
    exec sql close fertigkeit;
    // Waffen

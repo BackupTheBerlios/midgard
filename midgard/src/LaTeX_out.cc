@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.45 2001/10/18 16:28:51 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.46 2001/10/31 18:34:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -143,14 +143,13 @@ void midgard_CG::LaTeX_write_values()
  // Sprachen und Schriften
  unsigned int sprachanz=0;
  unsigned int maxsprach=14;
-// for (unsigned int i=0; i<vec_sprachen.size();++i)
- for(std::vector<H_Data_sprache>::const_iterator i=vec_Sprachen.begin();i!=vec_Sprachen.end();++i)
+ for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Sprache.begin();i!=list_Sprache.end();++i)
    {
       std::string a = LaTeX_string(sprachanz);
       ++sprachanz;
       fout << "\\newcommand{\\spra"<<a<<"}{\\scriptsize " << (*i)->Name() <<"}\n";
-      fout << "\\newcommand{\\spraw"<<a<<"}{\\scriptsize "<< (*i)->Wert() <<"}\n";
-      fout << "\\newcommand{\\schr"<<a<<"}{\\scriptsize "<< (*i)->Urschrift() <<"}\n";
+      fout << "\\newcommand{\\spraw"<<a<<"}{\\scriptsize "<< (*i)->Erfolgswert() <<"}\n";
+//      fout << "\\newcommand{\\schr"<<a<<"}{\\scriptsize "<< (*i)->Urschrift() <<"}\n";
    }
  for (unsigned int i=sprachanz; i<maxsprach;++i) // Bis zum Ende auffüllen
    {
@@ -201,15 +200,15 @@ void midgard_CG::LaTeX_write_values()
    }
  /////////////////////////////////////////////////////////////////////////////
  // Fertigkeiten
- for(std::list<cH_Fertigkeit>::const_iterator i=list_Fertigkeiten.begin();i!=list_Fertigkeiten.end();++i) 
-   {
+ for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i) 
+   {cH_Fertigkeit f(*i);
     std::string a = LaTeX_string(count);
     count++;
-    std::string wert = itos((*i)->Erfolgswert());
+    std::string wert = itos(f->Erfolgswert());
     if (wert == "0") wert = "";
-    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<(*i)->Name() << "}\t\t";
+    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<f->Name() << "}\t\t";
     fout << "\\newcommand{\\wert"<<a<<"}{"  <<wert << "}\n";
-//    fout << "\\newcommand{\\wert"<<a<<"}{"  <<(*i)->Empty_Erfolgswert() << "}\n";
+//    fout << "\\newcommand{\\wert"<<a<<"}{"  <<f->Empty_Erfolgswert() << "}\n";
    }
  std::string a = LaTeX_string(count);
  fout << "\\newcommand{\\fert"<<a<<"}{\\scriptsize }\n";

@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten_auswahl.hh,v 1.22 2001/10/08 12:53:01 thoma Exp $
+// $Id: Fertigkeiten_auswahl.hh,v 1.23 2001/10/31 18:34:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,10 +35,8 @@
 #include <list>
 #include <vector>
 class cH_Fertigkeit;
-class midgard_CG;
+#include "midgard_CG.hh"
 class H_Data_typen;
-//class H_Data_fert;
-//#include "class_Grundwerte.hh"
 class Grundwerte;
 class H_Data_beruf;
 
@@ -46,14 +44,11 @@ class Fertigkeiten_auswahl : public Fertigkeiten_auswahl_glade
 {   
         int maxpunkte;        
         midgard_CG* hauptfenster;
-//        vector<H_Data_typen> Typ;
-//        std::vector<H_Data_beruf> vec_Beruf;
-//        Grundwerte Werte;
 
         friend class Fertigkeiten_auswahl_glade;
         void on_close_fertigkeiten_clicked();
-        std::list<cH_Fertigkeit> list_Fert;
-        std::list<cH_Fertigkeit> list_allg_Fert;
+        std::list<cH_MidgardBasicElement> list_Fert;
+        std::list<cH_MidgardBasicElement> list_allg_Fert;
         void on_fertigkeiten_clist_auswahl_select_row(gint row, gint column, GdkEvent *event);
         void on_fertigkeiten_clist_auswahl_unselect_row(gint row, gint column, GdkEvent *event);
         bool Fertigkeiten_spezies_voraussetzung(const std::string& name,const std::string& spezies);

@@ -24,7 +24,7 @@ class MidgardBasicElement : public HandleContent
 
       virtual std::string Name() const=0;
       virtual int Erfolgswert(const vector<H_Data_typen>& Typ,const Grundwerte& Werte,const Ausnahmen& ausnahmen) const {return 99;}
-//      virtual int Erfolgswert() const {return 99;}
+      virtual int Erfolgswert() const {return 99;}
       virtual std::string Region() const {return "";}
       virtual enum MBEE What() const=0;
       virtual std::string What_str() const=0; // zum speichern

@@ -16,68 +16,27 @@
  */
 
 #include "midgard_CG.hh"
-#include <Aux/Transaction.h>
-#include <Aux/SQLerror.h>
-exec sql include sqlca;
-#include <cstring>
-//#include <Gtk_OStream.h>
-//#include <algorithm>
 #include "WindowInfo.hh"
-//#include <Aux/EntryValueIntString.h>
-//#include <Aux/EntryValueEmptyInt.h>
 #include "class_Ausnahmen.hh"
 #include "class_fertigkeiten.hh"
+#include "Pflicht.hh"
 
 void midgard_CG::on_fertigkeiten_laden_clicked()
 {
-  list_Fertigkeiten_neu.clear();
-  exec sql begin declare section;
-   char db_name[100], query[1024];
-  exec sql end declare section;
-  std::string squery = "SELECT fertigkeit \
-   FROM fertigkeiten WHERE \
-   fertigkeit NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten \
-   WHERE charakter_name = '"+Werte.Name_Charakter()+"' \
-   AND version = '"+Werte.Version()+"') \
-   AND fertigkeit != 'Sprache' AND fertigkeit != 'Lesen/Schreiben' \
-   AND fertigkeit  not in (select coalesce(verboten,'') from pflicht_lernen where \
-    typ='"+Werte.Spezies()+"'  and spielbegin is null) \
-   AND fp is not null
-   ORDER BY fertigkeit";
-
- strncpy(query,squery.c_str(),sizeof(query));
-
- Transaction tr;  
- exec sql prepare fert_ein_ from :query ;  
- exec sql declare fert_ein cursor for fert_ein_ ;  
- exec sql open fert_ein;
- SQLerror::test(__FILELINE__);
- int count=0;
- laden_label->show();
- while (true)
-   {
-      exec sql fetch fert_ein into :db_name; 
-      SQLerror::test(__FILELINE__,100);  
-      if (sqlca.sqlcode) break;
-      laden_label->set_text(itos(++count)+" Fertigkeiten geladen");
-      while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-
-//      std::string s1 = db_standard, s2 = db_standard2;
-//      Ausnahmen ausnahmen(Werte,Typ,vec_Beruf);
-//      s1 = ausnahmen.Ausnahmen_string(db_fertigkeiten,db_standard,"");
-//std::cout << "\t\t"<<s1<<"\t"<<fac<<"\n";
-//      <<"\t->"<<db_region<<"<-\t"<<BRbool<<"\t"<<region_check(db_region)<<"\n";
-      cH_Fertigkeit fertigkeit(db_name,Typ,Ausnahmen(Werte,Typ,vec_Beruf));
-      if (Fertigkeiten_Voraussetzung(fertigkeit->Name()) 
-            && region_check(fertigkeit->Region()) 
-)//            && (s1!="" || s2!="") )
-       {
-         list_Fertigkeiten_neu.push_back(fertigkeit);
-       }
+  list_Fertigkeit_neu.clear();
+  Fertigkeiten_All FA(laden_label);
+  std::list<cH_MidgardBasicElement> list_tmp = FA.get_All();
+  cH_Pflicht pflicht(Werte.Spezies(),Typ);
+  for (std::list<cH_MidgardBasicElement>::const_iterator i=list_tmp.begin();i!=list_tmp.end();++i)
+   { cH_Fertigkeit f(*i);
+     if ((*i)->ist_gelernt(list_Fertigkeit)) continue ;
+     if (f->Name()=="Sprache" || f->Name()=="Lesen/Schreiben") continue;
+     if (pflicht->istVerboten(f->Name())) continue;
+     if ((*i)->ist_lernbar(Typ,f->get_MapTyp()))
+       if (region_check(f->Region()) )
+        if (f->Voraussetzungen(Werte)) continue;
+            list_Fertigkeit_neu.push_back(*i);
    }
- laden_label->hide();
- exec sql close fert_ein;
- tr.commit();
  fertigkeiten_zeigen();
 }
 
@@ -102,9 +61,8 @@ void midgard_CG::on_leaf_selected_alte_fert(cH_RowDataBase d)
          {
             if (!steigern(dt->Steigern(),dt->Name())) return;
             Werte.add_GFP(dt->Steigern());
-            for (std::list<cH_Fertigkeit>::iterator i=list_Fertigkeiten.begin();
-                     i!= list_Fertigkeiten.end();++i )
-               if ( (*i)->Name() == dt->Name()) (*i)->set_Erfolgswert(1+(*i)->Erfolgswert()); 
+            for (std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit.begin();i!= list_Fertigkeit.end();++i )
+               if ( cH_Fertigkeit(*i)->Name() == dt->Name()) cH_Fertigkeit(*i)->add_Erfolgswert(1); 
          }
       else  // Lernen mit Praxispunkten 
          {
@@ -115,9 +73,8 @@ void midgard_CG::on_leaf_selected_alte_fert(cH_RowDataBase d)
             if (gelungen)
                {
                   Werte.add_GFP(dt->Steigern()/2);
-                  for (std::list<cH_Fertigkeit>::iterator i=list_Fertigkeiten.begin();
-                        i!= list_Fertigkeiten.end();++i )
-                     if ( (*i)->Name() == dt->Name()) (*i)->set_Erfolgswert(1+(*i)->Erfolgswert()); 
+                  for (std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit.begin();i!= list_Fertigkeit.end();++i )
+                     if ( cH_Fertigkeit(*i)->Name() == dt->Name()) cH_Fertigkeit(*i)->add_Erfolgswert(1); 
                }
          }     
     }
@@ -125,19 +82,19 @@ void midgard_CG::on_leaf_selected_alte_fert(cH_RowDataBase d)
          {
             if (steigern_bool) desteigern(dt->Reduzieren());
             Werte.add_GFP(-dt->Reduzieren());
-            for (std::list<cH_Fertigkeit>::iterator i=list_Fertigkeiten.begin();
-                     i!= list_Fertigkeiten.end();++i )
-               if ( (*i)->Name() == dt->Name()) (*i)->set_Erfolgswert((*i)->Erfolgswert()-1); 
+            for (std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit.begin();i!= list_Fertigkeit.end();++i )
+               if ( cH_Fertigkeit(*i)->Name() == dt->Name()) cH_Fertigkeit(*i)->add_Erfolgswert(-1); 
          }
    if (radio_fert_verlernen->get_active() && dt->Verlernen())
          {
             if (steigern_bool) desteigern(dt->Verlernen());
             Werte.add_GFP(-dt->Verlernen());
-            move_fertigkeiten(list_Fertigkeiten,list_Fertigkeiten_neu,dt->Name());
+            MidgardBasicElement::move_element(list_Fertigkeit,list_Fertigkeit_neu,dt->Name());
          }
    fertigkeiten_zeigen();
 }
 
+/*
 void midgard_CG::get_srv_kosten(const cH_Fertigkeit& fertigkeit, int &steigern,int &reduzieren,int &verlernen) const
 {
   exec sql begin declare section;
@@ -197,15 +154,17 @@ void midgard_CG::get_srv_kosten(const cH_Fertigkeit& fertigkeit, int &steigern,i
   if (db_reduzieren !=0) verlernen = 0 ;
   else  verlernen=(int)(db_verlernen *fac);
 }
+*/
+
 
 void midgard_CG::show_alte_fertigkeiten()
 {
    std::vector<cH_RowDataBase> datavec;
-   for ( std::list<cH_Fertigkeit>::const_iterator i=list_Fertigkeiten.begin();i!=list_Fertigkeiten.end();++i)
-    {
-      int steigern, reduzieren, verlernen;
-      get_srv_kosten(*i,steigern,reduzieren,verlernen);
-      datavec.push_back(new Data_fert((*i)->Name(),(*i)->Erfolgswert(),steigern,reduzieren,verlernen));
+   for ( std::list<cH_MidgardBasicElement>::const_iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i)
+    { cH_Fertigkeit f(*i);
+//      int steigern, reduzieren, verlernen;
+//      get_srv_kosten(*i,steigern,reduzieren,verlernen);
+      datavec.push_back(new Data_fert(f->Name(),f->Erfolgswert(),f->Steigern(),f->Reduzieren(),f->Verlernen()));
     }
  alte_fert_tree->setDataVec(datavec);  
 }
@@ -214,8 +173,8 @@ void midgard_CG::on_button_fertigkeiten_sort_clicked()
 {
   std::deque<guint> seq = alte_fert_tree->get_seq();
   switch((Data_fert::Spalten_A)seq[0]) {
-      case Data_fert::NAMEa : list_Fertigkeiten.sort(Fertigkeiten_sort_name()); ;break;
-      case Data_fert::WERTa : list_Fertigkeiten.sort(Fertigkeiten_sort_wert()); ;break;
+      case Data_fert::NAMEa : list_Fertigkeit.sort(cH_Fertigkeit::sort(cH_Fertigkeit::sort::NAME)); ;break;
+      case Data_fert::WERTa : list_Fertigkeit.sort(cH_Fertigkeit::sort(cH_Fertigkeit::sort::ERFOLGSWERT)); ;break;
       default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
    }
 }
@@ -225,11 +184,11 @@ void midgard_CG::on_button_fertigkeiten_sort_clicked()
 void midgard_CG::show_neue_fertigkeiten()
 {
  std::vector<cH_RowDataBase> datavec;
- for(std::list<cH_Fertigkeit>::const_iterator i=list_Fertigkeiten_neu.begin();i!=list_Fertigkeiten_neu.end();++i)
-  {
-   (*i)->set_Erfolgswert((*i)->Anfangswert());   
-   datavec.push_back(new Data_fert((*i)->Name(),(*i)->Anfangswert(),
-               (*i)->Kosten(),(*i)->Standard__(),(*i)->Voraussetzung()));
+ for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Fertigkeit_neu.begin();i!=list_Fertigkeit_neu.end();++i)
+  { cH_Fertigkeit f(*i);
+   f->set_Erfolgswert(f->Anfangswert());   
+   datavec.push_back(new Data_fert(f->Name(),f->Anfangswert(),
+               f->Kosten(),f->Standard__(),f->Voraussetzung()));
   }
  neue_fert_tree->setDataVec(datavec);
 }
@@ -245,21 +204,12 @@ bool midgard_CG::kido_steigern_check(int wert)
 }
 
 
-
-void midgard_CG::move_fertigkeiten(std::list<cH_Fertigkeit>& von,std::list<cH_Fertigkeit>& nach,const std::string& name)
-{
- for (std::list<cH_Fertigkeit>::iterator i=von.begin();i!= von.end();++i)
-     if ((*i)->Name()==name) 
-       {nach.splice(nach.begin(),von,i);break;}
-  fertigkeiten_zeigen();
-}
-
-
 void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
 {  const Data_fert *dt=dynamic_cast<const Data_fert*>(&*d);
   if (!steigern(dt->Lernkosten(),dt->Name())) return;
   Werte.add_GFP(dt->Lernkosten());
-  move_fertigkeiten(list_Fertigkeiten_neu,list_Fertigkeiten,dt->Name());
+  MidgardBasicElement::move_element(list_Fertigkeit_neu,list_Fertigkeit,dt->Name());
+  fertigkeiten_zeigen();
 
   if (dt->Name()=="KiDo") {kido_bool=true;show_gtk();
       std::string strinfo="Jetzt muß ein Stil unter 'Lernschema' -> 'KiDo' gewählt werden !!!";
@@ -308,6 +258,7 @@ void midgard_CG::on_radiobutton_praxis_auto_fertigkeiten_toggled()
 {
 }
 
+/*
 bool midgard_CG::Fertigkeiten_Voraussetzung(const std::string& fertigkeit)
 {
   exec sql begin declare section;
@@ -316,10 +267,10 @@ bool midgard_CG::Fertigkeiten_Voraussetzung(const std::string& fertigkeit)
   exec sql end declare section;
   strncpy(db_fertigkeit,fertigkeit.c_str(),sizeof(db_fertigkeit));
 
-  exec sql select distinct coalesce(st,'0'), coalesce(ge,'0'),
-   coalesce(ko,'0'),  coalesce("in",'0'), coalesce(zt,'0'),
-   coalesce(au,'0'), coalesce(pa,'0'), 
-   coalesce(sb,'0'), coalesce(rw,'0'), coalesce(fertigkeit,'')
+  exec sql select distinct coalesce(st,0), coalesce(ge,'0'),
+   coalesce(ko,0),  coalesce("in",0), coalesce(zt,'0'),
+   coalesce(au,0), coalesce(pa,'0'), 
+   coalesce(sb,0), coalesce(rw,'0'), coalesce(fertigkeit,'')
    into :db_st,:db_ge,:db_ko,:db_in,:db_zt,:db_au,:db_pa,
          :db_sb,:db_rw,:db_fert
    from fertigkeiten_voraussetzung where name= :db_fertigkeit;
@@ -339,3 +290,4 @@ bool midgard_CG::Fertigkeiten_Voraussetzung(const std::string& fertigkeit)
      return true;
   else return false ;
 }
+*/

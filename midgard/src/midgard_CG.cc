@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.69 2001/10/17 12:31:17 thoma Exp $
+// $Id: midgard_CG.cc,v 1.70 2001/10/31 18:34:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -347,8 +347,8 @@ void midgard_CG::on_neuer_charakter_clicked()
    button_fertigkeiten->set_sensitive(false);
    button_kido_auswahl->set_sensitive(false);       
 
-   list_Fertigkeiten.clear();
-   list_Fertigkeiten_neu.clear();
+   list_Fertigkeit.clear();
+   list_Fertigkeit_neu.clear();
    list_an_Fertigkeit.clear();
    list_Waffen.clear();
    list_Waffen_neu.clear();
@@ -358,8 +358,10 @@ void midgard_CG::on_neuer_charakter_clicked()
    list_Kido.clear();
    list_Kido_neu.clear();
    vec_Beruf.clear();
-   vec_Sprachen.clear();
-   vec_Schriften.clear();
+   list_Sprache.clear();
+   list_Schrift.clear();
+   list_Sprache_neu.clear();
+   list_Schrift_neu.clear();
    list_Zauber.clear();
    list_Zauberwerk.clear();
    list_Zauber_neu.clear();

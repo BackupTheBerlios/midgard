@@ -72,10 +72,10 @@ void KiDo::get_KiDo()
 }
 
 
-int KiDo::get_erfolgswert_kido(const std::list<cH_Fertigkeit>& L)
+int KiDo::get_erfolgswert_kido(const std::list<cH_MidgardBasicElement>& L)
 {
- for (std::list<cH_Fertigkeit>::const_iterator i= L.begin();i!=L.end();++i)
-   if ((*i)->Name() == "KiDo") return (*i)->Erfolgswert();
+ for (std::list<cH_MidgardBasicElement>::const_iterator i= L.begin();i!=L.end();++i)
+   if (cH_KiDo(*i)->Name() == "KiDo") return cH_KiDo(*i)->Erfolgswert();
  abort();
 }   
 

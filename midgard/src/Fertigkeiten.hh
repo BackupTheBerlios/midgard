@@ -1,35 +1,56 @@
 #ifndef _FERTIGKEITEN_HH
 #  define _FERTIGKEITEN_HH
-#include <vector>
-#include <Aux/Handles.h>
-#include <Aux/CacheStatic.h>
+#include "MidgardBasicElement.hh"
+//#include <vector>
 #include "class_typen.hh"
 #include "class_Ausnahmen.hh"
+#include <gtk--/label.h>
 
-class Fertigkeit : public HandleContent
+
+class Fertigkeit : public MidgardBasicElement
 {
      std::string name, region, attribut;
      int lernpunkte, anfangswert0, anfangswert, kosten;
      int mutable erfolgswert;
      vector<std::string> standard;
-     std::string voraussetzung;
+     struct st_Voraussetzung {int st;int ge;int ko;int in;int zt;int au;int pa;
+                           int sb;int rw;std::string fert;
+         st_Voraussetzung()
+            : st(0),ge(0),ko(0),in(0),zt(0),au(0),pa(0),
+              sb(0),rw(0) {} 
+         st_Voraussetzung(int _st,int _ge,int _ko,int _in,int _zt,int _au,int _pa,
+                       int _sb,int _rw,std::string _fert)
+            : st(_st),ge(_ge),ko(_ko),in(_in),zt(_zt),au(_au),pa(_pa),
+              sb(_sb),rw(_rw),fert(_fert) {} };
+     st_Voraussetzung voraussetzung;
      mutable bool pflicht;
      Ausnahmen ausnahmen;
+     std::map<int,int> map_erfolgswert_kosten;
+     std::map<std::string,std::string> map_typ;
 
      void get_Fertigkeit();
+     void get_map_typ();
      void get_Steigern_Kosten_map();
      int GrundKosten() const {  return kosten; }
-     void set_Standard(const vector<H_Data_typen>& Typ) ;
-
-     std::map<int,int> map_erfolgswert_kosten;
+//     void set_Standard(const vector<H_Data_typen>& Typ) ;
+     int get_Steigern_Kosten(int erfolgswert) const;
+     
   public:
-     Fertigkeit(const std::string& n,const vector<H_Data_typen>& Typ,const Ausnahmen& a,int l,bool p)
-      :name(n),lernpunkte(l),erfolgswert(0),pflicht(p) {get_Fertigkeit(); set_Standard(Typ);}
+     Fertigkeit(const std::string& n,int l=0,bool p=false)
+      :name(n),lernpunkte(l),erfolgswert(0),pflicht(p) 
+      {get_Fertigkeit(); get_map_typ();}
+
+     map<std::string,std::string> get_MapTyp() const {return map_typ;}
+     enum MBEE What() const {return MidgardBasicElement::FERTIGKEIT;}
+     std::string What_str() const {return "Fertigkeit";}
+
 
      std::string Name() const {return name;}
-     int get_Steigern_Kosten(int erfolgswert);
      std::string Attribut() const {return attribut;}
      std::string Region() const {return region;}
+     int Steigern() const {return int(Standard_Faktor()*get_Steigern_Kosten(Erfolgswert()+1));}
+     int Reduzieren() const {return int(Standard_Faktor()*get_Steigern_Kosten(Erfolgswert()-1));}
+     int Verlernen() const {return Kosten();}
      std::string Standard__() const { return standard[0]+' '+standard[1];}
      const vector<std::string>& Standard() const {return standard;}
      int Lernpunkte() const {return lernpunkte;}
@@ -38,23 +59,23 @@ class Fertigkeit : public HandleContent
      int Kosten() const {return (int)(Standard_Faktor()*GrundKosten());};
      double Standard_Faktor() const;
      int Erfolgswert() const {return erfolgswert;};
-     std::string Voraussetzung() const {return voraussetzung;}
+     std::string Voraussetzung() const {return voraussetzung.fert;}
+     bool Voraussetzungen(const Grundwerte& Werte) const;
      std::string Pflicht() const {if (pflicht) return "*"; return "";}
 
      void set_Erfolgswert(int e) const {erfolgswert=e;}
+     void add_Erfolgswert(int e) const {erfolgswert+=e;}
 };
 
 class cH_Fertigkeit : public Handle<const Fertigkeit>
 {
-   struct st_index {std::string name; vector<H_Data_typen> Typ; int lernpunkte;
+   struct st_index {std::string name; int lernpunkte; 
       bool operator == (const st_index& b) const
-         {return (name==b.name && Typ[0]->Short() == b.Typ[0]->Short() && lernpunkte==b.lernpunkte);}
+         {return (name==b.name && lernpunkte==b.lernpunkte);}
       bool operator <  (const st_index& b) const
          { return name < b.name ||
-             (name==b.name && Typ[0]->Short()<b.Typ[0]->Short()) ||
-             (name==b.name && Typ[0]->Short()==b.Typ[0]->Short() &&
-               lernpunkte<b.lernpunkte ); }
-      st_index(std::string n, vector<H_Data_typen> T,int l):name(n),Typ(T),lernpunkte(l){}
+             (name==b.name && lernpunkte<b.lernpunkte ); }
+      st_index(std::string n, int l):name(n),lernpunkte(l){}
       st_index(){}
       };
 
@@ -64,15 +85,32 @@ class cH_Fertigkeit : public Handle<const Fertigkeit>
     friend class std::map<st_index,cH_Fertigkeit>;
     cH_Fertigkeit(){};
  public:
-    cH_Fertigkeit(const std::string& n,const vector<H_Data_typen>& Typ,
-      const Ausnahmen& a,int l=0,bool b=false);
+    cH_Fertigkeit(const std::string& n,int l=0,bool b=false);
+
+    cH_Fertigkeit(const cH_MidgardBasicElement &x) : Handle<const Fertigkeit>
+      (dynamic_cast<const Fertigkeit *>(&*x)){}
+
+   class sort {
+      public:
+         enum esort {NAME,ERFOLGSWERT};
+      private:
+         esort es;
+      public:
+         sort(enum esort _es):es(_es) {}
+         bool operator() (cH_Fertigkeit x,cH_Fertigkeit y) const
+           { switch(es) {
+               case(NAME) : return x->Name() < y->Name()  ;
+               case(ERFOLGSWERT): return x->Erfolgswert() < y->Erfolgswert();
+           }}
+    };
 };
 
-class Fertigkeiten_sort_name 
-{ public : bool operator() (cH_Fertigkeit x, cH_Fertigkeit y) const
-      { return x->Name() < y->Name();}};
-class Fertigkeiten_sort_wert 
-{ public : bool operator() (cH_Fertigkeit x, cH_Fertigkeit y) const
-      { return x->Erfolgswert() < y->Erfolgswert();}};
+class Fertigkeiten_All
+{
+   std::list<cH_MidgardBasicElement> list_All;
+  public:
+   Fertigkeiten_All(Gtk::Label *label);
+   std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
+};
 
 #endif

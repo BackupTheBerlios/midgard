@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.58 2001/10/27 17:54:19 thoma Exp $
+# $Id: Makefile.am,v 1.59 2001/10/31 18:34:43 thoma Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -13,7 +13,7 @@ EXTRA_DIST = document_eingabe.tex.in \
 
 
 noinst_HEADERS = MidgardBasicElement.hh Zauber.hh Zauberwerk.hh Fertigkeiten.hh Waffe.hh KiDo.hh \
-WaffeGrund.hh Fertigkeiten_angeboren.hh \
+WaffeGrund.hh Fertigkeiten_angeboren.hh Pflicht.hh \
 itos.h zufall.h Berufe_auswahl_glade.hh Berufe_auswahl.hh \
 Fertigkeiten_auswahl_glade.hh Fertigkeiten_auswahl.hh glademm_support.hh \
 midgard_CG_glade.hh midgard_CG.hh Waffen_auswahl_glade.hh Waffen_auswahl.hh   \
@@ -66,8 +66,9 @@ Sprache_auswahl.hh Sprache_auswahl_glade.hh \
 
 BUILT_SOURCES_CG =  Zauber.cc Zauberwerk.cc Fertigkeiten.cc Waffe.cc KiDo.cc \
    MidgardBasicElement_sql.cc \
+   Pflicht.cc \
    WaffeGrund.cc Fertigkeiten_angeboren.cc \
-   steigern_fertigkeiten.cc  steigern_waffen.cc \
+    steigern_waffen.cc \
    get_spezies_constraint.cc Ausnahmen.cc Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
    Zauber_auswahl.cc  \
    Berufe_auswahl.cc \
@@ -96,6 +97,7 @@ midgard_SOURCES = \
    MidgardBasicElement.cc \
    midgard_CG_basic_elemente.cc \
    $(BUILT_SOURCES_CG) \
+   steigern_fertigkeiten.cc  \
    steigern_zauber.cc  \
    midgard_CG_menu.cc \
    steigern_kido.cc  \
@@ -128,7 +130,6 @@ midgard_SOURCES = \
    Sprache_auswahl_glade.cc \
    midgard_CG_attribut_check.cc \
    Window_herkunft_glade.cc \
-   midgard_CG_sprachen_schriften.cc \
    midgard_CG_lernen.cc \
    Window_charakter_auswahl_glade.cc \
    Window_charakter_beschreibung_glade.cc \

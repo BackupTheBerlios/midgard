@@ -82,19 +82,19 @@ void midgard_CG::spielleiter_export()
     fout << ", ";
    }
  // Fertigkeiten
- for(std::list<cH_Fertigkeit>::const_iterator i=list_Fertigkeiten.begin();i!=list_Fertigkeiten.end();++i)
-   {
-    std::string wert = "+"+itos((*i)->Erfolgswert());
+ for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i)
+   { cH_Fertigkeit f(*i);
+    std::string wert = "+"+itos(f->Erfolgswert());
     if (wert == "+0") wert = "";
-    fout <<(*i)->Name() << wert ;
+    fout <<f->Name() << wert ;
 //    if (i!=vec_fertigkeiten.size()-1) fout << ", ";
-    if (i != list_Fertigkeiten.end()) fout << ", ";
+    if (i != list_Fertigkeit.end()) fout << ", ";
    }
  fout << " - ";
- for (std::vector<cH_MidgardBasicElement>::const_iterator i=list_Sprachen.begin();i!=list_Sprachen.end();++i)
+ for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Sprache.begin();i!=list_Sprache.end();++i)
    {
-      fout << (*i)->Name() << " " << (*i)->Wert() ;
-      if (i!=vec_Sprachen.end()) fout <<", ";
+      fout << (*i)->Name() << " " << (*i)->Erfolgswert() ;
+      if (i!=list_Sprache.end()) fout <<", ";
    }
   // Zauber
  if (list_Zauber.size()!=0)

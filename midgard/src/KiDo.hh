@@ -31,7 +31,7 @@ class KiDo : public MidgardBasicElement
  std::string Hoho() const {  return hoho; }
  std::string Name()  const {  return hoho; }
  int Kosten(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const 
-         { cH_Fertigkeit F("KiDo",Typ,ausnahmen);
+         { cH_Fertigkeit F("KiDo");
                       return  (int)(F->Standard_Faktor() * kosten) ; }
  std::string Name_D()  const {  return name; }
  std::string Stufe() const {  return stufe; }
@@ -41,7 +41,7 @@ class KiDo : public MidgardBasicElement
 // std::string Region() const { return "K";}
 // int Erfolgswert()
 
- static int get_erfolgswert_kido(const std::list<cH_Fertigkeit>& L);
+ static int get_erfolgswert_kido(const std::list<cH_MidgardBasicElement>& L);
  static std::map<std::string,int> maxkidostil(const std::list<cH_MidgardBasicElement>& list_Kido);
 
 };

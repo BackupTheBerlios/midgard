@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.80 2001/10/29 15:25:36 thoma Exp $
+// $Id: midgard_CG.hh,v 1.81 2001/10/31 18:34:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -103,8 +103,6 @@ class midgard_CG : public midgard_CG_glade
         std::vector<H_Data_typen> vec_Typen_2;
         std::vector<std::string> vec_spezialgebiet;
         std::vector<std::string> spezies_vector;
-        std::list<cH_Fertigkeit> list_Fertigkeiten;
-        std::list<cH_Fertigkeit> list_Fertigkeiten_neu;
         std::list<cH_Fertigkeit_angeborene> list_an_Fertigkeit;
 //        std::list<cH_Fertigkeit_angeborene> list_an_Fertigkeit_neu;
         std::list<cH_Waffe> list_Waffen;
@@ -113,6 +111,8 @@ class midgard_CG : public midgard_CG_glade
         std::list<cH_WaffeGrund> list_WaffenGrund;
         std::list<cH_WaffeGrund> list_WaffenGrund_neu;
         std::vector<H_Data_beruf> vec_Beruf;
+        std::list<cH_MidgardBasicElement> list_Fertigkeit;
+        std::list<cH_MidgardBasicElement> list_Fertigkeit_neu;
         std::list<cH_MidgardBasicElement> list_Zauber;
         std::list<cH_MidgardBasicElement> list_Zauber_neu;
         std::list<cH_MidgardBasicElement> list_Zauberwerk;
@@ -258,9 +258,9 @@ class midgard_CG : public midgard_CG_glade
         int steigern_womit(const std::string& fert);
 
         void on_fertigkeiten_laden_clicked();
-        void get_srv_kosten(const cH_Fertigkeit& fertigkeit, int &steigern,int &reduzieren,int &verlernen) const;
+//        void get_srv_kosten(const cH_Fertigkeit& fertigkeit, int &steigern,int &reduzieren,int &verlernen) const;
         void fertigkeiten_zeigen();
-        void move_fertigkeiten(std::list<cH_Fertigkeit>& von,std::list<cH_Fertigkeit>& nach,const std::string& name);
+//        void move_fertigkeiten(std::list<cH_Fertigkeit>& von,std::list<cH_Fertigkeit>& nach,const std::string& name);
         void show_alte_fertigkeiten();
         void on_leaf_selected_alte_fert(cH_RowDataBase d);
         void show_neue_fertigkeiten();
@@ -362,19 +362,20 @@ class midgard_CG : public midgard_CG_glade
          void select_charakter(const std::string& name, const std::string& version);
          void zeige_werte(const Grundwerte& w);
          void setze_lernpunkte(const Lernpunkte& _lernpunkte);
-         void fertigkeiten_uebernehmen(const std::list<cH_Fertigkeit>& saf);
+//         void fertigkeiten_uebernehmen(const std::list<cH_Fertigkeit>& saf);
          void show_fertigkeiten();
          void waffen_uebernehmen(const std::list<cH_Waffe>& saw,const std::list<cH_WaffeGrund> wg);
          void waffe_besitz_uebernehmen(const std::list<H_WaffeBesitz>& wbu);
          void MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe);
+         void MidgardBasicElement_uebernehmen(const cH_MidgardBasicElement& mbe);
          void berufe_uebernehmen(std::vector<H_Data_beruf>& sab);
 //         void kido_uebernehmen(const std::list<cH_KiDo>& technik);
 //         std::string get_region_waffen(const std::string& waffe, const std::string& region,int mod);
-         void sprache_uebernehmen(const std::string& s, int wert);
-         void schrift_uebernehmen(const std::string& s, const std::string& t);
+//         void sprache_uebernehmen(const std::string& s, int wert);
+//         void schrift_uebernehmen(const std::string& s, const std::string& t);
          void herkunft_uebernehmen(const std::string& s);
          std::vector<string> Berufs_Vorteile();
-         bool Fertigkeiten_Voraussetzung(const std::string& fertigkeit);
+//         bool Fertigkeiten_Voraussetzung(const std::string& fertigkeit);
          bool region_check(const std::string& region);
          void clear_Ausnahmen();
          void EP_uebernehmen();

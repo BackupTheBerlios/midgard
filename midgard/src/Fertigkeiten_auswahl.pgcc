@@ -71,8 +71,8 @@ try{
          exec sql fetch fert_spezies into :db_lernpunkte, :db_fertigkeit,:db_erfolgswert;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         cH_Fertigkeit fertigkeit(db_fertigkeit,Typ,Ausnahmen(Werte,Typ,vec_Beruf),db_lernpunkte,true);
-         fertigkeit->set_Erfolgswert(db_erfolgswert);
+         cH_MidgardBasicElement fertigkeit(new Fertigkeit(db_fertigkeit,db_lernpunkte,true));
+         cH_Fertigkeit(fertigkeit)->set_Erfolgswert(db_erfolgswert);
          list_Fert.push_back(fertigkeit);
       }
    exec sql close fert_spezies;
@@ -96,27 +96,27 @@ try{
          exec sql fetch cfertigkeiten into :db_fertigkeit, :db_lernpunkte,:db_pflicht;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         cH_Fertigkeit fertigkeit(db_fertigkeit,Typ,Ausnahmen(Werte,Typ,vec_Beruf),db_lernpunkte,db_pflicht);
-         fertigkeit->set_Erfolgswert(fertigkeit->Anfangswert0());
+         cH_MidgardBasicElement fertigkeit(new Fertigkeit(db_fertigkeit,db_lernpunkte,db_pflicht));
+         cH_Fertigkeit(fertigkeit)->set_Erfolgswert(cH_Fertigkeit(fertigkeit)->Anfangswert0());
          if (hauptfenster->region_check(fertigkeit->Region()))
-              list_Fert.push_back(fertigkeit);
+            list_Fert.push_back(fertigkeit);
       }
    exec sql close cfertigkeiten;
   
    Gtk::OStream os(fertigkeiten_clist_auswahl);
    fertigkeiten_clist_auswahl->freeze();
-   for(std::list<cH_Fertigkeit>::iterator i=list_Fert.begin();i!=list_Fert.end();++i)
-      {
+   for(std::list<cH_MidgardBasicElement>::iterator i=list_Fert.begin();i!=list_Fert.end();++i)
+      { cH_Fertigkeit f(*i);
         int v=0;
         for (std::vector<string>::const_iterator j=vorteile.begin();j!=vorteile.end();++j)
-            if ((*j)==(*i)->Name()) v=1;
-        std::string serfolgswert=itos((*i)->Erfolgswert());
+            if ((*j)==f->Name()) v=1;
+        std::string serfolgswert=itos(f->Erfolgswert());
         if (serfolgswert=="0") serfolgswert="";
-        if ( (hauptfenster->Fertigkeiten_Voraussetzung((*i)->Name())
-               || Werte.Spezies()!="Mensch") &&
-            Fertigkeiten_spezies_voraussetzung((*i)->Name(),Werte.Spezies()))
-         { os << (*i)->Lernpunkte()-v <<"\t"<<(*i)->Voraussetzung()<<"\t"<<(*i)->Pflicht()<<"\t"<<(*i)->Name()<<"\t"
-               << serfolgswert<<"\t"<<(*i)->Attribut()<<"\t"<<(*i)->Kosten()<<"\n";
+        if ( //(hauptfenster->Fertigkeiten_Voraussetzung(f->Name())
+             (f->Voraussetzungen(Werte) || Werte.Spezies()!="Mensch") &&
+            Fertigkeiten_spezies_voraussetzung(f->Name(),Werte.Spezies()))
+         { os << f->Lernpunkte()-v <<"\t"<<f->Voraussetzung()<<"\t"<<f->Pflicht()<<"\t"<<f->Name()<<"\t"
+               << serfolgswert<<"\t"<<f->Attribut()<<"\t"<<f->Kosten()<<"\n";
             os.flush(&*i);
          }
       }
@@ -140,25 +140,25 @@ try{
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
 
-         cH_Fertigkeit fertigkeit(db_fertigkeit,Typ,Ausnahmen(Werte,Typ,vec_Beruf));
-         fertigkeit->set_Erfolgswert(fertigkeit->Anfangswert0());
+         cH_MidgardBasicElement fertigkeit(new Fertigkeit(db_fertigkeit));
+         cH_Fertigkeit(fertigkeit)->set_Erfolgswert(cH_Fertigkeit(fertigkeit)->Anfangswert0());
          if (hauptfenster->region_check(fertigkeit->Region()))
             list_allg_Fert.push_back(fertigkeit);
       }
    exec sql close an_fert;
 
    os <<"\n\n";   
-   for(std::list<cH_Fertigkeit>::iterator i=list_allg_Fert.begin();i!=list_allg_Fert.end();++i)
-      {
+   for(std::list<cH_MidgardBasicElement>::iterator i=list_allg_Fert.begin();i!=list_allg_Fert.end();++i)
+      { cH_Fertigkeit f(*i);
         int v=0;
         for (std::vector<string>::const_iterator j=vorteile.begin();j!=vorteile.end();++j)
-           if ((*j)==(*i)->Name()) v=1;
-        std::string serfolgswert=itos((*i)->Erfolgswert());
+           if ((*j)==f->Name()) v=1;
+        std::string serfolgswert=itos(f->Erfolgswert());
         if (serfolgswert=="0") serfolgswert="";
-        if (hauptfenster->Fertigkeiten_Voraussetzung((*i)->Name()) &&
-            Fertigkeiten_spezies_voraussetzung((*i)->Name(),Werte.Spezies()))
-         { os << (*i)->Lernpunkte()-v<<"\t"<<(*i)->Voraussetzung()<<"\t"<<""<<"\t"<<(*i)->Name()<<"\t"
-              << serfolgswert<<"\t"<<(*i)->Attribut()<<"\t"<<(*i)->Kosten()<<"\n";
+        if ( //hauptfenster->Fertigkeiten_Voraussetzung(f->Name()) &&
+            f->Voraussetzungen(Werte) && Fertigkeiten_spezies_voraussetzung(f->Name(),Werte.Spezies()))
+         { os << f->Lernpunkte()-v<<"\t"<<f->Voraussetzung()<<"\t"<<""<<"\t"<<f->Name()<<"\t"
+              << serfolgswert<<"\t"<<f->Attribut()<<"\t"<<f->Kosten()<<"\n";
            os.flush(&*i);
          }
       }
@@ -175,21 +175,17 @@ try{
 }
 }
 
-
-
 void Fertigkeiten_auswahl::on_close_fertigkeiten_clicked()
 {
-   std::list<cH_Fertigkeit> saf;
+   std::list<cH_MidgardBasicElement> saf;
    for (Gtk::CList::SelectionList::iterator i=fertigkeiten_clist_auswahl->selection().begin();
          i!=fertigkeiten_clist_auswahl->selection().end();++i)
      {  
-      cH_Fertigkeit *ptr = static_cast<cH_Fertigkeit*>(i->get_data());
+//      cH_Fertigkeit *ptr = static_cast<cH_Fertigkeit*>(i->get_data());
+      cH_MidgardBasicElement *ptr = static_cast<cH_MidgardBasicElement*>(i->get_data());
       saf.push_back(*ptr);
-//      cH_Fertigkeit F((*ptr)->Name(),Typ,Ausnahmen(Werte,Typ,vec_Beruf));
-//      F->set_Erfolgswert((*ptr)->Erfolgswert());
-//      saf.push_back(F);
      }
-  hauptfenster->fertigkeiten_uebernehmen(saf);
+  hauptfenster->MidgardBasicElement_uebernehmen(saf);
   destroy();
 }
 
