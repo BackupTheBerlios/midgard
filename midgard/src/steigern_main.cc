@@ -166,6 +166,8 @@ void midgard_CG::on_button_alter_clicked()
 
 gint midgard_CG::on_eventbox_ausruestung_button_release_event(GdkEventButton *event)
 { notebook_main->set_page(PAGE_AUSRUESTUNG); return false;}
+gint midgard_CG::on_eventbox_beschreibung_button_release_event(GdkEventButton *event)
+{ notebook_main->set_page(PAGE_BESCHREIBUNG); return false;}
 gint midgard_CG::on_eventbox_steigern_button_release_event(GdkEventButton *event)
 { notebook_main->set_page(PAGE_STEIGERN); return false;}
 gint midgard_CG::on_eventbox_lernen_button_release_event(GdkEventButton *event)
@@ -191,6 +193,10 @@ void midgard_CG::on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page *page,
     menu_gradanstieg_init();
     load_for_page(notebook_lernen->get_current_page_num());
   }
+ else if(pagenr==PAGE_BESCHREIBUNG)
+   {
+    show_beschreibung();
+   }
  else if(pagenr==PAGE_AUSRUESTUNG)
     ausruestung_laden();
 }

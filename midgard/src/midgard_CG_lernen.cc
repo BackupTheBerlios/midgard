@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.90 2002/03/06 17:06:27 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.91 2002/03/09 22:06:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,7 +18,6 @@
  */
 
 #include "midgard_CG.hh"
-//#include "Window_Waffe_Geld.hh"
 #include "Window_waffe.hh"
 #include <Aux/itos.h>
 #include "class_SimpleTree.hh"
@@ -325,6 +324,10 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
            lernpunkte.addZauber(MBE->Lernpunkte());
            break;
          }
+     case MidgardBasicElement::FERTIGKEIT_ANG : 
+         { list_Fertigkeit_ang.remove(MBE);
+           break;
+         }
      case MidgardBasicElement::FERTIGKEIT : 
          { list_Fertigkeit.remove(MBE);
            if(cH_Fertigkeit(MBE)->LernArt()=="Fach")      lernpunkte.addFach( MBE->Lernpunkte());
@@ -351,6 +354,8 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
    }
   if(MBE->What()==MidgardBasicElement::FERTIGKEIT) 
          show_lernschema(MBE->What(),cH_Fertigkeit(MBE)->LernArt());
+  else if(MBE->What()==MidgardBasicElement::FERTIGKEIT_ANG)
+     ;
   else if(MBE->What()==MidgardBasicElement::SPRACHE ||
           MBE->What()==MidgardBasicElement::SCHRIFT )
          on_lernliste_wahl_toggled();
@@ -600,6 +605,7 @@ void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std
   tree_lernschema->Expand_recursively();
   scrolledwindow_beruf->hide();
   scrolledwindow_lernschema->show();
+  scrolledwindow_ange_fert->hide();
 }
 
 void midgard_CG::setTitels_for_Lernschema(const MidgardBasicElement::MBEE& what,const std::string& fert)

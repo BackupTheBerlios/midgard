@@ -37,7 +37,7 @@ class midgard_CG;
 class xml_fileselection : public xml_fileselection_glade
 {   
   public:
-        enum eAction {Save,Load,Export};
+        enum eAction {Save,Load,Export,Pix};
   private:
         midgard_CG* hauptfenster;        
         

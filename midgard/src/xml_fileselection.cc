@@ -36,6 +36,12 @@ void xml_fileselection::on_ok_button1_clicked()
    hauptfenster->xml_export(this->get_filename());
  else if (ewas==Export)
    hauptfenster->spielleiter_export_save(this->get_filename());
+ else if (ewas==Pix)
+  {
+    Grundwerte W=hauptfenster->getWerte();
+    W.setBeschreibungPix(this->get_filename());
+    hauptfenster->show_beschreibung();
+  }
  destroy();
 }
 
@@ -45,7 +51,7 @@ void xml_fileselection::on_cancel_button1_clicked()
 }
 
 xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was)
-:ewas(_was)
+: hauptfenster(h),ewas(_was)
 {
- hauptfenster=h;
+ if(ewas==Pix) set_filename(hauptfenster->getWerte().BeschreibungPix());
 }

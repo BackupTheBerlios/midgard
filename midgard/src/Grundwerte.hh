@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.25 2002/03/01 18:56:12 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.26 2002/03/09 22:06:57 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -44,7 +44,7 @@ class Grundwerte
    std::string geschlecht;
    int gewicht,groesse,grad;
    std::string stand,spezialisierung,hand,
-      glaube,name_abenteurer,name_spieler,version,beschreibung;
+      glaube,name_abenteurer,name_spieler,version,beschreibung,beschreibung_pix;
    int gfp;
    float steigertage;
    int gold,silber,kupfer,aep,kep,zep;
@@ -126,6 +126,7 @@ public:
    std::string Name_Spieler() const {return name_spieler;}
    std::string Version() const;
    std::string Beschreibung() const {return beschreibung;}
+   std::string BeschreibungPix() const {return beschreibung_pix;}
    std::string Stadt_Land() const {return stadt_land;}
    cH_Ruestung Ruestung() const {return ruestung;}
    int GFP() const {return gfp;}
@@ -204,7 +205,8 @@ public:
    void setNameS(const std::string& s) { name_spieler=s;}
    void setVersion(const std::string& s) { version=s;}
 
-   void setBeschreibung(const std::string& _beschreibung){beschreibung=_beschreibung;}
+   void setBeschreibung(const std::string& _b){beschreibung=_b;}
+   void setBeschreibungPix(const std::string& _b){beschreibung_pix=_b;}
    void setRuestung(const cH_Ruestung _ruestung){ruestung=_ruestung;}
    void setStadt_Land(const std::string& sl) {stadt_land=sl;}
    void setGFP(int _gfp){gfp=_gfp;}

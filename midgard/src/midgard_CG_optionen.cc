@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.62 2002/03/06 17:06:27 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.63 2002/03/09 22:06:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -79,12 +79,12 @@ void midgard_CG::checkbutton_original(bool active)
          setAllHausregeln(false);
          if(haus_menuitem) haus_menuitem->set_sensitive(false);
        }
-      pixmapLogo->show();
+      pixmap_logo->show();
 //      pixmap_original_tux->hide();
     }      
   else 
     { togglebutton_alle_zauber->set_sensitive(true); 
-      pixmapLogo->hide();
+      pixmap_logo->hide();
       pixmap_original_tux->show();
       if(haus_menuitem) haus_menuitem->set_sensitive(true);
     }      
@@ -93,7 +93,7 @@ void midgard_CG::checkbutton_original(bool active)
 
 void midgard_CG::lernschema_sensitive(bool active)
 {
-   button_beschreibung->set_sensitive(true);
+//   button_beschreibung->set_sensitive(true);
    frame_steigern->set_sensitive(true);
    frame_lernschema->set_sensitive(true);
    button_lernpunkte->set_sensitive(true);
@@ -145,13 +145,13 @@ void midgard_CG::on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_R
  if(notebook_main->get_current_page_num()==PAGE_STEIGERN)
     load_for_page(notebook_lernen->get_current_page_num());
 
-// pixmapLogo->show();
+// pixmap_logo->show();
  for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
   {
    if(!(*i)->Offiziell() && (*i)->Active()) 
      { 
 //       checkbutton_original(false);
-       pixmapLogo->hide();
+       pixmap_logo->hide();
        break;
      }
   }

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.55 2002/03/04 08:08:36 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.56 2002/03/09 22:06:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -116,6 +116,7 @@ void midgard_CG::showBerufsLernList()
   Beruf_tree->Expand_recursively();
   scrolledwindow_beruf->show();
   scrolledwindow_lernschema->hide();
+  scrolledwindow_ange_fert->hide();
 }
 
 void midgard_CG::beruf_gewuerfelt(int wurf)

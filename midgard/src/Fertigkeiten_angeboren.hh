@@ -28,15 +28,8 @@ class Fertigkeit_angeborene : public MidgardBasicElement
 
      void get_Fertigkeit();
   public:
-#ifndef USE_XML  
-     Fertigkeit_angeborene(const std::string& n) 
-         : MidgardBasicElement(n),min(0),max(0) {get_Fertigkeit();}
-     Fertigkeit_angeborene(const std::string& n,int w) 
-         : MidgardBasicElement(n),min(0),max(0) {set_Erfolgswert(w);}
-#else
      Fertigkeit_angeborene(const Tag *tag) 
          : MidgardBasicElement(tag,tag->getAttr("Name")),min(0),max(0) {get_Fertigkeit();}
-#endif         
 
      enum MBEE What() const {return MidgardBasicElement::FERTIGKEIT_ANG;}
      std::string What_str() const {return "ang.Fertigkeit";}
@@ -56,9 +49,7 @@ class cH_Fertigkeit_angeborene : public Handle<const Fertigkeit_angeborene>
     cH_Fertigkeit_angeborene(){};
  public:
     cH_Fertigkeit_angeborene(const std::string& n IF_XML(,bool create=false));
-#ifdef USE_XML    
     cH_Fertigkeit_angeborene(const Tag *tag);
-#endif
     cH_Fertigkeit_angeborene(const Fertigkeit_angeborene *r) : Handle<const Fertigkeit_angeborene>(r){}
 
     cH_Fertigkeit_angeborene(const cH_MidgardBasicElement &x) : Handle<const Fertigkeit_angeborene>

@@ -37,6 +37,7 @@ class Data_SimpleTree : public RowDataBase
    Data_SimpleTree(const cH_MidgardBasicElement& _MBE, const midgard_CG *h) 
    : MBE(_MBE),hauptfenster(h) {}
 
+   enum Spalten_ANGEBFERT  {WURFaf,NAMEaf,WERTaf};
    enum Spalten_GELERNTES  {ARTgg,NAMEgg,WERTgg,LERNPUNKTEgg};
    enum Spalten_LERNSCHEMA {LERNPUNKTEg,PFLICHTg,NAMEg,WERTg,EIGENSCHAFTg,VORAUSSETZUNGg,KOSTENg,ARTg,GELERNTg} ;
    enum Spalten_LONG_ALT {NAMEa,WERTa,PPa,STANDARDa,STEIGERN,REDUZIEREN,VERLERNEN,REGIONa} ;

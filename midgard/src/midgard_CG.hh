@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.190 2002/03/06 17:06:27 thoma Exp $
+// $Id: midgard_CG.hh,v 1.191 2002/03/09 22:06:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -51,7 +51,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
 
         Random random;   
         enum enum_notebook_main{PAGE_INFO,PAGE_GRUNDWERTE,PAGE_LERNEN,PAGE_STEIGERN,
-                                  PAGE_AUSRUESTUNG,PAGE_NEWS};
+                                PAGE_BESCHREIBUNG,PAGE_AUSRUESTUNG,PAGE_NEWS};
         enum enum_notebook_lernen{PAGE_FERTIGKEITEN,PAGE_WAFFEN,PAGE_ZAUBER,
                                   PAGE_KIDO,PAGE_SPRACHE};
         enum enum_lernschema_zusatz{LZHERKUNFT,LZGEHEIMZEICHEN,LZABRICHTEN,
@@ -131,6 +131,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
 
         Datenbank Database;
         std::list<cH_MidgardBasicElement> list_Beruf;
+        std::list<cH_MidgardBasicElement> list_Fertigkeit_ang_neu;
         std::list<cH_MidgardBasicElement> list_Fertigkeit_ang;
         std::list<cH_MidgardBasicElement> list_Fertigkeit;
         std::list<std::string>            list_FertigkeitZusaetze;
@@ -294,10 +295,10 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void clear_gtk();
         void clear_listen();
         void on_button_hilfe_clicked();
-        void on_charakter_beschreibung_clicked();
-//        void charakter_db_anlegen();
-//        void on_laden_clicked();
-//        void load_charakter(std::string name, std::string version);
+        gint on_text_charakter_beschreibung_focus_out_event(GdkEventFocus *ev);        
+        void on_button_beschreibung_drucken_clicked();
+        void on_button_grafik_clicked();
+
         void load_fertigkeiten(IF_XML(const Tag *tag, const Tag *waffen_b, int xml_version));
         void on_latex_clicked(bool values=true);
         void LaTeX_write_values();
@@ -371,6 +372,9 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         gint on_angeborene_fertigkeit_button_release_event(GdkEventButton *ev);
         void on_angeborene_fertigkeit_clicked();
         void on_angeborene_fertigkeit_right_clicked();
+        bool AngebSinn(int wurf,int wert);
+        std::string AngebFert_gewuerfelt(int wurf);
+        void on_ang_fert_leaf_selected(cH_RowDataBase d);
         void universal_Fertigkeiten();
         void on_spezialwaffe_clicked();
         void checkbutton_original(bool active);
@@ -402,6 +406,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
 
         void on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page* page,guint pagenr);
         gint on_eventbox_ausruestung_button_release_event(GdkEventButton *event);
+        gint on_eventbox_beschreibung_button_release_event(GdkEventButton *event);
         gint on_eventbox_steigern_button_release_event(GdkEventButton *event);
         gint on_eventbox_lernen_button_release_event(GdkEventButton *event);
         gint on_eventbox_grundwerte_button_release_event(GdkEventButton *event);
@@ -548,7 +553,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          // Werte in der Oberfläche setzen (z.B. nach laden)
          void Typ_Geschlecht_Spezies_setzen(); // uvm.
 
-        bool SpracheSchrift(const cH_MidgardBasicElement& MBE,int wert=0,bool auswahl=false);
+         bool SpracheSchrift(const cH_MidgardBasicElement& MBE,int wert=0,bool auswahl=false);
    public:
          midgard_CG(const string &datei="");
 
@@ -557,13 +562,13 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          const Datenbank &getDatabase() const {return Database;}
          const Grundwerte &getWerte() const {return Werte;}
          void zeige_werte();
+         void show_beschreibung();
  
          void kaempfer_lernt_zaubern(cH_MidgardBasicElement);
          void doppelcharaktere();
          void xml_export(const std::string& datei);
          void xml_import(const std::string& datei);
          void spielleiter_export_save(const std::string& dateiname);
-         void charakter_beschreibung_uebernehmen(const std::string& b,bool drucken);
          void MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe,
                                               const std::list<cH_MidgardBasicElement>& mbe2=std::list<cH_MidgardBasicElement>());
          void MidgardBasicElement_uebernehmen(const cH_MidgardBasicElement& mbe,bool beruf=false);

@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.132 2002/03/04 08:46:37 thoma Exp $
+# $Id: Makefile.am,v 1.133 2002/03/09 22:06:57 thoma Exp $
 
 bin_PROGRAMS = midgard 
 noinst_PROGRAMS = text2c
@@ -38,7 +38,6 @@ noinst_HEADERS = \
 WaffeGrund.hh Fertigkeiten_angeboren.hh zufall.h \
 glademm_support.hh \
 midgard_CG_glade.hh midgard_CG.hh  \
-Window_charakter_beschreibung_glade.hh Window_charakter_beschreibung.hh \
 WindowInfo_glade.hh WindowInfo.hh \
    Window_hilfe_glade.hh \
    Window_hilfe.hh \
@@ -50,8 +49,6 @@ WindowInfo_glade.hh WindowInfo.hh \
 	Window_waffe.hh \
 	Window_Waffenbesitz_glade.hh \
 	Window_Waffenbesitz.hh \
-	Window_angeb_fert_glade.hh \
-	Window_angeb_fert.hh \
 	Midgard_Info_glade.hh \
 	Midgard_Info.hh \
    KiDo_auswahl.hh \
@@ -120,7 +117,6 @@ midgard_SOURCES = \
    steigern_zauber.cc  \
    steigern_kido.cc  \
    midgard_CG_menu.cc \
-   Window_angeb_fert.cc \
    Window_Erfahrungspunkte.cc \
    Window_Erfahrungspunkte_glade.cc \
    steigern_main.cc \
@@ -136,7 +132,6 @@ midgard_SOURCES = \
    midgard_CG_kido.cc \
    KiDo_auswahl_glade.cc \
    midgard_CG_region_check.cc \
-	Window_angeb_fert_glade.cc \
    midgard_CG_optionen.cc \
 	Window_Waffenbesitz_glade.cc \
 	Window_waffe_glade.cc \
@@ -149,8 +144,7 @@ midgard_SOURCES = \
 	midgard.cc \
    midgard_CG_lernen.cc \
    midgard_CG_lernen_zusatz.cc \
-   Window_charakter_beschreibung_glade.cc \
-   Window_charakter_beschreibung.cc \
+   midgard_CG_beschreibung.cc \
    midgard_CG_grad_anstieg.cc \
 	midgard_CG_glade.cc \
 	midgard_CG.cc \

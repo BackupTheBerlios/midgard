@@ -1,4 +1,29 @@
 ##########################################################################
+NEWS IN VERSION 0.4delta6
+
+* Oberfläche leicht übearbeitet
+* Titel im Zusatz-Fenster(lernen) korrekt
+* Kleinere Bugs beseitigt
+* Angeborene Fertigkeiten Auswahl jetzt ohne extra Fenster (s.o.)
+   außerdem ist der Absturzbug jetzt weg.
+* Charakterbeschreibung jetzt auch im Hauptfenster (konsistenter und einfacher)
+**TESTEN Der Chrakterbeschreibung kann nun eine Grafik hinzugefügt werden
+
+TODO:
+* Steigern mehrerer Stufen mit PP
+* Waeland: Zauber
+* Nahuathlan: Komplett
+* Eschar: Derwisch
+* Doppelklassen
+* Offielles Logo ist weg :-(
+* Laden von Optionen 
+* gv zeigt den falschen Ausschnitt des pdf Dokumentes 
+   (nur für Linux interessant)
+* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+
+##########################################################################
 NEWS IN VERSION 0.4delta5
 
 * Waffenbesitz löscht die Waffen, nicht den Besitz
@@ -56,6 +81,7 @@ TODO:
 * Eschar: Derwisch
 * Doppelklassen
 * Offielles Logo ist weg :-(
+* angeborene fertigkeiten können nicht aus der Liste gewählt werden (Absturz)
 * Laden von Optionen 
 * gv zeigt den falschen Ausschnitt des pdf Dokumentes 
    (nur für Linux interessant)

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.174 2002/03/06 17:06:27 thoma Exp $
+// $Id: midgard_CG.cc,v 1.175 2002/03/09 22:06:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,7 +18,6 @@
  */
 
 #include "midgard_CG.hh"
-#include "Window_charakter_beschreibung.hh"
 #include "Window_hilfe.hh"
 #include "Window_Geld_eingeben.hh"
 #include "Window_ruestung.hh"
@@ -47,7 +46,7 @@ midgard_CG::midgard_CG(const string &datei)
   Hausregeln_init();
   pdfViewer_init();
 
-//X  load_options();
+//  load_options();
 
   on_neuer_charakter_clicked();
   set_tree_titles();
@@ -215,17 +214,6 @@ void midgard_CG::show_gtk()
 }
 
 
-void midgard_CG::on_charakter_beschreibung_clicked()
-{   
-  manage(new Window_charakter_beschreibung(this,Werte.Beschreibung())); 
-}   
-void midgard_CG::charakter_beschreibung_uebernehmen(const std::string& b,bool drucken)
-{
-  Werte.setBeschreibung(b);
-  modify_bool=true;
-  if(drucken) latex_beschreibung_drucken();
-}
-
 void midgard_CG::on_button_hilfe_clicked()
 {
   manage(new Window_hilfe()); 
@@ -233,9 +221,6 @@ void midgard_CG::on_button_hilfe_clicked()
 
 void midgard_CG::on_button_info_clicked()
 {
-//  Midgard_Info *MI = manage(new Midgard_Info());
-//  MI->set_Regionen(Database.Regionen);  
-// Midgard_Info->set_Regionen(Database.Regionen);
   notebook_main->set_page(PAGE_INFO);
 }
 
@@ -315,9 +300,9 @@ void midgard_CG::on_neuer_charakter_clicked()
 
    button_grundwerte->set_sensitive(true);
    button_abg_werte->set_sensitive(false);
-   button_beschreibung->set_sensitive(false);
    frame_steigern->set_sensitive(false); // das wirkt nicht ?
    frame_lernschema->set_sensitive(false);
+   togglebutton_lernpunkte_edit->set_active(false);
 
    button_lernpunkte->set_sensitive(false);
    togglebutton_lernpunkte_edit->set_sensitive(false);
@@ -336,6 +321,7 @@ void midgard_CG::on_neuer_charakter_clicked()
 //   togglebutton_gelernte_anzeigen->set_active(false);
    table_berufswahl->set_sensitive(false);
    scrolledwindow_beruf->hide();
+   scrolledwindow_ange_fert->hide();
    label_berufskategorie->hide();
    label_berufsstern_erklaerung->hide();
    togglebutton_spezialwaffe->set_active(false);
@@ -409,6 +395,6 @@ void midgard_CG::on_schliessen_CG_clicked()
 gint midgard_CG::on_midgard_CG_delete_event(GdkEventAny* event)
 {
   on_schliessen_CG_clicked();
-  return 0;
+  return true;
 }
 

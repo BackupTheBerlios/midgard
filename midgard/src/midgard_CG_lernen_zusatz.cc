@@ -120,6 +120,7 @@ void midgard_CG::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,const cH_M
        vs.push_back("Land");
        vs.push_back("Koninent");
        vs.push_back("Sprache(n)");
+       break;
       }
      case MidgardBasicElement::ZTabelle :
       {
@@ -127,6 +128,7 @@ void midgard_CG::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,const cH_M
        vs.push_back(MBE->Name());
        vs.push_back("");
        vs.push_back("");
+       break;
       }
      case MidgardBasicElement::ZSchrift :
       {
@@ -134,6 +136,7 @@ void midgard_CG::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,const cH_M
        vs.push_back(MBE->Name());
        vs.push_back("");
        vs.push_back("");
+       break;
       }
      case MidgardBasicElement::ZSprache :
       {
@@ -154,6 +157,7 @@ void midgard_CG::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,const cH_M
        vs.push_back(MBE->Name());
        vs.push_back("");
        vs.push_back("");
+       break;
       }
     default : break;
    }
