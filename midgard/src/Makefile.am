@@ -1,11 +1,11 @@
-# $Id: Makefile.am,v 1.229 2004/01/20 08:03:07 christof Exp $
+# $Id: Makefile.am,v 1.230 2004/01/20 08:06:10 christof Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
 
 if WINDOWS
 PORT_FILES=magus.rc 
-LINK_OPTIONS=-mwindows
+LINK_OPTIONS=-mwindows -Wl,--enable-runtime-pseudo-reloc
 LINK_OBJS=magus_res.o 
 # -lcomdlg32
 # sigh! local installation menace

@@ -1,4 +1,4 @@
-// $Id: magus_paths.h,v 1.5 2003/09/01 06:47:57 christof Exp $
+// $Id: magus_paths.h,v 1.6 2004/01/20 08:06:10 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -23,13 +23,14 @@
 
 #include <string>
 #include <vector>
+#include <libmagus_dll.h>
 
 // small class for determining file positions (originally part of midgard_CG)
 class magus_paths
 {protected:
-        static std::string argv0; // Dateiname
-        static std::string magus_verzeichnis;
-        static std::vector<std::string> paths;
+        static LIBMAGUS_API std::string argv0; // Dateiname
+        static LIBMAGUS_API std::string magus_verzeichnis;
+        static LIBMAGUS_API std::vector<std::string> paths;
 public:
          static void init(const std::string &_argv0,const std::string &_magus_verzeichnis="");
          static const std::string &MagusVerzeichnis() {return magus_verzeichnis;}
