@@ -3,7 +3,8 @@ NEU in Version 0.9.2
 - Global_Options werden im XML gespeichert
 - MAGUSPATH Umgebungsvariable wird ausgewertet
 - Verbesserungen an SimpleTree
-
+- Konsequentere Umsetzung von MVC auf Abenteurer
+- Undo jetzt nicht über XML sondern direkt auf Liste
 
 NEU in Version 0.9.1
 
