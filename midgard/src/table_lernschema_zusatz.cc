@@ -126,6 +126,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_M
    }
  Tree_Lernschema_Zusatz->setDataVec(datavec);
  frame_lernschema_zusatz->show();
+ Tree_Lernschema_Zusatz->grab_focus();
 }
 
 void table_lernschema::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,const cH_MidgardBasicElement& MBE)
@@ -261,3 +262,8 @@ void table_lernschema::on_zusatz_leaf_sprache_selected(cH_RowDataBase d)
   show_gelerntes();
 }
 
+gint table_lernschema::on_Tree_Lernschema_Zusatz_leave_notify_event(GdkEventCrossing *ev)
+{
+  cout << "leave out\n";
+  return false;
+}

@@ -1,4 +1,4 @@
-// $Id: Typen.hh,v 1.17 2002/05/15 08:45:28 thoma Exp $               
+// $Id: Typen.hh,v 1.18 2002/05/19 07:26:38 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -40,7 +40,7 @@ class Typen : public HandleContent
 //   mutable int opionmenu_nr;
    bool stadt,land;
    std::string sprueche_mit_pp;
-   bool nsc_only;
+   bool nsc_only,kultwaffe;
    int min_st,min_gw,min_gs,min_in,min_pa;
 
 public:
@@ -65,6 +65,7 @@ public:
    bool SpruecheMitPP() const {return !sprueche_mit_pp.empty();}
    std::string SpruecheMitPP_Text() const {return sprueche_mit_pp;}
    bool NSC_only() const {return nsc_only;}
+   bool Kultwaffe() const {return kultwaffe;}
    bool Spezialwaffe() const;
    bool Spezialgebiet() const;
    bool Mindestwerte(const Grundwerte& Werte) const;

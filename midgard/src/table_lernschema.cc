@@ -115,6 +115,11 @@ void table_lernschema::on_lernliste_wahl_toggled()
 
 void table_lernschema::on_button_waffen_clicked()
 {  
+  if(hauptfenster->Typ[0]->Kultwaffe() && hauptfenster->list_Waffen.empty())
+   {
+     hauptfenster->set_status(hauptfenster->Typ[0]->Name(hauptfenster->getCWerte().Geschlecht())+" müssen als erstes ihre Kultwaffe wählen; fehlende Lernpunkte werden geschenkt.",false);
+     togglebutton_teure_anzeigen->set_active(true);
+   }
   button_lernschema_waffen->set_sensitive(true);
 }
 
@@ -226,7 +231,14 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
   switch(MBE->What()) {
     case MidgardBasicElement::WAFFE:
       { 
-        if(MBE->Lernpunkte()>lernpunkte.Waffen())
+        int lp=MBE->Lernpunkte();
+        if(hauptfenster->Typ[0]->Kultwaffe() && hauptfenster->list_Waffen.empty())
+          {
+            // Für eine Kultwaffe werden fehlende Lernpunkte geschenkt
+            if( lp>lernpunkte.Waffen() ) lp=lernpunkte.Waffen();
+            hauptfenster->set_status(MBE->Name()+" als Kultwaffe gewählt");
+          }
+        else if(MBE->Lernpunkte()>lernpunkte.Waffen())
           { hauptfenster->set_status("Nicht genug Lernpunkte");
             tree_lernschema->unselect_all();
             return;
@@ -235,7 +247,7 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
         hauptfenster->list_WaffenGrund.push_back(&*cH_WaffeGrund(cH_Waffe(MBE)->Grundkenntnis()));
         hauptfenster->list_WaffenGrund.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME));
         hauptfenster->list_WaffenGrund.unique();
-        lernpunkte.addWaffen(- MBE->Lernpunkte());
+        lernpunkte.addWaffen(-lp);
         break; }
     case MidgardBasicElement::ZAUBER:
       { 
@@ -699,10 +711,14 @@ void table_lernschema::show_lernschema()
            {
              if ((*i)->ist_gelernt(hauptfenster->list_Waffen)) gelernt=true;
              if (!cH_Waffe(*i)->SG_Voraussetzung(hauptfenster->getCWerte(),hauptfenster->list_Fertigkeit,hauptfenster->list_Waffen)) continue ;
+             if(hauptfenster->getCWerte().Spezies()->istVerbotenSpielbegin(*i)) continue;
              VI=Lernschema::getIndex(hauptfenster->Typ,"Waffenfertigkeiten",(*i)->Name());
+             if(hauptfenster->Typ[0]->Kultwaffe() && hauptfenster->list_Waffen.empty())
+               hauptfenster->set_status(hauptfenster->Typ[0]->Name(hauptfenster->getCWerte().Geschlecht())+" müssen als erstes ihre Kultwaffe wählen; fehlende Lernpunkte werden geschenkt.");
             }
            else if(what==MidgardBasicElement::ZAUBER)
             {
+             if(hauptfenster->getCWerte().Spezies()->istVerbotenSpielbegin(*i)) continue;
              if ((*i)->ist_gelernt(hauptfenster->list_Zauber) )  gelernt=true;
 //             if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) gelernt=true;
              VI=Lernschema::getIndex(hauptfenster->Typ,"Zauberkünste",(*i)->Name());

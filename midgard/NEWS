@@ -6,17 +6,17 @@ NEWS IN VERSION 0.6delta4
 * Neuimplementierung der LaTeX Anzeige für Rüstungen
 * Lernshcema in eigene Klasse umgewandelt
 * Diverse Bugs behoben
-* Datenbnakkorrekturen
+* Datenbankkorrekturen
 * '0 Lernpunkte' Fertigkeiten nur EINMAL lernen
 * freiwillige Speziesfertigkeiten die zu teuer sind oder schon gelernt sind
    werden berücksichtigt. (Trinken für Zwerg) 
 * Verbote der Waffen-Grundkenntnisse für Spezies werden berücksichtigt
-* In der Waffenauswahl wird der Dolch nicht mehr angezeigt mit W6+-1. 
+* In der Waffenauswahl wird der Dolch nicht mehr angezeigt mit W6+-1 
 * Gleiche Sprache kann nicht mehrmals gelernt werden
+* Kultwaffe für Priester kann gelernt werden, auch wenn sie mehr Lernpunkte
+   kostet als vorhanden sind.
 
 TODO:
-* Ist gedacht für die Priester die Kultwaffen (DFR S. 49 rechts) zu
-implementieren? (Auch die Schenkungsregel für Fertigkeitspunkte?)
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
 in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
 links). 
@@ -25,7 +25,6 @@ links).
 Listen (DFR S. 50 rechts) werden nicht berücksichtigt. Beispiel: Meine
 Zwergenkriegerin könnte Krummsäbel und Parierdolch lernen.
 * Fokus im Zusatzfenster einfrieren
-* Gleiche Sprache nur einmal lernen
 * xml-speicherpfad
 * Ausdruck für Lange Listen
 * Searchcombo für Typen

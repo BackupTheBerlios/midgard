@@ -1,4 +1,4 @@
-// $Id: Spezies.hh,v 1.12 2002/03/20 19:53:53 thoma Exp $               
+// $Id: Spezies.hh,v 1.13 2002/05/19 07:26:38 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -95,7 +95,7 @@ public:
    int Raufen() const {return raufen;}
    bool Typ_erlaubt(std::string typ) const;
    bool Land() const {return land;}
-   bool onlyNSC() const {return only_nsc;}
+   bool NSC_only() const {return only_nsc;}
 
    std::list<cH_MidgardBasicElement> getZauber() const;
    std::list<cH_MidgardBasicElement> getAngFertigkeiten() const;

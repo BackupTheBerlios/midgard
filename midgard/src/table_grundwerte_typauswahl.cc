@@ -103,6 +103,7 @@ void table_grundwerte::fill_spezies()
   { Gtk::OStream t_(optionmenu_spezies);
     for(vector<cH_Spezies>::const_iterator i=hauptfenster->getDatabase().Spezies.begin();i!=hauptfenster->getDatabase().Spezies.end();++i)
      {
+       if (!hauptfenster->nsc_check((*i)->NSC_only())) continue;
        t_ << (*i)->Name();
        t_.flush((*i)->ref(),&HandleContent::unref);
      }

@@ -7614,6 +7614,11 @@ auswählen</label>
 			<class>Custom</class>
 			<name>Tree_Lernschema_Zusatz</name>
 			<cxx_visibility>protected</cxx_visibility>
+			<signal>
+			  <name>leave_notify_event</name>
+			  <handler>on_Tree_Lernschema_Zusatz_leave_notify_event</handler>
+			  <last_modification_time>Sat, 18 May 2002 19:48:50 GMT</last_modification_time>
+			</signal>
 			<creation_function>MidgardBasicTree(MidgardBasicTree::LERNSCHEMAZUSATZ)</creation_function>
 			<int1>0</int1>
 			<int2>0</int2>

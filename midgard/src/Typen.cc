@@ -69,6 +69,7 @@ Typen::Typen(const Tag *tag)
  stadt=tag->getBoolAttr("Stadt",true);
  sprueche_mit_pp=tag->getAttr("SprücheMitPraxisPunkten");
  nsc_only=tag->getBoolAttr("NSC_only",false);
+ kultwaffe=tag->getBoolAttr("Kultwaffe",false);
  min_st=tag->getIntAttr("MinSt");
  min_gw=tag->getIntAttr("MinGw");
  min_gs=tag->getIntAttr("MinGs");
