@@ -1,5 +1,4 @@
 #include "midgard_CG.hh"
-//#include <gtk--/menubar.h>
 
 void midgard_CG::menu_init()
 {

@@ -43,7 +43,7 @@ Window_herkunft::Window_herkunft(midgard_CG* h,const midgard_CG::st_Database& Da
  Gtk::OStream os(clist_herkunftsland);
  for (std::vector<cH_Land>::const_iterator i=Database.Laender.begin();i!=Database.Laender.end();++i)
   {
-   os << (*i)->Kontinent()<<'\t'<<(*i)->Name()<<'\n';
+   os << (*i)->Name()<<'\t'<<(*i)->Kontinent()<<'\n';
    os.flush(&const_cast<cH_Land&>(*i));
   }   
 }

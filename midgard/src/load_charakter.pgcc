@@ -60,7 +60,7 @@ void midgard_CG::select_charakter(const std::string& name, const std::string& ve
   midgard_CG::load_charakter();
   button_abg_werte->set_sensitive(true);
   button_herkunft->set_sensitive(true);
-  button_sprache->set_sensitive(true);
+//  button_sprache->set_sensitive(true);
   button_beschreibung->set_sensitive(true);
   frame_steigern->set_sensitive(true);
   on_radio_steigern_all();

@@ -30,7 +30,7 @@
     <signal>
       <name>button_press_event</name>
       <handler>on_eventbox_MCG_button_press_event</handler>
-      <last_modification_time>Thu, 23 Aug 2001 19:00:58 GMT</last_modification_time>
+      <last_modification_time>Sat, 05 Jan 2002 09:53:22 GMT</last_modification_time>
     </signal>
 
     <widget>
@@ -3127,20 +3127,350 @@
 	    </child>
 
 	    <widget>
-	      <class>GtkTable</class>
-	      <name>table105</name>
-	      <rows>3</rows>
-	      <columns>5</columns>
-	      <homogeneous>True</homogeneous>
-	      <row_spacing>5</row_spacing>
-	      <column_spacing>5</column_spacing>
+	      <class>GtkFrame</class>
+	      <name>frame61</name>
+	      <label>Optionen</label>
+	      <label_xalign>0</label_xalign>
+	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
 	      <child>
-		<left_attach>0</left_attach>
-		<right_attach>1</right_attach>
+		<left_attach>1</left_attach>
+		<right_attach>2</right_attach>
 		<top_attach>0</top_attach>
 		<bottom_attach>2</bottom_attach>
 		<xpad>0</xpad>
 		<ypad>0</ypad>
+		<xexpand>True</xexpand>
+		<yexpand>False</yexpand>
+		<xshrink>False</xshrink>
+		<yshrink>False</yshrink>
+		<xfill>False</xfill>
+		<yfill>False</yfill>
+	      </child>
+
+	      <widget>
+		<class>GtkTable</class>
+		<name>table46</name>
+		<rows>3</rows>
+		<columns>1</columns>
+		<homogeneous>False</homogeneous>
+		<row_spacing>0</row_spacing>
+		<column_spacing>0</column_spacing>
+
+		<widget>
+		  <class>GtkHSeparator</class>
+		  <name>hseparator16</name>
+		  <child>
+		    <left_attach>0</left_attach>
+		    <right_attach>1</right_attach>
+		    <top_attach>1</top_attach>
+		    <bottom_attach>2</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>3</ypad>
+		    <xexpand>True</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>True</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkFixed</class>
+		  <name>fixed4</name>
+		  <child>
+		    <left_attach>0</left_attach>
+		    <right_attach>1</right_attach>
+		    <top_attach>2</top_attach>
+		    <bottom_attach>3</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>True</yfill>
+		  </child>
+
+		  <widget>
+		    <class>GtkCheckButton</class>
+		    <name>checkbutton_Eschar</name>
+		    <x>0</x>
+		    <y>16</y>
+		    <width>0</width>
+		    <height>0</height>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <tooltip>Fertigkeiten/Zauber des Eschar Quellenbuches berücksichtigen</tooltip>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>toggled</name>
+		      <handler>on_checkbutton_Eschar_toggled</handler>
+		      <last_modification_time>Fri, 23 Mar 2001 08:08:15 GMT</last_modification_time>
+		    </signal>
+		    <label>Eschar</label>
+		    <active>False</active>
+		    <draw_indicator>True</draw_indicator>
+		  </widget>
+
+		  <widget>
+		    <class>GtkCheckButton</class>
+		    <name>checkbutton_Gildenbrief</name>
+		    <x>96</x>
+		    <y>64</y>
+		    <width>0</width>
+		    <height>0</height>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <tooltip>Fertigkeiten/Zauber/Charakterklassen aus Gildenbriefen berücksichtigen, die NICHT in 'Hexenzauber&amp; Druidenkraft' oder 'Barbarenwut &amp; Ritterehre' enhalten sind</tooltip>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>toggled</name>
+		      <handler>on_checkbutton_Gildenbrief_toggled</handler>
+		      <last_modification_time>Mon, 28 May 2001 12:14:20 GMT</last_modification_time>
+		    </signal>
+		    <label>Gildenbrief</label>
+		    <active>False</active>
+		    <draw_indicator>True</draw_indicator>
+		  </widget>
+
+		  <widget>
+		    <class>GtkCheckButton</class>
+		    <name>checkbutton_Alba</name>
+		    <x>0</x>
+		    <y>0</y>
+		    <width>0</width>
+		    <height>0</height>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <tooltip>Fertigkeiten/Zauber des Alba Quellenbuches berücksichtigen</tooltip>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>toggled</name>
+		      <handler>on_checkbutton_Alba_toggled</handler>
+		      <last_modification_time>Sun, 25 Mar 2001 12:05:37 GMT</last_modification_time>
+		    </signal>
+		    <label>Alba</label>
+		    <active>False</active>
+		    <draw_indicator>True</draw_indicator>
+		  </widget>
+
+		  <widget>
+		    <class>GtkCheckButton</class>
+		    <name>checkbutton_Nahuatlan</name>
+		    <x>0</x>
+		    <y>64</y>
+		    <width>0</width>
+		    <height>0</height>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <tooltip>Fertigkeiten/Zauber des Nahuatlan Quellenbuches berücksichtigen</tooltip>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>toggled</name>
+		      <handler>on_checkbutton_Nahuatlan_toggled</handler>
+		      <last_modification_time>Fri, 23 Mar 2001 22:33:12 GMT</last_modification_time>
+		    </signal>
+		    <label>Nahuatlan</label>
+		    <active>False</active>
+		    <draw_indicator>True</draw_indicator>
+		  </widget>
+
+		  <widget>
+		    <class>GtkCheckButton</class>
+		    <name>checkbutton_Kuestenstaaten</name>
+		    <x>0</x>
+		    <y>48</y>
+		    <width>0</width>
+		    <height>0</height>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <tooltip>Fertigkeiten/Zauber des Quellenbuches 'Küstenstaaten' berücksichtigen</tooltip>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>toggled</name>
+		      <handler>on_checkbutton_Kuestenstaaten_toggled</handler>
+		      <last_modification_time>Mon, 28 May 2001 12:13:48 GMT</last_modification_time>
+		    </signal>
+		    <label>Küstenstaaten</label>
+		    <active>False</active>
+		    <draw_indicator>True</draw_indicator>
+		  </widget>
+
+		  <widget>
+		    <class>GtkCheckButton</class>
+		    <name>checkbutton_BR</name>
+		    <x>96</x>
+		    <y>48</y>
+		    <width>0</width>
+		    <height>0</height>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <tooltip>Fertigkeiten, Zauber und Charakterklassen des Quellenbuches 'Barbarenwut &amp; Ritterehre'</tooltip>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>toggled</name>
+		      <handler>on_checkbutton_BR_toggled</handler>
+		      <last_modification_time>Sun, 27 May 2001 18:56:21 GMT</last_modification_time>
+		    </signal>
+		    <label>B&amp;R</label>
+		    <active>False</active>
+		    <draw_indicator>True</draw_indicator>
+		  </widget>
+
+		  <widget>
+		    <class>GtkCheckButton</class>
+		    <name>checkbutton_Rawindra</name>
+		    <x>96</x>
+		    <y>0</y>
+		    <width>0</width>
+		    <height>0</height>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <tooltip>Fertigkeiten, Zauber und Charakterklassen des Rawindra Quellenbuches berücksichtigen</tooltip>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>toggled</name>
+		      <handler>on_checkbutton_Rawindra_toggled</handler>
+		      <last_modification_time>Wed, 21 Mar 2001 07:29:52 GMT</last_modification_time>
+		    </signal>
+		    <label>Rawindra</label>
+		    <active>False</active>
+		    <draw_indicator>True</draw_indicator>
+		  </widget>
+
+		  <widget>
+		    <class>GtkCheckButton</class>
+		    <name>checkbutton_Waeland</name>
+		    <x>96</x>
+		    <y>16</y>
+		    <width>0</width>
+		    <height>0</height>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <tooltip>Fertigkeiten, Zauber und Charakterklassen des Waeland Quellenbuches berücksichtigen</tooltip>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>toggled</name>
+		      <handler>on_checkbutton_Waeland_toggled</handler>
+		      <last_modification_time>Fri, 23 Mar 2001 22:36:46 GMT</last_modification_time>
+		    </signal>
+		    <label>Waeland</label>
+		    <active>False</active>
+		    <draw_indicator>True</draw_indicator>
+		  </widget>
+
+		  <widget>
+		    <class>GtkCheckButton</class>
+		    <name>checkbutton_HD</name>
+		    <x>96</x>
+		    <y>32</y>
+		    <width>0</width>
+		    <height>0</height>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <tooltip>Zauber des Quellenbuches 'Hexenzauber &amp; Druidenkraft'</tooltip>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>toggled</name>
+		      <handler>on_checkbutton_HD_toggled</handler>
+		      <last_modification_time>Mon, 30 Apr 2001 16:30:19 GMT</last_modification_time>
+		    </signal>
+		    <label>H&amp;D</label>
+		    <active>False</active>
+		    <draw_indicator>True</draw_indicator>
+		  </widget>
+
+		  <widget>
+		    <class>GtkCheckButton</class>
+		    <name>checkbutton_KanThaiPan</name>
+		    <x>0</x>
+		    <y>32</y>
+		    <width>0</width>
+		    <height>0</height>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <tooltip>Fertigkeiten, Zauber und Charakterklassen des KanThaiPan Quellenbuches berücksichtigen</tooltip>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>toggled</name>
+		      <handler>on_checkbutton_KanThaiPan_toggled</handler>
+		      <last_modification_time>Wed, 21 Mar 2001 07:30:40 GMT</last_modification_time>
+		    </signal>
+		    <label>KanThaiPan</label>
+		    <active>False</active>
+		    <draw_indicator>True</draw_indicator>
+		  </widget>
+		</widget>
+
+		<widget>
+		  <class>GtkFixed</class>
+		  <name>fixed6</name>
+		  <child>
+		    <left_attach>0</left_attach>
+		    <right_attach>1</right_attach>
+		    <top_attach>0</top_attach>
+		    <bottom_attach>1</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>True</yexpand>
+		    <xshrink>True</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>True</yfill>
+		  </child>
+
+		  <widget>
+		    <class>GtkCheckButton</class>
+		    <name>checkbutton_info_fenster</name>
+		    <x>96</x>
+		    <y>0</y>
+		    <width>0</width>
+		    <height>0</height>
+		    <cxx_visibility>public</cxx_visibility>
+		    <tooltip>Anzeige/keine Anzeige des Info Fensters</tooltip>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>toggled</name>
+		      <handler>on_checkbutton_info_fenster_toggled</handler>
+		      <last_modification_time>Wed, 21 Mar 2001 07:26:33 GMT</last_modification_time>
+		    </signal>
+		    <label>Info fenster</label>
+		    <active>True</active>
+		    <draw_indicator>True</draw_indicator>
+		  </widget>
+
+		  <widget>
+		    <class>GtkCheckButton</class>
+		    <name>checkbutton_original</name>
+		    <x>0</x>
+		    <y>0</y>
+		    <width>99</width>
+		    <height>24</height>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <tooltip>Durch Deaktivierung dieses Buttons werden folgende Möglichkeiten freigeschaltet, die vom 'offiziellen' Midgard abweichen: 1. Eigenschaften können Werte &gt; 100 und &lt;1 annehmen, 2. Die Gildenbriefquellenbücher Hexenzauber &amp; Druidenkraft und Barbarenwut &amp; Ritterehre können als Erweiterung gewählt werden, 3. Es ist möglich aus allen Zaubern zu wählen, falls die ensprechende Option gewählt wird. </tooltip>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>toggled</name>
+		      <handler>on_checkbutton_original_toggled</handler>
+		      <last_modification_time>Sun, 17 Jun 2001 12:18:53 GMT</last_modification_time>
+		    </signal>
+		    <label>Originalregeln</label>
+		    <active>True</active>
+		    <draw_indicator>True</draw_indicator>
+		  </widget>
+		</widget>
+	      </widget>
+	    </widget>
+
+	    <widget>
+	      <class>GtkToolbar</class>
+	      <name>toolbar1</name>
+	      <orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
+	      <type>GTK_TOOLBAR_BOTH</type>
+	      <space_size>10</space_size>
+	      <space_style>GTK_TOOLBAR_SPACE_EMPTY</space_style>
+	      <relief>GTK_RELIEF_NORMAL</relief>
+	      <tooltips>True</tooltips>
+	      <child>
+		<left_attach>0</left_attach>
+		<right_attach>1</right_attach>
+		<top_attach>0</top_attach>
+		<bottom_attach>1</bottom_attach>
+		<xpad>3</xpad>
+		<ypad>3</ypad>
 		<xexpand>False</xexpand>
 		<yexpand>False</yexpand>
 		<xshrink>False</xshrink>
@@ -3151,1016 +3481,211 @@
 
 	      <widget>
 		<class>GtkButton</class>
-		<name>button70</name>
-		<can_focus>True</can_focus>
-		<signal>
-		  <name>button_release_event</name>
-		  <handler>on_speichern_release_event</handler>
-		  <last_modification_time>Fri, 04 Jan 2002 22:57:33 GMT</last_modification_time>
-		</signal>
-		<relief>GTK_RELIEF_NORMAL</relief>
-		<child>
-		  <left_attach>1</left_attach>
-		  <right_attach>2</right_attach>
-		  <top_attach>1</top_attach>
-		  <bottom_attach>2</bottom_attach>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <xexpand>False</xexpand>
-		  <yexpand>False</yexpand>
-		  <xshrink>False</xshrink>
-		  <yshrink>False</yshrink>
-		  <xfill>True</xfill>
-		  <yfill>True</yfill>
-		</child>
-
-		<widget>
-		  <class>GtkHBox</class>
-		  <name>hbox48</name>
-		  <homogeneous>False</homogeneous>
-		  <spacing>0</spacing>
-
-		  <widget>
-		    <class>GtkPixmap</class>
-		    <name>pixmap85</name>
-		    <filename>SaveChar-trans-50.xpm</filename>
-		    <xalign>0.5</xalign>
-		    <yalign>0.5</yalign>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <build_insensitive>True</build_insensitive>
-		    <child>
-		      <padding>0</padding>
-		      <expand>True</expand>
-		      <fill>True</fill>
-		    </child>
-		  </widget>
-
-		  <widget>
-		    <class>GtkLabel</class>
-		    <name>label528</name>
-		    <label>Charakter
-speichern</label>
-		    <justify>GTK_JUSTIFY_CENTER</justify>
-		    <wrap>False</wrap>
-		    <xalign>0.5</xalign>
-		    <yalign>0.5</yalign>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <child>
-		      <padding>0</padding>
-		      <expand>False</expand>
-		      <fill>False</fill>
-		    </child>
-		  </widget>
-		</widget>
-	      </widget>
-
-	      <widget>
-		<class>GtkButton</class>
-		<name>button71</name>
-		<can_focus>True</can_focus>
-		<signal>
-		  <name>button_release_event</name>
-		  <handler>on_laden_release_event</handler>
-		  <last_modification_time>Fri, 04 Jan 2002 22:58:09 GMT</last_modification_time>
-		</signal>
-		<relief>GTK_RELIEF_NORMAL</relief>
-		<child>
-		  <left_attach>2</left_attach>
-		  <right_attach>3</right_attach>
-		  <top_attach>1</top_attach>
-		  <bottom_attach>2</bottom_attach>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <xexpand>False</xexpand>
-		  <yexpand>False</yexpand>
-		  <xshrink>False</xshrink>
-		  <yshrink>False</yshrink>
-		  <xfill>True</xfill>
-		  <yfill>True</yfill>
-		</child>
-
-		<widget>
-		  <class>GtkHBox</class>
-		  <name>hbox50</name>
-		  <homogeneous>False</homogeneous>
-		  <spacing>0</spacing>
-
-		  <widget>
-		    <class>GtkPixmap</class>
-		    <name>pixmap87</name>
-		    <filename>LoadChar-trans-50.xpm</filename>
-		    <xalign>0.5</xalign>
-		    <yalign>0.5</yalign>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <build_insensitive>True</build_insensitive>
-		    <child>
-		      <padding>0</padding>
-		      <expand>True</expand>
-		      <fill>True</fill>
-		    </child>
-		  </widget>
-
-		  <widget>
-		    <class>GtkLabel</class>
-		    <name>label530</name>
-		    <label>Charakter
-laden</label>
-		    <justify>GTK_JUSTIFY_CENTER</justify>
-		    <wrap>False</wrap>
-		    <xalign>0.5</xalign>
-		    <yalign>0.5</yalign>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <child>
-		      <padding>0</padding>
-		      <expand>False</expand>
-		      <fill>False</fill>
-		    </child>
-		  </widget>
-		</widget>
-	      </widget>
-
-	      <widget>
-		<class>GtkButton</class>
-		<name>button69</name>
+		<child_name>Toolbar:button</child_name>
+		<name>button7</name>
 		<tooltip>Neuer Charakter</tooltip>
-		<can_focus>True</can_focus>
 		<signal>
 		  <name>clicked</name>
 		  <handler>on_neuer_charakter_clicked</handler>
-		  <last_modification_time>Fri, 04 Jan 2002 22:55:49 GMT</last_modification_time>
+		  <last_modification_time>Fri, 30 Mar 2001 19:45:24 GMT</last_modification_time>
 		</signal>
-		<relief>GTK_RELIEF_NORMAL</relief>
-		<child>
-		  <left_attach>0</left_attach>
-		  <right_attach>1</right_attach>
-		  <top_attach>1</top_attach>
-		  <bottom_attach>2</bottom_attach>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <xexpand>False</xexpand>
-		  <yexpand>False</yexpand>
-		  <xshrink>False</xshrink>
-		  <yshrink>False</yshrink>
-		  <xfill>True</xfill>
-		  <yfill>True</yfill>
-		</child>
-
-		<widget>
-		  <class>GtkHBox</class>
-		  <name>hbox46</name>
-		  <homogeneous>False</homogeneous>
-		  <spacing>0</spacing>
-
-		  <widget>
-		    <class>GtkPixmap</class>
-		    <name>pixmap83</name>
-		    <filename>NewChar-trans-50.xpm</filename>
-		    <xalign>0.5</xalign>
-		    <yalign>0.5</yalign>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <build_insensitive>True</build_insensitive>
-		    <child>
-		      <padding>0</padding>
-		      <expand>True</expand>
-		      <fill>True</fill>
-		    </child>
-		  </widget>
-
-		  <widget>
-		    <class>GtkLabel</class>
-		    <name>label526</name>
-		    <label>Neuer
+		<label>Neuer
 Charakter</label>
-		    <justify>GTK_JUSTIFY_CENTER</justify>
-		    <wrap>False</wrap>
-		    <xalign>0.5</xalign>
-		    <yalign>0.5</yalign>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <child>
-		      <padding>0</padding>
-		      <expand>False</expand>
-		      <fill>False</fill>
-		    </child>
-		  </widget>
-		</widget>
+		<icon>NewChar-trans-50.xpm</icon>
 	      </widget>
 
 	      <widget>
 		<class>GtkButton</class>
-		<name>button77</name>
-		<can_focus>True</can_focus>
-		<signal>
-		  <name>clicked</name>
-		  <handler>werte_editieren</handler>
-		  <last_modification_time>Fri, 04 Jan 2002 22:59:25 GMT</last_modification_time>
-		</signal>
-		<relief>GTK_RELIEF_NORMAL</relief>
-		<child>
-		  <left_attach>2</left_attach>
-		  <right_attach>3</right_attach>
-		  <top_attach>2</top_attach>
-		  <bottom_attach>3</bottom_attach>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <xexpand>False</xexpand>
-		  <yexpand>False</yexpand>
-		  <xshrink>False</xshrink>
-		  <yshrink>False</yshrink>
-		  <xfill>True</xfill>
-		  <yfill>True</yfill>
-		</child>
-
-		<widget>
-		  <class>GtkHBox</class>
-		  <name>hbox51</name>
-		  <homogeneous>False</homogeneous>
-		  <spacing>0</spacing>
-
-		  <widget>
-		    <class>GtkPixmap</class>
-		    <name>pixmap88</name>
-		    <filename>EditChar-trans-50.xpm</filename>
-		    <xalign>0.5</xalign>
-		    <yalign>0.5</yalign>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <build_insensitive>True</build_insensitive>
-		    <child>
-		      <padding>0</padding>
-		      <expand>True</expand>
-		      <fill>True</fill>
-		    </child>
-		  </widget>
-
-		  <widget>
-		    <class>GtkLabel</class>
-		    <name>label531</name>
-		    <label>Werte
-editieren</label>
-		    <justify>GTK_JUSTIFY_CENTER</justify>
-		    <wrap>False</wrap>
-		    <xalign>0.5</xalign>
-		    <yalign>0.5</yalign>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <child>
-		      <padding>0</padding>
-		      <expand>False</expand>
-		      <fill>False</fill>
-		    </child>
-		  </widget>
-		</widget>
-	      </widget>
-
-	      <widget>
-		<class>GtkButton</class>
-		<name>button_abg_werte</name>
-		<can_focus>True</can_focus>
-		<signal>
-		  <name>clicked</name>
-		  <handler>on_abge_werte_setzen_clicked</handler>
-		  <last_modification_time>Fri, 04 Jan 2002 22:58:57 GMT</last_modification_time>
-		</signal>
-		<relief>GTK_RELIEF_NORMAL</relief>
-		<child>
-		  <left_attach>1</left_attach>
-		  <right_attach>2</right_attach>
-		  <top_attach>2</top_attach>
-		  <bottom_attach>3</bottom_attach>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <xexpand>False</xexpand>
-		  <yexpand>False</yexpand>
-		  <xshrink>False</xshrink>
-		  <yshrink>False</yshrink>
-		  <xfill>True</xfill>
-		  <yfill>True</yfill>
-		</child>
-
-		<widget>
-		  <class>GtkHBox</class>
-		  <name>hbox49</name>
-		  <homogeneous>False</homogeneous>
-		  <spacing>0</spacing>
-
-		  <widget>
-		    <class>GtkPixmap</class>
-		    <name>pixmap86</name>
-		    <filename>Dices2-trans-50.xpm</filename>
-		    <xalign>0.5</xalign>
-		    <yalign>0.5</yalign>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <build_insensitive>True</build_insensitive>
-		    <child>
-		      <padding>0</padding>
-		      <expand>True</expand>
-		      <fill>True</fill>
-		    </child>
-		  </widget>
-
-		  <widget>
-		    <class>GtkLabel</class>
-		    <name>label529</name>
-		    <label>Abgeleitete
-Werte</label>
-		    <justify>GTK_JUSTIFY_CENTER</justify>
-		    <wrap>False</wrap>
-		    <xalign>0.5</xalign>
-		    <yalign>0.5</yalign>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <child>
-		      <padding>0</padding>
-		      <expand>False</expand>
-		      <fill>False</fill>
-		    </child>
-		  </widget>
-		</widget>
-	      </widget>
-
-	      <widget>
-		<class>GtkButton</class>
-		<name>button75</name>
-		<tooltip>Linke Maustaste: 2x für jede Basiseigenschaft würfeln, höheres Ergebnis zählt. Mittlere Maustaste: 2x würfeln, besseren Wert einer Basiseigenschaft zuweisen das ganze 6x wiederholen. Rechte Maustaste: 9x würfeln und die besten sechs Ergebnisse frei verteilen. ACHTUNG: Die Sonderregeln für Nichtmenschen werden nur bei der ersten Variante berücksichtigt.</tooltip>
-		<can_focus>True</can_focus>
+		<child_name>Toolbar:button</child_name>
+		<name>button8</name>
+		<tooltip>Charakter speichern</tooltip>
 		<signal>
 		  <name>button_release_event</name>
-		  <handler>on_button_grundwerte_button_release_event</handler>
-		  <last_modification_time>Fri, 04 Jan 2002 22:58:34 GMT</last_modification_time>
+		  <handler>on_speichern_release_event</handler>
+		  <last_modification_time>Tue, 17 Apr 2001 18:50:09 GMT</last_modification_time>
 		</signal>
-		<relief>GTK_RELIEF_NORMAL</relief>
-		<child>
-		  <left_attach>0</left_attach>
-		  <right_attach>1</right_attach>
-		  <top_attach>2</top_attach>
-		  <bottom_attach>3</bottom_attach>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <xexpand>False</xexpand>
-		  <yexpand>False</yexpand>
-		  <xshrink>False</xshrink>
-		  <yshrink>False</yshrink>
-		  <xfill>True</xfill>
-		  <yfill>True</yfill>
-		</child>
-
-		<widget>
-		  <class>GtkHBox</class>
-		  <name>hbox47</name>
-		  <homogeneous>False</homogeneous>
-		  <spacing>0</spacing>
-
-		  <widget>
-		    <class>GtkPixmap</class>
-		    <name>pixmap84</name>
-		    <filename>Dice-W100-trans-50.xpm</filename>
-		    <xalign>0.5</xalign>
-		    <yalign>0.5</yalign>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <build_insensitive>True</build_insensitive>
-		    <child>
-		      <padding>0</padding>
-		      <expand>True</expand>
-		      <fill>True</fill>
-		    </child>
-		  </widget>
-
-		  <widget>
-		    <class>GtkLabel</class>
-		    <name>label527</name>
-		    <label>Grundwerte
-würfeln</label>
-		    <justify>GTK_JUSTIFY_CENTER</justify>
-		    <wrap>False</wrap>
-		    <xalign>0.5</xalign>
-		    <yalign>0.5</yalign>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <child>
-		      <padding>0</padding>
-		      <expand>False</expand>
-		      <fill>False</fill>
-		    </child>
-		  </widget>
-		</widget>
+		<label>Charakter
+speichern</label>
+		<icon>SaveChar-trans-50.xpm</icon>
 	      </widget>
 
 	      <widget>
 		<class>GtkButton</class>
-		<name>button72</name>
-		<can_focus>True</can_focus>
-		<signal>
-		  <name>clicked</name>
-		  <handler>on_button_hilfe_clicked</handler>
-		  <last_modification_time>Fri, 04 Jan 2002 23:05:05 GMT</last_modification_time>
-		</signal>
-		<relief>GTK_RELIEF_NORMAL</relief>
-		<child>
-		  <left_attach>0</left_attach>
-		  <right_attach>1</right_attach>
-		  <top_attach>0</top_attach>
-		  <bottom_attach>1</bottom_attach>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <xexpand>False</xexpand>
-		  <yexpand>False</yexpand>
-		  <xshrink>False</xshrink>
-		  <yshrink>False</yshrink>
-		  <xfill>True</xfill>
-		  <yfill>True</yfill>
-		</child>
-
-		<widget>
-		  <class>GtkHBox</class>
-		  <name>hbox52</name>
-		  <homogeneous>False</homogeneous>
-		  <spacing>0</spacing>
-
-		  <widget>
-		    <class>GtkPixmap</class>
-		    <name>pixmap89</name>
-		    <filename>Help-trans-50.xpm</filename>
-		    <xalign>0.5</xalign>
-		    <yalign>0.5</yalign>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <build_insensitive>True</build_insensitive>
-		    <child>
-		      <padding>0</padding>
-		      <expand>True</expand>
-		      <fill>True</fill>
-		    </child>
-		  </widget>
-
-		  <widget>
-		    <class>GtkLabel</class>
-		    <name>label532</name>
-		    <label>Hilfe</label>
-		    <justify>GTK_JUSTIFY_CENTER</justify>
-		    <wrap>False</wrap>
-		    <xalign>0.5</xalign>
-		    <yalign>0.5</yalign>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <child>
-		      <padding>0</padding>
-		      <expand>False</expand>
-		      <fill>False</fill>
-		    </child>
-		  </widget>
-		</widget>
-	      </widget>
-
-	      <widget>
-		<class>GtkButton</class>
-		<name>button73</name>
-		<can_focus>True</can_focus>
-		<signal>
-		  <name>clicked</name>
-		  <handler>on_button_info_clicked</handler>
-		  <last_modification_time>Fri, 04 Jan 2002 23:05:24 GMT</last_modification_time>
-		</signal>
-		<relief>GTK_RELIEF_NORMAL</relief>
-		<child>
-		  <left_attach>1</left_attach>
-		  <right_attach>2</right_attach>
-		  <top_attach>0</top_attach>
-		  <bottom_attach>1</bottom_attach>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <xexpand>False</xexpand>
-		  <yexpand>False</yexpand>
-		  <xshrink>False</xshrink>
-		  <yshrink>False</yshrink>
-		  <xfill>True</xfill>
-		  <yfill>True</yfill>
-		</child>
-
-		<widget>
-		  <class>GtkHBox</class>
-		  <name>hbox55</name>
-		  <homogeneous>False</homogeneous>
-		  <spacing>0</spacing>
-
-		  <widget>
-		    <class>GtkPixmap</class>
-		    <name>pixmap92</name>
-		    <filename>Info-trans-50.xpm</filename>
-		    <xalign>0.5</xalign>
-		    <yalign>0.5</yalign>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <build_insensitive>True</build_insensitive>
-		    <child>
-		      <padding>0</padding>
-		      <expand>True</expand>
-		      <fill>True</fill>
-		    </child>
-		  </widget>
-
-		  <widget>
-		    <class>GtkLabel</class>
-		    <name>label535</name>
-		    <label>Info</label>
-		    <justify>GTK_JUSTIFY_CENTER</justify>
-		    <wrap>False</wrap>
-		    <xalign>0.5</xalign>
-		    <yalign>0.5</yalign>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <child>
-		      <padding>0</padding>
-		      <expand>False</expand>
-		      <fill>False</fill>
-		    </child>
-		  </widget>
-		</widget>
-	      </widget>
-
-	      <widget>
-		<class>GtkButton</class>
-		<name>button74</name>
-		<can_focus>True</can_focus>
-		<signal>
-		  <name>clicked</name>
-		  <handler>on_schliessen_CG_clicked</handler>
-		  <last_modification_time>Fri, 04 Jan 2002 23:05:42 GMT</last_modification_time>
-		</signal>
-		<relief>GTK_RELIEF_NORMAL</relief>
-		<child>
-		  <left_attach>2</left_attach>
-		  <right_attach>3</right_attach>
-		  <top_attach>0</top_attach>
-		  <bottom_attach>1</bottom_attach>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <xexpand>False</xexpand>
-		  <yexpand>False</yexpand>
-		  <xshrink>False</xshrink>
-		  <yshrink>False</yshrink>
-		  <xfill>True</xfill>
-		  <yfill>True</yfill>
-		</child>
-
-		<widget>
-		  <class>GtkHBox</class>
-		  <name>hbox56</name>
-		  <homogeneous>False</homogeneous>
-		  <spacing>0</spacing>
-
-		  <widget>
-		    <class>GtkPixmap</class>
-		    <name>pixmap93</name>
-		    <filename>Exit-trans-50.xpm</filename>
-		    <xalign>0.5</xalign>
-		    <yalign>0.5</yalign>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <build_insensitive>True</build_insensitive>
-		    <child>
-		      <padding>0</padding>
-		      <expand>True</expand>
-		      <fill>True</fill>
-		    </child>
-		  </widget>
-
-		  <widget>
-		    <class>GtkLabel</class>
-		    <name>label536</name>
-		    <label>Schließen</label>
-		    <justify>GTK_JUSTIFY_CENTER</justify>
-		    <wrap>False</wrap>
-		    <xalign>0.5</xalign>
-		    <yalign>0.5</yalign>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <child>
-		      <padding>0</padding>
-		      <expand>False</expand>
-		      <fill>False</fill>
-		    </child>
-		  </widget>
-		</widget>
-	      </widget>
-
-	      <widget>
-		<class>GtkButton</class>
-		<name>button78</name>
-		<can_focus>True</can_focus>
+		<child_name>Toolbar:button</child_name>
+		<name>button9</name>
+		<tooltip>Charakter laden</tooltip>
 		<signal>
 		  <name>button_release_event</name>
-		  <handler>on_latex_release_event</handler>
-		  <last_modification_time>Fri, 04 Jan 2002 23:06:43 GMT</last_modification_time>
+		  <handler>on_laden_release_event</handler>
+		  <last_modification_time>Mon, 21 May 2001 19:02:36 GMT</last_modification_time>
 		</signal>
-		<relief>GTK_RELIEF_NORMAL</relief>
-		<child>
-		  <left_attach>4</left_attach>
-		  <right_attach>5</right_attach>
-		  <top_attach>0</top_attach>
-		  <bottom_attach>1</bottom_attach>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <xexpand>False</xexpand>
-		  <yexpand>False</yexpand>
-		  <xshrink>False</xshrink>
-		  <yshrink>False</yshrink>
-		  <xfill>True</xfill>
-		  <yfill>True</yfill>
-		</child>
-
-		<widget>
-		  <class>GtkHBox</class>
-		  <name>hbox53</name>
-		  <homogeneous>False</homogeneous>
-		  <spacing>0</spacing>
-
-		  <widget>
-		    <class>GtkPixmap</class>
-		    <name>pixmap90</name>
-		    <filename>PrintChar-trans-50.xpm</filename>
-		    <xalign>0.5</xalign>
-		    <yalign>0.5</yalign>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <build_insensitive>True</build_insensitive>
-		    <child>
-		      <padding>0</padding>
-		      <expand>True</expand>
-		      <fill>True</fill>
-		    </child>
-		  </widget>
-
-		  <widget>
-		    <class>GtkLabel</class>
-		    <name>label533</name>
-		    <label>LaTeX
-Charakterblatt</label>
-		    <justify>GTK_JUSTIFY_CENTER</justify>
-		    <wrap>False</wrap>
-		    <xalign>0.5</xalign>
-		    <yalign>0.5</yalign>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <child>
-		      <padding>0</padding>
-		      <expand>False</expand>
-		      <fill>False</fill>
-		    </child>
-		  </widget>
-		</widget>
+		<label>Charakter
+laden</label>
+		<icon>LoadChar-trans-50.xpm</icon>
 	      </widget>
 
 	      <widget>
 		<class>GtkButton</class>
-		<name>button79</name>
-		<can_focus>True</can_focus>
+		<child_name>Toolbar:button</child_name>
+		<name>button_beschreibung</name>
+		<cxx_visibility>protected</cxx_visibility>
 		<signal>
 		  <name>clicked</name>
 		  <handler>on_charakter_beschreibung_clicked</handler>
-		  <last_modification_time>Fri, 04 Jan 2002 23:06:02 GMT</last_modification_time>
+		  <last_modification_time>Fri, 30 Mar 2001 20:06:41 GMT</last_modification_time>
 		</signal>
-		<relief>GTK_RELIEF_NORMAL</relief>
-		<child>
-		  <left_attach>4</left_attach>
-		  <right_attach>5</right_attach>
-		  <top_attach>1</top_attach>
-		  <bottom_attach>2</bottom_attach>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <xexpand>False</xexpand>
-		  <yexpand>False</yexpand>
-		  <xshrink>False</xshrink>
-		  <yshrink>False</yshrink>
-		  <xfill>True</xfill>
-		  <yfill>True</yfill>
-		</child>
-
-		<widget>
-		  <class>GtkHBox</class>
-		  <name>hbox54</name>
-		  <homogeneous>False</homogeneous>
-		  <spacing>0</spacing>
-
-		  <widget>
-		    <class>GtkPixmap</class>
-		    <name>pixmap91</name>
-		    <filename>DescrChar-trans-50.xpm</filename>
-		    <xalign>0.5</xalign>
-		    <yalign>0.5</yalign>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <build_insensitive>True</build_insensitive>
-		    <child>
-		      <padding>0</padding>
-		      <expand>True</expand>
-		      <fill>True</fill>
-		    </child>
-		  </widget>
-
-		  <widget>
-		    <class>GtkLabel</class>
-		    <name>label534</name>
-		    <label>Charakter-
+		<label>Charakter
 beschreibung</label>
-		    <justify>GTK_JUSTIFY_CENTER</justify>
-		    <wrap>False</wrap>
-		    <xalign>0.5</xalign>
-		    <yalign>0.5</yalign>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <child>
-		      <padding>0</padding>
-		      <expand>False</expand>
-		      <fill>False</fill>
-		    </child>
-		  </widget>
-		</widget>
+		<icon>DescrChar-trans-50.xpm</icon>
+		<child>
+		  <new_group>True</new_group>
+		</child>
+	      </widget>
+
+	      <widget>
+		<class>GtkButton</class>
+		<child_name>Toolbar:button</child_name>
+		<name>button10</name>
+		<tooltip>LaTeX Charakterblatt drucken (ghostview)</tooltip>
+		<signal>
+		  <name>button_release_event</name>
+		  <handler>on_latex_release_event</handler>
+		  <last_modification_time>Mon, 23 Apr 2001 06:07:57 GMT</last_modification_time>
+		</signal>
+		<label>LaTeX
+Charakterblatt</label>
+		<icon>PrintChar-trans-50.xpm</icon>
+	      </widget>
+
+	      <widget>
+		<class>GtkButton</class>
+		<child_name>Toolbar:button</child_name>
+		<name>button12</name>
+		<tooltip>Schließen</tooltip>
+		<signal>
+		  <name>clicked</name>
+		  <handler>on_schliessen_CG_clicked</handler>
+		  <last_modification_time>Fri, 30 Mar 2001 19:47:22 GMT</last_modification_time>
+		</signal>
+		<label>Schließen</label>
+		<icon>Exit-trans-50.xpm</icon>
+		<child>
+		  <new_group>True</new_group>
+		</child>
 	      </widget>
 	    </widget>
 
 	    <widget>
-	      <class>GtkFixed</class>
-	      <name>fixed6</name>
+	      <class>GtkToolbar</class>
+	      <name>toolbar2</name>
+	      <orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
+	      <type>GTK_TOOLBAR_BOTH</type>
+	      <space_size>17</space_size>
+	      <space_style>GTK_TOOLBAR_SPACE_EMPTY</space_style>
+	      <relief>GTK_RELIEF_NORMAL</relief>
+	      <tooltips>True</tooltips>
 	      <child>
-		<left_attach>1</left_attach>
-		<right_attach>2</right_attach>
-		<top_attach>0</top_attach>
-		<bottom_attach>1</bottom_attach>
-		<xpad>0</xpad>
-		<ypad>0</ypad>
-		<xexpand>True</xexpand>
-		<yexpand>False</yexpand>
-		<xshrink>False</xshrink>
-		<yshrink>False</yshrink>
-		<xfill>True</xfill>
-		<yfill>False</yfill>
-	      </child>
-
-	      <widget>
-		<class>GtkCheckButton</class>
-		<name>checkbutton_Eschar</name>
-		<x>0</x>
-		<y>16</y>
-		<width>0</width>
-		<height>0</height>
-		<cxx_visibility>protected</cxx_visibility>
-		<tooltip>Fertigkeiten/Zauber des Eschar Quellenbuches berücksichtigen</tooltip>
-		<can_focus>True</can_focus>
-		<signal>
-		  <name>toggled</name>
-		  <handler>on_checkbutton_Eschar_toggled</handler>
-		  <last_modification_time>Fri, 23 Mar 2001 08:08:15 GMT</last_modification_time>
-		</signal>
-		<label>Eschar</label>
-		<active>False</active>
-		<draw_indicator>True</draw_indicator>
-	      </widget>
-
-	      <widget>
-		<class>GtkCheckButton</class>
-		<name>checkbutton_Gildenbrief</name>
-		<x>96</x>
-		<y>64</y>
-		<width>0</width>
-		<height>0</height>
-		<cxx_visibility>protected</cxx_visibility>
-		<tooltip>Fertigkeiten/Zauber/Charakterklassen aus Gildenbriefen berücksichtigen, die NICHT in 'Hexenzauber&amp; Druidenkraft' oder 'Barbarenwut &amp; Ritterehre' enhalten sind</tooltip>
-		<can_focus>True</can_focus>
-		<signal>
-		  <name>toggled</name>
-		  <handler>on_checkbutton_Gildenbrief_toggled</handler>
-		  <last_modification_time>Mon, 28 May 2001 12:14:20 GMT</last_modification_time>
-		</signal>
-		<label>Gildenbrief</label>
-		<active>False</active>
-		<draw_indicator>True</draw_indicator>
-	      </widget>
-
-	      <widget>
-		<class>GtkCheckButton</class>
-		<name>checkbutton_Alba</name>
-		<x>0</x>
-		<y>0</y>
-		<width>0</width>
-		<height>0</height>
-		<cxx_visibility>protected</cxx_visibility>
-		<tooltip>Fertigkeiten/Zauber des Alba Quellenbuches berücksichtigen</tooltip>
-		<can_focus>True</can_focus>
-		<signal>
-		  <name>toggled</name>
-		  <handler>on_checkbutton_Alba_toggled</handler>
-		  <last_modification_time>Sun, 25 Mar 2001 12:05:37 GMT</last_modification_time>
-		</signal>
-		<label>Alba</label>
-		<active>False</active>
-		<draw_indicator>True</draw_indicator>
-	      </widget>
-
-	      <widget>
-		<class>GtkCheckButton</class>
-		<name>checkbutton_Nahuatlan</name>
-		<x>0</x>
-		<y>64</y>
-		<width>0</width>
-		<height>0</height>
-		<cxx_visibility>protected</cxx_visibility>
-		<tooltip>Fertigkeiten/Zauber des Nahuatlan Quellenbuches berücksichtigen</tooltip>
-		<can_focus>True</can_focus>
-		<signal>
-		  <name>toggled</name>
-		  <handler>on_checkbutton_Nahuatlan_toggled</handler>
-		  <last_modification_time>Fri, 23 Mar 2001 22:33:12 GMT</last_modification_time>
-		</signal>
-		<label>Nahuatlan</label>
-		<active>False</active>
-		<draw_indicator>True</draw_indicator>
-	      </widget>
-
-	      <widget>
-		<class>GtkCheckButton</class>
-		<name>checkbutton_Kuestenstaaten</name>
-		<x>0</x>
-		<y>48</y>
-		<width>0</width>
-		<height>0</height>
-		<cxx_visibility>protected</cxx_visibility>
-		<tooltip>Fertigkeiten/Zauber des Quellenbuches 'Küstenstaaten' berücksichtigen</tooltip>
-		<can_focus>True</can_focus>
-		<signal>
-		  <name>toggled</name>
-		  <handler>on_checkbutton_Kuestenstaaten_toggled</handler>
-		  <last_modification_time>Mon, 28 May 2001 12:13:48 GMT</last_modification_time>
-		</signal>
-		<label>Küstenstaaten</label>
-		<active>False</active>
-		<draw_indicator>True</draw_indicator>
-	      </widget>
-
-	      <widget>
-		<class>GtkCheckButton</class>
-		<name>checkbutton_BR</name>
-		<x>96</x>
-		<y>48</y>
-		<width>0</width>
-		<height>0</height>
-		<cxx_visibility>protected</cxx_visibility>
-		<tooltip>Fertigkeiten, Zauber und Charakterklassen des Quellenbuches 'Barbarenwut &amp; Ritterehre'</tooltip>
-		<can_focus>True</can_focus>
-		<signal>
-		  <name>toggled</name>
-		  <handler>on_checkbutton_BR_toggled</handler>
-		  <last_modification_time>Sun, 27 May 2001 18:56:21 GMT</last_modification_time>
-		</signal>
-		<label>B&amp;R</label>
-		<active>False</active>
-		<draw_indicator>True</draw_indicator>
-	      </widget>
-
-	      <widget>
-		<class>GtkCheckButton</class>
-		<name>checkbutton_Rawindra</name>
-		<x>96</x>
-		<y>0</y>
-		<width>0</width>
-		<height>0</height>
-		<cxx_visibility>protected</cxx_visibility>
-		<tooltip>Fertigkeiten, Zauber und Charakterklassen des Rawindra Quellenbuches berücksichtigen</tooltip>
-		<can_focus>True</can_focus>
-		<signal>
-		  <name>toggled</name>
-		  <handler>on_checkbutton_Rawindra_toggled</handler>
-		  <last_modification_time>Wed, 21 Mar 2001 07:29:52 GMT</last_modification_time>
-		</signal>
-		<label>Rawindra</label>
-		<active>False</active>
-		<draw_indicator>True</draw_indicator>
-	      </widget>
-
-	      <widget>
-		<class>GtkCheckButton</class>
-		<name>checkbutton_Waeland</name>
-		<x>96</x>
-		<y>16</y>
-		<width>0</width>
-		<height>0</height>
-		<cxx_visibility>protected</cxx_visibility>
-		<tooltip>Fertigkeiten, Zauber und Charakterklassen des Waeland Quellenbuches berücksichtigen</tooltip>
-		<can_focus>True</can_focus>
-		<signal>
-		  <name>toggled</name>
-		  <handler>on_checkbutton_Waeland_toggled</handler>
-		  <last_modification_time>Fri, 23 Mar 2001 22:36:46 GMT</last_modification_time>
-		</signal>
-		<label>Waeland</label>
-		<active>False</active>
-		<draw_indicator>True</draw_indicator>
-	      </widget>
-
-	      <widget>
-		<class>GtkCheckButton</class>
-		<name>checkbutton_HD</name>
-		<x>96</x>
-		<y>32</y>
-		<width>0</width>
-		<height>0</height>
-		<cxx_visibility>protected</cxx_visibility>
-		<tooltip>Zauber des Quellenbuches 'Hexenzauber &amp; Druidenkraft'</tooltip>
-		<can_focus>True</can_focus>
-		<signal>
-		  <name>toggled</name>
-		  <handler>on_checkbutton_HD_toggled</handler>
-		  <last_modification_time>Mon, 30 Apr 2001 16:30:19 GMT</last_modification_time>
-		</signal>
-		<label>H&amp;D</label>
-		<active>False</active>
-		<draw_indicator>True</draw_indicator>
-	      </widget>
-
-	      <widget>
-		<class>GtkCheckButton</class>
-		<name>checkbutton_KanThaiPan</name>
-		<x>0</x>
-		<y>32</y>
-		<width>0</width>
-		<height>0</height>
-		<cxx_visibility>protected</cxx_visibility>
-		<tooltip>Fertigkeiten, Zauber und Charakterklassen des KanThaiPan Quellenbuches berücksichtigen</tooltip>
-		<can_focus>True</can_focus>
-		<signal>
-		  <name>toggled</name>
-		  <handler>on_checkbutton_KanThaiPan_toggled</handler>
-		  <last_modification_time>Wed, 21 Mar 2001 07:30:40 GMT</last_modification_time>
-		</signal>
-		<label>KanThaiPan</label>
-		<active>False</active>
-		<draw_indicator>True</draw_indicator>
-	      </widget>
-	    </widget>
-
-	    <widget>
-	      <class>GtkFixed</class>
-	      <name>fixed7</name>
-	      <child>
-		<left_attach>1</left_attach>
-		<right_attach>2</right_attach>
+		<left_attach>0</left_attach>
+		<right_attach>1</right_attach>
 		<top_attach>1</top_attach>
 		<bottom_attach>2</bottom_attach>
-		<xpad>0</xpad>
-		<ypad>0</ypad>
+		<xpad>3</xpad>
+		<ypad>3</ypad>
 		<xexpand>False</xexpand>
 		<yexpand>False</yexpand>
 		<xshrink>False</xshrink>
 		<yshrink>False</yshrink>
-		<xfill>True</xfill>
-		<yfill>True</yfill>
+		<xfill>False</xfill>
+		<yfill>False</yfill>
 	      </child>
 
 	      <widget>
-		<class>GtkCheckButton</class>
-		<name>checkbutton_info_fenster</name>
-		<x>96</x>
-		<y>0</y>
-		<width>0</width>
-		<height>0</height>
-		<cxx_visibility>public</cxx_visibility>
-		<tooltip>Anzeige/keine Anzeige des Info Fensters</tooltip>
-		<can_focus>True</can_focus>
+		<class>GtkButton</class>
+		<child_name>Toolbar:button</child_name>
+		<name>button_grundwerte</name>
+		<cxx_visibility>protected</cxx_visibility>
+		<tooltip>Linke Maustaste: 2x für jede Basiseigenschaft würfeln, höheres Ergebnis zählt. Mittlere Maustaste: 2x würfeln, besseren Wert einer Basiseigenschaft zuweisen das ganze 6x wiederholen. Rechte Maustaste: 9x würfeln und die besten sechs Ergebnisse frei verteilen. ACHTUNG: Die Sonderregeln für Nichtmenschen werden nur bei der ersten Variante berücksichtigt.</tooltip>
 		<signal>
-		  <name>toggled</name>
-		  <handler>on_checkbutton_info_fenster_toggled</handler>
-		  <last_modification_time>Wed, 21 Mar 2001 07:26:33 GMT</last_modification_time>
+		  <name>button_release_event</name>
+		  <handler>on_button_grundwerte_button_release_event</handler>
+		  <last_modification_time>Thu, 13 Dec 2001 19:06:13 GMT</last_modification_time>
 		</signal>
-		<label>Info fenster</label>
-		<active>True</active>
-		<draw_indicator>True</draw_indicator>
+		<label>Grundwerte
+würfeln</label>
+		<icon>Dice-W100-trans-50.xpm</icon>
 	      </widget>
 
 	      <widget>
-		<class>GtkCheckButton</class>
-		<name>checkbutton_original</name>
-		<x>0</x>
-		<y>0</y>
-		<width>99</width>
-		<height>24</height>
+		<class>GtkButton</class>
+		<child_name>Toolbar:button</child_name>
+		<name>button_abg_werte</name>
 		<cxx_visibility>protected</cxx_visibility>
-		<tooltip>Durch Deaktivierung dieses Buttons werden folgende Möglichkeiten freigeschaltet, die vom 'offiziellen' Midgard abweichen: 1. Eigenschaften können Werte &gt; 100 und &lt;1 annehmen, 2. Die Gildenbriefquellenbücher Hexenzauber &amp; Druidenkraft und Barbarenwut können als Erweiterung gewählt werden, 3. Es ist möglich aus allen Zaubern zu wählen, falls die ensprechende Option gewählt wird. </tooltip>
-		<can_focus>True</can_focus>
 		<signal>
-		  <name>toggled</name>
-		  <handler>on_checkbutton_original_toggled</handler>
-		  <last_modification_time>Sun, 17 Jun 2001 12:18:53 GMT</last_modification_time>
+		  <name>clicked</name>
+		  <handler>on_abge_werte_setzen_clicked</handler>
+		  <last_modification_time>Fri, 30 Mar 2001 20:04:05 GMT</last_modification_time>
 		</signal>
-		<label>Originalregeln</label>
-		<active>True</active>
-		<draw_indicator>True</draw_indicator>
+		<label>Abgeleitete
+Werte</label>
+		<icon>Dices2-trans-50.xpm</icon>
+	      </widget>
+
+	      <widget>
+		<class>GtkButton</class>
+		<child_name>Toolbar:button</child_name>
+		<name>button15</name>
+		<signal>
+		  <name>clicked</name>
+		  <handler>werte_editieren</handler>
+		  <last_modification_time>Fri, 30 Mar 2001 20:04:33 GMT</last_modification_time>
+		</signal>
+		<label>Werte
+editieren</label>
+		<icon>EditChar-trans-50.xpm</icon>
+	      </widget>
+
+	      <widget>
+		<class>GtkButton</class>
+		<child_name>Toolbar:button</child_name>
+		<name>button_menu</name>
+		<signal>
+		  <name>button_release_event</name>
+		  <handler>on_button_menu_button_release_event</handler>
+		  <last_modification_time>Sat, 05 Jan 2002 09:11:37 GMT</last_modification_time>
+		</signal>
+		<label>Menü</label>
+		<icon>wizzard-trans-50_2.xpm</icon>
+		<child>
+		  <new_group>True</new_group>
+		</child>
+	      </widget>
+
+	      <widget>
+		<class>GtkButton</class>
+		<child_name>Toolbar:button</child_name>
+		<name>button_info</name>
+		<tooltip>Info</tooltip>
+		<signal>
+		  <name>clicked</name>
+		  <handler>on_button_info_clicked</handler>
+		  <last_modification_time>Sun, 01 Apr 2001 19:06:08 GMT</last_modification_time>
+		</signal>
+		<label>Info</label>
+		<icon>Info-trans-50.xpm</icon>
+	      </widget>
+
+	      <widget>
+		<class>GtkButton</class>
+		<child_name>Toolbar:button</child_name>
+		<name>button11</name>
+		<tooltip>Hilfe</tooltip>
+		<signal>
+		  <name>clicked</name>
+		  <handler>on_button_hilfe_clicked</handler>
+		  <last_modification_time>Fri, 30 Mar 2001 19:46:38 GMT</last_modification_time>
+		</signal>
+		<label>Hilfe</label>
+		<icon>Help-trans-50.xpm</icon>
 	      </widget>
 	    </widget>
 	  </widget>
@@ -4557,7 +4082,8 @@ auswählen</label>
 	    <widget>
 	      <class>GtkButton</class>
 	      <child_name>Toolbar:button</child_name>
-	      <name>button19</name>
+	      <name>button_lernpunkte</name>
+	      <cxx_visibility>protected</cxx_visibility>
 	      <signal>
 		<name>clicked</name>
 		<handler>on_lernpunkte_wuerfeln_clicked</handler>
@@ -4574,7 +4100,8 @@ würfeln</label>
 	    <widget>
 	      <class>GtkButton</class>
 	      <child_name>Toolbar:button</child_name>
-	      <name>button20</name>
+	      <name>button_lernpunkte_edit</name>
+	      <cxx_visibility>protected</cxx_visibility>
 	      <signal>
 		<name>clicked</name>
 		<handler>on_lernpunkte_editieren_clicked</handler>
@@ -16394,7 +15921,7 @@ Beidhändig
 	  <class>GtkLabel</class>
 	  <child_name>CList:title</child_name>
 	  <name>label269</name>
-	  <label>Kontinent</label>
+	  <label>Land</label>
 	  <justify>GTK_JUSTIFY_LEFT</justify>
 	  <wrap>False</wrap>
 	  <xalign>0.5</xalign>
@@ -16407,7 +15934,7 @@ Beidhändig
 	  <class>GtkLabel</class>
 	  <child_name>CList:title</child_name>
 	  <name>label270</name>
-	  <label>Land</label>
+	  <label>Kontinent</label>
 	  <justify>GTK_JUSTIFY_LEFT</justify>
 	  <wrap>False</wrap>
 	  <xalign>0.5</xalign>

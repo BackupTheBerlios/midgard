@@ -38,7 +38,12 @@ void Window_angeb_fert::fertigkeiten_zeigen()
 void Window_angeb_fert::on_clist_ang_fert_alt_select_row(gint row, gint column, GdkEvent *event)
 {   
 //  std::string altf = clist_ang_fert_alt->get_text(row,0);
+//cout << altf<<'\n';
+//cout << "1\n";
+  static_cast<MidgardBasicElement*>(clist_ang_fert_alt->selection().begin()->get_data());
+//cout << "2\n";
   cH_MidgardBasicElement MBE=static_cast<MidgardBasicElement*>(clist_ang_fert_alt->selection().begin()->get_data());
+//cout << "3\n";
   MidgardBasicElement::move_element(list_Fertigkeit_ang,list_Fertigkeit_ang_neu,MBE);
   hauptfenster->on_speichern_clicked();
   show_alte_afert();
@@ -47,8 +52,12 @@ void Window_angeb_fert::on_clist_ang_fert_alt_select_row(gint row, gint column, 
 
 void Window_angeb_fert::on_clist_ang_fert_neu_select_row(gint row, gint column, GdkEvent *event)
 {   
-//  std::string newf = clist_ang_fert_neu->get_text(row,1);
+  std::string newf = clist_ang_fert_neu->get_text(row,1);
+cout << newf<<'\n';
+cout << "1\n";
+cout << clist_ang_fert_alt->selection().begin()->get_data()<<'\n';
   cH_MidgardBasicElement MBE=static_cast<MidgardBasicElement*>(clist_ang_fert_alt->selection().begin()->get_data());
+cout << "2\n";
   if(!Sinn(wurf,atoi(clist_ang_fert_neu->get_text(row,2).c_str())))
      MidgardBasicElement::move_element(list_Fertigkeit_ang_neu,list_Fertigkeit_ang,MBE);
   hauptfenster->on_speichern_clicked();
@@ -83,6 +92,7 @@ void Window_angeb_fert::show_neue_afert()
      os << f->Min() <<"-"<<f->Max()<<"\t"<<f->Name();
      if (f->Erfolgswert()!=0) os <<"\t"<<f->Erfolgswert();
      os <<"\n"; 
+cout << "Angehängte Adresse: "<<(*i)->ref()<<'\n';
      os.flush((*i)->ref(),&HandleContent::unref);
    }
   for (unsigned int i=0;i<clist_ang_fert_neu->columns().size();++i)
@@ -95,12 +105,13 @@ Window_angeb_fert::Window_angeb_fert(midgard_CG* h,
    Grundwerte& W,int wu)
 : list_Fertigkeit_ang(vaf),Werte(W),wurf(wu)
 {
+  list_Fertigkeit_ang_neu.clear();
+  for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit_ang.begin();i!=Database.Fertigkeit_ang.end();++i)
+   {
+     if((*i)->ist_gelernt(list_Fertigkeit_ang)) continue;
+     list_Fertigkeit_ang_neu.push_back(*i);
+   }
  hauptfenster=h;
- for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit_ang.begin();i!=Database.Fertigkeit_ang.end();++i)
-  {
-    if((*i)->ist_gelernt(list_Fertigkeit_ang)) continue;
-    list_Fertigkeit_ang_neu.push_back(*i);
-  }
  if (wurf==100) 
    { label_ang_fert->set_text("100 gewürfelt --> Fertigkeit auswählen");
      show_alte_afert();

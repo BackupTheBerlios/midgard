@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.118 2002/01/04 14:21:33 thoma Exp $
+// $Id: midgard_CG.hh,v 1.119 2002/01/05 15:01:37 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -217,7 +217,8 @@ class midgard_CG : public midgard_CG_glade
         void on_radiobutton_mann_toggled();
         void spezieswahl_button();
         void on_herkunftsland_clicked();
-        void on_muttersprache_clicked();
+//        void on_muttersprache_clicked();
+        gint on_button_menu_button_release_event(GdkEventButton *ev);
         void gw_wuerfeln_2x();
         gint on_button_grundwerte_button_release_event(GdkEventButton *ev);
         void on_button_wert_1_clicked();

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.38 2001/12/21 22:46:15 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.39 2002/01/05 15:01:37 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,6 +20,22 @@
 #include "midgard_CG.hh"
 #include "Window_lernpunkte_editieren.hh"
 #include "Window_Waffe_Geld.hh"
+#include "Window_herkunft.hh"
+
+
+void midgard_CG::on_herkunftsland_clicked()
+{
+   manage (new Window_herkunft(this,Database));
+}
+void midgard_CG::herkunft_uebernehmen(const cH_Land& s)
+{
+   Werte.set_Herkunft(s); 
+   zeige_werte(Werte); 
+   button_lernpunkte->set_sensitive(true);
+   button_lernpunkte_edit->set_sensitive(true);
+}
+
+         
 
 void midgard_CG::on_lernpunkte_wuerfeln_clicked()
 {

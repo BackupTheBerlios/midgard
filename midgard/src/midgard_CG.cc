@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.103 2002/01/03 14:54:49 thoma Exp $
+// $Id: midgard_CG.cc,v 1.104 2002/01/05 15:01:37 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,8 +26,8 @@
 
 #include "midgard_CG.hh"
 #include "Window_charakter_beschreibung.hh"
-#include "Sprache_auswahl.hh"
-#include "Window_herkunft.hh"
+//#include "Sprache_auswahl.hh"
+//#include "Window_herkunft.hh"
 #include "Window_hilfe.hh"
 #include "Window_Geld_eingeben.hh"
 #include "Window_ruestung.hh"
@@ -93,6 +93,12 @@ gint midgard_CG::on_eventbox_MCG_button_press_event(GdkEventButton *event)
       return true;
    }
    return false;
+}
+
+gint midgard_CG::on_button_menu_button_release_event(GdkEventButton *event)
+{
+  menu->popup(event->button,event->time);
+  return true;
 }
  
 
@@ -326,22 +332,6 @@ void midgard_CG::show_gtk()
   }
 }
 
-void midgard_CG::on_herkunftsland_clicked()
-{
-   manage (new Window_herkunft(this,Database));
-}
-void midgard_CG::herkunft_uebernehmen(const cH_Land& s) 
-{
-   Werte.set_Herkunft(s);
-   zeige_werte(Werte);
-}
-
-
-
-void midgard_CG::on_muttersprache_clicked()
-{   
-//   manage (new Sprache_auswahl(this,Database,"Sprache",list_Sprache));
-}
 
 void midgard_CG::on_charakter_beschreibung_clicked()
 {   
@@ -439,11 +429,13 @@ void midgard_CG::on_neuer_charakter_clicked()
 {
    button_abg_werte->set_sensitive(false);
    button_herkunft->set_sensitive(false);
-   button_sprache->set_sensitive(false);
+//   button_sprache->set_sensitive(false);
    button_beschreibung->set_sensitive(false);
    frame_steigern->set_sensitive(false);
    frame_lernschema->set_sensitive(false);
 
+   button_lernpunkte->set_sensitive(false);
+   button_lernpunkte_edit->set_sensitive(false);
    button_geld_waffen->set_sensitive(false);
    button_ruestung->set_sensitive(false);
 

@@ -16,6 +16,9 @@ NEWS IN VERSION 0.1delta3
 * Einige(!) Interne Dinge umstrukturiert
 * Die Ausrüstung kann geladen werden
 * Im Charakterdokument sind die Sprachen und Schriften korrekt formatiert
+* Das Menü kann nun auch über einen Knopf aufgerufen werden
+   (über die rechte Maustaste ist weiterhin möglich)
+* Oberfläche weiter an neue Regeln angepaßt
 
 TODO:
 * Neue Ausrüstungsgegenstände sofort übernehmen
