@@ -68,8 +68,9 @@ void table_steigern::fill_ruestung()
  std::vector<cH_Ruestung> VR=LL->getRuestung();
  for(std::vector<cH_Ruestung>::const_iterator i=VR.begin();i!=VR.end();++i)
    { cH_Ruestung r(*i);
+     bool dummy;
      os << r->Long() <<"\t"<<r->Name()<<"\t"<<r->LP_Verlust()<<"\t"
-        <<r->Min_Staerke()<<"\t"<<r->RW_Verlust()<<"\t"<<r->B_Verlust()<<"\n";
+        <<r->Min_Staerke()<<"\t"<<r->RW_Verlust()<<"\t"<<r->B_Verlust(0,0,dummy)<<"\n";
      os.flush(r->ref());
    } 
  for (unsigned int i=0;i<clist_ruestung->columns().size();++i)

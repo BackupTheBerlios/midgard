@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.53 2002/10/24 07:21:01 christof Exp $               
+// $Id: Grundwerte.hh,v 1.54 2002/10/26 07:32:24 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -30,6 +30,7 @@
 
 class Grundwerte
 {
+   friend class Abenteurer;
    struct st_grund{int st;int gw;int gs;int ko;int in;int zt;
           st_grund() :st(0),gw(0),gs(0),ko(0),in(0),zt(0) {}
           st_grund(int _st,int _gw,int _gs,int _ko,int _in,int _zt)
@@ -57,7 +58,7 @@ class Grundwerte
    float steigertage;
    int gold,silber,kupfer,aep,kep,zep;
    cH_Land herkunft;
-   std::vector<cH_Ruestung> ruestung; 
+   std::vector<cH_Ruestung> ruestung;
    cH_Spezies spezies;
    cH_Spezialgebiet spezialgebiet;
    Enums::StadtLand stadt_land;
@@ -140,6 +141,7 @@ public:
    std::string Spezialisierung() const {return spezialisierung;}
 //   std::string Spezial2() const {return spezial2;}
    std::string Stand() const {return stand;}
+   cH_Ruestung Ruestung(unsigned int i=0) const;
    cH_Land Herkunft() const {return herkunft;}
    cH_Spezies Spezies() const {return spezies;}
    std::string Glaube() const {return glaube;}
@@ -153,7 +155,7 @@ public:
    std::string Merkmale() const {return merkmale;}
    Enums::StadtLand Stadt_Land() const {return stadt_land;}
    std::string Stadt_Land_str() const ;
-   cH_Ruestung Ruestung(unsigned int i=0) const;
+//   cH_Ruestung Ruestung(unsigned int i=0) const;
    int GFP() const {return gfp;}
    float Steigertage() const {return steigertage;}
    int Gold() const {return gold;}
@@ -245,10 +247,6 @@ public:
    void setBeschreibung(const std::string& _b){beschreibung.text=_b;}
    void setBeschreibungPix(const std::string& _b){beschreibung.file=_b;}
    void setBeschreibungPixSize(int i){beschreibung.size=i;}
-   void setRuestung1(std::string r,bool force=false)
-      {ruestung[0]=cH_Ruestung(r,force);}
-   void setRuestung2(std::string r,bool force=false)
-      {ruestung[1]=cH_Ruestung(r,force);}
    void setStadtLand(const Enums::StadtLand& sl) {stadt_land=sl;}
    void setStadtLand(const std::string& sl);
    void setGFP(int _gfp){gfp=_gfp;}
@@ -280,9 +278,15 @@ public:
    void set_Steigern_EP_Prozent(int i) {steigern_EP_prozent=i;}
    void set_Grad_Basiswerte(int i) {grad_basiswerte=i;}
 
+   void setRuestung1(std::string r,bool force=false)
+       {ruestung[0]=cH_Ruestung(r,force);}
+   void setRuestung2(std::string r,bool force=false)
+       {ruestung[1]=cH_Ruestung(r,force);}
+                     
+
    // LaTeX code für die Rüstung
    std::string Ruestung_RW_Verlust() const ;
-   std::string Ruestung_B_Verlust() const ;
+//   std::string Ruestung_B_Verlust() const ;
    std::string Ruestung_Abwehr_Verlust(const std::list<MBEmlt>& list_Fertigkeit) const;
    std::string Ruestung_Angriff_Verlust(const std::list<MBEmlt>& list_Fertigkeit) const;
 

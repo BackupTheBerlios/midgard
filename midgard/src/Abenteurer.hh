@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.39 2002/10/25 21:01:17 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.40 2002/10/26 07:32:24 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -28,7 +28,6 @@
 #include "Waffe.hh"
 #include "Enums.hh"
 
-
 class Abenteurer
 {
    AusruestungBaum besitz;
@@ -47,6 +46,9 @@ class Abenteurer
    std::list<MBEmlt> list_Kido;
    std::list<MBEmlt> list_Sprache; 
    std::list<MBEmlt> list_Schrift;        
+
+   cH_Ruestung Ruestung(unsigned int i=0) const {return getWerte().Ruestung(i);}
+
 
 public:
    Abenteurer() {Typ.resize(2);}
@@ -69,11 +71,12 @@ public:
    const AusruestungBaum &getBesitz() const {return besitz;}
    void setStandardAusruestung();
    double getBelastung() const;
-   int getTragkraft() const;
-   int getHubkraft() const;
-   int getSchubkraft() const;
-   
-   
+   int getNormallast() const;
+   int getHoechstlast() const;
+   int getSchublast() const;
+   double getUeberlast() const;
+   std::string Ruestung_B_Verlust() const;
+
 
    const cH_Typen &Typ1() const {return Typ[0];}
    const cH_Typen &Typ2() const {return Typ[1];}

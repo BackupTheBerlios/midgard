@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.50 2002/10/25 21:01:11 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.51 2002/10/26 07:32:24 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -775,3 +775,20 @@ std::list<MBEmlt> &Abenteurer::get_known_list(const MBEmlt &MBE)
    assert(!"never get here"); abort();
 }
  
+std::string Abenteurer::Ruestung_B_Verlust() const
+{
+ std::string s;
+ double u=getUeberlast();
+ bool ew; // Erfolgswerte um zwei reduzieren
+ int b=getWerte().B();
+
+ if(  Ruestung(0)->B_Verlust(u,b,ew) && !Ruestung(1)->B_Verlust(u,b,ew) )
+    s= "\\scriptsize ("+itos(b-Ruestung(0)->B_Verlust(u,b,ew))+")";
+ else if( !Ruestung(0)->B_Verlust(u,b,ew) && Ruestung(1)->B_Verlust(u,b,ew) )
+    s= "\\scriptsize ("+itos(b-Ruestung(1)->B_Verlust(u,b,ew))+")";
+ else if( Ruestung(0)->B_Verlust(u,b,ew) && Ruestung(1)->B_Verlust(u,b,ew) )
+    s= "\\tiny ("+itos(b-Ruestung(0)->B_Verlust(u,b,ew))
+         +","+itos(b-Ruestung(1)->B_Verlust(u,b,ew))+")";
+ if(s!="") return "_{"+s+"}";
+ return "";
+}

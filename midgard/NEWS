@@ -15,11 +15,14 @@ NEWS IN VERSION 0.8.8
 * Preise und Gewicht für Waffen werden angegeben
 * Original-Midgard-Logo in die Statuszeile verbannt
 * Preise und Gewicht für Waffen von 'preise' -> 'waffen' (PostgreSQL)
+* Gewicht im Ausrüstungsbaum anzeigen
+* Maximale Traglast und aktuelle Belastung anzeigen
+* Angabe der Normal/Höchst/Schublast 
 
 TODO: ('-' zeigt CP an)
 
-* Gewicht im Ausrüstungsbaum anzeigen
-* Maximale Traglast und aktuelle Belastung anzeigen
+* Abzug auf EW bei Überlast (Ruestung(0)->B_Verlust(u,b,ew))
+* Angabe der Normal/Höchst/Schublast im Ausdruck
 * Neue Ausrüstung eingeben
 * Regionale Waffen&Gewichte in der Ausrüstung
 * Hilfe Menü ans Ende

@@ -90,3 +90,47 @@ int Ruestung::AngriffsBonus_Verlust(int angriffs_bonus) const
   abort();
 }
 
+int Ruestung::B_Verlust(const double &ueberlast,const int &maxB,bool &ew) const
+{
+  if(ueberlast==0) return b_verlust;
+  
+  int reduce=0;
+  ew=false;
+  if(b_verlust==0)
+   {
+      if(ueberlast<1)                       reduce=  0;
+      else if(1<=ueberlast && ueberlast< 5) reduce=  4;
+      else if(5<=ueberlast && ueberlast< 8) reduce=  8;
+      else if(9<=ueberlast && ueberlast<20) {reduce= 12; ew=true;}
+      reduce = maxB;
+   }
+  if(b_verlust==4)
+   {
+      if(ueberlast<1)                       reduce=  4;
+      else if(1<=ueberlast && ueberlast< 5) reduce=  8;
+      else if(5<=ueberlast && ueberlast< 8) {reduce= 12; ew=true;}
+      else if(9<=ueberlast && ueberlast<20) {reduce= 18; ew=true;}
+      reduce = maxB;
+   }
+  if(b_verlust==8)
+   {
+      if(ueberlast<1)                       reduce=  8;
+      else if(1<=ueberlast && ueberlast< 5) {reduce= 12; ew=true;}
+      else if(5<=ueberlast && ueberlast< 8) {reduce= 18; ew=true;}
+      reduce = maxB;
+   }
+  if(b_verlust==12)
+   {
+      if(ueberlast<1)                        reduce= 12;
+      else if(1<=ueberlast && ueberlast< 5) {reduce= 18; ew=true;}
+      reduce = maxB;
+   }
+  if(b_verlust==16)
+   {
+      if(ueberlast<1)                       reduce= 16;
+      reduce = maxB;
+   }   
+
+  return reduce;
+}
+

@@ -34,9 +34,9 @@ void table_ausruestung::init(midgard_CG *h)
    table_gruppe->hide();
    table_artikel->hide();      
    togglebutton_gruppe_neu->hide(); // nicht implementiert
-   label_tragkraft->set_text(itos(h->getAben().getTragkraft())+" kg");
-   label_hubkraft->set_text(itos(h->getAben().getHubkraft())+" kg");
-   label_schubkraft->set_text(itos(h->getAben().getSchubkraft())+" kg");
+   label_normallast->set_text(itos(h->getAben().getNormallast())+" kg");
+   label_hoechstlast->set_text(itos(h->getAben().getHoechstlast())+" kg");
+   label_schublast->set_text(itos(h->getAben().getSchublast())+" kg");
    fill_new_preise();
 }
    

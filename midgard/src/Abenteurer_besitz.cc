@@ -1,4 +1,4 @@
-// $Id: Abenteurer_besitz.cc,v 1.2 2002/10/25 21:01:17 thoma Exp $               
+// $Id: Abenteurer_besitz.cc,v 1.3 2002/10/26 07:32:24 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -71,15 +71,44 @@ void Abenteurer::setStandardAusruestung()
 //  setFertigkeitenAusruestung(Rucksack);
 }
 
-int Abenteurer::getTragkraft() const
+int Abenteurer::getNormallast() const
 {
-  return 10;
+   int s=getWerte().St();
+   if     (s<=10)          return  3;
+   else if(11<=s && s<=30) return  6;
+   else if(31<=s && s<=60) return 10;
+   else if(61<=s && s<=80) return 15;
+   else if(81<=s && s<=95) return 20;
+   else if(96<=s && s<=99) return 25;
+   return 30; // s>=100
 }
-int Abenteurer::getHubkraft() const 
+int Abenteurer::getHoechstlast() const 
 {
-  return 50;
+   int s=getWerte().St();
+   if     (s<=10)          return 40;
+   else if(11<=s && s<=30) return 50;
+   else if(31<=s && s<=60) return 60;
+   else if(61<=s && s<=80) return 65;
+   else if(81<=s && s<=95) return 75;
+   else if(96<=s && s<=99) return 80;
+   return 90; // s>=100
 }
-int Abenteurer::getSchubkraft() const
+int Abenteurer::getSchublast() const
 {
-  return 100;
+   int s=getWerte().St();
+   if     (s<=10)          return 50;
+   else if(11<=s && s<=30) return 70;
+   else if(31<=s && s<=60) return 120;
+   else if(61<=s && s<=80) return 140;
+   else if(81<=s && s<=95) return 150;
+   else if(96<=s && s<=99) return 170;
+   return 200; // s>=100
 }
+
+double Abenteurer::getUeberlast() const
+{
+  double u=getNormallast()-getBelastung();
+  if (u<0) return  0;
+  else     return -u;
+}
+
