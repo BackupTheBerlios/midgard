@@ -34,8 +34,8 @@ void Zufall::Voll()
 void Zufall::Teil(e_Vorgabe vorgabe,const Abenteurer &A)
 { oldAben=A;
 
-   if(vorgabe&B_Spezies)  Aben.setSpezies(getSpezies());
-   else            Aben.setSpezies(oldAben.Spezies());
+   if(vorgabe&B_Spezies)  Aben.setSpezies(oldAben.Spezies());
+   else Aben.setSpezies(getSpezies());
    Aben.gw_wuerfeln_2x();
    if(vorgabe&B_St)       Aben.setSt(oldAben.St());
    if(vorgabe&B_Gs)       Aben.setGs(oldAben.Gs());

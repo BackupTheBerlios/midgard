@@ -1,4 +1,4 @@
-// $Id: Typen.hh,v 1.4 2003/09/01 06:47:57 christof Exp $               
+// $Id: Typen.hh,v 1.5 2004/03/12 15:20:04 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -103,10 +103,10 @@ public:
    {  return typs<b.typs;
    }
 
-   static bool get_Typ_from_long(const std::vector<cH_Typen>& V,
-                                        std::string& name);
-
-   static cH_Typen getTyp(std::string s,const std::vector<cH_Typen> V);
+   // KurzTyp zum Langtyp heraussuchen (verändert name auf jeden Fall)
+   static bool get_Typ_from_long(std::string& name);
+   // die sinnvolle Variante
+   static cH_Typen getTyp(const std::string &langbez); //  throw(NotFound)
 
 };
 

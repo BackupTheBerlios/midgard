@@ -22,6 +22,7 @@
 #include "Grundwerte.hh"
 #include <Misc/Tag.h>
 #include "Ausgabe.hh"
+#include "Datenbank.hh"
 
 cH_Typen::cache_t cH_Typen::cache;
 
@@ -126,14 +127,14 @@ bool Typen::Gruppe(const std::string &gruppe) const
 
 
 
-bool Typen::get_Typ_from_long(const std::vector<cH_Typen>& V,
-                                    std::string& name)
+bool Typen::get_Typ_from_long(std::string& name)
 {
   std::string::size_type s1=name.find_first_of("(");
   if(s1!=std::string::npos) name.erase(s1,1);
   std::string::size_type s2=name.find_last_of(")");
   if(s2!=std::string::npos) name.erase(s2,1);
-  for(std::vector<cH_Typen>::const_iterator i=V.begin();i!=V.end();++i)
+  for(std::vector<cH_Typen>::const_iterator i=Datenbank.Typen.begin();
+  		i!=Datenbank.Typen.end();++i)
    {
      if((*i)->Typl()==name || (*i)->Typlw()==name) 
       {
@@ -144,13 +145,14 @@ bool Typen::get_Typ_from_long(const std::vector<cH_Typen>& V,
   return false;
 }
 
-cH_Typen Typen::getTyp(std::string s,const std::vector<cH_Typen> V)
+cH_Typen Typen::getTyp(const std::string &s)
 {
-  for(std::vector<cH_Typen>::const_iterator i=V.begin();i!=V.end();++i)
+  for(std::vector<cH_Typen>::const_iterator i=Datenbank.Typen.begin();
+  		i!=Datenbank.Typen.end();++i)
    {
      if(s==(*i)->Name(Enums::Mann) || s==(*i)->Name(Enums::Frau)) return *i;
    }
-  return cH_Typen("Kr");
+  throw NotFound(s);
 }
 
 std::string Typen::getLernpflichtenInfo(cH_Land herkunft) const
