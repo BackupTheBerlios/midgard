@@ -149,7 +149,7 @@ void midgard_CG::xml_export(const std::string& dateiname)
       datei << "    <bool";
       write_string_attrib(datei, "Name", i->text);
       write_bool_attrib(datei, "Wert", i->active, !i->active);
-      datei << ">\n";
+      datei << "/>\n";
     }
 /*
    if (!OptionBool.Original) datei << "    <bool ORIG=\"false\"/>\n";

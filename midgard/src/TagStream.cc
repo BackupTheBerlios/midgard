@@ -41,8 +41,10 @@ std::string utf82iso(const std::string &s)
 {  std::string ret="";
 
    for (std::string::const_iterator i = s.begin(); i!=s.end() ; i++)
-   {  if (((*i)&0xe0)==0xe0)
+   {  if (((*i)&0xe0)==0xc0)
          ret+=(unsigned char)(((*i)<<6)|(*(++i))&0x3f);
+      else if ((unsigned char)(*i)>=0x80)
+         cout << "UTF8 error " << int(*i) << '\n';
       else ret+=*i;
    }
    return ret;
@@ -171,14 +173,16 @@ char *TagStream::next_tag_pointer(Tag *parent)
 	  return 0; \
 	})
 
+// hacked to accept UTF-8 literals, this is not a generally good idea
+
 static bool isword(unsigned char x)
 // accepting d7 and f7 violates standard ... who cares
-{  return isalnum(x)||strchr(".-_:",x)||x>=0xc0;
+{  return isalnum(x)||strchr(".-_:",x)||x>=0x80;
 }
 
 static bool isword0(unsigned char x)
 // accepting d7 and f7 violates standard ... who cares
-{  return isalnum(x)||strchr("_:",x)||x>=0xc0;
+{  return isalnum(x)||strchr("_:",x)||x>=0x80;
 }
 
 char *TagStream::find_wordend(char *ptr)
@@ -202,6 +206,7 @@ char *TagStream::next_tag(Tag *parent)
             if (*tagend=='?')
             {  if (tagend[1]!='>') ERROR2("strange tag end (?[^>])",tag);
                set_pointer(tagend+2);
+               newtag->debug();
                if (newtag->Type()=="xml") encoding=newtag->getAttr("encoding");
                goto continue_outer;
             }
@@ -271,7 +276,7 @@ char *TagStream::next_tag(Tag *parent)
          if (valueend[1]!='/') tagvalue=next_tag(newtag); // recurse
          else tagvalue=valueend;
          
-         if (!tagvalue) ERROR2("premature nested value end",tagvalue);
+         if (!tagvalue) ERROR2("premature nested value end","?? EOF ???");
          if (tagvalue[1]!='/') ERROR2("not ending?",tagvalue);
          char *endtagend=find(tagvalue+1,'>');
          if (!endtagend) ERROR2("endtag doesn't end",valueend);
