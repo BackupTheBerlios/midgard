@@ -52,9 +52,7 @@ void midgard_CG::fill_typauswahl_fill(int typ_1_2)
 
 void midgard_CG::typauswahl_button()
 {
- if(wizard) {//notebook_main->set_sensitive(false) ;
-             wizard->next_step();
-             /*typauswahl->set_sensitive(false) ;*/  }
+ if(wizard) wizard->next_step(Wizard::TYP);
  cH_Typen ptr = static_cast<Typen*>(typauswahl->get_menu()->get_active()->get_user_data());
  Typ[0]=ptr;
  clear_listen();
@@ -113,11 +111,7 @@ void midgard_CG::spezieswahl_button()
 {
  Werte.clear();
  zeige_werte();
- if(wizard) { 
-//               notebook_main->set_sensitive(false) ;
-               wizard->next_step();
-//               optionmenu_spezies->set_sensitive(false) ; 
-            }
+ if(wizard) wizard->next_step(Wizard::SPEZIES);
  cH_Spezies ptr = static_cast<Spezies*>(optionmenu_spezies->get_menu()->get_active()->get_user_data());
  Werte.setSpezies(ptr);
 
@@ -134,7 +128,7 @@ void midgard_CG::spezieswahl_button()
 
 void midgard_CG::on_radiobutton_stadt_land_toggled()
 {
-  if(wizard) {/* notebook_main->set_sensitive(false) ;*/ wizard->next_step() ;}
+  if(wizard) wizard->next_step(Wizard::STADTLAND);
 
   if(radiobutton_stadt->get_active()) Werte.setStadt_Land("Stadt");   
   else                                Werte.setStadt_Land("Land");   

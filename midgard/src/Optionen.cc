@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.25 2002/04/27 15:11:43 thoma Exp $
+// $Id: Optionen.cc,v 1.26 2002/04/29 07:02:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -174,7 +174,7 @@ void Midgard_Optionen::OptionenCheck_setzen_from_menu(OptionenCheckIndex index,b
 void Midgard_Optionen::OptionenExecute_setzen_from_menu(OptionenExecuteIndex index)
 {
   if(index==LernschemaSensitive) hauptfenster->lernschema_sensitive(true);
-  if(index==WizardStarten) hauptfenster->wizard_starten_clicked();
+//  if(index==WizardStarten) hauptfenster->wizard_starten_clicked();
   if(index==LernschemaZusaetzeLoeschen) {hauptfenster->list_FertigkeitZusaetze.clear();
                                          hauptfenster->on_lernliste_wahl_toggled();}   
   if(index==show_InfoWindow) hauptfenster->InfoFenster->Show();
@@ -248,7 +248,7 @@ void Midgard_Optionen::Optionen_init()
                            "Wizard bei jedem Programmstart zeigen",true,0));
 
   list_OptionenExecute.push_back(st_OptionenExecute(show_InfoWindow,"Info Fenster zeigen",0));
-  list_OptionenExecute.push_back(st_OptionenExecute(WizardStarten,"Wizard starten",0));
+//  list_OptionenExecute.push_back(st_OptionenExecute(WizardStarten,"Wizard starten",0));
   list_OptionenExecute.push_back(st_OptionenExecute(LernschemaSensitive,
                            "Lernschema/Steigern auswählbar machen",0));
   list_OptionenExecute.push_back(st_OptionenExecute(LernschemaZusaetzeLoeschen,

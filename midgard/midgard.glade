@@ -104,6 +104,46 @@
 
 	      <widget>
 		<class>GtkMenuItem</class>
+		<name>wizard_starten</name>
+		<accelerator>
+		  <modifiers>GDK_CONTROL_MASK</modifiers>
+		  <key>GDK_W</key>
+		  <signal>activate</signal>
+		</accelerator>
+		<signal>
+		  <name>activate</name>
+		  <handler>on_wizard_starten_activate</handler>
+		  <last_modification_time>Mon, 29 Apr 2002 06:50:14 GMT</last_modification_time>
+		</signal>
+		<label>Wizard starten</label>
+		<right_justify>False</right_justify>
+	      </widget>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>wizard_beenden</name>
+		<accelerator>
+		  <modifiers>GDK_CONTROL_MASK | GDK_SHIFT_MASK</modifiers>
+		  <key>GDK_W</key>
+		  <signal>activate</signal>
+		</accelerator>
+		<signal>
+		  <name>activate</name>
+		  <handler>on_wizard_beenden_activate</handler>
+		  <last_modification_time>Mon, 29 Apr 2002 06:50:14 GMT</last_modification_time>
+		</signal>
+		<label>Wizard beenden</label>
+		<right_justify>False</right_justify>
+	      </widget>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>trennlinie3</name>
+		<right_justify>False</right_justify>
+	      </widget>
+
+	      <widget>
+		<class>GtkMenuItem</class>
 		<name>laden1</name>
 		<accelerator>
 		  <modifiers>GDK_CONTROL_MASK</modifiers>
@@ -15592,16 +15632,46 @@ wird der entsprechende Abenteurer geladen.</label>
 	</child>
 
 	<widget>
-	  <class>GtkLabel</class>
-	  <name>label_status</name>
-	  <cxx_visibility>protected</cxx_visibility>
-	  <label></label>
-	  <justify>GTK_JUSTIFY_LEFT</justify>
-	  <wrap>False</wrap>
-	  <xalign>0.01</xalign>
-	  <yalign>0.5</yalign>
-	  <xpad>0</xpad>
-	  <ypad>2</ypad>
+	  <class>GtkVBox</class>
+	  <name>vbox50</name>
+	  <homogeneous>False</homogeneous>
+	  <spacing>0</spacing>
+
+	  <widget>
+	    <class>GtkLabel</class>
+	    <name>label_status</name>
+	    <cxx_visibility>protected</cxx_visibility>
+	    <label></label>
+	    <justify>GTK_JUSTIFY_LEFT</justify>
+	    <wrap>False</wrap>
+	    <xalign>0.01</xalign>
+	    <yalign>0.5</yalign>
+	    <xpad>0</xpad>
+	    <ypad>2</ypad>
+	    <child>
+	      <padding>0</padding>
+	      <expand>False</expand>
+	      <fill>False</fill>
+	    </child>
+	  </widget>
+
+	  <widget>
+	    <class>GtkLabel</class>
+	    <name>label_wizard</name>
+	    <cxx_visibility>protected</cxx_visibility>
+	    <label></label>
+	    <justify>GTK_JUSTIFY_LEFT</justify>
+	    <wrap>False</wrap>
+	    <xalign>0.01</xalign>
+	    <yalign>0.5</yalign>
+	    <xpad>0</xpad>
+	    <ypad>2</ypad>
+	    <child>
+	      <padding>0</padding>
+	      <expand>False</expand>
+	      <fill>False</fill>
+	    </child>
+	  </widget>
 	</widget>
       </widget>
     </widget>

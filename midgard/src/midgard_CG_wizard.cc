@@ -19,14 +19,21 @@
 #include "midgard_CG.hh"
 #include <cstring>
 
-void midgard_CG::wizard_do_nothing()
-{
-}
-
 void midgard_CG::wizard_do_something()
 {
   if(!wizard) return;
-  Wizard_window::esteps e=wizard->ActualStep();
+  Wizard::esteps e=wizard->ActualStep();
+
+  if(e==Wizard::FERTIG)
+      { on_wizard_beenden_activate();}
+
+  if(e==Wizard::HERKUNFT)
+      { on_herkunftsland_clicked();}
+
+  if(e==Wizard::SPEZIALWAFFE)
+      { togglebutton_spezialwaffe->set_active(true);}
+
+
 /*
   GdkEventButton button;
   memset(&button,0,sizeof button);
@@ -58,16 +65,23 @@ void midgard_CG::wizard_do_something()
 */
 }
 
-void midgard_CG::wizard_starten_clicked()
+void midgard_CG::on_wizard_starten_activate()
 {
+//}
+//void midgard_CG::wizard_starten_clicked()
+//{
  on_neuer_charakter_clicked();
- wizard = manage(new class Wizard_window(this));
+ wizard = new Wizard(this);
+// wizard = manage(new class Wizard_window(this));
 // notebook_main->set_sensitive(false);
  wizard->restart();
 }
 
-void midgard_CG::on_button_close_wizard_clicked()
+void midgard_CG::on_wizard_beenden_activate()
 {
+ if(wizard) delete(wizard);
+ label_wizard->hide();
  wizard=0;
- notebook_main->set_sensitive(true);
 }
+
+

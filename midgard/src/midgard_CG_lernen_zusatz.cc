@@ -170,9 +170,7 @@ void midgard_CG::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,const cH_M
 void midgard_CG::on_herkunft_leaf_selected(cH_RowDataBase d)
 {
   const Data_Herkunft *dt=dynamic_cast<const Data_Herkunft*>(&*d);
-  if(wizard) 
-   { wizard->next_step();
-   }
+  if(wizard) wizard->next_step(Wizard::HERKUNFT);
   Werte.setHerkunft(dt->getLand());
   frame_lernschema_zusatz->hide();
   tree_lernschema->set_sensitive(true);

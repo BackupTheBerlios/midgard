@@ -1,4 +1,4 @@
-// $Id: abge_werte_setzen.cc,v 1.51 2002/04/14 15:32:14 thoma Exp $
+// $Id: abge_werte_setzen.cc,v 1.52 2002/04/29 07:02:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,7 +21,9 @@
 
 void midgard_CG::on_abge_werte_setzen_clicked()
 {
-  if(!MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active) button_abg_werte->set_sensitive(false);
+  if(wizard) wizard->next_step(Wizard::ABGELEITETEWERTE);
+  if(!MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active) 
+      button_abg_werte->set_sensitive(false);
   Werte.setGrad(1);
   Werte.setAu( constraint_aw(Werte.Spezies()->Au()) );
   Werte.setpA( random.integer(1,100)-30 + 3*(Werte.In()/10 + Werte.Au()/10) );

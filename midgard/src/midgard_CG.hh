@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.223 2002/04/27 21:27:08 thoma Exp $
+// $Id: midgard_CG.hh,v 1.224 2002/04/29 07:02:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,7 +37,8 @@
 class Random;
 #include <fstream>
 #include "WindowInfo.hh"
-#include "Wizard_window.hh"
+//#include "Wizard_window.hh"
+#include "Wizard.hh"
 #include "Midgard_Undo.hh"
 #include "Optionen.hh"
 
@@ -66,18 +67,19 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         std::vector<std::string> Vstand, Vhand, Vkido;
 
         friend class midgard_CG_glade;
-        friend class Wizard_window;
+//        friend class Wizard_window;
+        friend class Wizard;
+        friend class Midgard_Optionen;
         friend class Midgard_Info;
         friend class frame_drucken;
         Midgard_Undo MidgardUndo;
-        Wizard_window *wizard;
+//        Wizard_window *wizard;
+        Wizard *wizard;
         Midgard_Optionen *MOptionen;
         Grundwerte Werte;
 
         Gtk::Menu *menu, *menu_gradanstieg;
         Gtk::MenuItem *ansicht_menu,*region_menu;
-   public:
-        Midgard_Optionen* getOptionen() {return MOptionen;};
         void menu_init();
         void show_Pics(bool b);
         void show_Menueleiste(bool b);
@@ -87,7 +89,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void show_Beschriftungen(bool b);
         void show_gw_wuerfeln(bool b);
 
-   private:
         void menubar_init();
         void menu_gradanstieg_init();
         gint on_eventbox_MCG_button_press_event(GdkEventButton *event);
@@ -108,6 +109,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         std::list<cH_MidgardBasicElement> list_Fertigkeit_ang;
         std::list<cH_MidgardBasicElement> list_Fertigkeit;
    public:
+        Midgard_Optionen* getOptionen() {return MOptionen;};
         std::list<std::string>            list_FertigkeitZusaetze;
    private:
         std::list<cH_MidgardBasicElement> list_Fertigkeit_neu;
@@ -143,11 +145,9 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
      	  std::string filename;
    
         // Wizard
-        void on_button_close_wizard_clicked();
-        void wizard_do_nothing();
+        void on_wizard_beenden_activate();
+        void on_wizard_starten_activate();
         void wizard_do_something();
-   public:
-        void wizard_starten_clicked();
    private:
 
         void OptionenExecute_setzen_from_menu(Midgard_Optionen::OptionenExecuteIndex index);
@@ -169,6 +169,8 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
    public:
         void set_info(const std::string& sadd);
         void set_status(std::string s,bool autoclean=true);
+private:
+        void set_wizard(std::string s);
         void on_radiobutton_mann_toggled();
    private:
         void spezieswahl_button();
@@ -324,7 +326,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_button_ruestung_clicked();
         gint on_button_lernschema_geld_button_release_event(GdkEventButton *ev);
         gint on_button_lernschema_waffen_button_release_event(GdkEventButton *ev);
-   public:
+//   public:
         void lernschema_geld_wuerfeln();
         void on_lernliste_wahl_toggled();
    private:
@@ -354,7 +356,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_ang_fert_leaf_selected(cH_RowDataBase d);
         void universal_Fertigkeiten();
         void on_spezialwaffe_clicked();
-   public:
+//   public:
         void checkbutton_original(bool active);
         void lernschema_sensitive(bool active);
    private:

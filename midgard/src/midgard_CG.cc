@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.211 2002/04/27 21:27:08 thoma Exp $
+// $Id: midgard_CG.cc,v 1.212 2002/04/29 07:02:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -72,7 +72,7 @@ midgard_CG::~midgard_CG()
    if (menu) delete menu;
    if (menu_gradanstieg) delete menu_gradanstieg;
 //   InfoFenster->destroy(); 
-//   if(wizard) wizard->destroy();
+   if(wizard) delete wizard;
 }
 
 void midgard_CG::optionmenu_init()
@@ -133,11 +133,7 @@ void midgard_CG::on_radiobutton_frau_toggled()
 { on_radiobutton_mann_toggled(); }
 void midgard_CG::on_radiobutton_mann_toggled()
 {
-  if(wizard)
-   { 
-//     notebook_main->set_sensitive(false) ;
-     wizard->next_step();
-   }
+  if(wizard) wizard->next_step(Wizard::GESCHLECHT);
   std::string oldG=Werte.Geschlecht();
   if (radiobutton_mann->get_active()) Werte.setGeschlecht("m");
   else Werte.setGeschlecht("w");
@@ -243,6 +239,13 @@ void midgard_CG::on_button_waffen_s_clicked()
   manage (new Window_Waffenbesitz(this,list_Waffen,list_Waffen_besitz));
 }
 
+
+void midgard_CG::set_wizard(std::string s)
+{
+  label_wizard->show();
+  label_wizard->set_text(s);
+}
+
 void midgard_CG::set_status(std::string s,bool autoclean)
 {
   label_status->set_text(s);
@@ -333,6 +336,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    button_lernschema_geld->set_sensitive(false);
    button_lernschema_waffen->set_sensitive(false);
    button_ruestung->set_sensitive(false);
+   label_wizard->hide();
 
    edit_lernpunkte(false);
    frame_lernschema_zusatz->hide();

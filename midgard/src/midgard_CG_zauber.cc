@@ -1,4 +1,4 @@
-// $Id: midgard_CG_zauber.cc,v 1.56 2002/03/01 18:56:12 thoma Exp $
+// $Id: midgard_CG_zauber.cc,v 1.57 2002/04/29 07:02:53 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -64,6 +64,7 @@ void midgard_CG::spezialgebiet_button()
 // if (s=="Spezialgebiet" || s == "Primär- und Sekundärelement") return ;
  Werte.setSpezialgebiet(ptr);
 //cout << Werte.Spezialisierung()<<"\t"<<Werte.Spezial()<<"\t"<<Werte.Spezial2(
+ if(wizard) wizard->next_step(Wizard::SPEZIALGEBIET);
 } 
 
               

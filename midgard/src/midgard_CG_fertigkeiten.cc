@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.63 2002/04/27 15:11:43 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.64 2002/04/29 07:02:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -28,6 +28,7 @@
 
 gint midgard_CG::on_angeborene_fertigkeit_button_release_event(GdkEventButton *event)
 {
+  if(wizard) wizard->next_step(Wizard::ANGEBORENEFERTIGKEITEN);
   list_Fertigkeit_ang.clear();
   list_Fertigkeit_ang=Werte.Spezies()->getAngFertigkeiten();
   list_Zauber=Werte.Spezies()->getZauber();

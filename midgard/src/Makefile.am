@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.151 2002/04/24 09:39:47 christof Exp $
+# $Id: Makefile.am,v 1.152 2002/04/29 07:02:52 thoma Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -30,6 +30,7 @@ EXTRA_DIST = midgard_document_eingabe.tex.in \
 
 
 noinst_HEADERS = \
+   Wizard.hh \
    table_optionen.hh \
    table_optionen_glade.hh \
    frame_globale_optionen.hh \
@@ -39,8 +40,6 @@ noinst_HEADERS = \
    frame_ansicht.hh \
    frame_ansicht_glade.hh \
    Optionen.hh \
-   Wizard_window.hh \
-   Wizard_window_glade.hh \
    Midgard_Undo.hh \
    Grad_anstieg.hh \
    MidgardBasicTree.hh \
@@ -103,6 +102,7 @@ NEWS.h: ../NEWS ; ./text2c <../NEWS >NEWS.h
 midgard_xmlexport_SOURCES= xmlexport.cc export_common.cc
 
 magus_SOURCES = $(RC_FILES) \
+   Wizard.cc \
    frame_globale_optionen.cc \
    Optionen.cc \
    table_optionen.cc \
@@ -113,8 +113,6 @@ magus_SOURCES = $(RC_FILES) \
    frame_drucken_glade.cc \
    frame_ansicht_glade.cc \
    midgard_CG_undo.cc \
-   Wizard_window.cc \
-   Wizard_window_glade.cc \
    midgard_CG_wizard.cc \
 	load_charakter.cc  \
    save_charakter.cc \

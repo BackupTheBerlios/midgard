@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.106 2002/04/27 21:27:08 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.107 2002/04/29 07:02:53 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,6 +38,7 @@ void midgard_CG::on_herkunftsland_clicked()
 
 void midgard_CG::on_lernpunkte_wuerfeln_clicked()
 {
+  if(wizard) wizard->next_step(Wizard::LERNPUNKTE);
   //Speziesspezifische Fertigkeiten
   int lpspezies=0;
   list_Fertigkeit=Werte.Spezies()->getFertigkeiten(lpspezies,Werte);
@@ -181,6 +182,7 @@ void midgard_CG::zeige_lernpunkte()
 
 gint midgard_CG::on_button_lernschema_waffen_button_release_event(GdkEventButton *ev)
 {   
+  if(wizard) wizard->next_step(Wizard::WAFFEN);
   button_lernschema_waffen->set_sensitive(false);
   if  (ev->button==1)
    {
@@ -194,6 +196,7 @@ gint midgard_CG::on_button_lernschema_waffen_button_release_event(GdkEventButton
 
 gint midgard_CG::on_button_lernschema_geld_button_release_event(GdkEventButton *ev)
 {
+  if(wizard) wizard->next_step(Wizard::GELD);
   button_lernschema_geld->set_sensitive(false);
   Werte.setGeld(0,0,0);
   if      (ev->button==1)  lernschema_geld_wuerfeln();
@@ -227,6 +230,7 @@ void midgard_CG::lernschema_geld_wuerfeln()
 
 gint midgard_CG::on_button_ruestung_button_release_event(GdkEventButton *ev)
 {
+  if(wizard) wizard->next_step(Wizard::RUESTUNG);
   button_ruestung->set_sensitive(false);
   if      (ev->button==1)  on_button_ruestung_clicked();
   else if (ev->button==3)  manage (new Window_ruestung(Werte,this,Database));
@@ -324,6 +328,8 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
               {
                Werte.setSpezialisierung(MBE->Name());
                Waffe::setSpezialWaffe(Werte.Spezialisierung(),list_Waffen);
+               togglebutton_spezialwaffe->set_active(false);
+               if(wizard) wizard->next_step(Wizard::SPEZIALWAFFE);
               }
             }
            else
