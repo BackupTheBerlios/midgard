@@ -1,34 +1,34 @@
 --
 -- Selected TOC Entries:
 --
-DROP TABLE fertigkeiten_voraussetzung;
+DROP TABLE "fertigkeiten_voraussetzung";
 --
--- TOC Entry ID 2 (OID 320044)
+-- TOC Entry ID 2 (OID 365257)
 --
 -- Name: fertigkeiten_voraussetzung Type: TABLE Owner: thoma
 --
 
-CREATE TABLE fertigkeiten_voraussetzung (
-	name text,
-	st integer,
-	ge integer,
-	ko integer,
-	in integer,
-	zt integer,
-	au integer,
-	pa integer,
-	sb integer,
-	rw integer,
-	fertigkeit text
+CREATE TABLE "fertigkeiten_voraussetzung" (
+	"name" text,
+	"st" integer,
+	"ge" integer,
+	"ko" integer,
+	"in" integer,
+	"zt" integer,
+	"au" integer,
+	"pa" integer,
+	"sb" integer,
+	"rw" integer,
+	"fertigkeit" text
 );
 
 --
--- Data for TOC Entry ID 3 (OID 320044) TABLE DATA fertigkeiten_voraussetzung
+-- Data for TOC Entry ID 3 (OID 365257) TABLE DATA fertigkeiten_voraussetzung
 --
 
 -- Disable triggers
 UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'fertigkeiten_voraussetzung';
-COPY fertigkeiten_voraussetzung  FROM stdin;
+COPY "fertigkeiten_voraussetzung"  FROM stdin;
 Faustkampf	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Kampf in Vollrüstung	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Kanufahren	21	31	\N	\N	\N	\N	\N	\N	\N	\N

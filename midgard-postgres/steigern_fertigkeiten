@@ -1,25 +1,25 @@
 --
 -- Selected TOC Entries:
 --
-DROP TABLE steigern_fertigkeiten;
+DROP TABLE "steigern_fertigkeiten";
 --
--- TOC Entry ID 2 (OID 320018)
+-- TOC Entry ID 2 (OID 367000)
 --
 -- Name: steigern_fertigkeiten Type: TABLE Owner: thoma
 --
 
-CREATE TABLE steigern_fertigkeiten (
-	name text,
-	wie text
+CREATE TABLE "steigern_fertigkeiten" (
+	"name" text,
+	"wie" text
 );
 
 --
--- Data for TOC Entry ID 3 (OID 320018) TABLE DATA steigern_fertigkeiten
+-- Data for TOC Entry ID 3 (OID 367000) TABLE DATA steigern_fertigkeiten
 --
 
 -- Disable triggers
 UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'steigern_fertigkeiten';
-COPY steigern_fertigkeiten  FROM stdin;
+COPY "steigern_fertigkeiten"  FROM stdin;
 Alchemie	Wissen
 Athletik	Athletik
 Balancieren	Bewegung

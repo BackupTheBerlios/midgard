@@ -1,66 +1,66 @@
 --
 -- Selected TOC Entries:
 --
-DROP TABLE arkanum_zauber;
+DROP TABLE "arkanum_zauber";
 --
--- TOC Entry ID 2 (OID 356863)
+-- TOC Entry ID 2 (OID 363383)
 --
 -- Name: arkanum_zauber Type: TABLE Owner: thoma
 --
 
-CREATE TABLE arkanum_zauber (
-	name text,
-	kosten integer,
-	ap text,
-	art text,
-	stufe text,
-	agens text,
-	prozess text,
-	reagens text,
-	zauberdauer text,
-	reichweite text,
-	wirkungsziel text,
-	wirkungsbereich text,
-	wirkungsdauer text,
-	ursprung text,
-	material text,
-	spruchrolle text,
-	thaumagram text,
-	effekt text,
-	effekt2 text,
-	ba text,
-	dbe text,
-	dr text,
-	ebe text,
-	ghx text,
-	hl text,
-	ma text,
-	ord text,
-	pc text,
-	pf text,
-	pha text,
-	phe text,
-	pk text,
-	pm text,
-	pt text,
-	pw text,
-	sc text,
-	shx text,
-	sk text,
-	tbe text,
-	th text,
-	tm text,
-	whx text,
-	region text
+CREATE TABLE "arkanum_zauber" (
+	"name" text,
+	"kosten" integer,
+	"ap" text,
+	"art" text,
+	"stufe" text,
+	"agens" text,
+	"prozess" text,
+	"reagens" text,
+	"zauberdauer" text,
+	"reichweite" text,
+	"wirkungsziel" text,
+	"wirkungsbereich" text,
+	"wirkungsdauer" text,
+	"ursprung" text,
+	"material" text,
+	"spruchrolle" text,
+	"thaumagram" text,
+	"effekt" text,
+	"effekt2" text,
+	"ba" text,
+	"dbe" text,
+	"dr" text,
+	"ebe" text,
+	"ghx" text,
+	"hl" text,
+	"ma" text,
+	"ord" text,
+	"pc" text,
+	"pf" text,
+	"pha" text,
+	"phe" text,
+	"pk" text,
+	"pm" text,
+	"pt" text,
+	"pw" text,
+	"sc" text,
+	"shx" text,
+	"sk" text,
+	"tbe" text,
+	"th" text,
+	"tm" text,
+	"whx" text,
+	"region" text
 );
 
 --
--- Data for TOC Entry ID 3 (OID 356863) TABLE DATA arkanum_zauber
+-- Data for TOC Entry ID 3 (OID 363383) TABLE DATA arkanum_zauber
 --
 
 -- Disable triggers
 UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'arkanum_zauber';
-COPY arkanum_zauber  FROM stdin;
+COPY "arkanum_zauber"  FROM stdin;
 Allheilung	2500	6	Geste	5	Holz	erschafft	Erde	30 min	0	Körper	1 Ws	0	göttlich		nicht									G		G		G	G	G	G	G	G	G	S					A		\N
 Rauchwolke	300	2	Geste	2	Feuer	verändert	Luft	5 s	30 m	Umgebung	9 m Uk	10 min	elementar	Asche, Zunder		Siegel					S	S	G	S	S		S	S	S	S	S	S	S	S	S	G			G		G	\N
 Anziehen	120	2	Wort	1	Wasser	beherrscht	Wasser	10 s	30 m	Geist	1 Ws	6 h	dämonisch		nicht	Siegel					A		G	A	A			S		S						G			G		G	\N

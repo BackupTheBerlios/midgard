@@ -1,31 +1,31 @@
 --
 -- Selected TOC Entries:
 --
-DROP TABLE sprachen;
+DROP TABLE "sprachen";
 --
--- TOC Entry ID 2 (OID 319492)
+-- TOC Entry ID 2 (OID 366916)
 --
 -- Name: sprachen Type: TABLE Owner: thoma
 --
 
-CREATE TABLE sprachen (
-	kontinent text,
-	land text,
-	fp integer,
-	name text,
-	max_wert integer,
-	schrift text,
-	alt boolean,
-	region text
+CREATE TABLE "sprachen" (
+	"kontinent" text,
+	"land" text,
+	"fp" integer,
+	"name" text,
+	"max_wert" integer,
+	"schrift" text,
+	"alt" boolean,
+	"region" text
 );
 
 --
--- Data for TOC Entry ID 3 (OID 319492) TABLE DATA sprachen
+-- Data for TOC Entry ID 3 (OID 366916) TABLE DATA sprachen
 --
 
 -- Disable triggers
 UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'sprachen';
-COPY sprachen  FROM stdin;
+COPY "sprachen"  FROM stdin;
 Vesternesse	Fuardain	10	Twyneddisch	4	Seemeister	f	\N
 Vesternesse	Clanngadarn	10	Twyneddisch	4	Seemeister	f	\N
 Vesternesse	Ywerdon	10	Twyneddisch	4	Seemeister	f	\N

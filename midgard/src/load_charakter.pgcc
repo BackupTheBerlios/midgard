@@ -81,7 +81,7 @@ void midgard_CG::load_charakter()
       int db_av_bonus, db_sl_bonus;
       char db_region[20];
       char db_region_2[20];
-      char db_rasse[50];
+      char db_spezies[50];
    exec sql end declare section;
    strncpy(db_name_ch,werte.name_charakter.c_str(),sizeof(db_name_ch));
    strncpy(db_version,werte.version.c_str(),sizeof(db_version));
@@ -143,7 +143,7 @@ void midgard_CG::load_charakter()
          silber      ,
          kupfer      ,
          ruestung    ,
-         rasse
+         spezies
       FROM charaktere WHERE charakter_name= :db_name_ch
             AND version= :db_version;
 
@@ -204,7 +204,7 @@ void midgard_CG::load_charakter()
        :db_silber      ,
        :db_kupfer      ,
        :db_ruestung    ,
-       :db_rasse       ;
+       :db_spezies       ;
    exec sql close cha;
 
        werte.st=   db_st ;    
@@ -256,7 +256,7 @@ void midgard_CG::load_charakter()
       werte.silber = db_silber;
       werte.kupfer = db_kupfer;
       werte.ruestung = db_ruestung;
-      werte.rasse  = db_rasse ;
+      werte.spezies  = db_spezies ;
 
 
 
@@ -503,10 +503,10 @@ void midgard_CG::load_charakter()
    exec sql begin declare section;   
     int db_nr;
    exec sql end declare section;   
-   strncpy(db_rasse,werte.rasse.c_str(),sizeof(db_rasse));
-   exec sql select nr into :db_nr from rassen where rasse = :db_rasse;
-   optionmenu_rassen->get_menu()->set_active(db_nr);
-   optionmenu_rassen->get_menu()->deactivate();
+   strncpy(db_spezies,werte.spezies.c_str(),sizeof(db_spezies));
+   exec sql select nr into :db_nr from spezies where spezies = :db_spezies;
+   optionmenu_spezies->get_menu()->set_active(db_nr);
+   optionmenu_spezies->get_menu()->deactivate();
 
    
    midgard_CG::zeige_werte(werte,"alle");

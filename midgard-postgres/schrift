@@ -1,27 +1,27 @@
 --
 -- Selected TOC Entries:
 --
-DROP TABLE schrift;
+DROP TABLE "schrift";
 --
--- TOC Entry ID 2 (OID 323742)
+-- TOC Entry ID 2 (OID 366856)
 --
 -- Name: schrift Type: TABLE Owner: thoma
 --
 
-CREATE TABLE schrift (
-	name text,
-	typ text,
-	kosten integer,
-	region text
+CREATE TABLE "schrift" (
+	"name" text,
+	"typ" text,
+	"kosten" integer,
+	"region" text
 );
 
 --
--- Data for TOC Entry ID 3 (OID 323742) TABLE DATA schrift
+-- Data for TOC Entry ID 3 (OID 366856) TABLE DATA schrift
 --
 
 -- Disable triggers
 UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'schrift';
-COPY schrift  FROM stdin;
+COPY "schrift"  FROM stdin;
 Seemeister	Buchstaben	100	\N
 Coraniaid	Buchstaben	100	\N
 Waelska	Runen	100	\N

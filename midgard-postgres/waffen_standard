@@ -1,54 +1,54 @@
 --
 -- Selected TOC Entries:
 --
-DROP TABLE waffen_standard;
+DROP TABLE "waffen_standard";
 --
--- TOC Entry ID 2 (OID 319815)
+-- TOC Entry ID 2 (OID 367556)
 --
 -- Name: waffen_standard Type: TABLE Owner: thoma
 --
 
-CREATE TABLE waffen_standard (
-	fertigkeit text,
-	ass text,
-	ba text,
-	bn text,
-	bs text,
-	bw text,
-	gl text,
+CREATE TABLE "waffen_standard" (
+	"fertigkeit" text,
+	"ass" text,
+	"ba" text,
+	"bn" text,
+	"bs" text,
+	"bw" text,
+	"gl" text,
 	"hä" text,
-	kr text,
-	ord text,
-	se text,
+	"kr" text,
+	"ord" text,
+	"se" text,
 	"sö" text,
-	sp text,
-	wa text,
-	dr text,
-	hl text,
-	whx text,
-	ghx text,
-	shx text,
-	ma text,
-	dbe text,
-	ebe text,
-	sc text,
-	th text,
-	ph text,
-	pf text,
-	pw text,
-	pm text,
-	pk text,
-	pt text,
-	pc text
+	"sp" text,
+	"wa" text,
+	"dr" text,
+	"hl" text,
+	"whx" text,
+	"ghx" text,
+	"shx" text,
+	"ma" text,
+	"dbe" text,
+	"ebe" text,
+	"sc" text,
+	"th" text,
+	"ph" text,
+	"pf" text,
+	"pw" text,
+	"pm" text,
+	"pk" text,
+	"pt" text,
+	"pc" text
 );
 
 --
--- Data for TOC Entry ID 3 (OID 319815) TABLE DATA waffen_standard
+-- Data for TOC Entry ID 3 (OID 367556) TABLE DATA waffen_standard
 --
 
 -- Disable triggers
 UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'waffen_standard';
-COPY waffen_standard  FROM stdin;
+COPY "waffen_standard"  FROM stdin;
 Waffen	S	S	S	S	S	S	S	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	A
 Peitsche	S	S	S	S	S	S	G	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	A
 Lasso	S	S	S	G	S	S	S	G	S	S	G	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	A

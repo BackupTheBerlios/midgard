@@ -1,25 +1,25 @@
 --
 -- Selected TOC Entries:
 --
-DROP TABLE waffen_grund;
+DROP TABLE "waffen_grund";
 --
--- TOC Entry ID 2 (OID 319341)
+-- TOC Entry ID 2 (OID 367441)
 --
 -- Name: waffen_grund Type: TABLE Owner: thoma
 --
 
-CREATE TABLE waffen_grund (
-	name text,
-	fp integer
+CREATE TABLE "waffen_grund" (
+	"name" text,
+	"fp" integer
 );
 
 --
--- Data for TOC Entry ID 3 (OID 319341) TABLE DATA waffen_grund
+-- Data for TOC Entry ID 3 (OID 367441) TABLE DATA waffen_grund
 --
 
 -- Disable triggers
 UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'waffen_grund';
-COPY waffen_grund  FROM stdin;
+COPY "waffen_grund"  FROM stdin;
 ESchwert	600
 Stichwaffe	400
 ESchlagwaffe	400

@@ -1,36 +1,36 @@
 --
 -- Selected TOC Entries:
 --
-DROP TABLE berufe_voraussetzung;
+DROP TABLE "berufe_voraussetzung";
 --
--- TOC Entry ID 2 (OID 354344)
+-- TOC Entry ID 2 (OID 364300)
 --
 -- Name: berufe_voraussetzung Type: TABLE Owner: thoma
 --
 
-CREATE TABLE berufe_voraussetzung (
-	lernpunkte integer,
-	beruf text,
-	st integer,
-	ge integer,
-	ko integer,
-	in integer,
-	zt integer,
-	typ text,
-	geschlecht text,
-	pa integer,
-	au integer,
-	sb integer,
-	region text
+CREATE TABLE "berufe_voraussetzung" (
+	"lernpunkte" integer,
+	"beruf" text,
+	"st" integer,
+	"ge" integer,
+	"ko" integer,
+	"in" integer,
+	"zt" integer,
+	"typ" text,
+	"geschlecht" text,
+	"pa" integer,
+	"au" integer,
+	"sb" integer,
+	"region" text
 );
 
 --
--- Data for TOC Entry ID 3 (OID 354344) TABLE DATA berufe_voraussetzung
+-- Data for TOC Entry ID 3 (OID 364300) TABLE DATA berufe_voraussetzung
 --
 
 -- Disable triggers
 UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'berufe_voraussetzung';
-COPY berufe_voraussetzung  FROM stdin;
+COPY "berufe_voraussetzung"  FROM stdin;
 9	Gelehrter	\N	\N	\N	81	\N	\N	\N	\N	\N	\N	\N
 9	Adliger	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
 7	Akrobat	\N	81	\N	\N	\N	\N	\N	\N	\N	\N	\N

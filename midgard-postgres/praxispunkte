@@ -1,26 +1,26 @@
 --
 -- Selected TOC Entries:
 --
-DROP TABLE praxispunkte;
+DROP TABLE "praxispunkte";
 --
--- TOC Entry ID 2 (OID 319438)
+-- TOC Entry ID 2 (OID 366697)
 --
 -- Name: praxispunkte Type: TABLE Owner: thoma
 --
 
-CREATE TABLE praxispunkte (
-	name text,
-	max_wert integer,
-	lernfaktor integer
+CREATE TABLE "praxispunkte" (
+	"name" text,
+	"max_wert" integer,
+	"lernfaktor" integer
 );
 
 --
--- Data for TOC Entry ID 3 (OID 319438) TABLE DATA praxispunkte
+-- Data for TOC Entry ID 3 (OID 366697) TABLE DATA praxispunkte
 --
 
 -- Disable triggers
 UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'praxispunkte';
-COPY praxispunkte  FROM stdin;
+COPY "praxispunkte"  FROM stdin;
 Angriff	17	7
 Verteidigung	7	15
 Abwehr	18	5

@@ -1,30 +1,30 @@
 --
 -- Selected TOC Entries:
 --
-DROP TABLE ruestung;
+DROP TABLE "ruestung";
 --
--- TOC Entry ID 2 (OID 326300)
+-- TOC Entry ID 2 (OID 366804)
 --
 -- Name: ruestung Type: TABLE Owner: thoma
 --
 
-CREATE TABLE ruestung (
-	ruestung text,
-	ruestung_s text,
-	lp_verlust integer,
-	min_staerke integer,
-	rw_verlust integer,
-	b_verlust integer,
-	region text
+CREATE TABLE "ruestung" (
+	"ruestung" text,
+	"ruestung_s" text,
+	"lp_verlust" integer,
+	"min_staerke" integer,
+	"rw_verlust" integer,
+	"b_verlust" integer,
+	"region" text
 );
 
 --
--- Data for TOC Entry ID 3 (OID 326300) TABLE DATA ruestung
+-- Data for TOC Entry ID 3 (OID 366804) TABLE DATA ruestung
 --
 
 -- Disable triggers
 UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'ruestung';
-COPY ruestung  FROM stdin;
+COPY "ruestung"  FROM stdin;
 Ohne Rüstung	OR	0	0	0	0	\N
 RitterRüstung	RR	6	81	50	16	\N
 Vollrüstung	VR	5	61	40	12	\N

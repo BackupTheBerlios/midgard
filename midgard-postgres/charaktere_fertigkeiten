@@ -1,21 +1,21 @@
 --
 -- Selected TOC Entries:
 --
-DROP TABLE charaktere_fertigkeiten;
+DROP TABLE "charaktere_fertigkeiten";
 --
 -- TOC Entry ID 2 (OID 319553)
 --
 -- Name: charaktere_fertigkeiten Type: TABLE Owner: thoma
 --
 
-CREATE TABLE charaktere_fertigkeiten (
-	charakter_name text,
-	version text,
-	fertigkeit text,
-	wert integer,
-	art text,
-	av_bonus integer,
-	sl_bonus integer,
-	region text
+CREATE TABLE "charaktere_fertigkeiten" (
+	"charakter_name" text,
+	"version" text,
+	"fertigkeit" text,
+	"wert" integer,
+	"art" text,
+	"av_bonus" integer,
+	"sl_bonus" integer,
+	"region" text
 );
 

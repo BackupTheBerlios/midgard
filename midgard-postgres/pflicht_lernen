@@ -1,25 +1,25 @@
 --
 -- Selected TOC Entries:
 --
-DROP TABLE pflicht_lernen;
+DROP TABLE "pflicht_lernen";
 --
--- TOC Entry ID 2 (OID 319412)
+-- TOC Entry ID 2 (OID 366611)
 --
 -- Name: pflicht_lernen Type: TABLE Owner: thoma
 --
 
-CREATE TABLE pflicht_lernen (
-	typ text,
-	pflicht text
+CREATE TABLE "pflicht_lernen" (
+	"typ" text,
+	"pflicht" text
 );
 
 --
--- Data for TOC Entry ID 3 (OID 319412) TABLE DATA pflicht_lernen
+-- Data for TOC Entry ID 3 (OID 366611) TABLE DATA pflicht_lernen
 --
 
 -- Disable triggers
 UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'pflicht_lernen';
-COPY pflicht_lernen  FROM stdin;
+COPY "pflicht_lernen"  FROM stdin;
 Ba	Musizieren
 dBe	Lesen/Schreiben
 dBe	Wissen von der Magie

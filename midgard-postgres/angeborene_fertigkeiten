@@ -1,27 +1,27 @@
 --
 -- Selected TOC Entries:
 --
-DROP TABLE angeborene_fertigkeiten;
+DROP TABLE "angeborene_fertigkeiten";
 --
--- TOC Entry ID 2 (OID 319936)
+-- TOC Entry ID 2 (OID 363337)
 --
 -- Name: angeborene_fertigkeiten Type: TABLE Owner: thoma
 --
 
-CREATE TABLE angeborene_fertigkeiten (
-	min integer,
-	max integer,
-	name text,
-	wert integer
+CREATE TABLE "angeborene_fertigkeiten" (
+	"min" integer,
+	"max" integer,
+	"name" text,
+	"wert" integer
 );
 
 --
--- Data for TOC Entry ID 3 (OID 319936) TABLE DATA angeborene_fertigkeiten
+-- Data for TOC Entry ID 3 (OID 363337) TABLE DATA angeborene_fertigkeiten
 --
 
 -- Disable triggers
 UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'angeborene_fertigkeiten';
-COPY angeborene_fertigkeiten  FROM stdin;
+COPY "angeborene_fertigkeiten"  FROM stdin;
 86	87	Beidhändigkeit	\N
 88	89	Berserkergang	\N
 90	91	Richtungssinn	12

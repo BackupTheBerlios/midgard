@@ -1,4 +1,9 @@
 ##########################################################################
+NEWS IN VERSION 0.3beta6
+Fehler bei Pixmap-Namen (hoffentlich) beseitigt.
+Bug in Datenbank-backup beseitigt.
+
+##########################################################################
 NEWS IN VERSION 0.3beta5
 Rawindische Berufe eingearbeitet
 Rassenauswahlknopf hinzugefügt, allerdings werden NOCH keine Werte etc.

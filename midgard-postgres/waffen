@@ -1,37 +1,37 @@
 --
 -- Selected TOC Entries:
 --
-DROP TABLE waffen;
+DROP TABLE "waffen";
 --
--- TOC Entry ID 2 (OID 326354)
+-- TOC Entry ID 2 (OID 367334)
 --
 -- Name: waffen Type: TABLE Owner: thoma
 --
 
-CREATE TABLE waffen (
-	name text,
-	grundkenntnisse text,
-	schwierigkeit integer,
-	art text,
-	schaden text,
-	schaden_b integer,
-	art_2 text,
-	angriffsrangmod text,
-	wm_abwehr_leicht text,
-	wm_abwehr_schwer text,
-	st integer,
-	ge integer,
-	zusatz text,
-	region text
+CREATE TABLE "waffen" (
+	"name" text,
+	"grundkenntnisse" text,
+	"schwierigkeit" integer,
+	"art" text,
+	"schaden" text,
+	"schaden_b" integer,
+	"art_2" text,
+	"angriffsrangmod" text,
+	"wm_abwehr_leicht" text,
+	"wm_abwehr_schwer" text,
+	"st" integer,
+	"ge" integer,
+	"zusatz" text,
+	"region" text
 );
 
 --
--- Data for TOC Entry ID 3 (OID 326354) TABLE DATA waffen
+-- Data for TOC Entry ID 3 (OID 367334) TABLE DATA waffen
 --
 
 -- Disable triggers
 UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'waffen';
-COPY waffen  FROM stdin;
+COPY "waffen"  FROM stdin;
 Anderthalbhänder	ZSchwert	5	Angriff	W6	2	Z	-1	0	-1	31	21	\N	\N
 Bihänder	ZSchwert	7	Angriff	2W6	0	Z	-2	1	-2	81	31	\N	\N
 Blasrohr	Blasrohr	6	Fern	Speziell	0	S	\N	\N	\N	1	61	\N	\N

@@ -1,53 +1,53 @@
 --
 -- Selected TOC Entries:
 --
-DROP TABLE steigern_fertigkeiten_werte;
+DROP TABLE "steigern_fertigkeiten_werte";
 --
--- TOC Entry ID 2 (OID 319964)
+-- TOC Entry ID 2 (OID 367147)
 --
 -- Name: steigern_fertigkeiten_werte Type: TABLE Owner: thoma
 --
 
-CREATE TABLE steigern_fertigkeiten_werte (
-	name text,
-	p1 integer,
-	p2 integer,
-	p3 integer,
-	p4 integer,
-	p5 integer,
-	p6 integer,
-	p7 integer,
-	p8 integer,
-	p9 integer,
-	p10 integer,
-	p11 integer,
-	p12 integer,
-	p13 integer,
-	p14 integer,
-	p15 integer,
-	p16 integer,
-	p17 integer,
-	p18 integer,
-	p19 integer,
-	p20 integer,
-	p0 integer,
-	p21 integer,
-	p22 integer,
-	p23 integer,
-	p24 integer,
-	p25 integer,
-	p26 integer,
-	p27 integer,
-	p28 integer
+CREATE TABLE "steigern_fertigkeiten_werte" (
+	"name" text,
+	"p1" integer,
+	"p2" integer,
+	"p3" integer,
+	"p4" integer,
+	"p5" integer,
+	"p6" integer,
+	"p7" integer,
+	"p8" integer,
+	"p9" integer,
+	"p10" integer,
+	"p11" integer,
+	"p12" integer,
+	"p13" integer,
+	"p14" integer,
+	"p15" integer,
+	"p16" integer,
+	"p17" integer,
+	"p18" integer,
+	"p19" integer,
+	"p20" integer,
+	"p0" integer,
+	"p21" integer,
+	"p22" integer,
+	"p23" integer,
+	"p24" integer,
+	"p25" integer,
+	"p26" integer,
+	"p27" integer,
+	"p28" integer
 );
 
 --
--- Data for TOC Entry ID 3 (OID 319964) TABLE DATA steigern_fertigkeiten_werte
+-- Data for TOC Entry ID 3 (OID 367147) TABLE DATA steigern_fertigkeiten_werte
 --
 
 -- Disable triggers
 UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'steigern_fertigkeiten_werte';
-COPY steigern_fertigkeiten_werte  FROM stdin;
+COPY "steigern_fertigkeiten_werte"  FROM stdin;
 Abenteuer	\N	\N	100	100	200	200	400	400	800	800	1600	1600	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Athletik	\N	100	250	500	1000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Beidhändiger Kampf	4000	3000	2000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N

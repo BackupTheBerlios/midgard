@@ -14,16 +14,16 @@ bool midgard_CG::Ausnahmen_bool(string name)
 float midgard_CG::Ausnahmen_float(string name)
 {
  exec sql begin declare section;
-   char db_name[50],db_typ[10],db_herkunft[50],db_rasse[50];
+   char db_name[50],db_typ[10],db_herkunft[50],db_spezies[50];
    char db_art[5];
  exec sql end declare section;
  strncpy (db_name,name.c_str(),sizeof(db_name));
  strncpy (db_typ,typ.s.c_str(),sizeof(db_typ));
  strncpy (db_herkunft,werte.herkunft.c_str(),sizeof(db_herkunft));
- strncpy (db_rasse,werte.rasse.c_str(),sizeof(db_rasse));
+ strncpy (db_spezies,werte.spezies.c_str(),sizeof(db_spezies));
  exec sql select art into :db_art from ausnahmen 
       where name = :db_name 
-      and (rasse = :db_rasse or rasse=null) 
+      and (spezies = :db_spezies or spezies=null) 
       and (herkunft = :db_herkunft or herkunft = null)
       limit 1;
  SQLerror::test(__FILELINE__,100);
@@ -43,15 +43,15 @@ float midgard_CG::Ausnahmen_float(string name)
 string midgard_CG::Ausnahmen_string(string name, string alt)
 {
  exec sql begin declare section;
-   char db_name[50],db_typ[10],db_herkunft[50],db_rasse[50],db_standard[10];
+   char db_name[50],db_typ[10],db_herkunft[50],db_spezies[50],db_standard[10];
  exec sql end declare section;
  strncpy (db_name,name.c_str(),sizeof(db_name));
  strncpy (db_typ,typ.s.c_str(),sizeof(db_typ));
  strncpy (db_herkunft,werte.herkunft.c_str(),sizeof(db_herkunft));
- strncpy (db_rasse,werte.rasse.c_str(),sizeof(db_rasse));
+ strncpy (db_spezies,werte.spezies.c_str(),sizeof(db_spezies));
  exec sql select standard into :db_standard from ausnahmen 
    where name = :db_name and typ = :db_typ 
-   and (rasse = :db_rasse or rasse=null) 
+   and (spezies = :db_spezies or spezies=null) 
    and (herkunft = :db_herkunft or herkunft = null);
  SQLerror::test(__FILELINE__,100);
  if (sqlca.sqlcode) return alt; // Keine Ausnahme

@@ -1,25 +1,25 @@
 --
 -- Selected TOC Entries:
 --
-DROP TABLE berufe_stand;
+DROP TABLE "berufe_stand";
 --
--- TOC Entry ID 2 (OID 353894)
+-- TOC Entry ID 2 (OID 363850)
 --
 -- Name: berufe_stand Type: TABLE Owner: thoma
 --
 
-CREATE TABLE berufe_stand (
-	beruf text,
-	stand text
+CREATE TABLE "berufe_stand" (
+	"beruf" text,
+	"stand" text
 );
 
 --
--- Data for TOC Entry ID 3 (OID 353894) TABLE DATA berufe_stand
+-- Data for TOC Entry ID 3 (OID 363850) TABLE DATA berufe_stand
 --
 
 -- Disable triggers
 UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'berufe_stand';
-COPY berufe_stand  FROM stdin;
+COPY "berufe_stand"  FROM stdin;
 Vorkoster	Unfrei
 Waldarbeiter	Unfrei
 Weber	Unfrei

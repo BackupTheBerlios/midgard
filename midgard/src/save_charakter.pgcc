@@ -64,7 +64,7 @@ void midgard_CG::on_speichern_clicked()
       char db_ruestung[20];
       int db_av_bonus,db_sl_bonus;
       char db_region[20];
-      char db_rasse[50];
+      char db_spezies[50];
    exec sql end declare section;
    db_zaubern = atoi(werte.zaubern_wert.c_str());
    strncpy(db_beschreibung,werte.beschreibung.c_str(),sizeof(db_beschreibung));
@@ -79,7 +79,7 @@ void midgard_CG::on_speichern_clicked()
    strncpy(db_typ_l,typ.l.c_str(),sizeof(db_typ_l));
    strncpy(db_typ_s,typ.s.c_str(),sizeof(db_typ_s));
    strncpy(db_ruestung,werte.ruestung.c_str(),sizeof(db_ruestung));
-   strncpy(db_rasse,werte.rasse.c_str(),sizeof(db_rasse));
+   strncpy(db_spezies,werte.spezies.c_str(),sizeof(db_spezies));
    
    exec sql UPDATE charaktere SET 
       charakter_name = :db_name_ch  , 
@@ -135,7 +135,7 @@ void midgard_CG::on_speichern_clicked()
       silber         = :db_silber      ,
       kupfer         = :db_kupfer      ,
       ruestung       = :db_ruestung    ,
-      rasse          = :db_rasse
+      spezies          = :db_spezies
       WHERE charakter_name = :db_name_ch ;
    SQLerror::test(__FILELINE__,100);
    if (sqlca.sqlcode==100) midgard_CG::charakter_db_anlegen();

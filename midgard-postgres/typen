@@ -1,31 +1,31 @@
 --
 -- Selected TOC Entries:
 --
-DROP TABLE typen;
+DROP TABLE "typen";
 --
--- TOC Entry ID 2 (OID 320079)
+-- TOC Entry ID 2 (OID 367260)
 --
 -- Name: typen Type: TABLE Owner: thoma
 --
 
-CREATE TABLE typen (
-	typs text,
-	typl text,
-	typz text,
-	ausdauer text,
-	stand integer,
-	sb integer,
-	ruestung integer,
-	region text
+CREATE TABLE "typen" (
+	"typs" text,
+	"typl" text,
+	"typz" text,
+	"ausdauer" text,
+	"stand" integer,
+	"sb" integer,
+	"ruestung" integer,
+	"region" text
 );
 
 --
--- Data for TOC Entry ID 3 (OID 320079) TABLE DATA typen
+-- Data for TOC Entry ID 3 (OID 367260) TABLE DATA typen
 --
 
 -- Disable triggers
 UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'typen';
-COPY typen  FROM stdin;
+COPY "typen"  FROM stdin;
 PT	Priester, Tod	z	z	20	0	4	\N
 Sc	Schamane	z	z	0	0	1	\N
 Th	Thaumaturge	z	z	0	0	1	\N

@@ -19,15 +19,15 @@
 midgard_CG::midgard_CG()
 {
  midgard_CG::fill_typauswahl();
- midgard_CG::fill_rassen();
+ midgard_CG::fill_spezies();
  midgard_CG::typauswahl_button();
  werte.version="Erschaffung";
 }
 
-void midgard_CG::rassenwahl_button()
+void midgard_CG::spezieswahl_button()
 {
- int ityp = int(optionmenu_rassen->get_menu()->get_active()->get_user_data());
- werte.rasse = rassen_vector[ityp];
+ int ityp = int(optionmenu_spezies->get_menu()->get_active()->get_user_data());
+ werte.spezies = spezies_vector[ityp];
 }
 
 void midgard_CG::typauswahl_button()
@@ -166,8 +166,8 @@ void midgard_CG::on_neuer_charakter_clicked()
 
    midgard_CG::typauswahl_button();
    werte.version="Erschaffung";
-   optionmenu_rassen->get_menu()->set_active(0);
-   optionmenu_rassen->get_menu()->deactivate();
+   optionmenu_spezies->get_menu()->set_active(0);
+   optionmenu_spezies->get_menu()->deactivate();
 
 }
 

@@ -1,29 +1,29 @@
 --
 -- Selected TOC Entries:
 --
-DROP TABLE ausnahmen;
+DROP TABLE "ausnahmen";
 --
--- TOC Entry ID 2 (OID 357272)
+-- TOC Entry ID 2 (OID 363792)
 --
 -- Name: ausnahmen Type: TABLE Owner: thoma
 --
 
-CREATE TABLE ausnahmen (
-	name text,
-	art text,
-	rasse text,
-	herkunft text,
-	typ text,
-	standard text
+CREATE TABLE "ausnahmen" (
+	"name" text,
+	"art" text,
+	"spezies" text,
+	"herkunft" text,
+	"typ" text,
+	"standard" text
 );
 
 --
--- Data for TOC Entry ID 3 (OID 357272) TABLE DATA ausnahmen
+-- Data for TOC Entry ID 3 (OID 363792) TABLE DATA ausnahmen
 --
 
 -- Disable triggers
 UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'ausnahmen';
-COPY ausnahmen  FROM stdin;
+COPY "ausnahmen"  FROM stdin;
 Leomies Birneneis	z	Halbling	\N	PF	G
 Leomies Birneneis	z	Halbling	\N	PW	G
 Leomies Birneneis	z	Halbling	\N	Hl	S

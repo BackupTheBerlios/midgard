@@ -1,29 +1,29 @@
 --
 -- Selected TOC Entries:
 --
-DROP TABLE lernschema;
+DROP TABLE "lernschema";
 --
--- TOC Entry ID 2 (OID 319523)
+-- TOC Entry ID 2 (OID 365502)
 --
 -- Name: lernschema Type: TABLE Owner: thoma
 --
 
-CREATE TABLE lernschema (
-	typ text,
-	fertigkeit text,
-	art text,
-	wert integer,
-	attribut text,
-	lernpunkte integer
+CREATE TABLE "lernschema" (
+	"typ" text,
+	"fertigkeit" text,
+	"art" text,
+	"wert" integer,
+	"attribut" text,
+	"lernpunkte" integer
 );
 
 --
--- Data for TOC Entry ID 3 (OID 319523) TABLE DATA lernschema
+-- Data for TOC Entry ID 3 (OID 365502) TABLE DATA lernschema
 --
 
 -- Disable triggers
 UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'lernschema';
-COPY lernschema  FROM stdin;
+COPY "lernschema"  FROM stdin;
 Sp	leichter Speer	Waffe	5	\N	2
 Sp	Parierdolch	Waffe	1	\N	2
 Sp	Rapier	Waffe	5	\N	2
