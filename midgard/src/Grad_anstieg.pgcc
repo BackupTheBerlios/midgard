@@ -71,7 +71,7 @@ Grad_anstieg::Grad_anstieg(Gtk::ProgressBar *progressbar)
        		i->getIntAttr("Resistenz"),Kosten->getIntAttr("Resistenz"),
        		i->getIntAttr("Zaubern"),Kosten->getIntAttr("Zaubern"),
        		i->getIntAttr("GFP"), i->getIntAttr("Schicksalsgunst"),
-       		i->getIntAttr("AP_Kosten"));
+       		Kosten->getIntAttr("Ausdauer",i->getIntAttr("AP_Kosten")));
     }
  }
 #endif  

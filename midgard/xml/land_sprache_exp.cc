@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.24 2002/02/08 09:52:38 thoma Exp $
+// $Id: land_sprache_exp.cc,v 1.25 2002/02/09 07:45:08 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -212,8 +212,8 @@ void land_speichern(std::ostream &o)
    fetch_and_write_int_attrib(is, o, "Resistenz");
    fetch_and_write_int_attrib(is, o, "Zaubern");
    fetch_and_write_int_attrib(is, o, "Schicksalsgunst");
-   fetch_and_write_int_attrib(is, o, "AP_Kosten");
    o << "><Kosten";
+   fetch_and_write_int_attrib(is, o, "Ausdauer");
    fetch_and_write_int_attrib(is, o, "Abwehr");
    fetch_and_write_int_attrib(is, o, "Resistenz");
    fetch_and_write_int_attrib(is, o, "Zaubern");
