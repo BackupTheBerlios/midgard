@@ -110,22 +110,6 @@ void Zauber::get_map_typ()
   } 
 }
 
-/*
-bool Zauber::ist_lernbar(const vector<H_Data_typen>& Typ) const
-{
-  for (std::vector<H_Data_typen>::const_iterator i=Typ.begin();i!=Typ.end();++i)
-    if (const_cast<map<std::string,std::string>& >(map_typ)[(*i)->Short()]!="") return true;
-  return false;
-}
-
-bool Zauber::ist_gelernt(const std::list<cH_MidgardBasicElement>& L) const
-{
- for (std::list<cH_MidgardBasicElement>::const_iterator i=L.begin();i!=L.end();++i)
-    if( **i==*this ) return true;
- return false;
-}
-*/
-
 int Zauber::Kosten(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const
 {
   double fac = ausnahmen.Ausnahmen_float(Name()); 
@@ -210,40 +194,7 @@ std::string Zauber::Standard__(const vector<H_Data_typen>& Typ,const Ausnahmen& 
  return s2;
 }
 
-//Q
-/*
-void Zauber::set_Standard(const vector<H_Data_typen>& Typ)
-{
-  exec sql begin declare section;
-   char db_standard[20],db_standard2[20];
-   char query[1000];
-  exec sql end declare section;
-  strncpy(db_standard2,"",sizeof(db_standard2));
-  std::string squery = "SELECT ";
-  if (Typ[0]->is_mage()) squery += " coalesce("+Typ[0]->Short()+",'') "; 
-  if (Typ[0]->is_mage() && (Typ[1]->Short()!="" && Typ[1]->is_mage())) squery += ",";
-  if (Typ[1]->Short()!="" && Typ[1]->is_mage()) squery += " coalesce("+Typ[1]->Short()+",'') ";
-  squery += " FROM arkanum_zauber WHERE name = '"+Name()+"'";
-  strncpy(query,squery.c_str(),sizeof(query));
-  Transaction tr;
-  exec sql prepare standard_zauber_ein_ from :query ;
-  exec sql declare standard_zauber_ein cursor for standard_zauber_ein_ ;
-  exec sql open standard_zauber_ein;
-  SQLerror::test(__FILELINE__);
-  if (Typ[0]->is_mage() && Typ[1]->is_mage()) // beide Zypen Zauberer
-    exec sql fetch standard_zauber_ein into :db_standard, :db_standard2;
-  else // ein Typ Zauberer
-    exec sql fetch standard_zauber_ein into :db_standard;
-  SQLerror::test(__FILELINE__);
-  standard.clear();
-  standard.push_back(db_standard);
-  standard.push_back(db_standard2);
-  ausnahmen.Ausnahmen_string(Name(),standard);
-}
-//Q*/
-
-
-Zauber_All::Zauber_All()
+Zauber_All::Zauber_All(Gtk::Label *label)
 {
  exec sql begin declare section;
    char db_name[100]; 
@@ -252,15 +203,18 @@ Zauber_All::Zauber_All()
  Transaction tr;
  exec sql open ZAein;
  SQLerror::test(__FILELINE__);
+ int count=0;
+ label->show();
  while(true)
   {
+   label->set_text(itos(++count)+" Zauber geladen");
+   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
    exec sql fetch ZAein into :db_name;
    SQLerror::test(__FILELINE__,100);
    if (sqlca.sqlcode) break;
    list_All.push_back(new Zauber(db_name));
-//   list_All.push_back(const std::list<cH_Zauber> (cH_Zauber(db_name)));
   }
  exec sql close ZAein;
  tr.close();
-
+ label->hide();
 }

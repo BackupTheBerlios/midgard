@@ -1,14 +1,10 @@
 #ifndef ZAUBERCLASS
 #define ZAUBERCLASS
-//#include <string>
-//#include <list>
-//#include <vector>
-//#include <Aux/Handles.h>
 #include "MidgardBasicElement.hh"
-//#include <Aux/CacheStatic.h>
 #include "class_typen.hh"
 #include "class_Ausnahmen.hh"
 class cH_Zauber;
+#include <gtk--/label.h>
 
 //class Zauber : public HandleContent
 class Zauber : public MidgardBasicElement
@@ -96,30 +92,29 @@ class cH_Zauber : public Handle<const Zauber>
    cH_Zauber(const cH_MidgardBasicElement &x) : Handle<const Zauber> 
       (dynamic_cast<const Zauber *>(&*x)){}
 
-//   cH_MidgardBasicElement operator cH_MidgardBasicElement() const 
-//            {return cH_MidgardBasicElement(&*this);}
+ class sort {
+      public:
+         enum esort {NAME,STUFE,URSPRUNG};
+      private: 
+         esort es;
+      public:
+         sort(enum esort _es):es(_es) {}
+         bool operator() (cH_Zauber x,cH_Zauber y) const
+           { switch(es) {
+               case(NAME) : return x->Name() < y->Name()  ;
+               case(STUFE): return x->Stufe() < y->Stufe();
+               case(URSPRUNG): return x->Ursprung() < y->Ursprung() ;
+           }}
+    };
+
 };
-
-
-class Zauber_sort_name
-{ public: bool operator() (cH_Zauber x,cH_Zauber y) const
-   {return x->Name() < y->Name(); }};
-class Zauber_sort_stufe
-{ public: bool operator() (cH_Zauber x,cH_Zauber y) const
-   {return x->Stufe()<y->Stufe(); }};
-//class Data_zauber_sort_art
-//{ public: bool operator() (cH_Data_zauber x,cH_Data_zauber y) const
-//   {return x->Art()<y->Art(); }};
-class Zauber_sort_ursprung
-{ public: bool operator() (cH_Zauber x,cH_Zauber y) const
-   {return x->Ursprung()<y->Ursprung(); }};
 
 
 class Zauber_All
 {
    std::list<cH_MidgardBasicElement> list_All;
   public:
-   Zauber_All();
+   Zauber_All(Gtk::Label *label);
    std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
 };
 

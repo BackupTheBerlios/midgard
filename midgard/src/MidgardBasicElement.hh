@@ -12,12 +12,14 @@ class Ausnahmen;
 class H_Data_beruf;
 //class cH_Zauber;
 class cH_MidgardBasicElement;
+class SimpleTree;
 
 class MidgardBasicElement : public HandleContent
 {
    public:
-      enum MBEE {FERTIGKEITE,WAFFEN,ZAUBER,ZAUBERWERK,KIDO,SPRACHE,SCHRIFT} ;
-
+      enum MBEE {FERTIGKEIT,WAFFEN,ZAUBER,ZAUBERWERK,KIDO,SPRACHE,SCHRIFT} ;
+      enum TREE {OLD,NEW};
+//      TREE& operator++(TREE& t) {return t+1;}
 
       virtual std::string Name() const=0;
       virtual int Erfolgswert(const vector<H_Data_typen>& Typ,const Grundwerte& Werte,const Ausnahmen& ausnahmen) const {return 99;}
@@ -31,10 +33,18 @@ class MidgardBasicElement : public HandleContent
       virtual bool operator == (const MidgardBasicElement& b) const 
          {return Name()==b.Name();}
 
+
+      static void move_element(std::list<cH_MidgardBasicElement>& von,std::list<cH_MidgardBasicElement>& nach,const std::string& name);
+      static void show_list_in_tree(
+            const std::list<cH_MidgardBasicElement>& BasicList,
+            SimpleTree *Tree, 
+            const Grundwerte& Werte, const vector<H_Data_typen>& Typ,
+            const Ausnahmen& ausnahmen, 
+            char variante='0', bool b=false);
       static void saveElementliste(const std::list<cH_MidgardBasicElement>& b,
                                    const Grundwerte& Werte,
                                    const vector<H_Data_typen>& Typ,
-                                   const std::vector<H_Data_beruf>& vec_Beruf);
+                                   const Ausnahmen& ausnahmen);
 
 };
 
@@ -58,11 +68,6 @@ class cH_MidgardBasicElement : public Handle<const MidgardBasicElement>
 //      const std::list<cH_MidgardBasicElement>& (cH_Zauber(std::string n));
 
 
-      static void move_element(std::list<cH_MidgardBasicElement>& von,std::list<cH_MidgardBasicElement>& nach,const std::string& name)
-         { for (std::list<cH_MidgardBasicElement>::iterator i=von.begin();i!= von.end();++i)
-              if ((*i)->Name()==name)
-           {nach.splice(nach.begin(),von,i);break;}
-         }
 };
    
 

@@ -1,15 +1,10 @@
 #ifndef ZAUBERWERKCLASS
 #define ZAUBERWERKCLASS
-//#include <string>
-//#include <list>
-#include <map>
-//#include <vector>
-//#include <Aux/Handles.h>
-//#include <Aux/CacheStatic.h>
 #include "class_Grundwerte.hh"
 #include "MidgardBasicElement.hh"
 #include "class_typen.hh"
 class cH_Zauberwerk;
+#include <gtk--/label.h>
 
 class Zauberwerk : public MidgardBasicElement
 {
@@ -66,24 +61,29 @@ class cH_Zauberwerk : public Handle<const Zauberwerk>
     cH_Zauberwerk(const cH_MidgardBasicElement &x) : Handle<const Zauberwerk>
       (dynamic_cast<const Zauberwerk *>(&*x)){}
 
-};
+ class sort {
+      public:
+         enum esort {NAME,STUFE,ART};
+      private:
+         esort es;
+      public:
+         sort(enum esort _es):es(_es) {}
+         bool operator() (cH_Zauberwerk x,cH_Zauberwerk y) const
+           { switch(es) {
+               case(NAME) : return x->Name() < y->Name()  ;
+               case(STUFE): return x->Stufe() < y->Stufe();
+               case(ART): return x->Art() < y->Art() ;  
+           }}
+    };
 
-class Zauberwerk_sort_name
-{ public: bool operator() (cH_Zauberwerk x,cH_Zauberwerk y) const
-   {return x->Name() < y->Name(); }};
-class Zauberwerk_sort_stufe
-{ public: bool operator() (cH_Zauberwerk x,cH_Zauberwerk y) const
-   {return x->Stufe()<y->Stufe(); }};
-class Zauberwerk_sort_art
-{ public: bool operator() (cH_Zauberwerk x,cH_Zauberwerk y) const
-   {return x->Art()<y->Art(); }};
+};
 
 
 class Zauberwerk_All
 {
    std::list<cH_MidgardBasicElement> list_All;
   public:
-   Zauberwerk_All();
+   Zauberwerk_All(Gtk::Label *label);
    std::list<cH_MidgardBasicElement> get_All() const {return list_All;}
 };
 

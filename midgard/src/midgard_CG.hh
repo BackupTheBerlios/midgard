@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.78 2001/10/27 17:54:19 thoma Exp $
+// $Id: midgard_CG.hh,v 1.79 2001/10/28 17:42:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -196,7 +196,7 @@ class midgard_CG : public midgard_CG_glade
         void on_zauber_wahl_clicked();
         void on_berufe_wahl_clicked();
         void on_kido_wahl_clicked();
-        int maxkidostil(const std::string& stufe);
+//        int maxkidostil(const std::string& stufe);
         void show_kido();
         void stil_optionmenue();
         void show_berufe();
@@ -308,12 +308,12 @@ class midgard_CG : public midgard_CG_glade
         int spruchrolle_wuerfeln(std::string zauber);
         void on_leaf_selected_alte_zauber(cH_RowDataBase d);
         void on_leaf_selected_neue_zauber(cH_RowDataBase d);
-        void show_alte_zauber();
-        void show_neue_zauber();
+//        void show_alte_zauber();
+//        void show_neue_zauber();
         void on_leaf_selected_alte_zauberwerk(cH_RowDataBase d);
         void on_leaf_selected_neue_zauberwerk(cH_RowDataBase d);
-        void show_altes_zauberwerk();
-        void show_neues_zauberwerk();
+//        void show_altes_zauberwerk();
+//        void show_neues_zauberwerk();
 //        void move_zauberwerk(std::list<cH_Zauberwerk>& von,std::list<cH_Zauberwerk>& nach,const std::string& name);
         void zauberwerk_laden();
         void zauberwerk_zeigen();
@@ -325,8 +325,8 @@ class midgard_CG : public midgard_CG_glade
 //        void move_kido(std::list<cH_KiDo>& von,std::list<cH_KiDo>& nach,const std::string& name);
         void on_leaf_selected_alte_kido(cH_RowDataBase d);
         void on_leaf_selected_neue_kido(cH_RowDataBase d);
-        void show_alte_kido();
-        void show_neue_kido();
+//        void show_alte_kido();
+//        void show_neue_kido();
         void on_button_kido_sort_clicked();
 
 

@@ -78,23 +78,6 @@ void Zauberwerk::get_map_typ()
   } 
 }
 
-/*
-bool Zauberwerk::ist_lernbar(const vector<H_Data_typen>& Typ) const
-{
-  for (std::vector<H_Data_typen>::const_iterator i=Typ.begin();i!=Typ.end();++i)
-    if (const_cast<map<std::string,std::string>& >(map_typ)[(*i)->Short()]!="") return true;
-  return false;
-}
-*/
-/*
-bool Zauberwerk::ist_gelernt(const std::list<cH_Zauberwerk>& L) const
-{
- for (std::list<cH_Zauberwerk>::const_iterator i=L.begin();i!=L.end();++i)
-    if((*i)->Name()==Name()) return true;
- return false;
-}
-*/
-
 int Zauberwerk::Kosten(const vector<H_Data_typen>& Typ) const
 {
   double fac; 
@@ -124,37 +107,6 @@ std::string Zauberwerk::Standard__(const vector<H_Data_typen>& Typ) const
  return s2;
 }
 
-
-/*
-void Zauberwerk::set_Standard(const vector<H_Data_typen>& Typ)
-{
-  exec sql begin declare section;
-   char db_ergebnis[20],db_ergebnis2[20];
-   char query[200];
-  exec sql end declare section;
-  strncpy(db_ergebnis2,"",sizeof(db_ergebnis2));
-  std::string squery = "select ";
-  if (Typ[0]->is_mage()) squery += " coalesce("+Typ[0]->Short()+",'A') ";
-  if (Typ[0]->is_mage() && Typ[1]->is_mage()) squery +", ";
-  if (Typ[1]->is_mage()) squery += " coalesce("+Typ[1]->Short()+",'A')";
-  squery += " from zauberwerk where  name = '"+name+"'";
-  strncpy(query,squery.c_str(),sizeof(query));
-   Transaction tr;
-   exec sql prepare zaub from :query ;
-   exec sql declare zauber cursor for zaub ;
-   exec sql open zauber;
-   SQLerror::test(__FILELINE__);
-   if(Typ[0]->is_mage() && Typ[1]->is_mage() )
-      exec sql fetch zauber into  :db_ergebnis, :db_ergebnis2;
-   else
-      exec sql fetch zauber into  :db_ergebnis;
-   SQLerror::test(__FILELINE__);  
-
-  standard.clear();
-  standard.push_back(db_ergebnis);
-  standard.push_back(db_ergebnis2);
-}
-*/
 
 bool Zauberwerk::zauberwerk_voraussetzung(const std::string& name,const Grundwerte& Werte)
 {
@@ -212,7 +164,7 @@ bool Zauberwerk::zauberwerk_voraussetzung(const std::string& name,const Grundwer
 
 
 
-Zauberwerk_All::Zauberwerk_All()
+Zauberwerk_All::Zauberwerk_All(Gtk::Label *label)
 {
  exec sql begin declare section;
    char db_name[100]; 
@@ -221,8 +173,12 @@ Zauberwerk_All::Zauberwerk_All()
  Transaction tr;
  exec sql open ZAWein;
  SQLerror::test(__FILELINE__);
+ int count=0;
+ label->show();
  while(true)
   {
+   label->set_text(itos(++count)+" Zauberwerk geladen");
+   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
    exec sql fetch ZAWein into :db_name;
    SQLerror::test(__FILELINE__,100);
    if (sqlca.sqlcode) break;
@@ -230,6 +186,7 @@ Zauberwerk_All::Zauberwerk_All()
   }
  exec sql close ZAWein;
  tr.close();
+ label->hide();
 }
 
 

@@ -8,7 +8,7 @@ exec sql include sqlca;
 void MidgardBasicElement::saveElementliste(const std::list<cH_MidgardBasicElement>& b,
                            const Grundwerte& Werte,
                            const vector<H_Data_typen>& Typ,
-                           const std::vector<H_Data_beruf>& vec_Beruf
+                           const Ausnahmen& ausnahmen
                            )
 {
   if(b.size()==0) return;
@@ -31,7 +31,7 @@ void MidgardBasicElement::saveElementliste(const std::list<cH_MidgardBasicElemen
   for (std::list<cH_MidgardBasicElement>::const_iterator i=b.begin();i!=b.end();++i)
    {
      strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
-     db_wert = (*i)->Erfolgswert(Typ,Werte,Ausnahmen(Werte,Typ,vec_Beruf));
+     db_wert = (*i)->Erfolgswert(Typ,Werte,ausnahmen);
      exec sql INSERT INTO charaktere_fertigkeiten
          (charakter_name,version,fertigkeit,wert,art)
        VALUES

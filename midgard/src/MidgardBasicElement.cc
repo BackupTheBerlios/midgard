@@ -1,6 +1,12 @@
 #include "MidgardBasicElement.hh"
 #include "class_typen.hh"
-
+#include "class_Grundwerte.hh"
+#include "KiDo.hh"
+#include "Zauber.hh"
+#include "Zauberwerk.hh"
+#include "class_kido.hh"
+#include "class_zauber.hh"
+#include "SimpleTree.hh"
 
 /*
 cH_MidgardBasicElement::cache_t cH_MidgardBasicElement::cache;
@@ -16,6 +22,87 @@ cH_MidgardBasicElement::cH_MidgardBasicElement(const std::string& name)
   }
 }
 */
+
+void MidgardBasicElement::show_list_in_tree(
+  const std::list<cH_MidgardBasicElement>& BasicList,
+  SimpleTree *Tree,
+  const Grundwerte& Werte, 
+  const vector<H_Data_typen>& Typ, const Ausnahmen& ausnahmen,
+  char variante, bool _bool_)
+{
+  if (BasicList.begin()==BasicList.end() ) return ;
+  std::vector<cH_RowDataBase> datavec;
+  for (std::list<cH_MidgardBasicElement>::const_iterator i=BasicList.begin();i!=BasicList.end();++i)
+   {
+    switch((*BasicList.begin())->What())
+     {
+       case(FERTIGKEIT) : break;
+       case(WAFFEN)      : break;
+       case(ZAUBER)      : {cH_Zauber z(*i);
+          if (!_bool_ || (_bool_ &&  z->Spruchrolle())) 
+           {int kosten=z->Kosten(Typ,ausnahmen);
+            if(_bool_) kosten/=10; 
+              datavec.push_back(new Data_zauber(z->Name(),z->Stufe(),z->Ursprung(),kosten,z->Standard__(Typ,ausnahmen)));   
+           }
+          break; }
+       case(ZAUBERWERK)  : {cH_Zauberwerk z(*i); 
+          if(variante=='O')  
+              { if(_bool_) continue;
+                datavec.push_back(new Data_zaubermittel(z->Stufe(),z->Name(),z->Art(),z->Kosten(Typ)));
+              }
+          if(variante=='N')
+                datavec.push_back(new Data_zaubermittel(z->Stufe(),z->Name(),z->Art(),z->Kosten(Typ),z->Preis(),z->Zeitaufwand()));
+          break; }
+       case(KIDO)        : {cH_KiDo kd(*i);
+               datavec.push_back(new Data_kido(kd->Hoho(),kd->Name(),kd->Stufe(),
+                  kd->Ap(),kd->Kosten(Typ,ausnahmen),kd->Stil()));
+          break; }
+         case(SPRACHE)     : break;
+         case(SCHRIFT)     : break;
+      }
+   }
+    Tree->setDataVec(datavec);
+}
+
+/*
+void MidgardBasicElement::show_list_in_old_tree(const std::list<cH_MidgardBasicElement>& BasicList,
+   SimpleTree *Tree,const Grundwerte& Werte,const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen,
+   bool _bool_)
+{
+  if(BasicList.begin()==BasicList.end()) return;
+  std::vector<cH_RowDataBase> datavec;
+  for (std::list<cH_MidgardBasicElement>::const_iterator i=BasicList.begin();i!=BasicList.end();++i)
+   {
+     switch((*BasicList.begin())->What())
+      {
+       case(FERTIGKEIT) : break;
+       case(WAFFEN)      : break;
+       case(ZAUBER)      : { cH_Zauber z(*i);
+            if (!_bool_ || (_bool_ &&  z->Spruchrolle())) 
+             {int kosten=z->Kosten(Typ,ausnahmen);
+              if(_bool_) kosten/=10; 
+                datavec.push_back(new Data_zauber(z->Name(),z->Stufe(),z->Ursprung(),kosten,z->Standard__(Typ,ausnahmen)));   
+             }
+         break;}
+       case(ZAUBERWERK)  : break;
+       case(KIDO)        : {cH_KiDo kd(*i);
+            datavec.push_back(new Data_kido(kd->Hoho(),kd->Name(),kd->Stufe(),kd->Ap(),
+                  kd->Kosten(Typ,ausnahmen),kd->Stil()));
+         break;}
+       case(SPRACHE)     : break;
+       case(SCHRIFT)     : break;
+      }
+   }
+  Tree->setDataVec(datavec);
+}
+*/
+
+void MidgardBasicElement::move_element(std::list<cH_MidgardBasicElement>& von,std::list<cH_MidgardBasicElement>& nach,const std::string& name)
+{
+ for (std::list<cH_MidgardBasicElement>::iterator i=von.begin();i!= von.end();++i)
+   if ((*i)->Name()==name) 
+     { nach.splice(nach.begin(),von,i);break; }
+}
 
 bool MidgardBasicElement::ist_lernbar(const vector<H_Data_typen>& Typ,const map<std::string,std::string>& map_typ) const
 {

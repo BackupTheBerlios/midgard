@@ -145,7 +145,8 @@ void midgard_CG::on_speichern_clicked()
             SQLerror::test(__FILELINE__);
       }
 */
-   MidgardBasicElement::saveElementliste(list_Zauber,Werte,Typ,vec_Beruf);
+   Ausnahmen ausnahmen(Werte,Typ,vec_Beruf);
+   MidgardBasicElement::saveElementliste(list_Zauber,Werte,Typ,ausnahmen);
 /*
    for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Zauber.begin();
          i!=list_Zauber.end();++i)
@@ -159,7 +160,7 @@ void midgard_CG::on_speichern_clicked()
             SQLerror::test(__FILELINE__);
       }
 */
-   MidgardBasicElement::saveElementliste(list_Zauberwerk,Werte,Typ,vec_Beruf);
+   MidgardBasicElement::saveElementliste(list_Zauberwerk,Werte,Typ,ausnahmen);
 /*
    for (std::list<cH_Zauberwerk>::const_iterator i=list_Zauberwerk.begin();
          i!=list_Zauberwerk.end();++i)
@@ -174,7 +175,7 @@ void midgard_CG::on_speichern_clicked()
             SQLerror::test(__FILELINE__);
       }
 */
-   MidgardBasicElement::saveElementliste(list_Kido,Werte,Typ,vec_Beruf);
+   MidgardBasicElement::saveElementliste(list_Kido,Werte,Typ,ausnahmen);
 /*
    for (std::list<cH_KiDo>::const_iterator i=list_Kido.begin();i!=list_Kido.end();++i)
       {
