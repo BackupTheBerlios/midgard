@@ -32,18 +32,15 @@ COPY "fertigkeiten"  FROM stdin;
 7	\N	\N	\N	Natya	\N	100	R	
 8	\N	\N	15	Schmerzen ertragen	12	200	R	Sb
 4	\N	\N	8	Schlangen beschwören	8	200	R	Sb
-5	\N	\N	8	Beredsamkeit	6	200		pA
 2	\N	\N	\N	Heraldik	0	100	B&R	In
 4	\N	\N	15	Stimmen nachahmen	12	50		In
 1	\N	\N	\N	KiDo-Technik	\N	\N	K	\N
 9	\N	\N	\N	Augensalbe herstellen	\N	200	R	
 4	\N	\N	1	KujKuri	1	20	K	\N
 8	\N	\N	\N	KujNoIu	\N	400	K	\N
-5	\N	\N	4	LiYao	2	100	K	In
 8	\N	\N	\N	MiChen	\N	500	K	\N
 5	\N	\N	\N	Orakelkunst	\N	60	K	\N
 8	\N	\N	\N	SchiyoKi	\N	100	K	\N
-4	\N	\N	\N	Steinabreibungen machen	\N	60	K	\N
 5	\N	\N	\N	TaiTschi	\N	100	K	\N
 5	\N	\N	8	Teezeremonie	6	50	K	pA
 5	\N	\N	1	YangScheng	1	100	K	\N
@@ -54,7 +51,6 @@ COPY "fertigkeiten"  FROM stdin;
 8	\N	\N	\N	FengTsu	\N	300	K	\N
 5	\N	\N	8	Geschenke machen	6	200	K	pA
 8	\N	\N	\N	IaiJutsu	\N	60	K	\N
-1	\N	\N	\N	Geomantie	\N	400	E	Zt
 8	\N	\N	\N	KentoYobu	\N	100	K	\N
 1	\N	\N	4	Brettspiel	2	20	E	In
 1	\N	\N	\N	Pyromantie	\N	400	E	Zt
@@ -74,13 +70,8 @@ COPY "fertigkeiten"  FROM stdin;
 4	\N	\N	12	Dichten	8	80		In
 4	\N	\N	6	Fallen entdecken	4	400		In
 2	\N	\N	4	Fallen entschärfen	2	400		Gs
-3	\N	\N	4	Fallenstellen	4	200		Gs
 3	\N	\N	15	Fangen	10	60		Gs
-3	\N	\N	5	Gassenwissen	4	200		In
 4	\N	\N	6	Geheimmechanismen öffnen	4	400		In
-3	\N	\N	12	Geheimzeichen	6	20		In
-3	\N	\N	15	Geländelauf	10	60		Gw
-4	\N	\N	15	Glücksspiel	15	200		Gs
 6	\N	\N	2	Kampf in Dunkelheit	2	300		Gw
 8	\N	\N	15	Kampf in Vollrüstung	10	4000		St
 8	\N	\N	15	Kampf zu Pferd	10	200		Gw
@@ -88,81 +79,41 @@ COPY "fertigkeiten"  FROM stdin;
 8	\N	\N	15	Kampf zu Elefant	10	200	R	Gw
 8	\N	\N	15	Kampf zu Kamel	10	200	E	Gw
 8	\N	\N	4	Katapult bedienen	4	100		Gs
-3	\N	\N	15	Klettern	10	60		GSt
 4	\N	\N	5	Kräuterkunde	4	100		In
 3	\N	\N	4	Laufen	4	50	\N	Ko
 8	\N	\N	12	Lesen von Zauberschrift	6	20		In
-3	\N	\N	6	Lippenlesen	4	250	\N	In
-3	\N	\N	5	Menschenkenntnis	4	250		In
-4	\N	\N	5	Naturkunde	4	100	\N	In
-4	\N	\N	5	Pflanzenkunde	4	100	\N	In
-4	\N	\N	8	Rechnen	6	100		In
-3	\N	\N	15	Reiten	10	60		Gw
-3	\N	\N	15	Rudern	10	60		St
-3	\N	\N	15	Schlittenfahren	10	60		Gs
 3	\N	\N	15	Schlittschuhlaufen	10	60	B&R	Gs
 4	\N	\N	8	Schlösser öffnen	6	400		Gs
-3	\N	\N	9	Lesen/Schreiben	4	20		In
-3	\N	\N	15	Schwimmen	10	60		Gw
-3	\N	\N	15	Skifahren	10	60		Gw
-3	\N	\N	9	Sprache	4	10		In
 3	\N	\N	15	Springen	10	60		St
-3	\N	\N	6	Spurenlesen	4	400		In
-5	\N	\N	8	Stehlen	8	300		Gs
 4	\N	\N	8	Tarnen	6	400		Gw
-4	\N	\N	5	Tierkunde	4	100		In
 3	\N	\N	1	Trinken	1	100		Ko
 4	\N	\N	8	Verhören	6	150		pA
 5	\N	\N	15	Verkleiden	12	50		Gs
-3	\N	\N	15	Wagenlenken	10	60		Gs
 4	\N	\N	4	Wahrnehmung	4	300		In
 4	\N	\N	4	Winden	4	4		Gw
 4	\N	\N	5	Zauberkunde	4	100		In
 4	\N	\N	6	Zeichensprache	4	20	\N	In
-3	\N	\N	8	Überleben im Gebirge	6	50		In
-3	\N	\N	8	Überleben im Dschungel	6	50		In
-3	\N	\N	8	Überleben im Schnee	6	50		In
-3	\N	\N	8	Überleben im Sumpf	6	50		In
-3	\N	\N	8	Überleben im Wald	6	50		In
-3	\N	\N	8	Überleben in der Steppe	6	50		In
-3	\N	\N	8	Überleben in der Wüste	6	50		In
-6	\N	\N	8	Abrichten	6	400	\N	pA
 5	\N	\N	15	Akrobatik	10	120	\N	Gw
 8	\N	\N	5	Alchemie	4	100		In
 4	\N	\N	4	Athletik	4	50		St
 4	\N	\N	6	Baukunde	4	100	\N	In
-99	\N	\N	8	Erste Hilfe	6	100		Gs
-3	\N	\N	12	Erzählen	8	80		In
 4	\N	\N	4	Fallenmechanik	4	600		Gs
 6	\N	\N	4	Fechten	4	800		\N
 6	\N	\N	\N	Fechten tevarischer Stil	\N	400		\N
 6	\N	\N	15	Fälschen	12	150		Gs
-3	\N	\N	12	Gaukeln	8	80	\N	Gs
-5	\N	\N	5	Heilkunde	4	100	\N	In
-2	\N	\N	5	Himmelskunde	4	50	3	In
-99	\N	\N	5	Landeskunde	4	100	\N	In
 5	\N	\N	8	Meditieren	6	200		Wk
 6	\N	\N	8	Meucheln	6	800		Gs
-99	\N	\N	12	Musizieren	8	80		Gs
-99	\N	\N	5	Sagenkunde	4	100		In
 6	\N	\N	5	Scharfschießen	4	800		Gs
-5	\N	\N	8	Schauspielern	6	50	\N	pA
 8	\N	\N	15	SchieÃŸen von Streitwagen	10	200	\N	Gs
 6	\N	\N	8	Schiffsführung	6	150	\N	In
 4	\N	\N	8	Schleichen	6	400	\N	Gw
-4	\N	\N	5	SchÃ¤tzen	4	100	\N	In
 6	\N	\N	15	Seemannsgang	15	100	\N	Gw
-99	\N	\N	8	Seilkunst	6	50		Gs
-99	\N	\N	12	Singen	8	80		pA
-4	\N	\N	15	Steuern	10	60	\N	Gs
 6	\N	\N	15	Streitwagen lenken	10	60		Gs
 4	\N	\N	8	Suchen	6	300	\N	In
 8	\N	\N	1	Talisman verzaubern	1	400	3	\N
-99	\N	\N	15	Tanzen	10	50		Gw
 3	\N	\N	15	Tauchen	10	120		Ko
 8	\N	\N	6	Thaumatographie	8	2000	\N	In
 4	\N	\N	8	Verbergen	6	300	\N	In
-99	\N	\N	8	Verführen	6	30		pA
 1	\N	\N	\N	Wissen von der Magie	\N	5000	3	\N
 3	\N	\N	15	KarumiJutsu	12	100	K	Gw
 3	\N	\N	15	Kamelreiten	12	100	E	Gw
@@ -170,12 +121,61 @@ COPY "fertigkeiten"  FROM stdin;
 6	\N	\N	15	Elefanten lenken	12	1000	R	Gw
 6	\N	\N	15	Srimara lenken	12	1000	R	Gw
 4	\N	\N	4	NinJutsu	2	600	K	Gw
-8	\N	\N	14	Schwerttanz	12	100	K	Gw
 8	\N	\N	\N	Luftkampf	\N	400	B&R	Gw
 4	\N	\N	\N	Siegelfälschung	\N	100	B&R	Gs
 3	\N	\N	1	Malen/Zeichnen	1	150	B&R	Gs
 3	\N	\N	15	Kanufahren	12	100	3	Gw
 4	\N	\N	15	Segeln	12	100	3	Gw
+3	0	0	9	Sprache	4	10		In
+2	1	1	5	Himmelskunde	4	50	3	In
+3	1	1	9	Lesen/Schreiben	4	20		In
+3	1	1	6	Lippenlesen	4	250	\N	In
+5	1	1	4	LiYao	2	100	K	In
+99	1	1	15	Tanzen	10	50		Gw
+99	2	2	5	Landeskunde	4	100	\N	In
+99	2	2	12	Musizieren	8	80		Gs
+3	2	2	15	Reiten	10	60		Gw
+99	2	2	8	Seilkunst	6	50		Gs
+3	2	2	15	Wagenlenken	10	60		Gs
+99	3	3	8	Erste Hilfe	6	100		Gs
+3	3	3	6	Spurenlesen	4	400		In
+4	3	3	5	Tierkunde	4	100		In
+3	3	3	8	Überleben im Dschungel	6	50		In
+3	3	3	8	Überleben im Gebirge	6	50		In
+3	3	3	8	Überleben im Schnee	6	50		In
+3	3	3	8	Überleben im Sumpf	6	50		In
+3	3	3	8	Überleben im Wald	6	50		In
+3	3	3	8	Überleben in der Steppe	6	50		In
+3	3	3	8	Überleben in der Wüste	6	50		In
+99	4	4	8	Verführen	6	30		pA
+3	\N	1	12	Erzählen	8	80		In
+3	2	0	4	Fallenstellen	4	200		Gs
+3	\N	2	12	Gaukeln	8	80	\N	Gs
+3	2	0	15	Rudern	10	60		St
+3	3	0	15	Schwimmen	10	60		Gw
+8	\N	0	14	Schwerttanz	12	100	K	Gw
+3	2	0	15	Schlittenfahren	10	60		Gs
+3	2	0	15	Skifahren	10	60		Gw
+99	1	0	12	Singen	8	80		pA
+3	3	0	15	Geländelauf	10	60		Gw
+3	\N	0	12	Geheimzeichen	6	20		In
+3	\N	3	5	Gassenwissen	4	200		In
+1	0	0	\N	Geomantie	\N	400	E	Zt
+4	\N	3	15	Glücksspiel	15	200		Gs
+5	\N	3	5	Heilkunde	4	100	\N	In
+3	3	0	15	Klettern	10	60		GSt
+3	\N	3	5	Menschenkenntnis	4	250		In
+4	3	0	5	Naturkunde	4	100	\N	In
+4	3	0	5	Pflanzenkunde	4	100	\N	In
+4	\N	3	8	Rechnen	6	100		In
+99	3	3	5	Sagenkunde	4	100		In
+4	\N	3	5	SchÃ¤tzen	4	100	\N	In
+5	\N	3	8	Schauspielern	6	50	\N	pA
+6	4	0	8	Abrichten	6	400	\N	pA
+5	\N	4	8	Beredsamkeit	6	200		pA
+4	4	0	15	Steuern	10	60	\N	Gs
+4	\N	0	\N	Steinabreibungen machen	\N	60	K	\N
+5	\N	4	8	Stehlen	8	300		Gs
 \.
 --
 -- TOC Entry ID 3 (OID 30117764)
