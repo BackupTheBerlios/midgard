@@ -243,15 +243,13 @@ Zauberwerk_All::Zauberwerk_All(Gtk::ProgressBar *progressbar)
  tr.close();
 #else
  const Tag *zauberwerke=xml_data->find("Zauberwerke");
- int count=0;
  if (!zauberwerke)
     cerr << "<Zauberwerke><Zauberwerk/>... nicht gefunden\n";
  else
  {  Tag::const_iterator b=zauberwerke->begin(),e=zauberwerke->end();
     double size=e-b;
     FOR_EACH_CONST_TAG_OF_5(i,*zauberwerke,b,e,"Zauberwerk")
-    {  if (!((++count)&31))
-       {  progressbar->set_percentage((i-b)/size);
+    {  {  progressbar->set_percentage((i-b)/size);
           while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
        }
 // warum sowas? siehe Zauber.pgcc
