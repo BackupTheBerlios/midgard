@@ -7,6 +7,8 @@ NEWS IN VERSION 0.8.3
 TODO: ('-' zeigt CP an)
 
 * Schwarzer Balken im Lernschema bei Maximierung
+* Werte editieren setzet alten Zustand für Typen wieder her
+* Typ nach 'abgeleitete Werte' nicht mehr auswählbar
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
   der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 
 * Ausrüstungsauswahl stürzt ab

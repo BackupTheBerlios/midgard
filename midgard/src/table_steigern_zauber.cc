@@ -22,9 +22,11 @@
 #include "Zauber.hh"
 #include "Zauberwerk.hh"
 #include <Misc/itos.h>
+#include "LernListen.hh"
 
 void table_steigern::on_zauber_laden_clicked()
 {   
+/*
   list_Zauber_neu.clear();
   for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().Zauber.begin();i!=hauptfenster->getCDatabase().Zauber.end();++i)
     { cH_Zauber z(*i);
@@ -42,6 +44,14 @@ void table_steigern::on_zauber_laden_clicked()
          list_Zauber_neu.push_back(*i);            
         }
     }
+*/
+ try{
+  list_Zauber_neu=LL->get_steigern_Zauberliste(hauptfenster->getChar().getAbenteurer(),togglebutton_zaubersalze->get_active(),
+                                           Region::isActive(hauptfenster->getCDatabase().Regionen,cH_Region("MdS",true)),
+                                           hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active,
+                                           togglebutton_alle_zauber->get_active(),
+                                           togglebutton_spruchrolle->get_active());
+ }catch(std::exception &e) {cerr << e.what()<<'\n';}
   zauber_zeigen();
 }
 
@@ -169,6 +179,10 @@ void table_steigern::on_leaf_selected_neue_zauberwerk(cH_RowDataBase d)
 
 void table_steigern::zauberwerk_laden()
 {
+ list_Zauberwerk_neu=LL->get_steigern_ZauberWerkliste(hauptfenster->getChar().getAbenteurer(),
+                                                      hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active,
+                                                      togglebutton_alle_zauber->get_active());
+/*
  list_Zauberwerk_neu.clear();
  for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().Zauberwerk.begin();i!=hauptfenster->getCDatabase().Zauberwerk.end();++i)
   {
@@ -181,4 +195,5 @@ void table_steigern::zauberwerk_laden()
      if (hauptfenster->region_check(z->Region()) )
        list_Zauberwerk_neu.push_back(*i);
   }
+*/
 }

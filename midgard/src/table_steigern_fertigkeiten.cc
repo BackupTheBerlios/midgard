@@ -21,15 +21,19 @@
 #include <Gtk_OStream.h>
 #include "Fertigkeiten.hh"
 #include "Waffe.hh"       
-
+#include "LernListen.hh"
 
 void table_steigern::on_fertigkeiten_laden_clicked()
 {
   Abenteurer &A=hauptfenster->getChar().getAbenteurer();
+  list_Fertigkeit_neu=LL->get_steigern_MBEm(A,LernListen::sFert, 
+   hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active);  
+/*
   list_Fertigkeit_neu.clear();
   for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().Fertigkeit.begin();i!=hauptfenster->getCDatabase().Fertigkeit.end();++i)
    { const cH_Fertigkeit f(*i);
-     if (MidgardBasicElement_mutable(*i).ist_gelernt(A.List_Fertigkeit()) && cH_Fertigkeit(*i)->ZusatzEnum(hauptfenster->getChar().getVTyp())==MidgardBasicElement::ZNone) continue ;
+     if (MidgardBasicElement_mutable(*i).ist_gelernt(A.List_Fertigkeit()) && 
+         cH_Fertigkeit(*i)->ZusatzEnum(hauptfenster->getChar().getVTyp())==MidgardBasicElement::ZNone) continue ;
      if (f->Name()=="Sprache" || f->Name()=="Schreiben" || f->Name()=="KiDo-Technik") continue;
      if(A.getWerte().Spezies()->istVerboten(*i)) continue;
      if (f->Name()=="Zaubern" && A.is_mage() ) continue;
@@ -43,6 +47,7 @@ void table_steigern::on_fertigkeiten_laden_clicked()
 //Kopie            list_Fertigkeit_neu.push_back(new Fertigkeit(*f));
          }
    }
+*/
  fertigkeiten_zeigen();
 }
 

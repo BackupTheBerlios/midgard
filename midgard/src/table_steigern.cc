@@ -11,10 +11,15 @@
 #include "Fertigkeiten.hh"
 #include "midgard_CG.hh"
 #include "dtos1.h"
+#include "LernListen.hh"
+
 
 void table_steigern::init(midgard_CG *h)
 {
+   togglebutton_spruchrolle->set_active(true); // bug in glade--
   hauptfenster=h;
+  if(LL) delete LL ;
+  LL = new LernListen(hauptfenster->getDatabase());
   zeige_werte();
   load_for_page(notebook_lernen->get_current_page_num());
   steigern_mit_EP_bool=true;

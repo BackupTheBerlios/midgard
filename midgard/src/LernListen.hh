@@ -1,4 +1,4 @@
-// $Id: LernListen.hh,v 1.11 2002/09/14 07:54:46 thoma Exp $
+// $Id: LernListen.hh,v 1.12 2002/09/16 12:00:41 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,9 +32,11 @@ class LernListen
       const Datenbank D;
   public:
       enum eMBE{MutterSprache,GastlandSprache,NachbarlandSprache,AlteSprache,
-                lFach,lAllg,lUnge,lWaff,lZaub,lAngebFert };
+                lFach,lAllg,lUnge,lWaff,lZaub,lAngebFert,
+                sFert,sWaff,sZaub,sSpra,sSchr,sWGru,sZWerk};
 
       LernListen(const Datenbank& d) : D(d){}   
+      LernListen() {}   
 
       bool nsc_check(bool nsc_allowed,bool nsc_only) const ;
       bool region_check(const std::string& region) const;
@@ -58,6 +60,14 @@ class LernListen
 
       std::list<MidgardBasicElement_mutable> getMBEm(const VAbenteurer& A,eMBE was, int erfolgswert=0,
                      int lernpunkte=0,std::string lernart="") const;
+
+
+      std::list<MidgardBasicElement_mutable> get_steigern_MBEm(const Abenteurer& A,eMBE was,bool nsc_allowed) const;
+      std::list<MidgardBasicElement_mutable> get_steigern_Zauberliste(const Abenteurer& A,
+            bool salz,bool beschwoerung,bool nsc, bool alle,bool spruchrolle) const;
+      std::list<MidgardBasicElement_mutable> get_steigern_ZauberWerkliste(const Abenteurer& A,
+            bool nsc, bool alle) const;
+
 };
 
 

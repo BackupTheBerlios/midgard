@@ -16,6 +16,8 @@ class midgard_CG;
 //#include "midgard_CG.hh"
 #include "MidgardBasicElement.hh"
 #include <list>
+class LernListen;
+
 
 class table_steigern : public table_steigern_glade
 {  
@@ -23,6 +25,7 @@ class table_steigern : public table_steigern_glade
         friend class table_steigern_glade;
         friend class midgard_CG;
         midgard_CG *hauptfenster;
+        LernListen *LL;        
 
         std::list<MidgardBasicElement_mutable> list_Fertigkeit_neu;
         std::list<MidgardBasicElement_mutable> list_WaffenGrund_neu;
@@ -44,7 +47,7 @@ class table_steigern : public table_steigern_glade
 public:
         
         table_steigern(GlademmData *_data) 
-         : table_steigern_glade(_data),hauptfenster(0) {}
+         : table_steigern_glade(_data),hauptfenster(0),LL(0) {}
         void init(midgard_CG *hauptfenster);
 
 private:
