@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.pgcc,v 1.1 2001/11/13 08:32:07 christof Exp $
+// $Id: fertigk_exp.pgcc,v 1.2 2001/11/13 08:41:02 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -51,7 +51,7 @@ void fert_speichern(std::ostream &o)
    fetch_and_write_int_attrib(is, o, "Lernkosten");
    fetch_and_write_int_attrib(is, o, "Erfolgswert");
    fetch_and_write_string_attrib(is, o, "Attribut");
-   o << "/>";
+   o << "/>\n";
    // Lernschemata, Wer wie leicht etc.
   }
    exec sql close c;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<Zauber>
+<MidgardCG-data>
   <Spruch Name="Allheilung" Grad="5" Lernkosten="2500" AP="6" Typ="Geste" Ursprung="göttlich" Agens="Holz" Prozess="erschafft" Reagens="Erde" Zauberdauer="30 min" Reichweite="0" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="0">
     <Grund>Hl,Or,PF,PHa,PHe,PK,PM,PT,PW</Grund>
     <Standard>Sc</Standard>
@@ -2604,4 +2604,4 @@
     <Grund>Sa</Grund>
     <Standard>Hl</Standard>
   </Spruch>
-</Zauber>
+</MidgardCG-data>

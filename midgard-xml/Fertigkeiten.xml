@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MidgardCG-data>
+  <Fertigkeit Name="Alchemie" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2"/>
+  <Fertigkeit Name="Athletik" Lernpunkte="3" Anfangswert="1" Lernkosten="50" Erfolgswert="1"/>
+  <Fertigkeit Name="Balancieren" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
+  <Fertigkeit Name="Ballista bedienen" Lernpunkte="8" Lernkosten="100"/>
+  <Fertigkeit Name="Beidhändiger Kampf" Lernpunkte="6" Anfangswert="-4" Lernkosten="1500" Erfolgswert="-4"/>
+  <Fertigkeit Name="Beredsamkeit" Lernpunkte="5" Anfangswert="8" Lernkosten="200" Erfolgswert="6" Attribut="pA"/>
+  <Fertigkeit Name="Beschatten" Lernpunkte="4" Anfangswert="8" Lernkosten="300" Erfolgswert="6" Attribut="RW"/>
+  <Fertigkeit Name="Bogen vom Streitwagen" Lernpunkte="8" Lernkosten="200"/>
+  <Fertigkeit Name="Bogen zu Pferd" Lernpunkte="8" Lernkosten="200"/>
+  <Fertigkeit Name="Erste Hilfe" Lernpunkte="4" Lernkosten="100"/>
+  <Fertigkeit Name="Fallen entdecken" Lernpunkte="4" Anfangswert="4" Lernkosten="400" Erfolgswert="2" Attribut="In"/>
+  <Fertigkeit Name="Fallen entschärfen" Lernpunkte="2" Anfangswert="4" Lernkosten="400" Erfolgswert="2" Attribut="Ge"/>
+  <Fertigkeit Name="Fallenmechanik" Lernpunkte="2" Anfangswert="4" Lernkosten="400" Erfolgswert="2" Attribut="Ge"/>
+  <Fertigkeit Name="Fallenstellen" Lernpunkte="3" Anfangswert="4" Lernkosten="200" Erfolgswert="2" Attribut="Ge"/>
+  <Fertigkeit Name="Faustkampf" Lernpunkte="5" Lernkosten="500"/>
+  <Fertigkeit Name="Fechten" Lernpunkte="4" Anfangswert="4" Lernkosten="800" Erfolgswert="4"/>
+  <Fertigkeit Name="Fechten tevarischer Stil" Lernpunkte="5" Lernkosten="400"/>
+  <Fertigkeit Name="Gassenwissen" Lernpunkte="3" Anfangswert="4" Lernkosten="200" Erfolgswert="2" Attribut="In"/>
+  <Fertigkeit Name="Geheimmechanismen öffnen" Lernpunkte="4" Anfangswert="4" Lernkosten="400" Erfolgswert="2" Attribut="In"/>
+  <Fertigkeit Name="Geheimzeichen" Lernpunkte="3" Lernkosten="50"/>
+  <Fertigkeit Name="Geländelauf" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="RW"/>
+  <Fertigkeit Name="Geschichten erzählen" Lernpunkte="4" Anfangswert="8" Lernkosten="150" Erfolgswert="8" Attribut="In"/>
+  <Fertigkeit Name="Geschäftstüchtigkeit" Lernpunkte="9" Lernkosten="4000"/>
+  <Fertigkeit Name="Giftmischen" Lernpunkte="5" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In"/>
+  <Fertigkeit Name="Glücksspiel" Lernpunkte="4" Anfangswert="15" Lernkosten="200" Erfolgswert="15" Attribut="Ge"/>
+  <Fertigkeit Name="Himmelskunde" Lernpunkte="3" Lernkosten="50"/>
+  <Fertigkeit Name="Kampf in Schlachtreihe" Lernpunkte="2" Lernkosten="50"/>
+  <Fertigkeit Name="Kampf in Vollrüstung" Lernpunkte="8" Lernkosten="4000"/>
+  <Fertigkeit Name="Kampf vom Streitwagen" Lernpunkte="8" Lernkosten="200"/>
+  <Fertigkeit Name="Kampf zu Pferd" Lernpunkte="8" Lernkosten="200"/>
+  <Fertigkeit Name="Kampftaktik" Lernpunkte="8" Anfangswert="1" Lernkosten="200" Erfolgswert="1"/>
+  <Fertigkeit Name="Kanufahren" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
+  <Fertigkeit Name="Katapult bedienen" Lernpunkte="8" Lernkosten="100"/>
+  <Fertigkeit Name="Klettern" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
+  <Fertigkeit Name="Kräuterkunde" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In"/>
+  <Fertigkeit Name="Körperbemalung" Lernpunkte="8" Anfangswert="1" Lernkosten="400" Erfolgswert="1"/>
+  <Fertigkeit Name="Laufen" Lernpunkte="3" Anfangswert="2" Lernkosten="50" Erfolgswert="2"/>
+  <Fertigkeit Name="Lesen von Zauberschrift" Lernpunkte="8" Lernkosten="60"/>
+  <Fertigkeit Name="Lesen/Schreiben" Lernpunkte="3" Lernkosten="100"/>
+  <Fertigkeit Name="Lippenlesen" Lernpunkte="3" Anfangswert="4" Lernkosten="250" Erfolgswert="2" Attribut="In"/>
+  <Fertigkeit Name="Menschenkenntnis" Lernpunkte="3" Anfangswert="4" Lernkosten="250" Erfolgswert="2" Attribut="In"/>
+  <Fertigkeit Name="Meucheln" Lernpunkte="5" Anfangswert="8" Lernkosten="800" Erfolgswert="6" Attribut="Ge"/>
+  <Fertigkeit Name="Musizieren" Lernpunkte="4" Anfangswert="8" Lernkosten="150" Erfolgswert="8"/>
+  <Fertigkeit Name="Naturkunde" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In"/>
+  <Fertigkeit Name="Pflanzenkunde" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In"/>
+  <Fertigkeit Name="Rechnen" Lernpunkte="4" Lernkosten="100"/>
+  <Fertigkeit Name="Reiten" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
+  <Fertigkeit Name="Rudern" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="St"/>
+  <Fertigkeit Name="Sagenkunde" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In"/>
+  <Fertigkeit Name="Scharfschießen" Lernpunkte="5" Anfangswert="4" Lernkosten="800" Erfolgswert="4" Attribut="Ge"/>
+  <Fertigkeit Name="Schleichen" Lernpunkte="3" Anfangswert="4" Lernkosten="400" Erfolgswert="2" Attribut="Ge"/>
+  <Fertigkeit Name="Schlittenfahren" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
+  <Fertigkeit Name="Schlösser öffnen" Lernpunkte="4" Anfangswert="4" Lernkosten="400" Erfolgswert="2" Attribut="Ge"/>
+  <Fertigkeit Name="Schwimmen" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
+  <Fertigkeit Name="Segeln" Lernpunkte="4" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
+  <Fertigkeit Name="Seilkunst" Lernpunkte="4" Anfangswert="15" Lernkosten="50" Erfolgswert="6" Attribut="Ge"/>
+  <Fertigkeit Name="Singen" Lernpunkte="4" Anfangswert="8" Lernkosten="150" Erfolgswert="8" Attribut="In"/>
+  <Fertigkeit Name="Skifahren" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
+  <Fertigkeit Name="Sprache" Lernpunkte="3" Anfangswert="4" Lernkosten="10" Erfolgswert="1"/>
+  <Fertigkeit Name="Springen" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12"/>
+  <Fertigkeit Name="Spurenlesen" Lernpunkte="3" Anfangswert="4" Lernkosten="400" Erfolgswert="2" Attribut="In"/>
+  <Fertigkeit Name="Stehlen" Lernpunkte="5" Anfangswert="8" Lernkosten="300" Erfolgswert="6" Attribut="Ge"/>
+  <Fertigkeit Name="Stimmen nachahmen" Lernpunkte="4" Anfangswert="15" Lernkosten="50" Erfolgswert="12" Attribut="In"/>
+  <Fertigkeit Name="Streitwagen lenken" Lernpunkte="5" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
+  <Fertigkeit Name="Talisman verzaubern" Lernpunkte="8" Anfangswert="1" Lernkosten="400" Erfolgswert="1"/>
+  <Fertigkeit Name="Tanzen" Lernpunkte="3" Lernkosten="150" Attribut="Ge"/>
+  <Fertigkeit Name="Tarnen" Lernpunkte="4" Anfangswert="4" Lernkosten="400" Erfolgswert="2" Attribut="Ge"/>
+  <Fertigkeit Name="Tauchen" Lernpunkte="2" Anfangswert="15" Lernkosten="200" Erfolgswert="12" Attribut="Ko"/>
+  <Fertigkeit Name="Tierkunde" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In"/>
+  <Fertigkeit Name="Trinken" Lernpunkte="3" Lernkosten="100"/>
+  <Fertigkeit Name="Verführen" Lernpunkte="4" Anfangswert="8" Lernkosten="50" Erfolgswert="8" Attribut="pA"/>
+  <Fertigkeit Name="Verhören" Lernpunkte="4" Anfangswert="8" Lernkosten="200" Erfolgswert="8" Attribut="pA"/>
+  <Fertigkeit Name="Verkleiden" Lernpunkte="5" Anfangswert="15" Lernkosten="50" Erfolgswert="12" Attribut="In"/>
+  <Fertigkeit Name="Wagenlenken" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
+  <Fertigkeit Name="Wahrnehmung" Lernpunkte="4" Anfangswert="4" Lernkosten="400" Erfolgswert="4" Attribut="In"/>
+  <Fertigkeit Name="Winden" Lernpunkte="4" Anfangswert="4" Lernkosten="250" Erfolgswert="2"/>
+  <Fertigkeit Name="Wissen von der Magie" Lernpunkte="1" Lernkosten="5000"/>
+  <Fertigkeit Name="Zauberkunde" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In"/>
+  <Fertigkeit Name="Zeichensprache" Lernpunkte="4" Anfangswert="1" Lernkosten="20" Erfolgswert="1"/>
+  <Fertigkeit Name="Überleben im Dschungel" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6"/>
+  <Fertigkeit Name="Überleben im Gebirge" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6"/>
+  <Fertigkeit Name="Überleben im Schnee" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6"/>
+  <Fertigkeit Name="Überleben im Sumpf" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6"/>
+  <Fertigkeit Name="Überleben im Wald" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6"/>
+  <Fertigkeit Name="Überleben in der Steppe" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6"/>
+  <Fertigkeit Name="Überleben in der Wüste" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6"/>
+  <Fertigkeit Name="Dichten" Region="B&amp;R" Lernpunkte="3" Anfangswert="1" Lernkosten="150" Erfolgswert="1" Attribut="In"/>
+  <Fertigkeit Name="Etikette" Region="B&amp;R" Lernpunkte="3" Anfangswert="4" Lernkosten="200" Erfolgswert="2" Attribut="In"/>
+  <Fertigkeit Name="Fallen" Region="B&amp;R" Lernpunkte="5" Anfangswert="15" Lernkosten="200" Erfolgswert="12"/>
+  <Fertigkeit Name="Fangen" Region="B&amp;R" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
+  <Fertigkeit Name="Fälschen" Region="B&amp;R" Lernpunkte="5" Anfangswert="15" Lernkosten="50" Erfolgswert="12" Attribut="In"/>
+  <Fertigkeit Name="Heraldik" Region="B&amp;R" Lernpunkte="2" Lernkosten="100" Attribut="In"/>
+  <Fertigkeit Name="Jonglieren" Region="B&amp;R" Lernpunkte="3" Anfangswert="8" Lernkosten="200" Erfolgswert="6" Attribut="Ge"/>
+  <Fertigkeit Name="Kalligraphie" Region="B&amp;R" Lernpunkte="3" Anfangswert="1" Lernkosten="150" Erfolgswert="1" Attribut="Ge"/>
+  <Fertigkeit Name="Kampf in Dunkelheit" Region="B&amp;R" Lernpunkte="6" Anfangswert="1" Lernkosten="300" Erfolgswert="1" Attribut="Ge"/>
+  <Fertigkeit Name="Lanzenstechen" Region="B&amp;R" Lernpunkte="4" Anfangswert="1" Lernkosten="200" Erfolgswert="1"/>
+  <Fertigkeit Name="Luftkampf" Region="B&amp;R" Lernpunkte="8" Lernkosten="400" Attribut="Ge"/>
+  <Fertigkeit Name="Malen/Zeichen" Region="B&amp;R" Lernpunkte="3" Anfangswert="1" Lernkosten="150" Erfolgswert="1" Attribut="Ge"/>
+  <Fertigkeit Name="Schiffsführung" Region="B&amp;R" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In"/>
+  <Fertigkeit Name="Schlittschuhlaufen" Region="B&amp;R" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
+  <Fertigkeit Name="Siegelfälschung" Region="B&amp;R" Lernpunkte="4" Lernkosten="100" Attribut="Ge"/>
+  <Fertigkeit Name="Siegelkunde" Region="B&amp;R" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In"/>
+  <Fertigkeit Name="Singen (Stufe)" Region="B&amp;R" Lernpunkte="3" Anfangswert="1" Lernkosten="150" Erfolgswert="1" Attribut="pA"/>
+  <Fertigkeit Name="Verbergen" Region="B&amp;R" Lernpunkte="4" Anfangswert="8" Lernkosten="300" Erfolgswert="6" Attribut="Ge"/>
+  <Fertigkeit Name="Werfen" Region="B&amp;R" Lernpunkte="4" Anfangswert="5" Lernkosten="400" Erfolgswert="5" Attribut="Ge"/>
+  <Fertigkeit Name="Wetterkunde" Region="B&amp;R" Lernpunkte="4" Anfangswert="4" Lernkosten="25" Erfolgswert="2" Attribut="In"/>
+  <Fertigkeit Name="Brettspiel" Region="E" Lernpunkte="1" Anfangswert="4" Lernkosten="20" Erfolgswert="2" Attribut="In"/>
+  <Fertigkeit Name="Dichten" Region="E" Lernpunkte="4" Lernkosten="150" Attribut="In"/>
+  <Fertigkeit Name="Erzählen" Region="E" Lernpunkte="4" Lernkosten="150" Attribut="In"/>
+  <Fertigkeit Name="Geomantie" Region="E" Lernpunkte="1" Lernkosten="400" Attribut="Zt"/>
+  <Fertigkeit Name="Kamelreiten" Region="E" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
+  <Fertigkeit Name="Kampf zu Kamel" Region="E" Lernpunkte="8" Lernkosten="200"/>
+  <Fertigkeit Name="Mumifizieren" Region="E" Lernpunkte="4" Lernkosten="200" Attribut="In"/>
+  <Fertigkeit Name="Pyromantie" Region="E" Lernpunkte="1" Lernkosten="400" Attribut="Zt"/>
+  <Fertigkeit Name="FengSchui" Region="K" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In"/>
+  <Fertigkeit Name="FengTsu" Region="K" Lernpunkte="8" Lernkosten="300"/>
+  <Fertigkeit Name="Fälschen" Region="K" Lernpunkte="5" Anfangswert="15" Lernkosten="50" Erfolgswert="12" Attribut="In"/>
+  <Fertigkeit Name="Geschenke machen" Region="K" Lernpunkte="5" Anfangswert="8" Lernkosten="200" Erfolgswert="6" Attribut="pA"/>
+  <Fertigkeit Name="IaiJutsu" Region="K" Lernpunkte="8" Lernkosten="60"/>
+  <Fertigkeit Name="KarumiJutsu" Region="K" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
+  <Fertigkeit Name="Kenntnis der fünf Klassiker" Region="K" Lernpunkte="5" Lernkosten="2500"/>
+  <Fertigkeit Name="KentoYobu" Region="K" Lernpunkte="8" Lernkosten="100"/>
+  <Fertigkeit Name="KiDo" Region="K" Lernpunkte="8" Anfangswert="10" Lernkosten="800" Erfolgswert="10" Attribut="Zt"/>
+  <Fertigkeit Name="KiDo-Technik" Region="K" Lernpunkte="1"/>
+  <Fertigkeit Name="KujKuri" Region="K" Lernpunkte="4" Anfangswert="1" Lernkosten="20" Erfolgswert="1"/>
+  <Fertigkeit Name="KujNoIu" Region="K" Lernpunkte="8" Lernkosten="400"/>
+  <Fertigkeit Name="LiYao" Region="K" Lernpunkte="5" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In"/>
+  <Fertigkeit Name="Meditieren" Region="K" Lernpunkte="4" Anfangswert="8" Lernkosten="200" Erfolgswert="8" Attribut="Sb"/>
+  <Fertigkeit Name="MiChen" Region="K" Lernpunkte="8" Lernkosten="500"/>
+  <Fertigkeit Name="NinJutsu" Region="K" Lernpunkte="4" Anfangswert="4" Lernkosten="600" Erfolgswert="2" Attribut="Ge"/>
+  <Fertigkeit Name="Orakelkunst" Region="K" Lernpunkte="5" Lernkosten="60"/>
+  <Fertigkeit Name="SchiyoKi" Region="K" Lernpunkte="8" Lernkosten="100"/>
+  <Fertigkeit Name="Schwerttanz" Region="K" Lernpunkte="8" Anfangswert="14" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
+  <Fertigkeit Name="Steinabreibungen machen" Region="K" Lernpunkte="4" Lernkosten="60"/>
+  <Fertigkeit Name="TaiTschi" Region="K" Lernpunkte="5" Lernkosten="100"/>
+  <Fertigkeit Name="Teezeremonie" Region="K" Lernpunkte="5" Anfangswert="8" Lernkosten="50" Erfolgswert="6" Attribut="pA"/>
+  <Fertigkeit Name="YangScheng" Region="K" Lernpunkte="5" Anfangswert="1" Lernkosten="100" Erfolgswert="1"/>
+  <Fertigkeit Name="YubeChian" Region="K" Lernpunkte="8" Lernkosten="200"/>
+  <Fertigkeit Name="Zunge verschlucken" Region="K" Lernpunkte="4" Anfangswert="8" Lernkosten="200" Erfolgswert="8"/>
+  <Fertigkeit Name="Askese" Region="R" Lernpunkte="6" Anfangswert="1" Lernkosten="1500" Erfolgswert="1" Attribut="Sb"/>
+  <Fertigkeit Name="Astrologie" Region="R" Lernpunkte="4" Anfangswert="4" Lernkosten="400" Erfolgswert="2"/>
+  <Fertigkeit Name="Augensalbe herstellen" Region="R" Lernpunkte="9" Lernkosten="200"/>
+  <Fertigkeit Name="Elefanten lenken" Region="R" Lernpunkte="6" Anfangswert="15" Lernkosten="1000" Erfolgswert="12" Attribut="Ge"/>
+  <Fertigkeit Name="Kampf zu Elefant" Region="R" Lernpunkte="8" Lernkosten="200"/>
+  <Fertigkeit Name="Kampf zu Srimara" Region="R" Lernpunkte="8" Lernkosten="200"/>
+  <Fertigkeit Name="Körperkontrolle" Region="R" Lernpunkte="3" Anfangswert="15" Lernkosten="150" Erfolgswert="12"/>
+  <Fertigkeit Name="Meditieren" Region="R" Lernpunkte="4" Anfangswert="8" Lernkosten="200" Erfolgswert="8" Attribut="Sb"/>
+  <Fertigkeit Name="Natya" Region="R" Lernpunkte="7" Lernkosten="100"/>
+  <Fertigkeit Name="Schlangen beschwören" Region="R" Lernpunkte="4" Anfangswert="8" Lernkosten="200" Erfolgswert="8" Attribut="Sb"/>
+  <Fertigkeit Name="Schmerzen ertragen" Region="R" Lernpunkte="8" Anfangswert="15" Lernkosten="200" Erfolgswert="12" Attribut="Sb"/>
+  <Fertigkeit Name="Srimara lenken" Region="R" Lernpunkte="6" Anfangswert="15" Lernkosten="1000" Erfolgswert="12" Attribut="Ge"/>
+</MidgardCG-data>
