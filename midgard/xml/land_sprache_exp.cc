@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.29 2002/03/02 16:24:38 thoma Exp $
+// $Id: land_sprache_exp.cc,v 1.30 2002/03/15 07:08:41 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -235,7 +235,7 @@ void land_speichern(std::ostream &o)
 //********************** typen ****************************************
    o << " <Typen>\n";
   {Query query("select typs, region, typnr, typl, typlw, "
-  		"typz, sprueche_mit_pp, beruf, "
+  		"typz, sprueche_mit_pp, nsc_only, beruf, "
   		"stadt_land, ausdauer, stand, sb, ruestung, geld "
    	" from typen"
    	" where coalesce(region,'')='"+region+"'"
@@ -252,6 +252,7 @@ void land_speichern(std::ostream &o)
    write_bool_attrib(o, "Zauberer",zauberer=='z');
    write_bool_attrib(o, "kannZaubern",zauberer=='z'||zauberer=='j');
    fetch_and_write_bool_attrib(is, o, "SprücheMitPraxisPunkten");
+   fetch_and_write_bool_attrib(is, o, "NSC_only");
    fetch_and_write_string_attrib(is, o, "Berufswahl");
    string stadt_land=fetch_string(is);
    if (stadt_land=="s") write_bool_attrib(o, "Land", false, true);

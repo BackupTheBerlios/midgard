@@ -27,12 +27,13 @@ CREATE TABLE "regionen" (
 
 
 COPY "regionen" FROM stdin;
-11	Abenteuer	X	\N	\N	Malte Thoma	1.0	var.	t	6	1981-
+12	Abenteuer	X	\N	\N	Malte Thoma	1.0	var.	t	6	1981-
 3	Alba	A	\N	\N	Malte Thoma	1.0	Thomas Kreutz und Ludger Fischer	t	3	\N
 -1	Arkanum	Arkanum	\N	\N	Malte Thoma	1.0	Jürgen E. Franke	t	9	2000
 -2	Das Fantasy Rollenspiel		\N	\N	Malte Thoma	1.0	Jürgen E. Franke	t	10	2001
 4	Eschar	E	\N	\N	Malte Thoma	1.0	Stephanie Lammers	t	4	\N
-10	Gildenbrief	G	\N	\N	Malte Thoma	1.0	var.	f	5	\N
+11	Gildenbrief	G	\N	\N	Malte Thoma	1.0	var.	f	5	\N
+10	H&D (Finstere Magie)	H&Df	\N	\N	Malte Thoma	1.0	Alexander Huiskes	t	6	1994
 9	Hexenzauber & Druidenkraft	H&D	\N	\N	Malte Thoma	1.0	Alexander Huiskes (Hrsg.)	f	6	1994
 5	KanThaiPan	K	\N	\N	Malte Thoma	1.0	Isolde Popp	f	2	\N
 2	Meister der Sphären	MdS	\N	\N	Malte Thoma	1.0	Jürgen E. Franke	t	11	\N

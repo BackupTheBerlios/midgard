@@ -13,7 +13,8 @@
  <MAGUS-include File="Rawindra.xml"/>
  <MAGUS-include File="Gildenbrief.xml"/>
  <MAGUS-include File="AbenteuerBaende.xml"/>
- <MAGUS-include File="HexenzauberDruidenkraft.xml" inactive="true"/>
+ <MAGUS-include File="HexenzauberDruidenkraft.xml" />
+ <MAGUS-include File="HexenzauberDruidenkraftFinster.xml" />
  <MAGUS-include File="BarbarenWutRitterEhre.xml" inactive="true"/>
  <MAGUS-include File="Regelwerk3.xml" inactive="true"/>
 </MAGUS-data>

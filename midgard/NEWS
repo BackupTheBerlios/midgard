@@ -7,7 +7,7 @@ NEWS IN VERSION 0.4delta6
 * Angeborene Fertigkeiten Auswahl jetzt ohne extra Fenster (s.o.)
    außerdem ist der Absturzbug jetzt weg.
 * Charakterbeschreibung jetzt auch im Hauptfenster (konsistenter und einfacher)
-* TESTEN Der Chrakterbeschreibung kann nun eine Grafik hinzugefügt werden
+* Der Chrakterbeschreibung kann nun eine Grafik hinzugefügt werden
 * Lernpunkte/Geld/Waffen/Rüstung nur noch einnmal wählbar
 * Anzeige der Lernauswahl springt nicht mehr zurück.
 * Code aufgeräumt
@@ -17,16 +17,22 @@ NEWS IN VERSION 0.4delta6
 * Zahlreiche Bugs aus der 'lernen' Routine herausgeholt
 * nach dem Laden ist 'steigern' wählbar
 * Schrift im Zaubernausdruck verkleinert -> jetzt paßt es (wieder)
+* Laden von Optionen 
+* geladene Optionen auswerten
+* xpdf als neuer pdf-viewer hinzugefügt
+* latex & pdf-viewer code aufgeräumt
+* Option 'Originalregeln' wird mit Abenteurer zusammen abgespeichert
+* versteckte Ausrüstung nun wieder grau (im Ausdruck) 
+* Chaospriester und Finstermagier sind als NSC Klassen möglich (Menü: Optionen)
 
 TODO:
-* geladene Optionen auswerten
-* Ausrüstung drucken, Abenteurer drucken -> absturz
+* Ausrüstung drucken, Abenteurer drucken -> absturz ??
 * Steigern mehrerer Stufen mit PP
+* Finstermagier: Lernschema, Fertigkeiten, Waffen, Zauber
 * Waeland: Zauber
 * Nahuathlan: Komplett
 * Eschar: Derwisch
 * Doppelklassen
-* Laden von Optionen 
 * gv zeigt den falschen Ausschnitt des pdf Dokumentes 
    (nur für Linux interessant)
 * dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
