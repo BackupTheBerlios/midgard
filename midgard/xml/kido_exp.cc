@@ -1,4 +1,4 @@
-// $Id: kido_exp.cc,v 1.3 2002/01/19 11:21:37 christof Exp $
+// $Id: kido_exp.cc,v 1.4 2002/06/06 14:22:07 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -22,7 +22,7 @@
 #include <Aux/dbconnect.h>
 #include "export_common.h"
 
-void kido_speichern(std::ostream &o)
+void kido_speichern(Tag &o)
 {  
    Transaction t;
 #ifdef REGION   
@@ -32,21 +32,17 @@ void kido_speichern(std::ostream &o)
    	" from kido"
    	" order by name_orig");
    FetchIStream is;
-   o << " <Kido-Fertigkeiten>\n";
+   Tag &liste=o.push_back(Tag("Kido-Fertigkeiten"));
   while ((query>>is).good())
-  {o << "  <KiDo";
-   fetch_and_write_string_attrib(is, o, "Name");
-   fetch_and_write_string_attrib(is, o, "Übersetzung");
-   fetch_and_write_string_attrib(is, o, "Stufe");
-   fetch_and_write_string_attrib(is, o, "Stil");
-   fetch_and_write_int_attrib(is, o, "Lernkosten");
-   fetch_and_write_string_attrib(is, o, "AP");
-   o << ">";
-   std::string Erklaerung=fetch_string(is);
-   if (Erklaerung.size())  o << toXML(Erklaerung); 
-   o << "</KiDo>\n";
+  {Tag &kf=liste.push_back(Tag("KiDo"));
+   fetch_and_set_string_attrib(is, kf, "Name");
+   fetch_and_set_string_attrib(is, kf, "Übersetzung");
+   fetch_and_set_string_attrib(is, kf, "Stufe");
+   fetch_and_set_string_attrib(is, kf, "Stil");
+   fetch_and_set_int_attrib(is, kf, "Lernkosten");
+   fetch_and_set_string_attrib(is, kf, "AP");
+   kf.Value(fetch_string(is));
   }
-   o << " </Kido-Fertigkeiten>\n";
   }
 }
 
