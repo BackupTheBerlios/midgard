@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.6 2002/01/03 08:20:58 christof Exp $
+// $Id: fertigk_exp.cc,v 1.7 2002/01/07 10:03:56 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -145,11 +145,10 @@ void fert_speichern(std::ostream &o)
       	FetchIStream is2;
       	std::string ep;
       	while ((query2>>is2).good())
-        {  if (!ep.empty()) ep+=',';
-           ep+=fetch_string(is2);
+        {  ep+=" "+fetch_string(is2)+"=\"True\"";
         }
-        if (!ep.empty())
-           o << "    <EP-Typ Typ=\"" << ep << "\"/>\n";
+        if (ep!=" KEP=\"True\" ZEP=\"True\"")
+           o << "    <verwendbareEP" << ep << "/>\n";
      }
    
    o << "  </Fertigkeit>\n";
@@ -252,19 +251,23 @@ void fert_speichern(std::ostream &o)
       FetchIStream is2;
       std::string staende;
       while ((query2>>is2).good())
-      {  if (!staende.empty()) staende+=',';
-         staende+=fetch_string(is2);
+      {  std::string stand=fetch_string(is2);
+         if (stand=="U") staende+=" Unfrei=\"True\"";
+         if (stand=="V") staende+=" Volk=\"True\"";
+         if (stand=="M") staende+=" Mittelschicht=\"True\"";
+         if (stand=="A") staende+=" Adel=\"True\"";
       }
 #else
-   std::string staende;
-   if (fetch_bool(is)) staende+=",U";
-   if (fetch_bool(is)) staende+=",V";
-   if (fetch_bool(is)) staende+=",M";
-   if (fetch_bool(is)) staende+=",A";
-   if (!staende.empty()) staende=staende.substr(1);
+      std::string staende;
+      if (fetch_bool(is)) staende+=" Unfrei=\"True\"";
+      if (fetch_bool(is)) staende+=" Volk=\"True\"";
+      if (fetch_bool(is)) staende+=" Mittelschicht=\"True\"";
+      if (fetch_bool(is)) staende+=" Adel=\"True\"";
 #endif
-      if (!staende.empty())
-         o << "    <Stand>" << staende << "</Stand>\n";
+      if (!staende.empty() 
+      	&& staende!=" Unfrei=\"True\" Volk=\"True\" Mittelschicht=\"True\" Adel=\"True\""
+      	&& staende!=" Adel=\"True\" Mittelschicht=\"True\" Unfrei=\"True\" Volk=\"True\"")
+         o << "    <Stand" << staende << "/>\n";
    }
    {  Query query2(
    		"select vorteil from berufe_vorteile" MIDGARD3_4("","_4")
@@ -273,8 +276,7 @@ void fert_speichern(std::ostream &o)
       FetchIStream is2;
       std::string vorteile;
       while ((query2>>is2).good())
-      {  if (!vorteile.empty()) vorteile+=',';
-         vorteile+=fetch_string(is2);
+      {  vorteile+="<Fertigkeit Name=\""+toXML(fetch_string(is2))+"\"/>";
       }
       if (!vorteile.empty())
          o << "    <Vorteil>" << vorteile << "</Vorteil>\n";
