@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.56 2002/02/06 12:14:56 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.57 2002/02/06 15:14:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -84,7 +84,7 @@ void midgard_CG::on_lernpunkte_wuerfeln_clicked()
   button_waffen->set_sensitive(true);
   if(Typ[0]->Zaubern()=="j" || Typ[0]->Zaubern() == "z" || magie_bool) 
       button_zauber->set_sensitive(true);
-  table_berufswahl->set_sensitive(true);               
+  vbox_berufsname->set_sensitive(true);               
 }
 
 

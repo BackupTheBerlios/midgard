@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.142 2002/02/06 14:35:26 thoma Exp $
+// $Id: midgard_CG.cc,v 1.143 2002/02/06 15:14:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -280,7 +280,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    button_untyp_fertigkeiten->set_sensitive(false);
    button_waffen->set_sensitive(false);
    button_zauber->set_sensitive(false);
-   vbox_berufswahl->set_sensitive(false);
+   vbox_berufsname->set_sensitive(false);
       
    scrolledwindow_landauswahl->hide();
    table_werte_wuerfeln->hide();
