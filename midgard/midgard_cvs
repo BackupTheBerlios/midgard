@@ -128,7 +128,7 @@ then
   domake
   doinstall
 else
-  echo "Midgard anonymous-CVS Installierer $Revision: 1.3 $"
+  echo "Midgard anonymous-CVS Installierer, Version $Revision: 1.4 $aetsch"
   echo
   echo "USAGE: $0 <Befehl> [Argumente]"
   echo "Befehle: checkout co update configure make install"
