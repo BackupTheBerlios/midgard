@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.95 2002/11/13 10:22:41 thoma Exp $
+// $Id: Optionen.cc,v 1.96 2002/11/14 13:26:04 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -249,7 +249,7 @@ void Midgard_Optionen::OptionenCheck_setzen_from_menu(OptionenCheckIndex index)
   for(std::list<Midgard_Optionen::st_OptionenCheck>::iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
    {
      if(i->index!=index) continue;
-     if     (i->index==Original) { hauptfenster->checkbutton_original(i->active); /*hauptfenster->menu_init();*/}
+     if     (i->index==Original) hauptfenster->checkbutton_original(i->active);
      else if(i->index==Drei_Tasten_Maus) hauptfenster->show_3_Tasten_Maus(i->active);
      else if(i->index==NSC_only) {hauptfenster->show_NSC_active(i->active);
                                   hauptfenster->table_grundwerte->fill_typauswahl();
@@ -333,7 +333,7 @@ void Midgard_Optionen::Ober_setzen_from_menu(OberIndex index)
                      OberCheck(Customize_Icons).active,
                      OberCheck(Customize_Text).active,i->active);
          }
-        hauptfenster->menu_init();
+//        hauptfenster->menu_init();
         return;
       }
    }

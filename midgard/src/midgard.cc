@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.51 2002/10/29 07:57:57 christof Exp $
+// $Id: midgard.cc,v 1.52 2002/11/14 13:26:04 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -28,6 +28,8 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include "Windows_Linux.hh"
+
+//#include <locale>
 
 int main(int argc, char **argv)
 {   
@@ -118,6 +120,7 @@ int main(int argc, char **argv)
    std::string datei;
    if (argc==2) datei=argv[1];
 
+//   setlocale(LC_ALL, "de_DE");
    midgard_CG *magus=new midgard_CG(argv0,magus_verzeichnis,datei);
    m.run();
    delete magus;

@@ -30,10 +30,11 @@ class Data_Herkunft : public RowDataBase
 {
       cH_Land Land;
       bool erlaubt;
+      MBEmlt& MBE;
 
    public:
-      Data_Herkunft(const cH_Land l,bool e)
-         : Land(l),erlaubt(e) {}
+      Data_Herkunft(const cH_Land l,bool e,MBEmlt& M)
+         : Land(l),erlaubt(e),MBE(M) {}
 
       enum Spalten {LAND,KONTINENT,SPRACHEN};
       virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
@@ -54,6 +55,7 @@ class Data_Herkunft : public RowDataBase
         }
       cH_Land getLand() const {return Land;}
       bool Erlaubt() const {return erlaubt;}
+      MBEmlt& getMBE() const {return MBE;}
 };
 
 class cH_Data_Herkunft : public Handle<Data_Herkunft>

@@ -37,7 +37,8 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
   // in die Liste geschrieben.
   // eine Ausnamhe ist 'Landeskunde (Heimat)', das passiert unten
 // list_FertigkeitZusaetze.push_back((*MBE)->Name());
-  if(MBE->Lernpunkte()==0) // Sprache/Schrift für '0' Lernpunkte nur einmal lernen
+  if(MBE->Lernpunkte()==0 &&  // Sprache/Schrift für '0' Lernpunkte nur einmal lernen
+     !((*MBE)->Name()=="Muttersprache") && !((*MBE)->Name()=="Gastlandsprache"))
     list_FertigkeitZusaetze.push_back((*MBE)->Name());
   if((*MBE)->Name()=="Schreiben: Muttersprache(+4)" ||
      (*MBE)->Name()=="Schreiben: Muttersprache(+9)" ||
@@ -58,7 +59,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
       {
        std::vector<pair<cH_Land,bool> > L=LernListen(hauptfenster->getDatabase()).getHerkunft(hauptfenster->getAben());
        for(std::vector<pair<cH_Land,bool> >::const_iterator i=L.begin();i!=L.end();++i)
-          datavec_zusatz.push_back(new Data_Herkunft(i->first,i->second));
+          datavec_zusatz.push_back(new Data_Herkunft(i->first,i->second,MBE));
        connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_herkunft_leaf_selected));
        scrolledwindow_lernen->hide();
        break;
@@ -79,7 +80,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
            list_FertigkeitZusaetze.push_back((*MBE)->Name());
            cH_MidgardBasicElement MBE_=new Fertigkeit(*cH_Fertigkeit("Landeskunde"));
            MBEmlt M(&*MBE_);
-           M->setLernArt(M->LernArt()+"_Heimat");
+           M->setLernArt(MBE->LernArt()+"_Heimat");
            M->setZusatz(hauptfenster->getWerte().Herkunft()->Name());
            M->setErfolgswert(MBE->Erfolgswert());
            M->setLernpunkte(MBE->Lernpunkte());
@@ -97,8 +98,10 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
       }
      case MidgardBasicElement::ZSprache:
       {
+// Das passiert schon oben bei '0' Lernpunkten
        if((*MBE)->Name()=="Muttersprache" || (*MBE)->Name()=="Gastlandsprache" || (*MBE)->Name()=="Sprechen: Alte Sprache") 
-        {  MBE->setLernArt(MBE->LernArt()+"_"+(*MBE)->Name());
+        {  
+           MBE->setLernArt((*MBE)->Name());
            list_FertigkeitZusaetze.push_back(MBE->LernArt());
         }
        std::vector<MidgardBasicElement::st_zusatz>  V=LernListen(hauptfenster->

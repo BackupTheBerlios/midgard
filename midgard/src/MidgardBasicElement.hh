@@ -110,6 +110,8 @@ class MidgardBasicElement : public HandleContentCopyable
       virtual std::string What_str() const=0; // zum speichern
       virtual std::string Stufe() const {return "";} 
       virtual int MaxErfolgswert(const Abenteurer &A) const {return 0;};
+      virtual int LernLand() const {return -99;}
+      virtual int LernStadt() const {return -99;}
       bool ist_lernbar(const std::vector<cH_Typen>& Typ,const std::map<std::string,std::string>& map_typ) const;
       bool ist_gelernt(const std::list<std::string>& L) const;
       virtual int FErfolgswert(const Abenteurer &abenteurer,const MBEmlt &mbem) const;

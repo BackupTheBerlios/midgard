@@ -1,4 +1,4 @@
-// $Id: LernListen.cc,v 1.20 2002/11/07 09:41:23 thoma Exp $
+// $Id: LernListen.cc,v 1.21 2002/11/14 13:26:04 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -48,9 +48,13 @@ std::list<MBEmlt> LernListen::getMBEm(const Abenteurer& A,eMBE was,
    std::list<MBEmlt> V;
    if(!V_.empty())
    {
+    // Waffen hinzunehmen:
+    if(was==lAllg)
+      {std::list<cH_MidgardBasicElement> v=Waffe::getAllgemeinwissen(D.Waffe);
+       V_.splice(V_.end(),v);
+      }
     for(std::list<cH_MidgardBasicElement>::const_iterator i=V_.begin();i!=V_.end();++i)
      {
-      if((*i)->Name()=="Muttersprache") continue; // Muttersprache wird vorher gelernt
       bool erlaubt=false;
       if(was==MutterSprache || was==NachbarlandSprache)
        {
@@ -70,9 +74,10 @@ std::list<MBEmlt> LernListen::getMBEm(const Abenteurer& A,eMBE was,
       if(was==lUnge) lp = cH_Fertigkeit(*i)->LernUnge();
       else if (was==lAllg)
        {
-         if     (A.getWerte().Stadt_Land()==Enums::Land  ) lp=cH_Fertigkeit(*i)->LernLand();
-         else if(A.getWerte().Stadt_Land()==Enums::Stadt ) lp=cH_Fertigkeit(*i)->LernStadt();
-         cH_Fertigkeit(*i)->get_region_lp(lp,A,D);
+         if     (A.getWerte().Stadt_Land()==Enums::Land  ) lp=(*i)->LernLand();
+         else if(A.getWerte().Stadt_Land()==Enums::Stadt ) lp=(*i)->LernStadt();
+         if((*i)->What()==MidgardBasicElement::FERTIGKEIT) 
+            cH_Fertigkeit(*i)->get_region_lp(lp,A,D);
        }
       M->setLernpunkte(lp);
       
@@ -82,7 +87,10 @@ std::list<MBEmlt> LernListen::getMBEm(const Abenteurer& A,eMBE was,
             Sprache::setErfolgswertMuttersprache(M,A.getWerte().In(),cH_Fertigkeit(*i)->AttributBonus(A.getWerte()));
          else if((*i)->Name()=="Gastlandsprache")
             Sprache::setErfolgswertGastlandsprache(M,A.getWerte().In());
-         else M->setErfolgswert((*i)->Anfangswert()+cH_Fertigkeit(*i)->AttributBonus(A.getWerte()));
+         else if((*i)->What()==MidgardBasicElement::FERTIGKEIT) 
+            M->setErfolgswert((*i)->Anfangswert()+cH_Fertigkeit(*i)->AttributBonus(A.getWerte()));
+         else if((*i)->What()==MidgardBasicElement::WAFFE) 
+            M->setErfolgswert(4);
        }
       else if(was==lAngebFert) M->setErfolgswert((*i)->Anfangswert());
       else M->setErfolgswert(erfolgswert);

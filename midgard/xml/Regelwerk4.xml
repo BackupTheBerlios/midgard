@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.18 $">
+<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.19 $">
  <Länder>
   <Kontinent Name="Huaxal">
    <Land Name="Feuerinseln">
@@ -738,6 +738,7 @@
    <Typ Name="Th"/>
    <Typ Name="To"/>
    <Typ Name="eBe"/>
+   <angeboreneFertigkeit Art="af" Name="Nachtsicht" Erfolgswert="8"/>
    <angeboreneFertigkeit Art="af" Name="Robustheit" Erfolgswert="9"/>
    <angeboreneFertigkeit Art="f" Name="Baukunde" Erfolgswert="8" LP="1"/>
    <angeboreneFertigkeit Art="ff" Name="Trinken" Erfolgswert="12" LP="1"/>
@@ -7103,7 +7104,7 @@
   </Rüstung>
  </Rüstungen>
  <Waffen>
-  <Waffe Name="Anderthalbhänder" Grundkenntnisse="Zweihandschwert" Schwierigkeit="4" Kategorie="Angriff" Klasse="Z" Schaden="W6" Schadensbonus="1" Schadensbonus2="2">
+  <Waffe Name="Anderthalbhänder" Grundkenntnisse="Zweihandschwert" Schwierigkeit="4" Kategorie="Angriff" Klasse="Z" Schaden="W6" Schadensbonus="1" Schadensbonus2="2" Text="(Einhändig|Beidhändig)">
    <Modifikationen Waffenrang="-1" Abwehr-leicht="0" Abwehr-schwer="-1"/>
    <Voraussetzungen St="31" Gs="21"/>
    <Reichweite/>
@@ -7508,7 +7509,7 @@
    <Lernschema Typ="Sp" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Wa" Lernpunkte="2" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="Hellebarde" Grundkenntnisse="Stangenwaffe" Schwierigkeit="5" Kategorie="Angriff" Klasse="Z" Schaden="W6|W6+2|2W6-1">
+  <Waffe Name="Hellebarde" Grundkenntnisse="Stangenwaffe" Schwierigkeit="5" Kategorie="Angriff" Klasse="Z" Schaden="W6|W6+2|2W6-1" Text="(Stechend|Sturmangriff|Schlagend)">
    <Modifikationen Waffenrang="+1/-3" Abwehr-leicht="0/+2" Abwehr-schwer="0/-2"/>
    <Voraussetzungen St="61" Gs="51"/>
    <Reichweite/>
@@ -7815,7 +7816,7 @@
    <Lernschema Typ="Sp" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Wa" Lernpunkte="3" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="Krummsäbel" Grundkenntnisse="Einhandschwert" Schwierigkeit="3" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus2="1">
+  <Waffe Name="Krummsäbel" Grundkenntnisse="Einhandschwert" Schwierigkeit="3" Kategorie="Angriff" Klasse="E" Schaden="W6" Schadensbonus2="1" Text="(Normal|Reiterwaffe)">
    <Modifikationen Abwehr-leicht="0/-2" Abwehr-schwer="0/0"/>
    <Voraussetzungen St="31" Gs="11"/>
    <Reichweite/>
@@ -7986,7 +7987,7 @@
    <Lernschema Typ="Er" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Sp" Lernpunkte="3" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="Lanze" Grundkenntnisse="Spießwaffe" Schwierigkeit="4" Kategorie="Angriff" Klasse="E" Schaden="W6|2W6+2|3W6+3">
+  <Waffe Name="Lanze" Grundkenntnisse="Spießwaffe" Schwierigkeit="4" Kategorie="Angriff" Klasse="E" Schaden="W6|2W6+2|3W6+3" Text="(Stechend|Sturmangriff|Sturmangriff zu Pferd)">
    <Modifikationen Waffenrang="+1/+3" Abwehr-leicht="0/0" Abwehr-schwer="0/-2"/>
    <Voraussetzungen St="61" Gs="11"/>
    <Reichweite/>
@@ -8199,7 +8200,7 @@
    <Lernschema Typ="sHx" Lernpunkte="4" Erfolgswert="4"/>
    <Lernschema Typ="wHx" Lernpunkte="4" Erfolgswert="4"/>
   </Waffe>
-  <Waffe Name="Ogerhammer" Grundkenntnisse="Zweihandschlagwaffe" Schwierigkeit="4" Kategorie="Angriff" Klasse="Z" Schaden="4W6" Schadensbonus2="3">
+  <Waffe Name="Ogerhammer" Grundkenntnisse="Zweihandschlagwaffe" Schwierigkeit="4" Kategorie="Angriff" Klasse="Z" Schaden="4W6" Schadensbonus="-3" Text="(Normal|Sturmangriff zu Pferd)">
    <Modifikationen Waffenrang="-4" Abwehr-leicht="+2" Abwehr-schwer="-3"/>
    <Voraussetzungen St="91" Gs="31"/>
    <Reichweite/>
@@ -8333,7 +8334,7 @@
    <Lernschema Typ="Sp" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Hä" Lernpunkte="3" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="Schlachtbeil" Grundkenntnisse="Zweihandschlagwaffe" Schwierigkeit="3" Kategorie="Angriff" Klasse="Z" Schaden="W6" Schadensbonus="3" Schadensbonus2="1">
+  <Waffe Name="Schlachtbeil" Grundkenntnisse="Zweihandschlagwaffe" Schwierigkeit="3" Kategorie="Angriff" Klasse="Z" Schaden="W6" Schadensbonus="1" Schadensbonus2="3" Text="(Einhändig|Beidhändig)">
    <Modifikationen Waffenrang="-2" Abwehr-leicht="+1" Abwehr-schwer="-2"/>
    <Voraussetzungen St="61" Gs="31"/>
    <Reichweite/>
@@ -8438,7 +8439,7 @@
    <Lernschema Typ="ScS" Lernpunkte="4" Erfolgswert="4"/>
    <Lernschema Typ="ScW" Lernpunkte="4" Erfolgswert="4"/>
   </Waffe>
-  <Waffe Name="Stielhammer" Grundkenntnisse="Stangenwaffe" Schwierigkeit="4" Kategorie="Angriff" Klasse="Z" Schaden="W6|W6+1|2W6">
+  <Waffe Name="Stielhammer" Grundkenntnisse="Stangenwaffe" Schwierigkeit="4" Kategorie="Angriff" Klasse="Z" Schaden="W6|W6+1|2W6" Text="(Stechend|Sturmangriff|Schlagend)">
    <Modifikationen Waffenrang="+1/-3" Abwehr-leicht="0/+2" Abwehr-schwer="0/-2"/>
    <Voraussetzungen St="81" Gs="31"/>
    <Reichweite/>
@@ -8482,7 +8483,7 @@
    <Lernschema Typ="Gl" Lernpunkte="3" Erfolgswert="5"/>
    <Lernschema Typ="Or" Lernpunkte="3" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="Stoßspeer" Grundkenntnisse="Spießwaffe" Schwierigkeit="3" Kategorie="Angriff" Klasse="E" Schaden="1|2|3W6">
+  <Waffe Name="Stoßspeer" Grundkenntnisse="Spießwaffe" Schwierigkeit="3" Kategorie="Angriff" Klasse="E" Schaden="1|2|3W6" Text="(Normal|Sturmangriff|Sturmangriff zu Pferd|)">
    <Modifikationen Waffenrang="+2/+2" Abwehr-leicht="0/0" Abwehr-schwer="0/-2"/>
    <Voraussetzungen St="31" Gs="11"/>
    <Reichweite/>
@@ -9069,7 +9070,7 @@
    <Lernschema Typ="Ba" Lernpunkte="4" Erfolgswert="5"/>
    <Lernschema Typ="Hä" Lernpunkte="4" Erfolgswert="5"/>
   </Waffe>
-  <Waffe Name="Schleuder" Grundkenntnisse="Schleuder" Schwierigkeit="5" Kategorie="Schußwaffe" Klasse="S" Schaden="W6" Schadensbonus2="-1">
+  <Waffe Name="Schleuder" Grundkenntnisse="Schleuder" Schwierigkeit="5" Kategorie="Schußwaffe" Klasse="S" Schaden="W6" Schadensbonus2="-1" Text="(Bleigeschoß|Steine)">
    <Modifikationen/>
    <Voraussetzungen Gs="61"/>
    <Reichweite nah="30" mittel="60" fern="90"/>
@@ -9359,7 +9360,7 @@
    <Lernschema Typ="As" Lernpunkte="3" Erfolgswert="1"/>
    <Lernschema Typ="PT" Lernpunkte="3" Erfolgswert="1"/>
   </Waffe>
-  <Waffe Name="Kampfgabeln" Grundkenntnisse="Parierwaffe" Schwierigkeit="0" Kategorie="Verteidigung" Klasse="E" Schadensbonus="-2" Schadensbonus2="-2">
+  <Waffe Name="Kampfgabeln" Grundkenntnisse="Parierwaffe" Schwierigkeit="0" Kategorie="Verteidigung" Klasse="E" Schadensbonus="-2" Schadensbonus2="-2" Text="(Einzeln|Doppelt)">
    <Modifikationen/>
    <Voraussetzungen St="31" Gs="61"/>
    <Reichweite/>

@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.82 2002/11/12 10:31:34 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.83 2002/11/14 13:26:04 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -77,7 +77,7 @@ void LaTeX_drucken::on_latex_clicked(bool values)
  std::string installfile=hauptfenster->with_path(get_latex_filename(TeX_MainDocument)+".tex");
  std::string filename=get_latex_pathname(TeX_tmp)+get_latex_filename(TeX_MainWerte);
  
-cout <<"LaTeX: "<< filename<<'\n';
+//cout <<"LaTeX: "<< filename<<'\n';
  {
  std::ofstream fout((filename+".tex").c_str());
 #ifdef __MINGW32__
@@ -359,7 +359,7 @@ void LaTeX_drucken::write_grundwerte(std::ostream &fout,bool empty)
      case eabwehrfinal:
      case eabwehrmitwaffe:
       { if(was==eabwehrfinal)    sfout += itos(W.Abwehr_wert()+W.bo_Ab());
-        if(was==eabwehrmitwaffe) sfout += Waffe::get_Verteidigungswaffe(W.Abwehr_wert()+W.bo_Ab(),hauptfenster->getChar()->List_Waffen(),hauptfenster->getChar()->List_Waffen_besitz(),hauptfenster->getAben());
+        if(was==eabwehrmitwaffe) sfout += Gtk2TeX::string2TeX(Waffe::get_Verteidigungswaffe(W.Abwehr_wert()+W.bo_Ab(),hauptfenster->getChar()->List_Waffen(),hauptfenster->getChar()->List_Waffen_besitz(),hauptfenster->getAben()));
         sfout += W.Ruestung_Abwehr_Verlust(hauptfenster->getChar()->List_Fertigkeit());
         break;
       }
@@ -384,7 +384,6 @@ void LaTeX_drucken::write_grundwerte(std::ostream &fout,bool empty)
      case eaep : sfout += EmptyInt_4TeX(W.AEP()); break ;
      case ekep : sfout += EmptyInt_4TeX(W.KEP()); break ;
      case ezep : sfout += EmptyInt_4TeX(W.ZEP()); break ;
-//     case egeld   : sfout += "\\tiny " + dtos(W.Gold()+W.Silber()/10.+W.Kupfer()/100.); break ;
      case egold   : sfout += "\\tiny " + itos0p(W.Gold()); break ;
      case esilber : sfout += "\\tiny " + itos0p(W.Silber()); break ;
      case ekupfer : sfout += "\\tiny " + itos0p(W.Kupfer()); break ;
@@ -516,11 +515,12 @@ void LaTeX_drucken::write_waffenbesitz(std::ostream &fout,const std::list<WaffeB
         // Angriffsbonus subtrahieren, wenn schwere Rüstung getragen wird:
         swert = itos(wert)+angriffsverlust;
       }
-     std::string schaden="$"+Gtk2TeX::string2TeX(i->Schaden(hauptfenster->getWerte(),i->AliasName()))+"$";
+     std::string schaden=i->Schaden(hauptfenster->getWerte(),i->AliasName());
      std::string anm = i->Waffe()->Waffenrang();
      std::string abm = i->Waffe()->WM_Abwehr();
 
-     VWB.push_back(st_WB(LaTeX_scalemag(waffenname,20,"3cm",i->Magisch(),i->Waffe()->Reichweite()),
+     VWB.push_back(st_WB(LaTeX_scalemag(waffenname,25,"3cm",i->Magisch(),
+            Gtk2TeX::string2TeX(i->Waffe()->Reichweite()+" "+i->Waffe()->Text())),
             swert,schaden,anm,abm));
    }
  unsigned int count=0;
@@ -530,22 +530,22 @@ void LaTeX_drucken::write_waffenbesitz(std::ostream &fout,const std::list<WaffeB
     if(b=="0") break;
     if(!longlist) fout << "\\newcommand{\\waffeE"<<b<<"}";
     else fout << " & ";
-    fout << "{+"<<i->wert<<"}\n";
+    fout << "{+"<<Gtk2TeX::string2TeX(i->wert)<<"}\n";
      if(!longlist) fout << "\\newcommand{\\waffeA"<<b<<"}";
      else fout << " & ";
-     fout << "{"<<i->rang << "}";
+     fout << "{"<<Gtk2TeX::string2TeX(i->rang) << "}";
      if(longlist) fout << "\\\\\\cline{2-3}";
      fout << "\n";
 
      if(!longlist) fout << "\\newcommand{\\waffe"<<b<<"}{ " ;
      else fout << "\\raisebox{1.5ex}[-1.5ex]{\\makebox[2cm][l]{ ";
-     fout <<i->name <<"}\n";
+     fout << i->name <<"}\n";
      if(!longlist) fout << "\\newcommand{\\waffeS"<<b<<"}";
      else fout << "} & ";
-     fout << "{"<<i->schaden << "}\n";
+     fout << "{"<<Gtk2TeX::string2TeX(i->schaden) << "}\n";
      if(!longlist) fout << "\\newcommand{\\waffeV"<<b<<"}";
      else fout << " & ";
-     fout << "{"<<i->modi << "}";
+     fout << "{"<<Gtk2TeX::string2TeX(i->modi) << "}";
      if(longlist) fout << "\\\\\\hline\\hline";
      fout << "\n";
   }
@@ -668,10 +668,15 @@ std::string LaTeX_drucken::LaTeX_scalemag(const std::string& is,
  if (is.size() <= maxlength) os = is;
  else  os = "\\resizebox*{"+scale+"}{1.5ex}{"+is+"}" ;
   std::string l1=os,l2;
-  if (magisch==""||magisch=="*") l2 = reichweite ;
-  else  { if (magisch.size()<=25) l2 = "\\tiny "+magisch;
-          else l2 = "\\resizebox*{"+scale+"}{1.5ex}{\\tiny "+magisch+"}" ;
-       }
+  if (magisch==""||magisch=="*") 
+   {
+     if(reichweite.size()<=25) l2 = "{\\tiny "+reichweite+"}";
+     else l2 = "\\resizebox*{"+scale+"}{1.5ex}{\\tiny "+reichweite+"}" ;
+   }
+  else  
+    { if (magisch.size()<=25) l2 = "\\tiny "+magisch;
+      else l2 = "\\resizebox*{"+scale+"}{1.5ex}{\\tiny "+magisch+"}" ;
+    }
   os = "\\parbox{2cm}{\\mbox{"+l1+"}" ;
   if (l2!="")  os += "\\tiny\\\\ \\mbox{"+l2+"}";
   os += "}";

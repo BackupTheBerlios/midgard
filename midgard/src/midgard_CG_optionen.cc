@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.111 2002/11/13 10:22:41 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.112 2002/11/14 13:26:04 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -39,16 +39,6 @@ void midgard_CG::Ober_element_activate(gpointer gp,Midgard_Optionen::OberIndex i
   getOptionen()->Ober_setzen_from_menu(index);
 }
 
-/*
-void midgard_CG::Ober_setzen_from_menu(Gtk::CheckMenuItem *mi,Midgard_Optionen::OberIndex index)
-{
- MOptionen->setOber(MOptionen->OberCheck(index).text,mi->get_active());
-// MOptionen->Ober_setzen_from_menu(index,mi->get_active());
- menu_init();
-}
-*/
-
-
 void midgard_CG::checkbutton_original(bool active)
 {
   if(active) 
@@ -61,7 +51,7 @@ void midgard_CG::checkbutton_original(bool active)
     { table_steigern->togglebutton_alle_zauber->set_sensitive(true); 
       eventbox_Original_Midgard->hide();
     }      
-  menu_init();
+//  menu_init();
 }
 
 void midgard_CG::lernschema_sensitive(bool active)

@@ -40,7 +40,7 @@ class Waffe : public MidgardBasicElement
      std::string grundkenntnisse, art, art2;
      std::string schaden;
      std::string waffenrang, wm_abwehr_leicht, wm_abwehr_schwer,
-         voraussetzung;
+         voraussetzung,text;
      int schwierigkeit,st,gw,gs,reichweite_0,reichweite_n,
          reichweite_m,reichweite_f;
      int lern_land,lern_stadt, anfangswert;
@@ -77,6 +77,7 @@ class Waffe : public MidgardBasicElement
      std::string WM_Abwehr() const;
      int WM_Angriff(const std::string& name) const;
      std::string Reichweite() const ;
+     std::string Text() const {return text;}
 
      int Schwierigkeit() const {return schwierigkeit;}
      std::string Schwierigkeit_str() const;
@@ -96,6 +97,8 @@ class Waffe : public MidgardBasicElement
          const std::list<WaffeBesitz>& list_Waffen_besitz,
          const Abenteurer &A);
      static void setSpezialWaffe(const std::string& name, std::list<MBEmlt>& list_Waffen_gelernt);
+     static std::list<cH_MidgardBasicElement> getAllgemeinwissen(const std::list<cH_MidgardBasicElement> &L);
+
 };
 
 class cH_Waffe : public Handle<const Waffe>

@@ -58,6 +58,7 @@ void Waffe::get_Waffe()
    schaden_bonus2=tag->getIntAttr("Schadensbonus2");
    voraussetzung=tag->getAttr("erfordert");
    region=tag->getAttr("Region");
+   text=tag->getAttr("Text");
    
    const Tag *Modifikationen=tag->find("Modifikationen");
    if (Modifikationen)
@@ -83,8 +84,8 @@ void Waffe::get_Waffe()
 
    const Tag *Lernkosten=tag->find("Lernkosten");
    if (Lernkosten)
-   {  lern_land=Lernkosten->getIntAttr("Land");
-      lern_stadt=Lernkosten->getIntAttr("Stadt");
+   {  lern_land=Lernkosten->getIntAttr("Land",99);
+      lern_stadt=Lernkosten->getIntAttr("Stadt",99);
    }
 
    FOR_EACH_CONST_TAG_OF(i,*tag,"Voraussetzungen_F")
@@ -100,6 +101,14 @@ void Waffe::get_Waffe()
                               i->getAttr("Beruf"),
                               i->getAttr("Stand"),
                               i->getAttr("Standard")));
+}
+
+std::list<cH_MidgardBasicElement> Waffe::getAllgemeinwissen(const std::list<cH_MidgardBasicElement> &L)
+{
+  std::list<cH_MidgardBasicElement> S;
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=L.begin();i!=L.end();++i)
+     if((*i)->LernLand() || (*i)->LernStadt()) S.push_back(*i);
+  return S;
 }
 
 void Waffe::get_Alias() 
@@ -210,7 +219,7 @@ std::string Waffe::WM_Abwehr() const
   if (s1=="" && s2=="") return "";
   if (s1=="") s1="0";
   if (s2=="") s2="0";
-  return s1+"$|$"+s2;
+  return s1+"|"+s2;
 }
 
 
@@ -218,11 +227,7 @@ int Waffe::WM_Angriff(const std::string& name) const
 {
   if(Name()==name) return 0;
   for(std::list<st_alias>::const_iterator i=list_alias.begin();i!=list_alias.end();++i)
-{
     if (name==(*i).name) return (*i).angriffs_mod;
-cout << name<<' '<<(*i).name<<'\n';
-}
-cout << name<<'\t'<<list_alias.size()<<'\n';
   assert(false);
 }
 
@@ -373,7 +378,7 @@ std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
                }
          }
        ++i;
-       if (i!=Verteidigungswaffen.end() && Vwaffewert!="") Vwaffewert += "$|$"; 
+       if (i!=Verteidigungswaffen.end() && Vwaffewert!="") Vwaffewert += "|"; 
      }
    return Vwaffewert;
 }

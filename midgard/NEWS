@@ -1,4 +1,34 @@
 ##########################################################################
+NEWS IN VERSION 0.8.11
+
+* Kontextmenü nur noch einmal aufbauen (MVC für Regionen)
+* Dolch, Keule und leichter Speer als allgemeinen Fähigkeiten wählbar
+* Verlernen von 'Landeskunde (Heimat)' im Lernschema jetzt mit 
+   Lernpunkte zurückstellen.
+* Erläuterungen zu Waffen im Ausdruck (z.B. bei variablem Schaden)
+* Waffenausdruck korrekt formatiert
+
+TODO: ('-' zeigt CP an)
+
+* Region-Icons wechseln
+* Charaktererschaffungswaffen -> Ausrüstung
+* Neue Ausrüstung eingeben
+* Hilfe Menü ans Ende
+* Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
+  der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 
+* Deutsche Sortierung (Bärenwut vor Beschleunigen)
+- Ausrüstung mit drag & drop
+- Würfelvarianten für Nichtmenschen!
+- verschwinden alle Icons? :
+   Unter "Lernschema" bleibt noch 
+   einiges stehen. Bei "Steigern" 
+   und "Optionen" sind auch noch bunte Bildchen, und bei 
+   "Ausrüstung" verweigern die Icons von "Modifikatoren 
+   entfernen" und "mit Geld ausrüsten" das Verschwinden.
+- alle Ausdrucke unter Windows testen
+- wrapfig for Windows für Grafik in Beschreibung
+
+##########################################################################
 NEWS IN VERSION 0.8.10
 
 * Wizard abschalten bei neuladen und neuer Abenteurer OHNE Wizard
@@ -24,24 +54,6 @@ NEWS IN VERSION 0.8.10
 * Regionen als MVC realisiert
 * Ansicht-Menü stürzt nicht mehr ab (und ist jetzt als MVC realisiert)
 
-TODO: ('-' zeigt CP an)
-
-* Charaktererschaffungswaffen -> Ausrüstung
-* Neue Ausrüstung eingeben
-* Hilfe Menü ans Ende
-* Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
-  der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 
-* Deutsche Sortierung (Bärenwut vor Beschleunigen)
-- Ausrüstung mit drag & drop
-- Würfelvarianten für Nichtmenschen!
-- verschwinden alle Icons? :
-   Unter "Lernschema" bleibt noch 
-   einiges stehen. Bei "Steigern" 
-   und "Optionen" sind auch noch bunte Bildchen, und bei 
-   "Ausrüstung" verweigern die Icons von "Modifikatoren 
-   entfernen" und "mit Geld ausrüsten" das Verschwinden.
-- alle Ausdrucke unter Windows testen
-- wrapfig for Windows für Grafik in Beschreibung
 
 ##########################################################################
 NEWS IN VERSION 0.8.9

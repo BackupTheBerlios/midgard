@@ -25,9 +25,9 @@
 
 void midgard_CG::menu_init()
 {
-  table_optionen->init();
+//  table_optionen->init();
 
-  if (menu_kontext) { menu_kontext->destroy(); menu_kontext=0; }
+//  if (menu_kontext) { menu_kontext->destroy(); menu_kontext=0; }
   menu_kontext=manage(new Gtk::Menu());
 
 
@@ -65,8 +65,6 @@ void midgard_CG::menu_init()
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {
      if((*i)->Nr()<=0) continue;
-     Gtk::CheckMenuItem *_mi=manage(new Gtk::CheckMenuItem());         
-
      std::string labeltext=(*i)->Name();
      Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
      int row=1;
@@ -81,13 +79,11 @@ void midgard_CG::menu_init()
      _tab->attach(*RegionenPic::Pic((*i)->Pic(),II),0,1,0,row,0,0,0,0);
      _tab->set_col_spacings(10);
 
-     _mi->add(*_tab);
-     regionen_menu->append(*_mi);
-     _mi->set_active((*i)->Active());
-     _mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu_),_mi,*i));
-     if(MOptionen->OptionenCheck(Midgard_Optionen::Original).active && 
-         !(*i)->Offiziell() )
-        _mi->set_sensitive(false);
+     MVC_boolMenu_Widget *mi = manage(new MVC_boolMenu_Widget((*i)->Active(),*_tab));
+     regionen_menu->append(*mi);
+     (*i)->Active().changed.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),*i));
+     if(!(*i)->Offiziell())
+         mi->setSensitive(MOptionen->OptionenCheck(Midgard_Optionen::Original).active,true);
    }
   menu_kontext->append(*regionen);
   
@@ -176,7 +172,6 @@ void midgard_CG::menubar_init()
     if(!i->show) continue;
     MVC_boolMenu_Widget *mi = manage(new MVC_boolMenu_Widget(i->active,i->text,0,0.5));
     i->active.changed.connect(SigC::bind(SigC::slot(this,&midgard_CG::Ober_element_activate),i->index));
-//i->active.changed.connect(SigC::slot(&wert_changed));
     menu2->append(*mi);
    } 
   mi1->set_submenu(*menu1);

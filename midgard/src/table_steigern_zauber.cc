@@ -75,9 +75,11 @@ void table_steigern::on_spruchrolle_toggled()
 }
 
 
+#include <locale.h>
 
 void table_steigern::on_alte_zauber_reorder()
 {
+//cout << "Locale :"<< localeconv() <<'\n';
   std::deque<guint> seq = alte_zauber_tree->get_seq();
   switch((Data_SimpleTree::Spalten_ZAUBER)seq[0]) {
       case Data_SimpleTree::NAMEn_Z  : hauptfenster->getChar()->List_Zauber().sort(cH_Zauber::sort(cH_Zauber::sort::NAME)); ;break;

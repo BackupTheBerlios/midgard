@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen_icons.cc,v 1.19 2002/11/11 10:31:00 thoma Exp $
+// $Id: midgard_CG_optionen_icons.cc,v 1.20 2002/11/14 13:26:04 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,7 +21,7 @@
 
 void midgard_CG::Icons_setzen()
 {
-  menu_init();
+//  menu_init();
   e_icon icon_counter=iNew;
   // toplevel toolbar
   for(Gtk::Toolbar_Helpers::ToolList::iterator i=toolbar_top->tools().begin();i!=toolbar_top->tools().end();++i)

@@ -90,7 +90,12 @@ bool MidgardBasicElement::ist_gelernt(const std::list<std::string>& L) const
 {
  for (std::list<std::string>::const_iterator i=L.begin();i!=L.end();++i)
    {
+//cout <<"Ist gelernt? " << (*i)<<'\t'<<Name()<<'\n';
      if((*i)==Name()) return true;
+     if(Name()=="Muttersprache" && 
+         (*i).find("_Muttersprache")!=std::string::npos) return true;
+     if(Name()=="Gastlandsprache" && 
+         (*i).find("_Gastlandsprache")!=std::string::npos) return true;
    }
  return false;
 }
