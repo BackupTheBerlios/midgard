@@ -270,7 +270,7 @@ bool table_ausruestung::fill_all_Combo_Art2()
   return true;
 }
 
-gint table_ausruestung::on_combo_entry_art_focus_out_event(GdkEventFocus *ev)
+gint table_ausruestung::on_combo_entry_artikel_art_focus_out_event(GdkEventFocus *ev)
 {
   on_combo_entry_artikel_art_activate();
   return false;

@@ -98,7 +98,8 @@ private:
         void on_entry_name_activate();
         void on_combo_entry_art2_activate();
         gint on_combo_entry_art2_focus_out_event(GdkEventFocus *ev);
-        gint on_combo_entry_art_focus_out_event(GdkEventFocus *ev);
+        gint on_combo_entry_artikel_art_focus_out_event(GdkEventFocus *ev);
+        void on_entry_artikel_art_activate();
         void on_togglebutton_unverkauflich_toggled();
         void on_combo_entry_einheit_activate();
         void on_combo_entry_region_activate();
