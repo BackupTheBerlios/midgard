@@ -21,73 +21,238 @@ CREATE TABLE zauber_beschreibung (
 
 COPY zauber_beschreibung (name, beschreibung) FROM stdin;
 Aggression	Das Opfer fängt mit den umgebenden Streit an, nicht aber mit dem Zauberer. Bei einem kritischen Fehler beim Zaubern fängt er Streit mit dem Zauberer an.
+Allheilung	Allheilung gibt dem Verzauberten 2W6 Lebens- und Ausdauerpunkte zurück, die er durch Verletzungen, Krankheit, Gift oder Zauberei oder aus anderen Gründen verloren hat. Der Zauber kann alle 3 drei Tage angewandt werden. Allheilung darf zusätzlich zu anderen Zaubern angewandt werden.
 Alpträume	GZ 2 je Ws. Das Opfer hat Alpträume. Jeden Tag einen WW:psy möglich. Solange der Zauber wirkt, werden keine AP regeneriert. Nach mehr Tagen als Grad Opfer siehe Entbehrungsregeln.
 Altern	GZ 30. Der Zauber läßt das Opfer schnell altern. Benötigt einen persönlichen Gegenstand des Opfers und muß ihn für die Dauer des Zaubers auf der Haut tragen. Für 1/5/20 Jahre muß der Zauberer 2/10/40 AP aufwenden. Pro Tag der Wirkung sind weitere 5 AP notwendig. Dagegen wirkt Bannen von Zauberwerk und Allheilung/Austreibung des Bösen. Beides muß innerhalb einer Stunde erfolgreich sein. Bannen von Zauberwerk beendet den Alterungsprozess. Weitere Moglichskeiten sind eigenhändiges Töten des Finstermagiers, der Magier hebt den Spruch freiwillig auf oder der Hautkontakt des Gegenstandes wird beendet.
+Angst	Der Zauber schüchtert das Opfer ein, es läuft nicht weg, sondern verharrt auf der Stelle, bleibt aber inaktiv und greift von sich aus nicht an. Wesen ab Grad 7 sind immun gegen de Zauber
+Anziehen	Der Zauberer erhäht seine Attraktivität und seine Körperliche Ausstrahlung für eine andere Person derart, dass diese Sympathie für ihn empfindet. Der wert für Verführen erhöht sich auch um +6 auf EW:Verführen. Der Spruch endet nach 6 Stunden wenn dem Opfer der Wurf Resistenz gelingt andernfalls nach weitweren 6 Stunden, das Opfer darf dann einen neuen EW:Resistenz würfeln
 Aufladen	Damit kann ein magisches Artefakt wieder neu aufgeladen werden. Bei normalen Erfolg verdoppelt sich die ABW, bei kritischen Erfolg bleibt sie gleich und bei kritischen Fehler wird das Artefakt vollkommen zerstört. 
+Auflösung	Um den Zauberer entsteht ein 2m durchmessende rotierende Sphäre. Alles im innder der Shäre wird beim Kollaps der Kugel zu Staub zerfallen. Wesen können sich retten wenn der WW:Resistens gelingt, dann nur 1W6 AP Verlust
 Augenschleier	Das Opfer sieht einen illusionären Lichtblitz und ist geblendet. Währdend der Wirkungsdauer hat es WM-4 auf alle EW und WW, zu denen Augen benötigt werden. Dazu BW-8.
+Austreibung des Bösen	Schwarze Magie aufhebend, Es können von Dämonen besessene Wesen oder Gegenstände befreit werden.
+Austreibung des Guten	Weiße Magie aufhebend, Negative Form von "Austreibung des Bösen", es gelten dieselben Regeln
+Automat schaffen	Der Zauberer kann eine eigens für diesen Zweck geschaffene Metallstatue beleben (Roboter beleben)
 Ballade der Begierde	Das Opfer will unbedingt eine Begierde erfüllen. Es können keine Begierden sein, die die Verletzung anderer verursachen oder absurd sind. Ballade muss auf Opfer abgestimmt sein und wirkt nur, wenn WW-(Grad Barde):psy und PW+(5*Grad Barde) mißglücken.
 Ballade der besiegten Gier	Zauber hebt die Wirkung des Zaubers Ballade der Gier auf, wenn Opfer PW:Sb gelingt
 Bann der wahren Eigentümerschaft	Mit diesem Zauber wird ein Gegenstand bis max 5 kg an eine Person gebunden. Wird dieser Gegenstand länger als 3 Tage aus der Umgebung(50m) entfernt, wird er mittels von "Zufällen" innerhalb von 7 Tagen wieder zu seinem Besizert zurueckkehren. Priester beherrschen auch eine Abwandlung, bei der das Objekt an eine geweihte Stätte gebunden wird.
+Bannen des Todes	Der Zauberer gewinnt seine Jungend zurück auf kosten des alterns eines anderen Wesens. Ein Zauberer kann 'Bannen des Todes' bis zu neunmal auf sich anwenden. Gelingt es ihm auch zum neunten mal, so wird er zum Todlosen.
 Bannen von Dunebargen	Bannt Dunebargen von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
+Bannen von Dunkelheit	Um den Zauberer (Runenstab, 15m gerichteter Kegel) wird die Umgebung von difusem trüben Tageslicht erhellt. Das Licht durchdring auch Materie bis 30cm Dicke.
 Bannen von Dvergar	Bannt Dvergar von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
+Bannen von Finsterwerk	Mit dem Zauber kann ein Prister, Heiler oder Ordenskrieger schwarzmagische Sprüche und Flüche leichter aufheben als mit 'Bannen von Zauberwerk' Zauberduell entscheidet, +4 EW:Zaubern
 Bannen von Fäulnis	Das Objekt wird von Schimmel, Pilzen und Pflanzen befreit.
+Bannen von Gift	Der Zauberer kann ein Lebewesen vor den Folgen einer Vergiftung bewahren
+Bannen von Götterwerk	Das Gegenstück zu 'Bannen von Finsterwerk', Zauberduel, +4 EW:Zaubern
 Bannen von Hrimfolk	Bannt Hrimfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
 Bannen von Hyrrfolk	Bannt Hyfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
 Bannen von Jördfolk	Bannt Jördfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
 Bannen von Kaobargen	Bannt Kaobargen von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
+Bannen von Kälte	Erwärmt einen Bereich um normale Lebewesen vor dem Erfrieren zu schützen. Wesen innerhalb eines Kreise erhalten halben Schaden auf die Zauber 'Eisiger Neber' oder 'Frostball'
+Bannen von Licht	Gegenteil von 'Bannen von Dunkelheit' Infrarotsicht ist möglich, Ein Zauberduell entscheidet ob 'Bannen von Licht' die Wirkung von 'Bannen von Dunkelheit' aufheben kann
 Bannen von Vindfolk	Bannt Vindfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
 Bannen von Wisfolk	Bannt Wisfolk von Midgard. Dem Wesen steht ein WW:phs zu. Gegen Zauberer, die es beschworen haben, hat es WM-4. 
+Bannen von Zauberwerk	Kann fremde Magie aufheben; Zauberduell, Gegner von Priester und Ordenskrieger WM-2 auf WW:Zaubern. Thaumarturgie: Siegel wirkt nur auf Objekte und muß aufgetragen werden; Zauberduell: Gegner WM-4 auf WW:Zaubern
+Bannsphäre, Blaue	Die Bannsphäre schützt vor Untoten, aber nicht gegen die Fernwaffen der Untoten. Kein Schaden nur Abwehr. Untote ab Grad 4 überwinden ihr Unbehagen und können mit ihrer Resistens widerstehen.
+Bannsphäre, Goldene	Die Bannsphäre schützt vor schwarzer Magie.
+Bannsphäre, Schwarze	Die Bannsphäre wirkt gegen die Anima. Betroffen sind die Silberfäden von Dämonen oder Elementarwesen.
+Bannsphäre, Silberne	Die Bannsphäre wirkt gegen Dämonen, Elementarwesen und Geister. Wesen von mindestens Grad 4 haben die Möglichkeit, dem Zauber mit ihrer Resistens zu widerstehen.
+Baum	Der Zauberer kann sich, aber nicht seine Ausrüstung in einen 2-4 m hohen Baum verwndeln
+Baumkämpfer	Der Zauberer kann einen mindestens 100jährigen Baum beleben, der so für begrenzte Zeit zu einer Art Baumhirte von allerdings niedrieger Intelligenz wird. Er befolgt einfache laut gegebene Anweisungen aber zu mehr als den Gegner seines Herr zu bekämpfen vermag er nicht.
 Baumtor	Der Zauberer kann mit Kleidung in einen Baum treten und auch auf einen anderen überwechseln. Wenn er nicht vor dem Ende der Wirkungsdauer wieder herauskommt, stirbt er. Mit 10% bleibt die Seele im Baum zurück und der Baum verwandelt sich in 7 Wochen in einen Baumhirte. Wenn ein Druide die vorsätzlich tut, um am Ende seines Lebens mit der Natur zu verschmelzen, ist die Wahrscheinlichkeit 90%.
+Baumwächter	Der Zauberer kann einen mindestens 100jährigen Baum beleben, der so für begrenzte Zeit zu einer Art Baumhirte, die Intelligenz etwa vergleichbar mit einem Hirtenhund. Er kann die Befehle die er ausführt werden im Zauberritual festgelegt. 
+Beeinflussen	'Beeinflussen' wirkt auf Wesen von menschlicher Intelligenz, das Opfer wird leichtgläubiger, wenn WW:Resistenz gelingt wird es noch schwieriger ihn zu beinflussen als vorher.
+Befestigen	Ein Seil, ein Holzstab und andere unbelebte Gegenstände bis zu 25 kg Gewicht können an Boden, Wand oder Decke, aber auch an einem anderen unbelebten Objekt befestigt werden.
+Belebungshauch	Der Zauberer ruft eine freie empyrëische Lebensform herbei, Die belebten Gegenstände dürfen höchstens 5 kg je Grad des Zauberers wiegen und besitzen nut eine geringe tierische Intelligent.
+Beschleunnigen	Der Zauberer kann ein Wesen beschleunigen, der Zauber wirk nur  auf die Reflexe und nicht auf das Denken. Wirk nicht auf Wesen mit einer Metallrüstungen.
+Besänftigen	Der Spruch wirkt besänftigend auf aggressive Menschen oder ähnliche Wesen, wenn WW:Resistenz geling wird das Wesen eher noch wütender 
+Binden des Vertrauten	Ein Wirbeltier bis max 10 Kg, zwei von dreimaliger anwendung innerhalb von 4 wochen (Vollmond bis Vollmond) muß erfolgreich sein. Nur ein Vertrauter z.Z., bei Tod des Vertrauten verliert der Zauberer 3W6 AP und kann 1W6 Stunden nicht zaubern.
+Blendwerk	Der Zauberer verschleiert das Äußere eines Wesens oder eines Gegenstandes. Eine über die verwandelte Stelle gestreute Mischung aus Opalstaub und Ambra (50 GS) kann die Wirkungsdauer des Zaubers um 6 Stunden verlängern.
 Blindsalz	Das Opfer sieht eine Runde nichts. Zauber werden unterbrochen, wenn der Zauber Blickkontakt benötigt.
+Blitze schleudern	Aus den Fingern des Zauberers schießen Blitze hervor. Das Opfer verliert 1 AP wenn sein WW:Resistenz gelingt andernfalls 2 LP und 2W6 AP, 1 bis 10 Stahlen möglich, diese Blitze treffen automatisch, es ist kein EW:Angriff nötig
+Blutmeisterschaft	Der Zauberer vermagt den Blutfluß in seinem Körper bewußt zu kontrollieren. Dadurch werden LP-Verluste um 2 verringert und Heilzeiten schwerer Verletzungen auf die Hälfte reduziert, bei tägl. Anwendung.
+Blutsbrüderschaft stiften	Der Zauberer stiftet zwischen zwei Menschen oder Elfen beliebigen Geschlechts  das Band der Blutsbrüderschaft. Bei krit. Fehler verlieren beide dauerhaft 1W6 AP. Es kann nur eine Blutsbrüderschaft z.Z. geben.
 Brechsalz	Dem Opfer wird eine Minute übel. In jeder Runde ist ein PW:Sb (hektische Bewegungen ergeben WM+10) notwendig, um sich nicht um übergeben.
+Brot und Wasser	Der Zauberer erschafft 1 Pfund Brot und 2 Liter Wasser
 Bruchbann	Der Zauberer macht Gegenstände gegen mechanische Einwirkung unepfindlich. AP Kosten richten sich nach Gesamtgewicht: 1kg 2AP, 10 kg 8AP, 100 kg 32 AP. 
 Bärenstärke	Der Zauberer wird bärenstark. Tragfähigkeit +40 kg, Kraftakt +25. WM-2 auf alle EW wie Angriff, aber WM+3 auf Schaden. Keine Zauber möglich. Am Ende PW:St, falls mißlungen 1W3 AP verloren.
+Bärenwut	Verletzer Zauberer kann sich wie ein ver wundeter Bär in Raserei versetzen. Stärke +30 (max 100) +4 auf EW:Raufen, auch selbst verletzen ist möglich in einer runde (-1 LP&AP) Abwehr ist in der Runde möglich
+Böser Blick	Der intensive Blick des Zauberers verursacht einen Schwindelanfall und sofort 1W6-q AP Verlust. Er verliert am Ende eines jeden Tages 2 LP. Heilung nur Magisch möglich
 Das Lied der Feier	Versetzt die Zuhörenden in freundliche, feiernde Stimmung und lässt über Unhöflichkeiten hinwegsehen.
 Das Lied der Macht	Der Barde hat Gewalt über alle Säugetiere und Vögel, die ihm zugehört haben. Nach 3/6/12 Minuten Spiel dauert die Wirkung 2 Minuten/1 Stunde/1 Tag an.
 Das Lied der Magie	Durch dieses Lied wird der Fluß der Magie innerhalb des Wirkungsbereiches verändert. Entweder wird er erleichtert (WM+1 auf EW:Zaubern und WM-4 auf WW:res) auf Zauber und Artefakte, oder erschwert (WM-1 auf EW:Zaubern und Wm+4 auf WW:res).
 Das Lied des Verstehens	Der Zauber ist ein Universalübersetzer. Alle betroffenen Personen können sich gegenseitig verstehen, auch wenn sie nicht die gleiche Sprachen sprechen.
+Deckmantel	Der Deckmantel schützt gegen alle Versuche auf magischem Wege Informationen über im Wirkungsbereich befindliche Personen oder Gegenstände (Goldring 10 GS).
 Der Gesang Crescendos	Verdorrte und beschädigte Pflanzen erhalten vom Gesang neue Kraft
 Die Klänge der Genesung	Die regenerativen Kräfte der Zuhörer werden verstärkt. Heilvorgänge sind dreimal schneller( auch 3 LP pro Tag). Dazu muss das Lied dreimal pro Tag 1 Stunde lang gespielt werden und dreimal der EW:Zaubern erfolgreich sein. Bei kritischen Fehler wird die Heilung gestoppt.
 Die Stimme der Gerechten	Durch das Spielen des Chimäron werden "die Gerechten" herbeigerufen. Im Wirkungsbereich wird die Ordung der Ebenen wiederhergestellt. Weltentore nach verlorenen Zauberduell werden geschlossen und Wesen von anderen Ebenen nach einem mißlungenen WW-4:phs in diese zurückgeschleudert (Im Fallen von kontrollierten Wesen nach einem verlorenen Zauberduell). Dazu muss der Barde alle, aber mindestens 18 AP aufbringen. Es dauert 2 min, bevor die Wirkung einsetzt und Wesen mit mindestens Int:m80 können nach einem gelungenen PW:In dem Wirkungsbereich verlassen. 
+Dinge verbergen	Der Zauberer kann einen magischen Gegenstand 12 Stunden lang davor schützen, durch den Spruch 'Dinge wiederfinden' aufgespürt zu werden. Ein suchender Zauberer bemerk aber das das Ziel seines Spuches magisch verborgen wird.
+Dinge wiederfinden	Der Benutzer spürt während der ganzen Wirkungsdauer, wo sich ein Magischer Gegenstand befindet, den er längere Zeit besessen und benutzt hat.
+Donnerkeil	Aus den Händen des Zauberers schießt ein heller Kubelblitz hervor und fliegt auf sein Ziel. Beim Aufschlag ertönt einer lauter, wethin hörbarer Donner (Murmel aus Donnerechsenhorn 5 GS).
+Dschinni-Auge	Für die Dauer des Zauber schwebt der augenförmige, pflaumengroße Kristall zwei Handspangen vor der Stirn des Zauberers. Er ist normal durchsichtig, leuchtet aber orange, wenn sich in bis zu 100m Entfernung Wesen aus anderen Ebenen, also Dämonen oder Elementarwesen befinden.(Kristallauge 5 GS)
+Dschinni-Horn	Für die Dauer des Zauber schwebt eine schlanke, durchsichtige Kristallpyramiede von der Größe einer Mohrrübe vor der Stirn des Zauberers. Sie trübt sich ein und wird von schwarzen Schlieren durchzogen, wenn sich im Wirkungsbereich Untote oder Geister aufhalten.(Kristallpyramide 5 GS)
+Dschinni-Ohr	Während der Wirkung des Spruches schwebt über dem Kopf des Zauberers der langsam rotierende Ring aus Golddraht. Er verstört - allein für die Ohren dea Zauberes - den innerhalb der Reichweite verursachten Schall auf die zehnfache Lautstärke, wirkt nicht durch Türen und Wände(Golddrahtring 10 GS)
+Dschungelwand	Mit diesem Spruch kann der Zauberer eine magische Wand aus einem ca. 1m dickem, mit Slingpflanzen überwucherten Gestrüp voller giftiger Dornen erschaffen. max 6m hoch, breite 1m je verbrauchtem AP (Smaragdsplitter 5 GS)
 Dunkle Kämpfer beschwören 1	Beschören von Dunebargen. Beschwören 2 AP, Fesseln/Verlängern 1W3 AP und 1 LP. 
 Dunkle Kämpfer beschwören 2	Beschören von Dunebargen. Beschwören 3 AP, Fesseln/Verlängern 1W3 AP und 1 LP. 
 Dunkle Kämpfer beschwören 3	Beschören von Dunebargen. Beschwören 4 AP, Fesseln/Verlängern 1W3 AP und 1 LP. 
 Dvergar beschwören	Beschwören 3 AP, Fesseln 2 AP, Verlängern 3 AP. 
+Dämonenfeuer	Der Spruch erzeugt ein Geisterhaft fahlgrünes Feuer aus reiner magischer Kraft, dem der Zauberer für die Wirkungsdauer eine feste Form gibt: entweder eine Reihe pfeilförmige Lichtgeschosse oder eine etwa 1,5 m lange Flammenklinge, die aus seiner geballten Faust entspringt. (Erfolgswert = Grad-1, Schaden 2W6)(Kristallfläschen mit Phosphor 100 GS, zerfällt beim kritischen Fehler)
 Dämonenhand	GZ 20. Der Zauberer beschwört eine riesige Dämonenhand, die das Opfer ergreift und in seine Dimension zieht. Das Opfer kann mit einenm PW-(5*Grad):RW ausweichen. Dann 20% Chance, dass der ganze Dämon erscheint.
+Dämonische Eingebung	Der Zauberer stellt kontakt zu einem dämonischen Wesen her, dem er nahesteht. Er darf drei Fragen stellen die mit "Ja" oder "Nein" beantwortet werden können. Er erhält antworten die für den Dämon nützlich sind, aber meistens entsprechen sie der Wahrheit.
+Dämonische Zaubermacht	Dieser Zauber steigert das Talent des Zauberers, die mächte des Mächte des Chaos zu nutzen und Magie zu wirken. Er erhält +2 auf alle EW:Zaubern für Sprüche, die während der Wirkungsdauer begonnen wurden.
 Dämonwnkreis	GZ 5. Nach der Aktivierung wird eine Person, die den Kreis betritt, für 10 min festgehalten und kann seine Beine nicht mehr bewegen. Wenn der Finstermagier in Rw ist, spürt er dieses. Der Kreis ist 2h aktiv und kann für weitere 4 AP und GZ 5 verlängert werden.
+Eisenhaut	Der Verzauberte erhält eine eiserne Haut, die sein Bewegungsweite um 12 und seine Gewandheit um 40 senkt (min auf B3 und GW10). Schützt wie eine Vollrüstung, es werden 5 LP aufgefangen, beim leichten Schaden werden auch 5 AP aufgefangen, min 10 Minuten Pause zwischen zwei Anwendungen auf die gleiche Person, sonst erfolgt 1W6 LP&AP Verlust  (Eisenpulver 5GS)
+Eisiger Nebel	Eine zusammenhängende Fläsche wird bis in 3m Höhe mit einer Wolke feiner Eiskristalle bedeckt. Lebewesen (keine Untoten) verlieren 1W6+2 AP und 1 LP (Bergkristall 2 GS).
+Eismeisterschaft	Der Zauberer erzeugt eine Welle im Eis oder in einer geschlossenen, alten Schneedecke, die ihn und alle Wesen und Gegenstände in 1m Umkreis ähnlich wie ein Wellenreiter transportiert. Die Welle bewegt sich mit B24 in die festgelegte Richtung; eine Richtungsänderung ist nicht möglich. Auf Neuschnne ist der Transport nicht möglich. Vorzeitges Abspringen: PW:Gewandtheit, bei Mißerfolg 1W6 AP Verlusst; Abruptes Ende 2W6 AP(Eisbärzahn 5 GS)
+Eiswand	Dieser Spruch läßt in bis zu 15m Entfernung vom Zauberer eine ca. 50cm dicke Wand aus Eis entstehen. Bis max 6m höhe. Einen Durchgang für Menschen=50 Schadenspunke (Diamantsplitter 5 GS)
+Eiswandlung	Der Zauberer kann bis zu 10m³ Eis schmelzen lassen. Er kann z.B. eine 2m breite und 50m lange Fahrrinne mit einer 10cm dicken Eisschicht auf einem Fluß schaffen(Tropfen reinen Wassers 5 GS).
+Elementarwandlung	Mit diesem Spruch kann der Zauberer  einen Kubikmeter der Elemente Erde, Wasser, Feuer und Luft ineinander verwandeln.Zauberdauer: Erde=10min; Wasser=1min; Feuer oder Luft 10sec (Edelstein 50 GS, in Erde=Bernstein, in Feuer=Rubin, in Wasser=Smaragd, in Luft=Saphir)
+Elfenfeuer	Der Spruch erzeugt ein angenehm warmes blaugrünes Feuer, das der Zauberer zu einer Serie von Lichtpfeilen oder zu einer Flammenklinge formen kann. Schade: jeder Pfeil(max 12)=1W6-1; Flammenklinge=2W6-2, Untote und Geisterwesen erleiden einen Schaden +2, Rüstungen sind Wirkungslos, (Brillant 300 GS, zerfällt nur bei kritischem Fehler beim Zaubern) 
+Entgiften	Mit dem Spruch kann der Zauberer dafür Sorgen, daß Gisft auf Gegenständen oder in Getränken und Speisen neutralisier wird und keinen Schaden mehr anrichten kann.
+Erdbeben	Der Zauberer stampft rhytmisch auf den Boden und bringt die Erde zum Beben. Bewegungsweite verringert sich auf ein viertel. Wenn PW:Gewandheit mißling fällt die Person und erleidet 1W6 AP Schaden, normalerweise entsteht an Gebäuden kein Schaden.
+Erdfessel	Der Zauber kann nur angewendet werden, wenn das Opfer auf natürlichem Erdboden steht. Der Festehaltene erhält einen Abzug von -2 auf seine WW:Abwehr.(Honig-Erd-Gemisch 5 SS))
+Erdmeisterschaft	Der Zauber hat dieselbe Wirkung wie Eismeisterschaft, außer daß die Welle in Erde und Fels erzeugt wird. Gebäude werden nicht beschädigt. Prallen der Zauberer oder ein Begleiter beim Wellenreiten auf ein Hinderniss, erleiden sie einen 2W6 schweren Schaden.(Maulwurffell 1 SS)
 Erdrosseln	GZ 3. Das Opfer spürt einen eisernen Griff um seine Kehle und kann nicht mehr atmen. 3 AP pro Runde. Ab er vierten Runde ein EW:Tauchen, falls mißlungen, verliert das Opfer das Bewußtsein und 2 LP pro Runde. Dem Opfer stehen alle zwei Runden ein WW:phs zu.
+Erdwandlung	Der Zauberer kann einen Kubikmeter Erde in Felsen bzw Felsen in Erde umwandeln. (Bernstein 20 GS)
+Erheben der Toten	Der Zauberer kann einen Menschen oder ein menschenähnliches Wesen ins Leben zurückrufen.
+Erkennen der Aura	Der Zauberer spürt, wenn sich im Wirkungsbereich ein Wesen oder Gegenstand mit einer übernatürlichen Aura befindet, bei mehrern Dingen wird nur das nächste Wahrgenommen. Außer Art und ungefähre Entfernung (auf 2m genau) erfährt der Zauberer keine Informationen.
+Erkennen von Krankheit	Der Zauberer erkennt, ob ein Lebewesen krank ist und ob es sich um eine ansteckende Krankheit handelt. Außerdem kann er feststellen, ob das Leben des Erkrankten bedroht ist.
+Erkennen von Leben	Befinden sich im Wirkungsbereich Lebewesen von wenigstens tierischer Intelligenz ( t31min.), so spürt der Zauberer deren Ausstrahlung als leichten Druck auf den Schlfen, wirkt nicht durch mehr als 30cm dicke Wände. Der Zauberer erhält keine Informationen über Art und Anzahl der Lebewesen, er erkennt auch Untote
+Erkennen von Zauberei	Befinden sich im Wirkungsbereich magische Gegenstände, heraufbeschworen oder andere magische Wesen oder verzauberte Personen bzw. Tiere, so verspürt der Zauberer ein angenehmes Wärmegefühl. Er erhält keine Informationen, worauf sein Zauber anspricht.
+Erscheinungen	Der Zauberer kann mit diesem Spruch nach belieben Illusionen erzeugen, die sich auch bewegen können (+6AP auch Geruch und Geräusch erzeugen) (Blütenstaub vom blauen Mohn 20 GS)
+Feenfluch	Mit Hilfe von Feenfluch kann einem Lebewesen Hunger, Durst, Juckreiz, Warzen, Mundgeruch, eine lange Nase und Ähnliches mehr angehext werden(3 AP je Effekt) Je mehr das Opfer sich an den Belästigungen stört, desto ärger werden sie. Ignoriert es sie aber, so verschwinden sie schnell wieder von allein.
+Feenzauber	Feenzauber besteht aus kleinen magischen Spielereien, die keinen großen Schaden anrichten, wohl aber die Nerven der Opfer ruinieren können.(reingen oder verscmutzen = 1 AP; glatt oder klebrieg = 2 AP; reparieren = 3 AP (kurze Halbarkeitszeit); verwandeln, verdoppel oder verschwinden = 4 AP
+Felsenfaust	Die Person, die Ziel der Magie werden soll, muß einen Kieselstein in der einer Faust halten, während der Zauberer sein Ritual vollbringt. Erfolgswert wie waffenloser Kampf, Schaden =  1W6.(Kieselstein 1KS)
+Fesselbann	Der Zauberer erzeugt ein Netz aus transparenten, schwach goldenen leuchtenden Fäden magischer Energie, das den Körper des Opfers eng umschließt. Es kann seine Gliedmaße nicht bewegen, es ist aber nich in der LAge, um Hilfe zu rufen oder wild um sich zu beißen. Es besteht die Möglichkeit durch einen 'Kraftakt' das Netz zu zerreißen.(Fadenstück einer Riesenspinne 8GS)
+Feuerfinger	Aus einem Finger des Zauberers entspringt eine kleine Flamme, mit der er Kerzen, Brennholz oder Fackel entzünden kann.
+Feuerkugel	Der Zauberer erzeugt in etwa einem Meter Entfernung eine in der Luft schwebende feurige Kugel. Er kann sie mit seiner Willenskraft um 3m pro 10sec bewegen und sie jederzeit explodieren lassen. Schaden bis zu 4W6 schweren Schaden,(Holztür 3W6 Stukturschaden) Feuerempfindliche Wesen erleiden den doppelten Schaden, Rüstung verringert den LP-Verlust. (Blutstein 3GS)
+Feuerlanze	Der Zauberer erzeugt einen etwa 1m langen Speer aus Feuer, der geradlinig auf den Gegener zufliegt. Gelingt der WW:Resistenz des Opfers, so verliert er nur 1W6-2 AP. Andernfals 2W6 schweren Schaden. Feuerempfindliche Wesen erleiden den doppelten Schaden.(Korallenstück 2GS)
+Feuerlauf	Der Zauberer macht ein Lebewesen gegen normale Feuer und gegen vergleichbare Hitze unempfindlich, in dem er vorübergehend den äußeren Hautschichten eine feuerfeste Struktur gibt.
+Feuermeisterschaft	Der Zauberer kann einen kleinen Funken innerhalb weniger Augenblicke zu einem größeren Feuer wachsen lassen, das den ganzen Wirkungsbereich bedeckt, ohne Brennstoff zu benötigen. Schaden: 1W6-1 schweren Schaden beim durchqueren pro Runde.(Stück einer Drachenzunge 10GS)
+Feuerregen	Der Spruch kann nur unter freiem Himmel ausgeführt werden. Im Wirkungsbereich, einem Kreis von 60m Durchmesser mit bis zu 100m vom Zauberer entferntem Zentrum, geht ein Regen aus kleinen heißen, etwa faustgroßen Flämmchen nieder. Jede Figur im Wirkungsbereich wird einmal pro Runde mit Erfolgswert+15 angegriffen. Bei einem Treffen erleidet sie durch die Flammen 2W6 Schaden. Rüstung vermindert den LP Verlust. Mit einem großem Schild ähnlich einem Schutzdach erhält der Spieler +4 auf seinen WW:Abwehr.(Basaltstaub und Rubinsplitter 80GS)
+Feuerring	Der Zauberer erschafft einen 12m durchmessenden Kreis aus 6m hohen Flammen um sich herum.(Zwergdrachenflügel, Zauberöl 50GS)
+Feuerschild	Der Zauberer errichtet an einer Stelle innerhalb der Reichweite einen 2m hohen und 2m breiten Schutzschild gegen Feuer. Das Schild absorbiert 30 Schadenspunkte. Feuerelementarwesen meiden den Schild, erleiden aber beim zusammentreffen 4W6 schweren Schaden. Andere Wesen passieren ungehindert den Schild.(Diamantstaub 10GS)
+Feuerwand	Der Zauberer erschafft eine ca. 1m dicke magische Wand aus hochauflodernden Flammen. Sie entsteht in bis zu 15m Entfernung und reicht vom Bofden bis zur Decke eines Raumes, maximal 6m hoch, und ist unbeweglich. Jedes Stofflichewesen erleidet beim durchqueren der Wand einen 2W6 schweren Schaden(feuerempfindliche Wesen 4W6). Es ist kein WW:Resistenz erlaubt.(Rubinsplitter 5 GS)
 Fiebersalz	Das Opfer hat Fieber, WM-1 auf alle EW.
 Finsterer Blick	GZ 0. Das Oper hat fuer 1 h WM-4 auf alle EW und WW. Wenn das Oper eine geringere Int als der Finstermagier hat und im Augenblick des Zauber dem Finstermagier in die Augen schaut, muss es auch einen WW:psy gegen Angst machen.
 Firzars Zorn	GZ 20. Erzeugt Flammensäule(5m Höhe und 2m Durchmesser). Bei erfolgreichem WW:phk 3W6 AP, sonst 4W6 Schaden(Rüstung hilft). Mit gelungenem PW:HGW/2 kann das Opfer die Säule verlassen und erleidet weitere 2W6 AP. Wenn das Opfer mehr als 1/3 der LPs verliert, erblindet jedes Auge mit 20% und 2W6 Punkte Au und pA. Im Falle eines kritischen Fehlers des Zauberers umhüllt die Säule den Finstermagier.
+Flammende Hand	Der Zauberer läßt in seiner Hand Feuer vom Umfang einer Fackelflamme entstehen. Er selbst ist gegen Verbrennungen geschützt, muß aber darauf achten, seine Kleidung nicht anzuzünden. Er kann sie als Waffe nutzen (Erfolgswert:Waffenloser Kampf) Schaden 1W6-2, feuerempfindliche Wesen 2W6.
+Flammenklinge	Der Zauberer kann für befristete Zeit einen Dolch oder ein Schwert aus Alchemistenmetall verzaubern. An seiner Klinge züngeln heiße Flammen entlang die bei Treffern zusätzlich 2 Punkte Schaden anrichten, bei feuerempfindlichen Wesen zusätzlich 1W6+2.(Alchimistenmetallklinge (50facher Preis);wird nicht verbraucht)
+Flammenkreis	Der Verzauberte wird von einer kalten blaugrünen Flammenlohe aus konzentrierter Lebenskraft eingehüllt, die ihn vor Untoten, Geisterwesen und vor nebelartigen Todeszaubern schützt. Ein Untoter oder Geist, der unfreiwillig die Flammen berührt, erleidet keinen Schaden sondern weicht nur zurück.(Zunder 1KS)
+Fliegen	Mit Hilfe dieses Spruches kann der Zauberer mit B24 fliegen. Er darf max 25Kg zusätzliches Gewicht mit sich führen. Währende der Wirkungsdauer muß er sich ununterbrochen konzentrieren und kann derweil weder zaubern noch kämpfen.(Greifenschwungfeder 100GS)
 Flucht des Geistes.	GZ 6. Mit diesem Spruch kann der Magier seinen Geist in einen Gegenstand übertragen, den er berührt. Sein Körper fällt in eine totenähnliche Starre. Weiteres siehe Regelwerk
+Freundesauge	Freundesauge nutzt die auf der Ebene der Anima bestehende Bindung zwischen einem Menschen und einer vertrauten Person oder Tier und führt zu einer magischen Kopplung der Astralleiber. Dadurch kann der Zauberer durch die Augen des Anderen Wesens sehen. Verdoppelt (verdreifacht usw.) er die für den Zauber eingesetzten Ausdauerpunkte, so kann er zusätzlich auch mithören bzw. (mithören und mitfühlen).
+Frostball	Während des Rituals schleudert der Zauberer eine kleine Silberperle (oder Bergkristall) in Richtung eines Lebewesen. Die Perle verwandelt sich in eine schneeballgroße Kugel aus extrem kalten Eiskristallen. Es ist kein EW:Angriff nötig. Das Opfer kann versuchen dem Frostball mit WW:Resistenz auszuweichen, gelingt der der Widerstandswurf, verliert er nur  1 AP. Andernfalls raubt ihm die Kälte 1W6 AP und 2LP. Rüstung schützt nicht. Nicht lebende Geschöpfe sind immun gegen den Spruch.(Silberperle oder Bergkristall 1GS)
+Funkenregen	Um das Opfer des Zauberers herum  3m durchmessende illusionäre Kugel aus wirbelnden, leuchtenden Funken, die den optischen Sinn verwirren und sich mit dem betroffenen Wesen bewegen. Glaubt es an die Illusion, so kann es sich nur geziehlt mit B3 oder mit normaler Geschwindigkeit in eine zufällige Richtung bewegen. Außerdem kann es nicht kämpfen und außer sich niemanden verzaubern.(Sternenstaub 2GS)
 Fäulnis	GZ 1. Totes organisches Material verfault rapide. Obst in 2 min, eine Eichentuür in 2 h. Der Zauberer kann nur 3 kg * Grad verfaulen lassen.
+Geas	Ein Geas ist eine magische Verpflichtung, einen Auftrag auszuführen. Beispiele wären der Zwang, einen heiligen Gegenstand herbeizuschaffen bzw das Verbot einen bestimmten Ort zu betreten. Das Opfer muß in der Regel einwilligen. Das Geas endet mit der Erfüllung des Auftrags oder mit der freiwilligen zurücknahme des Geas.
 Geister der Finsternis.	GZ 2. Beschwört einen bösartigen Tiergeist. Der Magier sieht was der Tiergeist sieht wie mit dem Zauber Freundesauge.
+Geisterlauf	Dieser Zauber läßt für den Schamanen oder Tiermeister und bis zu sechs Begleiter die Geisterwelt seines Totemgeistes gleichsam "real" werden. Es entsteht ein spiritueller Eingang in die Geisterwelt. Ein denkbarer Anlass kann sein: 'Hilfe im Kampf gegen eine übermächtige Bedrohung (des Stammes) suchen'.(Gewänder, Totem- oder Ahnensymbole, Feuer, Kräuter 5GS)
+Geistesschild	Der Zauberer schützt sich mit der Kraft seines Astralleibes vor dem Einfluß von Geistesmagie ohne damit seine eigenen magischen Handlungen zu behindern. Die "Ausbrennwarscheinlichkeit" (ABW) beträgt 100 geteilt durch die für den Spruch aufgewandeten AP's. Jahrelange Erfahrung hat gezeigt das es sich nicht lohnt mehr als 15 AP für den Aufbau eines Geistesschildes zu opfern. 'ABW=100/AP'
 Geistesschlüssel	GZ 8. Dem Opfer können mehrere Befehle, max 8x8 Worte, denen es sich nicht bewusst ist, aufgetragen werden. Wird mit Schlüsselwort ausgelöst. Maximale Dauer 8x8 h. Mit Bannen von Finsterwerk kann der Zauber aufgehoben werden.
 Globus der Finsternis	GZ 2. Um den Finstermagier ensteht eine 6m durchmessende schwarze Späre. Der Magier kann ungehindert hinaussehen, ist selbst aber nicht sichtbar. Maximal B4. Wenn ein Wesen die Sphäre betritt, muss es 3 WW:psy machen. Wenn ein WW gelingt, müssen die weiteren nicht gemacht werden. WM 0/+2/+4 fuer Ebenholzkugel, WM -2/0/+2 Obidiankugel und WM -4/-2/0 fuer schwarze Perle. Gute Wesen haben WM+4. Die Zauber der 3 WW sind Angst, Namenloses Grauen und Wahnsinn.
-Heilen von Wunden	Heilt W6 LP und AP, nur alle drei Tage möglich
+Goldener Panzer	Durch die ordnenden Kräfte der Essentia Metall werden kleine Unreinheiten und Fehler in der Stuktur von Metallen beseitigt, so daß sie härter und gleichzeitig auch stabiler werden. Äußerlich erkennt man dies an einem goldenen Schimmer. Eine solche Rüstung absorbiert 2 LP Schaden pro schweren Treffe mehr als üblich.(Goldstaub 3GS)
+Golem schaffen	Ein Magier, Priester oder Beschwörer von Grad 10 oder höher kann eine eigens für diesen Zweck geschaffene Statue aus Ton, Lehm, Stein oder ähnlichem Material in einem Golem verwandeln.(Golem: Grad 10; LP 100; Resistenz +18/18/14; GW 30; St 170; B9; Abwehr +16; Angriff: Fausthieb +11 (3W6+3); Raufen +10 (1W6+7); Bes.: Immun gegen direkt angewandte Magie; kann nur mit schweren magischen Waffen getroffen werden. (Statue 1000GS)
+Graue Hand	Die flache Hand des Zauberers wird zu einer tödlichen Waffe, die mit der todbringenden Macht des Elements Eis aufgeladen ist. Gelingt dem mit der Hand getroffenen ein WW:Resistenz, so verliert er 2W6  LP&AP; andernfalls kostet ihn die Graue Hand sogar 4W6 LP&AP. Eine Rüstung bewirkt nichts.
+Grüne Hand	Nach Vollendung des magischen Rituals färbt sich die Hand des Zauberers grün. Sie ist mit der Kraft des Lebenselements Holz aufgeladen. Wenn der Zauberer eine Pflanze berührt wird ihr Wachstum um ein Vielfaches beschleunigt. Die magisch gewachsenen Pflanzen sind auf Dauer nicht Lebensfähig auch die aus ihnen gewonnenen Produckte nicht.(pulverrisierte Wurzeln, Frühlingsregen 5GS)
+Göttliche Eingebung	Der Zauberer stellt Kontakt zu seiner Gottheit oder einem ihr nahestehenden übernatürlichen Wesen her. Er darf drei Fragen stellen die mit 'Ja' oder 'Nein' beantwortet werden können. Der Spruch darf nur einmal im Monat angewandt werden, da die Gottheit sich sonst belästigt fühlt.
+Göttliche Strafe	Die Göttliche Strafe können Diener der Götter und Totemgeister ausschließlich gegen Anhänger des eigenen Glaubens verhängen, die ernsthaft gefrevelt haben. Gotteslästerung in der Öffentlichkeit, Entweihung heiliger Stätten, Diebstahl von Tempelschätzen, Mord an einem Priester und andere schwere Sünden lassen den Einsatz diese Zaubers gerechtfertigt erscheinen.
+Göttlicher Blitz	Der Zauberer ruft mit diesem Spruch eine Serie leuchtender Blitze herbei, mit denen er ein vorher bestimmtes Wesen im  Fernkampf angreifen kann. Maximal 12 Runden einen Blitz, der Erfolgswert ist eigener Grad+3 und der Schaden 1W6-1, Rüstung bleibt Wirkungslos. Feuermpfindliche Wesen erleiden den doppelten Schade.
+Göttlicher Schutz vor Magie	Priester und Ordenskrieger verstehen sich darauf sich selbst und ihre Gefährten weniger anfällig für Zauberei zu machen. Für jede Wirkungsart (Geistes-, Körper- und Umgebungsmagie) muß Göttlicher Schutz vor Magie eigens angewand werden. Die Resistens erhöht sich um +4. Der Schutz addirt sich nicht zu den Resistenzzuschlägen ähnlicher Zauber, es zählt nur der höchste Wert
+Göttlicher Schutz vor dem Bösen	Mittels Meditation und göttlicher Hilfe stählt der Priester oder Ordenskrieger sich gegen die Mächte des Bösen. Er erhält gegen schwarzmagische Zauber einen Zuschlag von +8 auf alle WW:Resistenz
+Hagel	Im Wirkungsbereich geht ein dichter Hagel aus faustgroßen Eisstücken nieder. Der Zauberer muß sich ständig auf den Hagel konzentrieren, wenn er nicht vorzeitig enden soll. Jede Spielfigur wird einmal pro Runde mir Erfolgswert+15 angegriffen. Bei einem Treffer erleidet sie durch Hagelkörner 1W6 Schaden. Rüstung veringert die LP Verluste. Mit einem Schild oder ähnlichem Schutzdach erhält der Abenteurer zusätzlich +4 auf WW:Abwehr. Geister und körperlose Wesen sind immun gegen den Zauber(Wasser und Diamantsplitter 50GS)
+Handauflegen	Die Lebenskräfte erschöpfter Lebewesen werden durch Handauflegen wieder geweckt. Der Verzauberte erhält 1W6 AP zurück. Der Zauber darf auf das Wesen nur einmal am Tage angewandt werden.
+Hauch der Verwesung	Der Zauberer zeichnet mit dem Finger ein nebelhaftes Symbol in die Luft, von dem aus sich mit 3m pro Runde ein widerliche riechender, gelblicher Nebel ausbreitet - bei Windstille gleichmäßig in alle Richtungen. Der Geruch verursacht bei jedem Lebewesen, das in den Wirkungsbereich gerät und dessen PW:Gift mißlingt eine solche Übelkeit, daß es bis zum Ende der Wirkungsdauer weitgehend handlungsunfähig ist.(Stinkmorchelasche 1SS)
+Hauch des Winters	Der Zauberer senkt die Lufttemperatur im Wirkungsbereich schlagartig um 30 Grad Celsius. Nach Ende der Wirkungsdauer steigt die Temperatur durch Wärmeaustausch mit der Umgebung langsam an.(Schneewolfhaare 2GS)
+Heilen schwerer Wunden	Die Lebensmagie des Zauberers schließt klaffende Wunden, stillt Blutungen und lindert Verbrennungen, indem sie die körpereigene Regeneration beschleunigt. Der Verzauberte gewinnt 2W6 LP&AP zurück. Der Abenteurer kann nur alle drei Tage LP&AP zurückgewinnen. Es ist aber ausdrücklich erlaubt innerhalb kurzer Zeit demselben Lebewesen mit 'Heilen von Wunden' und 'Heilen von schweren Wunden' zu helfen.
+Heilen von Krankheit	Der Zauberer kann natürliche und magische Krankheiten heilen, nicht aber die durch die Krankheit bereits verursachte Dauerschäden beheben. Die Heilung erfolgt nicht augenblicklich, sondern der Zauber beendet das fortschreiten der Krankheit und leitet den Genesungsprozeß ein.
+Heilen von Wunden	Die Lebensmagie des Zauberers schließt klaffende Wunden, stillt Blutungen und lindert Verbrennungen, indem sie die körpereigene Regeneration beschleunigt. Der Verzauberte gewinnt 1W6 LP&AP zurück. Der Abenteurer kann nur alle drei Tage LP&AP zurückgewinnen. 
+Heiliger Zorn	Der Zauberer wird von gerechtem Zorn gepackt, so daß seine Stärke um 30 Punkte (max auf 100) wächst. Dies hat insbesondere Auswirkungen auf Kraftakte und den im Nahkampf angerichteten Schaden. Außerdem steigt sein Erfolgswert im Raufen um +2.
+Heiliges Wort	Spricht der Zauberer das 'Heilige Wort' mit der nötigen Konzentration und Betonung aus, so kann er mit Hilfe der Kräfte der Ordnung finsteren Kreaturen beträchtlichen Schaden zufügen. Finstere Wesen bis Grad 3 werden getötet; Wesen von Grad 4-6 werden 1W6*10min gelähmt; Wesen von Grad 7-9 werden 2W6*10sec geschwächt das sie quasi wehrlos sind und eine boni von -10 auf zaubern und -2 auf alle anderen Erfolgswürfe; Wesen ab Grad 10 erleiden 1W6*10sec einen Abzug von -2 uaf alle Erfolgswürfe.
+Heimstein	Mit diesem Zauberspruch lassen sich Häuser und Burgen vor feindlicher Magie schützen. Es wird ein durch die ganze Bauzeit begleitendes Ritual vollzogen.(Edelmetalle 500GS)
+Heranholen	Der Zauberer erzeugt einen kurzen magischen Impuls, der einen Gegenstand von bis zu 10Kg Gewicht geradlinig in seine Hand fliegen läßt. Wird der Gegenstand festgehalten, so steht ein WW:(Stärke/5) gegen EW:Zaubern.
+Hexenritt	Der Zauberer kann Wirbeltiere und von ihnen abstammende intelligente Lebewesen gegen deren Willen reiten, wenn sie stark genug sind ihn zu tragen. Das Zaumzeug, das er seinem "Reittier" anlegt, muß aus Knochen und Leder der betreffenden Art sein. Zauberer wenden den Hexenrit meistens auf Schläfer an, da diese -4 auf ihren WW:Resistenz erhalten. Opfer merken normal nicht vom "Ritt" sie erwachen völlig zerschlagen (0 AP).(Zaumzeug aus passenden Knochen und Lder 10GS; wird nicht verbraucht)
+Himmelsleiter	Die Himmelsleiter besteht wie die Lichtbrücke aus reinem Licht. Sie verbindet zwei bis zu 50m voneinander entfernete Stellen miteinander. Je nach Neigung kann man auf ihr wie eine Treppe empor schreiten oder Leiter hochklettern.
+Hitzeschutz	Der Zauberer erleidet durch große Hitze keinen Schaden. Sehr heißes Feuer (brennendes Zauberöl, Lava) verursachen nur halb so viel LP und AP Verluste. Der Zauberrer kann diesen Spruch nur gegen sich selbst anwenden er schützt aber auch die Kleidung vor der Hitze.
+Hort der Natur	Mit diesem Zauber schützen Druiden und Schamanen ihnen heilige naturbelassende Orte vor den Mächtigen des Todes.(Bearbeitete Steine 10GS)
 Höllenbote rufen	GZ 15.Der Zauber muss eine Stunde nach Mitternacht gewirkt werden. Ruft einen Höllenboten herbei. Der Magier muss den Aufenthaltsort des Opfers angeben(max 100 km weg, mit 500m Genauigkeit). Der Höllenbote macht dann sofort Jagd auf das Opfer. Wenn er es nicht finden kann(wonanders, tot), kommt es zurueck und greift den Finstermagier an.
 Höllenfeuer	GZ 3. Der Magier kann von bis zu Grad Fingerspitzen Flammenzungen schwarzen Feuers aussenden. Bei gelungenem WW:phk 1W6 AP, sonst 2W6+2 AP und 1W6 LP. Rüstung schützt nicht. Körperlose, gute Priester und andere vergleichbare Wesen sind immun gegen den Zauber.
 Höllenglocke	GZ 5. Über dem Kopf des Finstermagiers erscheint eine Glocke, die läutet. Alle Wesen in Reichweite verlieren bei mislungenem WW:phk 2W6 LP und AP, sonst 1W6 AP. Andere Finstermagier werden mit Grad*5% in die Hölle versetzt. Gute Priester und vergleichbare übernatürliche Wesen sind immun.
+Hören der Geister	Der Zauberer kann mit Geistern Verstorbener, die sicht- oder spürbar anwesend sind und sich im Wirkungsbereich aufhalten, Kontakt aufnehmen und Informationen erhalten, die allerdings nicht stimmen müssen.
+Hören von Fernem	Der Spruch erhöht die Wahrnehmungsfähigkeit des Verzauberten für Geräusche. Er hört für menschliche Verhältnisse ausgezeichnet und rwirbt insbesondere für die Wirkungsdauer die Fertigkeit 'Hören+10'.
+Hörnerklang	Der Zauberer summt oder pfeift während des Rituals eine Abfolge von drei Tönen. Durch die Magie des Spruches wird sie zehnmal als klares und lautes Hornsignal wiederholt, das in weitem Umkreis zu hören ist. Wird Hörnerklang auf einer Bergkuppe oder Kirchturm angewandt, erhöht sich die Reichweite auf 6km. Der Zauberer kann auf diese Weise entfernten Freunden ein Signal geben oder einen allgemeinen Alarm auslösen.
+Juwelenauge	Das Greifenauge ist ein spezieller Halbedelstein. Unter der Wirkung des Zaubers spiegelt sich das licht, das auf die eine Trennfläche fällt auf der anderen wider. Das Abbild ist spiegelverkehrt . stark verlkleinert und mit einer gelblichen Farbtönung, feine Details sind nicht erkennbar, wenn es dunkel ist ist auch das Bild dunkel (Zwei Greifenaugenhälften 100 GS)
 Klebesalz	Das Salz wird auf zwei möglichst glatte(sonst WM-2) Oberflächen aufgebracht und aneinandergehalten. Danach nur mit einem Kraftakt zu trennen.
 Knallsalz	Das Salz knallt und kracht.
+Knochenbestie	Diser Sprucherschat eine Bestie die einer ponygroßen Dogge ähnelt, welche vom Söpfer gezeigete Wesen unabhängig angreift. Schaden richtet sich nach dem Schädel (Gebiss), Löwe=1W6+1, Krokodil=1W6+2, Bär=1W6+3, Säbelzahntieger=1W6+4 (Tierschädel, -knochen uns -shnen, Fellstücke 1 KS)
 Konvulsion	GZ 8. Misslingt ein WW.phs des Opfers, sinkt es unter konvulsivischen Zuckungen wehr und bewegungslos zu Boden. Am Ende jeder Runde ein WW möglich. In jeder Runde verliert es 2 LP. Nach gelungenem WW ist es noch 2 Runden bewegungslos, dann 2 Runden WM-4/WM-2, bis es nach 5 Runden voll erholt ist.  
+Kraft entziehen	Das Opfer des Zaubers erleidet einen Schwächeanfall, ihm wird kurz schwarz vor den Augen, und es verliert 1W6 AP
 Kundschafter beschwören 1	Beschören von Kaobargen. Beschwören 1 AP, Fesseln/Verlängern 1 AP. 
 Kundschafter beschwören 2	Beschören von Kaobargen. Beschwören 2 AP, Fesseln 1 AP, Verlängern 2 AP. 
 Kundschafter beschwören 3	Beschören von Kaobargen. Beschwören 3 AP, Fesseln 2 AP, Verlängern 3 AP. 
 Kundschafter beschwören 4	Beschören von Kaobargen. Beschwören 4 AP, Fesseln 2 AP, Verlängern 4 AP. 
+Kälteschutz	Der Zauberer erleidet durch große Kälte keinen Schaden, solange die Temperaturen nicht unter -100° Clesius sinken.
 Kämpfer beschwören 1	Beschören von Kaobargen. Beschwören 1 AP, Fesseln/Verlängern 1 AP. 
 Kämpfer beschwören 2	Beschören von Kaobargen. Beschwören 2 AP, Fesseln 1 AP, Verlängern 2 AP. 
 Kämpfer beschwören 3	Beschören von Kaobargen. Beschwören 3 AP, Fesseln 2 AP, Verlängern 3 AP. 
 Kämpfer beschwören 4	Beschören von Kaobargen. Beschwören 4 AP, Fesseln 2 AP, Verlängern 4 AP. 
 Lahmsalz	Dem Opfer schlafen die Beine ein. WM-6 auf Springen, Geländelauf und ähnliches.
 Lallsalz	Das Opfer kann seine Stimmbänder nicht mehr kontrollieren. Damit sind alle nicht mentalen Zauber unmöglich und die pA sinkt auf ein Zehntel.
+Lauschen	Der Zauberer Legt sein Ohr an die Wand oder Tür und hört hinter dem Hindernis erzeugte Geräusche. Dicke des Hindernisses max. 50 cm Materie
+Lebenkeule	Der Zauberer kann eine Keule, einen Kampfstab, einen Magierstab oder einen einfachen Knüppel kurze Zeit zu einer Magischen Waffe (+1/+1) machen. Untote und Geister erleiden bei Treffern zusätzlich 1W6 Schaden
 Lenker beschwören 1	Beschören von Dunebargen. Beschwören 3 AP, Fesseln 2 AP und 1 LP, Verlängern 3 AP und 1 LP. 
 Lenker beschwören 2	Beschören von Dunebargen. Beschwören 4 AP, Fesseln 2 AP und 2 LP, Verlängern 4 AP und 2 LP. 
+Lichtbrücke	1m breite und max. 50m weite Brücke. Höhenunterschied maximal 1m/10m länge. "Bannen von Licht" macht die Brücke nur Unsichtbar.
+Lichtrunen	Der Zauberer kann auf einer max. Fläche von 1m x 1m eine Nachricht schreiben, die unsichtbar ist. kann mit Licht wieder sichtabr gemacht werden. Sonnenlicht (goldene Tusche (5 GS)), Mondlicht (siberne Tusche (silberne Tusche (2 GS)) oder Licht des offenen Feuers (auch Fackel) (kupferne Tusche(1 DS))
+Liebeszauber	Der 'Liebeszauber' erhöht die Gefühlbindung zwischen dem Verzauberten und einer Bezugsperson. Zaubermittel, Kräuter selbst gesammelt oder für 10 GS gekauft.
+Lindern von Entkräftung	Der Verzauberte erhält 1W6xGrad/2 Ausdauerpunkte(aufgerundet) zurück. Anwendbar einmal am Tag 
+Liniensicht	Der Zauber ermöglicht es die auf der Welt Midgards vorhandenen Kraftlienen zu erspähen.
+Linienwanderung	'Linienwanderung' kan nur beginnen oder enden an Mannsdicken Bäumen oder einem Menhir, die auf Kraftlinien stehn. gibt es am ende keinen solchen Punkt fällt er nach 120km+1W6 km auf die erde und ist 1W6 Stunden Bewußtlos. max 120 km und 2 km/Minute, nur für Druiden und Heiler
+Luftlauf	Zauberer kann über Luft gehen wie über Grund, z.B. über Schluchten oder von Dach zu Dach. Höhenunterschied max. +2m / -5m. Geschwindigkeit = B/2
+Luftsphäre	Luftkugel mit reiner Atemluft, schützt vor Rauch oder Giftgasen. Wirkt auch unter Wasser (Zauberer singt auf den Grund) (ZM=kleine Perle(30 GS))
 Lustsalz	Das Opfer hat unwiderstehliche Lust auf Sex. Nur schwerwiegende Gründe können sie davon abhalten, Kampfeshandlungen, Erziehung, Standesunterschiede usw.
+Lähmung	Lähmt Greif-, Bewegungs- u. Sprechorgane; kann mit "Bannen v. Zauberwerk", "Allheilung" aufgehoben werden (ZM:Basiliskenschuppe(50 GS))
 Macht der Finsternis	GZ var. Damit kann der Finstermagier eines der folgenden: eine Eigenschaft auf 100 steigern(GZ 5), eine Eigenschaft um 10 auch über 100 steigern(GZ 10), die Form eines Elementargeistes/Geist/Gespenst/Mumie/Manticora/Niederer Dämon/Riesenschlange/Thurse/Troll annehmen. In der Gestalt hat der die jeweils maximalen Werte. Nach der Verwandlung hat der dieselben LP und AP wie vorher.
+Macht über Leben	Wendet der Zauberer diesen Spruch an, so glüht seien rechte Hand rot auf. Er verliert alle AP bis auf einen, er benötigt aber min. 9AP. Richtet er innerhalb der nächsten zwei Minuten seine Hand auf ein Opfer in Reichweite so reißt er ihm wenn der WW:Resistenz mißlingt, das Herz aus. Kleidung und Rüstung wird durch den Zauber gesprengt. Das Opfer ist nicht Wiederbelebbar!
+Macht über Menschen	Diesr Zauber unterwirft die menschliche Seele einem magischen Zwang. Er wirkt auf Menschen und andere natürliche Wesen von gleichartiger Intelligenz wie beispielsweise Elfen, Zwerge, Orcs oder Tiermenschen. Der Zauberer erlangt geistige Kontrolle und bestimmt die Handlungsweise des Opfers.
+Macht über Unbelebtes	Der Zauberer vermag kurzfristig ein Kraft zu erzeugen, mit der er überall innerhalb der Reichweite dieselbe Wirkung erzielen kann, als ob er selbst dort stehen und mit einer seiner Hände zugreifen würde. Er kann Gegenstände, die sr sehen kann und die nicht mehr als 25Kg wiegen, bewegen.
+Macht über das selbst	Der Zauberer kann seinen Körper im Rahmen seiner Art gesetzten Grenzen völlig beherschen. So kann ein Mensch für die Dauer des Zaubers seine Muskeln so versteifen, daß er in etwa die Stärke eines Ogers erhält. Er kann die Kraft aber nu passiv anwenden (z.B. Zuhalten einer Tür, abstützen einer einstürzenden Decke, Festhalten eines Gegenstandes,...) nicht aber aktiv (z.B. gezieltes Werfen von Gegenständen, Verbiegen einer Eisenstange,...)
+Macht über den Tod	Der Zauberer kann für 9AP aus dem noch weitgehend intackten Leichnam eines Wirbeltieres oder eines vom Wirbeltieren abstammenden intelligenten Wesens einen Zombie bzw für 6AP aus den Knochen ein wandelndes Skelett erschaffen.
+Macht über die Sinne	Der Zauberer erzeugt an der Stelle, an der er sich aufhält, ein Trugbild. Wesen von menschlicher Intelligenz erhalten +4 auf ihren WW:Resistenz gegen diese Illusion. Der Zauberer kann sich in 5 Varianten verwandeln. 1. Mensch (1AP, 10min) 2. Wesen oder Tier, menschenähnlich (2AP, 5min) 3. Tier mit anderem Körperbau (3AP, 3min 20sec) 4. Planze (4AP, 2min 30sec) 5. Mineral oder Element(5AP, 2min).
+Macht über die Zeit	Im Kugelförmigen Wirkungsbereich des Spruches bringen die Beharrungskräfte der essentiellen Ordnung jedes Werden und Vergehen zum Stillsatand. Im innern der Kugel vergeht keine Zeit.
+Macht über die belebte Natur	Der Zauberer legt einen magischen Bann auf die tierische Seele. Er bringt somit normale Tiere unter seine geistige Kontrolle, so daß sie seinen Anweisungen folgen. Es ist alle 2 Stunden ein WWW:Resistentz erforderlich.
+Macht über magische Wesen	Der Zauberer legt einen magischen Bann auf die Seele eines Wesens und bringt unter kontrolle. Tierische Wesen kosten 2AP, Menschliche Wesen 3AP je Grad des Opfers. Alle 2 Stunden ist ein WW:Resitenz vonnöten. Der Zauber wirkt nicht bei Wesen ab Grad 7.
+Magischer Kreis des Bewachens	Um den 'Magischen Kreis des Bewachens' errichten zu können, braucht der Zauberer einen auf ihn geprögten magischen Würfel, seinen persönlichen Wächterwürfel.(Wächterwürfel, 1000GS, wird nicht verbraucht)
+Magischer Kreis, groß	Der 'Große Magische Kreis' enststeht wenn ein Zauberer direckt nach einander mit Hilfe seines Wächterwürfels den 'Magischen Kreis des Bewachens', den 'MAgischen Kreis des Verschleierns' und den 'Magischen Kreis des Widerstehens' aktiviert. 
+Magischer Kreis, klein	Der 'Kleine Kreis' besteht aus einem unsichtbaren halbkugelförmigen Kraftfeld, das die im innern befindlichen Personen vor magischen Gefahren warnt.(mit Eisendraht umwickelte Zweige von Eiche, Esche, Weißdorn, 1GS)
+Magischer Kres des Verschleierns	Mit Hilfe seines Wächterwürfels kann ein Zauberer auch den 'Magischen Kreis des Verschleierns' bilden.(Wächterwürfel, 1000GS, wird nicht verbraucht)
+Magischer Kres des Widerstandes	Wird mit dem Wächterwürfel der 'Magische Kreis des Bewachens' errichtet, so sind der Zauberer und alle von ihm bezeichneten Wesen im Innern des geschützten Bereichs besser vor Zauberei geschützt.(Wächterwürfel, 1000GS, wird nicht verbraucht)
+Mamorhaut	Der Verzauberte erhält eine Steinharte, blasse, marmorähnliche Haut, die seine Bewegungsweite von 8 und seine Gewandtheit um 25 senkt und ihn wie ein Plattenpanzer schützt.(Marmorstaub, 5KS)
+Namenloses Grauen	Ein Opfer des Spruches sieht sich mit seinen Urängsten, seinen schlimmsten Alpträumen konfrontiert und wird von so grauenhafter Furcht gepackt, daß es 2min lang in panischer Flucht vom Ort des Zaubers fortläuft. Anschließend braucht er einen Tag, um sich von der Todesangst und dem damit verbunden Schock erholen.(Schweiß von Alpträumenden, 2GS)
+Naturgeist rufen	Mit seinem Trommelspiel versucht der Schamane, einen niederen Naturgeist zu rufen, um ihn um Rat und Auskunft zu bitten.(Schamanentrommel, 20GS bzw. Weißdornpfeife, 0GS; wird nicht verbraucht)
+Nebel schaffen	Der Zauberer erzeugt im Umkreis von 50m eine dichte Nebelbank, innerhalb der die Sichtweite tagsüber 10m und nachts 3m beträgt und in der Geräusche nur halb so weit tragen.(Versiegelt Glasfläschchen voll Nebel, 1GS)
+Nebel wecken	Der Zauberer sorgt auf magische Weise dafür, dasß die bereits in der Luft vorhandene Luftfeuchtigkeit zu Nebeltröpfchen kondensiert. Der Spruch kann daher nur an Orten im Freien oder in Höhlen angewandt werden, wo die Luftfeuchtigkeit hoch genug ist und sich ohne weiteres auch auf natürliche Weise Nebel bilden könnte. (Staub, 1KS)
 Nebelsalz	Es entsteht eine dichte kleine Nebelwolke.
+Pestklaue	Das arkane Ritual verwandelt die Hand des Zauberes kurzzeitig in eine pestbeulenübersäte Krallenhand. Geling ihm innerhalb einer Runde (10 sec)die Berührung eines Lebewesens, so wird es mit unnatürlicher Geschwindigkeit  von einer magischen, nicht ansteckenden Pest befallen, die den Körper zerfrisst. Es ist kein WW erlaubt. Das Opfer verliert sofort 1W6 LP und die hälfte der derzeit vorhanden AP's. 10 min später verliert er weitere 2W6LP&AP, wenn die Krankheit nicht zwischendurch geheilt worden ist, das Opfer stirbt andernfalls nach 1W6 Tagen.(Pestkrötenklaue, 5GS)
+Pflanzenfessel	Der Zauberer kann Gräser, Büsche und Bäume im Wirkungsbereich beleben. Diese halten mit Ausnahme des Zauberers alle größeren Kreaturen fest, derer sie habhaft werden können.(Samenmischung, 1GS)
+Pflanzenmann	Dieser Spruch wirkt nur in der nähe von abgestorbenen Pflanzenmaterial, das mit arkaner Energie aufgeladen wird. So lockt es einen körperlosen, bösartigen Naturgeist an, der sich aus den Pflanzenteilen einen Körper schafft. Das Wesen greift von seinem Schöpfer bezeichnete Gegner an und richtet auf magische weise Schaden an.(Pflanzenmann: Grad 4; LP-; AP 4W6+12;Angriff: Pflanzarme,+8, 1W6+1; Raufen, +6, 1W6-3)(vermoderte Zweige, welke Blätter, 1KS)
+Rauchwolke	Der Zauberer erzeugt eine dicht Rauchwolke, innerhalb der die Sichtweite tagsüber 3m und nachts 1m beträgt. Lebewesen innerhalb des Wirkungsbereichs müssen husten und sind weitestgehens handlungsunfähig. Außerdem verlieren sie 1W6-2 AP wenn ihnen der PW:Gift mißlingt.(Asche und Zunder, 1SS)
+Regenzauber	Der Benutzer kann den Niederschlag in gewissen Grenzen beeinflussen. Der Wirkungsbereich ist ein feststehender Kreis, sein Durchmesser richtet sich nach den eingesetzten AP's der Zauberers, 6AP je 500m Radius(Pulver, 100GS je 6AP)
+Reinigen	Der Zauberer entfernt alle Krankheitskeime aus Flüssigkeiten oder Lebensmitteln von bis zu 1 Kg Masse. Der Spruch wirkt nicht auf Gifte.
+Reise der Seele	'Reise der Seele' ermöglicht es dem Zauberer, seinen Astralleib samt der daran gebundenen Seele aus dem materiellen Körper heraustreten lassen und in diesem geisterhaften Zustand auf Wanderschaft zu gehen. Der Astralleib kann auf seine Reise nur hören und beobachten.
+Reise in der Zeit	Der Zauberer kann sich selbst und bis zu 5 andere Abenteurer einschließlich der am Körper getragenen Ausrüstung in die Vergangenheit bewegen. Die Reisegeschwindihkeit beträgt eta 500 Jahre/Stunde. AP Verbrauch Beispiel: Reise 8 Std./80 Tage/8 Jahre = 9AP/27AP/45AP.
+Reise zu den Sphären	Der Zauberer kann sich selbst und bis zu 5 andere Abenteurer einschließlich der am Körper getragenen Ausrüstung Zugang zu einer anderen Welt verschaffen. Für die Rückreise muß der Spruch erneit angewandt werden mit dem Ziel "Midgard".(Kreide, Kerzen, Duftstoffe, 10GS)
+Rindenhaut	Der Verzauberte erhält eine harte, borkige Haut, die seine Bewegungsweite um 4 senkt und ihn wie eine Kettenrüstung schützt.(Eichenrinde, 2KS)
+Ring des Lebens	Der Zauberer zeichnet mit seinem Finger einen blauen leuchtenden Ring in die Luft. Dieser ring der sich je Runde um 3m ausbreitet schützt vor Untoten. Ein Untoter verliert bei Kontakt einmalig 4W6LP, gelingt WW:Resistenz so verliert er die hälfte.(Samen des Lebenskrautes, 5SS)
+Rost	Von diesem Spruch betroffene Gegenstände aus unedelen Metallen beginnem mit 10% pro Grad des Zauberers sehr schnell zu verotten. 'Rostige' Gegenstäne sind nicht unbrauchbar sondern erleiden nur abzüge, z.B. Rüstung fäng 1LP weniger Schaden auf, eine Waffe erhält -2 auf EW:Angriff.
+Scharfblick	*.*
 Schattenroß rufen	GZ 10. Kann nur nachts beschworen werden aber auch tagsüber geritten werden. Roß verschwindet wieder, wenn Magier absteigt. Dieser hat WM+10 auf Reiten und Kampf zu Pferd
+Schlaf	*.*
+Schlangenbiß	*.*
 Schleichende Verderbnis	GZ 15. Zauberzutat ist Pergament gemacht aus der Haut eines gehängten/geräderten Mörders. Das mit Runen versehene Pergament muß 2 m um die augenblickliche Wohnstatt des Opfers vergraben werden. Dann sinken die Basiswerte des Opfers pro Tag um 1, es hat Alpträume(keine AP Regeneration). LPmax sinkt um 2 pro Woche. Das Opfer hat jede Woche einen WW:phs, auf den aber kumulativ WM-2 dazu kommen. Das Opfer stirbt bei 0 LP oder eine Basiseigenschaft 0. Der Zauber kann gebrochen werden, wenn das Opfer die Wohnstatt verlässt oder das Pergament findet und zerstört.
+Schmerzen	*.*
+Schrumpfen	*.*
+Schutzgeist	*.*
 Schutzkreis gegen Dunebargen	Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 2AP pro Person im Schutzkreis. Jeder Dunebarg, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. 
 Schutzkreis gegen Dvergar	Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 2AP pro Person im Schutzkreis. Jeder Dvergar, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. 
 Schutzkreis gegen Geisterwesen	Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 4AP pro Person im Schutzkreis. Jeder Geist, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. 
@@ -98,23 +263,112 @@ Schutzkreis gegen Kaobargen	Schutzkreis schützt die Personen innerhalb. Anlegen 
 Schutzkreis gegen Untote	Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 3AP pro Person im Schutzkreis. Jeder Untote, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. 
 Schutzkreis gegen Vindfolk	Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Vindfolk, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. 
 Schutzkreis gegen Wisfolk	Schutzkreis schützt die Personen innerhalb. Anlegen 1 Stunde, 1AP pro Person im Schutzkreis. Wisfolk, der gegen eine Person im Schutzkreis vorgehen will, muss vorher einen WW:psy gelingen. 
+Schwarm	*.*
+Schwarze Zone	*.*
+Schweben	*.*
+Schwingenkeule	*.*
+Schwäche	*.*
+Seelenheilung	*.*
+Seelenkompaß	*.*
+Segnen	*.*
+Sehen in Dunkelheit	*.*
+Sehen von Verborgenem	*.*
+Silberstaub	*.*
+Spruch intensivieren	*.*
 Späfolk beschwören 1 	Beschwören 1 AP, Fesseln 1 AP, Verlängern 1 AP. 
 Späfolk beschwören 2 	Beschwören 2 AP, Fesseln 1 AP, Verlängern 2 AP. 
 Späfolk beschwören 3 	Beschwören 3 AP, Fesseln 2 AP, Verlängern 3 AP. 
 Späfolk beschwören 4 	Beschwören 4 AP, Fesseln 2 AP, Verlängern 4 AP. 
+Staubkämpfer	*.*
+Steinkugel	*.*
+Steinwand	*.*
+Stille	*.*
+Stimmenwerfen	*.*
+Sturmflut	*.*
+Sturmhand	*.*
+Sturmwind	*.*
+Stärke	*.*
+Sumpfboden	*.*
+Thursenstein	*.*
+Tiere rufen	*.*
+Tiergestallt	*.*
+Tierisches Handeln	*.*
+Tiersprache	*.*
+Todeshauch	*.*
+Todeskeule	*.*
+Todeszauber	*.*
 Trockensalz	Das Salz saugt bis zu 1l Flüssigkeit auf.
 Träger beschwören 1	Beschören von Kaobargen. Beschwören 1 AP, Fesseln/Verlängern 1 AP. 
 Träger beschwören 2	Beschören von Kaobargen. Beschwören 2 AP, Fesseln 1 AP, Verlängern 2 AP. 
 Träger beschwören 3	Beschören von Kaobargen. Beschwören 3 AP, Fesseln 2 AP, Verlängern 3 AP. 
 Träger beschwören 4	Beschören von Kaobargen. Beschwören 4 AP, Fesseln 2 AP, Verlängern 4 AP. 
+Umkehrschild	*.*
+Ungeheuer rufen	*.*
+Unsichtbarbeit	*.*
 Unwetter rufen	GZ 5. Dadurch wird ein sehr starkes Gewitter gerufen, das sich innerhalb von 5 Minuten bildet und dann 15 Minuten anhält. Massive Wirkungen. Lebewesen mit weniger als LP, die nicht rechtzeitig einen Unterschlupf finden, sterben.
+Verbotenes Wort	*.*
+Verdorren	*.*
+Vereisen	*.*
+Verfluchen	*.*
+Vergiften	*.*
 Verglasen	GZ 5. Mißlingt der WW:phs, verwandelt sich der Körper des Opfers innerhalb von 4 Runden in Glas. Kann mit Bannen von Zauberwerk/Bannen von Finsterwerk aufgehoben werden, wenn PW:WLW gelingt.
+Vergrößern	*.*
+Verjüngen	*.*
+Verkleinern	*.*
+Verlangsamen	*.*
+Verletzung	*.*
+Versetzen	*.*
+Versteinern	*.*
+Vertieren	*.*
+Verursachen schwerer Wunden	*.*
+Verursachen von Krankheit	*.*
+Verursachen von Wunden	*.*
+Verwandlung	*.*
+Verwirren	*.*
 Verwüstung	GZ 1. Pflanzen innerhalb des Wirkungsbereiches verdorren innerhalb von Sekunden. Das Gelände bleibt (Grad Fm)^2 unfruchtbar.
+Verzweiflung	*.*
+Vision	*.*
+Wachsen	*.*
+Wagemut	*.*
+Wahnsinn	*.*
+Wahrsehen	*.*
+Wandelhand	*.*
+Wandeln wie der Wind	*.*
+Waranung	*.*
+Wasseratmen	*.*
+Wasserlauf	*.*
+Wassermeisterschaft	*.*
+Wasserstrahl	*.*
+Wasserwandlung	*.*
+Wetterzauber	*.*
+Wiederkehr	*.*
+Windmeisterschaft	*.*
+Windstoß	*.*
+Wirbelwind	*.*
+Wort der Trauer	*.*
+Wort des Lebens	*.*
+Wort des Todes	*.*
+Wundersame Tarnung	*.*
 Wächter beschwören 1	Beschören von Kaobargen. Beschwören 2 AP, Fesseln 1 AP, Verlängern 2 AP. 
 Wächter beschwören 2	Beschören von Kaobargen. Beschwören 3 AP, Fesseln 2 AP, Verlängern 3 AP. 
 Wächter beschwören 3	Beschören von Kaobargen. Beschwören 4 AP, Fesseln 2 AP, Verlängern 4 AP. 
+Zauberauge	*.*
+Zauberhand	*.*
+Zaubermacht	*.*
+Zauberschild	*.*
+Zauberschloß	*.*
+Zauberschlüssel	*.*
+Zauberschmiede	*.*
+Zauberstimme	*.*
+Zauberwirklichkeit	*.*
+Zauberzunge	*.*
 Zeichen des Chaos	GZ 4. Mißlingt dem Opfer ein WW:phs(weiße Hexer, Priester und Ordenskriegen haben WM+4), wächst ihm ein leicht zu bemerkendes Chaoszeichen: Schwarz verfärbte Körperteile, glühende Augen, Klauen, Hörner usw. Die Wirkung des Zaubers dauert (Gr Fm)*(Gr Opfer). 
+Ziehlsuche	*.*
 Zucksalz	Das Opfer leidet unter nervösen Zuckungen, was WM-4 auf alle EW bedeutet, auch Angriff und Zaubern. pA sinkt auf ein Viertel.
+Zweige der Macht und des Wissens	*.*
+Zweite Haut	*.*
+Zwiesprache	*.*
+Zähmen	*.*
 \.
 --
 --
