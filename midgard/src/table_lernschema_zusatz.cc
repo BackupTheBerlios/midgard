@@ -298,17 +298,11 @@ void table_lernschema::on_herkunft_leaf_selected(cH_RowDataBase d)
 
 void table_lernschema::on_herkunft_ueberleben_leaf_selected(cH_RowDataBase d)
 {
-//  tree_lernschema->set_sensitive(true);
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::UEBERLEBEN);
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
-//  MidgardBasicElement_mutable MBE=dt->getMBE();
 
   MidgardBasicElement_mutable M(&*cH_Fertigkeit(dt->getZusatz()));
-cout << M.Erfolgswert()<<'\n';
-  M.setErfolgswert(6);
-cout << M.Erfolgswert()<<'\n';
   hauptfenster->getWerte().setUeberleben(M);
-cout << hauptfenster->getWerte().Ueberleben().Erfolgswert()<<'\n';
 
   button_angeborene_fert->set_sensitive(true);
   set_zusatz_sensitive(false);

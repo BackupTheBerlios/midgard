@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.28 2002/07/03 17:25:20 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.29 2002/07/04 06:39:51 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -77,7 +77,6 @@ const std::list<Abenteurer::st_universell> Abenteurer::List_Universell( const Da
   cH_MidgardBasicElement werfen(&*cH_Waffe("Werfen"));
   UF.push_back(MidgardBasicElement_mutable(werfen));
   UF.push_back(getWerte().Ueberleben());
-cout << getWerte().Ueberleben()->Name()<<'\t'<<getWerte().Ueberleben().Erfolgswert()<<'\n';
   UF.sort(sort_universell());
 
   for(std::list<Abenteurer::st_universell>::iterator i=UF.begin();i!=UF.end();++i)
@@ -87,6 +86,7 @@ cout << getWerte().Ueberleben()->Name()<<'\t'<<getWerte().Ueberleben().Erfolgswe
       {
         cH_Fertigkeit f(i->mbe);
         iwert = f->Ungelernt();
+        if(f->Name()==getWerte().Ueberleben()->Name()) iwert=6;
         if (!f->Voraussetzung(*this,false)) 
             {iwert-=2; i->voraussetzung=false;}
       }
@@ -238,6 +238,7 @@ void Abenteurer::grundwerte_speichern(Tag &datei)
    Typ.setAttr_ne("Abkürzung2", Typ2()->Short());
    Typ.setAttr_ne("Spezialgebiet", getWerte().Spezialgebiet()->Name());
    Typ.setAttr_ne("Spezialisierung", getWerte().Spezialisierung());
+   Typ.setAttr_ne("Überleben",getWerte().Ueberleben()->Name());
    Typ.setAttr("Stadt_Land", getWerte().Stadt_Land());
    Typ.setAttr("Hand", getWerte().Hand());
    
@@ -438,6 +439,12 @@ bool Abenteurer::xml_import_stream(istream& datei, Datenbank &Database,
      { 
        cH_Spezialgebiet S(spezialgebiet);
        getWerte().setSpezialgebiet(S);
+     }
+   std::string ueberleben=Typ->getAttr("Überleben");
+   if(ueberleben!="") 
+     { 
+       MidgardBasicElement_mutable M(&*cH_Fertigkeit(ueberleben));
+       getWerte().setUeberleben(M);
      }
    getWerte().setSpezialisierung(Typ->getAttr("Spezialisierung"));
    getWerte().setBezeichnung(Beschreibung->getAttr("Bezeichnung"));
