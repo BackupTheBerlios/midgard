@@ -1,4 +1,4 @@
-// $Id: Region_GUI.hh,v 1.3 2003/09/01 06:47:58 christof Exp $               
+// $Id: Region_GUI.hh,v 1.4 2003/09/08 08:10:59 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002-2003 Christof Petig
@@ -20,16 +20,15 @@
 
 #ifndef REGION_GUI_HH
 #define REGION_GUI_HH
-//#include <libmagus/Region.hh>
+#include <libmagus/Region.hh>
 #include <gtkmm/image.h>
 //#include "Optionen.hh"
 
 class RegionenPic
 {
  public:
-   enum epic {None, Rawindra,KanThaiPan,Alba,Eschar,Gildenbrief,HD,Waeland,
-              Nahuatlan,Arkanum,DFR,Meister_der_Sphaeren,Tipps_und_Tricks,
-              Abenteuer,HD_finster,Kuestenstaaten,Ikengabecken};
+   using namespace RegionenPic_enum;
+   
    __deprecated static Gtk::Image* Pic(epic e,bool tiny=false) ;
    static Glib::RefPtr<Gdk::Pixbuf> PicModel(epic e,bool tiny=false) ;
 };

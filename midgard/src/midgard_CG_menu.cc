@@ -23,6 +23,7 @@
 #include <bool_CheckMenuItem.hh>
 #include <RefPtr_Pixmap.hh>
 #include "Region_GUI.hh"
+#include "Optionen_GUI.hh"
 extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 Gtk::Box &midgard_CG::make_gtk_box(Glib::RefPtr<Gdk::Pixbuf> data,const std::string &label,const bool text_vor_bild,const bool hbox)
@@ -56,7 +57,7 @@ void midgard_CG::menu_init()
   Gtk::MenuItem *trennlinie = (Gtk::MenuItem *)&schummel_menu->items().back();
   trennlinie->show();
 
-  {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(getChar().proxies.check[Optionen::Original],make_gtk_box(MagusImage("midgard_logo_tiny.xpm"),"Originalregeln ")));
+  {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(getChar().proxies.checks[Optionen::Original],make_gtk_box(MagusImage("midgard_logo_tiny.xpm"),"Originalregeln ")));
   schummel_menu->append(*_M);}
 
   {Gtk::MenuItem *_M = Gtk::manage(new Gtk::MenuItem("Lernschema- und Steigern-Fenster aktivieren"));
@@ -69,7 +70,7 @@ void midgard_CG::menu_init()
   {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(table_steigern->steigern_mit_EP_bool,"Mit EP/PP steigern"));
   schummel_menu->append(*_M);}
 
-  {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(getChar().proxies.check[Optionen::NSC_only],"NSC-Modus"));
+  {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(getChar().proxies.checks[Optionen::NSC_only],"NSC-Modus"));
   schummel_menu->append(*_M);}
 
   menu_kontext->append(*schummel);
@@ -125,7 +126,7 @@ void midgard_CG::menu_init()
      regionen_menu->append(*mi);
      getChar().proxies.regionen[*i].signal_changed().connect(SigC::bind(SigC::slot(*this,&midgard_CG::on_checkbutton_Regionen_menu),*i));
      if(!(*i)->Offiziell())
-         mi->setSensitive(getChar().proxies.check[Optionen::Original],true);
+         mi->setSensitive(getChar().proxies.checks[Optionen::Original],true);
    }
   menu_kontext->append(*regionen);
   
@@ -135,15 +136,15 @@ void midgard_CG::menu_init()
   Gtk::MenuItem *optionen = Gtk::manage(new class Gtk::MenuItem("Ansicht & Fenster")); 
   optionen->set_submenu(*optionen_menu);
 
-  std::list<Magus_Optionen::st_OptionenExecute> OLM=MOptionen->getOptionenExecute();
+  std::list<Magus_Optionen::st_OptionenExecute> OLM=Programmoptionen.getOptionenExecute();
   for(std::list<Magus_Optionen::st_OptionenExecute>::iterator i=OLM.begin();i!=OLM.end();++i)
    {
     Gtk::Label *_l=Gtk::manage (new Gtk::Label(i->text));
     Gtk::Table *_tab=Gtk::manage(new Gtk::Table(1,1,false));
     _tab->attach(*_l,0,1,0,1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
-    if(i->bild) 
+    if(Optionen_GUI::Execute_bild(i->index)) 
      {
-      Gtk::Image *_o=Gtk::manage(new Gtk::Image(i->bild));
+      Gtk::Image *_o=Gtk::manage(new Gtk::Image(Optionen_GUI::Execute_bild(i->index)));
       _tab->attach(*_o,1,2,0,1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
      }
     Gtk::MenuItem *mi=Gtk::manage(new Gtk::MenuItem());
@@ -182,15 +183,15 @@ void midgard_CG::menubar_init()
   Gtk::MenuItem *mi1 = Gtk::manage(new class Gtk::MenuItem("Ansicht & Fenster"));
   Gtk::MenuItem *mi2 = Gtk::manage(new class Gtk::MenuItem("Gestaltung"));
   
-  std::list<Magus_Optionen::st_OptionenExecute> OLM=MOptionen->getOptionenExecute();
+  std::list<Magus_Optionen::st_OptionenExecute> OLM=Programmoptionen.getOptionenExecute();
   for(std::list<Magus_Optionen::st_OptionenExecute>::iterator i=OLM.begin();i!=OLM.end();++i)
    {
     Gtk::Label *_l=Gtk::manage (new Gtk::Label(i->text));
     Gtk::Table *_tab=Gtk::manage(new Gtk::Table(1,1,false));
     _tab->attach(*_l,0,1,0,1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
-    if(i->bild) 
+    if(Optionen_GUI::Execute_bild(i->index)) 
      {
-      Gtk::Image *_o=Gtk::manage(new Gtk::Image(i->bild));
+      Gtk::Image *_o=Gtk::manage(new Gtk::Image(Optionen_GUI::Execute_bild(i->index)));
       _tab->attach(*_o,1,2,0,1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
      }
     Gtk::MenuItem *mi=Gtk::manage(new Gtk::MenuItem());
@@ -198,7 +199,7 @@ void midgard_CG::menubar_init()
     mi->signal_activate().connect(SigC::bind(SigC::slot(*this,&midgard_CG::OptionenExecute_setzen_from_menu),i->index));
     menu1->append(*mi);
    } 
-  for(std::list<Magus_Optionen::st_Ober>::iterator i=MOptionen->getOber().begin();i!=MOptionen->getOber().end();++i)
+  for(std::list<Magus_Optionen::st_Ober>::iterator i=Programmoptionen.getOber().begin();i!=Programmoptionen.getOber().end();++i)
    {
     if(!i->show) continue;
     bool_CheckMenuItem *mi = Gtk::manage(new bool_CheckMenuItem(i->active,i->text));
@@ -239,7 +240,7 @@ void midgard_CG::menubar_init()
      // Gtk::manage(mi);
      getChar().proxies.regionen[*i].signal_changed().connect(SigC::bind(SigC::slot(*this,&midgard_CG::on_checkbutton_Regionen_menu),*i));
      if(!(*i)->Offiziell())
-        mi->setSensitive(getChar().proxies.check[Optionen::Original],true);
+        mi->setSensitive(getChar().proxies.checks[Optionen::Original],true);
    }
  regionen_menu->show_all();
 
@@ -254,7 +255,7 @@ void midgard_CG::menu_history_init(int oldsize)
   Gtk::Menu::MenuList L=M->items();
   for(int i=0;i<oldsize;++i) L.pop_back();
   int x=1;
-  for(std::list<std::string>::const_iterator i=LDateien.begin();i!=LDateien.end();++i)
+  for(std::list<std::string>::const_iterator i=LetzteDateien().begin();i!=LetzteDateien().end();++i)
    {
      L.push_back(Gtk::Menu_Helpers::MenuElem(*i, Gtk::Menu_Helpers::AccelKey("<Control>"+itos(x))));
      Gtk::MenuItem *mi=(Gtk::MenuItem *)&L.back();
@@ -265,14 +266,14 @@ void midgard_CG::menu_history_init(int oldsize)
 
 void midgard_CG::push_back_LDateien(std::string s)
 {
-  int oldsize=LDateien.size();
-  std::list<std::string>::iterator i=find(LDateien.begin(),LDateien.end(),s);
+  int oldsize=LetzteDateien().size();
+  std::list<std::string>::iterator i=find(LetzteDateien().begin(),LetzteDateien().end(),s);
 
-  if (i!=LDateien.end()) LDateien.remove(*i);
+  if (i!=LetzteDateien().end()) LetzteDateien().remove(*i);
   else 
-   { if(oldsize>MOptionen->DateiHistory()) LDateien.pop_back(); 
+   { if(oldsize>Programmoptionen.DateiHistory()) LetzteDateien().pop_back(); 
    }
 
-  LDateien.push_front(s);
+  LetzteDateien().push_front(s);
   menu_history_init(oldsize);
 }
