@@ -23,7 +23,7 @@
 exec sql include sqlca;
 #endif
 #include <gtk--/main.h>
-
+#include "MidgardBasicElement.hh" // für NotFound
 
 cH_Typen::cache_t cH_Typen::cache;
 
