@@ -31,12 +31,25 @@
 #include "../pixmaps/Regio_Nahuatlan-50.xpm"
 #include "../pixmaps/Regio_Waeland-50.xpm"
 #include "../pixmaps/Regio_Arkanum-50.xpm"
+#include "../pixmaps/Eschar-trans-26.xpm"
+//#include "../pixmaps/KiDo-trans-50.xpm"
+#include "../pixmaps/Regio-DFR-4-26.xpm"
+#include "../pixmaps/Regio_Rawindra-26.xpm"
+#include "../pixmaps/Regio_Alba-26.xpm"
+#include "../pixmaps/Regio_H_u_D-26.xpm"
+//#include "../pixmaps/Regio_H_u_D_F-50.xpm"
+#include "../pixmaps/Regio_Gilde-26.xpm"
+#include "../pixmaps/Regio_Nahuatlan-26.xpm"
+#include "../pixmaps/Regio_Waeland-26.xpm"
+#include "../pixmaps/Regio_Arkanum-26.xpm"
 #include "../pixmaps/Abwehr-50.xpm"
 //#include "../pixmaps/Arkanum-50.xpm"
 #include "../pixmaps/pinguin.xpm"
 
 Gtk::Pixmap *RegionenPic::Pic(epic typ,bool tiny=false)
 {  
+ if(!tiny)
+  {
    if      (typ==Eschar)     return manage(new Gtk::Pixmap(Eschar_trans_50_xpm));
    else if (typ==KanThaiPan) return manage(new Gtk::Pixmap(KiDo_trans_50_xpm));
    else if (typ==DFR)        return manage(new Gtk::Pixmap(Regio_DFR_4_50_xpm));
@@ -49,8 +62,23 @@ Gtk::Pixmap *RegionenPic::Pic(epic typ,bool tiny=false)
    else if (typ==HD)         return manage(new Gtk::Pixmap(Regio_H_u_D_50_xpm));
    else if (typ==HD_finster) return manage(new Gtk::Pixmap(Regio_H_u_D_F_50_xpm));
    else if (typ==Abenteuer)  return manage(new Gtk::Pixmap(Abwehr_50_xpm));
-   else return manage(new Gtk::Pixmap(pinguin_xpm));
-   abort();
+  }
+ else
+  {
+   if      (typ==Eschar)     return manage(new Gtk::Pixmap(Eschar_trans_26_xpm));
+//   else if (typ==KanThaiPan) return manage(new Gtk::Pixmap(KiDo_trans_26_xpm));
+   else if (typ==DFR)        return manage(new Gtk::Pixmap(Regio_DFR_4_26_xpm));
+   else if (typ==Rawindra)   return manage(new Gtk::Pixmap(Regio_Rawindra_26_xpm));
+   else if (typ==Alba)       return manage(new Gtk::Pixmap(Regio_Alba_26_xpm));
+   else if (typ==Waeland)    return manage(new Gtk::Pixmap(Regio_Waeland_26_xpm));
+   else if (typ==Nahuatlan)  return manage(new Gtk::Pixmap(Regio_Nahuatlan_26_xpm));
+   else if (typ==Arkanum)    return manage(new Gtk::Pixmap(Regio_Arkanum_26_xpm));
+   else if (typ==Gildenbrief)return manage(new Gtk::Pixmap(Regio_Gilde_26_xpm));
+   else if (typ==HD)         return manage(new Gtk::Pixmap(Regio_H_u_D_26_xpm));
+//   else if (typ==HD_finster) return manage(new Gtk::Pixmap(Regio_H_u_D_F_26_xpm));
+//   else if (typ==Abenteuer)  return manage(new Gtk::Pixmap(Abwehr_26_xpm));
+  }
+ return manage(new Gtk::Pixmap(pinguin_xpm));
 }
 
 

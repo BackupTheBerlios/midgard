@@ -669,170 +669,6 @@
     </widget>
 
     <widget>
-      <class>GtkHandleBox</class>
-      <name>handlebox_status</name>
-      <cxx_visibility>protected</cxx_visibility>
-      <shadow_type>GTK_SHADOW_NONE</shadow_type>
-      <handle_position>GTK_POS_LEFT</handle_position>
-      <snap_edge>GTK_POS_LEFT</snap_edge>
-      <child>
-	<left_attach>0</left_attach>
-	<right_attach>1</right_attach>
-	<top_attach>3</top_attach>
-	<bottom_attach>4</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>True</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>False</yfill>
-      </child>
-
-      <widget>
-	<class>GtkVBox</class>
-	<name>vbox50</name>
-	<homogeneous>False</homogeneous>
-	<spacing>0</spacing>
-
-	<widget>
-	  <class>GtkHBox</class>
-	  <name>hbox87</name>
-	  <homogeneous>False</homogeneous>
-	  <spacing>0</spacing>
-	  <child>
-	    <padding>0</padding>
-	    <expand>False</expand>
-	    <fill>False</fill>
-	  </child>
-
-	  <widget>
-	    <class>GtkLabel</class>
-	    <name>label_status</name>
-	    <cxx_visibility>protected</cxx_visibility>
-	    <label></label>
-	    <justify>GTK_JUSTIFY_LEFT</justify>
-	    <wrap>False</wrap>
-	    <xalign>0.01</xalign>
-	    <yalign>0.5</yalign>
-	    <xpad>0</xpad>
-	    <ypad>2</ypad>
-	    <child>
-	      <padding>0</padding>
-	      <expand>True</expand>
-	      <fill>True</fill>
-	    </child>
-	  </widget>
-
-	  <widget>
-	    <class>GtkFrame</class>
-	    <name>frame_regionen_status</name>
-	    <cxx_visibility>protected</cxx_visibility>
-	    <label_xalign>0</label_xalign>
-	    <shadow_type>GTK_SHADOW_NONE</shadow_type>
-	    <child>
-	      <padding>0</padding>
-	      <expand>False</expand>
-	      <fill>False</fill>
-	    </child>
-
-	    <widget>
-	      <class>Placeholder</class>
-	    </widget>
-	  </widget>
-
-	  <widget>
-	    <class>GtkEventBox</class>
-	    <name>eventbox_NSC_aktiv</name>
-	    <cxx_visibility>protected</cxx_visibility>
-	    <tooltip>Dieses Icon zeigt an, daﬂ der NSC Modus eingeschaltet ist.</tooltip>
-	    <child>
-	      <padding>0</padding>
-	      <expand>False</expand>
-	      <fill>True</fill>
-	    </child>
-
-	    <widget>
-	      <class>GtkPixmap</class>
-	      <name>pixmap164</name>
-	      <filename>NSC-Mode-26.xpm</filename>
-	      <xalign>0.5</xalign>
-	      <yalign>0.5</yalign>
-	      <xpad>0</xpad>
-	      <ypad>0</ypad>
-	      <build_insensitive>True</build_insensitive>
-	    </widget>
-	  </widget>
-
-	  <widget>
-	    <class>GtkEventBox</class>
-	    <name>eventbox_wizard_aktiv</name>
-	    <cxx_visibility>protected</cxx_visibility>
-	    <tooltip>Dieses Icon zeigt an, daﬂ der Wizard aktiv ist.</tooltip>
-	    <child>
-	      <padding>0</padding>
-	      <expand>False</expand>
-	      <fill>True</fill>
-	    </child>
-
-	    <widget>
-	      <class>GtkPixmap</class>
-	      <name>pixmap165</name>
-	      <filename>MAGUS_Logo_Tiny.xpm</filename>
-	      <xalign>0.5</xalign>
-	      <yalign>0.5</yalign>
-	      <xpad>0</xpad>
-	      <ypad>0</ypad>
-	      <build_insensitive>True</build_insensitive>
-	    </widget>
-	  </widget>
-
-	  <widget>
-	    <class>GtkEventBox</class>
-	    <name>eventbox_haus_aktiv</name>
-	    <cxx_visibility>protected</cxx_visibility>
-	    <tooltip>Dieses Icon zeigt an, daﬂ Hausregeln aktiv sind.</tooltip>
-	    <child>
-	      <padding>0</padding>
-	      <expand>False</expand>
-	      <fill>False</fill>
-	    </child>
-
-	    <widget>
-	      <class>GtkPixmap</class>
-	      <name>pixmap166</name>
-	      <filename>Haus-26.xpm</filename>
-	      <xalign>0.5</xalign>
-	      <yalign>0.5</yalign>
-	      <xpad>0</xpad>
-	      <ypad>0</ypad>
-	      <build_insensitive>True</build_insensitive>
-	    </widget>
-	  </widget>
-	</widget>
-
-	<widget>
-	  <class>GtkLabel</class>
-	  <name>label_wizard</name>
-	  <cxx_visibility>protected</cxx_visibility>
-	  <label></label>
-	  <justify>GTK_JUSTIFY_LEFT</justify>
-	  <wrap>False</wrap>
-	  <xalign>0.01</xalign>
-	  <yalign>0.5</yalign>
-	  <xpad>0</xpad>
-	  <ypad>2</ypad>
-	  <child>
-	    <padding>0</padding>
-	    <expand>False</expand>
-	    <fill>False</fill>
-	  </child>
-	</widget>
-      </widget>
-    </widget>
-
-    <widget>
       <class>GtkNotebook</class>
       <name>notebook_main</name>
       <cxx_visibility>protected</cxx_visibility>
@@ -18135,6 +17971,170 @@ Liste lˆschen</label>
 	      <fill>False</fill>
 	    </child>
 	  </widget>
+	</widget>
+      </widget>
+    </widget>
+
+    <widget>
+      <class>GtkHandleBox</class>
+      <name>handlebox_status</name>
+      <cxx_visibility>protected</cxx_visibility>
+      <shadow_type>GTK_SHADOW_NONE</shadow_type>
+      <handle_position>GTK_POS_LEFT</handle_position>
+      <snap_edge>GTK_POS_LEFT</snap_edge>
+      <child>
+	<left_attach>0</left_attach>
+	<right_attach>1</right_attach>
+	<top_attach>3</top_attach>
+	<bottom_attach>4</bottom_attach>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<xexpand>True</xexpand>
+	<yexpand>False</yexpand>
+	<xshrink>True</xshrink>
+	<yshrink>True</yshrink>
+	<xfill>True</xfill>
+	<yfill>False</yfill>
+      </child>
+
+      <widget>
+	<class>GtkVBox</class>
+	<name>vbox50</name>
+	<homogeneous>False</homogeneous>
+	<spacing>0</spacing>
+
+	<widget>
+	  <class>GtkHBox</class>
+	  <name>hbox87</name>
+	  <homogeneous>False</homogeneous>
+	  <spacing>0</spacing>
+	  <child>
+	    <padding>0</padding>
+	    <expand>False</expand>
+	    <fill>False</fill>
+	  </child>
+
+	  <widget>
+	    <class>GtkLabel</class>
+	    <name>label_status</name>
+	    <cxx_visibility>protected</cxx_visibility>
+	    <label></label>
+	    <justify>GTK_JUSTIFY_LEFT</justify>
+	    <wrap>False</wrap>
+	    <xalign>0.01</xalign>
+	    <yalign>0.5</yalign>
+	    <xpad>0</xpad>
+	    <ypad>2</ypad>
+	    <child>
+	      <padding>0</padding>
+	      <expand>True</expand>
+	      <fill>True</fill>
+	    </child>
+	  </widget>
+
+	  <widget>
+	    <class>GtkFrame</class>
+	    <name>frame_regionen_status</name>
+	    <cxx_visibility>protected</cxx_visibility>
+	    <label_xalign>0</label_xalign>
+	    <shadow_type>GTK_SHADOW_NONE</shadow_type>
+	    <child>
+	      <padding>0</padding>
+	      <expand>False</expand>
+	      <fill>False</fill>
+	    </child>
+
+	    <widget>
+	      <class>Placeholder</class>
+	    </widget>
+	  </widget>
+
+	  <widget>
+	    <class>GtkEventBox</class>
+	    <name>eventbox_NSC_aktiv</name>
+	    <cxx_visibility>protected</cxx_visibility>
+	    <tooltip>Dieses Icon zeigt an, daﬂ der NSC Modus eingeschaltet ist.</tooltip>
+	    <child>
+	      <padding>0</padding>
+	      <expand>False</expand>
+	      <fill>True</fill>
+	    </child>
+
+	    <widget>
+	      <class>GtkPixmap</class>
+	      <name>pixmap164</name>
+	      <filename>NSC-Mode-26.xpm</filename>
+	      <xalign>0.5</xalign>
+	      <yalign>0.5</yalign>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <build_insensitive>True</build_insensitive>
+	    </widget>
+	  </widget>
+
+	  <widget>
+	    <class>GtkEventBox</class>
+	    <name>eventbox_wizard_aktiv</name>
+	    <cxx_visibility>protected</cxx_visibility>
+	    <tooltip>Dieses Icon zeigt an, daﬂ der Wizard aktiv ist.</tooltip>
+	    <child>
+	      <padding>0</padding>
+	      <expand>False</expand>
+	      <fill>True</fill>
+	    </child>
+
+	    <widget>
+	      <class>GtkPixmap</class>
+	      <name>pixmap165</name>
+	      <filename>MAGUS_Logo_Tiny.xpm</filename>
+	      <xalign>0.5</xalign>
+	      <yalign>0.5</yalign>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <build_insensitive>True</build_insensitive>
+	    </widget>
+	  </widget>
+
+	  <widget>
+	    <class>GtkEventBox</class>
+	    <name>eventbox_haus_aktiv</name>
+	    <cxx_visibility>protected</cxx_visibility>
+	    <tooltip>Dieses Icon zeigt an, daﬂ Hausregeln aktiv sind.</tooltip>
+	    <child>
+	      <padding>0</padding>
+	      <expand>False</expand>
+	      <fill>False</fill>
+	    </child>
+
+	    <widget>
+	      <class>GtkPixmap</class>
+	      <name>pixmap166</name>
+	      <filename>Haus-26.xpm</filename>
+	      <xalign>0.5</xalign>
+	      <yalign>0.5</yalign>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <build_insensitive>True</build_insensitive>
+	    </widget>
+	  </widget>
+	</widget>
+
+	<widget>
+	  <class>GtkLabel</class>
+	  <name>label_wizard</name>
+	  <cxx_visibility>protected</cxx_visibility>
+	  <label></label>
+	  <justify>GTK_JUSTIFY_LEFT</justify>
+	  <wrap>False</wrap>
+	  <xalign>0.01</xalign>
+	  <yalign>0.5</yalign>
+	  <xpad>0</xpad>
+	  <ypad>2</ypad>
+	  <child>
+	    <padding>0</padding>
+	    <expand>False</expand>
+	    <fill>False</fill>
+	  </child>
 	</widget>
       </widget>
     </widget>

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.254 2002/07/08 07:19:51 thoma Exp $
+// $Id: midgard_CG.cc,v 1.255 2002/07/08 12:05:53 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -83,7 +83,7 @@ void midgard_CG::init_statusbar()
   Gtk::HBox *hb_regionen_status=manage(new class Gtk::HBox(false, 0));
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {
-     Gtk::Pixmap *p=RegionenPic::Pic((*i)->Pic());
+     Gtk::Pixmap *p=RegionenPic::Pic((*i)->Pic(),true);
      hb_regionen_status->pack_start(*p);
      if((*i)->Active()) p->show();
      vec_region_status.push_back(st_reg_status((*i)->Pic(),p));

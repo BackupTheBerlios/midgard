@@ -147,17 +147,18 @@ std::string Typen::getLernpflichtenInfo(cH_Land herkunft) const
   std::vector<std::string> vk;
   for(std::vector<st_herkunft>::const_iterator i=vec_herkunft.begin();i!=vec_herkunft.end();++i)
    {
-     if(herkunft->Name()==i->land)
+     if(herkunft->Name()==i->land && i->kultwaffe!="")
        vk.push_back(i->kultwaffe);
    }
   if(vk.empty())  return lernpflichten_info;
   std::string K="Für einen "+Short()+" muß als erstes ";
   if(vk.size()==1) K+="die ";
   else K+="eine ";
-  K+="Kultwaffe gewählt werden:\n";
+  K+="Kultwaffe gewählt werden: ";
+  if(vk.size()!=1) K+="\n";
   for(std::vector<std::string>::const_iterator i=vk.begin();i!=vk.end();++i)
    {
-     K+="\t"+*i+"\n";
+     K+="   "+*i+"\n";
    }
   return lernpflichten_info + "\n"+K;
 }
