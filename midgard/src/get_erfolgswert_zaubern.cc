@@ -1,4 +1,4 @@
-// $Id: get_erfolgswert_zaubern.cc,v 1.6 2001/05/14 13:43:23 thoma Exp $
+// $Id: get_erfolgswert_zaubern.cc,v 1.7 2001/05/15 18:58:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_sprachen_schriften.cc,v 1.5 2001/04/19 13:29:12 thoma Exp $
+// $Id: midgard_CG_sprachen_schriften.cc,v 1.6 2001/05/15 18:58:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
