@@ -1,14 +1,3 @@
-// generated 2002/5/23 18:30:41 CEST by thoma@Tiger.(none)
-// using glademm V0.6.4b_cvs
-//
-// newer (non customized) versions of this file go to table_steigern.hh_new
-
-// you might replace
-//    class foo : public foo_glade { ... };
-// by
-//    typedef foo_glade foo;
-// if you didn't make any modifications to the widget
-
 #ifndef _TABLE_STEIGERN_HH
 #  include "table_steigern_glade.hh"
 #  define _TABLE_STEIGERN_HH
@@ -153,7 +142,7 @@ private:
         void on_leaf_selected_neue_sprache(cH_RowDataBase d);
         void on_leaf_selected_alte_schrift(cH_RowDataBase d);
         void on_leaf_selected_neue_schrift(cH_RowDataBase d);
-        void on_notebook_lernen_switch_page(Gtk::NotebookPage *p0, guint p1);
+        void on_notebook_lernen_switch_page(GtkNotebookPage *p0, guint p1);
         bool vscale_value_changed(GdkEventButton *ev);
         void on_checkbutton_EP_Geld_toggled();
         void on_radio_selbst_toggled();

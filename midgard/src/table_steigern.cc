@@ -68,7 +68,7 @@ void table_steigern::neuer_charakter()
 
 
 
-void table_steigern::on_notebook_lernen_switch_page(Gtk::Notebook_Helpers::Page *page,guint pagenr)
+void table_steigern::on_notebook_lernen_switch_page(GtkNotebookPage *page,guint pagenr)
 {
   if(hauptfenster && !hauptfenster->in_dtor) load_for_page(pagenr);
 }

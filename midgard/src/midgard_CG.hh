@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.312 2002/12/14 23:45:11 christof Exp $
+// $Id: midgard_CG.hh,v 1.313 2002/12/16 08:29:28 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -40,6 +40,7 @@ class Random;
 #include "Waffe.hh"
 #include "Abenteurer.hh"
 //#include "Region.hh"
+#include <TreeViewUtility.h>
 
 // small class for determining file positions (originally part of midgard_CG)
 class magus_paths
@@ -104,6 +105,8 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
         // Info Fenster
    private: 
         WindowInfo *InfoFenster;
+        
+        TreeViewUtility::CListEmulator news_columns;
    protected:
         void set_info(const std::string& sadd);
 
