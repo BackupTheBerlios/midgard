@@ -46,7 +46,7 @@ void Prozente100::check100()
   int summe=Vsumme();
   if(!summe) VWas.begin()->prozent=100;
   for(std::vector<st_was>::iterator i=VWas.begin();i!=VWas.end();++i)
-     i->prozent*=int(100./summe);
+     i->prozent*=100./summe;
   summe=Vsumme(); 
   if(summe!=100) // dann den Rest verteilen
    {
@@ -132,12 +132,18 @@ void Grund_Standard_Ausnahme_MBE::check100()
 {
    int summe=Gprozent+Sprozent+Aprozent;
    if(!summe) {Gprozent=100;}
+cout << "Vor: "<<summe<<'='<<Gprozent<<'+'<<Sprozent<<'+'<<Aprozent<<'\n';
    if(summe!=100)
     {
-      Gprozent*=int(100./summe);
-      Sprozent*=int(100./summe);
-      Aprozent*=int(100./summe);
+      Gprozent*=100./summe;
+      Sprozent*=100./summe;
+      Aprozent*=100./summe;
     }
+   summe=Gprozent+Sprozent+Aprozent;
+cout << "Zwischen: "<<summe<<'='<<Gprozent<<'+'<<Sprozent<<'+'<<Aprozent<<'\n';
+   if(summe!=100) Gprozent=100-Aprozent-Sprozent;
+   if(Gprozent<0) {Gprozent=0; Aprozent=100-Sprozent;}
+cout << "Nach: "<<summe<<'='<<Gprozent<<'+'<<Sprozent<<'+'<<Aprozent<<'\n';
    summe=Gprozent+Sprozent+Aprozent;
    assert(summe==100);
 }

@@ -9,7 +9,7 @@ NEWS IN VERSION 0.8.11
 * Waffenausdruck korrekt formatiert
 * Freischalten des Lernschemas und des Steigerns durch 
    'Werte für Grad 1 setzen'
-* viele kleinere und größere Bugfixes
+* viele kleinere und größere (AbsturzBugs) Bugfixes
 * Überarbeitet 'steigern_mit ZEP/KEP' LIste (Danke an Markus Steinberg)
 * Bugfix: Zauberer lernen Angriffswaffe nur bis +14
 * abschaltbares Begrüßungsfenster (prima Idee von Andre (Sam) Paus)
@@ -21,6 +21,7 @@ NEWS IN VERSION 0.8.11
 
 TODO: ('-' zeigt CP an)
 
+* WaffenGrundkenntnisse nur wenn auch Waffen dieser Art gelernt werden können
 * KI-Steigern nicht nur mit Unterweisung oder Selbststudium 
 * Region-Icons wechseln
 * Neue Ausrüstung eingeben (stürzt ab)

@@ -18759,8 +18759,8 @@ werk</label>
 		      <cxx_visibility>protected</cxx_visibility>
 		      <signal>
 			<name>activate</name>
-			<handler>on_scale_waffen_activate</handler>
-			<last_modification_time>Tue, 15 Oct 2002 20:25:14 GMT</last_modification_time>
+			<handler>on_scale_schriften_activate</handler>
+			<last_modification_time>Tue, 19 Nov 2002 14:27:59 GMT</last_modification_time>
 		      </signal>
 		      <creation_function>MyScale</creation_function>
 		      <int1>0</int1>
