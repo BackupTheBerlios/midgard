@@ -520,14 +520,16 @@ void midgard_CG::load_charakter()
    get_typ(-1);
    if (typ.z=="n" || typ.s == "Ord") label_spezialwaffe->set_text("Spezialwaffe durch \nselektieren auswählen");
    else label_spezialwaffe->set_text("");
-
-   // Rasse setzen
+   // Spezies setzen
    exec sql begin declare section;   
     int db_nr;
    exec sql end declare section;   
    strncpy(db_spezies,werte.spezies.c_str(),sizeof(db_spezies));
    exec sql select nr into :db_nr from spezies where spezies = :db_spezies;
-   midgard_CG::fill_typauswahl();
+   // Geschlecht setzen
+   if (werte.geschlecht=="w") radiobutton_frau->set_active(true);
+   if (werte.geschlecht=="m") radiobutton_mann->set_active(true);
+//   midgard_CG::fill_typauswahl();
    optionmenu_spezies->set_history(db_nr); // Spezies
    midgard_CG::show_gtk(get_typ_nr());
    midgard_CG::get_spezial_from_spezialgebiet();

@@ -1,4 +1,14 @@
 ##########################################################################
+NEWS IN VERSION 0.4beta8
+- Beim Laden eines Charakters wurde die falsche Charakterklasse angezeigt
+- Bei nichtmenschlichen Spezies kam es beim Laden zu einem Absturz
+- Die fehlenden Pixmaps sind jetzt mit in dem tar.gz Paket
+- Bug bei der Anzeige der Charakterklasse bei Nichtmenschen beseitigt
+- Geschlechtesauswahl hinzugefügt
+- Geschlecht wird bei der Charakterklassenbezeichnung berücksichtigt
+
+ 
+##########################################################################
 NEWS IN VERSION 0.4beta7
 - Bug für 'Zauber lernen' beseitigt
 - Pixmaps für KanThaiPan und Eschar sind fertig

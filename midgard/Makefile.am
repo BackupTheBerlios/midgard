@@ -3,5 +3,5 @@
 
 SUBDIRS = pixmaps src
 
-EXTRA_DIST = AUTHORS TODO README configure 
+EXTRA_DIST = AUTHORS TODO README NEWS configure 
 

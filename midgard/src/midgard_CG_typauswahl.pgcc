@@ -27,41 +27,34 @@ void midgard_CG::fill_typauswahl()
   exec sql begin declare section;
    char db_typ[50];
    char db_region[10];
-   char db_spezies[50];
-   int db_typnr, db_tanz;
+   int db_typnr;
+   char query[1024];
   exec sql end declare section;
-//  exec sql select count(typnr) into :db_tanz from typen;
-//  typen_vector.resize(db_tanz);
+  string squery = "select t.typl";
+  if (werte.geschlecht=="w") squery +="w";
+  squery +=",t.typnr,coalesce(t.region,'') from typen t";
+  if (werte.spezies!="Mensch") 
+     squery += ", spezies_typen st where t.typs = st.typen and st.spezies = '"
+            + werte.spezies +"'";
+  squery +="  order by typnr";
+
   Transaction tr;
-  if (werte.spezies!="Mensch")
-   {
-     strncpy(db_spezies,werte.spezies.c_str(),sizeof(db_spezies));
-     exec sql declare ein cursor for 
-       select t.typl,t.typnr,coalesce(t.region,'') from typen t, spezies_typen st
-       where t.typs = st.typen and st.spezies = :db_spezies order by typnr;
-     exec sql open ein;
-   }
-  else
-   {   
-     exec sql declare einM cursor for 
-      select typl,typnr,coalesce(region,'') from typen order by typnr ;
-     exec sql open einM;
-   }
+  strncpy(query,squery.c_str(),sizeof(query));
+  exec sql prepare ein_ from :query;
+  exec sql declare ein cursor for ein_;
+  exec sql open ein;
   SQLerror::test(__FILELINE__);
   Gtk::Menu *_m(manage(new Gtk::Menu()));
   Gtk::MenuItem *_mi;
   unsigned int count=0;
   while (true)
    {
-      if (werte.spezies!="Mensch")
-         exec sql fetch ein into :db_typ, :db_typnr, :db_region;
-      else
-         exec sql fetch einM into :db_typ, :db_typnr, :db_region;
+      exec sql fetch ein into :db_typ, :db_typnr, :db_region;
       SQLerror::test(__FILELINE__,100);
       if (sqlca.sqlcode) break;   
       if (region_check(db_region))
        {
-         typen_vector.push_back(st_typen(db_typnr-1,db_typ));
+         typen_vector.push_back(st_typen(db_typnr,db_typ));
 //cout << db_typnr<<"\t"<<db_typ<<"\t"<<typen_vector.size()<<"\n";
          _mi = manage(new Gtk::MenuItem(db_typ));
          _m->append(*_mi);

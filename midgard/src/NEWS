@@ -1,16 +1,45 @@
 ##########################################################################
 NEWS IN VERSION 0.4beta8
-- Beim Laden eines Charakters wurde die Falsche Charakterklasse angezeigt
+- Beim Laden eines Charakters wurde die falsche Charakterklasse angezeigt
+- Bei nichtmenschlichen Spezies kam es beim Laden zu einem Absturz
 - Die fehlenden Pixmaps sind jetzt mit in dem tar.gz Paket
+- Bug bei der Anzeige der Charakterklasse bei Nichtmenschen beseitigt
+- Geschlechtesauswahl hinzugefügt
+- Geschlecht wird bei der Charakterklassenbezeichnung berücksichtigt
 
+ 
 ##########################################################################
 NEWS IN VERSION 0.4beta7
 - Bug für 'Zauber lernen' beseitigt
+- Pixmaps für KanThaiPan und Eschar sind fertig
+- Zauber für den Finstermagier sind drin (Dank an Joachim)
+- Zauberlieder und Zaubersalze sind auch eingearbeitet (Dank an Joachim),
+	die Zaubersprüche will er noch nachreichen.
+- Der 'alle Zauber' Button funktioniert irgendwie nicht (mehr?) -> behoben
+- Tabelle 'arkanum_zauber' leicht überarbeitet 
+- Wurde eine andere Spezies gewählt funktionierte die
+	Charakterklassenerkennung nicht
+- Durch Drücken des RECHTEN Mausknopfes wird Anstelle eines LaTeX Charakter-
+	Dokumentes eine Datei exportiert, deren Format dem von Elsa
+	gefordertem für die NSC-Daten im Anhag von Abenteuer entspricht.
+	Diese Funktion sollte insbesondere für Spielleiter/Abenteuerschreiber
+	von Interesse sein. Da ich selber kaum benötigen werde bitte ich 
+	um Verbesserungsvorschläge.
+- Beim steigern (neulernen) von ZaDurch Drücken des RECHTEN Mausknopfes wird
+	Anstelle eines LaTeX Charakter-
+        Dokumentes eine Datei exportiert, deren Format dem von Elsa
+        gefordertem für die NSC-Daten im Anhag von Abenteuer entspricht.
+        Diese Funktion sollte insbesondere für
+Spielleiter/Abenteuerschreiber
+        von Interesse sein. Da ich selber kaum benötigen werde bitte ich
+        um Verbesserungsvorschläge.
+- Beim steigern (neulernen) von Zaubern wird nun auch der Ursprung eines
+	Zauberspruches angegeben.
 
 ##########################################################################
 NEWS IN VERSION 0.4beta6
 - Es werden nur noch dann KiDo Techniken zum Lernen angeboten, wenn die
-   maximal mögliiche Anzahl für die entsprechende Stufe noch nicht erreicht ist.
+   maximal mögliche Anzahl für die entsprechende Stufe noch nicht erreicht ist.
 - 'alle Zauber' wirkt nun auch auf Zauberwerk
 - fehlende Tabelle 'spezialgebiete' ergänzt
 

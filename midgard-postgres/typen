@@ -12,6 +12,7 @@ CREATE TABLE "typen" (
 	"typnr" integer,
 	"typs" text,
 	"typl" text,
+	"typlw" text,
 	"typz" text,
 	"ausdauer" text,
 	"stand" integer,
@@ -25,35 +26,35 @@ CREATE TABLE "typen" (
 --
 
 COPY "typen"  FROM stdin;
-27	PT	Priester, Tod	z	z	20	0	4	\N
-28	Sc	Schamane	z	z	0	0	1	\N
-29	Th	Thaumaturge	z	z	0	0	1	\N
-15	dBe	Beschwörer, Dämonen	z	z	20	20	4	\N
-14	eBe	Beschwörer, Elementare	z	z	20	20	4	\N
-16	Dr	Druide	z	z	0	20	1	\N
-22	PH	Priester, Herrschaft	z	z	20	0	1	\N
-2	BN	Barbar, Nordland	n	k	0	0	2	\N
-3	BS	Barbar, Steppe	n	k	0	0	2	\N
-4	BW	Barbar, Waldland	n	k	0	0	4	\N
-5	Ba	Barde	j	ak	20	0	1	\N
-6	Gl	Glücksritter	n	ak	0	0	3	\N
-7	Hä	Händler	n	ak	-10	0	2	\N
-8	Kr	Krieger	n	k	0	0	3	\N
-9	Ord	Ordeskrieger	j	ak	0	0	3	\N
-10	Se	Seefahrer	n	ak	0	0	2	\N
-11	Sö	Söldner	n	k	0	0	3	\N
-13	Wa	Waldläufer	n	k	-10	0	1	\N
-1	Ass	Assassine	n	ak	0	20	1	\N
-12	Sp	Spitzbube	n	ak	-20	-20	1	\N
-17	Hl	Heiler	z	z	0	0	4	\N
-20	wHx	Hexer, weiß	z	z	0	0	4	\N
-18	gHx	Hexer, grau	z	z	0	0	4	\N
-19	sHx	Hexer, schwarz	z	z	0	0	4	\N
-21	Ma	Magier	z	z	0	0	4	\N
-23	PF	Priester, Fruchtbarkeit	z	z	20	0	4	\N
-24	PW	Priester, Weisheit	z	z	20	0	4	\N
-25	PM	Priester, Meer	z	z	20	0	1	\N
-26	PK	Priester, Krieg	z	z	20	0	1	\N
-30	Ny	Ninya	n	ak	0	20	1	K
-31	Kd	KiDoka	n	k	0	0	1	K
+27	PT	Todespriester	Todespriesterin	z	z	20	0	4	\N
+28	Sc	Schamane	Schamanin	z	z	0	0	1	\N
+29	Th	Thaumaturge	Thaumaturgin	z	z	0	0	1	\N
+15	dBe	Dämonenbeschwörer	Dämonenbeschwörerin	z	z	20	20	4	\N
+14	eBe	Elementarbeschwörer	Elementarbeschwörerin	z	z	20	20	4	\N
+16	Dr	Druide	Druidin	z	z	0	20	1	\N
+22	PH	Herrschaftspriester	Herrschaftspriesterin	z	z	20	0	1	\N
+2	BN	Nordlandbarbar	Nordlandbarbarin	n	k	0	0	2	\N
+3	BS	Steppenbarbar	Steppenbarbarin	n	k	0	0	2	\N
+4	BW	Waldlandbarbar	Waldlandbarbarin	n	k	0	0	4	\N
+5	Ba	Barde	Bardin	j	ak	20	0	1	\N
+6	Gl	Glücksritter	Glücksritterin	n	ak	0	0	3	\N
+7	Hä	Händler	Händlerin	n	ak	-10	0	2	\N
+8	Kr	Krieger	Kriegerin	n	k	0	0	3	\N
+9	Ord	Ordeskrieger	Ordenskriegerin	j	ak	0	0	3	\N
+10	Se	Seefahrer	Seefahrerin	n	ak	0	0	2	\N
+11	Sö	Söldner	Söldnerin	n	k	0	0	3	\N
+13	Wa	Waldläufer	Waldläuferin	n	k	-10	0	1	\N
+1	Ass	Assassine	Assassinin	n	ak	0	20	1	\N
+12	Sp	Spitzbube	Spitzbübin	n	ak	-20	-20	1	\N
+17	Hl	Heiler	Heilerin	z	z	0	0	4	\N
+20	wHx	weißer Hexer	weiße Hexe	z	z	0	0	4	\N
+18	gHx	grauer Hexer	graue Hexe	z	z	0	0	4	\N
+19	sHx	schwarzer Hexer	schwarze Hexe	z	z	0	0	4	\N
+21	Ma	Magier	Magierin	z	z	0	0	4	\N
+23	PF	Fruchtbarkeitspriester	Fruchtberkeitspriesterin	z	z	20	0	4	\N
+24	PW	Weisheitspriester	Weisheitspriesterin	z	z	20	0	4	\N
+25	PM	Meerespriester	Meerespriesterin	z	z	20	0	1	\N
+26	PK	Kriegspriester	Kriegspriesterin	z	z	20	0	1	\N
+30	Ny	Ninya	Ninya	n	ak	0	20	1	K
+31	Kd	KiDoka	KiDoka	n	k	0	0	1	K
 \.

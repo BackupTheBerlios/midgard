@@ -25,7 +25,7 @@ void midgard_CG::get_typ(int nr)
  exec sql begin declare section ;
   char db_typs[50], db_typl[50], db_typz[5], db_ausdauer[5];
   int  db_stand, db_sb;
-  int db_typnr=nr+1;
+  int db_typnr=nr;
  exec sql end declare section ; 
  if (nr!=-1)
    {
@@ -43,13 +43,16 @@ void midgard_CG::get_typ(int nr)
  else abort();
  SQLerror::test(__FILELINE__); 
 
+ if (werte.geschlecht=="w")
+ exec sql select typlw into :db_typl from typen where typl = :db_typl;
+ SQLerror::test(__FILELINE__); 
  typ.s = db_typs;
  typ.l = db_typl;
  typ.z = db_typz;
  typ.ausdauer = db_ausdauer;
  typ.stand = db_stand;
  typ.sb = db_sb;
-cout << typ.l<<"\n";
+//cout << typ.l<<"\n";
 }
 
 int midgard_CG::get_typ_nr()
@@ -65,7 +68,10 @@ int midgard_CG::get_typ_nr()
  int count=0;
  for (vector<st_typen>::const_iterator i=typen_vector.begin();
         i!=typen_vector.end();++i)
-   { if(db_typnr==i->nr) { return count-1 ; }
+   { 
+cout << db_typnr<<"\t"<<typ.s<<"\t"<<i->nr<<"\t"<<i->name<<"\n";
+
+if(db_typnr==i->nr) { return count ; }
      ++count;
    }
  abort();

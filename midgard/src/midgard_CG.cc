@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.20 2001/05/03 20:51:32 thoma Exp $
+// $Id: midgard_CG.cc,v 1.21 2001/05/04 06:35:34 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -64,7 +64,7 @@ void midgard_CG::typauswahl_button()
 //cout << ityp_<<"\t"<<ityp <<"\n";
  get_typ(ityp);
 //cout << ityp_<<"\t"<<ityp <<"\n";
- show_gtk(ityp);
+ show_gtk(ityp_);
 //cout << ityp_<<"\t"<<ityp <<"\n";
 //cout << typ.s <<"\t"<<typ.l<<"\n";
 }
@@ -73,17 +73,20 @@ void midgard_CG::on_radiobutton_frau_toggled()
 {   
   if (radiobutton_frau->get_active()) werte.geschlecht="w";
    else werte.geschlecht="m";
+  midgard_CG::fill_typauswahl();
+  midgard_CG::typauswahl_button();
 }
 
 void midgard_CG::on_radiobutton_mann_toggled()
 {
   if (radiobutton_mann->get_active()) werte.geschlecht="m";
    else werte.geschlecht="w";
+  midgard_CG::fill_typauswahl();
+  midgard_CG::typauswahl_button();
 }
 
 void midgard_CG::show_gtk(int tnr)
 {
-//cout << tnr<<"\n";
  typauswahl->set_history(tnr); // Charakterklasse
  fertig_typ->set_text(typ.l);     // Charakterklasse im Lernfenster
 
