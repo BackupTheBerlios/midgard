@@ -63,7 +63,7 @@ void midgard_CG::menu_init()
      _mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),_mi,*i));
      regionen_menu->append(*_mi);
      _mi->set_active((*i)->Active());
-     if(!Originalbool && ((*i)->Abkuerzung()=="H&D" ||(*i)->Abkuerzung()=="G"))
+     if(!OptionBool.Original && ((*i)->Abkuerzung()=="H&D" ||(*i)->Abkuerzung()=="G"))
         _mi->set_sensitive(false);
      _mi->show();
    }
@@ -76,17 +76,29 @@ void midgard_CG::menu_init()
   Gtk::MenuItem *optionen = manage(new class Gtk::MenuItem("Optionen")); 
   optionen->set_submenu(*optionen_menu);
  
-  menu_original=manage(new Gtk::CheckMenuItem("Originalregeln"));
-  optionen_menu->append(*menu_original);
-  menu_original->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_original_menu));
-  menu_original->set_active(Originalbool);
-  menu_original->show();
+  OptionMenu.menu_original=manage(new Gtk::CheckMenuItem("Originalregeln"));
+  optionen_menu->append(*OptionMenu.menu_original);
+  OptionMenu.menu_original->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_original_menu));
+  OptionMenu.menu_original->set_active(OptionBool.Original);
+  OptionMenu.menu_original->show();
 
-  menu_info=manage(new Gtk::CheckMenuItem("Info Fenster anzeigen"));
-  optionen_menu->append(*menu_info);
-  menu_info->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_info_fenster_menu));
-  menu_info->set_active(Infobool);
-  menu_info->show();
+  OptionMenu.menu_info=manage(new Gtk::CheckMenuItem("Info Fenster anzeigen"));
+  optionen_menu->append(*OptionMenu.menu_info);
+  OptionMenu.menu_info->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_info_fenster_menu));
+  OptionMenu.menu_info->set_active(OptionBool.Info);
+  OptionMenu.menu_info->show();
+
+  OptionMenu.menu_pics=manage(new Gtk::CheckMenuItem("Bilder anzeigen"));
+  optionen_menu->append(*OptionMenu.menu_pics);
+  OptionMenu.menu_pics->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_pics_menu));
+  OptionMenu.menu_pics->set_active(OptionBool.Pics);
+  OptionMenu.menu_pics->show();
+
+  OptionMenu.menu_version=manage(new Gtk::CheckMenuItem("Versionen automatisch erzeugen\n(Deaktivierung löscht den Eintrag in 'Version')"));
+  optionen_menu->append(*OptionMenu.menu_version);
+  OptionMenu.menu_version->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_version_menu));
+  OptionMenu.menu_version->set_active(OptionBool.version);
+  OptionMenu.menu_version->show();
 
   menu->append(*optionen);
   optionen->show();

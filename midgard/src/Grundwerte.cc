@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.2 2002/01/14 12:07:21 thoma Exp $               
+// $Id: Grundwerte.cc,v 1.3 2002/01/15 12:21:18 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,6 +18,7 @@
  */
 
 #include "Grundwerte.hh"
+#include "itos.h"
 
 int Grundwerte::bo_Au() const 
 { 
@@ -26,7 +27,7 @@ int Grundwerte::bo_Au() const
 
 int Grundwerte::bo_Sc() const 
 { 
-  return  int(St()/10. + Gs()/30.) - 3 ;
+  return  int(St()/20. + Gs()/30.) - 3 ;
 }
 
 int Grundwerte::Raufen() const 
@@ -168,4 +169,11 @@ void Grundwerte::resetSinne()
  sinnmap["Riechen"]=8;
  sinnmap["Schmecken"]=8;
  sinnmap["Tasten"]=8; 
+}
+
+
+std::string Grundwerte::Version(bool b) const
+{
+ if(!b) return version;
+ return "Grad "+itos(grad);
 }

@@ -1,4 +1,4 @@
-// $Id: xmlimport.pgcc,v 1.33 2002/01/11 07:43:35 christof Exp $
+// $Id: xmlimport.pgcc,v 1.34 2002/01/15 12:21:18 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -105,7 +105,7 @@ bool charakter_laden(const Tag::const_iterator &top)
       char db_spezies[50];
       int db_aep=0,db_kep=0,db_zep=0,db_steigern_ep_prozent=50,
       		db_grad_basiswerte=0;
-      bool db_steigern_bool=false;
+      bool db_steigern=false;
       int db_grad_abwehr=0,db_grad_resistenz=0,db_grad_zaubern=0;
    exec sql end declare section;
 
@@ -172,7 +172,7 @@ bool charakter_laden(const Tag::const_iterator &top)
       db_grad_zaubern=Steigern->getIntAttr("Zaubern",db_grad); // V7+
       db_grad_abwehr=Steigern->getIntAttr("Abwehr",db_grad); // V7+
       db_grad_resistenz=Steigern->getIntAttr("Resistenz",db_grad); // V7+
-      db_steigern_bool=Steigern->getBoolAttr("EPabziehen",db_steigern_bool=Steigern->getBoolAttr("steigern",false)); // V7+
+      db_steigern=Steigern->getBoolAttr("EPabziehen",db_steigern=Steigern->getBoolAttr("steigern",false)); // V7+
    }
    else
    {  db_aep=0;
@@ -183,7 +183,7 @@ bool charakter_laden(const Tag::const_iterator &top)
       db_grad_zaubern=db_grad;
       db_grad_abwehr=db_grad;
       db_grad_resistenz=db_grad;
-      db_steigern_bool=false;
+      db_steigern=false;
    }
    
 update:
@@ -238,7 +238,7 @@ update:
       kupfer         = :db_kupfer      ,
       ruestung       = :db_ruestung    ,
       spezies        = :db_spezies     ,
-      steigern_bool  = :db_steigern_bool,
+      steigern  = :db_steigern,
       aep	     = :db_aep	       ,
       kep 	     = :db_kep		, 
       zep	     = :db_zep		,

@@ -20,7 +20,7 @@
 #include "Window_Erfahrungspunkte.hh"
 #include <gtk--/adjustment.h>
 
-bool steigern_bool;
+bool steigern;
 
 gint midgard_CG::vscale_value_changed(GdkEventButton *ev)
 {
@@ -38,18 +38,18 @@ void midgard_CG::steigern_gtk()
   label_Gold->set_text(itos(100-Database.GradAnstieg.get_Steigern_EP_Prozent())+"%");
   Gtk::Adjustment *A=vscale_EP_Gold->get_adjustment();
   A->set_value(100-Database.GradAnstieg.get_Steigern_EP_Prozent());
-  if (steigern_bool) checkbutton_EP_Geld->set_active(true);
+  if (steigern) checkbutton_EP_Geld->set_active(true);
   else               checkbutton_EP_Geld->set_active(false);
 }
 
 void midgard_CG::on_checkbutton_EP_Geld_toggled()
 {
    if (checkbutton_EP_Geld->get_active()) 
-      { steigern_bool=true;
+      { steigern=true;
         frame_lernen_mit->set_sensitive(true);
       }
    else 
-      { steigern_bool=false;
+      { steigern=false;
         frame_lernen_mit->set_sensitive(false);
       }
 }
@@ -109,12 +109,12 @@ void midgard_CG::set_lernzeit(unsigned int kosten)
 
 bool midgard_CG::steigern_usp(unsigned int kosten,const cH_MidgardBasicElement* MBE, e_was_steigern was)
 {
-  if (!steigern_bool) // Steigern OHNE EP/Gold/PP
+  if (!steigern) // Steigern OHNE EP/Gold/PP
       { set_lernzeit(kosten);
         return true; 
       }
 
-  guint gold_k=0,ep_k=0;
+  int gold_k=0,ep_k=0;
   if(radiobutton_unterweisung->get_active())
    {
      // genug Geld? 

@@ -1,4 +1,4 @@
-// $Id: Window_lernpunkte_editieren.cc,v 1.17 2001/12/05 15:02:53 thoma Exp $
+// $Id: Window_lernpunkte_editieren.cc,v 1.18 2002/01/15 12:21:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -41,7 +41,7 @@ void Window_lernpunkte_editieren::on_close_clicked()
   lernpunkte->set_Waffen       (lernpunkte_w_ein->get_value_as_int());
   lernpunkte->set_Zauber       (lernpunkte_z_ein->get_value_as_int());
 
-  hauptfenster->setze_lernpunkte(*lernpunkte);
+//  hauptfenster->setze_lernpunkte(*lernpunkte);
   destroy();
 }
 

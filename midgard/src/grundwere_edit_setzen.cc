@@ -1,4 +1,4 @@
-// $Id: grundwere_edit_setzen.cc,v 1.17 2002/01/14 12:07:21 thoma Exp $
+// $Id: grundwere_edit_setzen.cc,v 1.18 2002/01/15 12:21:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -49,6 +49,15 @@ void midgard_CG::set_all_entrys()
   Werte.setGroesse(spinbutton_groesse->get_value_as_int());
   gtk_spin_button_update(spinbutton_alter->gtkobj());  
   Werte.setAlter(spinbutton_alter->get_value_as_int());
+  gtk_spin_button_update(spinbutton_tage->gtkobj());  
+  Werte.setSteigertage(spinbutton_tage->get_value_as_int());
+  gtk_spin_button_update(spinbutton_gg->gtkobj());  
+  Werte.setGG(spinbutton_gg->get_value_as_int());
+  gtk_spin_button_update(spinbutton_sg->gtkobj());  
+  Werte.setSG(spinbutton_sg->get_value_as_int());
+  gtk_spin_button_update(spinbutton_gfp->gtkobj());  
+  Werte.setGFP(spinbutton_gfp->get_value_as_int());
+
 
   gtk_spin_button_update(spinbutton_st->gtkobj());  
   Werte.setSt(spinbutton_st->get_value_as_int());
@@ -78,51 +87,64 @@ void midgard_CG::set_all_entrys()
 }
 
 void midgard_CG::on_entry_nameC_activate()
-{ set_all_entrys(); }
+{ set_all_entrys(); entry_nameS->grab_focus(); }
 void midgard_CG::on_entry_nameS_activate()
-{ set_all_entrys(); }
+{ set_all_entrys(); entry_version->grab_focus();}
 void midgard_CG::on_entry_version_activate()
-{ set_all_entrys(); }
+{ 
+ OptionBool.version=false;
+ menu_init();
+ entry_herkunft->grab_focus();
+ set_all_entrys(); 
+}
 void midgard_CG::on_entry_spezialisierung_activate()
-{ set_all_entrys(); }
+{ set_all_entrys(); spinbutton_grad->grab_focus();}
 void midgard_CG::on_entry_glaube_activate()
-{ set_all_entrys(); }
+{ set_all_entrys(); entry_spezialisierung->grab_focus();}
 void midgard_CG::on_entry_herkunft_activate()
-{ set_all_entrys(); }
+{ set_all_entrys(); entry_glaube->grab_focus();}
 void midgard_CG::on_spinbutton_grad_activate()
-{ set_all_entrys(); }
+{ set_all_entrys(); spinbutton_lp->grab_focus();}
 void midgard_CG::on_spinbutton_lp_activate()
-{ set_all_entrys(); }
+{ set_all_entrys(); spinbutton_ap->grab_focus();}
 void midgard_CG::on_spinbutton_ap_activate()
-{ set_all_entrys(); }
+{ set_all_entrys(); spinbutton_alter->grab_focus();}
 void midgard_CG::on_spinbutton_Cgewicht_activate()
-{ set_all_entrys(); }
+{ set_all_entrys(); spinbutton_groesse->grab_focus();}
 void midgard_CG::on_spinbutton_groesse_activate()
-{ set_all_entrys(); }
+{ set_all_entrys(); spinbutton_tage->grab_focus();}
 void midgard_CG::on_spinbutton_alter_activate()
-{ set_all_entrys(); }
+{ set_all_entrys(); spinbutton_Cgewicht->grab_focus();}
+void midgard_CG::on_spinbutton_tage_activate()
+{ set_all_entrys(); spinbutton_gg->grab_focus();}
+void midgard_CG::on_spinbutton_gg_activate()
+{ set_all_entrys(); spinbutton_sg->grab_focus();}
+void midgard_CG::on_spinbutton_sg_activate()
+{ set_all_entrys(); spinbutton_gfp->grab_focus();}
+void midgard_CG::on_spinbutton_gfp_activate()
+{ set_all_entrys(); spinbutton_st->grab_focus();}
 void midgard_CG::on_spinbutton_st_activate()
-{ set_all_entrys(); }     
+{ set_all_entrys(); spinbutton_gs->grab_focus();}     
 void midgard_CG::on_spinbutton_gw_activate()
-{ set_all_entrys(); }     
+{ set_all_entrys(); spinbutton_ko->grab_focus();}     
 void midgard_CG::on_spinbutton_gs_activate()
-{ set_all_entrys(); }     
+{ set_all_entrys(); spinbutton_gw->grab_focus();}     
 void midgard_CG::on_spinbutton_ko_activate()
-{ set_all_entrys(); }     
+{ set_all_entrys(); spinbutton_in->grab_focus();}     
 void midgard_CG::on_spinbutton_in_activate()
-{ set_all_entrys(); }     
+{ set_all_entrys(); spinbutton_zt->grab_focus();}     
 void midgard_CG::on_spinbutton_zt_activate()
-{ set_all_entrys(); }     
+{ set_all_entrys(); spinbutton_au->grab_focus();}     
 void midgard_CG::on_spinbutton_sb_activate()
-{ set_all_entrys(); }
+{ set_all_entrys(); spinbutton_wk->grab_focus();}
 void midgard_CG::on_spinbutton_wk_activate()
-{ set_all_entrys(); }
+{ set_all_entrys(); spinbutton_b->grab_focus();}
 void midgard_CG::on_spinbutton_au_activate()
-{ set_all_entrys(); }
+{ set_all_entrys(); spinbutton_pa->grab_focus();}
 void midgard_CG::on_spinbutton_pa_activate()
-{ set_all_entrys(); }   
+{ set_all_entrys(); spinbutton_sb->grab_focus();}   
 void midgard_CG::on_spinbutton_b_activate()
-{ set_all_entrys(); } 
+{ set_all_entrys();} 
 
 
 
@@ -135,6 +157,10 @@ void midgard_CG::edit_sensitive(bool b)
   entry_spezialisierung->set_sensitive(b);
   entry_glaube->set_sensitive(b);
   spinbutton_alter->set_sensitive(b);
+  spinbutton_gfp->set_sensitive(b);
+  spinbutton_tage->set_sensitive(b);
+  spinbutton_gg->set_sensitive(b);
+  spinbutton_sg->set_sensitive(b);
   optionmenu_stand->set_sensitive(b);
   spinbutton_groesse->set_sensitive(b);
   spinbutton_grad->set_sensitive(b);

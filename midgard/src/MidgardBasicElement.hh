@@ -131,7 +131,8 @@ class MidgardBasicElement : public HandleContent
       static void saveElementliste(const std::list<cH_MidgardBasicElement>& b,
                                    const Grundwerte& Werte,
                                    const vector<cH_Typen>& Typ,
-                                   const Ausnahmen& ausnahmen);
+                                   const Ausnahmen& ausnahmen,
+                                   bool versionbool);
 
 };
 

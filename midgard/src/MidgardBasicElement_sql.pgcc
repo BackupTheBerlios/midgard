@@ -27,6 +27,7 @@ exec sql include sqlca;
 #include "Zauberwerk.hh"
 #include "Fertigkeiten.hh"
 #include "Waffe.hh"
+#include "midgard_CG.hh"
 
 void MidgardBasicElement::get_map_typ()
 {  
@@ -238,8 +239,8 @@ return;
 void MidgardBasicElement::saveElementliste(const std::list<cH_MidgardBasicElement>& b,
                            const Grundwerte& Werte,
                            const vector<cH_Typen>& Typ,
-                           const Ausnahmen& ausnahmen
-                           )
+                           const Ausnahmen& ausnahmen,
+                           bool versionbool )
 {
   if(b.size()==0) return;
 /*
@@ -255,7 +256,7 @@ void MidgardBasicElement::saveElementliste(const std::list<cH_MidgardBasicElemen
     char db_what[30];
   exec sql end declare section;
   strncpy(db_name_ch,Werte.Name_Charakter().c_str(),sizeof(db_name_ch));
-  strncpy(db_version,Werte.Version().c_str(),sizeof(db_version));
+  strncpy(db_version,Werte.Version(versionbool).c_str(),sizeof(db_version));
   strncpy(db_what, ((*b.begin())->What_str()).c_str(),sizeof(db_what));
   strncpy(db_magisch, "",sizeof(db_magisch));
   strncpy(db_zauberwerk_stufe, "",sizeof(db_zauberwerk_stufe));

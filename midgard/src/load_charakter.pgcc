@@ -92,7 +92,6 @@ void midgard_CG::load_charakter()
       char db_ruestung[20];
       char db_spezies[50];
       int db_aep,db_kep,db_zep;
-      bool db_steigern_bool;   
       int db_steigern_EP;      
       int db_grad_basiswerte;
       char db_stadt_land[20];
@@ -100,7 +99,7 @@ void midgard_CG::load_charakter()
 
  //  db_beschreibung=0; /* Ist nötig !!! */
    strncpy(db_name_ch,(Werte.Name_Charakter()).c_str(),sizeof(db_name_ch));
-   strncpy(db_version,(Werte.Version()).c_str(),sizeof(db_version));
+   strncpy(db_version,(Werte.Version(OptionBool.version)).c_str(),sizeof(db_version));
 
    Transaction tr;
 
@@ -150,7 +149,7 @@ void midgard_CG::load_charakter()
          ruestung    ,
          spezies  ,
          coalesce(aep,0), coalesce(kep,0),coalesce(zep,0),
-         coalesce(steigern_bool,'f'),coalesce(steigern_EP_prozent,50),
+         coalesce(steigern_EP_prozent,50),
          coalesce(grad_basiswerte,1),
          stadt_land
       FROM charaktere WHERE charakter_name= :db_name_ch
@@ -205,7 +204,7 @@ void midgard_CG::load_charakter()
        :db_ruestung    ,
        :db_spezies     ,
        :db_aep,:db_kep,:db_zep  ,
-       :db_steigern_bool, :db_steigern_EP,
+       :db_steigern_EP,
        :db_grad_basiswerte,
        :db_stadt_land;
    SQLerror::test(__FILELINE__);
@@ -240,7 +239,6 @@ void midgard_CG::load_charakter()
    Werte.setSpezies(cH_Spezies(db_spezies)) ;
    Werte.setEP(db_aep,db_kep,db_zep);
    Werte.setStadt_Land(db_stadt_land);
-   steigern_bool=db_steigern_bool;
    Database.GradAnstieg.set_Grad_Anstieg(db_steigern_EP,db_grad_basiswerte);
 //////////////////////////////////////////////////////////////////////////////
 //   // Land oder Stadt?
@@ -270,7 +268,7 @@ void midgard_CG::load_charakter()
    ///////////////////////////////////////////////////////////////////////   
    // Berufe, Fertigkeiten, Waffen und Zauber (KiDo), Grundkenntnisse (Waffen)
    load_fertigkeiten();
-    menu_init();
+   menu_init();
 
    Database.ausnahmen.set_Beruf(list_Beruf);
 
@@ -293,12 +291,12 @@ void midgard_CG::load_ausruestung()
     char query[1024];
   exec sql end declare section;
   strncpy(adb_name,Werte.Name_Charakter().c_str(),sizeof(adb_name));
-  strncpy(adb_vers,Werte.Version().c_str(),sizeof(adb_vers));
+  strncpy(adb_vers,Werte.Version(OptionBool.version).c_str(),sizeof(adb_vers));
   strncpy(adb_art,"Ausruestung",sizeof(adb_art));
   std::string squery = "select fertigkeit,wert,magisch,sl_bonus
       from charaktere_fertigkeiten
       where charakter_name='"+Werte.Name_Charakter()+"' and 
-            version ='"+Werte.Version()+"' and art='Ausruestung'
+            version ='"+Werte.Version(OptionBool.version)+"' and art='Ausruestung'
             and av_bonus="+itos(0);
   strncpy(query,squery.c_str(),sizeof(query));
   exec sql prepare AFEIN_ from :query;
@@ -332,12 +330,12 @@ void midgard_CG::load_ausruestung_C(int parent,AusruestungBaum *AB)
     char cquery[1024];
   exec sql end declare section;
   strncpy(acdb_name,Werte.Name_Charakter().c_str(),sizeof(acdb_name));
-  strncpy(acdb_vers,Werte.Version().c_str(),sizeof(acdb_vers));
+  strncpy(acdb_vers,Werte.Version(OptionBool.version).c_str(),sizeof(acdb_vers));
   strncpy(acdb_art,"Ausruestung",sizeof(acdb_art));
   std::string squery = "select fertigkeit,wert,magisch,sl_bonus "
       "from charaktere_fertigkeiten "
       "where charakter_name='"+Werte.Name_Charakter()+"' and "
-            "version ='"+Werte.Version()+"' and art='Ausruestung' "
+            "version ='"+Werte.Version(OptionBool.version)+"' and art='Ausruestung' "
             "and av_bonus="+itos(parent);
   strncpy(cquery,squery.c_str(),sizeof(cquery));
 //cout << cquery<<'\n'<<parent<<'\n';
@@ -386,7 +384,7 @@ void midgard_CG::load_fertigkeiten()
       coalesce(magisch,''),coalesce(zauberwerk_stufe,'')
       from charaktere_fertigkeiten
       where charakter_name='"+Werte.Name_Charakter()+"' and 
-            version ='"+Werte.Version()+"' and art!='Ausruestung'";
+            version ='"+Werte.Version(OptionBool.version)+"' and art!='Ausruestung'";
   strncpy(query,squery.c_str(),sizeof(query));
   exec sql prepare LFEIN_ from :query;
   exec sql declare LFEIN cursor for LFEIN_;
@@ -466,8 +464,11 @@ void midgard_CG::load_fertigkeiten()
       if(sart=="bool")
         {
          std::string reg=db_region;
-         if (reg=="ORIG") {Originalbool=false ; /*checkbutton_original->set_active(false);*/}
-         if (reg=="INFO") {Infobool=false ;/* checkbutton_info_fenster->set_active(false);*/}
+         if (reg=="ORIG") {OptionBool.Original=false ; }
+         else if (reg=="INFO") {OptionBool.Info=false ;}
+         else if (reg=="PICS") {OptionBool.Info=false ;}
+         else if (reg=="VERS") {OptionBool.version=false ;}
+         else if (reg=="STEI") {OptionBool.steigern=false ;}
         }
       if(sart=="Region")
         {

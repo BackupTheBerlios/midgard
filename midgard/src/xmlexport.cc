@@ -1,4 +1,4 @@
-// $Id: xmlexport.cc,v 1.6 2002/01/07 16:49:34 christof Exp $
+// $Id: xmlexport.cc,v 1.7 2002/01/15 12:21:18 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -38,7 +38,7 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
    		"glaube, db_bo_au, db_bo_sc, db_bo_an, "
    		"db_bo_ab, db_bo_za, db_bo_psy, db_bo_phs, db_bo_phk,"
    		"db_bo_gi, db_gfp, gold, silber, kupfer, "
-   		"aep, kep, zep, steigern_bool, steigern_ep_prozent,"
+   		"aep, kep, zep, steigern, steigern_ep_prozent,"
    		"grad_basiswerte, grad_abwehr, grad_resistenz,"
    		"grad_zaubern, steigertage, "
    		"abwehr_pp, zaubern_pp, resistenz_pp, "

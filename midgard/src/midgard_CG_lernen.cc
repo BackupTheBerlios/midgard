@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.41 2002/01/14 10:29:28 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.42 2002/01/15 12:21:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,12 +27,13 @@ void midgard_CG::on_herkunftsland_clicked()
 {
    manage (new Window_herkunft(this,Database));
 }
+
 void midgard_CG::herkunft_uebernehmen(const cH_Land& s)
 {
    Werte.setHerkunft(s); 
    zeige_werte(Werte); 
    button_lernpunkte->set_sensitive(true);
-   button_lernpunkte_edit->set_sensitive(true);
+   togglebutton_lernpunkte_edit->set_sensitive(true);
 }
 
 void midgard_CG::on_entry_Cname_activate()         
@@ -93,25 +94,70 @@ void midgard_CG::on_button_waffe_trans_clicked()
  zeige_lernpunkte();
 }
 
-void midgard_CG::on_lernpunkte_editieren_clicked()
+void midgard_CG::on_togglebutton_lernpunkte_edit_toggled()
 {
-  manage(new Window_lernpunkte_editieren(this,&lernpunkte)); 
+//  manage(new Window_lernpunkte_editieren(this,&lernpunkte)); 
+  edit_lernpunkte(togglebutton_lernpunkte_edit->get_active());
   zeige_notebook();
 }
 
+void midgard_CG::edit_lernpunkte(bool b)
+{
+ spinbutton_fach->set_sensitive(b);
+ spinbutton_allgemein->set_sensitive(b);
+ spinbutton_unge->set_sensitive(b);
+ spinbutton_waffen->set_sensitive(b);
+ spinbutton_zauber->set_sensitive(b);
+}
+
+/*
 void midgard_CG::setze_lernpunkte(const Lernpunkte& l)
 {
  lernpunkte = l;
  zeige_lernpunkte();
 }
+*/
+
+void midgard_CG::on_spinbutton_fach_activate()
+{
+  gtk_spin_button_update(spinbutton_fach->gtkobj());
+  lernpunkte.set_Fach(spinbutton_fach->get_value_as_int());
+  spinbutton_allgemein->grab_focus();
+}
+void midgard_CG::on_spinbutton_allgemein_activate()
+{
+  gtk_spin_button_update(spinbutton_unge->gtkobj());
+  lernpunkte.set_Unge(spinbutton_unge->get_value_as_int());
+  spinbutton_unge->grab_focus();
+}
+void midgard_CG::on_spinbutton_unge_activate()
+{
+  gtk_spin_button_update(spinbutton_allgemein->gtkobj());
+  lernpunkte.set_Allgemein(spinbutton_allgemein->get_value_as_int());
+  spinbutton_waffen->grab_focus();
+}
+void midgard_CG::on_spinbutton_waffen_activate()
+{
+  gtk_spin_button_update(spinbutton_waffen->gtkobj());
+  lernpunkte.set_Waffen(spinbutton_waffen->get_value_as_int());
+  spinbutton_zauber->grab_focus();
+}
+void midgard_CG::on_spinbutton_zaubern_activate()
+{
+  gtk_spin_button_update(spinbutton_zauber->gtkobj());
+  lernpunkte.set_Waffen(spinbutton_zauber->get_value_as_int());
+  edit_lernpunkte(false);
+}
+
+                                        
 
 void midgard_CG::zeige_lernpunkte()
 {
- lernpunkte_fach->set_text(itos(lernpunkte.Fach()));
- lernpunkte_allgemein->set_text(itos(lernpunkte.Allgemein()));
- lernpunkte_unge->set_text(itos(lernpunkte.Unge()));
- lernpunkte_w->set_text(itos(lernpunkte.Waffen()));
- lernpunkte_z->set_text(itos(lernpunkte.Zauber()));
+ spinbutton_fach->set_text(itos(lernpunkte.Fach()));
+ spinbutton_allgemein->set_text(itos(lernpunkte.Allgemein()));
+ spinbutton_unge->set_text(itos(lernpunkte.Unge()));
+ spinbutton_waffen->set_text(itos(lernpunkte.Waffen()));
+ spinbutton_zauber->set_text(itos(lernpunkte.Zauber()));
 }
 
 

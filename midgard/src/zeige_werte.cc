@@ -1,4 +1,4 @@
-// $Id: zeige_werte.cc,v 1.32 2002/01/14 12:07:21 thoma Exp $
+// $Id: zeige_werte.cc,v 1.33 2002/01/15 12:21:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -57,8 +57,11 @@ void midgard_CG::zeige_werte(const Grundwerte& w)
        bo_psy->set_text(itos(w.bo_Psy(Typ))) ;
        bo_phs->set_text(itos(w.bo_Phs(Typ))) ;
        bo_phk->set_text(itos(w.bo_Phk(Typ))) ;
-//       bo_gi->set_text(itos(w.bo_Gift())) ;
        spinbutton_alter->set_text(itos(w.Alter()));
+       spinbutton_gfp->set_text(itos(w.GFP()));
+       spinbutton_tage->set_text(dtos(w.Steigertage()));
+       spinbutton_gg->set_text(itos(w.GG()));
+       spinbutton_sg->set_text(itos(w.SG()));
        label_gestalt->set_text(w.Gestalt());  
        spinbutton_Cgewicht->set_text(itos(w.Gewicht()));
        spinbutton_groesse->set_text(itos(w.Groesse()));
@@ -76,6 +79,7 @@ void midgard_CG::zeige_werte(const Grundwerte& w)
        entry_nameC->set_text(w.Name_Charakter());
        entry_Cname->set_text(w.Name_Charakter());
        entry_nameS->set_text(w.Name_Spieler());
+       entry_version->set_text(w.Version(OptionBool.version));
        gfp->set_text(itos(w.GFP()));
 
        label_s_grad->set_text(itos(w.Grad()));

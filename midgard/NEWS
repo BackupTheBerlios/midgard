@@ -21,6 +21,16 @@ NEWS IN VERSION 0.2delta1
 * Die Anzahl der Lerntage kann dem Alter hinzuaddiert werden
 * Die Datenbank ist jetzt in einer eigenen Klasse 
 * Bugs beim 'Zaubern' lernen beseitigt.
+* Nach mehrmaligem Nachdenken bin ich zu der Überzeugung gekommen, daß es 
+   intuitiver ist, die Werte im Hauptfenster zu editieren. Daher ist der
+   Code mal wieder umgearbeitet worden. Das 'Werte_editieren_Fenster'
+   ist damit verschwunden.
+* Das gleiche für die Lernpunkte -> noch ein Fenster weg
+* Neue Bilder eingebaut
+* Die Bilder sind jetzt optional
+* Nach dem Lernen werden jetzt auch die Sprachen und Schriften angezeigt.
+* Bug beim Schadensbonus beseitigt
+
 
 TODO:
 * Editieren Gestalt

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.29 2002/01/12 08:12:25 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.30 2002/01/15 12:21:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,58 +20,67 @@
 #include "midgard_CG.hh"
 
 
-bool Originalbool=true;
-bool Infobool=true;
+bool Original=true;
+bool Info=true;
+bool Pics=true;
 
 void midgard_CG::on_checkbutton_original_menu()
 {
-//  checkbutton_original->set_active(menu_original->get_active());
-  if (menu_original->get_active()) Originalbool=true;
-  else Originalbool=false;
+  if (OptionMenu.menu_original->get_active()) OptionBool.Original=true;
+  else OptionBool.Original=false;
 
-  if(Originalbool) 
+  if(OptionBool.Original) 
     { checkbutton_alle_zauber->set_sensitive(false); 
     }      
   else 
     { checkbutton_alle_zauber->set_sensitive(true); 
     }      
-
-//  on_checkbutton_original_toggled();
 }
-
-/*
-void midgard_CG::on_checkbutton_original_toggled()
-{
-  if (checkbutton_original->get_active()) Originalbool=true;
-  else Originalbool=false;
-  menu_original->set_active(Originalbool);
-
-  if(Originalbool) 
-    { checkbutton_alle_zauber->set_sensitive(false); 
-    }      
-  else 
-    { checkbutton_alle_zauber->set_sensitive(true); 
-    }      
-// menu_init();
-}
-*/
 
 void midgard_CG::on_checkbutton_info_fenster_menu()
 {
-  if (menu_info->get_active()) Infobool=true;
-  else Infobool=false;
-  menu_info->set_active(Infobool);
-//  checkbutton_info_fenster->set_active(menu_info->get_active());
-//  on_checkbutton_info_fenster_toggled();
+  if (OptionMenu.menu_info->get_active()) OptionBool.Info=true;
+  else Info=false;
+  OptionMenu.menu_info->set_active(OptionBool.Info);
 }
-/*
-void midgard_CG::on_checkbutton_info_fenster_toggled()
-{   
-  if (checkbutton_info_fenster->get_active()) Infobool=true;
-  else Infobool=false;
-  menu_info->set_active(Infobool);
+
+void midgard_CG::on_checkbutton_pics_menu()
+{
+  if (OptionMenu.menu_pics->get_active()) OptionBool.Pics=true;
+  else OptionBool.Pics=false;
+  OptionMenu.menu_pics->set_active(OptionBool.Pics);
+  Pics(OptionBool.Pics);
 }
-*/
+
+void midgard_CG::on_checkbutton_version_menu()
+{
+  if (OptionMenu.menu_version->get_active()) OptionBool.version=true;
+  else OptionBool.version=false;
+  OptionMenu.menu_version->set_active(OptionBool.version);
+}
+
+
+
+void midgard_CG::Pics(bool b)
+{
+ if(b)
+  {
+    pixmap_dfr4->show();
+    pixmap_dfr3->show();
+    pixmap_Wald->show();
+    pixmap_kurai->show();
+  }
+ else
+  {
+    pixmap_dfr4->hide();
+    pixmap_dfr3->hide();
+    pixmap_Wald->hide();
+    pixmap_kurai->hide();
+  }
+}
+
+      
+
 void midgard_CG::on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_Region region)
 {
  if(menu_item->get_active()) region->setActive(true);

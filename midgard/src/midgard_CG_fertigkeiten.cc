@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.44 2002/01/14 12:39:47 christof Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.45 2002/01/15 12:21:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -47,6 +47,14 @@ void midgard_CG::show_fertigkeiten()
          os << f->Name()<<" "<<f->Zusatz();
          if (f->Erfolgswert()!=0) os <<"\t" <<f->Erfolgswert();
          os << "\n";
+      }
+   for(std::list<cH_MidgardBasicElement>::iterator i=list_Sprache.begin();i!=list_Sprache.end();++i)
+      { 
+         os << (*i)->Name() <<'\t'<<(*i)->Erfolgswert()<<'\n';
+      }
+   for(std::list<cH_MidgardBasicElement>::iterator i=list_Schrift.begin();i!=list_Schrift.end();++i)
+      { 
+         os << (*i)->Name() <<'\t'<<(*i)->Erfolgswert()<<'\n';
       }
    for (unsigned int i=0;i<fertigkeiten_clist->columns().size();++i)
       fertigkeiten_clist->set_column_auto_resize(i,true);

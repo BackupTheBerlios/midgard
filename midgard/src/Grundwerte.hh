@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.16 2002/01/14 12:07:21 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.17 2002/01/15 12:21:18 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -131,7 +131,7 @@ public:
    std::string Glaube() const {return glaube;}
    std::string Name_Charakter() const {return name_charakter;}
    std::string Name_Spieler() const {return name_spieler;}
-   std::string Version() const {return version;}
+   std::string Version(bool b) const;
    std::string Beschreibung() const {return beschreibung;}
    std::string Stadt_Land() const {return stadt_land;}
    cH_Ruestung Ruestung() const {return ruestung;}

@@ -45,7 +45,7 @@ void midgard_CG::xml_export_auswahl()
 void midgard_CG::xml_export(const std::string& datei)
 {
   std::string cname   = Werte.Name_Charakter();
-  std::string version = Werte.Version();
+  std::string version = Werte.Version(OptionBool.version);
   std::string command = "midgard_xmlexport '"+cname+"' '"+version+"' > '"+datei+"'";
   system(command.c_str());
   std::string strinfo = "Charakter "+cname+" exportiert\n";
@@ -72,7 +72,7 @@ void midgard_CG::on_speichern_clicked()
       int db_wert;
    exec sql end declare section;
    strncpy(db_name_ch,Werte.Name_Charakter().c_str(),sizeof(db_name_ch));
-   strncpy(db_version,Werte.Version().c_str(),sizeof(db_version));
+   strncpy(db_version,Werte.Version(OptionBool.version).c_str(),sizeof(db_version));
    // Alte einträge löschen
 
    exec sql DELETE FROM charaktere_fertigkeiten WHERE charakter_name = :db_name_ch ;
@@ -88,10 +88,10 @@ void midgard_CG::on_speichern_clicked()
       SQLerror::test(__FILELINE__);
     }
 
-   MidgardBasicElement::saveElementliste(list_Beruf,Werte,Typ,Database.ausnahmen);
-   MidgardBasicElement::saveElementliste(list_Fertigkeit_ang,Werte,Typ,Database.ausnahmen);
-   MidgardBasicElement::saveElementliste(list_Fertigkeit,Werte,Typ,Database.ausnahmen);
-   MidgardBasicElement::saveElementliste(list_Waffen,Werte,Typ,Database.ausnahmen);
+   MidgardBasicElement::saveElementliste(list_Beruf,Werte,Typ,Database.ausnahmen,OptionBool.version);
+   MidgardBasicElement::saveElementliste(list_Fertigkeit_ang,Werte,Typ,Database.ausnahmen,OptionBool.version);
+   MidgardBasicElement::saveElementliste(list_Fertigkeit,Werte,Typ,Database.ausnahmen,OptionBool.version);
+   MidgardBasicElement::saveElementliste(list_Waffen,Werte,Typ,Database.ausnahmen,OptionBool.version);
    for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Waffen_besitz.begin();
          i!=list_Waffen_besitz.end();++i)
       {
@@ -107,25 +107,46 @@ void midgard_CG::on_speichern_clicked()
             (:db_name_ch,:db_version,:db_fertigkeit,0,'Besitz_W',:db_av_bonus,:db_sl_bonus,:db_region,:db_magisch) ;
             SQLerror::test(__FILELINE__);
       }
-   MidgardBasicElement::saveElementliste(list_Zauber,Werte,Typ,Database.ausnahmen);
-   MidgardBasicElement::saveElementliste(list_Zauberwerk,Werte,Typ,Database.ausnahmen);
-   MidgardBasicElement::saveElementliste(list_Kido,Werte,Typ,Database.ausnahmen);
-   MidgardBasicElement::saveElementliste(list_WaffenGrund,Werte,Typ,Database.ausnahmen);
-   MidgardBasicElement::saveElementliste(list_Sprache,Werte,Typ,Database.ausnahmen);
-   MidgardBasicElement::saveElementliste(list_Schrift,Werte,Typ,Database.ausnahmen);
+   MidgardBasicElement::saveElementliste(list_Zauber,Werte,Typ,Database.ausnahmen,OptionBool.version);
+   MidgardBasicElement::saveElementliste(list_Zauberwerk,Werte,Typ,Database.ausnahmen,OptionBool.version);
+   MidgardBasicElement::saveElementliste(list_Kido,Werte,Typ,Database.ausnahmen,OptionBool.version);
+   MidgardBasicElement::saveElementliste(list_WaffenGrund,Werte,Typ,Database.ausnahmen,OptionBool.version);
+   MidgardBasicElement::saveElementliste(list_Sprache,Werte,Typ,Database.ausnahmen,OptionBool.version);
+   MidgardBasicElement::saveElementliste(list_Schrift,Werte,Typ,Database.ausnahmen,OptionBool.version);
    // Regionen & Ähnliches
-   if (!Originalbool) 
+   if (!OptionBool.Original) 
     {  
      exec sql INSERT INTO charaktere_fertigkeiten
         (charakter_name,version,fertigkeit,region,art)
         VALUES(:db_name_ch,:db_version,'','ORIG','bool');
       SQLerror::test(__FILELINE__);
     }
-   if (!Infobool) 
+   if (!OptionBool.Info) 
     {  
      exec sql INSERT INTO charaktere_fertigkeiten
         (charakter_name,version,fertigkeit,region,art)
         VALUES(:db_name_ch,:db_version,'','INFO','bool');
+      SQLerror::test(__FILELINE__);
+    }
+   if (!OptionBool.Pics) 
+    {  
+     exec sql INSERT INTO charaktere_fertigkeiten
+        (charakter_name,version,fertigkeit,region,art)
+        VALUES(:db_name_ch,:db_version,'','PICS','bool');
+      SQLerror::test(__FILELINE__);
+    }
+   if (!OptionBool.version) 
+    {  
+     exec sql INSERT INTO charaktere_fertigkeiten
+        (charakter_name,version,fertigkeit,region,art)
+        VALUES(:db_name_ch,:db_version,'','VERS','bool');
+      SQLerror::test(__FILELINE__);
+    }
+   if (!OptionBool.steigern) 
+    {  
+     exec sql INSERT INTO charaktere_fertigkeiten
+        (charakter_name,version,fertigkeit,region,art)
+        VALUES(:db_name_ch,:db_version,'','STEI','bool');
       SQLerror::test(__FILELINE__);
     }
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
@@ -166,7 +187,6 @@ void midgard_CG::grundwerte_speichern()
       char db_ruestung[20];
       char db_spezies[50];
       int db_aep,db_kep,db_zep;
-      bool db_steigern_bool;
       int db_steigern_EP;
       int db_grad_basiswerte;
       char db_stadt_land[20];
@@ -205,7 +225,6 @@ void midgard_CG::grundwerte_speichern()
       db_aep = Werte.AEP();
       db_kep = Werte.KEP();
       db_zep = Werte.ZEP();
-      db_steigern_bool = steigern_bool;
       db_steigern_EP = Database.GradAnstieg.get_Steigern_EP_Prozent();
       db_grad_basiswerte = Database.GradAnstieg.get_Grad_Basiswerte();
 
@@ -218,7 +237,7 @@ void midgard_CG::grundwerte_speichern()
    strncpy(db_glaube,(Werte.Glaube()).c_str(),sizeof(db_glaube));
    strncpy(db_name_ch,(Werte.Name_Charakter()).c_str(),sizeof(db_name_ch));
    strncpy(db_name_sp,(Werte.Name_Spieler()).c_str(),sizeof(db_name_sp));
-   strncpy(db_version,(Werte.Version()).c_str(),sizeof(db_version));
+   strncpy(db_version,(Werte.Version(OptionBool.version)).c_str(),sizeof(db_version));
    strncpy(db_typ_s,Typ[0]->Short().c_str(),sizeof(db_typ_s));
    strncpy(db_typ_2_s,Typ[1]->Short().c_str(),sizeof(db_typ_2_s));
    strncpy(db_ruestung,(Werte.Ruestung()->Name()).c_str(),sizeof(db_ruestung));
@@ -273,7 +292,6 @@ void midgard_CG::grundwerte_speichern()
       aep            = :db_aep,
       kep            = :db_kep,
       zep            = :db_zep,
-      steigern_bool  = :db_steigern_bool,
       steigern_EP_prozent  = :db_steigern_EP,
       grad_basiswerte =:db_grad_basiswerte,
       stadt_land      =:db_stadt_land
@@ -292,7 +310,7 @@ void midgard_CG::save_ausruestung()
     int db_wert_a,db_self;
   exec sql end declare section;
   strncpy(db_name_a,Werte.Name_Charakter().c_str(),sizeof(db_name_a));
-  strncpy(db_vers_a,Werte.Version().c_str(),sizeof(db_vers_a));
+  strncpy(db_vers_a,Werte.Version(OptionBool.version).c_str(),sizeof(db_vers_a));
   strncpy(db_art_a,"Ausruestung",sizeof(db_art_a));
   int self=0;
 
@@ -319,7 +337,7 @@ void midgard_CG::save_ausruestung_C(int parent,int &self,const list<AusruestungB
     int db_wert_ac,db_parent,db_self_ac;
   exec sql end declare section;
   strncpy(db_name_ac,Werte.Name_Charakter().c_str(),sizeof(db_name_ac));
-  strncpy(db_vers_ac,Werte.Version().c_str(),sizeof(db_vers_ac));
+  strncpy(db_vers_ac,Werte.Version(OptionBool.version).c_str(),sizeof(db_vers_ac));
   strncpy(db_art_ac,"Ausruestung",sizeof(db_art_ac));
 
   for(AusruestungBaum::const_iterator i=AB.begin();i!=AB.end();++i)
@@ -346,7 +364,7 @@ void midgard_CG::charakter_db_anlegen()
       char db_version[50];
    exec sql end declare section;
    strncpy(db_name_ch,(Werte.Name_Charakter()).c_str(),sizeof(db_name_ch));
-   strncpy(db_version,(Werte.Version()).c_str(),sizeof(db_version));
+   strncpy(db_version,(Werte.Version(OptionBool.version)).c_str(),sizeof(db_version));
    std::cout << "Neuen Charakter "<< db_name_ch  <<" in Datenbank anlegen\n";
    exec sql insert into charaktere 
         (charakter_name,version)

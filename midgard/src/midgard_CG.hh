@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.131 2002/01/14 14:22:11 thoma Exp $
+// $Id: midgard_CG.hh,v 1.132 2002/01/15 12:21:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -49,9 +49,6 @@
 #include "Datenbank.hh"
 class Random;
 
-extern bool Originalbool;
-extern bool Infobool;
-extern bool steigern_bool;
 
 class GeldFenster 
 {public:
@@ -74,8 +71,19 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         Gtk::Menu *menu;
         void menu_init();
         gint on_eventbox_MCG_button_press_event(GdkEventButton *event);
-        Gtk::CheckMenuItem *menu_original;
-        Gtk::CheckMenuItem *menu_info;
+
+        struct st_OptionBool{bool Original; bool Info; bool Pics; 
+                     bool steigern;bool version;
+               void reset() {*this=st_OptionBool();}
+               st_OptionBool() : Original(true), Info(true),
+                                 Pics(true), steigern(true),
+                                  version(true) {}};
+        st_OptionBool OptionBool;
+        struct st_OptionMenu{Gtk::CheckMenuItem *menu_original;
+                             Gtk::CheckMenuItem *menu_info;
+                             Gtk::CheckMenuItem *menu_pics;
+                             Gtk::CheckMenuItem *menu_version;};
+        st_OptionMenu OptionMenu;
 
         void set_tree_titles();
 
@@ -155,6 +163,10 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_spinbutton_Cgewicht_activate();
         void on_spinbutton_groesse_activate();
         void on_spinbutton_alter_activate();
+        void on_spinbutton_gfp_activate();
+        void on_spinbutton_tage_activate();
+        void on_spinbutton_gg_activate();
+        void on_spinbutton_sg_activate();
         void on_spinbutton_st_activate();
         void on_spinbutton_gw_activate();
         void on_spinbutton_gs_activate();
@@ -199,7 +211,13 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         std::string LaTeX_string(int i);
         void on_schliessen_CG_clicked();
         void on_lernpunkte_wuerfeln_clicked();
-        void on_lernpunkte_editieren_clicked();
+        void on_spinbutton_fach_activate();
+        void on_spinbutton_allgemein_activate();
+        void on_spinbutton_unge_activate();
+        void on_spinbutton_waffen_activate();
+        void on_spinbutton_zaubern_activate();
+        void on_togglebutton_lernpunkte_edit_toggled();
+        void edit_lernpunkte(bool b);
         void on_entry_Cname_activate();
         void on_button_fach_trans_clicked();
         void on_button_waffe_trans_clicked();
@@ -236,6 +254,9 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_checkbutton_original_menu();
 //        void on_checkbutton_original_toggled();
         void on_checkbutton_info_fenster_menu();
+        void on_checkbutton_pics_menu();
+        void on_checkbutton_version_menu();
+        void Pics(bool b);
 //        void on_checkbutton_info_fenster_toggled();
         void on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_Region region);
 
@@ -410,7 +431,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          void charakter_beschreibung_drucken(const std::string& b);
          void select_charakter(const std::string& name, const std::string& version);
          void zeige_werte(const Grundwerte& w);
-         void setze_lernpunkte(const Lernpunkte& _lernpunkte);
+//         void setze_lernpunkte(const Lernpunkte& _lernpunkte);
          void show_fertigkeiten();
          void show_sinne();
          void waffe_besitz_uebernehmen(const std::list<cH_MidgardBasicElement>& wbu);
