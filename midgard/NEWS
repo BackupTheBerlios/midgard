@@ -1,4 +1,8 @@
 ##########################################################################
+NEWS IN VERSION 0.4beta7
+- Bug für 'Zauber lernen' beseitigt
+
+##########################################################################
 NEWS IN VERSION 0.4beta6
 - Es werden nur noch dann KiDo Techniken zum Lernen angeboten, wenn die
    maximal mögliiche Anzahl für die entsprechende Stufe noch nicht erreicht ist.

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_zauber.cc,v 1.9 2001/04/24 07:41:23 thoma Exp $
+// $Id: midgard_CG_zauber.cc,v 1.10 2001/04/25 10:30:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,7 +24,7 @@
 void midgard_CG::on_zauber_wahl_clicked()
 {
   zauber_clist->clear();
-  if (werte.spezial2=="")
+  if (werte.spezial2=="" && typ.s=="eBe")
    {
       string strinfo="Erst Primär- und Sekundärelement wählen\n";
       manage(new WindowInfo(strinfo));
