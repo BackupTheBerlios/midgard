@@ -198,7 +198,3 @@ class Data_zaubermittel_sort_art
    {return x->Art()<y->Art(); }};
 
 #endif
-
-
-
-

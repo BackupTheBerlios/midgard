@@ -1,4 +1,4 @@
-// $Id: Window_Geld_eingeben.cc,v 1.17 2001/08/15 08:46:03 thoma Exp $
+// $Id: Window_Geld_eingeben.cc,v 1.18 2001/08/16 10:00:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,7 +36,7 @@ void Window_Geld_eingeben::on_button_close_clicked()
                   atoi(spinbutton_silber->get_text().c_str()),
                   atoi(spinbutton_kupfer->get_text().c_str()));
    if (back == true) oberfenster->Geld();
-   else oberfenster->Geld_uebernehmen();
+   else hauptfenster->Geld_uebernehmen();
    destroy();
 }
 
@@ -56,7 +56,7 @@ Window_Geld_eingeben::Window_Geld_eingeben(Window_Waffe_Geld* h,Grundwerte& w)
 Window_Geld_eingeben::Window_Geld_eingeben(midgard_CG* h,Grundwerte& w)
 : Werte(w)
 {
-  oberfenster = h;
+  hauptfenster = h;
   back = false;
   spinbutton_gold->set_text(itos(Werte.Gold()));
   spinbutton_silber->set_text(itos(Werte.Silber()));

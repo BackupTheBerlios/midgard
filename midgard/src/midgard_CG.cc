@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.52 2001/08/15 08:46:03 thoma Exp $
+// $Id: midgard_CG.cc,v 1.53 2001/08/16 10:00:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -380,6 +380,11 @@ void midgard_CG::on_neuer_charakter_clicked()
    Nahuatlanbool=false;      checkbutton_Nahuatlan->set_active(false);
    HDbool=false;             checkbutton_HD->set_active(false);
    BRbool=false;             checkbutton_BR->set_active(false);
+
+   steigern_EP_prozent=50;
+   vscale_EP_Gold->set_digits(steigern_EP_prozent);
+   label_EP->set_text("50%");
+   label_Gold->set_text("50%");
 
  on_checkbutton_original_toggled();
  kido_bool=false;
