@@ -3,7 +3,7 @@
 --
 DROP TABLE "charaktere";
 --
--- TOC Entry ID 2 (OID 9030911)
+-- TOC Entry ID 2 (OID 13830577)
 --
 -- Name: charaktere Type: TABLE Owner: thoma
 --
@@ -67,6 +67,17 @@ CREATE TABLE "charaktere" (
 	"kep" integer,
 	"zep" integer,
 	"steigern_bool" boolean,
-	"steigern_ep_prozent" integer
+	"steigern_ep_prozent" integer,
+	"grad_basiswerte" integer
 );
 
+--
+-- Data for TOC Entry ID 3 (OID 13830577) TABLE DATA charaktere
+--
+
+COPY "charaktere"  FROM stdin;
+ChiLi		Bastis Abenteuer	Malte Thoma	Kd	68	97	87	82	99	62	92	95	97	81	25	16	50	4	70	14	0	13	\N	\N	\N	11	28	schlank	m	53	160	7	Harte Techniken	Mittelschicht	KanThaiPan	Chen Men	\N	2	2	1	2	3	2	4	2	5	7231	0	0	0	OR	Mensch	\N	\N	\N	\N	\N	\N	\N
+Stürmender Dachs		Smaskrifter	Malte Thoma	Wa	103	98	95	62	22	83	97	79	90	106	26	17	52	15	80	14	0	13	\N	\N	\N	12	28	breit	m	115	195	7	Handaxt	Volk	Ikenga Becken	Schamanistisch	\N	6	5	1	2	-1	0	2	2	5	9553	0	0	0	TR	Mensch	\N	\N	\N	\N	\N	\N	\N
+Gwyneth NiConuhil		Das graue Konzil	Malte Thoma	Hl	65	82	87	91	81	95	81	61	92	81	24	17	38	4	70	14	17	16	\N	\N	\N	11	28	normal	w	55	156	7		Adel	Alba	Nathir, Dheis Albi	\N	2	1	0	1	2	7	5	7	5	19422	0	0	0	LR	Mensch	\N	\N	\N	\N	\N	\N	\N
+		Erschaffung		Ass	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	\N	\N	\N	0	0		m	0	0	1					\N	0	0	0	0	0	0	0	0	0	0	0	0	0	OR	Mensch		0	0	0	f	50	0
+\.

@@ -25,12 +25,21 @@ exec sql include sqlca;
 
 gint midgard_CG::on_speichern_release_event(GdkEventButton *ev)
 {
-  if (ev->button==1) midgard_CG::on_speichern_clicked();
+  if (ev->button==1) on_speichern_clicked();
 //  if (ev->button==3) midgard_CG::xml_export();
-  if (ev->button==3) manage (new xml_fileselection(this,"save"));
+//  if (ev->button==3) xml_export_auswahl();
   frame_steigern->show();
   return false;
 }
+
+void midgard_CG::xml_export_auswahl()
+{
+  manage (new xml_fileselection(this,"save"));
+  frame_steigern->show();
+}
+ 
+
+
 
 void midgard_CG::xml_export(const std::string& datei)
 {

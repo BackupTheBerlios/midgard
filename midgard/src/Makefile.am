@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.42 2001/08/18 06:19:08 thoma Exp $
+# $Id: Makefile.am,v 1.43 2001/08/23 20:11:45 thoma Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -89,6 +89,7 @@ midgard_xmlexport_SOURCES= $(BUILT_SOUCES_XMLE)
 midgard_xmlimport_SOURCES= $(BUILT_SOUCES_XMLI) Tag.cc TagStream.cc
 
 midgard_SOURCES = \
+   midgard_CG_menu.cc \
    Window_Erfahrungspunkte.cc \
    Window_Erfahrungspunkte_glade.cc \
    steigern_EP.cc \

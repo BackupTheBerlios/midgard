@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.34 2001/08/15 08:46:03 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.35 2001/08/23 20:11:45 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,13 +22,13 @@
 
 gint midgard_CG::on_latex_release_event(GdkEventButton *ev)
 {
-  if (ev->button==1) midgard_CG::on_latex_clicked();
-  if (ev->button==3) midgard_CG::spielleiter_export();
+  if (ev->button==1) on_latex_clicked();
+//  if (ev->button==3) midgard_CG::spielleiter_export();
   return false;
 }
 
 
-void midgard_CG::on_latex_clicked()
+void midgard_CG::on_latex_clicked(bool values=true)
 {   
  if (!access("document_eingabe.tex",R_OK)) // Files im aktuellen Verzeichnis?
    {
@@ -40,7 +40,36 @@ void midgard_CG::on_latex_clicked()
     system("cp "PACKAGE_DATA_DIR"document_eingabe.tex midgard_tmp_document_eingabe.tex");
     system("cp "PACKAGE_DATA_DIR"latexwertedef.tex midgard_tmp_latexwertedef.tex");
    }
+ if (values) LaTeX_write_values();
+ else LaTeX_write_empty_values();
+ system("latex midgard_tmp_document_eingabe.tex");
+ system("dvips -t landscape midgard_tmp_document_eingabe.dvi");
+ system("gv -seascape midgard_tmp_document_eingabe.ps &");
 
+ // Zauber
+ if (vec_Zauber.size()>0 || vec_Zaubermittel.size()>0)
+ {
+    midgard_CG::LaTeX_zauber_main();
+    midgard_CG::LaTeX_zauber();
+    midgard_CG::LaTeX_zaubermittel();
+    system("latex midgard_tmp_document_zauber.tex");
+    system("dvips -t landscape midgard_tmp_document_zauber.dvi");
+    system("gv -seascape midgard_tmp_document_zauber.ps &");
+ }
+
+ // KiDo
+ if (vec_Kido.size()>0)
+ {
+    midgard_CG::LaTeX_kido_main();
+    midgard_CG::LaTeX_kido();
+    system("latex midgard_tmp_document_kido.tex");
+    system("dvips -t landscape midgard_tmp_document_kido.dvi");
+    system("gv -seascape midgard_tmp_document_kido.ps &");
+ }
+}      
+
+void midgard_CG::LaTeX_write_values()
+{
  ofstream fout("midgard_tmp_latexwerte.tex");
  std::string styp = Typ.Name();
  if (Typ2.Name()!="") styp += "/"+Typ2.Name();
@@ -259,31 +288,107 @@ void midgard_CG::on_latex_clicked()
       fout << "\\newcommand{\\waffeV"<<a<<"}{\\scriptsize }\n";
    }
  fout.close();
- system("latex midgard_tmp_document_eingabe.tex");
- system("dvips -t landscape midgard_tmp_document_eingabe.dvi");
- system("gv -seascape midgard_tmp_document_eingabe.ps &");
 
- // Zauber
- if (vec_Zauber.size()>0 || vec_Zaubermittel.size()>0)
- {
-    midgard_CG::LaTeX_zauber_main();
-    midgard_CG::LaTeX_zauber();
-    midgard_CG::LaTeX_zaubermittel();
-    system("latex midgard_tmp_document_zauber.tex");
-    system("dvips -t landscape midgard_tmp_document_zauber.dvi");
-    system("gv -seascape midgard_tmp_document_zauber.ps &");
- }
+}
 
- // KiDo
- if (vec_Kido.size()>0)
- {
-    midgard_CG::LaTeX_kido_main();
-    midgard_CG::LaTeX_kido();
-    system("latex midgard_tmp_document_kido.tex");
-    system("dvips -t landscape midgard_tmp_document_kido.dvi");
-    system("gv -seascape midgard_tmp_document_kido.ps &");
- }
-}      
+
+void midgard_CG::LaTeX_write_empty_values()
+{
+ ofstream fout("midgard_tmp_latexwerte.tex");
+ fout << "\\newcommand{\\typ}{}\n";
+ fout << "\\newcommand{\\st}{}\n";
+ fout << "\\newcommand{\\gee}{}\n";
+ fout << "\\newcommand{\\ko}{}\n";
+ fout << "\\newcommand{\\inn}{}\n";
+ fout << "\\newcommand{\\zt}{}\n";
+ fout << "\\newcommand{\\au}{}\n";
+ fout << "\\newcommand{\\pa}{}\n";
+ fout << "\\newcommand{\\sbb}{}\n";
+ fout << "\\newcommand{\\rw}{}\n";
+ fout << "\\newcommand{\\hgw}{}\n";
+ fout << "\\newcommand{\\bb}{}\n";
+ fout << "\\newcommand{\\kaw}{}\n";
+ fout << "\\newcommand{\\wlw}{}\n";
+ fout << "\\newcommand{\\lpbasis}{}\n";
+ fout << "\\newcommand{\\lp}{}\n";
+ fout << "\\newcommand{\\ap}{}\n";
+ fout << "\\newcommand{\\boau}{}\n";
+ fout << "\\newcommand{\\bosc}{}\n";
+ fout << "\\newcommand{\\boan}{}\n";
+ fout << "\\newcommand{\\boab}{}\n";
+ fout << "\\newcommand{\\boza}{}\n";
+ fout << "\\newcommand{\\bopsy}{}\n";
+ fout << "\\newcommand{\\bophs}{}\n";
+ fout << "\\newcommand{\\bophk}{}\n";
+ fout << "\\newcommand{\\bogi}{}\n";
+ fout << "\\newcommand{\\psy}{}\n";
+ fout << "\\newcommand{\\phs}{}\n";
+ fout << "\\newcommand{\\phk}{}\n";
+ fout << "\\newcommand{\\gift}{}\n";
+
+ fout << "\\newcommand{\\abwehr}{}\n";
+ fout << "\\newcommand{\\abwehrfinal}{}\n";
+ fout << "\\newcommand{\\abwehrmitwaffe}{}\n";
+
+ fout << "\\newcommand{\\zauber}{}\n";
+ fout << "\\newcommand{\\alter}{}\n";
+ fout << "\\newcommand{\\gestalt}{}\n";
+ fout << "\\newcommand{\\gewicht}{}\n";
+ fout << "\\newcommand{\\koerpergroesse}{}\n";
+ fout << "\\newcommand{\\grad}{}\n";
+ fout << "\\newcommand{\\spezialisierung}{}\n";
+ fout << "\\newcommand{\\stand}{}\n";
+ fout << "\\newcommand{\\herkunft}{}\n";
+ fout << "\\newcommand{\\glaube}{}\n";
+ fout << "\\newcommand{\\namecharakter}{}\n";
+ fout << "\\newcommand{\\namespieler}{}\n";
+ fout << "\\newcommand{\\gfp}{}\n";
+ fout << "\\newcommand{\\aep}{}\n";
+ fout << "\\newcommand{\\kep}{}\n";
+ fout << "\\newcommand{\\zep}{}\n";
+
+ fout << "\\newcommand{\\gold}{}\n";
+
+ fout << "\\newcommand{\\ruestung}{}\n";
+ fout << "\\newcommand{\\ruestunglp}{}\n";
+ unsigned int sprachanz=0;
+ unsigned int maxsprach=14;
+ for (unsigned int i=sprachanz; i<maxsprach;++i) // Bis zum Ende auffüllen
+   {
+      std::string a = LaTeX_string(i);
+      fout << "\\newcommand{\\spra"<<a<<"}{}\n";
+      fout << "\\newcommand{\\spraw"<<a<<"}{}\n";
+      fout << "\\newcommand{\\schr"<<a<<"}{}\n";
+   }
+ fout << "\\newcommand{\\beruf}{}\n" ;
+ fout << "\\newcommand{\\waffeEy"<<"}{}\n";
+ fout << "\\newcommand{\\waffeSy}{}\n";
+ fout << "\\newcommand{\\waffeAy}{}\n";
+ fout << "\\newcommand{\\waffeVy}{}\n";
+ // Fertigkeiten auffüllen
+ unsigned int maxfert=36;
+ for (unsigned int i=0; i<maxfert;++i)
+   {
+      std::string a = LaTeX_string(i);
+      fout << "\\newcommand{\\fert"<<a<<"}{\\scriptsize }\n";
+      fout << "\\newcommand{\\wert"<<a<<"}{\\scriptsize }\n";
+   }
+ // Waffen auffüllen
+ unsigned int maxwaffen=6;
+ for (unsigned int i=0; i<maxwaffen;++i)
+   {
+      std::string a = LaTeX_string(i);
+      fout << "\\newcommand{\\waffe"<<a<<"}{\\scriptsize }\n";
+      fout << "\\newcommand{\\waffeE"<<a<<"}{\\scriptsize }\n";
+      fout << "\\newcommand{\\waffeS"<<a<<"}{\\scriptsize }\n";
+      fout << "\\newcommand{\\waffeA"<<a<<"}{\\scriptsize }\n";
+      fout << "\\newcommand{\\waffeV"<<a<<"}{\\scriptsize }\n";
+   }
+
+ fout.close();
+
+}
+
 
 
 std::string midgard_CG::LaTeX_scale(const std::string& is, unsigned int maxlength, const std::string& scale, const H_Data_waffen& Waffe)

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.60 2001/08/21 12:03:03 thoma Exp $
+// $Id: midgard_CG.hh,v 1.61 2001/08/23 20:11:45 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -75,6 +75,10 @@ extern bool Kuestenstaatenbool;//S
 class midgard_CG : public midgard_CG_glade
 {   
         friend class midgard_CG_glade;
+        Gtk::Menu *menu;
+        void menu_init();
+        gint on_eventbox_MCG_button_press_event(GdkEventButton *event);
+
         void set_tree_titles();
 
         std::vector<cH_Data_typen> vec_Typen;
@@ -132,7 +136,9 @@ class midgard_CG : public midgard_CG_glade
         void charakter_db_anlegen();
         void on_laden_clicked();
         void load_charakter();
-        void on_latex_clicked();
+        void on_latex_clicked(bool values=true);
+        void LaTeX_write_values();
+        void LaTeX_write_empty_values();
         gint on_latex_release_event(GdkEventButton *ev);
         void spielleiter_export();
         void latex_beschreibung_drucken();
@@ -325,6 +331,8 @@ class midgard_CG : public midgard_CG_glade
          gint on_laden_release_event(GdkEventButton *ev);
          void xml_export(const std::string& datei);
          void xml_import(const std::string& datei);
+         void xml_export_auswahl();
+         void xml_import_auswahl();
          void charakter_beschreibung_uebernehmen(const std::string& b);
          void charakter_beschreibung_drucken(const std::string& b);
          void select_charakter(const std::string& name, const std::string& version);

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.23 2001/08/19 06:28:19 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.24 2001/08/23 20:11:45 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -53,6 +53,8 @@ gint midgard_CG::on_beruf_erfolgswert_release_event(GdkEventButton *ev)
 {
   if (ev->button==1) on_beruf_erfolgswert_clicked();
   if (ev->button==3) vbox_beruferfolgswert->show();
+  hbox_fertigkeit->set_sensitive(true);
+  table_fertigkeit->set_sensitive(true);
   return false;
 }
 
@@ -89,7 +91,5 @@ void midgard_CG::on_beruf_erfolgswert_clicked()
     else (*i)->set_Erfolgswert(ausbildungswert+inbo);
    } 
    midgard_CG::berufe_uebernehmen(vec_Beruf);
-   hbox_fertigkeit->set_sensitive(true);
-   table_fertigkeit->set_sensitive(true);
 }
 

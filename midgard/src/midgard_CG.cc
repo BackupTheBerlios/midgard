@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.55 2001/08/19 06:28:19 thoma Exp $
+// $Id: midgard_CG.cc,v 1.56 2001/08/23 20:11:45 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,10 +37,24 @@
 #include "class_Ausnahmen.hh"
 
 midgard_CG::midgard_CG()
+:menu(0)
 {
+  menu=manage(new Gtk::Menu());
+  menu_init();
   on_neuer_charakter_clicked();
   set_tree_titles();
 }
+
+
+gint midgard_CG::on_eventbox_MCG_button_press_event(GdkEventButton *event) 
+{ 
+   if (event->button == 3) 
+   {  menu->popup(event->button,event->time);
+      return true;
+   }
+   return false;
+}
+ 
 
 void midgard_CG::set_tree_titles()
 {

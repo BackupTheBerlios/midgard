@@ -28,8 +28,13 @@ exec sql include sqlca;
 gint midgard_CG::on_laden_release_event(GdkEventButton *ev)
 {
   if (ev->button==1) on_laden_clicked();
-  if (ev->button==3) manage (new xml_fileselection(this,"load"));
+//  if (ev->button==3) xml_import_auswahl();
   return false;
+}
+
+void midgard_CG::xml_import_auswahl()
+{
+  manage (new xml_fileselection(this,"load"));
 }
  
 void midgard_CG::xml_import(const std::string& datei)

@@ -1,4 +1,4 @@
-// $Id: Window_hilfe.cc,v 1.21 2001/08/18 06:19:08 thoma Exp $
+// $Id: Window_hilfe.cc,v 1.22 2001/08/23 20:11:45 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -122,14 +122,8 @@ Bitte lest die unten aufgeführet Anleitung zur Bedienung der Treebaselisten
    Links die Sprachen, rechts die Schriften. Oben jeweils die, die ein 
    Charakter beherrscht, unten die, die er lernen kann.
 
-Anmerkungen zu einigen Features
-
-  Einige Funktionen, die nur selten benutzt werden, können über die rechte 
-  Maustaste aufgrufen werden. Dies sind im Einzelnen:
-* Charakter speichern      -> xml-Format exportieren 
-* Charakter laden          -> xml-Format importieren 
-* LaTeX Charakterblatt     -> Export im Format für Midgard Abenteuer 
-* angeborene Fertigkeiten  -> eingeben (statt würfeln) der angeborenen Fertigkeiten
+Einigen selten benutzte Features lassen sich durch das Menu erreichen,
+das aufklappt, wenn man den RECHTEN Mausknopf betätigt.
 
 Anleitung zur TreeBase-Liste (= Tabellen fürs Steigern und die Waffen)
 

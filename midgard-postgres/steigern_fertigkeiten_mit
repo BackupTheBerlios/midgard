@@ -3,7 +3,7 @@
 --
 DROP TABLE "steigern_fertigkeiten_mit";
 --
--- TOC Entry ID 2 (OID 13819652)
+-- TOC Entry ID 2 (OID 13830661)
 --
 -- Name: steigern_fertigkeiten_mit Type: TABLE Owner: thoma
 --
@@ -14,10 +14,12 @@ CREATE TABLE "steigern_fertigkeiten_mit" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 13819652) TABLE DATA steigern_fertigkeiten_mit
+-- Data for TOC Entry ID 3 (OID 13830661) TABLE DATA steigern_fertigkeiten_mit
 --
 
 COPY "steigern_fertigkeiten_mit"  FROM stdin;
+Ausdauer	KEP
+Ausdauer	ZEP
 KiDo	ZEP
 KiDo	KEP
 Zauber	ZEP
