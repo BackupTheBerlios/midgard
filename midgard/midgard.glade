@@ -16031,29 +16031,10 @@ Verlust</label>
 	<class>GtkTable</class>
 	<name>table49</name>
 	<rows>6</rows>
-	<columns>3</columns>
+	<columns>2</columns>
 	<homogeneous>False</homogeneous>
 	<row_spacing>0</row_spacing>
 	<column_spacing>0</column_spacing>
-
-	<widget>
-	  <class>GtkHSeparator</class>
-	  <name>hseparator19</name>
-	  <child>
-	    <left_attach>0</left_attach>
-	    <right_attach>2</right_attach>
-	    <top_attach>3</top_attach>
-	    <bottom_attach>4</bottom_attach>
-	    <xpad>0</xpad>
-	    <ypad>0</ypad>
-	    <xexpand>False</xexpand>
-	    <yexpand>True</yexpand>
-	    <xshrink>False</xshrink>
-	    <yshrink>False</yshrink>
-	    <xfill>True</xfill>
-	    <yfill>True</yfill>
-	  </child>
-	</widget>
 
 	<widget>
 	  <class>GtkPixmap</class>
@@ -16066,7 +16047,7 @@ Verlust</label>
 	  <build_insensitive>True</build_insensitive>
 	  <child>
 	    <left_attach>0</left_attach>
-	    <right_attach>2</right_attach>
+	    <right_attach>1</right_attach>
 	    <top_attach>0</top_attach>
 	    <bottom_attach>1</bottom_attach>
 	    <xpad>0</xpad>
@@ -16093,7 +16074,7 @@ Verlust</label>
 	  <ypad>0</ypad>
 	  <child>
 	    <left_attach>0</left_attach>
-	    <right_attach>2</right_attach>
+	    <right_attach>1</right_attach>
 	    <top_attach>1</top_attach>
 	    <bottom_attach>2</bottom_attach>
 	    <xpad>5</xpad>
@@ -16120,7 +16101,7 @@ Verlust</label>
 	  <ypad>0</ypad>
 	  <child>
 	    <left_attach>0</left_attach>
-	    <right_attach>2</right_attach>
+	    <right_attach>1</right_attach>
 	    <top_attach>2</top_attach>
 	    <bottom_attach>3</bottom_attach>
 	    <xpad>0</xpad>
@@ -16135,6 +16116,98 @@ Verlust</label>
 	</widget>
 
 	<widget>
+	  <class>GtkPixmap</class>
+	  <name>pixmap90</name>
+	  <filename>MAGUS-Logo-Text-halb.xpm</filename>
+	  <xalign>0.5</xalign>
+	  <yalign>0.5</yalign>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <build_insensitive>True</build_insensitive>
+	  <child>
+	    <left_attach>1</left_attach>
+	    <right_attach>2</right_attach>
+	    <top_attach>0</top_attach>
+	    <bottom_attach>4</bottom_attach>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <xexpand>False</xexpand>
+	    <yexpand>False</yexpand>
+	    <xshrink>False</xshrink>
+	    <yshrink>False</yshrink>
+	    <xfill>True</xfill>
+	    <yfill>True</yfill>
+	  </child>
+	</widget>
+
+	<widget>
+	  <class>GtkToolbar</class>
+	  <name>toolbar_close</name>
+	  <border_width>5</border_width>
+	  <cxx_visibility>protected</cxx_visibility>
+	  <orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
+	  <type>GTK_TOOLBAR_ICONS</type>
+	  <space_size>5</space_size>
+	  <space_style>GTK_TOOLBAR_SPACE_EMPTY</space_style>
+	  <relief>GTK_RELIEF_NORMAL</relief>
+	  <tooltips>True</tooltips>
+	  <child>
+	    <left_attach>0</left_attach>
+	    <right_attach>1</right_attach>
+	    <top_attach>3</top_attach>
+	    <bottom_attach>4</bottom_attach>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <xexpand>False</xexpand>
+	    <yexpand>False</yexpand>
+	    <xshrink>False</xshrink>
+	    <yshrink>False</yshrink>
+	    <xfill>False</xfill>
+	    <yfill>False</yfill>
+	  </child>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <child_name>Toolbar:button</child_name>
+	    <name>button_close</name>
+	    <signal>
+	      <name>clicked</name>
+	      <handler>on_button_close_clicked</handler>
+	      <last_modification_time>Tue, 03 Apr 2001 21:32:37 GMT</last_modification_time>
+	    </signal>
+	    <label></label>
+	    <icon>Schliessen1-50.xpm</icon>
+	  </widget>
+	</widget>
+
+	<widget>
+	  <class>GtkFrame</class>
+	  <name>frame_regionen</name>
+	  <cxx_visibility>protected</cxx_visibility>
+	  <label>MIDGARD</label>
+	  <label_xalign>0</label_xalign>
+	  <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+	  <child>
+	    <left_attach>1</left_attach>
+	    <right_attach>2</right_attach>
+	    <top_attach>5</top_attach>
+	    <bottom_attach>6</bottom_attach>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <xexpand>False</xexpand>
+	    <yexpand>False</yexpand>
+	    <xshrink>False</xshrink>
+	    <yshrink>False</yshrink>
+	    <xfill>True</xfill>
+	    <yfill>True</yfill>
+	  </child>
+
+	  <widget>
+	    <class>Placeholder</class>
+	  </widget>
+	</widget>
+
+	<widget>
 	  <class>GtkFrame</class>
 	  <name>frame99</name>
 	  <label>MAGUS</label>
@@ -16143,8 +16216,8 @@ Verlust</label>
 	  <child>
 	    <left_attach>0</left_attach>
 	    <right_attach>1</right_attach>
-	    <top_attach>4</top_attach>
-	    <bottom_attach>5</bottom_attach>
+	    <top_attach>5</top_attach>
+	    <bottom_attach>6</bottom_attach>
 	    <xpad>0</xpad>
 	    <ypad>0</ypad>
 	    <xexpand>False</xexpand>
@@ -16811,73 +16884,6 @@ andere geholfen.</label>
 
 	<widget>
 	  <class>GtkFrame</class>
-	  <name>frame_regionen</name>
-	  <cxx_visibility>protected</cxx_visibility>
-	  <label>MIDGARD</label>
-	  <label_xalign>0</label_xalign>
-	  <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
-	  <child>
-	    <left_attach>1</left_attach>
-	    <right_attach>2</right_attach>
-	    <top_attach>4</top_attach>
-	    <bottom_attach>5</bottom_attach>
-	    <xpad>0</xpad>
-	    <ypad>0</ypad>
-	    <xexpand>False</xexpand>
-	    <yexpand>False</yexpand>
-	    <xshrink>False</xshrink>
-	    <yshrink>False</yshrink>
-	    <xfill>True</xfill>
-	    <yfill>True</yfill>
-	  </child>
-
-	  <widget>
-	    <class>Placeholder</class>
-	  </widget>
-	</widget>
-
-	<widget>
-	  <class>GtkToolbar</class>
-	  <name>toolbar_close</name>
-	  <border_width>5</border_width>
-	  <cxx_visibility>protected</cxx_visibility>
-	  <orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
-	  <type>GTK_TOOLBAR_ICONS</type>
-	  <space_size>5</space_size>
-	  <space_style>GTK_TOOLBAR_SPACE_EMPTY</space_style>
-	  <relief>GTK_RELIEF_NORMAL</relief>
-	  <tooltips>True</tooltips>
-	  <child>
-	    <left_attach>2</left_attach>
-	    <right_attach>3</right_attach>
-	    <top_attach>0</top_attach>
-	    <bottom_attach>4</bottom_attach>
-	    <xpad>0</xpad>
-	    <ypad>0</ypad>
-	    <xexpand>False</xexpand>
-	    <yexpand>False</yexpand>
-	    <xshrink>False</xshrink>
-	    <yshrink>False</yshrink>
-	    <xfill>True</xfill>
-	    <yfill>False</yfill>
-	  </child>
-
-	  <widget>
-	    <class>GtkButton</class>
-	    <child_name>Toolbar:button</child_name>
-	    <name>button_close</name>
-	    <signal>
-	      <name>clicked</name>
-	      <handler>on_button_close_clicked</handler>
-	      <last_modification_time>Tue, 03 Apr 2001 21:32:37 GMT</last_modification_time>
-	    </signal>
-	    <label></label>
-	    <icon>Schliessen1-50.xpm</icon>
-	  </widget>
-	</widget>
-
-	<widget>
-	  <class>GtkFrame</class>
 	  <name>frame_datenbank</name>
 	  <cxx_visibility>protected</cxx_visibility>
 	  <label>Laden der Datenbank</label>
@@ -16885,13 +16891,13 @@ andere geholfen.</label>
 	  <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
 	  <child>
 	    <left_attach>0</left_attach>
-	    <right_attach>3</right_attach>
-	    <top_attach>5</top_attach>
-	    <bottom_attach>6</bottom_attach>
+	    <right_attach>2</right_attach>
+	    <top_attach>4</top_attach>
+	    <bottom_attach>5</bottom_attach>
 	    <xpad>0</xpad>
 	    <ypad>0</ypad>
 	    <xexpand>False</xexpand>
-	    <yexpand>False</yexpand>
+	    <yexpand>True</yexpand>
 	    <xshrink>False</xshrink>
 	    <yshrink>False</yshrink>
 	    <xfill>True</xfill>
@@ -18139,31 +18145,6 @@ andere geholfen.</label>
 	      </child>
 	    </widget>
 	  </widget>
-	</widget>
-
-	<widget>
-	  <class>GtkPixmap</class>
-	  <name>pixmap90</name>
-	  <filename>MAGUS-Logo-Text-halb.xpm</filename>
-	  <xalign>0.5</xalign>
-	  <yalign>0.5</yalign>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	  <build_insensitive>True</build_insensitive>
-	  <child>
-	    <left_attach>2</left_attach>
-	    <right_attach>3</right_attach>
-	    <top_attach>4</top_attach>
-	    <bottom_attach>5</bottom_attach>
-	    <xpad>0</xpad>
-	    <ypad>0</ypad>
-	    <xexpand>False</xexpand>
-	    <yexpand>False</yexpand>
-	    <xshrink>False</xshrink>
-	    <yshrink>False</yshrink>
-	    <xfill>True</xfill>
-	    <yfill>True</yfill>
-	  </child>
 	</widget>
       </widget>
     </widget>
