@@ -6,6 +6,8 @@ Version 0.9.7
 - Optionen im Menü
 - Vereinheitlichung der MidgardBasicTree Enums
 - Vereinheitlichung des Fileselectors mit GtkmmAddons
+- Schwierigkeit/Kosten "Verteidigung" korrigiert
+- Schriften im Ausdruck geben jetzt Schriftart an, nicht Sprache
 
 -------------- TODO ----------------
 

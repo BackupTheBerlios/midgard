@@ -47,8 +47,9 @@ cH_Waffe::cH_Waffe(const std::string& name , bool create)
 }
 
 void Waffe::get_Waffe(const Tag &t)
-{
-//  if (t.hasAttr("Schaden"))
+{ // Dies ist wichtig, damit weitere Vorkommen (andere Regionen)
+  // die Werte nicht überschreiben
+  if (t.hasAttr("Schaden") || t.hasAttr("Kategorie"))
   {grundkenntnisse=t.getAttr("Grundkenntnisse");
    schwierigkeit=t.getIntAttr("Schwierigkeit");
    art=t.getAttr("Kategorie");

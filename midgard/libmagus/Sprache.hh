@@ -1,7 +1,7 @@
-// $Id: Sprache.hh,v 1.8 2003/09/01 06:47:57 christof Exp $               
+// $Id: Sprache.hh,v 1.9 2004/10/15 09:26:31 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
- *  Copyright (C) 2002 Christof Petig
+ *  Copyright (C) 2002-2004 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -33,8 +33,12 @@ class Tag;
 class Sprache_und_Schrift
 {
    public:
-      struct st_sus{std::string schrift; int wert;
-             st_sus(std::string s,int w) :schrift(s),wert(w) {}};
+      struct st_sus
+      {    std::string schrift, buchstaben; int wert;
+      
+           st_sus(const std::string &s,const std::string &b,int w) 
+               :schrift(s),buchstaben(b),wert(w) {}
+      };
    private:
       MBEmlt sprache;
       bool gelernt;
@@ -49,9 +53,10 @@ class Sprache_und_Schrift
       std::string getErfolgswert() const;
       bool getGelernt() const {return gelernt;}
       const std::vector<st_sus>& getSchriften() const {return schriften;}
-      void push_back(std::string s,int w) {schriften.push_back(st_sus(s,w));};
+      void push_back(const std::string &s,const std::string &b,int w) 
+      { schriften.push_back(st_sus(s,b,w));};
       
-      static void ungelernte_ist_besser(std::vector<Sprache_und_Schrift> &SuS,const std::string name,const int wert);
+      static void ungelernte_ist_besser(std::vector<Sprache_und_Schrift> &SuS,const std::string &name,const int wert);
 };
 
 

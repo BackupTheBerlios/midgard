@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.22 2004/08/30 14:51:22 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.23 2004/10/15 09:26:31 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -452,7 +452,7 @@ void LaTeX_drucken::write_sprachen(std::ostream &fout,const std::vector<Sprache_
       std::string ss;
       for(std::vector<Sprache_und_Schrift::st_sus>::const_iterator j=i->getSchriften().begin();j!=i->getSchriften().end();)
        {
-         ss+= j->schrift + "$\\;$+"+itos(j->wert);
+         ss+= j->/*schrift*/buchstaben + "$\\;$+"+itos(j->wert);
          if(++j!=i->getSchriften().end())  ss+=", ";
        }
       if(!longlist) fout << "\\newcommand{\\schr"<<a<<"}";

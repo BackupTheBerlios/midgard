@@ -1,13 +1,27 @@
 ##### DAS IST DAS WICHTIGSTE #########################################
+Bugreport Sanni:
+Auswahl/Besitz: Teilweise als aufklappbare Einträge ohne Namen und 
+mit dem Wert +0
+
+Steigern:
+Beim Verlernen wird die Fertigkeit nicht gelöscht.
+
+Waffen (Grundfertigkeiten) steigern (außer Buckler) kostet jeweils 1000 FP, 
+reduzieren bringt 500 FP und lassen sich nicht auf Werte >8 Steigern 
+
+Bei den Buttons für Grad anpassen und Eigenschaften erscheinen die Icons
+erst, nachdem diese zum ersten mal aktiviert wurden (sobald die Punkte 
+für einen neuen Grad reichen, bzw. wenn auf die Eigenschaft gewürfelt 
+werden kann.)
+
+Dazu kommen sporadische Segfaults.
+
 + Filerequester Umstellung beenden 
 	(fehlt nur noch die Ersetzung von xml_fileselection durch WinFileReq)
-+ Absturz beim Steigern (Abenteurer* aus MidgardBasicTree eliminieren
-		z.B. über Werte cache Klasse)
 
 - Zauberbeschreibung drucken tatsächlich vom Abenteurer abhängig?
 
 - Wizard testen, vor allem die beiden Varianten des Begrüßungsfensters
-- Praxispunkte bug
 - Einstellbarer Kontrast zum Hintergrundbild
 - Dialoge statt set_insensitive(nearly_everything):
 	- Zusatz
@@ -16,7 +30,6 @@
 	- Spezialwaffe etc.
 - aktiver Wizard sollte focus und page direkt setzen (und wenn möglich
 	machen)
-- Hausregeln/NSC/Original optisch zu Regionen packen
 - Installer
 - TeTeX für Windows (http://tex.aanhet.net/mingtex/)
 ######################################################################
@@ -26,6 +39,10 @@
 	hoch) [vermutlich in Undo]
 ######################################################################
 
+- Schrift sollte auf dem Ausdruck als "Albisch +10 | Seemeister +8"
+	erscheinen (die Sprache ist ja logisch)
+	dazu muss Sprache::SchriftWert (evtl. Sprache_und_Schrift::st_sus)
+	entsprechend erweitert werden
 - WinFileReq sollte gtk 2.4 Requester nehmen
 - LICENSE.pdf
 - undosave _vor_ jeder Änderung (am Besten in libmagus selbst)
@@ -83,18 +100,11 @@ was bedeutet:
 - Preise und Lernschema sind Regionenäbhangig ... ??? Ein Wechsel der Region
   ändert das aber noch nicht
 
-- InfoWindow eventuell einfärben, Button zum launchen in Leiste
+- InfoWindow: Button zum launchen in Leiste
 
 - set_remember fehlt ganz (ist auch nicht notwendig)
 
-- Wizard an/aus, kleines Problem bei Berufswahl
-
 - mehrere Fenster, Neustart des Fensters
-
-- Anzeigen in Statusbar sensitiv machen (Wizard, Eingeben)
-
-- Neue Icons: Wizard sensitiv (grau), Wizard Text ("Wizard"), 
-	Wizard aus (durchgestrichen)
 
 - Needsaction als Wizard steps implementieren ->"Jetzt ..."
 	(table_grundwerte_typauswahl.cc, table_steigern_fertigkeiten.cc)

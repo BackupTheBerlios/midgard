@@ -1,4 +1,4 @@
-// $Id: Schrift.hh,v 1.6 2003/09/01 06:47:57 christof Exp $               
+// $Id: Schrift.hh,v 1.7 2004/10/15 09:26:31 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -38,7 +38,7 @@ class Schrift : public MidgardBasicElement
    enum MBEE What() const {return MidgardBasicElement::SCHRIFT;}
    std::string What_str() const {return "Urschrift";}
 
-   std::string Art_der_Schrift() const   {return art_der_schrift; }
+   const std::string &Art_der_Schrift() const   {return art_der_schrift; }
 
    bool Kult() const {return kult;}
    bool Alt() const {return alt;}
