@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.251 2002/07/03 14:27:52 thoma Exp $
+// $Id: midgard_CG.cc,v 1.252 2002/07/05 07:07:13 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,8 +31,9 @@
 
 midgard_CG::midgard_CG(const string &_argv0,const string &_magus_verzeichnis,
                        const string &datei)
-: argv0(_argv0),magus_verzeichnis(_magus_verzeichnis),InfoFenster(0),
-    MOptionen(0),wizard(0),ansicht_menu(0),region_menu(0),menu(0)
+: argv0(_argv0),magus_verzeichnis(_magus_verzeichnis),in_dtor(false),
+	InfoFenster(0),MOptionen(0),wizard(0),ansicht_menu(0),
+	region_menu(0),menu(0)
 {
   InfoFenster = manage(new WindowInfo(this));
   // Menüs initialisieren
@@ -67,6 +68,7 @@ midgard_CG::midgard_CG(const string &_argv0,const string &_magus_verzeichnis,
 
 midgard_CG::~midgard_CG()
 {  //cout << "~midgard_CG()\n\n\n\n";
+   in_dtor=true;
    delete MOptionen;
 //   if (menu) delete menu;
 //   if (table_steigern->menu_gradanstieg) table_steigern->delete menu_gradanstieg;

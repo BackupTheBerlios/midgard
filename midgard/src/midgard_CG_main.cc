@@ -119,7 +119,7 @@ void midgard_CG::menu_einstellungen_aendern()
 
 void midgard_CG::on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page *page,guint pagenr)
 {
- load_for_mainpage(pagenr);
+ if (!in_dtor) load_for_mainpage(pagenr);
 }
 
 

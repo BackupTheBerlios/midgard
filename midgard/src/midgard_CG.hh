@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.264 2002/07/02 16:43:44 thoma Exp $
+// $Id: midgard_CG.hh,v 1.265 2002/07/05 07:07:13 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -44,6 +44,7 @@ class midgard_CG : public midgard_CG_glade
 {   
         std::string argv0; // Dateiname
         std::string magus_verzeichnis;
+        bool in_dtor;
 /////////////////////////////////////////////////////////////////////////////
         friend class LaTeX_drucken;
         friend class Window_Waffenbesitz;
