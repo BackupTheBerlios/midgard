@@ -93,6 +93,9 @@ void table_grundwerte::zeige_werte(bool typ2_hide=true)
    entry_nameS->set_text(hauptfenster->getWerte().Name_Spieler());
    entry_version->set_text(hauptfenster->getWerte().Version());
 
+   entry_bezeichnung->set_text(hauptfenster->getWerte().Bezeichnung());
+   entry_merkmale->set_text(hauptfenster->getWerte().Merkmale());
+
    if (hauptfenster->getWerte().Geschlecht()=="w") radiobutton_frau->set_active(true); 
    else radiobutton_mann->set_active(true); 
    

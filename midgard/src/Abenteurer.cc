@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.25 2002/06/27 09:01:21 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.26 2002/06/30 17:53:51 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -272,6 +272,7 @@ void Abenteurer::grundwerte_speichern(Tag &datei)
    Beschreibung.setIntAttr("Größe", getWerte().Groesse());
    Beschreibung.setAttr_ne("Stand", getWerte().Stand());
    Beschreibung.setAttr_ne("Bezeichnung", getWerte().Bezeichnung());
+   Beschreibung.setAttr_ne("Merkmale", getWerte().Merkmale());
    Beschreibung.setAttr_ne("Herkunft", getWerte().Herkunft()->Name());
    Beschreibung.setAttr_ne("Glaube", getWerte().Glaube());
 
@@ -438,6 +439,7 @@ bool Abenteurer::xml_import_stream(istream& datei, Datenbank &Database,
      }
    getWerte().setSpezialisierung(Typ->getAttr("Spezialisierung"));
    getWerte().setBezeichnung(Beschreibung->getAttr("Bezeichnung"));
+   getWerte().setMerkmale(Beschreibung->getAttr("Merkmale"));
    getWerte().setHerkunft(cH_Land(Beschreibung->getAttr("Herkunft"),true));
    getWerte().setGlaube(Beschreibung->getAttr("Glaube"));
    getWerte().setNamen(Figur->getAttr("Name"),Figur->getAttr("Spieler"),Figur->getAttr("Zeitpunkt"));
