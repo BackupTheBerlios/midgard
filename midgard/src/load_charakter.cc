@@ -53,7 +53,7 @@ void midgard_CG::xml_import(const std::string& datei)
    Char.push_back();
    on_neuer_charakter_clicked();
    frame_steigern->set_sensitive(true);
-   if(!(Char.xml_import_stream(fi,getDatabase(),getOptionen(),this)))
+   if(!(Char->xml_import_stream(fi,getDatabase(),getOptionen(),this)))
      {
        set_info("Laden fehlgeschlagen");
        return;

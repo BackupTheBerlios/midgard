@@ -179,7 +179,7 @@ void table_zufall::zeige_werte()
    spinbutton_wk->set_value(hauptfenster->getWerte().Wk());      
    spinbutton_b->set_value(hauptfenster->getWerte().B());     
    combo_spezies->get_entry()->set_text(hauptfenster->getWerte().Spezies()->Name());
-   combo_typ ->get_entry()->set_text(hauptfenster->getChar().Typ1()->Name(hauptfenster->getWerte().Geschlecht()));
+   combo_typ ->get_entry()->set_text(hauptfenster->getChar()->Typ1()->Name(hauptfenster->getWerte().Geschlecht()));
    combo_herkunft->get_entry()->set_text(hauptfenster->getWerte().Herkunft()->Name());
 }
 

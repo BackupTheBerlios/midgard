@@ -1,4 +1,4 @@
-// $Id: table_lernschema_fertigkeiten.cc,v 1.14 2002/09/21 18:00:13 thoma Exp $
+// $Id: table_lernschema_fertigkeiten.cc,v 1.15 2002/09/23 06:34:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -107,8 +107,8 @@ std::string table_lernschema::AngebFert_gewuerfelt(int wurf)
 
 void table_lernschema::setFertigkeitenAusruestung(AusruestungBaum &Rucksack)
 {
-  AusruestungBaum &besitz=hauptfenster->getChar().getBesitz();
-  for (std::list<MBEmlt>::const_iterator i=hauptfenster->getChar().List_Fertigkeit().begin();i!=hauptfenster->getChar().List_Fertigkeit().end();++i)
+  AusruestungBaum &besitz=hauptfenster->getChar()->getBesitz();
+  for (std::list<MBEmlt>::const_iterator i=hauptfenster->getChar()->List_Fertigkeit().begin();i!=hauptfenster->getChar()->List_Fertigkeit().end();++i)
    {
      const std::vector<Fertigkeit::st_besitz> VB=cH_Fertigkeit(i->getMBE())->get_vec_Besitz();
      for(std::vector<Fertigkeit::st_besitz>::const_iterator j=VB.begin();j!=VB.end();++j)

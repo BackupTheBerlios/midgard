@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_abge_werte.cc,v 1.9 2002/09/21 20:03:52 thoma Exp $
+// $Id: table_grundwerte_abge_werte.cc,v 1.10 2002/09/23 06:34:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -42,9 +42,9 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
     int sb = hauptfenster->random.integer(1,100) + 3*(hauptfenster->getWerte().In()/10 
                                        + hauptfenster->getWerte().Wk()/10) - 30;
     // Boni für Selbstbeherrschung: Assassine, Beschwörer & Druide
-    sb += hauptfenster->Char.Typ1()->Sb() + hauptfenster->Char.Typ2()->Sb();
+    sb += hauptfenster->getChar()->Typ1()->Sb() + hauptfenster->getChar()->Typ2()->Sb();
     // Saddhu
-    if (hauptfenster->Char.Typ1()->Short() == "Sa") sb = 80+hauptfenster->random.integer(1,20);
+    if (hauptfenster->getChar()->Typ1()->Short() == "Sa") sb = 80+hauptfenster->random.integer(1,20);
     hauptfenster->getWerte().setSb(sb);
   }
 
@@ -52,8 +52,8 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
   // Ausdauer
   {
     int bo_au_typ;  
-    if      (hauptfenster->Char.Typ1()->Ausdauer() == "k" || hauptfenster->Char.Typ2()->Ausdauer() == "k" ) bo_au_typ = 4 ;
-    else if (hauptfenster->Char.Typ1()->Ausdauer() == "ak"|| hauptfenster->Char.Typ2()->Ausdauer() == "ak" ) bo_au_typ = 3 ;
+    if      (hauptfenster->getChar()->Typ1()->Ausdauer() == "k" || hauptfenster->getChar()->Typ2()->Ausdauer() == "k" ) bo_au_typ = 4 ;
+    else if (hauptfenster->getChar()->Typ1()->Ausdauer() == "ak"|| hauptfenster->getChar()->Typ2()->Ausdauer() == "ak" ) bo_au_typ = 3 ;
     else bo_au_typ = 2 ;
     int ap = hauptfenster->random.integer(1,6)+hauptfenster->getWerte().bo_Au()+bo_au_typ 
             + hauptfenster->getWerte().Spezies()->AP_Bonus() ;
@@ -96,8 +96,8 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
   }
   {
     int istand=hauptfenster->random.integer(1,100);
-    int typstand1 = hauptfenster->Char.Typ1()->Stand();
-    int typstand2 = hauptfenster->Char.Typ2()->Stand();
+    int typstand1 = hauptfenster->getChar()->Typ1()->Stand();
+    int typstand2 = hauptfenster->getChar()->Typ2()->Stand();
     if(typstand1*typstand2 <= 0 ) istand += typstand1 + typstand2 ;
     else  // gleiches Vorzeichen
      { int t= (abs(typstand1)>abs(typstand2)) ? abs(typstand1) : abs(typstand2);
@@ -128,7 +128,7 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
      }
     hauptfenster->getWerte().setStand(stand);
    }
-  hauptfenster->getWerte().setGrad1Werte(hauptfenster->getChar().getVTyp());
+  hauptfenster->getWerte().setGrad1Werte(hauptfenster->getChar()->getVTyp());
 
   hauptfenster->table_lernschema->button_herkunft->set_sensitive(true);
   hauptfenster->frame_lernschema->set_sensitive(true);

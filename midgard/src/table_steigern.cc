@@ -86,11 +86,11 @@ void table_steigern::load_for_page(guint pagenr)
      radiobutton_verlernen->set_active(true);
      if(pagenr==PAGE_ZAUBER) 
        { frame_zauber_zusatz->show();
-         if(MBEmlt(&*cH_Fertigkeit("Lesen von Zauberschrift")).ist_gelernt(hauptfenster->getChar().List_Fertigkeit()))
+         if(MBEmlt(&*cH_Fertigkeit("Lesen von Zauberschrift")).ist_gelernt(hauptfenster->getChar()->List_Fertigkeit()))
               togglebutton_spruchrolle->set_sensitive(true);
          else togglebutton_spruchrolle->set_sensitive(false);
        }
-     if(hauptfenster->getChar().Typ1()->SpruecheMitPP() || hauptfenster->getChar().Typ2()->SpruecheMitPP())
+     if(hauptfenster->getChar()->Typ1()->SpruecheMitPP() || hauptfenster->getChar()->Typ2()->SpruecheMitPP())
         radiobutton_praxis->set_sensitive(true);
      else
         radiobutton_praxis->set_sensitive(false);
@@ -166,7 +166,7 @@ void table_steigern::zeige_werte()
    label_abwehr_GFP->set_text(hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Abwehr,W));
    label_resistenz_GFP->set_text(hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Resistenz,W));
    std::string z=hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Zaubern,W);
-   if(!hauptfenster->getChar().Typ1()->is_mage() && !hauptfenster->getChar().Typ2()->is_mage()) z="";
+   if(!hauptfenster->getChar()->Typ1()->is_mage() && !hauptfenster->getChar()->Typ2()->is_mage()) z="";
    label_zauber_GFP->set_text(z);
 
   show_goldeingabe(false);
@@ -174,21 +174,21 @@ void table_steigern::zeige_werte()
   checkbutton_gfp->set_active(false);
   on_button_gfp_s_toggled();
 
-  steigern_typ->set_text(hauptfenster->getChar().Typ1()->Name(W.Geschlecht()));
-  if (hauptfenster->getChar().Typ2()->Name(W.Geschlecht())!="")
-      steigern_typ->set_text(hauptfenster->getChar().Typ1()->Name(W.Geschlecht())
-            +"/"+hauptfenster->getChar().Typ2()->Name(W.Geschlecht()));
+  steigern_typ->set_text(hauptfenster->getChar()->Typ1()->Name(W.Geschlecht()));
+  if (hauptfenster->getChar()->Typ2()->Name(W.Geschlecht())!="")
+      steigern_typ->set_text(hauptfenster->getChar()->Typ1()->Name(W.Geschlecht())
+            +"/"+hauptfenster->getChar()->Typ2()->Name(W.Geschlecht()));
 
   label_steigern_spezies->set_text(W.Spezies()->Name());
 
-  if (hauptfenster->getChar().is_mage())  table_magier_steigern->show() ;
+  if (hauptfenster->getChar()->is_mage())  table_magier_steigern->show() ;
   else                 table_magier_steigern->hide() ;
 
-  if(MBEmlt(&*cH_Fertigkeit("KiDo")).ist_gelernt(hauptfenster->getChar().List_Fertigkeit()))   
+  if(MBEmlt(&*cH_Fertigkeit("KiDo")).ist_gelernt(hauptfenster->getChar()->List_Fertigkeit()))   
          table_kido_steigern->show();
   else   table_kido_steigern->hide();
 
-  if(!hauptfenster->getChar().getVTyp().empty() && hauptfenster->getChar().is_mage())
+  if(!hauptfenster->getChar()->getVTyp().empty() && hauptfenster->getChar()->is_mage())
   {
     button_grad_zaubern->set_sensitive(true);
     frame_pp_zaubern->set_sensitive(true);

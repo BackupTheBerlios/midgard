@@ -149,8 +149,8 @@ void table_ausruestung::on_button_modi_clicked()
 
 void table_ausruestung::showAusruestung()
 {
-  if(hauptfenster->getChar().getBesitz().empty())
-      setStandardAusruestung(hauptfenster->getChar().getBesitz());
+  if(hauptfenster->getChar()->getBesitz().empty())
+      setStandardAusruestung(hauptfenster->getChar()->getBesitz());
   std::vector<std::string> title;
   title.push_back("Titel");
   title.push_back("Material");
@@ -163,7 +163,7 @@ void table_ausruestung::showAusruestung()
          static_cast < GdkDragAction > ( GDK_ACTION_COPY | GDK_ACTION_MOVE) );
   
   Gtk::CTree_Helpers::RowList::iterator r;
-  AusruestungBaum besitz=hauptfenster->getChar().getBesitz();
+  AusruestungBaum besitz=hauptfenster->getChar()->getBesitz();
   for(AusruestungBaum::const_iterator i=besitz.begin();i!=besitz.end();++i)
    {
      std::vector <string> v;

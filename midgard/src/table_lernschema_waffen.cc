@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.15 2002/09/21 18:00:13 thoma Exp $
+// $Id: table_lernschema_waffen.cc,v 1.16 2002/09/23 06:34:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -27,7 +27,7 @@
 
 gint table_lernschema::on_button_lernschema_waffen_button_release_event(GdkEventButton *ev)
 {
-  hauptfenster->getChar().List_Waffen_besitz().clear();
+  hauptfenster->getChar()->List_Waffen_besitz().clear();
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::WAFFEN);
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
      button_lernschema_waffen->set_sensitive(false);
@@ -138,7 +138,7 @@ void table_lernschema::on_waffen_lernschema_tree_leaf_selected(cH_RowDataBase d)
      waffebesitzlernen.add_AWaffe(-1);
    else return;
 
-   hauptfenster->getChar().List_Waffen_besitz().push_back(WB);
+   hauptfenster->getChar()->List_Waffen_besitz().push_back(WB);
 
    show_gelerntes();
    show_WaffenBesitz_lernschema();
@@ -149,7 +149,7 @@ void table_lernschema::WaffenBesitz_lernschema_wuerfeln(int wurf)
 {
   std::string strinfo = "Für die Waffenauswahl wurde eine "+itos(wurf)
       +" gewürfelt, die Abenteurerklasse ist "
-      +hauptfenster->getChar().Typ1()->Name(hauptfenster->getWerte().Geschlecht())+" ==> ";
+      +hauptfenster->getChar()->Typ1()->Name(hauptfenster->getWerte().Geschlecht())+" ==> ";
  waffebesitzlernen =Zufall::WaffenBesitz_wuerfeln(hauptfenster->getChar(),wurf);
  strinfo += itos(waffebesitzlernen.EWaffe())+" Einhand- und "+itos(waffebesitzlernen.AWaffe())+" beliebige Waffen";
  hauptfenster->set_status(strinfo);

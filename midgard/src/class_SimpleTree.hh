@@ -38,7 +38,7 @@ class Data_SimpleTree : public RowDataBase
    : MBE(_MBE),hauptfenster(h) {}
 
    enum Spalten_ANGEBFERT  {WURFaf,NAMEaf,WERTaf};
-   enum Spalten_GELERNTES  {ARTgg,NAMEgg,WERTgg,LERNPUNKTEgg};
+   enum Spalten_GELERNTES  {ARTgg,NAMEgg,WERTgg,LERNPUNKTEgg,LERNARTgg};
    enum Spalten_LERNSCHEMA {LERNPUNKTEg,PFLICHTg,NAMEg,WERTg,EIGENSCHAFTg,VORAUSSETZUNGg,KOSTENg,ARTg,GELERNTg} ;
    enum Spalten_LONG_ALT {NAMEa,WERTa,PPa,STANDARDa,STEIGERN,REDUZIEREN,VERLERNEN,REGIONa} ;
    enum Spalten_LONG_NEU {NAMEn,WERTn,LERNKOSTEN,ART,VORAUSSETZUNGEN,REGIONn};
@@ -54,7 +54,7 @@ class Data_SimpleTree : public RowDataBase
 
    virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const;
    enum WEV {FWhat,FName,FErfolgswert,FErfolgswerBonus,
-             FWurf,FLernpunkte,FPflicht,
+             FWurf,FLernpunkte,FLernart,FPflicht,
              FGrundkenntnis,FZauberAP,FAttribut,FVoraussetung,FSchwierigkeit,
              FKosten,FStandard,FGelernt,FPraxispunkt,
              FSteigern,FReduzieren,FVerlernen,FRegion,

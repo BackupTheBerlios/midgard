@@ -52,8 +52,8 @@ cH_Typen Zufall::getTyp() const
 Enums::StadtLand Zufall::getStadtLand() const
 {
   if     (hauptfenster->getWerte().Spezies()->Land()) return Enums::Land;
-  else if(!hauptfenster->getChar().Typ1()->Stadt())  return Enums::Land;
-  else if(!hauptfenster->getChar().Typ1()->Land()) return Enums::Stadt;
+  else if(!hauptfenster->getChar()->Typ1()->Stadt())  return Enums::Land;
+  else if(!hauptfenster->getChar()->Typ1()->Land()) return Enums::Stadt;
 
   int i=random.integer(0,1);
   if     (i==0) return Enums::Stadt;

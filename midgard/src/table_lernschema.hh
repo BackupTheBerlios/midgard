@@ -62,6 +62,7 @@ private:
        void show_lernschema();
        void zeige_lernpunkte();
        void set_lernpunkte();
+       void button_sensitive(bool b);
        void edit_lernpunkte(bool b);
        void zeige_werte();
        void lernschema_geld_wuerfeln(const std::vector<int>& VGeldwurf);

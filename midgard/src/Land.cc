@@ -43,10 +43,10 @@ cH_Land::cH_Land(const std::string& name ,bool create)
 
 bool Land::ist_erlaubt(const VAbenteurer& A) const
 {
-  std::vector<std::string> V=A.getWerte().Spezies()->getVHerkunft();
+  std::vector<std::string> V=A->getWerte().Spezies()->getVHerkunft();
   if(V.empty()) // Keine Herkunftsvorgabe aufgrund der Spezies
    { 
-     std::vector<cH_Typen> Typ=A.getVTyp();
+     std::vector<cH_Typen> Typ=A->getVTyp();
      for(std::vector<cH_Typen>::const_iterator i=Typ.begin();i!=Typ.end();++i)
       {
         const std::vector<Typen::st_herkunft> V=(*i)->get_vec_herkunft();

@@ -27,9 +27,9 @@ void table_grundwerte::fill_typauswahl()
 {
   if(!hauptfenster) return;
   fill_typauswahl_fill(1);
-  if (!hauptfenster->getChar().getVTyp().empty()) 
+  if (!hauptfenster->getChar()->getVTyp().empty()) 
    {
-     combo_typ->get_entry()->set_text(hauptfenster->getChar().Typ1()->Name(hauptfenster->getWerte().Geschlecht()));
+     combo_typ->get_entry()->set_text(hauptfenster->getChar()->Typ1()->Name(hauptfenster->getWerte().Geschlecht()));
    }
 }
 
@@ -37,7 +37,7 @@ void table_grundwerte::fill_typauswahl_2()
 {
   if(!hauptfenster) return;
   fill_typauswahl_fill(2);
-  combo_typ2->get_entry()->set_text(hauptfenster->getChar().Typ2()->Name(hauptfenster->getWerte().Geschlecht()));
+  combo_typ2->get_entry()->set_text(hauptfenster->getChar()->Typ2()->Name(hauptfenster->getWerte().Geschlecht()));
 }
 
 void table_grundwerte::fill_typauswahl_fill(int typ_1_2)
@@ -87,7 +87,7 @@ void table_grundwerte::typauswahl_button()
 
  hauptfenster->undosave("Typ gewählt");
  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::TYP);
- hauptfenster->getChar().setTyp1(cH_Typen(typ));
+ hauptfenster->getChar()->setTyp1(cH_Typen(typ));
 
 // if (Typ[0]->Short()=="dBe" || Typ[0]->Short()=="eBe") angeborene_zauber();
 
@@ -97,13 +97,13 @@ void table_grundwerte::typauswahl_button()
      radiobutton_stadt->set_sensitive(false);
      radiobutton_land->set_sensitive(true);
    }
- else if(!hauptfenster->getChar().Typ1()->Stadt())
+ else if(!hauptfenster->getChar()->Typ1()->Stadt())
    {
      radiobutton_land->set_active(true);
      radiobutton_land->set_sensitive(true);
      radiobutton_stadt->set_sensitive(false);
    }
- else if(!hauptfenster->getChar().Typ1()->Land())
+ else if(!hauptfenster->getChar()->Typ1()->Land())
    {
      radiobutton_stadt->set_active(true);
      radiobutton_stadt->set_sensitive(true);
@@ -140,7 +140,7 @@ void table_grundwerte::typauswahl_2_button()
    return;
 
  hauptfenster->undosave("zweiter Typ gewählt");
- hauptfenster->getChar().setTyp2(cH_Typen(typ));
+ hauptfenster->getChar()->setTyp2(cH_Typen(typ));
 
 // if (Typ[1]->Short()=="dBe" || Typ[1]->Short()=="eBe") angeborene_zauber();
 }

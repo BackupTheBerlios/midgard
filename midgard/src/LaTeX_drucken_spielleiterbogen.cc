@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.16 2002/09/21 18:00:13 thoma Exp $   
+// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.17 2002/09/23 06:34:08 thoma Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -158,7 +158,7 @@ void LaTeX_drucken::for_each(ostream &fout,const ewhat& what)
        case ewk: V.push_back(st_is(W.Wk())); break;
        case esb: V.push_back(st_is(W.Sb())); break;
        case eb: {
-           int b=hauptfenster->getChar().Erfolgswert("Laufen",hauptfenster->getCDatabase()).first;
+           int b=hauptfenster->getChar()->Erfolgswert("Laufen",hauptfenster->getCDatabase()).first;
            if(b==-99) b=0;
            else b-=2;
            int bs= W.B() + b;
@@ -166,7 +166,7 @@ void LaTeX_drucken::for_each(ostream &fout,const ewhat& what)
           }
        case ezauber: V.push_back(st_is(W.Zaubern_wert())); break;
        case eabwehr:  V.push_back(st_is(W.Abwehr_wert())); break;
-       case eres: fout << " & "<<W.Resistenzen_alle(hauptfenster->getChar().getVTyp()); break; 
+       case eres: fout << " & "<<W.Resistenzen_alle(hauptfenster->getChar()->getVTyp()); break; 
        case esinnse: V.push_back(st_is(W.Sehen())); break;
        case esinnh: V.push_back(st_is(W.Hoeren())); break;
        case esinnr: V.push_back(st_is(W.Riechen())); break;

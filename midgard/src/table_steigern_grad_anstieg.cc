@@ -1,4 +1,4 @@
-// $Id: table_steigern_grad_anstieg.cc,v 1.7 2002/07/03 08:11:20 thoma Exp $
+// $Id: table_steigern_grad_anstieg.cc,v 1.8 2002/09/23 06:34:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -166,8 +166,8 @@ void table_steigern::get_ausdauer(int grad)
    for (int i=0;i<grad;++i) ap += hauptfenster->random.integer(1,6);
 
   int nab, nap;
-  if      (hauptfenster->getChar().Typ1()->Ausdauer() == "k" || hauptfenster->getChar().Typ2()->Ausdauer() == "k")  nab = bonus_K ;
-  else if (hauptfenster->getChar().Typ1()->Ausdauer() == "ak"|| hauptfenster->getChar().Typ2()->Ausdauer() == "ak") nab = bonus_aK ;
+  if      (hauptfenster->getChar()->Typ1()->Ausdauer() == "k" || hauptfenster->getChar()->Typ2()->Ausdauer() == "k")  nab = bonus_K ;
+  else if (hauptfenster->getChar()->Typ1()->Ausdauer() == "ak"|| hauptfenster->getChar()->Typ2()->Ausdauer() == "ak") nab = bonus_aK ;
   else  nab = bonus_Z ;
   nap = ap + nab + hauptfenster->getWerte().bo_Au() ;
   int nspez = hauptfenster->getWerte().Grad()*hauptfenster->getWerte().Spezies()->AP_GradFak();
@@ -206,7 +206,7 @@ void table_steigern::get_ab_re_za(e_was_steigern was)
     } 
   else if (was==Zaubern) 
     { 
-      if ( hauptfenster->getChar().is_mage()) 
+      if ( hauptfenster->getChar()->is_mage()) 
        { 
          max_wert = hauptfenster->getCDatabase().GradAnstieg.get_MaxZauber(grad);
          alter_wert = hauptfenster->getWerte().Zaubern_wert(); 

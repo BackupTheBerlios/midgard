@@ -192,7 +192,7 @@ bool Sprache::ist_erlaubt(const VAbenteurer& A,bool nachbarland=false) const
 {
   if(nachbarland)
    {
-     std::vector<std::string> L=A.getWerte().Herkunft()->Nachbarlaender();
+     std::vector<std::string> L=A->getWerte().Herkunft()->Nachbarlaender();
      for(std::vector<std::string>::const_iterator i=L.begin();i!=L.end();++i)
       {
         std::vector<std::string> V=cH_Land(*i)->Sprachen();
@@ -202,9 +202,9 @@ bool Sprache::ist_erlaubt(const VAbenteurer& A,bool nachbarland=false) const
    }
   else
    {
-     std::vector<std::string> V=A.getWerte().Spezies()->getVSprache();
+     std::vector<std::string> V=A->getWerte().Spezies()->getVSprache();
      if(V.empty()) // Keine Sprachenvorgabe aufgrund der Spezies
-         V=A.getWerte().Herkunft()->Sprachen();
+         V=A->getWerte().Herkunft()->Sprachen();
      if(find(V.begin(),V.end(),Name())!=V.end()) return true;
    }
   return false;

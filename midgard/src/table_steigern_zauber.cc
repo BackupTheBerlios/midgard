@@ -30,13 +30,13 @@ void table_steigern::on_zauber_laden_clicked()
   list_Zauber_neu.clear();
   for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().Zauber.begin();i!=hauptfenster->getCDatabase().Zauber.end();++i)
     { cH_Zauber z(*i);
-      if (MBEmlt(*i).ist_gelernt(hauptfenster->getChar().List_Zauber()) && (*i)->ZusatzEnum(hauptfenster->getChar().getVTyp())==MidgardBasicElement::ZNone) continue ;
+      if (MBEmlt(*i).ist_gelernt(hauptfenster->getChar()->List_Zauber()) && (*i)->ZusatzEnum(hauptfenster->getChar()->getVTyp())==MidgardBasicElement::ZNone) continue ;
       if (z->Zauberart()=="Zaubersalz" && !togglebutton_zaubersalze->get_active())
          continue;
       if (z->Zauberart()=="Beschwörung" && !Region::isActive(hauptfenster->getCDatabase().Regionen,cH_Region("MdS")))
          continue;
       if (togglebutton_spruchrolle->get_active() && !z->Spruchrolle() ) continue;
-      if ((*i)->ist_lernbar(hauptfenster->getChar().getVTyp(),z->get_MapTyp()) || togglebutton_alle_zauber->get_active() )
+      if ((*i)->ist_lernbar(hauptfenster->getChar()->getVTyp(),z->get_MapTyp()) || togglebutton_alle_zauber->get_active() )
       if (hauptfenster->region_check(z->Region()) && hauptfenster->nsc_check((*i)->NSC_only()))
         {
          if(togglebutton_spruchrolle->get_active()) z->setSpruchrolleFaktor(0.1);
@@ -58,11 +58,11 @@ void table_steigern::on_zauber_laden_clicked()
 void table_steigern::zauber_zeigen()
 {
 // if (Typ[0]->Zaubern()=="n" && Typ[1]->Zaubern()=="n") return;
-// if(!hauptfenster->getChar().Typ1()->is_mage() && !hauptfenster->getChar().Typ2()->is_mage() ) return;
- if(!hauptfenster->getChar().is_mage()) return;
+// if(!hauptfenster->getChar()->Typ1()->is_mage() && !hauptfenster->getChar()->Typ2()->is_mage() ) return;
+ if(!hauptfenster->getChar()->is_mage()) return;
  zeige_werte();
  MidgardBasicElement::show_list_in_tree(list_Zauber_neu,neue_zauber_tree,hauptfenster);
- MidgardBasicElement::show_list_in_tree(hauptfenster->getChar().List_Zauber(),alte_zauber_tree,hauptfenster);
+ MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Zauber(),alte_zauber_tree,hauptfenster);
  zauberwerk_zeigen();
 }
 
@@ -101,9 +101,9 @@ void table_steigern::on_alte_zauber_reorder()
 {
   std::deque<guint> seq = alte_zauber_tree->get_seq();
   switch((Data_SimpleTree::Spalten_ZAUBER)seq[0]) {
-      case Data_SimpleTree::NAMEn_Z  : hauptfenster->getChar().List_Zauber().sort(cH_Zauber::sort(cH_Zauber::sort::NAME)); ;break;
-      case Data_SimpleTree::STUFEn_Z : hauptfenster->getChar().List_Zauber().sort(cH_Zauber::sort(cH_Zauber::sort::STUFE)); ;break;
-      case Data_SimpleTree::URSPRUNGn_Z : hauptfenster->getChar().List_Zauber().sort(cH_Zauber::sort(cH_Zauber::sort::URSPRUNG)); ;break;
+      case Data_SimpleTree::NAMEn_Z  : hauptfenster->getChar()->List_Zauber().sort(cH_Zauber::sort(cH_Zauber::sort::NAME)); ;break;
+      case Data_SimpleTree::STUFEn_Z : hauptfenster->getChar()->List_Zauber().sort(cH_Zauber::sort(cH_Zauber::sort::STUFE)); ;break;
+      case Data_SimpleTree::URSPRUNGn_Z : hauptfenster->getChar()->List_Zauber().sort(cH_Zauber::sort(cH_Zauber::sort::URSPRUNG)); ;break;
       default : hauptfenster->set_status("Sortieren nach diesem Parameter\n ist nicht möglich");
    }
 }
@@ -116,9 +116,9 @@ void table_steigern::on_alte_zaubermittel_reorder()
 {
   std::deque<guint> seq = alte_zaubermittel_tree->get_seq();
   switch((Data_SimpleTree::Spalten_ZAUBERWERK)seq[0]) {
-      case Data_SimpleTree::NAMEn_ZW  : hauptfenster->getChar().List_Zauberwerk().sort(cH_Zauberwerk::sort(cH_Zauberwerk::sort::NAME)) ;break;
-      case Data_SimpleTree::STUFEn_ZW : hauptfenster->getChar().List_Zauberwerk().sort(cH_Zauberwerk::sort(cH_Zauberwerk::sort::STUFE)) ;break;
-      case Data_SimpleTree::ARTn_ZW :   hauptfenster->getChar().List_Zauberwerk().sort(cH_Zauberwerk::sort(cH_Zauberwerk::sort::ART));break;
+      case Data_SimpleTree::NAMEn_ZW  : hauptfenster->getChar()->List_Zauberwerk().sort(cH_Zauberwerk::sort(cH_Zauberwerk::sort::NAME)) ;break;
+      case Data_SimpleTree::STUFEn_ZW : hauptfenster->getChar()->List_Zauberwerk().sort(cH_Zauberwerk::sort(cH_Zauberwerk::sort::STUFE)) ;break;
+      case Data_SimpleTree::ARTn_ZW :   hauptfenster->getChar()->List_Zauberwerk().sort(cH_Zauberwerk::sort(cH_Zauberwerk::sort::ART));break;
       default : hauptfenster->set_status("Sortieren nach diesem Parameter\n ist nicht möglich");
    }
 }
@@ -135,7 +135,7 @@ void table_steigern::zauberwerk_zeigen()
  zauberwerk_laden();
  zeige_werte();
  MidgardBasicElement::show_list_in_tree(list_Zauberwerk_neu,neue_zaubermittel_tree,hauptfenster);
- MidgardBasicElement::show_list_in_tree(hauptfenster->getChar().List_Zauberwerk()    ,alte_zaubermittel_tree,hauptfenster);
+ MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Zauberwerk()    ,alte_zaubermittel_tree,hauptfenster);
 }
 
 void table_steigern::on_leaf_selected_neue_zauberwerk(cH_RowDataBase d)

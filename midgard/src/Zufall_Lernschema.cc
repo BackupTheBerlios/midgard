@@ -150,15 +150,20 @@ reloop:
      if(i==-1)  M=*ci;
      else       M=V[i];
 
+     if     (was==eFach) M.setLernArt("Fach");
+     else if(was==eAllg) M.setLernArt("Allg");
+     else if(was==eAllg) M.setLernArt("Unge");
+
+
 //cout << '\t'<<L.size()<<' '<<M->Name()<<'\n';
      L.remove(M); // Die nächste Methode ändert 'M' daher muß es HIER entfernt werden
 
      if(M->What()==MidgardBasicElement::FERTIGKEIT) 
        {  cH_Fertigkeit(M.getMBE())->get_region_lp(lp,hauptfenster); 
           if (M->Name()=="Muttersprache")
-             Sprache::setErfolgswertMuttersprache(M,Aben.getWerte().In(),cH_Fertigkeit(M.getMBE())->AttributBonus(Aben->getWerte()));
+             Sprache::setErfolgswertMuttersprache(M,Aben->getWerte().In(),cH_Fertigkeit(M.getMBE())->AttributBonus(Aben->getWerte()));
           else if(M->Name()=="Gastlandsprache")
-             Sprache::setErfolgswertGastlandsprache(M,Aben.getWerte().In());
+             Sprache::setErfolgswertGastlandsprache(M,Aben->getWerte().In());
        }
 
      // Fertigkeit/Zauber mit Zusätzen
@@ -169,31 +174,31 @@ reloop:
       {
        if(M->What()==MidgardBasicElement::FERTIGKEIT)
         {
-          if(M.ist_gelernt(Aben.List_Fertigkeit())) {List_gelerntes.push_back(M);goto reloop;}
-          Aben.List_Fertigkeit().push_back(M);
+          if(M.ist_gelernt(Aben->List_Fertigkeit())) {List_gelerntes.push_back(M);goto reloop;}
+          Aben->List_Fertigkeit().push_back(M);
         }
        else if(M->What()==MidgardBasicElement::SPRACHE)
         {
-          if(M.ist_gelernt(Aben.List_Sprache())) {List_gelerntes.push_back(M);goto reloop;}
-          Aben.List_Sprache().push_back(M);
+          if(M.ist_gelernt(Aben->List_Sprache())) {List_gelerntes.push_back(M);goto reloop;}
+          Aben->List_Sprache().push_back(M);
         }
        else if(M->What()==MidgardBasicElement::SCHRIFT)
         {
-          if(M.ist_gelernt(Aben.List_Schrift())) {List_gelerntes.push_back(M);goto reloop;}
-          Aben.List_Schrift().push_back(M);
+          if(M.ist_gelernt(Aben->List_Schrift())) {List_gelerntes.push_back(M);goto reloop;}
+          Aben->List_Schrift().push_back(M);
         }
        else if(M->What()==MidgardBasicElement::WAFFE)
         {
-          if(M.ist_gelernt(Aben.List_Waffen())) {List_gelerntes.push_back(M);goto reloop;}
-          Aben.List_Waffen().push_back(M);
-          Aben.List_WaffenGrund().push_back(MBEmlt(&*cH_WaffeGrund(cH_Waffe(M.getMBE())->Grundkenntnis())));
-          Aben.List_WaffenGrund().sort(MBEmlt::sort(MidgardBasicElement_mutable::sort::NAME));
-          Aben.List_WaffenGrund().unique();
+          if(M.ist_gelernt(Aben->List_Waffen())) {List_gelerntes.push_back(M);goto reloop;}
+          Aben->List_Waffen().push_back(M);
+          Aben->List_WaffenGrund().push_back(MBEmlt(&*cH_WaffeGrund(cH_Waffe(M.getMBE())->Grundkenntnis())));
+          Aben->List_WaffenGrund().sort(MBEmlt::sort(MidgardBasicElement_mutable::sort::NAME));
+          Aben->List_WaffenGrund().unique();
         }
        else if(M->What()==MidgardBasicElement::ZAUBER)
         {
-          if(M.ist_gelernt(Aben.List_Zauber())) {List_gelerntes.push_back(M);goto reloop;}
-          Aben.List_Zauber().push_back(M);
+          if(M.ist_gelernt(Aben->List_Zauber())) {List_gelerntes.push_back(M);goto reloop;}
+          Aben->List_Zauber().push_back(M);
         }
        lp-=M.Lernpunkte();
        goto reloop;
@@ -241,7 +246,7 @@ MBEmlt Zufall::getZusatz(MidgardBasicElement::eZusatz was,MBEmlt& MBE,bool nachb
      case MidgardBasicElement::ZLand:       VG=LL.getLandZusatz(); break;
      case MidgardBasicElement::ZSprache:    VG=LL.getSprachenZusatz(MBE,Aben,nachbarland); break;
      case MidgardBasicElement::ZSchrift:    VG=LL.getSchriftenZusatz(MBE,Aben); break;
-     case MidgardBasicElement::ZWaffe:      VG=LL.getWaffenZusatz(Aben.List_Waffen()); break;
+     case MidgardBasicElement::ZWaffe:      VG=LL.getWaffenZusatz(Aben->List_Waffen()); break;
      case MidgardBasicElement::ZTabelle:    VG=MBE->VZusatz(); break;
      default: assert(!"never get here");
    }
@@ -260,7 +265,7 @@ MBEmlt Zufall::getZusatz(MidgardBasicElement::eZusatz was,MBEmlt& MBE,bool nachb
   if(was==MidgardBasicElement::ZLand && MBE->Name()=="Landeskunde (Heimat)")
    {
      Mtmp=MBEmlt(&*cH_Fertigkeit("Landeskunde"));
-     Mtmp.setZusatz(Aben.getWerte().Herkunft()->Name());
+     Mtmp.setZusatz(Aben->getWerte().Herkunft()->Name());
      MBE.setLernArt(MBE.LernArt()+"_Heimat");
    }
   if(was==MidgardBasicElement::ZSprache)
@@ -313,7 +318,7 @@ reloop:
       }
      else if(wbl.AWaffe()>0)  wbl.add_AWaffe(-1)  ;  
      else continue;
-     Aben.List_Waffen_besitz().push_back(WB);
+     Aben->List_Waffen_besitz().push_back(WB);
      L.remove(WB);
      goto reloop;
    }
@@ -325,8 +330,8 @@ void Zufall::setBeruf()
   std::vector<MBEmlt> V=List_to_Vector(L,Aben,99);
   if(V.empty()) return;
   int i=random.integer(0,V.size()-1);
-  hauptfenster->getChar().List_Beruf().clear();
-  hauptfenster->getChar().List_Beruf().push_back(V[i]);
+  hauptfenster->getChar()->List_Beruf().clear();
+  hauptfenster->getChar()->List_Beruf().push_back(V[i]);
   
   BerufsKategorie BKat;
   BKat.wuerfeln(random.integer(1,100));

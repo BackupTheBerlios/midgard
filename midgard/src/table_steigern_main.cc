@@ -39,7 +39,7 @@ void table_steigern::on_togglebutton_praxispunkte_toggled()
    {
      radiobutton_pp_fertigkeit->set_active(true);
      vbox_praxispunkte->show();
-     if(hauptfenster->getChar().Typ1()->is_mage() || hauptfenster->getChar().Typ2()->is_mage()) 
+     if(hauptfenster->getChar()->Typ1()->is_mage() || hauptfenster->getChar()->Typ2()->is_mage()) 
          radiobutton_pp_zauber->set_sensitive(true);
      else
          radiobutton_pp_zauber->set_sensitive(true);
@@ -59,10 +59,10 @@ void table_steigern::on_togglebutton_praxispunkte_toggled()
 
 std::string table_steigern::SpruecheMitPP()
 {
-  if(hauptfenster->getChar().Typ1()->SpruecheMitPP())
-       return hauptfenster->getChar().Typ1()->SpruecheMitPP_Text();
-  else if(hauptfenster->getChar().Typ2()->SpruecheMitPP())
-       return hauptfenster->getChar().Typ2()->SpruecheMitPP_Text();
+  if(hauptfenster->getChar()->Typ1()->SpruecheMitPP())
+       return hauptfenster->getChar()->Typ1()->SpruecheMitPP_Text();
+  else if(hauptfenster->getChar()->Typ2()->SpruecheMitPP())
+       return hauptfenster->getChar()->Typ2()->SpruecheMitPP_Text();
   else return "";
 }
 
@@ -106,22 +106,22 @@ void table_steigern::on_radiobutton_pp_fertigkeit_toggled()
 }
 void table_steigern::on_radiobutton_pp_zauber_toggled()
 {
- spinbutton_pp_eingeben->set_value(hauptfenster->getChar().getWerte().ZaubernPP());
+ spinbutton_pp_eingeben->set_value(hauptfenster->getChar()->getWerte().ZaubernPP());
  on_radiobutton_pp_all_toggled();
 }
 void table_steigern::on_radiobutton_pp_spezial_toggled()
 {
- spinbutton_pp_eingeben->set_value(hauptfenster->getChar().getWerte().SpezialPP());
+ spinbutton_pp_eingeben->set_value(hauptfenster->getChar()->getWerte().SpezialPP());
  on_radiobutton_pp_all_toggled();
 }
 void table_steigern::on_radiobutton_pp_abwehr_toggled()    
 {
- spinbutton_pp_eingeben->set_value(hauptfenster->getChar().getWerte().AbwehrPP());
+ spinbutton_pp_eingeben->set_value(hauptfenster->getChar()->getWerte().AbwehrPP());
  on_radiobutton_pp_all_toggled(); 
 }
 void table_steigern::on_radiobutton_pp_resistenz_toggled()
 { 
- spinbutton_pp_eingeben->set_value(hauptfenster->getChar().getWerte().ResistenzPP());
+ spinbutton_pp_eingeben->set_value(hauptfenster->getChar()->getWerte().ResistenzPP());
  on_radiobutton_pp_all_toggled();
 }
 void table_steigern::on_radiobutton_pp_all_toggled()
@@ -147,13 +147,13 @@ void table_steigern::on_spinbutton_pp_eingeben_activate()
  if(!radiobutton_pp_fertigkeit->get_active())
   {
     if(radiobutton_pp_abwehr->get_active())
-       hauptfenster->getChar().getWerte().setAbwehrPP(PPanz);
+       hauptfenster->getChar()->getWerte().setAbwehrPP(PPanz);
     else if(radiobutton_pp_zauber->get_active())
-       hauptfenster->getChar().getWerte().setZaubernPP(PPanz);
+       hauptfenster->getChar()->getWerte().setZaubernPP(PPanz);
     else if(radiobutton_pp_spezial->get_active())
-       hauptfenster->getChar().getWerte().setSpezialPP(PPanz);
+       hauptfenster->getChar()->getWerte().setSpezialPP(PPanz);
     else if(radiobutton_pp_resistenz->get_active())
-       hauptfenster->getChar().getWerte().setResistenzPP(PPanz);
+       hauptfenster->getChar()->getWerte().setResistenzPP(PPanz);
     spinbutton_pp_eingeben->hide();
     radiobutton_steigern->get_active();
     zeige_werte();
@@ -167,13 +167,13 @@ void table_steigern::on_spinbutton_pp_eingeben_activate()
  }catch(TreeBase::noRowSelected &e) {cerr << e.what()<<'\n'; hauptfenster->set_status("Keine Zeile selektiert");}
 
   if(pagenr==PAGE_FERTIGKEITEN)
-     MidgardBasicElement::show_list_in_tree(hauptfenster->getChar().List_Fertigkeit(),alte_fert_tree,hauptfenster); 
+     MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Fertigkeit(),alte_fert_tree,hauptfenster); 
   if(pagenr==PAGE_WAFFEN)
-     MidgardBasicElement::show_list_in_tree(hauptfenster->getChar().List_Waffen(),alte_waffen_tree,hauptfenster); 
+     MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Waffen(),alte_waffen_tree,hauptfenster); 
   if(pagenr==PAGE_SPRACHE)
    {
-     MidgardBasicElement::show_list_in_tree(hauptfenster->getChar().List_Sprache(),alte_sprache_tree,hauptfenster); 
-     MidgardBasicElement::show_list_in_tree(hauptfenster->getChar().List_Schrift(),alte_schrift_tree,hauptfenster); 
+     MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Sprache(),alte_sprache_tree,hauptfenster); 
+     MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Schrift(),alte_schrift_tree,hauptfenster); 
    }
   spinbutton_pp_eingeben->hide();
 }
@@ -205,16 +205,16 @@ const MBEmlt &table_steigern::getSelectedNotebookLernen() throw(TreeBase::noRowS
 
 void table_steigern::on_button_alter_clicked()
 {
-  float tage=hauptfenster->getChar().getWerte().Steigertage();
-  int alter=hauptfenster->getChar().getWerte().Alter();
+  float tage=hauptfenster->getChar()->getWerte().Steigertage();
+  int alter=hauptfenster->getChar()->getWerte().Alter();
   int tage_pro_jahr=360;
   while(tage>tage_pro_jahr)
    {
      alter+=1;
      tage-=tage_pro_jahr;
    }
-  hauptfenster->getChar().getWerte().setAlter(alter);
-  hauptfenster->getChar().getWerte().setSteigertage(tage);
+  hauptfenster->getChar()->getWerte().setAlter(alter);
+  hauptfenster->getChar()->getWerte().setSteigertage(tage);
   zeige_werte();
 }
 
@@ -225,7 +225,7 @@ void table_steigern::fillClistZusatz(MBEmlt &MBE)
   std::vector<std::string> title;
   std::vector<MidgardBasicElement::st_zusatz> VZusatz;
   LernListen LL(hauptfenster->getCDatabase());
-  switch (MBE->ZusatzEnum(hauptfenster->getChar().getVTyp()))
+  switch (MBE->ZusatzEnum(hauptfenster->getChar()->getVTyp()))
    {
      case MidgardBasicElement::ZLand :
       {        
@@ -236,7 +236,7 @@ void table_steigern::fillClistZusatz(MBEmlt &MBE)
      case MidgardBasicElement::ZWaffe :
       {      
         title.push_back("Waffe auswählen");
-        VZusatz=LL.getWaffenZusatz(hauptfenster->getChar().List_Waffen());
+        VZusatz=LL.getWaffenZusatz(hauptfenster->getChar()->List_Waffen());
         break;
       }
      case MidgardBasicElement::ZTabelle : 
@@ -297,11 +297,11 @@ void table_steigern::modify(modi_modus modus,const MBEmlt &M,const MidgardBasicE
   while(true)
    {
      std::list<MBEmlt> *L;
-     if(c==0) L=&hauptfenster->getChar().List_Fertigkeit();
-     else if(c==1) L=&hauptfenster->getChar().List_Zauber();
-     else if(c==2) L=&hauptfenster->getChar().List_Waffen();
-     else if(c==3) L=&hauptfenster->getChar().List_Sprache();
-     else if(c==4) L=&hauptfenster->getChar().List_Schrift();
+     if(c==0) L=&hauptfenster->getChar()->List_Fertigkeit();
+     else if(c==1) L=&hauptfenster->getChar()->List_Zauber();
+     else if(c==2) L=&hauptfenster->getChar()->List_Waffen();
+     else if(c==3) L=&hauptfenster->getChar()->List_Sprache();
+     else if(c==4) L=&hauptfenster->getChar()->List_Schrift();
      else assert(!"never get here\n");
      for(std::list<MBEmlt>::iterator i=L->begin();i!=L->end();++i)
       {

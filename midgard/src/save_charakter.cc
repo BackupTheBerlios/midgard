@@ -32,7 +32,7 @@ gint midgard_CG::on_speichern_release_event(GdkEventButton *ev)
 
 void midgard_CG::xml_export_auswahl()
 { 
-   if(Char.getWerte().Name_Abenteurer().empty())
+   if(Char->getWerte().Name_Abenteurer().empty())
     { set_status("Der Abenteurer braucht noch einen Namen"); 
       notebook_main->set_page(PAGE_GRUNDWERTE);
       table_grundwerte->togglebutton_edit_werte->set_active(true);
@@ -55,7 +55,7 @@ void midgard_CG::save_existing_filename()
 
 void midgard_CG::xml_export(const std::string& dateiname)
 {  
-   if(Char.getWerte().Name_Abenteurer().empty())
+   if(Char->getWerte().Name_Abenteurer().empty())
     { set_status("Der Abenteurer braucht noch einen Namen"); 
       notebook_main->set_page(PAGE_GRUNDWERTE);
       table_grundwerte->togglebutton_edit_werte->set_active(true);
@@ -70,7 +70,7 @@ void midgard_CG::xml_export(const std::string& dateiname)
       set_info("Ich kann die Datei '"+dateiname+"' nicht beschreiben");
       return;
    }
-  Char.speicherstream(datei,getCDatabase(),getCOptionen());
+  Char->speicherstream(datei,getCDatabase(),getCOptionen());
   Char.saved();   
   push_back_LDateien(dateiname);
   if(notebook_main->get_current_page_num() == PAGE_NEWS)

@@ -28,26 +28,6 @@ void table_steigern::on_fertigkeiten_laden_clicked()
   Abenteurer &A=hauptfenster->getChar().getAbenteurer();
   list_Fertigkeit_neu=LL->get_steigern_MBEm(A,LernListen::sFert, 
    hauptfenster->MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active);  
-/*
-  list_Fertigkeit_neu.clear();
-  for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().Fertigkeit.begin();i!=hauptfenster->getCDatabase().Fertigkeit.end();++i)
-   { const cH_Fertigkeit f(*i);
-     if (MBEmlt(*i).ist_gelernt(A.List_Fertigkeit()) && 
-         cH_Fertigkeit(*i)->ZusatzEnum(hauptfenster->getChar().getVTyp())==MidgardBasicElement::ZNone) continue ;
-     if (f->Name()=="Sprache" || f->Name()=="Schreiben" || f->Name()=="KiDo-Technik") continue;
-     if(A.getWerte().Spezies()->istVerboten(*i)) continue;
-     if (f->Name()=="Zaubern" && A.is_mage() ) continue;
-     if (!(*i)->ist_lernbar(A.getVTyp(),f->get_MapTyp())) continue;
-     if (!hauptfenster->region_check(f->Region()) ) continue;
-     if (f->Voraussetzung(A)) 
-       {
-         MBEmlt F(*i);
-         F.setErfolgswert(f->Anfangswert());
-         list_Fertigkeit_neu.push_back(F);
-//Kopie            list_Fertigkeit_neu.push_back(new Fertigkeit(*f));
-         }
-   }
-*/
  fertigkeiten_zeigen();
 }
 
@@ -55,7 +35,7 @@ void table_steigern::fertigkeiten_zeigen()
 {
  zeige_werte();
  MidgardBasicElement::show_list_in_tree(list_Fertigkeit_neu,neue_fert_tree,hauptfenster);
- MidgardBasicElement::show_list_in_tree(hauptfenster->getChar().List_Fertigkeit()    ,alte_fert_tree,hauptfenster);
+ MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Fertigkeit()    ,alte_fert_tree,hauptfenster);
 }
 
 
@@ -68,8 +48,8 @@ void table_steigern::on_alte_fert_reorder()
 {
   std::deque<guint> seq = alte_fert_tree->get_seq();
   switch((Data_SimpleTree::Spalten_LONG_ALT)seq[0]) {
-      case Data_SimpleTree::NAMEa : hauptfenster->getChar().List_Fertigkeit().sort(MidgardBasicElement_mutable::sort(MidgardBasicElement_mutable::sort::NAME)); ;break;
-      case Data_SimpleTree::WERTa : hauptfenster->getChar().List_Fertigkeit().sort(MidgardBasicElement_mutable::sort(MidgardBasicElement_mutable::sort::ERFOLGSWERT)); ;break;
+      case Data_SimpleTree::NAMEa : hauptfenster->getChar()->List_Fertigkeit().sort(MidgardBasicElement_mutable::sort(MidgardBasicElement_mutable::sort::NAME)); ;break;
+      case Data_SimpleTree::WERTa : hauptfenster->getChar()->List_Fertigkeit().sort(MidgardBasicElement_mutable::sort(MidgardBasicElement_mutable::sort::ERFOLGSWERT)); ;break;
       default : hauptfenster->set_status("Sortieren nach diesem Parameter\n ist nicht möglich");
    }
 }

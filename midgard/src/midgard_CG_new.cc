@@ -32,25 +32,28 @@ void midgard_CG::on_neuer_charakter_clicked()
    frame_steigern->set_sensitive(false); // das wirkt nicht ?
    frame_lernschema->set_sensitive(false);
    table_lernschema->togglebutton_lernpunkte_edit->set_active(false);
-   table_lernschema->button_beruf->set_sensitive(false);
 
    table_lernschema->button_lernpunkte->set_sensitive(false);
    table_lernschema->togglebutton_lernpunkte_edit->set_sensitive(false);
-   table_lernschema->button_lernschema_geld->set_sensitive(false);
-   table_lernschema->button_lernschema_waffen->set_sensitive(false);
-   table_lernschema->button_ruestung->set_sensitive(false);
-   table_lernschema->button_ausruestung->set_sensitive(false);
    label_wizard->hide();
 
    table_lernschema->edit_lernpunkte(false);
    table_lernschema->frame_lernschema_zusatz->hide();
 
+/*
    table_lernschema->button_fachkenntnisse->set_sensitive(false);
    table_lernschema->button_allgemeinwissen->set_sensitive(false);
    table_lernschema->button_untyp_fertigkeiten->set_sensitive(false);
    table_lernschema->button_waffen->set_sensitive(false);
    table_lernschema->button_zauber->set_sensitive(false);
    table_lernschema->togglebutton_spezialwaffe->set_active(false);
+   table_lernschema->button_beruf->set_sensitive(false);
+   table_lernschema->button_lernschema_geld->set_sensitive(false);
+   table_lernschema->button_lernschema_waffen->set_sensitive(false);
+   table_lernschema->button_ruestung->set_sensitive(false);
+   table_lernschema->button_ausruestung->set_sensitive(false);
+*/
+   table_lernschema->button_sensitive(false);
    table_lernschema->togglebutton_spezialwaffe->hide();
       
    table_lernschema->lernpunkte.clear();

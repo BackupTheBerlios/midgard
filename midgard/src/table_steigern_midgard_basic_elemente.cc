@@ -41,21 +41,21 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
  std::list<MBEmlt> *MyList,*MyList_neu;
  if(MBE->What()==MidgardBasicElement::FERTIGKEIT) 
    { if (MBE->Name()=="KiDo" && kido_steigern_check(MBE.Erfolgswert())) return false;
-     MyList     = &hauptfenster->getChar().List_Fertigkeit(); MyList_neu = &list_Fertigkeit_neu;   }
+     MyList     = &hauptfenster->getChar()->List_Fertigkeit(); MyList_neu = &list_Fertigkeit_neu;   }
  else if(MBE->What()==MidgardBasicElement::WAFFE) 
-   { MyList     = &hauptfenster->getChar().List_Waffen(); MyList_neu = &list_Waffen_neu;  }
+   { MyList     = &hauptfenster->getChar()->List_Waffen(); MyList_neu = &list_Waffen_neu;  }
  else if(MBE->What()==MidgardBasicElement::WAFFEGRUND) 
-   { MyList     = &hauptfenster->getChar().List_WaffenGrund(); MyList_neu = &list_WaffenGrund_neu;  }
+   { MyList     = &hauptfenster->getChar()->List_WaffenGrund(); MyList_neu = &list_WaffenGrund_neu;  }
  else if(MBE->What()==MidgardBasicElement::ZAUBER) 
-   { MyList     = &hauptfenster->getChar().List_Zauber(); MyList_neu = &list_Zauber_neu;  }
+   { MyList     = &hauptfenster->getChar()->List_Zauber(); MyList_neu = &list_Zauber_neu;  }
  else if(MBE->What()==MidgardBasicElement::ZAUBERWERK) 
-   { MyList     = &hauptfenster->getChar().List_Zauberwerk(); MyList_neu = &list_Zauberwerk_neu;  }
+   { MyList     = &hauptfenster->getChar()->List_Zauberwerk(); MyList_neu = &list_Zauberwerk_neu;  }
  else if(MBE->What()==MidgardBasicElement::KIDO) 
-   { MyList     = &hauptfenster->getChar().List_Kido(); MyList_neu = &list_Kido_neu;  }
+   { MyList     = &hauptfenster->getChar()->List_Kido(); MyList_neu = &list_Kido_neu;  }
  else if(MBE->What()==MidgardBasicElement::SPRACHE) 
-   { MyList     = &hauptfenster->getChar().List_Sprache(); MyList_neu = &list_Sprache_neu;  }
+   { MyList     = &hauptfenster->getChar()->List_Sprache(); MyList_neu = &list_Sprache_neu;  }
  else if(MBE->What()==MidgardBasicElement::SCHRIFT) 
-   { MyList     = &hauptfenster->getChar().List_Schrift(); MyList_neu = &list_Schrift_neu;  }
+   { MyList     = &hauptfenster->getChar()->List_Schrift(); MyList_neu = &list_Schrift_neu;  }
  else assert(!"Fehler (alt) in midgard_CG_basic_elemente.cc");
 
  //////////////////////////////////////////////////////////////////////////
@@ -80,14 +80,14 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
       int stufen=1;
       int steigerkosten=MBE.Steigern(hauptfenster->getChar().getAbenteurer());
       if (!steigern_usp(steigerkosten,&MBE,stufen)) return false;
-      hauptfenster->getChar().getWerte().addGFP(steigerkosten);
+      hauptfenster->getChar()->getWerte().addGFP(steigerkosten);
       for (std::list<MBEmlt>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
          if ( (*i) == MBE) (*i).addErfolgswert(stufen) ; 
     }
  else if (radiobutton_reduzieren->get_active() && MBE.Reduzieren(hauptfenster->getChar().getAbenteurer()))
     {
       if (checkbutton_EP_Geld->get_active()) desteigern(MBE.Reduzieren(hauptfenster->getChar().getAbenteurer()));
-      hauptfenster->getChar().getWerte().addGFP(-MBE.Reduzieren(hauptfenster->getChar().getAbenteurer()));
+      hauptfenster->getChar()->getWerte().addGFP(-MBE.Reduzieren(hauptfenster->getChar().getAbenteurer()));
       for (std::list<MBEmlt>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
          if ( (*i) == MBE)  (*i).addErfolgswert(-1) ; 
     }
@@ -97,7 +97,7 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
       if( MBE->What()==MidgardBasicElement::ZAUBER && 
           togglebutton_spruchrolle->get_active() )    verlernen/=5  ;
       if (checkbutton_EP_Geld->get_active()) desteigern(verlernen);
-      hauptfenster->getChar().getWerte().addGFP(-verlernen);
+      hauptfenster->getChar()->getWerte().addGFP(-verlernen);
       Abenteurer::move_element(*MyList,*MyList_neu,MBE);
     }
  else if (radiobutton_verlernen->get_active() && MBE->What()==MidgardBasicElement::WAFFE)
@@ -139,13 +139,13 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
 */
     // Nicht alle Abenteurerklassen können Zauber auch mit Praxispunkten lernen
     if(radiobutton_praxis->get_active() )
-      { if(!hauptfenster->getChar().Typ1()->SpruecheMitPP() && !hauptfenster->getChar().Typ2()->SpruecheMitPP() )
-           { hauptfenster->set_status("Neue Zaubersprüche können von "+hauptfenster->getChar().Typ1()->Name(hauptfenster->getChar().getWerte().Geschlecht())
+      { if(!hauptfenster->getChar()->Typ1()->SpruecheMitPP() && !hauptfenster->getChar()->Typ2()->SpruecheMitPP() )
+           { hauptfenster->set_status("Neue Zaubersprüche können von "+hauptfenster->getChar()->Typ1()->Name(hauptfenster->getChar()->getWerte().Geschlecht())
                      +" nicht durch Praxispunkte gelernt werden");
              return;
            }
         else if(MBE->Standard__(hauptfenster->getChar().getAbenteurer())!="G")
-           { hauptfenster->set_status("Nur Grundzauber können von "+hauptfenster->getChar().Typ1()->Name(hauptfenster->getChar().getWerte().Geschlecht())
+           { hauptfenster->set_status("Nur Grundzauber können von "+hauptfenster->getChar()->Typ1()->Name(hauptfenster->getChar()->getWerte().Geschlecht())
                      +" mit Praxispunkten gelernt werden");
              return;
            }
@@ -174,12 +174,12 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
  else if (!steigern_usp(kosten,&MBE,dummy)) return;
 
 
- hauptfenster->getChar().getWerte().addGFP(kosten);
+ hauptfenster->getChar()->getWerte().addGFP(kosten);
 
  // Lernen mit Spruchrolle: ///////////////////////////////////////////////
  if( MBE->What()==MidgardBasicElement::ZAUBER &&
      togglebutton_spruchrolle->get_active() &&
-     radio_spruchrolle_auto->get_active() )    hauptfenster->getChar().getWerte().addGFP(kosten);
+     radio_spruchrolle_auto->get_active() )    hauptfenster->getChar()->getWerte().addGFP(kosten);
  else if( MBE->What()==MidgardBasicElement::ZAUBER &&
      togglebutton_spruchrolle->get_active() &&
      radio_spruchrolle_wuerfeln->get_active() )   
@@ -188,13 +188,13 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
      bool x=cH_Zauber(MBE.getMBE())->spruchrolle_wuerfeln(hauptfenster->getChar().getAbenteurer(),hauptfenster->random,info);
      hauptfenster->set_info(info);    
      if(!x) return;
-     else hauptfenster->getChar().getWerte().addGFP(kosten);
+     else hauptfenster->getChar()->getWerte().addGFP(kosten);
    } 
  /////////////////////////////////////////////////////////////////////////
 
  std::list<MBEmlt> *MyList,*MyList_neu;
  if(MBE->What()==MidgardBasicElement::FERTIGKEIT) 
-   { if(MBE->ZusatzEnum(hauptfenster->getChar().getVTyp()))
+   { if(MBE->ZusatzEnum(hauptfenster->getChar()->getVTyp()))
       {  
         neue_fert_tree->set_sensitive(false);
         MBE=MBEmlt(new Fertigkeit(*cH_Fertigkeit(MBE.getMBE())));
@@ -203,38 +203,38 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
         list_Fertigkeit_neu.push_front(MBE);
       }
      if (MBE->Name()=="KiDo" && kido_steigern_check(MBE.Erfolgswert())) return;
-     MyList     = &hauptfenster->getChar().List_Fertigkeit(); MyList_neu = &list_Fertigkeit_neu;
+     MyList     = &hauptfenster->getChar()->List_Fertigkeit(); MyList_neu = &list_Fertigkeit_neu;
    }
  else if(MBE->What()==MidgardBasicElement::WAFFE) 
-   { MyList     = &hauptfenster->getChar().List_Waffen(); 
+   { MyList     = &hauptfenster->getChar()->List_Waffen(); 
      MyList_neu = &list_Waffen_neu;  
    }
  else if(MBE->What()==MidgardBasicElement::WAFFEGRUND) 
-   { MyList     = &hauptfenster->getChar().List_WaffenGrund(); MyList_neu = &list_WaffenGrund_neu;  }
+   { MyList     = &hauptfenster->getChar()->List_WaffenGrund(); MyList_neu = &list_WaffenGrund_neu;  }
  else if(MBE->What()==MidgardBasicElement::ZAUBER) 
   {
-   { if(MBE->ZusatzEnum(hauptfenster->getChar().getVTyp()))
+   { if(MBE->ZusatzEnum(hauptfenster->getChar()->getVTyp()))
       {  
         MBE=MBEmlt(new Zauber(*cH_Zauber(MBE.getMBE())));
         fillClistZusatz(MBE);
         // Davor stellen, damit beim Kopieren dieses MBE in Verschoben wird.
         list_Zauber_neu.push_front(MBE);
       }
-   MyList     = &hauptfenster->getChar().List_Zauber(); MyList_neu = &list_Zauber_neu;  }
+   MyList     = &hauptfenster->getChar()->List_Zauber(); MyList_neu = &list_Zauber_neu;  }
   }
  else if(MBE->What()==MidgardBasicElement::ZAUBERWERK) 
-   { MyList     = &hauptfenster->getChar().List_Zauberwerk(); MyList_neu = &list_Zauberwerk_neu;  }
+   { MyList     = &hauptfenster->getChar()->List_Zauberwerk(); MyList_neu = &list_Zauberwerk_neu;  }
  else if(MBE->What()==MidgardBasicElement::KIDO) 
-   { MyList     = &hauptfenster->getChar().List_Kido(); MyList_neu = &list_Kido_neu;  }
+   { MyList     = &hauptfenster->getChar()->List_Kido(); MyList_neu = &list_Kido_neu;  }
  else if(MBE->What()==MidgardBasicElement::SPRACHE) 
-   { MyList     = &hauptfenster->getChar().List_Sprache(); MyList_neu = &list_Sprache_neu;  
+   { MyList     = &hauptfenster->getChar()->List_Sprache(); MyList_neu = &list_Sprache_neu;  
      // eventuell höherer Erfolgswert weil die Sprache schon ungelernt beherrscht wird)
      int ungelernterErfolgswert=cH_Sprache(MBE.getMBE())->getHoeherenErfolgswert(hauptfenster->getChar()->List_Sprache(),hauptfenster->getCDatabase().Sprache);
      if (ungelernterErfolgswert) MBE.setErfolgswert(ungelernterErfolgswert);
      // bis hier
    }
  else if(MBE->What()==MidgardBasicElement::SCHRIFT) 
-   { MyList     = &hauptfenster->getChar().List_Schrift(); MyList_neu = &list_Schrift_neu;  }
+   { MyList     = &hauptfenster->getChar()->List_Schrift(); MyList_neu = &list_Schrift_neu;  }
  else assert(!"Fehler (alt) in midgard_CG_basic_elemente.cc");
 
 
@@ -253,7 +253,7 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasic
   if(mbe.begin()==mbe.end()) return;
   if((*mbe.begin())->What()==MidgardBasicElement::WAFFEBESITZ)
    {
-    hauptfenster->getChar().List_Waffen_besitz=mbe();
+    hauptfenster->getChar()->List_Waffen_besitz=mbe();
    }
 //  else if((*mbe.begin())->What()==MidgardBasicElement::KIDO)
 //   {

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.282 2002/09/19 10:20:38 thoma Exp $
+// $Id: midgard_CG.hh,v 1.283 2002/09/23 06:34:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -180,8 +180,8 @@ class midgard_CG : public midgard_CG_glade
    protected:
         const Datenbank &getCDatabase() const {return Database;}
         Datenbank &getDatabase() {return Database;}
-        Grundwerte &getWerte() {return Char.getWerte();}
-        const Grundwerte &getWerte() const {return Char.getWerte();}
+        Grundwerte &getWerte() {return Char->getWerte();}
+        const Grundwerte &getWerte() const {return Char->getWerte();}
         const VAbenteurer &getChar() const {return Char;}
         VAbenteurer &getChar() {return Char;}
         void Eigenschaften_variante(int i);

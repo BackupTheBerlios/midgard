@@ -1,4 +1,4 @@
-// $Id: table_lernschema_zauber.cc,v 1.5 2002/09/12 08:11:43 thoma Exp $
+// $Id: table_lernschema_zauber.cc,v 1.6 2002/09/23 06:34:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -44,17 +44,6 @@ void table_lernschema::show_magier_spezialgebiet(bool show)
 
 void table_lernschema::spezialgebiet_button_fill()
 {
-/*
- std::vector<std::string> L;
- {
-  for(std::vector<cH_Spezialgebiet>::const_iterator i=hauptfenster->getDatabase().Spezialgebiet.begin();i!=hauptfenster->getDatabase().Spezialgebiet.end();++i)
-   {
-    if((*i)->Typ() != hauptfenster->getChar().Typ1()->Short() && 
-       (*i)->Typ() != hauptfenster->getChar().Typ2()->Short() ) continue;
-    L.push_back((*i)->Name());
-   }  
- }
-*/
  std::vector<std::string> L=LernListen(hauptfenster->getDatabase()).getSpezialgebiet(hauptfenster->getChar());
  combo_magier_spezialgebiet->set_popdown_strings(L);
 }
@@ -79,15 +68,3 @@ gint table_lernschema::on_combo_magier_spezialgebiet_focus_out_event(GdkEventFoc
   return false;
 }
 
-/*
-void table_lernschema::spezialgebiet_button()
-{
- gpointer user_data=option_magier_spezialgebiet->get_menu()->get_active()->get_user_data();
- cH_Spezialgebiet ptr = static_cast<Spezialgebiet*>(user_data);
-// if (s=="Spezialgebiet" || s == "Primär- und Sekundärelement") return ;
- hauptfenster->getWerte().setSpezialgebiet(ptr);
-//cout << hauptfenster->getWerte().Spezialisierung()<<"\t"<<hauptfenster->getWerte().Spezial()<<"\t"<<hauptfenster->getWerte().Spezial2(
- if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::SPEZIALGEBIET);
-} 
-*/
-              

@@ -65,7 +65,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
        for (std::vector<cH_Land>::const_iterator i=hauptfenster->getDatabase().Laender.begin();i!=hauptfenster->getDatabase().Laender.end();++i)
         {
           bool erlaubt=false;
-          if((*i)->ist_erlaubt(hauptfenster->getChar())) erlaubt=true;
+          if((*i)->ist_erlaubt(hauptfenster->getChar()->) erlaubt=true;
           datavec_zusatz.push_back(new Data_Herkunft(*i,erlaubt));
         }
 */
@@ -104,7 +104,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
            M.setZusatz(hauptfenster->getWerte().Herkunft()->Name());
            M.setErfolgswert(MBE.Erfolgswert());
            M.setLernpunkte(MBE.Lernpunkte());
-           hauptfenster->getChar().List_Fertigkeit().push_back(M);
+           hauptfenster->getChar()->List_Fertigkeit().push_back(M);
            return;
          }
        else
@@ -140,7 +140,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
              {
                MBE.setLernArt(MBE.LernArt()+"_"+MBE->Name());
                if(MBE->Name()=="Muttersprache") // muß im Heimatland gesprochen werden
-                  if(!cH_Sprache(*i)->ist_erlaubt(hauptfenster->getChar()))
+                  if(!cH_Sprache(*i)->ist_erlaubt(hauptfenster->getChar()->)
                      erlaubt=false;
                if(cH_Sprache(*i)->Alte_Sprache()) continue;
                list_FertigkeitZusaetze.push_back(MBE.LernArt());
@@ -148,14 +148,14 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
             else
              {
                if(button_allgemeinwissen->get_active())
-                 if(!cH_Sprache(*i)->ist_erlaubt(hauptfenster->getChar(),true)) erlaubt=false;
+                 if(!cH_Sprache(*i)->ist_erlaubt(hauptfenster->getChar()->true)) erlaubt=false;
              }
             if(MBE->Name()=="Sprechen: Alte Sprache" && !cH_Sprache(*i)->Alte_Sprache())
               {
                 list_FertigkeitZusaetze.push_back(MBE->Name());
                 continue ;
               }
-            if(MBEmlt(&**i).ist_gelernt(hauptfenster->getChar().List_Sprache())) continue;
+            if(MBEmlt(&**i).ist_gelernt(hauptfenster->getChar()->List_Sprache())) continue;
             datavec_zusatz.push_back(new Data_Zusatz(MBE,(*i)->Name(),erlaubt,hauptfenster->getCDatabase()));
          }
 */
@@ -172,14 +172,14 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
 /*
        for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getDatabase().Schrift.begin();i!=hauptfenster->getDatabase().Schrift.end();++i)
          {
-           if(MBEmlt(&**i).ist_gelernt(hauptfenster->getChar().List_Schrift())) continue;
-           if(!cH_Schrift(*i)->kann_Sprache(hauptfenster->getChar().List_Sprache())) continue;
+           if(MBEmlt(&**i).ist_gelernt(hauptfenster->getChar()->List_Schrift())) continue;
+           if(!cH_Schrift(*i)->kann_Sprache(hauptfenster->getChar()->List_Sprache())) continue;
            bool erlaubt=true;
            std::string::size_type s1=MBE->Name().find("Muttersprache");
            std::string::size_type s2=MBE->Name().find("Alte Sprache");
            if(s1!=std::string::npos)
             {
-             if(!cH_Schrift(*i)->Mutterschrift(hauptfenster->getChar())) erlaubt=false; 
+             if(!cH_Schrift(*i)->Mutterschrift(hauptfenster->getChar()->) erlaubt=false; 
             }
            if(s2!=std::string::npos)
             {
@@ -208,16 +208,16 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
      case MidgardBasicElement::ZWaffe:
       {
 /*
-       for (std::list<MBEmlt>::const_iterator i=hauptfenster->getChar().List_Waffen().begin();i!=hauptfenster->getChar().List_Waffen().end();++i)
+       for (std::list<MBEmlt>::const_iterator i=hauptfenster->getChar()->List_Waffen().begin();i!=hauptfenster->getChar()->List_Waffen().end();++i)
         if (cH_Waffe(*i)->Art()=="Schußwaffe" || cH_Waffe(*i)->Art()=="Wurfwaffe")
           datavec_zusatz.push_back(new Data_Zusatz(MBE,(*i)->Name(),true,hauptfenster->getCDatabase()));
 */
-       std::vector<MidgardBasicElement::st_zusatz> V=LernListen::getWaffenZusatz(hauptfenster->getChar().List_Waffen());
+       std::vector<MidgardBasicElement::st_zusatz> V=LernListen::getWaffenZusatz(hauptfenster->getChar()->List_Waffen());
        for(std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=V.begin();i!=V.end();++i)
            datavec_zusatz.push_back(new Data_Zusatz(MBE,*i));
        if(datavec_zusatz.empty()) 
          { hauptfenster->set_status("Noch keine Fernkampfwaffe gewählt.");
-           hauptfenster->getChar().List_Fertigkeit().remove(MBE);
+           hauptfenster->getChar()->List_Fertigkeit().remove(MBE);
            list_FertigkeitZusaetze.remove(MBE->Name());
            if(MBE.LernArt()=="Fach")      lernpunkte.addFach( MBE.Lernpunkte());
            else if(MBE.LernArt()=="Allg") lernpunkte.addAllgemein( MBE.Lernpunkte());
@@ -393,10 +393,10 @@ void table_lernschema::on_zusatz_leaf_selected(cH_RowDataBase d)
       {
         MBE.setErfolgswert(10+cH_Fertigkeit(MBE.getMBE())->AttributBonus(hauptfenster->getWerte())); 
       }
-     hauptfenster->getChar().List_Fertigkeit().push_back(MBE);
+     hauptfenster->getChar()->List_Fertigkeit().push_back(MBE);
    }
   else if(MBE->What()==MidgardBasicElement::ZAUBER)
-     hauptfenster->getChar().List_Zauber().push_back(MBE);
+     hauptfenster->getChar()->List_Zauber().push_back(MBE);
 
   set_zusatz_sensitive(false);
   zeige_werte();  
@@ -413,7 +413,7 @@ void table_lernschema::on_zusatz_leaf_schrift_selected(cH_RowDataBase d)
   schrift.setLernpunkte(dt->getMBE().Lernpunkte());
   schrift.setLernArt(dt->getMBE().LernArt());
 
-  hauptfenster->getChar().List_Schrift().push_back(schrift);
+  hauptfenster->getChar()->List_Schrift().push_back(schrift);
   set_zusatz_sensitive(false);
   zeige_werte();  
   show_gelerntes();
@@ -429,7 +429,7 @@ void table_lernschema::on_zusatz_leaf_sprache_selected(cH_RowDataBase d)
   sprache.setLernpunkte(dt->getMBE().Lernpunkte());
   sprache.setLernArt(dt->getMBE().LernArt());
 
-  hauptfenster->getChar().List_Sprache().push_back(sprache);
+  hauptfenster->getChar()->List_Sprache().push_back(sprache);
   set_zusatz_sensitive(false);
   zeige_werte();  
   show_gelerntes();

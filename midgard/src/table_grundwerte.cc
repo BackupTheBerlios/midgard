@@ -70,9 +70,9 @@ void table_grundwerte::zeige_werte(bool typ2_hide=true)
    bo_an->set_text(itos(hauptfenster->getWerte().bo_An())) ;
    bo_ab->set_text(itos(hauptfenster->getWerte().bo_Ab())) ;
    bo_za->set_text(itos(hauptfenster->getWerte().bo_Za())) ;
-   bo_psy->set_text(itos(hauptfenster->getWerte().bo_Psy(hauptfenster->getChar().getVTyp()))) ;
-   bo_phs->set_text(itos(hauptfenster->getWerte().bo_Phs(hauptfenster->getChar().getVTyp()))) ;
-   bo_phk->set_text(itos(hauptfenster->getWerte().bo_Phk(hauptfenster->getChar().getVTyp()))) ;
+   bo_psy->set_text(itos(hauptfenster->getWerte().bo_Psy(hauptfenster->getChar()->getVTyp()))) ;
+   bo_phs->set_text(itos(hauptfenster->getWerte().bo_Phs(hauptfenster->getChar()->getVTyp()))) ;
+   bo_phk->set_text(itos(hauptfenster->getWerte().bo_Phk(hauptfenster->getChar()->getVTyp()))) ;
    spinbutton_alter->set_value(hauptfenster->getWerte().Alter());
    spinbutton_gfp->set_value(hauptfenster->getWerte().GFP());
    spinbutton_tage->set_value(hauptfenster->getWerte().Steigertage());
@@ -103,13 +103,13 @@ void table_grundwerte::zeige_werte(bool typ2_hide=true)
    
    if(typ2_hide)
     {
-      if (hauptfenster->getChar().Typ2()->Short()=="") 
+      if (hauptfenster->getChar()->Typ2()->Short()=="") 
          combo_typ2->hide();
       else  combo_typ2->show();
     }
    combo_spezies->get_entry()->set_text(hauptfenster->getWerte().Spezies()->Name());
-   combo_typ ->get_entry()->set_text(hauptfenster->getChar().Typ1()->Name(hauptfenster->getWerte().Geschlecht()));
-   combo_typ2->get_entry()->set_text(hauptfenster->getChar().Typ2()->Name(hauptfenster->getWerte().Geschlecht()));
+   combo_typ ->get_entry()->set_text(hauptfenster->getChar()->Typ1()->Name(hauptfenster->getWerte().Geschlecht()));
+   combo_typ2->get_entry()->set_text(hauptfenster->getChar()->Typ2()->Name(hauptfenster->getWerte().Geschlecht()));
    block_changed=false;
 }
 
@@ -128,8 +128,8 @@ void table_grundwerte::neuer_charakter()
    fill_typauswahl();
    fill_spezies();
    combo_spezies->get_entry()->set_text(hauptfenster->getWerte().Spezies()->Name());
-   combo_typ ->get_entry()->set_text(hauptfenster->getChar().Typ1()->Name(hauptfenster->getWerte().Geschlecht()));
-   combo_typ2->get_entry()->set_text(hauptfenster->getChar().Typ2()->Name(hauptfenster->getWerte().Geschlecht()));
+   combo_typ ->get_entry()->set_text(hauptfenster->getChar()->Typ1()->Name(hauptfenster->getWerte().Geschlecht()));
+   combo_typ2->get_entry()->set_text(hauptfenster->getChar()->Typ2()->Name(hauptfenster->getWerte().Geschlecht()));
    zeige_werte();
    hauptfenster->getChar().saved();
 }

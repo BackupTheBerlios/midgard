@@ -37,9 +37,9 @@ void table_steigern::waffen_zeigen()
 {
    zeige_werte();
    MidgardBasicElement::show_list_in_tree(list_WaffenGrund_neu,neue_grund_tree,hauptfenster);
-   MidgardBasicElement::show_list_in_tree(hauptfenster->getChar().List_WaffenGrund()    ,alte_grund_tree,hauptfenster);
+   MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_WaffenGrund()    ,alte_grund_tree,hauptfenster);
    MidgardBasicElement::show_list_in_tree(list_Waffen_neu,neue_waffen_tree,hauptfenster);
-   MidgardBasicElement::show_list_in_tree(hauptfenster->getChar().List_Waffen()    ,alte_waffen_tree,hauptfenster);
+   MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Waffen()    ,alte_waffen_tree,hauptfenster);
 }
 
 
@@ -88,8 +88,8 @@ void table_steigern::on_alte_waffen_reorder()
 {
   std::deque<guint> seq = alte_waffen_tree->get_seq();
   switch((Data_SimpleTree::Spalten_LONG_ALT)seq[0]) {
-      case Data_SimpleTree::WERTa : hauptfenster->getChar().List_Waffen().sort(MidgardBasicElement_mutable::sort(MidgardBasicElement_mutable::sort::ERFOLGSWERT)); ;break;
-      case Data_SimpleTree::NAMEa : hauptfenster->getChar().List_Waffen().sort(MidgardBasicElement_mutable::sort(MidgardBasicElement_mutable::sort::NAME)); ;break;
+      case Data_SimpleTree::WERTa : hauptfenster->getChar()->List_Waffen().sort(MidgardBasicElement_mutable::sort(MidgardBasicElement_mutable::sort::ERFOLGSWERT)); ;break;
+      case Data_SimpleTree::NAMEa : hauptfenster->getChar()->List_Waffen().sort(MidgardBasicElement_mutable::sort(MidgardBasicElement_mutable::sort::NAME)); ;break;
       default : hauptfenster->set_status("Sortieren nach diesem Parameter\n ist nicht möglich");
    }
 }

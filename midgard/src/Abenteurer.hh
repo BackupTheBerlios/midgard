@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.31 2002/09/22 16:41:21 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.32 2002/09/23 06:34:08 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -75,8 +75,7 @@ public:
    void setTyp1(cH_Typen t) {Typ[0]=t;}
    void setTyp2(cH_Typen t) {Typ[1]=t;}
    const vector<cH_Typen> &getVTyp() const {return Typ;}
-   bool is_mage() const {if(Typ1()->is_mage() || Typ2()->is_mage()) return true;
-                         else return false;}
+   bool is_mage() const ;
    std::string Muttersprache() const {return muttersprache;}
    void setMuttersprache(std::string s) {muttersprache=s;}
 
@@ -142,15 +141,11 @@ public:
    bool setAngebSinnFert(int wurf,const MBEmlt &MBE);
    void remove_WaffenGrund() ;
 
-
    static void move_element(std::list<MBEmlt>& von,
                             std::list<MBEmlt>& nach,
                             const MBEmlt& MBE);
-                                                                 
-
-                                                                 
-
 };
+
 
 class VAbenteurer
 {
@@ -184,86 +179,23 @@ class VAbenteurer
       void sort_gw() {VA.sort(sort());}
       void push_back();
       void set_Abenteurer(const Abenteurer& A);
+
       void modified() {ai->gespeichert=false;}
       void saved() {ai->gespeichert=true;}
       bool gespeichert() const {return ai->gespeichert;}
       void setFilename(std::string s) {ai->filename=s;}
       const std::string &getFilename() {return ai->filename;}
 
-
       bool unsaved_exist();
       bool empty() const {return VA.empty();}
       guint size() const {return VA.size();}
       void delete_empty();
 
-   // diese beiden Funktionen ersetzen den Rest der Klasse ! CP
    const Abenteurer *operator->() const
    {  return &ai->abenteurer; }
    Abenteurer *operator->()
    {  return &ai->abenteurer; }
 
-   // wenn man mich fragt, ist das ab hier unnötig (s.o.) CP
-      // Wrapper
-private:
-   void grundwerte_speichern(Tag &datei) {ai->abenteurer.grundwerte_speichern(datei);}
-   void save_ausruestung(Tag &datei,const list<AusruestungBaum> &AB)
-      {ai->abenteurer.save_ausruestung(datei,AB);}
-   
-   void load_ausruestung(const Tag *tag, AusruestungBaum *AB) {ai->abenteurer.load_ausruestung(tag,AB);}
-   void load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version,Datenbank &Database,Midgard_Optionen *Optionen,midgard_CG *hauptfenster)
-         {ai->abenteurer.load_fertigkeiten(tag,waffen_b,xml_version,Database,Optionen,hauptfenster);}
-
-
-public:
-   void speicherstream(ostream &datei,const Datenbank &Database,const Midgard_Optionen *Optionen) 
-         {ai->abenteurer.speicherstream(datei,Database,Optionen);}
-   bool xml_import_stream(istream &datei,Datenbank &Database,Midgard_Optionen *Optionen,midgard_CG *hauptfenster) 
-         {return ai->abenteurer.xml_import_stream(datei,Database,Optionen,hauptfenster);}
-
-   Grundwerte &getWerte() {return ai->abenteurer.getWerte();}
-   const Grundwerte &getWerte() const {return ai->abenteurer.getWerte();}
-   
-   AusruestungBaum &getBesitz() {return ai->abenteurer.getBesitz();}
-   const AusruestungBaum &getBesitz() const {return ai->abenteurer.getBesitz();}
-
-   const cH_Typen &Typ1() const {return ai->abenteurer.Typ1();}
-   const cH_Typen &Typ2() const {return ai->abenteurer.Typ2();}
-   std::string STyp() const {return ai->abenteurer.STyp();}
-   void setTyp1(cH_Typen t) {ai->abenteurer.setTyp1(t);}
-   void setTyp2(cH_Typen t) {ai->abenteurer.setTyp2(t);}
-   const vector<cH_Typen> &getVTyp() const {return ai->abenteurer.getVTyp();}
-   bool is_mage() const {if(Typ1()->is_mage() || Typ2()->is_mage()) 
-                         return true;
-                         else return false;}
-
-   const std::list<MBEmlt>& List_Beruf() const {return ai->abenteurer.List_Beruf();}
-   const std::list<MBEmlt>& List_Fertigkeit_ang() const {return ai->abenteurer.List_Fertigkeit_ang();}
-   const std::list<MBEmlt>& List_Fertigkeit() const {return ai->abenteurer.List_Fertigkeit();}
-   const std::list<MBEmlt>& List_WaffenGrund() const {return ai->abenteurer.List_WaffenGrund();}
-   const std::list<MBEmlt>& List_Waffen() const {return ai->abenteurer.List_Waffen();}
-   const std::list<WaffeBesitz>& List_Waffen_besitz() const {return ai->abenteurer.List_Waffen_besitz();}
-//   const std::list<MBEmlt>& List_Waffen_besitz() const {return ai->abenteurer.List_Waffen_besitz();}
-   const std::list<MBEmlt>& List_Zauber() const {return ai->abenteurer.List_Zauber();}
-   const std::list<MBEmlt>& List_Zauberwerk() const {return ai->abenteurer.List_Zauberwerk();}
-   const std::list<MBEmlt>& List_Kido() const {return ai->abenteurer.List_Kido();}
-   const std::list<MBEmlt>& List_Sprache() const {return ai->abenteurer.List_Sprache();} 
-   const std::list<MBEmlt>& List_Schrift() const {return ai->abenteurer.List_Schrift();}
-   const std::list<Abenteurer::st_universell> List_Universell( const Datenbank &Database) const {return ai->abenteurer.List_Universell(Database);}
-
-   std::list<MBEmlt>& List_Beruf() {return ai->abenteurer.List_Beruf();}
-   std::list<MBEmlt>& List_Fertigkeit_ang() {return ai->abenteurer.List_Fertigkeit_ang();}
-   std::list<MBEmlt>& List_Fertigkeit()  {return ai->abenteurer.List_Fertigkeit();}
-   std::list<MBEmlt>& List_WaffenGrund() {return ai->abenteurer.List_WaffenGrund();}
-   std::list<MBEmlt>& List_Waffen()  {return ai->abenteurer.List_Waffen();}
-   std::list<WaffeBesitz>& List_Waffen_besitz() {return ai->abenteurer.List_Waffen_besitz();}
-//   std::list<MBEmlt>& List_Waffen_besitz() {return ai->abenteurer.List_Waffen_besitz();}
-   std::list<MBEmlt>& List_Zauber()  {return ai->abenteurer.List_Zauber();}
-   std::list<MBEmlt>& List_Zauberwerk()  {return ai->abenteurer.List_Zauberwerk();}
-   std::list<MBEmlt>& List_Kido()  {return ai->abenteurer.List_Kido();}
-   std::list<MBEmlt>& List_Sprache()  {return ai->abenteurer.List_Sprache();} 
-   std::list<MBEmlt>& List_Schrift()  {return ai->abenteurer.List_Schrift();}
-
-   const pair<int,bool> Erfolgswert(std::string name,const Datenbank &Database) const {return ai->abenteurer.Erfolgswert(name,Database);};
 };
 
 

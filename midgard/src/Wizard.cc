@@ -46,12 +46,12 @@ void Wizard::evaluate_step(esteps step)
 //cout <<"evaluate_step " <<step<<' '<<LERNSCHEMA_SEITE<<' '<<SPEZIALWAFFE<<' '<<SPEZIALGEBIET<<'\n';
 //  if(step==LERNSCHEMA_SEITE) { next_step(LERNSCHEMA_SEITE); return;}
 
-  if(step==SPEZIALWAFFE&&(!hauptfenster->getChar().Typ1()->Spezialwaffe()&&!hauptfenster->getChar().Typ2()->Spezialwaffe()))
+  if(step==SPEZIALWAFFE&&(!hauptfenster->getChar()->Typ1()->Spezialwaffe()&&!hauptfenster->getChar()->Typ2()->Spezialwaffe()))
    {
      next_step(SPEZIALWAFFE);
      return;
    }
-  if(step==SPEZIALGEBIET&&(!hauptfenster->getChar().Typ1()->Spezialgebiet()&&!hauptfenster->getChar().Typ2()->Spezialgebiet()))
+  if(step==SPEZIALGEBIET&&(!hauptfenster->getChar()->Typ1()->Spezialgebiet()&&!hauptfenster->getChar()->Typ2()->Spezialgebiet()))
    {
      next_step(SPEZIALGEBIET);
      return;

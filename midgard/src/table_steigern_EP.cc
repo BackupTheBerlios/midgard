@@ -161,7 +161,7 @@ bool table_steigern::steigern_usp(int &kosten,MBEmlt *MBE,int &stufen, e_was_ste
 //         kosten=rest_aep;
 //         rest_aep=0;
 //cout << use_pp<<' '<<kosten<<' '<<rest_aep<<' '<<ep_k<<'\n';
-//cout << "Abziehen = "<<MBE->Steigern(hauptfenster->getChar().getWerte(),hauptfenster->getChar().getVTyp())<<'\n';
+//cout << "Abziehen = "<<MBE->Steigern(hauptfenster->getChar()->getWerte(),hauptfenster->getChar()->getVTyp())<<'\n';
 hauptfenster->set_status("Nicht implementiert");
 return false;
        }
