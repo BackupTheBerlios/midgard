@@ -62,6 +62,27 @@ static std::string defFileName(const std::string &s)
    return res;
 }
 
+#ifdef __MINGW32__
+
+static void register_magus(const std::string &argv0)
+{  reg_key cl(HKEY_LOCAL_MACHINE, KEY_READ, "SOFTWARE", "Classes",0);
+   
+   reg_key magusf(cl, KEY_WRITE, "magusfile",0);
+   magusf.set_string(0,"Midgard Abenteurer");
+   magusf.set_int("EditFlags",0);
+   
+   reg_key maguscmd(magusfl, KEY_WRITE, "Shell", "Magus", "command", 0);
+   maguscmd.set_string(0,"\""+argv0+"\"" %1");
+   
+   reg_key magusicon(magusfl, KEY_CREATE, "DefaultIcon", 0);
+   magusicon.set_string(0,argv0+",0");
+   
+   reg_key magusextension(cl, KEY_CREATE, ".magus", 0);
+   magusextension.set_string(0,"magusfile");
+}
+
+#endif
+
 #if 0 // Dateien mit magus verknüpfen
 +[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\magusfile]
 +@="Midgard Abenteurer"

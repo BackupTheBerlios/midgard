@@ -1,4 +1,4 @@
-// $Id: Windows_Linux.cc,v 1.4 2002/07/08 14:55:30 christof Exp $
+// $Id: Windows_Linux.cc,v 1.5 2002/07/08 16:22:12 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -22,7 +22,7 @@
 #include <windows.h>
 #endif
 
-std::string recodePathForTeX(std::string p)
+std::string WinLux::recodePathForTeX(std::string p)
 {
 #ifndef __MINGW32__
    // tja da kann man gegen Leerzeichen nix machen ...
