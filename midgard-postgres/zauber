@@ -39,18 +39,18 @@ CREATE TABLE "zauber" (
 
 
 COPY "zauber" FROM stdin;
-Abu es-Samum	8000	9	Tanz	6	E	\N	\N	\N	Luft	bewegt	Erde	5 min	0	Umgebung	10 km Uk	1 h	elementar		f		\N	\N
+Abu es-Samum	8000	9	Tanz	6	E	\N	\N	Tanz	Luft	bewegt	Erde	5 min	0	Umgebung	10 km Uk	1 h	elementar		f		\N	\N
 Abwenden von Blicken	120	1	Geist	1	G	?	\N	\N	\N	\N	\N	1s	-	Geist	Z	10min	\N		t	\N	\N	\N
 Aggression	2000	Gr*2	Wort	4	H&D	\N	\N		 	 	 	5 s	10 m	1 Ws	Geist	1 min	dämonisch		f		\N	\N
 Ahnengeist beschwören	1000	6	Geste	3	K	\N	\N	\N				1 h	0	Umgebung	1 Ws	10 min		Kerzen, Kräuter, Speiseopfer	f		\N	\N
-Ahuatls Sturm	8000	9	Tanz	6	N	\N	\N	\N	Luft	bewegt	Erde	5 min	0	Umgebung	10 km Uk	1 h	göttlich		f		\N	\N
-Ain es-Samum	1500	4	Tanz	4	E	\N	\N	\N	Luft	verändert	Luft	5 min	0	Umgebung	30 m Uk	1 h	elementar		f		\N	\N
-Akbar fil-Ghadban	200	2	Tanz	2	E	\N	\N	\N	Luft	verändert	Erde	3 min	0	Körper	selbst	30 min	göttlich		f		\N	\N
-Al-Ghussat	2000	6	Tanz	4	E	\N	\N	\N	Eis	beherrscht	Wasser	5 min	0	Geist	15 m Uk	10 min	göttlich		f		\N	\N
-Al-Karama	800	3	Tanz	3	E	\N	\N	\N	Luft	erkennt	Luft	10 min	5 m	Körper	1 Ws	8 h	göttlich		f		\N	\N
-Al-Mahram	400	3	Tanz	2	E	\N	\N	\N	Luft	beherrscht	Eis	5 min	0	Geist	6 m Uk	30 min	göttlich	\N	f	\N	\N	\N
-Al-Mutadid	800	3	Tanz	3	E	\N	\N	\N	Luft	beherrscht	Feuer	5 min	0	Umgebung	6m Uk	30 min	göttlich		f		\N	\N
-Al-Tarka	800	3	Tanz	3	E	\N	\N	\N	Luft	beherrscht	Luft	5 min	0	Geist	15 m Uk	-	göttlich		f		\N	\N
+Ahuatls Sturm	8000	9	Tanz	6	N	\N	\N	Tanz	Luft	bewegt	Erde	5 min	0	Umgebung	10 km Uk	1 h	göttlich		f		\N	\N
+Ain es-Samum	1500	4	Tanz	4	E	\N	\N	Tanz	Luft	verändert	Luft	5 min	0	Umgebung	30 m Uk	1 h	elementar		f		\N	\N
+Akbar fil-Ghadban	200	2	Tanz	2	E	\N	\N	Tanz	Luft	verändert	Erde	3 min	0	Körper	selbst	30 min	göttlich		f		\N	\N
+Al-Ghussat	2000	6	Tanz	4	E	\N	\N	Tanz	Eis	beherrscht	Wasser	5 min	0	Geist	15 m Uk	10 min	göttlich		f		\N	\N
+Al-Karama	800	3	Tanz	3	E	\N	\N	Tanz	Luft	erkennt	Luft	10 min	5 m	Körper	1 Ws	8 h	göttlich		f		\N	\N
+Al-Mahram	400	3	Tanz	2	E	\N	\N	Tanz	Luft	beherrscht	Eis	5 min	0	Geist	6 m Uk	30 min	göttlich	\N	f	\N	\N	\N
+Al-Mutadid	800	3	Tanz	3	E	\N	\N	Tanz	Luft	beherrscht	Feuer	5 min	0	Umgebung	6m Uk	30 min	göttlich		f		\N	\N
+Al-Tarka	800	3	Tanz	3	E	\N	\N	Tanz	Luft	beherrscht	Luft	5 min	0	Geist	15 m Uk	-	göttlich		f		\N	\N
 Allheilung	2500	6	Geste	5	\N	\N	\N	\N	Holz	erschafft	Erde	30 min	0	Körper	1 Ws	0	göttlich		f		\N	\N
 Alpträume	1500	2*Gr	Wort	4	H&Df	\N	\N	\N	Metall	verändert	Luft	1 min	500 m	Geist	1-4 Ws	var	finster		f		\N	t
 Altern	5000	var	Geste	6	H&Df	\N	\N	\N	Eis	verändert	Erde	2 min	10 m	Körper	1 Ws	1 Tag	finster	Zu Staub zerfallene Schädelknochen	f		\N	t
@@ -134,16 +134,19 @@ Coluscar 1 beschwören	80	1	Geste	1	3	\N	\N	Beschwörung	Magan	bewegt	Feuer	0,5 h	
 Coluscar 2 beschwören	160	2	Geste	2	3	\N	\N	Beschwörung	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h	dämonisch	schwarzes Huhn	f		\N	\N
 Coluscar 3 beschwören	500	3	Geste	3	3	\N	\N	Beschwörung	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h	dämonisch	7 Ratten	f		\N	\N
 Coluscar 4 beschwören	1200	4	Geste	4	3	\N	\N	Beschwörung	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h	dämonisch	schwarze Katze	f		\N	\N
-Dalail al-Khairat	200	2	Tanz	2	E	\N	\N	\N	Luft	verändert	Wasser	5 min	0	Geist	15 m Uk	30 min	göttlich		f		\N	\N
-Dalail ed-Dawahi	300	2	Tanz	2	E	\N	\N	\N	Magan	verändert	Wasser	5 min	0	Geist	15 m Uk	30 min	dämonisch		f		\N	\N
+Dalail al-Khairat	200	2	Tanz	2	E	\N	\N	Tanz	Luft	verändert	Wasser	5 min	0	Geist	15 m Uk	30 min	göttlich		f		\N	\N
+Dalail ed-Dawahi	300	2	Tanz	2	E	\N	\N	Tanz	Magan	verändert	Wasser	5 min	0	Geist	15 m Uk	30 min	dämonisch		f		\N	\N
+Damhsa Claimh (Schwerttanz)	1000	2/Tänzer	Tanz	3	G	46	\N	Tanz	Luft	verändert	Feuer	10 min	15 m	Geist	Mittänzer	24 h	druidisch	Gruppentanz (min 3)	f	\N	\N	\N
+Damhsa Meallim (Locktanz)	80	2	Tanz	1	G	46	\N	Tanz	Wasser	beherrscht	Wasser	5 min	15 m	Geist	1 Ws	6 h	druidisch	Solotanz	f	\N	\N	\N
+Damhsa an Duiseacht (Tanz des Erwachens)	1600	6	Tanz	5	G	46	\N	Tanz	Magan	beherrscht	Wasser	5 min	-	Körper	Zauberer	inf	druidisch	Solotanz	f	\N	\N	\N
 Das Essen nährt...	3000	6	Geste	5	K	\N	\N	\N				1 min	0	Geist		1 h		1 p Gifttausendfüßler, 1 g GoGoNe-Pulver	f		\N	\N
 Das Lied der Erinnerung	5000	2	Zauberlied	6	H&D	\N	\N	\N	Magan	beherrscht	Luft	0	0	Geist	30m Uk	5 min+	druidisch	Harfe oder Laute	f		\N	\N
 Das Lied der Feier	60	1	Zauberlied	1	H&D	\N	\N	\N	Magan	beherrscht	Luft	0	0	Geist	20m Uk	2 min+	druidisch	Flöte, Harfe oder Laute	f		\N	\N
 Das Lied der Macht	7500	2*min	Zauberlied	G	H&D	\N	\N	\N	Magan	beherrscht	Wasser	3 min	0	Geist	30m Uk	var	druidisch	Flöte	f		\N	\N
 Das Lied der Magie	3000	2	Zauberlied	5	H&D	\N	\N	\N	Magan	verändert	Magan	0	0	Umgebung	10m Uk	var	druidisch	Harfe	f		\N	\N
 Das Lied des Verstehens	1000	2	Zauberlied	5	H&D	\N	\N	\N	Magan	beherrscht	Luft	3 min	0	Geist	30m Uk	30 min	druidisch	Harfe oder Laute	f		\N	\N
-Dau ed-Datin	800	3	Tanz	3	E	\N	\N	\N	Wasser	beherrscht	Wasser	15 min	0	Geist	15 m Uk	10 min	dämonisch		f		\N	\N
-Dau ed-Din	2500	6	Tanz	5	E	\N	\N	\N	Metall	zerstört	Magan	10 min	0	Körper	15 m Uk	-	göttlich		f		\N	\N
+Dau ed-Datin	800	3	Tanz	3	E	\N	\N	Tanz	Wasser	beherrscht	Wasser	15 min	0	Geist	15 m Uk	10 min	dämonisch		f		\N	\N
+Dau ed-Din	2500	6	Tanz	5	E	\N	\N	Tanz	Metall	zerstört	Magan	10 min	0	Körper	15 m Uk	-	göttlich		f		\N	\N
 Deckmantel	1500	6	Geste	4	\N	\N	\N	\N	Magan	zerstört	Magan	10 s	0	Umgebung	6 m Uk	8 h	dämonisch	Goldring	t	Siegel	\N	\N
 Der Gesang Crescendis	120	2*h	Zauberlied	1	H&D	\N	\N	\N	Magan	verändert	Erde	0	100m Uk	Körper	var	var	druidisch	Gesang plus Instrument(beliebig)	f		\N	\N
 Der Große Knall	200	2	Geste	2	H&D	\N	\N	\N				1 s	12 m	Umgebung	12 m	0	dämonisch		t		\N	\N
@@ -219,6 +222,7 @@ Erkennen von Zauberei	300	2	Gedanke	2	\N	\N	\N	\N	Magan	erkennt	Magan	1 s	15 m	G
 Erkurku beschwören	4000	6	Geste	6	3	\N	\N	Beschwörung	Magan	bewegt	Feuer	3,5 h	0	Umgebung	1Ws	1 h	dämonisch	Affe	f		\N	\N
 Erkurku rufen	2000	3	Geste	5	3	\N	\N	Beschwörung	Magan	bewegt	Feuer	2 h	0	Umgebung	1Ws	1 h	dämonisch		f		\N	\N
 Erscheinungen	4000	6	Geste	5	\N	\N	\N	\N	Magan	beherrscht	Feuer	20 s	30 m	Geist	3x3x3 m	2 min	dämonisch	Blütenstaub vom blauen Mohn	t	Siegel	\N	\N
+Fainne ghuairne (Der wirbelnde Kreis)	1000	6	Tanz	3	G	46	\N	Tanz	Wasser	erkennt	Luft	10 min	-	Geist	Mittänzer	1 h	druidisch	Gruppentanz (min 3)	f	\N	\N	\N
 Farbensalz	60	1	Gedanke	1	H&Df	\N	\N	\N	Magan	verändert	Holz	1 s	500 m	Umgebung	50x50cm	3 h	finster		t		\N	t
 Farbenspiel	300	1-10	Geste	2	N	\N	\N	\N	Magan	verändert	Metall	1 sec	B	Umgebung	1 Objekt	0	dämonisch	\N	f	Tricksen	\N	\N
 Feenfluch	700	3	Geste	3	\N	\N	\N	\N	Holz	verändert	Erde	10 s	15 m	Körper	1 Ws	perm	druidisch		f		\N	\N
@@ -277,7 +281,7 @@ Gelbe Glocke (1. Urton Kung)	800	1	Zauberlied	2	K	\N	\N	\N				1 sec	0	Geist	30 m
 Geruch intensivieren	300	1-4	Gedanke	2	N	\N	\N	\N	Magan	verändert	Holz	5 sec	B	Körper	1 Ws/Ob	1 h	dämonisch	\N	f	Trickser	\N	\N
 Geruchsverlust	400	3	Wort	3	H&D	\N	\N	\N				20 s	1m	Körper	1 Ws	1 h	druidisch		t	Siegel	\N	\N
 Gesichtsrune	30000	6	Geste	5	W	\N	\N	Runen	Luft	erkennt	Magan	30 min	15 m	Geist	selbst	6 h	göttlich	Wurzelstück einer Esche	f	\N	\N	\N
-Ghussat el-Masin	1600	6	Tanz	4	E	\N	\N	\N	Eis	beherrscht	Wasser	5 min	0	Geist	15 m Uk	10 min	dämonisch		f		\N	\N
+Ghussat el-Masin	1600	6	Tanz	4	E	\N	\N	Tanz	Eis	beherrscht	Wasser	5 min	0	Geist	15 m Uk	10 min	dämonisch		f		\N	\N
 Gjornhune beschwören	7000	6	Geste	6	3	\N	Luft	Beschwörung	Magan	bewegt	Feuer	4,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	f		\N	\N
 Gletschergnom beschwören	7000	18	Geste	G	3	\N	Eis	Beschwörung	Magan	bewegt	Feuer	5,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 500 GS	f		\N	\N
 Gletschergnom rufen	7000	18	Geste	G	3	\N	Eis	Beschwörung	Magan	bewegt	Feuer	5,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 500 GS	f		\N	\N
@@ -307,7 +311,7 @@ Halebant 3 beschwören	500	3	Geste	3	3	\N	\N	Beschwörung	Magan	bewegt	Feuer	1,5 h
 Halebant 4 beschwören	1200	4	Geste	4	3	\N	\N	Beschwörung	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h	dämonisch	2l Pferdeblut	f		\N	\N
 Hammerhand	1000	3	Geste	3	H&D	\N	\N	\N				1 s	0	Körper	Z	2 min	dämonisch	Ginseng	t		\N	\N
 Handauflegen	100	2	Geste	1	\N	\N	\N	\N	Holz	erschafft	Feuer	10 s	0	Körper	1 Ws	0	druidisch		f	Siegel	\N	\N
-Haram fil-Din	100	1	Tanz	1	E	\N	\N	\N	Feuer	verwandelt	Erde	2 min	0	Körper	selbst	30 min	elementar		f		\N	\N
+Haram fil-Din	100	1	Tanz	1	E	\N	\N	Tanz	Feuer	verwandelt	Erde	2 min	0	Körper	selbst	30 min	elementar		f		\N	\N
 Hardlogi beschwören	1500	4	Geste	4	3	\N	Feuer	Beschwörung	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 50 GS	f		\N	\N
 Harkarhune beschwören	7000	6	Geste	6	3	\N	Feuer	Beschwörung	Magan	bewegt	Feuer	4,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	f		\N	\N
 Harkbuar beschwören	2000	5	Geste	5	3	\N	Feuer	Beschwörung	Magan	bewegt	Feuer	2,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	f		\N	\N
@@ -353,12 +357,12 @@ Indruwal 1 beschwören	600	3	Geste	3	3	\N	\N	Beschwörung	Magan	bewegt	Feuer	1,5 h
 Indruwal 2 beschwören	1600	4	Geste	4	3	\N		Beschwörung	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h	dämonisch	LP	f		\N	\N
 Indruwal 3 beschwören	2000	5	Geste	5	3	\N	\N	Beschwörung	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h	dämonisch	LP	f		\N	\N
 Indruwal 4 beschwören	3000	6	Geste	6	3	\N	\N	Beschwörung	Magan	bewegt	Feuer	3 h	0	Umgebung	1 Ws	1 h	dämonisch	LP	f		\N	\N
-Iquibalams Ruhm	800	3	Tanz	3	N	\N	\N	\N	Luft	beherrscht	Luft	5 min	0	Geist	15 m Uk	-	göttlich		f		\N	\N
-Iquibalams Tapferkeit	200	2	Tanz	2	N	\N	\N	\N	Luft	verändert	Erde	3 min	0	Körper	selbst	30 min	göttlich		f		\N	\N
-Iquibalams Verachtung	800	5	Tanz	3	N	\N	\N	\N	Magan	verändert	Wasser	5 min	0 m	Körper	10 m Uk	30 min	\N	\N	f	\N	\N	\N
+Iquibalams Ruhm	800	3	Tanz	3	N	\N	\N	Tanz	Luft	beherrscht	Luft	5 min	0	Geist	15 m Uk	-	göttlich		f		\N	\N
+Iquibalams Tapferkeit	200	2	Tanz	2	N	\N	\N	Tanz	Luft	verändert	Erde	3 min	0	Körper	selbst	30 min	göttlich		f		\N	\N
+Iquibalams Verachtung	800	5	Tanz	3	N	\N	\N	Tanz	Magan	verändert	Wasser	5 min	0 m	Körper	10 m Uk	30 min	\N	\N	f	\N	\N	\N
 Ising beschwören	2000	5	Geste	5	3	\N	Eis	Beschwörung	Magan	bewegt	Feuer	2,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	f		\N	\N
-Ixtantzutuhs Ekstase	800	3	Tanz	3	N	\N	\N	\N	Wasser	beherrscht	Wasser	15 min	0	Geist	15 m Uk	10 min	göttlich		f		\N	\N
-Ixtantzutuhs Schönheit	1000	3	Tanz	3	N	\N	\N	\N	Wasser	beherrscht	Wasser	15 min	15 m	Geist	1 Ws	6 h	\N	göttlich	f	\N	\N	\N
+Ixtantzutuhs Ekstase	800	3	Tanz	3	N	\N	\N	Tanz	Wasser	beherrscht	Wasser	15 min	0	Geist	15 m Uk	10 min	göttlich		f		\N	\N
+Ixtantzutuhs Schönheit	1000	3	Tanz	3	N	\N	\N	Tanz	Wasser	beherrscht	Wasser	15 min	15 m	Geist	1 Ws	6 h	\N	göttlich	f	\N	\N	\N
 Jadezauber	120	1	Wort	1	N	\N	\N	\N	Magan	erkennt	Metall	20 sec	0m	Geist	100m Uk	5 sec	göttlich	\N	t	Runenstab	\N	\N
 Jambani beschwören	160	2	Geste	2	3	\N	Wasser	Beschwörung	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 5 GS	f		\N	\N
 Jokulskadi beschwören	1500	4	Geste	4	3	\N	Eis	Beschwörung	Magan	bewegt	Feuer	2 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 50 GS	f		\N	\N
@@ -469,8 +473,8 @@ Metallmeisterschaft	6000	9	Gedanke	6	K	\N	\N	\N				30 sec	1 m	Umgebung	1 Ob	10 m
 Mokkurbjargi beschwören	80	1	Geste	1	3	\N	Wasser	Beschwörung	Magan	bewegt	Feuer	0,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 2 GS 	f		\N	\N
 Mumie erwecken	6000	18	Geste	6	E	\N	\N		Eis	verändert	Erde	6 h	0	Körper	1 Ws	-	dämonisch	Mumie	f		\N	\N
 Myrknir beschwören	2000	5	Geste	5	3	\N	Luft	Beschwörung	Magan	bewegt	Feuer	2,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 100 GS	f		\N	\N
-Nahuahauquihs Preis	100	1	Tanz	1	N	\N	\N	\N	Feuer	verwandelt	Erde	2 min	0	Körper	selbst	30 min	göttlich		f		\N	\N
-Nahuahauquihs Zorn	2000	6	Tanz	4	N	\N	\N	\N	Eis	beherrscht	Wasser	5 min	0	Geist	15 m Uk	10 min	göttlich		f		\N	\N
+Nahuahauquihs Preis	100	1	Tanz	1	N	\N	\N	Tanz	Feuer	verwandelt	Erde	2 min	0	Körper	selbst	30 min	göttlich		f		\N	\N
+Nahuahauquihs Zorn	2000	6	Tanz	4	N	\N	\N	Tanz	Eis	beherrscht	Wasser	5 min	0	Geist	15 m Uk	10 min	göttlich		f		\N	\N
 Namenloses Grauen	2000	#Ws*4	Geste	4	\N	\N	\N	\N	Eis	beherrscht	Wasser	15 s	30 m	Geist	max 3 Ws	2 min	dämonisch	Schweiß von Alpträumern	t		\N	\N
 Naturgeist rufen	300	3	Geste	3	\N	\N	\N	\N	Holz	beherrscht	Holz	5 min	500 m	Geist	-	2 min	druidisch	Schamenentrommel, rec.	f		\N	\N
 Nebel schaffen	1500	4	Geste	4	\N	\N	\N	\N	Wasser	erschafft	Wasser	20 s	0	Umgebung	50 m Uk	30 min	elementar	Phiole voll Nebel	t		\N	\N
@@ -496,8 +500,8 @@ Pestklaue	7000	9	Geste	6	\N	\N	\N	\N	Eis	zerstört	Erde	1 s	0	Körper	1 Ws	0	schwa
 Pfeilrune	400	2	Geste	2	W	\N	\N	Runen	Luft	bewegt	Metall	30 min	-	Umgebung	1 Ws	1 h	göttlich	Eibenholzscheibe an Bogensehne	f	\N	\N	\N
 Pflanzenfessel	600	4	Geste	3	\N	\N	\N	\N	Feuer	bewegt	Holz	20 s	50 m	Umgebung	10 m Uk	2 min	druidisch	Samenmischung	f		\N	\N
 Pflanzenmann	1500	4	Geste	4	\N	\N	\N	\N	Eis	beherrscht	Holz	20 s	200 m	Umgebung	-	10 min	schwarzmagisch	vermoderte Zweige, welke Blätter	f		\N	\N
-PiPingQuang	600	4	Tanz	3	K	\N	\N	\N	Holz	zerstört	Eis	30 min	0	Geist	1 Ws	0			f	\N	\N	\N
-PiYeúQuang	800	4	Tanz	3	K	\N	\N	\N	Magan	bewegt	Feuer	10 min	0	Geist	1 Ws	0			f	\N	\N	\N
+PiPingQuang	600	4	Tanz	3	K	\N	\N	Tanz	Holz	zerstört	Eis	30 min	0	Geist	1 Ws	0			f	\N	\N	\N
+PiYeúQuang	800	4	Tanz	3	K	\N	\N	Tanz	Magan	bewegt	Feuer	10 min	0	Geist	1 Ws	0			f	\N	\N	\N
 Rauchkringel	100	1-20	Geste	1	N	\N	\N	\N	Magan	verändert	Metall	1 sec	0m	Umgebung	9m Uk	1-5 min	dämonisch	Tabackpfeife (1GS)	f	Trickser	\N	\N
 Rauchsalz	60	1	Gedanke	1	\N	\N	\N	Zaubersalz	Feuer	verwandelt	Luft	1 s	500 m	Umgebung	1 m Uk	10 min	dämonisch		t		\N	\N
 Rauchwolke	300	2	Geste	2	\N	\N	\N	\N	Feuer	verändert	Luft	5 s	30 m	Umgebung	9 m Uk	10 min	elementar	Asche, Zunder	t	Siegel	\N	\N
@@ -512,6 +516,8 @@ Reiserune	120	1	Geste	1	W	\N	\N	Runen	Magan	verändert	Wasser	30 min	-	Körper	1 W
 Reizen	120	1AP*Gr	Wort	1	H&D	\N	\N	\N				5 s     30 m	Geist	1 Ws:Gr	2 h	dämonisch			t		\N	\N
 Reptilien rufen	600	3-9 AP	Wort	3	H&D	\N	\N	\N				10 s	2 km	Geist	var	10 min	dämonisch		t		\N	\N
 Riechsalz	60	1	Gedanke	1	\N	\N	\N	Zaubersalz	Eis	verändert	Luft	1 s	500 m	Umgebung	1 Ws/Ob	0	dämonisch		t		\N	\N
+Rince an Coisreacan (Reigen der Weihe)	3000	alle (mind. 9)	Tanz	6	G	46	\N	Tanz	Holz	zerstört	Eis	1 h	0m	Umgebung	var. Uk	inf	druidisch	Gruppentanz (min 4)	f	\N	\N	\N
+Rince na Daoine Maithe (Reigen des Feenvolks)	1500	3	Tanz	5	G	46	\N	Tanz	Holz	beherrscht	Holz	5 min	500 m	Geist	-	2 min	druidisch	Gruppentanz (min 5)	f	\N	\N	\N
 Rindenhaut	300	2	Geste	2	\N	\N	\N	\N	Holz	verändert	Erde	10 s	0	Körper	1 Ws	10 min	druidisch	Eichenrinde	f		\N	\N
 Ring des Lebens	800	4	Geste	3	\N	\N	\N	\N	Holz	zerstört	Eis	1 s	0	Umgebung	3 m Uk/R	1 min	druidisch	Samen des Lebenskrautes	f		\N	\N
 Rost	100	2	Geste	1	\N	\N	\N	\N	Eis	verändert	Metall	1 s	15 m	Umgebung	1 Ob	0	dämonisch		t	Siegel	\N	\N
@@ -521,12 +527,12 @@ Rutschsalz	80	1	Gedanke	1	\N	\N	\N	Zaubersalz	Eis	verändert	Metall	1 s	500 m	Umg
 Rückführung	1800	4	Geste	4	R	\N	\N	\N	Magan	erkennt	Luft	10 min	B	Geist	1 Ws	2 h	göttlich		f		\N	\N
 Sa rauben	250	5	Geste	2	E	\N	\N	\N	Eis	zerstört	Holz	1 s	0	Geist	1 Ws	-	schwarzmagisch		f		\N	\N
 Sa spenden	1500	4 vom Max	Geste	4	E	\N	\N	\N	Holz	zerstört	Holz	30 min	0	Körper	1 Ws	-	göttlich		f		\N	\N
-Sadik es-Sidiki	400	4	Tanz	2	E	\N	\N	\N	Luft	verändert	Luft	10 min	0	Geist	15 m Uk	1 h	göttlich		f		\N	\N
+Sadik es-Sidiki	400	4	Tanz	2	E	\N	\N	Tanz	Luft	verändert	Luft	10 min	0	Geist	15 m Uk	1 h	göttlich		f		\N	\N
 Saeldvegar beschwören	4000	5	Geste	5	3	\N	Wasser	Beschwörung	Magan	bewegt	Feuer	3 h	0	Umgebung	5 Ws	1 h 	elementar	Edelstein 200 GS	f		\N	\N
 Saeldverg beschwören	800	3	Geste	3	3	\N	Wasser	Beschwörung	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 40 GS 	f		\N	\N
-Saijidat el-Masin	600	6	Tanz	3	E	\N	\N	\N	Luft	beherrscht	Erde	10 min	0	Geist	15 m Uk	10 min	göttlich		f		\N	\N
+Saijidat el-Masin	600	6	Tanz	3	E	\N	\N	Tanz	Luft	beherrscht	Erde	10 min	0	Geist	15 m Uk	10 min	göttlich		f		\N	\N
 Sandmeisterschaft	6000	9	Geste	6	E	\N	\N		Luft	bewegt	Erde	30 s	2 km	Umgebung	500m Uk	1 h	elementar	10g Sandwurmhaut	t		\N	\N
-Schadd wa-Tarka	1000	3	Tanz	3	E	\N	\N	\N	Wasser	beherrscht	Wasser	15 min	15 m	Geist	1 Ws	6 h	\N		f	\N	\N	\N
+Schadd wa-Tarka	1000	3	Tanz	3	E	\N	\N	Tanz	Wasser	beherrscht	Wasser	15 min	15 m	Geist	1 Ws	6 h	\N		f	\N	\N	\N
 Scharade	600	1-10	Wort	3	N	\N	\N	\N	Magan	beherrscht	Luft	1 sec	15 m	Geist	1-10 Ws	GRad min	dämonisch	\N	f	Trickser	\N	\N
 Scharfblick	60	1	Gedanke	1	\N	\N	\N	\N	Magan	verändert	Feuer	1 min	0	Körper	1 Ws	10 min	dämonisch		f		\N	\N
 Schattenbruder	1500	6	Geste	4	H&D	\N	\N	\N				10 s	0	Umgebung	12m Uk	2 min	dämonisch		t	Runenstab	\N	\N
@@ -604,11 +610,11 @@ Stärkerune	200	2	Geste	2	W	\N	\N	Runen	Luft	verändert	Erde	30 min	-	Körper	1 Ws	
 Sumpfboden	200	2	Geste	2	\N	\N	\N	\N	Wasser	verändert	Erde	10 s	50 m	Umgebung	15 m Uk	2 min	elementar	Wasserlinsen	t		\N	\N
 Sutechs Heer	600	12	Wort	3	E	\N	\N	\N	Luft	beherrscht	Wasser	10 sec	2 km	Geist	4W6 Ws	30 min	göttlich		t		\N	\N
 Svalgrim beschwören	160	2	Geste	2	3	\N	Eis	Beschwörung	Magan	bewegt	Feuer	1 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 5 GS	f		\N	\N
-TaiQuang	1000	1/Grad des Opfers	Tanz	3	K	\N	\N	\N	Wasser	beherrscht	Wasser	5 min	50 m	Geist	1 Ws/Grad des Zauberers	2 h	\N	\N	f	\N	\N	\N
+TaiQuang	1000	1/Grad des Opfers	Tanz	3	K	\N	\N	Tanz	Wasser	beherrscht	Wasser	5 min	50 m	Geist	1 Ws/Grad des Zauberers	2 h	\N	\N	f	\N	\N	\N
 Tausch des Ba	20000	18	Geste	G	E	\N	\N	\N	Magan	bewegt	Luft	3 h	15 m	Geist	2 Ws	-	dämonisch	Silberdraht	f		\N	\N
 Thrymbar beschwören	600	3	Geste	3	3	\N	Luft	Beschwörung	Magan	bewegt	Feuer	1,5 h	0	Umgebung	1 Ws	1 h 	elementar	Edelstein 20 GS	f		\N	\N
 Thursenstein	3000	6	Geste	5	\N	\N	\N	\N	Erde	verwandelt	Erde	10 s	0	Umgebung	1 Ob	10 s	druidisch	Zauberkiesel	f		\N	\N
-Tibb al-Mumani	600	6	Tanz	3	E	\N	\N	\N	Magan	bewegt	Feuer	20 min	15 m	Körper	1 Ws, 1Ob	-	göttlich		f		\N	\N
+Tibb al-Mumani	600	6	Tanz	3	E	\N	\N	Tanz	Magan	bewegt	Feuer	20 min	15 m	Körper	1 Ws, 1Ob	-	göttlich		f		\N	\N
 Tiefschlaf	3000	6	Geste	5	H&D	\N	\N	\N				10 s	B	Körper	1 Ws	6 h	druidisch		f	Siegel	\N	\N
 Tiere rufen	600	3-9	Wort	3	\N	\N	\N	\N	Magan	beherrscht	Wasser	10 s	2 km	Geist	max 10 Ws	10 min	druidisch		t		\N	\N
 Tiergestalt	2000	6	Geste	5	\N	\N	\N	\N	Wasser	verwandelt	Erde	20 s	0	Körper	selbst	perm	druidisch	Fellstück oder Feder	f		\N	\N
@@ -618,7 +624,7 @@ Tiersprache	1500	4	Wort	4	\N	\N	\N	\N	Wasser	erkennt	Luft	15 s	15 m	Körper	selbs
 Todeshauch	800	3	Geste	3	\N	\N	\N	\N	Eis	erschafft	Wasser	1 s	0	Umgebung	3 m Uk/R	1 min	dämonisch	Fliegenpilzasche	t	Runenstab	\N	\N
 Todeskeule	1000	3	Geste	3	\N	\N	\N	\N	Eis	verändert	Erde	10 s	0	Umgebung	1 Ob	2 min	dämonisch		f		\N	\N
 Todeszauber	10000	SchP	Wort	6	\N	\N	\N	\N	Eis	zerstört	Holz	15 s	30 m	Körper	1 Ws	0	dämonisch		t		\N	\N
-Tolucans Gabe	800	3	Tanz	3	N	\N	\N	\N	Luft	erkennt	Luft	10 min	5 m	Körper	1 Ws	8 h	göttlich		f		\N	\N
+Tolucans Gabe	800	3	Tanz	3	N	\N	\N	Tanz	Luft	erkennt	Luft	10 min	5 m	Körper	1 Ws	8 h	göttlich		f		\N	\N
 Tor schaffen	5000	12	Geste	6	3	\N	\N	Beschwörung	Luft	bewegt	Erde	1 h	0	Umgebung	2x1 m	1 Monat	dämonisch		f		\N	\N
 Totenrune	800	3	Geste	3	W	\N	\N	Runen	Luft	beherrscht	Eis	30 min	B	Körper	1 Ws	10 min	göttlich	Eibenholzstab	f	\N	\N	\N
 Trampelsalz	60	1	Gedanke	1	\N	\N	\N	Zaubersalz	Magan	verändert	Luft	1 s	500 m	Umgebung	10 m²	8 h	dämonisch		t		\N	\N
@@ -709,7 +715,7 @@ Wunden schließen	200	2	Geste	2	N	\N	\N	\N	Magan	erschafft	Erde	1 min	B	Körper	1 
 Wundersame Tarnung	100	1	Gedanke	1	\N	\N	\N	\N	Holz	verändert	Erde	1 s	0	Umgebung	selbst	30 min	druidisch		f		\N	\N
 Wundrune	300	2	Geste	2	W	\N	\N	Runen	Holz	erschafft	Erde	30 min	-	Körper	1 Ws	0	göttlich	Kieselstein, Stechpalmenblätter	f	\N	\N	\N
 Wüstenwind	800	3	Geste	3	H&D	\N	\N	\N				19 s	0	Umgebung	30m Uk Kegel	2 min	druidisch	Wüstensand	f	Runenstab	\N	\N
-XiengBaQuang	4000	var	Tanz	5	K	\N	\N	\N	Wasser	beherrscht	Wasser	var	var	Körper	var	var			f	\N	\N	\N
+XiengBaQuang	4000	var	Tanz	5	K	\N	\N	Tanz	Wasser	beherrscht	Wasser	var	var	Körper	var	var			f	\N	\N	\N
 YehKiQuang	80	3	Geste	1	K	\N	\N	\N				1 h	0	Geist					f		\N	\N
 Zauberauge	2000	4	Geste	4	\N	\N	\N	\N	Luft	bewegt	Feuer	20 s	500 m	Umgebung	-	30 min	dämonisch	Auge eines Toten	t		\N	\N
 Zauberhand	1800	4	Geste	4	\N	\N	\N	\N	Erde	verändert	Luft	15 s	50 m	Umgebung	1 Ws	var R	dämonisch	Wachspuppe	t		\N	\N

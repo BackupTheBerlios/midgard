@@ -1,4 +1,26 @@
 ##########################################################################
+NEWS IN VERSION 0.6delta3
+
+* Erain: Zaubertänze (Gildenbrief 46)
+
+TODO:
+* Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
+* Nahuathlan: Fertigkeiten, Typen
+* Destruktor wird nicht aufgerufen
+* gv zeigt den falschen Ausschnitt des pdf Dokumentes 
+   (nur für Linux interessant)
+* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+
+Windows TODO (bitte irgendwo erwähnen)
+
+* das Icon so generieren, dass es auch unter Windows transparent ist ...
+* AcroRead wird noch nicht gefunden
+* den Windows Filerequester (nennt sich ebenfalls Explorer) verwenden (ja es geht!)
+* Abenteurer in ISO 8859-1[5] speichern, dann können sie leichter editiert/gelesen werden.
+
+##########################################################################
 NEWS IN VERSION 0.6delta2
 
 * Statuszeile ersetzt weitgehend das Info Fenster

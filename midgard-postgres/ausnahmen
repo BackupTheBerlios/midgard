@@ -52,6 +52,24 @@ Blumengeist betrachten	z	\N	Nahuatlan	PK	S	\N	\N
 Blumengeist betrachten	z	\N	Nahuatlan	PM	S	\N	\N
 Blumengeist betrachten	z	\N	Nahuatlan	PT	S	\N	\N
 Blumengeist betrachten	z	\N	Nahuatlan	PW	S	\N	\N
+Damhsa Claimh (Schwerttanz)	z	\N	Erainn	Ba	G	\N	\N
+Damhsa Claimh (Schwerttanz)	z	\N	Erainn	Hl	G	\N	\N
+Damhsa Claimh (Schwerttanz)	z	\N	Erainn	Or	G	\N	\N
+Damhsa Claimh (Schwerttanz)	z	\N	Erainn	gHx	S	\N	\N
+Damhsa Claimh (Schwerttanz)	z	\N	Erainn	sHx	S	\N	\N
+Damhsa Claimh (Schwerttanz)	z	\N	Erainn	wHx	S	\N	\N
+Damhsa Meallim (Locktanz)	z	\N	Erainn	Ba	G	\N	\N
+Damhsa Meallim (Locktanz)	z	\N	Erainn	Hl	G	\N	\N
+Damhsa Meallim (Locktanz)	z	\N	Erainn	Or	G	\N	\N
+Damhsa Meallim (Locktanz)	z	\N	Erainn	gHx	S	\N	\N
+Damhsa Meallim (Locktanz)	z	\N	Erainn	sHx	S	\N	\N
+Damhsa Meallim (Locktanz)	z	\N	Erainn	wHx	S	\N	\N
+Damhsa an Duiseacht (Tanz des Erwachens)	z	\N	Erainn	Ba	G	\N	\N
+Damhsa an Duiseacht (Tanz des Erwachens)	z	\N	Erainn	Hl	G	\N	\N
+Damhsa an Duiseacht (Tanz des Erwachens)	z	\N	Erainn	Or	G	\N	\N
+Damhsa an Duiseacht (Tanz des Erwachens)	z	\N	Erainn	gHx	S	\N	\N
+Damhsa an Duiseacht (Tanz des Erwachens)	z	\N	Erainn	sHx	S	\N	\N
+Damhsa an Duiseacht (Tanz des Erwachens)	z	\N	Erainn	wHx	S	\N	\N
 Drachenrune	z	Berggnom	Dvarheim	Th	S	\N	\N
 Drachenrune	z	Zwerg	Dvarheim	Th	S	\N	\N
 Elefanten lenken	f	\N	Minangpahit	BW	G	\N	\N
@@ -66,6 +84,12 @@ Elefanten lenken	f	\N	Rawindra	Hä	G	\N	\N
 Elefanten lenken	f	\N	Rawindra	Kr	G	\N	\N
 Elefanten lenken	f	\N	Rawindra	PW	G	\N	\N
 Elefanten lenken	f	\N	Rawindra	Sö	G	\N	\N
+Fainne ghuairne (Der wirbelnde Kreis)	z	\N	Erainn	Ba	G	\N	\N
+Fainne ghuairne (Der wirbelnde Kreis)	z	\N	Erainn	Hl	G	\N	\N
+Fainne ghuairne (Der wirbelnde Kreis)	z	\N	Erainn	Or	G	\N	\N
+Fainne ghuairne (Der wirbelnde Kreis)	z	\N	Erainn	gHx	S	\N	\N
+Fainne ghuairne (Der wirbelnde Kreis)	z	\N	Erainn	sHx	S	\N	\N
+Fainne ghuairne (Der wirbelnde Kreis)	z	\N	Erainn	wHx	S	\N	\N
 Fangen	f	\N	\N	\N	G	Fischer	\N
 Fangen	f	\N	\N	\N	G	Gaukler	\N
 Fesselrune	z	Berggnom	Dvarheim	Th	S	\N	\N
@@ -258,6 +282,18 @@ Regenrune	z	Berggnom	Dvarheim	Th	S	\N	\N
 Regenrune	z	Zwerg	Dvarheim	Th	S	\N	\N
 Reiserune	z	Berggnom	Dvarheim	Th	S	\N	\N
 Reiserune	z	Zwerg	Dvarheim	Th	S	\N	\N
+Rince an Coisreacan (Reigen der Weihe)	z	\N	Erainn	Ba	G	\N	\N
+Rince an Coisreacan (Reigen der Weihe)	z	\N	Erainn	Hl	G	\N	\N
+Rince an Coisreacan (Reigen der Weihe)	z	\N	Erainn	Or	G	\N	\N
+Rince an Coisreacan (Reigen der Weihe)	z	\N	Erainn	gHx	S	\N	\N
+Rince an Coisreacan (Reigen der Weihe)	z	\N	Erainn	sHx	S	\N	\N
+Rince an Coisreacan (Reigen der Weihe)	z	\N	Erainn	wHx	S	\N	\N
+Rince na Daoine Maithe (Reigen des Feenvolks)	z	\N	Erainn	Ba	G	\N	\N
+Rince na Daoine Maithe (Reigen des Feenvolks)	z	\N	Erainn	Hl	G	\N	\N
+Rince na Daoine Maithe (Reigen des Feenvolks)	z	\N	Erainn	Or	G	\N	\N
+Rince na Daoine Maithe (Reigen des Feenvolks)	z	\N	Erainn	gHx	S	\N	\N
+Rince na Daoine Maithe (Reigen des Feenvolks)	z	\N	Erainn	sHx	S	\N	\N
+Rince na Daoine Maithe (Reigen des Feenvolks)	z	\N	Erainn	wHx	S	\N	\N
 Roter Pirol (2. Urton Chih)	z	\N	KanThaiPan	ScN	G	\N	\N
 Roter Pirol (2. Urton Chih)	z	\N	KanThaiPan	ScS	G	\N	\N
 Roter Pirol (2. Urton Chih)	z	\N	KanThaiPan	ScW	G	\N	\N

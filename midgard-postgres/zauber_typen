@@ -1365,6 +1365,32 @@ Dalail ed-Dawahi	Tt	S
 Dalail ed-Dawahi	gHx	G
 Dalail ed-Dawahi	sHx	G
 Dalail ed-Dawahi	wHx	G
+Damhsa Claimh (Schwerttanz)	Fi	G
+Damhsa Claimh (Schwerttanz)	ScN	S
+Damhsa Claimh (Schwerttanz)	ScS	S
+Damhsa Claimh (Schwerttanz)	ScW	S
+Damhsa Claimh (Schwerttanz)	Tm	S
+Damhsa Claimh (Schwerttanz)	Tt	S
+Damhsa Claimh (Schwerttanz)	gHx	A
+Damhsa Claimh (Schwerttanz)	sHx	S
+Damhsa Claimh (Schwerttanz)	wHx	A
+Damhsa Meallim (Locktanz)	Fi	G
+Damhsa Meallim (Locktanz)	ScN	S
+Damhsa Meallim (Locktanz)	ScS	S
+Damhsa Meallim (Locktanz)	ScW	S
+Damhsa Meallim (Locktanz)	Tm	S
+Damhsa Meallim (Locktanz)	Tt	S
+Damhsa Meallim (Locktanz)	gHx	A
+Damhsa Meallim (Locktanz)	sHx	S
+Damhsa Meallim (Locktanz)	wHx	A
+Damhsa an Duiseacht (Tanz des Erwachens)	Fi	G
+Damhsa an Duiseacht (Tanz des Erwachens)	ScN	S
+Damhsa an Duiseacht (Tanz des Erwachens)	ScS	S
+Damhsa an Duiseacht (Tanz des Erwachens)	ScW	S
+Damhsa an Duiseacht (Tanz des Erwachens)	Tm	S
+Damhsa an Duiseacht (Tanz des Erwachens)	gHx	A
+Damhsa an Duiseacht (Tanz des Erwachens)	sHx	A
+Damhsa an Duiseacht (Tanz des Erwachens)	wHx	A
 Das Essen nährt...	De	S
 Das Essen nährt...	Sa	S
 Das Essen nährt...	ScN	S
@@ -2411,6 +2437,14 @@ Erscheinungen	Th	G
 Erscheinungen	gHx	S
 Erscheinungen	sHx	S
 Erscheinungen	wHx	S
+Fainne ghuairne (Der wirbelnde Kreis)	ScN	S
+Fainne ghuairne (Der wirbelnde Kreis)	ScS	S
+Fainne ghuairne (Der wirbelnde Kreis)	ScW	S
+Fainne ghuairne (Der wirbelnde Kreis)	Tm	S
+Fainne ghuairne (Der wirbelnde Kreis)	Tt	S
+Fainne ghuairne (Der wirbelnde Kreis)	gHx	A
+Fainne ghuairne (Der wirbelnde Kreis)	sHx	S
+Fainne ghuairne (Der wirbelnde Kreis)	wHx	A
 Farbensalz	De	A
 Farbensalz	Dr	A
 Farbensalz	Hl	A
@@ -6376,6 +6410,16 @@ Riechsalz	gHx	S
 Riechsalz	sHx	S
 Riechsalz	tBe	A
 Riechsalz	wHx	S
+Rince an Coisreacan (Reigen der Weihe)	Fi	S
+Rince an Coisreacan (Reigen der Weihe)	ScN	S
+Rince an Coisreacan (Reigen der Weihe)	ScS	S
+Rince an Coisreacan (Reigen der Weihe)	ScW	S
+Rince an Coisreacan (Reigen der Weihe)	Tm	S
+Rince na Daoine Maithe (Reigen des Feenvolks)	Fi	G
+Rince na Daoine Maithe (Reigen des Feenvolks)	ScN	S
+Rince na Daoine Maithe (Reigen des Feenvolks)	ScS	S
+Rince na Daoine Maithe (Reigen des Feenvolks)	ScW	S
+Rince na Daoine Maithe (Reigen des Feenvolks)	Tm	S
 Rindenhaut	De	S
 Rindenhaut	Dr	G
 Rindenhaut	Ma	A
