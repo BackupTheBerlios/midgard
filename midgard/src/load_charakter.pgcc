@@ -79,6 +79,7 @@ void midgard_CG::load_charakter()
       int db_lpbasis      = werte.lpbasis;      
       int db_alter        = werte.alter;      
       char db_gestalt[20] ;
+      char db_geschlecht[5];
       int db_gewicht      = werte.gewicht;      
       int db_groesse      = werte.groesse;      
       int db_grad         = werte.grad;      
@@ -135,6 +136,7 @@ void midgard_CG::load_charakter()
          lpbasis        ,
          alter          ,
          gestalt        ,
+         geschlecht     ,
          gewicht        ,
          groesse        ,
          grad           ,
@@ -196,6 +198,7 @@ void midgard_CG::load_charakter()
        :db_lpbasis  ,
        :db_alter    ,
        :db_gestalt  ,
+       :db_geschlecht,
        :db_gewicht  ,
        :db_groesse  ,
        :db_grad     ,
@@ -255,6 +258,7 @@ void midgard_CG::load_charakter()
       werte.lpbasis=     db_lpbasis      ;   
       werte.alter=       db_alter        ; 
       werte.gestalt=db_gestalt ;
+      werte.geschlecht=db_geschlecht ;
       werte.gewicht=   db_gewicht      ;     
       werte.groesse=   db_groesse      ;     
       werte.grad=      db_grad         ;  

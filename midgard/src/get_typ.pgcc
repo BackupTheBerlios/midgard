@@ -49,6 +49,7 @@ void midgard_CG::get_typ(int nr)
  typ.ausdauer = db_ausdauer;
  typ.stand = db_stand;
  typ.sb = db_sb;
+cout << typ.l<<"\n";
 }
 
 int midgard_CG::get_typ_nr()
@@ -64,7 +65,7 @@ int midgard_CG::get_typ_nr()
  int count=0;
  for (vector<st_typen>::const_iterator i=typen_vector.begin();
         i!=typen_vector.end();++i)
-   { if(db_typnr==i->nr) { return count ; }
+   { if(db_typnr==i->nr) { return count-1 ; }
      ++count;
    }
  abort();

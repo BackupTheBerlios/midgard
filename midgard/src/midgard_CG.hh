@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.24 2001/05/01 08:33:58 thoma Exp $
+// $Id: midgard_CG.hh,v 1.25 2001/05/03 20:51:32 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -52,7 +52,7 @@ struct st_werte{int st; int ge;int ko;int in;int zt;
              int bo_au_typ; int bo_au; int bo_sc; int bo_an; int bo_ab; int bo_za;
              int bo_psy; int bo_phs; int bo_phk; int bo_gi;
              int kaw; int wlw; int lpbasis;
-             int alter;string gestalt;
+             int alter;string gestalt; string geschlecht;
              int gewicht;int groesse;int grad;
              string spezialisierung;string spezial;string spezial2; string stand;
              string herkunft; string spezies;
@@ -177,6 +177,8 @@ class midgard_CG : public midgard_CG_glade
 //        int  fill_typauswahl_int(int i);
         void fill_spezies();
         void typauswahl_button();
+        void on_radiobutton_frau_toggled();
+        void on_radiobutton_mann_toggled();
         void spezieswahl_button();
         void on_herkunftsland_clicked();
         void on_muttersprache_clicked();

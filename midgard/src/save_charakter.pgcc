@@ -80,6 +80,7 @@ void midgard_CG::on_speichern_clicked()
       int db_lpbasis      = werte.lpbasis;      
       int db_alter        = werte.alter;      
       char db_gestalt[20] ;
+      char db_geschlecht[5];
       int db_gewicht      = werte.gewicht;      
       int db_groesse      = werte.groesse;      
       int db_grad         = werte.grad;      
@@ -102,6 +103,7 @@ void midgard_CG::on_speichern_clicked()
    db_zaubern = atoi(werte.zaubern_wert.c_str());
    strncpy(db_beschreibung,werte.beschreibung.c_str(),sizeof(db_beschreibung));
    strncpy(db_gestalt,werte.gestalt.c_str(),sizeof(db_gestalt));
+   strncpy(db_geschlecht,werte.geschlecht.c_str(),sizeof(db_geschlecht));
    strncpy(db_spez,werte.spezialisierung.c_str(),sizeof(db_spez));
    strncpy(db_stand,werte.stand.c_str(),sizeof(db_stand));
    strncpy(db_herkunft,werte.herkunft.c_str(),sizeof(db_herkunft));
@@ -143,6 +145,7 @@ void midgard_CG::on_speichern_clicked()
       lpbasis        = :db_lpbasis  ,
       alter          = :db_alter    ,
       gestalt        = :db_gestalt  ,
+      geschlecht     = :db_geschlecht  ,
       gewicht        = :db_gewicht  ,
       groesse        = :db_groesse  ,
       grad           = :db_grad     ,

@@ -44,4 +44,7 @@ EXTRA_DIST = \
        Verlernen-trans-32.xpm \
        Weapon-trans-50.xpm \
        Zauber-trans-50.xpm \
-       Select2-trans.xpm
+       Select2-trans.xpm \
+       Eschar-trans-50.xpm \
+       KiDo-trans-50.xpm
+

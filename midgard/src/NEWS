@@ -1,4 +1,9 @@
 ##########################################################################
+NEWS IN VERSION 0.4beta8
+- Beim Laden eines Charakters wurde die Falsche Charakterklasse angezeigt
+- Die fehlenden Pixmaps sind jetzt mit in dem tar.gz Paket
+
+##########################################################################
 NEWS IN VERSION 0.4beta7
 - Bug für 'Zauber lernen' beseitigt
 
