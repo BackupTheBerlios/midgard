@@ -124,9 +124,9 @@ void spielleiter_export_save(const Abenteurer &Char,const std::string& dateiname
     }
   fout << "; Raufen+"<<W.Raufen()<<" ("<<W.RaufenSchaden()<<")"; 
   fout <<" - Abwehr+"<<W.Abwehr_wert()+W.bo_Ab() <<", "
-       <<"Resistenz+"<<W.Resistenz()+W.bo_Psy(Char.getVTyp())<<"/" 
-                     <<W.Resistenz()+W.bo_Phs(Char.getVTyp())<<"/" 
-                     <<W.Resistenz()+W.bo_Phk(Char.getVTyp())<<"\n" ;
+       <<"Resistenz+"<<W.Resistenz()+W.bo_Psy()<<"/" 
+                     <<W.Resistenz()+W.bo_Phs()<<"/" 
+                     <<W.Resistenz()+W.bo_Phk()<<"\n" ;
 
  // angeborene Fertigkeiten
  std::string fert;

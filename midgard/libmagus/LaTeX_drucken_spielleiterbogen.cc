@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.4 2003/08/04 08:50:22 christof Exp $   
+// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.5 2003/08/11 06:26:33 christof Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -23,7 +23,7 @@
 #include "dtos1.h"
 #include <Misc/itos.h>
 #include <Misc/recodestream.h>
-#include "Abenteurer.hh"
+#include "VAbenteurer.hh"
 #include <fstream>
 
 void LaTeX_drucken::Spielleiterbogen(VAbenteurer &VA)
@@ -163,7 +163,7 @@ void LaTeX_drucken::for_each(const VAbenteurer &VA,std::ostream &fout,const ewha
           }
        case ezauber: V.push_back(st_is(W.Zaubern_wert())); break;
        case eabwehr:  V.push_back(st_is(W.Abwehr_wert())); break;
-       case eres: fout << " & "<<W.Resistenzen_alle(A.getVTyp()); break; 
+       case eres: fout << " & "<<W.Resistenzen_alle(); break; 
        case esinnse: V.push_back(st_is(W.Sehen())); break;
        case esinnh: V.push_back(st_is(W.Hoeren())); break;
        case esinnr: V.push_back(st_is(W.Riechen())); break;

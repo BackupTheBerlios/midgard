@@ -1,4 +1,4 @@
-// $Id: AbenteurerLernpunkte.hh,v 1.2 2003/08/03 01:43:02 christof Exp $               
+// $Id: AbenteurerLernpunkte.hh,v 1.3 2003/08/11 06:26:33 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -24,7 +24,7 @@
 #include "Lernschema.hh"
 #include "class_lernpunkte.hh" // or embed it here ...
 #include "Beruf.hh"
-#include "AbenteurerLernpunkte.hh"
+//#include "AbenteurerLernpunkte.hh"
 class Abenteurer;
 
 class WaffeBesitzLernen
@@ -47,12 +47,15 @@ class WaffeBesitzLernen
 };
 
 class AbenteurerLernpunkte
-{	Lernpunkte lernpunkte; // noch zu vergebende Lernpunkte
+{public:
+	enum GWR_Auswahl {ENone,EGeld1,EGeld2,EGeld3,EWaffen,ERuestung};
+private:
+	Lernpunkte lernpunkte; // noch zu vergebende Lernpunkte
 	WaffeBesitzLernen waffebesitzlernen; // Punkte für Waffenauswahl
 	int maxkido;
 	BerufsKategorie BKategorie;
-	enum GWR_Auswahl {ENone,EGeld1,EGeld2,EGeld3,EWaffen,ERuestung};
 	std::vector<int> VGeldwurf;
+	// AbenteurerLernpunkte::GWR_Auswahl gwr_auswahl; ??
 	Abenteurer &a;
 
 	void lernschema_geld_wuerfeln(const std::vector<int>& VGeldwurf);

@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.5 2003/08/03 01:43:02 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.6 2003/08/11 06:26:33 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -361,13 +361,13 @@ void LaTeX_drucken::write_grundwerte(const Abenteurer &A,std::ostream &fout,bool
      case eboan : sfout += itos0p(W.bo_An(),0,true); break ;
      case eboab : sfout += itos0p(W.bo_Ab(),0,true); break ;
      case eboza : sfout += itos0p(W.bo_Za(),0,true); break ;
-     case ebopsy: sfout += itos0p(W.bo_Psy(A.getVTyp()),0,true); break ;
-     case ebophs: sfout += itos0p(W.bo_Phs(A.getVTyp()),0,true); break ;
-     case ebophk: sfout += itos0p(W.bo_Phk(A.getVTyp()),0,true); break ;
+     case ebopsy: sfout += itos0p(W.bo_Psy(),0,true); break ;
+     case ebophs: sfout += itos0p(W.bo_Phs(),0,true); break ;
+     case ebophk: sfout += itos0p(W.bo_Phk(),0,true); break ;
      case eres  : sfout += itos0p(W.Resistenz(),0,true); break ;
-     case epsy  : sfout += itos0p(W.Resistenz()+W.bo_Psy(A.getVTyp()),0,true); break ;
-     case ephs  : sfout += itos0p(W.Resistenz()+W.bo_Phs(A.getVTyp()),0,true); break ; 
-     case ephk  : sfout += itos0p(W.Resistenz()+W.bo_Phk(A.getVTyp()),0,true); break ;
+     case epsy  : sfout += itos0p(W.Resistenz()+W.bo_Psy(),0,true); break ;
+     case ephs  : sfout += itos0p(W.Resistenz()+W.bo_Phs(),0,true); break ; 
+     case ephk  : sfout += itos0p(W.Resistenz()+W.bo_Phk(),0,true); break ;
      case egift : sfout += itos(W.Gift()); break ;
      case eabwehr:sfout += itos0p(W.Abwehr_wert(),0,true); break ;
      case eabwehrfinal:

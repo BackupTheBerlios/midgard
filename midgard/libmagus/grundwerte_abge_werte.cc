@@ -1,4 +1,4 @@
-// $Id: grundwerte_abge_werte.cc,v 1.5 2003/08/03 01:43:02 christof Exp $
+// $Id: grundwerte_abge_werte.cc,v 1.6 2003/08/11 06:26:33 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -44,7 +44,7 @@ static Foo foo;
 	
 
 // Typ sollte besser in Grundwerte
-void Grundwerte::abge_werte_setzen(const Abenteurer &A)
+void Grundwerte::abge_werte_setzen()
 { ManuProC::Trace _t(trace_channel,__FUNCTION__);
   setGrad(1);
   { //Bewegungsweite
@@ -56,9 +56,9 @@ void Grundwerte::abge_werte_setzen(const Abenteurer &A)
   {
     int sb = Random::W100() + 3*(In()/10 + Wk()/10) - 30;
     // Boni für Selbstbeherrschung: Assassine, Beschwörer & Druide
-    sb += A.Typ1()->Sb() + A.Typ2()->Sb();
+    sb += Typ1()->Sb() + Typ2()->Sb();
     // Saddhu
-    if (A.Typ1()->Short() == "Sa") sb = 80+Random::W20();
+    if (Typ1()->Short() == "Sa") sb = 80+Random::W20();
     setSb(sb);
   }
 
@@ -66,8 +66,8 @@ void Grundwerte::abge_werte_setzen(const Abenteurer &A)
   // Ausdauer
   {
     int bo_au_typ;  
-    if      (A.Typ1()->Ausdauer() == "k" || A.Typ2()->Ausdauer() == "k" ) bo_au_typ = 4 ;
-    else if (A.Typ1()->Ausdauer() == "ak"|| A.Typ2()->Ausdauer() == "ak" ) bo_au_typ = 3 ;
+    if      (Typ1()->Ausdauer() == "k" || Typ2()->Ausdauer() == "k" ) bo_au_typ = 4 ;
+    else if (Typ1()->Ausdauer() == "ak"|| Typ2()->Ausdauer() == "ak" ) bo_au_typ = 3 ;
     else bo_au_typ = 2 ;
     int ap = Random::W6() + bo_Au() + bo_au_typ + Spezies()->AP_Bonus();
     if (ap<4) ap=4;
@@ -104,8 +104,8 @@ void Grundwerte::abge_werte_setzen(const Abenteurer &A)
   }
   {
     int istand=Random::W100();
-    int typstand1 = A.Typ1()->Stand();
-    int typstand2 = A.Typ2()->Stand();
+    int typstand1 = Typ1()->Stand();
+    int typstand2 = Typ2()->Stand();
     if(typstand1*typstand2 <= 0 ) istand += typstand1 + typstand2 ;
     else  // gleiches Vorzeichen
      { int t= (abs(typstand1)>abs(typstand2)) ? abs(typstand1) : abs(typstand2);
@@ -120,7 +120,7 @@ void Grundwerte::abge_werte_setzen(const Abenteurer &A)
        if (11<=istand&&istand<=50) stand =  Vstand[2];
        if (51<=istand&&istand<=90) stand =  Vstand[3];
        if (istand>=91) stand =  Vstand[4];
-       if (A.Typ1()->Short()=="MMa") stand =  Vstand[3];
+       if (Typ1()->Short()=="MMa") stand =  Vstand[3];
      }
     else if(Spezies()->Name()=="Halbling" ||
             Spezies()->Name()=="Waldgnom" ||
@@ -137,5 +137,5 @@ void Grundwerte::abge_werte_setzen(const Abenteurer &A)
      }
     setStand(stand);
    }
-  setGrad1Werte(A.getVTyp());
+  setGrad1Werte();
 }

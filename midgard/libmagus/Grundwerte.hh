@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.6 2003/08/02 14:55:37 christof Exp $               
+// $Id: Grundwerte.hh,v 1.7 2003/08/11 06:26:33 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -30,7 +30,6 @@
 
 class Grundwerte
 {
-   friend class Abenteurer;
    struct st_grund{int st;int gw;int gs;int ko;int in;int zt;
           st_grund() :st(0),gw(0),gs(0),ko(0),in(0),zt(0) {}
           st_grund(int _st,int _gw,int _gs,int _ko,int _in,int _zt)
@@ -65,12 +64,15 @@ class Grundwerte
 
    int steigern_EP_prozent;  
    int grad_basiswerte; 
-   void reset();
 
-   
+   std::vector<cH_Typen> Typ;
+   std::string muttersprache;
+
 
 public:
    Grundwerte();
+
+   void reset();
    void resetSinne() ;
    void setSt(int i) {grund.st=i;}
    void setGw(int i) {grund.gw=i;}
@@ -101,16 +103,16 @@ public:
    int ZaubernPP() const { return zauber_pp;}
    int SpezialPP() const { return pp_spezialzauber;}
    int Resistenz() const {return resistenz;}
-   const std::string Resistenzen_alle(const std::vector<cH_Typen>& Typ) const;
+   const std::string Resistenzen_alle() const;
    int ResistenzPP() const {return resistenz_pp;}
    int bo_Au() const;
    int bo_Sc() const;
    int bo_An() const; 
    int bo_Ab() const;
    int bo_Za() const;
-   int bo_Psy(const std::vector<cH_Typen>& Typ) const;
-   int bo_Phs(const std::vector<cH_Typen>& Typ) const;
-   int bo_Phk(const std::vector<cH_Typen>& Typ) const;
+   int bo_Psy() const;
+   int bo_Phs() const;
+   int bo_Phk() const;
    int KAW() const {return St()/10;}
    int WLW() const {return 40+Ko()/2;}
    int Geistesblitz() const {return In()/10;}
@@ -194,7 +196,7 @@ public:
    int Tasten() const {return getSinn("Tasten");}
    int SechsterSinn() const {return getSinn("Sechster Sinn");}
 
-   void setGrad1Werte(const std::vector<cH_Typen>& Typ);
+   void setGrad1Werte();
 
    void setZaubern_wert(int i){zaubern_wert=i;}
    void setAbwehr_wert(int i){abwehr_wert=i;}
@@ -257,6 +259,16 @@ public:
    void setKEP(int a) {kep=a;}
    void setZEP(int a) {zep=a;}
    
+   const cH_Typen &Typ1() const {return Typ[0];}
+   const cH_Typen &Typ2() const {return Typ[1];}
+   std::string STyp() const ;
+   void setTyp1(cH_Typen t) {Typ[0]=t;}
+   void setTyp2(cH_Typen t) {Typ[1]=t;}
+   const std::vector<cH_Typen> &getVTyp() const {return Typ;}
+   bool is_mage() const ;
+
+   std::string Muttersprache() const {return muttersprache;}
+   void setMuttersprache(std::string s) {muttersprache=s;}
 
    int get_Steigern_EP_Prozent() const {return steigern_EP_prozent;}
    int gold_kosten(int kosten) const;
@@ -280,7 +292,7 @@ public:
    std::string Ruestung_Angriff_Verlust(const std::list<MBEmlt>& list_Fertigkeit) const;
 
    // ================= aus table_grundwerte.hh ======================
-   	void abge_werte_setzen(const Abenteurer &A);
+   	void abge_werte_setzen();
    	
 //        void grundwerte_wuerfeln();
 //        void Eigenschaften_variante(int i);

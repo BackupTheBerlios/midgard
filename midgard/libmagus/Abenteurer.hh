@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.12 2003/08/02 22:27:43 christof Exp $               
+// $Id: Abenteurer.hh,v 1.13 2003/08/11 06:26:33 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -23,7 +23,7 @@
 #include <vector>
 #include "Ausruestung.hh"
 #include "Grundwerte.hh"
-#include "Typen.hh"
+//#include "Typen.hh"
 //#include "Datenbank.hh"
 //class Datenbank;
 #include "Optionen.hh"
@@ -32,13 +32,13 @@
 #include "Enums.hh"
 #include "Region.hh"
 #include <map>
+#include <Misc/compiler_ports.h>
 
-class Abenteurer
+// Vielleicht sollte AbenteurerLernpunkte hier noch rein ...
+class Abenteurer : public Grundwerte
 {
    AusruestungBaum besitz;
-   Grundwerte Werte;
-   std::vector<cH_Typen> Typ;
-   std::string muttersprache;
+//   Grundwerte Werte;
 
    std::list<MBEmlt> list_Beruf;
    std::list<MBEmlt> list_Fertigkeit_ang;
@@ -52,12 +52,11 @@ class Abenteurer
    std::list<MBEmlt> list_Sprache; 
    std::list<MBEmlt> list_Schrift;        
 
-   cH_Ruestung Ruestung(unsigned int i=0) const {return getWerte().Ruestung(i);}
+//   cH_Ruestung Ruestung(unsigned int i=0) const {return getWerte().Ruestung(i);}
    std::map<cH_Region,Model_copyable<bool> > regionen; // aktive Regionen
    Optionen optionen; // aktive Optionen
 
 public:
-   Abenteurer() {Typ.resize(2);}
 
    void reset(){  list_Beruf.clear();
              list_Fertigkeit_ang.clear();list_Fertigkeit.clear();
@@ -65,13 +64,13 @@ public:
              list_Waffen_besitz.clear();list_Zauber.clear();
              list_Zauberwerk.clear();list_Kido.clear();
              list_Sprache.clear();list_Schrift.clear(); 
-             Typ.clear(); Typ.resize(2);
+             Grundwerte::reset();
              }
 
    bool Valid() const;
 
-   Grundwerte &getWerte() {return Werte;}
-   const Grundwerte &getWerte() const {return Werte;}
+   __deprecated Grundwerte &getWerte() {return *this;}
+   __deprecated const Grundwerte &getWerte() const {return *this;}
    
    AusruestungBaum &getBesitz(){return besitz;}
    AusruestungBaum& getAusruestung_as_parent(const std::string &name);
@@ -89,15 +88,6 @@ public:
    std::string Ruestung_B_Verlust(bool ueberlast_beruecksichtigen=false) const;
 
 
-   const cH_Typen &Typ1() const {return Typ[0];}
-   const cH_Typen &Typ2() const {return Typ[1];}
-   std::string STyp() const ;
-   void setTyp1(cH_Typen t) {Typ[0]=t;}
-   void setTyp2(cH_Typen t) {Typ[1]=t;}
-   const std::vector<cH_Typen> &getVTyp() const {return Typ;}
-   bool is_mage() const ;
-   std::string Muttersprache() const {return muttersprache;}
-   void setMuttersprache(std::string s) {muttersprache=s;}
    void Steigertage2Alter();
 
 
@@ -153,8 +143,8 @@ public:
    const Optionen &getOptionen() const { return optionen; }
 
    bool operator==(const Abenteurer& a) const
-      {return getWerte().Name_Abenteurer()==a.getWerte().Name_Abenteurer() &&
-              getWerte().Version() == a.getWerte().Version() ;}
+      {return Name_Abenteurer()==a.Name_Abenteurer() &&
+              Version() == a.Version() ;}
 
    // (bool==true) => gelernt ; (bool==false) => universell(oder garnicht)
    const std::pair<int,bool> Erfolgswert(std::string name) const;
@@ -212,58 +202,6 @@ public:
   
    std::list<MBEmlt> &get_known_list(const Enums::MBEListen was);
    std::list<MBEmlt> &get_known_list(const MBEmlt &MBE);
-
-};
-
-class VAbenteurer
-{
-   public:
-      struct st_abenteurer{Abenteurer abenteurer;std::string filename;
-                           bool gespeichert;
-             st_abenteurer(const Abenteurer &A,bool g) : abenteurer(A),gespeichert(g) {}
-             st_abenteurer() : abenteurer(Abenteurer()),gespeichert(true){} 
-             bool operator==(const st_abenteurer& a) const 
-               {return abenteurer.getWerte().Name_Abenteurer()==a.abenteurer.getWerte().Name_Abenteurer() &&
-                       abenteurer.getWerte().Version() == a.abenteurer.getWerte().Version() ;}
-             };
-   private:
-      std::list<st_abenteurer> VA;
-      std::list<st_abenteurer>::iterator ai;
-
-      class sort {
-        public: sort() {}
-        bool operator()(st_abenteurer x,st_abenteurer y) const
-          { return x.abenteurer.getWerte().Gw() < y.abenteurer.getWerte().Gw() ;
-          }
-      };
-
-   public:
-      VAbenteurer() {}
-      
-      const std::list<st_abenteurer> &getList() const {return VA;}
-      std::list<st_abenteurer> &getList() {return VA;}
-      const Abenteurer &getCAbenteurer() const {return ai->abenteurer;}
-      Abenteurer &getAbenteurer() const {return ai->abenteurer;}
-      void sort_gw() {VA.sort(sort());}
-      void push_back();
-      void setAbenteurer(const std::list<VAbenteurer::st_abenteurer>::iterator &i);
-//      void set_Abenteurer(const Abenteurer& A);
-
-      void modified() {ai->gespeichert=false;}
-      void saved() {ai->gespeichert=true;}
-      bool gespeichert() const {return ai->gespeichert;}
-      void setFilename(std::string s) {ai->filename=s;}
-      const std::string &getFilename() {return ai->filename;}
-
-      bool unsaved_exist();
-      bool empty() const {return VA.empty();}
-      size_t size() const {return VA.size();}
-      void delete_empty();
-
-   const Abenteurer *operator->() const
-   {  return &ai->abenteurer; }
-   Abenteurer *operator->()
-   {  return &ai->abenteurer; }
 
 };
 

@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.12 2003/08/02 14:55:37 christof Exp $            
+// $Id: Abenteurer.cc,v 1.13 2003/08/11 06:26:33 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -18,7 +18,7 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#include "Abenteurer.hh"
+#include "VAbenteurer.hh"
 //#include "export_common.h"
 #include <Misc/TagStream.h>
 #include "Preise.hh"
@@ -40,19 +40,19 @@
 bool Abenteurer::Valid() const
 {
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
-  if(Typ.size()!=2) return false;
+  if(getVTyp().size()!=2) return false;
   return Typ1()->Valid();
 }
 
 
 
 
-std::string Abenteurer::STyp() const
+std::string Grundwerte::STyp() const
 {
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
-  if(Typ2()->Name(getWerte().Geschlecht())!="")
-   return Typ1()->Name(getWerte().Geschlecht())+"/"+Typ2()->Name(getWerte().Geschlecht());
-  else return Typ1()->Name(getWerte().Geschlecht());
+  if(Typ2()->Name(Geschlecht())!="")
+   return Typ1()->Name(Geschlecht())+"/"+Typ2()->Name(Geschlecht());
+  else return Typ1()->Name(Geschlecht());
   abort(); //never get here
 }
 
@@ -123,10 +123,10 @@ const std::list<Abenteurer::st_universell> Abenteurer::List_Universell() const
   return UF;
 }
 
-bool Abenteurer::is_mage() const 
+bool Grundwerte::is_mage() const 
 {  
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
-   if(Typ.size()!=2) return false;
+   if(getVTyp().size()!=2) return false;
    if(Typ1()->is_mage() || Typ2()->is_mage()) return true;
    else return false;
 }

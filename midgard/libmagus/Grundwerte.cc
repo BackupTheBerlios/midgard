@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.4 2003/08/02 14:55:37 christof Exp $               
+// $Id: Grundwerte.cc,v 1.5 2003/08/11 06:26:33 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -67,6 +67,10 @@ void Grundwerte::reset()
  ruestung.clear();
  ruestung.push_back(cH_Ruestung("OR",true));
  ruestung.push_back(cH_Ruestung("OR",true));
+
+ muttersprache=""; 
+ Typ.clear();
+ Typ.resize(2);
 }
 
 
@@ -137,7 +141,7 @@ int Grundwerte::bo_Za() const
   return bo_za;
 }
 
-int Grundwerte::bo_Psy(const std::vector<cH_Typen>& Typ) const
+int Grundwerte::bo_Psy() const
 {
  int bo_psy;  
  if(Spezies()->Psy(*this)) 
@@ -173,7 +177,7 @@ int Grundwerte::bo_Psy(const std::vector<cH_Typen>& Typ) const
   return bo_psy;
 }
 
-int Grundwerte::bo_Phs(const std::vector<cH_Typen>& Typ) const
+int Grundwerte::bo_Phs() const
 {
  int bo_phs;
  if(Spezies()->Phs(*this)) 
@@ -209,7 +213,7 @@ int Grundwerte::bo_Phs(const std::vector<cH_Typen>& Typ) const
   return bo_phs;
 }
 
-int Grundwerte::bo_Phk(const std::vector<cH_Typen>& Typ) const
+int Grundwerte::bo_Phk() const
 {
   int bo_phk =0;   
  if(Spezies()->Phk(*this)) 
@@ -227,12 +231,12 @@ int Grundwerte::bo_Phk(const std::vector<cH_Typen>& Typ) const
   return bo_phk;
 }
 
-const std::string Grundwerte::Resistenzen_alle(const std::vector<cH_Typen>& Typ) const
+const std::string Grundwerte::Resistenzen_alle() const
 {
  int R=Resistenz();
- int R1=R+bo_Psy(Typ);
- int R2=R+bo_Phs(Typ);
- int R3=R+bo_Phk(Typ);
+ int R1=R+bo_Psy();
+ int R2=R+bo_Phs();
+ int R3=R+bo_Phk();
  int R4=Gift();
  std::string s=itos(R1)+"/"+itos(R2)+"/"+itos(R3)+"/"+itos(R4);
  return s;
@@ -283,7 +287,7 @@ std::string Grundwerte::Version() const
   return version;
 }
 
-void Grundwerte::setGrad1Werte(const std::vector<cH_Typen>& Typ)
+void Grundwerte::setGrad1Werte()
 {
   setSinn("Sechster Sinn",Zt()/25);
   setAbwehr_wert(11) ;
@@ -430,5 +434,6 @@ Grundwerte::Grundwerte()
              stand(""),glaube(""),name_abenteurer(""),version("Erschaffung"),
              gfp(),steigertage(),gold(), silber(), kupfer(),
              aep(),kep(),zep(),spezies("Mensch"),
-             stadt_land(Enums::Stadt), steigern_EP_prozent(50), grad_basiswerte(1)
+             stadt_land(Enums::Stadt), steigern_EP_prozent(50), grad_basiswerte(1),
+             Typ(2)
 { reset(); }

@@ -62,7 +62,7 @@ void Zufall::Teil(e_Vorgabe vorgabe,const Abenteurer &A)
    Aben.getWerte().setGeschlecht(getGeschlecht());
    if(!(vorgabe&B_Typ) || !oldAben.Valid())      Aben.setTyp1(getTyp());
    else             Aben.setTyp1(oldAben.Typ1());
-   Aben.getWerte().abge_werte_setzen(Aben);
+   Aben.getWerte().abge_werte_setzen();
    if(vorgabe&B_Au)       Aben.getWerte().setAu(oldAben.getWerte().Au());
    if(vorgabe&B_pA)       Aben.getWerte().setpA(oldAben.getWerte().pA());
    if(vorgabe&B_Wk)       Aben.getWerte().setWk(oldAben.getWerte().Wk());
