@@ -1,4 +1,4 @@
-// $Id: gw_wuerfeln.cc,v 1.20 2001/12/13 21:53:48 thoma Exp $
+// $Id: gw_wuerfeln.cc,v 1.21 2001/12/13 22:34:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,13 +32,16 @@
 
 gint midgard_CG::on_button_grundwerte_button_release_event(GdkEventButton *ev)
 {
-  if (ev->button==1) gw_wuerfeln_2x();
-  if (ev->button==3)
+  if      (ev->button==1) 
+   { gw_wuerfeln_2x();
+     table_werte_wuerfeln->hide();
+   }
+  else if (ev->button==3)
    {
      Random random;
      std::vector<int> V;
      for(int i=0;i<9;++i) V.push_back(random.integer(1,100)) ;
-     sort(V.begin(),V.end());
+     sort(V.rbegin(),V.rend());
      button_wert_1->remove();
      button_wert_1->add_label(itos(V[0]));
      button_wert_2->remove();
@@ -117,8 +120,8 @@ void midgard_CG::set_werte_label(Gtk::Label *L)
             button_wert_6->set_sensitive(false);
             table_werte_wuerfeln->hide();
         } 
-     ++werte_label_count;
    }
+  ++werte_label_count;
 }
 
 void midgard_CG::on_button_wert_1_clicked()
