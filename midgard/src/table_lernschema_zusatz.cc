@@ -25,6 +25,10 @@
 #include "Schrift.hh"
 #include "LernListen.hh"
 #include <typeinfo> // for bad_cast
+#if MPC_SIGC_VERSION > 0x120
+#  include <sigc++/compatibility.h>
+#  include <sigc++/bind.h>
+#endif
 static SigC::Connection connection;
 #include <libmagus/Ausgabe.hh>
 #include <gdk/gdk.h>

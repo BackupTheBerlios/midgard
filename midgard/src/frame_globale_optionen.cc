@@ -8,6 +8,9 @@
 #include <gtkmm/separator.h>
 #include <int_SpinButton.hh>
 #include <bool_CheckButton.hh>
+#if MPC_SIGC_VERSION > 0x120
+#  include <sigc++/bind.h>
+#endif
 
 void frame_globale_optionen::set_Hauptfenster(midgard_CG *h)
 {
