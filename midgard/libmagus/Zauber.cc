@@ -67,7 +67,7 @@ cH_Zauber::cH_Zauber(const std::string& name, bool create)
 }
 
 cH_Zauber::cH_Zauber(const Tag *tag)
-{*this=cH_Zauber(new Zauber(tag));
+{*this=cH_Zauber(new Zauber(*tag));
  cache.Register(tag->getAttr("Name"),*this);
 }
 
@@ -96,14 +96,14 @@ void Zauber::get_Zauber(const Tag &t)
     
     enum_zusatz=MidgardBasicElement::eZusatz(t.getIntAttr("Zusätze",ZNone));
 
-    FOR_EACH_CONST_TAG_OF(i,tag,"Zusätze")
+    FOR_EACH_CONST_TAG_OF(i,t,"Zusätze")
       Vzusatz.push_back(st_zusatz(i->getAttr("Name"),i->getAttr("Typ"),
                          i->getAttr("Region"),i->getAttr("RegionZusatz"),""));
                                
-    FOR_EACH_CONST_TAG_OF(i,tag,"AgensTyp")
+    FOR_EACH_CONST_TAG_OF(i,t,"AgensTyp")
          map_typ_agens[cH_Typen(i->getAttr("Typ"),true)]=i->getAttr("Agens");
 
-    FOR_EACH_CONST_TAG_OF(i,tag,"regionaleBesonderheit")
+    FOR_EACH_CONST_TAG_OF(i,t,"regionaleBesonderheit")
          VAusnahmen.push_back(st_ausnahmen(i->getAttr("Herkunft"),
                               i->getAttr("Spezies"),
                               i->getAttr("Typ"),
@@ -201,16 +201,17 @@ bool Zauber::spruchrolle_wuerfeln(const Abenteurer &A,std::string &info,const in
 }
 
 cH_Zauber cH_Zauber::load(const Tag &t,bool &is_new)
-{  cH_Zauber res=cache[t.getAttr("Name")];
+{  cH_Zauber *res=cache.lookup(t.getAttr("Name"));
    if (!res)
-   {  res=new Zauber(t);
+   {  cH_Zauber r2=new Zauber(t);
       is_new=true;
-      cache[t.getAttr("Name")]=res;
+      cache.Register(t.getAttr("Name"),r2);
+      return r2;
    }
    else 
-   {  const_cast<Zauber&>(*res).load(t);
+   {  const_cast<Zauber&>(**res).load(t);
+      return *res;
    }
-   return res;
 }
 
 Zauber_All::Zauber_All()
