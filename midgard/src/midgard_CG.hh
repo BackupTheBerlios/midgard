@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.240 2002/05/14 14:01:44 thoma Exp $
+// $Id: midgard_CG.hh,v 1.241 2002/05/15 08:45:29 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -185,7 +185,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         int maxkido;
         bool steigern_mit_EP_bool;
 
-        vector<cH_Typen> Typ;
+        std::vector<cH_Typen> Typ;
         Lernpunkte lernpunkte;
      
      	  std::string filename;

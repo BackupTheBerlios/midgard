@@ -30,6 +30,7 @@ void table_grundwerte::init(midgard_CG *h)
     
 void table_grundwerte::zeige_werte()
 { 
+   if(!hauptfenster) return;
    spinbutton_st->set_value(hauptfenster->getCWerte().St());
    spinbutton_gw->set_value(hauptfenster->getCWerte().Gw());
    spinbutton_gs->set_value(hauptfenster->getCWerte().Gs());
@@ -102,6 +103,7 @@ void table_grundwerte::zeige_werte()
 
 void table_grundwerte::neuer_charakter()
 {
+   if(!hauptfenster) return;
    button_grundwerte->set_sensitive(true);
    button_abg_werte->set_sensitive(false);
    table_werte_wuerfeln->hide();
@@ -111,6 +113,7 @@ void table_grundwerte::neuer_charakter()
    fill_typauswahl();
    fill_spezies();
    spezieswahl_button();
+   zeige_werte();
 }
 
 

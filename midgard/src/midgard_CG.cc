@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.224 2002/05/14 14:01:44 thoma Exp $
+// $Id: midgard_CG.cc,v 1.225 2002/05/15 08:45:28 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -399,12 +399,9 @@ void midgard_CG::on_neuer_charakter_clicked()
    label_EP->set_text("50%");
    label_Gold->set_text("50%");
 
-//  magie_bool=false;
   menu_init();
-//  fill_typauswahl();
-//  fill_spezies();
-//  spezieswahl_button();
   zeige_lernpunkte();
+  table_grundwerte->neuer_charakter();
 }
 
 void midgard_CG::on_schliessen_CG_clicked()

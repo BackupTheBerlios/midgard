@@ -25,8 +25,8 @@ class table_grundwerte : public table_grundwerte_glade
         midgard_CG *hauptfenster;
 public:
         
-        table_grundwerte(GlademmData *_data) : table_grundwerte_glade(_data)
-         {}
+        table_grundwerte(GlademmData *_data) 
+            : table_grundwerte_glade(_data), hauptfenster(0) {}
         void init(midgard_CG *hauptfenster);
         void fill_typauswahl();  
         void fill_typauswahl_2();

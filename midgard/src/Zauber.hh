@@ -1,4 +1,4 @@
-// $Id: Zauber.hh,v 1.38 2002/05/02 13:01:34 thoma Exp $               
+// $Id: Zauber.hh,v 1.39 2002/05/15 08:45:28 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,6 +34,7 @@ class Zauber : public MidgardBasicElement
       zauberart,element; 
    bool spruchrolle;
    mutable double spruchrolle_faktor;
+   mutable std::map<cH_Typen,std::string> map_typ_agens;
 
    void get_Zauber();
  public: 
@@ -57,7 +58,7 @@ class Zauber : public MidgardBasicElement
    std::string Wirkungsbereich() const {return wirkungsbereich;}
    std::string Ursprung() const {return ursprung;}
    std::string Material() const { return material;}
-   std::string Agens() const { return agens;}
+   std::string Agens(const std::vector<cH_Typen> &Typ) const; 
    std::string Prozess() const { return prozess;}
    std::string Reagens() const { return reagens;}
    std::string Beschreibung() const { return beschreibung;}
@@ -69,7 +70,7 @@ class Zauber : public MidgardBasicElement
    int Erfolgswert_Z(const vector<cH_Typen>& Typ,const Grundwerte& Werte) const;
    int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const 
          {return 0;} //wg. virtueller Funktion
-   int get_spezial_zauber_for_magier(const Grundwerte& Werte,const std::string& standard) const;
+   int get_spezial_zauber_for_magier(const Grundwerte& Werte,const std::vector<cH_Typen> &Typ,const std::string& standard) const;
 
 //   static void set_Spruchrolle(std::list<cH_MidgardBasicElement>&,bool sp) const;
 };

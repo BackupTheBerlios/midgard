@@ -83,6 +83,9 @@ void Zauber::get_Zauber()
     FOR_EACH_CONST_TAG_OF(i,*tag,"Zusätze")
          Vzusatz.push_back(i->getAttr("Name"));
 
+//    FOR_EACH_CONST_TAG_OF(i,*tag,"AgensTyp")
+//         map_typ_agens[cH_Typen(i->getAttr("Typ"))]=i->getAttr("Agens");
+
     FOR_EACH_CONST_TAG_OF(i,*tag,"regionaleBesonderheit")
          VAusnahmen.push_back(st_ausnahmen(i->getAttr("Herkunft"),
                               i->getAttr("Spezies"),
@@ -111,9 +114,9 @@ int Zauber::Erfolgswert_Z(const vector<cH_Typen>& Typ,const Grundwerte& Werte) c
 
    int ispez=0;
    if (Typ[0]->Short()=="Ma")
-      ispez = get_spezial_zauber_for_magier(Werte,standard[0]);
+      ispez = get_spezial_zauber_for_magier(Werte,Typ,standard[0]);
    if (Typ[1]->Short()=="Ma") 
-      ispez = get_spezial_zauber_for_magier(Werte,standard[1]);
+      ispez = get_spezial_zauber_for_magier(Werte,Typ,standard[1]);
 
 //cout << Name()<<' '<<Werte.Zaubern_wert()<<'+'<<Werte.bo_Za()<<'+'<<ifac<<'+'<<ispez<<'=';
    int erf = Werte.Zaubern_wert()+Werte.bo_Za() + ifac + ispez ;
@@ -121,13 +124,22 @@ int Zauber::Erfolgswert_Z(const vector<cH_Typen>& Typ,const Grundwerte& Werte) c
    return erf;
 }
 
-int Zauber::get_spezial_zauber_for_magier(const Grundwerte& Werte,const std::string& standard) const
+int Zauber::get_spezial_zauber_for_magier(const Grundwerte& Werte,const std::vector<cH_Typen> &Typ,const std::string& standard) const
 {
  int ispez=0;
- if (standard!="G" && Agens()==Werte.Spezialgebiet()->Spezial()) ispez = 2;
+ if (standard!="G" && Agens(Typ)==Werte.Spezialgebiet()->Spezial()) ispez = 2;
  if (standard!="G" && Prozess()==Werte.Spezialgebiet()->Spezial()) ispez = 2;
  return ispez;
 }
+
+std::string Zauber::Agens(const std::vector<cH_Typen> &Typ) const
+{
+   cH_Typen T=Typ[0];
+   if(map_typ_agens[Typ[0]]!="") return map_typ_agens[Typ[0]];
+   if(map_typ_agens[Typ[1]]!="") return map_typ_agens[Typ[0]];
+   return agens;
+}
+
 
 
 Zauber_All::Zauber_All(Gtk::ProgressBar *progressbar)

@@ -1,4 +1,4 @@
-// $Id: Typen.hh,v 1.16 2002/05/06 12:03:01 thoma Exp $               
+// $Id: Typen.hh,v 1.17 2002/05/15 08:45:28 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -74,6 +74,9 @@ public:
    
    bool operator==(const Typen &b) const
    {  return typs==b.typs;
+   }
+   bool operator<(const Typen &b) const
+   {  return typs<b.typs;
    }
 };
 

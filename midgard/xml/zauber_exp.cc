@@ -1,4 +1,4 @@
-// $Id: zauber_exp.cc,v 1.10 2002/05/02 13:52:02 thoma Exp $
+// $Id: zauber_exp.cc,v 1.11 2002/05/15 08:45:29 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -72,6 +72,18 @@ void arkanum_speichern(std::ostream &o)
       while ((queryZu>>isZu).good())
       {  o << "    <Zusätze";
          fetch_and_write_string_attrib(isZu, o, "Name");
+         o << "/>\n";
+      }
+   }  
+                                                                    
+   //********** Agens **********************************
+   {  Query queryAg("select typ,agens from zauber_typen "
+      " where name='"+zauber+"' and agens is not null");
+      FetchIStream isAg;
+      while ((queryAg>>isAg).good())
+      {  o << "    <AgensTyp";
+         fetch_and_write_string_attrib(isAg, o, "Typ");
+         fetch_and_write_string_attrib(isAg, o, "Agens");
          o << "/>\n";
       }
    }  

@@ -23,6 +23,7 @@
 
 void table_grundwerte::fill_typauswahl()
 {
+  if(!hauptfenster) return;
   fill_typauswahl_fill(1);
   typauswahl->get_menu()->deactivate.connect(SigC::slot(this, &table_grundwerte::typauswahl_button));
   if (!hauptfenster->Typ.empty()) Gtk::Menu_Helpers::SelectMatching(*typauswahl,hauptfenster->Typ[0]);
@@ -30,6 +31,7 @@ void table_grundwerte::fill_typauswahl()
 
 void table_grundwerte::fill_typauswahl_2()
 {
+  if(!hauptfenster) return;
   fill_typauswahl_fill(2);
   typauswahl_2->get_menu()->deactivate.connect(SigC::slot(this, &table_grundwerte::typauswahl_2_button));
   if (hauptfenster->Typ.size()>1) Gtk::Menu_Helpers::SelectMatching(*typauswahl_2,hauptfenster->Typ[1]);
@@ -138,6 +140,7 @@ void table_grundwerte::on_radiobutton_stadt_land_toggled()
 
 void table_grundwerte::doppelcharaktere()
 {
+   if(!hauptfenster) return;
    fill_typauswahl_2();
    typauswahl_2->show();
    typauswahl_2_button();
@@ -169,6 +172,7 @@ void table_grundwerte::on_radiobutton_mann_toggled()
 
 void table_grundwerte::kaempfer_lernt_zaubern()
 {
+  if(!hauptfenster) return;
   doppelcharaktere();
   hauptfenster->InfoFenster->AppendShow("Jetzt unter 'Grundwerte' die zweite Charkakterklasse wählen\n",WindowInfo::None);
   if (hauptfenster->getCWerte().Zaubern_wert()==2) 
