@@ -182,7 +182,7 @@ void Preise::saveArtikel(const std::string &Filename,midgard_CG *hauptfenster,
    ts.setEncoding("ISO-8859-1");
 
    Tag &RootTag=hauptfenster->tag_eigene_artikel;
-   Tag *TeA_=RootTag->find("Preise");
+   Tag *TeA_=RootTag.find("Preise");
    if(!TeA_) TeA_=&RootTag.push_back(Tag("Preise"));
 
 //   Tag &TeA_=RootTag.push_back(Tag("Preise"));
