@@ -155,18 +155,18 @@ std::list<MBEmlt> MagusKI::KI_GSA_Liste(const std::list<MBEmlt> &L)
   if(g)
    { if     (!Grund.empty())    return Grund;
      else if(!Standard.empty()) return Standard;
-     else if(!Ausnahme.empty()) return Ausnahme;
+     else                       return Ausnahme;
    }
   else if(s)
    { if     (!Standard.empty()) return Standard;
      else if(!Grund.empty())    return Grund;
-     else if(!Ausnahme.empty()) return Ausnahme;
+     else                       return Ausnahme;
    }
   else if(a)
    {
      if     (!Ausnahme.empty()) return Ausnahme;
      else if(!Standard.empty()) return Standard;
-     else if(!Grund.empty()) return Grund;
+     else                       return Grund;
    }  
   assert(!"never get here\n");
   abort();
