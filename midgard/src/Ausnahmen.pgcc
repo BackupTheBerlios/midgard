@@ -16,20 +16,32 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#include "midgard_CG.hh"
 #include <Aux/Transaction.h>
 #include <Aux/SQLerror.h>
 exec sql include sqlca;
+#include <class_Ausnahmen.hh>
+#include <midgard_CG.hh>
 
 
-bool midgard_CG::Ausnahmen_bool(const std::string& name)
+/*
+bool Data_Ausnahmen::Ausnahmen_bool(const std::string& name)
 {
  abort();
 }
+*/
 
-void midgard_CG::get_Ausnahmen()
+Ausnahmen::cache_t Ausnahmen::cache;
+
+Ausnahmen::Ausnahmen(const Grundwerte& Werte,const Data_typen& Typ, 
+   const Data_typen& Typ2, std::vector<H_Data_beruf>& vec_Beruf)
 {
- vec_ausnahmen.clear();
+  st_index index(Werte.Name_Charakter(),Werte.Version());
+  vector<cH_Data_Ausnahmen> *cached(cache.lookup(index));
+   if (cached)
+   {  vec_Ausnahmen=*cached;
+      return;
+   }
+ 
  exec sql begin declare section;
    char db_name[50], db_art[5], db_standard[5];
    char query[1024];
@@ -40,8 +52,8 @@ void midgard_CG::get_Ausnahmen()
     if (n==0)
      { 
        squery = "select name, art, standard from ausnahmen \
-         where (spezies = '"+werte.spezies+"' or spezies=null) \
-         and (herkunft = '"+werte.herkunft+"' or herkunft = null) \
+         where (spezies = '"+Werte.Spezies()+"' or spezies=null) \
+         and (herkunft = '"+Werte.Herkunft()+"' or herkunft = null) \
          and typ = '"+Typ.Short()+"'";
          if (Typ2.Short()!="") squery += "or typ = '"+Typ2.Short()+"'";
       }
@@ -49,10 +61,10 @@ void midgard_CG::get_Ausnahmen()
       { 
        squery = "select name, art, standard from ausnahmen \
          where typ=null \
-         and (herkunft = '"+werte.herkunft+"'";
+         and (herkunft = '"+Werte.Herkunft()+"'";
          for(std::vector<H_Data_beruf>::iterator i=vec_Beruf.begin();i!=vec_Beruf.end();++i)
             squery += " or beruf = '"+(*i)->Name()+"' ";
-         squery += " or  stand = '"+werte.stand+"' )";
+         squery += " or  stand = '"+Werte.Stand()+"' )";
       }
      else abort();
      strncpy (query,squery.c_str(),sizeof(query));
@@ -82,29 +94,37 @@ void midgard_CG::get_Ausnahmen()
            else abort();
          }
         else abort();
-        vec_ausnahmen.push_back(st_ausnahmen(db_name,db_art,fac,db_standard)); 
+        vec_Ausnahmen.push_back(new Data_Ausnahmen(db_name,db_art,fac,db_standard)); 
       }
     tr.close();
    }   
+   cache.Register(index,vec_Ausnahmen);
+   
 /*
- for (std::vector<st_ausnahmen>::const_iterator i=vec_ausnahmen.begin();
-         i!=vec_ausnahmen.end();++i)
-   std::cout <<i->name<<"\t" <<i->art<<"\t"<<i->fac<<"\t"<<i->standard<<"\n";
+ for (std::vector<Data_Ausnahmen>::const_iterator i=vec_Ausnahmen.begin();
+         i!=vec_Ausnahmen.end();++i)
+   std::cout <<(*i)->Name()<<"\t" <<(*i)->Art()<<"\t"<<(*i)->Fac()<<"\t"<<(*i)->Standard()<<"\n";
 */
 }
 
-float midgard_CG::Ausnahmen_float(const std::string& name)
+float Ausnahmen::Ausnahmen_float(const std::string& name)
 {
- for (std::vector<st_ausnahmen>::const_iterator i=vec_ausnahmen.begin();
-         i!=vec_ausnahmen.end();++i)
-   if (i->name==name) return i->fac;
+//cout << "\n\nSize = "<< vec_Ausnahmen.size()<<"\n";
+// for (std::vector<cH_Data_Ausnahmen>::const_iterator i=vec_Ausnahmen.begin();
+//         i!=vec_Ausnahmen.end();++i)
+//cout << (*i)->Name()<<"\t"<<(*i)->Fac()<<"\t"<<(*i)->Art()<<"\n";
+
+ for (std::vector<cH_Data_Ausnahmen>::const_iterator i=vec_Ausnahmen.begin();
+         i!=vec_Ausnahmen.end();++i)
+   if ((*i)->Name()==name) return (*i)->Fac();
  return 0;
 }
 
-std::string midgard_CG::Ausnahmen_string(const std::string& name, const std::string& alt,const std::string& alt2)
+std::string Ausnahmen::Ausnahmen_string(const std::string& name, 
+               const std::string& alt,const std::string& alt2)
 {
- for (std::vector<st_ausnahmen>::const_iterator i=vec_ausnahmen.begin();
-         i!=vec_ausnahmen.end();++i)
-   if (i->name==name) return i->standard;
+ for (std::vector<cH_Data_Ausnahmen>::const_iterator i=vec_Ausnahmen.begin();
+         i!=vec_Ausnahmen.end();++i)
+   if ((*i)->Name()==name) return (*i)->Standard();
   return alt+" "+alt2;
 }
