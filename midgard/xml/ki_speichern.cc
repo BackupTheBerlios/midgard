@@ -1,4 +1,4 @@
-// $Id: ki_speichern.cc,v 1.4 2003/09/09 06:17:55 christof Exp $
+// $Id: ki_speichern.cc,v 1.5 2003/09/09 06:23:26 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -55,7 +55,7 @@ void ki_speichern(Tag &o)
    {
      Tag &proto=KI.push_back(Tag("Prototyp2"));
      std::string n=fetch_and_set_string_attrib(is, proto, "Name");
-     Query query2("select art,name,faktor "
+     Query query3("select art,name,faktor "
                    "from prototyp2 "
                    "where bezeichnung=? "
                    "order by art,name");

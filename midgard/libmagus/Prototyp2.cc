@@ -66,14 +66,12 @@ cH_Prototyp2::cH_Prototyp2(const std::string& name,bool create)
 Prototyp2::Prototyp2(const Tag &tag)
 {
   name=tag.getAttr("Name"); // Info, Wissen, Natur, ....
-  FOR_EACH_CONST_TAG_OF(i,tag,"Eigenschaft")
-    {
-      std::string art=i->getAttr("Art");
-      if     (art=="Z") lzauber.push_back(st_protolisten(
+  FOR_EACH_CONST_TAG(i,tag)
+    { if     (i->Type()=="Zauber") lzauber.push_back(st_protolisten(
                     i->getAttr("Name"),i->getFloatAttr("Faktor")));
-      else if(art=="F") lfertigkeiten.push_back(st_protolisten(
+      else if(i->Type()=="Fertigkeit") lfertigkeiten.push_back(st_protolisten(
                     i->getAttr("Name"),i->getFloatAttr("Faktor")));
-      else {Ausgabe(Ausgabe::Fatal,"Art = "+art); assert(!"Art nicht definiert");}
+      else {Ausgabe(Ausgabe::Fatal,"Art = "+i->Type()); assert(!"Art nicht definiert");}
     }
 
 }
