@@ -626,7 +626,7 @@ Thrymbar beschwören	600	3	Geste	3	3	\N	Luft	Beschwörung	Magan	bewegt	Feuer	1,5 h
 Thursenstein	3000	6	Geste	5	\N	\N	\N	\N	Erde	verwandelt	Erde	10 s	0	Umgebung	1 Ob	10 s	druidisch	Zauberkiesel	f		\N	\N
 Tibb al-Mumani	600	6	Tanz	3	E	\N	\N	Tanz	Magan	bewegt	Feuer	20 min	15 m	Körper	1 Ws, 1Ob	-	göttlich		f		\N	\N
 Tiefschlaf	3000	6	Geste	5	H&D	\N	\N	\N				10 s	B	Körper	1 Ws	6 h	druidisch		f	Siegel	\N	\N
-Tiere rufen	600	3-9	Wort	3	\N	\N	\N	\N	Magan	beherrscht	Wasser	10 s	2 km	Geist	max 10 Ws	10 min	druidisch		t		\N	\N
+Tiere rufen	600	3-9	Wort	3	\N	\N	\N	\N	Magan	beherrscht	Wasser	10 s	2 km	Geist	max 10 Ws	10 min	druidisch		t		1	\N
 Tiergestalt	2000	6	Geste	5	\N	\N	\N	\N	Wasser	verwandelt	Erde	20 s	0	Körper	Zauberer	perm	druidisch	Fellstück oder Feder	f		\N	\N
 Tierisches Handeln	3000	#Ws*6	Geste	5	\N	\N	\N	\N	Wasser	beherrscht	Luft	20 s	30 m	Geist	max 3 Ws	var	dämonisch	Tierblutmischung	t	Siegel	\N	\N
 Tierrune	2000	5	Geste	5	W	\N	\N	Runen	Wasser	verwandelt	Erde	30 min	-	Körper	Zauberer	w6 h	göttlich	Knochenstück	f	\N	\N	\N
