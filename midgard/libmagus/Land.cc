@@ -20,6 +20,7 @@
 #include "Land.hh"
 #include "MidgardBasicElement.hh" // für NotFound
 #include "Abenteurer.hh"
+#include <iostream>
 
 cH_Land::cache_t cH_Land::cache;
 
