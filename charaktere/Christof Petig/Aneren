@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<Midgard-Charakter Version="3">
+<Midgard-Charakter Version="4">
   <Figur Name="Aneren" Spieler="Christof Petig" Zeitpunkt="Smaskrifter" Grad="7"/>
-  <Typ Spezies="Mensch" Geschlecht="w" Abkürzung="Hl"/>
+  <Typ Spezies="Mensch" Geschlecht="w" Abkürzung="Hl" Abkürzung2="wHx"/>
   <Basiseigenschaften St="59" Ge="82" Ko="92" In="100" Zt="93"/>
   <abgeleiteteEigenschaften Au="40" pA="72" Sb="64" RW="78" HGW="78" B="25" KAW="2" WLW="80"/>
   <Erfolgswerte Abwehr="13" Zaubern="17"/>
@@ -10,45 +10,51 @@
   <Gesundheit LP_Basis="12" LP="16" AP="39"/>
   <Beschreibung Alter="28" Gestalt="breit" Gewicht="73" Größe="171" Stand="Mittelschicht" Herkunft="Erainn" Glaube="Kebechet"/>
   <Boni Ausdauer="3" Abwehr="1" Zaubern="2">
-    <Resistenzen psy="6" phs="4" phk="3" Gift="5"/>
+    <Resistenzen psy="9" phs="5" phk="6" Gift="5"/>
   </Boni>
-  <GFP>5835</GFP>
-  <Vermoegen/>
-  <Rüstung>OR</Rüstung>
+  <GFP>6053</GFP>
+  <Vermögen/>
+  <Ausrüstung>
+    <Rüstung>TR</Rüstung>
+  </Ausrüstung>
   <Fertigkeiten>
     <Beruf Bezeichnung="Gelehrter" Wert="14"/>
     <Fertigkeit Bezeichnung="Erste Hilfe"/>
+    <Fertigkeit Bezeichnung="Kamelreiten" Wert="12"/>
     <Fertigkeit Bezeichnung="Klettern" Wert="12"/>
-    <Fertigkeit Bezeichnung="Kräuterkunde" Wert="6"/>
+    <Fertigkeit Bezeichnung="Kräuterkunde" Wert="7"/>
     <Fertigkeit Bezeichnung="Lesen von Zauberschrift"/>
-    <Fertigkeit Bezeichnung="Lesen/Schreiben"/>
-    <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="6"/>
-    <Fertigkeit Bezeichnung="Reiten" Wert="12"/>
-    <Fertigkeit Bezeichnung="Sagenkunde" Wert="2"/>
+    <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="4"/>
+    <Fertigkeit Bezeichnung="Schwimmen" Wert="12"/>
     <Fertigkeit Bezeichnung="TaiTschi"/>
+    <Fertigkeit Bezeichnung="Tierkunde" Wert="3"/>
+    <Fertigkeit Bezeichnung="Wahrnehmung" Wert="6"/>
     <Fertigkeit Bezeichnung="Wissen von der Magie"/>
-    <Fertigkeit Bezeichnung="YangScheng" Wert="1"/>
-    <Fertigkeit Bezeichnung="Zauberkunde" Wert="6"/>
+    <Fertigkeit Bezeichnung="YangScheng" Wert="2"/>
+    <Fertigkeit Bezeichnung="Zauberkunde" Wert="9"/>
+    <Fertigkeit Bezeichnung="Überleben in der Wüste" Wert="11"/>
     <Grundkenntnis Bezeichnung="Magierstab"/>
-    <Region Bezeichnung="Region"/>
-    <Region Bezeichnung="Region"/>
-    <Sprache Bezeichnung="Albisch" Wert="1"/>
-    <Sprache Bezeichnung="Chryseisch" Wert="1"/>
-    <Sprache Bezeichnung="Comentang" Wert="1"/>
-    <Sprache Bezeichnung="Dvarskar" Wert="1"/>
-    <Sprache Bezeichnung="Eldalyn" Wert="1"/>
-    <Sprache Bezeichnung="Erainnisch" Wert="1"/>
-    <Sprache Bezeichnung="Gnomenon" Wert="1"/>
-    <Sprache Bezeichnung="KanThaiTun" Wert="1"/>
-    <Sprache Bezeichnung="Maralinga" Wert="1"/>
-    <Sprache Bezeichnung="Meketisch" Wert="1"/>
-    <Sprache Bezeichnung="Scharidisch" Wert="1"/>
+    <Region Region="E"/>
+    <Region Region="K"/>
+    <Sprache Bezeichnung="Albisch" Wert="4"/>
+    <Sprache Bezeichnung="Chryseisch" Wert="4"/>
+    <Sprache Bezeichnung="Comentang" Wert="2"/>
+    <Sprache Bezeichnung="Dvarskar" Wert="3"/>
+    <Sprache Bezeichnung="Eldalyn" Wert="2"/>
+    <Sprache Bezeichnung="Erainnisch" Wert="4"/>
+    <Sprache Bezeichnung="Gnomenon" Wert="3"/>
+    <Sprache Bezeichnung="KanThaiTun" Wert="4"/>
+    <Sprache Bezeichnung="Maralinga" Wert="2"/>
+    <Sprache Bezeichnung="Meketisch" Wert="4"/>
+    <Sprache Bezeichnung="Moravisch" Wert="4"/>
+    <Sprache Bezeichnung="Scharidisch" Wert="3"/>
+    <Sprache Bezeichnung="Twyneddisch" Wert="1"/>
     <Urschrift Bezeichnung="KanThaiTun(1)"/>
     <Urschrift Bezeichnung="KanThaiTun(2)"/>
     <Urschrift Bezeichnung="Meketisch"/>
     <Urschrift Bezeichnung="Seemeister"/>
     <Urschrift Bezeichnung="Tegarisch"/>
-    <Waffe Bezeichnung="Magierstab" Wert="4"/>
+    <Waffe Bezeichnung="Magierstab" Wert="6"/>
     <Zauber Bezeichnung="Allheilung" Wert="19"/>
     <Zauber Bezeichnung="Austreibung des Bösen" Wert="17"/>
     <Zauber Bezeichnung="Bannen von Dunkelheit" Wert="19"/>
@@ -63,14 +69,18 @@
     <Zauber Bezeichnung="Handauflegen" Wert="19"/>
     <Zauber Bezeichnung="Heilen von Krankheit" Wert="19"/>
     <Zauber Bezeichnung="Heilen von Wunden" Wert="19"/>
+    <Zauber Bezeichnung="Lehrersuche"/>
+    <Zauber Bezeichnung="Lähmung" Wert="19"/>
     <Zauber Bezeichnung="Macht über das Selbst" Wert="17"/>
     <Zauber Bezeichnung="Macht über die belebte Natur" Wert="19"/>
     <Zauber Bezeichnung="Reinigen" Wert="19"/>
+    <Zauber Bezeichnung="Rost" Wert="17"/>
     <Zauber Bezeichnung="Schmerzen" Wert="19"/>
     <Zauber Bezeichnung="Stille" Wert="17"/>
     <Zauber Bezeichnung="Stärke" Wert="19"/>
     <Zauber Bezeichnung="Tiere rufen" Wert="19"/>
     <Zauber Bezeichnung="Unsichtbarkeit" Wert="17"/>
+    <Zauber Bezeichnung="Vision" Wert="17"/>
     <Zauber Bezeichnung="Wasser spüren" Wert="17"/>
     <Zauber Bezeichnung="Zwiesprache" Wert="17"/>
   </Fertigkeiten>
