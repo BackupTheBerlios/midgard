@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.33 2002/01/21 23:24:08 christof Exp $
+// $Id: midgard.cc,v 1.34 2002/01/22 17:06:58 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,8 +27,8 @@
 
 int main(int argc, char **argv)
 {   
-   Gtk::Main m(&argc, &argv);
-   xml_init(); // könnte Gtk verwenden ...
+   Gtk::Main m(&argc, &argv, true); 
+   // hmm ich habe gehört, das true hilft gegen den Umlaut bug ...
    
    std::string datei;
 #ifdef USE_XML

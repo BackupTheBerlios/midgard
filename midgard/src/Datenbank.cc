@@ -1,4 +1,4 @@
-// $Id: Datenbank.cc,v 1.1 2002/01/19 17:09:33 christof Exp $               
+// $Id: Datenbank.cc,v 1.2 2002/01/22 17:06:58 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -57,6 +57,7 @@ Datenbank::Datenbank()
     try{
     Transaction tr;
 #endif    
+    xml_init(MI->get_progressbar_regionen());
     Regionen = Regionen_All(MI->get_progressbar_regionen()).get_All();
     Laender = Laender_All(MI->get_progressbar_laender()).get_All();
     Ruestung = Ruestung_All(MI->get_progressbar_ruestung()).get_All();

@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.24 2002/01/19 20:33:46 christof Exp $
+// $Id: xml.cc,v 1.25 2002/01/22 17:06:58 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -21,8 +21,10 @@
 
 #ifdef USE_XML
 
-#define PARANOIA
+//#define PARANOIA
 #include "TagStream.hh"
+#include "gtk--/progressbar.h"
+#include "gtk--/main.h"
 
 static TagStream *top;
 const Tag *xml_data;
@@ -30,7 +32,7 @@ static Tag *xml_data_mutable; // local non const pointer for merging
 
 static void xml_merge(Tag *merge_here, const Tag *tomerge);
 
-void xml_init(const std::string &filename="midgard.xml")
+void xml_init(Gtk::ProgressBar *progressbar, const std::string &filename)
 {  if (top) return; // oder merge?
    {  ifstream in(filename.c_str());
       top=new TagStream(in);
@@ -46,14 +48,20 @@ void xml_init(const std::string &filename="midgard.xml")
 #else
    dir+='/'; // Unix
 #endif
-
+   double anzdateien=1;
+   FOR_EACH_TAG_OF(i,*xml_data_mutable,"MCG-include")
+      if (!i->getBoolAttr("inactive",false)) 
+         ++anzdateien;
+   int count=0;
 reloop:   
-   Tag::iterator b=xml_data_mutable->begin(),e=xml_data_mutable->end();
-    FOR_EACH_TAG_OF_5(i,*xml_data_mutable,b,e,"MCG-include")
+//   Tag::iterator b=xml_data_mutable->begin(),e=xml_data_mutable->end();
+    FOR_EACH_TAG_OF(i,*xml_data_mutable,"MCG-include")
     {  Tag *t2=&*i;
        std::string file=dir+t2->getAttr("File");
        if (t2->getBoolAttr("inactive",false))
           continue;
+       progressbar->set_percentage(++count/anzdateien);   
+       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
        t2->Type("Region"); // change Type of Tag "MCG-include" -> "Region"
        
        cerr << "loading XML " << file << '\n';
@@ -63,6 +71,10 @@ reloop:
        if (in2.good()) 
        {  TagStream ts2(in2);
           const Tag *data2=ts2.find("MidgardCG-data");
+          if (!data2)
+          {  std::cerr << "XML-Datei '"<<file<<"' ist in ihrem Aufbau fehlerhaft\n";
+             continue;
+          }
           for (Tag::const_attiterator j=data2->attbegin();j!=data2->attend();++j)
              t2->setAttr(j->first,j->second);
           FOR_EACH_CONST_TAG(j,*data2)
@@ -79,6 +91,7 @@ reloop:
              }
           }
        }
+       else std::cerr << "Kann Datei '" << file << "' nicht öffnen\n";
        goto reloop;
     }
     xml_data=xml_data_mutable;
