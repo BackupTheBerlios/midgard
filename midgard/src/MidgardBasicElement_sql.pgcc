@@ -20,14 +20,17 @@
 #include "MidgardBasicElement.hh"
 #include "Grundwerte.hh"
 #include "Ausnahmen.hh"
+#ifndef USE_XML
 #include <Aux/SQLerror.h>
 #include <Aux/Transaction.h>
 exec sql include sqlca;
+#endif
 #include "xml.h"
 #include "Zauberwerk.hh"
 #include "Fertigkeiten.hh"
 #include "Waffe.hh"
 #include "midgard_CG.hh"
+#include <Aux/itos.h>
 
 void MidgardBasicElement::get_map_typ()
 {  

@@ -17,13 +17,15 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#ifndef USE_XML
 #include <Aux/Transaction.h>
 #include <Aux/SQLerror.h>
 exec sql include sqlca;
+#endif
 #include "KiDo.hh"
 #include <cstring>
 #include <Gtk_OStream.h>
-#include "itos.h"
+#include <Aux/itos.h>
 #include <gtk--/main.h>
 
 cH_KiDo::cache_t cH_KiDo::cache;

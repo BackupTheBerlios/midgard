@@ -16,13 +16,6 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// generated 2001/3/14 8:34:43 CET by thoma@ig23.
-// using glademm V0.5_11f_cvs
-//
-// newer (non customized) versions of this file go to Window_Waffenbesitz.cc_new
-
-// This file is for your program, I won't touch it again!
-
 #include "config.h"
 #include "Window_Waffenbesitz.hh"
 #include "midgard_CG.hh"

@@ -1,4 +1,4 @@
-// $Id: LaTeX_header.cc,v 1.3 2001/12/17 21:51:14 thoma Exp $
+// $Id: LaTeX_header.cc,v 1.4 2002/01/19 17:07:32 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,7 +20,7 @@
 #include "midgard_CG.hh"
 #include <Gtk2TeX.h>
 
-void midgard_CG::LaTeX_header(ofstream &fout,bool landscape)
+void midgard_CG::LaTeX_header(ostream &fout,bool landscape)
 {
  if(landscape) fout << "\\documentclass[a4paper,10pt,landscape]{article}\n" ;
  else   fout << "\\documentclass[a4paper,10pt]{article}\n";
@@ -117,7 +117,7 @@ void midgard_CG::LaTeX_header(ofstream &fout,bool landscape)
  fout <<"\\vspace*{2ex}\n\n";
 }
 
-void midgard_CG::LaTeX_footer(ofstream &fout)
+void midgard_CG::LaTeX_footer(ostream &fout)
 {
   fout << "\\end{center}\n";
   fout << "\\end{document}\n\n";

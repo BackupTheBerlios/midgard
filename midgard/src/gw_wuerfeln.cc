@@ -1,4 +1,4 @@
-// $Id: gw_wuerfeln.cc,v 1.26 2002/01/14 10:29:27 thoma Exp $
+// $Id: gw_wuerfeln.cc,v 1.27 2002/01/19 17:07:32 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -17,17 +17,11 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// generated 2001/2/2 10:59:38 CET by thoma@ig23.
-// using glademm V0.5_11c
-//
-// newer (non customized) versions of this file go to gw_wuerfeln.cc_glade
-
-// This file is for your program, I won't touch it again!
-
 #include "midgard_CG.hh"
 #include <strstream>
 #include <algorithm>
 #include <gtk--/label.h>
+#include <Aux/itos.h>
 
 gint midgard_CG::on_button_grundwerte_button_release_event(GdkEventButton *ev)
 {

@@ -18,9 +18,11 @@
  */
 
 #include "Beruf.hh"
+#ifndef USE_XML
 #include <Aux/Transaction.h>
 #include <Aux/SQLerror.h>
 exec sql include sqlca;
+#endif
 #include "Grundwerte.hh"
 #include <gtk--/main.h>
 #include "Typen.hh"

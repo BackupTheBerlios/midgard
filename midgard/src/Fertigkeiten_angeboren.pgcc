@@ -18,9 +18,11 @@
  */
 
 #include "Fertigkeiten_angeboren.hh"
+#ifndef USE_XML
 #include <Aux/SQLerror.h>
 #include <Aux/Transaction.h>
 exec sql include sqlca;
+#endif
 #include <gtk--/main.h>
 
 cH_Fertigkeit_angeborene::cache_t cH_Fertigkeit_angeborene::cache;

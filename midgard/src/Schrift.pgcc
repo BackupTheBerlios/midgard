@@ -16,20 +16,16 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// generated 2001/2/11 14:16:06 CET by thoma@ig23.
-// using glademm V0.5_11c
-//
-
-// This file is for your program, I won't touch it again!
-
+#ifndef USE_XML
 #include <Aux/Transaction.h>
 #include <Aux/SQLerror.h>
 exec sql include sqlca;
+#endif
 #include "Schrift.hh"
 #include "Sprache.hh"
 #include <cstring>
 #include <Gtk_OStream.h>
-#include "itos.h"
+#include <Aux/itos.h>
 #include <gtk--/main.h>
 
 

@@ -12,6 +12,8 @@ NEWS IN VERSION 0.2delta2
 * Abschalten des offiziellen Logos, wenn ein nichtoffizieller Teil verwendet wird.
 * au,pA,wk,sb,b wurden nicht geladen.
 * LaTeX Ausgabe überarbeitet (Werte für Angriff und Verteidigung; Sprachen)
+* Compilieren beschleunigt (Christof)
+* XML Unterstützung fast fertig (Christof)
 
 TODO:
 * Abwehr Wert (mit Waffe)

@@ -65,18 +65,7 @@ public:
 	{  return value; }
 	void Value(const std::string &val) throw()
 	{  value=val; }
-	
-	bool        parse_bool_value() const
-	{  return parse_bool_value(Value()); }
-	int         parse_int_value() const
-	{  return parse_int_value(Value()); }
-	long        parse_long_value() const
-	{  return parse_long_value(Value()); }
-	float       parse_float_value() const
-	{  return parse_float_value(Value()); }
-	double      parse_double_value() const
-	{  return parse_double_value(Value()); }
-	
+
 	// slow variants
 	const Tag *find(const std::string &type) const;
 	Tag *find(const std::string &type);

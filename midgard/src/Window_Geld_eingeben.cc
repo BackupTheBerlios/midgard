@@ -1,4 +1,4 @@
-// $Id: Window_Geld_eingeben.cc,v 1.24 2002/01/14 14:22:11 thoma Exp $
+// $Id: Window_Geld_eingeben.cc,v 1.25 2002/01/19 17:07:32 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,7 +21,7 @@
 #include "Window_Geld_eingeben.hh"
 #include "Window_Waffe_Geld.hh"
 #include "midgard_CG.hh"
-#include "itos.h"
+#include <Aux/itos.h>
 
 void Window_Geld_eingeben::on_button_close_clicked()
 {   

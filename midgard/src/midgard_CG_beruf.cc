@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.38 2002/01/02 13:06:22 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.39 2002/01/19 17:07:33 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,16 +20,22 @@
 #include "midgard_CG.hh"
 #include "Berufe_auswahl.hh"
 #include <Gtk_OStream.h>
+#ifndef USE_XML
 #include <Aux/SQLerror.h>
+#endif
 
 void midgard_CG::on_berufe_wahl_clicked()
 {
   berufe_clist->clear();
   list_Beruf.clear();
 //  list_Fertigkeit.clear();
+#ifndef USE_XML
   try{ 
+#endif
    manage(new Berufe_auswahl(this,Database,Typ,Werte,list_Fertigkeit));
+#ifndef USE_XML
    }catch(SQLerror &e) {cerr<<e.what()<<'\n';}
+#endif
   hbox_fertigkeit->set_sensitive(true);
   table_fertigkeit->set_sensitive(true);
 }

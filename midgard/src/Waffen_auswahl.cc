@@ -16,17 +16,11 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// generated 2001/2/10 15:15:14 CET by thoma@ig23.
-// using glademm V0.5_11c
-//
-// newer (non customized) versions of this file go to Waffen_auswahl.cc_new
-
-// This file is for your program, I won't touch it again!
-
 #include "Waffen_auswahl.hh"
 #include <cstring>
 #include <Gtk_OStream.h>
-
+#include "Waffe.hh"
+#include "WaffeGrund.hh"
 
 Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const Datenbank& D,
    int lernpunkte, const Grundwerte& Werte,const vector<cH_Typen>& _Typ)
@@ -85,7 +79,7 @@ void Waffen_auswahl::on_waffen_clist_auswahl_select_row(gint row, gint column, G
    std::string grund = waffen_clist_auswahl->get_text(row,4);
 //   cH_MidgardBasicElement E(new WaffeGrund(grund));
 //   list_WaffenGrund.push_back(E);
-   list_WaffenGrund.push_back(new WaffeGrund(grund));
+   list_WaffenGrund.push_back(&*cH_WaffeGrund(grund));
 }
 
 void Waffen_auswahl::on_waffen_clist_auswahl_unselect_row(gint row, gint column, GdkEvent *event)

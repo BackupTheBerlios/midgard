@@ -18,9 +18,11 @@
  */
 
 #include "Lernschema.hh"
+#ifndef USE_XML
 #include <Aux/SQLerror.h>
 #include <Aux/Transaction.h>
 exec sql include sqlca;
+#endif
 #include <gtk--/main.h>
 #include "Typen.hh"
 #include "Waffe.hh"

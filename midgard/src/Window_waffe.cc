@@ -16,17 +16,11 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// generated 2001/3/12 22:18:09 CET by thoma@ig23.
-// using glademm V0.5_11f_cvs
-//
-// newer (non customized) versions of this file go to Window_waffe.cc_new
-
-// This file is for your program, I won't touch it again!
-
 #include "config.h"
 #include "Window_waffe.hh"
+#include "Waffe.hh"
 #include <Gtk_OStream.h>
-#include "itos.h"
+#include <Aux/itos.h>
 #include "WindowInfo.hh"
 #include "midgard_CG.hh"
 #include "Window_Waffe_Geld.hh"

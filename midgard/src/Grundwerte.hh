@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.18 2002/01/18 22:08:00 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.19 2002/01/19 17:07:32 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,7 +19,7 @@
 
 #ifndef CLASS_GRUND
 #define CLASS_GRUND
-#include "itos.h"
+//#include "itos.h"
 #include "Land.hh"
 #include "Ruestung.hh"
 #include "Spezies.hh"

@@ -24,6 +24,7 @@
 exec sql include sqlca;
 #endif
 #include "Typen.hh"
+#include <gtk--/main.h>
 
 cH_WaffeGrund::cache_t cH_WaffeGrund::cache;
 

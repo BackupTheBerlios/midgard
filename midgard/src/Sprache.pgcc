@@ -25,7 +25,7 @@ exec sql include sqlca;
 #include "Sprache.hh"
 #include <cstring>
 #include <Gtk_OStream.h>
-#include "itos.h"
+#include <Aux/itos.h>
 #include <gtk--/main.h>
 #include "Schrift.hh"
 

@@ -1,4 +1,4 @@
-// $Id: Datenbank.hh,v 1.1 2002/01/12 08:12:24 thoma Exp $               
+// $Id: Datenbank.hh,v 1.2 2002/01/19 17:07:32 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,39 +19,25 @@
 
 #ifndef DATENBANKCLASS
 #define DATENBANKCLASS
-#include  <Aux/SQLerror.h>   
-#include <Aux/Transaction.h>
 
-
-//#include <Aux/Handles.h>
-//#include <Aux/CacheStatic.h>
 #include <MidgardBasicElement.hh>
 #include <vector>
 #include <string>
-//#include <gtk--/progressbar.h>
-#include "Grundwerte.hh"
+#include <list>
+
+// #include "Grundwerte.hh"
 #include "Land.hh"   
 #include "Pflicht.hh"
+#include "Ausnahmen.hh"
 #include "Spezies.hh"
 #include "Typen.hh"
 #include "Grad_anstieg.hh"
 #include "Lernschema.hh"
-#include "Beruf.hh" 
 #include "Preise.hh"
-#include "Ausruestung.hh"
-#include "class_lernpunkte.hh"
-#include "Zauber.hh"
-#include "Zauberwerk.hh"  
-#include "Fertigkeiten.hh"
-#include "Waffe.hh"
-#include "WaffeGrund.hh"
-#include "KiDo.hh"    
+// #include "Ausruestung.hh"
+// #include "class_lernpunkte.hh"
 #include "Region.hh"  
 #include "Ruestung.hh"
-#include "Fertigkeiten_angeboren.hh"
-#include "Midgard_Info.hh"
-#include "Sprache.hh"
-#include "Schrift.hh"
 
 class Datenbank
 {
@@ -81,38 +67,7 @@ class Datenbank
   std::list<cH_PreiseMod> preisemod;
   
    //Konstruktor
-  Datenbank()
-   {
-    Midgard_Info *MI = manage(new Midgard_Info(true));
-    try{
-    Transaction tr;
-    Regionen = Regionen_All(MI->get_progressbar_regionen()).get_All();
-    Laender = Laender_All(MI->get_progressbar_laender()).get_All();
-    Ruestung = Ruestung_All(MI->get_progressbar_ruestung()).get_All();
-    lernschema = Lernschema(MI->get_progressbar_lernschema());
-    Beruf = Beruf_All(MI->get_progressbar_beruf()).get_All();
-    Fertigkeit_ang = Fertigkeiten_angeborene_All(MI->get_progressbar_ang_fert()).get_All();
-    Fertigkeit = Fertigkeiten_All(MI->get_progressbar_fertigkeiten()).get_All();
-    WaffeGrund = WaffeGrund_All(MI->get_progressbar_grundkenntnisse()).get_All();
-    Waffe = Waffe_All(MI->get_progressbar_waffen()).get_All();
-    Waffe_from_Alias = Waffe::fill_map_alias_waffe(MI->get_progressbar_aliaswaffen());
-    Zauber = Zauber_All(MI->get_progressbar_zauber()).get_All();
-    Zauberwerk = Zauberwerk_All(MI->get_progressbar_zauberwerk()).get_All();
-    Kido = KiDo_All(MI->get_progressbar_kido()).get_All();
-    Sprache = Sprachen_All(MI->get_progressbar_sprache()).get_All();
-    Schrift = Schriften_All(MI->get_progressbar_schrift()).get_All();
-    pflicht = Pflicht(MI->get_progressbar_pflicht());
-    ausnahmen = Ausnahmen(MI->get_progressbar_ausnahmen());
-    Spezies = Spezies_All(MI->get_progressbar_spezies()).get_All();
-    Typen = Typen_All(MI->get_progressbar_typen()).get_All();
-    GradAnstieg = Grad_anstieg(MI->get_progressbar_grad());
-    Spezialgebiet = Spezialgebiet_All(MI->get_progressbar_spezial()).get_All();
-    preise = Preise_All(MI->get_progressbar_preise()).get_All();
-    preisemod = PreiseMod_All(MI->get_progressbar_preise()).get_All();
-    tr.close();
-   }catch(SQLerror &e) {cerr<< e.what()<<'\n'; return;}
-    MI->on_button_close_clicked();
-  }
+  Datenbank();
 };
 
 #endif

@@ -19,10 +19,13 @@
 
 #include "Fertigkeiten.hh"
 #include "midgard_CG.hh"
+#ifndef USE_XML
 #include <Aux/SQLerror.h>
 #include <Aux/Transaction.h>
-#include "Typen.hh"
 exec sql include sqlca;
+#endif
+#include "Typen.hh"
+#include <gtk--/main.h>
 
 cH_Fertigkeit::cache_t cH_Fertigkeit::cache;
 

@@ -16,19 +16,16 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// generated 2001/11/25 15:17:30 CET by thoma@Tiger.
-// using glademm V0.6.2b_cvs
-//
-// newer (non customized) versions of this file go to midgard_CG.cc_new
-
-// This file is for your program, I won't touch it again!
-
 #include "midgard_CG.hh"
 #include "WindowInfo.hh"
 #include <Gtk_OStream.h>
 #include <Aux/EntryValueIntString.h>
+#ifndef USE_XML
 #include <Aux/SQLerror.h>
-
+#endif
+#include <fstream>
+#include <Aux/itos.h>
+#include "dtos1.h"
 
 class Data_Preis : public RowDataBase
 {
@@ -108,7 +105,7 @@ void midgard_CG::show_modi()
      l->set_alignment(0, 0.5);
      l->show();
      table_modi->attach(*l,0,1,row,row+1,GTK_FILL,0,0,0);
-     Gtk::Label *l2=manage (new Gtk::Label("x "+dtos(i->second.faktor)));
+     Gtk::Label *l2=manage (new Gtk::Label("x "+dtos1(i->second.faktor)));
      l2->set_alignment(0, 0.5);
      l2->show();
 //cout << i->second.name<<' '<<i->second.faktor<<'\n';
@@ -483,7 +480,7 @@ void midgard_CG::on_button_ausruestung_druck_clicked()
 }
 
 
-void midgard_CG::ausruestung_druck(ofstream &fout,const list<AusruestungBaum> &AB,int deep)
+void midgard_CG::ausruestung_druck(ostream &fout,const list<AusruestungBaum> &AB,int deep)
 {
  for(std::list<AusruestungBaum>::const_iterator i=AB.begin();i!=AB.end();++i)
   {
@@ -492,7 +489,7 @@ void midgard_CG::ausruestung_druck(ofstream &fout,const list<AusruestungBaum> &A
         i->getAusruestung().Material()!="standard" ) 
       name +=" ("+i->getAusruestung().Material()+")";
    double fdeep = deep*0.5;
-   fout << "\\hspace*{"+dtos(fdeep)+"cm} ";
+   fout << "\\hspace*{"+dtos1(fdeep)+"cm} ";
    if(i->getAusruestung().Sichtbar())  fout << name<<"\\\\\n" ;
    else                                 fout <<"{\\mygray "<< name<<"}\\\\\n" ;
    ausruestung_druck(fout,i->getChildren(),deep+1);
@@ -572,10 +569,14 @@ void midgard_CG::on_spinbutton_gewicht_activate()
  double preis = atof( spinbutton_preis->get_text().c_str());
  double gewicht = atof( spinbutton_gewicht->get_text().c_str());
 
+#ifndef USE_XML
  try{
   Preise::saveArtikel(art,art2,name,preis,einheit,gewicht);
   Database.preise.push_back(cH_Preise(name));
   ausruestung_laden();
    } catch(SQLerror &e) {manage (new WindowInfo(e.what(),false));}
 // table_artikel->hide();
+#else
+#warning Preise::saveArtikel noch nicht implementiert!
+#endif
 }

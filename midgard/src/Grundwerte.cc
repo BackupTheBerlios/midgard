@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.3 2002/01/15 12:21:18 thoma Exp $               
+// $Id: Grundwerte.cc,v 1.4 2002/01/19 17:07:32 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,7 +18,7 @@
  */
 
 #include "Grundwerte.hh"
-#include "itos.h"
+#include <Aux/itos.h>
 
 int Grundwerte::bo_Au() const 
 { 

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.132 2002/01/15 12:21:18 thoma Exp $
+// $Id: midgard_CG.hh,v 1.133 2002/01/19 17:07:32 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -17,17 +17,6 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// generated 2001/2/2 11:29:18 CET by thoma@ig23.
-// using glademm V0.5_11c
-//
-// newer (non customized) versions of this file go to midgard_CG.hh_glade
-
-// you might replace
-//    class Foo : public Foo_glade { ... };
-// by
-//    typedef Foo_glade Foo;
-// if you didn't make any modifications to the widget
-
 #ifndef _MIDGARD_CG_HH
 #  include "midgard_CG_glade.hh"
 #  define _MIDGARD_CG_HH
@@ -35,10 +24,8 @@
 #include "WindowInfo.hh"
 
 
-#include <fstream>
+#include <iostream>
 #include <string>
-#include <stdio.h>
-#include <gtk--/main.h>
 #include <gtk--/menu.h>
 #include <gtk--/menuitem.h>
 #include <gtk--/ctree.h>
@@ -47,8 +34,9 @@
 #include <list>
 #include "zufall.h"
 #include "Datenbank.hh"
+#include "class_lernpunkte.hh"
+#include "Ausruestung.hh"
 class Random;
-
 
 class GeldFenster 
 {public:
@@ -206,8 +194,8 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void LaTeX_zaubermittel();
         void LaTeX_kido_main();
         void LaTeX_kido();
-        void LaTeX_header(ofstream &fout,bool landscape=true);
-        void LaTeX_footer(ofstream &fout);
+        void LaTeX_header(ostream &fout,bool landscape=true);
+        void LaTeX_footer(ostream &fout);
         std::string LaTeX_string(int i);
         void on_schliessen_CG_clicked();
         void on_lernpunkte_wuerfeln_clicked();
@@ -372,7 +360,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void ausruestung_laden();
         void fill_preisliste();
         void on_button_ausruestung_druck_clicked();
-        void ausruestung_druck(ofstream &fout,const list<AusruestungBaum> &AB,int deep);
+        void ausruestung_druck(ostream &fout,const list<AusruestungBaum> &AB,int deep);
         void on_clist_preisliste_select_row(gint row, gint column, GdkEvent *event);
         void on_preise_leaf_selected(cH_RowDataBase d);        
         void on_button_modi_clicked();

@@ -17,9 +17,11 @@
  */
 
 #include "Typen.hh"
+#ifndef USE_XML
 #include <Aux/SQLerror.h>
 #include <Aux/Transaction.h>
 exec sql include sqlca;
+#endif
 #include <gtk--/main.h>
 
 

@@ -1,4 +1,4 @@
-// $Id: Window_Waffe_Geld.cc,v 1.37 2002/01/14 14:22:11 thoma Exp $
+// $Id: Window_Waffe_Geld.cc,v 1.38 2002/01/19 17:07:32 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,7 +27,7 @@
 #include "config.h"
 #include "Window_Waffe_Geld.hh"
 #include "Window_Geld_eingeben.hh"
-#include "itos.h"
+#include <Aux/itos.h>
 #include "midgard_CG.hh"
 #include "WindowInfo.hh"
 #include "Window_waffe.hh"

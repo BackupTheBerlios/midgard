@@ -21,6 +21,7 @@
 #include "class_SimpleTree.hh"
 #include "Pflicht.hh"
 #include <Gtk_OStream.h>
+#include "Fertigkeiten.hh"
 
 void midgard_CG::on_fertigkeiten_laden_clicked()
 {
