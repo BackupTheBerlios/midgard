@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.45 2001/06/29 09:23:29 thoma Exp $
+// $Id: midgard_CG.cc,v 1.46 2001/06/30 20:30:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,6 +34,7 @@
 #include "Window_waffe.hh"
 #include "Window_Waffenbesitz.hh"
 #include "Midgard_Info.hh"
+#include "class_Ausnahmen.hh"
 
 midgard_CG::midgard_CG()
 {
@@ -154,8 +155,8 @@ void midgard_CG::set_tree_titles()
 
 void midgard_CG::on_radiobutton_frau_toggled()
 {   
-  if (radiobutton_frau->get_active()) werte.geschlecht="w";
-   else werte.geschlecht="m";
+  if (radiobutton_frau->get_active()) Werte.Geschlecht()="w";
+   else Werte.Geschlecht()="m";
   midgard_CG::fill_typauswahl();
   midgard_CG::fill_typauswahl_2();
   typauswahl->set_history(Typ.Nr_Optionmenu());
@@ -164,8 +165,8 @@ void midgard_CG::on_radiobutton_frau_toggled()
 
 void midgard_CG::on_radiobutton_mann_toggled()
 {
-  if (radiobutton_mann->get_active()) werte.geschlecht="m";
-   else werte.geschlecht="w";
+  if (radiobutton_mann->get_active()) Werte.Geschlecht()="m";
+   else Werte.Geschlecht()="w";
   midgard_CG::fill_typauswahl();
   midgard_CG::fill_typauswahl_2();
   typauswahl->set_history(Typ.Nr_Optionmenu());
@@ -186,7 +187,7 @@ void midgard_CG::show_gtk()
  steigern_typ->set_text(Typ.Name());     // Charakterklasse im Lernfenster
  if (Typ2.Name()!="") steigern_typ->set_text(Typ.Name()+"/"+Typ2.Name());
  
-   midgard_CG::zeige_werte(werte,"alle");
+   midgard_CG::zeige_werte(Werte);
    midgard_CG::show_berufe();
    midgard_CG::show_fertigkeiten();
    midgard_CG::show_waffen();
@@ -222,9 +223,9 @@ void midgard_CG::show_gtk()
    }
  // KiDo Stil setzen
  int kido_stil_nr=0;
- if (werte.spezialisierung=="Harte Techniken") kido_stil_nr = 1;
- if (werte.spezialisierung=="Sanfte Techniken") kido_stil_nr = 2;
- if (werte.spezialisierung=="Gemischte Techniken") kido_stil_nr = 3;
+ if (Werte.Spezialisierung()=="Harte Techniken") kido_stil_nr = 1;
+ if (Werte.Spezialisierung()=="Sanfte Techniken") kido_stil_nr = 2;
+ if (Werte.Spezialisierung()=="Gemischte Techniken") kido_stil_nr = 3;
  if (kido_stil_nr!=0)
   {   
     optionmenu_KiDo_Stile->set_history(kido_stil_nr);
@@ -239,9 +240,9 @@ void midgard_CG::on_herkunftsland_clicked()
 }
 void midgard_CG::herkunft_uebernehmen(const std::string& s)
 {
-   werte.herkunft = s;
-   midgard_CG::zeige_werte(werte,"alle");
-//A//   midgard_CG::get_Ausnahmen(werte,Typ,Typ2);
+   Werte.set_Herkunft(s);
+   zeige_werte(Werte);
+   clear_Ausnahmen();
 }
 
 
@@ -254,16 +255,16 @@ void midgard_CG::on_muttersprache_clicked()
 
 void midgard_CG::on_charakter_beschreibung_clicked()
 {   
-  manage(new Window_charakter_beschreibung(this,werte.beschreibung)); 
+  manage(new Window_charakter_beschreibung(this,Werte.Beschreibung())); 
 }   
 void midgard_CG::charakter_beschreibung_uebernehmen(const std::string& b)
 {
-  werte.beschreibung=b;  
+  Werte.set_Beschreibung(b);
   on_speichern_clicked();
 }
 void midgard_CG::charakter_beschreibung_drucken(const std::string& b)
 {
-  werte.beschreibung=b;  
+  Werte.set_Beschreibung(b);
   on_speichern_clicked();
   midgard_CG::latex_beschreibung_drucken();
 }
@@ -280,15 +281,15 @@ void midgard_CG::on_button_info_clicked()
 
 void midgard_CG::on_button_geld_s_clicked()
 {
-  manage (new  Window_Geld_eingeben(this, werte));
+  manage (new  Window_Geld_eingeben(this, Werte));
 }
 void midgard_CG::on_button_ruestung_s_clicked()
 {
-  manage (new Window_ruestung(werte,this));
+  manage (new Window_ruestung(Werte,this));
 }
 void midgard_CG::on_button_waffen_s_clicked()
 {
-  manage (new Window_Waffenbesitz(this,vec_Waffen,vec_Waffen_besitz,werte));
+  manage (new Window_Waffenbesitz(this,vec_Waffen,vec_Waffen_besitz,Werte));
 }
 
 
@@ -335,7 +336,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    vec_Schriften.clear();
    vec_Zauber.clear();
    vec_Zaubermittel.clear();
-   werte.clear();
+   Werte.clear();
    lernpunkte.clear();
    Typ.clear();
    Typ2.clear();
@@ -343,7 +344,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    vec_Typen_2.clear();
    waffen_grundkenntnisse.clear();
    zeige_lernpunkte();
-   zeige_werte(werte,"alle");
+   zeige_werte(Werte);
    berufe_clist->clear();
    waffen_clist->clear();
    fertigkeiten_clist->clear();
@@ -371,7 +372,7 @@ void midgard_CG::on_neuer_charakter_clicked()
  on_checkbutton_original_toggled();
  kido_bool=false;
  magie_bool=false;
- werte.version="Erschaffung";
+ Werte.set_Namen("","","Erschaffung");
  midgard_CG::fill_typauswahl();
  midgard_CG::fill_spezies();
  midgard_CG::spezieswahl_button();
@@ -385,14 +386,13 @@ void midgard_CG::on_neuer_charakter_clicked()
 
 }
 
-/*
-void midgard_CG::get_Ausnahmen()
+void midgard_CG::clear_Ausnahmen()
 {
-  ausnahmen = Ausnahmen(werte,Typ,Typ2,vec_Beruf);
+//  Ausnahmen A(werte,Typ,Typ2,vec_Beruf);
+  Ausnahmen::clear();
 
 //  vec_Ausnahmen=A.get_Ausnahmen(werte,Typ,Typ2,vec_Beruf); 
 }
-*/
 
 void midgard_CG::on_schliessen_CG_clicked()
 {

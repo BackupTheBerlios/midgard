@@ -39,7 +39,7 @@ class Data_zauber : public RowDataBase
          ursprung(u), material(mat), agens(age), prozess(pro), reagens(rea),
          beschreibung(bes), kosten(ko) {};
 */
-   virtual const cH_EntryValue Value(int seqnr,gpointer gp) const
+   virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
  { 
 //   if (!strcmp(reinterpret_cast<const char*>(gp),"alte_zauber"))
    if (reinterpret_cast<int>(gp)=='A')
@@ -120,7 +120,7 @@ class Data_zaubermittel : public RowDataBase
    Data_zaubermittel(const std::string& s,const std::string& n, const std::string& a,int k,const std::string& p, const std::string& z)
       :stufe(s),name(n),art(a),kosten(k),preis(p),zeitaufwand(z) {}
 
-   virtual const cH_EntryValue Value(int seqnr,gpointer g) const
+   virtual const cH_EntryValue Value(guint seqnr,gpointer g) const
    {
    if (reinterpret_cast<int>(g)=='A')
       switch (seqnr) {

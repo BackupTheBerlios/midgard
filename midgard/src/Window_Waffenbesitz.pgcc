@@ -66,8 +66,8 @@ void Window_Waffenbesitz::on_clist_waffe_neu_select_row(gint row, gint column, G
 }
 
 Window_Waffenbesitz::Window_Waffenbesitz(midgard_CG* h,
-      std::vector<H_Data_waffen>& vw,std::vector<H_Data_waffen>& wb,st_werte& we )
-: vec_Waffen(vw), Waffe_Besitz(wb), werte(we)
+      std::vector<H_Data_waffen>& vw,std::vector<H_Data_waffen>& wb,Grundwerte& We )
+: vec_Waffen(vw), Waffe_Besitz(wb), Werte(We)
 {
   mag_bonus_bool=false;
   hauptfenster=h;
@@ -89,7 +89,7 @@ void  Window_Waffenbesitz::show_alte_waffen()
   for (std::vector<H_Data_waffen>::const_iterator i=Waffe_Besitz.begin();
             i!=Waffe_Besitz.end();++i)
    {
-     std::string schaden=hauptfenster->waffe_werte((*i),werte,"Schaden");
+     std::string schaden=hauptfenster->waffe_werte((*i),Werte,"Schaden");
      std::string bonus= "("+itos((*i)->av_Bonus())+"/"+itos((*i)->sl_Bonus())+")";
      if ((*i)->Magisch()=="")   bonus = "";
      if ((*i)->Region()=="")
@@ -113,8 +113,8 @@ void  Window_Waffenbesitz::show_neue_waffen()
    char db_region[10];
    char db_alias[50];
   exec sql end declare section;
-  strncpy(db_name,werte.name_charakter.c_str(),sizeof(db_name));
-  strncpy(db_version,werte.version.c_str(),sizeof(db_version));
+  strncpy(db_name,(Werte.Name_Charakter()).c_str(),sizeof(db_name));
+  strncpy(db_version,(Werte.Version()).c_str(),sizeof(db_version));
 
   exec sql declare ein cursor for 
      SELECT distinct w.name from waffen w, charaktere_fertigkeiten c 
@@ -133,7 +133,7 @@ void  Window_Waffenbesitz::show_neue_waffen()
      exec sql fetch ein into :db_waffe;
      SQLerror::test(__FILELINE__,100);
      if (sqlca.sqlcode) break;
-     std::string schaden=hauptfenster->waffe_werte(new Data_waffen(db_waffe,db_waffe,"",0,0,""),werte,"Schaden");
+     std::string schaden=hauptfenster->waffe_werte(new Data_waffen(db_waffe,db_waffe,"",0,0,""),Werte,"Schaden");
      std::string waffe=db_waffe;
      if (waffe!="waffenloser Kampf" )
         os << db_waffe<<"\t"<<schaden<<"\n";

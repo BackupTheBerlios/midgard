@@ -26,19 +26,19 @@ void midgard_CG::spielleiter_export()
   strinfo +="Charakters im Format für Midgard Publikationen\n";
   manage (new WindowInfo(strinfo));
   ofstream fout("spielleiter_export.txt");
-  fout << werte.name_charakter<<", "<<Typ.Name()<<",   Grad "<<werte.grad<<"\n";
-  fout << werte.stand<<", "<<werte.glaube<<" - ("<<werte.groesse<<"cm) - "
-       << werte.alter<<" Jahre\n";
+  fout << Werte.Name_Charakter()<<", "<<Typ.Name()<<",   Grad "<<Werte.Grad()<<"\n";
+  fout << Werte.Stand()<<", "<<Werte.Glaube()<<" - ("<<Werte.Groesse()<<"cm) - "
+       << Werte.Alter()<<" Jahre\n";
   fout << "\n";
-  fout << "St "<<werte.st<<", Ge"<<werte.ge<<", Ko"<<werte.ko<<", In"<<werte.in
-       << ", Zt"<<werte.zt<<", Au"<<werte.au<<", pA"<<werte.pa<<", Sb"<<werte.sb<<"\n";
-  fout << werte.lp<<"LP, "<<werte.ap<<"AP - "<<werte.ruestung<<" - RW "
-       << werte.rw<<", HGW "<<werte.hgw<<", B " << werte.b ;
-  if (werte.bo_sc != 0 || werte.bo_ab != 0 || werte.bo_an != 0) fout <<" - ";
-  if (werte.bo_sc != 0) fout << "SchB+"<<werte.bo_sc;
-  if (werte.bo_sc != 0 || werte.bo_ab != 0 ) fout <<", ";
-  if (werte.bo_ab != 0) fout << "AbB+"<<werte.bo_ab;
-  if (werte.bo_an != 0) fout <<", AnB+" << werte.bo_sc;
+  fout << "St "<<Werte.St()<<", Ge"<<Werte.Ge()<<", Ko"<<Werte.Ko()<<", In"<<Werte.In()
+       << ", Zt"<<Werte.Zt()<<", Au"<<Werte.Au()<<", pA"<<Werte.pA()<<", Sb"<<Werte.Sb()<<"\n";
+  fout << Werte.LP()<<"LP, "<<Werte.AP()<<"AP - "<<Werte.Ruestung()<<" - RW "
+       << Werte.RW()<<", HGW "<<Werte.HGW()<<", B " << Werte.B() ;
+  if (Werte.bo_Sc() != 0 || Werte.bo_Ab() != 0 || Werte.bo_An() != 0) fout <<" - ";
+  if (Werte.bo_Sc() != 0) fout << "SchB+"<<Werte.bo_Sc();
+  if (Werte.bo_Sc() != 0 || Werte.bo_Ab() != 0 ) fout <<", ";
+  if (Werte.bo_Ab() != 0) fout << "AbB+"<<Werte.bo_Ab();
+  if (Werte.bo_An() != 0) fout <<", AnB+" << Werte.bo_Sc();
   fout << "\n\n";
   fout << "Angriff: ";
 
@@ -57,24 +57,24 @@ void midgard_CG::spielleiter_export()
          if ((*j)->av_Bonus()!=0 || (*j)->sl_Bonus()!=0) fout <<"$^*$";
          int mag_schadensbonus = (*j)->av_Bonus();
          if ((*j)->av_Bonus()==-5 && (*j)->sl_Bonus()==-5) mag_schadensbonus = 0; 
-         int anbo = werte.bo_an;
-//         if (midgard_CG::waffe_werte(waffe_besitz[j],werte,"Verteidigung")=="true")
-         if (midgard_CG::waffe_werte(*j,werte,"Verteidigung")=="true")
+         int anbo = Werte.bo_An();
+//         if (midgard_CG::waffe_werte(waffe_besitz[j],Werte,"Verteidigung")=="true")
+         if (midgard_CG::waffe_werte(*j,Werte,"Verteidigung")=="true")
             anbo = 0;
          int wert = (*i)->Erfolgswert() + anbo + mag_schadensbonus;
          fout << "+"<<wert << "(";
-//         std::string schaden=midgard_CG::waffe_werte(waffe_besitz[j],werte,"Schaden+mag_Bonus");
-         std::string schaden=midgard_CG::waffe_werte(*j,werte,"Schaden+mag_Bonus");
+//         std::string schaden=midgard_CG::waffe_werte(waffe_besitz[j],Werte,"Schaden+mag_Bonus");
+         std::string schaden=midgard_CG::waffe_werte(*j,Werte,"Schaden+mag_Bonus");
          fout << schaden << ")";
        }
       fout << ", ";
      }
    }
 
- fout <<" - Abwehr+"<<werte.abwehr_wert+werte.bo_ab <<", "
-      <<"Resistenz+"<<werte.resistenz+werte.bo_psy<<"/" 
-                    <<werte.resistenz+werte.bo_phs<<"/" 
-                    <<werte.resistenz+werte.bo_phk<<"\n\n" ;
+ fout <<" - Abwehr+"<<Werte.Abwehr_wert()+Werte.bo_Ab() <<", "
+      <<"Resistenz+"<<Werte.Resistenz()+Werte.bo_Psy()<<"/" 
+                    <<Werte.Resistenz()+Werte.bo_Phs()<<"/" 
+                    <<Werte.Resistenz()+Werte.bo_Phk()<<"\n\n" ;
 
  // angeborene Fertigkeiten
 // for (unsigned int i=0;i<vec_an_fertigkeit.size();++i)
@@ -106,7 +106,7 @@ void midgard_CG::spielleiter_export()
  if (vec_Zauber.size()!=0)
    {
      fout << "\n\n";
-     fout << "Zaubern+"<<atoi(werte.zaubern_wert.c_str())+werte.bo_za<<": ";
+     fout << "Zaubern+"<<atoi((Werte.Zaubern_wert()).c_str())+Werte.bo_Za()<<": ";
      for (std::vector<H_Data_zauber>::const_iterator i=vec_Zauber.begin();i!=vec_Zauber.end();)
       {
         fout << (*i)->Name() ;

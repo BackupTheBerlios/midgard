@@ -1,4 +1,4 @@
-// $Id: Window_angeb_fert.hh,v 1.16 2001/06/27 11:24:35 thoma Exp $
+// $Id: Window_angeb_fert.hh,v 1.17 2001/06/30 20:30:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,16 +36,17 @@
 #include <vector>
 class midgard_CG;
 class H_Data_fert;
-struct st_werte;
-struct st_af{int min;int max;std::string name;int wert;
-   st_af(int mi,int ma,std::string n,int w):min(mi),max(ma),name(n),wert(w){}};
+class Grundwerte;
 
 class Window_angeb_fert : public Window_angeb_fert_glade
 {   
+
+         struct st_af{int min;int max;std::string name;int wert;
+            st_af(int mi,int ma,std::string n,int w):min(mi),max(ma),name(n),wert(w){}};
         
         midgard_CG* hauptfenster;
         std::vector<H_Data_fert>& vec_an_Fertigkeit;
-        st_werte& werte;
+        const Grundwerte& Werte;
         int wurf;
         std::vector<st_af> af;
         friend class Window_angeb_fert_glade;
@@ -58,6 +59,6 @@ class Window_angeb_fert : public Window_angeb_fert_glade
         void gewuerfelt();
    public:
         Window_angeb_fert::Window_angeb_fert(midgard_CG* h, std::vector<H_Data_fert>& vaf,
-               st_werte& w,int wurf);
+               const Grundwerte& W,int wurf);
 };
 #endif

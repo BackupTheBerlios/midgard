@@ -18,7 +18,7 @@
 
 #include "midgard_CG.hh"
 #include <Aux/SQLerror.h>
-
+#include "zufall.h"
 
 std::string midgard_CG::ruestung(const std::string& mod)
 {
@@ -28,7 +28,8 @@ std::string midgard_CG::ruestung(const std::string& mod)
    int  db_wert;
  exec sql end declare section;
  strncpy(db_typ,Typ.Short().c_str(),sizeof(db_typ));
- strncpy(db_c_ruestung,werte.ruestung.c_str(),sizeof(db_c_ruestung));
+// strncpy(db_c_ruestung,werte.ruestung.c_str(),sizeof(db_c_ruestung));
+ strncpy(db_c_ruestung,(Werte.Ruestung()).c_str(),sizeof(db_c_ruestung));
  if (mod=="LONG")
   {
     exec sql select ruestung into :db_long
@@ -104,7 +105,7 @@ std::string midgard_CG::ruestung(const std::string& mod)
       if (81 <= wurf && wurf  <= 95 ) ruestung = "LR" ;
       if (96 <= wurf && wurf  <= 100) ruestung = "LR" ;
      }    
-   werte.ruestung = ruestung;
+   Werte.set_Ruestung(ruestung);
    std::string strinfo ="Beim Auswürfeln der Rüstung wurde eine\n"+itos(wurf)+" gewürfelt\n";
    strinfo += "---> " + midgard_CG::ruestung("LONG");
    manage(new WindowInfo(strinfo));

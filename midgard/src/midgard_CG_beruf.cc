@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.21 2001/06/29 09:23:29 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.22 2001/06/30 20:30:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,11 +20,12 @@
 #include "midgard_CG.hh"
 #include "Berufe_auswahl.hh"
 #include <Gtk_OStream.h>
+#include "zufall.h"
 
 void midgard_CG::on_berufe_wahl_clicked()
 {
   berufe_clist->clear();
-  manage(new Berufe_auswahl(this,Typ.Zaubern(),Typ2.Zaubern(),lernpunkte.Beruf(),werte));
+  manage(new Berufe_auswahl(this,Typ.Zaubern(),Typ2.Zaubern(),lernpunkte.Beruf(),Werte));
 }
 
 void midgard_CG::show_berufe()
@@ -43,7 +44,7 @@ void midgard_CG::show_berufe()
 void midgard_CG::berufe_uebernehmen(std::vector<H_Data_beruf>& sab)
 {
    vec_Beruf = sab;
-//A//   get_Ausnahmen();
+   clear_Ausnahmen();
    midgard_CG::show_berufe();
    button_beruf_erfolgswert->set_sensitive(true);
 

@@ -1,4 +1,4 @@
-// $Id: abge_werte_setzen.cc,v 1.22 2001/06/29 09:23:29 thoma Exp $
+// $Id: abge_werte_setzen.cc,v 1.23 2001/06/30 20:30:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,87 +18,95 @@
  */
 
 #include "midgard_CG.hh"
+#include "zufall.h"
 
 void midgard_CG::on_abge_werte_setzen_clicked()
 {
   Random random;
-  werte.grad=1;
+  int grad =1;
   //////////////////////////////////////////////////////////////////////
   // Übrige Werte würfeln //////////////////////////////////////////////
   // Aussehn
-//  werte.au = random.integer(1,100);
-  werte.au = constraint_aw(random,spezies_constraint.au);
+  int au = constraint_aw(random,Spezies_constraint.Au());
   // pers. Ausstrahlung
-  werte.pa = random.integer(1,100)-40 + werte.in/2. + werte.au/4. ;
-  // Selbstbeherrschung
-//  werte.sb = random.integer(1,100);
-  werte.sb = constraint_aw(random,spezies_constraint.sb);
-
+  int pa = random.integer(1,100)-40 + Werte.In()/2. + Werte.Au()/4. ;
   // Reaktionswert
-  werte.rw = random.integer(1,20)+10 + werte.ge/2. + werte.in/4.;
+  int rw = random.integer(1,20)+10 + Werte.Ge()/2. + Werte.In()/4.;
   // Handgemengewert
-  werte.hgw = random.integer(1,20)+10+ werte.st/2. + werte.ge/4.;
+  int hgw = random.integer(1,20)+10+ Werte.St()/2. + Werte.Ge()/4.;
   // Bewegungsweite
-  werte.b = spezies_constraint.b_s;
-  for (int i=0;i<spezies_constraint.b_f;++i) werte.b+=random.integer(1,3);
+  int b = Spezies_constraint.B_s();
+  for (int i=0;i<Spezies_constraint.B_f();++i) b+=random.integer(1,3);
+
+  // Selbstbeherrschung
+  int sb = constraint_aw(random,Spezies_constraint.Sb());
+
   //////////////////////////////////////////////////////////////////////
   // Boni 
   // Assassine, Beschwörer & Druide
-  if (Typ.Sb() == 20 || Typ2.Sb() ) werte.sb += random.integer(1,20); 
+  if (Typ.Sb() == 20 || Typ2.Sb() ) sb += random.integer(1,20); 
   // Spitzbube
-  if (Typ.Sb() == -20&& Typ2.Sb() == -20) werte.sb -= random.integer(1,20); 
+  if (Typ.Sb() == -20&& Typ2.Sb() == -20) sb -= random.integer(1,20); 
   // Saddhu
-  if (Typ.Short() == "Sa") werte.sb = 80+random.integer(1,20);
-//std::cout << Typ.Short()b<<"\n";
+  if (Typ.Short() == "Sa") sb = 80+random.integer(1,20);
+
   midgard_CG::grundwerte_boni_setzen();
 
+  int bo_au_typ;  
+
   // Ausdauerbonus für Typen
-  if      (Typ.Ausdauer() == "k" || Typ2.Ausdauer() == "k" ) werte.bo_au_typ = 4 ;
-  else if (Typ.Ausdauer() == "ak"|| Typ2.Ausdauer() == "ak" ) werte.bo_au_typ = 3 ;
-  else werte.bo_au_typ = 2 ;
-//std::cout <<"werte.bo_au_typ\t"<<werte.bo_au_typ<<"\n";
+  if      (Typ.Ausdauer() == "k" || Typ2.Ausdauer() == "k" ) bo_au_typ = 4 ;
+  else if (Typ.Ausdauer() == "ak"|| Typ2.Ausdauer() == "ak" ) bo_au_typ = 3 ;
+  else bo_au_typ = 2 ;
+  
   // Werte würfeln und setzen
-  werte.lp = random.integer(1,6)+werte.lpbasis+spezies_constraint.lpbasis ;
-  werte.ap = random.integer(1,6)+werte.bo_au+werte.bo_au_typ + werte.grad*spezies_constraint.ap_grad ;
-  if (werte.ap<1) werte.ap=1;
-  werte.abwehr_wert= 11 ;
+  int lp = random.integer(1,6)+Werte.LPBasis()+Spezies_constraint.LPBasis() ;
+  int ap = random.integer(1,6)+Werte.bo_Au()+bo_au_typ + Werte.Grad()*Spezies_constraint.AP_Grad() ;
+  if (ap<1) ap=1;
+
+  int abwehr_wert= 11 ;
   //Barde,Ordenskrieger,Zauberer
-  if (Typ.Zaubern() == "j" || Typ.Zaubern() == "z" || Typ2.Zaubern() == "j" || Typ2.Zaubern() == "z" ) werte.zaubern_wert = "10" ;
-   else werte.zaubern_wert="";
-   werte.resistenz = 10;
-//  werte.psyZR_wert = 10;
-//  werte.phsZR_wert = 10;
-//  werte.phkZR_wert = 10;
-  werte.gift_wert = 3*werte.lp + spezies_constraint.gift ;
+  int zaubern_wert=0;
+  if (Typ.Zaubern() == "j" || Typ.Zaubern() == "z" || Typ2.Zaubern() == "j" || Typ2.Zaubern() == "z" ) zaubern_wert = 10 ;
+
+  int resistenz = 10;
+
   // Körper und Stand
-  werte.groesse = spezies_constraint.groesse_s + werte.st/10.;
-  for (int i=0;i<spezies_constraint.groesse_f;++i) 
-      werte.groesse += random.integer(1,spezies_constraint.groesse_w) ;
-   
-  int ges=random.integer(1,6) + spezies_constraint.gestalt;
-  int gin=werte.groesse-100;
-  if (werte.st >= 81) ges++;
-  if (werte.st >= 96) ges++;
+  int groesse = Spezies_constraint.Groesse_s() + Werte.St()/10.;
+  for (int i=0;i<Spezies_constraint.Groesse_f();++i) 
+      groesse += random.integer(1,Spezies_constraint.Groesse_w()) ;
+
+  int ges=random.integer(1,6) + Spezies_constraint.Gestalt();
+  int gin=Werte.Groesse()-100;
+  std::string gestalt;
+  int gewicht;
+  if (Werte.St() >= 81) ges++;
+  if (Werte.St() >= 96) ges++;
   if (ges<=2) 
-   { werte.gestalt = "schlank";
-     werte.gewicht = gin-(int)(gin*0.1) ; }
-  if (ges>=3&&ges<=4) werte.gestalt = "normal";
+   { gestalt = "schlank";
+     gewicht = gin-(int)(gin*0.1) ; }
+  if (ges>=3&&ges<=4) gestalt = "normal";
   if (ges>=5) 
-   { werte.gestalt = "breit";
-     werte.gewicht =  gin+(int)(gin*0.2) ; }
+   { gestalt = "breit";
+     gewicht =  gin+(int)(gin*0.2) ; }
+
   int istand=random.integer(1,100);
   int typstand = Typ.Stand();
   (typstand<Typ2.Stand())?typstand=Typ2.Stand():
   istand += typstand;
 //std::cout << "typstand\t"<<typstand<<"\n";
-  if (istand<=10) werte.stand = "Unfrei";
-  if (11<=istand&&istand<=50) werte.stand = "Volk";
-  if (51<=istand&&istand<=90) werte.stand = "Mittelschicht";
-  if (istand>=91) werte.stand = "Adel";
+  std::string stand;  
+  if (istand<=10) stand = "Unfrei";
+  if (11<=istand&&istand<=50) stand = "Volk";
+  if (51<=istand&&istand<=90) stand = "Mittelschicht";
+  if (istand>=91) stand = "Adel";
+
+  Werte.set_Abgeleitetewerte(au,pa,sb,rw,hgw,b,lp,ap,abwehr_wert,zaubern_wert,
+   resistenz,gestalt,gewicht,groesse,grad,stand);
 
   if (Originalbool) original_midgard_check() ;
-//A//  get_Ausnahmen();
-  midgard_CG::zeige_werte(werte,"alle");
+  clear_Ausnahmen();
+  midgard_CG::zeige_werte(Werte);
   button_herkunft->set_sensitive(true);
   button_sprache->set_sensitive(true);
   button_beschreibung->set_sensitive(true);
@@ -109,100 +117,109 @@ void midgard_CG::on_abge_werte_setzen_clicked()
 
 void midgard_CG::grundwerte_boni_setzen()
 {
-  werte.bo_au=0;
-  werte.bo_sc=0;
-  werte.bo_an=0;
-  werte.bo_ab=0;
-  werte.bo_za=0;
-  werte.bo_psy=0;
-  werte.bo_phs=0;
-  werte.bo_phk=0;
-  werte.bo_gi=0;
+  int bo_au  =0;
+  int bo_sc  =0;
+  int bo_an  =0;
+  int bo_ab  =0;
+  int bo_za  =0;
+  int bo_psy =0;
+  int bo_phs =0;
+  int bo_phk =0;
+  int bo_gi  =0;
+  int kaw;
+  int wlw;
+  int lpbasis;
   // Stärke
-  int ist=werte.st;
-  if (ist<=10) { werte.bo_sc-=2; werte.bo_au-=1;werte.kaw=0;}
-  if (11<=ist&&ist<=30) { werte.bo_sc-=1; werte.kaw=0;}
-  if (31<=ist&&ist<=60) { werte.kaw=2;}
-  if (61<=ist&&ist<=80) { werte.bo_sc+=1; werte.kaw=4;}
-  if (81<=ist&&ist<=90) { werte.bo_sc+=2; werte.kaw=6;}
-  if (91<=ist&&ist<=95) { werte.bo_sc+=2; werte.bo_au+=1;werte.kaw=8;}
-  if (96<=ist&&ist<=99) { werte.bo_sc+=3; werte.bo_au+=2;werte.kaw=10;}
-  if (ist>=100) { werte.bo_sc+=4; werte.bo_au+=3;werte.kaw=15;}
+  int ist=Werte.St();
+  if (ist<=10) { bo_sc-=2; bo_au-=1;kaw=0;}
+  if (11<=ist&&ist<=30) { bo_sc-=1; kaw=0;}
+  if (31<=ist&&ist<=60) { kaw=2;}
+  if (61<=ist&&ist<=80) { bo_sc+=1; kaw=4;}
+  if (81<=ist&&ist<=90) { bo_sc+=2; kaw=6;}
+  if (91<=ist&&ist<=95) { bo_sc+=2; bo_au+=1;kaw=8;}
+  if (96<=ist&&ist<=99) { bo_sc+=3; bo_au+=2;kaw=10;}
+  if (ist>=100) { bo_sc+=4; bo_au+=3;kaw=15;}
   // Geschicklichkeit
-  ist=werte.ge;
-  if (ist<=1) { werte.bo_sc-=2; werte.bo_an-=2; werte.bo_phk-=2;}
-  if (2<=ist&&ist<=10) { werte.bo_sc-=1; werte.bo_an-=1; werte.bo_phk-=1;}
-  if (11<=ist&&ist<=20) { werte.bo_sc-=1; }
-  if (81<=ist&&ist<=90) { werte.bo_ab+=1;}
-  if (91<=ist&&ist<=95) { werte.bo_sc+=1; werte.bo_ab+=1; werte.bo_phk+=1;}
-  if (96<=ist&&ist<=99) { werte.bo_sc+=1; werte.bo_an+=1; werte.bo_ab+=2; werte.bo_phk+=2;}
-  if (ist>=100) { werte.bo_sc+=2; werte.bo_an+=2; werte.bo_ab+=2; werte.bo_phk+=2;}
+  ist=Werte.Ge();
+  if (ist<=1) { bo_sc-=2; bo_an-=2; bo_phk-=2;}
+  if (2<=ist&&ist<=10) { bo_sc-=1; bo_an-=1; bo_phk-=1;}
+  if (11<=ist&&ist<=20) { bo_sc-=1; }
+  if (81<=ist&&ist<=90) { bo_ab+=1;}
+  if (91<=ist&&ist<=95) { bo_sc+=1; bo_ab+=1; bo_phk+=1;}
+  if (96<=ist&&ist<=99) { bo_sc+=1; bo_an+=1; bo_ab+=2; bo_phk+=2;}
+  if (ist>=100) { bo_sc+=2; bo_an+=2; bo_ab+=2; bo_phk+=2;}
   // Konsitution
-  ist=werte.ko;
-  if (ist<=1) { werte.bo_au-=4; werte.lpbasis=5; werte.wlw=25; werte.bo_gi-=10; }
-  if (2<=ist&&ist<=10) { werte.bo_au-=3; werte.lpbasis=6; werte.wlw=30; werte.bo_gi-=10; }
-  if (11<=ist&&ist<=20) {werte.bo_au-=2; werte.lpbasis=7; werte.wlw=30; werte.bo_gi-=5; }
-  if (21<=ist&&ist<=30) {werte.bo_au-=1; werte.lpbasis=8; werte.wlw=40; }
-  if (31<=ist&&ist<=60) {werte.bo_au-=0; werte.lpbasis=9; werte.wlw=50; }
-  if (61<=ist&&ist<=80) {werte.bo_au+=1; werte.lpbasis=10; werte.wlw=60; werte.bo_gi+=5; }
-  if (81<=ist&&ist<=90) {werte.bo_au+=2; werte.lpbasis=11; werte.wlw=70; werte.bo_gi+=5; }
-  if (91<=ist&&ist<=95) {werte.bo_au+=3; werte.lpbasis=12; werte.wlw=80; werte.bo_gi+=5; }
-  if (96<=ist&&ist<=99) {werte.bo_au+=4; werte.lpbasis=13; werte.wlw=90; werte.bo_gi+=10; }
-  if (ist>=100) { werte.bo_au+=5; werte.lpbasis=15; werte.wlw=95; werte.bo_gi+=15; }
+  ist=Werte.Ko();
+  if (ist<=1) { bo_au-=4; lpbasis=5; wlw=25; bo_gi-=10; }
+  if (2<=ist&&ist<=10) { bo_au-=3; lpbasis=6; wlw=30; bo_gi-=10; }
+  if (11<=ist&&ist<=20) {bo_au-=2; lpbasis=7; wlw=30; bo_gi-=5; }
+  if (21<=ist&&ist<=30) {bo_au-=1; lpbasis=8; wlw=40; }
+  if (31<=ist&&ist<=60) {bo_au-=0; lpbasis=9; wlw=50; }
+  if (61<=ist&&ist<=80) {bo_au+=1; lpbasis=10; wlw=60; bo_gi+=5; }
+  if (81<=ist&&ist<=90) {bo_au+=2; lpbasis=11; wlw=70; bo_gi+=5; }
+  if (91<=ist&&ist<=95) {bo_au+=3; lpbasis=12; wlw=80; bo_gi+=5; }
+  if (96<=ist&&ist<=99) {bo_au+=4; lpbasis=13; wlw=90; bo_gi+=10; }
+  if (ist>=100) { bo_au+=5; lpbasis=15; wlw=95; bo_gi+=15; }
   // Intelligenz
-  ist=werte.in;
-  if (ist<=10) { werte.bo_psy-=2;}
-  if (11<=ist&&ist<=20) {werte.bo_psy-=1;}
-  if (91<=ist&&ist<=95) {werte.bo_psy+=1;}
-  if (96<=ist&&ist<=99) {werte.bo_psy+=2;}
-  if (ist>=100) { werte.bo_psy+=3;}
+  ist=Werte.In();
+  if (ist<=10) { bo_psy-=2;}
+  if (11<=ist&&ist<=20) {bo_psy-=1;}
+  if (91<=ist&&ist<=95) {bo_psy+=1;}
+  if (96<=ist&&ist<=99) {bo_psy+=2;}
+  if (ist>=100) { bo_psy+=3;}
   // Zaubertalent
-  ist=werte.zt;
+  ist=Werte.Zt();
   int ibo_psy2=0;
-  if (ist<=10) { werte.bo_za-=3; ibo_psy2-=2; werte.bo_phs-=2; }
-  if (11<=ist&&ist<=20) {werte.bo_za-=2; ibo_psy2-=1; werte.bo_phs-=1; }
-  if (21<=ist&&ist<=30) {werte.bo_za-=1; }
-  if (61<=ist&&ist<=80) {werte.bo_za+=1; }
-  if (81<=ist&&ist<=95) {werte.bo_za+=2; ibo_psy2+=1; werte.bo_phs+=1; }
-  if (96<=ist&&ist<=99) {werte.bo_za+=3; ibo_psy2+=2; werte.bo_phs+=2; }
-  if (ist>=100)         {werte.bo_za+=4; ibo_psy2+=3; werte.bo_phs+=3; }
+  if (ist<=10) { bo_za-=3; ibo_psy2-=2; bo_phs-=2; }
+  if (11<=ist&&ist<=20) {bo_za-=2; ibo_psy2-=1; bo_phs-=1; }
+  if (21<=ist&&ist<=30) {bo_za-=1; }
+  if (61<=ist&&ist<=80) {bo_za+=1; }
+  if (81<=ist&&ist<=95) {bo_za+=2; ibo_psy2+=1; bo_phs+=1; }
+  if (96<=ist&&ist<=99) {bo_za+=3; ibo_psy2+=2; bo_phs+=2; }
+  if (ist>=100)         {bo_za+=4; ibo_psy2+=3; bo_phs+=3; }
 
   // Höhere Resistenz zählt + Resistenzen für Kämpfer|Zauberer
-  (werte.bo_psy >= ibo_psy2) ? : werte.bo_psy=ibo_psy2 ;
+  (bo_psy >= ibo_psy2) ? : bo_psy=ibo_psy2 ;
   if (Typ.Zaubern()=="z" || Typ2.Zaubern()=="z" ) 
-      { werte.bo_phs+=3; werte.bo_psy+=3; werte.bo_phk+=3; }
+      { bo_phs+=3; bo_psy+=3; bo_phk+=3; }
   else
-      { werte.bo_phs+=2; }
+      { bo_phs+=2; }
 
   // Speziesspezifische Boni
-  if (werte.bo_ab <spezies_constraint.m_abb) werte.bo_ab =spezies_constraint.m_abb;
-  if (werte.bo_psy<spezies_constraint.m_psy) werte.bo_psy=spezies_constraint.m_psy;
-  if (werte.bo_phs<spezies_constraint.m_phs) werte.bo_phs=spezies_constraint.m_phs;
-  if (werte.bo_phk<spezies_constraint.m_phk) werte.bo_phk=spezies_constraint.m_phk;
+  if (bo_ab <Spezies_constraint.m_Abb()) bo_ab =Spezies_constraint.m_Abb();
+  if (bo_psy<Spezies_constraint.m_Psy()) bo_psy=Spezies_constraint.m_Psy();
+  if (bo_phs<Spezies_constraint.m_Phs()) bo_phs=Spezies_constraint.m_Phs();
+  if (bo_phk<Spezies_constraint.m_Phk()) bo_phk=Spezies_constraint.m_Phk();
 
+  Werte.set_Abgeleitetewerte_Boni(bo_au,bo_sc,bo_an,bo_ab,bo_za,bo_psy,bo_phs,
+   bo_phk,bo_gi,kaw,wlw,lpbasis);
 }
 
 void midgard_CG::original_midgard_check()
 {
-   if (werte.st>100) werte.st=100;
-   if (werte.st<1)   werte.st=1;
-   if (werte.ge>100) werte.ge=100;
-   if (werte.ge<1)   werte.ge=1;
-   if (werte.ko>100) werte.ko=100;
-   if (werte.ko<1)   werte.ko=1;
-   if (werte.in>100) werte.in=100;
-   if (werte.in<1)   werte.in=1;
-   if (werte.zt>100) werte.zt=100;
-   if (werte.zt<1)   werte.zt=1;
+   int st=Werte.St(),ge=Werte.Ge(),ko=Werte.Ko(),in=Werte.In(),zt=Werte.Zt();
+   if (st>100) st=100;
+   if (st<1)  st=1;
+   if (ge>100) ge=100;
+   if (ge<1)   ge=1;
+   if (ko>100) ko=100;
+   if (ko<1)   ko=1;
+   if (in>100) in=100;
+   if (in<1)   in=1;
+   if (zt>100) zt=100;
+   if (zt<1)   zt=1;
+   Werte.set_Basiswerte(st,ge,ko,in,zt);
 
-   if (werte.au>100) werte.au=100;
-   if (werte.au<1)   werte.au=1;
-   if (werte.pa>100) werte.pa=100;
-   if (werte.pa<1)   werte.pa=1;
-   if (werte.sb>100) werte.sb=100;
-   if (werte.sb<1)   werte.sb=1;
-   if (werte.rw>100) werte.rw=100;
-   if (werte.rw<1)   werte.rw=1;
-   if (werte.hgw>100) werte.hgw=100;
-   if (werte.hgw<1)   werte.hgw=1;
+   int au=Werte.Au(),pa=Werte.pA(),sb=Werte.Sb(),rw=Werte.RW(),hgw=Werte.HGW();
+   if (au>100) au=100;
+   if (au<1)   au=1;
+   if (pa>100) pa=100;
+   if (pa<1)   pa=1;
+   if (sb>100) sb=100;
+   if (sb<1)   sb=1;
+   if (rw>100) rw=100;
+   if (rw<1)   rw=1;
+   if (hgw>100) hgw=100;
+   if (hgw<1)   hgw=1;
+   Werte.set_Abgeleitetewerte_small(au,pa,sb,rw,hgw);
 }

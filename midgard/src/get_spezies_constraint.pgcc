@@ -29,7 +29,7 @@ void midgard_CG::get_spezies_constraint()
       GESTALT,BF,BS;
    char SPEZIES[50];
  exec sql end declare section;
- strncpy(SPEZIES,werte.spezies.c_str(),sizeof(SPEZIES));
+ strncpy(SPEZIES,(Werte.Spezies()).c_str(),sizeof(SPEZIES));
  exec sql select coalesce(m_st,-h_st), coalesce(m_ge,-h_ge),
       coalesce(m_ko,-h_ko), coalesce(m_in,-h_in), coalesce(m_zt,-h_zt) ,
       coalesce(m_sb,-h_sb), coalesce(m_au,-h_au), lpbasis, ap_grad,
@@ -40,27 +40,7 @@ void midgard_CG::get_spezies_constraint()
          :ABB,:PSY,:PHS,:PHK,:ALTER,:GF,:GW,:GS,:GESTALT,:BF,:BS
    from spezies where spezies = :SPEZIES;
  SQLerror::test(__FILELINE__); 
- spezies_constraint.st=ST;
- spezies_constraint.ge=GE;
- spezies_constraint.ko=KO;
- spezies_constraint.in=IN;
- spezies_constraint.zt=ZT;
-
- spezies_constraint.sb=SB;
- spezies_constraint.au=AU;
- spezies_constraint.lpbasis=LPBASIS;
- spezies_constraint.ap_grad=AP_GRAD;
- spezies_constraint.gift=GIFT;
- spezies_constraint.m_abb=ABB;
- spezies_constraint.m_psy=PSY;
- spezies_constraint.m_phs=PHS;
- spezies_constraint.m_phk=PHK;
- spezies_constraint.alter=ALTER;
- spezies_constraint.groesse_f=GF;
- spezies_constraint.groesse_w=GW;
- spezies_constraint.groesse_s=GS;
- spezies_constraint.gestalt=GESTALT;
- spezies_constraint.b_f=BF;
- spezies_constraint.b_s=BS;
+ Data_spezies Spezies_constraint(ST,GE,KO,IN,ZT,SB,AU,LPBASIS,AP_GRAD,
+   GIFT,ABB,PSY,PHS,PHK,ALTER,GF,GW,GS,GESTALT,BF,BS);
 
 }

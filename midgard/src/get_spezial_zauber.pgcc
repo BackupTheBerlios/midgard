@@ -56,8 +56,8 @@ int midgard_CG::get_spezial_zauber(const std::string& typ, const std::string& za
  std::string agens=db_agens;
  std::string prozess=db_prozess;
 
- if (ergebnis!="Grund" && agens==werte.spezial) ispez = 2; 
- if (ergebnis!="Grund" && prozess==werte.spezial) ispez = 2; 
+ if (ergebnis!="Grund" && agens==Werte.Spezial()) ispez = 2; 
+ if (ergebnis!="Grund" && prozess==Werte.Spezial()) ispez = 2; 
 
 //std::cout << typ << "\t"<<zauber<<"\t"<<db_ergebnis<<"\t"<<ispez<<"\n";
  return(ispez);

@@ -23,11 +23,12 @@ exec sql include sqlca;
 #include <cstring>
 #include "WindowInfo.hh"
 #include "class_Ausnahmen.hh"
+#include "zufall.h"
 
 void midgard_CG::on_zauber_laden_clicked()
 {   
  if (Typ.Zaubern()=="n" && Typ2.Zaubern()=="n") return;
- midgard_CG::zeige_werte(werte,"alle");
+ midgard_CG::zeige_werte(Werte);
  midgard_CG::on_speichern_clicked();
  midgard_CG::show_alte_zauber();
  midgard_CG::show_neue_zauber();
@@ -88,8 +89,8 @@ void midgard_CG::show_neue_zauber()
       coalesce(z.p_element,''), coalesce(z.s_element,'') \
       FROM arkanum_zauber z WHERE "+alle_zauber+"\
       z.name NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten \
-      WHERE charakter_name = '"+werte.name_charakter+"' \
-      AND version = '"+werte.version+"') \
+      WHERE charakter_name = '"+Werte.Name_Charakter()+"' \
+      AND version = '"+Werte.Version()+"') \
       ORDER BY z.stufe,z.name ";
 
 
@@ -114,7 +115,7 @@ void midgard_CG::show_neue_zauber()
          if (sqlca.sqlcode) break;
          double fac=midgard_CG::get_standard_zauber_(db_standard,db_standard2,db_p_element,db_s_element,db_name);
          if (fac == 0) continue;
-         Ausnahmen ausnahmen(werte,Typ,Typ2,vec_Beruf);
+         Ausnahmen ausnahmen(Werte,Typ,Typ2,vec_Beruf);
          std::string standard = ausnahmen.Ausnahmen_string(db_name,db_standard,db_standard2);
          std::string zauberart=db_zauberart;
          if (zauberart=="Zaubersalz" && !checkbutton_zaubersalze->get_active())
@@ -138,7 +139,7 @@ void midgard_CG::show_neue_zauber()
 
 void midgard_CG::on_steigern_zauber_tree_alt_select(const std::string& new_zauber, int kosten)
 {   
-   werte.gfp -= kosten;
+   Werte.add_GFP(-kosten);
    for (std::vector<H_Data_zauber>::iterator i=vec_Zauber.begin();
             i!= vec_Zauber.end();++i) 
       if ((*i)->Name()==new_zauber) {vec_Zauber.erase(i);break;}
@@ -152,7 +153,7 @@ void midgard_CG::on_steigern_zauber_tree_neu_select(const std::string& new_zaube
   
   if (radio_spruchrolle_auto->get_active() && spruchrolle->get_active())
    {
-     werte.gfp += 2*kosten;
+     Werte.add_GFP(2*kosten);
      vec_Zauber.push_back(new Data_zauber(new_zauber,erf));
    }
   else if (radio_spruchrolle_wuerfeln->get_active() && spruchrolle->get_active())
@@ -164,13 +165,13 @@ void midgard_CG::on_steigern_zauber_tree_neu_select(const std::string& new_zaube
       if (gelungen != 0)
         {
          vec_Zauber.push_back(new Data_zauber(new_zauber,erf));
-         werte.gfp += kosten;
+         Werte.add_GFP(kosten);
         }
-      werte.gfp += kosten;
+      Werte.add_GFP(kosten);
    }
   else // normales lernen ohne Spruchrolle
    {
-     werte.gfp += kosten;
+     Werte.add_GFP(kosten);
      vec_Zauber.push_back(new Data_zauber(new_zauber,erf));
    }
    Zauber_get_Daten(vec_Zauber);
@@ -192,7 +193,7 @@ void midgard_CG::on_checkbutton_alle_zauber_toggled()
 }
 void midgard_CG::on_checkbutton_zaubermittel_toggled()
 {
- midgard_CG::zeige_werte(werte,"alle");
+ midgard_CG::zeige_werte(Werte);
  midgard_CG::on_speichern_clicked();
  midgard_CG::show_neue_zaubermittel();
  midgard_CG::show_alte_zaubermittel();
@@ -207,7 +208,7 @@ void midgard_CG::on_spruchrolle_toggled()
 int midgard_CG::spruchrolle_wuerfeln(int istufe, std::string art, std::string zauber)
 {
  Random random;
- int erf_z = atoi(werte.zaubern_wert.c_str()) + werte.bo_za ;
+ int erf_z = atoi((Werte.Zaubern_wert()).c_str()) + Werte.bo_Za() ;
  int xr=random.integer(1,20);
  int iaus=0;
  
@@ -256,7 +257,7 @@ void midgard_CG::on_leaf_selected_neue_zaubermittel(cH_RowDataBase d)
 
 void midgard_CG::on_steigern_zaubermittel_tree_alt_select(const std::string& name, int kosten)
 {   
-   werte.gfp -= kosten;
+   Werte.add_GFP(-kosten);
    for (std::vector<H_Data_zaubermittel>::iterator i=vec_Zaubermittel.begin();
             i!= vec_Zaubermittel.end();++i) 
       if ((*i)->Name()==name) {vec_Zaubermittel.erase(i);break;}
@@ -267,7 +268,7 @@ void midgard_CG::on_steigern_zaubermittel_tree_alt_select(const std::string& nam
 void midgard_CG::on_steigern_zaubermittel_tree_neu_select(const std::string& name, const std::string& stufe, int kosten)
 {   
   vec_Zaubermittel.push_back(new Data_zaubermittel(stufe,name));
-  werte.gfp += kosten;  
+  Werte.add_GFP(kosten);  
 
    get_Zaubermittel(vec_Zaubermittel);
    on_checkbutton_zaubermittel_toggled();
@@ -308,8 +309,8 @@ void midgard_CG::show_neue_zaubermittel()
  if (get_typ_s("Magie",Typ2)) squery += " coalesce(z."+Typ2.Short()+",'A'), " ;
  squery += " coalesce(z.region,'') from zauberwerk z \
    where "+alle_zauber+" name NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten \
-   WHERE charakter_name = '"+werte.name_charakter+"' \
-   AND version = '"+werte.version+"')  order by art, stufe, name";
+   WHERE charakter_name = '"+Werte.Name_Charakter()+"' \
+   AND version = '"+Werte.Version()+"')  order by art, stufe, name";
 
 //   where "+alle_zauber+" (name,stufe) NOT IN (SELECT fertigkeit,wert FROM charaktere_fertigkeiten \
 
@@ -399,7 +400,7 @@ bool midgard_CG::zauberwerk_voraussetzung(const std::string& name)
     snprintf(query,sizeof(query),"select count(fertigkeit)\
       from charaktere_fertigkeiten \
       where charakter_name = '%s' and version = '%s' and fertigkeit = '%s'",
-      werte.name_charakter.c_str(),werte.version.c_str(),db_voraus[i]);
+      (Werte.Name_Charakter()).c_str(),(Werte.Version()).c_str(),db_voraus[i]);
     exec sql prepare qein_ from :query ;
     exec sql declare qein cursor for qein_;
     exec sql open qein;

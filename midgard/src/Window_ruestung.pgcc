@@ -33,15 +33,15 @@ exec sql include sqlca;
 
 void Window_ruestung::on_clist_ruestung_select_row(gint row, gint column, GdkEvent *event)
 {   
-  werte.ruestung = clist_ruestung->get_text(row,1);
+  Werte.set_Ruestung(clist_ruestung->get_text(row,1));
   destroy();
 }
 
-Window_ruestung::Window_ruestung(st_werte& w,midgard_CG* h) 
-: werte(w)
+Window_ruestung::Window_ruestung(Grundwerte& W,midgard_CG* h) 
+: Werte(W)
 {
  hauptfenster=h;
- std::string sru="Rüstung auswählen. Bisherige Rüstung: ("+ werte.ruestung +")";
+ std::string sru="Rüstung auswählen. Bisherige Rüstung: ("+ Werte.Ruestung() +")";
  label_ruestung->set_text(sru.c_str());
  exec sql begin declare section;
    int lp,mst,rw,b;

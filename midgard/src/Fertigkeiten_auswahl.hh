@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten_auswahl.hh,v 1.20 2001/06/27 11:24:35 thoma Exp $
+// $Id: Fertigkeiten_auswahl.hh,v 1.21 2001/06/30 20:30:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,8 +35,7 @@
 #include <vector>
 class midgard_CG;
 class H_Data_fert;
-//struct st_lernpunkte;
-struct st_werte;
+class Grundwerte;
 
 class Fertigkeiten_auswahl : public Fertigkeiten_auswahl_glade
 {   
@@ -51,6 +50,6 @@ class Fertigkeiten_auswahl : public Fertigkeiten_auswahl_glade
         bool Fertigkeiten_spezies_voraussetzung(const std::string& name,const std::string& spezies);
  public:
         Fertigkeiten_auswahl(midgard_CG* h,const std::string& typ,const std::string& typ_2, 
-                 int lernpunkte, const st_werte& werte);
+                 int lernpunkte, const Grundwerte& Werte);
 };
 #endif

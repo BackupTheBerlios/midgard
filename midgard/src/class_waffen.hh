@@ -27,7 +27,7 @@ class Data_waffen : public RowDataBase
       :name(n),av_bonus(0),sl_bonus(0),erfolgswert(w),lernkosten(0),steigern(s),reduzieren(r),verlernen(0),lernpunkte(0) {}
 
 
-   virtual const cH_EntryValue Value(int seqnr,gpointer gp) const
+   virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
     { 
       if (reinterpret_cast<int>(gp)=='A')
        switch (seqnr) {

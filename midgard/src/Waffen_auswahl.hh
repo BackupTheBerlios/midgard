@@ -1,4 +1,4 @@
-// $Id: Waffen_auswahl.hh,v 1.20 2001/06/27 11:24:35 thoma Exp $
+// $Id: Waffen_auswahl.hh,v 1.21 2001/06/30 20:30:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,21 +36,7 @@
 #include <map>
 class midgard_CG;
 class H_Data_waffen;
-struct st_lernpunkte;
-struct st_werte;
-
-/*
-struct db_struct_waffe
-{  int lernpunkte; 
-   std::string waffe;
-   int erfolgswert;
-   std::string grundkenntnisse;
-   std::string zusatz;
-   db_struct_waffe(int l,const std::string &f,int w, std::string g, std::string z)
-   : lernpunkte(l), waffe(f), erfolgswert(w), grundkenntnisse(g),zusatz(z)
-   {}
-};
-*/
+class Grundwerte;
 
 class Waffen_auswahl : public Waffen_auswahl_glade
 {   
@@ -58,12 +44,11 @@ class Waffen_auswahl : public Waffen_auswahl_glade
         map<std::string,string> waffen_grundkenntnisse;
         midgard_CG* hauptfenster;
         friend class Waffen_auswahl_glade;
-//        std::vector<db_struct_waffe> waffe;
         std::vector<H_Data_waffen> vec_Waffen;
         void on_waffen_clist_auswahl_select_row(gint row, gint column, GdkEvent *event);
         void on_waffen_clist_auswahl_unselect_row(gint row, gint column, GdkEvent *event);
         void on_close_waffen_clicked();
   public:
-        Waffen_auswahl(midgard_CG* h,const std::string& typ,const std::string& typ_2, int lernpunkte, const st_werte& werte);
+        Waffen_auswahl(midgard_CG* h,const std::string& typ,const std::string& typ_2, int lernpunkte, const Grundwerte& Werte);
 };
 #endif

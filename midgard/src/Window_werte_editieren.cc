@@ -1,4 +1,4 @@
-// $Id: Window_werte_editieren.cc,v 1.19 2001/06/29 09:23:29 thoma Exp $
+// $Id: Window_werte_editieren.cc,v 1.20 2001/06/30 20:30:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,65 +29,56 @@
 
 void Window_werte_editieren::on_nwe_close_clicked()
 {   
-   werte.st = atoi( st_ein->get_text().c_str());
-   werte.ge = atoi( ge_ein->get_text().c_str());
-   werte.ko = atoi( ko_ein->get_text().c_str());
-   werte.in = atoi( in_ein->get_text().c_str());
-   werte.zt = atoi( zt_ein->get_text().c_str());
-   werte.au = atoi( au_ein->get_text().c_str());
-   werte.pa = atoi( pa_ein->get_text().c_str());
-   werte.sb = atoi( sb_ein->get_text().c_str());
-   werte.rw = atoi( rw_ein->get_text().c_str());
-   werte.hgw= atoi(hgw_ein->get_text().c_str());
-   werte.b  = atoi(  b_ein->get_text().c_str());
-   werte.lp = atoi( lp_ein->get_text().c_str());
-   werte.ap = atoi( ap_ein->get_text().c_str());
-   werte.bo_au = atoi (bo_au_ein->get_text().c_str());
-   werte.bo_sc = atoi (bo_sc_ein->get_text().c_str());
-   werte.bo_an = atoi (bo_an_ein->get_text().c_str());
-   werte.bo_ab = atoi (bo_ab_ein->get_text().c_str());
-   werte.bo_za = atoi (bo_za_ein->get_text().c_str());
-   werte.bo_psy = atoi (bo_psy_ein->get_text().c_str());
-   werte.bo_phs = atoi (bo_phs_ein->get_text().c_str());
-   werte.bo_phk = atoi (bo_phk_ein->get_text().c_str());
-   werte.bo_gi = atoi (bo_gi_ein->get_text().c_str());
-
- werte.abwehr_wert  =  atoi (abwehr_ein ->  get_text().c_str());
- werte.zaubern_wert =        zaubern_ein -> get_text().c_str();
- werte.resistenz   =  atoi (resistenz_ein ->   get_text().c_str());
- werte.gift_wert    =  atoi (gift_ein ->    get_text().c_str());
- werte.gfp          = atoi (gfp_ein->get_text().c_str());
-
- werte.kaw = atoi (kaw_ein->get_text().c_str());   
- werte.wlw = atoi (wlw_ein->get_text().c_str());   
- werte.lpbasis  = atoi (lpbasis_ein-> get_text().c_str());          
-
-
-   werte.alter = atoi( alter_ein->get_text().c_str());
-   werte.gestalt = gestalt_ein->get_text();
-   werte.gewicht = atoi( gewicht_ein->get_text().c_str());
-   werte.groesse = atoi( groesse_ein->get_text().c_str());
-   werte.grad = atoi( grad_ein->get_text().c_str());
-   werte.spezialisierung = spezialisierung_ein->get_text();
-
+   Werte.set_Basiswerte(atoi(st_ein->get_text().c_str()),
+                        atoi( ge_ein->get_text().c_str()),
+                        atoi( ko_ein->get_text().c_str()),
+                        atoi( in_ein->get_text().c_str()),
+                        atoi( zt_ein->get_text().c_str()));
    int istand = int(optionmenu_stand->get_menu()->get_active()->get_user_data());
-   werte.stand=vstand[istand];
+   Werte.set_Abgeleitetewerte(atoi( au_ein->get_text().c_str()),
+                              atoi( pa_ein->get_text().c_str()),
+                              atoi( sb_ein->get_text().c_str()),
+                              atoi( rw_ein->get_text().c_str()),
+                              atoi(hgw_ein->get_text().c_str()),
+                              atoi(  b_ein->get_text().c_str()),
+                              atoi( lp_ein->get_text().c_str()),
+                              atoi( ap_ein->get_text().c_str()),
+                              atoi(abwehr_ein ->  get_text().c_str()),
+                              atoi(zaubern_ein -> get_text().c_str()),
+                              atoi (resistenz_ein ->   get_text().c_str()),
+                              gestalt_ein->get_text(),
+                              atoi( gewicht_ein->get_text().c_str()),
+                              atoi( groesse_ein->get_text().c_str()),
+                              atoi( grad_ein->get_text().c_str()),
+                              vstand[istand]);
+   Werte.set_Abgeleitetewerte_Boni(atoi (bo_au_ein->get_text().c_str()),
+                              atoi (bo_sc_ein->get_text().c_str()),
+                              atoi (bo_an_ein->get_text().c_str()),
+                              atoi (bo_ab_ein->get_text().c_str()),
+                              atoi (bo_za_ein->get_text().c_str()),
+                              atoi (bo_psy_ein->get_text().c_str()),
+                              atoi (bo_phs_ein->get_text().c_str()),
+                              atoi (bo_phk_ein->get_text().c_str()),
+                              atoi (bo_gi_ein->get_text().c_str()),
+                              atoi (kaw_ein->get_text().c_str()),
+                              atoi (wlw_ein->get_text().c_str()), 
+                              atoi (lpbasis_ein-> get_text().c_str()));
 
-//   werte.stand = stand_ein->get_text();
-   werte.herkunft = herkunft_ein->get_text();
-   werte.glaube = glaube_ein->get_text();
-   werte.name_charakter = name_charakter_ein->get_text();
-   werte.name_spieler = name_spieler_ein->get_text();
-   werte.version = version_ein->get_text();
+   Werte.set_GFP(atoi (gfp_ein->get_text().c_str()));
+   Werte.set_Alter(atoi( alter_ein->get_text().c_str()));
+   Werte.set_Spezialisierung(spezialisierung_ein->get_text());
+   Werte.set_Herkunft(herkunft_ein->get_text());
+   Werte.set_Glaube(glaube_ein->get_text());
+   Werte.set_Namen(name_charakter_ein->get_text(),name_spieler_ein->get_text(),
+               version_ein->get_text());
 
-
-//A//   hauptfenster->get_Ausnahmen();
-   hauptfenster->zeige_werte(werte, "alle");
+   hauptfenster->clear_Ausnahmen();
+   hauptfenster->zeige_werte(Werte);
    destroy();
 }
 
-Window_werte_editieren::Window_werte_editieren(midgard_CG* h,st_werte& w)
-:werte(w)
+Window_werte_editieren::Window_werte_editieren(midgard_CG* h,Grundwerte& w)
+:Werte(w)
 {
  hauptfenster=h;
  vstand.resize(5);
@@ -97,51 +88,51 @@ Window_werte_editieren::Window_werte_editieren(midgard_CG* h,st_werte& w)
  vstand[4]="Adel";
 
 
- st_ein->set_value(werte.st);   
- ge_ein->set_value(werte.ge);   
- ko_ein->set_value(werte.ko);   
- in_ein->set_value(werte.in);   
- zt_ein->set_value(werte.zt);     
- au_ein->set_value(werte.au);     
- pa_ein->set_value(werte.pa);     
- sb_ein->set_value(werte.sb);     
- rw_ein->set_value(werte.rw);     
- hgw_ein->set_value(werte.hgw);   
- b_ein->set_value(werte.b);     
- lp_ein->set_value(werte.lp);   
- lpbasis_ein->set_value(werte.lpbasis);   
- kaw_ein->set_value(werte.kaw);   
- wlw_ein->set_value(werte.wlw);   
- ap_ein->set_value(werte.ap);          
- bo_au_ein->  set_value(werte.bo_au );
- bo_sc_ein->  set_value(werte.bo_sc );
- bo_an_ein->  set_value(werte.bo_an );
- bo_ab_ein->  set_value(werte.bo_ab );
- bo_za_ein->  set_value(werte.bo_za );
- bo_psy_ein-> set_value(werte.bo_psy); 
- bo_phs_ein-> set_value(werte.bo_phs); 
- bo_phk_ein-> set_value(werte.bo_phk); 
- bo_gi_ein->  set_value(werte.bo_gi); 
- abwehr_ein -> set_value(werte.abwehr_wert);
- zaubern_ein -> set_value(atoi(werte.zaubern_wert.c_str()));
- resistenz_ein -> set_value(werte.resistenz);
- gift_ein -> set_value(werte.gift_wert);
- gfp_ein ->set_value(werte.gfp);
+ st_ein->set_value(Werte.St());   
+ ge_ein->set_value(Werte.Ge());   
+ ko_ein->set_value(Werte.Ko());   
+ in_ein->set_value(Werte.In());   
+ zt_ein->set_value(Werte.Zt());     
+ au_ein->set_value(Werte.Au());     
+ pa_ein->set_value(Werte.pA());     
+ sb_ein->set_value(Werte.Sb());     
+ rw_ein->set_value(Werte.RW());     
+ hgw_ein->set_value(Werte.HGW());   
+ b_ein->set_value(Werte.B());     
+ lp_ein->set_value(Werte.LP());   
+ lpbasis_ein->set_value(Werte.LPBasis());   
+ kaw_ein->set_value(Werte.KAW());   
+ wlw_ein->set_value(Werte.WLW());   
+ ap_ein->set_value(Werte.AP());          
+ bo_au_ein->  set_value(Werte.bo_Au ());
+ bo_sc_ein->  set_value(Werte.bo_Sc ());
+ bo_an_ein->  set_value(Werte.bo_An ());
+ bo_ab_ein->  set_value(Werte.bo_Ab ());
+ bo_za_ein->  set_value(Werte.bo_Za ());
+ bo_psy_ein-> set_value(Werte.bo_Psy()); 
+ bo_phs_ein-> set_value(Werte.bo_Phs()); 
+ bo_phk_ein-> set_value(Werte.bo_Phk()); 
+ bo_gi_ein->  set_value(Werte.bo_Gift()); 
+ abwehr_ein -> set_value(Werte.Abwehr_wert());
+ zaubern_ein -> set_value(Werte.Zaubern_wert_int());
+ resistenz_ein -> set_value(Werte.Resistenz());
+// gift_ein -> set_value(Werte.gift_wert());
+ gfp_ein ->set_value(Werte.GFP());
    
- alter_ein->set_value(werte.alter);   
- gestalt_ein->set_text(werte.gestalt);   
- gewicht_ein->set_value(werte.gewicht);   
- groesse_ein->set_value(werte.groesse);   
- grad_ein->set_value(werte.grad);   
- spezialisierung_ein->set_text(werte.spezialisierung);
-// stand_ein->set_text(werte.stand);
+ alter_ein->set_value(Werte.Alter());   
+ gestalt_ein->set_text(Werte.Gestalt());   
+ gewicht_ein->set_value(Werte.Gewicht());   
+ groesse_ein->set_value(Werte.Groesse());   
+ grad_ein->set_value(Werte.Grad());   
+ spezialisierung_ein->set_text(Werte.Spezialisierung());
+// stand_ein->set_text(Werte.Stand());
  int inr=0;
  for (unsigned int i=0; i<vstand.size();++i)
-   if (vstand[i]==werte.stand) inr=i;
+   if (vstand[i]==Werte.Stand()) inr=i;
  optionmenu_stand->set_history(inr);
- herkunft_ein->set_text(werte.herkunft);
- glaube_ein->set_text(werte.glaube);
- name_charakter_ein->set_text(werte.name_charakter);
- name_spieler_ein->set_text(werte.name_spieler);
- version_ein->set_text(werte.version);
+ herkunft_ein->set_text(Werte.Herkunft());
+ glaube_ein->set_text(Werte.Glaube());
+ name_charakter_ein->set_text(Werte.Name_Charakter());
+ name_spieler_ein->set_text(Werte.Name_Spieler());
+ version_ein->set_text(Werte.Version());
 }

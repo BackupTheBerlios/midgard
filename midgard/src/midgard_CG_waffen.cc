@@ -1,4 +1,4 @@
-// $Id: midgard_CG_waffen.cc,v 1.20 2001/06/27 11:24:35 thoma Exp $
+// $Id: midgard_CG_waffen.cc,v 1.21 2001/06/30 20:30:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,7 +24,7 @@
 void midgard_CG::on_waffen_wahl_clicked()
 {
   waffen_clist->clear();
-  manage(new Waffen_auswahl(this,Typ.Short(),Typ2.Short(),lernpunkte.Waffen(),werte));
+  manage(new Waffen_auswahl(this,Typ.Short(),Typ2.Short(),lernpunkte.Waffen(),Werte));
 }
 
 void midgard_CG::show_waffen()
@@ -68,7 +68,7 @@ void midgard_CG::on_waffen_clist_select_row(gint row, gint column, GdkEvent *eve
     vec_Waffen[row]->set_Erfolgswert(vec_Waffen[row]->Erfolgswert()+2);    
     if(oldrow!=-1) vec_Waffen[oldrow]->set_Erfolgswert(vec_Waffen[oldrow]->Erfolgswert()-2);    
     oldrow=row;
-    werte.spezialisierung = waffen_clist->get_text(row,0);
+    Werte.Spezialisierung() = waffen_clist->get_text(row,0);
     midgard_CG::waffen_uebernehmen(vec_Waffen,waffen_grundkenntnisse);
    }
 }

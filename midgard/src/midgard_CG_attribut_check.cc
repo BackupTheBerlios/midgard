@@ -1,4 +1,4 @@
-// $Id: midgard_CG_attribut_check.cc,v 1.15 2001/06/27 11:24:35 thoma Exp $
+// $Id: midgard_CG_attribut_check.cc,v 1.16 2001/06/30 20:30:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,21 +23,21 @@ int midgard_CG::attribut_check(std::string at)
 {
    int b=0;
 
-   if (at=="St" && werte.st>=81) ++b;
-   if (at=="St" && werte.st>=96) ++b;
-   if (at=="Ge" && werte.ge>=81) ++b;
-   if (at=="Ge" && werte.ge>=96) ++b;
-   if (at=="Ko" && werte.ko>=81) ++b;
-   if (at=="Ko" && werte.ko>=96) ++b;
-   if (at=="In" && werte.in>=81) ++b;
-   if (at=="In" && werte.in>=96) ++b;
-   if (at=="Zt" && werte.zt>=81) ++b;
-   if (at=="Zt" && werte.zt>=96) ++b;
-   if (at=="RW" && werte.rw>=81) ++b;
-   if (at=="RW" && werte.rw>=96) ++b;
-   if (at=="Sb" && werte.sb>=81) ++b;
-   if (at=="Sb" && werte.sb>=96) ++b;
-   if (at=="pA" && werte.pa>=81) ++b;
-   if (at=="pA" && werte.pa>=96) ++b;
+   if (at=="St" && Werte.St()>=81) ++b;
+   if (at=="St" && Werte.St()>=96) ++b;
+   if (at=="Ge" && Werte.Ge()>=81) ++b;
+   if (at=="Ge" && Werte.Ge()>=96) ++b;
+   if (at=="Ko" && Werte.Ko()>=81) ++b;
+   if (at=="Ko" && Werte.Ko()>=96) ++b;
+   if (at=="In" && Werte.In()>=81) ++b;
+   if (at=="In" && Werte.In()>=96) ++b;
+   if (at=="Zt" && Werte.Zt()>=81) ++b;
+   if (at=="Zt" && Werte.Zt()>=96) ++b;
+   if (at=="RW" && Werte.RW()>=81) ++b;
+   if (at=="RW" && Werte.RW()>=96) ++b;
+   if (at=="Sb" && Werte.Sb()>=81) ++b;
+   if (at=="Sb" && Werte.Sb()>=96) ++b;
+   if (at=="pA" && Werte.pA()>=81) ++b;
+   if (at=="pA" && Werte.pA()>=96) ++b;
  return b;
 }

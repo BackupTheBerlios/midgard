@@ -1,4 +1,4 @@
-// $Id: Window_Waffenbesitz.hh,v 1.19 2001/06/27 11:24:35 thoma Exp $
+// $Id: Window_Waffenbesitz.hh,v 1.20 2001/06/30 20:30:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -39,16 +39,14 @@
 
 class midgard_CG;
 class H_Data_waffen;
-//struct st_ausgewaehlte_waffen;
-struct st_werte;
-//struct st_waffen_besitz;
+class Grundwerte;
 
 class Window_Waffenbesitz : public Window_Waffenbesitz_glade
 {   
         midgard_CG* hauptfenster;
         std::vector<H_Data_waffen>& vec_Waffen;
         std::vector<H_Data_waffen>& Waffe_Besitz;
-        st_werte& werte;
+        Grundwerte& Werte;
         bool mag_bonus_bool;
         int memwaffe;
         friend class Window_Waffenbesitz_glade;
@@ -59,7 +57,7 @@ class Window_Waffenbesitz : public Window_Waffenbesitz_glade
         void on_button_close_clicked();
         void on_checkbutton_mag_waffenbonus_toggled();
    public:
-        Window_Waffenbesitz(midgard_CG* h,std::vector<H_Data_waffen>& vw,std::vector<H_Data_waffen>& wb,st_werte& we);
+        Window_Waffenbesitz(midgard_CG* h,std::vector<H_Data_waffen>& vw,std::vector<H_Data_waffen>& wb,Grundwerte& We);
         void mag_boni_uebernehmen(H_Data_waffen& wa);
 };
 #endif

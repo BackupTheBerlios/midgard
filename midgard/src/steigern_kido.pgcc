@@ -29,7 +29,7 @@ exec sql include sqlca;
 
 void midgard_CG::on_kido_laden_clicked()
 {   
- midgard_CG::zeige_werte(werte,"alle");
+ midgard_CG::zeige_werte(Werte);
  midgard_CG::on_speichern_clicked();
  midgard_CG::show_alte_kido();
  midgard_CG::show_neue_kido();
@@ -81,17 +81,17 @@ void midgard_CG::show_neue_kido()
   std::string stufe_constraint ="";
 
   // Stufe
-  if (werte.grad<=4 || get_erfolgswert_kido()+werte.bo_za <=15)
+  if (Werte.Grad()<=4 || get_erfolgswert_kido()+Werte.bo_Za() <=15)
       stufe_constraint += " and stufe != 'Eingeweihter' ";
-  if (werte.grad<=6 || get_erfolgswert_kido()+werte.bo_za <=18)
+  if (Werte.Grad()<=6 || get_erfolgswert_kido()+Werte.bo_Za() <=18)
       stufe_constraint += " and stufe != 'Meister' ";
   // Stil
-  if (werte.spezialisierung=="Harte Techniken")
+  if (Werte.Spezialisierung()=="Harte Techniken")
       stufe_constraint += " and stil != 'Sanfte Techniken' ";
-  if (werte.spezialisierung=="Sanfte Techniken")
+  if (Werte.Spezialisierung()=="Sanfte Techniken")
       stufe_constraint += " and stil != 'Harte Techniken' ";
   // Maximale mögliche Techniken einer Stufe erreicht
-  if (werte.spezialisierung=="Harte Techniken" || werte.spezialisierung=="Sanfte Techniken")
+  if (Werte.Spezialisierung()=="Harte Techniken" || Werte.Spezialisierung()=="Sanfte Techniken")
    {
      if (maxkidostil("Schüler") >= 12 )
          stufe_constraint += " and stufe != 'Schüler' ";
@@ -112,8 +112,8 @@ void midgard_CG::show_neue_kido()
 
   std::string squery = "SELECT name_orig from kido \
    where name_orig not in (SELECT fertigkeit FROM charaktere_fertigkeiten \
-   WHERE charakter_name = '"+werte.name_charakter+"' AND version = '"+
-   werte.version+"') "+stufe_constraint+"order by 1";
+   WHERE charakter_name = '"+Werte.Name_Charakter()+"' AND version = '"+
+   Werte.Version()+"') "+stufe_constraint+"order by 1";
 
   snprintf(query,sizeof(query),squery.c_str());
   Transaction tr;
@@ -143,7 +143,7 @@ void midgard_CG::show_neue_kido()
 
 void midgard_CG::on_steigern_kido_tree_alt_select(const std::string& name,int kosten)
 {   
-   werte.gfp -= kosten;
+   Werte.add_GFP(-kosten);
    for (std::vector<H_Data_kido>::iterator i=vec_Kido.begin();
             i!= vec_Kido.end();++i) 
       if ((*i)->Hoho()==name) {vec_Kido.erase(i);break;}
@@ -153,7 +153,7 @@ void midgard_CG::on_steigern_kido_tree_alt_select(const std::string& name,int ko
 
 void midgard_CG::on_steigern_kido_tree_neu_select(const std::string& name, int kosten)
 {   
-  werte.gfp += kosten;
+  Werte.add_GFP(kosten);
   vec_Kido.push_back(new Data_kido(name));
   get_kido(vec_Kido);
   on_kido_laden_clicked();

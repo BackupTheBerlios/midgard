@@ -1,4 +1,4 @@
-// $Id: Window_Geld_eingeben.cc,v 1.14 2001/06/12 09:31:06 thoma Exp $
+// $Id: Window_Geld_eingeben.cc,v 1.15 2001/06/30 20:30:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,30 +32,32 @@
 
 void Window_Geld_eingeben::on_button_close_clicked()
 {   
-   werte.gold = atoi(spinbutton_gold->get_text().c_str());
-   werte.silber = atoi(spinbutton_silber->get_text().c_str());
-   werte.kupfer = atoi(spinbutton_kupfer->get_text().c_str());
+   Werte.set_Geld(atoi(spinbutton_gold->get_text().c_str()),
+                  atoi(spinbutton_silber->get_text().c_str()),
+                  atoi(spinbutton_kupfer->get_text().c_str()));
    if (back == true) oberfenster->Geld();
    destroy();
 }
 
-Window_Geld_eingeben::Window_Geld_eingeben(Window_Waffe_Geld* h,st_werte& w)
-: werte(w)
+#warning Wieso zwei Funktionen ????
+
+Window_Geld_eingeben::Window_Geld_eingeben(Window_Waffe_Geld* h,Grundwerte& w)
+: Werte(w)
 {
   oberfenster = h;
   back = true;
-  spinbutton_gold->set_text(itos(werte.gold));
-  spinbutton_silber->set_text(itos(werte.silber));
-  spinbutton_kupfer->set_text(itos(werte.kupfer));
+  spinbutton_gold->set_text(itos(Werte.Gold()));
+  spinbutton_silber->set_text(itos(Werte.Silber()));
+  spinbutton_kupfer->set_text(itos(Werte.Kupfer()));
 }
 
-Window_Geld_eingeben::Window_Geld_eingeben(midgard_CG* h,st_werte& w)
-: werte(w)
+Window_Geld_eingeben::Window_Geld_eingeben(midgard_CG* h,Grundwerte& w)
+: Werte(w)
 {
 //  oberfenster = h;
   back = false;
-  spinbutton_gold->set_text(itos(werte.gold));
-  spinbutton_silber->set_text(itos(werte.silber));
-  spinbutton_kupfer->set_text(itos(werte.kupfer));
+  spinbutton_gold->set_text(itos(Werte.Gold()));
+  spinbutton_silber->set_text(itos(Werte.Silber()));
+  spinbutton_kupfer->set_text(itos(Werte.Kupfer()));
 }
 

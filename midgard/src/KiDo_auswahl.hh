@@ -1,4 +1,4 @@
-// $Id: KiDo_auswahl.hh,v 1.17 2001/06/27 11:24:35 thoma Exp $
+// $Id: KiDo_auswahl.hh,v 1.18 2001/06/30 20:30:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,17 +33,15 @@
 #  define _KIDO_AUSWAHL_HH
 #include "glademm_support.hh"
 
+
+
 #include <vector>
 class midgard_CG;
-struct st_werte;
-struct st_kido_{std::string name_orig;std::string name;int ap;int fp;
-      st_kido_(std::string n, std::string n2, int a, int f)
-      : name_orig(n),name(n2),ap(a),fp(f) {}};
+class Grundwerte;
+class H_Data_kido;
 
 class KiDo_auswahl : public KiDo_auswahl_glade
 {   
-        
-        std::vector<st_kido_> kido_technik;
         midgard_CG* hauptfenster;
         int maxkido;
         friend class KiDo_auswahl_glade;
@@ -51,6 +49,6 @@ class KiDo_auswahl : public KiDo_auswahl_glade
         void on_clist_kido_auswahl_unselect_row(gint row, gint column, GdkEvent *event);
         void on_button_close_clicked();
    public:
-        KiDo_auswahl(midgard_CG* h, int m,const st_werte& werte);
+        KiDo_auswahl(midgard_CG* h, int m,const Grundwerte& Werte);
 };
 #endif

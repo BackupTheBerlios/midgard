@@ -1,4 +1,4 @@
-// $Id: midgard_CG_zauber.cc,v 1.25 2001/06/27 11:24:35 thoma Exp $
+// $Id: midgard_CG_zauber.cc,v 1.26 2001/06/30 20:30:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,13 +24,13 @@
 void midgard_CG::on_zauber_wahl_clicked()
 {
   zauber_clist->clear();
-  if (werte.spezial2=="" && Typ.Short()=="eBe")
+  if (Werte.Spezial2()=="" && Typ.Short()=="eBe")
    {
       std::string strinfo="Erst Primär- und Sekundärelement wählen\n";
       manage(new WindowInfo(strinfo));
       return;
    }
-  manage(new Zauber_auswahl(this,werte,Typ,Typ2,lernpunkte.Zauber()));
+  manage(new Zauber_auswahl(this,Werte,Typ,Typ2,lernpunkte.Zauber()));
 }
 
 void midgard_CG::show_zauber()
@@ -65,6 +65,6 @@ void midgard_CG::angeborene_zauber()
 {
  if (Typ.Short()=="eBe" || Typ2.Short()=="eBe" || Typ.Short()=="dBe" || Typ2.Short()=="dBe" ) 
     vec_Zauber.push_back(new Data_zauber("Lehrersuche"));
- if (werte.spezies=="Elf") 
+ if (Werte.Spezies()=="Elf") 
     vec_Zauber.push_back(new Data_zauber("Erkennen der Aura"));
 }

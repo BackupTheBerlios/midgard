@@ -65,7 +65,7 @@ std::string midgard_CG::get_Verteidigungswaffe(int ohne_waffe)
                    if (16<=(*j)->Erfolgswert())                    erf_wert = 3;
                   }
                  else erf_wert = (*j)->Erfolgswert();
-                 int ewert = werte.abwehr_wert+werte.bo_ab // Grundwerte
+                 int ewert = Werte.Abwehr_wert()+Werte.bo_Ab() // Grundwerte
                            + erf_wert + (*i)->av_Bonus() ;// Waffenwerte
                  Vwaffewert += itos(ewert);
                }

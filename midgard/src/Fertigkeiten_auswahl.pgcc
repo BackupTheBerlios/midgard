@@ -33,7 +33,7 @@ exec sql include sqlca;
 #include "Sprache_auswahl.hh"
 
 Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const std::string& typ,
-   const std::string& typ_2,  int lernpunkte, const st_werte& werte)
+   const std::string& typ_2,  int lernpunkte, const Grundwerte& Werte)
 {
   hauptfenster=h;
   maxpunkte = lernpunkte;
@@ -59,7 +59,7 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const std::string& typ,
    char query[2048];
    char db_spezies[50];
   exec sql end declare section;
-  strncpy(db_spezies,werte.spezies.c_str(),sizeof(db_spezies));
+  strncpy(db_spezies,(Werte.Spezies()).c_str(),sizeof(db_spezies));
   
    Transaction tr;
    // Speziesspezifische Fertigkeiten
@@ -79,7 +79,7 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const std::string& typ,
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
           vec_Fert.push_back(new Data_fert (db_fertigkeiten,
-               db_erfolgswert,0,werte.spezies,db_attribut,"*",db_lernpunkte));
+               db_erfolgswert,0,Werte.Spezies(),db_attribut,"*",db_lernpunkte));
          
 /*         fert.push_back(db_struct_fertigkeiten(db_lernpunkte,db_fertigkeiten,
                db_erfolgswert, db_attribut,
@@ -170,8 +170,8 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const std::string& typ,
         std::string serfolgswert=itos((*i)->Erfolgswert());
         if (serfolgswert=="0") serfolgswert="";
         if ( (hauptfenster->Fertigkeiten_Voraussetzung((*i)->Name())
-               || werte.spezies!="Mensch") &&
-            Fertigkeiten_spezies_voraussetzung((*i)->Name(),werte.spezies))
+               || Werte.Spezies()!="Mensch") &&
+            Fertigkeiten_spezies_voraussetzung((*i)->Name(),Werte.Spezies()))
          { os << (*i)->Lernpunkte()<<"\t"<<(*i)->Voraussetzung()<<"\t"<<pf<<"\t"<<(*i)->Name()<<"\t"
                << serfolgswert<<"\t"<<(*i)->Attribut()<<"\t"<<(*i)->Lernkosten()*fac<<"\n";
             os.flush(&*i);
@@ -223,7 +223,7 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const std::string& typ,
         std::string serfolgswert=itos((*i)->Erfolgswert());
         if (serfolgswert=="0") serfolgswert="";
         if (hauptfenster->Fertigkeiten_Voraussetzung((*i)->Name()) &&
-            Fertigkeiten_spezies_voraussetzung((*i)->Name(),werte.spezies))
+            Fertigkeiten_spezies_voraussetzung((*i)->Name(),Werte.Spezies()))
          { os << (*i)->Lernpunkte()<<"\t"<<(*i)->Voraussetzung()<<"\t"<<""<<"\t"<<(*i)->Name()<<"\t"
               << serfolgswert<<"\t"<<(*i)->Attribut()<<"\t"<<(*i)->Lernkosten()*fac<<"\n";
            os.flush(&*i);
@@ -245,13 +245,8 @@ void Fertigkeiten_auswahl::on_close_fertigkeiten_clicked()
    for (Gtk::CList::SelectionList::iterator i=fertigkeiten_clist_auswahl->selection().begin();
          i!=fertigkeiten_clist_auswahl->selection().end();++i)
      {  
-//      db_struct_fertigkeiten *ptr
-//         =static_cast<db_struct_fertigkeiten*>(i->get_data());
       H_Data_fert *ptr = static_cast<H_Data_fert*>(i->get_data());
-         // ptr=&fert[i->get_row_num()];
-//       std::cout << ptr ->fertigkeiten << ' ' << ptr -> erfolgswert << '\n'; 
-       saf.push_back(new Data_fert((*ptr)->Name(),
-                        (*ptr)->Erfolgswert(), (*ptr)->Attribut()));
+       saf.push_back(new Data_fert((*ptr)->Name(),(*ptr)->Erfolgswert(), (*ptr)->Attribut()));
      }
   hauptfenster->fertigkeiten_uebernehmen(saf);
   destroy();

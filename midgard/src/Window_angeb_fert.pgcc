@@ -80,8 +80,8 @@ void Window_angeb_fert::load_af()
    char db_fert[30][30];
    char db_cname[50],db_version[50];
   exec sql end declare section;
-  strncpy(db_cname,werte.name_charakter.c_str(),sizeof(db_cname));
-  strncpy(db_version,werte.version.c_str(),sizeof(db_version));
+  strncpy(db_cname,(Werte.Name_Charakter()).c_str(),sizeof(db_cname));
+  strncpy(db_version,(Werte.Version()).c_str(),sizeof(db_version));
   exec sql select min,max,coalesce(wert,0),name
       into :db_min, :db_max, :db_erfolgswert, :db_fert
       from angeborene_fertigkeiten where name not in 
@@ -111,8 +111,8 @@ void Window_angeb_fert::show_neue_afert()
 }
 
 Window_angeb_fert::Window_angeb_fert(midgard_CG* h, std::vector<H_Data_fert>& vaf, 
-   st_werte& w,int wu)
-: vec_an_Fertigkeit(vaf),werte(w),wurf(wu)
+   const Grundwerte& W,int wu)
+: vec_an_Fertigkeit(vaf),Werte(W),wurf(wu)
 {
  hauptfenster=h;
  hauptfenster->on_speichern_clicked();

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.19 2001/06/27 11:24:35 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.20 2001/06/30 20:30:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,17 +19,18 @@
 
 #include "midgard_CG.hh"
 #include "WindowInfo.hh"
+#include "zufall.h"
 
 void midgard_CG::on_grad_anstieg_clicked()
 {
-   int old_grad      = werte.grad;
-   get_grad(werte.gfp);
-   get_ausdauer(werte.grad);
-   get_abwehr_resistenz_wert(werte.grad);
-   get_zauber(werte.grad);
-   if (old_grad<werte.grad) get_grundwerte();
+   int old_grad      = Werte.Grad();
+   get_grad(Werte.GFP());
+   get_ausdauer(Werte.Grad());
+   get_abwehr_resistenz_wert(Werte.Grad());
+   get_zauber(Werte.Grad());
+   if (old_grad<Werte.Grad()) get_grundwerte();
    if (Originalbool) original_midgard_check() ;
-   midgard_CG::zeige_werte(werte,"alle");
+   midgard_CG::zeige_werte(Werte);
 }
 
 void midgard_CG::get_grundwerte()
@@ -44,16 +45,16 @@ void midgard_CG::get_grundwerte()
   std::string was = "keine Erhöhung";
 
   int erh = random.integer(1,6)+1;
-  if( 81<=z && z>=83 ) { was="Stärke";           werte.st+=erh; }
-  if( 84<=z && z>=86 ) { was="Geschicklichkeit"; werte.ge+=erh; }
-  if( 87<=z && z>=89 ) { was="Konstitution"; werte.ko+=erh; }
-  if( 90<=z && z>=92 ) { was="Intelligenz"; werte.in+=erh; }
-  if( 93<=z && z>=95 ) { was="Zaubertalent"; werte.zt+=erh; }
-  if (z==96)   { was="Aussehn"; werte.au+=erh; }
-  if (z==97)   { was="persönliche Ausstrahlung"; werte.pa+=erh; }
-  if (z==98)   { was="Selbstbeherrschung"; werte.sb+=erh; }
-  if (z==99)   { was="Reaktionswert"; werte.rw+=erh; }
-  if (z==100)  { was="Hanggemengewert"; werte.hgw+=erh; }
+  if( 81<=z && z>=83 ) { was="Stärke";           Werte.add_St(erh); }
+  if( 84<=z && z>=86 ) { was="Geschicklichkeit"; Werte.add_Ge(erh); }
+  if( 87<=z && z>=89 ) { was="Konstitution"; Werte.add_Ko(erh); }
+  if( 90<=z && z>=92 ) { was="Intelligenz"; Werte.add_In(erh); }
+  if( 93<=z && z>=95 ) { was="Zaubertalent"; Werte.add_Zt(erh); }
+  if (z==96)   { was="Aussehn"; Werte.add_Au(erh); }
+  if (z==97)   { was="persönliche Ausstrahlung"; Werte.add_pA(erh); }
+  if (z==98)   { was="Selbstbeherrschung"; Werte.add_Sb(erh); }
+  if (z==99)   { was="Reaktionswert"; Werte.add_RW(erh); }
+  if (z==100)  { was="Hanggemengewert"; Werte.add_HGW(erh); }
 
   stinfo += was;
   if (was != "keine Erhöhung" )
@@ -69,17 +70,17 @@ void midgard_CG::get_zauber(int grad)
  if (Typ.Zaubern() == "z" || Typ.Zaubern() == "j" || Typ2.Zaubern() == "z" || Typ2.Zaubern() == "j")
   {  
    int kosten=0;
-   if (grad == 1)  { werte.zaubern_wert = 10 ;}
-   if (grad == 2)  { werte.zaubern_wert = 11 ; kosten =   10;}
-   if (grad == 3)  { werte.zaubern_wert = 12 ; kosten =   10;}
-   if (grad == 4)  { werte.zaubern_wert = 13 ; kosten =   20;}
-   if (grad == 5)  { werte.zaubern_wert = 14 ; kosten =   30;}
-   if (grad == 6)  { werte.zaubern_wert = 15 ; kosten =   70;}
-   if (grad == 7)  { werte.zaubern_wert = 16 ; kosten =  150;}
-   if (grad == 8)  { werte.zaubern_wert = 17 ; kosten =  300;}
-   if (grad == 9)  { werte.zaubern_wert = 18 ; kosten =  600;}
-   if (grad == 10) { werte.zaubern_wert = 19 ; kosten =  800;}
-   werte.gfp += kosten;
+   if (grad == 1)  { Werte.set_Zaubern_wert(10) ;}
+   if (grad == 2)  { Werte.set_Zaubern_wert(11) ; kosten =   10;}
+   if (grad == 3)  { Werte.set_Zaubern_wert(12) ; kosten =   10;}
+   if (grad == 4)  { Werte.set_Zaubern_wert(13) ; kosten =   20;}
+   if (grad == 5)  { Werte.set_Zaubern_wert(14) ; kosten =   30;}
+   if (grad == 6)  { Werte.set_Zaubern_wert(15) ; kosten =   70;}
+   if (grad == 7)  { Werte.set_Zaubern_wert(16) ; kosten =  150;}
+   if (grad == 8)  { Werte.set_Zaubern_wert(17) ; kosten =  300;}
+   if (grad == 9)  { Werte.set_Zaubern_wert(18) ; kosten =  600;}
+   if (grad == 10) { Werte.set_Zaubern_wert(19) ; kosten =  800;}
+   Werte.add_GFP(kosten);
   }
 }
 
@@ -87,25 +88,15 @@ void midgard_CG::get_zauber(int grad)
 void midgard_CG::get_abwehr_resistenz_wert(int grad)
 {
    int kosten=0;
-   if (grad == 1)  { werte.abwehr_wert = 11; werte.resistenz=10; }
-   if (grad == 2)  { werte.abwehr_wert = 12; werte.resistenz=11; kosten =   10; }
-   if (grad == 4)  { werte.abwehr_wert = 13; werte.resistenz=12; kosten =   20; }
-   if (grad == 6)  { werte.abwehr_wert = 14; werte.resistenz=13; kosten =   80; }
-   if (grad == 8)  { werte.abwehr_wert = 15; werte.resistenz=14; kosten =  300; }
-   if (grad == 10) { werte.abwehr_wert = 16; werte.resistenz=15; kosten =  700; }
-   if (grad == 12) { werte.abwehr_wert = 17; werte.resistenz=16; kosten = 1000; }
-   if (grad == 14) { werte.abwehr_wert = 18; werte.resistenz=17; kosten = 1500; }
-/*
-   if (grad == 1)  { werte.abwehr_wert = 11; werte.psyZR_wert=werte.phsZR_wert=werte.phkZR_wert=10; }
-   if (grad == 2)  { werte.abwehr_wert = 12; werte.psyZR_wert=werte.phsZR_wert=werte.phkZR_wert=11; kosten =   10; }
-   if (grad == 4)  { werte.abwehr_wert = 13; werte.psyZR_wert=werte.phsZR_wert=werte.phkZR_wert=12; kosten =   20; }
-   if (grad == 6)  { werte.abwehr_wert = 14; werte.psyZR_wert=werte.phsZR_wert=werte.phkZR_wert=13; kosten =   80; }
-   if (grad == 8)  { werte.abwehr_wert = 15; werte.psyZR_wert=werte.phsZR_wert=werte.phkZR_wert=14; kosten =  300; }
-   if (grad == 10) { werte.abwehr_wert = 16; werte.psyZR_wert=werte.phsZR_wert=werte.phkZR_wert=15; kosten =  700; }
-   if (grad == 12) { werte.abwehr_wert = 17; werte.psyZR_wert=werte.phsZR_wert=werte.phkZR_wert=16; kosten = 1000; }
-   if (grad == 14) { werte.abwehr_wert = 18; werte.psyZR_wert=werte.phsZR_wert=werte.phkZR_wert=17; kosten = 1500; }
-*/
-   werte.gfp += kosten;
+   if (grad == 1)  { Werte.set_Abwehr_wert(11); Werte.set_Resistenz(10); }
+   if (grad == 2)  { Werte.set_Abwehr_wert(12); Werte.set_Resistenz(11); kosten =   10; }
+   if (grad == 4)  { Werte.set_Abwehr_wert(13); Werte.set_Resistenz(12); kosten =   20; }
+   if (grad == 6)  { Werte.set_Abwehr_wert(14); Werte.set_Resistenz(13); kosten =   80; }
+   if (grad == 8)  { Werte.set_Abwehr_wert(15); Werte.set_Resistenz(14); kosten =  300; }
+   if (grad == 10) { Werte.set_Abwehr_wert(16); Werte.set_Resistenz(15); kosten =  700; }
+   if (grad == 12) { Werte.set_Abwehr_wert(17); Werte.set_Resistenz(16); kosten = 1000; }
+   if (grad == 14) { Werte.set_Abwehr_wert(18); Werte.set_Resistenz(17); kosten = 1500; }
+   Werte.add_GFP(kosten);  
 }
 
 
@@ -123,7 +114,7 @@ void midgard_CG::get_ausdauer(int grad)
    if (grad == 8)  { bonus_K = 24, bonus_aK = 16; bonus_Z =  8; kosten =  1200;}
    if (grad == 9)  { bonus_K = 27, bonus_aK = 18; bonus_Z =  9; kosten =  1500;}
    if (grad >= 10) { bonus_K = 30, bonus_aK = 20; bonus_Z = 10; kosten =  2000;}
-   werte.gfp += kosten;
+   Werte.add_GFP(kosten);
    int ap=0;
    Random random;
    for (int i=0;i<grad;++i) ap += random.integer(1,6);
@@ -132,18 +123,18 @@ void midgard_CG::get_ausdauer(int grad)
   if      (Typ.Ausdauer() == "k" || Typ2.Ausdauer() == "k")  nab = bonus_K ;
   else if (Typ.Ausdauer() == "ak"|| Typ2.Ausdauer() == "ak") nab = bonus_aK ;
   else  nab = bonus_Z ;
-  nap = ap + nab + werte.bo_au ;
-  int nspez = werte.grad*spezies_constraint.ap_grad;
+  nap = ap + nab + Werte.bo_Au() ;
+  int nspez = Werte.Grad()*Spezies_constraint.AP_Grad();
   nap += nspez;
-//  std::cout << "Ausdauerpunkte: "<<ap<<" + " <<nab<<" + "<<werte.bo_au<<" + "<<nspez<<" = "<<nap<<"\n";
+//  std::cout << "Ausdauerpunkte: "<<ap<<" + " <<nab<<" + "<<Werte.bo()_au<<" + "<<nspez<<" = "<<nap<<"\n";
   std::string stinfo="Ausdauerpunkte: Gewürfelt + Bonus für Typ + Persönlichen Bonus + Spezies-Bonus\n";
    stinfo+=itos(ap);stinfo+="+";stinfo+=itos(nab);
-   stinfo+="+";stinfo+=itos(werte.bo_au);stinfo+="=";stinfo+=itos(nap);
+   stinfo+="+";stinfo+=itos(Werte.bo_Au());stinfo+="=";stinfo+=itos(nap);
   manage(new WindowInfo(stinfo,true));
    // Für alle ist die AP-anzahel mind. = Grad
-  if (werte.ap<werte.grad) werte.ap=werte.grad; 
+  if (Werte.AP()<Werte.Grad()) Werte.set_AP(Werte.Grad()); 
    // Neue AP höher als alte?
-  (nap>werte.ap)?werte.ap=nap:0 ;
+  if (nap>Werte.AP())  Werte.set_AP(nap)  ;
 }
 
 
@@ -165,5 +156,5 @@ void midgard_CG::get_grad(int gfp)
    if (130000<=gfp && gfp <130000 ) new_grad = 13;
    if (150000<=gfp && gfp <150000 ) new_grad = 14;
    if (150000<=gfp )                new_grad = 15;
-   werte.grad = new_grad;
+   Werte.set_Grad(new_grad);
 }

@@ -1,4 +1,4 @@
-// $Id: grundwere_edit_setzen.cc,v 1.14 2001/06/12 09:31:06 thoma Exp $
+// $Id: grundwere_edit_setzen.cc,v 1.15 2001/06/30 20:30:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,6 +22,6 @@
 
 void midgard_CG::werte_editieren()
 {
-manage(new Window_werte_editieren(this,werte));
+manage(new Window_werte_editieren(this,Werte));
 }
 

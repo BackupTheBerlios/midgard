@@ -32,7 +32,8 @@ exec sql include sqlca;
 #include <Gtk_OStream.h>
 
 
-Berufe_auswahl::Berufe_auswahl(midgard_CG* h, const std::string& TypZ, const std::string& Typ2Z, int lernpunkte, const st_werte& werte)
+Berufe_auswahl::Berufe_auswahl(midgard_CG* h, const std::string& TypZ, 
+   const std::string& Typ2Z, int lernpunkte, const Grundwerte& Werte)
 {
   hauptfenster=h;
   maxpunkte = lernpunkte;
@@ -45,8 +46,8 @@ Berufe_auswahl::Berufe_auswahl(midgard_CG* h, const std::string& TypZ, const std
    char db_voraussetzung[10];
    int db_maxp = maxpunkte;
   exec sql end declare section;
-  strncpy(db_stand,werte.stand.c_str(),sizeof(db_stand));
-  strncpy(db_spezies,werte.spezies.c_str(),sizeof(db_spezies));
+  strncpy(db_stand,(Werte.Stand()).c_str(),sizeof(db_stand));
+  strncpy(db_spezies,(Werte.Spezies()).c_str(),sizeof(db_spezies));
 
    Transaction tr;
     // Spezielle Speziesberufe
@@ -63,8 +64,8 @@ Berufe_auswahl::Berufe_auswahl(midgard_CG* h, const std::string& TypZ, const std
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
          std::string vorteile = Berufe_auswahl::Beruf_vorteile(db_beruf);         
-         vec_Beruf.push_back(new Data_beruf(db_beruf, vorteile,werte.spezies,
-                           werte.spezies,db_lernpunkte));
+         vec_Beruf.push_back(new Data_beruf(db_beruf, vorteile,Werte.Spezies(),
+                           Werte.Spezies(),db_lernpunkte));
       }
     exec sql close beruf_spezies;
 
@@ -93,7 +94,7 @@ Berufe_auswahl::Berufe_auswahl(midgard_CG* h, const std::string& TypZ, const std
     Gtk::OStream os(berufe_clist_auswahl);
     for(std::vector<H_Data_beruf>::iterator i=vec_Beruf.begin();i!=vec_Beruf.end();++i)
       {
-         if (Berufe_auswahl::berufe_voraussetzung((*i)->Name(),werte,TypZ,Typ2Z)||werte.spezies!="Mensch")
+         if (Berufe_auswahl::berufe_voraussetzung((*i)->Name(),Werte,TypZ,Typ2Z)||Werte.Spezies()!="Mensch")
           {
             os << (*i)->Lernpunkte() <<"\t"<< (*i)->Voraussetzung() <<"\t"
                <<(*i)->Name()<<"\t"<<(*i)->Vorteile() <<"\n";
@@ -139,7 +140,7 @@ void Berufe_auswahl::on_close_berufe_clicked()
 
 }
 
-bool Berufe_auswahl::berufe_voraussetzung(const std::string& beruf, const st_werte& werte, const std::string& typz, const std::string& typ2z)
+bool Berufe_auswahl::berufe_voraussetzung(const std::string& beruf, const Grundwerte& Werte, const std::string& typz, const std::string& typ2z)
 {
   exec sql begin declare section;
    int db_st,db_ge,db_ko,db_in,db_zt,db_pa,db_au,db_sb;
@@ -160,16 +161,16 @@ bool Berufe_auswahl::berufe_voraussetzung(const std::string& beruf, const st_wer
   SQLerror::test(__FILELINE__);
 //std::cout << beruf<<"\t->"<<db_typ<<"<-\t";
   std::string geschlecht = db_geschlecht;
-//std::cout << "->"<<geschlecht<<"<- ->"<<werte.geschlecht<<"<-\n";
-  if (   db_st<=werte.st &&
-         db_ge<=werte.ge &&
-         db_ko<=werte.ko &&
-         db_in<=werte.in &&
-         db_zt<=werte.zt &&
-         db_pa<=werte.pa &&
-         db_au<=werte.au &&
-         db_sb<=werte.sb &&
-         (geschlecht==werte.geschlecht || geschlecht == "") &&
+//std::cout << "->"<<geschlecht<<"<- ->"<<Werte.Geschlecht()<<"<-\n";
+  if (   db_st<=Werte.St() &&
+         db_ge<=Werte.Ge() &&
+         db_ko<=Werte.Ko() &&
+         db_in<=Werte.In() &&
+         db_zt<=Werte.Zt() &&
+         db_pa<=Werte.pA() &&
+         db_au<=Werte.Au() &&
+         db_sb<=Werte.Sb() &&
+         (geschlecht==Werte.Geschlecht() || geschlecht == "") &&
          Berufe_auswahl::btyp(db_typ,typz,typ2z) &&
          hauptfenster->region_check(db_region)
      )   

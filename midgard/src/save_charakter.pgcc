@@ -34,8 +34,8 @@ gint midgard_CG::on_speichern_release_event(GdkEventButton *ev)
 
 void midgard_CG::xml_export(const std::string& datei)
 {
-  std::string cname   = werte.name_charakter;
-  std::string version = werte.version;
+  std::string cname   = Werte.Name_Charakter();
+  std::string version = Werte.Version();
   std::string command = "midgard_xmlexport '"+cname+"' '"+version+"' > "+datei;
   system(command.c_str());
   std::string strinfo = "Charakter "+cname+" exportiert\n";
@@ -50,42 +50,13 @@ void midgard_CG::on_speichern_clicked()
       char *db_beschreibung; 
       char db_typ_s[5];
       char db_typ_2_s[5];
-      int db_st = werte.st;      
-      int db_ge = werte.ge;      
-      int db_ko = werte.ko;      
-      int db_in = werte.in;      
-      int db_zt = werte.zt;      
-      int db_au = werte.au;      
-      int db_pa = werte.pa;      
-      int db_sb = werte.sb;      
-      int db_rw = werte.rw;      
-      int db_hgw= werte.hgw;      
-      int db_b  = werte.b;      
-      int db_lp = werte.lp;      
-      int db_ap = werte.ap;      
-      int db_kaw= werte.kaw;      
-      int db_wlw= werte.wlw;      
-      int db_abwehr       = werte.abwehr_wert;      
-      int db_zaubern ;
-      int db_resistenz    = werte.resistenz;      
-      int db_gift         = werte.gift_wert;      
-      int db_bo_au_typ    = werte.bo_au_typ;      
-      int db_bo_au        = werte.bo_au;      
-      int db_bo_sc        = werte.bo_sc;      
-      int db_bo_an        = werte.bo_an;      
-      int db_bo_ab        = werte.bo_ab;      
-      int db_bo_za        = werte.bo_za;      
-      int db_bo_psy       = werte.bo_psy;      
-      int db_bo_phs       = werte.bo_phs;      
-      int db_bo_phk       = werte.bo_phk;      
-      int db_bo_gi        = werte.bo_gi;      
-      int db_lpbasis      = werte.lpbasis;      
-      int db_alter        = werte.alter;      
+      int db_st, db_ge, db_ko, db_in,db_zt,db_au,db_pa,db_sb,db_rw,db_hgw,
+          db_b, db_lp, db_ap, db_kaw,db_wlw,db_abwehr,db_zaubern,
+          db_resistenz, db_bo_au, db_bo_sc,db_bo_an,db_bo_ab,db_bo_za,  
+          db_bo_psy, db_bo_phs , db_bo_phk, db_bo_gi,db_lpbasis, db_alter  ;
       char db_gestalt[20] ;
       char db_geschlecht[5];
-      int db_gewicht      = werte.gewicht;      
-      int db_groesse      = werte.groesse;      
-      int db_grad         = werte.grad;      
+      int db_gewicht, db_groesse, db_grad ;
       char db_spez[30]    ;
       char db_stand[30]   ;
       char db_herkunft[50];
@@ -93,31 +64,66 @@ void midgard_CG::on_speichern_clicked()
       char db_name_ch[50] ;
       char db_name_sp[50] ;
       char db_version[50] ;
-      int db_gfp = werte.gfp ;
-      int db_gold = werte.gold;
-      int db_silber = werte.silber;
-      int db_kupfer = werte.kupfer;
+      int db_gfp,db_gold ,db_silber,db_kupfer;
       char db_ruestung[20];
       int db_av_bonus,db_sl_bonus;
       char db_region[20];
       char db_spezies[50];
    exec sql end declare section;
-   db_zaubern = atoi(werte.zaubern_wert.c_str());
-//   strncpy(db_beschreibung,werte.beschreibung.c_str(),sizeof(db_beschreibung));
-   db_beschreibung = (char *) werte.beschreibung.c_str();
-   strncpy(db_gestalt,werte.gestalt.c_str(),sizeof(db_gestalt));
-   strncpy(db_geschlecht,werte.geschlecht.c_str(),sizeof(db_geschlecht));
-   strncpy(db_spez,werte.spezialisierung.c_str(),sizeof(db_spez));
-   strncpy(db_stand,werte.stand.c_str(),sizeof(db_stand));
-   strncpy(db_herkunft,werte.herkunft.c_str(),sizeof(db_herkunft));
-   strncpy(db_glaube,werte.glaube.c_str(),sizeof(db_glaube));
-   strncpy(db_name_ch,werte.name_charakter.c_str(),sizeof(db_name_ch));
-   strncpy(db_name_sp,werte.name_spieler.c_str(),sizeof(db_name_sp));
-   strncpy(db_version,werte.version.c_str(),sizeof(db_version));
+
+
+      db_st = Werte.St();      
+      db_ge = Werte.Ge();      
+      db_ko = Werte.Ko();      
+      db_in = Werte.In();      
+      db_zt = Werte.Zt();      
+      db_au = Werte.Au();      
+      db_pa = Werte.pA();      
+      db_sb = Werte.Sb();      
+      db_rw = Werte.RW();      
+      db_hgw= Werte.HGW();      
+      db_b  = Werte.B();      
+      db_lp = Werte.LP();      
+      db_ap = Werte.AP();      
+      db_kaw= Werte.KAW();      
+      db_wlw= Werte.WLW();      
+      db_abwehr       = Werte.Abwehr_wert();      
+      db_zaubern      = Werte.Zaubern_wert_int();
+      db_resistenz    = Werte.Resistenz();      
+      db_bo_au        = Werte.bo_Au();      
+      db_bo_sc        = Werte.bo_Sc();      
+      db_bo_an        = Werte.bo_An();      
+      db_bo_ab        = Werte.bo_Ab();      
+      db_bo_za        = Werte.bo_Za();      
+      db_bo_psy       = Werte.bo_Psy();      
+      db_bo_phs       = Werte.bo_Phs();      
+      db_bo_phk       = Werte.bo_Phk();      
+      db_bo_gi        = Werte.bo_Gift();      
+      db_lpbasis      = Werte.LPBasis();      
+      db_alter        = Werte.Alter();      
+      db_gewicht      = Werte.Gewicht();      
+      db_groesse      = Werte.Groesse();      
+      db_grad         = Werte.Grad();      
+      db_gfp = Werte.GFP() ;
+      db_gold = Werte.Gold();
+      db_silber = Werte.Silber();
+      db_kupfer = Werte.Kupfer();
+
+//   strncpy(db_beschreibung,Werte.beschreibung.c_str(),sizeof(db_beschreibung));
+   db_beschreibung = (char *) (Werte.Beschreibung()).c_str();
+   strncpy(db_gestalt,(Werte.Gestalt()).c_str(),sizeof(db_gestalt));
+   strncpy(db_geschlecht,(Werte.Geschlecht()).c_str(),sizeof(db_geschlecht));
+   strncpy(db_spez,(Werte.Spezialisierung()).c_str(),sizeof(db_spez));
+   strncpy(db_stand,(Werte.Stand()).c_str(),sizeof(db_stand));
+   strncpy(db_herkunft,(Werte.Herkunft()).c_str(),sizeof(db_herkunft));
+   strncpy(db_glaube,(Werte.Glaube()).c_str(),sizeof(db_glaube));
+   strncpy(db_name_ch,(Werte.Name_Charakter()).c_str(),sizeof(db_name_ch));
+   strncpy(db_name_sp,(Werte.Name_Spieler()).c_str(),sizeof(db_name_sp));
+   strncpy(db_version,(Werte.Version()).c_str(),sizeof(db_version));
    strncpy(db_typ_s,Typ.Short().c_str(),sizeof(db_typ_s));
    strncpy(db_typ_2_s,Typ2.Short().c_str(),sizeof(db_typ_2_s));
-   strncpy(db_ruestung,werte.ruestung.c_str(),sizeof(db_ruestung));
-   strncpy(db_spezies,werte.spezies.c_str(),sizeof(db_spezies));
+   strncpy(db_ruestung,(Werte.Ruestung()).c_str(),sizeof(db_ruestung));
+   strncpy(db_spezies,(Werte.Spezies()).c_str(),sizeof(db_spezies));
    
    exec sql UPDATE charaktere SET 
       charakter_name = :db_name_ch  , 
@@ -144,7 +150,6 @@ void midgard_CG::on_speichern_clicked()
       abwehr         = :db_abwehr   ,
       zaubern        = :db_zaubern  ,
       resistenz      = :db_resistenz,
-      gift           = :db_gift     ,
       lpbasis        = :db_lpbasis  ,
       alter          = :db_alter    ,
       gestalt        = :db_gestalt  ,
@@ -156,7 +161,6 @@ void midgard_CG::on_speichern_clicked()
       stand          = :db_stand    ,
       herkunft       = :db_herkunft ,
       glaube         = :db_glaube   ,
-      db_bo_au_typ   = :db_bo_au_typ   ,
       db_bo_au       = :db_bo_au       ,
       db_bo_sc       = :db_bo_sc       ,
       db_bo_an       = :db_bo_an       ,
@@ -309,11 +313,18 @@ void midgard_CG::on_speichern_clicked()
             SQLerror::test(__FILELINE__);
       }
    // Regionen & Ähnliches
-   if (Originalbool) 
+   if (!Originalbool) 
     {  
      exec sql INSERT INTO charaktere_fertigkeiten
         (charakter_name,version,fertigkeit,region,art)
         VALUES(:db_name_ch,:db_version,'Region','ORIG','Region');
+      SQLerror::test(__FILELINE__);
+    }
+   if (!Infobool) 
+    {  
+     exec sql INSERT INTO charaktere_fertigkeiten
+        (charakter_name,version,fertigkeit,region,art)
+        VALUES(:db_name_ch,:db_version,'Region','INFO','Region');
       SQLerror::test(__FILELINE__);
     }
    if (Albabool) 
@@ -395,7 +406,7 @@ void midgard_CG::charakter_db_anlegen()
    exec sql begin declare section;
       char db_name_ch[50] ;
    exec sql end declare section;
-   strncpy(db_name_ch,werte.name_charakter.c_str(),sizeof(db_name_ch));
+   strncpy(db_name_ch,(Werte.Name_Charakter()).c_str(),sizeof(db_name_ch));
    std::cout << "Neuen Charakter "<< db_name_ch  <<" in Datenbank anlegen\n";
    exec sql insert into charaktere 
         (charakter_name)

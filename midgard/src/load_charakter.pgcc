@@ -52,8 +52,7 @@ void midgard_CG::on_laden_clicked()
 
 void midgard_CG::select_charakter(const std::string& name, const std::string& version)
 {
-  werte.name_charakter=name;
-  werte.version=version;
+  Werte.set_Namen(name,"",version);
   midgard_CG::load_charakter();
   button_abg_werte->set_sensitive(true);
   button_herkunft->set_sensitive(true);
@@ -74,42 +73,13 @@ void midgard_CG::load_charakter()
       char *db_beschreibung=0;
       char db_typ_s[5]     ;
       char db_typ_2_s[5]     ;
-      int db_st = werte.st;      
-      int db_ge = werte.ge;      
-      int db_ko = werte.ko;      
-      int db_in = werte.in;      
-      int db_zt = werte.zt;      
-      int db_au = werte.au;      
-      int db_pa = werte.pa;      
-      int db_sb = werte.sb;      
-      int db_rw = werte.rw;      
-      int db_hgw= werte.hgw;      
-      int db_b  = werte.b;      
-      int db_lp = werte.lp;      
-      int db_ap = werte.ap;      
-      int db_kaw= werte.kaw;      
-      int db_wlw= werte.wlw;      
-      int db_abwehr       = werte.abwehr_wert;      
-      int db_zaubern ;
-      int db_resistenz          = werte.resistenz;      
-      int db_gift         = werte.gift_wert;      
-      int db_bo_au_typ    = werte.bo_au_typ;      
-      int db_bo_au        = werte.bo_au;      
-      int db_bo_sc        = werte.bo_sc;      
-      int db_bo_an        = werte.bo_an;      
-      int db_bo_ab        = werte.bo_ab;      
-      int db_bo_za        = werte.bo_za;      
-      int db_bo_psy       = werte.bo_psy;      
-      int db_bo_phs       = werte.bo_phs;      
-      int db_bo_phk       = werte.bo_phk;      
-      int db_bo_gi        = werte.bo_gi;      
-      int db_lpbasis      = werte.lpbasis;      
-      int db_alter        = werte.alter;      
+      int db_st,db_ge,db_ko,db_in,db_zt,db_au,db_pa,db_sb,db_rw,db_hgw,
+          db_b,db_lp,db_ap,db_kaw,db_wlw,db_abwehr,db_zaubern,db_resistenz,
+          db_bo_au,db_bo_sc,db_bo_an,db_bo_ab,db_bo_za,db_bo_psy,db_bo_phs,
+          db_bo_phk,db_bo_gi,db_lpbasis,db_alter;
       char db_gestalt[20] ;
       char db_geschlecht[5];
-      int db_gewicht      = werte.gewicht;      
-      int db_groesse      = werte.groesse;      
-      int db_grad         = werte.grad;      
+      int db_gewicht,db_groesse,db_grad;
       char db_spez[30]    ;
       char db_stand[30]   ;
       char db_herkunft[50];
@@ -117,10 +87,7 @@ void midgard_CG::load_charakter()
       char db_name_ch[50] ;
       char db_name_sp[50] ;
       char db_version[50] ;
-      int db_gfp;
-      int db_gold;
-      int db_silber;
-      int db_kupfer;
+      int db_gfp,db_gold,db_silber,db_kupfer;
       char db_ruestung[20];
       int db_av_bonus, db_sl_bonus;
       char db_region[20];
@@ -129,8 +96,8 @@ void midgard_CG::load_charakter()
    exec sql end declare section;
 
  //  db_beschreibung=0; /* Ist nötig !!! */
-   strncpy(db_name_ch,werte.name_charakter.c_str(),sizeof(db_name_ch));
-   strncpy(db_version,werte.version.c_str(),sizeof(db_version));
+   strncpy(db_name_ch,(Werte.Name_Charakter()).c_str(),sizeof(db_name_ch));
+   strncpy(db_version,(Werte.Version()).c_str(),sizeof(db_version));
 
    Transaction tr;
 
@@ -160,7 +127,6 @@ void midgard_CG::load_charakter()
          abwehr         ,
          zaubern        ,
          resistenz      ,
-         gift           ,
          lpbasis        ,
          alter          ,
          gestalt        ,
@@ -172,7 +138,6 @@ void midgard_CG::load_charakter()
          stand          ,
          herkunft       ,
          glaube         ,
-         db_bo_au_typ   ,
          db_bo_au       ,
          db_bo_sc       ,
          db_bo_an       ,
@@ -190,6 +155,7 @@ void midgard_CG::load_charakter()
          spezies
       FROM charaktere WHERE charakter_name= :db_name_ch
             AND version= :db_version;
+
 
       exec sql open cha;
       SQLerror::test(__FILELINE__);
@@ -219,7 +185,6 @@ void midgard_CG::load_charakter()
        :db_abwehr   ,
        :db_zaubern  ,
        :db_resistenz,
-       :db_gift     ,
        :db_lpbasis  ,
        :db_alter    ,
        :db_gestalt  ,
@@ -231,7 +196,6 @@ void midgard_CG::load_charakter()
        :db_stand    ,
        :db_herkunft ,
        :db_glaube   ,
-       :db_bo_au_typ   ,
        :db_bo_au       ,
        :db_bo_sc       ,
        :db_bo_an       ,
@@ -249,58 +213,24 @@ void midgard_CG::load_charakter()
        :db_spezies       ;
    SQLerror::test(__FILELINE__);
    exec sql close cha;
-
-       werte.st=   db_st ;    
-       werte.ge=   db_ge ;    
-       werte.ko=   db_ko ;    
-       werte.in=   db_in ;    
-       werte.zt=   db_zt ;    
-       werte.au=   db_au ;    
-       werte.pa=   db_pa ;    
-       werte.sb=   db_sb ;    
-       werte.rw=   db_rw ;    
-       werte.hgw=  db_hgw;     
-       werte.b=    db_b  ;   
-       werte.lp=   db_lp ;    
-       werte.ap=   db_ap ;    
-       werte.kaw=  db_kaw;     
-       werte.wlw=  db_wlw;     
-      werte.abwehr_wert= db_abwehr       ;       
-       werte.zaubern_wert = itos(db_zaubern) ;
-      werte.resistenz=  db_resistenz          ;      
-      werte.gift_wert=   db_gift         ;     
-      werte.bo_au_typ=   db_bo_au_typ    ;     
-      werte.bo_au=       db_bo_au        ; 
-      werte.bo_sc=       db_bo_sc        ; 
-      werte.bo_an=       db_bo_an        ; 
-      werte.bo_ab=       db_bo_ab        ; 
-      werte.bo_za=       db_bo_za        ; 
-      werte.bo_psy=      db_bo_psy       ;  
-      werte.bo_phs=      db_bo_phs       ;  
-      werte.bo_phk=      db_bo_phk       ;  
-      werte.bo_gi=       db_bo_gi        ; 
-      werte.lpbasis=     db_lpbasis      ;   
-      werte.alter=       db_alter        ; 
-      werte.gestalt=db_gestalt ;
-      werte.geschlecht=db_geschlecht ;
-      werte.gewicht=   db_gewicht      ;     
-      werte.groesse=   db_groesse      ;     
-      werte.grad=      db_grad         ;  
-      werte.spezialisierung= db_spez ;
-      werte.stand= db_stand   ;
-      werte.herkunft= db_herkunft;
-      werte.glaube= db_glaube ;
-      werte.name_spieler= db_name_sp ;
-      werte.name_charakter= db_name_ch ;
-      werte.gfp = db_gfp;
-      werte.beschreibung = db_beschreibung; free(db_beschreibung);
-      werte.gold = db_gold;
-      werte.silber = db_silber;
-      werte.kupfer = db_kupfer;
-      werte.ruestung = db_ruestung;
-      werte.spezies  = db_spezies ;
-
-
+   Werte.set_Basiswerte(db_st,db_ge,db_ko,db_in,db_zt) ;    
+   Werte.set_Abgeleitetewerte(db_au,db_pa,db_sb,db_rw,db_hgw,db_b,
+       db_lp, db_ap,db_abwehr,db_zaubern,db_resistenz,db_gestalt,
+       db_gewicht,db_groesse,db_grad,db_stand);
+   Werte.set_Abgeleitetewerte_Boni(db_bo_au,db_bo_sc, db_bo_an,db_bo_ab,
+      db_bo_za,db_bo_psy,db_bo_phs,db_bo_phk,db_bo_gi,db_kaw,db_wlw,
+      db_lpbasis);   
+   Werte.set_Alter(db_alter); 
+   Werte.set_Geschlecht(db_geschlecht) ;
+   Werte.set_Spezialisierung(db_spez) ;
+   Werte.set_Herkunft( db_herkunft);
+   Werte.set_Glaube(db_glaube);
+   Werte.set_Namen(db_name_ch,db_name_sp,db_version) ;
+   Werte.set_GFP(db_gfp);
+   Werte.set_Beschreibung(db_beschreibung); free(db_beschreibung);
+   Werte.set_Geld(db_gold,db_silber,db_kupfer);
+   Werte.set_Ruestung(db_ruestung);
+   Werte.set_Spezies(db_spezies) ;
 
 //////////////////////////////////////////////////////////////////////////////
    ///////////////////////////////////////////////////////////////////////   
@@ -518,7 +448,8 @@ void midgard_CG::load_charakter()
 
 
    // Regionen
-   Originalbool=false;      checkbutton_original->set_active(false);
+   Originalbool=true;      checkbutton_original->set_active(true);
+   Infobool=true;      checkbutton_original->set_active(true);
    Albabool=false;      checkbutton_Alba->set_active(false);
    Escharbool=false;      checkbutton_Eschar->set_active(false);
    Rawindrabool=false;      checkbutton_Rawindra->set_active(false);
@@ -539,7 +470,8 @@ void midgard_CG::load_charakter()
       SQLerror::test(__FILELINE__,100);
       if (sqlca.sqlcode) break;   
       std::string reg=db_region_2;
-      if (reg=="ORIG") {Originalbool=true ; checkbutton_original->set_active(true);}
+      if (reg=="ORIG") {Originalbool=false ; checkbutton_original->set_active(false);}
+      if (reg=="INFO") {Infobool=false ; checkbutton_info_fenster->set_active(false);}
       if (reg=="A") {Albabool=true ; checkbutton_Alba->set_active(true);}
       if (reg=="E") {Escharbool=true;      checkbutton_Eschar->set_active(true);}
       if (reg=="R") {Rawindrabool=true;      checkbutton_Rawindra->set_active(true);}
@@ -569,12 +501,12 @@ void midgard_CG::load_charakter()
    exec sql begin declare section;   
     int db_nr;
    exec sql end declare section;   
-   strncpy(db_spezies,werte.spezies.c_str(),sizeof(db_spezies));
+   strncpy(db_spezies,(Werte.Spezies()).c_str(),sizeof(db_spezies));
    exec sql select nr into :db_nr from spezies where spezies = :db_spezies;
    // Geschlecht setzen
-   if (werte.geschlecht=="w") radiobutton_frau->set_active(true);
-   if (werte.geschlecht=="m") radiobutton_mann->set_active(true);
+   if (Werte.Geschlecht()=="w") radiobutton_frau->set_active(true);
+   if (Werte.Geschlecht()=="m") radiobutton_mann->set_active(true);
    optionmenu_spezies->set_history(db_nr); // Spezies
    show_gtk();
-   midgard_CG::get_spezial_from_spezialgebiet();
+   get_spezial_from_spezialgebiet();
 }

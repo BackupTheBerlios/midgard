@@ -54,15 +54,15 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const std::string& mod)
    hauptfenster=h;
    modus = mod;
 //   st_werte werte = hauptfenster->werte;
-   st_werte werte;
+   Grundwerte Werte;
    Gtk::OStream os(clist_sp_sc);
    exec sql begin declare section;
       char db_1[50], db_2[50];
       char db_cname[50],db_version[50];
       int  db_3;
    exec sql end declare section;
-  strncpy(db_cname,werte.name_charakter.c_str(),sizeof(db_cname));
-  strncpy(db_version,werte.version.c_str(),sizeof(db_version));
+  strncpy(db_cname,(Werte.Name_Charakter()).c_str(),sizeof(db_cname));
+  strncpy(db_version,(Werte.Version()).c_str(),sizeof(db_version));
    
    if (mod == "Sprache")
       {

@@ -16,7 +16,7 @@ class Data_sprache : public RowDataBase
        :name(n),wert(w),steigern(s),reduzieren(r),verlernen(v),kosten(0) {}
 
 
-   virtual const cH_EntryValue Value(int seqnr,gpointer gp) const
+   virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
     { 
      if (reinterpret_cast<int>(gp)=='A')
       switch (seqnr) {
@@ -67,7 +67,7 @@ class Data_schrift : public RowDataBase
        :urschrift(u),art(a),kosten(0) {}
 
 
-   virtual const cH_EntryValue Value(int seqnr,gpointer gp) const
+   virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
     { 
      if (reinterpret_cast<int>(gp)=='A')
       switch (seqnr) {

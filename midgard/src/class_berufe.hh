@@ -17,7 +17,7 @@ class Data_beruf : public RowDataBase
    Data_beruf(const std::string& n,const std::string& v1, const std::string &v2,const std::string &s,int l)
       :name(n), erfolgswert(0), vorteile(v1), voraussetzungen(v2), stand(s), lernpunkte(l) {}
 
- virtual const cH_EntryValue Value(int seqnr,gpointer gp) const 
+ virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const 
    { return cH_EntryValueIntString("?");}
 
  std::string Name() const {  return name; }

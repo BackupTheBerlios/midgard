@@ -5,14 +5,17 @@ NEWS IN VERSION 0.7beta0
 - Einige bedeutenden(!) Umstellung im Code: Der MCG ist jetzt wesentlich
    mehr an Klassen orientiert, als vorher. Durch die Umstellung könnten sich 
    einige Bugs eingeschlichen haben. Ich bitte um ausgiebiges Testen.
-- Überarbeitung des 'Zauberwerks', da gab es noch eine Menge Bugs.
+- Überarbeitung des 'Zauberwerks', da gab es noch eine Menge Bugs,
+   aber ob nun alles funktioniert weiß ich auch noch nicht so genau :-)
 - Erneute Überarbeitung der neuen Liste, deswegen ist wieder ein Update 
-   von ManuProc_Widgets nötig.
-- Joachim hat die fehlenden H&D Zauber fertig abgetippt.
+   von ManuProc_Widgets, ManuProc_Base und GtkmmAddons nötig.
+- Einige umstellungsbezogene Bugs behoben
+- Joachim hat die fehlenden H&D Zauber fertig abgetippt und ich habe sie 
+   eingearbeitet.
 - Umstellung für den gcc_3.0 begonnen, die Abwärtskompatibilität zum 
    alten Compiler (2.95.2) bleibt erhalten.
-Umstellungsbezogene Bugs (behoben)
-Lernpunkte würfeln für Doppelklassencharaktere
+- Lernpunkte würfeln für Doppelklassencharaktere korrigiert.
+- Die Wahl des 'Info' Knopfes wird jetzt mit dem Charakter abgespeichert.
 
 
 ##########################################################################

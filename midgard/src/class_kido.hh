@@ -15,7 +15,7 @@ class Data_kido : public RowDataBase
        : hoho(h),name(n),stufe(s1),ap(a),kosten(k),stil(s) {}
    Data_kido(const std::string& h) : hoho(h),ap(0),kosten(0) {}
 
-   virtual const cH_EntryValue Value(int seqnr, gpointer gp) const
+   virtual const cH_EntryValue Value(guint seqnr, gpointer gp) const
     { 
       if (reinterpret_cast<int>(gp)=='A')
       switch (seqnr) {

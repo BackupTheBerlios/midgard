@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.30 2001/06/27 11:24:35 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.31 2001/06/30 20:30:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,7 +19,6 @@
 
 #include "midgard_CG.hh"
 
-
 gint midgard_CG::on_latex_release_event(GdkEventButton *ev)
 {
   if (ev->button==1) midgard_CG::on_latex_clicked();
@@ -37,69 +36,65 @@ void midgard_CG::on_latex_clicked()
  std::string styp = Typ.Name();
  if (Typ2.Name()!="") styp += "/"+Typ2.Name();
  fout << "\\newcommand{\\typ}{"<< LaTeX_scale(styp,10,"2.2cm") << "}\n";
- fout << "\\newcommand{\\st}{"  <<werte.st << "}\n";
- fout << "\\newcommand{\\gee}{" <<werte.ge << "}\n";
- fout << "\\newcommand{\\ko}{"  <<werte.ko<< "}\n";
- fout << "\\newcommand{\\inn}{" <<werte.in << "}\n";
- fout << "\\newcommand{\\zt}{"  <<werte.zt << "}\n";
- fout << "\\newcommand{\\au}{"  <<werte.au << "}\n";
- fout << "\\newcommand{\\pa}{"  <<werte.pa << "}\n";
- fout << "\\newcommand{\\sbb}{"  <<werte.sb << "}\n";
- int reaktionswert = werte.rw - atoi(midgard_CG::ruestung("RW").c_str());
- fout << "\\newcommand{\\rw}{"  << werte.rw << "\\scriptsize ("<<reaktionswert<<")}\n";
- fout << "\\newcommand{\\hgw}{"  <<werte.hgw << "}\n";
- int bewegungsweite = werte.b - atoi(midgard_CG::ruestung("B").c_str());
- fout << "\\newcommand{\\bb}{"  <<werte.b << "\\scriptsize ("<<bewegungsweite<<")}\n";
- fout << "\\newcommand{\\kaw}{"  <<werte.kaw << "}\n";
- fout << "\\newcommand{\\wlw}{"  <<werte.wlw << "}\n";
- fout << "\\newcommand{\\lpbasis}{"  <<werte.lpbasis << "}\n";
- fout << "\\newcommand{\\lp}{"  <<werte.lp << "}\n";
- fout << "\\newcommand{\\ap}{"  <<werte.ap << "}\n";
- fout << "\\newcommand{\\boau}{"<<werte.bo_au<< "}\n";
- fout << "\\newcommand{\\bosc}{"<<werte.bo_sc<< "}\n";
- fout << "\\newcommand{\\boan}{"<<werte.bo_an<< "}\n";
- fout << "\\newcommand{\\boab}{"<<werte.bo_ab<< "}\n";
- fout << "\\newcommand{\\boza}{"<<werte.bo_za<< "}\n";
- fout << "\\newcommand{\\bopsy}{"<<werte.bo_psy<< "}\n";
- fout << "\\newcommand{\\bophs}{"<<werte.bo_phs<< "}\n";
- fout << "\\newcommand{\\bophk}{"<<werte.bo_phk<< "}\n";
- fout << "\\newcommand{\\bogi}{"<<werte.bo_gi<< "}\n";
-// fout << "\\newcommand{\\psy}{"<<werte.psyZR_wert<<"+"<<werte.bo_psy<<"}\n";
-// fout << "\\newcommand{\\phs}{"<<werte.phsZR_wert<<"+"<<werte.bo_phs<<"}\n";
-// fout << "\\newcommand{\\phk}{"<<werte.phkZR_wert<<"+"<<werte.bo_phk<<"}\n";
-// fout << "\\newcommand{\\gift}{"<<werte.gift_wert<<"+"<<werte.bo_gi<<"}\n";
- fout << "\\newcommand{\\psy}{"<<werte.resistenz+werte.bo_psy<<"}\n";
- fout << "\\newcommand{\\phs}{"<<werte.resistenz+werte.bo_phs<<"}\n";
- fout << "\\newcommand{\\phk}{"<<werte.resistenz+werte.bo_phk<<"}\n";
- fout << "\\newcommand{\\gift}{"<<werte.gift_wert+werte.bo_gi<<"}\n";
+ fout << "\\newcommand{\\st}{"  <<Werte.St() << "}\n";
+ fout << "\\newcommand{\\gee}{" <<Werte.Ge() << "}\n";
+ fout << "\\newcommand{\\ko}{"  <<Werte.Ko()<< "}\n";
+ fout << "\\newcommand{\\inn}{" <<Werte.In() << "}\n";
+ fout << "\\newcommand{\\zt}{"  <<Werte.Zt() << "}\n";
+ fout << "\\newcommand{\\au}{"  <<Werte.Au() << "}\n";
+ fout << "\\newcommand{\\pa}{"  <<Werte.pA() << "}\n";
+ fout << "\\newcommand{\\sbb}{"  <<Werte.Sb() << "}\n";
+ int reaktionswert = Werte.RW() - atoi(midgard_CG::ruestung("RW").c_str());
+ fout << "\\newcommand{\\rw}{"  << Werte.RW() << "\\scriptsize ("<<reaktionswert<<")}\n";
+ fout << "\\newcommand{\\hgw}{"  <<Werte.HGW() << "}\n";
+ int bewegungsweite = Werte.B() - atoi(midgard_CG::ruestung("B").c_str());
+ fout << "\\newcommand{\\bb}{"  <<Werte.B() << "\\scriptsize ("<<bewegungsweite<<")}\n";
+ fout << "\\newcommand{\\kaw}{"  <<Werte.KAW() << "}\n";
+ fout << "\\newcommand{\\wlw}{"  <<Werte.WLW() << "}\n";
+ fout << "\\newcommand{\\lpbasis}{"  <<Werte.LPBasis() << "}\n";
+ fout << "\\newcommand{\\lp}{"  <<Werte.LP() << "}\n";
+ fout << "\\newcommand{\\ap}{"  <<Werte.AP() << "}\n";
+ fout << "\\newcommand{\\boau}{"<<Werte.bo_Au()<< "}\n";
+ fout << "\\newcommand{\\bosc}{"<<Werte.bo_Sc()<< "}\n";
+ fout << "\\newcommand{\\boan}{"<<Werte.bo_An()<< "}\n";
+ fout << "\\newcommand{\\boab}{"<<Werte.bo_Ab()<< "}\n";
+ fout << "\\newcommand{\\boza}{"<<Werte.bo_Za()<< "}\n";
+ fout << "\\newcommand{\\bopsy}{"<<Werte.bo_Psy()<< "}\n";
+ fout << "\\newcommand{\\bophs}{"<<Werte.bo_Phs()<< "}\n";
+ fout << "\\newcommand{\\bophk}{"<<Werte.bo_Phk()<< "}\n";
+ fout << "\\newcommand{\\bogi}{"<<Werte.bo_Gift()<< "}\n";
+ fout << "\\newcommand{\\psy}{"<<Werte.Resistenz()+Werte.bo_Psy()<<"}\n";
+ fout << "\\newcommand{\\phs}{"<<Werte.Resistenz()+Werte.bo_Phs()<<"}\n";
+ fout << "\\newcommand{\\phk}{"<<Werte.Resistenz()+Werte.bo_Phk()<<"}\n";
+ fout << "\\newcommand{\\gift}{"<<3*Werte.LP()+Werte.bo_Gift()+ Spezies_constraint.Gift()<<"}\n";
 
- fout << "\\newcommand{\\abwehr}{"<<werte.abwehr_wert<< "}\n";
- fout << "\\newcommand{\\abwehrfinal}{"<<werte.abwehr_wert+werte.bo_ab<< "}\n";
- int ohne_waffe=werte.abwehr_wert+werte.bo_ab;
+ fout << "\\newcommand{\\abwehr}{"<<Werte.Abwehr_wert()<< "}\n";
+ fout << "\\newcommand{\\abwehrfinal}{"<<Werte.Abwehr_wert()+Werte.bo_Ab()<< "}\n";
+ int ohne_waffe=Werte.Abwehr_wert()+Werte.bo_Ab();
  std::string mit_waffe = midgard_CG::get_Verteidigungswaffe(ohne_waffe);
- if (atoi(mit_waffe.c_str())!=werte.abwehr_wert+werte.bo_ab)
+ if (atoi(mit_waffe.c_str())!=Werte.Abwehr_wert()+Werte.bo_Ab())
     fout << "\\newcommand{\\abwehrmitwaffe}{"<<mit_waffe<< "}\n";
  else 
     fout << "\\newcommand{\\abwehrmitwaffe}{""}\n";
 
- fout << "\\newcommand{\\zauber}{"<<werte.zaubern_wert<< "}\n";
- fout << "\\newcommand{\\alter}{"  <<werte.alter << "}\n";
- fout << "\\newcommand{\\gestalt}{"  <<LaTeX_scale(werte.gestalt,5,"0.7cm") << "}\n";
- fout << "\\newcommand{\\gewicht}{"  <<werte.gewicht << "\\,kg}\n";
- fout << "\\newcommand{\\koerpergroesse}{"  <<werte.groesse/100. << "\\,m}\n";
- fout << "\\newcommand{\\grad}{"  <<werte.grad << "}\n";
- fout << "\\newcommand{\\spezialisierung}{ "  <<LaTeX_scale(werte.spezialisierung,10,"2.2cm") << "}\n";
- fout << "\\newcommand{\\stand}{"  <<LaTeX_scale(werte.stand,10,"1.5cm") << "}\n";
- fout << "\\newcommand{\\herkunft}{"  <<LaTeX_scale(werte.herkunft,10,"2.2cm") << "}\n";
- fout << "\\newcommand{\\glaube}{"  <<LaTeX_scale(werte.glaube,10,"2.5cm") << "}\n";
- fout << "\\newcommand{\\namecharakter}{" << LaTeX_scale(werte.name_charakter,25,"4.5cm") << "}\n";
- fout << "\\newcommand{\\namespieler}{" << LaTeX_scale(werte.name_spieler,25,"4.5cm") << "}\n";
- fout << "\\newcommand{\\gfp}{\\tiny "  <<werte.gfp << "}\n";
+ fout << "\\newcommand{\\zauber}{"<<Werte.Zaubern_wert()<< "}\n";
+ fout << "\\newcommand{\\alter}{"  <<Werte.Alter() << "}\n";
+ fout << "\\newcommand{\\gestalt}{"  <<LaTeX_scale(Werte.Gestalt(),5,"0.7cm") << "}\n";
+ fout << "\\newcommand{\\gewicht}{"  <<Werte.Gewicht() << "\\,kg}\n";
+ fout << "\\newcommand{\\koerpergroesse}{"  <<Werte.Groesse()/100. << "\\,m}\n";
+ fout << "\\newcommand{\\grad}{"  <<Werte.Grad() << "}\n";
+ fout << "\\newcommand{\\spezialisierung}{ "  <<LaTeX_scale(Werte.Spezialisierung(),10,"2.2cm") << "}\n";
+ fout << "\\newcommand{\\stand}{"  <<LaTeX_scale(Werte.Stand(),10,"1.5cm") << "}\n";
+ fout << "\\newcommand{\\herkunft}{"  <<LaTeX_scale(Werte.Herkunft(),10,"2.2cm") << "}\n";
+ fout << "\\newcommand{\\glaube}{"  <<LaTeX_scale(Werte.Glaube(),10,"2.5cm") << "}\n";
+ fout << "\\newcommand{\\namecharakter}{" << LaTeX_scale(Werte.Name_Charakter(),25,"4.5cm") << "}\n";
+ fout << "\\newcommand{\\namespieler}{" << LaTeX_scale(Werte.Name_Spieler(),25,"4.5cm") << "}\n";
+ fout << "\\newcommand{\\gfp}{\\tiny "  <<Werte.GFP() << "}\n";
 
- double geld = werte.gold + werte.silber/10. + werte.kupfer/100.;
+ double geld = Werte.Gold() + Werte.Silber()/10. + Werte.Kupfer()/100.;
  fout << "\\newcommand{\\gold}{\\tiny "  << geld << "}\n";
 
- fout << "\\newcommand{\\ruestung}{\\scriptsize "  <<werte.ruestung << "}\n";
+ fout << "\\newcommand{\\ruestung}{\\scriptsize "  <<Werte.Ruestung() << "}\n";
  fout << "\\newcommand{\\ruestunglp}{\\scriptsize "  <<midgard_CG::ruestung("LP") << "}\n";
 
  /////////////////////////////////////////////////////////////////////////////
@@ -209,31 +204,31 @@ void midgard_CG::on_latex_clicked()
 //         fout <<LaTeX_scale(waffenname,15,"2.5cm",waffe_besitz[j])<< "}\n";
          fout <<LaTeX_scale(waffenname,15,"2.5cm",*j)<< "}\n";
          int mag_schadensbonus = (*j)->av_Bonus();
-         int anbo = werte.bo_an;
-         if (midgard_CG::waffe_werte(*j,werte,"Verteidigung")=="true")
+         int anbo = Werte.bo_An();
+         if (midgard_CG::waffe_werte(*j,Werte,"Verteidigung")=="true")
             anbo = 0;
          int wert = (*i)->Erfolgswert() + anbo + mag_schadensbonus;
          fout << "\\newcommand{\\waffeE"<<b<<"}{"<<wert << "}\n";
-//         std::string schaden=midgard_CG::waffe_werte(waffe_besitz[j],werte,"Schaden+mag_Bonus");
-         std::string schaden=midgard_CG::waffe_werte(*j,werte,"Schaden+mag_Bonus");
+//         std::string schaden=midgard_CG::waffe_werte(waffe_besitz[j],Werte,"Schaden+mag_Bonus");
+         std::string schaden=midgard_CG::waffe_werte(*j,Werte,"Schaden+mag_Bonus");
          fout << "\\newcommand{\\waffeS"<<b<<"}{"<<schaden << "}\n";
-//         std::string anm = midgard_CG::waffe_werte(waffe_besitz[j],werte,"Angriffsrangmodifikation");
-         std::string anm = midgard_CG::waffe_werte(*j,werte,"Angriffsrangmodifikation");
+//         std::string anm = midgard_CG::waffe_werte(waffe_besitz[j],Werte,"Angriffsrangmodifikation");
+         std::string anm = midgard_CG::waffe_werte(*j,Werte,"Angriffsrangmodifikation");
          fout << "\\newcommand{\\waffeA"<<b<<"}{"<<anm << "}\n";
-//         std::string abm = midgard_CG::waffe_werte(waffe_besitz[j],werte,"WM_Abwehr");
-         std::string abm = midgard_CG::waffe_werte(*j,werte,"WM_Abwehr");
+//         std::string abm = midgard_CG::waffe_werte(waffe_besitz[j],Werte,"WM_Abwehr");
+         std::string abm = midgard_CG::waffe_werte(*j,Werte,"WM_Abwehr");
          fout << "\\newcommand{\\waffeV"<<b<<"}{"<<abm << "}\n";
 //         ++jcount;
        }
      }
    }
  // waffenloser Kampf:
- fout << "\\newcommand{\\waffeEy"<<"}{"<<i_waffenlos+werte.bo_an << "}\n";
- std::string schaden=midgard_CG::waffe_werte(new Data_waffen("waffenloser Kampf","waffenloser Kampf","",0,0,""),werte,"Schaden");
+ fout << "\\newcommand{\\waffeEy"<<"}{"<<i_waffenlos+Werte.bo_An() << "}\n";
+ std::string schaden=midgard_CG::waffe_werte(new Data_waffen("waffenloser Kampf","waffenloser Kampf","",0,0,""),Werte,"Schaden");
  fout << "\\newcommand{\\waffeSy}{"<<schaden << "}\n";
- std::string anm = midgard_CG::waffe_werte(new Data_waffen("waffenloser Kampf","waffenloser Kampf","",0,0,""),werte,"Angriffsrangmodifikation");
+ std::string anm = midgard_CG::waffe_werte(new Data_waffen("waffenloser Kampf","waffenloser Kampf","",0,0,""),Werte,"Angriffsrangmodifikation");
  fout << "\\newcommand{\\waffeAy}{"<<anm << "}\n";
- std::string abm = midgard_CG::waffe_werte(new Data_waffen("waffenloser Kampf","waffenloser Kampf","",0,0,""),werte,"WM_Abwehr");
+ std::string abm = midgard_CG::waffe_werte(new Data_waffen("waffenloser Kampf","waffenloser Kampf","",0,0,""),Werte,"WM_Abwehr");
  fout << "\\newcommand{\\waffeVy}{"<<abm << "}\n";
 
  // Fertigkeiten auffüllen
@@ -292,7 +287,7 @@ std::string midgard_CG::LaTeX_scale(const std::string& is, unsigned int maxlengt
  if (Waffe->Name()!="")
    {
      std::string l1=os,l2;
-     if (Waffe->Magisch()==""||Waffe->Magisch()=="*") l2 = midgard_CG::waffe_werte(Waffe,werte,"Fern");
+     if (Waffe->Magisch()==""||Waffe->Magisch()=="*") l2 = midgard_CG::waffe_werte(Waffe,Werte,"Fern");
      else  { if ((Waffe->Magisch()).size()<=25) l2 = "\\tiny "+Waffe->Magisch();
              else l2 = "\\resizebox*{"+scale+"}{1.5ex}{\\tiny "+Waffe->Magisch()+"}" ;
        }

@@ -1,4 +1,4 @@
-// $Id: LaTeX_zauber.cc,v 1.21 2001/06/27 11:24:35 thoma Exp $
+// $Id: LaTeX_zauber.cc,v 1.22 2001/06/30 20:30:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -83,8 +83,8 @@ void midgard_CG::LaTeX_zauber_main(void)
    fout << "\\newcommand{\\li}{\\setlength{\\arrayrulewidth}{0.2mm}}\n";
    fout << "\\setlength{\\doublerulesep}{0mm}\n";
   fout << "\\begin{document}\n";
-   fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(werte.name_charakter,25,"4.5cm") << "}\n";
-   fout << "\\newcommand{\\namespieler}{"  <<LaTeX_scale(werte.name_spieler,25,"4.5cm") << "}\n";
+   fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(Werte.Name_Charakter(),25,"4.5cm") << "}\n";
+   fout << "\\newcommand{\\namespieler}{"  <<LaTeX_scale(Werte.Name_Spieler(),25,"4.5cm") << "}\n";
    fout << "\\begin{center}\n";
    fout << "\\parbox{10cm}{\\epsfig{width=10cm,angle=0,file="PACKAGE_DATA_DIR"drache.ps}}\n";
    fout << "\\parbox[][][c]{7cm}{\n";

@@ -134,11 +134,11 @@ void midgard_CG::show_neue_fertigkeiten()
    FROM fertigkeiten f, fertigkeiten_voraussetzung v WHERE \
    v.name = f.fertigkeit \
    AND f.fertigkeit NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten \
-   WHERE charakter_name = '"+werte.name_charakter+"' \
-   AND version = '"+werte.version+"') \
+   WHERE charakter_name = '"+Werte.Name_Charakter()+"' \
+   AND version = '"+Werte.Version()+"') \
    AND f.fertigkeit != 'Sprache' AND f.fertigkeit != 'Lesen/Schreiben' \
    AND f.fertigkeit  not in (select verboten from pflicht_lernen where \
-    typ='"+werte.spezies+"'  and spielbegin is null) \
+    typ='"+Werte.Spezies()+"'  and spielbegin is null) \
    AND fp is not null
    ORDER BY f.fertigkeit";
 
@@ -163,7 +163,7 @@ void midgard_CG::show_neue_fertigkeiten()
       if (sqlca.sqlcode) break;
       double fac = midgard_CG::get_standard_fertigkeit_(db_standard,db_standard2,db_fertigkeiten);
       std::string s1 = db_standard, s2 = db_standard2;
-      Ausnahmen ausnahmen(werte,Typ,Typ2,vec_Beruf);
+      Ausnahmen ausnahmen(Werte,Typ,Typ2,vec_Beruf);
       s1 = ausnahmen.Ausnahmen_string(db_fertigkeiten,db_standard,"");
 //std::cout << "\t\t"<<s1<<"\t"<<fac<<"\n";
 //std::cout << db_fertigkeiten<<"\t"<<Fertigkeiten_Voraussetzung(db_fertigkeiten)
@@ -184,7 +184,7 @@ void midgard_CG::show_neue_fertigkeiten()
 
 bool midgard_CG::kido_steigern_check(int wert)
 {
-  if (werte.grad+10 > wert) return false;
+  if (Werte.Grad()+10 > wert) return false;
   else
    { std::string strinfo ="KiDo darf nur auf maximal Grad+10 gesteigert werden.\n";
      manage (new WindowInfo(strinfo));
@@ -202,7 +202,7 @@ void midgard_CG::on_steigern_fert_tree_alt_select(const std::string& fertigkeit,
       // Steigern mit lernen
       if (!togglebutton_praxispunkte_fertigkeiten->get_active()) 
          {
-            werte.gfp += steigern;
+            Werte.add_GFP(steigern);
             for (std::vector<H_Data_fert>::iterator i=vec_Fertigkeiten.begin();
                      i!= vec_Fertigkeiten.end();++i )
                if ( (*i)->Name() == fertigkeit) (*i)->set_Erfolgswert(1+(*i)->Erfolgswert()); 
@@ -215,7 +215,7 @@ void midgard_CG::on_steigern_fert_tree_alt_select(const std::string& fertigkeit,
             int gelungen = midgard_CG::praxispunkte_wuerfeln(fertigkeit,wert,"Fertigkeit",wuerfeln);
             if (gelungen)
                {
-                  werte.gfp += steigern/2;
+                  Werte.add_GFP(steigern/2);
                   for (std::vector<H_Data_fert>::iterator i=vec_Fertigkeiten.begin();
                         i!= vec_Fertigkeiten.end();++i )
                      if ( (*i)->Name() == fertigkeit) (*i)->set_Erfolgswert(1+(*i)->Erfolgswert()); 
@@ -224,19 +224,19 @@ void midgard_CG::on_steigern_fert_tree_alt_select(const std::string& fertigkeit,
     }
    if (radio_fert_reduzieren->get_active() && reduzieren)
          {
-            werte.gfp -= reduzieren;
+            Werte.add_GFP(-reduzieren);
             for (std::vector<H_Data_fert>::iterator i=vec_Fertigkeiten.begin();
                      i!= vec_Fertigkeiten.end();++i )
                if ( (*i)->Name() == fertigkeit) (*i)->set_Erfolgswert((*i)->Erfolgswert()-1); 
          }
    if (radio_fert_verlernen->get_active() && verlernen)
          {
-            werte.gfp -= verlernen;
+            Werte.add_GFP(-verlernen);
             for (std::vector<H_Data_fert>::iterator i=vec_Fertigkeiten.begin();
                      i!= vec_Fertigkeiten.end();++i )
                if ( (*i)->Name() == fertigkeit) {vec_Fertigkeiten.erase(i);break;}; 
          }
-   midgard_CG::zeige_werte(werte,"alle");
+   midgard_CG::zeige_werte(Werte);
    midgard_CG::on_speichern_clicked();
    midgard_CG::show_alte_fertigkeiten();
    midgard_CG::show_neue_fertigkeiten();
@@ -244,8 +244,8 @@ void midgard_CG::on_steigern_fert_tree_alt_select(const std::string& fertigkeit,
 
 void midgard_CG::on_steigern_fert_tree_neu_select(const std::string& fertigkeit, int wert, int lernkosten)
 {
-  werte.gfp += lernkosten;
-  midgard_CG::zeige_werte(werte,"alle");
+  Werte.add_GFP(lernkosten);
+  midgard_CG::zeige_werte(Werte);
   vec_Fertigkeiten.push_back(new Data_fert(fertigkeit,wert));
 
   if (fertigkeit=="KiDo") {kido_bool=true;show_gtk();
@@ -256,10 +256,8 @@ void midgard_CG::on_steigern_fert_tree_neu_select(const std::string& fertigkeit,
          std::string strinfo ="Jetzt unter 'Grundwerte' die zweite Charkakterklasse wählen\n";
          manage (new WindowInfo(strinfo,true));
          // Resistenzboni für Zauberer setzten:
-         werte.bo_psy += 3;
-         werte.bo_phs += 1;
-         werte.bo_phk += 3;
-         if (werte.zaubern_wert=="") werte.zaubern_wert = "10";
+         Werte.set_magBoni(Werte.bo_Psy()+3,Werte.bo_Phs()+1,Werte.bo_Phk()+3);
+         if (Werte.Zaubern_wert_int()==0) Werte.set_Zaubern_wert(10);
       }
 
   midgard_CG::show_fertigkeiten();
@@ -317,15 +315,15 @@ bool midgard_CG::Fertigkeiten_Voraussetzung(const std::string& fertigkeit)
    from fertigkeiten_voraussetzung where name= :db_fertigkeit;
 //  SQLerror::test(__FILELINE__,100);
   SQLerror::test(__FILELINE__);
-    if ( db_st<=werte.st &&
-         db_ge<=werte.ge &&
-         db_ko<=werte.ko &&
-         db_in<=werte.in &&
-         db_zt<=werte.zt &&
-         db_au<=werte.au &&
-         db_pa<=werte.pa &&
-         db_sb<=werte.sb &&
-         db_rw<=werte.rw
+    if ( db_st<=Werte.St() &&
+         db_ge<=Werte.Ge() &&
+         db_ko<=Werte.Ko() &&
+         db_in<=Werte.In() &&
+         db_zt<=Werte.Zt() &&
+         db_au<=Werte.Au() &&
+         db_pa<=Werte.pA() &&
+         db_sb<=Werte.Sb() &&
+         db_rw<=Werte.RW()
        )   
      return true;
   else return false ;

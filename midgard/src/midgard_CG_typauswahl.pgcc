@@ -46,13 +46,13 @@ void midgard_CG::fill_typauswahl_fill(int typ_1_2)
      int  db_stand, db_sb, db_ruestung;
   exec sql end declare section;
   std::string squery = "select t.typl";
-  if (werte.geschlecht=="w") squery +="w";
+  if (Werte.Geschlecht()=="w") squery +="w";
   squery +=",t.typnr,coalesce(t.region,''), t.typs,t.typz,t.stand,t.sb,t.ausdauer,t.ruestung from typen t";
-  if (werte.spezies!="Mensch") 
+  if (Werte.Spezies()!="Mensch") 
      squery += ", spezies_typen st where t.typs = st.typen and st.spezies = '"
-            + werte.spezies +"'";
-  if (werte.spezies!="Mensch" && typ_1_2==2) squery += " and  typz = 'z' ";
-  if (werte.spezies=="Mensch" && typ_1_2==2) squery += " where  typz = 'z' ";
+            + Werte.Spezies() +"'";
+  if (Werte.Spezies()!="Mensch" && typ_1_2==2) squery += " and  typz = 'z' ";
+  if (Werte.Spezies()=="Mensch" && typ_1_2==2) squery += " where  typz = 'z' ";
   squery +="  order by typnr";
 
   Transaction tr;
@@ -112,7 +112,7 @@ void midgard_CG::typauswahl_button()
  int ityp_ = int(typauswahl->get_menu()->get_active()->get_user_data());
  Typ = *vec_Typen[ityp_];
 
-//A// get_Ausnahmen();
+ clear_Ausnahmen();
  show_gtk();
  if (Typ.Short()=="dBe" || Typ.Short()=="eBe") angeborene_zauber();
 }
@@ -122,7 +122,7 @@ void midgard_CG::typauswahl_2_button()
  int ityp_ = int(typauswahl_2->get_menu()->get_active()->get_user_data());
  Typ2 = *vec_Typen_2[ityp_];
 
-//A// get_Ausnahmen();
+ clear_Ausnahmen();
  show_gtk();
  if (Typ2.Short()=="dBe" || Typ2.Short()=="eBe") angeborene_zauber();
 }
@@ -160,12 +160,12 @@ void midgard_CG::fill_spezies()
 void midgard_CG::spezieswahl_button()
 {
  int ityp = int(optionmenu_spezies->get_menu()->get_active()->get_user_data());
- werte.spezies = spezies_vector[ityp];
+ Werte.Spezies() = spezies_vector[ityp];
  midgard_CG::fill_typauswahl();
  midgard_CG::get_spezies_constraint();
  midgard_CG::typauswahl_button();
 
- if (werte.spezies=="Elf")
+ if (Werte.Spezies()=="Elf")
    { manage (new Window_doppelcharaktere(this));
      angeborene_zauber();
    }

@@ -39,7 +39,7 @@ void midgard_CG::get_typ_after_load()
 //  else abort();
   SQLerror::test(__FILELINE__); 
 
-  if (werte.geschlecht=="w")
+  if (Werte.Geschlecht()=="w")
   exec sql select typlw into :db_typl from typen where typl = :db_typl;
   SQLerror::test(__FILELINE__); 
   if (typ_1_2==1)
@@ -65,7 +65,7 @@ void midgard_CG::get_typ_after_load()
  else abort();
   }
 //std::cout <<Typ.Name() <<"\t"<<Typ2.Name() <<"<-\n";
-//A// midgard_CG::get_Ausnahmen();
+ clear_Ausnahmen();
 
 //std::cout << typ.l<<"\n";
 }

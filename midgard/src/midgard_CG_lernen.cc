@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.24 2001/06/29 09:23:29 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.25 2001/06/30 20:30:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,7 +20,7 @@
 #include "midgard_CG.hh"
 #include "Window_lernpunkte_editieren.hh"
 #include "Window_Waffe_Geld.hh"
-
+#include "zufall.h"
 
 void midgard_CG::on_lernpunkte_wuerfeln_clicked()
 {
@@ -34,15 +34,15 @@ void midgard_CG::on_lernpunkte_wuerfeln_clicked()
   if (Typ2.Zaubern()=="j" || Typ2.Zaubern() == "z" && Typ2.Short()!="") 
       lernpunkte.set_Zauber(random.integer(1,6)+1);
 
-  if (werte.alter==0)
+  if (Werte.Alter()==0)
    {
      int age = lernpunkte.Beruf() + lernpunkte.Fertigkeiten() 
              + lernpunkte.Waffen() + lernpunkte.Zauber();
 
-     if (Typ.Zaubern()=="z" ) werte.alter = age/4+19;
-     if (Typ.Zaubern()=="n" || Typ.Zaubern()=="j") werte.alter = age/4+16;
-     werte.alter *= spezies_constraint.alter;
-     alter->set_text(itos(werte.alter));
+     if (Typ.Zaubern()=="z" ) age = age/4+19;
+     if (Typ.Zaubern()=="n" || Typ.Zaubern()=="j") age = age/4+16;
+     Werte.set_Alter( age * Spezies_constraint.Alter());
+     alter->set_text(itos(Werte.Alter()));
    }
   midgard_CG::zeige_lernpunkte();
   zeige_notebook();
@@ -75,8 +75,8 @@ void midgard_CG::on_button_ruestung_clicked()
 
 void midgard_CG::on_button_geld_waffen_clicked()
 {   
-  werte.gold=werte.silber=werte.kupfer=0;
-  manage(new Window_Waffe_Geld::Window_Waffe_Geld(this,werte,vec_Waffen));
+  Werte.set_Geld(0,0,0);
+  manage(new Window_Waffe_Geld::Window_Waffe_Geld(this,Werte,vec_Waffen));
 }
 
 void midgard_CG::waffe_besitz_uebernehmen(const std::vector<H_Data_waffen>& wbu)

@@ -21,7 +21,7 @@ class Data_fert : public RowDataBase
       :name(n),wert(w),lernkosten(fp),steigern(0),reduzieren(0),verlernen(0),voraussetzungen(v),attribut(a),pflicht(p),lernpunkte(L) {}   
 
 
-   virtual const cH_EntryValue Value(int seqnr,gpointer gp) const
+   virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
     { 
       if (reinterpret_cast<int>(gp)=='A')
        switch (seqnr) {

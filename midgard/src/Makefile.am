@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.38 2001/06/29 09:23:29 thoma Exp $
+# $Id: Makefile.am,v 1.39 2001/06/30 20:30:06 thoma Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport midgard_xmlimport
 
@@ -53,15 +53,17 @@ Sprache_auswahl.hh Sprache_auswahl_glade.hh \
    class_kido.hh \
    class_waffen.hh \
    class_berufe.hh \
-   class_misc.hh \
+   class_lernpunkte.hh \
    class_zauber.hh \
    class_fertigkeiten.hh \
-   class_sprache_schrift.hh
+   class_sprache_schrift.hh \
+   class_spezies.hh \
+   class_typen.hh
 
 
 %.cc: %.pgcc ; @ECPG@ -o $*.cc $<
 
-BUILT_SOURCES_CG = Ausnahmen.cc Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
+BUILT_SOURCES_CG = get_spezies_constraint.cc Ausnahmen.cc Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
    Zauber_auswahl.cc  Zauber_get_daten.cc get_standard_zauber.cc \
    get_standard_fertigkeit.cc get_standard_waffen.cc Berufe_auswahl.cc \
    save_charakter.cc  load_charakter.cc  \
@@ -74,7 +76,7 @@ BUILT_SOURCES_CG = Ausnahmen.cc Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
    midgard_CG_typauswahl.cc  Window_mag_bonus.cc get_Verteidigungswaffe.cc \
 	Window_angeb_fert.cc KiDo_auswahl.cc steigern_kido.cc get_kido.cc \
    get_standard_zaubermittel.cc \
-   get_spezies_constraint.cc midgard_CG_magier_spezialgebiet.cc
+   midgard_CG_magier_spezialgebiet.cc
 
 BUILT_SOUCES_XMLE=xmlexport.cc
 BUILT_SOUCES_XMLI=xmlimport.cc

@@ -42,8 +42,8 @@ void Window_waffe::on_clist_waffe_select_row(gint row, gint column, GdkEvent *ev
 }
 
 Window_waffe::Window_waffe(int we,midgard_CG* h, 
-      Window_Waffe_Geld* o, st_werte& w, std::vector<H_Data_waffen>& wa)
-:vec_Waffen(wa) ,werte(w)
+      Window_Waffe_Geld* o, Grundwerte& W, std::vector<H_Data_waffen>& wa)
+:vec_Waffen(wa) ,Werte(W)
 {
   wurf=we;
   hauptfenster=h;
@@ -53,8 +53,8 @@ Window_waffe::Window_waffe(int we,midgard_CG* h,
 }
 
 Window_waffe::Window_waffe(int we,midgard_CG* h, 
-      st_werte& w, std::vector<H_Data_waffen>& wa)
-:vec_Waffen(wa) ,werte(w)
+      Grundwerte& W, std::vector<H_Data_waffen>& wa)
+:vec_Waffen(wa) ,Werte(W)
 {
   wurf=we;
   hauptfenster=h;
@@ -65,10 +65,10 @@ Window_waffe::Window_waffe(int we,midgard_CG* h,
 void Window_waffe::wuerfeln()
 {
  std::string strinfo = "Für die Waffenauswahl wurde eine "+itos(wurf)
-            +" gewürfelt,\n der Stand ist "+werte.stand+"\n ---> ";
+            +" gewürfelt,\n der Stand ist "+Werte.Stand()+"\n ---> ";
  if ( 1<=wurf&&wurf<=10)
    {
-       werte.kupfer+=10;  strinfo+="10 Kupferstücke";
+       Werte.add_Kupfer(10);  strinfo+="10 Kupferstücke";
        manage(new WindowInfo(strinfo));      
        oberfenster->Geld();
        destroy();
@@ -78,8 +78,8 @@ void Window_waffe::wuerfeln()
    char db_waffe[50], db_grund[50], db_art[5] ;
    char db_name[50], db_version[50] ;
   exec sql end declare section;
-  strncpy(db_name,werte.name_charakter.c_str(),sizeof(db_name));
-  strncpy(db_version,werte.version.c_str(),sizeof(db_version));
+  strncpy(db_name,(Werte.Name_Charakter()).c_str(),sizeof(db_name));
+  strncpy(db_version,(Werte.Version()).c_str(),sizeof(db_version));
   exec sql declare ein cursor for
    SELECT distinct w.name, w.grundkenntnisse, coalesce(w.art_2,'') FROM waffen w,
    charaktere_fertigkeiten  c
@@ -102,8 +102,7 @@ void Window_waffe::wuerfeln()
 
      if (waffe == "waffenloser Kampf") continue;
      std::string art = db_art;
-//     std::string sch = hauptfenster->waffe_werte(st_waffen_besitz(db_waffe,db_waffe,"",0,0,""),werte,"Schaden");
-     std::string sch = hauptfenster->waffe_werte(new Data_waffen(db_waffe,db_waffe,"",0,0,""),werte,"Schaden");
+     std::string sch = hauptfenster->waffe_werte(new Data_waffen(db_waffe,db_waffe,"",0,0,""),Werte,"Schaden");
      if (aartE =="E" && art=="E" )
          os << waffe <<"\t"<<db_grund<<"\t"<<sch<<"\n";
      if (aartW =="W" && art=="W" )
@@ -131,9 +130,9 @@ void Window_waffe::wuerfeln()
 
 void Window_waffe::get_art(std::string& aartE,std::string& aartS, std::string& aartW, std::string& aartZ, std::string& aartA)
 {
-        if (werte.stand == "Unfrei")
+        if (Werte.Stand() == "Unfrei")
          {
-//        if ( 1<=wurf&&wurf<=10){werte.kupfer+=10;strinfo+="10 Kupferstücke";} 
+//        if ( 1<=wurf&&wurf<=10){Werte.add_Kupfer(10);strinfo+="10 Kupferstücke";} 
           if (11<=wurf&&wurf<=20){aartE="E";} 
           if (21<=wurf&&wurf<=40){aartE="E";} 
           if (41<=wurf&&wurf<=60){aartE="E";aartS="S";} 
@@ -142,7 +141,18 @@ void Window_waffe::get_art(std::string& aartE,std::string& aartS, std::string& a
           if (91<=wurf&&wurf<=99){aartA="A";} 
           if (wurf==100){aartE="E";magische_Waffe();} 
          }
-        if (werte.stand == "Volk")
+        if (Werte.Stand() == "Volk")
+         {
+//        if ( 1<=wurf&&wurf<=10){Werte.add_Kupfer(10);strinfo+="10 Kupferstücke";} 
+          if (11<=wurf&&wurf<=20){aartE="E";} 
+          if (21<=wurf&&wurf<=40){aartE="E";} 
+          if (41<=wurf&&wurf<=60){aartE="E";aartW="W";} 
+          if (61<=wurf&&wurf<=80){aartE="E";aartW="W";aartS="S";} 
+          if (81<=wurf&&wurf<=90){aartA="A";} 
+          if (91<=wurf&&wurf<=99){aartA="A";} 
+          if (wurf==100){aartE="E";magische_Waffe();} 
+         }
+        if (Werte.Stand() == "Mittelschicht")
          {
 //        if ( 1<=wurf&&wurf<=10){werte.kupfer+=10;strinfo+="10 Kupferstücke";} 
           if (11<=wurf&&wurf<=20){aartE="E";} 
@@ -153,18 +163,7 @@ void Window_waffe::get_art(std::string& aartE,std::string& aartS, std::string& a
           if (91<=wurf&&wurf<=99){aartA="A";} 
           if (wurf==100){aartE="E";magische_Waffe();} 
          }
-        if (werte.stand == "Mittelschicht")
-         {
-//        if ( 1<=wurf&&wurf<=10){werte.kupfer+=10;strinfo+="10 Kupferstücke";} 
-          if (11<=wurf&&wurf<=20){aartE="E";} 
-          if (21<=wurf&&wurf<=40){aartE="E";} 
-          if (41<=wurf&&wurf<=60){aartE="E";aartW="W";} 
-          if (61<=wurf&&wurf<=80){aartE="E";aartW="W";aartS="S";} 
-          if (81<=wurf&&wurf<=90){aartA="A";} 
-          if (91<=wurf&&wurf<=99){aartA="A";} 
-          if (wurf==100){aartE="E";magische_Waffe();} 
-         }
-        if (werte.stand == "Adel")
+        if (Werte.Stand() == "Adel")
          {
 //        if ( 1<=wurf&&wurf<=10){werte.kupfer+=10;strinfo+="10 Kupferstücke";} 
           if (11<=wurf&&wurf<=20){aartE="E";} 

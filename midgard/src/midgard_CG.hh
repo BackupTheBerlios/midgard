@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.51 2001/06/29 09:23:29 thoma Exp $
+// $Id: midgard_CG.hh,v 1.52 2001/06/30 20:30:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,6 +34,8 @@
 #include "glademm_support.hh"
 #include "WindowInfo.hh"
 
+
+
 #include <fstream>
 #include <string>
 #include <stdio.h>
@@ -42,51 +44,18 @@
 #include <gtk--/menuitem.h>
 #include <vector>
 #include <map>
-#include "itos.h"
-#include "zufall.h"
 #include "class_zauber.hh"
 #include "class_fertigkeiten.hh"
 #include "class_berufe.hh"
 #include "class_waffen.hh"
 #include "class_kido.hh"
 #include "class_sprache_schrift.hh"
-#include "class_misc.hh"
-//#include "class_Ausnahmen.hh"
+#include "class_lernpunkte.hh"
+#include "class_typen.hh"
+#include "class_Grundwerte.hh"
+#include "class_spezies.hh"
 
-
-struct st_werte{int st; int ge;int ko;int in;int zt;
-             int au;int pa;int sb;int rw;int hgw;
-             int b;int lp;int ap;int abwehr_wert; std::string zaubern_wert;
-             int resistenz; int gift_wert;
-             int bo_au_typ; int bo_au; int bo_sc; int bo_an; int bo_ab; int bo_za;
-             int bo_psy; int bo_phs; int bo_phk; int bo_gi;
-             int kaw; int wlw; int lpbasis;
-             int alter;std::string gestalt; std::string geschlecht;
-             int gewicht;int groesse;int grad;
-             std::string spezialisierung;std::string spezial;std::string spezial2; std::string stand;
-             std::string herkunft; std::string spezies;
-             std::string glaube; std::string name_charakter; std::string name_spieler;
-             int gfp;std::string version; std::string beschreibung; std::string ruestung;
-             int gold; int silber; int kupfer;
-      st_werte() : st(0),ge(0),ko(0),in(0),zt(0),au(0),pa(0),sb(0), rw(0),
-             hgw(0),b(0),lp(0),ap(0),abwehr_wert(0),
-             resistenz(0),gift_wert(0),
-             bo_au_typ(0),bo_au(0),bo_sc(0),bo_an(0),bo_ab(0),bo_za(0),
-             bo_psy(0),bo_phs(0),bo_phk(0),bo_gi(0),kaw(0),wlw(0),lpbasis(0),
-             alter(0),geschlecht("m"),gewicht(0),groesse(0),grad(1),spezialisierung(""),
-             spezial(""),spezial2(""),
-             stand(""),herkunft(""),spezies("Mensch"),glaube(""),name_charakter(""), gfp(0),version("Erschaffung"),
-             ruestung("OR"), gold(0), silber(0), kupfer(0) {}
-      void clear() {*this=st_werte();}}; 
-struct st_spezies_constraint{int st;int ge;int ko;int in;int zt;int sb;int au;
-      int lpbasis;int ap_grad;int gift;int m_abb; int m_psy;int m_phs; int m_phk;
-      int alter;int groesse_f;int groesse_w;int groesse_s;int gestalt;
-      int b_f;int b_s;};
-/*
-struct st_ausnahmen{std::string name; std::string art;float fac;std::string standard;
-         st_ausnahmen(std::string nn, std::string aa, float ff, std::string ss)
-         :name(nn), art(aa), fac(ff), standard(ss) {}};
-*/
+class Random;
 
 extern bool Originalbool;
 extern bool Infobool;
@@ -109,7 +78,7 @@ class midgard_CG : public midgard_CG_glade
 
         std::vector<cH_Data_typen> vec_Typen;
         std::vector<cH_Data_typen> vec_Typen_2;
-        std::vector<std::string> vec_spezialgebiet;
+//        std::vector<std::string> vec_spezialgebiet;
         std::vector<std::string> spezies_vector;
         std::vector<H_Data_fert> vec_Fertigkeiten;
         std::vector<H_Data_fert> vec_an_Fertigkeit;
@@ -125,14 +94,11 @@ class midgard_CG : public midgard_CG_glade
         std::vector<H_Data_sprache> vec_Sprachen;
         std::vector<H_Data_schrift> vec_Schriften;
         map<std::string,string> waffen_grundkenntnisse;
-//        std::vector<st_ausnahmen> vec_ausnahmen;
-//        std::vector<cH_Data_Ausnahmen> vec_Ausnahmen;
         Data_typen Typ;
         Data_typen Typ2;
         Lernpunkte lernpunkte;
-//        Ausnahmen ausnahmen;   
-        st_spezies_constraint spezies_constraint;
-
+        Data_spezies Spezies_constraint;
+   
         void regnot(std::string sadd);
         void fill_typauswahl();
         void fill_typauswahl_2();
@@ -167,7 +133,6 @@ class midgard_CG : public midgard_CG_glade
         void latex_beschreibung_drucken();
         void on_button_info_clicked();
         void LaTeX_zauber_main();
-//        std::string LaTeX_scale(const std::string& is, unsigned int maxlength, const std::string& scale, const st_waffen_besitz& waffe=st_waffen_besitz());
         std::string LaTeX_scale(const std::string& is, unsigned int maxlength, const std::string& scale, const H_Data_waffen& waffe=new Data_waffen());
         void LaTeX_zauber();
         void LaTeX_zaubermittel();
@@ -322,13 +287,12 @@ class midgard_CG : public midgard_CG_glade
         void show_gtk();
         void get_typ_after_load();
         void get_optionmenu_typ_nr();
-
         bool get_typ_s(const std::string& mod,const Data_typen& t);
    
    public:
          midgard_CG();
          void doppelcharaktere();
-         st_werte werte;
+         Grundwerte Werte;
          void on_speichern_clicked();
          gint on_speichern_release_event(GdkEventButton *ev);
          gint on_laden_release_event(GdkEventButton *ev);
@@ -337,7 +301,7 @@ class midgard_CG : public midgard_CG_glade
          void charakter_beschreibung_uebernehmen(const std::string& b);
          void charakter_beschreibung_drucken(const std::string& b);
          void select_charakter(const std::string& name, const std::string& version);
-         void zeige_werte(const st_werte& w, const std::string& welche);
+         void zeige_werte(const Grundwerte& w);
          void setze_lernpunkte(const Lernpunkte& _lernpunkte);
          void fertigkeiten_uebernehmen(const std::vector<H_Data_fert>& saf);
          void show_fertigkeiten();
@@ -355,16 +319,12 @@ class midgard_CG : public midgard_CG_glade
          void sprache_uebernehmen(const std::string& s, int wert);
          void schrift_uebernehmen(const std::string& s, const std::string& t);
          void herkunft_uebernehmen(const std::string& s);
-         std::string waffe_werte(const H_Data_waffen& waffe,const st_werte& werte, const std::string& mod);
+         std::string waffe_werte(const H_Data_waffen& waffe,const Grundwerte& Werte, const std::string& mod);
          std::vector<string> Berufs_Vorteile();
          bool Fertigkeiten_Voraussetzung(const std::string& fertigkeit);
          bool Waffen_Voraussetzung(const std::string& waffe);
          bool region_check(const std::string& region);
-//         bool Ausnahmen_bool(const std::string& name);
-//         void get_Ausnahmen();
-//         float Ausnahmen_float(const std::string& name);
-//         std::string Ausnahmen_string(const std::string& name, const std::string& alt,const std::string& alt2);
-//        void get_typ_after_load(int nr, int typ_1_2=1);
+         void clear_Ausnahmen();
 
 };
 #endif

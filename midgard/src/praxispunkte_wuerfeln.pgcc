@@ -22,6 +22,7 @@
 #include "WindowInfo.hh"
 #include <strstream>
 exec sql include sqlca;
+#include "zufall.h"
 
 int midgard_CG::praxispunkte_wuerfeln(const std::string& fert,int alter_wert, const std::string& art, bool wuerfeln)
 {

@@ -1,4 +1,4 @@
-// $Id: Window_Waffe_Geld.cc,v 1.23 2001/06/27 11:24:35 thoma Exp $
+// $Id: Window_Waffe_Geld.cc,v 1.24 2001/06/30 20:30:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,6 +32,7 @@
 #include "WindowInfo.hh"
 #include "Window_waffe.hh"
 #include <Gtk_OStream.h>
+#include "zufall.h"
 
 void Window_Waffe_Geld::on_button_wuerfeln_clicked()
 {   
@@ -49,7 +50,7 @@ void Window_Waffe_Geld::on_button_wuerfeln_clicked()
 
 void Window_Waffe_Geld::on_button_auswaehlen_clicked()
 {   
- if (radio_geld->get_active()) manage (new Window_Geld_eingeben::Window_Geld_eingeben(this,werte));
+ if (radio_geld->get_active()) manage (new Window_Geld_eingeben::Window_Geld_eingeben(this,Werte));
  if (radio_waffe->get_active()) Window_Waffe_Geld::Waffe();
 }
 
@@ -65,20 +66,20 @@ void Window_Waffe_Geld::on_button_close_clicked()
   destroy();
 }
 
-Window_Waffe_Geld::Window_Waffe_Geld(midgard_CG* h, st_werte& w, std::vector<H_Data_waffen>& wa)
-: werte(w), vec_Waffen(wa)
+Window_Waffe_Geld::Window_Waffe_Geld(midgard_CG* h, Grundwerte& w, std::vector<H_Data_waffen>& wa)
+: Werte(w), vec_Waffen(wa)
 {
    hauptfenster = h;
 }
 
 void Window_Waffe_Geld::Waffe(int wurf)
 {
- manage (new Window_waffe(wurf,hauptfenster,this,werte,vec_Waffen));
+ manage (new Window_waffe(wurf,hauptfenster,this,Werte,vec_Waffen));
 }
  
 void Window_Waffe_Geld::Waffe()
 {
- manage (new Window_waffe(-1,hauptfenster,this,werte,vec_Waffen));
+ manage (new Window_waffe(-1,hauptfenster,this,Werte,vec_Waffen));
 }
 
 void Window_Waffe_Geld::get_waffe(const std::string& waffe)
@@ -90,63 +91,63 @@ void Window_Waffe_Geld::get_waffe(const std::string& waffe)
 
 void Window_Waffe_Geld::Geld()
 {
- gold->set_text(itos(werte.gold));
- silber->set_text(itos(werte.silber));
- kupfer->set_text(itos(werte.kupfer));
+ gold->set_text(itos(Werte.Gold()));
+ silber->set_text(itos(Werte.Silber()));
+ kupfer->set_text(itos(Werte.Kupfer()));
 }
 
 
 void Window_Waffe_Geld::Geld(int wurf)
 {
- std::string stand = werte.stand;
+ std::string stand = Werte.Stand();
  if (stand == "Unfrei")
      {
-      if ( 1 <= wurf && wurf  <= 10 ) {werte.kupfer += 1;  }
-      if (11 <= wurf && wurf  <= 20 ) {werte.silber += 5;  }
-      if (21 <= wurf && wurf  <= 40 ) {werte.gold   += 1;  }
-      if (41 <= wurf && wurf  <= 60 ) {werte.silber += 15;  }
-      if (61 <= wurf && wurf  <= 80 ) {werte.gold   += 2;  }
-      if (81 <= wurf && wurf  <= 90 ) {werte.silber += 25;  }
-      if (91 <= wurf && wurf  <= 99 ) {werte.gold   += 3;  }
-      if (99 <  wurf && wurf  <= 100 ){werte.gold   += 100;  }
+      if ( 1 <= wurf && wurf  <= 10 ) {Werte.add_Kupfer(1);  }
+      if (11 <= wurf && wurf  <= 20 ) {Werte.add_Silber(5);  }
+      if (21 <= wurf && wurf  <= 40 ) {Werte.add_Gold(1);  }
+      if (41 <= wurf && wurf  <= 60 ) {Werte.add_Silber(15);  }
+      if (61 <= wurf && wurf  <= 80 ) {Werte.add_Gold(2);  }
+      if (81 <= wurf && wurf  <= 90 ) {Werte.add_Silber(25);  }
+      if (91 <= wurf && wurf  <= 99 ) {Werte.add_Gold(3);  }
+      if (99 <  wurf && wurf  <= 100 ){Werte.add_Gold(100);  }
      }
  if (stand == "Volk")
      {
-      if ( 1 <= wurf && wurf  <= 10 ) {werte.silber += 1;  }
-      if (11 <= wurf && wurf  <= 20 ) {werte.gold   += 1;  }
-      if (21 <= wurf && wurf  <= 40 ) {werte.silber += 15;  }
-      if (41 <= wurf && wurf  <= 60 ) {werte.gold   += 2;  }
-      if (61 <= wurf && wurf  <= 80 ) {werte.silber += 25;  }
-      if (81 <= wurf && wurf  <= 90 ) {werte.gold   += 3;  }
-      if (91 <= wurf && wurf  <= 99 ) {werte.gold   += 5;  }
-      if (99 <  wurf && wurf  <= 100 ){werte.gold   += 100;  }
+      if ( 1 <= wurf && wurf  <= 10 ) {Werte.add_Silber(1);  }
+      if (11 <= wurf && wurf  <= 20 ) {Werte.add_Gold(1);  }
+      if (21 <= wurf && wurf  <= 40 ) {Werte.add_Silber(15);  }
+      if (41 <= wurf && wurf  <= 60 ) {Werte.add_Gold( 2);  }
+      if (61 <= wurf && wurf  <= 80 ) {Werte.add_Silber(25);  }
+      if (81 <= wurf && wurf  <= 90 ) {Werte.add_Gold(3);  }
+      if (91 <= wurf && wurf  <= 99 ) {Werte.add_Gold(5);  }
+      if (99 <  wurf && wurf  <= 100 ){Werte.add_Gold(100);  }
      }
  if (stand == "Mittelschicht")
      {
-      if ( 1 <= wurf && wurf  <= 10 ) {werte.silber += 5;  }
-      if (11 <= wurf && wurf  <= 20 ) {werte.gold   += 1;  }
-      if (21 <= wurf && wurf  <= 40 ) {werte.gold   += 2;  }
-      if (41 <= wurf && wurf  <= 60 ) {werte.gold   += 3;  }
-      if (61 <= wurf && wurf  <= 80 ) {werte.gold   += 4;  }
-      if (81 <= wurf && wurf  <= 90 ) {werte.gold   += 5;  }
-      if (91 <= wurf && wurf  <= 99 ) {werte.gold   += 8;  }
-      if (99 <  wurf && wurf  <= 100 ){werte.gold   += 100;  }
+      if ( 1 <= wurf && wurf  <= 10 ) {Werte.add_Silber(5);  }
+      if (11 <= wurf && wurf  <= 20 ) {Werte.add_Gold(1);  }
+      if (21 <= wurf && wurf  <= 40 ) {Werte.add_Gold(2);  }
+      if (41 <= wurf && wurf  <= 60 ) {Werte.add_Gold(3);  }
+      if (61 <= wurf && wurf  <= 80 ) {Werte.add_Gold(4);  }
+      if (81 <= wurf && wurf  <= 90 ) {Werte.add_Gold(5);  }
+      if (91 <= wurf && wurf  <= 99 ) {Werte.add_Gold(8);  }
+      if (99 <  wurf && wurf  <= 100 ){Werte.add_Gold(100);  }
      }
  if (stand == "Adel")
      {
-      if ( 1 <= wurf && wurf  <= 10 ) {werte.silber += 5;  }
-      if (11 <= wurf && wurf  <= 20 ) {werte.gold   += 1;  }
-      if (21 <= wurf && wurf  <= 40 ) {werte.gold   += 3;  }
-      if (41 <= wurf && wurf  <= 60 ) {werte.gold   += 5;  }
-      if (61 <= wurf && wurf  <= 80 ) {werte.gold   += 7;  }
-      if (81 <= wurf && wurf  <= 90 ) {werte.gold   += 10;  }
-      if (91 <= wurf && wurf  <= 99 ) {werte.gold   += 10;  }
-      if (99 <  wurf && wurf  <= 100 ){werte.gold   += 100;  }
+      if ( 1 <= wurf && wurf  <= 10 ) {Werte.add_Silber(5);  }
+      if (11 <= wurf && wurf  <= 20 ) {Werte.add_Gold(1);  }
+      if (21 <= wurf && wurf  <= 40 ) {Werte.add_Gold(3);  }
+      if (41 <= wurf && wurf  <= 60 ) {Werte.add_Gold(5);  }
+      if (61 <= wurf && wurf  <= 80 ) {Werte.add_Gold(7);  }
+      if (81 <= wurf && wurf  <= 90 ) {Werte.add_Gold(10);  }
+      if (91 <= wurf && wurf  <= 99 ) {Werte.add_Gold(10);  }
+      if (99 <  wurf && wurf  <= 100 ){Werte.add_Gold(100);  }
      }
  std::string strinfo ="Beim Auswürfeln von Geld wurde eine \n"+itos(wurf)+" gewürfelt\n";
  manage (new WindowInfo(strinfo));
- gold->set_text(itos(werte.gold));
- silber->set_text(itos(werte.silber));
- kupfer->set_text(itos(werte.kupfer));
+ gold->set_text(itos(Werte.Gold()));
+ silber->set_text(itos(Werte.Silber()));
+ kupfer->set_text(itos(Werte.Kupfer()));
 }
 

@@ -50,15 +50,15 @@ void KiDo_auswahl::on_button_close_clicked()
   for(Gtk::CList::SelectionList::iterator i=clist_kido_auswahl->selection().begin();
       i!=clist_kido_auswahl->selection().end();++i)
    {
-     st_kido_ *ptr = static_cast<st_kido_*>(i->get_data());
-     technik.push_back(ptr->name_orig);
+     H_Data_kido *ptr = static_cast<H_Data_kido*>(i->get_data());
+     technik.push_back((*ptr)->Hoho());
    }
   hauptfenster->kido_uebernehmen(technik);
   destroy();
 }
 
 
-KiDo_auswahl::KiDo_auswahl(midgard_CG* h, int m, const st_werte& werte)
+KiDo_auswahl::KiDo_auswahl(midgard_CG* h, int m, const Grundwerte& Werte)
 : maxkido(m)
 {
    hauptfenster=h;
@@ -72,8 +72,8 @@ KiDo_auswahl::KiDo_auswahl(midgard_CG* h, int m, const st_werte& werte)
    std::string squery;
    squery = "select name_orig, name, fp, ap from kido \
          where stufe='Schüler' ";
-   if (werte.spezialisierung != "Gemischte Techniken")
-      squery += "and (stil = 'beide' or stil = '"+werte.spezialisierung +"') ";
+   if (Werte.Spezialisierung() != "Gemischte Techniken")
+      squery += "and (stil = 'beide' or stil = '"+Werte.Spezialisierung() +"') ";
    squery +=  " order by 1";
    strncpy(query,squery.c_str(),sizeof(query));
    Transaction tr;
@@ -81,18 +81,20 @@ KiDo_auswahl::KiDo_auswahl(midgard_CG* h, int m, const st_werte& werte)
    exec sql declare ein cursor for ein_;
    exec sql open ein;
    SQLerror::test(__FILELINE__);
+   std::vector<H_Data_kido> kido_technik;
    while (true)
      {
       exec sql fetch ein into :db_name_orig, :db_name, :db_fp, :db_ap;
       SQLerror::test(__FILELINE__,100);  
       if (sqlca.sqlcode) break;
-      kido_technik.push_back(st_kido_(db_name_orig,db_name,db_ap,db_fp));
+//      kido_technik.push_back(st_kido_(db_name_orig,db_name,db_ap,db_fp));
+      kido_technik.push_back(new Data_kido(db_name_orig,db_name,"",db_ap,db_fp,""));
      }
    exec sql close ein;
    Gtk::OStream os(clist_kido_auswahl);
-   for (std::vector<st_kido_>::iterator i=kido_technik.begin();i!=kido_technik.end();++i)
+   for (std::vector<H_Data_kido>::iterator i=kido_technik.begin();i!=kido_technik.end();++i)
     {
-      os << i->name_orig <<"\t"<<i->name<<"\t"<<i->ap<<"\t"<<i->fp<<"\n";
+      os << (*i)->Hoho() <<"\t"<<(*i)->Name()<<"\t"<<(*i)->Ap()<<"\t"<<(*i)->Kosten()<<"\n";
       os.flush(&*i);
     }
    for (unsigned int i=0;i<clist_kido_auswahl->columns().size();++i)

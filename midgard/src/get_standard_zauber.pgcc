@@ -34,7 +34,7 @@ exec sql include sqlca;
 
 double midgard_CG::get_standard_zauber(const Data_typen& Typ, const Data_typen& Typ2, const std::string& zauber)
 {
-   Ausnahmen ausnahmen(werte,Typ,Typ2,vec_Beruf);
+   Ausnahmen ausnahmen(Werte,Typ,Typ2,vec_Beruf);
    double fac;
    // gibt es eine Ausnahmeregelung?
 //   fac = midgard_CG::Ausnahmen_float(zauber);
@@ -94,7 +94,7 @@ double midgard_CG::get_standard_zauber(const Data_typen& Typ, const Data_typen& 
 double midgard_CG::get_standard_zauber_(const std::string& ergebnis,const std::string& ergebnis2, 
    const std::string& p_element, const std::string& s_element, const std::string& zauber)
 {
-   Ausnahmen ausnahmen(werte,Typ,Typ2,vec_Beruf);
+   Ausnahmen ausnahmen(Werte,Typ,Typ2,vec_Beruf);
    double fac;
    // gibt es eine Ausnahmeregelung?
 //   fac = midgard_CG::Ausnahmen_float(zauber);
@@ -110,8 +110,8 @@ double midgard_CG::get_standard_zauber_(const std::string& ergebnis,const std::s
       }
    else
       {
-         if (p_element==werte.spezial)  fac = 0.5;
-         if (s_element==werte.spezial2) fac = 1;
+         if (p_element==Werte.Spezial())  fac = 0.5;
+         if (s_element==Werte.Spezial2()) fac = 1;
          else fac = 0;
       }
    return(fac);
