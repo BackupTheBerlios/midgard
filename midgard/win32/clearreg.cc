@@ -29,7 +29,8 @@ int main()
                CYGWIN_INFO_CYGWIN_MOUNT_REGISTRY_NAME,
                NULL);
    HKEY key = r1.get_key ();
-   
+
+ reloop:   
    for (i = 0; ; i++)
    {
        posix_path_size = MAX_PATH;
@@ -50,6 +51,8 @@ int main()
       mount_flags = subkey.get_int ("flags", 0);
 
       printf("'%s'\t'%s'\tflags=%#x\n",posix_path,native_path,mount_flags);
+
+       r1.kill (posix_path);
    }
    return 0;
 }

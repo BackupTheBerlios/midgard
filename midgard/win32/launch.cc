@@ -35,30 +35,34 @@ int main()
    int res = RegEnumKeyEx (key, 0, posix_path, &posix_path_size, NULL,
 			  NULL, NULL, NULL);
    if (res != ERROR_SUCCESS)
+   {
    {  // create the keys
    
-      reg_key subkey = reg_key (r1.get_key (),
+      reg_key subkey = reg_key (key,
                                 KEY_ALL_ACCESS,
                                 "/", NULL);
       subkey.set_string ("native", buf);
       subkey.set_int ("flags", 0xa);
-      
+   }   
       int len=strlen(buf);
       strncpy(buf+len,"\\bin",sizeof(buf)-len);
-      subkey = reg_key (r1.get_key (),
+   {
+      reg_key subkey = reg_key (key,
                                 KEY_ALL_ACCESS,
                                 "/usr/bin", NULL);
       printf("bin:native=%d\n",buf);
       subkey.set_string ("native", buf);
       subkey.set_int ("flags", 0xa);
+   }
 
       strncpy(buf+len,"\\lib",sizeof(buf)-len);
-      subkey = reg_key (r1.get_key (),
+   {
+      reg_key subkey = reg_key (key,
                                 KEY_ALL_ACCESS,
                                 "/usr/lib", NULL);
       subkey.set_string ("native", buf);
       subkey.set_int ("flags", 0xa);
-
+   }
       buf[len]=0;
    }
    else
@@ -76,10 +80,10 @@ int main()
    putenv("PGDATA=/usr/share/postgresql/data");                                                           
    
       /* chdir("cygwin\\bin"); */
-      int ipc_pid=spawnl(_P_NOWAIT,"cygwin\\bin\\ipc-daemon","ipc-daemon",NULL);
-      int pgsql_pid=spawnl(_P_NOWAIT,"cygwin\\bin\\postmaster","postmaster","-i",NULL);
+//      int ipc_pid=spawnl(_P_NOWAIT,"cygwin\\bin\\ipc-daemon","ipc-daemon",NULL);
+//      int pgsql_pid=spawnl(_P_NOWAIT,"cygwin\\bin\\postmaster","postmaster","-i",NULL);
       			// "-h","127.0.0.1"
       // putenv("PGHOST=127.0.0.1"); ?
-      spawnl(_P_WAIT,"midgard","midgard",NULL);
+//      spawnl(_P_WAIT,"midgard","midgard",NULL);
       // killen?
 }
