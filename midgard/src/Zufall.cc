@@ -93,8 +93,7 @@ void Zufall::Teil(e_Vorgabe vorgabe)
    else            Aben->getWerte().setHerkunft(oldAben.getWerte().Herkunft());
    setMuttersprache();
    Aben->getWerte().setUeberleben(getUeberleben());
-   Aben->List_Fertigkeit_ang().clear();
-   hauptfenster->table_lernschema->on_angeborene_fertigkeit_clicked();
+   setAngebFert();
    Lernschema();
 // Lücke Beruf
    hauptfenster->table_lernschema->geld_wuerfeln();
@@ -103,6 +102,33 @@ void Zufall::Teil(e_Vorgabe vorgabe)
    hauptfenster->table_lernschema->ausruestung_setzen();
    hauptfenster->table_grundwerte->zeige_werte();
 }
+
+extern std::vector<MidgardBasicElement_mutable> List_to_Vector(std::list<MidgardBasicElement_mutable> L,const VAbenteurer& Aben,int lp);
+
+
+void Zufall::setAngebFert()
+{
+   Aben->setAngebFert();
+
+   int wurf;
+int c=0;
+   do{
+      wurf=random.integer(0,100); 
+if(c<5) wurf=100;
+      if(wurf==100) 
+       { std::list<MidgardBasicElement_mutable> L=LL.getMBEm(Aben,LernListen::lAngebFert);
+         std::vector<MidgardBasicElement_mutable> V=List_to_Vector(L,Aben,99);
+         if(V.empty()) break;
+         int i=random.integer(0,V.size()-1);
+cout<<V[i]->Name()<<'\n';
+         Aben->List_Fertigkeit_ang().push_back(V[i]);
+++c;
+       }
+      else hauptfenster->table_lernschema->AngebFert_gewuerfelt(wurf);
+     }while (wurf==100);
+
+}
+
 
 void Zufall::setMuttersprache()
 {

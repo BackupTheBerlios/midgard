@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.38 2002/09/07 07:15:55 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.39 2002/09/12 15:01:13 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -105,9 +105,6 @@ const std::list<Abenteurer::st_universell> Abenteurer::List_Universell( const Da
   return UF;
 }
 
-
-
-
 void VAbenteurer::push_back()
 { 
    VA.push_back(st_abenteurer()); 
@@ -141,6 +138,37 @@ void VAbenteurer::delete_empty()
         } 
     }
 }
+
+void Abenteurer::setAngebFert()
+{
+  List_Fertigkeit_ang().clear();
+  List_Fertigkeit_ang()=getWerte().Spezies()->getAngFertigkeiten();
+  List_Zauber()=getWerte().Spezies()->getZauber();
+  getWerte().resetSinne();
+  std::list<pair<std::string,int> > L=getWerte().Spezies()->getSinne();
+  for(std::list<pair<std::string,int> >::const_iterator i=L.begin();i!=L.end();++i) 
+       getWerte().setSinn(i->first,i->second);
+}
+
+bool Abenteurer::setAngebSinnFert(int wurf,const MidgardBasicElement_mutable &MBE)
+{
+  int wert=MBE.Erfolgswert();
+  if     ( 1<=wurf && wurf<= 2) getWerte().setSinnCheck("Sehen",wert);    
+  else if( 3<=wurf && wurf<= 4) getWerte().setSinnCheck("Hören",wert);    
+  else if( 5<=wurf && wurf<= 6) getWerte().setSinnCheck("Riechen",wert);  
+  else if( 7<=wurf && wurf<= 8) getWerte().setSinnCheck("Schmecken",wert);
+  else if( 9<=wurf && wurf<=10) getWerte().setSinnCheck("Tasten",wert);
+  else if(11<=wurf && wurf<=20) getWerte().setSinn("Sehen",wert);    
+  else if(21<=wurf && wurf<=30) getWerte().setSinn("Hören",wert);    
+  else if(31<=wurf && wurf<=40) getWerte().setSinn("Riechen",wert);  
+  else if(41<=wurf && wurf<=50) getWerte().setSinn("Schmecken",wert);
+  else if(51<=wurf && wurf<=60) getWerte().setSinn("Tasten",wert);
+  else if(61<=wurf && wurf<=65) getWerte().setSinn("Sechster Sinn",wert);
+  else { List_Fertigkeit_ang().push_back(MBE); return false;}
+  return true;
+}
+
+
 
 
 void Abenteurer::speicherstream(ostream &datei,const Datenbank &Database,const Midgard_Optionen *Optionen)

@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.26 2002/08/19 06:31:14 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.27 2002/09/12 15:01:14 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -131,6 +131,9 @@ public:
    // (bool==true) => gelernt ; (bool==false) => universell(oder garnicht)
    const pair<int,bool> Erfolgswert(std::string name,const Datenbank &Database) const;
    const std::string SErfolgswert(std::string name,const Datenbank &Database) const;
+
+   void setAngebFert();
+   bool setAngebSinnFert(int wurf,const MidgardBasicElement_mutable &MBE);
 };
 
 class VAbenteurer

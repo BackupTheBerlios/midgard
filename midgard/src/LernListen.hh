@@ -1,4 +1,4 @@
-// $Id: LernListen.hh,v 1.9 2002/09/12 08:12:02 thoma Exp $
+// $Id: LernListen.hh,v 1.10 2002/09/12 15:01:14 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,7 +31,7 @@ class LernListen
       const Datenbank D;
   public:
       enum eMBE{MutterSprache,GastlandSprache,NachbarlandSprache,AlteSprache,
-                lFach,lAllg,lUnge,lWaff,lZaub };
+                lFach,lAllg,lUnge,lWaff,lZaub,lAngebFert };
 
       LernListen(const Datenbank& d) : D(d){}   
 
@@ -50,12 +50,12 @@ class LernListen
       std::vector<MidgardBasicElement::st_zusatz> getSprachenZusatz(const MidgardBasicElement_mutable &MBE,const VAbenteurer& Aben,bool nachbarland) const;
       std::vector<MidgardBasicElement::st_zusatz> getSchriftenZusatz(const MidgardBasicElement_mutable &MBE,const VAbenteurer& Aben) const;
       std::vector<std::string> getSpezialgebiet(const VAbenteurer& A) const;
+      
 
       std::list<WaffeBesitz> getWaffenBesitz(const VAbenteurer& Aben) const;      
 
       std::list<MidgardBasicElement_mutable> getMBEm(const VAbenteurer& A,eMBE was, int erfolgswert=0,
                      int lernpunkte=0,std::string lernart="") const;
-
 };
 
 

@@ -40,7 +40,6 @@ class table_lernschema : public table_lernschema_glade
         int maxkido;
         BerufsKategorie BKategorie;
         std::list<MidgardBasicElement_mutable> list_Fertigkeit_ang_neu;                                        
-        void checkAngeboreneSinne();
         enum GWR_Auswahl {ENone,EGeld1,EGeld2,EGeld3,EWaffen,ERuestung};
         GWR_Auswahl gwr_auswahl;
         std::vector<int> VGeldwurf;
@@ -82,7 +81,6 @@ private:
        void on_angeborene_fertigkeit_right_clicked();
        void on_ang_fert_leaf_selected(cH_RowDataBase d);
        std::string AngebFert_gewuerfelt(int wurf);
-       bool AngebSinn(int wurf,int wert);
        void lernpflichten_info();
        
        // Waffen

@@ -1,4 +1,4 @@
-// $Id: LernListen.cc,v 1.9 2002/09/12 08:11:43 thoma Exp $
+// $Id: LernListen.cc,v 1.10 2002/09/12 15:01:14 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -40,6 +40,7 @@ std::list<MidgardBasicElement_mutable> LernListen::getMBEm(const VAbenteurer& A,
       case lUnge:           V_=D.Fertigkeit; break;
       case lWaff:           Vm=D.lernschema.get_List("Waffenfertigkeiten",A.getVTyp(),A.List_Waffen());break;
       case lZaub:           Vm=D.lernschema.get_List("Zauberkünste",A.getVTyp(),A.List_Waffen());break;
+      case lAngebFert:      V_=D.Fertigkeit_ang; break;
     }  
    std::list<MidgardBasicElement_mutable> V;
    if(!V_.empty())
@@ -310,4 +311,3 @@ std::vector<std::string> LernListen::getSpezialgebiet(const VAbenteurer& A) cons
    }
   return L;
 }
-
