@@ -30,9 +30,9 @@ Aran	KanThaiPan
 Aran	Rawindra
 Aran	Tegarische Steppe
 Aran	Valian
-Buluga	Urruti
 Buluga	Ikengabecken
 Buluga	Irsirraland
+Buluga	Urruti
 Chryseia	Erainn
 Chryseia	Küstenstaaten
 Chryseia	Valian
@@ -58,12 +58,12 @@ Küstenstaaten	Valian
 Läina-Land	Medjis
 Läina-Land	Moravod
 Läina-Land	Waeland
-Medjis	Tegarische Steppe
 Medjis	Moravod
+Medjis	Tegarische Steppe
 Minangpahit	Rawindra
 Moravod	Tegarische Steppe
-Moravod	Waeland
 Moravod	Valian
+Moravod	Waeland
 Tegarische Steppe	Valian
 \.
 --

@@ -4,7 +4,7 @@
  <MAGUS-include File="Regelwerk4.xml"/>
  <MAGUS-include File="Arkanum.xml"/>
  <MAGUS-include File="MeisterDerSphaeren.xml" inactive="true"/>
- <MAGUS-include File="TippsTricks.xml" inactive="true"/>
+ <MAGUS-include File="TippsTricks.xml"/>
  <MAGUS-include File="Alba.xml"/>
  <MAGUS-include File="Eschar.xml"/>
  <MAGUS-include File="KanThaiPan.xml"/>

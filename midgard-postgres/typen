@@ -87,6 +87,7 @@ COPY "typen" FROM stdin;
 47	Dt	Deuter	Deuterin	z	z	20	0	1	N	4	z	\N	null	\N	\N	\N	\N	\N	\N	\N	\N
 48	Tt	Tempelt‰nzer	T‰mpelt‰nzerin	z	ak	0	0	1	N	3	z	\N	Wunder	\N	\N	\N	\N	\N	\N	\N	\N
 49	Tr	Trickser	Trickserin	j	ak	-20	-20	1	N	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+50	Mg	Magister	Magisterin	j	ak	20	0	1	TuT	4	\N	\N	\N	\N	\N	\N	31	61	61	\N	Schreiben: Muttersprache muﬂ auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.
 \.
 --
 --

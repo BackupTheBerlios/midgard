@@ -35,6 +35,7 @@ Anderthalbh‰nder	Kd	S
 Anderthalbh‰nder	Kr	G
 Anderthalbh‰nder	Ku	S
 Anderthalbh‰nder	Ma	A
+Anderthalbh‰nder	Mg	S
 Anderthalbh‰nder	Ny	S
 Anderthalbh‰nder	Or	S
 Anderthalbh‰nder	PC	A
@@ -80,6 +81,7 @@ Bih‰nder	Kd	S
 Bih‰nder	Kr	G
 Bih‰nder	Ku	S
 Bih‰nder	Ma	A
+Bih‰nder	Mg	S
 Bih‰nder	Ny	S
 Bih‰nder	Or	S
 Bih‰nder	PC	A
@@ -125,6 +127,7 @@ Blasrohr	Kd	S
 Blasrohr	Kr	S
 Blasrohr	Ku	S
 Blasrohr	Ma	A
+Blasrohr	Mg	S
 Blasrohr	Ny	S
 Blasrohr	Or	S
 Blasrohr	PC	A
@@ -170,6 +173,7 @@ Bogen	Kd	S
 Bogen	Kr	G
 Bogen	Ku	S
 Bogen	Ma	A
+Bogen	Mg	S
 Bogen	Ny	S
 Bogen	Or	S
 Bogen	PC	A
@@ -215,6 +219,7 @@ Bola	Kd	S
 Bola	Kr	S
 Bola	Ku	S
 Bola	Ma	A
+Bola	Mg	S
 Bola	Ny	S
 Bola	Or	S
 Bola	PC	A
@@ -260,6 +265,7 @@ BuKasa	Kd	S
 BuKasa	Kr	G
 BuKasa	Ku	S
 BuKasa	Ma	A
+BuKasa	Mg	S
 BuKasa	Ny	S
 BuKasa	Or	S
 BuKasa	PC	A
@@ -305,6 +311,7 @@ Buckler	Kd	S
 Buckler	Kr	G
 Buckler	Ku	S
 Buckler	Ma	A
+Buckler	Mg	S
 Buckler	Ny	S
 Buckler	Or	S
 Buckler	PC	A
@@ -350,6 +357,7 @@ Dolch	Kd	S
 Dolch	Kr	G
 Dolch	Ku	S
 Dolch	Ma	A
+Dolch	Mg	S
 Dolch	Ny	S
 Dolch	Or	S
 Dolch	PC	A
@@ -395,6 +403,7 @@ Faustkampf	Kd	S
 Faustkampf	Kr	G
 Faustkampf	Ku	S
 Faustkampf	Ma	A
+Faustkampf	Mg	S
 Faustkampf	Ny	S
 Faustkampf	Or	S
 Faustkampf	PC	A
@@ -440,6 +449,7 @@ Fuchtel	Kd	S
 Fuchtel	Kr	G
 Fuchtel	Ku	S
 Fuchtel	Ma	A
+Fuchtel	Mg	S
 Fuchtel	Ny	S
 Fuchtel	Or	S
 Fuchtel	PC	A
@@ -485,6 +495,7 @@ Garotte	Kd	S
 Garotte	Kr	S
 Garotte	Ku	S
 Garotte	Ma	A
+Garotte	Mg	S
 Garotte	Ny	S
 Garotte	Or	S
 Garotte	PC	A
@@ -530,6 +541,7 @@ Glefe	Kd	S
 Glefe	Kr	G
 Glefe	Ku	S
 Glefe	Ma	A
+Glefe	Mg	S
 Glefe	Ny	S
 Glefe	Or	S
 Glefe	PC	A
@@ -575,6 +587,7 @@ GunSen	Kd	S
 GunSen	Kr	G
 GunSen	Ku	S
 GunSen	Ma	A
+GunSen	Mg	S
 GunSen	Ny	S
 GunSen	Or	S
 GunSen	PC	A
@@ -620,6 +633,7 @@ Handarmbrust	Kd	S
 Handarmbrust	Kr	G
 Handarmbrust	Ku	S
 Handarmbrust	Ma	A
+Handarmbrust	Mg	S
 Handarmbrust	Ny	S
 Handarmbrust	Or	S
 Handarmbrust	PC	A
@@ -665,6 +679,7 @@ Handaxt	Kd	S
 Handaxt	Kr	G
 Handaxt	Ku	S
 Handaxt	Ma	A
+Handaxt	Mg	S
 Handaxt	Ny	S
 Handaxt	Or	S
 Handaxt	PC	A
@@ -710,6 +725,7 @@ Hellebarde	Kd	S
 Hellebarde	Kr	G
 Hellebarde	Ku	S
 Hellebarde	Ma	A
+Hellebarde	Mg	S
 Hellebarde	Ny	S
 Hellebarde	Or	S
 Hellebarde	PC	A
@@ -755,6 +771,7 @@ Kampfgabeln	Kd	S
 Kampfgabeln	Kr	G
 Kampfgabeln	Ku	S
 Kampfgabeln	Ma	A
+Kampfgabeln	Mg	S
 Kampfgabeln	Ny	S
 Kampfgabeln	Or	S
 Kampfgabeln	PC	A
@@ -800,6 +817,7 @@ Kampfstab	Kd	S
 Kampfstab	Kr	G
 Kampfstab	Ku	S
 Kampfstab	Ma	A
+Kampfstab	Mg	S
 Kampfstab	Ny	S
 Kampfstab	Or	S
 Kampfstab	PC	A
@@ -845,6 +863,7 @@ Katana	Kd	S
 Katana	Kr	G
 Katana	Ku	S
 Katana	Ma	A
+Katana	Mg	S
 Katana	Ny	S
 Katana	Or	S
 Katana	PC	A
@@ -890,6 +909,7 @@ Keule	Kd	S
 Keule	Kr	G
 Keule	Ku	S
 Keule	Ma	A
+Keule	Mg	S
 Keule	Ny	S
 Keule	Or	S
 Keule	PC	A
@@ -935,6 +955,7 @@ Kharrata	Kd	S
 Kharrata	Kr	S
 Kharrata	Ku	S
 Kharrata	Ma	A
+Kharrata	Mg	S
 Kharrata	Ny	S
 Kharrata	Or	S
 Kharrata	PC	A
@@ -980,6 +1001,7 @@ Kompositbogen	Kd	S
 Kompositbogen	Kr	G
 Kompositbogen	Ku	S
 Kompositbogen	Ma	A
+Kompositbogen	Mg	S
 Kompositbogen	Ny	S
 Kompositbogen	Or	S
 Kompositbogen	PC	A
@@ -1025,6 +1047,7 @@ Kriegsflegel	Kd	S
 Kriegsflegel	Kr	G
 Kriegsflegel	Ku	S
 Kriegsflegel	Ma	A
+Kriegsflegel	Mg	S
 Kriegsflegel	Ny	S
 Kriegsflegel	Or	S
 Kriegsflegel	PC	A
@@ -1070,6 +1093,7 @@ Kriegshammer	Kd	S
 Kriegshammer	Kr	G
 Kriegshammer	Ku	S
 Kriegshammer	Ma	A
+Kriegshammer	Mg	S
 Kriegshammer	Ny	S
 Kriegshammer	Or	S
 Kriegshammer	PC	A
@@ -1115,6 +1139,7 @@ Krumms‰bel	Kd	S
 Krumms‰bel	Kr	G
 Krumms‰bel	Ku	S
 Krumms‰bel	Ma	A
+Krumms‰bel	Mg	S
 Krumms‰bel	Ny	S
 Krumms‰bel	Or	S
 Krumms‰bel	PC	A
@@ -1160,6 +1185,7 @@ Kurzbogen	Kd	S
 Kurzbogen	Kr	G
 Kurzbogen	Ku	S
 Kurzbogen	Ma	A
+Kurzbogen	Mg	S
 Kurzbogen	Ny	S
 Kurzbogen	Or	S
 Kurzbogen	PC	A
@@ -1205,6 +1231,7 @@ Kurzschwert	Kd	S
 Kurzschwert	Kr	G
 Kurzschwert	Ku	S
 Kurzschwert	Ma	A
+Kurzschwert	Mg	S
 Kurzschwert	Ny	S
 Kurzschwert	Or	S
 Kurzschwert	PC	A
@@ -1250,6 +1277,7 @@ KusariGama	Kd	S
 KusariGama	Kr	G
 KusariGama	Ku	S
 KusariGama	Ma	A
+KusariGama	Mg	S
 KusariGama	Ny	S
 KusariGama	Or	S
 KusariGama	PC	A
@@ -1295,6 +1323,7 @@ Kyu	Kd	S
 Kyu	Kr	G
 Kyu	Ku	S
 Kyu	Ma	A
+Kyu	Mg	S
 Kyu	Ny	S
 Kyu	Or	S
 Kyu	PC	A
@@ -1340,6 +1369,7 @@ Langbogen	Kd	S
 Langbogen	Kr	G
 Langbogen	Ku	S
 Langbogen	Ma	A
+Langbogen	Mg	S
 Langbogen	Ny	S
 Langbogen	Or	S
 Langbogen	PC	A
@@ -1385,6 +1415,7 @@ Langschwert	Kd	S
 Langschwert	Kr	G
 Langschwert	Ku	S
 Langschwert	Ma	A
+Langschwert	Mg	S
 Langschwert	Ny	S
 Langschwert	Or	S
 Langschwert	PC	A
@@ -1430,6 +1461,7 @@ Lanze	Kd	S
 Lanze	Kr	G
 Lanze	Ku	S
 Lanze	Ma	A
+Lanze	Mg	S
 Lanze	Ny	S
 Lanze	Or	S
 Lanze	PC	A
@@ -1475,6 +1507,7 @@ Lasso	Kd	S
 Lasso	Kr	S
 Lasso	Ku	S
 Lasso	Ma	A
+Lasso	Mg	S
 Lasso	Ny	S
 Lasso	Or	S
 Lasso	PC	A
@@ -1568,6 +1601,7 @@ Morgenstern	Kd	S
 Morgenstern	Kr	G
 Morgenstern	Ku	S
 Morgenstern	Ma	A
+Morgenstern	Mg	S
 Morgenstern	Ny	S
 Morgenstern	Or	S
 Morgenstern	PC	A
@@ -1613,6 +1647,7 @@ Naginata	Kd	S
 Naginata	Kr	G
 Naginata	Ku	S
 Naginata	Ma	A
+Naginata	Mg	S
 Naginata	Ny	S
 Naginata	Or	S
 Naginata	PC	A
@@ -1658,6 +1693,7 @@ Namisritra	Kd	S
 Namisritra	Kr	S
 Namisritra	Ku	S
 Namisritra	Ma	A
+Namisritra	Mg	S
 Namisritra	Ny	S
 Namisritra	Or	S
 Namisritra	PC	A
@@ -1701,6 +1737,7 @@ Netz	Kd	S
 Netz	Kr	S
 Netz	Ku	S
 Netz	Ma	A
+Netz	Mg	S
 Netz	Ny	S
 Netz	Or	S
 Netz	PC	A
@@ -1746,6 +1783,7 @@ NunChaku	Kd	S
 NunChaku	Kr	G
 NunChaku	Ku	S
 NunChaku	Ma	A
+NunChaku	Mg	S
 NunChaku	Ny	S
 NunChaku	Or	S
 NunChaku	PC	A
@@ -1791,6 +1829,7 @@ Ochsenzunge	Kd	S
 Ochsenzunge	Kr	G
 Ochsenzunge	Ku	S
 Ochsenzunge	Ma	A
+Ochsenzunge	Mg	S
 Ochsenzunge	Ny	S
 Ochsenzunge	Or	S
 Ochsenzunge	PC	A
@@ -1836,6 +1875,7 @@ Ogerhammer	Kd	S
 Ogerhammer	Kr	S
 Ogerhammer	Ku	S
 Ogerhammer	Ma	A
+Ogerhammer	Mg	S
 Ogerhammer	Ny	S
 Ogerhammer	Or	S
 Ogerhammer	PC	A
@@ -1881,6 +1921,7 @@ Parierdolch	Kd	S
 Parierdolch	Kr	G
 Parierdolch	Ku	S
 Parierdolch	Ma	A
+Parierdolch	Mg	S
 Parierdolch	Ny	S
 Parierdolch	Or	S
 Parierdolch	PC	A
@@ -1926,6 +1967,7 @@ Peitsche	Kd	S
 Peitsche	Kr	S
 Peitsche	Ku	S
 Peitsche	Ma	A
+Peitsche	Mg	S
 Peitsche	Ny	S
 Peitsche	Or	S
 Peitsche	PC	A
@@ -1971,6 +2013,7 @@ Pilum	Kd	S
 Pilum	Kr	G
 Pilum	Ku	S
 Pilum	Ma	A
+Pilum	Mg	S
 Pilum	Ny	S
 Pilum	Or	S
 Pilum	PC	A
@@ -2016,6 +2059,7 @@ Rapier	Kd	S
 Rapier	Kr	G
 Rapier	Ku	S
 Rapier	Ma	A
+Rapier	Mg	S
 Rapier	Ny	S
 Rapier	Or	S
 Rapier	PC	A
@@ -2061,6 +2105,7 @@ Sai	Kd	S
 Sai	Kr	G
 Sai	Ku	S
 Sai	Ma	A
+Sai	Mg	S
 Sai	Ny	S
 Sai	Or	S
 Sai	PC	A
@@ -2106,6 +2151,7 @@ Schlachtbeil	Kd	S
 Schlachtbeil	Kr	G
 Schlachtbeil	Ku	S
 Schlachtbeil	Ma	A
+Schlachtbeil	Mg	S
 Schlachtbeil	Ny	S
 Schlachtbeil	Or	S
 Schlachtbeil	PC	A
@@ -2151,6 +2197,7 @@ Schleuder	Kd	S
 Schleuder	Kr	G
 Schleuder	Ku	S
 Schleuder	Ma	A
+Schleuder	Mg	S
 Schleuder	Ny	S
 Schleuder	Or	S
 Schleuder	PC	A
@@ -2196,6 +2243,7 @@ Skhallanta	Kd	S
 Skhallanta	Kr	G
 Skhallanta	Ku	S
 Skhallanta	Ma	A
+Skhallanta	Mg	S
 Skhallanta	Ny	S
 Skhallanta	Or	S
 Skhallanta	PC	A
@@ -2241,6 +2289,7 @@ Speerschleuder	Kd	S
 Speerschleuder	Kr	G
 Speerschleuder	Ku	S
 Speerschleuder	Ma	A
+Speerschleuder	Mg	S
 Speerschleuder	Ny	S
 Speerschleuder	Or	S
 Speerschleuder	PC	A
@@ -2286,6 +2335,7 @@ Stabkeule	Kd	S
 Stabkeule	Kr	G
 Stabkeule	Ku	S
 Stabkeule	Ma	A
+Stabkeule	Mg	S
 Stabkeule	Ny	S
 Stabkeule	Or	S
 Stabkeule	PC	A
@@ -2331,6 +2381,7 @@ Stielhammer	Kd	S
 Stielhammer	Kr	G
 Stielhammer	Ku	S
 Stielhammer	Ma	A
+Stielhammer	Mg	S
 Stielhammer	Ny	S
 Stielhammer	Or	S
 Stielhammer	PC	A
@@ -2376,6 +2427,7 @@ Stockschleuder	Kd	S
 Stockschleuder	Kr	G
 Stockschleuder	Ku	S
 Stockschleuder	Ma	A
+Stockschleuder	Mg	S
 Stockschleuder	Ny	S
 Stockschleuder	Or	S
 Stockschleuder	PC	A
@@ -2421,6 +2473,7 @@ Stoﬂspeer	Kd	S
 Stoﬂspeer	Kr	G
 Stoﬂspeer	Ku	S
 Stoﬂspeer	Ma	A
+Stoﬂspeer	Mg	S
 Stoﬂspeer	Ny	S
 Stoﬂspeer	Or	S
 Stoﬂspeer	PC	A
@@ -2466,6 +2519,7 @@ Streitaxt	Kd	S
 Streitaxt	Kr	G
 Streitaxt	Ku	S
 Streitaxt	Ma	A
+Streitaxt	Mg	S
 Streitaxt	Ny	S
 Streitaxt	Or	S
 Streitaxt	PC	A
@@ -2511,6 +2565,7 @@ Streitkolben	Kd	S
 Streitkolben	Kr	G
 Streitkolben	Ku	S
 Streitkolben	Ma	A
+Streitkolben	Mg	S
 Streitkolben	Ny	S
 Streitkolben	Or	S
 Streitkolben	PC	A
@@ -2556,6 +2611,7 @@ TetsuBo	Kd	S
 TetsuBo	Kr	G
 TetsuBo	Ku	S
 TetsuBo	Ma	A
+TetsuBo	Mg	S
 TetsuBo	Ny	S
 TetsuBo	Or	S
 TetsuBo	PC	A
@@ -2601,6 +2657,7 @@ Tonfa	Kd	S
 Tonfa	Kr	G
 Tonfa	Ku	S
 Tonfa	Ma	A
+Tonfa	Mg	S
 Tonfa	Ny	S
 Tonfa	Or	S
 Tonfa	PC	A
@@ -2646,6 +2703,7 @@ Werfen	Kd	S
 Werfen	Kr	S
 Werfen	Ku	G
 Werfen	Ma	A
+Werfen	Mg	S
 Werfen	Ny	S
 Werfen	Or	S
 Werfen	PC	A
@@ -2691,6 +2749,7 @@ Wurfaxt	Kd	S
 Wurfaxt	Kr	G
 Wurfaxt	Ku	S
 Wurfaxt	Ma	A
+Wurfaxt	Mg	S
 Wurfaxt	Ny	S
 Wurfaxt	Or	S
 Wurfaxt	PC	A
@@ -2736,6 +2795,7 @@ Wurfeisen	Kd	S
 Wurfeisen	Kr	G
 Wurfeisen	Ku	S
 Wurfeisen	Ma	A
+Wurfeisen	Mg	S
 Wurfeisen	Ny	S
 Wurfeisen	Or	S
 Wurfeisen	PC	A
@@ -2781,6 +2841,7 @@ Wurfhammer	Kd	S
 Wurfhammer	Kr	G
 Wurfhammer	Ku	S
 Wurfhammer	Ma	A
+Wurfhammer	Mg	S
 Wurfhammer	Ny	S
 Wurfhammer	Or	S
 Wurfhammer	PC	A
@@ -2826,6 +2887,7 @@ Wurfkeule	Kd	S
 Wurfkeule	Kr	G
 Wurfkeule	Ku	S
 Wurfkeule	Ma	A
+Wurfkeule	Mg	S
 Wurfkeule	Ny	S
 Wurfkeule	Or	S
 Wurfkeule	PC	A
@@ -2871,6 +2933,7 @@ Wurfmesser	Kd	S
 Wurfmesser	Kr	G
 Wurfmesser	Ku	S
 Wurfmesser	Ma	A
+Wurfmesser	Mg	S
 Wurfmesser	Ny	S
 Wurfmesser	Or	S
 Wurfmesser	PC	A
@@ -2916,6 +2979,7 @@ Wurfpfeil	Kd	S
 Wurfpfeil	Kr	G
 Wurfpfeil	Ku	S
 Wurfpfeil	Ma	A
+Wurfpfeil	Mg	S
 Wurfpfeil	Ny	S
 Wurfpfeil	Or	S
 Wurfpfeil	PC	A
@@ -2961,6 +3025,7 @@ Wurfscheibe	Kd	S
 Wurfscheibe	Kr	S
 Wurfscheibe	Ku	S
 Wurfscheibe	Ma	A
+Wurfscheibe	Mg	S
 Wurfscheibe	Ny	S
 Wurfscheibe	Or	S
 Wurfscheibe	PC	A
@@ -3006,6 +3071,7 @@ Wurfspeer	Kd	S
 Wurfspeer	Kr	G
 Wurfspeer	Ku	S
 Wurfspeer	Ma	A
+Wurfspeer	Mg	S
 Wurfspeer	Ny	S
 Wurfspeer	Or	S
 Wurfspeer	PC	A
@@ -3051,6 +3117,7 @@ Wurfspieﬂ	Kd	S
 Wurfspieﬂ	Kr	G
 Wurfspieﬂ	Ku	S
 Wurfspieﬂ	Ma	A
+Wurfspieﬂ	Mg	S
 Wurfspieﬂ	Ny	S
 Wurfspieﬂ	Or	S
 Wurfspieﬂ	PC	A
@@ -3096,6 +3163,7 @@ Wurfstern	Kd	S
 Wurfstern	Kr	S
 Wurfstern	Ku	S
 Wurfstern	Ma	A
+Wurfstern	Mg	S
 Wurfstern	Ny	S
 Wurfstern	Or	S
 Wurfstern	PC	A
@@ -3141,6 +3209,7 @@ groﬂer Schild	Kd	S
 groﬂer Schild	Kr	G
 groﬂer Schild	Ku	S
 groﬂer Schild	Ma	A
+groﬂer Schild	Mg	S
 groﬂer Schild	Ny	S
 groﬂer Schild	Or	S
 groﬂer Schild	PC	A
@@ -3186,6 +3255,7 @@ kleiner Schild	Kd	S
 kleiner Schild	Kr	G
 kleiner Schild	Ku	S
 kleiner Schild	Ma	A
+kleiner Schild	Mg	S
 kleiner Schild	Ny	S
 kleiner Schild	Or	S
 kleiner Schild	PC	A
@@ -3231,6 +3301,7 @@ leichte Armbrust	Kd	S
 leichte Armbrust	Kr	G
 leichte Armbrust	Ku	S
 leichte Armbrust	Ma	A
+leichte Armbrust	Mg	S
 leichte Armbrust	Ny	S
 leichte Armbrust	Or	S
 leichte Armbrust	PC	A
@@ -3276,6 +3347,7 @@ leichter Speer	Kd	S
 leichter Speer	Kr	G
 leichter Speer	Ku	S
 leichter Speer	Ma	A
+leichter Speer	Mg	S
 leichter Speer	Ny	S
 leichter Speer	Or	S
 leichter Speer	PC	A
@@ -3321,6 +3393,7 @@ schwere Armbrust	Kd	S
 schwere Armbrust	Kr	G
 schwere Armbrust	Ku	S
 schwere Armbrust	Ma	A
+schwere Armbrust	Mg	S
 schwere Armbrust	Ny	S
 schwere Armbrust	Or	S
 schwere Armbrust	PC	A
@@ -3366,6 +3439,7 @@ waffenloser Kampf	Kd	S
 waffenloser Kampf	Kr	G
 waffenloser Kampf	Ku	S
 waffenloser Kampf	Ma	A
+waffenloser Kampf	Mg	S
 waffenloser Kampf	Ny	S
 waffenloser Kampf	Or	S
 waffenloser Kampf	PC	A

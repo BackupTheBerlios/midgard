@@ -150,6 +150,7 @@ Angst	Dr	G	Holz
 Angst	Dt	G	\N
 Angst	Hl	S	Holz
 Angst	Ma	S	\N
+Angst	Mg	S	\N
 Angst	PC	S	\N
 Angst	PF	S	\N
 Angst	PHa	S	\N
@@ -889,6 +890,7 @@ Beeinflussen	De	S	\N
 Beeinflussen	Dr	S	\N
 Beeinflussen	Dt	G	\N
 Beeinflussen	Ma	S	\N
+Beeinflussen	Mg	S	\N
 Beeinflussen	PC	S	\N
 Beeinflussen	PF	S	\N
 Beeinflussen	PHa	G	\N
@@ -1010,6 +1012,7 @@ Beschleunigen	wHx	S	\N
 Besänftigen	De	A	\N
 Besänftigen	Dt	G	\N
 Besänftigen	Hl	G	\N
+Besänftigen	Mg	S	\N
 Besänftigen	PF	S	\N
 Besänftigen	PHa	S	\N
 Besänftigen	PHe	G	\N
@@ -1043,6 +1046,7 @@ Bittersalz	Dr	A	\N
 Bittersalz	Dt	A	\N
 Bittersalz	Hl	A	\N
 Bittersalz	Ma	A	\N
+Bittersalz	Mg	S	\N
 Bittersalz	PC	A	\N
 Bittersalz	PF	A	\N
 Bittersalz	PHa	A	\N
@@ -1110,6 +1114,7 @@ Blicksalz	Dr	A	\N
 Blicksalz	Dt	A	\N
 Blicksalz	Hl	A	\N
 Blicksalz	Ma	A	\N
+Blicksalz	Mg	S	\N
 Blicksalz	PC	A	\N
 Blicksalz	PF	A	\N
 Blicksalz	PHa	A	\N
@@ -1134,6 +1139,7 @@ Blindsalz	Dr	A	\N
 Blindsalz	Dt	A	\N
 Blindsalz	Hl	A	\N
 Blindsalz	Ma	A	\N
+Blindsalz	Mg	S	\N
 Blindsalz	PC	A	\N
 Blindsalz	PF	A	\N
 Blindsalz	PHa	A	\N
@@ -1221,6 +1227,7 @@ Brechsalz	Dr	A	\N
 Brechsalz	Dt	A	\N
 Brechsalz	Hl	A	\N
 Brechsalz	Ma	A	\N
+Brechsalz	Mg	S	\N
 Brechsalz	PC	A	\N
 Brechsalz	PF	A	\N
 Brechsalz	PHa	A	\N
@@ -1907,6 +1914,7 @@ Durstsalz	Dr	A	\N
 Durstsalz	Dt	A	\N
 Durstsalz	Hl	A	\N
 Durstsalz	Ma	A	\N
+Durstsalz	Mg	S	\N
 Durstsalz	PC	A	\N
 Durstsalz	PF	A	\N
 Durstsalz	PHa	A	\N
@@ -2421,6 +2429,7 @@ Erheben der Toten	Sr	A	\N
 Erkennen der Aura	De	S	\N
 Erkennen der Aura	Dr	S	\N
 Erkennen der Aura	Dt	S	\N
+Erkennen der Aura	Mg	G	\N
 Erkennen der Aura	Or	G	\N
 Erkennen der Aura	PC	G	\N
 Erkennen der Aura	PF	G	\N
@@ -2452,6 +2461,7 @@ Erkennen von Krankheit	De	S	\N
 Erkennen von Krankheit	Dr	A	Holz
 Erkennen von Krankheit	Dt	G	\N
 Erkennen von Krankheit	Hl	G	Holz
+Erkennen von Krankheit	Mg	G	\N
 Erkennen von Krankheit	PC	S	\N
 Erkennen von Krankheit	PF	S	\N
 Erkennen von Krankheit	PHa	S	\N
@@ -2471,6 +2481,7 @@ Erkennen von Leben	Dt	G	\N
 Erkennen von Leben	Fi	G	\N
 Erkennen von Leben	Hl	S	\N
 Erkennen von Leben	Ma	G	\N
+Erkennen von Leben	Mg	G	\N
 Erkennen von Leben	PC	A	\N
 Erkennen von Leben	PF	S	\N
 Erkennen von Leben	PHa	A	\N
@@ -2500,6 +2511,7 @@ Erkennen von Verdammten	PT	S	\N
 Erkennen von Zauberei	De	A	\N
 Erkennen von Zauberei	Dt	A	\N
 Erkennen von Zauberei	Ma	G	\N
+Erkennen von Zauberei	Mg	G	\N
 Erkennen von Zauberei	PW	A	\N
 Erkennen von Zauberei	Sa	A	\N
 Erkennen von Zauberei	ScN	A	\N
@@ -2984,6 +2996,7 @@ Fiebersalz	Dr	A	\N
 Fiebersalz	Dt	A	\N
 Fiebersalz	Hl	A	\N
 Fiebersalz	Ma	A	\N
+Fiebersalz	Mg	S	\N
 Fiebersalz	PC	A	\N
 Fiebersalz	PF	A	\N
 Fiebersalz	PHa	A	\N
@@ -3114,6 +3127,7 @@ Fliegensalz	Dr	A	\N
 Fliegensalz	Dt	A	\N
 Fliegensalz	Hl	A	\N
 Fliegensalz	Ma	A	\N
+Fliegensalz	Mg	S	\N
 Fliegensalz	PC	A	\N
 Fliegensalz	PF	A	\N
 Fliegensalz	PHa	A	\N
@@ -3258,6 +3272,7 @@ Funkensalz	Dr	A	\N
 Funkensalz	Dt	A	\N
 Funkensalz	Hl	A	\N
 Funkensalz	Ma	A	\N
+Funkensalz	Mg	S	\N
 Funkensalz	PC	A	\N
 Funkensalz	PF	A	\N
 Funkensalz	PHa	A	\N
@@ -3291,6 +3306,7 @@ Färbersalz	Dr	A	\N
 Färbersalz	Dt	A	\N
 Färbersalz	Hl	A	\N
 Färbersalz	Ma	A	\N
+Färbersalz	Mg	S	\N
 Färbersalz	PC	A	\N
 Färbersalz	PF	A	\N
 Färbersalz	PHa	A	\N
@@ -3719,6 +3735,7 @@ Haarsalz	Dr	A	\N
 Haarsalz	Dt	A	\N
 Haarsalz	Hl	A	\N
 Haarsalz	Ma	A	\N
+Haarsalz	Mg	S	\N
 Haarsalz	PC	A	\N
 Haarsalz	PF	A	\N
 Haarsalz	PHa	A	\N
@@ -4288,6 +4305,7 @@ Hitzeschutz	De	G	\N
 Hitzeschutz	Dt	A	\N
 Hitzeschutz	Hl	A	\N
 Hitzeschutz	Ma	A	\N
+Hitzeschutz	Mg	S	\N
 Hitzeschutz	PHa	S	\N
 Hitzeschutz	PHe	S	\N
 Hitzeschutz	PW	A	\N
@@ -4304,6 +4322,7 @@ Hitzsalz	Dr	A	\N
 Hitzsalz	Dt	A	\N
 Hitzsalz	Hl	A	\N
 Hitzsalz	Ma	A	\N
+Hitzsalz	Mg	S	\N
 Hitzsalz	PC	A	\N
 Hitzsalz	PF	A	\N
 Hitzsalz	PHa	A	\N
@@ -4407,6 +4426,7 @@ Hungersalz	Dr	A	\N
 Hungersalz	Dt	A	\N
 Hungersalz	Hl	A	\N
 Hungersalz	Ma	A	\N
+Hungersalz	Mg	S	\N
 Hungersalz	PC	A	\N
 Hungersalz	PF	A	\N
 Hungersalz	PHa	A	\N
@@ -4460,6 +4480,7 @@ Höllenglocke	sHx	S	\N
 Hören der Geister	De	G	\N
 Hören der Geister	Dt	G	\N
 Hören der Geister	Ma	G	\N
+Hören der Geister	Mg	G	\N
 Hören der Geister	PC	A	\N
 Hören der Geister	PT	A	\N
 Hören der Geister	Sa	G	\N
@@ -4474,6 +4495,7 @@ Hören von Fernem	De	S	\N
 Hören von Fernem	Dr	S	\N
 Hören von Fernem	Hl	S	\N
 Hören von Fernem	Ma	G	\N
+Hören von Fernem	Mg	G	\N
 Hören von Fernem	Sa	S	\N
 Hören von Fernem	ScN	S	\N
 Hören von Fernem	ScS	S	\N
@@ -4780,6 +4802,7 @@ Jucksalz	Dr	A	\N
 Jucksalz	Dt	A	\N
 Jucksalz	Hl	A	\N
 Jucksalz	Ma	A	\N
+Jucksalz	Mg	S	\N
 Jucksalz	PC	A	\N
 Jucksalz	PF	A	\N
 Jucksalz	PHa	A	\N
@@ -5070,6 +5093,7 @@ Klebesalz	Dr	A	\N
 Klebesalz	Dt	A	\N
 Klebesalz	Hl	A	\N
 Klebesalz	Ma	A	\N
+Klebesalz	Mg	S	\N
 Klebesalz	PC	A	\N
 Klebesalz	PF	A	\N
 Klebesalz	PHa	A	\N
@@ -5095,6 +5119,7 @@ Knallsalz	Dr	A	\N
 Knallsalz	Dt	A	\N
 Knallsalz	Hl	A	\N
 Knallsalz	Ma	A	\N
+Knallsalz	Mg	S	\N
 Knallsalz	PC	A	\N
 Knallsalz	PF	A	\N
 Knallsalz	PHa	A	\N
@@ -5211,6 +5236,7 @@ Kälteschutz	Dt	A	\N
 Kälteschutz	Fi	G	\N
 Kälteschutz	Hl	A	\N
 Kälteschutz	Ma	A	\N
+Kälteschutz	Mg	S	\N
 Kälteschutz	PM	S	\N
 Kälteschutz	PT	S	\N
 Kälteschutz	PW	A	\N
@@ -5228,6 +5254,7 @@ Kühlsalz	Dr	A	\N
 Kühlsalz	Dt	A	\N
 Kühlsalz	Hl	A	\N
 Kühlsalz	Ma	A	\N
+Kühlsalz	Mg	S	\N
 Kühlsalz	PC	A	\N
 Kühlsalz	PF	A	\N
 Kühlsalz	PHa	A	\N
@@ -5252,6 +5279,7 @@ Lachsalz	Dr	A	\N
 Lachsalz	Dt	A	\N
 Lachsalz	Hl	A	\N
 Lachsalz	Ma	A	\N
+Lachsalz	Mg	S	\N
 Lachsalz	PC	A	\N
 Lachsalz	PF	A	\N
 Lachsalz	PHa	A	\N
@@ -5276,6 +5304,7 @@ Lahmsalz	Dr	A	\N
 Lahmsalz	Dt	A	\N
 Lahmsalz	Hl	A	\N
 Lahmsalz	Ma	A	\N
+Lahmsalz	Mg	S	\N
 Lahmsalz	PC	A	\N
 Lahmsalz	PF	A	\N
 Lahmsalz	PHa	A	\N
@@ -5595,6 +5624,7 @@ Lustsalz	Dr	A	\N
 Lustsalz	Dt	A	\N
 Lustsalz	Hl	A	\N
 Lustsalz	Ma	A	\N
+Lustsalz	Mg	S	\N
 Lustsalz	PC	A	\N
 Lustsalz	PF	A	\N
 Lustsalz	PHa	A	\N
@@ -5638,6 +5668,7 @@ Löschsalz	Dr	A	\N
 Löschsalz	Dt	A	\N
 Löschsalz	Hl	A	\N
 Löschsalz	Ma	A	\N
+Löschsalz	Mg	S	\N
 Löschsalz	PC	A	\N
 Löschsalz	PF	A	\N
 Löschsalz	PHa	A	\N
@@ -5737,6 +5768,7 @@ Macht über das Selbst	Dt	G	\N
 Macht über das Selbst	Fi	G	\N
 Macht über das Selbst	Hl	S	\N
 Macht über das Selbst	Ma	G	\N
+Macht über das Selbst	Mg	S	\N
 Macht über das Selbst	Or	S	\N
 Macht über das Selbst	ScN	G	\N
 Macht über das Selbst	ScS	G	\N
@@ -6277,6 +6309,7 @@ Namenloses Grauen	Dr	S	\N
 Namenloses Grauen	Dt	S	\N
 Namenloses Grauen	Hl	S	\N
 Namenloses Grauen	Ma	S	\N
+Namenloses Grauen	Mg	S	\N
 Namenloses Grauen	PC	G	\N
 Namenloses Grauen	PF	S	\N
 Namenloses Grauen	PHa	S	\N
@@ -6344,6 +6377,7 @@ Nebelsalz	Dr	A	\N
 Nebelsalz	Dt	A	\N
 Nebelsalz	Hl	A	\N
 Nebelsalz	Ma	A	\N
+Nebelsalz	Mg	S	\N
 Nebelsalz	PC	A	\N
 Nebelsalz	PF	A	\N
 Nebelsalz	PHa	A	\N
@@ -6418,6 +6452,7 @@ Niessalz	Dr	A	\N
 Niessalz	Dt	A	\N
 Niessalz	Hl	A	\N
 Niessalz	Ma	A	\N
+Niessalz	Mg	S	\N
 Niessalz	PC	A	\N
 Niessalz	PF	A	\N
 Niessalz	PHa	A	\N
@@ -6559,6 +6594,7 @@ Rauchsalz	Dr	A	\N
 Rauchsalz	Dt	A	\N
 Rauchsalz	Hl	A	\N
 Rauchsalz	Ma	A	\N
+Rauchsalz	Mg	S	\N
 Rauchsalz	PC	A	\N
 Rauchsalz	PF	A	\N
 Rauchsalz	PHa	A	\N
@@ -6605,6 +6641,7 @@ Rauschsalz	Dr	A	\N
 Rauschsalz	Dt	A	\N
 Rauschsalz	Hl	A	\N
 Rauschsalz	Ma	A	\N
+Rauschsalz	Mg	S	\N
 Rauschsalz	PC	A	\N
 Rauschsalz	PF	A	\N
 Rauschsalz	PHa	A	\N
@@ -6652,6 +6689,7 @@ Reinigen	Dt	G	\N
 Reinigen	Fi	G	\N
 Reinigen	Hl	G	\N
 Reinigen	Ma	A	\N
+Reinigen	Mg	S	\N
 Reinigen	PF	S	\N
 Reinigen	PHa	S	\N
 Reinigen	PHe	S	\N
@@ -6727,6 +6765,7 @@ Riechsalz	Dr	A	\N
 Riechsalz	Dt	A	\N
 Riechsalz	Hl	A	\N
 Riechsalz	Ma	A	\N
+Riechsalz	Mg	S	\N
 Riechsalz	PC	A	\N
 Riechsalz	PF	A	\N
 Riechsalz	PHa	A	\N
@@ -6809,6 +6848,7 @@ Rutschsalz	Dr	A	\N
 Rutschsalz	Dt	A	\N
 Rutschsalz	Hl	A	\N
 Rutschsalz	Ma	A	\N
+Rutschsalz	Mg	S	\N
 Rutschsalz	PC	A	\N
 Rutschsalz	PF	A	\N
 Rutschsalz	PHa	A	\N
@@ -6961,6 +7001,7 @@ Scharfblick	Dr	S	\N
 Scharfblick	Dt	S	\N
 Scharfblick	Hl	S	\N
 Scharfblick	Ma	G	\N
+Scharfblick	Mg	G	\N
 Scharfblick	PC	A	\N
 Scharfblick	PF	A	\N
 Scharfblick	PHa	A	\N
@@ -7057,6 +7098,7 @@ Schlafsalz	Dr	A	\N
 Schlafsalz	Dt	A	\N
 Schlafsalz	Hl	A	\N
 Schlafsalz	Ma	A	\N
+Schlafsalz	Mg	S	\N
 Schlafsalz	PC	A	\N
 Schlafsalz	PF	A	\N
 Schlafsalz	PHa	A	\N
@@ -7096,6 +7138,7 @@ Schleichsalz	Dr	A	\N
 Schleichsalz	Dt	A	\N
 Schleichsalz	Hl	A	\N
 Schleichsalz	Ma	A	\N
+Schleichsalz	Mg	S	\N
 Schleichsalz	PC	A	\N
 Schleichsalz	PF	A	\N
 Schleichsalz	PHa	A	\N
@@ -7741,6 +7784,7 @@ Sehen in Dunkelheit	Dr	S	\N
 Sehen in Dunkelheit	Dt	S	\N
 Sehen in Dunkelheit	Fi	S	\N
 Sehen in Dunkelheit	Ma	G	\N
+Sehen in Dunkelheit	Mg	S	\N
 Sehen in Dunkelheit	Sa	A	\N
 Sehen in Dunkelheit	ScN	A	\N
 Sehen in Dunkelheit	ScS	A	\N
@@ -7994,6 +8038,7 @@ Stottersalz	Dr	A	\N
 Stottersalz	Dt	A	\N
 Stottersalz	Hl	A	\N
 Stottersalz	Ma	A	\N
+Stottersalz	Mg	S	\N
 Stottersalz	PC	A	\N
 Stottersalz	PF	A	\N
 Stottersalz	PHa	A	\N
@@ -8338,6 +8383,7 @@ Tiersprache	Dt	G	\N
 Tiersprache	Fi	G	\N
 Tiersprache	Hl	G	\N
 Tiersprache	Ma	S	\N
+Tiersprache	Mg	G	\N
 Tiersprache	PC	A	\N
 Tiersprache	PF	G	\N
 Tiersprache	PHa	S	\N
@@ -8439,6 +8485,7 @@ Trampelsalz	Dr	A	\N
 Trampelsalz	Dt	A	\N
 Trampelsalz	Hl	A	\N
 Trampelsalz	Ma	A	\N
+Trampelsalz	Mg	S	\N
 Trampelsalz	PC	A	\N
 Trampelsalz	PF	A	\N
 Trampelsalz	PHa	A	\N
@@ -8465,6 +8512,7 @@ Trockensalz	Dr	A	\N
 Trockensalz	Dt	A	\N
 Trockensalz	Hl	A	\N
 Trockensalz	Ma	A	\N
+Trockensalz	Mg	S	\N
 Trockensalz	PC	A	\N
 Trockensalz	PF	A	\N
 Trockensalz	PHa	A	\N
@@ -8979,6 +9027,7 @@ Verwirren	Dr	A	\N
 Verwirren	Dt	S	\N
 Verwirren	Hl	A	\N
 Verwirren	Ma	S	\N
+Verwirren	Mg	G	\N
 Verwirren	PW	S	\N
 Verwirren	Sa	A	\N
 Verwirren	ScN	A	\N
@@ -9157,6 +9206,7 @@ Wahrsehen	Dt	S	\N
 Wahrsehen	Fi	S	\N
 Wahrsehen	Hl	S	\N
 Wahrsehen	Ma	S	\N
+Wahrsehen	Mg	G	\N
 Wahrsehen	Or	A	\N
 Wahrsehen	PC	G	\N
 Wahrsehen	PF	G	\N
@@ -9226,6 +9276,7 @@ Wandelsalz	Dr	A	\N
 Wandelsalz	Dt	A	\N
 Wandelsalz	Hl	A	\N
 Wandelsalz	Ma	A	\N
+Wandelsalz	Mg	S	\N
 Wandelsalz	PC	A	\N
 Wandelsalz	PF	A	\N
 Wandelsalz	PHa	A	\N
@@ -9394,6 +9445,7 @@ Wassersalz	Dr	A	\N
 Wassersalz	Dt	A	\N
 Wassersalz	Hl	A	\N
 Wassersalz	Ma	A	\N
+Wassersalz	Mg	S	\N
 Wassersalz	PC	A	\N
 Wassersalz	PF	A	\N
 Wassersalz	PHa	A	\N
@@ -9458,6 +9510,7 @@ Wehsalz	Dr	A	\N
 Wehsalz	Dt	A	\N
 Wehsalz	Hl	A	\N
 Wehsalz	Ma	A	\N
+Wehsalz	Mg	S	\N
 Wehsalz	PC	A	\N
 Wehsalz	PF	A	\N
 Wehsalz	PHa	A	\N
@@ -9735,6 +9788,7 @@ YehKiQuang	ScW	S	\N
 YehKiQuang	Tt	S	\N
 Zauberauge	Dt	S	\N
 Zauberauge	Ma	S	\N
+Zauberauge	Mg	G	\N
 Zauberauge	PC	S	\N
 Zauberauge	PF	S	\N
 Zauberauge	PHa	S	\N
@@ -9943,6 +9997,7 @@ Zucksalz	Dr	A	\N
 Zucksalz	Dt	A	\N
 Zucksalz	Hl	A	\N
 Zucksalz	Ma	A	\N
+Zucksalz	Mg	S	\N
 Zucksalz	PC	A	\N
 Zucksalz	PF	A	\N
 Zucksalz	PHa	A	\N
@@ -10045,6 +10100,7 @@ Zähmen	Dr	G	Holz
 Zähmen	Dt	G	\N
 Zähmen	Fi	G	\N
 Zähmen	Hl	G	Holz
+Zähmen	Mg	S	\N
 Zähmen	PF	S	\N
 Zähmen	PM	S	\N
 Zähmen	Sa	G	\N
@@ -10060,6 +10116,7 @@ Zündersalz	Dr	A	\N
 Zündersalz	Dt	A	\N
 Zündersalz	Hl	A	\N
 Zündersalz	Ma	A	\N
+Zündersalz	Mg	S	\N
 Zündersalz	PC	A	\N
 Zündersalz	PF	A	\N
 Zündersalz	PHa	A	\N

@@ -6,13 +6,14 @@ NEWS IN VERSION 0.7delta4
    verlernt und neu ausgesucht werden.
 * Landeskunde (Heimat): das gleiche
 * Schreiben:Muttersprache+x: das gleiche
-* viele Icons upgedated (Auch schon in 0.7delta3
+* viele Icons upgedated (Auch schon in 0.7delta3)
 * Überleben als angeborene Fertigkeit
 * Ausrüstung nach Fertigkeiten würfeln
 * Info Fenster für Typen, Lernpflichten
 * Sprachen Allgemeinwissen: Nachbarland (Logik funktioniert)
 * Drucken von Listen gründlich überarbeitet. 
    Damit wird es möglich sein 'lange Listen' auszudrucken
+* Lernen AlteSprachen für Magister/Priester
 
 TODO: ('-' zeigt CP an)
 * Sprachen Allgemeinwissen: Nachbarland (Datenbank)

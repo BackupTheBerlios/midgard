@@ -35,6 +35,7 @@ Armbrust	Kd	S
 Armbrust	Kr	G
 Armbrust	Ku	S
 Armbrust	Ma	A
+Armbrust	Mg	S
 Armbrust	Ny	S
 Armbrust	Or	S
 Armbrust	PC	A
@@ -80,6 +81,7 @@ Blasrohr	Kd	S
 Blasrohr	Kr	S
 Blasrohr	Ku	S
 Blasrohr	Ma	S
+Blasrohr	Mg	S
 Blasrohr	Ny	S
 Blasrohr	Or	S
 Blasrohr	PC	A
@@ -125,6 +127,7 @@ Bögen	Kd	S
 Bögen	Kr	G
 Bögen	Ku	S
 Bögen	Ma	A
+Bögen	Mg	S
 Bögen	Ny	S
 Bögen	Or	S
 Bögen	PC	A
@@ -170,6 +173,7 @@ Einhandschlagwaffe	Kd	S
 Einhandschlagwaffe	Kr	G
 Einhandschlagwaffe	Ku	S
 Einhandschlagwaffe	Ma	A
+Einhandschlagwaffe	Mg	S
 Einhandschlagwaffe	Ny	S
 Einhandschlagwaffe	Or	S
 Einhandschlagwaffe	PC	A
@@ -215,6 +219,7 @@ Einhandschwert	Kd	S
 Einhandschwert	Kr	G
 Einhandschwert	Ku	S
 Einhandschwert	Ma	A
+Einhandschwert	Mg	S
 Einhandschwert	Ny	S
 Einhandschwert	Or	S
 Einhandschwert	PC	A
@@ -260,6 +265,7 @@ Fesselwaffe	Kd	S
 Fesselwaffe	Kr	S
 Fesselwaffe	Ku	S
 Fesselwaffe	Ma	A
+Fesselwaffe	Mg	S
 Fesselwaffe	Ny	S
 Fesselwaffe	Or	S
 Fesselwaffe	PC	A
@@ -305,6 +311,7 @@ Garotte	Kd	S
 Garotte	Kr	S
 Garotte	Ku	S
 Garotte	Ma	A
+Garotte	Mg	S
 Garotte	Ny	S
 Garotte	Or	S
 Garotte	PC	A
@@ -350,6 +357,7 @@ Kampf ohne Waffen	Kd	S
 Kampf ohne Waffen	Kr	G
 Kampf ohne Waffen	Ku	S
 Kampf ohne Waffen	Ma	A
+Kampf ohne Waffen	Mg	S
 Kampf ohne Waffen	Ny	S
 Kampf ohne Waffen	Or	S
 Kampf ohne Waffen	PC	A
@@ -395,6 +403,7 @@ Kampfstab	Kd	S
 Kampfstab	Kr	G
 Kampfstab	Ku	S
 Kampfstab	Ma	A
+Kampfstab	Mg	S
 Kampfstab	Ny	S
 Kampfstab	Or	S
 Kampfstab	PC	A
@@ -440,6 +449,7 @@ Kettenwaffe	Kd	S
 Kettenwaffe	Kr	G
 Kettenwaffe	Ku	S
 Kettenwaffe	Ma	A
+Kettenwaffe	Mg	S
 Kettenwaffe	Ny	S
 Kettenwaffe	Or	S
 Kettenwaffe	PC	A
@@ -485,6 +495,7 @@ Kharrata	Kd	S
 Kharrata	Kr	S
 Kharrata	Ku	S
 Kharrata	Ma	A
+Kharrata	Mg	S
 Kharrata	Ny	S
 Kharrata	Or	S
 Kharrata	PC	A
@@ -528,6 +539,7 @@ Lasso	Kd	S
 Lasso	Kr	G
 Lasso	Ku	S
 Lasso	Ma	A
+Lasso	Mg	S
 Lasso	Ny	S
 Lasso	Or	S
 Lasso	PC	A
@@ -571,6 +583,7 @@ Namisritra	Kd	S
 Namisritra	Kr	S
 Namisritra	Ku	S
 Namisritra	Ma	A
+Namisritra	Mg	S
 Namisritra	Ny	S
 Namisritra	Or	S
 Namisritra	PC	A
@@ -614,6 +627,7 @@ Netz	Kd	S
 Netz	Kr	G
 Netz	Ku	S
 Netz	Ma	A
+Netz	Mg	S
 Netz	Ny	S
 Netz	Or	S
 Netz	PC	A
@@ -657,6 +671,7 @@ Parierwaffe	Kd	S
 Parierwaffe	Kr	G
 Parierwaffe	Ku	S
 Parierwaffe	Ma	A
+Parierwaffe	Mg	S
 Parierwaffe	Ny	S
 Parierwaffe	Or	S
 Parierwaffe	PC	A
@@ -702,6 +717,7 @@ Peitsche	Kd	S
 Peitsche	Kr	S
 Peitsche	Ku	S
 Peitsche	Ma	A
+Peitsche	Mg	S
 Peitsche	Ny	S
 Peitsche	Or	S
 Peitsche	PC	A
@@ -747,6 +763,7 @@ Schild	Kd	S
 Schild	Kr	G
 Schild	Ku	S
 Schild	Ma	A
+Schild	Mg	S
 Schild	Ny	S
 Schild	Or	S
 Schild	PC	A
@@ -792,6 +809,7 @@ Schleuder	Kd	S
 Schleuder	Kr	G
 Schleuder	Ku	S
 Schleuder	Ma	A
+Schleuder	Mg	S
 Schleuder	Ny	S
 Schleuder	Or	S
 Schleuder	PC	A
@@ -837,6 +855,7 @@ Spießwaffe	Kd	S
 Spießwaffe	Kr	G
 Spießwaffe	Ku	S
 Spießwaffe	Ma	A
+Spießwaffe	Mg	S
 Spießwaffe	Ny	S
 Spießwaffe	Or	S
 Spießwaffe	PC	A
@@ -882,6 +901,7 @@ Stangenwaffe	Kd	S
 Stangenwaffe	Kr	G
 Stangenwaffe	Ku	S
 Stangenwaffe	Ma	A
+Stangenwaffe	Mg	S
 Stangenwaffe	Ny	S
 Stangenwaffe	Or	S
 Stangenwaffe	PC	A
@@ -927,6 +947,7 @@ Stichwaffe	Kd	S
 Stichwaffe	Kr	G
 Stichwaffe	Ku	S
 Stichwaffe	Ma	A
+Stichwaffe	Mg	S
 Stichwaffe	Ny	S
 Stichwaffe	Or	S
 Stichwaffe	PC	A
@@ -972,6 +993,7 @@ Stielwurfwaffe	Kd	S
 Stielwurfwaffe	Kr	G
 Stielwurfwaffe	Ku	S
 Stielwurfwaffe	Ma	A
+Stielwurfwaffe	Mg	S
 Stielwurfwaffe	Ny	S
 Stielwurfwaffe	Or	S
 Stielwurfwaffe	PC	A
@@ -1017,6 +1039,7 @@ Werfen	Kd	S
 Werfen	Kr	G
 Werfen	Ku	G
 Werfen	Ma	A
+Werfen	Mg	S
 Werfen	Ny	S
 Werfen	Or	S
 Werfen	PC	A
@@ -1062,6 +1085,7 @@ Wurfmesser	Kd	S
 Wurfmesser	Kr	G
 Wurfmesser	Ku	S
 Wurfmesser	Ma	A
+Wurfmesser	Mg	S
 Wurfmesser	Ny	S
 Wurfmesser	Or	S
 Wurfmesser	PC	A
@@ -1107,6 +1131,7 @@ Wurfpfeil	Kd	S
 Wurfpfeil	Kr	G
 Wurfpfeil	Ku	S
 Wurfpfeil	Ma	A
+Wurfpfeil	Mg	S
 Wurfpfeil	Ny	S
 Wurfpfeil	Or	S
 Wurfpfeil	PC	A
@@ -1152,6 +1177,7 @@ Wurfscheibe	Kd	S
 Wurfscheibe	Kr	S
 Wurfscheibe	Ku	S
 Wurfscheibe	Ma	A
+Wurfscheibe	Mg	S
 Wurfscheibe	Ny	S
 Wurfscheibe	Or	S
 Wurfscheibe	PC	A
@@ -1197,6 +1223,7 @@ Wurfspieß	Kd	S
 Wurfspieß	Kr	G
 Wurfspieß	Ku	S
 Wurfspieß	Ma	A
+Wurfspieß	Mg	S
 Wurfspieß	Ny	S
 Wurfspieß	Or	S
 Wurfspieß	PC	A
@@ -1267,6 +1294,7 @@ Zweihandschlagwaffe	Kd	S
 Zweihandschlagwaffe	Kr	G
 Zweihandschlagwaffe	Ku	S
 Zweihandschlagwaffe	Ma	A
+Zweihandschlagwaffe	Mg	S
 Zweihandschlagwaffe	Ny	S
 Zweihandschlagwaffe	Or	S
 Zweihandschlagwaffe	PC	A
@@ -1312,6 +1340,7 @@ Zweihandschwert	Kd	S
 Zweihandschwert	Kr	G
 Zweihandschwert	Ku	S
 Zweihandschwert	Ma	A
+Zweihandschwert	Mg	S
 Zweihandschwert	Ny	S
 Zweihandschwert	Or	S
 Zweihandschwert	PC	A

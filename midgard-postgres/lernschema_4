@@ -24,6 +24,8 @@ CREATE TABLE "lernschema_4" (
 COPY "lernschema_4" FROM stdin;
 0	BN	f	Kampf in Schlachtreihe	Fachkenntnisse	5
 0	Kr	f	Kampf in Schlachtreihe	Fachkenntnisse	5
+0	Mg	f	Schreiben: Alte Sprache(+12)	Fachkenntnisse	12
+0	Mg	f	Sprechen: Alte Sprache	Fachkenntnisse	12
 0	Ny	t	KujKuri	Fachkenntnisse	1
 0	Or	f	Kampf in Schlachtreihe	Fachkenntnisse	5
 0	PC	f	Schreiben: Alte Sprache(+12)	Fachkenntnisse	12
@@ -284,6 +286,22 @@ COPY "lernschema_4" FROM stdin;
 1	Ma	f	Scharfblick	Zauberkünste	0
 1	Ma	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
 1	Ma	f	Sehen von Verborgenem	Zauberkünste	0
+1	Mg	f	Buckler	Waffenfertigkeiten	1
+1	Mg	f	Dolch	Waffenfertigkeiten	5
+1	Mg	f	Himmelskunde	Fachkenntnisse	5
+1	Mg	f	Keule	Waffenfertigkeiten	5
+1	Mg	f	Kräuterkunde	Fachkenntnisse	5
+1	Mg	f	Kurzschwert	Waffenfertigkeiten	5
+1	Mg	f	Landeskunde (Heimat)	Fachkenntnisse	5
+1	Mg	f	Ochsenzunge	Waffenfertigkeiten	5
+1	Mg	f	Pflanzenkunde	Fachkenntnisse	5
+1	Mg	f	Rapier	Waffenfertigkeiten	5
+1	Mg	f	Rechnen	Fachkenntnisse	8
+1	Mg	f	Sagenkunde	Fachkenntnisse	5
+1	Mg	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	Mg	f	Sprechen: Sprache(+12)	Fachkenntnisse	12
+1	Mg	f	Tierkunde	Fachkenntnisse	5
+1	Mg	f	kleiner Schild	Waffenfertigkeiten	1
 1	Ny	f	+1 KiDo-Technik	Fachkenntnisse	\N
 1	Ny	f	+1 KiDo-Technik 	Fachkenntnisse	\N
 1	Ny	f	Balancieren	Fachkenntnisse	15
@@ -823,6 +841,31 @@ COPY "lernschema_4" FROM stdin;
 2	Ma	f	Macht über Unbelebtes	Zauberkünste	0
 2	Ma	f	Macht über die Sinne	Zauberkünste	0
 2	Ma	f	Zauberkunde	Fachkenntnisse	5
+2	Mg	f	Alchimie	Fachkenntnisse	5
+2	Mg	f	Beredsamkeit	Fachkenntnisse	8
+2	Mg	f	Bittersalz	Zauberkünste	0
+2	Mg	f	Blicksalz	Zauberkünste	0
+2	Mg	f	Fuchtel	Waffenfertigkeiten	5
+2	Mg	f	Gassenwissen	Fachkenntnisse	5
+2	Mg	f	Giftmischen	Fachkenntnisse	5
+2	Mg	f	Handaxt	Waffenfertigkeiten	5
+2	Mg	f	Heilkunde	Fachkenntnisse	5
+2	Mg	f	Hitzsalz	Zauberkünste	0
+2	Mg	f	Hören von Fernem	Zauberkünste	0
+2	Mg	f	Krummsäbel	Waffenfertigkeiten	5
+2	Mg	f	Kühlsalz	Zauberkünste	0
+2	Mg	f	Lesen von Zauberschrift	Fachkenntnisse	12
+2	Mg	f	Parierdolch	Waffenfertigkeiten	1
+2	Mg	f	Scharfblick	Zauberkünste	0
+2	Mg	f	Schleuder	Waffenfertigkeiten	5
+2	Mg	f	Stottersalz	Zauberkünste	0
+2	Mg	f	Stoßspeer	Waffenfertigkeiten	5
+2	Mg	f	Streitkolben	Waffenfertigkeiten	5
+2	Mg	f	Verwirren	Zauberkünste	0
+2	Mg	f	Wurfmesser	Waffenfertigkeiten	5
+2	Mg	f	Wurfpfeil	Waffenfertigkeiten	5
+2	Mg	f	Zauberkunde	Fachkenntnisse	5
+2	Mg	f	leichter Speer	Waffenfertigkeiten	5
 2	Ny	f	Beidhändiger Kampf	Fachkenntnisse	3
 2	Ny	f	Beschatten	Fachkenntnisse	8
 2	Ny	f	Bogen	Waffenfertigkeiten	5
@@ -1314,6 +1357,12 @@ COPY "lernschema_4" FROM stdin;
 3	Ma	f	Alchimie	Fachkenntnisse	5
 3	Ma	f	Macht über die belebte Natur	Zauberkünste	0
 3	Ma	f	Sehen in Dunkelheit	Zauberkünste	0
+3	Mg	f	Erste Hilfe	Fachkenntnisse	8
+3	Mg	f	Geheimmechanismen öffnen	Fachkenntnisse	6
+3	Mg	f	Kurzbogen	Waffenfertigkeiten	5
+3	Mg	f	Langschwert	Waffenfertigkeiten	5
+3	Mg	f	Menschenkenntnis	Fachkenntnisse	5
+3	Mg	f	waffenloser Kampf	Waffenfertigkeiten	5
 3	Ny	f	Bihänder	Waffenfertigkeiten	5
 3	Ny	f	KusariGama	Waffenfertigkeiten	5
 3	Ny	f	Langbogen	Waffenfertigkeiten	5
@@ -1553,6 +1602,14 @@ COPY "lernschema_4" FROM stdin;
 4	Ku	f	waffenloser Kampf	Waffenfertigkeiten	5
 4	Ma	f	Erkennen von Zauberei	Zauberkünste	0
 4	Ma	f	Macht über Menschen	Zauberkünste	0
+4	Mg	f	Angst	Zauberkünste	0
+4	Mg	f	Bogen	Waffenfertigkeiten	5
+4	Mg	f	Erkennen der Aura	Zauberkünste	0
+4	Mg	f	Erkennen von Leben	Zauberkünste	0
+4	Mg	f	Niessalz	Zauberkünste	0
+4	Mg	f	Wehsalz	Zauberkünste	0
+4	Mg	f	Zähmen	Zauberkünste	0
+4	Mg	f	leichte Armbrust	Waffenfertigkeiten	5
 4	Or	f	Handauflegen	Zauberkünste	0
 4	Or	f	Heiliger Zorn	Zauberkünste	0
 4	Or	f	Wagemut	Zauberkünste	0
@@ -1691,6 +1748,8 @@ COPY "lernschema_4" FROM stdin;
 8	Fi	f	Macht über die belebte Natur	Zauberkünste	\N
 8	Fi	f	Zaubersprung	Zauberkünste	\N
 8	Ma	f	Magierstecken	Waffenfertigkeiten	4
+8	Mg	f	Besänftigen	Zauberkünste	0
+8	Mg	f	Erkennen von Zauberei	Zauberkünste	0
 8	Or	f	Goldener Panzer	Zauberkünste	0
 8	Or	f	Heilen von Wunden	Zauberkünste	0
 8	PC	f	Blasrohr	Waffenfertigkeiten	4
