@@ -51,6 +51,7 @@ void table_grundwerte::fill_typauswahl_fill(int typ_1_2)
   std::list<std::string> L;
   for(std::vector<std::pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
    {
+#warning diese Logik scheint mir etwas unvollständig, CP
      if(combo_typ2->is_visible() && typ_1_2==1 && i->first->Zaubern()=="z") continue;
      if(typ_1_2==2 && i->first->Zaubern()!="z") continue;
          {
