@@ -114,7 +114,7 @@ void Wizard::fill_vecwiz()
    //UEBERLEBEN
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
                           "In welchem Geländetyp wird 'überleben' als universelle Fertigkeit beherrscht?",
-                          "Ü�berleben",
+                          "Überleben",
                           &midgard_CG::wizard_do_something));
    //ANGEBORENEFERTIGKEITEN
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.120 2002/12/14 23:45:11 christof Exp $
+// $Id: midgard_CG_optionen.cc,v 1.121 2003/04/25 07:12:09 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -179,7 +179,7 @@ void midgard_CG::show_Hausregeln_active()
   for(std::list<Midgard_Optionen::st_Haus>::const_iterator i=MOptionen->getHausregeln().begin();i!=MOptionen->getHausregeln().end();++i)
    {
      if(!i->active) continue;
-     Gtk::Image *p=manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(i->bild)));
+     Gtk::Image *p=manage(new Gtk::Image(i->bild));
      hb->pack_start(*p);
      if(i->active) p->show();
    }

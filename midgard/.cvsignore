@@ -20,3 +20,4 @@ mkinstalldirs
 stamp-h
 stamp-h.in
 install-sh
+*_new

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.295 2003/04/24 14:10:57 christof Exp $
+// $Id: midgard_CG.cc,v 1.296 2003/04/25 07:12:09 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,17 +33,7 @@
 #include <RefPtr_Pixmap.hh>
 #include <gdkmm/pixbufloader.h>
 #include <bool_ImageButton.hh>
-
-static Glib::RefPtr<Gdk::Pixbuf> LoadImage(const unsigned char data[], unsigned size)
-{  Glib::RefPtr<Gdk::PixbufLoader> loader=Gdk::PixbufLoader::create();
-   loader->write(data, size);
-   loader->close();
-   return loader->get_pixbuf();
-}
-
-static Glib::RefPtr<Gdk::Pixbuf> LoadImage(const char * const *data)
-{  return Gdk::Pixbuf::create_from_xpm_data(data);
-}
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 static void ImageLabelKnopf(Gtk::Button *b, Glib::RefPtr<Gdk::Pixbuf> pb, const Glib::ustring &t)
 {  Gtk::VBox *vbox=manage(new Gtk::VBox());
@@ -95,20 +85,17 @@ midgard_CG::midgard_CG(const std::string &_argv0,const std::string &_magus_verze
   init_statusbar();
 
 // ToolBar: StyleIcon
-  button_neuer_charakter->add(LoadImage(StyleIcon(iNew).icon),"Neu mit Wizard",SigC::slot(*this,&midgard_CG::on_neuer_charakter_release_event));
-  button_neuer_charakter->add(LoadImage(StyleIcon(iNew).icon),"Neu ohne Wizard",SigC::slot(*this,&midgard_CG::on_neuer_charakter_clicked));
-  button_speichern->add(LoadImage(StyleIcon(iClose).icon),"Speichern",SigC::slot(*this,&midgard_CG::save_existing_filename));
-  button_speichern->add(LoadImage(StyleIcon(iClose).icon),"Speichern unter",SigC::slot(*this,&midgard_CG::xml_export_auswahl));
-  button_main_drucken->add(LoadImage(StyleIcon(iPrint).icon),"Drucken",SigC::slot(*this,&midgard_CG::on_latex_release_event));
-  ImageLabelKnopf(button_undo,LoadImage(StyleIcon(iBack).icon),StyleIcon(iBack).text);
-  ImageLabelKnopf(button_redo,LoadImage(StyleIcon(iForward).icon),StyleIcon(iForward).text);
+  button_neuer_charakter->add((StyleIcon(iNew).icon),"Neu mit Wizard",SigC::slot(*this,&midgard_CG::on_neuer_charakter_release_event));
+  button_neuer_charakter->add((StyleIcon(iNew).icon),"Neu ohne Wizard",SigC::slot(*this,&midgard_CG::on_neuer_charakter_clicked));
+  button_speichern->add((StyleIcon(iClose).icon),"Speichern",SigC::slot(*this,&midgard_CG::save_existing_filename));
+  button_speichern->add((StyleIcon(iClose).icon),"Speichern unter",SigC::slot(*this,&midgard_CG::xml_export_auswahl));
+  button_main_drucken->add((StyleIcon(iPrint).icon),"Drucken",SigC::slot(*this,&midgard_CG::on_latex_release_event));
+  ImageLabelKnopf(button_undo,(StyleIcon(iBack).icon),StyleIcon(iBack).text);
+  ImageLabelKnopf(button_redo,(StyleIcon(iForward).icon),StyleIcon(iForward).text);
   
 // Statusbar MVC
-  extern const unsigned char hand_roll_png_data[],auto_roll_png_data[];
-  extern const unsigned hand_roll_png_size,auto_roll_png_size;
-  Glib::RefPtr<Gdk::Pixbuf> hand_roll=LoadImage(hand_roll_png_data, hand_roll_png_size);
-  Glib::RefPtr<Gdk::Pixbuf> auto_roll=LoadImage(auto_roll_png_data, auto_roll_png_size);
-  bool_ImageButton *wuerfelt_butt = new bool_ImageButton(MOptionen->WerteEingebenModel(),hand_roll,auto_roll);
+  bool_ImageButton *wuerfelt_butt = new bool_ImageButton(MOptionen->WerteEingebenModel(),
+  	MagusImage("hand_roll.png"),MagusImage("auto_roll.png"));
   hbox_status->pack_start(*wuerfelt_butt, Gtk::PACK_SHRINK, 0);
   
   // für die NEWS

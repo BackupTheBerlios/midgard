@@ -46,7 +46,7 @@ void frame_globale_optionen::init()
     }
    else if(i->bild)
     {
-      Gtk::Image *_o=Gtk::manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(i->bild)));
+      Gtk::Image *_o=Gtk::manage(new Gtk::Image(i->bild));
       t->attach(*_o,1,2,0,1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
     }
    table->attach(*t,0,1,count,count+1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
@@ -68,7 +68,7 @@ void frame_globale_optionen::init()
    t->attach(*cb,0,1,0,1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
    if(i->bild)
      {
-        Gtk::Image *_o=manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(i->bild)));
+        Gtk::Image *_o=manage(new Gtk::Image(i->bild));
         t->attach(*_o,1,2,0,1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
      }
    table->attach(*t,0,1,count,count+1,Gtk::FILL,Gtk::AttachOptions(0),0,0);

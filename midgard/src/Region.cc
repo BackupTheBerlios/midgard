@@ -40,7 +40,7 @@ Glib::RefPtr<Gdk::Pixbuf> RegionenPic::PicModel(epic typ,Midgard_Optionen::IconI
 
    Glib::RefPtr<Gdk::Pixbuf> res=MagusImage(name);
    if (tiny && ii!=Midgard_Optionen::Ulf)
-      res=res.scale_simple(int(res->get_width()*26.0/res->get_height()+.5),
+      res=res->scale_simple(int(res->get_width()*26.0/res->get_height()+.5),
       				26,Gdk::INTERP_BILINEAR);
    return res;
 }
@@ -73,7 +73,7 @@ cH_Region::cH_Region(const Tag *tag)
 }
 
 Region::Region(const Tag *tag) 
-: name(tag->getAttr("Name")), active(false),region_pix(0)
+: name(tag->getAttr("Name")), active()
 {
   nr=tag->getIntAttr("MAGUS-Index");
   titel=tag->getAttr("Titel");

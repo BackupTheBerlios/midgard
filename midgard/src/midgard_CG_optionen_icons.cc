@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen_icons.cc,v 1.31 2002/12/14 23:45:11 christof Exp $
+// $Id: midgard_CG_optionen_icons.cc,v 1.32 2003/04/25 07:12:09 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,6 +18,7 @@
  */
 
 #include "midgard_CG.hh"
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 void midgard_CG::Icons_setzen()
 {
@@ -30,7 +31,7 @@ void midgard_CG::Icons_setzen()
      icon_counter=e_icon(int(icon_counter)+1);
 
      if(dynamic_cast<Gtk::Image*>((*i).get_content())) 
-        dynamic_cast<Gtk::Image*>((*i).get_content())->set(Gdk::Pixbuf::create_from_xpm_data(I.icon));
+        dynamic_cast<Gtk::Image*>((*i).get_content())->set((I.icon));
      if(dynamic_cast<Gtk::Label*>((*i).get_label())) 
         (*i).get_label()->set_text(I.text);
    }
@@ -48,9 +49,9 @@ void midgard_CG::Icons_setzen()
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {
      Midgard_Optionen::IconIndex II=MOptionen->getIconIndex();
-     const char * const *rp=RegionenPic::PicModel((*i)->Pic(),II);
+     Glib::RefPtr<Gdk::Pixbuf> rp=RegionenPic::PicModel((*i)->Pic(),II);
      (*i)->setRegionPix(rp);
-     const char * const *rps=RegionenPic::PicModel((*i)->Pic(),II,true);
+     Glib::RefPtr<Gdk::Pixbuf> rps=RegionenPic::PicModel((*i)->Pic(),II,true);
      (*i)->setRegionPixSmall(rps);
    }
 }
@@ -63,7 +64,7 @@ void midgard_CG::Box_setzen(Gtk::Widget *child,st_icons I)
      for(Gtk::Box_Helpers::BoxList::iterator i=ch.begin();i!=ch.end();++i)
       {
         if(dynamic_cast<Gtk::Image*>((*i).get_widget())) 
-            dynamic_cast<Gtk::Image*>((*i).get_widget())->set(Gdk::Pixbuf::create_from_xpm_data(I.icon));
+            dynamic_cast<Gtk::Image*>((*i).get_widget())->set((I.icon));
         if(dynamic_cast<Gtk::Label*>((*i).get_widget()) )
             dynamic_cast<Gtk::Label*>((*i).get_widget())->set_text(I.text);
       }
@@ -75,191 +76,54 @@ void midgard_CG::Box_setzen(Gtk::Widget *child,st_icons I)
 void midgard_CG::Bin_setzen(Gtk::Widget *child,st_icons I)
 {
   if(child && dynamic_cast<Gtk::Image*>(child))
-     dynamic_cast<Gtk::Image*>(child)->set(Gdk::Pixbuf::create_from_xpm_data(I.icon));
+     dynamic_cast<Gtk::Image*>(child)->set((I.icon));
 }
 
-#include "../pixmaps/pinguin.xpm"
-#include "../pixmaps/NewChar-trans-50.xpm"
-#include "../pixmaps/LoadChar-trans-50.xpm"
-#include "../pixmaps/SaveChar-trans-50.xpm"
-#include "../pixmaps/PrintChar-trans-50.xpm"
-#include "../pixmaps/Undo.xpm"
-#include "../pixmaps/redo.xpm"
-#include "../pixmaps/wizzard-trans-50_2.xpm"
-#include "../pixmaps/Info-trans-50.xpm"
-#include "../pixmaps/Help-trans-50.xpm"
-#include "../pixmaps/Exit-trans-50.xpm"
-#include "../pixmaps/Excl-32.xpm"
-//#include "../pixmaps/Erase-50.xpm"
-#include "../pixmaps/Dice-W100-trans-50.xpm" 
-#include "../pixmaps/Dices2-trans-50.xpm"
-#include "../pixmaps/EditChar-trans-50.xpm" 
-#include "../pixmaps/Dice-2W6-trans-50.xpm" 
-#include "../pixmaps/Edit-trans-50.xpm" 
-#include "../pixmaps/Red-Dice-trans-50.xpm" 
-#include "../pixmaps/Yellow-Dice-trans-50.xpm"
-#include "../pixmaps/Angeb_All-32.xpm" 
-#include "../pixmaps/Job-trans-50.xpm" 
-#include "../pixmaps/Money-50.xpm" 
-#include "../pixmaps/Weapon-trans-50.xpm" 
-#include "../pixmaps/Dice_Armor-trans-50.xpm" 
-#include "../pixmaps/Dice-Ausruest-50.xpm" 
-#include "../pixmaps/KillChar-32.xpm" 
-#include "../pixmaps/Trash-32.xpm" 
-//#include "../pixmaps/MAGUS_Logo_Small.xpm" 
-#include "../pixmaps/MAGUS_Logo_Tiny.xpm" 
-#include "../pixmaps/NSC-Mode-26.xpm" 
-#include "../pixmaps/NewsGeschichte.xpm" 
-#include "../pixmaps/L_Schema_small.xpm" 
-#include "../pixmaps/Clear-32.xpm"
-#include "../pixmaps/Nein-32.xpm"
-#include "../pixmaps/Portrait-32.xpm"
-#include "../pixmaps/Steigern-trans-32.xpm"
-#include "../pixmaps/Reduzieren-trans-32.xpm"
-#include "../pixmaps/Verlernen-trans-32.xpm"
-#include "../pixmaps/MAGUS_Logo_Small.xpm"
-#include "../pixmaps/Grundwert_small.xpm"
-#include "../pixmaps/Steigern_small.xpm"
-#include "../pixmaps/Regio_Hausregel-50.xpm"
-#include "../pixmaps/Z-NewChar.xpm"
-
-
-// Ulfs 24-Icons
-#include "../pixmaps/Ulf/ulf_knopfleiste_24_anleitung.xpm"
-#include "../pixmaps/Ulf/ulf_knopfleiste_24_drucken.xpm"
-//#include "../pixmaps/Ulf/ulf_knopfleiste_24_hilfe.xpm"
-#include "../pixmaps/Ulf/ulf_knopfleiste_24_info.xpm"
-#include "../pixmaps/Ulf/ulf_knopfleiste_24_menue.xpm"
-#include "../pixmaps/Ulf/ulf_knopfleiste_24_neu.xpm"
-#include "../pixmaps/Ulf/ulf_knopfleiste_24_oeffnen.xpm"
-#include "../pixmaps/Ulf/ulf_knopfleiste_24_schliessen.xpm"
-#include "../pixmaps/Ulf/ulf_knopfleiste_24_speichern.xpm"
-#include "../pixmaps/Ulf/ulf_knopfleiste_24_vorwaerts.xpm"
-#include "../pixmaps/Ulf/ulf_knopfleiste_24_zurueck.xpm"
-#include "../pixmaps/Ulf/ulf_notebook_24_bildeinfuegen.xpm"
-#include "../pixmaps/Ulf/ulf_notebook_24_wuerfel.xpm"
-#include "../pixmaps/Ulf/ulf_notebook_24_editieren.xpm"
-//#include "../pixmaps/Ulf/ulf_notebook_24_loeschen.xpm"
-#include "../pixmaps/Ulf/ulf_auswahl_16_ja.xpm"
-#include "../pixmaps/Ulf/ulf_auswahl_16_nein.xpm"
-#include "../pixmaps/Ulf/ulf_notebook_24_loeschen.xpm"
-#include "../pixmaps/Ulf/ulf_notebook_24_reduzieren.xpm"
-#include "../pixmaps/Ulf/ulf_notebook_24_steigern.xpm"
-#include "../pixmaps/Ulf/ulf_notebook_24_verlernen.xpm"
-
-
-
-//#include "../pixmaps/Ulf/ulf_24_editieren.xpm"
-//#include "../pixmaps/Ulf/ulf_24_wuerfel.xpm"
-#include "../pixmaps/Ulf/ulf_statusleiste_16_wizard.xpm"
-#include "../pixmaps/Ulf/ulf_statusleiste_16_npczulassen.xpm"
-//#include "../pixmaps/Ulf/ulf_zipfel_24_infocredits.xpm"
-#include "../pixmaps/Ulf/ulf_zipfel_24_credits.xpm"
-#include "../pixmaps/Ulf/ulf_zipfel_24_einstellungen.xpm"
-#include "../pixmaps/Ulf/ulf_zipfel_24_grundwerte.xpm"
-#include "../pixmaps/Ulf/ulf_zipfel_24_lernschema.xpm"
-#include "../pixmaps/Ulf/ulf_zipfel_24_steigern.xpm"
-#include "../pixmaps/Ulf/ulf_zipfel_24_verlauf.xpm"
-#include "../pixmaps/Ulf/ulf_zipfel_24_zufallsgenerator.xpm"
-
-
 midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
-{
-  if(MOptionen->IconCheck(Midgard_Optionen::Self).active)
-   {
-     if     (typ==iNew)        return st_icons("Neu"         ,NewChar_trans_50_xpm   );
-     else if(typ==iOpen)       return st_icons("Öffnen"      ,LoadChar_trans_50_xpm  );
-     else if(typ==iClose)      return st_icons("Speichern"   ,SaveChar_trans_50_xpm  );
-     else if(typ==iPrint)      return st_icons("Drucken"     ,PrintChar_trans_50_xpm );
-     else if(typ==iBack)       return st_icons("Zurück"      ,Undo_xpm               );
-     else if(typ==iForward)    return st_icons("Vorwärts"    ,redo_xpm               );
-     else if(typ==iMenu)       return st_icons("Menü"        ,wizzard_trans_50_2_xpm );
-     else if(typ==iInfo)       return st_icons("Info"        ,Info_trans_50_xpm      );
-     else if(typ==iInstruction)return st_icons("Anleitung"   ,Help_trans_new1_xpm    );
-     else if(typ==iExit)       return st_icons("Schließen"   ,Exit_trans_50_xpm      );
-     else if(typ==iJa)         return st_icons("Ja"          ,Excl_32_xpm);
-     else if(typ==iNein)       return st_icons("Nein"        ,Nein_32_xpm);
-     else if(typ==iOK)         return st_icons("Fenster\nschließen",Yellow_Dice_trans_50_xpm);
-     else if(typ==iErase)      return st_icons("Textfeld\nlöschen",Clear_32_xpm);
-     else if(typ==iEigenschaften)return st_icons("Eigen-\nschaften",Dice_W100_trans_50_xpm);
-     else if(typ==iAbgeleitet) return st_icons("Abgeleitete-\nWerte",Dices2_trans_50_xpm);
-     else if(typ==iEditGrund)  return st_icons("Werte\neditieren",EditChar_trans_50_xpm);
-     else if(typ==iAngeFert) return st_icons("angeborene Fertigkeiten"  ,Angeb_All_32_xpm);
-     else if(typ==iLernpunkte) return st_icons("Lernpunkte"  ,Dice_2W6_trans_50_xpm);
-     else if(typ==iLernEdit)   return st_icons("Lernp. ed."  ,Edit_trans_50_xpm);
-     else if(typ==iEigenschaft)return st_icons("Eigensch."  ,Red_Dice_trans_50_xpm);
-     else if(typ==iBeruf)      return st_icons("Beruf"  ,Job_trans_50_xpm);
-     else if(typ==iGeld)       return st_icons("Geld"  ,Money_50_xpm);
-     else if(typ==iWaffen)     return st_icons("Waffen"  ,Weapon_trans_50_xpm);
-     else if(typ==iRuestung)   return st_icons("Rüstung"  ,Dice_Armor_trans_50_xpm);
-     else if(typ==iAusruestung)return st_icons("Ausrüstung"  ,Dice_Ausruest_50_xpm);
-     else if(typ==iBildeinfuegen)return st_icons("Abbildung"  ,Portrait_32_xpm);
-     else if(typ==iDeleteAusr  )return st_icons("Gegenstand\nlöschen"  ,Trash_32_xpm);
-     else if(typ==iDeleteA     )return st_icons("Abenteurer aus\nListe löschen"  ,KillChar_32_xpm);
-     else if(typ==iButtonSteigern)   return st_icons("Steigern"  ,Steigern_trans_32_xpm);
-     else if(typ==iButtonReduce)   return st_icons("Reduzieren"  ,Reduzieren_trans_32_xpm);
-     else if(typ==iButtonVerlernen)   return st_icons("Verlernen"  ,Verlernen_trans_32_xpm);
-     else if(typ==iStatusWizard)return st_icons(""  ,MAGUS_Logo_Tiny_xpm);
-     else if(typ==iStatusNPC)return st_icons(""  ,NSC_Mode_26_xpm);
-     else if(typ==iNotebookCredit)   return st_icons("Info & Credits"  ,MAGUS_Logo_Small_xpm);
-     else if(typ==iNotebookGrundwerte)   return st_icons("Grundwerte"  ,Grundwert_small_xpm);
-     else if(typ==iNotebookLernen)   return st_icons("Lernschema"  ,L_Schema_small_xpm);
-     else if(typ==iNotebookSteigern)   return st_icons("Steigern"  ,Steigern_small_xpm);
-//     else if(typ==iNotebookBeschreibung)   return st_icons("Beschreibung"  ,Descr.Char-40.xpm);
-//     else if(typ==iNotebookAusruestung)   return st_icons("Ausrüstung"  ,Ausruest_small.xpm);
-     else if(typ==iNotebookOptionen)   return st_icons("Optionen"  ,Regio_Hausregel_50_xpm);
-     else if(typ==iNotebookNEWS)   return st_icons("News & Geschichte"  ,NewsGeschichte_xpm);
-     else if(typ==iNotebookZufall)   return st_icons("Zufallsgenerator"  ,Z_NewChar_xpm);
-     else return st_icons("Unbekannt"  ,pinguin_xpm);
-   }
-  else if(MOptionen->IconCheck(Midgard_Optionen::Ulf).active)
-   {
-     if     (typ==iNew)        return st_icons("Neu"         ,ulf_knopfleiste_24_neu_XPM   );
-     else if(typ==iOpen)       return st_icons("Öffnen"      ,ulf_knopfleiste_24_oeffnen_xpm  );
-     else if(typ==iClose)      return st_icons("Speichern"   ,ulf_knopfleiste_24_speichern_xpm  );
-     else if(typ==iPrint)      return st_icons("Drucken"     ,ulf_knopfleiste_24_drucken_xpm );
-     else if(typ==iBack)       return st_icons("Zurück"      ,ulf_knopfleiste_24_zurueck_xpm               );
-     else if(typ==iForward)    return st_icons("Vorwärts"    ,ulf_knopfleiste_24_vorwaerts_xpm               );
-     else if(typ==iMenu)       return st_icons("Menü"        ,ulf_knopfleiste_24_menue_xpm );
-     else if(typ==iInfo)       return st_icons("Info"        ,ulf_knopfleiste_24_info_xpm      );
-     else if(typ==iInstruction)return st_icons("Anleitung"   ,ulf_knopfleiste_24_anleitung_xpm    );
-     else if(typ==iExit)       return st_icons("Schließen"   ,ulf_knopfleiste_24_schliessen_xpm      );
-     else if(typ==iJa)         return st_icons("Ja"          ,ulf_auswahl_16_ja_xpm);
-     else if(typ==iNein)       return st_icons("Nein"        ,ulf_auswahl_16_nein_xpm);
-     else if(typ==iOK)         return st_icons("Fenster\nschließen",ulf_auswahl_16_ja_xpm);
-     else if(typ==iErase)      return st_icons("Textfeld\nlöschen",ulf_auswahl_16_nein_xpm);
-     else if(typ==iEigenschaften)return st_icons("Eigen-\nschaften",ulf_notebook_24_wuerfel_xpm);
-     else if(typ==iAbgeleitet) return st_icons("Abgeleitete-\nWerte",ulf_notebook_24_wuerfel_xpm);
-     else if(typ==iEditGrund)  return st_icons("Werte\neditieren",ulf_notebook_24_editieren_xpm);
-     else if(typ==iAngeFert) return st_icons("angeb. Fert."  ,ulf_notebook_24_wuerfel_xpm);
-     else if(typ==iLernpunkte) return st_icons("Lernpunkte"  ,ulf_notebook_24_wuerfel_xpm);
-     else if(typ==iLernEdit)   return st_icons("Lernp. ed."  ,ulf_notebook_24_editieren_xpm);
-     else if(typ==iEigenschaft)return st_icons("Eigensch."  ,ulf_notebook_24_wuerfel_xpm);
-     else if(typ==iBeruf)      return st_icons("Beruf"  ,ulf_notebook_24_wuerfel_xpm);
-     else if(typ==iGeld)       return st_icons("Geld"  ,ulf_notebook_24_wuerfel_xpm);
-     else if(typ==iWaffen)     return st_icons("Waffen"  ,ulf_notebook_24_wuerfel_xpm);
-     else if(typ==iRuestung)   return st_icons("Rüstung"  ,ulf_notebook_24_wuerfel_xpm);
-     else if(typ==iAusruestung)return st_icons("Ausrüstung"  ,ulf_notebook_24_wuerfel_xpm);
-     else if(typ==iBildeinfuegen)return st_icons("Abbildung"  ,ulf_notebook_24_bildeinfuegen_xpm);
-     else if(typ==iDeleteAusr  )return st_icons("Gegenstand\nlöschen"  ,ulf_notebook_24_loeschen_xpm);
-     else if(typ==iDeleteA     )return st_icons("Abenteurer aus\nListe löschen"  ,ulf_notebook_24_loeschen_xpm);
-     else if(typ==iStatusWizard)return st_icons(""  ,ulf_statusleiste_16_wizard_xpm);
-     else if(typ==iStatusNPC)   return st_icons(""  ,ulf_statusleiste_16_npczulassen_xpm);
-     else if(typ==iButtonSteigern)   return st_icons("Steigern"  ,ulf_notebook_24_steigern_xpm);
-     else if(typ==iButtonReduce)   return st_icons("Reduzieren"  ,ulf_notebook_24_reduzieren_xpm);
-     else if(typ==iButtonVerlernen)   return st_icons("Verlernen"  ,ulf_notebook_24_verlernen_xpm);
-     else if(typ==iNotebookCredit)   return st_icons("Info & Credits"  ,ulf_zipfel_24_credits_xpm);
-     else if(typ==iNotebookGrundwerte)   return st_icons("Grundwerte"  ,ulf_zipfel_24_grundwerte_xpm);
-     else if(typ==iNotebookLernen)   return st_icons("Lernschema"  ,ulf_zipfel_24_lernschema_xpm);
-     else if(typ==iNotebookSteigern)   return st_icons("Steigern"  ,ulf_zipfel_24_steigern_xpm);
-//     else if(typ==iNotebookBeschreibung)   return st_icons("Beschreibung"  ,);
-//     else if(typ==iNotebookAusruestung)   return st_icons("Ausrüstung"  ,);
-     else if(typ==iNotebookOptionen)   return st_icons("Optionen"  ,ulf_zipfel_24_einstellungen_xpm);
-     else if(typ==iNotebookNEWS)   return st_icons("News & Geschichte"  ,ulf_zipfel_24_verlauf_xpm);
-     else if(typ==iNotebookZufall)   return st_icons("Zufallsgenerator"  ,ulf_zipfel_24_zufallsgenerator_xpm);
-     else return st_icons("Unbekannt"  ,pinguin_xpm);
-   }
-  std::cout<< "FEHLER: typ="<<typ<<'\n';
-  assert(!"never get here");
+{  bool ulf=MOptionen->IconCheck(Midgard_Optionen::Ulf).active;
+     if     (typ==iNew)        return st_icons("Neu"         ,MagusImage("NewChar-trans-50.xpm")   );
+     else if(typ==iOpen)       return st_icons("Öffnen"      ,MagusImage("LoadChar-trans-50.xpm")  );
+     else if(typ==iClose)      return st_icons("Speichern"   ,MagusImage("SaveChar-trans-50.xpm")  );
+     else if(typ==iPrint)      return st_icons("Drucken"     ,MagusImage("PrintChar-trans-50.xpm") );
+     else if(typ==iBack)       return st_icons("Zurück"      ,MagusImage("Undo.xpm")               );
+     else if(typ==iForward)    return st_icons("Vorwärts"    ,MagusImage("redo.xpm")               );
+     else if(typ==iMenu)       return st_icons("Menü"        ,MagusImage("wizzard-trans-50_2.xpm") );
+     else if(typ==iInfo)       return st_icons("Info"        ,MagusImage("Info-trans-50.xpm")      );
+     else if(typ==iInstruction)return st_icons("Anleitung"   ,MagusImage("Help-trans-new1.xpm")    );
+     else if(typ==iExit)       return st_icons("Schließen"   ,MagusImage("Exit-trans-50.xpm")      );
+     else if(typ==iJa)         return st_icons("Ja"          ,MagusImage("Excl-32.xpm"));
+     else if(typ==iNein)       return st_icons("Nein"        ,MagusImage("Nein-32.xpm"));
+     else if(typ==iOK)         return st_icons("Fenster\nschließen",MagusImage("Yellow-Dice-trans-50.xpm"));
+     else if(typ==iErase)      return st_icons("Textfeld\nlöschen",MagusImage("Clear-32.xpm"));
+     else if(typ==iEigenschaften)return st_icons("Eigen-\nschaften",MagusImage("Dice-W100-trans-50.xpm"));
+     else if(typ==iAbgeleitet) return st_icons("Abgeleitete-\nWerte",MagusImage("Dices2-trans-50.xpm"));
+     else if(typ==iEditGrund)  return st_icons("Werte\neditieren",MagusImage("EditChar-trans-50.xpm"));
+     else if(typ==iAngeFert) return st_icons(ulf?"angeb. Fert.":"angeborene Fertigkeiten"  ,MagusImage("Angeb_All-32.xpm"));
+     else if(typ==iLernpunkte) return st_icons("Lernpunkte"  ,MagusImage("Dice-2W6-trans-50.xpm"));
+     else if(typ==iLernEdit)   return st_icons("Lernp. ed."  ,MagusImage("Edit-trans-50.xpm"));
+     else if(typ==iEigenschaft)return st_icons("Eigensch."  ,MagusImage("Red-Dice-trans-50.xpm"));
+     else if(typ==iBeruf)      return st_icons("Beruf"  ,MagusImage("Job-trans-50.xpm"));
+     else if(typ==iGeld)       return st_icons("Geld"  ,MagusImage("Money-50.xpm"));
+     else if(typ==iWaffen)     return st_icons("Waffen"  ,MagusImage("Weapon-trans-50.xpm"));
+     else if(typ==iRuestung)   return st_icons("Rüstung"  ,MagusImage("Dice_Armor-trans-50.xpm"));
+     else if(typ==iAusruestung)return st_icons("Ausrüstung"  ,MagusImage("Dice-Ausruest-50.xpm"));
+     else if(typ==iBildeinfuegen)return st_icons("Abbildung"  ,MagusImage("Portrait-32.xpm"));
+     else if(typ==iDeleteAusr  )return st_icons("Gegenstand\nlöschen"  ,MagusImage("Trash-32.xpm"));
+     else if(typ==iDeleteA     )return st_icons("Abenteurer aus\nListe löschen"  ,MagusImage("KillChar-32.xpm"));
+     else if(typ==iButtonSteigern)   return st_icons("Steigern"  ,MagusImage("Steigern-trans-32.xpm"));
+     else if(typ==iButtonReduce)   return st_icons("Reduzieren"  ,MagusImage("Reduzieren-trans-32.xpm"));
+     else if(typ==iButtonVerlernen)   return st_icons("Verlernen"  ,MagusImage("Verlernen-trans-32.xpm"));
+     else if(typ==iStatusWizard)return st_icons(""  ,MagusImage("MAGUS_Logo_Tiny.xpm"));
+     else if(typ==iStatusNPC)return st_icons(""  ,MagusImage("NSC-Mode-26.xpm"));
+     else if(typ==iNotebookCredit)   return st_icons("Info & Credits"  ,MagusImage("MAGUS_Logo_Small.xpm"));
+     else if(typ==iNotebookGrundwerte)   return st_icons("Grundwerte"  ,MagusImage("Grundwert_small.xpm"));
+     else if(typ==iNotebookLernen)   return st_icons("Lernschema"  ,MagusImage("L_Schema_small.xpm"));
+     else if(typ==iNotebookSteigern)   return st_icons("Steigern"  ,MagusImage("Steigern_small.xpm"));
+//     else if(typ==iNotebookBeschreibung)   return st_icons("Beschreibung"  ,MagusImage("Descr.Char-40.xpm"));
+//     else if(typ==iNotebookAusruestung)   return st_icons("Ausrüstung"  ,MagusImage("Ausruest_small.xpm"));
+     else if(typ==iNotebookOptionen)   return st_icons("Optionen"  ,MagusImage("Regio_Hausregel-50.xpm"));
+     else if(typ==iNotebookNEWS)   return st_icons("News & Geschichte"  ,MagusImage("NewsGeschichte.xpm"));
+     else if(typ==iNotebookZufall)   return st_icons("Zufallsgenerator"  ,MagusImage("Z-NewChar.xpm"));
+     else return st_icons("Unbekannt"  ,MagusImage("pinguin.xpm"));
   abort();
 }

@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.46 2003/04/24 11:51:00 christof Exp $
+// $Id: Optionen.hh,v 1.47 2003/04/25 07:12:09 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -40,7 +40,7 @@ class Midgard_Optionen
       enum OberIndex {AutoShrink,SaveFenster,Bilder,Menueleiste,Knopfleiste,
                Icons,Beschriftungen,Customize_Icons,Customize_Text,
                Customize_Tab,Status,NoInfoFenster,BegruessungsFenster};
-      enum IconIndex{Self,Ulf};
+      enum IconIndex{Self,Ulf,Gtk2};
 
       struct st_strings{StringIndex index; std::string text; std::string name;
              st_strings(StringIndex i,std::string t,std::string n)
@@ -50,8 +50,8 @@ class Midgard_Optionen
              st_pdfViewer(pdfViewerIndex i,std::string t, bool a) 
                   : index(i),text(t),active(a) {} };
 */
-      struct st_OptionenExecute{OptionenExecuteIndex index;std::string text;const char * const *bild;
-               st_OptionenExecute(OptionenExecuteIndex i,std::string t,const char * const * const b)
+      struct st_OptionenExecute{OptionenExecuteIndex index;std::string text;Glib::RefPtr<Gdk::Pixbuf> bild;
+               st_OptionenExecute(OptionenExecuteIndex i,std::string t,Glib::RefPtr<Gdk::Pixbuf> const b)
                   :index(i),text(t),bild(b) {} };
 
       struct st_pdfViewer{pdfViewerIndex index;std::string text;Model<bool> active;

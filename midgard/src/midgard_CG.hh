@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.317 2003/04/23 07:35:50 christof Exp $
+// $Id: midgard_CG.hh,v 1.318 2003/04/25 07:12:09 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -143,8 +143,8 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
                      iNotebookAusruestung,iNotebookOptionen,
                      iNotebookNEWS,iNotebookZufall};
                      
-        struct st_icons{std::string text;char **icon;
-               st_icons(std::string t,char **i):text(t),icon(i){}};
+        struct st_icons{std::string text;Glib::RefPtr<Gdk::Pixbuf> icon;
+               st_icons(std::string t,Glib::RefPtr<Gdk::Pixbuf> i):text(t),icon(i){}};
         struct st_buttons{Gtk::Widget *widget; e_icon icon;
                st_buttons(Gtk::Widget *w, e_icon i)
                   : widget(w),icon(i) {}};
@@ -242,7 +242,7 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
 
         // Oberfläche Menü
         Gtk::Menu *menu_kontext;
-        Gtk::Box &make_gtk_box(const gchar * const *data,const std::string &label,const bool text_vor_bild=true,const bool hbox=true);
+        Gtk::Box &make_gtk_box(Glib::RefPtr<Gdk::Pixbuf> data,const std::string &label,const bool text_vor_bild=true,const bool hbox=true);
         void on_button_menu_button_release_event();
         void on_checkbutton_Regionen_menu_(Gtk::CheckMenuItem *menu_item,cH_Region region);
         void on_checkbutton_Regionen_menu(gpointer gp,cH_Region region);

@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.112 2003/04/24 14:36:32 christof Exp $
+// $Id: Optionen.cc,v 1.113 2003/04/25 07:12:08 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -375,15 +375,19 @@ void Midgard_Optionen::Optionen_init()
   list_OptionenCheck.push_back(st_OptionenCheck(NSC_only,"NSC zulassen",
                            false,MagusImage("NSC-Mode-32.xpm")));
   list_OptionenCheck.push_back(st_OptionenCheck(Notebook_start, 
-                           "MAGUS mit bestimmter Seite starten",false,0,1));
+                           "MAGUS mit bestimmter Seite starten",false,
+                           Glib::RefPtr<Gdk::Pixbuf>(),1));
 
   list_OptionenCheck.push_back(st_OptionenCheck(Wizard_immer_starten, 
-                           "Wizard bei jedem Programmstart starten",true,0));
+                           "Wizard bei jedem Programmstart starten",true,
+                           Glib::RefPtr<Gdk::Pixbuf>()));
 
 
-  list_OptionenExecute.push_back(st_OptionenExecute(show_InfoWindow,"Info Fenster zeigen",0));
+  list_OptionenExecute.push_back(st_OptionenExecute(show_InfoWindow,"Info Fenster zeigen",
+  			Glib::RefPtr<Gdk::Pixbuf>()));
   list_OptionenExecute.push_back(st_OptionenExecute(LernschemaSensitive,
-                           "Lernschema/Steigern auswählbar machen",0));
+                           "Lernschema/Steigern auswählbar machen",
+                           Glib::RefPtr<Gdk::Pixbuf>()));
 }
 
 
@@ -437,7 +441,7 @@ void Midgard_Optionen::Hausregeln_init()
 {
  list_Hausregeln.clear();  
  list_Hausregeln.push_back(st_Haus(Gold,"1 GS entspricht 1 GFP",MagusImage("Haus-1-2-1-26.xpm"),false));
- list_Hausregeln.push_back(st_Haus(Werte100,"Grundwerte über 100 zulassen",MagusImage("Haus_Super_26_xpm"),false));
+ list_Hausregeln.push_back(st_Haus(Werte100,"Grundwerte über 100 zulassen",MagusImage("Haus-Super-26.xpm"),false));
 }
 
 void Midgard_Optionen::Ober_init()
@@ -464,6 +468,7 @@ void Midgard_Optionen::Icon_init()
  list_Icon.clear();  
  list_Icon.push_back(st_Icon(Self,"MAGUS-Stil",true));
  list_Icon.push_back(st_Icon(Ulf,"Win32-Stil",false));
+ list_Icon.push_back(st_Icon(Gtk2,"Gtk2-Stil",false));
 }
 
 #include <gtk/gtkhandlebox.h>

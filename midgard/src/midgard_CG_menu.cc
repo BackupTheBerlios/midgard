@@ -19,15 +19,14 @@
 #include "midgard_CG.hh"
 #include <gtkmm/box.h>
 #include <gtkmm/image.h>
-#include "../pixmaps/midgard_logo_tiny.xpm"
 #include <Misc/itos.h>
 #include <bool_CheckMenuItem.hh>
-#include "../pixmaps/NSC-Mode-26.xpm"
 #include <RefPtr_Pixmap.hh>
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
-Gtk::Box &midgard_CG::make_gtk_box(const gchar * const *data,const std::string &label,const bool text_vor_bild,const bool hbox)
+Gtk::Box &midgard_CG::make_gtk_box(Glib::RefPtr<Gdk::Pixbuf> data,const std::string &label,const bool text_vor_bild,const bool hbox)
 {
-  Gtk::Image *_p=Gtk::manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(data)));
+  Gtk::Image *_p=Gtk::manage(new Gtk::Image(data));
   Gtk::Label *_l=Gtk::manage(new Gtk::Label(label));
   Gtk::Box *_v;
   if(hbox) _v=Gtk::manage(new Gtk::HBox());
@@ -49,14 +48,14 @@ void midgard_CG::menu_init()
   Gtk::MenuItem *schummel = Gtk::manage(new class Gtk::MenuItem("Original-Regel-Menü")); 
   schummel->set_submenu(*schummel_menu);
 
-  {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(schummeln,make_gtk_box(NSC_Mode_26_xpm,"alle Regeln abschalten")));
+  {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(schummeln,make_gtk_box(MagusImage("NSC-Mode-26.xpm"),"alle Regeln abschalten")));
   schummel_menu->append(*_M);
   _M->signal_activate().connect(SigC::slot(*this,&midgard_CG::Schummeln),true);}
 
   Gtk::MenuItem *trennlinie = (Gtk::MenuItem *)&schummel_menu->items().back();
   trennlinie->show();
 
-  {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(MOptionen->OptionenCheck(Midgard_Optionen::Original).active,make_gtk_box(midgard_logo_tiny_xpm,"Originalregeln ")));
+  {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(MOptionen->OptionenCheck(Midgard_Optionen::Original).active,make_gtk_box(MagusImage("midgard_logo_tiny.xpm"),"Originalregeln ")));
   schummel_menu->append(*_M);}
 
   {Gtk::MenuItem *_M = Gtk::manage(new Gtk::MenuItem("Lernschema- und Steigern-Fenster aktivieren"));
@@ -111,7 +110,7 @@ void midgard_CG::menu_init()
      int row=1;
      if((*i)->Offiziell()) 
        {
-        Gtk::Image *_o=Gtk::manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(midgard_logo_tiny_xpm)));
+        Gtk::Image *_o=Gtk::manage(new Gtk::Image(MagusImage("midgard_logo_tiny.xpm")));
         _tab->attach(*_o,1,2,1,2,Gtk::AttachOptions(0),Gtk::AttachOptions(0),0,0);
         row=2;
        }
@@ -143,7 +142,7 @@ void midgard_CG::menu_init()
     _tab->attach(*_l,0,1,0,1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
     if(i->bild) 
      {
-      Gtk::Image *_o=Gtk::manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(i->bild)));
+      Gtk::Image *_o=Gtk::manage(new Gtk::Image(i->bild));
       _tab->attach(*_o,1,2,0,1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
      }
     Gtk::MenuItem *mi=Gtk::manage(new Gtk::MenuItem());
@@ -190,7 +189,7 @@ void midgard_CG::menubar_init()
     _tab->attach(*_l,0,1,0,1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
     if(i->bild) 
      {
-      Gtk::Image *_o=Gtk::manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(i->bild)));
+      Gtk::Image *_o=Gtk::manage(new Gtk::Image(i->bild));
       _tab->attach(*_o,1,2,0,1,Gtk::FILL,Gtk::AttachOptions(0),0,0);
      }
     Gtk::MenuItem *mi=Gtk::manage(new Gtk::MenuItem());
@@ -224,7 +223,7 @@ void midgard_CG::menubar_init()
      int row=1;
      if((*i)->Offiziell()) 
        {
-        Gtk::Image *_o=Gtk::manage(new Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(midgard_logo_tiny_xpm)));
+        Gtk::Image *_o=Gtk::manage(new Gtk::Image(MagusImage("midgard_logo_tiny.xpm")));
         _tab->attach(*_o,1,2,1,2,Gtk::AttachOptions(0),Gtk::AttachOptions(0),0,0);
         row=2;
        }
