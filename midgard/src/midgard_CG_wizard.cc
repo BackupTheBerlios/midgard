@@ -41,8 +41,12 @@ void midgard_CG::wizard_do_something()
   if(e==Wizard::SPEZIALWAFFE)
       {  table_lernschema->togglebutton_spezialwaffe->set_active(true);}
 
+  if(e==Wizard::SPEZIALGEBIET)
+      {  table_lernschema->frame_lernpunkte->set_sensitive(true);;}
+
   if(e==Wizard::NAMEN)
       { table_grundwerte->togglebutton_edit_werte->set_active(true);
+        table_lernschema->frame_lernpunkte->set_sensitive(false);
 //        table_grundwerte->entry_nameC->grab_focus();
       }
 
