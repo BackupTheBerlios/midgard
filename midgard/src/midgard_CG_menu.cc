@@ -117,15 +117,15 @@ void midgard_CG::menu_init()
        }
      Gtk::Label *_l=Gtk::manage (new Gtk::Label(labeltext,0,0));
      _tab->attach(*_l,1,2,0,1,Gtk::AttachOptions(0),Gtk::AttachOptions(0),0,0);
-     RefPtr_Pixmap *_pix=Gtk::manage(new RefPtr_Pixmap((*i)->RegionPix()));
+     RefPtr_Pixmap *_pix=Gtk::manage(new RefPtr_Pixmap(RegionenPic::PicModel((*i)->Pic())));
      _tab->attach(*_pix,0,1,0,row,Gtk::AttachOptions(0),Gtk::AttachOptions(0),0,0);
      _tab->set_col_spacings(10);
 
-     bool_CheckMenuItem *mi = Gtk::manage(new bool_CheckMenuItem((*i)->Active(),*_tab));
+     bool_CheckMenuItem *mi = Gtk::manage(new bool_CheckMenuItem(getChar().proxies.regionen[*i],*_tab));
      regionen_menu->append(*mi);
-     (*i)->Active().signal_changed().connect(SigC::bind(SigC::slot(*this,&midgard_CG::on_checkbutton_Regionen_menu),*i));
+     getChar().proxies.regionen[*i].signal_changed().connect(SigC::bind(SigC::slot(*this,&midgard_CG::on_checkbutton_Regionen_menu),*i));
      if(!(*i)->Offiziell())
-         mi->setSensitive(MOptionen->OptionenCheck(Magus_Optionen::Original).active,true);
+         mi->setSensitive(getChar().proxies.check[Optionen::Original],true);
    }
   menu_kontext->append(*regionen);
   
@@ -230,16 +230,16 @@ void midgard_CG::menubar_init()
        }
      Gtk::Label *_l=Gtk::manage (new Gtk::Label(labeltext,0,0));
      _tab->attach(*_l,1,2,0,1,Gtk::AttachOptions(0),Gtk::AttachOptions(0),0,0);
-     RefPtr_Pixmap *_pix=Gtk::manage(new RefPtr_Pixmap((*i)->RegionPix()));
+     RefPtr_Pixmap *_pix=Gtk::manage(new RefPtr_Pixmap(RegionenPic::PicModel((*i)->Pic())));
      _tab->attach(*_pix,0,1,0,row,Gtk::AttachOptions(0),Gtk::AttachOptions(0),0,0);
      _tab->set_col_spacings(10);
 
-     bool_CheckMenuItem *mi = (new bool_CheckMenuItem((*i)->Active(),*_tab));
+     bool_CheckMenuItem *mi = (new bool_CheckMenuItem(getChar().proxies.regionen[*i],*_tab));
      regionen_menu->items().push_back(Gtk::Menu_Helpers::CheckMenuElem(*mi));
      // Gtk::manage(mi);
-     (*i)->Active().signal_changed().connect(SigC::bind(SigC::slot(*this,&midgard_CG::on_checkbutton_Regionen_menu),*i));
+     getChar().proxies.regionen[*i].signal_changed().connect(SigC::bind(SigC::slot(*this,&midgard_CG::on_checkbutton_Regionen_menu),*i));
      if(!(*i)->Offiziell())
-        mi->setSensitive(MOptionen->OptionenCheck(Magus_Optionen::Original).active,true);
+        mi->setSensitive(getChar().proxies.check[Optionen::Original],true);
    }
  regionen_menu->show_all();
 
