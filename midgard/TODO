@@ -1,4 +1,4 @@
-XML todo: 10 + 5
+XML todo: 9 + 5
 
 load_charakter.o
 save_charakter.o
@@ -10,14 +10,13 @@ Praxispunkte.o
 Preise.o
 Region.o
 Ruestung.o
-Schrift.o
 Spezialgebiet.o
 Spezies.o
 Sprache.o
 Typen.o
 WaffeGrund.o
 
-XML done: 13
+XML done: 14
 
 Ausnahmen.o
 Beruf.o
@@ -29,6 +28,7 @@ Land.o
 Lernschema.o
 MidgardBasicElement_sql.o
 Pflicht.o
+Schrift.o
 WaffeGrund.o
 Zauber.o
 Zauberwerk.o
