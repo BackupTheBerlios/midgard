@@ -1,4 +1,4 @@
-// $Id: LaTeX_kido.cc,v 1.27 2001/12/17 14:53:58 thoma Exp $
+// $Id: LaTeX_kido.cc,v 1.28 2002/01/19 17:47:10 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,6 +19,8 @@
 
 #include "midgard_CG.hh"
 #include <Gtk2TeX.h>
+#include "KiDo.hh"
+#include <fstream>
 
 void midgard_CG::LaTeX_kido()
 {

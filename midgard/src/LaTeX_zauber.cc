@@ -1,4 +1,4 @@
-// $Id: LaTeX_zauber.cc,v 1.34 2001/12/17 14:53:58 thoma Exp $
+// $Id: LaTeX_zauber.cc,v 1.35 2002/01/19 17:44:21 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,6 +19,9 @@
 
 #include "midgard_CG.hh"
 #include <Gtk2TeX.h>
+#include "Zauber.hh"
+#include "Zauberwerk.hh"
+#include <fstream>
 
 void midgard_CG::LaTeX_zauber()
 {
