@@ -20,6 +20,7 @@
 #  define _FERTIGKEITEN_A_HH
 #include <list>
 #include "MidgardBasicElement.hh"
+#include <Misc/Tag.h>
 
 class Fertigkeit_angeborene : public MidgardBasicElement
 {

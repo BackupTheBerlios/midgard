@@ -20,6 +20,8 @@
 #include "Fertigkeiten.hh"
 #include "Typen.hh"
 #include <LernListen.hh>
+#include <iostream>
+#include "Abenteurer.hh"
 
 cH_Fertigkeit::cache_t cH_Fertigkeit::cache;
 

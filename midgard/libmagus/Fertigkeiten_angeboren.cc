@@ -19,6 +19,7 @@
 
 #include "Fertigkeiten_angeboren.hh"
 #include "Abenteurer.hh"
+#include <iostream>
 
 cH_Fertigkeit_angeborene::cache_t cH_Fertigkeit_angeborene::cache;
 
