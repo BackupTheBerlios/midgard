@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.cc,v 1.2 2003/09/04 07:41:32 christof Exp $            
+// $Id: VAbenteurer.cc,v 1.3 2003/09/04 12:20:53 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -83,5 +83,5 @@ VAbenteurer::VAbenteurer()
 }
 
 void VAbenteurer::divert_proxy()
-{  proxies.divert(getAbenteurer());
+{  proxies.divert(*actualIterator());
 }
