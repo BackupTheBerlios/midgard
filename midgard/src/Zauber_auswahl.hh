@@ -1,4 +1,4 @@
-// $Id: Zauber_auswahl.hh,v 1.14 2001/06/06 19:06:42 thoma Exp $
+// $Id: Zauber_auswahl.hh,v 1.15 2001/06/07 08:08:53 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
