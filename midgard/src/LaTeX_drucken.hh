@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.hh,v 1.21 2003/07/01 09:35:55 thoma Exp $
+// $Id: LaTeX_drucken.hh,v 1.22 2003/07/09 14:05:41 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -80,6 +80,7 @@ class LaTeX_drucken
 
     std::string get_latex_filename(const LaTeX_Filenames what);
     std::string get_latex_pathname(const LaTeX_Pathnames what);
+    void LaTeX_Drachenbox(std::ostream &fout);
     void LaTeX_newsavebox(std::ostream &fout);
     void LaTeX_footer(std::ostream &fout);
     void LaTeX_kopfzeile(std::ostream &fout,bool landscape,bool newdoc=true);
