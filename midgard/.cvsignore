@@ -21,3 +21,6 @@ stamp-h
 stamp-h.in
 install-sh
 *_new
+stamp-h1
+depcomp
+autom4te.cache
