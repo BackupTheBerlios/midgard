@@ -96,10 +96,9 @@ void Zauber::get_Zauber(const Tag &t)
    }
 
    const Tag *Beschreibung=t.find("Beschreibung");
-   if (Beschreibung) {beschreibung=Beschreibung->Value();
-
-std::cout << beschreibung<<'\n';    
-    }
+   if (Beschreibung) beschreibung=Beschreibung->Value();
+   
+   
     FOR_EACH_CONST_TAG_OF(i,t,"Zusätze")
       Vzusatz.push_back(st_zusatz(i->getAttr("Name"),i->getAttr("Typ"),
                          i->getAttr("Region"),i->getAttr("RegionZusatz"),""));
