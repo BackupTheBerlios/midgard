@@ -1,4 +1,4 @@
-// $Id: common_exp.cc,v 1.30 2002/07/10 07:25:34 christof Exp $
+// $Id: common_exp.cc,v 1.31 2002/07/11 10:41:05 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -113,7 +113,8 @@ std::string Herkunft(bool invert)
    if (region=="A") herkunft="='Alba'";
    else if (region=="E") herkunft="='Eschar'";
    else if (region=="K") herkunft="='KanThaiPan'";
-   else if (region=="R") herkunft=" in ('Minangpahit','Rawindra')";
+   else if (region=="R") herkunft="='Rawindra'";
+   else if (region=="M") herkunft="='Minangpahit'";
    else if (region.empty()) herkunft=" in ('Küstenstaaten','Ikenga Becken')";
    else herkunft="='never'";
    if (invert)

@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.40 2002/07/10 07:28:11 christof Exp $
+// $Id: fertigk_exp.cc,v 1.41 2002/07/11 10:41:05 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -130,8 +130,8 @@ void fert_speichern(Tag &o)
    	" where name='"+fert+"' order by region");
       FetchIStream isV2;
       while ((queryV2>>isV2).good()) 
-      {  Tag &rlp=fertigk.push_back(Tag("Region_Lernpunkte"));
-         fetch_and_set_string_attrib(isV2, rlp, "Region");
+      {  Tag &rlp=fertigk.push_back(Tag("Lernpunkte_Herkunft"));
+         fetch_and_set_string_attrib(isV2, rlp, "Herkunft");
          fetch_and_set_int_attrib(isV2, rlp, "LP_Stadt");
          fetch_and_set_int_attrib(isV2, rlp, "LP_Land");
       }
