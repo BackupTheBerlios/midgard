@@ -303,6 +303,12 @@ void midgard_CG::on_clist_preisliste_select_row(gint row, gint column, GdkEvent 
  showAusruestung();
 }
 
+struct st_ausruestung{std::string name;double kosten; std::string einheit; double gewicht;
+       st_ausruestung(std::string n,double k, std::string e, double g)
+        : name(n),kosten(k),einheit(e),gewicht(g) {}
+       bool operator<(const st_ausruestung& b) const
+          { return name<b.name;}
+       };
 
 void midgard_CG::fill_preisliste()
 {
@@ -313,17 +319,21 @@ void midgard_CG::fill_preisliste()
    {
     fak *= i->second.faktor;
    }
- Gtk::OStream os(clist_preisliste);
+ std::vector<st_ausruestung> vec_aus;
  for(std::list<cH_Preise>::const_iterator i=Database.preise.begin();i!=Database.preise.end();++i)
    {
-//     if(dt->Art()==(*i)->Art())
     if(modimap.begin()->first.art==(*i)->Art() && modimap.begin()->first.art2==(*i)->Art2())
-      os << (*i)->Name() <<'\t'
-         << (*i)->Kosten() * fak <<'\t'
-         << (*i)->Einheit() <<'\t'
-         << (*i)->Gewicht()
-         <<'\n';
+     vec_aus.push_back(st_ausruestung((*i)->Name(),(*i)->Kosten() * fak,(*i)->Einheit(),(*i)->Gewicht()));
    }  
+ sort(vec_aus.begin(),vec_aus.end());
+ Gtk::OStream os(clist_preisliste);
+ for(std::vector<st_ausruestung>::const_iterator i=vec_aus.begin();i!=vec_aus.end();++i)
+   {
+      os << i->name <<'\t'
+         << i->kosten  <<'\t'
+         << i->einheit <<'\t'
+         << i->gewicht <<'\n';
+   }
   for (unsigned int i=0;i<clist_preisliste->columns().size();++i)
        clist_preisliste->set_column_auto_resize(i,true);
 }
