@@ -1,4 +1,4 @@
-// $Id: Ausgabe.cc,v 1.4 2003/09/01 06:47:57 christof Exp $
+// $Id: Ausgabe.cc,v 1.5 2004/04/30 13:31:40 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2003 Christof Petig
  *
@@ -65,3 +65,8 @@ void Ausgabe::set(Ausgabe::Ausgabe_cb *cb)
 Ausgabe::Ausgabe(Level l,const std::string &text)
 {  (*aktuelle_implementierung)(l,text);
 }
+
+Ausgabe::Ausgabe(Level l,const NotFound &NF)
+{  (*aktuelle_implementierung)(l,NF.Name()+" NotFound");
+}
+

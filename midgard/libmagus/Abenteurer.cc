@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.20 2004/04/22 09:31:19 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.21 2004/04/30 13:31:40 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -35,7 +35,8 @@
 #include <Misc/Trace.h>
 #include "magustrace.h"
 #include "Datenbank.hh"
-#include "NotFound.h"
+#include "Ausgabe.hh"
+
 
 #include <Magus_Optionen.hh>
 Abenteurer::Abenteurer()
@@ -678,7 +679,7 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
            optionen.setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"));
          }
          catch (const NotFound &e)
-         {}
+         { Ausgabe(Ausgabe::Error,e);  }
         }
       else if(sart=="Region")
         {
@@ -688,7 +689,7 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
          }
 // bis hier
          catch (const NotFound &e)
-         {}
+         {  Ausgabe(Ausgabe::Error,e);}
         }
     } 
     FOR_EACH_CONST_TAG_OF(i,*waffen_b,"Waffe")
@@ -717,7 +718,7 @@ void Abenteurer::load_regionen_optionen(const Tag *tag, int xml_version)
            optionen.setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"));
          }
          catch (const NotFound &e)
-         {}
+         {Ausgabe(Ausgabe::Error,e);}
         }
       else if(sart=="Hausregeln")
         {
@@ -725,7 +726,7 @@ void Abenteurer::load_regionen_optionen(const Tag *tag, int xml_version)
            optionen.setHausregeln(i->getAttr("Name"),i->getBoolAttr("Wert"));
          }
          catch (const NotFound &e)
-         {}
+         {Ausgabe(Ausgabe::Error,e);}
         }
       else if(sart=="Region")
         {
@@ -734,7 +735,7 @@ void Abenteurer::load_regionen_optionen(const Tag *tag, int xml_version)
             regionen[R]=true;
          }
          catch (const NotFound &e)
-         {}
+         {Ausgabe(Ausgabe::Error,e);}
         }
    }
 }

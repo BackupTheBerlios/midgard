@@ -1,4 +1,4 @@
-// $Id: Ausgabe.hh,v 1.4 2003/09/18 07:32:12 christof Exp $
+// $Id: Ausgabe.hh,v 1.5 2004/04/30 13:31:40 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2003 Christof Petig
  *
@@ -21,6 +21,7 @@
 #  define _MIDGARD_AUSGABE_HH
 
 #include <string>
+#include <NotFound.h>
 
 // grundsätzlich in UTF-8 codiert
 
@@ -30,6 +31,7 @@ struct Ausgabe
 	typedef void Ausgabe_cb(Level l,const std::string &text);
 	static void set(Ausgabe_cb *cb=0);
 	Ausgabe(Level l,const std::string &text);
+	Ausgabe(Level l,const NotFound &NF);
 	// für den Standard-callback
 	static void setLogLevel(Level l);
 };
