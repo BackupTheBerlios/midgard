@@ -1,4 +1,4 @@
-// $Id: midgard_CG_magier_spezialgebiet.pgcc,v 1.6 2001/04/19 14:02:06 thoma Exp $
+// $Id: midgard_CG_magier_spezialgebiet.pgcc,v 1.7 2001/04/19 14:47:54 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -84,6 +84,7 @@ void midgard_CG::get_spezial_from_spezialgebiet()
   strncpy(db_spezialgebiet,werte.spezialisierung.c_str(),sizeof(db_spezialgebiet));
   exec sql select spezial,coalesce(spezial2,'') 
       into :db_spezial, :db_spezial2
+      from spezialgebiete
       where typ = :db_typ and spezialgebiet = :db_spezialgebiet;
   SQLerror::test(__FILELINE__,100);
   if (sqlca.sqlcode) return;
