@@ -4934,8 +4934,8 @@ setzen</label>
 		    <handler>on_button_grundwerte_button_release_event</handler>
 		    <last_modification_time>Thu, 13 Dec 2001 19:06:13 GMT</last_modification_time>
 		  </signal>
-		  <label>Eigenschaften
-würfeln</label>
+		  <label>Eigen-
+schaften</label>
 		  <icon>Dice-W100-trans-50.xpm</icon>
 		</widget>
 
@@ -5050,8 +5050,7 @@ editieren</label>
 		    <handler>on_neuer_charakter_clicked</handler>
 		    <last_modification_time>Fri, 30 Mar 2001 19:45:24 GMT</last_modification_time>
 		  </signal>
-		  <label>Neuer
-Abenteurer</label>
+		  <label>Neu</label>
 		  <icon>NewChar-trans-50.xpm</icon>
 		</widget>
 
@@ -5065,8 +5064,7 @@ Abenteurer</label>
 		    <handler>on_speichern_release_event</handler>
 		    <last_modification_time>Tue, 17 Apr 2001 18:50:09 GMT</last_modification_time>
 		  </signal>
-		  <label>Abenteurer
-speichern</label>
+		  <label>Speichern</label>
 		  <icon>SaveChar-trans-50.xpm</icon>
 		</widget>
 
@@ -5080,8 +5078,7 @@ speichern</label>
 		    <handler>on_laden_release_event</handler>
 		    <last_modification_time>Mon, 21 May 2001 19:02:36 GMT</last_modification_time>
 		  </signal>
-		  <label>Abenteurer
-laden</label>
+		  <label>Laden</label>
 		  <icon>LoadChar-trans-50.xpm</icon>
 		</widget>
 
@@ -5099,8 +5096,7 @@ laden</label>
 		    <handler>on_latex_release_event</handler>
 		    <last_modification_time>Mon, 23 Apr 2001 06:07:57 GMT</last_modification_time>
 		  </signal>
-		  <label>LaTeX
-Abenteurerblatt</label>
+		  <label>Drucken</label>
 		  <icon>PrintChar-trans-50.xpm</icon>
 		</widget>
 
@@ -6836,6 +6832,11 @@ Beidhänder
 			  <name>toggled</name>
 			  <handler>on_lernliste_wahl_toggled</handler>
 			  <last_modification_time>Sun, 01 Apr 2001 18:45:04 GMT</last_modification_time>
+			</signal>
+			<signal>
+			  <name>clicked</name>
+			  <handler>on_button_waffen_clicked</handler>
+			  <last_modification_time>Thu, 11 Apr 2002 14:08:45 GMT</last_modification_time>
 			</signal>
 			<active>False</active>
 			<draw_indicator>False</draw_indicator>

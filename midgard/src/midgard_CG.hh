@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.204 2002/04/10 15:58:49 thoma Exp $
+// $Id: midgard_CG.hh,v 1.205 2002/04/11 14:11:41 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -362,6 +362,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_button_ruestung_s_clicked();
         void on_button_waffen_s_clicked();
         void on_lernliste_wahl_toggled();
+        void on_button_waffen_clicked();
         void spezialgebiet_button();
         void spezialgebiet_button_fill();
         void show_magier_spezialgebiet(bool show);
