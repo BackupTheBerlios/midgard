@@ -54,14 +54,14 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
  
  if (radiobutton_steigern->get_active() && MBE->Steigern(hauptfenster->getAben()))
     {
-      // bool ok=
-      hauptfenster->getAben().ErlernenSteigern(MBE);
-      // if(!ok) return false;
+      if (!hauptfenster->getAben().Steigern(MBE))
+        return false;
     }
  else if (radiobutton_reduzieren->get_active()
              || radiobutton_verlernen->get_active())
     { bool verlernt=false;
-      hauptfenster->getAben().ReduzierenVerlernen(MBE,verlernt);
+      if (!hauptfenster->getAben().ReduzierenVerlernen(MBE,verlernt))
+        return false;
       if (verlernt) 
       { std::list<MBEmlt> *MyList=&hauptfenster->getAben().getList((*MBE).What()),
                *MyList_neu=&getLearnList((*MBE).What());

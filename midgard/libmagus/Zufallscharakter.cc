@@ -73,7 +73,7 @@ int main(int argc,char **argv)
          case OPT_GRAD: GFP=zufall_steigern::GFPvonGrad(atoi(optarg));
             break;
          case OPT_TYP:
-            try // Abkürzung
+            try // AbkÃ¼rzung
             {  vorgabe.setTyp1(cH_Typen(optarg));
             }
             catch (NotFound &n)
@@ -105,7 +105,7 @@ int main(int argc,char **argv)
    
    { std::ofstream datei((a.Name_Abenteurer()+".magus").c_str());
      if (!datei.good()) Ausgabe(Ausgabe::Error,"Kann "+a.Name_Abenteurer()+".magus nicht beschreiben");
-     else a.speicherstream(datei);
+     else a.speichern(datei);
    }
    
    LaTeX_drucken dr;

@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.27 2004/11/24 08:20:17 christof Exp $            
+// $Id: Abenteurer.cc,v 1.28 2004/11/24 10:44:49 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -184,10 +184,14 @@ bool Abenteurer::setAngebSinnFert(int wurf,const MBEmlt &MBE)
 
 
 void Abenteurer::speicherstream(std::ostream &datei)
+{  speichern(datei);
+}
+
+void Abenteurer::speichern(std::ostream &datei)
 {
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
    TagStream ts;
-   ts.setEncoding("ISO-8859-1");
+   ts.setEncoding("UTF-8");
    
    Tag &data=ts.push_back(Tag("MAGUS-data"));  
 
@@ -377,6 +381,10 @@ const std::string Abenteurer::Beruf() const
 ///////////////////////////////////////////////////////////////////////////////
 
 bool Abenteurer::xml_import_stream(std::istream& datei)
+{  return laden(datei);
+}
+
+bool Abenteurer::laden(std::istream& datei)
 {
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
    reset();
@@ -857,16 +865,21 @@ void Abenteurer::calculate_old_API(e_wie_steigern &wie, Enums::st_bool_steigern 
     wie=Enums::eSelbststudium;
 }
 
-   // true: Besonderheiten
-bool Abenteurer::ErlernenSteigern(MBEmlt &MBE)
-{ // Erlernen später ...
-  // steigern
-  e_wie_steigern wie;
+   // true: funktioniert
+bool Abenteurer::Steigern(MBEmlt &MBE)
+{ e_wie_steigern wie;
   Enums::st_bool_steigern bool_st(false,false,false,false,false,false,false,false);
   calculate_old_API(wie,bool_st);
-  steigere(MBE,wie,bool_st);
-  return false; // welche Besonderheiten?
+  return steigere(MBE,wie,bool_st);
+//  return true;
 }
+
+#if 0
+bool Abenteurer::Erlernen(MBEmlt &MBE)
+{ // Erlernen später ...
+}
+#endif
+
    // false: Fehlgeschlagen
 bool Abenteurer::ReduzierenVerlernen(MBEmlt &MBE, bool &verlernt)
 { e_wie_steigern wie;
@@ -886,3 +899,13 @@ bool Abenteurer::ReduzierenVerlernen(MBEmlt &MBE, bool &verlernt)
   else return false;
   return true;
 }
+
+bool Abenteurer::steigern_usp(const e_wie_steigern wie,int &kosten,
+                     const e_was_steigern was,
+                     const st_bool_steigern &bool_steigern)
+{ int d=1; 
+         MBEmlt mbe=MBEmlt(&*cH_Fertigkeit("",true));
+         return steigern_usp(wie,kosten,mbe,d,was,bool_steigern);}
+
+bool Abenteurer::SpruchVonSpruchrolleGelernt(const std::string &zauber)
+      {return find(list_Gelernt_von_Spruchrolle.begin(),list_Gelernt_von_Spruchrolle.end(),zauber)!=list_Gelernt_von_Spruchrolle.end() ; }

@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.cc,v 1.15 2004/08/30 13:17:56 christof Exp $            
+// $Id: VAbenteurer.cc,v 1.16 2004/11/24 10:44:49 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -70,7 +70,7 @@ VAbenteurer::iterator VAbenteurer::load(std::istream &datei)
 {  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,"std::istream");
    iterator i=push_back_silent();
    try
-   {  if(!(i->getAbenteurer().xml_import_stream(datei)))
+   {  if(!(i->getAbenteurer().laden(datei)))
       {  Ausgabe(Ausgabe::Error,"XML Aufbau fehlerhaft");
          throw std::runtime_error("XML fehlerhaft");
       }

@@ -62,7 +62,7 @@ void midgard_CG::xml_export(const std::string& dateiname)
       Ausgabe(Ausgabe::Error,"Ich kann die Datei '"+dateiname+"' nicht beschreiben");
       return;
    }
-  getAben().speicherstream(datei);
+  getAben().speichern(datei);
   aktiver.saved();   
   push_back_LDateien(dateiname);
 //  if(notebook_main->get_current_page() == PAGE_NEWS)
