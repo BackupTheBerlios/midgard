@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.82 2002/09/18 11:39:10 thoma Exp $
+// $Id: Optionen.cc,v 1.83 2002/09/18 13:21:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -354,19 +354,8 @@ void Midgard_Optionen::Optionen_init()
                            "MAGUS mit bestimmter Seite starten",false,0,1));
   list_OptionenCheck.push_back(st_OptionenCheck(Wizard_immer_starten, 
                            "Wizard bei jedem Programmstart starten",true,0));
-/*
-  list_OptionenCheck.push_back(st_OptionenCheck(Original,"Originalregeln",
-                           true,midgard_logo_tiny_xpm));
-  list_OptionenCheck.push_back(st_OptionenCheck(NSC_only,"NSC zulassen",
-                           false,NSC_Mode_32_xpm));
-  list_OptionenCheck.push_back(st_OptionenCheck(Drei_Tasten_Maus,
-                           "3-Tasten Maus",
-                           false,Cyan_Dice_trans_50_xpm));
-  list_OptionenCheck.push_back(st_OptionenCheck(Notebook_start, 
-                           "MAGUS mit bestimmter Seite starten",false,0,1));
-  list_OptionenCheck.push_back(st_OptionenCheck(Wizard_immer_starten, 
-                           "Wizard bei jedem Programmstart starten",true,0));
-*/
+
+
   list_OptionenExecute.push_back(st_OptionenExecute(show_InfoWindow,"Info Fenster zeigen",0));
   list_OptionenExecute.push_back(st_OptionenExecute(LernschemaSensitive,
                            "Lernschema/Steigern auswählbar machen",0));

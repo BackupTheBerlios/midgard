@@ -46,11 +46,6 @@ void frame_globale_optionen::init()
  int count=0;
  for(std::list<Midgard_Optionen::st_OptionenCheck>::iterator i=L.begin();i!=L.end();++i)
   {
-/*
-   Gtk::CheckButton *cb=manage(new Gtk::CheckButton(i->text,0,0.5));
-   cb->set_active(i->active);
-   cb->toggled.connect(SigC::bind(SigC::slot(this,&frame_globale_optionen::element_activate_C),cb,i->index));
-*/
    MVC_bool_Widget *cb = manage(new MVC_bool_Widget(i->active,i->text));
    i->active.changed.connect(SigC::bind(SigC::slot(this,&frame_globale_optionen::element_activate_C),i->index));
    Gtk::Table *t=manage(new Gtk::Table(0,0,false));
@@ -127,7 +122,7 @@ cout << "Show or hide\t"<<gp<<' '<<'\n';
 
   if(
   
-  static_cast<MVC<bool> >(gp)
+  static_cast<bool*>(gp)
   
   ) widget->show();
   else widget->hide();
