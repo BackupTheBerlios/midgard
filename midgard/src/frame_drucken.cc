@@ -21,12 +21,6 @@ void frame_drucken::set_Hauptfenster(midgard_CG *h)
 
 void frame_drucken::init()
 {
-#if 1
-      static bool ini=false;
-      if(ini) return;
-      ini=true;
-#endif
-//  remove();
   bool_changed=false;
   if(!hauptfenster) assert(!"");
   if(!(hauptfenster->getOptionen())) assert(!"");

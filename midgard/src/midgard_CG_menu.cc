@@ -21,11 +21,11 @@
 #include <gtk--/pixmap.h>
 #include "../pixmaps/midgard_logo_tiny.xpm"
 #include <Misc/itos.h>
+#include <MVC_boolMenu_Widget.hh>
 
 void midgard_CG::menu_init()
 {
   table_optionen->init();
-  menubar_init();
 
   if (menu_kontext) { menu_kontext->destroy(); menu_kontext=0; }
   menu_kontext=manage(new Gtk::Menu());
@@ -68,14 +68,6 @@ void midgard_CG::menu_init()
      Gtk::CheckMenuItem *_mi=manage(new Gtk::CheckMenuItem());         
 
      std::string labeltext=(*i)->Name();
-/*
-     if (labeltext.size()>11)
-     {  std::string::size_type pos=0;
-        while ((pos=labeltext.find(' ',pos))!=std::string::npos)
-        {  labeltext.replace(pos,1,'\n');
-        }
-     }
-*/
      Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
      int row=1;
      if((*i)->Offiziell()) 
@@ -92,7 +84,7 @@ void midgard_CG::menu_init()
      _mi->add(*_tab);
      regionen_menu->append(*_mi);
      _mi->set_active((*i)->Active());
-     _mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),_mi,*i));
+     _mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu_),_mi,*i));
      if(MOptionen->OptionenCheck(Midgard_Optionen::Original).active && 
          !(*i)->Offiziell() )
         _mi->set_sensitive(false);
@@ -124,14 +116,25 @@ void midgard_CG::menu_init()
   menu_kontext->append(*optionen);
 ///////////////////////////////////////////////////////////////////////////////
   menu_kontext->show_all();
+
+///////////
+/////////// und nun die Region im menubar
+//reloop:
+//  for(unsigned int i=1;i<main_menubar->items().size();++i)
+//    {  main_menubar->items().pop_back(); goto reloop;}
+  ///////////////////////////////////////////////////////////////////
 }
 
-//#include <gtk--/menushell.h>
+
+/*
+static void wert_changed(gpointer gp)
+{ 
+  std::cout << "MENÜ: WC: "<<  *(bool*)(gp)<<'\n';
+} 
+*/ 
+
 void midgard_CG::menubar_init()
 {
-reloop:
-  for(unsigned int i=3;i<main_menubar->items().size();++i)
-    {  main_menubar->items().pop_back(); goto reloop;}
 
 //  const Gtk::MenuShell::MenuList *Gtk_ML;
 //  main_menubar->items().back();
@@ -148,7 +151,6 @@ reloop:
   Gtk::MenuItem *mi0 = manage(new class Gtk::MenuItem("Optionen"));
   mi0->activate.connect(SigC::slot(this,&midgard_CG::menu_einstellungen_aendern));
   ansicht_menu->items().push_back(Gtk::Menu_Helpers::MenuElem(*mi0));
-
 
   Gtk::MenuItem *mi1 = manage(new class Gtk::MenuItem("Ansicht & Fenster"));
   Gtk::MenuItem *mi2 = manage(new class Gtk::MenuItem("Gestaltung"));
@@ -169,15 +171,12 @@ reloop:
     mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::OptionenExecute_setzen_from_menu),i->index));
     menu1->append(*mi);
    } 
-  std::list<Midgard_Optionen::st_Ober> L=MOptionen->getOber();
-  for(std::list<Midgard_Optionen::st_Ober>::iterator i=L.begin();i!=L.end();++i)
+  for(std::list<Midgard_Optionen::st_Ober>::iterator i=MOptionen->getOber().begin();i!=MOptionen->getOber().end();++i)
    {
-cout << "Menü\t"<<i->text<<'\n';
-
     if(!i->show) continue;
-    Gtk::CheckMenuItem *mi=manage(new Gtk::CheckMenuItem(i->text));
-    mi->set_active(i->active);
-    mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::Ober_setzen_from_menu),mi,i->index));
+    MVC_boolMenu_Widget *mi = manage(new MVC_boolMenu_Widget(i->active,i->text,0,0.5));
+    i->active.changed.connect(SigC::bind(SigC::slot(this,&midgard_CG::Ober_element_activate),i->index));
+//i->active.changed.connect(SigC::slot(&wert_changed));
     menu2->append(*mi);
    } 
   mi1->set_submenu(*menu1);
@@ -186,7 +185,7 @@ cout << "Menü\t"<<i->text<<'\n';
   ansicht_menu->items().push_back(Gtk::Menu_Helpers::MenuElem(*mi2));
   ansicht_menu->show_all();   
 
-  ///////////////////////////////////////////////////////////////////
+
   // Regionen
   Gtk::Menu *regionen_menu = manage(new class Gtk::Menu());
   main_menubar->items().push_back(Gtk::Menu_Helpers::MenuElem("_Regionen","<Control>R", *regionen_menu));
@@ -195,16 +194,8 @@ cout << "Menü\t"<<i->text<<'\n';
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {
      if((*i)->Nr()<=0) continue;
-     Gtk::CheckMenuItem *_mi=manage(new Gtk::CheckMenuItem());
+//     Gtk::CheckMenuItem *_mi=manage(new Gtk::CheckMenuItem());
      std::string labeltext=(*i)->Name();
-/*
-     if (labeltext.size()>11)
-     {  std::string::size_type pos=0;
-        while ((pos=labeltext.find(' ',pos))!=std::string::npos)
-        {  labeltext.replace(pos,1,'\n');
-        }
-     }
-*/
      Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
      int row=1;
      if((*i)->Offiziell()) 
@@ -218,15 +209,25 @@ cout << "Menü\t"<<i->text<<'\n';
      _tab->attach(*RegionenPic::Pic((*i)->Pic(),II),0,1,0,row,0,0,0,0);
      _tab->set_col_spacings(10);
 
-     _mi->add(*_tab);
-     regionen_menu->items().push_back(Gtk::Menu_Helpers::CheckMenuElem(*_mi));
-     _mi->set_active((*i)->Active());
-     _mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),_mi,*i));
-     if(MOptionen->OptionenCheck(Midgard_Optionen::Original).active && 
-         !(*i)->Offiziell() )
-        _mi->set_sensitive(false);
+     MVC_boolMenu_Widget *mi = manage(new MVC_boolMenu_Widget((*i)->Active(),*_tab));
+//     i->active,i->text,0,0.5));
+//    i->active.changed.connect(SigC::bind(SigC::slot(this,&midgard_CG::Ober_element_activate),i->index));
+//     _mi->add(*_tab);
+     regionen_menu->items().push_back(Gtk::Menu_Helpers::CheckMenuElem(*mi));
+//     _mi->set_active((*i)->Active());
+//     _mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),_mi,*i));
+     (*i)->Active().changed.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),*i));
+     mi->setSensitive(MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active);
+//     (*i)->setSensitive().changed.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),*i));
+
+#warning sensitive TODO
+//     if(MOptionen->OptionenCheck(Midgard_Optionen::Original).active && 
+//         !(*i)->Offiziell() )
+//        _mi->set_sensitive(false);
    }
  regionen_menu->show_all();
+
+
 }
 
 

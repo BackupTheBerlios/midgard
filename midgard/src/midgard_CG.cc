@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.275 2002/11/11 10:31:00 thoma Exp $
+// $Id: midgard_CG.cc,v 1.276 2002/11/13 10:22:41 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -57,6 +57,7 @@ midgard_CG::midgard_CG(const std::string &_argv0,const std::string &_magus_verze
      notebook_main->set_page(MOptionen->OptionenCheck(Midgard_Optionen::Notebook_start).wert);
 
 
+  menubar_init();
   init_statusbar();
   // für die NEWS
   Gtk::OStream os(list_news);

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.110 2002/11/11 21:19:31 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.111 2002/11/13 10:22:41 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,13 +33,20 @@ void midgard_CG::OptionenExecute_setzen_from_menu(Midgard_Optionen::OptionenExec
  MOptionen->OptionenExecute_setzen_from_menu(index);
 }
 
+
+void midgard_CG::Ober_element_activate(gpointer gp,Midgard_Optionen::OberIndex index)
+{
+  getOptionen()->Ober_setzen_from_menu(index);
+}
+
+/*
 void midgard_CG::Ober_setzen_from_menu(Gtk::CheckMenuItem *mi,Midgard_Optionen::OberIndex index)
 {
  MOptionen->setOber(MOptionen->OberCheck(index).text,mi->get_active());
 // MOptionen->Ober_setzen_from_menu(index,mi->get_active());
  menu_init();
 }
-
+*/
 
 
 void midgard_CG::checkbutton_original(bool active)
@@ -181,11 +188,16 @@ void midgard_CG::show_wizard_active(bool b)
 }
 
 
-void midgard_CG::on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_Region region)
+void midgard_CG::on_checkbutton_Regionen_menu_(Gtk::CheckMenuItem *menu_item,cH_Region region)
 {
- if(menu_item->get_active()) region->setActive(true);
- else region->setActive(false);
+  if(menu_item->get_active()) region->setActive(true);
+  else region->setActive(false);
+  on_checkbutton_Regionen_menu_(0,region);
+}
 
+
+void midgard_CG::on_checkbutton_Regionen_menu(gpointer gp,cH_Region region)
+{
  table_grundwerte->fill_typauswahl();
  if(notebook_main->get_current_page_num()==PAGE_STEIGERN)
     table_steigern->load_for_page(table_steigern->notebook_lernen->get_current_page_num());
@@ -201,6 +213,6 @@ void midgard_CG::on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_R
        break;
      }
   }
- menu_init();
+// menu_init();
  set_region_statusbar(region->Pic(),region->Active());
 }

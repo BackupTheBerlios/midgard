@@ -25,11 +25,6 @@ void frame_globale_optionen::set_Hauptfenster(midgard_CG *h)
 
 void frame_globale_optionen::init()
 {
-#if 1
-      static bool ini=false;
-      if(ini) return;
-      ini=true;
-#endif
  if(!hauptfenster) assert(!"");
  if(!(hauptfenster->getOptionen())) assert(!"");
  Gtk::Table *table=manage(new Gtk::Table(0,0,false));
@@ -82,20 +77,15 @@ void frame_globale_optionen::init()
   } 
  add(*table);
  show_all();
- 
-// if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::Notebook_start).active) // für 'hide'
-// hauptfenster->getOptionen()->OptionenCheck_setzen_from_menu(Midgard_Optionen::Notebook_start,false);
 }
 
 void frame_globale_optionen::element_show_or_hide(gpointer gp,Gtk::Widget *widget,MVC<int> *wert)
 {
-cout <<"Wert: "<< *wert<<'\n';
   if(*static_cast<bool*>(gp)) widget->show();
   else { 
       widget->hide();
       *wert=-1;
    }
-cout <<"Wert: "<< *wert<<'\n';
 }
 
 

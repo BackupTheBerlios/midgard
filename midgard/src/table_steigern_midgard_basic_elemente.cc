@@ -112,8 +112,6 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
  MBEmlt &MBE = const_cast<MBEmlt&>(dt->getMBE());
 
-cout <<"NEu: " <<MBE->Erfolgswert()<<'\n';
-
  std::string info;
  bool ok=hauptfenster->getChar()->neu_lernen(MBE,info,get_wie_steigern(),get_bool_steigern());
  hauptfenster->set_status(info);

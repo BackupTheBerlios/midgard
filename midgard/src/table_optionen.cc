@@ -16,6 +16,12 @@ void table_optionen::init()
  entry_tmp_verz->set_text(hauptfenster->getOptionen()->getString(Midgard_Optionen::tmppfad));
  entry_speicher_verz->set_text(hauptfenster->getOptionen()->getString(Midgard_Optionen::speicherpfad));
  spinbutton_datei_history->set_value(hauptfenster->getOptionen()->DateiHistory());
+ 
+ // do the next  only once:
+ static bool ini=false;
+ if(ini) return;
+ ini=true;
+
  frame_drucken->init();
  frame_globale_optionen->init();
  frame_ansicht->init();

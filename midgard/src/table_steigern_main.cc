@@ -277,7 +277,10 @@ void table_steigern::on_steigern_zusatz_leaf_selected(cH_RowDataBase d)
 
   set_zusatz_sensitive(false);
 
-  fertigkeiten_zeigen();
+  if(dt->getMBE()->What()==MidgardBasicElement::FERTIGKEIT) 
+      fertigkeiten_zeigen();
+  else if (dt->getMBE()->What()==MidgardBasicElement::ZAUBER)
+      zauber_zeigen();
   neue_fert_tree->set_sensitive(true);
 }
 

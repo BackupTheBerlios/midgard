@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.297 2002/11/11 21:19:31 thoma Exp $
+// $Id: midgard_CG.hh,v 1.298 2002/11/13 10:22:41 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -109,7 +109,8 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
    private:
         Midgard_Optionen *MOptionen;
         void OptionenExecute_setzen_from_menu(Midgard_Optionen::OptionenExecuteIndex index);
-        void Ober_setzen_from_menu(Gtk::CheckMenuItem *mi,Midgard_Optionen::OberIndex index);
+//        void Ober_setzen_from_menu(Gtk::CheckMenuItem *mi,Midgard_Optionen::OberIndex index);
+        void Ober_element_activate(gpointer gp,Midgard_Optionen::OberIndex index);
         void autoshrink(bool b);
         void show_Pics(bool b);
         void show_Menueleiste(bool b);
@@ -231,7 +232,8 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
         // Oberfläche Menü
         Gtk::Menu *menu_kontext;
         gint on_button_menu_button_release_event(GdkEventButton *ev);
-        void on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_Region region);
+        void on_checkbutton_Regionen_menu_(Gtk::CheckMenuItem *menu_item,cH_Region region);
+        void on_checkbutton_Regionen_menu(gpointer gp,cH_Region region);
         void menubar_init();
         void menu_init();
         void menu_history_init(int oldsize);

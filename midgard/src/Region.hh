@@ -1,4 +1,4 @@
-// $Id: Region.hh,v 1.25 2002/10/16 08:09:58 thoma Exp $               
+// $Id: Region.hh,v 1.26 2002/11/13 10:22:41 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -28,6 +28,7 @@
 #include <gtk--/pixmap.h>
 #include "xml.h"
 #include "Optionen.hh"
+#include <MVC.h>
 
 class cH_Region;
 
@@ -50,7 +51,7 @@ class Region  : public HandleContent
    std::string name,titel,abkuerzung,file,url,maintainer,version,copyright,jahr; 
    RegionenPic::epic pic;
    bool offiziell;
-   mutable bool active;
+   mutable MVC<bool> active;
 
   public:
    Region(const Tag *tag);
@@ -58,7 +59,7 @@ class Region  : public HandleContent
    int Nr()  const {return nr;}
    std::string Name() const   {return name; }
    std::string Titel() const   {return titel; }
-   bool Active() const {return active; }
+   MVC<bool> &Active() const {return active; }
    void setActive(bool a) const {active=a; }
    std::string Abkuerzung() const {return abkuerzung;}
    std::string File() const {return file;}
