@@ -1,4 +1,4 @@
-// $Id: grundwere_edit_setzen.cc,v 1.26 2002/01/30 14:34:12 thoma Exp $
+// $Id: grundwere_edit_setzen.cc,v 1.27 2002/01/30 14:34:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -153,7 +153,6 @@ gint midgard_CG::on_entry_nameS_focus_out_event(GdkEventFocus *ev)
 { set_all_entrys(); return false;}
 gint midgard_CG::on_entry_version_focus_out_event(GdkEventFocus *ev)
 { 
- OptionBool.version=false;
  menu_init();
  set_all_entrys(); 
   return false;
