@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.327 2003/12/08 07:50:14 christof Exp $
+// $Id: midgard_CG.cc,v 1.328 2003/12/08 13:38:03 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -281,7 +281,7 @@ void midgard_CG::refresh_char_list()
 //      Gtk::MenuItem *mi=manage(new Gtk::MenuItem(i->getAbenteurer().Name_Abenteurer()));
       abent_menu->items().push_back(Gtk::Menu_Helpers::MenuElem(i->getAbenteurer().Name_Abenteurer()));
       Gtk::MenuItem &mi=abent_menu->items().back();
-      mi->show();
+      mi.show();
       mi.signal_activate().connect(SigC::bind(SigC::slot(
       		getChar(),&AbenteurerAuswahl::setAbenteurer_sig),i));
    }
