@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.100 2003/07/01 10:03:57 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.101 2003/07/01 12:21:56 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -814,11 +814,11 @@ void LaTeX_drucken::LaTeX_header(std::ostream &fout,bool landscape,bool kopfzeil
   }
  else
   {
-   fout << "\\setlength{\\textheight}{29.0cm}\n";
-   fout << "\\setlength{\\textwidth}{19.5cm}   \n";
+   fout << "\\setlength{\\textheight}{27.0cm}\n";
+   fout << "\\setlength{\\textwidth}{18.5cm}   \n";
    fout << "\\setlength{\\arraycolsep}{0.1cm} \n";
-   fout << "\\setlength{\\evensidemargin}{-1.5cm}\n";
-   fout << "\\setlength{\\oddsidemargin}{-1.5cm} \n";
+   fout << "\\setlength{\\evensidemargin}{-1.cm}\n";
+   fout << "\\setlength{\\oddsidemargin}{-1.cm} \n";
    fout << "\\setlength{\\topmargin}{-3.0cm}    \n";
    fout << "\\setlength{\\parindent}{0em}       \n";
    fout << "\\renewcommand {\\arraystretch}{1.3}\n\n";
@@ -860,14 +860,16 @@ void LaTeX_drucken::LaTeX_header(std::ostream &fout,bool landscape,bool kopfzeil
  fout << "\\setlength{\\doublerulesep}{0mm}\n";
  fout << "\\pagestyle{empty}\n";
  fout << "\\begin{document}\n";
- fout << "\\begin{center}\n";
  if(kopfzeile)
-    LaTeX_kopfzeile(fout,landscape);
+   {  
+     fout << "\\begin{center}\n";
+     LaTeX_kopfzeile(fout,landscape);
+     fout << "\\end{center}\n";
+    }
 }
  
 void LaTeX_drucken::LaTeX_footer(std::ostream &fout)
 {
-  fout << "\\end{center}\n";
   fout << "\\end{document}\n\n";
 }
  
