@@ -10876,7 +10876,7 @@ steigern</label>
 			<cxx_visibility>protected</cxx_visibility>
 			<tooltip>Es wird gewürfelt, ob das Lernen von Spruchrolle erfolgreich ist.</tooltip>
 			<can_focus>True</can_focus>
-			<active>False</active>
+			<active>True</active>
 			<draw_indicator>False</draw_indicator>
 			<group>spruchrolle</group>
 			<child>
@@ -18626,7 +18626,7 @@ werk</label>
 		    <class>GtkFrame</class>
 		    <name>frame_spezialist_typen</name>
 		    <cxx_visibility>protected</cxx_visibility>
-		    <sensitive>False</sensitive>
+		    <visible>False</visible>
 		    <label>Spezialisieren auf einen oder mehrere Spezialisierungs-Typen</label>
 		    <label_xalign>0</label_xalign>
 		    <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
@@ -18674,18 +18674,18 @@ werk</label>
 		    <class>GtkFrame</class>
 		    <name>frame116</name>
 		    <label_xalign>0</label_xalign>
-		    <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+		    <shadow_type>GTK_SHADOW_NONE</shadow_type>
 		    <child>
 		      <left_attach>0</left_attach>
 		      <right_attach>1</right_attach>
 		      <top_attach>6</top_attach>
-		      <bottom_attach>7</bottom_attach>
+		      <bottom_attach>8</bottom_attach>
 		      <xpad>0</xpad>
 		      <ypad>0</ypad>
 		      <xexpand>False</xexpand>
 		      <yexpand>False</yexpand>
-		      <xshrink>False</xshrink>
-		      <yshrink>False</yshrink>
+		      <xshrink>True</xshrink>
+		      <yshrink>True</yshrink>
 		      <xfill>True</xfill>
 		      <yfill>True</yfill>
 		    </child>

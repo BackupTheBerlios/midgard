@@ -69,8 +69,12 @@ void table_zufall::on_radiobutton_proto_spezialisieren_toggled()
 {
  if(radiobutton_proto_spezialisieren->get_active())
   {
+   frame_spezialist_typen->show();
+   frame_verteilung_auf->hide();
+/*
    frame_spezialist_typen->set_sensitive(true);
    frame_verteilung_auf->set_sensitive(false);
+*/
   } 
 }
 
@@ -78,8 +82,10 @@ void table_zufall::on_radiobutton_proto_verteilen_toggled()
 {
  if(radiobutton_proto_verteilen->get_active())
   {
-   frame_spezialist_typen->set_sensitive(false);
-   frame_verteilung_auf->set_sensitive(true);
+   frame_spezialist_typen->hide();
+   frame_verteilung_auf->show();
+//   frame_spezialist_typen->set_sensitive(false);
+//   frame_verteilung_auf->set_sensitive(true);
   } 
 }
 
