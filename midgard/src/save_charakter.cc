@@ -65,7 +65,7 @@ void midgard_CG::xml_export(const std::string& dateiname)
   getAben().speicherstream(datei);
   aktiver.saved();   
   push_back_LDateien(dateiname);
-  if(notebook_main->get_current_page() == PAGE_NEWS)
-      load_for_mainpage(PAGE_NEWS);
+//  if(notebook_main->get_current_page() == PAGE_NEWS)
+//      load_for_mainpage(PAGE_NEWS);
 }
 

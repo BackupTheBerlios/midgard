@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.324 2003/12/01 07:52:37 christof Exp $
+// $Id: midgard_CG.cc,v 1.325 2003/12/01 11:53:55 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -123,7 +123,7 @@ midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
   aktiver.signal_anderer_abenteurer().connect(SigC::slot(*this,&midgard_CG::refresh));
 //  refresh();
   aktiver.signal_anderer_abenteurer()();
-  aktiver.proxies.wizard.signal_changed()();
+  aktiver.proxies.wizard.signal_changed()(0);
 }
 
 midgard_CG::~midgard_CG()
