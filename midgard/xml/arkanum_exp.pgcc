@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.pgcc,v 1.6 2001/11/13 08:32:07 christof Exp $
+// $Id: arkanum_exp.pgcc,v 1.7 2001/11/13 10:12:20 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -78,8 +78,7 @@ void arkanum_speichern(std::ostream &o)
       if (!sqlca.sqlcode) 
       {  o << "    <Grund>";
          for (int i=0;i<sqlca.sqlerrd[2];++i)
-         {  if (TYPEN[i]==string("Ord")) o << "Or";
-            else o << TYPEN[i];
+         {  o << typ_standardisierung(TYPEN[i]);
             if (i+1 < sqlca.sqlerrd[2]) o << ',';
          }
          o << "</Grund>\n";
@@ -89,8 +88,7 @@ void arkanum_speichern(std::ostream &o)
       if (!sqlca.sqlcode) 
       {  o << "    <Standard>";
          for (int i=0;i<sqlca.sqlerrd[2];++i)
-         {  if (TYPEN[i]==string("Ord")) o << "Or";
-            else o << TYPEN[i];
+         {  o << typ_standardisierung(TYPEN[i]);
             if (i+1 < sqlca.sqlerrd[2]) o << ',';
          }
          o << "</Standard>\n";
@@ -100,26 +98,45 @@ void arkanum_speichern(std::ostream &o)
       if (!sqlca.sqlcode) 
       {  o << "    <Ausnahme>";
          for (int i=0;i<sqlca.sqlerrd[2];++i)
-         {  if (TYPEN[i]==string("Ord")) o << "Or";
-            else o << TYPEN[i];
+         {  o << typ_standardisierung(TYPEN[i]);
             if (i+1 < sqlca.sqlerrd[2]) o << ',';
          }
          o << "</Ausnahme>\n";
       }
+
+      // wert, attribut, [p+s]_element 
+      exec sql declare cursor_lp cursor for 
+      	select typ,lernpunkte,pflicht from lernschema 
+      	where fertigkeit=:FERTIGK and art='Fertigkeit'
+      	order by lernpunkte,typ;
+      exec sql open cursor_lp;
+      while (!sqlca.sqlcode) 
+      {  fetch from cursor_lp into sql descriptor spalten;
+         if (sqlca.sqlcode) break;
+         FetchIStream is2("spalten");
+         o << "    <Lernschema";
+         std::string typ;
+         is2 >> typ;
+         o << " Typ=\"" << toXML(typ_standardisierung(typ)) << '\"';
+         fetch_and_write_int_attrib(is, o, "Lernpunkte");
+         fetch_and_write_bool_attrib(is, o, "Pflicht");
+         o << "/>\n";
+      }
+      exec sql close cursor_lp;
       
 /* 7.2      ex ec sql select beschreibung into descriptor spalten 
       	from zauber_beschreibung where name=:ZAUBER 
       	and beschreibung is not null and beschreibung!=''; */
-      exec sql declare cursor2 cursor for 
+      exec sql declare cursor_b cursor for 
       	select beschreibung from zauber_beschreibung 
       	where name=:ZAUBER and beschreibung is not null and beschreibung!='';
-      exec sql open cursor2;
-      if (!sqlca.sqlcode) exec sql fetch from cursor2 into sql descriptor spalten;
+      exec sql open cursor_b;
+      if (!sqlca.sqlcode) exec sql fetch from cursor_b into sql descriptor spalten;
       if (!sqlca.sqlcode)
       {  FetchIStream is2("spalten");
          fetch_and_write_string(is2,o,"Beschreibung",4);
       }
-      exec sql close cursor2;
+      exec sql close cursor_b;
    }
    o << "  </Spruch>\n";
   }
