@@ -28,6 +28,7 @@ EXTRA_DIST = \
        LoadChar-trans-50.xpm \
        LoadSkills-trans-50.xpm \
        LoadWeapon-trans-50.xpm \
+       LoadLang_u_Font-trans-50.xpm \
        LoadZaub-trans-50.xpm \
        Money-50.xpm \
        NewChar-trans-50.xpm \
