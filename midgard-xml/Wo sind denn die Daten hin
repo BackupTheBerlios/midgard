@@ -1,9 +1,0 @@
-Die XML Daten unterliegen dem Copyright von Pegasus.
-
-Momentan verhandeln wir mit Elsa Franke über die Konditionen, unter denen
-die Daten hier verfügbar sein können.
-
-MCG-Entwickler können im Verzeichnis midgard/xml 'make export' aufrufen, um
-tagesaktuelle XML Dateien zu bekommen.
-
-Erforderlich sind ManuProC_Base, midgard_postgres und PostgreSQL 7.1+ !
