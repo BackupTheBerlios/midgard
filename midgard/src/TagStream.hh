@@ -91,6 +91,8 @@ public:
 	// throws std::exception if not found
 	const Tag &getContent() const;
 	Tag &getContent();
+	void setContent(const Tag &c)
+	{  getContent()=c; }
 	
 	bool good();
 	
@@ -101,6 +103,7 @@ public:
 	{  encoding=s; }
 	bool write(const std::string &filename="",const std::string &_encoding="");
 	void write(std::ostream &o) const;
+private:
 	void write(std::ostream &o, const Tag &t, int indent=0, bool indent_first=true) const;
 };
 

@@ -178,14 +178,10 @@ void Preise::saveArtikel(const std::string &Filename,midgard_CG *hauptfenster,
     { hauptfenster->set_status("Kann die Ausrüstung nicht speichern");
       return;
     }
-   TagStream ts;
-   ts.setEncoding("ISO-8859-1");
 
    Tag &RootTag=hauptfenster->tag_eigene_artikel;
    Tag *TeA_=RootTag.find("Preise");
    if(!TeA_) TeA_=&RootTag.push_back(Tag("Preise"));
-
-//   Tag &TeA_=RootTag.push_back(Tag("Preise"));
 
    Tag &TeA=TeA_->push_back(Tag("Dinge"));
 
@@ -198,6 +194,9 @@ void Preise::saveArtikel(const std::string &Filename,midgard_CG *hauptfenster,
    TeA.setAttr("Region",region);
 
    cH_Preise(name,art,&TeA);
-   ts.write(datei,RootTag);
-//   ts.write(datei,ts);
+
+   TagStream ts;
+   ts.setEncoding("ISO-8859-1");
+   ts.setContent(RootTag);
+   ts.write(datei);
 }
