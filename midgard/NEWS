@@ -1,12 +1,14 @@
 ##########################################################################
 NEWS IN VERSION 0.8.12
 
-
+* Waffen-Grundkenntnisse nur noch dann lernbar wenn auch Waffen 
+   dieser Grundkenntnis gelernt werden können (MIT Regionauswahl)
+* Überlange Zauberlisten werden jetzt auf zwei (oder noch mehr;-) 
+   Seiten verteilt
 
 TODO
 
-* Waffen-Grundkenntnisse nur noch dann lernbar wenn auch Waffen 
-   dieser Grundkenntnis gelernt werden können (MIT Regionauswahl)
+* Abspeichern & Laden der Handle-Fenster-Positionen
 * KI-Steigern nicht nur mit Unterweisung oder Selbststudium 
 * Region-Icons wechseln
 * Neue Ausrüstung eingeben (stürzt ab)

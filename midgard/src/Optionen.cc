@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.100 2002/11/21 09:10:37 thoma Exp $
+// $Id: Optionen.cc,v 1.101 2002/11/23 22:12:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -515,7 +515,34 @@ void Midgard_Optionen::load_options(const std::string &filename)
         hauptfenster->setWindowSize(i->getIntAttr("Width"),i->getIntAttr("Height"));
      FOR_EACH_CONST_TAG_OF(i,*data2,"Größe")
         hauptfenster->setWindowSize(i->getIntAttr("Breite"),i->getIntAttr("Höhe"));
+     FOR_EACH_CONST_TAG_OF(i,*data2,"WindowPositions")
+       {
+         std::string name=i->getAttr("Name");
+cout << "\n\n\n"<<name<<"\n\n\n";
+         int x=i->getIntAttr("X");
+         int y=i->getIntAttr("Y");
+         int breite=i->getIntAttr("Breite");
+         int hoehe=i->getIntAttr("Höhe");
+         Gdk_Window W;
+//         Gtk::Window *W;
+         if     (name=="handlebox_steigern_1")
+//            W=hauptfenster->table_steigern->handlebox_steigern_1->get_toplevel();
+            W=hauptfenster->table_steigern->handlebox_steigern_1->get_float_window();
+         else if(name=="handlebox_steigern_2")
+            W=hauptfenster->table_steigern->handlebox_steigern_2->get_float_window();
+         else if(name=="handlebox_steigern_3")
+            W=hauptfenster->table_steigern->handlebox_steigern_3->get_float_window();
+         else if(name=="handlebox_steigern_4")
+            W=hauptfenster->table_steigern->handlebox_steigern_4->get_float_window();
+         else continue;
+        
+         W.move(x,y);
+cout << "SETZEN: "<<name<<' '<<x<<' '<<y<<"\n\n\n\n";
+//         W.get_toplevel().(x,y);
+//         W->set_default_size(breite,hoehe);
+       }
    }
+
   const Tag *data3=ts.find("MAGUS-history"); // compat
   if (!data3) data3=data->find("History");
   if(data3)
@@ -562,7 +589,28 @@ void Midgard_Optionen::save_options(const std::string &filename,WindowInfo *Info
     position.setIntAttr("Y", y);
 
     // Handle-Windows
-    
+    std::vector<pair<std::string,Gdk_Window> > VW;
+    VW.push_back(pair<std::string,Gdk_Window>("main",hauptfenster->get_window()));
+    if(hauptfenster->table_steigern->handlebox_steigern_1->is_float_window_mapped())
+       VW.push_back(pair<std::string,Gdk_Window>("handlebox_steigern_1",hauptfenster->table_steigern->handlebox_steigern_1->get_float_window()));
+    if(hauptfenster->table_steigern->handlebox_steigern_2->is_float_window_mapped())
+       VW.push_back(pair<std::string,Gdk_Window>("handlebox_steigern_2",hauptfenster->table_steigern->handlebox_steigern_2->get_float_window()));
+    if(hauptfenster->table_steigern->handlebox_steigern_3->is_float_window_mapped())
+       VW.push_back(pair<std::string,Gdk_Window>("handlebox_steigern_3",hauptfenster->table_steigern->handlebox_steigern_3->get_float_window()));
+    if(hauptfenster->table_steigern->handlebox_steigern_4->is_float_window_mapped())
+       VW.push_back(pair<std::string,Gdk_Window>("handlebox_steigern_4",hauptfenster->table_steigern->handlebox_steigern_4->get_float_window()));
+    for(std::vector<pair<std::string,Gdk_Window> >::iterator i=VW.begin();i!=VW.end();++i)    
+     {
+       Tag &T=fenstert.push_back(Tag("WindowPositions"));
+       gint width,height,x,y;
+       i->second.get_size(width,height);
+       i->second.get_position(x,y);
+       T.setAttr("Name",i->first);
+       T.setIntAttr("Breite",width);
+       T.setIntAttr("Höhe",height);
+       T.setIntAttr("X", x);
+       T.setIntAttr("Y", y);
+     }
   }
 
  Tag &optionen=data.push_back(Tag("Optionen"));

@@ -17,6 +17,10 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#ifndef _TAGSTREAM_HH
+#define _TAGSTREAM_HH
+
+
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
@@ -99,3 +103,5 @@ public:
 	void write(std::ostream &o) const;
 	void write(std::ostream &o, const Tag &t, int indent=0, bool indent_first=true) const;
 };
+
+#endif

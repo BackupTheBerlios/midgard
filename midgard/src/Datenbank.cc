@@ -1,5 +1,5 @@
 
-// $Id: Datenbank.cc,v 1.24 2002/11/05 07:24:19 thoma Exp $               
+// $Id: Datenbank.cc,v 1.25 2002/11/23 22:12:18 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -48,6 +48,7 @@
 #include "Midgard_Info.hh"
 #include "Sprache.hh"
 #include "Schrift.hh"
+#include "midgard_CG.hh"
 
 Datenbank::Datenbank()
 {
@@ -56,8 +57,6 @@ Datenbank::Datenbank()
 
 void Datenbank::load(Midgard_Info* MI, midgard_CG *hauptfenster)
 {
-    // wait for Window to appear
-//    while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
     xml_init(MI->get_progressbar_regionen(),hauptfenster);
     Regionen = Regionen_All(MI->get_progressbar_regionen()).get_All();
     MI->set_Regionen(Regionen);
@@ -79,8 +78,7 @@ void Datenbank::load(Midgard_Info* MI, midgard_CG *hauptfenster)
     Typen = Typen_All().get_All();
     GradAnstieg = Grad_anstieg(true);
     Spezialgebiet = Spezialgebiet_All().get_All();
-    preise = Preise_All().get_All();
-//    preisemod = PreiseMod_All().get_All();
+    preise = Preise_All(hauptfenster->with_path("magus_preise.xml",false,true)).get_All();
     preisenewmod = PreiseNewMod_All().get_All();
     prototyp = Prototyp_All().get_All();
     prototyp2 = Prototyp2_All().get_All();

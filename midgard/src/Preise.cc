@@ -19,6 +19,8 @@
 #include "MidgardBasicElement.hh" // nur für NotFound
 #include "Preise.hh"
 #include <Misc/itos.h>
+#include <fstream>
+#include "TagStream.hh"
 
 bool operator!=(const cH_Preise &a, const std::string &b)
 {  return a->Name()!=b; }
@@ -66,7 +68,7 @@ void Preise::get_Preise()
   if(kosten<0) {kosten=0; unverkauflich=true;}
 }
 
-Preise_All::Preise_All()
+Preise_All::Preise_All(const std::string &filename)
 {
  const Tag *preise=xml_data->find("PreiseNeu");
  if (preise)
@@ -76,19 +78,27 @@ Preise_All::Preise_All()
        list_All.push_back(cH_Preise(&*i));
     }
  }   
-/*
- const Tag *ruestungen=xml_data->find("Rüstungen");
- if (ruestungen)
- {  Tag::const_iterator b=ruestungen->begin(),e=ruestungen->end();
-    FOR_EACH_CONST_TAG_OF_5(i,*ruestungen,b,e,"Rüstung")
-    { 
-       {  const Tag *preis=i->find("Kaufpreis");
-          if (preis) 
-             list_All.push_back(cH_Preise(i->getAttr("Name"),"Rüstung",&*i));
-       }
+ try {
+   std::ifstream f(filename.c_str());
+   if (!f.good()) {std::cout << "Cannot open " << filename << '\n'; return;}
+   TagStream ts(f);
+   const Tag *data=ts.find("MAGUS-data");
+   if(!data)    
+    { std::cout << "Preise konnten nicht geladen werden";
+      ts.debug();
+      return;
     }
- }   
-*/
+  const Tag *preise=data->find("Preise");
+  if (preise)
+   {  
+      Preise::Tag_eigene_Artikel=*preise;
+      Tag::const_iterator b=preise->begin(),e=preise->end();
+      FOR_EACH_CONST_TAG_OF_5(i,*preise,b,e,"Dinge")
+      {  
+       list_All.push_back(cH_Preise(&*i));
+      }
+    }   
+ } catch (std::exception &e) { std::cerr << e.what() << '\n'; }
 }  
 //////////////////////////////////////////////////////////////////////
 
@@ -148,6 +158,7 @@ PreiseNewMod_All::PreiseNewMod_All()
 
 
 //////////////////////////////////////////////////////////////////////
+#if 0
 cH_PreiseMod::cache_t cH_PreiseMod::cache;
 
 cH_PreiseMod::cH_PreiseMod(const std::string& art,const std::string& art2,const std::string typ,const int &nr)
@@ -189,7 +200,7 @@ PreiseMod_All::PreiseMod_All()
  }   
 }  
 
-
+#endif
 /////////////////////////////////////////////////////////////////////////
 // Neuanlegen
 /////////////////////////////////////////////////////////////////////////
@@ -199,46 +210,27 @@ PreiseMod_All::PreiseMod_All()
 #include "TagStream.hh"
 
 // use this tag to determine whether this is a user defined item
-Tag Preise::eigenerArtikel("Kaufpreis");
-//Tag Preise::eigenerArtikel("PreiseNeu");
+Tag Preise::Tag_eigene_Artikel("Dinge");
 
 void Preise::saveArtikel(const std::string &Filename,midgard_CG *hauptfenster,
      const std::string &art,const std::string &art2,
      const std::string &name,const double &preis, const std::string &einheit,
      const double &gewicht,const std::string &region)
 {
-   std::string filename=hauptfenster->MagusVerzeichnis()+"MagusPreise.xml";
-   std::fstream datei(filename.c_str(),std::ios::in|std::ios::out);
+   std::string filename=hauptfenster->MagusVerzeichnis()+"magus_preise.xml";
+   std::ofstream datei(filename.c_str());
    if (!datei.good())
-    {
-      hauptfenster->set_status("Kann die Ausrüstung nicht speichern");
+    { hauptfenster->set_status("Kann die Ausrüstung nicht speichern");
       return;
     }
-   TagStream ts(datei);
+   TagStream ts;
    ts.setEncoding("ISO-8859-1");
-   Tag *ding;
-   if(access(filename.c_str(),W_OK)) // ist file da?
-    {
-      Tag &data=ts.push_back(Tag("MAGUS-Preise"));
-      ding=&(data.push_back(Tag("Dinge")));
-    }
-  else
-   {  
-     const Tag *data=ts.find("MAGUS-Preise");
-     ding=const_cast<Tag*>(data->find("Dinge"));
-   }
-   ding->setAttr("Art",art);
-   ding->setAttr("Art2",art2);
-   ding->setAttr("Ware",name);
-   ding->setFloatAttr("Gewicht",gewicht);
-   ding->setFloatAttr("Preis",preis);
-   ding->setAttr("Einheit",einheit);
-/*
-  eigenerArtikel.setAttr("Art2",art2);
-  eigenerArtikel.setAttr("Währung",einheit);
-  eigenerArtikel.setAttr("Preis",dtos(preis));
-  eigenerArtikel.setAttr("Gewicht",dtos(gewicht));
-  eigenerArtikel.setAttr("Region",region);
-*/
-  cH_Preise(name,art,&eigenerArtikel);
+   ts.write(datei,Tag_eigene_Artikel);
+
+   Tag_eigene_Artikel.setAttr("Art2",art2);
+   Tag_eigene_Artikel.setAttr("Währung",einheit);
+   Tag_eigene_Artikel.setAttr("Preis",dtos(preis));
+   Tag_eigene_Artikel.setAttr("Gewicht",dtos(gewicht));
+   Tag_eigene_Artikel.setAttr("Region",region);
+   cH_Preise(name,art,&Tag_eigene_Artikel);
 }

@@ -24,6 +24,7 @@ class table_steigern : public table_steigern_glade
         
         friend class table_steigern_glade;
         friend class midgard_CG;
+        friend class Midgard_Optionen; // Zum Speichern der Handle-Fenster Positionen
         midgard_CG *hauptfenster;
         LernListen *LL;        
 
