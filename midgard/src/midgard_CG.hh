@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.33 2001/05/21 06:48:24 thoma Exp $
+// $Id: midgard_CG.hh,v 1.34 2001/05/22 10:35:50 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -353,7 +353,9 @@ class midgard_CG : public midgard_CG_glade
          st_werte werte;
          void on_speichern_clicked();
          gint on_speichern_release_event(GdkEventButton *ev);
+         gint on_laden_release_event(GdkEventButton *ev);
          void xml_export();
+         void xml_import();
          void charakter_beschreibung_uebernehmen(const string& b);
          void charakter_beschreibung_drucken(const string& b);
          void select_charakter(const string& name, const string& version);

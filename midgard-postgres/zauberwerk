@@ -98,6 +98,9 @@ Talisman verzaubern	200	Talisman	4	1 Tag	100/200/300 GS	\N		A		A	A	A	\N	S	S	S	S	
 Schamanentrommel herstellen	1600		G			\N							\N									G		\N			G		\N
 Weihen	20000		G			\N							\N	S	S	S	S	S	S	S	S	S		\N			\N		\N
 Binden	10000		G			\N	A	A	A	A	A	S	\N	A	A	A	A	A	A	A	S	A	A	\N	A	G	\N	A	\N
+Nebel	1000	Groﬂes Siegel	4	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Staubk‰mpfer	1000	Groﬂes Siegel	3	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Schlaf	200	Groﬂes Siegel	1	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
 Feuerkugel	800	Schutzrune	2	3 Stunden	5 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
 L‰hmung	500	Schutzrune	5	3 Stunden	5 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
 Namenloses Grauen	400	Schutzrune	4	3 Stunden	5 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
@@ -120,9 +123,6 @@ Graue Hand	4000	Groﬂes Siegel	6	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Hauch des Winters	80	Groﬂes Siegel	1	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
 L‰hmung	3000	Groﬂes Siegel	5	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
 Namenloses Grauen	1600	Groﬂes Siegel	4	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Nebel	1000	Groﬂes Siegel	4	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Staubk‰mpfer	1000	Groﬂes Siegel	3	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
-Schlaf	200	Groﬂes Siegel	1	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
 Schmerzen	200	Groﬂes Siegel	2	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
 Schw‰che	80	Groﬂes Siegel	1	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
 Stille	200	Groﬂes Siegel	2	Stufe*10 min	10 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N

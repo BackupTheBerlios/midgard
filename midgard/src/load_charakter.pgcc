@@ -23,6 +23,23 @@ exec sql include sqlca;
 #include <Aux/SQLerror.h>
 #include "Window_charakter_auswahl.hh"
  
+gint midgard_CG::on_laden_release_event(GdkEventButton *ev)
+{
+  if (ev->button==1) midgard_CG::on_laden_clicked();
+  if (ev->button==3) midgard_CG::xml_import();
+  return false;
+}
+ 
+void midgard_CG::xml_import()
+{
+  string command = "midgard_xmlimport < "+werte.name_charakter+".xml";
+  system(command.c_str());
+  string strinfo = "Charakter "+werte.name_charakter+" importiert\n";
+  manage (new WindowInfo(strinfo));
+}
+ 
+
+
 void midgard_CG::on_laden_clicked()
 {
  midgard_CG::on_neuer_charakter_clicked();

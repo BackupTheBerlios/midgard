@@ -3,7 +3,7 @@
 --
 DROP TABLE "arkanum_zauber";
 --
--- TOC Entry ID 2 (OID 609908)
+-- TOC Entry ID 2 (OID 617240)
 --
 -- Name: arkanum_zauber Type: TABLE Owner: thoma
 --
@@ -59,7 +59,7 @@ CREATE TABLE "arkanum_zauber" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 609908) TABLE DATA arkanum_zauber
+-- Data for TOC Entry ID 3 (OID 617240) TABLE DATA arkanum_zauber
 --
 
 COPY "arkanum_zauber"  FROM stdin;
@@ -366,11 +366,6 @@ Schwarzes Horn (4. Urton Yü)	6000	1	Zauberlied	4				1 sec	0	Geist	15 m Uk	24 h		
 PiYeúQuang	800	4	Geste	3				10 min	0	Geist	1 Ws	0			nicht												S								S							K	\N	\N	\N	\N
 Weißer Jadeklangstein (3. Urton Schang)	10000	1	Zauberlied	5				1 sec	0	Geist	30 m Kegel	var							S																							K	\N	\N	\N	\N
 Ghussat el-Masin	1600	6	Geste	4	Eis	beherrscht	Wasser	5 min	0	Geist	15 m Uk	10 min	dämonisch		nicht								G												S	G					G	E	\N	\N	\N	\N
-Blenden	2000	4	Geste	4	Feuer	beherrscht	Erde	1 s		Umgebung	9m Uk	1 min	elementar		nicht	Runenstab					S		S		S	G	S	G	G	G	G	G	S	G	G	S			G		S	E	G	\N	\N	\N
-Sa rauben	250	5	Geste	2	Eis	beherrscht	Holz	1 s	0	Geist	1 Ws	-	schwarzmagisch		nicht						A		A				G								S	G						E	\N	\N	\N	\N
-Sa spenden	1500	4 vom Max	Geste	4	Holz	erschafft	Holz	30 min	0	Körper	1 Ws	-	göttlich		nicht									S				G	G	G	G	G	G	G	S							E	S	\N	\N	\N
-Schock	2000	4	Geste	4	Feuer	zerstört	Luft	15 s	15 m	Geist	1 Ws	var	druidisch								G		S	G	S		S	S	S	S	S	S	S	S	S	S					S	E	S	\N	\N	\N
-Wind des Todes	15000	18	Geste	groß	Feuer	verändert	Luft	30 s	0	Körper	100 m Ke	2 min	schwarzmagisch	Vulkansche, Wüstensand,Diamantstaub							S		A				G								S	G						E	\N	\N	\N	\N
 Abu es-Samum	8000	9	Geste	6	Luft	bewegt	Luft	5 min	0	Umgebung	10 km Uk	1 h	elementar		nicht								S												S	S					S	E	G	\N	\N	\N
 Ain es-Samum	1500	4	Geste	4	Luft	bewegt	Luft	5 min	0	Umgebung	30 m Uk	1 h	elementar		nicht								S												S	S					S	E	G	\N	\N	\N
 Akbar fil-Ghadban	200	2	Geste	2	Luft	verändert	Feuer	3 min	0	Körper	selbst	30 min	göttlich		nicht								S												S	S					S	E	G	\N	\N	\N
@@ -379,29 +374,18 @@ Haram fil-Din	100	1	Geste	1	Wasser	verändert	Erde	2 min	0	Körper	selbst	30 min	e
 Al-Karama	800	3	Geste	3	Wasser	erkennt	Luft	10 min	5 m	Körper	1 Ws	8 h	göttlich		nicht								S												S	S					S	E	G	\N	\N	\N
 Saijidat el-Masin	600	6	Geste	3	Luft	beherrscht	Erde	10 min	0	Geist	15 m Uk	10 min	göttlich		nicht								S												S	S					S	E	G	\N	\N	\N
 Al-Tarka	800	3	Geste	3	Feuer	beherrscht	Luft	5 min	0	Geist	15 m Uk	-	göttlich		nicht								S												S	S					S	E	G	\N	\N	\N
-Blutwandlung	150	4	Geste	2	Wasser	verändert	Holz	10 min	0	Umgebung	-	-	elementar		nicht								G	S			G	S				S	S		S	G					G	E	\N	\N	\N	\N
 Feuerspiel	200	2	Geste	2	Feuer	verändert	Feuer	5 s	10 m	Umgebung	1m Uk	2 min	elementar										S	S	S			S	G	G	S			S		S					S	E	G	\N	\N	\N
 Hauch der Wüste	80	1	Geste	1	Feuer	verändert	Luft	1 s	0	Umgebung	12m Uk	10 min	elementar			Runenstab					S		S		S		S		G	G	A	A		A	S	S			G		S	E	G	\N	\N	\N
-Incheper schaffen	6000	18	Geste	6	Feuer	beherrscht	Metall	6 h	0	Umgebung	1 Ob	-	göttlich	Statue	nicht					S		S			A			S	G	G	S	S	G	G				S				E	\N	\N	\N	\N
 Luftspiegelung	600	3	Geste	3	Feuer	verändert	Luft	10 s	30 km	Umgebung	-	30 min	elementar	Quarz und Silberstaub							G		S	S	S		S	S	S	S	S	S	S	S	S	S					S	E	G	\N	\N	\N
-Manifestation des Ka	15000	18	Geste	groß	Wasser	beherrscht	Metall	6 h	3 m	Geist	1 Ws	-	dämonisch	Wachsbad mit seltenen Essenzen	nicht					G	S	G	S				G	G	G	G	G	G	G	G	S	S		G			S	E	\N	\N	\N	\N
 Mumie erwecken	6000	18	Geste	6	Eis	verändert	Erde	6 h	0	Körper	1 Ws	-	dämonisch	Mumie	nicht					S		S	S				G	G	G	G	G	G	G	G	S	S		G			S	E	\N		\N	\N
-Sandmeisterschaft	6000	9	Geste	6	Wasser	bewegt	Erde	30 s	2 km	Umgebung	500m Uk	1 h	elementar	10g Sandwurmhaut							S		S	S	S		S	G	A	A	A	A	S	S	S	S					S	E	G		\N	\N
 Dau ed-Datin	800	3	Geste	3	Magan	beherrscht	Wasser	15 min	0	Geist	15 m Uk	10 min	dämonisch		nicht								G					G							S	G					G	E	\N	\N	\N	\N
-Seelenraub	12000	18	Geste	groß	Magan	beherrscht	Luft	30 min	0	Körper	bis 12 Ws	-	schwarzmagisch		nicht					G	S	A	A												S	G						E	\N	\N	\N	\N
-Sutechs Heer	600	12	Wort	3	Magan	beherrscht	Wasser	10 sec	2 km	Geist	4W6 Ws	30 min	druidisch								S		S	S	A		A	A			G			A	S	S					S	E	\N	\N	\N	\N
-Tausch des Ba	20000	18	Geste	groß	Magan	beherrscht	Luft	3 h	15 m	Geist	2 Ws	-	dämonisch	Silberdraht	nicht					G	S	G	S				G	S	S	S	S	S	S	S	G	S		G			S	E	\N	\N	\N	\N
-Wasser spüren	100	1	Gedanke	1	Magan	erkennt	Wasser	10 s	0	Körper	500 m Ke	10 s	elementar		nicht	Siegel					G		S	S	A			G			A	G	A	S	S	S			G		S	E	G	\N	\N	\N
 Al-Mutadid	800	3	Geste	3	Magan	zerstört	Wasser	5 min	0	Umgebung	6m Uk	30 min	göttlich		nicht								A												S	A					S	E	G	\N	\N	\N
 Tibb al-Mumani	600	6	Geste	3	Magan	bewegt	Feuer	20 min	15 m	Körper	1 Ws, 1Ob	-	göttlich		nicht								A												S						S	E	G	\N	\N	\N
 Dalail ed-Dawahi	300	2	Geste	2	Magan	beherrscht	Feuer	5 min	0	Geist	15 m Uk	30 min	dämonisch		nicht								G												S	G					G	E	\N	\N	\N	\N
-Cheprus Sendbote	1500	4	Geste	4	Magan	beherrscht	Luft	30 min	0	Geist	1 Ws	1W6 h	dämonisch	Körperflüssigkeit des Opfers	nicht								S		S		S	G	S	S	S	S	S	G	G	S					S	E	\N	\N	\N	\N
 Austreibung des Guten	500	5	Wort	2	Magan	bewegt	Feuer	10 s	15 m	Körper	1 Ws	10 min	dämonisch		nicht											G	G	S	S	S	S	S	S	S	S							\N	\N	\N	\N	\N
-Serkefs Todesbote	5000	6	Geste	5	Magan	erschafft	Erde	30 min	0	Umgebung	1 Ws	1W6 h	dämonisch	Haare oder Nägel des Opfers	nicht								S		S		S	S	G	G	S	S	G	S	G	S					S	E	G	\N	\N	\N
 Sadik es-Sidiki	400	4	Geste	2	Luft	beherrscht	Luft	10 min	0	Geist	15 m Uk	1 h	göttlich		nicht								A												S	A					S	E	G	\N	\N	\N
 Dau ed-Din	2500	6	Geste	5	Metall	zerstört	Magan	10 min	0	Körper	15 m Uk	-	göttlich		nicht																				S						S	E	G	\N	\N	\N
 Al-Ghussat	2000	6	Geste	4	Eis	beherrscht	Magan	5 min	0	Geist	15 m Uk	10 min	göttlich		nicht																				S						S	E	G	\N	\N	\N
-Macht über Mumien	4000	12	Wort	6	Magan	beherrscht	Magan	1 h	0	Körper	1 Ws	-	dämonisch	Mumie	nicht					S			A		G		G								S	A		G			S	E	\N	\N	\N	\N
 Bannsphäre, Blaue	300	2	Geste	2	Luft	beherrscht	Eis	20 s	0	Geist	3 m Uk	2 min	göttlich			Siegel				G	A	G	S	A	S	G	S	S	S	S	S	S	G	S	S	S		G	G		S	\N	\N	\N	\N	\N
 Bannsphäre, Goldene	300	2	Geste	2	Metall	zerstört	Magan	20 s	0	Umgebung	3 m Uk	2 min	göttlich							A	A	A	S	A	S	G	S	G	G	G	G	G	G	G	A	S		A			S	\N	\N	\N	\N	\N
 Schutzkreis gegen Dunebargen	160	#*2	Geste	2	Luft	beherrscht	Eis	1 h	0	Umgebung	var	24 h	dämonisch	mag Farbe, Kreide und Zutaten	nicht					G	A	A	A	A	A		A	A	A	A	A	A	A	A	A	A			A		A	\N	\N	Beschwörung	\N	\N
@@ -674,4 +658,20 @@ Lustsalz	80	1	Gedanke	1	Mangan	beherrscht	Wasser	1 s	500 m	Körper	1 Ws	 	dämonis
 Nebelsalz	60	1	Gedanke	1	Wasser	verwandelt	Luft	1 s	500 m	Umgebung	2m Uk	3 h	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	Zaubersalz	\N	\N
 Trockensalz	40	1	Gedanke	1	Feuer	bewegt	Wasser	1 s	500 m	Umgebung			dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	Zaubersalz	\N	\N
 Zucksalz	60	1	Gedanke	1	Mangan	beherrscht	Luft	1 s	500 m	Körper	1 Ws	2 min	dämonisch							A	A	A	S	A	A		A	A	A	A	A	A	A	A	A	S			G		S	H&D	\N	Zaubersalz	\N	\N
+Macht über Mumien	4000	12	Wort	6	Eis	verändert	Erde	1 h	0	Körper	1 Ws	-	dämonisch	Mumie	nicht					S			A		G		G								S	A		G			S	E	\N	\N	\N	\N
+Manifestation des Ka	15000	18	Geste	groß	Magan	erschafft	Erde	6 h	3 m	Geist	1 Ws	-	dämonisch	Wachsbad mit seltenen Essenzen	nicht					G	S	G	S				G	G	G	G	G	G	G	G	S	S		G			S	E	\N	\N	\N	\N
+Sandmeisterschaft	6000	9	Geste	6	Luft	bewegt	Erde	30 s	2 km	Umgebung	500m Uk	1 h	elementar	10g Sandwurmhaut							S		S	S	S		S	G	A	A	A	A	S	S	S	S					S	E	G		\N	\N
+Sa rauben	250	5	Geste	2	Eis	zerstört	Holz	1 s	0	Geist	1 Ws	-	schwarzmagisch		nicht						A		A				G								S	G						E	\N	\N	\N	\N
+Sa spenden	1500	4 vom Max	Geste	4	Holz	zerstört	Holz	30 min	0	Körper	1 Ws	-	göttlich		nicht									S				G	G	G	G	G	G	G	S							E	S	\N	\N	\N
+Seelenschock	2000	4	Geste	4	Holz	verändert	Luft	15 s	15 m	Geist	1 Ws	var	druidisch								G		S	G	S		S	S	S	S	S	S	S	S	S	S					S	E	S	\N	\N	\N
+Seelenraub	12000	18	Geste	groß	Magan	bewegt	Luft	30 min	0	Körper	bis 12 Ws	-	schwarzmagisch		nicht					G	S	A	A												S	G						E	\N	\N	\N	\N
+Blutwandlung	150	4	Geste	2	Wasser	verwandelt	Erde	10 min	0	Umgebung	-	-	dämonisch		nicht								G	S			G	S				S	S		S	G					G	E	G	\N	\N	\N
+Tausch des Ba	20000	18	Geste	groß	Magan	bewegt	Luft	3 h	15 m	Geist	2 Ws	-	dämonisch	Silberdraht	nicht					G	S	G	S				G	S	S	S	S	S	S	S	G	S		G			S	E	\N	\N	\N	\N
+Wasser spüren	100	1	Gedanke	1	Wasser	erkennt	Wasser	10 s	0	Körper	500 m Ke	10 s	elementar		nicht	Siegel					G		S	S	A			G			A	G	A	S	S	S			G		S	E	G	\N	\N	\N
+Wind des Todes	15000	18	Geste	groß	Feuer	zerstört	Wasser	30 s	0	Körper	100 m Ke	2 min	schwarzmagisch	Vulkansche, Wüstensand,Diamantstaub							S		A				G								S	G						E	\N	\N	\N	\N
+Blenden	2000	4	Geste	4	Feuer	erschafft	Feuer	1 s		Umgebung	9m Uk	1 min	göttlich		nicht	Runenstab					S		S		S	G	S	G	G	G	G	G	S	G	G	S			G		S	E	G	\N	\N	\N
+Cheprus Sendbote	1500	4	Geste	4	Magan	erschafft	Erde	30 min	0	Geist	1 Ws	1W6 h	göttlich	Körperflüssigkeit des Opfers	nicht								S		S		S	G	S	S	S	S	S	G	G	S					S	E	\N	\N	\N	\N
+Incheper schaffen	6000	18	Geste	6	Holz	verändert	Erde	6 h	0	Umgebung	1 Ob	-	druidisch	Statue	nicht					S		S			A			S	G	G	S	S	G	G				S				E	\N	\N	\N	\N
+Serkefs Todesbote	5000	6	Geste	5	Magan	erschafft	Erde	30 min	0	Umgebung	1 Ws	1W6 h	göttlich	Haare oder Nägel des Opfers	nicht								S		S		S	S	G	G	S	S	G	S	G	S					S	E	G	\N	\N	\N
+Sutechs Heer	600	12	Wort	3	Luft	beherrscht	Wasser	10 sec	2 km	Geist	4W6 Ws	30 min	göttlich								S		S	S	A		A	A			G			A	S	S					S	E	\N	\N	\N	\N
 \.

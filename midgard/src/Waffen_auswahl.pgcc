@@ -50,7 +50,8 @@ Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const string& typ, const string& ty
    char query[1024];
   exec sql end declare section;
    
-   string squery = "select fertigkeit, l.art, wert, lernpunkte, grundkenntnisse, \
+   string squery = "select fertigkeit, l.art, max(wert), min(lernpunkte),
+      grundkenntnisse, \
       coalesce(zusatz,''), coalesce(w.region,'') \
       from lernschema l, waffen w where ";
    if (typ_2!="") squery += " (typ = '"+typ+"' or typ = '"+typ_2+"') ";
@@ -60,7 +61,8 @@ Waffen_auswahl::Waffen_auswahl(midgard_CG* h,const string& typ, const string& ty
          (select verboten from pflicht_lernen where typ='"+werte.spezies+"' and verboten is not null) \
       and  grundkenntnisse not in  \
          (select verboten from pflicht_lernen where typ='"+werte.spezies+"' and verboten is not null) \
-      order by lernpunkte ";
+      group by fertigkeit, l.art, grundkenntnisse, zusatz, w.region
+      order by min(lernpunkte) ";
 
    strncpy(query,squery.c_str(),sizeof(query));
    Transaction tr;

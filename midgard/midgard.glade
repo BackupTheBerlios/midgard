@@ -2426,11 +2426,11 @@ speichern</label>
 		<class>GtkButton</class>
 		<child_name>Toolbar:button</child_name>
 		<name>button9</name>
-		<tooltip>Charakter laden</tooltip>
+		<tooltip>linke Maustaste: Charakter laden, rechte Maustaste: Charakter aus xml-Datei importieren</tooltip>
 		<signal>
-		  <name>clicked</name>
-		  <handler>on_laden_clicked</handler>
-		  <last_modification_time>Fri, 30 Mar 2001 19:46:16 GMT</last_modification_time>
+		  <name>button_release_event</name>
+		  <handler>on_laden_release_event</handler>
+		  <last_modification_time>Mon, 21 May 2001 19:02:36 GMT</last_modification_time>
 		</signal>
 		<label>Charakter
 laden</label>
@@ -15876,7 +15876,7 @@ Verlust</label>
       <name>label331</name>
       <label>Gtk und C++
 Unterstützung</label>
-      <justify>GTK_JUSTIFY_CENTER</justify>
+      <justify>GTK_JUSTIFY_LEFT</justify>
       <wrap>False</wrap>
       <xalign>0</xalign>
       <yalign>0.5</yalign>
@@ -16188,8 +16188,9 @@ Unterstützung</label>
     <widget>
       <class>GtkLabel</class>
       <name>label389</name>
-      <label>Sebastian Horstmann</label>
-      <justify>GTK_JUSTIFY_CENTER</justify>
+      <label>Sebastian Horstmann
+&amp; Malte Thoma</label>
+      <justify>GTK_JUSTIFY_LEFT</justify>
       <wrap>False</wrap>
       <xalign>0</xalign>
       <yalign>0.5</yalign>

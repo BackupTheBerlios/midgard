@@ -56,7 +56,7 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
    int db_fp;
    char db_voraussetzung[100];
    char db_region[10];
-   char query[1024];
+   char query[2048];
    char db_spezies[50];
   exec sql end declare section;
   strncpy(db_spezies,werte.spezies.c_str(),sizeof(db_spezies));
@@ -85,7 +85,7 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
    exec sql close fert_spezies;
 
    string squery = " select l.fertigkeit, art, wert, f.attribut, \
-             l.lernpunkte, pflicht_lernen.typ, \
+             min(l.lernpunkte), pflicht_lernen.typ, \
              coalesce(f.fp,0), coalesce(v.fertigkeit,'') \
       from fertigkeiten f, lernschema l, pflicht_lernen, \
          fertigkeiten_voraussetzung v \
@@ -97,9 +97,11 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
       and (f.fertigkeit = v.name ) \
       and l.typ=pflicht_lernen.typ \
       and l.fertigkeit=pflicht_lernen.pflicht \
+      group by l.fertigkeit, art, wert, f.attribut, pflicht_lernen.typ, \
+         f.fp, v.fertigkeit \
       union all \
       select l.fertigkeit, art, wert, f.attribut, \
-             l.lernpunkte, NULL, \
+             min(l.lernpunkte), NULL, \
              coalesce(f.fp,0), coalesce(v.fertigkeit,'') \
       from fertigkeiten f, lernschema l , \
          fertigkeiten_voraussetzung v \
@@ -111,7 +113,8 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
       and (f.fertigkeit = v.name ) \
       and not exists (select true from pflicht_lernen where \
             pflicht=l.fertigkeit and l.typ=pflicht_lernen.typ) \
-      order by lernpunkte,1";
+      group by l.fertigkeit, art, wert, f.attribut, f.fp, v.fertigkeit \
+      order by min,1";
 
    strncpy(query,squery.c_str(),sizeof(query));
    exec sql prepare sfert from :query;

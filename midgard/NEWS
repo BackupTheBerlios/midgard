@@ -1,7 +1,12 @@
 ##########################################################################
 NEWS IN VERSION 0.5beta2
 - 4 Neue Bilder von Alessandro eingefügt.
-- xml - Dateiimport/export von Christof überarbeitet
+- xml-export von Christof überarbeitet
+- xml-import von Christof fertiggestellt
+- Eschar überarbeitet (die offiziellen Angaben zu den Zaubersprüchen 
+                        habe ich eingearbeitet)
+- Beim Lernen von Doppelcharakterklassen (nur als Elf möglich) werden jetzt 
+   nur noch die günstigesten Lernbedingungen (Fertigkeiten & Waffen) angegeben.
 
 ##########################################################################
 NEWS IN VERSION 0.5beta1
