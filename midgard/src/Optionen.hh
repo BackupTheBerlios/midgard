@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.31 2002/09/18 09:09:36 thoma Exp $
+// $Id: Optionen.hh,v 1.32 2002/09/18 09:44:38 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -60,15 +60,18 @@ class Midgard_Optionen
                   {}};
 */
       struct st_OptionenCheck{OptionenCheckIndex index;std::string text;
-               MVC<bool> active; MVC_bool_Widget *checkbutton;
+               MVC<bool> active;
                const char * const *bild;
                MVC<int> wert; 
-               MVC_int_Widget *spin;
                st_OptionenCheck(OptionenCheckIndex i,std::string t,bool a,
                    const char * const * const b,int w=-1)
-                  :index(i),text(t),active(a),checkbutton(0),bild(b),
-                  wert(w),spin(0)
-                  {}};
+                  :index(i),text(t),active(a),bild(b),wert(w)
+                  {}
+               // this is only sensible for push_back!
+               st_OptionenCheck(const st_OptionenCheck &b)
+               	  : index(b.index), text(b.text), active(b.active.get_value()), 
+               	  	bild(b.bild), wert(b.wert.get_value()) {}
+              };
       struct st_Haus{HausIndex index;std::string text;const char * const *bild;bool active;
                st_Haus(HausIndex i,std::string t,const char * const *b,bool a)
                       :index(i),text(t),bild(b),active(a) {} };
