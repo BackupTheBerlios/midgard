@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Preise/>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Sulvahir" Zeitpunkt="Erschaffung" Grad="6"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Ma" Spezialgebiet="Adept der Erkenntnis" Überleben="Überleben Heimat" Stadt_Land="Land" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="61" Gw="84" Gs="90" Ko="85" In="31" Zt="96"/>
+  <abgeleiteteEigenschaften Au="27" pA="27" Wk="70" Sb="37" B="21"/>
+  <Erfolgswerte Abwehr="14" Zaubern="16" ZauberResistenz="13"/>
+  <Gesundheit LP="12" AP="32"/>
+  <Beschreibung Alter="23" Gestalt="normal" Gewicht="75" Größe="178" Stand="Volk" Herkunft="Alba" Glaube="druidisch"/>
+  <Vermögen GS="525"/>
+  <Steigern GFP="4508" AEP="34" KEP="24" ZEP="58" Basiswerte="1" benötigte_Tage="28">
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>TR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="0" Bezeichnung="Dolch"/>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
+   <Beruf Bezeichnung="Kerzenzieher"/>
+   <ang-Fertigkeit Bezeichnung="Wachgabe" Wert="6"/>
+   <Fertigkeit Bezeichnung="Geländelauf" Wert="12"/>
+   <Fertigkeit Bezeichnung="Himmelskunde" Wert="4"/>
+   <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="12"/>
+   <Fertigkeit Bezeichnung="Reiten" Wert="12" Praxispunkte="1"/>
+   <Fertigkeit Bezeichnung="Schlittenfahren" Wert="12"/>
+   <Fertigkeit Bezeichnung="Schwimmen" Wert="12"/>
+   <Fertigkeit Bezeichnung="Seilkunst" Wert="10"/>
+   <Fertigkeit Bezeichnung="Skifahren" Wert="10"/>
+   <Fertigkeit Bezeichnung="Zeichensprache" Wert="4"/>
+   <Waffe Bezeichnung="Dolch" Wert="11"/>
+   <Waffe Bezeichnung="Kurzschwert" Wert="6"/>
+   <Waffe Bezeichnung="Stoßspeer" Wert="4"/>
+   <Waffe Bezeichnung="Wurfspieß" Wert="4"/>
+   <Zauber Bezeichnung="Bannen von Zauberwerk"/>
+   <Zauber Bezeichnung="Erkennen von Leben"/>
+   <Zauber Bezeichnung="Feuerkugel"/>
+   <Zauber Bezeichnung="Hören der Geister"/>
+   <Zauber Bezeichnung="Hören von Fernem"/>
+   <Zauber Bezeichnung="Schlaf"/>
+   <Zauber Bezeichnung="Sehen in Dunkelheit"/>
+   <Zauber Bezeichnung="Sehen von Verborgenem"/>
+   <Zauber Bezeichnung="Stimmenwerfen"/>
+   <Zauber Bezeichnung="Wasseratmen"/>
+   <Zauber Bezeichnung="Zauberschlüssel"/>
+   <Grundkenntnis Bezeichnung="Wurfspieß"/>
+   <Grundkenntnis Bezeichnung="Spießwaffe"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Sprache Bezeichnung="Albisch" Wert="13"/>
+   <Sprache Bezeichnung="Eldalyn" Wert="4"/>
+   <Sprache Bezeichnung="Erainnisch" Wert="13"/>
+   <Sprache Bezeichnung="Nahuatlantisch" Wert="6"/>
+   <Sprache Bezeichnung="Twyneddisch" Wert="13"/>
+   <Sprache Bezeichnung="Waelska" Wert="10"/>
+   <Urschrift Bezeichnung="Twyneddisch" Wert="8"/>
+   <Urschrift Bezeichnung="Erainnisch" Wert="8"/>
+   <Urschrift Bezeichnung="Albisch" Wert="12"/>
+   <Optionen Name="Originalregeln" Wert="true"/>
+   <Optionen Name="NSC zulassen" Wert="false"/>
+  </Fertigkeiten>
+ </Midgard-Abenteurer>
+</MAGUS-data>

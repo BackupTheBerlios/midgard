@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Preise/>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Grimbald Harvelin" Zeitpunkt="Erschaffung" Grad="4"/>
+  <Typ Spezies="Halbling" Geschlecht="m" Abkürzung="Sp" Überleben="Überleben Heimat" Stadt_Land="Stadt" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="60" Gw="98" Gs="77" Ko="97" In="89" Zt="22"/>
+  <abgeleiteteEigenschaften Au="69" pA="34" Wk="93" Sb="14" B="12" SG="5"/>
+  <Erfolgswerte Abwehr="13" Zaubern="2" ZauberResistenz="12"/>
+  <Gesundheit LP="14" AP="20"/>
+  <Beschreibung Alter="20" Gestalt="breit" Gewicht="61" Größe="112" Stand="Volk" Herkunft="Halfdal" Glaube="Leomie"/>
+  <Vermögen GS="84"/>
+  <Steigern GFP="1790" AEP="56" EPproGFP="33" benötigte_Tage="260">
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>TR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="0" Bezeichnung="Dolch"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Werfen"/>
+   <Gegenstand Bezeichnung="Körper" Besonderheit="" sichtbar="true">
+    <Gegenstand Bezeichnung="Hose" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Hemd" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Gürtel" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Schuhe" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Rucksack" Besonderheit="Leder" sichtbar="true">
+     <Gegenstand Bezeichnung="Decke" Besonderheit="warm"/>
+     <Gegenstand Bezeichnung="Lederbeutel" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Bezeichnung="Geld" Besonderheit=""/>
+     <Gegenstand Bezeichnung="Dietriche und Nachschlüssel" Besonderheit="" sichtbar="true"/>
+    </Gegenstand>
+   </Gegenstand>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="10"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="10"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn"/>
+   <Beruf Bezeichnung="Schmuggler"/>
+   <ang-Fertigkeit Bezeichnung="Gute Reflexe" Wert="9"/>
+   <Fertigkeit Bezeichnung="Erste Hilfe" Wert="6"/>
+   <Fertigkeit Bezeichnung="Gaukeln" Wert="12"/>
+   <Fertigkeit Bezeichnung="Geländelauf" Wert="12"/>
+   <Fertigkeit Bezeichnung="Himmelskunde" Wert="5"/>
+   <Fertigkeit Bezeichnung="Klettern" Wert="12" Praxispunkte="1"/>
+   <Fertigkeit Bezeichnung="Laufen" Wert="5"/>
+   <Fertigkeit Bezeichnung="Sagenkunde" Wert="4"/>
+   <Fertigkeit Bezeichnung="Schleichen" Wert="11" Praxispunkte="1"/>
+   <Fertigkeit Bezeichnung="Schlösser öffnen" Wert="8" Praxispunkte="1"/>
+   <Fertigkeit Bezeichnung="Schwimmen" Wert="10"/>
+   <Fertigkeit Bezeichnung="Stehlen" Wert="8"/>
+   <Fertigkeit Bezeichnung="Steuern" Wert="10"/>
+   <Fertigkeit Bezeichnung="Suchen" Wert="6"/>
+   <Fertigkeit Bezeichnung="Tanzen" Wert="11"/>
+   <Fertigkeit Bezeichnung="Tarnen" Wert="11"/>
+   <Fertigkeit Bezeichnung="Verbergen" Wert="6"/>
+   <Waffe Bezeichnung="Dolch" Wert="11"/>
+   <Waffe Bezeichnung="Faustkampf" Wert="4"/>
+   <Waffe Bezeichnung="Werfen" Wert="8"/>
+   <Waffe Bezeichnung="waffenloser Kampf" Wert="7"/>
+   <Grundkenntnis Bezeichnung="Werfen"/>
+   <Grundkenntnis Bezeichnung="Kampf ohne Waffen"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Sprache Bezeichnung="Albisch" Wert="12"/>
+   <Sprache Bezeichnung="Comentang" Wert="5"/>
+   <Sprache Bezeichnung="Halftan" Wert="19"/>
+   <Optionen Name="Originalregeln" Wert="false"/>
+   <Optionen Name="NSC zulassen" Wert="false"/>
+  </Fertigkeiten>
+ </Midgard-Abenteurer>
+</MAGUS-data>
