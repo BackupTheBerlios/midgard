@@ -1,4 +1,4 @@
-// $Id: Gtk_OStream_TreeView.cc,v 1.2 2002/12/18 09:00:39 christof Exp $
+// $Id: Gtk_OStream_TreeView.cc,v 1.3 2002/12/18 17:54:57 christof Exp $
 /*  Gtk--addons: a collection of gtk-- addons
     Copyright (C) 2002  Adolf Petig GmbH. & Co. KG
     Developed by Christof Petig <christof.petig@wtal.de>
@@ -20,7 +20,89 @@
 
 #include "Gtk_OStream.h"
 #include <gtkmm/treeview.h>
+#include <gtkmm/liststore.h>
+#include <gtkmm/treeviewcolumn.h>
+
+static int get_ModelColumn(Gtk::TreeViewColumn *tvc);
 
 void Gtk::OStream::line_TreeView(const std::string &line)
-{
+{  Glib::RefPtr<TreeModel> r_model=handler_data.treeview.view->get_model();
+   Gtk::ListStore *store=dynamic_cast<Gtk::ListStore *>(&*r_model);
+   if (!store) 
+   {  std::cerr << "Model is not a ListStore ...\n";
+      return;
+   }
+   Glib::ListHandle<TreeViewColumn*> cols=handler_data.treeview.view->get_columns();
+   
+   std::string::size_type b=0,end=std::string::npos;
+   const unsigned linesize=line.size();
+   Glib::ListHandle<TreeViewColumn*>::const_iterator coli=cols.begin();
+   Gtk::TreeRow row = *store->append();
+   do
+   {  if (coli==cols.end()) break;
+      if (b>=linesize) break;
+      end=line.find('\t',b);
+      
+//      Glib::PropertyProxy_Base pb=coli->get_first_cell_renderer();
+      int column=get_ModelColumn(*coli);
+      if (column!=-1)
+         row.set_value(column, Glib::Value<Glib::ustring>(line.substr(b,end)));
+           
+//      set_value_impl
+//gtk_list_store_set_value(gobj(), const_cast<GtkTreeIter*>(row.gobj()),
+//            column, const_cast<GValue*>(value.gobj()));
+            
+      ++coli;
+      b=end+1;
+   } while(end!=std::string::npos);
 }
+
+// HACKERY !
+// there seems to be no decent way to get the model column 
+// of a treeview column's text attribute
+
+#include <gtk/gtktreeviewcolumn.h>
+
+namespace {
+// copied from gtktreeviewcolumn.c ...
+struct my_GtkTreeViewColumnCellInfo
+{
+  GtkCellRenderer *cell;
+  GSList *attributes;
+  // and more I don't care for
+};
+}
+
+// copied from gtk_tree_view_column_cell_set_cell_data
+static int get_ModelColumn(Gtk::TreeViewColumn *tvc)
+{  GtkTreeViewColumn *tree_column= tvc->gobj();
+   GList *cell_list;
+   GSList *list;
+
+   g_return_val_if_fail (GTK_IS_TREE_VIEW_COLUMN (tree_column), -1);
+   g_return_val_if_fail (tree_column->cell_list != NULL, -1);
+     
+  for (cell_list = tree_column->cell_list; cell_list; cell_list = cell_list->next)
+    {
+      struct my_GtkTreeViewColumnCellInfo *info = (my_GtkTreeViewColumnCellInfo *) cell_list->data;
+      list = info->attributes;
+      
+      while (list && list->next)
+	{ gint number=GPOINTER_TO_INT (list->next->data);
+	  const gchar *name=(const gchar *)list->data;
+	  if (name && !strcmp(name,"text")) return number;
+	  list = list->next->next;
+	}
+    }
+}
+
+
+// gtk_cell_renderer_text_get_property
+//      ->_property_renderable();
+      
+//      GtkCellRenderer *cr=coli->get_first_cell_renderer()->_property_renderable
+// gobj();
+//      Gtk::CellRendererText *crt=dynamic_cast<Gtk::CellRendererText*>(coli->get_first_cell_renderer());
+      
+//      Glib::Object *obj=cr->property_text().get_object();
+

@@ -17,7 +17,7 @@ noinst_HEADERS = green_minus.xpm red_plus.xpm
 libGtkmmAddons_a_SOURCES = Gtk_OStream_label.cc \
 		 Gtk_OStream_optionmenu.cc Gtk_OStream_stream.cc \
 		 SearchCombo.cc TeX.cc Gtk_OStream.cc \
-		 gtksearchcombo.c		 
+		 gtksearchcombo.c Gtk_OStream_TreeView.cc
 
 BUILT_SOURCES=SearchCombo.cc SearchCombo.h gtksearchcombo.c gtksearchcombo.h
 
