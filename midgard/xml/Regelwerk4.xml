@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.36 $">
+<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.37 $">
  <SteigernKosten>
   <Kosten Fertigkeit="Bewegung" Wert11="20" Wert12="20" Wert13="50" Wert14="50" Wert15="100" Wert16="200" Wert17="400" Wert18="800" Wert19="800" Wert20="800"/>
   <Kosten Fertigkeit="Lanzenstechen" Wert2="100" Wert3="100" Wert4="150" Wert5="150" Wert6="200" Wert7="200" Wert8="400"/>
@@ -11459,6 +11459,53 @@
    <Fertigkeit Name="Überleben im Wald" Faktor="0.5"/>
    <Fertigkeit Name="Überleben in der Steppe" Faktor="0.5"/>
    <Fertigkeit Name="Überleben in der Wüste" Faktor="0.5"/>
+  </Prototyp2>
+  <Prototyp2 Name="Schutz">
+   <Zauber Name="Abwenden von Blicken" Faktor="0.5"/>
+   <Zauber Name="Bruchbann" Faktor="0.5"/>
+   <Zauber Name="Dschinni-Auge" Faktor="0.5"/>
+   <Zauber Name="Dschinni-Ohr" Faktor="0.5"/>
+   <Zauber Name="Entgiften" Faktor="0.5"/>
+   <Zauber Name="Flammenkreis" Faktor="0.5"/>
+   <Zauber Name="Geistesschild" Faktor="0.5"/>
+   <Zauber Name="Goldener Panzer" Faktor="0.5"/>
+   <Zauber Name="Göttlicher Schutz vor Magie" Faktor="0.5"/>
+   <Zauber Name="Göttlicher Schutz vor dem Bösen" Faktor="0.5"/>
+   <Zauber Name="Heimstein" Faktor="0.5"/>
+   <Zauber Name="Hitzeschutz" Faktor="0.5"/>
+   <Zauber Name="Kälteschutz" Faktor="0.5"/>
+   <Zauber Name="Luftsphäre" Faktor="0.7"/>
+   <Zauber Name="Magischer Kreis des Bewachens" Faktor="0.5"/>
+   <Zauber Name="Magischer Kreis des Widerstehens" Faktor="0.5"/>
+   <Zauber Name="Magischer Kreis, klein" Faktor="0.5"/>
+   <Zauber Name="Marmorhaut" Faktor="0.5"/>
+   <Zauber Name="Netzschutz" Faktor="0.5"/>
+   <Zauber Name="Reinigen" Faktor="0.5"/>
+   <Zauber Name="Schildrune" Faktor="0.5"/>
+   <Zauber Name="Schutzgeist" Faktor="0.5"/>
+   <Zauber Name="Schutzgeste" Faktor="0.5"/>
+   <Zauber Name="Schutzkreis gegen Dunebargen" Faktor="0.5"/>
+   <Zauber Name="Schutzkreis gegen Dvergar" Faktor="0.5"/>
+   <Zauber Name="Schutzkreis gegen Dämonen" Faktor="0.5"/>
+   <Zauber Name="Schutzkreis gegen Elementarwesen" Faktor="0.5"/>
+   <Zauber Name="Schutzkreis gegen Geisterwesen" Faktor="0.5"/>
+   <Zauber Name="Schutzkreis gegen Hrimfolk" Faktor="0.5"/>
+   <Zauber Name="Schutzkreis gegen Hunar" Faktor="0.5"/>
+   <Zauber Name="Schutzkreis gegen Hyrrfolk" Faktor="0.5"/>
+   <Zauber Name="Schutzkreis gegen Jördfolk" Faktor="0.5"/>
+   <Zauber Name="Schutzkreis gegen Kaobargen" Faktor="0.5"/>
+   <Zauber Name="Schutzkreis gegen Untote" Faktor="0.5"/>
+   <Zauber Name="Schutzkreis gegen Vindfolk" Faktor="0.5"/>
+   <Zauber Name="Schutzkreis gegen Wisfolk" Faktor="0.5"/>
+   <Zauber Name="Schutzrune" Faktor="0.5"/>
+   <Zauber Name="Schwarze Zone" Faktor="0.5"/>
+   <Zauber Name="Stille" Faktor="0.6"/>
+   <Zauber Name="Umkehrschild" Faktor="0.5"/>
+   <Zauber Name="Ungeziefer bannen" Faktor="0.5"/>
+   <Zauber Name="Unsichtbarkeit" Faktor="0.7"/>
+   <Zauber Name="Warnung" Faktor="0.5"/>
+   <Zauber Name="Zauberschild" Faktor="0.5"/>
+   <Zauber Name="Zweite Haut" Faktor="0.5"/>
   </Prototyp2>
   <Prototyp2 Name="Soziales">
    <Fertigkeit Name="Ballspiel" Faktor="0.7"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="W" Name="Waeland" Titel="Waeland - Die Krieger des Nordens" Copyright="Olaf Möhle, Stephanie Lammers u.a." Jahr="1991-1997" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="9" MAGUS-Bild="7" CVS="$Revision: 1.13 $">
+<MAGUS-data Region="W" Name="Waeland" Titel="Waeland - Die Krieger des Nordens" Copyright="Olaf Möhle, Stephanie Lammers u.a." Jahr="1991-1997" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="9" MAGUS-Bild="7" CVS="$Revision: 1.14 $">
  <Fertigkeiten>
   <Fertigkeit Name="Lesen von Zauberrunen" Region="W" Anfangswert="12" Lernkosten="20" Erfolgswert="6" Attribut="In" Maximalwert="18" MaximalMitUnterweisung="15">
    <Grund Typ="De"/>
@@ -664,9 +664,7 @@
  </Fertigkeiten>
  <Berufe/>
  <Schriften>
-  <Schrift Name="Futhark" Region="W" Typ="Runen" Kosten="20">
-   <Variante Name="Futhark"/>
-  </Schrift>
+  <Schrift Name="Futhark" Region="W" Typ="Runen" Kosten="20"/>
  </Schriften>
  <Sprachen/>
  <Typen>
