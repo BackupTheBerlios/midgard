@@ -5,11 +5,13 @@
 %\usepackage[final]{epsfig}
 %\usepackage{array}
 \usepackage[pdftex]{graphicx}
+\usepackage[pdftex]{color}
 \usepackage{tabularx}
 \usepackage{times}
-\usepackage{pstricks}
+%\usepackage{pstricks}
 
-\newrgbcolor{mygray}{0.75 0.75 0.75}
+%\newrgbcolor{mygray}{0.75 0.75 0.75}
+\definecolor{mygray}{gray}{0.75}
 
 \pagestyle{empty}
 
