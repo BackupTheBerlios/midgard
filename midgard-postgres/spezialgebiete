@@ -3,7 +3,7 @@
 --
 DROP TABLE "spezialgebiete";
 --
--- TOC Entry ID 2 (OID 832930)
+-- TOC Entry ID 2 (OID 26101)
 --
 -- Name: spezialgebiete Type: TABLE Owner: thoma
 --
@@ -17,7 +17,7 @@ CREATE TABLE "spezialgebiete" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 832930) TABLE DATA spezialgebiete
+-- Data for TOC Entry ID 3 (OID 26101) TABLE DATA spezialgebiete
 --
 
 -- Disable triggers
@@ -40,8 +40,16 @@ Ma	13	Adept der göttlichen Ordnung	Metall	\N
 Ma	14	Adept des formbaren Chaos	Magan	\N
 Ma	15	Adept des Todes	Eis	\N
 eBe	0	Primär- und Sekundärelement	\N	\N
-eBe	1	Wasser Luft Wasser	Luft	\N
-eBe	2	Feuer Erde  Feuer	Erde	\N
+eBe	1	Eis Erde	Eis	Erde
+eBe	2	Erde Eis	Erde	Eis
+eBe	3	Eis Wasser	Eis	Wasser
+eBe	4	Wasser Eis	Wasser	Eis
+eBe	5	Erde Feuer	Erde	Feuer
+eBe	6	Feuer Erde	Feuer	Erde
+eBe	7	Feuer Luft	Feuer	Luft
+eBe	8	Luft Feuer	Luft	Feuer
+eBe	9	Luft Wasser	Luft	Wasser
+eBe	10	Wasser Luft	Wasser	Luft
 \.
 -- Enable triggers
 BEGIN TRANSACTION;

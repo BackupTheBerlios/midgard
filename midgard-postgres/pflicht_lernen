@@ -3,7 +3,7 @@
 --
 DROP TABLE "pflicht_lernen";
 --
--- TOC Entry ID 2 (OID 366611)
+-- TOC Entry ID 2 (OID 22173)
 --
 -- Name: pflicht_lernen Type: TABLE Owner: thoma
 --
@@ -14,7 +14,7 @@ CREATE TABLE "pflicht_lernen" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 366611) TABLE DATA pflicht_lernen
+-- Data for TOC Entry ID 3 (OID 22173) TABLE DATA pflicht_lernen
 --
 
 -- Disable triggers

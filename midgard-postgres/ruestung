@@ -3,7 +3,7 @@
 --
 DROP TABLE "ruestung";
 --
--- TOC Entry ID 2 (OID 366804)
+-- TOC Entry ID 2 (OID 22469)
 --
 -- Name: ruestung Type: TABLE Owner: thoma
 --
@@ -19,7 +19,7 @@ CREATE TABLE "ruestung" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 366804) TABLE DATA ruestung
+-- Data for TOC Entry ID 3 (OID 22469) TABLE DATA ruestung
 --
 
 -- Disable triggers

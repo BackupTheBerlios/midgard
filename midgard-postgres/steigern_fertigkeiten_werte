@@ -3,7 +3,7 @@
 --
 DROP TABLE "steigern_fertigkeiten_werte";
 --
--- TOC Entry ID 2 (OID 367147)
+-- TOC Entry ID 2 (OID 22814)
 --
 -- Name: steigern_fertigkeiten_werte Type: TABLE Owner: thoma
 --
@@ -42,7 +42,7 @@ CREATE TABLE "steigern_fertigkeiten_werte" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 367147) TABLE DATA steigern_fertigkeiten_werte
+-- Data for TOC Entry ID 3 (OID 22814) TABLE DATA steigern_fertigkeiten_werte
 --
 
 -- Disable triggers

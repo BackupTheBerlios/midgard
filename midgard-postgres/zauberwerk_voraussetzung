@@ -3,7 +3,7 @@
 --
 DROP TABLE "zauberwerk_voraussetzung";
 --
--- TOC Entry ID 2 (OID 371217)
+-- TOC Entry ID 2 (OID 28704)
 --
 -- Name: zauberwerk_voraussetzung Type: TABLE Owner: thoma
 --
@@ -15,7 +15,7 @@ CREATE TABLE "zauberwerk_voraussetzung" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 371217) TABLE DATA zauberwerk_voraussetzung
+-- Data for TOC Entry ID 3 (OID 28704) TABLE DATA zauberwerk_voraussetzung
 --
 
 -- Disable triggers
@@ -68,6 +68,8 @@ Talisman verzaubern	Magischer Kreis des Widerstehens	or
 Talisman verzaubern	Göttlicher Schutz vor Magie	or
 Binden	Thaumatographie	\N
 Schamanentrommel herstellen	Geisterlauf	\N
+Waffen verzaubern	Binden	and
+Waffen verzaubern	Zauberschmiede	\N
 \.
 -- Enable triggers
 BEGIN TRANSACTION;

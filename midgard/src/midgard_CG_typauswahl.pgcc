@@ -28,20 +28,23 @@ void midgard_CG::fill_typauswahl()
    char db_typ[50];
    char db_region[10];
    char db_spezies[50];
+   int db_typnr, db_tanz;
   exec sql end declare section;
+  exec sql select count(typnr) into :db_tanz from typen;
+  typen_vector.resize(db_tanz);
   Transaction tr;
   if (werte.spezies!="Mensch")
    {
      strncpy(db_spezies,werte.spezies.c_str(),sizeof(db_spezies));
      exec sql declare ein cursor for 
-       select t.typl,coalesce(t.region,'') from typen t, spezies_typen st
-       where t.typs = st.typen and st.spezies = :db_spezies order by typl;
+       select t.typl,t.typnr,coalesce(t.region,'') from typen t, spezies_typen st
+       where t.typs = st.typen and st.spezies = :db_spezies order by typnr;
      exec sql open ein;
    }
   else
    {   
      exec sql declare einM cursor for 
-      select typl,coalesce(region,'') from typen order by typl ;
+      select typl,typnr,coalesce(region,'') from typen order by typnr ;
      exec sql open einM;
    }
   SQLerror::test(__FILELINE__);
@@ -51,14 +54,14 @@ void midgard_CG::fill_typauswahl()
   while (true)
    {
       if (werte.spezies!="Mensch")
-         exec sql fetch ein into :db_typ, :db_region;
+         exec sql fetch ein into :db_typ, :db_typnr, :db_region;
       else
-         exec sql fetch einM into :db_typ, :db_region;
+         exec sql fetch einM into :db_typ, :db_typnr, :db_region;
       SQLerror::test(__FILELINE__,100);
       if (sqlca.sqlcode) break;   
       if (region_check(db_region))
        {
-         typen_vector.push_back(db_typ);
+         typen_vector[db_typnr-1]=db_typ;
          _mi = manage(new Gtk::MenuItem(db_typ));
          _m->append(*_mi);
          _mi->show();

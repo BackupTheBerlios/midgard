@@ -3,7 +3,7 @@
 --
 DROP TABLE "berufe_stand";
 --
--- TOC Entry ID 2 (OID 363850)
+-- TOC Entry ID 2 (OID 19362)
 --
 -- Name: berufe_stand Type: TABLE Owner: thoma
 --
@@ -14,7 +14,7 @@ CREATE TABLE "berufe_stand" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 363850) TABLE DATA berufe_stand
+-- Data for TOC Entry ID 3 (OID 19362) TABLE DATA berufe_stand
 --
 
 -- Disable triggers

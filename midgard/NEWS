@@ -1,4 +1,26 @@
 ##########################################################################
+NEWS IN VERSION 0.4beta3
+- 'Waffen verzaubern' in die Datenbank eingetragen -> kann gelernt werden 
+   wenn die Voraussetzugen dafür erfüllt sind.
+- Nach dem mail-Austausch über das XML Format ist mir aufgefallen, daß es 
+   bisher sinnloserweise in der Datenbank redundante Informationen über 
+   die erzeugten
+   Charaktere gespeichert wurden (Charakterklasse, Abkürzung und Index). 
+   Daher habe ich mich entschlossen nur noch die 
+   Abkürzung eines Charakters in der Datenbank zu speichern. Da bedeutet, 
+   daß die Tabelle 'charaktere' jetzt ein neues Format bekommen hat. Die 
+   Spalten 'typ_l' und 'typ_i' werden ab jetzt nicht mehr benötigt.
+   Dank Christofs Bemühungen um die Datenbankinstallation braucht sich aber 
+   keiner um seine alten Charaktere zu sorgen. Die alten Datanbanken können
+   weiter verwendet werden. Aber wer möchte kann die oben erwähnten Spalten 
+   löschen oder 'make fullinstall' im Verzeichnis 'tabellen' ausführen, dann
+   sollte er vorher aber einen dump seiner Charaktere angelegt haben und 
+   diesen dann anschließend wieder einspielen. Außerdem ist es auf diese Art 
+   und Weise möglich neue Charakterklassen hinzuzufügen, ohne daß es zu 
+   Problemen mit schon abgespeichertten Charakteren kommt (wie in der 
+   Vergangenheit)
+
+##########################################################################
 NEWS IN VERSION 0.4beta2
 - Umstellung der Spezialgebiete von Magiern auf die Datanbankebene.
    dadurch wird es möglich auch Elemenetarbeschwörer ein Spezialgebiet

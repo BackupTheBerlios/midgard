@@ -3,7 +3,7 @@
 --
 DROP TABLE "zauberwerk";
 --
--- TOC Entry ID 2 (OID 371302)
+-- TOC Entry ID 2 (OID 28583)
 --
 -- Name: zauberwerk Type: TABLE Owner: thoma
 --
@@ -42,7 +42,7 @@ CREATE TABLE "zauberwerk" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 371302) TABLE DATA zauberwerk
+-- Data for TOC Entry ID 3 (OID 28583) TABLE DATA zauberwerk
 --
 
 -- Disable triggers
@@ -100,6 +100,9 @@ Talisman verzaubern	200	Talisman	4	1 Tag	100/200/300 GS	\N		A		A	A	A	\N	S	S	S	S	
 Schamanentrommel herstellen	1600		G			\N							\N									G		\N			G		\N
 Weihen	20000		G			\N							\N	S	S	S	S	S	S	S	S	S		\N			\N		\N
 Binden	10000		G			\N	A	A	A	A	A	S	\N	A	A	A	A	A	A	A	S	A	A	\N	A	G	\N	A	\N
+Waffen verzaubern	800		2	1 Monat	100 GS + 5*Waffenpreis	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Waffen verzaubern	1600		4	1 Monat	200 GS + 5*Waffenpreis	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
+Waffen verzaubern	3500		6	1 Monat	300 GS + 5*Waffenpreis	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	\N	\N	\N
 \.
 -- Enable triggers
 BEGIN TRANSACTION;

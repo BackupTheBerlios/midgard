@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.19 2001/04/21 07:21:21 thoma Exp $
+// $Id: midgard_CG.hh,v 1.20 2001/04/22 21:04:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -76,9 +76,12 @@ struct st_spezies_constraint{int st;int ge;int ko;int in;int zt;int sb;int au;
 struct st_lernpunkte{int beruf; int fertigkeiten; int waffen; int zauber;
       st_lernpunkte() : beruf(0),fertigkeiten(0),waffen(0),zauber(0) {}
       void clear(){*this=st_lernpunkte();} };
-struct styp{int nr;string l;string s;string z; string ausdauer; int stand;
-      int sb;
-   styp() : nr(0),stand(0) {} 
+//struct styp{int nr;string l;string s;string z; string ausdauer; int stand;
+//      int sb;
+//   styp() : nr(0),stand(0) {} 
+//   void clear() {*this=styp();} };
+struct styp{string l;string s;string z; string ausdauer; int stand; int sb;
+   styp() : stand(0) {} 
    void clear() {*this=styp();} };
 struct st_ausgewaehlte_fertigkeiten {string name; int erfolgswert; string attribut;
       st_ausgewaehlte_fertigkeiten(const string n,int e, const string a)
@@ -204,7 +207,8 @@ class midgard_CG : public midgard_CG_glade
         void on_button_geld_s_clicked();
         void on_button_ruestung_s_clicked();
         void on_button_waffen_s_clicked();
-        void get_typ();
+        void get_typ(int nr);
+        int  get_typ_nr();
         string ruestung(const string& mod);
         void on_waffen_clist_select_row(gint row, gint column, GdkEvent *event);   
         void on_waffen_clist_unselect_row(gint row, gint column, GdkEvent *event);
@@ -318,7 +322,7 @@ class midgard_CG : public midgard_CG_glade
         void show_alte_sprachen();
         void show_neue_sprachen();
         void sprachen_schrift();
-        void show_gtk();
+        void show_gtk(int tnr);
 
    public:
          midgard_CG();

@@ -3,7 +3,7 @@
 --
 DROP TABLE "fertigkeiten";
 --
--- TOC Entry ID 2 (OID 365074)
+-- TOC Entry ID 2 (OID 20586)
 --
 -- Name: fertigkeiten Type: TABLE Owner: thoma
 --
@@ -51,7 +51,7 @@ CREATE TABLE "fertigkeiten" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 365074) TABLE DATA fertigkeiten
+-- Data for TOC Entry ID 3 (OID 20586) TABLE DATA fertigkeiten
 --
 
 -- Disable triggers

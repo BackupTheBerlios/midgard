@@ -3,7 +3,7 @@
 --
 DROP TABLE "waffen_region_name";
 --
--- TOC Entry ID 2 (OID 371536)
+-- TOC Entry ID 2 (OID 23171)
 --
 -- Name: waffen_region_name Type: TABLE Owner: thoma
 --
@@ -15,7 +15,7 @@ CREATE TABLE "waffen_region_name" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 371536) TABLE DATA waffen_region_name
+-- Data for TOC Entry ID 3 (OID 23171) TABLE DATA waffen_region_name
 --
 
 -- Disable triggers

@@ -5943,7 +5943,7 @@ Praxispunkten</label>
 			  <top_attach>0</top_attach>
 			  <bottom_attach>1</bottom_attach>
 			  <xpad>20</xpad>
-			  <ypad>0</ypad>
+			  <ypad>2</ypad>
 			  <xexpand>False</xexpand>
 			  <yexpand>False</yexpand>
 			  <xshrink>False</xshrink>
@@ -5955,8 +5955,8 @@ Praxispunkten</label>
 			<widget>
 			  <class>GtkTable</class>
 			  <name>table61</name>
-			  <rows>3</rows>
-			  <columns>1</columns>
+			  <rows>2</rows>
+			  <columns>2</columns>
 			  <homogeneous>False</homogeneous>
 			  <row_spacing>0</row_spacing>
 			  <column_spacing>0</column_spacing>
@@ -5992,35 +5992,6 @@ Praxispunkten</label>
 
 			  <widget>
 			    <class>GtkCheckButton</class>
-			    <name>checkbutton_alle_zauber</name>
-			    <cxx_visibility>protected</cxx_visibility>
-			    <can_focus>True</can_focus>
-			    <signal>
-			      <name>toggled</name>
-			      <handler>on_checkbutton_alle_zauber_toggled</handler>
-			      <last_modification_time>Fri, 20 Apr 2001 17:13:33 GMT</last_modification_time>
-			    </signal>
-			    <label>Alle Zauber anzeigen</label>
-			    <active>False</active>
-			    <draw_indicator>True</draw_indicator>
-			    <child>
-			      <left_attach>0</left_attach>
-			      <right_attach>1</right_attach>
-			      <top_attach>2</top_attach>
-			      <bottom_attach>3</bottom_attach>
-			      <xpad>0</xpad>
-			      <ypad>0</ypad>
-			      <xexpand>False</xexpand>
-			      <yexpand>False</yexpand>
-			      <xshrink>False</xshrink>
-			      <yshrink>False</yshrink>
-			      <xfill>True</xfill>
-			      <yfill>False</yfill>
-			    </child>
-			  </widget>
-
-			  <widget>
-			    <class>GtkCheckButton</class>
 			    <name>checkbutton_zaubersalze</name>
 			    <cxx_visibility>protected</cxx_visibility>
 			    <can_focus>True</can_focus>
@@ -6035,6 +6006,35 @@ Praxispunkten</label>
 			    <child>
 			      <left_attach>0</left_attach>
 			      <right_attach>1</right_attach>
+			      <top_attach>0</top_attach>
+			      <bottom_attach>1</bottom_attach>
+			      <xpad>0</xpad>
+			      <ypad>0</ypad>
+			      <xexpand>False</xexpand>
+			      <yexpand>False</yexpand>
+			      <xshrink>False</xshrink>
+			      <yshrink>False</yshrink>
+			      <xfill>True</xfill>
+			      <yfill>False</yfill>
+			    </child>
+			  </widget>
+
+			  <widget>
+			    <class>GtkCheckButton</class>
+			    <name>checkbutton_alle_zauber</name>
+			    <cxx_visibility>protected</cxx_visibility>
+			    <can_focus>True</can_focus>
+			    <signal>
+			      <name>toggled</name>
+			      <handler>on_checkbutton_alle_zauber_toggled</handler>
+			      <last_modification_time>Fri, 20 Apr 2001 17:13:33 GMT</last_modification_time>
+			    </signal>
+			    <label>Alle Zauber anzeigen</label>
+			    <active>False</active>
+			    <draw_indicator>True</draw_indicator>
+			    <child>
+			      <left_attach>1</left_attach>
+			      <right_attach>2</right_attach>
 			      <top_attach>0</top_attach>
 			      <bottom_attach>1</bottom_attach>
 			      <xpad>0</xpad>

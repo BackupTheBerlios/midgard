@@ -3,7 +3,7 @@
 --
 DROP TABLE "waffen_steigern";
 --
--- TOC Entry ID 2 (OID 367627)
+-- TOC Entry ID 2 (OID 23308)
 --
 -- Name: waffen_steigern Type: TABLE Owner: thoma
 --
@@ -33,7 +33,7 @@ CREATE TABLE "waffen_steigern" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 367627) TABLE DATA waffen_steigern
+-- Data for TOC Entry ID 3 (OID 23308) TABLE DATA waffen_steigern
 --
 
 -- Disable triggers

@@ -3,7 +3,7 @@
 --
 DROP TABLE "zauber_beschreibung";
 --
--- TOC Entry ID 2 (OID 367686)
+-- TOC Entry ID 2 (OID 23367)
 --
 -- Name: zauber_beschreibung Type: TABLE Owner: thoma
 --
@@ -14,7 +14,7 @@ CREATE TABLE "zauber_beschreibung" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 367686) TABLE DATA zauber_beschreibung
+-- Data for TOC Entry ID 3 (OID 23367) TABLE DATA zauber_beschreibung
 --
 
 -- Disable triggers

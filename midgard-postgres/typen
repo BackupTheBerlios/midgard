@@ -3,12 +3,13 @@
 --
 DROP TABLE "typen";
 --
--- TOC Entry ID 2 (OID 367260)
+-- TOC Entry ID 2 (OID 22927)
 --
 -- Name: typen Type: TABLE Owner: thoma
 --
 
 CREATE TABLE "typen" (
+	"typnr" integer,
 	"typs" text,
 	"typl" text,
 	"typz" text,
@@ -20,43 +21,43 @@ CREATE TABLE "typen" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 367260) TABLE DATA typen
+-- Data for TOC Entry ID 3 (OID 22927) TABLE DATA typen
 --
 
 -- Disable triggers
 UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'typen';
 COPY "typen"  FROM stdin;
-PT	Priester, Tod	z	z	20	0	4	\N
-Sc	Schamane	z	z	0	0	1	\N
-Th	Thaumaturge	z	z	0	0	1	\N
-dBe	Beschwörer, Dämonen	z	z	20	20	4	\N
-eBe	Beschwörer, Elementare	z	z	20	20	4	\N
-Dr	Druide	z	z	0	20	1	\N
-PH	Priester, Herrschaft	z	z	20	0	1	\N
-BN	Barbar, Nordland	n	k	0	0	2	\N
-BS	Barbar, Steppe	n	k	0	0	2	\N
-BW	Barbar, Waldland	n	k	0	0	4	\N
-Ba	Barde	j	ak	20	0	1	\N
-Gl	Glücksritter	n	ak	0	0	3	\N
-Hä	Händler	n	ak	-10	0	2	\N
-Kr	Krieger	n	k	0	0	3	\N
-Ord	Ordeskrieger	j	ak	0	0	3	\N
-Se	Seefahrer	n	ak	0	0	2	\N
-Sö	Söldner	n	k	0	0	3	\N
-Wa	Waldläufer	n	k	-10	0	1	\N
-Ass	Assassine	n	ak	0	20	1	\N
-Sp	Spitzbube	n	ak	-20	-20	1	\N
-Hl	Heiler	z	z	0	0	4	\N
-wHx	Hexer, weiß	z	z	0	0	4	\N
-gHx	Hexer, grau	z	z	0	0	4	\N
-sHx	Hexer, schwarz	z	z	0	0	4	\N
-Ma	Magier	z	z	0	0	4	\N
-PF	Priester, Fruchtbarkeit	z	z	20	0	4	\N
-PW	Priester, Weisheit	z	z	20	0	4	\N
-PM	Priester, Meer	z	z	20	0	1	\N
-PK	Priester, Krieg	z	z	20	0	1	\N
-Ny	Ninya	n	ak	0	20	1	K
-Kd	KiDoka	n	k	0	0	1	K
+27	PT	Priester, Tod	z	z	20	0	4	\N
+28	Sc	Schamane	z	z	0	0	1	\N
+29	Th	Thaumaturge	z	z	0	0	1	\N
+15	dBe	Beschwörer, Dämonen	z	z	20	20	4	\N
+14	eBe	Beschwörer, Elementare	z	z	20	20	4	\N
+16	Dr	Druide	z	z	0	20	1	\N
+22	PH	Priester, Herrschaft	z	z	20	0	1	\N
+2	BN	Barbar, Nordland	n	k	0	0	2	\N
+3	BS	Barbar, Steppe	n	k	0	0	2	\N
+4	BW	Barbar, Waldland	n	k	0	0	4	\N
+5	Ba	Barde	j	ak	20	0	1	\N
+6	Gl	Glücksritter	n	ak	0	0	3	\N
+7	Hä	Händler	n	ak	-10	0	2	\N
+8	Kr	Krieger	n	k	0	0	3	\N
+9	Ord	Ordeskrieger	j	ak	0	0	3	\N
+10	Se	Seefahrer	n	ak	0	0	2	\N
+11	Sö	Söldner	n	k	0	0	3	\N
+13	Wa	Waldläufer	n	k	-10	0	1	\N
+1	Ass	Assassine	n	ak	0	20	1	\N
+12	Sp	Spitzbube	n	ak	-20	-20	1	\N
+17	Hl	Heiler	z	z	0	0	4	\N
+20	wHx	Hexer, weiß	z	z	0	0	4	\N
+18	gHx	Hexer, grau	z	z	0	0	4	\N
+19	sHx	Hexer, schwarz	z	z	0	0	4	\N
+21	Ma	Magier	z	z	0	0	4	\N
+23	PF	Priester, Fruchtbarkeit	z	z	20	0	4	\N
+24	PW	Priester, Weisheit	z	z	20	0	4	\N
+25	PM	Priester, Meer	z	z	20	0	1	\N
+26	PK	Priester, Krieg	z	z	20	0	1	\N
+30	Ny	Ninya	n	ak	0	20	1	K
+31	Kd	KiDoka	n	k	0	0	1	K
 \.
 -- Enable triggers
 BEGIN TRANSACTION;

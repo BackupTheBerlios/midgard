@@ -3,7 +3,7 @@
 --
 DROP TABLE "waffen_grund";
 --
--- TOC Entry ID 2 (OID 367441)
+-- TOC Entry ID 2 (OID 23108)
 --
 -- Name: waffen_grund Type: TABLE Owner: thoma
 --
@@ -14,7 +14,7 @@ CREATE TABLE "waffen_grund" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 367441) TABLE DATA waffen_grund
+-- Data for TOC Entry ID 3 (OID 23108) TABLE DATA waffen_grund
 --
 
 -- Disable triggers

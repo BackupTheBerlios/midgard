@@ -3,7 +3,7 @@
 --
 DROP TABLE "berufe_vorteile";
 --
--- TOC Entry ID 2 (OID 364565)
+-- TOC Entry ID 2 (OID 20077)
 --
 -- Name: berufe_vorteile Type: TABLE Owner: thoma
 --
@@ -14,7 +14,7 @@ CREATE TABLE "berufe_vorteile" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 364565) TABLE DATA berufe_vorteile
+-- Data for TOC Entry ID 3 (OID 20077) TABLE DATA berufe_vorteile
 --
 
 -- Disable triggers

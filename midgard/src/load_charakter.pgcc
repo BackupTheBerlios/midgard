@@ -43,10 +43,8 @@ void midgard_CG::load_charakter()
 {
    // Werte
    exec sql begin declare section;
-      char db_typ_l[30]     ;
       char db_beschreibung[102400] ;
       char db_typ_s[5]     ;
-      int db_typ_i     ;
       int db_st = werte.st;      
       int db_ge = werte.ge;      
       int db_ko = werte.ko;      
@@ -111,9 +109,7 @@ void midgard_CG::load_charakter()
          charakter_name ,
          beschreibung   ,
          version        ,
-         typ_l          ,
          typ_s          ,
-         typ_i          ,
          spieler_name   ,
          st             ,
          ge             ,
@@ -172,9 +168,9 @@ void midgard_CG::load_charakter()
        :db_name_ch  , 
        :db_beschreibung,
        :db_version  ,
-       :db_typ_l      ,
+--       :db_typ_l      ,
        :db_typ_s      ,
-       :db_typ_i      ,
+--       :db_typ_i      ,
        :db_name_sp  , 
        :db_st       ,
        :db_ge       ,
@@ -285,7 +281,6 @@ void midgard_CG::load_charakter()
    exec sql begin declare section;
       char db_fertigkeit[50];
       int db_wert;
-//      char db_wert_str[20];
       char db_art[20];
    exec sql end declare section;
 
@@ -517,9 +512,10 @@ void midgard_CG::load_charakter()
    exec sql close r_ein;
    tr.close();
 
-   typ.l = db_typ_l;
+//   typ.l = db_typ_l;
    typ.s = db_typ_s;
-   typ.nr = db_typ_i;
+//   typ.nr = db_typ_i;
+   get_typ(-1);
    if (typ.z=="n" || typ.s == "Ord") label_spezialwaffe->set_text("Spezialwaffe durch \nselektieren auswählen");
    else label_spezialwaffe->set_text("");
 
@@ -531,8 +527,7 @@ void midgard_CG::load_charakter()
    exec sql select nr into :db_nr from spezies where spezies = :db_spezies;
    midgard_CG::fill_typauswahl();
    optionmenu_spezies->set_history(db_nr); // Spezies
-   midgard_CG::get_typ();
-   midgard_CG::show_gtk();
+   midgard_CG::show_gtk(get_typ_nr());
 
    midgard_CG::get_spezial_from_spezialgebiet();
 }

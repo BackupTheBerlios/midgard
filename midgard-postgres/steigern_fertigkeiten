@@ -3,7 +3,7 @@
 --
 DROP TABLE "steigern_fertigkeiten";
 --
--- TOC Entry ID 2 (OID 367000)
+-- TOC Entry ID 2 (OID 22665)
 --
 -- Name: steigern_fertigkeiten Type: TABLE Owner: thoma
 --
@@ -14,7 +14,7 @@ CREATE TABLE "steigern_fertigkeiten" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 367000) TABLE DATA steigern_fertigkeiten
+-- Data for TOC Entry ID 3 (OID 22665) TABLE DATA steigern_fertigkeiten
 --
 
 -- Disable triggers

@@ -3,7 +3,7 @@
 --
 DROP TABLE "ausnahmen";
 --
--- TOC Entry ID 2 (OID 363792)
+-- TOC Entry ID 2 (OID 19304)
 --
 -- Name: ausnahmen Type: TABLE Owner: thoma
 --
@@ -18,7 +18,7 @@ CREATE TABLE "ausnahmen" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 363792) TABLE DATA ausnahmen
+-- Data for TOC Entry ID 3 (OID 19304) TABLE DATA ausnahmen
 --
 
 -- Disable triggers

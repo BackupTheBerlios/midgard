@@ -3,7 +3,7 @@
 --
 DROP TABLE "charaktere_fertigkeiten";
 --
--- TOC Entry ID 2 (OID 319553)
+-- TOC Entry ID 2 (OID 23728)
 --
 -- Name: charaktere_fertigkeiten Type: TABLE Owner: thoma
 --

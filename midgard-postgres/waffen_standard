@@ -3,7 +3,7 @@
 --
 DROP TABLE "waffen_standard";
 --
--- TOC Entry ID 2 (OID 367556)
+-- TOC Entry ID 2 (OID 23237)
 --
 -- Name: waffen_standard Type: TABLE Owner: thoma
 --
@@ -43,7 +43,7 @@ CREATE TABLE "waffen_standard" (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 367556) TABLE DATA waffen_standard
+-- Data for TOC Entry ID 3 (OID 23237) TABLE DATA waffen_standard
 --
 
 -- Disable triggers

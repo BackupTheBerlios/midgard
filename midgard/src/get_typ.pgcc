@@ -20,18 +20,27 @@
 #include <Aux/SQLerror.h>
 
 
-void midgard_CG::get_typ()
+void midgard_CG::get_typ(int nr)
 {
-// int ityp = int(typauswahl->get_menu()->get_active()->get_user_data()); 
-//cout << "TYP = " << ityp << "\t"<<typen_vector[ityp]<<"\n"; 
  exec sql begin declare section ;
   char db_typs[50], db_typl[50], db_typz[5], db_ausdauer[5];
   int  db_stand, db_sb;
+  int db_typnr=nr+1;
  exec sql end declare section ; 
- strncpy(db_typl,typen_vector[typ.nr].c_str(),sizeof(db_typs));
-
- exec sql select typs, typz, ausdauer, stand, sb into :db_typs, :db_typz, :db_ausdauer, :db_stand, :db_sb
-   from typen where typl = :db_typl;
+ if (nr!=-1)
+   {
+    exec sql select typs, typl, typz, ausdauer, stand, sb 
+      into :db_typs, :db_typl, :db_typz, :db_ausdauer, :db_stand, :db_sb
+      from typen where typnr = :db_typnr;
+   }
+ else if (nr==-1)
+   {
+    strncpy(db_typs,typ.s.c_str(),sizeof(db_typs));
+    exec sql select typs, typl, typz, ausdauer, stand, sb 
+      into :db_typs, :db_typl, :db_typz, :db_ausdauer, :db_stand, :db_sb
+      from typen where typs = :db_typs;
+   }
+ else abort();
  SQLerror::test(__FILELINE__); 
 
  typ.s = db_typs;
@@ -40,4 +49,16 @@ void midgard_CG::get_typ()
  typ.ausdauer = db_ausdauer;
  typ.stand = db_stand;
  typ.sb = db_sb;
+}
+
+int midgard_CG::get_typ_nr()
+{
+ exec sql begin declare section ;
+  char db_typs[5];
+  int db_typnr;
+ exec sql end declare section ; 
+ strncpy(db_typs,typ.s.c_str(),sizeof(db_typs));
+ exec sql select typnr into :db_typnr from typen where typs = :db_typs;
+ SQLerror::test(__FILELINE__); 
+ return db_typnr-1; 
 }
