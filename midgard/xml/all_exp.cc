@@ -1,4 +1,4 @@
-// $Id: all_exp.cc,v 1.15 2002/06/24 07:46:23 christof Exp $
+// $Id: all_exp.cc,v 1.16 2002/06/27 07:37:18 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -26,11 +26,11 @@
 #include "TagStream.hh"
 
 int main(int argc, char *argv[])
-{  Petig::PrintUncaughtExceptions();
+{  ManuProC::PrintUncaughtExceptions();
    try{
-      Petig::Connection conn;
+      ManuProC::Connection conn;
       conn.setDbase("midgard");
-      Petig::dbconnect(conn);
+      ManuProC::dbconnect(conn);
 
    if (argc>1) region=argv[1];
    
@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
    if (!region.empty()) arkanum_speichern(data);
    kido_speichern(data);
       ts.write(std::cout);
-   Petig::dbdisconnect();
+   ManuProC::dbdisconnect();
    } catch (SQLerror &e)
    {  std::cerr << e << '\n';
    }

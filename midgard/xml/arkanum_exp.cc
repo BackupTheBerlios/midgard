@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.cc,v 1.15 2002/06/24 07:46:23 christof Exp $
+// $Id: arkanum_exp.cc,v 1.16 2002/06/27 07:37:18 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -25,9 +25,9 @@
 int main(int argc, char *argv[])
 {  
    try{
-      Petig::Connection conn;
+      ManuProC::Connection conn;
       conn.setDbase("midgard");
-      Petig::dbconnect(conn);
+      ManuProC::dbconnect(conn);
       
       if (argc>1) region=argv[1];
 
@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
       region_tags(data,region.empty()?std::string("Arkanum"):region);
       arkanum_speichern(data);
       ts.write(std::cout);
-   Petig::dbdisconnect();
+   ManuProC::dbdisconnect();
    } catch (SQLerror &e)
    {  std::cerr << e << '\n';
    }
