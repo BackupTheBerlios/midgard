@@ -19,6 +19,7 @@
 #include "midgard_CG.hh"
 #include "Window_Erfahrungspunkte.hh"
 #include <gtk--/adjustment.h>
+#include <Aux/itos.h>
 
 bool steigern;
 

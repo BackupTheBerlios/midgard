@@ -20,6 +20,7 @@
 #include "WindowInfo.hh"
 //#include "class_kido.hh"
 #include "class_SimpleTree.hh"
+#include "KiDo.hh"
 
 void midgard_CG::on_kido_laden_clicked()
 {   

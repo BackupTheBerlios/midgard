@@ -20,6 +20,8 @@
 #include "WindowInfo.hh"
 #include "class_SimpleTree.hh"
 #include "Zauber.hh"
+#include "Zauberwerk.hh"
+#include <Aux/itos.h>
 
 void midgard_CG::on_zauber_laden_clicked()
 {   
