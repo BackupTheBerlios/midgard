@@ -1,155 +1,1072 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <MidgardCG-data>
-  <Fertigkeit Name="Alchemie" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2"/>
-  <Fertigkeit Name="Athletik" Lernpunkte="3" Anfangswert="1" Lernkosten="50" Erfolgswert="1"/>
-  <Fertigkeit Name="Balancieren" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
-  <Fertigkeit Name="Ballista bedienen" Lernpunkte="8" Lernkosten="100"/>
-  <Fertigkeit Name="Beidhändiger Kampf" Lernpunkte="6" Anfangswert="-4" Lernkosten="1500" Erfolgswert="-4"/>
-  <Fertigkeit Name="Beredsamkeit" Lernpunkte="5" Anfangswert="8" Lernkosten="200" Erfolgswert="6" Attribut="pA"/>
-  <Fertigkeit Name="Beschatten" Lernpunkte="4" Anfangswert="8" Lernkosten="300" Erfolgswert="6" Attribut="RW"/>
-  <Fertigkeit Name="Bogen vom Streitwagen" Lernpunkte="8" Lernkosten="200"/>
-  <Fertigkeit Name="Bogen zu Pferd" Lernpunkte="8" Lernkosten="200"/>
-  <Fertigkeit Name="Erste Hilfe" Lernpunkte="4" Lernkosten="100"/>
-  <Fertigkeit Name="Fallen entdecken" Lernpunkte="4" Anfangswert="4" Lernkosten="400" Erfolgswert="2" Attribut="In"/>
-  <Fertigkeit Name="Fallen entschärfen" Lernpunkte="2" Anfangswert="4" Lernkosten="400" Erfolgswert="2" Attribut="Ge"/>
-  <Fertigkeit Name="Fallenmechanik" Lernpunkte="2" Anfangswert="4" Lernkosten="400" Erfolgswert="2" Attribut="Ge"/>
-  <Fertigkeit Name="Fallenstellen" Lernpunkte="3" Anfangswert="4" Lernkosten="200" Erfolgswert="2" Attribut="Ge"/>
-  <Fertigkeit Name="Faustkampf" Lernpunkte="5" Lernkosten="500"/>
-  <Fertigkeit Name="Fechten" Lernpunkte="4" Anfangswert="4" Lernkosten="800" Erfolgswert="4"/>
-  <Fertigkeit Name="Fechten tevarischer Stil" Lernpunkte="5" Lernkosten="400"/>
-  <Fertigkeit Name="Gassenwissen" Lernpunkte="3" Anfangswert="4" Lernkosten="200" Erfolgswert="2" Attribut="In"/>
-  <Fertigkeit Name="Geheimmechanismen öffnen" Lernpunkte="4" Anfangswert="4" Lernkosten="400" Erfolgswert="2" Attribut="In"/>
-  <Fertigkeit Name="Geheimzeichen" Lernpunkte="3" Lernkosten="50"/>
-  <Fertigkeit Name="Geländelauf" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="RW"/>
-  <Fertigkeit Name="Geschichten erzählen" Lernpunkte="4" Anfangswert="8" Lernkosten="150" Erfolgswert="8" Attribut="In"/>
-  <Fertigkeit Name="Geschäftstüchtigkeit" Lernpunkte="9" Lernkosten="4000"/>
-  <Fertigkeit Name="Giftmischen" Lernpunkte="5" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In"/>
-  <Fertigkeit Name="Glücksspiel" Lernpunkte="4" Anfangswert="15" Lernkosten="200" Erfolgswert="15" Attribut="Ge"/>
-  <Fertigkeit Name="Himmelskunde" Lernpunkte="3" Lernkosten="50"/>
-  <Fertigkeit Name="Kampf in Schlachtreihe" Lernpunkte="2" Lernkosten="50"/>
-  <Fertigkeit Name="Kampf in Vollrüstung" Lernpunkte="8" Lernkosten="4000"/>
-  <Fertigkeit Name="Kampf vom Streitwagen" Lernpunkte="8" Lernkosten="200"/>
-  <Fertigkeit Name="Kampf zu Pferd" Lernpunkte="8" Lernkosten="200"/>
-  <Fertigkeit Name="Kampftaktik" Lernpunkte="8" Anfangswert="1" Lernkosten="200" Erfolgswert="1"/>
-  <Fertigkeit Name="Kanufahren" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
-  <Fertigkeit Name="Katapult bedienen" Lernpunkte="8" Lernkosten="100"/>
-  <Fertigkeit Name="Klettern" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
-  <Fertigkeit Name="Kräuterkunde" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In"/>
-  <Fertigkeit Name="Körperbemalung" Lernpunkte="8" Anfangswert="1" Lernkosten="400" Erfolgswert="1"/>
-  <Fertigkeit Name="Laufen" Lernpunkte="3" Anfangswert="2" Lernkosten="50" Erfolgswert="2"/>
-  <Fertigkeit Name="Lesen von Zauberschrift" Lernpunkte="8" Lernkosten="60"/>
-  <Fertigkeit Name="Lesen/Schreiben" Lernpunkte="3" Lernkosten="100"/>
-  <Fertigkeit Name="Lippenlesen" Lernpunkte="3" Anfangswert="4" Lernkosten="250" Erfolgswert="2" Attribut="In"/>
-  <Fertigkeit Name="Menschenkenntnis" Lernpunkte="3" Anfangswert="4" Lernkosten="250" Erfolgswert="2" Attribut="In"/>
-  <Fertigkeit Name="Meucheln" Lernpunkte="5" Anfangswert="8" Lernkosten="800" Erfolgswert="6" Attribut="Ge"/>
-  <Fertigkeit Name="Musizieren" Lernpunkte="4" Anfangswert="8" Lernkosten="150" Erfolgswert="8"/>
-  <Fertigkeit Name="Naturkunde" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In"/>
-  <Fertigkeit Name="Pflanzenkunde" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In"/>
-  <Fertigkeit Name="Rechnen" Lernpunkte="4" Lernkosten="100"/>
-  <Fertigkeit Name="Reiten" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
-  <Fertigkeit Name="Rudern" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="St"/>
-  <Fertigkeit Name="Sagenkunde" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In"/>
-  <Fertigkeit Name="Scharfschießen" Lernpunkte="5" Anfangswert="4" Lernkosten="800" Erfolgswert="4" Attribut="Ge"/>
-  <Fertigkeit Name="Schleichen" Lernpunkte="3" Anfangswert="4" Lernkosten="400" Erfolgswert="2" Attribut="Ge"/>
-  <Fertigkeit Name="Schlittenfahren" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
-  <Fertigkeit Name="Schlösser öffnen" Lernpunkte="4" Anfangswert="4" Lernkosten="400" Erfolgswert="2" Attribut="Ge"/>
-  <Fertigkeit Name="Schwimmen" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
-  <Fertigkeit Name="Segeln" Lernpunkte="4" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
-  <Fertigkeit Name="Seilkunst" Lernpunkte="4" Anfangswert="15" Lernkosten="50" Erfolgswert="6" Attribut="Ge"/>
-  <Fertigkeit Name="Singen" Lernpunkte="4" Anfangswert="8" Lernkosten="150" Erfolgswert="8" Attribut="In"/>
-  <Fertigkeit Name="Skifahren" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
-  <Fertigkeit Name="Sprache" Lernpunkte="3" Anfangswert="4" Lernkosten="10" Erfolgswert="1"/>
-  <Fertigkeit Name="Springen" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12"/>
-  <Fertigkeit Name="Spurenlesen" Lernpunkte="3" Anfangswert="4" Lernkosten="400" Erfolgswert="2" Attribut="In"/>
-  <Fertigkeit Name="Stehlen" Lernpunkte="5" Anfangswert="8" Lernkosten="300" Erfolgswert="6" Attribut="Ge"/>
-  <Fertigkeit Name="Stimmen nachahmen" Lernpunkte="4" Anfangswert="15" Lernkosten="50" Erfolgswert="12" Attribut="In"/>
-  <Fertigkeit Name="Streitwagen lenken" Lernpunkte="5" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
-  <Fertigkeit Name="Talisman verzaubern" Lernpunkte="8" Anfangswert="1" Lernkosten="400" Erfolgswert="1"/>
-  <Fertigkeit Name="Tanzen" Lernpunkte="3" Lernkosten="150" Attribut="Ge"/>
-  <Fertigkeit Name="Tarnen" Lernpunkte="4" Anfangswert="4" Lernkosten="400" Erfolgswert="2" Attribut="Ge"/>
-  <Fertigkeit Name="Tauchen" Lernpunkte="2" Anfangswert="15" Lernkosten="200" Erfolgswert="12" Attribut="Ko"/>
-  <Fertigkeit Name="Tierkunde" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In"/>
-  <Fertigkeit Name="Trinken" Lernpunkte="3" Lernkosten="100"/>
-  <Fertigkeit Name="Verführen" Lernpunkte="4" Anfangswert="8" Lernkosten="50" Erfolgswert="8" Attribut="pA"/>
-  <Fertigkeit Name="Verhören" Lernpunkte="4" Anfangswert="8" Lernkosten="200" Erfolgswert="8" Attribut="pA"/>
-  <Fertigkeit Name="Verkleiden" Lernpunkte="5" Anfangswert="15" Lernkosten="50" Erfolgswert="12" Attribut="In"/>
-  <Fertigkeit Name="Wagenlenken" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
-  <Fertigkeit Name="Wahrnehmung" Lernpunkte="4" Anfangswert="4" Lernkosten="400" Erfolgswert="4" Attribut="In"/>
-  <Fertigkeit Name="Winden" Lernpunkte="4" Anfangswert="4" Lernkosten="250" Erfolgswert="2"/>
-  <Fertigkeit Name="Wissen von der Magie" Lernpunkte="1" Lernkosten="5000"/>
-  <Fertigkeit Name="Zauberkunde" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In"/>
-  <Fertigkeit Name="Zeichensprache" Lernpunkte="4" Anfangswert="1" Lernkosten="20" Erfolgswert="1"/>
-  <Fertigkeit Name="Überleben im Dschungel" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6"/>
-  <Fertigkeit Name="Überleben im Gebirge" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6"/>
-  <Fertigkeit Name="Überleben im Schnee" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6"/>
-  <Fertigkeit Name="Überleben im Sumpf" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6"/>
-  <Fertigkeit Name="Überleben im Wald" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6"/>
-  <Fertigkeit Name="Überleben in der Steppe" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6"/>
-  <Fertigkeit Name="Überleben in der Wüste" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6"/>
-  <Fertigkeit Name="Dichten" Region="B&amp;R" Lernpunkte="3" Anfangswert="1" Lernkosten="150" Erfolgswert="1" Attribut="In"/>
-  <Fertigkeit Name="Etikette" Region="B&amp;R" Lernpunkte="3" Anfangswert="4" Lernkosten="200" Erfolgswert="2" Attribut="In"/>
-  <Fertigkeit Name="Fallen" Region="B&amp;R" Lernpunkte="5" Anfangswert="15" Lernkosten="200" Erfolgswert="12"/>
-  <Fertigkeit Name="Fangen" Region="B&amp;R" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
-  <Fertigkeit Name="Fälschen" Region="B&amp;R" Lernpunkte="5" Anfangswert="15" Lernkosten="50" Erfolgswert="12" Attribut="In"/>
-  <Fertigkeit Name="Heraldik" Region="B&amp;R" Lernpunkte="2" Lernkosten="100" Attribut="In"/>
-  <Fertigkeit Name="Jonglieren" Region="B&amp;R" Lernpunkte="3" Anfangswert="8" Lernkosten="200" Erfolgswert="6" Attribut="Ge"/>
-  <Fertigkeit Name="Kalligraphie" Region="B&amp;R" Lernpunkte="3" Anfangswert="1" Lernkosten="150" Erfolgswert="1" Attribut="Ge"/>
-  <Fertigkeit Name="Kampf in Dunkelheit" Region="B&amp;R" Lernpunkte="6" Anfangswert="1" Lernkosten="300" Erfolgswert="1" Attribut="Ge"/>
-  <Fertigkeit Name="Lanzenstechen" Region="B&amp;R" Lernpunkte="4" Anfangswert="1" Lernkosten="200" Erfolgswert="1"/>
-  <Fertigkeit Name="Luftkampf" Region="B&amp;R" Lernpunkte="8" Lernkosten="400" Attribut="Ge"/>
-  <Fertigkeit Name="Malen/Zeichen" Region="B&amp;R" Lernpunkte="3" Anfangswert="1" Lernkosten="150" Erfolgswert="1" Attribut="Ge"/>
-  <Fertigkeit Name="Schiffsführung" Region="B&amp;R" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In"/>
-  <Fertigkeit Name="Schlittschuhlaufen" Region="B&amp;R" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
-  <Fertigkeit Name="Siegelfälschung" Region="B&amp;R" Lernpunkte="4" Lernkosten="100" Attribut="Ge"/>
-  <Fertigkeit Name="Siegelkunde" Region="B&amp;R" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In"/>
-  <Fertigkeit Name="Singen (Stufe)" Region="B&amp;R" Lernpunkte="3" Anfangswert="1" Lernkosten="150" Erfolgswert="1" Attribut="pA"/>
-  <Fertigkeit Name="Verbergen" Region="B&amp;R" Lernpunkte="4" Anfangswert="8" Lernkosten="300" Erfolgswert="6" Attribut="Ge"/>
-  <Fertigkeit Name="Werfen" Region="B&amp;R" Lernpunkte="4" Anfangswert="5" Lernkosten="400" Erfolgswert="5" Attribut="Ge"/>
-  <Fertigkeit Name="Wetterkunde" Region="B&amp;R" Lernpunkte="4" Anfangswert="4" Lernkosten="25" Erfolgswert="2" Attribut="In"/>
-  <Fertigkeit Name="Brettspiel" Region="E" Lernpunkte="1" Anfangswert="4" Lernkosten="20" Erfolgswert="2" Attribut="In"/>
-  <Fertigkeit Name="Dichten" Region="E" Lernpunkte="4" Lernkosten="150" Attribut="In"/>
-  <Fertigkeit Name="Erzählen" Region="E" Lernpunkte="4" Lernkosten="150" Attribut="In"/>
-  <Fertigkeit Name="Geomantie" Region="E" Lernpunkte="1" Lernkosten="400" Attribut="Zt"/>
-  <Fertigkeit Name="Kamelreiten" Region="E" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
-  <Fertigkeit Name="Kampf zu Kamel" Region="E" Lernpunkte="8" Lernkosten="200"/>
-  <Fertigkeit Name="Mumifizieren" Region="E" Lernpunkte="4" Lernkosten="200" Attribut="In"/>
-  <Fertigkeit Name="Pyromantie" Region="E" Lernpunkte="1" Lernkosten="400" Attribut="Zt"/>
-  <Fertigkeit Name="FengSchui" Region="K" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In"/>
-  <Fertigkeit Name="FengTsu" Region="K" Lernpunkte="8" Lernkosten="300"/>
-  <Fertigkeit Name="Fälschen" Region="K" Lernpunkte="5" Anfangswert="15" Lernkosten="50" Erfolgswert="12" Attribut="In"/>
-  <Fertigkeit Name="Geschenke machen" Region="K" Lernpunkte="5" Anfangswert="8" Lernkosten="200" Erfolgswert="6" Attribut="pA"/>
-  <Fertigkeit Name="IaiJutsu" Region="K" Lernpunkte="8" Lernkosten="60"/>
-  <Fertigkeit Name="KarumiJutsu" Region="K" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
-  <Fertigkeit Name="Kenntnis der fünf Klassiker" Region="K" Lernpunkte="5" Lernkosten="2500"/>
-  <Fertigkeit Name="KentoYobu" Region="K" Lernpunkte="8" Lernkosten="100"/>
-  <Fertigkeit Name="KiDo" Region="K" Lernpunkte="8" Anfangswert="10" Lernkosten="800" Erfolgswert="10" Attribut="Zt"/>
-  <Fertigkeit Name="KiDo-Technik" Region="K" Lernpunkte="1"/>
-  <Fertigkeit Name="KujKuri" Region="K" Lernpunkte="4" Anfangswert="1" Lernkosten="20" Erfolgswert="1"/>
-  <Fertigkeit Name="KujNoIu" Region="K" Lernpunkte="8" Lernkosten="400"/>
-  <Fertigkeit Name="LiYao" Region="K" Lernpunkte="5" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In"/>
-  <Fertigkeit Name="Meditieren" Region="K" Lernpunkte="4" Anfangswert="8" Lernkosten="200" Erfolgswert="8" Attribut="Sb"/>
-  <Fertigkeit Name="MiChen" Region="K" Lernpunkte="8" Lernkosten="500"/>
-  <Fertigkeit Name="NinJutsu" Region="K" Lernpunkte="4" Anfangswert="4" Lernkosten="600" Erfolgswert="2" Attribut="Ge"/>
-  <Fertigkeit Name="Orakelkunst" Region="K" Lernpunkte="5" Lernkosten="60"/>
-  <Fertigkeit Name="SchiyoKi" Region="K" Lernpunkte="8" Lernkosten="100"/>
-  <Fertigkeit Name="Schwerttanz" Region="K" Lernpunkte="8" Anfangswert="14" Lernkosten="100" Erfolgswert="12" Attribut="Ge"/>
-  <Fertigkeit Name="Steinabreibungen machen" Region="K" Lernpunkte="4" Lernkosten="60"/>
-  <Fertigkeit Name="TaiTschi" Region="K" Lernpunkte="5" Lernkosten="100"/>
-  <Fertigkeit Name="Teezeremonie" Region="K" Lernpunkte="5" Anfangswert="8" Lernkosten="50" Erfolgswert="6" Attribut="pA"/>
-  <Fertigkeit Name="YangScheng" Region="K" Lernpunkte="5" Anfangswert="1" Lernkosten="100" Erfolgswert="1"/>
-  <Fertigkeit Name="YubeChian" Region="K" Lernpunkte="8" Lernkosten="200"/>
-  <Fertigkeit Name="Zunge verschlucken" Region="K" Lernpunkte="4" Anfangswert="8" Lernkosten="200" Erfolgswert="8"/>
-  <Fertigkeit Name="Askese" Region="R" Lernpunkte="6" Anfangswert="1" Lernkosten="1500" Erfolgswert="1" Attribut="Sb"/>
-  <Fertigkeit Name="Astrologie" Region="R" Lernpunkte="4" Anfangswert="4" Lernkosten="400" Erfolgswert="2"/>
-  <Fertigkeit Name="Augensalbe herstellen" Region="R" Lernpunkte="9" Lernkosten="200"/>
-  <Fertigkeit Name="Elefanten lenken" Region="R" Lernpunkte="6" Anfangswert="15" Lernkosten="1000" Erfolgswert="12" Attribut="Ge"/>
-  <Fertigkeit Name="Kampf zu Elefant" Region="R" Lernpunkte="8" Lernkosten="200"/>
-  <Fertigkeit Name="Kampf zu Srimara" Region="R" Lernpunkte="8" Lernkosten="200"/>
-  <Fertigkeit Name="Körperkontrolle" Region="R" Lernpunkte="3" Anfangswert="15" Lernkosten="150" Erfolgswert="12"/>
-  <Fertigkeit Name="Meditieren" Region="R" Lernpunkte="4" Anfangswert="8" Lernkosten="200" Erfolgswert="8" Attribut="Sb"/>
-  <Fertigkeit Name="Natya" Region="R" Lernpunkte="7" Lernkosten="100"/>
-  <Fertigkeit Name="Schlangen beschwören" Region="R" Lernpunkte="4" Anfangswert="8" Lernkosten="200" Erfolgswert="8" Attribut="Sb"/>
-  <Fertigkeit Name="Schmerzen ertragen" Region="R" Lernpunkte="8" Anfangswert="15" Lernkosten="200" Erfolgswert="12" Attribut="Sb"/>
-  <Fertigkeit Name="Srimara lenken" Region="R" Lernpunkte="6" Anfangswert="15" Lernkosten="1000" Erfolgswert="12" Attribut="Ge"/>
+  <Fertigkeit Name="Alchemie" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2">
+    <Grund>Ma,Th,dBe,eBe</Grund>
+    <Standard>Dr,Hl,PC,PF,PK,PM,PT,PW,Sa,Sc,gHx,sHx,wHx</Standard>
+    <Ausnahme>As,BN,BS,BW,Ba,Fi,Gl,Hä,Kd,Kr,Ny,Or,Ri,Se,Sp,Sr,Sö,Wa</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Athletik" Lernpunkte="3" Anfangswert="1" Lernkosten="50" Erfolgswert="1">
+    <Grund>BN,BS,BW,Kr,Ri,Sö</Grund>
+    <Standard>As,Ba,Fi,Gl,Hä,Kd,Ny,Or,PK,Sc,Se,Sp,Sr,Wa</Standard>
+    <Ausnahme>Dr,Hl,Ma,PC,PF,PM,PT,PW,Sa,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Balancieren" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
+    <Grund>As,BW,Gl,Kd,Ny,Se,Sp,Wa</Grund>
+    <Standard>BN,BS,Ba,Dr,Fi,Hl,Hä,Kr,Ma,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Sr,Sö,Th,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="Kd" Lernpunkte="1"/>
+    <Lernschema Typ="Ny" Lernpunkte="1"/>
+    <Lernschema Typ="Se" Lernpunkte="2"/>
+    <Lernschema Typ="Sp" Lernpunkte="2"/>
+    <Lernschema Typ="Tr" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Ballista bedienen" Lernpunkte="8" Lernkosten="100">
+    <Grund>Kr,Ri,Se,Sö</Grund>
+    <Standard>As,BN,BS,BW,Ba,Fi,Gl,Hä,Ny,Or,Sp,Sr,Wa</Standard>
+    <Ausnahme>Dr,Hl,Kd,Ma,PC,PF,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="Sö" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Beidhändiger Kampf" Lernpunkte="6" Anfangswert="-4" Lernkosten="1500" Erfolgswert="-4">
+    <Grund>BN,BS,BW,Gl,Kd,Kr,Ri,Se,Sö</Grund>
+    <Standard>As,Ba,Fi,Hä,Ny,Or,Sp,Sr,Wa</Standard>
+    <Ausnahme>Dr,Hl,Ma,PC,PF,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="Gl" Lernpunkte="2"/>
+    <Lernschema Typ="Kd" Lernpunkte="2"/>
+    <Lernschema Typ="Kr" Lernpunkte="2"/>
+    <Lernschema Typ="Ny" Lernpunkte="2"/>
+    <Lernschema Typ="Sö" Lernpunkte="2"/>
+    <Lernschema Typ="Ri" Lernpunkte="3"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Beredsamkeit" Lernpunkte="5" Anfangswert="8" Lernkosten="200" Erfolgswert="6" Attribut="pA">
+    <Grund>Ba,Gl,Hä,Se</Grund>
+    <Standard>As,BN,BS,BW,Dr,Fi,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="Hä" Lernpunkte="1"/>
+    <Lernschema Typ="Ba" Lernpunkte="2"/>
+    <Lernschema Typ="PH" Lernpunkte="2"/>
+    <Lernschema Typ="Sk" Lernpunkte="2"/>
+    <Lernschema Typ="Ri" Lernpunkte="3"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Beschatten" Lernpunkte="4" Anfangswert="8" Lernkosten="300" Erfolgswert="6" Attribut="RW">
+    <Grund>As,BW,Ny,Sp,Wa</Grund>
+    <Standard>BN,BS,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sr,Sö,Th,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="As" Lernpunkte="2"/>
+    <Lernschema Typ="Ny" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Bogen vom Streitwagen" Lernpunkte="8" Lernkosten="200">
+    <Grund>BS,Kr,Ri,Sö</Grund>
+    <Standard>As,BN,BW,Ba,Fi,Gl,Hä,Kd,Ny,Or,Se,Sp,Sr,Wa</Standard>
+    <Ausnahme>Dr,Hl,Ma,PC,PF,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="Kr" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Bogen zu Pferd" Lernpunkte="8" Lernkosten="200">
+    <Grund>BS,Kr,Ri,Sö</Grund>
+    <Standard>As,BN,BW,Ba,Fi,Gl,Hä,Kd,Ny,Or,Se,Sp,Sr,Wa</Standard>
+    <Ausnahme>Dr,Hl,Ma,PC,PF,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="BS" Lernpunkte="1"/>
+    <Lernschema Typ="Kr" Lernpunkte="2"/>
+    <Lernschema Typ="Ri" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Erste Hilfe" Lernpunkte="4" Lernkosten="100">
+    <Grund>Hl,PF,Sa,Sc</Grund>
+    <Standard>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hä,Kd,Kr,Ma,Ny,Or,PC,PK,PM,PT,PW,Ri,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="Hl" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="Kd" Lernpunkte="1"/>
+    <Lernschema Typ="PF" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="Sa" Lernpunkte="2"/>
+    <Lernschema Typ="Sc" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fallen entdecken" Lernpunkte="4" Anfangswert="4" Lernkosten="400" Erfolgswert="2" Attribut="In">
+    <Grund>As,Hä,Ny,Sp,Th</Grund>
+    <Standard>BN,BS,BW,Ba,Gl,Se,Wa</Standard>
+    <Ausnahme>Dr,Fi,Hl,Kd,Kr,Ma,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Sr,Sö,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="As" Lernpunkte="2"/>
+    <Lernschema Typ="Sp" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fallen entschärfen" Lernpunkte="2" Anfangswert="4" Lernkosten="400" Erfolgswert="2" Attribut="Ge">
+    <Grund>As,Ny,Sp</Grund>
+    <Standard>BN,BS,BW,Ba,Fi,Gl,Hä,Kd,Or,Se,Sr,Wa</Standard>
+    <Ausnahme>Dr,Hl,Kr,Ma,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Sö,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="Sp" Lernpunkte="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fallenmechanik" Lernpunkte="2" Anfangswert="4" Lernkosten="400" Erfolgswert="2" Attribut="Ge">
+    <Grund>As,Hä,Ny,Th</Grund>
+    <Standard>BN,BS,BW,Ba,Fi,Gl,Kd,Or,Se,Sp,Sr,Wa</Standard>
+    <Ausnahme>Dr,Hl,Kr,Ma,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Sö,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="As" Lernpunkte="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fallenstellen" Lernpunkte="3" Anfangswert="4" Lernkosten="200" Erfolgswert="2" Attribut="Ge">
+    <Grund>As,BN,BS,BW,Dr,Ny,Sa,Sc,Wa</Grund>
+    <Standard>Ba,Fi,Gl,Hä,Kd,Kr,Or,Ri,Se,Sr,Sö</Standard>
+    <Ausnahme>Hl,Ma,PC,PF,PK,PM,PT,PW,Sp,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="BW" Lernpunkte="1"/>
+    <Lernschema Typ="Wa" Lernpunkte="1"/>
+    <Lernschema Typ="Fi" Lernpunkte="3"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Faustkampf" Lernpunkte="5" Lernkosten="500">
+    <Grund>BN,BS,Se,Sö</Grund>
+    <Standard>As,BW,Ba,Fi,Gl,Hä,Kd,Kr,Ny,Or,Ri,Sa,Sc,Sp,Sr,Wa</Standard>
+    <Ausnahme>Dr,Hl,Ma,PC,PF,PK,PM,PT,PW,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="BN" Lernpunkte="2"/>
+    <Lernschema Typ="BS" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Fechten" Lernpunkte="4" Anfangswert="4" Lernkosten="800" Erfolgswert="4">
+    <Grund>As,Ba,Gl,Sp</Grund>
+    <Standard>BN,BS,BW,Fi,Hä,Kd,Kr,Or,Ri,Se,Sr,Sö,Wa</Standard>
+    <Ausnahme>Dr,Hl,Ma,Ny,PC,PF,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Fechten tevarischer Stil" Lernpunkte="5" Lernkosten="400">
+    <Grund>As,Ba,Gl,Sp</Grund>
+    <Standard>BN,BS,BW,Fi,Hä,Kd,Kr,Or,Ri,Se,Sr,Sö,Wa</Standard>
+    <Ausnahme>Dr,Hl,Ma,Ny,PC,PF,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Gassenwissen" Lernpunkte="3" Anfangswert="4" Lernkosten="200" Erfolgswert="2" Attribut="In">
+    <Grund>As,Ba,Gl,Hä,Ny,Se,Sp,Sö,gHx,sHx,wHx</Grund>
+    <Standard>BN,BS,BW,Dr,Fi,Hl,Kd,Kr,Ma,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Sr,Th,Wa,dBe,eBe</Standard>
+    <Lernschema Typ="Gl" Lernpunkte="1"/>
+    <Lernschema Typ="Hä" Lernpunkte="2"/>
+    <Lernschema Typ="Sp" Lernpunkte="2"/>
+    <Lernschema Typ="Tr" Lernpunkte="2"/>
+    <Lernschema Typ="gHx" Lernpunkte="2"/>
+    <Lernschema Typ="sHx" Lernpunkte="2"/>
+    <Lernschema Typ="wHx" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Geheimmechanismen öffnen" Lernpunkte="4" Anfangswert="4" Lernkosten="400" Erfolgswert="2" Attribut="In">
+    <Grund>Gl,Sp,Th</Grund>
+    <Standard>As,Ba,Fi,Hl,Hä,Kd,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Se,Sr,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>BN,BS,BW,Dr,Kr,Ri,Sa,Sc,Sö</Ausnahme>
+    <Lernschema Typ="Sp" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Geheimzeichen" Lernpunkte="3" Lernkosten="50">
+    <Grund>As,Ba,Dr,Hä,Ny,Sp,Th,gHx,sHx,wHx</Grund>
+    <Standard>BN,BS,BW,Fi,Gl,Hl,Kd,Kr,Ma,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sr,Sö,Wa,dBe,eBe</Standard>
+    <Lernschema Typ="As" Lernpunkte="1"/>
+    <Lernschema Typ="Dr" Lernpunkte="1"/>
+    <Lernschema Typ="Sp" Lernpunkte="1"/>
+    <Lernschema Typ="Gl" Lernpunkte="2"/>
+    <Lernschema Typ="Tr" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Geländelauf" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="RW">
+    <Grund>BN,BS,BW,Gl,Sa,Sc,Sp,Wa</Grund>
+    <Standard>As,Ba,Dr,Fi,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Se,Sr,Sö,Th,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="Sc" Lernpunkte="1"/>
+    <Lernschema Typ="BW" Lernpunkte="2"/>
+    <Lernschema Typ="Fi" Lernpunkte="2"/>
+    <Lernschema Typ="Wa" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Geschichten erzählen" Lernpunkte="4" Anfangswert="8" Lernkosten="150" Erfolgswert="8" Attribut="In">
+    <Grund>Ba,Gl,Se</Grund>
+    <Standard>BN,BS,BW,Dr,Fi,Hl,Hä,Kd,Kr,Ma,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>As,Ny</Ausnahme>
+    <Lernschema Typ="Ba" Lernpunkte="1"/>
+    <Lernschema Typ="Gl" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Geschäftstüchtigkeit" Lernpunkte="9" Lernkosten="4000">
+    <Grund>Hä</Grund>
+    <Standard>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="Hä" Lernpunkte="1" Pflicht="True"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Giftmischen" Lernpunkte="5" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In">
+    <Grund>As,PT,Sa,Sc,gHx,sHx,wHx</Grund>
+    <Standard>BN,BS,BW,Ba,Dr,Fi,Gl,Hä,Kd,Ma,Ny,Or,PC,PK,PM,PW,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe</Standard>
+    <Ausnahme>Hl,Kr,PF,Ri</Ausnahme>
+    <Lernschema Typ="As" Lernpunkte="2"/>
+    <Lernschema Typ="PT" Lernpunkte="2"/>
+    <Lernschema Typ="gHx" Lernpunkte="2"/>
+    <Lernschema Typ="sHx" Lernpunkte="2"/>
+    <Lernschema Typ="wHx" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Glücksspiel" Lernpunkte="4" Anfangswert="15" Lernkosten="200" Erfolgswert="15" Attribut="Ge">
+    <Grund>Ba,Gl,Hä,Sp,Sö</Grund>
+    <Standard>As,BN,BS,BW,Dr,Fi,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sr,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="Gl" Lernpunkte="1"/>
+    <Lernschema Typ="Sö" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Himmelskunde" Lernpunkte="3" Lernkosten="50">
+    <Grund>BN,BS,Ba,Hä,Sa,Sc,Se,Wa</Grund>
+    <Standard>As,BW,Dr,Fi,Gl,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sp,Sr,Sö,Th,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="BN" Lernpunkte="1"/>
+    <Lernschema Typ="BS" Lernpunkte="1"/>
+    <Lernschema Typ="Hä" Lernpunkte="1"/>
+    <Lernschema Typ="Se" Lernpunkte="1"/>
+    <Lernschema Typ="Fi" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf in Schlachtreihe" Lernpunkte="2" Lernkosten="50">
+    <Grund>BW,Kr,Ri,Sö</Grund>
+    <Standard>As,BN,BS,Ba,Fi,Gl,Hä,Ny,Or,Se,Sp,Sr,Wa</Standard>
+    <Ausnahme>Dr,Hl,Kd,Ma,PC,PF,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf in Vollrüstung" Lernpunkte="8" Lernkosten="4000">
+    <Grund>Kr,Ri,Sö</Grund>
+    <Standard>BN,BS,BW,Fi,Gl,Hä,Kd,Or,Sa,Se,Sr,Wa</Standard>
+    <Ausnahme>As,Ba,Dr,Hl,Ma,Ny,PC,PF,PK,PM,PT,PW,Sc,Sp,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="Kr" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="Ri" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="Sö" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="Sr" Lernpunkte="4"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf vom Streitwagen" Lernpunkte="8" Lernkosten="200">
+    <Grund>BN,BS,Kr,Ri,Sö</Grund>
+    <Standard>BW,Ba,Fi,Gl,Hä,Kd,Or,Sr,Wa</Standard>
+    <Ausnahme>As,Dr,Hl,Ma,Ny,PC,PF,PK,PM,PT,PW,Sa,Sc,Se,Sp,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="Kr" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf zu Pferd" Lernpunkte="8" Lernkosten="200">
+    <Grund>BN,BS,BW,Gl,Hä,Kr,Ri,Sa,Sö</Grund>
+    <Standard>As,Ba,Fi,Ny,Or,PK,Sp,Sr,Wa</Standard>
+    <Ausnahme>Dr,Hl,Kd,Ma,PC,PF,PM,PT,PW,Sc,Se,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="BS" Lernpunkte="1"/>
+    <Lernschema Typ="Ri" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="Kr" Lernpunkte="2"/>
+    <Lernschema Typ="Or" Lernpunkte="2"/>
+    <Lernschema Typ="Sö" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampftaktik" Lernpunkte="8" Anfangswert="1" Lernkosten="200" Erfolgswert="1">
+    <Grund>Kr,Ri,Sa,Se,Sö</Grund>
+    <Standard>BN,BS,BW,Fi,Gl,Hä,Or,PK,Sr,Wa</Standard>
+    <Ausnahme>As,Ba,Dr,Hl,Kd,Ma,Ny,PC,PF,PM,PT,PW,Sc,Sp,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="Kr" Lernpunkte="2"/>
+    <Lernschema Typ="Or" Lernpunkte="2"/>
+    <Lernschema Typ="Ri" Lernpunkte="2"/>
+    <Lernschema Typ="Sr" Lernpunkte="2"/>
+    <Lernschema Typ="Sö" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kanufahren" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
+    <Grund>BW,Hä,Se,Wa</Grund>
+    <Standard>As,BN,BS,Ba,Dr,Fi,Gl,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Sp,Sr,Sö,Th,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="BW" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Katapult bedienen" Lernpunkte="8" Lernkosten="100">
+    <Grund>Kr,Ri,Se,Sö</Grund>
+    <Standard>As,BN,BS,BW,Ba,Fi,Gl,Hä,Kd,Ny,Or,Sp,Sr,Wa</Standard>
+    <Ausnahme>Dr,Hl,Ma,PC,PF,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="Sö" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Klettern" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
+    <Grund>As,BN,BS,BW,Gl,Ny,Se,Sp,Wa</Grund>
+    <Standard>Ba,Dr,Fi,Hl,Hä,Kd,Kr,Ma,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Sr,Sö,Th,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="Fi" Lernpunkte="1"/>
+    <Lernschema Typ="Kd" Lernpunkte="1"/>
+    <Lernschema Typ="Ny" Lernpunkte="1"/>
+    <Lernschema Typ="BN" Lernpunkte="2"/>
+    <Lernschema Typ="BW" Lernpunkte="2"/>
+    <Lernschema Typ="Se" Lernpunkte="2"/>
+    <Lernschema Typ="Sp" Lernpunkte="2"/>
+    <Lernschema Typ="Tr" Lernpunkte="2"/>
+    <Lernschema Typ="Wa" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kräuterkunde" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In">
+    <Grund>Dr,Hl,Ma,Sa,Sc,Wa,dBe,eBe,gHx,sHx,wHx</Grund>
+    <Standard>As,BN,BS,BW,Ba,Fi,Gl,Hä,Kd,Kr,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Se,Sp,Sr,Sö,Th</Standard>
+    <Lernschema Typ="Hl" Lernpunkte="1"/>
+    <Lernschema Typ="BW" Lernpunkte="2"/>
+    <Lernschema Typ="Sa" Lernpunkte="2"/>
+    <Lernschema Typ="Sc" Lernpunkte="2"/>
+    <Lernschema Typ="Wa" Lernpunkte="2"/>
+    <Lernschema Typ="gHx" Lernpunkte="2"/>
+    <Lernschema Typ="sHx" Lernpunkte="2"/>
+    <Lernschema Typ="wHx" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Körperbemalung" Lernpunkte="8" Anfangswert="1" Lernkosten="400" Erfolgswert="1">
+    <Grund>Th</Grund>
+    <Standard>As,BN,BS,BW,Ba,Fi,Gl,Hä,Kd,Kr,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Wa</Standard>
+    <Ausnahme>Dr,Hl,Ma,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="Sc" Lernpunkte="2"/>
+    <Lernschema Typ="Sc" Lernpunkte="2"/>
+    <Lernschema Typ="Th" Lernpunkte="2"/>
+    <Lernschema Typ="Th" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Laufen" Lernpunkte="3" Anfangswert="2" Lernkosten="50" Erfolgswert="2">
+    <Grund>BN,BS,BW,Sc,Wa</Grund>
+    <Standard>As,Ba,Dr,Fi,Gl,Hä,Kd,Kr,Ny,Or,Ri,Sa,Sp,Sr,Sö,Th</Standard>
+    <Ausnahme>Hl,Ma,PC,PF,PK,PM,PT,PW,Se,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="Wa" Lernpunkte="1"/>
+    <Lernschema Typ="BS" Lernpunkte="2"/>
+    <Lernschema Typ="Fi" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Lesen von Zauberschrift" Lernpunkte="8" Lernkosten="60">
+    <Grund>Hl,Ma,PC,PF,PK,PM,PT,PW,gHx,sHx,wHx</Grund>
+    <Standard>Ba,Dr,Sa,Sc,Th,dBe,eBe</Standard>
+    <Ausnahme>As,BN,BS,BW,Fi,Gl,Hä,Kd,Kr,Ny,Or,Ri,Se,Sp,Sr,Sö,Wa</Ausnahme>
+    <Lernschema Typ="Ba" Lernpunkte="1"/>
+    <Lernschema Typ="Hl" Lernpunkte="1"/>
+    <Lernschema Typ="Ma" Lernpunkte="1"/>
+    <Lernschema Typ="PF" Lernpunkte="1"/>
+    <Lernschema Typ="PH" Lernpunkte="1"/>
+    <Lernschema Typ="PK" Lernpunkte="1"/>
+    <Lernschema Typ="PM" Lernpunkte="1"/>
+    <Lernschema Typ="PT" Lernpunkte="1"/>
+    <Lernschema Typ="PW" Lernpunkte="1"/>
+    <Lernschema Typ="Th" Lernpunkte="1"/>
+    <Lernschema Typ="dBe" Lernpunkte="1"/>
+    <Lernschema Typ="eBe" Lernpunkte="1"/>
+    <Lernschema Typ="gHx" Lernpunkte="1"/>
+    <Lernschema Typ="sHx" Lernpunkte="1"/>
+    <Lernschema Typ="wHx" Lernpunkte="1"/>
+    <Lernschema Typ="Dr" Lernpunkte="2"/>
+    <Lernschema Typ="Sa" Lernpunkte="2"/>
+    <Lernschema Typ="Sc" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Lesen/Schreiben" Lernpunkte="3" Lernkosten="100">
+    <Grund>Hl,Hä,Ma,PC,PF,PK,PM,PT,PW,gHx,sHx,wHx</Grund>
+    <Standard>As,BN,BS,BW,Ba,Dr,Fi,Gl,Kd,Kr,Ny,Or,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe</Standard>
+    <Lernschema Typ="Ba" Lernpunkte="1"/>
+    <Lernschema Typ="Hl" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="Ma" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="Ny" Lernpunkte="1"/>
+    <Lernschema Typ="Or" Lernpunkte="1"/>
+    <Lernschema Typ="PF" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="PH" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="PK" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="PM" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="PT" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="PW" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="Sk" Lernpunkte="1"/>
+    <Lernschema Typ="Sr" Lernpunkte="1"/>
+    <Lernschema Typ="Th" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="dBe" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="eBe" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="gHx" Lernpunkte="1"/>
+    <Lernschema Typ="sHx" Lernpunkte="1"/>
+    <Lernschema Typ="wHx" Lernpunkte="1"/>
+    <Lernschema Typ="Hä" Lernpunkte="2"/>
+    <Lernschema Typ="Kd" Lernpunkte="2"/>
+    <Lernschema Typ="Ri" Lernpunkte="2"/>
+    <Lernschema Typ="Sa" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Lippenlesen" Lernpunkte="3" Anfangswert="4" Lernkosten="250" Erfolgswert="2" Attribut="In">
+    <Grund>As,Ny</Grund>
+    <Standard>BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="As" Lernpunkte="2"/>
+    <Lernschema Typ="Sp" Lernpunkte="2"/>
+    <Lernschema Typ="Tr" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Menschenkenntnis" Lernpunkte="3" Anfangswert="4" Lernkosten="250" Erfolgswert="2" Attribut="In">
+    <Grund>Ba,Gl,Hl,Hä,PW,Se</Grund>
+    <Standard>As,BN,BS,BW,Dr,Fi,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,Ri,Sa,Sc,Sp,Sr,Sö,Th,Wa,gHx,sHx,wHx</Standard>
+    <Ausnahme>dBe,eBe</Ausnahme>
+    <Lernschema Typ="Hä" Lernpunkte="1"/>
+    <Lernschema Typ="Gl" Lernpunkte="2"/>
+    <Lernschema Typ="Hl" Lernpunkte="2"/>
+    <Lernschema Typ="Ny" Lernpunkte="2"/>
+    <Lernschema Typ="PW" Lernpunkte="2"/>
+    <Lernschema Typ="Sa" Lernpunkte="2"/>
+    <Lernschema Typ="Ri" Lernpunkte="3"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Meucheln" Lernpunkte="5" Anfangswert="8" Lernkosten="800" Erfolgswert="6" Attribut="Ge">
+    <Grund>As,Ny,Sp</Grund>
+    <Standard>BN,BS,BW,Fi,Gl,Hä,Kd,Or,Se,Sr,Sö,Wa</Standard>
+    <Ausnahme>Ba,Dr,Hl,Kr,Ma,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="As" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="Ny" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Musizieren" Lernpunkte="4" Anfangswert="8" Lernkosten="150" Erfolgswert="8">
+    <Grund>Ba,Sa</Grund>
+    <Standard>As,BN,BS,BW,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="Ba" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="Sk" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="Ri" Lernpunkte="2"/>
+    <Lernschema Typ="Sa" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Naturkunde" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In">
+    <Grund>Dr,Sa,Sc,Wa</Grund>
+    <Standard>As,BN,BS,BW,Ba,Fi,Gl,Hl,Hä,Kd,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Se,Sr,Th,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>Kr,Ri,Sp,Sö</Ausnahme>
+    <Lernschema Typ="Dr" Lernpunkte="1"/>
+    <Lernschema Typ="Fi" Lernpunkte="2"/>
+    <Lernschema Typ="Fi" Lernpunkte="2"/>
+    <Lernschema Typ="Sa" Lernpunkte="2"/>
+    <Lernschema Typ="Sc" Lernpunkte="2"/>
+    <Lernschema Typ="Th" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Pflanzenkunde" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In">
+    <Grund>Dr,Hl,PF,Sc,Wa</Grund>
+    <Standard>As,BN,BS,BW,Ba,Fi,Gl,Hä,Kd,Ma,Ny,Or,PC,PK,PM,PT,PW,Se,Sr,Th,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>Kr,Ri,Sa,Sp,Sö</Ausnahme>
+    <Lernschema Typ="Dr" Lernpunkte="1"/>
+    <Lernschema Typ="Wa" Lernpunkte="1"/>
+    <Lernschema Typ="PF" Lernpunkte="2"/>
+    <Lernschema Typ="Sa" Lernpunkte="2"/>
+    <Lernschema Typ="Sc" Lernpunkte="2"/>
+    <Lernschema Typ="Fi" Lernpunkte="3"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Rechnen" Lernpunkte="4" Lernkosten="100">
+    <Grund>Hä,PW,Se,Th</Grund>
+    <Standard>As,Ba,Dr,Fi,Gl,Hl,Kd,Ma,Ny,Or,PC,PF,PK,PM,PT,Sp,Sr,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>BN,BS,BW,Kr,Ri,Sa,Sc,Sö,Wa</Ausnahme>
+    <Lernschema Typ="Hä" Lernpunkte="1"/>
+    <Lernschema Typ="PW" Lernpunkte="2"/>
+    <Lernschema Typ="Se" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Reiten" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
+    <Grund>As,BN,BS,BW,Ba,Gl,Hä,Kr,Or,PK,Sa,Sc,Sp,Sö,Wa</Grund>
+    <Standard>Dr,Hl,Ma,Ny,PC,PF,PM,PT,PW,Se,Th,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>Fi,Kd,Ri,Sr</Ausnahme>
+    <Lernschema Typ="BS" Lernpunkte="1"/>
+    <Lernschema Typ="Gl" Lernpunkte="1"/>
+    <Lernschema Typ="Kr" Lernpunkte="1"/>
+    <Lernschema Typ="Or" Lernpunkte="1"/>
+    <Lernschema Typ="PK" Lernpunkte="1"/>
+    <Lernschema Typ="Ri" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="Sc" Lernpunkte="1"/>
+    <Lernschema Typ="Sö" Lernpunkte="1"/>
+    <Lernschema Typ="Fi" Lernpunkte="2"/>
+    <Lernschema Typ="Hä" Lernpunkte="2"/>
+    <Lernschema Typ="Sr" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Rudern" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="St">
+    <Grund>BN,BW,Hä,Se,Wa</Grund>
+    <Standard>As,BS,Ba,Dr,Fi,Gl,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Sp,Sr,Sö,Th,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="BN" Lernpunkte="1"/>
+    <Lernschema Typ="Se" Lernpunkte="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Sagenkunde" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In">
+    <Grund>Ba,Dr,Hl,Ma,PC,PF,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Grund>
+    <Standard>As,BN,BS,BW,Fi,Gl,Hä,Kd,Kr,Ny,Or,Ri,Se,Sp,Sr,Sö,Wa</Standard>
+    <Lernschema Typ="Ba" Lernpunkte="1"/>
+    <Lernschema Typ="Dr" Lernpunkte="1"/>
+    <Lernschema Typ="PK" Lernpunkte="1"/>
+    <Lernschema Typ="PT" Lernpunkte="1"/>
+    <Lernschema Typ="PW" Lernpunkte="1"/>
+    <Lernschema Typ="Sa" Lernpunkte="1"/>
+    <Lernschema Typ="Sc" Lernpunkte="1"/>
+    <Lernschema Typ="Sk" Lernpunkte="1"/>
+    <Lernschema Typ="Tr" Lernpunkte="1"/>
+    <Lernschema Typ="dBe" Lernpunkte="1"/>
+    <Lernschema Typ="eBe" Lernpunkte="1"/>
+    <Lernschema Typ="Fi" Lernpunkte="2"/>
+    <Lernschema Typ="PF" Lernpunkte="2"/>
+    <Lernschema Typ="PH" Lernpunkte="2"/>
+    <Lernschema Typ="PM" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Scharfschießen" Lernpunkte="5" Anfangswert="4" Lernkosten="800" Erfolgswert="4" Attribut="Ge">
+    <Grund>As,Ny,Wa</Grund>
+    <Standard>BN,BS,BW,Ba,Fi,Gl,Hä,Kd,Kr,Or,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th</Standard>
+    <Ausnahme>Dr,Hl,Ma,PC,PF,PK,PM,PT,PW,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="As" Lernpunkte="2"/>
+    <Lernschema Typ="Wa" Lernpunkte="2"/>
+    <Lernschema Typ="Ny" Lernpunkte="3"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schleichen" Lernpunkte="3" Anfangswert="4" Lernkosten="400" Erfolgswert="2" Attribut="Ge">
+    <Grund>As,BN,BS,BW,Gl,Ny,Sp,Wa</Grund>
+    <Standard>Ba,Dr,Fi,Hl,Hä,Kd,Kr,Ma,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sr,Sö,Th,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="As" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="Fi" Lernpunkte="2"/>
+    <Lernschema Typ="Sp" Lernpunkte="2"/>
+    <Lernschema Typ="Tr" Lernpunkte="2"/>
+    <Lernschema Typ="Wa" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schlittenfahren" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
+    <Grund>BN,Hä</Grund>
+    <Standard>As,BS,BW,Ba,Dr,Fi,Gl,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="BN" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schlösser öffnen" Lernpunkte="4" Anfangswert="4" Lernkosten="400" Erfolgswert="2" Attribut="Ge">
+    <Grund>Sp</Grund>
+    <Standard>As,Ba,Fi,Gl,Hä,Kd,Ny,Or,Se,Sr,Wa</Standard>
+    <Ausnahme>BN,BS,BW,Dr,Hl,Kr,Ma,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Sö,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="Sp" Lernpunkte="1" Pflicht="True"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schwimmen" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
+    <Grund>As,BN,BW,Ba,Fi,Gl,Hä,Kd,Kr,Ny,Or,PM,Ri,Sa,Sc,Se,Sr,Sö,Wa</Grund>
+    <Standard>BS,Dr,Hl,Ma,PC,PF,PK,PT,PW,Sp,Th,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="BN" Lernpunkte="1"/>
+    <Lernschema Typ="BW" Lernpunkte="1"/>
+    <Lernschema Typ="Fi" Lernpunkte="1"/>
+    <Lernschema Typ="Sc" Lernpunkte="1"/>
+    <Lernschema Typ="Se" Lernpunkte="1"/>
+    <Lernschema Typ="PM" Lernpunkte="2"/>
+    <Lernschema Typ="Wa" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Segeln" Lernpunkte="4" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
+    <Grund>Hä,Se</Grund>
+    <Standard>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="Se" Lernpunkte="1"/>
+    <Lernschema Typ="BN" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Seilkunst" Lernpunkte="4" Anfangswert="15" Lernkosten="50" Erfolgswert="6" Attribut="Ge">
+    <Grund>Hä,Se,Sp</Grund>
+    <Standard>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="Se" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Singen" Lernpunkte="4" Anfangswert="8" Lernkosten="150" Erfolgswert="8" Attribut="In">
+    <Grund>Ba,PC,PF,PK,PM,PT,PW,Sa,Sc</Grund>
+    <Standard>As,BN,BS,BW,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,Ri,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="Ba" Lernpunkte="1"/>
+    <Lernschema Typ="PW" Lernpunkte="2"/>
+    <Lernschema Typ="Sc" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Skifahren" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
+    <Grund>BN,Wa</Grund>
+    <Standard>As,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="BN" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Sprache" Lernpunkte="3" Anfangswert="4" Lernkosten="10" Erfolgswert="1">
+    <Grund>As,Ba,Dr,Gl,Hl,Hä,Ny,PW,Se</Grund>
+    <Standard>BN,BS,BW,Fi,Kd,Kr,Ma,Or,PC,PF,PK,PM,PT,Ri,Sa,Sc,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="Hä" Lernpunkte="1"/>
+    <Lernschema Typ="Se" Lernpunkte="1"/>
+    <Lernschema Typ="Gl" Lernpunkte="2"/>
+    <Lernschema Typ="PW" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Springen" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12">
+    <Grund>As,Gl,Kd,Ny,Sp,Wa</Grund>
+    <Standard>BN,BS,BW,Ba,Dr,Fi,Hä,Kr,Or,Ri,Sa,Sc,Se,Sr,Sö</Standard>
+    <Ausnahme>Hl,Ma,PC,PF,PK,PM,PT,PW,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="Fi" Lernpunkte="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Spurenlesen" Lernpunkte="3" Anfangswert="4" Lernkosten="400" Erfolgswert="2" Attribut="In">
+    <Grund>BS,BW,Wa</Grund>
+    <Standard>As,BN,Ba,Dr,Fi,Gl,Hä,Kd,Kr,Ny,Or,Ri,Sa,Sc,Se,Sp,Sr,Sö</Standard>
+    <Ausnahme>Hl,Ma,PC,PF,PK,PM,PT,PW,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="BW" Lernpunkte="1"/>
+    <Lernschema Typ="Wa" Lernpunkte="1"/>
+    <Lernschema Typ="BS" Lernpunkte="2"/>
+    <Lernschema Typ="Fi" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Stehlen" Lernpunkte="5" Anfangswert="8" Lernkosten="300" Erfolgswert="6" Attribut="Ge">
+    <Grund>Sp</Grund>
+    <Standard>As,BN,BS,BW,Ba,Gl,Hä,Ny,Se</Standard>
+    <Ausnahme>Dr,Fi,Hl,Kd,Kr,Ma,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="Sp" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="Tr" Lernpunkte="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Stimmen nachahmen" Lernpunkte="4" Anfangswert="15" Lernkosten="50" Erfolgswert="12" Attribut="In">
+    <Grund>As,BW,Ba,Ny,Wa,gHx,sHx,wHx</Grund>
+    <Standard>Dr,Fi,Gl,Hl,Hä,Kd,Ma,Or,PC,PF,PK,PM,PT,PW,Sa,Sc,Se,Sp,Sr,Sö,Th,dBe,eBe</Standard>
+    <Ausnahme>BN,BS,Kr,Ri</Ausnahme>
+    <Lernschema Typ="As" Lernpunkte="1"/>
+    <Lernschema Typ="Ny" Lernpunkte="1"/>
+    <Lernschema Typ="Ba" Lernpunkte="2"/>
+    <Lernschema Typ="Sk" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Streitwagen lenken" Lernpunkte="5" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
+    <Grund>BS,Kr,PK,Ri</Grund>
+    <Standard>As,BN,BW,Ba,Fi,Gl,Hä,Kd,Ny,Or,Se,Sp,Sr,Sö,Wa</Standard>
+    <Ausnahme>Dr,Hl,Ma,PC,PF,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="Kr" Lernpunkte="1"/>
+    <Lernschema Typ="Or" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Talisman verzaubern" Lernpunkte="8" Anfangswert="1" Lernkosten="400" Erfolgswert="1">
+    <Grund>Th</Grund>
+    <Standard>As,BN,BS,BW,Ba,Fi,Gl,Hä,Kd,Kr,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Wa</Standard>
+    <Ausnahme>Dr,Hl,Ma,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="Sc" Lernpunkte="2"/>
+    <Lernschema Typ="Th" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Tanzen" Lernpunkte="3" Lernkosten="150" Attribut="Ge">
+    <Grund>BW,Ba,Gl,Sc</Grund>
+    <Standard>As,BN,BS,Dr,Fi,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="Ba" Lernpunkte="1"/>
+    <Lernschema Typ="Gl" Lernpunkte="1"/>
+    <Lernschema Typ="Ri" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Tarnen" Lernpunkte="4" Anfangswert="4" Lernkosten="400" Erfolgswert="2" Attribut="Ge">
+    <Grund>As,BN,BS,BW,Dr,Gl,Ny,Sp,Wa</Grund>
+    <Standard>Ba,Fi,Hl,Hä,Kd,Kr,Ma,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sr,Sö,Th,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="As" Lernpunkte="1"/>
+    <Lernschema Typ="Tr" Lernpunkte="1"/>
+    <Lernschema Typ="Sp" Lernpunkte="2"/>
+    <Lernschema Typ="Wa" Lernpunkte="2"/>
+    <Lernschema Typ="Fi" Lernpunkte="3"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Tauchen" Lernpunkte="2" Anfangswert="15" Lernkosten="200" Erfolgswert="12" Attribut="Ko">
+    <Grund>BN,BW,Se,Wa</Grund>
+    <Standard>As,Ba,Dr,Fi,Gl,Hä,Kd,Kr,Ny,Or,PM,Ri,Sa,Sc,Sp,Sr,Sö</Standard>
+    <Ausnahme>BS,Hl,Ma,PC,PF,PK,PT,PW,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="BN" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="Se" Lernpunkte="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Tierkunde" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In">
+    <Grund>Dr,Hl,PF,Sc,Wa</Grund>
+    <Standard>As,BN,BS,BW,Ba,Fi,Gl,Hä,Kd,Ma,Ny,Or,PC,PK,PM,PT,PW,Se,Sr,Th,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>Kr,Ri,Sa,Sp,Sö</Ausnahme>
+    <Lernschema Typ="Dr" Lernpunkte="1"/>
+    <Lernschema Typ="Wa" Lernpunkte="1"/>
+    <Lernschema Typ="PF" Lernpunkte="2"/>
+    <Lernschema Typ="Sa" Lernpunkte="2"/>
+    <Lernschema Typ="Sc" Lernpunkte="2"/>
+    <Lernschema Typ="Fi" Lernpunkte="3"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Trinken" Lernpunkte="3" Lernkosten="100">
+    <Grund>BN,Gl,Se,Sö</Grund>
+    <Standard>As,BS,BW,Ba,Dr,Fi,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Sp,Sr,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="Ri" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Verführen" Lernpunkte="4" Anfangswert="8" Lernkosten="50" Erfolgswert="8" Attribut="pA">
+    <Grund>Ba,Gl,Se</Grund>
+    <Standard>As,BN,BS,BW,Fi,Hä,Kd,Kr,Ny,Or,PF,Ri,Sp,Sr,Sö,Wa,gHx,sHx,wHx</Standard>
+    <Ausnahme>Dr,Hl,Ma,PC,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe</Ausnahme>
+    <Lernschema Typ="Ba" Lernpunkte="2"/>
+    <Lernschema Typ="Gl" Lernpunkte="2"/>
+    <Lernschema Typ="Sk" Lernpunkte="2"/>
+    <Lernschema Typ="Ri" Lernpunkte="3"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Verhören" Lernpunkte="4" Anfangswert="8" Lernkosten="200" Erfolgswert="8" Attribut="pA">
+    <Grund>Gl,Hä,PT</Grund>
+    <Standard>As,Ba,Dr,Fi,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>BN,BS,BW,Wa</Ausnahme>
+    <Lernschema Typ="As" Lernpunkte="2"/>
+    <Lernschema Typ="Gl" Lernpunkte="2"/>
+    <Lernschema Typ="Hä" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Verkleiden" Lernpunkte="5" Anfangswert="15" Lernkosten="50" Erfolgswert="12" Attribut="In">
+    <Grund>As,Gl,Ny,Sp</Grund>
+    <Standard>BN,BS,BW,Ba,Fi,Hä,Kd,Or,Se,Sr,Wa,gHx,sHx,wHx</Standard>
+    <Ausnahme>Dr,Hl,Kr,Ma,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Sö,Th,dBe,eBe</Ausnahme>
+    <Lernschema Typ="Ny" Lernpunkte="1"/>
+    <Lernschema Typ="As" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Wagenlenken" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
+    <Grund>BS,Hä,Kr,Ri</Grund>
+    <Standard>As,BN,BW,Ba,Dr,Fi,Gl,Hl,Kd,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Sa,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="Hä" Lernpunkte="1"/>
+    <Lernschema Typ="Kr" Lernpunkte="1"/>
+    <Lernschema Typ="BS" Lernpunkte="2"/>
+    <Lernschema Typ="Or" Lernpunkte="2"/>
+    <Lernschema Typ="Sö" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Wahrnehmung" Lernpunkte="4" Anfangswert="4" Lernkosten="400" Erfolgswert="4" Attribut="In">
+    <Grund>As,BN,BS,BW,Dr,Hä,Ny,Se,Sp,Wa</Grund>
+    <Standard>Ba,Fi,Gl,Hl,Kd,Kr,Ma,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Sr,Sö,Th,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="BW" Lernpunkte="2"/>
+    <Lernschema Typ="Dr" Lernpunkte="2"/>
+    <Lernschema Typ="Hä" Lernpunkte="2"/>
+    <Lernschema Typ="Sa" Lernpunkte="2"/>
+    <Lernschema Typ="Wa" Lernpunkte="2"/>
+    <Lernschema Typ="Kd" Lernpunkte="3"/>
+    <Lernschema Typ="Ny" Lernpunkte="3"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Winden" Lernpunkte="4" Anfangswert="4" Lernkosten="250" Erfolgswert="2">
+    <Grund>As,Kd,Ny,Sa,Sp</Grund>
+    <Standard>BN,BS,BW,Ba,Fi,Gl,Hä,Or,Se,Sr,Wa</Standard>
+    <Ausnahme>Dr,Hl,Kr,Ma,PC,PF,PK,PM,PT,PW,Ri,Sc,Sö,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Wissen von der Magie" Lernpunkte="1" Lernkosten="5000">
+    <Grund>Dr,Hl,Ma,PC,PF,PK,PM,PT,PW,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Grund>
+    <Standard>As,BN,BS,BW,Ba,Fi,Gl,Hä,Kd,Ny,Or,Se,Sp,Sr,Wa</Standard>
+    <Ausnahme>Kr,Ri,Sö</Ausnahme>
+    <Lernschema Typ="Dr" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="Hl" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="Ma" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="PF" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="PH" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="PK" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="PM" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="PT" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="PW" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="Sa" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="Sc" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="Th" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="dBe" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="eBe" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="gHx" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="sHx" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="wHx" Lernpunkte="1" Pflicht="True"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Zauberkunde" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In">
+    <Grund>Ba,Ma,PW,Th,gHx,sHx,wHx</Grund>
+    <Standard>Dr,Hl,Hä,PC,PF,PK,PM,PT,Sa,Sc,Sp,dBe,eBe</Standard>
+    <Ausnahme>As,BN,BS,BW,Fi,Gl,Kd,Kr,Ny,Or,Ri,Se,Sr,Sö,Wa</Ausnahme>
+    <Lernschema Typ="Ma" Lernpunkte="1"/>
+    <Lernschema Typ="PW" Lernpunkte="1"/>
+    <Lernschema Typ="Th" Lernpunkte="1"/>
+    <Lernschema Typ="gHx" Lernpunkte="1"/>
+    <Lernschema Typ="sHx" Lernpunkte="1"/>
+    <Lernschema Typ="wHx" Lernpunkte="1"/>
+    <Lernschema Typ="Dr" Lernpunkte="2"/>
+    <Lernschema Typ="Gl" Lernpunkte="2"/>
+    <Lernschema Typ="Hl" Lernpunkte="2"/>
+    <Lernschema Typ="dBe" Lernpunkte="2"/>
+    <Lernschema Typ="eBe" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Zeichensprache" Lernpunkte="4" Anfangswert="1" Lernkosten="20" Erfolgswert="1">
+    <Grund>Gl,Hä,Se,Sp</Grund>
+    <Standard>As,BN,BS,BW,Ba,Dr,Fi,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>Sa</Ausnahme>
+    <Lernschema Typ="Fi" Lernpunkte="1"/>
+    <Lernschema Typ="Sp" Lernpunkte="1"/>
+    <Lernschema Typ="Tr" Lernpunkte="1"/>
+    <Lernschema Typ="Hä" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben im Dschungel" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6">
+    <Grund>BW,Hä,Wa</Grund>
+    <Standard>As,BN,BS,Ba,Dr,Fi,Gl,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="BW" Lernpunkte="1"/>
+    <Lernschema Typ="Sc" Lernpunkte="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben im Gebirge" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6">
+    <Grund>BN</Grund>
+    <Standard>As,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="Sc" Lernpunkte="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben im Schnee" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6">
+    <Grund>BN,Hä,Wa</Grund>
+    <Standard>As,BS,BW,Ba,Dr,Fi,Gl,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="BN" Lernpunkte="1"/>
+    <Lernschema Typ="Sc" Lernpunkte="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben im Sumpf" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6">
+    <Standard>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>Sa</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben im Wald" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6">
+    <Grund>BW,Hä,Wa</Grund>
+    <Standard>As,BN,BS,Ba,Dr,Fi,Gl,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="BW" Lernpunkte="1"/>
+    <Lernschema Typ="Sc" Lernpunkte="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben in der Steppe" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6">
+    <Grund>BS,Hä</Grund>
+    <Standard>As,BN,BW,Ba,Dr,Fi,Gl,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="BS" Lernpunkte="1"/>
+    <Lernschema Typ="Sc" Lernpunkte="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Überleben in der Wüste" Lernpunkte="3" Anfangswert="8" Lernkosten="50" Erfolgswert="6">
+    <Grund>Hä</Grund>
+    <Standard>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+  </Fertigkeit>
+  <Fertigkeit Name="Dichten" Region="B&amp;R" Lernpunkte="3" Anfangswert="1" Lernkosten="150" Erfolgswert="1" Attribut="In">
+    <Grund>Ba</Grund>
+    <Standard>As,BN,BS,BW,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>Sa</Ausnahme>
+    <Lernschema Typ="Sk" Lernpunkte="1" Pflicht="True"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Etikette" Region="B&amp;R" Lernpunkte="3" Anfangswert="4" Lernkosten="200" Erfolgswert="2" Attribut="In">
+    <Grund>Ba,Gl,Ma,PC,PF,PK,PM,PT,PW,Ri</Grund>
+    <Standard>As,Dr,Fi,Hl,Hä,Kd,Kr,Ny,Or,Sa,Se,Sr,Th,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>BN,BS,BW,Sc,Sp,Sö,Wa</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Fallen" Region="B&amp;R" Lernpunkte="5" Anfangswert="15" Lernkosten="200" Erfolgswert="12">
+    <Grund>As,BW,Gl,Ny,Sp,Wa</Grund>
+    <Standard>BN,BS,Ba,Dr,Fi,Hl,Hä,Kd,Kr,Ma,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sr,Sö,Th,dBe,eBe,gHx,sHx,wHx</Standard>
+  </Fertigkeit>
+  <Fertigkeit Name="Fangen" Region="B&amp;R" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
+    <Grund>BN,BS,BW,Se,Sp</Grund>
+    <Standard>As,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+  </Fertigkeit>
+  <Fertigkeit Name="Fälschen" Region="B&amp;R" Lernpunkte="5" Anfangswert="15" Lernkosten="50" Erfolgswert="12" Attribut="In">
+    <Grund>As,Gl,Hä,Ny,Sp</Grund>
+    <Standard>Ba,Ma,PC,PF,PK,PM,PT,PW,Se,Th,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>BN,BS,BW,Dr,Fi,Hl,Kd,Kr,Or,Ri,Sa,Sc,Sr,Sö,Wa</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Heraldik" Region="B&amp;R" Lernpunkte="2" Lernkosten="100" Attribut="In">
+    <Grund>Ri</Grund>
+    <Standard>Sa</Standard>
+    <Ausnahme>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="Ri" Lernpunkte="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Jonglieren" Region="B&amp;R" Lernpunkte="3" Anfangswert="8" Lernkosten="200" Erfolgswert="6" Attribut="Ge">
+    <Grund>Ba,Gl,Se,Sp</Grund>
+    <Standard>As,BN,BS,BW,Hä,Kr,Or,Sc,Sr,Sö,Wa,gHx,sHx,wHx</Standard>
+    <Ausnahme>Dr,Fi,Hl,Kd,Ma,Ny,PC,PF,PK,PM,PT,PW,Ri,Sa,Th,dBe,eBe</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Kalligraphie" Region="B&amp;R" Lernpunkte="3" Anfangswert="1" Lernkosten="150" Erfolgswert="1" Attribut="Ge">
+    <Grund>Ma,PC,PF,PM,PT,PW,Th</Grund>
+    <Standard>Hl,Hä,Or,Sr,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>As,BN,BS,BW,Ba,Dr,Fi,Gl,Kd,Kr,Ny,PK,Ri,Sa,Sc,Se,Sp,Sö,Wa</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf in Dunkelheit" Region="B&amp;R" Lernpunkte="6" Anfangswert="1" Lernkosten="300" Erfolgswert="1" Attribut="Ge">
+    <Grund>As,Sp,Wa</Grund>
+    <Standard>BN,BS,BW,Ba,Gl,Hä,Kr,Or,Se,Sr,Sö</Standard>
+    <Ausnahme>Dr,Fi,Hl,Kd,Ma,Ny,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Lanzenstechen" Region="B&amp;R" Lernpunkte="4" Anfangswert="1" Lernkosten="200" Erfolgswert="1">
+    <Grund>Ri</Grund>
+    <Standard>Kr,Or,PK,Sr,Sö</Standard>
+    <Ausnahme>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Ma,Ny,PC,PF,PM,PT,PW,Sa,Sc,Se,Sp,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="Kr" Lernpunkte="2"/>
+    <Lernschema Typ="Or" Lernpunkte="2"/>
+    <Lernschema Typ="Ri" Lernpunkte="2"/>
+    <Lernschema Typ="PK" Lernpunkte="6"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Luftkampf" Region="B&amp;R" Lernpunkte="8" Lernkosten="400" Attribut="Ge">
+    <Grund>Kr,Or,Sr,Sö</Grund>
+    <Standard>As,BN,BS,BW,Ba,Fi,Gl,Hä,Kd,Ny,PK,Ri,Sa</Standard>
+    <Ausnahme>Dr,Hl,Ma,PC,PF,PM,PT,PW,Sc,Se,Sp,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Malen/Zeichen" Region="B&amp;R" Lernpunkte="3" Anfangswert="1" Lernkosten="150" Erfolgswert="1" Attribut="Ge">
+    <Grund>Sp,Th</Grund>
+    <Standard>Dr,Gl,Hl,Ma,PC,PF,PK,PM,PT,PW,Sa,Sc,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>As,BN,BS,BW,Ba,Fi,Hä,Kd,Kr,Ny,Or,Ri,Se,Sr,Sö,Wa</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Schiffsführung" Region="B&amp;R" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In">
+    <Grund>Hä,Kr,Se</Grund>
+    <Standard>As,BN,Ba,Dr,Fi,Gl,Hl,Kd,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Sp,Sr,Sö,Th,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>BS,BW,Sa,Wa</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Schlittschuhlaufen" Region="B&amp;R" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
+    <Grund>BN</Grund>
+    <Standard>As,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+  </Fertigkeit>
+  <Fertigkeit Name="Siegelfälschung" Region="B&amp;R" Lernpunkte="4" Lernkosten="100" Attribut="Ge">
+    <Grund>As,Sp</Grund>
+    <Standard>Ba,Fi,Gl,Hä,Kd,Ma,Ny,PC,PF,PK,PM,PT,PW,Ri,Se,Th,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>BN,BS,BW,Dr,Hl,Kr,Or,Sa,Sc,Sr,Sö,Wa</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Siegelkunde" Region="B&amp;R" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In">
+    <Grund>Hä,Th</Grund>
+    <Standard>As,Dr,Hl,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sp,Sr,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>BN,BS,BW,Ba,Fi,Gl,Sc,Se,Sö,Wa</Ausnahme>
+    <Lernschema Typ="Ri" Lernpunkte="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Singen (Stufe)" Region="B&amp;R" Lernpunkte="3" Anfangswert="1" Lernkosten="150" Erfolgswert="1" Attribut="pA">
+    <Grund>Ba,PC,PF,PK,PM,PT,PW</Grund>
+    <Standard>As,BN,BS,BW,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+  </Fertigkeit>
+  <Fertigkeit Name="Verbergen" Region="B&amp;R" Lernpunkte="4" Anfangswert="8" Lernkosten="300" Erfolgswert="6" Attribut="Ge">
+    <Grund>As,Gl,Sa,Sp,gHx,sHx,wHx</Grund>
+    <Standard>BN,BS,BW,Ba,Dr,Fi,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Se,Sr,Sö,Th,Wa,dBe,eBe</Standard>
+  </Fertigkeit>
+  <Fertigkeit Name="Werfen" Region="B&amp;R" Lernpunkte="4" Anfangswert="5" Lernkosten="400" Erfolgswert="5" Attribut="Ge">
+    <Grund>As,Gl,Se,Sp,Th</Grund>
+    <Standard>BN,BS,BW,Ba,Dr,Fi,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Sr,Sö,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+  </Fertigkeit>
+  <Fertigkeit Name="Wetterkunde" Region="B&amp;R" Lernpunkte="4" Anfangswert="4" Lernkosten="25" Erfolgswert="2" Attribut="In">
+    <Grund>Ba,Dr,PF,PM,Sc,Se,Wa</Grund>
+    <Standard>BN,BS,BW,Fi,Gl,Hl,Hä,Kd,Ny,PC,PK,PT,PW,Ri,Sa,Sp,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>As,Kr,Ma,Or,Sr,Sö,Th</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Brettspiel" Region="E" Lernpunkte="1" Anfangswert="4" Lernkosten="20" Erfolgswert="2" Attribut="In">
+    <Grund>Ba,Dr,Gl,Hl,Hä,Ma,PC,PF,PK,PM,PT,PW,Th</Grund>
+    <Standard>As,Fi,Kd,Kr,Ny,Or,Ri,Sa,Se,Sp,Sr,Sö,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>BN,BS,BW,Sc</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Dichten" Region="E" Lernpunkte="4" Lernkosten="150" Attribut="In">
+    <Grund>Ba</Grund>
+    <Standard>As,BN,BS,BW,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>Sa</Ausnahme>
+    <Lernschema Typ="Sk" Lernpunkte="1" Pflicht="True"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Erzählen" Region="E" Lernpunkte="4" Lernkosten="150" Attribut="In">
+    <Grund>Ba,Gl,Se</Grund>
+    <Standard>BN,BS,BW,Dr,Fi,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>As,Sa</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Geomantie" Region="E" Lernpunkte="1" Lernkosten="400" Attribut="Zt">
+    <Grund>PF,Sa,Sc</Grund>
+    <Standard>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ny,Or,PC,PK,PM,PT,PW,Ri,Se,Sp,Sr,Sö,Wa,gHx,sHx,wHx</Standard>
+    <Ausnahme>Ma,Th,dBe,eBe</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Kamelreiten" Region="E" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
+    <Grund>BS,Fi,Gl,Hä,Kr,Or,Ri,Sa,Sr,Sö,Wa</Grund>
+    <Standard>As,BN,BW,Ba,Dr,Hl,Kd,Ma,Ny,PC,PF,PK,PM,PT,PW,Sc,Se,Sp,Th,dBe,eBe,gHx,sHx,wHx</Standard>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf zu Kamel" Region="E" Lernpunkte="8" Lernkosten="200">
+    <Grund>BS,Kr,Ri,Sa,Sö</Grund>
+    <Standard>As,Ba,Fi,Gl,Hä,Kd,Ny,Or,Se,Sp,Sr,Wa</Standard>
+    <Ausnahme>BN,BW,Dr,Hl,Ma,PC,PF,PK,PM,PT,PW,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Mumifizieren" Region="E" Lernpunkte="4" Lernkosten="200" Attribut="In">
+    <Grund>Hl,PT,Sc</Grund>
+    <Standard>Dr,Ma,PC,PF,PK,PM,PW,gHx,sHx,wHx</Standard>
+    <Ausnahme>As,BN,BS,BW,Ba,Fi,Gl,Hä,Kd,Kr,Ny,Or,Ri,Sa,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Pyromantie" Region="E" Lernpunkte="1" Lernkosten="400" Attribut="Zt">
+    <Grund>Sc</Grund>
+    <Standard>As,BN,BS,BW,Ba,Dr,Gl,Hl,Hä,Kr,Ny,PC,PF,PK,PM,PT,PW,Ri,Sa,Se,Sp,Sö,Wa,gHx,sHx,wHx</Standard>
+    <Ausnahme>Fi,Kd,Ma,Or,Sr,Th,dBe,eBe</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="FengSchui" Region="K" Lernpunkte="4" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In">
+    <Grund>As,Fi,Kd,Kr,Ny,Or,Ri,Sr,Sö</Grund>
+    <Standard>BN,BS,BW,Ba,Dr,Gl,Hl,Hä,Ma,PC,PF,PK,PM,PT,PW,Sc,Se,Sp,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>Sa</Ausnahme>
+    <Lernschema Typ="Kd" Lernpunkte="1"/>
+    <Lernschema Typ="Ny" Lernpunkte="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="FengTsu" Region="K" Lernpunkte="8" Lernkosten="300">
+    <Grund>As,Fi,Gl,Kr,Ny,Or,Ri,Sr</Grund>
+    <Standard>BN,BS,BW,Ba,Hä,Kd,PK,Sa,Se,Sp,Sö,Wa</Standard>
+    <Ausnahme>Dr,Hl,Ma,PC,PF,PM,PT,PW,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Fälschen" Region="K" Lernpunkte="5" Anfangswert="15" Lernkosten="50" Erfolgswert="12" Attribut="In">
+    <Grund>As,Gl,Hä,Ny,Sp</Grund>
+    <Standard>Ba,Ma,PC,PF,PK,PM,PT,PW,Se,Th,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>BN,BS,BW,Dr,Fi,Hl,Kd,Kr,Or,Ri,Sa,Sc,Sr,Sö,Wa</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Geschenke machen" Region="K" Lernpunkte="5" Anfangswert="8" Lernkosten="200" Erfolgswert="6" Attribut="pA">
+    <Standard>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>Sa</Ausnahme>
+    <Lernschema Typ="Tr" Lernpunkte="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="IaiJutsu" Region="K" Lernpunkte="8" Lernkosten="60">
+    <Grund>As,Fi,Kr,Ny,Or,PK,Ri,Sr</Grund>
+    <Standard>BN,BS,BW,Ba,Gl,Hä,Kd,Sa,Se,Sp,Sö,Wa</Standard>
+    <Ausnahme>Dr,Hl,Ma,PC,PF,PM,PT,PW,Sc,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="KarumiJutsu" Region="K" Lernpunkte="3" Anfangswert="15" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
+    <Grund>Ny</Grund>
+    <Standard>As,Dr,Hl,Ma,PC,PF,PK,PM,PT,PW,Sa,Sc,Sp,Th,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>BN,BS,BW,Ba,Fi,Gl,Hä,Kd,Kr,Or,Ri,Se,Sr,Sö,Wa</Ausnahme>
+    <Lernschema Typ="Ny" Lernpunkte="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Kenntnis der fünf Klassiker" Region="K" Lernpunkte="5" Lernkosten="2500">
+    <Standard>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>Sa</Ausnahme>
+    <Lernschema Typ="Kd" Lernpunkte="1"/>
+    <Lernschema Typ="Ny" Lernpunkte="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="KentoYobu" Region="K" Lernpunkte="8" Lernkosten="100">
+    <Grund>Fi,Kr,Or,Ri,Sr,Sö</Grund>
+    <Standard>BN,BS,BW,Gl,Hä,Kd,Ny,Se,Wa</Standard>
+    <Ausnahme>As,Ba,Dr,Hl,Ma,PC,PF,PK,PM,PT,PW,Sa,Sc,Sp,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="KiDo" Region="K" Lernpunkte="8" Anfangswert="10" Lernkosten="800" Erfolgswert="10" Attribut="Zt">
+    <Grund>As,Fi,Kd,Ny,Or,Sr</Grund>
+    <Standard>BN,BS,BW,Ba,Gl,Hl,Hä,Kr,PC,PK,Ri,Sa,Sc,Se,Sp,Sö,Wa</Standard>
+    <Ausnahme>Dr,Ma,PF,PM,PT,PW,Th,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="Kd" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="Ny" Lernpunkte="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="KiDo-Technik" Region="K" Lernpunkte="1">
+    <Standard>Kd,Ny</Standard>
+    <Lernschema Typ="Kd" Lernpunkte="1"/>
+    <Lernschema Typ="Kd" Lernpunkte="1"/>
+    <Lernschema Typ="Kd" Lernpunkte="1"/>
+    <Lernschema Typ="Ny" Lernpunkte="1"/>
+    <Lernschema Typ="Ny" Lernpunkte="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="KujKuri" Region="K" Lernpunkte="4" Anfangswert="1" Lernkosten="20" Erfolgswert="1">
+    <Grund>Ny</Grund>
+    <Standard>As,Gl,Sp</Standard>
+    <Ausnahme>BN,BS,BW,Ba,Dr,Fi,Hl,Hä,Kd,Kr,Ma,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="Ny" Pflicht="True"/>
+  </Fertigkeit>
+  <Fertigkeit Name="KujNoIu" Region="K" Lernpunkte="8" Lernkosten="400">
+    <Grund>Th</Grund>
+    <Standard>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+  </Fertigkeit>
+  <Fertigkeit Name="LiYao" Region="K" Lernpunkte="5" Anfangswert="4" Lernkosten="100" Erfolgswert="2" Attribut="In">
+    <Grund>Ny,Th</Grund>
+    <Standard>As,Fi,Gl,Hä,Kd,Kr,Ma,Or,PK,Ri,Se,Sp,Sr,Sö,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>BN,BS,BW,Ba,Dr,Hl,PC,PF,PM,PT,PW,Sa,Sc,Wa</Ausnahme>
+    <Lernschema Typ="Ny" Lernpunkte="3"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Meditieren" Region="K" Lernpunkte="4" Anfangswert="8" Lernkosten="200" Erfolgswert="8" Attribut="Sb">
+    <Grund>Fi,Kd,Ny,Ri,Sa,Sr</Grund>
+    <Ausnahme>As,BN,BS,BW,Ba,Dr,Gl,Hl,Hä,Kr,Ma,Or,PC,PF,PK,PM,PT,PW,Sc,Se,Sp,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="Kd" Lernpunkte="1"/>
+    <Lernschema Typ="Sa" Lernpunkte="1"/>
+    <Lernschema Typ="Ny" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="MiChen" Region="K" Lernpunkte="8" Lernkosten="500">
+    <Grund>As,Hl,Ny</Grund>
+    <Standard>Ba,Dr,Fi,Gl,Hä,Kd,Kr,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Wa,gHx,sHx,wHx</Standard>
+    <Ausnahme>BN,BS,BW,Ma,Th,dBe,eBe</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="NinJutsu" Region="K" Lernpunkte="4" Anfangswert="4" Lernkosten="600" Erfolgswert="2" Attribut="Ge">
+    <Grund>Ny</Grund>
+    <Standard>As,Dr,Hl,Kd,Ma,PC,PF,PK,PM,PT,PW,Sa,Sc,Sp,Th,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>BN,BS,BW,Ba,Fi,Gl,Hä,Kr,Or,Ri,Se,Sr,Sö,Wa</Ausnahme>
+    <Lernschema Typ="Ny" Lernpunkte="1" Pflicht="True"/>
+    <Lernschema Typ="Kd" Lernpunkte="3"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Orakelkunst" Region="K" Lernpunkte="5" Lernkosten="60">
+    <Grund>Ny,PC,PF,PK,PM,PT,PW,Sa,Sc</Grund>
+    <Standard>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Or,Ri,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="Ny" Lernpunkte="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="SchiyoKi" Region="K" Lernpunkte="8" Lernkosten="100">
+    <Grund>As,Fi,Hl,Kd,Kr,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Sr,Wa</Grund>
+    <Standard>BN,BS,BW,Ba,Dr,Gl,Hä,Ma,Se,Sp,Sö,dBe,eBe</Standard>
+    <Ausnahme>Th,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="Kd" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schwerttanz" Region="K" Lernpunkte="8" Anfangswert="14" Lernkosten="100" Erfolgswert="12" Attribut="Ge">
+    <Grund>Fi,Gl,Kr,Or,PK,Ri,Sr,Sö</Grund>
+    <Standard>As,Ba,Kd,Ny,Se</Standard>
+    <Ausnahme>BN,BS,BW,Dr,Hl,Hä,Ma,PC,PF,PM,PT,PW,Sa,Sc,Sp,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Steinabreibungen machen" Region="K" Lernpunkte="4" Lernkosten="60">
+    <Grund>Ma,PC,PF,PK,PM,PT,PW,Th,gHx,sHx,wHx</Grund>
+    <Standard>As,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Ny,Or,Sa,Sc,Sp,Sr,dBe,eBe</Standard>
+    <Ausnahme>BN,BS,BW,Kr,Ri,Se,Sö,Wa</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="TaiTschi" Region="K" Lernpunkte="5" Lernkosten="100">
+    <Grund>As,Fi,Hl,Kd,Kr,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Sr,Wa</Grund>
+    <Standard>BN,BS,BW,Ba,Dr,Gl,Hä,Ma,Se,Sp,Sö,dBe,eBe</Standard>
+    <Ausnahme>Th,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="Kd" Lernpunkte="1"/>
+    <Lernschema Typ="Ny" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Teezeremonie" Region="K" Lernpunkte="5" Anfangswert="8" Lernkosten="50" Erfolgswert="6" Attribut="pA">
+    <Grund>Fi,Kd,Or,PC,PF,PK,PM,PT,PW,Sa,Sc,Sr</Grund>
+    <Standard>As,BN,BS,BW,Ba,Dr,Gl,Hl,Hä,Kr,Ma,Ny,Ri,Se,Sp,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="Ny" Lernpunkte="1"/>
+    <Lernschema Typ="Kd" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="YangScheng" Region="K" Lernpunkte="5" Anfangswert="1" Lernkosten="100" Erfolgswert="1">
+    <Grund>Fi,Hl,Kd,Or,PC,PF,PK,PM,PW,Sa,Sc,Sr</Grund>
+    <Standard>As,Ba,Dr,Gl,Hä,Ma,Ny,Sp,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>BN,BS,BW,Kr,PT,Ri,Se</Ausnahme>
+    <Lernschema Typ="Kd" Lernpunkte="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="YubeChian" Region="K" Lernpunkte="8" Lernkosten="200">
+    <Grund>As,Hl,Ny</Grund>
+    <Standard>Ba,Dr,Fi,Gl,Hä,Kd,Kr,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Wa,gHx,sHx,wHx</Standard>
+    <Ausnahme>BN,BS,BW,Ma,Th,dBe,eBe</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Zunge verschlucken" Region="K" Lernpunkte="4" Anfangswert="8" Lernkosten="200" Erfolgswert="8">
+    <Standard>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+  </Fertigkeit>
+  <Fertigkeit Name="Askese" Region="R" Lernpunkte="6" Anfangswert="1" Lernkosten="1500" Erfolgswert="1" Attribut="Sb">
+    <Grund>Sa</Grund>
+    <Standard>Dr,Hl,Ma,PC,PK,PM,PT,PW,Sc,Th,dBe,eBe</Standard>
+    <Ausnahme>As,BN,BS,BW,Ba,Fi,Gl,Hä,Kd,Kr,Ny,Or,PF,Ri,Se,Sp,Sr,Sö,Wa,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="Sa" Lernpunkte="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Astrologie" Region="R" Lernpunkte="4" Anfangswert="4" Lernkosten="400" Erfolgswert="2">
+    <Grund>Ma,PC,PF,PK,PM,PT,PW,Th</Grund>
+    <Standard>Ba,Dr,Hl,Hä,Sa,Sc,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Ausnahme>As,BN,BS,BW,Fi,Gl,Kd,Kr,Ny,Or,Ri,Se,Sp,Sr,Sö,Wa</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Augensalbe herstellen" Region="R" Lernpunkte="9" Lernkosten="200">
+    <Standard>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Standard>
+    <Lernschema Typ="Th" Lernpunkte="3"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Elefanten lenken" Region="R" Lernpunkte="6" Anfangswert="15" Lernkosten="1000" Erfolgswert="12" Attribut="Ge">
+    <Standard>Sa,Sr</Standard>
+    <Ausnahme>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Se,Sp,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf zu Elefant" Region="R" Lernpunkte="8" Lernkosten="200">
+    <Standard>Sa,Sr</Standard>
+    <Ausnahme>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Se,Sp,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Kampf zu Srimara" Region="R" Lernpunkte="8" Lernkosten="200">
+    <Standard>Sa,Sr</Standard>
+    <Ausnahme>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Se,Sp,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="Sr" Lernpunkte="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Körperkontrolle" Region="R" Lernpunkte="3" Anfangswert="15" Lernkosten="150" Erfolgswert="12">
+    <Standard>Sa,Sr</Standard>
+    <Ausnahme>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Se,Sp,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="Sa" Lernpunkte="1"/>
+    <Lernschema Typ="Sr" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Meditieren" Region="R" Lernpunkte="4" Anfangswert="8" Lernkosten="200" Erfolgswert="8" Attribut="Sb">
+    <Grund>Fi,Kd,Ny,Ri,Sa,Sr</Grund>
+    <Ausnahme>As,BN,BS,BW,Ba,Dr,Gl,Hl,Hä,Kr,Ma,Or,PC,PF,PK,PM,PT,PW,Sc,Se,Sp,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="Kd" Lernpunkte="1"/>
+    <Lernschema Typ="Sa" Lernpunkte="1"/>
+    <Lernschema Typ="Ny" Lernpunkte="2"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Natya" Region="R" Lernpunkte="7" Lernkosten="100">
+    <Standard>Ba,PC,PF,PK,PM,PT,PW</Standard>
+    <Ausnahme>As,BN,BS,BW,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,Ri,Sa,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+  </Fertigkeit>
+  <Fertigkeit Name="Schlangen beschwören" Region="R" Lernpunkte="4" Anfangswert="8" Lernkosten="200" Erfolgswert="8" Attribut="Sb">
+    <Grund>Kd,Ny,Sa</Grund>
+    <Ausnahme>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kr,Ma,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Se,Sp,Sr,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="Sa" Lernpunkte="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schmerzen ertragen" Region="R" Lernpunkte="8" Anfangswert="15" Lernkosten="200" Erfolgswert="12" Attribut="Sb">
+    <Grund>Sa</Grund>
+    <Standard>Sr</Standard>
+    <Ausnahme>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sc,Se,Sp,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="Sa" Lernpunkte="1"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Srimara lenken" Region="R" Lernpunkte="6" Anfangswert="15" Lernkosten="1000" Erfolgswert="12" Attribut="Ge">
+    <Grund>Sr</Grund>
+    <Ausnahme>As,BN,BS,BW,Ba,Dr,Fi,Gl,Hl,Hä,Kd,Kr,Ma,Ny,Or,PC,PF,PK,PM,PT,PW,Ri,Sa,Sc,Se,Sp,Sö,Th,Wa,dBe,eBe,gHx,sHx,wHx</Ausnahme>
+    <Lernschema Typ="Sr" Lernpunkte="1"/>
+  </Fertigkeit>
 </MidgardCG-data>
