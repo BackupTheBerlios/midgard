@@ -98,22 +98,19 @@ std::string Sprache::Schriften() const
 
 
 
-const Sprache_und_Schrift Sprache::SchriftWert(int erfolgswert,const std::list<MidgardBasicElement_mutable>& list_Schrift) const 
+const Sprache_und_Schrift Sprache::SchriftWert(int erfolgswert,bool gelernt,const std::list<MidgardBasicElement_mutable>& list_Schrift) const 
 {
-// vector<pair<std::string,int> > vs;
  MidgardBasicElement_mutable mbe(&*this);
  mbe.setErfolgswert(erfolgswert);
- Sprache_und_Schrift sus(mbe);
+ Sprache_und_Schrift sus(mbe,gelernt);
  for(vector<std::string>::const_iterator i=VSchrift.begin();i!=VSchrift.end();++i)
   {  
    for(std::list<MidgardBasicElement_mutable>::const_iterator j=list_Schrift.begin();j!=list_Schrift.end();++j)
     {
       if(*i == (*j)->Name()) // Schrift ist gelernt
          sus.push_back(*i,j->Erfolgswert());
-//        vs.push_back(pair<std::string,int>(*i,(*j).Erfolgswert()));
     }
   }
-// return vs;
   return sus;
 }
 

@@ -14,7 +14,8 @@ NEWS IN VERSION 0.7.7
 * Wenn jetzt eine Sprache gelernt wird, die man vorher ungelernt schon 
    konnte, dann wird sie mit dem entsprechend höchstem Erfolgswert beherrscht.
 * Schaden für Raufen und Waffen, die man nicht besitzt im Spielleiterexport
-
+* Neuimplementation der ungelernten Sprachen und der zu den Sprachen
+   gehörenden Schriften
 
 TODO: ('-' zeigt CP an)
 * Schreiben im Spielleiterexport

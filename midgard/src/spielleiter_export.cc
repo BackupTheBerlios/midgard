@@ -119,7 +119,7 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
      fout << "Angriff: ";
      fout <<angriff; 
     }
-  fout << ", Raufen+"<<W.Raufen()<<" ("<<W.RaufenSchaden()<<")"; 
+  fout << "; Raufen+"<<W.Raufen()<<" ("<<W.RaufenSchaden()<<")"; 
   fout <<" - Abwehr+"<<W.Abwehr_wert()+W.bo_Ab() <<", "
        <<"Resistenz+"<<W.Resistenz()+W.bo_Psy(Char.getVTyp())<<"/" 
                      <<W.Resistenz()+W.bo_Phs(Char.getVTyp())<<"/" 

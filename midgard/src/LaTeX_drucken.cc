@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.57 2002/08/20 09:06:50 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.58 2002/08/20 10:28:15 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -114,26 +114,17 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  write_grundwerte(fout);
  /////////////////////////////////////////////////////////////////////////////
  // Sprachen und Schriften
-// std::vector<Sprache::st_sprachen_schrift> S;
  std::vector<Sprache_und_Schrift> S;
-// std::list<MidgardBasicElement_mutable> verwandteSprachen;
  for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Sprache().begin();i!=hauptfenster->getChar().List_Sprache().end();++i)
-   {  //cH_Sprache s(*i);
-//      std::list<MidgardBasicElement_mutable> tmplist=cH_Sprache(*i)->VerwandteSprachen((*i).Erfolgswert(),hauptfenster->getChar().List_Sprache(),hauptfenster->getCDatabase().Sprache);
-//      verwandteSprachen.splice(verwandteSprachen.end(),tmplist);
-      
-      Sprache_und_Schrift sus=cH_Sprache(*i)->SchriftWert(i->Erfolgswert(),hauptfenster->getChar().List_Schrift());
+   {  
+      Sprache_und_Schrift sus=cH_Sprache(*i)->SchriftWert(i->Erfolgswert(),true,hauptfenster->getChar().List_Schrift());
       S.push_back(sus);
-//      vector<pair<std::string,int> > vs=cH_Sprache(*i)->SchriftWert(hauptfenster->getChar().List_Schrift());
-//      S.push_back(Sprache::st_sprachen_schrift(*i,vs));
    }
-// verwandteSprachen=Sprache::cleanVerwandteSprachen(verwandteSprachen);
  std::list<MidgardBasicElement_mutable> verwandteSprachen=Sprache::getVerwandteSprachen(hauptfenster->getChar().List_Sprache(),hauptfenster->getCDatabase().Sprache);
  for(std::list<MidgardBasicElement_mutable>::const_iterator i=verwandteSprachen.begin();i!=verwandteSprachen.end();++i)
    { //cH_Sprache s(*i);
      if(i->ist_gelernt(hauptfenster->getChar().List_Sprache())) continue;
-//     S.push_back(Sprache::st_sprachen_schrift(*i));
-     S.push_back(Sprache_und_Schrift(*i));
+     S.push_back(Sprache_und_Schrift(*i,false));
    }
  write_sprachen(fout,S);
  if(S.size()>maxsprach) bool_sprach=true;
@@ -421,7 +412,11 @@ void LaTeX_drucken::write_sprachen(ostream &fout,const std::vector<Sprache_und_S
 
       if(!longlist) fout << "\\newcommand{\\spraw"<<a<<"}";
       else fout << " & ";
-      fout << "{\\scriptsize +"<< i->getSprache().Erfolgswert() <<"}\n";
+      fout << "{\\scriptsize +";
+      if(!i->getGelernt()) fout << "(";
+      fout << i->getSprache().Erfolgswert();
+      if(!i->getGelernt()) fout << ")";
+      fout <<"}\n";
 
       std::string ss;
       for(std::vector<Sprache_und_Schrift::st_sus>::const_iterator j=i->getSchriften().begin();j!=i->getSchriften().end();)

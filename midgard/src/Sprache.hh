@@ -1,4 +1,4 @@
-// $Id: Sprache.hh,v 1.29 2002/08/20 09:06:50 thoma Exp $               
+// $Id: Sprache.hh,v 1.30 2002/08/20 10:28:15 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -37,14 +37,14 @@ class Sprache_und_Schrift
              st_sus(std::string s,int w) :schrift(s),wert(w) {}};
    private:
       MidgardBasicElement_mutable sprache;
-//      cH_Sprache sprache;
+      bool gelernt;
       std::vector<st_sus> schriften;
    public:
-      Sprache_und_Schrift(const MidgardBasicElement_mutable& M)
-//      Sprache_und_Schrift(cH_Sprache M)
-         : sprache(M) {}
+      Sprache_und_Schrift(const MidgardBasicElement_mutable& M,bool g)
+         : sprache(M),gelernt(g) {}
 
       MidgardBasicElement_mutable getSprache() const {return sprache;}
+      bool getGelernt() const {return gelernt;}
       const std::vector<st_sus>& getSchriften() const {return schriften;}
       void push_back(std::string s,int w) {schriften.push_back(st_sus(s,w));};
 };
@@ -52,17 +52,6 @@ class Sprache_und_Schrift
 
 class Sprache : public MidgardBasicElement
 {
-/*
-  public:
-         struct st_sprachen_schrift{MidgardBasicElement_mutable sprache;
-               std::vector<pair<std::string,int> > vs;
-               st_sprachen_schrift(const MidgardBasicElement_mutable &s,
-                               const std::vector<pair<std::string,int> > &v)
-                    :sprache(s),vs(v) {}   
-               st_sprachen_schrift(const MidgardBasicElement_mutable &s)
-                    :sprache(s) {}
-               };
-*/
   private:
      std::vector<std::string> VSchrift;
      bool alte_sprache,minderheit,muttersprache;
@@ -84,7 +73,7 @@ class Sprache : public MidgardBasicElement
 
    std::string Schriften() const;
    const std::vector<std::string> &Schrift() const  {return VSchrift; }
-   const Sprache_und_Schrift SchriftWert(int erfolgswert,const std::list<MidgardBasicElement_mutable>& list_Schrift) const;
+   const Sprache_und_Schrift SchriftWert(int erfolgswert,bool gelernt,const std::list<MidgardBasicElement_mutable>& list_Schrift) const;
 
    bool Alte_Sprache() const {return alte_sprache;}    
    bool Minderheit() const {return minderheit;}    
