@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.15 2004/03/06 16:55:41 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.16 2004/04/21 12:49:44 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -998,8 +998,8 @@ void LaTeX_drucken::LaTeX_zauber(const Abenteurer &A,std::ostream &fout)
          && !z->Beschreibung().empty() )
        fout <<"\\multicolumn{13}{p{27cm}}{"
          "\\parbox{0.49cm}{~}\\parbox{26.5cm}{"
-         "\\textit{\\tiny "<<z->Beschreibung()
-         << "}}}\\\\\n";
+         "\\renewcommand{\\baselinestretch}{0.5}\\it\\tiny "<<z->Beschreibung()
+         << "}}\\\\\n";
    }
 }
 
