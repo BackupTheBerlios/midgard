@@ -1,4 +1,4 @@
-// $Id: VAbentModelProxy.cc,v 1.11 2004/03/31 07:00:08 christof Exp $               
+// $Id: VAbentModelProxy.cc,v 1.12 2004/05/26 09:37:12 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2003 Christof Petig
  *
@@ -39,6 +39,21 @@ void VAbentModelProxy::divert(VAbenteurer::st_undo &A)
       
    wizard.set_model(Model_ref<Wizard::esteps>(A.wizard));
    wizard_mode=Model_ref<Wizard::mode>(A.wizard);
+}
+
+void VAbentModelProxy::divert()
+{  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
+   for (regionen_t::iterator i=regionen.begin();i!=regionen.end();++i)
+      i->second=Model_ref<bool>();
+   
+   for (check_t::iterator i=checks.begin();i!=checks.end();++i)
+      i->second=Model_ref<bool>();
+         
+   for (haus_t::iterator i=hausregeln.begin();i!=hausregeln.end();++i)
+         i->second=Model_ref<bool>();
+      
+   wizard.set_model(Model_ref<Wizard::esteps>());
+   wizard_mode=Model_ref<Wizard::mode>();
 }
 
 void VAbentModelProxy::divert(VAbenteurer::Item &A)

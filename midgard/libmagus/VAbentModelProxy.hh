@@ -1,4 +1,4 @@
-// $Id: VAbentModelProxy.hh,v 1.6 2004/03/22 07:49:21 christof Exp $               
+// $Id: VAbentModelProxy.hh,v 1.7 2004/05/26 09:37:12 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2003-2004 Christof Petig
  *
@@ -52,5 +52,7 @@ struct VAbentModelProxy
    
    void divert(AbenteurerListe::Item &new_one);
    void divert(AbenteurerListe::st_undo &new_one);
+   // divert to nothing
+   void divert();
 };
 #endif
