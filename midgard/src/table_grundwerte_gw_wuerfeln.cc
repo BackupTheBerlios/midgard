@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.33 2003/04/29 07:06:56 christof Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.34 2003/06/12 12:46:03 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -80,11 +80,6 @@ void table_grundwerte::Eigenschaften_variante(int i)
      else if (i==3)  gw_variante_3();
      frame_wuerfelvariante->show();
    }
-  hauptfenster->getWerte().setAu(constraint_aw(
-                                 hauptfenster->getWerte().Spezies()->Au()) );
-  hauptfenster->getWerte().setpA( hauptfenster->random.integer(1,100)-30 
-                                 + 3*(hauptfenster->getWerte().In()/10 
-                                      + hauptfenster->getWerte().Au()/10) );
   
 }
 
@@ -106,6 +101,11 @@ void table_grundwerte::check_350(const std::vector<int>& a)
    {  hauptfenster->set_status("Summe der Eigenschaftswerte "+itos(sum)+" kleiner als 350. Es darf (muß aber nicht) noch einmal gewürfelt werden.",false);
       button_grundwerte->set_sensitive(true);
    }
+  hauptfenster->getWerte().setAu(constraint_aw(
+                                 hauptfenster->getWerte().Spezies()->Au()) );
+  hauptfenster->getWerte().setpA( hauptfenster->random.integer(1,100)-30 
+                                 + 3*(hauptfenster->getWerte().In()/10 
+                                      + hauptfenster->getWerte().Au()/10) );
   zeige_werte(false);
   fill_typauswahl();
   fill_typauswahl_2();

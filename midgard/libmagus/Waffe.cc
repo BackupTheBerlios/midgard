@@ -187,8 +187,8 @@ std::string WaffeBesitz::Schaden(const Grundwerte& Werte,const std::string& name
   std::string s=Waffe()->Schaden(name);
   int sb =Waffe()->Schaden_Bonus(name) + sl_Bonus();
   int sb2=Waffe()->Schaden_Bonus2(name) + sl_Bonus();
-  // Nicht stark genug fürs Einhändige Tragen dieser Waffe?
-  if(Waffe()->Text().find("Einhändig")!=std::string::npos &&
+  // Nicht stark genug fÃ¼rs EinhÃ¤ndige Tragen dieser Waffe?
+  if(Waffe()->Text().find("EinhÃ¤ndig")!=std::string::npos &&
        !Waffe()->Min_St_Einhand(Werte)) sb2=sb;
 
   if ( Waffe()->Grundkenntnis() == "Kampf ohne Waffen" ) 

@@ -65,7 +65,7 @@ std::string table_ausruestung::spaltentitel(e_spalten e)
 }
 
 
-enum table_ausruestung::e_spalten &operator++(enum table_ausruestung::e_spalten &s)
+enum table_ausruestung::e_spalten operator++(enum table_ausruestung::e_spalten &s)
 {  return (enum table_ausruestung::e_spalten)(++(int&)s);
 } 
 

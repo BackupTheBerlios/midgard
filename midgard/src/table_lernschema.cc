@@ -895,11 +895,11 @@ void table_lernschema::setTitels_for_Lernschema(const MidgardBasicElement::MBEE&
 
 void table_lernschema::clean_lernschema_trees()
 {
-  if(tree_lernschema) {delete tree_lernschema; tree_lernschema=0;}
-  if(Beruf_tree) {delete Beruf_tree; Beruf_tree=0;}
-  if(tree_angeb_fert) {delete tree_angeb_fert; tree_angeb_fert=0;}
-  if(tree_kido_lernschema) {delete tree_kido_lernschema; tree_kido_lernschema=0;}
-  if(tree_waffen_lernschema) {delete tree_waffen_lernschema; tree_waffen_lernschema=0;}
   scrolledwindow_lernen->remove();
+  tree_lernschema=0;
+  Beruf_tree=0;
+  tree_angeb_fert=0;
+  tree_kido_lernschema=0;
+  tree_waffen_lernschema=0;
 }
 
