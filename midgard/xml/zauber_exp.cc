@@ -1,4 +1,4 @@
-// $Id: zauber_exp.cc,v 1.5 2002/02/14 09:33:04 thoma Exp $
+// $Id: zauber_exp.cc,v 1.6 2002/02/14 09:36:07 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -135,7 +135,7 @@ void arkanum_speichern(std::ostream &o)
    FetchIStream is2;
    while ((query2>>is2).good())
    {  o << "    <Voraussetzung";
-      fetch_and_write_string_attrib(is2, o, "Fertigkeit");
+      fetch_and_write_string_attrib(is2, o, "Zauber");
       fetch_and_write_string_attrib(is2, o, "Verbindung");
       o << "/>\n";
    }
@@ -145,7 +145,7 @@ void arkanum_speichern(std::ostream &o)
 	" order by fertigkeit");
    FetchIStream is3;
    while ((query3>>is3).good())
-   {  o << "    <Voraussetzung_Fertigkeit";
+   {  o << "    <Voraussetzung";
       fetch_and_write_string_attrib(is3, o, "Fertigkeit");
       o << "/>\n";
    }
