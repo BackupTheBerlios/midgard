@@ -81,7 +81,7 @@ void table_ausruestung::fill_new_preise()
   for(std::list<cH_Preise>::const_iterator i=Datenbank.preise.begin();i!=e;++i)
    {
      if((*i)->Unverkauflich() && !togglebutton_unverkauflich->get_active()) continue;
-     if(LL.region_check(hauptfenster->getChar().getAbenteurer(),(*i)->Region()))
+     if(LL.region_check(hauptfenster->getAben(),(*i)->Region()))
          LNP.push_back(new Data_NewPreis(*i));
    }
 //cout << "F I L L 2\t"<<LNP.size()<<'\n';
@@ -131,7 +131,7 @@ bool table_ausruestung::genug_geld(const std::string &_E_,const int kosten) cons
   else if(_E_=="SS") einheit=SS;
   else if(_E_=="KS") einheit=KS;
      
-  Grundwerte &W=hauptfenster->getChar().getAbenteurer();
+  Grundwerte &W=hauptfenster->getAben();
   int vermoegen=W.Kupfer()+10*W.Silber()+100*W.Gold();
 
   {int k=kosten;
@@ -199,8 +199,8 @@ void table_ausruestung::on_preise_tree_neu_leaf_selected(cH_RowDataBase d)
   
   if(!besitz && dt->Ware()->Art()=="Neu")
    {
-     AusruestungBaum &B=hauptfenster->getChar()->getBesitz().push_back(A);
-     B.setParent(&hauptfenster->getChar()->getBesitz());     
+     AusruestungBaum &B=hauptfenster->getAben().getBesitz().push_back(A);
+     B.setParent(&hauptfenster->getAben().getBesitz());     
    }
   else if(besitz)
    {

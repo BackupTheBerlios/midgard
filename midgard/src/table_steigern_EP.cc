@@ -25,17 +25,17 @@ bool table_steigern::vscale_value_changed(GdkEventButton *ev)
 {
   Gtk::Adjustment *A=vscale_EP_Gold->get_adjustment();
   int Av=(int)A->get_value();
-  hauptfenster->getChar()->set_Steigern_EP_Prozent(100-Av);
+  hauptfenster->getAben().set_Steigern_EP_Prozent(100-Av);
   steigern_gtk();
   return false;
 }
 
 void table_steigern::steigern_gtk()
 {
-  label_EP->set_text(itos(hauptfenster->getChar()->get_Steigern_EP_Prozent())+"%");
-  label_Gold->set_text(itos(100-hauptfenster->getChar()->get_Steigern_EP_Prozent())+"%");
+  label_EP->set_text(itos(hauptfenster->getAben().get_Steigern_EP_Prozent())+"%");
+  label_Gold->set_text(itos(100-hauptfenster->getAben().get_Steigern_EP_Prozent())+"%");
   Gtk::Adjustment *A=vscale_EP_Gold->get_adjustment();
-  A->set_value(100-hauptfenster->getChar()->get_Steigern_EP_Prozent());
+  A->set_value(100-hauptfenster->getAben().get_Steigern_EP_Prozent());
 //  if (steigern_mit_EP_bool) checkbutton_EP_Geld->set_active(true);
 //  else                      checkbutton_EP_Geld->set_active(false);
 }
@@ -62,9 +62,9 @@ void table_steigern::on_button_EP_eingeben()
 
 void table_steigern::show_EPeingabe(bool b,int button)
 {
-  LabelSpin_aep->set_value(hauptfenster->getChar()->AEP());
-  LabelSpin_kep->set_value(hauptfenster->getChar()->KEP());
-  LabelSpin_zep->set_value(hauptfenster->getChar()->ZEP());
+  LabelSpin_aep->set_value(hauptfenster->getAben().AEP());
+  LabelSpin_kep->set_value(hauptfenster->getAben().KEP());
+  LabelSpin_zep->set_value(hauptfenster->getAben().ZEP());
   if(b)
    {   
      if     (button == 1)
@@ -90,9 +90,9 @@ void table_steigern::show_EPeingabe(bool b,int button)
 /*
   if(b)
    {
-     spinbutton_aep->set_value(hauptfenster->getChar()->AEP());
-     spinbutton_kep->set_value(hauptfenster->getChar()->KEP());
-     spinbutton_zep->set_value(hauptfenster->getChar()->ZEP());
+     spinbutton_aep->set_value(hauptfenster->getAben().AEP());
+     spinbutton_kep->set_value(hauptfenster->getAben().KEP());
+     spinbutton_zep->set_value(hauptfenster->getAben().ZEP());
      spinbutton_aep->show();
      spinbutton_kep->show();
      spinbutton_zep->show();
@@ -105,9 +105,9 @@ void table_steigern::show_EPeingabe(bool b,int button)
      spinbutton_aep->hide();
      spinbutton_kep->hide();
      spinbutton_zep->hide();
-     label_aep->set_text(itos(hauptfenster->getChar()->AEP()));
-     label_kep->set_text(itos(hauptfenster->getChar()->KEP()));
-     label_zep->set_text(itos(hauptfenster->getChar()->ZEP()));
+     label_aep->set_text(itos(hauptfenster->getAben().AEP()));
+     label_kep->set_text(itos(hauptfenster->getAben().KEP()));
+     label_zep->set_text(itos(hauptfenster->getAben().ZEP()));
      label_aep->show();
      label_kep->show();
      label_zep->show();

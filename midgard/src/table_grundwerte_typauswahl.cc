@@ -27,9 +27,9 @@ void table_grundwerte::fill_typauswahl()
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   if(!hauptfenster) return;
   fill_typauswahl_fill(1);
-  if (!hauptfenster->getChar()->getVTyp().empty()) 
+  if (!hauptfenster->getAben().getVTyp().empty()) 
    {
-     combo_typ->get_entry()->set_text(hauptfenster->getChar()->Typ1()->Name(hauptfenster->Geschlecht()));
+     combo_typ->get_entry()->set_text(hauptfenster->getAben().Typ1()->Name(hauptfenster->Geschlecht()));
    }
 }
 
@@ -38,13 +38,13 @@ void table_grundwerte::fill_typauswahl_2()
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   if(!hauptfenster) return;
   fill_typauswahl_fill(2);
-  combo_typ2->get_entry()->set_text(hauptfenster->getChar()->Typ2()->Name(hauptfenster->Geschlecht()));
+  combo_typ2->get_entry()->set_text(hauptfenster->getAben().Typ2()->Name(hauptfenster->Geschlecht()));
 }
 
 void table_grundwerte::fill_typauswahl_fill(int typ_1_2)
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
-  const std::vector<std::pair<cH_Typen,bool> > T=LernListen().getTypen(hauptfenster->getChar().getAbenteurer());
+  const std::vector<std::pair<cH_Typen,bool> > T=LernListen().getTypen(hauptfenster->getAben());
   std::list<std::string> L;
   for(std::vector<std::pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
    {
@@ -88,8 +88,8 @@ void table_grundwerte::typauswahl_button()
  if(!Typen::get_Typ_from_long(Datenbank.Typen,typ))
    return;
 
- hauptfenster->getChar().getWizard().done(Wizard::TYP,hauptfenster->getChar().getAbenteurer());
- hauptfenster->getChar()->setTyp1(cH_Typen(typ));
+ hauptfenster->getChar().getWizard().done(Wizard::TYP,hauptfenster->getAben());
+ hauptfenster->getAben().setTyp1(cH_Typen(typ));
 
 // if (Typ[0]->Short()=="dBe" || Typ[0]->Short()=="eBe") angeborene_zauber();
 
@@ -99,13 +99,13 @@ void table_grundwerte::typauswahl_button()
      radiobutton_stadt->set_sensitive(false);
      radiobutton_land->set_sensitive(true);
    }
- else if(!hauptfenster->getChar()->Typ1()->Stadt())
+ else if(!hauptfenster->getAben().Typ1()->Stadt())
    {
      radiobutton_land->set_active(true);
      radiobutton_land->set_sensitive(true);
      radiobutton_stadt->set_sensitive(false);
    }
- else if(!hauptfenster->getChar()->Typ1()->Land())
+ else if(!hauptfenster->getAben().Typ1()->Land())
    {
      radiobutton_stadt->set_active(true);
      radiobutton_stadt->set_sensitive(true);
@@ -143,7 +143,7 @@ void table_grundwerte::typauswahl_2_button()
  if(!Typen::get_Typ_from_long(Datenbank.Typen,typ))
    return;
 
- hauptfenster->getChar()->setTyp2(cH_Typen(typ));
+ hauptfenster->getAben().setTyp2(cH_Typen(typ));
 
 // if (Typ[1]->Short()=="dBe" || Typ[1]->Short()=="eBe") angeborene_zauber();
 }
@@ -197,14 +197,14 @@ void table_grundwerte::spezieswahl_button()
  if (hauptfenster->Spezies()->Name()=="Elf")
    hauptfenster->InfoFenster->AppendShow("Soll dieser Elf ein Doppeltyp-Abenteurer sein?",WindowInfo::Elf_doppel);
    
- hauptfenster->getChar().getWizard().done(Wizard::SPEZIES,hauptfenster->getChar().getAbenteurer());
+ hauptfenster->getChar().getWizard().done(Wizard::SPEZIES,hauptfenster->getAben());
 }
 
 void table_grundwerte::on_radiobutton_stadt_land_toggled()
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   if(block_changed) return;
-  hauptfenster->getChar().getWizard().done(Wizard::STADTLAND,hauptfenster->getChar().getAbenteurer());
+  hauptfenster->getChar().getWizard().done(Wizard::STADTLAND,hauptfenster->getAben());
 
   if(radiobutton_stadt->get_active()) hauptfenster->setStadtLand(Enums::Stadt);   
   else                                hauptfenster->setStadtLand(Enums::Land);   
@@ -226,7 +226,7 @@ void table_grundwerte::on_radiobutton_mann_toggled()
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   if(block_changed) return;
-  hauptfenster->getChar().getWizard().done(Wizard::GESCHLECHT,hauptfenster->getChar().getAbenteurer());
+  hauptfenster->getChar().getWizard().done(Wizard::GESCHLECHT,hauptfenster->getAben());
   Enums::geschlecht oldG=hauptfenster->Geschlecht();
   if (radiobutton_mann->get_active()) hauptfenster->setGeschlecht(Enums::Mann);
   else hauptfenster->setGeschlecht(Enums::Frau);

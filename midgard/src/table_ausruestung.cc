@@ -37,9 +37,9 @@ void table_ausruestung::init(midgard_CG *h)
    togglebutton_artikel_neu->set_active(false);
    togglebutton_gruppe_neu->set_active(false); 
 //   togglebutton_gruppe_neu->hide();//
-   label_normallast->set_text(itos(hauptfenster->getChar()->getNormallast())+" kg");
-   label_hoechstlast->set_text(itos(hauptfenster->getChar()->getHoechstlast())+" kg");
-   label_schublast->set_text(itos(hauptfenster->getChar()->getSchublast())+" kg");
+   label_normallast->set_text(itos(hauptfenster->getAben().getNormallast())+" kg");
+   label_hoechstlast->set_text(itos(hauptfenster->getAben().getHoechstlast())+" kg");
+   label_schublast->set_text(itos(hauptfenster->getAben().getSchublast())+" kg");
    fill_new_preise();
    fill_all_Combos_Art_Einheit_Region();
    fill_all_Combo_Art2();
@@ -55,7 +55,7 @@ void table_ausruestung::ausruestung_laden()
 
 void table_ausruestung::showAusruestung()
 {
-  hauptfenster->getChar()->setStandardAusruestung();
+  hauptfenster->getAben().setStandardAusruestung();
 
   besitz=0;
   std::vector<std::string> title;
@@ -68,7 +68,7 @@ void table_ausruestung::showAusruestung()
 #endif         
   
 //  Gtk::TreeModelIterator r;
-  AusruestungBaum &be=hauptfenster->getChar()->getBesitz();
+  AusruestungBaum &be=hauptfenster->getAben().getBesitz();
   for(AusruestungBaum::const_iterator i=be.begin();i!=be.end();++i)
    { Gtk::TreeModel::iterator iter = m_refStore->append();
      (*iter)[m_columns.name] = i->getAusruestung().Name();
@@ -84,7 +84,7 @@ void table_ausruestung::showAusruestung()
   Ausruestung_tree->get_selection()->signal_changed().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_Ausruestung_tree_select_row));
 //  Ausruestung_tree->signal_tree_unselect_row().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_Ausruestung_tree_unselect_row));
   button_ausruestung_loeschen->set_sensitive(false);
-  label_gesamtlast->set_text(dtos1(hauptfenster->getChar()->getBelastung("Körper"))+" kg");
+  label_gesamtlast->set_text(dtos1(hauptfenster->getAben().getBelastung("Körper"))+" kg");
 }
 
 
@@ -167,9 +167,9 @@ void table_ausruestung::on_checkbutton_ausruestung_geld_toggled()
 
 void table_ausruestung::zeige_werte()
 {
-  label_golda->set_text(itos(hauptfenster->getChar()->Gold()));
-  label_silbera->set_text(itos(hauptfenster->getChar()->Silber()));
-  label_kupfera->set_text(itos(hauptfenster->getChar()->Kupfer()));
+  label_golda->set_text(itos(hauptfenster->getAben().Gold()));
+  label_silbera->set_text(itos(hauptfenster->getAben().Silber()));
+  label_kupfera->set_text(itos(hauptfenster->getAben().Kupfer()));
 }
 
 void table_ausruestung::on_togglebutton_artikel_neu_toggled()

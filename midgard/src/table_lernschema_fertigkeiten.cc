@@ -1,4 +1,4 @@
-// $Id: table_lernschema_fertigkeiten.cc,v 1.33 2003/09/05 08:29:29 christof Exp $
+// $Id: table_lernschema_fertigkeiten.cc,v 1.34 2003/09/05 08:33:30 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -30,8 +30,8 @@
 
 void table_lernschema::on_button_angeborene_fertigkeit()
 {
-  hauptfenster->getChar().getWizard().done(Wizard::ANGEBORENEFERTIGKEITEN,hauptfenster->getChar().getAbenteurer());
-  hauptfenster->getChar()->setAngebFert();
+  hauptfenster->getChar().getWizard().done(Wizard::ANGEBORENEFERTIGKEITEN,hauptfenster->getAben());
+  hauptfenster->getAben().setAngebFert();
   
   if (Programmoptionen.WerteEingebenModel().Value()) on_angeborene_fertigkeit_right_clicked();
   else on_angeborene_fertigkeit_clicked() ;
@@ -40,7 +40,7 @@ void table_lernschema::on_button_angeborene_fertigkeit()
 
   button_lernpunkte->set_sensitive(true);
   togglebutton_lernpunkte_edit->set_sensitive(true);
-  if(!hauptfenster->getChar()->getOptionen().OptionenCheck(Optionen::NSC_only).active)
+  if(!hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active)
      button_angeborene_fert->set_sensitive(false);
 }
 
@@ -72,7 +72,7 @@ void table_lernschema::on_angeborene_fertigkeit_right_clicked()
   list_Fertigkeit_ang_neu.clear();
   for(std::list<cH_MidgardBasicElement>::const_iterator i=L.begin();i!=L.end();++i)
     list_Fertigkeit_ang_neu.push_back(MBEmlt(*i));
-  MidgardBasicTree::show_list_in_tree(list_Fertigkeit_ang_neu,tree_angeb_fert,&hauptfenster->getChar().getAbenteurer());
+  MidgardBasicTree::show_list_in_tree(list_Fertigkeit_ang_neu,tree_angeb_fert,&hauptfenster->getAben());
 
   scrolledwindow_lernen->show();
   tree_angeb_fert->show();
@@ -85,9 +85,9 @@ void table_lernschema::on_ang_fert_leaf_selected(cH_RowDataBase d)
   MBEmlt MBE = dt->getMBE();
   cH_Fertigkeit_angeborene F(MBE->getMBE());
 
-  hauptfenster->getChar()->setAngebSinnFert(F->Min(),MBE);  
+  hauptfenster->getAben().setAngebSinnFert(F->Min(),MBE);  
   list_Fertigkeit_ang_neu.remove(MBE);
-  MidgardBasicTree::show_list_in_tree(list_Fertigkeit_ang_neu,tree_angeb_fert,&hauptfenster->getChar().getAbenteurer());
+  MidgardBasicTree::show_list_in_tree(list_Fertigkeit_ang_neu,tree_angeb_fert,&hauptfenster->getAben());
   show_gelerntes();
   zeige_werte();
 }
@@ -100,7 +100,7 @@ std::string table_lernschema::AngebFert_gewuerfelt(int wurf)
      if (cH_Fertigkeit_angeborene(*i)->Min()<=wurf && wurf<=cH_Fertigkeit_angeborene(*i)->Max())
       {
          name=(*i)->Name();
-         hauptfenster->getChar()->setAngebSinnFert(wurf,MBEmlt(*i));  
+         hauptfenster->getAben().setAngebSinnFert(wurf,MBEmlt(*i));  
          break;
       }
    }
@@ -109,9 +109,9 @@ std::string table_lernschema::AngebFert_gewuerfelt(int wurf)
 
 void table_lernschema::setFertigkeitenAusruestung()
 {
-  AusruestungBaum &koerper=hauptfenster->getChar()->getBesitz();
-  AusruestungBaum &rucksack=hauptfenster->getChar()->getAusruestung_as_parent("Rucksack");
-  for (std::list<MBEmlt>::const_iterator i=hauptfenster->getChar()->List_Fertigkeit().begin();i!=hauptfenster->getChar()->List_Fertigkeit().end();++i)
+  AusruestungBaum &koerper=hauptfenster->getAben().getBesitz();
+  AusruestungBaum &rucksack=hauptfenster->getAben().getAusruestung_as_parent("Rucksack");
+  for (std::list<MBEmlt>::const_iterator i=hauptfenster->getAben().List_Fertigkeit().begin();i!=hauptfenster->getAben().List_Fertigkeit().end();++i)
    {
      const std::vector<Fertigkeit::st_besitz> VB=cH_Fertigkeit((*i)->getMBE())->get_vec_Besitz();
      for(std::vector<Fertigkeit::st_besitz>::const_iterator j=VB.begin();j!=VB.end();++j)

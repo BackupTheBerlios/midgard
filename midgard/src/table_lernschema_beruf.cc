@@ -1,4 +1,4 @@
-// $Id: table_lernschema_beruf.cc,v 1.35 2003/09/05 08:29:29 christof Exp $
+// $Id: table_lernschema_beruf.cc,v 1.36 2003/09/05 08:33:30 christof Exp $
 /*  Midgard Character Generator Copyright (C) 2001 Malte Thoma
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -36,9 +36,9 @@ void table_lernschema::on_button_beruf()
          "übrig, die zunächst verbraucht werden müssen.");
       return ;                                          
     }
-  if(!hauptfenster->getChar()->getOptionen().OptionenCheck(Optionen::NSC_only).active)
+  if(!hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active)
       button_beruf->set_sensitive(false);
-  hauptfenster->getChar().getWizard().done(Wizard::BERUF1,hauptfenster->getChar().getAbenteurer());
+  hauptfenster->getChar().getWizard().done(Wizard::BERUF1,hauptfenster->getAben());
   deleteBerufsFertigekeit();
   if (Programmoptionen.WerteEingebenModel().Value())
    {
@@ -51,8 +51,8 @@ void table_lernschema::on_button_beruf()
 void table_lernschema::on_entry_berufsname_activate()
 {
   cH_MidgardBasicElement beruf(&*cH_Beruf(entry_berufsname->get_text(),true));
-  hauptfenster->getChar()->List_Beruf().clear();
-  hauptfenster->getChar()->List_Beruf().push_back(beruf);
+  hauptfenster->getAben().List_Beruf().clear();
+  hauptfenster->getAben().List_Beruf().push_back(beruf);
   vbox_berufsname->hide();
   show_gelerntes();
 }
@@ -70,11 +70,11 @@ void table_lernschema::on_spinbutton_beruf_activate()
 
 void table_lernschema::deleteBerufsFertigekeit()
 {
-  for(std::list<MBEmlt>::iterator i=hauptfenster->getChar()->List_Fertigkeit().begin();i!=hauptfenster->getChar()->List_Fertigkeit().end();++i)
+  for(std::list<MBEmlt>::iterator i=hauptfenster->getAben().List_Fertigkeit().begin();i!=hauptfenster->getAben().List_Fertigkeit().end();++i)
    {
      if((*i)->LernArt()=="Beruf") 
       {
-        hauptfenster->getChar()->List_Fertigkeit().erase(i);
+        hauptfenster->getAben().List_Fertigkeit().erase(i);
         break;
       }
      else if((*i)->LernArt()=="Beruf+") 
@@ -102,17 +102,17 @@ void table_lernschema::showBerufsLernList()
   Beruf_tree->setTitles(beruf);       
 
   label_lernschma_titel->set_text("Beruf");
-  std::list<MBEmlt> L=LernListen().getBeruf(hauptfenster->getChar().getAbenteurer());
+  std::list<MBEmlt> L=LernListen().getBeruf(hauptfenster->getAben());
 
   std::vector<cH_RowDataBase> datavec;
   bool gelerntes=false;
   for(std::list<MBEmlt>::const_iterator i=L.begin();i!=L.end();++i)
     {
-      std::vector<Beruf::st_vorteil> V=LernListen().getBerufsVorteil(*i,vabenteurer->getLernpunkte().getBKategorie(),hauptfenster->getChar().getAbenteurer());
+      std::vector<Beruf::st_vorteil> V=LernListen().getBerufsVorteil(*i,vabenteurer->getLernpunkte().getBKategorie(),hauptfenster->getAben());
       for(std::vector<Beruf::st_vorteil>::const_iterator j=V.begin();j!=V.end();++j)
        {
          if(j->name!="Schmecken+10")         
-            if(!(cH_Fertigkeit(j->name))->Voraussetzung(hauptfenster->getChar().getAbenteurer())) continue;
+            if(!(cH_Fertigkeit(j->name))->Voraussetzung(hauptfenster->getAben())) continue;
          datavec.push_back(new Beruf_Data((*(*i))->Name(),*j));
          if(j->gelernt) gelerntes=true;
        }
@@ -144,14 +144,14 @@ void table_lernschema::on_beruf_tree_leaf_selected(cH_RowDataBase d)
     const Beruf_Data *dt=dynamic_cast<const Beruf_Data*>(&*d);
     cH_MidgardBasicElement cmbe(&*cH_Beruf(dt->getBeruf()));
     MBEmlt mbe(cmbe);
-    hauptfenster->getChar()->List_Beruf().clear(); // es kann nur einen Beruf geben
-    hauptfenster->getChar()->List_Beruf().push_back(mbe);
+    hauptfenster->getAben().List_Beruf().clear(); // es kann nur einen Beruf geben
+    hauptfenster->getAben().List_Beruf().push_back(mbe);
 
-    bool zusatz = Beruf::Berufsfertigkeit(hauptfenster->getChar().getAbenteurer(),dt->getVorteil());
+    bool zusatz = Beruf::Berufsfertigkeit(hauptfenster->getAben(),dt->getVorteil());
     if(zusatz) 
      { cH_MidgardBasicElement cMBE(&*cH_Fertigkeit(dt->getVorteil().name));
        MBEmlt MBE(cMBE);
-       lernen_zusatz((*MBE)->ZusatzEnum(hauptfenster->getChar()->getVTyp()),MBE);
+       lernen_zusatz((*MBE)->ZusatzEnum(hauptfenster->getAben().getVTyp()),MBE);
      }
 
     if (!vabenteurer->getLernpunkte().getBKategorie().kat_IV || (dt->getVorteil().kat==3 || dt->getVorteil().kat==4))
@@ -160,7 +160,7 @@ void table_lernschema::on_beruf_tree_leaf_selected(cH_RowDataBase d)
 //         hauptfenster->set_status("");
          scrolledwindow_lernen->hide();
          label_lernschma_titel->set_text("");
-         hauptfenster->getChar().getWizard().done(Wizard::BERUF,hauptfenster->getChar().getAbenteurer());
+         hauptfenster->getChar().getWizard().done(Wizard::BERUF,hauptfenster->getAben());
       }
     else
       {

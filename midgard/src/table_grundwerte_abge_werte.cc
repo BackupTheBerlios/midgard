@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_abge_werte.cc,v 1.22 2003/09/05 08:29:29 christof Exp $
+// $Id: table_grundwerte_abge_werte.cc,v 1.23 2003/09/05 08:33:30 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -30,7 +30,7 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
      combo_typ->set_sensitive(false);
      combo_typ2->set_sensitive(false);
    }   
-  hauptfenster->getChar().getWizard().done(Wizard::ABGELEITETEWERTE,hauptfenster->getChar().getAbenteurer());
+  hauptfenster->getChar().getWizard().done(Wizard::ABGELEITETEWERTE,hauptfenster->getAben());
   if(!hauptfenster->getOptionen()->OptionenCheck(Optionen::NSC_only).active) 
       button_abg_werte->set_sensitive(false);
   hauptfenster->setGrad(1);
@@ -45,9 +45,9 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
     int sb = Random::integer(1,100) + 3*(hauptfenster->In()/10 
                                        + hauptfenster->Wk()/10) - 30;
     // Boni für Selbstbeherrschung: Assassine, Beschwörer & Druide
-    sb += hauptfenster->getChar()->Typ1()->Sb() + hauptfenster->getChar()->Typ2()->Sb();
+    sb += hauptfenster->getAben().Typ1()->Sb() + hauptfenster->getAben().Typ2()->Sb();
     // Saddhu
-    if (hauptfenster->getChar()->Typ1()->Short() == "Sa") sb = 80+Random::integer(1,20);
+    if (hauptfenster->getAben().Typ1()->Short() == "Sa") sb = 80+Random::integer(1,20);
     hauptfenster->setSb(sb);
   }
 
@@ -55,8 +55,8 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
   // Ausdauer
   {
     int bo_au_typ;  
-    if      (hauptfenster->getChar()->Typ1()->Ausdauer() == "k" || hauptfenster->getChar()->Typ2()->Ausdauer() == "k" ) bo_au_typ = 4 ;
-    else if (hauptfenster->getChar()->Typ1()->Ausdauer() == "ak"|| hauptfenster->getChar()->Typ2()->Ausdauer() == "ak" ) bo_au_typ = 3 ;
+    if      (hauptfenster->getAben().Typ1()->Ausdauer() == "k" || hauptfenster->getAben().Typ2()->Ausdauer() == "k" ) bo_au_typ = 4 ;
+    else if (hauptfenster->getAben().Typ1()->Ausdauer() == "ak"|| hauptfenster->getAben().Typ2()->Ausdauer() == "ak" ) bo_au_typ = 3 ;
     else bo_au_typ = 2 ;
     int ap = Random::integer(1,6)+hauptfenster->bo_Au()+bo_au_typ 
             + hauptfenster->Spezies()->AP_Bonus() ;
@@ -99,8 +99,8 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
   }
   {
     int istand=Random::integer(1,100);
-    int typstand1 = hauptfenster->getChar()->Typ1()->Stand();
-    int typstand2 = hauptfenster->getChar()->Typ2()->Stand();
+    int typstand1 = hauptfenster->getAben().Typ1()->Stand();
+    int typstand2 = hauptfenster->getAben().Typ2()->Stand();
     if(typstand1*typstand2 <= 0 ) istand += typstand1 + typstand2 ;
     else  // gleiches Vorzeichen
      { int t= (abs(typstand1)>abs(typstand2)) ? abs(typstand1) : abs(typstand2);
@@ -115,7 +115,7 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
        if (11<=istand&&istand<=50) stand =  Vstand[2];
        if (51<=istand&&istand<=90) stand =  Vstand[3];
        if (istand>=91) stand =  Vstand[4];;
-       if (hauptfenster->getChar()->Typ1()->Short()=="MMa") stand =  Vstand[3];
+       if (hauptfenster->getAben().Typ1()->Short()=="MMa") stand =  Vstand[3];
      }
     else if(hauptfenster->Spezies()->Name()=="Halbling" ||
             hauptfenster->Spezies()->Name()=="Waldgnom" ||
@@ -132,7 +132,7 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
      }
     hauptfenster->setStand(stand);
    }
-  hauptfenster->setGrad1Werte(hauptfenster->getChar()->getVTyp());
+  hauptfenster->setGrad1Werte(hauptfenster->getAben().getVTyp());
 
   hauptfenster->table_lernschema->button_herkunft->set_sensitive(true);
   hauptfenster->frame_lernschema->set_sensitive(true);

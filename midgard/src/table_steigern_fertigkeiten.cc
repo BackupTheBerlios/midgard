@@ -33,14 +33,14 @@ void table_steigern::fertigkeiten_zeigen()
 
 void table_steigern::neue_fertigkeiten_zeigen()
 {
-  Abenteurer &A=hauptfenster->getChar().getAbenteurer();
+  Abenteurer &A=hauptfenster->getAben();
   list_Fertigkeit_neu=LL->get_steigern_MBEm(A,Enums::sFert);
- MidgardBasicTree::show_list_in_tree(list_Fertigkeit_neu,neue_fert_tree,&hauptfenster->getChar().getAbenteurer());
+ MidgardBasicTree::show_list_in_tree(list_Fertigkeit_neu,neue_fert_tree,&hauptfenster->getAben());
 }
 
 void table_steigern::alte_fertigkeiten_zeigen()
 {
- MidgardBasicTree::show_list_in_tree(hauptfenster->getChar()->List_Fertigkeit(),alte_fert_tree,&hauptfenster->getChar().getAbenteurer());
+ MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_Fertigkeit(),alte_fert_tree,&hauptfenster->getAben());
 }
 
 
@@ -61,8 +61,8 @@ void table_steigern::on_alte_fert_reorder()
 {
   std::deque<guint> seq = alte_fert_tree->get_seq();
   switch((Data_SimpleTree::Spalten_LONG_ALT)seq[0]) {
-      case Data_SimpleTree::NAMEa : hauptfenster->getChar()->List_Fertigkeit().sort(MBEmlt::sort(MBEmlt::sort::NAME)); ;break;
-      case Data_SimpleTree::WERTa : hauptfenster->getChar()->List_Fertigkeit().sort(MBEmlt::sort(MBEmlt::sort::ERFOLGSWERT)); ;break;
+      case Data_SimpleTree::NAMEa : hauptfenster->getAben().List_Fertigkeit().sort(MBEmlt::sort(MBEmlt::sort::NAME)); ;break;
+      case Data_SimpleTree::WERTa : hauptfenster->getAben().List_Fertigkeit().sort(MBEmlt::sort(MBEmlt::sort::ERFOLGSWERT)); ;break;
       default : Ausgabe(Ausgabe::Error,"Sortieren nach diesem Parameter ist nicht möglich");
    }
 }
@@ -100,16 +100,16 @@ void table_steigern::kaempfer_lernt_zaubern()
 
  Gtk::Combo *_ct = manage(new class Gtk::Combo());
  _ct->get_entry()->set_editable(false); 
- bool nsc_allowed = hauptfenster->getChar()->getOptionen().OptionenCheck(Optionen::NSC_only).active;
- const std::vector<std::pair<cH_Typen,bool> > T=LL->getTypen(hauptfenster->getChar().getAbenteurer());
+ bool nsc_allowed = hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active;
+ const std::vector<std::pair<cH_Typen,bool> > T=LL->getTypen(hauptfenster->getAben());
  std::list<std::string> L;
  for(std::vector<std::pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
   {
     if( i->first->Zaubern()!="z") continue;
     if(i->second)
-      L.push_back(i->first->Name(hauptfenster->getChar()->Geschlecht()));
+      L.push_back(i->first->Name(hauptfenster->getAben().Geschlecht()));
     else
-      L.push_back("("+i->first->Name(hauptfenster->getChar()->Geschlecht())+")");
+      L.push_back("("+i->first->Name(hauptfenster->getAben().Geschlecht())+")");
   }
  _ct->set_popdown_strings(L);
  _ct->get_entry()->signal_changed().connect(SigC::slot(*this, &table_steigern::zaubern_klasse_gewaehlt));
@@ -133,12 +133,12 @@ void table_steigern::zaubern_klasse_gewaehlt()
    std::string typ=C->get_entry()->get_text();
    if(!Typen::get_Typ_from_long(Datenbank.Typen,typ))
      return;
-   hauptfenster->getChar()->setTyp2(cH_Typen(typ));
+   hauptfenster->getAben().setTyp2(cH_Typen(typ));
    break;    
   }
 
- if (hauptfenster->getChar()->Zaubern_wert()==2) 
-     hauptfenster->getChar()->setZaubern_wert(10);
+ if (hauptfenster->getAben().Zaubern_wert()==2) 
+     hauptfenster->getAben().setZaubern_wert(10);
  frame_spezielles->remove();
  frame_spezielles->hide();
  fertigkeiten_zeigen();

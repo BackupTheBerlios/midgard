@@ -16,7 +16,7 @@ void table_beschreibung::save_beschreibung()
   std::string b=text_charakter_beschreibung->get_buffer()->get_text(
   	text_charakter_beschreibung->get_buffer()->begin(),
   	text_charakter_beschreibung->get_buffer()->end());
-  hauptfenster->getChar()->setBeschreibung(b);
+  hauptfenster->getAben().setBeschreibung(b);
   hauptfenster->getChar().undosave("Beschreibung geändert");
 }
 
@@ -37,7 +37,7 @@ void table_beschreibung::on_button_grafik()
 #if 0  
   if (ev->button==3) 
    { label_grafik->set_text("");
-     hauptfenster->getChar()->setBeschreibungPix("");
+     hauptfenster->getAben().setBeschreibungPix("");
    }
   return false;
 #endif  
@@ -52,7 +52,7 @@ void table_beschreibung::on_button_grafik_clicked()
 
 bool table_beschreibung::on_spinbutton_pix_breite_focus_out_event(GdkEventFocus *ev)
 { 
- hauptfenster->getChar()->setBeschreibungPixSize(spinbutton_pix_breite->get_value_as_int());
+ hauptfenster->getAben().setBeschreibungPixSize(spinbutton_pix_breite->get_value_as_int());
  hauptfenster->getChar().undosave("Bildgröße geändert");
  return 0;
 }
@@ -69,17 +69,17 @@ void table_beschreibung::show_beschreibung()
   	text_charakter_beschreibung->get_buffer()->begin(),
   	text_charakter_beschreibung->get_buffer()->end());
   Gtk::TextBuffer::iterator pos=text_charakter_beschreibung->get_buffer()->begin();
-  text_charakter_beschreibung->get_buffer()->insert(pos, hauptfenster->getChar()->Beschreibung());
+  text_charakter_beschreibung->get_buffer()->insert(pos, hauptfenster->getAben().Beschreibung());
 
   std::string s="Bild";
-  if(hauptfenster->getChar()->BeschreibungPix()!="")
+  if(hauptfenster->getAben().BeschreibungPix()!="")
    {
-      s+=":\n"+hauptfenster->getChar()->BeschreibungPix();
+      s+=":\n"+hauptfenster->getAben().BeschreibungPix();
       std::string ss(s,s.rfind(WinLux::dirsep)+1,s.size());
       s=ss;
    }
   label_grafik->set_text(s);
-  spinbutton_pix_breite->set_value(hauptfenster->getChar()->BeschreibungPixSize());
+  spinbutton_pix_breite->set_value(hauptfenster->getAben().BeschreibungPixSize());
 }
 
 void table_beschreibung::insert_into_beschreibung(const std::string &s,const gint select_start,const gint select_end)

@@ -40,7 +40,7 @@ void table_steigern::on_togglebutton_praxispunkte_toggled()
    {
      radiobutton_pp_fertigkeit->set_active(true);
      vbox_praxispunkte->show();
-     if(hauptfenster->getChar()->Typ1()->is_mage() || hauptfenster->getChar()->Typ2()->is_mage()) 
+     if(hauptfenster->getAben().Typ1()->is_mage() || hauptfenster->getAben().Typ2()->is_mage()) 
          radiobutton_pp_zauber->set_sensitive(true);
      else
          radiobutton_pp_zauber->set_sensitive(true);
@@ -60,10 +60,10 @@ void table_steigern::on_togglebutton_praxispunkte_toggled()
 
 std::string table_steigern::SpruecheMitPP()
 {
-  if(hauptfenster->getChar()->Typ1()->SpruecheMitPP())
-       return hauptfenster->getChar()->Typ1()->SpruecheMitPP_Text();
-  else if(hauptfenster->getChar()->Typ2()->SpruecheMitPP())
-       return hauptfenster->getChar()->Typ2()->SpruecheMitPP_Text();
+  if(hauptfenster->getAben().Typ1()->SpruecheMitPP())
+       return hauptfenster->getAben().Typ1()->SpruecheMitPP_Text();
+  else if(hauptfenster->getAben().Typ2()->SpruecheMitPP())
+       return hauptfenster->getAben().Typ2()->SpruecheMitPP_Text();
   else return "";
 }
 
@@ -107,22 +107,22 @@ void table_steigern::on_radiobutton_pp_fertigkeit_toggled()
 }
 void table_steigern::on_radiobutton_pp_zauber_toggled()
 {
- spinbutton_pp_eingeben->set_value(hauptfenster->getChar()->ZaubernPP());
+ spinbutton_pp_eingeben->set_value(hauptfenster->getAben().ZaubernPP());
  on_radiobutton_pp_all_toggled();
 }
 void table_steigern::on_radiobutton_pp_spezial_toggled()
 {
- spinbutton_pp_eingeben->set_value(hauptfenster->getChar()->SpezialPP());
+ spinbutton_pp_eingeben->set_value(hauptfenster->getAben().SpezialPP());
  on_radiobutton_pp_all_toggled();
 }
 void table_steigern::on_radiobutton_pp_abwehr_toggled()    
 {
- spinbutton_pp_eingeben->set_value(hauptfenster->getChar()->AbwehrPP());
+ spinbutton_pp_eingeben->set_value(hauptfenster->getAben().AbwehrPP());
  on_radiobutton_pp_all_toggled(); 
 }
 void table_steigern::on_radiobutton_pp_resistenz_toggled()
 { 
- spinbutton_pp_eingeben->set_value(hauptfenster->getChar()->ResistenzPP());
+ spinbutton_pp_eingeben->set_value(hauptfenster->getAben().ResistenzPP());
  on_radiobutton_pp_all_toggled();
 }
 void table_steigern::on_radiobutton_pp_all_toggled()
@@ -148,13 +148,13 @@ void table_steigern::on_spinbutton_pp_eingeben_activate()
  if(!radiobutton_pp_fertigkeit->get_active())
   {
     if(radiobutton_pp_abwehr->get_active())
-       hauptfenster->getChar()->setAbwehrPP(PPanz);
+       hauptfenster->getAben().setAbwehrPP(PPanz);
     else if(radiobutton_pp_zauber->get_active())
-       hauptfenster->getChar()->setZaubernPP(PPanz);
+       hauptfenster->getAben().setZaubernPP(PPanz);
     else if(radiobutton_pp_spezial->get_active())
-       hauptfenster->getChar()->setSpezialPP(PPanz);
+       hauptfenster->getAben().setSpezialPP(PPanz);
     else if(radiobutton_pp_resistenz->get_active())
-       hauptfenster->getChar()->setResistenzPP(PPanz);
+       hauptfenster->getAben().setResistenzPP(PPanz);
     spinbutton_pp_eingeben->hide();
     radiobutton_steigern->get_active();
     zeige_werte();
@@ -169,13 +169,13 @@ void table_steigern::on_spinbutton_pp_eingeben_activate()
  }catch(SimpleTree::noRowSelected &e) {Ausgabe(Ausgabe::Debug,e.what()); Ausgabe(Ausgabe::Error,"Keine Zeile selektiert");}
 
   if(pagenr==PAGE_FERTIGKEITEN)
-     MidgardBasicTree::show_list_in_tree(hauptfenster->getChar()->List_Fertigkeit(),alte_fert_tree,&hauptfenster->getChar().getAbenteurer()); 
+     MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_Fertigkeit(),alte_fert_tree,&hauptfenster->getAben()); 
   if(pagenr==PAGE_WAFFEN)
-     MidgardBasicTree::show_list_in_tree(hauptfenster->getChar()->List_Waffen(),alte_waffen_tree,&hauptfenster->getChar().getAbenteurer()); 
+     MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_Waffen(),alte_waffen_tree,&hauptfenster->getAben()); 
   if(pagenr==PAGE_SPRACHE)
    {
-     MidgardBasicTree::show_list_in_tree(hauptfenster->getChar()->List_Sprache(),alte_sprache_tree,&hauptfenster->getChar().getAbenteurer()); 
-     MidgardBasicTree::show_list_in_tree(hauptfenster->getChar()->List_Schrift(),alte_schrift_tree,&hauptfenster->getChar().getAbenteurer()); 
+     MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_Sprache(),alte_sprache_tree,&hauptfenster->getAben()); 
+     MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_Schrift(),alte_schrift_tree,&hauptfenster->getAben()); 
    }
   spinbutton_pp_eingeben->hide();
 }
@@ -207,7 +207,7 @@ const MBEmlt &table_steigern::getSelectedNotebookLernen() throw(SimpleTree::noRo
 
 void table_steigern::on_button_alter_clicked()
 {
-  hauptfenster->getChar()->Steigertage2Alter();
+  hauptfenster->getAben().Steigertage2Alter();
   zeige_werte();
 }
 
@@ -218,7 +218,7 @@ void table_steigern::fillClistZusatz(MBEmlt &MBE)
   std::vector<std::string> title;
   std::vector<MidgardBasicElement::st_zusatz> VZusatz;
   LernListen LL;
-  switch ((*MBE)->ZusatzEnum(hauptfenster->getChar()->getVTyp()))
+  switch ((*MBE)->ZusatzEnum(hauptfenster->getAben().getVTyp()))
    {
      case MidgardBasicElement::ZLand :
       {        
@@ -229,7 +229,7 @@ void table_steigern::fillClistZusatz(MBEmlt &MBE)
      case MidgardBasicElement::ZWaffe :
       {      
         title.push_back("Waffe auswählen");
-        VZusatz=LL.getWaffenZusatz(hauptfenster->getChar()->List_Waffen());
+        VZusatz=LL.getWaffenZusatz(hauptfenster->getAben().List_Waffen());
         break;
       }
      case MidgardBasicElement::ZTabelle : 
@@ -237,7 +237,7 @@ void table_steigern::fillClistZusatz(MBEmlt &MBE)
         title.push_back((*MBE)->Name()+" auswählen");
         title.push_back("Typ");
         title.push_back("Region");
-        VZusatz=LL.getMBEZusatz(hauptfenster->getChar().getAbenteurer(),MBE);
+        VZusatz=LL.getMBEZusatz(hauptfenster->getAben(),MBE);
         break; 
        }
      default : assert("Never get here\n");
@@ -276,7 +276,7 @@ void table_steigern::on_steigern_zusatz_leaf_selected(cH_RowDataBase d)
 {
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
   dt->getMBE()->setZusatz(dt->getZusatz());
-  if(dt->getZusatz().name==hauptfenster->getChar()->Herkunft()->Name())
+  if(dt->getZusatz().name==hauptfenster->getAben().Herkunft()->Name())
      dt->getMBE()->setErfolgswert(9);
 
   set_zusatz_sensitive(false);

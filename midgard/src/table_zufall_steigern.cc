@@ -31,7 +31,7 @@
 
 void table_zufall::on_button_steigern_clicked()
 {
-  if(!hauptfenster->getChar()->Typ1()->Valid())
+  if(!hauptfenster->getAben().Typ1()->Valid())
    {
     Ausgabe(Ausgabe::Error,"Noch kein Abenteurer vorhanden.");
     return;
@@ -52,7 +52,7 @@ void table_zufall::on_button_steigern_clicked()
    {
      zs.setzePrototypen(getSelectedPrototypen());
    }
-  zs.steigern(hauptfenster->getChar().getAbenteurer(),gfp);
+  zs.steigern(hauptfenster->getAben(),gfp);
 }
 
 std::vector<cH_Prototyp2> table_zufall::getSelectedPrototypen()

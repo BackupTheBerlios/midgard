@@ -25,30 +25,30 @@
 void table_steigern::on_kido_laden_clicked()
 {   
   list_Kido_neu.clear();
-  int erfolgswert_kido = KiDo::get_erfolgswert_kido(hauptfenster->getChar()->List_Fertigkeit());
+  int erfolgswert_kido = KiDo::get_erfolgswert_kido(hauptfenster->getAben().List_Fertigkeit());
   KiDo_Stile kido_stil;
-  if (!kido_stil.ist_gelernt(hauptfenster->getChar()->Spezialisierung())) 
+  if (!kido_stil.ist_gelernt(hauptfenster->getAben().Spezialisierung())) 
      {
        Ausgabe(Ausgabe::Error,"Erst einen KiDo-Stil wählen (unter 'Lernschema'->'KiDo')");
        return;
      }
   for (std::list<cH_MidgardBasicElement>::const_iterator i=Datenbank.Kido.begin();i!=Datenbank.Kido.end();++i)
    { cH_KiDo kd(*i);
-     if (MBEmlt(&*kd)->ist_gelernt(hauptfenster->getChar()->List_Kido())) continue ;
+     if (MBEmlt(&*kd)->ist_gelernt(hauptfenster->getAben().List_Kido())) continue ;
      // Stufe
-     if (hauptfenster->getChar()->Grad()<4 || erfolgswert_kido+hauptfenster->getChar()->bo_Za() <15)
+     if (hauptfenster->getAben().Grad()<4 || erfolgswert_kido+hauptfenster->getAben().bo_Za() <15)
       if(kd->Stufe()=="Eingeweihter") continue;
-     if (hauptfenster->getChar()->Grad()<6 || erfolgswert_kido+hauptfenster->getChar()->bo_Za() <18)
+     if (hauptfenster->getAben().Grad()<6 || erfolgswert_kido+hauptfenster->getAben().bo_Za() <18)
       if(kd->Stufe()=="Meister") continue;
      // Stil
-     if (kido_stil.ist_hart(hauptfenster->getChar()->Spezialisierung()))
+     if (kido_stil.ist_hart(hauptfenster->getAben().Spezialisierung()))
        if(kido_stil.ist_sanft(kd->Stil())) continue;
-     if (kido_stil.ist_sanft(hauptfenster->getChar()->Spezialisierung()))
+     if (kido_stil.ist_sanft(hauptfenster->getAben().Spezialisierung()))
        if(kido_stil.ist_hart(kd->Stil())) continue;
    
      // Anzahl
-     bool gem_technik = (kido_stil.ist_gemischt(hauptfenster->getChar()->Spezialisierung()));
-     std::map<std::string,int> MK = KiDo::maxkidostil(hauptfenster->getChar()->List_Kido());  
+     bool gem_technik = (kido_stil.ist_gemischt(hauptfenster->getAben().Spezialisierung()));
+     std::map<std::string,int> MK = KiDo::maxkidostil(hauptfenster->getAben().List_Kido());  
      int maxS = MK["Schüler"];
      int maxE = MK["Eingeweihter"];
      int maxM = MK["Meister"];
@@ -66,8 +66,8 @@ void table_steigern::on_kido_laden_clicked()
 void table_steigern::kido_zeigen()
 {
  zeige_werte();
- MidgardBasicTree::show_list_in_tree(hauptfenster->getChar()->List_Kido()    ,alte_kido_tree,&hauptfenster->getChar().getAbenteurer());
- MidgardBasicTree::show_list_in_tree(list_Kido_neu,neue_kido_tree,&hauptfenster->getChar().getAbenteurer());
+ MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_Kido()    ,alte_kido_tree,&hauptfenster->getAben());
+ MidgardBasicTree::show_list_in_tree(list_Kido_neu,neue_kido_tree,&hauptfenster->getAben());
 }
 
 void table_steigern::on_leaf_selected_alte_kido(cH_RowDataBase d)
@@ -84,7 +84,7 @@ void table_steigern::on_leaf_selected_neue_kido(cH_RowDataBase d)
 
 bool table_steigern::kido_steigern_check(int wert)
 {
-  if (hauptfenster->getChar()->Grad()+10 > wert) return false;
+  if (hauptfenster->getAben().Grad()+10 > wert) return false;
   else
    { Ausgabe(Ausgabe::Error,"KiDo darf nur auf maximal Grad+10 gesteigert werden.");
      return true;
@@ -95,11 +95,11 @@ void table_steigern::on_alte_kido_reorder()
 {
   std::deque<guint> seq = alte_kido_tree->get_seq();
   switch((Data_SimpleTree::Spalten_KIDO)seq[0]) {
-      case Data_SimpleTree::HOHOa_K  : hauptfenster->getChar()->List_Kido().sort(cH_KiDo::sort(cH_KiDo::sort::HOHO)) ;break;
-      case Data_SimpleTree::NAMEa_K  : hauptfenster->getChar()->List_Kido().sort(cH_KiDo::sort(cH_KiDo::sort::NAME)) ;break;
-      case Data_SimpleTree::STUFEa_K : hauptfenster->getChar()->List_Kido().sort(cH_KiDo::sort(cH_KiDo::sort::STUFE)) ;break;
-      case Data_SimpleTree::APa_K    : hauptfenster->getChar()->List_Kido().sort(cH_KiDo::sort(cH_KiDo::sort::AP)); break;
-      case Data_SimpleTree::STILa_K  : hauptfenster->getChar()->List_Kido().sort(cH_KiDo::sort(cH_KiDo::sort::STIL)) ;break;
+      case Data_SimpleTree::HOHOa_K  : hauptfenster->getAben().List_Kido().sort(cH_KiDo::sort(cH_KiDo::sort::HOHO)) ;break;
+      case Data_SimpleTree::NAMEa_K  : hauptfenster->getAben().List_Kido().sort(cH_KiDo::sort(cH_KiDo::sort::NAME)) ;break;
+      case Data_SimpleTree::STUFEa_K : hauptfenster->getAben().List_Kido().sort(cH_KiDo::sort(cH_KiDo::sort::STUFE)) ;break;
+      case Data_SimpleTree::APa_K    : hauptfenster->getAben().List_Kido().sort(cH_KiDo::sort(cH_KiDo::sort::AP)); break;
+      case Data_SimpleTree::STILa_K  : hauptfenster->getAben().List_Kido().sort(cH_KiDo::sort(cH_KiDo::sort::STIL)) ;break;
       default : Ausgabe(Ausgabe::Error,"Sortieren nach diesem Parameter ist nicht möglich");
    }
 }

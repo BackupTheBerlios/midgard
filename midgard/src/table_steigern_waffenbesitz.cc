@@ -32,14 +32,14 @@ void table_steigern::on_leaf_waffenbesitz_selected_alt(cH_RowDataBase d)
 
   if(!checkbutton_mag_waffenbonus->get_active()) 
    {
-    for(std::list<H_WaffeBesitz>::iterator i=hauptfenster->getChar()->List_Waffen_besitz().begin();
-         i!=hauptfenster->getChar()->List_Waffen_besitz().end();++i)
+    for(std::list<H_WaffeBesitz>::iterator i=hauptfenster->getAben().List_Waffen_besitz().begin();
+         i!=hauptfenster->getAben().List_Waffen_besitz().end();++i)
      {
         if( *i == WB)
          {
-//            hauptfenster->getChar()->List_Waffen_besitz().remove(*i);
+//            hauptfenster->getAben().List_Waffen_besitz().remove(*i);
               list_WaffenBesitz_neu.splice(list_WaffenBesitz_neu.begin(),   
-                     hauptfenster->getChar()->List_Waffen_besitz(),i);
+                     hauptfenster->getAben().List_Waffen_besitz(),i);
                      
             break;
          }
@@ -81,7 +81,7 @@ void table_steigern::on_entry_magisch_activate()
      cH_Data_waffenbesitz dt(waffenbesitz_alt_tree->getSelectedRowDataBase_as<cH_Data_waffenbesitz>());
      H_WaffeBesitz WB = dt->get_Waffe();
 
-     std::list<H_WaffeBesitz> &L=hauptfenster->getChar()->List_Waffen_besitz();
+     std::list<H_WaffeBesitz> &L=hauptfenster->getAben().List_Waffen_besitz();
      for(std::list<H_WaffeBesitz>::iterator i=L.begin();i!=L.end();++i)
       {
         if( *i == WB)
@@ -109,7 +109,7 @@ void table_steigern::on_leaf_waffenbesitz_selected_neu(cH_RowDataBase d)
   cH_Waffe w=old->Waffe();
   H_WaffeBesitz MBE=new WaffeBesitz(w,old->AliasName(),old->av_Bonus(),old->sl_Bonus(),old->Magisch(),old->Region());
   
-  hauptfenster->getChar()->List_Waffen_besitz().push_back(MBE);
+  hauptfenster->getAben().List_Waffen_besitz().push_back(MBE);
   show_alte_waffen();
   zeige_werte();
 }
@@ -142,7 +142,7 @@ void table_steigern::init_waffenbesitz()
   show_alte_waffen();
 
   list_WaffenBesitz_neu = LernListen()
-             .getWaffenBesitz(hauptfenster->getChar().getAbenteurer());
+             .getWaffenBesitz(hauptfenster->getAben());
   show_neue_waffen();
 }
 
@@ -151,7 +151,7 @@ void  table_steigern::show_alte_waffen()
   std::vector<cH_RowDataBase> datavec;
 //cout <<"Alte größe = " <<Waffe_Besitz.size()<<'\n';
 
-  for (std::list<H_WaffeBesitz>::const_iterator i=hauptfenster->getChar()->List_Waffen_besitz().begin();i!=hauptfenster->getChar()->List_Waffen_besitz().end();++i)
+  for (std::list<H_WaffeBesitz>::const_iterator i=hauptfenster->getAben().List_Waffen_besitz().begin();i!=hauptfenster->getAben().List_Waffen_besitz().end();++i)
      datavec.push_back(new Data_waffenbesitz(*i,hauptfenster));
   waffenbesitz_alt_tree->setDataVec(datavec);
   waffenbesitz_alt_tree->Expand_recursively();
@@ -161,7 +161,7 @@ void  table_steigern::show_alte_waffen()
 void  table_steigern::show_neue_waffen()
 {
   std::vector<cH_RowDataBase> datavec;
-//  std::list<H_WaffeBesitz> Waffe_Besitz_neu=LernListen().getWaffenBesitz(hauptfenster->getChar().getAbenteurer());
+//  std::list<H_WaffeBesitz> Waffe_Besitz_neu=LernListen().getWaffenBesitz(hauptfenster->getAben());
 //  for (std::list<H_WaffeBesitz>::const_iterator i=Waffe_Besitz_neu.begin();i!=Waffe_Besitz_neu.end();++i)
   for (std::list<H_WaffeBesitz>::const_iterator i=list_WaffenBesitz_neu.begin();i!=list_WaffenBesitz_neu.end();++i)
         datavec.push_back(new Data_waffenbesitz(*i,hauptfenster));
@@ -178,8 +178,8 @@ void table_steigern::on_alte_waffenbesitz_reorder()
 {
   std::deque<guint> seq = waffenbesitz_alt_tree->get_seq();
   switch((Data_waffenbesitz::SPALTEN_A)seq[0]) {
-      case Data_waffenbesitz::MAGBONUS : hauptfenster->getChar()->List_Waffen_besitz().sort(WaffenBesitz_sort_magbonus()) ;break;
-      case Data_waffenbesitz::NAME_A   : hauptfenster->getChar()->List_Waffen_besitz().sort(WaffenBesitz_sort_name()); break;
+      case Data_waffenbesitz::MAGBONUS : hauptfenster->getAben().List_Waffen_besitz().sort(WaffenBesitz_sort_magbonus()) ;break;
+      case Data_waffenbesitz::NAME_A   : hauptfenster->getAben().List_Waffen_besitz().sort(WaffenBesitz_sort_name()); break;
       default : Ausgabe(Ausgabe::Error,"Sortieren nach diesem Parameter ist nicht möglich");
    }
 }

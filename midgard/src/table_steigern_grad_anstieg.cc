@@ -1,4 +1,4 @@
-// $Id: table_steigern_grad_anstieg.cc,v 1.22 2003/09/04 07:36:51 christof Exp $
+// $Id: table_steigern_grad_anstieg.cc,v 1.23 2003/09/05 08:33:30 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,19 +27,19 @@ void table_steigern::on_grad_anstieg_clicked()
  flashing_gradanstieg->setTime(0);
  flashing_eigenschaft->setTime(0);
  radiobutton_steigern->set_active(true);
- int act_grad=hauptfenster->getChar()->Grad();
- int max_grad=Datenbank.GradAnstieg.get_Grad(hauptfenster->getChar()->GFP());
+ int act_grad=hauptfenster->getAben().Grad();
+ int max_grad=Datenbank.GradAnstieg.get_Grad(hauptfenster->getAben().GFP());
 
-//cout << act_grad<<' '<<max_grad<<'\t'<<hauptfenster->getChar()->GFP()<<'\n';
+//cout << act_grad<<' '<<max_grad<<'\t'<<hauptfenster->getAben().GFP()<<'\n';
 
-// hauptfenster->getChar()->setGrad(Datenbank.GradAnstieg.get_Grad(hauptfenster->getChar()->GFP()));
+// hauptfenster->getAben().setGrad(Datenbank.GradAnstieg.get_Grad(hauptfenster->getAben().GFP()));
 
  while(act_grad<max_grad)
   {
-    hauptfenster->getChar()->setGrad(++act_grad);
+    hauptfenster->getAben().setGrad(++act_grad);
 
     std::string info;
-    hauptfenster->getChar()->get_ausdauer(act_grad,
+    hauptfenster->getAben().get_ausdauer(act_grad,
                            get_wie_steigern(),get_bool_steigern());
 //    hauptfenster->set_status(info);
 
@@ -54,13 +54,13 @@ void table_steigern::on_grad_anstieg_clicked()
 void table_steigern::on_button_grad_clicked()
 {   
   flashing_gradanstieg->setTime(0);
-  hauptfenster->getChar()->setGrad(Datenbank.GradAnstieg.get_Grad(hauptfenster->getChar()->GFP()));
+  hauptfenster->getAben().setGrad(Datenbank.GradAnstieg.get_Grad(hauptfenster->getAben().GFP()));
   zeige_werte();
 }
 void table_steigern::on_button_grad_ausdauer_clicked()
 {   
  std::string info;
- hauptfenster->getChar()->get_ausdauer(hauptfenster->getChar()->Grad(),get_wie_steigern(),get_bool_steigern());
+ hauptfenster->getAben().get_ausdauer(hauptfenster->getAben().Grad(),get_wie_steigern(),get_bool_steigern());
 // hauptfenster->set_status(info,false);
  zeige_werte();
 }
@@ -107,7 +107,7 @@ void table_steigern::on_spinbutton_eigenschaften_grad_anstieg_activate()
 
 void table_steigern::get_grundwerte(int wurf)
 {
-  hauptfenster->getChar()->eigenschaften_steigern(wurf);
+  hauptfenster->getAben().eigenschaften_steigern(wurf);
   zeige_werte();
 }
 
@@ -115,7 +115,7 @@ void table_steigern::get_ab_re_za(Enums::e_was_steigern was)
 {
   std::string info;
   const bool bsteigern=radiobutton_steigern->get_active();
-  hauptfenster->getChar()->get_ab_re_za(was,get_wie_steigern(),bsteigern,
+  hauptfenster->getAben().get_ab_re_za(was,get_wie_steigern(),bsteigern,
                         get_bool_steigern());
   zeige_werte();
 }
