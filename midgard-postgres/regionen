@@ -32,6 +32,7 @@ COPY "regionen" FROM stdin;
 3	Alba	Alba - Für Clan und Krone	A	\N	\N	Malte Thoma	1.0	Thomas Kreutz und Ludger Fischer	t	3	\N
 -1	Arkanum	Das Arkanum	Arkanum	\N	\N	Malte Thoma	1.0	Jürgen E. Franke	t	9	2000
 -2	Das Fantasy Rollenspiel	Das Fantasy Rollenspiel		\N	\N	Malte Thoma	1.0	Jürgen E. Franke	t	10	2001
+99	Eigene Erweiterung	Eigene Erweiterung	EE	\N	\N	Malte Thoma	1.0	\N	f	99	\N
 4	Eschar	Die Pyramiden von Eschar	E	\N	\N	Malte Thoma	1.0	Stephanie Lammers	t	4	\N
 13	Gildenbrief	Gildenbrief	G	\N	\N	Malte Thoma	1.0	var.	f	5	\N
 11	H&D (Finstere Magie)	Hexenzauber und Druidenkraft	H&Df	\N	\N	Malte Thoma	1.0	Alexander Huiskes	t	14	1994
