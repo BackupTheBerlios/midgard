@@ -3,9 +3,9 @@
 --
 DROP TABLE typen;
 --
--- TOC Entry ID 2 (OID 5788493)
+-- TOC Entry ID 2 (OID 320079)
 --
--- Name: typen Type: TABLE Owner: christof
+-- Name: typen Type: TABLE Owner: thoma
 --
 
 CREATE TABLE typen (
@@ -20,9 +20,11 @@ CREATE TABLE typen (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 5788493) TABLE DATA typen
+-- Data for TOC Entry ID 3 (OID 320079) TABLE DATA typen
 --
 
+-- Disable triggers
+UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'typen';
 COPY typen  FROM stdin;
 PT	Priester, Tod	z	z	20	0	4	\N
 Sc	Schamane	z	z	0	0	1	\N
@@ -56,3 +58,11 @@ PK	Priester, Krieg	z	z	20	0	1	\N
 Ny	Ninya	n	ak	0	20	1	K
 Kd	KiDoka	n	k	0	0	1	K
 \.
+-- Enable triggers
+BEGIN TRANSACTION;
+CREATE TEMP TABLE "tr" ("tmp_relname" name, "tmp_reltriggers" smallint);
+INSERT INTO "tr" SELECT C."relname", count(T."oid") FROM "pg_class" C, "pg_trigger" T WHERE C."oid" = T."tgrelid" AND C."relname" ~* 'typen'  GROUP BY 1;
+UPDATE "pg_class" SET "reltriggers" = TMP."tmp_reltriggers" FROM "tr" TMP WHERE "pg_class"."relname" = TMP."tmp_relname";
+DROP TABLE "tr";
+COMMIT TRANSACTION;
+

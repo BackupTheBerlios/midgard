@@ -3,9 +3,9 @@
 --
 DROP TABLE charaktere_fertigkeiten;
 --
--- TOC Entry ID 2 (OID 5780756)
+-- TOC Entry ID 2 (OID 319553)
 --
--- Name: charaktere_fertigkeiten Type: TABLE Owner: christof
+-- Name: charaktere_fertigkeiten Type: TABLE Owner: thoma
 --
 
 CREATE TABLE charaktere_fertigkeiten (
@@ -15,6 +15,7 @@ CREATE TABLE charaktere_fertigkeiten (
 	wert integer,
 	art text,
 	av_bonus integer,
-	sl_bonus integer
+	sl_bonus integer,
+	region text
 );
 

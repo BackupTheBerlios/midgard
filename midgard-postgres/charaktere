@@ -3,9 +3,9 @@
 --
 DROP TABLE charaktere;
 --
--- TOC Entry ID 2 (OID 5788853)
+-- TOC Entry ID 2 (OID 354609)
 --
--- Name: charaktere Type: TABLE Owner: christof
+-- Name: charaktere Type: TABLE Owner: thoma
 --
 
 CREATE TABLE charaktere (
@@ -61,6 +61,7 @@ CREATE TABLE charaktere (
 	gold integer,
 	silber integer,
 	kupfer integer,
-	ruestung text
+	ruestung text,
+	rasse text
 );
 

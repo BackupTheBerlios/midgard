@@ -3,9 +3,9 @@
 --
 DROP TABLE waffen;
 --
--- TOC Entry ID 2 (OID 5788556)
+-- TOC Entry ID 2 (OID 326354)
 --
--- Name: waffen Type: TABLE Owner: christof
+-- Name: waffen Type: TABLE Owner: thoma
 --
 
 CREATE TABLE waffen (
@@ -26,9 +26,11 @@ CREATE TABLE waffen (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 5788556) TABLE DATA waffen
+-- Data for TOC Entry ID 3 (OID 326354) TABLE DATA waffen
 --
 
+-- Disable triggers
+UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'waffen';
 COPY waffen  FROM stdin;
 Anderthalbhänder	ZSchwert	5	Angriff	W6	2	Z	-1	0	-1	31	21	\N	\N
 Bihänder	ZSchwert	7	Angriff	2W6	0	Z	-2	1	-2	81	31	\N	\N
@@ -89,3 +91,11 @@ KusariGama	Kettenwaffe	8	Angriff	W6-1/W6+2	0	Z	\N	\N	\N	61	81	\N	K
 TetsuBo	Kampfstab	8	Angriff	W6	1	E	\N	\N	+2	31	61	\N	K
 Naginata	Stangenwaffe	6	Angriff	W6	2	Z	+1/-3	\N	+2/-2	11	61	\N	K
 \.
+-- Enable triggers
+BEGIN TRANSACTION;
+CREATE TEMP TABLE "tr" ("tmp_relname" name, "tmp_reltriggers" smallint);
+INSERT INTO "tr" SELECT C."relname", count(T."oid") FROM "pg_class" C, "pg_trigger" T WHERE C."oid" = T."tgrelid" AND C."relname" ~* 'waffen'  GROUP BY 1;
+UPDATE "pg_class" SET "reltriggers" = TMP."tmp_reltriggers" FROM "tr" TMP WHERE "pg_class"."relname" = TMP."tmp_relname";
+DROP TABLE "tr";
+COMMIT TRANSACTION;
+

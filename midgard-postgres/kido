@@ -1,0 +1,84 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE kido;
+--
+-- TOC Entry ID 2 (OID 341643)
+--
+-- Name: kido Type: TABLE Owner: thoma
+--
+
+CREATE TABLE kido (
+	name_orig text,
+	name text,
+	stufe text,
+	stil text,
+	fp integer,
+	ap integer,
+	effekt text
+);
+
+--
+-- Data for TOC Entry ID 3 (OID 341643) TABLE DATA kido
+--
+
+-- Disable triggers
+UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'kido';
+COPY kido  FROM stdin;
+ChochoInu	Schmetterling und Hund	Schüler	beide	40	0	Sich aus einem Kontrollbereich entfernen, wenn PW+60:RW des Gegners mißlingt. Danach ist eine freie Bewegung möglich.
+DageIki	Hauch eines Hiebes	Schüler	beide	40	0	Finte. Kein eigener Angriff. Mißlingt PW+30:In/bzw RW bei In:t, so erhält der Gegner in der nächsten Runde WM-4 auf die Abwehr. (max. WM-8)
+HaschiBami	Zweig der Haselnuß	Schüler	beide	40	0	Aufstehen. Gilt nicht als Aktion.
+HiaBatta	Sprung der Heuschrecke	Schüler	beide	40	0	Verbessert Sprungweiten und - höhen um 50%
+SosaYaku	Suche die Schwäche	Schüler	beide	40	0	Angriff WM+2, Angriff erst am Ende der Runde
+TuoKobe	VieleFäuste	Schüler	beide	40	0	2 Waffenlose Angriffe, auch versch. Gegner
+KentoYobu	Kampfschrei	Schüler	beide	60	1	Der Kampfschrei gibt WM+1 auf Angriff und Abwehr für 10 min. Gelingt der KentoYubo nicht, darf er erst beim nächsten Kampf wieder eingesetzt werden. Der KentoYubo ist die erste Technik in einem Kampf, es sei denn ein PW:Sb gelingt.
+MuYosai	Unbezwingbare Festung	Schüler	beide	60	0	Blockade + konzentrierte Abwehr mit WM+6 gegen die restlichen Gegner
+YuehSchu	Axt und Baum	Schüler	beide	60	0	Blockade und Angriff. Mißlingt der EW.KiDo: Nur Blockade.
+FengTsu	Bambus im Wind	Schüler	beide	100	0	Verringert leichte Schäden um 2 AP
+TiaoYuschi	Tanz des Helden	Eingeweihter	beide	120	3	Showeinlage mit Wirkung wie Angst. KiDo vs psyZR.
+TsiJe	Gedanken der Wärme	Eingeweihter	beide	120	1	Kälteschutz
+TsiLeng	Gedanken der Kühle	Eingeweihter	beide	120	1	Hitzeschutz
+KawaSui	Austrocknen der Quelle	Eingeweihter	beide	200	3	Heilt 1W6 LP/AP des KiDokas. Wirkt exakt wie Heilen von Wunden.
+KoéLong	Stimme des Drachen	Eingeweihter	beide	200	4	"Schrei, ""Schmerzen"" auf 30m Kegel, phsZR oder 1W6 AP und 1min WM-4"
+SchanScha	Mörderischer Berg	Eingeweihter	beide	200	1	Eisenhaut. 1 Runde. Verringert Verluste um 5 LP oder AP. RW-xx
+UzuHaki	Zerstörerischer Wirbel	Eingeweihter	beide	200	2	bis zu 4x Angriff, SchB+1, nur verschiedene Gegner im Kontrollbereich
+MiChen	Biene und Nadel	Eingeweihter	beide	400	0	Gezielter Hieb, WW+2 auf 2.Abwehr, nur leichter Schaden dafür PW:Ko (bzw. 5*LPmax) oder 1W6 Runden Ohnmacht
+NagaKusa	Strömung im Seegras	Eingeweihter	beide	400	0	Verringert leichte Schäden um 4 AP
+NiNintai	Zweite Ausdauer	Eingeweihter	beide	400	3	Regeneriert sofort alle AP. Nach einer Stunde: Verlust aller AP und von 3 LP. Während dieser Zeit kann die Technik nicht erneut angewendet werden.
+FengAschi	Wind in den Füßen	Meister	beide	800	2	Ermöglicht Bewgung mit 4xB max. 10min
+KanaUchi	Hammerschlag	Schüler	Harte Techniken	40	0	Erlaubt gezielten Hieb gegen Arm, Bein oder Kopf.
+LingHia	Göttlicher Sprung	Meister	beide	800	5	Springen: bis 20m weit, 5m hoch, 10m tief, über Angreifer + Angriff
+YingKando	Siegreiche Bewegung	Meister	beide	800	6	Je ein Angriff auf jeden Gegner, der in der zweiten Rundenhälfte in 6mUk steht. Hierbei WM+2, SchB+2
+SukuHaya	Schnelle Heilung	Meister	beide	1200	6	Allheilung. EW:KiDo vs 1W20+20
+WanTsui	Zehntausend Münder	Meister	beide	1600	6	Schrei. 30m Kegel. Wie Sturmwind. Gegner max 6m in Richtung KiDoka. Alle PW+30:HGW oder 1W6 LP/AP und Sturz
+DokujaOschi	Stoß der Giftschlange	Schüler	Harte Techniken	60	0	Überraschungsangriff auf Gegner in 12mUK. Alle überrascht, WM-4 auf Abwehr.
+HiaPao	Sprung des Leoparden	Schüler	Harte Techniken	60	1	Sturmangriff nach 6 bis B Metern. SchB + 2 bzw KAW 15
+KamaKusa	Sichel und Gras	Schüler	Harte Techniken	60	0	Wurf durch Tritt
+MuhiKabe	Unvergleichliche Mauer	Schüler	Harte Techniken	60	0	Blockade WW+2:KiDo. Kein Eigener Angriff. Gegner verliert (WW+2:KiDo - Angriff) AP
+NiuTsuke	Ochsentritt	Schüler	Harte Techniken	60	1	SchB +2
+GinZjang	Opfer des Kranichs	Schüler	Harte Techniken	80	3	Sturmangriff ab 6m. KiDoka stürzt und WM-4 auf Abwehr. 1x Angriff vs Abwehr SchB+5, 1x KiDo vs Abwehr wie Wurf.
+OjuKiba	Verjagen der Wespe	Schüler	Harte Techniken	80	0	Entwaffnen. Nur Einhandwaffen. Waffe fliegt 1W6m. krit.=krit.Armtreffer
+DaiUchi	Großer Schlag	Eingeweihter	Harte Techniken	120	0	Erlaubt Gezielten Hieb mit Todesfolge.
+EnchuTao	Säule umstürzen	Eingeweihter	Harte Techniken	120	0	Erlaubt Gezielten Hieb mit Todesfolge, der bei einem normalen Erfolg nur leichten Schaden und 1W20 min Bewustlosigkeit verursacht.
+HyoKobe	Hagel von Fäusten	Eingeweihter	Harte Techniken	400	3	6 Angriffe auch verschiedene Gegner
+HiaFei	Sprung des Tigers	Meister	Harte Techniken	800	5	Sturmangriff nach 6 bis B Meter. SchB +7 bzw KAW 50
+KansiTeko	Zange und Hebel	Schüler	Sanfte Techniken	40	0	Erlaubt gezielten Hieb gegen Arm, Bein oder Kopf.
+YoroYoschi	Schwankendes Schilf	Schüler	Sanfte Techniken	40	0	Geschossen ausweichen und Angreifen. Fernkämpfer WM-2. KiDoka WM+4 Abwehr/phkZR(!)
+FengYetsi	Wind und Blatt	Schüler	Sanfte Techniken	60	0	weiter Wurf gegen Gegner die im Sturm angreifen oder mehr als B/2 gelaufen sind. KiDoka stürzt. Gegner stürzt automatisch (1W6-3 AP) mißlingt der WW:Abwehr, Flug 1W6m, 1W6LP/AP
+OchiFuku	Fallender Sack	Schüler	Sanfte Techniken	60	0	Wurf
+ItaSone	Schmerzlicher Verlust	Schüler	Sanfte Techniken	80	0	Entwaffnen. Gegner muß letzte Runde angegriffen haben. KiDo vs Abwehr : 1W6 AP + Waffenverlust. krit.=krit.Armtreffer. Nur Einhandwaffen.
+KaHiko	Mückenflug	Schüler	Sanfte Techniken	80	3	Verwirren der Nahkampfgegner. KiDo vs psyZR. WM+4 auf Angriff gegen einen Verwirrten. Verwirrte handeln nicht, wehren aber ab.
+MingHa	Leuchtende Klinge	Schüler	Sanfte Techniken	80	1	Verwirren. KiDo vs phsZR. Nur mit Dolch oder Sai und helle Lichtquelle. Lichtreflexe blenden einen Gegner. WM+4 auf Angriff
+TateTiao	Tanzender Schild	Eingeweihter	Sanfte Techniken	120	1	Nur mit Schirm/Fächer (GunSen oder BuKasa). Gegner: WM-4 Angriff, WW:psyZR
+DoMino	Sichere Ernte	Eingeweihter	Sanfte Techniken	200	0	weiter Wurf. Gegner stürzt automatisch. Gelingt der WW:Abwehr: 1W6-3 AP, sonst Flug bis 6m auf Ziel (1W6-1 LP/AP). Ziel verliert automatischem 1W6-3 AP, WW:Abwehr vs.EW:KiDo oder Sturz. Dahinterstehende Personen verfahren dann ebenso (Domino)
+YubeChian	Finger des Friedens	Eingeweihter	Sanfte Techniken	200	0	Im Handgemenge festgehaltene werden gelähmt. Der Griff kann max. 2min aufrecht erhalten werden.
+SchindoKu	Schwingungen der Alten	Meister	Sanfte Techniken	1600	6	Handfläche schwingt. KiDo vs phsZR. leichter Schaden: 1W6+1 LP/AP schwerer Schaden: 3W6+1 LP/AP. Kein Treffer: selbst phsZR für 1W6-1 bzw 3W6-3 LP/AP
+\.
+-- Enable triggers
+BEGIN TRANSACTION;
+CREATE TEMP TABLE "tr" ("tmp_relname" name, "tmp_reltriggers" smallint);
+INSERT INTO "tr" SELECT C."relname", count(T."oid") FROM "pg_class" C, "pg_trigger" T WHERE C."oid" = T."tgrelid" AND C."relname" ~* 'kido'  GROUP BY 1;
+UPDATE "pg_class" SET "reltriggers" = TMP."tmp_reltriggers" FROM "tr" TMP WHERE "pg_class"."relname" = TMP."tmp_relname";
+DROP TABLE "tr";
+COMMIT TRANSACTION;
+

@@ -3,9 +3,9 @@
 --
 DROP TABLE fertigkeiten;
 --
--- TOC Entry ID 2 (OID 5786623)
+-- TOC Entry ID 2 (OID 320111)
 --
--- Name: fertigkeiten Type: TABLE Owner: christof
+-- Name: fertigkeiten Type: TABLE Owner: thoma
 --
 
 CREATE TABLE fertigkeiten (
@@ -51,9 +51,11 @@ CREATE TABLE fertigkeiten (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 5786623) TABLE DATA fertigkeiten
+-- Data for TOC Entry ID 3 (OID 320111) TABLE DATA fertigkeiten
 --
 
+-- Disable triggers
+UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'fertigkeiten';
 COPY fertigkeiten  FROM stdin;
 5	8	Beredsamkeit	6	200		S	G	S	S	S	G	G	S	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	G	S	S	S	S	S	S	S	S	pA
 4	8	Beschatten	6	300		G	S	S	S	G	S	S	S	S	S	S	G	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	G	S	RW
@@ -140,7 +142,6 @@ COPY fertigkeiten  FROM stdin;
 3	4	Lippenlesen	2	250		G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	G	S	In
 3	15	Rudern	12	100		S	S	G	S	G	S	G	S	S	G	S	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	St
 3	15	Schlittenfahren	12	100		S	S	G	S	S	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	Ge
-8	10	KiDo	10	800	K	S	S	S	S	S	S	S	S	G	S	S	S	S	A	S	A	A	A	A	A	A	S	A	A	A	A	A	S	A	S	G	G	Zt
 4	1	KujKuri	1	20	K	S	A	A	A	A	S	A	A	A	A	A	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	G	A	\N
 8	\N	KujNoIu	\N	400	K	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	G	S	S	S	S	S	S	S	S	S	\N
 5	4	LiYao	2	100	K	S	A	A	A	A	S	S	S	S	S	S	S	A	A	A	S	S	S	S	S	S	A	G	S	A	A	A	S	A	A	G	S	In
@@ -156,6 +157,7 @@ COPY fertigkeiten  FROM stdin;
 5	1	YangScheng	1	100	K	S	S	A	A	A	S	S	A	G	A	S	S	S	S	G	S	S	S	S	S	S	G	S	G	G	G	G	G	A	G	S	G	\N
 8	\N	YubeChian	\N	200	K	G	S	A	A	A	S	S	S	S	S	S	S	S	S	G	S	S	S	A	A	A	S	A	S	S	S	S	S	S	S	G	S	\N
 4	8	Zunge verschlucken	8	200	K	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N
+8	10	KiDo	10	800	K	G	S	S	S	S	S	S	S	G	S	S	S	S	A	S	A	A	A	A	A	A	S	A	A	A	A	A	S	A	S	G	G	Zt
 5	15	Fälschen	12	50		G	S	A	A	A	G	G	A	A	S	A	G	A	A	A	S	S	S	S	S	S	A	S	S	S	S	S	S	S	S	G	A	In
 4	4	FengSchui	2	100	K	G	S	S	S	S	S	S	G	G	S	G	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	G	G	In
 8	\N	FengTsu	\N	300	K	G	S	S	S	S	G	S	G	G	S	S	S	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	A	A	G	S	\N
@@ -165,3 +167,11 @@ COPY fertigkeiten  FROM stdin;
 5	\N	Kenntnis der Fünf Klassiker	\N	2500	K	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	S	\N
 8	\N	KentoYobu	\N	100	K	A	A	S	S	S	S	S	G	G	S	G	A	S	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	S	S	\N
 \.
+-- Enable triggers
+BEGIN TRANSACTION;
+CREATE TEMP TABLE "tr" ("tmp_relname" name, "tmp_reltriggers" smallint);
+INSERT INTO "tr" SELECT C."relname", count(T."oid") FROM "pg_class" C, "pg_trigger" T WHERE C."oid" = T."tgrelid" AND C."relname" ~* 'fertigkeiten'  GROUP BY 1;
+UPDATE "pg_class" SET "reltriggers" = TMP."tmp_reltriggers" FROM "tr" TMP WHERE "pg_class"."relname" = TMP."tmp_relname";
+DROP TABLE "tr";
+COMMIT TRANSACTION;
+

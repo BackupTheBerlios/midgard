@@ -3,9 +3,9 @@
 --
 DROP TABLE angeborene_fertigkeiten;
 --
--- TOC Entry ID 2 (OID 5785050)
+-- TOC Entry ID 2 (OID 319936)
 --
--- Name: angeborene_fertigkeiten Type: TABLE Owner: christof
+-- Name: angeborene_fertigkeiten Type: TABLE Owner: thoma
 --
 
 CREATE TABLE angeborene_fertigkeiten (
@@ -16,9 +16,11 @@ CREATE TABLE angeborene_fertigkeiten (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 5785050) TABLE DATA angeborene_fertigkeiten
+-- Data for TOC Entry ID 3 (OID 319936) TABLE DATA angeborene_fertigkeiten
 --
 
+-- Disable triggers
+UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'angeborene_fertigkeiten';
 COPY angeborene_fertigkeiten  FROM stdin;
 86	87	Beidhändigkeit	\N
 88	89	Berserkergang	\N
@@ -28,3 +30,11 @@ COPY angeborene_fertigkeiten  FROM stdin;
 96	97	Nachtsicht	\N
 98	99	Wachgabe	\N
 \.
+-- Enable triggers
+BEGIN TRANSACTION;
+CREATE TEMP TABLE "tr" ("tmp_relname" name, "tmp_reltriggers" smallint);
+INSERT INTO "tr" SELECT C."relname", count(T."oid") FROM "pg_class" C, "pg_trigger" T WHERE C."oid" = T."tgrelid" AND C."relname" ~* 'angeborene_fertigkeiten'  GROUP BY 1;
+UPDATE "pg_class" SET "reltriggers" = TMP."tmp_reltriggers" FROM "tr" TMP WHERE "pg_class"."relname" = TMP."tmp_relname";
+DROP TABLE "tr";
+COMMIT TRANSACTION;
+

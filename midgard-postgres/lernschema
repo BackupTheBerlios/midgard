@@ -3,9 +3,9 @@
 --
 DROP TABLE lernschema;
 --
--- TOC Entry ID 2 (OID 5786939)
+-- TOC Entry ID 2 (OID 319523)
 --
--- Name: lernschema Type: TABLE Owner: christof
+-- Name: lernschema Type: TABLE Owner: thoma
 --
 
 CREATE TABLE lernschema (
@@ -18,9 +18,11 @@ CREATE TABLE lernschema (
 );
 
 --
--- Data for TOC Entry ID 3 (OID 5786939) TABLE DATA lernschema
+-- Data for TOC Entry ID 3 (OID 319523) TABLE DATA lernschema
 --
 
+-- Disable triggers
+UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'lernschema';
 COPY lernschema  FROM stdin;
 Sp	leichter Speer	Waffe	5	\N	2
 Sp	Parierdolch	Waffe	1	\N	2
@@ -1091,3 +1093,11 @@ Ba	kleiner Schild	Waffe	1	\N	2
 Ass	kleiner Schild	Waffe	1	\N	3
 Ord	kleiner Schild	Waffe	1	\N	1
 \.
+-- Enable triggers
+BEGIN TRANSACTION;
+CREATE TEMP TABLE "tr" ("tmp_relname" name, "tmp_reltriggers" smallint);
+INSERT INTO "tr" SELECT C."relname", count(T."oid") FROM "pg_class" C, "pg_trigger" T WHERE C."oid" = T."tgrelid" AND C."relname" ~* 'lernschema'  GROUP BY 1;
+UPDATE "pg_class" SET "reltriggers" = TMP."tmp_reltriggers" FROM "tr" TMP WHERE "pg_class"."relname" = TMP."tmp_relname";
+DROP TABLE "tr";
+COMMIT TRANSACTION;
+
