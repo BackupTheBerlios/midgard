@@ -1,4 +1,4 @@
-// $Id: LernListen.hh,v 1.8 2002/09/12 08:11:43 thoma Exp $
+// $Id: LernListen.hh,v 1.9 2002/09/12 08:12:02 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,7 +32,6 @@ class LernListen
   public:
       enum eMBE{MutterSprache,GastlandSprache,NachbarlandSprache,AlteSprache,
                 lFach,lAllg,lUnge,lWaff,lZaub };
-//      enum eZusatz{UeberlebenHeimat};
 
       LernListen(const Datenbank& d) : D(d){}   
 

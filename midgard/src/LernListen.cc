@@ -1,4 +1,4 @@
-// $Id: LernListen.cc,v 1.8 2002/09/11 08:37:49 thoma Exp $
+// $Id: LernListen.cc,v 1.9 2002/09/12 08:11:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -297,5 +297,17 @@ std::list<WaffeBesitz> LernListen::getWaffenBesitz(const VAbenteurer& Aben) cons
       }
    }
  return L;
+}
+
+std::vector<std::string> LernListen::getSpezialgebiet(const VAbenteurer& A) const
+{
+  std::vector<std::string> L;
+  for(std::vector<cH_Spezialgebiet>::const_iterator i=D.Spezialgebiet.begin();i!=D.Spezialgebiet.end();++i) 
+   {
+    if((*i)->Typ() != A.Typ1()->Short() && 
+       (*i)->Typ() != A.Typ2()->Short() ) continue;
+    L.push_back((*i)->Name());
+   }
+  return L;
 }
 
