@@ -6,6 +6,7 @@ Version 0.9.4
 - Ausgabe von Zauberbeschreibungen (Option)
 - (² bug, Optionen bug) behoben
 - Gtk stil hat eigene Icons
+- Ausgabe der PP für Spezial-Zauber (Dweomer, Wunder, etc.)
 
 -------------- TODO ----------------
 
