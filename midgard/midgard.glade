@@ -50,6 +50,7 @@
 	<class>GtkNotebook</class>
 	<name>notebook_main</name>
 	<cxx_visibility>protected</cxx_visibility>
+	<sensitive>False</sensitive>
 	<can_focus>True</can_focus>
 	<signal>
 	  <name>switch_page</name>
@@ -887,7 +888,8 @@ portierung</label>
 		    <class>GtkLabel</class>
 		    <name>label531</name>
 		    <label>Beim Abtippen der Daten haben Nils Richter,
-Sebastian Horstmann, Joachim Jordan und viele
+Sebastian Horstmann, Joachim Jordan,
+Alessandro Filipetti und viele
 andere geholfen.</label>
 		    <justify>GTK_JUSTIFY_LEFT</justify>
 		    <wrap>False</wrap>
@@ -5275,8 +5277,8 @@ Abenteurerblatt</label>
 	    <widget>
 	      <class>GtkTable</class>
 	      <name>table66</name>
-	      <rows>2</rows>
-	      <columns>4</columns>
+	      <rows>1</rows>
+	      <columns>5</columns>
 	      <homogeneous>False</homogeneous>
 	      <row_spacing>5</row_spacing>
 	      <column_spacing>5</column_spacing>
@@ -5320,35 +5322,11 @@ Abenteurerblatt</label>
 	      </widget>
 
 	      <widget>
-		<class>GtkOptionMenu</class>
-		<name>typauswahl_2</name>
-		<cxx_visibility>protected</cxx_visibility>
-		<can_focus>True</can_focus>
-		<items>2. Abenteurerklasse
-</items>
-		<initial_choice>0</initial_choice>
-		<child>
-		  <left_attach>2</left_attach>
-		  <right_attach>3</right_attach>
-		  <top_attach>1</top_attach>
-		  <bottom_attach>2</bottom_attach>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <xexpand>False</xexpand>
-		  <yexpand>False</yexpand>
-		  <xshrink>False</xshrink>
-		  <yshrink>False</yshrink>
-		  <xfill>True</xfill>
-		  <yfill>False</yfill>
-		</child>
-	      </widget>
-
-	      <widget>
 		<class>GtkFixed</class>
 		<name>fixed5</name>
 		<child>
-		  <left_attach>3</left_attach>
-		  <right_attach>4</right_attach>
+		  <left_attach>4</left_attach>
+		  <right_attach>5</right_attach>
 		  <top_attach>0</top_attach>
 		  <bottom_attach>1</bottom_attach>
 		  <xpad>20</xpad>
@@ -5483,6 +5461,30 @@ Abenteurerblatt</label>
 		  <draw_indicator>True</draw_indicator>
 		  <group>geschlecht</group>
 		</widget>
+	      </widget>
+
+	      <widget>
+		<class>GtkOptionMenu</class>
+		<name>typauswahl_2</name>
+		<cxx_visibility>protected</cxx_visibility>
+		<can_focus>True</can_focus>
+		<items>2. Abenteurerklasse
+</items>
+		<initial_choice>0</initial_choice>
+		<child>
+		  <left_attach>3</left_attach>
+		  <right_attach>4</right_attach>
+		  <top_attach>0</top_attach>
+		  <bottom_attach>1</bottom_attach>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <xexpand>False</xexpand>
+		  <yexpand>False</yexpand>
+		  <xshrink>False</xshrink>
+		  <yshrink>False</yshrink>
+		  <xfill>True</xfill>
+		  <yfill>False</yfill>
+		</child>
 	      </widget>
 	    </widget>
 
@@ -7276,7 +7278,7 @@ Beidhänder
 		      <bottom_attach>1</bottom_attach>
 		      <xpad>0</xpad>
 		      <ypad>0</ypad>
-		      <xexpand>True</xexpand>
+		      <xexpand>False</xexpand>
 		      <yexpand>False</yexpand>
 		      <xshrink>False</xshrink>
 		      <yshrink>False</yshrink>
@@ -7415,476 +7417,6 @@ auswählen</label>
 		  <xpad>0</xpad>
 		  <ypad>0</ypad>
 		  <build_insensitive>True</build_insensitive>
-		</widget>
-	      </widget>
-	    </widget>
-
-	    <widget>
-	      <class>GtkTable</class>
-	      <name>table112</name>
-	      <rows>1</rows>
-	      <columns>1</columns>
-	      <homogeneous>False</homogeneous>
-	      <row_spacing>0</row_spacing>
-	      <column_spacing>0</column_spacing>
-	      <child>
-		<left_attach>0</left_attach>
-		<right_attach>1</right_attach>
-		<top_attach>2</top_attach>
-		<bottom_attach>3</bottom_attach>
-		<xpad>0</xpad>
-		<ypad>0</ypad>
-		<xexpand>False</xexpand>
-		<yexpand>False</yexpand>
-		<xshrink>True</xshrink>
-		<yshrink>True</yshrink>
-		<xfill>False</xfill>
-		<yfill>False</yfill>
-	      </child>
-
-	      <widget>
-		<class>GtkTable</class>
-		<name>table121</name>
-		<rows>1</rows>
-		<columns>5</columns>
-		<homogeneous>False</homogeneous>
-		<row_spacing>0</row_spacing>
-		<column_spacing>0</column_spacing>
-		<child>
-		  <left_attach>0</left_attach>
-		  <right_attach>1</right_attach>
-		  <top_attach>0</top_attach>
-		  <bottom_attach>1</bottom_attach>
-		  <xpad>0</xpad>
-		  <ypad>0</ypad>
-		  <xexpand>False</xexpand>
-		  <yexpand>False</yexpand>
-		  <xshrink>False</xshrink>
-		  <yshrink>False</yshrink>
-		  <xfill>True</xfill>
-		  <yfill>True</yfill>
-		</child>
-
-		<widget>
-		  <class>GtkFrame</class>
-		  <name>frame59</name>
-		  <label>Abenteurertyp</label>
-		  <label_xalign>0</label_xalign>
-		  <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
-		  <child>
-		    <left_attach>0</left_attach>
-		    <right_attach>1</right_attach>
-		    <top_attach>0</top_attach>
-		    <bottom_attach>1</bottom_attach>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>False</xexpand>
-		    <yexpand>False</yexpand>
-		    <xshrink>False</xshrink>
-		    <yshrink>False</yshrink>
-		    <xfill>False</xfill>
-		    <yfill>False</yfill>
-		  </child>
-
-		  <widget>
-		    <class>GtkLabel</class>
-		    <name>fertig_typ</name>
-		    <cxx_visibility>protected</cxx_visibility>
-		    <label>label280</label>
-		    <justify>GTK_JUSTIFY_CENTER</justify>
-		    <wrap>False</wrap>
-		    <xalign>0.5</xalign>
-		    <yalign>0.5</yalign>
-		    <xpad>5</xpad>
-		    <ypad>5</ypad>
-		  </widget>
-		</widget>
-
-		<widget>
-		  <class>GtkTable</class>
-		  <name>table_berufswahl</name>
-		  <cxx_visibility>protected</cxx_visibility>
-		  <rows>3</rows>
-		  <columns>3</columns>
-		  <homogeneous>False</homogeneous>
-		  <row_spacing>0</row_spacing>
-		  <column_spacing>0</column_spacing>
-		  <child>
-		    <left_attach>4</left_attach>
-		    <right_attach>5</right_attach>
-		    <top_attach>0</top_attach>
-		    <bottom_attach>1</bottom_attach>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>True</xexpand>
-		    <yexpand>False</yexpand>
-		    <xshrink>False</xshrink>
-		    <yshrink>False</yshrink>
-		    <xfill>True</xfill>
-		    <yfill>True</yfill>
-		  </child>
-
-		  <widget>
-		    <class>GtkVBox</class>
-		    <name>vbox_berufsname</name>
-		    <cxx_visibility>protected</cxx_visibility>
-		    <homogeneous>False</homogeneous>
-		    <spacing>0</spacing>
-		    <child>
-		      <left_attach>2</left_attach>
-		      <right_attach>3</right_attach>
-		      <top_attach>0</top_attach>
-		      <bottom_attach>1</bottom_attach>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <xexpand>False</xexpand>
-		      <yexpand>False</yexpand>
-		      <xshrink>False</xshrink>
-		      <yshrink>False</yshrink>
-		      <xfill>True</xfill>
-		      <yfill>True</yfill>
-		    </child>
-
-		    <widget>
-		      <class>GtkLabel</class>
-		      <name>label542</name>
-		      <label>Berufsnamen eingeben</label>
-		      <justify>GTK_JUSTIFY_LEFT</justify>
-		      <wrap>False</wrap>
-		      <xalign>0</xalign>
-		      <yalign>0.5</yalign>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <child>
-			<padding>0</padding>
-			<expand>False</expand>
-			<fill>False</fill>
-		      </child>
-		    </widget>
-
-		    <widget>
-		      <class>GtkEntry</class>
-		      <name>entry_berufsname</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <can_focus>True</can_focus>
-		      <signal>
-			<name>activate</name>
-			<handler>on_entry_berufsname_activate</handler>
-			<last_modification_time>Sun, 27 Jan 2002 07:57:19 GMT</last_modification_time>
-		      </signal>
-		      <editable>True</editable>
-		      <text_visible>True</text_visible>
-		      <text_max_length>0</text_max_length>
-		      <text></text>
-		      <child>
-			<padding>0</padding>
-			<expand>False</expand>
-			<fill>False</fill>
-		      </child>
-		    </widget>
-		  </widget>
-
-		  <widget>
-		    <class>GtkButton</class>
-		    <name>button_beruf</name>
-		    <cxx_visibility>protected</cxx_visibility>
-		    <tooltip>Linke Maustaste: Auswahl aus Originalliste. Rechte Maustaste: Berufsnamen selber eingeben.</tooltip>
-		    <signal>
-		      <name>button_release_event</name>
-		      <handler>on_button_beruf_release_event</handler>
-		      <last_modification_time>Sun, 27 Jan 2002 07:52:29 GMT</last_modification_time>
-		    </signal>
-		    <relief>GTK_RELIEF_NORMAL</relief>
-		    <child>
-		      <left_attach>0</left_attach>
-		      <right_attach>1</right_attach>
-		      <top_attach>0</top_attach>
-		      <bottom_attach>1</bottom_attach>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <xexpand>False</xexpand>
-		      <yexpand>True</yexpand>
-		      <xshrink>False</xshrink>
-		      <yshrink>False</yshrink>
-		      <xfill>True</xfill>
-		      <yfill>False</yfill>
-		    </child>
-
-		    <widget>
-		      <class>GtkHBox</class>
-		      <name>hbox55</name>
-		      <homogeneous>False</homogeneous>
-		      <spacing>0</spacing>
-
-		      <widget>
-			<class>GtkPixmap</class>
-			<name>pixmap103</name>
-			<filename>Job-trans-50.xpm</filename>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<build_insensitive>True</build_insensitive>
-			<child>
-			  <padding>0</padding>
-			  <expand>False</expand>
-			  <fill>True</fill>
-			</child>
-		      </widget>
-
-		      <widget>
-			<class>GtkLabel</class>
-			<name>label541</name>
-			<label>Beruf
-auswählen</label>
-			<justify>GTK_JUSTIFY_CENTER</justify>
-			<wrap>False</wrap>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<child>
-			  <padding>0</padding>
-			  <expand>False</expand>
-			  <fill>False</fill>
-			</child>
-		      </widget>
-		    </widget>
-		  </widget>
-
-		  <widget>
-		    <class>GtkTable</class>
-		    <name>table130</name>
-		    <rows>2</rows>
-		    <columns>2</columns>
-		    <homogeneous>False</homogeneous>
-		    <row_spacing>0</row_spacing>
-		    <column_spacing>0</column_spacing>
-		    <child>
-		      <left_attach>1</left_attach>
-		      <right_attach>2</right_attach>
-		      <top_attach>0</top_attach>
-		      <bottom_attach>1</bottom_attach>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <xexpand>False</xexpand>
-		      <yexpand>False</yexpand>
-		      <xshrink>False</xshrink>
-		      <yshrink>False</yshrink>
-		      <xfill>False</xfill>
-		      <yfill>True</yfill>
-		    </child>
-
-		    <widget>
-		      <class>GtkLabel</class>
-		      <name>label557</name>
-		      <label>gewürfelt</label>
-		      <justify>GTK_JUSTIFY_CENTER</justify>
-		      <wrap>False</wrap>
-		      <xalign>0</xalign>
-		      <yalign>0.5</yalign>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <child>
-			<left_attach>0</left_attach>
-			<right_attach>2</right_attach>
-			<top_attach>0</top_attach>
-			<bottom_attach>1</bottom_attach>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<xexpand>False</xexpand>
-			<yexpand>False</yexpand>
-			<xshrink>False</xshrink>
-			<yshrink>False</yshrink>
-			<xfill>True</xfill>
-			<yfill>False</yfill>
-		      </child>
-		    </widget>
-
-		    <widget>
-		      <class>GtkLabel</class>
-		      <name>label558</name>
-		      <label>%</label>
-		      <justify>GTK_JUSTIFY_CENTER</justify>
-		      <wrap>False</wrap>
-		      <xalign>0</xalign>
-		      <yalign>0.5</yalign>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <child>
-			<left_attach>1</left_attach>
-			<right_attach>2</right_attach>
-			<top_attach>1</top_attach>
-			<bottom_attach>2</bottom_attach>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<xexpand>False</xexpand>
-			<yexpand>False</yexpand>
-			<xshrink>False</xshrink>
-			<yshrink>False</yshrink>
-			<xfill>True</xfill>
-			<yfill>False</yfill>
-		      </child>
-		    </widget>
-
-		    <widget>
-		      <class>GtkSpinButton</class>
-		      <name>spinbutton_beruf</name>
-		      <cxx_visibility>protected</cxx_visibility>
-		      <can_focus>True</can_focus>
-		      <signal>
-			<name>activate</name>
-			<handler>on_spinbutton_beruf_activate</handler>
-			<last_modification_time>Thu, 21 Feb 2002 08:26:02 GMT</last_modification_time>
-		      </signal>
-		      <climb_rate>1</climb_rate>
-		      <digits>0</digits>
-		      <numeric>False</numeric>
-		      <update_policy>GTK_UPDATE_ALWAYS</update_policy>
-		      <snap>False</snap>
-		      <wrap>False</wrap>
-		      <value>1</value>
-		      <lower>1</lower>
-		      <upper>100</upper>
-		      <step>1</step>
-		      <page>10</page>
-		      <page_size>10</page_size>
-		      <child>
-			<left_attach>0</left_attach>
-			<right_attach>1</right_attach>
-			<top_attach>1</top_attach>
-			<bottom_attach>2</bottom_attach>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<xexpand>False</xexpand>
-			<yexpand>False</yexpand>
-			<xshrink>False</xshrink>
-			<yshrink>False</yshrink>
-			<xfill>False</xfill>
-			<yfill>False</yfill>
-		      </child>
-		    </widget>
-		  </widget>
-
-		  <widget>
-		    <class>GtkLabel</class>
-		    <name>label_berufskategorie</name>
-		    <cxx_visibility>protected</cxx_visibility>
-		    <label>Kategorie</label>
-		    <justify>GTK_JUSTIFY_CENTER</justify>
-		    <wrap>False</wrap>
-		    <xalign>0</xalign>
-		    <yalign>0.5</yalign>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <child>
-		      <left_attach>0</left_attach>
-		      <right_attach>3</right_attach>
-		      <top_attach>1</top_attach>
-		      <bottom_attach>2</bottom_attach>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <xexpand>False</xexpand>
-		      <yexpand>False</yexpand>
-		      <xshrink>False</xshrink>
-		      <yshrink>False</yshrink>
-		      <xfill>True</xfill>
-		      <yfill>False</yfill>
-		    </child>
-		  </widget>
-
-		  <widget>
-		    <class>GtkLabel</class>
-		    <name>label_berufsstern_erklaerung</name>
-		    <cxx_visibility>protected</cxx_visibility>
-		    <label>Ein * bezeichnet eine bereits gelernte Fertigkeit.
-Für diese wird dann der Erfolgswert um eins erhöht.</label>
-		    <justify>GTK_JUSTIFY_CENTER</justify>
-		    <wrap>False</wrap>
-		    <xalign>0.49</xalign>
-		    <yalign>0.5</yalign>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <child>
-		      <left_attach>0</left_attach>
-		      <right_attach>3</right_attach>
-		      <top_attach>2</top_attach>
-		      <bottom_attach>3</bottom_attach>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <xexpand>False</xexpand>
-		      <yexpand>False</yexpand>
-		      <xshrink>False</xshrink>
-		      <yshrink>False</yshrink>
-		      <xfill>True</xfill>
-		      <yfill>False</yfill>
-		    </child>
-		  </widget>
-		</widget>
-
-		<widget>
-		  <class>GtkToggleButton</class>
-		  <name>togglebutton_spezialwaffe</name>
-		  <cxx_visibility>protected</cxx_visibility>
-		  <tooltip>Nach dem Drücken dieses Knopfes kann eine Spezialwaffe gewählt werden. Entweder eine Nahkampfwaffe die 1 LP gekostet hat, oder eine Fernkampfwaffe, die höchstens 2 LP gekostet hat.</tooltip>
-		  <can_focus>True</can_focus>
-		  <relief>GTK_RELIEF_NORMAL</relief>
-		  <active>False</active>
-		  <child>
-		    <left_attach>1</left_attach>
-		    <right_attach>2</right_attach>
-		    <top_attach>0</top_attach>
-		    <bottom_attach>1</bottom_attach>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>False</xexpand>
-		    <yexpand>True</yexpand>
-		    <xshrink>False</xshrink>
-		    <yshrink>False</yshrink>
-		    <xfill>True</xfill>
-		    <yfill>False</yfill>
-		  </child>
-
-		  <widget>
-		    <class>GtkHBox</class>
-		    <name>hbox61</name>
-		    <homogeneous>False</homogeneous>
-		    <spacing>0</spacing>
-
-		    <widget>
-		      <class>GtkPixmap</class>
-		      <name>pixmap122</name>
-		      <filename>Weapon-trans-50.xpm</filename>
-		      <xalign>0.5</xalign>
-		      <yalign>0.5</yalign>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <build_insensitive>True</build_insensitive>
-		      <child>
-			<padding>0</padding>
-			<expand>True</expand>
-			<fill>True</fill>
-		      </child>
-		    </widget>
-
-		    <widget>
-		      <class>GtkLabel</class>
-		      <name>label545</name>
-		      <label>Spezialwaffe
-auswählen</label>
-		      <justify>GTK_JUSTIFY_CENTER</justify>
-		      <wrap>False</wrap>
-		      <xalign>0.5</xalign>
-		      <yalign>0.5</yalign>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <child>
-			<padding>0</padding>
-			<expand>False</expand>
-			<fill>False</fill>
-		      </child>
-		    </widget>
-		  </widget>
 		</widget>
 	      </widget>
 	    </widget>
@@ -8178,7 +7710,7 @@ auswählen</label>
 	      <class>GtkTable</class>
 	      <name>table126</name>
 	      <rows>1</rows>
-	      <columns>2</columns>
+	      <columns>3</columns>
 	      <homogeneous>False</homogeneous>
 	      <row_spacing>0</row_spacing>
 	      <column_spacing>0</column_spacing>
@@ -8225,7 +7757,7 @@ auswählen</label>
 		  <name>toolbar3</name>
 		  <orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
 		  <type>GTK_TOOLBAR_BOTH</type>
-		  <space_size>10</space_size>
+		  <space_size>5</space_size>
 		  <space_style>GTK_TOOLBAR_SPACE_EMPTY</space_style>
 		  <relief>GTK_RELIEF_NORMAL</relief>
 		  <tooltips>True</tooltips>
@@ -8234,7 +7766,7 @@ auswählen</label>
 		    <right_attach>1</right_attach>
 		    <top_attach>0</top_attach>
 		    <bottom_attach>1</bottom_attach>
-		    <xpad>22</xpad>
+		    <xpad>5</xpad>
 		    <ypad>0</ypad>
 		    <xexpand>False</xexpand>
 		    <yexpand>False</yexpand>
@@ -8254,8 +7786,7 @@ auswählen</label>
 		      <handler>on_herkunftsland_clicked</handler>
 		      <last_modification_time>Fri, 30 Mar 2001 20:05:20 GMT</last_modification_time>
 		    </signal>
-		    <label>Herkunftsland
-auswählen</label>
+		    <label>Herkunft</label>
 		    <icon>CountrChar-trans-50.xpm</icon>
 		  </widget>
 
@@ -8278,60 +7809,10 @@ auswählen</label>
 		      <class>GtkTable</class>
 		      <name>table119</name>
 		      <rows>2</rows>
-		      <columns>4</columns>
+		      <columns>6</columns>
 		      <homogeneous>False</homogeneous>
 		      <row_spacing>0</row_spacing>
 		      <column_spacing>0</column_spacing>
-
-		      <widget>
-			<class>GtkPixmap</class>
-			<name>pixmap95</name>
-			<filename>Angeb_Nase-32.xpm</filename>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<build_insensitive>True</build_insensitive>
-			<child>
-			  <left_attach>0</left_attach>
-			  <right_attach>1</right_attach>
-			  <top_attach>1</top_attach>
-			  <bottom_attach>2</bottom_attach>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <xexpand>False</xexpand>
-			  <yexpand>True</yexpand>
-			  <xshrink>False</xshrink>
-			  <yshrink>False</yshrink>
-			  <xfill>True</xfill>
-			  <yfill>True</yfill>
-			</child>
-		      </widget>
-
-		      <widget>
-			<class>GtkPixmap</class>
-			<name>pixmap97</name>
-			<filename>Angeb_Reflex-32.xpm</filename>
-			<xalign>0.5</xalign>
-			<yalign>0.5</yalign>
-			<xpad>0</xpad>
-			<ypad>0</ypad>
-			<build_insensitive>True</build_insensitive>
-			<child>
-			  <left_attach>3</left_attach>
-			  <right_attach>4</right_attach>
-			  <top_attach>1</top_attach>
-			  <bottom_attach>2</bottom_attach>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <xexpand>False</xexpand>
-			  <yexpand>False</yexpand>
-			  <xshrink>False</xshrink>
-			  <yshrink>False</yshrink>
-			  <xfill>True</xfill>
-			  <yfill>True</yfill>
-			</child>
-		      </widget>
 
 		      <widget>
 			<class>GtkPixmap</class>
@@ -8434,10 +7915,59 @@ auswählen</label>
 		      </widget>
 
 		      <widget>
+			<class>GtkPixmap</class>
+			<name>pixmap97</name>
+			<filename>Angeb_Reflex-32.xpm</filename>
+			<xalign>0.5</xalign>
+			<yalign>0.5</yalign>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<build_insensitive>True</build_insensitive>
+			<child>
+			  <left_attach>5</left_attach>
+			  <right_attach>6</right_attach>
+			  <top_attach>0</top_attach>
+			  <bottom_attach>1</bottom_attach>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <xexpand>True</xexpand>
+			  <yexpand>False</yexpand>
+			  <xshrink>False</xshrink>
+			  <yshrink>False</yshrink>
+			  <xfill>True</xfill>
+			  <yfill>True</yfill>
+			</child>
+		      </widget>
+
+		      <widget>
+			<class>GtkPixmap</class>
+			<name>pixmap95</name>
+			<filename>Angeb_Nase-32.xpm</filename>
+			<xalign>0.5</xalign>
+			<yalign>0.5</yalign>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<build_insensitive>True</build_insensitive>
+			<child>
+			  <left_attach>4</left_attach>
+			  <right_attach>5</right_attach>
+			  <top_attach>0</top_attach>
+			  <bottom_attach>1</bottom_attach>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <xexpand>True</xexpand>
+			  <yexpand>False</yexpand>
+			  <xshrink>False</xshrink>
+			  <yshrink>False</yshrink>
+			  <xfill>True</xfill>
+			  <yfill>True</yfill>
+			</child>
+		      </widget>
+
+		      <widget>
 			<class>GtkLabel</class>
 			<name>label537</name>
-			<label>angeborene
-Fertigkeiten</label>
+			<label>angeborene Fertigkeiten</label>
 			<justify>GTK_JUSTIFY_CENTER</justify>
 			<wrap>False</wrap>
 			<xalign>0.5</xalign>
@@ -8445,8 +7975,8 @@ Fertigkeiten</label>
 			<xpad>0</xpad>
 			<ypad>0</ypad>
 			<child>
-			  <left_attach>1</left_attach>
-			  <right_attach>3</right_attach>
+			  <left_attach>0</left_attach>
+			  <right_attach>6</right_attach>
 			  <top_attach>1</top_attach>
 			  <bottom_attach>2</bottom_attach>
 			  <xpad>0</xpad>
@@ -8467,13 +7997,13 @@ Fertigkeiten</label>
 		    <child_name>Toolbar:button</child_name>
 		    <name>button_lernpunkte</name>
 		    <cxx_visibility>protected</cxx_visibility>
+		    <tooltip>Lernpunkte würfeln</tooltip>
 		    <signal>
 		      <name>clicked</name>
 		      <handler>on_lernpunkte_wuerfeln_clicked</handler>
 		      <last_modification_time>Sun, 01 Apr 2001 11:57:07 GMT</last_modification_time>
 		    </signal>
-		    <label>Lernpunkte
-würfeln</label>
+		    <label>Lernpunkte</label>
 		    <icon>Dice-2W6-trans-50.xpm</icon>
 		    <child>
 		      <new_group>True</new_group>
@@ -8485,13 +8015,13 @@ würfeln</label>
 		    <child_name>Toolbar:button</child_name>
 		    <name>togglebutton_lernpunkte_edit</name>
 		    <cxx_visibility>protected</cxx_visibility>
+		    <tooltip>Lernpunkte editieren</tooltip>
 		    <signal>
 		      <name>toggled</name>
 		      <handler>on_togglebutton_lernpunkte_edit_toggled</handler>
 		      <last_modification_time>Mon, 14 Jan 2002 22:02:32 GMT</last_modification_time>
 		    </signal>
-		    <label>Lernpunkte
-editieren</label>
+		    <label>Lernpunkte</label>
 		    <icon>Edit-2W6-trans-50.xpm</icon>
 		    <active>False</active>
 		  </widget>
@@ -8499,16 +8029,16 @@ editieren</label>
 		  <widget>
 		    <class>GtkButton</class>
 		    <child_name>Toolbar:button</child_name>
-		    <name>button_geld_waffen</name>
+		    <name>button_lernschema_geld</name>
 		    <cxx_visibility>protected</cxx_visibility>
+		    <tooltip>Linke Maustaste: Geld würfeln             Rechte Maustaste: Geld eingeben</tooltip>
 		    <signal>
-		      <name>clicked</name>
-		      <handler>on_button_geld_waffen_clicked</handler>
-		      <last_modification_time>Sun, 01 Apr 2001 11:57:42 GMT</last_modification_time>
+		      <name>button_release_event</name>
+		      <handler>on_button_lernschema_geld_button_release_event</handler>
+		      <last_modification_time>Mon, 25 Feb 2002 09:12:42 GMT</last_modification_time>
 		    </signal>
-		    <label>Geld &amp;
-Waffen</label>
-		    <icon>Dice_M-trans-50.xpm</icon>
+		    <label>Geld</label>
+		    <icon>Money-50.xpm</icon>
 		    <child>
 		      <new_group>True</new_group>
 		    </child>
@@ -8517,25 +8047,64 @@ Waffen</label>
 		  <widget>
 		    <class>GtkButton</class>
 		    <child_name>Toolbar:button</child_name>
+		    <name>button_lernschema_waffen</name>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <tooltip>Linke Maustaste: Waffen auswürfeln            Rechte Maustaste: Waffen aussuchen</tooltip>
+		    <signal>
+		      <name>button_release_event</name>
+		      <handler>on_button_lernschema_waffen_button_release_event</handler>
+		      <last_modification_time>Mon, 25 Feb 2002 09:13:58 GMT</last_modification_time>
+		    </signal>
+		    <label>Waffen</label>
+		    <icon>Weapon-trans-50.xpm</icon>
+		  </widget>
+
+		  <widget>
+		    <class>GtkButton</class>
+		    <child_name>Toolbar:button</child_name>
 		    <name>button_ruestung</name>
 		    <cxx_visibility>protected</cxx_visibility>
+		    <tooltip>Linke Maustaste: Rüstung würfeln             Rechte Maustaste: Rüstung aussuchen</tooltip>
 		    <signal>
-		      <name>clicked</name>
-		      <handler>on_button_ruestung_clicked</handler>
-		      <last_modification_time>Sun, 01 Apr 2001 11:57:58 GMT</last_modification_time>
+		      <name>button_release_event</name>
+		      <handler>on_button_ruestung_button_release_event</handler>
+		      <last_modification_time>Mon, 25 Feb 2002 09:49:31 GMT</last_modification_time>
 		    </signal>
-		    <label>Rüstung
-würfeln</label>
+		    <label>Rüstung</label>
 		    <icon>Dice_Armor-trans-50.xpm</icon>
 		  </widget>
 		</widget>
 	      </widget>
+	    </widget>
+
+	    <widget>
+	      <class>GtkTable</class>
+	      <name>table121</name>
+	      <rows>1</rows>
+	      <columns>4</columns>
+	      <homogeneous>False</homogeneous>
+	      <row_spacing>0</row_spacing>
+	      <column_spacing>0</column_spacing>
+	      <child>
+		<left_attach>0</left_attach>
+		<right_attach>1</right_attach>
+		<top_attach>2</top_attach>
+		<bottom_attach>3</bottom_attach>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<xexpand>False</xexpand>
+		<yexpand>False</yexpand>
+		<xshrink>True</xshrink>
+		<yshrink>True</yshrink>
+		<xfill>True</xfill>
+		<yfill>True</yfill>
+	      </child>
 
 	      <widget>
 		<class>GtkTable</class>
-		<name>table127</name>
-		<rows>2</rows>
-		<columns>1</columns>
+		<name>table131</name>
+		<rows>3</rows>
+		<columns>2</columns>
 		<homogeneous>False</homogeneous>
 		<row_spacing>0</row_spacing>
 		<column_spacing>0</column_spacing>
@@ -8555,9 +8124,74 @@ würfeln</label>
 		</child>
 
 		<widget>
+		  <class>GtkToggleButton</class>
+		  <name>togglebutton_spezialwaffe</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <tooltip>Nach dem Drücken dieses Knopfes kann eine Spezialwaffe gewählt werden. Entweder eine Nahkampfwaffe die 1 LP gekostet hat, oder eine Fernkampfwaffe, die höchstens 2 LP gekostet hat.</tooltip>
+		  <can_focus>True</can_focus>
+		  <relief>GTK_RELIEF_NORMAL</relief>
+		  <active>False</active>
+		  <child>
+		    <left_attach>1</left_attach>
+		    <right_attach>2</right_attach>
+		    <top_attach>1</top_attach>
+		    <bottom_attach>2</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>False</xfill>
+		    <yfill>False</yfill>
+		  </child>
+
+		  <widget>
+		    <class>GtkHBox</class>
+		    <name>hbox61</name>
+		    <homogeneous>False</homogeneous>
+		    <spacing>0</spacing>
+
+		    <widget>
+		      <class>GtkPixmap</class>
+		      <name>pixmap122</name>
+		      <filename>Weapon-trans-50.xpm</filename>
+		      <xalign>0.5</xalign>
+		      <yalign>0.5</yalign>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <build_insensitive>True</build_insensitive>
+		      <child>
+			<padding>0</padding>
+			<expand>True</expand>
+			<fill>True</fill>
+		      </child>
+		    </widget>
+
+		    <widget>
+		      <class>GtkLabel</class>
+		      <name>label545</name>
+		      <label>Spezialwaffe
+auswählen</label>
+		      <justify>GTK_JUSTIFY_CENTER</justify>
+		      <wrap>False</wrap>
+		      <xalign>0.5</xalign>
+		      <yalign>0.5</yalign>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <child>
+			<padding>0</padding>
+			<expand>False</expand>
+			<fill>False</fill>
+		      </child>
+		    </widget>
+		  </widget>
+		</widget>
+
+		<widget>
 		  <class>GtkFrame</class>
-		  <name>frame101</name>
-		  <label>Rüstungsklasse</label>
+		  <name>frame59</name>
+		  <label>Abenteurertyp</label>
 		  <label_xalign>0</label_xalign>
 		  <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
 		  <child>
@@ -8567,7 +8201,7 @@ würfeln</label>
 		    <bottom_attach>1</bottom_attach>
 		    <xpad>0</xpad>
 		    <ypad>0</ypad>
-		    <xexpand>True</xexpand>
+		    <xexpand>False</xexpand>
 		    <yexpand>True</yexpand>
 		    <xshrink>False</xshrink>
 		    <yshrink>False</yshrink>
@@ -8577,15 +8211,15 @@ würfeln</label>
 
 		  <widget>
 		    <class>GtkLabel</class>
-		    <name>label_ruestung_lernschema</name>
+		    <name>fertig_typ</name>
 		    <cxx_visibility>protected</cxx_visibility>
-		    <label>label553</label>
+		    <label>label280</label>
 		    <justify>GTK_JUSTIFY_CENTER</justify>
 		    <wrap>False</wrap>
 		    <xalign>0.5</xalign>
 		    <yalign>0.5</yalign>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
+		    <xpad>5</xpad>
+		    <ypad>5</ypad>
 		  </widget>
 		</widget>
 
@@ -8622,6 +8256,363 @@ würfeln</label>
 		    <xpad>0</xpad>
 		    <ypad>0</ypad>
 		  </widget>
+		</widget>
+
+		<widget>
+		  <class>GtkFrame</class>
+		  <name>frame101</name>
+		  <label>Rüstungsklasse</label>
+		  <label_xalign>0</label_xalign>
+		  <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+		  <child>
+		    <left_attach>1</left_attach>
+		    <right_attach>2</right_attach>
+		    <top_attach>0</top_attach>
+		    <bottom_attach>1</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>True</yfill>
+		  </child>
+
+		  <widget>
+		    <class>GtkLabel</class>
+		    <name>label_ruestung_lernschema</name>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <label>label553</label>
+		    <justify>GTK_JUSTIFY_CENTER</justify>
+		    <wrap>False</wrap>
+		    <xalign>0.5</xalign>
+		    <yalign>0.5</yalign>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		  </widget>
+		</widget>
+	      </widget>
+
+	      <widget>
+		<class>GtkTable</class>
+		<name>table_berufswahl</name>
+		<cxx_visibility>protected</cxx_visibility>
+		<rows>3</rows>
+		<columns>3</columns>
+		<homogeneous>False</homogeneous>
+		<row_spacing>0</row_spacing>
+		<column_spacing>0</column_spacing>
+		<child>
+		  <left_attach>3</left_attach>
+		  <right_attach>4</right_attach>
+		  <top_attach>0</top_attach>
+		  <bottom_attach>1</bottom_attach>
+		  <xpad>10</xpad>
+		  <ypad>0</ypad>
+		  <xexpand>True</xexpand>
+		  <yexpand>False</yexpand>
+		  <xshrink>False</xshrink>
+		  <yshrink>False</yshrink>
+		  <xfill>True</xfill>
+		  <yfill>True</yfill>
+		</child>
+
+		<widget>
+		  <class>GtkVBox</class>
+		  <name>vbox_berufsname</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <homogeneous>False</homogeneous>
+		  <spacing>0</spacing>
+		  <child>
+		    <left_attach>2</left_attach>
+		    <right_attach>3</right_attach>
+		    <top_attach>0</top_attach>
+		    <bottom_attach>1</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>True</yfill>
+		  </child>
+
+		  <widget>
+		    <class>GtkLabel</class>
+		    <name>label542</name>
+		    <label>Berufsnamen eingeben</label>
+		    <justify>GTK_JUSTIFY_LEFT</justify>
+		    <wrap>False</wrap>
+		    <xalign>0</xalign>
+		    <yalign>0.5</yalign>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <child>
+		      <padding>0</padding>
+		      <expand>False</expand>
+		      <fill>False</fill>
+		    </child>
+		  </widget>
+
+		  <widget>
+		    <class>GtkEntry</class>
+		    <name>entry_berufsname</name>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>activate</name>
+		      <handler>on_entry_berufsname_activate</handler>
+		      <last_modification_time>Sun, 27 Jan 2002 07:57:19 GMT</last_modification_time>
+		    </signal>
+		    <editable>True</editable>
+		    <text_visible>True</text_visible>
+		    <text_max_length>0</text_max_length>
+		    <text></text>
+		    <child>
+		      <padding>0</padding>
+		      <expand>False</expand>
+		      <fill>False</fill>
+		    </child>
+		  </widget>
+		</widget>
+
+		<widget>
+		  <class>GtkButton</class>
+		  <name>button_beruf</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <tooltip>Linke Maustaste: Auswahl aus Originalliste. Rechte Maustaste: Berufsnamen selber eingeben.</tooltip>
+		  <signal>
+		    <name>button_release_event</name>
+		    <handler>on_button_beruf_release_event</handler>
+		    <last_modification_time>Sun, 27 Jan 2002 07:52:29 GMT</last_modification_time>
+		  </signal>
+		  <relief>GTK_RELIEF_NORMAL</relief>
+		  <child>
+		    <left_attach>0</left_attach>
+		    <right_attach>1</right_attach>
+		    <top_attach>0</top_attach>
+		    <bottom_attach>1</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>True</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>False</yfill>
+		  </child>
+
+		  <widget>
+		    <class>GtkHBox</class>
+		    <name>hbox55</name>
+		    <homogeneous>False</homogeneous>
+		    <spacing>0</spacing>
+
+		    <widget>
+		      <class>GtkPixmap</class>
+		      <name>pixmap103</name>
+		      <filename>Job-trans-50.xpm</filename>
+		      <xalign>0.5</xalign>
+		      <yalign>0.5</yalign>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <build_insensitive>True</build_insensitive>
+		      <child>
+			<padding>0</padding>
+			<expand>False</expand>
+			<fill>True</fill>
+		      </child>
+		    </widget>
+
+		    <widget>
+		      <class>GtkLabel</class>
+		      <name>label541</name>
+		      <label>Beruf
+auswählen</label>
+		      <justify>GTK_JUSTIFY_CENTER</justify>
+		      <wrap>False</wrap>
+		      <xalign>0.5</xalign>
+		      <yalign>0.5</yalign>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <child>
+			<padding>0</padding>
+			<expand>False</expand>
+			<fill>False</fill>
+		      </child>
+		    </widget>
+		  </widget>
+		</widget>
+
+		<widget>
+		  <class>GtkTable</class>
+		  <name>table130</name>
+		  <rows>2</rows>
+		  <columns>2</columns>
+		  <homogeneous>False</homogeneous>
+		  <row_spacing>0</row_spacing>
+		  <column_spacing>0</column_spacing>
+		  <child>
+		    <left_attach>1</left_attach>
+		    <right_attach>2</right_attach>
+		    <top_attach>0</top_attach>
+		    <bottom_attach>1</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>False</xfill>
+		    <yfill>True</yfill>
+		  </child>
+
+		  <widget>
+		    <class>GtkLabel</class>
+		    <name>label557</name>
+		    <label>gewürfelt</label>
+		    <justify>GTK_JUSTIFY_CENTER</justify>
+		    <wrap>False</wrap>
+		    <xalign>0</xalign>
+		    <yalign>0.5</yalign>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <child>
+		      <left_attach>0</left_attach>
+		      <right_attach>2</right_attach>
+		      <top_attach>0</top_attach>
+		      <bottom_attach>1</bottom_attach>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <xexpand>False</xexpand>
+		      <yexpand>False</yexpand>
+		      <xshrink>False</xshrink>
+		      <yshrink>False</yshrink>
+		      <xfill>True</xfill>
+		      <yfill>False</yfill>
+		    </child>
+		  </widget>
+
+		  <widget>
+		    <class>GtkLabel</class>
+		    <name>label558</name>
+		    <label>%</label>
+		    <justify>GTK_JUSTIFY_CENTER</justify>
+		    <wrap>False</wrap>
+		    <xalign>0</xalign>
+		    <yalign>0.5</yalign>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <child>
+		      <left_attach>1</left_attach>
+		      <right_attach>2</right_attach>
+		      <top_attach>1</top_attach>
+		      <bottom_attach>2</bottom_attach>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <xexpand>False</xexpand>
+		      <yexpand>False</yexpand>
+		      <xshrink>False</xshrink>
+		      <yshrink>False</yshrink>
+		      <xfill>True</xfill>
+		      <yfill>False</yfill>
+		    </child>
+		  </widget>
+
+		  <widget>
+		    <class>GtkSpinButton</class>
+		    <name>spinbutton_beruf</name>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <can_focus>True</can_focus>
+		    <signal>
+		      <name>activate</name>
+		      <handler>on_spinbutton_beruf_activate</handler>
+		      <last_modification_time>Thu, 21 Feb 2002 08:26:02 GMT</last_modification_time>
+		    </signal>
+		    <climb_rate>1</climb_rate>
+		    <digits>0</digits>
+		    <numeric>False</numeric>
+		    <update_policy>GTK_UPDATE_ALWAYS</update_policy>
+		    <snap>False</snap>
+		    <wrap>False</wrap>
+		    <value>1</value>
+		    <lower>1</lower>
+		    <upper>100</upper>
+		    <step>1</step>
+		    <page>10</page>
+		    <page_size>10</page_size>
+		    <child>
+		      <left_attach>0</left_attach>
+		      <right_attach>1</right_attach>
+		      <top_attach>1</top_attach>
+		      <bottom_attach>2</bottom_attach>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <xexpand>False</xexpand>
+		      <yexpand>False</yexpand>
+		      <xshrink>False</xshrink>
+		      <yshrink>False</yshrink>
+		      <xfill>False</xfill>
+		      <yfill>False</yfill>
+		    </child>
+		  </widget>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label_berufskategorie</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <label>Kategorie</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>0</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <left_attach>0</left_attach>
+		    <right_attach>3</right_attach>
+		    <top_attach>1</top_attach>
+		    <bottom_attach>2</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>False</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label_berufsstern_erklaerung</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <label>Ein * bezeichnet eine bereits gelernte Fertigkeit.
+Für diese wird dann der Erfolgswert um eins erhöht.</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>0.49</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <left_attach>0</left_attach>
+		    <right_attach>3</right_attach>
+		    <top_attach>2</top_attach>
+		    <bottom_attach>3</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>False</yfill>
+		  </child>
 		</widget>
 	      </widget>
 	    </widget>
@@ -14455,279 +14446,6 @@ KS
 
 <widget>
   <class>GtkWindow</class>
-  <name>Berufe_auswahl</name>
-  <width>700</width>
-  <height>400</height>
-  <title>Berufe</title>
-  <type>GTK_WINDOW_TOPLEVEL</type>
-  <position>GTK_WIN_POS_NONE</position>
-  <modal>True</modal>
-  <allow_shrink>False</allow_shrink>
-  <allow_grow>True</allow_grow>
-  <auto_shrink>False</auto_shrink>
-
-  <widget>
-    <class>GtkTable</class>
-    <name>table9</name>
-    <rows>3</rows>
-    <columns>4</columns>
-    <homogeneous>False</homogeneous>
-    <row_spacing>0</row_spacing>
-    <column_spacing>0</column_spacing>
-
-    <widget>
-      <class>GtkScrolledWindow</class>
-      <name>scrolledwindow62</name>
-      <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
-      <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
-      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
-      <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
-      <child>
-	<left_attach>0</left_attach>
-	<right_attach>4</right_attach>
-	<top_attach>1</top_attach>
-	<bottom_attach>2</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>True</xexpand>
-	<yexpand>True</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>True</yfill>
-      </child>
-
-      <widget>
-	<class>GtkViewport</class>
-	<name>viewport23</name>
-	<shadow_type>GTK_SHADOW_NONE</shadow_type>
-
-	<widget>
-	  <class>Custom</class>
-	  <name>Beruf_tree</name>
-	  <cxx_visibility>protected</cxx_visibility>
-	  <signal>
-	    <name>leaf_selected</name>
-	    <handler>on_leaf_selected</handler>
-	    <last_modification_time>Sun, 09 Dec 2001 13:47:19 GMT</last_modification_time>
-	  </signal>
-	  <signal>
-	    <name>unselect_row</name>
-	    <handler>on_tree_unselect_row</handler>
-	    <last_modification_time>Sat, 22 Dec 2001 20:46:46 GMT</last_modification_time>
-	  </signal>
-	  <creation_function>SimpleTree</creation_function>
-	  <int1>4</int1>
-	  <int2>4</int2>
-	  <last_modification_time>Sun, 09 Dec 2001 12:29:52 GMT</last_modification_time>
-	</widget>
-      </widget>
-    </widget>
-
-    <widget>
-      <class>GtkLabel</class>
-      <name>label_stern_erklaerung</name>
-      <cxx_visibility>protected</cxx_visibility>
-      <label>Ein * bezeichnet eine bereits gelernte Fertigkeit. Für diese wird dann der Erfolgswert um eins erhöht.</label>
-      <justify>GTK_JUSTIFY_CENTER</justify>
-      <wrap>False</wrap>
-      <xalign>0</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <child>
-	<left_attach>0</left_attach>
-	<right_attach>4</right_attach>
-	<top_attach>2</top_attach>
-	<bottom_attach>3</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>False</yfill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkToolbar</class>
-      <name>toolbar24</name>
-      <border_width>5</border_width>
-      <orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
-      <type>GTK_TOOLBAR_BOTH</type>
-      <space_size>10</space_size>
-      <space_style>GTK_TOOLBAR_SPACE_EMPTY</space_style>
-      <relief>GTK_RELIEF_NORMAL</relief>
-      <tooltips>True</tooltips>
-      <child>
-	<left_attach>0</left_attach>
-	<right_attach>1</right_attach>
-	<top_attach>0</top_attach>
-	<bottom_attach>1</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>False</yfill>
-      </child>
-
-      <widget>
-	<class>GtkButton</class>
-	<child_name>Toolbar:button</child_name>
-	<name>button53</name>
-	<signal>
-	  <name>clicked</name>
-	  <handler>on_close_berufe_clicked</handler>
-	  <last_modification_time>Tue, 03 Apr 2001 21:37:38 GMT</last_modification_time>
-	</signal>
-	<label></label>
-	<icon>SchliessenIII-50.xpm</icon>
-      </widget>
-
-      <widget>
-	<class>GtkButton</class>
-	<child_name>Toolbar:button</child_name>
-	<name>button_wuerfel</name>
-	<tooltip>Linke Maustaste: würfeln, Rechte Maustaste: Würfelwurf eingeben</tooltip>
-	<signal>
-	  <name>button_release_event</name>
-	  <handler>on_button_wuerfel_button_release_event</handler>
-	  <last_modification_time>Sat, 08 Dec 2001 16:06:47 GMT</last_modification_time>
-	</signal>
-	<label>Würfeln</label>
-	<icon>Job-trans-50.xpm</icon>
-	<child>
-	  <new_group>True</new_group>
-	</child>
-      </widget>
-    </widget>
-
-    <widget>
-      <class>GtkSpinButton</class>
-      <name>spinbutton_wurf</name>
-      <cxx_visibility>protected</cxx_visibility>
-      <can_focus>True</can_focus>
-      <signal>
-	<name>activate</name>
-	<handler>on_spinbutton_wurf_activate</handler>
-	<last_modification_time>Sat, 08 Dec 2001 16:03:48 GMT</last_modification_time>
-      </signal>
-      <climb_rate>1</climb_rate>
-      <digits>0</digits>
-      <numeric>False</numeric>
-      <update_policy>GTK_UPDATE_ALWAYS</update_policy>
-      <snap>False</snap>
-      <wrap>False</wrap>
-      <value>1</value>
-      <lower>1</lower>
-      <upper>100</upper>
-      <step>1</step>
-      <page>10</page>
-      <page_size>10</page_size>
-      <child>
-	<left_attach>1</left_attach>
-	<right_attach>2</right_attach>
-	<top_attach>0</top_attach>
-	<bottom_attach>1</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>False</xfill>
-	<yfill>False</yfill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkTable</class>
-      <name>table88</name>
-      <width>500</width>
-      <rows>2</rows>
-      <columns>1</columns>
-      <homogeneous>False</homogeneous>
-      <row_spacing>0</row_spacing>
-      <column_spacing>0</column_spacing>
-      <child>
-	<left_attach>2</left_attach>
-	<right_attach>3</right_attach>
-	<top_attach>0</top_attach>
-	<bottom_attach>1</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>True</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>False</xfill>
-	<yfill>True</yfill>
-      </child>
-
-      <widget>
-	<class>GtkLabel</class>
-	<name>label_wuerfel</name>
-	<cxx_visibility>protected</cxx_visibility>
-	<label>Würfelergebnis</label>
-	<justify>GTK_JUSTIFY_CENTER</justify>
-	<wrap>False</wrap>
-	<xalign>0</xalign>
-	<yalign>0.5</yalign>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<child>
-	  <left_attach>0</left_attach>
-	  <right_attach>1</right_attach>
-	  <top_attach>0</top_attach>
-	  <bottom_attach>1</bottom_attach>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	  <xexpand>False</xexpand>
-	  <yexpand>False</yexpand>
-	  <xshrink>False</xshrink>
-	  <yshrink>False</yshrink>
-	  <xfill>True</xfill>
-	  <yfill>False</yfill>
-	</child>
-      </widget>
-
-      <widget>
-	<class>GtkLabel</class>
-	<name>label_kategorie</name>
-	<cxx_visibility>protected</cxx_visibility>
-	<label>Kategorie</label>
-	<justify>GTK_JUSTIFY_CENTER</justify>
-	<wrap>False</wrap>
-	<xalign>0</xalign>
-	<yalign>0.5</yalign>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<child>
-	  <left_attach>0</left_attach>
-	  <right_attach>1</right_attach>
-	  <top_attach>1</top_attach>
-	  <bottom_attach>2</bottom_attach>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	  <xexpand>False</xexpand>
-	  <yexpand>False</yexpand>
-	  <xshrink>False</xshrink>
-	  <yshrink>False</yshrink>
-	  <xfill>True</xfill>
-	  <yfill>False</yfill>
-	</child>
-      </widget>
-    </widget>
-  </widget>
-</widget>
-
-<widget>
-  <class>GtkWindow</class>
   <name>Window_charakter_beschreibung</name>
   <title>Abenteurer Beschreibung</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
@@ -15087,138 +14805,6 @@ KS
 
 <widget>
   <class>GtkWindow</class>
-  <name>Sprache_auswahl</name>
-  <width>270</width>
-  <height>539</height>
-  <title>Sprache &amp; Schrift</title>
-  <type>GTK_WINDOW_TOPLEVEL</type>
-  <position>GTK_WIN_POS_NONE</position>
-  <modal>True</modal>
-  <allow_shrink>False</allow_shrink>
-  <allow_grow>True</allow_grow>
-  <auto_shrink>False</auto_shrink>
-
-  <widget>
-    <class>GtkVBox</class>
-    <name>vbox11</name>
-    <homogeneous>False</homogeneous>
-    <spacing>0</spacing>
-
-    <widget>
-      <class>GtkPixmap</class>
-      <name>pixmap18</name>
-      <filename>Lang_Script-trans-50.xpm</filename>
-      <xalign>0.5</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <build_insensitive>True</build_insensitive>
-      <child>
-	<padding>0</padding>
-	<expand>False</expand>
-	<fill>True</fill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkLabel</class>
-      <name>sp_sc_label</name>
-      <cxx_visibility>protected</cxx_visibility>
-      <label>label</label>
-      <justify>GTK_JUSTIFY_LEFT</justify>
-      <wrap>False</wrap>
-      <xalign>0.5</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <child>
-	<padding>0</padding>
-	<expand>False</expand>
-	<fill>False</fill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>Placeholder</class>
-    </widget>
-
-    <widget>
-      <class>GtkScrolledWindow</class>
-      <name>scrolledwindow18</name>
-      <hscrollbar_policy>GTK_POLICY_ALWAYS</hscrollbar_policy>
-      <vscrollbar_policy>GTK_POLICY_ALWAYS</vscrollbar_policy>
-      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
-      <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
-      <child>
-	<padding>0</padding>
-	<expand>True</expand>
-	<fill>True</fill>
-      </child>
-
-      <widget>
-	<class>GtkCList</class>
-	<name>clist_sp_sc</name>
-	<cxx_visibility>protected</cxx_visibility>
-	<can_focus>True</can_focus>
-	<signal>
-	  <name>select_row</name>
-	  <handler>on_clist_sp_sc_select_row</handler>
-	  <last_modification_time>Wed, 07 Mar 2001 06:54:46 GMT</last_modification_time>
-	</signal>
-	<columns>3</columns>
-	<column_widths>80,80,80</column_widths>
-	<selection_mode>GTK_SELECTION_SINGLE</selection_mode>
-	<show_titles>False</show_titles>
-	<shadow_type>GTK_SHADOW_IN</shadow_type>
-
-	<widget>
-	  <class>GtkLabel</class>
-	  <child_name>CList:title</child_name>
-	  <name>label_clist_sp_1</name>
-	  <cxx_visibility>protected</cxx_visibility>
-	  <label>label</label>
-	  <justify>GTK_JUSTIFY_LEFT</justify>
-	  <wrap>False</wrap>
-	  <xalign>0.5</xalign>
-	  <yalign>0.5</yalign>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	</widget>
-
-	<widget>
-	  <class>GtkLabel</class>
-	  <child_name>CList:title</child_name>
-	  <name>label_clist_sp_2</name>
-	  <cxx_visibility>protected</cxx_visibility>
-	  <label>label271</label>
-	  <justify>GTK_JUSTIFY_LEFT</justify>
-	  <wrap>False</wrap>
-	  <xalign>0.5</xalign>
-	  <yalign>0.5</yalign>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	</widget>
-
-	<widget>
-	  <class>GtkLabel</class>
-	  <child_name>CList:title</child_name>
-	  <name>label_clist_sp_3</name>
-	  <cxx_visibility>protected</cxx_visibility>
-	  <label>wert</label>
-	  <justify>GTK_JUSTIFY_LEFT</justify>
-	  <wrap>False</wrap>
-	  <xalign>0.5</xalign>
-	  <yalign>0.5</yalign>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	</widget>
-      </widget>
-    </widget>
-  </widget>
-</widget>
-
-<widget>
-  <class>GtkWindow</class>
   <name>Window_hilfe</name>
   <title>Hilfe</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
@@ -15308,519 +14894,6 @@ KS
 	<label></label>
 	<icon>SchliessenIII-50.xpm</icon>
       </widget>
-    </widget>
-  </widget>
-</widget>
-
-<widget>
-  <class>GtkWindow</class>
-  <name>Window_Waffe_Geld</name>
-  <title>Waffen &amp; Geld</title>
-  <type>GTK_WINDOW_TOPLEVEL</type>
-  <position>GTK_WIN_POS_NONE</position>
-  <modal>True</modal>
-  <allow_shrink>False</allow_shrink>
-  <allow_grow>True</allow_grow>
-  <auto_shrink>False</auto_shrink>
-
-  <widget>
-    <class>GtkTable</class>
-    <name>table36</name>
-    <rows>7</rows>
-    <columns>5</columns>
-    <homogeneous>False</homogeneous>
-    <row_spacing>0</row_spacing>
-    <column_spacing>0</column_spacing>
-
-    <widget>
-      <class>GtkRadioButton</class>
-      <name>radio_wuerfeln</name>
-      <cxx_visibility>protected</cxx_visibility>
-      <can_focus>True</can_focus>
-      <label>Würfeln</label>
-      <active>False</active>
-      <draw_indicator>True</draw_indicator>
-      <group>geld_waffen</group>
-      <child>
-	<left_attach>1</left_attach>
-	<right_attach>2</right_attach>
-	<top_attach>1</top_attach>
-	<bottom_attach>2</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>False</yfill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkRadioButton</class>
-      <name>radio_auswaehlen</name>
-      <cxx_visibility>protected</cxx_visibility>
-      <can_focus>True</can_focus>
-      <label>Auswählen</label>
-      <active>False</active>
-      <draw_indicator>True</draw_indicator>
-      <group>geld_waffen</group>
-      <child>
-	<left_attach>1</left_attach>
-	<right_attach>2</right_attach>
-	<top_attach>2</top_attach>
-	<bottom_attach>3</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>False</yfill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkLabel</class>
-      <name>label_waffen_geld</name>
-      <cxx_visibility>protected</cxx_visibility>
-      <label>6x für Waffen oder Geld würfeln</label>
-      <justify>GTK_JUSTIFY_CENTER</justify>
-      <wrap>False</wrap>
-      <xalign>0</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <child>
-	<left_attach>1</left_attach>
-	<right_attach>5</right_attach>
-	<top_attach>0</top_attach>
-	<bottom_attach>1</bottom_attach>
-	<xpad>6</xpad>
-	<ypad>5</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>False</yfill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkVSeparator</class>
-      <name>vseparator17</name>
-      <child>
-	<left_attach>2</left_attach>
-	<right_attach>3</right_attach>
-	<top_attach>1</top_attach>
-	<bottom_attach>3</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>True</yfill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkTable</class>
-      <name>table37</name>
-      <rows>3</rows>
-      <columns>2</columns>
-      <homogeneous>False</homogeneous>
-      <row_spacing>0</row_spacing>
-      <column_spacing>0</column_spacing>
-      <child>
-	<left_attach>1</left_attach>
-	<right_attach>2</right_attach>
-	<top_attach>4</top_attach>
-	<bottom_attach>5</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>True</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>True</yfill>
-      </child>
-
-      <widget>
-	<class>GtkLabel</class>
-	<name>label289</name>
-	<label>Kupfer</label>
-	<justify>GTK_JUSTIFY_CENTER</justify>
-	<wrap>False</wrap>
-	<xalign>0</xalign>
-	<yalign>0.5</yalign>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<child>
-	  <left_attach>0</left_attach>
-	  <right_attach>1</right_attach>
-	  <top_attach>2</top_attach>
-	  <bottom_attach>3</bottom_attach>
-	  <xpad>3</xpad>
-	  <ypad>0</ypad>
-	  <xexpand>True</xexpand>
-	  <yexpand>False</yexpand>
-	  <xshrink>False</xshrink>
-	  <yshrink>False</yshrink>
-	  <xfill>True</xfill>
-	  <yfill>False</yfill>
-	</child>
-      </widget>
-
-      <widget>
-	<class>GtkLabel</class>
-	<name>label287</name>
-	<label>Gold</label>
-	<justify>GTK_JUSTIFY_CENTER</justify>
-	<wrap>False</wrap>
-	<xalign>0</xalign>
-	<yalign>0.5</yalign>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<child>
-	  <left_attach>0</left_attach>
-	  <right_attach>1</right_attach>
-	  <top_attach>0</top_attach>
-	  <bottom_attach>1</bottom_attach>
-	  <xpad>3</xpad>
-	  <ypad>0</ypad>
-	  <xexpand>True</xexpand>
-	  <yexpand>False</yexpand>
-	  <xshrink>False</xshrink>
-	  <yshrink>False</yshrink>
-	  <xfill>True</xfill>
-	  <yfill>False</yfill>
-	</child>
-      </widget>
-
-      <widget>
-	<class>GtkLabel</class>
-	<name>label288</name>
-	<label>Silber</label>
-	<justify>GTK_JUSTIFY_LEFT</justify>
-	<wrap>False</wrap>
-	<xalign>0</xalign>
-	<yalign>0.5</yalign>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<child>
-	  <left_attach>0</left_attach>
-	  <right_attach>1</right_attach>
-	  <top_attach>1</top_attach>
-	  <bottom_attach>2</bottom_attach>
-	  <xpad>3</xpad>
-	  <ypad>0</ypad>
-	  <xexpand>True</xexpand>
-	  <yexpand>False</yexpand>
-	  <xshrink>False</xshrink>
-	  <yshrink>False</yshrink>
-	  <xfill>True</xfill>
-	  <yfill>False</yfill>
-	</child>
-      </widget>
-
-      <widget>
-	<class>GtkLabel</class>
-	<name>gold</name>
-	<cxx_visibility>protected</cxx_visibility>
-	<label>0</label>
-	<justify>GTK_JUSTIFY_CENTER</justify>
-	<wrap>False</wrap>
-	<xalign>0</xalign>
-	<yalign>0.5</yalign>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<child>
-	  <left_attach>1</left_attach>
-	  <right_attach>2</right_attach>
-	  <top_attach>0</top_attach>
-	  <bottom_attach>1</bottom_attach>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	  <xexpand>False</xexpand>
-	  <yexpand>False</yexpand>
-	  <xshrink>False</xshrink>
-	  <yshrink>False</yshrink>
-	  <xfill>True</xfill>
-	  <yfill>False</yfill>
-	</child>
-      </widget>
-
-      <widget>
-	<class>GtkLabel</class>
-	<name>silber</name>
-	<cxx_visibility>protected</cxx_visibility>
-	<label>0</label>
-	<justify>GTK_JUSTIFY_CENTER</justify>
-	<wrap>False</wrap>
-	<xalign>0</xalign>
-	<yalign>0.5</yalign>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<child>
-	  <left_attach>1</left_attach>
-	  <right_attach>2</right_attach>
-	  <top_attach>1</top_attach>
-	  <bottom_attach>2</bottom_attach>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	  <xexpand>False</xexpand>
-	  <yexpand>False</yexpand>
-	  <xshrink>False</xshrink>
-	  <yshrink>False</yshrink>
-	  <xfill>True</xfill>
-	  <yfill>False</yfill>
-	</child>
-      </widget>
-
-      <widget>
-	<class>GtkLabel</class>
-	<name>kupfer</name>
-	<cxx_visibility>protected</cxx_visibility>
-	<label>0</label>
-	<justify>GTK_JUSTIFY_CENTER</justify>
-	<wrap>False</wrap>
-	<xalign>0</xalign>
-	<yalign>0.5</yalign>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<child>
-	  <left_attach>1</left_attach>
-	  <right_attach>2</right_attach>
-	  <top_attach>2</top_attach>
-	  <bottom_attach>3</bottom_attach>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	  <xexpand>False</xexpand>
-	  <yexpand>False</yexpand>
-	  <xshrink>False</xshrink>
-	  <yshrink>False</yshrink>
-	  <xfill>True</xfill>
-	  <yfill>False</yfill>
-	</child>
-      </widget>
-    </widget>
-
-    <widget>
-      <class>GtkPixmap</class>
-      <name>pixmap10</name>
-      <filename>Money-50.xpm</filename>
-      <xalign>0.5</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <build_insensitive>True</build_insensitive>
-      <child>
-	<left_attach>3</left_attach>
-	<right_attach>4</right_attach>
-	<top_attach>4</top_attach>
-	<bottom_attach>5</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>True</yfill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkToolbar</class>
-      <name>toolbar11</name>
-      <orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
-      <type>GTK_TOOLBAR_BOTH</type>
-      <space_size>10</space_size>
-      <space_style>GTK_TOOLBAR_SPACE_EMPTY</space_style>
-      <relief>GTK_RELIEF_NORMAL</relief>
-      <tooltips>True</tooltips>
-      <child>
-	<left_attach>3</left_attach>
-	<right_attach>5</right_attach>
-	<top_attach>1</top_attach>
-	<bottom_attach>3</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>False</yfill>
-      </child>
-
-      <widget>
-	<class>GtkButton</class>
-	<child_name>Toolbar:button</child_name>
-	<name>button_geld</name>
-	<cxx_visibility>protected</cxx_visibility>
-	<signal>
-	  <name>clicked</name>
-	  <handler>on_button_geld_clicked</handler>
-	  <last_modification_time>Tue, 18 Dec 2001 09:10:58 GMT</last_modification_time>
-	</signal>
-	<label>Geld</label>
-	<icon>Money-50.xpm</icon>
-      </widget>
-
-      <widget>
-	<class>GtkButton</class>
-	<child_name>Toolbar:button</child_name>
-	<name>button_waffe</name>
-	<cxx_visibility>protected</cxx_visibility>
-	<signal>
-	  <name>clicked</name>
-	  <handler>on_button_waffe_clicked</handler>
-	  <last_modification_time>Tue, 18 Dec 2001 09:10:52 GMT</last_modification_time>
-	</signal>
-	<label>Waffen</label>
-	<icon>Weapon-trans-50.xpm</icon>
-      </widget>
-
-      <widget>
-	<class>GtkButton</class>
-	<child_name>Toolbar:button</child_name>
-	<name>button37</name>
-	<signal>
-	  <name>clicked</name>
-	  <handler>on_button_close_clicked</handler>
-	  <last_modification_time>Mon, 02 Apr 2001 07:41:20 GMT</last_modification_time>
-	</signal>
-	<label>Schließen</label>
-	<icon>SchliessenIII-50.xpm</icon>
-	<child>
-	  <new_group>True</new_group>
-	</child>
-      </widget>
-    </widget>
-
-    <widget>
-      <class>GtkPixmap</class>
-      <name>pixmap11</name>
-      <filename>Weapon-trans-50.xpm</filename>
-      <xalign>0.5</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <build_insensitive>True</build_insensitive>
-      <child>
-	<left_attach>4</left_attach>
-	<right_attach>5</right_attach>
-	<top_attach>4</top_attach>
-	<bottom_attach>5</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>True</yfill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkHSeparator</class>
-      <name>hseparator15</name>
-      <child>
-	<left_attach>0</left_attach>
-	<right_attach>5</right_attach>
-	<top_attach>3</top_attach>
-	<bottom_attach>4</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>5</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>True</yfill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkScrolledWindow</class>
-      <name>scrolledwindow35</name>
-      <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
-      <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
-      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
-      <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
-      <child>
-	<left_attach>0</left_attach>
-	<right_attach>5</right_attach>
-	<top_attach>5</top_attach>
-	<bottom_attach>6</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>True</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>True</yfill>
-      </child>
-
-      <widget>
-	<class>GtkCList</class>
-	<name>clist_gewaehlte_waffen</name>
-	<cxx_visibility>protected</cxx_visibility>
-	<can_focus>True</can_focus>
-	<columns>1</columns>
-	<column_widths>80</column_widths>
-	<selection_mode>GTK_SELECTION_SINGLE</selection_mode>
-	<show_titles>False</show_titles>
-	<shadow_type>GTK_SHADOW_IN</shadow_type>
-
-	<widget>
-	  <class>GtkLabel</class>
-	  <child_name>CList:title</child_name>
-	  <name>label286</name>
-	  <label>label286</label>
-	  <justify>GTK_JUSTIFY_LEFT</justify>
-	  <wrap>False</wrap>
-	  <xalign>0.5</xalign>
-	  <yalign>0.5</yalign>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	</widget>
-      </widget>
-    </widget>
-
-    <widget>
-      <class>GtkPixmap</class>
-      <name>pixmap47</name>
-      <cxx_visibility>protected</cxx_visibility>
-      <filename>Select-trans-50.xpm</filename>
-      <xalign>0.5</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <build_insensitive>True</build_insensitive>
-      <child>
-	<left_attach>0</left_attach>
-	<right_attach>1</right_attach>
-	<top_attach>1</top_attach>
-	<bottom_attach>3</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>True</yfill>
-      </child>
     </widget>
   </widget>
 </widget>
@@ -16336,7 +15409,7 @@ Verlust</label>
   <title>Waffe</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
   <position>GTK_WIN_POS_NONE</position>
-  <modal>True</modal>
+  <modal>False</modal>
   <allow_shrink>False</allow_shrink>
   <allow_grow>True</allow_grow>
   <auto_shrink>False</auto_shrink>
@@ -16850,6 +15923,11 @@ Verlust</label>
 	    <handler>on_leaf_selected_alt</handler>
 	    <last_modification_time>Tue, 14 Aug 2001 09:33:08 GMT</last_modification_time>
 	  </signal>
+	  <signal>
+	    <name>reorder</name>
+	    <handler>on_alte_waffen_reorder</handler>
+	    <last_modification_time>Sun, 24 Feb 2002 20:37:10 GMT</last_modification_time>
+	  </signal>
 	  <creation_function>SimpleTree</creation_function>
 	  <int1>5</int1>
 	  <int2>0</int2>
@@ -16882,45 +15960,6 @@ Verlust</label>
       </child>
 
       <widget>
-	<class>GtkToolbar</class>
-	<name>toolbar35</name>
-	<orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
-	<type>GTK_TOOLBAR_BOTH</type>
-	<space_size>5</space_size>
-	<space_style>GTK_TOOLBAR_SPACE_EMPTY</space_style>
-	<relief>GTK_RELIEF_NORMAL</relief>
-	<tooltips>True</tooltips>
-	<child>
-	  <left_attach>0</left_attach>
-	  <right_attach>1</right_attach>
-	  <top_attach>0</top_attach>
-	  <bottom_attach>1</bottom_attach>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	  <xexpand>False</xexpand>
-	  <yexpand>False</yexpand>
-	  <xshrink>False</xshrink>
-	  <yshrink>False</yshrink>
-	  <xfill>True</xfill>
-	  <yfill>False</yfill>
-	</child>
-
-	<widget>
-	  <class>GtkButton</class>
-	  <child_name>Toolbar:button</child_name>
-	  <name>button_sort</name>
-	  <border_width>5</border_width>
-	  <signal>
-	    <name>clicked</name>
-	    <handler>on_button_sort_clicked</handler>
-	    <last_modification_time>Tue, 14 Aug 2001 10:56:52 GMT</last_modification_time>
-	  </signal>
-	  <label>Waffen sortieren</label>
-	  <icon>Sort_Weapon-trans-50.xpm</icon>
-	</widget>
-      </widget>
-
-      <widget>
 	<class>GtkCheckButton</class>
 	<name>checkbutton_mag_waffenbonus</name>
 	<cxx_visibility>protected</cxx_visibility>
@@ -16931,9 +15970,8 @@ Verlust</label>
 	  <handler>on_checkbutton_mag_waffenbonus_toggled</handler>
 	  <last_modification_time>Sun, 25 Mar 2001 07:18:28 GMT</last_modification_time>
 	</signal>
-	<label>mag.Bonus angeben</label>
 	<active>False</active>
-	<draw_indicator>True</draw_indicator>
+	<draw_indicator>False</draw_indicator>
 	<child>
 	  <left_attach>1</left_attach>
 	  <right_attach>2</right_attach>
@@ -16948,6 +15986,47 @@ Verlust</label>
 	  <xfill>True</xfill>
 	  <yfill>False</yfill>
 	</child>
+
+	<widget>
+	  <class>GtkHBox</class>
+	  <name>hbox65</name>
+	  <homogeneous>False</homogeneous>
+	  <spacing>0</spacing>
+
+	  <widget>
+	    <class>GtkPixmap</class>
+	    <name>pixmap141</name>
+	    <filename>wizzard-trans-50_2.xpm</filename>
+	    <xalign>0.5</xalign>
+	    <yalign>0.5</yalign>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <build_insensitive>True</build_insensitive>
+	    <child>
+	      <padding>0</padding>
+	      <expand>True</expand>
+	      <fill>True</fill>
+	    </child>
+	  </widget>
+
+	  <widget>
+	    <class>GtkLabel</class>
+	    <name>label561</name>
+	    <label>Magischen Bonus
+eingeben</label>
+	    <justify>GTK_JUSTIFY_CENTER</justify>
+	    <wrap>False</wrap>
+	    <xalign>0.5</xalign>
+	    <yalign>0.5</yalign>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <child>
+	      <padding>0</padding>
+	      <expand>False</expand>
+	      <fill>False</fill>
+	    </child>
+	  </widget>
+	</widget>
       </widget>
     </widget>
 
