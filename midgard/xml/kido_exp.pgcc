@@ -1,4 +1,4 @@
-// $Id: kido_exp.pgcc,v 1.4 2001/11/13 08:32:07 christof Exp $
+// $Id: kido_exp.pgcc,v 1.5 2001/11/15 07:51:27 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -37,6 +37,7 @@ void kido_speichern(std::ostream &o)
    exec sql open c;
    SQLerror::test(__FILELINE__);
    o << "<MidgardCG-data>\n";
+   o << " <Kido-Fertigkeiten>\n";
   while (true)
   {exec sql fetch c into sql descriptor spalten;
    SQLerror::test(__FILELINE__,100);
@@ -50,13 +51,13 @@ void kido_speichern(std::ostream &o)
    fetch_and_write_int_attrib(is, o, "Lernkosten");
    fetch_and_write_string_attrib(is, o, "AP");
    o << ">";
-   string Erklaerung;
-   is >> FetchIStream::MapNull<string>(Erklaerung,"");
+   string Erklaerung=fetch_string(is);
    if (Erklaerung.size())  o << toXML(Erklaerung); 
    o << "</KiDo>\n";
   }
    exec sql close c;
    SQLerror::test(__FILELINE__);
+   o << " </Kido-Fertigkeiten>\n";
    o << "</MidgardCG-data>\n";
    
    exec sql deallocate descriptor spalten;

@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.pgcc,v 1.8 2001/11/14 16:53:23 christof Exp $
+// $Id: fertigk_exp.pgcc,v 1.9 2001/11/15 07:51:27 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -38,6 +38,7 @@ void fert_speichern(std::ostream &o)
    exec sql open fert_curs;
    SQLerror::test(__FILELINE__);
    o << "<MidgardCG-data>\n";
+   o << " <Fertigkeiten>\n";
   while (true)
   {exec sql fetch fert_curs into sql descriptor spalten;
    SQLerror::test(__FILELINE__,100);
@@ -114,8 +115,10 @@ void fert_speichern(std::ostream &o)
   }
    exec sql close fert_curs;
    SQLerror::test(__FILELINE__);
+   o << " </Fertigkeiten>\n";
 
 //********************* angeborene Fertigkeiten ********************
+   o << " <angeboreneFertigkeiten>\n";
    exec sql declare angeb_curs cursor for
    	select name, min, max, wert
    	from angeborene_fertigkeiten
@@ -136,8 +139,10 @@ void fert_speichern(std::ostream &o)
   }
    exec sql close angeb_curs;
    SQLerror::test(__FILELINE__);
+   o << " </angeboreneFertigkeiten>\n";
 
 //********************* Berufe ********************
+   o << " <Berufe>\n";
    exec sql declare beruf_curs cursor for
    	select beruf, region, lernpunkte, st, ge, ko, "in", zt, pa, au, sb, 
    		typ, geschlecht
@@ -201,8 +206,10 @@ void fert_speichern(std::ostream &o)
   }
    exec sql close beruf_curs;
    SQLerror::test(__FILELINE__);
+   o << " </Berufe>\n";
 
 //********************* Pflicht + verboten ********************
+   o << " <Typ-Pflichten>\n";
    exec sql declare pflicht_curs cursor for
    	select pflicht, typ, lernpunkte, verboten, spielbegin, erfolgswert
    	from pflicht_lernen
@@ -236,6 +243,30 @@ void fert_speichern(std::ostream &o)
   }
    exec sql close pflicht_curs;
    SQLerror::test(__FILELINE__);
+   o << " </Typ-Pflichten>\n";
+
+//********************* praxispunkte ********************
+   o << " <Praxispunkte>\n";
+   exec sql declare praxis_curs cursor for
+   	select name, max_wert, lernfaktor
+   	from praxispunkte
+   	order by name;
+   exec sql open praxis_curs;
+   SQLerror::test(__FILELINE__);
+  while (true)
+  {exec sql fetch praxis_curs into sql descriptor spalten;
+   SQLerror::test(__FILELINE__,100);
+   if (sqlca.sqlcode) break;
+   FetchIStream is("spalten");
+   o << "  <Steigern";
+   fetch_and_write_string_attrib(is, o, "Name");
+   fetch_and_write_int_attrib(is, o, "MaximalWert");
+   fetch_and_write_int_attrib(is, o, "Lernfaktor");
+   o << "/>\n";
+  }
+   exec sql close praxis_curs;
+   SQLerror::test(__FILELINE__);
+   o << " </Praxispunkte>\n";
 
 //******************************************************************
    o << "</MidgardCG-data>\n";

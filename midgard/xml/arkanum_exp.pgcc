@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.pgcc,v 1.15 2001/11/14 15:47:21 christof Exp $
+// $Id: arkanum_exp.pgcc,v 1.16 2001/11/15 07:51:27 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -28,6 +28,8 @@ exec sql include sqlca;
 
 void arkanum_speichern(std::ostream &o)
 {  
+   o << "<MidgardCG-data>\n";
+   o << " <Zauber>\n";
    Transaction t;
    exec sql allocate descriptor spalten;
    exec sql declare zauber_curs cursor for
@@ -40,7 +42,6 @@ void arkanum_speichern(std::ostream &o)
    	order by coalesce(region,''),name;
    exec sql open zauber_curs;
    SQLerror::test(__FILELINE__);
-   o << "<MidgardCG-data>\n";
   while (true)
   {exec sql fetch zauber_curs into sql descriptor spalten;
    SQLerror::test(__FILELINE__,100);
@@ -145,9 +146,11 @@ void arkanum_speichern(std::ostream &o)
   }
    exec sql close zauber_curs;
    SQLerror::test(__FILELINE__);
+   o << " </Zauber>\n";
    
    //***************** Zauberwerk ********************************
 
+   o << " <Zauberwerke>\n";
    exec sql declare zauberwerk_curs cursor for
    	select name, region, art, stufe, zeitaufwand, kosten, kosten_gfp
    	from zauberwerk
@@ -228,6 +231,7 @@ void arkanum_speichern(std::ostream &o)
   }
    exec sql close zauberwerk_curs;
    SQLerror::test(__FILELINE__);
+   o << " </Zauberwerke>\n";
 
 //*************************************************************   
    o << "</MidgardCG-data>\n";
