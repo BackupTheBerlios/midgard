@@ -100,6 +100,8 @@ COPY typen (typnr, typs, typl, typlw, typz, ausdauer, stand, sb, ruestung, regio
 19	tBe	Totenbeschwörer	Totenbeschwörerin	z	z	20	30	4	3	3	z	\N	\N	\N	\N	\N	\N	21	\N	\N	Schreiben: Muttersprache muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
 24	wHx	weißer Hexer	weiße Hexe	z	z	0	0	4	\N	3	\N	\N	\N	\N	\N	\N	\N	21	\N	\N	\N	\N
 \.
+
+
 --
 --
 

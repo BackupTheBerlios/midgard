@@ -48,6 +48,8 @@ COPY regionen (nr, name, titel, abkuerzung, file, url, maintainer, "version", co
 8	Rawindra	Rawindra - Im Bann der Todesechsen	R	\N	\N	Malte Thoma	1.0	Ludger Fischer und Thomas Kreutz	t	1	\N
 9	Waeland	Waeland - Die Krieger des Nordens	W	\N	\N	Malte Thoma	1.0	Olaf Möhle, Stephanie Lammers u.a.	t	7	1991-1997
 \.
+
+
 --
 --
 

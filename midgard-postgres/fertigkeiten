@@ -45,7 +45,6 @@ COPY fertigkeiten (lp, lp_land, lp_stadt, anfangswert0, fertigkeit, anfangswert,
 4	\N	\N	5	Astrologie	4	400	R	\N	Zt	\N	2	12	11	\N
 4	\N	\N	4	Athletik	4	50	\N	\N	St	\N	1	16	11	\N
 99	\N	\N	15	Augensalbe herstellen	12	200	R	\N	\N	\N	\N	18	18	\N
-3	\N	\N	15	Balancieren	10	100	\N	\N	Gw	8	1	18	18	\N
 8	\N	\N	4	Ballista bedienen	4	100	\N	\N	Gs	\N	1	16	16	\N
 99	\N	\N	10	Ballspiel	10	60	N	\N	Gw	\N	\N	\N	\N	\N
 4	\N	\N	6	Baukunde	4	100	\N	\N	In	0	2	16	12	\N
@@ -198,7 +197,10 @@ COPY fertigkeiten (lp, lp_land, lp_stadt, anfangswert0, fertigkeit, anfangswert,
 3	3	3	8	Überleben im Wald	6	50	\N	\N	In	\N	1	18	14	\N
 3	3	3	8	Überleben in der Steppe	6	50	\N	\N	In	\N	1	18	14	\N
 3	3	3	8	Überleben in der Wüste	6	50	\N	\N	In	\N	1	18	14	\N
+3	\N	\N	15	Balancieren	10	60	\N	\N	Gw	8	1	18	18	\N
 \.
+
+
 --
 --
 

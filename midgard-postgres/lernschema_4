@@ -2139,6 +2139,8 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 9	dBe	f	waffenloser Kampf	Waffenfertigkeiten	4
 9	eBe	f	waffenloser Kampf	Waffenfertigkeiten	4
 \.
+
+
 --
 --
 

@@ -71,6 +71,8 @@ COPY sprachen (fp, name, max_wert, alt, region, gruppe_1, gruppe_2, minderheit, 
 10	Vallinga	20	\N	\N	10	\N	\N	\N
 10	Waelska	20	\N	\N	8	\N	\N	\N
 \.
+
+
 --
 --
 
