@@ -95,15 +95,15 @@ void table_steigern::kaempfer_lernt_zaubern()
  Gtk::HBox *_b=manage(new Gtk::HBox());
 
  Gtk::Button *_button=manage(new Gtk::Button("Abbrechen"));
- _button->clicked.connect(SigC::slot(this, &table_steigern::zaubern_klasse_gewaehlt_abbrechen));
+ _button->signal_clicked().connect(SigC::slot(*this, &table_steigern::zaubern_klasse_gewaehlt_abbrechen));
  _b->pack_start(*_button,false, false, 0);
 
  Gtk::Combo *_ct = manage(new class Gtk::Combo());
  _ct->get_entry()->set_editable(false); 
  bool nsc_allowed = hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active;
- const std::vector<pair<cH_Typen,bool> > T=LL->getTypen(hauptfenster->getAben(),nsc_allowed);
+ const std::vector<std::pair<cH_Typen,bool> > T=LL->getTypen(hauptfenster->getAben(),nsc_allowed);
  std::list<std::string> L;
- for(std::vector<pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
+ for(std::vector<std::pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
   {
     if( i->first->Zaubern()!="z") continue;
     if(i->second)
@@ -112,7 +112,7 @@ void table_steigern::kaempfer_lernt_zaubern()
       L.push_back("("+i->first->Name(hauptfenster->getWerte().Geschlecht())+")");
   }
  _ct->set_popdown_strings(L);
- _ct->get_entry()->changed.connect(SigC::slot(this, &table_steigern::zaubern_klasse_gewaehlt));
+ _ct->get_entry()->signal_changed().connect(SigC::slot(*this, &table_steigern::zaubern_klasse_gewaehlt));
  _b->pack_start(*_ct,false, false, 0);
  frame_spezielles->set_label("Zweite Abenteurerklasse auswählen");
  frame_spezielles->add(*_b);
@@ -128,8 +128,8 @@ void table_steigern::zaubern_klasse_gewaehlt()
 
  for(Gtk::Box_Helpers::BoxList::iterator i=ch.begin();i!=ch.end();++i)
   {
-   if(!Gtk::Combo::isA((*i)->get_widget())) continue;
-   Gtk::Combo *C=dynamic_cast<Gtk::Combo*>((*i)->get_widget());
+   if(!dynamic_cast<Gtk::Combo*>((*i).get_widget())) continue;
+   Gtk::Combo *C=dynamic_cast<Gtk::Combo*>((*i).get_widget());
    std::string typ=C->get_entry()->get_text();
    if(!Typen::get_Typ_from_long(hauptfenster->getCDatabase().Typen,typ))
      return;

@@ -128,4 +128,3 @@ void table_steigern::on_togglebutton_pp_aep_fuellen_toggled()
    togglebutton_pp_verfallen->set_active(false);  
 }
 
-        

@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_ausruestung.cc,v 1.20 2003/01/23 15:28:25 thoma Exp $   
+// $Id: LaTeX_drucken_ausruestung.cc,v 1.21 2003/01/27 07:20:15 thoma Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,6 +24,7 @@
 #include "itos.h"
 #include "recodestream.h"
 #include <TeX.h>
+//#include <Gtk2TeX.h>
 
 void LaTeX_drucken::on_ausruestung_druck(bool unsichtbar)
 {
@@ -76,8 +77,8 @@ void LaTeX_drucken::on_ausruestung_druck(bool unsichtbar)
       std::string name=i->getAusruestung().Name();
       if (!i->getAusruestung().Material().empty()) name +=" ("+i->getAusruestung().Material()+")";
 //      fout <<"\\hspace{0.7cm}";
-      if(i->getAusruestung().Sichtbar())  fout << Gtk2TeX::string2TeX(name) ;
-      else                                fout <<"\\textcolor{mygray}{"<< Gtk2TeX::string2TeX(name)<<"}" ;
+      if(i->getAusruestung().Sichtbar())  fout << TeX::string2TeX(name) ;
+      else                                fout <<"\\textcolor{mygray}{"<< TeX::string2TeX(name)<<"}" ;
       double last=hauptfenster->getAben().getBelastung(name);
       fout << " \\footnotesize ("<<last<<"kg)";
       fout << "\\\\\n";

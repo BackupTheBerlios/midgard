@@ -268,7 +268,8 @@ class H_MidgardBasicElement_mutable : public Handle<MidgardBasicElement_mutable>
                   (x->Pflicht() == y->Pflicht()  &&  x->Lernpunkte() < y->Lernpunkte() ) ;
                case(NAME) : return germanstring((*x)->Name()) < germanstring((*y)->Name())  ;
                case(ERFOLGSWERT): return x->Erfolgswert() > y->Erfolgswert();
-           }}
+               
+           }abort();}
     };
 
 
