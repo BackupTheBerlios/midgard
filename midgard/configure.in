@@ -2,7 +2,7 @@
 # using glademm V0.5_11c
 
 AC_INIT(src/midgard.cc)
-AM_INIT_AUTOMAKE(magus, 0.8.12)
+AM_INIT_AUTOMAKE(magus, 0.8.13)
 AM_CONFIG_HEADER(config.h)
 
 AC_ISC_POSIX

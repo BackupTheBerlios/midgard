@@ -32,9 +32,9 @@ class Waffe : public MidgardBasicElement
      Waffe():MidgardBasicElement("xxx"){} //wg. WaffeBesitz :-(
    public:
      struct st_alias { std::string name; std::string region; 
-         std::string schaden;int schaden_bonus; int angriffs_mod;
-      st_alias( std::string n,std::string r,std::string s,int b, int a)
-        :name(n),region(r),schaden(s),schaden_bonus(b),angriffs_mod(a){}
+         std::string schaden;int schaden_bonus; int st; int angriffs_mod;
+      st_alias( std::string n,std::string r,std::string s,int b, int _st,int a)
+        :name(n),region(r),schaden(s),schaden_bonus(b),st(_st),angriffs_mod(a){}
       };
    private:
      std::string grundkenntnisse, art, art2;
@@ -153,12 +153,13 @@ class WaffeBesitz : public MidgardBasicElement_mutable
      std::string alias_name;
      int av_bonus,sl_bonus;
      std::string magisch,region;
+//     int st;
 
   public:
      WaffeBesitz(const cH_Waffe& w,std::string b,
                   int a,int s,const std::string &m,const std::string &r)
       : MidgardBasicElement_mutable(&*w),
-            alias_name(b),av_bonus(a),sl_bonus(s),magisch(m),region(r)
+            alias_name(b),av_bonus(a),sl_bonus(s),magisch(m),region(r) //,st(0)
             {}
 
      enum MidgardBasicElement::MBEE What() const {return MidgardBasicElement::WAFFEBESITZ;}
@@ -172,6 +173,7 @@ class WaffeBesitz : public MidgardBasicElement_mutable
      std::string Magisch() const {return magisch;}
      std::string Schaden(const Grundwerte& Werte,const std::string& name) const;
      std::string Region() const {return region;}
+//     int St() const {return st;}
       
      void set_av_Bonus(int a) {av_bonus=a;}
      void set_sl_Bonus(int a) {sl_bonus=a;}

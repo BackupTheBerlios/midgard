@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.61 2002/11/04 20:47:42 thoma Exp $
+// $Id: land_sprache_exp.cc,v 1.62 2002/11/30 08:18:08 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -317,7 +317,8 @@ void land_speichern(Tag &o)
       fetch_and_set_string_attrib(is, Dinge, "Währung");
       fetch_and_set_string_attrib(is, Dinge, "Region");
     }
-   Query query1b("select 'Waffen', '', alias, gewicht, kosten_gs, 'GS',r.region "
+   Query query1b("select 'Waffen', '', alias, gewicht, "
+               " coalesce(r.kosten_gs,w.kosten_gs), 'GS',r.region "
                " from waffen w,waffen_region_name r "
                " where (grundkenntnisse !='Kampf ohne Waffen' "
                " and grundkenntnisse !='Werfen') "

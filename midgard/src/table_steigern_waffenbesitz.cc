@@ -31,11 +31,9 @@ void table_steigern::on_leaf_waffenbesitz_selected_alt(cH_RowDataBase d)
 
   if(!checkbutton_mag_waffenbonus->get_active()) 
    {
-//    const MidgardBasicElement *MBE = &static_cast<const MidgardBasicElement&>(*WB);
     for(std::list<WaffeBesitz>::const_iterator i=hauptfenster->getChar()->List_Waffen_besitz().begin();
          i!=hauptfenster->getChar()->List_Waffen_besitz().end();++i)
      {
-//       if(cH_MidgardBasicElement(*i)==MBE)
         if( *i == WB)
          {
             hauptfenster->getChar()->List_Waffen_besitz().remove(*i);
@@ -43,7 +41,6 @@ void table_steigern::on_leaf_waffenbesitz_selected_alt(cH_RowDataBase d)
          }
      }
     show_alte_waffen();
-//    zeige_waffen();
    }
   else 
    {
@@ -83,7 +80,6 @@ void table_steigern::on_entry_magisch_activate()
      for(std::list<WaffeBesitz>::iterator i=L.begin();i!=L.end();++i)
       {
         if( *i == WB)
-//       if((*i)->Name()==WB->Name())
         {
           i->set_av_Bonus(spinbutton_av_bonus->get_value_as_int());
           i->set_sl_Bonus(spinbutton_sl_bonus->get_value_as_int());
@@ -96,7 +92,6 @@ void table_steigern::on_entry_magisch_activate()
   } catch(std::exception &e) {std::cerr<<e.what()<<'\n';
    hauptfenster->set_status("Keine Waffe selektiert");
      };
-//  zeige_waffen();
   show_alte_waffen();
 }
 
@@ -108,6 +103,7 @@ void table_steigern::on_leaf_waffenbesitz_selected_neu(cH_RowDataBase d)
   
   hauptfenster->getChar()->List_Waffen_besitz().push_back(MBE);
   show_alte_waffen();
+  zeige_werte();
 }
 
 std::vector<std::string> list_vector(std::list<std::string> L)

@@ -34,7 +34,8 @@ void table_ausruestung::init(midgard_CG *h)
    table_gruppe->hide();
    table_artikel->hide();      
    togglebutton_artikel_neu->set_active(false);
-   togglebutton_gruppe_neu->hide(); // nicht implementiert
+//   togglebutton_gruppe_neu->set_active(false); 
+   togglebutton_gruppe_neu->hide();//
    label_normallast->set_text(itos(h->getAben().getNormallast())+" kg");
    label_hoechstlast->set_text(itos(h->getAben().getHoechstlast())+" kg");
    label_schublast->set_text(itos(h->getAben().getSchublast())+" kg");
@@ -196,9 +197,6 @@ void table_ausruestung::zeige_werte()
   label_kupfera->set_text(itos(hauptfenster->getWerte().Kupfer()));
 }
 
-////////////////////////////////////////////////////////////////////////
-//Neueingeben
-//von hier 
 void table_ausruestung::on_togglebutton_artikel_neu_toggled()
 {
  if(togglebutton_artikel_neu->get_active())
@@ -209,6 +207,8 @@ void table_ausruestung::on_togglebutton_artikel_neu_toggled()
  else 
     table_artikel->hide();
 }
+
+
 void table_ausruestung::on_togglebutton_gruppe_neu_toggled()
 {
  if(togglebutton_gruppe_neu->get_active())
@@ -216,24 +216,29 @@ void table_ausruestung::on_togglebutton_gruppe_neu_toggled()
  else 
   table_gruppe->hide();
 }
-/*
+
 void table_ausruestung::on_entry_art_activate()
 {
-  entry_typ->grab_focus();
+  entry_art2->grab_focus();
 }
-*/
-void table_ausruestung::on_entry_typ_activate()
+
+void table_ausruestung::on_entry_art2_activate()
 {
-  entry_eigenschaft->grab_focus();
+  button_art_speichern->grab_focus(); 
 }
-void table_ausruestung::on_entry_eigenschaft_activate()
+
+void table_ausruestung::on_button_art_speichern_clicked()
 {
- std::string art = entry_art->get_text();
- std::string typ = entry_typ->get_text();
- std::string eigenschaft = entry_eigenschaft->get_text();
+ std::string art  = entry_art->get_text();
+ std::string art2 = entry_art2->get_text();
+ newArt(art,art2);
  table_gruppe->hide();
 }
-// bis hier ist es nicht implementiert
+
+void table_ausruestung::newArt(const std::string &art,const std::string art2)
+{
+  MNewArt[art].push_back(art2);
+}
 
 
 //Neueingeben eines Artikels:
@@ -249,6 +254,8 @@ void table_ausruestung::fill_all_Combos_Art_Einheit_Region()
      LArt.push_back((*i)->Art());
      LEinheit.push_back((*i)->Einheit());
    }
+  for(std::map<std::string,std::list<std::string> >::const_iterator i=MNewArt.begin();i!=MNewArt.end();++i)
+     LArt.push_back(i->first);
   LArt.sort();
   LArt.unique();
   combo_art->set_popdown_strings(LArt);
@@ -268,6 +275,9 @@ bool table_ausruestung::fill_all_Combo_Art2()
      if(art==(*i)->Art())
         LArt2.push_back((*i)->Art2());
    }
+  std::list<std::string> S=MNewArt[art];
+  for(std::list<std::string>::const_iterator i=S.begin();i!=S.end();++i)
+      LArt2.push_back(*i);
   LArt2.unique();
   LArt2.sort();
   combo_art2->set_popdown_strings(LArt2);

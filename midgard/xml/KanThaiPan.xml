@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="K" Name="KanThaiPan" Titel="Unter dem Schirm des Jadekaisers" Copyright="Isolde Popp" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="7" MAGUS-Bild="2" CVS="$Revision: 1.12 $">
+<MAGUS-data Region="K" Name="KanThaiPan" Titel="Unter dem Schirm des Jadekaisers" Copyright="Isolde Popp" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="7" MAGUS-Bild="2" CVS="$Revision: 1.13 $">
  <Schriften>
   <Schrift Name="KanThaiTun(1)" Region="K" Typ="Silben" Kosten="20">
    <Variante Name="KanThaiTun(1)"/>
@@ -2479,12 +2479,12 @@
    <Standard Typ="Ny"/>
   </Waffe>
   <Waffe Name="Kampfgabeln">
-   <regionaleVariante Name="Sai" Region="K" Schadensbonus="-2"/>
+   <regionaleVariante Name="Sai" Region="K" Schadensbonus="-2" St="31"/>
    <Standard Typ="Kd"/>
    <Standard Typ="Ny"/>
   </Waffe>
   <Waffe Name="Kampfstab">
-   <regionaleVariante Name="Bo" Region="K" Schaden="W6"/>
+   <regionaleVariante Name="Bo" Region="K" Schaden="W6" St="31"/>
    <Standard Typ="Kd"/>
    <Standard Typ="Ny"/>
    <Lernschema Typ="Kd" Lernpunkte="2" Erfolgswert="5"/>
@@ -2544,7 +2544,7 @@
    <Standard Typ="Ny"/>
   </Waffe>
   <Waffe Name="Morgenstern">
-   <regionaleVariante Name="KauSinKe" Region="K" Schaden="W6" Schadensbonus="2"/>
+   <regionaleVariante Name="KauSinKe" Region="K" Schaden="W6" Schadensbonus="2" St="61"/>
    <Standard Typ="Kd"/>
    <Standard Typ="Ny"/>
    <Lernschema Typ="Kd" Lernpunkte="1" Erfolgswert="5"/>
@@ -2604,7 +2604,7 @@
    <Standard Typ="Ny"/>
   </Waffe>
   <Waffe Name="Stoßspeer">
-   <regionaleVariante Name="Yari" Region="K" Schaden="1|2|3W6"/>
+   <regionaleVariante Name="Yari" Region="K" Schaden="1|2|3W6" St="31"/>
    <Standard Typ="Kd"/>
    <Standard Typ="Ny"/>
   </Waffe>
@@ -2649,7 +2649,7 @@
    <Standard Typ="Ny"/>
   </Waffe>
   <Waffe Name="Wurfspeer">
-   <regionaleVariante Name="YariNage" Region="K" Schaden="W6" Schadensbonus="-1"/>
+   <regionaleVariante Name="YariNage" Region="K" Schaden="W6" Schadensbonus="-1" St="31"/>
    <Standard Typ="Kd"/>
    <Standard Typ="Ny"/>
   </Waffe>
@@ -2683,7 +2683,7 @@
    <Standard Typ="Ny"/>
   </Waffe>
   <Waffe Name="schwere Armbrust">
-   <regionaleVariante Name="SangMiau" Region="K" Schaden="2W6" Schadensbonus="-1"/>
+   <regionaleVariante Name="SangMiau" Region="K" Schaden="2W6" Schadensbonus="-1" St="61"/>
    <Standard Typ="Kd"/>
    <Standard Typ="Ny"/>
   </Waffe>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.20 $">
+<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.21 $">
  <Länder>
   <Kontinent Name="Huaxal">
    <Land Name="Feuerinseln">
@@ -1772,6 +1772,8 @@
   <Dinge Art="Waffen" Ware="Ud al-Khal" Gewicht="2.5" Preis="40" Währung="GS" Region="E"/>
   <Dinge Art="Waffen" Ware="Yari" Gewicht="2.5" Preis="8" Währung="GS" Region="K"/>
   <Dinge Art="Waffen" Ware="YariNage" Gewicht="1.5" Preis="6" Währung="GS" Region="K"/>
+  <Dinge Art="Waffen" Ware="verst. Langbogen" Gewicht="1" Preis="120" Währung="GS"/>
+  <Dinge Art="Waffen" Ware="verst. Langbogen " Gewicht="1" Preis="120" Währung="GS"/>
   <Dinge Art="Rüstung" Ware="Baumwollharnisch" Währung="GS" Region="N" Rüstung_ohne_Gewicht="true"/>
   <Dinge Art="Rüstung" Ware="Baumwollrüstung" Währung="GS" Region="N" Rüstung_ohne_Gewicht="true"/>
   <Dinge Art="Rüstung" Ware="Dhunaka" Währung="GS" Region="R" Rüstung_ohne_Gewicht="true"/>
@@ -8763,7 +8765,7 @@
    <Voraussetzungen St="21" Gw="21"/>
    <Reichweite/>
    <Lernkosten/>
-   <regionaleVariante Name="Kampfriemen" Schaden="speziell"/>
+   <regionaleVariante Name="Kampfriemen" Schaden="speziell" St="21"/>
    <Grund Typ="Kr"/>
    <Grund Typ="Sö"/>
    <Standard Typ="As"/>
@@ -9068,6 +9070,8 @@
    <Voraussetzungen St="61" Gs="61"/>
    <Reichweite nah="30" mittel="120" fern="200"/>
    <Lernkosten/>
+   <regionaleVariante Name="verst. Langbogen" Schaden="W6" Schadensbonus="2" St="81"/>
+   <regionaleVariante Name="verst. Langbogen " Schaden="W6" Schadensbonus="3" St="96"/>
    <Grund Typ="Kr"/>
    <Grund Typ="Sö"/>
    <Standard Typ="As"/>

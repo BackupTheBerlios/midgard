@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.102 2002/11/28 17:56:57 thoma Exp $
+// $Id: Optionen.cc,v 1.103 2002/11/30 08:18:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -386,6 +386,9 @@ void Midgard_Optionen::Optionen_init()
                            false,Cyan_Dice_trans_50_xpm));
   list_OptionenCheck.push_back(st_OptionenCheck(Notebook_start, 
                            "MAGUS mit bestimmter Seite starten",false,0,1));
+
+cout <<"INIT: " <<list_OptionenCheck.back().text
+<<list_OptionenCheck.back().wert<<'\n';
   list_OptionenCheck.push_back(st_OptionenCheck(Wizard_immer_starten, 
                            "Wizard bei jedem Programmstart starten",true,0));
 

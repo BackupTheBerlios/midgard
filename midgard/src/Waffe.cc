@@ -119,7 +119,8 @@ void Waffe::get_Alias()
        const Tag *Modifikationen=i->find("Modifikationen");
        if (Modifikationen) Angriff=Modifikationen->getIntAttr("Angriff");
        list_alias.push_back(st_alias(i->getAttr("Name"),i->getAttr("Region"),
-       		i->getAttr("Schaden"),i->getIntAttr("Schadensbonus"),Angriff));
+       		i->getAttr("Schaden"),i->getIntAttr("Schadensbonus"),
+            i->getIntAttr("St"),Angriff));
     }
 }
 
@@ -243,7 +244,10 @@ std::string Waffe::Schaden(const std::string& name) const
 
 int Waffe::Schaden_Bonus2(const std::string& name) const 
 {
-  return schaden_bonus2;
+  if(Name()==name) return schaden_bonus2;
+  for(std::list<st_alias>::const_iterator i=list_alias.begin();i!=list_alias.end();++i)
+    if (name==(*i).name) return (*i).schaden_bonus;
+  assert(false);
 }
 
 int Waffe::Schaden_Bonus(const std::string& name) const 

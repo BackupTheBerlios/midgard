@@ -1,4 +1,4 @@
-// $Id: LernListen.cc,v 1.25 2002/11/29 07:26:42 thoma Exp $
+// $Id: LernListen.cc,v 1.26 2002/11/30 08:18:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -333,6 +333,7 @@ std::list<WaffeBesitz> LernListen::getWaffenBesitz(const Abenteurer& Aben) const
      L.push_back(WaffeBesitz(w,w->Name(),0,0,"","")); 
      for(std::list<Waffe::st_alias>::const_iterator j=cH_Waffe(w)->Alias().begin();j!=cH_Waffe(w)->Alias().end();++j)
       {
+        if(j->st>Aben.getWerte().St()) continue;
         if(region_check(j->region))
            L.push_back(WaffeBesitz(w,j->name,0,0,"",j->region)); 
       }

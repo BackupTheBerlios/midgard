@@ -1,4 +1,4 @@
-// $Id: waffen_exp.cc,v 1.26 2002/11/14 13:26:04 thoma Exp $
+// $Id: waffen_exp.cc,v 1.27 2002/11/30 08:18:08 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -127,7 +127,7 @@ void waffen_speichern(Tag &o)
 
  //************************* waffen_region_name ************************  
    {  Query query2("select r.alias,r.region,coalesce(r.schaden,w.schaden),"
-         " coalesce(r.schaden_b,w.schaden_b),"
+         " coalesce(r.schaden_b,w.schaden_b),coalesce(r.st,w.st),"
          " r.angriffs_mod"
       	" from waffen_region_name r join waffen w using (name) "
       	" where name='"+waffe+"'"
@@ -140,6 +140,7 @@ void waffen_speichern(Tag &o)
          fetch_and_set_string_attrib(is2, Rv, "Region");
          fetch_and_set_string_attrib(is2, Rv, "Schaden");
          fetch_and_set_int_attrib(is2, Rv, "Schadensbonus");
+         fetch_and_set_int_attrib(is2, Rv, "St");
          int agmod=fetch_int(is2);
          if (agmod) Rv.push_back(Tag("Modifikationen")).setIntAttr("Angriff",agmod);
          kaufpreis(Rv, "Waffen", varian);
@@ -167,7 +168,7 @@ void waffen_speichern(Tag &o)
 
  //************************* waffen_region_name ************************  
    {  Query query2("select r.alias,r.region,coalesce(r.schaden,w.schaden),"
-         " coalesce(r.schaden_b,w.schaden_b),"
+         " coalesce(r.schaden_b,w.schaden_b), coalesce(r.st,w.st),"
          " r.angriffs_mod"
       	" from waffen_region_name r join waffen w using (name) "
       	" where name='"+waffe+"'"
@@ -180,6 +181,7 @@ void waffen_speichern(Tag &o)
          fetch_and_set_string_attrib(is2, Rv, "Region");
          fetch_and_set_string_attrib(is2, Rv, "Schaden");
          fetch_and_set_int_attrib(is2, Rv, "Schadensbonus");
+         fetch_and_set_int_attrib(is2, Rv, "St");
          int agmod=fetch_int(is2);
          if (agmod) Rv.push_back(Tag("Modifikationen")).setIntAttr("Angriff",agmod);
          kaufpreis(Rv, "Waffen", varian);

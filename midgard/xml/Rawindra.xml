@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="R" Name="Rawindra" Titel="Rawindra - Im Bann der Todesechsen" Copyright="Ludger Fischer und Thomas Kreutz" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="8" MAGUS-Bild="1" CVS="$Revision: 1.10 $">
+<MAGUS-data Region="R" Name="Rawindra" Titel="Rawindra - Im Bann der Todesechsen" Copyright="Ludger Fischer und Thomas Kreutz" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="8" MAGUS-Bild="1" CVS="$Revision: 1.11 $">
  <Schriften/>
  <Sprachen/>
  <Typen>
@@ -1383,7 +1383,7 @@
    <Ausnahme Typ="wHx"/>
   </Waffe>
   <Waffe Name="Anderthalbhänder">
-   <regionaleVariante Name="Hamschar" Region="R" Schaden="W6" Schadensbonus="1"/>
+   <regionaleVariante Name="Hamschar" Region="R" Schaden="W6" Schadensbonus="1" St="31"/>
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
    <Lernschema Typ="Sr" Lernpunkte="2" Erfolgswert="5"/>
@@ -1439,7 +1439,7 @@
    <Ausnahme Typ="Sa"/>
   </Waffe>
   <Waffe Name="Handaxt">
-   <regionaleVariante Name="Ankusch" Region="R" Schaden="W6"/>
+   <regionaleVariante Name="Ankusch" Region="R" Schaden="W6" St="11"/>
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
    <Lernschema Typ="Sr" Lernpunkte="1" Erfolgswert="5"/>
@@ -1479,9 +1479,9 @@
    <Ausnahme Typ="Sa"/>
   </Waffe>
   <Waffe Name="Krummsäbel">
-   <regionaleVariante Name="Ma`khirr" Region="R" Schaden="W6" Schadensbonus="1"/>
-   <regionaleVariante Name="Schimschar" Region="R" Schaden="W6(+2)"/>
-   <regionaleVariante Name="Szimitar" Region="R" Schaden="W6(+2)"/>
+   <regionaleVariante Name="Ma`khirr" Region="R" Schaden="W6" Schadensbonus="1" St="31"/>
+   <regionaleVariante Name="Schimschar" Region="R" Schaden="W6(+2)" St="31"/>
+   <regionaleVariante Name="Szimitar" Region="R" Schaden="W6(+2)" St="31"/>
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
    <Lernschema Typ="Sr" Lernpunkte="1" Erfolgswert="5"/>
@@ -1497,7 +1497,7 @@
    <Lernschema Typ="Sr" Lernpunkte="1" Erfolgswert="5"/>
   </Waffe>
   <Waffe Name="Langbogen">
-   <regionaleVariante Name="Aginkha (Pfeil)" Region="R" Schaden="2W6" Schadensbonus="-2">
+   <regionaleVariante Name="Aginkha (Pfeil)" Region="R" Schaden="2W6" Schadensbonus="-2" St="61">
     <Modifikationen Angriff="-2"/>
    </regionaleVariante>
    <Standard Typ="Sr"/>
@@ -1505,7 +1505,7 @@
    <Lernschema Typ="Sr" Lernpunkte="3" Erfolgswert="5"/>
   </Waffe>
   <Waffe Name="Langschwert">
-   <regionaleVariante Name="Aschwapatawar" Region="R" Schaden="W6" Schadensbonus="1"/>
+   <regionaleVariante Name="Aschwapatawar" Region="R" Schaden="W6" Schadensbonus="1" St="31"/>
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
    <Lernschema Typ="Sr" Lernpunkte="2" Erfolgswert="5"/>
@@ -1548,7 +1548,7 @@
    <Ausnahme Typ="Sa"/>
   </Waffe>
   <Waffe Name="Schlachtbeil">
-   <regionaleVariante Name="Namikravyad" Region="R" Schaden="W6" Schadensbonus="1"/>
+   <regionaleVariante Name="Namikravyad" Region="R" Schaden="W6" Schadensbonus="1" St="61"/>
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
   </Waffe>
@@ -1582,7 +1582,7 @@
    <Ausnahme Typ="Sa"/>
   </Waffe>
   <Waffe Name="Streitaxt">
-   <regionaleVariante Name="Sanghala" Region="R" Schaden="W6" Schadensbonus="1"/>
+   <regionaleVariante Name="Sanghala" Region="R" Schaden="W6" Schadensbonus="1" St="61"/>
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
    <Lernschema Typ="Sr" Lernpunkte="1" Erfolgswert="5"/>
@@ -1596,7 +1596,7 @@
    <Ausnahme Typ="Sa"/>
   </Waffe>
   <Waffe Name="Wurfaxt">
-   <regionaleVariante Name="Dhauram" Region="R" Schaden="W6"/>
+   <regionaleVariante Name="Dhauram" Region="R" Schaden="W6" St="31"/>
    <Standard Typ="Sr"/>
    <Ausnahme Typ="Sa"/>
   </Waffe>

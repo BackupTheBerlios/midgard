@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="N" Name="Nahuatlan" Titel="Nahuatlan - Im Land des Mondjaguars" Copyright="Alexander Huiskes" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="6" MAGUS-Bild="8" CVS="$Revision: 1.10 $">
+<MAGUS-data Region="N" Name="Nahuatlan" Titel="Nahuatlan - Im Land des Mondjaguars" Copyright="Alexander Huiskes" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="6" MAGUS-Bild="8" CVS="$Revision: 1.11 $">
  <Schriften/>
  <Sprachen/>
  <Typen>
@@ -1261,7 +1261,7 @@
    <Voraussetzungen_W Name="leichter Speer"/>
   </Waffe>
   <Waffe Name="Bihänder">
-   <regionaleVariante Name="Maquahuitl (Z)" Region="N" Schaden="2W6"/>
+   <regionaleVariante Name="Maquahuitl (Z)" Region="N" Schaden="2W6" St="81"/>
   </Waffe>
   <Waffe Name="Dolch">
    <regionaleVariante Name="Nazcaltek" Region="N" Schaden="W6" Schadensbonus="-1"/>
@@ -1271,13 +1271,13 @@
    <Lernschema Typ="Tt" Lernpunkte="1" Erfolgswert="5"/>
   </Waffe>
   <Waffe Name="Handaxt">
-   <regionaleVariante Name="Steinaxt" Region="N" Schaden="W6"/>
+   <regionaleVariante Name="Steinaxt" Region="N" Schaden="W6" St="11"/>
   </Waffe>
   <Waffe Name="Krummsäbel">
-   <regionaleVariante Name="Maquahuitl (S)" Region="N" Schaden="W6"/>
+   <regionaleVariante Name="Maquahuitl (S)" Region="N" Schaden="W6" St="31"/>
   </Waffe>
   <Waffe Name="Langschwert">
-   <regionaleVariante Name="Maquahuitl" Region="N" Schaden="W6" Schadensbonus="1"/>
+   <regionaleVariante Name="Maquahuitl" Region="N" Schaden="W6" Schadensbonus="1" St="31"/>
    <Lernschema Typ="Tt" Lernpunkte="2" Erfolgswert="5"/>
    <Lernschema Typ="Tr" Lernpunkte="3" Erfolgswert="5"/>
   </Waffe>
@@ -1286,26 +1286,26 @@
    <Lernschema Typ="Tt" Lernpunkte="3" Erfolgswert="5"/>
   </Waffe>
   <Waffe Name="Rapier">
-   <regionaleVariante Name="Angushorn" Region="N" Schaden="W6"/>
+   <regionaleVariante Name="Angushorn" Region="N" Schaden="W6" St="11"/>
   </Waffe>
   <Waffe Name="Speerschleuder">
-   <regionaleVariante Name="Atlatl" Region="N" Schaden="W6"/>
+   <regionaleVariante Name="Atlatl" Region="N" Schaden="W6" St="31"/>
   </Waffe>
   <Waffe Name="Streitkolben">
-   <regionaleVariante Name="Kronehar" Region="N" Schaden="W6"/>
+   <regionaleVariante Name="Kronehar" Region="N" Schaden="W6" St="31"/>
   </Waffe>
   <Waffe Name="Wurfmesser">
    <regionaleVariante Name="Opfermesser" Region="N" Schaden="W6" Schadensbonus="-1"/>
    <Lernschema Typ="Tt" Lernpunkte="4" Erfolgswert="5"/>
   </Waffe>
   <Waffe Name="Wurfpfeil">
-   <regionaleVariante Name="Mague-Stacheln" Region="N" Schaden="W6" Schadensbonus="-2"/>
+   <regionaleVariante Name="Mague-Stacheln" Region="N" Schaden="W6" Schadensbonus="-2" St="11"/>
   </Waffe>
   <Waffe Name="großer Schild">
-   <regionaleVariante Name="Krabbenschild" Region="N"/>
+   <regionaleVariante Name="Krabbenschild" Region="N" St="61"/>
   </Waffe>
   <Waffe Name="kleiner Schild">
-   <regionaleVariante Name="Rundschild" Region="N" Schadensbonus="-1"/>
+   <regionaleVariante Name="Rundschild" Region="N" Schadensbonus="-1" St="31"/>
    <Lernschema Typ="Tr" Lernpunkte="4" Erfolgswert="1"/>
   </Waffe>
   <Waffe Name="Dreizack" Region="G">

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="E" Name="Eschar" Titel="Die Pyramiden von Eschar" Copyright="Stephanie Lammers" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="4" MAGUS-Bild="4" CVS="$Revision: 1.9 $">
+<MAGUS-data Region="E" Name="Eschar" Titel="Die Pyramiden von Eschar" Copyright="Stephanie Lammers" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="4" MAGUS-Bild="4" CVS="$Revision: 1.10 $">
  <Schriften/>
  <Sprachen/>
  <Typen>
@@ -776,7 +776,7 @@
  <Rüstungen/>
  <Waffen>
   <Waffe Name="Anderthalbhänder">
-   <regionaleVariante Name="Nimcha" Region="E" Schaden="W6" Schadensbonus="1"/>
+   <regionaleVariante Name="Nimcha" Region="E" Schaden="W6" Schadensbonus="1" St="31"/>
    <Standard Typ="De"/>
    <Lernschema Typ="De" Lernpunkte="4" Erfolgswert="4"/>
   </Waffe>
@@ -787,7 +787,7 @@
    <Ausnahme Typ="De"/>
   </Waffe>
   <Waffe Name="Bogen">
-   <regionaleVariante Name="Mukantar" Region="E" Schaden="W6"/>
+   <regionaleVariante Name="Mukantar" Region="E" Schaden="W6" St="31"/>
    <Ausnahme Typ="De"/>
   </Waffe>
   <Waffe Name="Bola">
@@ -859,7 +859,7 @@
    <Ausnahme Typ="De"/>
   </Waffe>
   <Waffe Name="Langschwert">
-   <regionaleVariante Name="Takuba" Region="E" Schaden="W6" Schadensbonus="1"/>
+   <regionaleVariante Name="Takuba" Region="E" Schaden="W6" Schadensbonus="1" St="31"/>
    <Ausnahme Typ="De"/>
   </Waffe>
   <Waffe Name="Lanze">
@@ -917,14 +917,14 @@
    <Ausnahme Typ="De"/>
   </Waffe>
   <Waffe Name="Stoßspeer">
-   <regionaleVariante Name="Rumeh" Region="E" Schaden="1|2|3W6"/>
+   <regionaleVariante Name="Rumeh" Region="E" Schaden="1|2|3W6" St="31"/>
    <Ausnahme Typ="De"/>
   </Waffe>
   <Waffe Name="Streitaxt">
    <Ausnahme Typ="De"/>
   </Waffe>
   <Waffe Name="Streitkolben">
-   <regionaleVariante Name="Dabus" Region="E" Schaden="W6"/>
+   <regionaleVariante Name="Dabus" Region="E" Schaden="W6" St="31"/>
    <Ausnahme Typ="De"/>
   </Waffe>
   <Waffe Name="Werfen">

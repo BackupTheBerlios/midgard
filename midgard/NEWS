@@ -1,4 +1,31 @@
 ##########################################################################
+NEWS IN VERSION 0.8.13
+
+* Anzeige von verändertem Schaden durch regionale Waffen
+* regionale Waffen jetzt mit anderer 'St' und anderen 'Kosten', 
+   dadurch wird der 'verstärkte Langbogen' (ohne region;-) möglich
+
+TODO
+
+** Setzen der Handle-Fenster-Positionen :-(
+* KI-Steigern nicht nur mit Unterweisung oder Selbststudium 
+* Region-Icons im Menü wechseln
+* Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
+  der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 
+* Deutsche Sortierung (Bärenwut vor Beschleunigen)
+- Ausrüstung mit drag & drop
+- Würfelvarianten für Nichtmenschen!
+- verschwinden alle Icons? :
+   Unter "Lernschema" bleibt noch 
+   einiges stehen. Bei "Steigern" 
+   und "Optionen" sind auch noch bunte Bildchen, und bei 
+   "Ausrüstung" verweigern die Icons von "Modifikatoren 
+   entfernen" und "mit Geld ausrüsten" das Verschwinden.
+- alle Ausdrucke unter Windows testen
+- wrapfig for Windows für Grafik in Beschreibung
+
+
+##########################################################################
 NEWS IN VERSION 0.8.12
 
 * Waffen-Grundkenntnisse nur noch dann lernbar wenn auch Waffen 
@@ -21,24 +48,6 @@ NEWS IN VERSION 0.8.12
 * Neue Ausrüstung eingeben
 * Ausrüstung laden beschleunigt
 
-TODO
-
-** Setzen der Handle-Fenster-Positionen :-(
-* KI-Steigern nicht nur mit Unterweisung oder Selbststudium 
-* Region-Icons wechseln
-* Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
-  der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 
-* Deutsche Sortierung (Bärenwut vor Beschleunigen)
-- Ausrüstung mit drag & drop
-- Würfelvarianten für Nichtmenschen!
-- verschwinden alle Icons? :
-   Unter "Lernschema" bleibt noch 
-   einiges stehen. Bei "Steigern" 
-   und "Optionen" sind auch noch bunte Bildchen, und bei 
-   "Ausrüstung" verweigern die Icons von "Modifikatoren 
-   entfernen" und "mit Geld ausrüsten" das Verschwinden.
-- alle Ausdrucke unter Windows testen
-- wrapfig for Windows für Grafik in Beschreibung
 
 ##########################################################################
 NEWS IN VERSION 0.8.11

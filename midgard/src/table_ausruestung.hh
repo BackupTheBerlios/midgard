@@ -77,6 +77,8 @@ private:
         void fill_all_Combos_Art_Einheit_Region();
         bool fill_all_Combo_Art2();
         void save_new_arikel();
+        std::map<std::string,std::list<std::string> > MNewArt;
+        void newArt(const std::string &art,const std::string art2);
 private:
         SigC::Connection sichtbarConnection;
         void zeige_werte();
@@ -91,7 +93,9 @@ private:
         void on_togglebutton_gruppe_neu_toggled();
         void on_togglebutton_artikel_neu_toggled();
         void on_combo_entry_artikel_art_activate();
-        void on_entry_typ_activate();
+        void on_entry_art_activate();
+        void on_entry_art2_activate();
+        void on_button_art_speichern_clicked();
         void on_entry_eigenschaft_activate();
         void on_spinbutton_preis_activate();
         void on_spinbutton_gewicht_activate();
