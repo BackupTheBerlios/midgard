@@ -82,7 +82,7 @@
 	  <class>GtkButton</class>
 	  <child_name>Toolbar:button</child_name>
 	  <name>button_neuer_charakter</name>
-	  <tooltip>Neuer Abenteurer mit Wizard generieren</tooltip>
+	  <tooltip>Linke Maustaste: Neuer Abenteurer mit Wizard generieren    Rechte Maustaste: Neuen Abenteurer ohne Wizard gegerieren.</tooltip>
 	  <can_focus>True</can_focus>
 	  <signal>
 	    <name>button_release_event</name>
@@ -1930,6 +1930,7 @@ Stefan Peschl, Sven Rey, Ottmar Zimmer und viele andere geholfen.</label>
 	<class>GtkEventBox</class>
 	<child_name>Notebook:tab</child_name>
 	<name>eventbox_credits</name>
+	<cxx_visibility>protected</cxx_visibility>
 	<tooltip>Info &amp; Credits</tooltip>
 	<signal>
 	  <name>button_release_event</name>
@@ -5827,6 +5828,7 @@ editieren</label>
 	<class>GtkEventBox</class>
 	<child_name>Notebook:tab</child_name>
 	<name>eventbox_grundwerte</name>
+	<cxx_visibility>protected</cxx_visibility>
 	<tooltip>Grundwerte</tooltip>
 	<signal>
 	  <name>button_release_event</name>
@@ -7351,7 +7353,7 @@ auswählen</label>
 	      <class>GtkTable</class>
 	      <name>table122</name>
 	      <rows>2</rows>
-	      <columns>1</columns>
+	      <columns>2</columns>
 	      <homogeneous>False</homogeneous>
 	      <row_spacing>0</row_spacing>
 	      <column_spacing>0</column_spacing>
@@ -7395,7 +7397,7 @@ auswählen</label>
 		<vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
 		<child>
 		  <left_attach>0</left_attach>
-		  <right_attach>1</right_attach>
+		  <right_attach>2</right_attach>
 		  <top_attach>1</top_attach>
 		  <bottom_attach>2</bottom_attach>
 		  <xpad>0</xpad>
@@ -7422,6 +7424,30 @@ auswählen</label>
 		  <int2>0</int2>
 		  <last_modification_time>Tue, 05 Feb 2002 08:29:54 GMT</last_modification_time>
 		</widget>
+	      </widget>
+
+	      <widget>
+		<class>GtkToggleButton</class>
+		<name>togglebutton_gelernt_verlernen</name>
+		<cxx_visibility>protected</cxx_visibility>
+		<can_focus>True</can_focus>
+		<label>Verlernen</label>
+		<relief>GTK_RELIEF_NORMAL</relief>
+		<active>False</active>
+		<child>
+		  <left_attach>1</left_attach>
+		  <right_attach>2</right_attach>
+		  <top_attach>0</top_attach>
+		  <bottom_attach>1</bottom_attach>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <xexpand>False</xexpand>
+		  <yexpand>False</yexpand>
+		  <xshrink>True</xshrink>
+		  <yshrink>True</yshrink>
+		  <xfill>False</xfill>
+		  <yfill>True</yfill>
+		</child>
 	      </widget>
 	    </widget>
 
@@ -8812,14 +8838,44 @@ eingeben</label>
 		    <tooltip>Geld eingeben</tooltip>
 
 		    <widget>
-		      <class>GtkPixmap</class>
-		      <name>pixmap62</name>
-		      <filename>Money-50.xpm</filename>
-		      <xalign>0.5</xalign>
-		      <yalign>0.5</yalign>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <build_insensitive>True</build_insensitive>
+		      <class>GtkHBox</class>
+		      <name>hbox99</name>
+		      <homogeneous>False</homogeneous>
+		      <spacing>0</spacing>
+
+		      <widget>
+			<class>GtkPixmap</class>
+			<name>pixmap62</name>
+			<filename>Money-50.xpm</filename>
+			<xalign>0.5</xalign>
+			<yalign>0.5</yalign>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<build_insensitive>True</build_insensitive>
+			<child>
+			  <padding>0</padding>
+			  <expand>True</expand>
+			  <fill>True</fill>
+			</child>
+		      </widget>
+
+		      <widget>
+			<class>GtkLabel</class>
+			<name>label640</name>
+			<label>Geld
+eing.</label>
+			<justify>GTK_JUSTIFY_CENTER</justify>
+			<wrap>False</wrap>
+			<xalign>0.5</xalign>
+			<yalign>0.5</yalign>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<child>
+			  <padding>0</padding>
+			  <expand>False</expand>
+			  <fill>False</fill>
+			</child>
+		      </widget>
 		    </widget>
 		  </widget>
 		</widget>
@@ -9524,14 +9580,44 @@ steigern</label>
 		    <tooltip>GFP eingeben</tooltip>
 
 		    <widget>
-		      <class>GtkPixmap</class>
-		      <name>pixmap161</name>
-		      <filename>Helper-50.xpm</filename>
-		      <xalign>0.5</xalign>
-		      <yalign>0.5</yalign>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <build_insensitive>True</build_insensitive>
+		      <class>GtkHBox</class>
+		      <name>hbox98</name>
+		      <homogeneous>False</homogeneous>
+		      <spacing>0</spacing>
+
+		      <widget>
+			<class>GtkPixmap</class>
+			<name>pixmap161</name>
+			<filename>Helper-50.xpm</filename>
+			<xalign>0.5</xalign>
+			<yalign>0.5</yalign>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<build_insensitive>True</build_insensitive>
+			<child>
+			  <padding>0</padding>
+			  <expand>True</expand>
+			  <fill>True</fill>
+			</child>
+		      </widget>
+
+		      <widget>
+			<class>GtkLabel</class>
+			<name>label639</name>
+			<label>GFP
+eing.</label>
+			<justify>GTK_JUSTIFY_CENTER</justify>
+			<wrap>False</wrap>
+			<xalign>0.5</xalign>
+			<yalign>0.5</yalign>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<child>
+			  <padding>0</padding>
+			  <expand>False</expand>
+			  <fill>False</fill>
+			</child>
+		      </widget>
 		    </widget>
 		  </widget>
 		</widget>
@@ -9568,14 +9654,44 @@ steigern</label>
 		    <tooltip>Erfahrungspunkte eingeben</tooltip>
 
 		    <widget>
-		      <class>GtkPixmap</class>
-		      <name>pixmap93</name>
-		      <filename>EP-Eingabe2-50.xpm</filename>
-		      <xalign>0.5</xalign>
-		      <yalign>0.5</yalign>
-		      <xpad>0</xpad>
-		      <ypad>0</ypad>
-		      <build_insensitive>True</build_insensitive>
+		      <class>GtkHBox</class>
+		      <name>hbox97</name>
+		      <homogeneous>False</homogeneous>
+		      <spacing>0</spacing>
+
+		      <widget>
+			<class>GtkPixmap</class>
+			<name>pixmap93</name>
+			<filename>EP-Eingabe2-50.xpm</filename>
+			<xalign>0.5</xalign>
+			<yalign>0.5</yalign>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<build_insensitive>True</build_insensitive>
+			<child>
+			  <padding>0</padding>
+			  <expand>True</expand>
+			  <fill>True</fill>
+			</child>
+		      </widget>
+
+		      <widget>
+			<class>GtkLabel</class>
+			<name>label638</name>
+			<label>EP
+eing.</label>
+			<justify>GTK_JUSTIFY_CENTER</justify>
+			<wrap>False</wrap>
+			<xalign>0.5</xalign>
+			<yalign>0.5</yalign>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<child>
+			  <padding>0</padding>
+			  <expand>False</expand>
+			  <fill>False</fill>
+			</child>
+		      </widget>
 		    </widget>
 		  </widget>
 		</widget>
@@ -11192,8 +11308,8 @@ anzeigen</label>
 			  <build_insensitive>True</build_insensitive>
 			  <child>
 			    <padding>0</padding>
-			    <expand>True</expand>
-			    <fill>True</fill>
+			    <expand>False</expand>
+			    <fill>False</fill>
 			  </child>
 			</widget>
 
@@ -11262,8 +11378,8 @@ anzeigen</label>
 			  <build_insensitive>True</build_insensitive>
 			  <child>
 			    <padding>0</padding>
-			    <expand>True</expand>
-			    <fill>True</fill>
+			    <expand>False</expand>
+			    <fill>False</fill>
 			  </child>
 			</widget>
 
@@ -11332,8 +11448,8 @@ anzeigen</label>
 			  <build_insensitive>True</build_insensitive>
 			  <child>
 			    <padding>0</padding>
-			    <expand>True</expand>
-			    <fill>True</fill>
+			    <expand>False</expand>
+			    <fill>False</fill>
 			  </child>
 			</widget>
 
@@ -13746,6 +13862,7 @@ eingeben</label>
 	<class>GtkEventBox</class>
 	<child_name>Notebook:tab</child_name>
 	<name>eventbox_steigern</name>
+	<cxx_visibility>protected</cxx_visibility>
 	<tooltip>Steigern</tooltip>
 	<signal>
 	  <name>button_release_event</name>
@@ -14327,7 +14444,8 @@ Drucken</label>
       <widget>
 	<class>GtkEventBox</class>
 	<child_name>Notebook:tab</child_name>
-	<name>eventbox15</name>
+	<name>eventbox_beschreibung</name>
+	<cxx_visibility>protected</cxx_visibility>
 	<tooltip>Beschreibung des Abenteurers und/oder des Hintergrundes</tooltip>
 	<signal>
 	  <name>button_release_event</name>
@@ -15872,6 +15990,7 @@ anschließend unten einen neuen Gegenstand auswählen.</label>
 	<class>GtkEventBox</class>
 	<child_name>Notebook:tab</child_name>
 	<name>eventbox_ausruestung</name>
+	<cxx_visibility>protected</cxx_visibility>
 	<tooltip>Ausrüstung</tooltip>
 	<signal>
 	  <name>button_release_event</name>
@@ -16442,6 +16561,7 @@ anschließend unten einen neuen Gegenstand auswählen.</label>
 	<class>GtkEventBox</class>
 	<child_name>Notebook:tab</child_name>
 	<name>eventbox_optionen</name>
+	<cxx_visibility>protected</cxx_visibility>
 	<tooltip>Optionen</tooltip>
 	<signal>
 	  <name>button_release_event</name>
@@ -16776,6 +16896,7 @@ Liste löschen</label>
 	<child_name>Notebook:tab</child_name>
 	<name>eventbox_geschichte</name>
 	<cxx_visibility>protected</cxx_visibility>
+	<tooltip>News &amp; Geschichte</tooltip>
 	<signal>
 	  <name>button_release_event</name>
 	  <handler>on_eventbox_geschichte_button_release_event</handler>
@@ -19586,6 +19707,7 @@ werk</label>
 	<class>GtkEventBox</class>
 	<child_name>Notebook:tab</child_name>
 	<name>eventbox_zufall</name>
+	<cxx_visibility>protected</cxx_visibility>
 	<tooltip>Zufallsabenteurer (NSC) erstellen</tooltip>
 	<signal>
 	  <name>button_release_event</name>

@@ -132,6 +132,8 @@ void table_lernschema::on_button_waffen_clicked()
 
 void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
 {  
+  if(!togglebutton_spezialwaffe->get_active() && 
+     !togglebutton_gelernt_verlernen->get_active()) return;
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   MBEmlt MBE = dt->getMBE();
   if(togglebutton_spezialwaffe->get_active() && (*MBE).What()!= MidgardBasicElement::WAFFE)

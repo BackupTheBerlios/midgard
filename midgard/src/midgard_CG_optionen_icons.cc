@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen_icons.cc,v 1.18 2002/10/30 09:57:11 thoma Exp $
+// $Id: midgard_CG_optionen_icons.cc,v 1.19 2002/11/11 10:31:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -106,6 +106,14 @@ void midgard_CG::Bin_setzen(Gtk::Widget *child,st_icons I)
 #include "../pixmaps/Clear-32.xpm"
 #include "../pixmaps/Nein-32.xpm"
 #include "../pixmaps/Portrait-32.xpm"
+#include "../pixmaps/Steigern-trans-32.xpm"
+#include "../pixmaps/Reduzieren-trans-32.xpm"
+#include "../pixmaps/Verlernen-trans-32.xpm"
+#include "../pixmaps/MAGUS_Logo_Small.xpm"
+#include "../pixmaps/Grundwert_small.xpm"
+#include "../pixmaps/Steigern_small.xpm"
+#include "../pixmaps/Regio_Hausregel-50.xpm"
+#include "../pixmaps/Z-NewChar.xpm"
 
 
 // Ulfs 24-Icons
@@ -127,13 +135,25 @@ void midgard_CG::Bin_setzen(Gtk::Widget *child,st_icons I)
 #include "../pixmaps/Ulf/ulf_auswahl_16_ja.xpm"
 #include "../pixmaps/Ulf/ulf_auswahl_16_nein.xpm"
 #include "../pixmaps/Ulf/ulf_notebook_24_loeschen.xpm"
+#include "../pixmaps/Ulf/ulf_notebook_24_reduzieren.xpm"
+#include "../pixmaps/Ulf/ulf_notebook_24_steigern.xpm"
+#include "../pixmaps/Ulf/ulf_notebook_24_verlernen.xpm"
+
+
 
 //#include "../pixmaps/Ulf/ulf_24_editieren.xpm"
 //#include "../pixmaps/Ulf/ulf_24_wuerfel.xpm"
 #include "../pixmaps/Ulf/ulf_statusleiste_16_wizard.xpm"
 #include "../pixmaps/Ulf/ulf_statusleiste_16_npczulassen.xpm"
-#include "../pixmaps/Ulf/ulf_zipfel_24_infocredits.xpm"
+//#include "../pixmaps/Ulf/ulf_zipfel_24_infocredits.xpm"
+#include "../pixmaps/Ulf/ulf_zipfel_24_credits.xpm"
+#include "../pixmaps/Ulf/ulf_zipfel_24_einstellungen.xpm"
+#include "../pixmaps/Ulf/ulf_zipfel_24_grundwerte.xpm"
 #include "../pixmaps/Ulf/ulf_zipfel_24_lernschema.xpm"
+#include "../pixmaps/Ulf/ulf_zipfel_24_steigern.xpm"
+#include "../pixmaps/Ulf/ulf_zipfel_24_verlauf.xpm"
+#include "../pixmaps/Ulf/ulf_zipfel_24_zufallsgenerator.xpm"
+
 
 midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
 {
@@ -169,10 +189,20 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iBildeinfuegen)return st_icons("Abbildung"  ,Portrait_32_xpm);
      else if(typ==iDeleteAusr  )return st_icons("Gegenstand löschen"  ,Trash_32_xpm);
      else if(typ==iDeleteA     )return st_icons("Abenteurer aus\nListe löschen"  ,KillChar_32_xpm);
+     else if(typ==iButtonSteigern)   return st_icons("Steigern"  ,Steigern_trans_32_xpm);
+     else if(typ==iButtonReduce)   return st_icons("Reduzieren"  ,Reduzieren_trans_32_xpm);
+     else if(typ==iButtonVerlernen)   return st_icons("Verlernen"  ,Verlernen_trans_32_xpm);
      else if(typ==iStatusWizard)return st_icons(""  ,MAGUS_Logo_Tiny_xpm);
      else if(typ==iStatusNPC)return st_icons(""  ,NSC_Mode_26_xpm);
-     else if(typ==iNotebookInfo)   return st_icons("News & Geschichte"  ,NewsGeschichte_xpm);
+     else if(typ==iNotebookCredit)   return st_icons("Info & Credits"  ,MAGUS_Logo_Small_xpm);
+     else if(typ==iNotebookGrundwerte)   return st_icons("Grundwerte"  ,Grundwert_small_xpm);
      else if(typ==iNotebookLernen)   return st_icons("Lernschema"  ,L_Schema_small_xpm);
+     else if(typ==iNotebookSteigern)   return st_icons("Steigern"  ,Steigern_small_xpm);
+//     else if(typ==iNotebookBeschreibung)   return st_icons("Beschreibung"  ,Descr.Char-40.xpm);
+//     else if(typ==iNotebookAusruestung)   return st_icons("Ausrüstung"  ,Ausruest_small.xpm);
+     else if(typ==iNotebookOptionen)   return st_icons("Optionen"  ,Regio_Hausregel_50_xpm);
+     else if(typ==iNotebookNEWS)   return st_icons("News & Geschichte"  ,NewsGeschichte_xpm);
+     else if(typ==iNotebookZufall)   return st_icons("Zufallsgenerator"  ,Z_NewChar_xpm);
      else return st_icons("Unbekannt"  ,pinguin_xpm);
    }
   else if(MOptionen->IconCheck(Midgard_Optionen::Ulf).active)
@@ -209,8 +239,18 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iDeleteA     )return st_icons("Abenteurer aus\nListe löschen"  ,ulf_notebook_24_loeschen_xpm);
      else if(typ==iStatusWizard)return st_icons(""  ,ulf_statusleiste_16_wizard_xpm);
      else if(typ==iStatusNPC)   return st_icons(""  ,ulf_statusleiste_16_npczulassen_xpm);
-     else if(typ==iNotebookInfo)   return st_icons("News & Geschichte"  ,ulf_zipfel_24_infocredits_xpm);
+     else if(typ==iButtonSteigern)   return st_icons("Steigern"  ,ulf_notebook_24_steigern_xpm);
+     else if(typ==iButtonReduce)   return st_icons("Reduzieren"  ,ulf_notebook_24_reduzieren_xpm);
+     else if(typ==iButtonVerlernen)   return st_icons("Verlernen"  ,ulf_notebook_24_verlernen_xpm);
+     else if(typ==iNotebookCredit)   return st_icons("Info & Credits"  ,ulf_zipfel_24_credits_xpm);
+     else if(typ==iNotebookGrundwerte)   return st_icons("Grundwerte"  ,ulf_zipfel_24_grundwerte_xpm);
      else if(typ==iNotebookLernen)   return st_icons("Lernschema"  ,ulf_zipfel_24_lernschema_xpm);
+     else if(typ==iNotebookSteigern)   return st_icons("Steigern"  ,ulf_zipfel_24_steigern_xpm);
+//     else if(typ==iNotebookBeschreibung)   return st_icons("Beschreibung"  ,);
+//     else if(typ==iNotebookAusruestung)   return st_icons("Ausrüstung"  ,);
+     else if(typ==iNotebookOptionen)   return st_icons("Optionen"  ,ulf_zipfel_24_einstellungen_xpm);
+     else if(typ==iNotebookNEWS)   return st_icons("News & Geschichte"  ,ulf_zipfel_24_verlauf_xpm);
+     else if(typ==iNotebookZufall)   return st_icons("Zufallsgenerator"  ,ulf_zipfel_24_zufallsgenerator_xpm);
      else return st_icons("Unbekannt"  ,pinguin_xpm);
    }
   assert(!"never get here");

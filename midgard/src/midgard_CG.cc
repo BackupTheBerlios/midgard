@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.274 2002/10/30 09:57:11 thoma Exp $
+// $Id: midgard_CG.cc,v 1.275 2002/11/11 10:31:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -175,6 +175,9 @@ void midgard_CG::fill_IconVec()
   IconVec.push_back(st_buttons(table_lernschema->button_ausruestung,iAusruestung));
   // Steigern
   IconVec.push_back(st_buttons(table_steigern->button_grad_basiswerte,iEigenschaft));
+  IconVec.push_back(st_buttons(table_steigern->radiobutton_steigern,iButtonSteigern));
+  IconVec.push_back(st_buttons(table_steigern->radiobutton_reduzieren,iButtonReduce));
+  IconVec.push_back(st_buttons(table_steigern->radiobutton_verlernen,iButtonVerlernen));
   // Beschreibung
   IconVec.push_back(st_buttons(table_beschreibung->button_grafik,iBildeinfuegen));
   IconVec.push_back(st_buttons(table_beschreibung->button_beschreibung_drucken,iPrint));
@@ -186,8 +189,15 @@ void midgard_CG::fill_IconVec()
   IconVecBin.push_back(st_buttons(eventbox_wizard_aktiv,iStatusWizard));
   IconVecBin.push_back(st_buttons(eventbox_NSC_aktiv,iStatusNPC));
   //////////////////////////////////////////////////////////////////////////
+  IconVec.push_back(st_buttons(eventbox_credits,iNotebookCredit));
+  IconVec.push_back(st_buttons(eventbox_grundwerte,iNotebookGrundwerte));
   IconVec.push_back(st_buttons(eventbox_lernen,iNotebookLernen));
-  IconVec.push_back(st_buttons(eventbox_geschichte,iNotebookInfo));
+  IconVec.push_back(st_buttons(eventbox_steigern,iNotebookSteigern));
+//  IconVec.push_back(st_buttons(eventbox_beschreibung,iNotebookBeschreibung));
+//  IconVec.push_back(st_buttons(eventbox_ausruestung,iNotebookAusruestung));
+  IconVec.push_back(st_buttons(eventbox_optionen,iNotebookOptionen));
+  IconVec.push_back(st_buttons(eventbox_geschichte,iNotebookNEWS));
+  IconVec.push_back(st_buttons(eventbox_zufall,iNotebookZufall));
 
 }
 

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.295 2002/10/30 16:59:51 christof Exp $
+// $Id: midgard_CG.hh,v 1.296 2002/11/11 10:31:00 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -129,7 +129,12 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
                      iRuestung,iAusruestung,iEigenschaft,iBildeinfuegen,
                      iDeleteA,iDeleteAusr,
                      iStatusWizard,iStatusNPC,iStatusHaus,
-                     iNotebookLernen,iNotebookInfo};
+                     iButtonReduce,iButtonSteigern,
+                     iButtonVerlernen,
+                     iNotebookCredit,iNotebookGrundwerte,iNotebookLernen,
+                     iNotebookSteigern,iNotebookBeschreibung,
+                     iNotebookAusruestung,iNotebookOptionen,
+                     iNotebookNEWS,iNotebookZufall};
                      
         struct st_icons{std::string text;char **icon;
                st_icons(std::string t,char **i):text(t),icon(i){}};
