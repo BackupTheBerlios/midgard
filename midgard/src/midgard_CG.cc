@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.189 2002/04/15 18:02:18 thoma Exp $
+// $Id: midgard_CG.cc,v 1.190 2002/04/16 06:57:24 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -42,6 +42,7 @@ midgard_CG::midgard_CG(const string &datei)
   InfoFenster = manage(new WindowInfo(this));
   if(MOptionen) delete(MOptionen);
   MOptionen = new Midgard_Optionen(this); // Destruktor schrieben !?!
+  table_optionen->set_Hauptfenster(this);
   frame_drucken->set_Hauptfenster(this);
   frame_globale_optionen->set_Hauptfenster(this);
 

@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.5 2002/04/15 18:02:18 thoma Exp $
+// $Id: Optionen.hh,v 1.6 2002/04/16 06:57:24 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -28,12 +28,9 @@ class midgard_CG;
 
 class Midgard_Optionen
 {
-      std::string viewer;
    public:
-      std::string Viewer() ;
-      void setViewer(std::string s) {viewer=s;}
+      enum StringIndex{pdf_viewer,html_viewer,tmppfad,speicherpfad};
       enum pdfViewerIndex {gv,acroread,xpdf,anderer};
-
       enum OptionenCheckIndex {Original,Info,showPics,
                             Wizard_immer_starten,gw_wuerfeln,
                             NSC_only};
@@ -42,7 +39,9 @@ class Midgard_Optionen
                             LernschemaZusaetzeLoeschen,show_InfoWindow};
       enum HausIndex {Gold};
 
-
+      struct st_strings{StringIndex index; std::string text; std::string name;
+             st_strings(StringIndex i,std::string t,std::string n)
+               : index(i),text(t),name(n) {} };
       struct st_pdfViewer{pdfViewerIndex index;std::string text;bool active;
              st_pdfViewer(pdfViewerIndex i,std::string t, bool a) 
                   : index(i),text(t),active(a) {} };
@@ -58,11 +57,13 @@ class Midgard_Optionen
                       :index(i),text(t),active(a) {} };
 
    private:
+      std::list<st_strings> list_Strings;
       std::list<st_Haus> list_Hausregeln;
       std::list<st_OptionenExecute>  list_OptionenExecute;
       std::list<st_OptionenCheck> list_OptionenCheck; 
       std::list<st_pdfViewer> list_pdfViewer;
 
+      void Strings_init();
       void Optionen_init();
       void Hausregeln_init();
       void pdfViewer_init();
@@ -70,6 +71,11 @@ class Midgard_Optionen
       midgard_CG* hauptfenster;
    public:
       Midgard_Optionen(midgard_CG* h);
+
+      std::string Viewer() ;
+
+      std::string getString(StringIndex index);
+      void setString(StringIndex index,std::string n);
 
       std::list<st_Haus> getHausregeln() {return list_Hausregeln;}
       std::list<st_OptionenCheck> getOptionenCheck() {return list_OptionenCheck;}
@@ -79,6 +85,7 @@ class Midgard_Optionen
       void save_options(WindowInfo *InfoFenster);
       void load_options();
 
+      void setString(std::string os,std::string name);
       void setOptionCheck(std::string os,bool b);
       void setHausregeln(std::string hs,bool b);
       void setpdfViewer(std::string is,bool b); 

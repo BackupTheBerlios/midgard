@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.8 2002/04/15 18:02:18 thoma Exp $
+// $Id: Optionen.cc,v 1.9 2002/04/16 06:57:24 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,6 +32,7 @@ Midgard_Optionen::Midgard_Optionen(midgard_CG* h)
    Optionen_init();
    Hausregeln_init();
    pdfViewer_init();
+   Strings_init();
 }
 
 std::string Midgard_Optionen::Viewer()
@@ -39,11 +40,23 @@ std::string Midgard_Optionen::Viewer()
   if     (pdfViewerCheck(Midgard_Optionen::gv).active)       return "gv ";
   else if(pdfViewerCheck(Midgard_Optionen::xpdf).active)     return "xpdf ";
   else if(pdfViewerCheck(Midgard_Optionen::acroread).active) return "acroread  ";
-  else if(pdfViewerCheck(Midgard_Optionen::anderer).active)  return viewer+" ";
+  else if(pdfViewerCheck(Midgard_Optionen::anderer).active)  return getString(pdf_viewer)+" ";
   else assert(!"");
   abort();
 }
 
+std::string Midgard_Optionen::getString(StringIndex index)
+{
+ for(std::list<st_strings>::const_iterator i=list_Strings.begin();i!=list_Strings.end();++i)
+   if(i->index==index) return i->name;    
+ abort();//never get here
+}
+
+void Midgard_Optionen::setString(StringIndex index,std::string n)
+{
+ for(std::list<st_strings>::iterator i=list_Strings.begin();i!=list_Strings.end();++i)
+   if(i->index==index) i->name=n;    
+}
 
 Midgard_Optionen::st_OptionenCheck Midgard_Optionen::OptionenCheck(OptionenCheckIndex oi)
 {
@@ -60,6 +73,7 @@ Midgard_Optionen::st_Haus Midgard_Optionen::HausregelCheck(HausIndex hi)
  assert(!"HausregelCheck: nicht gefunden");
  abort();
 }
+
 Midgard_Optionen::st_pdfViewer Midgard_Optionen::pdfViewerCheck(pdfViewerIndex pi)
 {
  for(std::list<st_pdfViewer>::const_iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
@@ -73,6 +87,16 @@ void Midgard_Optionen::setOptionCheck(std::string os,bool b)
  for(std::list<st_OptionenCheck>::iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
    if(i->text==os) 
      { OptionenCheck_setzen_from_menu(i->index,b);
+       return; 
+     }
+ throw NotFound();
+}
+
+void Midgard_Optionen::setString(std::string os,std::string b)
+{
+ for(std::list<st_strings>::iterator i=list_Strings.begin();i!=list_Strings.end();++i)
+   if(i->text==os) 
+     { i->name=b;
        return; 
      }
  throw NotFound();
@@ -115,7 +139,6 @@ void Midgard_Optionen::OptionenCheck_setzen_from_menu(OptionenCheckIndex index,b
      if     (i->index==Original) { hauptfenster->checkbutton_original(i->active); hauptfenster->menu_init();}
      else if(i->index==showPics) hauptfenster->Pics(i->active);
      else if(i->index==gw_wuerfeln) hauptfenster->show_gw_wuerfeln(i->active);
-#warning führt zum Absturz beim Programmstart, etwas unausgegoren? CP     
      else if(i->index==NSC_only) hauptfenster->on_radiobutton_mann_toggled(); // zum Neuaufbau des Typmenüs
    }
 //  hauptfenster->fire_enabled=true;
@@ -172,6 +195,13 @@ void Midgard_Optionen::Optionen_init()
 }
 
 
+void Midgard_Optionen::Strings_init()
+{
+  list_Strings.push_back(st_strings(pdf_viewer,"PDF Viewer",""));
+  list_Strings.push_back(st_strings(html_viewer,"HTML Viewer","mozilla"));
+  list_Strings.push_back(st_strings(tmppfad,"TEMP-Pfad","$TEMP"));
+  list_Strings.push_back(st_strings(speicherpfad,"Speicherverzeichnis","$HOME/magus"));
+}
 
 
 void Midgard_Optionen::pdfViewer_init()
@@ -213,6 +243,8 @@ void Midgard_Optionen::load_options()
      setHausregeln(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*data,"pdfViewer")
      setpdfViewer(i->getAttr("Name"),i->getBoolAttr("Wert"));
+  FOR_EACH_CONST_TAG_OF(i,*data,"Einstellungen")
+     setString(i->getAttr("Name"),i->getAttr("Wert"));
   hauptfenster->menu_init();
 }
 
@@ -237,19 +269,27 @@ void Midgard_Optionen::save_options(WindowInfo *InfoFenster)
      write_bool_attrib_force(datei, "Wert", i->active);
      datei << "/>\n";
    }
-  for(list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
+  for(std::list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
    {
      datei << "  <Hausregel";
      write_string_attrib(datei, "Name" ,i->text);
      write_bool_attrib_force(datei, "Wert", i->active);
      datei << "/>\n";
    }
-  for(list<st_pdfViewer>::iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
+  for(std::list<st_pdfViewer>::iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
    {
      if(!i->active) continue;
      datei << "  <pdfViewer";
      write_string_attrib(datei, "Name" ,i->text);
      write_bool_attrib(datei, "Wert", i->active);
+     datei << "/>\n";
+   }
+  for(std::list<st_strings>::iterator i=list_Strings.begin();i!=list_Strings.end();++i)
+   {
+     if(i->name=="") continue;
+     datei << "  <Einstellungen";
+     write_string_attrib(datei, "Name" ,i->text);
+     write_string_attrib(datei, "Wert", i->name);
      datei << "/>\n";
    }
  datei << "</MAGUS-optionen>\n";

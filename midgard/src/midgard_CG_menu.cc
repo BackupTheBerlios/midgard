@@ -27,6 +27,7 @@ void midgard_CG::menu_init()
 {
   frame_drucken->init();
   frame_globale_optionen->init();
+  table_optionen->init();
 /*
   bool memfire=fire_enabled;
   fire_enabled=false;

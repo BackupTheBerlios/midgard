@@ -14733,7 +14733,10 @@ KS
 
 	<widget>
 	  <class>GtkTable</class>
-	  <name>table140</name>
+	  <name>table_optionen</name>
+	  <cxx_separate_file>True</cxx_separate_file>
+	  <cxx_separate_class>True</cxx_separate_class>
+	  <cxx_visibility>protected</cxx_visibility>
 	  <rows>1</rows>
 	  <columns>1</columns>
 	  <homogeneous>False</homogeneous>
@@ -14872,8 +14875,14 @@ KS
 
 	      <widget>
 		<class>GtkEntry</class>
-		<name>entry4</name>
+		<name>entry_html</name>
+		<cxx_visibility>protected</cxx_visibility>
 		<can_focus>True</can_focus>
+		<signal>
+		  <name>changed</name>
+		  <handler>on_entry_html_changed</handler>
+		  <last_modification_time>Tue, 16 Apr 2002 06:32:12 GMT</last_modification_time>
+		</signal>
 		<editable>True</editable>
 		<text_visible>True</text_visible>
 		<text_max_length>0</text_max_length>
@@ -14948,8 +14957,14 @@ KS
 
 	      <widget>
 		<class>GtkEntry</class>
-		<name>entry2</name>
+		<name>entry_tmp_verz</name>
+		<cxx_visibility>protected</cxx_visibility>
 		<can_focus>True</can_focus>
+		<signal>
+		  <name>changed</name>
+		  <handler>on_entry_tmp_verz_changed</handler>
+		  <last_modification_time>Tue, 16 Apr 2002 06:32:35 GMT</last_modification_time>
+		</signal>
 		<editable>True</editable>
 		<text_visible>True</text_visible>
 		<text_max_length>0</text_max_length>
@@ -14972,8 +14987,14 @@ KS
 
 	      <widget>
 		<class>GtkEntry</class>
-		<name>entry3</name>
+		<name>entry_speicher_verz</name>
+		<cxx_visibility>protected</cxx_visibility>
 		<can_focus>True</can_focus>
+		<signal>
+		  <name>changed</name>
+		  <handler>on_entry_speicher_verz_changed</handler>
+		  <last_modification_time>Tue, 16 Apr 2002 06:33:02 GMT</last_modification_time>
+		</signal>
 		<editable>True</editable>
 		<text_visible>True</text_visible>
 		<text_max_length>0</text_max_length>
@@ -15036,7 +15057,6 @@ KS
 
 	  <widget>
 	    <class>GtkPixmap</class>
-	    <child_name>Notebook:tab</child_name>
 	    <name>pixmap152</name>
 	    <filename>Regio_Hausregel-50.xpm</filename>
 	    <xalign>0.5</xalign>

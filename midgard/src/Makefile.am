@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.140 2002/04/15 05:45:02 thoma Exp $
+# $Id: Makefile.am,v 1.141 2002/04/16 06:57:24 thoma Exp $
 
 bin_PROGRAMS = midgard 
 noinst_PROGRAMS = text2c
@@ -14,6 +14,7 @@ EXTRA_DIST = midgard_document_eingabe.tex.in \
 
 
 noinst_HEADERS = \
+   table_optionen.hh \
    frame_globale_optionen.hh \
    frame_globale_optionen_glade.hh \
    frame_drucken.hh \
@@ -83,6 +84,7 @@ midgard_xmlexport_SOURCES= xmlexport.cc export_common.cc
 midgard_SOURCES = \
    frame_globale_optionen.cc \
    Optionen.cc \
+   table_optionen.cc \
    frame_drucken.cc \
    frame_globale_optionen_glade.cc \
    frame_drucken_glade.cc \

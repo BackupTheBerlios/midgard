@@ -51,7 +51,7 @@ void frame_drucken::element_activate(Gtk::RadioButton *rb,Midgard_Optionen::pdfV
   {
    hauptfenster->getOptionen()->pdfViewer_setzen_from_menu(index);       
    if(index==Midgard_Optionen::anderer) 
-       hauptfenster->getOptionen()->setViewer(entry->get_text());
+       hauptfenster->getOptionen()->setString(Midgard_Optionen::pdf_viewer,entry->get_text());
   }
 }
 
@@ -59,7 +59,7 @@ void frame_drucken::entry_changed()
 {
   bool_changed=true;
   hauptfenster->getOptionen()->pdfViewer_setzen_from_menu(Midgard_Optionen::anderer); 
-  hauptfenster->getOptionen()->setViewer(entry->get_text());    
+  hauptfenster->getOptionen()->setString(Midgard_Optionen::pdf_viewer,entry->get_text());    
 }
 
 gint frame_drucken::entry_focus_out(GdkEventFocus *ev)
