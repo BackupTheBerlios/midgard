@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.67 2003/11/12 12:50:01 thoma Exp $
+# $Id: Makefile,v 1.68 2004/06/04 10:38:12 christof Exp $
 #PG_DUMP=pg_dump
 PG_DUMP=/usr/local/bin/pg_dump_sort
 
@@ -61,6 +61,8 @@ dist: $(DIST_FILES)
 
 # install system tables unconditionally, user tables if missing
 install:
+	createdb -E latin1 midgard
+	# update pg_database set encoding=pg_char_to_encoding('latin1') where datname='midgard';
 	@for i in $(SYSTEM_TABLES) ; \
 	do \
 	  echo "loading $$i" ; \
