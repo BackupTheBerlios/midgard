@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.47 2002/07/10 08:07:04 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.48 2002/07/10 08:22:11 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -578,7 +578,8 @@ void LaTeX_drucken::write_long_list(ostream &fout,const std::vector<st_sprachen_
                      const std::list<WaffeBesitz> &WB_druck)
 {
   fout << "\n\n\\newpage\n\n";
-  fout << "\\begin{sideways}\n";
+//  fout << "\\begin{sideways}\n";
+  fout << "\\rotatebox{90}{\n";
   fout << "\\fbox{\n";
   fout << "\\begin{minipage}[t][\\textwidth]{19cm}\n";
 
@@ -618,8 +619,8 @@ void LaTeX_drucken::write_long_list(ostream &fout,const std::vector<st_sprachen_
        << get_latex_pathname(TeX_Install) << "MAGUS-Logo-grey2.png}}";
   fout << WinLux::active_tilde;
   fout << "\\end{minipage}\n";
-  fout << "}\n";
-  fout << "\\end{sideways}\n";
+  fout << "}\n}\n";
+//  fout << "\\end{sideways}\n";
 }
 
 std::string LaTeX_drucken::LaTeX_scale(const std::string& is, 
