@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.pgcc,v 1.20 2001/11/19 07:43:38 christof Exp $
+// $Id: arkanum_exp.pgcc,v 1.21 2001/11/19 08:10:52 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -132,7 +132,7 @@ void arkanum_speichern(std::ostream &o)
 //************** ausnahmen *****************
       exec sql declare cursor_ausn cursor for 
       	select spezies, herkunft, typ, beruf, stand, standard
-      	from lernschema 
+      	from ausnahmen 
       	where name=:ZAUBER and art='z'
       	order by spezies,herkunft,typ,beruf,stand;
       exec sql open cursor_ausn;

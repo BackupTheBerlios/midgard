@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.pgcc,v 1.13 2001/11/19 07:43:38 christof Exp $
+// $Id: fertigk_exp.pgcc,v 1.14 2001/11/19 08:10:52 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -151,7 +151,7 @@ void fert_speichern(std::ostream &o)
 //************** ausnahmen *****************
       exec sql declare cursor_ausn cursor for 
       	select spezies, herkunft, typ, beruf, stand, standard
-      	from lernschema 
+      	from ausnahmen 
       	where name=:FERTIGK and art='f'
       	order by spezies,herkunft,typ,beruf,stand;
       exec sql open cursor_ausn;
