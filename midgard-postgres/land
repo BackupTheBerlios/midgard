@@ -1,0 +1,63 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE "land";
+--
+-- TOC Entry ID 2 (OID 26591161)
+--
+-- Name: land Type: TABLE Owner: thoma
+--
+
+CREATE TABLE "land" (
+	"land" text,
+	"kontinent" text,
+	"sprache" text
+);
+
+--
+-- Data for TOC Entry ID 3 (OID 26591161) TABLE DATA land
+--
+
+COPY "land"  FROM stdin;
+Fuardain	Vesternesse	Twyneddisch
+Clanngadarn	Vesternesse	Twyneddisch
+Ywerdon	Vesternesse	Twyneddisch
+Ywerdon	Vesternesse	Erainnisch
+Erainn	Vesternesse	Erainnisch
+Erainn	Vesternesse	Hochcoraniaid
+Alba	Vesternesse	Albisch
+Alba	Vesternesse	Altoqua
+Chryseia	Vesternesse	Chryseisch
+Chryseia	Vesternesse	Maralinga
+Waeland	Sirao	Waelska
+Vesternesse	Vesternesse	Comentang
+Medjis	Sirao	Medjisisch
+Tegarische Steppe	Sirao	Tegarisch
+Tegarische Steppe	Sirao	Berekusch
+Tegarische Steppe	Sirao	Läinisch
+Aran	Sirao	Aranisch
+Rawindra	Sirao	Rawindi
+KanThaiPan	Sirao	KanThaiTun
+Minangpahit	Sirao	Minangpahitisch
+Küstenstaaten	Lamaran	Neu Vallinga
+Eschar	Lamaran	Scharidisch
+Eschar	Lamaran	Meketisch
+Eschar	Lamaran	Kelwisch
+Urruti	Lamaran	Hurritisch
+Urruti	Lamaran	Luwisch
+Buluga	Lamaran	Bulugi
+Ikenga Becken	Lamaran	Stammesdialekte
+Feuerinseln	Huaxal	Stammesdialekte
+Inseln unter dem Westwind	Huaxal	Trll
+Inseln unter dem Westwind	Huaxal	Nahuatlanisch
+Nahuatlan	Huaxal	Nahuatlanisch
+Valian	Valian	Maralinga
+Halfdal	Nichtmenschen	Halftan
+Dvarheim	Nichtmenschen	Dvarskar
+Gnome	Nichtmenschen	Gnomenon
+Elfen	Nichtmenschen	Eldalyn
+Moravod	Sirao	Moravisch
+Valian	Valian	Vallinga
+Alba	Vesternesse	Dunathisch
+Aran	Sirao	Maralinga
+\.

@@ -1,0 +1,5178 @@
+--
+-- Selected TOC Entries:
+--
+DROP INDEX "fertigkeiten_typen_name_typ";
+DROP TABLE "fertigkeiten_typen";
+--
+-- TOC Entry ID 2 (OID 26574826)
+--
+-- Name: fertigkeiten_typen Type: TABLE Owner: thoma
+--
+
+CREATE TABLE "fertigkeiten_typen" (
+	"name" text NOT NULL,
+	"typ" text NOT NULL,
+	"standard" text NOT NULL
+);
+
+--
+-- Data for TOC Entry ID 4 (OID 26574826) TABLE DATA fertigkeiten_typen
+--
+
+COPY "fertigkeiten_typen"  FROM stdin;
+Lesen/Schreiben	wHx	G
+LiYao	wHx	S
+Lippenlesen	wHx	S
+Luftkampf	wHx	A
+Malen/Zeichen	wHx	S
+Meditieren	wHx	A
+Menschenkenntnis	wHx	S
+Meucheln	wHx	A
+MiChen	wHx	S
+Mumifizieren	wHx	S
+Musizieren	wHx	S
+Naturkunde	wHx	S
+Natya	wHx	A
+NinJutsu	wHx	S
+Orakelkunst	wHx	S
+Pflanzenkunde	wHx	S
+Pyromantie	wHx	S
+Rechnen	wHx	S
+Reiten	wHx	S
+Rudern	wHx	S
+Sagenkunde	wHx	G
+Scharfschießen	wHx	A
+Schiffsführung	wHx	S
+SchiyoKi	wHx	A
+Schlangen beschwören	wHx	A
+Schleichen	wHx	S
+Schlittenfahren	wHx	S
+Schlittschuhlaufen	wHx	S
+Schlösser öffnen	wHx	A
+Schmerzen ertragen	wHx	A
+Schwerttanz	wHx	A
+Schwimmen	wHx	S
+Segeln	wHx	S
+Seilkunst	wHx	S
+Siegelfälschung	wHx	S
+Siegelkunde	wHx	S
+Singen	wHx	S
+Singen (Stufe)	wHx	S
+Skifahren	wHx	S
+Sprache	wHx	S
+Springen	wHx	A
+Spurenlesen	wHx	A
+Srimara lenken	wHx	A
+Stehlen	wHx	A
+Steinabreibungen machen	wHx	G
+Stimmen nachahmen	wHx	G
+Streitwagen lenken	wHx	A
+TaiTschi	wHx	A
+Talisman verzaubern	wHx	A
+Tanzen	wHx	S
+Tarnen	wHx	S
+Tauchen	wHx	A
+Teezeremonie	wHx	S
+Tierkunde	wHx	S
+Trinken	wHx	S
+Verbergen	wHx	G
+Verführen	wHx	S
+Verhören	wHx	S
+Verkleiden	wHx	S
+Wagenlenken	wHx	S
+Wahrnehmung	wHx	S
+Werfen	wHx	S
+Wetterkunde	wHx	S
+Winden	wHx	A
+Wissen von der Magie	wHx	G
+YangScheng	wHx	S
+YubeChian	wHx	S
+Zauberkunde	wHx	G
+Zeichensprache	wHx	S
+Zunge verschlucken	wHx	S
+Überleben im Dschungel	wHx	S
+Überleben im Gebirge	wHx	S
+Überleben im Schnee	wHx	S
+Überleben im Sumpf	wHx	S
+Überleben im Wald	wHx	S
+Überleben in der Steppe	wHx	S
+Überleben in der Wüste	wHx	S
+Schwimmen	Th	S
+Segeln	Th	S
+Seilkunst	Th	S
+Siegelfälschung	Th	S
+Siegelkunde	Th	G
+Singen	Th	S
+Singen (Stufe)	Th	S
+Skifahren	Th	S
+Sprache	Th	S
+Springen	Th	A
+Spurenlesen	Th	A
+Srimara lenken	Th	A
+Stehlen	Th	A
+Steinabreibungen machen	Th	G
+Stimmen nachahmen	Th	S
+Streitwagen lenken	Th	A
+TaiTschi	Th	A
+Talisman verzaubern	Th	G
+Tanzen	Th	S
+Tarnen	Th	S
+Tauchen	Th	A
+Teezeremonie	Th	S
+Tierkunde	Th	S
+Trinken	Th	S
+Verbergen	Th	S
+Verführen	Th	A
+Verhören	Th	S
+Verkleiden	Th	A
+Wagenlenken	Th	S
+Wahrnehmung	Th	S
+Werfen	Th	G
+Wetterkunde	Th	A
+Winden	Th	A
+Wissen von der Magie	Th	G
+YangScheng	Th	S
+YubeChian	Th	A
+Zauberkunde	Th	G
+Zeichensprache	Th	S
+Zunge verschlucken	Th	S
+Überleben im Dschungel	Th	S
+Überleben im Gebirge	Th	S
+Überleben im Schnee	Th	S
+Überleben im Sumpf	Th	S
+Überleben im Wald	Th	S
+Überleben in der Steppe	Th	S
+Überleben in der Wüste	Th	S
+Alchemie	wHx	S
+Askese	wHx	A
+Astrologie	wHx	S
+Athletik	wHx	A
+Augensalbe herstellen	wHx	S
+Balancieren	wHx	S
+Ballista bedienen	wHx	A
+Beidhändiger Kampf	wHx	A
+Beredsamkeit	wHx	S
+Beschatten	wHx	S
+Bogen vom Streitwagen	wHx	A
+Bogen zu Pferd	wHx	A
+Brettspiel	wHx	S
+Dichten	wHx	S
+Elefanten lenken	wHx	A
+Erste Hilfe	wHx	S
+Erzählen	wHx	S
+Etikette	wHx	S
+Fallen	wHx	S
+Fallen entdecken	wHx	A
+Fallen entschärfen	wHx	A
+Fallenmechanik	wHx	A
+Fallenstellen	wHx	A
+Fangen	wHx	S
+Faustkampf	wHx	A
+Fechten	wHx	A
+Fechten tevarischer Stil	wHx	A
+FengSchui	wHx	S
+FengTsu	wHx	A
+Fälschen	wHx	S
+Gassenwissen	wHx	G
+Geheimmechanismen öffnen	wHx	S
+Geheimzeichen	wHx	G
+Geländelauf	wHx	S
+Geomantie	wHx	S
+Geschenke machen	wHx	S
+Geschichten erzählen	wHx	S
+Geschäftstüchtigkeit	wHx	S
+Giftmischen	wHx	G
+Glücksspiel	wHx	S
+Heraldik	wHx	A
+Himmelskunde	wHx	S
+IaiJutsu	wHx	A
+Jonglieren	wHx	S
+Kalligraphie	wHx	S
+Kamelreiten	wHx	S
+Kampf in Dunkelheit	wHx	A
+Kampf in Schlachtreihe	wHx	A
+Kampf in Vollrüstung	wHx	A
+Kampf vom Streitwagen	wHx	A
+Kampf zu Elefant	wHx	A
+Kampf zu Kamel	wHx	A
+Kampf zu Pferd	wHx	A
+Kampf zu Srimara	wHx	A
+Kampftaktik	wHx	A
+Kanufahren	wHx	S
+KarumiJutsu	wHx	S
+Katapult bedienen	wHx	A
+Kenntnis der fünf Klassiker	wHx	S
+KentoYobu	wHx	A
+KiDo	wHx	A
+Klettern	wHx	S
+Kräuterkunde	wHx	G
+KujKuri	wHx	A
+KujNoIu	wHx	S
+Körperbemalung	wHx	A
+Körperkontrolle	wHx	A
+Lanzenstechen	wHx	A
+Laufen	wHx	A
+Lesen von Zauberschrift	wHx	G
+Wetterkunde	sHx	S
+Winden	sHx	A
+Wissen von der Magie	sHx	G
+YangScheng	sHx	S
+YubeChian	sHx	S
+Zauberkunde	sHx	G
+Zeichensprache	sHx	S
+Zunge verschlucken	sHx	S
+Überleben im Dschungel	sHx	S
+Überleben im Gebirge	sHx	S
+Überleben im Schnee	sHx	S
+Überleben im Sumpf	sHx	S
+Überleben im Wald	sHx	S
+Überleben in der Steppe	sHx	S
+Überleben in der Wüste	sHx	S
+Alchemie	Th	G
+Askese	Th	S
+Astrologie	Th	G
+Athletik	Th	A
+Augensalbe herstellen	Th	S
+Balancieren	Th	S
+Ballista bedienen	Th	A
+Beidhändiger Kampf	Th	A
+Beredsamkeit	Th	S
+Beschatten	Th	S
+Bogen vom Streitwagen	Th	A
+Bogen zu Pferd	Th	A
+Brettspiel	Th	G
+Dichten	Th	S
+Elefanten lenken	Th	A
+Erste Hilfe	Th	S
+Erzählen	Th	S
+Etikette	Th	S
+Fallen	Th	S
+Fallen entdecken	Th	G
+Fallen entschärfen	Th	A
+Fallenmechanik	Th	G
+Fallenstellen	Th	A
+Fangen	Th	S
+Faustkampf	Th	A
+Fechten	Th	A
+Fechten tevarischer Stil	Th	A
+FengSchui	Th	S
+FengTsu	Th	A
+Fälschen	Th	S
+Gassenwissen	Th	S
+Geheimmechanismen öffnen	Th	G
+Geheimzeichen	Th	G
+Geländelauf	Th	S
+Geomantie	Th	A
+Geschenke machen	Th	S
+Geschichten erzählen	Th	S
+Geschäftstüchtigkeit	Th	S
+Giftmischen	Th	S
+Glücksspiel	Th	S
+Heraldik	Th	A
+Himmelskunde	Th	S
+IaiJutsu	Th	A
+Jonglieren	Th	A
+Kalligraphie	Th	G
+Kamelreiten	Th	S
+Kampf in Dunkelheit	Th	A
+Kampf in Schlachtreihe	Th	A
+Kampf in Vollrüstung	Th	A
+Kampf vom Streitwagen	Th	A
+Kampf zu Elefant	Th	A
+Kampf zu Kamel	Th	A
+Kampf zu Pferd	Th	A
+Kampf zu Srimara	Th	A
+Kampftaktik	Th	A
+Kanufahren	Th	S
+KarumiJutsu	Th	S
+Katapult bedienen	Th	A
+Kenntnis der fünf Klassiker	Th	S
+KentoYobu	Th	A
+KiDo	Th	A
+Klettern	Th	S
+Kräuterkunde	Th	S
+KujKuri	Th	A
+KujNoIu	Th	G
+Körperbemalung	Th	G
+Körperkontrolle	Th	A
+Lanzenstechen	Th	A
+Laufen	Th	S
+Lesen von Zauberschrift	Th	S
+Lesen/Schreiben	Th	S
+LiYao	Th	G
+Lippenlesen	Th	S
+Luftkampf	Th	A
+Malen/Zeichen	Th	G
+Meditieren	Th	A
+Menschenkenntnis	Th	S
+Meucheln	Th	A
+MiChen	Th	A
+Mumifizieren	Th	A
+Musizieren	Th	S
+Naturkunde	Th	S
+Natya	Th	A
+NinJutsu	Th	S
+Orakelkunst	Th	S
+Pflanzenkunde	Th	S
+Pyromantie	Th	A
+Rechnen	Th	G
+Reiten	Th	S
+Rudern	Th	S
+Sagenkunde	Th	G
+Scharfschießen	Th	S
+Schiffsführung	Th	S
+SchiyoKi	Th	A
+Schlangen beschwören	Th	A
+Schleichen	Th	S
+Schlittenfahren	Th	S
+Schlittschuhlaufen	Th	S
+Schlösser öffnen	Th	A
+Schmerzen ertragen	Th	A
+Schwerttanz	Th	A
+Elefanten lenken	sHx	A
+Erste Hilfe	sHx	S
+Erzählen	sHx	S
+Etikette	sHx	S
+Fallen	sHx	S
+Fallen entdecken	sHx	A
+Fallen entschärfen	sHx	A
+Fallenmechanik	sHx	A
+Fallenstellen	sHx	A
+Fangen	sHx	S
+Faustkampf	sHx	A
+Fechten	sHx	A
+Fechten tevarischer Stil	sHx	A
+FengSchui	sHx	S
+FengTsu	sHx	A
+Fälschen	sHx	S
+Gassenwissen	sHx	G
+Geheimmechanismen öffnen	sHx	S
+Geheimzeichen	sHx	G
+Geländelauf	sHx	S
+Geomantie	sHx	S
+Geschenke machen	sHx	S
+Geschichten erzählen	sHx	S
+Geschäftstüchtigkeit	sHx	S
+Giftmischen	sHx	G
+Glücksspiel	sHx	S
+Heraldik	sHx	A
+Himmelskunde	sHx	S
+IaiJutsu	sHx	A
+Jonglieren	sHx	S
+Kalligraphie	sHx	S
+Kamelreiten	sHx	S
+Kampf in Dunkelheit	sHx	A
+Kampf in Schlachtreihe	sHx	A
+Kampf in Vollrüstung	sHx	A
+Kampf vom Streitwagen	sHx	A
+Kampf zu Elefant	sHx	A
+Kampf zu Kamel	sHx	A
+Kampf zu Pferd	sHx	A
+Kampf zu Srimara	sHx	A
+FengTsu	PT	A
+Kampftaktik	sHx	A
+Kanufahren	sHx	S
+KarumiJutsu	sHx	S
+Katapult bedienen	sHx	A
+Kenntnis der fünf Klassiker	sHx	S
+KentoYobu	sHx	A
+KiDo	sHx	A
+Klettern	sHx	S
+Kräuterkunde	sHx	G
+KujKuri	sHx	A
+KujNoIu	sHx	S
+Körperbemalung	sHx	A
+Körperkontrolle	sHx	A
+Lanzenstechen	sHx	A
+Laufen	sHx	A
+Lesen von Zauberschrift	sHx	G
+Lesen/Schreiben	sHx	G
+LiYao	sHx	S
+Lippenlesen	sHx	S
+Luftkampf	sHx	A
+Malen/Zeichen	sHx	S
+Meditieren	sHx	A
+Menschenkenntnis	sHx	S
+Meucheln	sHx	A
+MiChen	sHx	S
+Mumifizieren	sHx	S
+Musizieren	sHx	S
+Naturkunde	sHx	S
+Natya	sHx	A
+NinJutsu	sHx	S
+Orakelkunst	sHx	S
+Pflanzenkunde	sHx	S
+Pyromantie	sHx	S
+Rechnen	sHx	S
+Reiten	sHx	S
+Rudern	sHx	S
+Sagenkunde	sHx	G
+Scharfschießen	sHx	A
+Schiffsführung	sHx	S
+SchiyoKi	sHx	A
+Schlangen beschwören	sHx	A
+Schleichen	sHx	S
+Schlittenfahren	sHx	S
+Schlittschuhlaufen	sHx	S
+Schlösser öffnen	sHx	A
+Schmerzen ertragen	sHx	A
+Schwerttanz	sHx	A
+Schwimmen	sHx	S
+Segeln	sHx	S
+Seilkunst	sHx	S
+Siegelfälschung	sHx	S
+Siegelkunde	sHx	S
+Singen	sHx	S
+Singen (Stufe)	sHx	S
+Skifahren	sHx	S
+Sprache	sHx	S
+Springen	sHx	A
+Spurenlesen	sHx	A
+Srimara lenken	sHx	A
+Stehlen	sHx	A
+Steinabreibungen machen	sHx	G
+Stimmen nachahmen	sHx	G
+Streitwagen lenken	sHx	A
+TaiTschi	sHx	A
+Talisman verzaubern	sHx	A
+Tanzen	sHx	S
+Tarnen	sHx	S
+Tauchen	sHx	A
+Teezeremonie	sHx	S
+Tierkunde	sHx	S
+Trinken	sHx	S
+Verbergen	sHx	G
+Verführen	sHx	S
+Verhören	sHx	S
+Verkleiden	sHx	S
+Wagenlenken	sHx	S
+Wahrnehmung	sHx	S
+Werfen	sHx	S
+Kalligraphie	Sc	A
+Kamelreiten	Sc	S
+Kampf in Dunkelheit	Sc	A
+Kampf in Schlachtreihe	Sc	A
+Kampf in Vollrüstung	Sc	A
+Kampf vom Streitwagen	Sc	A
+Kampf zu Elefant	Sc	A
+Kampf zu Kamel	Sc	A
+Kampf zu Pferd	Sc	A
+Kampf zu Srimara	Sc	A
+Kampftaktik	Sc	A
+Kanufahren	Sc	S
+KarumiJutsu	Sc	S
+Katapult bedienen	Sc	A
+Kenntnis der fünf Klassiker	Sc	S
+KentoYobu	Sc	A
+KiDo	Sc	S
+Klettern	Sc	S
+Kräuterkunde	Sc	G
+KujKuri	Sc	A
+KujNoIu	Sc	S
+Körperbemalung	Sc	S
+Körperkontrolle	Sc	A
+Lanzenstechen	Sc	A
+Laufen	Sc	G
+Lesen von Zauberschrift	Sc	S
+Lesen/Schreiben	Sc	S
+LiYao	Sc	A
+Lippenlesen	Sc	S
+Luftkampf	Sc	A
+Malen/Zeichen	Sc	S
+Meditieren	Sc	A
+Menschenkenntnis	Sc	S
+Meucheln	Sc	A
+MiChen	Sc	S
+Mumifizieren	Sc	G
+Musizieren	Sc	S
+Naturkunde	Sc	G
+Natya	Sc	A
+NinJutsu	Sc	S
+Orakelkunst	Sc	G
+Pflanzenkunde	Sc	G
+Pyromantie	Sc	G
+Rechnen	Sc	A
+Reiten	Sc	G
+Rudern	Sc	S
+Sagenkunde	Sc	G
+Scharfschießen	Sc	S
+Schiffsführung	Sc	S
+SchiyoKi	Sc	G
+Schlangen beschwören	Sc	A
+Schleichen	Sc	S
+Schlittenfahren	Sc	S
+Schlittschuhlaufen	Sc	S
+Schlösser öffnen	Sc	A
+Schmerzen ertragen	Sc	A
+Schwerttanz	Sc	A
+Schwimmen	Sc	G
+Segeln	Sc	S
+Seilkunst	Sc	S
+Siegelfälschung	Sc	A
+Siegelkunde	Sc	A
+Singen	Sc	G
+Singen (Stufe)	Sc	S
+Skifahren	Sc	S
+Sprache	Sc	S
+Springen	Sc	S
+Spurenlesen	Sc	S
+Srimara lenken	Sc	A
+Stehlen	Sc	A
+Steinabreibungen machen	Sc	S
+Stimmen nachahmen	Sc	S
+Streitwagen lenken	Sc	A
+TaiTschi	Sc	G
+Talisman verzaubern	Sc	S
+Tanzen	Sc	G
+Tarnen	Sc	S
+Tauchen	Sc	S
+Teezeremonie	Sc	G
+Tierkunde	Sc	G
+Trinken	Sc	S
+Verbergen	Sc	S
+Verführen	Sc	A
+Verhören	Sc	S
+Verkleiden	Sc	A
+Wagenlenken	Sc	S
+Wahrnehmung	Sc	S
+Werfen	Sc	S
+Wetterkunde	Sc	G
+Winden	Sc	A
+Wissen von der Magie	Sc	G
+YangScheng	Sc	G
+YubeChian	Sc	S
+Zauberkunde	Sc	S
+Zeichensprache	Sc	S
+Zunge verschlucken	Sc	S
+Überleben im Dschungel	Sc	S
+Überleben im Gebirge	Sc	S
+Überleben im Schnee	Sc	S
+Überleben im Sumpf	Sc	S
+Überleben im Wald	Sc	S
+Überleben in der Steppe	Sc	S
+Überleben in der Wüste	Sc	S
+Alchemie	sHx	S
+Askese	sHx	A
+Astrologie	sHx	S
+Athletik	sHx	A
+Augensalbe herstellen	sHx	S
+Balancieren	sHx	S
+Ballista bedienen	sHx	A
+Beidhändiger Kampf	sHx	A
+Beredsamkeit	sHx	S
+Beschatten	sHx	S
+Bogen vom Streitwagen	sHx	A
+Bogen zu Pferd	sHx	A
+Brettspiel	sHx	S
+Dichten	sHx	S
+Malen/Zeichen	PW	S
+Meditieren	PW	A
+Menschenkenntnis	PW	G
+Meucheln	PW	A
+MiChen	PW	S
+Mumifizieren	PW	S
+Musizieren	PW	S
+Naturkunde	PW	S
+Natya	PW	S
+NinJutsu	PW	S
+Orakelkunst	PW	G
+Pflanzenkunde	PW	S
+Pyromantie	PW	S
+Rechnen	PW	G
+Reiten	PW	S
+Rudern	PW	S
+Sagenkunde	PW	G
+Scharfschießen	PW	A
+Schiffsführung	PW	S
+SchiyoKi	PW	G
+Schlangen beschwören	PW	A
+Schleichen	PW	S
+Schlittenfahren	PW	S
+Schlittschuhlaufen	PW	S
+Schlösser öffnen	PW	A
+Schmerzen ertragen	PW	A
+Schwerttanz	PW	A
+Schwimmen	PW	S
+Segeln	PW	S
+Seilkunst	PW	S
+Siegelfälschung	PW	S
+Siegelkunde	PW	S
+Singen	PW	G
+Singen (Stufe)	PW	G
+Skifahren	PW	S
+Sprache	PW	G
+Springen	PW	A
+Spurenlesen	PW	A
+Srimara lenken	PW	A
+Stehlen	PW	A
+Fälschen	PT	S
+Steinabreibungen machen	PW	G
+Stimmen nachahmen	PW	S
+Streitwagen lenken	PW	A
+TaiTschi	PW	G
+Talisman verzaubern	PW	S
+Tanzen	PW	S
+Tarnen	PW	S
+Tauchen	PW	A
+Teezeremonie	PW	G
+Tierkunde	PW	S
+Trinken	PW	S
+Verbergen	PW	S
+Verführen	PW	A
+Verhören	PW	S
+Verkleiden	PW	A
+Wagenlenken	PW	S
+Wahrnehmung	PW	S
+Werfen	PW	S
+Wetterkunde	PW	S
+Winden	PW	A
+Wissen von der Magie	PW	G
+YangScheng	PW	G
+YubeChian	PW	S
+Zauberkunde	PW	G
+Zeichensprache	PW	S
+Zunge verschlucken	PW	S
+Überleben im Dschungel	PW	S
+Überleben im Gebirge	PW	S
+Überleben im Schnee	PW	S
+Überleben im Sumpf	PW	S
+Überleben im Wald	PW	S
+Überleben in der Steppe	PW	S
+Überleben in der Wüste	PW	S
+Alchemie	Sc	S
+Askese	Sc	S
+Astrologie	Sc	S
+Athletik	Sc	S
+Augensalbe herstellen	Sc	S
+Balancieren	Sc	S
+Ballista bedienen	Sc	A
+Beidhändiger Kampf	Sc	A
+Beredsamkeit	Sc	S
+Beschatten	Sc	S
+Bogen vom Streitwagen	Sc	A
+Bogen zu Pferd	Sc	A
+Brettspiel	Sc	A
+Dichten	Sc	S
+Elefanten lenken	Sc	A
+Erste Hilfe	Sc	G
+Erzählen	Sc	S
+Etikette	Sc	A
+Fallen	Sc	S
+Fallen entdecken	Sc	A
+Fallen entschärfen	Sc	A
+Fallenmechanik	Sc	A
+Fallenstellen	Sc	G
+Fangen	Sc	S
+Faustkampf	Sc	S
+Fechten	Sc	A
+Fechten tevarischer Stil	Sc	A
+FengSchui	Sc	S
+FengTsu	Sc	A
+Fälschen	Sc	A
+Gassenwissen	Sc	S
+Geheimmechanismen öffnen	Sc	A
+Geheimzeichen	Sc	S
+Geländelauf	Sc	G
+Geomantie	Sc	G
+Geschenke machen	Sc	S
+Geschichten erzählen	Sc	S
+Geschäftstüchtigkeit	Sc	S
+Giftmischen	Sc	G
+Glücksspiel	Sc	S
+Heraldik	Sc	A
+Himmelskunde	Sc	G
+IaiJutsu	Sc	A
+Jonglieren	Sc	S
+Siegelkunde	PT	S
+Singen	PT	G
+Singen (Stufe)	PT	G
+Skifahren	PT	S
+Sprache	PT	S
+Springen	PT	A
+Spurenlesen	PT	A
+Srimara lenken	PT	A
+Stehlen	PT	A
+Steinabreibungen machen	PT	G
+Stimmen nachahmen	PT	S
+Streitwagen lenken	PT	A
+TaiTschi	PT	G
+Talisman verzaubern	PT	S
+Tanzen	PT	S
+Tarnen	PT	S
+Tauchen	PT	A
+Teezeremonie	PT	G
+Tierkunde	PT	S
+Trinken	PT	S
+Verbergen	PT	S
+Verführen	PT	A
+Verhören	PT	G
+Verkleiden	PT	A
+Wagenlenken	PT	S
+Wahrnehmung	PT	S
+Werfen	PT	S
+Wetterkunde	PT	S
+Winden	PT	A
+Wissen von der Magie	PT	G
+YangScheng	PT	A
+YubeChian	PT	S
+Zauberkunde	PT	S
+Zeichensprache	PT	S
+Zunge verschlucken	PT	S
+Überleben im Dschungel	PT	S
+Überleben im Gebirge	PT	S
+Überleben im Schnee	PT	S
+Überleben im Sumpf	PT	S
+Überleben im Wald	PT	S
+Überleben in der Steppe	PT	S
+Überleben in der Wüste	PT	S
+Alchemie	PW	S
+Askese	PW	S
+Astrologie	PW	G
+Athletik	PW	A
+Augensalbe herstellen	PW	S
+Balancieren	PW	S
+Ballista bedienen	PW	A
+Beidhändiger Kampf	PW	A
+Beredsamkeit	PW	S
+Beschatten	PW	S
+Bogen vom Streitwagen	PW	A
+Bogen zu Pferd	PW	A
+Brettspiel	PW	G
+Dichten	PW	S
+Elefanten lenken	PW	A
+Erste Hilfe	PW	S
+Erzählen	PW	S
+Etikette	PW	G
+Fallen	PW	S
+Fallen entdecken	PW	A
+Fallen entschärfen	PW	A
+Fallenmechanik	PW	A
+Fallenstellen	PW	A
+Fangen	PW	S
+Faustkampf	PW	A
+Fechten	PW	A
+Fechten tevarischer Stil	PW	A
+FengSchui	PW	S
+FengTsu	PW	A
+Fälschen	PW	S
+Gassenwissen	PW	S
+Geheimmechanismen öffnen	PW	S
+Geheimzeichen	PW	S
+Geländelauf	PW	S
+Geomantie	PW	S
+Geschenke machen	PW	S
+Geschichten erzählen	PW	S
+Geschäftstüchtigkeit	PW	S
+Giftmischen	PW	S
+Glücksspiel	PW	S
+Heraldik	PW	A
+Himmelskunde	PW	S
+IaiJutsu	PW	A
+Jonglieren	PW	A
+Kalligraphie	PW	G
+Kamelreiten	PW	S
+Kampf in Dunkelheit	PW	A
+Kampf in Schlachtreihe	PW	A
+Kampf in Vollrüstung	PW	A
+Kampf vom Streitwagen	PW	A
+Kampf zu Elefant	PW	A
+Kampf zu Kamel	PW	A
+Kampf zu Pferd	PW	A
+Kampf zu Srimara	PW	A
+Kampftaktik	PW	A
+Kanufahren	PW	S
+KarumiJutsu	PW	S
+Katapult bedienen	PW	A
+Kenntnis der fünf Klassiker	PW	S
+KentoYobu	PW	A
+KiDo	PW	A
+Klettern	PW	S
+Kräuterkunde	PW	S
+KujKuri	PW	A
+KujNoIu	PW	S
+Körperbemalung	PW	S
+Körperkontrolle	PW	A
+Lanzenstechen	PW	A
+Laufen	PW	A
+Lesen von Zauberschrift	PW	G
+Lesen/Schreiben	PW	G
+LiYao	PW	A
+Lippenlesen	PW	S
+Luftkampf	PW	A
+YubeChian	PM	S
+Zauberkunde	PM	S
+Zeichensprache	PM	S
+Zunge verschlucken	PM	S
+Überleben im Dschungel	PM	S
+Überleben im Gebirge	PM	S
+Überleben im Schnee	PM	S
+Überleben im Sumpf	PM	S
+Überleben im Wald	PM	S
+Überleben in der Steppe	PM	S
+Überleben in der Wüste	PM	S
+Alchemie	PT	S
+Askese	PT	S
+Astrologie	PT	G
+Athletik	PT	A
+Augensalbe herstellen	PT	S
+Balancieren	PT	S
+Ballista bedienen	PT	A
+Beidhändiger Kampf	PT	A
+Beredsamkeit	PT	S
+Beschatten	PT	S
+Bogen vom Streitwagen	PT	A
+Bogen zu Pferd	PT	A
+Brettspiel	PT	G
+Dichten	PT	S
+Elefanten lenken	PT	A
+Erste Hilfe	PT	S
+Erzählen	PT	S
+Etikette	PT	G
+Fallen	PT	S
+Fallen entdecken	PT	A
+Fallen entschärfen	PT	A
+Fallenmechanik	PT	A
+Fallenstellen	PT	A
+Fangen	PT	S
+Faustkampf	PT	A
+Fechten	PT	A
+Fechten tevarischer Stil	PT	A
+FengSchui	PT	S
+Gassenwissen	PT	S
+Geheimmechanismen öffnen	PT	S
+Geheimzeichen	PT	S
+Geländelauf	PT	S
+Geomantie	PT	S
+Geschenke machen	PT	S
+Geschichten erzählen	PT	S
+Geschäftstüchtigkeit	PT	S
+Giftmischen	PT	G
+Glücksspiel	PT	S
+Heraldik	PT	A
+Himmelskunde	PT	S
+IaiJutsu	PT	A
+Jonglieren	PT	A
+Kalligraphie	PT	G
+Kamelreiten	PT	S
+Kampf in Dunkelheit	PT	A
+Kampf in Schlachtreihe	PT	A
+Kampf in Vollrüstung	PT	A
+Kampf vom Streitwagen	PT	A
+Kampf zu Elefant	PT	A
+Kampf zu Kamel	PT	A
+Kampf zu Pferd	PT	A
+Kampf zu Srimara	PT	A
+Kampftaktik	PT	A
+Kanufahren	PT	S
+KarumiJutsu	PT	S
+Katapult bedienen	PT	A
+Kenntnis der fünf Klassiker	PT	S
+KentoYobu	PT	A
+KiDo	PT	A
+Klettern	PT	S
+Kräuterkunde	PT	S
+KujKuri	PT	A
+KujNoIu	PT	S
+Körperbemalung	PT	S
+Körperkontrolle	PT	A
+Lanzenstechen	PT	A
+Laufen	PT	A
+Lesen von Zauberschrift	PT	G
+Lesen/Schreiben	PT	G
+LiYao	PT	A
+Lippenlesen	PT	S
+Luftkampf	PT	A
+Malen/Zeichen	PT	S
+Meditieren	PT	A
+Menschenkenntnis	PT	S
+Meucheln	PT	A
+MiChen	PT	S
+Mumifizieren	PT	G
+Musizieren	PT	S
+Naturkunde	PT	S
+Natya	PT	S
+NinJutsu	PT	S
+Orakelkunst	PT	G
+Pflanzenkunde	PT	S
+Pyromantie	PT	S
+Rechnen	PT	S
+Reiten	PT	S
+Rudern	PT	S
+Sagenkunde	PT	G
+Scharfschießen	PT	A
+Schiffsführung	PT	S
+SchiyoKi	PT	G
+Schlangen beschwören	PT	A
+Schleichen	PT	S
+Schlittenfahren	PT	S
+Schlittschuhlaufen	PT	S
+Schlösser öffnen	PT	A
+Schmerzen ertragen	PT	A
+Schwerttanz	PT	A
+Schwimmen	PT	S
+Segeln	PT	S
+Seilkunst	PT	S
+Siegelfälschung	PT	S
+Fallen	PM	S
+Fallen entdecken	PM	A
+Fallen entschärfen	PM	A
+Fallenmechanik	PM	A
+Fallenstellen	PM	A
+Fangen	PM	S
+Faustkampf	PM	A
+Fechten	PM	A
+Fechten tevarischer Stil	PM	A
+FengSchui	PM	S
+FengTsu	PM	A
+Fälschen	PM	S
+Gassenwissen	PM	S
+Geheimmechanismen öffnen	PM	S
+Geheimzeichen	PM	S
+Geländelauf	PM	S
+Geomantie	PM	S
+Geschenke machen	PM	S
+Geschichten erzählen	PM	S
+Geschäftstüchtigkeit	PM	S
+Giftmischen	PM	S
+Glücksspiel	PM	S
+Heraldik	PM	A
+Himmelskunde	PM	S
+IaiJutsu	PM	A
+Jonglieren	PM	A
+Kalligraphie	PM	G
+Kamelreiten	PM	S
+Kampf in Dunkelheit	PM	A
+Kampf in Schlachtreihe	PM	A
+Kampf in Vollrüstung	PM	A
+Kampf vom Streitwagen	PM	A
+Kampf zu Elefant	PM	A
+Kampf zu Kamel	PM	A
+Kampf zu Pferd	PM	A
+Kampf zu Srimara	PM	A
+Kampftaktik	PM	A
+Kanufahren	PM	S
+KarumiJutsu	PM	S
+Katapult bedienen	PM	A
+Kenntnis der fünf Klassiker	PM	S
+KentoYobu	PM	A
+KiDo	PM	A
+Klettern	PM	S
+Kräuterkunde	PM	S
+KujKuri	PM	A
+KujNoIu	PM	S
+Körperbemalung	PM	S
+Körperkontrolle	PM	A
+Lanzenstechen	PM	A
+Laufen	PM	A
+Lesen von Zauberschrift	PM	G
+Lesen/Schreiben	PM	G
+LiYao	PM	A
+Lippenlesen	PM	S
+Luftkampf	PM	A
+Malen/Zeichen	PM	S
+Meditieren	PM	A
+Menschenkenntnis	PM	S
+Meucheln	PM	A
+MiChen	PM	S
+Mumifizieren	PM	S
+Musizieren	PM	S
+Naturkunde	PM	S
+Natya	PM	S
+NinJutsu	PM	S
+Orakelkunst	PM	G
+Pflanzenkunde	PM	S
+Pyromantie	PM	S
+Rechnen	PM	S
+Reiten	PM	S
+Rudern	PM	S
+Sagenkunde	PM	G
+Scharfschießen	PM	A
+Schiffsführung	PM	S
+SchiyoKi	PM	G
+Schlangen beschwören	PM	A
+Schleichen	PM	S
+Schlittenfahren	PM	S
+Schlittschuhlaufen	PM	S
+Schlösser öffnen	PM	A
+Schmerzen ertragen	PM	A
+Schwerttanz	PM	A
+Schwimmen	PM	G
+Segeln	PM	S
+Seilkunst	PM	S
+Siegelfälschung	PM	S
+Siegelkunde	PM	S
+Singen	PM	G
+Singen (Stufe)	PM	G
+Skifahren	PM	S
+Sprache	PM	S
+Springen	PM	A
+Spurenlesen	PM	A
+Srimara lenken	PM	A
+Stehlen	PM	A
+Steinabreibungen machen	PM	G
+Stimmen nachahmen	PM	S
+Streitwagen lenken	PM	A
+TaiTschi	PM	G
+Talisman verzaubern	PM	S
+Tanzen	PM	S
+Tarnen	PM	S
+Tauchen	PM	S
+Teezeremonie	PM	G
+Tierkunde	PM	S
+Trinken	PM	S
+Verbergen	PM	S
+Verführen	PM	A
+Verhören	PM	S
+Verkleiden	PM	A
+Wagenlenken	PM	S
+Wahrnehmung	PM	S
+Werfen	PM	S
+Wetterkunde	PM	G
+Winden	PM	A
+Wissen von der Magie	PM	G
+YangScheng	PM	G
+Kampf in Vollrüstung	PK	A
+Kampf vom Streitwagen	PK	A
+Kampf zu Elefant	PK	A
+Kampf zu Kamel	PK	A
+Kampf zu Pferd	PK	S
+Kampf zu Srimara	PK	A
+Kampftaktik	PK	S
+Kanufahren	PK	S
+KarumiJutsu	PK	S
+Katapult bedienen	PK	A
+Kenntnis der fünf Klassiker	PK	S
+KentoYobu	PK	A
+KiDo	PK	S
+Klettern	PK	S
+Kräuterkunde	PK	S
+KujKuri	PK	A
+KujNoIu	PK	S
+Körperbemalung	PK	S
+Körperkontrolle	PK	A
+Lanzenstechen	PK	S
+Laufen	PK	A
+Lesen von Zauberschrift	PK	G
+Lesen/Schreiben	PK	G
+LiYao	PK	S
+Lippenlesen	PK	S
+Luftkampf	PK	S
+Malen/Zeichen	PK	S
+Meditieren	PK	A
+Menschenkenntnis	PK	S
+Meucheln	PK	A
+MiChen	PK	S
+Mumifizieren	PK	S
+Musizieren	PK	S
+Naturkunde	PK	S
+Natya	PK	S
+NinJutsu	PK	S
+Orakelkunst	PK	G
+Pflanzenkunde	PK	S
+Pyromantie	PK	S
+Rechnen	PK	S
+Reiten	PK	G
+Rudern	PK	S
+Sagenkunde	PK	G
+Scharfschießen	PK	A
+Schiffsführung	PK	S
+SchiyoKi	PK	G
+Schlangen beschwören	PK	A
+Schleichen	PK	S
+Schlittenfahren	PK	S
+Schlittschuhlaufen	PK	S
+Schlösser öffnen	PK	A
+Schmerzen ertragen	PK	A
+Schwerttanz	PK	G
+Schwimmen	PK	S
+Segeln	PK	S
+Seilkunst	PK	S
+Siegelfälschung	PK	S
+Siegelkunde	PK	S
+Singen	PK	G
+Singen (Stufe)	PK	G
+Skifahren	PK	S
+Sprache	PK	S
+Springen	PK	A
+Spurenlesen	PK	A
+Srimara lenken	PK	A
+Stehlen	PK	A
+Steinabreibungen machen	PK	G
+Stimmen nachahmen	PK	S
+Streitwagen lenken	PK	G
+TaiTschi	PK	G
+Talisman verzaubern	PK	S
+Tanzen	PK	S
+Tarnen	PK	S
+Tauchen	PK	A
+Teezeremonie	PK	G
+Tierkunde	PK	S
+Trinken	PK	S
+Verbergen	PK	S
+Verführen	PK	A
+Verhören	PK	S
+Verkleiden	PK	A
+Wagenlenken	PK	S
+Wahrnehmung	PK	S
+Werfen	PK	S
+Wetterkunde	PK	S
+Winden	PK	A
+Wissen von der Magie	PK	G
+YangScheng	PK	G
+YubeChian	PK	S
+Zauberkunde	PK	S
+Zeichensprache	PK	S
+Zunge verschlucken	PK	S
+Überleben im Dschungel	PK	S
+Überleben im Gebirge	PK	S
+Überleben im Schnee	PK	S
+Überleben im Sumpf	PK	S
+Überleben im Wald	PK	S
+Überleben in der Steppe	PK	S
+Überleben in der Wüste	PK	S
+Alchemie	PM	S
+Askese	PM	S
+Astrologie	PM	G
+Athletik	PM	A
+Augensalbe herstellen	PM	S
+Balancieren	PM	S
+Ballista bedienen	PM	A
+Beidhändiger Kampf	PM	A
+Beredsamkeit	PM	S
+Beschatten	PM	S
+Bogen vom Streitwagen	PM	A
+Bogen zu Pferd	PM	A
+Brettspiel	PM	G
+Dichten	PM	S
+Elefanten lenken	PM	A
+Erste Hilfe	PM	S
+Erzählen	PM	S
+Etikette	PM	G
+MiChen	PF	S
+Mumifizieren	PF	S
+Musizieren	PF	S
+Naturkunde	PF	S
+Natya	PF	S
+NinJutsu	PF	S
+Orakelkunst	PF	G
+Pflanzenkunde	PF	G
+Pyromantie	PF	S
+Rechnen	PF	S
+Reiten	PF	S
+Rudern	PF	S
+Sagenkunde	PF	G
+Scharfschießen	PF	A
+Schiffsführung	PF	S
+SchiyoKi	PF	G
+Schlangen beschwören	PF	A
+Schleichen	PF	S
+Schlittenfahren	PF	S
+Schlittschuhlaufen	PF	S
+Schlösser öffnen	PF	A
+Schmerzen ertragen	PF	A
+Schwerttanz	PF	A
+Schwimmen	PF	S
+Segeln	PF	S
+Seilkunst	PF	S
+Siegelfälschung	PF	S
+Siegelkunde	PF	S
+Singen	PF	G
+Singen (Stufe)	PF	G
+Skifahren	PF	S
+Sprache	PF	S
+Springen	PF	A
+Spurenlesen	PF	A
+Srimara lenken	PF	A
+Stehlen	PF	A
+Steinabreibungen machen	PF	G
+Stimmen nachahmen	PF	S
+Streitwagen lenken	PF	A
+TaiTschi	PF	G
+Talisman verzaubern	PF	S
+Tanzen	PF	S
+Tarnen	PF	S
+Tauchen	PF	A
+Teezeremonie	PF	G
+Tierkunde	PF	G
+Trinken	PF	S
+Verbergen	PF	S
+Verführen	PF	S
+Verhören	PF	S
+Verkleiden	PF	A
+Wagenlenken	PF	S
+Wahrnehmung	PF	S
+Werfen	PF	S
+Wetterkunde	PF	G
+Winden	PF	A
+Wissen von der Magie	PF	G
+YangScheng	PF	G
+YubeChian	PF	S
+Zauberkunde	PF	S
+Zeichensprache	PF	S
+Zunge verschlucken	PF	S
+Überleben im Dschungel	PF	S
+Überleben im Gebirge	PF	S
+Überleben im Schnee	PF	S
+Überleben im Sumpf	PF	S
+Überleben im Wald	PF	S
+Überleben in der Steppe	PF	S
+Überleben in der Wüste	PF	S
+Alchemie	PK	S
+Askese	PK	S
+Astrologie	PK	G
+Athletik	PK	S
+Augensalbe herstellen	PK	S
+Balancieren	PK	S
+Ballista bedienen	PK	A
+Beidhändiger Kampf	PK	A
+Beredsamkeit	PK	S
+Beschatten	PK	S
+Bogen vom Streitwagen	PK	A
+Bogen zu Pferd	PK	A
+Brettspiel	PK	G
+Dichten	PK	S
+Elefanten lenken	PK	A
+Erste Hilfe	PK	S
+Erzählen	PK	S
+Etikette	PK	G
+Fallen	PK	S
+Fallen entdecken	PK	A
+Fallen entschärfen	PK	A
+Fallenmechanik	PK	A
+Fallenstellen	PK	A
+Fangen	PK	S
+Faustkampf	PK	A
+Fechten	PK	A
+Fechten tevarischer Stil	PK	A
+FengSchui	PK	S
+FengTsu	PK	S
+Fälschen	PK	S
+Gassenwissen	PK	S
+Geheimmechanismen öffnen	PK	S
+Geheimzeichen	PK	S
+Geländelauf	PK	S
+Geomantie	PK	S
+Geschenke machen	PK	S
+Geschichten erzählen	PK	S
+Geschäftstüchtigkeit	PK	S
+Giftmischen	PK	S
+Glücksspiel	PK	S
+Heraldik	PK	A
+Himmelskunde	PK	S
+IaiJutsu	PK	G
+Jonglieren	PK	A
+Kalligraphie	PK	A
+Kamelreiten	PK	S
+Kampf in Dunkelheit	PK	A
+Kampf in Schlachtreihe	PK	A
+Sprache	PC	S
+Springen	PC	A
+Spurenlesen	PC	A
+Srimara lenken	PC	A
+Stehlen	PC	A
+Steinabreibungen machen	PC	G
+Stimmen nachahmen	PC	S
+Streitwagen lenken	PC	A
+TaiTschi	PC	G
+Talisman verzaubern	PC	S
+Tanzen	PC	S
+Tarnen	PC	S
+Tauchen	PC	A
+Teezeremonie	PC	G
+Tierkunde	PC	S
+Trinken	PC	S
+Verbergen	PC	S
+Verführen	PC	A
+Verhören	PC	S
+Verkleiden	PC	A
+Wagenlenken	PC	S
+Wahrnehmung	PC	S
+Werfen	PC	S
+Wetterkunde	PC	S
+Winden	PC	A
+Wissen von der Magie	PC	G
+YangScheng	PC	G
+YubeChian	PC	S
+Zauberkunde	PC	S
+Zeichensprache	PC	S
+Zunge verschlucken	PC	S
+Überleben im Dschungel	PC	S
+Überleben im Gebirge	PC	S
+Überleben im Schnee	PC	S
+Überleben im Sumpf	PC	S
+Überleben im Wald	PC	S
+Überleben in der Steppe	PC	S
+Überleben in der Wüste	PC	S
+Alchemie	PF	S
+Askese	PF	A
+Astrologie	PF	G
+Athletik	PF	A
+Augensalbe herstellen	PF	S
+Balancieren	PF	S
+Ballista bedienen	PF	A
+Beidhändiger Kampf	PF	A
+Beredsamkeit	PF	S
+Beschatten	PF	S
+Bogen vom Streitwagen	PF	A
+Bogen zu Pferd	PF	A
+Brettspiel	PF	G
+Dichten	PF	S
+Elefanten lenken	PF	A
+Erste Hilfe	PF	G
+Erzählen	PF	S
+Etikette	PF	G
+Fallen	PF	S
+Fallen entdecken	PF	A
+Fallen entschärfen	PF	A
+Fallenmechanik	PF	A
+Fallenstellen	PF	A
+Fangen	PF	S
+Faustkampf	PF	A
+Fechten	PF	A
+Fechten tevarischer Stil	PF	A
+FengSchui	PF	S
+FengTsu	PF	A
+Fälschen	PF	S
+Gassenwissen	PF	S
+Geheimmechanismen öffnen	PF	S
+Geheimzeichen	PF	S
+Geländelauf	PF	S
+Geomantie	PF	G
+Geschenke machen	PF	S
+Geschichten erzählen	PF	S
+Geschäftstüchtigkeit	PF	S
+Giftmischen	PF	A
+Glücksspiel	PF	S
+Heraldik	PF	A
+Himmelskunde	PF	S
+IaiJutsu	PF	A
+Jonglieren	PF	A
+Kalligraphie	PF	G
+Kamelreiten	PF	S
+Kampf in Dunkelheit	PF	A
+Kampf in Schlachtreihe	PF	A
+Kampf in Vollrüstung	PF	A
+Kampf vom Streitwagen	PF	A
+Kampf zu Elefant	PF	A
+Kampf zu Kamel	PF	A
+Kampf zu Pferd	PF	A
+Kampf zu Srimara	PF	A
+Kampftaktik	PF	A
+Kanufahren	PF	S
+KarumiJutsu	PF	S
+Katapult bedienen	PF	A
+Kenntnis der fünf Klassiker	PF	S
+KentoYobu	PF	A
+KiDo	PF	A
+Klettern	PF	S
+Kräuterkunde	PF	S
+KujKuri	PF	A
+KujNoIu	PF	S
+Körperbemalung	PF	S
+Körperkontrolle	PF	A
+Lanzenstechen	PF	A
+Laufen	PF	A
+Lesen von Zauberschrift	PF	G
+Lesen/Schreiben	PF	G
+LiYao	PF	A
+Lippenlesen	PF	S
+Luftkampf	PF	A
+Malen/Zeichen	PF	S
+Meditieren	PF	A
+Menschenkenntnis	PF	S
+Meucheln	PF	A
+Überleben im Dschungel	Ord	S
+Überleben im Gebirge	Ord	S
+Überleben im Schnee	Ord	S
+Überleben im Sumpf	Ord	S
+Überleben im Wald	Ord	S
+Überleben in der Steppe	Ord	S
+Überleben in der Wüste	Ord	S
+Alchemie	PC	S
+Askese	PC	S
+Astrologie	PC	G
+Athletik	PC	A
+Augensalbe herstellen	PC	S
+Balancieren	PC	S
+Ballista bedienen	PC	A
+Beidhändiger Kampf	PC	A
+Beredsamkeit	PC	S
+Beschatten	PC	S
+Bogen vom Streitwagen	PC	A
+Bogen zu Pferd	PC	A
+Brettspiel	PC	G
+Dichten	PC	S
+Elefanten lenken	PC	A
+Erste Hilfe	PC	S
+Erzählen	PC	S
+Etikette	PC	G
+Fallen	PC	S
+Fallen entdecken	PC	A
+Fallen entschärfen	PC	A
+Fallenmechanik	PC	A
+Fallenstellen	PC	A
+Fangen	PC	S
+Faustkampf	PC	A
+Fechten	PC	A
+Fechten tevarischer Stil	PC	A
+FengSchui	PC	S
+FengTsu	PC	A
+Fälschen	PC	S
+Gassenwissen	PC	S
+Geheimmechanismen öffnen	PC	S
+Geheimzeichen	PC	S
+Geländelauf	PC	S
+Geomantie	PC	S
+Geschenke machen	PC	S
+Geschichten erzählen	PC	S
+Geschäftstüchtigkeit	PC	S
+Giftmischen	PC	S
+Glücksspiel	PC	S
+Heraldik	PC	A
+Himmelskunde	PC	S
+IaiJutsu	PC	A
+Jonglieren	PC	A
+Kalligraphie	PC	G
+Kamelreiten	PC	S
+Kampf in Dunkelheit	PC	A
+Kampf in Schlachtreihe	PC	A
+Kampf in Vollrüstung	PC	A
+Kampf vom Streitwagen	PC	A
+Kampf zu Elefant	PC	A
+Kampf zu Kamel	PC	A
+Kampf zu Pferd	PC	A
+Kampf zu Srimara	PC	A
+Kampftaktik	PC	A
+Kanufahren	PC	S
+KarumiJutsu	PC	S
+Katapult bedienen	PC	A
+Kenntnis der fünf Klassiker	PC	S
+KentoYobu	PC	A
+KiDo	PC	S
+Klettern	PC	S
+Kräuterkunde	PC	S
+KujKuri	PC	A
+KujNoIu	PC	S
+Körperbemalung	PC	S
+Körperkontrolle	PC	A
+Lanzenstechen	PC	A
+Laufen	PC	A
+Lesen von Zauberschrift	PC	G
+Lesen/Schreiben	PC	G
+LiYao	PC	A
+Lippenlesen	PC	S
+Luftkampf	PC	A
+Malen/Zeichen	PC	S
+Meditieren	PC	A
+Menschenkenntnis	PC	S
+Meucheln	PC	A
+MiChen	PC	S
+Mumifizieren	PC	S
+Musizieren	PC	S
+Naturkunde	PC	S
+Natya	PC	S
+NinJutsu	PC	S
+Orakelkunst	PC	G
+Pflanzenkunde	PC	S
+Pyromantie	PC	S
+Rechnen	PC	S
+Reiten	PC	S
+Rudern	PC	S
+Sagenkunde	PC	G
+Scharfschießen	PC	A
+Schiffsführung	PC	S
+SchiyoKi	PC	G
+Schlangen beschwören	PC	A
+Schleichen	PC	S
+Schlittenfahren	PC	S
+Schlittschuhlaufen	PC	S
+Schlösser öffnen	PC	A
+Schmerzen ertragen	PC	A
+Schwerttanz	PC	A
+Schwimmen	PC	S
+Segeln	PC	S
+Seilkunst	PC	S
+Siegelfälschung	PC	S
+Siegelkunde	PC	S
+Singen	PC	G
+Singen (Stufe)	PC	G
+Skifahren	PC	S
+Fallenstellen	Ord	S
+Fangen	Ord	S
+Faustkampf	Ord	S
+Fechten	Ord	S
+Fechten tevarischer Stil	Ord	S
+FengSchui	Ord	G
+FengTsu	Ord	G
+Fälschen	Ord	A
+Gassenwissen	Ord	S
+Geheimmechanismen öffnen	Ord	S
+Geheimzeichen	Ord	S
+Geländelauf	Ord	S
+Geomantie	Ord	S
+Geschenke machen	Ord	S
+Geschichten erzählen	Ord	S
+Geschäftstüchtigkeit	Ord	S
+Giftmischen	Ord	S
+Glücksspiel	Ord	S
+Heraldik	Ord	A
+Himmelskunde	Ord	S
+IaiJutsu	Ord	G
+Jonglieren	Ord	S
+Kalligraphie	Ord	S
+Kamelreiten	Ord	G
+Kampf in Dunkelheit	Ord	S
+Kampf in Schlachtreihe	Ord	S
+Kampf in Vollrüstung	Ord	S
+Kampf vom Streitwagen	Ord	S
+Kampf zu Elefant	Ord	A
+Kampf zu Kamel	Ord	S
+Kampf zu Pferd	Ord	S
+Kampf zu Srimara	Ord	A
+Kampftaktik	Ord	S
+Kanufahren	Ord	S
+KarumiJutsu	Ord	A
+Katapult bedienen	Ord	S
+Kenntnis der fünf Klassiker	Ord	S
+KentoYobu	Ord	G
+KiDo	Ord	G
+Klettern	Ord	S
+Kräuterkunde	Ord	S
+KujKuri	Ord	A
+KujNoIu	Ord	S
+Körperbemalung	Ord	S
+Körperkontrolle	Ord	A
+Lanzenstechen	Ord	S
+Laufen	Ord	S
+Lesen von Zauberschrift	Ord	A
+Lesen/Schreiben	Ord	S
+LiYao	Ord	S
+Lippenlesen	Ord	S
+Luftkampf	Ord	G
+Malen/Zeichen	Ord	A
+Meditieren	Ord	A
+Menschenkenntnis	Ord	S
+Meucheln	Ord	S
+MiChen	Ord	S
+Mumifizieren	Ord	A
+Musizieren	Ord	S
+Naturkunde	Ord	S
+Natya	Ord	A
+NinJutsu	Ord	A
+Orakelkunst	Ord	S
+Pflanzenkunde	Ord	S
+Pyromantie	Ord	A
+Rechnen	Ord	S
+Reiten	Ord	G
+Rudern	Ord	S
+Sagenkunde	Ord	S
+Scharfschießen	Ord	S
+Schiffsführung	Ord	S
+SchiyoKi	Ord	G
+Schlangen beschwören	Ord	A
+Schleichen	Ord	S
+Schlittenfahren	Ord	S
+Schlittschuhlaufen	Ord	S
+Schlösser öffnen	Ord	S
+Schmerzen ertragen	Ord	A
+Schwerttanz	Ord	G
+Schwimmen	Ord	G
+Segeln	Ord	S
+Seilkunst	Ord	S
+Siegelfälschung	Ord	A
+Siegelkunde	Ord	S
+Singen	Ord	S
+Singen (Stufe)	Ord	S
+Skifahren	Ord	S
+Sprache	Ord	S
+Springen	Ord	S
+Spurenlesen	Ord	S
+Srimara lenken	Ord	A
+Stehlen	Ord	A
+Steinabreibungen machen	Ord	S
+Stimmen nachahmen	Ord	S
+Streitwagen lenken	Ord	S
+TaiTschi	Ord	G
+Talisman verzaubern	Ord	S
+Tanzen	Ord	S
+Tarnen	Ord	S
+Tauchen	Ord	S
+Teezeremonie	Ord	G
+Tierkunde	Ord	S
+Trinken	Ord	S
+Verbergen	Ord	S
+Verführen	Ord	S
+Verhören	Ord	S
+Verkleiden	Ord	S
+Wagenlenken	Ord	S
+Wahrnehmung	Ord	S
+Werfen	Ord	S
+Wetterkunde	Ord	A
+Winden	Ord	S
+Wissen von der Magie	Ord	S
+YangScheng	Ord	G
+YubeChian	Ord	S
+Zauberkunde	Ord	A
+Zeichensprache	Ord	S
+Zunge verschlucken	Ord	S
+Kampf zu Pferd	Ma	A
+Kampf zu Srimara	Ma	A
+Kampftaktik	Ma	A
+Kanufahren	Ma	S
+KarumiJutsu	Ma	S
+Katapult bedienen	Ma	A
+Kenntnis der fünf Klassiker	Ma	S
+KentoYobu	Ma	A
+KiDo	Ma	A
+Klettern	Ma	S
+Kräuterkunde	Ma	G
+KujKuri	Ma	A
+KujNoIu	Ma	S
+Körperbemalung	Ma	A
+Körperkontrolle	Ma	A
+Lanzenstechen	Ma	A
+Laufen	Ma	A
+Lesen von Zauberschrift	Ma	G
+Lesen/Schreiben	Ma	G
+LiYao	Ma	S
+Lippenlesen	Ma	S
+Luftkampf	Ma	A
+Malen/Zeichen	Ma	S
+Meditieren	Ma	A
+Menschenkenntnis	Ma	S
+Meucheln	Ma	A
+MiChen	Ma	A
+Mumifizieren	Ma	S
+Musizieren	Ma	S
+Naturkunde	Ma	S
+Natya	Ma	A
+NinJutsu	Ma	S
+Orakelkunst	Ma	S
+Pflanzenkunde	Ma	S
+Pyromantie	Ma	A
+Rechnen	Ma	S
+Reiten	Ma	S
+Rudern	Ma	S
+Sagenkunde	Ma	G
+Scharfschießen	Ma	A
+Schiffsführung	Ma	S
+SchiyoKi	Ma	S
+Schlangen beschwören	Ma	A
+Schleichen	Ma	S
+Schlittenfahren	Ma	S
+Schlittschuhlaufen	Ma	S
+Schlösser öffnen	Ma	A
+Schmerzen ertragen	Ma	A
+Schwerttanz	Ma	A
+Schwimmen	Ma	S
+Segeln	Ma	S
+Seilkunst	Ma	S
+Siegelfälschung	Ma	S
+Siegelkunde	Ma	S
+Singen	Ma	S
+Singen (Stufe)	Ma	S
+Skifahren	Ma	S
+Sprache	Ma	S
+Springen	Ma	A
+Spurenlesen	Ma	A
+Srimara lenken	Ma	A
+Stehlen	Ma	A
+Steinabreibungen machen	Ma	G
+Stimmen nachahmen	Ma	S
+Streitwagen lenken	Ma	A
+TaiTschi	Ma	S
+Talisman verzaubern	Ma	A
+Tanzen	Ma	S
+Tarnen	Ma	S
+Tauchen	Ma	A
+Teezeremonie	Ma	S
+Tierkunde	Ma	S
+Trinken	Ma	S
+Verbergen	Ma	S
+Verführen	Ma	A
+Verhören	Ma	S
+Verkleiden	Ma	A
+Wagenlenken	Ma	S
+Wahrnehmung	Ma	S
+Werfen	Ma	S
+Wetterkunde	Ma	A
+Winden	Ma	A
+Wissen von der Magie	Ma	G
+YangScheng	Ma	S
+YubeChian	Ma	A
+Zauberkunde	Ma	G
+Zeichensprache	Ma	S
+Zunge verschlucken	Ma	S
+Überleben im Dschungel	Ma	S
+Überleben im Gebirge	Ma	S
+Überleben im Schnee	Ma	S
+Überleben im Sumpf	Ma	S
+Überleben im Wald	Ma	S
+Überleben in der Steppe	Ma	S
+Überleben in der Wüste	Ma	S
+Alchemie	Ord	A
+Askese	Ord	A
+Astrologie	Ord	A
+Athletik	Ord	S
+Augensalbe herstellen	Ord	S
+Balancieren	Ord	S
+Ballista bedienen	Ord	S
+Beidhändiger Kampf	Ord	S
+Beredsamkeit	Ord	S
+Beschatten	Ord	S
+Bogen vom Streitwagen	Ord	S
+Bogen zu Pferd	Ord	S
+Brettspiel	Ord	S
+Dichten	Ord	S
+Elefanten lenken	Ord	A
+Erste Hilfe	Ord	S
+Erzählen	Ord	S
+Etikette	Ord	S
+Fallen	Ord	S
+Fallen entdecken	Ord	A
+Fallen entschärfen	Ord	S
+Fallenmechanik	Ord	S
+Natya	Hl	A
+NinJutsu	Hl	S
+Orakelkunst	Hl	S
+Pflanzenkunde	Hl	G
+Pyromantie	Hl	S
+Rechnen	Hl	S
+Reiten	Hl	S
+Rudern	Hl	S
+Sagenkunde	Hl	G
+Scharfschießen	Hl	A
+Schiffsführung	Hl	S
+SchiyoKi	Hl	G
+Schlangen beschwören	Hl	A
+Schleichen	Hl	S
+Schlittenfahren	Hl	S
+Schlittschuhlaufen	Hl	S
+Schlösser öffnen	Hl	A
+Schmerzen ertragen	Hl	A
+Schwerttanz	Hl	A
+Schwimmen	Hl	S
+Segeln	Hl	S
+Seilkunst	Hl	S
+Siegelfälschung	Hl	A
+Siegelkunde	Hl	S
+Singen	Hl	S
+Singen (Stufe)	Hl	S
+Skifahren	Hl	S
+Sprache	Hl	G
+Springen	Hl	A
+Spurenlesen	Hl	A
+Srimara lenken	Hl	A
+Stehlen	Hl	A
+Steinabreibungen machen	Hl	S
+Stimmen nachahmen	Hl	S
+Streitwagen lenken	Hl	A
+TaiTschi	Hl	G
+Talisman verzaubern	Hl	A
+Tanzen	Hl	S
+Tarnen	Hl	S
+Tauchen	Hl	A
+Teezeremonie	Hl	S
+Tierkunde	Hl	G
+Trinken	Hl	S
+Verbergen	Hl	S
+Verführen	Hl	A
+Verhören	Hl	S
+Verkleiden	Hl	A
+Wagenlenken	Hl	S
+Wahrnehmung	Hl	S
+Werfen	Hl	S
+Wetterkunde	Hl	S
+Winden	Hl	A
+Wissen von der Magie	Hl	G
+YangScheng	Hl	G
+YubeChian	Hl	G
+Zauberkunde	Hl	S
+Zeichensprache	Hl	S
+Zunge verschlucken	Hl	S
+Überleben im Dschungel	Hl	S
+Überleben im Gebirge	Hl	S
+Überleben im Schnee	Hl	S
+Überleben im Sumpf	Hl	S
+Überleben im Wald	Hl	S
+Überleben in der Steppe	Hl	S
+Überleben in der Wüste	Hl	S
+Alchemie	Ma	G
+Askese	Ma	S
+Astrologie	Ma	G
+Athletik	Ma	A
+Augensalbe herstellen	Ma	S
+Balancieren	Ma	S
+Ballista bedienen	Ma	A
+Beidhändiger Kampf	Ma	A
+Beredsamkeit	Ma	S
+Beschatten	Ma	S
+Bogen vom Streitwagen	Ma	A
+Bogen zu Pferd	Ma	A
+Brettspiel	Ma	G
+Dichten	Ma	S
+Elefanten lenken	Ma	A
+Erste Hilfe	Ma	S
+Erzählen	Ma	S
+Etikette	Ma	G
+Fallen	Ma	S
+Fallen entdecken	Ma	A
+Fallen entschärfen	Ma	A
+Fallenmechanik	Ma	A
+Fallenstellen	Ma	A
+Fangen	Ma	S
+Faustkampf	Ma	A
+Fechten	Ma	A
+Fechten tevarischer Stil	Ma	A
+FengSchui	Ma	S
+FengTsu	Ma	A
+Fälschen	Ma	S
+Gassenwissen	Ma	S
+Geheimmechanismen öffnen	Ma	S
+Geheimzeichen	Ma	S
+Geländelauf	Ma	S
+Geomantie	Ma	A
+Geschenke machen	Ma	S
+Geschichten erzählen	Ma	S
+Geschäftstüchtigkeit	Ma	S
+Giftmischen	Ma	S
+Glücksspiel	Ma	S
+Heraldik	Ma	A
+Himmelskunde	Ma	S
+IaiJutsu	Ma	A
+Jonglieren	Ma	A
+Kalligraphie	Ma	G
+Kamelreiten	Ma	S
+Kampf in Dunkelheit	Ma	A
+Kampf in Schlachtreihe	Ma	A
+Kampf in Vollrüstung	Ma	A
+Kampf vom Streitwagen	Ma	A
+Kampf zu Elefant	Ma	A
+Kampf zu Kamel	Ma	A
+Stehlen	gHx	A
+Steinabreibungen machen	gHx	G
+Stimmen nachahmen	gHx	G
+Streitwagen lenken	gHx	A
+TaiTschi	gHx	A
+Talisman verzaubern	gHx	A
+Tanzen	gHx	S
+Tarnen	gHx	S
+Tauchen	gHx	A
+Teezeremonie	gHx	S
+Tierkunde	gHx	S
+Trinken	gHx	S
+Verbergen	gHx	G
+Verführen	gHx	S
+Verhören	gHx	S
+Verkleiden	gHx	S
+Wagenlenken	gHx	S
+Wahrnehmung	gHx	S
+Werfen	gHx	S
+Wetterkunde	gHx	S
+Winden	gHx	A
+Wissen von der Magie	gHx	G
+YangScheng	gHx	S
+YubeChian	gHx	S
+Zauberkunde	gHx	G
+Zeichensprache	gHx	S
+Zunge verschlucken	gHx	S
+Überleben im Dschungel	gHx	S
+Überleben im Gebirge	gHx	S
+Überleben im Schnee	gHx	S
+Überleben im Sumpf	gHx	S
+Überleben im Wald	gHx	S
+Überleben in der Steppe	gHx	S
+Überleben in der Wüste	gHx	S
+Alchemie	Hl	S
+Askese	Hl	S
+Astrologie	Hl	S
+Athletik	Hl	A
+Augensalbe herstellen	Hl	S
+Balancieren	Hl	S
+Ballista bedienen	Hl	A
+Wagenlenken	dBe	S
+Beidhändiger Kampf	Hl	A
+Beredsamkeit	Hl	S
+Beschatten	Hl	S
+Bogen vom Streitwagen	Hl	A
+Bogen zu Pferd	Hl	A
+Brettspiel	Hl	G
+Dichten	Hl	S
+Elefanten lenken	Hl	A
+Erste Hilfe	Hl	G
+Erzählen	Hl	S
+Etikette	Hl	S
+Fallen	Hl	S
+Fallen entdecken	Hl	A
+Fallen entschärfen	Hl	A
+Fallenmechanik	Hl	A
+Fallenstellen	Hl	A
+Fangen	Hl	S
+Faustkampf	Hl	A
+Fechten	Hl	A
+Fechten tevarischer Stil	Hl	A
+FengSchui	Hl	S
+FengTsu	Hl	A
+Fälschen	Hl	A
+Gassenwissen	Hl	S
+Geheimmechanismen öffnen	Hl	S
+Geheimzeichen	Hl	S
+Geländelauf	Hl	S
+Geomantie	Hl	S
+Geschenke machen	Hl	S
+Geschichten erzählen	Hl	S
+Geschäftstüchtigkeit	Hl	S
+Giftmischen	Hl	A
+Glücksspiel	Hl	S
+Heraldik	Hl	A
+Himmelskunde	Hl	S
+IaiJutsu	Hl	A
+Jonglieren	Hl	A
+Kalligraphie	Hl	S
+Kamelreiten	Hl	S
+Kampf in Dunkelheit	Hl	A
+Kampf in Schlachtreihe	Hl	A
+Kampf in Vollrüstung	Hl	A
+Kampf vom Streitwagen	Hl	A
+Kampf zu Elefant	Hl	A
+Kampf zu Kamel	Hl	A
+Kampf zu Pferd	Hl	A
+Kampf zu Srimara	Hl	A
+Kampftaktik	Hl	A
+Kanufahren	Hl	S
+KarumiJutsu	Hl	S
+Katapult bedienen	Hl	A
+Kenntnis der fünf Klassiker	Hl	S
+KentoYobu	Hl	A
+KiDo	Hl	S
+Klettern	Hl	S
+Kräuterkunde	Hl	G
+KujKuri	Hl	A
+KujNoIu	Hl	S
+Körperbemalung	Hl	A
+Körperkontrolle	Hl	A
+Lanzenstechen	Hl	A
+Laufen	Hl	A
+Lesen von Zauberschrift	Hl	G
+Lesen/Schreiben	Hl	G
+LiYao	Hl	A
+Lippenlesen	Hl	S
+Luftkampf	Hl	A
+Malen/Zeichen	Hl	S
+Meditieren	Hl	A
+Menschenkenntnis	Hl	G
+Meucheln	Hl	A
+MiChen	Hl	G
+Mumifizieren	Hl	G
+Musizieren	Hl	S
+Naturkunde	Hl	S
+Überleben im Sumpf	eBe	S
+Überleben im Wald	eBe	S
+Überleben in der Steppe	eBe	S
+Überleben in der Wüste	eBe	S
+Alchemie	gHx	S
+Askese	gHx	A
+Astrologie	gHx	S
+Athletik	gHx	A
+Augensalbe herstellen	gHx	S
+Balancieren	gHx	S
+Ballista bedienen	gHx	A
+Beidhändiger Kampf	gHx	A
+Beredsamkeit	gHx	S
+Beschatten	gHx	S
+Bogen vom Streitwagen	gHx	A
+Bogen zu Pferd	gHx	A
+Brettspiel	gHx	S
+Dichten	gHx	S
+Elefanten lenken	gHx	A
+Erste Hilfe	gHx	S
+Erzählen	gHx	S
+Etikette	gHx	S
+Fallen	gHx	S
+Fallen entdecken	gHx	A
+Fallen entschärfen	gHx	A
+Fallenmechanik	gHx	A
+Fallenstellen	gHx	A
+Fangen	gHx	S
+Faustkampf	gHx	A
+Fechten	gHx	A
+Fechten tevarischer Stil	gHx	A
+FengSchui	gHx	S
+FengTsu	gHx	A
+Fälschen	gHx	S
+Gassenwissen	gHx	G
+Geheimmechanismen öffnen	gHx	S
+Geheimzeichen	gHx	G
+Geländelauf	gHx	S
+Geomantie	gHx	S
+Geschenke machen	gHx	S
+Geschichten erzählen	gHx	S
+Geschäftstüchtigkeit	gHx	S
+Giftmischen	gHx	G
+Glücksspiel	gHx	S
+Heraldik	gHx	A
+Himmelskunde	gHx	S
+IaiJutsu	gHx	A
+Jonglieren	gHx	S
+Kalligraphie	gHx	S
+Kamelreiten	gHx	S
+Kampf in Dunkelheit	gHx	A
+Kampf in Schlachtreihe	gHx	A
+Kampf in Vollrüstung	gHx	A
+Kampf vom Streitwagen	gHx	A
+Kampf zu Elefant	gHx	A
+Kampf zu Kamel	gHx	A
+Kampf zu Pferd	gHx	A
+Kampf zu Srimara	gHx	A
+Kampftaktik	gHx	A
+Kanufahren	gHx	S
+KarumiJutsu	gHx	S
+Katapult bedienen	gHx	A
+Kenntnis der fünf Klassiker	gHx	S
+KentoYobu	gHx	A
+KiDo	gHx	A
+Klettern	gHx	S
+Kräuterkunde	gHx	G
+KujKuri	gHx	A
+KujNoIu	gHx	S
+Körperbemalung	gHx	A
+Körperkontrolle	gHx	A
+Lanzenstechen	gHx	A
+Laufen	gHx	A
+Lesen von Zauberschrift	gHx	G
+Lesen/Schreiben	gHx	G
+LiYao	gHx	S
+Lippenlesen	gHx	S
+Luftkampf	gHx	A
+Malen/Zeichen	gHx	S
+Meditieren	gHx	A
+Menschenkenntnis	gHx	S
+Meucheln	gHx	A
+MiChen	gHx	S
+Mumifizieren	gHx	S
+Musizieren	gHx	S
+Naturkunde	gHx	S
+Natya	gHx	A
+NinJutsu	gHx	S
+Orakelkunst	gHx	S
+Pflanzenkunde	gHx	S
+Pyromantie	gHx	S
+Rechnen	gHx	S
+Reiten	gHx	S
+Rudern	gHx	S
+Sagenkunde	gHx	G
+Scharfschießen	gHx	A
+Schiffsführung	gHx	S
+SchiyoKi	gHx	A
+Schlangen beschwören	gHx	A
+Schleichen	gHx	S
+Schlittenfahren	gHx	S
+Schlittschuhlaufen	gHx	S
+Schlösser öffnen	gHx	A
+Schmerzen ertragen	gHx	A
+Schwerttanz	gHx	A
+Schwimmen	gHx	S
+Segeln	gHx	S
+Seilkunst	gHx	S
+Siegelfälschung	gHx	S
+Siegelkunde	gHx	S
+Singen	gHx	S
+Singen (Stufe)	gHx	S
+Skifahren	gHx	S
+Sprache	gHx	S
+Springen	gHx	A
+Spurenlesen	gHx	A
+Srimara lenken	gHx	A
+Fechten tevarischer Stil	eBe	A
+FengSchui	eBe	S
+FengTsu	eBe	A
+Fälschen	eBe	S
+Gassenwissen	eBe	S
+Geheimmechanismen öffnen	eBe	S
+Geheimzeichen	eBe	S
+Geländelauf	eBe	S
+Geomantie	eBe	A
+Geschenke machen	eBe	S
+Geschichten erzählen	eBe	S
+Geschäftstüchtigkeit	eBe	S
+Giftmischen	eBe	S
+Glücksspiel	eBe	S
+Heraldik	eBe	A
+Himmelskunde	eBe	S
+IaiJutsu	eBe	A
+Jonglieren	eBe	A
+Kalligraphie	eBe	S
+Kamelreiten	eBe	S
+Kampf in Dunkelheit	eBe	A
+Kampf in Schlachtreihe	eBe	A
+Kampf in Vollrüstung	eBe	A
+Kampf vom Streitwagen	eBe	A
+Kampf zu Elefant	eBe	A
+Kampf zu Kamel	eBe	A
+Kampf zu Pferd	eBe	A
+Kampf zu Srimara	eBe	A
+Kampftaktik	eBe	A
+Kanufahren	eBe	S
+KarumiJutsu	eBe	S
+Katapult bedienen	eBe	A
+Kenntnis der fünf Klassiker	eBe	S
+KentoYobu	eBe	A
+KiDo	eBe	A
+Klettern	eBe	S
+Kräuterkunde	eBe	G
+KujKuri	eBe	A
+KujNoIu	eBe	S
+Körperbemalung	eBe	A
+Körperkontrolle	eBe	A
+Lanzenstechen	eBe	A
+Laufen	eBe	A
+Lesen von Zauberschrift	eBe	S
+Lesen/Schreiben	eBe	S
+LiYao	eBe	S
+Lippenlesen	eBe	S
+Luftkampf	eBe	A
+Malen/Zeichen	eBe	S
+Meditieren	eBe	A
+Menschenkenntnis	eBe	A
+Meucheln	eBe	A
+MiChen	eBe	A
+Mumifizieren	eBe	A
+Musizieren	eBe	S
+Naturkunde	eBe	S
+Natya	eBe	A
+NinJutsu	eBe	S
+Orakelkunst	eBe	S
+Pflanzenkunde	eBe	S
+Pyromantie	eBe	A
+Rechnen	eBe	S
+Reiten	eBe	S
+Rudern	eBe	S
+Sagenkunde	eBe	G
+Scharfschießen	eBe	A
+Schiffsführung	eBe	S
+SchiyoKi	eBe	S
+Schlangen beschwören	eBe	A
+Schleichen	eBe	S
+Schlittenfahren	eBe	S
+Schlittschuhlaufen	eBe	S
+Schlösser öffnen	eBe	A
+Schmerzen ertragen	eBe	A
+Schwerttanz	eBe	A
+Schwimmen	eBe	S
+Segeln	eBe	S
+Seilkunst	eBe	S
+Siegelfälschung	eBe	S
+Siegelkunde	eBe	S
+Singen	eBe	S
+Singen (Stufe)	eBe	S
+Skifahren	eBe	S
+Sprache	eBe	S
+Springen	eBe	A
+Spurenlesen	eBe	A
+Srimara lenken	eBe	A
+Stehlen	eBe	A
+Steinabreibungen machen	eBe	S
+Stimmen nachahmen	eBe	S
+Streitwagen lenken	eBe	A
+TaiTschi	eBe	S
+Talisman verzaubern	eBe	A
+Tanzen	eBe	S
+Tarnen	eBe	S
+Tauchen	eBe	A
+Teezeremonie	eBe	S
+Tierkunde	eBe	S
+Trinken	eBe	S
+Verbergen	eBe	S
+Verführen	eBe	A
+Verhören	eBe	S
+Verkleiden	eBe	A
+Wagenlenken	eBe	S
+Wahrnehmung	eBe	S
+Werfen	eBe	S
+Wetterkunde	eBe	S
+Winden	eBe	A
+Wissen von der Magie	eBe	G
+YangScheng	eBe	S
+YubeChian	eBe	A
+Zauberkunde	eBe	S
+Zeichensprache	eBe	S
+Zunge verschlucken	eBe	S
+Überleben im Dschungel	eBe	S
+Überleben im Gebirge	eBe	S
+Überleben im Schnee	eBe	S
+KarumiJutsu	Dr	S
+Katapult bedienen	Dr	A
+Kenntnis der fünf Klassiker	Dr	S
+KentoYobu	Dr	A
+KiDo	Dr	A
+Klettern	Dr	S
+Kräuterkunde	Dr	G
+KujKuri	Dr	A
+KujNoIu	Dr	S
+Körperbemalung	Dr	A
+Körperkontrolle	Dr	A
+Lanzenstechen	Dr	A
+Laufen	Dr	S
+Lesen von Zauberschrift	Dr	S
+Lesen/Schreiben	Dr	S
+LiYao	Dr	A
+Lippenlesen	Dr	S
+Luftkampf	Dr	A
+Malen/Zeichen	Dr	S
+Meditieren	Dr	A
+Menschenkenntnis	Dr	S
+Meucheln	Dr	A
+MiChen	Dr	S
+Mumifizieren	Dr	S
+Musizieren	Dr	S
+Naturkunde	Dr	G
+Natya	Dr	A
+NinJutsu	Dr	S
+Orakelkunst	Dr	S
+Pflanzenkunde	Dr	G
+Pyromantie	Dr	S
+Rechnen	Dr	S
+Reiten	Dr	S
+Rudern	Dr	S
+Sagenkunde	Dr	G
+Scharfschießen	Dr	A
+Schiffsführung	Dr	S
+SchiyoKi	Dr	S
+Schlangen beschwören	Dr	A
+Schleichen	Dr	S
+Schlittenfahren	Dr	S
+Schlittschuhlaufen	Dr	S
+Schlösser öffnen	Dr	A
+Schmerzen ertragen	Dr	A
+Schwerttanz	Dr	A
+Schwimmen	Dr	S
+Segeln	Dr	S
+Seilkunst	Dr	S
+Siegelfälschung	Dr	A
+Siegelkunde	Dr	S
+Singen	Dr	S
+Singen (Stufe)	Dr	S
+Skifahren	Dr	S
+Sprache	Dr	G
+Springen	Dr	S
+Spurenlesen	Dr	S
+Srimara lenken	Dr	A
+Stehlen	Dr	A
+Steinabreibungen machen	Dr	S
+Stimmen nachahmen	Dr	S
+Streitwagen lenken	Dr	A
+TaiTschi	Dr	S
+Talisman verzaubern	Dr	A
+Tanzen	Dr	S
+Tarnen	Dr	G
+Tauchen	Dr	S
+Teezeremonie	Dr	S
+Tierkunde	Dr	G
+Trinken	Dr	S
+Verbergen	Dr	S
+Verführen	Dr	A
+Verhören	Dr	S
+Verkleiden	Dr	A
+Wagenlenken	Dr	S
+Wahrnehmung	Dr	G
+Werfen	Dr	S
+Wetterkunde	Dr	G
+Winden	Dr	A
+Wissen von der Magie	Dr	G
+YangScheng	Dr	S
+YubeChian	Dr	S
+Zauberkunde	Dr	S
+Zeichensprache	Dr	S
+Zunge verschlucken	Dr	S
+Überleben im Dschungel	Dr	S
+Überleben im Gebirge	Dr	S
+Überleben im Schnee	Dr	S
+Überleben im Sumpf	Dr	S
+Überleben im Wald	Dr	S
+Überleben in der Steppe	Dr	S
+Überleben in der Wüste	Dr	S
+Alchemie	eBe	G
+Askese	eBe	S
+Astrologie	eBe	S
+Athletik	eBe	A
+Augensalbe herstellen	eBe	S
+Balancieren	eBe	S
+Ballista bedienen	eBe	A
+Beidhändiger Kampf	eBe	A
+Beredsamkeit	eBe	S
+Beschatten	eBe	S
+Bogen vom Streitwagen	eBe	A
+Bogen zu Pferd	eBe	A
+Brettspiel	eBe	S
+Dichten	eBe	S
+Elefanten lenken	eBe	A
+Erste Hilfe	eBe	S
+Erzählen	eBe	S
+Etikette	eBe	S
+Fallen	eBe	S
+Fallen entdecken	eBe	A
+Fallen entschärfen	eBe	A
+Fallenmechanik	eBe	A
+Fallenstellen	eBe	A
+Fangen	eBe	S
+Faustkampf	eBe	A
+Fechten	eBe	A
+Rechnen	dBe	S
+Reiten	dBe	S
+Rudern	dBe	S
+Sagenkunde	dBe	G
+Scharfschießen	dBe	A
+Schiffsführung	dBe	S
+SchiyoKi	dBe	S
+Schlangen beschwören	dBe	A
+Schleichen	dBe	S
+Schlittenfahren	dBe	S
+Schlittschuhlaufen	dBe	S
+Schlösser öffnen	dBe	A
+Schmerzen ertragen	dBe	A
+Schwerttanz	dBe	A
+Schwimmen	dBe	S
+Segeln	dBe	S
+Seilkunst	dBe	S
+Siegelfälschung	dBe	S
+Siegelkunde	dBe	S
+Singen	dBe	S
+Singen (Stufe)	dBe	S
+Skifahren	dBe	S
+Sprache	dBe	S
+Springen	dBe	A
+Spurenlesen	dBe	A
+Srimara lenken	dBe	A
+Stehlen	dBe	A
+Steinabreibungen machen	dBe	S
+Stimmen nachahmen	dBe	S
+Streitwagen lenken	dBe	A
+TaiTschi	dBe	S
+Talisman verzaubern	dBe	A
+Tanzen	dBe	S
+Tarnen	dBe	S
+Tauchen	dBe	A
+Teezeremonie	dBe	S
+Tierkunde	dBe	S
+Trinken	dBe	S
+Verbergen	dBe	S
+Verführen	dBe	A
+Verhören	dBe	S
+Verkleiden	dBe	A
+Wahrnehmung	dBe	S
+Werfen	dBe	S
+Wetterkunde	dBe	S
+Winden	dBe	A
+Wissen von der Magie	dBe	G
+YangScheng	dBe	S
+YubeChian	dBe	A
+Zauberkunde	dBe	S
+Zeichensprache	dBe	S
+Zunge verschlucken	dBe	S
+Überleben im Dschungel	dBe	S
+Überleben im Gebirge	dBe	S
+Überleben im Schnee	dBe	S
+Überleben im Sumpf	dBe	S
+Überleben im Wald	dBe	S
+Überleben in der Steppe	dBe	S
+Überleben in der Wüste	dBe	S
+Alchemie	Dr	S
+Askese	Dr	S
+Astrologie	Dr	S
+Athletik	Dr	A
+Augensalbe herstellen	Dr	S
+Balancieren	Dr	S
+Ballista bedienen	Dr	A
+Beidhändiger Kampf	Dr	A
+Beredsamkeit	Dr	S
+Beschatten	Dr	S
+Bogen vom Streitwagen	Dr	A
+Bogen zu Pferd	Dr	A
+Brettspiel	Dr	G
+Dichten	Dr	S
+Elefanten lenken	Dr	A
+Erste Hilfe	Dr	S
+Erzählen	Dr	S
+Etikette	Dr	S
+Fallen	Dr	S
+Fallen entdecken	Dr	A
+Fallen entschärfen	Dr	A
+Fallenmechanik	Dr	A
+Fallenstellen	Dr	G
+Fangen	Dr	S
+Faustkampf	Dr	A
+Fechten	Dr	A
+Fechten tevarischer Stil	Dr	A
+FengSchui	Dr	S
+FengTsu	Dr	A
+Fälschen	Dr	A
+Gassenwissen	Dr	S
+Geheimmechanismen öffnen	Dr	A
+Geheimzeichen	Dr	G
+Geländelauf	Dr	S
+Geomantie	Dr	S
+Geschenke machen	Dr	S
+Geschichten erzählen	Dr	S
+Geschäftstüchtigkeit	Dr	S
+Giftmischen	Dr	S
+Glücksspiel	Dr	S
+Heraldik	Dr	A
+Himmelskunde	Dr	S
+IaiJutsu	Dr	A
+Jonglieren	Dr	A
+Kalligraphie	Dr	A
+Kamelreiten	Dr	S
+Kampf in Dunkelheit	Dr	A
+Kampf in Schlachtreihe	Dr	A
+Kampf in Vollrüstung	Dr	A
+Kampf vom Streitwagen	Dr	A
+Kampf zu Elefant	Dr	A
+Kampf zu Kamel	Dr	A
+Kampf zu Pferd	Dr	A
+Kampf zu Srimara	Dr	A
+Kampftaktik	Dr	A
+Kanufahren	Dr	S
+TaiTschi	Ba	S
+Talisman verzaubern	Ba	S
+Tanzen	Ba	G
+Tarnen	Ba	S
+Tauchen	Ba	S
+Teezeremonie	Ba	S
+Tierkunde	Ba	S
+Trinken	Ba	S
+Verbergen	Ba	S
+Verführen	Ba	G
+Verhören	Ba	S
+Verkleiden	Ba	S
+Wagenlenken	Ba	S
+Wahrnehmung	Ba	S
+Werfen	Ba	S
+Wetterkunde	Ba	G
+Winden	Ba	S
+Wissen von der Magie	Ba	S
+YangScheng	Ba	S
+YubeChian	Ba	S
+Zauberkunde	Ba	G
+Zeichensprache	Ba	S
+Zunge verschlucken	Ba	S
+Überleben im Dschungel	Ba	S
+Überleben im Gebirge	Ba	S
+Überleben im Schnee	Ba	S
+Überleben im Sumpf	Ba	S
+Überleben im Wald	Ba	S
+Überleben in der Steppe	Ba	S
+Überleben in der Wüste	Ba	S
+Alchemie	dBe	G
+Askese	dBe	S
+Astrologie	dBe	S
+Athletik	dBe	A
+Augensalbe herstellen	dBe	S
+Balancieren	dBe	S
+Ballista bedienen	dBe	A
+Beidhändiger Kampf	dBe	A
+Beredsamkeit	dBe	S
+Beschatten	dBe	S
+Bogen vom Streitwagen	dBe	A
+Bogen zu Pferd	dBe	A
+Brettspiel	dBe	S
+Dichten	dBe	S
+Elefanten lenken	dBe	A
+Erste Hilfe	dBe	S
+Erzählen	dBe	S
+Etikette	dBe	S
+Fallen	dBe	S
+Fallen entdecken	dBe	A
+Fallen entschärfen	dBe	A
+Fallenmechanik	dBe	A
+Fallenstellen	dBe	A
+Fangen	dBe	S
+Faustkampf	dBe	A
+Fechten	dBe	A
+Fechten tevarischer Stil	dBe	A
+FengSchui	dBe	S
+FengTsu	dBe	A
+Fälschen	dBe	S
+Gassenwissen	dBe	S
+Geheimmechanismen öffnen	dBe	S
+Geheimzeichen	dBe	S
+Geländelauf	dBe	S
+Geomantie	dBe	A
+Geschenke machen	dBe	S
+Geschichten erzählen	dBe	S
+Geschäftstüchtigkeit	dBe	S
+Giftmischen	dBe	S
+Glücksspiel	dBe	S
+Heraldik	dBe	A
+Himmelskunde	dBe	S
+IaiJutsu	dBe	A
+Jonglieren	dBe	A
+Kalligraphie	dBe	S
+Kamelreiten	dBe	S
+Kampf in Dunkelheit	dBe	A
+Kampf in Schlachtreihe	dBe	A
+Kampf in Vollrüstung	dBe	A
+Kampf vom Streitwagen	dBe	A
+Kampf zu Elefant	dBe	A
+Kampf zu Kamel	dBe	A
+Kampf zu Pferd	dBe	A
+Kampf zu Srimara	dBe	A
+Kampftaktik	dBe	A
+Kanufahren	dBe	S
+KarumiJutsu	dBe	S
+Katapult bedienen	dBe	A
+Kenntnis der fünf Klassiker	dBe	S
+KentoYobu	dBe	A
+KiDo	dBe	A
+Klettern	dBe	S
+Kräuterkunde	dBe	G
+KujKuri	dBe	A
+KujNoIu	dBe	S
+Körperbemalung	dBe	A
+Körperkontrolle	dBe	A
+Lanzenstechen	dBe	A
+Laufen	dBe	A
+Lesen von Zauberschrift	dBe	S
+Lesen/Schreiben	dBe	S
+LiYao	dBe	S
+Lippenlesen	dBe	S
+Luftkampf	dBe	A
+Malen/Zeichen	dBe	S
+Meditieren	dBe	A
+Menschenkenntnis	dBe	A
+Meucheln	dBe	A
+MiChen	dBe	A
+Mumifizieren	dBe	A
+Musizieren	dBe	S
+Naturkunde	dBe	S
+Natya	dBe	A
+NinJutsu	dBe	S
+Orakelkunst	dBe	S
+Pflanzenkunde	dBe	S
+Pyromantie	dBe	A
+Alchemie	Ba	A
+Askese	Ba	A
+Astrologie	Ba	S
+Athletik	Ba	S
+Augensalbe herstellen	Ba	S
+Balancieren	Ba	S
+Ballista bedienen	Ba	S
+Beidhändiger Kampf	Ba	S
+Beredsamkeit	Ba	G
+Beschatten	Ba	S
+Bogen vom Streitwagen	Ba	S
+Bogen zu Pferd	Ba	S
+Brettspiel	Ba	G
+Dichten	Ba	G
+Elefanten lenken	Ba	A
+Erste Hilfe	Ba	S
+Erzählen	Ba	G
+Etikette	Ba	G
+Fallen	Ba	S
+Fallen entdecken	Ba	S
+Fallen entschärfen	Ba	S
+Fallenmechanik	Ba	S
+Fallenstellen	Ba	S
+Fangen	Ba	S
+Faustkampf	Ba	S
+Fechten	Ba	G
+Fechten tevarischer Stil	Ba	G
+FengSchui	Ba	S
+FengTsu	Ba	S
+Fälschen	Ba	S
+Gassenwissen	Ba	G
+Geheimmechanismen öffnen	Ba	S
+Geheimzeichen	Ba	G
+Geländelauf	Ba	S
+Geomantie	Ba	S
+Geschenke machen	Ba	S
+Geschichten erzählen	Ba	G
+Geschäftstüchtigkeit	Ba	S
+Giftmischen	Ba	S
+Glücksspiel	Ba	G
+Heraldik	Ba	A
+Himmelskunde	Ba	G
+IaiJutsu	Ba	S
+Jonglieren	Ba	G
+Kalligraphie	Ba	A
+Kamelreiten	Ba	S
+Kampf in Dunkelheit	Ba	S
+Kampf in Schlachtreihe	Ba	S
+Kampf in Vollrüstung	Ba	A
+Kampf vom Streitwagen	Ba	S
+Kampf zu Elefant	Ba	A
+Kampf zu Kamel	Ba	S
+Kampf zu Pferd	Ba	S
+Kampf zu Srimara	Ba	A
+Kampftaktik	Ba	A
+Kanufahren	Ba	S
+KarumiJutsu	Ba	A
+Katapult bedienen	Ba	S
+Kenntnis der fünf Klassiker	Ba	S
+KentoYobu	Ba	A
+KiDo	Ba	S
+Klettern	Ba	S
+Kräuterkunde	Ba	S
+KujKuri	Ba	A
+KujNoIu	Ba	S
+Körperbemalung	Ba	S
+Körperkontrolle	Ba	A
+Lanzenstechen	Ba	A
+Laufen	Ba	S
+Lesen von Zauberschrift	Ba	S
+Lesen/Schreiben	Ba	S
+LiYao	Ba	A
+Lippenlesen	Ba	S
+Luftkampf	Ba	S
+Malen/Zeichen	Ba	A
+Meditieren	Ba	A
+Menschenkenntnis	Ba	G
+Meucheln	Ba	A
+MiChen	Ba	S
+Mumifizieren	Ba	A
+Musizieren	Ba	G
+Naturkunde	Ba	S
+Natya	Ba	S
+NinJutsu	Ba	A
+Orakelkunst	Ba	S
+Pflanzenkunde	Ba	S
+Pyromantie	Ba	S
+Rechnen	Ba	S
+Reiten	Ba	G
+Rudern	Ba	S
+Sagenkunde	Ba	G
+Scharfschießen	Ba	S
+Schiffsführung	Ba	S
+SchiyoKi	Ba	S
+Schlangen beschwören	Ba	A
+Schleichen	Ba	S
+Schlittenfahren	Ba	S
+Schlittschuhlaufen	Ba	S
+Schlösser öffnen	Ba	S
+Schmerzen ertragen	Ba	A
+Schwerttanz	Ba	S
+Schwimmen	Ba	G
+Segeln	Ba	S
+Seilkunst	Ba	S
+Siegelfälschung	Ba	S
+Siegelkunde	Ba	A
+Singen	Ba	G
+Singen (Stufe)	Ba	G
+Skifahren	Ba	S
+Sprache	Ba	G
+Springen	Ba	S
+Spurenlesen	Ba	S
+Srimara lenken	Ba	A
+Stehlen	Ba	S
+Steinabreibungen machen	Ba	S
+Stimmen nachahmen	Ba	G
+Streitwagen lenken	Ba	S
+Gassenwissen	Wa	S
+Geheimmechanismen öffnen	Wa	S
+Geheimzeichen	Wa	S
+Geländelauf	Wa	G
+Geomantie	Wa	S
+Geschenke machen	Wa	S
+Geschichten erzählen	Wa	S
+Geschäftstüchtigkeit	Wa	S
+Giftmischen	Wa	S
+Glücksspiel	Wa	S
+Heraldik	Wa	A
+Himmelskunde	Wa	G
+IaiJutsu	Wa	S
+Jonglieren	Wa	S
+Kalligraphie	Wa	A
+Kamelreiten	Wa	G
+Kampf in Dunkelheit	Wa	G
+Kampf in Schlachtreihe	Wa	S
+Kampf in Vollrüstung	Wa	S
+Kampf vom Streitwagen	Wa	S
+Kampf zu Elefant	Wa	A
+Kampf zu Kamel	Wa	S
+Kampf zu Pferd	Wa	S
+Kampf zu Srimara	Wa	A
+Kampftaktik	Wa	S
+Kanufahren	Wa	G
+KarumiJutsu	Wa	A
+Katapult bedienen	Wa	S
+Kenntnis der fünf Klassiker	Wa	S
+KentoYobu	Wa	S
+KiDo	Wa	S
+Klettern	Wa	G
+Kräuterkunde	Wa	G
+KujKuri	Wa	A
+KujNoIu	Wa	S
+Körperbemalung	Wa	S
+Körperkontrolle	Wa	A
+Lanzenstechen	Wa	A
+Laufen	Wa	G
+Lesen von Zauberschrift	Wa	A
+Lesen/Schreiben	Wa	S
+LiYao	Wa	A
+Lippenlesen	Wa	S
+Luftkampf	Wa	A
+Malen/Zeichen	Wa	A
+Meditieren	Wa	A
+Menschenkenntnis	Wa	S
+Meucheln	Wa	S
+MiChen	Wa	S
+Mumifizieren	Wa	A
+Musizieren	Wa	S
+Naturkunde	Wa	G
+Natya	Wa	A
+NinJutsu	Wa	A
+Orakelkunst	Wa	S
+Pflanzenkunde	Wa	G
+Pyromantie	Wa	S
+Rechnen	Wa	A
+Reiten	Wa	G
+Rudern	Wa	G
+Sagenkunde	Wa	S
+Scharfschießen	Wa	G
+Schiffsführung	Wa	A
+SchiyoKi	Wa	G
+Schlangen beschwören	Wa	A
+Schleichen	Wa	G
+Schlittenfahren	Wa	S
+Schlittschuhlaufen	Wa	S
+Schlösser öffnen	Wa	S
+Schmerzen ertragen	Wa	A
+Schwerttanz	Wa	A
+Schwimmen	Wa	G
+Segeln	Wa	S
+Seilkunst	Wa	S
+Siegelfälschung	Wa	A
+Siegelkunde	Wa	A
+Singen	Wa	S
+Singen (Stufe)	Wa	S
+Skifahren	Wa	G
+Sprache	Wa	S
+Springen	Wa	G
+Spurenlesen	Wa	G
+Srimara lenken	Wa	A
+Stehlen	Wa	A
+Steinabreibungen machen	Wa	A
+Stimmen nachahmen	Wa	G
+Streitwagen lenken	Wa	S
+TaiTschi	Wa	G
+Talisman verzaubern	Wa	S
+Tanzen	Wa	S
+Tarnen	Wa	G
+Tauchen	Wa	G
+Teezeremonie	Wa	S
+Tierkunde	Wa	G
+Trinken	Wa	S
+Verbergen	Wa	S
+Verführen	Wa	S
+Verhören	Wa	A
+Verkleiden	Wa	S
+Wagenlenken	Wa	S
+Wahrnehmung	Wa	G
+Werfen	Wa	S
+Wetterkunde	Wa	G
+Winden	Wa	S
+Wissen von der Magie	Wa	S
+YangScheng	Wa	S
+YubeChian	Wa	S
+Zauberkunde	Wa	A
+Zeichensprache	Wa	S
+Zunge verschlucken	Wa	S
+Überleben im Dschungel	Wa	G
+Überleben im Gebirge	Wa	S
+Überleben im Schnee	Wa	G
+Überleben im Sumpf	Wa	S
+Überleben im Wald	Wa	G
+Überleben in der Steppe	Wa	S
+Überleben in der Wüste	Wa	S
+KentoYobu	Sp	A
+KiDo	Sp	S
+Klettern	Sp	G
+Kräuterkunde	Sp	S
+KujKuri	Sp	S
+KujNoIu	Sp	S
+Körperbemalung	Sp	S
+Körperkontrolle	Sp	A
+Lanzenstechen	Sp	A
+Laufen	Sp	S
+Lesen von Zauberschrift	Sp	A
+Lesen/Schreiben	Sp	S
+LiYao	Sp	S
+Lippenlesen	Sp	S
+Luftkampf	Sp	A
+Malen/Zeichen	Sp	G
+Meditieren	Sp	A
+Menschenkenntnis	Sp	S
+Meucheln	Sp	G
+MiChen	Sp	S
+Mumifizieren	Sp	A
+Musizieren	Sp	S
+Naturkunde	Sp	A
+Natya	Sp	A
+NinJutsu	Sp	S
+Orakelkunst	Sp	S
+Pflanzenkunde	Sp	A
+Pyromantie	Sp	S
+Rechnen	Sp	S
+Reiten	Sp	G
+Rudern	Sp	S
+Sagenkunde	Sp	S
+Scharfschießen	Sp	S
+Schiffsführung	Sp	S
+SchiyoKi	Sp	S
+Schlangen beschwören	Sp	A
+Schleichen	Sp	G
+Schlittenfahren	Sp	S
+Schlittschuhlaufen	Sp	S
+Schlösser öffnen	Sp	G
+Schmerzen ertragen	Sp	A
+Schwerttanz	Sp	A
+Schwimmen	Sp	S
+Segeln	Sp	S
+Seilkunst	Sp	G
+Siegelfälschung	Sp	G
+Siegelkunde	Sp	S
+Singen	Sp	S
+Singen (Stufe)	Sp	S
+Skifahren	Sp	S
+Sprache	Sp	S
+Springen	Sp	G
+Spurenlesen	Sp	S
+Srimara lenken	Sp	A
+Stehlen	Sp	G
+Steinabreibungen machen	Sp	S
+Stimmen nachahmen	Sp	S
+Streitwagen lenken	Sp	S
+TaiTschi	Sp	S
+Talisman verzaubern	Sp	S
+Tanzen	Sp	S
+Tarnen	Sp	G
+Tauchen	Sp	S
+Teezeremonie	Sp	S
+Tierkunde	Sp	A
+Trinken	Sp	S
+Verbergen	Sp	G
+Verführen	Sp	S
+Verhören	Sp	S
+Verkleiden	Sp	G
+Wagenlenken	Sp	S
+Wahrnehmung	Sp	G
+Werfen	Sp	G
+Wetterkunde	Sp	S
+Winden	Sp	G
+Wissen von der Magie	Sp	S
+YangScheng	Sp	S
+YubeChian	Sp	S
+Zauberkunde	Sp	S
+Zeichensprache	Sp	G
+Zunge verschlucken	Sp	S
+Überleben im Dschungel	Sp	S
+Überleben im Gebirge	Sp	S
+Überleben im Schnee	Sp	S
+Überleben im Sumpf	Sp	S
+Überleben im Wald	Sp	S
+Überleben in der Steppe	Sp	S
+Überleben in der Wüste	Sp	S
+Alchemie	Wa	A
+Askese	Wa	A
+Astrologie	Wa	A
+Athletik	Wa	S
+Augensalbe herstellen	Wa	S
+Balancieren	Wa	G
+Ballista bedienen	Wa	S
+Beidhändiger Kampf	Wa	S
+Beredsamkeit	Wa	S
+Beschatten	Wa	G
+Bogen vom Streitwagen	Wa	S
+Bogen zu Pferd	Wa	S
+Brettspiel	Wa	S
+Dichten	Wa	S
+Elefanten lenken	Wa	A
+Erste Hilfe	Wa	S
+Erzählen	Wa	S
+Etikette	Wa	A
+Fallen	Wa	G
+Fallen entdecken	Wa	S
+Fallen entschärfen	Wa	S
+Fallenmechanik	Wa	S
+Fallenstellen	Wa	G
+Fangen	Wa	S
+Faustkampf	Wa	S
+Fechten	Wa	S
+Fechten tevarischer Stil	Wa	S
+FengSchui	Wa	S
+FengTsu	Wa	S
+Fälschen	Wa	A
+Sagenkunde	Sö	S
+Scharfschießen	Sö	S
+Schiffsführung	Sö	S
+SchiyoKi	Sö	S
+Schlangen beschwören	Sö	A
+Schleichen	Sö	S
+Schlittenfahren	Sö	S
+Schlittschuhlaufen	Sö	S
+Schlösser öffnen	Sö	A
+Schmerzen ertragen	Sö	A
+Schwerttanz	Sö	G
+Schwimmen	Sö	G
+Segeln	Sö	S
+Seilkunst	Sö	S
+Siegelfälschung	Sö	A
+Siegelkunde	Sö	A
+Singen	Sö	S
+Singen (Stufe)	Sö	S
+Skifahren	Sö	S
+Sprache	Sö	S
+Springen	Sö	S
+Spurenlesen	Sö	S
+Srimara lenken	Sö	A
+Stehlen	Sö	A
+Steinabreibungen machen	Sö	A
+Stimmen nachahmen	Sö	S
+Streitwagen lenken	Sö	S
+TaiTschi	Sö	S
+Talisman verzaubern	Sö	S
+Tanzen	Sö	S
+Tarnen	Sö	S
+Tauchen	Sö	S
+Teezeremonie	Sö	S
+Tierkunde	Sö	A
+Trinken	Sö	G
+Verbergen	Sö	S
+Verführen	Sö	S
+Verhören	Sö	S
+Verkleiden	Sö	A
+Wagenlenken	Sö	S
+Wahrnehmung	Sö	S
+Werfen	Sö	S
+Wetterkunde	Sö	A
+Winden	Sö	A
+Wissen von der Magie	Sö	A
+YangScheng	Sö	S
+YubeChian	Sö	S
+Zauberkunde	Sö	A
+Zeichensprache	Sö	S
+Zunge verschlucken	Sö	S
+Überleben im Dschungel	Sö	S
+Überleben im Gebirge	Sö	S
+Überleben im Schnee	Sö	S
+Überleben im Sumpf	Sö	S
+Überleben im Wald	Sö	S
+Überleben in der Steppe	Sö	S
+Überleben in der Wüste	Sö	S
+Alchemie	Sp	A
+Askese	Sp	A
+Astrologie	Sp	A
+Athletik	Sp	S
+Augensalbe herstellen	Sp	S
+Balancieren	Sp	G
+Ballista bedienen	Sp	S
+Beidhändiger Kampf	Sp	S
+Beredsamkeit	Sp	S
+Beschatten	Sp	G
+Bogen vom Streitwagen	Sp	S
+Bogen zu Pferd	Sp	S
+Brettspiel	Sp	S
+Dichten	Sp	S
+Elefanten lenken	Sp	A
+Erste Hilfe	Sp	S
+Erzählen	Sp	S
+Etikette	Sp	A
+Fallen	Sp	G
+Fallen entdecken	Sp	G
+Fallen entschärfen	Sp	G
+Fallenmechanik	Sp	S
+Fallenstellen	Sp	A
+Fangen	Sp	G
+Faustkampf	Sp	S
+Fechten	Sp	G
+Fechten tevarischer Stil	Sp	G
+FengSchui	Sp	S
+FengTsu	Sp	S
+Fälschen	Sp	G
+Gassenwissen	Sp	G
+Geheimmechanismen öffnen	Sp	G
+Geheimzeichen	Sp	G
+Geländelauf	Sp	G
+Geomantie	Sp	S
+Geschenke machen	Sp	S
+Geschichten erzählen	Sp	S
+Geschäftstüchtigkeit	Sp	S
+Giftmischen	Sp	S
+Glücksspiel	Sp	G
+Heraldik	Sp	A
+Himmelskunde	Sp	S
+IaiJutsu	Sp	S
+Jonglieren	Sp	G
+Kalligraphie	Sp	A
+Kamelreiten	Sp	S
+Kampf in Dunkelheit	Sp	G
+Kampf in Schlachtreihe	Sp	S
+Kampf in Vollrüstung	Sp	A
+Kampf vom Streitwagen	Sp	A
+Kampf zu Elefant	Sp	A
+Kampf zu Kamel	Sp	S
+Kampf zu Pferd	Sp	S
+Kampf zu Srimara	Sp	A
+Kampftaktik	Sp	A
+Kanufahren	Sp	S
+KarumiJutsu	Sp	S
+Katapult bedienen	Sp	S
+Kenntnis der fünf Klassiker	Sp	S
+Tarnen	Se	S
+Tauchen	Se	G
+Teezeremonie	Se	S
+Tierkunde	Se	S
+Trinken	Se	G
+Verbergen	Se	S
+Verführen	Se	G
+Verhören	Se	S
+Verkleiden	Se	S
+Wagenlenken	Se	S
+Wahrnehmung	Se	G
+Werfen	Se	G
+Wetterkunde	Se	G
+Winden	Se	S
+Wissen von der Magie	Se	S
+YangScheng	Se	A
+YubeChian	Se	S
+Zauberkunde	Se	A
+Zeichensprache	Se	G
+Zunge verschlucken	Se	S
+Überleben im Dschungel	Se	S
+Überleben im Gebirge	Se	S
+Überleben im Schnee	Se	S
+Überleben im Sumpf	Se	S
+Überleben im Wald	Se	S
+Überleben in der Steppe	Se	S
+Überleben in der Wüste	Se	S
+Alchemie	Sö	A
+Askese	Sö	A
+Astrologie	Sö	A
+Athletik	Sö	G
+Augensalbe herstellen	Sö	S
+Balancieren	Sö	S
+Ballista bedienen	Sö	G
+Beidhändiger Kampf	Sö	G
+Beredsamkeit	Sö	S
+Beschatten	Sö	S
+Bogen vom Streitwagen	Sö	G
+Bogen zu Pferd	Sö	G
+Brettspiel	Sö	S
+Dichten	Sö	S
+Elefanten lenken	Sö	A
+Erste Hilfe	Sö	S
+Erzählen	Sö	S
+Etikette	Sö	A
+Fallen	Sö	S
+Fallen entdecken	Sö	A
+Fallen entschärfen	Sö	A
+Fallenmechanik	Sö	A
+Fallenstellen	Sö	S
+Fangen	Sö	S
+Faustkampf	Sö	G
+Fechten	Sö	S
+Fechten tevarischer Stil	Sö	S
+FengSchui	Sö	G
+FengTsu	Sö	S
+Fälschen	Sö	A
+Gassenwissen	Sö	G
+Geheimmechanismen öffnen	Sö	A
+Geheimzeichen	Sö	S
+Geländelauf	Sö	S
+Geomantie	Sö	S
+Geschenke machen	Sö	S
+Geschichten erzählen	Sö	S
+Geschäftstüchtigkeit	Sö	S
+Giftmischen	Sö	S
+Glücksspiel	Sö	G
+Heraldik	Sö	A
+Himmelskunde	Sö	S
+IaiJutsu	Sö	S
+Jonglieren	Sö	S
+Kalligraphie	Sö	A
+Kamelreiten	Sö	G
+Kampf in Dunkelheit	Sö	S
+Kampf in Schlachtreihe	Sö	G
+Kampf in Vollrüstung	Sö	G
+Kampf vom Streitwagen	Sö	G
+Kampf zu Elefant	Sö	A
+Kampf zu Kamel	Sö	G
+Kampf zu Pferd	Sö	G
+Kampf zu Srimara	Sö	A
+Kampftaktik	Sö	G
+Kanufahren	Sö	S
+KarumiJutsu	Sö	A
+Katapult bedienen	Sö	G
+Kenntnis der fünf Klassiker	Sö	S
+KentoYobu	Sö	G
+KiDo	Sö	S
+Klettern	Sö	S
+Kräuterkunde	Sö	S
+KujKuri	Sö	A
+KujNoIu	Sö	S
+Körperbemalung	Sö	S
+Körperkontrolle	Sö	A
+Lanzenstechen	Sö	S
+Laufen	Sö	S
+Lesen von Zauberschrift	Sö	A
+Lesen/Schreiben	Sö	S
+LiYao	Sö	S
+Lippenlesen	Sö	S
+Luftkampf	Sö	G
+Malen/Zeichen	Sö	A
+Meditieren	Sö	A
+Menschenkenntnis	Sö	S
+Meucheln	Sö	S
+MiChen	Sö	S
+Mumifizieren	Sö	A
+Musizieren	Sö	S
+Naturkunde	Sö	A
+Natya	Sö	A
+NinJutsu	Sö	A
+Orakelkunst	Sö	S
+Pflanzenkunde	Sö	A
+Pyromantie	Sö	S
+Rechnen	Sö	A
+Reiten	Sö	G
+Rudern	Sö	S
+Athletik	Se	S
+Augensalbe herstellen	Se	S
+Balancieren	Se	G
+Ballista bedienen	Se	G
+Beidhändiger Kampf	Se	G
+Beredsamkeit	Se	G
+Beschatten	Se	S
+Bogen vom Streitwagen	Se	S
+Bogen zu Pferd	Se	S
+Brettspiel	Se	S
+Dichten	Se	S
+Elefanten lenken	Se	A
+Erste Hilfe	Se	S
+Erzählen	Se	G
+Etikette	Se	S
+Fallen	Se	S
+Fallen entdecken	Se	S
+Fallen entschärfen	Se	S
+Fallenmechanik	Se	S
+Fallenstellen	Se	S
+Fangen	Se	G
+Faustkampf	Se	G
+Fechten	Se	S
+Fechten tevarischer Stil	Se	S
+FengSchui	Se	S
+FengTsu	Se	S
+Fälschen	Se	S
+Gassenwissen	Se	G
+Geheimmechanismen öffnen	Se	S
+Geheimzeichen	Se	S
+Geländelauf	Se	S
+Geomantie	Se	S
+Geschenke machen	Se	S
+Geschichten erzählen	Se	G
+Geschäftstüchtigkeit	Se	S
+Giftmischen	Se	S
+Glücksspiel	Se	S
+Heraldik	Se	A
+Himmelskunde	Se	G
+IaiJutsu	Se	S
+Jonglieren	Se	G
+Kalligraphie	Se	A
+Kamelreiten	Se	S
+Kampf in Dunkelheit	Se	S
+Kampf in Schlachtreihe	Se	S
+Kampf in Vollrüstung	Se	S
+Kampf vom Streitwagen	Se	A
+Kampf zu Elefant	Se	A
+Kampf zu Kamel	Se	S
+Kampf zu Pferd	Se	A
+Kampf zu Srimara	Se	A
+Kampftaktik	Se	G
+Kanufahren	Se	G
+KarumiJutsu	Se	A
+Katapult bedienen	Se	G
+Kenntnis der fünf Klassiker	Se	S
+KentoYobu	Se	S
+KiDo	Se	S
+Klettern	Se	G
+Kräuterkunde	Se	S
+KujKuri	Se	A
+KujNoIu	Se	S
+Körperbemalung	Se	S
+Körperkontrolle	Se	A
+Lanzenstechen	Se	A
+Laufen	Se	A
+Lesen von Zauberschrift	Se	A
+Lesen/Schreiben	Se	S
+LiYao	Se	S
+Lippenlesen	Se	S
+Luftkampf	Se	A
+Malen/Zeichen	Se	A
+Meditieren	Se	A
+Menschenkenntnis	Se	G
+Meucheln	Se	S
+MiChen	Se	S
+Mumifizieren	Se	A
+Musizieren	Se	S
+Naturkunde	Se	S
+Natya	Se	A
+NinJutsu	Se	A
+Orakelkunst	Se	S
+Pflanzenkunde	Se	S
+Pyromantie	Se	S
+Rechnen	Se	G
+Reiten	Se	S
+Rudern	Se	G
+Sagenkunde	Se	S
+Scharfschießen	Se	S
+Schiffsführung	Se	G
+SchiyoKi	Se	S
+Schlangen beschwören	Se	A
+Schleichen	Se	S
+Schlittenfahren	Se	S
+Schlittschuhlaufen	Se	S
+Schlösser öffnen	Se	S
+Schmerzen ertragen	Se	A
+Schwerttanz	Se	S
+Schwimmen	Se	G
+Segeln	Se	G
+Seilkunst	Se	G
+Siegelfälschung	Se	S
+Siegelkunde	Se	A
+Singen	Se	S
+Singen (Stufe)	Se	S
+Skifahren	Se	S
+Sprache	Se	G
+Springen	Se	S
+Spurenlesen	Se	S
+Srimara lenken	Se	A
+Stehlen	Se	S
+Steinabreibungen machen	Se	A
+Stimmen nachahmen	Se	S
+Streitwagen lenken	Se	S
+TaiTschi	Se	S
+Talisman verzaubern	Se	S
+Tanzen	Se	S
+Geländelauf	Kr	S
+Geomantie	Kr	S
+Geschenke machen	Kr	S
+Geschichten erzählen	Kr	S
+Geschäftstüchtigkeit	Kr	S
+Giftmischen	Kr	A
+Glücksspiel	Kr	S
+Heraldik	Kr	A
+Himmelskunde	Kr	S
+IaiJutsu	Kr	G
+Jonglieren	Kr	S
+Kalligraphie	Kr	A
+Kamelreiten	Kr	G
+Kampf in Dunkelheit	Kr	S
+Kampf in Schlachtreihe	Kr	G
+Kampf in Vollrüstung	Kr	G
+Kampf vom Streitwagen	Kr	G
+Kampf zu Elefant	Kr	A
+Kampf zu Kamel	Kr	G
+Kampf zu Pferd	Kr	G
+Kampf zu Srimara	Kr	A
+Kampftaktik	Kr	G
+Kanufahren	Kr	S
+KarumiJutsu	Kr	A
+Katapult bedienen	Kr	G
+Kenntnis der fünf Klassiker	Kr	S
+KentoYobu	Kr	G
+KiDo	Kr	S
+Klettern	Kr	S
+Kräuterkunde	Kr	S
+KujKuri	Kr	A
+KujNoIu	Kr	S
+Körperbemalung	Kr	S
+Körperkontrolle	Kr	A
+Lanzenstechen	Kr	S
+Laufen	Kr	S
+Lesen von Zauberschrift	Kr	A
+Lesen/Schreiben	Kr	S
+LiYao	Kr	S
+Lippenlesen	Kr	S
+Luftkampf	Kr	G
+Malen/Zeichen	Kr	A
+Meditieren	Kr	A
+Menschenkenntnis	Kr	S
+Meucheln	Kr	A
+MiChen	Kr	S
+Mumifizieren	Kr	A
+Musizieren	Kr	S
+Naturkunde	Kr	A
+Natya	Kr	A
+NinJutsu	Kr	A
+Orakelkunst	Kr	S
+Pflanzenkunde	Kr	A
+Pyromantie	Kr	S
+Rechnen	Kr	A
+Reiten	Kr	G
+Rudern	Kr	S
+Sagenkunde	Kr	S
+Scharfschießen	Kr	S
+Schiffsführung	Kr	G
+SchiyoKi	Kr	G
+Schlangen beschwören	Kr	A
+Schleichen	Kr	S
+Schlittenfahren	Kr	S
+Schlittschuhlaufen	Kr	S
+Schlösser öffnen	Kr	A
+Schmerzen ertragen	Kr	A
+Schwerttanz	Kr	G
+Schwimmen	Kr	G
+Segeln	Kr	S
+Seilkunst	Kr	S
+Siegelfälschung	Kr	A
+Siegelkunde	Kr	S
+Singen	Kr	S
+Singen (Stufe)	Kr	S
+Skifahren	Kr	S
+Sprache	Kr	S
+Springen	Kr	S
+Spurenlesen	Kr	S
+Srimara lenken	Kr	A
+Stehlen	Kr	A
+Steinabreibungen machen	Kr	A
+Stimmen nachahmen	Kr	A
+Streitwagen lenken	Kr	G
+TaiTschi	Kr	G
+Talisman verzaubern	Kr	S
+Tanzen	Kr	S
+Tarnen	Kr	S
+Tauchen	Kr	S
+Teezeremonie	Kr	S
+Tierkunde	Kr	A
+Trinken	Kr	S
+Verbergen	Kr	S
+Verführen	Kr	S
+Verhören	Kr	S
+Verkleiden	Kr	A
+Wagenlenken	Kr	G
+Wahrnehmung	Kr	S
+Werfen	Kr	S
+Wetterkunde	Kr	A
+Winden	Kr	A
+Wissen von der Magie	Kr	A
+YangScheng	Kr	A
+YubeChian	Kr	S
+Zauberkunde	Kr	A
+Zeichensprache	Kr	S
+Zunge verschlucken	Kr	S
+Überleben im Dschungel	Kr	S
+Überleben im Gebirge	Kr	S
+Überleben im Schnee	Kr	S
+Überleben im Sumpf	Kr	S
+Überleben im Wald	Kr	S
+Überleben in der Steppe	Kr	S
+Überleben in der Wüste	Kr	S
+Alchemie	Se	A
+Askese	Se	A
+Astrologie	Se	A
+KujKuri	Hä	A
+KujNoIu	Hä	S
+Körperbemalung	Hä	S
+Körperkontrolle	Hä	A
+Lanzenstechen	Hä	A
+Laufen	Hä	S
+Lesen von Zauberschrift	Hä	A
+Lesen/Schreiben	Hä	G
+LiYao	Hä	S
+Lippenlesen	Hä	S
+Luftkampf	Hä	S
+Malen/Zeichen	Hä	A
+Meditieren	Hä	A
+Menschenkenntnis	Hä	G
+Meucheln	Hä	S
+MiChen	Hä	S
+Mumifizieren	Hä	A
+Musizieren	Hä	S
+Naturkunde	Hä	S
+Natya	Hä	A
+NinJutsu	Hä	A
+Orakelkunst	Hä	S
+Pflanzenkunde	Hä	S
+Pyromantie	Hä	S
+Rechnen	Hä	G
+Reiten	Hä	G
+Rudern	Hä	G
+Sagenkunde	Hä	S
+Scharfschießen	Hä	S
+Schiffsführung	Hä	G
+SchiyoKi	Hä	S
+Schlangen beschwören	Hä	A
+Schleichen	Hä	S
+Schlittenfahren	Hä	G
+Schlittschuhlaufen	Hä	S
+Schlösser öffnen	Hä	S
+Schmerzen ertragen	Hä	A
+Schwerttanz	Hä	A
+Schwimmen	Hä	G
+Segeln	Hä	G
+Seilkunst	Hä	G
+Siegelfälschung	Hä	S
+Siegelkunde	Hä	G
+Singen	Hä	S
+Singen (Stufe)	Hä	S
+Skifahren	Hä	S
+Sprache	Hä	G
+Springen	Hä	S
+Spurenlesen	Hä	S
+Srimara lenken	Hä	A
+Stehlen	Hä	S
+Steinabreibungen machen	Hä	S
+Stimmen nachahmen	Hä	S
+Streitwagen lenken	Hä	S
+TaiTschi	Hä	S
+Talisman verzaubern	Hä	S
+Tanzen	Hä	S
+Tarnen	Hä	S
+Tauchen	Hä	S
+Teezeremonie	Hä	S
+Tierkunde	Hä	S
+Trinken	Hä	S
+Verbergen	Hä	S
+Verführen	Hä	S
+Verhören	Hä	G
+Verkleiden	Hä	S
+Wagenlenken	Hä	G
+Wahrnehmung	Hä	G
+Werfen	Hä	S
+Wetterkunde	Hä	S
+Winden	Hä	S
+Wissen von der Magie	Hä	S
+YangScheng	Hä	S
+YubeChian	Hä	S
+Zauberkunde	Hä	S
+Zeichensprache	Hä	G
+Zunge verschlucken	Hä	S
+Überleben im Dschungel	Hä	G
+Überleben im Gebirge	Hä	S
+Überleben im Schnee	Hä	G
+Überleben im Sumpf	Hä	S
+Überleben im Wald	Hä	G
+Überleben in der Steppe	Hä	G
+Überleben in der Wüste	Hä	G
+Alchemie	Kr	A
+Askese	Kr	A
+Astrologie	Kr	A
+Athletik	Kr	G
+Augensalbe herstellen	Kr	S
+Balancieren	Kr	S
+Ballista bedienen	Kr	G
+Beidhändiger Kampf	Kr	G
+Beredsamkeit	Kr	S
+Beschatten	Kr	S
+Bogen vom Streitwagen	Kr	G
+Bogen zu Pferd	Kr	G
+Brettspiel	Kr	S
+Dichten	Kr	S
+Elefanten lenken	Kr	A
+Erste Hilfe	Kr	S
+Erzählen	Kr	S
+Etikette	Kr	S
+Fallen	Kr	S
+Fallen entdecken	Kr	A
+Fallen entschärfen	Kr	A
+Fallenmechanik	Kr	A
+Fallenstellen	Kr	S
+Fangen	Kr	S
+Faustkampf	Kr	S
+Fechten	Kr	S
+Fechten tevarischer Stil	Kr	S
+FengSchui	Kr	G
+FengTsu	Kr	G
+Fälschen	Kr	A
+Gassenwissen	Kr	S
+Geheimmechanismen öffnen	Kr	A
+Geheimzeichen	Kr	S
+Schlangen beschwören	Gl	A
+Schleichen	Gl	G
+Schlittenfahren	Gl	S
+Schlittschuhlaufen	Gl	S
+Schlösser öffnen	Gl	S
+Schmerzen ertragen	Gl	A
+Schwerttanz	Gl	G
+Schwimmen	Gl	G
+Segeln	Gl	S
+Seilkunst	Gl	S
+Siegelfälschung	Gl	S
+Siegelkunde	Gl	A
+Singen	Gl	S
+Singen (Stufe)	Gl	S
+Skifahren	Gl	S
+Sprache	Gl	G
+Springen	Gl	G
+Spurenlesen	Gl	S
+Srimara lenken	Gl	A
+Stehlen	Gl	S
+Steinabreibungen machen	Gl	S
+Stimmen nachahmen	Gl	S
+Streitwagen lenken	Gl	S
+TaiTschi	Gl	S
+Talisman verzaubern	Gl	S
+Tanzen	Gl	G
+Tarnen	Gl	G
+Tauchen	Gl	S
+Teezeremonie	Gl	S
+Tierkunde	Gl	S
+Trinken	Gl	G
+Verbergen	Gl	G
+Verführen	Gl	G
+Verhören	Gl	G
+Verkleiden	Gl	G
+Wagenlenken	Gl	S
+Wahrnehmung	Gl	S
+Werfen	Gl	G
+Wetterkunde	Gl	S
+Winden	Gl	S
+Wissen von der Magie	Gl	S
+YangScheng	Gl	S
+YubeChian	Gl	S
+Zauberkunde	Gl	A
+Zeichensprache	Gl	G
+Zunge verschlucken	Gl	S
+Überleben im Dschungel	Gl	S
+Überleben im Gebirge	Gl	S
+Überleben im Schnee	Gl	S
+Überleben im Sumpf	Gl	S
+Überleben im Wald	Gl	S
+Überleben in der Steppe	Gl	S
+Überleben in der Wüste	Gl	S
+Alchemie	Hä	A
+Askese	Hä	A
+Astrologie	Hä	S
+Athletik	Hä	S
+Augensalbe herstellen	Hä	S
+Balancieren	Hä	S
+Ballista bedienen	Hä	S
+Beidhändiger Kampf	Hä	S
+Beredsamkeit	Hä	G
+Beschatten	Hä	S
+Bogen vom Streitwagen	Hä	S
+Bogen zu Pferd	Hä	S
+Brettspiel	Hä	G
+Dichten	Hä	S
+Elefanten lenken	Hä	A
+Erste Hilfe	Hä	S
+Erzählen	Hä	S
+Etikette	Hä	S
+Fallen	Hä	S
+Fallen entdecken	Hä	G
+Fallen entschärfen	Hä	S
+Fallenmechanik	Hä	G
+Fallenstellen	Hä	S
+Fangen	Hä	S
+Faustkampf	Hä	S
+Fechten	Hä	S
+Fechten tevarischer Stil	Hä	S
+FengSchui	Hä	S
+FengTsu	Hä	S
+Fälschen	Hä	G
+Gassenwissen	Hä	G
+Geheimmechanismen öffnen	Hä	S
+Geheimzeichen	Hä	G
+Geländelauf	Hä	S
+Geomantie	Hä	S
+Geschenke machen	Hä	S
+Geschichten erzählen	Hä	S
+Geschäftstüchtigkeit	Hä	G
+Giftmischen	Hä	S
+Glücksspiel	Hä	G
+Heraldik	Hä	A
+Himmelskunde	Hä	G
+IaiJutsu	Hä	S
+Jonglieren	Hä	S
+Kalligraphie	Hä	S
+Kamelreiten	Hä	G
+Kampf in Dunkelheit	Hä	S
+Kampf in Schlachtreihe	Hä	S
+Kampf in Vollrüstung	Hä	S
+Kampf vom Streitwagen	Hä	S
+Kampf zu Elefant	Hä	A
+Kampf zu Kamel	Hä	S
+Kampf zu Pferd	Hä	G
+Kampf zu Srimara	Hä	A
+Kampftaktik	Hä	S
+Kanufahren	Hä	G
+KarumiJutsu	Hä	A
+Katapult bedienen	Hä	S
+Kenntnis der fünf Klassiker	Hä	S
+KentoYobu	Hä	S
+KiDo	Hä	S
+Klettern	Hä	S
+Kräuterkunde	Hä	S
+Trinken	BW	S
+Verbergen	BW	S
+Verführen	BW	S
+Verhören	BW	A
+Verkleiden	BW	S
+Wagenlenken	BW	S
+Wahrnehmung	BW	G
+Werfen	BW	S
+Wetterkunde	BW	S
+Winden	BW	S
+Wissen von der Magie	BW	S
+YangScheng	BW	A
+YubeChian	BW	A
+Zauberkunde	BW	A
+Zeichensprache	BW	S
+Zunge verschlucken	BW	S
+Überleben im Dschungel	BW	G
+Überleben im Gebirge	BW	S
+Überleben im Schnee	BW	S
+Überleben im Sumpf	BW	S
+Überleben im Wald	BW	G
+Überleben in der Steppe	BW	S
+Überleben in der Wüste	BW	S
+Alchemie	Gl	A
+Askese	Gl	A
+Astrologie	Gl	A
+Athletik	Gl	S
+Augensalbe herstellen	Gl	S
+Balancieren	Gl	G
+Ballista bedienen	Gl	S
+Beidhändiger Kampf	Gl	G
+Beredsamkeit	Gl	G
+Beschatten	Gl	S
+Bogen vom Streitwagen	Gl	S
+Bogen zu Pferd	Gl	S
+Brettspiel	Gl	G
+Dichten	Gl	S
+Elefanten lenken	Gl	A
+Erste Hilfe	Gl	S
+Erzählen	Gl	G
+Etikette	Gl	G
+Fallen	Gl	G
+Fallen entdecken	Gl	S
+Fallen entschärfen	Gl	S
+Fallenmechanik	Gl	S
+Fallenstellen	Gl	S
+Fangen	Gl	S
+Faustkampf	Gl	S
+Fechten	Gl	G
+Fechten tevarischer Stil	Gl	G
+FengSchui	Gl	S
+FengTsu	Gl	G
+Fälschen	Gl	G
+Gassenwissen	Gl	G
+Geheimmechanismen öffnen	Gl	G
+Geheimzeichen	Gl	S
+Geländelauf	Gl	G
+Geomantie	Gl	S
+Geschenke machen	Gl	S
+Geschichten erzählen	Gl	G
+Geschäftstüchtigkeit	Gl	S
+Giftmischen	Gl	S
+Glücksspiel	Gl	G
+Heraldik	Gl	A
+Himmelskunde	Gl	S
+IaiJutsu	Gl	S
+Jonglieren	Gl	G
+Kalligraphie	Gl	A
+Kamelreiten	Gl	G
+Kampf in Dunkelheit	Gl	S
+Kampf in Schlachtreihe	Gl	S
+Kampf in Vollrüstung	Gl	S
+Kampf vom Streitwagen	Gl	S
+Kampf zu Elefant	Gl	A
+Kampf zu Kamel	Gl	S
+Kampf zu Pferd	Gl	G
+Kampf zu Srimara	Gl	A
+Kampftaktik	Gl	S
+Kanufahren	Gl	S
+KarumiJutsu	Gl	A
+Katapult bedienen	Gl	S
+Kenntnis der fünf Klassiker	Gl	S
+KentoYobu	Gl	S
+KiDo	Gl	S
+Klettern	Gl	G
+Kräuterkunde	Gl	S
+KujKuri	Gl	S
+KujNoIu	Gl	S
+Körperbemalung	Gl	S
+Körperkontrolle	Gl	A
+Lanzenstechen	Gl	A
+Laufen	Gl	S
+Lesen von Zauberschrift	Gl	A
+Lesen/Schreiben	Gl	S
+LiYao	Gl	S
+Lippenlesen	Gl	S
+Luftkampf	Gl	S
+Malen/Zeichen	Gl	S
+Meditieren	Gl	A
+Menschenkenntnis	Gl	G
+Meucheln	Gl	S
+MiChen	Gl	S
+Mumifizieren	Gl	A
+Musizieren	Gl	S
+Naturkunde	Gl	S
+Natya	Gl	A
+NinJutsu	Gl	A
+Orakelkunst	Gl	S
+Pflanzenkunde	Gl	S
+Pyromantie	Gl	S
+Rechnen	Gl	S
+Reiten	Gl	G
+Rudern	Gl	S
+Sagenkunde	Gl	S
+Scharfschießen	Gl	S
+Schiffsführung	Gl	S
+SchiyoKi	Gl	S
+Beidhändiger Kampf	BW	G
+Beredsamkeit	BW	S
+Beschatten	BW	G
+Bogen vom Streitwagen	BW	S
+Bogen zu Pferd	BW	S
+Brettspiel	BW	A
+Dichten	BW	S
+Elefanten lenken	BW	A
+Erste Hilfe	BW	S
+Erzählen	BW	S
+Etikette	BW	A
+Fallen	BW	G
+Fallen entdecken	BW	S
+Fallen entschärfen	BW	S
+Fallenmechanik	BW	S
+Fallenstellen	BW	G
+Fangen	BW	G
+Faustkampf	BW	S
+Fechten	BW	S
+Fechten tevarischer Stil	BW	S
+FengSchui	BW	S
+FengTsu	BW	S
+Fälschen	BW	A
+Gassenwissen	BW	S
+Geheimmechanismen öffnen	BW	A
+Geheimzeichen	BW	S
+Geländelauf	BW	G
+Geomantie	BW	S
+Geschenke machen	BW	S
+Geschichten erzählen	BW	S
+Geschäftstüchtigkeit	BW	S
+Giftmischen	BW	S
+Glücksspiel	BW	S
+Heraldik	BW	A
+Himmelskunde	BW	S
+IaiJutsu	BW	S
+Jonglieren	BW	S
+Kalligraphie	BW	A
+Kamelreiten	BW	S
+Kampf in Dunkelheit	BW	S
+Kampf in Schlachtreihe	BW	G
+Kampf in Vollrüstung	BW	S
+Kampf vom Streitwagen	BW	S
+Kampf zu Elefant	BW	A
+Kampf zu Kamel	BW	A
+Kampf zu Pferd	BW	G
+Kampf zu Srimara	BW	A
+Kampftaktik	BW	S
+Kanufahren	BW	G
+KarumiJutsu	BW	A
+Katapult bedienen	BW	S
+Kenntnis der fünf Klassiker	BW	S
+KentoYobu	BW	S
+KiDo	BW	S
+Klettern	BW	G
+Kräuterkunde	BW	S
+KujKuri	BW	A
+KujNoIu	BW	S
+Körperbemalung	BW	S
+Körperkontrolle	BW	A
+Lanzenstechen	BW	A
+Laufen	BW	G
+Lesen von Zauberschrift	BW	A
+Lesen/Schreiben	BW	S
+LiYao	BW	A
+Lippenlesen	BW	S
+Luftkampf	BW	S
+Malen/Zeichen	BW	A
+Meditieren	BW	A
+Menschenkenntnis	BW	S
+Meucheln	BW	S
+MiChen	BW	A
+Mumifizieren	BW	A
+Musizieren	BW	S
+Naturkunde	BW	S
+Natya	BW	A
+NinJutsu	BW	A
+Orakelkunst	BW	S
+Pflanzenkunde	BW	S
+Pyromantie	BW	S
+Rechnen	BW	A
+Reiten	BW	G
+Rudern	BW	G
+Sagenkunde	BW	S
+Scharfschießen	BW	S
+Schiffsführung	BW	A
+SchiyoKi	BW	S
+Schlangen beschwören	BW	A
+Schleichen	BW	G
+Schlittenfahren	BW	S
+Schlittschuhlaufen	BW	S
+Schlösser öffnen	BW	A
+Schmerzen ertragen	BW	A
+Schwerttanz	BW	A
+Schwimmen	BW	G
+Segeln	BW	S
+Seilkunst	BW	S
+Siegelfälschung	BW	A
+Siegelkunde	BW	A
+Singen	BW	S
+Singen (Stufe)	BW	S
+Skifahren	BW	S
+Sprache	BW	S
+Springen	BW	S
+Spurenlesen	BW	G
+Srimara lenken	BW	A
+Stehlen	BW	S
+Steinabreibungen machen	BW	A
+Stimmen nachahmen	BW	G
+Streitwagen lenken	BW	S
+TaiTschi	BW	S
+Talisman verzaubern	BW	S
+Tanzen	BW	G
+Tarnen	BW	G
+Tauchen	BW	G
+Teezeremonie	BW	S
+Tierkunde	BW	S
+Geschäftstüchtigkeit	BS	S
+Giftmischen	BS	S
+Glücksspiel	BS	S
+Heraldik	BS	A
+Himmelskunde	BS	G
+IaiJutsu	BS	S
+Jonglieren	BS	S
+Kalligraphie	BS	A
+Kamelreiten	BS	G
+Kampf in Dunkelheit	BS	S
+Kampf in Schlachtreihe	BS	S
+Kampf in Vollrüstung	BS	S
+Kampf vom Streitwagen	BS	G
+Kampf zu Elefant	BS	A
+Kampf zu Kamel	BS	G
+Kampf zu Pferd	BS	G
+Kampf zu Srimara	BS	A
+Kampftaktik	BS	S
+Kanufahren	BS	S
+KarumiJutsu	BS	A
+Katapult bedienen	BS	S
+Kenntnis der fünf Klassiker	BS	S
+KentoYobu	BS	S
+KiDo	BS	S
+Klettern	BS	G
+Kräuterkunde	BS	S
+KujKuri	BS	A
+KujNoIu	BS	S
+Körperbemalung	BS	S
+Körperkontrolle	BS	A
+Lanzenstechen	BS	A
+Laufen	BS	G
+Lesen von Zauberschrift	BS	A
+Lesen/Schreiben	BS	S
+LiYao	BS	A
+Lippenlesen	BS	S
+Luftkampf	BS	S
+Malen/Zeichen	BS	A
+Meditieren	BS	A
+Menschenkenntnis	BS	S
+Meucheln	BS	S
+MiChen	BS	A
+Mumifizieren	BS	A
+Musizieren	BS	S
+Naturkunde	BS	S
+Natya	BS	A
+NinJutsu	BS	A
+Orakelkunst	BS	S
+Pflanzenkunde	BS	S
+Pyromantie	BS	S
+Rechnen	BS	A
+Reiten	BS	G
+Rudern	BS	S
+Sagenkunde	BS	S
+Scharfschießen	BS	S
+Schiffsführung	BS	A
+SchiyoKi	BS	S
+Schlangen beschwören	BS	A
+Schleichen	BS	G
+Schlittenfahren	BS	S
+Schlittschuhlaufen	BS	S
+Schlösser öffnen	BS	A
+Schmerzen ertragen	BS	A
+Schwerttanz	BS	A
+Schwimmen	BS	S
+Segeln	BS	S
+Seilkunst	BS	S
+Siegelfälschung	BS	A
+Siegelkunde	BS	A
+Singen	BS	S
+Singen (Stufe)	BS	S
+Skifahren	BS	S
+Sprache	BS	S
+Springen	BS	S
+Spurenlesen	BS	G
+Srimara lenken	BS	A
+Stehlen	BS	S
+Steinabreibungen machen	BS	A
+Stimmen nachahmen	BS	A
+Streitwagen lenken	BS	G
+TaiTschi	BS	S
+Talisman verzaubern	BS	S
+Tanzen	BS	S
+Tarnen	BS	G
+Tauchen	BS	A
+Teezeremonie	BS	S
+Tierkunde	BS	S
+Trinken	BS	S
+Verbergen	BS	S
+Verführen	BS	S
+Verhören	BS	A
+Verkleiden	BS	S
+Wagenlenken	BS	G
+Wahrnehmung	BS	G
+Werfen	BS	S
+Wetterkunde	BS	S
+Winden	BS	S
+Wissen von der Magie	BS	S
+YangScheng	BS	A
+YubeChian	BS	A
+Zauberkunde	BS	A
+Zeichensprache	BS	S
+Zunge verschlucken	BS	S
+Überleben im Dschungel	BS	S
+Überleben im Gebirge	BS	S
+Überleben im Schnee	BS	S
+Überleben im Sumpf	BS	S
+Überleben im Wald	BS	S
+Überleben in der Steppe	BS	G
+Überleben in der Wüste	BS	S
+Alchemie	BW	A
+Askese	BW	A
+Astrologie	BW	A
+Athletik	BW	G
+Augensalbe herstellen	BW	S
+Balancieren	BW	G
+Ballista bedienen	BW	S
+Lanzenstechen	BN	A
+Laufen	BN	G
+Lesen von Zauberschrift	BN	A
+Lesen/Schreiben	BN	S
+LiYao	BN	A
+Lippenlesen	BN	S
+Luftkampf	BN	S
+Malen/Zeichen	BN	A
+Meditieren	BN	A
+Menschenkenntnis	BN	S
+Meucheln	BN	S
+MiChen	BN	A
+Mumifizieren	BN	A
+Musizieren	BN	S
+Naturkunde	BN	S
+Natya	BN	A
+NinJutsu	BN	A
+Orakelkunst	BN	S
+Pflanzenkunde	BN	S
+Pyromantie	BN	S
+Rechnen	BN	A
+Reiten	BN	G
+Rudern	BN	G
+Sagenkunde	BN	S
+Scharfschießen	BN	S
+Schiffsführung	BN	S
+SchiyoKi	BN	S
+Schlangen beschwören	BN	A
+Schleichen	BN	G
+Schlittenfahren	BN	G
+Schlittschuhlaufen	BN	G
+Schlösser öffnen	BN	A
+Schmerzen ertragen	BN	A
+Schwerttanz	BN	A
+Schwimmen	BN	G
+Segeln	BN	S
+Seilkunst	BN	S
+Siegelfälschung	BN	A
+Siegelkunde	BN	A
+Singen	BN	S
+Singen (Stufe)	BN	S
+Skifahren	BN	G
+Sprache	BN	S
+Springen	BN	S
+Spurenlesen	BN	S
+Srimara lenken	BN	A
+Stehlen	BN	S
+Steinabreibungen machen	BN	A
+Stimmen nachahmen	BN	A
+Streitwagen lenken	BN	S
+TaiTschi	BN	S
+Talisman verzaubern	BN	S
+Tanzen	BN	S
+Tarnen	BN	G
+Tauchen	BN	G
+Teezeremonie	BN	S
+Tierkunde	BN	S
+Trinken	BN	G
+Verbergen	BN	S
+Verführen	BN	S
+Verhören	BN	A
+Verkleiden	BN	S
+Wagenlenken	BN	S
+Wahrnehmung	BN	G
+Werfen	BN	S
+Wetterkunde	BN	S
+Winden	BN	S
+Wissen von der Magie	BN	S
+YangScheng	BN	A
+YubeChian	BN	A
+Zauberkunde	BN	A
+Zeichensprache	BN	S
+Zunge verschlucken	BN	S
+Überleben im Dschungel	BN	S
+Überleben im Gebirge	BN	G
+Überleben im Schnee	BN	G
+Überleben im Sumpf	BN	S
+Überleben im Wald	BN	S
+Überleben in der Steppe	BN	S
+Überleben in der Wüste	BN	S
+Alchemie	BS	A
+Askese	BS	A
+Astrologie	BS	A
+Athletik	BS	G
+Augensalbe herstellen	BS	S
+Balancieren	BS	S
+Ballista bedienen	BS	S
+Beidhändiger Kampf	BS	G
+Beredsamkeit	BS	S
+Beschatten	BS	S
+Bogen vom Streitwagen	BS	G
+Bogen zu Pferd	BS	G
+Brettspiel	BS	A
+Dichten	BS	S
+Elefanten lenken	BS	A
+Erste Hilfe	BS	S
+Erzählen	BS	S
+Etikette	BS	A
+Fallen	BS	S
+Fallen entdecken	BS	S
+Fallen entschärfen	BS	S
+Fallenmechanik	BS	S
+Fallenstellen	BS	G
+Fangen	BS	G
+Faustkampf	BS	G
+Fechten	BS	S
+Fechten tevarischer Stil	BS	S
+FengSchui	BS	S
+FengTsu	BS	S
+Fälschen	BS	A
+Gassenwissen	BS	S
+Geheimmechanismen öffnen	BS	A
+Geheimzeichen	BS	S
+Geländelauf	BS	G
+Geomantie	BS	S
+Geschenke machen	BS	S
+Geschichten erzählen	BS	S
+Schlösser öffnen	Ass	S
+Schmerzen ertragen	Ass	A
+Schwerttanz	Ass	S
+Schwimmen	Ass	G
+Segeln	Ass	S
+Seilkunst	Ass	S
+Siegelfälschung	Ass	G
+Siegelkunde	Ass	S
+Singen	Ass	S
+Singen (Stufe)	Ass	S
+Skifahren	Ass	S
+Sprache	Ass	G
+Springen	Ass	G
+Spurenlesen	Ass	S
+Srimara lenken	Ass	A
+Stehlen	Ass	S
+Steinabreibungen machen	Ass	S
+Stimmen nachahmen	Ass	G
+Streitwagen lenken	Ass	S
+TaiTschi	Ass	G
+Talisman verzaubern	Ass	S
+Tanzen	Ass	S
+Tarnen	Ass	G
+Tauchen	Ass	S
+Teezeremonie	Ass	S
+Tierkunde	Ass	S
+Trinken	Ass	S
+Verbergen	Ass	G
+Verführen	Ass	S
+Verhören	Ass	S
+Verkleiden	Ass	G
+Wagenlenken	Ass	S
+Wahrnehmung	Ass	G
+Werfen	Ass	G
+Wetterkunde	Ass	A
+Winden	Ass	G
+Wissen von der Magie	Ass	S
+YangScheng	Ass	S
+YubeChian	Ass	G
+Zauberkunde	Ass	A
+Zeichensprache	Ass	S
+Zunge verschlucken	Ass	S
+Überleben im Dschungel	Ass	S
+Überleben im Gebirge	Ass	S
+Überleben im Schnee	Ass	S
+Überleben im Sumpf	Ass	S
+Überleben im Wald	Ass	S
+Überleben in der Steppe	Ass	S
+Überleben in der Wüste	Ass	S
+Alchemie	BN	A
+Askese	BN	A
+Astrologie	BN	A
+Athletik	BN	G
+Augensalbe herstellen	BN	S
+Balancieren	BN	S
+Ballista bedienen	BN	S
+Beidhändiger Kampf	BN	G
+Beredsamkeit	BN	S
+Beschatten	BN	S
+Bogen vom Streitwagen	BN	S
+Bogen zu Pferd	BN	S
+Brettspiel	BN	A
+Dichten	BN	S
+Elefanten lenken	BN	A
+Erste Hilfe	BN	S
+Erzählen	BN	S
+Etikette	BN	A
+Fallen	BN	S
+Fallen entdecken	BN	S
+Fallen entschärfen	BN	S
+Fallenmechanik	BN	S
+Fallenstellen	BN	G
+Fangen	BN	G
+Faustkampf	BN	G
+Fechten	BN	S
+Fechten tevarischer Stil	BN	S
+FengSchui	BN	S
+FengTsu	BN	S
+Fälschen	BN	A
+Gassenwissen	BN	S
+Geheimmechanismen öffnen	BN	A
+Geheimzeichen	BN	S
+Geländelauf	BN	G
+Geomantie	BN	S
+Geschenke machen	BN	S
+Geschichten erzählen	BN	S
+Geschäftstüchtigkeit	BN	S
+Giftmischen	BN	S
+Glücksspiel	BN	S
+Heraldik	BN	A
+Himmelskunde	BN	G
+IaiJutsu	BN	S
+Jonglieren	BN	S
+Kalligraphie	BN	A
+Kamelreiten	BN	S
+Kampf in Dunkelheit	BN	S
+Kampf in Schlachtreihe	BN	S
+Kampf in Vollrüstung	BN	S
+Kampf vom Streitwagen	BN	G
+Kampf zu Elefant	BN	A
+Kampf zu Kamel	BN	A
+Kampf zu Pferd	BN	G
+Kampf zu Srimara	BN	A
+Kampftaktik	BN	S
+Kanufahren	BN	S
+KarumiJutsu	BN	A
+Katapult bedienen	BN	S
+Kenntnis der fünf Klassiker	BN	S
+KentoYobu	BN	S
+KiDo	BN	S
+Klettern	BN	G
+Kräuterkunde	BN	S
+KujKuri	BN	A
+KujNoIu	BN	S
+Körperbemalung	BN	S
+Körperkontrolle	BN	A
+Wagenlenken	Sr	S
+Wahrnehmung	Sr	S
+Werfen	Sr	S
+Wetterkunde	Sr	A
+Winden	Sr	S
+Wissen von der Magie	Sr	S
+YangScheng	Sr	G
+YubeChian	Sr	S
+Zauberkunde	Sr	A
+Zeichensprache	Sr	S
+Zunge verschlucken	Sr	S
+Überleben im Dschungel	Sr	S
+Überleben im Gebirge	Sr	S
+Überleben im Schnee	Sr	S
+Überleben im Sumpf	Sr	S
+Überleben im Wald	Sr	S
+Überleben in der Steppe	Sr	S
+Überleben in der Wüste	Sr	S
+Alchemie	Ass	A
+Askese	Ass	A
+Astrologie	Ass	A
+Athletik	Ass	S
+Augensalbe herstellen	Ass	S
+Balancieren	Ass	G
+Ballista bedienen	Ass	S
+Beidhändiger Kampf	Ass	S
+Beredsamkeit	Ass	S
+Beschatten	Ass	G
+Bogen vom Streitwagen	Ass	S
+Bogen zu Pferd	Ass	S
+Brettspiel	Ass	S
+Dichten	Ass	S
+Elefanten lenken	Ass	A
+Erste Hilfe	Ass	S
+Erzählen	Ass	A
+Etikette	Ass	S
+Fallen	Ass	G
+Fallen entdecken	Ass	G
+Fallen entschärfen	Ass	G
+Fallenmechanik	Ass	G
+Fallenstellen	Ass	G
+Fangen	Ass	S
+Faustkampf	Ass	S
+Fechten	Ass	G
+Fechten tevarischer Stil	Ass	G
+FengSchui	Ass	G
+FengTsu	Ass	G
+Fälschen	Ass	G
+Gassenwissen	Ass	G
+Geheimmechanismen öffnen	Ass	S
+Geheimzeichen	Ass	G
+Geländelauf	Ass	S
+Geomantie	Ass	S
+Geschenke machen	Ass	S
+Geschichten erzählen	Ass	A
+Geschäftstüchtigkeit	Ass	S
+Giftmischen	Ass	G
+Glücksspiel	Ass	S
+Heraldik	Ass	A
+Himmelskunde	Ass	S
+IaiJutsu	Ass	G
+Jonglieren	Ass	S
+Kalligraphie	Ass	A
+Kamelreiten	Ass	S
+Kampf in Dunkelheit	Ass	G
+Kampf in Schlachtreihe	Ass	S
+Kampf in Vollrüstung	Ass	A
+Kampf vom Streitwagen	Ass	A
+Kampf zu Elefant	Ass	A
+Kampf zu Kamel	Ass	S
+Kampf zu Pferd	Ass	S
+Kampf zu Srimara	Ass	A
+Kampftaktik	Ass	A
+Kanufahren	Ass	S
+KarumiJutsu	Ass	S
+Katapult bedienen	Ass	S
+Kenntnis der fünf Klassiker	Ass	S
+KentoYobu	Ass	A
+KiDo	Ass	G
+Klettern	Ass	G
+Kräuterkunde	Ass	S
+KujKuri	Ass	S
+KujNoIu	Ass	S
+Körperbemalung	Ass	S
+Körperkontrolle	Ass	A
+Lanzenstechen	Ass	A
+Laufen	Ass	S
+Lesen von Zauberschrift	Ass	A
+Lesen/Schreiben	Ass	S
+LiYao	Ass	S
+Lippenlesen	Ass	G
+Luftkampf	Ass	S
+Malen/Zeichen	Ass	A
+Meditieren	Ass	A
+Menschenkenntnis	Ass	S
+Meucheln	Ass	G
+MiChen	Ass	G
+Mumifizieren	Ass	A
+Musizieren	Ass	S
+Naturkunde	Ass	S
+Natya	Ass	A
+NinJutsu	Ass	S
+Orakelkunst	Ass	S
+Pflanzenkunde	Ass	S
+Pyromantie	Ass	S
+Rechnen	Ass	S
+Reiten	Ass	G
+Rudern	Ass	S
+Sagenkunde	Ass	S
+Scharfschießen	Ass	G
+Alchemie	Kd	A
+Askese	Kd	A
+Astrologie	Kd	A
+Athletik	Kd	S
+Augensalbe herstellen	Kd	S
+Balancieren	Kd	G
+Ballista bedienen	Kd	A
+Beidhändiger Kampf	Kd	G
+Beredsamkeit	Kd	S
+Beschatten	Kd	S
+Bogen vom Streitwagen	Kd	S
+Bogen zu Pferd	Kd	S
+Brettspiel	Kd	S
+Dichten	Kd	S
+Elefanten lenken	Kd	A
+Erste Hilfe	Kd	S
+Erzählen	Kd	S
+Etikette	Kd	S
+Fallen	Kd	S
+Fallen entdecken	Kd	A
+Fallen entschärfen	Kd	S
+Fallenmechanik	Kd	S
+Fallenstellen	Kd	S
+Fangen	Kd	S
+Faustkampf	Kd	S
+Fechten	Kd	S
+Fechten tevarischer Stil	Kd	S
+FengSchui	Kd	G
+FengTsu	Kd	S
+Fälschen	Kd	A
+Gassenwissen	Kd	S
+Geheimmechanismen öffnen	Kd	S
+Geheimzeichen	Kd	S
+Geländelauf	Kd	S
+Geomantie	Kd	S
+Geschenke machen	Kd	S
+Geschichten erzählen	Kd	S
+Geschäftstüchtigkeit	Kd	S
+Giftmischen	Kd	S
+Glücksspiel	Kd	S
+Heraldik	Kd	A
+Himmelskunde	Kd	S
+IaiJutsu	Kd	S
+Jonglieren	Kd	A
+Kalligraphie	Kd	A
+Kamelreiten	Kd	S
+Kampf in Dunkelheit	Kd	A
+Kampf in Schlachtreihe	Kd	A
+Kampf in Vollrüstung	Kd	S
+Kampf vom Streitwagen	Kd	S
+Kampf zu Elefant	Kd	A
+Kampf zu Kamel	Kd	S
+Kampf zu Pferd	Kd	A
+Kampf zu Srimara	Kd	A
+Kampftaktik	Kd	A
+Kanufahren	Kd	S
+KarumiJutsu	Kd	A
+Katapult bedienen	Kd	S
+Kenntnis der fünf Klassiker	Kd	S
+KentoYobu	Kd	S
+KiDo	Kd	G
+KiDo-Technik	Kd	S
+Klettern	Kd	S
+Kräuterkunde	Kd	S
+KujKuri	Kd	A
+KujNoIu	Kd	S
+Körperbemalung	Kd	S
+Körperkontrolle	Kd	A
+Lanzenstechen	Kd	A
+Laufen	Kd	S
+Lesen von Zauberschrift	Kd	A
+Lesen/Schreiben	Kd	S
+LiYao	Kd	S
+Lippenlesen	Kd	S
+Luftkampf	Kd	S
+Malen/Zeichen	Kd	A
+Meditieren	Kd	G
+Menschenkenntnis	Kd	S
+Meucheln	Kd	S
+MiChen	Kd	S
+Mumifizieren	Kd	A
+Musizieren	Kd	S
+Naturkunde	Kd	S
+Natya	Kd	A
+NinJutsu	Kd	S
+Orakelkunst	Kd	S
+Pflanzenkunde	Kd	S
+Pyromantie	Kd	A
+Rechnen	Kd	S
+Reiten	Kd	A
+Rudern	Kd	S
+Sagenkunde	Kd	S
+Scharfschießen	Kd	S
+Schiffsführung	Kd	S
+SchiyoKi	Kd	G
+Schlangen beschwören	Kd	G
+Schleichen	Kd	S
+Schlittenfahren	Kd	S
+Schlittschuhlaufen	Kd	S
+Schlösser öffnen	Kd	S
+Schmerzen ertragen	Kd	A
+Schwerttanz	Kd	S
+Schwimmen	Kd	G
+Segeln	Kd	S
+Seilkunst	Kd	S
+Siegelfälschung	Kd	S
+Siegelkunde	Kd	S
+Singen	Kd	S
+Singen (Stufe)	Kd	S
+Skifahren	Kd	S
+Sprache	Kd	S
+Springen	Kd	G
+Spurenlesen	Kd	S
+Srimara lenken	Kd	A
+Stehlen	Kd	A
+Steinabreibungen machen	Kd	S
+Stimmen nachahmen	Kd	S
+Streitwagen lenken	Kd	S
+TaiTschi	Kd	G
+Talisman verzaubern	Kd	S
+Tanzen	Kd	S
+Tarnen	Kd	S
+Tauchen	Kd	S
+Teezeremonie	Kd	G
+Tierkunde	Kd	S
+Trinken	Kd	S
+Verbergen	Kd	S
+Verführen	Kd	S
+Verhören	Kd	S
+Verkleiden	Kd	S
+Wagenlenken	Kd	S
+Wahrnehmung	Kd	S
+Werfen	Kd	S
+Wetterkunde	Kd	S
+Winden	Kd	G
+Wissen von der Magie	Kd	S
+YangScheng	Kd	G
+YubeChian	Kd	S
+Zauberkunde	Kd	A
+Zeichensprache	Kd	S
+Zunge verschlucken	Kd	S
+Überleben im Dschungel	Kd	S
+Überleben im Gebirge	Kd	S
+Überleben im Schnee	Kd	S
+Überleben im Sumpf	Kd	S
+Überleben im Wald	Kd	S
+Überleben in der Steppe	Kd	S
+Überleben in der Wüste	Kd	S
+Alchemie	Ny	A
+Askese	Ny	A
+Astrologie	Ny	A
+Athletik	Ny	S
+Augensalbe herstellen	Ny	S
+Balancieren	Ny	G
+Ballista bedienen	Ny	S
+Beidhändiger Kampf	Ny	S
+Beredsamkeit	Ny	S
+Beschatten	Ny	G
+Bogen vom Streitwagen	Ny	S
+Bogen zu Pferd	Ny	S
+Brettspiel	Ny	S
+Dichten	Ny	S
+Elefanten lenken	Ny	A
+Erste Hilfe	Ny	S
+Erzählen	Ny	S
+Etikette	Ny	S
+Fallen	Ny	G
+Fallen entdecken	Ny	G
+Fallen entschärfen	Ny	G
+Fallenmechanik	Ny	G
+Fallenstellen	Ny	G
+Fangen	Ny	S
+Faustkampf	Ny	S
+Fechten	Ny	A
+Fechten tevarischer Stil	Ny	A
+FengSchui	Ny	G
+FengTsu	Ny	G
+Fälschen	Ny	G
+Gassenwissen	Ny	G
+Geheimmechanismen öffnen	Ny	S
+Geheimzeichen	Ny	G
+Geländelauf	Ny	S
+Geomantie	Ny	S
+Geschenke machen	Ny	S
+Geschichten erzählen	Ny	A
+Geschäftstüchtigkeit	Ny	S
+Giftmischen	Ny	S
+Glücksspiel	Ny	S
+Heraldik	Ny	A
+Himmelskunde	Ny	S
+IaiJutsu	Ny	G
+Jonglieren	Ny	A
+Kalligraphie	Ny	A
+Kamelreiten	Ny	S
+Kampf in Dunkelheit	Ny	A
+Kampf in Schlachtreihe	Ny	S
+Kampf in Vollrüstung	Ny	A
+Kampf vom Streitwagen	Ny	A
+Kampf zu Elefant	Ny	A
+Kampf zu Kamel	Ny	S
+Kampf zu Pferd	Ny	S
+Kampf zu Srimara	Ny	A
+Kampftaktik	Ny	A
+Kanufahren	Ny	S
+KarumiJutsu	Ny	G
+Katapult bedienen	Ny	S
+Kenntnis der fünf Klassiker	Ny	S
+KentoYobu	Ny	S
+KiDo	Ny	G
+KiDo-Technik	Ny	S
+Klettern	Ny	G
+Kräuterkunde	Ny	S
+KujKuri	Ny	G
+KujNoIu	Ny	S
+Körperbemalung	Ny	S
+Körperkontrolle	Ny	A
+Lanzenstechen	Ny	A
+Laufen	Ny	S
+Lesen von Zauberschrift	Ny	A
+Lesen/Schreiben	Ny	S
+LiYao	Ny	G
+Lippenlesen	Ny	G
+Luftkampf	Ny	S
+Malen/Zeichen	Ny	A
+Meditieren	Ny	G
+Menschenkenntnis	Ny	S
+Meucheln	Ny	G
+MiChen	Ny	G
+Mumifizieren	Ny	A
+Musizieren	Ny	S
+Naturkunde	Ny	S
+Natya	Ny	A
+NinJutsu	Ny	G
+Orakelkunst	Ny	G
+Pflanzenkunde	Ny	S
+Pyromantie	Ny	S
+Rechnen	Ny	S
+Reiten	Ny	S
+Rudern	Ny	S
+Sagenkunde	Ny	S
+Scharfschießen	Ny	G
+Schiffsführung	Ny	S
+SchiyoKi	Ny	G
+Schlangen beschwören	Ny	G
+Schleichen	Ny	G
+Schlittenfahren	Ny	S
+Schlittschuhlaufen	Ny	S
+Schlösser öffnen	Ny	S
+Schmerzen ertragen	Ny	A
+Schwerttanz	Ny	S
+Schwimmen	Ny	G
+Segeln	Ny	S
+Seilkunst	Ny	S
+Siegelfälschung	Ny	S
+Siegelkunde	Ny	S
+Singen	Ny	S
+Singen (Stufe)	Ny	S
+Skifahren	Ny	S
+Sprache	Ny	G
+Springen	Ny	G
+Spurenlesen	Ny	S
+Srimara lenken	Ny	A
+Stehlen	Ny	S
+Steinabreibungen machen	Ny	S
+Stimmen nachahmen	Ny	G
+Streitwagen lenken	Ny	S
+TaiTschi	Ny	G
+Talisman verzaubern	Ny	S
+Tanzen	Ny	S
+Tarnen	Ny	G
+Tauchen	Ny	S
+Teezeremonie	Ny	S
+Tierkunde	Ny	S
+Trinken	Ny	S
+Verbergen	Ny	S
+Verführen	Ny	S
+Verhören	Ny	S
+Verkleiden	Ny	G
+Wagenlenken	Ny	S
+Wahrnehmung	Ny	G
+Werfen	Ny	S
+Wetterkunde	Ny	S
+Winden	Ny	G
+Wissen von der Magie	Ny	S
+YangScheng	Ny	S
+YubeChian	Ny	G
+Zauberkunde	Ny	A
+Zeichensprache	Ny	S
+Zunge verschlucken	Ny	S
+Überleben im Dschungel	Ny	S
+Überleben im Gebirge	Ny	S
+Überleben im Schnee	Ny	S
+Überleben im Sumpf	Ny	S
+Überleben im Wald	Ny	S
+Überleben in der Steppe	Ny	S
+Überleben in der Wüste	Ny	S
+Alchemie	Fi	A
+Askese	Fi	A
+Astrologie	Fi	A
+Athletik	Fi	S
+Augensalbe herstellen	Fi	S
+Balancieren	Fi	S
+Ballista bedienen	Fi	S
+Beidhändiger Kampf	Fi	S
+Beredsamkeit	Fi	S
+Beschatten	Fi	S
+Bogen vom Streitwagen	Fi	S
+Bogen zu Pferd	Fi	S
+Brettspiel	Fi	S
+Dichten	Fi	S
+Elefanten lenken	Fi	A
+Erste Hilfe	Fi	S
+Erzählen	Fi	S
+Etikette	Fi	S
+Fallen	Fi	S
+Fallen entdecken	Fi	A
+Fallen entschärfen	Fi	S
+Fallenmechanik	Fi	S
+Fallenstellen	Fi	S
+Fangen	Fi	S
+Faustkampf	Fi	S
+Fechten	Fi	S
+Fechten tevarischer Stil	Fi	S
+FengSchui	Fi	G
+FengTsu	Fi	G
+Fälschen	Fi	A
+Gassenwissen	Fi	S
+Geheimmechanismen öffnen	Fi	S
+Geheimzeichen	Fi	S
+Geländelauf	Fi	S
+Geomantie	Fi	S
+Geschenke machen	Fi	S
+Geschichten erzählen	Fi	S
+Geschäftstüchtigkeit	Fi	S
+Giftmischen	Fi	S
+Glücksspiel	Fi	S
+Heraldik	Fi	A
+Himmelskunde	Fi	S
+IaiJutsu	Fi	G
+Jonglieren	Fi	A
+Kalligraphie	Fi	A
+Kamelreiten	Fi	G
+Kampf in Dunkelheit	Fi	A
+Kampf in Schlachtreihe	Fi	S
+Kampf in Vollrüstung	Fi	S
+Kampf vom Streitwagen	Fi	S
+Kampf zu Elefant	Fi	A
+Kampf zu Kamel	Fi	S
+Kampf zu Pferd	Fi	S
+Kampf zu Srimara	Fi	A
+Kampftaktik	Fi	S
+Kanufahren	Fi	S
+KarumiJutsu	Fi	A
+Katapult bedienen	Fi	S
+Kenntnis der fünf Klassiker	Fi	S
+KentoYobu	Fi	G
+KiDo	Fi	G
+Klettern	Fi	S
+Kräuterkunde	Fi	S
+KujKuri	Fi	A
+KujNoIu	Fi	S
+Körperbemalung	Fi	S
+Körperkontrolle	Fi	A
+Lanzenstechen	Fi	A
+Laufen	Fi	S
+Lesen von Zauberschrift	Fi	A
+Lesen/Schreiben	Fi	S
+LiYao	Fi	S
+Lippenlesen	Fi	S
+Luftkampf	Fi	S
+Malen/Zeichen	Fi	A
+Meditieren	Fi	G
+Menschenkenntnis	Fi	S
+Meucheln	Fi	S
+MiChen	Fi	S
+Mumifizieren	Fi	A
+Musizieren	Fi	S
+Naturkunde	Fi	S
+Natya	Fi	A
+NinJutsu	Fi	A
+Orakelkunst	Fi	S
+Pflanzenkunde	Fi	S
+Pyromantie	Fi	A
+Rechnen	Fi	S
+Reiten	Fi	A
+Rudern	Fi	S
+Sagenkunde	Fi	S
+Scharfschießen	Fi	S
+Schiffsführung	Fi	S
+SchiyoKi	Fi	G
+Schlangen beschwören	Fi	A
+Schleichen	Fi	S
+Schlittenfahren	Fi	S
+Schlittschuhlaufen	Fi	S
+Schlösser öffnen	Fi	S
+Schmerzen ertragen	Fi	A
+Schwerttanz	Fi	G
+Schwimmen	Fi	G
+Segeln	Fi	S
+Seilkunst	Fi	S
+Siegelfälschung	Fi	S
+Siegelkunde	Fi	A
+Singen	Fi	S
+Singen (Stufe)	Fi	S
+Skifahren	Fi	S
+Sprache	Fi	S
+Springen	Fi	S
+Spurenlesen	Fi	S
+Srimara lenken	Fi	A
+Stehlen	Fi	A
+Steinabreibungen machen	Fi	S
+Stimmen nachahmen	Fi	S
+Streitwagen lenken	Fi	S
+TaiTschi	Fi	G
+Talisman verzaubern	Fi	S
+Tanzen	Fi	S
+Tarnen	Fi	S
+Tauchen	Fi	S
+Teezeremonie	Fi	G
+Tierkunde	Fi	S
+Trinken	Fi	S
+Verbergen	Fi	S
+Verführen	Fi	S
+Verhören	Fi	S
+Verkleiden	Fi	S
+Wagenlenken	Fi	S
+Wahrnehmung	Fi	S
+Werfen	Fi	S
+Wetterkunde	Fi	S
+Winden	Fi	S
+Wissen von der Magie	Fi	S
+YangScheng	Fi	G
+YubeChian	Fi	S
+Zauberkunde	Fi	A
+Zeichensprache	Fi	S
+Zunge verschlucken	Fi	S
+Überleben im Dschungel	Fi	S
+Überleben im Gebirge	Fi	S
+Überleben im Schnee	Fi	S
+Überleben im Sumpf	Fi	S
+Überleben im Wald	Fi	S
+Überleben in der Steppe	Fi	S
+Überleben in der Wüste	Fi	S
+Alchemie	Ri	A
+Askese	Ri	A
+Astrologie	Ri	A
+Athletik	Ri	G
+Augensalbe herstellen	Ri	S
+Balancieren	Ri	S
+Ballista bedienen	Ri	G
+Beidhändiger Kampf	Ri	G
+Beredsamkeit	Ri	S
+Beschatten	Ri	S
+Bogen vom Streitwagen	Ri	G
+Bogen zu Pferd	Ri	G
+Brettspiel	Ri	S
+Dichten	Ri	S
+Elefanten lenken	Ri	A
+Erste Hilfe	Ri	S
+Erzählen	Ri	S
+Etikette	Ri	G
+Fallen	Ri	S
+Fallen entdecken	Ri	A
+Fallen entschärfen	Ri	A
+Fallenmechanik	Ri	A
+Fallenstellen	Ri	S
+Fangen	Ri	S
+Faustkampf	Ri	S
+Fechten	Ri	S
+Fechten tevarischer Stil	Ri	S
+FengSchui	Ri	G
+FengTsu	Ri	G
+Fälschen	Ri	A
+Gassenwissen	Ri	S
+Geheimmechanismen öffnen	Ri	A
+Geheimzeichen	Ri	S
+Geländelauf	Ri	S
+Geomantie	Ri	S
+Geschenke machen	Ri	S
+Geschichten erzählen	Ri	S
+Geschäftstüchtigkeit	Ri	S
+Giftmischen	Ri	A
+Glücksspiel	Ri	S
+Heraldik	Ri	G
+Himmelskunde	Ri	S
+IaiJutsu	Ri	G
+Jonglieren	Ri	A
+Kalligraphie	Ri	A
+Kamelreiten	Ri	G
+Kampf in Dunkelheit	Ri	A
+Kampf in Schlachtreihe	Ri	G
+Kampf in Vollrüstung	Ri	G
+Kampf vom Streitwagen	Ri	G
+Kampf zu Elefant	Ri	A
+Kampf zu Kamel	Ri	G
+Kampf zu Pferd	Ri	G
+Kampf zu Srimara	Ri	A
+Kampftaktik	Ri	G
+Kanufahren	Ri	S
+KarumiJutsu	Ri	A
+Katapult bedienen	Ri	G
+Kenntnis der fünf Klassiker	Ri	S
+KentoYobu	Ri	G
+KiDo	Ri	S
+Klettern	Ri	S
+Kräuterkunde	Ri	S
+KujKuri	Ri	A
+KujNoIu	Ri	S
+Körperbemalung	Ri	S
+Körperkontrolle	Ri	A
+Lanzenstechen	Ri	G
+Laufen	Ri	S
+Lesen von Zauberschrift	Ri	A
+Lesen/Schreiben	Ri	S
+LiYao	Ri	S
+Lippenlesen	Ri	S
+Luftkampf	Ri	S
+Malen/Zeichen	Ri	A
+Meditieren	Ri	G
+Menschenkenntnis	Ri	S
+Meucheln	Ri	A
+MiChen	Ri	S
+Mumifizieren	Ri	A
+Musizieren	Ri	S
+Naturkunde	Ri	A
+Natya	Ri	A
+NinJutsu	Ri	A
+Orakelkunst	Ri	S
+Pflanzenkunde	Ri	A
+Pyromantie	Ri	S
+Rechnen	Ri	A
+Reiten	Ri	A
+Rudern	Ri	S
+Sagenkunde	Ri	S
+Scharfschießen	Ri	S
+Schiffsführung	Ri	S
+SchiyoKi	Ri	G
+Schlangen beschwören	Ri	A
+Schleichen	Ri	S
+Schlittenfahren	Ri	S
+Schlittschuhlaufen	Ri	S
+Schlösser öffnen	Ri	A
+Schmerzen ertragen	Ri	A
+Schwerttanz	Ri	G
+Schwimmen	Ri	G
+Segeln	Ri	S
+Seilkunst	Ri	S
+Siegelfälschung	Ri	S
+Siegelkunde	Ri	S
+Singen	Ri	S
+Singen (Stufe)	Ri	S
+Skifahren	Ri	S
+Sprache	Ri	S
+Springen	Ri	S
+Spurenlesen	Ri	S
+Srimara lenken	Ri	A
+Stehlen	Ri	A
+Steinabreibungen machen	Ri	A
+Stimmen nachahmen	Ri	A
+Streitwagen lenken	Ri	G
+TaiTschi	Ri	G
+Talisman verzaubern	Ri	S
+Tanzen	Ri	S
+Tarnen	Ri	S
+Tauchen	Ri	S
+Teezeremonie	Ri	S
+Tierkunde	Ri	A
+Trinken	Ri	S
+Verbergen	Ri	S
+Verführen	Ri	S
+Verhören	Ri	S
+Verkleiden	Ri	A
+Wagenlenken	Ri	G
+Wahrnehmung	Ri	S
+Werfen	Ri	S
+Wetterkunde	Ri	S
+Winden	Ri	A
+Wissen von der Magie	Ri	A
+YangScheng	Ri	A
+YubeChian	Ri	S
+Zauberkunde	Ri	A
+Zeichensprache	Ri	S
+Zunge verschlucken	Ri	S
+Überleben im Dschungel	Ri	S
+Überleben im Gebirge	Ri	S
+Überleben im Schnee	Ri	S
+Überleben im Sumpf	Ri	S
+Überleben im Wald	Ri	S
+Überleben in der Steppe	Ri	S
+Überleben in der Wüste	Ri	S
+Alchemie	Sa	S
+Askese	Sa	G
+Astrologie	Sa	S
+Athletik	Sa	A
+Augensalbe herstellen	Sa	S
+Balancieren	Sa	S
+Ballista bedienen	Sa	A
+Beidhändiger Kampf	Sa	A
+Beredsamkeit	Sa	S
+Beschatten	Sa	S
+Bogen vom Streitwagen	Sa	A
+Bogen zu Pferd	Sa	A
+Brettspiel	Sa	S
+Dichten	Sa	A
+Elefanten lenken	Sa	S
+Erste Hilfe	Sa	G
+Erzählen	Sa	A
+Etikette	Sa	S
+Fallen	Sa	S
+Fallen entdecken	Sa	A
+Fallen entschärfen	Sa	A
+Fallenmechanik	Sa	A
+Fallenstellen	Sa	G
+Fangen	Sa	S
+Faustkampf	Sa	S
+Fechten	Sa	A
+Fechten tevarischer Stil	Sa	A
+FengSchui	Sa	A
+FengTsu	Sa	S
+Fälschen	Sa	A
+Gassenwissen	Sa	S
+Geheimmechanismen öffnen	Sa	A
+Geheimzeichen	Sa	S
+Geländelauf	Sa	G
+Geomantie	Sa	G
+Geschenke machen	Sa	A
+Geschichten erzählen	Sa	S
+Geschäftstüchtigkeit	Sa	S
+Giftmischen	Sa	G
+Glücksspiel	Sa	S
+Heraldik	Sa	S
+Himmelskunde	Sa	G
+IaiJutsu	Sa	S
+Jonglieren	Sa	A
+Kalligraphie	Sa	A
+Kamelreiten	Sa	G
+Kampf in Dunkelheit	Sa	A
+Kampf in Schlachtreihe	Sa	A
+Kampf in Vollrüstung	Sa	S
+Kampf vom Streitwagen	Sa	A
+Kampf zu Elefant	Sa	S
+Kampf zu Kamel	Sa	G
+Kampf zu Pferd	Sa	G
+Kampf zu Srimara	Sa	S
+Kampftaktik	Sa	G
+Kanufahren	Sa	S
+KarumiJutsu	Sa	S
+Katapult bedienen	Sa	A
+Kenntnis der fünf Klassiker	Sa	A
+KentoYobu	Sa	A
+KiDo	Sa	S
+Klettern	Sa	S
+Kräuterkunde	Sa	G
+KujKuri	Sa	A
+KujNoIu	Sa	S
+Körperbemalung	Sa	S
+Körperkontrolle	Sa	S
+Lanzenstechen	Sa	A
+Laufen	Sa	S
+Lesen von Zauberschrift	Sa	S
+Lesen/Schreiben	Sa	S
+LiYao	Sa	A
+Lippenlesen	Sa	S
+Luftkampf	Sa	S
+Malen/Zeichen	Sa	S
+Meditieren	Sa	G
+Menschenkenntnis	Sa	S
+Meucheln	Sa	A
+MiChen	Sa	S
+Mumifizieren	Sa	A
+Musizieren	Sa	G
+Naturkunde	Sa	G
+Natya	Sa	A
+NinJutsu	Sa	S
+Orakelkunst	Sa	G
+Pflanzenkunde	Sa	A
+Pyromantie	Sa	S
+Rechnen	Sa	A
+Reiten	Sa	G
+Rudern	Sa	S
+Sagenkunde	Sa	G
+Scharfschießen	Sa	S
+Schiffsführung	Sa	A
+SchiyoKi	Sa	G
+Schlangen beschwören	Sa	G
+Schleichen	Sa	S
+Schlittenfahren	Sa	S
+Schlittschuhlaufen	Sa	S
+Schlösser öffnen	Sa	A
+Schmerzen ertragen	Sa	G
+Schwerttanz	Sa	A
+Schwimmen	Sa	G
+Segeln	Sa	S
+Seilkunst	Sa	S
+Siegelfälschung	Sa	A
+Siegelkunde	Sa	S
+Singen	Sa	G
+Singen (Stufe)	Sa	S
+Skifahren	Sa	S
+Sprache	Sa	S
+Springen	Sa	S
+Spurenlesen	Sa	S
+Srimara lenken	Sa	A
+Stehlen	Sa	A
+Steinabreibungen machen	Sa	S
+Stimmen nachahmen	Sa	S
+Streitwagen lenken	Sa	A
+TaiTschi	Sa	G
+Talisman verzaubern	Sa	S
+Tanzen	Sa	S
+Tarnen	Sa	S
+Tauchen	Sa	S
+Teezeremonie	Sa	G
+Tierkunde	Sa	A
+Trinken	Sa	S
+Verbergen	Sa	G
+Verführen	Sa	A
+Verhören	Sa	S
+Verkleiden	Sa	A
+Wagenlenken	Sa	S
+Wahrnehmung	Sa	S
+Werfen	Sa	S
+Wetterkunde	Sa	S
+Winden	Sa	G
+Wissen von der Magie	Sa	G
+YangScheng	Sa	G
+YubeChian	Sa	S
+Zauberkunde	Sa	S
+Zeichensprache	Sa	A
+Zunge verschlucken	Sa	S
+Überleben im Dschungel	Sa	S
+Überleben im Gebirge	Sa	S
+Überleben im Schnee	Sa	S
+Überleben im Sumpf	Sa	A
+Überleben im Wald	Sa	S
+Überleben in der Steppe	Sa	S
+Überleben in der Wüste	Sa	S
+Alchemie	Sr	A
+Askese	Sr	A
+Astrologie	Sr	A
+Athletik	Sr	S
+Augensalbe herstellen	Sr	S
+Balancieren	Sr	S
+Ballista bedienen	Sr	S
+Beidhändiger Kampf	Sr	S
+Beredsamkeit	Sr	S
+Beschatten	Sr	S
+Bogen vom Streitwagen	Sr	S
+Bogen zu Pferd	Sr	S
+Brettspiel	Sr	S
+Dichten	Sr	S
+Elefanten lenken	Sr	S
+Erste Hilfe	Sr	S
+Erzählen	Sr	S
+Etikette	Sr	S
+Fallen	Sr	S
+Fallen entdecken	Sr	A
+Fallen entschärfen	Sr	S
+Fallenmechanik	Sr	S
+Fallenstellen	Sr	S
+Fangen	Sr	S
+Faustkampf	Sr	S
+Fechten	Sr	S
+Fechten tevarischer Stil	Sr	S
+FengSchui	Sr	G
+FengTsu	Sr	G
+Fälschen	Sr	A
+Gassenwissen	Sr	S
+Geheimmechanismen öffnen	Sr	S
+Geheimzeichen	Sr	S
+Geländelauf	Sr	S
+Geomantie	Sr	S
+Geschenke machen	Sr	S
+Geschichten erzählen	Sr	S
+Geschäftstüchtigkeit	Sr	S
+Giftmischen	Sr	S
+Glücksspiel	Sr	S
+Heraldik	Sr	A
+Himmelskunde	Sr	S
+IaiJutsu	Sr	G
+Jonglieren	Sr	S
+Kalligraphie	Sr	S
+Kamelreiten	Sr	G
+Kampf in Dunkelheit	Sr	S
+Kampf in Schlachtreihe	Sr	S
+Kampf in Vollrüstung	Sr	S
+Kampf vom Streitwagen	Sr	S
+Kampf zu Elefant	Sr	S
+Kampf zu Kamel	Sr	S
+Kampf zu Pferd	Sr	S
+Kampf zu Srimara	Sr	S
+Kampftaktik	Sr	S
+Kanufahren	Sr	S
+KarumiJutsu	Sr	A
+Katapult bedienen	Sr	S
+Kenntnis der fünf Klassiker	Sr	S
+KentoYobu	Sr	G
+KiDo	Sr	G
+Klettern	Sr	S
+Kräuterkunde	Sr	S
+KujKuri	Sr	A
+KujNoIu	Sr	S
+Körperbemalung	Sr	S
+Körperkontrolle	Sr	S
+Lanzenstechen	Sr	S
+Laufen	Sr	S
+Lesen von Zauberschrift	Sr	A
+Lesen/Schreiben	Sr	S
+LiYao	Sr	S
+Lippenlesen	Sr	S
+Luftkampf	Sr	G
+Malen/Zeichen	Sr	A
+Meditieren	Sr	G
+Menschenkenntnis	Sr	S
+Meucheln	Sr	S
+MiChen	Sr	S
+Mumifizieren	Sr	A
+Musizieren	Sr	S
+Naturkunde	Sr	S
+Natya	Sr	A
+NinJutsu	Sr	A
+Orakelkunst	Sr	S
+Pflanzenkunde	Sr	S
+Pyromantie	Sr	A
+Rechnen	Sr	S
+Reiten	Sr	A
+Rudern	Sr	S
+Sagenkunde	Sr	S
+Scharfschießen	Sr	S
+Schiffsführung	Sr	S
+SchiyoKi	Sr	G
+Schlangen beschwören	Sr	A
+Schleichen	Sr	S
+Schlittenfahren	Sr	S
+Schlittschuhlaufen	Sr	S
+Schlösser öffnen	Sr	S
+Schmerzen ertragen	Sr	S
+Schwerttanz	Sr	G
+Schwimmen	Sr	G
+Segeln	Sr	S
+Seilkunst	Sr	S
+Siegelfälschung	Sr	A
+Siegelkunde	Sr	S
+Singen	Sr	S
+Singen (Stufe)	Sr	S
+Skifahren	Sr	S
+Sprache	Sr	S
+Springen	Sr	S
+Spurenlesen	Sr	S
+Srimara lenken	Sr	G
+Stehlen	Sr	A
+Steinabreibungen machen	Sr	S
+Stimmen nachahmen	Sr	S
+Streitwagen lenken	Sr	S
+TaiTschi	Sr	G
+Talisman verzaubern	Sr	S
+Tanzen	Sr	S
+Tarnen	Sr	S
+Tauchen	Sr	S
+Teezeremonie	Sr	G
+Tierkunde	Sr	S
+Trinken	Sr	S
+Verbergen	Sr	S
+Verführen	Sr	S
+Verhören	Sr	S
+Verkleiden	Sr	S
+Schiffsführung	Ass	S
+SchiyoKi	Ass	G
+Schlangen beschwören	Ass	A
+Schleichen	Ass	G
+Schlittenfahren	Ass	S
+Schlittschuhlaufen	Ass	S
+\.
+--
+-- TOC Entry ID 3 (OID 26574826)
+--
+-- Name: "fertigkeiten_typen_name_typ" Type: INDEX Owner: thoma
+--
+
+CREATE UNIQUE INDEX "fertigkeiten_typen_name_typ" on "fertigkeiten_typen" using btree ( "name" "text_ops", "typ" "text_ops" );
+
