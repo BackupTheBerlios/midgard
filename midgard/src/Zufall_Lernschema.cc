@@ -30,11 +30,29 @@ void Zufall::Lernschema()
   st_LL FAUWZ_Listen=getLernlisten();
 
   Lernpunkte_verteilen(FAUWZ_Listen.Waff,lernpunkte.Waffen());
+  setSpezialwaffe();
   Lernpunkte_verteilen(FAUWZ_Listen.Zaub,lernpunkte.Zauber());
+  setSpezialgebiet();
   Lernpunkte_verteilen(FAUWZ_Listen.Fach,lernpunkte.Fach());
   Lernpunkte_verteilen(FAUWZ_Listen.Allg,lernpunkte.Allgemein(),false);
   Lernpunkte_verteilen(FAUWZ_Listen.Unge,lernpunkte.Unge());
 }
+
+void Zufall::setSpezialwaffe()
+{
+  if (!Aben->Typ1()->Spezialwaffe() && !Aben->Typ2()->Spezialwaffe()) return;
+  
+//  Aben->getWerte().setSpezialisierung("");      
+//  Waffe::setSpezialWaffe(Aben->getWerte().Spezialisierung(),Aben->List_Waffen());
+}
+
+void Zufall::setSpezialgebiet()
+{
+  if (!Aben->Typ1()->Spezialgebiet() && !Aben->Typ2()->Spezialgebiet()) return;
+
+//  Aben->getWerte().setSpezialgebiet();
+}
+
 
 
 std::vector<MidgardBasicElement_mutable> List_to_Vector(std::list<MidgardBasicElement_mutable> L,const VAbenteurer& Aben,int lp)

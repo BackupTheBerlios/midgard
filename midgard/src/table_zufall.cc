@@ -35,6 +35,7 @@ void table_zufall::init(midgard_CG *h)
 
 void table_zufall::on_button_zufall_voll_clicked()
 {
+   hauptfenster->on_wizard_beenden_activate();
    bool old_value=hauptfenster->MOptionen->OberCheck(Midgard_Optionen::NoInfoFenster).active;
    hauptfenster->MOptionen->Ober_setzen_from_menu(Midgard_Optionen::NoInfoFenster,true);
    Abenteurer oldAben=hauptfenster->getChar().getCAbenteurer();

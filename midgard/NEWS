@@ -1,26 +1,58 @@
 ##########################################################################
-NEWS IN VERSION 0.8.1
+NEWS IN VERSION 0.8.2
 
-* Icons für Ja/Nein Auswahl von Ulf im M$-Stil (wenn sie denn da wären :-)
-* Gründliche Überarbeitung des Codes für 'Würfelvarianten' (kürzer, klarer)
-* Elfen Doppelcharakter: Abfrage nur einmal
-* Fehler im Ausdruck behoben
-* Zufallsabenteurer generieren: Spezies, Grundwerte, Typ, abg. Werte,
-   Herkunft, Überleben (Heimat), ang. Fertigkeiten, Lernschema
-* Icons für Toolbar von Stefan Peschel (Rosendorn)
-* Zauber, Geheimzeichen und Musikinstrument aus 'Unter dem Sturmdrachen
-* Komplett neue API für Zusätze (nötig für den Zufallsgenerator:)
-* Sprachen, Schriften, Zusätze, Geld, Rüstung, Ausrüstung, WaffenBesitz,
-   Pflichtefertigkeiten
-* Tippfehler in der Datenbank: Wer bisher Nahuatlan als Herkunft gewählt
-   hatte, bekam einen Absturz, weil es die Sprache Nahuatlantisch nicht gab.
+* Zufallsabenteurer Grad 1:
+   - Vorgaben für Eigenschaften und abgeleitete Werte
+
 
 TODO: ('-' zeigt CP an)
 * Zufallsabenteurer Grad 1:
    # Berufe 
    # gewürfelte 100 bei angeborenen Fertigkeiten
    # Schreiben+9 als Pflichtebdingung
-* Vorgaben für Zufallsabenteurer
+   # Spezialwaffe und Spezialgebiet
+* Schwarzer Balken im Lernschema bei Maximierung
+* Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
+  der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 
+* Ausrüstungsauswahl stürzt ab
+* Steigern mit vielen(!) PP stürzt ab
+* Lädt man Adreon, kann man nicht per Praxispunkte Ausdauer und Abwehr steigern
+    (obwohl für beides exakt 20FP erforderlich sind).
+- dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+- Würfelvarianten für Nichtmenschen!
+- verschwinden alle Icons? (Nein:-)
+- alle Ausdrucke unter Windows testen
+- wrapfig for Windows für Grafik in Beschreibung
+- .magus Endung unter Windows mit Magus.exe verknüpfen (beim Speichern)
+- xml laden beschleunigen (merge with map, reservate on vectors)
+
+
+##########################################################################
+NEWS IN VERSION 0.8.1
+
+* Icons für Ja/Nein Auswahl von Ulf im M$-Stil
+* Gründliche Überarbeitung des Codes für 'Würfelvarianten' (kürzer, klarer)
+* Elfen Doppelcharakter: Abfrage nur einmal
+* Fehler im Ausdruck behoben
+* Zufallsabenteurer generieren: Spezies, Grundwerte, Typ, abg. Werte,
+   Herkunft, Überleben (Heimat), ang. Fertigkeiten, Lernschema
+* Icons für Toolbar von Ulf
+* Zauber, Geheimzeichen und Musikinstrument aus 'Unter dem Sturmdrachen
+* Komplett neue API für Zusätze (nötig für den Zufallsgenerator:)
+* Sprachen, Schriften, Zusätze, Geld, Rüstung, Ausrüstung, WaffenBesitz,
+   Pflichtefertigkeiten
+* Tippfehler in der Datenbank: Wer bisher Nahuatlan als Herkunft gewählt
+   hatte, bekam einen Absturz, weil es die Sprache Nahuatlantisch nicht gab.
+* Vorgaben für Spezies, Typ und Herkunft
+
+TODO: ('-' zeigt CP an)
+* Zufallsabenteurer Grad 1:
+   # Berufe 
+   # gewürfelte 100 bei angeborenen Fertigkeiten
+   # Schreiben+9 als Pflichtebdingung
+* Vorgaben für Zufallsabenteurer (Werte)
 * Schwarzer Balken im Lernschema bei Maximierung
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen, in
   der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S.50 links). 

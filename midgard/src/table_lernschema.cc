@@ -615,7 +615,8 @@ void table_lernschema::zeige_werte()
 //   fertig_typ->set_text(hauptfenster->getChar().Typ1()->Name(hauptfenster->getWerte().Geschlecht())+"/"+hauptfenster->getChar().Typ2()->Name(hauptfenster->getWerte().Geschlecht()));
 
   // Spezialwaffe anzeigen?
- if (hauptfenster->getChar().Typ1()->Spezialwaffe() || hauptfenster->getChar().Typ2()->Spezialwaffe())
+ if (hauptfenster->getChar().Typ1()->Spezialwaffe() || 
+      hauptfenster->getChar().Typ2()->Spezialwaffe())
     togglebutton_spezialwaffe->show(); 
  else 
    { togglebutton_spezialwaffe->set_active(false);
