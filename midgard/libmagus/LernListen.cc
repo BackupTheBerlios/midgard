@@ -1,6 +1,7 @@
-// $Id: LernListen.cc,v 1.5 2003/07/18 06:38:01 christof Exp $
+// $Id: LernListen.cc,v 1.6 2003/08/02 14:55:38 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
+ *  Copyright (C) 2003 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

@@ -1,6 +1,7 @@
-// $Id: Enums.hh,v 1.1 2003/05/07 00:02:03 christof Exp $               
+// $Id: Enums.hh,v 1.2 2003/08/02 14:55:37 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
+ *  Copyright (C) 2003 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

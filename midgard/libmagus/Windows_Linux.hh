@@ -1,6 +1,7 @@
-// $Id: Windows_Linux.hh,v 1.1 2003/05/07 10:57:50 christof Exp $
+// $Id: Windows_Linux.hh,v 1.2 2003/08/02 14:55:38 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
+ *  Copyright (C) 2003 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

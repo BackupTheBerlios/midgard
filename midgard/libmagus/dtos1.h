@@ -1,6 +1,7 @@
-/* $Id: dtos1.h,v 1.1 2003/05/07 09:50:18 christof Exp $ */
+/* $Id: dtos1.h,v 1.2 2003/08/02 14:55:38 christof Exp $ */
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
+ *  Copyright (C) 2003 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

@@ -1,5 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
+ *  Copyright (C) 2003 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -20,26 +21,28 @@
 #define MAGUSZUFALL
 
 #include "Enums.hh" 
-#include "LernListen.hh"
-
-class Lernpunkte;
+#include "AbenteurerLernpunkte.hh"
 #include "Abenteurer.hh"
 #include "zufall.h"
+#include <Misc/bitmask.h>
 
 class Zufall
 {
       Abenteurer &Aben;
       Abenteurer oldAben;
       LernListen LL;
+      AbenteurerLernpunkte lernpunkte;
       
-      enum B_VORGABE_BITS{B_Spezies,B_Typ,B_Herkunft,B_AngeFert,B_St,B_Gs,B_Gw,
-            B_Ko,B_In,B_Zt,B_Au,B_pA,B_Wk,B_Sb,B_B,B_MAX};
-      friend enum Zufall::B_VORGABE_BITS &operator++(enum Zufall::B_VORGABE_BITS &s);
+//      friend enum Zufall::B_VORGABE_BITS &operator++(enum Zufall::B_VORGABE_BITS &s);
 
    public:
 
       Zufall(Abenteurer &a) ;
 
+      enum B_VORGABE_BITS{B_Spezies,B_Typ,B_Herkunft,B_AngeFert,B_St,B_Gs,B_Gw,
+            B_Ko,B_In,B_Zt,B_Au,B_pA,B_Wk,B_Sb,B_B,B_MAX};
+      typedef bitmask<B_VORGABE_BITS> e_Vorgabe;
+#if 0      
       enum e_Vorgabe{eSpezies=1<<B_Spezies,eTyp=1<<B_Typ,
          eHerkunft=1<<B_Herkunft,eAngeFert=1<<B_AngeFert,
          eSt=1<<B_St,eGs=1<<B_Gs,
@@ -47,6 +50,7 @@ class Zufall
          eAu=1<<B_Au,epA=1<<B_pA,eWk=1<<B_Wk,eSb=1<<B_Sb,
          eB=1<<B_B
         };
+#endif
 
       void Voll(); // kompletten Zufallsabenteruer erzeugen
       void Teil(e_Vorgabe vorgabe,const Abenteurer &A);

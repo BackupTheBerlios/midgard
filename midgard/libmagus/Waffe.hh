@@ -1,5 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
+ *  Copyright (C) 2003 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -131,24 +132,6 @@ class Waffe_All
 
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
-class WaffeBesitzLernen
-{
-   int Ewaffe,Awaffe;
-   bool magisch;
-
- public:
-   WaffeBesitzLernen() :  Ewaffe(0),Awaffe(0),magisch(false) {}
-
-   void set_EWaffe(int i)  {Ewaffe=i;}
-   void set_AWaffe(int i)  {Awaffe=i;}
-   void add_EWaffe(int i)  {Ewaffe+=i;}
-   void add_AWaffe(int i)  {Awaffe+=i;}
-   int EWaffe() const {return Ewaffe;}
-   int AWaffe() const {return Awaffe;}
-
-   void setMagisch(bool b) {magisch=b;}
-   bool getMagisch() const {return magisch;}
-};
 
 
 class WaffeBesitz : public MidgardBasicElement_mutable

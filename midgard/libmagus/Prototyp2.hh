@@ -1,6 +1,7 @@
-// $Id: Prototyp2.hh,v 1.3 2003/05/26 06:23:35 christof Exp $               
+// $Id: Prototyp2.hh,v 1.4 2003/08/02 14:55:38 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
+ *  Copyright (C) 2003 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
