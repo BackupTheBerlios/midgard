@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.41 2002/12/03 14:01:15 thoma Exp $
+// $Id: Optionen.hh,v 1.42 2002/12/03 15:20:42 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -54,16 +54,16 @@ class Midgard_Optionen
                st_OptionenExecute(OptionenExecuteIndex i,std::string t,const char * const * const b)
                   :index(i),text(t),bild(b) {} };
 
-      struct st_pdfViewer{pdfViewerIndex index;std::string text;MVC<bool> active;
+      struct st_pdfViewer{pdfViewerIndex index;std::string text;Model<bool> active;
              st_pdfViewer(pdfViewerIndex i,std::string t, bool a) 
                   : index(i),text(t),active(a) {}
              st_pdfViewer(const st_pdfViewer &b) 
                       :index(b.index),text(b.text),active(b.active.get_value()) {}
                    };
       struct st_OptionenCheck{OptionenCheckIndex index;std::string text;
-               MVC<bool> active;
+               Model<bool> active;
                const char * const *bild;
-               MVC<int> wert; 
+               Model<int> wert; 
                st_OptionenCheck(OptionenCheckIndex i,std::string t,bool a,
                    const char * const * const b,int w=-1)
                   :index(i),text(t),active(a),bild(b),wert(w)
@@ -74,19 +74,19 @@ class Midgard_Optionen
                	  	bild(b.bild), wert(b.wert.get_value()) {}
               };
       struct st_Haus{HausIndex index;std::string text;const char * const *bild;
-               MVC<bool> active;
+               Model<bool> active;
                st_Haus(HausIndex i,std::string t,const char * const *b,bool a)
                       :index(i),text(t),bild(b),active(a) {}
                st_Haus(const st_Haus &b)
                      :index(b.index),text(b.text),bild(b.bild),active(b.active.get_value()){}
                    };
-      struct st_Ober{OberIndex index;std::string text;MVC<bool> active;bool show;
+      struct st_Ober{OberIndex index;std::string text;Model<bool> active;bool show;
                st_Ober(OberIndex i,std::string t,bool a,bool s=true) // show=false => Wird nicht angezeigt
                       :index(i),text(t),active(a),show(s) {}
                st_Ober(const st_Ober &b) 
                       :index(b.index),text(b.text),active(b.active.get_value()),show(b.show) {}
                        };
-      struct st_Icon{IconIndex index;std::string text;MVC<bool> active;
+      struct st_Icon{IconIndex index;std::string text;Model<bool> active;
                st_Icon(IconIndex i,std::string t,bool a)
                       :index(i),text(t),active(a) {}
                st_Icon(const st_Icon &b)

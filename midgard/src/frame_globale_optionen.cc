@@ -79,7 +79,7 @@ void frame_globale_optionen::init()
  show_all();
 }
 
-void frame_globale_optionen::element_show_or_hide(gpointer gp,Gtk::Widget *widget,MVC<int> *wert)
+void frame_globale_optionen::element_show_or_hide(gpointer gp,Gtk::Widget *widget,Model<int> *wert)
 {
   if(*static_cast<bool*>(gp)) widget->show();
   else { 

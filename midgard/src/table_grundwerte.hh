@@ -28,7 +28,7 @@ class table_grundwerte : public table_grundwerte_glade
         midgard_CG *hauptfenster;
 
         bool block_changed;
-        MVC<bool> edit_werte;
+        Model<bool> edit_werte;
 public:
         
         table_grundwerte(GlademmData *_data) 

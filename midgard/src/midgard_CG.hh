@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.306 2002/11/28 17:56:57 thoma Exp $
+// $Id: midgard_CG.hh,v 1.307 2002/12/03 15:20:42 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -248,7 +248,7 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
         void on_news_menu_activate();
         std::list<std::string> LDateien;
         void push_back_LDateien(std::string s);
-        MVC<bool> schummeln;
+        Model<bool> schummeln;
         void Schummeln();
 
         // Oberfläche Statusbar

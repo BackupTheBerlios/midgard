@@ -26,7 +26,7 @@ class frame_globale_optionen : public frame_globale_optionen_glade
 
         void element_activate_C(gpointer gp,Midgard_Optionen::OptionenCheckIndex index);         
         void element_activate_H(gpointer gp,Midgard_Optionen::HausIndex index);         
-        void element_show_or_hide(gpointer gp,Gtk::Widget *widget,MVC<int> *wert);
+        void element_show_or_hide(gpointer gp,Gtk::Widget *widget,Model<int> *wert);
 
         void on_spinbutton_notebookpage_changed(Midgard_Optionen::OptionenCheckIndex index);
 public:
