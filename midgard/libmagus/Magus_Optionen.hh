@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.hh,v 1.17 2004/03/08 14:34:10 thoma Exp $
+// $Id: Magus_Optionen.hh,v 1.18 2004/03/08 17:00:34 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -27,7 +27,7 @@
 #include "libmagus_dll.h"
 #include <map>
 //class cH_Region;
-#include <Region.hh>
+#include "Region.hh"
 
 class Magus_Optionen
 {
