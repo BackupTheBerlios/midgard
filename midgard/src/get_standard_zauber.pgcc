@@ -86,7 +86,6 @@ double midgard_CG::get_standard_zauber_(const string& ergebnis, const string&
          if (s_element==werte.spezial2) fac = 1;
          else fac = 0;
       }
-//cout << typ << "\t"<<zauber<<"\t"<<db_ergebnis<<"\t"<<fac<<"\n";
    return(fac);
 }
 

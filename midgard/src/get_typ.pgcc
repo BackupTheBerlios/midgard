@@ -52,6 +52,7 @@ void midgard_CG::get_typ(int nr)
  typ.ausdauer = db_ausdauer;
  typ.stand = db_stand;
  typ.sb = db_sb;
+ midgard_CG::get_Ausnahmen();
 //cout << typ.l<<"\n";
 }
 

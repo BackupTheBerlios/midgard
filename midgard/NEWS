@@ -1,4 +1,12 @@
 ##########################################################################
+NEWS IN VERSION 0.4beta11
+- Ein neuer Knopf ist hinzugekommen: 'Zaubermittel anzeigen'
+   dadurch wird das steigern von Zaubern schneller, wenn der Button
+   deaktiviert ist.
+- Eine Umarbeitung der Programms macht das Zaubern nochmal deutlich(!)
+   schneller. 
+
+##########################################################################
 NEWS IN VERSION 0.4beta10
 - LaTeX output optimiert: Es wird nun zuerst getestet, wie lang eine 
    Stringkette ist, und wenn diese eine bestimmte Länge überschreitet wird 

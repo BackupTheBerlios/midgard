@@ -6043,6 +6043,8 @@ Praxispunkten</label>
 			  <widget>
 			    <class>GtkCheckButton</class>
 			    <name>checkbutton_alle_zauber</name>
+			    <width>0</width>
+			    <height>0</height>
 			    <cxx_visibility>protected</cxx_visibility>
 			    <can_focus>True</can_focus>
 			    <signal>
@@ -6072,6 +6074,8 @@ Praxispunkten</label>
 			  <widget>
 			    <class>GtkCheckButton</class>
 			    <name>checkbutton_zaubersalze</name>
+			    <width>0</width>
+			    <height>0</height>
 			    <cxx_visibility>protected</cxx_visibility>
 			    <can_focus>True</can_focus>
 			    <signal>
@@ -6101,6 +6105,8 @@ Praxispunkten</label>
 			  <widget>
 			    <class>GtkCheckButton</class>
 			    <name>checkbutton_beschwoerungen</name>
+			    <width>0</width>
+			    <height>0</height>
 			    <cxx_visibility>protected</cxx_visibility>
 			    <can_focus>True</can_focus>
 			    <signal>
@@ -6114,6 +6120,37 @@ Praxispunkten</label>
 			    <child>
 			      <left_attach>0</left_attach>
 			      <right_attach>1</right_attach>
+			      <top_attach>1</top_attach>
+			      <bottom_attach>2</bottom_attach>
+			      <xpad>0</xpad>
+			      <ypad>0</ypad>
+			      <xexpand>False</xexpand>
+			      <yexpand>False</yexpand>
+			      <xshrink>False</xshrink>
+			      <yshrink>False</yshrink>
+			      <xfill>True</xfill>
+			      <yfill>False</yfill>
+			    </child>
+			  </widget>
+
+			  <widget>
+			    <class>GtkCheckButton</class>
+			    <name>checkbutton_zaubermittel</name>
+			    <width>0</width>
+			    <height>0</height>
+			    <cxx_visibility>protected</cxx_visibility>
+			    <can_focus>True</can_focus>
+			    <signal>
+			      <name>toggled</name>
+			      <handler>on_checkbutton_zaubermittel_toggled</handler>
+			      <last_modification_time>Mon, 07 May 2001 19:23:18 GMT</last_modification_time>
+			    </signal>
+			    <label>Zaubermittel anzeigen</label>
+			    <active>False</active>
+			    <draw_indicator>True</draw_indicator>
+			    <child>
+			      <left_attach>1</left_attach>
+			      <right_attach>2</right_attach>
 			      <top_attach>1</top_attach>
 			      <bottom_attach>2</bottom_attach>
 			      <xpad>0</xpad>

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.22 2001/05/05 20:01:26 thoma Exp $
+// $Id: midgard_CG.cc,v 1.23 2001/05/08 06:30:40 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -141,6 +141,7 @@ void midgard_CG::herkunft_uebernehmen(const string& s)
 {
    werte.herkunft = s;
    midgard_CG::zeige_werte(werte,"alle");
+   midgard_CG::get_Ausnahmen();
 }
 
 

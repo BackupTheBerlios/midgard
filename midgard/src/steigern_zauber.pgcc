@@ -68,13 +68,15 @@ void midgard_CG::show_neue_zauber()
   string alle_zauber="";
   if (!checkbutton_alle_zauber->get_active() )
       alle_zauber = "("+typ.s+" = 'G' OR "+typ.s+" = 'S' OR "+typ.s+" = 'A') AND ";
-//  if (typ.s!="eBe")
-    string squery = "SELECT distinct name, ursprung, kosten, stufe, "+typ.s+", spruchrolle, \
-      coalesce(region,''), coalesce(zauberart,''), coalesce(p_element,''), coalesce(s_element,'') \
-      FROM arkanum_zauber WHERE "+alle_zauber+"\
-      name NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten \
+  string squery = "SELECT distinct z.name, z.ursprung, z.kosten, z.stufe, \
+      z."+typ.s+", z.spruchrolle, \
+      coalesce(z.region,''), coalesce(z.zauberart,''), \
+      coalesce(z.p_element,''), coalesce(z.s_element,'') \
+      FROM arkanum_zauber z WHERE "+alle_zauber+"\
+      z.name NOT IN (SELECT fertigkeit FROM charaktere_fertigkeiten \
       WHERE charakter_name = '"+werte.name_charakter+"' \
-      AND version = '"+werte.version+"') ORDER BY stufe,name ";
+      AND version = '"+werte.version+"') 
+      ORDER BY z.stufe,z.name ";
 
 
    strncpy(query,squery.c_str(),sizeof(query));
@@ -89,10 +91,9 @@ void midgard_CG::show_neue_zauber()
       {
          exec sql fetch zauber_ein into :db_name, :db_ursprung, :db_kosten, :db_stufe, 
             :db_standard, :db_spruchrolle, :db_region, :db_zauberart,
-	    :db_p_element, :db_s_element ;
+      	    :db_p_element, :db_s_element ;
          SQLerror::test(__FILELINE__,100);  
          if (sqlca.sqlcode) break;
-//         double fac= midgard_CG::get_standard_zauber(typ.s,db_name);
          double fac=midgard_CG::get_standard_zauber_(db_standard,db_p_element,db_s_element,db_name);
          if (fac == 0) continue;
          string standard = midgard_CG::Ausnahmen_string(db_name,db_standard);
@@ -129,7 +130,7 @@ void midgard_CG::on_steigern_zauber_clist_alt_select_row(gint row, gint column, 
       if (i->name==alt_zauber) {zauber.erase(i);break;}
 
    midgard_CG::zeige_werte(werte,"alle");
-   midgard_CG::show_zauber();
+//   midgard_CG::show_zauber();
    midgard_CG::on_speichern_clicked();
    midgard_CG::show_alte_zauber();
    midgard_CG::show_neue_zauber();
@@ -169,27 +170,38 @@ void midgard_CG::on_steigern_zauber_clist_neu_select_row(gint row, gint column, 
      zauber.push_back(st_zauber("0",new_zauber,erf,"0","0","0","0","0","0","0","0","0","0","0","0","0",0));
    }
 
-  midgard_CG::show_zauber();
+//  midgard_CG::show_zauber();
   midgard_CG::on_speichern_clicked();
   midgard_CG::zeige_werte(werte,"alle");
   midgard_CG::show_alte_zauber();
   midgard_CG::show_neue_zauber();
-   midgard_CG::show_alte_zaubermittel();
-   midgard_CG::show_neue_zaubermittel();
+  midgard_CG::show_alte_zaubermittel();
+  midgard_CG::show_neue_zaubermittel();
 }
 
 
 void midgard_CG::on_checkbutton_zaubersalze_toggled()
 {
-
+ steigern_zauber_clist_neu->clear();
+ clist_zaubermittel_neu->clear();
+ show_neue_zauber();
 }
 void midgard_CG::on_checkbutton_beschwoerungen_toggled()
 {
-
+ steigern_zauber_clist_neu->clear();
+ show_neue_zauber();
 }
 void midgard_CG::on_checkbutton_alle_zauber_toggled()
 {
-
+ steigern_zauber_clist_neu->clear();
+ show_neue_zauber();
+ show_neue_zaubermittel();
+}
+void midgard_CG::on_checkbutton_zaubermittel_toggled()
+{
+ clist_zaubermittel_neu->clear();
+ midgard_CG::show_neue_zaubermittel();
+ midgard_CG::show_alte_zaubermittel();
 }
 
 void midgard_CG::on_spruchrolle_toggled()
@@ -269,6 +281,7 @@ void midgard_CG::on_clist_zaubermittel_neu_select_row(gint row, gint column, Gdk
 
 void midgard_CG::show_alte_zaubermittel()
 {
+   if (!checkbutton_zaubermittel->get_active()) return ;
    clist_zaubermittel_alt->clear();
    Gtk::OStream os(clist_zaubermittel_alt);
    for (vector<st_zaubermittel>::iterator i=vec_zaubermittel.begin(); 
@@ -281,6 +294,7 @@ void midgard_CG::show_alte_zaubermittel()
 
 void midgard_CG::show_neue_zaubermittel()
 {
+ if (!checkbutton_zaubermittel->get_active()) return ;
  clist_zaubermittel_neu->clear();
  exec sql begin declare section;
    char db_name[50], db_art[50], db_zeitaufwand[30], db_preis[50],
@@ -314,7 +328,6 @@ void midgard_CG::show_neue_zaubermittel()
      if (sqlca.sqlcode) break;
      double fac= midgard_CG::get_standard_zaubermittel(typ.s,db_name);
 
-//     string standard = midgard_CG::Ausnahmen_string(db_name,db_standard);
      string art=db_art ;
      if (  (midgard_CG::zauberwerk_voraussetzung(db_name) 
             || checkbutton_alle_zauber->get_active() )

@@ -24,54 +24,62 @@ exec sql include sqlca;
 
 bool midgard_CG::Ausnahmen_bool(const string& name)
 {
-
  abort();
 }
 
+void midgard_CG::get_Ausnahmen()
+{
+ vec_ausnahmen.clear();
+ exec sql begin declare section;
+   char db_name[50], db_art[5], db_standard[5];
+   char query[1024];
+ exec sql end declare section;
+ string squery = "select name, art, standard from ausnahmen \
+   where (spezies = '"+werte.spezies+"' or spezies=null) \
+   and (herkunft = '"+werte.herkunft+"' or herkunft = null) \
+   and typ = '"+typ.s+"'";
+ strncpy (query,squery.c_str(),sizeof(query));
+ Transaction tr;
+ exec sql prepare ein_ from :query;
+ exec sql declare ein cursor for ein_;
+ exec sql open ein;
+ SQLerror::test(__FILELINE__);
+ while (true)
+   {
+     exec sql fetch ein into :db_name, :db_art, :db_standard;
+     SQLerror::test(__FILELINE__,100);
+     if (sqlca.sqlcode) break;
+     string art=db_art;
+     string standard = db_standard;
+     float fac;
+     if (art=="z")
+      { if (standard == "G" ) fac = 0.5;
+        else if (standard == "S" ) fac = 1;
+        else if (standard == "A" ) fac = 5;
+        else abort();
+      }
+     vec_ausnahmen.push_back(st_ausnahmen(db_name,db_art,fac,db_standard)); 
+   }
+ tr.close();
+/*
+ for (vector<st_ausnahmen>::const_iterator i=vec_ausnahmen.begin();
+         i!=vec_ausnahmen.end();++i)
+   cout <<i->name<<"\t" <<i->art<<"\t"<<i->fac<<"\t"<<i->standard<<"\n";
+*/
+}
 
 float midgard_CG::Ausnahmen_float(const string& name)
 {
- exec sql begin declare section;
-   char db_name[50],db_typ[10],db_herkunft[50],db_spezies[50];
-   char db_art[5];
- exec sql end declare section;
- strncpy (db_name,name.c_str(),sizeof(db_name));
- strncpy (db_typ,typ.s.c_str(),sizeof(db_typ));
- strncpy (db_herkunft,werte.herkunft.c_str(),sizeof(db_herkunft));
- strncpy (db_spezies,werte.spezies.c_str(),sizeof(db_spezies));
- exec sql select art into :db_art from ausnahmen 
-      where name = :db_name 
-      and (spezies = :db_spezies or spezies=null) 
-      and (herkunft = :db_herkunft or herkunft = null)
-      limit 1;
- SQLerror::test(__FILELINE__,100);
- if (sqlca.sqlcode) return 0; // Keine Ausnahme
-
- string art = db_art;
-  // ZAUBER
-  if (art=="z")
-   {
-     string ausnahme = midgard_CG::Ausnahmen_string(name,"S");
-     if (ausnahme == "G" ) return 0.5;
-     if (ausnahme == "A" ) return 5;
-   }
-  return 1;
+ for (vector<st_ausnahmen>::const_iterator i=vec_ausnahmen.begin();
+         i!=vec_ausnahmen.end();++i)
+   if (i->name==name) return i->fac;
+ return 0;
 }
 
 string midgard_CG::Ausnahmen_string(const string& name, const string& alt)
 {
- exec sql begin declare section;
-   char db_name[50],db_typ[10],db_herkunft[50],db_spezies[50],db_standard[10];
- exec sql end declare section;
- strncpy (db_name,name.c_str(),sizeof(db_name));
- strncpy (db_typ,typ.s.c_str(),sizeof(db_typ));
- strncpy (db_herkunft,werte.herkunft.c_str(),sizeof(db_herkunft));
- strncpy (db_spezies,werte.spezies.c_str(),sizeof(db_spezies));
- exec sql select standard into :db_standard from ausnahmen 
-   where name = :db_name and typ = :db_typ 
-   and (spezies = :db_spezies or spezies=null) 
-   and (herkunft = :db_herkunft or herkunft = null);
- SQLerror::test(__FILELINE__,100);
- if (sqlca.sqlcode) return alt; // Keine Ausnahme
- return db_standard;
+ for (vector<st_ausnahmen>::const_iterator i=vec_ausnahmen.begin();
+         i!=vec_ausnahmen.end();++i)
+   if (i->name==name) return i->standard;
+ return alt;
 }

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.27 2001/05/07 14:01:46 thoma Exp $
+// $Id: midgard_CG.hh,v 1.28 2001/05/08 06:30:40 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -140,6 +140,10 @@ struct st_zaubermittel{int wert; string name; int gfp; string art; string stufe;
    st_zaubermittel(string n):wert(0),name(n),gfp(0) {};
    st_zaubermittel(int w, string n):wert(w),name(n),gfp(0) {};};
 
+struct st_ausnahmen{string name; string art;float fac;string standard;
+         st_ausnahmen(string nn, string aa, float ff, string ss)
+         :name(nn), art(aa), fac(ff), standard(ss) {}};
+
 extern bool Infobool;
 extern bool Escharbool;
 extern bool Rawindrabool;
@@ -169,10 +173,12 @@ class midgard_CG : public midgard_CG_glade
         vector<st_sprachen> vec_sprachen;
         vector<st_schriften> vec_schriften;
         map<string,string> waffen_grundkenntnisse;
+        vector<st_ausnahmen> vec_ausnahmen;
         styp typ;
         st_lernpunkte lernpunkte;
         st_spezies_constraint spezies_constraint;
 
+        void midgard_CG::get_Ausnahmen();
         void regnot(string sadd);
         void fill_typauswahl();
 //        int  fill_typauswahl_int(int i);
@@ -301,6 +307,7 @@ class midgard_CG : public midgard_CG_glade
         void on_checkbutton_zaubersalze_toggled();
         void on_checkbutton_beschwoerungen_toggled();
         void on_checkbutton_alle_zauber_toggled();
+        void on_checkbutton_zaubermittel_toggled();
         int spruchrolle_wuerfeln(int istufe, string art, string zauber);
         void on_steigern_zauber_clist_alt_select_row(gint row, gint column, GdkEvent *event);
         void on_steigern_zauber_clist_neu_select_row(gint row, gint column, GdkEvent *event);
