@@ -173,7 +173,7 @@ void midgard_CG::on_schliessen_CG_clicked()
   std::string filename="magus_optionen.xml";
   if(access(filename.c_str(),W_OK)) 
       filename=magus_paths::MagusVerzeichnis()+"magus_optionen.xml";
-  Programmoptionen.save_options(filename);
+  Programmoptionen.save_options(filename,Datenbank.Regionen);
   Gtk::Main::instance()->quit();
 }
 

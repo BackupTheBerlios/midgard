@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.cc,v 1.11 2004/01/08 13:32:35 christof Exp $
+// $Id: Magus_Optionen.cc,v 1.12 2004/03/07 12:14:20 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -30,6 +30,7 @@
 #include <magus_paths.h>
 //#include <libmagusicons/magusicons.h>
 #include <Misc/Global_Settings.h>
+#include <Region.hh>
 
 // HKEY_LOCAL_MACHINE\software\classes\http\shell\open\command ?
 
@@ -218,6 +219,9 @@ void Magus_Optionen::Optionen_init()
   list_OptionenCheck.push_back(st_OptionenCheck(Wizard_immer_starten, 
                            "Wizard bei jedem Programmstart starten",true));
 
+  list_OptionenCheck.push_back(st_OptionenCheck(RegionenAuswahlSpeichern, 
+                           "Regionen auswahl speichern",false));
+
 
   list_OptionenExecute.push_back(st_OptionenExecute(show_InfoWindow,"Info Fenster zeigen"));
   list_OptionenExecute.push_back(st_OptionenExecute(LernschemaSensitive,
@@ -377,7 +381,8 @@ void Magus_Optionen::load_options(const std::string &filename)
 }
 
                                                    
-void Magus_Optionen::save_options(const std::string &filename)
+void Magus_Optionen::save_options(const std::string &filename,
+               const std::vector<cH_Region> &VRegion)
 {
   std::ofstream datei(filename.c_str());
   if (!datei.good())
@@ -450,6 +455,14 @@ void Magus_Optionen::save_options(const std::string &filename)
      Tag &opt=optionen.push_back(Tag("Einstellungen"));
      opt.setAttr("Name",i->text);
      opt.setAttr("Wert", i->name);
+   }
+  if(OptionenCheck(RegionenAuswahlSpeichern).active) 
+   {
+     Tag &reg=data.push_back(Tag("Regionen"));
+     for(std::vector<cH_Region>::const_iterator i=VRegion.begin();i!=VRegion.end();++i)
+      {
+/* SO GEHT ES NICHT; WEIL ACTIVE NICHT MHER ZU REGION GEHÖRT ... */        
+      }
    }
   ts.write(datei);
   geaendert=false;

@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.hh,v 1.15 2003/12/19 08:29:50 christof Exp $
+// $Id: Magus_Optionen.hh,v 1.16 2004/03/07 12:14:20 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -26,13 +26,14 @@
 #include <BaseObjects/RadioModel.h>
 #include "libmagus_dll.h"
 #include <map>
+class cH_Region;
 
 class Magus_Optionen
 {
    public:
       enum StringIndex{pdf_viewer,html_viewer,tmppfad,speicherpfad};
       enum pdfViewerIndex {gv,acroread,xpdf,anderer};
-      enum OptionenCheckIndex {Info,
+      enum OptionenCheckIndex {Info,RegionenAuswahlSpeichern,
                             Wizard_immer_starten,Drei_Tasten_Maus,
                             Notebook_start};
       enum OptionenExecuteIndex {LernschemaSensitive,show_InfoWindow};
@@ -158,7 +159,7 @@ class Magus_Optionen
       std::list<st_pdfViewer> &getPDF()  {return list_pdfViewer;}
       int DateiHistory() const {return datei_history;}
 
-      void save_options(const std::string &filename);
+      void save_options(const std::string &filename,const std::vector<cH_Region> &VRegion);
       void load_options(const std::string &filename);
 
       void setString(std::string os,std::string name);
