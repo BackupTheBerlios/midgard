@@ -212,8 +212,8 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasic
       for(std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i)
        if (cH_Fertigkeit(*i)->Name()=="KiDo-Technik") {list_Fertigkeit.erase(i);break;}
 //    show_fertigkeiten();
-    hbox_waffen->set_sensitive(true);
-    table_waffen->set_sensitive(true);
+//    hbox_waffen->set_sensitive(true);
+//    table_waffen->set_sensitive(true);
    }
   if((*mbe.begin())->What()==MidgardBasicElement::WAFFE)
    {
@@ -223,10 +223,10 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasic
     button_geld_waffen->set_sensitive(true);
     button_ruestung->set_sensitive(true);
          
-    hbox_zauber->set_sensitive(true);
-    table_magier_lernen->set_sensitive(true);
-    hbox_kido->set_sensitive(true);
-    table_kido_lernen->set_sensitive(true);
+//    hbox_zauber->set_sensitive(true);
+//    table_magier_lernen->set_sensitive(true);
+//    hbox_kido->set_sensitive(true);
+//    table_kido_lernen->set_sensitive(true);
    }
   if((*mbe.begin())->What()==MidgardBasicElement::ZAUBER)
    {
@@ -237,7 +237,7 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasic
 //cout << (*mbe.begin())->What()<<'\t'<<MidgardBasicElement::KIDO<<'\n';
   if((*mbe.begin())->What()==MidgardBasicElement::KIDO)
    {
-    clist_kido->clear();
+//    clist_kido->clear();
     list_Kido=mbe;
 //    show_kido();
    }
@@ -252,8 +252,8 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const cH_MidgardBasicElement& m
     list_Beruf.push_back(mbe);
     Database.ausnahmen.set_Beruf(list_Beruf);
 //    show_berufe();
-    hbox_fertigkeit->set_sensitive(true); 
-    table_fertigkeit->set_sensitive(true);
+//    hbox_fertigkeit->set_sensitive(true); 
+//    table_fertigkeit->set_sensitive(true);
    }
   if(mbe->What()==MidgardBasicElement::FERTIGKEIT)
    {

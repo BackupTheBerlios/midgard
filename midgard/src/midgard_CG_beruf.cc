@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.43 2002/02/05 15:47:43 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.44 2002/02/06 10:23:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,7 +29,7 @@ gint midgard_CG::on_button_beruf_release_event(GdkEventButton *ev)
 {
   if (ev->button==1) 
    {
-     berufe_clist->clear();
+//     berufe_clist->clear();
 //     list_Beruf.clear(); //macht MidgardBasicElement_uebernehmen(MBE)
      manage(new Berufe_auswahl(this,Database,Typ,Werte,list_Fertigkeit));
    }

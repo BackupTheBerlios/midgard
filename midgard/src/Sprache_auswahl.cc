@@ -111,7 +111,8 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const Datenbank& Database,
              }
           }
          if(!clist_sp_sc->rows().size())
-            manage (new WindowInfo("Keine Sprache gewählt, deren Schrift zu lernen wäre.\n"));
+            manage (new WindowInfo("Keine Sprache gewählt, deren Schrift zu lernen wäre.\n
+                     (siehe unter 'Allgemeinbildung'))"));
       }
    for (unsigned int i=0;i<clist_sp_sc->columns().size();++i)
       clist_sp_sc->set_column_auto_resize(i,true);

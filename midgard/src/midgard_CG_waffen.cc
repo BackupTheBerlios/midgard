@@ -1,4 +1,4 @@
-// $Id: midgard_CG_waffen.cc,v 1.31 2002/02/05 15:47:43 thoma Exp $
+// $Id: midgard_CG_waffen.cc,v 1.32 2002/02/06 10:23:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,7 +24,7 @@
 
 void midgard_CG::on_waffen_wahl_clicked()
 {
-  waffen_clist->clear();
+//  waffen_clist->clear();
 //  manage(new Waffen_auswahl(this,Database,lernpunkte.Waffen(),Werte,Typ));
 //  show_waffen();
   show_lernschema(MidgardBasicElement::WAFFE);
@@ -68,6 +68,7 @@ void midgard_CG::show_waffen()
 void midgard_CG::on_waffen_clist_select_row(gint row, gint column, GdkEvent *event)
 {   
  /* Funktion für Spezialwaffe */
+/*
  if (Typ[0]->Zaubern()=="n" || Typ[0]->Short() == "Ord")
    {
     Gtk::CList::SelectionList::iterator i=waffen_clist->selection().begin();
@@ -81,8 +82,8 @@ void midgard_CG::on_waffen_clist_select_row(gint row, gint column, GdkEvent *eve
       (*ptr_mem)->set_Erfolgswert((*ptr_mem)->Erfolgswert()-2);
      }
     ptr_mem=&ptr;
-//   show_waffen();
    show_gelerntes();
    }
+*/
 }
 

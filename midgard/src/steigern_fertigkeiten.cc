@@ -106,7 +106,7 @@ void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
   if (MBE->Name()=="KiDo") 
     { kido_bool=true;show_gtk();
       optionmenu_KiDo_Stile->set_sensitive(true);
-      table_kido_lernen->set_sensitive(true);
+//      table_kido_lernen->set_sensitive(true);
       button_kido_auswahl->set_sensitive(false);
       std::string strinfo="Jetzt muß ein Stil unter 'Lernschema' -> 'KiDo' gewählt werden !!!";
       manage (new WindowInfo(strinfo,false)); 

@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.cc,v 1.61 2002/01/28 15:30:18 thoma Exp $
+// $Id: Midgard_Info.cc,v 1.62 2002/02/06 10:23:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -62,7 +62,23 @@ void Midgard_Info::set_Regionen(const std::vector<cH_Region>& Regionen)
      _tab->attach(*_lcopy,2,3,row,row+1,GTK_FILL,0,0,0);
      ++row;
    }
-  std::string illutxt="Illustrationen von Werner Öckl\ncopyright 2001 by Verlag für F&SF-Spiele,\nVerwendung mit freundlicher Genehmigung des VFSF";
+  std::string illutxt2="Abenteurergruppe (DFR3) von Josef Ochmann\ncopyright 1985 by Verlag für F&SF-Spiele,\nVerwendung mit freundlicher Genehmigung des VFSF";
+  Gtk::Label *_li2=manage (new Gtk::Label(illutxt2,0,0));
+  Gtk::Pixmap *_pi2=manage(new Gtk::Pixmap(pdolch__xpm));
+  _li2->set_justify(GTK_JUSTIFY_LEFT);
+  _tab->attach(*_pi2,0,1,row,row+1,GTK_FILL,0,0,0);
+  _tab->attach(*_li2,1,3,row,row+1,GTK_FILL,0,0,0);
+  ++row;
+
+  std::string illutxt3="Kan Thai Krieger von Hank Wolf\ncopyright 1992 by Verlag für F&SF-Spiele,\nVerwendung mit freundlicher Genehmigung des VFSF";
+  Gtk::Label *_li3=manage (new Gtk::Label(illutxt3,0,0));
+  Gtk::Pixmap *_pi3=manage(new Gtk::Pixmap(pdolch__xpm));
+  _li3->set_justify(GTK_JUSTIFY_LEFT);
+  _tab->attach(*_pi3,0,1,row,row+1,GTK_FILL,0,0,0);
+  _tab->attach(*_li3,1,3,row,row+1,GTK_FILL,0,0,0);
+  ++row;
+
+  std::string illutxt="Alle anderen Illustrationen von Werner Öckl\ncopyright 2000-2001 by Verlag für F&SF-Spiele,\nVerwendung mit freundlicher Genehmigung des VFSF";
   Gtk::Label *_li=manage (new Gtk::Label(illutxt,0,0));
   Gtk::Pixmap *_pi=manage(new Gtk::Pixmap(pdolch__xpm));
   _li->set_justify(GTK_JUSTIFY_LEFT);
@@ -76,6 +92,14 @@ void Midgard_Info::set_Regionen(const std::vector<cH_Region>& Regionen)
   _lc->set_justify(GTK_JUSTIFY_LEFT);
   _tab->attach(*_pc,0,1,row,row+1,GTK_FILL,0,0,0);
   _tab->attach(*_lc,1,3,row,row+1,GTK_FILL,0,0,0);
+  ++row;
+
+  std::string copytxt2="Sämtliche Daten wurden mit freundlicher Erlaubnis des VFSF entnommen, copyright 1980-2001 by Verlag für F&SF-Spiele, Stelzenberg";
+  Gtk::Label *_lc2=manage (new Gtk::Label(copytxt2,0,0));
+  Gtk::Pixmap *_pc2=manage(new Gtk::Pixmap(Money_50_xpm));
+  _lc2->set_justify(GTK_JUSTIFY_LEFT);
+  _tab->attach(*_pc2,0,1,row,row+1,GTK_FILL,0,0,0);
+  _tab->attach(*_lc2,1,3,row,row+1,GTK_FILL,0,0,0);
   ++row;
 
   _tab->set_col_spacings(10);

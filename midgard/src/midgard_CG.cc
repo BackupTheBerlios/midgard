@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.137 2002/02/05 15:47:43 thoma Exp $
+// $Id: midgard_CG.cc,v 1.138 2002/02/06 10:23:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -126,6 +126,7 @@ void midgard_CG::show_gtk()
  show_waffen();
  show_zauber();
 */
+ show_gelerntes();
  EP_uebernehmen();
  Geld_uebernehmen();
  steigern_gtk();
@@ -138,22 +139,25 @@ void midgard_CG::show_gtk()
  if (Typ[0]->Zaubern()=="j" || Typ[0]->Zaubern() == "z" || magie_bool) 
    { if (Typ[0]->Short()=="Ma" || Typ[0]->Short() == "eBe") magier_spezialgebiet("show");
      else magier_spezialgebiet("hide");
-     table_magier_lernen->show();
+//     table_magier_lernen->show();
+     button_zauber->set_sensitive(true);
      table_magier_steigern->show();
    }
  else 
-   { table_magier_lernen->hide();
+   { 
+//   table_magier_lernen->hide();
+     button_zauber->set_sensitive(false);
      table_magier_steigern->hide();
    }
  // KiDo anzeigen?
  if (kido_bool) 
    { optionmenu_KiDo_Stile->show();
-     table_kido_lernen->show();
+     table_kido_lernschema->show();     
      table_kido_steigern->show();
    }
  else 
    { optionmenu_KiDo_Stile->hide();
-     table_kido_lernen->hide();
+     table_kido_lernschema->hide();     
      table_kido_steigern->hide();
    }
  // KiDo Stil setzen
@@ -239,11 +243,12 @@ void midgard_CG::clear_listen()
 
 void midgard_CG::clear_gtk()
 {
-   berufe_clist->clear();
-   waffen_clist->clear();
-   fertigkeiten_clist->clear();
-   zauber_clist->clear();
-   clist_kido->clear();
+//   berufe_clist->clear();
+//   waffen_clist->clear();
+//   fertigkeiten_clist->clear();
+//   zauber_clist->clear();
+//   clist_kido->clear();
+
    alte_fert_tree->clear();
    neue_fert_tree->clear();
    alte_waffen_tree->clear();
@@ -267,7 +272,6 @@ void midgard_CG::clear_gtk()
 
 void midgard_CG::on_neuer_charakter_clicked()
 {
-   notebook3->hide();
    tree_gelerntes->clear();
    tree_lernschema->clear();
    label_lernschma_titel->set_text("");
@@ -283,18 +287,15 @@ void midgard_CG::on_neuer_charakter_clicked()
    button_ruestung->set_sensitive(false);
 
    edit_lernpunkte(false);
-   vbox_beruferfolgswert->hide();
-   hbox_beruf->set_sensitive(false);
-   vbox_berufsname->hide();
-   table_beruf->set_sensitive(false);
-   hbox_fertigkeit->set_sensitive(false);
-   table_fertigkeit->set_sensitive(false);
-   hbox_waffen->set_sensitive(false);
-   table_waffen->set_sensitive(false);
-   hbox_zauber->set_sensitive(false);
-   table_magier_lernen->set_sensitive(false);
-   hbox_kido->set_sensitive(false);
-   table_kido_lernen->set_sensitive(false);
+//   vbox_beruferfolgswert->hide();
+
+   button_fachkenntnisse->set_sensitive(false);
+   button_allgemeinwissen->set_sensitive(false);
+   button_untyp_fertigkeiten->set_sensitive(false);
+   button_waffen->set_sensitive(false);
+   button_zauber->set_sensitive(false);
+   table_berufswahl->set_sensitive(false);
+      
    scrolledwindow_landauswahl->hide();
    table_werte_wuerfeln->hide();
    table_bw_wurf->hide();
@@ -305,10 +306,10 @@ void midgard_CG::on_neuer_charakter_clicked()
    togglebutton_gruppe_neu->hide(); // nicht implementiert
 
 //   button_beruf_erfolgswert->set_sensitive(false);
-   button_beruf_erfolgswert->hide();
+//   button_beruf_erfolgswert->hide();
 //   button_fertigkeiten->set_sensitive(false);
    button_kido_auswahl->set_sensitive(false);       
-   table_lernschema_buttons->set_sensitive(false);
+//   table_lernschema_buttons->set_sensitive(false);
 
    Werte.clear();
    lernpunkte.clear();

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.155 2002/02/05 15:47:43 thoma Exp $
+// $Id: midgard_CG.hh,v 1.156 2002/02/06 10:23:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -302,7 +302,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
 //        void show_waffen();
 //        void show_zauber();
         void zeige_lernpunkte();
-        void zeige_notebook();
+//        void zeige_notebook();
         gint on_beruf_erfolgswert_release_event(GdkEventButton *ev);
         void on_spinbutton_beruferfolgesert_activate();
         gint on_angeborene_fertigkeit_button_release_event(GdkEventButton *ev);

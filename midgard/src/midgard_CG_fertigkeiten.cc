@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.48 2002/02/05 15:47:43 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.49 2002/02/06 10:23:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -141,7 +141,7 @@ void midgard_CG::show_sinne()
          os << i->first<<'\t'<<i->second<<'\n';
       }
    for (unsigned int i=0;i<clist_sinne->columns().size();++i)
-      fertigkeiten_clist->set_column_auto_resize(i,true);
+      clist_sinne->set_column_auto_resize(i,true);
    clist_sinne->set_reorderable(true);
 }
 

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.52 2002/02/05 15:47:43 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.53 2002/02/06 10:23:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -76,7 +76,14 @@ void midgard_CG::on_lernpunkte_wuerfeln_clicked()
   Werte.setAlter( age * Werte.Spezies()->Alter());
   spinbutton_alter->set_value(Werte.Alter());
   zeige_lernpunkte();
-  zeige_notebook();
+//  zeige_notebook();
+
+  button_fachkenntnisse->set_sensitive(true);    
+  button_allgemeinwissen->set_sensitive(true);   
+  button_untyp_fertigkeiten->set_sensitive(true);
+  button_waffen->set_sensitive(true);
+  button_zauber->set_sensitive(true);
+  table_berufswahl->set_sensitive(true);               
 }
 
 
@@ -103,7 +110,7 @@ void midgard_CG::on_button_waffe_trans_clicked()
 void midgard_CG::on_togglebutton_lernpunkte_edit_toggled()
 {
   edit_lernpunkte(togglebutton_lernpunkte_edit->get_active());
-  zeige_notebook();
+//  zeige_notebook();
 }
 
 void midgard_CG::edit_lernpunkte(bool b)
@@ -185,6 +192,7 @@ void midgard_CG::waffe_besitz_uebernehmen(const std::list<cH_MidgardBasicElement
 #endif
 }
 
+/*
 void midgard_CG::zeige_notebook()
 {
    hbox_beruf->set_sensitive(true);
@@ -200,6 +208,7 @@ void midgard_CG::zeige_notebook()
    table_kido_lernen->set_sensitive(true);
 
 }
+*/
 
 void midgard_CG::on_button_ruestung_clicked()
 {
@@ -315,6 +324,7 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
 
 void midgard_CG::show_gelerntes()
 {
+  show_sinne();
   zeige_lernpunkte();
   
   std::list<cH_MidgardBasicElement> FL;
