@@ -11,7 +11,7 @@
   <Gesundheit LP="16" AP="39"/>
   <Beschreibung Alter="28" Gestalt="normal" Gewicht="73" Größe="171" Stand="Mittelschicht" Herkunft="Erainn" Glaube="Kebechet"/>
   <Vermögen GS="3"/>
-  <Steigern GFP="11153" AEP="20" EPproGFP="66" benötigte_Tage="67.08">
+  <Steigern GFP="11153" AEP="250" EPproGFP="66" benötigte_Tage="67.08">
    <Praxispunkte Zaubern="1" Resistenz="1"/>
   </Steigern>
   <Text/>
