@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.pgcc,v 1.18 2001/11/21 11:04:13 christof Exp $
+// $Id: fertigk_exp.pgcc,v 1.19 2001/11/23 08:14:27 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -224,7 +224,8 @@ void fert_speichern(std::ostream &o)
       }
 
 //********************* steigern_fertigkeiten_werte ********************
-      {  exec sql select 
+      {  exec sql declare st_f_werte_curs cursor for
+           select 
       	    coalesce(p0,0), coalesce(p1,0), coalesce(p2,0), coalesce(p3,0),
       	    coalesce(p4,0), coalesce(p5,0), coalesce(p6,0), coalesce(p7,0),
       	    coalesce(p8,0), coalesce(p9,0), coalesce(p10,0), coalesce(p11,0),
@@ -233,9 +234,10 @@ void fert_speichern(std::ostream &o)
       	    coalesce(p20,0), coalesce(p21,0), coalesce(p22,0), coalesce(p23,0),
       	    coalesce(p24,0), coalesce(p25,0), coalesce(p26,0), coalesce(p27,0),
       	    coalesce(p28,0)
-	    	into sql descriptor spalten
        		from steigern_fertigkeiten_werte
        		where name=:FERTIGK;
+       exec sql open st_f_werte_curs;
+       if (!sqlca.sqlcode) exec sql fetch st_f_werte_curs into sql descriptor spalten;
        if (!sqlca.sqlcode)
        {  o << "    <Kosten";
           FetchIStream is("spalten");
@@ -243,6 +245,7 @@ void fert_speichern(std::ostream &o)
              fetch_and_write_int_attrib(is, o, "Wert"+itos(i));
           o << "/>\n";
        }
+       close st_f_werte_curs;
       }
 
       //********** ZEP oder KEP ? ****************
