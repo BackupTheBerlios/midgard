@@ -1,4 +1,4 @@
-// $Id: Window_mag_bonus.hh,v 1.8 2001/05/25 10:22:38 thoma Exp $
+// $Id: Window_mag_bonus.hh,v 1.9 2001/05/25 16:18:39 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *

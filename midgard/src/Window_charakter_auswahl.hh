@@ -1,4 +1,4 @@
-// $Id: Window_charakter_auswahl.hh,v 1.9 2001/05/25 10:22:38 thoma Exp $
+// $Id: Window_charakter_auswahl.hh,v 1.10 2001/05/25 16:18:38 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
