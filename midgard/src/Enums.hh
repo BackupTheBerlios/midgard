@@ -1,4 +1,4 @@
-// $Id: Enums.hh,v 1.4 2002/09/27 19:56:21 thoma Exp $               
+// $Id: Enums.hh,v 1.5 2002/12/11 12:19:19 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,7 +24,7 @@ namespace Enums
 {
    enum geschlecht{NoFM,Mann,Frau};
    enum StadtLand{NoSL,Stadt,Land};
-   enum e_wie_steigern{eUnterweisung,eSelbststudium,ePraxis};
+   enum e_wie_steigern{eUnterweisung,eSelbststudium,ePraxis,eSpruchrolle};
    enum e_was_steigern{eMBEm,eAusdauer,eAbwehr,eZaubern,eResistenz};
    struct st_bool_steigern{bool mitEP;bool HausG1;bool Spruchrolle; bool
                         SpruchrolleAuto;
