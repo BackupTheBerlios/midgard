@@ -78,6 +78,7 @@ void midgard_CG::show_neue_zauber()
 
 
    strncpy(query,squery.c_str(),sizeof(query));
+cout << query<<"\n";
    Transaction tr;
    exec sql prepare zauber_ein_ from :query ;
    exec sql declare zauber_ein cursor for zauber_ein_ ;
