@@ -336,14 +336,14 @@ Sprache&Wert&Schrift\\\hline\hline
 \hfill
 \setlength{\tabcolsep}{0.2ex}
     \begin{tabular}{|l|c|c|l|c|} \cline{1-2}\cline{4-5}
-      ~Rüstungsklasse & \makebox[2em]{\ruestung}           &\hspace*{3em} & ~Abwehr         & \abwehrfinal \\\cline{1-2}\cline{4-5}
-      ~Schutz vor LP--Verlust &\makebox[2em]{\ruestunglp}  &              &  ~mit Verteidigungswaffe& \abwehrmitwaffe\\\cline{1-2}\cline{4-5}
+      ~Rüstungsklasse & \makebox[3em]{\ruestung/\ruestungb}             &\hspace*{1em} & ~Abwehr         & \abwehrfinal \\\cline{1-2}\cline{4-5}
+      ~Schutz vor LP--Verlust &\makebox[3em]{\ruestunglp/\ruestunglpb}  &              &  ~mit Verteidigungswaffe& \abwehrmitwaffe\\\cline{1-2}\cline{4-5}
     \end{tabular}
 \hfill
 }
 
 
-\vspace{-1ex}
+\vspace{0ex}
 \IfFileExists{schwert.png}{\parbox{7.5cm}{\includegraphics[width=7.5cm]{schwert.png}}}%
 {\parbox{7.5cm}{\includegraphics[width=7.5cm]{@PACKAGE_DATA_DIR@schwert.png}}}
 % \vspace*{2ex}

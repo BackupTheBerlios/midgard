@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.3 2002/05/15 08:46:30 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.4 2002/05/16 15:07:30 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -198,8 +198,9 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  fout << "\\newcommand{\\gold}{\\tiny "  << geld << "}\n";
 
  fout << "\\newcommand{\\ruestung}{\\scriptsize "  <<LATIN(hauptfenster->getCWerte().Ruestung()->Name()) << "}\n";
-// fout << "\\newcommand{\\ruestunglp}{\\scriptsize "  <<LaTeX_drucken::ruestung("LP") << "}\n";
  fout << "\\newcommand{\\ruestunglp}{\\scriptsize "  <<hauptfenster->getCWerte().Ruestung()->LP_Verlust() << "}\n";
+ fout << "\\newcommand{\\ruestungb}{\\scriptsize "  <<LATIN(hauptfenster->getCWerte().Ruestung(1)->Name()) << "}\n";
+ fout << "\\newcommand{\\ruestunglpb}{\\scriptsize "  <<hauptfenster->getCWerte().Ruestung(1)->LP_Verlust() << "}\n";
 
  /////////////////////////////////////////////////////////////////////////////
  // Sprachen und Schriften

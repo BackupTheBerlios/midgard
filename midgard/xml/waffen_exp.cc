@@ -1,4 +1,4 @@
-// $Id: waffen_exp.cc,v 1.16 2002/05/08 11:12:58 thoma Exp $
+// $Id: waffen_exp.cc,v 1.17 2002/05/16 15:07:30 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -42,12 +42,12 @@ void waffen_speichern(std::ostream &o)
    fetch_and_write_string_attrib(is, o, "Abkürzung");
    fetch_and_write_int_attrib(is, o, "schütztLP");
    fetch_and_write_int_attrib(is, o, "minimaleStärke");
-   fetch_and_write_int_attrib(is, o, "Vollrüstung");
    o << ">\n    <Verlust";
    fetch_and_write_int_attrib(is, o, "RW");
    fetch_and_write_int_attrib(is, o, "B");
    fetch_and_write_int_attrib(is, o, "Abwehrbonus");
    fetch_and_write_int_attrib(is, o, "Angriffsbonus");
+   fetch_and_write_int_attrib(is, o, "Vollrüstung");
    o << "/>\n";
    kaufpreis(o, "Rüstungen", ruestung);
    o << "  </Rüstung>\n";

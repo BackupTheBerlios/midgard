@@ -60,10 +60,10 @@ Ruestung::Ruestung(const Tag *tag)
      b_verlust=Verlust->getIntAttr("B");
      abwehr_bonus_verlust=Verlust->getIntAttr("Abwehrbonus");;
      angriffs_bonus_verlust=Verlust->getIntAttr("Angriffsbonus");
+     vollruestungsabzug=tag->getIntAttr("Vollrüstung");
   }
   else
      rw_verlust=b_verlust=abwehr_bonus_verlust=angriffs_bonus_verlust=0;
-  vollruestungsabzug=tag->getIntAttr("Vollrüstung");
 }
 
 Ruestung_All::Ruestung_All(Gtk::ProgressBar *progressbar)
