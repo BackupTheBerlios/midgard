@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.303 2002/11/25 22:25:18 thoma Exp $
+// $Id: midgard_CG.hh,v 1.304 2002/11/27 08:57:11 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -234,6 +234,7 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
 
         // Oberfläche Menü
         Gtk::Menu *menu_kontext;
+        Gtk::Box &make_gtk_box(const gchar * const *data,const std::string &label,const bool text_vor_bild=true,const bool hbox=true);
         gint on_button_menu_button_release_event(GdkEventButton *ev);
         void on_checkbutton_Regionen_menu_(Gtk::CheckMenuItem *menu_item,cH_Region region);
         void on_checkbutton_Regionen_menu(gpointer gp,cH_Region region);

@@ -8,14 +8,18 @@ NEWS IN VERSION 0.8.12
 * Spielleiterbogen paßt wieder auf den Ausdruck
 * Hilfe Menü ans Ende
 * 'Schummel'-Menü' für Andre (Sam) Paus mit 
+ - Originalregeln
  - 'mit EP steigern'
  - 'Lernschema/steigern' auswählbar machen
  - 'NSC'
  - Werte editieren
+* Abspeichern & Laden der Handle-Fenster-Positionen
+* PP eingeben für Fertigkeiten mit Zusatz stürzt nicht mehr ab
+   (Folge von Redisign + Codereduzierung)
 
 TODO
 
-** Abspeichern & Laden der Handle-Fenster-Positionen
+** Setzen der Handle-Fenster-Positionen :-(
 ** Neue Ausrüstung eingeben (stürzt ab)
 * KI-Steigern nicht nur mit Unterweisung oder Selbststudium 
 * Region-Icons wechseln

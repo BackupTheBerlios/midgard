@@ -39,18 +39,12 @@ void table_grundwerte::init(midgard_CG *h)
   if(!only_once)
   {
    only_once=true;
-   Gtk::VBox *_box=manage(new Gtk::VBox());
-   Gtk::Label *_label=manage(new Gtk::Label("Werte\neditieren"));
-   Gtk::Pixmap *_pix=manage(new Gtk::Pixmap(EditChar_trans_50_xpm));
-   _box->pack_start(*_pix);
-   _box->pack_start(*_label);
-   MVC_bool_Widget *_m=manage(new MVC_bool_Widget(edit_werte,*_box));
+    MVC_bool_Widget *_m=manage(new MVC_bool_Widget(edit_werte,hauptfenster->make_gtk_box(EditChar_trans_50_xpm,"Werte\neditieren",false,false)));
    _m->set_mode(false);
    eventbox_werte_edit->add(*_m);
    eventbox_werte_edit->show_all();
    _m->toggled.connect_after(SigC::slot(this, &table_grundwerte::on_togglebutton_edit_werte_toggled));
   }
-//  togglebutton_edit_werte->set_active(false);
   edit_sensitive(false);
   zeige_werte();
 }

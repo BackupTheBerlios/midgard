@@ -47,12 +47,7 @@ void table_steigern::init(midgard_CG *h)
   if(!only_once)
   {
    only_once=true;
-   Gtk::HBox *_box=manage(new Gtk::HBox());
-   Gtk::Label *_label=manage(new Gtk::Label("Mit EP/PP\nsteigern"));
-   Gtk::Pixmap *_pix=manage(new Gtk::Pixmap(EP_Steigern_50_xpm));
-   _box->pack_start(*_pix);
-   _box->pack_start(*_label);
-   MVC_bool_Widget *_m=manage(new MVC_bool_Widget(steigern_mit_EP_bool,*_box));
+   MVC_bool_Widget *_m=manage(new MVC_bool_Widget(steigern_mit_EP_bool,hauptfenster->make_gtk_box(EP_Steigern_50_xpm,"Mit EP/PP\nsteigern",false)));
    _m->set_mode(false);
    _m->toggled.connect_after(SigC::slot(this, &table_steigern::on_checkbutton_EP_Geld_toggled));
    eventbox_eppp_steigern->add(*_m);

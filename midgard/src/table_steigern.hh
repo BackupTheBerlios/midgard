@@ -41,10 +41,10 @@ class table_steigern : public table_steigern_glade
         enum enum_notebook_lernen{PAGE_FERTIGKEITEN,PAGE_WAFFEN,PAGE_ZAUBER,
                                   PAGE_KIDO,PAGE_SPRACHE,PAGE_BESITZ};
                                   
-        enum modi_modus{Zusatz,PP};
-        void modify(modi_modus modus,const MBEmlt &M,const MidgardBasicElement::st_zusatz &zusatz,int praxispunkte);
-        void modify(modi_modus modus,const MBEmlt &M,const std::string &s,int praxispunkte)
-          {modify(modus,M,MidgardBasicElement::st_zusatz(s),praxispunkte);}
+//        enum modi_modus{Zusatz,PP};
+//        void modify(modi_modus modus,const MBEmlt &M,const MidgardBasicElement::st_zusatz &zusatz,int praxispunkte);
+//        void modify(modi_modus modus,const MBEmlt &M,const std::string &s,int praxispunkte)
+//          {modify(modus,M,MidgardBasicElement::st_zusatz(s),praxispunkte);}
 public:
         
         table_steigern(GlademmData *_data) 

@@ -162,8 +162,9 @@ void table_steigern::on_spinbutton_pp_eingeben_activate()
 
  guint pagenr = notebook_lernen->get_current_page_num();
  try{
- MBEmlt M=getSelectedNotebookLernen();
- modify(PP,M,MidgardBasicElement::st_zusatz(""),PPanz);
+ const MBEmlt &M=getSelectedNotebookLernen();
+// modify(PP,M,MidgardBasicElement::st_zusatz(""),PPanz);
+ M->setPraxispunkte(PPanz);
  }catch(TreeBase::noRowSelected &e) {std::cerr << e.what()<<'\n'; hauptfenster->set_status("Keine Zeile selektiert");}
 
   if(pagenr==PAGE_FERTIGKEITEN)
@@ -273,7 +274,10 @@ void table_steigern::set_zusatz_sensitive(bool an)
 void table_steigern::on_steigern_zusatz_leaf_selected(cH_RowDataBase d)
 {
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
-  modify(Zusatz,dt->getMBE(),dt->getZusatz(),0);
+//  modify(Zusatz,dt->getMBE(),dt->getZusatz(),0);
+  dt->getMBE()->setZusatz(dt->getZusatz());
+  if(dt->getZusatz().name==hauptfenster->getWerte().Herkunft()->Name())
+     dt->getMBE()->setErfolgswert(9);
 
   set_zusatz_sensitive(false);
 
@@ -284,8 +288,10 @@ void table_steigern::on_steigern_zusatz_leaf_selected(cH_RowDataBase d)
   neue_fert_tree->set_sensitive(true);
 }
 
+/*
 void table_steigern::modify(modi_modus modus,const MBEmlt &M,const MidgardBasicElement::st_zusatz &zusatz,int praxispunkte)
 {
+assert(!"NIX DA\n");
   bool found=false;
   int c=0;
   while(true)
@@ -299,6 +305,7 @@ void table_steigern::modify(modi_modus modus,const MBEmlt &M,const MidgardBasicE
      else assert(!"never get here\n");
      for(std::list<MBEmlt>::iterator i=L->begin();i!=L->end();++i)
       {
+cout << (*i)->Zusatz().empty()<<'\t'<<(*(*i))->Name()<<' '<< (*M)->Name()<<'\n';
         if( (*i)->Zusatz().empty() && (*(*i))->Name() == (*M)->Name())       
          {
            found=true;
@@ -316,3 +323,4 @@ void table_steigern::modify(modi_modus modus,const MBEmlt &M,const MidgardBasicE
     else ++c;
    }
 }
+*/

@@ -23,27 +23,47 @@
 #include <Misc/itos.h>
 #include <MVC_boolMenu_Widget.hh>
 
+
+Gtk::Box &midgard_CG::make_gtk_box(const gchar * const *data,const std::string &label,const bool text_vor_bild,const bool hbox)
+{
+  Gtk::Pixmap *_p=manage(new Gtk::Pixmap(data));
+  Gtk::Label *_l=manage(new Gtk::Label(label));
+  Gtk::Box *_v;
+  if(hbox) _v=manage(new Gtk::HBox());
+  else     _v=manage(new Gtk::VBox());
+  if(text_vor_bild)  { _v->pack_start(*_l,false,false);
+                       _v->pack_start(*_p,false,false); }
+  else               { _v->pack_start(*_p,false,false);
+                       _v->pack_start(*_l,false,false); }
+  return *_v;
+}
+ 
+
 void midgard_CG::menu_init()
 {
   menu_kontext=manage(new Gtk::Menu());
 
 //Schummel-Menü/////////////////////////////////////////////////////////////////////
   Gtk::Menu *schummel_menu = manage(new class Gtk::Menu());
-  Gtk::MenuItem *schummel = manage(new class Gtk::MenuItem("'Schummel-Menü'")); 
+  Gtk::MenuItem *schummel = manage(new class Gtk::MenuItem("'Sams Schummel-Menü'")); 
   schummel->set_submenu(*schummel_menu);
 
-  Gtk::MenuItem *_M1 = manage(new Gtk::MenuItem("Lernschema- und Steigern-Fenster aktivieren"));
-  schummel_menu->append(*_M1);
-  _M1->activate.connect_after(SigC::bind(SigC::slot(this,&midgard_CG::OptionenExecute_setzen_from_menu),Midgard_Optionen::LernschemaSensitive));
+  {MVC_boolMenu_Widget *_M=manage(new MVC_boolMenu_Widget(MOptionen->OptionenCheck(Midgard_Optionen::Original).active,make_gtk_box(midgard_logo_tiny_xpm,"Originalregeln ")));
+  schummel_menu->append(*_M);}
 
-  MVC_boolMenu_Widget *_M2=manage(new MVC_boolMenu_Widget(table_grundwerte->edit_werte,"Werte editieren"));
-  schummel_menu->append(*_M2);
 
-  MVC_boolMenu_Widget *_M4=manage(new MVC_boolMenu_Widget(table_steigern->steigern_mit_EP_bool,"Mit EP/PP steigern"));
-  schummel_menu->append(*_M4);
+  {Gtk::MenuItem *_M = manage(new Gtk::MenuItem("Lernschema- und Steigern-Fenster aktivieren"));
+  schummel_menu->append(*_M);
+  _M->activate.connect_after(SigC::bind(SigC::slot(this,&midgard_CG::OptionenExecute_setzen_from_menu),Midgard_Optionen::LernschemaSensitive));}
 
-  MVC_boolMenu_Widget *_M3=manage(new MVC_boolMenu_Widget(MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active,"NSC-Modus"));
-  schummel_menu->append(*_M3);
+  {MVC_boolMenu_Widget *_M=manage(new MVC_boolMenu_Widget(table_grundwerte->edit_werte,"Werte editieren"));
+  schummel_menu->append(*_M);}
+
+  {MVC_boolMenu_Widget *_M=manage(new MVC_boolMenu_Widget(table_steigern->steigern_mit_EP_bool,"Mit EP/PP steigern"));
+  schummel_menu->append(*_M);}
+
+  {MVC_boolMenu_Widget *_M=manage(new MVC_boolMenu_Widget(MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active,"NSC-Modus"));
+  schummel_menu->append(*_M);}
 
   menu_kontext->append(*schummel);
 
