@@ -18,7 +18,7 @@ class SimpleTree;
 class NotFound : public std::exception
 {public:
 	virtual const char* what() const throw() { return "NotFound"; }
-}
+};
 #endif
 
 class MidgardBasicElement : public HandleContent
