@@ -19,7 +19,8 @@ CREATE TABLE "berufe_voraussetzung_4" (
 	"typ_z" boolean,
 	"region" text,
 	"region_zusatz" text,
-	"geschlecht" text
+	"geschlecht" text,
+   Constraint "berufe_voraussetzung_4_pkey" Primary Key ("beruf")
 );
 
 --

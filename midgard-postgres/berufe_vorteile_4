@@ -9,7 +9,8 @@ DROP TABLE "berufe_vorteile_4";
 CREATE TABLE "berufe_vorteile_4" (
 	"beruf" text,
 	"vorteil" text,
-	"wert" integer
+	"wert" integer,
+   Constraint "berufe_vorteile_4_pkey" Primary Key ("beruf", "vorteil")
 );
 
 --

@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.60 2002/09/26 13:32:03 thoma Exp $
+# $Id: Makefile,v 1.61 2002/10/01 11:16:50 thoma Exp $
 INSTALLED_TABLES=$(shell psql -t -q -c "select tablename from pg_tables where \
 		tablename not like 'pg_%' and tablename not like 'pga_%';" midgard)
 SYSTEM_TABLES=angeborene_fertigkeiten zauber ausnahmen \
@@ -21,8 +21,7 @@ SYSTEM_TABLES=angeborene_fertigkeiten zauber ausnahmen \
 OBSELETE_TABLES=berufe_voraussetzung berufe_vorteile berufe_stand \
 	arkanum_zauber lernschema praxispunkte pflicht_lernen
 
-USER_TABLES=charaktere charaktere_fertigkeiten
-TABLES=$(SYSTEM_TABLES) $(USER_TABLES)
+TABLES=$(SYSTEM_TABLES) 
 
 VERSION=0.8beta2
 PACKAGE=midgard-postgres
@@ -50,12 +49,6 @@ fulldump:
 	done
 
 # extract tables for dist or cvs (user tables without data)
-dump: fulldump
-	@for i in $(USER_TABLES) ; \
-	do \
-	  echo "dumping empty $$i schema" ; \
-	  pg_dump $(PGDUMP_FLAGS) -s -t "$$i" midgard | ./drop_all_varying >"$$i" ; \
-	done
 
 # make distribution tar archive
 dist: $(DIST_FILES)
@@ -71,26 +64,6 @@ install:
 	  echo "loading $$i" ; \
 	  psql midgard <"$$i" ; \
 	done
-	@for i in $(USER_TABLES) ; \
-	do \
-	  export QU="'" ; \
-	  if psql -t -q -c "select tablename from pg_tables where tablename=$$QU$$i$$QU;" midgard | fgrep -q "$$i" ;  \
-	  then \
-	    echo "$$i is already there" ; \
-	  else \
-	    echo "loading $$i" ; \
-	    psql midgard <"$$i" ; \
-	  fi ; \
-	done
-	psql midgard -c "vacuum analyze"
-
-# install all tables unconditionally - use with care!
-fullinstall:
-	@for i in $(TABLES) ; \
-	do \
-	  echo "loading $$i" ; \
-	  psql midgard <"$$i" ; \
-	done
 	psql midgard -c "vacuum analyze"
 
 clean:
@@ -102,11 +75,6 @@ diff:
 	do \
 	  pg_dump $(PGDUMP_FLAGS) -t "$$i" midgard | ./drop_all_varying | \
 		diff -B -I '--.*' -u - "$$i" ; \
-	done ; true
-	@for i in $(USER_TABLES) ; \
-	do \
-	  pg_dump $(PGDUMP_FLAGS) -s -t "$$i" midgard | ./drop_all_varying | \
-		diff -B -I '-- .*' -u - "$$i" ; \
 	done ; true
 dbclean:
 	@for i in $(OBSELETE_TABLES) ; \

@@ -11,7 +11,8 @@ CREATE TABLE "angeborene_fertigkeiten" (
 	"min" integer,
 	"max" integer,
 	"name" text,
-	"wert" integer
+	"wert" integer,
+Constraint "angeborene_fertigkeiten_pkey" Primary Key ("name")
 );
 
 --
