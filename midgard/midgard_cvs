@@ -2,15 +2,10 @@
 
 login() {
   echo ========= Logging in ======
-  cvs -d:pserver:anonymous@cvs.ManuProC.berlios.de:/cvsroot/manuproc login <<EOF
-
-EOF
-  cvs -d :pserver:anonymous@anoncvs.gnome.org:/cvs/gnome login <<EOF
-
-EOF
-  cvs -d:pserver:anonymous@cvs.midgard.berlios.de:/cvsroot/midgard login <<EOF
-
-EOF
+  echo Bitte dreimal Return drücken
+  cvs -d:pserver:anonymous@cvs.ManuProC.berlios.de:/cvsroot/manuproc login
+  cvs -d :pserver:anonymous@anoncvs.gnome.org:/cvs/gnome login
+  cvs -d:pserver:anonymous@cvs.midgard.berlios.de:/cvsroot/midgard login
 }
 
 checkout() {
@@ -52,7 +47,7 @@ update() {
 configure() {
   echo ========= Petig.m4 ========
   echo Bitte das root Passwort angeben
-  echo "(Fuer Installation von petig.m4 nach /usr/share/aclocal)"
+  echo "(Für Installation von petig.m4 nach /usr/share/aclocal)"
   cd m4 && (su -c "make install" || make install ; cd ..)
   echo ========  ManuProC_Base ========
   cd ManuProC_Base && (./autogen.sh $* ; make ; cd ..)
@@ -70,7 +65,7 @@ configure_if_needed() {
   if [ ! -f /usr/share/aclocal/petig.m4 ]
   then 
     echo Bitte das root Passwort angeben
-    echo "(Fuer Installation von petig.m4 nach /usr/share/aclocal)"
+    echo "(Für Installation von petig.m4 nach /usr/share/aclocal)"
     cd m4 && (su -c "make install" || make install ; cd ..)
   fi
   echo ========  ManuProC_Base ========
@@ -103,7 +98,7 @@ doinstall() {
   echo ============ Midgard ========
   cd midgard || exit 1
   make install
-  echo Wenn prefix nicht speziell angegeben wurde, brauche ich jetzt das
+  echo Wenn --prefix nicht angegeben wurde, brauche ich jetzt das
   echo root Passwort um Midgard nach /usr/local zu kopieren
   su -c 'make install'
 }
@@ -128,7 +123,7 @@ then
   domake
   doinstall
 else
-  echo "Midgard anonymous-CVS Installierer, Version $Revision: 1.4 $aetsch"
+  echo "Midgard anonymous-CVS Installierer, Version $Revision: 1.5 $aetsch"
   echo
   echo "USAGE: $0 <Befehl> [Argumente]"
   echo "Befehle: checkout co update configure make install"
