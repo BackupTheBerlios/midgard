@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <Midgard-Charakter Version="7">
-  <Figur Name="Zogar" Spieler="Christof Petig" Zeitpunkt="Schriftzeichen" Grad="1"/>
+  <Figur Name="Zogar" Spieler="Christof Petig" Zeitpunkt="Schriftzeichen" Grad="5"/>
   <Typ Spezies="Zwerg" Geschlecht="m" Abkürzung="Kr" Spezialisierung="Kriegshammer"/>
   <Basiseigenschaften St="87" Ge="85" Ko="98" In="60" Zt="92"/>
   <abgeleiteteEigenschaften Au="48" pA="39" Sb="42" RW="85" HGW="85" B="18"/>
@@ -12,18 +12,30 @@
   <Boni Ausdauer="6" Schaden="2" Abwehr="1" Zaubern="2">
     <Resistenzen psy="4" phs="4" Gift="20"/>
   </Boni>
-  <GFP>9081</GFP>
+  <GFP>3928</GFP>
   <Vermögen/>
   <Steigern Basiswerte="0"/>
   <Ausrüstung>
-    <Rüstung>OR</Rüstung>
+    <Rüstung>KR</Rüstung>
+    <Waffe Bezeichnung="Dolch"/>
+    <Waffe Bezeichnung="Kriegshammer" AngriffVerteidigung_Bonus="3" SchadenLebenspunkte_Bonus="3">Gurthrauk</Waffe>
+    <Waffe Bezeichnung="Langschwert">Lothruin</Waffe>
+    <Waffe Bezeichnung="Morgenstern"/>
+    <Waffe Bezeichnung="großer Schild"/>
   </Ausrüstung>
   <Fertigkeiten>
     <Beruf Bezeichnung="Bergmann" Wert="7"/>
     <Beruf Bezeichnung="Waffenschmied" Wert="12"/>
     <Fertigkeit Bezeichnung="Beidhändiger Kampf" Wert="-4"/>
+    <Fertigkeit Bezeichnung="Fallen" Wert="12"/>
+    <Fertigkeit Bezeichnung="Faustkampf"/>
+    <Fertigkeit Bezeichnung="Geländelauf" Wert="12"/>
     <Fertigkeit Bezeichnung="Kampf in Vollrüstung"/>
     <Fertigkeit Bezeichnung="Kampf vom Streitwagen"/>
+    <Fertigkeit Bezeichnung="Klettern" Wert="14"/>
+    <Fertigkeit Bezeichnung="Laufen" Wert="2"/>
+    <Fertigkeit Bezeichnung="Reiten" Wert="12"/>
+    <Fertigkeit Bezeichnung="Springen" Wert="12"/>
     <Fertigkeit Bezeichnung="Streitwagen lenken" Wert="16"/>
     <Fertigkeit Bezeichnung="Wagenlenken" Wert="16"/>
     <Grundkenntnis Bezeichnung="Bögen"/>
@@ -37,6 +49,7 @@
     <Grundkenntnis Bezeichnung="ZSchlagwaffe"/>
     <Grundkenntnis Bezeichnung="waffenloser Kampf"/>
     <Region Region="ORIG"/>
+    <Region Region="BR"/>
     <Sprache Bezeichnung="Albisch" Wert="4"/>
     <Sprache Bezeichnung="Dunathisch" Wert="2"/>
     <Sprache Bezeichnung="Dvarskar" Wert="4"/>
