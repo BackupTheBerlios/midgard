@@ -10,6 +10,7 @@
 #include <gtkmm/box.h>
 #include <bool_CheckButton.hh>
 #include <libmagus/Ausgabe.hh>
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 void table_grundwerte::init(midgard_CG *h)
 {
