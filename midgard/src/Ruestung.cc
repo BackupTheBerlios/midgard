@@ -60,6 +60,7 @@ Ruestung::Ruestung(const Tag *tag)
      abwehr_bonus_verlust=Verlust->getIntAttr("Abwehrbonus");;
      angriffs_bonus_verlust=Verlust->getIntAttr("Angriffsbonus");
      vollruestungsabzug=Verlust->getIntAttr("Vollrüstung");
+     behinderung_wie=Verlust->getIntAttr("BehinderungWie");
   }
   else
      rw_verlust=b_verlust=abwehr_bonus_verlust=angriffs_bonus_verlust=0;
@@ -91,47 +92,41 @@ int Ruestung::AngriffsBonus_Verlust(int angriffs_bonus) const
 }
 
 
-int Ruestung::B_Verlust(const double &ueberlast,const int &maxB,bool &ew) const
+int Ruestung::B_Verlust(const double &ueberlast,const Grundwerte &Werte,bool &ew) const;
 {
-  if(ueberlast==0) return b_verlust;
-  
-  int reduce=0;
-  ew=false;
-  if(b_verlust==0)
-   {
-      if(ueberlast<1)                       reduce=  0;
-      else if(1<=ueberlast && ueberlast< 5) reduce=  4;
-      else if(5<=ueberlast && ueberlast< 8) reduce=  8;
-      else if(8<=ueberlast && ueberlast<20) {reduce= 12; ew=true;}
-      else reduce = maxB;
-   }
-  if(b_verlust==4)
-   {
-      if(ueberlast<1)                       reduce=  4;
-      else if(1<=ueberlast && ueberlast< 5) reduce=  8;
-      else if(5<=ueberlast && ueberlast< 8) {reduce= 12; ew=true;}
-      else if(8<=ueberlast && ueberlast<20) {reduce= 18; ew=true;}
-      else reduce = maxB;
-   }
-  if(b_verlust==8)
-   {
-      if(ueberlast<1)                       reduce=  8;
-      else if(1<=ueberlast && ueberlast< 5) {reduce= 12; ew=true;}
-      else if(5<=ueberlast && ueberlast< 8) {reduce= 18; ew=true;}
-      else reduce = maxB;
-   }
-  if(b_verlust==12)
-   {
-      if(ueberlast<1)                        reduce= 12;
-      else if(1<=ueberlast && ueberlast< 5) {reduce= 18; ew=true;}
-      else reduce = maxB;
-   }
-  if(b_verlust==16)
-   {
-      if(ueberlast<1)                       reduce= 16;
-      else reduce = maxB;
-   }   
+   ew=false;
+   int reduce;
+   const int D=Werte.Spezies()->B_Durchschnitt();
+   std::string BW=BehinderungWie();
+   if     (BW=="KR") reduce = D/6;
+   else if(BW=="PR") reduce = D/3;
+   else if(BW=="VR") reduce = D/2;
+   else if(BW=="RR") reduce = D*2/3;
+   else reduce=0;
 
+   if     (ueberlast<1) return reduce;
+   else if(ueberlast<5) 
+     {
+      if(BW=="OR" || BW=="TR" || BW=="LR") reduce += D/6;
+      else if(BW=="KR") reduce += D/3;
+      else if(BW=="PR") reduce += D/2;
+      else if(BW=="VR") reduce += D*3/4;
+      else              reduce  = Werte.B();
+     }
+   else if(ueberlast<9) 
+     {
+      if(BW=="OR" || BW=="TR" || BW=="LR") reduce += D/3;
+      else if(BW=="KR") reduce += D/2;
+      else if(BW=="PR") reduce += D*3/4;
+      else              reduce  = Werte.B();
+     }
+   else if(ueberlast<=20) 
+     {
+      if(BW=="OR" || BW=="TR" || BW=="LR") reduce += D/2;
+      else if(BW=="KR") reduce += D*3/4;
+      else              reduce  = Werte.B();
+     }
+   else reduce = Werte.B();
   return reduce;
 }
 

@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_ausruestung.cc,v 1.14 2002/11/05 09:06:43 thoma Exp $   
+// $Id: LaTeX_drucken_ausruestung.cc,v 1.15 2002/11/06 20:03:26 thoma Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -50,23 +50,23 @@ void LaTeX_drucken::on_ausruestung_druck(bool unsichtbar)
  {
   bool ew1=false; bool ew2=false;
   double ueberlast=A.getUeberlast();
-  int B=hauptfenster->getWerte().B();
-  cH_Ruestung R1=hauptfenster->getWerte().Ruestung(0);
-  cH_Ruestung R2=hauptfenster->getWerte().Ruestung(1);
-  int v1=R1->B_Verlust(ueberlast,B,ew1);
-  int v2=R2->B_Verlust(ueberlast,B,ew2);
+  const Grundwerte &W=hauptfenster->getWerte();
+  cH_Ruestung R1=W.Ruestung(0);
+  cH_Ruestung R2=W.Ruestung(1);
+  int v1=R1->B_Verlust(ueberlast,W,ew1);
+  int v2=R2->B_Verlust(ueberlast,W,ew2);
   if(ew1) 
     fout << "\\scriptsize Abzug auf Erfolgswürfe aufgrund von übermäßiger Belastung: --2 ("
                +R1->Name()+")\n\n";
   if(v1)
     fout << "\\scriptsize Abzug von der Bewegungsweite aufgrund übermäßiger Belastung: --"
-         <<v1<<" $\\Rightarrow$ "<<(((B-v1)<0)?0:(B-v1))<<" ("+R1->Name()+")\n\n";
+         <<v1<<" $\\Rightarrow$ "<<(((W.B()-v1)<0)?0:(W.B()-v1))<<" ("+R1->Name()+")\n\n";
   if(ew2) 
     fout << "\\scriptsize Abzug auf Erfolgswürfe aufgrund von übermäßiger Belastung: --2 ("
                +R2->Name()+")\n\n";
   if(v2)
     fout << "\\scriptsize Abzug von der Bewegungsweite aufgrund übermäßiger Belastung: --"
-         <<v2<<" $\\Rightarrow$ "<<(((B-v2)<0)?0:(B-v2))<<" ("+R2->Name()+")\n\n";
+         <<v2<<" $\\Rightarrow$ "<<(((W.B()-v2)<0)?0:(W.B()-v2))<<" ("+R2->Name()+")\n\n";
  }
  fout << "}}\n\n";
 

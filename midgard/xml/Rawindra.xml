@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="R" Name="Rawindra" Titel="Rawindra - Im Bann der Todesechsen" Copyright="Ludger Fischer und Thomas Kreutz" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="8" MAGUS-Bild="1" CVS="$Revision: 1.7 $">
+<MAGUS-data Region="R" Name="Rawindra" Titel="Rawindra - Im Bann der Todesechsen" Copyright="Ludger Fischer und Thomas Kreutz" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="8" MAGUS-Bild="1" CVS="$Revision: 1.8 $">
  <Schriften/>
  <Sprachen/>
  <Typen>
@@ -1310,16 +1310,16 @@
  </Berufe>
  <Rüstungen>
   <Rüstung Name="Sritrahaut" Region="R" Abkürzung="TR(R)" schütztLP="1">
-   <Verlust Vollrüstung="2"/>
+   <Verlust Vollrüstung="2" BehinderungWie="TR"/>
   </Rüstung>
   <Rüstung Name="Dhunaka" Region="R" Abkürzung="KR(R)" schütztLP="3">
-   <Verlust/>
+   <Verlust BehinderungWie="LR"/>
   </Rüstung>
   <Rüstung Name="Tschahaatha" Region="R" Abkürzung="PR(R)" schütztLP="4">
-   <Verlust B="4"/>
+   <Verlust B="4" BehinderungWie="KR"/>
   </Rüstung>
   <Rüstung Name="Tschahaatha(VR)" Region="R" Abkürzung="VR(R)" schütztLP="5">
-   <Verlust B="8" Vollrüstung="2"/>
+   <Verlust B="8" Vollrüstung="2" BehinderungWie="PR"/>
   </Rüstung>
  </Rüstungen>
  <Waffen>

@@ -70,7 +70,7 @@ void table_steigern::fill_ruestung()
    { cH_Ruestung r(*i);
      bool dummy;
      os << r->Long() <<"\t"<<r->Name()<<"\t"<<r->LP_Verlust()<<"\t"
-        <<r->Min_Staerke()<<"\t"<<r->RW_Verlust()<<"\t"<<r->B_Verlust(0,0,dummy)<<"\n";
+        <<r->Min_Staerke()<<"\t"<<r->RW_Verlust()<<"\t"<<r->B_Verlust(0,hauptfenster->getWerte(),dummy)<<"\n";
      os.flush(r->ref());
    } 
  for (unsigned int i=0;i<clist_ruestung->columns().size();++i)

@@ -1,4 +1,4 @@
-// $Id: waffen_exp.cc,v 1.23 2002/06/24 07:46:23 christof Exp $
+// $Id: waffen_exp.cc,v 1.24 2002/11/06 20:03:26 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -31,7 +31,7 @@ void waffen_speichern(Tag &o)
    FetchIStream is;
   {Query query("select ruestung, region, ruestung_s, lp_verlust,"
    		" min_staerke,rw_verlust,b_verlust, abwehr_bonus_verlust,"
-   		" angriffs_bonus_verlust, vollruestung"
+   		" angriffs_bonus_verlust, vollruestung,behinderung_wie "
    	" from ruestung"
    	" where coalesce(region,'')='"+region+"'"
    	" order by coalesce(region,''),lp_verlust");
@@ -48,6 +48,7 @@ void waffen_speichern(Tag &o)
    fetch_and_set_int_attrib(is, Verlust, "Abwehrbonus");
    fetch_and_set_int_attrib(is, Verlust, "Angriffsbonus");
    fetch_and_set_int_attrib(is, Verlust, "Vollrüstung");
+   fetch_and_set_string_attrib(is, Verlust, "BehinderungWie");
    kaufpreis(Ruestung, "Rüstungen", ruestung);
   }
   }

@@ -1,4 +1,4 @@
-// $Id: Ruestung.hh,v 1.15 2002/10/27 18:25:23 thoma Exp $               
+// $Id: Ruestung.hh,v 1.16 2002/11/06 20:03:26 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,13 +25,15 @@
 #include <string>
 #include "xml.h"
 
+class Grundwerte;
 class Ruestung  : public HandleContentCopyable
 {
-   std::string name, longname, region; 
+   std::string name, longname, region,behinderung_wie; 
    int lp_verlust,min_staerke,rw_verlust,b_verlust,
       abwehr_bonus_verlust,angriffs_bonus_verlust;
    int vollruestungsabzug;
 
+   std::string BehinderungWie() const {return behinderung_wie;}
   public:
 //   Ruestung() {};
    Ruestung(const Tag *tag);
@@ -42,8 +44,8 @@ class Ruestung  : public HandleContentCopyable
    int LP_Verlust() const {return lp_verlust;}
    int Min_Staerke() const {return min_staerke;}
    int RW_Verlust() const {return rw_verlust;}
-   int B_Verlust() const {return b_verlust;}
-   int B_Verlust(const double &ueberlast,const int &maxB,bool &ew) const;
+//   int B_Verlust() const {return b_verlust;}
+   int B_Verlust(const double &ueberlast,const Grundwerte &Werte,bool &ew) const;
    int AbwehrBonus_Verlust(int abwehr_bonus) const;
    int AngriffsBonus_Verlust(int angriffs_bonus) const;
    int VollRuestungsAbzug() const {return vollruestungsabzug;}

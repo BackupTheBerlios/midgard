@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="N" Name="Nahuatlan" Titel="Nahuatlan - Im Land des Mondjaguars" Copyright="Alexander Huiskes" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="6" MAGUS-Bild="8" CVS="$Revision: 1.6 $">
+<MAGUS-data Region="N" Name="Nahuatlan" Titel="Nahuatlan - Im Land des Mondjaguars" Copyright="Alexander Huiskes" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="6" MAGUS-Bild="8" CVS="$Revision: 1.7 $">
  <Schriften/>
  <Sprachen/>
  <Typen>
@@ -1246,10 +1246,10 @@
  <Berufe/>
  <Rüstungen>
   <Rüstung Name="Baumwollharnisch" Region="N" Abkürzung="TR(N)" schütztLP="1">
-   <Verlust/>
+   <Verlust BehinderungWie="TR"/>
   </Rüstung>
   <Rüstung Name="Baumwollrüstung" Region="N" Abkürzung="LR(N)" schütztLP="2">
-   <Verlust/>
+   <Verlust BehinderungWie="LR"/>
   </Rüstung>
  </Rüstungen>
  <Waffen>

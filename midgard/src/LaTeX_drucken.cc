@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.75 2002/11/05 07:24:19 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.76 2002/11/06 20:03:26 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,8 +19,6 @@
 
 #include <unistd.h>
 #include <Misc/EmptyInt_4TeX.h>
-//#include "Sprache.hh"
-//#include "Waffe.hh"
 #include "Fertigkeiten_angeboren.hh"
 #include "LaTeX_drucken.hh"
 #include <fstream>

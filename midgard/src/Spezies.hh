@@ -1,4 +1,4 @@
-// $Id: Spezies.hh,v 1.22 2002/10/04 06:20:12 thoma Exp $               
+// $Id: Spezies.hh,v 1.23 2002/11/06 20:03:26 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -30,7 +30,6 @@
 
 class Grundwerte;
 class cH_MidgardBasicElement;
-//class MBEmlt;
 class cH_Spezies;
 
 class Spezies : public HandleContent
@@ -96,6 +95,7 @@ public:
    int Normgestalt() const {return normgestalt;}
    int B_Wanz() const {return b_wanz;}
    int B_Bonus() const {return b_bonus;}
+   int B_Durchschnitt() const;
    int Raufen() const {return raufen;}
    bool Typ_erlaubt(std::string typ) const;
    bool Land() const {return land;}

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="K" Name="KanThaiPan" Titel="Unter dem Schirm des Jadekaisers" Copyright="Isolde Popp" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="7" MAGUS-Bild="2" CVS="$Revision: 1.8 $">
+<MAGUS-data Region="K" Name="KanThaiPan" Titel="Unter dem Schirm des Jadekaisers" Copyright="Isolde Popp" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="7" MAGUS-Bild="2" CVS="$Revision: 1.9 $">
  <Schriften>
   <Schrift Name="KanThaiTun(1)" Region="K" Typ="Silben" Kosten="20">
    <Variante Name="KanThaiTun(1)"/>
@@ -1780,13 +1780,13 @@
  <Berufe/>
  <Rüstungen>
   <Rüstung Name="Papierrüstung" Region="K" Abkürzung="TR(K)" schütztLP="1">
-   <Verlust/>
+   <Verlust BehinderungWie="TR"/>
   </Rüstung>
   <Rüstung Name="SaMurai-Rüstung" Region="K" Abkürzung="PR(K)" schütztLP="4" minimaleStärke="31">
-   <Verlust B="4" Abwehrbonus="1"/>
+   <Verlust B="4" Abwehrbonus="1" BehinderungWie="KR"/>
   </Rüstung>
   <Rüstung Name="SaMurai-Rüstung" Region="K" Abkürzung="VR(K)" schütztLP="5" minimaleStärke="61">
-   <Verlust RW="25" B="8" Abwehrbonus="2" Vollrüstung="2"/>
+   <Verlust RW="25" B="8" Abwehrbonus="2" Vollrüstung="2" BehinderungWie="PR"/>
   </Rüstung>
  </Rüstungen>
  <Waffen>

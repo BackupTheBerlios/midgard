@@ -81,11 +81,9 @@ void table_steigern::load_for_page(guint pagenr)
      button_ruestung_2->set_active(false);
    }
 
-
   // Sensitive & Show
   if(pagenr==PAGE_ZAUBER || pagenr==PAGE_KIDO)
    {
-//     frame_fertigkeit->hide();
      radiobutton_verlernen->set_active(true);
      if(pagenr==PAGE_ZAUBER) 
        { frame_zauber_zusatz->show();
@@ -100,7 +98,6 @@ void table_steigern::load_for_page(guint pagenr)
    }
   else
    {
-//     frame_fertigkeit->show();
      radiobutton_steigern->set_active(true);
      frame_zauber_zusatz->hide();
      radiobutton_praxis->set_sensitive(true);

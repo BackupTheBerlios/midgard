@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.14 $">
+<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.15 $">
  <Länder>
   <Kontinent Name="Huaxal">
    <Land Name="Feuerinseln">
@@ -7081,25 +7081,25 @@
  </SteigernKosten>
  <Rüstungen>
   <Rüstung Name="Ohne Rüstung" Abkürzung="OR">
-   <Verlust/>
+   <Verlust BehinderungWie="OR"/>
   </Rüstung>
   <Rüstung Name="Textilrüstung" Abkürzung="TR" schütztLP="1">
-   <Verlust/>
+   <Verlust BehinderungWie="TR"/>
   </Rüstung>
   <Rüstung Name="Lederrüstung" Abkürzung="LR" schütztLP="2">
-   <Verlust/>
+   <Verlust BehinderungWie="LR"/>
   </Rüstung>
   <Rüstung Name="Kettenrüstung" Abkürzung="KR" schütztLP="3" minimaleStärke="31">
-   <Verlust B="4" Abwehrbonus="1"/>
+   <Verlust B="4" Abwehrbonus="1" BehinderungWie="KR"/>
   </Rüstung>
   <Rüstung Name="Plattenrüstung" Abkürzung="PR" schütztLP="4" minimaleStärke="61">
-   <Verlust RW="25" B="8" Abwehrbonus="2"/>
+   <Verlust RW="25" B="8" Abwehrbonus="2" BehinderungWie="PR"/>
   </Rüstung>
   <Rüstung Name="Vollrüstung" Abkürzung="VR" schütztLP="5" minimaleStärke="61">
-   <Verlust RW="40" B="12" Abwehrbonus="2" Angriffsbonus="1" Vollrüstung="2"/>
+   <Verlust RW="40" B="12" Abwehrbonus="2" Angriffsbonus="1" Vollrüstung="2" BehinderungWie="VR"/>
   </Rüstung>
   <Rüstung Name="RitterRüstung" Abkürzung="RR" schütztLP="6" minimaleStärke="81">
-   <Verlust RW="50" B="16" Abwehrbonus="2" Angriffsbonus="2" Vollrüstung="2"/>
+   <Verlust RW="50" B="16" Abwehrbonus="2" Angriffsbonus="2" Vollrüstung="2" BehinderungWie="RR"/>
   </Rüstung>
  </Rüstungen>
  <Waffen>
