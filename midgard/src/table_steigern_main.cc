@@ -93,9 +93,9 @@ void table_steigern::on_radio_selbst_toggled()
 void table_steigern::on_radio_praxis_toggled()
 {
   if(radiobutton_praxis->get_active())
-     table_pp_einstellungen->set_sensitive(true);
+     table_pp_einstellungen->show();//set_sensitive(true);
   else
-     table_pp_einstellungen->set_sensitive(false);
+     table_pp_einstellungen->hide();//set_sensitive(false);
 }
 
 void table_steigern::on_radiobutton_pp_fertigkeit_toggled()

@@ -13937,6 +13937,7 @@ eingeben</label>
 		    <class>GtkTable</class>
 		    <name>table_pp_einstellungen</name>
 		    <cxx_visibility>protected</cxx_visibility>
+		    <visible>False</visible>
 		    <rows>2</rows>
 		    <columns>2</columns>
 		    <homogeneous>False</homogeneous>
