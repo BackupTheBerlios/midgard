@@ -2,7 +2,7 @@
 # using glademm V0.5_11c
 #
 # newer (non customized) versions of this file go to Makefile.am_glade
-bin_PROGRAMS = midgard
+bin_PROGRAMS = midgard xml
 
 
 pkgdata_DATA = document_eingabe.tex \
@@ -49,7 +49,7 @@ Sprache_auswahl.hh Sprache_auswahl_glade.hh \
 
 %.cc: %.pgcc ; @ECPG@ -o $*.cc $<
 
-BUILT_SOURCES = Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
+BUILT_SOURCES_CG = Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
    Zauber_auswahl.cc  Zauber_get_daten.cc get_standard_zauber.cc \
    get_standard_fertigkeit.cc get_standard_waffen.cc Berufe_auswahl.cc \
    save_charakter.cc  load_charakter.cc  \
@@ -64,7 +64,11 @@ BUILT_SOURCES = Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
    midgard_CG_Ausnahmen.cc get_standard_zaubermittel.cc \
    get_spezies_constraint.cc
 
+BUILT_SOUCES_XML=xml.cc
 
+BUILT_SOURCES=$(BUILT_SOURCES_CG) $(BUILT_SOUCES_XML)
+
+xml_SOURCES= xml.cc
 
 midgard_SOURCES = \
    midgard_CG_kido.cc \
@@ -130,3 +134,7 @@ CXXFLAGS = @CXXFLAGS@ @GTKMM_CFLAGS@ @COMMONXX_INCLUDES@ \
 
 midgard_LDADD = @LIBS@ @COMMONXX_LIBS@ @ECPG_LIBS@ \
                @COMMONGTK_LIBS@ @GTKMM_LIBS@
+
+xml_LDADD = @LIBS@ @COMMONXX_LIBS@
+
+LDFLAGS = @COMMONXX_LDFLAGS@

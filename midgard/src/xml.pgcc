@@ -1,0 +1,197 @@
+// $Id: xml.pgcc,v 1.1 2001/04/17 11:44:58 christof Exp $
+/*  Midgard Roleplaying Character Generator
+ *  Copyright (C) 2001 Christof Petig
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program; if not, write to the Free Software
+ *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ */
+
+#include <string>
+#include <Aux/FetchIStream.h>
+#include <iostream>
+#include <fstream>
+#include <Aux/Transaction.h>
+#include <Aux/dbconnect.h>
+exec sql include sqlca;
+
+void fetch_and_write_int(FetchIStream &is,ostream &o,const string &wert,int indent=0)
+{  int val;
+   
+   is >> FetchIStream::MapNull<int>(val,0);
+   if (!val) return;
+   for (int i=0;i<indent;++i) o << ' ';
+   o << '<' << wert << '>' << val << "</" << wert << ">\n";
+}
+
+void fetch_and_write_string(FetchIStream &is,ostream &o,const string &wert,int indent=0)
+{  string val;
+   
+   is >> FetchIStream::MapNull<string>(val,""); 
+   if (!val.size()) return;
+   // val in XML wandeln ...
+   for (int i=0;i<indent;++i) o << ' ';
+   o << '<' << wert << '>' << val << "</" << wert << ">\n";
+}
+
+void charakter_speichern(ostream &o, const string &name,const string &version="")
+{  exec sql begin declare section;
+   char *NAME,*VERSION;
+   exec sql end declare section;
+   
+   (const char*)NAME=name.c_str();
+   (const char*)VERSION=version.c_str();
+   
+   Transaction t;
+   exec sql allocate descriptor spalten;
+   exec sql declare c cursor for
+   	select charakter_name, spieler_name, version, grad, 
+   		typ_l, typ_s, typ_i, spezialisierung, 
+   		st, ge, ko, inn, zt, au, pa,
+   		sb, rw, hgw, b, kaw, wlw, abwehr, zaubern,
+   		psy, phs, phk, gift, lpbasis, lp, ap, alter, gestalt,
+   		gewicht, groesse, stand, herkunft,
+   		glaube, beschreibung, db_bo_au_typ, db_bo_au, db_bo_sc, db_bo_an, 
+   		db_bo_ab, db_bo_za, db_bo_psy, db_bo_phs, db_bo_phk,
+   		db_bo_gi, db_gfp, gold, silber, kupfer, ruestung
+   	from charaktere 
+   	where charakter_name=:NAME and version=:VERSION;
+   exec sql open c;
+   SQLerror::test(__FILELINE__);
+   exec sql fetch c into sql descriptor spalten;
+   SQLerror::test(__FILELINE__);
+   exec sql close c;
+   SQLerror::test(__FILELINE__);
+   FetchIStream is("spalten");
+   o << "<?xml version=\"1.0\"?>\n\n"
+   	"<Midgard-Charakter>\n"
+   	"  <XMLVersion>0</XMLVersion>\n";
+   fetch_and_write_string(is, o, "Name",2);
+   fetch_and_write_string(is, o, "Spieler", 2);
+   fetch_and_write_string(is, o, "Zeitpunkt", 2);
+   fetch_and_write_int(is, o, "Grad", 2);
+   o << "  <Typ>\n";
+   fetch_and_write_string(is, o, "Bezeichnung", 4);
+   fetch_and_write_string(is, o, "Abkuerzung", 4);
+   fetch_and_write_int(is, o, "Index", 4);
+   fetch_and_write_string(is, o, "Spezialisierung", 4);
+   o << "  </Typ>\n";
+   o << "  <Basiseigenschaften>\n";
+   fetch_and_write_int(is, o, "St", 4);
+   fetch_and_write_int(is, o, "Ge", 4);
+   fetch_and_write_int(is, o, "Ko", 4);
+   fetch_and_write_int(is, o, "In", 4);
+   fetch_and_write_int(is, o, "Zt", 4);
+   o << "  </Basiseigenschaften>\n";
+   o << "  <abgeleiteteEigenschaften>\n";
+   fetch_and_write_int(is, o, "Au", 4);
+   fetch_and_write_int(is, o, "pA", 4);
+   fetch_and_write_int(is, o, "Sb", 4);
+   fetch_and_write_int(is, o, "RW", 4);
+   fetch_and_write_int(is, o, "HGW", 4);
+   fetch_and_write_int(is, o, "B", 4);
+   fetch_and_write_int(is, o, "KAW", 4);
+   fetch_and_write_int(is, o, "WLW", 4);
+   o << "  </abgeleiteteEigenschaften>\n";
+   o << "  <Erfolgswerte>\n";
+   fetch_and_write_int(is, o, "Abwehr", 4);
+   fetch_and_write_int(is, o, "Zaubern", 4);
+   o << "  </Erfolgswerte>\n";
+   o << "  <Resistenzen>\n";
+   fetch_and_write_int(is, o, "psy", 4);
+   fetch_and_write_int(is, o, "phs", 4);
+   fetch_and_write_int(is, o, "phk", 4);
+   fetch_and_write_int(is, o, "Gift", 4);
+   o << "  </Resistenzen>\n";
+   o << "  <Gesundheit>\n"; // schlechter Name ?
+   fetch_and_write_int(is, o, "LP_Basis", 4);
+   fetch_and_write_int(is, o, "LP", 4);
+   fetch_and_write_int(is, o, "AP", 4);
+   o << "  </Gesundheit>\n";
+   o << "  <sonstigeEigenschaften>\n"; // soziale?
+   fetch_and_write_int(is, o, "Alter", 4);
+   fetch_and_write_string(is, o, "Gestalt", 4);
+   fetch_and_write_int(is, o, "Gewicht", 4);
+   fetch_and_write_int(is, o, "Groesse", 4);
+   fetch_and_write_string(is, o, "Stand", 4);
+   fetch_and_write_string(is, o, "Herkunft", 4);
+   fetch_and_write_string(is, o, "Glaube", 4);
+   fetch_and_write_string(is, o, "Beschreibung", 4);
+   o << "  </sonstigeEigenschaften>\n"; // soziale?
+   o << "  <Boni>\n"; 
+   fetch_and_write_int(is, o, "Au_Typ", 4); // ?
+   fetch_and_write_int(is, o, "Ausdauer", 4);
+   fetch_and_write_int(is, o, "Schaden", 4);
+   fetch_and_write_int(is, o, "Angriff", 4);
+   fetch_and_write_int(is, o, "Abwehr", 4);
+   fetch_and_write_int(is, o, "Zaubern", 4);
+   o << "    <Resistenzen>\n";
+   fetch_and_write_int(is, o, "psy", 6);
+   fetch_and_write_int(is, o, "phs", 6);
+   fetch_and_write_int(is, o, "phk", 6);
+   fetch_and_write_int(is, o, "Gift", 6);
+   o << "    </Resistenzen>\n";
+   o << "  </Boni>\n"; 
+   fetch_and_write_int(is, o, "GFP", 2);
+   o << "  <Vermoegen>\n";
+   fetch_and_write_int(is, o, "GS", 4);
+   fetch_and_write_int(is, o, "SS", 4);
+   fetch_and_write_int(is, o, "KS", 4);
+   o << "  </Vermoegen>\n";
+   fetch_and_write_string(is, o, "Ruestung", 2);
+
+   o << "  <Fertigkeiten>\n";   
+   exec sql declare c2 cursor for
+        select art, fertigkeit, wert, av_bonus, sl_bonus
+   	from charaktere_fertigkeiten
+   	where charakter_name=:NAME and version=:VERSION
+   	order by art, fertigkeit;
+   exec sql open c2;
+   SQLerror::test(__FILELINE__);
+   while (!sqlca.sqlcode)
+   {  exec sql fetch c2 into sql descriptor spalten;
+      SQLerror::test(__FILELINE__,100);
+      if (sqlca.sqlcode) break;
+      string typ;
+      FetchIStream is2("spalten");
+      is2 >> typ;
+      // oder <Beruf Wert=12>Arzt</Beruf> ?
+      o << "    <"<<typ<<">\n";
+      fetch_and_write_string(is2, o, "Bezeichnung", 6);
+      fetch_and_write_int(is2, o, "Wert", 6);
+      fetch_and_write_int(is2, o, "AV_Bonus", 6);
+      fetch_and_write_int(is2, o, "SL_Bonus", 6);
+      o << "    </"<<typ<<">\n";
+   }
+   exec sql close c2;
+   SQLerror::test(__FILELINE__);
+   o << "  </Fertigkeiten>\n";   
+   
+   o << "</Midgard-Charakter>\n";
+   exec sql deallocate descriptor spalten;
+}
+
+int main()
+{  try{
+   ofstream o("Gwyneth");
+      Petig::Connection conn;
+      conn.setDbase("midgard");
+      Petig::dbconnect(conn);
+
+   charakter_speichern(o,"Gwyneth NiConuhil","Legion der Verdammten");
+   Petig::dbdisconnect();
+   } catch (SQLerror &e)
+   {  cerr << e << '\n';
+   }
+   return 0;
+}
