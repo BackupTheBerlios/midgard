@@ -208,7 +208,7 @@ std::string WaffeBesitz::Schaden(const Abenteurer& A,const std::string& name) co
   // Grundkenntnis fürs Einhändige Tragen dieser Waffe nicht erworben
   if(!Waffe()->ZweiteGrundkenntnis().empty() && 
   	!MBEmlt(&*cH_WaffeGrund(Waffe()->ZweiteGrundkenntnis()))
-      ->ist_gelernt(A.List_WaffenGrund())) sb2=sb;
+      ->ist_gelernt(A.List_WaffenGrund())) sb=sb2;
 
   if (Waffe()->Art()!="Schußwaffe" && Waffe()->Art()!="Wurfwaffe") 
     {  sb += Werte.bo_Sc(); sb2 += Werte.bo_Sc();}
