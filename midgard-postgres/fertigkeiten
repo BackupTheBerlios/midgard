@@ -185,7 +185,9 @@ COPY "fertigkeiten" FROM stdin;
 99	\N	\N	-1	Betäuben	\N	0	\N	In	6	\N	20	16	\N
 99	\N	\N	5	Giftmischen	4	100	\N	In	5	2	16	13	\N
 99	\N	\N	5	Landeskunde	4	100	\N	In	\N	2	16	13	2
+99	\N	\N	5	Wetterkunde	4	50	\N	In	\N	\N	16	14	\N
 99	\N	\N	10	Zaubern	10	5000	\N	\N	\N	\N	18	18	\N
+99	\N	\N	12	Lesen von Zauberrunen	6	20	W	In	\N	\N	18	15	\N
 99	\N	\N	12	Schreiben: Alte Sprache(+12)	12	0	\N	In	\N	\N	20	17	6
 99	\N	\N	12	Sprache	4	10		In	\N	2	20	17	5
 99	\N	\N	12	Sprechen: Alte Sprache	12	0	\N	In	\N	\N	20	17	5

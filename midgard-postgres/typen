@@ -62,7 +62,7 @@ COPY "typen" FROM stdin;
 30	PM	Meerespriester	Meerespriesterin	z	z	20	0	1	\N	4	z	\N	t
 31	PT	Todespriester	Todespriesterin	z	z	20	0	4	\N	3	z	\N	t
 32	PW	Weisheitspriester	Weisheitspriesterin	z	z	20	0	4	\N	3	z	\N	t
-33	ScN	Nordlandschamane	Nordlandschamanin	Nordlandschamanin (Nordland)	ak	0	0	1	\N	4	\N	l	t
+33	ScN	Nordlandschamane	Nordlandschamanin	z	ak	0	0	1	\N	4	\N	l	t
 34	ScS	Steppenschamane	Steppenschamanin	z	ak	0	0	1	\N	4	\N	l	t
 35	ScW	Waldlandschamane	Waldlandschamanin	z	ak	0	0	1	\N	4	\N	l	t
 36	Th	Thaumaturg	Thaumaturgin	z	z	10	0	1	\N	4	z	s	\N
@@ -72,6 +72,8 @@ COPY "typen" FROM stdin;
 40	Sr	Srikumara	Srikumara	j	ak	0	0	3	R	1	\N	\N	\N
 41	Fi	Fian	Fian	j	ak	0	0	3	B&R	1	\N	\N	\N
 42	Ri	Ritter	Ritterin	n	k	0	0	3	B&R	1	\N	\N	\N
+43	Sk	Skalde	Skaldin	j	ak	20	0	1	W	4	\N	\N	\N
+44	Ru	Runenschneider	Runenschneiderin	j	ak	0	0	3	W	3	k	\N	t
 \.
 --
 --

@@ -319,6 +319,7 @@ COPY "lernschema_4" FROM stdin;
 1	PF	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
 1	PF	f	Singen	Fachkenntnisse	12
 1	PF	f	Trinken	Fachkenntnisse	1
+1	PF	f	Wetterkunde	Fachkenntnisse	15
 1	PHa	f	Bannen von Finsterwerk	Zauberkünste	0
 1	PHa	f	Feuerfinger	Zauberkünste	0
 1	PHa	f	Handauflegen	Zauberkünste	0
@@ -370,6 +371,14 @@ COPY "lernschema_4" FROM stdin;
 1	Ri	t	Reiten	Fachkenntnisse	15
 1	Ri	t	großer Schild	Waffenfertigkeiten	1
 1	Ri	t	kleiner Schild	Waffenfertigkeiten	1
+1	Ru	f	Dolch	Waffenfertigkeiten	5
+1	Ru	f	Sagenkunde	Fachkenntnisse	15
+1	Ru	f	Wurfspeer	Waffenfertigkeiten	5
+1	Ru	f	großer Schild	Waffenfertigkeiten	1
+1	Ru	f	leichter Speer	Waffenfertigkeiten	5
+1	Ru	t	Dichten	Fachkenntnisse	12
+1	Ru	t	Lesen von Zauberrunen	Fachkenntnisse	15
+1	Ru	t	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
 1	Sa	f	Askese	Fachkenntnisse	1
 1	Sa	f	Hitzeschutz	Zauberkünste	\N
 1	Sa	f	Kälteschutz	Zauberkünste	\N
@@ -415,14 +424,16 @@ COPY "lernschema_4" FROM stdin;
 1	Se	f	Streitkolben	Waffenfertigkeiten	5
 1	Se	f	Tauchen	Fachkenntnisse	15
 1	Se	f	Trinken	Fachkenntnisse	1
+1	Se	f	Wetterkunde	Fachkenntnisse	15
 1	Se	f	kleiner Schild	Waffenfertigkeiten	1
 1	Se	f	leichter Speer	Waffenfertigkeiten	5
 1	Sk	f	Dolch	Waffenfertigkeiten	5
 1	Sk	f	Lied der Tapferkeit	Zauberkünste	\N
 1	Sk	f	Sagenkunde	Fachkenntnisse	4
 1	Sk	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	\N
-1	Sk	t	Dichten	Fachkenntnisse	1
-1	Sk	t	Musizieren	Fachkenntnisse	1
+1	Sk	t	Dichten	Fachkenntnisse	12
+1	Sk	t	Lesen von Zauberrunen	Fachkenntnisse	12
+1	Sk	t	Musizieren	Fachkenntnisse	12
 1	Sp	f	Dolch	Waffenfertigkeiten	5
 1	Sp	f	Fallenmechanik	Fachkenntnisse	4
 1	Sp	f	Gaukeln	Fachkenntnisse	12
@@ -630,6 +641,7 @@ COPY "lernschema_4" FROM stdin;
 2	Dr	f	Lesen von Zauberschrift	Fachkenntnisse	12
 2	Dr	f	Rindenhaut	Zauberkünste	0
 2	Dr	f	Wahrnehmung	Fachkenntnisse	4
+2	Dr	f	Wetterkunde	Fachkenntnisse	15
 2	Dr	f	Zauberkunde	Fachkenntnisse	5
 2	Dr	f	Zähmen	Zauberkünste	0
 2	Dr	f	leichter Speer	Waffenfertigkeiten	4
@@ -762,6 +774,7 @@ COPY "lernschema_4" FROM stdin;
 2	Ku	f	Tierkunde	Fachkenntnisse	5
 2	Ku	f	Wagenlenken	Fachkenntnisse	15
 2	Ku	f	Wahrnehmung	Fachkenntnisse	4
+2	Ku	f	Wetterkunde	Fachkenntnisse	15
 2	Ku	f	Wurfkeule	Waffenfertigkeiten	5
 2	Ku	f	Wurfspeer	Waffenfertigkeiten	5
 2	Ku	f	kleiner Schild	Waffenfertigkeiten	1
@@ -894,6 +907,7 @@ COPY "lernschema_4" FROM stdin;
 2	PW	f	Rechnen	Fachkenntnisse	8
 2	PW	f	Segnen	Zauberkünste	0
 2	PW	f	Sprechen: Sprache(+12)	Fachkenntnisse	12
+2	PW	f	Wetterkunde	Fachkenntnisse	15
 2	PW	f	Windstoß	Zauberkünste	0
 2	PW	f	Zauberkunde	Fachkenntnisse	5
 2	Ri	f	Anderthalbhänder	Waffenfertigkeiten	5
@@ -904,13 +918,18 @@ COPY "lernschema_4" FROM stdin;
 2	Ri	f	Kurzschwert	Waffenfertigkeiten	5
 2	Ri	f	Lanzenstechen	Fachkenntnisse	1
 2	Ri	f	Morgenstern	Waffenfertigkeiten	5
-2	Ri	f	Musizieren	Fachkenntnisse	1
 2	Ri	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	\N
 2	Ri	f	Streitaxt	Waffenfertigkeiten	5
 2	Ri	f	Streitkolben	Waffenfertigkeiten	5
 2	Ri	f	Tanzen	Fachkenntnisse	1
 2	Ri	f	Trinken	Fachkenntnisse	1
 2	Ri	f	waffenloser Kampf	Waffenfertigkeiten	5
+2	Ru	f	Beredsamkeit	Fachkenntnisse	15
+2	Ru	f	Langschwert	Waffenfertigkeiten	5
+2	Ru	f	Reiten	Fachkenntnisse	15
+2	Ru	f	Schwimmen	Fachkenntnisse	15
+2	Ru	f	Streitaxt	Waffenfertigkeiten	5
+2	Ru	f	Wetterkunde	Fachkenntnisse	15
 2	Sa	f	Erste Hilfe	Fachkenntnisse	8
 2	Sa	f	Kampfstab	Waffenfertigkeiten	4
 2	Sa	f	Kräuterkunde	Fachkenntnisse	4
@@ -918,7 +937,7 @@ COPY "lernschema_4" FROM stdin;
 2	Sa	f	Macht über Unbelebtes	Zauberkünste	\N
 2	Sa	f	Macht über die Sinne	Zauberkünste	\N
 2	Sa	f	Menschenkenntnis	Fachkenntnisse	4
-2	Sa	f	Musizieren	Fachkenntnisse	1
+2	Sa	f	Musizieren	Fachkenntnisse	12
 2	Sa	f	Naturkunde	Fachkenntnisse	4
 2	Sa	f	Pflanzenkunde	Fachkenntnisse	4
 2	Sa	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	\N
@@ -936,6 +955,7 @@ COPY "lernschema_4" FROM stdin;
 2	ScN	f	Naturkunde	Fachkenntnisse	5
 2	ScN	f	Pflanzenkunde	Fachkenntnisse	5
 2	ScN	f	Tierkunde	Fachkenntnisse	5
+2	ScN	f	Wetterkunde	Fachkenntnisse	15
 2	ScN	f	leichter Speer	Waffenfertigkeiten	4
 2	ScS	f	Dolch	Waffenfertigkeiten	4
 2	ScS	f	Erste Hilfe	Fachkenntnisse	8
@@ -948,6 +968,7 @@ COPY "lernschema_4" FROM stdin;
 2	ScS	f	Naturkunde	Fachkenntnisse	5
 2	ScS	f	Pflanzenkunde	Fachkenntnisse	5
 2	ScS	f	Tierkunde	Fachkenntnisse	5
+2	ScS	f	Wetterkunde	Fachkenntnisse	15
 2	ScS	f	leichter Speer	Waffenfertigkeiten	4
 2	ScW	f	Dolch	Waffenfertigkeiten	4
 2	ScW	f	Erste Hilfe	Fachkenntnisse	8
@@ -960,6 +981,7 @@ COPY "lernschema_4" FROM stdin;
 2	ScW	f	Naturkunde	Fachkenntnisse	5
 2	ScW	f	Pflanzenkunde	Fachkenntnisse	5
 2	ScW	f	Tierkunde	Fachkenntnisse	5
+2	ScW	f	Wetterkunde	Fachkenntnisse	15
 2	ScW	f	leichter Speer	Waffenfertigkeiten	4
 2	Se	f	Balancieren	Fachkenntnisse	15
 2	Se	f	Fangen	Fachkenntnisse	15
@@ -1088,6 +1110,7 @@ COPY "lernschema_4" FROM stdin;
 2	Wa	f	Streitaxt	Waffenfertigkeiten	5
 2	Wa	f	Tarnen	Fachkenntnisse	8
 2	Wa	f	Wahrnehmung	Fachkenntnisse	4
+2	Wa	f	Wetterkunde	Fachkenntnisse	15
 2	Wa	f	Wurfaxt	Waffenfertigkeiten	5
 2	Wa	f	Wurfspeer	Waffenfertigkeiten	5
 2	Wa	f	großer Schild	Waffenfertigkeiten	1
@@ -1322,6 +1345,8 @@ COPY "lernschema_4" FROM stdin;
 3	Ri	f	Beredsamkeit	Fachkenntnisse	8
 3	Ri	f	Menschenkenntnis	Fachkenntnisse	4
 3	Ri	f	Verführen	Fachkenntnisse	8
+3	Ru	f	Bogen	Waffenfertigkeiten	5
+3	Ru	f	Schlachtbeil	Waffenfertigkeiten	5
 3	Sa	f	Segnen	Zauberkünste	\N
 3	Sa	f	Verfluchen	Zauberkünste	\N
 3	Sa	f	Vision	Zauberkünste	\N
@@ -1479,6 +1504,9 @@ COPY "lernschema_4" FROM stdin;
 4	PT	f	Wurfpfeil	Waffenfertigkeiten	4
 4	PW	f	Heilen von Wunden	Zauberkünste	0
 4	PW	f	Wurfstern	Waffenfertigkeiten	4
+4	Ru	f	Becherrune	Zauberkünste	0
+4	Ru	f	Hagelrune	Zauberkünste	0
+4	Ru	f	Reiserune	Zauberkünste	0
 4	Sa	f	Verursachen von Krankheit	Zauberkünste	\N
 4	ScN	f	Macht über das Selbst	Zauberkünste	0
 4	ScN	f	Speerschleuder	Waffenfertigkeiten	4
@@ -1549,6 +1577,8 @@ COPY "lernschema_4" FROM stdin;
 6	PHe	f	Magierstab	Waffenfertigkeiten	4
 6	PM	f	Netz	Waffenfertigkeiten	4
 6	PW	f	waffenloser Kampf	Waffenfertigkeiten	4
+6	Ru	f	Heilsrune	Zauberkünste	0
+6	Ru	f	Stärkerune	Zauberkünste	0
 6	Sk	f	Stärkerune	Zauberkünste	\N
 6	Th	f	Magierstab	Waffenfertigkeiten	4
 6	Th	f	Werfen	Waffenfertigkeiten	4
@@ -1582,6 +1612,10 @@ COPY "lernschema_4" FROM stdin;
 8	PK	f	Schlachtbeil	Waffenfertigkeiten	4
 8	PT	f	Blasrohr	Waffenfertigkeiten	4
 8	PT	f	waffenloser Kampf	Waffenfertigkeiten	4
+8	Ru	f	Pfeilrune	Zauberkünste	0
+8	Ru	f	Schildrune	Zauberkünste	0
+8	Ru	f	Schneidenrune	Zauberkünste	0
+8	Ru	f	Wundrune	Zauberkünste	0
 8	Sa	f	Levitation	Zauberkünste	\N
 8	ScN	f	Faustkampf	Waffenfertigkeiten	4
 8	ScS	f	Faustkampf	Waffenfertigkeiten	4
