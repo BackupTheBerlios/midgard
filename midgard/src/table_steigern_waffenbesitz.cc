@@ -30,11 +30,12 @@ void table_steigern::on_leaf_waffenbesitz_selected_alt(cH_RowDataBase d)
 
   if(!checkbutton_mag_waffenbonus->get_active()) 
    {
-    const MidgardBasicElement *MBE = &static_cast<const MidgardBasicElement&>(*WB);
+//    const MidgardBasicElement *MBE = &static_cast<const MidgardBasicElement&>(*WB);
     for(std::list<WaffeBesitz>::const_iterator i=hauptfenster->getChar().List_Waffen_besitz().begin();
          i!=hauptfenster->getChar().List_Waffen_besitz().end();++i)
      {
-       if(cH_MidgardBasicElement(*i)==MBE)
+//       if(cH_MidgardBasicElement(*i)==MBE)
+        if( *i == WB)
          {
             hauptfenster->getChar().List_Waffen_besitz().remove(*i);
             break;
@@ -80,7 +81,8 @@ void table_steigern::on_entry_magisch_activate()
      std::list<WaffeBesitz> &L=hauptfenster->getChar().List_Waffen_besitz();
      for(std::list<WaffeBesitz>::iterator i=L.begin();i!=L.end();++i)
       {
-       if((*i)->Name()==WB->Name())
+        if( *i == WB)
+//       if((*i)->Name()==WB->Name())
         {
           i->set_av_Bonus(spinbutton_av_bonus->get_value_as_int());
           i->set_sl_Bonus(spinbutton_sl_bonus->get_value_as_int());

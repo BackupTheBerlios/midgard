@@ -4,7 +4,7 @@
  <Preise/>
  <Midgard-Abenteurer Version="10">
   <Figur Name="Arknor MacBeorn" Zeitpunkt="Erschaffung" Grad="6"/>
-  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Kr" Spezialisierung="Langschwert" Stadt_Land="Stadt" Hand="Rechtshänder"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Kr" Spezialisierung="Langschwert" Überleben="Überleben im Wald" Stadt_Land="Stadt" Hand="Rechtshänder"/>
   <Basiseigenschaften St="100" Gw="73" Gs="89" Ko="72" In="88" Zt="31"/>
   <abgeleiteteEigenschaften Au="71" pA="98" Wk="55" Sb="100" B="24" SG="5"/>
   <Erfolgswerte Abwehr="14" Zaubern="2" ZauberResistenz="13"/>

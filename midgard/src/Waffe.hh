@@ -176,6 +176,10 @@ class WaffeBesitz : public MidgardBasicElement_mutable
      void set_sl_Bonus(int a) {sl_bonus=a;}
      void set_Magisch(std::string a) {magisch=a;}
 
+     bool operator == (const WaffeBesitz& b) const
+         {return (*this)->Name()==b->Name()
+           && Bonus()==b.Bonus() && Magisch()==b.Magisch();}
+
 };
 
 

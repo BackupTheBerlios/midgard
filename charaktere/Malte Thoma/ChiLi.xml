@@ -1,46 +1,91 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MidgardCG-data>
-<Midgard-Charakter Version="8">
+<MAGUS-data>
+ <Preise>
+  <Kaufpreis Ware="Silberbecher" Art="Ausrüstung" Art2="Behälter" Preis="5" Währung="GS" Gewicht="0"/>
+  <Kaufpreis Ware="kleiner Silbertopf" Art="Ausrüstung" Art2="Behälter" Preis="10" Währung="GS" Gewicht="2"/>
+  <Kaufpreis Ware="Mörser und Stößel" Art="Ausrüstung" Art2="Werkzeug" Preis="3" Währung="GS" Gewicht="0"/>
+ </Preise>
+ <Midgard-Abenteurer Version="10">
   <Figur Name="ChiLi" Spieler="Malte Thoma" Zeitpunkt="Grad 7" Grad="7"/>
-  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Ny" Spezialisierung="Harte Techniken" Stadt_Land="Stadt"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Ny" Spezialisierung="Harte Techniken" Überleben="Überleben im Wald" Stadt_Land="Stadt" Hand="Linkshänder"/>
   <Basiseigenschaften St="68" Gw="97" Gs="97" Ko="87" In="82" Zt="99"/>
-  <abgeleiteteEigenschaften Au="62" pA="92" Wk="81" Sb="95" B="25"/>
-  <Erfolgswerte/>
-  <Resistenzen/>
-  <Gesundheit LP_Basis="-1073749636" LP="16" AP="50"/>
-  <Beschreibung Alter="21" Gewicht="53" Größe="1" Herkunft="KanThaiPan" Glaube="ChenMen"/>
-  <Boni>
-    <Resistenzen/>
-  </Boni>
-  <GFP>7381</GFP>
+  <abgeleiteteEigenschaften Au="62" pA="92" Wk="81" Sb="95" B="25" SG="5"/>
+  <Erfolgswerte Abwehr="14" Zaubern="2" ZauberResistenz="13"/>
+  <Gesundheit LP="16" AP="50"/>
+  <Beschreibung Alter="28" Gestalt="schlank" Gewicht="53" Größe="160" Stand="Mittelschicht" Herkunft="KanThaiPan" Glaube="ChenMen"/>
   <Vermögen/>
-  <Steigern Basiswerte="1"><Praxispunkte/></Steigern>
+  <Steigern GFP="7231" Basiswerte="1" benötigte_Tage="315">
+   <Praxispunkte/>
+  </Steigern>
+  <Text/>
   <Ausrüstung>
-    <Rüstung>LR</Rüstung>
-    <Waffe Bezeichnung="Dolch">Tarnen+4</Waffe>
-    <Waffe Bezeichnung="Dolch">Tarnen+4</Waffe>
+   <Rüstung>LR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="0" Bezeichnung="Dolch" AngriffVerteidigung_Bonus="1"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Dolch"/>
+   <Waffe Erfolgswert="0" Bezeichnung="leichte Armbrust"/>
   </Ausrüstung>
   <Fertigkeiten>
-    <Fertigkeit Bezeichnung="Balancieren" Wert="10"/>
-    <Fertigkeit Bezeichnung="KiDo" Wert="10"/>
-    <Fertigkeit Bezeichnung="Klettern" Wert="20"/>
-    <Grundkenntnis Bezeichnung="Stichwaffe"/>
-    <Region/>
-    <Region/>
-    <Region/>
-    <Region/>
-    <Region/>
-    <Region/>
-    <Region Wert="1"/>
-    <Region/>
-    <Sinn Bezeichnung="Hören" Wert="8"/>
-    <Sinn Bezeichnung="Riechen" Wert="8"/>
-    <Sinn Bezeichnung="Schmecken" Wert="8"/>
-    <Sinn Bezeichnung="Sechster Sinn"/>
-    <Sinn Bezeichnung="Sehen" Wert="8"/>
-    <Sinn Bezeichnung="Tasten" Wert="8"/>
-    <Waffe Bezeichnung="Dolch" Wert="4"/>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
+   <Beruf Bezeichnung="Gärtner"/>
+   <Fertigkeit Bezeichnung="Balancieren" Wert="18"/>
+   <Fertigkeit Bezeichnung="FengSchui" Wert="8"/>
+   <Fertigkeit Bezeichnung="KarumiJutsu" Wert="17"/>
+   <Fertigkeit Bezeichnung="KiDo" Wert="17" Praxispunkte="1"/>
+   <Fertigkeit Bezeichnung="Klettern" Wert="20"/>
+   <Fertigkeit Bezeichnung="Meditieren" Wert="13"/>
+   <Fertigkeit Bezeichnung="Meucheln" Wert="10"/>
+   <Fertigkeit Bezeichnung="NinJutsu" Wert="8"/>
+   <Fertigkeit Bezeichnung="Pflanzenkunde" Wert="4"/>
+   <Fertigkeit Bezeichnung="Rudern" Wert="12"/>
+   <Fertigkeit Bezeichnung="Scharfschießen" Wert="8" Zusatz="leichte Armbrust"/>
+   <Fertigkeit Bezeichnung="Springen" Wert="15"/>
+   <Fertigkeit Bezeichnung="TaiTschi" Wert="17"/>
+   <Fertigkeit Bezeichnung="Wahrnehmung" Wert="6"/>
+   <Waffe Bezeichnung="Dolch" Wert="11"/>
+   <Waffe Bezeichnung="leichte Armbrust" Wert="10"/>
+   <Waffe Bezeichnung="waffenloser Kampf" Wert="12" Praxispunkte="2"/>
+   <KiDo Bezeichnung="ChochoInu"/>
+   <KiDo Bezeichnung="DaiUchi"/>
+   <KiDo Bezeichnung="DokujaOschi"/>
+   <KiDo Bezeichnung="GinZjang"/>
+   <KiDo Bezeichnung="HaschiBami"/>
+   <KiDo Bezeichnung="HiaBatta"/>
+   <KiDo Bezeichnung="HiaPao"/>
+   <KiDo Bezeichnung="HyoKobe"/>
+   <KiDo Bezeichnung="KamaKusa"/>
+   <KiDo Bezeichnung="KanaUchi"/>
+   <KiDo Bezeichnung="KawaSui"/>
+   <KiDo Bezeichnung="MuhiKabe"/>
+   <KiDo Bezeichnung="NiNintai"/>
+   <KiDo Bezeichnung="OjuKiba"/>
+   <KiDo Bezeichnung="SchanScha"/>
+   <KiDo Bezeichnung="TsiJe"/>
+   <KiDo Bezeichnung="TsiLeng"/>
+   <KiDo Bezeichnung="TuoKobe"/>
+   <KiDo Bezeichnung="YuehSchu"/>
+   <Grundkenntnis Bezeichnung="Kampf ohne Waffen"/>
+   <Grundkenntnis Bezeichnung="Armbrust"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Sprache Bezeichnung="Comentang" Wert="13"/>
+   <Sprache Bezeichnung="KanThaiTun" Wert="19"/>
+   <Sprache Bezeichnung="Moravisch" Wert="12"/>
+   <Sprache Bezeichnung="Neu-Vallinga" Wert="15"/>
+   <Sprache Bezeichnung="Rawindi" Wert="12"/>
+   <Urschrift Bezeichnung="KanThaiTun(2)" Wert="13"/>
+   <Urschrift Bezeichnung="KanThaiTun(1)" Wert="14"/>
+   <Urschrift Bezeichnung="Neu-Vallinga" Wert="12"/>
+   <Urschrift Bezeichnung="Comentang" Wert="12"/>
+   <Urschrift Bezeichnung="Moravisch" Wert="8"/>
+   <Region Name="KanThaiPan" Region="K"/>
+   <Optionen Name="Originalregeln" Wert="false"/>
+   <Optionen Name="NSC zulassen" Wert="false"/>
   </Fertigkeiten>
-</Midgard-Charakter>
-</MidgardCG-data>
+ </Midgard-Abenteurer>
+</MAGUS-data>
