@@ -24,7 +24,6 @@
 \setlength{\doublerulesep}{0mm}
 
 \begin{document}
-%\IfFileExists{drache.png}{\parbox{10cm}{\includegraphics[width=10cm]{drache.png}}}
 \parbox{10cm}{\includegraphics[width=10cm]{\installpath/drache.png}}
 \parbox[][][c]{7cm}{
 \LI
@@ -37,7 +36,6 @@
 \makebox[1.1cm]{Spieler}&{\namespieler}\\\hline
   \end{tabularx}
 }
-%\IfFileExists{drache.png}{\parbox{10cm}{\reflectbox{\includegraphics[width=10cm]{drache.png}}}}%
 \parbox{10cm}{\reflectbox{\includegraphics[width=10cm]{\installpath/drache.png}}}
 
 \vspace*{2ex}
@@ -86,7 +84,7 @@ Gestalt&\makebox[0.8cm]{\gestalt}\\\hline
 Gewicht&\makebox[0.8cm]{{\gewicht}}\\\hline
 \end{tabular}\hfill
 \begin{tabular}{|c|l|}\hline
-Körpergröße&\makebox[0.8cm]{\resizebox*{1.0cm}{1.5ex}{\koerpergroesse~(\koerpergroessebez)}}\\\hline
+Körpergröße&\makebox[0.8cm]{\resizebox*{1.0cm}{1.5ex}{\koerpergroesse~\koerpergroessebez}}\\\hline
 \end{tabular}
 
 \vspace{1ex}
@@ -338,8 +336,8 @@ Sprache&Wert&Schrift\\\hline\hline
 %\hfill
 \setlength{\tabcolsep}{0.2ex}
     \begin{tabular}{|l|c|c|l|c|} \cline{1-2}\cline{4-5}
-      ~Rüstungsklasse & \makebox[3em]{\ruestung/\ruestungb}             &\hspace*{1em} & ~Abwehr         & \abwehrfinal \\\cline{1-2}\cline{4-5}
-      ~Schutz vor LP--Verlust &\makebox[3em]{\ruestunglp/\ruestunglpb}  &              &  ~mit Verteidigungswaffe& \abwehrmitwaffe\\\cline{1-2}\cline{4-5}
+%      ~Rüstungsklasse & \makebox[3em]{\ruestung/\ruestungb}             &\hspace*{1em} & ~Abwehr         & \abwehrfinal \\\cline{1-2}\cline{4-5}
+%      ~Schutz vor LP--Verlust &\makebox[3em]{\ruestunglp/\ruestunglpb}  &              &  ~mit Verteidigungswaffe& \abwehrmitwaffe\\\cline{1-2}\cline{4-5}
     \end{tabular}
 %\hfill
 }

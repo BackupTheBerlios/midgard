@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.hh,v 1.8 2002/06/29 20:39:30 christof Exp $
+// $Id: LaTeX_drucken.hh,v 1.9 2002/07/04 20:39:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,7 +22,8 @@
 
 class midgard_CG;
 //class cH_MidgardBasicElement;
-class MidgardBasicElement_mutable;
+#include "MidgardBasicElement.hh"
+#include "Waffe.hh"
 class AusruestungBaum;
 #include <iostream>
 #include <string>
@@ -35,10 +36,27 @@ class LaTeX_drucken
     enum LaTeX_Filenames {TeX_MainWerte,TeX_MainDocument,TeX_Beschreibung,TeX_Ausruestung,TeX_Spielleiter};
     enum LaTeX_Pathnames {TeX_Install,TeX_tmp};
  private:
+    static const unsigned int maxsprach=23;
+    static const unsigned int maxfert=40;
+    static const unsigned int maxwaffen=9;
+    static const unsigned int maxunifert=48;
+   
     const midgard_CG *hauptfenster;
 
     void LaTeX_write_values(ostream &fout,const std::string &install_latex_file);
     void LaTeX_write_empty_values(ostream &fout,const std::string &install_latex_file);
+    struct st_sprachen_schrift{MidgardBasicElement_mutable sprache;
+               std::vector<pair<std::string,int> > vs;
+               st_sprachen_schrift(const MidgardBasicElement_mutable &s,
+                               const std::vector<pair<std::string,int> > &v)
+                    :sprache(s),vs(v) {}
+               st_sprachen_schrift(const MidgardBasicElement_mutable &s)
+                    :sprache(s) {}
+               };
+    void write_sprachen(ostream &fout,const std::vector<st_sprachen_schrift>& L);
+    void write_fertigkeiten(ostream &fout,const std::list<MidgardBasicElement_mutable>& L);
+    void write_waffenbesitz(ostream &fout,const std::list<WaffeBesitz>& L);
+
     std::string LaTeX_scale(const std::string& is, 
          unsigned int maxlength, const std::string& scale);
     std::string LaTeX_scalemag(const std::string& is, 

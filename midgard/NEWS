@@ -11,11 +11,12 @@ NEWS IN VERSION 0.7delta4
 * Ausrüstung nach Fertigkeiten würfeln
 * Info Fenster für Typen, Lernpflichten
 * Sprachen Allgemeinwissen: Nachbarland (Logik funktioniert)
-
+* Drucken von Listen gründlich überarbeitet. 
+   Damit wird es möglich sein 'lange Listen' auszudrucken
 
 TODO: ('-' zeigt CP an)
 * Sprachen Allgemeinwissen: Nachbarland (Datenbank)
-* Kultwaffe für Priester ins Info Fenster
+* Kultwaffe (Namentlich) für Priester ins Info Fenster
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
 in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
 links). 

@@ -34,7 +34,6 @@ class Fertigkeit_angeborene : public MidgardBasicElement
      enum MBEE What() const {return MidgardBasicElement::FERTIGKEIT_ANG;}
      std::string What_str() const {return "ang.Fertigkeit";}
 
-//     int FErfolgswert(const Grundwerte &Werte) const;
      int FErfolgswert(const Abenteurer &a,const MidgardBasicElement_mutable &mbem) const;
      int Min() const {return min;}
      int Max() const {return max;}

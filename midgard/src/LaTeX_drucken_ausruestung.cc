@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_ausruestung.cc,v 1.5 2002/06/29 20:39:30 christof Exp $   
+// $Id: LaTeX_drucken_ausruestung.cc,v 1.6 2002/07/04 20:39:36 thoma Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,6 +20,7 @@
 
 #include "LaTeX_drucken.hh"
 #include "midgard_CG.hh"
+//#include "MidgardBasicElement.hh"
 #include "dtos1.h"
 #include "recodestream.h"
 
