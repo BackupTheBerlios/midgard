@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.3 2001/12/27 22:55:25 christof Exp $
+// $Id: fertigk_exp.cc,v 1.4 2002/01/01 17:51:37 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -34,9 +34,9 @@ void fert_speichern(std::ostream &o)
   	MIDGARD3_4("","ungelernt, ")
   	" attribut"
   	MIDGARD3_4("",", berufsklasse")
-  	" from fertigkeiten"
+  	" from fertigkeiten left join steigern_fertigkeiten on name=fertigkeit"
   	" where coalesce(region,'')='"+region+"'"
-  	" order by region,fertigkeit");
+  	" order by coalesce(region,''),coalesce(wie,fertigkeit)!=fertigkeit,fertigkeit");
    FetchIStream is;
   while ((query>>is).good())
   {o << "  <Fertigkeit";

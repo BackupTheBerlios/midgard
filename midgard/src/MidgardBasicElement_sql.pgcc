@@ -79,19 +79,23 @@ void MidgardBasicElement::get_map_typ()
  // dynamic_cast<Waffe*>(this)->Grundkenntnis()
  else if(What()==WAFFE)
     tag=find_Tag("Waffen","Waffe","Name",Name());
- else if(What()==SPRACHE)
-    tag=find_Tag("Fertigkeiten","Fertigkeit","Name","Sprache");
+ else if(What()==SPRACHE) 
+    tag=cH_Fertigkeit("Sprache")->tag;
+//    tag=find_Tag("Fertigkeiten","Fertigkeit","Name","Sprache");
  else if(What()==SCHRIFT)
-    tag=find_Tag("Fertigkeiten","Fertigkeit","Name","Lesen/Schreiben");
+    tag=cH_Fertigkeit("Schreiben")->tag;
+//    tag=find_Tag("Fertigkeiten","Fertigkeit","Name","Schreiben");
  else if(What()==KIDO)
-    tag=find_Tag("Fertigkeiten","Fertigkeit","Name","KiDo"); 
+    tag=cH_Fertigkeit("KiDo")->tag;
+//    tag=find_Tag("Fertigkeiten","Fertigkeit","Name","KiDo"); 
 
  if (tag)
  {  const Tag *Grund=tag->find("Grund");
     const Tag *Standard=tag->find("Standard");
     const Tag *Ausnahme=tag->find("Ausnahme");
     // auch in Waffen:Steigern suchen
-    // V4 nicht?
+    // V4 nicht? ich glaube ja
+#ifdef MIDGARD3
     if ((What()==WAFFEGRUND || What()==WAFFE)
     		&& !Grund && !Standard && !Ausnahme)
     {  tag=xml_data->find("Waffen:Steigern");
@@ -103,6 +107,7 @@ void MidgardBasicElement::get_map_typ()
        Standard=tag->find("Standard");
        Ausnahme=tag->find("Ausnahme");
     }
+#endif    
     if (Grund) Add(map_typ,Grund->Value(),"G");
     if (Standard) Add(map_typ,Standard->Value(),"S");
     if (Ausnahme) Add(map_typ,Ausnahme->Value(),"A");
@@ -114,6 +119,7 @@ void MidgardBasicElement::get_map_typ()
 
 void MidgardBasicElement::get_Steigern_Kosten_map()
 {
+#ifndef XML
   exec sql begin declare section;
    char query[1024];
    int P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19;
@@ -167,6 +173,30 @@ void MidgardBasicElement::get_Steigern_Kosten_map()
 //if(What()==WAFFE) 
 //for(std::map<int,int>::const_iterator i=map_erfolgswert_kosten.begin();i!=map_erfolgswert_kosten.end();++i)
 // cout <<Name()<<'\t'<<i->first<<'\t'<<i->second<<'\n';
+#else
+ if(What()==FERTIGKEIT ) assert(tag);
+ else if(What()==WAFFE)
+    assert(!"get here");
+ else if(What()==SPRACHE) 
+    tag=cH_Fertigkeit("Sprache")->tag;
+ else if(What()==SCHRIFT)
+    tag=cH_Fertigkeit("Schreiben")->tag;
+ // steigern_wie ?
+ const Tag *steigern_wie_t=tag->find("steigern_wie");
+ std::string steigern_wie;
+ if (steigern_wie_t) steigern_wie=steigern_wie_t->getAttr("Fertigkeit");
+ if (!steigern_wie.empty() && steigern_wie!=Name())
+    steigern_wie_t=cH_Fertigkeit(steigern_wie)->tag;
+ else
+    steigern_wie_t=this->tag;
+ const Tag *kosten=steigern_wie_t->find("Kosten");
+ if (!kosten) 
+ { cerr << "keine Kosten für '" << steigern_wie_t->getAttr("Name") << "' gefunden\n";
+   return;
+ }
+ for (int i=1;i<=19;++i)
+    map_erfolgswert_kosten[i]=kosten->getIntAttr("Wert"+itos(i),0/*??*/);
+#endif
 }
 
 
@@ -239,8 +269,7 @@ void MidgardBasicElement::EP_steigern(const std::string fert)
   tr.close();
   steigern_mit_EP=back;
 #else // USE_XML
- const Tag *tag=find_Tag("Fertigkeiten","Fertigkeit","Name",fert);
- int back=0;
+// const Tag *tag=find_Tag("Fertigkeiten","Fertigkeit","Name",fert);
  const Tag *steigern=0;
  
  if (tag)
@@ -248,8 +277,11 @@ void MidgardBasicElement::EP_steigern(const std::string fert)
     steigern=tag->find("EP-Typ");
  else 
     // globale Liste: Ausdauer, Waffen, Zauber
+ {  cerr << "warning: full scan for verwendbareEP '"<<fert<<"'\n";    
     steigern=find_Tag("verwendbareEP","EP-Typ","Fertigkeit",fert);
+ }
 
+ int back=0;
  if (steigern)
  {  if (steigern->getAttr("Typ").find("KEP")) back+=1;
     if (steigern->getAttr("Typ").find("ZEP")) back+=2;

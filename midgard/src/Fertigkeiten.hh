@@ -23,6 +23,7 @@ class Fertigkeit : public MidgardBasicElement
               sb(_sb),rw(_rw),fert(_fert) {} };
      st_Voraussetzung voraussetzung;
      mutable bool pflicht;
+//     IF_XML(std::string steigern_wie;) ??
 
      void get_Fertigkeit();
 //     void get_Steigern_Kosten_map();

@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.8 2001/12/27 22:55:25 christof Exp $
+// $Id: xml.cc,v 1.9 2002/01/01 17:51:37 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -24,6 +24,11 @@
 
 static TagStream *top;
 const Tag *xml_data;
+
+static void xml_merge(Tag *merge_here, const Tag *tomerge)
+{  // suche nach tomerge->getAttr("name");
+   
+}
 
 void xml_init(const std::string &filename="midgard.xml")
 {  if (top) return; // oder merge?
@@ -52,8 +57,10 @@ reloop:
           const Tag *data2=ts2.find("MidgardCG-data");
           for (Tag::const_iterator j=data2->begin();j!=data2->end();++j)
           {  if (j->Type().empty()) continue; // inter tag space
-             if (xml_data->find(j->Type()))
+             const Tag *merge_here;
+             if ((merge_here=xml_data->find(j->Type())))
              {  cout << "TODO: merge '"<< j->Type()<<"' from '"<< file << "'\n";
+                xml_merge(const_cast<Tag*>(merge_here),&*j);
              }
              else 
              {  cout << "initial Tag '"<< j->Type()<<"' from '"<< file << "'\n";
@@ -99,6 +106,8 @@ const Tag *find_Tag(const std::string &listtag, const std::string &elementtag,
    anforderungen.push_back(pair<std::string,std::string>(name,wert));
    return find_Tag(listtag,elementtag,anforderungen);
 }
+
+//struct xml_liste
 
 #else // no XML, no op
 
