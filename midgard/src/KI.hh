@@ -23,6 +23,7 @@ class midgard_CG;
 #include "LernListen.hh"
 #include<list>
 
+
 class MagusKI
 {
       midgard_CG *hauptfenster;
@@ -31,6 +32,7 @@ class MagusKI
       Random random;
       LernListen LL;
       Prozente100 prozente100;
+      Grund_Standard_Ausnahme_MBE GSA_MBE;
 
       int spezial_allgemein;
       
@@ -38,8 +40,8 @@ class MagusKI
       const Enums::MBEListen Was() const;
 
       void NeuLernen(int &gfp,const Enums::MBEListen was);
-      std::list<MBEmlt>& get_known_list(const Enums::MBEListen was);
       std::list<MBEmlt> NeuLernenList(const Enums::MBEListen was,const int gfp) const;
+      std::list<MBEmlt> KI_GSA_Liste(const std::list<MBEmlt> &L);
 
       void Steigern(int &gfp,const Enums::MBEListen was) ; 
 
@@ -57,8 +59,8 @@ class MagusKI
           LL(Database)
           {};
 
-      void VerteileGFP(int gfp,const Prozente100 &p) ;
-//      void set_spezial_allgemein(int s) {spezial_allgemein=s;}
+      void VerteileGFP(int gfp,const Prozente100 &p,
+                       const Grund_Standard_Ausnahme_MBE &gsa) ;
 
    private:
 };

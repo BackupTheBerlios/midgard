@@ -1,9 +1,7 @@
 ##########################################################################
-NEWS IN VERSION 0.8.7
+NEWS IN VERSION 0.8.8
 
-* Datenbankkorekturen (Zauber) (Dank an Sandro)
-* Oberfläche: Die Kopfzeile einer Liste bleibt jetzt stehen wenn man scrollt :-)
-* Ausrüstungsauswahl (Code und Oberfläche) überarbeitet => funktioniert wieder
+* KI berücksichtigt Grund-, Standard und Ausnahmefähigkeiten.
 
 TODO: ('-' zeigt CP an)
 
@@ -23,6 +21,15 @@ TODO: ('-' zeigt CP an)
 - alle Ausdrucke unter Windows testen
 - wrapfig for Windows für Grafik in Beschreibung
 - .magus Endung unter Windows mit Magus.exe verknüpfen (beim Speichern)
+
+
+
+##########################################################################
+NEWS IN VERSION 0.8.7
+
+* Datenbankkorekturen (Zauber) (Dank an Sandro)
+* Oberfläche: Die Kopfzeile einer Liste bleibt jetzt stehen wenn man scrollt :-)
+* Ausrüstungsauswahl (Code und Oberfläche) überarbeitet => funktioniert wieder
 
 
 

@@ -50,4 +50,25 @@ class Prozente100{
 
 };
 
+class Grund_Standard_Ausnahme_MBE
+{
+      int Gprozent, Sprozent, Aprozent;
+
+      void check100();
+
+   public:   
+      Grund_Standard_Ausnahme_MBE()
+         : Gprozent(80), Sprozent(20), Aprozent(0) {}
+
+      void setG(int i) {Gprozent=i;}
+      void setS(int i) {Sprozent=i;}
+      void setA(int i) {Aprozent=i;}
+
+      int getG() {check100(); return Gprozent;}
+      int getS() {check100(); return Sprozent;}
+      int getA() {check100(); return Aprozent;}
+};
+
+
+
 #endif

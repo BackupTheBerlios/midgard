@@ -121,10 +121,19 @@ vector<std::string> MidgardBasicElement::Standard(const Abenteurer &A) const
 
 bool MidgardBasicElement::Grundfertigkeit(const Abenteurer &A) const
 {
+  if      (standard_one_G(Standard(A)) ) return true;
+  return false;
+/*
   std::string standard=Standard__(A);
   std::string::size_type st=standard.find("G");
   if(st==std::string::npos) return false;
   return true;
+*/
+}
+bool MidgardBasicElement::Standardfertigkeit(const Abenteurer &A) const
+{
+  if (standard_all_S(Standard(A)) ) return true;
+  return false;
 }
 
 

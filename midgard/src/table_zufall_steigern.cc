@@ -52,8 +52,7 @@ void table_zufall::on_button_steigern_clicked()
 cout << grad<<'\t'<<gfp<<'\n';
          if(gfp<=0) return;
        }
-  MagusKI mki(hauptfenster);
-  mki.VerteileGFP(gfp,prozente100);
+  MagusKI(hauptfenster).VerteileGFP(gfp,prozente100,GSA_MBE);
 }
 
 
@@ -150,22 +149,14 @@ void table_zufall::set_bereiche_spinbuttons()
   spinbutton_sprachen->set_value(prozente100.get(Enums::sSpra));
   spinbutton_schriften->set_value(prozente100.get(Enums::sSchr));
 
-  int wf=prozente100.getS(Enums::sFert);
-  int ww=prozente100.getS(Enums::sWaff);
-  int wsp=prozente100.getS(Enums::sSpra);
-  int wsc=prozente100.getS(Enums::sSchr);
-  vscale_spezallg_fert->get_adjustment()->set_value(wf);
-  vscale_spezallg_waff->get_adjustment()->set_value(ww);
-  vscale_spezallg_spra->get_adjustment()->set_value(wsp);
-  vscale_spezallg_schr->get_adjustment()->set_value(wsc);
-  label_spez_fert->set_text(itos(100-wf)+"%");
-  label_spez_waff->set_text(itos(100-ww)+"%");
-  label_spez_spra->set_text(itos(100-wsp)+"%");
-  label_spez_schr->set_text(itos(100-wsc)+"%");
-  label_allg_fert->set_text(itos(wf)+"%");
-  label_allg_waff->set_text(itos(ww)+"%");
-  label_allg_spra->set_text(itos(wsp)+"%");
-  label_allg_schr->set_text(itos(wsc)+"%");
+  scale_fert->set_value(prozente100.getS(Enums::sFert));
+  scale_waffen->set_value(prozente100.getS(Enums::sWaff));
+  scale_sprachen->set_value(prozente100.getS(Enums::sSpra));
+  scale_schriften->set_value(prozente100.getS(Enums::sSchr));
+
+  spinbutton_grund->set_value(GSA_MBE.getG());
+  spinbutton_standard->set_value(GSA_MBE.getS());
+  spinbutton_ausnahme->set_value(GSA_MBE.getA());
 }
 
 
@@ -187,45 +178,35 @@ void table_zufall::on_button_check100_clicked()
   prozente100.set(Enums::sSpra,spinbutton_sprachen->get_value_as_int());
   prozente100.set(Enums::sSchr,spinbutton_schriften->get_value_as_int());
   prozente100.check100();
+  
+  spinbutton_grund->update();
+  spinbutton_standard->update();
+  spinbutton_ausnahme->update();
+  GSA_MBE.setG(spinbutton_grund->get_value_as_int());
+  GSA_MBE.setS(spinbutton_standard->get_value_as_int());
+  GSA_MBE.setA(spinbutton_ausnahme->get_value_as_int());
+
   set_bereiche_spinbuttons();    
   Prototyp::setLast(prozente100);
+
 }
 
 
-gint table_zufall::on_vscale_spezallg_fert_button_release_event(GdkEventButton *ev)
-{ 
-  int Av=(int)vscale_spezallg_fert->get_adjustment()->get_value();
-  label_spez_fert->set_text(itos(100-Av)+"%");
-  label_allg_fert->set_text(itos(Av)+"%");
-  prozente100.setS(Enums::sFert,Av);
-  return false;
+void table_zufall::on_scale_fert_activate()
+{
+  prozente100.setS(Enums::sFert,scale_fert->get_value());
 }
-
-gint table_zufall::on_vscale_spezallg_waff_button_release_event(GdkEventButton *ev)
-{ 
-  int Av=(int)vscale_spezallg_waff->get_adjustment()->get_value();
-  label_spez_waff->set_text(itos(100-Av)+"%");
-  label_allg_waff->set_text(itos(Av)+"%");
-  prozente100.setS(Enums::sWaff,Av);
-  return false;
+void table_zufall::on_scale_waffen_activate()
+{
+  prozente100.setS(Enums::sWaff,scale_waffen->get_value());
 }
-
-gint table_zufall::on_vscale_spezallg_spra_button_release_event(GdkEventButton *ev)
-{ 
-  int Av=(int)vscale_spezallg_spra->get_adjustment()->get_value();
-  label_spez_spra->set_text(itos(100-Av)+"%");
-  label_allg_spra->set_text(itos(Av)+"%");
-  prozente100.setS(Enums::sSpra,Av);
-  return false;
+void table_zufall::on_scale_schriften_activate()
+{
+  prozente100.setS(Enums::sSchr,scale_schriften->get_value());
 }
-
-gint table_zufall::on_vscale_spezallg_schr_button_release_event(GdkEventButton *ev)
-{ 
-  int Av=(int)vscale_spezallg_schr->get_adjustment()->get_value();
-  label_spez_schr->set_text(itos(100-Av)+"%");
-  label_allg_schr->set_text(itos(Av)+"%");
-  prozente100.setS(Enums::sSchr,Av);
-  return false;
+void table_zufall::on_scale_sprachen_activate()
+{
+  prozente100.setS(Enums::sSpra,scale_sprachen->get_value());
 }
 
 void table_zufall::on_togglebutton_prototyp_toggled()
@@ -273,5 +254,22 @@ void table_zufall::on_spinbutton_sprachen_activate()
 void table_zufall::on_spinbutton_schriften_activate()
 {  
  on_button_check100_clicked();
+}
+
+void table_zufall::on_spinbutton_grund_activate()
+{
+ spinbutton_standard->grab_focus();
+ spinbutton_standard->select_region(0,-1);
+}
+
+void table_zufall::on_spinbutton_standard_activate()
+{
+ spinbutton_ausnahme->grab_focus();
+ spinbutton_ausnahme->select_region(0,-1);
+}
+
+void table_zufall::on_spinbutton_ausnahme_activate()
+{
+  on_button_check100_clicked();
 }
 

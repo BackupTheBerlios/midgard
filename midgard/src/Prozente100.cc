@@ -125,3 +125,18 @@ int Prozente100::getS(const Enums::MBEListen &was) const
   return 0; // wenn etwas nicht gesteigert werden kann dann entspricht das 100% Allgemeinbildung
 }
 
+
+
+void Grund_Standard_Ausnahme_MBE::check100()
+{
+   int summe=Gprozent+Sprozent+Aprozent;
+   if(summe!=100)
+    {
+      Gprozent*=100./summe;
+      Sprozent*=100./summe;
+      Aprozent*=100./summe;
+    }
+   summe=Gprozent+Sprozent+Aprozent;
+   assert(summe==100);
+}
+

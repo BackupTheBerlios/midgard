@@ -34,7 +34,7 @@ class table_zufall : public table_zufall_glade
 
       midgard_CG *hauptfenster;
       Prozente100 prozente100;
-
+      Grund_Standard_Ausnahme_MBE GSA_MBE;
       
       void zeige_werte();
       void fill_combos();
@@ -85,10 +85,11 @@ class table_zufall : public table_zufall_glade
         gint on_combo_prototyp_focus_out_event(GdkEventFocus *ev);
         void on_combo_prototyp_changed();
 
-        gint on_vscale_spezallg_fert_button_release_event(GdkEventButton *ev);
-        gint on_vscale_spezallg_waff_button_release_event(GdkEventButton *ev);
-        gint on_vscale_spezallg_spra_button_release_event(GdkEventButton *ev);
-        gint on_vscale_spezallg_schr_button_release_event(GdkEventButton *ev);
+        void on_scale_fert_activate();
+        void on_scale_waffen_activate();
+        void on_scale_sprachen_activate();
+        void on_scale_schriften_activate();
+
         void on_spinbutton_fertigkeit_activate();
         void on_spinbutton_waffen_activate();
         void on_spinbutton_waffen_grund_activate();
@@ -98,6 +99,9 @@ class table_zufall : public table_zufall_glade
         void on_spinbutton_schriften_activate();
 
         void on_togglebutton_prototyp_toggled();
+        void on_spinbutton_grund_activate();
+        void on_spinbutton_standard_activate();
+        void on_spinbutton_ausnahme_activate();
 
 };
 

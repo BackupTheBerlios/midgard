@@ -122,6 +122,7 @@ class MidgardBasicElement : public HandleContentCopyable
       std::string Standard__(const Abenteurer &A) const;
       double Standard_Faktor(const Abenteurer &A) const ;
       bool Grundfertigkeit(const Abenteurer &A) const;
+      bool Standardfertigkeit(const Abenteurer &A) const;
 private:
       std::string AusnahmenString(const Grundwerte &Werte,const cH_Typen& Typ,const std::string s) const;
 public:
