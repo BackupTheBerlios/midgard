@@ -1,4 +1,4 @@
-// $Id: all_exp.cc,v 1.14 2002/06/05 06:43:29 christof Exp $
+// $Id: all_exp.cc,v 1.15 2002/06/24 07:46:23 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -18,11 +18,11 @@
  */
 
 #include <fstream>
-#include <Aux/dbconnect.h>
+#include <Misc/dbconnect.h>
 #include <export_common.h>
-#include <Aux/exception.h>
-#include <Aux/FetchIStream.h>
-#include <Aux/Transaction.h>
+#include <Misc/exception.h>
+#include <Misc/FetchIStream.h>
+#include <Misc/Transaction.h>
 #include "TagStream.hh"
 
 int main(int argc, char *argv[])

@@ -1,4 +1,4 @@
-// $Id: export_common.cc,v 1.19 2002/06/13 19:41:13 christof Exp $
+// $Id: export_common.cc,v 1.20 2002/06/24 07:46:23 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -18,7 +18,7 @@
  */
 
 #include "export_common.h"
-#include <Aux/itos.h>
+#include <Misc/itos.h>
 
 std::string region;
 

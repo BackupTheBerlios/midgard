@@ -1,4 +1,4 @@
-// $Id: common_exp.cc,v 1.27 2002/06/13 06:28:58 christof Exp $
+// $Id: common_exp.cc,v 1.28 2002/06/24 07:46:23 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -18,7 +18,7 @@
  */
 
 #include "export_common.h"
-#include <Aux/Transaction.h>
+#include <Misc/Transaction.h>
 
 static void schwierigkeit(Tag &o, 
 	const std::string &_query, const std::string &tag)

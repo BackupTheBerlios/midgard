@@ -1,4 +1,4 @@
-// $Id: zauber_exp.cc,v 1.15 2002/06/06 14:29:19 christof Exp $
+// $Id: zauber_exp.cc,v 1.16 2002/06/24 07:46:23 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -18,7 +18,7 @@
  */
 
 #include <iostream>
-#include <Aux/Transaction.h>
+#include <Misc/Transaction.h>
 #include "export_common.h"
 
 void arkanum_speichern(Tag &o)

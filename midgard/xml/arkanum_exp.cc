@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.cc,v 1.14 2002/06/03 15:49:52 christof Exp $
+// $Id: arkanum_exp.cc,v 1.15 2002/06/24 07:46:23 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -18,7 +18,7 @@
  */
 
 #include <fstream>
-#include <Aux/dbconnect.h>
+#include <Misc/dbconnect.h>
 #include "export_common.h"
 #include "TagStream.hh"
 

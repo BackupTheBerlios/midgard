@@ -1,4 +1,4 @@
-// $Id: waffen_exp.cc,v 1.22 2002/06/08 16:25:24 christof Exp $
+// $Id: waffen_exp.cc,v 1.23 2002/06/24 07:46:23 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -18,10 +18,10 @@
  */
 
 #include <fstream>
-#include <Aux/Transaction.h>
-#include <Aux/dbconnect.h>
+#include <Misc/Transaction.h>
+#include <Misc/dbconnect.h>
 #include "export_common.h"
-#include <Aux/itos.h>
+#include <Misc/itos.h>
 
 void waffen_speichern(Tag &o)
 {  

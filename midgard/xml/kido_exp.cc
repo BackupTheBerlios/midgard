@@ -1,4 +1,4 @@
-// $Id: kido_exp.cc,v 1.4 2002/06/06 14:22:07 christof Exp $
+// $Id: kido_exp.cc,v 1.5 2002/06/24 07:46:23 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -18,8 +18,8 @@
  */
 
 #include <fstream>
-#include <Aux/Transaction.h>
-#include <Aux/dbconnect.h>
+#include <Misc/Transaction.h>
+#include <Misc/dbconnect.h>
 #include "export_common.h"
 
 void kido_speichern(Tag &o)

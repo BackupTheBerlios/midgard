@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.39 2002/06/13 12:45:03 christof Exp $
+// $Id: land_sprache_exp.cc,v 1.40 2002/06/24 07:46:23 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -17,8 +17,8 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#include <Aux/Transaction.h>
-#include <Aux/dbconnect.h>
+#include <Misc/Transaction.h>
+#include <Misc/dbconnect.h>
 #include "export_common.h"
 
 void land_speichern(Tag &o)

@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.31 2002/06/08 16:25:24 christof Exp $
+// $Id: fertigk_exp.cc,v 1.32 2002/06/24 07:46:23 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -17,10 +17,10 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#include <Aux/Transaction.h>
-#include <Aux/dbconnect.h>
+#include <Misc/Transaction.h>
+#include <Misc/dbconnect.h>
 #include "export_common.h"
-#include <Aux/itos.h>
+#include <Misc/itos.h>
 
 void fert_speichern(Tag &o)
 {  

@@ -1,4 +1,4 @@
-// $Id: export_common.h,v 1.24 2002/06/13 19:41:13 christof Exp $
+// $Id: export_common.h,v 1.25 2002/06/24 07:46:23 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -18,7 +18,7 @@
  */
 
 #include <string>
-#include <Aux/FetchIStream.h>
+#include <Misc/FetchIStream.h>
 #include <iostream>
 #include "Tag.hh"
 
