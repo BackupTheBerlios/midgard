@@ -1,4 +1,4 @@
-dnl $Id: petig.m4,v 1.12 2003/09/01 06:47:58 christof Exp $
+dnl $Id: petig.m4,v 1.13 2003/10/10 06:57:52 christof Exp $
 
 dnl Configure paths for some libraries
 dnl derived from kde's acinclude.m4
@@ -318,7 +318,7 @@ AC_SUBST(GTKMM_NODB_LIBS)
 AC_DEFUN(PETIG_CHECK_GTKMM2,
 [
 PKG_CHECK_MODULES(GTKMM2,[gtkmm-2.0 >= 1.3.20])
-GTKMM2_CFLAGS="$GTKMM2_CFLAGS -DSIGC1_2"
+GTKMM2_CFLAGS="$GTKMM2_CFLAGS"
 AC_SUBST(GTKMM2_CFLAGS)
 GTKMM2_INCLUDES="$GTKMM2_CFLAGS"
 AC_SUBST(GTKMM2_INCLUDES)
@@ -329,11 +329,35 @@ AC_SUBST(GTKMM2_NODB_LIBS)
 AC_DEFUN(PETIG_CHECK_COMMONXX,
 [
 PETIG_CHECK_LIB(common++,c++,COMMONXX,ManuProC_Base,ECPG)
+# check which sigc was used to configure ManuProC_Base
+old_cxxflags="$CXXFLAGS"
+CXXFLAGS="$COMMONXX_INCLUDES $CXXFLAGS"
+AC_COMPILE_IFELSE(
+	[AC_LANG_PROGRAM([
+#include <ManuProCConfig.h>
+#ifndef SIGC1_2
+#error not 1.2
+#endif
+		])],[SIGC1_2=1],[])
+CXXFLAGS="$old_cxxflags"
+if test "x$SIGC1_2" = x
+then
+   ifdef([AM_PATH_SIGC],
+   	[AM_PATH_SIGC(1.0.0,,AC_MSG_ERROR("SigC++ 1.0.x not found or broken - see config.log for details."))],
+   	[AC_MSG_ERROR("sigc-config (from SigC++ 1.0.x development package) missing")])
+else
+   PKG_CHECK_MODULES(SIGC,[sigc++-1.2 >= 1.2.0])
+fi
+COMMONXX_INCLUDES="$COMMONXX_INCLUDES $SIGC_CFLAGS"
+COMMONXX_LIBS="$COMMONXX_LIBS $SIGC_LIBS"
 ])
 
 AC_DEFUN(PETIG_CHECK_KOMPONENTEN,
 [
 PETIG_CHECK_LIB(Komponenten,Komponenten,KOMPONENTEN,ManuProC_Widgets,COMMONXX,COMMONGTK)
+if test "x$SIGC1_2" != x
+then AC_MSG_ERROR([ManuProC_Base/common++ was not configured with sigc++ 1.0 support])
+fi
 ])
 
 AC_DEFUN(PETIG_CHECK_COMMONGTK,
@@ -349,6 +373,9 @@ PETIG_CHECK_LIB(GtkmmAddons,gtk2,COMMONGTK2,GtkmmAddons,GTKMM2)
 AC_DEFUN(PETIG_CHECK_KOMPONENTEN2,
 [
 PETIG_CHECK_LIB(Komponenten,Komponenten2,KOMPONENTEN2,ManuProC_Widgets,COMMONXX,COMMONGTK2)
+if test "x$SIGC1_2" = x
+then AC_MSG_ERROR([ManuProC_Base/common++ was not configured with sigc++ 1.2 support])
+fi   
 ])
 
 AC_DEFUN(PETIG_CHECK_BARCOLIB,
