@@ -96,8 +96,7 @@ void Zauber::get_Zauber(const Tag &t)
    }
 
    const Tag *Beschreibung=t.find("Beschreibung");
-    if (Beschreibung) {beschreibung=t.Value();
-//    if (Beschreibung) beschreibung=t.getString(beschreibung);
+   if (Beschreibung) {beschreibung=Beschreibung->Value();
 
 std::cout << beschreibung<<'\n';    
     }
