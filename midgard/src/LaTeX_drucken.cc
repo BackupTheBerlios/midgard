@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.49 2002/07/10 08:35:10 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.50 2002/07/11 06:29:08 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -817,7 +817,7 @@ void LaTeX_drucken::pdf_viewer(const std::string& file)
   *currentwd=0;
   getcwd(currentwd,sizeof currentwd);
   
-#ifdef __MINGW32__
+#ifdef __MINGW32__ // oder direkt mit Pfad aufrufen?
   const char * const subpath="\\texmf\\miktex\\bin";
   static std::string newpath;
   const char *e=getenv("PATH");
@@ -832,12 +832,13 @@ void LaTeX_drucken::pdf_viewer(const std::string& file)
 
 #endif
 
-  std::string file2=file;
   // LaTeX always writes to current dir first, so we change dir
+  std::string file2=file;
+  std::string::size_type lastslash=file.rfind(WinLux::dirsep);
 
-  if (file.rfind(WinLux::dirsep)!=std::string::npos)
-  {  chdir((file.substr(0,file.rfind(WinLux::dirsep))).c_str());
-     file2=file.substr(file.rfind(WinLux::dirsep)+1);
+  if (lastslash!=std::string::npos)
+  {  chdir((file.substr(0,lastslash)).c_str());
+     file2=file.substr(lastslash+1);
   }
 
 // oder batchmode?
