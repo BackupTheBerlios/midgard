@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.80 2004/01/23 13:26:32 christof Exp $
+// $Id: midgard.cc,v 1.81 2004/02/28 07:01:28 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -123,7 +123,7 @@ int main(int argc, char **argv)
 
    // WindowInfo erzeugen und an midgard_CG übergeben
    WindowInfo *info=new WindowInfo();
-   Magus_Ausgabe::attach(info);
+   if (!getenv("DEBUG")) Magus_Ausgabe::attach(info);
 
    for (int i=1;i<argc;++i) 
    {  try

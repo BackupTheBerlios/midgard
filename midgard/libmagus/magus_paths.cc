@@ -1,4 +1,4 @@
-// $Id: magus_paths.cc,v 1.13 2003/11/24 16:21:42 christof Exp $
+// $Id: magus_paths.cc,v 1.14 2004/02/28 07:01:27 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -172,8 +172,11 @@ std::string magus_paths::with_path(const std::string &name,bool path_only,bool n
 std::string magus_paths::BinaryVerzeichnis()
 {  
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
-   if (argv0.rfind(WinLux::dirsep)!=std::string::npos) 
-      return argv0.substr(0,argv0.rfind(WinLux::dirsep)+1);
+   std::string::size_type end=argv0.rfind(WinLux::dirsep);
+#ifdef __MINGW32__ // für gdb & co
+   if (argv0.rfind('/')>end) end=argv0.rfind('/');
+#endif  
+   if (end!=std::string::npos) return argv0.substr(0,end+1);
    else return "";
 }
 
