@@ -45,6 +45,7 @@ public:
 
 void midgard_CG::ausruestung_laden()
 {
+  sichtbarConnection=checkbutton_sichtbar->toggled.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_checkbutton_sichtbar_toggled));
   std::vector<cH_RowDataBase> datavec;
   for(std::list<cH_PreiseMod>::iterator i=Database.preisemod.begin();i!=Database.preisemod.end();++i)
    {
@@ -106,10 +107,9 @@ void midgard_CG::showAusruestung()
 {
   if(besitz.empty()) 
     { AusruestungBaum *Koerper = &besitz.push_back(Ausruestung("Körper"));
-      AusruestungBaum *Rucksack=&Koerper->push_back(Ausruestung("Rucksack"));
-      Rucksack->push_back(Ausruestung("Buckler"));
-      Koerper->push_back(Ausruestung("Sack"));
-      Koerper->push_back(Ausruestung("Hose"));
+      Koerper->setParent(&besitz);
+      AusruestungBaum *Rucksack=&Koerper->push_back(Ausruestung("Rucksack","Leder",true));
+      Rucksack->setParent(Koerper);
     }
   std::vector<std::string> title;
   title.push_back("Titel");
@@ -203,7 +203,9 @@ void midgard_CG::on_Ausruestung_tree_select_row(Gtk::CTree::Row row,gint column)
   Gtk::CTree_Helpers::SelectionList selectionList = Ausruestung_tree->selection();
   if(!tree_valid(selectionList)) return;
   AusruestungBaum &A=*static_cast<AusruestungBaum*>(selectionList.begin()->get_data());
+  sichtbarConnection.disconnect();
   checkbutton_sichtbar->set_active(A.getAusruestung().Sichtbar());
+  sichtbarConnection=checkbutton_sichtbar->toggled.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_checkbutton_sichtbar_toggled));
   button_ausruestung_loeschen->set_sensitive(true);
 }
 
@@ -211,25 +213,32 @@ void midgard_CG::on_checkbutton_sichtbar_toggled()
 {
   Gtk::CTree_Helpers::SelectionList selectionList = Ausruestung_tree->selection();
   if(!tree_valid(selectionList)) return;
+
   AusruestungBaum &A=*static_cast<AusruestungBaum*>(selectionList.begin()->get_data());
-  A.getAusruestung().setSichtbar(checkbutton_sichtbar->get_active());
+  const_cast<Ausruestung&>(A.getAusruestung()).setSichtbar(checkbutton_sichtbar->get_active());
   showAusruestung();
 }
+
 
 void midgard_CG::on_ausruestung_loeschen_clicked()
 {
   Gtk::CTree_Helpers::SelectionList selectionList = Ausruestung_tree->selection();
   if(!tree_valid(selectionList)) return;
   AusruestungBaum &A=*static_cast<AusruestungBaum*>(selectionList.begin()->get_data());
-//  AusruestungBaum Parent = A.get_parent();
+  AusruestungBaum *Parent = A.getParent();
+  if(Parent)  Parent->remove(A);  
+  else cerr << "Keine Herkunftsnode gesetzt\n";
+
+/*
   Gtk::CTree_Helpers::Row parent = selectionList.begin()->get_parent();  
   for(Gtk::CTree_Helpers::Row::iterator i=parent.begin();i!=parent.end();++i)
    {
      Gtk::CTree_Helpers::Cell& cell = *i;   
-cout << cell.get_text()<<'\n';
+cout <<"Cell: " <<cell.get_text()<<'\n';
 //cout <<i->get_data()<<'\n';
 //     if ((*i)->get_data() == A);// { parent.remove(i); break;}
    }
+*/
   showAusruestung();
 }
 
@@ -260,7 +269,9 @@ void midgard_CG::on_clist_preisliste_select_row(gint row, gint column, GdkEvent 
      if(++i!=modimap.end()) bez+=", ";
    }
 
- A.push_back(Ausruestung(name,bez,checkbutton_sichtbar->get_active()));
+ AusruestungBaum &B=A.push_back(Ausruestung(name,bez,checkbutton_sichtbar->get_active()));
+ B.setParent(&A);
+
  showAusruestung();
 }
 

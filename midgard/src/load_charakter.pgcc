@@ -273,8 +273,80 @@ void midgard_CG::load_charakter()
    show_gtk();
    if(cH_Spezialgebiet::is_cached(Werte.Spezialisierung()))
       Werte.set_Spezialgebiet(cH_Spezialgebiet(Werte.Spezialisierung()));
+   load_ausruestung();
 }
 
+void midgard_CG::load_ausruestung()
+{
+  exec sql begin declare section;
+    char adb_name[50];
+    char adb_vers[50];
+    char adb_art[50],adb_fert[50],adb_magisch[50];
+    int adb_wert,adb_self;
+    char query[1024];
+  exec sql end declare section;
+  strncpy(adb_name,Werte.Name_Charakter().c_str(),sizeof(adb_name));
+  strncpy(adb_vers,Werte.Version().c_str(),sizeof(adb_vers));
+  strncpy(adb_art,"Ausruestung",sizeof(adb_art));
+  std::string squery = "select fertigkeit,wert,magisch,sl_bonus
+      from charaktere_fertigkeiten
+      where charakter_name='"+Werte.Name_Charakter()+"' and 
+            version ='"+Werte.Version()+"' and art=='Ausruestung'
+            and av_bonus="+itos(0);
+  strncpy(query,squery.c_str(),sizeof(query));
+  exec sql prepare AFEIN_ from :query;
+  exec sql declare AFEIN cursor for AFEIN_;
+  Transaction tr;
+  exec sql open AFEIN;
+  SQLerror::test(__FILELINE__);
+  while(true)
+    {
+      //av_bonus entspricht dem Parent
+      //sl_bonus dem self
+      exec sql fetch AFEIN into :adb_fert, :adb_wert,:adb_magisch,:adb_self;
+      SQLerror::test(__FILELINE__,100);
+      if (sqlca.sqlcode) break;
+      AusruestungBaum *A = &besitz.push_back(Ausruestung(adb_fert,adb_magisch,adb_wert));
+      A->setParent(&besitz);
+      load_ausruestung_C(adb_self,*A);
+    }
+}
+
+void midgard_CG::load_ausruestung_C(int parent,AusruestungBaum &AB)
+{
+  exec sql begin declare section;
+    char adb_name[50];
+    char adb_vers[50];
+    char adb_art[50],adb_fert[50],adb_magisch[50];
+    int adb_wert,adb_self;
+    char query[1024];
+  exec sql end declare section;
+  strncpy(adb_name,Werte.Name_Charakter().c_str(),sizeof(adb_name));
+  strncpy(adb_vers,Werte.Version().c_str(),sizeof(adb_vers));
+  strncpy(adb_art,"Ausruestung",sizeof(adb_art));
+  std::string squery = "select fertigkeit,wert,magisch,sl_bonus
+      from charaktere_fertigkeiten
+      where charakter_name='"+Werte.Name_Charakter()+"' and 
+            version ='"+Werte.Version()+"' and art=='Ausruestung'
+            and av_bonus="+itos(parent);
+  strncpy(query,squery.c_str(),sizeof(query));
+  exec sql prepare ACFEIN_ from :query;
+  exec sql declare ACFEIN cursor for AFEIN_;
+  Transaction tr;
+  exec sql open ACFEIN;
+  SQLerror::test(__FILELINE__);
+  while(true)
+    {
+      //av_bonus entspricht dem Parent
+      //sl_bonus dem self
+      exec sql fetch ACFEIN into :adb_fert, :adb_wert,:adb_magisch, :adb_self;
+      SQLerror::test(__FILELINE__,100);
+      if (sqlca.sqlcode) break;
+      AusruestungBaum *A = &AB.push_back(Ausruestung(adb_fert,adb_magisch,adb_wert));
+      A->setParent(&AB);
+      load_ausruestung_C(adb_self,*A);
+    }
+}
 
 void midgard_CG::load_fertigkeiten()
 {
@@ -290,7 +362,7 @@ void midgard_CG::load_fertigkeiten()
       coalesce(magisch,'')
       from charaktere_fertigkeiten
       where charakter_name='"+Werte.Name_Charakter()+"' and 
-            version ='"+Werte.Version()+"'";
+            version ='"+Werte.Version()+"' and art!='Ausruestung'";
   strncpy(query,squery.c_str(),sizeof(query));
   exec sql prepare LFEIN_ from :query;
   exec sql declare LFEIN cursor for LFEIN_;

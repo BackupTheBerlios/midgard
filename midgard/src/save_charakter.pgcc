@@ -196,6 +196,7 @@ void midgard_CG::on_speichern_clicked()
         VALUES(:db_name_ch,:db_version,'Region','S','Region');
       SQLerror::test(__FILELINE__);
     }
+   save_ausruestung();
    tr.commit();
 }
 
@@ -347,6 +348,62 @@ void midgard_CG::grundwerte_speichern()
    SQLerror::test(__FILELINE__,100);
    if (sqlca.sqlcode==100) charakter_db_anlegen();
 }
+
+
+void midgard_CG::save_ausruestung()
+{
+  exec sql begin declare section;
+    char db_name_a[50];
+    char db_vers_a[50];
+    char db_art_a[50],db_fert_a[50],db_magisch_a[50];
+    int db_wert_a,db_self;
+  exec sql end declare section;
+  strncpy(db_name_a,Werte.Name_Charakter().c_str(),sizeof(db_name_a));
+  strncpy(db_vers_a,Werte.Version().c_str(),sizeof(db_vers_a));
+  strncpy(db_art_a,"Ausruestung",sizeof(db_art_a));
+  int self=0;
+
+  for(AusruestungBaum::const_iterator i=besitz.begin();i!=besitz.end();++i)
+   {
+     strncpy(db_fert_a,i->getAusruestung().Name().c_str(),sizeof(db_fert_a));
+     strncpy(db_magisch_a,i->getAusruestung().Material().c_str(),sizeof(db_magisch_a));
+     db_wert_a=i->getAusruestung().Sichtbar();
+     db_self=++self;
+     exec sql insert into charaktere_fertigkeiten
+        (charakter_name,version,fertigkeit,wert,art,av_bonus,sl_bonus,magisch) VALUES
+        (:db_name_a,:db_vers_a,:db_fert_a,:db_wert_a,:db_art_a,0,:db_self,:db_magisch_a) ;
+     SQLerror::test(__FILELINE__);
+     save_ausruestung_C(0,self,i->getChildren());
+   }
+}
+
+void midgard_CG::save_ausruestung_C(int parent,int &self,const list<AusruestungBaum> &AB)
+{
+  exec sql begin declare section;
+    char db_name_ac[50];
+    char db_vers_ac[50];
+    char db_art_ac[50],db_fert_ac[50],db_magisch_ac[50];
+    int db_wert_ac,db_parent,db_self_ac;
+  exec sql end declare section;
+  strncpy(db_name_ac,Werte.Name_Charakter().c_str(),sizeof(db_name_ac));
+  strncpy(db_vers_ac,Werte.Version().c_str(),sizeof(db_vers_ac));
+  strncpy(db_art_ac,"Ausruestung",sizeof(db_art_ac));
+
+  for(AusruestungBaum::const_iterator i=AB.begin();i!=AB.end();++i)
+   {
+     strncpy(db_fert_ac,i->getAusruestung().Name().c_str(),sizeof(db_fert_ac));
+     strncpy(db_magisch_ac,i->getAusruestung().Material().c_str(),sizeof(db_magisch_ac));
+     db_wert_ac=i->getAusruestung().Sichtbar();
+     db_parent=parent;
+     db_self_ac=++self;
+     exec sql insert into charaktere_fertigkeiten
+        (charakter_name,version,fertigkeit,wert,art,av_bonus,sl_bonus,magisch) VALUES
+        (:db_name_ac,:db_vers_ac,:db_fert_ac,:db_wert_ac,:db_art_ac,:db_parent,:db_self_ac,:db_magisch_ac) ;
+     SQLerror::test(__FILELINE__);
+     save_ausruestung_C(db_self_ac,self,i->getChildren());
+   }
+}
+
 
 void midgard_CG::charakter_db_anlegen()
 {

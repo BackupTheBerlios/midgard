@@ -1,4 +1,29 @@
 ##########################################################################
+NEWS IN VERSION 0.1delta1
+
+* Berufe funktionieren (soweit ich die neuen Regeln kenne/rate)
+* Sprachen und Schriften funktionieren (zumindest sollten sie das:-)
+* Umbau der Oberfläche begonnen
+* Viele(!) Bugfixes
+* Landeskunde funktioniert jetzt für Heimatländer (Charaktererschaffung)
+* Neuer Grundwerte-Auswürfelmechanismus implementiert
+* Die Oberfläche ist weitgehend umgebaut
+* Die Ausrüstungsbaum funktioniert prinzipiell
+* Ausrüstungsbaum kann abgespeichert werden
+
+
+TODO:
+* Landeskunde beim 'steigern' stürzt ab.
+* Das (ausdruckbare) Charakterdokument ist noch nicht an die neuen Regeln
+   angepaßt 
+* Die Ausrüstung kann noch nicht ausgedruckt werden
+* Spezielgebiete für Magier stürzt noch ab
+* Hand kann noch nicht gesetzt werden
+* Irgendwie funktioniert das mit dem Erfolgswert für waffenlosen Kampf 
+   und dem dazugehörigen Abwerbonus noch nicht.
+
+
+##########################################################################
 NEWS IN VERSION 0.1delta0
 
 Vieleicht sollte man den MCG nun in MNG umbennennen, denn

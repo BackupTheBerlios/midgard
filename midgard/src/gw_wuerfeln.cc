@@ -1,4 +1,4 @@
-// $Id: gw_wuerfeln.cc,v 1.21 2001/12/13 22:34:08 thoma Exp $
+// $Id: gw_wuerfeln.cc,v 1.22 2001/12/17 09:38:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -73,6 +73,7 @@ gint midgard_CG::on_button_grundwerte_button_release_event(GdkEventButton *ev)
      button_wert_9->set_sensitive(false);
      table_werte_wuerfeln->show();
    }
+  button_abg_werte->set_sensitive(true);
   return false;
 }
 
@@ -87,37 +88,31 @@ void midgard_CG::set_werte_label(Gtk::Label *L)
       case 1 : 
             st->set_text(L->get_text());
             Werte.setSt(w);
-            button_wert_1->set_sensitive(false);
             label_werte->set_text("Welcher Wert soll für die  Gewandheit (Gw) verwendet werden?");
             break;
       case 2 :
             gw->set_text(L->get_text());
             Werte.setGw(w);
-            button_wert_2->set_sensitive(false);
             label_werte->set_text("Welcher Wert soll für die  Geschicklichkeit (Gs) verwendet werden?");
             break;
       case 3 : 
             gs->set_text(L->get_text());
             Werte.setGs(w);
-            button_wert_3->set_sensitive(false);
             label_werte->set_text("Welcher Wert soll für die  Konstitution (Ko) verwendet werden?");
             break;
       case 4 : 
             ko->set_text(L->get_text());
             Werte.setKo(w);
-            button_wert_4->set_sensitive(false);
             label_werte->set_text("Welcher Wert soll für die  Intelligenz (In) verwendet werden?");
             break;
       case 5 : 
             in->set_text(L->get_text());
             Werte.setIn(w);
-            button_wert_5->set_sensitive(false);
             label_werte->set_text("Welcher Wert soll für das  Zaubertalent (Zt) verwendet werden?");
             break;
       default: 
             zt->set_text(L->get_text());
             Werte.setZt(w);
-            button_wert_6->set_sensitive(false);
             table_werte_wuerfeln->hide();
         } 
    }
@@ -127,31 +122,37 @@ void midgard_CG::set_werte_label(Gtk::Label *L)
 void midgard_CG::on_button_wert_1_clicked()
 {
   Gtk::Label *l=static_cast<Gtk::Label*>(button_wert_1->get_child());
+  button_wert_1->set_sensitive(false);
   set_werte_label(l);
 }
 void midgard_CG::on_button_wert_2_clicked()
 {
   Gtk::Label *l=static_cast<Gtk::Label*>(button_wert_2->get_child());
+  button_wert_2->set_sensitive(false);
   set_werte_label(l);
 }
 void midgard_CG::on_button_wert_3_clicked()
 {
   Gtk::Label *l=static_cast<Gtk::Label*>(button_wert_3->get_child());
+  button_wert_3->set_sensitive(false);
   set_werte_label(l);
 }
 void midgard_CG::on_button_wert_4_clicked()
 {
   Gtk::Label *l=static_cast<Gtk::Label*>(button_wert_4->get_child());
+  button_wert_4->set_sensitive(false);
   set_werte_label(l);
 }
 void midgard_CG::on_button_wert_5_clicked()
 {
   Gtk::Label *l=static_cast<Gtk::Label*>(button_wert_5->get_child());
+  button_wert_5->set_sensitive(false);
   set_werte_label(l);
 }
 void midgard_CG::on_button_wert_6_clicked()
 {
   Gtk::Label *l=static_cast<Gtk::Label*>(button_wert_6->get_child());
+  button_wert_6->set_sensitive(false);
   set_werte_label(l);
 }
 
@@ -165,9 +166,7 @@ void midgard_CG::gw_wuerfeln_2x()
      constraint_gw(random,Werte.Spezies()->Ko()),
      constraint_gw(random,Werte.Spezies()->In()),
      constraint_gw(random,Werte.Spezies()->Zt()));
-
- midgard_CG::zeige_werte(Werte);
- button_abg_werte->set_sensitive(true);
+ zeige_werte(Werte);
 }
 
 int midgard_CG::constraint_gw(Random& random,int constraint)

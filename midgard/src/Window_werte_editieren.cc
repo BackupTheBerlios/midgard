@@ -1,4 +1,4 @@
-// $Id: Window_werte_editieren.cc,v 1.28 2001/12/13 21:53:48 thoma Exp $
+// $Id: Window_werte_editieren.cc,v 1.29 2001/12/17 09:38:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -39,6 +39,7 @@ void Window_werte_editieren::on_nwe_close_clicked()
                         atoi( in_ein->get_text().c_str()),
                         atoi( zt_ein->get_text().c_str()));
    int istand = int(optionmenu_stand->get_menu()->get_active()->get_user_data());
+   int ihand  = int(optionmenu_hand->get_menu()->get_active()->get_user_data());
    Werte.set_Abgeleitetewerte(atoi( au_ein->get_text().c_str()),
                               atoi( pa_ein->get_text().c_str()),
                               atoi( sb_ein->get_text().c_str()),
@@ -50,7 +51,7 @@ void Window_werte_editieren::on_nwe_close_clicked()
                               atoi(zaubern_ein -> get_text().c_str()),
                               atoi (resistenz_ein ->   get_text().c_str()),
                               gestalt_ein->get_text(),
-                              gestalt_ein->get_text(), //HAND
+                              vhand[ihand],
                               atoi( gewicht_ein->get_text().c_str()),
                               atoi( groesse_ein->get_text().c_str()),
                               atoi( grad_ein->get_text().c_str()),
@@ -85,6 +86,10 @@ Window_werte_editieren::Window_werte_editieren(midgard_CG* h,Grundwerte& w)
  vstand[2]="Volk";
  vstand[3]="Mittelschicht";
  vstand[4]="Adel";
+ vhand.resize(3);
+ vhand[0]="Rechtshänder";
+ vhand[1]="Linkshänder";
+ vhand[2]="Beidhändig";
 
 
  st_ein->set_value(Werte.St());   
@@ -96,13 +101,8 @@ Window_werte_editieren::Window_werte_editieren(midgard_CG* h,Grundwerte& w)
  au_ein->set_value(Werte.Au());     
  pa_ein->set_value(Werte.pA());     
  sb_ein->set_value(Werte.Sb());     
-// rw_ein->set_value(Werte.RW());     
-// hgw_ein->set_value(Werte.HGW());   
  b_ein->set_value(Werte.B());     
  lp_ein->set_value(Werte.LP());   
-// lpbasis_ein->set_value(Werte.LPBasis());   
-// kaw_ein->set_value(Werte.KAW());   
-// wlw_ein->set_value(Werte.WLW());   
  ap_ein->set_value(Werte.AP());          
  bo_au_ein->  set_value(Werte.bo_Au ());
  bo_sc_ein->  set_value(Werte.bo_Sc ());
@@ -112,11 +112,9 @@ Window_werte_editieren::Window_werte_editieren(midgard_CG* h,Grundwerte& w)
  bo_psy_ein-> set_value(Werte.bo_Psy()); 
  bo_phs_ein-> set_value(Werte.bo_Phs()); 
  bo_phk_ein-> set_value(Werte.bo_Phk()); 
-// bo_gi_ein->  set_value(Werte.bo_Gift()); 
  abwehr_ein -> set_value(Werte.Abwehr_wert());
  zaubern_ein -> set_value(Werte.Zaubern_wert());
  resistenz_ein -> set_value(Werte.Resistenz());
-// gift_ein -> set_value(Werte.gift_wert());
  gfp_ein ->set_value(Werte.GFP());
    
  alter_ein->set_value(Werte.Alter());   
@@ -125,11 +123,14 @@ Window_werte_editieren::Window_werte_editieren(midgard_CG* h,Grundwerte& w)
  groesse_ein->set_value(Werte.Groesse());   
  grad_ein->set_value(Werte.Grad());   
  spezialisierung_ein->set_text(Werte.Spezialisierung());
-// stand_ein->set_text(Werte.Stand());
  int inr=0;
  for (unsigned int i=0; i<vstand.size();++i)
    if (vstand[i]==Werte.Stand()) inr=i;
  optionmenu_stand->set_history(inr);
+ int ihnr=0;
+ for (unsigned int i=0; i<vhand.size();++i)
+   if (vhand[i]==Werte.Hand()) ihnr=i;
+ optionmenu_hand->set_history(ihnr);
  herkunft_ein->set_text(Werte.Herkunft()->Name());
  glaube_ein->set_text(Werte.Glaube());
  name_charakter_ein->set_text(Werte.Name_Charakter());

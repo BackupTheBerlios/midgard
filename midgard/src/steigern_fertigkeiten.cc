@@ -167,7 +167,7 @@ cout << "2 "<<land<<'\n';
   cH_MidgardBasicElement *MBE=static_cast<cH_MidgardBasicElement*>(clist_landauswahl->selection().begin()->get_data());
 cout << (*MBE)->What()<<'\n';
 
-//  cH_Fertigkeit(*MBE)->setZusatz(land);
+  cH_Fertigkeit(*MBE)->setZusatz(land);
   scrolledwindow_landauswahl->hide();
   fertigkeiten_zeigen();
 }

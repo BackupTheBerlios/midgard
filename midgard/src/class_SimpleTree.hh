@@ -160,7 +160,7 @@ class Data_SimpleTree : public RowDataBase
         }
       return cH_EntryValueIntString("?");
     }
- cH_MidgardBasicElement getMBE() const {return MBE;}
+ const cH_MidgardBasicElement &getMBE() const {return MBE;}
 
 };
 

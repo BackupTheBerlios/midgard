@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.105 2001/12/13 21:53:49 thoma Exp $
+// $Id: midgard_CG.hh,v 1.106 2001/12/17 09:38:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -416,6 +416,7 @@ class midgard_CG : public midgard_CG_glade
         AusruestungBaum besitz;
         std::map<pair<std::string,std::string>,PreiseMod::st_payload> modimap;
         void on_checkbutton_sichtbar_toggled();
+        SigC::Connection sichtbarConnection;
         void on_ausruestung_loeschen_clicked();
         void on_Ausruestung_tree_select_row(Gtk::CTree::Row row,gint column);
         void on_Ausruestung_tree_unselect_row(Gtk::CTree::Row row,gint column);
@@ -428,6 +429,11 @@ class midgard_CG : public midgard_CG_glade
          void on_speichern_clicked();
          gint on_speichern_release_event(GdkEventButton *ev);
          void grundwerte_speichern();
+         void save_ausruestung();
+//         int ausruestung_tree_nr;         
+         void save_ausruestung_C(int parent,int &self,const list<AusruestungBaum> &AB);
+         void load_ausruestung();
+         void load_ausruestung_C(int parent, AusruestungBaum &AB);
          gint on_laden_release_event(GdkEventButton *ev);
          void xml_export(const std::string& datei);
          void xml_import(const std::string& datei);
