@@ -40,7 +40,7 @@ class xml_fileselection
   private:
         midgard_CG* hauptfenster;        
         eAction ewas;
-        Grundwerte* Werte;
+        VAbenteurer* VA;
 
 #ifndef __MINGW32__        
         friend class xml_fileselection_glade;
@@ -52,6 +52,6 @@ class xml_fileselection
 #endif        
         void on_ok_button1_clicked();
    public:
-        xml_fileselection(midgard_CG* h,eAction _was,Grundwerte *W=0);
+        xml_fileselection(midgard_CG* h,eAction _was,VAbenteurer &A);
 };
 #endif

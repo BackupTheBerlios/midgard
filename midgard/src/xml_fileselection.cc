@@ -86,7 +86,7 @@ static std::string defFileName(const std::string &s)
 #endif
 
 // den aktuellen Abenteurer zu übergeben wäre deutlich sinnvoller! CP
-xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was, Grundwerte *W)
+xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was, VAbenteurer &A)
 : hauptfenster(h),ewas(_was),Werte(W)
 {
 #ifdef __MINGW32__
