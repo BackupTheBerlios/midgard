@@ -19,6 +19,7 @@ links).
 - hide der PP steigern Buttons wenn pp nicht angewählt
 - Recode während schreiben von TeX (damit der Quelltext besser lesbar wird)
 - Würfelvarianten für Nichtmenschen!
+- Absturz bei Programmende
 
 ##########################################################################
 NEWS IN VERSION 0.7delta2
