@@ -1,4 +1,4 @@
-// $Id: xmlimport.pgcc,v 1.26 2001/09/03 09:59:55 christof Exp $
+// $Id: xmlimport.pgcc,v 1.27 2001/09/04 16:42:59 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -104,6 +104,7 @@ bool charakter_laden(const Tag::const_iterator &top)
       char db_spezies[50];
       int db_aep,db_kep,db_zep,db_steigern_ep_prozent,db_grad_basiswerte;
       bool db_steigern_bool;
+      int db_grad_abwehr,db_grad_resistenz,db_grad_zaubern;
    exec sql end declare section;
 
    strncpy0(db_beschreibung,top->getString("Text").c_str(),sizeof db_beschreibung);
@@ -165,6 +166,9 @@ bool charakter_laden(const Tag::const_iterator &top)
    db_zep=Steigern->getInt("ZEP",0); // V7+
    db_steigern_ep_prozent=Steigern->getInt("APproGFP",50); // V7+
    db_grad_basiswerte=Steigern->getInt("Basiswerte",db_grad); // V7+
+   db_grad_zaubern=Steigern->getInt("Zaubern",db_grad); // V7+
+   db_grad_abwehr=Steigern->getInt("Abwehr",db_grad); // V7+
+   db_grad_resistenz=Steigern->getInt("Resistenz",db_grad); // V7+
    db_steigern_bool=Steigern->getBool("EPabziehen",db_steigern_bool=Steigern->getBool("steigern",false)); // V7+
    
 update:
@@ -224,7 +228,10 @@ update:
       kep 	     = :db_kep		, 
       zep	     = :db_zep		,
       steigern_ep_prozent = :db_steigern_ep_prozent,
-      grad_basiswerte = :db_grad_basiswerte
+      grad_basiswerte = :db_grad_basiswerte,
+      grad_resistenz = :db_grad_resistenz,
+      grad_abwehr	= :db_grad_abwehr,
+      grad_zaubern	= :db_grad_zaubern
       
       WHERE charakter_name = :db_name_ch ;
    SQLerror::test(__FILELINE__,100);

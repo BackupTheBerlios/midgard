@@ -1,4 +1,4 @@
-// $Id: xmlexport.pgcc,v 1.24 2001/09/03 10:02:11 christof Exp $
+// $Id: xmlexport.pgcc,v 1.25 2001/09/04 16:42:59 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -95,7 +95,8 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
    		db_bo_ab, db_bo_za, db_bo_psy, db_bo_phs, db_bo_phk,
    		db_bo_gi, db_gfp, gold, silber, kupfer, 
    		aep, kep, zep, steigern_bool, steigern_ep_prozent,
-   		grad_basiswerte, beschreibung, ruestung
+   		grad_basiswerte, grad_abwehr, grad_resistenz,
+   		grad_zaubern, beschreibung, ruestung
    	from charaktere 
    	where charakter_name=:NAME and version=:VERSION;
    exec sql open c;
@@ -184,6 +185,9 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
    fetch_and_write_bool_attrib(is, o, "EPabziehen", false);
    fetch_and_write_int_attrib(is, o, "EPproGFP", 50);
    fetch_and_write_int_attrib(is, o, "Basiswerte", grad);
+   fetch_and_write_int_attrib(is, o, "Abwehr", grad);
+   fetch_and_write_int_attrib(is, o, "Resistenz", grad);
+   fetch_and_write_int_attrib(is, o, "Zaubern", grad);
    o << "/>\n";
    fetch_and_write_string(is, o, "Text", 2);
    
