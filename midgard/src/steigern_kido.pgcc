@@ -29,6 +29,7 @@ exec sql include sqlca;
 
 void midgard_CG::on_kido_laden_clicked()
 {   
+ midgard_CG::zeige_werte(werte,"alle");
  midgard_CG::on_speichern_clicked();
  midgard_CG::show_alte_kido();
  midgard_CG::show_neue_kido();
@@ -54,17 +55,17 @@ class Data_kido : public RowDataBase
    }
    return cH_EntryValueIntString("?");
  }
- string Name() const {  return name; }   
+ string HoHo() const {  return hoho; }   
  int Kosten() const {  return kosten; }   
 }; 
 
 void midgard_CG::on_leaf_selected_alte_kido(cH_RowDataBase d)
 {  const Data_kido *dt=dynamic_cast<const Data_kido*>(&*d);
-   on_steigern_kido_tree_alt_select(dt->Name(),dt->Kosten());
+   on_steigern_kido_tree_alt_select(dt->HoHo(),dt->Kosten());
 }
 void midgard_CG::on_leaf_selected_neue_kido(cH_RowDataBase d)
 {  const Data_kido *dt=dynamic_cast<const Data_kido*>(&*d);
-   on_steigern_kido_tree_alt_select(dt->Name(),dt->Kosten());
+   on_steigern_kido_tree_neu_select(dt->HoHo(),dt->Kosten());
 }
 
 
@@ -171,11 +172,7 @@ void midgard_CG::on_steigern_kido_tree_alt_select(const string& name,int kosten)
             i!= vec_kido.end();++i) 
       if (i->hoho==name) {vec_kido.erase(i);break;}
 
-   midgard_CG::zeige_werte(werte,"alle");
-   midgard_CG::show_kido();
-   midgard_CG::on_speichern_clicked();
-   midgard_CG::show_alte_kido();
-   midgard_CG::show_neue_kido();
+   on_kido_laden_clicked();
 }
 
 void midgard_CG::on_steigern_kido_tree_neu_select(const string& name, int kosten)
@@ -183,12 +180,7 @@ void midgard_CG::on_steigern_kido_tree_neu_select(const string& name, int kosten
   werte.gfp += kosten;
   vec_kido.push_back(st_kido(name,"","","",0,0,""));
   get_kido(vec_kido);
-
-  midgard_CG::show_kido();
-  midgard_CG::on_speichern_clicked();
-  midgard_CG::zeige_werte(werte,"alle");
-  midgard_CG::show_alte_kido();
-  midgard_CG::show_neue_kido();
+  on_kido_laden_clicked();
 }
 
 int midgard_CG::maxkidostil(const string& stufe)

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.45 2001/06/22 07:45:52 thoma Exp $
+// $Id: midgard_CG.hh,v 1.46 2001/06/22 10:50:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -352,13 +352,17 @@ class midgard_CG : public midgard_CG_glade
 
 
         void on_sprache_laden_clicked();
-        void on_steigern_sprache_clist_alt_select_row(gint row, gint column, GdkEvent *event);
-        void on_steigern_sprache_clist_neu_select_row(gint row, gint column, GdkEvent *event);
+        void on_leaf_selected_alte_sprache(cH_RowDataBase d);
+        void on_leaf_selected_neue_sprache(cH_RowDataBase d);
+        void on_steigern_sprache_tree_alt_select(const string& name,int steigern,int reduzieren,int verlernen);
+        void on_steigern_sprache_tree_neu_select(const string& name,int kosten);
         void on_radio_sprache_steigern_toggled();
         void on_radio_sprache_reduzieren_toggled();
         void on_radio_sprache_verlernen_toggled();
-        void on_clist_steigern_schrift_alt_select_row(gint row, gint column, GdkEvent *event);
-        void on_clist_steigern_schrift_neu_select_row(gint row, gint column, GdkEvent *event);
+        void on_leaf_selected_alte_schrift(cH_RowDataBase d);
+        void on_leaf_selected_neue_schrift(cH_RowDataBase d);
+        void on_steigern_schrift_tree_alt_select(const string& name, int kosten);
+        void on_steigern_schrift_tree_neu_select(const string& name, const string& art, int kosten);
         void show_alte_schriften();
         void show_neue_schriften();
         void show_alte_sprachen();

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.39 2001/06/22 07:45:52 thoma Exp $
+// $Id: midgard_CG.cc,v 1.40 2001/06/22 10:50:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -113,6 +113,27 @@ void midgard_CG::set_tree_titles()
  kido.push_back("Stil");
  alte_kido_tree->setTitles(kido);
  neue_kido_tree->setTitles(kido);
+
+ vector<string> alte_sprachen;
+ alte_sprachen.push_back("Sprache");
+ alte_sprachen.push_back("Wert");
+ alte_sprachen.push_back("Steigern\n(nächste Stufe)");
+ alte_sprachen.push_back("Reduzieren\n(eine Stufe)");
+ alte_sprachen.push_back("Verlernen");
+ alte_sprache_tree->setTitles(alte_sprachen);
+ vector<string> neue_sprachen;
+ neue_sprachen.push_back("Sprache");
+ neue_sprachen.push_back("Urschrift");
+ neue_sprachen.push_back("Lernkosten");
+ neue_sprache_tree->setTitles(neue_sprachen);
+
+ vector<string> schrift;
+ schrift.push_back("Urschrift");
+ schrift.push_back("Art der Schrift");
+ schrift.push_back("Kosten");
+ alte_schrift_tree->setTitles(schrift);
+ neue_sprache_tree->setTitles(schrift);
+
 }
 
 void midgard_CG::on_radiobutton_frau_toggled()
@@ -327,10 +348,10 @@ void midgard_CG::on_neuer_charakter_clicked()
    neue_zaubermittel_tree->clear();
    alte_kido_tree->clear();
    neue_kido_tree->clear();
-   clist_steigern_sprachen_alt->clear();
-   clist_steigern_sprachen_neu->clear();
-   clist_steigern_schrift_alt->clear();
-   clist_steigern_schrift_neu->clear();
+   alte_sprache_tree->clear();
+   neue_sprache_tree->clear();
+   alte_schrift_tree->clear();
+   neue_schrift_tree->clear();
    
  Originalbool=true;
  checkbutton_original->set_active(true);

@@ -1,7 +1,8 @@
 ##########################################################################
 NEWS IN VERSION 0.6beta1
-- Umstellung der Steigern-Listen abgeschlossen
+- Umstellung der Steigern-Listen abgeschlossen.
 - Einige Bugs beseitigt, die durch die Umstellung entstanden.
+- Einige kleinere Umstellung im Code.
 
 ##########################################################################
 NEWS IN VERSION 0.6beta0

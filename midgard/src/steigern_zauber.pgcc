@@ -29,6 +29,7 @@ exec sql include sqlca;
 void midgard_CG::on_zauber_laden_clicked()
 {   
  if (typ.z=="n" && typ_2.z=="n") return;
+ midgard_CG::zeige_werte(werte,"alle");
  midgard_CG::on_speichern_clicked();
  midgard_CG::show_alte_zauber();
  midgard_CG::show_neue_zauber();
@@ -194,13 +195,7 @@ void midgard_CG::on_steigern_zauber_tree_alt_select(const string& new_zauber, in
             i!= zauber.end();++i) 
       if (i->name==new_zauber) {zauber.erase(i);break;}
 
-   midgard_CG::zeige_werte(werte,"alle");
-//   midgard_CG::show_zauber();
-   midgard_CG::on_speichern_clicked();
-   midgard_CG::show_alte_zauber();
-   midgard_CG::show_neue_zauber();
-   midgard_CG::show_alte_zaubermittel();
-   midgard_CG::show_neue_zaubermittel();
+  on_zauber_laden_clicked();
 }
 
 void midgard_CG::on_steigern_zauber_tree_neu_select(const string& new_zauber, int kosten, 
@@ -232,13 +227,7 @@ void midgard_CG::on_steigern_zauber_tree_neu_select(const string& new_zauber, in
      zauber.push_back(st_zauber("0",new_zauber,erf,"0","0","0","0","0","0","0","0","0","0","0","0","0",0));
    }
 
-  midgard_CG::show_zauber();
-  midgard_CG::on_speichern_clicked();
-  midgard_CG::zeige_werte(werte,"alle");
-  midgard_CG::show_alte_zauber();
-  midgard_CG::show_neue_zauber();
-  midgard_CG::show_alte_zaubermittel();
-  midgard_CG::show_neue_zaubermittel();
+   on_zauber_laden_clicked();
 }
 
 void midgard_CG::on_checkbutton_zaubersalze_toggled()
@@ -256,6 +245,8 @@ void midgard_CG::on_checkbutton_alle_zauber_toggled()
 }
 void midgard_CG::on_checkbutton_zaubermittel_toggled()
 {
+ midgard_CG::zeige_werte(werte,"alle");
+ midgard_CG::on_speichern_clicked();
  midgard_CG::show_neue_zaubermittel();
  midgard_CG::show_alte_zaubermittel();
 }
@@ -367,10 +358,7 @@ void midgard_CG::on_steigern_zaubermittel_tree_alt_select(const string& name, in
             i!= vec_zaubermittel.end();++i) 
       if (i->name==name) {vec_zaubermittel.erase(i);break;}
 
-   midgard_CG::zeige_werte(werte,"alle");
-   midgard_CG::on_speichern_clicked();
-   midgard_CG::show_alte_zaubermittel();
-   midgard_CG::show_neue_zaubermittel();
+   on_checkbutton_zaubermittel_toggled();
 }
 
 void midgard_CG::on_steigern_zaubermittel_tree_neu_select(const string& name, int kosten)
@@ -379,10 +367,7 @@ void midgard_CG::on_steigern_zaubermittel_tree_neu_select(const string& name, in
   werte.gfp += kosten;  
 
    get_zaubermittel(vec_zaubermittel);
-   midgard_CG::zeige_werte(werte,"alle");
-   midgard_CG::on_speichern_clicked();
-   midgard_CG::show_alte_zaubermittel();
-   midgard_CG::show_neue_zaubermittel();
+   on_checkbutton_zaubermittel_toggled();
 }
 
 void midgard_CG::show_alte_zaubermittel()
