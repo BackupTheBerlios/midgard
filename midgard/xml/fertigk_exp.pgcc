@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.pgcc,v 1.17 2001/11/20 22:18:06 christof Exp $
+// $Id: fertigk_exp.pgcc,v 1.18 2001/11/21 11:04:13 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -502,7 +502,7 @@ void fert_speichern(std::ostream &o)
    o << " </verwendbareEP>\n";
 
 //*************************** Steigerungstabelle *******************
-   o << " <SteigernKosten/>\n";
+   o << " <SteigernKosten>\n";
    exec sql declare curs_steig cursor for
       		select name,
       	    coalesce(p0,0), coalesce(p1,0), coalesce(p2,0), coalesce(p3,0),
@@ -532,7 +532,7 @@ void fert_speichern(std::ostream &o)
        }
     exec sql close curs_steig;
     SQLerror::test(__FILELINE__);
-   o << " </SteigernKosten/>\n";
+   o << " </SteigernKosten>\n";
 
 //******************************************************************
    
