@@ -24,7 +24,7 @@ std::string Ausruestung::SAnzahl() const
 {
  if(anzahl) 
    {
-     return itos(anzahl)+"$\times$ ";
+     return itos(anzahl)+"$\\times$ ";
    }
  return "";
 }

@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.91 2003/01/23 15:28:25 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.92 2003/04/28 13:13:23 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -607,6 +607,7 @@ void LaTeX_drucken::write_long_list(std::ostream &fout,const std::vector<Sprache
                      const std::list<WaffeBesitz> &WB_druck)
 {
   fout << "\n\n\\newpage\n\n";
+  fout << "\\catcode`\\~=12\n"; // omitting this kills the printing on Windows - latex bug?
   fout << "\\begin{sideways}\n";
 //  fout << "\\rotatebox{90}{\n";
   fout << "\\fbox{\n";

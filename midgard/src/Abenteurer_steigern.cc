@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.23 2003/04/23 07:44:09 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.24 2003/04/28 13:13:23 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -563,8 +563,8 @@ int Abenteurer::get_ab_re_za(const e_was_steigern was,const e_wie_steigern &wie,
         return 0;}
 
   if(kosten!=0 && bsteigern)
-   {
-     if (!steigern_usp(wie,kosten,Enums::eAusdauer,info,bool_steigern)) return 0;
+   { // hier stand eAusdauer ... was ist sinnvoller - oder?
+     if (!steigern_usp(wie,kosten,was,info,bool_steigern)) return 0;
      getWerte().addGFP(kosten);
      if      (was==Enums::eAbwehr)    getWerte().setAbwehr_wert(alter_wert+1);
      else if (was==Enums::eResistenz) getWerte().setResistenz(alter_wert+1);  
