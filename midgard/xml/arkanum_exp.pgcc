@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.pgcc,v 1.9 2001/11/13 10:29:08 christof Exp $
+// $Id: arkanum_exp.pgcc,v 1.10 2001/11/13 17:48:30 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -30,7 +30,7 @@ void arkanum_speichern(std::ostream &o)
 {  
    Transaction t;
    exec sql allocate descriptor spalten;
-   exec sql declare c cursor for
+   exec sql declare zauber_curs cursor for
    	select name, region, stufe, kosten, ap, art, 
    	ursprung, agens, prozess, reagens,
    	zauberdauer, reichweite, wirkungsziel, wirkungsbereich,
@@ -40,11 +40,11 @@ void arkanum_speichern(std::ostream &o)
    	from arkanum_zauber
    	where coalesce(s_element,'')=''
    	order by coalesce(region,''),name;
-   exec sql open c;
+   exec sql open zauber_curs;
    SQLerror::test(__FILELINE__);
    o << "<MidgardCG-data>\n";
   while (true)
-  {exec sql fetch c into sql descriptor spalten;
+  {exec sql fetch zauber_curs into sql descriptor spalten;
    SQLerror::test(__FILELINE__,100);
    if (sqlca.sqlcode) break;
    FetchIStream is("spalten");
@@ -140,8 +140,90 @@ void arkanum_speichern(std::ostream &o)
    }
    o << "  </Spruch>\n";
   }
-   exec sql close c;
+   exec sql close zauber_curs;
    SQLerror::test(__FILELINE__);
+   
+   //***************** Zauberwerk ********************************
+
+   exec sql declare zauberwerk_curs cursor for
+   	select name, region, art, stufe, zeitaufwand, kosten, kosten_gfp
+   	from zauberwerk
+   	order by coalesce(region,''),name;
+   exec sql open zauberwerk_curs;
+   SQLerror::test(__FILELINE__);
+  while (true)
+  {exec sql fetch zauberwerk_curs into sql descriptor spalten;
+   SQLerror::test(__FILELINE__,100);
+   if (sqlca.sqlcode) break;
+   FetchIStream is("spalten");
+   o << "  <Zauberwerk";
+   string zauberwerk=fetch_and_write_string_attrib(is, o, "Name");
+   fetch_and_write_string_attrib(is, o, "Region");
+   fetch_and_write_string_attrib(is, o, "Art");
+   string stufe=fetch_and_write_string_attrib(is, o, "Stufe");
+   fetch_and_write_string_attrib(is, o, "Zeitaufwand");
+   fetch_and_write_string_attrib(is, o, "Geldaufwand");
+   fetch_and_write_string_attrib(is, o, "Kosten");
+   o << ">\n";
+   {  exec sql begin declare section;
+      const char *ZAUBERWERK=zauberwerk.c_str(GARNIX);
+      char TYPEN[40][40];
+      const char *STUFE=stufe.c_str(GARNIX);
+      exec sql end declare section;
+      
+      exec sql select typ into :TYPEN from zauberwerk_typen
+      	where name=:ZAUBERWERK and standard='G' and stufe=:STUFE;
+      if (!sqlca.sqlcode) 
+      {  o << "    <Grund>";
+         for (int i=0;i<sqlca.sqlerrd[2];++i)
+         {  o << typ_standardisierung(TYPEN[i]);
+            if (i+1 < sqlca.sqlerrd[2]) o << ',';
+         }
+         o << "</Grund>\n";
+      }
+      exec sql select typ into :TYPEN from zauberwerk_typen
+      	where name=:ZAUBERWERK and standard='S' and stufe=:STUFE;
+      if (!sqlca.sqlcode) 
+      {  o << "    <Standard>";
+         for (int i=0;i<sqlca.sqlerrd[2];++i)
+         {  o << typ_standardisierung(TYPEN[i]);
+            if (i+1 < sqlca.sqlerrd[2]) o << ',';
+         }
+         o << "</Standard>\n";
+      }
+      exec sql select typ into :TYPEN from zauberwerk_typen
+      	where name=:ZAUBERWERK and standard='A' and stufe=:STUFE;
+      if (!sqlca.sqlcode) 
+      {  o << "    <Ausnahme>";
+         for (int i=0;i<sqlca.sqlerrd[2];++i)
+         {  o << typ_standardisierung(TYPEN[i]);
+            if (i+1 < sqlca.sqlerrd[2]) o << ',';
+         }
+         o << "</Ausnahme>\n";
+      }
+      // Zauberwerk Voraussetzungen
+      exec sql declare zaubwerk_vor_curs cursor for 
+      	select voraussetzung,verbindung from zauberwerk_voraussetzung 
+      	where name=:ZAUBERWERK
+      	order by voraussetzung;
+      exec sql open zaubwerk_vor_curs;
+      while (!sqlca.sqlcode) 
+      {  exec sql fetch from zaubwerk_vor_curs into sql descriptor spalten;
+         if (sqlca.sqlcode) break;
+         FetchIStream is2("spalten");
+         o << "    <Voraussetzung";
+         fetch_and_write_string_attrib(is2, o, "Fertigkeit");
+         fetch_and_write_string_attrib(is2, o, "Verbindung");
+         o << "/>\n";
+      }
+      exec sql close zaubwerk_vor_curs;
+   }
+   o << "  </Zauberwerk>\n";
+  }
+   exec sql close zauberwerk_curs;
+   SQLerror::test(__FILELINE__);
+
+//*************************************************************   
    o << "</MidgardCG-data>\n";
    
    exec sql deallocate descriptor spalten;
