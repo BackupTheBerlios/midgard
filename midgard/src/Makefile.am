@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.92 2002/01/19 17:07:32 christof Exp $
+# $Id: Makefile.am,v 1.93 2002/01/20 18:42:07 thoma Exp $
 
 USE_XML=$(shell if test `hostname` = "puck" ; then echo -DUSE_XML ; fi)
 
@@ -34,7 +34,7 @@ noinst_HEADERS = \
    Spezialgebiet.hh \
    Lernschema.hh \
    Preise.hh \
-WaffeGrund.hh Fertigkeiten_angeboren.hh Pflicht.hh dtos1.h zufall.h Berufe_auswahl_glade.hh Berufe_auswahl.hh \
+WaffeGrund.hh Fertigkeiten_angeboren.hh Pflicht.hh zufall.h Berufe_auswahl_glade.hh Berufe_auswahl.hh \
 Fertigkeiten_auswahl_glade.hh Fertigkeiten_auswahl.hh glademm_support.hh \
 midgard_CG_glade.hh midgard_CG.hh Waffen_auswahl_glade.hh Waffen_auswahl.hh   \
 Window_charakter_auswahl_glade.hh Window_charakter_auswahl.hh  \
@@ -193,7 +193,6 @@ midgard_SOURCES = \
    grundwere_edit_setzen.cc \
    WindowInfo.cc \
    WindowInfo_glade.cc \
-   dtos1.cc \
    Window_doppelcharaktere.cc \
    Window_doppelcharaktere_glade.cc \
    Datenbank.cc class_SimpleTree.cc \

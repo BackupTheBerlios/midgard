@@ -17,18 +17,18 @@
  */
 
 #include "Region.hh"
-#ifndef USE_XML
 #include <Aux/SQLerror.h>
 #include <Aux/Transaction.h>
 exec sql include sqlca;
-#endif
 #include <gtk--/main.h>
 
 #include "../pixmaps/Eschar-trans-50.xpm"
 #include "../pixmaps/KiDo-trans-50.xpm"
 #include "../pixmaps/Regio_Rawindra-50.xpm"
 #include "../pixmaps/Regio_Alba-50.xpm"
-#include "../pixmaps/Job-trans-50.xpm"
+#include "../pixmaps/Regio_H_u_D-50.xpm"
+#include "../pixmaps/Regio_Gilde-50.xpm"
+//#include "../pixmaps/Job-trans-50.xpm"
 #include "../pixmaps/pinguin.xpm"
 
 Gtk::Pixmap *RegionenPic::Pic(epic typ)
@@ -37,8 +37,8 @@ Gtk::Pixmap *RegionenPic::Pic(epic typ)
    else if (typ==KanThaiPan) return manage(new Gtk::Pixmap(KiDo_trans_50_xpm));
    else if (typ==Rawindra)   return manage(new Gtk::Pixmap(Regio_Rawindra_50_xpm));
    else if (typ==Alba)       return manage(new Gtk::Pixmap(Regio_Alba_50_xpm));
-   else if (typ==Gildenbrief)return manage(new Gtk::Pixmap(pinguin_xpm));
-   else if (typ==HD)         return manage(new Gtk::Pixmap(Job_trans_50_xpm));
+   else if (typ==Gildenbrief)return manage(new Gtk::Pixmap(Regio_Gilde_50_xpm));
+   else if (typ==HD)         return manage(new Gtk::Pixmap(Regio_H_u_D_50_xpm));
    else return manage(new Gtk::Pixmap(pinguin_xpm));
    abort();
 }
@@ -51,32 +51,15 @@ cH_Region::cH_Region(const std::string& name)
  cH_Region *cached(cache.lookup(name));
  if (cached) *this=*cached;
  else
-#ifndef USE_XML 
   {
    *this=cH_Region(new Region(name));
    cache.Register(name,*this);
   }
-#else
-  assert(!"Region im Cache");
-#endif  
 }
 
-#ifdef USE_XML
-cH_Region::cH_Region(const Tag *tag)
-{*this=cH_Region(new Region(tag));
- cache.Register(tag->getAttr("Name"),*this);
-}
-#endif
-
-#ifndef USE_XML
 Region::Region(const std::string& n) 
 : name(n), active(false)
-#else
-Region::Region(const Tag *tag) 
-: name(tag->getAttr("Name")), active(false)
-#endif
 {
-#ifndef USE_XML
   exec sql begin declare section;
    int db_nr;
    char db_name[50], db_abkuerzung[50], db_file[50],
@@ -99,18 +82,6 @@ Region::Region(const Tag *tag)
   copyright=db_copyright;
   offiziell=db_offiziell;
   pic=RegionenPic::epic(db_pic);
-#else
-  abkuerzung=tag->getAttr("Region");
-  file=tag->getAttr("Dateiname");
-  url=tag->getAttr("URL");
-  maintainer=tag->getAttr("Maintainer");
-  version=tag->getAttr("Version");
-  copyright=tag->getAttr("Copyright");
-  offiziell=tag->getBoolAttr("offiziell");
-#warning das ist ein ganz schlechte Idee!!! besser das Pixmap jedesmal
-#warning erzeugen, wenn man es braucht (und nicht nur einmal!)
-  pic=RegionenPic::epic(tag->getIntAttr("MCG-Bild"));
-#endif  
 }
 
 bool Region::setActive(const std::vector<cH_Region>& LR,const cH_Region& R,bool active)
@@ -129,7 +100,6 @@ bool Region::setActive(const std::vector<cH_Region>& LR,const cH_Region& R,bool 
 
 Regionen_All::Regionen_All(Gtk::ProgressBar *progressbar)
 {
-#ifndef USE_XML
  exec sql begin declare section;
    char db_name[100];
    int db_size;
@@ -152,16 +122,8 @@ Regionen_All::Regionen_All(Gtk::ProgressBar *progressbar)
   }
  exec sql close RIein;
  tr.close();
-#else
- if (xml_data)
- {  Tag::const_iterator b=xml_data->begin(),e=xml_data->end();
-    double size=e-b;
-    FOR_EACH_CONST_TAG_OF_5(i,*xml_data,b,e,"Region")
-    {  progressbar->set_percentage((i-b)/size);   
-       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-       list_All.push_back(cH_Region(&*i));
-    }
- }
-#endif
  progressbar->set_percentage(1);       
 }
+
+
+

@@ -18,10 +18,17 @@
 
 #include "midgard_CG.hh"
 #include <cstring>
+#include <Aux/itos.h>
 #ifndef USE_XML
 #include <Aux/Transaction.h>
 #include <Aux/SQLerror.h>
 #include "Window_charakter_auswahl.hh"
+#include "Fertigkeiten_angeboren.hh"
+#include "Waffe.hh"
+#include "WaffeGrund.hh"
+#include "Zauber.hh"
+#include "Zauberwerk.hh"
+#include "KiDo.hh"
 exec sql include sqlca;
 #endif
 #include "xml_fileselection.hh"

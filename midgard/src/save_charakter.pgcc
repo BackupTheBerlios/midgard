@@ -21,9 +21,11 @@
 exec sql include sqlca;
 #include <Aux/Transaction.h>
 #include <Aux/SQLerror.h>
+#include <Waffe.hh>
 #endif
 #include <cstring>
 #include "xml_fileselection.hh"
+
 
 gint midgard_CG::on_speichern_release_event(GdkEventButton *ev)
 {

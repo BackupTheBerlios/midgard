@@ -67,16 +67,15 @@ void midgard_CG::menu_init()
 
      Gtk::Label *_l=manage (new Gtk::Label((*i)->Name(),0,0));
      Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
-//     Gtk::Label *_o=0;
      Gtk::Pixmap *_o=manage(new Gtk::Pixmap(midgard_logo_tiny_xpm));
      int row=1;
      if((*i)->Offiziell()) 
        {
-        _tab->attach(*_o,1,2,1,2,0,0,0,0);
+        _tab->attach(*_o,0,1,1,2,0,0,0,0);
         row=2;
        }
-     _tab->attach(*_l,1,2,0,1,0,0,0,0);
-     _tab->attach(*RegionenPic::Pic((*i)->Pic()),0,1,0,row,0,0,0,0);
+     _tab->attach(*_l,0,1,0,1,0,0,0,0);
+     _tab->attach(*RegionenPic::Pic((*i)->Pic()),1,2,0,row,0,0,0,0);
      _tab->set_col_spacings(10);
 
      _mi->add(*_tab);
