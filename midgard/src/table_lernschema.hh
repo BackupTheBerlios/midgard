@@ -83,6 +83,7 @@ private:
        void show_WaffenBesitz_lernschema();
        void on_waffen_lernschema_tree_leaf_selected(cH_RowDataBase d);
        void WaffenBesitz_lernschema_wuerfeln(int wurf);
+       void on_togglebutton_spezialwaffe_toggled();
        
        // Zauber
        void show_magier_spezialgebiet(bool show);

@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.9 2002/06/24 10:51:30 christof Exp $
+// $Id: table_lernschema_waffen.cc,v 1.10 2002/06/25 16:44:00 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -204,3 +204,7 @@ void table_lernschema::WaffenBesitz_lernschema_wuerfeln(int wurf)
  show_WaffenBesitz_lernschema();
 }
 
+void table_lernschema::on_togglebutton_spezialwaffe_toggled()
+{  if (togglebutton_spezialwaffe->get_active()) scrolledwindow_lernen->hide();
+   else scrolledwindow_lernen->show();
+}

@@ -55,17 +55,47 @@ void xml_fileselection::on_cancel_button1_clicked()
 }
 #endif
 
+static std::string defFileName(const std::string &s)
+{  std::string res;
+   for (std::string::const_iterator i=s.begin();i!=s.end();++i)
+      if (('0' <= *i && *i <= '9') || ('A' <= *i && *i <= 'Z')
+      	|| ('a' <= *i && *i <= 'z') || *i=='_')
+      	 res+=*i;
+   return res;
+}
+
+// den aktuellen Abenteurer zu übergeben wäre deutlich sinnvoller! CP
 xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was, Grundwerte *W)
 : hauptfenster(h),ewas(_was),Werte(W)
 {
+#ifdef __MINGW32__
+ const char dirsep='\\';
+#else
+ const char dirsep='/';
+#endif
  std::string path=hauptfenster->getOptionen()->getString(Midgard_Optionen::speicherpfad);
- if(ewas==Pix) set_filename(hauptfenster->getWerte().BeschreibungPix());
- else if (ewas==Save) set_filename(path+hauptfenster->Char.getFilename());
- else if (ewas==Load) set_filename(path);
- else if (ewas==Export) set_filename(path);
+ if (!path.empty() && path[path.size()-1]!=dirsep) path+=dirsep;
+ if(ewas==Pix) 
+ {  set_filename(W->BeschreibungPix());
+    if (get_filename().empty()) set_filename(path);
+ }
+ else if (ewas==Save) 
+ {  set_filename(hauptfenster->getChar().getFilename());
+    if (get_filename().empty()) 
+       set_filename(path+defFileName(W->Name_Abenteurer())+".magus");
+ }
+ else if (ewas==Load) 
+ {  set_filename(path);
+ }
+ else if (ewas==Export) 
+ {  set_filename(path+defFileName(W->Name_Abenteurer())+".txt");
+ }
  
 #ifdef __MINGW32__
 std::cout << "Dateiname " << filename << '\n';
+   // TODO was ist mit '\\' am Ende ?
+   // TODO path erzeugen?
+   
    OPENFILENAME ofn;
    char buf[10240];
 
@@ -78,9 +108,9 @@ std::cout << "Dateiname " << filename << '\n';
 		// GDK_WINDOW_HWND (win) 2.0
    ofn.lpstrFile = buf;
    ofn.nMaxFile = sizeof buf;
-   if (ewas==Export) ofn.lpstrFilter = "Alle Dateien\0*.*\0Textdateien\0*.txt\0";
-   else if (ewas==Pix) ofn.lpstrFilter = "Alle Dateien\0*.*\0Bilder\0*.png;*.jpg;*.tif\0";
-   else ofn.lpstrFilter = "Alle Dateien\0*.*\0Midgard Abenteurer\0*.magus\0";
+   if (ewas==Export) ofn.lpstrFilter = "Alle Dateien (*.*)\0*.*\0Textdateien (*.txt)\0*.txt\0";
+   else if (ewas==Pix) ofn.lpstrFilter = "Alle Dateien (*.*)\0*.*\0Bilder (*.png,*.jpg,*.tif)\0*.png;*.jpg;*.tif\0";
+   else ofn.lpstrFilter = "Alle Dateien (*.*)\0*.*\0Midgard Abenteurer (*.magus)\0*.magus\0";
    ofn.nFilterIndex = 2;
    ofn.lpstrDefExt= ewas==Export ? "txt" : ewas==Pix ? "" : "magus";
    ofn.lpstrTitle = ewas==Export ? "Abenteurer exportieren" :

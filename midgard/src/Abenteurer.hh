@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.19 2002/06/20 19:06:17 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.20 2002/06/25 16:44:00 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -174,6 +174,13 @@ class VAbenteurer
       bool size() const {return VA.size();}
       void delete_empty();
 
+   // diese beiden Funktionen ersetzen den Rest der Klasse ! CP
+   const Abenteurer *operator*() const
+   {  return &ai->abenteurer; }
+   Abenteurer *operator*()
+   {  return &ai->abenteurer; }
+
+   // wenn man mich fragt, ist das ab hier unnötig (s.o.) CP
       // Wrapper
 private:
    void grundwerte_speichern(Tag &datei) {ai->abenteurer.grundwerte_speichern(datei);}
