@@ -24,6 +24,7 @@
 #include "Windows_Linux.hh"
 #include <libmagus/Ausgabe.hh>
 #include <libmagus/spielleiter_export.hh>
+#include <libmagus/magus_paths.h>
 
 #ifdef __MINGW32__
 # include <windows.h>
@@ -148,7 +149,7 @@ xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was)
     if (fname.empty()) 
        fname=path+defFileName(VA->Name_Abenteurer())+".magus";
 #ifdef __MINGW32__
-    register_magus(h->argv0);
+    register_magus(magus_paths::getArgv0());
 #endif 
  }
  else if (ewas==Load) 
