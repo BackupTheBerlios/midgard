@@ -3,3 +3,8 @@
 Makefile
 Makefile.in
 *.lo
+random.magus
+Zufallscharakter
+libmagus.la
+readxml2
+test
