@@ -23,9 +23,6 @@
 #include "midgard_CG_glade.hh"
 #include <gdk/gdkkeysyms.h>
 #include <gtkmm/accelgroup.h>
-#include <gtkmm/toolitem.h>
-#include <gtkmm/toolbutton.h>
-#include <gtkmm/separatortoolitem.h>
 #include <gtkmm/image.h>
 #include <gtkmm/imagemenuitem.h>
 #include <gtk/gtkimagemenuitem.h>
@@ -58,8 +55,8 @@ midgard_CG_glade::midgard_CG_glade(
    
    Gtk::ToolItem *toolitem1 = Gtk::manage(new class Gtk::ToolItem());
 #endif //
-#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    Gtk::Image *button9_img = Gtk::manage(new class Gtk::Image(MagusImage("LoadChar-trans-50.xpm")));
+#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    Gtk::ToolButton *button9 = Gtk::manage(new class Gtk::ToolButton(*button9_img, "Öffnen"));
 #endif //
    button_speichern = new class ChoiceButton();
@@ -85,23 +82,23 @@ midgard_CG_glade::midgard_CG_glade(
 #if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    Gtk::SeparatorToolItem *separatortoolitem1 = Gtk::manage(new class Gtk::SeparatorToolItem());
 #endif //
-#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    Gtk::Image *button_menu_img = Gtk::manage(new class Gtk::Image(MagusImage("wizzard-trans-50_2.xpm")));
+#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    Gtk::ToolButton *button_menu = Gtk::manage(new class Gtk::ToolButton(*button_menu_img, "Menü"));
 #endif //
-#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    Gtk::Image *button_info_img = Gtk::manage(new class Gtk::Image(MagusImage("Info-trans-50.xpm")));
+#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    Gtk::ToolButton *button_info = Gtk::manage(new class Gtk::ToolButton(*button_info_img, "Info"));
 #endif //
-#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    Gtk::Image *button_html_hilfe_img = Gtk::manage(new class Gtk::Image(MagusImage("Help-trans-50.xpm")));
+#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    Gtk::ToolButton *button_html_hilfe = Gtk::manage(new class Gtk::ToolButton(*button_html_hilfe_img, "Anleitung"));
 #endif //
 #if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    Gtk::SeparatorToolItem *separatortoolitem2 = Gtk::manage(new class Gtk::SeparatorToolItem());
 #endif //
-#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    Gtk::Image *button_schliessen_img = Gtk::manage(new class Gtk::Image(MagusImage("Exit-trans-50.xpm")));
+#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    button_schliessen = Gtk::manage(new class Gtk::ToolButton(*button_schliessen_img, "Schließen"));
 #endif //
    toolbar_top = Gtk::manage(new class Gtk::Toolbar());

@@ -31,8 +31,6 @@ extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 #include <gtkmm/box.h>
 #include <gtkmm/scrolledwindow.h>
 #include <gtkmm/paned.h>
-#include <gtkmm/toolitem.h>
-#include <gtkmm/separatortoolitem.h>
 #include <gtkmm/adjustment.h>
 #include <gtkmm/toolbar.h>
 #include <gtkmm/button.h>
@@ -91,8 +89,8 @@ table_lernschema_glade::table_lernschema_glade(GlademmData *gmm_data
    
    Gtk::Table *table123 = Gtk::manage(new class Gtk::Table(2, 2, false));
    Gtk::HPaned *hpaned6 = Gtk::manage(new class Gtk::HPaned());
-#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    Gtk::Image *button_herkunft_img = Gtk::manage(new class Gtk::Image(MagusImage("CountrChar-trans-50.xpm")));
+#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    button_herkunft = Gtk::manage(new class Gtk::ToolButton(*button_herkunft_img, "Herkunft"));
 #endif //
    
@@ -107,16 +105,16 @@ table_lernschema_glade::table_lernschema_glade(GlademmData *gmm_data
 #if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    Gtk::SeparatorToolItem *separatortoolitem3 = Gtk::manage(new class Gtk::SeparatorToolItem());
 #endif //
-#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    Gtk::Image *togglebutton_lernpunkte_edit_img = Gtk::manage(new class Gtk::Image(MagusImage("Dice-2W6-trans-50.xpm")));
+#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    togglebutton_lernpunkte_edit = Gtk::manage(new class Gtk::ToggleToolButton(*togglebutton_lernpunkte_edit_img, "Lernpunkte"));
 #endif //
 #if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    
    Gtk::SeparatorToolItem *separatortoolitem4 = Gtk::manage(new class Gtk::SeparatorToolItem());
 #endif //
-#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    Gtk::Image *button_beruf_img = Gtk::manage(new class Gtk::Image(MagusImage("Job-trans-50.xpm")));
+#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    button_beruf = Gtk::manage(new class Gtk::ToolButton(*button_beruf_img, "Beruf"));
 #endif //
    
@@ -138,13 +136,13 @@ table_lernschema_glade::table_lernschema_glade(GlademmData *gmm_data
 #if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    Gtk::SeparatorToolItem *separatortoolitem5 = Gtk::manage(new class Gtk::SeparatorToolItem());
 #endif //
-#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    Gtk::Image *button_lernschema_geld_img = Gtk::manage(new class Gtk::Image(MagusImage("Money-50.xpm")));
+#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    button_lernschema_geld = Gtk::manage(new class Gtk::ToolButton(*button_lernschema_geld_img, "Geld"));
 #endif //
+   Gtk::Image *button_lernschema_waffen_img = Gtk::manage(new class Gtk::Image(MagusImage("Weapon-trans-50.xpm")));
 #if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    
-   Gtk::Image *button_lernschema_waffen_img = Gtk::manage(new class Gtk::Image(MagusImage("Weapon-trans-50.xpm")));
    button_lernschema_waffen = Gtk::manage(new class Gtk::ToolButton(*button_lernschema_waffen_img, "Waffen"));
 #endif //
    label_gwr = Gtk::manage(new class Gtk::Label("%Wurf\n"
@@ -157,13 +155,13 @@ table_lernschema_glade::table_lernschema_glade(GlademmData *gmm_data
    
    Gtk::ToolItem *toolitem14 = Gtk::manage(new class Gtk::ToolItem());
 #endif //
-#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    Gtk::Image *button_ruestung_img = Gtk::manage(new class Gtk::Image(MagusImage("Dice_Armor-trans-50.xpm")));
+#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    button_ruestung = Gtk::manage(new class Gtk::ToolButton(*button_ruestung_img, "Rüstung"));
 #endif //
+   Gtk::Image *button_ausruestung_img = Gtk::manage(new class Gtk::Image(MagusImage("Dice-Ausruest-50.xpm")));
 #if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    
-   Gtk::Image *button_ausruestung_img = Gtk::manage(new class Gtk::Image(MagusImage("Dice-Ausruest-50.xpm")));
    button_ausruestung = Gtk::manage(new class Gtk::ToolButton(*button_ausruestung_img, "Ausrüstung"));
 #endif //
    

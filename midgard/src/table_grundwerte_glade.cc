@@ -29,7 +29,6 @@
 #include <gtkmm/treeview.h>
 #include <gtkmm/eventbox.h>
 #include <gtkmm/table.h>
-#include <gtkmm/toolitem.h>
 #include <gtkmm/radiobutton.h>
 #include <gtkmm/box.h>
 #include <gtkmm/toolbar.h>
@@ -151,8 +150,8 @@ table_grundwerte_glade::table_grundwerte_glade(GlademmData *gmm_data
    
    Gtk::ToolItem *toolitem7 = Gtk::manage(new class Gtk::ToolItem());
 #endif //
-#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    Gtk::Image *button_grundwerte_img = Gtk::manage(new class Gtk::Image(MagusImage("Dice-W100-trans-50.xpm")));
+#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    button_grundwerte = Gtk::manage(new class Gtk::ToolButton(*button_grundwerte_img, "Eigen-\n"
 		"schaften"));
 #endif //
@@ -180,8 +179,8 @@ table_grundwerte_glade::table_grundwerte_glade(GlademmData *gmm_data
 #if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    Gtk::ToolItem *toolitem10 = Gtk::manage(new class Gtk::ToolItem());
 #endif //
-#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    Gtk::Image *button_abg_werte_img = Gtk::manage(new class Gtk::Image(MagusImage("Dices2-trans-50.xpm")));
+#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    button_abg_werte = Gtk::manage(new class Gtk::ToolButton(*button_abg_werte_img, "Abgeleitete\n"
 		"Werte"));
 #endif //
