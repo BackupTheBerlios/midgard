@@ -3,16 +3,15 @@ NEWS IN VERSION 0.3delta3
 
 * kleinere Bugfixes
 * Oberflächenüberarbeitung (steigern: Praxispunkte und Zaubern)
+* XML: Laden beschleunigt (Fertigkeiten/Steigern_wie + Waffen/Schwierigkeit)
 
 TODO:
-* Magische Waffen besitzen (mehrere von einer Sorte)
+* Magische Waffen besitzen (mehrere von einer Sorte) (untersucht Christof)
 * Callbacks für 'steigern Menü'
 * Landeskunde als Berufsfähigkeit für 3 Berufe
   (Karawanenführer, land, v,m
    Kaufmann, stadt,m,a
    Verwalter, land, stadt, m,a,
-* XML: Laden beschleunigen (Fertigkeiten/Steigern_wie + Waffen/Schwierigkeit)
-	cachen
 
 
 ##########################################################################
