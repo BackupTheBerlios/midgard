@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<Midgard-Charakter Version="7">
+  <Figur Name="Gerischnov" Spieler="Christof Petig" Zeitpunkt="Erschaffung" Grad="1"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Sp"/>
+  <Basiseigenschaften St="83" Ge="98" Ko="85" In="57" Zt="36"/>
+  <abgeleiteteEigenschaften Au="21" pA="76" Sb="65" RW="89" HGW="97" B="25" KAW="6" WLW="70"/>
+  <Erfolgswerte Abwehr="13"/>
+  <Resistenzen Zauber="10"/>
+  <Gesundheit LP_Basis="11" LP="14" AP="11"/>
+  <Beschreibung Alter="22" Gestalt="breit" Gewicht="105" Größe="163" Stand="Volk" Herkunft="Moravod" Glaube="schamanistisch"/>
+  <Boni Ausdauer="2" Schaden="3" Angriff="1" Abwehr="2">
+    <Resistenzen phk="2" Gift="5"/>
+  </Boni>
+  <GFP>450</GFP>
+  <Vermögen GS="452"/>
+  <Steigern AEP="40" Basiswerte="0"/>
+  <Ausrüstung>
+    <Rüstung>LR</Rüstung>
+    <Waffe Bezeichnung="Dolch"/>
+    <Waffe Bezeichnung="Kurzschwert"/>
+    <Waffe Bezeichnung="Parierdolch"/>
+    <Waffe Bezeichnung="Wurfmesser"/>
+  </Ausrüstung>
+  <Fertigkeiten>
+    <Beruf Bezeichnung="Einbrecher" Wert="11"/>
+    <Fertigkeit Bezeichnung="Balancieren" Wert="17"/>
+    <Fertigkeit Bezeichnung="Klettern" Wert="17"/>
+    <Fertigkeit Bezeichnung="Schleichen" Wert="6"/>
+    <Fertigkeit Bezeichnung="Schlösser öffnen" Wert="6"/>
+    <Fertigkeit Bezeichnung="Stehlen" Wert="10"/>
+    <Fertigkeit Bezeichnung="(Gassenwissen)" Wert="4"/>
+    <Fertigkeit Bezeichnung="(Fallen entschärfen)" Wert="4"/>
+    <Fertigkeit Bezeichnung="Zeichensprache" Wert="1"/>
+    <Grundkenntnis Bezeichnung="Parierdolch"/>
+    <Grundkenntnis Bezeichnung="Stichwaffe"/>
+    <Grundkenntnis Bezeichnung="Wurfmesser"/>
+    <Region Region="ORIG"/>
+    <Waffe Bezeichnung="Dolch" Wert="7"/>
+    <Waffe Bezeichnung="Kurzschwert" Wert="5"/>
+    <Waffe Bezeichnung="Parierdolch" Wert="1"/>
+    <Waffe Bezeichnung="Wurfmesser" Wert="5"/>
+  </Fertigkeiten>
+</Midgard-Charakter>
