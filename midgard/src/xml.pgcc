@@ -1,4 +1,4 @@
-// $Id: xml.pgcc,v 1.2 2001/04/17 19:39:47 thoma Exp $
+// $Id: xml.pgcc,v 1.3 2001/04/19 11:37:39 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -32,6 +32,15 @@ void fetch_and_write_int(FetchIStream &is,ostream &o,const string &wert,int inde
    if (!val) return;
    for (int i=0;i<indent;++i) o << ' ';
    o << '<' << wert << '>' << val << "</" << wert << ">\n";
+}
+
+void fetch_and_write_int_attrib(FetchIStream &is,ostream &o,const string &wert)
+{  int val;
+   
+   is >> FetchIStream::MapNull<int>(val,0);
+   if (!val) return;
+   for (int i=0;i<indent;++i) o << ' ';
+   o << ' ' << wert << "=\"" << wert << '\"';
 }
 
 void fetch_and_write_string(FetchIStream &is,ostream &o,const string &wert,int indent=0)
