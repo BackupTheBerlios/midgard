@@ -5,6 +5,13 @@ AC_INIT(src/midgard.cc)
 AM_INIT_AUTOMAKE(magus, 0.9.5)
 AC_CONFIG_HEADERS(config.h)
 
+MAGUS_MAJOR_VERSION=`echo $PACKAGE_VERSION | sed -e 's/^\(.*\)\..*\..*$/\1/'`
+MAGUS_MINOR_VERSION=`echo $PACKAGE_VERSION | sed -e 's/^.*\.\(.*\)\..*$/\1/'`
+MAGUS_MICRO_VERSION=`echo $PACKAGE_VERSION | sed -e 's/^.*\..*\.\(.*\)$/\1/'`
+AC_SUBST(MAGUS_MAJOR_VERSION)
+AC_SUBST(MAGUS_MINOR_VERSION)
+AC_SUBST(MAGUS_MICRO_VERSION)
+
 AC_ISC_POSIX
 AC_PROG_CC
 AM_PROG_CC_STDC
@@ -50,4 +57,5 @@ done
 AC_SUBST(COMMONGTK2_ONLY)
 
 AC_OUTPUT(Makefile src/Makefile pixmaps/Makefile \
-	xml/Makefile libmagus/Makefile libmagusicons/Makefile)
+	xml/Makefile libmagus/Makefile libmagusicons/Makefile \
+	src/magus.rc libmagus/libmagus.rc libmagusicons/libmagusicons.rc)

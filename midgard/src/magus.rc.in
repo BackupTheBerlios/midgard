@@ -5,8 +5,8 @@
 IDR_DICE ICON DISCARDABLE "../win32/magus.ico"
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 0,5,0,0
- PRODUCTVERSION 0,5,0,0
+ FILEVERSION @MAGUS_MAJOR_VERSION@,@MAGUS_MINOR_VERSION@,@MAGUS_MICRO_VERSION@,BUILDNUMBER
+ PRODUCTVERSION @MAGUS_MAJOR_VERSION@,@MAGUS_MINOR_VERSION@,@MAGUS_MICRO_VERSION@,0
  FILEFLAGSMASK 0x3fL
  FILEFLAGS 0x0L
  FILEOS 0x4L
@@ -20,14 +20,14 @@ BEGIN
 //            VALUE "Comments", "\0" 
 //            VALUE "CompanyName", "\0"
             VALUE "FileDescription", "Midgard Abenteuer Generieren Und Steigern\0"
-//            VALUE "FileVersion", "0, 6, 0, 0\0"
+            VALUE "FileVersion", "@PACKAGE_VERSION@.BUILDNUMBER\0"
             VALUE "InternalName", "MAGUS\0"
             VALUE "LegalCopyright", "This program is GPL\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "MAGUS.EXE\0"
             VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "Midgard Abenteuer Generieren Und Steigern\0"
-            VALUE "ProductVersion", "0, 6, 0, 0\0"
+            VALUE "ProductVersion", "@PACKAGE_VERSION@\0"
             VALUE "SpecialBuild", "\0"
         END
     END
