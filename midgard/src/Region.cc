@@ -39,7 +39,7 @@ Glib::RefPtr<Gdk::Pixbuf> RegionenPic::PicModel(epic typ,Midgard_Optionen::IconI
    else if (typ==Abenteuer)  name="Abwehr-50.xpm";
 
    Glib::RefPtr<Gdk::Pixbuf> res=MagusImage(name);
-   if (tiny && ii!=Midgard_Optionen::Ulf)
+   if (tiny && ii!=Midgard_Optionen::Ulf && !res.is_null())
       res=res->scale_simple(int(res->get_width()*26.0/res->get_height()+.5),
       				26,Gdk::INTERP_BILINEAR);
    return res;
