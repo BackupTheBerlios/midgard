@@ -21,6 +21,7 @@ NEWS IN VERSION 0.7delta2
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
 * Spielleiterbogen: Waffen/Abwehr/Zaubern
 * Neue Sprachen mit PP auf +7/+9 lernen
+* Beim Laden werden gespeicherte Abenteurer ohne Namen aus der Liste entfernt
 
 TODO:
 * Voraussetzungen anzeigen aber nicht lernbar

@@ -73,8 +73,6 @@ void midgard_CG::xml_import(const std::string& datei)
    notebook_main->set_page(PAGE_GRUNDWERTE);
    Char.safed();
    Char.delete_empty();
-cout << "After="<<Char.getCWerte().Name_Abenteurer()<<' '
-<<Char.getCWerte().St()<<' '<<Char.CTyp1()->Typl()<<'\n';
    push_back_LDateien(datei);
 }
 

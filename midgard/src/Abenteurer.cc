@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.19 2002/06/19 10:23:50 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.20 2002/06/19 15:03:56 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -131,15 +131,13 @@ void VAbenteurer::delete_empty()
 { 
  reloop:
    ai=--VA.end(); 
-cout << "ASize="<<VA.size()<<"\tName = "<<getCWerte().Name_Abenteurer()<<'\n';
    for(std::list<st_abenteurer>::iterator i=VA.begin();i!=VA.end();++i)
     { const Grundwerte &W=i->abenteurer.getCWerte(); 
       if(i->gespeichert && W.Name_Abenteurer().empty())
-        { VA.remove(*i); 
+        { VA.erase(i); 
           goto reloop;
         } 
     }
-cout << "ASize="<<VA.size()<<"\tName = "<<getCWerte().Name_Abenteurer()<<'\n';
 }
 
 
