@@ -69,6 +69,8 @@ class Zufall
 
       void setMuttersprache(); 
       void setWaffenBesitz();
+      void setSpezialwaffe();
+      void setSpezailgebiet();
 
       // Lernschema
       struct st_LL{std::list<MidgardBasicElement_mutable> Fach;
