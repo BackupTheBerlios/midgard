@@ -132,20 +132,15 @@ cH_PreiseNewMod::cH_PreiseNewMod(const std::string& name, bool create)
 void PreiseNewMod::getPNM()
 {
   name=tag->getAttr("Name");
-cout << "getNewPNM: "<<name<<'\n';
   FOR_EACH_CONST_TAG_OF(i,*tag,"Variante")
-{
+   {
     std::string variante=i->getAttr("Name");
-cout << "\tVarante: "<<i->getAttr("Name")<<'\n';
      FOR_EACH_CONST_TAG_OF(j,*i,variante)
-{
-cout << i->getAttr("Name")<<'\t'<<j->getAttr("Spezifikation")
-<<'  '<<j->getFloatAttr("PreisFaktor")<<'\n';
-
+      {
        VS[variante].push_back(st_preismod(j->getAttr("Spezifikation"),
                                  j->getFloatAttr("PreisFaktor")));
-}
-}
+      }
+   }
 }
 
 PreiseNewMod_All::PreiseNewMod_All()

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.269 2002/10/15 06:37:10 thoma Exp $
+// $Id: midgard_CG.cc,v 1.270 2002/10/16 08:09:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -175,6 +175,8 @@ void midgard_CG::fill_IconVec()
   // Beschreibung
   IconVec.push_back(st_buttons(table_beschreibung->button_grafik,iBildeinfuegen));
   IconVec.push_back(st_buttons(table_beschreibung->button_beschreibung_drucken,iPrint));
+  // Ausrüstung
+  IconVec.push_back(st_buttons(table_ausruestung->button_ausruestung_loeschen,iDeleteA));
 
   IconVec.push_back(st_buttons(togglebutton_delete_abenteurer_aus_liste,iDeleteA));
   //////////////////////////////////////////////////////////////////////////

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen_icons.cc,v 1.14 2002/10/15 06:37:10 thoma Exp $
+// $Id: midgard_CG_optionen_icons.cc,v 1.15 2002/10/16 08:09:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -66,12 +66,8 @@ void midgard_CG::Box_setzen(Gtk::Widget *child,st_icons I)
 
 void midgard_CG::Bin_setzen(Gtk::Widget *child,st_icons I)
 {
-  if(child && Gtk::EventBox::isA(child)) 
-   {
-     Gtk::Widget *w=dynamic_cast<Gtk::Bin*>(child)->get_child();
-     if(Gtk::Pixmap::isA(w)) 
-         dynamic_cast<Gtk::Pixmap*>(w)->set(I.icon);
-   }
+  if(child && Gtk::Pixmap::isA(child))
+     dynamic_cast<Gtk::Pixmap*>(child)->set(I.icon);
 }
 
 

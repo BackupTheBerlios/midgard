@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.15 2002/09/21 20:03:52 thoma Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.16 2002/10/16 08:09:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -158,7 +158,7 @@ int table_grundwerte::wuerfeln_best_of_two()
 
 void table_grundwerte::gw_variante_2()
 {
-  
+  frame_wuerfelvariante->remove();  
   Gtk::Table *tab = manage(new class Gtk::Table(3, 6, false));
   Gtk::Label *lab = manage(new class Gtk::Label("6x gewürfelt, jetzt die Werte zuordnen."));  
   tab->attach(*lab, 0, int(eMAX), 0, 1, GTK_FILL, 0, 0, 0);
@@ -170,7 +170,7 @@ void table_grundwerte::gw_variante_2()
      b->clicked.connect(SigC::bind(SigC::slot(static_cast<class table_grundwerte*>(this), &table_grundwerte::on_button_variante_2_clicked),b,i->eigenschaft));
      ++count;     
    }
-  if(label) delete label;
+//  if(label) delete label;
   label = manage(new class Gtk::Label("XXX"));  
   tab->attach(*label, 0, int(eMAX), 1, 2, GTK_FILL, 0, 0, 0);
   frame_wuerfelvariante->add(*tab);
@@ -206,6 +206,7 @@ void table_grundwerte::gw_variante_2_next()
 
 void table_grundwerte::gw_variante_3()
 {
+  frame_wuerfelvariante->remove();  
   std::vector<int> V;
   for(int i=0;i<9;++i) V.push_back(hauptfenster->random.integer(1,100)) ;
   sort(V.rbegin(),V.rend());
@@ -222,7 +223,7 @@ void table_grundwerte::gw_variante_3()
      if(count>5) b->set_sensitive(false);
      ++count;     
    }
-  if(label) delete label;
+//  if(label) delete label;
   label = manage(new class Gtk::Label("XXX"));  
   tab->attach(*label, 0, 9, 1, 2, GTK_FILL, 0, 0, 0);
   frame_wuerfelvariante->add(*tab);

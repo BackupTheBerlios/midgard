@@ -2,6 +2,8 @@
 NEWS IN VERSION 0.8.8
 
 * KI berücksichtigt Grund-, Standard und Ausnahmefähigkeiten.
+* Icons werden jetzt auch in der Statusleiste umgeschaltet
+* Kein Absturz mehr bei Würfelvarianten 'best of nine' und 'Zuweisen'
 
 TODO: ('-' zeigt CP an)
 
