@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.35 2001/12/06 08:32:23 christof Exp $
+# $Id: Makefile,v 1.36 2001/12/12 11:49:24 christof Exp $
 INSTALLED_TABLES=$(shell psql -t -q -c "select tablename from pg_tables where \
 		tablename not like 'pg_%' and tablename not like 'pga_%';" midgard)
 SYSTEM_TABLES=angeborene_fertigkeiten zauber ausnahmen \
@@ -20,6 +20,7 @@ VERSION=0.8beta2
 PACKAGE=midgard-postgres
 DIST_FILES=Makefile $(TABLES)
 
+#hier muss noch -T rein ...
 PGDUMP_FLAGS=-c -O -R
 
 all:
@@ -37,7 +38,7 @@ fulldump:
 	@for i in $(INSTALLED_TABLES) ; \
 	do \
 	  echo "dumping $$i with data" ; \
-	  pg_dump $(PGDUMP_FLAGS) -t "$$i" midgard >"$$i" ; \
+	  pg_dump $(PGDUMP_FLAGS) -t "$$i" midgard | ./drop_all_varying >"$$i" ; \
 	done
 
 # extract tables for dist or cvs (user tables without data)
@@ -45,7 +46,7 @@ dump: fulldump
 	@for i in $(USER_TABLES) ; \
 	do \
 	  echo "dumping empty $$i schema" ; \
-	  pg_dump $(PGDUMP_FLAGS) -s -t "$$i" midgard >"$$i" ; \
+	  pg_dump $(PGDUMP_FLAGS) -s -t "$$i" midgard | ./drop_all_varying >"$$i" ; \
 	done
 
 # make distribution tar archive
@@ -91,11 +92,11 @@ clean:
 diff:
 	@for i in $(SYSTEM_TABLES) ; \
 	do \
-	  pg_dump $(PGDUMP_FLAGS) -t "$$i" midgard | \
+	  pg_dump $(PGDUMP_FLAGS) -t "$$i" midgard | ./drop_all_varying | \
 		diff -B -I '--.*' -u - "$$i" ; \
 	done ; true
 	@for i in $(USER_TABLES) ; \
 	do \
-	  pg_dump $(PGDUMP_FLAGS) -s -t "$$i" midgard | \
+	  pg_dump $(PGDUMP_FLAGS) -s -t "$$i" midgard | ./drop_all_varying | \
 		diff -B -I '-- .*' -u - "$$i" ; \
 	done ; true
