@@ -9,12 +9,13 @@ NEWS IN VERSION 0.6delta2
 * Nahuatlan: Zauber, Netzmagie, Tricksermagie, Tempeltänze
 * KanThaiPan: Zaubertänze
 * Waffenauswahl bei Charaktererschaffung überarbeiten (würfeln)
-
+* Waffenauswahl bei Charaktererschaffung überarbeiten (selbst eingeben)
+* Nr. bei Gildenbrief und Name bei Abenteurern hinzugefügt (für Ergänzungen)
 
 TODO:
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
-* Waffenauswahl bei Charaktererschaffung überarbeiten (selbst eingeben)
 * Nahuathlan: Fertigkeiten, Typen
+* Mag. Waffe bei Spielbeginn
 * Destruktor wird nicht aufgerufen
 * gv zeigt den falschen Ausschnitt des pdf Dokumentes 
    (nur für Linux interessant)

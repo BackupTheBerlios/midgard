@@ -62,6 +62,7 @@ void Zauber::get_Zauber()
     stufe=tag->getAttr("Grad");
     spruchrolle=tag->getBoolAttr("Spruchrolle");
     region=tag->getAttr("Region");
+    region_zusatz=tag->getAttr("Region Zusatz");
     zauberart=tag->getAttr("Zauberart");
     element=tag->getAttr("Element");
     ap=tag->getAttr("AP");;

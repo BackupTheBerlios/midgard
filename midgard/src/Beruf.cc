@@ -53,6 +53,7 @@ void Beruf::get_Beruf()
    if (!Voraussetzungen) Voraussetzungen=tag; // might as well be empty
    const Tag *Stand=tag->find("Stand");
      region=tag->getAttr("Region");
+     region_zusatz=tag->getAttr("Region Zusatz");
      geschlecht=Voraussetzungen->getAttr("Geschlecht");
      if (!Stand) u=v=m=a=true;
      else

@@ -62,6 +62,7 @@ void Fertigkeit::get_Fertigkeit()
   erfolgswert=anfangswert; //Defaultwert
   kosten=tag->getIntAttr("Lernkosten");
   region=tag->getAttr("Region");
+  region_zusatz=tag->getAttr("Region Zusatz");
   attribut=tag->getAttr("Attribut");
   maxunterweisung=tag->getIntAttr("MaximalMitUnterweisung");
   enum_zusatz=eZusatz(tag->getIntAttr("Zusätze",ZNone));

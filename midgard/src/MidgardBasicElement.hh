@@ -57,7 +57,7 @@ class MidgardBasicElement : public HandleContent
                     ZSprache=5,ZSchrift=6};
    protected:
 	const Tag *tag;
-      std::string name, region;
+      std::string name, region,region_zusatz;
       int kosten;
       int mutable praxispunkte,erfolgswert,lernpunkte;
       eZusatz enum_zusatz;
@@ -105,6 +105,7 @@ class MidgardBasicElement : public HandleContent
       void EP_steigern(const std::string fert);
       virtual std::string Name() const {return name;}
       std::string Region() const {return region;}
+      std::string RegionZusatz() const {return region_zusatz;}
       std::string RegionString(const Datenbank &D) const;
       int Lernpunkte() const {return lernpunkte;};
       void setLernpunkte(int l) const {lernpunkte=l;}

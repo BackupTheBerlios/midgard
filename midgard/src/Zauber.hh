@@ -1,4 +1,4 @@
-// $Id: Zauber.hh,v 1.37 2002/03/04 08:08:36 thoma Exp $               
+// $Id: Zauber.hh,v 1.38 2002/05/02 13:01:34 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,7 +31,7 @@ class Zauber : public MidgardBasicElement
    std::string  art, stufe, zauberdauer, reichweite,
       wirkungsziel, wirkungsbereich, wirkungsdauer, ursprung,
       material, agens, prozess, reagens, beschreibung,
-      zauberart,element;//,region; 
+      zauberart,element; 
    bool spruchrolle;
    mutable double spruchrolle_faktor;
 

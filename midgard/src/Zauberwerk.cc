@@ -59,6 +59,7 @@ void Zauberwerk::get_Zauberwerk()
    zeitaufwand=tag->getAttr("Zeitaufwand");
    preis=tag->getAttr("Geldaufwand");
    region=tag->getAttr("Region");
+   region_zusatz=tag->getAttr("Region Zusatz");
 
     FOR_EACH_CONST_TAG_OF(i,*tag,"regionaleBesonderheit")
          VAusnahmen.push_back(st_ausnahmen(i->getAttr("Herkunft"),

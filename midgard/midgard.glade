@@ -6801,19 +6801,7 @@ editieren</label>
 			  </widget>
 
 			  <widget>
-			    <class>GtkPixmap</class>
-			    <name>pixmap117</name>
-			    <filename>Fert_Laufen-32.xpm</filename>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			    <build_insensitive>True</build_insensitive>
-			    <child>
-			      <padding>0</padding>
-			      <expand>True</expand>
-			      <fill>True</fill>
-			    </child>
+			    <class>Placeholder</class>
 			  </widget>
 			</widget>
 		      </widget>
@@ -7186,19 +7174,7 @@ editieren</label>
 			  <spacing>0</spacing>
 
 			  <widget>
-			    <class>GtkPixmap</class>
-			    <name>pixmap94</name>
-			    <filename>Skills-trans-50.xpm</filename>
-			    <xalign>0.5</xalign>
-			    <yalign>0.5</yalign>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			    <build_insensitive>True</build_insensitive>
-			    <child>
-			      <padding>0</padding>
-			      <expand>True</expand>
-			      <fill>True</fill>
-			    </child>
+			    <class>Placeholder</class>
 			  </widget>
 
 			  <widget>
@@ -8129,11 +8105,88 @@ Beruf eingeben</label>
 		  </widget>
 
 		  <widget>
+		    <class>GtkTable</class>
+		    <name>table_waffen_lernschema_eingabe</name>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <visible>False</visible>
+		    <rows>2</rows>
+		    <columns>1</columns>
+		    <homogeneous>False</homogeneous>
+		    <row_spacing>0</row_spacing>
+		    <column_spacing>0</column_spacing>
+
+		    <widget>
+		      <class>GtkLabel</class>
+		      <name>label580</name>
+		      <label>%Wurf
+eingeben</label>
+		      <justify>GTK_JUSTIFY_CENTER</justify>
+		      <wrap>False</wrap>
+		      <xalign>0</xalign>
+		      <yalign>0.5</yalign>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <child>
+			<left_attach>0</left_attach>
+			<right_attach>1</right_attach>
+			<top_attach>0</top_attach>
+			<bottom_attach>1</bottom_attach>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<xexpand>False</xexpand>
+			<yexpand>False</yexpand>
+			<xshrink>False</xshrink>
+			<yshrink>False</yshrink>
+			<xfill>True</xfill>
+			<yfill>False</yfill>
+		      </child>
+		    </widget>
+
+		    <widget>
+		      <class>GtkSpinButton</class>
+		      <name>spinbutton_waffen_lernschema</name>
+		      <cxx_visibility>protected</cxx_visibility>
+		      <can_focus>True</can_focus>
+		      <signal>
+			<name>activate</name>
+			<handler>on_spinbutton_waffen_lernschema_activate</handler>
+			<last_modification_time>Thu, 02 May 2002 10:48:35 GMT</last_modification_time>
+		      </signal>
+		      <climb_rate>1</climb_rate>
+		      <digits>0</digits>
+		      <numeric>False</numeric>
+		      <update_policy>GTK_UPDATE_ALWAYS</update_policy>
+		      <snap>False</snap>
+		      <wrap>False</wrap>
+		      <value>1</value>
+		      <lower>0</lower>
+		      <upper>100</upper>
+		      <step>1</step>
+		      <page>10</page>
+		      <page_size>10</page_size>
+		      <child>
+			<left_attach>0</left_attach>
+			<right_attach>1</right_attach>
+			<top_attach>1</top_attach>
+			<bottom_attach>2</bottom_attach>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<xexpand>True</xexpand>
+			<yexpand>False</yexpand>
+			<xshrink>False</xshrink>
+			<yshrink>False</yshrink>
+			<xfill>True</xfill>
+			<yfill>False</yfill>
+		      </child>
+		    </widget>
+		  </widget>
+
+		  <widget>
 		    <class>GtkButton</class>
 		    <child_name>Toolbar:button</child_name>
 		    <name>button_ruestung</name>
 		    <cxx_visibility>protected</cxx_visibility>
-		    <tooltip>Linke Maustaste: Rüstung würfeln             Rechte Maustaste: Rüstung aussuchen</tooltip>
+		    <tooltip>Linke Maustaste: Rüstung würfeln                                 Rechte Maustaste: Rüstung aussuchen</tooltip>
 		    <signal>
 		      <name>button_release_event</name>
 		      <handler>on_button_ruestung_button_release_event</handler>
