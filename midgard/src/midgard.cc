@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.54 2002/12/11 18:18:50 christof Exp $
+// $Id: midgard.cc,v 1.55 2003/07/15 06:12:00 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -28,89 +28,17 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include "Windows_Linux.hh"
+#include "Magus_Optionen.hh"
 
 //#include <locale>
 
 int main(int argc, char **argv)
 {   
-   std::string magus_verzeichnis,argv0=argv[0];
-
-#ifdef __MINGW32__ // gtkrc als Standard Ressourcen Datei
-  char buf[1024];
-  reg_key r1(HKEY_CURRENT_USER, KEY_READ, "Software", "Microsoft", "Windows",
-  	"CurrentVersion", "Explorer", "User Shell Folders", NULL); // "AppData");?
-  if (r1.get_string("Personal", buf, sizeof buf, "")==ERROR_SUCCESS) 
-  {  magus_verzeichnis=buf;
-     std::cout << magus_verzeichnis << " from HKEY_CURRENT_USER\n";
-  }
-  else
-  {  reg_key r2(HKEY_USERS, KEY_READ, ".Default", "Software", "Microsoft", "Windows",
-  	"CurrentVersion", "Explorer", "User Shell Folders", NULL);
-     if (r2.get_string("Personal", buf, sizeof buf, "")==ERROR_SUCCESS) 
-     {	magus_verzeichnis=buf;
-        std::cout << magus_verzeichnis << " from HKEY_USERS\n";
-     }
-     else
-     {  reg_key r3(HKEY_LOCAL_MACHINE, KEY_READ, "Software", "Microsoft", "Windows",
-     		"CurrentVersion", "Explorer", "User Shell Folders", NULL);
-        if (r3.get_string("Personal", buf, sizeof buf, "")==ERROR_SUCCESS) 
-        {  magus_verzeichnis=buf;
-           std::cout << magus_verzeichnis << " from HKEY_LOCAL_MACHINE\n";
-        }
-
-        // %USERPROFILE%\Anwendungsdaten\Magus ???
-        else 
-        {  magus_verzeichnis="C:\\Eigene Dateien";
-           std::cout << magus_verzeichnis << " by hand\n";
-        }
-     }
-  }
-  magus_verzeichnis+="\\Magus";
-  std::cout << "magus_verzeichnis: " << magus_verzeichnis << '\n';
-
-#else
-   magus_verzeichnis=std::string(getenv("HOME"))+"/.magus";
-#endif
-
-   if(access(magus_verzeichnis.c_str(),R_OK)) 
-      if(mkdir(magus_verzeichnis.c_str() NUR_LINUX(,0777) ))
-      { 
-#ifndef __MINGW32__      
-         std::cerr << "Homeverzeichnis nicht schreibbar\n"; exit(1);
-#else
-	 // eigentlich ist es krank den ganzen Baum zu erzeugen, 
-	 // aber wir haben keine Wahl außer aufgeben
-	 for (std::string::size_type i=magus_verzeichnis.find(WinLux::dirsep);
-	 	i!=std::string::npos;i=magus_verzeichnis.find(WinLux::dirsep,i+1))
-	 {  if (i && access(magus_verzeichnis.substr(0,i).c_str(),R_OK))
-	    {  if (mkdir(magus_verzeichnis.substr(0,i).c_str()))
-	       {  magus_verzeichnis="C:"; // last ressort
-	          break;
-	       }
-	    }
-	 }
-	 mkdir(magus_verzeichnis.c_str() NUR_LINUX(,0777));
-#endif         
-      }
-   magus_verzeichnis+=WinLux::dirsep;
-
-   // normalize argv0 (prepend current dir if relative)
-   if (argv0[0]!=WinLux::dirsep 
-#ifdef __MINGW32__
-			&& argv0.find(':')==std::string::npos
-#endif
-								)
-   {  char buf[10240];
-      *buf=0;
-      getcwd(buf,sizeof buf);
-      std::cout << "cwd: " << buf << '\n';
-      argv0=buf+std::string(1,WinLux::dirsep)+argv0;
-      std::cout << "argv0: " << argv0 << '\n';
-   }
+   magus_paths::init(argv[0],"");
 
 #ifdef __MINGW32__ // gtkrc als Standard Ressourcen Datei
    std::string gtkrc="Gtk::RC_FILES="
-   	+magus_paths(argv0,magus_verzeichnis).with_path("gtkrc");
+   	+magus_paths::with_path("gtkrc");
    std::cout << gtkrc << '\n';
    putenv(gtkrc.c_str());
 #endif
@@ -121,12 +49,10 @@ int main(int argc, char **argv)
    if (argc==2) datei=argv[1];
 
 //   setlocale(LC_ALL, "de_DE");
-   midgard_CG *magus=new midgard_CG(argv0,magus_verzeichnis,datei);
-   m.run();
+   Magus_Optionen magus_optionen;
+   magus_optionen.load_options(magus_paths::with_path("magus_optionen.xml",false,true));
+   midgard_CG *magus=new midgard_CG(datei,magus_optionen);
+   m.run(*magus);
    delete magus;
-      
-   xml_free();
    return 0;
 }
-
-

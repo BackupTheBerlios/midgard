@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.cc,v 1.1 2003/07/11 22:47:25 christof Exp $
+// $Id: Magus_Optionen.cc,v 1.2 2003/07/15 06:12:00 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,6 +24,10 @@
 #  include "registry.h"
 #endif
 #include "Windows_Linux.hh"
+#include <cassert>
+#include <Ausgabe.hh>
+#include <magus_paths.h>
+#include <libmagusicons/magusicons.h>
 
 #ifdef __MINGW32__
 static std::string CommandByExtension(const std::string &ext)
@@ -48,11 +52,9 @@ std::cout << "Found "<<ext<<" Viewer @" << path << '\n';
 }
 #endif
 
-Magus_Optionen::Magus_Optionen(midgard_CG* h)
-:hauptfenster(h)
+Magus_Optionen::Magus_Optionen()
 {
    Optionen_init();
-   Hausregeln_init();
    Ober_init();
    Icon_init();
    Strings_init();
@@ -97,14 +99,6 @@ Magus_Optionen::st_OptionenCheck &Magus_Optionen::OptionenCheck(OptionenCheckInd
  abort();
 }
 
-Magus_Optionen::st_Haus &Magus_Optionen::HausregelCheck(HausIndex hi) 
-{
- for(std::list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
-   if(i->index==hi) return *i;
- assert(!"HausregelCheck: nicht gefunden");
- abort();
-}
-
 Magus_Optionen::st_Ober &Magus_Optionen::OberCheck(OberIndex hi) 
 {
  for(std::list<st_Ober>::iterator i=list_Ober.begin();i!=list_Ober.end();++i)
@@ -146,7 +140,7 @@ void Magus_Optionen::setOptionCheck(std::string os,bool b,int wert)
        OptionenCheck_setzen_from_menu(i->index);
        return; 
      }
- std::cerr << "Option "<<os<<" unbekannt\n";
+ Ausgabe(Ausgabe::Warning,"Option "+os+" unbekannt");
 }
 
 void Magus_Optionen::setString(std::string os,std::string b)
@@ -156,21 +150,9 @@ void Magus_Optionen::setString(std::string os,std::string b)
      { i->name=b;
        return; 
      }
- std::cerr << "Option "<<os<<" unbekannt\n";
+ Ausgabe(Ausgabe::Warning,"Option "+os+" unbekannt");
 }
  
-void Magus_Optionen::setHausregeln(std::string hs,bool b)
-{
-  for(std::list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
-    if(i->text==hs)  
-      { 
-        i->active=b;
-        Hausregeln_setzen_from_menu(i->index);
-        return;
-      }
- std::cerr << "Option "<<hs<<" unbekannt\n";
-}
-
 void Magus_Optionen::setOber(std::string hs,bool b)
 {
   for(std::list<st_Ober>::iterator i=list_Ober.begin();i!=list_Ober.end();++i)
@@ -183,7 +165,7 @@ void Magus_Optionen::setOber(std::string hs,bool b)
         return;
       }
    }
- std::cerr << "Option "<<hs<<" unbekannt\n";
+ Ausgabe(Ausgabe::Warning,"Option "+hs+" unbekannt");
 }
 
 void Magus_Optionen::setIcon(std::string hs,bool b)
@@ -197,7 +179,7 @@ void Magus_Optionen::setIcon(std::string hs,bool b)
         return;
       }
    }
- std::cerr << "Option "<<hs<<" unbekannt\n";
+ Ausgabe(Ausgabe::Warning,"Option "+hs+" unbekannt");
 }
 
 void Magus_Optionen::setpdfViewer(std::string is,bool b)
@@ -209,7 +191,7 @@ void Magus_Optionen::setpdfViewer(std::string is,bool b)
    }
 }
 
-
+#if 0
 void Magus_Optionen::OptionenCheck_setzen_from_menu(OptionenCheckIndex index)
 {
 //  if(!hauptfenster->fire_enabled) return;
@@ -313,24 +295,21 @@ void Magus_Optionen::pdfViewer_setzen_from_menu(pdfViewerIndex index)
      if(i->index==index) i->active = true  ;
      else                i->active = false ;
    }
-}   
+}
+#endif
 
 void Magus_Optionen::Optionen_init()
 {
   list_OptionenCheck.push_back(st_OptionenCheck(Notebook_start, 
-                           "MAGUS mit bestimmter Seite starten",false,
-                           Glib::RefPtr<Gdk::Pixbuf>(),1));
+                           "MAGUS mit bestimmter Seite starten",false,1));
 
   list_OptionenCheck.push_back(st_OptionenCheck(Wizard_immer_starten, 
-                           "Wizard bei jedem Programmstart starten",true,
-                           Glib::RefPtr<Gdk::Pixbuf>()));
+                           "Wizard bei jedem Programmstart starten",true));
 
 
-  list_OptionenExecute.push_back(st_OptionenExecute(show_InfoWindow,"Info Fenster zeigen",
-  			Glib::RefPtr<Gdk::Pixbuf>()));
+  list_OptionenExecute.push_back(st_OptionenExecute(show_InfoWindow,"Info Fenster zeigen"));
   list_OptionenExecute.push_back(st_OptionenExecute(LernschemaSensitive,
-                           "Lernschema/Steigern auswählbar machen",
-                           Glib::RefPtr<Gdk::Pixbuf>()));
+                           "Lernschema/Steigern auswählbar machen"));
 }
 
 
@@ -341,7 +320,7 @@ void Magus_Optionen::Strings_init()
   list_Strings.push_back(st_strings(pdf_viewer,"PDF Viewer",""));
   list_Strings.push_back(st_strings(html_viewer,"HTML Viewer","mozilla"));
   list_Strings.push_back(st_strings(tmppfad,"TEMP-Pfad","/tmp/"));
-  list_Strings.push_back(st_strings(speicherpfad,"Speicherverzeichnis",hauptfenster->MagusVerzeichnis()));
+  list_Strings.push_back(st_strings(speicherpfad,"Speicherverzeichnis",magus_paths::MagusVerzeichnis()));
 #else
   list_Strings.push_back(st_strings(pdf_viewer,"PDF Viewer",CommandByExtension(".pdf")));
   list_Strings.push_back(st_strings(html_viewer,"HTML Viewer",CommandByExtension(".htm")));
@@ -352,7 +331,7 @@ void Magus_Optionen::Strings_init()
   list_Strings.push_back(st_strings(tmppfad,"TEMP-Pfad",std::string(tmp)+WinLux::dirsep));
   
   // %USERPROFILE%\Anwendungsdaten\Magus ???
-  list_Strings.push_back(st_strings(speicherpfad,"Speicherverzeichnis",hauptfenster->MagusVerzeichnis()));
+  list_Strings.push_back(st_strings(speicherpfad,"Speicherverzeichnis",magus_paths::MagusVerzeichnis()));
 #endif
 }
 
@@ -411,22 +390,23 @@ void Magus_Optionen::Icon_init()
 void Magus_Optionen::load_options(const std::string &filename)
 {try {
   std::ifstream f(filename.c_str());
-  if (!f.good()) std::cout << "Cannot open " << filename << '\n';
+  if (!f.good()) 
+  { Ausgabe(Ausgabe::Error,"Cannot open "+filename);
+    return ;
+  }
   TagStream ts(f);
-  // we should use ts.getContent once compatibility is not needed !
-  const Tag *data=ts.find("MAGUS-optionen"); // compat
-  if (!data) data=ts.find("MAGUS-data");
-  if(!data)    
-    { std::cout << "Optionen konnten nicht geladen werden";
+  const Tag *data=&ts.getContent();
+  if(data->Type()!="MAGUS-data")
+    { Ausgabe(Ausgabe::Error,"Optionen: falscher Tag "+data->Type());
       ts.debug();
       return;
     }
   const Tag *options=data->find("Optionen");
   if (!options) options=data; // compat
   FOR_EACH_CONST_TAG_OF(i,*options,"Optionen") // compat
-     setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"),i->getIntAttr("Page",hauptfenster->NOPAGE));
+     setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"),i->getIntAttr("Page",NOPAGE));
   FOR_EACH_CONST_TAG_OF(i,*options,"Option")
-     setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"),i->getIntAttr("Page",hauptfenster->NOPAGE));
+     setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"),i->getIntAttr("Page",NOPAGE));
   FOR_EACH_CONST_TAG_OF(i,*options,"Ansicht")
      setOber(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*options,"Icon")
@@ -435,8 +415,6 @@ void Magus_Optionen::load_options(const std::string &filename)
   else if (IconCheck(Magus_Optionen::Ulf).active) MagusIcons::set_icon_style(MagusIcons::Ulf);
   else if (IconCheck(Magus_Optionen::Gtk2).active) MagusIcons::set_icon_style(MagusIcons::Gtk);
   else MagusIcons::set_icon_style(MagusIcons::Any);
-  FOR_EACH_CONST_TAG_OF(i,*options,"Hausregel")
-     setHausregeln(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*options,"pdfViewer")
      setpdfViewer(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*options,"Einstellungen")
@@ -446,12 +424,6 @@ void Magus_Optionen::load_options(const std::string &filename)
   if (!data2) data2=data->find("Fenster");
   if(data2)
    {
-     FOR_EACH_CONST_TAG_OF(i,*data2,"Position")
-        hauptfenster->setWindowPosition(i->getIntAttr("X"),i->getIntAttr("Y"));
-     FOR_EACH_CONST_TAG_OF(i,*data2,"Groesse") // compat
-        hauptfenster->setWindowSize(i->getIntAttr("Width"),i->getIntAttr("Height"));
-     FOR_EACH_CONST_TAG_OF(i,*data2,"Größe")
-        hauptfenster->setWindowSize(i->getIntAttr("Breite"),i->getIntAttr("Höhe"));
      FOR_EACH_CONST_TAG_OF(i,*data2,"WindowPositions")
        {
          std::string name=i->getAttr("Name");
@@ -459,18 +431,7 @@ void Magus_Optionen::load_options(const std::string &filename)
          int y=i->getIntAttr("Y");
          int breite=i->getIntAttr("Breite");
          int hoehe=i->getIntAttr("Höhe");
-         Gtk::HandleBox *HB;
-         if     (name=="handlebox_steigern_1")
-            HB=hauptfenster->table_steigern->handlebox_steigern_1;
-         else if(name=="handlebox_steigern_2")
-            HB=hauptfenster->table_steigern->handlebox_steigern_2;
-         else if(name=="handlebox_steigern_3")
-            HB=hauptfenster->table_steigern->handlebox_steigern_3;
-         else if(name=="handlebox_steigern_4")
-            HB=hauptfenster->table_steigern->handlebox_steigern_4;
-         else continue;
-std::cout << "SETZEN: "<<name<<' '<<x<<' '<<y<<"\n\n\n\n";
-         detachHB(*HB,x,y,breite,hoehe);
+         setWindowPosition(name,x,y,breite,hoehe);
        }
    }
 
@@ -481,10 +442,12 @@ std::cout << "SETZEN: "<<name<<' '<<x<<' '<<y<<"\n\n\n\n";
      FOR_EACH_CONST_TAG_OF(i,*data3,"DateiHistory")
        setDateiHistory(i->getIntAttr("Anzahl"));
      FOR_EACH_CONST_TAG_OF(i,*data3,"Datei")
-       hauptfenster->push_back_LDateien(i->getAttr("Name"));
+       LDateien.push_back(i->getAttr("Name"));
    }
 //  hauptfenster->menu_init();
- } catch (std::exception &e) { std::cerr << e.what() << '\n'; }
+ } catch (std::exception &e) 
+ {  Ausgabe(Ausgabe::Error,"Optionen konnten nicht geladen werden: "+ std::string(e.what()));
+ }
 }
 
                                                    
@@ -502,45 +465,21 @@ void Magus_Optionen::save_options(const std::string &filename)
  Tag &data=ts.push_back(Tag("MAGUS-data"));
  Tag &hist=data.push_back(Tag("History"));
  hist.push_back(Tag("DateiHistory")).setIntAttr("Anzahl",DateiHistory());
- for(std::list<std::string>::const_iterator i=hauptfenster->LDateien.begin();i!=hauptfenster->LDateien.end();++i)
+ for(std::list<std::string>::const_iterator i=LDateien.begin();i!=LDateien.end();++i)
   { hist.push_back(Tag("Datei")).setAttr("Name",*i);
   }
 
  if(OberCheck(SaveFenster).active)
   { Tag &fenstert=data.push_back(Tag("Fenster"));
-    gint width,height,x,y;
-    Glib::RefPtr<Gdk::Window> fenster=hauptfenster->get_window();
-    fenster->get_size(width,height);
-    fenster->get_position(x,y);
-    Tag &groesse=fenstert.push_back(Tag("Größe"));
-    groesse.setIntAttr("Breite",width);
-    groesse.setIntAttr("Höhe",height);
-    Tag &position=fenstert.push_back(Tag("Position"));
-    position.setIntAttr("X", x);
-    position.setIntAttr("Y", y);
 
-    // Handle-Windows
-    std::vector<std::pair<std::string,Glib::RefPtr<Gdk::Window> > > VW;
-    VW.push_back(std::pair<std::string,Glib::RefPtr<Gdk::Window> >("main",hauptfenster->get_window()));
-    if(hauptfenster->table_steigern->handlebox_steigern_1->is_float_window_mapped())
-       VW.push_back(std::pair<std::string,Glib::RefPtr<Gdk::Window> >("handlebox_steigern_1",hauptfenster->table_steigern->handlebox_steigern_1->get_float_window()));
-    if(hauptfenster->table_steigern->handlebox_steigern_2->is_float_window_mapped())
-       VW.push_back(std::pair<std::string,Glib::RefPtr<Gdk::Window> >("handlebox_steigern_2",hauptfenster->table_steigern->handlebox_steigern_2->get_float_window()));
-    if(hauptfenster->table_steigern->handlebox_steigern_3->is_float_window_mapped())
-       VW.push_back(std::pair<std::string,Glib::RefPtr<Gdk::Window> >("handlebox_steigern_3",hauptfenster->table_steigern->handlebox_steigern_3->get_float_window()));
-    if(hauptfenster->table_steigern->handlebox_steigern_4->is_float_window_mapped())
-       VW.push_back(std::pair<std::string,Glib::RefPtr<Gdk::Window> >("handlebox_steigern_4",hauptfenster->table_steigern->handlebox_steigern_4->get_float_window()));
-    for(std::vector<std::pair<std::string,Glib::RefPtr<Gdk::Window> > >::iterator i=VW.begin();i!=VW.end();++i)    
+    for(std::list<st_WindowPosition>::const_iterator i=list_Windows.begin();i!=list_Windows.end();++i)    
      {
        Tag &T=fenstert.push_back(Tag("WindowPositions"));
-       gint width,height,x,y;
-       i->second->get_size(width,height);
-       i->second->get_position(x,y);
-       T.setAttr("Name",i->first);
-       T.setIntAttr("Breite",width);
-       T.setIntAttr("Höhe",height);
-       T.setIntAttr("X", x);
-       T.setIntAttr("Y", y);
+       T.setAttr("Name",i->name);
+       T.setIntAttr("Breite",i->width);
+       T.setIntAttr("Höhe",i->height);
+       T.setIntAttr("X", i->x);
+       T.setIntAttr("Y", i->y);
      }
   }
 
@@ -549,8 +488,8 @@ void Magus_Optionen::save_options(const std::string &filename)
    { Tag &opt=optionen.push_back(Tag("Option"));
      opt.setAttr("Name",i->text);
      opt.setBoolAttr("Wert", i->active);
-//geht so nicht    if(i->wert!=-1 && i->active)  opt.setIntAttr("Page",i->wert);
-     if(i->index==Notebook_start && i->active) opt.setIntAttr("Page",i->wert);
+     if(i->wert!=-1 && i->active)  opt.setIntAttr("Page",i->wert);
+//     if(i->index==Notebook_start && i->active) opt.setIntAttr("Page",i->wert);
    }
  for(std::list<st_Ober>::iterator i=list_Ober.begin();i!=list_Ober.end();++i)
    { Tag &opt=optionen.push_back(Tag("Ansicht"));
@@ -561,11 +500,6 @@ void Magus_Optionen::save_options(const std::string &filename)
    { 
      if(!i->active) continue;
      Tag &opt=optionen.push_back(Tag("Icon"));
-     opt.setAttr("Name",i->text);
-     opt.setBoolAttr("Wert", i->active);
-   }
-  for(std::list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
-   { Tag &opt=optionen.push_back(Tag("Hausregel"));
      opt.setAttr("Name",i->text);
      opt.setBoolAttr("Wert", i->active);
    }
