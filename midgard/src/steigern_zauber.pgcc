@@ -75,8 +75,8 @@ void midgard_CG::show_neue_zauber()
       if (get_typ_s("Magie",typ_2)) alle_zauber += "("+typ_2.s+" = 'G' OR "+typ_2.s+" = 'S' OR "+typ_2.s+" = 'A') AND ";
     }
   string squery = "SELECT distinct z.name, z.ursprung, z.kosten, z.stufe, ";
-  if (get_typ_s("Magie",typ)) squery+= "z."+typ.s+", " ;
-  if (typ_2.s!="" && get_typ_s("Magie",typ_2)) squery += "z."+typ_2.s+", ";
+  if (get_typ_s("Magie",typ)) squery+= "coalesce(z."+typ.s+",''), " ;
+  if (typ_2.s!="" && get_typ_s("Magie",typ_2)) squery += "coalesce(z."+typ_2.s+",''), ";
   squery +=" z.spruchrolle, \
       coalesce(z.region,''), coalesce(z.zauberart,''), \
       coalesce(z.p_element,''), coalesce(z.s_element,'') \
