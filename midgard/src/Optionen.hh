@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.44 2002/12/12 10:49:28 christof Exp $
+// $Id: Optionen.hh,v 1.45 2003/04/13 20:43:41 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -101,6 +101,7 @@ class Midgard_Optionen
       std::list<st_OptionenExecute>  list_OptionenExecute;
       std::list<st_OptionenCheck> list_OptionenCheck; 
       std::list<st_pdfViewer> list_pdfViewer;
+      Model<bool> werte_eingeben;
 
       void Strings_init();
       void Optionen_init();
@@ -155,6 +156,8 @@ class Midgard_Optionen
       void OptionenCheck_setzen_from_menu(OptionenCheckIndex index);
       void OptionenExecute_setzen_from_menu(OptionenExecuteIndex index);
       void pdfViewer_setzen_from_menu(pdfViewerIndex index);
+      
+      Model_ref<bool> WerteEingebenModel() { return werte_eingeben; }
 };
 
 #endif
