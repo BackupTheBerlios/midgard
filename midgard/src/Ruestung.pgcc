@@ -24,15 +24,16 @@ Ruestung::Ruestung(const std::string& n)
   exec sql begin declare section;
    char  db_name [ 50 ]   ,  db_long [ 50 ]   ,  db_region [ 50 ]   ;
    int  db_lp_verlust   ,  db_min_staerke   ,  db_rw_verlust   ,  db_b_verlust   ;
-   int db_abwehr_bonus_verlust,db_angriffs_bonus_verlust;
+   int db_abwehr_bonus_verlust,db_angriffs_bonus_verlust,db_vollr;
   exec sql end declare section ;
   strncpy(db_name,Name().c_str(),sizeof(db_name));
-  exec sql select  coalesce( region  , '' ) , 
+  exec sql select ruestung, coalesce( region  , '' ) , 
          lp_verlust  , min_staerke  , rw_verlust  , 
          b_verlust ,coalesce(abwehr_bonus_verlust,0),
-         coalesce(angriffs_bonus_verlust,0)
+         coalesce(angriffs_bonus_verlust,0),coalesce(vollruestung,0)
       into :db_long, :db_region, :db_lp_verlust, :db_min_staerke, :db_rw_verlust,
-           :db_b_verlust,:db_abwehr_bonus_verlust,:db_angriffs_bonus_verlust
+           :db_b_verlust,:db_abwehr_bonus_verlust,:db_angriffs_bonus_verlust,
+           :db_vollr
       from ruestung where ruestung_s=:db_name ;
   SQLerror::test(__FILELINE__);
   longname=db_long;
@@ -43,6 +44,7 @@ Ruestung::Ruestung(const std::string& n)
   b_verlust=db_b_verlust;
   abwehr_bonus_verlust=db_abwehr_bonus_verlust;
   angriffs_bonus_verlust=db_angriffs_bonus_verlust;
+  vollruestungsabzug=db_vollr;
 }
 
 

@@ -12,6 +12,7 @@ class Ruestung  : public HandleContent
    std::string name, longname, region; 
    int lp_verlust,min_staerke,rw_verlust,b_verlust,
       abwehr_bonus_verlust,angriffs_bonus_verlust;
+   int vollruestungsabzug;
 
   public:
 //   Ruestung() {};
@@ -26,6 +27,7 @@ class Ruestung  : public HandleContent
    int B_Verlust() const {return b_verlust;}
    int AbwehrBonus_Verlust(int abwehr_bonus) const;
    int AngriffsBonus_Verlust(int angriffs_bonus) const;
+   int VollRuestungsAbzug() const {return vollruestungsabzug;}
 };
 
 class cH_Ruestung : public Handle<const Ruestung>

@@ -16,7 +16,8 @@ CREATE TABLE "ruestung" (
 	"b_verlust" integer,
 	"region" text,
 	"abwehr_bonus_verlust" integer,
-	"angriffs_bonus_verlust" integer
+	"angriffs_bonus_verlust" integer,
+	"vollruestung" integer
 );
 
 --
@@ -25,20 +26,20 @@ CREATE TABLE "ruestung" (
 
 
 COPY "ruestung" FROM stdin;
-Dhunaka	KR(R)	3	0	0	0	R	\N	\N
-Kettenrüstung	KR	3	31	0	4	\N	1	\N
-Lederrüstung	LR	2	0	0	0	\N	1	\N
-Ohne Rüstung	OR	0	0	0	0	\N	\N	\N
-Papierrüstung	TR(K)	1	0	0	0	K	\N	\N
-Plattenrüstung	PR	4	61	25	8	\N	2	\N
-RitterRüstung	RR	6	81	50	16	\N	2	2
-SaMurai-Rüstung	PR(K)	4	31	0	4	K	\N	\N
-SaMurai-Rüstung	VR(K)	5	61	25	8	K	\N	\N
-Sritrahaut	TR(R)	1	0	0	0	R	\N	\N
-Textilrüstung	TR	1	0	0	0	\N	\N	\N
-Tschahaatha	PR(R)	4	0	0	4	R	\N	\N
-Tschahaatha(VR)	VR(R)	5	0	0	8	R	\N	\N
-Vollrüstung	VR	5	61	40	12	\N	2	1
+Dhunaka	KR(R)	3	0	0	0	R	\N	\N	\N
+Kettenrüstung	KR	3	31	0	4	\N	1	\N	\N
+Lederrüstung	LR	2	0	0	0	\N	1	\N	\N
+Ohne Rüstung	OR	0	0	0	0	\N	\N	\N	\N
+Papierrüstung	TR(K)	1	0	0	0	K	\N	\N	\N
+Plattenrüstung	PR	4	61	25	8	\N	2	\N	\N
+RitterRüstung	RR	6	81	50	16	\N	2	2	-2
+SaMurai-Rüstung	PR(K)	4	31	0	4	K	\N	\N	\N
+SaMurai-Rüstung	VR(K)	5	61	25	8	K	\N	\N	-2
+Sritrahaut	TR(R)	1	0	0	0	R	\N	\N	\N
+Textilrüstung	TR	1	0	0	0	\N	\N	\N	\N
+Tschahaatha	PR(R)	4	0	0	4	R	\N	\N	\N
+Tschahaatha(VR)	VR(R)	5	0	0	8	R	\N	\N	-2
+Vollrüstung	VR	5	61	40	12	\N	2	1	-2
 \.
 --
 --

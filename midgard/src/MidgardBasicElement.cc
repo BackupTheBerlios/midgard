@@ -74,7 +74,10 @@ bool MidgardBasicElement::ist_lernbar(const vector<cH_Typen>& Typ,const map<std:
 bool MidgardBasicElement::ist_gelernt(const std::list<cH_MidgardBasicElement>& L) const
 {
  for (std::list<cH_MidgardBasicElement>::const_iterator i=L.begin();i!=L.end();++i)
-   if((*i)->Name()==Name()) return true;
+   {
+//cout << (*i)->Name()<<' '<<Name()<<'\n';
+     if((*i)->Name()==Name()) return true;
+   }
  return false;
 }
 

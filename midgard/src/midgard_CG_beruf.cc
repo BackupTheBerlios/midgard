@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.36 2001/12/21 22:46:15 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.37 2001/12/23 08:46:48 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,7 +25,7 @@ void midgard_CG::on_berufe_wahl_clicked()
 {
   berufe_clist->clear();
   list_Beruf.clear();
-  list_Fertigkeit.clear();
+//  list_Fertigkeit.clear();
   manage(new Berufe_auswahl(this,Database,Typ,Werte,list_Fertigkeit));
   hbox_fertigkeit->set_sensitive(true);
   table_fertigkeit->set_sensitive(true);
