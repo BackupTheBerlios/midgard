@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.21 2002/01/11 15:46:43 christof Exp $
+// $Id: xml.cc,v 1.22 2002/01/18 08:54:11 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -179,6 +179,8 @@ static bool attr_is_key(const string &tag, const char * const *key)
    return (*key)!=0;
 }
 
+// TODO: merge of Waffen/Waffe/Waffen-Grundkenntnis/Grund etc
+
 static void xml_merge_element(Tag &merge_here,
 	const Tag &tomerge,const char * const *key)
 {  bool a_full=false,b_full=false;
@@ -193,6 +195,11 @@ static void xml_merge_element(Tag &merge_here,
    {  std::cerr << "can't merge Tag attributes:\n";
       merge_here.debug();
       tomerge.debug();
+      // try to do it as best as we can ...
+      FOR_EACH_CONST_TAG(i,tomerge)
+      {  if (i->Type().empty()) continue;
+         merge_here.push_back(*i);
+      }
    }
    else if (b_full) // this is not well tested but looks good
    {  Tag help=merge_here;
