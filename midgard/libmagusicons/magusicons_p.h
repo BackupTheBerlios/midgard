@@ -1,4 +1,4 @@
-// $Id: magusicons_p.h,v 1.1 2003/04/25 07:13:19 christof Exp $
+// $Id: magusicons_p.h,v 1.2 2003/04/27 21:13:41 christof Exp $
 
 #include "magusicons.h"
 #include <map>
@@ -36,6 +36,9 @@ struct data_registry
 	{ first=this; }
 	data_registry(style _st,const char *_name, const char * const *xpmdata) 
 		: length(0), address(xpmdata), st(_st), name(_name), next(first)
+	{ first=this; }
+	data_registry(style _st,const char *_name, unsigned len, const unsigned char *data) 
+		: length(len), address(data), st(_st), name(_name), next(first)
 	{ first=this; }
 	
 	bool is_xpm() const { return !length; }

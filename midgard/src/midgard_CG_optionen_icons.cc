@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen_icons.cc,v 1.32 2003/04/25 07:12:09 christof Exp $
+// $Id: midgard_CG_optionen_icons.cc,v 1.33 2003/04/27 21:13:41 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -89,7 +89,7 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iForward)    return st_icons("Vorwärts"    ,MagusImage("redo.xpm")               );
      else if(typ==iMenu)       return st_icons("Menü"        ,MagusImage("wizzard-trans-50_2.xpm") );
      else if(typ==iInfo)       return st_icons("Info"        ,MagusImage("Info-trans-50.xpm")      );
-     else if(typ==iInstruction)return st_icons("Anleitung"   ,MagusImage("Help-trans-new1.xpm")    );
+     else if(typ==iInstruction)return st_icons("Anleitung"   ,MagusImage("Help-trans-50.xpm")    );
      else if(typ==iExit)       return st_icons("Schließen"   ,MagusImage("Exit-trans-50.xpm")      );
      else if(typ==iJa)         return st_icons("Ja"          ,MagusImage("Excl-32.xpm"));
      else if(typ==iNein)       return st_icons("Nein"        ,MagusImage("Nein-32.xpm"));

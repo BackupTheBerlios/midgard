@@ -35,7 +35,7 @@ Glib::RefPtr<Gdk::Pixbuf> RegionenPic::PicModel(epic typ,Midgard_Optionen::IconI
    else if (typ==Gildenbrief)name="Regio_Gilde-50.xpm";
    else if (typ==HD)         name="Regio_H_u_D-50.xpm";
    else if (typ==HD_finster) name="Regio_H_u_D_F-50.xpm";
-   else if (typ==Tipps_und_Tricks)  name="TuT-50.xpm";
+   else if (typ==Tipps_und_Tricks)  name="TuT_50.xpm";
    else if (typ==Abenteuer)  name="Abwehr-50.xpm";
 
    Glib::RefPtr<Gdk::Pixbuf> res=MagusImage(name);
