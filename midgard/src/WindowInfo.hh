@@ -1,4 +1,4 @@
-// $Id: WindowInfo.hh,v 1.22 2002/02/09 16:14:06 thoma Exp $
+// $Id: WindowInfo.hh,v 1.23 2002/02/09 21:45:39 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,6 +36,8 @@
 #include <Gtk_OStream.h>
 
 class midgard_CG;
+class cH_MidgardBasicElement;
+//#include "MidgardBasicElement.hh"
 
 class WindowInfo : public WindowInfo_glade
 {   
@@ -51,12 +53,15 @@ class WindowInfo : public WindowInfo_glade
 
         Gtk::OStream *mystream;
         void bestaetigen(bool b);
-        void Flush(bool autoclean);
+        void Flush();
         emodus Modus;
         midgard_CG* hauptfenster;
+        cH_MidgardBasicElement *MBE;
    public:
         WindowInfo(midgard_CG* h);
-        void AppendShow(const std::string& s,emodus modus=Autoclean);
+        void AppendShow(const std::string& s,emodus modus,cH_MidgardBasicElement MBE);
+        void AppendShow(int i,emodus modus,cH_MidgardBasicElement MBE);
+        void AppendShow(const std::string& s, emodus modus=Autoclean);
         void AppendShow(int i, emodus modus=Autoclean);
 };
 #endif

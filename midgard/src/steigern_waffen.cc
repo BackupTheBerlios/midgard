@@ -91,7 +91,7 @@ void midgard_CG::on_leaf_selected_alte_grund(cH_RowDataBase d)
   std::string strinfo="WARNUNG: Beim verlernen von Grundkenntnissen werden die\n";
   strinfo +="bereits gelernten Waffen, die zu dieser\n";
   strinfo +="Grundkenntnis gehöhren, NICHT verlernt\n";
-  InfoFenster->AppendShow(strinfo,true);
+  InfoFenster->AppendShow(strinfo);
   if (MidgardBasicElement_leaf_alt(d))
 //     waffen_zeigen();
   on_waffen_laden_clicked();

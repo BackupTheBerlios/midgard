@@ -140,10 +140,16 @@ int Grad_anstieg::get_Grad(int gfp)
 std::string Grad_anstieg::getGFP_for_str(ewas ew,const Grundwerte& Werte)
 {
  int back=getGFP_for(ew,Werte);
- if(back==0) 
-   if (ew!=Grad) return "";
-   else return "erreicht";
- else return itos(back);
+ if(ew==Grad)
+  {
+   if(back==0)  return "erreicht";
+   else return "Noch "+itos(back)+" GFP";;
+  }
+ else
+  {
+   if(back==0) return "";
+   else return itos(back)+" GFP";
+  }
 }
 
 int Grad_anstieg::getGFP_for(ewas ew,const Grundwerte& Werte)

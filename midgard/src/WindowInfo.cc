@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.26 2002/02/09 16:14:06 thoma Exp $
+// $Id: WindowInfo.cc,v 1.27 2002/02/09 21:45:39 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,9 +37,9 @@ void WindowInfo::on_button_info_ok_clicked()
   hide();
 }
 
-void on_button_bestaetigen_clicked()
+void WindowInfo::on_button_bestaetigen_clicked()
 {
- if(Modus==ZaubernLernen) hauptfenster->kaempfer_lernt_zaubern();
+ if(Modus==ZaubernLernen) hauptfenster->kaempfer_lernt_zaubern(*MBE);
 }
 
 WindowInfo::WindowInfo(midgard_CG* h)
@@ -65,17 +65,29 @@ void WindowInfo::AppendShow(const std::string& s, emodus modus)
 //  (*mystream) << s;
   Gtk::OStream os(LogWin->get_list());
   os << s <<'\n';
-  Flush(autoclean);
+  Flush();
+}
+void WindowInfo::AppendShow(const std::string& s, emodus modus, cH_MidgardBasicElement _MBE)
+{
+  MBE=&_MBE;
+  AppendShow(s,modus);
 }
 
 void WindowInfo::AppendShow(int i, emodus modus)
 {
   Modus=modus;
 //  (*mystream) << i;
-  Flush(autoclean,bestaetigen);
+  Flush();
+}
+void WindowInfo::AppendShow(int i, emodus modus, cH_MidgardBasicElement _MBE)
+{
+  MBE=&_MBE;
+  AppendShow(i,modus);
 }
 
-void WindowInfo::Flush(bool autoclean)
+
+
+void WindowInfo::Flush()
 {
 //  (*mystream).flush();
 //mystream->flush();

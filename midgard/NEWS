@@ -10,11 +10,13 @@ NEWS IN VERSION 0.4delta1
  und "Zauberspezialisten" 
 * Einbrecher Bug beseitigt
 * Alte Sprache als ungewöhnliche Fertigkeit lernbar
-*** Geheimzeichen mit Zusatz (so wie Landeskunde)
-*** Info Fenster mit memory (Komplett neues Konzept)
-*** Zaubern lernen nur mit Abfrage
+* Geheimzeichen mit Zusatz (so wie Landeskunde)
+* Info Fenster mit memory (Komplett neues Konzept)
+* Zaubern lernen nur mit Abfrage
 
 TODO:
+* Geheimzeichen-Liste nicht gefüllt.
+* Zaubern nicht mehr anzeigen, nach dem lernen
 * Pflicht lernen kennzeichnen
 * Es sind die beiden Infofenster, die beim Auswürfeln 
    von Geld und Waffen im Lernschema auftauchen. 

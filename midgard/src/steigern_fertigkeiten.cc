@@ -105,26 +105,28 @@ void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
       optionmenu_KiDo_Stile->set_sensitive(true);
 //      table_kido_lernen->set_sensitive(true);
       button_kido_auswahl->set_sensitive(false);
-      InfoFenster->AppendShow("Jetzt muß ein Stil unter 'Lernschema' -> 'KiDo' gewählt werden !!!",false);
+      InfoFenster->AppendShow("Jetzt muß ein Stil unter 'Lernschema' -> 'KiDo' gewählt werden !!!",WindowInfo::None);
       MidgardBasicElement_leaf_neu(d);      
       lernschema_sensitive(true);
     }
   else if (MBE->Name()=="Zaubern") 
-      {  
-         WindowInfo->AppendShow("Sicher?\nDiese Entscheidung kann nicht Rückgängig gemacht werden.",WindowInfo::ZaubernLernen);
-      }
+    {  
+     InfoFenster->AppendShow("Sicher?\nDiese Entscheidung kann nicht Rückgängig gemacht werden.",WindowInfo::ZaubernLernen,MBE);
+    }
   else 
      MidgardBasicElement_leaf_neu(d);
   fertigkeiten_zeigen();
 }
 
-void midgard_CG::kaempfer_lernt_zaubern()
+void midgard_CG::kaempfer_lernt_zaubern(const cH_MidgardBasicElement MBE)
 {
    doppelcharaktere();
    InfoFenster->AppendShow("Jetzt unter 'Grundwerte' die zweite Charkakterklasse wählen\n",WindowInfo::None);
    // Resistenzboni für Zauberer setzten:
 //         Werte.set_magBoni(Werte.bo_Psy()+3,Werte.bo_Phs()+1,Werte.bo_Phk()+3);
    if (Werte.Zaubern_wert()==2) Werte.setZaubern_wert(10);
+//   cH_MidgardBasicElement MBE=new Fertigkeit(*cH_Fertigkeit("Zaubern"));
+   MidgardBasicElement::move_element(list_Fertigkeit,list_Fertigkeit_neu,MBE);
 }
 
 
@@ -138,7 +140,7 @@ void midgard_CG::fillClistLand(const cH_MidgardBasicElement &MBE)
         os <<(*i)->Name()<<'\n';
         os.flush(MBE->ref(),&HandleContent::unref);
       }
-  if(MBE->Name()=="Geheimzeichen")
+  else if(MBE->Name()=="Geheimzeichen")
      for (std::vector<cH_Geheimzeichen>::const_iterator i=Database.Geheimzeichen.begin();i!=Database.Geheimzeichen.end();++i)
       {
         os <<(*i)->Name()<<'\n';

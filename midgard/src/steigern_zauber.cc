@@ -145,7 +145,7 @@ bool midgard_CG::spruchrolle_wuerfeln(const cH_MidgardBasicElement& z)
  gewürfelt  Spruchstufe  Ausnahme/Spezial Erfolgswert  Gesamtergebnis\n     "
       +itos(xr)+"            -"+itos(zauber->iStufe())+"               "
       +itos(iaus)+"             "+itos(erf_z)+"       =       "+ itos(x)+"\n";
- InfoFenster->AppendShow(strinfo.c_str(),false);
+ InfoFenster->AppendShow(strinfo.c_str(),WindowInfo::None);
  if (x>=20) return true;
  else return false;
 }

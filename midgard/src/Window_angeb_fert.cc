@@ -104,7 +104,7 @@ Window_angeb_fert::Window_angeb_fert(midgard_CG* h,
      std::string strinfo="Für die Angeborene Fertigkeit\n wurde eine "
          +itos(wurf)+" gewürfelt.\nangeborene Fertigkeit mit RECHTER "+
          +"Maustaste auswählen.\n";
-     hauptfenster->InfoFenster->AppendShow(strinfo,false);
+     hauptfenster->InfoFenster->AppendShow(strinfo,WindowInfo::None);
    }
  if (wurf==-1) 
    { label_ang_fert->set_text("Fertigkeit(en) auswählen");

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.164 2002/02/09 16:14:06 thoma Exp $
+// $Id: midgard_CG.hh,v 1.165 2002/02/09 21:45:39 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -484,7 +484,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          Grundwerte Werte;
 
 	// werden von anderen Fenstern aufgerufen
-         void kaempfer_lernt_zaubern();
+         void kaempfer_lernt_zaubern(cH_MidgardBasicElement);
          void doppelcharaktere();
          void xml_export(const std::string& datei);
          void xml_import(const std::string& datei);

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.148 2002/02/08 15:08:56 thoma Exp $
+// $Id: midgard_CG.cc,v 1.149 2002/02/09 21:45:39 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,7 +37,7 @@ midgard_CG::midgard_CG(Datenbank& _Database, const string &datei)
 {
   srand(time(0));
   if(InfoFenster) delete(InfoFenster);
-  InfoFenster = manage(new WindowInfo());
+  InfoFenster = manage(new WindowInfo(this));
 
   optionmenu_init();  
   Optionen_init();
