@@ -1,6 +1,6 @@
 Summary: MAGUS - Midgard Abenteurer Generieren Und Steigern
 Name: magus
-Version: 0.8.2pre
+Version: 0.8.6pre
 Release: 1
 Copyright: GPL
 Group: application/games
@@ -11,6 +11,11 @@ Buildroot: /var/tmp/build-root-%{name}
 %description
 Dies ist ein Test-RPM PAcket für MAGUS. 
 MAGUS ist ein Abenteurer Generierungs- und Steigerungstool für das Fantasyrollenspiel Midgard
+Dieses RPM-Paket wurde unter  einer modifizerten SuSE 7.2 erstellt, so dass nicht
+gewährleistet ist, dass dieses Paket auch unter einer anderen Konfiguration lauffähig ist.
+
+
+
 
 
 
@@ -20,37 +25,18 @@ MAGUS ist ein Abenteurer Generierungs- und Steigerungstool für das Fantasyrollen
 
 
 
+
+
+
+
 %files
 /usr/local/bin/magus
-/usr/local/share/magus/AbenteuerBaende.xml 
-/usr/local/share/magus/Alba.xml
-/usr/local/share/magus/Alba-grey.png
-/usr/local/share/magus/Arkanum.xml
-/usr/local/share/magus/BarbarenWutRitterEhre.xml
-/usr/local/share/magus/Eschar.xml
-/usr/local/share/magus/Gildenbrief.xml
-/usr/local/share/magus/HexenzauberDruidenkraft.xml
-/usr/local/share/magus/HexenzauberDruidenkraftFinster.xml
-/usr/local/share/magus/KanThaiPan.xml
-/usr/local/share/magus/Kuestenstaaten.xml
-/usr/local/share/magus/Letter-Feather-grey.png
-/usr/local/share/magus/MAGUS-Logo-grey2.png
-/usr/local/share/magus/MAGUS_Logo_Small.xpm
-/usr/local/share/magus/MAGUS_Logo_Tiny.xpm
-/usr/local/share/magus/MeisterDerSphaeren.xml
-/usr/local/share/magus/Minangpahit.xml
-/usr/local/share/magus/Nahuatlan.xml
-/usr/local/share/magus/Rawindra.xml
-/usr/local/share/magus/Regelwerk3.xml
-/usr/local/share/magus/Regelwerk4.xml
-/usr/local/share/magus/TippsTricks.xml
-/usr/local/share/magus/Waeland.xml
-/usr/local/share/magus/drache.png
-/usr/local/share/magus/magus_document_eingabe.tex
-/usr/local/share/magus/midgard.xml
 /usr/local/share/magus/midgard_document_eingabe.tex
+/usr/local/share/magus/drache.png
 /usr/local/share/magus/schwert.png
 /usr/local/share/magus/wurfbeil.png
+/usr/local/share/magus/MAGUS-Logo-grey2.png
+/usr/local/share/magus/magus_document_eingabe.tex
 /usr/local/share/magus/docs/image/But_AGW.png
 /usr/local/share/magus/docs/image/But_CLOSE.png
 /usr/local/share/magus/docs/image/Statusbar.png
@@ -238,7 +224,6 @@ MAGUS ist ein Abenteurer Generierungs- und Steigerungstool für das Fantasyrollen
 /usr/local/share/magus/docs/image/TAB-ST-Fert.png
 /usr/local/share/magus/docs/image/TAB-ST-Waf.png
 /usr/local/share/magus/docs/GW_Main.html
-/usr/local/share/magus/docs/XML.Versions
 /usr/local/share/magus/docs/Menues.html
 /usr/local/share/magus/docs/element.html
 /usr/local/share/magus/docs/getit.html
@@ -258,4 +243,35 @@ MAGUS ist ein Abenteurer Generierungs- und Steigerungstool für das Fantasyrollen
 /usr/local/share/magus/docs/Steigern_Besitz.html
 /usr/local/share/magus/docs/Steigern_Spra.html
 /usr/local/share/magus/docs/Steigern_Zaub.html
+/usr/local/share/magus/midgard.xml
+/usr/local/share/magus/AbenteuerBaende.xml
+/usr/local/share/magus/Alba.xml
+/usr/local/share/magus/Arkanum.xml
+/usr/local/share/magus/BarbarenWutRitterEhre.xml
+/usr/local/share/magus/Eschar.xml
+/usr/local/share/magus/Gildenbrief.xml
+/usr/local/share/magus/HexenzauberDruidenkraft.xml
+/usr/local/share/magus/HexenzauberDruidenkraftFinster.xml
+/usr/local/share/magus/KanThaiPan.xml
+/usr/local/share/magus/Kuestenstaaten.xml
+/usr/local/share/magus/MeisterDerSphaeren.xml
+/usr/local/share/magus/Minangpahit.xml
+/usr/local/share/magus/Nahuatlan.xml
+/usr/local/share/magus/Rawindra.xml
+/usr/local/share/magus/Regelwerk3.xml
+/usr/local/share/magus/Regelwerk4.xml
+/usr/local/share/magus/TippsTricks.xml
+/usr/local/share/magus/Waeland.xml
+/usr/local/share/magus/MAGUS_Logo_Small.xpm
+/usr/local/share/magus/MAGUS_Logo_Tiny.xpm
 /usr/local/share/magus/pixmaps/MAGUS_Logo_Small.xpm
+/usr/local/share/magus/document_eingabe.tex
+/usr/local/share/magus/document_eingabe4.tex
+/usr/local/share/magus/iso2utf8
+/usr/local/share/magus/Letter+Feather-grey.png
+/usr/local/share/magus/Alba-grey.png
+/usr/local/share/magus/Letter-Feather-grey.png
+/usr/local/share/magus/Kompendium.xml
+/usr/local/share/magus/saebel.png
+/usr/local/share/magus/Money-gray.png
+/usr/local/share/magus/NEWS
