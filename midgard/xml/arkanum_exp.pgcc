@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.pgcc,v 1.5 2001/11/06 08:43:40 christof Exp $
+// $Id: arkanum_exp.pgcc,v 1.6 2001/11/13 08:32:07 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -42,7 +42,7 @@ void arkanum_speichern(std::ostream &o)
    	order by coalesce(region,''),name;
    exec sql open c;
    SQLerror::test(__FILELINE__);
-   o << "<Zauber>\n";
+   o << "<MidgardCG-data>\n";
   while (true)
   {exec sql fetch c into sql descriptor spalten;
    SQLerror::test(__FILELINE__,100);
@@ -125,7 +125,7 @@ void arkanum_speichern(std::ostream &o)
   }
    exec sql close c;
    SQLerror::test(__FILELINE__);
-   o << "</Zauber>\n";
+   o << "</MidgardCG-data>\n";
    
    exec sql deallocate descriptor spalten;
 }

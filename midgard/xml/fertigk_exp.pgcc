@@ -1,4 +1,4 @@
-// $Id: kido_exp.pgcc,v 1.4 2001/11/13 08:32:07 christof Exp $
+// $Id: fertigk_exp.pgcc,v 1.1 2001/11/13 08:32:07 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -26,14 +26,15 @@ exec sql include sqlca;
 // wegen eines bugs in epcg <=V6.1
 #define GARNIX 
 
-void kido_speichern(std::ostream &o)
+void fert_speichern(std::ostream &o)
 {  
    Transaction t;
    exec sql allocate descriptor spalten;
    exec sql declare c cursor for
-   	select name_orig, name, stufe, stil, fp, ap, effekt
-   	from kido
-   	order by name_orig;
+   	select fertigkeit, region, 
+   		lp as lernpunkte, anfangswert0, fp, anfangswert, attribut
+   	from fertigkeiten
+   	order by region,fertigkeit;
    exec sql open c;
    SQLerror::test(__FILELINE__);
    o << "<MidgardCG-data>\n";
@@ -42,18 +43,16 @@ void kido_speichern(std::ostream &o)
    SQLerror::test(__FILELINE__,100);
    if (sqlca.sqlcode) break;
    FetchIStream is("spalten");
-   o << "  <KiDo";
+   o << "  <Fertigkeit";
    fetch_and_write_string_attrib(is, o, "Name");
-   fetch_and_write_string_attrib(is, o, "Übersetzung");
-   fetch_and_write_string_attrib(is, o, "Stufe");
-   fetch_and_write_string_attrib(is, o, "Stil");
+   fetch_and_write_string_attrib(is, o, "Region");
+   fetch_and_write_int_attrib(is, o, "Lernpunkte");
+   fetch_and_write_int_attrib(is, o, "Anfangswert");
    fetch_and_write_int_attrib(is, o, "Lernkosten");
-   fetch_and_write_string_attrib(is, o, "AP");
-   o << ">";
-   string Erklaerung;
-   is >> FetchIStream::MapNull<string>(Erklaerung,"");
-   if (Erklaerung.size())  o << toXML(Erklaerung); 
-   o << "</KiDo>\n";
+   fetch_and_write_int_attrib(is, o, "Erfolgswert");
+   fetch_and_write_string_attrib(is, o, "Attribut");
+   o << "/>";
+   // Lernschemata, Wer wie leicht etc.
   }
    exec sql close c;
    SQLerror::test(__FILELINE__);
@@ -70,7 +69,7 @@ int main(int argc, char *argv[])
       Petig::dbconnect(conn);
 
    std::cout << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n";
-   kido_speichern(std::cout);
+   fert_speichern(std::cout);
    Petig::dbdisconnect();
    } catch (SQLerror &e)
    {  std::cerr << e << '\n';
