@@ -65,18 +65,18 @@ void midgard_CG::menu_init()
      Gtk::CheckMenuItem *_mi=manage(new Gtk::CheckMenuItem());         
      _mi->remove();
 
-     Gtk::Label *_l=manage (new Gtk::Label((*i)->Name()));
+     Gtk::Label *_l=manage (new Gtk::Label((*i)->Name(),0,0));
      Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
      Gtk::Label *_o=0;
      int row=1;
      if(!(*i)->Offiziell()) 
        {
-         _o=manage (new Gtk::Label("Inoffiziell"));
-        _tab->attach(*_o,1,2,1,2,0,0,0,0);
+         _o=manage (new Gtk::Label("(Inoffiziell)",0,0));
+        _tab->attach(*_o,1,2,1,2,GTK_FILL,0,0,0);
         row=2;
        }
-     _tab->attach(*_l,1,2,0,1,0,0,0,0);
-     _tab->attach(*RegionenPic::Pic((*i)->Pic()),0,1,0,row,0,0,0,0);
+     _tab->attach(*_l,1,2,0,1,GTK_FILL,0,0,0);
+     _tab->attach(*RegionenPic::Pic((*i)->Pic()),0,1,0,row,GTK_FILL,0,0,0);
 
      _mi->add(*_tab);
      regionen_menu->append(*_mi);

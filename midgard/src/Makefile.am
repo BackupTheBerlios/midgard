@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.88 2002/01/16 09:54:54 thoma Exp $
+# $Id: Makefile.am,v 1.89 2002/01/18 11:26:29 thoma Exp $
 
 USE_XML=$(shell if test `hostname` = "puck" ; then echo -DUSE_XML ; fi)
 
@@ -31,7 +31,6 @@ noinst_HEADERS = \
    Grundwerte.hh \
    Ruestung.hh \
    Spezialgebiet.hh \
-   Praxispunkte.hh \
    Lernschema.hh \
    Preise.hh \
 WaffeGrund.hh Fertigkeiten_angeboren.hh Pflicht.hh itos.h zufall.h Berufe_auswahl_glade.hh Berufe_auswahl.hh \
@@ -81,7 +80,6 @@ BUILT_SOURCES_CG =  \
    Beruf.cc \
    Lernschema.cc \
    Region.cc \
-   Praxispunkte.cc \
    Spezies.cc \
    Typen.cc \
    Pflicht.cc \
