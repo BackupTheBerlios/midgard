@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.89 2001/11/06 10:42:52 thoma Exp $
+// $Id: midgard_CG.hh,v 1.90 2001/11/06 14:26:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -57,6 +57,7 @@
 #include "class_typen.hh"
 #include "Grundwerte.hh"
 #include "Land.hh"
+#include "Pflicht.hh"
 #include "class_spezies.hh"
 #include "class_grad_anstieg.hh"
 
@@ -94,6 +95,8 @@ class midgard_CG : public midgard_CG_glade
                              std::list<cH_MidgardBasicElement> Kido;
                              std::list<cH_MidgardBasicElement> Sprache;
                              std::list<cH_MidgardBasicElement> Schrift;
+                             Pflicht pflicht;
+                             Ausnahmen ausnahmen;
                st_Database(){}
                st_Database(std::vector<cH_Land> L,
                            std::vector<cH_Ruestung> R,
@@ -106,12 +109,15 @@ class midgard_CG : public midgard_CG_glade
                            std::list<cH_MidgardBasicElement> Zw,
                            std::list<cH_MidgardBasicElement> K,
                            std::list<cH_MidgardBasicElement> Sp,
-                           std::list<cH_MidgardBasicElement> Sc)
+                           std::list<cH_MidgardBasicElement> Sc,
+                           Pflicht p,
+                           Ausnahmen a )
                            : Laender(L),Ruestung(R),Fertigkeit_ang(Fa),
                              Fertigkeit(F),WaffeGrund(WG),Waffe(W),
                              Waffe_from_Alias(WfA),
                              Zauber(Z),Zauberwerk(Zw),
-                             Kido(K),Sprache(Sp),Schrift(Sc) {}
+                             Kido(K),Sprache(Sp),Schrift(Sc),
+                             pflicht(p),ausnahmen(a) {}
                            };
    private:
         friend class midgard_CG_glade;
@@ -400,7 +406,7 @@ class midgard_CG : public midgard_CG_glade
          void herkunft_uebernehmen(const cH_Land& s);
          std::vector<string> Berufs_Vorteile();
          bool region_check(const std::string& region);
-         void clear_Ausnahmen();
+//         void clear_Ausnahmen();
          void EP_uebernehmen();
          void Geld_uebernehmen();
 //         static bool standard_one_G(const vector<std::string>& s);

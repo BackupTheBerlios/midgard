@@ -265,11 +265,13 @@ void midgard_CG::load_charakter()
    if (Typ[0]->Zaubern()=="n" || Typ[0]->Short() == "Ord" ||
        Typ[1]->Zaubern()=="n" || Typ[1]->Short() == "Ord") label_spezialwaffe->set_text("Spezialwaffe durch \nSelektieren auswählen");
    else label_spezialwaffe->set_text("");
+   Database.ausnahmen.set_Typ(Typ);
 
    ///////////////////////////////////////////////////////////////////////   
    // Berufe, Fertigkeiten, Waffen und Zauber (KiDo)
    // Grundkenntnisse (Waffen)
    load_fertigkeiten();
+   Database.ausnahmen.set_Beruf(vec_Beruf);
 
    // Spezies setzen ////////////////////////////////////////////
    exec sql begin declare section;   

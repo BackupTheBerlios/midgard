@@ -1,4 +1,4 @@
-// $Id: zeige_werte.cc,v 1.21 2001/11/04 16:57:23 thoma Exp $
+// $Id: zeige_werte.cc,v 1.22 2001/11/06 14:26:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,7 +22,7 @@
 
 void midgard_CG::zeige_werte(const Grundwerte& w)
 {
-       
+   Database.ausnahmen.set_Werte(w);       
        st->set_text(itos(w.St()));
        ge->set_text(itos(w.Ge()));
        ko->set_text(itos(w.Ko()));

@@ -3,6 +3,7 @@
 
 #include <Aux/EntryValueEmptyInt.h>
 #include <Aux/EntryValueIntString.h>
+#include <rowdata.h>
 
 class Data_beruf : public RowDataBase
 {

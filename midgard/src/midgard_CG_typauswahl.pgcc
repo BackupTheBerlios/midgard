@@ -93,8 +93,8 @@ void midgard_CG::typauswahl_button()
  int ityp = int(typauswahl->get_menu()->get_active()->get_user_data());
  Typ[0] = vec_Typen[ityp];
 //cout << "Typ1"<<"\t"<<ityp<<"\t"<<Typ.Name()<<"\n";
- clear_Ausnahmen();
  show_gtk();
+ Database.ausnahmen.set_Typ(Typ);
  if (Typ[0]->Short()=="dBe" || Typ[0]->Short()=="eBe") angeborene_zauber();
 }
 
@@ -103,8 +103,7 @@ void midgard_CG::typauswahl_2_button()
  int ityp = int(typauswahl_2->get_menu()->get_active()->get_user_data());
  Typ[1] = vec_Typen_2[ityp];
 //cout << "Typ1"<<"\t"<<ityp<<"\t"<<Typ.Name()<<"\n";
-
- clear_Ausnahmen();
+ Database.ausnahmen.set_Typ(Typ);
  show_gtk();
  if (Typ[1]->Short()=="dBe" || Typ[1]->Short()=="eBe") angeborene_zauber();
 }

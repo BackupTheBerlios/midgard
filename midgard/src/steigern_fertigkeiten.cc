@@ -17,19 +17,19 @@
 
 #include "midgard_CG.hh"
 #include "WindowInfo.hh"
-#include "Ausnahmen.hh"
+//#include "Ausnahmen.hh"
 #include "class_fertigkeiten.hh"
 #include "Pflicht.hh"
 
 void midgard_CG::on_fertigkeiten_laden_clicked()
 {
   list_Fertigkeit_neu.clear();
-  cH_Pflicht pflicht(Werte.Spezies(),Typ);
+//  cH_Pflicht pflicht(Werte.Spezies(),Typ);
   for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
    { cH_Fertigkeit f(*i);
      if ((*i)->ist_gelernt(list_Fertigkeit)) continue ;
      if (f->Name()=="Sprache" || f->Name()=="Lesen/Schreiben") continue;
-     if (pflicht->istVerboten(f->Name())) continue;
+     if (Database.pflicht->istVerboten(Werte.Spezies(),Typ,f->Name())) continue;
      if ((*i)->ist_lernbar(Typ,f->get_MapTyp()))
        if (region_check(f->Region()) )
         if (f->Voraussetzungen(Werte)) 
@@ -42,9 +42,9 @@ void midgard_CG::fertigkeiten_zeigen()
 {
  zeige_werte(Werte);
  on_speichern_clicked();
- Ausnahmen ausnahmen(Werte,Typ,vec_Beruf);
- MidgardBasicElement::show_list_in_tree(list_Fertigkeit_neu,neue_fert_tree,Werte,Typ,ausnahmen,'N');
- MidgardBasicElement::show_list_in_tree(list_Fertigkeit    ,alte_fert_tree,Werte,Typ,ausnahmen,'O');
+// Ausnahmen ausnahmen(Werte,Typ,vec_Beruf);
+ MidgardBasicElement::show_list_in_tree(list_Fertigkeit_neu,neue_fert_tree,Werte,Typ,Database.ausnahmen,'N');
+ MidgardBasicElement::show_list_in_tree(list_Fertigkeit    ,alte_fert_tree,Werte,Typ,Database.ausnahmen,'O');
 }
 
 

@@ -2,6 +2,9 @@
 #define CLASS_TYPEN
 
 #include<string>
+#include <Aux/Handles.h>
+//#include <Aux/CacheStatic.h>
+
 
 class Data_typen : public HandleContent
 {

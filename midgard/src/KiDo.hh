@@ -2,7 +2,7 @@
 #define KIDOCLASS
 #include "MidgardBasicElement.hh"
 #include "class_typen.hh"
-#include "Ausnahmen.hh"
+//#include "Ausnahmen.hh"
 #include "Fertigkeiten.hh"
 #include <gtk--/progressbar.h>
 

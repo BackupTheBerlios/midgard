@@ -4,7 +4,7 @@
 #include <list>
 #include "MidgardBasicElement.hh"
 #include "class_typen.hh"
-#include "Ausnahmen.hh"
+//#include "Ausnahmen.hh"
 #include <gtk--/progressbar.h>
 
 class cH_WaffeGrund;

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.77 2001/11/06 10:42:52 thoma Exp $
+// $Id: midgard_CG.cc,v 1.78 2001/11/06 14:26:21 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -62,7 +62,9 @@ void midgard_CG::get_Database()
                            Zauberwerk_All(MI->get_progressbar_zauberwerk()).get_All(),
                            KiDo_All(MI->get_progressbar_kido()).get_All(),
                            Sprachen_All(MI->get_progressbar_sprache()).get_All(),
-                           Schriften_All(MI->get_progressbar_schrift()).get_All() );
+                           Schriften_All(MI->get_progressbar_schrift()).get_All(),
+                           Pflicht(MI->get_progressbar_pflicht()),
+                           Ausnahmen(MI->get_progressbar_ausnahmen()));
    MI->on_button_close_clicked();
 }
 

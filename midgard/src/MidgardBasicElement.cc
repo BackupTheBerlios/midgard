@@ -14,7 +14,6 @@
 #include "class_fertigkeiten.hh"
 #include "class_sprache_schrift.hh"
 #include "class_waffen.hh"
-#include "Ausnahmen.hh"
 #include "SimpleTree.hh"
 
 /*

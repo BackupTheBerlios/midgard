@@ -1,10 +1,8 @@
 #ifndef _FERTIGKEITEN_HH
 #  define _FERTIGKEITEN_HH
 #include "MidgardBasicElement.hh"
-//#include <vector>
 #include "class_typen.hh"
-#include "Ausnahmen.hh"
-//#include <gtk--/label.h>
+//#include "Ausnahmen.hh"
 #include <gtk--/progressbar.h>
 
 
@@ -24,7 +22,7 @@ class Fertigkeit : public MidgardBasicElement
               sb(_sb),rw(_rw),fert(_fert) {} };
      st_Voraussetzung voraussetzung;
      mutable bool pflicht;
-     Ausnahmen ausnahmen;
+//     Ausnahmen ausnahmen;
 
      void get_Fertigkeit();
      void get_Steigern_Kosten_map();

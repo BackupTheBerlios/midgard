@@ -2,7 +2,10 @@
 #include <Aux/SQLerror.h>
 #include <Aux/Transaction.h>
 exec sql include sqlca;
+#include <gtk--/main.h>
 
+
+/*
 cH_Pflicht::cache_t cH_Pflicht::cache;
 
 cH_Pflicht::cH_Pflicht(const std::string& spezies,const vector<H_Data_typen>& Typ)
@@ -16,20 +19,21 @@ cH_Pflicht::cH_Pflicht(const std::string& spezies,const vector<H_Data_typen>& Ty
    cache.Register(index,*this);
   }
 }
+*/
 
-Pflicht::Pflicht(const std::string& spezies,const vector<H_Data_typen>& Typ)
+Pflicht::Pflicht(Gtk::ProgressBar *progressbar)//const std::string& spezies,const vector<H_Data_typen>& Typ)
 {
-  assert(Typ.size()==2);
   exec sql begin declare section;
-   char PFLICHT[50],VERBOTEN[50];
+   char TYP[50],PFLICHT[50],VERBOTEN[50];
    int LERNPUNKTE,ERFOLGSWERT;
    char SPIELBEGINN[10];
    char query[1024];
+   int db_size;
   exec sql end declare section; 
-  std::string squery="select coalesce(pflicht,''), coalesce(lernpunkte,0),
+  exec sql select count(typ) into :db_size from pflicht_lernen;
+  std::string squery="select typ, coalesce(pflicht,''), coalesce(lernpunkte,0),
       coalesce(verboten,''),coalesce(spielbegin,''),coalesce(erfolgswert,0)
-      from pflicht_lernen where typ ='"+spezies+"' or typ='"+Typ[0]->Short()
-      +"' or typ='"+Typ[1]->Short()+"'";
+      from pflicht_lernen order by typ";
       
   strncpy(query,squery.c_str(),sizeof(query));
   Transaction tr;
@@ -38,19 +42,46 @@ Pflicht::Pflicht(const std::string& spezies,const vector<H_Data_typen>& Typ)
 
   exec sql open cl_pflicht_ein;
   SQLerror::test(__FILELINE__);
+  std::list<pf> list_pflicht;
+  std::string typmem="";
+  double count=0;
   while (true)
    {
-     exec sql fetch cl_pflicht_ein into :PFLICHT, :LERNPUNKTE, :VERBOTEN,
+     progressbar->set_percentage(count/db_size);
+     while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+     exec sql fetch cl_pflicht_ein into :TYP, :PFLICHT, :LERNPUNKTE, :VERBOTEN,
          :SPIELBEGINN,:ERFOLGSWERT;
      SQLerror::test(__FILELINE__,100);
      if (sqlca.sqlcode) break;
-     vec_pflicht.push_back(pf(PFLICHT,VERBOTEN,LERNPUNKTE,ERFOLGSWERT,SPIELBEGINN));
+     if(typmem==std::string(TYP) || typmem=="")
+      {
+        list_pflicht.push_back(pf(PFLICHT,VERBOTEN,LERNPUNKTE,ERFOLGSWERT,SPIELBEGINN));
+      }      
+     else
+      {
+        pflicht_map[TYP] = list_pflicht;
+        list_pflicht.clear();
+      }
+     typmem=TYP;
+     ++count;
    }
+ exec sql close cl_pflicht_ein;
+ tr.close();
+ progressbar->set_percentage(1);
 }
 
-int Pflicht::istPflicht(const std::string& name,LE le) const
+int Pflicht::istPflicht(const std::string& spezies,const vector<H_Data_typen>& Typ,
+                        const std::string& name,LE le) const
 {
-  for(vector<pf>::const_iterator i=vec_pflicht.begin();i!=vec_pflicht.end();++i)
+  assert (Typ.size()==2);
+  std::list<pf> list_pflicht   = const_cast<map<std::string,list<pf> > &>(pflicht_map)[spezies];
+/*
+  std::list<pf> list_pflicht_2 = pflicht_map[Typ[0]->Short()];
+  std::list<pf> list_pflicht_3 = pflicht_map[Typ[1]->Short()];
+  list_pflicht.merge(list_pflicht_2);
+  list_pflicht.merge(list_pflicht_3);
+*/  
+  for(std::list<pf>::const_iterator i=list_pflicht.begin();i!=list_pflicht.end();++i)
    if(i->pflicht==name) 
       { if (le==LERNPUNKTE)  return  i->lernpunkte;
         if (le==ERFOLGSWERT) return i->erfolgswert;
@@ -58,11 +89,22 @@ int Pflicht::istPflicht(const std::string& name,LE le) const
   return 0; 
 }
 
-bool Pflicht::istVerboten(const std::string& name,bool spielbeginn) const
+bool Pflicht::istVerboten(const std::string& spezies,const vector<H_Data_typen>& Typ,
+                          const std::string& name,bool spielbeginn) const
 {
-  for(vector<pf>::const_iterator i=vec_pflicht.begin();i!=vec_pflicht.end();++i)
+  assert (Typ.size()==2);
+  std::list<pf> list_pflicht = pflicht_map[spezies];
+/*
+  std::list<pf> list_pflicht_2 = pflicht_map[Typ[0]->Short()];
+  std::list<pf> list_pflicht_3 = pflicht_map[Typ[1]->Short()];
+  list_pflicht.merge(list_pflicht_2);
+  list_pflicht.merge(list_pflicht_3);
+*/  
+  for(std::list<pf>::const_iterator i=list_pflicht.begin();i!=list_pflicht.end();++i)
    {  if(spielbeginn && i->verboten==name && i->spielbeginn!="") return true;
       if(i->verboten==name) return true;
    }
   return false; 
 }
+
+
