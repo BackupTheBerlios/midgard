@@ -1,4 +1,4 @@
-// $Id: xmlexport.pgcc,v 1.26 2001/09/04 17:04:29 christof Exp $
+// $Id: xmlexport.pgcc,v 1.27 2001/11/14 08:24:04 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -24,55 +24,7 @@
 #include <Aux/Transaction.h>
 #include <Aux/dbconnect.h>
 exec sql include sqlca;
-
-static int fetch_and_write_int(FetchIStream &is,std::ostream &o,const std::string &wert,int indent=0)
-{  int val;
-   
-   is >> FetchIStream::MapNull<int>(val,0);
-   if (!val) return val;
-   for (int i=0;i<indent;++i) o << ' ';
-   o << '<' << wert << '>' << val << "</" << wert << ">\n";
-   return val;
-}
-
-static int fetch_and_write_int_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,int standard=0)
-{  int val;
-   
-   is >> FetchIStream::MapNull<int>(val,standard);
-   if (val==standard) return val;
-   o << ' ' << wert << "=\"" << val << '\"';
-   return val;
-}
-
-static void fetch_and_write_string(FetchIStream &is,std::ostream &o,const std::string &wert,int indent=0)
-{  std::string val;
-   
-   is >> FetchIStream::MapNull<string>(val,""); 
-   if (!val.size()) return;
-   // val in XML wandeln ...
-   for (int i=0;i<indent;++i) o << ' ';
-   o << '<' << wert << '>' << val << "</" << wert << ">\n";
-}
-
-static std::string fetch_and_write_string_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,const std::string &standard="")
-{  std::string val;
-   
-   is >> FetchIStream::MapNull<string>(val,standard); 
-   if (val==standard) return val;
-   // val in XML wandeln ...
-   o << ' ' << wert << "=\"" << val << '\"';
-   return val;
-}
-
-static bool fetch_and_write_bool_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,const bool &standard=false)
-{  bool val;
-   
-   is >> FetchIStream::MapNull<bool>(val,standard); 
-   if (val==standard) return val;
-   // val in XML wandeln ...
-   o << ' ' << wert << "=\"" << (val?"True":"False") << '\"';
-   return val;
-}
+#include "../xml/export_common.h"
 
 void charakter_speichern(std::ostream &o, const std::string &name,const std::string &version="")
 {  exec sql begin declare section;
@@ -116,8 +68,8 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
    o << "  <Typ";
    fetch_and_write_string_attrib(is, o, "Spezies");
    fetch_and_write_string_attrib(is, o, "Geschlecht");
-   fetch_and_write_string_attrib(is, o, "Abkürzung");
-   fetch_and_write_string_attrib(is, o, "Abkürzung2");
+   fetch_and_write_typ_attrib(is, o, "Abkürzung");
+   fetch_and_write_typ_attrib(is, o, "Abkürzung2");
    fetch_and_write_string_attrib(is, o, "Spezialisierung");
    o << "/>\n";
    o << "  <Basiseigenschaften";

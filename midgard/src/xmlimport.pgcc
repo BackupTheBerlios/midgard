@@ -1,4 +1,4 @@
-// $Id: xmlimport.pgcc,v 1.27 2001/09/04 16:42:59 christof Exp $
+// $Id: xmlimport.pgcc,v 1.28 2001/11/14 08:24:04 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -24,6 +24,7 @@
 exec sql include sqlca;
 #include "TagStream.hh"
 #include <Aux/string0.h>
+#include "../xml/import_common.h"
 
 bool charakter_laden(const Tag::const_iterator &top)
 {  if (top->getInt("Version")<3 || top->getInt("Version")>7)
@@ -108,8 +109,8 @@ bool charakter_laden(const Tag::const_iterator &top)
    exec sql end declare section;
 
    strncpy0(db_beschreibung,top->getString("Text").c_str(),sizeof db_beschreibung);
-   strncpy0(db_typ_s,Typ->getString("Abkürzung").c_str(),sizeof db_typ_s);
-   strncpy0(db_typ_2_s,Typ->getString("Abkürzung2").c_str(),sizeof db_typ_2_s);
+   strncpy0(db_typ_s,typ_std2mcg(Typ->getString("Abkürzung")).c_str(),sizeof db_typ_s);
+   strncpy0(db_typ_2_s,typ_std2mcg(Typ->getString("Abkürzung2")).c_str(),sizeof db_typ_2_s);
    db_st=Basiseigenschaften->getInt("St",0);
    db_ge=Basiseigenschaften->getInt("Ge",0);
    db_ko=Basiseigenschaften->getInt("Ko",0);
