@@ -192,15 +192,15 @@ void midgard_CG::menu_gradanstieg_init()
   labelpic.push_back(SteigernMenueEintrag("Grad anpassen",Anpass_trans_50_xpm,
   		&midgard_CG::on_button_grad_clicked));
   labelpic.push_back(SteigernMenueEintrag("Ausdauer würfeln",Dice_2W6_trans_50_xpm,
-  		&midgard_CG::on_button_ausdauer_clicked));
+  		&midgard_CG::on_button_grad_ausdauer_clicked));
   labelpic.push_back(SteigernMenueEintrag("Abwehr",Armor_trans_50_xpm,
-  		&midgard_CG::on_button_abwehr_clicked));
+  		&midgard_CG::on_button_grad_abwehr_clicked));
   labelpic.push_back(SteigernMenueEintrag("Zaubern",wizzard_trans_50_xpm,
-  		&midgard_CG::on_button_zaubern_clicked));
+  		&midgard_CG::on_button_grad_zaubern_clicked));
   labelpic.push_back(SteigernMenueEintrag("Resistenz",Resistenz_trans_32_xpm,
-  		&midgard_CG::on_button_resistenz_clicked));
+  		&midgard_CG::on_button_grad_resistenz_clicked));
   labelpic.push_back(SteigernMenueEintrag("Basiswerte",Red_Dice_trans_50_xpm,
-  		&midgard_CG::on_button_basiswerte_clicked));
+  		&midgard_CG::on_button_grad_basiswerte_clicked));
 
   for(std::vector<SteigernMenueEintrag>::const_iterator i=labelpic.begin();i!=labelpic.end();++i)
    {
