@@ -1,4 +1,4 @@
-// $Id: magustrace.cc,v 1.3 2003/09/01 06:47:57 christof Exp $
+// $Id: magustrace.cc,v 1.4 2004/05/24 16:02:26 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -22,3 +22,4 @@
 #include <Misc/Trace.h>
 const UniqueValue::value_t LibMagus::trace_channel
                   =ManuProC::Tracer::channels.get();
+static ManuProC::Tracer::Environment trace_channel_e("DEBUG_LIBMAGUS",LibMagus::trace_channel);

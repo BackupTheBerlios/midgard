@@ -1,4 +1,4 @@
-// $Id: magus_paths.cc,v 1.14 2004/02/28 07:01:27 christof Exp $
+// $Id: magus_paths.cc,v 1.15 2004/05/24 16:02:26 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -18,15 +18,15 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#include "magus_paths.h"
-#include "Windows_Linux.hh"
-#include <vector>
-#include <unistd.h>
-#include "magustrace.h"
-#include <Misc/Trace.h>
 #include <config.h> // PACKAGE_DATA_DIR
 #include <sys/stat.h>
 #include <cassert>
+#include <vector>
+#include <unistd.h>
+#include "magus_paths.h"
+#include "Windows_Linux.hh"
+#include "magustrace.h"
+#include <Misc/TraceNV.h>
 #include "Ausgabe.hh"
 
 #ifdef __MINGW32__
@@ -109,6 +109,10 @@ void magus_paths::init(const std::string &_argv0,const std::string &_magus_verze
       }
    magus_verzeichnis+=WinLux::dirsep;
 
+   // remove leading ./ (confuses Wine)
+   if (argv0.size()>2 && argv0.substr(0,2)=="./")
+       argv0=argv0.substr(2);
+  ManuProC::Trace(LibMagus::trace_channel,"",argv0);
    // normalize argv0 (prepend current dir if relative)
    if (argv0[0]!=WinLux::dirsep 
 #ifdef __MINGW32__
@@ -155,7 +159,7 @@ std::string magus_paths::with_path(const std::string &name,bool path_only,bool n
   for(std::vector<std::string>::const_iterator i=paths.begin();i!=paths.end();++i)
    {
      std::string n=*i+name;
-//cout <<"Suche nach "<< n<<'\n';
+     ManuProC::Trace(LibMagus::trace_channel,"",NV("n",n));
      if(!access(n.c_str(),R_OK)) 
       { if(path_only) return *i;
         else return n;
@@ -174,7 +178,9 @@ std::string magus_paths::BinaryVerzeichnis()
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
    std::string::size_type end=argv0.rfind(WinLux::dirsep);
 #ifdef __MINGW32__ // für gdb & co
-   if (argv0.rfind('/')>end) end=argv0.rfind('/');
+   std::string::size_type gdbend=argv0.rfind('/');
+   if (gdbend!=std::string::npos && gdbend>end) 
+   	end=gdbend;
 #endif  
    if (end!=std::string::npos) return argv0.substr(0,end+1);
    else return "";

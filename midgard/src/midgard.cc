@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.86 2004/05/19 11:46:09 christof Exp $
+// $Id: midgard.cc,v 1.87 2004/05/24 16:02:26 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -82,7 +82,7 @@ static void progress(double d)
 }
 
 int main(int argc, char **argv)
-{
+{try {
 #ifdef __MINGW32__ // Dr MinGW als Exception Handle (debugging Ausgabe!)
    LoadLibrary("exchndl.dll");
 #endif
@@ -116,7 +116,8 @@ int main(int argc, char **argv)
 #endif
 
 #warning Zeitmessung wegen Anzahl der Zwischenschritte?
-   Gtk::Main m(&argc, &argv,true); 
+   Gtk::Main m(&argc, &argv,true);
+   if (getenv("DEBUG")) Ausgabe(Ausgabe::Debug,"Gtk::Main context created");
    if (!getenv("NOSPLASH") && !getenv("DEBUG")) 
   {
 //std::cerr << "composing images\n";
@@ -170,5 +171,10 @@ int main(int argc, char **argv)
    Programmoptionen->save_options(magus_paths::MagusVerzeichnis()+"magus_optionen.xml");
    delete magus;
    delete info;
+ } catch (std::exception &e)
+ {  std::cerr << "uncaught exception " << e.what() << '\n';
+ } catch (...)
+ {  std::cerr << "uncaught something\n";
+ }
    return 0;
 }

@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.cc,v 1.27 2004/05/18 13:26:57 christof Exp $
+// $Id: Magus_Optionen.cc,v 1.28 2004/05/24 16:02:26 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -18,20 +18,22 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#include "Magus_Optionen.hh"
 #include <fstream>
+#include <cassert>
+#include "Magus_Optionen.hh"
 #include <Misc/TagStream.h>
 #ifdef __MINGW32__
 #  include "registry.h"
 #endif
 #include "Windows_Linux.hh"
-#include <cassert>
 #include <Ausgabe.hh>
 #include <magus_paths.h>
 //#include <libmagusicons/magusicons.h>
 #include <Misc/Global_Settings.h>
 #include <Region.hh>
 #include "NotFound.h"
+#include "magustrace.h"
+#include <Misc/Trace.h>
 
 // HKEY_LOCAL_MACHINE\software\classes\http\shell\open\command ?
 
@@ -59,7 +61,7 @@ static std::string CommandByExtension(const std::string &ext)
 #endif
 
 void Magus_Optionen::init_all()
-{
+{  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
    Optionen_init();
    Ober_init();
    Icon_init();
@@ -68,7 +70,8 @@ void Magus_Optionen::init_all()
 }
 
 void Magus_Optionen::init()
-{  assert(!Programmoptionen);
+{  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
+   assert(!Programmoptionen);
    Programmoptionen=new Magus_Optionen;
    Programmoptionen->init_all();
    Global_Settings::set_impl(&global_settings_load,&global_settings_save);
@@ -88,14 +91,14 @@ std::string Magus_Optionen::Viewer() const
 }
 
 std::string Magus_Optionen::getString(StringIndex index) const 
-{
+{ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,index);
  for(std::list<st_strings>::const_iterator i=list_Strings.begin();i!=list_Strings.end();++i)
    if(i->index==index) return i->name;    
  abort();//never get here
 }
 
 Model_ref<std::string> Magus_Optionen::getString(StringIndex index)
-{
+{ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,index);
  for(std::list<st_strings>::iterator i=list_Strings.begin();i!=list_Strings.end();++i)
    if(i->index==index) return i->name;    
  abort();//never get here
@@ -108,7 +111,7 @@ void Magus_Optionen::setString(StringIndex index,std::string n)
 }
 
 Magus_Optionen::st_OptionenCheck &Magus_Optionen::OptionenCheck(OptionenCheckIndex oi) 
-{
+{ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,oi);
  for(std::list<st_OptionenCheck>::iterator i=list_OptionenCheck.begin();i!=list_OptionenCheck.end();++i)
    if(i->index==oi) 
      { //if(wert!=-1) const_cast<st_OptionenCheck&>(*i).wert=wert;
@@ -119,7 +122,7 @@ Magus_Optionen::st_OptionenCheck &Magus_Optionen::OptionenCheck(OptionenCheckInd
 }
 
 Magus_Optionen::st_Ober &Magus_Optionen::OberCheck(OberIndex hi) 
-{
+{ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,hi);
  for(std::list<st_Ober>::iterator i=list_Ober.begin();i!=list_Ober.end();++i)
    if(i->index==hi) return *i;
  assert(!"OberCheck: nicht gefunden");
@@ -127,7 +130,7 @@ Magus_Optionen::st_Ober &Magus_Optionen::OberCheck(OberIndex hi)
 }
 
 Magus_Optionen::st_Icon &Magus_Optionen::IconCheck(IconIndex hi) 
-{
+{ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,hi);
  for(std::list<st_Icon>::iterator i=list_Icon.begin();i!=list_Icon.end();++i)
    if(i->index==hi) return *i;
  assert(!"IconCheck: nicht gefunden");
@@ -135,14 +138,14 @@ Magus_Optionen::st_Icon &Magus_Optionen::IconCheck(IconIndex hi)
 }
 
 Magus_Optionen::IconIndex Magus_Optionen::getIconIndex() const
-{
+{ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
  for(std::list<st_Icon>::const_iterator i=list_Icon.begin();i!=list_Icon.end();++i)
    if(i->active) return i->index;
  throw std::out_of_range("getIconIndex");
 }
 
 Magus_Optionen::st_pdfViewer &Magus_Optionen::pdfViewerCheck(pdfViewerIndex pi)
-{
+{ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,pi);
  for(std::list<st_pdfViewer>::iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
    if(i->index==pi) return *i;
  assert(!"pdfViewer: nicht gefunden");
@@ -150,7 +153,7 @@ Magus_Optionen::st_pdfViewer &Magus_Optionen::pdfViewerCheck(pdfViewerIndex pi)
 }
  
 const Magus_Optionen::st_pdfViewer &Magus_Optionen::pdfViewerCheck(pdfViewerIndex pi) const
-{
+{ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,pi);
  return const_cast<Magus_Optionen*>(this)->pdfViewerCheck(pi);
 }
  
@@ -215,7 +218,7 @@ void Magus_Optionen::setpdfViewer(std::string is,bool b)
 }
 
 void Magus_Optionen::Optionen_init()
-{
+{ ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
   list_OptionenCheck.push_back(st_OptionenCheck(Notebook_start, 
                            "MAGUS mit bestimmter Seite starten",false,0));
 
@@ -229,7 +232,7 @@ void Magus_Optionen::Optionen_init()
 
 
 void Magus_Optionen::Strings_init()
-{
+{ ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
   datei_history=6;
 #ifndef __MINGW32__
   list_Strings.push_back(st_strings(pdf_viewer,"PDF Viewer",""));
@@ -253,7 +256,7 @@ void Magus_Optionen::Strings_init()
 
 
 void Magus_Optionen::pdfViewer_init()
-{
+{ ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
 #ifndef __MINGW32__
   std::vector<Model_ref<bool> > v;
   list_pdfViewer.push_back(st_pdfViewer(acroread,
@@ -282,7 +285,7 @@ void Magus_Optionen::pdfViewer_init()
 
 
 void Magus_Optionen::Ober_init()
-{
+{ ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
  list_Ober.clear();  
  list_Ober.push_back(st_Ober(SaveFenster,"Fenstergröße und -position speichern",false));
  list_Ober.push_back(st_Ober(AutoShrink,"Fenster automatisch verkleinern",false));
@@ -301,7 +304,7 @@ void Magus_Optionen::Ober_init()
 
 
 void Magus_Optionen::Icon_init()
-{
+{ ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
  list_Icon.clear();  
   std::vector<Model_ref<bool> > v;
  list_Icon.push_back(st_Icon(Self,"MAGUS-Stil",true));
@@ -316,7 +319,8 @@ void Magus_Optionen::Icon_init()
 // Lines marked with 'compat' are to maintain compatibility
 #include<iostream>
 void Magus_Optionen::load_options(const std::string &filename)
-{try {
+{ ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,filename);
+ try {
   std::ifstream f(filename.c_str());
   if (!f.good()) 
   { Ausgabe(Ausgabe::Error,"Cannot open "+filename);
@@ -331,10 +335,12 @@ void Magus_Optionen::load_options(const std::string &filename)
     }
   const Tag *options=data->find("Optionen");
   if (!options) options=data; // compat
+  ManuProC::Trace (LibMagus::trace_channel,"","Optionen");
   FOR_EACH_CONST_TAG_OF(i,*options,"Optionen") // compat
      setOptionCheck(i->getAttr("Name"),i->getBoolAttr("Wert"),i->getIntAttr("Page",NOPAGE));
   FOR_EACH_CONST_TAG_OF(i,*options,"Option")
-  {  if (i->hasAttr("Programm"))
+  {  ManuProC::Trace (LibMagus::trace_channel,"","Option",i->getAttr("Name"));
+     if (i->hasAttr("Programm"))
         my_global_settings[st_Global_Settings_key(i->getIntAttr("Benutzer",0),i->getAttr("Programm"),i->getAttr("Name"))]
      		= i->getAttr("Wert");
      else
@@ -349,10 +355,12 @@ void Magus_Optionen::load_options(const std::string &filename)
   FOR_EACH_CONST_TAG_OF(i,*options,"Einstellungen")
      setString(i->getAttr("Name"),i->getAttr("Wert"));
 
+  ManuProC::Trace (LibMagus::trace_channel,"","Regionen");
   const Tag *regionen=data->find("Regionen");
   if(regionen) FOR_EACH_CONST_TAG_OF(i,*regionen,"Region")
     standard_regionen[i->getAttr("Name")]=i->getBoolAttr("Wert");
 
+  ManuProC::Trace (LibMagus::trace_channel,"","Fenster");
   const Tag *data2=ts.find("MAGUS-fenster"); // compat
   if (!data2) data2=data->find("Fenster");
   if(data2)
@@ -368,6 +376,7 @@ void Magus_Optionen::load_options(const std::string &filename)
        }
    }
 
+  ManuProC::Trace (LibMagus::trace_channel,"","MAGUS-history");
   const Tag *data3=ts.find("MAGUS-history"); // compat
   if (!data3) data3=data->find("History");
   if(data3)
@@ -387,7 +396,7 @@ void Magus_Optionen::load_options(const std::string &filename)
                                                    
 //#include <iostream>
 void Magus_Optionen::save_options(const std::string &filename)
-{
+{ ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,filename);
   std::ofstream datei(filename.c_str());
   if (!datei.good())
    { 
@@ -488,7 +497,7 @@ void Magus_Optionen::setWindowPosition(const std::string &name,int x,int y,unsig
 
 #include "Abenteurer.hh"
 void Magus_Optionen::setStandardRegionen(const Abenteurer &A)
-{
+{  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
    for(Abenteurer::regionen_t::const_iterator i=A.getRegionen().begin();i!=A.getRegionen().end();++i)
      standard_regionen[i->first->Name()] = i->second;    
 }
@@ -497,12 +506,14 @@ void Magus_Optionen::setStandardRegionen(const Abenteurer &A)
 
 void Magus_Optionen::global_settings_save(int userid,const std::string& program,
       		const std::string& name, const std::string& value)
-{  Programmoptionen->my_global_settings[st_Global_Settings_key(userid,program,name)]=value;
+{  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,userid,program,name,value);
+   Programmoptionen->my_global_settings[st_Global_Settings_key(userid,program,name)]=value;
    Programmoptionen->geaendert=true;
 }
 std::string Magus_Optionen::global_settings_load(int userid,const std::string& program,
       		const std::string& name)
-{  return Programmoptionen->my_global_settings[st_Global_Settings_key(userid,program,name)];
+{  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,userid,program,name);
+   return Programmoptionen->my_global_settings[st_Global_Settings_key(userid,program,name)];
 }
 
 Magus_Optionen::Magus_Optionen() 

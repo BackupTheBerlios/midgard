@@ -1,4 +1,4 @@
-// $Id: libmagus.cc,v 1.4 2004/05/18 13:26:57 christof Exp $               
+// $Id: libmagus.cc,v 1.5 2004/05/24 16:02:26 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2003 Christof Petig
  *
@@ -22,19 +22,24 @@
 #include "Magus_Optionen.hh"
 #include "Datenbank.hh"
 #include "AbenteurerAuswahl.h"
+#include "magustrace.h"
+#include <Misc/Trace.h>
 
 void libmagus_init0(int argc,const char **argv)
-{  magus_paths::init(argv[0]);
+{  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,argv[0]);
+  magus_paths::init(argv[0]);
    Magus_Optionen::init();
    Programmoptionen->load_options(magus_paths::with_path("magus_optionen.xml",false,true));
 }
 
 void libmagus_init1(void (*progress)(double))
-{  Datenbank::init(progress);
+{  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
+  Datenbank::init(progress);
    AbenteurerAuswahl::Chars=new VAbenteurer;
 }
 
 void libmagus_init(int argc,const char **argv,void (*progress)(double))
-{  libmagus_init0(argc,argv);
+{  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
+  libmagus_init0(argc,argv);
    libmagus_init1(progress);
 }
