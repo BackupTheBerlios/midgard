@@ -19,6 +19,7 @@
 #include "Typen.hh"
 #include "ProgressBar.h"
 #include "MidgardBasicElement.hh" // für NotFound
+#include "Grundwerte.hh"
 
 cH_Typen::cache_t cH_Typen::cache;
 
@@ -60,6 +61,7 @@ Typen::Typen(const Tag *tag)
     sb=Modifikation->getIntAttr("Sb");
     ruestung=Modifikation->getIntAttr("Rüstung");
     geld=Modifikation->getIntAttr("Geld");
+    geld=Modifikation->getIntAttr("Geld");
  }
  region=tag->getAttr("Region");
  beruf=tag->getAttr("Berufswahl");
@@ -67,6 +69,11 @@ Typen::Typen(const Tag *tag)
  stadt=tag->getBoolAttr("Stadt",true);
  sprueche_mit_pp=tag->getAttr("SprücheMitPraxisPunkten");
  nsc_only=tag->getBoolAttr("NSC_only",false);
+ min_st=tag->getIntAttr("MinSt");
+ min_gw=tag->getIntAttr("MinGw");
+ min_gs=tag->getIntAttr("MinGs");
+ min_in=tag->getIntAttr("MinIn");
+ min_pa=tag->getIntAttr("MinpA");
 }
 
 bool Typen::Spezialwaffe() const
@@ -82,6 +89,18 @@ bool Typen::Spezialgebiet() const
   if (Short()=="Ma")  return true;
   if (Short()=="eBe") return true;
   return false;
+}
+
+
+bool Typen::Mindestwerte(const Grundwerte& Werte) const
+{
+  if (Werte.St() < min_st ||
+      Werte.Gw() < min_gw ||
+      Werte.Gs() < min_gs ||
+      Werte.In() < min_in ||
+      Werte.pA() < min_pa )   return false;
+  else return true;
+  abort(); 
 }
 
 

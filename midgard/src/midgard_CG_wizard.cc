@@ -33,6 +33,12 @@ void midgard_CG::wizard_do_something()
   if(e==Wizard::SPEZIALWAFFE)
       { togglebutton_spezialwaffe->set_active(true);}
 
+  if(e==Wizard::NAMEN)
+      { togglebutton_edit_werte->set_active(true);
+        entry_nameC->grab_focus();
+      }
+
+  if(e==Wizard::SPEICHERN) xml_export_auswahl();
 
 /*
   GdkEventButton button;
@@ -65,6 +71,12 @@ void midgard_CG::wizard_do_something()
 */
 }
 
+void midgard_CG::on_neuer_abenteurer_mit_wizard_activate()
+{
+  on_neuer_charakter_clicked();
+  on_wizard_starten_activate();
+}
+
 void midgard_CG::on_wizard_starten_activate()
 {
  on_neuer_charakter_clicked();
@@ -78,3 +90,4 @@ void midgard_CG::on_wizard_beenden_activate()
  label_wizard->hide();
  wizard=0;
 }
+

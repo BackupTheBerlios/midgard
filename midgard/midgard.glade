@@ -48,267 +48,6 @@
       <column_spacing>0</column_spacing>
 
       <widget>
-	<class>GtkHandleBox</class>
-	<name>handlebox_menu</name>
-	<cxx_visibility>protected</cxx_visibility>
-	<shadow_type>GTK_SHADOW_NONE</shadow_type>
-	<handle_position>GTK_POS_LEFT</handle_position>
-	<snap_edge>GTK_POS_TOP</snap_edge>
-	<child>
-	  <left_attach>0</left_attach>
-	  <right_attach>1</right_attach>
-	  <top_attach>0</top_attach>
-	  <bottom_attach>1</bottom_attach>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	  <xexpand>True</xexpand>
-	  <yexpand>True</yexpand>
-	  <xshrink>False</xshrink>
-	  <yshrink>False</yshrink>
-	  <xfill>True</xfill>
-	  <yfill>False</yfill>
-	</child>
-
-	<widget>
-	  <class>GtkMenuBar</class>
-	  <name>main_menubar</name>
-	  <cxx_visibility>protected</cxx_visibility>
-	  <shadow_type>GTK_SHADOW_NONE</shadow_type>
-
-	  <widget>
-	    <class>GtkMenuItem</class>
-	    <name>magus1</name>
-	    <label>Magus</label>
-	    <right_justify>False</right_justify>
-
-	    <widget>
-	      <class>GtkMenu</class>
-	      <name>magus1_menu</name>
-
-	      <widget>
-		<class>GtkMenuItem</class>
-		<name>neuen_abenteurer1</name>
-		<accelerator>
-		  <modifiers>GDK_CONTROL_MASK</modifiers>
-		  <key>GDK_N</key>
-		  <signal>activate</signal>
-		</accelerator>
-		<signal>
-		  <name>activate</name>
-		  <handler>on_neuer_charakter_clicked</handler>
-		  <last_modification_time>Fri, 12 Apr 2002 07:44:10 GMT</last_modification_time>
-		</signal>
-		<label>Neuen Abenteurer</label>
-		<right_justify>False</right_justify>
-	      </widget>
-
-	      <widget>
-		<class>GtkMenuItem</class>
-		<name>wizard_starten</name>
-		<accelerator>
-		  <modifiers>GDK_CONTROL_MASK</modifiers>
-		  <key>GDK_W</key>
-		  <signal>activate</signal>
-		</accelerator>
-		<signal>
-		  <name>activate</name>
-		  <handler>on_wizard_starten_activate</handler>
-		  <last_modification_time>Mon, 29 Apr 2002 06:50:14 GMT</last_modification_time>
-		</signal>
-		<label>Wizard starten</label>
-		<right_justify>False</right_justify>
-	      </widget>
-
-	      <widget>
-		<class>GtkMenuItem</class>
-		<name>wizard_beenden</name>
-		<accelerator>
-		  <modifiers>GDK_MOD1_MASK</modifiers>
-		  <key>GDK_W</key>
-		  <signal>activate</signal>
-		</accelerator>
-		<signal>
-		  <name>activate</name>
-		  <handler>on_wizard_beenden_activate</handler>
-		  <last_modification_time>Mon, 29 Apr 2002 06:50:14 GMT</last_modification_time>
-		</signal>
-		<label>Wizard beenden</label>
-		<right_justify>False</right_justify>
-	      </widget>
-
-	      <widget>
-		<class>GtkMenuItem</class>
-		<name>trennlinie3</name>
-		<right_justify>False</right_justify>
-	      </widget>
-
-	      <widget>
-		<class>GtkMenuItem</class>
-		<name>laden1</name>
-		<accelerator>
-		  <modifiers>GDK_CONTROL_MASK</modifiers>
-		  <key>GDK_O</key>
-		  <signal>activate</signal>
-		</accelerator>
-		<signal>
-		  <name>activate</name>
-		  <handler>xml_import_auswahl</handler>
-		  <last_modification_time>Fri, 12 Apr 2002 12:00:27 GMT</last_modification_time>
-		</signal>
-		<label>Laden</label>
-		<right_justify>False</right_justify>
-	      </widget>
-
-	      <widget>
-		<class>GtkMenuItem</class>
-		<name>speichern1</name>
-		<accelerator>
-		  <modifiers>GDK_CONTROL_MASK</modifiers>
-		  <key>GDK_S</key>
-		  <signal>activate</signal>
-		</accelerator>
-		<signal>
-		  <name>activate</name>
-		  <handler>xml_export_auswahl</handler>
-		  <last_modification_time>Fri, 12 Apr 2002 12:01:18 GMT</last_modification_time>
-		</signal>
-		<label>Speichern</label>
-		<right_justify>False</right_justify>
-	      </widget>
-
-	      <widget>
-		<class>GtkMenuItem</class>
-		<name>trennlinie1</name>
-		<right_justify>False</right_justify>
-	      </widget>
-
-	      <widget>
-		<class>GtkMenuItem</class>
-		<name>drucken1</name>
-		<accelerator>
-		  <modifiers>GDK_CONTROL_MASK</modifiers>
-		  <key>GDK_P</key>
-		  <signal>activate</signal>
-		</accelerator>
-		<signal>
-		  <name>activate</name>
-		  <handler>on_drucken_clicked</handler>
-		  <last_modification_time>Fri, 12 Apr 2002 12:05:34 GMT</last_modification_time>
-		</signal>
-		<label>Drucken</label>
-		<right_justify>False</right_justify>
-	      </widget>
-
-	      <widget>
-		<class>GtkMenuItem</class>
-		<name>trennlinie2</name>
-		<right_justify>False</right_justify>
-	      </widget>
-
-	      <widget>
-		<class>GtkMenuItem</class>
-		<name>beenden1</name>
-		<accelerator>
-		  <modifiers>GDK_CONTROL_MASK</modifiers>
-		  <key>GDK_Q</key>
-		  <signal>activate</signal>
-		</accelerator>
-		<signal>
-		  <name>activate</name>
-		  <handler>on_schliessen_CG_clicked</handler>
-		  <last_modification_time>Fri, 12 Apr 2002 07:44:10 GMT</last_modification_time>
-		</signal>
-		<label>Beenden</label>
-		<right_justify>False</right_justify>
-	      </widget>
-	    </widget>
-	  </widget>
-
-	  <widget>
-	    <class>GtkMenuItem</class>
-	    <name>bearbeiten1</name>
-	    <label>Bearbeiten</label>
-	    <right_justify>False</right_justify>
-
-	    <widget>
-	      <class>GtkMenu</class>
-	      <name>bearbeiten1_menu</name>
-
-	      <widget>
-		<class>GtkMenuItem</class>
-		<name>rückgängig1</name>
-		<accelerator>
-		  <modifiers>GDK_CONTROL_MASK</modifiers>
-		  <key>GDK_Z</key>
-		  <signal>activate</signal>
-		</accelerator>
-		<signal>
-		  <name>activate</name>
-		  <handler>on_button_undo_clicked</handler>
-		  <last_modification_time>Fri, 12 Apr 2002 11:32:34 GMT</last_modification_time>
-		</signal>
-		<label>Rückgängig</label>
-		<right_justify>False</right_justify>
-	      </widget>
-
-	      <widget>
-		<class>GtkMenuItem</class>
-		<name>erneut_vorwärts1</name>
-		<accelerator>
-		  <modifiers>GDK_CONTROL_MASK</modifiers>
-		  <key>GDK_R</key>
-		  <signal>activate</signal>
-		</accelerator>
-		<signal>
-		  <name>activate</name>
-		  <handler>on_button_redo_clicked</handler>
-		  <last_modification_time>Fri, 12 Apr 2002 11:32:34 GMT</last_modification_time>
-		</signal>
-		<label>Erneut/Vorwärts</label>
-		<right_justify>False</right_justify>
-	      </widget>
-
-	      <widget>
-		<class>GtkMenuItem</class>
-		<name>geschichte</name>
-		<signal>
-		  <name>activate</name>
-		  <handler>menu_geschichte_selected</handler>
-		  <last_modification_time>Tue, 16 Apr 2002 10:30:16 GMT</last_modification_time>
-		</signal>
-		<label>Geschichte</label>
-		<right_justify>False</right_justify>
-	      </widget>
-	    </widget>
-	  </widget>
-
-	  <widget>
-	    <class>GtkMenuItem</class>
-	    <name>einstellungen1</name>
-	    <label>Einstellungen</label>
-	    <right_justify>False</right_justify>
-
-	    <widget>
-	      <class>GtkMenu</class>
-	      <name>einstellungen1_menu</name>
-
-	      <widget>
-		<class>GtkMenuItem</class>
-		<name>aendern</name>
-		<signal>
-		  <name>activate</name>
-		  <handler>menu_einstellungen_aendern</handler>
-		  <last_modification_time>Tue, 16 Apr 2002 10:36:01 GMT</last_modification_time>
-		</signal>
-		<label>Ändern</label>
-		<right_justify>False</right_justify>
-	      </widget>
-	    </widget>
-	  </widget>
-	</widget>
-      </widget>
-
-      <widget>
 	<class>GtkNotebook</class>
 	<name>notebook_main</name>
 	<cxx_visibility>protected</cxx_visibility>
@@ -6136,8 +5875,8 @@ Beidhänder
 		  <group>Eigenschaften_wuerfeln</group>
 		  <child>
 		    <padding>0</padding>
-		    <expand>False</expand>
-		    <fill>False</fill>
+		    <expand>True</expand>
+		    <fill>True</fill>
 		  </child>
 		</widget>
 
@@ -6153,8 +5892,8 @@ Beidhänder
 		  <group>Eigenschaften_wuerfeln</group>
 		  <child>
 		    <padding>0</padding>
-		    <expand>False</expand>
-		    <fill>False</fill>
+		    <expand>True</expand>
+		    <fill>True</fill>
 		  </child>
 		</widget>
 
@@ -6170,8 +5909,8 @@ Beidhänder
 		  <group>Eigenschaften_wuerfeln</group>
 		  <child>
 		    <padding>0</padding>
-		    <expand>False</expand>
-		    <fill>False</fill>
+		    <expand>True</expand>
+		    <fill>True</fill>
 		  </child>
 		</widget>
 	      </widget>
@@ -6386,14 +6125,45 @@ editieren</label>
 	  </signal>
 
 	  <widget>
-	    <class>GtkPixmap</class>
-	    <name>pixmap87</name>
-	    <filename>Grundwert_small.xpm</filename>
-	    <xalign>0.5</xalign>
-	    <yalign>0.5</yalign>
-	    <xpad>0</xpad>
-	    <ypad>0</ypad>
-	    <build_insensitive>True</build_insensitive>
+	    <class>GtkVBox</class>
+	    <name>vbox51</name>
+	    <homogeneous>False</homogeneous>
+	    <spacing>0</spacing>
+
+	    <widget>
+	      <class>GtkPixmap</class>
+	      <name>pixmap_notebook_grundwerte</name>
+	      <cxx_visibility>protected</cxx_visibility>
+	      <filename>Grundwert_small.xpm</filename>
+	      <xalign>0.5</xalign>
+	      <yalign>0.5</yalign>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <build_insensitive>True</build_insensitive>
+	      <child>
+		<padding>0</padding>
+		<expand>True</expand>
+		<fill>True</fill>
+	      </child>
+	    </widget>
+
+	    <widget>
+	      <class>GtkLabel</class>
+	      <name>label_notebook_grundwerte</name>
+	      <cxx_visibility>protected</cxx_visibility>
+	      <label>Grundwerte</label>
+	      <justify>GTK_JUSTIFY_CENTER</justify>
+	      <wrap>False</wrap>
+	      <xalign>0.5</xalign>
+	      <yalign>0.5</yalign>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <child>
+		<padding>0</padding>
+		<expand>False</expand>
+		<fill>False</fill>
+	      </child>
+	    </widget>
 	  </widget>
 	</widget>
 
@@ -7892,6 +7662,7 @@ auswählen</label>
 		    <class>GtkButton</class>
 		    <child_name>Toolbar:button</child_name>
 		    <name>button_beruf</name>
+		    <cxx_visibility>protected</cxx_visibility>
 		    <tooltip>Linke Maustaste: Auswahl aus Originalliste. Rechte Maustaste: Berufsnamen selber eingeben.</tooltip>
 		    <signal>
 		      <name>button_release_event</name>
@@ -8645,14 +8416,45 @@ zeigen, die zu teuer sind</label>
 	  </signal>
 
 	  <widget>
-	    <class>GtkPixmap</class>
-	    <name>pixmap86</name>
-	    <filename>L_Schema_small.xpm</filename>
-	    <xalign>0.5</xalign>
-	    <yalign>0.5</yalign>
-	    <xpad>0</xpad>
-	    <ypad>0</ypad>
-	    <build_insensitive>True</build_insensitive>
+	    <class>GtkVBox</class>
+	    <name>vbox52</name>
+	    <homogeneous>False</homogeneous>
+	    <spacing>0</spacing>
+
+	    <widget>
+	      <class>GtkPixmap</class>
+	      <name>pixmap_notebook_lernen</name>
+	      <cxx_visibility>protected</cxx_visibility>
+	      <filename>L_Schema_small.xpm</filename>
+	      <xalign>0.5</xalign>
+	      <yalign>0.5</yalign>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <build_insensitive>True</build_insensitive>
+	      <child>
+		<padding>0</padding>
+		<expand>True</expand>
+		<fill>True</fill>
+	      </child>
+	    </widget>
+
+	    <widget>
+	      <class>GtkLabel</class>
+	      <name>label_notebook_lernen</name>
+	      <cxx_visibility>protected</cxx_visibility>
+	      <label>Lernschema</label>
+	      <justify>GTK_JUSTIFY_CENTER</justify>
+	      <wrap>False</wrap>
+	      <xalign>0.5</xalign>
+	      <yalign>0.5</yalign>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <child>
+		<padding>0</padding>
+		<expand>False</expand>
+		<fill>False</fill>
+	      </child>
+	    </widget>
 	  </widget>
 	</widget>
 
@@ -13061,14 +12863,45 @@ eingeben</label>
 	  </signal>
 
 	  <widget>
-	    <class>GtkPixmap</class>
-	    <name>pixmap85</name>
-	    <filename>Steigern_small.xpm</filename>
-	    <xalign>0.5</xalign>
-	    <yalign>0.5</yalign>
-	    <xpad>0</xpad>
-	    <ypad>0</ypad>
-	    <build_insensitive>True</build_insensitive>
+	    <class>GtkVBox</class>
+	    <name>vbox53</name>
+	    <homogeneous>False</homogeneous>
+	    <spacing>0</spacing>
+
+	    <widget>
+	      <class>GtkPixmap</class>
+	      <name>pixmap_notebook_steigern</name>
+	      <cxx_visibility>protected</cxx_visibility>
+	      <filename>Steigern_small.xpm</filename>
+	      <xalign>0.5</xalign>
+	      <yalign>0.5</yalign>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <build_insensitive>True</build_insensitive>
+	      <child>
+		<padding>0</padding>
+		<expand>True</expand>
+		<fill>True</fill>
+	      </child>
+	    </widget>
+
+	    <widget>
+	      <class>GtkLabel</class>
+	      <name>label_notebook_steigern</name>
+	      <cxx_visibility>protected</cxx_visibility>
+	      <label>Steigern</label>
+	      <justify>GTK_JUSTIFY_CENTER</justify>
+	      <wrap>False</wrap>
+	      <xalign>0.5</xalign>
+	      <yalign>0.5</yalign>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <child>
+		<padding>0</padding>
+		<expand>False</expand>
+		<fill>False</fill>
+	      </child>
+	    </widget>
 	  </widget>
 	</widget>
 
@@ -13435,15 +13268,46 @@ Drucken</label>
 	  </signal>
 
 	  <widget>
-	    <class>GtkPixmap</class>
-	    <name>pixmap146</name>
-	    <width>80</width>
-	    <filename>Descr.Char-40.xpm</filename>
-	    <xalign>0.5</xalign>
-	    <yalign>0.5</yalign>
-	    <xpad>0</xpad>
-	    <ypad>0</ypad>
-	    <build_insensitive>True</build_insensitive>
+	    <class>GtkVBox</class>
+	    <name>vbox54</name>
+	    <homogeneous>False</homogeneous>
+	    <spacing>0</spacing>
+
+	    <widget>
+	      <class>GtkPixmap</class>
+	      <name>pixmap_notebook_beschreibung</name>
+	      <width>80</width>
+	      <cxx_visibility>protected</cxx_visibility>
+	      <filename>Descr.Char-40.xpm</filename>
+	      <xalign>0.5</xalign>
+	      <yalign>0.5</yalign>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <build_insensitive>True</build_insensitive>
+	      <child>
+		<padding>0</padding>
+		<expand>True</expand>
+		<fill>True</fill>
+	      </child>
+	    </widget>
+
+	    <widget>
+	      <class>GtkLabel</class>
+	      <name>label_notebook_beschreibung</name>
+	      <cxx_visibility>protected</cxx_visibility>
+	      <label>Beschreibung</label>
+	      <justify>GTK_JUSTIFY_CENTER</justify>
+	      <wrap>False</wrap>
+	      <xalign>0.5</xalign>
+	      <yalign>0.5</yalign>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <child>
+		<padding>0</padding>
+		<expand>False</expand>
+		<fill>False</fill>
+	      </child>
+	    </widget>
 	  </widget>
 	</widget>
 
@@ -14849,14 +14713,45 @@ KS
 	  </signal>
 
 	  <widget>
-	    <class>GtkPixmap</class>
-	    <name>pixmap84</name>
-	    <filename>Ausruest_small.xpm</filename>
-	    <xalign>0.5</xalign>
-	    <yalign>0.5</yalign>
-	    <xpad>0</xpad>
-	    <ypad>0</ypad>
-	    <build_insensitive>True</build_insensitive>
+	    <class>GtkVBox</class>
+	    <name>vbox55</name>
+	    <homogeneous>False</homogeneous>
+	    <spacing>0</spacing>
+
+	    <widget>
+	      <class>GtkPixmap</class>
+	      <name>pixmap_notebook_ausruestung</name>
+	      <cxx_visibility>protected</cxx_visibility>
+	      <filename>Ausruest_small.xpm</filename>
+	      <xalign>0.5</xalign>
+	      <yalign>0.5</yalign>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <build_insensitive>True</build_insensitive>
+	      <child>
+		<padding>0</padding>
+		<expand>True</expand>
+		<fill>True</fill>
+	      </child>
+	    </widget>
+
+	    <widget>
+	      <class>GtkLabel</class>
+	      <name>label585</name>
+	      <cxx_visibility>protected</cxx_visibility>
+	      <label>Ausrüstung</label>
+	      <justify>GTK_JUSTIFY_CENTER</justify>
+	      <wrap>False</wrap>
+	      <xalign>0.5</xalign>
+	      <yalign>0.5</yalign>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <child>
+		<padding>0</padding>
+		<expand>False</expand>
+		<fill>False</fill>
+	      </child>
+	    </widget>
 	  </widget>
 	</widget>
 
@@ -15214,14 +15109,45 @@ KS
 	  </signal>
 
 	  <widget>
-	    <class>GtkPixmap</class>
-	    <name>pixmap152</name>
-	    <filename>Regio_Hausregel-50.xpm</filename>
-	    <xalign>0.5</xalign>
-	    <yalign>0.5</yalign>
-	    <xpad>0</xpad>
-	    <ypad>0</ypad>
-	    <build_insensitive>True</build_insensitive>
+	    <class>GtkVBox</class>
+	    <name>vbox56</name>
+	    <homogeneous>False</homogeneous>
+	    <spacing>0</spacing>
+
+	    <widget>
+	      <class>GtkPixmap</class>
+	      <name>pixmap_notebook_optionen</name>
+	      <cxx_visibility>protected</cxx_visibility>
+	      <filename>Regio_Hausregel-50.xpm</filename>
+	      <xalign>0.5</xalign>
+	      <yalign>0.5</yalign>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <build_insensitive>True</build_insensitive>
+	      <child>
+		<padding>0</padding>
+		<expand>True</expand>
+		<fill>True</fill>
+	      </child>
+	    </widget>
+
+	    <widget>
+	      <class>GtkLabel</class>
+	      <name>label_notebook_optionen</name>
+	      <cxx_visibility>protected</cxx_visibility>
+	      <label>Optionen</label>
+	      <justify>GTK_JUSTIFY_CENTER</justify>
+	      <wrap>False</wrap>
+	      <xalign>0.5</xalign>
+	      <yalign>0.5</yalign>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <child>
+		<padding>0</padding>
+		<expand>False</expand>
+		<fill>False</fill>
+	      </child>
+	    </widget>
 	  </widget>
 	</widget>
 
@@ -15395,7 +15321,7 @@ wird der entsprechende Abenteurer geladen.</label>
 	  <xpad>0</xpad>
 	  <ypad>0</ypad>
 	  <xexpand>True</xexpand>
-	  <yexpand>True</yexpand>
+	  <yexpand>False</yexpand>
 	  <xshrink>False</xshrink>
 	  <yshrink>False</yshrink>
 	  <xfill>True</xfill>
@@ -15430,20 +15356,6 @@ wird der entsprechende Abenteurer geladen.</label>
 	  <widget>
 	    <class>GtkButton</class>
 	    <child_name>Toolbar:button</child_name>
-	    <name>button8</name>
-	    <tooltip>Linke Maustaste: Speichern unter ....           Rechte Maustaste: Speichern.</tooltip>
-	    <signal>
-	      <name>button_release_event</name>
-	      <handler>on_speichern_release_event</handler>
-	      <last_modification_time>Tue, 17 Apr 2001 18:50:09 GMT</last_modification_time>
-	    </signal>
-	    <label>Speichern</label>
-	    <icon>SaveChar-trans-50.xpm</icon>
-	  </widget>
-
-	  <widget>
-	    <class>GtkButton</class>
-	    <child_name>Toolbar:button</child_name>
 	    <name>button9</name>
 	    <tooltip>Abenteurer laden</tooltip>
 	    <signal>
@@ -15453,6 +15365,20 @@ wird der entsprechende Abenteurer geladen.</label>
 	    </signal>
 	    <label>Laden</label>
 	    <icon>LoadChar-trans-50.xpm</icon>
+	  </widget>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <child_name>Toolbar:button</child_name>
+	    <name>button8</name>
+	    <tooltip>Linke Maustaste: Speichern           Rechte Maustaste: Speichern unter ...</tooltip>
+	    <signal>
+	      <name>button_release_event</name>
+	      <handler>on_speichern_release_event</handler>
+	      <last_modification_time>Tue, 17 Apr 2001 18:50:09 GMT</last_modification_time>
+	    </signal>
+	    <label>Speichern</label>
+	    <icon>SaveChar-trans-50.xpm</icon>
 	  </widget>
 
 	  <widget>
@@ -15582,6 +15508,272 @@ wird der entsprechende Abenteurer geladen.</label>
 
       <widget>
 	<class>GtkHandleBox</class>
+	<name>handlebox_menu</name>
+	<cxx_visibility>protected</cxx_visibility>
+	<shadow_type>GTK_SHADOW_NONE</shadow_type>
+	<handle_position>GTK_POS_LEFT</handle_position>
+	<snap_edge>GTK_POS_TOP</snap_edge>
+	<child>
+	  <left_attach>0</left_attach>
+	  <right_attach>1</right_attach>
+	  <top_attach>0</top_attach>
+	  <bottom_attach>1</bottom_attach>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <xexpand>True</xexpand>
+	  <yexpand>False</yexpand>
+	  <xshrink>False</xshrink>
+	  <yshrink>False</yshrink>
+	  <xfill>True</xfill>
+	  <yfill>False</yfill>
+	</child>
+
+	<widget>
+	  <class>GtkMenuBar</class>
+	  <name>main_menubar</name>
+	  <cxx_visibility>protected</cxx_visibility>
+	  <shadow_type>GTK_SHADOW_NONE</shadow_type>
+
+	  <widget>
+	    <class>GtkMenuItem</class>
+	    <name>magus1</name>
+	    <label>Datei</label>
+	    <right_justify>False</right_justify>
+
+	    <widget>
+	      <class>GtkMenu</class>
+	      <name>magus1_menu</name>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>neuen_abenteurer1</name>
+		<accelerator>
+		  <modifiers>GDK_MOD1_MASK</modifiers>
+		  <key>GDK_N</key>
+		  <signal>activate</signal>
+		</accelerator>
+		<signal>
+		  <name>activate</name>
+		  <handler>on_neuer_charakter_clicked</handler>
+		  <last_modification_time>Fri, 12 Apr 2002 07:44:10 GMT</last_modification_time>
+		</signal>
+		<label>Neuen Abenteurer</label>
+		<right_justify>False</right_justify>
+	      </widget>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>neuer_abenteurer_mit_wizard1</name>
+		<accelerator>
+		  <modifiers>GDK_CONTROL_MASK</modifiers>
+		  <key>GDK_N</key>
+		  <signal>activate</signal>
+		</accelerator>
+		<signal>
+		  <name>activate</name>
+		  <handler>on_neuer_abenteurer_mit_wizard_activate</handler>
+		  <last_modification_time>Mon, 06 May 2002 07:31:18 GMT</last_modification_time>
+		</signal>
+		<label>Neuer Abenteurer mit Wizard</label>
+		<right_justify>False</right_justify>
+	      </widget>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>wizard_starten</name>
+		<accelerator>
+		  <modifiers>GDK_CONTROL_MASK</modifiers>
+		  <key>GDK_W</key>
+		  <signal>activate</signal>
+		</accelerator>
+		<signal>
+		  <name>activate</name>
+		  <handler>on_wizard_starten_activate</handler>
+		  <last_modification_time>Mon, 29 Apr 2002 06:50:14 GMT</last_modification_time>
+		</signal>
+		<label>Wizard starten</label>
+		<right_justify>False</right_justify>
+	      </widget>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>wizard_beenden</name>
+		<accelerator>
+		  <modifiers>GDK_MOD1_MASK</modifiers>
+		  <key>GDK_W</key>
+		  <signal>activate</signal>
+		</accelerator>
+		<signal>
+		  <name>activate</name>
+		  <handler>on_wizard_beenden_activate</handler>
+		  <last_modification_time>Mon, 29 Apr 2002 06:50:14 GMT</last_modification_time>
+		</signal>
+		<label>Wizard beenden</label>
+		<right_justify>False</right_justify>
+	      </widget>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>trennlinie3</name>
+		<right_justify>False</right_justify>
+	      </widget>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>laden1</name>
+		<accelerator>
+		  <modifiers>GDK_CONTROL_MASK</modifiers>
+		  <key>GDK_O</key>
+		  <signal>activate</signal>
+		</accelerator>
+		<signal>
+		  <name>activate</name>
+		  <handler>xml_import_auswahl</handler>
+		  <last_modification_time>Fri, 12 Apr 2002 12:00:27 GMT</last_modification_time>
+		</signal>
+		<label>Öffnen</label>
+		<right_justify>False</right_justify>
+	      </widget>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>speichern1</name>
+		<accelerator>
+		  <modifiers>GDK_CONTROL_MASK</modifiers>
+		  <key>GDK_S</key>
+		  <signal>activate</signal>
+		</accelerator>
+		<signal>
+		  <name>activate</name>
+		  <handler>xml_export_auswahl</handler>
+		  <last_modification_time>Fri, 12 Apr 2002 12:01:18 GMT</last_modification_time>
+		</signal>
+		<label>Speichern</label>
+		<right_justify>False</right_justify>
+	      </widget>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>speichern_unter_</name>
+		<signal>
+		  <name>activate</name>
+		  <handler>save_existing_filename</handler>
+		  <last_modification_time>Sun, 05 May 2002 19:40:38 GMT</last_modification_time>
+		</signal>
+		<label>Speichern unter ...</label>
+		<right_justify>False</right_justify>
+	      </widget>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>trennlinie1</name>
+		<right_justify>False</right_justify>
+	      </widget>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>drucken1</name>
+		<accelerator>
+		  <modifiers>GDK_CONTROL_MASK</modifiers>
+		  <key>GDK_P</key>
+		  <signal>activate</signal>
+		</accelerator>
+		<signal>
+		  <name>activate</name>
+		  <handler>on_drucken_clicked</handler>
+		  <last_modification_time>Fri, 12 Apr 2002 12:05:34 GMT</last_modification_time>
+		</signal>
+		<label>Drucken</label>
+		<right_justify>False</right_justify>
+	      </widget>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>trennlinie2</name>
+		<right_justify>False</right_justify>
+	      </widget>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>beenden1</name>
+		<accelerator>
+		  <modifiers>GDK_CONTROL_MASK</modifiers>
+		  <key>GDK_Q</key>
+		  <signal>activate</signal>
+		</accelerator>
+		<signal>
+		  <name>activate</name>
+		  <handler>on_schliessen_CG_clicked</handler>
+		  <last_modification_time>Fri, 12 Apr 2002 07:44:10 GMT</last_modification_time>
+		</signal>
+		<label>Beenden</label>
+		<right_justify>False</right_justify>
+	      </widget>
+	    </widget>
+	  </widget>
+
+	  <widget>
+	    <class>GtkMenuItem</class>
+	    <name>bearbeiten1</name>
+	    <label>Bearbeiten</label>
+	    <right_justify>False</right_justify>
+
+	    <widget>
+	      <class>GtkMenu</class>
+	      <name>bearbeiten1_menu</name>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>rückgängig1</name>
+		<accelerator>
+		  <modifiers>GDK_CONTROL_MASK</modifiers>
+		  <key>GDK_Z</key>
+		  <signal>activate</signal>
+		</accelerator>
+		<signal>
+		  <name>activate</name>
+		  <handler>on_button_undo_clicked</handler>
+		  <last_modification_time>Fri, 12 Apr 2002 11:32:34 GMT</last_modification_time>
+		</signal>
+		<label>Rückgängig</label>
+		<right_justify>False</right_justify>
+	      </widget>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>erneut_vorwärts1</name>
+		<accelerator>
+		  <modifiers>GDK_CONTROL_MASK</modifiers>
+		  <key>GDK_R</key>
+		  <signal>activate</signal>
+		</accelerator>
+		<signal>
+		  <name>activate</name>
+		  <handler>on_button_redo_clicked</handler>
+		  <last_modification_time>Fri, 12 Apr 2002 11:32:34 GMT</last_modification_time>
+		</signal>
+		<label>Erneut/Vorwärts</label>
+		<right_justify>False</right_justify>
+	      </widget>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>geschichte</name>
+		<signal>
+		  <name>activate</name>
+		  <handler>menu_geschichte_selected</handler>
+		  <last_modification_time>Tue, 16 Apr 2002 10:30:16 GMT</last_modification_time>
+		</signal>
+		<label>Geschichte</label>
+		<right_justify>False</right_justify>
+	      </widget>
+	    </widget>
+	  </widget>
+	</widget>
+      </widget>
+
+      <widget>
+	<class>GtkHandleBox</class>
 	<name>handlebox_status</name>
 	<cxx_visibility>protected</cxx_visibility>
 	<shadow_type>GTK_SHADOW_NONE</shadow_type>
@@ -15595,7 +15787,7 @@ wird der entsprechende Abenteurer geladen.</label>
 	  <xpad>0</xpad>
 	  <ypad>0</ypad>
 	  <xexpand>True</xexpand>
-	  <yexpand>True</yexpand>
+	  <yexpand>False</yexpand>
 	  <xshrink>False</xshrink>
 	  <yshrink>False</yshrink>
 	  <xfill>True</xfill>

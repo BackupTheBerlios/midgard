@@ -1,4 +1,4 @@
-// $Id: Typen.hh,v 1.15 2002/04/23 08:33:02 thoma Exp $               
+// $Id: Typen.hh,v 1.16 2002/05/06 12:03:01 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -28,6 +28,8 @@
 #include <gtk--/progressbar.h>
 #include "xml.h"
 
+class Grundwerte;
+
 class Typen : public HandleContent
 {
    std::string typs;
@@ -39,11 +41,13 @@ class Typen : public HandleContent
    bool stadt,land;
    std::string sprueche_mit_pp;
    bool nsc_only;
+   int min_st,min_gw,min_gs,min_in,min_pa;
 
 public:
    Typen(const Tag *tag);
    Typen() : typnr(0),stand(0),sb(0),ruestung(0),geld(0),
-         stadt(true),land(true),nsc_only(false) {}
+         stadt(true),land(true),nsc_only(false),
+         min_st(0),min_gw(0),min_gs(0),min_in(0),min_pa(0) {}
    
    std::string Name(const std::string& geschlecht) const 
       { if (geschlecht=="m") return typl; else return typlw;}
@@ -63,6 +67,7 @@ public:
    bool NSC_only() const {return nsc_only;}
    bool Spezialwaffe() const;
    bool Spezialgebiet() const;
+   bool Mindestwerte(const Grundwerte& Werte) const;
 
    bool is_mage() const 
     { if(Zaubern()=="z" || Zaubern()=="j") return true; else return false; } 

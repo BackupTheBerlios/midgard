@@ -4,10 +4,25 @@ NEWS IN VERSION 0.6delta3
 * Erain: Zaubertänze (Gildenbrief 46)
 * Der Windows Port verwendet den Explorer um Dateien auszuwählen
 * Abenteurer werden auch unter Windows nun in ISO 8859-1 gespeichert
+* Nahuatlan Fertigkeiten: Im Prinzip 'Ja', aber m.E. ist einiges mehr als
+   überholt, außerdem habe ich die Ausnahemn für die Einheimischen nicht 
+   berücksichtigt. Ergänzungs- und Änderungswünsche nehme ich aber gerne 
+   entgegen, wenn sie konkret(!) formuliert werden :-)
+* Nahuatlan Aliasnamen für Waffen und Schilde
+* Zahlreiche Änderungen/Bugs aufgrund des Testes von Ulf Kaiser eingearbeitet
+* Nahuathlan: Typen (bis auf den Netzbewahrer, der ändert seine 
+   Charakterklasse später, mal sehen, ob ich das jemals einbaue, soetwas ist 
+   zwar stimmungsvoll, lohnt jedoch den AUfwand für einen Abenteurergenerator 
+   nicht, oder ist jemand anderer Ansicht?)
+* Überarbeiteter Wizard funktioniert jetzt bis zum Speichern, Spezialwaffe
+   bzw. Spezialgebiet werden nur noch bei Bedarf abgefragt.
+* MindestwerTypen in Klammern 
+* Text im Notebook
+* Text/Icons im Notebook abschaltbar
 
 TODO:
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
-* Nahuathlan: Fertigkeiten, Typen
+* Mindestwerte für pA sinnvoll berücksichigen
 * Destruktor wird nicht aufgerufen
 * gv zeigt den falschen Ausschnitt des pdf Dokumentes 
    (nur für Linux interessant)

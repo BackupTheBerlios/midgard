@@ -20,9 +20,11 @@ class Wizard
 {   
    public:
      enum esteps {START,SPEZIES,GRUNDWERTE,GESCHLECHT,TYP,STADTLAND,
-                  ABGELEITETEWERTE,HERKUNFT,ANGEBORENEFERTIGKEITEN,
+                  ABGELEITETEWERTE,LERNSCHEMA_SEITE,
+                  HERKUNFT,ANGEBORENEFERTIGKEITEN,
                   LERNPUNKTE,WAEHLEN,BERUF1,BERUF,
                   GELD,WAFFEN,RUESTUNG,SPEZIALWAFFE,SPEZIALGEBIET,
+                  NAMEN,
                   SPEICHERN,FERTIG,MAXSTEPS};
    private:
      struct st_wiz

@@ -42,17 +42,20 @@ void Wizard::evaluate_step(esteps step)
 {
   assert(vecwiz.size()>(size_t)(step));
   vector<cH_Typen> Typ=hauptfenster->getVTyp();
-cout <<"evaluate_step " <<step<<' '<<SPEZIALWAFFE<<' '<<SPEZIALGEBIET<<'\n';
+//cout <<"evaluate_step " <<step<<' '<<LERNSCHEMA_SEITE<<' '<<SPEZIALWAFFE<<' '<<SPEZIALGEBIET<<'\n';
+//  if(step==LERNSCHEMA_SEITE) { next_step(LERNSCHEMA_SEITE); return;}
+
   if(step==SPEZIALWAFFE&&(!Typ[0]->Spezialwaffe()&&!Typ[1]->Spezialwaffe()))
-{
-cout << "Automatisch weiter \n";
-    next_step(SPEZIALWAFFE);
-}
+   {
+     next_step(SPEZIALWAFFE);
+     return;
+   }
   if(step==SPEZIALGEBIET&&(!Typ[0]->Spezialgebiet()&&!Typ[1]->Spezialgebiet()))
-    next_step(SPEZIALGEBIET);
-//cout << "AA "<<vecwiz[step].page<<'\n';
+   {
+     next_step(SPEZIALGEBIET);
+     return;
+   }
   hauptfenster->notebook_main->set_page(vecwiz[step].page);
-//cout << "BB "<<vecwiz[step].page<<'\n';
   hauptfenster->set_wizard(vecwiz[step].text);
   hauptfenster->wizard_do_something();
 
@@ -105,6 +108,11 @@ void Wizard::fill_vecwiz()
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
                           "Abgeleitete Werte würfeln",
                           "abgeleitete Werte",
+                          &midgard_CG::wizard_do_something));
+   //LERNSCHEMA_SEITE
+   vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
+                          "Auf die 'Lernschema'-Seite umblättern",
+                          "Umblättern",
                           &midgard_CG::wizard_do_something));
    //HERKUNFT
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
@@ -163,6 +171,11 @@ void Wizard::fill_vecwiz()
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
                           "Magier sollten ein Spezialgebiet wählen (das kann aber auch später geschehen)",
                           "Spezialgebiet",
+                          &midgard_CG::wizard_do_something));
+   //NAMEN
+   vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
+                          "Namen vergeben (Eingabe mit 'Enter' abschließen",
+                          "Namen",
                           &midgard_CG::wizard_do_something));
    //SPEICHERN
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,

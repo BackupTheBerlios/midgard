@@ -43,7 +43,8 @@ void midgard_CG::fill_typauswahl_fill(int typ_1_2)
      if (Werte.Spezies()->Name()=="Mensch" || Werte.Spezies()->Typ_erlaubt((*i)->Short()))
        if (region_check((*i)->Region()) && nsc_check((*i)->NSC_only()))
          {
-           t_ << (*i)->Name(Werte.Geschlecht());
+           if((*i)->Mindestwerte(Werte)) t_ << (*i)->Name(Werte.Geschlecht());
+           else   t_ << "("<<(*i)->Name(Werte.Geschlecht())<<")";
            t_.flush((*i)->ref(),&HandleContent::unref);
          }
    }

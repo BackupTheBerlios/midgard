@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.82 2002/04/27 21:27:08 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.83 2002/05/06 12:03:01 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -132,6 +132,52 @@ void midgard_CG::show_Beschriftungen(bool b)
  else if( b &&!i) toolbar_top->set_style(GTK_TOOLBAR_TEXT);
  else if(!b && i) toolbar_top->set_style(GTK_TOOLBAR_ICONS);
  else if(!b &&!i) toolbar_top->hide();
+}
+
+void midgard_CG::show_NIcons(bool i)
+{
+ bool b=MOptionen->OberCheck(Midgard_Optionen::NBeschriftungen).active;
+ if(i)
+  {
+   pixmap_notebook_grundwerte->show();
+   pixmap_notebook_lernen->show();
+   pixmap_notebook_steigern->show();
+   pixmap_notebook_beschreibung->show();
+   pixmap_notebook_ausruestung->show();
+   pixmap_notebook_optionen->show();
+  }
+ else
+  {
+   pixmap_notebook_grundwerte->hide();
+   pixmap_notebook_lernen->hide();
+   pixmap_notebook_steigern->hide();
+   pixmap_notebook_beschreibung->hide();
+   pixmap_notebook_ausruestung->hide();
+   pixmap_notebook_optionen->hide();
+  }
+}
+
+void midgard_CG::show_NBeschriftungen(bool b)
+{
+ bool i=MOptionen->OberCheck(Midgard_Optionen::NIcons).active;
+ if(i)
+  {
+   label_notebook_grundwerte->show();
+   label_notebook_lernen->show();
+   label_notebook_steigern->show();
+   label_notebook_beschreibung->show();
+   label_notebook_ausruestung->show();
+   label_notebook_optionen->show();
+  }
+ else
+  {
+   label_notebook_grundwerte->hide();
+   label_notebook_lernen->hide();
+   label_notebook_steigern->hide();
+   label_notebook_beschreibung->hide();
+   label_notebook_ausruestung->hide();
+   label_notebook_optionen->hide();
+  }
 }
 
 

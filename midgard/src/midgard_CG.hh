@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.231 2002/05/05 20:38:46 thoma Exp $
+// $Id: midgard_CG.hh,v 1.232 2002/05/06 12:03:01 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -87,6 +87,8 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void show_Statusleiste(bool b);
         void show_Icons(bool b);
         void show_Beschriftungen(bool b);
+        void show_NIcons(bool b);
+        void show_NBeschriftungen(bool b);
         void show_gw_wuerfeln(bool b);
 
         void menubar_init();
@@ -153,6 +155,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
      	  std::string filename;
    
         // Wizard
+        void on_neuer_abenteurer_mit_wizard_activate();
         void on_wizard_beenden_activate();
         void on_wizard_starten_activate();
         void wizard_do_something();
