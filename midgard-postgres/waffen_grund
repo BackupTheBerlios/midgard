@@ -22,8 +22,8 @@ COPY "waffen_grund" FROM stdin;
 Armbrust	600	\N
 Blasrohr	700	\N
 Bögen	700	\N
-ESchlagwaffe	400	\N
-ESchwert	600	\N
+Einhandschlagwaffe	400	\N
+Einhandschwert	600	\N
 Fesselwaffe	700	\N
 Garotte	200	\N
 Kampf ohne Waffen	800	\N
@@ -33,7 +33,7 @@ Kharrata	200	R
 Namisritra	200	R
 Parierwaffe	300	\N
 Peitsche	900	\N
-Schilde	300	\N
+Schild	300	\N
 Schleuder	700	\N
 Spießwaffe	400	\N
 Stangenwaffe	800	\N
@@ -44,9 +44,9 @@ Wurfmesser	300	\N
 Wurfpfeil	400	\N
 Wurfscheibe	700	\N
 Wurfspieß	200	\N
-ZSchlagwaffe	600	\N
-ZSchwert	800	\N
 Zauberstäbe	400	\N
+Zweihandschlagwaffe	600	\N
+Zweihandschwert	800	\N
 \.
 --
 --
