@@ -96,7 +96,7 @@ void midgard_CG::xml_export(const std::string& dateiname)
    datei << " </Preise>\n\n";
    
    datei << " <Midgard-Abenteurer";
-   write_int_attrib(datei,"Version",9);
+   write_int_attrib(datei,"Version",10);
    datei << ">\n";
 
    grundwerte_speichern(datei);
