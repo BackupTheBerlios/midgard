@@ -1,4 +1,4 @@
-// $Id: Land.hh,v 1.5 2002/01/14 16:11:14 christof Exp $               
+// $Id: Land.hh,v 1.6 2002/01/15 08:18:44 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,6 +24,9 @@
 #include <vector>
 #include <string>
 #include <gtk--/progressbar.h>
+#ifdef USE_XML
+#include "xml.h"
+#endif
 
 class Land  : public HandleContent
 {

@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.13 2002/01/14 10:52:01 christof Exp $
+// $Id: land_sprache_exp.cc,v 1.14 2002/01/15 08:18:44 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -29,15 +29,33 @@ void land_speichern(std::ostream &o)
 
   if (region=="")
   {o << " <Länder>\n";
-  {Query query("select land, kontinent, sprache"
-   	" from land"
-   	" order by kontinent,land,sprache");
+  {Query query("select distinct kontinent from land"
+   	" order by kontinent");
   while ((query>>is).good())
-  {o << "  <Land";
-   fetch_and_write_string_attrib(is, o, "Name");
-   fetch_and_write_string_attrib(is, o, "Kontinent");
-   fetch_and_write_string_attrib(is, o, "Sprache");
-   o << "/>\n";
+  {o << "  <Kontinent";
+   string kontinent=fetch_and_write_string_attrib(is, o, "Name");
+   o << ">\n";
+   Query query2("select distinct land from land"
+   	" where kontinent='"+kontinent+"'"
+   	" order by land");
+   FetchIStream is2;
+   while ((query2>>is2).good())
+   {o << "    <Land";
+    string land=fetch_and_write_string_attrib(is2, o, "Name");
+    o << ">\n";
+    Query query3("select sprache from land"
+   	" where kontinent='"+kontinent+"'"
+   	" and land='"+land+"'"
+   	" order by sprache");
+    FetchIStream is3;
+    while ((query3>>is3).good())
+    { o << "      <Sprache";
+      fetch_and_write_string_attrib(is3, o, "Name");
+      o << "/>\n";
+    }
+    o << "    </Land>\n";
+   }
+   o << "  </Kontinent>\n";
   }
  }
    o << " </Länder>\n";

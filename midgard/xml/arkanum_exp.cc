@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.cc,v 1.9 2002/01/11 11:15:27 christof Exp $
+// $Id: arkanum_exp.cc,v 1.10 2002/01/15 08:18:44 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -196,6 +196,19 @@ int main(int argc, char *argv[])
    std::cout << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n";
    std::cout << "<MidgardCG-data";
    write_string_attrib(std::cout, "Region",region.empty()?std::string("Arkanum"):region);
+   {  Transaction tr;
+      Query query("select name, file, url, maintainer, version, nr"
+   	" from regionen where abkuerzung='"+region+"'");
+      FetchIStream is=query.Fetch();
+      if (query.good())
+      {  fetch_and_write_string_attrib(is, std::cout, "Name");
+         fetch_and_write_string_attrib(is, std::cout, "Dateiname");
+         fetch_and_write_string_attrib(is, std::cout, "URL");
+         fetch_and_write_string_attrib(is, std::cout, "Maintainer");
+         fetch_and_write_string_attrib(is, std::cout, "Version");
+         fetch_and_write_int_attrib(is, std::cout, "MCG-Index");
+      }
+   }
    std::cout << ">\n";
    arkanum_speichern(std::cout);
    std::cout << "</MidgardCG-data>\n";

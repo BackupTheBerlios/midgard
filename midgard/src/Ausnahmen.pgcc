@@ -63,7 +63,7 @@ Ausnahmen::Ausnahmen(Gtk::ProgressBar *progressbar)
  const Tag *Fertigkeiten=xml_data->find("Fertigkeiten");
  if (Fertigkeiten)
  {  Tag::const_iterator b=Fertigkeiten->begin(),e=Fertigkeiten->end();
-    double size=(e-b)/2.0;
+    double size=(e-b)*2;
     FOR_EACH_CONST_TAG_OF_5(i,*Fertigkeiten,b,e,"Fertigkeit")
     {  progressbar->set_percentage((i-b)/size);
        while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
@@ -77,7 +77,7 @@ Ausnahmen::Ausnahmen(Gtk::ProgressBar *progressbar)
  const Tag *Zauber=xml_data->find("Zauber");
  if (Zauber)
  {  Tag::const_iterator b=Zauber->begin(),e=Zauber->end();
-    double size=(e-b)/2.0;
+    double size=(e-b)*2;
     FOR_EACH_CONST_TAG_OF_5(i,*Zauber,b,e,"Spruch")
     {  progressbar->set_percentage((i-b)/size+.5);
        while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;

@@ -1,4 +1,4 @@
-// $Id: common_exp.cc,v 1.11 2002/01/10 15:46:48 christof Exp $
+// $Id: common_exp.cc,v 1.12 2002/01/15 08:18:44 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -120,13 +120,10 @@ void ausnahmen(std::ostream &o, const std::string &art, const std::string &name,
 
 void pflicht_lernen(std::ostream &o, const std::string &name, bool nur_region)
 {  std::string constraint;
-#ifdef REGION   
-   if (nur_region || region.empty())
-   {  constraint=" and exists (select true from typen where typ=typs and coalesce(region,'')='"
+  {if (nur_region || region.empty())
+   {  constraint="and exists (select true from typen where typ=typs and coalesce(region,'')='"
    	+region+"')"; 
    }
-#endif
-
    Query query("select typ,coalesce(lernpunkte,0),coalesce(erfolgswert,0)"
 	" from pflicht_lernen"
 	" where pflicht='"+name+"' "
@@ -137,21 +134,36 @@ void pflicht_lernen(std::ostream &o, const std::string &name, bool nur_region)
    {  o << "    <Lernschema";
       fetch_and_write_typ_attrib(is2, o, "Typ");
       fetch_and_write_int_attrib(is2,o,"Lernpunkte");
-      fetch_and_write_int_attrib(is2,o,"Anfangswert");
+      fetch_and_write_int_attrib(is2,o,"Erfolgswert");
       write_bool_attrib(o,"Pflicht",true);
       o << "/>\n";
    }
+  }
+   if (region.empty()) // auch Spezies
+   {  constraint=" and exists(select true from spezies where typ=spezies)";
+   Query query("select typ,coalesce(lernpunkte,0),coalesce(erfolgswert,0)"
+	" from pflicht_lernen"
+	" where pflicht='"+name+"' "
+	+constraint+
+	" order by typ");
+   FetchIStream is2;
+   while ((query>>is2).good())
+   {  o << "    <Lernschema";
+      fetch_and_write_typ_attrib(is2, o, "Spezies");
+      fetch_and_write_int_attrib(is2,o,"Lernpunkte");
+      fetch_and_write_int_attrib(is2,o,"Erfolgswert");
+      write_bool_attrib(o,"Pflicht",true);
+      o << "/>\n";
+   }
+  }
 }
 
 void verbot_lernen(std::ostream &o, const std::string &name, bool nur_region)
 {  std::string constraint;
-#ifdef REGION   
-   if (nur_region || region.empty())
-   {  constraint=" and exists (select true from typen where typ=typs and coalesce(region,'')='"
+  {if (nur_region || region.empty())
+   {  constraint="and exists (select true from typen where typ=typs and coalesce(region,'')='"
    	+region+"')"; 
    }
-#endif
-
    Query query("select typ,coalesce(spielbegin,'')"
 	" from pflicht_lernen"
 	" where verboten='"+name+"' "
@@ -165,6 +177,24 @@ void verbot_lernen(std::ostream &o, const std::string &name, bool nur_region)
       write_bool_attrib(o,"Spielbeginn",!spielbeg.empty());
       o << "/>\n";
    }
+  }
+   
+   if (region.empty()) // auch Spezies
+   {  constraint=" and exists(select true from spezies where typ=spezies)";
+   Query query("select typ,coalesce(spielbegin,'')"
+	" from pflicht_lernen"
+	" where verboten='"+name+"' "
+	+constraint+
+	" order by typ");
+   FetchIStream is2;
+   while ((query>>is2).good())
+   {  o << "    <Verbot";
+      fetch_and_write_typ_attrib(is2, o, "Spezies");
+      std::string spielbeg=fetch_string(is2);
+      write_bool_attrib(o,"Spielbeginn",!spielbeg.empty());
+      o << "/>\n";
+   }
+  }
 }
 
 #ifdef REGION

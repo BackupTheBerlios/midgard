@@ -1,4 +1,4 @@
-// $Id: all_exp.cc,v 1.7 2002/01/03 08:39:46 christof Exp $
+// $Id: all_exp.cc,v 1.8 2002/01/15 08:18:44 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -21,6 +21,8 @@
 #include <Aux/dbconnect.h>
 #include <export_common.h>
 #include <Aux/exception.h>
+#include <Aux/FetchIStream.h>
+#include <Aux/Transaction.h>
 
 void arkanum_speichern(std::ostream &o);
 void land_speichern(std::ostream &o);
@@ -40,6 +42,19 @@ int main(int argc, char *argv[])
    std::cout << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n";
    std::cout << "<MidgardCG-data";
    write_string_attrib(std::cout,"Region",region);
+   {  Transaction tr;
+      Query query("select name, file, url, maintainer, version, nr"
+   	" from regionen where abkuerzung='"+region+"'");
+      FetchIStream is=query.Fetch();
+      if (query.good())
+      {  fetch_and_write_string_attrib(is, std::cout, "Name");
+         fetch_and_write_string_attrib(is, std::cout, "Dateiname");
+         fetch_and_write_string_attrib(is, std::cout, "URL");
+         fetch_and_write_string_attrib(is, std::cout, "Maintainer");
+         fetch_and_write_string_attrib(is, std::cout, "Version");
+         fetch_and_write_int_attrib(is, std::cout, "MCG-Index");
+      }
+   }
    std::cout << ">\n";
    land_speichern(std::cout);
    fert_speichern(std::cout);

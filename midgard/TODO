@@ -1,3 +1,21 @@
 XML todo
 
+Region
 
+load_charakter.o
+save_charakter.o
+MidgardBasicElement_sql.o
+xmlimport.o
+Window_charakter_auswahl.o
+
+Pflicht.o
+Praxispunkte.o
+Preise.o
+Region.o
+Ruestung.o
+Schrift.o
+Spezialgebiet.o
+Spezies.o
+Sprache.o
+Typen.o
+WaffeGrund.o

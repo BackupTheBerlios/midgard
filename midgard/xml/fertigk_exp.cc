@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.11 2002/01/11 11:15:27 christof Exp $
+// $Id: fertigk_exp.cc,v 1.12 2002/01/15 08:18:44 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -288,7 +288,7 @@ void fert_speichern(std::ostream &o)
 //********************* Pflicht + verboten ********************
   if (region=="")
   {o << " <Typ-Pflichten>\n";
-   o << "    <-- hier stehen nur die Dinge, die nicht schon Fertigkeiten/Berufe sind -->\n";
+   o << "    <-- hier stehen nur die Dinge, die nicht schon Fertigkeiten/Berufe/Waffen(grund)fert. sind -->\n";
    Query query("select pflicht, typ, lernpunkte, verboten, spielbegin, erfolgswert"
    	" from pflicht_lernen"
    	" where not exists (select true from fertigkeiten"
@@ -296,6 +296,10 @@ void fert_speichern(std::ostream &o)
    	" and not exists (select true from "
    		MIDGARD3_4("berufe_voraussetzung","berufe_voraussetzung_4")
    		" where pflicht=beruf or verboten=beruf)"
+   	" and not exists (select true from waffen"
+   		" where pflicht=name or verboten=name)"
+   	" and not exists (select true from waffen_grund"
+   		" where pflicht=name or verboten=name)"
    	" order by typ,coalesce(pflicht,''),verboten");
    FetchIStream is;
   while ((query>>is).good())

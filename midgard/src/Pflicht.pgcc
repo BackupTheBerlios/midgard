@@ -39,8 +39,30 @@ cH_Pflicht::cH_Pflicht(const std::string& spezies,const vector<cH_Typen>& Typ)
 }
 */
 
+#ifdef USE_XML
+
+typedef std::list<pf> list_pflicht_t;
+
+static void SuchePflichtVerbot(const Tag *list,const string &name,
+		std::map<std::string,list_pflicht_t> &pflicht_nach_typ)
+{  FOR_EACH_CONST_TAG(j,*list)
+   {  if (j->Type!="Lernschema" && j->Type!="Verbot") continue;
+      if (j->Type=="Lernschema")
+      {  // string typ=j->getAttr("Typ");
+         // eigentlich schauen ob Typ eine Spezies, sonst ist es schon in Fertigkeiten
+         if (!j->getBool("Pflicht")) continue;
+         pflicht_nach_typ[j->getAttr("Typ")].push_back(pf(name,"",j->,j->,false));
+      }
+      else if (j->Type=="Verbot")
+         pflicht_nach_typ[j->getAttr("Typ")].push_back(pf("",name,0,0,j->getBoolAttr("")));
+      else assert(!"Lernschema oder Verbot");
+   }
+}
+#endif
+
 Pflicht::Pflicht(Gtk::ProgressBar *progressbar)//const std::string& spezies,const vector<cH_Typen>& Typ)
 {
+#ifndef USE_XML
   exec sql begin declare section;
    char TYP[50],PFLICHT[50],VERBOTEN[50];
    int LERNPUNKTE,ERFOLGSWERT;
@@ -85,6 +107,30 @@ Pflicht::Pflicht(Gtk::ProgressBar *progressbar)//const std::string& spezies,cons
    }
  exec sql close cl_pflicht_ein;
  tr.close();
+#else
+ std::map<std::string,list_pflicht_t> pflicht_nach_typ;
+ const Tag *Fertigkeiten=xml_data->find("Fertigkeiten");
+ if (Fertigkeiten)
+ {  Tag::const_iterator b=Fertigkeiten->begin(),e=Fertigkeiten->end();
+    double size=(e-b)*4;
+    
+    FOR_EACH_CONST_TAG_OF_5(i,*Fertigkeiten,b,e,"Fertigkeit")
+    {  progressbar->set_percentage((i-b)/size);
+       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+       SuchePflichtVerbot(*i,i->getAttr("Name"),pflicht_nach_typ);
+    }
+ }
+ const Tag *Zauber=xml_data->find("Zauber");
+ if (Zauber)
+ {  Tag::const_iterator b=Zauber->begin(),e=Zauber->end();
+    double size=(e-b)*4;
+    FOR_EACH_CONST_TAG_OF_5(i,*Zauber,b,e,"Spruch")
+    {  progressbar->set_percentage((i-b)/size+.25);
+       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+       SuchePflichtVerbot(*i,i->getAttr("Name"),pflicht_nach_typ);
+    }
+ }
+#endif 
  progressbar->set_percentage(1);
 }
 
