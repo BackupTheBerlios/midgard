@@ -390,7 +390,7 @@ void midgard_CG::load_charakter()
          exec sql fetch zauber into :db_fertigkeit, :db_wert ;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         list_Zauber.push_back(cH_Zauber(db_fertigkeit,Typ,Ausnahmen(Werte,Typ,vec_Beruf)));
+         list_Zauber.push_back(cH_Zauber(db_fertigkeit));
       } 
    exec sql close zauber;
 

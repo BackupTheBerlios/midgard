@@ -68,7 +68,7 @@ void midgard_CG::on_zauber_laden_clicked()
        if (sqlca.sqlcode) break;
        laden_label->set_text(itos(++count)+" Zauber geladen");
        while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-       cH_Zauber zauber(db_name,Typ,Ausnahmen(Werte,Typ,vec_Beruf));  
+       cH_Zauber zauber(db_name);  
        if (zauber->Zauberart()=="Zaubersalz" && !checkbutton_zaubersalze->get_active())
           continue;
        if (zauber->Zauberart()=="Beschwörung" && !checkbutton_beschwoerungen->get_active())
@@ -100,11 +100,11 @@ void midgard_CG::show_alte_zauber()
    std::vector<cH_RowDataBase> datavec;
    for (std::list<cH_Zauber>::const_iterator i=list_Zauber.begin(); i!=list_Zauber.end();++i)
     {
-      int kosten = (*i)->Kosten();
+      int kosten = (*i)->Kosten(Typ,Ausnahmen(Werte,Typ,vec_Beruf));
       if (spruchrolle->get_active()) kosten /= 10;
       if ( !spruchrolle->get_active()  || 
            (spruchrolle->get_active()  && (*i)->Spruchrolle()) )      
-        datavec.push_back(new Data_zauber((*i)->Name(),(*i)->Stufe(),(*i)->Ursprung(),kosten,(*i)->Standard__()));
+        datavec.push_back(new Data_zauber((*i)->Name(),(*i)->Stufe(),(*i)->Ursprung(),kosten,(*i)->Standard__(Typ,Ausnahmen(Werte,Typ,vec_Beruf))));
     }
    alte_zauber_tree->setDataVec(datavec);
 }
@@ -114,11 +114,11 @@ void midgard_CG::show_neue_zauber()
    std::vector<cH_RowDataBase> datavec;
    for (std::list<cH_Zauber>::const_iterator i=list_Zauber_neu.begin(); i!=list_Zauber_neu.end();++i)
     {
-      int kosten = (*i)->Kosten();
+      int kosten = (*i)->Kosten(Typ,Ausnahmen(Werte,Typ,vec_Beruf));
       if (spruchrolle->get_active()) kosten /= 10;
       if ( !spruchrolle->get_active()  || 
            (spruchrolle->get_active()  && (*i)->Spruchrolle()) )      
-        datavec.push_back(new Data_zauber((*i)->Name(),(*i)->Stufe(),(*i)->Ursprung(),kosten,(*i)->Standard__()));
+        datavec.push_back(new Data_zauber((*i)->Name(),(*i)->Stufe(),(*i)->Ursprung(),kosten,(*i)->Standard__(Typ,Ausnahmen(Werte,Typ,vec_Beruf))));
     }
    neue_zauber_tree->setDataVec(datavec);
 }
@@ -200,7 +200,7 @@ void midgard_CG::on_spruchrolle_toggled()
 
 int midgard_CG::spruchrolle_wuerfeln(std::string name)
 {
- cH_Zauber zauber(name,Typ,Ausnahmen(Werte,Typ,vec_Beruf));
+ cH_Zauber zauber(name);
 
  Random random;
  int erf_z = Werte.Zaubern_wert() + Werte.bo_Za() ;

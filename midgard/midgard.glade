@@ -14773,7 +14773,7 @@ Verlust</label>
 	    <last_modification_time>Tue, 14 Aug 2001 09:33:08 GMT</last_modification_time>
 	  </signal>
 	  <creation_function>SimpleTree</creation_function>
-	  <int1>4</int1>
+	  <int1>5</int1>
 	  <int2>0</int2>
 	  <last_modification_time>Tue, 14 Aug 2001 09:30:13 GMT</last_modification_time>
 	</widget>
@@ -14912,7 +14912,7 @@ Verlust</label>
 	    <last_modification_time>Tue, 14 Aug 2001 09:32:55 GMT</last_modification_time>
 	  </signal>
 	  <creation_function>SimpleTree</creation_function>
-	  <int1>4</int1>
+	  <int1>5</int1>
 	  <int2>0</int2>
 	  <last_modification_time>Tue, 14 Aug 2001 09:30:13 GMT</last_modification_time>
 	</widget>

@@ -67,7 +67,7 @@ Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const Grundwerte& Werte,
          SQLerror::test(__FILELINE__,100);  
          if (sqlca.sqlcode) break;
 //cout << db_zauber<<' '<<db_lernpunkte<<'\n';
-         list_zauber.push_back(cH_Zauber(db_zauber,Typ,Ausnahmen(Werte,Typ,vec_Beruf),db_lernpunkte));
+         list_zauber.push_back(cH_Zauber(db_zauber,db_lernpunkte));
       }
 
     exec sql close zauber;
@@ -77,7 +77,7 @@ Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const Grundwerte& Werte,
       {
 //         double fac=hauptfenster->get_standard_zauber(Typ,Typ2,(*i)->Name());
          os << (*i)->Lernpunkte() <<"\t"<< (*i)->Name() <<"\t"
-            <<(*i)->Ap()<<"\t"<<(*i)->Kosten()<<"\n";
+            <<(*i)->Ap()<<"\t"<<(*i)->Kosten(Typ,Ausnahmen(Werte,Typ,vec_Beruf))<<"\n";
          os.flush(&*i);
       }
     for (unsigned int i=0;i<zauber_clist_auswahl->columns().size();++i)

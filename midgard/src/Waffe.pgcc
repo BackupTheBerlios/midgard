@@ -27,8 +27,8 @@ void Waffe::get_Waffe()
       db_reichweite_0,db_reichweite_n,db_reichweite_m,
       db_reichweite_f;
    char query[1024],db_grundkenntnisse[50],db_art[50],db_art2,
-      db_region[10],db_schaden[30],db_angriffsrangmod,
-      db_wm_abwehr_leicht, db_wm_abwehr_schwer, db_voraussetzung[50];
+      db_region[10],db_schaden[30],db_angriffsrangmod[10],
+      db_wm_abwehr_leicht[10], db_wm_abwehr_schwer[10], db_voraussetzung[50];
   exec sql end declare section; 
   std::string squery ="select grundkenntnisse,schwierigkeit,art,coalesce(art_2,''),
       coalesce(schaden,''),coalesce(schaden_b,''),

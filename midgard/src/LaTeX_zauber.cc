@@ -1,4 +1,4 @@
-// $Id: LaTeX_zauber.cc,v 1.28 2001/10/07 08:05:31 thoma Exp $
+// $Id: LaTeX_zauber.cc,v 1.29 2001/10/18 16:28:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -28,7 +28,7 @@ void midgard_CG::LaTeX_zauber()
   for (std::list<cH_Zauber>::const_iterator i=list_Zauber.begin();i!=list_Zauber.end();++i)
    {
      fout << (*i)->Name() << " & ";
-     fout << (*i)->Erfolgswert(Typ,Werte) <<" & ";
+     fout << (*i)->Erfolgswert(Typ,Werte,Ausnahmen(Werte,Typ,vec_Beruf)) <<" & ";
      fout << Gtk2TeX::string2TeX((*i)->Ap()) << " & ";
      fout << (*i)->Art() << " & ";
      fout << (*i)->Stufe() << " & ";

@@ -136,7 +136,7 @@ void midgard_CG::on_speichern_clicked()
          i!=list_Zauber.end();++i)
       {
          strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
-         strncpy(db_wert_str,itos((*i)->Erfolgswert(Typ,Werte)).c_str(),sizeof(db_wert_str)) ;
+         strncpy(db_wert_str,itos((*i)->Erfolgswert(Typ,Werte,Ausnahmen(Werte,Typ,vec_Beruf))).c_str(),sizeof(db_wert_str)) ;
          exec sql INSERT INTO charaktere_fertigkeiten
             (charakter_name,version,fertigkeit,wert,art)
          VALUES

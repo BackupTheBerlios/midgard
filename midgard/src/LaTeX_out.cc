@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.44 2001/10/17 12:31:17 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.45 2001/10/18 16:28:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -252,14 +252,14 @@ void midgard_CG::LaTeX_write_values()
          std::string schaden=(*j)->Schaden(Werte,(*j)->Name());
          fout << "\\newcommand{\\waffeS"<<b<<"}{"<<schaden << "}\n";
          std::string anm = (*j)->Waffe()->Angriffsrangmod();
-//         fout << "\\newcommand{\\waffeA"<<b<<"}{"<<anm << "}\n";
-         fout << "\\newcommand{\\waffeA"<<b<<"}{"<<"?" << "}\n";
+         fout << "\\newcommand{\\waffeA"<<b<<"}{"<<anm << "}\n";
+//         fout << "\\newcommand{\\waffeA"<<b<<"}{"<<"?" << "}\n";
          std::string abm = (*j)->Waffe()->WM_Abwehr();
-cout << (*j)->Name()<<'-'<<(*j)->Waffe()->Name()<<'-'<<anm  <<'-' <<abm<<"-\n";
-//         fout << "\\newcommand{\\waffeV"<<b<<"}{"<<abm << "}\n";
-         fout << "\\newcommand{\\waffeV"<<b<<"}{"<<"?"<< "}\n";
-cout << "\\newcommand{\\waffeA"<<b<<"}{"<<anm << "}\n";
-cout << "\\newcommand{\\waffeV"<<b<<"}{"<<abm << "}\n";
+//cout << (*j)->Name()<<'-'<<(*j)->Waffe()->Name()<<'-'<<anm  <<'-' <<abm<<"-\n";
+         fout << "\\newcommand{\\waffeV"<<b<<"}{"<<abm << "}\n";
+//         fout << "\\newcommand{\\waffeV"<<b<<"}{"<<"?"<< "}\n";
+//cout << "\\newcommand{\\waffeA"<<b<<"}{"<<anm << "}\n";
+//cout << "\\newcommand{\\waffeV"<<b<<"}{"<<abm << "}\n";
        }
      }
    }

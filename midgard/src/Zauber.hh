@@ -15,21 +15,27 @@ class Zauber : public HandleContent
 {
    std::string ap, name;
    int erfolgswert;
-   vector<std::string> standard;
+//   vector<std::string> standard;
    std::string  art, stufe, zauberdauer, reichweite,
       wirkungsziel, wirkungsbereich, wirkungsdauer, ursprung,
       material, agens, prozess, reagens, beschreibung,spruchrolle,
       zauberart,p_element,s_element,region; 
    int kosten;
    int lernpunkte;
-   Ausnahmen ausnahmen;
+//   Ausnahmen ausnahmen;
+
+   map<std::string,std::string> map_typ;
 
    void get_Zauber();
+   void get_map_typ();
    int GrundKosten() const {  return kosten; }
-   void set_Standard(const vector<H_Data_typen>& Typ) ;
+   vector<std::string> set_Standard(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const ;   
+//Q   void set_Standard(const vector<H_Data_typen>& Typ) ;
  public: 
-   Zauber(const std::string& n,const vector<H_Data_typen>& Typ,const Ausnahmen& a,int l=0) 
-      : name(n),lernpunkte(l), ausnahmen(a) {get_Zauber();set_Standard(Typ);} 
+//Q   Zauber(const std::string& n,const vector<H_Data_typen>& Typ,const Ausnahmen& a,int l=0) 
+//Q      : name(n),lernpunkte(l), ausnahmen(a) {get_Zauber();get_map_typ();set_Standard(Typ);} 
+   Zauber(const std::string& n,int l=0) 
+      : name(n),lernpunkte(l){get_Zauber();get_map_typ();} 
 
 //Y   cH_MidgardBasic operator cH_MidgardBasic() const {return cH_MidgardBasic(&*this);}
 //Y   int Wert() return 0;
@@ -38,7 +44,7 @@ class Zauber : public HandleContent
 
    std::string Ap() const { return ap;}
    std::string Name() const {  return name; }
-   std::string Standard__() const { return standard[0]+' '+standard[1];}
+   std::string Standard__(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const; 
    std::string Art() const { return art;}
    std::string Stufe() const {  return stufe; }
    int iStufe() const {  if (Stufe()=="groﬂ") return 6; else return atoi(Stufe().c_str()); }
@@ -56,15 +62,15 @@ class Zauber : public HandleContent
    std::string Beschreibung() const { return beschreibung;}
    std::string P_Element() const {return p_element;}
    std::string S_Element() const {return s_element;}
-   const vector<std::string>& Standard() const {return standard;}
+   vector<std::string> Standard(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const ;
    std::string Region() const {return region;}
-   int Kosten() const;
+   int Kosten(const vector<H_Data_typen>& Typ,const Ausnahmen& ausnahmen) const;
    int Kosten_eBe(const std::string& pe,const std::string& se) const;
    int Lernpunkte() const {  return lernpunkte; }
    bool Spruchrolle() const 
       { if (spruchrolle=="nicht") return false; 
         else return true; }
-   int Erfolgswert(const vector<H_Data_typen>& Typ,const Grundwerte& Werte) const;
+   int Erfolgswert(const vector<H_Data_typen>& Typ,const Grundwerte& Werte,const Ausnahmen& ausnahmen) const;
    int get_spezial_zauber_for_magier(const Grundwerte& Werte) const;
 
    static bool zauberwerk_voraussetzung(const std::string& name,const Grundwerte& Werte);
@@ -72,6 +78,7 @@ class Zauber : public HandleContent
 
 class cH_Zauber : public Handle<const Zauber>
 {
+/*
    struct st_index {std::string name; vector<H_Data_typen> Typ; int lernpunkte;
       bool operator == (const st_index& b) const
          {return (name==b.name && Typ[0]->Short() == b.Typ[0]->Short() && lernpunkte==b.lernpunkte);}
@@ -83,14 +90,23 @@ class cH_Zauber : public Handle<const Zauber>
       st_index(std::string n, vector<H_Data_typen> T,int l):name(n),Typ(T),lernpunkte(l){}
       st_index(){}
       };
-
+*/
+   struct st_index {std::string name; int lernpunkte;
+      bool operator == (const st_index& b) const
+         {return (name==b.name  && lernpunkte==b.lernpunkte);}
+      bool operator <  (const st_index& b) const
+         { return name < b.name || 
+             (name==b.name && lernpunkte<b.lernpunkte ); }
+      st_index(std::string n,int l):name(n),lernpunkte(l){}
+      st_index(){}
+      };
     typedef CacheStatic<st_index,cH_Zauber> cache_t;
     static cache_t cache;
     cH_Zauber(Zauber *s) : Handle<const Zauber>(s) {};
     friend class std::map<st_index,cH_Zauber>;
     cH_Zauber(){};
  public:
-   cH_Zauber(const std::string& name,const vector<H_Data_typen>& Typ,const Ausnahmen& a,int lernpunkte=0) ;
+   cH_Zauber(const std::string& name,int lernpunkte=0) ;
 //Y   cH_Zauber(const cH_MidgardBasic &x) : Handle<const Zauber> 
 //Y (dynamic_cast<const Zauber *>(&*x)){}
 };
@@ -108,5 +124,15 @@ class Zauber_sort_stufe
 class Zauber_sort_ursprung
 { public: bool operator() (cH_Zauber x,cH_Zauber y) const
    {return x->Ursprung()<y->Ursprung(); }};
+
+
+class Zauber_All
+{
+   std::list<cH_Zauber> list_All;
+//   void fill_list();
+  public:
+   Zauber_All();// {fill_list();} 
+   std::list<cH_Zauber> get_All() const {return list_All;}
+};
 
 #endif
