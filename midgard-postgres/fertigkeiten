@@ -89,7 +89,8 @@ COPY "fertigkeiten" FROM stdin;
 4	\N	\N	4	Steinabreibungen machen	4	60	K	\N	\N	\N	1	18	18	\N
 4	\N	\N	4	Wahrnehmung	4	300	\N	\N	In	2	\N	6	6	\N
 4	\N	\N	4	Winden	4	250	\N	\N	Gw	0	3	8	7	\N
-4	\N	\N	5	Astrologie	4	400	R	\N	\N	\N	2	12	11	\N
+4	\N	\N	5	Astrologie	4	400	R	\N	Zt	\N	2	12	11	\N
+4	\N	\N	5	Geomantie	4	100	TuT	\N	In	\N	\N	12	11	\N
 4	\N	\N	5	Kräuterkunde	4	100	\N	\N	In	\N	2	16	13	\N
 4	\N	\N	5	Zauberkunde	4	100	\N	\N	In	0	2	16	13	\N
 4	\N	\N	6	Baukunde	4	100	\N	\N	In	0	2	16	12	\N
