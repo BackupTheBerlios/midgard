@@ -1,4 +1,4 @@
-// $Id: Datenbank.hh,v 1.3 2002/01/25 09:19:23 thoma Exp $               
+// $Id: Datenbank.hh,v 1.4 2002/02/09 16:14:06 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,6 +25,7 @@
 #include <string>
 #include <list>
 
+#include "Geheimzeichen.hh"
 #include "Land.hh"   
 #include "Pflicht.hh"
 #include "Ausnahmen.hh"
@@ -41,6 +42,7 @@ class Datenbank
  public:
   std::vector<cH_Region> Regionen;
   std::vector<cH_Land> Laender;
+  std::vector<cH_Geheimzeichen> Geheimzeichen;
   std::vector<cH_Ruestung> Ruestung;
   Lernschema lernschema;
   std::list<cH_MidgardBasicElement> Beruf;

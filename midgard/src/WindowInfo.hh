@@ -1,4 +1,4 @@
-// $Id: WindowInfo.hh,v 1.21 2002/02/08 15:08:56 thoma Exp $
+// $Id: WindowInfo.hh,v 1.22 2002/02/09 16:14:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,19 +35,28 @@
 #include <sigc++/slot.h>
 #include <Gtk_OStream.h>
 
+class midgard_CG;
+
 class WindowInfo : public WindowInfo_glade
 {   
+   public:
+        enum emodus {None,Autoclean,ZaubernLernen};
+   private:
         friend class WindowInfo_glade;
         void on_button_info_ok_clicked();
+        void on_button_bestaetigen_clicked();
         gint timeout();
         SigC::Connection des;
         bool autoclean;
 
         Gtk::OStream *mystream;
+        void bestaetigen(bool b);
         void Flush(bool autoclean);
+        emodus Modus;
+        midgard_CG* hauptfenster;
    public:
-        WindowInfo();
-        void AppendShow(const std::string& s,bool autoclean=true);
-        void AppendShow(int i,bool autoclean=true);
+        WindowInfo(midgard_CG* h);
+        void AppendShow(const std::string& s,emodus modus=Autoclean);
+        void AppendShow(int i, emodus modus=Autoclean);
 };
 #endif

@@ -8,17 +8,19 @@ NEWS IN VERSION 0.4delta1
 * Bei den Berufslisten wird  berücksichtigt, welchen STAND die
  Figur hat, genauso wie die Einschränkungen für "Kampfspezialisten" 
  und "Zauberspezialisten" 
-* Info Fenster mit memory
-
+* Einbrecher Bug beseitigt
+* Alte Sprache als ungewöhnliche Fertigkeit lernbar
+*** Geheimzeichen mit Zusatz (so wie Landeskunde)
+*** Info Fenster mit memory (Komplett neues Konzept)
+*** Zaubern lernen nur mit Abfrage
 
 TODO:
 * Pflicht lernen kennzeichnen
 * Es sind die beiden Infofenster, die beim Auswürfeln 
    von Geld und Waffen im Lernschema auftauchen. 
-   Da reagiert der "OK"- Button nicht. -> keine Ahung warum, MAT
+   Da reagiert der "OK"- Button nicht. -> keine Anhung warum, MAT
 * Spezialwaffe auswählen geht nicht
 * Startwert der Muttersprache -> Intelligenz
-* Zaubern lernen nur mit Abfrage
 * Abspeichern und Laden von Optionen 
 * Landeskunde als Berufsfähigkeit für 3 Berufe
   (Karawanenführer, land, v,m

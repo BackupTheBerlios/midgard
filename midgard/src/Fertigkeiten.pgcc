@@ -114,6 +114,7 @@ void Fertigkeit::get_Fertigkeit()
   exec sql close cl_fertigkeit_ein;
 #else
   assert(tag);
+  lern_unge=tag->getBoolAttr("ZusatzBool",false);
   lern_unge=tag->getIntAttr("Lernpunkte",99); // außergewöhnliche Fertigkeit
   lern_land=tag->getIntAttr("Lernpunkte-Land",99);
   lern_stadt=tag->getIntAttr("Lernpunkte-Stadt",99);
@@ -126,6 +127,7 @@ void Fertigkeit::get_Fertigkeit()
   region=tag->getAttr("Region");
   attribut=tag->getAttr("Attribut");
   maxunterweisung=tag->getIntAttr("MaximalMitUnterweisung");
+  zusatzbool=tag->getBoolAttr("Zusaetze",false);
   maxerfolgswert=tag->getIntAttr("Maximalwert");
   const Tag *Voraussetzungen=tag->find("Voraussetzungen");
   if (Voraussetzungen)

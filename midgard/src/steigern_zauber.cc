@@ -61,7 +61,6 @@ void midgard_CG::on_leaf_selected_alte_zauber(cH_RowDataBase d)
  if(MidgardBasicElement_leaf_alt(d))
   {
    zauber_zeigen();
-   zauberwerk_laden();
    zauberwerk_zeigen();
   }
 }
@@ -71,7 +70,6 @@ void midgard_CG::on_leaf_selected_neue_zauber(cH_RowDataBase d)
 {  
   MidgardBasicElement_leaf_neu(d);
   zauber_zeigen();
-  zauberwerk_laden();
   zauberwerk_zeigen();
 }
 
@@ -87,7 +85,7 @@ void midgard_CG::on_togglebutton_alle_zauber_toggled()
 /*
 void midgard_CG::on_checkbutton_zaubermittel_toggled()
 {
- zauberwerk_laden();
+ zauberwerk_zeigen();
  zeige_werte(Werte);
 #ifndef USE_XML 
  on_speichern_clicked();

@@ -1,4 +1,4 @@
-// $Id: Zauber.hh,v 1.35 2002/02/08 09:52:38 thoma Exp $               
+// $Id: Zauber.hh,v 1.36 2002/02/09 16:14:06 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -81,12 +81,10 @@ class cH_Zauber : public Handle<const Zauber>
     static cache_t cache;
     cH_Zauber(const Zauber *s) : Handle<const Zauber>(s) {};
     friend class std::map<std::string,cH_Zauber>;
-    cH_Zauber(){};
+    cH_Zauber(){}
  public:
-   cH_Zauber(const std::string& name IF_XML(,bool create=false)) ;
-#ifdef USE_XML
+   cH_Zauber(const std::string& name, bool create=false) ;
    cH_Zauber(const Tag *tag);
-#endif
 
    cH_Zauber(const cH_MidgardBasicElement &x) : Handle<const Zauber> 
       (dynamic_cast<const Zauber *>(&*x)){}

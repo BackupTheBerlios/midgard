@@ -1,0 +1,24 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE "zusaetze";
+--
+--
+--
+
+CREATE TABLE "zusaetze" (
+	"name" text
+);
+
+--
+--
+--
+
+
+COPY "zusaetze" FROM stdin;
+KanThaiPan und Minangpahit
+Moravische Runen
+Nahuatlan
+Ogam-Ritzungen
+Zinken (Meer der fünf Winde)
+\.

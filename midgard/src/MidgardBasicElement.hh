@@ -117,7 +117,7 @@ class MidgardBasicElement : public HandleContent
       bool standard_one_G(const vector<std::string>& s) const ;
       bool standard_all_S(const vector<std::string>& s) const ;
       bool operator == (const MidgardBasicElement& b) const 
-         {return Name()==b.Name();}
+         {return What()==b.What() && Name()==b.Name();}
 
 
       static void move_element(std::list<cH_MidgardBasicElement>& von,

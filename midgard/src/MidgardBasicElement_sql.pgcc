@@ -20,13 +20,7 @@
 #include "MidgardBasicElement.hh"
 #include "Grundwerte.hh"
 #include "Ausnahmen.hh"
-#ifndef USE_XML
-#include <Aux/SQLerror.h>
-#include <Aux/Transaction.h>
-exec sql include sqlca;
-#else
 #include "export_common.h"
-#endif
 #include "xml.h"
 #include "Zauberwerk.hh"
 #include "Fertigkeiten.hh"
@@ -36,45 +30,6 @@ exec sql include sqlca;
 
 void MidgardBasicElement::get_map_typ()
 {  
-#ifndef USE_XML 
- exec sql begin declare section;
-   char query[1024], db_typ[10], db_standard[10];
- exec sql end declare section;
- std::string squery;
- if(What()==ZAUBER)
-    squery ="select typ,standard from zauber_typen where name ='"+Name()+"'";
- if(What()==ZAUBERWERK)
-    squery ="select typ,standard from zauberwerk_typen where name ='"+Name()
-             +"' and stufe ='"+Stufe()+"' and art='"+static_cast<Zauberwerk*>(this)->Art()+"'";
- if(What()==FERTIGKEIT )
-    squery ="select typ,standard from fertigkeiten_typen where name ='"+Name()+"'";
- if(What()==WAFFEGRUND)
-    squery ="select typ,standard from waffen_grund_typen where name ='"+Name()+"'";
- if(What()==WAFFE)
-    squery ="select typ,standard from waffen_typen where name ='"+Name()+"'";
-//    squery ="select typ,standard from waffen_typen where name ='"+dynamic_cast<Waffe*>(this)->Grundkenntnis()+"'";
- if(What()==SPRACHE)
-    squery ="select typ,standard from fertigkeiten_typen where name ='Sprache'";
- if(What()==SCHRIFT)
-    squery ="select typ,standard from fertigkeiten_typen where name ='Schreiben'";
- if(What()==KIDO)
-    squery ="select typ,standard from fertigkeiten_typen where name ='KiDo'";
- strncpy(query,squery.c_str(),sizeof(query));
- Transaction tr;
- exec sql prepare MBein_ from :query ;
- exec sql declare MBein cursor for MBein_ ;
- exec sql open MBein;
- SQLerror::test(__FILELINE__);
- while(true)
-  {
-    exec sql fetch MBein into :db_typ,:db_standard;
-    SQLerror::test(__FILELINE__,100);
-    if (sqlca.sqlcode) break;
-    map_typ[db_typ]=db_standard;
-  } 
-//cout << What()<<'\t'<<map_typ.size()<<'\n';
-#else // USE_XML
-
  const Tag *tag=this->tag;
  
  if(What()==SPRACHE) 
@@ -92,71 +47,11 @@ void MidgardBasicElement::get_map_typ()
        else if (i->Type()=="Ausnahme") map_typ[i->getAttr("Typ")]="A";
     }
  }
-#endif    
 }
  
 
 void MidgardBasicElement::get_Steigern_Kosten_map()
 {
-#ifndef USE_XML
-  exec sql begin declare section;
-   char query[1024];
-   int P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,P21,P22;
-  exec sql end declare section;
-  std::string squery ="select coalesce(p1,0),coalesce(p2,0),coalesce(p3,0),
-   coalesce(p4,0),
-   coalesce(p5,0),coalesce(p6,0),coalesce(p7,0),coalesce(p8,0),
-   coalesce(p9,0),coalesce(p10,0),coalesce(p11,0),coalesce(p12,0),
-   coalesce(p13,0),coalesce(p14,0),coalesce(p15,0),coalesce(p16,0)
-   ,coalesce(p17,0),coalesce(p18,0),coalesce(p19,0)
-   ,coalesce(p20,0),coalesce(p21,0),coalesce(p22,0) from ";
-  if(What()==FERTIGKEIT) 
-   squery += "steigern_fertigkeiten_werte w, steigern_fertigkeiten s where 
-               s.wie = w.name and s.name = '"+Name()+"'"; 
-  if(What()==SPRACHE) 
-   squery += "steigern_fertigkeiten_werte w, steigern_fertigkeiten s where 
-               s.wie = w.name and s.name = 'Sprache'"; 
-  if(What()==SCHRIFT) 
-   squery += "steigern_fertigkeiten_werte w, steigern_fertigkeiten s where 
-               s.wie = w.name and s.name = 'Schreiben'"; 
-  if(What()==WAFFE) 
-   squery += "waffen_steigern s, waffen w where 
-               s.schwierigkeit = w.schwierigkeit and w.name = '"+Name()+"'"; 
-  strncpy(query,squery.c_str(),sizeof(query));
-  exec sql prepare SKM_ein_ from :query;
-  exec sql declare SKM_ein cursor for SKM_ein_;
-  Transaction tr;
-  exec sql open SKM_ein;
-  exec sql fetch SKM_ein into :P1,:P2,:P3,:P4,:P5,:P6,:P7,:P8,:P9,
-   :P10,:P11,:P12,:P13,:P14,:P15,:P16,:P17,:P18,:P19,:P20,:P21,:P22;
-   map_erfolgswert_kosten[1] = P1;
-   map_erfolgswert_kosten[2] = P2;
-   map_erfolgswert_kosten[3] = P3;
-   map_erfolgswert_kosten[4] = P4;
-   map_erfolgswert_kosten[5] = P5;
-   map_erfolgswert_kosten[6] = P6;
-   map_erfolgswert_kosten[7] = P7;
-   map_erfolgswert_kosten[8] = P8;
-   map_erfolgswert_kosten[9] = P9;
-   map_erfolgswert_kosten[10] = P10;
-   map_erfolgswert_kosten[11] = P11;
-   map_erfolgswert_kosten[12] = P12;
-   map_erfolgswert_kosten[13] = P13;
-   map_erfolgswert_kosten[14] = P14;
-   map_erfolgswert_kosten[15] = P15;
-   map_erfolgswert_kosten[16] = P16;
-   map_erfolgswert_kosten[17] = P17;
-   map_erfolgswert_kosten[18] = P18;
-   map_erfolgswert_kosten[19] = P19;
-   map_erfolgswert_kosten[20] = P20;
-   map_erfolgswert_kosten[21] = P21;
-   map_erfolgswert_kosten[22] = P22;
-  exec sql close SKM_ein;
-  tr.close();
-//if(What()==WAFFE) 
-//for(std::map<int,int>::const_iterator i=map_erfolgswert_kosten.begin();i!=map_erfolgswert_kosten.end();++i)
-// cout <<Name()<<'\t'<<i->first<<'\t'<<i->second<<'\n';
-#else
  const Tag *tag=this->tag;
  const Tag *kosten=0;
  std::string steigern_wie=Name();
@@ -218,7 +113,6 @@ void MidgardBasicElement::get_Steigern_Kosten_map()
  }
  for (int i=1;i<=19;++i)
     map_erfolgswert_kosten[i]=kosten->getIntAttr("Wert"+itos(i),0/*??*/);
-#endif
 }
 
 void MidgardBasicElement::saveElementliste(IF_XML(ostream &datei,)
@@ -228,44 +122,6 @@ void MidgardBasicElement::saveElementliste(IF_XML(ostream &datei,)
                            const Ausnahmen& ausnahmen)
 {
   if(b.size()==0) return;
-#ifndef USE_XML
-/*
-    int db_sl_bonus;
-    char db_region[20];
-    char db_wert_str[20];
-    char db_magisch[1024];
-*/
-  exec sql begin declare section;
-    char db_name_ch[50], db_version[50];
-    char db_fertigkeit[50],db_magisch[100],db_zauberwerk_stufe[10];
-    int db_wert,db_praxispunkte;
-    char db_what[30];
-  exec sql end declare section;
-  strncpy(db_name_ch,Werte.Name_Abenteurer().c_str(),sizeof(db_name_ch));
-  strncpy(db_version,Werte.Version().c_str(),sizeof(db_version));
-  strncpy(db_what, ((*b.begin())->What_str()).c_str(),sizeof(db_what));
-  strncpy(db_magisch, "",sizeof(db_magisch));
-  strncpy(db_zauberwerk_stufe, "",sizeof(db_zauberwerk_stufe));
-   
-  for (std::list<cH_MidgardBasicElement>::const_iterator i=b.begin();i!=b.end();++i)
-   {
-     strncpy(db_fertigkeit, ((*i)->Name()).c_str(),sizeof(db_fertigkeit));
-     if ((*b.begin())->What()==ZAUBERWERK)
-      {
-        strncpy(db_zauberwerk_stufe, cH_Zauberwerk(*i)->Stufe().c_str(),sizeof(db_zauberwerk_stufe));
-        strncpy(db_magisch, cH_Zauberwerk(*i)->Art().c_str(),sizeof(db_magisch));
-      }
-     if ((*b.begin())->What()==FERTIGKEIT && (*i)->Name()=="Landeskunde")
-        strncpy(db_magisch, cH_Fertigkeit(*i)->Zusatz().c_str(),sizeof(db_magisch));
-     db_wert = (*i)->Erfolgswert();
-     db_praxispunkte=(*i)->Praxispunkte();
-     exec sql INSERT INTO charaktere_fertigkeiten
-         (charakter_name,version,fertigkeit,wert,av_bonus,art,magisch,zauberwerk_stufe)
-       VALUES
-         (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,:db_praxispunkte,:db_what,:db_magisch,:db_zauberwerk_stufe);
-     SQLerror::test(__FILELINE__);
-   }
-#else
   for (std::list<cH_MidgardBasicElement>::const_iterator i=b.begin();i!=b.end();++i)
    {
       // oder <Beruf Wert=12>Arzt</Beruf> ?
@@ -283,41 +139,16 @@ void MidgardBasicElement::saveElementliste(IF_XML(ostream &datei,)
         write_string_attrib(datei, "Art", cH_Zauberwerk(*i)->Art());
         write_string_attrib(datei, "Stufe", cH_Zauberwerk(*i)->Stufe());
       }
-      else if ((*i)->What()==FERTIGKEIT && (*i)->Name()=="Landeskunde")
-         write_string_attrib(datei, "Land", cH_Fertigkeit(*i)->Zusatz());
+      else if ((*i)->What()==FERTIGKEIT && cH_Fertigkeit(*i)->ZusatzBool())
+         write_string_attrib(datei, "Zusatz", cH_Fertigkeit(*i)->Zusatz());
       datei << "/>\n";
    }
-#endif
 }
 
   //////////////////////////////////////////////////////////////////////
   //Steigern von Fertigkeiten  
 void MidgardBasicElement::EP_steigern(const std::string fert)
 {
-#ifndef USE_XML 
-  exec sql begin declare section;
-   char db_fert[50],db_w[50];
-  exec sql end declare section;
-  strncpy(db_fert,fert.c_str(),sizeof(db_fert));
-  exec sql declare fwein cursor for SELECT ep from steigern_fertigkeiten_mit
-      where name = :db_fert;
-  Transaction tr;  
-  exec sql open fwein;
-  SQLerror::test(__FILELINE__);
-  int back=0;
-  while (true)
-   {
-     exec sql fetch fwein into :db_w;
-     SQLerror::test(__FILELINE__,100);
-     if (sqlca.sqlcode) break; 
-     std::string w=db_w;
-     if(w=="KEP") back+=1;
-     if(w=="ZEP") back+=2;  
-   }
-  exec sql close fwein;
-  tr.close();
-  steigern_mit_EP=back;
-#else // USE_XML
 // const Tag *tag=find_Tag("Fertigkeiten","Fertigkeit","Name",fert);
  const Tag *steigern=0;
  
@@ -334,5 +165,4 @@ void MidgardBasicElement::EP_steigern(const std::string fert)
     if (steigern->getBoolAttr("ZEP")) back+=2;
  }
  steigern_mit_EP=back;
-#endif
 }

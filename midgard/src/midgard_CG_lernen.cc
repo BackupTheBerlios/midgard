@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.63 2002/02/08 14:34:18 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.64 2002/02/09 16:14:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -555,7 +555,9 @@ bool midgard_CG::SpracheSchrift(const std::string& fert,int wert,bool auswahl)
  bool launch=false;
  Sprache_auswahl::modus mod;
 
- if      (fert=="Landeskunde") 
+ if      (fert=="Geheimzeichen") 
+    { launch=true;  mod=Sprache_auswahl::GEHEIMZEICHEN; }
+ else if (fert=="Landeskunde") 
     { launch=true;  mod=Sprache_auswahl::LAND; }
  else if (fert=="Landeskunde (Heimat)")
     { launch=true;  mod=Sprache_auswahl::HEIMATLAND; }
@@ -575,6 +577,10 @@ bool midgard_CG::SpracheSchrift(const std::string& fert,int wert,bool auswahl)
  else if(fert=="Sprechen: Alte Sprache")
     { launch=true;  mod=Sprache_auswahl::ALTESPRACHE; }
 
+ // Als Ungewöhnliche Fertigkeiten darf man auch eine alte SPrache wählen:
+ if(button_untyp_fertigkeiten->get_active()&&mod==Sprache_auswahl::NEUESPRACHE)
+   mod=Sprache_auswahl::SPRACHE;
+   
  if(auswahl && launch)
      manage (new Sprache_auswahl(this,Database,Werte,mod,wert,
                                  list_Sprache,list_Schrift,list_Fertigkeit));

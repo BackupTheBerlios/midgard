@@ -26,7 +26,7 @@ void midgard_CG::on_fertigkeiten_laden_clicked()
   list_Fertigkeit_neu.clear();
   for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
    { cH_Fertigkeit f(*i);
-     if ((*i)->ist_gelernt(list_Fertigkeit) && f->Name()!="Landeskunde") continue ;
+     if ((*i)->ist_gelernt(list_Fertigkeit) && !f->ZusatzBool()) continue ;
      if (f->Name()=="Sprache" || f->Name()=="Schreiben" || f->Name()=="KiDo-Technik") continue;
      if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name())) continue;
      if (f->Name()=="Zaubern" && Typ[0]->is_mage() || f->Name()=="Zaubern" && Typ[1]->is_mage() ) continue;
@@ -111,35 +111,49 @@ void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
     }
   else if (MBE->Name()=="Zaubern") 
       {  
-         doppelcharaktere();
-         InfoFenster->AppendShow("Jetzt unter 'Grundwerte' die zweite Charkakterklasse wählen\n",false);
-         // Resistenzboni für Zauberer setzten:
-//         Werte.set_magBoni(Werte.bo_Psy()+3,Werte.bo_Phs()+1,Werte.bo_Phk()+3);
-         if (Werte.Zaubern_wert()==2) Werte.setZaubern_wert(10);
+         WindowInfo->AppendShow("Sicher?\nDiese Entscheidung kann nicht Rückgängig gemacht werden.",WindowInfo::ZaubernLernen);
       }
   else 
      MidgardBasicElement_leaf_neu(d);
   fertigkeiten_zeigen();
 }
 
+void midgard_CG::kaempfer_lernt_zaubern()
+{
+   doppelcharaktere();
+   InfoFenster->AppendShow("Jetzt unter 'Grundwerte' die zweite Charkakterklasse wählen\n",WindowInfo::None);
+   // Resistenzboni für Zauberer setzten:
+//         Werte.set_magBoni(Werte.bo_Psy()+3,Werte.bo_Phs()+1,Werte.bo_Phk()+3);
+   if (Werte.Zaubern_wert()==2) Werte.setZaubern_wert(10);
+}
+
+
 void midgard_CG::fillClistLand(const cH_MidgardBasicElement &MBE)
 {
   clist_landauswahl->clear();
   Gtk::OStream os(clist_landauswahl);
-  for (std::vector<cH_Land>::const_iterator i=Database.Laender.begin();i!=Database.Laender.end();++i)
-   {
-     os <<(*i)->Name()<<'\n';
-     os.flush(MBE->ref(),&HandleContent::unref);
-   }
+  if(MBE->Name()=="Landeskunde")
+     for (std::vector<cH_Land>::const_iterator i=Database.Laender.begin();i!=Database.Laender.end();++i)
+      {
+        os <<(*i)->Name()<<'\n';
+        os.flush(MBE->ref(),&HandleContent::unref);
+      }
+  if(MBE->Name()=="Geheimzeichen")
+     for (std::vector<cH_Geheimzeichen>::const_iterator i=Database.Geheimzeichen.begin();i!=Database.Geheimzeichen.end();++i)
+      {
+        os <<(*i)->Name()<<'\n';
+        os.flush(MBE->ref(),&HandleContent::unref);
+      }
   scrolledwindow_landauswahl->show();
 }
 
 void midgard_CG::on_clist_landauswahl_select_row(gint row, gint column, GdkEvent *event)
 {
-  std::string land = clist_landauswahl->get_text(row,0);
+  std::string zusatz = clist_landauswahl->get_text(row,0);
   MidgardBasicElement *MBE=static_cast<MidgardBasicElement*>(clist_landauswahl->selection().begin()->get_data());
-  cH_Fertigkeit(MBE)->setZusatz(land);
-  if(land==Werte.Herkunft()->Name()) MBE->set_Erfolgswert(9);
+  cH_Fertigkeit(MBE)->setZusatz(zusatz);
+  // Erhöter Erfolgswert für Landeskunde Heimat:
+  if(zusatz==Werte.Herkunft()->Name()) MBE->set_Erfolgswert(9);
   scrolledwindow_landauswahl->hide();
   on_fertigkeiten_laden_clicked();
 }

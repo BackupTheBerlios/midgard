@@ -30,16 +30,12 @@ exec sql include sqlca;
 
 cH_Zauber::cache_t cH_Zauber::cache;
 
-cH_Zauber::cH_Zauber(const std::string& name IF_XML(,bool create))
+cH_Zauber::cH_Zauber(const std::string& name, bool create)
 {
  cH_Zauber *cached(cache.lookup(name));
  if (cached) *this=*cached;
  else
   {
-#ifndef USE_XML 
-   *this=cH_Zauber(new Zauber(name));
-   cache.Register(name,*this);
-#else
   cerr << "Zauber '" << name << "' nicht im Cache\n";
   if (create)
   {  static Tag t2("Spruch"); 
@@ -55,83 +51,16 @@ cH_Zauber::cH_Zauber(const std::string& name IF_XML(,bool create))
      *this=cH_Zauber(&t2);
   }
   else throw NotFound();
-#endif  
   }
 }
 
-#ifdef USE_XML
 cH_Zauber::cH_Zauber(const Tag *tag)
 {*this=cH_Zauber(new Zauber(tag));
  cache.Register(tag->getAttr("Name"),*this);
 }
-#endif
 
 void Zauber::get_Zauber()
 {
-#ifndef USE_XML
-  exec sql begin declare section;
-   char db_ursprung[50];
-   int db_kosten;
-   char db_stufe[10];
-   char query[1000];
-   char db_region[10];
-   char db_zauberart[30];
-   char db_element[30];
-   char db_ap[10], db_art[20], db_agens[30], db_prozess[30], 
-        db_reagens[30], db_zauberdauer[30], db_reichweite[10],
-        db_wirkungsziel[30], db_wirkungsbereich[30], db_wirkungsdauer[20], 
-        db_material[50], db_thaumagram[10];
-   bool db_spruchrolle;
-  exec sql end declare section;
-  
-  std::string squery = "SELECT coalesce(z.ursprung,''), 
-      z.kosten, z.stufe, z.spruchrolle, coalesce(z.region,''), 
-      coalesce(z.zauberart,''), 
-      coalesce(z.element,''), z.ap, z.art, coalesce(z.agens,''),
-      coalesce(z.prozess,''), coalesce(z.reagens,''),z.zauberdauer,
-      z.reichweite,z.wirkungsziel,z.wirkungsbereich,
-      z.wirkungsdauer,coalesce(z.material),coalesce(z.thaumagram,'')
-      FROM zauber z WHERE name = '"+name+"'";
-   strncpy(query,squery.c_str(),sizeof(query));
-   Transaction tr;
-   exec sql prepare cl_zauber_ein_ from :query ;
-   exec sql declare cl_zauber_ein cursor for cl_zauber_ein_ ;
-
-//cout << query<<'\n';
-   exec sql open cl_zauber_ein;
-   SQLerror::test(__FILELINE__);
-   exec sql fetch cl_zauber_ein into :db_ursprung, :db_kosten,
-      :db_stufe,  :db_spruchrolle, :db_region, :db_zauberart,
-      :db_element, :db_ap, :db_art, :db_agens,
-      :db_prozess, :db_reagens, :db_zauberdauer, :db_reichweite,
-      :db_wirkungsziel, :db_wirkungsbereich, :db_wirkungsdauer, 
-      :db_material, :db_thaumagram;
-   SQLerror::test(__FILELINE__);
-
-   ursprung=db_ursprung;   
-   kosten=db_kosten;
-   stufe=db_stufe;
-   spruchrolle=db_spruchrolle;
-   region=db_region;
-   zauberart=db_zauberart;
-   element=db_element;
-   ap=db_ap;
-   art=db_art;
-   stufe=db_stufe;
-   zauberdauer=db_zauberdauer;
-   reichweite=db_reichweite;
-   wirkungsziel=db_wirkungsziel;
-   wirkungsbereich=db_wirkungsbereich;
-   wirkungsdauer=db_wirkungsdauer;
-   ursprung=db_ursprung;
-   material=db_material;
-   agens=db_agens;
-   prozess=db_prozess;
-   reagens=db_reagens;
-//   beschreibung=db_effekt;
-   exec sql close cl_zauber_ein;
-   tr.close();
-#else // USE_XML
  assert(tag);
  ursprung=tag->getAttr("Ursprung");
     kosten=tag->getIntAttr("Lernkosten");
@@ -151,7 +80,6 @@ void Zauber::get_Zauber()
     agens=tag->getAttr("Agens");
     prozess=tag->getAttr("Prozess");
     reagens=tag->getAttr("Reagens");
-#endif   
 }
 
 int Zauber::Kosten_eBe(const std::string& pe,const std::string& se) const

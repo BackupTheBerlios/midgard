@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten.hh,v 1.33 2002/02/08 09:52:38 thoma Exp $               
+// $Id: Fertigkeiten.hh,v 1.34 2002/02/09 16:14:06 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -28,7 +28,9 @@
 class Fertigkeit : public MidgardBasicElement
 {
      std::string attribut;
+     bool zusatzbool;
      mutable std::string zusatz; // Für verschiedene Länder bei Landeskunde
+                                 // oder Geheimzeichen
      mutable std::string lernart; // Fach- Allgemeinwissen, ungew. Fert.
      int lern_unge, lern_land,lern_stadt, anfangswert0, anfangswert,
          ungelernt,berufskategorie,maxerfolgswert,maxunterweisung;
@@ -66,6 +68,7 @@ class Fertigkeit : public MidgardBasicElement
 
      std::string Zusatz() const {return zusatz;}
      void setZusatz(std::string z) const {zusatz=z;}
+     bool ZusatzBool() const {return zusatzbool;}
      std::string LernArt() const {return lernart;}
      void setLernArt(std::string z) const {lernart=z;}
      std::string Attribut() const {return attribut;}

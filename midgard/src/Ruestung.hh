@@ -1,4 +1,4 @@
-// $Id: Ruestung.hh,v 1.9 2002/01/26 09:17:41 christof Exp $               
+// $Id: Ruestung.hh,v 1.10 2002/02/09 16:14:06 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,11 +35,7 @@ class Ruestung  : public HandleContent
 
   public:
 //   Ruestung() {};
-#ifndef USE_XML
-   Ruestung(const std::string& n);
-#else
    Ruestung(const Tag *tag);
-#endif
 
    std::string Name() const   {return name; }
    std::string Long() const {return longname;}
@@ -61,11 +57,9 @@ class cH_Ruestung : public Handle<const Ruestung>
     cH_Ruestung() {}
   public:
 //   cH_Ruestung() {*this=new Ruestung();}
-   cH_Ruestung(const std::string& name IF_XML(,bool create=false));
-#ifdef USE_XML
+   cH_Ruestung(const std::string& name, bool create=false);
    cH_Ruestung(const Tag *tag);
-#endif
-    cH_Ruestung(const Ruestung *s) : Handle<const Ruestung>(s) {};
+   cH_Ruestung(const Ruestung *s) : Handle<const Ruestung>(s) {};
 };
 
 class Ruestung_All

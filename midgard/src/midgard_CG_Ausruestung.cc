@@ -465,7 +465,7 @@ void midgard_CG::InfoFensterAusruestung(std::string name,int wurf,int noetig)
  strinfo += "Nötig ist mindestens eine "+itos(noetig+1)+".\n";
  if(wurf>noetig) strinfo +="==> Das reicht.\n";
  else strinfo +="==> Das reicht NICHT.\n";
- InfoFenster->AppendShow(strinfo,false);
+ InfoFenster->AppendShow(strinfo,WindowInfo::None);
 // manage(new WindowInfo(strinfo,false));
 }
 

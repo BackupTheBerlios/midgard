@@ -56,7 +56,16 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const Datenbank& Database,
 {
   {
    Gtk::OStream os(clist_sp_sc);
-   if (mod == LAND || mod == HEIMATLAND)
+   if (mod == GEHEIMZEICHEN)
+      {
+         sp_sc_label->set_text("Geheimzeichen wählen");
+         for (std::vector<cH_Land>::const_iterator i=Database.Laender.begin();i!=Database.Laender.end();++i)
+          { 
+            os << (*i)->Name()<<'\t'<<wert<<'\n';
+            os.flush((*i)->ref(),&HandleContent::unref);
+          }
+      }
+   else if (mod == LAND || mod == HEIMATLAND)
       {
          sp_sc_label->set_text("Land wählen");
          for (std::vector<cH_Land>::const_iterator i=Database.Laender.begin();i!=Database.Laender.end();++i)
@@ -66,7 +75,7 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const Datenbank& Database,
             os.flush((*i)->ref(),&HandleContent::unref);
           }
       }
-   if (mod == SPRACHE || mod == MUTTERSPRACHE ||
+   else if (mod == SPRACHE || mod == MUTTERSPRACHE ||
        mod == NEUESPRACHE || mod == ALTESPRACHE)
       {
          if(mod == MUTTERSPRACHE)
@@ -95,7 +104,7 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const Datenbank& Database,
             os.flush((*i)->ref(),&HandleContent::unref);
           }
       }
-   if (mod == SCHRIFT)
+   else if (mod == SCHRIFT)
       {
          sp_sc_label->set_text("Schrift wählen");
          for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Schrift.begin();i!=Database.Schrift.end();++i)

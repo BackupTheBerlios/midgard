@@ -5432,7 +5432,7 @@ würfeln</label>
 	      <widget>
 		<class>GtkFrame</class>
 		<name>frame59</name>
-		<label>Abenteurerklasse</label>
+		<label>Abenteurertyp</label>
 		<label_xalign>0</label_xalign>
 		<shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
 		<child>
@@ -6066,7 +6066,7 @@ auswählen</label>
 	    <widget>
 	      <class>GtkFrame</class>
 	      <name>frame65</name>
-	      <label>Abenteurerklasse</label>
+	      <label>Abenteurertyp</label>
 	      <label_xalign>0</label_xalign>
 	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
 	      <child>
@@ -13570,7 +13570,7 @@ KS
     <widget>
       <class>GtkTable</class>
       <name>table69</name>
-      <rows>3</rows>
+      <rows>2</rows>
       <columns>2</columns>
       <homogeneous>False</homogeneous>
       <row_spacing>0</row_spacing>
@@ -13582,23 +13582,19 @@ KS
       </child>
 
       <widget>
-	<class>GtkButton</class>
-	<name>button_info_ok</name>
-	<width>50</width>
-	<cxx_visibility>protected</cxx_visibility>
-	<can_focus>True</can_focus>
-	<signal>
-	  <name>clicked</name>
-	  <handler>on_button_info_ok_clicked</handler>
-	  <last_modification_time>Tue, 27 Feb 2001 12:31:18 GMT</last_modification_time>
-	</signal>
-	<label>OK</label>
-	<relief>GTK_RELIEF_NORMAL</relief>
+	<class>GtkPixmap</class>
+	<name>pixmap54</name>
+	<filename>Gross_ark_pre.xpm</filename>
+	<xalign>0.5</xalign>
+	<yalign>0.5</yalign>
+	<xpad>0</xpad>
+	<ypad>0</ypad>
+	<build_insensitive>True</build_insensitive>
 	<child>
-	  <left_attach>0</left_attach>
-	  <right_attach>1</right_attach>
-	  <top_attach>2</top_attach>
-	  <bottom_attach>3</bottom_attach>
+	  <left_attach>1</left_attach>
+	  <right_attach>2</right_attach>
+	  <top_attach>0</top_attach>
+	  <bottom_attach>2</bottom_attach>
 	  <xpad>0</xpad>
 	  <ypad>0</ypad>
 	  <xexpand>False</xexpand>
@@ -13611,47 +13607,18 @@ KS
       </widget>
 
       <widget>
-	<class>GtkPixmap</class>
-	<name>pixmap54</name>
-	<filename>Phex-mod2-lowcol-20.xpm</filename>
-	<xalign>0.5</xalign>
-	<yalign>0.5</yalign>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<build_insensitive>True</build_insensitive>
-	<child>
-	  <left_attach>1</left_attach>
-	  <right_attach>2</right_attach>
-	  <top_attach>1</top_attach>
-	  <bottom_attach>3</bottom_attach>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	  <xexpand>False</xexpand>
-	  <yexpand>False</yexpand>
-	  <xshrink>False</xshrink>
-	  <yshrink>False</yshrink>
-	  <xfill>True</xfill>
-	  <yfill>True</yfill>
-	</child>
-      </widget>
-
-      <widget>
-	<class>GtkLabel</class>
-	<name>infotext</name>
-	<width>550</width>
-	<cxx_visibility>protected</cxx_visibility>
-	<label>infotext</label>
-	<justify>GTK_JUSTIFY_CENTER</justify>
-	<wrap>True</wrap>
-	<xalign>0.5</xalign>
-	<yalign>0.5</yalign>
-	<xpad>5</xpad>
-	<ypad>5</ypad>
+	<class>GtkScrolledWindow</class>
+	<name>scrolledwindow75</name>
+	<width>400</width>
+	<hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
+	<vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+	<hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+	<vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
 	<child>
 	  <left_attach>0</left_attach>
 	  <right_attach>1</right_attach>
-	  <top_attach>1</top_attach>
-	  <bottom_attach>2</bottom_attach>
+	  <top_attach>0</top_attach>
+	  <bottom_attach>1</bottom_attach>
 	  <xpad>0</xpad>
 	  <ypad>0</ypad>
 	  <xexpand>True</xexpand>
@@ -13661,30 +13628,131 @@ KS
 	  <xfill>True</xfill>
 	  <yfill>True</yfill>
 	</child>
+
+	<widget>
+	  <class>GtkViewport</class>
+	  <name>viewport37</name>
+	  <shadow_type>GTK_SHADOW_IN</shadow_type>
+
+	  <widget>
+	    <class>Custom</class>
+	    <name>LogWin</name>
+	    <cxx_visibility>protected</cxx_visibility>
+	    <creation_function>logwin</creation_function>
+	    <int1>0</int1>
+	    <int2>0</int2>
+	    <last_modification_time>Fri, 08 Feb 2002 13:21:42 GMT</last_modification_time>
+	  </widget>
+	</widget>
       </widget>
 
       <widget>
-	<class>Custom</class>
-	<name>LogWin</name>
-	<cxx_visibility>protected</cxx_visibility>
-	<creation_function>logwin</creation_function>
-	<int1>0</int1>
-	<int2>0</int2>
-	<last_modification_time>Fri, 08 Feb 2002 13:21:42 GMT</last_modification_time>
+	<class>GtkTable</class>
+	<name>table125</name>
+	<rows>1</rows>
+	<columns>3</columns>
+	<homogeneous>False</homogeneous>
+	<row_spacing>0</row_spacing>
+	<column_spacing>0</column_spacing>
 	<child>
 	  <left_attach>0</left_attach>
 	  <right_attach>1</right_attach>
-	  <top_attach>0</top_attach>
-	  <bottom_attach>1</bottom_attach>
+	  <top_attach>1</top_attach>
+	  <bottom_attach>2</bottom_attach>
 	  <xpad>0</xpad>
 	  <ypad>0</ypad>
 	  <xexpand>False</xexpand>
-	  <yexpand>True</yexpand>
+	  <yexpand>False</yexpand>
 	  <xshrink>False</xshrink>
 	  <yshrink>False</yshrink>
-	  <xfill>True</xfill>
-	  <yfill>True</yfill>
+	  <xfill>False</xfill>
+	  <yfill>False</yfill>
 	</child>
+
+	<widget>
+	  <class>GtkButton</class>
+	  <name>button_info_ok</name>
+	  <width>50</width>
+	  <cxx_visibility>protected</cxx_visibility>
+	  <can_focus>True</can_focus>
+	  <signal>
+	    <name>clicked</name>
+	    <handler>on_button_info_ok_clicked</handler>
+	    <last_modification_time>Tue, 27 Feb 2001 12:31:18 GMT</last_modification_time>
+	  </signal>
+	  <label>OK</label>
+	  <relief>GTK_RELIEF_NORMAL</relief>
+	  <child>
+	    <left_attach>2</left_attach>
+	    <right_attach>3</right_attach>
+	    <top_attach>0</top_attach>
+	    <bottom_attach>1</bottom_attach>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <xexpand>False</xexpand>
+	    <yexpand>False</yexpand>
+	    <xshrink>False</xshrink>
+	    <yshrink>False</yshrink>
+	    <xfill>True</xfill>
+	    <yfill>False</yfill>
+	  </child>
+	</widget>
+
+	<widget>
+	  <class>GtkButton</class>
+	  <name>button_bestaetigen</name>
+	  <cxx_visibility>protected</cxx_visibility>
+	  <can_focus>True</can_focus>
+	  <signal>
+	    <name>clicked</name>
+	    <handler>on_button_bestaetigen_clicked</handler>
+	    <last_modification_time>Sat, 09 Feb 2002 15:38:28 GMT</last_modification_time>
+	  </signal>
+	  <label>Bestätigen</label>
+	  <relief>GTK_RELIEF_NORMAL</relief>
+	  <child>
+	    <left_attach>0</left_attach>
+	    <right_attach>1</right_attach>
+	    <top_attach>0</top_attach>
+	    <bottom_attach>1</bottom_attach>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <xexpand>False</xexpand>
+	    <yexpand>False</yexpand>
+	    <xshrink>False</xshrink>
+	    <yshrink>False</yshrink>
+	    <xfill>True</xfill>
+	    <yfill>False</yfill>
+	  </child>
+	</widget>
+
+	<widget>
+	  <class>GtkButton</class>
+	  <name>button_abbrechen</name>
+	  <cxx_visibility>protected</cxx_visibility>
+	  <can_focus>True</can_focus>
+	  <signal>
+	    <name>clicked</name>
+	    <handler>on_button_info_ok_clicked</handler>
+	    <last_modification_time>Sat, 09 Feb 2002 16:08:23 GMT</last_modification_time>
+	  </signal>
+	  <label>Abbrechen</label>
+	  <relief>GTK_RELIEF_NORMAL</relief>
+	  <child>
+	    <left_attach>1</left_attach>
+	    <right_attach>2</right_attach>
+	    <top_attach>0</top_attach>
+	    <bottom_attach>1</bottom_attach>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <xexpand>False</xexpand>
+	    <yexpand>False</yexpand>
+	    <xshrink>False</xshrink>
+	    <yshrink>False</yshrink>
+	    <xfill>False</xfill>
+	    <yfill>False</yfill>
+	  </child>
+	</widget>
       </widget>
     </widget>
   </widget>
@@ -19336,6 +19404,64 @@ eingeben</label>
 	<icon>SchliessenIII-50.xpm</icon>
       </widget>
     </widget>
+  </widget>
+</widget>
+
+<widget>
+  <class>GtkWindow</class>
+  <name>window1</name>
+  <title>window1</title>
+  <type>GTK_WINDOW_TOPLEVEL</type>
+  <position>GTK_WIN_POS_NONE</position>
+  <modal>True</modal>
+  <allow_shrink>False</allow_shrink>
+  <allow_grow>True</allow_grow>
+  <auto_shrink>False</auto_shrink>
+
+  <widget>
+    <class>Placeholder</class>
+  </widget>
+</widget>
+
+<widget>
+  <class>GtkInputDialog</class>
+  <name>inputdialog1</name>
+  <title>Eingabe</title>
+  <type>GTK_WINDOW_TOPLEVEL</type>
+  <position>GTK_WIN_POS_NONE</position>
+  <modal>False</modal>
+  <allow_shrink>False</allow_shrink>
+  <allow_grow>True</allow_grow>
+  <auto_shrink>False</auto_shrink>
+
+  <widget>
+    <class>GtkButton</class>
+    <child_name>InputDialog:save_button</child_name>
+    <name>save_button1</name>
+    <can_default>True</can_default>
+    <can_focus>True</can_focus>
+    <label>Speichern</label>
+    <relief>GTK_RELIEF_NORMAL</relief>
+    <child>
+      <padding>0</padding>
+      <expand>True</expand>
+      <fill>True</fill>
+    </child>
+  </widget>
+
+  <widget>
+    <class>GtkButton</class>
+    <child_name>InputDialog:close_button</child_name>
+    <name>close_button1</name>
+    <can_default>True</can_default>
+    <can_focus>True</can_focus>
+    <label>Schließen</label>
+    <relief>GTK_RELIEF_NORMAL</relief>
+    <child>
+      <padding>0</padding>
+      <expand>True</expand>
+      <fill>True</fill>
+    </child>
   </widget>
 </widget>
 

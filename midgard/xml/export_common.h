@@ -1,4 +1,4 @@
-// $Id: export_common.h,v 1.16 2002/02/05 06:47:48 thoma Exp $
+// $Id: export_common.h,v 1.17 2002/02/09 16:13:29 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -88,5 +88,6 @@ void kaufpreis(std::ostream &os, const string &art, const string &name);
 void arkanum_speichern(std::ostream &o);
 void land_speichern(std::ostream &o);
 void fert_speichern(std::ostream &o);
+void zusaetze_speichern(std::ostream &o);
 void waffen_speichern(std::ostream &o);
 void kido_speichern(std::ostream &o);
