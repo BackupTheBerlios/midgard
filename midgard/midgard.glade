@@ -8131,6 +8131,7 @@ eingeben</label>
 	<class>GtkEventBox</class>
 	<child_name>Notebook:tab</child_name>
 	<name>eventbox_lernen</name>
+	<cxx_visibility>protected</cxx_visibility>
 	<tooltip>Lernschema</tooltip>
 	<signal>
 	  <name>button_release_event</name>
@@ -15557,32 +15558,47 @@ KS
 	    </widget>
 
 	    <widget>
-	      <class>Custom</class>
-	      <name>preise_tree_neu</name>
-	      <cxx_visibility>protected</cxx_visibility>
-	      <signal>
-		<name>leaf_selected</name>
-		<handler>on_preise_tree_neu_leaf_selected</handler>
-		<last_modification_time>Wed, 02 Oct 2002 19:29:10 GMT</last_modification_time>
-	      </signal>
-	      <creation_function>SimpleTree</creation_function>
-	      <int1>6</int1>
-	      <int2>6</int2>
-	      <last_modification_time>Wed, 02 Oct 2002 16:39:25 GMT</last_modification_time>
+	      <class>GtkScrolledWindow</class>
+	      <name>scrolledwindow87</name>
+	      <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
+	      <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+	      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+	      <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
 	      <child>
-		<left_attach>1</left_attach>
+		<left_attach>0</left_attach>
 		<right_attach>2</right_attach>
 		<top_attach>0</top_attach>
 		<bottom_attach>1</bottom_attach>
 		<xpad>0</xpad>
 		<ypad>0</ypad>
-		<xexpand>False</xexpand>
+		<xexpand>True</xexpand>
 		<yexpand>True</yexpand>
-		<xshrink>False</xshrink>
-		<yshrink>False</yshrink>
+		<xshrink>True</xshrink>
+		<yshrink>True</yshrink>
 		<xfill>True</xfill>
 		<yfill>True</yfill>
 	      </child>
+
+	      <widget>
+		<class>GtkViewport</class>
+		<name>viewport48</name>
+		<shadow_type>GTK_SHADOW_NONE</shadow_type>
+
+		<widget>
+		  <class>Custom</class>
+		  <name>preise_tree_neu</name>
+		  <cxx_visibility>protected</cxx_visibility>
+		  <signal>
+		    <name>leaf_selected</name>
+		    <handler>on_preise_tree_neu_leaf_selected</handler>
+		    <last_modification_time>Wed, 02 Oct 2002 19:29:10 GMT</last_modification_time>
+		  </signal>
+		  <creation_function>SimpleTree</creation_function>
+		  <int1>8</int1>
+		  <int2>8</int2>
+		  <last_modification_time>Wed, 02 Oct 2002 16:39:25 GMT</last_modification_time>
+		</widget>
+	      </widget>
 	    </widget>
 	  </widget>
 
@@ -16668,6 +16684,7 @@ Liste löschen</label>
 	<class>GtkEventBox</class>
 	<child_name>Notebook:tab</child_name>
 	<name>eventbox_geschichte</name>
+	<cxx_visibility>protected</cxx_visibility>
 	<signal>
 	  <name>button_release_event</name>
 	  <handler>on_eventbox_geschichte_button_release_event</handler>
@@ -16681,49 +16698,19 @@ Liste löschen</label>
 	  <spacing>0</spacing>
 
 	  <widget>
-	    <class>GtkHBox</class>
-	    <name>hbox74</name>
-	    <homogeneous>False</homogeneous>
-	    <spacing>0</spacing>
+	    <class>GtkPixmap</class>
+	    <name>pixmap175</name>
+	    <filename>NewsGeschichte.xpm</filename>
+	    <xalign>0.5</xalign>
+	    <yalign>0.5</yalign>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <build_insensitive>True</build_insensitive>
 	    <child>
 	      <padding>0</padding>
 	      <expand>True</expand>
 	      <fill>True</fill>
 	    </child>
-
-	    <widget>
-	      <class>GtkPixmap</class>
-	      <name>pixmap_notebook_news_1</name>
-	      <cxx_visibility>protected</cxx_visibility>
-	      <filename>Fert_Lesen-32.xpm</filename>
-	      <xalign>0.5</xalign>
-	      <yalign>0.5</yalign>
-	      <xpad>0</xpad>
-	      <ypad>0</ypad>
-	      <build_insensitive>True</build_insensitive>
-	      <child>
-		<padding>0</padding>
-		<expand>True</expand>
-		<fill>True</fill>
-	      </child>
-	    </widget>
-
-	    <widget>
-	      <class>GtkPixmap</class>
-	      <name>pixmap_notebook_news_2</name>
-	      <cxx_visibility>protected</cxx_visibility>
-	      <filename>redo.xpm</filename>
-	      <xalign>0.5</xalign>
-	      <yalign>0.5</yalign>
-	      <xpad>0</xpad>
-	      <ypad>0</ypad>
-	      <build_insensitive>True</build_insensitive>
-	      <child>
-		<padding>0</padding>
-		<expand>True</expand>
-		<fill>True</fill>
-	      </child>
-	    </widget>
 	  </widget>
 
 	  <widget>

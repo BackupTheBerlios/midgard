@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen_icons.cc,v 1.12 2002/09/23 08:11:59 thoma Exp $
+// $Id: midgard_CG_optionen_icons.cc,v 1.13 2002/10/05 07:34:45 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -99,8 +99,12 @@ void midgard_CG::Bin_setzen(Gtk::Widget *child,st_icons I)
 #include "../pixmaps/Weapon-trans-50.xpm" 
 #include "../pixmaps/Dice_Armor-trans-50.xpm" 
 #include "../pixmaps/Dice-Ausruest-50.xpm" 
+//#include "../pixmaps/Erase-50.xpm" 
 #include "../pixmaps/MAGUS_Logo_Small.xpm" 
 #include "../pixmaps/MAGUS_Logo_Tiny.xpm" 
+#include "../pixmaps/NSC-Mode-26.xpm" 
+#include "../pixmaps/Fert_Lesen-32.xpm" 
+#include "../pixmaps/L_Schema_small.xpm" 
 
 
 // Ulfs 24-Icons
@@ -118,11 +122,17 @@ void midgard_CG::Bin_setzen(Gtk::Widget *child,st_icons I)
 #include "../pixmaps/Ulf/ulf_notebook_24_bildeinfuegen.xpm"
 #include "../pixmaps/Ulf/ulf_notebook_24_wuerfel.xpm"
 #include "../pixmaps/Ulf/ulf_notebook_24_editieren.xpm"
+//#include "../pixmaps/Ulf/ulf_notebook_24_loeschen.xpm"
 #include "../pixmaps/Ulf/ulf_auswahl_16_ja.xpm"
 #include "../pixmaps/Ulf/ulf_auswahl_16_nein.xpm"
+#include "../pixmaps/Ulf/ulf_notebook_24_loeschen.xpm"
+
 //#include "../pixmaps/Ulf/ulf_24_editieren.xpm"
 //#include "../pixmaps/Ulf/ulf_24_wuerfel.xpm"
 #include "../pixmaps/Ulf/ulf_statusleiste_16_wizard.xpm"
+#include "../pixmaps/Ulf/ulf_statusleiste_16_npczulassen.xpm"
+#include "../pixmaps/Ulf/ulf_zipfel_24_infocredits.xpm"
+#include "../pixmaps/Ulf/ulf_zipfel_24_lernschema.xpm"
 
 midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
 {
@@ -154,7 +164,11 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iRuestung)   return st_icons("Rüstung"  ,Dice_Armor_trans_50_xpm);
      else if(typ==iAusruestung)return st_icons("Ausrüstung"  ,Dice_Ausruest_50_xpm);
      else if(typ==iBildeinfuegen)return st_icons("Abbildung"  ,MAGUS_Logo_Small_xpm);
+     else if(typ==iDeleteA     )return st_icons("Abenteurer aus\nListe löschen"  ,Erase_50_xpm);
      else if(typ==iStatusWizard)return st_icons(""  ,MAGUS_Logo_Tiny_xpm);
+     else if(typ==iStatusNPC)return st_icons(""  ,NSC_Mode_26_xpm);
+     else if(typ==iNotebookInfo)   return st_icons("News & Geschichte"  ,Fert_Lesen_32_xpm);
+     else if(typ==iNotebookLernen)   return st_icons("Lernschema"  ,L_Schema_small_xpm);
    }
   else if(MOptionen->IconCheck(Midgard_Optionen::Ulf).active)
    {
@@ -184,7 +198,11 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iRuestung)   return st_icons("Rüstung"  ,ulf_notebook_24_wuerfel_xpm);
      else if(typ==iAusruestung)return st_icons("Ausrüstung"  ,ulf_notebook_24_wuerfel_xpm);
      else if(typ==iBildeinfuegen)return st_icons("Abbildung"  ,ulf_notebook_24_bildeinfuegen_xpm);
+     else if(typ==iDeleteA     )return st_icons("Abenteurer aus\nListe löschen"  ,ulf_notebook_24_loeschen_xpm);
      else if(typ==iStatusWizard)return st_icons(""  ,ulf_statusleiste_16_wizard_xpm);
+     else if(typ==iStatusNPC)   return st_icons(""  ,ulf_statusleiste_16_npczulassen_xpm);
+     else if(typ==iNotebookInfo)   return st_icons("News & Geschichte"  ,ulf_zipfel_24_infocredits_xpm);
+     else if(typ==iNotebookLernen)   return st_icons("Lernschema"  ,ulf_zipfel_24_lernschema_xpm);
      
    }
   assert(!"never get here");

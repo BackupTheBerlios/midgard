@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.266 2002/10/04 20:26:18 thoma Exp $
+// $Id: midgard_CG.cc,v 1.267 2002/10/05 07:34:45 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -175,7 +175,13 @@ void midgard_CG::fill_IconVec()
   IconVec.push_back(st_buttons(table_beschreibung->button_grafik,iBildeinfuegen));
   IconVec.push_back(st_buttons(table_beschreibung->button_beschreibung_drucken,iPrint));
 
+  IconVec.push_back(st_buttons(togglebutton_delete_abenteurer_aus_liste,iDeleteA));
   //////////////////////////////////////////////////////////////////////////
   IconVecBin.push_back(st_buttons(eventbox_wizard_aktiv,iStatusWizard));
+  IconVecBin.push_back(st_buttons(eventbox_NSC_aktiv,iStatusNPC));
+  //////////////////////////////////////////////////////////////////////////
+  IconVec.push_back(st_buttons(eventbox_lernen,iNotebookLernen));
+  IconVec.push_back(st_buttons(eventbox_geschichte,iNotebookInfo));
+
 }
 

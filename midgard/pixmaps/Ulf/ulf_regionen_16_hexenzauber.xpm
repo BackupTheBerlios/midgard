@@ -63,6 +63,7 @@ static char * ulf_regionen_16_hexenzauber_xpm[] = {
 "u	c #B3B3B3",
 "v	c #BFBFBF",
 "                ",
+"                ",
 "     .+         ",
 "      .@        ",
 "      +.@       ",
@@ -76,5 +77,4 @@ static char * ulf_regionen_16_hexenzauber_xpm[] = {
 "0<11ijkl][mn11o@",
 " po11111111118q ",
 "  r$]%11118[s   ",
-"      tfuv      ",
-"                "};
+"      tfuv      "};

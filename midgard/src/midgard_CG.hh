@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.286 2002/10/04 06:20:12 thoma Exp $
+// $Id: midgard_CG.hh,v 1.287 2002/10/05 07:34:45 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -114,7 +114,9 @@ class midgard_CG : public midgard_CG_glade
                      iEditGrund,iAngeFert,iLernpunkte,iLernEdit,iBeruf,
                      iGeld,iWaffen,
                      iRuestung,iAusruestung,iEigenschaft,iBildeinfuegen,
-                     iStatusWizard};
+                     iDeleteA,
+                     iStatusWizard,iStatusNPC,iStatusHaus,
+                     iNotebookLernen,iNotebookInfo};
                      
         struct st_icons{std::string text;char **icon;
                st_icons(std::string t,char **i):text(t),icon(i){}};
