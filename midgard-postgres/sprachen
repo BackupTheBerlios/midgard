@@ -56,6 +56,7 @@ COPY sprachen (fp, name, max_wert, alt, region, gruppe_1, gruppe_2, minderheit, 
 10	Läinisch	20	\N	\N	7	\N	\N	\N
 10	Maralinga	20	t	\N	10	\N	\N	\N
 10	Medjisisch	20	\N	\N	4	\N	\N	\N
+10	Meeressprache	20	\N	G	\N	\N	\N	49
 10	Meketisch	20	t	\N	\N	\N	\N	\N
 10	Minangpahitisch	20	\N	\N	9	\N	\N	\N
 10	Moravisch	20	\N	\N	8	\N	\N	\N
@@ -71,7 +72,6 @@ COPY sprachen (fp, name, max_wert, alt, region, gruppe_1, gruppe_2, minderheit, 
 10	Twyneddisch	20	\N	\N	2	\N	t	\N
 10	Vallinga	20	\N	\N	10	\N	\N	\N
 10	Waelska	20	\N	\N	8	\N	\N	\N
-10	Meeressprache	20	\N	G	\N	\N	\N	?
 \.
 
 

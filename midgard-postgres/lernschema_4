@@ -1779,7 +1779,6 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 3	ScS	f	Verfluchen	Zauberkünste	0
 3	ScW	f	Verfluchen	Zauberkünste	0
 3	PC	f	Verkleiden	Fachkenntnisse	15
-3	PT	f	Verursachen von Krankheit	Zauberkünste	0
 3	PC	f	Verursachen von Wunden	Zauberkünste	0
 3	gHx	f	Verwirren	Zauberkünste	0
 3	sHx	f	Verwirren	Zauberkünste	0
