@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.hh,v 1.17 2004/08/30 13:17:56 christof Exp $               
+// $Id: VAbenteurer.hh,v 1.18 2004/12/13 08:53:45 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -40,6 +40,7 @@ namespace AbenteurerListe
        			abenteurer(a)
        			{}
 	};
+	
 	class Item : public SigC::Object
 	{	std::vector<st_undo> undos;
 		// Einfügen und löschen können den Iterator gerne ungültig machen,
@@ -84,8 +85,14 @@ namespace AbenteurerListe
 		bool gespeichert() const {return bgespeichert;}
 		void setFilename(std::string s) {filename=s;}
 		const std::string &getFilename() {return filename;}
-		// einen Undoschritt abschließen und benennen
+		// einen Undoschritt beginnen und benennen
 		void undosave(const std::string &s);
+		// vermutlich ist dies hier handlicher 
+		// (siehe auch AbenteurerAuswahl::LocalUndoRememberer
+		void begin_undo();
+		void name_undo(const std::string &s); // commit
+		void cancel_undo(); // rollback
+
 		SigC::Signal0<void> &signal_undo_changed()
 		{  return _signal_undo_changed; }
 		SigC::Signal0<void> &signal_undo_list_changed()

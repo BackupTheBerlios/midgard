@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.cc,v 1.16 2004/11/24 10:44:49 christof Exp $            
+// $Id: VAbenteurer.cc,v 1.17 2004/12/13 08:53:45 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -145,6 +145,7 @@ static VAbenteurer::Item::iterator unconstify(const VAbenteurer::Item::const_ite
 {  return reinterpret_cast<const VAbenteurer::Item::iterator &>(i);
 }
 
+// I recommend begin_undo
 void VAbenteurer::Item::undosave(const std::string &s)
 { ManuProC::Trace _t(LibMagus::trace_channel,__PRETTY_FUNCTION__,this,s);
   iterator i=unconstify(current_undo);
@@ -162,6 +163,35 @@ void VAbenteurer::Item::setUndo(const_iterator it)
 {  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,this,&*it);
    current_undo=unconstify(it);
    _signal_undo_changed();
+}
+
+// is a bit like undosave
+void VAbenteurer::Item::begin_undo()
+{ ManuProC::Trace _t(LibMagus::trace_channel,__PRETTY_FUNCTION__,this);
+  // delete any pending redo steps
+  { iterator i=unconstify(current_undo);
+    ++i;
+    if (i!=end()) undos.erase(i,unconstify(end()));
+  }
+  undos.push_back(*getUndo());
+  current_undo=--undos.end();
+  divert_proxy();
+}
+
+void VAbenteurer::Item::name_undo(const std::string &s)
+{ ManuProC::Trace _t(LibMagus::trace_channel,__PRETTY_FUNCTION__,this,s);
+  modified();
+  current_undo->text=s;
+  signal_undo_list_changed()();
+}
+
+void VAbenteurer::Item::cancel_undo()
+{ ManuProC::Trace _t(LibMagus::trace_channel,__PRETTY_FUNCTION__,this,s);
+  iterator i=unconstify(current_undo);
+  assert(i!=begin());
+  --current_undo;
+  undos.erase(i,unconstify(end()));
+  divert_proxy();
 }
 
 // ================== AbenteurerAuswahl ====================
@@ -204,6 +234,20 @@ VAbenteurer::iterator AbenteurerAuswahl::actualIterator()
 
 VAbenteurer::const_iterator AbenteurerAuswahl::actualIterator() const
 {  return const_cast<AbenteurerAuswahl*>(this)->actualIterator();
+}
+
+AbenteurerAuswahl::LocalUndoRememberer::LocalUndoRememberer(const VAbenteurer::iterator &i)
+ : gehoert_zu(i), rollback(true)
+{ gehoert_zu->begin_undo();
+}
+
+AbenteurerAuswahl::LocalUndoRememberer::~LocalUndoRememberer()
+{ if (rollback) gehoert_zu->cancel_undo();
+}
+
+void AbenteurerAuswahl::LocalUndoRememberer::finish(const std::string &s)
+{ gehoert_zu->name_undo(s);
+  rollback=false;
 }
 
 // put the ctor in a .cc file

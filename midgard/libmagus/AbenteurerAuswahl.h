@@ -1,4 +1,4 @@
-// $Id: AbenteurerAuswahl.h,v 1.6 2004/08/30 13:17:56 christof Exp $               
+// $Id: AbenteurerAuswahl.h,v 1.7 2004/12/13 08:53:45 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2003-2004 Christof Petig
  *
@@ -27,6 +27,8 @@ class AbenteurerAuswahl : public SigC::Object // um signale zu empfangen
 {
       VAbenteurer::iterator ai;
       SigC::Signal0<void> sig_anderer;
+      // _lokaler_ Kompromiss zwischen Spaghetti Code und vollem MVC
+      SigC::Signal0<void> _gesteigert,_werte_geaendert,_faehigk_geaendert;
 
       void divert_proxy();
 public:
@@ -60,10 +62,26 @@ public:
    {  return &*actualIterator(); }
    VAbenteurer::Item *operator->()
    {  return &*actualIterator(); }
-#if 0   
-   Abenteurer *operator->()
-   {  return &actualIterator()->getAbenteurer(); }
-#endif
+   
+   class LocalUndoRememberer;
+   // Sammelsignale für die einfachere Strukturierung der Oberfläche
+   // so dass nicht immer _alles_ neu dargestellt werden muss
+   Signal0<void> signal_gesteigert() // GFP, Steigertage etc geändert
+   { return _gesteigert; }
+   Signal0<void> signal_werte_geaendert()
+   { return _werte_geaendert; }
+   Signal0<void> signal_faehigkeiten_geaendert()
+   { return _faehigk_geaendert; }
+};
+
+// Klasse um einfach undos zu verwalten
+class AbenteurerAuswahl::LocalUndoRememberer
+{ VAbenteurer::iterator gehoert_zu;
+  bool rollback;
+ public:
+  LocalUndoRememberer(const VAbenteurer::iterator &i);
+  ~LocalUndoRememberer();
+  void finish(const std::string &s);
 };
 
 #endif
