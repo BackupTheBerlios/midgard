@@ -1,16 +1,17 @@
 
 #include "config.h"
-#include "table_steigern.hh"
+#include <Misc/Trace.h>
 #include <Misc/itos.h>
-#include "Fertigkeiten.hh"
-#include "midgard_CG.hh"
-#include "dtos1.h"
 #include <bool_CheckButton.hh>
-extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 #include <libmagus/Ausgabe.hh>
 #include <libmagus/Datenbank.hh>
 #include <libmagus/magustrace.h>
-#include <Misc/Trace.h>
+#include "table_steigern.hh"
+#include "Fertigkeiten.hh"
+#include "midgard_CG.hh"
+#include "dtos1.h"
+#include "class_SimpleTree.hh"
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 void table_steigern::refresh()
 { ManuProC::Trace _t(LibMagus::trace_channel,__PRETTY_FUNCTION__);
@@ -253,4 +254,8 @@ table_steigern::table_steigern(GlademmData *_data)
      vbox_praxispunkte->hide();
      spinbutton_pp_eingeben->hide();
  scrolledwindow_landauswahl->hide();
+ // Praxispunkte editierbar machen (testweise)
+   alte_fert_tree->getModel().set_editable(Data_SimpleTree::PPa); 
+   alte_fert_tree->getModel().signal_value_changed().connect(SigC::slot(*this,
+     &table_steigern::fert_col_changed));
 }

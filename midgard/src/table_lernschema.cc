@@ -320,15 +320,17 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
             return;
           }
        A.List_Waffen().push_back(MBE);
-       A.List_WaffenGrund().push_back(
-          MBEmlt(&*cH_WaffeGrund(cH_Waffe(MBE->getMBE())->Grundkenntnis())));
+       if (!cH_Waffe(MBE->getMBE())->Grundkenntnis().empty())
+       {  A.List_WaffenGrund().push_back(
+             MBEmlt(&*cH_WaffeGrund(cH_Waffe(MBE->getMBE())->Grundkenntnis())));
 
-       const std::string &zwgr=cH_Waffe(MBE->getMBE())->ZweiteGrundkenntnis();
-       if(!zwgr.empty()&&cH_Waffe(MBE->getMBE())->Min_St_Einhand(vabenteurer->getAbenteurer())) 
-          A.List_WaffenGrund().push_back(MBEmlt(&*cH_WaffeGrund(zwgr)));
+          const std::string &zwgr=cH_Waffe(MBE->getMBE())->ZweiteGrundkenntnis();
+          if(!zwgr.empty()&&cH_Waffe(MBE->getMBE())->Min_St_Einhand(vabenteurer->getAbenteurer())) 
+             A.List_WaffenGrund().push_back(MBEmlt(&*cH_WaffeGrund(zwgr)));
                         
-       A.List_WaffenGrund().sort(MBEmlt::sort(MBEmlt::sort::NAME));
-       A.List_WaffenGrund().unique();
+          A.List_WaffenGrund().sort(MBEmlt::sort(MBEmlt::sort::NAME));
+          A.List_WaffenGrund().unique();
+       }
         vabenteurer->getLernpunkte().getLernpunkte().addWaffen(-lp);
         break; }
     case MidgardBasicElement::ZAUBER:

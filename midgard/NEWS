@@ -1,6 +1,7 @@
 Version 0.9.6
 - Expander haben nun sinnvolle Überschriften
 - Auswahl bzgl. "wie Steigern" wird in Grundwerte festgehalten
+- NotFound (WaffeGrund) bei Verteidigungswaffen behoben
 
 -------------- TODO ----------------
 

@@ -67,6 +67,7 @@ private:
         void kaempfer_lernt_zaubern() ;
         void zaubern_klasse_gewaehlt() ;
         void zaubern_klasse_gewaehlt_abbrechen();
+        bool fert_col_changed(cH_RowDataBase row,unsigned idx,const std::string &newval);
         
         // Grad anstieg
 private:

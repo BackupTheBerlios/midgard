@@ -1,4 +1,5 @@
 /*  Copyright (C) 2001 Malte Thoma
+ *  Copyright (C) 2004 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -15,16 +16,17 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#include "midgard_CG.hh"
-#include "table_steigern.hh"
-#include "class_SimpleTree.hh"
 #include <Gtk_OStream.h>
-#include "Fertigkeiten.hh"
-#include "Waffe.hh"       
-#include "LernListen.hh"
+#include <Misc/create_parse.h>
 #include <libmagus/Ausgabe.hh>
 #include <libmagus/Datenbank.hh>
 #include <libmagus/NotFound.h>
+#include <libmagus/Fertigkeiten.hh>
+#include <libmagus/Waffe.hh>
+#include <libmagus/LernListen.hh>
+#include "midgard_CG.hh"
+#include "table_steigern.hh"
+#include "class_SimpleTree.hh"
 
 void table_steigern::fertigkeiten_zeigen()
 { if (notebook_lernen->get_current_page()!=PAGE_FERTIGKEITEN) return;
@@ -103,7 +105,6 @@ void table_steigern::kaempfer_lernt_zaubern()
 
  Gtk::Combo *_ct = manage(new class Gtk::Combo());
  _ct->get_entry()->set_editable(false); 
- bool nsc_allowed = hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active;
  const std::vector<std::pair<cH_Typen,bool> > T=LernListen::getTypen(hauptfenster->getAben());
  std::list<std::string> L;
  for(std::vector<std::pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
@@ -153,4 +154,14 @@ void table_steigern::zaubern_klasse_gewaehlt_abbrechen()
   frame_spezielles->hide();
 }
 
-
+bool table_steigern::fert_col_changed(cH_RowDataBase row,unsigned idx,const std::string &newval)
+{  Handle <const Data_SimpleTree> dst=row.cast_dynamic<const Data_SimpleTree>();
+   MBEmlt mbe=dst->getMBE();
+   if (idx==Data_SimpleTree::PPa && ManuProC::parse<int>(newval)!=(*mbe).Praxispunkte())
+   {  mbe->setPraxispunkte(ManuProC::parse<int>(newval));
+      // Fertigkeiten neu darstellen:
+      refresh();
+      return true;
+   }
+   return false;
+}

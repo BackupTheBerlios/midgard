@@ -59,7 +59,7 @@ const cH_EntryValue Data_SimpleTree::retEV(const WEV &what) const
       case FKosten: return cH_EntryValueEmptyInt((*MBE)->Kosten(*abenteurer));
       case FStandard: return cH_EntryValueIntString((*MBE)->Standard__(*abenteurer));
       case FGelernt: if ((*MBE).Gelernt()) return cH_EntryValueIntString("*"); 
-                     else return cH_EntryValueIntString("");
+                     else return cH_EntryValue();
       case FPraxispunkt: return cH_EntryValueEmptyInt((*MBE).Praxispunkte());
       case FSteigern: return cH_EntryValueEmptyInt((*MBE).Steigern(*abenteurer));
       case FReduzieren: return cH_EntryValueEmptyInt((*MBE).Reduzieren(*abenteurer));
@@ -68,7 +68,7 @@ const cH_EntryValue Data_SimpleTree::retEV(const WEV &what) const
       case FUrsprung: return cH_EntryValueIntString(cH_Zauber((*MBE).getMBE())->Ursprung());
       case FArtderSchrift: return cH_EntryValueIntString(cH_Schrift((*MBE).getMBE())->Art_der_Schrift());
    }
- return cH_EntryValueIntString();
+ return cH_EntryValue();
 }
 
 
@@ -214,7 +214,7 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case SCHADEN_WL : return cH_EntryValueIntString(w->Schaden(w->Name())+"+"+itos(w->Schaden_Bonus(w->Name())));
         }  
        }
-      return cH_EntryValueIntString("?");
+      return cH_EntryValue();
 }
 
 
