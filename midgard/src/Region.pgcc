@@ -113,8 +113,6 @@ Region::Region(const Tag *tag)
   version=tag->getAttr("Version");
   copyright=tag->getAttr("Copyright");
   offiziell=tag->getBoolAttr("offiziell");
-#warning das ist ein ganz schlechte Idee!!! besser das Pixmap jedesmal
-#warning erzeugen, wenn man es braucht (und nicht nur einmal!)
   pic=RegionenPic::epic(tag->getIntAttr("MCG-Bild"));
 #endif  
 }

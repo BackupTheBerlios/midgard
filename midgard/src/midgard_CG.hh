@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.137 2002/01/21 23:24:08 christof Exp $
+// $Id: midgard_CG.hh,v 1.138 2002/01/22 11:41:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -56,8 +56,9 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
 
    private:
         friend class midgard_CG_glade;
-        Gtk::Menu *menu;
+        Gtk::Menu *menu, *menu_gradanstieg;
         void menu_init();
+        void menu_gradanstieg_init();
         gint on_eventbox_MCG_button_press_event(GdkEventButton *event);
 
         struct st_OptionBool{bool Original; bool Info; bool Pics; 
@@ -310,6 +311,8 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         gint on_eventbox_steigern_button_release_event(GdkEventButton *event);
         gint on_eventbox_lernen_button_release_event(GdkEventButton *event);
         gint on_eventbox_grundwerte_button_release_event(GdkEventButton *event);
+
+        gint on_button_kurz_steigern_release_event(GdkEventButton *event);
 
         void on_notebook_lernen_switch_page(Gtk::Notebook_Helpers::Page* page,guint pagenr);
         void load_for_page(guint pagenr);

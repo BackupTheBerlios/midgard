@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.87 2002/01/21 08:45:00 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.88 2002/01/22 11:41:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -241,11 +241,11 @@ void midgard_CG::LaTeX_write_values()
    {cH_Fertigkeit_angeborene f(*i);
     std::string a = LaTeX_string(count);
     count++;
-    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<f->Name() << "}\t\t";
+    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<f->Name() << "}   ";
     // Praxispunkte
     std::string pp = itos(f->Praxispunkte());
     if (pp == "0") pp = "";
-    fout << "\\newcommand{\\praxis"<<a<<"}{"  << pp << "}\n";
+    fout << "\\newcommand{\\praxis"<<a<<"}{"  << pp << "}   ";
     // Erfolgswert
     std::string wert = itos(f->Erfolgswert());
     if (wert == "0") wert = "";
@@ -340,7 +340,7 @@ void midgard_CG::LaTeX_write_values()
  for(std::list<cH_MidgardBasicElement>::iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
   {
     cH_Fertigkeit f(*i);
-    if(f->Ungelernt()!=-1)
+    if(f->Ungelernt()!=-99)
        UF.push_back(*i);
   }
  int countunifert=0;

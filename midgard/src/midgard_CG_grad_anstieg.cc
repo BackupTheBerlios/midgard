@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.42 2002/01/19 18:22:06 christof Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.43 2002/01/22 11:41:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,6 +20,21 @@
 #include "midgard_CG.hh"
 #include "WindowInfo.hh"
 #include <Aux/itos.h>
+
+gint midgard_CG::on_button_kurz_steigern_release_event(GdkEventButton *event)
+{
+  if (event->button==1) 
+   { menu_gradanstieg->popup(event->button,event->time);
+     return true;
+   }
+  if (event->button==3) 
+   {
+    on_grad_anstieg_clicked();
+    return false;
+   }
+ return false;
+}
+
 
 void midgard_CG::on_grad_anstieg_clicked()
 {

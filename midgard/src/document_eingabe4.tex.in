@@ -42,7 +42,7 @@
 \newsavebox{\Armbrust}    
 \newsavebox{\Schleuder}   
 \newsavebox{\Wurfspiess}  
-\newsavebox{\WSchlagwaffe}
+\newsavebox{\Stielwurfwaffe}
 \newsavebox{\Schilde}
 %%
 \newsavebox{\Magierstab}
@@ -293,46 +293,46 @@ Sprache&Wert&Schrift\\\hline\hline
       \multicolumn{3}{|c|}{\small angeborene und erlernte}\\
       \multicolumn{3}{|c|}{\small F‰higkeiten und Waffenfertigkeiten}\\[1ex]
       \normalsize Fertigkeit&{$\!$\normalsize PP$\!$}&{$\!\!$\normalsize EW$\!\!$}\\\hline\hline
-\makebox[4cm][l]{{\ferta}}      &&{{\werta}}\\\hline
-\makebox[4cm][l]{{\fertb}}      &&{{\wertb}}\\\hline
-\makebox[4cm][l]{{\fertc}}      &&{{\wertc}}\\\hline
-\makebox[4cm][l]{{\fertd}}      &&{{\wertd}}\\\hline
-\makebox[4cm][l]{{\ferte}}      &&{{\werte}}\\\hline
-\makebox[4cm][l]{{\fertf}}      &&{{\wertf}}\\\hline
-\makebox[4cm][l]{{\fertg}}      &&{{\wertg}}\\\hline
-\makebox[4cm][l]{{\ferth}}      &&{{\werth}}\\\hline
-\makebox[4cm][l]{{\ferti}}      &&{{\werti}}\\\hline
-\makebox[4cm][l]{{\fertj}}      &&{{\wertj}}\\\hline
-\makebox[4cm][l]{{\fertk}}      &&{{\wertk}}\\\hline
-\makebox[4cm][l]{{\fertl}}      &&{{\wertl}}\\\hline
-\makebox[4cm][l]{{\fertm}}      &&{{\wertm}}\\\hline
-\makebox[4cm][l]{{\fertn}}      &&{{\wertn}}\\\hline
-\makebox[4cm][l]{{\ferto}}      &&{{\werto}}\\\hline
-\makebox[4cm][l]{{\fertp}}      &&{{\wertp}}\\\hline
-\makebox[4cm][l]{{\fertq}}      &&{{\wertq}}\\\hline
-\makebox[4cm][l]{{\fertr}}      &&{{\wertr}}\\\hline
-\makebox[4cm][l]{{\ferts}}      &&{{\werts}}\\\hline
-\makebox[4cm][l]{{\fertt}}      &&{{\wertt}}\\\hline
-\makebox[4cm][l]{{\fertu}}      &&{{\wertu}}\\\hline
-\makebox[4cm][l]{{\fertv}}      &&{{\wertv}}\\\hline
-\makebox[4cm][l]{{\fertw}}      &&{{\wertw}}\\\hline
-\makebox[4cm][l]{{\fertx}}      &&{{\wertx}}\\\hline
-\makebox[4cm][l]{{\ferty}}      &&{{\werty}}\\\hline
-\makebox[4cm][l]{{\fertz}}      &&{{\wertz}}\\\hline
-\makebox[4cm][l]{{\fertaa}}      &&{{\wertaa}}\\\hline
-\makebox[4cm][l]{{\fertab}}      &&{{\wertab}}\\\hline
-\makebox[4cm][l]{{\fertac}}      &&{{\wertac}}\\\hline
-\makebox[4cm][l]{{\fertad}}      &&{{\wertad}}\\\hline
-\makebox[4cm][l]{{\fertae}}      &&{{\wertae}}\\\hline
-\makebox[4cm][l]{{\fertaf}}      &&{{\wertaf}}\\\hline
-\makebox[4cm][l]{{\fertag}}      &&{{\wertag}}\\\hline
-\makebox[4cm][l]{{\fertah}}      &&{{\wertah}}\\\hline
-\makebox[4cm][l]{{\fertai}}      &&{{\wertai}}\\\hline
-\makebox[4cm][l]{{\fertaj}}      &&{{\wertaj}}\\\hline
-\makebox[4cm][l]{{\fertak}}      &&{{\wertak}}\\\hline
-\makebox[4cm][l]{{\fertal}}      &&{{\wertal}}\\\hline
-\makebox[4cm][l]{{\fertam}}      &&{{\wertam}}\\\hline
-\makebox[4cm][l]{{\fertan}}      &&{{\wertan}}\\\hline
+\makebox[4cm][l]{\ferta }      &{\praxisa }&{\werta }\\\hline
+\makebox[4cm][l]{\fertb }      &{\praxisb }&{\wertb }\\\hline
+\makebox[4cm][l]{\fertc }      &{\praxisc }&{\wertc }\\\hline
+\makebox[4cm][l]{\fertd }      &{\praxisd }&{\wertd }\\\hline
+\makebox[4cm][l]{\ferte }      &{\praxise }&{\werte }\\\hline
+\makebox[4cm][l]{\fertf }      &{\praxisf }&{\wertf }\\\hline
+\makebox[4cm][l]{\fertg }      &{\praxisg }&{\wertg }\\\hline
+\makebox[4cm][l]{\ferth }      &{\praxish }&{\werth }\\\hline
+\makebox[4cm][l]{\ferti }      &{\praxisi }&{\werti }\\\hline
+\makebox[4cm][l]{\fertj }      &{\praxisj }&{\wertj }\\\hline
+\makebox[4cm][l]{\fertk }      &{\praxisk }&{\wertk }\\\hline
+\makebox[4cm][l]{\fertl }      &{\praxisl }&{\wertl }\\\hline
+\makebox[4cm][l]{\fertm }      &{\praxism }&{\wertm }\\\hline
+\makebox[4cm][l]{\fertn }      &{\praxisn }&{\wertn }\\\hline
+\makebox[4cm][l]{\ferto }      &{\praxiso }&{\werto }\\\hline
+\makebox[4cm][l]{\fertp }      &{\praxisp }&{\wertp }\\\hline
+\makebox[4cm][l]{\fertq }      &{\praxisq }&{\wertq }\\\hline
+\makebox[4cm][l]{\fertr }      &{\praxisr }&{\wertr }\\\hline
+\makebox[4cm][l]{\ferts }      &{\praxiss }&{\werts }\\\hline
+\makebox[4cm][l]{\fertt }      &{\praxist }&{\wertt }\\\hline
+\makebox[4cm][l]{\fertu }      &{\praxisu }&{\wertu }\\\hline
+\makebox[4cm][l]{\fertv }      &{\praxisv }&{\wertv }\\\hline
+\makebox[4cm][l]{\fertw }      &{\praxisw }&{\wertw }\\\hline
+\makebox[4cm][l]{\fertx }      &{\praxisx }&{\wertx }\\\hline
+\makebox[4cm][l]{\ferty }      &{\praxisy }&{\werty }\\\hline
+\makebox[4cm][l]{\fertz }      &{\praxisz }&{\wertz }\\\hline
+\makebox[4cm][l]{\fertaa}      &{\praxisaa}&{\wertaa}\\\hline
+\makebox[4cm][l]{\fertab}      &{\praxisab}&{\wertab}\\\hline
+\makebox[4cm][l]{\fertac}      &{\praxisac}&{\wertac}\\\hline
+\makebox[4cm][l]{\fertad}      &{\praxisad}&{\wertad}\\\hline
+\makebox[4cm][l]{\fertae}      &{\praxisae}&{\wertae}\\\hline
+\makebox[4cm][l]{\fertaf}      &{\praxisaf}&{\wertaf}\\\hline
+\makebox[4cm][l]{\fertag}      &{\praxisag}&{\wertag}\\\hline
+\makebox[4cm][l]{\fertah}      &{\praxisah}&{\wertah}\\\hline
+\makebox[4cm][l]{\fertai}      &{\praxisai}&{\wertai}\\\hline
+\makebox[4cm][l]{\fertaj}      &{\praxisaj}&{\wertaj}\\\hline
+\makebox[4cm][l]{\fertak}      &{\praxisak}&{\wertak}\\\hline
+\makebox[4cm][l]{\fertal}      &{\praxisal}&{\wertal}\\\hline
+\makebox[4cm][l]{\fertam}      &{\praxisam}&{\wertam}\\\hline
+\makebox[4cm][l]{\fertan}      &{\praxisan}&{\wertan}\\\hline
     \end{tabular}
 \end{minipage}
 \hspace{2ex}
@@ -376,7 +376,7 @@ Sprache&Wert&Schrift\\\hline\hline
       ESchlagwaffe&{\usebox{\ESchlagwaffe}}&Armbrust&\usebox{\Armbrust}\\\cline{2-2}\cline{4-4}
       Spieﬂwaffe&{\usebox{\Spiesswaffe}}&Schleuder&\usebox{\Schleuder}\\\cline{2-2}\cline{4-4}
       ZSchwert&{\usebox{\ZSchwert}}&Wurfspieﬂ&\usebox{\Wurfspiess}\\\cline{2-2}\cline{4-4}
-      ZSchlagwaffe&{\usebox{\ZSchlagwaffe}}&WSchlagwaffe&\usebox{\WSchlagwaffe}\\\cline{2-2}\cline{4-4}
+      ZSchlagwaffe&{\usebox{\ZSchlagwaffe}}&Stielwurfwaffe&\usebox{\Stielwurfwaffe}\\\cline{2-2}\cline{4-4}
       Stangenwaffe&{\usebox{\Stangenwaffe}}&Schild&\usebox{\Schilde}\\\cline{2-2}\cline{4-4}
     \end{tabular}}
 \hfill

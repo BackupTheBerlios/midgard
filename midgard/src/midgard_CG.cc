@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.121 2002/01/21 23:24:08 christof Exp $
+// $Id: midgard_CG.cc,v 1.122 2002/01/22 11:41:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -30,7 +30,7 @@
 
 //midgard_CG::midgard_CG(int argc,char **argv)
 midgard_CG::midgard_CG(Datenbank& _Database, const string &datei)
-: menu(0),Database(_Database)
+: menu(0),menu_gradanstieg(0),Database(_Database)
 {
   srand(time(0));
   
@@ -326,6 +326,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
       (*i)->setActive(false);
    menu_init();
+   menu_gradanstieg_init();
 
    checkbutton_EP_Geld->set_active(OptionBool.steigern);
 

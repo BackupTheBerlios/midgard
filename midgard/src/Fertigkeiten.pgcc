@@ -73,7 +73,7 @@ void Fertigkeit::get_Fertigkeit()
    char query[1024],db_region[10],db_attribut[10],db_voraussetzung[50];
   exec sql end declare section; 
   std::string squery ="select lp,coalesce(lp_land,99),coalesce(lp_stadt,99),coalesce(anfangswert0,0),
-      coalesce(anfangswert,0),coalesce(ungelernt,-1),coalesce(berufsklasse,0),
+      coalesce(anfangswert,0),coalesce(ungelernt,-99),coalesce(berufsklasse,0),
       maxwert,maxunterweisung,
       coalesce(fp,0),coalesce(region,''),
       coalesce(attribut,''), coalesce(st,0), coalesce(gw,0),coalesce(gs,0),

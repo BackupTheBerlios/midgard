@@ -153,3 +153,53 @@ void midgard_CG::menu_init()
 
   menu->show_all();
 }
+
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+#include "../pixmaps/Anpass-trans-50.xpm"
+#include "../pixmaps/Dice-2W6-trans-50.xpm"
+#include "../pixmaps/Armor-trans-50.xpm"
+#include "../pixmaps/wizzard-trans-50.xpm"
+#include "../pixmaps/Resistenz-trans-32.xpm"
+#include "../pixmaps/Red-Dice-trans-50.xpm"
+
+/*
+struct midgard_CG::st_gradanstieg{const std::string label; const char** pix; void (*midgard_CG::funk)();
+      const std::string l; const char** p; void (*midgard_CG::funk)() f
+      : label(l),pix(p),funk(f) {} };
+*/
+
+void midgard_CG::menu_gradanstieg_init()
+{
+  if (menu_gradanstieg) {menu_gradanstieg->destroy();menu_gradanstieg=0;}
+  menu_gradanstieg=manage(new Gtk::Menu());
+
+
+  std::vector<pair<std::string,char**> > labelpic;
+  labelpic.push_back(pair<std::string,char**>("Grad anpassen",Anpass_trans_50_xpm));
+  labelpic.push_back(pair<std::string,char**>("Ausdauer würfeln",Dice_2W6_trans_50_xpm));
+  labelpic.push_back(pair<std::string,char**>("Abwehr",Armor_trans_50_xpm));
+  labelpic.push_back(pair<std::string,char**>("Zaubern",wizzard_trans_50_xpm));
+  labelpic.push_back(pair<std::string,char**>("Resistenz",Resistenz_trans_32_xpm));
+  labelpic.push_back(pair<std::string,char**>("Basiswerte",Red_Dice_trans_50_xpm));
+
+//  std::vector<void (*midgard_CG::funk)()> funk;
+//  funk.push_back()
+
+  for(std::vector<pair<std::string,char**> >::const_iterator i=labelpic.begin();i!=labelpic.end();++i)
+   {
+     Gtk::MenuItem *mi=manage(new Gtk::MenuItem());
+     Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
+     Gtk::Pixmap *_o=manage(new Gtk::Pixmap(i->second));
+     _tab->attach(*_o,0,1,0,1,0,0,0,0);
+     Gtk::Label *_l=manage (new Gtk::Label(i->first,0,0));
+     _tab->attach(*_l,1,2,0,1,0,0,0,0);
+     _tab->set_col_spacings(10);
+     mi->add(*_tab);
+     mi->activate.connect(SigC::slot(this,&midgard_CG::on_button_grad_clicked));
+//     mi->activate.connect(SigC::slot(this,(*(i->funk))() ));
+     menu_gradanstieg->append(*mi);
+   }
+  menu_gradanstieg->show_all();
+}
+

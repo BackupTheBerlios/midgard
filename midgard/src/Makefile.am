@@ -1,6 +1,4 @@
-# $Id: Makefile.am,v 1.95 2002/01/20 19:30:34 christof Exp $
-
-USE_XML=$(shell if test `hostname` = "puck" ; then echo -DUSE_XML ; fi)
+# $Id: Makefile.am,v 1.96 2002/01/22 11:41:46 thoma Exp $
 
 bin_PROGRAMS = midgard 
 
@@ -201,7 +199,7 @@ midgard_SOURCES = \
 
 
 CXXFLAGS = @CXXFLAGS@ @KOMPONENTEN_INCLUDES@ \
-           -DPACKAGE_DATA_DIR=\"$(pkgdatadir)/\" $(USE_XML)
+           -DPACKAGE_DATA_DIR=\"$(pkgdatadir)/\" $(-DUSE_XML)
 
 midgard_LDADD = @LIBS@ @KOMPONENTEN_LIBS@
 

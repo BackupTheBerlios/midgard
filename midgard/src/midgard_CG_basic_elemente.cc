@@ -28,6 +28,7 @@ bool midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
   {
    spinbutton_pp_eingeben->set_value(MBE->Praxispunkte());
    spinbutton_pp_eingeben->show();
+   spinbutton_pp_eingeben->grab_focus();
    return false;
   }
 
