@@ -1,9 +1,13 @@
 ##### DAS IST DAS WICHTIGSTE #########################################
+- beim Laden wird nicht alles richtig angezeigt
+- Steigern geht nicht (Reduzieren z.B.)
 - Absturz bei Auswahl der Rüstung
 - nicht-Refresh der aktuellen Zeile nach anklicken (lernen)
 - Verlernen geht nicht
 - man kann keine Verzeichnisse im Requester auswählen
-- zum Reduzieren muss man jedesmal auf Reduzieren gehen (setzt sich zurück)
+- Wizard
+- Zusatz etc in Dialog tun
+- ChoiceButtons überprüfen
 
 Bugreport Sanni:
 Auswahl/Besitz: Teilweise als aufklappbare Einträge ohne Namen und 
