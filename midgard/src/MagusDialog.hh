@@ -1,4 +1,4 @@
-// $Id: MagusDialog.hh,v 1.4 2003/12/15 23:17:06 christof Exp $
+// $Id: MagusDialog.hh,v 1.5 2004/12/21 07:24:14 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -22,14 +22,18 @@
 #  include "MagusDialog_glade.hh"
 #  define _MAGUSDIALOG_HH
 #include <gtkmm/window.h>
+#include <Nisc/bitmask.h>
 
 class MagusDialog : public MagusDialog_glade
 {  
         bool on_WindowInfo_delete_event(GdkEventAny *ev);
    public:
+        enum style_bits { b_Nein, b_Ja, b_Close };
         MagusDialog(Gtk::Window *w);
         void set_text(const std::string& s);
         void set_yes_no(const std::string& y,const std::string& n);
         int run();
+        void set_style(const bitmask<style_bits> &st);
+        // remember: get_vbox is also possible
 };
 #endif

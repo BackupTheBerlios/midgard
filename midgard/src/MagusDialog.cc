@@ -1,4 +1,4 @@
-// $Id: MagusDialog.cc,v 1.4 2003/12/15 23:17:06 christof Exp $
+// $Id: MagusDialog.cc,v 1.5 2004/12/21 07:24:14 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -57,4 +57,13 @@ void MagusDialog::set_yes_no(const std::string& y,const std::string& n)
 
 int MagusDialog::run()
 {  return Gtk::Dialog::run();
+}
+
+void MagusDialog::set_style(const bitmask<style_bits> &st)
+{  if (st & b_Nein) cancelbutton->show();
+   else cancelbutton->hide();
+   if (st & b_Ja) okbutton->show();
+   else okbutton->hide();
+   if (st & b_Close) closebutton->show();
+   else closebutton->hide();
 }
