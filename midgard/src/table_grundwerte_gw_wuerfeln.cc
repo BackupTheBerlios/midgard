@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.50 2004/12/01 08:12:51 christof Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.51 2005/03/07 09:37:34 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -41,7 +41,8 @@ void table_grundwerte::on_button_grundwerte()
      on_togglebutton_edit_werte_toggled();
   }
   else 
-  {  grundwerte_wuerfeln();
+  {  
+     grundwerte_wuerfeln();
      hauptfenster->getChar().getWizard().done(Wizard::GRUNDWERTE,hauptfenster->getAben());
   }
 
@@ -49,7 +50,7 @@ void table_grundwerte::on_button_grundwerte()
 //      combo_spezies->set_sensitive(false);
 }
 
-enum { Button_Standard, Button_Zuweisen, Button_69 };
+enum { Button_Standard=1, Button_Zuweisen=2, Button_69=3 };
 
 void table_grundwerte::grundwerte_wuerfeln()
 {
@@ -58,11 +59,11 @@ void table_grundwerte::grundwerte_wuerfeln()
 #warning an andere Stelle!     
   hauptfenster->getChar().undosave("Grundwerte gewürfelt");
   if(button_grundwerte->get_index()==Button_Standard)
-     Eigenschaften_variante(1);
+     Eigenschaften_variante(Button_Standard);
   else if(button_grundwerte->get_index()==Button_Zuweisen)
-     Eigenschaften_variante(2);
+     Eigenschaften_variante(Button_Zuweisen);
   else if(button_grundwerte->get_index()==Button_69)
-     Eigenschaften_variante(3);
+     Eigenschaften_variante(Button_69);
 }
 
 void table_grundwerte::Eigenschaften_variante(int i)
@@ -73,7 +74,7 @@ void table_grundwerte::Eigenschaften_variante(int i)
   combo_typ->set_sensitive(true);
   combo_typ2->set_sensitive(true);
   combo_typ->grab_focus();
-  if (i==1) 
+  if (i==Button_Standard) 
    { gw_wuerfeln_2x();
      frame_wuerfelvariante->hide();
      check_350();
@@ -90,8 +91,8 @@ void table_grundwerte::Eigenschaften_variante(int i)
      Veigenschaften.push_back(st_eigen(ezt,"das Zaubertalent","Zt",spez->Zt()));
      actual_eigen=Veigenschaften.begin();
 
-     if      (i==2)  gw_variante_2();
-     else if (i==3)  gw_variante_3();
+     if      (i==Button_Zuweisen)  gw_variante_2();
+     else if (i==Button_69)  gw_variante_3();
      frame_wuerfelvariante->show();
    }
   
