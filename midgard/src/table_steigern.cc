@@ -229,42 +229,42 @@ table_steigern::table_steigern(GlademmData *_data)
   flashing_eigenschaft->set(MagusImage("Red-Dice-trans-50.xpm"),MagusImage("Red-Dice-trans-50_invers.xpm"),0);
 //  steigern_mit_EP_bool.signal_changed().connect(SigC::slot(*this,&table_steigern::Window2Abenteurer));
   
-  button_was_tun->add(MagusImage("Steigern-trans-32.xpm"),"Steigern",SigC::Slot0<void>());
+  button_was_tun->add(MagusImage("Steigern-trans-32.xpm"),"Steigern");
   // Ist dieser Knopf gedrückt können die bereits gelernten Fertigkeiten (durch anklicken) gesteigert werden.
-  button_was_tun->add(MagusImage("Verlernen-trans-32.xpm"),"Reduzieren",SigC::Slot0<void>());
+  button_was_tun->add(MagusImage("Verlernen-trans-32.xpm"),"Reduzieren");
   // Ist dieser Knopf gedrückt werden die Erfolgswerte bereits gelernter Fertigkeiten (durch anklicken) reduziert und die Fähigkeit schließlich verlernt.
-  button_was_tun->add(MagusImage("PP-Eingeben-trans-32.xpm"),"PP ändern",SigC::Slot0<void>());
+  button_was_tun->add(MagusImage("PP-Eingeben-trans-32.xpm"),"PP ändern");
   // Ist dieser Knopf gedrückt können die Praxispunkte geändert werden (doppelklick in der entsprechenden Spalte)
   button_was_tun->set_style(true,true,true);
 
-  button_wie_tun->add(MagusImage("Teacher-trans32.xpm"),"Unterweisung",SigC::Slot0<void>());
+  button_wie_tun->add(MagusImage("Teacher-trans32.xpm"),"Unterweisung");
   // Steigern mit Gold und EP
-  button_wie_tun->add(MagusImage("Self-Learning-32.xpm"),"Selbststudium",SigC::Slot0<void>());
+  button_wie_tun->add(MagusImage("Self-Learning-32.xpm"),"Selbststudium");
   // Steigern mit EP
-  button_wie_tun->add(MagusImage("Learning_by_Doing-32.xpm"),"Praxis",SigC::Slot0<void>());
+  button_wie_tun->add(MagusImage("Learning_by_Doing-32.xpm"),"Praxis");
   // Zum Steigern werden in erster Linie Praxispunkte verwendet. Es werden jedoch keine FP verschenkt, fehlenden FP werden durch EP aufgefüllt.
   // Es wird um eine Stufe gesteigert und wenn die PP nicht reichen mit EP aufgefüllt.
   // Es werden alle PP verwendet, um so hoch wie möglich zu steigern.
   // Mit EP auffüllen, FP verfallen lassen
-  button_wie_tun->add(MagusImage("LearnRoll-trans-50.xpm"),"Spruchrolle",SigC::Slot0<void>());
+  button_wie_tun->add(MagusImage("LearnRoll-trans-50.xpm"),"Spruchrolle");
   button_wie_tun->set_style(true,true,true);
 
-  button_sonder->add(MagusImage("EP-Steigern-50.xpm"),"Steigern mit Gold+EP",SigC::Slot0<void>());
+  button_sonder->add(MagusImage("EP-Steigern-50.xpm"),"Steigern mit Gold+EP");
   // Ist dieser Knopf aktiviert, werden die Erfahrungspunkte entsprechend des eingestellten Verhältnisses reduziert. Ist dieser Knopf deaktiviert, kann beliebig gesteigert werden.
-  button_sonder->add(MagusImage("Money-50.xpm"),"⅓ Goldanteil spendiert",SigC::Slot0<void>());
-  button_sonder->add(MagusImage("Money-50.xpm"),"½ Goldanteil spendiert",SigC::Slot0<void>());
-  button_sonder->add(MagusImage("Money-50.xpm"),"⅔ Goldanteil spendiert",SigC::Slot0<void>());
-  button_sonder->add(MagusImage("NSC-Mode-32.xpm"),"ohne EP+Gold steigern",SigC::Slot0<void>());
+  button_sonder->add(MagusImage("Money-50.xpm"),"⅓ Goldanteil spendiert");
+  button_sonder->add(MagusImage("Money-50.xpm"),"½ Goldanteil spendiert");
+  button_sonder->add(MagusImage("Money-50.xpm"),"⅔ Goldanteil spendiert");
+  button_sonder->add(MagusImage("NSC-Mode-32.xpm"),"ohne EP+Gold steigern");
   button_sonder->set_style(true,true);
   
-  button_rolle->add(MagusImage("Automat-32.xpm"),"Der Erfolgswurf ist gelungen.",SigC::Slot0<void>());
+  button_rolle->add(MagusImage("Automat-32.xpm"),"Der Erfolgswurf ist gelungen.");
   button_rolle->add(MagusImage("Green-Dice-trans-50.xpm"),"MAGuS würfelt, ob das Lernen\n"
-  "von Spruchrolle erfolgreich ist.",SigC::Slot0<void>());
+  "von Spruchrolle erfolgreich ist.");
   button_rolle->hide();
 
-  button_pp_variante->add(MagusImage("Learning_by_Doing-32.xpm"),"Praxispunkte mit EP auffüllen",SigC::Slot0<void>());
+  button_pp_variante->add(MagusImage("Learning_by_Doing-32.xpm"),"Praxispunkte mit EP auffüllen");
   button_pp_variante->add(MagusImage("Learning_by_Doing-32.xpm"),"Ausschließlich Praxispunkte verwenden\n"
-      "(angebrochene Praxispunkte verfallen)",SigC::Slot0<void>());
+      "(angebrochene Praxispunkte verfallen)");
   button_pp_variante->hide();
 
   button_EP->add(MagusImage("EP-Eingabe2-50.xpm"),"EP\neingeben",SigC::slot(*this,&table_steigern::on_button_EP_eingeben));
