@@ -10,7 +10,6 @@ EXPORTS
 	_Z14libmagus_init1PFvdE
 	_Z17add_plus_or_minusRSsi
 	_Z23spielleiter_export_saveRK10AbenteurerRKSsb
-	_Z2inIN6Wizard6estepsEEbRKT_S4_S4_
 	_Z2inISsEbRKT_S2_S2_
 	_Z5dtos1d
 	_Z8rekursivRKSt4listI15AusruestungBaumSaIS0_EERdS5_
@@ -118,7 +117,6 @@ EXPORTS
 	_ZN10Model_BaseD2Ev
 	_ZN10Preise_All4loadERSt4listI9cH_PreiseSaIS1_EERK3Tag
 	_ZN10RadioModel8callbackEPv
-	_ZN10RadioModelD0Ev
 	_ZN10RadioModelD1Ev
 	_ZN10WaffeGrund14get_WaffeGrundERK3Tag
 	_ZN10WaffeGrund4loadERK3Tag
@@ -158,8 +156,6 @@ EXPORTS
 	_ZN11Prozente1008set_mageEb
 	_ZN11Prozente100C1Ev
 	_ZN11Prozente100C2Ev
-	_ZN11SignalPlex1IN4SigC7Signal0IvNS0_7MarshalIvEEEEED0Ev
-	_ZN11SignalPlex1IN4SigC7Signal0IvNS0_7MarshalIvEEEEED1Ev
 	_ZN11Spezies_All4loadERSt4listI10cH_SpeziesSaIS1_EERK3Tag
 	_ZN11Spezies_All4loadERSt6vectorI10cH_SpeziesSaIS1_EERK3Tag
 	_ZN11VAbenteurer12delete_emptyEv
@@ -303,7 +299,6 @@ EXPORTS
 	_ZN15AbenteurerListe4ItemC1ERKS0_
 	_ZN15AbenteurerListe4ItemC2ERK10Abenteurerb
 	_ZN15AbenteurerListe4ItemC2ERKS0_
-	_ZN15AbenteurerListe4ItemD0Ev
 	_ZN15AbenteurerListe4ItemD1Ev
 	_ZN15AusruestungBaumD1Ev
 	_ZN15BerufsKategorie8wuerfelnEi
@@ -333,8 +328,6 @@ EXPORTS
 	_ZN17AbenteurerAuswahl5CharsE DATA
 	_ZN17AbenteurerAuswahlC1Ev
 	_ZN17AbenteurerAuswahlC2Ev
-	_ZN17AbenteurerAuswahlD0Ev
-	_ZN17AbenteurerAuswahlD1Ev
 	_ZN17Spezialgebiet_All4loadERSt6vectorI16cH_SpezialgebietSaIS1_EERK3Tag
 	_ZN19MidgardBasicElement11EP_steigernERKSs
 	_ZN19MidgardBasicElement11EP_steigernERKSsNS_4EP_tE
@@ -396,21 +389,6 @@ EXPORTS
 	_ZN4LandC2ERKSsRK3Tag
 	_ZN4LandD0Ev
 	_ZN4LandD1Ev
-	_ZN4SigC10FuncSlot1_IvdE5proxyERKdPv
-	_ZN4SigC12ObjectSlot0_Iv17AbenteurerAuswahlE5proxyEPv
-	_ZN4SigC12ObjectSlot0_IvN15AbenteurerListe4ItemEE5proxyEPv
-	_ZN4SigC12ObjectSlot1_IvPv10RadioModelE5proxyERKS1_S1_
-	_ZN4SigC12ObjectSlot1_IvPv9ModelPlexIN6Wizard4modeEEE5proxyERKS1_S1_
-	_ZN4SigC12ObjectSlot1_IvPv9ModelPlexIN6Wizard6estepsEEE5proxyERKS1_S1_
-	_ZN4SigC12ObjectSlot1_IvPv9ModelPlexIbEE5proxyERKS1_S1_
-	_ZN4SigC4slotIv17AbenteurerAuswahlS1_EENS_5Slot0IT_EERT0_MT1_FS3_vE
-	_ZN4SigC4slotIvN15AbenteurerListe4ItemES2_EENS_5Slot0IT_EERT0_MT1_FS4_vE
-	_ZN4SigC4slotIvPv10RadioModelS2_EENS_5Slot1IT_T0_EERT1_MT2_FS4_S5_E
-	_ZN4SigC4slotIvPv9ModelPlexIN6Wizard4modeEES5_EENS_5Slot1IT_T0_EERT1_MT2_FS7_S8_E
-	_ZN4SigC4slotIvPv9ModelPlexIN6Wizard6estepsEES5_EENS_5Slot1IT_T0_EERT1_MT2_FS7_S8_E
-	_ZN4SigC4slotIvPv9ModelPlexIbES3_EENS_5Slot1IT_T0_EERT1_MT2_FS5_S6_E
-	_ZN4SigC7Signal0IvNS_7MarshalIvEEE5emit_EPv
-	_ZN4SigC7Signal1IvPvNS_7MarshalIvEEE5emit_ERKS1_S1_
 	_ZN5Beruf16BerufsfertigkeitER10AbenteurerNS_10st_vorteilE
 	_ZN5Beruf4loadERK3Tag
 	_ZN5BerufC1ERK3Tag
@@ -422,8 +400,6 @@ EXPORTS
 	_ZN5SinneC2ERKSs
 	_ZN5SinneD0Ev
 	_ZN5SinneD1Ev
-	_ZN5Typen17get_Typ_from_longERKSt6vectorI8cH_TypenSaIS1_EERSs
-	_ZN5Typen6getTypESsSt6vectorI8cH_TypenSaIS1_EE
 	_ZN5TypenC1ERK3Tag
 	_ZN5TypenC1Ev
 	_ZN5TypenC2ERK3Tag
@@ -574,8 +550,6 @@ EXPORTS
 	_ZN7SchriftC2ERKSsRK3Tag
 	_ZN7SchriftD0Ev
 	_ZN7SchriftD1Ev
-	_ZN7Spezies10getSpeziesESsSt6vectorI10cH_SpeziesSaIS1_EE
-	_ZN7Spezies21get_Spezies_from_longERKSt6vectorI10cH_SpeziesSaIS1_EERSs
 	_ZN7SpeziesC1ERK3Tag
 	_ZN7SpeziesC2ERK3Tag
 	_ZN7SpeziesD0Ev
@@ -654,8 +628,6 @@ EXPORTS
 	_ZN9Beruf_AllC1Ev
 	_ZN9Beruf_AllC2Ev
 	_ZN9Datenbank11load_regionERK3TagRKSs
-	_ZN9Datenbank4initEN4SigC5Slot1IvdEE
-	_ZN9Datenbank4loadEN4SigC5Slot1IvdEE
 	_ZN9Datenbank9load_listERK3Tag
 	_ZN9DatenbankC1Ev
 	_ZN9DatenbankC2Ev
@@ -663,18 +635,15 @@ EXPORTS
 	_ZN9ModelPlexIN6Wizard4modeEE11we2actmodelEPv
 	_ZN9ModelPlexIN6Wizard4modeEE22actmodel_value_changedEPv
 	_ZN9ModelPlexIN6Wizard4modeEEC1ERK9Model_refIS1_E
-	_ZN9ModelPlexIN6Wizard4modeEED0Ev
 	_ZN9ModelPlexIN6Wizard4modeEED1Ev
 	_ZN9ModelPlexIN6Wizard6estepsEE11we2actmodelEPv
 	_ZN9ModelPlexIN6Wizard6estepsEE22actmodel_value_changedEPv
 	_ZN9ModelPlexIN6Wizard6estepsEEC1ERK9Model_refIS1_E
-	_ZN9ModelPlexIN6Wizard6estepsEED0Ev
 	_ZN9ModelPlexIN6Wizard6estepsEED1Ev
 	_ZN9ModelPlexIbE11we2actmodelEPv
 	_ZN9ModelPlexIbE22actmodel_value_changedEPv
 	_ZN9ModelPlexIbEC1ERK9Model_refIbE
 	_ZN9ModelPlexIbEC1ERKS0_
-	_ZN9ModelPlexIbED0Ev
 	_ZN9ModelPlexIbED1Ev
 	_ZN9Prototyp27fac_forERKSsS1_RKSt6vectorI12cH_Prototyp2SaIS3_EE
 	_ZN9Prototyp2C1ERK3Tag
@@ -1519,38 +1488,21 @@ EXPORTS
 	_ZSt4findIN9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEEESsET_S7_S7_RKT0_St26random_access_iterator_tag
 	_ZStplIcSt11char_traitsIcESaIcEESbIT_T0_T1_EPKS3_RKS6_
 	_ZStplIcSt11char_traitsIcESaIcEESbIT_T0_T1_ERKS6_S8_
-	_ZTC10RadioModel0_N4SigC6ObjectE DATA
-	_ZTC11SignalPlex1IN4SigC7Signal0IvNS0_7MarshalIvEEEEE0_NS0_6ObjectE DATA
 	_ZTC13orecodestream0_So DATA
-	_ZTC17AbenteurerAuswahl0_N4SigC6ObjectE DATA
-	_ZTC9ModelPlexIN6Wizard4modeEE0_N4SigC6ObjectE DATA
-	_ZTC9ModelPlexIN6Wizard6estepsEE0_N4SigC6ObjectE DATA
-	_ZTC9ModelPlexIbE0_N4SigC6ObjectE DATA
-	_ZTCN15AbenteurerListe4ItemE0_N4SigC6ObjectE DATA
 	_ZTI10Fertigkeit DATA
-	_ZTI10Model_Base DATA
-	_ZTI10RadioModel DATA
 	_ZTI10WaffeGrund DATA
 	_ZTI10Zauberwerk DATA
-	_ZTI11SignalPlex1IN4SigC7Signal0IvNS0_7MarshalIvEEEEE DATA
 	_ZTI11WaffeBesitz DATA
 	_ZTI12PreiseNewMod DATA
 	_ZTI13HandleContent DATA
 	_ZTI13Spezialgebiet DATA
 	_ZTI13orecodestream DATA
-	_ZTI14Model_copyableIN6Wizard4modeEE DATA
-	_ZTI14Model_copyableIN6Wizard6estepsEE DATA
-	_ZTI14Model_copyableIbE DATA
-	_ZTI17AbenteurerAuswahl DATA
 	_ZTI19MidgardBasicElement DATA
 	_ZTI21Fertigkeit_angeborene DATA
 	_ZTI27MidgardBasicElement_mutable DATA
 	_ZTI4KiDo DATA
 	_ZTI4Land DATA
 	_ZTI5Beruf DATA
-	_ZTI5ModelIN6Wizard4modeEE DATA
-	_ZTI5ModelIN6Wizard6estepsEE DATA
-	_ZTI5ModelIbE DATA
 	_ZTI5Sinne DATA
 	_ZTI5Typen DATA
 	_ZTI5Waffe DATA
@@ -1563,44 +1515,26 @@ EXPORTS
 	_ZTI8NotFound DATA
 	_ZTI8Prototyp DATA
 	_ZTI8Ruestung DATA
-	_ZTI9ModelPlexIN6Wizard4modeEE DATA
-	_ZTI9ModelPlexIN6Wizard6estepsEE DATA
-	_ZTI9ModelPlexIbE DATA
 	_ZTI9Prototyp2 DATA
 	_ZTI9recodebuf DATA
-	_ZTIN15AbenteurerListe4ItemE DATA
-	_ZTIN4SigC10ObjectBaseE DATA
-	_ZTIN4SigC10SignalBaseE DATA
-	_ZTIN4SigC6ObjectE DATA
-	_ZTIN4SigC7Signal0IvNS_7MarshalIvEEEE DATA
 	_ZTISt11logic_error DATA
 	_ZTISt12out_of_range DATA
 	_ZTISt13runtime_error DATA
 	_ZTISt9exception DATA
 	_ZTS10Fertigkeit DATA
-	_ZTS10Model_Base DATA
-	_ZTS10RadioModel DATA
 	_ZTS10WaffeGrund DATA
 	_ZTS10Zauberwerk DATA
-	_ZTS11SignalPlex1IN4SigC7Signal0IvNS0_7MarshalIvEEEEE DATA
 	_ZTS11WaffeBesitz DATA
 	_ZTS12PreiseNewMod DATA
 	_ZTS13HandleContent DATA
 	_ZTS13Spezialgebiet DATA
 	_ZTS13orecodestream DATA
-	_ZTS14Model_copyableIN6Wizard4modeEE DATA
-	_ZTS14Model_copyableIN6Wizard6estepsEE DATA
-	_ZTS14Model_copyableIbE DATA
-	_ZTS17AbenteurerAuswahl DATA
 	_ZTS19MidgardBasicElement DATA
 	_ZTS21Fertigkeit_angeborene DATA
 	_ZTS27MidgardBasicElement_mutable DATA
 	_ZTS4KiDo DATA
 	_ZTS4Land DATA
 	_ZTS5Beruf DATA
-	_ZTS5ModelIN6Wizard4modeEE DATA
-	_ZTS5ModelIN6Wizard6estepsEE DATA
-	_ZTS5ModelIbE DATA
 	_ZTS5Sinne DATA
 	_ZTS5Typen DATA
 	_ZTS5Waffe DATA
@@ -1613,38 +1547,20 @@ EXPORTS
 	_ZTS8NotFound DATA
 	_ZTS8Prototyp DATA
 	_ZTS8Ruestung DATA
-	_ZTS9ModelPlexIN6Wizard4modeEE DATA
-	_ZTS9ModelPlexIN6Wizard6estepsEE DATA
-	_ZTS9ModelPlexIbE DATA
 	_ZTS9Prototyp2 DATA
 	_ZTS9recodebuf DATA
-	_ZTSN15AbenteurerListe4ItemE DATA
-	_ZTSN4SigC10ObjectBaseE DATA
-	_ZTSN4SigC10SignalBaseE DATA
-	_ZTSN4SigC6ObjectE DATA
-	_ZTSN4SigC7Signal0IvNS_7MarshalIvEEEE DATA
 	_ZTSSt11logic_error DATA
 	_ZTSSt12out_of_range DATA
 	_ZTSSt13runtime_error DATA
 	_ZTSSt9exception DATA
-	_ZTT10RadioModel DATA
-	_ZTT11SignalPlex1IN4SigC7Signal0IvNS0_7MarshalIvEEEEE DATA
 	_ZTT13orecodestream DATA
-	_ZTT17AbenteurerAuswahl DATA
-	_ZTT9ModelPlexIN6Wizard4modeEE DATA
-	_ZTT9ModelPlexIN6Wizard6estepsEE DATA
-	_ZTT9ModelPlexIbE DATA
-	_ZTTN15AbenteurerListe4ItemE DATA
 	_ZTV10Fertigkeit DATA
-	_ZTV10RadioModel DATA
 	_ZTV10WaffeGrund DATA
 	_ZTV10Zauberwerk DATA
-	_ZTV11SignalPlex1IN4SigC7Signal0IvNS0_7MarshalIvEEEEE DATA
 	_ZTV11WaffeBesitz DATA
 	_ZTV12PreiseNewMod DATA
 	_ZTV13Spezialgebiet DATA
 	_ZTV13orecodestream DATA
-	_ZTV17AbenteurerAuswahl DATA
 	_ZTV19MidgardBasicElement DATA
 	_ZTV21Fertigkeit_angeborene DATA
 	_ZTV27MidgardBasicElement_mutable DATA
@@ -1663,29 +1579,11 @@ EXPORTS
 	_ZTV8NotFound DATA
 	_ZTV8Prototyp DATA
 	_ZTV8Ruestung DATA
-	_ZTV9ModelPlexIN6Wizard4modeEE DATA
-	_ZTV9ModelPlexIN6Wizard6estepsEE DATA
-	_ZTV9ModelPlexIbE DATA
 	_ZTV9Prototyp2 DATA
 	_ZTV9recodebuf DATA
-	_ZTVN15AbenteurerListe4ItemE DATA
 	_ZTVSt12out_of_range DATA
 	_ZTv0_n12_N13orecodestreamD0Ev
 	_ZTv0_n12_N13orecodestreamD1Ev
-	_ZTv0_n24_N10RadioModelD0Ev
-	_ZTv0_n24_N10RadioModelD1Ev
-	_ZTv0_n24_N11SignalPlex1IN4SigC7Signal0IvNS0_7MarshalIvEEEEED0Ev
-	_ZTv0_n24_N11SignalPlex1IN4SigC7Signal0IvNS0_7MarshalIvEEEEED1Ev
-	_ZTv0_n24_N15AbenteurerListe4ItemD0Ev
-	_ZTv0_n24_N15AbenteurerListe4ItemD1Ev
-	_ZTv0_n24_N17AbenteurerAuswahlD0Ev
-	_ZTv0_n24_N17AbenteurerAuswahlD1Ev
-	_ZTv0_n24_N9ModelPlexIN6Wizard4modeEED0Ev
-	_ZTv0_n24_N9ModelPlexIN6Wizard4modeEED1Ev
-	_ZTv0_n24_N9ModelPlexIN6Wizard6estepsEED0Ev
-	_ZTv0_n24_N9ModelPlexIN6Wizard6estepsEED1Ev
-	_ZTv0_n24_N9ModelPlexIbED0Ev
-	_ZTv0_n24_N9ModelPlexIbED1Ev
 	_ZanN19MidgardBasicElement4EP_tES0_
 	_ZeqPvRK10cH_Spezies
 	_ZeqPvRK16cH_Spezialgebiet

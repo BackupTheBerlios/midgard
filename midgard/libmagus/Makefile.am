@@ -1,14 +1,22 @@
-# $Id: Makefile.am,v 1.46 2004/04/16 06:01:35 christof Exp $
+# $Id: Makefile.am,v 1.47 2004/05/11 09:04:35 christof Exp $
+
+SIGC_MAJOR=2
 
 if WINDOWS
 PORT_FILES=registry.cc TeX.cc
-WIN_LDFLAGS=-no-undefined -export-symbols libmagus.def
+WIN_LDFLAGS=-no-undefined -export-symbols libmagus_sigc$(SIGC_MAJOR).def \
+		-Wl,--enable-runtime-pseudo-reloc
 DLL_LDADD=@COMMONXX_LIBS@ @SIGC_LIBS@ libmagus_res.lo
+DLL_DEF=libmagus_sigc$(SIGC_MAJOR).def
 else
 PORT_FILES=
 WIN_LDFLAGS=
 DLL_LDADD=
+DLL_DEF=
 endif
+
+libmagus_sigc$(SIGC_MAJOR).def: libmagus.def libmagus_sigc$(SIGC_MAJOR).defadd
+	cat >$@ $^
 
 libmagus_res.lo: libmagus.rc
 	WINDRES=i586-mingw32msvc-windres $(top_srcdir)/../ManuProC_Base/build/win32/lt-compile-resource $< $@
@@ -71,7 +79,7 @@ model_test2_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
 model_test3_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
 test_spec_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
 
-BUILT_SOURCES= registry.h TeX.cc
+BUILT_SOURCES= registry.h TeX.cc libmagus_sigc$(SIGC_MAJOR).def
 
 TeX.cc: ../../GtkmmAddons/src/TeX.cc
 	ln -sf $^ $@
