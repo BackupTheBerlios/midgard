@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.235 2004/07/06 06:37:51 christof Exp $
+# $Id: Makefile.am,v 1.236 2004/10/26 08:51:15 christof Exp $
 
 bin_PROGRAMS = magus$(EXEEXT)
 noinst_PROGRAMS = text2c$(EXEEXT)
@@ -166,7 +166,8 @@ magus_SOURCES = $(PORT_FILES) \
 AM_CPPFLAGS = @KOMPONENTEN2_INCLUDES@ -DUSE_XML $(WIN_INCLUDES) \
 	-I.. -I../libmagus
 
-magus_LDADD = $(LINK_OBJS) -lmagusicons -lmagus @LIBS@ @KOMPONENTEN2_NODB_LIBS@
+magus_LDADD = $(LINK_OBJS) -lmagusicons -lmagus @LIBS@ \
+	@KOMPONENTEN2_NODB_LIBS@ @COMMONXX_LIBS@
 
 AM_LDFLAGS = @KOMPONENTEN2_LDFLAGS@ $(LINK_OPTIONS) -L../libmagusicons \
 	-L../libmagus
