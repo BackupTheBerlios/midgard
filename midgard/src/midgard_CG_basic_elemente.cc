@@ -48,8 +48,7 @@ bool midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
  else if(MBE->What()==MidgardBasicElement::KIDO) 
    { MyList     = &list_Kido; MyList_neu = &list_Kido_neu;  }
  else if(MBE->What()==MidgardBasicElement::SPRACHE) 
-   { if (cH_Fertigkeit("Sprache")->MaxErfolgswert(Werte,Typ,Database.ausnahmen)==MBE->Erfolgswert() ) return false;
-     MyList     = &list_Sprache; MyList_neu = &list_Sprache_neu;  }
+   { MyList     = &list_Sprache; MyList_neu = &list_Sprache_neu;  }
  else if(MBE->What()==MidgardBasicElement::SCHRIFT) 
    { MyList     = &list_Schrift; MyList_neu = &list_Schrift_neu;  }
  else assert(!"Fehler (alt) in midgard_CG_basic_elemente.cc");

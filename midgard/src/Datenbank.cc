@@ -1,4 +1,4 @@
-// $Id: Datenbank.cc,v 1.9 2002/02/10 14:55:56 thoma Exp $               
+// $Id: Datenbank.cc,v 1.10 2002/02/13 15:45:46 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -50,18 +50,13 @@
 #include "Sprache.hh"
 #include "Schrift.hh"
 
-Datenbank::Datenbank()
+Datenbank::Datenbank(Midgard_Info* MI)
 {
-    Midgard_Info *MI = manage(new Midgard_Info(true));
-#ifndef USE_XML    
-    try{
-    Transaction tr;
-#endif    
+//    Midgard_Info *MI = manage(new Midgard_Info(true));
+
     // wait for Window to appear
     while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-#ifdef USE_XML
     xml_init(MI->get_progressbar_regionen());
-#endif
     Regionen = Regionen_All(MI->get_progressbar_regionen()).get_All();
     MI->set_Regionen(Regionen);
     Laender = Laender_All(MI->get_progressbar_laender()).get_All();
@@ -86,10 +81,5 @@ Datenbank::Datenbank()
     Spezialgebiet = Spezialgebiet_All(MI->get_progressbar_spezial()).get_All();
     preise = Preise_All(MI->get_progressbar_preise()).get_All();
     preisemod = PreiseMod_All(MI->get_progressbar_preise()).get_All();
-#ifndef USE_XML    
-    tr.close();
-   }
-   catch(SQLerror &e) {cerr<< e.what()<<'\n'; return;}
-#endif  
-    MI->on_button_close_clicked();
+    MI->database_hide();
 }

@@ -39,12 +39,12 @@ cout << e<<'\n';
 
 void midgard_CG::on_button_wizard_wiederholen_clicked()
 {
-  wizard.next_step();  
+  wizard.same_step();  
 }
 
 void midgard_CG::on_button_wizard_weiter_clicked()
 {
-  wizard.same_step();  
+  wizard.next_step();  
 }
 
 void midgard_CG::wizard_starten_clicked()

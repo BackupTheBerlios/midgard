@@ -1,9 +1,17 @@
 ##########################################################################
 NEWS IN VERSION 0.4delta3
 
+* zahlreiche Bugfixes
 * Aufgeräumt ...
 * Oberfläche überarbeitet
 * Waffenbesitz im 'gelernt' fenster anzeigen
+* Sprachen undSchriften lernen jetzt bis zum maximalen Erfolgswert (+22)
+* Anfang(!) Eines Wizards, der den DAU bei der Charaktererschaffung an 
+   die Hand nimmt
+* NEWS jetzt auch im Programm einsehbar
+* Das Infofenster mit dem Copyright und der Datenbank ist 
+   in das Hauptfenster gewandert.
+* Max Erf. für Waffen in Abhängigkeit der Abenteurerklasse
 
 TODO:
 * Tiersprache wie 'Geheimzeichen'

@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.cc,v 1.64 2002/02/07 14:15:08 thoma Exp $
+// $Id: Midgard_Info.cc,v 1.65 2002/02/13 15:45:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,26 +22,22 @@
 #include "midgard_CG.hh"
 #include <gtk--/main.h>
 
-void Midgard_Info::on_button_close_clicked()
+void Midgard_Info::database_hide()
 {   
-//  if(hauptfenster) hauptfenster->show();
-  destroy();
+  frame_datenbank->hide();
 }
 
-Midgard_Info::Midgard_Info(bool selfclean)
+void Midgard_Info::tux_clicked()
+{
+  midgard_CG::wizard_starten_clicked();
+}
+
+Midgard_Info::Midgard_Info()
 {
    versionsnummer->set_text("Version: "+(std::string)VERSION);
    while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-   if (selfclean) 
-    { 
-      button_close->set_sensitive(false);
-      frame_datenbank->show();
-//      if (hauptfenster) hauptfenster->hide();
-    }
-   else
-    {
-      frame_datenbank->hide();
-    }
+   frame_datenbank->show();
+
 }
 
 

@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.34 2002/01/22 17:06:58 christof Exp $
+// $Id: midgard.cc,v 1.35 2002/02/13 15:45:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,23 +31,12 @@ int main(int argc, char **argv)
    // hmm ich habe gehört, das true hilft gegen den Umlaut bug ...
    
    std::string datei;
-#ifdef USE_XML
    if (argc==2) datei=argv[1];
-#else // !XML
-   try {
-      Petig::dbconnect(Petig::Connection("","midgard"));
-#endif      
-      Datenbank Database;
-      manage(new midgard_CG(Database,datei));
-      m.run();
+
+//   Datenbank Database;
+   manage(new midgard_CG(datei));
+   m.run();
       
-#ifndef USE_XML   
-      Petig::dbdisconnect("midgard");
-   } catch (SQLerror &e)
-   {  std::cerr << e << '\n';
-      return 1;
-   }
-#endif      
    xml_free();
    return 0;
 }

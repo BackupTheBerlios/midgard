@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.hh,v 1.32 2002/01/30 15:59:37 christof Exp $
+// $Id: Midgard_Info.hh,v 1.33 2002/02/13 15:45:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,7 +31,7 @@ class Midgard_Info : public Midgard_Info_glade
         friend class Midgard_Info_glade;
 
    public:
-        Midgard_Info(bool selfclean=false);
+        Midgard_Info();
         void set_Regionen(const std::vector<cH_Region>& Regionen);
         Gtk::ProgressBar *get_progressbar_regionen() const {return progressbar_regionen;}
         Gtk::ProgressBar *get_progressbar_laender() const {return progressbar_laender;}
@@ -55,6 +55,7 @@ class Midgard_Info : public Midgard_Info_glade
         Gtk::ProgressBar *get_progressbar_grad() const {return progressbar_grad;}
         Gtk::ProgressBar *get_progressbar_spezial() const {return progressbar_spezial;}
         Gtk::ProgressBar *get_progressbar_preise() const {return progressbar_preise;}
-        void on_button_close_clicked();
+        void database_hide();
+        void tux_clicked();
 };
 #endif

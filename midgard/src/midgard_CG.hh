@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.169 2002/02/13 11:21:00 thoma Exp $
+// $Id: midgard_CG.hh,v 1.170 2002/02/13 15:45:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -50,8 +50,8 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
    private:
 
         Random random;   
-        enum enum_notebook_main{PAGE_GRUNDWERTE,PAGE_LERNEN,PAGE_STEIGERN,
-                                  PAGE_AUSRUESTUNG};
+        enum enum_notebook_main{PAGE_INFO,PAGE_GRUNDWERTE,PAGE_LERNEN,PAGE_STEIGERN,
+                                  PAGE_AUSRUESTUNG,PAGE_NEWS};
         enum enum_notebook_lernen{PAGE_FERTIGKEITEN,PAGE_WAFFEN,PAGE_ZAUBER,
                                   PAGE_KIDO,PAGE_SPRACHE};
 
@@ -507,7 +507,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
 
    public:
 //         midgard_CG(int argc,char **argv);
-         midgard_CG(Datenbank& _Database, const string &datei="");
+         midgard_CG(const string &datei="");
          Grundwerte Werte;
 
 	// werden von anderen Fenstern aufgerufen

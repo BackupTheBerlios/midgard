@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.154 2002/02/13 11:21:00 thoma Exp $
+// $Id: midgard_CG.cc,v 1.155 2002/02/13 15:45:46 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,9 +32,11 @@
 #endif
 
 //midgard_CG::midgard_CG(int argc,char **argv)
-midgard_CG::midgard_CG(Datenbank& _Database, const string &datei)
-: InfoFenster(0), wizard(this),menu(0),menu_gradanstieg(0),haus_menuitem(0),Database(_Database)
+midgard_CG::midgard_CG(const string &datei)
+: InfoFenster(0), wizard(this),menu(0),menu_gradanstieg(0),
+  haus_menuitem(0),Database(Midgard_Info)
 {
+  table_wizard->hide();
   srand(time(0));
   if(InfoFenster) delete(InfoFenster);
   InfoFenster = manage(new WindowInfo(this));
@@ -45,8 +47,14 @@ midgard_CG::midgard_CG(Datenbank& _Database, const string &datei)
 
   on_neuer_charakter_clicked();
   set_tree_titles();
-
   if (!datei.empty()) xml_import(datei);
+
+  // für die NEWS
+  Gtk::OStream os(list_news);
+  os << 
+#include"NEWS.h" 
+<<'\n';
+
 }
 
 void midgard_CG::optionmenu_init()
@@ -204,10 +212,12 @@ void midgard_CG::on_button_hilfe_clicked()
 {
   manage(new Window_hilfe()); 
 }
+
 void midgard_CG::on_button_info_clicked()
 {
-  Midgard_Info *MI = manage(new Midgard_Info());
-  MI->set_Regionen(Database.Regionen);  
+//  Midgard_Info *MI = manage(new Midgard_Info());
+//  MI->set_Regionen(Database.Regionen);  
+ Midgard_Info->set_Regionen(Database.Regionen);
 }
 
 

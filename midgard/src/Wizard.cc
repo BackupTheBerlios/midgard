@@ -19,9 +19,10 @@
 #include "Wizard.hh"
 #include "midgard_CG.hh"
 
-Wizard::esteps operator++(Wizard::esteps a)
+Wizard::esteps &operator++(Wizard::esteps &a)
 {  
    a= Wizard::esteps(int(a)+1);
+   if(a==Wizard::MAXSTEPS) a=Wizard::esteps(int(Wizard::MAXSTEPS)-1);
    return a;
 }
 
@@ -33,7 +34,9 @@ Wizard::Wizard(midgard_CG* h)
 
 void Wizard::next_step()
 {
+cout <<"Vor  "<<actual_step<<'\n';
   evaluate_step(++actual_step);
+cout <<"Nach "<< actual_step<<'\n';
 }
 void Wizard::same_step()
 {
@@ -88,4 +91,7 @@ void Wizard::fill_vecwiz()
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
                           "Lernpunkte würfeln",
                           &midgard_CG::wizard_do_something));
+   vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
+                          "Fertig",
+                          &midgard_CG::wizard_do_nothing));
 }

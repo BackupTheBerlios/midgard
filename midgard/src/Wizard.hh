@@ -29,7 +29,7 @@ class Wizard
    public:
      enum esteps {SPEZIES,GRUNDWERTE,GESCHLECHT,TYP,STADTLAND,
                   ABGELEITETEWERTE,HERKUNFT,ANGEBORENEFERTIGKEITEN,
-                  LERNPUNKTE};
+                  LERNPUNKTE,FERTIG,MAXSTEPS};
    private:
      struct st_wiz{int page;std::string text;
             void (midgard_CG::*callback)();
