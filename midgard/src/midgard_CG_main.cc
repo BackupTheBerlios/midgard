@@ -43,9 +43,11 @@ void midgard_CG::on_button_html_hilfe_clicked()
 	set_status("Fehler: "+s+" funktioniert nicht",false);
 }
 
+#warning debug code still here
+#include "customize_toolbars.h"
 void midgard_CG::on_button_info_clicked()
-{
-  notebook_main->set_current_page(PAGE_INFO);
+{ Gtk::rec_hide(this);
+//  notebook_main->set_current_page(PAGE_INFO);
 }
 
 

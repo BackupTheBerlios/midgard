@@ -40,4 +40,14 @@ umbenennen:
        on_button_grafik_button_release_event
        on_button_ausruestung_druck_release_event
 
-- tree_prototyp fehlt ganz
+- Hide Problem:
+
+hiding hpaned6
+hiding pixmap145
+hiding GtkLabel
+hiding togglebutton_gelernte_anzeigen
+hiding GtkLabel
+hiding togglebutton_teure_anzeigen
+hiding table132
+hiding frame103
+Speicherschutzverletzung

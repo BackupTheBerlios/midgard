@@ -1,4 +1,4 @@
-// $Id: customize_toolbars.cc,v 1.26 2003/02/26 13:32:31 christof Exp $
+// $Id: customize_toolbars.cc,v 1.27 2003/02/27 14:00:02 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -124,10 +124,13 @@ void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text, boo
 // bail out once a widget is hidden
 
 bool Gtk::rec_hide(Gtk::Widget *w)
-{  if (!w->is_visible()) return false;
+{  if (!w) { std::cout << "NULL pointer\n"; return false; }
+   if (!w->is_visible()) return false;
    // std::cout << '+' << typeid(*w).name() << '-' << w->get_name() << '\n';
    if (dynamic_cast<Gtk::Bin*>(w))
    {  Gtk::Widget *child=dynamic_cast<Gtk::Bin*>(w)->get_child();
+      std::cout << " child of " << w->get_name() << '\n';
+      if (!dynamic_cast<Gtk::Widget*>(child)) { w->hide(); return false; }
       if (child->is_visible() && rec_hide(child)) 
             return true;
    }
@@ -151,6 +154,7 @@ bool Gtk::rec_hide(Gtk::Widget *w)
    }
    else if (dynamic_cast<Gtk::Container*>(w))
    {  // und nun ?
+      // z.B. Paned
       std::cout << typeid(*w).name() << '\n';
    }
    std::cout << "hiding " << w->get_name() << '\n';
