@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.28 2002/02/10 14:55:56 thoma Exp $
+// $Id: WindowInfo.cc,v 1.29 2002/02/18 07:01:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -48,11 +48,13 @@ WindowInfo::WindowInfo(midgard_CG* h)
    Gtk::OStream *mystream = new Gtk::OStream(LogWin->get_list());
    ((Gtk::OStream*)mystream)->flushed.connect(SigC::slot(LogWin,&logwin::scroll));
 
+/*
    if(autoclean)
     {
       des = Gtk::Main::timeout.connect(slot(this,&WindowInfo::timeout),4000);
       button_info_ok->hide();
     }
+*/
   hide();
 }
 

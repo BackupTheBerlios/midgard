@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.122 2002/02/14 10:58:46 christof Exp $
+# $Id: Makefile.am,v 1.123 2002/02/18 07:01:06 thoma Exp $
 
 bin_PROGRAMS = midgard 
 noinst_PROGRAMS = text2c
@@ -42,8 +42,6 @@ midgard_CG_glade.hh midgard_CG.hh  \
 Window_charakter_beschreibung_glade.hh Window_charakter_beschreibung.hh \
 WindowInfo_glade.hh WindowInfo.hh \
 Sprache_auswahl.hh Sprache_auswahl_glade.hh \
-   Window_herkunft_glade.hh \
-   Window_herkunft.hh \
    Window_hilfe_glade.hh \
    Window_hilfe.hh \
 	Window_Waffe_Geld_glade.hh \
@@ -69,6 +67,7 @@ Sprache_auswahl.hh Sprache_auswahl_glade.hh \
    xml_fileselection.hh \
    class_lernpunkte.hh \
    class_SimpleTree.hh \
+   class_SimpleTree_LernschemaZusatz.hh \
    Spezies.hh \
    Typen.hh \
    Window_Erfahrungspunkte.hh \
@@ -121,7 +120,6 @@ midgard_SOURCES = \
    MidgardBasicTree.cc \
    MidgardBasicElement.cc \
    midgard_CG_basic_elemente.cc \
-   Window_herkunft.cc \
    Window_ruestung.cc \
    Sprache_auswahl.cc \
    steigern_fertigkeiten.cc  \
@@ -158,8 +156,8 @@ midgard_SOURCES = \
 	Midgard_Info.cc \
 	midgard.cc \
    Sprache_auswahl_glade.cc \
-   Window_herkunft_glade.cc \
    midgard_CG_lernen.cc \
+   midgard_CG_lernen_zusatz.cc \
    Window_charakter_beschreibung_glade.cc \
    Window_charakter_beschreibung.cc \
    Berufe_auswahl_glade.cc \

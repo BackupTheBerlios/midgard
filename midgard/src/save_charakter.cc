@@ -127,14 +127,6 @@ void midgard_CG::xml_export(const std::string& dateiname)
    MidgardBasicElement::saveElementliste(datei,list_Schrift,Werte,Typ,Database.ausnahmen);
 
    // Regionen & Ähnliches
-   for (std::list<st_Optionen>::const_iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
-    {
-cout << i->text<<' '<<i->active<<'\n';
-      datei << "    <bool";
-      write_string_attrib(datei, "Name", i->text);
-      write_bool_attrib_force(datei, "Wert", i->active);
-      datei << "/>\n";
-    }
   for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
    {  if (!(*i)->Active()) continue;
       datei << "    <Region";

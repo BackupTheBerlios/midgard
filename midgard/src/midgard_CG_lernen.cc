@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.73 2002/02/15 12:13:58 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.74 2002/02/18 07:01:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,7 +19,7 @@
 
 #include "midgard_CG.hh"
 #include "Window_Waffe_Geld.hh"
-#include "Window_herkunft.hh"
+//#include "Window_herkunft.hh"
 #include <Aux/itos.h>
 #include "class_SimpleTree.hh"
 #include "Waffe.hh"
@@ -30,20 +30,7 @@
 
 void midgard_CG::on_herkunftsland_clicked()
 {
-   manage (new Window_herkunft(this,Database));
-}
-
-void midgard_CG::herkunft_uebernehmen(const cH_Land& s)
-{
-   if(wizard) {
-//      notebook_main->set_sensitive(false) ;
-      wizard->next_step();
-     }
-   Werte.setHerkunft(s); 
-   zeige_werte(Werte); 
-   button_angeborene_fert->set_sensitive(true);
-//   button_lernpunkte->set_sensitive(true);
-//   togglebutton_lernpunkte_edit->set_sensitive(true);
+  lernen_zusatz(LZHERKUNFT);
 }
 
 void midgard_CG::on_lernpunkte_wuerfeln_clicked()
@@ -242,12 +229,7 @@ void midgard_CG::on_button_ruestung_clicked()
 void midgard_CG::on_lernliste_wahl_toggled()
 {
   if(button_fachkenntnisse->get_active())
-   {
-     list_Fertigkeit.clear();
-     list_Sprache.clear();
-     list_Schrift.clear();
      show_lernschema(MidgardBasicElement::FERTIGKEIT,"Fach");
-   }
   if(button_allgemeinwissen->get_active())
       show_lernschema(MidgardBasicElement::FERTIGKEIT,"Allg");
   if(button_untyp_fertigkeiten->get_active())
@@ -268,8 +250,6 @@ void midgard_CG::on_lernliste_wahl_toggled()
 
 
 
-
-
 void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
 {
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
@@ -281,9 +261,6 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
          { 
            if(togglebutton_spezialwaffe->get_active())
             {
-//             if(cH_Waffe(Werte.Spezialisierung(),true)->ist_gelernt(list_Waffen))
-//                cH_Waffe(Werte.Spezialisierung())->add_Erfolgswert(-2);
-//             MBE->add_Erfolgswert(2);
              Werte.setSpezialisierung(MBE->Name());
             }
            else
@@ -331,10 +308,13 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
         break; }
     case MidgardBasicElement::FERTIGKEIT: 
       { 
-        if(!SpracheSchrift(MBE))  list_Fertigkeit.push_back(MBE); 
+        // Das hat hier keinen Sinn, da der Erfolgswert bein Anzeigen des
+        // Lernschemas nocheinmal nocheinmal gesetzt wird.
+        // MBE->set_Erfolgswert(cH_Fertigkeit(MBE)->FErfolgswert(Werte)+cH_Fertigkeit(MBE)->AttributBonus(Werte));
+        if(!SpracheSchrift(MBE)) list_Fertigkeit.push_back(MBE); 
         else SpracheSchrift(MBE,MBE->Erfolgswert(),true);
         if(cH_Fertigkeit(MBE)->LernArt()=="Fach")
-           lernpunkte.addFach(- MBE->Lernpunkte());
+           lernpunkte.addFach(-MBE->Lernpunkte());
         else if(cH_Fertigkeit(MBE)->LernArt()=="Allg")
            lernpunkte.addAllgemein(- MBE->Lernpunkte());
         else if(cH_Fertigkeit(MBE)->LernArt()=="Unge")
@@ -342,9 +322,16 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
         break; }
     default : break;
    }
+#warning Aus irgendwelchen Gründen setzet 'show_lernschema' den Erfolgswert 
+#warning NICHT auf den richtigen Wert, obwohl der dann eigentlich korrekt
+#warning angezeigt wird. Daher dieser HAck mit dem Erfolgswert.
+   int e=MBE->Erfolgswert();
+//cout <<"1 " <<MBE->Name()<<'a '<<MBE->Erfolgswert()<<'\n';
   if(MBE->What()==MidgardBasicElement::FERTIGKEIT) 
          show_lernschema(MBE->What(),cH_Fertigkeit(MBE)->LernArt());
   else   show_lernschema(MBE->What());
+//cout <<"2 " << MBE->Name()<<' '<<MBE->Erfolgswert()<<'\n';
+  MBE->set_Erfolgswert(e);
   show_gelerntes();
 }
 
@@ -410,20 +397,20 @@ void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std
 
       if(fert=="Unge")  
          { f->set_Lernpunkte(f->LernUnge());
-           f->set_Erfolgswert(f->Anfangswert());
+           f->set_Erfolgswert(f->Anfangswert()+f->AttributBonus(Werte));
          }
       else if(fert=="Allg" && Werte.Stadt_Land()=="Land" ) 
          { f->set_Lernpunkte(f->LernLand());
-           f->set_Erfolgswert(f->Anfangswert());
+           f->set_Erfolgswert(f->Anfangswert()+f->AttributBonus(Werte));
            if(f->Name()=="Muttersprache" && Werte.In()>30) f->set_Erfolgswert(14);
-           if(f->Name()=="Muttersprache" && Werte.In()>60) f->set_Erfolgswert(18);
+           if(f->Name()=="Muttersprache" && Werte.In()>60) f->set_Erfolgswert(18+f->AttributBonus(Werte));
            if(f->Name()=="Gastlandsprache" && Werte.In()>30) f->set_Erfolgswert(12);
          }
       else if(fert=="Allg" && Werte.Stadt_Land()=="Stadt" ) 
          { f->set_Lernpunkte(f->LernStadt());
-           f->set_Erfolgswert(f->Anfangswert());
+           f->set_Erfolgswert(f->Anfangswert()+f->AttributBonus(Werte));
            if(f->Name()=="Muttersprache" && Werte.In()>30) f->set_Erfolgswert(14);
-           if(f->Name()=="Muttersprache" && Werte.In()>60) f->set_Erfolgswert(18);
+           if(f->Name()=="Muttersprache" && Werte.In()>60) f->set_Erfolgswert(18+f->AttributBonus(Werte));
            if(f->Name()=="Gastlandsprache" && Werte.In()>30) f->set_Erfolgswert(12);
          }
       else if(fert=="Fach") 
@@ -432,7 +419,7 @@ void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std
          if(!lp) continue;
          f->set_Lernpunkte(lp);
          int erf=Database.pflicht.istPflicht(Werte.Spezies()->Name(),Typ,(*i)->Name(),Pflicht::ERFOLGSWERT);
-         f->set_Erfolgswert(erf);
+         f->set_Erfolgswert(erf+f->AttributBonus(Werte));
         }
       if(!region_check((*i)->Region())) continue;
       if(!f->Voraussetzungen(Werte)) continue;
@@ -482,7 +469,7 @@ void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std
              if (!cH_Fertigkeit(*i)->Voraussetzungen(Werte)) continue ;
              if(Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name(),true)) continue;
              I=Lernschema::st_index(Typ[0]->Short(),"Fachkenntnisse",(*i)->Name());
-             cH_Fertigkeit(*i)->set_Erfolgswert(cH_Fertigkeit(*i)->Anfangswert0());
+             cH_Fertigkeit(*i)->set_Erfolgswert(cH_Fertigkeit(*i)->Anfangswert0()+cH_Fertigkeit(*i)->AttributBonus(Werte));
              cH_Fertigkeit(*i)->setPflicht(Database.lernschema.get_Pflicht(I));
            }
           (*i)->set_Lernpunkte(Database.lernschema.get_Lernpunkte(I));

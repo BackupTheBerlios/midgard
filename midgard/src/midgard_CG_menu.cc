@@ -29,11 +29,7 @@ void midgard_CG::menu_init()
 
   Gtk::MenuItem *save = manage(new class Gtk::MenuItem("Abenteurer speichern"));
   menu->append(*save);
-#ifndef USE_XML
-  save->activate.connect(SigC::slot(this,&midgard_CG::on_speichern_clicked));
-#else
   save->activate.connect(SigC::slot(this,&midgard_CG::xml_export_auswahl));
-#endif
 
   Gtk::MenuItem *close = manage(new class Gtk::MenuItem("MAGUS Beenden"));
   menu->append(*close);
@@ -123,7 +119,7 @@ void midgard_CG::menu_init()
      }
     i->checkmenuitem=manage(new Gtk::CheckMenuItem());
     i->checkmenuitem->add(*_tab);    
-    i->checkmenuitem->activate.connect(SigC::bind(SigC::slot(this,i->funktion),*i));
+    i->checkmenuitem->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::Optionen_setzen_from_menu),i->index));
     i->checkmenuitem->set_active(i->active);
     optionen_menu->append(*(i->checkmenuitem));
    } 
@@ -141,27 +137,16 @@ void midgard_CG::menu_init()
      {
        i->menuitem=manage(new Gtk::MenuItem());
        i->menuitem->add(*_tab);    
-       i->menuitem->activate.connect(SigC::bind(SigC::slot(this,i->funktion),*i));
+       i->menuitem->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::Optionen_setzen_from_menu),i->index));
+//       i->menuitem->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::OptionenM_setzen_from_menu),*i));
        optionen_menu->append(*(i->menuitem));
      }
    } 
 
-/*
-  OptionMenu.menu_sensitive=manage(new Gtk::MenuItem("Lernschema auswählbar machen"));
-  optionen_menu->append(*OptionMenu.menu_sensitive);
-  OptionMenu.menu_sensitive->activate.connect(SigC::slot(this,&midgard_CG::on_lernschema_sensitive_menu));
-
-  OptionMenu.menu_version=manage(new Gtk::CheckMenuItem("Versionen automatisch erzeugen\n(Deaktivierung löscht den Eintrag in 'Version')"));
-  optionen_menu->append(*OptionMenu.menu_version);
-  OptionMenu.menu_version->activate.connect(SigC::slot(this,&midgard_CG::on_checkbutton_version_menu));
-  OptionMenu.menu_version->set_active(OptionBool.version);
-*/
   menu->append(*optionen);
 
 //Hausregeln////////////////////////////////////////////////////////////////
   Gtk::Menu *haus_menu = manage(new class Gtk::Menu());
-//  if(haus_menuitem) {haus_menuitem->destroy();haus_menuitem=0;}
-// heh, das ist managed!!! das gibt es schon gar nicht mehr!
   haus_menuitem = manage(new class Gtk::MenuItem());
 
   Gtk::Label *_lhaus = manage(new class Gtk::Label("Hausregeln"));
@@ -177,7 +162,7 @@ void midgard_CG::menu_init()
      i->menu = manage(new class Gtk::CheckMenuItem(i->text));
      haus_menu->append(*(i->menu));
      i->menu->set_active(i->active);
-     i->menu->activate.connect(SigC::slot(this,&midgard_CG::Hausregeln_setzen_from_menu));
+     i->menu->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::Hausregeln_setzen_from_menu),i->index));
    }  
 
   haus_menuitem->add(*_tabhaus);
@@ -266,31 +251,25 @@ void midgard_CG::Optionen_init()
   Gtk::CheckMenuItem *menu_original;
   list_Optionen.push_back(st_Optionen(Original,menu_original,
                            "Originalregeln",
-                           true,midgard_logo_tiny_xpm,
-                           &midgard_CG::on_checkbutton_optionen_menu));
+                           true,midgard_logo_tiny_xpm));
   Gtk::CheckMenuItem *menu_info;
   list_Optionen.push_back(st_Optionen(Info,menu_info,
-                           "Info Fenster anzeigen",true,0,
-                           &midgard_CG::on_checkbutton_optionen_menu));
+                           "Info Fenster anzeigen",true,0));
   Gtk::CheckMenuItem *menu_pics;
   list_Optionen.push_back(st_Optionen(showPics,menu_pics,
-                           "Bilder anzeigen",true,0,
-                           &midgard_CG::on_checkbutton_optionen_menu));
+                           "Bilder anzeigen",true,0));
   Gtk::CheckMenuItem *menu_wizallways;
   list_Optionen.push_back(st_Optionen(Wizard_immer_starten,menu_wizallways,
-                           "Wizard bei jedem Programmstart zeigen",true,0,
-                           &midgard_CG::on_checkbutton_optionen_menu));
+                           "Wizard bei jedem Programmstart zeigen",true,0));
 
   Gtk::MenuItem *menu_lernschema_sensitive;
   list_OptionenM.push_back(st_OptionenM(LernschemaSensitive,
                            menu_lernschema_sensitive,
-                           "Lernschema auswählbar machen",0,
-                           &midgard_CG::on_optionen_menu));
+                           "Lernschema auswählbar machen",0));
   Gtk::MenuItem *menu_wizard_starten;
   list_OptionenM.push_back(st_OptionenM(WizardStarten,
                            menu_wizard_starten,
-                           "Wizard starten",0,
-                           &midgard_CG::on_optionen_menu));
+                           "Wizard starten",0));
 }
 
 
@@ -298,9 +277,6 @@ void midgard_CG::Hausregeln_init()
 {
  list_Hausregeln.clear();
  Gtk::CheckMenuItem *gold; 
-// list_Hausregeln.push_back(st_Haus(Gold,Gtk::CheckMenuItem *gold,"1 GS entspricht 1 GFP"));
  list_Hausregeln.push_back(st_Haus(Gold,gold,"1 GS entspricht 1 GFP",false));
-// Gtk::CheckMenuItem *ep_steigern; 
-// list_Hausregeln.push_back(st_Haus(EPsteigern,ep_steigern,"Steigern mit Erfahrungspunkten",true));
 }
 

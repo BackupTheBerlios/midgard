@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.53 2002/02/15 12:13:58 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.54 2002/02/18 07:01:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,20 +23,37 @@
 #include "TagStream.hh"
 #include "export_common.h"
 
-void midgard_CG::on_checkbutton_optionen_menu(st_Optionen O)
+
+void midgard_CG::regnot(const std::string& sadd)
 {
-  if (O.checkmenuitem->get_active()) O.active=true;
-  else O.active=false;
-  
-  if(O.index==Original) checkbutton_original(O.active);
-  if(O.index==showPics) Pics(O.active);
-}
-void midgard_CG::on_optionen_menu(st_OptionenM O)
-{
-  if(O.index==LernschemaSensitive) lernschema_sensitive(true);
-  if(O.index==WizardStarten) wizard_starten_clicked();
+ InfoFenster->AppendShow(sadd);
 }
 
+void midgard_CG::Optionen_setzen_from_menu(OptionenIndex index)
+{
+  for(list<st_Optionen>::iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
+   {
+     if(i->index!=index) continue;
+     i->active = i->checkmenuitem->get_active();
+     if(i->index==Original)checkbutton_original(i->active);
+     if(i->index==showPics) Pics(i->active);
+   }
+}
+
+void midgard_CG::OptionenM_setzen_from_menu(OptionenIndex index)
+{
+  if(index==LernschemaSensitive) lernschema_sensitive(true);
+  if(index==WizardStarten) wizard_starten_clicked();
+}
+
+void midgard_CG::Hausregeln_setzen_from_menu(HausIndex index)
+{
+  for(list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
+   {
+     if(i->index!=index) continue;
+     i->active = i->menu->get_active();
+   }
+}
 
 
 void midgard_CG::checkbutton_original(bool active)
@@ -46,7 +63,7 @@ void midgard_CG::checkbutton_original(bool active)
       
       if(haus_menuitem)
        {
-         Hausregeln_setzen(false);
+         setAllHausregeln(false);
          if(haus_menuitem) haus_menuitem->set_sensitive(false);
        }
       pixmap_logo->show();
@@ -69,22 +86,7 @@ void midgard_CG::lernschema_sensitive(bool active)
    button_geld_waffen->set_sensitive(true);
    button_ruestung->set_sensitive(true);   
    button_angeborene_fert->show();
-   
-
-//   hbox_beruf->set_sensitive(true);
-//   table_beruf->set_sensitive(true);
-//   hbox_fertigkeit->set_sensitive(true);
-//   table_fertigkeit->set_sensitive(true);
-//   hbox_waffen->set_sensitive(true);
-//   table_waffen->set_sensitive(true);
-//   hbox_zauber->set_sensitive(true); 
-//   table_magier_lernen->set_sensitive(true);     
-//   hbox_kido->set_sensitive(true);
-//   table_kido_lernen->set_sensitive(true);
-
-//   button_fertigkeiten->set_sensitive(true);
    button_kido_auswahl->set_sensitive(true);
-//   table_lernschema_buttons->set_sensitive(true);
 }
 
 
@@ -131,6 +133,8 @@ void midgard_CG::on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_R
   }
 }
 
+
+/////////////////////
 midgard_CG::st_Optionen midgard_CG::OptionenCheck(OptionenIndex oi)
 {
  for(std::list<st_Optionen>::const_iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
@@ -138,20 +142,6 @@ midgard_CG::st_Optionen midgard_CG::OptionenCheck(OptionenIndex oi)
  assert(!"OptionenCheck: nicht gefunden");
  abort();
 }
-midgard_CG::st_Optionen midgard_CG::OptionenCheck(std::string os)
-{
- for(std::list<st_Optionen>::const_iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
-   if(i->text==os) return *i;
- throw NotFound();
-}
-
-void midgard_CG::setOption(OptionenIndex oi,bool b)
-{
- for(std::list<st_Optionen>::iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
-   if(i->index==oi)  i->active=b;
-}
-
-
 midgard_CG::st_Haus midgard_CG::HausregelCheck(HausIndex hi)
 {
  for(std::list<st_Haus>::const_iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
@@ -161,27 +151,28 @@ midgard_CG::st_Haus midgard_CG::HausregelCheck(HausIndex hi)
 }
 
 
-void midgard_CG::Hausregeln_setzen_from_menu()
+void midgard_CG::setOption(std::string os,bool b)
+{
+ for(std::list<st_Optionen>::iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
+   if(i->text==os) { i->active=b; return; }
+ throw NotFound();
+}
+
+void midgard_CG::setHausregeln(std::string hs,bool b)
 {
   for(list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
-     i->active = i->menu->get_active();
+      if(i->text==hs)  {i->active=b; return;}
+ throw NotFound();
 }
 
-void midgard_CG::Hausregeln_setzen(bool b)
+void midgard_CG::setAllHausregeln(bool b)
 {
   for(list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
-   {
-     i->active = b;
-     i->menu->set_active(b);
-   }
+     i->active=b;
 }
 
-void midgard_CG::regnot(const std::string& sadd)
-{
-//  manage(new WindowInfo(sadd));
- InfoFenster->AppendShow(sadd);
-}
 
+////////////////
 
 void midgard_CG::save_options()
 {
@@ -196,13 +187,20 @@ void midgard_CG::save_options()
  write_string_attrib(datei, "encoding", TagStream::host_encoding);
  datei << "?>\n\n";
  datei << "<MAGUS-optionen>\n";
- datei << "  <Optionen";
  for(std::list<st_Optionen>::iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
    {
+     datei << "  <Optionen";
      write_string_attrib(datei, "Name" ,i->text);
-     write_bool_attrib(datei, "Wert", i->active);
+     write_bool_attrib_force(datei, "Wert", i->active);
+     datei << "/>\n";
    }
- datei << "/>\n";
+  for(list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
+   {
+     datei << "  <Hausregel";
+     write_string_attrib(datei, "Name" ,i->text);
+     write_bool_attrib_force(datei, "Wert", i->active);
+     datei << "/>\n";
+   }
  datei << "</MAGUS-optionen>\n";
 }
 
@@ -217,7 +215,15 @@ void midgard_CG::load_options()
  data=ts.find("Optionen");                          
  for(std::list<st_Optionen>::iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
    {
-     i->active=data->getBoolAttr(i->text,false);     
+     try{
+        i->active=data->getBoolAttr(i->text,false);     
+      }catch(const NotFound &e){}
+   }
+  for(list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
+   {
+     try{
+        i->active=data->getBoolAttr(i->text,false);     
+      }catch(const NotFound &e){}
    }
 }
 

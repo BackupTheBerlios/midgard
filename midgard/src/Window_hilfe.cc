@@ -1,4 +1,4 @@
-// $Id: Window_hilfe.cc,v 1.24 2002/01/29 10:45:28 thoma Exp $
+// $Id: Window_hilfe.cc,v 1.25 2002/02/18 07:01:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -55,17 +55,15 @@ std::string s="
 * Abgeleitete Werte würfeln (eventuell editieren)
 * Werte editieren: 'Name des Abenteurers' und 'Version' eintragen, unter diesen
    beiden Angaben wird der Abenteurer in gespeichert.
-* Herkunftsland wählen
 * Lernschema
-* Lernpunkte würfeln (eventuell editieren)
-* Beruf wählen (mit der rechten Maustaste kann ein bestimmtes W% Ergebnis 
-   eingegeben vorgegeben.
-* Fertigkeiten auswählen 
+* Herkunftsland wählen
 * Angeborene Fertigkeit auswürfeln (mit der RECHTEN Maustaste könenn die Fertigkeiten 
    explizit gewählt werden.)
-* Waffen auswählen
+* Lernpunkte würfeln (eventuell editieren)
+* Fertigkeiten, Waffen und Zauber in beliebiger Reinfolge auswählen 
 * Spezialwaffe wählen (nicht für Zauberer und Barden)
-* Zauber auswählen (nicht für Kämpfer außer Barde,Ordenskrieger und Tiermeister)
+* Beruf wählen (mit der rechten Maustaste kann ein bestimmtes W% Ergebnis 
+   eingegeben vorgegeben.
 * Magier wählen einen Spezialbereich
 * Geld und Waffen würfeln (oder aussuchen)
 * Rüstung auswürfeln (kann über 'Steigern' auch ausgesucht werden 

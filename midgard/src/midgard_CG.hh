@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.175 2002/02/15 12:13:58 thoma Exp $
+// $Id: midgard_CG.hh,v 1.176 2002/02/18 07:01:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -54,6 +54,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
                                   PAGE_AUSRUESTUNG,PAGE_NEWS};
         enum enum_notebook_lernen{PAGE_FERTIGKEITEN,PAGE_WAFFEN,PAGE_ZAUBER,
                                   PAGE_KIDO,PAGE_SPRACHE};
+        enum enum_lernschema_zusatz{LZHERKUNFT};
 
 
         std::vector<std::string> Vstand, Vhand, Vkido;
@@ -68,8 +69,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void menu_gradanstieg_init();
         void Optionen_init();
         void Hausregeln_init();
-        void Hausregeln_setzen_from_menu();
-        void Hausregeln_setzen(bool b);
         gint on_eventbox_MCG_button_press_event(GdkEventButton *event);
 
         enum OptionenIndex {Original,Info,showPics,LernschemaSensitive,
@@ -81,25 +80,21 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
                            Gtk::MenuItem *menuitem; 
                            std::string text;
                            const char * const *bild;
-                           void (midgard_CG::* funktion)(st_OptionenM O);
                st_OptionenM(OptionenIndex i,
                            Gtk::MenuItem *m,
                            std::string t,
-                           const char * const * const b,
-                           void (midgard_CG::* const f)(st_OptionenM _O))
-                  :index(i),menuitem(m),text(t),bild(b),funktion(f) 
-                  {}};
+                           const char * const * const b)
+                  :index(i),menuitem(m),text(t),bild(b)
+                    {}};
         struct st_Optionen{OptionenIndex index;
                            Gtk::CheckMenuItem *checkmenuitem; 
                            std::string text;
                            bool active;const char * const *bild;
-                           void (midgard_CG::* funktion)(st_Optionen O);
                st_Optionen(OptionenIndex i,
                            Gtk::CheckMenuItem *cm,
                            std::string t,
-                           bool a, const char * const * const b,
-                           void (midgard_CG::* const f)(st_Optionen _O))
-                  :index(i),checkmenuitem(cm),text(t),active(a),bild(b),funktion(f) 
+                           bool a, const char * const * const b)
+                  :index(i),checkmenuitem(cm),text(t),active(a),bild(b) 
                   {}};
         
 
@@ -136,13 +131,16 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         std::list<st_Haus> list_Hausregeln;
         std::list<st_Optionen>  list_Optionen;
         std::list<st_OptionenM> list_OptionenM;
-        st_Optionen OptionenCheck(OptionenIndex oi);
-        st_Optionen OptionenCheck(std::string os);
-        void setOption(OptionenIndex oi,bool b);
-        st_Haus HausregelCheck(HausIndex hi);
 
-        void on_checkbutton_optionen_menu(st_Optionen O);
-        void on_optionen_menu(st_OptionenM O);
+        st_Optionen OptionenCheck(OptionenIndex oi);
+        st_Haus HausregelCheck(HausIndex hi);
+        void setOption(std::string os,bool b);
+        void setHausregeln(std::string hs,bool b);
+        void setAllHausregeln(bool b);
+
+        void Hausregeln_setzen_from_menu(HausIndex index);
+        void Optionen_setzen_from_menu(OptionenIndex index);
+        void OptionenM_setzen_from_menu(OptionenIndex index);
 
         bool modify_bool;
         bool kido_bool;
@@ -384,6 +382,9 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_radiobutton_pp_resistenz_toggled();
         void on_radiobutton_pp_all_toggled();
         void on_button_alter_clicked();
+        void lernen_zusatz(enum_lernschema_zusatz was);
+        void lernen_zusatz_titel(enum_lernschema_zusatz was);
+        void on_herkunft_leaf_selected(cH_RowDataBase d);
 
         void on_fertigkeiten_laden_clicked();
         void fertigkeiten_zeigen();
@@ -521,7 +522,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          void MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe,
                                               const std::list<cH_MidgardBasicElement>& mbe2=std::list<cH_MidgardBasicElement>());
          void MidgardBasicElement_uebernehmen(const cH_MidgardBasicElement& mbe);
-         void herkunft_uebernehmen(const cH_Land& s);
+//         void herkunft_uebernehmen(const cH_Land& s);
          bool region_check(const std::string& region);
          void EP_uebernehmen();
          void Geld_uebernehmen();

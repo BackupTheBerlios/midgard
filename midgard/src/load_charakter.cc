@@ -298,6 +298,7 @@ void midgard_CG::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
          schrift->set_Praxispunkte(i->getIntAttr("Praxispunkte"));
          list_Schrift.push_back(schrift);
         }
+/*
       else if(sart=="bool")
         {
          try{
@@ -306,6 +307,7 @@ void midgard_CG::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
          catch (const NotFound &e)
          {}
         }
+*/
       else if(sart=="Region")
         {
          try

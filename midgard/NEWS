@@ -1,4 +1,47 @@
 ##########################################################################
+NEWS IN VERSION 0.4delta4
+
+* kleinere Bugs beseitigt
+* Lernschema: Lernreinfolge jetzt beliebig
+* Tooltip 'steigern, reduzieren, verlernen'
+* Großer Gradanstiegbutten nur steigern
+* Abspeichern von Optionen 
+* Herkunftsländer sortieren
+* Info Fenser nicht automatisch zuklappen
+* Gestallt auch dann 'breit' wenn (Größe-Gewicht)<=0
+* Leiteigenschaften bei Fertigkeiten lernen 
+
+
+TODO:
+* Kurzanleitung drucken
+* Es sind die beiden Infofenster, die beim Auswürfeln 
+   von Geld und Waffen im Lernschema auftauchen. 
+   Da reagiert der "OK"- Button nicht. -> keine Anhung warum, MAT
+*** Laden von Optionen 
+*** Landeskunde als Berufsfähigkeit für 3 Berufe
+  (Karawanenführer, land, v,m
+   Kaufmann, stadt,m,a
+   Verwalter, land, stadt, m,a,
+* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+* Doppelklassen:
+> - Bei "Elfen":
+>            -  werden die "Muss-Fertigkeiten" (Schleichen, Tarnen, etc.)
+> nicht für einen, sondern für mehr Lernpunkte angezeigt.
+>            - werden bei der Erschaffung und der Auswahl "Elf" die
+> Eigenschaftswerte nicht entsprechend der Spezies ermittelt, d.h. Mindest und
+> Höchstwerte für Eigenschaften werden vom Zufallsgenerator ignoriert.
+>           - nach Auswahl von Doppeltyp (Kriegerin/graue Hexe) bekomme ich
+> (zum Teil) negative Lernpunkte angezeigt (offenbar die vom "Zweittyp" - auch
+> bei Zaubersprüchen wird für jeden "-1" angezeigt), was dazu führt, dass ich
+> Lernpunkte hinzu bekomme, statt welche durch Auswahl von Fertigkeiten zu
+> verlieren.
+>          - Bei Doppeltypen werden Fertigekeiten offenbar zweifach
+> eingelesen, das ist sehr unübersichtlich. Außerdem bleibt das "-1"
+> Lernpunkte Problem bestehen (reproduzierbarer Fehler).
+
+##########################################################################
 NEWS IN VERSION 0.4delta3
 
 * zahlreiche Bugfixes
@@ -14,16 +57,18 @@ NEWS IN VERSION 0.4delta3
    in das Hauptfenster gewandert.
 * Max Erf. für Waffen in Abhängigkeit der Abenteurerklasse
 * Speichern vor dem Schließen (wenn etwas geändert wurde)
-** Tiersprache wie 'Geheimzeichen' (dafür war mal wieder ein sorgfältiges(!)
+* Tiersprache wie 'Geheimzeichen' (dafür war mal wieder ein sorgfältiges(!)
    redesign nötig, ich hoffe es funktioniert ...)
 * Wizard nocheinmal umgearbeitet
 * GFP min. GradGFP
 * Man kann Fertigkeiten neu lernen, die einen Zusatz 
    (Geheimzeichen, Tiersprache, etc.) enthalten.
+* Anzeige und LaTeX Ausdruck von Zusatz bei Zaubern (Tiersprache)
+* Sprache=Alte Sprache
+* Erfolgswerte für Zauber,Abwehr,Resistenz verlernbar
 
 TODO:
 * Kurzanleitung drucken
-* Sprache=Alte Sprache
 * Es sind die beiden Infofenster, die beim Auswürfeln 
    von Geld und Waffen im Lernschema auftauchen. 
    Da reagiert der "OK"- Button nicht. -> keine Anhung warum, MAT
@@ -32,7 +77,6 @@ TODO:
   (Karawanenführer, land, v,m
    Kaufmann, stadt,m,a
    Verwalter, land, stadt, m,a,
-*** Erfolgswerte editierbar (verlernbar)
 * dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
   man etwas hinzufügen möchte, ist nicht gerade intuitiv
   (vielleicht drag'n'drop oder CTree verschieben)

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.51 2002/02/15 12:13:58 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.52 2002/02/18 07:01:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,12 +37,12 @@ gint midgard_CG::on_button_kurz_steigern_release_event(GdkEventButton *event)
 
 void midgard_CG::on_grad_anstieg_clicked()
 {
+ radiobutton_steigern->set_active(true);
  int old_grad=Werte.Grad();
  Werte.setGrad(Database.GradAnstieg.get_Grad(Werte.GFP()));
  get_ausdauer(Werte.Grad());
  while(old_grad<=Werte.Grad())
   {
-//cout << "Für Grad "<<old_grad<<"\n";
     get_ab_re_za(Abwehr);
     get_ab_re_za(Resistenz);
     get_ab_re_za(Zaubern);

@@ -260,14 +260,10 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const cH_MidgardBasicElement& m
     list_Beruf.clear(); // es kann nur einen Beruf geben 
     list_Beruf.push_back(mbe);
     Database.ausnahmen.set_Beruf(list_Beruf);
-//    show_berufe();
-//    hbox_fertigkeit->set_sensitive(true); 
-//    table_fertigkeit->set_sensitive(true);
    }
   if(mbe->What()==MidgardBasicElement::FERTIGKEIT)
    {
     list_Fertigkeit.push_back(mbe);
-//    show_fertigkeiten();
    }
   if(mbe->What()==MidgardBasicElement::SPRACHE)
    {
@@ -276,7 +272,6 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const cH_MidgardBasicElement& m
   if(mbe->What()==MidgardBasicElement::SCHRIFT)
    {
     list_Schrift.push_back(mbe);
-//    show_fertigkeiten();
    }
   show_gelerntes();
 }

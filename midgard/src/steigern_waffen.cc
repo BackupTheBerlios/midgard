@@ -88,14 +88,15 @@ void midgard_CG::on_leaf_selected_neue_waffen(cH_RowDataBase d)
  
 void midgard_CG::on_leaf_selected_alte_grund(cH_RowDataBase d)
 {  
-  std::string strinfo="WARNUNG: Beim verlernen von Grundkenntnissen werden die\n";
-  strinfo +="bereits gelernten Waffen, die zu dieser\n";
-  strinfo +="Grundkenntnis gehöhren, NICHT verlernt\n";
-  InfoFenster->AppendShow(strinfo);
-  if (MidgardBasicElement_leaf_alt(d))
-//     waffen_zeigen();
-  on_waffen_laden_clicked();
-
+  if(radiobutton_verlernen->get_active())
+   {
+     std::string strinfo="WARNUNG: Beim verlernen von Grundkenntnissen werden die\n";
+     strinfo +="bereits gelernten Waffen, die zu dieser\n";
+     strinfo +="Grundkenntnis gehöhren, NICHT verlernt\n";
+     InfoFenster->AppendShow(strinfo);
+     MidgardBasicElement_leaf_alt(d);
+     on_waffen_laden_clicked();
+   }
 }
 
 void midgard_CG::on_leaf_selected_alte_waffen(cH_RowDataBase d)

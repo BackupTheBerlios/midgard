@@ -34,17 +34,8 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
                MidgardBasicTree::variante(reinterpret_cast<int>(gp));
       if (Variante==MidgardBasicTree::GELERNTES)
        switch((Spalten_GELERNTES)seqnr) {
-         case ARTgg : return cH_EntryValueIntString(MBE->What_str()); 
-         case NAMEgg : 
-           {
-             return cH_EntryValueIntString(MBE->Name()+" "+MBE->Zusatz());
-/*
-             if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
-                return cH_EntryValueIntString(MBE->Name()+" "+cH_Fertigkeit(MBE)->Zusatz());
-             else
-                return cH_EntryValueIntString(MBE->Name());
-*/
-           }
+         case ARTgg  : return cH_EntryValueIntString(MBE->What_str()); 
+         case NAMEgg : return cH_EntryValueIntString(MBE->Name()+" "+MBE->Zusatz());
          case WERTgg : 
            {
              if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
@@ -73,7 +64,13 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case WERTg : 
            {
              if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
-                return cH_EntryValueEmptyInt(cH_Fertigkeit(MBE)->FErfolgswert(Werte)); 
+               { int AB = cH_Fertigkeit(MBE)->AttributBonus(Werte);
+                 int EW=cH_Fertigkeit(MBE)->FErfolgswert(Werte);
+                 if(!AB) return cH_EntryValueEmptyInt(EW); 
+                 else { std::string s=itos(EW-AB)+"+"+itos(AB); 
+                   return cH_EntryValueIntString(s);
+                  }
+               }
              else if(MBE->What()==MidgardBasicElement::WAFFE)
                 return cH_EntryValueIntString(MBE->Erfolgswert());
              else if(MBE->What()==MidgardBasicElement::ZAUBER)
@@ -81,7 +78,12 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
            }
          case EIGENSCHAFTg : 
             { if ( MBE->What()==MidgardBasicElement::FERTIGKEIT)
-                       return cH_EntryValueIntString(cH_Fertigkeit(MBE)->Attribut()); 
+               {
+                std::string s=cH_Fertigkeit(MBE)->Attribut();
+//                int ab=cH_Fertigkeit(MBE)->AttributBonus(Werte);
+//                if (ab) s+= "(+"+itos(ab)+")";
+                return cH_EntryValueIntString(s); 
+               }
             }
          case VORAUSSETZUNGg :
            {  
