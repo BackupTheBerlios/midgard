@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.103 2002/01/29 16:41:29 christof Exp $
+# $Id: Makefile.am,v 1.104 2002/01/30 10:08:03 christof Exp $
 
 bin_PROGRAMS = midgard 
 
@@ -205,6 +205,15 @@ LDFLAGS = @KOMPONENTEN_LDFLAGS@
 
 CLEANFILES = *~ *_new $(BUILT_SOURCES) *_old
 
+
+if UTF8
+
+%.o: %.cc ; $(CPP) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
+	$(AM_CXXFLAGS) $(CXXFLAGS) $*.cc | ./iso2utf8 | \
+	$(CXXCOMPILE) -o $*.o -c -x c++ /dev/stdin
+
+else
+
 # midgard_CG_glade.cc nicht optimieren, sonst explodiert der
 # Speicherverbrauch (immer noch? CP 2002-1-20)
 midgard_CG_glade.o: midgard_CG_glade.cc ../config.h midgard_CG.hh \
@@ -212,8 +221,4 @@ midgard_CG_glade.o: midgard_CG_glade.cc ../config.h midgard_CG.hh \
 	$(CXXCOMPILE) -O0 -c $<
 	echo > .deps/$(*F).P
 
-# nur für MinGW (wegen UTF8)
-#%.o: %.cc ; $(CPP) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
-#	$(AM_CXXFLAGS) $(CXXFLAGS) $*.cc | ./iso2utf8 | \
-#	$(CXXCOMPILE) -o $*.o -c -x c++ /dev/stdin
-
+endif
