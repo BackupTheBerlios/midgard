@@ -10814,8 +10814,8 @@ steigern</label>
 		    <widget>
 		      <class>GtkTable</class>
 		      <name>table50</name>
-		      <rows>2</rows>
-		      <columns>1</columns>
+		      <rows>1</rows>
+		      <columns>2</columns>
 		      <homogeneous>False</homogeneous>
 		      <row_spacing>0</row_spacing>
 		      <column_spacing>0</column_spacing>
@@ -10836,8 +10836,45 @@ steigern</label>
 
 		      <widget>
 			<class>GtkRadioButton</class>
+			<name>radio_spruchrolle_auto</name>
+			<cxx_visibility>protected</cxx_visibility>
+			<tooltip>Das Lernen von Spruchrolle ist automatisch erfolgreich.</tooltip>
+			<can_focus>True</can_focus>
+			<active>False</active>
+			<draw_indicator>False</draw_indicator>
+			<group>spruchrolle</group>
+			<child>
+			  <left_attach>1</left_attach>
+			  <right_attach>2</right_attach>
+			  <top_attach>0</top_attach>
+			  <bottom_attach>1</bottom_attach>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <xexpand>False</xexpand>
+			  <yexpand>False</yexpand>
+			  <xshrink>False</xshrink>
+			  <yshrink>False</yshrink>
+			  <xfill>True</xfill>
+			  <yfill>False</yfill>
+			</child>
+
+			<widget>
+			  <class>GtkPixmap</class>
+			  <name>pixmap82</name>
+			  <filename>Automat-32.xpm</filename>
+			  <xalign>7.45058e-09</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			  <build_insensitive>True</build_insensitive>
+			</widget>
+		      </widget>
+
+		      <widget>
+			<class>GtkRadioButton</class>
 			<name>radio_spruchrolle_wuerfeln</name>
 			<cxx_visibility>protected</cxx_visibility>
+			<tooltip>Es wird gewürfelt, ob das Lernen von Spruchrolle erfolgreich ist.</tooltip>
 			<can_focus>True</can_focus>
 			<active>False</active>
 			<draw_indicator>False</draw_indicator>
@@ -10850,42 +10887,7 @@ steigern</label>
 			  <xpad>0</xpad>
 			  <ypad>0</ypad>
 			  <xexpand>False</xexpand>
-			  <yexpand>True</yexpand>
-			  <xshrink>False</xshrink>
-			  <yshrink>True</yshrink>
-			  <xfill>True</xfill>
-			  <yfill>True</yfill>
-			</child>
-
-			<widget>
-			  <class>GtkPixmap</class>
-			  <name>pixmap81</name>
-			  <filename>select_wuerfeln.xpm</filename>
-			  <xalign>7.45058e-09</xalign>
-			  <yalign>0.5</yalign>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <build_insensitive>True</build_insensitive>
-			</widget>
-		      </widget>
-
-		      <widget>
-			<class>GtkRadioButton</class>
-			<name>radio_spruchrolle_auto</name>
-			<cxx_visibility>protected</cxx_visibility>
-			<can_focus>True</can_focus>
-			<active>False</active>
-			<draw_indicator>False</draw_indicator>
-			<group>spruchrolle</group>
-			<child>
-			  <left_attach>0</left_attach>
-			  <right_attach>1</right_attach>
-			  <top_attach>1</top_attach>
-			  <bottom_attach>2</bottom_attach>
-			  <xpad>0</xpad>
-			  <ypad>0</ypad>
-			  <xexpand>True</xexpand>
-			  <yexpand>True</yexpand>
+			  <yexpand>False</yexpand>
 			  <xshrink>True</xshrink>
 			  <yshrink>True</yshrink>
 			  <xfill>True</xfill>
@@ -10894,8 +10896,8 @@ steigern</label>
 
 			<widget>
 			  <class>GtkPixmap</class>
-			  <name>pixmap82</name>
-			  <filename>select_automatisch.xpm</filename>
+			  <name>pixmap81</name>
+			  <filename>Green-Dice-trans-50.xpm</filename>
 			  <xalign>7.45058e-09</xalign>
 			  <yalign>0.5</yalign>
 			  <xpad>0</xpad>
