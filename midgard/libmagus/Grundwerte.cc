@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.17 2005/03/07 16:11:58 christof Exp $               
+// $Id: Grundwerte.cc,v 1.18 2005/03/18 13:46:04 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -448,7 +448,11 @@ Grundwerte::Grundwerte(bool initialize)
              stadt_land(Enums::Stadt), /*steigern_EP_prozent(50),*/ grad_basiswerte(1),
              Typ(2), wie_steigern(ws_Unterweisung), wie_steigern_variante(),
              goldanteil(50), fpanteil(50)
-{ if (initialize) reset();
+{ if (!initialize)
+  { std::cerr << "no init requested, ignored\n";
+    initialize=true;
+  }
+  if (initialize) reset();
   else // minimal initialization
   {  ruestung.resize(2);
      Typ.resize(2);
