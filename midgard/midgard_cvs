@@ -25,7 +25,7 @@ checkout() {
 #  cvs -z3 -d:pserver:anonymous@cvs.midgard.berlios.de:/cvsroot/midgard co midgard-postgres
   
   echo ============ Magus ========
-  cvs -z3 -d:pserver:anonymous@cvs.midgard.berlios.de:/cvsroot/midgard co midgard
+  cvs -z3 -d:pserver:anonymous@cvs.midgard.berlios.de:/cvsroot/midgard co $GTKMM1 midgard
 }
 
 update() {
@@ -38,7 +38,7 @@ update() {
 #  echo =========== Midgard-Postgres ========
 #  ( cd midgard-postgres && cvs -z3 update -dP )
   echo ============ Magus ========
-  ( cd midgard && cvs -z3 update -dP )
+  ( cd midgard && cvs -z3 update -dP $GTKMM1 )
 }
 
 configure() {
@@ -109,7 +109,7 @@ then
   domake
   doinstall
 else
-  echo "Magus anonymous-CVS Installierer, $Revision: 1.12 $"
+  echo "Magus anonymous-CVS Installierer, $Revision: 1.13 $"
   echo
   echo "USAGE: $0 <Befehl> [Argumente]"
   echo "Befehle: checkout co update configure make install"
