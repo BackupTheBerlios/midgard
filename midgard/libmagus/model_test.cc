@@ -27,6 +27,8 @@
 #include "libmagus.hh"
 #include <sigc++/bind.h>
 
+ManuProC::Tracer::Channel modelplex_chan=ManuProC::Tracer::channels.get();
+
 static void progress(double d)
 {  Ausgabe(Ausgabe::Log, "Progress " +itos(int(d*100))+ "%");
 }
@@ -54,7 +56,7 @@ std::cout << "size " << AbenteurerAuswahl::Chars.size() << '\n';
 std::cout << "proxies &*i="<< &*i << "\n";
    i->proxies.checks[Optionen::NSC_only]=true;
 std::cout << "a direkt\n";
-   a.getOptionen().setOptionCheck("NSC zulassen",true);
+   a.getOptionen().setOptionCheck("NSC zulassen",false);
 std::cout << "size " << AbenteurerAuswahl::Chars.size() << '\n';
  } catch (NotFound &e)
  {  Ausgabe(Ausgabe::Error, "NotFound "+ e.Name());  }

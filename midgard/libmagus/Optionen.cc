@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.11 2004/03/03 07:47:19 christof Exp $
+// $Id: Optionen.cc,v 1.12 2004/03/06 23:15:17 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -74,21 +74,11 @@ void Optionen::set_Original(bool active,OptionenCheckIndex index)
    }
 }   
 
-#include <iostream>
-static void print(void*,const Optionen::st_OptionenCheck *oc)
-{std::cout << "Option @" << oc << "=" << oc->active.Value() << '\n';
-}
-#include <sigc++/bind.h>
-
 void Optionen::Optionen_init()
 {
   list_OptionenCheck.push_back(st_OptionenCheck(Original,"Originalregeln",true));
   list_OptionenCheck.push_back(st_OptionenCheck(NSC_only,"NSC zulassen",false));
   list_OptionenCheck.push_back(st_OptionenCheck(ZauberBeschreibungDrucken,"Zauberbeschreibung ausdrucken",false));
-OptionenCheck(Original).active.signal_changed().connect(SigC::bind(
-SigC::slot(&print),&OptionenCheck(Original)));
-OptionenCheck(NSC_only).active.signal_changed().connect(SigC::bind(
-SigC::slot(&print),&OptionenCheck(Original)));
 }
 
 

@@ -27,6 +27,8 @@
 #include "libmagus.hh"
 #include <sigc++/bind.h>
 
+ManuProC::Tracer::Channel modelplex_chan=ManuProC::Tracer::channels.get();
+
 static void progress(double d)
 {  Ausgabe(Ausgabe::Log, "Progress " +itos(int(d*100))+ "%");
 }
@@ -41,6 +43,7 @@ static void print2(void*p,const char *x)
 
 int main(int argc,char **argv)
 {  ManuProC::Tracer::Enable(LibMagus::trace_channel,true);
+   ManuProC::Tracer::Enable(modelplex_chan,true);
    Ausgabe::setLogLevel(Ausgabe::Debug);
  try {  
    libmagus_init(argc,const_cast<const char**>(argv),&progress);
