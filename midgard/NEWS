@@ -12,6 +12,7 @@ NEWS IN VERSION 0.5delta1
 * Steigern einer oder mehrerer Stufen mit PP wenn die Fertigkeit weniger 
    als 40 FP kostet
 * Berufsfertigkeit 'Schmecken+10' kann gelernt werden
+* Kleinere Bugs beseitigt
 
 TODO:
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
@@ -20,7 +21,6 @@ TODO:
 * Eschar: Derwisch
 * gv zeigt den falschen Ausschnitt des pdf Dokumentes 
    (nur für Linux interessant)
-* Es werden nur die ersten beiden pdf viewer zur Auswahl angeboten - komisch 
 * dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
   man etwas hinzufügen möchte, ist nicht gerade intuitiv
   (vielleicht drag'n'drop oder CTree verschieben)

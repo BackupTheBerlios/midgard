@@ -5036,7 +5036,7 @@ editieren</label>
 		  <yexpand>False</yexpand>
 		  <xshrink>False</xshrink>
 		  <yshrink>False</yshrink>
-		  <xfill>False</xfill>
+		  <xfill>True</xfill>
 		  <yfill>False</yfill>
 		</child>
 
