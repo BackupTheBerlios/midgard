@@ -131,9 +131,9 @@ protected:
 private:
         virtual void on_laden_release_event() = 0;
         virtual void on_button_undo_clicked() = 0;
-        virtual void on_undo_secondpressed() = 0;
+        virtual void on_undo_secondpressed(int) = 0;
         virtual void on_button_redo_clicked() = 0;
-        virtual void on_redo_secondpressed() = 0;
+        virtual void on_redo_secondpressed(int) = 0;
         virtual void on_button_menu_button_release_event() = 0;
         virtual void on_button_info_clicked() = 0;
         virtual void on_button_html_hilfe_clicked() = 0;

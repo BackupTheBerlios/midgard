@@ -56,7 +56,7 @@ table_optionen_glade::table_optionen_glade(GlademmData *gmm_data
    label578->set_line_wrap(false);
    label578->set_use_markup(false);
    label578->set_selectable(false);
-   label578->set_mnemonic_widget(entry_html);
+   label578->set_mnemonic_widget(*entry_html);
    label576->set_name("label576");
    label576->set_alignment(0,0.5);
    label576->set_padding(0,0);
@@ -64,7 +64,7 @@ table_optionen_glade::table_optionen_glade(GlademmData *gmm_data
    label576->set_line_wrap(false);
    label576->set_use_markup(false);
    label576->set_selectable(false);
-   label576->set_mnemonic_widget(entry_tmp_verz);
+   label576->set_mnemonic_widget(*entry_tmp_verz);
    label577->set_name("label577");
    label577->set_alignment(0,0.5);
    label577->set_padding(0,0);
