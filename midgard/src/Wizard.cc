@@ -59,15 +59,6 @@ void Wizard::evaluate_step(esteps step)
   hauptfenster->set_wizard(vecwiz[step].text);
   hauptfenster->wizard_do_something();
 
-/*
-  Gtk::OStream os(LogWinWizard->get_list());
-  os << vecwiz[step].text<<'\n';
-  os.flush();
-  LogWinWizard->scroll();
-  (hauptfenster->*(vecwiz[step].callback))();
-  static_cast<Gtk::Label*>(button_wiz_weiter->get_child())->set_text("Weiter:\n"+vecwiz[step+1].kurz);
-  static_cast<Gtk::Label*>(button_wiz_wiederholen->get_child())->set_text("Wiederholen:\n"+vecwiz[step].kurz);
-*/
 }
 
 

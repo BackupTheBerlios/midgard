@@ -43,7 +43,7 @@ void midgard_CG::wizard_do_something()
 
   if(e==Wizard::NAMEN)
       { table_grundwerte->togglebutton_edit_werte->set_active(true);
-        table_grundwerte->entry_nameC->grab_focus();
+//        table_grundwerte->entry_nameC->grab_focus();
       }
 
   if(e==Wizard::SPEICHERN) xml_export_auswahl();

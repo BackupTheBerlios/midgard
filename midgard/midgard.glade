@@ -298,7 +298,7 @@
 		  <handler>on_neuer_charakter_clicked</handler>
 		  <last_modification_time>Fri, 12 Apr 2002 07:44:10 GMT</last_modification_time>
 		</signal>
-		<label>Neuen Abenteurer</label>
+		<label>Neuer Abenteurer</label>
 		<right_justify>False</right_justify>
 	      </widget>
 
@@ -10769,7 +10769,7 @@ auswählen</label>
 	      <widget>
 		<class>GtkHandleBox</class>
 		<name>handlebox8</name>
-		<shadow_type>GTK_SHADOW_OUT</shadow_type>
+		<shadow_type>GTK_SHADOW_NONE</shadow_type>
 		<handle_position>GTK_POS_LEFT</handle_position>
 		<snap_edge>GTK_POS_TOP</snap_edge>
 		<child>
@@ -12799,50 +12799,6 @@ steigern</label>
 			</child>
 
 			<widget>
-			  <class>GtkScrolledWindow</class>
-			  <name>scrolledwindow23</name>
-			  <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
-			  <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
-			  <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
-			  <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
-			  <child>
-			    <left_attach>0</left_attach>
-			    <right_attach>1</right_attach>
-			    <top_attach>0</top_attach>
-			    <bottom_attach>2</bottom_attach>
-			    <xpad>0</xpad>
-			    <ypad>0</ypad>
-			    <xexpand>True</xexpand>
-			    <yexpand>True</yexpand>
-			    <xshrink>False</xshrink>
-			    <yshrink>False</yshrink>
-			    <xfill>True</xfill>
-			    <yfill>True</yfill>
-			  </child>
-
-			  <widget>
-			    <class>GtkViewport</class>
-			    <name>viewport19</name>
-			    <shadow_type>GTK_SHADOW_NONE</shadow_type>
-
-			    <widget>
-			      <class>Custom</class>
-			      <name>neue_sprache_tree</name>
-			      <cxx_visibility>protected</cxx_visibility>
-			      <signal>
-				<name>leaf_selected</name>
-				<handler>on_leaf_selected_neue_sprache</handler>
-				<last_modification_time>Fri, 22 Jun 2001 08:34:26 GMT</last_modification_time>
-			      </signal>
-			      <creation_function>MidgardBasicTree(MidgardBasicTree::SPRACHE_NEU)</creation_function>
-			      <int1>0</int1>
-			      <int2>0</int2>
-			      <last_modification_time>Mon, 31 Dec 2001 12:19:29 GMT</last_modification_time>
-			    </widget>
-			  </widget>
-			</widget>
-
-			<widget>
 			  <class>GtkToggleButton</class>
 			  <name>togglebutton_neue_sprache_pp</name>
 			  <cxx_visibility>protected</cxx_visibility>
@@ -12930,6 +12886,50 @@ PP lernen</label>
 			    <xfill>True</xfill>
 			    <yfill>False</yfill>
 			  </child>
+			</widget>
+
+			<widget>
+			  <class>GtkScrolledWindow</class>
+			  <name>scrolledwindow23</name>
+			  <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
+			  <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+			  <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+			  <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
+			  <child>
+			    <left_attach>0</left_attach>
+			    <right_attach>1</right_attach>
+			    <top_attach>0</top_attach>
+			    <bottom_attach>2</bottom_attach>
+			    <xpad>0</xpad>
+			    <ypad>0</ypad>
+			    <xexpand>True</xexpand>
+			    <yexpand>True</yexpand>
+			    <xshrink>False</xshrink>
+			    <yshrink>False</yshrink>
+			    <xfill>True</xfill>
+			    <yfill>True</yfill>
+			  </child>
+
+			  <widget>
+			    <class>GtkViewport</class>
+			    <name>viewport19</name>
+			    <shadow_type>GTK_SHADOW_NONE</shadow_type>
+
+			    <widget>
+			      <class>Custom</class>
+			      <name>neue_sprache_tree</name>
+			      <cxx_visibility>protected</cxx_visibility>
+			      <signal>
+				<name>leaf_selected</name>
+				<handler>on_leaf_selected_neue_sprache</handler>
+				<last_modification_time>Fri, 22 Jun 2001 08:34:26 GMT</last_modification_time>
+			      </signal>
+			      <creation_function>MidgardBasicTree(MidgardBasicTree::SPRACHE_NEU)</creation_function>
+			      <int1>0</int1>
+			      <int2>0</int2>
+			      <last_modification_time>Mon, 31 Dec 2001 12:19:29 GMT</last_modification_time>
+			    </widget>
+			  </widget>
 			</widget>
 		      </widget>
 		    </widget>
