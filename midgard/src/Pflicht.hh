@@ -14,6 +14,7 @@ class Pflicht //: public HandleContent
                 int lernpunkte; int erfolgswert; std::string spielbeginn;
          pf(std::string p,std::string v,int l, int e, std::string s)
             :pflicht(p),verboten(v),lernpunkte(l),erfolgswert(e),spielbeginn(s){}
+         bool operator<(const pf& b) {return pflicht<b.pflicht;}
          };
       map<std::string,list<pf> > pflicht_map;
       
