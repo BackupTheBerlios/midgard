@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.218 2002/05/02 15:00:30 thoma Exp $
+// $Id: midgard_CG.cc,v 1.219 2002/05/02 16:18:53 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -220,9 +220,9 @@ void midgard_CG::on_button_hilfe_clicked()
 void midgard_CG::on_button_html_hilfe_clicked()
 {
   std::string pfad;
-  if(!access("../docs/index.html",R_OK))  pfad="../docs/index.html";
+  if(!access("../docs/index.html",R_OK))  pfad="$PWD/../docs/index.html";
   else pfad=PACKAGE_DATA_DIR"/docs/index.html";
-  std::string s =MOptionen->getString(Midgard_Optionen::html_viewer)+" "+pfad;
+  std::string s =MOptionen->getString(Midgard_Optionen::html_viewer)+" "+pfad+" &";
   system(s.c_str());
 }
 
