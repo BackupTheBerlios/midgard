@@ -40,7 +40,7 @@ class NotFound : public std::exception
 };
 #endif
 
-class MidgardBasicElement : public HandleContent
+class MidgardBasicElement : public HandleContentCopyable
 {
    private:
       // WARNUNG: Beruf wird nicht verwendet
@@ -86,7 +86,7 @@ class MidgardBasicElement : public HandleContent
                                erfolgswert(0),lernpunkte(0),enum_zusatz(ZNone)
                               ,gelernt(false),steigern_mit_EP(0) {}
 
-      MidgardBasicElement(const MidgardBasicElement &M);
+//      MidgardBasicElement(const MidgardBasicElement &M);
 
       enum MBEE {BERUF,FERTIGKEIT,FERTIGKEIT_ANG,WAFFEGRUND,WAFFE,WAFFEBESITZ,
                  ZAUBER,ZAUBERWERK,KIDO,SPRACHE,SCHRIFT,SINN} ;

@@ -387,6 +387,7 @@ cout << "\n\n\nverwendbareEP "<<fert<<' '<<steigern<<'\n';
  steigern_mit_EP=back;
 }
 
+/*
 MidgardBasicElement::MidgardBasicElement(const MidgardBasicElement &M)
        : name(M.name), region(M.region),kosten(M.kosten), 
          praxispunkte(M.praxispunkte),erfolgswert(M.erfolgswert),
@@ -397,3 +398,4 @@ MidgardBasicElement::MidgardBasicElement(const MidgardBasicElement &M)
 {
 cout << M.name << " copied\n";
 }
+*/
