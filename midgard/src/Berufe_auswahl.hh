@@ -1,4 +1,4 @@
-// $Id: Berufe_auswahl.hh,v 1.24 2001/12/08 14:47:59 thoma Exp $
+// $Id: Berufe_auswahl.hh,v 1.25 2001/12/09 15:50:49 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -46,13 +46,16 @@ class Berufe_auswahl : public Berufe_auswahl_glade
         vector<cH_Typen> Typ;
         midgard_CG::st_Database Database;
         Grundwerte Werte;
+        bool kat_I, kat_II, kat_III, kat_IV;
 
-        void on_berufe_clist_auswahl_select_row(gint row, gint column, GdkEvent *event);
-        void on_berufe_clist_auswahl_unselect_row(gint row, gint column, GdkEvent *event);
-        void on_button_wuerfel_clicked();
+        void wuerfel();
+        void gewuerfelt(int wurf);
+        gint on_button_wuerfel_button_release_event(GdkEventButton *ev);
+        void on_spinbutton_wurf_activate();
         void fill_list();
         void on_close_berufe_clicked();
-//        bool btyp(const std::string& typ, const std::string& typz, const std::string& typ2z);
+        void on_leaf_selected(cH_RowDataBase d);
+        void setTitles();
    public:
         Berufe_auswahl(midgard_CG* h,
                     const midgard_CG::st_Database& Database,

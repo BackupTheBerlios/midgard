@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.33 2001/12/07 08:53:00 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.34 2001/12/09 15:50:49 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,7 +35,8 @@ void midgard_CG::show_berufe()
    for(std::list<cH_MidgardBasicElement>::iterator i=list_Beruf.begin();i!=list_Beruf.end();++i)
     {
       cH_Beruf b(*i);  
-      os << (*i)->Name()<<"\t"<<b->Vorteile()<<"\t"<<(*i)->Erfolgswert()<<"\n";
+//      os << (*i)->Name()<<"\t"<<b->Vorteile()<<"\t"<<(*i)->Erfolgswert()<<"\n";
+      os << (*i)->Name()<<"\n";//<<b->Vorteile()<<"\t"<<(*i)->Erfolgswert()<<"\n";
     }
    for (unsigned int i=0;i<berufe_clist->columns().size();++i)
       berufe_clist->set_column_auto_resize(i,true);

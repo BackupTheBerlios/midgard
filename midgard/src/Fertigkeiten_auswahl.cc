@@ -48,9 +48,6 @@ void Fertigkeiten_auswahl::Fachwissen()
 {
   maxpunkte_F = lernpunkte.Fach();
   fach_lernpunkte->set_text(itos(maxpunkte_F));
-  // Berufsvorteile
-//  std::vector<string> vorteile=hauptfenster->Berufs_Vorteile();
-
   //Speziesspezifische Fertigkeit
   for(std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
    {
@@ -58,12 +55,9 @@ void Fertigkeiten_auswahl::Fachwissen()
       {
         int erf=Database.pflicht.istPflicht(Werte.Spezies()->Name(),Typ,(*i)->Name(),Pflicht::ERFOLGSWERT);
         (*i)->set_Erfolgswert(erf);
-        int v=0;
-//        for (std::vector<string>::const_iterator j=vorteile.begin();j!=vorteile.end();++j)
-//            if ((*j)==(*i)->Name()) v=1;
         Lernschema::st_index I(Typ[0]->Short(),"Fachkenntnisse",(*i)->Name());
 //        (*i)->set_Lernpunkte(Database.lernschema.get_Lernpunkte(I)-v);
-        (*i)->set_Lernpunkte(Database.lernschema.get_Lernpunkte(I)-v);
+        (*i)->set_Lernpunkte(Database.lernschema.get_Lernpunkte(I));
         list_Fert_spez.push_back(*i);       
       }
    }
@@ -72,37 +66,15 @@ void Fertigkeiten_auswahl::Fachwissen()
   for(std::list<cH_MidgardBasicElement>::const_iterator i=LW.begin();i!=LW.end();++i)
    {
       if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name())) continue;
-//      int v=0;
-//      for (std::vector<string>::const_iterator j=vorteile.begin();j!=vorteile.end();++j)
-//          if ((*j)==(*i)->Name()) v=1;
       Lernschema::st_index I(Typ[0]->Short(),"Fachkenntnisse",(*i)->Name());
-//      (*i)->set_Lernpunkte(Database.lernschema.get_Lernpunkte(I)-v);
       (*i)->set_Lernpunkte(Database.lernschema.get_Lernpunkte(I));
       cH_Fertigkeit(*i)->set_Erfolgswert(cH_Fertigkeit(*i)->Anfangswert0());
       list_Fert_Fach.push_back(*i);
    }
-/*
-  // andere Fertigkeiten
-  for(std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
-   {
-    bool fachkenntnis=false;
-    for (std::list<cH_MidgardBasicElement>::const_iterator j=list_Fert.begin();j!=list_Fert.end();++j)
-       if((*j)->Name()==(*i)->Name()) { fachkenntnis=true; break; }
-    bool spezieskenntnis=false;
-    for (std::list<cH_MidgardBasicElement>::const_iterator j=list_Fert_spez.begin();j!=list_Fert_spez.end();++j)
-       if((*j)->Name()==(*i)->Name()) { spezieskenntnis=true; break; }
-    
-    if(!fachkenntnis && !spezieskenntnis)
-     {
-       cH_Fertigkeit(*i)->set_Erfolgswert(cH_Fertigkeit(*i)->Anfangswert0());
-       list_allg_Fert.push_back(*i);
-     }
-   }
-*/
+
    list_Fert_spez.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::LERNPUNKTE));
-//   list_Fert.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::LERNPUNKTE));
+   list_Fert_Fach.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::LERNPUNKTE));
    Gtk::OStream os(fach_clist_auswahl);
-//   fach_clist_auswahl->freeze();
    // Speziesspezifische Fertigkeiten
    for(std::list<cH_MidgardBasicElement>::iterator i=list_Fert_spez.begin();i!=list_Fert_spez.end();++i)
       { cH_Fertigkeit f(*i);
@@ -125,7 +97,7 @@ void Fertigkeiten_auswahl::Fachwissen()
              !Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name(),true) &&
              hauptfenster->region_check(f->Region()) )
          { 
-            Lernschema::st_index I(Typ[0]->Short(),"Fertigkeit",(*i)->Name());
+            Lernschema::st_index I(Typ[0]->Short(),"Fachkenntnisse",(*i)->Name());
             os << (*i)->Lernpunkte() <<"\t"<<f->Voraussetzung()<<"\t"
                << Database.lernschema.get_Pflicht_str(I) <<"\t"<<f->Name()<<"\t"
                << serfolgswert<<"\t"<<f->Attribut()<<"\t"
@@ -133,30 +105,9 @@ void Fertigkeiten_auswahl::Fachwissen()
             os.flush(&*i);
          }
       }
-/*
-   // andere Fertigkeiten ////////////////////////////////////////////////
-   os <<"\n\n";   
-   for(std::list<cH_MidgardBasicElement>::iterator i=list_allg_Fert.begin();i!=list_allg_Fert.end();++i)
-      { cH_Fertigkeit f(*i);
-        int v=0;
-        for (std::vector<string>::const_iterator j=vorteile.begin();j!=vorteile.end();++j)
-           if ((*j)==f->Name()) v=1;
-        std::string serfolgswert=itos(f->Erfolgswert());
-        if (serfolgswert=="0") serfolgswert="";
-        if ( f->Voraussetzungen(Werte) && hauptfenster->region_check(f->Region()) &&
-             !Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name()))
-         { os << f->Lernpunkte()-v<<"\t"<<f->Voraussetzung()<<"\t"<<""<<"\t"<<f->Name()<<"\t"
-              << serfolgswert<<"\t"<<f->Attribut()<<"\t"<<f->Kosten(Typ,Database.ausnahmen)<<"\n";
-           os.flush(&*i);
-         }
-      }
-*/
    for (unsigned int i=0;i<fach_clist_auswahl->columns().size();++i)
       fach_clist_auswahl->set_column_auto_resize(i,true);
-
    fach_clist_auswahl->set_selection_mode(GTK_SELECTION_MULTIPLE);
-//   fach_clist_auswahl->set_reorderable(true);
-//   fach_clist_auswahl->thaw();
 }
 
 void Fertigkeiten_auswahl::Allgemeinwissen()
@@ -175,7 +126,8 @@ void Fertigkeiten_auswahl::Allgemeinwissen()
        if((*j)->Name()==(*i)->Name()) { spezieskenntnis=true; break; }
 */    
 //    if(!fachkenntnis && !spezieskenntnis)
-     if(cH_Fertigkeit(*i)->LernLand()!=99)
+//     if(cH_Fertigkeit(*i)->LernLand() >= maxpunkte_A &&
+//        cH_Fertigkeit(*i)->LernStadt() >= maxpunkte_A )
        {
         cH_Fertigkeit(*i)->set_Erfolgswert(cH_Fertigkeit(*i)->Anfangswert());
         list_Fert_Allg.push_back(*i);
@@ -183,34 +135,30 @@ void Fertigkeiten_auswahl::Allgemeinwissen()
    }
    list_Fert_Allg.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::LERNPUNKTE));
    Gtk::OStream os(allgemein_clist_auswahl);
-//   fach_clist_auswahl->freeze();
    for(std::list<cH_MidgardBasicElement>::iterator i=list_Fert_Allg.begin();i!=list_Fert_Allg.end();++i)
       { cH_Fertigkeit f(*i);
-//        int v=0;
-//        for (std::vector<string>::const_iterator j=vorteile.begin();j!=vorteile.end();++j)
-//           if ((*j)==f->Name()) v=1;
+        int lernpunkte=99;
+        if(true) lernpunkte=f->LernLand();
+        if(true) lernpunkte=f->LernStadt();
         std::string serfolgswert=itos(f->Erfolgswert());
         if (serfolgswert=="0") serfolgswert="";
-        if ( f->Voraussetzungen(Werte) && hauptfenster->region_check(f->Region()) &&
+        if(lernpunkte >= maxpunkte_A)
+          if ( f->Voraussetzungen(Werte) && hauptfenster->region_check(f->Region()) &&
              !Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name()))
-         { os << f->Lernpunkte()<<'\t'<<f->Voraussetzung()<<"\t"<<f->Name()<<"\t"
-              << serfolgswert<<"\t"<<f->Attribut()<<"\t"<<f->Kosten(Typ,Database.ausnahmen)<<"\n";
-           os.flush(&*i);
-         }
+            { os << lernpunkte<<'\t'<<f->Voraussetzung()<<"\t"<<f->Name()<<"\t"
+                << serfolgswert<<"\t"<<f->Attribut()<<"\t"<<f->Kosten(Typ,Database.ausnahmen)<<"\n";
+              os.flush(&*i);
+            }
       }
    for (unsigned int i=0;i<allgemein_clist_auswahl->columns().size();++i)
       allgemein_clist_auswahl->set_column_auto_resize(i,true);
-
    allgemein_clist_auswahl->set_selection_mode(GTK_SELECTION_MULTIPLE);
-//   fach_clist_auswahl->set_reorderable(true);
-//   fach_clist_auswahl->thaw();
 }
 
 void Fertigkeiten_auswahl::Unge()
 {
   maxpunkte_U = lernpunkte.Unge();
   unge_lernpunkte->set_text(itos(maxpunkte_U));
-
   for(std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
    {
 /*
@@ -230,20 +178,17 @@ void Fertigkeiten_auswahl::Unge()
    }
    list_Fert_Unge.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::LERNPUNKTE));
    Gtk::OStream os(unge_clist_auswahl);
-//   fach_clist_auswahl->freeze();
    for(std::list<cH_MidgardBasicElement>::iterator i=list_Fert_Unge.begin();i!=list_Fert_Unge.end();++i)
       { cH_Fertigkeit f(*i);
-//        int v=0;
-//        for (std::vector<string>::const_iterator j=vorteile.begin();j!=vorteile.end();++j)
-//           if ((*j)==f->Name()) v=1;
         std::string serfolgswert=itos(f->Erfolgswert());
         if (serfolgswert=="0") serfolgswert="";
-        if ( f->Voraussetzungen(Werte) && hauptfenster->region_check(f->Region()) &&
-             !Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name()))
-         { os << f->Lernpunkte()<<'\t'<<f->Voraussetzung()<<"\t"<<f->Name()<<"\t"
-              << serfolgswert<<"\t"<<f->Attribut()<<"\t"<<f->Kosten(Typ,Database.ausnahmen)<<"\n";
-           os.flush(&*i);
-         }
+        if(f->Lernpunkte() >= maxpunkte_U)
+          if ( f->Voraussetzungen(Werte) && hauptfenster->region_check(f->Region()) &&
+               !Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name()))
+           { os << f->Lernpunkte()<<'\t'<<f->Voraussetzung()<<"\t"<<f->Name()<<"\t"
+                << serfolgswert<<"\t"<<f->Attribut()<<"\t"<<f->Kosten(Typ,Database.ausnahmen)<<"\n";
+             os.flush(&*i);
+           }
       }
    for (unsigned int i=0;i<unge_clist_auswahl->columns().size();++i)
       unge_clist_auswahl->set_column_auto_resize(i,true);
