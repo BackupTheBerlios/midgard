@@ -1,4 +1,4 @@
-// $Id: export_common.h,v 1.3 2001/11/06 09:06:25 christof Exp $
+// $Id: export_common.h,v 1.4 2001/11/13 10:12:20 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -84,3 +84,8 @@ static bool fetch_and_write_bool_attrib(FetchIStream &is,std::ostream &o,const s
    return val;
 }
 
+static std::string typ_standardisierung(const std::string &t)
+{  if (t=="Ord") return "Or";
+   else if (t=="Ass") return "As";
+   else return t;
+}

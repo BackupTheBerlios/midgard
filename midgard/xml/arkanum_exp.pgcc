@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.pgcc,v 1.7 2001/11/13 10:12:20 christof Exp $
+// $Id: arkanum_exp.pgcc,v 1.8 2001/11/13 10:12:57 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -107,7 +107,7 @@ void arkanum_speichern(std::ostream &o)
       // wert, attribut, [p+s]_element 
       exec sql declare cursor_lp cursor for 
       	select typ,lernpunkte,pflicht from lernschema 
-      	where fertigkeit=:FERTIGK and art='Fertigkeit'
+      	where fertigkeit=:ZAUBER and art='Zauber'
       	order by lernpunkte,typ;
       exec sql open cursor_lp;
       while (!sqlca.sqlcode) 
