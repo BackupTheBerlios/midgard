@@ -1,4 +1,4 @@
-// $Id: export_common.h,v 1.7 2001/11/20 22:18:06 christof Exp $
+// $Id: export_common.h,v 1.8 2001/12/05 07:51:55 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -22,19 +22,32 @@
 #include <iostream>
 
 std::string toXML(const std::string &s);
+
 int fetch_int(FetchIStream &is,int standard=0);
 void write_int(std::ostream &o,const std::string &wert,int val, int indent=0);
 void write_int_attrib(std::ostream &o,const std::string &wert,int val, int standard=0);
 int fetch_and_write_int(FetchIStream &is,std::ostream &o,const std::string &wert,int indent=0);
 int fetch_and_write_int_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,int standard=0);
+
 std::string fetch_string(FetchIStream &is,const std::string &standard="");
 void write_string(std::ostream &o,const std::string &wert,const std::string &val,int indent=0);
 void write_string_attrib(std::ostream &o,const std::string &wert,const std::string &val,const std::string &standard="");
 std::string fetch_and_write_string(FetchIStream &is,std::ostream &o,const std::string &wert,int indent=0);
 std::string fetch_and_write_string_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,const std::string &standard="");
+
 bool fetch_bool(FetchIStream &is,const bool &standard=false);
 void write_bool_attrib(std::ostream &o,const std::string &wert,bool val, bool standard=false);
 bool fetch_and_write_bool_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,const bool &standard=false);
+
 std::string typ_standardisierung(const std::string &t);
 std::string fetch_typ(FetchIStream &is,const std::string &standard="");
 std::string fetch_and_write_typ_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,const std::string &standard="");
+
+// common routines for exporting from tables
+void grund_standard_ausnahme(ostream &o, 
+	const std::string &table, const std::string &name,
+	const std::string &condition="");
+void lernschema(ostream &o, const std::string &art, const std::string &name);
+void ausnahmen(ostream &o, const std::string &art, const std::string &name);
+void pflicht_lernen(ostream &o, const std::string &name);
+void verbot_lernen(ostream &o, const std::string &name);

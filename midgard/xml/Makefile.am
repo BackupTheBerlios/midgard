@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.13 2001/11/30 17:20:27 christof Exp $
+# $Id: Makefile.am,v 1.14 2001/12/05 07:51:55 christof Exp $
 
 noinst_PROGRAMS = all_exp 
 EXTRA_PROGRAMS = arkanum_exp kido_exp fertigk_exp land_sprache_exp waffen_exp
@@ -9,12 +9,13 @@ EXTRA_PROGRAMS = arkanum_exp kido_exp fertigk_exp land_sprache_exp waffen_exp
 CXXFLAGS = @CXXFLAGS@ @KOMPONENTEN_INCLUDES@ \
            -DPACKAGE_DATA_DIR=\"$(pkgdatadir)/\"
 
-arkanum_exp_SOURCES= arkanum_exp.cc export_common.cc
-kido_exp_SOURCES= kido_exp.cc export_common.cc
-fertigk_exp_SOURCES= fertigk_exp.cc export_common.cc
-land_sprache_exp_SOURCES= land_sprache_exp.cc export_common.cc
-waffen_exp_SOURCES=waffen_exp.cc export_common.cc
-all_exp_SOURCES=all_exp.cc export_common.cc
+common_sources = export_common.cc common_exp.cc
+arkanum_exp_SOURCES= arkanum_exp.cc $(common_sources)
+kido_exp_SOURCES= kido_exp.cc $(common_sources)
+fertigk_exp_SOURCES= fertigk_exp.cc $(common_sources)
+land_sprache_exp_SOURCES= land_sprache_exp.cc $(common_sources)
+waffen_exp_SOURCES=waffen_exp.cc $(common_sources)
+all_exp_SOURCES=all_exp.cc $(common_sources)
 
 all_exp_LDADD=arkanum_nm.o kido_nm.o fertigk_nm.o land_sprache_nm.o \
 	waffen_nm.o

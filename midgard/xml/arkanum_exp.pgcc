@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.pgcc,v 1.26 2001/12/04 11:24:47 christof Exp $
+// $Id: arkanum_exp.pgcc,v 1.27 2001/12/05 07:51:55 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -28,10 +28,9 @@ exec sql include sqlca;
 
 void arkanum_speichern(std::ostream &o)
 {  
-   o << " <Zauber>\n";
    Transaction t;
-   exec sql allocate descriptor spalten;
 
+   o << " <Zauber>\n";
  { FetchIStream is;
    Query q("select name, region, stufe, kosten, ap, art, "
    	"ursprung, agens, prozess, reagens, "
@@ -63,102 +62,16 @@ void arkanum_speichern(std::ostream &o)
    fetch_and_write_bool_attrib(is, o, "Spruchrolle");
    fetch_and_write_string_attrib(is, o, "Thaumagramm");
    o << ">\n";
-   {  exec sql begin declare section;
-      const char *ZAUBER=zauber.c_str(GARNIX);
-      char TYPEN[40][40];
-      exec sql end declare section;
+   grund_standard_ausnahme(o, "zauber_typen",zauber);
+   lernschema(o, "Zauber",zauber);
+   ausnahmen(o, "z", zauber);
       
-      exec sql select typ into :TYPEN from zauber_typen
-      	where name=:ZAUBER and standard='G'
-      	order by typ;
-      if (!sqlca.sqlcode) 
-      {  o << "    <Grund>";
-         for (int i=0;i<sqlca.sqlerrd[2];++i)
-         {  o << typ_standardisierung(TYPEN[i]);
-            if (i+1 < sqlca.sqlerrd[2]) o << ',';
-         }
-         o << "</Grund>\n";
-      }
-      exec sql select typ into :TYPEN from zauber_typen
-      	where name=:ZAUBER and standard='S'
-      	order by typ;
-      if (!sqlca.sqlcode) 
-      {  o << "    <Standard>";
-         for (int i=0;i<sqlca.sqlerrd[2];++i)
-         {  o << typ_standardisierung(TYPEN[i]);
-            if (i+1 < sqlca.sqlerrd[2]) o << ',';
-         }
-         o << "</Standard>\n";
-      }
-      exec sql select typ into :TYPEN from zauber_typen
-      	where name=:ZAUBER and standard='A'
-      	order by typ;
-      if (!sqlca.sqlcode) 
-      {  o << "    <Ausnahme>";
-         for (int i=0;i<sqlca.sqlerrd[2];++i)
-         {  o << typ_standardisierung(TYPEN[i]);
-            if (i+1 < sqlca.sqlerrd[2]) o << ',';
-         }
-         o << "</Ausnahme>\n";
-      }
-
-//************** lernschema *****************
-      // wert, attribut, [p+s]_element 
-      exec sql declare cursor_lp cursor for 
-      	select typ,0 as kosten,wert,pflicht from lernschema_4
-      	where name=:ZAUBER and art='Zauber'
-      	order by wert,typ;
-      exec sql open cursor_lp;
-      while (!sqlca.sqlcode) 
-      {  exec sql fetch from cursor_lp into sql descriptor spalten;
-         if (sqlca.sqlcode) break;
-         FetchIStream is2("spalten");
-         o << "    <Lernschema";
-         fetch_and_write_typ_attrib(is2, o, "Typ");
-         fetch_and_write_int_attrib(is2, o, "Lernpunkte");
-         fetch_and_write_int_attrib(is2, o, "Erfolgswert");
-         fetch_and_write_bool_attrib(is2, o, "Pflicht");
-         o << "/>\n";
-      }
-      exec sql close cursor_lp;
-      
-//************** ausnahmen *****************
-      exec sql declare cursor_ausn cursor for 
-      	select spezies, herkunft, typ, beruf, stand, standard
-      	from ausnahmen 
-      	where name=:ZAUBER and art='z'
-      	order by spezies,herkunft,typ,beruf,stand;
-      exec sql open cursor_ausn;
-      while (!sqlca.sqlcode) 
-      {  exec sql fetch from cursor_ausn into sql descriptor spalten;
-         if (sqlca.sqlcode) break;
-         FetchIStream is2("spalten");
-         o << "    <regionaleBesonderheit";
-         fetch_and_write_string_attrib(is2, o, "Spezies");
-         fetch_and_write_string_attrib(is2, o, "Herkunft");
-         fetch_and_write_typ_attrib(is2, o, "Typ");
-         fetch_and_write_string_attrib(is2, o, "Beruf");
-         fetch_and_write_string_attrib(is2, o, "Stand");
-         fetch_and_write_string_attrib(is2, o, "Standard");
-         o << "/>\n";
-      }
-      exec sql close cursor_ausn;
-
-/* 7.2      ex ec sql select beschreibung into sql descriptor spalten 
-      	from zauber_beschreibung where name=:ZAUBER 
-      	and beschreibung is not null and beschreibung!=''; */
 //****************** Beschreibung *************************
-      exec sql declare cursor_b cursor for 
-      	select beschreibung from zauber_beschreibung 
-      	where name=:ZAUBER and beschreibung is not null and beschreibung!='';
-      exec sql open cursor_b;
-      if (!sqlca.sqlcode) exec sql fetch from cursor_b into sql descriptor spalten;
-      if (!sqlca.sqlcode)
-      {  FetchIStream is2("spalten");
+      Query query2("select beschreibung from zauber_beschreibung "
+      	"where name='"+zauber+"' and beschreibung is not null and beschreibung!=''");
+      FetchIStream is2;
+      if ((query2>>is2).good()) 
          fetch_and_write_string(is2,o,"Beschreibung",4);
-      }
-      exec sql close cursor_b;
-   }
    o << "  </Spruch>\n";
   }
    o << " </Zauber>\n";
@@ -167,18 +80,11 @@ void arkanum_speichern(std::ostream &o)
    //***************** Zauberwerk ********************************
 
    o << " <Zauberwerke>\n";
-   exec sql declare zauberwerk_curs cursor for
-   	select name, region, art, stufe, zeitaufwand, kosten, kosten_gfp
-   	from zauberwerk
-   	order by coalesce(region,''),name;
-   exec sql open zauberwerk_curs;
-   SQLerror::test(__FILELINE__);
-  while (true)
-  {exec sql fetch zauberwerk_curs into sql descriptor spalten;
-   SQLerror::test(__FILELINE__,100);
-   if (sqlca.sqlcode) break;
-   FetchIStream is("spalten");
-   o << "  <Zauberwerk";
+  {Query query("select name, region, art, stufe, zeitaufwand, kosten, kosten_gfp"
+  	" from zauberwerk order by coalesce(region,''),name");
+   FetchIStream is;
+  while ((query>>is).good())
+  {o << "  <Zauberwerk";
    string zauberwerk=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
    fetch_and_write_string_attrib(is, o, "Art");
@@ -187,97 +93,41 @@ void arkanum_speichern(std::ostream &o)
    fetch_and_write_string_attrib(is, o, "Geldaufwand");
    fetch_and_write_string_attrib(is, o, "Kosten");
    o << ">\n";
-   {  exec sql begin declare section;
-      const char *ZAUBERWERK=zauberwerk.c_str(GARNIX);
-      char TYPEN[40][40];
-      const char *STUFE=stufe.c_str(GARNIX);
-      exec sql end declare section;
-      
-      exec sql select typ into :TYPEN from zauberwerk_typen
-      	where name=:ZAUBERWERK and standard='G' and stufe=:STUFE
-      	order by typ;
-      if (!sqlca.sqlcode) 
-      {  o << "    <Grund>";
-         for (int i=0;i<sqlca.sqlerrd[2];++i)
-         {  o << typ_standardisierung(TYPEN[i]);
-            if (i+1 < sqlca.sqlerrd[2]) o << ',';
-         }
-         o << "</Grund>\n";
-      }
-      exec sql select typ into :TYPEN from zauberwerk_typen
-      	where name=:ZAUBERWERK and standard='S' and stufe=:STUFE
-      	order by typ;
-      if (!sqlca.sqlcode) 
-      {  o << "    <Standard>";
-         for (int i=0;i<sqlca.sqlerrd[2];++i)
-         {  o << typ_standardisierung(TYPEN[i]);
-            if (i+1 < sqlca.sqlerrd[2]) o << ',';
-         }
-         o << "</Standard>\n";
-      }
-      exec sql select typ into :TYPEN from zauberwerk_typen
-      	where name=:ZAUBERWERK and standard='A' and stufe=:STUFE
-      	order by typ;
-      if (!sqlca.sqlcode) 
-      {  o << "    <Ausnahme>";
-         for (int i=0;i<sqlca.sqlerrd[2];++i)
-         {  o << typ_standardisierung(TYPEN[i]);
-            if (i+1 < sqlca.sqlerrd[2]) o << ',';
-         }
-         o << "</Ausnahme>\n";
-      }
+   
+   grund_standard_ausnahme(o, "zauberwerk_typen", zauberwerk, "stufe='"+stufe+"'");
+
 //************************ Voraussetzungen ****************************
-      // Zauberwerk Voraussetzungen
-      exec sql declare zaubwerk_vor_curs cursor for 
-      	select voraussetzung,verbindung from zauberwerk_voraussetzung 
-      	where name=:ZAUBERWERK
-      	order by voraussetzung;
-      exec sql open zaubwerk_vor_curs;
-      while (!sqlca.sqlcode) 
-      {  exec sql fetch from zaubwerk_vor_curs into sql descriptor spalten;
-         if (sqlca.sqlcode) break;
-         FetchIStream is2("spalten");
-         o << "    <Voraussetzung";
-         fetch_and_write_string_attrib(is2, o, "Fertigkeit");
-         fetch_and_write_string_attrib(is2, o, "Verbindung");
-         o << "/>\n";
-      }
-      exec sql close zaubwerk_vor_curs;
+	// Zauberwerk Voraussetzungen
+   Query query2("select voraussetzung,verbindung from zauberwerk_voraussetzung"
+	" where name='"+zauberwerk+"' order by voraussetzung");
+   FetchIStream is2;
+   while ((query2>>is2).good())
+   {  o << "    <Voraussetzung";
+      fetch_and_write_string_attrib(is2, o, "Fertigkeit");
+      fetch_and_write_string_attrib(is2, o, "Verbindung");
+      o << "/>\n";
    }
    o << "  </Zauberwerk>\n";
   }
-   exec sql close zauberwerk_curs;
-   SQLerror::test(__FILELINE__);
    o << " </Zauberwerke>\n";
+ }
 
 //********************* Spezialgebiete ********************
    o << " <Spezialgebiete>\n";
-   exec sql declare spezial_curs cursor for
-   	select typ, spezialgebiet, nr, spezial, spezial2
-   	from spezialgebiete
-   	order by typ,nr;
-   exec sql open spezial_curs;
-   SQLerror::test(__FILELINE__);
-  while (true)
-  {exec sql fetch spezial_curs into sql descriptor spalten;
-   SQLerror::test(__FILELINE__,100);
-   if (sqlca.sqlcode) break;
-   FetchIStream is("spalten");
-   o << "  <Spezialgebiet";
-   fetch_and_write_typ_attrib(is, o, "Typ");
-   fetch_and_write_string_attrib(is, o, "Name");
-   fetch_and_write_int_attrib(is, o, "MCG:Index");
-   fetch_and_write_string_attrib(is, o, "Spezialisierung");
-   fetch_and_write_string_attrib(is, o, "Sekundärelement");
-   o << "/>\n";
-  }
-   exec sql close spezial_curs;
-   SQLerror::test(__FILELINE__);
+  {Query query("select typ, spezialgebiet, nr, spezial, spezial2"
+  	" from spezialgebiete order by typ,nr");
+   FetchIStream is;
+   while ((query>>is).good())
+   {  o << "  <Spezialgebiet";
+      fetch_and_write_typ_attrib(is, o, "Typ");
+      fetch_and_write_string_attrib(is, o, "Name");
+      fetch_and_write_int_attrib(is, o, "MCG:Index");
+      fetch_and_write_string_attrib(is, o, "Spezialisierung");
+      fetch_and_write_string_attrib(is, o, "Sekundärelement");
+      o << "/>\n";
+   }
    o << " </Spezialgebiete>\n";
-
-//*************************************************************   
-   
-   exec sql deallocate descriptor spalten;
+  }
 }
 
 #ifndef XML_NO_MAIN
