@@ -13869,40 +13869,6 @@ Drucken</label>
 		</child>
 
 		<widget>
-		  <class>GtkScrolledWindow</class>
-		  <name>scrolledwindow66</name>
-		  <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
-		  <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
-		  <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
-		  <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
-		  <child>
-		    <left_attach>0</left_attach>
-		    <right_attach>1</right_attach>
-		    <top_attach>0</top_attach>
-		    <bottom_attach>3</bottom_attach>
-		    <xpad>0</xpad>
-		    <ypad>0</ypad>
-		    <xexpand>True</xexpand>
-		    <yexpand>True</yexpand>
-		    <xshrink>False</xshrink>
-		    <yshrink>False</yshrink>
-		    <xfill>True</xfill>
-		    <yfill>True</yfill>
-		  </child>
-
-		  <widget>
-		    <class>GtkViewport</class>
-		    <name>viewport_ausruestung</name>
-		    <cxx_visibility>protected</cxx_visibility>
-		    <shadow_type>GTK_SHADOW_NONE</shadow_type>
-
-		    <widget>
-		      <class>Placeholder</class>
-		    </widget>
-		  </widget>
-		</widget>
-
-		<widget>
 		  <class>GtkTable</class>
 		  <name>table105</name>
 		  <rows>2</rows>
@@ -14023,6 +13989,40 @@ Drucken</label>
 			  <fill>False</fill>
 			</child>
 		      </widget>
+		    </widget>
+		  </widget>
+		</widget>
+
+		<widget>
+		  <class>GtkScrolledWindow</class>
+		  <name>scrolledwindow66</name>
+		  <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
+		  <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+		  <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+		  <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
+		  <child>
+		    <left_attach>0</left_attach>
+		    <right_attach>1</right_attach>
+		    <top_attach>0</top_attach>
+		    <bottom_attach>3</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>True</xexpand>
+		    <yexpand>True</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>True</yfill>
+		  </child>
+
+		  <widget>
+		    <class>GtkViewport</class>
+		    <name>viewport_ausruestung</name>
+		    <cxx_visibility>protected</cxx_visibility>
+		    <shadow_type>GTK_SHADOW_NONE</shadow_type>
+
+		    <widget>
+		      <class>Placeholder</class>
 		    </widget>
 		  </widget>
 		</widget>
@@ -15677,6 +15677,11 @@ KS
   <class>GtkWindow</class>
   <name>WindowInfo</name>
   <visible>False</visible>
+  <signal>
+    <name>delete_event</name>
+    <handler>on_WindowInfo_delete_event</handler>
+    <last_modification_time>Wed, 17 Apr 2002 09:44:40 GMT</last_modification_time>
+  </signal>
   <title>Info</title>
   <type>GTK_WINDOW_DIALOG</type>
   <position>GTK_WIN_POS_NONE</position>
