@@ -7,6 +7,10 @@ NEWS IN VERSION 0.8.2
    - gewürfelte 100 bei angeborenen Fertigkeiten wird berücksichtigt
 
 TODO: ('-' zeigt CP an)
+
+* Das Würfel Icon könnte eigentlich überall hin, wo gewürfelt wird,
+  also noch bei den restlichen, wie Beruf und Geld usw. außerdem
+  bei "Steigern" die Eigensch.-Schaltfläche
 * Zufallsabenteurer Grad 1:
    # Berufe 
    # Schreiben+9 als Pflichtebdingung

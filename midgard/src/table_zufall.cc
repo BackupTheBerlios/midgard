@@ -51,7 +51,7 @@ void table_zufall::on_button_zufall_voll_clicked()
       if(checkbutton_spezies->get_active()) v=Zufall::e_Vorgabe(v|Zufall::eSpezies);
       if(checkbutton_typ->get_active())     v=Zufall::e_Vorgabe(v|Zufall::eTyp);
       if(checkbutton_herkunft->get_active())v=Zufall::e_Vorgabe(v|Zufall::eHerkunft);
-      if(checkbutton_angeb_fert->get_active())v=Zufall::e_Vorgabe(v|Zufall::eAngeFert);
+      if(checkbutton_ange_fert->get_active())v=Zufall::e_Vorgabe(v|Zufall::eAngeFert);
       if(checkbutton_werte->get_active())
         {
          if(checkbutton_st->get_active())      v=Zufall::e_Vorgabe(v|Zufall::eSt);
