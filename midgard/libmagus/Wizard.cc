@@ -21,18 +21,25 @@
 #include "Wizard.hh"
 #include <Misc/inbetween.h>
 #include "Abenteurer.hh"
+#include <Misc/TraceNV.h>
+
+static const UniqueValue::value_t trace_channel=ManuProC::Tracer::channels.get();
+static ManuProC::Tracer::Environment trace_channel_e("DEBUG_WIZARD",trace_channel);
 
 void Wizard::set(esteps was)
-{  act_step=was;
+{  ManuProC::Trace _t(trace_channel,__FUNCTION__,this,was);
+   act_step=was;
 }
 
 void Wizard::next_step()
-{  if (in(act_step.Value(),Inaktiv,FERTIG)) return;
+{  ManuProC::Trace _t(trace_channel,__FUNCTION__,this,act_step.Value());
+   if (in(act_step.Value(),Inaktiv,FERTIG)) return;
    act_step=esteps(int(act_step.Value())+1);
 }
 
 bool Wizard::can_skip(const Abenteurer &A)
-{  switch (act_step.Value())
+{  ManuProC::Trace _t(trace_channel,__FUNCTION__,this,act_step.Value());
+   switch (act_step.Value())
    {  case SPEZIALWAFFE:
    	 return !A.Typ1()->Spezialwaffe() && !A.Typ2()->Spezialwaffe();
       case SPEZIALGEBIET:
@@ -66,17 +73,20 @@ bool Wizard::can_skip(const Abenteurer &A)
 }
 
 void Wizard::set(esteps was,const Abenteurer &A)
-{  set(was);
+{  ManuProC::Trace _t(trace_channel,__FUNCTION__,this,was,"Abent");
+   set(was);
    skip_if_possible(A);
 }
 
 void Wizard::next_step(const Abenteurer &A)
-{  next_step();
+{  ManuProC::Trace _t(trace_channel,__FUNCTION__,this,act_step.Value());
+   next_step();
    skip_if_possible(A);
 }
 
 void Wizard::done(esteps was,const Abenteurer &A)
-{  if (act_step.Value()==Inaktiv) return;
+{  ManuProC::Trace _t(trace_channel,__FUNCTION__,this,was,NV("act_step",act_step.Value()));
+   if (act_step.Value()==Inaktiv) return;
    // schauen ob das sinnvoll war - reicht das schon?
    if (was<act_step.Value()) set(was);
    else if (was==act_step.Value()) next_step();
@@ -84,7 +94,8 @@ void Wizard::done(esteps was,const Abenteurer &A)
 }
 
 void Wizard::skip_if_possible(const Abenteurer &A)
-{  while (can_skip(A)) next_step();
+{  ManuProC::Trace _t(trace_channel,__FUNCTION__,this,act_step.Value());
+   while (can_skip(A)) next_step();
 }
 
 Wizard::Wizard()

@@ -208,8 +208,8 @@ void table_grundwerte::on_radiobutton_stadt_land_toggled()
   if(block_changed) return;
   hauptfenster->getChar().getWizard().done(Wizard::STADTLAND,hauptfenster->getAben());
 
-  if(radiobutton_stadt->get_active()) hauptfenster->getAben().setStadtLand(Enums::Stadt);   
-  else                                hauptfenster->getAben().setStadtLand(Enums::Land);   
+  if(radiobutton_stadt->get_active()) hauptfenster->getAben().setStadtLand(Enums::Stadt);
+  else                                hauptfenster->getAben().setStadtLand(Enums::Land);
 }
 
 

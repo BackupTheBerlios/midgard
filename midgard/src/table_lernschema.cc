@@ -35,14 +35,12 @@ void table_lernschema::wizard_changed(gpointer p)
        || bool(vabenteurer->getAbenteurer().getOptionen().OptionenCheck(Optionen::NSC_only).active);
   button_angeborene_fert->set_sensitive(always_sens 
   	|| vabenteurer->proxies.wizard.Value()==Wizard::ANGEBORENEFERTIGKEITEN);
-  button_kido_auswahl->set_sensitive(always_sens 
-  	|| vabenteurer->proxies.wizard.Value()==Wizard::KIDO_STIL);
   togglebutton_lernpunkte_edit->set_sensitive(always_sens
   	|| vabenteurer->proxies.wizard.Value()==Wizard::LERNPUNKTE);
-  button_angeborene_fert->set_sensitive(always_sens
-  	|| vabenteurer->proxies.wizard.Value()==Wizard::ANGEBORENEFERTIGKEITEN);
   button_sensitive(always_sens
   	|| vabenteurer->proxies.wizard.Value()==Wizard::WAEHLEN);
+  button_kido_auswahl->set_sensitive(always_sens 
+  	|| vabenteurer->proxies.wizard.Value()==Wizard::KIDO_STIL);
 }
 
 void table_lernschema::init(midgard_CG *h)
@@ -53,7 +51,7 @@ void table_lernschema::init(midgard_CG *h)
 //  gwr_auswahl=ENone;
   vabenteurer->signal_anderer_abenteurer().connect(SigC::slot(*this,&table_lernschema::refresh));
   vabenteurer->proxies.undo_changed.connect(SigC::slot(*this,&table_lernschema::refresh));
-  vabenteurer->proxies.wizard.signal_changed().connect(SigC::slot(*this,&table_lernschema::wizard_changed));
+  h->signal_any_wizard_change().connect(SigC::slot(*this,&table_lernschema::wizard_changed));
 }
 
 table_lernschema::table_lernschema(GlademmData *_data)
@@ -934,4 +932,5 @@ void table_lernschema::clean_lernschema_trees()
   tree_kido_lernschema=0;
   tree_waffen_lernschema=0;
 }
+
 

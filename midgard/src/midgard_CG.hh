@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.348 2004/03/09 12:53:10 thoma Exp $
+// $Id: midgard_CG.hh,v 1.349 2004/03/22 07:49:21 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -48,6 +48,8 @@ private:
 	WindowInfo *InfoFenster;
         SigC::Connection connection_status;
         TooltipViewList toolview;
+        
+        SigC::Signal1<void,void*> any_wizard_change;
 
 /////////////////////////////////////////////////////////////////////////////
         // Drucken
@@ -82,6 +84,7 @@ private:
         void on_wizard_starten_activate();
         void show_wizard_active(bool b);
         bool wizard_aktiv_button_release_event(GdkEventButton *ev);
+        void call_any_wizard_change(void*);
 
         // Load & Save
         void on_exportieren_activate();
@@ -206,5 +209,7 @@ private:
 	// wird von Wizard verwendet
         void wizard_do_something(int page,const std::string &text);
         void wizard_changed(gpointer);
+        SigC::Signal1<void,void*> &signal_any_wizard_change()
+        {  return any_wizard_change; }
 };
 #endif

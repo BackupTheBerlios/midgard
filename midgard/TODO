@@ -1,15 +1,15 @@
 ##### DAS IST DAS WICHTIGSTE #########################################
-* Auswahl des ERSTEN Elementes eines Trees => Komponenten
 * Wizard aktiv
 * Lernpunkte werden nie aktiv, angeb. Fertigkeiten bleiben aktiv
 ######################################################################
 
 #### das finde ich (CP) beunruhigend #################################
-- gtk2 icons sind nicht da
 - irgendwie werden ziemlich oft neue Abenteurer erzeugt (die Nummern gehen
 	hoch)
 ######################################################################
 
+- Spezies::getSpezies bräuchte kein Datenbank Argument
+- undosave _vor_ jeder Änderung (am Besten in libmagus selbst)
 * Region nach Herkunft automatisch einschalten
 * Berufe aus dem Gildenbrief
 * Mehrseitige Ausrüstungen
@@ -105,8 +105,6 @@ was bedeutet:
 - Dinge in Dialoge verschieben?
 
 - Expander ?
-
-- Neuanzeigen wieder nach Tabs trennen (schneller!)
 
 - Lernschema: Würfeln/Eingeben Button noch getrennt
 

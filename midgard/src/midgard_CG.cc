@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.335 2004/02/02 07:28:30 christof Exp $
+// $Id: midgard_CG.cc,v 1.336 2004/03/22 07:49:21 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -53,16 +53,24 @@ static void ImageLabelKnopf(Gtk::Button *b, Glib::RefPtr<Gdk::Pixbuf> pb, const 
    b->set_relief(Gtk::RELIEF_NONE);
 }
 
+void midgard_CG::call_any_wizard_change(void *p)
+{  signal_any_wizard_change()(p);
+}
+
 midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
 : news_columns(), undo_menu(),menu_kontext(),
 	InfoFenster(info), toolview(_tooltips)
 { news_columns.attach_to(*list_news);
+  aktiver.setAbenteurer(i);
 
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
 
   table_optionen->set_Hauptfenster(this);
   
-  srand(time(0));
+  getChar().proxies.wizard.signal_changed().connect(SigC::slot(*this,&midgard_CG::call_any_wizard_change));
+  getChar().proxies.wizard_mode.signal_changed().connect(SigC::slot(*this,&midgard_CG::call_any_wizard_change));
+  
+//  srand(time(0));
 // ToolBar: StyleIcon
   button_neuer_charakter->add(MagusImage("NewChar-trans-50.xpm"),"Neu mit Wizard",SigC::slot(*this,&midgard_CG::on_neuer_charakter));
   button_neuer_charakter->add(MagusImage("NewChar-trans-50.xpm"),"Neu ohne Wizard",SigC::slot(*this,&midgard_CG::on_neuer_charakter_clicked));
@@ -94,11 +102,15 @@ midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
   menu_init();
   init_statusbar();
 
+#if 0
   if (!AbenteurerAuswahl::Chars.empty())
 	aktiver.setAbenteurer(AbenteurerAuswahl::Chars.begin());
   else if(Programmoptionen.OptionenCheck(Magus_Optionen::Wizard_immer_starten).active) 
        on_wizard_starten_activate();
   else on_neuer_charakter_clicked();
+#endif
+
+
   if(Programmoptionen.OptionenCheck(Magus_Optionen::Notebook_start).active.Value() &&
   	Programmoptionen.OptionenCheck(Magus_Optionen::Notebook_start).wert!=-1) 
      notebook_main->set_current_page(Programmoptionen.OptionenCheck(Magus_Optionen::Notebook_start).wert);
@@ -121,7 +133,7 @@ midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
   table_ausruestung->init(this); // qq
   table_zufall->init(this); // qq
   
-  aktiver.proxies.wizard.signal_changed().connect(SigC::slot(*this,&midgard_CG::wizard_changed));
+  signal_any_wizard_change().connect(SigC::slot(*this,&midgard_CG::wizard_changed));
   aktiver.proxies.undo_changed.connect(SigC::slot(*this,&midgard_CG::refresh));
   aktiver.signal_anderer_abenteurer().connect(SigC::slot(*this,&midgard_CG::refresh));
   AbenteurerAuswahl::Chars.signal_changed().connect(SigC::slot(*this,&midgard_CG::refresh_char_list));
@@ -129,6 +141,9 @@ midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
   aktiver.signal_anderer_abenteurer()();
   aktiver.proxies.wizard.signal_changed()(0);
   AbenteurerAuswahl::Chars.signal_changed()();
+
+  if(Programmoptionen.OptionenCheck(Magus_Optionen::Wizard_immer_starten).active) 
+       on_wizard_starten_activate();
 }
 
 midgard_CG::~midgard_CG()

@@ -21,6 +21,7 @@ void table_grundwerte::init(midgard_CG *h)
 
   abentaus->signal_anderer_abenteurer().connect(SigC::bind(SigC::slot(*this,&table_grundwerte::zeige_werte),true));
   abentaus->proxies.undo_changed.connect(SigC::bind(SigC::slot(*this,&table_grundwerte::zeige_werte),true));
+#warning wizard  
 //  zeige_werte(); // noch weg
 }
 

@@ -55,6 +55,7 @@ void table_steigern::init(midgard_CG *h)
   hauptfenster->getChar().signal_anderer_abenteurer().connect(SigC::slot(*this,&table_steigern::refresh));
   hauptfenster->getChar().proxies.undo_changed.connect(SigC::slot(*this,&table_steigern::refresh));
 //  hauptfenster->getChar().proxies.wizard.signal_changed().connect(SigC::slot(*this,&table_steigern::wizard_changed));
+//  h->signal_any_wizard_change().connect(SigC::slot(*this,&table_steigern::wizard_changed));
 }
 
 #if 0
