@@ -24,6 +24,7 @@
 // This file is for your program, I won't touch it again!
 
 #include "Zufall.hh"
+#include "Fertigkeiten_angeboren.hh"
 
 void Zufall::Voll()
 {
@@ -35,10 +36,12 @@ enum Zufall::B_VORGABE_BITS &operator++(enum Zufall::B_VORGABE_BITS &s)
 {  return (enum Zufall::B_VORGABE_BITS)(++(int&)s);
 }
 
-struct st_vor{bool spezies; bool typ; bool herkunft; bool st; bool gs; bool gw; bool ko; 
+struct st_vor{bool spezies; bool typ; bool herkunft; bool angefert;
+                     bool st; bool gs; bool gw; bool ko; 
                      bool in; bool zt; bool au; bool pa; bool wk; bool sb; bool b;
               st_vor() :
-                  spezies(true),typ(true),herkunft(true),st(true),gs(true),gw(true),ko(true),
+                  spezies(true),typ(true),herkunft(true),angefert(true),
+                  st(true),gs(true),gw(true),ko(true),
                   in(true),zt(true),au(true),pa(true),wk(true),sb(true),b(true){}
 /*
               st_vor(bool _spezies,_typ,_herkunft,_st,_gs,_gw,_ko,_in,_zt,_au,_pa,_wk,_sb,_b) :
@@ -57,6 +60,7 @@ void Zufall::Teil(e_Vorgabe vorgabe)
     if (i==B_Spezies) sv.spezies=false;
     if (i==B_Typ) sv.typ=false;
     if (i==B_Herkunft) sv.herkunft=false;
+    if (i==B_AngeFert) sv.angefert=false;
     if (i==B_St) sv.st=false;
     if (i==B_Gs) sv.gs=false;
     if (i==B_Gw) sv.gw=false;
@@ -93,7 +97,8 @@ void Zufall::Teil(e_Vorgabe vorgabe)
    else            Aben->getWerte().setHerkunft(oldAben.getWerte().Herkunft());
    setMuttersprache();
    Aben->getWerte().setUeberleben(getUeberleben());
-   setAngebFert();
+   if(sv.angefert) setAngebFert();
+   else            Aben->List_Fertigkeit_ang()=oldAben.List_Fertigkeit_ang();
    Lernschema();
 // Lücke Beruf
    hauptfenster->table_lernschema->geld_wuerfeln();
@@ -109,24 +114,21 @@ extern std::vector<MidgardBasicElement_mutable> List_to_Vector(std::list<Midgard
 void Zufall::setAngebFert()
 {
    Aben->setAngebFert();
-
    int wurf;
-int c=0;
    do{
       wurf=random.integer(0,100); 
-if(c<5) c=100;
       if(wurf==100) 
        { std::list<MidgardBasicElement_mutable> L=LL.getMBEm(Aben,LernListen::lAngebFert);
          std::vector<MidgardBasicElement_mutable> V=List_to_Vector(L,Aben,99);
          if(V.empty()) break;
          int i=random.integer(0,V.size()-1);
-cout<<V[i]->Name()<<'\n';
-         Aben->List_Fertigkeit_ang().push_back(V[i]);
-++c;
+         cH_Fertigkeit_angeborene F(V[i]);
+         Aben->setAngebSinnFert(F->Min(),V[i]);
        }
       else hauptfenster->table_lernschema->AngebFert_gewuerfelt(wurf);
      }while (wurf==100);
-
+  Aben->List_Fertigkeit_ang().sort();
+  Aben->List_Fertigkeit_ang().unique();
 }
 
 

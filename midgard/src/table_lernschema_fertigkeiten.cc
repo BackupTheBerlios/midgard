@@ -1,4 +1,4 @@
-// $Id: table_lernschema_fertigkeiten.cc,v 1.12 2002/09/12 15:01:14 thoma Exp $
+// $Id: table_lernschema_fertigkeiten.cc,v 1.13 2002/09/13 06:20:15 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -82,8 +82,6 @@ void table_lernschema::on_ang_fert_leaf_selected(cH_RowDataBase d)
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   MidgardBasicElement_mutable MBE = dt->getMBE();
   cH_Fertigkeit_angeborene F(MBE);
-//  if(!LernListen::AngebSinnFert(hauptfenster->getChar(),F->Min(),MBE.Erfolgswert()))
-//    MidgardBasicElement::move_element(list_Fertigkeit_ang_neu,hauptfenster->getChar().List_Fertigkeit_ang(),MBE);
 
   hauptfenster->getChar()->setAngebSinnFert(F->Min(),MBE);  
   list_Fertigkeit_ang_neu.remove(MBE);

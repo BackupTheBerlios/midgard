@@ -2,9 +2,9 @@
 NEWS IN VERSION 0.8.2
 
 * Zufallsabenteurer Grad 1:
-   - Vorgaben für Eigenschaften und abgeleitete Werte
+   - Vorgaben für Eigenschaften, abgeleitete Werte, angeb Fert.
    - Spezialwaffe, Spezialgebiet
-   - gewürfelte 100 bei angeborenen Fertigkeiten
+   - gewürfelte 100 bei angeborenen Fertigkeiten wird berücksichtigt
 
 TODO: ('-' zeigt CP an)
 * Zufallsabenteurer Grad 1:
@@ -21,7 +21,12 @@ TODO: ('-' zeigt CP an)
   man etwas hinzufügen möchte, ist nicht gerade intuitiv
   (vielleicht drag'n'drop oder CTree verschieben)
 - Würfelvarianten für Nichtmenschen!
-- verschwinden alle Icons? (Nein:-)
+- verschwinden alle Icons? :
+   Unter "Lernschema" bleibt noch das Icon von "angeborene 
+   Fertigkeiten" stehen und noch einiges anderes. Bei "Steigern" 
+   und "Optionen" sind auch noch bunte Bildchen, und bei 
+   "Ausrüstung" verweigern die Icons von "Modifikatoren 
+   entfernen" und "mit Geld ausrüsten" das Verschwinden.
 - alle Ausdrucke unter Windows testen
 - wrapfig for Windows für Grafik in Beschreibung
 - .magus Endung unter Windows mit Magus.exe verknüpfen (beim Speichern)
