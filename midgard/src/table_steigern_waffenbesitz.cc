@@ -106,7 +106,7 @@ void table_steigern::on_leaf_waffenbesitz_selected_neu(cH_RowDataBase d)
   const Data_waffenbesitz *dt=dynamic_cast<const Data_waffenbesitz*>(&*d);
   H_WaffeBesitz old=dt->get_Waffe();
   cH_Waffe w=old->Waffe();
-  H_WaffeBesitz MBE=new WaffeBesitz(w,old->AliasName(),old->av_Bonus(),old->sl_Bonus,old->Magisch(),old->Region());
+  H_WaffeBesitz MBE=new WaffeBesitz(w,old->AliasName(),old->av_Bonus(),old->sl_Bonus(),old->Magisch(),old->Region());
   
   hauptfenster->getChar()->List_Waffen_besitz().push_back(MBE);
   show_alte_waffen();
