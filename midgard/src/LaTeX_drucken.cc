@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.52 2002/07/18 15:50:03 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.53 2002/07/19 13:04:16 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -224,7 +224,7 @@ void LaTeX_drucken::LaTeX_write_empty_values(ostream &fout,const std::string &in
 
 void LaTeX_drucken::write_grundwerte(ostream &fout,bool empty=false)
 {
- for(ewhat was=etyp;was<eMAX; was=ewhat(int(was)+1))
+ for(ewhat was=enamecharakter;was<eMAX; was=ewhat(int(was)+1))
   {
    std::string sfout = "\\newcommand{\\";
    switch (was) {
