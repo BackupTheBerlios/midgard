@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.110 2002/01/12 09:11:59 thoma Exp $
+// $Id: midgard_CG.cc,v 1.111 2002/01/12 09:23:30 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -305,7 +305,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    label_EP->set_text("50%");
    label_Gold->set_text("50%");
 
-  on_checkbutton_original_toggled();
+//  on_checkbutton_original_toggled();
   kido_bool=false;
   magie_bool=false;
   fill_typauswahl();
