@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.49 2002/02/06 10:23:51 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.50 2002/02/06 18:07:35 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,61 +25,14 @@
 #include "Fertigkeiten_angeboren.hh"
 #include <Aux/itos.h>
 
-void midgard_CG::on_allgemein_fertigkeiten_wahl_clicked()
-{   
-  show_lernschema(MidgardBasicElement::FERTIGKEIT,"Allg");
-}
-void midgard_CG::on_untyp_fertigkeiten_wahl_clicked()
-{   
-  show_lernschema(MidgardBasicElement::FERTIGKEIT,"Unge");
-}
 void midgard_CG::on_fach_fertigkeiten_wahl_clicked()
 {   
-//  list_Fertigkeit.clear();
-//  list_Sprache.clear();
-//  list_Schrift.clear();
-  show_lernschema(MidgardBasicElement::FERTIGKEIT,"Fach");
 
   list_Fertigkeit.clear();
   list_Sprache.clear();
   list_Schrift.clear();
-//  manage(new Fertigkeiten_auswahl(this,Database,Typ,lernpunkte,
-//      Werte,&list_Sprache,list_Schrift,list_Fertigkeit));
+  show_lernschema(MidgardBasicElement::FERTIGKEIT,"Fach");
 }
-
-/*
-void midgard_CG::show_fertigkeiten()
-{
-   fertigkeiten_clist->clear();
-   Gtk::OStream os(fertigkeiten_clist);
-   for(std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit_ang.begin();
-         i!=list_Fertigkeit_ang.end();++i)
-      { cH_Fertigkeit_angeborene f(*i);
-         os << f->Name();
-         if (f->FErfolgswert(Werte)!=0) os <<"\t" <<f->FErfolgswert(Werte);
-         os << "\n";
-      }
-   for(std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i)
-      { cH_Fertigkeit f(*i);
-         os << f->Name()<<" "<<f->Zusatz();
-         if (f->FErfolgswert(Werte)!=0) os <<"\t" <<f->FErfolgswert(Werte);
-         os << "\n";
-      }
-   for(std::list<cH_MidgardBasicElement>::iterator i=list_Sprache.begin();i!=list_Sprache.end();++i)
-      { 
-         os << (*i)->Name() <<'\t'<<(*i)->Erfolgswert()<<'\n';
-      }
-   for(std::list<cH_MidgardBasicElement>::iterator i=list_Schrift.begin();i!=list_Schrift.end();++i)
-      { 
-         os << (*i)->Name() <<'\t'<<(*i)->Erfolgswert()<<'\n';
-      }
-   for (unsigned int i=0;i<fertigkeiten_clist->columns().size();++i)
-      fertigkeiten_clist->set_column_auto_resize(i,true);
-   fertigkeiten_clist->set_reorderable(true);
-
-   show_sinne();
-}
-*/
 
 gint midgard_CG::on_angeborene_fertigkeit_button_release_event(GdkEventButton *event)
 {
