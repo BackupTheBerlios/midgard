@@ -17,6 +17,9 @@ NEWS IN VERSION 0.7.7
 * Neuimplementation der ungelernten Sprachen und der zu den Sprachen
    gehörenden Schriften
 * Spielleiterexport mit ungelernten Sprachen, Sinnen und Schriften
+* Im Ausdruck: Raufen steht jetzt beim 'Waffenbesitz' mit Schaden
+* Ausdruck überarbeitet: GFP/EP reduziert, dafür Resistenzen und Sinne größer
+* Spezies explizit im Ausdruck
 
 TODO: ('-' zeigt CP an)
 * Vorschlag: wäre es möglich die GFP-Liste zu verkleinern und dafür die

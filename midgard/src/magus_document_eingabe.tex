@@ -91,10 +91,20 @@ Körpergröße&\makebox[0.8cm]{\koerpergroesse}\\\hline
 
 \vspace{1ex}
 \renewcommand{\arraystretch}{0.9}
+
+\begin{tabular}{|c|c|}\hline
+Beruf&\makebox[1.5cm]{\beruf}\\\hline
+\end{tabular}
+\hfill
+\begin{tabular}{|c|c|}\hline
+Hand&\makebox[1.2cm]{\hand}\\\hline
+\end{tabular}
+\hfill
+\begin{tabular}{|c|c|}\hline
+Spezies&\makebox[1.2cm]{\spezies}\\\hline
+\end{tabular}
+
 \begin{tabularx}{13cm}{|c|X|}\hline
-Berufe&{\beruf}\\\hline
-%Sprachen&\\\hline
-%Schriften&\\\hline
 \raisebox{-0.3ex}[0.3ex]{weitere}&{\merkmale}\\
 \raisebox{0.3ex}[-0.3ex]{Merkmale}\rule[-1ex]{0ex}{3.3ex}&\\\hline
 \end{tabularx}\renewcommand{\arraystretch}{1}
@@ -164,20 +174,32 @@ Berufe&{\beruf}\\\hline
 \hfill
 \parbox[t]{7.5cm}{
 \tiny
-\begin{tabular}{|lr|lr|lrr|}
+\begin{tabular}{|l|c|l|r|}
 \hline
-\multicolumn{2}{|l|}{Sinne} 
-   & \multicolumn{2}{l|}{pers. Boni für} 
-   & \multicolumn{2}{l}{Erfolgswerte}&PP\\\hline
-Sehen          & \sinnse     &Ausdauer      & \boau  &Raufen        & \raufen & \\
-Hören          & \sinnh      &Schaden       & \bosc  &Abwehr        & \abwehr & \ppabwehr \\
-Riechen        & \sinnr      &Angriff       & \boan  &Zaubern       & \zauber & \ppzauber \\
-Schmecken      & \sinnsc     &Abwehr        & \boab  &Gift          & \gift   & \\
-Tasten         & \sinnt      &Zaubern       & \boza  &Resistenz     & \res    & \ppresistenz \\
-Sechster Sinn  & \sinnss     &Geistesmagie  & \bopsy &Geistesmagie  & \psy    & \\
-               &             &Körpermagie   & \bophs &Körpermagie   & \phs    & \\
-\multicolumn{2}{|l|}{\hand}  &Umgebungsmagie& \bophk &Umgebungsmagie& \phk    & \\\hline
+\multicolumn{2}{|l|}{pers. Boni für} & \multicolumn{2}{l|}{Erfahrung} \\\hline
+Ausdauer      & \boau   & GFP    & \gfp    \\
+Schaden       & \bosc   & KEP    & \kep    \\
+Angriff       & \boan   & ZEP    & \zep    \\
+Abwehr        & \boab   & AEP    & \aep    \\
+Zaubern       & \boza   & Gold   & \gold   \\
+Geistesmagie  & \bopsy  & Silber & \silber \\
+Körpermagie   & \bophs  & Kupfer & \kupfer \\
+Umgebungsmagie& \bophk  &        &         \\\hline
 \end{tabular}
+%\begin{tabular}{|lr|lr|lrr|}
+%\hline
+%\multicolumn{2}{|l|}{Sinne} 
+%   & \multicolumn{2}{l|}{pers. Boni für} 
+%   & \multicolumn{2}{l}{Erfolgswerte}&PP\\\hline
+%Sehen          & \sinnse     &Ausdauer      & \boau  &Raufen        & \raufen & \\
+%Hören          & \sinnh      &Schaden       & \bosc  &Abwehr        & \abwehr & \ppabwehr \\
+%Riechen        & \sinnr      &Angriff       & \boan  &Zaubern       & \zauber & \ppzauber \\
+%Schmecken      & \sinnsc     &Abwehr        & \boab  &Gift          & \gift   & \\
+%Tasten         & \sinnt      &Zaubern       & \boza  &Resistenz     & \res    & \ppresistenz \\
+%Sechster Sinn  & \sinnss     &Geistesmagie  & \bopsy &Geistesmagie  & \psy    & \\
+%               &             &Körpermagie   & \bophs &Körpermagie   & \phs    & \\
+%\multicolumn{2}{|l|}{\hand}  &Umgebungsmagie& \bophk &Umgebungsmagie& \phk    & \\\hline
+%\end{tabular}
 }
 \hfill
 %\IfFileExists{wurfbeil.png}{\parbox{2cm}{\includegraphics[width=2cm]{wurfbeil.png}}}%
@@ -192,33 +214,58 @@ Sechster Sinn  & \sinnss     &Geistesmagie  & \bopsy &Geistesmagie  & \psy    & 
 \makebox[0.4cm]{AP}&\makebox[0.4cm]{{\ap}}&\\\hline
 \end{tabularx}
 
+\parbox{3.3cm}{
 \li
 \vspace*{1ex}
 {\setlength{\tabcolsep}{0.3em}
-\scriptsize
-\begin{tabular}{|c@{\LI\hspace*{1.4ex}\vline\hspace*{1.4ex}}c@{\LI\hspace*{1.4ex}\vline\hspace*{1.4ex}}c|c|c|c|} \hline
-Datum\hspace*{2.5em}&GFP&KEP&ZEP&AEP&Geld\\\hline\hline
-&{\gfp}&{\kep}&{\zep}&{\aep}&{\gold}\\\hline
-&&&&&\\\hline
-&&&&&\\\hline
-&&&&&\\\hline
-&&&&&\\\hline
-&&&&&\\\hline
-&&&&&\\\hline
-&&&&&\\\hline
-&&&&&\\\hline
-&&&&&\\\hline
-&&&&&\\\hline
-&&&&&\\\hline
-&&&&&\\\hline
-&&&&&\\\hline
-&&&&&\\\hline
-&&&&&\\\hline
-&&&&&\\\hline
-&&&&&\\\hline
-&&&&&\\\hline
+\footnotesize
+\begin{tabular}{|l|c|}
+\hline
+\multicolumn{2}{|l|}{Sinne}\\\hline
+Sehen          & \sinnse   \\
+Hören          & \sinnh    \\
+Riechen        & \sinnr    \\
+Schmecken      & \sinnsc   \\
+Tasten         & \sinnt    \\
+Sechster Sinn  & \sinnss   \\\hline
+\multicolumn{2}{l}{}\\\hline
+\multicolumn{2}{|l|}{Erfolgswerte}\\\hline
+Abwehr        & \abwehr \\
+Zaubern       & \zauber \\\hline
+\multicolumn{2}{l}{}\\\hline
+\multicolumn{2}{|l|}{Resistenzen}\\\hline
+Gift          & \gift   \\
+Resistenz     & \res    \\
+Geistesmagie  & \psy    \\
+Körpermagie   & \phs    \\
+Umgebungsmagie& \phk    \\\hline
 \end{tabular}
-}}
+}
+%\begin{tabular}{|c@{\LI\hspace*{1.4ex}\vline\hspace*{1.4ex}}c@{\LI\hspace*{1.4ex}\vline\hspace*{1.4ex}}c|c|c|c|} \hline
+%Datum\hspace*{2.5em}&GFP&KEP&ZEP&AEP&Geld\\\hline\hline
+%&{\gfp}&{\kep}&{\zep}&{\aep}&{\gold}\\\hline
+%&&&&&\\\hline
+%&&&&&\\\hline
+%&&&&&\\\hline
+%&&&&&\\\hline
+%&&&&&\\\hline
+%&&&&&\\\hline
+%&&&&&\\\hline
+%&&&&&\\\hline
+%&&&&&\\\hline
+%&&&&&\\\hline
+%&&&&&\\\hline
+%&&&&&\\\hline
+%&&&&&\\\hline
+%&&&&&\\\hline
+%&&&&&\\\hline
+%&&&&&\\\hline
+%&&&&&\\\hline
+%&&&&&\\\hline
+%\end{tabular}
+}
+\parbox{2.5cm}{\includegraphics[height=1.7cm,angle=280]{\installpath/saebel.png}}
+}
 \parbox[t]{7cm}
 {\setlength{\tabcolsep}{0.5em}
 \scriptsize

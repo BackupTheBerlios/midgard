@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.58 2002/08/20 10:28:15 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.59 2002/08/21 09:03:57 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -144,9 +144,10 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  /////////////////////////////////////////////////////////////////////////////
  // Beruf
  fout << "\\newcommand{\\beruf}{" ;
+ std::string beruf;
  for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Beruf().begin();i!=hauptfenster->getChar().List_Beruf().end();++i)
-     fout << (*i)->Name(); 
- fout <<"}\n";
+     beruf += (*i)->Name(); 
+ fout << LaTeX_scale(beruf,10,"1.5cm") <<"}\n";
  /////////////////////////////////////////////////////////////////////////////
  // weitere Merkmale
  /////////////////////////////////////////////////////////////////////////////
@@ -226,6 +227,7 @@ void LaTeX_drucken::write_grundwerte(ostream &fout,bool empty=false)
    std::string sfout = "\\newcommand{\\";
    switch (was) {
      case etyp  : sfout += "typ}{"; break ;
+     case espezies : sfout += "spezies}{"; break ;
      case emerk : sfout += "merkmale}{"; break ;
      case est   : sfout += "st }{"; break ;
      case egs   : sfout += "gs }{"; break ;
@@ -281,7 +283,9 @@ void LaTeX_drucken::write_grundwerte(ostream &fout,bool empty=false)
      case eaep : sfout += "aep}{"; break ;
      case ekep : sfout += "kep}{"; break ;
      case ezep : sfout += "zep}{"; break ;
-     case egeld : sfout += "gold}{"; break ;
+     case egold : sfout += "gold}{"; break ;
+     case esilber : sfout += "silber}{"; break ;
+     case ekupfer : sfout += "kupfer}{"; break ;
      case eruestung : sfout += "ruestung}{"; break ;
      case eruestunglp : sfout += "ruestunglp}{"; break ;
      case eruestungb : sfout += "ruestungb}{"; break ;
@@ -313,9 +317,8 @@ void LaTeX_drucken::write_grundwerte(ostream &fout,bool empty=false)
         sfout += LaTeX_scale(styp,10,"2.2cm") ; 
         break;
       }      
-     case emerk : { if(W.Spezies()->Name()!="Mensch") sfout += W.Spezies()->Name() + " ";
-           sfout +=W.Merkmale(); break;
-         }
+     case espezies : sfout += LaTeX_scale(W.Spezies()->Name(),10,"2cm") ;
+     case emerk :    sfout +=W.Merkmale(); break;
      case est   : sfout += itos(W.St()); break ;
      case egs   : sfout += itos(W.Gs()); break ;
      case egw   : sfout += itos(W.Gw()) + W.Ruestung_RW_Verlust(); break ;
@@ -338,20 +341,20 @@ void LaTeX_drucken::write_grundwerte(ostream &fout,bool empty=false)
      case esg   : sfout += itos(W.SG()); break ;
      case elp   : sfout += itos(W.LP()); break ;
      case eap   : sfout += itos(W.AP()); break ;
-     case eboau : sfout += itos(W.bo_Au()); break ;
-     case ebosc : sfout += itos(W.bo_Sc()); break ;
-     case eboan : sfout += itos(W.bo_An()); break ;
-     case eboab : sfout += itos(W.bo_Ab()); break ;
-     case eboza : sfout += itos(W.bo_Za()); break ;
-     case ebopsy: sfout += itos(W.bo_Psy(hauptfenster->getChar().getVTyp())); break ;
-     case ebophs: sfout += itos(W.bo_Phs(hauptfenster->getChar().getVTyp())); break ;
-     case ebophk: sfout += itos(W.bo_Phk(hauptfenster->getChar().getVTyp())); break ;
-     case eres  : sfout += itos(W.Resistenz()); break ;
-     case epsy  : sfout += itos(W.Resistenz()+W.bo_Psy(hauptfenster->getChar().getVTyp())); break ;
-     case ephs  : sfout += itos(W.Resistenz()+W.bo_Phs(hauptfenster->getChar().getVTyp())); break ; 
-     case ephk  : sfout += itos(W.Resistenz()+W.bo_Phk(hauptfenster->getChar().getVTyp())); break ;
+     case eboau : sfout += itos0p(W.bo_Au(),0,true); break ;
+     case ebosc : sfout += itos0p(W.bo_Sc(),0,true); break ;
+     case eboan : sfout += itos0p(W.bo_An(),0,true); break ;
+     case eboab : sfout += itos0p(W.bo_Ab(),0,true); break ;
+     case eboza : sfout += itos0p(W.bo_Za(),0,true); break ;
+     case ebopsy: sfout += itos0p(W.bo_Psy(hauptfenster->getChar().getVTyp()),0,true); break ;
+     case ebophs: sfout += itos0p(W.bo_Phs(hauptfenster->getChar().getVTyp()),0,true); break ;
+     case ebophk: sfout += itos0p(W.bo_Phk(hauptfenster->getChar().getVTyp()),0,true); break ;
+     case eres  : sfout += itos0p(W.Resistenz(),0,true); break ;
+     case epsy  : sfout += itos0p(W.Resistenz()+W.bo_Psy(hauptfenster->getChar().getVTyp()),0,true); break ;
+     case ephs  : sfout += itos0p(W.Resistenz()+W.bo_Phs(hauptfenster->getChar().getVTyp()),0,true); break ; 
+     case ephk  : sfout += itos0p(W.Resistenz()+W.bo_Phk(hauptfenster->getChar().getVTyp()),0,true); break ;
      case egift : sfout += itos(W.Gift()); break ;
-     case eabwehr:sfout += itos(W.Abwehr_wert()); break ;
+     case eabwehr:sfout += itos0p(W.Abwehr_wert(),0,true); break ;
      case eabwehrfinal:
      case eabwehrmitwaffe:
       { if(was==eabwehrfinal)    sfout += itos(W.Abwehr_wert()+W.bo_Ab());
@@ -362,8 +365,8 @@ void LaTeX_drucken::write_grundwerte(ostream &fout,bool empty=false)
      case eppresistenz:sfout += EmptyInt_4TeX(hauptfenster->getWerte().ResistenzPP()); break ;
      case eppabwehr:sfout += EmptyInt_4TeX(hauptfenster->getWerte().AbwehrPP()); break ;
      case eppzauber:sfout += EmptyInt_4TeX(hauptfenster->getWerte().ZaubernPP()); break ;
-     case ezauber:sfout += EmptyInt_4TeX(W.Zaubern_wert()); break ;
-     case ehand:sfout += W.Hand(); break ;
+     case ezauber:sfout += itos0p(W.Zaubern_wert(),0,true); break ;
+     case ehand:sfout += LaTeX_scale(W.Hand(),7,"1.2cm"); break ;
      case eraufen:sfout += itos(W.Raufen()); break ;
      case ealter:sfout += itos(W.Alter()); break ;
      case egewicht:sfout += itos(W.Gewicht())+ "\\,kg"; break ;
@@ -380,17 +383,20 @@ void LaTeX_drucken::write_grundwerte(ostream &fout,bool empty=false)
      case eaep : sfout += EmptyInt_4TeX(W.AEP()); break ;
      case ekep : sfout += EmptyInt_4TeX(W.KEP()); break ;
      case ezep : sfout += EmptyInt_4TeX(W.ZEP()); break ;
-     case egeld : sfout += "\\tiny " + dtos(W.Gold()+W.Silber()/10.+W.Kupfer()/100.); break ;
+//     case egeld   : sfout += "\\tiny " + dtos(W.Gold()+W.Silber()/10.+W.Kupfer()/100.); break ;
+     case egold   : sfout += "\\tiny " + itos0p(W.Gold()); break ;
+     case esilber : sfout += "\\tiny " + itos0p(W.Silber()); break ;
+     case ekupfer : sfout += "\\tiny " + itos0p(W.Kupfer()); break ;
      case eruestung : sfout += W.Ruestung()->Name(); break ;
      case eruestunglp : sfout += itos(W.Ruestung()->LP_Verlust()); break ;
      case eruestungb : sfout += W.Ruestung(1)->Name(); break ;
      case eruestunglpb : sfout += itos(W.Ruestung(1)->LP_Verlust()); break ;
-     case esinnse : sfout += itos(W.Sehen()     ); break ;
-     case esinnh  : sfout += itos(W.Hoeren()    ); break ;
-     case esinnr  : sfout += itos(W.Riechen()   ); break ;
-     case esinnsc : sfout += itos(W.Schmecken() ); break ;
-     case esinnt  : sfout += itos(W.Tasten()    ); break ;
-     case esinnss : sfout += itos(W.SechsterSinn()); break ;
+     case esinnse : sfout += itos0p(W.Sehen(),0,true     ); break ;
+     case esinnh  : sfout += itos0p(W.Hoeren(),0,true    ); break ;
+     case esinnr  : sfout += itos0p(W.Riechen(),0,true   ); break ;
+     case esinnsc : sfout += itos0p(W.Schmecken(),0,true ); break ;
+     case esinnt  : sfout += itos0p(W.Tasten(),0,true    ); break ;
+     case esinnss : sfout += itos0p(W.SechsterSinn(),0,true); break ;
      default : sfout += "XXX"; break;
     }
    }
@@ -478,14 +484,20 @@ void LaTeX_drucken::write_fertigkeiten(ostream &fout,const std::list<MidgardBasi
    }
 }
 
+struct st_WB{std::string name;std::string wert;std::string schaden;
+                    std::string rang;std::string modi;
+              st_WB(std::string n,std::string w,std::string s,
+                                  std::string r,std::string m)
+                    : name(n),wert(w),schaden(s),rang(r),modi(m) {}};
+
 void LaTeX_drucken::write_waffenbesitz(ostream &fout,const std::list<WaffeBesitz>& L,bool longlist=false)
 {
   std::string angriffsverlust = hauptfenster->getWerte().Ruestung_Angriff_Verlust(hauptfenster->getChar().List_Fertigkeit());
-  unsigned int count=0;
+  std::vector<st_WB> VWB;
+  VWB.push_back(st_WB("Raufen",itos(hauptfenster->getWerte().Raufen()),
+                      hauptfenster->getWerte().RaufenSchaden(),"",""));
   for(std::list<WaffeBesitz>::const_iterator i=L.begin();i!=L.end();++i)
    {
-     std::string b = LaTeX_string(count++);
-     if(b=="0") break;
      std::string waffenname = i->AliasName();
      if (i->Magisch()!="" || i->av_Bonus()!=0 || i->sl_Bonus()!=0) 
          waffenname+="$^*$ "+i->Bonus() ;
@@ -505,28 +517,35 @@ void LaTeX_drucken::write_waffenbesitz(ostream &fout,const std::list<WaffeBesitz
      std::string anm = i->Waffe()->Waffenrang();
      std::string abm = i->Waffe()->WM_Abwehr();
 
-
-     if(!longlist) fout << "\\newcommand{\\waffeE"<<b<<"}";
-     else fout << " & ";
-     fout << "{"<<swert<<"}\n";
+     VWB.push_back(st_WB(LaTeX_scalemag(waffenname,20,"3cm",i->Magisch(),i->Waffe()->Reichweite()),
+            swert,schaden,anm,abm));
+   }
+ unsigned int count=0;
+ for(std::vector<st_WB>::const_iterator i=VWB.begin();i!=VWB.end();++i)
+  {
+    std::string b = LaTeX_string(count++);
+    if(b=="0") break;
+    if(!longlist) fout << "\\newcommand{\\waffeE"<<b<<"}";
+    else fout << " & ";
+    fout << "{+"<<i->wert<<"}\n";
      if(!longlist) fout << "\\newcommand{\\waffeA"<<b<<"}";
      else fout << " & ";
-     fout << "{"<<anm << "}";
+     fout << "{"<<i->rang << "}";
      if(longlist) fout << "\\\\\\cline{2-3}";
      fout << "\n";
 
      if(!longlist) fout << "\\newcommand{\\waffe"<<b<<"}{ " ;
      else fout << "\\raisebox{1.5ex}[-1.5ex]{\\makebox[2cm][l]{ ";
-     fout <<LaTeX_scalemag(waffenname,20,"3cm",i->Magisch(),i->Waffe()->Reichweite())<< "}\n";
+     fout <<i->name <<"}\n";
      if(!longlist) fout << "\\newcommand{\\waffeS"<<b<<"}";
      else fout << "} & ";
-     fout << "{"<<schaden << "}\n";
+     fout << "{"<<i->schaden << "}\n";
      if(!longlist) fout << "\\newcommand{\\waffeV"<<b<<"}";
      else fout << " & ";
-     fout << "{"<<abm << "}";
+     fout << "{"<<i->modi << "}";
      if(longlist) fout << "\\\\\\hline\\hline";
      fout << "\n";
-   }
+  }
  if(!longlist)
   for (unsigned int i=count; i<maxwaffen;++i)
    {
