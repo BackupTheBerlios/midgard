@@ -16,14 +16,14 @@
 
 class midgard_CG;
 struct st_werte;
-struct st_ausgewaelte_waffen;
+struct st_ausgewaehlte_waffen;
 
 class Window_Waffe_Geld : public Window_Waffe_Geld_glade
 {   
         
         midgard_CG* hauptfenster;        
         st_werte& werte;
-        vector<st_ausgewaelte_waffen>& vec_waffen;
+        vector<st_ausgewaehlte_waffen>& vec_waffen;
         friend class Window_Waffe_Geld_glade;
         void on_button_wuerfeln_clicked();
         void on_button_auswaehlen_clicked();
@@ -32,7 +32,7 @@ class Window_Waffe_Geld : public Window_Waffe_Geld_glade
         void Waffe(int wurf);
         void Waffe();
    public:
-        Window_Waffe_Geld::Window_Waffe_Geld(midgard_CG* h, st_werte& w, vector<st_ausgewaelte_waffen>& wa);
+        Window_Waffe_Geld::Window_Waffe_Geld(midgard_CG* h, st_werte& w, vector<st_ausgewaehlte_waffen>& wa);
         void Geld();
         void get_waffe(string waffe);
 };

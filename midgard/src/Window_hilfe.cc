@@ -32,6 +32,8 @@ string s="
 * Abgeleitete Werte würfeln (eventuell editieren)
 * Werte editieren: 'Name des Charakters' und 'Version' eintragen, unter diesen
    beiden Angaben wird der Charakter in der Datenbank gespeichert.
+* Herkunftsland wählen
+* Muttersprache(n) wählen
 * Lernschema
 * Lernpunkte würfeln (eventuell editieren)
 * Beruf wählen
@@ -42,7 +44,9 @@ string s="
 * Spezialwaffe wählen (nicht für Zauberer und Barden)
 * Zauber auswählen (nicht für Kämpfer außer Barde und Ordenskrieger)
 * Magier wählen einen Spezialbereich
-* Charakterbeschreibung hinzufügen und ausdrucken.
+* Geld und Waffen würfeln (oder aussuchen)
+* Rüstung auswürfeln (kann über 'Steigern' auch ausgesucht werden)
+* bei Bedarf Charakterbeschreibung eingeben und ausdrucken.
 * Charakter speichern (in der Datenbank unter dem Schlüssel 
    'Charaktername und Version'
 * Charakter drucken (Es wird ein druckfertiges Postscriptdokument mit 'gv'
@@ -52,7 +56,8 @@ string s="
 
 * Charakter laden (Wenn ein Charaktername und eine Version eingetragen sind,
     wird der entsprechende Charakter geladen, ansonsten erscheint eine 
-    Auswahlliste aller gespeicherter Charaktere.)
+    Auswahlliste aller gespeicherter Charaktere. In diesem Fenster ist 
+    es auch möglich Charaktere aus der Datenbank zu löschen)
 * Steigern
 * Fertigkeiten (Fertigkeiten laden)
    Im oberen Fenster sind die Fertigkeiten, die der Charakter kann mit
@@ -60,7 +65,7 @@ string s="
    GFP die nächste Stufe (nach oben bzw nach unten) kostet. Beherrscht ein
    Charakter eine Fertigkeit auf dem niedrigsten Erfolgswert, so kannn er 
    diese auch 'verlernen'.
-   Im untern Fenster sind die lernbaren Fertigkeiten mit entsprechenden 
+   Im untern Fenster sind die erlernbaren Fertigkeiten mit entsprechenden 
    Kosten angegeben.
 * Waffen (Waffen laden)
    Im rechten Bereich sind die Grundkenntnisse der Waffen aufgeführt.
@@ -70,11 +75,11 @@ string s="
    beherrscht (mit Erfolgswert und Kosten für die nächst höhere bzw. 
    niedirgere Stufe), unten stehen die Waffen, die der Charakter mit dem
    Erfolgswert +4 beherrscht, weil er die Grundkenntnisse in der jeweiligen
-   Waffenart besitzt. Durch anckicken kann man Waffen steigern und lernen,
+   Waffenart besitzt. Durch ancklicken kann man Waffen steigern und lernen,
    bzw. Grundkenntnisse lernen.
-* Zauber
+* Zauber (Zauber laden)
    Oben die Zauber, die ein Charakter kann, unten die, die er lernen darf
-   (mit Kosten). Wählt man einen Zauber aus der linken Liste, so wird dieser
+   (mit Kosten). Wählt man einen Zauber aus der oberen Liste, so wird dieser
    'verlernt'.
 * Sprachen und Schriften
    Links die Sprachen, rechts die Schriften. Oben jeweils die, die ein 

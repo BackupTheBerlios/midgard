@@ -23,8 +23,9 @@ struct db_struct_waffe
    string waffe;
    int erfolgswert;
    string grundkenntnisse;
-   db_struct_waffe(int l,const string &f,int w, string g)
-   : lernpunkte(l), waffe(f), erfolgswert(w), grundkenntnisse(g)
+   string zusatz;
+   db_struct_waffe(int l,const string &f,int w, string g, string z)
+   : lernpunkte(l), waffe(f), erfolgswert(w), grundkenntnisse(g),zusatz(z)
    {}
 };
 

@@ -54,3 +54,4 @@ void midgard_CG::waffe_besitz_uebernehmen(vector<string> wbu)
 {
  waffe_besitz = wbu;
 }
+

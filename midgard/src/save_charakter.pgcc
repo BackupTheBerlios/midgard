@@ -146,7 +146,7 @@ void midgard_CG::on_speichern_clicked()
    Transaction tr;
    // Alte einträge löschen
    exec sql DELETE FROM charaktere_fertigkeiten WHERE charakter_name = :db_name_ch ;
-   for (vector<st_ausgewaelte_berufe>::iterator i=vec_beruf.begin();
+   for (vector<st_ausgewaehlte_berufe>::iterator i=vec_beruf.begin();
          i!=vec_beruf.end();++i)
       {
          strncpy(db_fertigkeit, i->name.c_str(),sizeof(db_fertigkeit));
@@ -168,7 +168,7 @@ void midgard_CG::on_speichern_clicked()
             (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'ang.Fertigkeit') ;         
             SQLerror::test(__FILELINE__);
       }
-   for (vector<st_ausgewaelte_fertigkeiten>::iterator i=vec_fertigkeiten.begin();
+   for (vector<st_ausgewaehlte_fertigkeiten>::iterator i=vec_fertigkeiten.begin();
          i!=vec_fertigkeiten.end();++i)
       {
          strncpy(db_fertigkeit, i->name.c_str(),sizeof(db_fertigkeit));
@@ -179,7 +179,7 @@ void midgard_CG::on_speichern_clicked()
             (:db_name_ch,:db_version,:db_fertigkeit,:db_wert,'Fertigkeit') ;         
             SQLerror::test(__FILELINE__);
       }
-   for (vector<st_ausgewaelte_waffen>::iterator i=vec_waffen.begin();
+   for (vector<st_ausgewaehlte_waffen>::iterator i=vec_waffen.begin();
          i!=vec_waffen.end();++i)
       {
          strncpy(db_fertigkeit, i->name.c_str(),sizeof(db_fertigkeit));

@@ -51,3 +51,5 @@ Window_ruestung.cc
 Window_waffe.cc
 midgard_CG_waffe_werte.cc
 Window_Waffenbesitz.cc
+get_berufs_vorteile.cc
+midgard_CG_typauswahl.cc

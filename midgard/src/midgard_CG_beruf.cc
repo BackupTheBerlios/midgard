@@ -6,14 +6,14 @@
 void midgard_CG::on_berufe_wahl_clicked()
 {
   berufe_clist->clear();
-  manage(new Berufe_auswahl(this,typ.s,lernpunkte));
+  manage(new Berufe_auswahl(this,typ,lernpunkte,werte));
 }
 
 void midgard_CG::show_berufe()
 {
    berufe_clist->clear();
    Gtk::OStream os(berufe_clist);
-   for(vector<st_ausgewaelte_berufe>::iterator i=vec_beruf.begin();
+   for(vector<st_ausgewaehlte_berufe>::iterator i=vec_beruf.begin();
          i!=vec_beruf.end();++i)
       {
          os << i->name<<"\t"<<i->vorteile<<"\t"<<i->erfolgswert<<"\n";
@@ -24,7 +24,7 @@ void midgard_CG::show_berufe()
 
 }
 
-void midgard_CG::berufe_uebernehmen(vector<st_ausgewaelte_berufe>& sab)
+void midgard_CG::berufe_uebernehmen(vector<st_ausgewaehlte_berufe>& sab)
 {
    vec_beruf = sab;
    midgard_CG::show_berufe();

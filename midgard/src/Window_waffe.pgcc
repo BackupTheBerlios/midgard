@@ -24,7 +24,7 @@ void Window_waffe::on_clist_waffe_select_row(gint row, gint column, GdkEvent *ev
 }
 
 Window_waffe::Window_waffe(int we,midgard_CG* h, 
-      Window_Waffe_Geld* o, st_werte& w, vector<st_ausgewaelte_waffen>& wa)
+      Window_Waffe_Geld* o, st_werte& w, vector<st_ausgewaehlte_waffen>& wa)
 :vec_waffen(wa) ,werte(w)
 {
   wurf=we;
@@ -35,7 +35,7 @@ Window_waffe::Window_waffe(int we,midgard_CG* h,
 }
 
 Window_waffe::Window_waffe(int we,midgard_CG* h, 
-      st_werte& w, vector<st_ausgewaelte_waffen>& wa)
+      st_werte& w, vector<st_ausgewaehlte_waffen>& wa)
 :vec_waffen(wa) ,werte(w)
 {
   wurf=we;
@@ -65,7 +65,7 @@ void Window_waffe::wuerfeln()
   exec sql declare ein cursor for
    SELECT distinct w.name, w.grundkenntnisse, coalesce(w.art_2,'') FROM waffen w,
    charaktere_fertigkeiten  c
-   WHERE c.fertigkeit=w.name AND c.charakter_name = 'test'
+   WHERE c.fertigkeit=w.name AND c.charakter_name = :db_name
    AND c.version = :db_version AND c.art ='Waffe';
  Transaction tr;
  exec sql open ein;

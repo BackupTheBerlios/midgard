@@ -9,6 +9,12 @@
 //    typedef Foo_glade Foo;
 // if you didn't make any modifications to the widget
 
+#ifndef _MIDGARD_CG_HH
+#  include "midgard_CG_glade.hh"
+#  define _MIDGARD_CG_HH
+#include "glademm_support.hh"
+#include "WindowInfo.hh"
+
 #include <fstream>
 #include <string>
 #include <stdio.h>
@@ -39,7 +45,7 @@ struct st_werte{int st; int ge;int ko;int in;int zt;
              bo_au_typ(0),bo_au(0),bo_sc(0),bo_an(0),bo_ab(0),bo_za(0),
              bo_psy(0),bo_phs(0),bo_phk(0),bo_gi(0),kaw(0),wlw(0),lpbasis(0),
              alter(0),gewicht(0),groesse(0),grad(1),spezialisierung("~"),
-             stand("~"),herkunft("~"),glaube("~"),gfp(0),version("Erschaffung"),
+             stand("~"),herkunft("~"),glaube("~"),name_charakter("~"), gfp(0),version("Erschaffung"),
              ruestung("OR"), gold(0), silber(0), kupfer(0) {}
       void clear() {*this=st_werte();}}; 
 struct st_lernpunkte{int beruf; int fertigkeiten; int waffen; int zauber;
@@ -49,20 +55,20 @@ struct styp{int nr;string l;string s;string z; string ausdauer; int stand;
       int sb;
    styp() : nr(0),stand(0) {} 
    void clear() {*this=styp();} };
-struct st_ausgewaelte_fertigkeiten {string name; int erfolgswert; string attribut;
-      st_ausgewaelte_fertigkeiten(const string n,int e, const string a)
+struct st_ausgewaehlte_fertigkeiten {string name; int erfolgswert; string attribut;
+      st_ausgewaehlte_fertigkeiten(const string n,int e, const string a)
       : name(n),erfolgswert(e), attribut(a) {} };
 struct st_angeborene_fertigkeit {string name; int erfolgswert;
       st_angeborene_fertigkeit(const string n,int e )
       : name(n),erfolgswert(e) {} };
-struct st_ausgewaelte_waffen {string name; int erfolgswert; 
-      st_ausgewaelte_waffen(const string n,int e)
+struct st_ausgewaehlte_waffen {string name; int erfolgswert; 
+      st_ausgewaehlte_waffen(const string n,int e)
       : name(n),erfolgswert(e) {} };
-struct st_ausgewaelte_zauber {string name; string ap; 
-      st_ausgewaelte_zauber(const string n, const string a)
+struct st_ausgewaehlte_zauber {string name; string ap; 
+      st_ausgewaehlte_zauber(const string n, const string a)
       : name(n), ap(a) {} };
-struct st_ausgewaelte_berufe {string name; string vorteile; int erfolgswert; 
-      st_ausgewaelte_berufe(const string n, const string v, int e)
+struct st_ausgewaehlte_berufe {string name; string vorteile; int erfolgswert; 
+      st_ausgewaehlte_berufe(const string n, const string v, int e)
       : name(n), vorteile(v), erfolgswert(e) {} };
 struct st_zauber{string ap; string name; string erfolgswert;string art; string stufe;
               string zauberdauer; string reichweite; string wirkungsziel;
@@ -86,32 +92,36 @@ struct st_sprachen {string name; int wert;string schrift;
 struct st_schriften {string urschrift; string typ;
       st_schriften(string u, string t) : urschrift(u),typ(t) {}};
 
-#ifndef _MIDGARD_CG_HH
-#  include "midgard_CG_glade.hh"
-#  define _MIDGARD_CG_HH
-#include "glademm_support.hh"
-#include "WindowInfo.hh"
+
+extern bool Infobool;
+extern bool Escharbool;
+extern bool Rawindrabool;
+extern bool KanThaiPanbool;
+
 
 class midgard_CG : public midgard_CG_glade
 {   
         friend class midgard_CG_glade;
-        vector<st_ausgewaelte_fertigkeiten> vec_fertigkeiten;
+        vector<string> typen_vector;
+        vector<st_ausgewaehlte_fertigkeiten> vec_fertigkeiten;
         vector<st_angeborene_fertigkeit> vec_an_fertigkeit;
-        vector<st_ausgewaelte_waffen> vec_waffen;
+        vector<st_ausgewaehlte_waffen> vec_waffen;
         vector<string> waffe_besitz;
-        vector<st_ausgewaelte_zauber> vec_zauber;
-        vector<st_ausgewaelte_berufe> vec_beruf;
+        vector<st_ausgewaehlte_zauber> vec_zauber;
+        vector<st_ausgewaehlte_berufe> vec_beruf;
         vector<st_zauber> zauber;
         vector<st_sprachen> vec_sprachen;
         vector<st_schriften> vec_schriften;
         map<string,string> waffen_grundkenntnisse;
         styp typ;
         st_lernpunkte lernpunkte;
+
+        void fill_typauswahl();
+        void typauswahl_button();
         void on_herkunftsland_clicked();
         void on_muttersprache_clicked();
         void gw_wuerfeln();
         void werte_editieren();
-        void typauswahl_button();
         void on_abge_werte_setzen_clicked();
         void grundwerte_boni_setzen();
         void on_neuer_charakter_clicked();
@@ -153,6 +163,10 @@ class midgard_CG : public midgard_CG_glade
         void on_beruf_erfolgswert_clicked();
         void on_angeborene_fertigekeit_clicked();
         void on_spezialwaffe_clicked();
+        void on_checkbutton_info_fenster_toggled();
+        void on_checkbutton_Eschar_toggled();
+        void on_checkbutton_Rawindra_toggled();
+        void on_checkbutton_KanThaiPan_toggled();
 
         void on_grad_anstieg_clicked();
         void get_grad(int gfp);
@@ -222,17 +236,20 @@ class midgard_CG : public midgard_CG_glade
          void select_charakter(string name, string version);
          void zeige_werte(const st_werte& w, const string welche);
          void setze_lernpunkte(st_lernpunkte& lernpunkte);
-         void fertigkeiten_uebernehmen(vector<st_ausgewaelte_fertigkeiten>& saf);
-         void waffen_uebernehmen(vector<st_ausgewaelte_waffen>& saw,map<string,string> wg);
+         void fertigkeiten_uebernehmen(vector<st_ausgewaehlte_fertigkeiten>& saf);
+         void waffen_uebernehmen(vector<st_ausgewaehlte_waffen>& saw,map<string,string> wg);
          void waffe_besitz_uebernehmen(vector<string> wbu);
-         void zauber_uebernehmen(vector<st_ausgewaelte_zauber>& saz);
-         void berufe_uebernehmen(vector<st_ausgewaelte_berufe>& sab);
+         void zauber_uebernehmen(vector<st_ausgewaehlte_zauber>& saz);
+         void berufe_uebernehmen(vector<st_ausgewaehlte_berufe>& sab);
          double get_standard_zauber(string typ, string zauber);
          double get_standard_waffen(string typ,string waffe);
          double get_standard_fertigkeit(string typ, string fertigkeit);
          void sprache_uebernehmen(string s, int wert);
          void schrift_uebernehmen(string s, string t);
          void herkunft_uebernehmen(string s);
-         string midgard_CG::waffe_werte(const string waffe,st_werte& werte, string mod);
+         string waffe_werte(const string waffe,st_werte& werte, string mod);
+         vector<string> Berufs_Vorteile();
+         bool Fertigkeiten_Voraussetzung(const string fertigkeit);
+         bool Waffen_Voraussetzung(const string waffe);
 };
 #endif

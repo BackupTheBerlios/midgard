@@ -3,7 +3,7 @@
 #include <Aux/SQLerror.h>
 #include <Gtk_OStream.h>
 exec sql include sqlca;
-int swk(vector<st_ausgewaelte_waffen>& vec_waffen);
+int swk(vector<st_ausgewaehlte_waffen>& vec_waffen);
 
 
 string midgard_CG::waffe_werte(const string waffe,st_werte& werte, string mod)
@@ -33,8 +33,8 @@ string midgard_CG::waffe_werte(const string waffe,st_werte& werte, string mod)
    {
       string abl = db_wm_abwehr_leicht;
       string abs = db_wm_abwehr_schwer;
-      if (abl==""&&abs=="") return "--";
-      else return abl+"|"+abs;
+      if (abl==""&&abs=="") return "";
+      else return abl+"$|$"+abs;
    }
   if (mod=="Angriffsrangmodifikation")
    {
@@ -48,7 +48,9 @@ string midgard_CG::waffe_werte(const string waffe,st_werte& werte, string mod)
      if (schaden=="0") return "";
      if (waffe=="waffenloser Kampf") {schaden="W6"; db_sb=swk(vec_waffen);}
 
-     int ibonus = db_sb+werte.bo_sc;
+     int ibonus = db_sb;
+     if (art!="Fern") ibonus+=werte.bo_sc;
+
      if (ibonus < 0 ) schaden += "-"+itos(ibonus); /* doppeltes Minus für LaTeX Ausdruck */
      if (ibonus == 0 ) schaden += "";
      if (ibonus > 0 ) schaden += "+"+itos(ibonus);
@@ -56,11 +58,11 @@ string midgard_CG::waffe_werte(const string waffe,st_werte& werte, string mod)
    }
 }
 
-int swk(vector<st_ausgewaelte_waffen>& vec_waffen) 
+int swk(vector<st_ausgewaehlte_waffen>& vec_waffen) 
 /*Schaden für waffenlosen Kampf*/
 {
    int wert = 4;
-   for (vector<st_ausgewaelte_waffen>::const_iterator i=vec_waffen.begin();
+   for (vector<st_ausgewaehlte_waffen>::const_iterator i=vec_waffen.begin();
          i!=vec_waffen.end();++i)
      if (i->name == "waffenloser Kampf") 
       { wert=i->erfolgswert; break;}

@@ -36,7 +36,7 @@ void midgard_CG::show_alte_waffen()
 {
    steigern_waffen_clist_alt->clear();
    Gtk::OStream os(steigern_waffen_clist_alt);
-   for (vector<st_ausgewaelte_waffen>::const_iterator i=vec_waffen.begin();
+   for (vector<st_ausgewaehlte_waffen>::const_iterator i=vec_waffen.begin();
             i!=vec_waffen.end();++i)
       {
          exec sql begin declare section;
@@ -125,9 +125,10 @@ void midgard_CG::show_neue_waffen()
    exec sql begin declare section;
       char db_waffe[50];
       char db_art[50];
+      char db_zusatz[50];
       char query[512];
    exec sql end declare section;
-   snprintf(query,sizeof(query),"SELECT w.name, w.art FROM  waffen w, \
+   snprintf(query,sizeof(query),"SELECT w.name, w.art, coalesce(w.zusatz,'') FROM  waffen w, \
    charaktere_fertigkeiten c WHERE  w.grundkenntnisse = c.fertigkeit \
    AND c.charakter_name = '%s' AND w.name NOT IN \
    (SELECT fertigkeit FROM charaktere_fertigkeiten WHERE art = 'Waffe'
@@ -140,12 +141,13 @@ void midgard_CG::show_neue_waffen()
    SQLerror::test(__FILELINE__);
    while(true)
       {
-         exec sql fetch wa_ein into :db_waffe, :db_art;
+         exec sql fetch wa_ein into :db_waffe, :db_art, :db_zusatz;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
          int wert=4;
          if (!strcmp(db_art,"Verteidigung")) wert = 1;
-         os << db_waffe<<"\t"<<wert<<"\n"; 
+         if  (midgard_CG::Waffen_Voraussetzung(db_waffe))
+            os << db_waffe<<"\t"<<wert<<"\t"<<db_zusatz<<"\n"; 
       }
    exec sql close wa_ein;
    tr.close();
@@ -218,7 +220,7 @@ void midgard_CG::on_steigern_waffen_clist_alt_select_row(gint row, gint column, 
           int kosten_steigern=atoi(steigern_waffen_clist_alt->get_text(row,2).c_str());
           werte.gfp += kosten_steigern;
           if (kosten_steigern != 0)
-          for (vector<st_ausgewaelte_waffen>::iterator i=vec_waffen.begin();
+          for (vector<st_ausgewaehlte_waffen>::iterator i=vec_waffen.begin();
              i!=vec_waffen.end();++i)
                if (i->name==waffe) i->erfolgswert++;
         }
@@ -237,7 +239,7 @@ void midgard_CG::on_steigern_waffen_clist_alt_select_row(gint row, gint column, 
               int kosten_steigern=atoi(steigern_waffen_clist_alt->get_text(row,2).c_str());
               werte.gfp += kosten_steigern;
 //              if (kosten_steigern != 0)
-              for (vector<st_ausgewaelte_waffen>::iterator i=vec_waffen.begin();
+              for (vector<st_ausgewaehlte_waffen>::iterator i=vec_waffen.begin();
                 i!=vec_waffen.end();++i)
                   if (i->name==waffe) i->erfolgswert++;
             }
@@ -248,7 +250,7 @@ void midgard_CG::on_steigern_waffen_clist_alt_select_row(gint row, gint column, 
         int kosten_reduzieren=atoi(steigern_waffen_clist_alt->get_text(row,3).c_str());
         werte.gfp -= kosten_reduzieren;
         if (kosten_reduzieren != 0)
-        for (vector<st_ausgewaelte_waffen>::iterator i=vec_waffen.begin();
+        for (vector<st_ausgewaehlte_waffen>::iterator i=vec_waffen.begin();
            i!=vec_waffen.end();++i)
               if (i->name==waffe) i->erfolgswert--;  
       }
@@ -268,7 +270,7 @@ void midgard_CG::on_steigern_waffen_clist_neu_select_row(gint row, gint column, 
    midgard_CG::zeige_werte(werte,"alle");
    string new_fert = steigern_waffen_clist_neu->get_text(row,0);
    int erf = atoi(steigern_waffen_clist_neu->get_text(row,1).c_str());
-   vec_waffen.push_back(st_ausgewaelte_waffen(new_fert,erf));   
+   vec_waffen.push_back(st_ausgewaehlte_waffen(new_fert,erf));   
    midgard_CG::on_speichern_clicked();
    midgard_CG::show_alte_waffen();
    midgard_CG::show_neue_waffen();
@@ -298,4 +300,22 @@ void midgard_CG::on_radiobutton_praxis_wuerfeln_waffen_toggled()
 
 void midgard_CG::on_radiobutton_praxis_auto_waffen_toggled()
 {   
+}
+
+
+bool midgard_CG::Waffen_Voraussetzung(const string waffe)
+{
+  exec sql begin declare section;
+   int db_st,db_ge;
+   char db_waffe[30], db_zusatz[30];
+  exec sql end declare section;
+  strncpy(db_waffe,waffe.c_str(),sizeof(db_waffe));
+
+  exec sql select distinct coalesce(st,'0'), coalesce(ge,'0'),
+   coalesce(zusatz,'')
+   into :db_st,:db_ge,:db_zusatz
+   from waffen where name=:db_waffe;
+  SQLerror::test(__FILELINE__);
+  if ( db_st<=werte.st && db_ge<=werte.ge ) return true;
+  else return false ;
 }

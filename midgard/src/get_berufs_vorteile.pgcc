@@ -1,0 +1,43 @@
+// generated 2001/2/11 14:16:06 CET by thoma@ig23.
+// using glademm V0.5_11c
+//
+// newer (non customized) versions of this file go to Zauber_auswahl.cc_new
+
+// This file is for your program, I won't touch it again!
+
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+exec sql include sqlca;
+#include "midgard_CG.hh"
+#include <cstring>
+#include <Gtk_OStream.h>
+
+vector<string> midgard_CG::Berufs_Vorteile()
+{
+  vector<string> vorteile;
+  exec sql begin declare section;
+   char db_beruf[30], db_vorteil[30];
+  exec sql end declare section;  
+  for (vector<st_ausgewaehlte_berufe>::const_iterator i=vec_beruf.begin();
+         i!=vec_beruf.end();++i)
+   {
+     strncpy(db_beruf,i->name.c_str(),sizeof(db_beruf));
+     exec sql declare ein cursor for
+       select vorteil from berufe_vorteile where beruf = :db_beruf;
+     Transaction tr;
+     exec sql open ein;
+     SQLerror::test(__FILELINE__);
+     while (true)
+      { 
+        exec sql fetch ein into :db_vorteil;
+        SQLerror::test(__FILELINE__,100);
+        if (sqlca.sqlcode) break;
+        vorteile.push_back(db_vorteil);
+      }
+     exec sql close ein;
+     tr.close();
+   }
+//for (int i=0;i<vorteile.size();++i)
+//cout << vorteile[i]<<"\n";
+ return vorteile;
+}

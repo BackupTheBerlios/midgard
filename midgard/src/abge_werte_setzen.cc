@@ -62,7 +62,7 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   int istand=random.integer(1,100);
   istand += typ.stand;
 //cout << typ.stand<<"\n";
-  if (istand<=10) werte.stand = "Unfreie";
+  if (istand<=10) werte.stand = "Unfrei";
   if (11<=istand&&istand<=50) werte.stand = "Volk";
   if (51<=istand&&istand<=90) werte.stand = "Mittelschicht";
   if (istand>=91) werte.stand = "Adel";
@@ -137,6 +137,4 @@ void midgard_CG::grundwerte_boni_setzen()
       { werte.bo_phs+=3; werte.bo_psy+=3; werte.bo_phk+=3; }
   else
       { werte.bo_phs+=2; }
-
-
 }

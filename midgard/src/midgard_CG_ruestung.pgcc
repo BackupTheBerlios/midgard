@@ -25,7 +25,7 @@ string midgard_CG::ruestung(string mod)
     exec sql select lp_verlust into :db_wert
          from ruestung where ruestung_s = :db_c_ruestung ;
     SQLerror::test(__FILELINE__);
-    return itos(db_wert);
+    return "--"+itos(db_wert); // doppeltes Minus für LaTeX
   }
  if (mod=="RW")
   {
@@ -52,43 +52,43 @@ string midgard_CG::ruestung(string mod)
     int wurf = random.integer(1,100);
     if (db_i_ruestung == 1)
      {
-      if ( 1 <= wurf <= 10 ) ruestung = "OR" ;
-      if (11 <= wurf <= 20 ) ruestung = "TR" ;
-      if (21 <= wurf <= 30 ) ruestung = "TR" ;
-      if (31 <= wurf <= 60 ) ruestung = "LR" ;
-      if (61 <= wurf <= 80 ) ruestung = "LR" ;
-      if (81 <= wurf <= 95 ) ruestung = "LR" ;
-      if (96 <= wurf <= 100) ruestung = "LR" ;
+      if ( 1 <= wurf && wurf  <= 10 ) ruestung = "OR" ;
+      if (11 <= wurf && wurf  <= 20 ) ruestung = "TR" ;
+      if (21 <= wurf && wurf  <= 30 ) ruestung = "TR" ;
+      if (31 <= wurf && wurf  <= 60 ) ruestung = "LR" ;
+      if (61 <= wurf && wurf  <= 80 ) ruestung = "LR" ;
+      if (81 <= wurf && wurf  <= 95 ) ruestung = "LR" ;
+      if (96 <= wurf && wurf  <= 100) ruestung = "LR" ;
      }    
     if (db_i_ruestung == 2)
      {
-      if ( 1 <= wurf <= 10 ) ruestung = "OR" ;
-      if (11 <= wurf <= 20 ) ruestung = "TR" ;
-      if (21 <= wurf <= 30 ) ruestung = "LR" ;
-      if (31 <= wurf <= 60 ) ruestung = "LR" ;
-      if (61 <= wurf <= 80 ) ruestung = "KR" ;
-      if (81 <= wurf <= 95 ) ruestung = "KR" ;
-      if (96 <= wurf <= 100) ruestung = "KR" ;
+      if ( 1 <= wurf && wurf  <= 10 ) ruestung = "OR" ;
+      if (11 <= wurf && wurf  <= 20 ) ruestung = "TR" ;
+      if (21 <= wurf && wurf  <= 30 ) ruestung = "LR" ;
+      if (31 <= wurf && wurf  <= 60 ) ruestung = "LR" ;
+      if (61 <= wurf && wurf  <= 80 ) ruestung = "KR" ;
+      if (81 <= wurf && wurf  <= 95 ) ruestung = "KR" ;
+      if (96 <= wurf && wurf  <= 100) ruestung = "KR" ;
      }    
     if (db_i_ruestung == 3)
      {
-      if ( 1 <= wurf <= 10 ) ruestung = "OR" ;
-      if (11 <= wurf <= 20 ) ruestung = "TR" ;
-      if (21 <= wurf <= 30 ) ruestung = "LR" ;
-      if (31 <= wurf <= 60 ) ruestung = "KR" ;
-      if (61 <= wurf <= 80 ) ruestung = "KR" ;
-      if (81 <= wurf <= 95 ) ruestung = "KR" ;
-      if (96 <= wurf <= 100) ruestung = "PR" ;
+      if ( 1 <= wurf && wurf  <= 10 ) ruestung = "OR" ;
+      if (11 <= wurf && wurf  <= 20 ) ruestung = "TR" ;
+      if (21 <= wurf && wurf  <= 30 ) ruestung = "LR" ;
+      if (31 <= wurf && wurf  <= 60 ) ruestung = "KR" ;
+      if (61 <= wurf && wurf  <= 80 ) ruestung = "KR" ;
+      if (81 <= wurf && wurf  <= 95 ) ruestung = "KR" ;
+      if (96 <= wurf && wurf  <= 100) ruestung = "PR" ;
      }    
     if (db_i_ruestung == 4)
      {
-      if ( 1 <= wurf <= 10 ) ruestung = "OR" ;
-      if (11 <= wurf <= 20 ) ruestung = "OR" ;
-      if (21 <= wurf <= 30 ) ruestung = "OR" ;
-      if (31 <= wurf <= 60 ) ruestung = "TR" ;
-      if (61 <= wurf <= 80 ) ruestung = "TR" ;
-      if (81 <= wurf <= 95 ) ruestung = "LR" ;
-      if (96 <= wurf <= 100) ruestung = "LR" ;
+      if ( 1 <= wurf && wurf  <= 10 ) ruestung = "OR" ;
+      if (11 <= wurf && wurf  <= 20 ) ruestung = "OR" ;
+      if (21 <= wurf && wurf  <= 30 ) ruestung = "OR" ;
+      if (31 <= wurf && wurf  <= 60 ) ruestung = "TR" ;
+      if (61 <= wurf && wurf  <= 80 ) ruestung = "TR" ;
+      if (81 <= wurf && wurf  <= 95 ) ruestung = "LR" ;
+      if (96 <= wurf && wurf  <= 100) ruestung = "LR" ;
      }    
    werte.ruestung = ruestung;
    string strinfo ="Beim Auswürfeln der Rüstung wurde eine\n"+itos(wurf)+" gewürfelt\n";

@@ -5,6 +5,7 @@
 
 void midgard_CG::on_fertigkeiten_wahl_clicked()
 {   
+//  manage(new Fertigkeiten_auswahl(this,typ.s,werte,lernpunkte,vec_beruf));
   manage(new Fertigkeiten_auswahl(this,typ.s,lernpunkte));
 }
 
@@ -12,7 +13,7 @@ void midgard_CG::show_fertigkeiten()
 {
    fertigkeiten_clist->clear();
    Gtk::OStream os(fertigkeiten_clist);
-   for(vector<st_ausgewaelte_fertigkeiten>::iterator i=vec_fertigkeiten.begin();
+   for(vector<st_ausgewaehlte_fertigkeiten>::iterator i=vec_fertigkeiten.begin();
          i!=vec_fertigkeiten.end();++i)
       {
          os << i->name<<"\t"<<i->erfolgswert<<"\n";
@@ -27,11 +28,11 @@ void midgard_CG::show_fertigkeiten()
    fertigkeiten_clist->set_reorderable(true);
 }
 
-void midgard_CG::fertigkeiten_uebernehmen(vector<st_ausgewaelte_fertigkeiten>& saf)
+void midgard_CG::fertigkeiten_uebernehmen(vector<st_ausgewaehlte_fertigkeiten>& saf)
 {
    vec_fertigkeiten = saf;
 
-   for(vector<st_ausgewaelte_fertigkeiten>::iterator i=vec_fertigkeiten.begin();
+   for(vector<st_ausgewaehlte_fertigkeiten>::iterator i=vec_fertigkeiten.begin();
          i!=vec_fertigkeiten.end();++i)
       {
          int bonus = midgard_CG::attribut_check(i->attribut);

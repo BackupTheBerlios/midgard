@@ -17,12 +17,12 @@
 class midgard_CG;
 class Window_Waffe_Geld;
 struct st_werte; 
-struct st_ausgewaelte_waffen;
+struct st_ausgewaehlte_waffen;
 
 class Window_waffe : public Window_waffe_glade
 {   
         int wurf;
-        vector<st_ausgewaelte_waffen>& vec_waffen;        
+        vector<st_ausgewaehlte_waffen>& vec_waffen;        
         st_werte& werte;
         midgard_CG* hauptfenster;
         Window_Waffe_Geld* oberfenster;
@@ -34,9 +34,9 @@ class Window_waffe : public Window_waffe_glade
    public:
         Window_waffe::Window_waffe(int we,midgard_CG* h, 
                                     Window_Waffe_Geld* o,st_werte& w,
-                                    vector<st_ausgewaelte_waffen>& wa);
+                                    vector<st_ausgewaehlte_waffen>& wa);
         Window_waffe::Window_waffe(int we,midgard_CG* h, 
                                     st_werte& w,
-                                    vector<st_ausgewaelte_waffen>& wa);
+                                    vector<st_ausgewaehlte_waffen>& wa);
 };
 #endif

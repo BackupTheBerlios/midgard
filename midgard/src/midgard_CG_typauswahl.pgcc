@@ -1,0 +1,32 @@
+#include "midgard_CG.hh"
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+exec sql include sqlca;
+
+void midgard_CG::fill_typauswahl()
+{
+  exec sql begin declare section;
+   char db_typ[50];
+  exec sql end declare section;
+  Transaction tr;
+  exec sql declare ein cursor for select typl from typen order by typl ;
+  exec sql open ein;
+  SQLerror::test(__FILELINE__);
+  Gtk::Menu *_m(manage(new Gtk::Menu()));
+  Gtk::MenuItem *_mi;
+  unsigned int count=0;
+  while (true)
+   {
+      exec sql fetch ein into :db_typ;
+      SQLerror::test(__FILELINE__,100);
+      if (sqlca.sqlcode) break;   
+      typen_vector.push_back(db_typ);
+      _mi = manage(new Gtk::MenuItem(db_typ));
+      _m->append(*_mi);
+      _mi->show();
+      _mi->set_user_data((gpointer)count);
+      ++count;
+   }  
+  typauswahl->set_menu(*_m);
+  typauswahl->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::typauswahl_button));
+}

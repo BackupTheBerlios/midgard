@@ -34,9 +34,9 @@ double midgard_CG::get_standard_fertigkeit(string typ, string fertigkeit)
     exec sql close fertig;
 
  double fac;
- if (!strcmp(db_ergebnis,"Grund")) fac = 0.5; 
- if (!strcmp(db_ergebnis,"Standard")) fac = 1.0; 
- if (!strcmp(db_ergebnis,"Ausnahme")) fac = 2.0; 
+ if (!strcmp(db_ergebnis,"G")) fac = 0.5; 
+ if (!strcmp(db_ergebnis,"S")) fac = 1.0; 
+ if (!strcmp(db_ergebnis,"A")) fac = 2.0; 
 //cout << typ << "\t"<<fertigkeit<<"\t"<<db_ergebnis<<"\t"<<fac<<"\n";
  return(fac);
 }

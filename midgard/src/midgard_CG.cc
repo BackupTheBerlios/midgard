@@ -15,11 +15,14 @@
 #include "Window_waffe.hh"
 #include "Window_Waffenbesitz.hh"
 
+
 midgard_CG::midgard_CG()
 {
+ midgard_CG::fill_typauswahl();
  midgard_CG::typauswahl_button();
  werte.version="Erschaffung";
 }
+
 
 void midgard_CG::typauswahl_button()
 {
@@ -102,6 +105,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    werte.clear();
    lernpunkte.clear();
    typ.clear();
+   waffen_grundkenntnisse.clear();
    midgard_CG::zeige_lernpunkte();
    midgard_CG::zeige_werte(werte,"alle");
    berufe_clist->clear();

@@ -24,12 +24,12 @@ struct db_struct_fertigkeiten
    string attribut;
    string pflicht;
    int fp;
-   string vorraussetzung;
+   string voraussetzung;
    db_struct_fertigkeiten(int l,const string &f,int w,
                            const string &a, const string &p, int fp,
                            const string &v)
    : lernpunkte(l), fertigkeiten(f), erfolgswert(w), attribut(a), 
-      pflicht(p), fp(fp), vorraussetzung(v)
+      pflicht(p), fp(fp), voraussetzung(v)
    {}
 };
 
@@ -44,6 +44,7 @@ class Fertigkeiten_auswahl : public Fertigkeiten_auswahl_glade
         void on_fertigkeiten_clist_auswahl_select_row(gint row, gint column, GdkEvent *event);
         void on_fertigkeiten_clist_auswahl_unselect_row(gint row, gint column, GdkEvent *event);
  public:
-        Fertigkeiten_auswahl(midgard_CG* h,const string& typ, st_lernpunkte& l);
+        Fertigkeiten_auswahl(midgard_CG* h,const string& typ, 
+                 st_lernpunkte& l);
 };
 #endif

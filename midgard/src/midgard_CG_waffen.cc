@@ -12,7 +12,7 @@ void midgard_CG::show_waffen()
 {
    waffen_clist->clear();
    Gtk::OStream os(waffen_clist);
-   for(vector<st_ausgewaelte_waffen>::iterator i=vec_waffen.begin();
+   for(vector<st_ausgewaehlte_waffen>::iterator i=vec_waffen.begin();
          i!=vec_waffen.end();++i)
       {
          os << i->name<<"\t"<<i->erfolgswert<<"\n";
@@ -23,7 +23,7 @@ void midgard_CG::show_waffen()
 
 }
 
-void midgard_CG::waffen_uebernehmen(vector<st_ausgewaelte_waffen>& saw, map<string,string> wg)
+void midgard_CG::waffen_uebernehmen(vector<st_ausgewaehlte_waffen>& saw, map<string,string> wg)
 {
    vec_waffen = saw;
    waffen_grundkenntnisse = wg;

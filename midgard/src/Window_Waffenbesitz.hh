@@ -17,13 +17,13 @@
 #include <string>
 
 class midgard_CG;
-struct st_ausgewaelte_waffen;
+struct st_ausgewaehlte_waffen;
 struct st_werte;
 
 class Window_Waffenbesitz : public Window_Waffenbesitz_glade
 {   
         midgard_CG* hauptfenster;
-        vector<st_ausgewaelte_waffen>& vec_waffen;
+        vector<st_ausgewaehlte_waffen>& vec_waffen;
         vector<string>& waffe_besitz;
         st_werte& werte;
         friend class Window_Waffenbesitz_glade;
@@ -33,6 +33,6 @@ class Window_Waffenbesitz : public Window_Waffenbesitz_glade
         void show_neue_waffen();
         void on_button_close_clicked();
    public:
-        Window_Waffenbesitz(midgard_CG* h,vector<st_ausgewaelte_waffen>& vw,vector<string>& wb,st_werte& we);
+        Window_Waffenbesitz(midgard_CG* h,vector<st_ausgewaehlte_waffen>& vw,vector<string>& wb,st_werte& we);
 };
 #endif

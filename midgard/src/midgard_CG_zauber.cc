@@ -23,11 +23,11 @@ void midgard_CG::show_zauber()
    zauber_clist->set_reorderable(true);
 }
 
-void midgard_CG::zauber_uebernehmen(vector<st_ausgewaelte_zauber>& saz)
+void midgard_CG::zauber_uebernehmen(vector<st_ausgewaehlte_zauber>& saz)
 {
    zauber.clear();
    vec_zauber = saz;
-   for(vector<st_ausgewaelte_zauber>::iterator i=vec_zauber.begin();
+   for(vector<st_ausgewaehlte_zauber>::iterator i=vec_zauber.begin();
          i!=vec_zauber.end();++i)
       {
          string erf = midgard_CG::get_erfolgswert_zaubern(typ,i->name);

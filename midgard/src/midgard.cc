@@ -20,7 +20,8 @@ int main(int argc, char **argv)
       conn.setDbase("midgard");
       Petig::dbconnect(conn);
 
-      midgard_CG *midgard_cg = manage(new midgard_CG());
+//      midgard_CG *midgard_cg = 
+      manage(new midgard_CG());
 
       m.run();
       Petig::dbdisconnect();

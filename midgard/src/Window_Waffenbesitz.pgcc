@@ -36,7 +36,7 @@ void Window_Waffenbesitz::on_clist_waffe_neu_select_row(gint row, gint column, G
 }
 
 Window_Waffenbesitz::Window_Waffenbesitz(midgard_CG* h,
-      vector<st_ausgewaelte_waffen>& vw,vector<string>& wb,st_werte& we )
+      vector<st_ausgewaehlte_waffen>& vw,vector<string>& wb,st_werte& we )
 : vec_waffen(vw), waffe_besitz(wb), werte(we)
 {
   hauptfenster=h;
@@ -92,7 +92,9 @@ void  Window_Waffenbesitz::show_neue_waffen()
      SQLerror::test(__FILELINE__,100);
      if (sqlca.sqlcode) break;
      string schaden=hauptfenster->waffe_werte(db_waffe,werte,"Schaden");
-     os << db_waffe<<"\t"<<schaden<<"\n";
+     string waffe=db_waffe;
+     if (waffe!="waffenloser Kampf")
+        os << db_waffe<<"\t"<<schaden<<"\n";
    }
   exec sql close ein;
   tr.close();

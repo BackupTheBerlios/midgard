@@ -81,7 +81,7 @@ void Zauber_auswahl::on_zauber_clist_auswahl_unselect_row(gint row, gint column,
 
 void Zauber_auswahl::on_close_zauber_clicked()
 {   
-    vector<st_ausgewaelte_zauber> saz;
+    vector<st_ausgewaehlte_zauber> saz;
    for (Gtk::CList::SelectionList::iterator i=zauber_clist_auswahl->selection().begin();
          i!=zauber_clist_auswahl->selection().end();++i)
      {  
@@ -89,7 +89,7 @@ void Zauber_auswahl::on_close_zauber_clicked()
          =static_cast<db_struct_zauber*>(i->get_data());
          // ptr=&fert[i->get_row_num()];
 //       cout << ptr ->zauber << ' ' << '\n';
-       saz.push_back(st_ausgewaelte_zauber(ptr->zauber,ptr->ap));
+       saz.push_back(st_ausgewaehlte_zauber(ptr->zauber,ptr->ap));
      }
   hauptfenster->zauber_uebernehmen(saz);
   destroy();

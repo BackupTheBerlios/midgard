@@ -16,16 +16,18 @@
 #include <vector>
 class midgard_CG;
 struct st_lernpunkte;
+struct st_werte;
+struct styp;
 
 struct db_struct_beruf
 {  int lernpunkte;    
    string beruf;      
    string stand;
-   string vorraussetzung;
+   string voraussetzung;
    string vorteile;   
    db_struct_beruf(int l,const string &b, const string &s,
                   const string &v1,const string &v2 )
-   : lernpunkte(l), beruf(b), stand(s), vorraussetzung(v1), vorteile(v2)   
+   : lernpunkte(l), beruf(b), stand(s), voraussetzung(v1), vorteile(v2)   
    {}
 };   
 
@@ -38,7 +40,10 @@ class Berufe_auswahl : public Berufe_auswahl_glade
         void on_berufe_clist_auswahl_select_row(gint row, gint column, GdkEvent *event);
         void on_berufe_clist_auswahl_unselect_row(gint row, gint column, GdkEvent *event);
         void on_close_berufe_clicked();
+        bool berufe_voraussetzung(string beruf, st_werte werte, string typz);
+        bool btyp(string typ, string typz);
+        string Beruf_vorteile(string beruf);
    public:
-        Berufe_auswahl(midgard_CG* h,const string& typ, st_lernpunkte& l);
+        Berufe_auswahl(midgard_CG* h,styp& typ, st_lernpunkte& l, st_werte& werte);
 };
 #endif

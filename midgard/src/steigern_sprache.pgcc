@@ -17,7 +17,7 @@ void midgard_CG::on_sprache_laden_clicked()
     
 void midgard_CG::on_steigern_sprache_clist_neu_select_row(gint row, gint column, GdkEvent *event)
 {   
-   int new_kosten = atoi(clist_steigern_sprachen_neu->get_text(row,1).c_str());
+   int new_kosten = atoi(clist_steigern_sprachen_neu->get_text(row,2).c_str());
    werte.gfp += new_kosten;
    midgard_CG::zeige_werte(werte,"alle");
 

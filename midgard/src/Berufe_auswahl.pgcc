@@ -14,7 +14,7 @@ exec sql include sqlca;
 #include <Gtk_OStream.h>
 
 
-Berufe_auswahl::Berufe_auswahl(midgard_CG* h,const string& typ, st_lernpunkte& l)
+Berufe_auswahl::Berufe_auswahl(midgard_CG* h,styp& typ, st_lernpunkte& l, st_werte& werte)
 {
   hauptfenster=h;
   maxpunkte = l.beruf;
@@ -23,35 +23,43 @@ Berufe_auswahl::Berufe_auswahl(midgard_CG* h,const string& typ, st_lernpunkte& l
    char db_beruf[100];
    int db_lernpunkte;
    char db_stand[100];
-   char db_vorraussetzung[100];
-   char db_vorteile[100];
+   char db_voraussetzung[10];
    int db_maxp = maxpunkte;
   exec sql end declare section;
+  strncpy(db_stand,werte.stand.c_str(),sizeof(db_stand));
 
    Transaction tr;
     exec sql declare beruf cursor for
-      select lernpunkte, beruf, stand, vorraussetzung, vorteile
-      from berufe where :db_maxp >= lernpunkte 
+      select distinct v.lernpunkte, v.beruf, coalesce(v.geschlecht,'')
+      from berufe_stand s, berufe_voraussetzung v 
+      where v.beruf = s.beruf and 
+      s.stand = :db_stand and v.beruf = s.beruf
+      and :db_maxp >= v.lernpunkte 
       order by lernpunkte ;
 
     exec sql open beruf;
     SQLerror::test(__FILELINE__);
     while (true)
       {
-         exec sql fetch beruf into :db_lernpunkte, :db_beruf, :db_stand,
-                        :db_vorraussetzung, :db_vorteile ;
+         exec sql fetch beruf into :db_lernpunkte, :db_beruf,
+                        :db_voraussetzung;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
+         string vorteile = Berufe_auswahl::Beruf_vorteile(db_beruf);         
          beruf.push_back(db_struct_beruf(db_lernpunkte,db_beruf,db_stand,
-                           db_vorraussetzung, db_vorteile));
+                           db_voraussetzung, vorteile));
       }
     exec sql close beruf;
+    tr.close();
     Gtk::OStream os(berufe_clist_auswahl);
     for(vector<db_struct_beruf>::iterator i=beruf.begin();i!=beruf.end();++i)
       {
-         os << i->lernpunkte <<"\t"<< i->vorraussetzung <<"\t"
-            << i->stand<<"\t"<<i->beruf<<"\t"<<i->vorteile <<"\n";
-         os.flush(&*i);
+         if (Berufe_auswahl::berufe_voraussetzung(i->beruf,werte,typ.z))
+          {
+            os << i->lernpunkte <<"\t"<< i->voraussetzung <<"\t"
+               <<i->beruf<<"\t"<<i->vorteile <<"\n";
+            os.flush(&*i);
+          }
       }
     for (unsigned int i=0;i<berufe_clist_auswahl->columns().size();++i)
       berufe_clist_auswahl->set_column_auto_resize(i,true);
@@ -79,17 +87,74 @@ void Berufe_auswahl::on_berufe_clist_auswahl_unselect_row(gint row, gint column,
 
 void Berufe_auswahl::on_close_berufe_clicked()
 {   
-   vector<st_ausgewaelte_berufe> sab;
+   vector<st_ausgewaehlte_berufe> sab;
    for (Gtk::CList::SelectionList::iterator i=berufe_clist_auswahl->selection().begin();
          i!=berufe_clist_auswahl->selection().end();++i)
      {  
       db_struct_beruf *ptr
          =static_cast<db_struct_beruf*>(i->get_data());
          // ptr=&fert[i->get_row_num()];
-       sab.push_back(st_ausgewaelte_berufe(ptr->beruf,
+       sab.push_back(st_ausgewaehlte_berufe(ptr->beruf,
                         ptr->vorteile,0));
      }
   hauptfenster->berufe_uebernehmen(sab);
   destroy();
 
+}
+
+bool Berufe_auswahl::berufe_voraussetzung(string beruf, st_werte werte, string typz)
+{
+  exec sql begin declare section;
+   int db_st,db_ge,db_ko,db_in,db_zt,db_pa,db_au;
+   char db_typ[1];
+   char db_beruf[30];
+  exec sql end declare section;
+  strncpy(db_beruf,beruf.c_str(),sizeof(db_beruf));
+
+  exec sql select distinct coalesce(st,'0'), coalesce(ge,'0'),
+   coalesce(ko,'0'),  coalesce("in",'0'), coalesce(zt,'0'),
+   coalesce(typ,'0'), coalesce(pa,'0'), coalesce(au,'0')
+   into :db_st,:db_ge,:db_ko,:db_in,:db_zt,:db_typ,:db_pa,:db_au
+   from berufe_voraussetzung where beruf=:db_beruf;
+  SQLerror::test(__FILELINE__);
+  if (   db_st<=werte.st &&
+         db_ge<=werte.ge &&
+         db_ko<=werte.ko &&
+         db_in<=werte.in &&
+         db_zt<=werte.zt &&
+         db_pa<=werte.pa &&
+         db_au<=werte.au &&
+         Berufe_auswahl::btyp(db_typ,typz) 
+     )   
+   return true;
+  else return false ;
+}
+
+bool Berufe_auswahl::btyp(string typ, string typz)
+{
+ if       (typ=="z" && typz=="z") return true;
+ else if  (typ=="k" && typz=="n") return true; 
+ else if  (typ=="k" && typz=="j") return true; 
+ else if  (typ=="0") return true;
+ else return false;
+}
+
+string Berufe_auswahl::Beruf_vorteile(string beruf)
+{
+  exec sql begin declare section;
+   char db_beruf[30];
+   char db_vorteile[30][30];
+  exec sql end declare section;
+  strncpy(db_beruf,beruf.c_str(),sizeof(db_beruf));
+  exec sql select coalesce(vorteil,'') into :db_vorteile from berufe_vorteile
+      where beruf = :db_beruf;
+  SQLerror::test(__FILELINE__,100);
+  string vorteile;
+  for (int i=0;i<sqlca.sqlerrd[2];++i)  
+   {
+     vorteile += db_vorteile[i];
+     if (i!=sqlca.sqlerrd[2]-1) vorteile += ", ";
+   }
+//cout << db_beruf<<"\t"<<vorteile<<"\n";
+  return vorteile;
 }

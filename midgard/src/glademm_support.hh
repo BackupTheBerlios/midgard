@@ -1,4 +1,4 @@
-// generated 2001/3/7 18:06:13 CET by thoma@ig23.
+// generated 2001/3/23 9:13:54 CET by thoma@ig23.
 // using glademm V0.5_11f_cvs
 //
 // some glademm convenience functions
@@ -9,9 +9,13 @@
 #define GLADEMM_SUPPORT_HH
 #include <string>
 #include <map>
-#include <gtk--/radiobutton.h>
-#include <gtk--/radiomenuitem.h>
+#include <gtk--/widget.h>
 
-Gtk::RadioButton_Helpers::Group & glademm_RadioButtonGroup(const string &name);
-Gtk::RadioMenuItem_Helpers::Group & glademm_RadioMenuItemGroup(const string &name);
+Gtk::Widget * glademm_get_Widget(const __STD::string &name);
+void glademm_set_Widget(const __STD::string &name, Gtk::Widget *w);
+
+template <class T> T * glademm_get(const __STD::string &name)
+{   return reinterpret_cast<T*>(glademm_get_Widget(name));
+   // 2do: testen ... geht aber nicht ohne Methode gleichen Namens
+}
 #endif /* GLADEMM_SUPPORT_HH */

@@ -46,7 +46,7 @@ void Window_Waffe_Geld::on_button_close_clicked()
   destroy();
 }
 
-Window_Waffe_Geld::Window_Waffe_Geld(midgard_CG* h, st_werte& w, vector<st_ausgewaelte_waffen>& wa)
+Window_Waffe_Geld::Window_Waffe_Geld(midgard_CG* h, st_werte& w, vector<st_ausgewaehlte_waffen>& wa)
 : werte(w), vec_waffen(wa)
 {
    hauptfenster = h;

@@ -7,7 +7,7 @@ exec sql include sqlca;
  
 void midgard_CG::on_laden_clicked()
 {
-  if (werte.name_charakter =="") manage (new Window_charakter_auswahl(this));
+  if (werte.name_charakter =="~") manage (new Window_charakter_auswahl(this));
   else midgard_CG::load_charakter();
 }
 
@@ -277,7 +277,7 @@ void midgard_CG::load_charakter()
          exec sql fetch beruf into :db_fertigkeit, :db_wert;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         vec_beruf.push_back(st_ausgewaelte_berufe(db_fertigkeit,"",db_wert));
+         vec_beruf.push_back(st_ausgewaehlte_berufe(db_fertigkeit,"",db_wert));
       } 
    exec sql close beruf;
    // angeborene Fertigkeiten
@@ -311,7 +311,7 @@ void midgard_CG::load_charakter()
          exec sql fetch fertigkeiten into :db_fertigkeit, :db_wert;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         vec_fertigkeiten.push_back(st_ausgewaelte_fertigkeiten(db_fertigkeit,db_wert,""));
+         vec_fertigkeiten.push_back(st_ausgewaehlte_fertigkeiten(db_fertigkeit,db_wert,""));
       } 
    exec sql close fertigkeit;
    // Waffen
@@ -328,7 +328,7 @@ void midgard_CG::load_charakter()
          exec sql fetch waffen into :db_fertigkeit, :db_wert;
          SQLerror::test(__FILELINE__,100);
          if (sqlca.sqlcode) break;
-         vec_waffen.push_back(st_ausgewaelte_waffen(db_fertigkeit,db_wert));
+         vec_waffen.push_back(st_ausgewaehlte_waffen(db_fertigkeit,db_wert));
       } 
    exec sql close waffen;
    // Besitz (Waffen)

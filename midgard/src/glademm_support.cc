@@ -1,4 +1,4 @@
-// generated 2001/3/7 18:06:13 CET by thoma@ig23.
+// generated 2001/3/23 9:13:54 CET by thoma@ig23.
 // using glademm V0.5_11f_cvs
 //
 // some glademm convenience functions
@@ -8,14 +8,16 @@
 #include "config.h"
 #include "glademm_support.hh"
 
-static map<const string,Gtk::RadioButton_Helpers::Group> glademm_radiobuttongroups;
+static map<const __STD::string,Gtk::Widget *> glademm_widgets;
 
-Gtk::RadioButton_Helpers::Group & glademm_RadioButtonGroup(const string &name)
-{   return glademm_radiobuttongroups[name];;
+Gtk::Widget * glademm_get_Widget(const __STD::string &name)
+{   
+   
+   map<const __STD::string,Gtk::Widget *>::iterator i=glademm_widgets.find(name);
+   if (i==glademm_widgets.end()) return 0;
+   return (*i).second;
 }
 
-static map<const string,Gtk::RadioMenuItem_Helpers::Group> glademm_radiomenuitemgroups;
-
-Gtk::RadioMenuItem_Helpers::Group & glademm_RadioMenuItemGroup(const string &name)
-{   return glademm_radiomenuitemgroups[name];;
+void glademm_set_Widget(const __STD::string &name, Gtk::Widget *val)
+{   glademm_widgets[name]=val;
 }

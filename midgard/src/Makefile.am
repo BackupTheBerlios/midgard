@@ -49,12 +49,15 @@ BUILT_SOURCES = Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
    praxispunkte_wuerfeln.cc steigern_sprache.cc sprachen_schrift.cc \
    Sprache_auswahl.cc Window_herkunft.cc midgard_CG_ruestung.cc \
 	Window_ruestung.cc Window_waffe.cc Window_Waffenbesitz.cc \
-   midgard_CG_waffe_werte.cc
+   midgard_CG_waffe_werte.cc get_berufs_vorteile.cc \
+   midgard_CG_typauswahl.cc
 
 
 
 
 midgard_SOURCES = \
+   $(BUILT_SOURCES) \
+   midgard_CG_optionen.cc \
 	Window_Waffenbesitz_glade.cc \
 	Window_waffe_glade.cc \
 	Window_ruestung_glade.cc \
@@ -99,8 +102,7 @@ midgard_SOURCES = \
    grundwere_edit_setzen.cc \
    WindowInfo.cc \
    WindowInfo_glade.cc \
-   itos.cc \
-   $(BUILT_SOURCES)
+   itos.cc 
 
 
 CXXFLAGS = @CXXFLAGS@ @GTKMM_CFLAGS@ @COMMONXX_INCLUDES@ \

@@ -8,6 +8,7 @@
 #include "config.h"
 #include "WindowInfo.hh"
 #include <gtk--/main.h>
+#include "midgard_CG.hh"
 
 void WindowInfo::on_button_info_ok_clicked()
 {   
@@ -16,6 +17,7 @@ void WindowInfo::on_button_info_ok_clicked()
 
 WindowInfo::WindowInfo(string s)
 {
-   infotext->set_text(s.c_str());
+   if (Infobool) infotext->set_text(s.c_str());
+   else destroy();
 //XXX   Gtk::Main::timeout.connect(WindowInfo::WindowInfo.destroy().slot(),1000);
 }
