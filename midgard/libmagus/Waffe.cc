@@ -71,6 +71,7 @@ void Waffe::get_Waffe(const Tag &t)
    {  st=Voraussetzungen->getIntAttr("St");
       gw=Voraussetzungen->getIntAttr("Gw");
       gs=Voraussetzungen->getIntAttr("Gs");
+      min_st_einhand=Voraussetzungen->getIntAttr("Min_St_Einhand");
    }
 
    const Tag *Reichweite=t.find("Reichweite");
@@ -131,6 +132,11 @@ bool Waffe::Grundkenntnis_vorhanden(const std::list<MBEmlt>& list_WaffenGrund) c
  return false;
 }
 
+bool Waffe::Min_St_Einhand(const Grundwerte &W) const
+{
+   if(W.St() >= min_st_einhand) return true;
+   return false;
+}
 
 bool Waffe::Voraussetzung(const Abenteurer &A,bool anzeigen) const
 {
@@ -181,6 +187,10 @@ std::string WaffeBesitz::Schaden(const Grundwerte& Werte,const std::string& name
   std::string s=Waffe()->Schaden(name);
   int sb =Waffe()->Schaden_Bonus(name) + sl_Bonus();
   int sb2=Waffe()->Schaden_Bonus2(name) + sl_Bonus();
+  // Nicht stark genug fürs Einhändige Tragen dieser Waffe?
+  if(Waffe()->Text().find("Einhändig")!=std::string::npos &&
+       !Waffe()->Min_St_Einhand(Werte)) sb2=sb;
+
   if ( Waffe()->Grundkenntnis() == "Kampf ohne Waffen" ) 
       { s="W6";
         int w = Erfolgswert();
@@ -357,7 +367,7 @@ std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
                  else erf_wert = (*j)->Erfolgswert();
                  int ewert = A.getWerte().Abwehr_wert()+A.getWerte().bo_Ab() // Grundwerte
                            + erf_wert + WB->av_Bonus() ;// Waffenwerte
-                 Vwaffewert += itos(ewert);
+                 Vwaffewert += itos0p(ewert,-1,true);
                }
          }
        ++i;
