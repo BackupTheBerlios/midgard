@@ -21,6 +21,7 @@
 #include <cstring>
 #include <Gtk_OStream.h>
 #include <Misc/itos.h>
+#include "xml.h"
 
 KiDo_Stile::KiDo_Stile()
 {

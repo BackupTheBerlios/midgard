@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten.hh,v 1.1 2003/05/06 07:12:04 christof Exp $               
+// $Id: Fertigkeiten.hh,v 1.2 2003/05/07 07:16:29 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,6 +21,7 @@
 #  define _FERTIGKEITEN_HH
 #include "MidgardBasicElement.hh"
 #include "Typen.hh"
+#include <Misc/Tag.h>
 
 class midgard_CG;
 class Abenteurer;

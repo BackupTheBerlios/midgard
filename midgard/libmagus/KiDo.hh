@@ -1,4 +1,4 @@
-// $Id: KiDo.hh,v 1.1 2003/05/06 07:12:04 christof Exp $               
+// $Id: KiDo.hh,v 1.2 2003/05/07 07:16:29 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,6 +23,7 @@
 #include "Typen.hh"
 //#include "Ausnahmen.hh"
 #include "Fertigkeiten.hh"
+#include <Misc/Tag.h>
 
 class KiDo_Stile
 {
