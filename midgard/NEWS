@@ -13,14 +13,10 @@ NEWS IN VERSION 0.7.7
 * Schreiben "Alten Sprachen" nur nachdem eine Sprache gelernt wurde
 * Wenn jetzt eine Sprache gelernt wird, die man vorher ungelernt schon 
    konnte, dann wird sie mit dem entsprechend höchstem Erfolgswert beherrscht.
+* Schaden für Raufen und Waffen, die man nicht besitzt im Spielleiterexport
 
 
 TODO: ('-' zeigt CP an)
-* Schaden für Raufen in Grundwerte.h
-* Und wenn ich diese Sprache
-> später lerne zählt immer der höhere EW als Startwert für Sprechen:Sprache;
-> zum Beispiel mein EW+10 Erainnisch statt dem in der Tabelle 5.1 angegebenen
-> Startwert von +4 für neuerworbene Fremdsprachen.
 * Schreiben im Spielleiterexport
 * Automatische Sprachen im Spielleiterexport
 * Vorschlag: wäre es möglich die GFP-Liste zu verkleinern und dafür die
@@ -38,13 +34,6 @@ TODO: ('-' zeigt CP an)
 - alle Ausdrucke unter Windows testen
 - .magus Endung unter Windows mit Magus.exe verknüpfen (beim Speichern)
 - xml laden beschleunigen (merge with map, reservate on vectors)
-> 1. Export funktioniert, allerdings fehlen die Schadenswerte für Waffen, die
-> die Figur nicht besitzt - das macht sich schlecht, insbesondere bei
-> Faustkampf ... ;-))
-> 
-> Ebenso fehlt RAUFEN (mit zugehörigem EW und Schaden), diese angeborene
-> Fertigkeit sollte nach aktueller Notation hinter einem Semikolon nach den
-> Angriffswerten folgen - und vor Abwehr.
 
 ##########################################################################
 NEWS IN VERSION 0.7.6

@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.36 2002/08/19 06:34:08 thoma Exp $               
+// $Id: Grundwerte.cc,v 1.37 2002/08/19 18:14:03 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -86,7 +86,8 @@ int Grundwerte::Raufen() const
 
 std::string  Grundwerte::RaufenSchaden() const 
 { 
-  return  "" ;//(St()+Gw())/20 +bo_An() + Spezies()->Raufen();
+  int b=-4+bo_Sc();
+  return  "W6"+itos0p(b,0,true);
 }
 
 

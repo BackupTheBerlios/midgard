@@ -94,18 +94,21 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
     int wert = i->Erfolgswert() + anbo;
     std::string schaden;
     bool besitz=false;
+    {WaffeBesitz WB(w,w->Name(),0,0,"","");
+    schaden= WB.Schaden(getWerte(),w->Name(),true);
+    }
     for(std::list<WaffeBesitz>::const_iterator j=Char.List_Waffen_besitz().begin();j!=Char.List_Waffen_besitz().end();++j)
      {
-      WaffeBesitz WB=*j;
-      if (WB.Waffe()->Name()==w->Name())
-       {
-         besitz=true;
-         name = WB.AliasName();
-         if (WB.av_Bonus()!=0 || WB.sl_Bonus()!=0) name +="$^*$";
-         wert += WB.av_Bonus() + WB.Waffe()->WM_Angriff((*j)->Name());
-         schaden=WB.Schaden(Char.getWerte(),WB->Name());
-       }
-     }
+       WaffeBesitz WB=*j;
+       if (WB.Waffe()->Name()==w->Name())
+        {
+          besitz=true;
+          name = WB.AliasName();
+          if (WB.av_Bonus()!=0 || WB.sl_Bonus()!=0) name +="$^*$";
+          wert += WB.av_Bonus() + WB.Waffe()->WM_Angriff((*j)->Name());
+          schaden=WB.Schaden(Char.getWerte(),WB->Name());
+        }
+      }
     angriff += name+"+"+itos(wert)+" ("+schaden+"), ";
    }
   std::string::size_type st2=angriff.find_last_of(",");
@@ -116,7 +119,7 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
      fout << "Angriff: ";
      fout <<angriff; 
     }
-  fout << "; Raufen+"<<W.Raufen()<<"("<<W.RaufenSchaden()<<")"; 
+  fout << ", Raufen+"<<W.Raufen()<<" ("<<W.RaufenSchaden()<<")"; 
   fout <<" - Abwehr+"<<W.Abwehr_wert()+W.bo_Ab() <<", "
        <<"Resistenz+"<<W.Resistenz()+W.bo_Psy(Char.getVTyp())<<"/" 
                      <<W.Resistenz()+W.bo_Phs(Char.getVTyp())<<"/" 
