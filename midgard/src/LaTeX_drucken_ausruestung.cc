@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_ausruestung.cc,v 1.23 2003/07/01 09:35:55 thoma Exp $   
+// $Id: LaTeX_drucken_ausruestung.cc,v 1.24 2003/07/01 11:19:09 thoma Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -75,7 +75,7 @@ void LaTeX_drucken::on_ausruestung_druck(bool unsichtbar)
   {
    if(i->getAusruestung().Sichtbar() || unsichtbar )
     {      
-      fout << "\\multicolumn{2}{|l|}{ ";
+      fout << "\\multicolumn{2}{|l|}{\\bf ";
       std::string name=i->getAusruestung().Name();
       if (!i->getAusruestung().Material().empty()) name +=" ("+i->getAusruestung().Material()+")";
       if(i->getAusruestung().Sichtbar())  fout << Gtk2TeX::string2TeX(name) ;
