@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.67 2002/04/29 21:08:33 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.68 2002/04/30 08:25:04 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -87,10 +87,7 @@ void midgard_CG::deleteBerufsFertigekeit()
 
 void midgard_CG::showBerufsLernList()
 {
-  if(tree_lernschema) {  tree_lernschema->destroy(); tree_lernschema=0;}
-  if(Beruf_tree) {Beruf_tree->destroy(); Beruf_tree=0;}
-  if(tree_angeb_fert) {tree_angeb_fert->destroy(); tree_angeb_fert=0;}
-  viewport_lernen->remove();
+  clean_lernschema_trees();
 
   Beruf_tree = manage(new SimpleTree(4,4));
   Beruf_tree->leaf_selected.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_beruf_tree_leaf_selected));

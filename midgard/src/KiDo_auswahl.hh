@@ -1,24 +1,5 @@
-// $Id: KiDo_auswahl.hh,v 1.24 2002/01/14 10:46:43 thoma Exp $
-/*  Midgard Character Generator
- *  Copyright (C) 2001 Malte Thoma
- *
- *  This program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- */
-
-// generated 2001/4/3 21:37:34 CEST by thoma@ig23.
-// using glademm V0.5_11f_cvs
+// generated 2002/4/30 10:12:00 CEST by thoma@Tiger.(none)
+// using glademm V0.6.4b_cvs
 //
 // newer (non customized) versions of this file go to KiDo_auswahl.hh_new
 
@@ -31,32 +12,12 @@
 #ifndef _KIDO_AUSWAHL_HH
 #  include "KiDo_auswahl_glade.hh"
 #  define _KIDO_AUSWAHL_HH
-#include "glademm_support.hh"
-
-
-
-#include <vector>
-class midgard_CG;
-class Grundwerte;
-class Typen;
-class Beruf;
-//class H_Data_beruf;
-//class H_Data_kido;
-#include "midgard_CG.hh"
-
-
 class KiDo_auswahl : public KiDo_auswahl_glade
-{   
-        midgard_CG* hauptfenster;
-        int maxkido;
+{  
+        
         friend class KiDo_auswahl_glade;
-        std::list<cH_MidgardBasicElement> kido_technik;
         void on_clist_kido_auswahl_select_row(gint row, gint column, GdkEvent *event);
         void on_clist_kido_auswahl_unselect_row(gint row, gint column, GdkEvent *event);
         void on_button_close_clicked();
-   public:
-        KiDo_auswahl(midgard_CG* h, int m,const Grundwerte& Werte,
-            const Datenbank& Database,
-            const vector<cH_Typen>& Typ,std::vector<std::string> Vkido);
 };
 #endif

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.65 2002/04/29 21:08:33 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.66 2002/04/30 08:25:04 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -68,11 +68,7 @@ void midgard_CG::on_angeborene_fertigkeit_clicked()
 
 void midgard_CG::on_angeborene_fertigkeit_right_clicked()
 {
-  if(tree_lernschema) {tree_lernschema->destroy(); tree_lernschema=0;}
-  if(Beruf_tree) {Beruf_tree->destroy(); Beruf_tree=0;}
-  if(tree_angeb_fert) {tree_angeb_fert->destroy(); tree_angeb_fert=0;}
-  viewport_lernen->remove();
-      
+  clean_lernschema_trees();
   tree_angeb_fert = manage(new MidgardBasicTree(MidgardBasicTree::ANGEBFERT));
   tree_angeb_fert->leaf_selected.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_ang_fert_leaf_selected));
   list_Fertigkeit_ang_neu=Database.Fertigkeit_ang;

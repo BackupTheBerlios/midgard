@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.225 2002/04/29 21:08:33 thoma Exp $
+// $Id: midgard_CG.hh,v 1.226 2002/04/30 08:25:04 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -132,9 +132,11 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
 
     public:
         bool fire_enabled;
+    private:
         MidgardBasicTree *tree_lernschema;
         SimpleTree *Beruf_tree;
         MidgardBasicTree *tree_angeb_fert;
+        MidgardBasicTree *tree_kido_lernschema;
 
     private:
         bool modify_bool;
@@ -308,6 +310,7 @@ private:
         void on_tree_lernschema_leaf_selected(cH_RowDataBase d);
         void show_gelerntes();
         void show_lernschema();
+        void clean_lernschema_trees();
         void setTitels_for_Lernschema(const MidgardBasicElement::MBEE& what,const std::string& fert);
         void on_spinbutton_fach_activate();
         void on_spinbutton_allgemein_activate();
@@ -350,6 +353,7 @@ private:
         void showBerufsLernList();
         void beruf_gewuerfelt(int wurf);
         void on_kido_wahl_clicked();
+        void fill_kido_lernschema();
         void stil_optionmenue();
         void zeige_lernpunkte();
         gint on_angeborene_fertigkeit_button_release_event(GdkEventButton *ev);
@@ -358,6 +362,7 @@ private:
         bool AngebSinn(int wurf,int wert);
         std::string AngebFert_gewuerfelt(int wurf);
         void on_ang_fert_leaf_selected(cH_RowDataBase d);
+        void on_tree_kido_lernschema_leaf_selected(cH_RowDataBase d);
         void universal_Fertigkeiten();
         void on_spezialwaffe_clicked();
 //   public:

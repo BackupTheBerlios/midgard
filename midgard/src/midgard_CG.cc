@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.214 2002/04/29 21:08:33 thoma Exp $
+// $Id: midgard_CG.cc,v 1.215 2002/04/30 08:25:04 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,6 +26,7 @@
 #include <gtk--/notebook.h>
 #include <gtk--/main.h>
 #include "Midgard_Info.hh"
+#include "Fertigkeiten.hh"
 #ifdef __MINGW32__
 #include <time.h>
 #endif
@@ -33,7 +34,8 @@
 midgard_CG::midgard_CG(const string &datei)
 : InfoFenster(0),wizard(0), MOptionen(0),menu(0),menu_gradanstieg(0),
   Database(Midgard_Info),fire_enabled(true),
-  tree_lernschema(0),Beruf_tree(0),tree_angeb_fert(0)
+  tree_lernschema(0),Beruf_tree(0),tree_angeb_fert(0),tree_kido_lernschema(0),
+  maxkido(0)
 {
   ansicht_menu = manage(new Gtk::MenuItem("Ansicht"));
   region_menu = manage(new Gtk::MenuItem("Regionen"));
@@ -187,7 +189,8 @@ void midgard_CG::show_gtk()
      table_magier_steigern->hide();
    }
  // KiDo anzeigen?
- if (kido_bool) 
+// if (kido_bool) 
+ if(cH_Fertigkeit("KiDo")->ist_gelernt(list_Fertigkeit))
    { optionmenu_KiDo_Stile->show();
      frame_KiDo_lernschema->show();     
      table_kido_steigern->show();

@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.152 2002/04/29 07:02:52 thoma Exp $
+# $Id: Makefile.am,v 1.153 2002/04/30 08:25:04 thoma Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -75,8 +75,6 @@ WindowInfo_glade.hh WindowInfo.hh \
 	Window_Waffenbesitz.hh \
 	Midgard_Info_glade.hh \
 	Midgard_Info.hh \
-   KiDo_auswahl.hh \
-   KiDo_auswahl_glade.hh \
    Tag.hh TagStream.hh \
    Window_doppelcharaktere.hh \
    Window_doppelcharaktere_glade.hh \
@@ -139,7 +137,6 @@ magus_SOURCES = $(RC_FILES) \
    Grundwerte.cc \
 	gw_wuerfeln.cc \
    midgard_CG_Ausruestung.cc \
-	KiDo_auswahl.cc \
 	Window_Waffenbesitz.cc \
    Window_waffe.cc \
    midgard_CG_typauswahl.cc \
@@ -166,7 +163,6 @@ magus_SOURCES = $(RC_FILES) \
    LaTeX_charakter_beschreibung.cc \
    spielleiter_export.cc \
    midgard_CG_kido.cc \
-   KiDo_auswahl_glade.cc \
    midgard_CG_region_check.cc \
    midgard_CG_optionen.cc \
 	Window_Waffenbesitz_glade.cc \

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.110 2002/04/29 21:08:33 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.111 2002/04/30 08:25:04 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -346,6 +346,11 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
            lernpunkte.addZauber(MBE->Lernpunkte());
            break;
          }
+     case MidgardBasicElement::KIDO : 
+         { list_Kido.remove(MBE);
+           ++maxkido;
+           break;
+         }
      case MidgardBasicElement::FERTIGKEIT_ANG : 
          { list_Fertigkeit_ang.remove(MBE);
            break;
@@ -355,6 +360,8 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
            if(cH_Fertigkeit(MBE)->LernArt()=="Fach")      lernpunkte.addFach( MBE->Lernpunkte());
            else if(cH_Fertigkeit(MBE)->LernArt()=="Allg") lernpunkte.addAllgemein( MBE->Lernpunkte());
            else if(cH_Fertigkeit(MBE)->LernArt()=="Unge") lernpunkte.addUnge( MBE->Lernpunkte());
+           std::string::size_type st = MBE->Name().find("KiDo-Technik");
+           if(st!=std::string::npos)  --maxkido;
            break;
          }
      case MidgardBasicElement::SPRACHE : 
@@ -431,13 +438,14 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
           }
         if(!SpracheSchrift(MBE)) 
           { 
-            if(MBE->Name()=="KiDo-Technik")
-             {
-cout << "\n\nTODO\n";
-             }
-            else if(MBE->Name()!="Landeskunde (Heimat)") // Das macht 'lernen_zusatz' automatisch
+            std::string::size_type st = MBE->Name().find("KiDo-Technik");
+            if(st!=std::string::npos)  ++maxkido;
+            if(MBE->Name()!="Landeskunde (Heimat)") // Das macht 'lernen_zusatz' automatisch
                list_Fertigkeit.push_back(MBE); 
-          }
+            if(MBE->Name()=="KiDo" && Typ[0]->Short()=="Kd") maxkido+=2;
+            if(maxkido>0 && cH_Fertigkeit("KiDo")->ist_gelernt(list_Fertigkeit)) 
+               show_gtk();
+         }
         else 
           { // Damit Sprachen und Schriften nicht doppelt angezeigt werden
             list_FertigkeitZusaetze.push_back(MBE->Name());
@@ -488,10 +496,8 @@ void midgard_CG::show_gelerntes()
 
 void midgard_CG::show_lernschema()
 {
-  if(tree_lernschema) {tree_lernschema->destroy(); tree_lernschema=0;}
-  if(Beruf_tree) {Beruf_tree->destroy(); Beruf_tree=0;}
-  if(tree_angeb_fert) {tree_angeb_fert->destroy(); tree_angeb_fert=0;}
-  viewport_lernen->remove();
+  if(button_kido_auswahl->get_active()) return;
+  clean_lernschema_trees();
   tree_lernschema = manage(new MidgardBasicTree(MidgardBasicTree::LERNSCHEMA));
   tree_lernschema->leaf_selected.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_tree_lernschema_leaf_selected));
   
@@ -725,6 +731,17 @@ void midgard_CG::setTitels_for_Lernschema(const MidgardBasicElement::MBEE& what,
     default : break;
    }
 }
+
+void midgard_CG::clean_lernschema_trees()
+{
+  if(tree_lernschema) {tree_lernschema->destroy(); tree_lernschema=0;}
+  if(Beruf_tree) {Beruf_tree->destroy(); Beruf_tree=0;}
+  if(tree_angeb_fert) {tree_angeb_fert->destroy(); tree_angeb_fert=0;}
+  if(tree_kido_lernschema) {tree_kido_lernschema->destroy(); tree_kido_lernschema=0;}
+  viewport_lernen->remove();
+}
+
+
 
 bool midgard_CG::SpracheSchrift(const cH_MidgardBasicElement& MBE)
 {

@@ -7255,8 +7255,8 @@ editieren</label>
 		      <yexpand>False</yexpand>
 		      <xshrink>False</xshrink>
 		      <yshrink>False</yshrink>
-		      <xfill>True</xfill>
-		      <yfill>True</yfill>
+		      <xfill>False</xfill>
+		      <yfill>False</yfill>
 		    </child>
 
 		    <widget>
@@ -7290,15 +7290,17 @@ gemischt
 		      </widget>
 
 		      <widget>
-			<class>GtkButton</class>
+			<class>GtkRadioButton</class>
 			<name>button_kido_auswahl</name>
 			<cxx_visibility>protected</cxx_visibility>
 			<signal>
-			  <name>clicked</name>
+			  <name>toggled</name>
 			  <handler>on_kido_wahl_clicked</handler>
-			  <last_modification_time>Tue, 03 Apr 2001 19:29:36 GMT</last_modification_time>
+			  <last_modification_time>Tue, 30 Apr 2002 08:11:36 GMT</last_modification_time>
 			</signal>
-			<relief>GTK_RELIEF_NORMAL</relief>
+			<active>False</active>
+			<draw_indicator>False</draw_indicator>
+			<group>LernListe</group>
 			<child>
 			  <padding>0</padding>
 			  <expand>False</expand>
