@@ -90,21 +90,23 @@ void table_beschreibung::insert_into_beschreibung(const std::string &s,const gin
   text_charakter_beschreibung->insert_text(s.c_str(), s.size(), &pos);
   
   if(select_start!=select_end)
-     text_charakter_beschreibung->select_region(pos+select_start,pos+select_end);
+     text_charakter_beschreibung->select_region(pos-select_start,pos-select_end);
   if(select_start)
-     text_charakter_beschreibung->set_point(pos+select_start);
+     text_charakter_beschreibung->set_point(pos-select_start);
+  text_charakter_beschreibung->grab_focus();
+
 }
 
 void table_beschreibung::on_button_fett_clicked()
 {
   std::string s="\\textbf{  }";
-  insert_into_beschreibung(s,7,8);
+  insert_into_beschreibung(s,3,2);
 }
 
 void table_beschreibung::on_button_kursiv_clicked()
 {
   std::string s="\\textit{  }";
-  insert_into_beschreibung(s,7,8);
+  insert_into_beschreibung(s,3,2);
 }
 
 void table_beschreibung::on_button_liste_clicked()

@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_ausruestung.cc,v 1.11 2002/10/28 16:58:56 thoma Exp $   
+// $Id: LaTeX_drucken_ausruestung.cc,v 1.12 2002/10/29 07:42:36 thoma Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,7 +20,6 @@
 
 #include "LaTeX_drucken.hh"
 #include "midgard_CG.hh"
-//#include "MidgardBasicElement.hh"
 #include "dtos1.h"
 #include "itos.h"
 #include "recodestream.h"
@@ -36,13 +35,17 @@ void LaTeX_drucken::on_ausruestung_druck(bool unsichtbar)
 #endif
  LaTeX_header(fout,false);           
 
- const Abenteurer &A=hauptfenster->getAben();
- fout << "Normallast: "<<itos(A.getNormallast())<<"\\,kg"
-      << "Höchstlast: "<<itos(A.getHoechstlast())<<"\\,kg"
-      << "Schublast: " <<itos(A.getSchublast())<<"\\,kg\n\n";
- fout << "Belastung: "<<dtos(A.getBelastung())<<"\\,kg\n\n";
+ std::string breite="18cm";
+ std::string aboxhoehe="26cm";
 
- fout << "\\fbox{\\parbox[t][22cm]{18cm}{ \n";
+ const Abenteurer &A=hauptfenster->getAben();
+ fout <<"\\parbox{"+breite+"}{";
+ fout << "Normallast: "<<itos(A.getNormallast())<<"\\,kg\\qquad\n"
+      << "Höchstlast: "<<itos(A.getHoechstlast())<<"\\,kg\\qquad\n"
+      << "Schublast: " <<itos(A.getSchublast())<<"\\,kg\n\n";
+ fout << "Belastung: "<<dtos1(A.getBelastung())<<"\\,kg}\n\n";
+
+ fout << "\\fbox{\\parbox[t]["+aboxhoehe+"]{"+breite+"}{ \n";
  const AusruestungBaum besitz=hauptfenster->getChar()->getBesitz();
  for(AusruestungBaum::const_iterator i=besitz.begin();i!=besitz.end();++i)
   {
@@ -50,6 +53,7 @@ void LaTeX_drucken::on_ausruestung_druck(bool unsichtbar)
     {      
       std::string name=i->getAusruestung().Name();
       if (!i->getAusruestung().Material().empty()) name +=" ("+i->getAusruestung().Material()+")";
+      fout <<"\\hspace{0.7cm}";
       if(i->getAusruestung().Sichtbar())  fout << name<<"\\\\\n" ;
       else                                fout <<"\\textcolor{mygray}{"<< name<<"}\\\\\n" ;
       ausruestung_druck(fout,unsichtbar,i->getChildren(),1);
@@ -72,6 +76,8 @@ void LaTeX_drucken::ausruestung_druck(std::ostream &fout,bool unsichtbar,const s
       if (!i->getAusruestung().Material().empty() &&
            i->getAusruestung().Material()!="standard" ) 
          name +=" ("+i->getAusruestung().Material()+")";
+
+      fout <<"\\makebox[0.7cm]{\\footnotesize "+i->getAusruestung().SGewicht()+"}"; 
       double fdeep = deep*0.5;
       fout << "\\hspace*{"+dtos1(fdeep)+"cm} ";
       if(i->getAusruestung().Sichtbar())  fout << name<<"\\\\\n" ;

@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.71 2002/10/27 18:25:23 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.72 2002/10/29 07:42:36 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -779,12 +779,12 @@ void LaTeX_drucken::LaTeX_header(std::ostream &fout,bool landscape,bool kopfzeil
   }
  else
   {
-   fout << "\\setlength{\\textheight}{26.0cm}\n";
+   fout << "\\setlength{\\textheight}{29.0cm}\n";
    fout << "\\setlength{\\textwidth}{19.5cm}   \n";
    fout << "\\setlength{\\arraycolsep}{0.1cm} \n";
    fout << "\\setlength{\\evensidemargin}{-1.5cm}\n";
    fout << "\\setlength{\\oddsidemargin}{-1.5cm} \n";
-   fout << "\\setlength{\\topmargin}{-0.4cm}    \n";
+   fout << "\\setlength{\\topmargin}{-3.0cm}    \n";
    fout << "\\setlength{\\parindent}{0em}       \n";
    fout << "\\renewcommand {\\arraystretch}{1.3}\n\n";
 
@@ -823,6 +823,7 @@ void LaTeX_drucken::LaTeX_header(std::ostream &fout,bool landscape,bool kopfzeil
  fout << "\\newcommand{\\LI}{\\setlength{\\arrayrulewidth}{0.4mm}}\n";
  fout << "\\newcommand{\\li}{\\setlength{\\arrayrulewidth}{0.2mm}}\n";
  fout << "\\setlength{\\doublerulesep}{0mm}\n";
+ fout << "\\pagestyle{empty}\n";
  fout << "\\begin{document}\n";
  fout << "\\begin{center}\n";
  if(kopfzeile)
