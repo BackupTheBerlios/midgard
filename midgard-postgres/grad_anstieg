@@ -44,8 +44,6 @@ COPY grad_anstieg (grad, abwehr, abwehr_kosten, resistenz, resistenz_kosten, gfp
 14	18	1500	17	1500	130000	\N	\N	3	2000
 15	\N	\N	\N	\N	150000	\N	\N	3	2000
 \.
-
-
 --
 --
 

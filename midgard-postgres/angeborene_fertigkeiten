@@ -41,8 +41,6 @@ COPY angeborene_fertigkeiten (min, max, name, wert) FROM stdin;
 9	10	Tastschwäche	4
 91	95	Wachgabe	6
 \.
-
-
 --
 --
 

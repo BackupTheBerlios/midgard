@@ -24,8 +24,6 @@ CREATE TABLE regionen_lernen (
 COPY regionen_lernen (region, name, lp_stadt, lp_land) FROM stdin;
 Minangpahit	Giftmischen	2	1
 \.
-
-
 --
 --
 

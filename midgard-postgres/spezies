@@ -59,8 +59,6 @@ COPY spezies (nr, spezies, st, gs, gw, ko, "in", zt, sb, au, lp, hand_bonus, ap_
 3	Waldgnom	-60	81	81	31	\N	\N	\N	-80	-4	20	-2	-3	-35	5	5	5	5	5	5	4	1	6	90	3	-90	-70	2	8	\N	t	\N	Waldgnomin
 5	Zwerg	61	\N	-80	61	\N	\N	\N	-80	1	\N	\N	0	\N	4	4	4	4	\N	\N	2	1	6	130	4	-90	-70	3	12	1	\N	\N	Zwergin
 \.
-
-
 --
 --
 
