@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.330 2003/09/04 07:36:51 christof Exp $
+// $Id: midgard_CG.hh,v 1.331 2003/09/04 12:17:40 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,7 +33,7 @@
 #include <list>
 //#include "Datenbank.hh"
 //#include <fstream>
-#include "Wizard.hh"
+//#include "Wizard.hh"
 //class Wizard;
 //#include "Midgard_Undo.hh"
 //#include "Optionen.hh"
@@ -69,7 +69,7 @@ private:
         SigC::Connection connection_status;
         // eigentlich muss das in VAbenteurer, damit unterschiedliche Abenteurer
         // es unabhängig voneinander setzen können.
-        Wizard wizard;
+//        Wizard wizard;
 
 /////////////////////////////////////////////////////////////////////////////
         // Drucken
@@ -214,6 +214,6 @@ private:
 	// wird von Wizard verwendet
         void wizard_do_something(int page,const std::string &text);
         
-        Wizard &getWizard() { return wizard; }
+//        Wizard &getWizard() { return wizard; }
 };
 #endif

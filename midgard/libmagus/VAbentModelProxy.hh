@@ -1,4 +1,4 @@
-// $Id: VAbentModelProxy.hh,v 1.1 2003/09/04 07:41:32 christof Exp $               
+// $Id: VAbentModelProxy.hh,v 1.2 2003/09/04 12:17:40 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2003 Christof Petig
  *
@@ -24,10 +24,12 @@
 #include "Region.hh"
 #include <map>
 #include "Optionen.hh"
-class Abenteurer;
+#include "Wizard.hh"
 
 struct VAbentModelProxy
-{  typedef std::map<cH_Region,ModelPlex<bool> > regionen_t; 
+{  struct divert_base {};
+
+   typedef std::map<cH_Region,ModelPlex<bool> > regionen_t; 
    regionen_t regionen;
    
    typedef std::map<Optionen::OptionenCheckIndex,ModelPlex<bool> > check_t;
@@ -36,6 +38,8 @@ struct VAbentModelProxy
    typedef std::map<Optionen::HausIndex,ModelPlex<bool> > haus_t;
    haus_t hausregeln;
    
-   void divert(Abenteurer &new_one);
+   ModelPlex<Wizard::esteps> wizard;
+   
+   void divert(divert_base &new_one);
 };
 #endif

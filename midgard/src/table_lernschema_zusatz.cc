@@ -276,7 +276,7 @@ void table_lernschema::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,cons
 void table_lernschema::on_herkunft_leaf_selected(cH_RowDataBase d)
 {
   const Data_Herkunft *dt=dynamic_cast<const Data_Herkunft*>(&*d);
-  if(hauptfenster->getWizard().active) hauptfenster->getWizard().next_step(Wizard::HERKUNFT);
+  if(hauptfenster->getChar()->proxies.wizard.Value()!=Wizard::Inaktiv) hauptfenster->getWizard().next_step(Wizard::HERKUNFT);
   hauptfenster->getChar()->setHerkunft(dt->getLand());
   set_zusatz_sensitive(false);
   zeige_werte();  
@@ -290,7 +290,7 @@ void table_lernschema::on_herkunft_leaf_selected(cH_RowDataBase d)
 
 void table_lernschema::on_herkunft_ueberleben_leaf_selected(cH_RowDataBase d)
 {
-  if(hauptfenster->getWizard().active) hauptfenster->getWizard().next_step(Wizard::UEBERLEBEN);
+  if(hauptfenster->getChar()->proxies.wizard.Value()!=Wizard::Inaktiv) hauptfenster->getWizard().next_step(Wizard::UEBERLEBEN);
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
 
   MBEmlt M(&*cH_Fertigkeit(dt->getZusatz().name));

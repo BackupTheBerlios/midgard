@@ -155,7 +155,7 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
                 hauptfenster->getChar()->setSpezialisierung((*MBE)->Name());
                 Waffe::setSpezialWaffe(hauptfenster->getChar()->Spezialisierung(),hauptfenster->getChar()->List_Waffen());
                 togglebutton_spezialwaffe->set_active(false);
-                if(hauptfenster->getWizard().active) hauptfenster->getWizard().next_step(Wizard::SPEZIALWAFFE);
+                if(hauptfenster->getChar()->proxies.wizard.Value()!=Wizard::Inaktiv) hauptfenster->getWizard().next_step(Wizard::SPEZIALWAFFE);
                }
             }  
            else
@@ -378,7 +378,7 @@ void table_lernschema::on_lernpunkte_wuerfeln_clicked()
      return;
   }
   lernpflichten_info();
-  if(hauptfenster->getWizard().active) hauptfenster->getWizard().next_step(Wizard::LERNPUNKTE);
+  if(hauptfenster->getChar()->proxies.wizard.Value()!=Wizard::Inaktiv) hauptfenster->getWizard().next_step(Wizard::LERNPUNKTE);
   Zufall::Lernpunkte_wuerfeln(vabenteurer->getLernpunkte().getLernpunkte(),hauptfenster->getChar().getAbenteurer());
   show_gelerntes();
 
@@ -428,7 +428,7 @@ void table_lernschema::edit_lernpunkte(bool b)
 
 void table_lernschema::on_button_lernschema_geld()
 {  
-  if(hauptfenster->getWizard().active) hauptfenster->getWizard().next_step(Wizard::GELD);
+  if(hauptfenster->getChar()->proxies.wizard.Value()!=Wizard::Inaktiv) hauptfenster->getWizard().next_step(Wizard::GELD);
   if(!hauptfenster->getChar()->getOptionen().OptionenCheck(Optionen::NSC_only).active)
      button_lernschema_geld->set_sensitive(false);
   if (Programmoptionen.WerteEingebenModel().Value())
@@ -494,7 +494,7 @@ void table_lernschema::lernschema_geld_wuerfeln(const std::vector<int>& VGeldwur
 
 void table_lernschema::on_button_ruestung()
 {  
-  if(hauptfenster->getWizard().active) hauptfenster->getWizard().next_step(Wizard::RUESTUNG);
+  if(hauptfenster->getChar()->proxies.wizard.Value()!=Wizard::Inaktiv) hauptfenster->getWizard().next_step(Wizard::RUESTUNG);
   if(!hauptfenster->getChar()->getOptionen().OptionenCheck(Optionen::NSC_only).active)
      button_ruestung->set_sensitive(false);
    if (!Programmoptionen.WerteEingebenModel().Value())
@@ -567,7 +567,7 @@ void table_lernschema::on_button_ausruestung()
 
 void table_lernschema::ausruestung_setzen()
 {
-  if(hauptfenster->getWizard().active) hauptfenster->getWizard().next_step(Wizard::AUSRUESTUNG);
+  if(hauptfenster->getChar()->proxies.wizard.Value()!=Wizard::Inaktiv) hauptfenster->getWizard().next_step(Wizard::AUSRUESTUNG);
   if(!hauptfenster->getChar()->getOptionen().OptionenCheck(Optionen::NSC_only).active)
      button_ausruestung->set_sensitive(false);
   

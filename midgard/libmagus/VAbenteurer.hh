@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.hh,v 1.5 2003/09/04 08:02:01 christof Exp $               
+// $Id: VAbenteurer.hh,v 1.6 2003/09/04 12:17:40 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -31,10 +31,11 @@
 class VAbenteurer : public SigC::Object // um signale zu empfangen
 {
    public:
-      struct st_abenteurer{// für Undo wichtig (mehrfach vorhanden)
+      struct st_abenteurer : VAbentModelProxy::divert_base
+      {			// für Undo wichtig (mehrfach vorhanden)
       			    Abenteurer abenteurer;
        			    AbenteurerLernpunkte ab_lp;
-       			    Model_copyable<Wizard::esteps> actual_step;
+       			    Wizard wizard;
        			    // ... z.B. wie steigern etc ...
        			   // global 
       			   std::string filename;
@@ -45,7 +46,7 @@ class VAbenteurer : public SigC::Object // um signale zu empfangen
              bool operator==(const st_abenteurer& a) const 
                {return abenteurer.Name_Abenteurer()==a.abenteurer.Name_Abenteurer() &&
                        abenteurer.Version() == a.abenteurer.Version() ;}
-             };
+      };
    private:
       std::list<st_abenteurer> VA;
 
@@ -91,6 +92,7 @@ class VAbenteurer : public SigC::Object // um signale zu empfangen
       const std::string &getFilename() {return actualIterator()->filename;}
       AbenteurerLernpunkte &getLernpunkte() { return actualIterator()->ab_lp; }
       const AbenteurerLernpunkte &getLernpunkte() const { return actualIterator()->ab_lp; }
+      Wizard &getWizard() { return actualIterator()->wizard; }
       void undosave(const std::string &s);
    const Abenteurer *operator->() const
    {  return &actualIterator()->abenteurer; }

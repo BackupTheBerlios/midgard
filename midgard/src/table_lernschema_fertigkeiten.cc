@@ -1,4 +1,4 @@
-// $Id: table_lernschema_fertigkeiten.cc,v 1.29 2003/09/04 07:36:51 christof Exp $
+// $Id: table_lernschema_fertigkeiten.cc,v 1.30 2003/09/04 12:17:40 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -30,7 +30,7 @@
 
 void table_lernschema::on_button_angeborene_fertigkeit()
 {
-  if(hauptfenster->getWizard().active) hauptfenster->getWizard().next_step(Wizard::ANGEBORENEFERTIGKEITEN);
+  if(hauptfenster->getChar()->proxies.wizard.Value()!=Wizard::Inaktiv) hauptfenster->getWizard().next_step(Wizard::ANGEBORENEFERTIGKEITEN);
   hauptfenster->getChar()->setAngebFert();
   
   if (Programmoptionen.WerteEingebenModel().Value()) on_angeborene_fertigkeit_right_clicked();

@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_grundwere_edit.cc,v 1.19 2003/09/04 07:36:51 christof Exp $
+// $Id: table_grundwerte_grundwere_edit.cc,v 1.20 2003/09/04 12:17:40 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -51,7 +51,7 @@ void table_grundwerte::on_button_grda1setzen_clicked()
 
 void table_grundwerte::on_entry_nameC_activate()
 { 
-  if(hauptfenster->getWizard().active) 
+  if(hauptfenster->getChar()->proxies.wizard.Value()!=Wizard::Inaktiv) 
    { 
      edit_werte=false;
 //     togglebutton_edit_werte->set_active(false);
