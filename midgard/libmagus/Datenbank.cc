@@ -1,4 +1,4 @@
-// $Id: Datenbank.cc,v 1.13 2003/05/26 06:23:35 christof Exp $               
+// $Id: Datenbank.cc,v 1.14 2003/06/15 12:58:16 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002-2003 Christof Petig
@@ -55,18 +55,33 @@ Datenbank::Datenbank() : tag_eigene_artikel("MAGUS-data")
 {
 }
 
+void Datenbank::load_region(const Tag &t,const std::string &file)
+{  Regionen_All::load(Regionen,t,file);
+}
+
 void Datenbank::load_list(const Tag &t)
 {  FOR_EACH_CONST_TAG(j,t)
    {  if (j->Type()=="Zauber")
-         FOR_EACH_CONST_TAG(k,*j) Zauber_All::load(Zauber,*k);
+         FOR_EACH_CONST_TAG_OF(k,*j,"Spruch") 
+         {  Zauber_All::load(Zauber,*k);
+            lernschema.load(*k,"Zauberkünste");
+         }
       else if (j->Type()=="Zauberwerke")
-         FOR_EACH_CONST_TAG(k,*j) Zauberwerk_All::load(Zauberwerk,*k);
+         FOR_EACH_CONST_TAG(k,*j) 
+            Zauberwerk_All::load(Zauberwerk,*k);
       else if (j->Type()=="Fertigkeiten")
-         FOR_EACH_CONST_TAG(k,*j) Fertigkeiten_All::load(Fertigkeit,*k);
+         FOR_EACH_CONST_TAG_OF(k,*j,"Fertigkeit") 
+         {  Fertigkeiten_All::load(Fertigkeit,*k);
+            lernschema.load(*k,"Fachkenntnisse");
+         }
       else if (j->Type()=="Berufe")
-         FOR_EACH_CONST_TAG(k,*j) Beruf_All::load(Beruf,*k);
+         FOR_EACH_CONST_TAG(k,*j) 
+            Beruf_All::load(Beruf,*k);
       else if (j->Type()=="Waffen")
-         FOR_EACH_CONST_TAG(k,*j) Waffe_All::load(Waffe,*k);
+         FOR_EACH_CONST_TAG_OF(k,*j,"Waffe") 
+         {  Waffe_All::load(Waffe,*k);
+            lernschema.load(*k,"Waffenfertigkeiten");
+         }
       else if (j->Type()=="Waffen-Grundkenntnisse")
          FOR_EACH_CONST_TAG(k,*j) WaffeGrund_All::load(Waffe,*k);
       else if (j->Type()=="Kido-Fertigkeiten")
@@ -119,11 +134,11 @@ void Datenbank::load_list(const Tag &t)
 void Datenbank::load(SigC::Slot1<void,double> progress,SigC::Slot1<void,const std::string&> meldungen)
 {
     xml_init(progress,meldungen,*this);
-    Regionen = Regionen_All().get_All();
+//    Regionen = Regionen_All().get_All();
 //    MI->set_Regionen(Regionen);
 //    Laender = Laender_All().get_All();
 //    Ruestung = Ruestung_All().get_All();
-    lernschema = Lernschema(true);
+//    lernschema = Lernschema(true);
 //    Beruf = Beruf_All().get_All();
 //    Fertigkeit_ang = Fertigkeiten_angeborene_All().get_All();
 //    Fertigkeit = Fertigkeiten_All().get_All();

@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.8 2003/06/03 16:39:02 christof Exp $            
+// $Id: Abenteurer.cc,v 1.9 2003/06/15 12:57:10 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -33,6 +33,8 @@
 #include "Beruf.hh"
 #include <Misc/Trace.h>
 #include "magustrace.h"
+#include "Datenbank.hh"
+#include "NotFound.h"
 
 bool Abenteurer::Valid() const
 {
