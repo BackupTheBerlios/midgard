@@ -1,12 +1,12 @@
-# $Id: Makefile.am,v 1.180 2002/06/30 18:34:15 thoma Exp $
+# $Id: Makefile.am,v 1.181 2002/07/03 06:33:55 christof Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
 
 if WINDOWS
 PORT_FILES=magus.rc registry.cc
-LINK_OPTIONS=-mwindows
-LINK_OBJS=magus_res.o
+#LINK_OPTIONS=-mwindows
+LINK_OBJS=magus_res.o -lcomdlg32
 # sigh! local installation menace
 WIN_INCLUDES=-I/usr/local/mingw/mingw32/include
 

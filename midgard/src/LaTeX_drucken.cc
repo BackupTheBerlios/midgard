@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.37 2002/07/02 11:06:41 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.38 2002/07/03 06:33:55 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -64,7 +64,14 @@ std::string LaTeX_drucken::get_latex_pathname(const LaTeX_Pathnames what)
   switch (what)
     {
       case TeX_tmp : return hauptfenster->getOptionen()->getString(Midgard_Optionen::tmppfad);
-      case TeX_Install : return hauptfenster->with_path("MAGUS-Logo-grey2.png",true);
+      case TeX_Install : 
+      {  std::string result=hauptfenster->with_path("MAGUS-Logo-grey2.png",true);
+#ifdef __MINGW32__ // recode path name for TeX with slashes
+         for (std::string::iterator i=result.begin();i!=result.end();++i)
+            if (*i=='\\') *i='/';
+#endif
+         return result;
+      }
     }
   abort(); // never get here
 }
@@ -431,7 +438,14 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
       fout << "\\newcommand{\\uni"<<a<<"}{\\scriptsize }\n";
       fout << "\\newcommand{\\uniw"<<a<<"}{\\scriptsize }\n";
    }
+#ifdef __MINGW32__ // LaTeX needs / instead of '\\'
+ std::string recoded_install_latex_file=install_latex_file;
+ for (std::string::iterator i=recoded_install_latex_file.begin();i!=recoded_install_latex_file.end();++i)
+            if (*i=='\\') *i='/';
+ fout << "\\input{"+recoded_install_latex_file+"}\n";
+#else
  fout << "\\input{"+install_latex_file+"}\n";
+#endif 
 // fout.close();
 }
 
@@ -595,7 +609,14 @@ void LaTeX_drucken::LaTeX_write_empty_values(ostream &fout,const std::string &in
       fout << "\\newcommand{\\uni"<<a<<"}{\\scriptsize }\n";
       fout << "\\newcommand{\\uniw"<<a<<"}{\\scriptsize }\n";
    }
+#ifdef __MINGW32__ // LaTeX needs / instead of '\\'
+ std::string recoded_install_latex_file=install_latex_file;
+ for (std::string::iterator i=recoded_install_latex_file.begin();i!=recoded_install_latex_file.end();++i)
+            if (*i=='\\') *i='/';
+ fout << "\\input{"+recoded_install_latex_file+"}\n";
+#else
  fout << "\\input{"+install_latex_file+"}\n";
+#endif 
 // fout.close();
 }
 

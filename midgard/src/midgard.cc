@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.46 2002/07/01 10:22:42 christof Exp $
+// $Id: midgard.cc,v 1.47 2002/07/03 06:33:55 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -59,7 +59,6 @@ int main(int argc, char **argv)
   std::cout << "magus_verzeichnis: " << magus_verzeichnis << '\n';
 
 #else
-//   const char dirsep='/';
    magus_verzeichnis=string(getenv("HOME"))+"/.magus";
 #endif
 
@@ -71,7 +70,7 @@ int main(int argc, char **argv)
    // normalize argv0 (prepend current dir if relative)
    if (argv0[0]!=WinLux::dirsep 
 #ifdef __MINGW32__
-			|| argv0.find(':')==std::string::npos
+			&& argv0.find(':')==std::string::npos
 #endif
 								)
    {  char buf[10240];

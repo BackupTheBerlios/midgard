@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.61 2002/07/02 16:43:44 thoma Exp $
+// $Id: Optionen.cc,v 1.62 2002/07/03 06:33:55 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,6 +29,7 @@
 #  include "registry.h"
 #endif
 #include "customize_toolbars.h"
+#include "Windows_Linux.hh"
 
 #ifdef __MINGW32__
 static std::string CommandByExtension(const std::string &ext)
@@ -311,7 +312,7 @@ void Midgard_Optionen::Strings_init()
   if (!tmp) tmp=getenv("TMP");
   if (!tmp) tmp=getenv("TEMP");
   if (!tmp) tmp="C:\\WINDOWS\\TEMP";
-  list_Strings.push_back(st_strings(tmppfad,"TEMP-Pfad",tmp));
+  list_Strings.push_back(st_strings(tmppfad,"TEMP-Pfad",std::string(tmp)+WinLux::dirsep));
   
   // %USERPROFILE%\Anwendungsdaten\Magus ???
   list_Strings.push_back(st_strings(speicherpfad,"Speicherverzeichnis",hauptfenster->MagusVerzeichnis()));
