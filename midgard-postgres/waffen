@@ -18,7 +18,7 @@ CREATE TABLE "waffen" (
 	"schaden" text,
 	"schaden_b" integer,
 	"art_2" text,
-	"angriffsrangmod" text,
+	"waffenrang" text,
 	"wm_abwehr_leicht" text,
 	"wm_abwehr_schwer" text,
 	"zusatz" text,
@@ -45,14 +45,14 @@ Bola	21	\N	81	Fesselwaffe	7	Wurfwaffe	W6	-2	W	\N	\N	\N	\N	\N	2	10	15	20	\N	\N
 BuKasa	31	\N	61	ESchlagwaffe	5	Angriff	W6	0	E	\N	\N	\N	\N	K	\N	\N	\N	\N	\N	\N
 Buckler	\N	\N	\N	Schilde	0	Verteidigung	\N	-2	E	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Dolch	\N	\N	\N	Stichwaffe	1	Angriff	W6	-1	E	2	-2	2	\N	\N	\N	\N	\N	\N	2	2
-Faustkampf	31	21	\N	waffenloser Kampf	6	Angriff	W6	-4	E	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Fuchtel	61	\N	31	Stichwaffe	4	Angriff	W6	1	E	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Faustkampf	31	21	\N	waffenloser Kampf	6	Angriff	W6	-4	E	2	-2	2	\N	\N	\N	\N	\N	\N	\N	\N
+Fuchtel	61	\N	31	Stichwaffe	4	Angriff	W6	1	E	2	-1	0	\N	\N	\N	\N	\N	\N	\N	\N
 Garotte	21	\N	61	Garotte	4	Angriff	Erw√ºrgen	0	E	\N	\N	\N	Meucheln	\N	\N	\N	\N	\N	\N	\N
-Glefe	11	\N	61	Stangenwaffe	5	Angriff	W6(+2)	0	E	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Glefe	11	\N	61	Stangenwaffe	5	Angriff	W6(+2)	0	E	+1/-2	0/0	0/-1	\N	\N	\N	\N	\N	\N	\N	\N
 GunSen	31	\N	61	ESchlagwaffe	5	Angriff	W6	-1	E	\N	\N	\N	\N	K	\N	\N	\N	\N	\N	\N
 Handarmbrust	\N	\N	31	Armbrust	3	Schuﬂwaffe	W6	-1	S	\N	\N	\N	\N	\N	0	20	40	70	\N	\N
 Handaxt	11	\N	\N	ESchlagwaffe	2	Angriff	W6	0	E	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Hellebarde	61	\N	51	Stangenwaffe	5	Angriff	W6(W6+2/2W6-1)	0	Z	+1/-3	\N	+2/-2	\N	\N	\N	\N	\N	\N	\N	\N
+Hellebarde	61	\N	51	Stangenwaffe	5	Angriff	W6(W6+2/2W6-1)	0	Z	+1/-3	0/+2	0/-2	\N	\N	\N	\N	\N	\N	\N	\N
 Kampfgabeln	31	\N	61	Parierwaffe	0	Verteidigung	\N	-2	E	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Kampfstab	31	\N	61	Kampfstab	7	Angriff	W6	0	E	\N	0	+2	\N	\N	\N	\N	\N	\N	\N	\N
 Katana	31	\N	21	ZSchwert	5	Angriff	W6	1	E	\N	\N	\N		K	\N	\N	\N	\N	\N	\N
@@ -75,10 +75,10 @@ Magierstecken	31	\N	61	Zauberstab	7	Angriff	W6	1	E	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Morgenstern	61	\N	61	Kettenwaffe	5	Angriff	W6	2	E	-2	+1	-1	\N	\N	\N	\N	\N	\N	\N	\N
 Naginata	11	\N	61	Stangenwaffe	5	Angriff	W6	2	Z	+1/-3	\N	+2/-2	\N	K	\N	\N	\N	\N	\N	\N
 Namisritra	\N	\N	\N	Namisritra	2	Angriff	W6	-1	E	\N	\N	\N	waffenloser Kampf	R	\N	\N	\N	\N	\N	\N
-Netz	\N	\N	81	Fesselwaffe	7	Wurfwaffe	W6	-1	W	\N	\N	\N	\N	\N	0	5	\N	\N	\N	\N
-NunChaku	31	\N	61	Kettenwaffe	7	Angriff	W6	-1	E	\N	\N	\N	\N	K	\N	\N	\N	\N	\N	\N
-Ochsenzunge	\N	\N	31	Stichwaffe	2	Angriff	2W6	-4	E	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Ogerhammer	91	\N	31	ZSchlagwaffe	4	Angriff	4W6+0|3	0	Z	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Netz	\N	\N	81	Fesselwaffe	7	Wurfwaffe	W6	-1	W	\N	+2	-2	\N	\N	0	5	\N	\N	\N	\N
+NunChaku	31	\N	61	Kettenwaffe	7	Angriff	W6	-1	E	+2	-1	+1	\N	K	\N	\N	\N	\N	\N	\N
+Ochsenzunge	\N	\N	31	Stichwaffe	2	Angriff	2W6	-4	E	+2	-1	+1	\N	\N	\N	\N	\N	\N	\N	\N
+Ogerhammer	91	\N	31	ZSchlagwaffe	4	Angriff	4W6+0|3	0	Z	-4	+2	-3	\N	\N	\N	\N	\N	\N	\N	\N
 Parierdolch	\N	\N	\N	Parierwaffe	0	Verteidigung	\N	-2	V	\N	\N	\N	Dolch	\N	\N	\N	\N	\N	\N	\N
 Peitsche	21	\N	81	Peitsche	7	Angriff	W6	-3	E	-1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Pilum	61	\N	21	Wurfspieﬂ	2	Schuﬂwaffe	W6	0	W	\N	\N	\N	Leichter Speer	3	0	10	20	30	\N	\N
