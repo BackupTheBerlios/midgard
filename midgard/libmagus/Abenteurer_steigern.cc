@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.1 2003/07/18 06:38:00 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.2 2003/07/21 06:23:15 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -502,12 +502,12 @@ void Abenteurer::desteigern(unsigned int kosten,const e_wie_steigern &wie,const 
 }
 
 
-int Abenteurer::get_ausdauer(int grad, const Datenbank &Database,std::string &info,
+int Abenteurer::get_ausdauer(int grad, std::string &info,
                               const e_wie_steigern &wie,const st_bool_steigern &bool_steigern)
 {
    Random random;
    int bonus_K, bonus_aK, bonus_Z;
-   int kosten = Database.GradAnstieg.get_AP_Kosten(grad);
+   int kosten = Datenbank.GradAnstieg.get_AP_Kosten(grad);
    if (grad == 1)  { bonus_K =  4, bonus_aK =  3; bonus_Z =  2; }
    else if (grad == 2)  { bonus_K =  6, bonus_aK =  4; bonus_Z =  2; }
    else if (grad == 3)  { bonus_K =  9, bonus_aK =  6; bonus_Z =  3; }
@@ -543,7 +543,7 @@ int Abenteurer::get_ausdauer(int grad, const Datenbank &Database,std::string &in
 }
  
 int Abenteurer::get_ab_re_za(const e_was_steigern was,const e_wie_steigern &wie,
-                              const bool bsteigern,const Datenbank &Database,
+                              const bool bsteigern,
                               std::string &info,const st_bool_steigern &bool_steigern)
 {
   int alter_wert, max_wert;
@@ -553,26 +553,26 @@ int Abenteurer::get_ab_re_za(const e_was_steigern was,const e_wie_steigern &wie,
   if(grad==0) kosten=0;
   else if (was==Enums::eAbwehr)
     { 
-      max_wert = Database.GradAnstieg.get_MaxAbwehr(grad);
+      max_wert = Datenbank.GradAnstieg.get_MaxAbwehr(grad);
       alter_wert = getWerte().Abwehr_wert(); 
-      kosten   = Database.GradAnstieg.get_Abwehr_Kosten(alter_wert+1);
-      if(!bsteigern) kosten = Database.GradAnstieg.get_Abwehr_Kosten(alter_wert);
+      kosten   = Datenbank.GradAnstieg.get_Abwehr_Kosten(alter_wert+1);
+      if(!bsteigern) kosten = Datenbank.GradAnstieg.get_Abwehr_Kosten(alter_wert);
     } 
   else if (was==Enums::eResistenz)
     { 
-      max_wert = Database.GradAnstieg.get_MaxResistenz(grad);
+      max_wert = Datenbank.GradAnstieg.get_MaxResistenz(grad);
       alter_wert = getWerte().Resistenz(); 
-      kosten   = Database.GradAnstieg.get_Resistenz_Kosten(alter_wert+1);
-      if(!bsteigern) kosten = Database.GradAnstieg.get_Resistenz_Kosten(alter_wert);
+      kosten   = Datenbank.GradAnstieg.get_Resistenz_Kosten(alter_wert+1);
+      if(!bsteigern) kosten = Datenbank.GradAnstieg.get_Resistenz_Kosten(alter_wert);
     } 
   else if (was==Enums::eZaubern)
     { 
       if (is_mage())
        { 
-         max_wert = Database.GradAnstieg.get_MaxZauber(grad);
+         max_wert = Datenbank.GradAnstieg.get_MaxZauber(grad);
          alter_wert = getWerte().Zaubern_wert(); 
-         kosten   = Database.GradAnstieg.get_Zauber_Kosten(alter_wert+1);
-         if(!bsteigern) kosten = Database.GradAnstieg.get_Zauber_Kosten(alter_wert);
+         kosten   = Datenbank.GradAnstieg.get_Zauber_Kosten(alter_wert+1);
+         if(!bsteigern) kosten = Datenbank.GradAnstieg.get_Zauber_Kosten(alter_wert);
        } 
       else return 0;
     }
@@ -612,14 +612,14 @@ bool Abenteurer::eigenschaften_steigern_erlaubt() const
  return false;
 }
 
-void Abenteurer::eigenschaften_steigern(std::string &info,const Datenbank &Database,int wurf)
+void Abenteurer::eigenschaften_steigern(std::string &info,int wurf)
 {
   if(!eigenschaften_steigern_erlaubt())
    {info+="Für Grad "+itos(getWerte().get_Grad_Basiswerte())+" wurde schon gewürfelt";
     return;
    }
   // Erhöhen der Schicksalsgunst
-  { int n=Database.GradAnstieg.get_Schicksalsgunst(getWerte().Grad());
+  { int n=Datenbank.GradAnstieg.get_Schicksalsgunst(getWerte().Grad());
     if(getWerte().Spezies()->Name()=="Halbling") n=n+2;
     getWerte().add_SG(n);
   }
