@@ -1,4 +1,4 @@
-// $Id: midgard_CG_magier_spezialgebiet.pgcc,v 1.4 2001/04/19 13:29:12 thoma Exp $
+// $Id: midgard_CG_magier_spezialgebiet.pgcc,v 1.5 2001/04/19 13:49:20 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,7 +35,7 @@ void midgard_CG::magier_spezialgebiet(const string& whattodo)
 void midgard_CG::spezialgebiet_button_fill()
 {
   vec_spezialgebiet.clear();
-    exec sql begin declare section;
+  exec sql begin declare section;
    char db_typ[50];
    int db_nr;
    char db_spezial[50],db_spezialgebiet[50],db_spezial2[50];
@@ -43,7 +43,7 @@ void midgard_CG::spezialgebiet_button_fill()
   Transaction tr;
   strncpy(db_typ,typ.s.c_str(),sizeof(db_typ));
   exec sql declare ein cursor for 
-     select nr,spezialgebiet,spezial,coalesce(spezial2,'') 
+     select nr,spezialgebiet,coalesce(spezial,''),coalesce(spezial2,'') 
        from spezialgebiete where typ = :db_typ order by nr;
   exec sql open ein;
   SQLerror::test(__FILELINE__);
@@ -54,7 +54,7 @@ void midgard_CG::spezialgebiet_button_fill()
       exec sql fetch ein into :db_nr, :db_spezialgebiet, :db_spezial, :db_spezial2;
       SQLerror::test(__FILELINE__,100);
       if (sqlca.sqlcode) break;   
-      vec_spezialgebiet.push_back(st_spezialgebiet(db_spezialgebiet,db_spezial,db_spezial2));
+      vec_spezialgebiet.push_back(db_spezialgebiet);
       _mi = manage(new Gtk::MenuItem(db_spezialgebiet));
       _m->append(*_mi);
       _mi->show();
@@ -68,11 +68,26 @@ void midgard_CG::spezialgebiet_button()
 {
  int i = int(option_magier_spezialgebiet->get_menu()->get_active()->get_user_data());
  if (i==0) return ;
- werte.spezialisierung=vec_spezialgebiet[i].name;
- werte.spezial=vec_spezialgebiet[i].spezial;
- werte.spezial2=vec_spezialgebiet[i].spezial2;
+ werte.spezialisierung=vec_spezialgebiet[i];
+ get_spezial_from_spezialgebiet();
 } 
 
 void midgard_CG::get_spezial_from_spezialgebiet()
 {
+  vec_spezialgebiet.clear();
+  exec sql begin declare section;
+   char db_typ[50];
+   int db_nr;
+   char db_spezial[50],db_spezialgebiet[50],db_spezial2[50];
+  exec sql end declare section;
+  Transaction tr;
+  strncpy(db_typ,typ.s.c_str(),sizeof(db_typ));
+  strncpy(db_spezialgebiet,werte.spezialgebiet.c_str(),sizeof(db_spezialgebiet));
+  exec sql select spezial,coalesce(spezial2,'') 
+      into :db_spezial, :db_spezial2
+      where typ = :db_typ and spezialgebiet = :db_spezialgebiet;
+  SQLerror::test(__FILELINE__,100);
+  if (sqlca.sqlcode) return;
+  werte.spezial=db_spezial;
+  werte.spezial2=db_spezial2;
 }

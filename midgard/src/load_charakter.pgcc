@@ -534,4 +534,5 @@ void midgard_CG::load_charakter()
    midgard_CG::get_typ();
    midgard_CG::show_gtk();
 
+   midgard_CG::get_spezial_from_spezialgebiet();
 }

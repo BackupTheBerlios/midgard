@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.17 2001/04/19 13:29:12 thoma Exp $
+// $Id: midgard_CG.hh,v 1.18 2001/04/19 13:49:20 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -99,9 +99,9 @@ struct st_ausgewaehlte_zauber {string name; string ap;
 struct st_ausgewaehlte_berufe {string name; string vorteile; int erfolgswert; 
       st_ausgewaehlte_berufe(const string n, const string v, int e)
       : name(n), vorteile(v), erfolgswert(e) {} };
-struct st_spezialgebiet{string name;string spezial; string spezial2;
-       st_spezialgebiet(string n, string s,string s2)
-       :name(n),spezial(s),spezial2(s2){}};
+//struct st_spezialgebiet{string name;string spezial; string spezial2;
+//       st_spezialgebiet(string n, string s,string s2)
+//       :name(n),spezial(s),spezial2(s2){}};
 struct st_zauber{string ap; string name; string erfolgswert;string art; string stufe;
               string zauberdauer; string reichweite; string wirkungsziel;
               string wirkungsbereich; string wirkungsdauer; string ursprung;
@@ -147,7 +147,8 @@ class midgard_CG : public midgard_CG_glade
 {   
         friend class midgard_CG_glade;
         vector<string> typen_vector;
-        vector<st_spezialgebiet> vec_spezialgebiet;
+//        vector<st_spezialgebiet> vec_spezialgebiet;
+        vector<string> vec_spezialgebiet;
         vector<string> spezies_vector;
         vector<st_ausgewaehlte_fertigkeiten> vec_fertigkeiten;
         vector<st_angeborene_fertigkeit> vec_an_fertigkeit;
