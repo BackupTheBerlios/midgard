@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.188 2002/08/26 14:22:14 thoma Exp $
+# $Id: Makefile.am,v 1.189 2002/08/28 07:57:42 thoma Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -187,6 +187,7 @@ magus_SOURCES = $(PORT_FILES) \
    spielleiter_export.cc \
    midgard_CG_region_check.cc \
    midgard_CG_optionen.cc \
+   midgard_CG_optionen_icons.cc \
    Window_hilfe_glade.cc \
    Window_hilfe.cc \
    glademm_support.cc \
