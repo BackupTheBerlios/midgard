@@ -1,4 +1,4 @@
-// $Id: export_common.h,v 1.4 2001/11/13 10:12:20 christof Exp $
+// $Id: export_common.h,v 1.5 2001/11/14 08:17:54 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -89,3 +89,14 @@ static std::string typ_standardisierung(const std::string &t)
    else if (t=="Ass") return "As";
    else return t;
 }
+
+static std::string fetch_and_write_typ_attrib(FetchIStream &is,std::ostream &o,const std::string &wert,const std::string &standard="")
+{  std::string val;
+   
+   is >> FetchIStream::MapNull<string>(val,standard); 
+   val=typ_standardisierung(val);
+   if (val==standard) return val;
+   o << ' ' << wert << "=\"" << toXML(val) << '\"';
+   return val;
+}
+

@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.pgcc,v 1.5 2001/11/13 17:51:28 christof Exp $
+// $Id: fertigk_exp.pgcc,v 1.6 2001/11/14 08:17:54 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -102,9 +102,7 @@ void fert_speichern(std::ostream &o)
          if (sqlca.sqlcode) break;
          FetchIStream is2("spalten");
          o << "    <Lernschema";
-         std::string typ;
-         is2 >> typ;
-         o << " Typ=\"" << toXML(typ_standardisierung(typ)) << '\"';
+         fetch_and_write_typ_attrib(is2, o, "Typ");
          fetch_and_write_int_attrib(is2, o, "Lernpunkte");
          fetch_and_write_bool_attrib(is2, o, "Pflicht");
          o << "/>\n";
