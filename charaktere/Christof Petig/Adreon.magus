@@ -5,12 +5,12 @@
   <Figur Name="Adreon McTuron" Spieler="Christof Petig" Zeitpunkt="Erschaffung" Grad="4"/>
   <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Er" Spezialisierung="Langschwert" Überleben="Überleben im Wald" Muttersprache="Albisch" Stadt_Land="Stadt" Hand="Rechtshänder"/>
   <Basiseigenschaften St="95" Gw="86" Gs="93" Ko="90" In="97" Zt="76"/>
-  <abgeleiteteEigenschaften Au="50" pA="53" Wk="100" Sb="47" B="25"/>
+  <abgeleiteteEigenschaften Au="50" pA="53" Wk="100" Sb="47" B="25" SG="1"/>
   <Erfolgswerte Abwehr="13" Zaubern="2" ZauberResistenz="12"/>
   <Gesundheit LP="17" AP="22"/>
   <Beschreibung Alter="21" Gestalt="normal" Gewicht="82" Größe="180" Stand="Volk" Herkunft="Alba" Glaube="Dheis Albi"/>
-  <Vermögen GS="44" SS="1"/>
-  <Steigern GFP="1285" AEP="4" EPproGFP="33" Basiswerte="3" benötigte_Tage="174.32">
+  <Vermögen GS="3" SS="1"/>
+  <Steigern GFP="1755" AEP="1" EPproGFP="49" benötigte_Tage="221.32">
    <Praxispunkte/>
   </Steigern>
   <Text Größe="8"/>
@@ -31,6 +31,28 @@
      <Gegenstand Anzahl="1" Bezeichnung="Geld" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit=""/>
     </Gegenstand>
    </Gegenstand>
+   <Gegenstand Anzahl="1" Bezeichnung="Körper" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
+    <Gegenstand Anzahl="1" Bezeichnung="Hose" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Hemd" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Gürtel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Schuhe" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Rucksack" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
+     <Gegenstand Anzahl="1" Bezeichnung="Decke" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="warm"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Lederbeutel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Geld" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit=""/>
+    </Gegenstand>
+   </Gegenstand>
+   <Gegenstand Anzahl="1" Bezeichnung="Körper" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
+    <Gegenstand Anzahl="1" Bezeichnung="Hose" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Hemd" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Gürtel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Schuhe" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Rucksack" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
+     <Gegenstand Anzahl="1" Bezeichnung="Decke" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="warm"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Lederbeutel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Geld" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit=""/>
+    </Gegenstand>
+   </Gegenstand>
   </Ausrüstung>
   <Fertigkeiten>
    <Sinn Bezeichnung="Sehen" Wert="8"/>
@@ -40,7 +62,7 @@
    <Sinn Bezeichnung="Tasten" Wert="8"/>
    <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
    <Beruf Bezeichnung="Bote"/>
-   <Fertigkeit Bezeichnung="Beschatten" Wert="8"/>
+   <Fertigkeit Bezeichnung="Beschatten" Wert="9"/>
    <Fertigkeit Bezeichnung="Gassenwissen" Wert="7"/>
    <Fertigkeit Bezeichnung="Geheimzeichen" Wert="12" Zusatz="Zinken (Meer der fünf Winde)"/>
    <Fertigkeit Bezeichnung="Geländelauf" Wert="12"/>
@@ -49,19 +71,19 @@
    <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="6"/>
    <Fertigkeit Bezeichnung="Lippenlesen" Wert="8"/>
    <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="7"/>
-   <Fertigkeit Bezeichnung="Reiten" Wert="11"/>
+   <Fertigkeit Bezeichnung="Reiten" Wert="12"/>
    <Fertigkeit Bezeichnung="Schwimmen" Wert="11"/>
    <Fertigkeit Bezeichnung="Seilkunst" Wert="8"/>
    <Fertigkeit Bezeichnung="Springen" Wert="11"/>
-   <Fertigkeit Bezeichnung="Spurenlesen" Wert="9"/>
+   <Fertigkeit Bezeichnung="Spurenlesen" Wert="10"/>
    <Fertigkeit Bezeichnung="Suchen" Wert="10"/>
-   <Fertigkeit Bezeichnung="Verkleiden" Wert="14"/>
+   <Fertigkeit Bezeichnung="Verkleiden" Wert="15"/>
    <Fertigkeit Bezeichnung="Wahrnehmung" Wert="6"/>
    <Fertigkeit Bezeichnung="Zeichensprache" Wert="8"/>
    <Waffe Bezeichnung="Dolch" Wert="9"/>
    <Waffe Bezeichnung="Handaxt" Wert="7"/>
-   <Waffe Bezeichnung="Langschwert" Wert="9"/>
    <Waffe Bezeichnung="kleiner Schild" Wert="3"/>
+   <Waffe Bezeichnung="Langschwert" Wert="10"/>
    <Grundkenntnis Bezeichnung="Einhandschlagwaffe"/>
    <Grundkenntnis Bezeichnung="Einhandschwert"/>
    <Grundkenntnis Bezeichnung="Schild"/>
@@ -76,6 +98,7 @@
    <CheckOptions Name="NSC zulassen" Wert="false"/>
    <Hausregeln Name="1 GS entspricht 1 GFP" Wert="true"/>
    <Hausregeln Name="Grundwerte über 100 zulassen" Wert="true"/>
+   <Hausregeln Name="Ausdauerpunkte für Nicht-Menschen nach GB51" Wert="false"/>
   </Optionen>
  </Midgard-Abenteurer>
 </MAGUS-data>
