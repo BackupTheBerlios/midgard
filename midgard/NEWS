@@ -9,14 +9,15 @@ NEWS IN VERSION 0.7delta1
 * Viele kleinere und größere Bugs beseitigt
 * Gildenbrief funktioniert wieder 
 * Ausdruck langer Fertigkeitsnamen geht
+* Destruktor löst einen 'Speicherzugriffsfehler'aus :-( 
+* Spielleiterexport komplett an M4 angepaßt
 * die XML Dateien enthalten schon Gruppen (KÄM, PRI etc.)
 
 TODO:
-* Destruktor löst einen 'Speicherzugriffsfehler'aus :-( 
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
 in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
 links). 
-* H&D funktioniert nicht
+* H&D (Zauberlied) funktioniert nicht
 * Fokus im Zusatzfenster einfrieren
 * Ausdruck für lange Listen
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
