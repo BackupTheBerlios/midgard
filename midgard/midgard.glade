@@ -18099,7 +18099,7 @@ eingeben</label>
     <widget>
       <class>GtkTable</class>
       <name>table129</name>
-      <rows>2</rows>
+      <rows>3</rows>
       <columns>1</columns>
       <homogeneous>False</homogeneous>
       <row_spacing>0</row_spacing>
@@ -18172,11 +18172,79 @@ eingeben</label>
 	  <yfill>False</yfill>
 	</child>
       </widget>
+
+      <widget>
+	<class>GtkButton</class>
+	<name>button_close_wizard</name>
+	<can_focus>True</can_focus>
+	<signal>
+	  <name>clicked</name>
+	  <handler>on_button_close_wizard_clicked</handler>
+	  <last_modification_time>Wed, 13 Feb 2002 17:50:53 GMT</last_modification_time>
+	</signal>
+	<relief>GTK_RELIEF_NORMAL</relief>
+	<child>
+	  <left_attach>0</left_attach>
+	  <right_attach>1</right_attach>
+	  <top_attach>2</top_attach>
+	  <bottom_attach>3</bottom_attach>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <xexpand>False</xexpand>
+	  <yexpand>False</yexpand>
+	  <xshrink>False</xshrink>
+	  <yshrink>False</yshrink>
+	  <xfill>True</xfill>
+	  <yfill>False</yfill>
+	</child>
+
+	<widget>
+	  <class>GtkHBox</class>
+	  <name>hbox63</name>
+	  <homogeneous>False</homogeneous>
+	  <spacing>0</spacing>
+
+	  <widget>
+	    <class>GtkPixmap</class>
+	    <name>pixmap133</name>
+	    <filename>SchliessenIII-50.xpm</filename>
+	    <xalign>0.5</xalign>
+	    <yalign>0.5</yalign>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <build_insensitive>True</build_insensitive>
+	    <child>
+	      <padding>0</padding>
+	      <expand>True</expand>
+	      <fill>True</fill>
+	    </child>
+	  </widget>
+
+	  <widget>
+	    <class>GtkLabel</class>
+	    <name>label556</name>
+	    <label>Wizard
+schlieﬂen</label>
+	    <justify>GTK_JUSTIFY_CENTER</justify>
+	    <wrap>False</wrap>
+	    <xalign>0.5</xalign>
+	    <yalign>0.5</yalign>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <child>
+	      <padding>0</padding>
+	      <expand>False</expand>
+	      <fill>False</fill>
+	    </child>
+	  </widget>
+	</widget>
+      </widget>
     </widget>
 
     <widget>
       <class>Custom</class>
       <name>LogWinWizard</name>
+      <width>340</width>
       <cxx_visibility>protected</cxx_visibility>
       <creation_function>logwin</creation_function>
       <int1>0</int1>
@@ -18196,73 +18264,6 @@ eingeben</label>
 	<xfill>True</xfill>
 	<yfill>True</yfill>
       </child>
-    </widget>
-
-    <widget>
-      <class>GtkButton</class>
-      <name>button_close_wizard</name>
-      <can_focus>True</can_focus>
-      <signal>
-	<name>clicked</name>
-	<handler>on_button_close_wizard_clicked</handler>
-	<last_modification_time>Wed, 13 Feb 2002 17:50:53 GMT</last_modification_time>
-      </signal>
-      <relief>GTK_RELIEF_NORMAL</relief>
-      <child>
-	<left_attach>0</left_attach>
-	<right_attach>1</right_attach>
-	<top_attach>0</top_attach>
-	<bottom_attach>1</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>False</xfill>
-	<yfill>False</yfill>
-      </child>
-
-      <widget>
-	<class>GtkHBox</class>
-	<name>hbox63</name>
-	<homogeneous>False</homogeneous>
-	<spacing>0</spacing>
-
-	<widget>
-	  <class>GtkPixmap</class>
-	  <name>pixmap133</name>
-	  <filename>SchliessenIII-50.xpm</filename>
-	  <xalign>0.5</xalign>
-	  <yalign>0.5</yalign>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	  <build_insensitive>True</build_insensitive>
-	  <child>
-	    <padding>0</padding>
-	    <expand>True</expand>
-	    <fill>True</fill>
-	  </child>
-	</widget>
-
-	<widget>
-	  <class>GtkLabel</class>
-	  <name>label556</name>
-	  <label>Wizard
-schlieﬂen</label>
-	  <justify>GTK_JUSTIFY_CENTER</justify>
-	  <wrap>False</wrap>
-	  <xalign>0.5</xalign>
-	  <yalign>0.5</yalign>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	  <child>
-	    <padding>0</padding>
-	    <expand>False</expand>
-	    <fill>False</fill>
-	  </child>
-	</widget>
-      </widget>
     </widget>
 
     <widget>

@@ -1,4 +1,4 @@
-// $Id: grundwere_edit_setzen.cc,v 1.30 2002/02/05 06:47:48 thoma Exp $
+// $Id: grundwere_edit_setzen.cc,v 1.31 2002/02/14 13:21:27 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -46,6 +46,12 @@ void midgard_CG::set_all_entrys()
 
   gtk_spin_button_update(spinbutton_grad->gtkobj());  
   Werte.setGrad(spinbutton_grad->get_value_as_int());
+  int maxgfp=Database.GradAnstieg.getGFP_forGrad(Werte.Grad());
+  gtk_spin_button_update(spinbutton_gfp->gtkobj());  
+  int gfp = spinbutton_gfp->get_value_as_int();
+  if (maxgfp>gfp) gfp=maxgfp;
+  Werte.setGFP(gfp);
+
   gtk_spin_button_update(spinbutton_lp->gtkobj());  
   Werte.setLP(spinbutton_lp->get_value_as_int());
   gtk_spin_button_update(spinbutton_ap->gtkobj());  
@@ -62,8 +68,6 @@ void midgard_CG::set_all_entrys()
   Werte.setGG(spinbutton_gg->get_value_as_int());
   gtk_spin_button_update(spinbutton_sg->gtkobj());  
   Werte.setSG(spinbutton_sg->get_value_as_int());
-  gtk_spin_button_update(spinbutton_gfp->gtkobj());  
-  Werte.setGFP(spinbutton_gfp->get_value_as_int());
 
 
   gtk_spin_button_update(spinbutton_st->gtkobj());  

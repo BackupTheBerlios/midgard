@@ -65,6 +65,7 @@ private:
       int get_Schicksalsgunst(int grad) ;
       int getGFP_for(ewas e,const Grundwerte& Werte);
       std::string getGFP_for_str(ewas e,const Grundwerte& Werte);
+      int getGFP_forGrad(int g);
 
 
       void set_Grad_Anstieg(int p,int b) 

@@ -147,3 +147,7 @@ int Grad_anstieg::getGFP_for(ewas ew,const Grundwerte& Werte)
    else return kosten;
 }
 
+int Grad_anstieg::getGFP_forGrad(int grad)
+{
+  return map_grad[grad].gfp;
+}
