@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.54 2002/08/15 15:01:07 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.55 2002/08/16 09:59:29 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -947,7 +947,7 @@ void LaTeX_drucken::LaTeX_kido(ostream &fout)
 
 void LaTeX_drucken::LaTeX_kido_main(ostream &fout)
 {
-  fout << "\\end{center}\n";
+//  fout << "\\end{center}\n";
   LaTeX_kopfzeile(fout,true,false);
   fout << "\\begin{tabular}{rllcp{17cm}}\n";
   fout << "\\multicolumn{5}{l}{\\large\\bf Erfolgswert KiDo: "
@@ -956,5 +956,5 @@ void LaTeX_drucken::LaTeX_kido_main(ostream &fout)
 
   LaTeX_kido(fout);
   fout << "\\end{tabular}\n";
-  fout << "\\end{center}\n";
+//  fout << "\\end{center}\n";
 }

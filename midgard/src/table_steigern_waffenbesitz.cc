@@ -145,6 +145,7 @@ void  table_steigern::show_alte_waffen()
   for (std::list<WaffeBesitz>::const_iterator i=hauptfenster->getChar().List_Waffen_besitz().begin();i!=hauptfenster->getChar().List_Waffen_besitz().end();++i)
      datavec.push_back(new Data_waffenbesitz(*i,hauptfenster));
   waffenbesitz_alt_tree->setDataVec(datavec);
+  waffenbesitz_alt_tree->Expand_recursively();
 }
 
 void  table_steigern::lade_waffenbesitz()
