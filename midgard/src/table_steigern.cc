@@ -8,6 +8,7 @@
 #include <bool_CheckButton.hh>
 extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 #include <libmagus/Ausgabe.hh>
+#include <libmagus/Datenbank.hh>
 
 void table_steigern::refresh()
 {
