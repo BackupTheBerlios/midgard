@@ -21,8 +21,9 @@
 #include <Gtk_OStream.h>
 #include "Fertigkeiten.hh"
 #include "Waffe.hh"       
-//#include "LernListen.hh"
+#include "LernListen.hh"
 #include <libmagus/Ausgabe.hh>
+#include <libmagus/Datenbank.hh>
 
 void table_steigern::fertigkeiten_zeigen()
 {
@@ -34,7 +35,7 @@ void table_steigern::fertigkeiten_zeigen()
 void table_steigern::neue_fertigkeiten_zeigen()
 {
   Abenteurer &A=hauptfenster->getAben();
-  list_Fertigkeit_neu=LL->get_steigern_MBEm(A,Enums::sFert);
+  list_Fertigkeit_neu=LernListen::get_steigern_MBEm(A,Enums::sFert);
  MidgardBasicTree::show_list_in_tree(list_Fertigkeit_neu,neue_fert_tree,&hauptfenster->getAben());
 }
 
