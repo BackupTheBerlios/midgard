@@ -38,10 +38,7 @@ try{
  else if (ewas==Export)
    hauptfenster->spielleiter_export_save(this->get_filename());
  else if (ewas==Pix)
-  {
-    assert(Werte!=0);
-    Werte->setBeschreibungPix(this->get_filename());
-  }
+    VA->getWerte().setBeschreibungPix(this->get_filename());
 #ifndef __MINGW32__  
  destroy();
 #endif
@@ -86,8 +83,8 @@ static std::string defFileName(const std::string &s)
 #endif
 
 // den aktuellen Abenteurer zu übergeben wäre deutlich sinnvoller! CP
-xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was, VAbenteurer &A)
-: hauptfenster(h),ewas(_was),Werte(W)
+xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was)
+: hauptfenster(h),ewas(_was),VA(hauptfenster->getChar())
 {
 #ifdef __MINGW32__
  const char dirsep='\\';
@@ -100,19 +97,19 @@ xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was, VAbenteurer &A
  // path mit / (oder \) beenden, damit der Dateiname einfach dahinter kann
  if (!path.empty() && path[path.size()-1]!=dirsep) path+=dirsep;
  if(ewas==Pix) 
- {  fname=W->BeschreibungPix();
+ {  fname=VA->getWerte().BeschreibungPix();
     if (fname.empty()) fname=path;
  }
  else if (ewas==Save) 
- {  fname=hauptfenster->getChar().getFilename();
+ {  fname=VA.getFilename();
     if (fname.empty()) 
-       fname=path+defFileName(W->Name_Abenteurer())+".magus";
+       fname=path+defFileName(VA->getWerte().Name_Abenteurer())+".magus";
  }
  else if (ewas==Load) 
  {  // path is ok
  }
  else if (ewas==Export) 
- {  fname=path+defFileName(W->Name_Abenteurer())+".txt";
+ {  fname=path+defFileName(VA->getWerte().Name_Abenteurer())+".txt";
  }
  set_filename(fname);
  

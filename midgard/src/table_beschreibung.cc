@@ -36,7 +36,7 @@ void table_beschreibung::on_button_grafik_clicked()
 #else    
   delete 
 #endif   
-  (new xml_fileselection(hauptfenster,xml_fileselection::Pix,&(hauptfenster->getWerte())));
+  (new xml_fileselection(hauptfenster,xml_fileselection::Pix));
   hauptfenster->undosave("Bild geändert");
 }
 
