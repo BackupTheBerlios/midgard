@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.339 2004/04/20 07:54:41 christof Exp $
+// $Id: midgard_CG.cc,v 1.340 2004/04/20 23:40:36 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -117,7 +117,6 @@ midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
   else on_neuer_charakter_clicked();
 #endif
 
-
   if(Programmoptionen.OptionenCheck(Magus_Optionen::Notebook_start).active.Value() &&
   	Programmoptionen.OptionenCheck(Magus_Optionen::Notebook_start).wert!=-1) 
      notebook_main->set_current_page(Programmoptionen.OptionenCheck(Magus_Optionen::Notebook_start).wert);
@@ -133,18 +132,21 @@ midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
 #include"NEWS.h" 
    <<'\n';
    
+std::cout << getChar()->getAbenteurer().Spezies()->Name() << " ctor 3\n";
   table_grundwerte->init(this); 
+std::cout << getChar()->getAbenteurer().Spezies()->Name() << " ctor 3.5\n";
   table_lernschema->init(this); // qq 
   table_steigern->init(this); // qq
   table_beschreibung->init(this); // qq
   table_ausruestung->init(this); // qq
+std::cout << getChar()->getAbenteurer().Spezies()->Name() << " ctor 3.9\n";
   table_zufall->init(this); // qq
+std::cout << getChar()->getAbenteurer().Spezies()->Name() << " ctor 4\n";
   
   signal_any_wizard_change().connect(SigC::slot(*this,&midgard_CG::wizard_changed));
   aktiver.proxies.undo_changed.connect(SigC::slot(*this,&midgard_CG::refresh));
   aktiver.signal_anderer_abenteurer().connect(SigC::slot(*this,&midgard_CG::refresh));
   AbenteurerAuswahl::Chars.signal_changed().connect(SigC::slot(*this,&midgard_CG::refresh_char_list));
-std::cout << getChar()->getAbenteurer().Spezies()->Name() << " ctor\n";
 //  refresh();
   aktiver.signal_anderer_abenteurer()();
   aktiver.proxies.wizard.signal_changed()(0);
