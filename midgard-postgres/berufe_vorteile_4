@@ -20,7 +20,7 @@ COPY "berufe_vorteile_4" FROM stdin;
 Akrobat	Akrobatik
 Akrobat	Balancieren
 Akrobat	Springen
-Alchimist	Alchemie
+Alchimist	Alchimie
 Alchimist	Giftmischen
 Alchimist	Kräuterkunde
 Alchimist	Zauberkunde
