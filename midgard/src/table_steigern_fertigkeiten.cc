@@ -24,6 +24,7 @@
 #include "LernListen.hh"
 #include <libmagus/Ausgabe.hh>
 #include <libmagus/Datenbank.hh>
+#include <libmagus/NotFound.h>
 
 void table_steigern::fertigkeiten_zeigen()
 { if (notebook_lernen->get_current_page()!=PAGE_FERTIGKEITEN) return;

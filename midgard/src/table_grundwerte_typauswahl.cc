@@ -23,6 +23,7 @@
 #include <Misc/Trace.h>
 #include "MagusDialog.hh"
 #include <libmagus/Datenbank.hh>
+#include <libmagus/NotFound.h>
 
 void table_grundwerte::fill_typauswahl()
 {

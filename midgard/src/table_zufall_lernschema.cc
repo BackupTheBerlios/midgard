@@ -25,6 +25,7 @@
 #include <libmagus/Datenbank.hh>
 #include <libmagus/Ausgabe.hh>
 #include <libmagus/LernListen.hh>
+#include <libmagus/NotFound.h>
 
 void table_zufall::on_button_zufall_voll_clicked()
 {
