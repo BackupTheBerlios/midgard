@@ -11,19 +11,20 @@ NEWS IN VERSION 0.6delta4
 * freiwillige Speziesfertigkeiten die zu teuer sind oder schon gelernt sind
    werden berücksichtigt. (Trinken für Zwerg) 
 * Verbote der Waffen-Grundkenntnisse für Spezies werden berücksichtigt
+* Verbote der Waffenauswahl bei Spielbegninn für Spezies werden berücksichtigt
 * In der Waffenauswahl wird der Dolch nicht mehr angezeigt mit W6+-1 
 * Gleiche Sprache kann nicht mehrmals gelernt werden
 * Kultwaffe für Priester kann gelernt werden, auch wenn sie mehr Lernpunkte
    kostet als vorhanden sind.
+* Redesign: Abenteurerklasse, Lernschema in eigener Oberflächenklasse
+
+
 
 TODO:
+* pA und Au für Grundwerte
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
 in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
 links). 
-* Auch die ganzen verbotenen Waffen (DFR S.49/50) sind nicht ausgeschlossen,
- bzw. die speziellen
-Listen (DFR S. 50 rechts) werden nicht berücksichtigt. Beispiel: Meine
-Zwergenkriegerin könnte Krummsäbel und Parierdolch lernen.
 * Fokus im Zusatzfenster einfrieren
 * xml-speicherpfad
 * Ausdruck für Lange Listen

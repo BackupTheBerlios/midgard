@@ -126,7 +126,7 @@ void table_grundwerte::spezieswahl_button()
    manage (new Window_doppelcharaktere(this));
 
  typauswahl_2->hide();
- hauptfenster->getChar().setTyp2(cH_Typen());
+// hauptfenster->getChar().setTyp2(cH_Typen());
  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::SPEZIES);
 }
 

@@ -66,12 +66,50 @@ Elf	f	Spurenlesen	6	1
 Elf	f	Tarnen	8	1
 Elf	f	Wahrnehmung	4	1
 Elf	sv	Ballista bedienen	0	0
+Elf	sv	Blasrohr	\N	\N
 Elf	sv	Bogenkampf zu Pferd	0	0
+Elf	sv	Bola	\N	\N
+Elf	sv	Buckler	\N	\N
+Elf	sv	Faustkampf 	\N	\N
 Elf	sv	Fechten	0	0
+Elf	sv	Fuchtel 	\N	\N
+Elf	sv	Garotte 	\N	\N
 Elf	sv	Gesch‰ftst¸chtigkeit	0	0
+Elf	sv	Glefe 	\N	\N
+Elf	sv	Handarmbrust	\N	\N
+Elf	sv	Hellebarde	\N	\N
 Elf	sv	Kampf in Vollr¸stung	0	0
+Elf	sv	Kampfgabeln	\N	\N
 Elf	sv	Katapult bedienen	0	0
+Elf	sv	Kharrata	\N	\N
+Elf	sv	Kompositbogen	\N	\N
+Elf	sv	Kriegsflegel	\N	\N
+Elf	sv	Kriegshammer	\N	\N
+Elf	sv	Krumms‰bel	\N	\N
+Elf	sv	Lasso	\N	\N
+Elf	sv	Morgenstern	\N	\N
+Elf	sv	Netz	\N	\N
+Elf	sv	Ochsenzunge	\N	\N
+Elf	sv	Ogerhammer	\N	\N
+Elf	sv	Parierdolch	\N	\N
+Elf	sv	Peitsche	\N	\N
+Elf	sv	Rapier	\N	\N
+Elf	sv	Schlachtbeil	\N	\N
+Elf	sv	Skhallanta	\N	\N
+Elf	sv	Speerschleuder	\N	\N
+Elf	sv	Stabkeule	\N	\N
+Elf	sv	Stielhammer	\N	\N
+Elf	sv	Stockschleuder	\N	\N
+Elf	sv	Streitaxt	\N	\N
 Elf	sv	Trinken	0	0
+Elf	sv	Wurfeisen	\N	\N
+Elf	sv	Wurfhammer	\N	\N
+Elf	sv	Wurfpfeil	\N	\N
+Elf	sv	Wurfscheibe	\N	\N
+Elf	sv	Wurfspieﬂ	\N	\N
+Elf	sv	Wurfstern	\N	\N
+Elf	sv	leichte Armbrust	\N	\N
+Elf	sv	schwere Armbrust	\N	\N
 Elf	sv	‹berleben im Dschungel	\N	\N
 Elf	sv	‹berleben im Gebirge	\N	\N
 Elf	sv	‹berleben im Schnee	\N	\N
@@ -92,10 +130,96 @@ Elf	v	Stehlen	0	0
 Elf	v	Winzer	\N	\N
 Elf	v	Wirt	\N	\N
 Elf	z	Erkennen der Aura	\N	\N
+Gnom	sv	Anderthalbh‰nder	\N	\N
+Gnom	sv	Bih‰nder	\N	\N
+Gnom	sv	Bola	\N	\N
+Gnom	sv	Faustkampf	\N	\N
+Gnom	sv	Fuchtel	\N	\N
+Gnom	sv	Garotte	\N	\N
+Gnom	sv	Glefe	\N	\N
+Gnom	sv	Handarmbrust	\N	\N
+Gnom	sv	Hellebarde	\N	\N
+Gnom	sv	Kampfgabeln	\N	\N
+Gnom	sv	Kampfstab	\N	\N
+Gnom	sv	Kharrata	\N	\N
+Gnom	sv	Kompositbogen	\N	\N
+Gnom	sv	Kriegsflegel	\N	\N
+Gnom	sv	Kriegshammer	\N	\N
+Gnom	sv	Krumms‰bel	\N	\N
+Gnom	sv	Langbogen	\N	\N
+Gnom	sv	Langschwert	\N	\N
+Gnom	sv	Lanze	\N	\N
+Gnom	sv	Lasso	\N	\N
+Gnom	sv	Magierstecken	\N	\N
+Gnom	sv	Morgenstern	\N	\N
+Gnom	sv	Netz	\N	\N
+Gnom	sv	Ochsenzunge	\N	\N
+Gnom	sv	Ogerhammer	\N	\N
+Gnom	sv	Parierdolch	\N	\N
+Gnom	sv	Peitsche	\N	\N
+Gnom	sv	Rapier	\N	\N
+Gnom	sv	Schlachtbeil	\N	\N
+Gnom	sv	Skhallanta	\N	\N
+Gnom	sv	Speerschleuder	\N	\N
+Gnom	sv	Stabkeule	\N	\N
+Gnom	sv	Stielhammer	\N	\N
+Gnom	sv	Stockschleuder	\N	\N
+Gnom	sv	Streitaxt	\N	\N
+Gnom	sv	Wurfeisen	\N	\N
+Gnom	sv	Wurfhammer	\N	\N
+Gnom	sv	Wurfscheibe	\N	\N
+Gnom	sv	Wurfspieﬂ	\N	\N
+Gnom	sv	Wurfstern	\N	\N
+Gnom	sv	groﬂer Schild	\N	\N
+Gnom	sv	schwere Armbrust	\N	\N
 Halbling	af	Gute Reflexe	9	\N
 Halbling	f	Schleichen	10	1
 Halbling	f	Tarnen	10	1
 Halbling	s	Schmecken	10	\N
+Halbling	sv	Anderthalbh‰nder	\N	\N
+Halbling	sv	Bih‰nder	\N	\N
+Halbling	sv	Blasrohr	\N	\N
+Halbling	sv	Bola	\N	\N
+Halbling	sv	Buckler	\N	\N
+Halbling	sv	Faustkampf	\N	\N
+Halbling	sv	Fuchtel	\N	\N
+Halbling	sv	Garotte	\N	\N
+Halbling	sv	Glefe	\N	\N
+Halbling	sv	Handarmbrust	\N	\N
+Halbling	sv	Hellebarde	\N	\N
+Halbling	sv	Kampfgabeln	\N	\N
+Halbling	sv	Kampfstab	\N	\N
+Halbling	sv	Kharrata	\N	\N
+Halbling	sv	Kompositbogen	\N	\N
+Halbling	sv	Kriegsflegel	\N	\N
+Halbling	sv	Krumms‰bel	\N	\N
+Halbling	sv	Langbogen	\N	\N
+Halbling	sv	Lanze	\N	\N
+Halbling	sv	Lasso	\N	\N
+Halbling	sv	Magierstecken	\N	\N
+Halbling	sv	Morgenstern	\N	\N
+Halbling	sv	Netz	\N	\N
+Halbling	sv	Ochsenzunge	\N	\N
+Halbling	sv	Ogerhammer	\N	\N
+Halbling	sv	Parierdolch	\N	\N
+Halbling	sv	Peitsche	\N	\N
+Halbling	sv	Rapier	\N	\N
+Halbling	sv	Schlachtbeil	\N	\N
+Halbling	sv	Skhallanta	\N	\N
+Halbling	sv	Speerschleuder	\N	\N
+Halbling	sv	Stabkeule	\N	\N
+Halbling	sv	Stielhammer	\N	\N
+Halbling	sv	Stockschleuder	\N	\N
+Halbling	sv	Streitkolben	\N	\N
+Halbling	sv	Wurfeisen	\N	\N
+Halbling	sv	Wurfhammer	\N	\N
+Halbling	sv	Wurfpfeil	\N	\N
+Halbling	sv	Wurfscheibe	\N	\N
+Halbling	sv	Wurfspieﬂ	\N	\N
+Halbling	sv	Wurfstern	\N	\N
+Halbling	sv	groﬂer Schild	\N	\N
+Halbling	sv	leichte Armbrust	\N	\N
+Halbling	sv	schwere Armbrust	\N	\N
 Halbling	sv	‹berleben im Dschungel	\N	\N
 Halbling	sv	‹berleben im Gebirge	\N	\N
 Halbling	sv	‹berleben im Schnee	\N	\N
@@ -176,6 +300,39 @@ Waldgnom	v	schwere Armbrust	\N	\N
 Zwerg	af	Robustheit	9	\N
 Zwerg	f	Baukunde	8	1
 Zwerg	ff	Trinken	12	1
+Zwerg	sv	Bih‰nder	\N	\N
+Zwerg	sv	Bogen	\N	\N
+Zwerg	sv	Bola	\N	\N
+Zwerg	sv	Buckler	\N	\N
+Zwerg	sv	Fuchtel	\N	\N
+Zwerg	sv	Garotte	\N	\N
+Zwerg	sv	Glefe	\N	\N
+Zwerg	sv	Handarmbrust	\N	\N
+Zwerg	sv	Kampfgabeln	\N	\N
+Zwerg	sv	Kampfstab	\N	\N
+Zwerg	sv	Kharrata	\N	\N
+Zwerg	sv	Kompositbogen	\N	\N
+Zwerg	sv	Krumms‰bel	\N	\N
+Zwerg	sv	Kurzbogen	\N	\N
+Zwerg	sv	Langbogen	\N	\N
+Zwerg	sv	Lasso	\N	\N
+Zwerg	sv	Magierstecken	\N	\N
+Zwerg	sv	Netz	\N	\N
+Zwerg	sv	Ochsenzunge	\N	\N
+Zwerg	sv	Ogerhammer	\N	\N
+Zwerg	sv	Parierdolch	\N	\N
+Zwerg	sv	Rapier	\N	\N
+Zwerg	sv	Skhallanta	\N	\N
+Zwerg	sv	Speerschleuder	\N	\N
+Zwerg	sv	Stockschleuder	\N	\N
+Zwerg	sv	Wurfeisen	\N	\N
+Zwerg	sv	Wurfmesser	\N	\N
+Zwerg	sv	Wurfpfeil	\N	\N
+Zwerg	sv	Wurfscheibe	\N	\N
+Zwerg	sv	Wurfspeer	\N	\N
+Zwerg	sv	Wurfspieﬂ	\N	\N
+Zwerg	sv	Wurfstern	\N	\N
+Zwerg	sv	leichter Speer	\N	\N
 Zwerg	sv	‹berleben im Dschungel	\N	\N
 Zwerg	sv	‹berleben im Sumpf	\N	\N
 Zwerg	sv	‹berleben im Wald	\N	\N

@@ -33,7 +33,6 @@ void table_grundwerte::init(midgard_CG *h)
     
 void table_grundwerte::zeige_werte()
 { 
-cout << "Typ="<<hauptfenster->getCChar().CTyp1()->Short()<<'\n';
    if(!hauptfenster) return;
    if (hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::Original).active)  
       original_midgard_check();
@@ -100,7 +99,7 @@ cout << "Typ="<<hauptfenster->getCChar().CTyp1()->Short()<<'\n';
    entry_nameS->set_text(hauptfenster->getCWerte().Name_Spieler());
    entry_version->set_text(hauptfenster->getCWerte().Version());
 
-   if (hauptfenster->getCChar().CTyp1()->Short()=="") typauswahl_2->hide();
+   if (hauptfenster->getCChar().CTyp2()->Short()=="") typauswahl_2->hide();
    else                                   typauswahl_2->show();
 
    if(optionmenu_spezies->get_menu()->items().size()==1) fill_spezies();

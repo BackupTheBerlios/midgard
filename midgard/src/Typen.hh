@@ -1,4 +1,4 @@
-// $Id: Typen.hh,v 1.18 2002/05/19 07:26:38 thoma Exp $               
+// $Id: Typen.hh,v 1.19 2002/05/23 09:03:16 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,7 +37,6 @@ class Typen : public HandleContent
    std::string typl,typlw,typz;
    std::string zaubern,ausdauer,region,beruf;
    int stand,sb,ruestung,geld;
-//   mutable int opionmenu_nr;
    bool stadt,land;
    std::string sprueche_mit_pp;
    bool nsc_only,kultwaffe;
@@ -86,14 +85,11 @@ class cH_Typen : public Handle<const Typen>
     typedef CacheStatic<std::string,cH_Typen> cache_t;
     static cache_t cache;
     friend class std::map<std::string,cH_Typen>;
-///    cH_Typen(){};
   public:
    cH_Typen() {*this=new Typen();}
    cH_Typen(const std::string& name IF_XML(,bool create=false));
-#ifdef USE_XML   
    cH_Typen(const Tag *tag);
-#endif   
-    cH_Typen(const Typen *s) : Handle<const Typen>(s) {};
+   cH_Typen(const Typen *s) : Handle<const Typen>(s) {};
 };
  
 class Typen_All
