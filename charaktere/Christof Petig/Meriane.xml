@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Preise/>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Meriane McTuron" Zeitpunkt="Erschaffung" Grad="1"/>
+  <Typ Spezies="Mensch" Geschlecht="w" Abkürzung="PK" Stadt_Land="Stadt" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="99" Gw="75" Gs="60" Ko="80" In="92" Zt="85"/>
+  <abgeleiteteEigenschaften Au="76" pA="100" Wk="87" Sb="111" B="23"/>
+  <Erfolgswerte Abwehr="11" Zaubern="10" ZauberResistenz="10"/>
+  <Gesundheit LP="14" AP="12"/>
+  <Beschreibung Alter="24" Gestalt="normal" Gewicht="64" Größe="168" Stand="Mittelschicht" Herkunft="Alba"/>
+  <Vermögen GS="8"/>
+  <Steigern>
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>LR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="0" Bezeichnung="Anderthalbhänder"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Kriegshammer"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Dolch"/>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="10"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
+   <Beruf Bezeichnung="Kurtisane"/>
+   <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="13"/>
+   <Fertigkeit Bezeichnung="Meditieren" Wert="8"/>
+   <Fertigkeit Bezeichnung="Sagenkunde" Wert="6"/>
+   <Fertigkeit Bezeichnung="Erste Hilfe" Wert="6"/>
+   <Fertigkeit Bezeichnung="Singen" Wert="10"/>
+   <Fertigkeit Bezeichnung="Tanzen" Wert="10"/>
+   <Fertigkeit Bezeichnung="Geländelauf" Wert="10"/>
+   <Fertigkeit Bezeichnung="Verführen" Wert="6"/>
+   <Waffe Bezeichnung="Kriegshammer" Wert="4"/>
+   <Waffe Bezeichnung="Langschwert" Wert="4"/>
+   <Waffe Bezeichnung="Dolch" Wert="4"/>
+   <Waffe Bezeichnung="Anderthalbhänder" Wert="4"/>
+   <Waffe Bezeichnung="Stoßspeer" Wert="4"/>
+   <Zauber Bezeichnung="Heiliger Zorn"/>
+   <Zauber Bezeichnung="Austreibung des Bösen"/>
+   <Zauber Bezeichnung="Bannen von Finsterwerk"/>
+   <Grundkenntnis Bezeichnung="Einhandschlagwaffe"/>
+   <Grundkenntnis Bezeichnung="Einhandschwert"/>
+   <Grundkenntnis Bezeichnung="Spießwaffe"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Grundkenntnis Bezeichnung="Zweihandschwert"/>
+   <Sprache Bezeichnung="Albisch" Wert="19"/>
+   <Sprache Bezeichnung="Altoqua" Wert="12"/>
+   <Sprache Bezeichnung="Dunathisch" Wert="13"/>
+   <Urschrift Bezeichnung="Dunathisch" Wert="13"/>
+   <Urschrift Bezeichnung="Albisch" Wert="13"/>
+   <Optionen Name="Originalregeln" Wert="false"/>
+   <Optionen Name="NSCs zulassen" Wert="false"/>
+  </Fertigkeiten>
+ </Midgard-Abenteurer>
+</MAGUS-data>
