@@ -52,13 +52,14 @@ class MidgardBasicElement_fixed : public HandleContentCopyable
                           std::string b,std::string st,std::string sta) 
                         :herkunft(h),spezies(s),typ(t),beruf(b),stand(st),
                          standard(sta) {} };
-//   public:
-//      enum eZusatz {ZNone=0,ZTabelle=1,ZLand=2,ZWaffe=3,ZHerkunft=4,
-//                    ZSprache=5,ZSchrift=6};
+ public:
+      enum eZusatz {ZNone=0,ZTabelle=1,ZLand=2,ZWaffe=3,ZHerkunft=4,
+                    ZSprache=5,ZSchrift=6};
    protected:
 	const Tag *tag;
       std::string name, region,region_zusatz;
       int kosten;
+      eZusatz enum_zusatz;
 //      int mutable praxispunkte,erfolgswert,lernpunkte;
 //      enum zusatz;      
 //      mutable std::string zusatz; // Für Zusäte bei Fertigkeiten (z.B. Abrichten, Sprache, Geheimzeichen...)
@@ -78,10 +79,10 @@ class MidgardBasicElement_fixed : public HandleContentCopyable
 
    public:
       MidgardBasicElement_fixed(const std::string &n) 
-            : tag(0), name(n), kosten(0)
+            : tag(0), name(n), kosten(0),enum_zusatz(ZNone)
               ,nsc_only(false),steigern_mit_EP(0) {}
       MidgardBasicElement_fixed(const Tag *t,const std::string &n) 
-		: tag(t), name(n), kosten(0)
+		: tag(t), name(n), kosten(0),enum_zusatz(ZNone)
               ,nsc_only(false),steigern_mit_EP(0) {}
 
       enum MBEE {BERUF,FERTIGKEIT,FERTIGKEIT_ANG,WAFFEGRUND,WAFFE,WAFFEBESITZ,
@@ -91,6 +92,7 @@ class MidgardBasicElement_fixed : public HandleContentCopyable
       map<std::string,std::string> get_MapTyp() const {return map_typ;}
       
       std::vector<std::string> VZusatz() const {return Vzusatz;}
+      virtual eZusatz ZusatzEnum(const vector<cH_Typen>& Typ) const {return enum_zusatz;}
  
       bool NSC_only() const {return nsc_only;}
       void EP_steigern(const std::string fert);
@@ -152,12 +154,8 @@ class cH_MidgardBasicElement_fixed : public Handle<const MidgardBasicElement_fix
 
 class MidgardBasicElement : public cH_MidgardBasicElement_fixed
 {
- public:
-      enum eZusatz {ZNone=0,ZTabelle=1,ZLand=2,ZWaffe=3,ZHerkunft=4,
-                    ZSprache=5,ZSchrift=6};
  private:
       int praxispunkte,erfolgswert,lernpunkte;
-      eZusatz enum_zusatz;
       std::string zusatz; // Für Zusätze bei Fertigkeiten 
                               // (z.B. Abrichten, Sprache, Geheimzeichen...)
                               // und Zauber (Tiersprache)
@@ -167,7 +165,7 @@ class MidgardBasicElement : public cH_MidgardBasicElement_fixed
 
       MidgardBasicElement(const cH_MidgardBasicElement_fixed  &mbe)
          : cH_MidgardBasicElement_fixed(mbe),praxispunkte(0),erfolgswert(0),
-            lernpunkte(0),enum_zusatz(ZNone),gelernt(false) {}
+            lernpunkte(0),gelernt(false) {}
 
       int Lernpunkte() const {return lernpunkte;};
       void setLernpunkte(int l) {lernpunkte=l;}
@@ -183,16 +181,15 @@ class MidgardBasicElement : public cH_MidgardBasicElement_fixed
   
       std::string Zusatz() const {return zusatz;}
       void setZusatz(std::string z) {zusatz=z;}
-      virtual eZusatz ZusatzEnum(const vector<cH_Typen>& Typ) const {return enum_zusatz;}
 
-      bool ist_gelernt(const std::list<cH_MidgardBasicElement>& L) const;
+      bool ist_gelernt(const std::list<MidgardBasicElement>& L) const;
 
-      static void move_element(std::list<cH_MidgardBasicElement>& von,
-                               std::list<cH_MidgardBasicElement>& nach,
-                               const cH_MidgardBasicElement& MBE);
+      static void move_element(std::list<MidgardBasicElement>& von,
+                               std::list<MidgardBasicElement>& nach,
+                               const MidgardBasicElement& MBE);
 
-      static void saveElementliste(IF_XML(ostream &datei,)
-      				const std::list<cH_MidgardBasicElement>& b,
+      static void saveElementliste(ostream &datei,
+      				const std::list<MidgardBasicElement>& b,
                                    const Grundwerte& Werte,
                                    const vector<cH_Typen>& Typ);
 
