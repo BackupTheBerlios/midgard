@@ -245,6 +245,7 @@ void midgard_CG::menu_gradanstieg_init()
 
 
 //#include "../pixmaps/midgard_logo_tiny.xpm"
+#include "../pixmaps/Cyan-Dice-trans-50.xpm"
 
 void midgard_CG::Optionen_init()
 {
@@ -252,9 +253,13 @@ void midgard_CG::Optionen_init()
   list_Optionen.push_back(st_Optionen(Original,menu_original,
                            "Originalregeln",
                            true,midgard_logo_tiny_xpm));
-  Gtk::CheckMenuItem *menu_info;
-  list_Optionen.push_back(st_Optionen(Info,menu_info,
-                           "Info Fenster anzeigen",true,0));
+//  Gtk::CheckMenuItem *menu_info;
+//  list_Optionen.push_back(st_Optionen(Info,menu_info,
+//                           "Info Fenster anzeigen",true,0));
+  Gtk::CheckMenuItem *menu_gw_wuerfeln;
+  list_Optionen.push_back(st_Optionen(gw_wuerfeln,menu_gw_wuerfeln,
+                           "Grundwerte nur mit einer Maustaste auswürfelbar machen",
+                           false,Cyan_Dice_trans_50_xpm));
   Gtk::CheckMenuItem *menu_pics;
   list_Optionen.push_back(st_Optionen(showPics,menu_pics,
                            "Bilder anzeigen",true,0));
@@ -270,6 +275,10 @@ void midgard_CG::Optionen_init()
   list_OptionenM.push_back(st_OptionenM(WizardStarten,
                            menu_wizard_starten,
                            "Wizard starten",0));
+  Gtk::MenuItem *menu_lernschema_fertzusaetze_loeschen;
+  list_OptionenM.push_back(st_OptionenM(LernschemaZusaetzeLoeschen,
+                           menu_lernschema_fertzusaetze_loeschen,
+                           "Fertigkeiten mit Zusätzen im Lernschema wieder anzeigen",0));
 }
 
 

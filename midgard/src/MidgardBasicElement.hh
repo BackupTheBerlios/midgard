@@ -107,6 +107,7 @@ class MidgardBasicElement : public HandleContent
       virtual int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const {return 0;};
       bool ist_lernbar(const vector<cH_Typen>& Typ,const map<std::string,std::string>& map_typ) const;
       bool ist_gelernt(const std::list<cH_MidgardBasicElement>& L) const;
+      bool ist_gelernt(const std::list<std::string>& L) const;
       int get_Steigern_Kosten(int erfolgswert) const;
       vector<std::string> Standard(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const; 
       std::string Standard__(const vector<cH_Typen>& Typ,const Ausnahmen& ausnahmen) const;

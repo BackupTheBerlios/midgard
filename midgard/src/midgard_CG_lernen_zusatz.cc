@@ -26,7 +26,7 @@ static SigC::Connection connection;
 
 void midgard_CG::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_MidgardBasicElement& MBE)
 {
-  list_FertigkeitZusaetze.push_back(MBE);
+  list_FertigkeitZusaetze.push_back(MBE->Name());
   lernen_zusatz_titel(was,MBE);
   std::vector<cH_RowDataBase> datavec;
   connection.disconnect();
@@ -46,7 +46,6 @@ void midgard_CG::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_Midgard
            cH_MidgardBasicElement M=new Fertigkeit(*cH_Fertigkeit("Landeskunde"));
            M->setZusatz(Werte.Herkunft()->Name());
            list_Fertigkeit.push_back(M);
-//           datavec.push_back(new Data_Zusatz(MBE,Werte.Herkunft()->Name()));
            return;
          }
        else
@@ -63,6 +62,7 @@ void midgard_CG::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_Midgard
        if(datavec.empty()) 
          { regnot("Noch keine Fernkampfwaffe gewählt.");
            list_Fertigkeit.remove(MBE);
+           list_FertigkeitZusaetze.remove(MBE->Name());
            return;}
        connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::on_zusatz_leaf_selected));
        break;

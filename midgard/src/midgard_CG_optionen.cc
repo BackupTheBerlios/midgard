@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.56 2002/02/19 08:46:05 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.57 2002/02/19 14:36:32 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -37,6 +37,7 @@ void midgard_CG::Optionen_setzen_from_menu(OptionenIndex index)
      i->active = i->checkmenuitem->get_active();
      if(i->index==Original)checkbutton_original(i->active);
      if(i->index==showPics) Pics(i->active);
+     if(i->index==gw_wuerfeln) show_gw_wuerfeln(i->active);
    }
 }
 
@@ -44,6 +45,8 @@ void midgard_CG::OptionenM_setzen_from_menu(OptionenIndex index)
 {
   if(index==LernschemaSensitive) lernschema_sensitive(true);
   if(index==WizardStarten) wizard_starten_clicked();
+  if(index==LernschemaZusaetzeLoeschen) {list_FertigkeitZusaetze.clear(); 
+                                         on_lernliste_wahl_toggled();}
 }
 
 void midgard_CG::Hausregeln_setzen_from_menu(HausIndex index)
@@ -66,11 +69,13 @@ void midgard_CG::checkbutton_original(bool active)
          setAllHausregeln(false);
          if(haus_menuitem) haus_menuitem->set_sensitive(false);
        }
-      pixmap_logo->show();
+      pixmapLogo->show();
+      pixmap_original_tux->hide();
     }      
   else 
     { togglebutton_alle_zauber->set_sensitive(true); 
-      pixmap_logo->hide();
+      pixmapLogo->hide();
+      pixmap_original_tux->show();
       if(haus_menuitem) haus_menuitem->set_sensitive(true);
     }      
 }
@@ -113,7 +118,11 @@ void midgard_CG::Pics(bool b)
   }
 }
 
-      
+void midgard_CG::show_gw_wuerfeln(bool b)
+{
+  if(b) vbox_gw_wuerfeln->hide();
+  else vbox_gw_wuerfeln->show();
+}
 
 void midgard_CG::on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_Region region)
 {
@@ -124,11 +133,13 @@ void midgard_CG::on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_R
  if(notebook_main->get_current_page_num()==PAGE_STEIGERN)
     load_for_page(notebook_lernen->get_current_page_num());
 
- pixmap_logo->show();
+// pixmapLogo->show();
  for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
   {
    if(!(*i)->Offiziell() && (*i)->Active()) 
-     { pixmap_logo->hide();
+     { 
+//       checkbutton_original(false);
+       pixmapLogo->hide();
        break;
      }
   }

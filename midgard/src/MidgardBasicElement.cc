@@ -95,13 +95,6 @@ bool MidgardBasicElement::ist_gelernt(const std::list<cH_MidgardBasicElement>& L
 {
  for (std::list<cH_MidgardBasicElement>::const_iterator i=L.begin();i!=L.end();++i)
    {
-/*
-     if((*i)->What()==FERTIGKEIT)
-      {
-        if((*i)->Name()==Name() && 
-           cH_Fertigkeit(*i)->Zusatz()==static_cast<const Fertigkeit*>(this)->Zusatz()) return true;
-      }
-     else */
      if((*i)->What()==ZAUBERWERK)
       {
         if((*i)->Name()==Name() &&
@@ -111,6 +104,15 @@ bool MidgardBasicElement::ist_gelernt(const std::list<cH_MidgardBasicElement>& L
      else 
       {  
      if((*i)->Name()==Name() && (*i)->Zusatz()==Zusatz()) return true;}
+   }
+ return false;
+}
+
+bool MidgardBasicElement::ist_gelernt(const std::list<std::string>& L) const
+{
+ for (std::list<std::string>::const_iterator i=L.begin();i!=L.end();++i)
+   {
+     if((*i)==Name()) return true;
    }
  return false;
 }

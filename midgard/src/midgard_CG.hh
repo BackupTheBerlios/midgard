@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.177 2002/02/19 08:46:05 thoma Exp $
+// $Id: midgard_CG.hh,v 1.178 2002/02/19 14:36:32 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -74,7 +74,8 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         gint on_eventbox_MCG_button_press_event(GdkEventButton *event);
 
         enum OptionenIndex {Original,Info,showPics,LernschemaSensitive,
-                            WizardStarten,Wizard_immer_starten};
+                            WizardStarten,Wizard_immer_starten,gw_wuerfeln,
+                            LernschemaZusaetzeLoeschen};
         enum HausIndex {Gold};
 
 
@@ -112,7 +113,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         std::list<cH_MidgardBasicElement> list_Beruf;
         std::list<cH_MidgardBasicElement> list_Fertigkeit_ang;
         std::list<cH_MidgardBasicElement> list_Fertigkeit;
-        std::list<cH_MidgardBasicElement> list_FertigkeitZusaetze;
+        std::list<std::string>            list_FertigkeitZusaetze;
         std::list<cH_MidgardBasicElement> list_Fertigkeit_neu;
         std::list<cH_MidgardBasicElement> list_Fertigkeit_universal;
         std::list<cH_MidgardBasicElement> list_WaffenGrund;
@@ -338,6 +339,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void checkbutton_original(bool active);
         void lernschema_sensitive(bool active);
         void Pics(bool b);
+        void show_gw_wuerfeln(bool b);
         void on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_Region region);
 
         void on_grad_anstieg_clicked();

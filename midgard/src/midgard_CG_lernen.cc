@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.75 2002/02/19 08:46:05 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.76 2002/02/19 14:36:32 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -292,7 +292,7 @@ void midgard_CG::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
                   +itos(MBE->Lernpunkte())+") für das Verlernen dieser Sprache nicht gut geschrieben werden.");
            break;
 
-//     default : break;
+     default : break;
    }
   if(MBE->What()==MidgardBasicElement::FERTIGKEIT) 
          show_lernschema(MBE->What(),cH_Fertigkeit(MBE)->LernArt());
@@ -326,10 +326,13 @@ void midgard_CG::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
         // Lernschemas nocheinmal nocheinmal gesetzt wird.
         // MBE->set_Erfolgswert(cH_Fertigkeit(MBE)->FErfolgswert(Werte)+cH_Fertigkeit(MBE)->AttributBonus(Werte));
         if(!SpracheSchrift(MBE)) 
-          { if(MBE->Name!="Landeskunde (Heimat)") // Das macht 'lernen_zusatz' automatisch
+          { if(MBE->Name()!="Landeskunde (Heimat)") // Das macht 'lernen_zusatz' automatisch
                list_Fertigkeit.push_back(MBE); 
           }
-        else SpracheSchrift(MBE,MBE->Erfolgswert(),true);
+        else 
+          { list_FertigkeitZusaetze.push_back(MBE->Name());
+            SpracheSchrift(MBE,MBE->Erfolgswert(),true);
+          }
 
         if(MBE->ZusatzEnum(Typ)) lernen_zusatz(MBE->ZusatzEnum(Typ),MBE);
 
@@ -444,6 +447,7 @@ void midgard_CG::show_lernschema(const MidgardBasicElement::MBEE& what,const std
       if(!region_check((*i)->Region())) continue;
       if(!f->Voraussetzungen(Werte)) continue;
       if ((*i)->ist_gelernt(list_Fertigkeit)) continue ;
+      if ((*i)->ist_gelernt(list_FertigkeitZusaetze)) continue ;
       if(Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,(*i)->Name())) continue;
       newlist.push_back(*i);
      }
