@@ -60,6 +60,7 @@ void midgard_CG::xml_export(const std::string& dateiname)
    }
   Char.speicherstream(datei,getCDatabase(),getCOptionen());
   Char.safed();   
+  push_back_LDateien(dateiname);
   if(notebook_main->get_current_page_num() == PAGE_NEWS)
       load_for_mainpage(PAGE_NEWS);
 }

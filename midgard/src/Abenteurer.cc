@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.3 2002/05/30 17:30:52 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.4 2002/05/31 11:37:50 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -253,7 +253,7 @@ void Abenteurer::save_ausruestung(ostream &datei,const list<AusruestungBaum> &AB
 
 ///////////////////////////////////////////////////////////////////////////////
 
-void Abenteurer::xml_import_stream(istream& datei, Datenbank &Database,
+bool Abenteurer::xml_import_stream(istream& datei, Datenbank &Database,
    Midgard_Optionen *Optionen)
 {
 
@@ -272,7 +272,7 @@ void Abenteurer::xml_import_stream(istream& datei, Datenbank &Database,
   if (!top)
    {//  hauptfenster->InfoFenster->AppendShow("(Abenteurer in) Datei "//'"+Latin2Screen(datei)
     //  " nicht gefunden.");
-      return;
+      return false;
    }
    const int xml_version=top->getIntAttr("Version");
 /*
@@ -401,6 +401,7 @@ void Abenteurer::xml_import_stream(istream& datei, Datenbank &Database,
 
    load_fertigkeiten(Fertigkeiten,Ausruestung,xml_version,Database,Optionen);
    load_ausruestung(Ausruestung,&(getBesitz()));
+   return true;
 }
 
 void Abenteurer::load_ausruestung(const Tag *tag, AusruestungBaum *AB)

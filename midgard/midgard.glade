@@ -553,6 +553,12 @@
 		<label>Beenden</label>
 		<right_justify>False</right_justify>
 	      </widget>
+
+	      <widget>
+		<class>GtkMenuItem</class>
+		<name>trennlinie5</name>
+		<right_justify>False</right_justify>
+	      </widget>
 	    </widget>
 	  </widget>
 

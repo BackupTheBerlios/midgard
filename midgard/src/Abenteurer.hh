@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.7 2002/05/30 06:19:20 thoma Exp $               
+// $Id: Abenteurer.hh,v 1.8 2002/05/31 11:37:50 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -100,7 +100,7 @@ public:
    void grundwerte_speichern(ostream &);
    void save_ausruestung(ostream &datei,const list<AusruestungBaum> &AB,const int indent=4);
 
-   void xml_import_stream(istream &datei, Datenbank &Database,Midgard_Optionen *Optionen);
+   bool xml_import_stream(istream &datei, Datenbank &Database,Midgard_Optionen *Optionen);
    void load_ausruestung(const Tag *tag, AusruestungBaum *AB);
    void load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_version,Datenbank &Database,Midgard_Optionen *Optionen);
 
@@ -151,8 +151,8 @@ private:
 public:
    void speicherstream(ostream &datei,const Datenbank &Database,const Midgard_Optionen *Optionen) 
          {ai->abenteurer.speicherstream(datei,Database,Optionen);}
-   void xml_import_stream(istream &datei,Datenbank &Database,Midgard_Optionen *Optionen) 
-         {ai->abenteurer.xml_import_stream(datei,Database,Optionen);}
+   bool xml_import_stream(istream &datei,Datenbank &Database,Midgard_Optionen *Optionen) 
+         {return ai->abenteurer.xml_import_stream(datei,Database,Optionen);}
 
    Grundwerte &getWerte() {return ai->abenteurer.getWerte();}
    const Grundwerte &getCWerte() const {return ai->abenteurer.getCWerte();}

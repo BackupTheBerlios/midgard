@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.252 2002/05/30 06:19:20 thoma Exp $
+// $Id: midgard_CG.hh,v 1.253 2002/05/31 11:37:50 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -180,8 +180,11 @@ class midgard_CG : public midgard_CG_glade
         void on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_Region region);
         void menubar_init();
         void menu_init();
+        void menu_history_init(int oldsize);
         void menu_geschichte_selected();
         void menu_einstellungen_aendern();
+        std::list<std::string> LDateien;
+        void push_back_LDateien(std::string s);
 
         // Oberfläche Diverses
         void setWindowPosition(int x,int y);

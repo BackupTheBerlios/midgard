@@ -20,6 +20,7 @@
 #include <gtk--/box.h>
 #include <gtk--/pixmap.h>
 #include "../pixmaps/midgard_logo_tiny.xpm"
+#include <Aux/itos.h>
 
 void midgard_CG::menu_init()
 {
@@ -226,3 +227,31 @@ void midgard_CG::menubar_init()
 
 
 
+void midgard_CG::menu_history_init(int oldsize)
+{
+  Gtk::Menu *M=main_menubar->items()[0]->get_submenu();
+  Gtk::Menu::MenuList L=M->items();
+  for(int i=0;i<oldsize;++i) L.pop_back();
+  int x=1;
+  for(std::list<std::string>::const_iterator i=LDateien.begin();i!=LDateien.end();++i)
+   {
+     L.push_back(Gtk::Menu_Helpers::MenuElem(*i, "<Control>"+itos(x)));
+     Gtk::MenuItem *mi=(Gtk::MenuItem *)L.back();
+     mi->activate.connect(SigC::bind(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::xml_import),*i));
+     ++x;
+   }
+}
+
+void midgard_CG::push_back_LDateien(std::string s)
+{
+  int oldsize=LDateien.size();
+  std::list<std::string>::iterator i=find(LDateien.begin(),LDateien.end(),s);
+
+  if (i!=LDateien.end()) LDateien.remove(*i);
+  else 
+   { if(oldsize>3) LDateien.pop_back(); 
+   }
+
+  LDateien.push_front(s);
+  menu_history_init(oldsize);
+}
