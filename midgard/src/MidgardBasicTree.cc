@@ -1,4 +1,4 @@
-// $Id: MidgardBasicTree.cc,v 1.23 2002/10/24 07:21:01 christof Exp $
+// $Id: MidgardBasicTree.cc,v 1.24 2002/12/11 18:18:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -73,7 +73,7 @@ void MidgardBasicTree::set_tree_titles(variante V)
    }
   else if(V==ANGEBFERT)
    {
-      vs.push_back("Würfelergebnis");
+      vs.push_back("WÃ¼rfelergebnis");
       vs.push_back("Fertigkeit");
       vs.push_back("Wert");  
    }
@@ -85,7 +85,7 @@ void MidgardBasicTree::set_tree_titles(variante V)
       vs.push_back("Wert");
       vs.push_back("PP");  
       vs.push_back("Art");    
-      vs.push_back("Steigern\n(nächste Stufe)");
+      vs.push_back("Steigern\n(nÃ¤chste Stufe)");
       vs.push_back("Reduzieren\n(eine Stufe)"); 
       vs.push_back("Verlernen");
       vs.push_back("Region");
@@ -128,7 +128,7 @@ void MidgardBasicTree::set_tree_titles(variante V)
       vs.push_back("Wert");
       vs.push_back("PP");  
       vs.push_back("Art");    
-      vs.push_back("Steigern\n(nächste Stufe)");
+      vs.push_back("Steigern\n(nÃ¤chste Stufe)");
       vs.push_back("Reduzieren\n(eine Stufe)"); 
       vs.push_back("Verlernen");
       vs.push_back("Region");  

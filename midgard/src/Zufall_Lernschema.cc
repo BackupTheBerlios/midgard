@@ -128,7 +128,7 @@ reloop:
          ci=find(V.begin(),V.end(),MBEmlt(&*cH_Fertigkeit("Schreiben: Muttersprache(+9)")));
 //         if(ci==V.end()) assert(!"Muttersprache nicht im Lernschema gefunden");
          if(ci==V.end()) 
-            { std::cerr << "Zu blöd für Schreiben: Muttersprache(+9)\n";
+            { std::cerr << "Zu blÃ¶d fÃ¼r Schreiben: Muttersprache(+9)\n";
 //              const_cast<Lernpunkte&>(lernpunkte).set_schreiben_pflicht_allg(true);
               throw std::exception();
             }
@@ -140,7 +140,7 @@ reloop:
          mutter_12=false;
          ci=find(V.begin(),V.end(),MBEmlt(&*cH_Fertigkeit("Schreiben: Muttersprache(+12)")));
          if(ci==V.end()) 
-            { std::cerr << "Zu blöd für Schreiben: Muttersprache(+12)\n";
+            { std::cerr << "Zu blÃ¶d fÃ¼r Schreiben: Muttersprache(+12)\n";
               const_cast<Lernpunkte&>(lernpunkte).set_schreiben_pflicht_allg(true);
               throw std::exception();
             }
@@ -160,7 +160,7 @@ reloop:
 
 
 //cout << '\t'<<L.size()<<' '<<M->Name()<<'\n';
-     L.remove(M); // Die nächste Methode ändert 'M' daher muß es HIER entfernt werden
+     L.remove(M); // Die nÃ¤chste Methode Ã¤ndert 'M' daher muÃŸ es HIER entfernt werden
 
      if((*M)->What()==MidgardBasicElement::FERTIGKEIT) 
        {  cH_Fertigkeit((*M).getMBE())->get_region_lp(lp,Aben,hauptfenster->getCDatabase()); 
@@ -170,7 +170,7 @@ reloop:
              Sprache::setErfolgswertGastlandsprache(M,Aben.getWerte().In());
        }
 
-     // Fertigkeit/Zauber mit Zusätzen
+     // Fertigkeit/Zauber mit ZusÃ¤tzen
      if((*M)->ZusatzEnum(Aben.getVTyp())) 
           M=getZusatz((*M)->ZusatzEnum(Aben.getVTyp()),M,nachbarland);
 
@@ -241,7 +241,7 @@ Zufall::st_LL Zufall::getLernlisten()
 
 MBEmlt Zufall::getZusatz(MidgardBasicElement::eZusatz was,MBEmlt& MBE,bool nachbarland) const
 {
-//cout << "Zusatz für "<<MBE->Name()<<'\n';
+//cout << "Zusatz fÃ¼r "<<MBE->Name()<<'\n';
   std::vector<MidgardBasicElement::st_zusatz> VG;
   switch(was)
    {

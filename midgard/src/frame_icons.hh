@@ -16,7 +16,7 @@
 
 class midgard_CG;
 #include "Optionen.hh"
-#include <gtk--/radiobutton.h>
+#include <gtkmm/radiobutton.h>
 
 
 class frame_icons : public frame_icons_glade

@@ -55,7 +55,7 @@ Sinne_All::Sinne_All()
   list_All.clear();
   MBEmlt s1(&*cH_Sinne("Sehen",true));
   s1->setErfolgswert(8);
-  MBEmlt s2(&*cH_Sinne("Hören",true));
+  MBEmlt s2(&*cH_Sinne("HÃ¶ren",true));
   s2->setErfolgswert(8);
   MBEmlt s3(&*cH_Sinne("Riechen",true));
   s3->setErfolgswert(8);
@@ -73,16 +73,16 @@ Sinne_All::Sinne_All()
   list_All.push_back(s6);
 /*
   list_All.push_back(&*(cH_Sinne("Sehen",true)));
-  list_All.push_back(&*(cH_Sinne("Hören",true)));
+  list_All.push_back(&*(cH_Sinne("HÃ¶ren",true)));
   list_All.push_back(&*(cH_Sinne("Riechen",true)));
   list_All.push_back(&*(cH_Sinne("Schmecken",true)));
   list_All.push_back(&*(cH_Sinne("Tasten",true)));
   list_All.push_back(&*(cH_Sinne("Sechster Sinn",true)));
 */
 /*
-  // Weil die Sinne gechached sind müssen die Werte explizit gesetzt werden:
+  // Weil die Sinne gechached sind mÃ¼ssen die Werte explizit gesetzt werden:
   cH_Sinne("Sehen")->setAnfangswert(8);
-  cH_Sinne("Hören")->setAnfangswert(8);
+  cH_Sinne("HÃ¶ren")->setAnfangswert(8);
   cH_Sinne("Riechen")->setAnfangswert(8);
   cH_Sinne("Schmecken")->setAnfangswert(8);
   cH_Sinne("Tasten")->setAnfangswert(8);

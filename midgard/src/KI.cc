@@ -71,7 +71,7 @@ void MagusKI::ausgabe(const st_KI& stki, const bool gesteigert,Enums::MBEListen 
 
 void MagusKI::Verteile(int gfp)
 {
-  int count=0;//,gfpmem=gfp; // wenn man nicht mitzählt, kann es zu Endlosschleifen kommen
+  int count=0;//,gfpmem=gfp; // wenn man nicht mitzÃ¤hlt, kann es zu Endlosschleifen kommen
   const int MAXCOUNT=100;
   while(gfp>0 && count<MAXCOUNT)
    {

@@ -103,14 +103,14 @@ table_lernschema_glade::table_lernschema_glade(GlademmData *_data
    button_untyp_fertigkeiten = manage(new class Gtk::RadioButton(_RadioBGroup_LernListe));
    
    Gtk::VBox *vbox35 = manage(new class Gtk::VBox(false, 0));
-   Gtk::Frame *frame80 = manage(new class Gtk::Frame("Ungewöhnl. Fertigk."));
+   Gtk::Frame *frame80 = manage(new class Gtk::Frame("UngewÃ¶hnl. Fertigk."));
    combo_kido_stil = manage(new class Gtk::Combo());
    
    Glib::RefPtr<Gdk::Bitmap> _pixmap102_mask;
    Glib::RefPtr<Gdk::Pixmap> _pixmap102_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _pixmap102_mask, KiDo_trans_50_xpm);
    Gtk::Image *pixmap102 = manage(new class Gtk::Image(_pixmap102_pixmap, _pixmap102_mask));
    Gtk::Label *label540 = manage(new class Gtk::Label("KiDo Techniken\n"
-		"auswählen"));
+		"auswÃ¤hlen"));
    Gtk::HBox *hbox54 = manage(new class Gtk::HBox(false, 0));
    button_kido_auswahl = manage(new class Gtk::RadioButton(_RadioBGroup_LernListe));
    
@@ -148,7 +148,7 @@ table_lernschema_glade::table_lernschema_glade(GlademmData *_data
    combo_magier_spezialgebiet = manage(new class Gtk::Combo());
    
    Gtk::Table *table96 = manage(new class Gtk::Table(2, 7, false));
-   frame_lernpunkte = manage(new class Gtk::Frame("Lernpunkte für"));
+   frame_lernpunkte = manage(new class Gtk::Frame("Lernpunkte fÃ¼r"));
    
    Gtk::Table *table117 = manage(new class Gtk::Table(1, 1, false));
    fertig_typ = manage(new class Gtk::Label("label280"));
@@ -156,12 +156,12 @@ table_lernschema_glade::table_lernschema_glade(GlademmData *_data
    Gtk::Frame *frame59 = manage(new class Gtk::Frame("Abenteurertyp"));
    label_ruestung_lernschema = manage(new class Gtk::Label("label553"));
    
-   Gtk::Frame *frame101 = manage(new class Gtk::Frame("Rüstungsklasse"));
+   Gtk::Frame *frame101 = manage(new class Gtk::Frame("RÃ¼stungsklasse"));
    Glib::RefPtr<Gdk::Bitmap> _pixmap122_mask;
    Glib::RefPtr<Gdk::Pixmap> _pixmap122_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _pixmap122_mask, Weapon_trans_50_xpm);
    Gtk::Image *pixmap122 = manage(new class Gtk::Image(_pixmap122_pixmap, _pixmap122_mask));
    Gtk::Label *label545 = manage(new class Gtk::Label("Spezialwaffe\n"
-		"auswählen"));
+		"auswÃ¤hlen"));
    Gtk::HBox *hbox61 = manage(new class Gtk::HBox(false, 0));
    togglebutton_spezialwaffe = manage(new class Gtk::ToggleButton());
    label_herkunft_lernschema = manage(new class Gtk::Label("label553"));
@@ -201,7 +201,7 @@ table_lernschema_glade::table_lernschema_glade(GlademmData *_data
    Tree_Lernschema_Zusatz = new class MidgardBasicTree(MidgardBasicTree::LERNSCHEMAZUSATZ);
    
    Gtk::ScrolledWindow *scrolledwindow77 = manage(new class Gtk::ScrolledWindow());
-   Gtk::Label *label602 = manage(new class Gtk::Label("Einschränkungen aufheben"));
+   Gtk::Label *label602 = manage(new class Gtk::Label("EinschrÃ¤nkungen aufheben"));
    checkbutton_einschraenkungen_zusatz = manage(new class Gtk::CheckButton());
    
    Gtk::Table *table163 = manage(new class Gtk::Table(2, 1, false));
@@ -217,7 +217,7 @@ table_lernschema_glade::table_lernschema_glade(GlademmData *_data
    Gtk::VBox *vbox62 = manage(new class Gtk::VBox(false, 0));
    button_angeborene_fert = manage(new class Gtk::Button());
    
-   Gtk::Label *label557 = manage(new class Gtk::Label("%Wurf für\n"
+   Gtk::Label *label557 = manage(new class Gtk::Label("%Wurf fÃ¼r\n"
 		"Beruf eingeben"));
    Gtk::Label *label558 = manage(new class Gtk::Label("%"));
    Gtk::Adjustment *spinbutton_beruf_adj = manage(new class Gtk::Adjustment(1, 1, 100, 1, 10, 10));
@@ -290,13 +290,13 @@ table_lernschema_glade::table_lernschema_glade(GlademmData *_data
    Glib::RefPtr<Gdk::Pixmap> _button_ruestung_img_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _button_ruestung_img_mask, Dice_Armor_trans_50_xpm);
    Gtk::Image *button_ruestung_img = manage(new class Gtk::Image(_button_ruestung_img_pixmap, _button_ruestung_img_mask));
    
-   toolbar3->tools().push_back(Gtk::Toolbar_Helpers::ButtonElem("Rüstung", *button_ruestung_img, Gtk::Toolbar_Helpers::Callback0()));
+   toolbar3->tools().push_back(Gtk::Toolbar_Helpers::ButtonElem("RÃ¼stung", *button_ruestung_img, Gtk::Toolbar_Helpers::Callback0()));
    button_ruestung = static_cast<Gtk::Button *>(toolbar3->tools().back().get_widget());
    Glib::RefPtr<Gdk::Bitmap> _button_ausruestung_img_mask;
    Glib::RefPtr<Gdk::Pixmap> _button_ausruestung_img_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _button_ausruestung_img_mask, Dice_Ausruest_50_xpm);
    Gtk::Image *button_ausruestung_img = manage(new class Gtk::Image(_button_ausruestung_img_pixmap, _button_ausruestung_img_mask));
    
-   toolbar3->tools().push_back(Gtk::Toolbar_Helpers::ButtonElem("Ausrüstung", *button_ausruestung_img, Gtk::Toolbar_Helpers::Callback0()));
+   toolbar3->tools().push_back(Gtk::Toolbar_Helpers::ButtonElem("AusrÃ¼stung", *button_ausruestung_img, Gtk::Toolbar_Helpers::Callback0()));
    button_ausruestung = static_cast<Gtk::Button *>(toolbar3->tools().back().get_widget());
    pixmap70->set_alignment(0.5,0.5);
    pixmap70->set_padding(0,0);
@@ -499,7 +499,7 @@ table_lernschema_glade::table_lernschema_glade(GlademmData *_data
    hbox61->pack_start(*pixmap122);
    hbox61->pack_start(*label545, Gtk::PACK_SHRINK, 0);
    togglebutton_spezialwaffe->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*togglebutton_spezialwaffe, "Nach dem Drücken dieses Knopfes kann eine Spezialwaffe gewählt werden. Entweder eine Nahkampfwaffe die 1 LP gekostet hat, oder eine Fernkampfwaffe, die höchstens 2 LP gekostet hat.", "");
+   _tooltips.set_tip(*togglebutton_spezialwaffe, "Nach dem DrÃ¼cken dieses Knopfes kann eine Spezialwaffe gewÃ¤hlt werden. Entweder eine Nahkampfwaffe die 1 LP gekostet hat, oder eine Fernkampfwaffe, die hÃ¶chstens 2 LP gekostet hat.", "");
    togglebutton_spezialwaffe->set_relief(Gtk::RELIEF_NORMAL);
    togglebutton_spezialwaffe->set_active(false);
    togglebutton_spezialwaffe->add(*hbox61);
@@ -611,13 +611,13 @@ table_lernschema_glade::table_lernschema_glade(GlademmData *_data
    vbox62->pack_start(*pixmap170);
    vbox62->pack_start(*label537);
    button_angeborene_fert->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*button_angeborene_fert, "Linke Maustaste: Würfeln                          Rechte Maustaste: Auswählen (Abbruch dann mit 'Lernpunkte')", "");
+   _tooltips.set_tip(*button_angeborene_fert, "Linke Maustaste: WÃ¼rfeln                          Rechte Maustaste: AuswÃ¤hlen (Abbruch dann mit 'Lernpunkte')", "");
    button_angeborene_fert->set_relief(Gtk::RELIEF_NORMAL);
    button_angeborene_fert->add(*vbox62);
    button_lernpunkte->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*button_lernpunkte, "Lernpunkte würfeln", "");
+   _tooltips.set_tip(*button_lernpunkte, "Lernpunkte wÃ¼rfeln", "");
    togglebutton_lernpunkte_edit->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*togglebutton_lernpunkte_edit, "Lernpunkte editieren und/oder %Wurf für Berufswahl eingeben.", "");
+   _tooltips.set_tip(*togglebutton_lernpunkte_edit, "Lernpunkte editieren und/oder %Wurf fÃ¼r Berufswahl eingeben.", "");
    togglebutton_lernpunkte_edit->set_active(false);
    button_beruf->set_flags(Gtk::CAN_FOCUS);
    _tooltips.set_tip(*button_beruf, "Linke Maustaste: Auswahl aus Originalliste. Rechte Maustaste: Berufsnamen selber eingeben.", "");
@@ -630,7 +630,7 @@ table_lernschema_glade::table_lernschema_glade(GlademmData *_data
    label558->set_justify(Gtk::JUSTIFY_CENTER);
    label558->set_line_wrap(false);
    spinbutton_beruf->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*spinbutton_beruf, "%Wurf für den Beruf eingeben", "");
+   _tooltips.set_tip(*spinbutton_beruf, "%Wurf fÃ¼r den Beruf eingeben", "");
    spinbutton_beruf->set_update_policy(Gtk::UPDATE_ALWAYS);
    spinbutton_beruf->set_numeric(false);
    spinbutton_beruf->set_digits(0);
@@ -654,9 +654,9 @@ table_lernschema_glade::table_lernschema_glade(GlademmData *_data
    vbox49->pack_start(*table_berufsprozent);
    vbox49->pack_start(*vbox_berufsname);
    button_lernschema_geld->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*button_lernschema_geld, "Linke Maustaste: Geld würfeln             Rechte Maustaste: Geld eingeben", "");
+   _tooltips.set_tip(*button_lernschema_geld, "Linke Maustaste: Geld wÃ¼rfeln             Rechte Maustaste: Geld eingeben", "");
    button_lernschema_waffen->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*button_lernschema_waffen, "Linke Maustaste: Waffen auswürfeln            Rechte Maustaste: Waffen aussuchen", "");
+   _tooltips.set_tip(*button_lernschema_waffen, "Linke Maustaste: Waffen auswÃ¼rfeln            Rechte Maustaste: Waffen aussuchen", "");
    label_gwr->set_alignment(0,0.5);
    label_gwr->set_padding(0,0);
    label_gwr->set_justify(Gtk::JUSTIFY_CENTER);
@@ -672,9 +672,9 @@ table_lernschema_glade::table_lernschema_glade(GlademmData *_data
    table_waffen_lernschema_eingabe->attach(*label_gwr, 0, 1, 0, 1, Gtk::FILL, Gtk::AttachOptions(), 0, 0);
    table_waffen_lernschema_eingabe->attach(*spinbutton_waffen_lernschema, 0, 1, 1, 2, Gtk::EXPAND|Gtk::SHRINK|Gtk::FILL, Gtk::AttachOptions(), 0, 0);
    button_ruestung->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*button_ruestung, "Linke Maustaste: Rüstung würfeln                                 Rechte Maustaste: Rüstung aussuchen", "");
+   _tooltips.set_tip(*button_ruestung, "Linke Maustaste: RÃ¼stung wÃ¼rfeln                                 Rechte Maustaste: RÃ¼stung aussuchen", "");
    button_ausruestung->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*button_ausruestung, "Ausrüstung aufgrund bestimmter Fertigkeiten würfeln", "");
+   _tooltips.set_tip(*button_ausruestung, "AusrÃ¼stung aufgrund bestimmter Fertigkeiten wÃ¼rfeln", "");
    toolbar3->set_tooltips(true);
    handlebox_lernschema->set_shadow_type(Gtk::SHADOW_NONE);
    handlebox_lernschema->set_handle_position(Gtk::POS_LEFT);

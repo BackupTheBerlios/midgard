@@ -63,7 +63,7 @@ void table_steigern::on_alte_fert_reorder()
   switch((Data_SimpleTree::Spalten_LONG_ALT)seq[0]) {
       case Data_SimpleTree::NAMEa : hauptfenster->getChar()->List_Fertigkeit().sort(MBEmlt::sort(MBEmlt::sort::NAME)); ;break;
       case Data_SimpleTree::WERTa : hauptfenster->getChar()->List_Fertigkeit().sort(MBEmlt::sort(MBEmlt::sort::ERFOLGSWERT)); ;break;
-      default : hauptfenster->set_status("Sortieren nach diesem Parameter\n ist nicht mˆglich");
+      default : hauptfenster->set_status("Sortieren nach diesem Parameter\n ist nicht m√∂glich");
    }
 }
 
@@ -75,13 +75,13 @@ void table_steigern::on_leaf_selected_neue_fert(cH_RowDataBase d)
   MBEmlt MBE = dt->getMBE();
   if ((*MBE)->Name()=="KiDo") 
     { zeige_werte();
-      hauptfenster->InfoFenster->AppendShow("Jetzt muﬂ ein Stil unter 'Lernschema' -> 'KiDo' gew‰hlt werden !!!",WindowInfo::None);
+      hauptfenster->InfoFenster->AppendShow("Jetzt mu√ü ein Stil unter 'Lernschema' -> 'KiDo' gew√§hlt werden !!!",WindowInfo::None);
       hauptfenster->load_for_mainpage(midgard_CG::PAGE_LERNEN);
       MidgardBasicElement_leaf_neu(d);      
     }
   else if ((*MBE)->Name()=="Zaubern") 
     {  
-     hauptfenster->InfoFenster->AppendShow("Sicher, daﬂ dieser K‰mpfer Zaubern lernen soll?\nDiese Entscheidung kann nicht mehr R¸ckg‰ngig gemacht werden.",WindowInfo::ZaubernLernen,&MBE);
+     hauptfenster->InfoFenster->AppendShow("Sicher, da√ü dieser K√§mpfer Zaubern lernen soll?\nDiese Entscheidung kann nicht mehr R√ºckg√§ngig gemacht werden.",WindowInfo::ZaubernLernen,&MBE);
     }
   else 
      MidgardBasicElement_leaf_neu(d);

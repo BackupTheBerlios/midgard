@@ -75,7 +75,7 @@ void table_steigern::on_leaf_selected_alte_grund(cH_RowDataBase d)
    {
      std::string strinfo="WARNUNG: Beim verlernen von Grundkenntnissen werden die\n";
      strinfo +="bereits gelernten Waffen, die zu dieser\n";
-     strinfo +="Grundkenntnis gehöhren, NICHT verlernt\n";
+     strinfo +="Grundkenntnis gehÃ¶hren, NICHT verlernt\n";
      hauptfenster->set_info(strinfo);
      MidgardBasicElement_leaf_alt(d);
      neue_waffen_zeigen();
@@ -102,6 +102,6 @@ void table_steigern::on_alte_waffen_reorder()
   switch((Data_SimpleTree::Spalten_LONG_ALT)seq[0]) {
       case Data_SimpleTree::WERTa : hauptfenster->getChar()->List_Waffen().sort(MBEmlt::sort(MBEmlt::sort::ERFOLGSWERT)); ;break;
       case Data_SimpleTree::NAMEa : hauptfenster->getChar()->List_Waffen().sort(MBEmlt::sort(MBEmlt::sort::NAME)); ;break;
-      default : hauptfenster->set_status("Sortieren nach diesem Parameter\n ist nicht möglich");
+      default : hauptfenster->set_status("Sortieren nach diesem Parameter\n ist nicht mÃ¶glich");
    }
 }

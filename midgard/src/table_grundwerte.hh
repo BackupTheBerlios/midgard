@@ -66,7 +66,7 @@ private:
         void spezieswahl_button();
         void zeige_werte(bool typ2_hide=true);
 
-        // Für Variante 2 + 3
+        // FÃ¼r Variante 2 + 3
         enum e_eigen{est,egw,egs,eko,ein,ezt,eMAX};
 //        friend e_eigen &operator++(e_eigen &s);
 	friend class spezies_mod_comp;
@@ -84,13 +84,13 @@ private:
         void set_Grundwerte(e_eigen eigenschaft,int wert);
         void Schwachpunkt_wuerfeln();
 
-        // Für Variante 2
+        // FÃ¼r Variante 2
         int actual_wurf;
         void gw_variante_2();
         void gw_variante_2_next();
         void on_button_variante_2_clicked(Gtk::Button *button,e_eigen eigenschaft);
 
-        // Für Variante 3
+        // FÃ¼r Variante 3
         void gw_variante_3();
         void gw_variante_3_next();
         void on_button_variante_3_clicked(Gtk::Button *button,int wert);

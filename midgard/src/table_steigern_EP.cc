@@ -18,7 +18,7 @@
 
 #include "midgard_CG.hh"
 #include "table_steigern.hh"
-#include <gtk--/adjustment.h>
+#include <gtkmm/adjustment.h>
 #include <Misc/itos.h>
 
 gint table_steigern::vscale_value_changed(GdkEventButton *ev)

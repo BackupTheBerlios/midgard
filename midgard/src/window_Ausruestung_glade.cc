@@ -9,29 +9,29 @@
 
 #include "config.h"
 #include "window_Ausruestung.hh"
-#include <gtk--/menu.h>
-#include <gtk--/menuitem.h>
-#include <gtk--/button.h>
-#include <gtk--/pixmap.h>
+#include <gtkmm/menu.h>
+#include <gtkmm/menuitem.h>
+#include <gtkmm/button.h>
+#include <gtkmm/pixmap.h>
 #include "../pixmaps/PrintChar-trans-50.xpm"
 #include "../pixmaps/SchliessenIII-50.xpm"
-#include <gtk--/toolbar.h>
-#include <gtk--/label.h>
-#include <gtk--/viewport.h>
-#include <gtk--/scrolledwindow.h>
-#include <gtk--/table.h>
+#include <gtkmm/toolbar.h>
+#include <gtkmm/label.h>
+#include <gtkmm/viewport.h>
+#include <gtkmm/scrolledwindow.h>
+#include <gtkmm/table.h>
 
 window_Ausruestung_glade::window_Ausruestung_glade(
-) : Gtk::Window(GTK_WINDOW_TOPLEVEL)
+) : Gtk::Window(Gtk::WINDOW_TOPLEVEL)
 {   
    
    Gtk::Window *window_Ausruestung = this;
    optionmenu_art = manage(new class Gtk::OptionMenu());
    optionmenu_typ = manage(new class Gtk::OptionMenu());
    
-   Gtk::Toolbar *toolbar39 = manage(new class Gtk::Toolbar(GTK_ORIENTATION_HORIZONTAL, GTK_TOOLBAR_BOTH));
-   Gtk::Button *button_druck = Gtk::wrap((GtkButton*)gtk_toolbar_append_element(GTK_TOOLBAR(toolbar39->gtkobj()), GTK_TOOLBAR_CHILD_BUTTON, 0, "Drucken", 0, 0, GTK_WIDGET(manage(new Gtk::Pixmap(PrintChar_trans_50_xpm))->gtkobj()), 0, 0));
-   Gtk::Button *button_close = Gtk::wrap((GtkButton*)gtk_toolbar_append_element(GTK_TOOLBAR(toolbar39->gtkobj()), GTK_TOOLBAR_CHILD_BUTTON, 0, "Schließen", 0, 0, GTK_WIDGET(manage(new Gtk::Pixmap(SchliessenIII_50_xpm))->gtkobj()), 0, 0));
+   Gtk::Toolbar *toolbar39 = manage(new class Gtk::Toolbar(Gtk::ORIENTATION_HORIZONTAL, Gtk::TOOLBAR_BOTH));
+   Gtk::Button *button_druck = Gtk::wrap((GtkButton*)gtk_toolbar_append_element(Gtk::TOOLBAR(toolbar39->gobj()), Gtk::TOOLBAR_CHILD_BUTTON, 0, "Drucken", 0, 0, Gtk::WIDGET(manage(new Gtk::Pixmap(PrintChar_trans_50_xpm))->gobj()), 0, 0));
+   Gtk::Button *button_close = Gtk::wrap((GtkButton*)gtk_toolbar_append_element(Gtk::TOOLBAR(toolbar39->gobj()), Gtk::TOOLBAR_CHILD_BUTTON, 0, "SchlieÃŸen", 0, 0, Gtk::WIDGET(manage(new Gtk::Pixmap(SchliessenIII_50_xpm))->gobj()), 0, 0));
    clist_preisliste = manage(new class Gtk::CList(3));
    
    Gtk::Viewport *viewport22 = manage(new class Gtk::Viewport());
@@ -60,19 +60,19 @@ window_Ausruestung_glade::window_Ausruestung_glade(
    clist_preisliste->set_column_title(0, "Name");
    clist_preisliste->set_column_width(0, 80);
    clist_preisliste->set_column_title(1, "Preis");
-   clist_preisliste->set_column_justification(1, GTK_JUSTIFY_RIGHT);
+   clist_preisliste->set_column_justification(1, Gtk::JUSTIFY_RIGHT);
    clist_preisliste->set_column_width(1, 80);
    clist_preisliste->set_column_title(2, "Einheit");
    clist_preisliste->set_column_width(2, 80);
    clist_preisliste->column_titles_show();
    viewport22->add(*clist_preisliste);
-   scrolledwindow58->set_policy(GTK_POLICY_ALWAYS, GTK_POLICY_ALWAYS);
+   scrolledwindow58->set_policy(Gtk::POLICY_ALWAYS, Gtk::POLICY_ALWAYS);
    scrolledwindow58->add(*viewport22);
-   table78->attach(*optionmenu_art, 0, 1, 0, 1, GTK_FILL, 0, 0, 0);
-   table78->attach(*optionmenu_typ, 1, 2, 0, 1, GTK_FILL, 0, 0, 0);
-   table78->attach(*toolbar39, 2, 3, 0, 1, GTK_FILL, 0, 0, 0);
-   table78->attach(*scrolledwindow58, 0, 3, 1, 2, GTK_FILL, GTK_EXPAND|GTK_FILL, 0, 0);
-   window_Ausruestung->set_title("Ausrüstung");
+   table78->attach(*optionmenu_art, 0, 1, 0, 1, Gtk::FILL, 0, 0, 0);
+   table78->attach(*optionmenu_typ, 1, 2, 0, 1, Gtk::FILL, 0, 0, 0);
+   table78->attach(*toolbar39, 2, 3, 0, 1, Gtk::FILL, 0, 0, 0);
+   table78->attach(*scrolledwindow58, 0, 3, 1, 2, Gtk::FILL, Gtk::EXPAND|Gtk::FILL, 0, 0);
+   window_Ausruestung->set_title("AusrÃ¼stung");
    window_Ausruestung->add(*table78);
    optionmenu_art->show();
    optionmenu_typ->show();
@@ -82,9 +82,9 @@ window_Ausruestung_glade::window_Ausruestung_glade(
    scrolledwindow58->show();
    table78->show();
    window_Ausruestung->show();
-   button_druck->clicked.connect(SigC::slot(static_cast<class window_Ausruestung*>(this), &window_Ausruestung::on_button_druck_clicked));
-   button_close->clicked.connect(SigC::slot(static_cast<class window_Ausruestung*>(this), &window_Ausruestung::on_button_close_clicked));
-   clist_preisliste->select_row.connect(SigC::slot(static_cast<class window_Ausruestung*>(this), &window_Ausruestung::on_clist_preisliste_select_row));
+   button_druck->signal_clicked().connect(SigC::slot(*static_cast<class window_Ausruestung*>(this), &window_Ausruestung::on_button_druck_clicked));
+   button_close->signal_clicked().connect(SigC::slot(*static_cast<class window_Ausruestung*>(this), &window_Ausruestung::on_button_close_clicked));
+   clist_preisliste->signal_select_row().connect(SigC::slot(*static_cast<class window_Ausruestung*>(this), &window_Ausruestung::on_clist_preisliste_select_row));
 }
 
 window_Ausruestung_glade::~window_Ausruestung_glade()

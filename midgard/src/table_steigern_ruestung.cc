@@ -89,7 +89,7 @@ void table_steigern::fill_ruestung()
 
 void table_steigern::show_label()
 {
-// std::string sru=itos(count+1)+"te Rüstung auswählen. Bisherige Rüstungen: ("+ 
+// std::string sru=itos(count+1)+"te RÃ¼stung auswÃ¤hlen. Bisherige RÃ¼stungen: ("+ 
 //   Werte.Ruestung()->Long() +"/"+Werte.Ruestung(1)->Long()+")";
 // label_ruestung->set_text(sru.c_str());
   label_ruestung_1->set_text(hauptfenster->getWerte().Ruestung()->Long());

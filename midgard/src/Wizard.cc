@@ -68,115 +68,115 @@ void Wizard::fill_vecwiz()
    //START
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
                           "Dieser Wizard hilft einen neuen Abenteurer zu erzeugen.\n"
-                          "'Weiter' f¸hrt jeweils den n‰chsten Schritt aus.",
+                          "'Weiter' f√ºhrt jeweils den n√§chsten Schritt aus.",
                           "Neuanfang",
                           &midgard_CG::wizard_do_something));
    //SPEZIES
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
-                          "Spezies ausw‰hlen (oder Eigenschaften auf eine der drei Arten w¸rfeln)",
+                          "Spezies ausw√§hlen (oder Eigenschaften auf eine der drei Arten w√ºrfeln)",
                           "Spezies",
                           &midgard_CG::wizard_do_something));
    //GRUNDWERTE
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
-                          "Eigenschaften auf eine der drei Arten w¸rfeln (ACHTUNG: F¸r Nichtmenschen ist nur die Standardmethode implementiert)",
+                          "Eigenschaften auf eine der drei Arten w√ºrfeln (ACHTUNG: F√ºr Nichtmenschen ist nur die Standardmethode implementiert)",
                           "Eigenschaften",
                           &midgard_CG::wizard_do_something));
    //GESCHLECHT
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
-                          "Geschlecht w‰hlen (oder Abenteuertyp ausw‰hlen).)",
+                          "Geschlecht w√§hlen (oder Abenteuertyp ausw√§hlen).)",
                           "Geschlecht",
                           &midgard_CG::wizard_do_something));
    //TYP
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
-                          "Abenteurertyp w‰hlen",
+                          "Abenteurertyp w√§hlen",
                           "Typ",
                           &midgard_CG::wizard_do_something));
    //STADTLAND
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
-                          "Stadt oder Land w‰hlen (oder abgeleitete Werte w‰hlen)",
+                          "Stadt oder Land w√§hlen (oder abgeleitete Werte w√§hlen)",
                           "Stadt/Land",
                           &midgard_CG::wizard_do_something));
    //ABGELEITETEWERTE
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
-                          "Abgeleitete Werte w¸rfeln",
+                          "Abgeleitete Werte w√ºrfeln",
                           "abgeleitete Werte",
                           &midgard_CG::wizard_do_something));
    //LERNSCHEMA_SEITE
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
-                          "Auf die 'Lernschema'-Seite umbl‰ttern",
-                          "Umbl‰ttern",
+                          "Auf die 'Lernschema'-Seite umbl√§ttern",
+                          "Umbl√§ttern",
                           &midgard_CG::wizard_do_something));
    //HERKUNFT
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
-                          "Herkunftsland w‰hlen",
+                          "Herkunftsland w√§hlen",
                           "Herkunftsland",
                           &midgard_CG::wizard_do_something));
    //UEBERLEBEN
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
-                          "In welchem Gel‰ndetyp wird '‹berleben' als universelle Fertigkeit beherrscht?",
-                          "‹berleben",
+                          "In welchem Gel√§ndetyp wird '√úberleben' als universelle Fertigkeit beherrscht?",
+                          "√úberleben",
                           &midgard_CG::wizard_do_something));
    //ANGEBORENEFERTIGKEITEN
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
-                          "Angeborenen Fertigkeiten w¸rfeln",
+                          "Angeborenen Fertigkeiten w√ºrfeln",
                           "angeb. Fertigk.",
                           &midgard_CG::wizard_do_something));
    //LERNPUNKTE
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
-                          "Lernpunkte w¸rfeln",
+                          "Lernpunkte w√ºrfeln",
                           "Lernpunkte",
                           &midgard_CG::wizard_do_something));
    //WAEHLEN
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
                           "Jetzt Fertigkeiten, Waffen und ev. Zauber in beliebiger"
                           " Reinfolge lernen (anklicken) bis alle Lernpunkte"
-                          " verbraucht sind und anschlieﬂen den Beruf w‰hlen.",
+                          " verbraucht sind und anschlie√üen den Beruf w√§hlen.",
                           "Lernschema",
                           &midgard_CG::wizard_do_something));
    //BERUF1
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
-                          "Fertigkeit ausw‰hlen, die aufgrund der Berufswahl"
-                          " gelernt werden kann, danach das Geld ausw¸rfeln.",
+                          "Fertigkeit ausw√§hlen, die aufgrund der Berufswahl"
+                          " gelernt werden kann, danach das Geld ausw√ºrfeln.",
                           "Beruf1",
                           &midgard_CG::wizard_do_something));
    //BERUF
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
-                          "Berufsfertigkeit aus Liste w‰hlen",
+                          "Berufsfertigkeit aus Liste w√§hlen",
                           "Beruf",
                           &midgard_CG::wizard_do_something));
    //GELD
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
-                          "Geld ausw¸rfeln",
+                          "Geld ausw√ºrfeln",
                           "Geld",
                           &midgard_CG::wizard_do_something));
    //WAFFEN
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
-                          "Waffen ausw¸rfeln",
+                          "Waffen ausw√ºrfeln",
                           "Waffen",
                           &midgard_CG::wizard_do_something));
    //RUESTUNG
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
-                          "R¸stung ausw¸rfeln",
-                          "R¸stung",
+                          "R√ºstung ausw√ºrfeln",
+                          "R√ºstung",
                           &midgard_CG::wizard_do_something));
    //AUSRUESTUNG
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
-                          "Ausr¸stung ausw¸rfeln",
-                          "Ausr¸stung",
+                          "Ausr√ºstung ausw√ºrfeln",
+                          "Ausr√ºstung",
                           &midgard_CG::wizard_do_something));
    //SPEZIALWAFFE
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
-                          "Spezialwaffe w‰hlen (anklicken)",
+                          "Spezialwaffe w√§hlen (anklicken)",
                           "Spezialwaffe",
                           &midgard_CG::wizard_do_something));
    //SPEZIAGEBIET
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
-                          "Magier sollten ein Spezialgebiet w‰hlen (das kann aber auch sp‰ter geschehen)",
+                          "Magier sollten ein Spezialgebiet w√§hlen (das kann aber auch sp√§ter geschehen)",
                           "Spezialgebiet",
                           &midgard_CG::wizard_do_something));
    //NAMEN
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
-                          "Namen vergeben (Eingabe mit 'Enter' abschlieﬂen)",
+                          "Namen vergeben (Eingabe mit 'Enter' abschlie√üen)",
                           "Namen",
                           &midgard_CG::wizard_do_something));
    //SPEICHERN

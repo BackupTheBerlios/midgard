@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.24 2002/11/21 09:00:21 thoma Exp $
+// $Id: table_lernschema_waffen.cc,v 1.25 2002/12/11 18:18:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -28,7 +28,7 @@
 gint table_lernschema::on_button_lernschema_waffen_button_release_event(GdkEventButton *ev)
 {
   if(hauptfenster->getAben().List_Waffen().empty()) 
-   { hauptfenster->set_info("Fehler: Noch keine Waffen gew‰hlt"); return false;}
+   { hauptfenster->set_info("Fehler: Noch keine Waffen gew√§hlt"); return false;}
   for(std::list<WaffeBesitz>::const_iterator i=hauptfenster->getChar()->List_Waffen_besitz().begin();i!=hauptfenster->getChar()->List_Waffen_besitz().end();++i)
    {
      AusruestungBaum &AB=hauptfenster->getAben().getAusruestung_as_parent((*i)->Name());
@@ -102,8 +102,8 @@ void table_lernschema::show_WaffenBesitz_lernschema()
   clean_lernschema_trees();
 
   tree_waffen_lernschema = manage(new MidgardBasicTree(MidgardBasicTree::WAFFE_LERNSCHEMA));
-  tree_waffen_lernschema->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_waffen_lernschema_tree_leaf_selected));
-  label_lernschma_titel->set_text("Waffenbesitz w‰hlen");
+  tree_waffen_lernschema->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_waffen_lernschema_tree_leaf_selected));
+  label_lernschma_titel->set_text("Waffenbesitz w√§hlen");
 #warning TODO
   std::list<WaffeBesitz> L1=LernListen(hauptfenster->getDatabase()).getWaffenBesitz(hauptfenster->getAben());
   std::list<MBEmlt> L;
@@ -114,16 +114,16 @@ void table_lernschema::show_WaffenBesitz_lernschema()
   tree_waffen_lernschema->Expand_recursively();
   Gtk::Table *table=manage(new Gtk::Table(0,0,false));
   Gtk::Label *lE = manage(new Gtk::Label(itos(waffebesitzlernen.EWaffe())+" Einhandwaffen, Verteidigungswaffen oder Wurfwaffen",0));
-  Gtk::Label *lA = manage(new Gtk::Label(itos(waffebesitzlernen.AWaffe())+" beliebige Waffen (einschlieﬂlich Zweihand- und Schuﬂwaffen)",0));
+  Gtk::Label *lA = manage(new Gtk::Label(itos(waffebesitzlernen.AWaffe())+" beliebige Waffen (einschlie√ülich Zweihand- und Schu√üwaffen)",0));
   
 
-  table->attach(*lE,0,1,0,1,GTK_FILL,0,0,0);
-  table->attach(*lA,0,1,1,2,GTK_FILL,0,0,0);
-  table->attach(*tree_waffen_lernschema,0,1,2,3,GTK_FILL,0,0,0);
+  table->attach(*lE,0,1,0,1,Gtk::FILL,0,0,0);
+  table->attach(*lA,0,1,1,2,Gtk::FILL,0,0,0);
+  table->attach(*tree_waffen_lernschema,0,1,2,3,Gtk::FILL,0,0,0);
   if(waffebesitzlernen.getMagisch())
    {
-     Gtk::Label *lM = manage(new Gtk::Label("Die erste gew‰hlte Einhandwaffe ist magisch",0));
-     table->attach(*lM,0,1,3,4,GTK_FILL,0,0,0);
+     Gtk::Label *lM = manage(new Gtk::Label("Die erste gew√§hlte Einhandwaffe ist magisch",0));
+     table->attach(*lM,0,1,3,4,Gtk::FILL,0,0,0);
    }
   scrolledwindow_lernen->add(*table);  
   scrolledwindow_lernen->show_all();
@@ -152,12 +152,12 @@ void table_lernschema::on_waffen_lernschema_tree_leaf_selected(cH_RowDataBase d)
 
    hauptfenster->getChar()->List_Waffen_besitz().push_back(WB);
    {
-    AusruestungBaum &wohin=hauptfenster->getAben().getAusruestung_as_parent("G¸rtel");
+    AusruestungBaum &wohin=hauptfenster->getAben().getAusruestung_as_parent("G√ºrtel");
     std::string g=WB.Waffe()->Grundkenntnis();
     if(g=="Kampf ohne Waffen")
      {
        if(g=="Zweihandschwert" || g=="Zweihandschlagwaffe" ||
-          g=="Spieﬂwaffe" || g=="Stangenwaffe" || g=="Bˆgen" ||
+          g=="Spie√üwaffe" || g=="Stangenwaffe" || g=="B√∂gen" ||
           g=="Armbrust"
          )
           wohin=hauptfenster->getAben().getBesitz();
@@ -171,8 +171,8 @@ void table_lernschema::on_waffen_lernschema_tree_leaf_selected(cH_RowDataBase d)
 
 void table_lernschema::WaffenBesitz_lernschema_wuerfeln(int wurf)
 {
-  std::string strinfo = "F¸r die Waffenauswahl wurde eine "+itos(wurf)
-      +" gew¸rfelt, die Abenteurerklasse ist "
+  std::string strinfo = "F√ºr die Waffenauswahl wurde eine "+itos(wurf)
+      +" gew√ºrfelt, die Abenteurerklasse ist "
       +hauptfenster->getChar()->Typ1()->Name(hauptfenster->getWerte().Geschlecht())+" ==> ";
  waffebesitzlernen =Zufall::WaffenBesitz_wuerfeln(hauptfenster->getAben(),wurf);
  strinfo += itos(waffebesitzlernen.EWaffe())+" Einhand- und "+itos(waffebesitzlernen.AWaffe())+" beliebige Waffen";

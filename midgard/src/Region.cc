@@ -17,7 +17,7 @@
  */
 
 #include "Region.hh"
-#include "MidgardBasicElement.hh" // nur für NotFound
+#include "MidgardBasicElement.hh" // nur fÃ¼r NotFound
 #include "ProgressBar.h"
 
 #include "../pixmaps/Eschar-trans-50.xpm"

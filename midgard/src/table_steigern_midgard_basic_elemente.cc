@@ -155,7 +155,7 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
    { MyList     = &hauptfenster->getChar()->List_Kido(); MyList_neu = &list_Kido_neu;  }
  else if((*MBE).What()==MidgardBasicElement::SPRACHE) 
    { MyList     = &hauptfenster->getChar()->List_Sprache(); MyList_neu = &list_Sprache_neu;  
-     // eventuell höherer Erfolgswert weil die Sprache schon ungelernt beherrscht wird)
+     // eventuell hÃ¶herer Erfolgswert weil die Sprache schon ungelernt beherrscht wird)
      int ungelernterErfolgswert=cH_Sprache(MBE->getMBE())->getHoeherenErfolgswert(hauptfenster->getChar()->List_Sprache(),hauptfenster->getCDatabase().Sprache);
      if (ungelernterErfolgswert > MBE->Erfolgswert()) MBE->setErfolgswert(ungelernterErfolgswert);
      // bis hier

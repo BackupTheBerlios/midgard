@@ -1,4 +1,4 @@
-// $Id: LernListen_steigern.cc,v 1.9 2002/11/22 08:06:16 thoma Exp $
+// $Id: LernListen_steigern.cc,v 1.10 2002/12/11 18:18:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -114,7 +114,7 @@ std::list<MBEmlt> LernListen::get_steigern_Zauberliste(const Abenteurer& A,
      else
       {
         if (z->Zauberart()=="Zaubersalz"   && !salz ) continue;
-        if (z->Zauberart()=="Beschwörung"  && !beschwoerung) continue;
+        if (z->Zauberart()=="BeschwÃ¶rung"  && !beschwoerung) continue;
         if (!z->Spruchrolle()              && spruchrolle) continue;
         L.push_back(*i);
       }

@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.54 2002/10/26 07:32:24 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.55 2002/12/11 18:18:50 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -71,7 +71,7 @@ class Grundwerte
 
 public:
    Grundwerte() : 
-             Ueberleben_angeboren(&*cH_Fertigkeit("Überleben Heimat",true)),
+             Ueberleben_angeboren(&*cH_Fertigkeit("Ãœberleben Heimat",true)),
              raufen(0),au(0),pa(0),sb(0), wk(0),
              b(0),lp(0),ap(0),gg(0),sg(0),abwehr_wert(0),abwehr_pp(0),
              zaubern_wert(0),zauber_pp(0),pp_spezialzauber(0),resistenz(0),resistenz_pp(0),
@@ -199,7 +199,7 @@ public:
 
 
    int Sehen() const {return getSinn("Sehen");}
-   int Hoeren() const {return getSinn("Hören");}
+   int Hoeren() const {return getSinn("HÃ¶ren");}
    int Riechen() const {return getSinn("Riechen");}
    int Schmecken() const {return getSinn("Schmecken");}
    int Tasten() const {return getSinn("Tasten");}
@@ -284,7 +284,7 @@ public:
        {ruestung[1]=cH_Ruestung(r,force);}
                      
 
-   // LaTeX code für die Rüstung
+   // LaTeX code fÃ¼r die RÃ¼stung
    std::string Ruestung_RW_Verlust() const ;
 //   std::string Ruestung_B_Verlust() const ;
    std::string Ruestung_Abwehr_Verlust(const std::list<MBEmlt>& list_Fertigkeit) const;

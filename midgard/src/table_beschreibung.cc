@@ -21,7 +21,7 @@ void table_beschreibung::save_beschreibung()
 {
   std::string b=text_charakter_beschreibung->get_chars(0,text_charakter_beschreibung->get_length());
   hauptfenster->getWerte().setBeschreibung(b);
-  hauptfenster->undosave("Beschreibung geändert");
+  hauptfenster->undosave("Beschreibung geÃ¤ndert");
 }
 
 gint table_beschreibung::on_text_charakter_beschreibung_focus_out_event(GdkEventFocus *ev)
@@ -54,13 +54,13 @@ void table_beschreibung::on_button_grafik_clicked()
   delete 
 #endif   
   (new xml_fileselection(hauptfenster,xml_fileselection::Pix));
-  hauptfenster->undosave("Bild geändert");
+  hauptfenster->undosave("Bild geÃ¤ndert");
 }
 
 gint table_beschreibung::on_spinbutton_pix_breite_focus_out_event(GdkEventFocus *ev)
 { 
  hauptfenster->getWerte().setBeschreibungPixSize(spinbutton_pix_breite->get_value_as_int());
- hauptfenster->undosave("Bildgröße geändert");
+ hauptfenster->undosave("BildgrÃ¶ÃŸe geÃ¤ndert");
  return 0;
 }
 

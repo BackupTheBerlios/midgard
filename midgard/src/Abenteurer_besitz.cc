@@ -1,4 +1,4 @@
-// $Id: Abenteurer_besitz.cc,v 1.7 2002/11/19 09:55:16 thoma Exp $               
+// $Id: Abenteurer_besitz.cc,v 1.8 2002/12/11 18:18:50 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -74,13 +74,13 @@ void Abenteurer::setStandardAusruestung()
 {
   if(!getBesitz().empty()) return;
 
-  AusruestungBaum *Koerper = &besitz.push_back(Ausruestung("Körper"));
+  AusruestungBaum *Koerper = &besitz.push_back(Ausruestung("KÃ¶rper"));
   Koerper->setParent(&besitz);
   AusruestungBaum *Hose=&Koerper->push_back(Ausruestung("Hose"));
   Hose->setParent(Koerper);
   AusruestungBaum *Hemd=&Koerper->push_back(Ausruestung("Hemd"));
   Hemd->setParent(Koerper);
-  AusruestungBaum *Guertel=&Koerper->push_back(Ausruestung("Gürtel"));
+  AusruestungBaum *Guertel=&Koerper->push_back(Ausruestung("GÃ¼rtel"));
   Guertel->setParent(Koerper);
   AusruestungBaum *Schuhe=&Koerper->push_back(Ausruestung("Schuhe"));
   Schuhe->setParent(Koerper);

@@ -77,7 +77,7 @@ void table_grundwerte::on_combo_typ__changed()
 
 gint table_grundwerte::on_combo_typ__focus_out_event(GdkEventFocus *ev)
 {
-  hauptfenster->undosave("Typ gewählt");
+  hauptfenster->undosave("Typ gewÃ¤hlt");
   typauswahl_button();
   return false;
 }
@@ -132,7 +132,7 @@ void table_grundwerte::on_combo_typ2__changed()
 
 gint table_grundwerte::on_combo_typ2_focus_out_event(GdkEventFocus *ev)
 {
-  hauptfenster->undosave("zweiter Typ gewählt");
+  hauptfenster->undosave("zweiter Typ gewÃ¤hlt");
   typauswahl_2_button();
   return false;
 }
@@ -192,7 +192,7 @@ void table_grundwerte::spezieswahl_button()
  hauptfenster->getWerte() = Grundwerte();
  hauptfenster->getWerte().setSpezies(Spezies::getSpezies(spezies,hauptfenster->getDatabase().Spezies));
 
-// hauptfenster->undosave("Spezies gewählt");
+// hauptfenster->undosave("Spezies gewÃ¤hlt");
  fill_typauswahl();
 
  if (hauptfenster->getWerte().Spezies()->Name()=="Elf")
@@ -243,7 +243,7 @@ void table_grundwerte::on_radiobutton_mann_toggled()
    }
   fill_typauswahl();
   fill_typauswahl_2();
-//  hauptfenster->undosave("Geschlecht gewählt");
+//  hauptfenster->undosave("Geschlecht gewÃ¤hlt");
 }
 
 void table_grundwerte::kaempfer_lernt_zaubern()
@@ -252,7 +252,7 @@ void table_grundwerte::kaempfer_lernt_zaubern()
   if(!hauptfenster) return;
   hauptfenster->notebook_main->set_page(midgard_CG::PAGE_GRUNDWERTE);
   doppelcharaktere();
-  hauptfenster->InfoFenster->AppendShow("Jetzt unter 'Grundwerte' die zweite Charkakterklasse wählen\n",WindowInfo::None);
+  hauptfenster->InfoFenster->AppendShow("Jetzt unter 'Grundwerte' die zweite Charkakterklasse wÃ¤hlen\n",WindowInfo::None);
   if (hauptfenster->getWerte().Zaubern_wert()==2) 
       hauptfenster->getWerte().setZaubern_wert(10);
 }

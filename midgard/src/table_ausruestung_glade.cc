@@ -82,7 +82,7 @@ table_ausruestung_glade::table_ausruestung_glade(GlademmData *_data
    Glib::RefPtr<Gdk::Bitmap> _pixmap69_mask;
    Glib::RefPtr<Gdk::Pixmap> _pixmap69_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _pixmap69_mask, Trash_32_xpm);
    Gtk::Image *pixmap69 = manage(new class Gtk::Image(_pixmap69_pixmap, _pixmap69_mask));
-   Gtk::Label *label475 = manage(new class Gtk::Label("Löschen"));
+   Gtk::Label *label475 = manage(new class Gtk::Label("LÃ¶schen"));
    Gtk::HBox *hbox35 = manage(new class Gtk::HBox(false, 0));
    button_ausruestung_loeschen = manage(new class Gtk::Button());
    
@@ -92,14 +92,14 @@ table_ausruestung_glade::table_ausruestung_glade(GlademmData *_data
    checkbutton_sichtbar = manage(new class Gtk::CheckButton());
    
    Gtk::Table *table105 = manage(new class Gtk::Table(4, 1, false));
-   Gtk::Label *label623 = manage(new class Gtk::Label("Zunächst oben auswählen, wo der neue Gegenstand eingefügt werden soll,\n"
-		"anschließend unten den neuen Gegenstand auswählen."));
+   Gtk::Label *label623 = manage(new class Gtk::Label("ZunÃ¤chst oben auswÃ¤hlen, wo der neue Gegenstand eingefÃ¼gt werden soll,\n"
+		"anschlieÃŸend unten den neuen Gegenstand auswÃ¤hlen."));
    scrolledwindow_ausruestung = manage(new class Gtk::ScrolledWindow());
    label_gesamtlast = manage(new class Gtk::Label("kg"));
    
    Gtk::Label *label629 = manage(new class Gtk::Label("Gesamtlast:"));
    Gtk::Label *label630 = manage(new class Gtk::Label("Normallast:"));
-   Gtk::Label *label = manage(new class Gtk::Label("Höchstlast:"));
+   Gtk::Label *label = manage(new class Gtk::Label("HÃ¶chstlast:"));
    Gtk::Label *label632 = manage(new class Gtk::Label("Schublast:"));
    label_normallast = manage(new class Gtk::Label("kg"));
    label_hoechstlast = manage(new class Gtk::Label("kg"));
@@ -116,7 +116,7 @@ table_ausruestung_glade::table_ausruestung_glade(GlademmData *_data
    Glib::RefPtr<Gdk::Pixmap> _pixmap83_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _pixmap83_mask, Money_50_xpm);
    Gtk::Image *pixmap83 = manage(new class Gtk::Image(_pixmap83_pixmap, _pixmap83_mask));
    Gtk::Label *label526 = manage(new class Gtk::Label("Mit Geld\n"
-		"ausrüsten"));
+		"ausrÃ¼sten"));
    Gtk::HBox *hbox46 = manage(new class Gtk::HBox(false, 0));
    checkbutton_ausruestung_geld = manage(new class Gtk::CheckButton());
    label_golda = manage(new class Gtk::Label("0"));
@@ -131,7 +131,7 @@ table_ausruestung_glade::table_ausruestung_glade(GlademmData *_data
    Glib::RefPtr<Gdk::Bitmap> _pixmap177_mask;
    Glib::RefPtr<Gdk::Pixmap> _pixmap177_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _pixmap177_mask, Angeb_Sicht_32_xpm);
    Gtk::Image *pixmap177 = manage(new class Gtk::Image(_pixmap177_pixmap, _pixmap177_mask));
-   Gtk::Label *label637 = manage(new class Gtk::Label("Unverkäufliches\n"
+   Gtk::Label *label637 = manage(new class Gtk::Label("UnverkÃ¤ufliches\n"
 		"anzeigen"));
    Gtk::HBox *hbox96 = manage(new class Gtk::HBox(false, 0));
    togglebutton_unverkauflich = manage(new class Gtk::ToggleButton());

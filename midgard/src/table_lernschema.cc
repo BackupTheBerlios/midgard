@@ -86,15 +86,15 @@ void table_lernschema::on_spinbutton_zaubern_activate()
 
 void table_lernschema::set_lernpunkte()
 {
-  gtk_spin_button_update(spinbutton_unge->gtkobj());
+  gtk_spin_button_update(spinbutton_unge->gobj());
   lernpunkte.setUnge(spinbutton_unge->get_value_as_int());
-  gtk_spin_button_update(spinbutton_fach->gtkobj());
+  gtk_spin_button_update(spinbutton_fach->gobj());
   lernpunkte.setFach(spinbutton_fach->get_value_as_int());
-  gtk_spin_button_update(spinbutton_allgemein->gtkobj());
+  gtk_spin_button_update(spinbutton_allgemein->gobj());
   lernpunkte.setAllgemein(spinbutton_allgemein->get_value_as_int());
-  gtk_spin_button_update(spinbutton_waffen->gtkobj());   
+  gtk_spin_button_update(spinbutton_waffen->gobj());   
   lernpunkte.setWaffen(spinbutton_waffen->get_value_as_int());
-  gtk_spin_button_update(spinbutton_zauber->gtkobj());
+  gtk_spin_button_update(spinbutton_zauber->gobj());
   lernpunkte.setZauber(spinbutton_zauber->get_value_as_int());
   on_lernliste_wahl_toggled();
   zeige_werte();
@@ -109,7 +109,7 @@ void table_lernschema::on_lernliste_wahl_toggled()
      if (hauptfenster->getWerte().Spezialgebiet()->Spezial2()=="" && 
          hauptfenster->getChar()->Typ1()->Short()=="eBe")
       {
-         hauptfenster->set_status("Erst Prim‰r- und Sekund‰relement w‰hlen");
+         hauptfenster->set_status("Erst Prim√§r- und Sekund√§relement w√§hlen");
          return;
       }
    }
@@ -122,7 +122,7 @@ void table_lernschema::on_button_waffen_clicked()
 {  
   if(hauptfenster->getChar()->Typ1()->Kultwaffe() &&hauptfenster->getChar()->List_Waffen().empty())
    {
-     hauptfenster->set_status(hauptfenster->getChar()->Typ1()->Name(hauptfenster->getWerte().Geschlecht())+" m¸ssen als erstes ihre Kultwaffe w‰hlen; fehlende Lernpunkte werden geschenkt.",false);
+     hauptfenster->set_status(hauptfenster->getChar()->Typ1()->Name(hauptfenster->getWerte().Geschlecht())+" m√ºssen als erstes ihre Kultwaffe w√§hlen; fehlende Lernpunkte werden geschenkt.",false);
      togglebutton_teure_anzeigen->set_active(true);
    }
   button_lernschema_waffen->set_sensitive(true);
@@ -150,9 +150,9 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
              if(W->Verteidigung())
                { hauptfenster->set_status("Eine Verteidingungswaffe kann keine Spezialwaffe werden."); return;}
              else if(W->Reichweite()=="" && (*MBE).Lernpunkte()>1 )
-               { hauptfenster->set_status("Nahkampfwaffen kˆnnen nur dann eine Spezialwaffe werden wenn sie max. 1 Lernpunkte gekostet haben");return;}
+               { hauptfenster->set_status("Nahkampfwaffen k√∂nnen nur dann eine Spezialwaffe werden wenn sie max. 1 Lernpunkte gekostet haben");return;}
              else if(W->Reichweite()!="" && (*MBE).Lernpunkte()>2 )
-               { hauptfenster->set_status("Fernkampfwaffen kˆnnen nur dann eine Spezialwaffe werden wenn sie max. 2 Lernpunkte gekostet haben");return;}
+               { hauptfenster->set_status("Fernkampfwaffen k√∂nnen nur dann eine Spezialwaffe werden wenn sie max. 2 Lernpunkte gekostet haben");return;}
              else
                {  
                 hauptfenster->getWerte().setSpezialisierung((*MBE)->Name());
@@ -226,7 +226,7 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
                   list_FertigkeitZusaetze.remove(MBE->LernArt());
            else if(MBE->LernArt().find("Gastlandsprache")!=std::string::npos) 
                   list_FertigkeitZusaetze.remove(MBE->LernArt());
-           else hauptfenster->set_info("Fehler beim Lernpunkte zur¸ckstellen");
+           else hauptfenster->set_info("Fehler beim Lernpunkte zur√ºckstellen");
            std::string::size_type st = (*MBE)->Name().find("KiDo-Technik");
            if(st!=std::string::npos)  --maxkido;
            break;
@@ -239,7 +239,7 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
      show_lernschema();
   show_gelerntes();
   if((*MBE).What()==MidgardBasicElement::WAFFE && togglebutton_spezialwaffe->get_active())
-     hauptfenster->undosave("Spezialwaffe "+(*MBE)->Name()+" gew‰hlt");
+     hauptfenster->undosave("Spezialwaffe "+(*MBE)->Name()+" gew√§hlt");
   else
      hauptfenster->undosave((*MBE)->What_str()+" "+(*MBE)->Name()+" verlernt");
 }
@@ -258,7 +258,7 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
  if(((*MBE).What()==MidgardBasicElement::FERTIGKEIT || (*MBE).What()==MidgardBasicElement::WAFFE)
    && !(*MBE)->Voraussetzung(A,false))
   {
-    hauptfenster->set_status("Erst muﬂ "+(*MBE)->Voraussetzung()+" gelernt werden");
+    hauptfenster->set_status("Erst mu√ü "+(*MBE)->Voraussetzung()+" gelernt werden");
     return;
   }
   
@@ -277,9 +277,9 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
         int lp=MBE->Lernpunkte();
         if(A.Typ1()->Kultwaffe() &&A.List_Waffen().empty())
           {
-            // F¸r eine Kultwaffe werden fehlende Lernpunkte geschenkt
+            // F√ºr eine Kultwaffe werden fehlende Lernpunkte geschenkt
             if( lp>lernpunkte.Waffen() ) lp=lernpunkte.Waffen();
-            hauptfenster->set_status((*MBE)->Name()+" als Kultwaffe gew‰hlt");
+            hauptfenster->set_status((*MBE)->Name()+" als Kultwaffe gew√§hlt");
           }
         else if(MBE->Lernpunkte()>lernpunkte.Waffen())
           { hauptfenster->set_status("Nicht genug Lernpunkte");
@@ -330,7 +330,7 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
          }
         else
           { // Damit Sprachen und Schriften nicht doppelt angezeigt werden
-            // sp‰ter: nach einhelliger Meinung sollen sie das doch 
+            // sp√§ter: nach einhelliger Meinung sollen sie das doch 
 //            list_FertigkeitZusaetze.push_back((*(*MBE))->Name());
           }
         if((*MBE)->ZusatzEnum(A.getVTyp())) 
@@ -391,7 +391,7 @@ void table_lernschema::button_sensitive(bool b)
   button_allgemeinwissen->set_sensitive(b);
   button_untyp_fertigkeiten->set_sensitive(b);
   button_waffen->set_sensitive(b);
-#warning Christof: Warum st¸rzt das Programm ab, wenn man das 'b &&' wegnimmt?
+#warning Christof: Warum st√ºrzt das Programm ab, wenn man das 'b &&' wegnimmt?
   if(b && hauptfenster->getChar()->is_mage())
       button_zauber->set_sensitive(b);
   button_beruf->set_sensitive(b);
@@ -446,11 +446,11 @@ void table_lernschema::set_gwr_eingabe()
 {
   switch (gwr_auswahl) {
     case ENone : assert(!"never get here"); break;
-    case EWaffen : label_gwr->set_text("%-Wurf f¸r\nWaffen"); break;
-    case ERuestung: label_gwr->set_text("%-Wurf f¸r\nR¸stung"); break;
-    case EGeld1 :  label_gwr->set_text("1. W6-Wurf f¸r\nGeld"); break;
-    case EGeld2 :  label_gwr->set_text("2. W6-Wurf f¸r\nGeld"); break;
-    case EGeld3 :  label_gwr->set_text("3. W6-Wurf f¸r\nGeld"); break;
+    case EWaffen : label_gwr->set_text("%-Wurf f√ºr\nWaffen"); break;
+    case ERuestung: label_gwr->set_text("%-Wurf f√ºr\nR√ºstung"); break;
+    case EGeld1 :  label_gwr->set_text("1. W6-Wurf f√ºr\nGeld"); break;
+    case EGeld2 :  label_gwr->set_text("2. W6-Wurf f√ºr\nGeld"); break;
+    case EGeld3 :  label_gwr->set_text("3. W6-Wurf f√ºr\nGeld"); break;
    }
   if(gwr_auswahl==EWaffen || gwr_auswahl==ERuestung)
     spinbutton_waffen_lernschema->get_adjustment()->set_upper(100);
@@ -477,8 +477,8 @@ void table_lernschema::lernschema_geld_wuerfeln(const std::vector<int>& VGeldwur
  if(hauptfenster->getWerte().Stand()=="Unfrei" ) igold/=2;
  if(VGeldwurf[0]==VGeldwurf[1] && VGeldwurf[1]==VGeldwurf[2]) igold += 100;
 
- std::string strinfo ="Beim Ausw¸rfeln von Geld wurden "
-   +itos(VGeldwurf[0])+"  "+itos(VGeldwurf[1])+"  "+itos(VGeldwurf[2])+" gew¸rfelt ==> "
+ std::string strinfo ="Beim Ausw√ºrfeln von Geld wurden "
+   +itos(VGeldwurf[0])+"  "+itos(VGeldwurf[1])+"  "+itos(VGeldwurf[2])+" gew√ºrfelt ==> "
    +itos(igold)+" Gold";
  hauptfenster->set_status(strinfo);   
  hauptfenster->getWerte().addGold(igold);  
@@ -549,7 +549,7 @@ void table_lernschema::on_button_ruestung_clicked(int wurf)
    }
   if(hauptfenster->getChar()->Typ1()->Short()=="Fi") rue="KR";
   hauptfenster->getWerte().setRuestung1(rue);
-  hauptfenster->set_status("Beim Ausw¸rfeln der R¸stung wurde eine "+itos(wurf)+" gew¸rfelt "
+  hauptfenster->set_status("Beim Ausw√ºrfeln der R√ºstung wurde eine "+itos(wurf)+" gew√ºrfelt "
              "==> " + hauptfenster->getWerte().Ruestung()->Long());
   zeige_werte();
 }
@@ -688,7 +688,7 @@ void table_lernschema::show_lernschema()
   if(button_kido_auswahl->get_active()) return;
   clean_lernschema_trees();
   tree_lernschema = manage(new MidgardBasicTree(MidgardBasicTree::LERNSCHEMA));
-  tree_lernschema->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_tree_lernschema_leaf_selected));
+  tree_lernschema->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_tree_lernschema_leaf_selected));
   
   MidgardBasicElement::MBEE what;
   std::string fert;
@@ -708,7 +708,7 @@ void table_lernschema::show_lernschema()
          }
         else if(button_untyp_fertigkeiten->get_active())
          {  fert="Unge";
-            label_lernschma_titel->set_text("Ungewˆhnliche Fertigkeiten");
+            label_lernschma_titel->set_text("Ungew√∂hnliche Fertigkeiten");
          }
         else
          {  fert="Allg";
@@ -780,7 +780,7 @@ void table_lernschema::show_lernschema()
           if ((*i)->ist_gelernt(A.List_Waffen())) gelernt=true;
           if (!(*(*i))->Voraussetzung(A)) continue ;
           if(A.Typ1()->Kultwaffe() &&A.List_Waffen().empty())
-            hauptfenster->set_status(A.Typ1()->Name(A.getWerte().Geschlecht())+" m¸ssen als erstes ihre Kultwaffe w‰hlen; fehlende Lernpunkte werden geschenkt.");
+            hauptfenster->set_status(A.Typ1()->Name(A.getWerte().Geschlecht())+" m√ºssen als erstes ihre Kultwaffe w√§hlen; fehlende Lernpunkte werden geschenkt.");
         }
        else if(what==MidgardBasicElement::ZAUBER)
         {

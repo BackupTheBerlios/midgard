@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.106 2002/12/09 07:09:14 thoma Exp $
+// $Id: Optionen.cc,v 1.107 2002/12/11 18:18:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,7 +24,7 @@
 #include "../pixmaps/Haus-1-2-1-26.xpm"
 #include "../pixmaps/Haus-Super-26.xpm"
 #include "../pixmaps/NSC-Mode-32.xpm"
-//#include "MidgardBasicElement.hh" // nur für NotFound
+//#include "MidgardBasicElement.hh" // nur fÃ¼r NotFound
 #include <fstream>
 #include "TagStream.hh"
 //#include "export_common.h"
@@ -254,7 +254,7 @@ void Midgard_Optionen::OptionenCheck_setzen_from_menu(OptionenCheckIndex index)
      else if(i->index==Drei_Tasten_Maus) hauptfenster->show_3_Tasten_Maus(i->active);
      else if(i->index==NSC_only) {hauptfenster->show_NSC_active(i->active);
                                   hauptfenster->table_grundwerte->fill_typauswahl();
-                                  hauptfenster->table_grundwerte->fill_typauswahl_2();} // zum Neuaufbau des Typmenüs
+                                  hauptfenster->table_grundwerte->fill_typauswahl_2();} // zum Neuaufbau des TypmenÃ¼s
      else if(i->index==Wizard_immer_starten) hauptfenster->show_wizard_active(i->active);
      else if(i->index==Notebook_start)  
       { //i->wert=wert;
@@ -302,7 +302,7 @@ void Midgard_Optionen::Ober_setzen_from_menu(OberIndex index)
         else if(index==Icons) 
          { if(!i->active && !OberCheck(Beschriftungen).active)
             {
-              hauptfenster->set_status("Beschriftungen und Icons dürfen nicht gleichzeitig nicht angewählt sein.");
+              hauptfenster->set_status("Beschriftungen und Icons dÃ¼rfen nicht gleichzeitig nicht angewÃ¤hlt sein.");
 //              i->active=true;
             }
            else 
@@ -311,7 +311,7 @@ void Midgard_Optionen::Ober_setzen_from_menu(OberIndex index)
         else if(index==Beschriftungen) 
          { if(!i->active && !OberCheck(Icons).active)
             {
-              hauptfenster->set_status("Beschriftungen und Icons dürfen nicht gleichzeitig nicht angewählt sein.");
+              hauptfenster->set_status("Beschriftungen und Icons dÃ¼rfen nicht gleichzeitig nicht angewÃ¤hlt sein.");
 //              i->active=true;
             }
            else 
@@ -377,7 +377,7 @@ void Midgard_Optionen::Optionen_init()
                            true,midgard_logo_tiny_xpm));
 
 //std::cout << list_OptionenCheck.back().wert.get_value();
-//list_OptionenCheck.back().wert.changed.connect(SigC::slot(&print_it)); 
+//list_OptionenCheck.back().wert.signal_changed().connect(SigC::slot(&print_it)); 
 
   list_OptionenCheck.push_back(st_OptionenCheck(NSC_only,"NSC zulassen",
                            false,NSC_Mode_32_xpm));
@@ -393,7 +393,7 @@ void Midgard_Optionen::Optionen_init()
 
   list_OptionenExecute.push_back(st_OptionenExecute(show_InfoWindow,"Info Fenster zeigen",0));
   list_OptionenExecute.push_back(st_OptionenExecute(LernschemaSensitive,
-                           "Lernschema/Steigern auswählbar machen",0));
+                           "Lernschema/Steigern auswÃ¤hlbar machen",0));
 }
 
 
@@ -447,16 +447,16 @@ void Midgard_Optionen::Hausregeln_init()
 {
  list_Hausregeln.clear();  
  list_Hausregeln.push_back(st_Haus(Gold,"1 GS entspricht 1 GFP",Haus_1_2_1_26_xpm,false));
- list_Hausregeln.push_back(st_Haus(Werte100,"Grundwerte über 100 zulassen",Haus_Super_26_xpm,false));
+ list_Hausregeln.push_back(st_Haus(Werte100,"Grundwerte Ã¼ber 100 zulassen",Haus_Super_26_xpm,false));
 }
 
 void Midgard_Optionen::Ober_init()
 {
  list_Ober.clear();  
- list_Ober.push_back(st_Ober(SaveFenster,"Fenstergröße und -position speichern",false));
+ list_Ober.push_back(st_Ober(SaveFenster,"FenstergrÃ¶ÃŸe und -position speichern",false));
  list_Ober.push_back(st_Ober(AutoShrink,"Fenster automatisch verkleinern",false));
  list_Ober.push_back(st_Ober(Bilder,"Bilder anzeigen",true));
- list_Ober.push_back(st_Ober(Menueleiste,"Menüleiste",true));
+ list_Ober.push_back(st_Ober(Menueleiste,"MenÃ¼leiste",true));
  list_Ober.push_back(st_Ober(Knopfleiste,"Knopfleiste",true));
  list_Ober.push_back(st_Ober(Customize_Icons,"Icons anzeigen",true));
  list_Ober.push_back(st_Ober(Customize_Text,"Text anzeigen",true));
@@ -464,8 +464,8 @@ void Midgard_Optionen::Ober_init()
  list_Ober.push_back(st_Ober(Icons,"Icons der Knopfleiste",true));
  list_Ober.push_back(st_Ober(Beschriftungen,"Beschriftungen der Knopfleiste",true));
  list_Ober.push_back(st_Ober(Status,"Statuszeile",true));
- list_Ober.push_back(st_Ober(NoInfoFenster,"Kein automatisches Öffnen des Infofensters",false,false));
- list_Ober.push_back(st_Ober(BegruessungsFenster,"Automatisches Öffnen des Begrüssungsfensters",true));
+ list_Ober.push_back(st_Ober(NoInfoFenster,"Kein automatisches Ã–ffnen des Infofensters",false,false));
+ list_Ober.push_back(st_Ober(BegruessungsFenster,"Automatisches Ã–ffnen des BegrÃ¼ssungsfensters",true));
 }
 
 
@@ -479,7 +479,7 @@ void Midgard_Optionen::Icon_init()
 
 void detachHB(Gtk::HandleBox &HB,int x,int y,int b,int h)
 {
-  HB.gtkobj()->child_detached = true;
+  HB.gobj()->child_detached = true;
   Gdk_Window w=HB.get_float_window();
   HB.get_bin_window().reparent(w,0,0);
 
@@ -487,7 +487,7 @@ void detachHB(Gtk::HandleBox &HB,int x,int y,int b,int h)
   HB.get_float_window().set_hints(x, y, 50, 50, 100, 100, GDK_HINT_MAX_SIZE); 
   HB.get_float_window().move_resize(x,y,b,h);
   HB.get_float_window().show();
-//  HB.gtkobj()->float_window_mapped = true;
+//  HB.gobj()->float_window_mapped = true;
   HB.queue_resize();
 }
 
@@ -530,15 +530,15 @@ void Midgard_Optionen::load_options(const std::string &filename)
         hauptfenster->setWindowPosition(i->getIntAttr("X"),i->getIntAttr("Y"));
      FOR_EACH_CONST_TAG_OF(i,*data2,"Groesse") // compat
         hauptfenster->setWindowSize(i->getIntAttr("Width"),i->getIntAttr("Height"));
-     FOR_EACH_CONST_TAG_OF(i,*data2,"Größe")
-        hauptfenster->setWindowSize(i->getIntAttr("Breite"),i->getIntAttr("Höhe"));
+     FOR_EACH_CONST_TAG_OF(i,*data2,"GrÃ¶ÃŸe")
+        hauptfenster->setWindowSize(i->getIntAttr("Breite"),i->getIntAttr("HÃ¶he"));
      FOR_EACH_CONST_TAG_OF(i,*data2,"WindowPositions")
        {
          std::string name=i->getAttr("Name");
          int x=i->getIntAttr("X");
          int y=i->getIntAttr("Y");
          int breite=i->getIntAttr("Breite");
-         int hoehe=i->getIntAttr("Höhe");
+         int hoehe=i->getIntAttr("HÃ¶he");
          Gtk::HandleBox *HB;
          if     (name=="handlebox_steigern_1")
             HB=hauptfenster->table_steigern->handlebox_steigern_1;
@@ -592,9 +592,9 @@ void Midgard_Optionen::save_options(const std::string &filename,WindowInfo *Info
     Gdk_Window fenster=hauptfenster->get_window();
     fenster.get_size(width,height);
     fenster.get_position(x,y);
-    Tag &groesse=fenstert.push_back(Tag("Größe"));
+    Tag &groesse=fenstert.push_back(Tag("GrÃ¶ÃŸe"));
     groesse.setIntAttr("Breite",width);
-    groesse.setIntAttr("Höhe",height);
+    groesse.setIntAttr("HÃ¶he",height);
     Tag &position=fenstert.push_back(Tag("Position"));
     position.setIntAttr("X", x);
     position.setIntAttr("Y", y);
@@ -618,7 +618,7 @@ void Midgard_Optionen::save_options(const std::string &filename,WindowInfo *Info
        i->second.get_position(x,y);
        T.setAttr("Name",i->first);
        T.setIntAttr("Breite",width);
-       T.setIntAttr("Höhe",height);
+       T.setIntAttr("HÃ¶he",height);
        T.setIntAttr("X", x);
        T.setIntAttr("Y", y);
      }

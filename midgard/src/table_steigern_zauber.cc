@@ -87,7 +87,7 @@ void table_steigern::on_alte_zauber_reorder()
       case Data_SimpleTree::NAMEn_Z  : hauptfenster->getChar()->List_Zauber().sort(cH_Zauber::sort(cH_Zauber::sort::NAME)); ;break;
       case Data_SimpleTree::STUFEn_Z : hauptfenster->getChar()->List_Zauber().sort(cH_Zauber::sort(cH_Zauber::sort::STUFE)); ;break;
       case Data_SimpleTree::URSPRUNGn_Z : hauptfenster->getChar()->List_Zauber().sort(cH_Zauber::sort(cH_Zauber::sort::URSPRUNG)); ;break;
-      default : hauptfenster->set_status("Sortieren nach diesem Parameter\n ist nicht möglich");
+      default : hauptfenster->set_status("Sortieren nach diesem Parameter\n ist nicht mÃ¶glich");
    }
 }
 
@@ -102,7 +102,7 @@ void table_steigern::on_alte_zaubermittel_reorder()
       case Data_SimpleTree::NAMEn_ZW  : hauptfenster->getChar()->List_Zauberwerk().sort(cH_Zauberwerk::sort(cH_Zauberwerk::sort::NAME)) ;break;
       case Data_SimpleTree::STUFEn_ZW : hauptfenster->getChar()->List_Zauberwerk().sort(cH_Zauberwerk::sort(cH_Zauberwerk::sort::STUFE)) ;break;
       case Data_SimpleTree::ARTn_ZW :   hauptfenster->getChar()->List_Zauberwerk().sort(cH_Zauberwerk::sort(cH_Zauberwerk::sort::ART));break;
-      default : hauptfenster->set_status("Sortieren nach diesem Parameter\n ist nicht möglich");
+      default : hauptfenster->set_status("Sortieren nach diesem Parameter\n ist nicht mÃ¶glich");
    }
 }
 

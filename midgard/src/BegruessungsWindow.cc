@@ -18,7 +18,7 @@ BegruessungsWindow::BegruessungsWindow(midgard_CG* h)
   bool_CheckButton *W = manage(new bool_CheckButton(hauptfenster->MOptionen->OberCheck(Midgard_Optionen::BegruessungsFenster).active,*p));
   W->set_mode(false);
   W->show_all();
-  table_buttons->attach(*W, 1, 2, 6, 7, GTK_SHRINK, GTK_SHRINK, 0, 0);
+  table_buttons->attach(*W, 1, 2, 6, 7, Gtk::SHRINK, Gtk::SHRINK, 0, 0);
 }
 
 
@@ -53,7 +53,7 @@ void BegruessungsWindow::on_button_load_clicked()
 /*
 void BegruessungsWindow::on_togglebutton_never_again_toggled()
 {  
-  hauptfenster->MOptionen->setOber("Automatisches Öffnen des Begrüssungsfensters",togglebutton_never_again->get_active());
+  hauptfenster->MOptionen->setOber("Automatisches Ã–ffnen des BegrÃ¼ssungsfensters",togglebutton_never_again->get_active());
 }
 */
 

@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.25 2002/12/11 11:09:58 thoma Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.26 2002/12/11 18:18:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,7 +21,7 @@
 #include "midgard_CG.hh"
 #include <strstream>
 #include <algorithm>
-#include <gtk--/label.h>
+#include <gtkmm/label.h>
 #include <Misc/itos.h>
 #include <SelectMatching.h>
 #include <Misc/Trace.h>
@@ -51,7 +51,7 @@ void table_grundwerte::grundwerte_wuerfeln()
      Eigenschaften_variante(2);
   else if(radiobutton_eigenschaften_69->get_active())
      Eigenschaften_variante(3);
-  hauptfenster->undosave("Grundwerte gewürfelt");
+  hauptfenster->undosave("Grundwerte gewÃ¼rfelt");
 }
 
 void table_grundwerte::Eigenschaften_variante(int i)
@@ -70,7 +70,7 @@ void table_grundwerte::Eigenschaften_variante(int i)
    { cH_Spezies spez=hauptfenster->getWerte().Spezies();
 //std::cout << spez->Name() << '\n';
      Veigenschaften.clear();
-     Veigenschaften.push_back(st_eigen(est,"die Stärke","St",spez->St()));
+     Veigenschaften.push_back(st_eigen(est,"die StÃ¤rke","St",spez->St()));
      Veigenschaften.push_back(st_eigen(egs,"die Geschicklichkeit","Gs",spez->Gs()));
      Veigenschaften.push_back(st_eigen(egw,"die Gewandheit","Gw",spez->Gw()));
      Veigenschaften.push_back(st_eigen(eko,"die Konstitution","Ko",spez->Ko()));
@@ -105,7 +105,7 @@ void table_grundwerte::check_350(const std::vector<int>& a)
        sum += *i;
    }   
   if(sum<350)
-   {  hauptfenster->set_status("Summe der Eigenschaftswerte "+itos(sum)+" kleiner als 350. Es darf (muß aber nicht) noch einmal gewürfelt werden.",false);
+   {  hauptfenster->set_status("Summe der Eigenschaftswerte "+itos(sum)+" kleiner als 350. Es darf (muÃŸ aber nicht) noch einmal gewÃ¼rfelt werden.",false);
       button_grundwerte->set_sensitive(true);
    }
   zeige_werte(false);
@@ -201,19 +201,19 @@ void table_grundwerte::gw_variante_2()
   Schwachpunkt_wuerfeln();
   frame_wuerfelvariante->remove();  
   Gtk::Table *tab = manage(new class Gtk::Table(3, 6, false));
-  Gtk::Label *lab = manage(new class Gtk::Label(itos(Veigenschaften.size())+"x gewürfelt, jetzt die Werte zuordnen."));
-  tab->attach(*lab, 0, int(eMAX), 0, 1, GTK_FILL, 0, 0, 0);
+  Gtk::Label *lab = manage(new class Gtk::Label(itos(Veigenschaften.size())+"x gewÃ¼rfelt, jetzt die Werte zuordnen."));
+  tab->attach(*lab, 0, int(eMAX), 0, 1, Gtk::FILL, 0, 0, 0);
   int count=0;
   for(std::vector<st_eigen>::const_iterator i=Veigenschaften.begin();i!=Veigenschaften.end();++i)
    {
      Gtk::Button *b = manage(new class Gtk::Button(i->kurz));
-     tab->attach(*b, count, count+1, 2, 3, GTK_FILL, 0, 0, 0);
-     b->clicked.connect(SigC::bind(SigC::slot(static_cast<class table_grundwerte*>(this), &table_grundwerte::on_button_variante_2_clicked),b,i->eigenschaft));
+     tab->attach(*b, count, count+1, 2, 3, Gtk::FILL, 0, 0, 0);
+     b->signal_clicked().connect(SigC::bind(SigC::slot(*static_cast<class table_grundwerte*>(this), &table_grundwerte::on_button_variante_2_clicked),b,i->eigenschaft));
      ++count;     
    }
 //  if(label) delete label;
   label = manage(new class Gtk::Label("XXX"));  
-  tab->attach(*label, 0, int(eMAX), 1, 2, GTK_FILL, 0, 0, 0);
+  tab->attach(*label, 0, int(eMAX), 1, 2, Gtk::FILL, 0, 0, 0);
   frame_wuerfelvariante->add(*tab);
   frame_wuerfelvariante->show_all();
   gw_variante_2_next();
@@ -243,7 +243,7 @@ void table_grundwerte::gw_variante_2_next()
   for(int j=0;j<2;++j) V.push_back(hauptfenster->random.integer(1,100)) ;
   sort(V.rbegin(),V.rend());
   std::string W=itos(V[0])+"("+itos(V[1])+")";
-  label->set_text("Wurf: "+W+"   Für welche Eigenschaft soll dieser Wurf verwendet werden?");  
+  label->set_text("Wurf: "+W+"   FÃ¼r welche Eigenschaft soll dieser Wurf verwendet werden?");  
   actual_wurf=V[0];
 }
 
@@ -260,20 +260,20 @@ void table_grundwerte::gw_variante_3()
   sort(V.rbegin(),V.rend());
             
   Gtk::Table *tab = manage(new class Gtk::Table(3, 6, false));
-  Gtk::Label *lab = manage(new class Gtk::Label(itos(anz_wuerfe)+"x gewürfelt, jetzt die Werte den Eigenschaften zuordnen."));  
-  tab->attach(*lab, 0, 9, 0, 1, GTK_FILL, 0, 0, 0);
+  Gtk::Label *lab = manage(new class Gtk::Label(itos(anz_wuerfe)+"x gewÃ¼rfelt, jetzt die Werte den Eigenschaften zuordnen."));  
+  tab->attach(*lab, 0, 9, 0, 1, Gtk::FILL, 0, 0, 0);
   int count=0;
   for(std::vector<int>::const_iterator i=V.begin();i!=V.end();++i)
    {
      Gtk::Button *b = manage(new class Gtk::Button(itos(*i)));
-     tab->attach(*b, count, count+1, 2, 3, GTK_FILL, 0, 0, 0);
-     b->clicked.connect(SigC::bind(SigC::slot(static_cast<class table_grundwerte*>(this), &table_grundwerte::on_button_variante_3_clicked),b,*i));
+     tab->attach(*b, count, count+1, 2, 3, Gtk::FILL, 0, 0, 0);
+     b->signal_clicked().connect(SigC::bind(SigC::slot(*static_cast<class table_grundwerte*>(this), &table_grundwerte::on_button_variante_3_clicked),b,*i));
      if(count>=anz_wuerfe-3) b->set_sensitive(false);
      ++count;     
    }
 //  if(label) delete label;
   label = manage(new class Gtk::Label("XXX"));  
-  tab->attach(*label, 0, 9, 1, 2, GTK_FILL, 0, 0, 0);
+  tab->attach(*label, 0, 9, 1, 2, Gtk::FILL, 0, 0, 0);
   frame_wuerfelvariante->add(*tab);
   frame_wuerfelvariante->show_all();
   gw_variante_3_next();
@@ -284,7 +284,7 @@ void table_grundwerte::gw_variante_3_next()
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   if(label)
-     label->set_text("Welcher Wert soll für "+actual_eigen->lang+" ("+actual_eigen->kurz+") verwendet werden?");  
+     label->set_text("Welcher Wert soll fÃ¼r "+actual_eigen->lang+" ("+actual_eigen->kurz+") verwendet werden?");  
 }
 
 void table_grundwerte::on_button_variante_3_clicked(Gtk::Button *button,int wert)
@@ -295,7 +295,7 @@ void table_grundwerte::on_button_variante_3_clicked(Gtk::Button *button,int wert
   gw_variante_3_next();
 }
 
-//#include<gtk--/table.h>
+//#include<gtkmm/table.h>
 
 void table_grundwerte::set_Grundwerte(e_eigen eigenschaft,int wert)
 {
@@ -317,7 +317,7 @@ void table_grundwerte::set_Grundwerte(e_eigen eigenschaft,int wert)
   bool all_insensitive=true;
 //  Gtk::Table_Helpers::TableList &ch=tab->children();
 //  for(Gtk::Table_Helpers::TableList::iterator i=ch.begin();i!=ch.end();++i)
-  for(GList *liste=GTK_TABLE(tab->gtkobj())->children;liste;liste=liste->next)
+  for(GList *liste=Gtk::TABLE(tab->gobj())->children;liste;liste=liste->next)
    {
      Gtk::Widget *x=Gtk::wrap(((GtkTableChild*)(liste->data))->widget);
      if(Gtk::Button::isA(x) && x->is_sensitive()) { all_insensitive=false; break; }

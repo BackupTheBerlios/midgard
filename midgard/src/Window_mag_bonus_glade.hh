@@ -10,11 +10,11 @@
 #ifndef _WINDOW_MAG_BONUS_GLADE_HH
 #  define _WINDOW_MAG_BONUS_GLADE_HH
 
-#include <gtk--/window.h>
-#include <gtk--/tooltips.h>
-#include <gtk--/spinbutton.h>
-#include <gtk--/label.h>
-#include <gtk--/entry.h>
+#include <gtkmm/window.h>
+#include <gtkmm/tooltips.h>
+#include <gtkmm/spinbutton.h>
+#include <gtkmm/label.h>
+#include <gtkmm/entry.h>
 
 class Window_mag_bonus_glade : public Gtk::Window
 {   

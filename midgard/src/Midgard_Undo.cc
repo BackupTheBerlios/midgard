@@ -1,4 +1,4 @@
-// $Id: Midgard_Undo.cc,v 1.4 2002/04/22 07:36:44 thoma Exp $
+// $Id: Midgard_Undo.cc,v 1.5 2002/12/11 18:18:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,7 +22,7 @@
 
 void Midgard_Undo::push_back(std::string text,std::string speicher)
 {
-//  clear(count); // Wenn etwas angehängt wird, dann alles ab hier löschen
+//  clear(count); // Wenn etwas angehÃ¤ngt wird, dann alles ab hier lÃ¶schen
   count=VU.size();
   VU.push_back(st_undo(count,text,speicher));
 }

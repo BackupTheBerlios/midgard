@@ -287,7 +287,7 @@ void MidgardBasicElement::get_Steigern_Kosten_map()
     const Tag *steigern_wie_t=tag->find("steigern_wie");
     if (steigern_wie_t) steigern_wie=steigern_wie_t->getAttr("Fertigkeit");
     
-    // Kosten für steigern_wie suchen: 
+    // Kosten fÃ¼r steigern_wie suchen: 
     // lokaler Cache, cH_Fertigkeit, dann SteigernKosten
     typedef std::map<std::string,const Tag *> map_string_tag_t;
     static map_string_tag_t steigern_kosten;
@@ -315,7 +315,7 @@ void MidgardBasicElement::get_Steigern_Kosten_map()
     }
  }
  if (!kosten) 
- { std::cerr << "keine Kosten für '" << steigern_wie << "' gefunden\n";
+ { std::cerr << "keine Kosten fÃ¼r '" << steigern_wie << "' gefunden\n";
    return;
  }
  for (int i=1;i<=22;++i)

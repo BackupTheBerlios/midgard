@@ -49,7 +49,7 @@ void table_steigern::init(midgard_CG *h)
    only_once=true;
    bool_CheckButton *_m=manage(new bool_CheckButton(steigern_mit_EP_bool,hauptfenster->make_gtk_box(EP_Steigern_50_xpm,"Mit EP/PP\nsteigern",false)));
    _m->set_mode(false);
-   _m->toggled.connect_after(SigC::slot(this, &table_steigern::on_checkbutton_EP_Geld_toggled));
+   _m->signal_toggled().connect_after(SigC::slot(*this, &table_steigern::on_checkbutton_EP_Geld_toggled));
    eventbox_eppp_steigern->add(*_m);
    eventbox_eppp_steigern->show_all();
   }

@@ -24,7 +24,7 @@
 
 KiDo_Stile::KiDo_Stile()
 {
-  // Muß mit Optionmenu in glade übereinstimmen
+  // MuÃŸ mit Optionmenu in glade Ã¼bereinstimmen
   Vkido.clear();
   Vkido.push_back("TECHNIK");
   Vkido.push_back("Sanfte Techniken");
@@ -72,7 +72,7 @@ cH_KiDo::cH_KiDo(const std::string& name ,bool create)
   {  static Tag t2("KiDo"); 
      // note that this Tag is shared ... works well for now
      t2.setAttr("Name",name);
-     t2.setAttr("Übersetzung","?");
+     t2.setAttr("Ãœbersetzung","?");
      t2.setAttr("Stil","?");
      *this=cH_KiDo(&t2);
   }
@@ -88,7 +88,7 @@ cH_KiDo::cH_KiDo(const Tag *tag)
 void KiDo::get_KiDo()
 {
   assert(tag);
-  deutsch = tag->getAttr("Übersetzung");
+  deutsch = tag->getAttr("Ãœbersetzung");
   stufe = tag->getAttr("Stufe");
   stil=tag->getAttr("Stil");
   kosten=tag->getIntAttr("Lernkosten");

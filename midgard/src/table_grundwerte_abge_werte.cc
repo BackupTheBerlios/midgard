@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_abge_werte.cc,v 1.13 2002/12/11 11:09:58 thoma Exp $
+// $Id: table_grundwerte_abge_werte.cc,v 1.14 2002/12/11 18:18:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -44,7 +44,7 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
   {
     int sb = hauptfenster->random.integer(1,100) + 3*(hauptfenster->getWerte().In()/10 
                                        + hauptfenster->getWerte().Wk()/10) - 30;
-    // Boni für Selbstbeherrschung: Assassine, Beschwörer & Druide
+    // Boni fÃ¼r Selbstbeherrschung: Assassine, BeschwÃ¶rer & Druide
     sb += hauptfenster->getChar()->Typ1()->Sb() + hauptfenster->getChar()->Typ2()->Sb();
     // Saddhu
     if (hauptfenster->getChar()->Typ1()->Short() == "Sa") sb = 80+hauptfenster->random.integer(1,20);
@@ -67,7 +67,7 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
       +hauptfenster->getWerte().Ko()/10+4 + hauptfenster->getWerte().Spezies()->LP_Bonus());
 
   /////////////////////////////////////////////////////////////////////////
-  // Körper und Stand
+  // KÃ¶rper und Stand
   {
     int groesse = hauptfenster->getWerte().Spezies()->Groesse_Bonus() 
                 +  hauptfenster->getWerte().St()/10 ;
@@ -137,7 +137,7 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
   hauptfenster->table_lernschema->button_herkunft->set_sensitive(true);
   hauptfenster->frame_lernschema->set_sensitive(true);
   zeige_werte();
-  hauptfenster->undosave("Abgeleitete Werte gewürfelt");
+  hauptfenster->undosave("Abgeleitete Werte gewÃ¼rfelt");
 }
 
 

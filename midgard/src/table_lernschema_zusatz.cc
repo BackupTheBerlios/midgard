@@ -25,7 +25,7 @@
 #include "Schrift.hh"
 #include "LernListen.hh"
 #include <typeinfo> // for bad_cast
-static SigC::Connection connection;
+static SigC::signal_Connection().connection;
 
 
 #include <gdk/gdk.h>
@@ -33,11 +33,11 @@ static SigC::Connection connection;
 void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MBE)
 {
   checkbutton_einschraenkungen_zusatz->set_active(false);
-  // Weil Fertigkeiten mehrmals gelernt werden dürfen werde sie hier nicht 
+  // Weil Fertigkeiten mehrmals gelernt werden dÃ¼rfen werde sie hier nicht 
   // in die Liste geschrieben.
   // eine Ausnamhe ist 'Landeskunde (Heimat)', das passiert unten
 // list_FertigkeitZusaetze.push_back((*MBE)->Name());
-  if(MBE->Lernpunkte()==0 &&  // Sprache/Schrift für '0' Lernpunkte nur einmal lernen
+  if(MBE->Lernpunkte()==0 &&  // Sprache/Schrift fÃ¼r '0' Lernpunkte nur einmal lernen
      !((*MBE)->Name()=="Muttersprache") && !((*MBE)->Name()=="Gastlandsprache"))
     list_FertigkeitZusaetze.push_back((*MBE)->Name());
   if((*MBE)->Name()=="Schreiben: Muttersprache(+4)" ||
@@ -51,7 +51,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
     }
   lernen_zusatz_titel(was,MBE);
   datavec_zusatz.clear();
-  connection.disconnect();
+  connection.signal_di().connect();
 
   switch(was)
    {
@@ -60,7 +60,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
        std::vector<pair<cH_Land,bool> > L=LernListen(hauptfenster->getDatabase()).getHerkunft(hauptfenster->getAben());
        for(std::vector<pair<cH_Land,bool> >::const_iterator i=L.begin();i!=L.end();++i)
           datavec_zusatz.push_back(new Data_Herkunft(i->first,i->second,MBE));
-       connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_herkunft_leaf_selected));
+       connection = Tree_Lernschema_Zusatz->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_herkunft_leaf_selected));
        scrolledwindow_lernen->hide();
        break;
       }
@@ -69,7 +69,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
        std::vector<MidgardBasicElement::st_zusatz> V=LernListen(hauptfenster->getDatabase()).getUeberlebenZusatz();
        for(std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=V.begin();i!=V.end();++i)
           datavec_zusatz.push_back(new Data_Zusatz(hauptfenster->getWerte().Ueberleben(),*i));
-       connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_herkunft_ueberleben_leaf_selected));
+       connection = Tree_Lernschema_Zusatz->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_herkunft_ueberleben_leaf_selected));
        scrolledwindow_lernen->hide();
        break;
       }
@@ -93,7 +93,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
            for(std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=V.begin();i!=V.end();++i)
               datavec_zusatz.push_back(new Data_Zusatz(MBE,*i));
          }
-       connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_selected));
+       connection = Tree_Lernschema_Zusatz->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_selected));
        break;
       }
      case MidgardBasicElement::ZSprache:
@@ -108,7 +108,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
             getDatabase()).getSprachenZusatz(MBE,hauptfenster->getAben(),button_allgemeinwissen->get_active());
        for(std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=V.begin();i!=V.end();++i)
           datavec_zusatz.push_back(new Data_Zusatz(MBE,*i));
-       connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_sprache_selected));
+       connection = Tree_Lernschema_Zusatz->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_sprache_selected));
        break;
       }
      case MidgardBasicElement::ZSchrift:
@@ -128,9 +128,9 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
                list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+9)");
                list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+12)");
              }
-           else hauptfenster->set_info("Fehler beim Lernpunkte zurückstellen");
+           else hauptfenster->set_info("Fehler beim Lernpunkte zurÃ¼ckstellen");
            return;}
-       connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_schrift_selected));
+       connection = Tree_Lernschema_Zusatz->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_schrift_selected));
        break;
       }
      case MidgardBasicElement::ZWaffe:
@@ -139,15 +139,15 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
        for(std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=V.begin();i!=V.end();++i)
            datavec_zusatz.push_back(new Data_Zusatz(MBE,*i));
        if(datavec_zusatz.empty()) 
-         { hauptfenster->set_status("Noch keine Fernkampfwaffe gewählt.");
+         { hauptfenster->set_status("Noch keine Fernkampfwaffe gewÃ¤hlt.");
            hauptfenster->getChar()->List_Fertigkeit().remove(MBE);
            list_FertigkeitZusaetze.remove((*MBE)->Name());
            if(MBE->LernArt()=="Fach")      lernpunkte.addFach( MBE->Lernpunkte());
            else if(MBE->LernArt()=="Allg") lernpunkte.addAllgemein( MBE->Lernpunkte());
            else if(MBE->LernArt()=="Unge") lernpunkte.addUnge( MBE->Lernpunkte());
-           else hauptfenster->set_info("Fehler beim Lernpunkte zurückstellen");
+           else hauptfenster->set_info("Fehler beim Lernpunkte zurÃ¼ckstellen");
            return;}
-       connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_selected));
+       connection = Tree_Lernschema_Zusatz->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_selected));
        break;
       }
      case MidgardBasicElement::ZTabelle:
@@ -155,7 +155,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
        std::vector<MidgardBasicElement::st_zusatz> VG=LernListen(hauptfenster->getCDatabase()).getMBEZusatz(MBE);
        for (std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=VG.begin();i!=VG.end();++i)
           datavec_zusatz.push_back(new Data_Zusatz(MBE,*i));
-       connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_selected));
+       connection = Tree_Lernschema_Zusatz->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_selected));
        break;
       }
      case MidgardBasicElement::ZNone : break;
@@ -206,7 +206,7 @@ void table_lernschema::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,cons
    {
      case MidgardBasicElement::ZHerkunft :
       {
-       frame_lernschema_zusatz->set_label("Herkunftsland wählen");
+       frame_lernschema_zusatz->set_label("Herkunftsland wÃ¤hlen");
        vs.push_back("Land");
        vs.push_back("Kontinent");
        vs.push_back("Sprache(n)");
@@ -216,7 +216,7 @@ void table_lernschema::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,cons
       }
      case MidgardBasicElement::ZUeberleben :
       {
-       frame_lernschema_zusatz->set_label("In welcher Gegend beherrscht dieser Abenteurer 'Überleben' als Universelle Fertigkeit");
+       frame_lernschema_zusatz->set_label("In welcher Gegend beherrscht dieser Abenteurer 'Ãœberleben' als Universelle Fertigkeit");
        vs.push_back((*MBE)->Name());
        vs.push_back("");
        vs.push_back("");
@@ -224,7 +224,7 @@ void table_lernschema::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,cons
       }
      case MidgardBasicElement::ZWaffe :
       {
-       frame_lernschema_zusatz->set_label("Fernkampfwaffe auswählen");
+       frame_lernschema_zusatz->set_label("Fernkampfwaffe auswÃ¤hlen");
        vs.push_back((*MBE)->Name());
        vs.push_back("");
        vs.push_back("");
@@ -232,7 +232,7 @@ void table_lernschema::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,cons
       }
      case MidgardBasicElement::ZTabelle :
       {
-       frame_lernschema_zusatz->set_label("Zusatz auswählen");
+       frame_lernschema_zusatz->set_label("Zusatz auswÃ¤hlen");
        vs.push_back((*MBE)->Name());
        vs.push_back("");
        vs.push_back("Region");
@@ -240,7 +240,7 @@ void table_lernschema::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,cons
       }
      case MidgardBasicElement::ZSchrift :
       {
-       frame_lernschema_zusatz->set_label("Schrift auswählen");
+       frame_lernschema_zusatz->set_label("Schrift auswÃ¤hlen");
        vs.push_back((*MBE)->Name());
        vs.push_back("");
        vs.push_back("");
@@ -257,11 +257,11 @@ void table_lernschema::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,cons
           std::string s,label;
           for(std::vector<std::string>::const_iterator i=W.begin();i!=W.end();)
               { s+=*i; if(++i!=W.end()) s+=", ";}
-          if(W.size()==1)  label ="Muttersprache ("+s+") wählen" ;
-          else label = "Eine Muttersprache wählen\n("+s+")" ;
+          if(W.size()==1)  label ="Muttersprache ("+s+") wÃ¤hlen" ;
+          else label = "Eine Muttersprache wÃ¤hlen\n("+s+")" ;
           frame_lernschema_zusatz->set_label(label);
         }
-       else frame_lernschema_zusatz->set_label("Sprache auswählen");
+       else frame_lernschema_zusatz->set_label("Sprache auswÃ¤hlen");
        vs.push_back((*MBE)->Name());
        vs.push_back("");
        vs.push_back("");

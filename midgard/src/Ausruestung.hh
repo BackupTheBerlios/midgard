@@ -90,7 +90,7 @@ class AusruestungBaum
       AusruestungBaum *getParent() const {return const_cast<AusruestungBaum*>(parent);}
       // reicht der hier nicht? CP
       // AusruestungBaum *getParent() {return parent;}
-      // dann könnte man :
+      // dann kÃ¶nnte man :
       // const AusruestungBaum *getParent() const {return parent;}
       void setParent(AusruestungBaum *p) {parent=p;}
 

@@ -50,16 +50,16 @@ table_ausruestung::table_ausruestung(GlademmData *_data)
                                            drag_icon_xpm); // data
 */
 
-// Ausruestung_tree->drag_drop.connect(slot(this,&(table_ausruestung::target_drag_drop)));
+// Ausruestung_tree->signal_drag_drop().connect(slot(this,&(table_ausruestung::target_drag_drop)));
 
   preise_tree_neu->drag_source_set ( static_cast < GdkModifierType > ( GDK_BUTTON1_MASK | GDK_BUTTON3_MASK ) ,
                              target_table, n_targets,
                              static_cast < GdkDragAction > ( GDK_ACTION_COPY | GDK_ACTION_MOVE ) );
 
-//  Ausruestung_tree->drag_data_received.connect(slot(this,&(table_ausruestung::drag_data_received)));
+//  Ausruestung_tree->signal_drag_data_received().connect(slot(this,&(table_ausruestung::drag_data_received)));
 
-  checkbutton_ausruestung_geld->drag_data_received.connect(SigC::slot(this,&table_ausruestung::tree_drag_data_received));
-  checkbutton_ausruestung_geld->drag_dest_set ( GTK_DEST_DEFAULT_ALL,
+  checkbutton_ausruestung_geld->signal_drag_data_received().connect(SigC::slot(*this,&table_ausruestung::tree_drag_data_received));
+  checkbutton_ausruestung_geld->drag_dest_set ( Gtk::DEST_DEFAULT_ALL,
                           target_table, n_targets - 1, /* no rootwin */
                           static_cast < GdkDragAction > ( GDK_ACTION_COPY | GDK_ACTION_MOVE) );
 

@@ -1,4 +1,4 @@
-// $Id: customize_toolbars.h,v 1.2 2002/05/16 06:43:08 christof Exp $
+// $Id: customize_toolbars.h,v 1.3 2002/12/11 18:18:50 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -19,7 +19,7 @@
 
 #ifndef CUSTOMIZE_TOOLBARS_H
 #define CUSTOMIZE_TOOLBARS_H
-#include <gtk--/widget.h>
+#include <gtkmm/widget.h>
 
 namespace Gtk
 {  void CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text, bool tab_text);

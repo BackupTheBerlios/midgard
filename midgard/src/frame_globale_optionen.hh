@@ -15,7 +15,7 @@
 
 class midgard_CG;
 #include "Optionen.hh"
-#include <gtk--/checkbutton.h>
+#include <gtkmm/checkbutton.h>
 
 
 class frame_globale_optionen : public frame_globale_optionen_glade

@@ -16,7 +16,7 @@
  */
 
 #include "midgard_CG.hh"
-#include <gtk--/main.h>
+#include <gtkmm/main.h>
 #include <unistd.h>
 #include "Windows_Linux.hh"
 
@@ -26,7 +26,7 @@ void midgard_CG::set_status(const std::string &s,bool autoclean)
   InfoFenster->AppendShowLog(s);
   if(autoclean)
 //     connection_status=
-      Gtk::Main::timeout.connect(slot(this,&midgard_CG::timeout_status),7000);
+      Gtk::Main::signal_timeout().connect(slot(this,&midgard_CG::timeout_status),7000);
 }
 
 gint midgard_CG::timeout_status()
@@ -66,7 +66,7 @@ void show_window(Gdk_Window &W)
  W.get_size(b,h);
  W.get_position(x,y);
  cout << "Position: x="<<itos(x)<<"  y="<<itos(y)<<" Br.="
- <<itos(b)<<"  Hö.="<<itos(h)<<'\n';
+ <<itos(b)<<"  HÃ¶.="<<itos(h)<<'\n';
 }
 */
 
@@ -207,7 +207,7 @@ void midgard_CG::on_schliessen_CG_clicked()
 
 void midgard_CG::on_button_quit_confirm_clicked()
 {
-//  connection_status.disconnect();
+//  connection_status.signal_di().connect();
   Gtk::Main::instance()->quit();
 }
 

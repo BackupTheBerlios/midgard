@@ -99,7 +99,7 @@ private:
        void fill_kido_lernschema();
        void on_tree_kido_lernschema_leaf_selected(cH_RowDataBase d);
 
-       // Ausrüstung
+       // AusrÃ¼stung
 //       void setStandardAusruestung();
 //       void setFertigkeitenAusruestung(AusruestungBaum &Rucksack);
        void setFertigkeitenAusruestung();

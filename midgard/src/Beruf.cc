@@ -63,7 +63,7 @@ void Beruf::get_Beruf()
         m=Stand->getBoolAttr("Mittelschicht");
         a=Stand->getBoolAttr("Adel");
      }
-     typ_k=Voraussetzungen->getBoolAttr("Kämpfer");
+     typ_k=Voraussetzungen->getBoolAttr("KÃ¤mpfer");
      typ_z=Voraussetzungen->getBoolAttr("Zauberer");
      stadt=Voraussetzungen->getBoolAttr("Stadt");
      land=Voraussetzungen->getBoolAttr("Land");
@@ -121,7 +121,7 @@ Beruf_All::Beruf_All()
     FOR_EACH_CONST_TAG_OF_5(i,*berufe,b,e,"Beruf")
     {  // if (!((++count)&31))
 // warum sowas?
-//    die Klasse cH_Beruf enthält den Cache, erzeuge ich nur einen Beruf, so
+//    die Klasse cH_Beruf enthÃ¤lt den Cache, erzeuge ich nur einen Beruf, so
 //    wird er nicht in den Cache (nach Namen) aufgenommen.
 //    Ich brauche aber einen cH_MidgardBasicElement, daher bilde ich einen
 //    Beruf* um danach (aus dem ebenfalls MidgardBasicElement*) ein 
@@ -135,22 +135,22 @@ Beruf_All::Beruf_All()
 
 std::string BerufsKategorie::wuerfeln(int wurf)
 {
- std::string kat=itos(wurf)+" gewürfelt: ";
- if(wurf<=20) kat+="Kein(e) Beruf/Fertigkeit wählbar";
+ std::string kat=itos(wurf)+" gewÃ¼rfelt: ";
+ if(wurf<=20) kat+="Kein(e) Beruf/Fertigkeit wÃ¤hlbar";
  if(21<=wurf&&wurf<=50)
-  { kat+="Eine Fertigkeit aus der Kategorie I wählbar";
+  { kat+="Eine Fertigkeit aus der Kategorie I wÃ¤hlbar";
     kat_I=true; }
  if(51<=wurf&&wurf<=80)
-  { kat+="Eine Fertigkeit aus der Kategorie I oder II wählbar";
+  { kat+="Eine Fertigkeit aus der Kategorie I oder II wÃ¤hlbar";
     kat_I=true; 
     kat_II=true;}
  if(81<=wurf&&wurf<=95)
-  { kat+="Eine Fertigkeit aus der Kategorie I,II oder III wählbar";
+  { kat+="Eine Fertigkeit aus der Kategorie I,II oder III wÃ¤hlbar";
     kat_I=true; 
     kat_II=true;
     kat_III=true;}
  if(96<=wurf&&wurf<=100)
-  { kat+="Eine Fert. aus der Kat. III oder IV oder zwei aus den Kat. I und II wählbar (aber trotzdem nur EIN Beruf)";
+  { kat+="Eine Fert. aus der Kat. III oder IV oder zwei aus den Kat. I und II wÃ¤hlbar (aber trotzdem nur EIN Beruf)";
     kat_I=true; 
     kat_II=true;
     kat_III=true;
@@ -162,7 +162,7 @@ std::string BerufsKategorie::wuerfeln(int wurf)
 bool Beruf::Berufsfertigkeit(Abenteurer& A,st_vorteil F)
 {
   if(F.name=="Schmecken+10")  A.getWerte().setSinn("Schmecken",10);
-  else if(F.gelernt) // Erfolgswert um eins erhöhen
+  else if(F.gelernt) // Erfolgswert um eins erhÃ¶hen
    {
     if(F.name=="Schreiben: Muttersprache(+12)")
      {for(std::list<MBEmlt>::iterator k=A.List_Schrift().begin();k!=A.List_Schrift().end();++k)

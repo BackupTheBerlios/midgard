@@ -93,7 +93,7 @@ void table_steigern::on_alte_sprache_reorder()
   switch((Data_SimpleTree::Spalten_LONG_ALT)seq[0]) {
       case Data_SimpleTree::NAMEa : hauptfenster->getChar()->List_Sprache().sort(MBEmlt::sort(MBEmlt::sort::NAME)); ;break;
       case Data_SimpleTree::WERTa : hauptfenster->getChar()->List_Sprache().sort(MBEmlt::sort(MBEmlt::sort::ERFOLGSWERT)); ;break;
-      default : hauptfenster->set_status("Sortieren nach diesem Parameter\n ist nicht mˆglich");
+      default : hauptfenster->set_status("Sortieren nach diesem Parameter\n ist nicht m√∂glich");
    }
 }
 
@@ -121,7 +121,7 @@ void table_steigern::neue_schrift_wegen_sprache()
   for(std::list<MBEmlt>::const_iterator i=hauptfenster->getChar()->List_Sprache().begin();i!=hauptfenster->getChar()->List_Sprache().end();++i)
    {
      if((*i)->Erfolgswert()<10) continue;
-     // welche Schriften gehˆren zu dieser Sprache?
+     // welche Schriften geh√∂ren zu dieser Sprache?
      std::vector<std::string> VS=cH_Sprache((*i)->getMBE())->Schrift();
      for(std::vector<std::string>::const_iterator j=VS.begin();j!=VS.end();++j)
       {

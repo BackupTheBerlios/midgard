@@ -1,4 +1,4 @@
-// $Id: Zauber.hh,v 1.46 2002/12/05 10:30:08 thoma Exp $               
+// $Id: Zauber.hh,v 1.47 2002/12/11 18:18:50 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -48,7 +48,7 @@ class Zauber : public MidgardBasicElement
 
    std::string Art() const { return art;}
    std::string Stufe() const {  return stufe; }
-   int iStufe() const {  if (Stufe()=="groﬂ") return 6; else return atoi(Stufe().c_str()); }
+   int iStufe() const {  if (Stufe()=="gro√ü") return 6; else return atoi(Stufe().c_str()); }
    std::string Zauberdauer() const { return zauberdauer;}
    std::string Zauberart() const { return zauberart;}
    std::string Reichweite() const {return reichweite;}   

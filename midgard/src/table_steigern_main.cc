@@ -17,8 +17,8 @@
 
 #include "midgard_CG.hh"
 #include "table_steigern.hh"
-//#include <gtk--/toolbar.h>
-#include <gtk--/pixmap.h>
+//#include <gtkmm/toolbar.h>
+#include <gtkmm/pixmap.h>
 #include "class_SimpleTree.hh"
 #include "class_SimpleTree_LernschemaZusatz.hh"
 
@@ -221,19 +221,19 @@ void table_steigern::fillClistZusatz(MBEmlt &MBE)
    {
      case MidgardBasicElement::ZLand :
       {        
-        title.push_back("Land ausw‰hlen");
+        title.push_back("Land ausw√§hlen");
         VZusatz=LL.getLandZusatz();
         break;
       }
      case MidgardBasicElement::ZWaffe :
       {      
-        title.push_back("Waffe ausw‰hlen");
+        title.push_back("Waffe ausw√§hlen");
         VZusatz=LL.getWaffenZusatz(hauptfenster->getChar()->List_Waffen());
         break;
       }
      case MidgardBasicElement::ZTabelle : 
       {
-        title.push_back((*MBE)->Name()+" ausw‰hlen");
+        title.push_back((*MBE)->Name()+" ausw√§hlen");
         title.push_back("Typ");
         title.push_back("Region");
         VZusatz=LL.getMBEZusatz(MBE);

@@ -1,4 +1,4 @@
-// $Id: customize_toolbars.cc,v 1.19 2002/10/24 07:39:30 thoma Exp $
+// $Id: customize_toolbars.cc,v 1.20 2002/12/11 18:18:50 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -18,14 +18,14 @@
  */
 
 #include "customize_toolbars.h"
-#include <gtk--/toolbar.h>
-#include <gtk--/label.h>
-#include <gtk--/table.h>
-#include <gtk--/pixmap.h>
-#include <gtk--/button.h>
-#include <gtk--/box.h>
-#include <gtk--/notebook.h>
-#include <gtk--/eventbox.h>
+#include <gtkmm/toolbar.h>
+#include <gtkmm/label.h>
+#include <gtkmm/table.h>
+#include <gtkmm/pixmap.h>
+#include <gtkmm/button.h>
+#include <gtkmm/box.h>
+#include <gtkmm/notebook.h>
+#include <gtkmm/eventbox.h>
 #include <typeinfo>
 // bin + container sind schon dabei
 
@@ -90,8 +90,8 @@ void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text, boo
    }
    else if (Gtk::Toolbar::isA(w))
    {  Gtk::Toolbar *tb=dynamic_cast<Gtk::Toolbar*>(w);
-      tb->set_style(show_icons ? (show_text?GTK_TOOLBAR_BOTH:GTK_TOOLBAR_ICONS)
-      		:GTK_TOOLBAR_TEXT);
+      tb->set_style(show_icons ? (show_text?Gtk::TOOLBAR_BOTH:Gtk::TOOLBAR_ICONS)
+      		:Gtk::TOOLBAR_TEXT);
       // recurse ?
    }
    else if (Gtk::Bin::isA(w))
@@ -107,7 +107,7 @@ void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text, boo
          CustomizeToolbars(*i,show_icons,show_text,tab_text);
 #endif
       // G_ListWrap<GtkTableChild*>
-      for (GList *liste=GTK_TABLE(w->gtkobj())->children;liste;
+      for (GList *liste=Gtk::TABLE(w->gobj())->children;liste;
       		liste=liste->next)
       {  CustomizeToolbars(Gtk::wrap(((GtkTableChild*)(liste->data))->widget),
       		show_icons,show_text,tab_text);

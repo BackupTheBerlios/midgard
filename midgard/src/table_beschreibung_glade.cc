@@ -41,7 +41,7 @@ table_beschreibung_glade::table_beschreibung_glade(GlademmData *_data
    Gtk::HBox *hbox71 = manage(new class Gtk::HBox(false, 0));
    button_grafik = manage(new class Gtk::Button());
    
-   Gtk::Label *label398 = manage(new class Gtk::Label("(Die Abenteurerbeschreibung darf sämtliche LaTeX Befehle enthalten)"));
+   Gtk::Label *label398 = manage(new class Gtk::Label("(Die Abenteurerbeschreibung darf sÃ¤mtliche LaTeX Befehle enthalten)"));
    Gtk::Label *label567 = manage(new class Gtk::Label("Breite des Bildes"));
    Gtk::Adjustment *spinbutton_pix_breite_adj = manage(new class Gtk::Adjustment(8, 3, 13, 1, 10, 10));
    spinbutton_pix_breite = manage(new class Gtk::SpinButton(*spinbutton_pix_breite_adj, 1, 0));
@@ -80,7 +80,7 @@ table_beschreibung_glade::table_beschreibung_glade(GlademmData *_data
    hbox71->pack_start(*pixmap148);
    hbox71->pack_start(*label_grafik, Gtk::PACK_SHRINK, 0);
    button_grafik->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*button_grafik, "Linke Maustaste: Grafik hinzufügen.                        Rechte Maustaste: Grafik entfernen.", "");
+   _tooltips.set_tip(*button_grafik, "Linke Maustaste: Grafik hinzufÃ¼gen.                        Rechte Maustaste: Grafik entfernen.", "");
    button_grafik->set_relief(Gtk::RELIEF_NORMAL);
    button_grafik->add(*hbox71);
    label398->set_alignment(0,0.5);

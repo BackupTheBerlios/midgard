@@ -57,7 +57,7 @@ class Zauberwerk : public MidgardBasicElement
 //   std::string Name() const {  return name; }
    std::string Art() const { return art; }
    std::string Stufe() const {  return stufe; }
-   int iStufe() const {  if (Stufe()=="groß") return 6; else return atoi(Stufe().c_str()); }
+   int iStufe() const {  if (Stufe()=="groÃŸ") return 6; else return atoi(Stufe().c_str()); }
    std::string Zeitaufwand() const { return zeitaufwand;}
 //   std::string Region() const {return region;}
    std::string Preis() const { return preis; }

@@ -1,4 +1,4 @@
-/* $Id: zufall.h,v 1.18 2002/09/06 20:58:52 thoma Exp $ */
+/* $Id: zufall.h,v 1.19 2002/12/11 18:18:50 christof Exp $ */
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,7 +19,7 @@
 #ifndef _ZUFALL_H
 #  define _ZUFALL_H 
 
-// nicht übermäßig glücklich, das in einem h File zu machen ...
+// nicht Ã¼bermÃ¤ÃŸig glÃ¼cklich, das in einem h File zu machen ...
 #include <stdlib.h>
 
 class Random {

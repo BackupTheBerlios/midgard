@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.53 2002/12/11 11:09:58 thoma Exp $
+// $Id: midgard.cc,v 1.54 2002/12/11 18:18:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -17,7 +17,7 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#include <gtk--/main.h>
+#include <gtkmm/main.h>
 #include "midgard_CG.hh"
 #include <unistd.h>
 #include "xml.h"
@@ -79,7 +79,7 @@ int main(int argc, char **argv)
          std::cerr << "Homeverzeichnis nicht schreibbar\n"; exit(1);
 #else
 	 // eigentlich ist es krank den ganzen Baum zu erzeugen, 
-	 // aber wir haben keine Wahl außer aufgeben
+	 // aber wir haben keine Wahl auÃŸer aufgeben
 	 for (std::string::size_type i=magus_verzeichnis.find(WinLux::dirsep);
 	 	i!=std::string::npos;i=magus_verzeichnis.find(WinLux::dirsep,i+1))
 	 {  if (i && access(magus_verzeichnis.substr(0,i).c_str(),R_OK))
@@ -109,7 +109,7 @@ int main(int argc, char **argv)
    }
 
 #ifdef __MINGW32__ // gtkrc als Standard Ressourcen Datei
-   std::string gtkrc="GTK_RC_FILES="
+   std::string gtkrc="Gtk::RC_FILES="
    	+magus_paths(argv0,magus_verzeichnis).with_path("gtkrc");
    std::cout << gtkrc << '\n';
    putenv(gtkrc.c_str());

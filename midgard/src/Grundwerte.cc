@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.44 2002/11/04 08:00:25 christof Exp $               
+// $Id: Grundwerte.cc,v 1.45 2002/12/11 18:18:50 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -160,7 +160,7 @@ int Grundwerte::bo_Psy(const std::vector<cH_Typen>& Typ) const
   if( bo_psyIn*bo_psyZt<=0) bo_psy = bo_psyIn+bo_psyZt;
   else 
    {
-     // Höheren Wert nehmen:
+     // HÃ¶heren Wert nehmen:
      bo_psy = (abs(bo_psyZt)>abs(bo_psyIn))?abs(bo_psyZt):abs(bo_psyIn);
      // Vorzeichen setzen:
      if(bo_psyZt<0) bo_psy*=-1;
@@ -196,7 +196,7 @@ int Grundwerte::bo_Phs(const std::vector<cH_Typen>& Typ) const
   if( bo_phsKo*bo_phsZt<=0) bo_phs = bo_phsKo+bo_phsZt;
   else 
    {
-     // Höheren Wert nehmen:
+     // HÃ¶heren Wert nehmen:
      bo_phs = (abs(bo_phsZt)>abs(bo_phsKo))?abs(bo_phsZt):abs(bo_phsKo);
      // Vorzeichen setzen:
      if(bo_phsZt<0) bo_phs*=-1;
@@ -296,7 +296,7 @@ void Grundwerte::setGrad1Werte(const std::vector<cH_Typen>& Typ)
 
 std::string Grundwerte::GroesseBez() const
 {
-  if     (Groesse()>180) return "groß";
+  if     (Groesse()>180) return "groÃŸ";
   else if(Groesse()>165) return "mittel";
   else return "klein";
 }
@@ -334,9 +334,9 @@ std::string Grundwerte::Ruestung_Abwehr_Verlust(const std::list<MBEmlt>& list_Fe
 {
  int v0 = Ruestung(0)->AbwehrBonus_Verlust(bo_Ab());
  int v1 = Ruestung(1)->AbwehrBonus_Verlust(bo_Ab());
- // Abzug, wenn in Vollrüstung gekämpft wird, obwohl die
+ // Abzug, wenn in VollrÃ¼stung gekÃ¤mpft wird, obwohl die
  // entsprechende Fertigkeit nicht beherrscht wird.
- bool kiv_gelernt=MBEmlt(&*cH_Fertigkeit("Kampf in Vollrüstung"))->ist_gelernt(list_Fertigkeit);
+ bool kiv_gelernt=MBEmlt(&*cH_Fertigkeit("Kampf in VollrÃ¼stung"))->ist_gelernt(list_Fertigkeit);
  if(Ruestung(0)->VollRuestungsAbzug()!=0 && !kiv_gelernt)
    v0 += Ruestung(0)->VollRuestungsAbzug();
  if(Ruestung(1)->VollRuestungsAbzug()!=0 && !kiv_gelernt)
@@ -353,9 +353,9 @@ std::string Grundwerte::Ruestung_Angriff_Verlust(const std::list<MBEmlt>& list_F
 {
  int v0 = Ruestung(0)->AngriffsBonus_Verlust(bo_An());
  int v1 = Ruestung(1)->AngriffsBonus_Verlust(bo_An());
- // Abzug, wenn in Vollrüstung gekämpft wird, obwohl die
+ // Abzug, wenn in VollrÃ¼stung gekÃ¤mpft wird, obwohl die
  // entsprechende Fertigkeit nicht beherrscht wird.
- bool kiv_gelernt=MBEmlt(&*cH_Fertigkeit("Kampf in Vollrüstung"))->ist_gelernt(list_Fertigkeit);
+ bool kiv_gelernt=MBEmlt(&*cH_Fertigkeit("Kampf in VollrÃ¼stung"))->ist_gelernt(list_Fertigkeit);
  if(Ruestung(0)->VollRuestungsAbzug()!=0 && !kiv_gelernt)
    v0 += Ruestung(0)->VollRuestungsAbzug();
  if(Ruestung(1)->VollRuestungsAbzug()!=0 && !kiv_gelernt)

@@ -47,7 +47,7 @@ Spezialgebiet::Spezialgebiet(const Tag *tag)
 {
  typ=tag->getAttr("Typ");
  spezial=tag->getAttr("Spezialisierung");
- spezial2=tag->getAttr("Sekundärelement");
+ spezial2=tag->getAttr("SekundÃ¤relement");
 }
 
 

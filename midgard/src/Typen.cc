@@ -17,7 +17,7 @@
  */
 
 #include "Typen.hh"
-#include "MidgardBasicElement.hh" // f¸r NotFound
+#include "MidgardBasicElement.hh" // f√ºr NotFound
 #include "Grundwerte.hh"
 
 cH_Typen::cache_t cH_Typen::cache;
@@ -31,7 +31,7 @@ cH_Typen::cH_Typen(const std::string& name ,bool create)
   if (create)
   {  static Tag t2("Typ"); 
      // note that this Tag is shared ... works well for now
-     t2.setAttr("Abk¸rzung",name);
+     t2.setAttr("Abk√ºrzung",name);
      t2.setAttr("Bezeichnung-Mann",name);
      t2.setAttr("Bezeichnung-Frau",name);
      *this=cH_Typen(&t2);
@@ -42,7 +42,7 @@ cH_Typen::cH_Typen(const std::string& name ,bool create)
 
 cH_Typen::cH_Typen(const Tag *tag)
 {*this=cH_Typen(new Typen(tag));
- cache.Register(tag->getAttr("Abk¸rzung"),*this);
+ cache.Register(tag->getAttr("Abk√ºrzung"),*this);
 }
 
 
@@ -55,7 +55,7 @@ bool Typen::Valid() const
 
 
 Typen::Typen(const Tag *tag)
-: typs(tag->getAttr("Abk¸rzung"))
+: typs(tag->getAttr("Abk√ºrzung"))
   ,typnr(tag->getIntAttr("MAGUS-Index",tag->getIntAttr("MCG-Index")))
   ,stand(0),sb(0),ruestung(0),geld(0)
 {
@@ -67,14 +67,14 @@ Typen::Typen(const Tag *tag)
  if (Modifikation)
  {  stand=Modifikation->getIntAttr("Stand");
     sb=Modifikation->getIntAttr("Sb");
-    ruestung=Modifikation->getIntAttr("R¸stung");
+    ruestung=Modifikation->getIntAttr("R√ºstung");
     geld=Modifikation->getIntAttr("Geld");
  }
  region=tag->getAttr("Region");
  beruf=tag->getAttr("Berufswahl");
  land=tag->getBoolAttr("Land",true);
  stadt=tag->getBoolAttr("Stadt",true);
- sprueche_mit_pp=tag->getAttr("Spr¸cheMitPraxisPunkten");
+ sprueche_mit_pp=tag->getAttr("Spr√ºcheMitPraxisPunkten");
  nsc_only=tag->getBoolAttr("NSC_only",false);
  kultwaffe=tag->getBoolAttr("Kultwaffe",false);
  lernpflichten_info=tag->getAttr("Lernpflichten");
@@ -171,10 +171,10 @@ std::string Typen::getLernpflichtenInfo(cH_Land herkunft) const
        vk.push_back(i->kultwaffe);
    }
   if(vk.empty())  return lernpflichten_info;
-  std::string K="F¸r einen "+Short()+" muﬂ als erstes ";
+  std::string K="F√ºr einen "+Short()+" mu√ü als erstes ";
   if(vk.size()==1) K+="die ";
   else K+="eine ";
-  K+="Kultwaffe gew‰hlt werden: ";
+  K+="Kultwaffe gew√§hlt werden: ";
   if(vk.size()!=1) K+="\n";
   for(std::vector<std::string>::const_iterator i=vk.begin();i!=vk.end();++i)
    {

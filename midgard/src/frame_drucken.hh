@@ -15,7 +15,7 @@
 
 class midgard_CG;
 #include "Optionen.hh"
-#include <gtk--/radiobutton.h>
+#include <gtkmm/radiobutton.h>
 
 
 class frame_drucken : public frame_drucken_glade

@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.86 2002/11/28 15:38:31 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.87 2002/12/11 18:18:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -131,11 +131,11 @@ void LaTeX_drucken::LaTeX_write_values(std::ostream &fout,const std::string &ins
  for (std::list<MBEmlt>::const_iterator i=hauptfenster->getChar()->List_WaffenGrund().begin();i!=hauptfenster->getChar()->List_WaffenGrund().end();++i)
    {
       std::string sout = (*(*i))->Name();
-      if (sout =="Bˆgen") sout = "Bogen";
-      if (sout =="Wurfspieﬂ") sout = "Wurfspiess";
-      if (sout =="Spieﬂwaffe") sout = "Spiesswaffe";
+      if (sout =="B√∂gen") sout = "Bogen";
+      if (sout =="Wurfspie√ü") sout = "Wurfspiess";
+      if (sout =="Spie√üwaffe") sout = "Spiesswaffe";
       if (sout =="Kampf ohne Waffen") sout = "KampfohneWaffen";
-      if (sout =="Zauberst‰be") sout = "Zauberstaebe";
+      if (sout =="Zauberst√§be") sout = "Zauberstaebe";
       fout << "\\sbox{\\"<<sout<<"}{\\tiny X}\n";
    }
 
@@ -442,7 +442,7 @@ void LaTeX_drucken::write_sprachen(std::ostream &fout,const std::vector<Sprache_
       fout << "\n";
    }
  if(!longlist)
-  for (unsigned int i=sprachanz; i<maxsprach;++i) // Bis zum Ende auff¸llen
+  for (unsigned int i=sprachanz; i<maxsprach;++i) // Bis zum Ende auff√ºllen
    {
       std::string a = LaTeX_string(i);
       fout << "\\newcommand{\\spra"<<a<<"}{\\scriptsize }\n";
@@ -509,15 +509,15 @@ void LaTeX_drucken::write_waffenbesitz(std::ostream &fout,const std::list<WaffeB
      if (i->Magisch()!="" || i->av_Bonus()!=0 || i->sl_Bonus()!=0) 
          waffenname+="$^*$ "+i->Bonus() ;
      std::string swert;
-     if (i->Waffe()->Verteidigung()) // Erfolgswert f¸r Verteidigungswaffen
+     if (i->Waffe()->Verteidigung()) // Erfolgswert f√ºr Verteidigungswaffen
       {
         int wert = i->Erfolgswert()+i->av_Bonus()+i->Waffe()->WM_Angriff(i->AliasName());
         swert=itos(wert);
       }
-     else  // Erfolgswert f¸r Angriffswaffen
+     else  // Erfolgswert f√ºr Angriffswaffen
       {
         int wert = i->Erfolgswert()+hauptfenster->getWerte().bo_An()+i->av_Bonus()+i->Waffe()->WM_Angriff(i->AliasName());
-        // Angriffsbonus subtrahieren, wenn schwere R¸stung getragen wird:
+        // Angriffsbonus subtrahieren, wenn schwere R√ºstung getragen wird:
         swert = itos(wert)+angriffsverlust;
       }
      std::string schaden=i->Schaden(hauptfenster->getWerte(),i->AliasName());
@@ -581,7 +581,7 @@ void LaTeX_drucken::write_universelle(std::ostream &fout)
     if   (iwert>=0) wert = "+"+itos(iwert);
     else            wert = "--"+itos(abs(iwert));
     
-    if     (name=="Geheimmechanismen ˆffnen") name = "Geheimmech. ˆffnen";
+    if     (name=="Geheimmechanismen √∂ffnen") name = "Geheimmech. √∂ffnen";
     else if(name=="Landeskunde (Heimat)") name = "Landeskunde ("+hauptfenster->getWerte().Herkunft()->Name()+")";
 
     if (!i->gelernt)
@@ -595,7 +595,7 @@ void LaTeX_drucken::write_universelle(std::ostream &fout)
      }
   } 
 
- // Universelle Fertigkeiten auff¸llen
+ // Universelle Fertigkeiten auff√ºllen
  for (unsigned int i=countunifert; i<maxunifert;++i)
    {
       std::string a = LaTeX_string(i);
@@ -622,7 +622,7 @@ void LaTeX_drucken::write_long_list(std::ostream &fout,const std::vector<Sprache
           "\\footnotesize"
           "\\begin{tabular}[t]{|p{4cm}|c|r|}\\hline\n"
           "\\multicolumn{3}{|c|}{\\small angeborene und erlernte}\\\\\n"
-          "\\multicolumn{3}{|c|}{\\small F‰higkeiten und Waffenfertigkeiten}\\\\[1ex]\n"
+          "\\multicolumn{3}{|c|}{\\small F√§higkeiten und Waffenfertigkeiten}\\\\[1ex]\n"
           "\\normalsize Fertigkeit&{$\\!$\\normalsize PP$\\!$}&{$\\!\\!$\\normalsize EW$\\!\\!$}\\\\\\hline\\hline\n";
   write_fertigkeiten(fout,F,true);
   fout << "\\hline\n\\end{tabular}}\n";
@@ -974,7 +974,7 @@ void LaTeX_drucken::LaTeX_kido(std::ostream &fout)
      std::string ap = itos(kd->Ap());
      if (ap=="0") ap="";
      std::string stufe=kd->Stufe();
-     if (stufe=="Sch¸ler") stufe="S";
+     if (stufe=="Sch√ºler") stufe="S";
      if (stufe=="Eingeweihter") stufe="E";
      if (stufe=="Meister") stufe="M";
      fout << ap << " & ";

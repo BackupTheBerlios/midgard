@@ -104,7 +104,7 @@
 	    <handler>on_laden_release_event</handler>
 	    <last_modification_time>Mon, 21 May 2001 19:02:36 GMT</last_modification_time>
 	  </signal>
-	  <label>Öffnen</label>
+	  <label>Ã–ffnen</label>
 	  <icon>LoadChar-trans-50.xpm</icon>
 	</widget>
 
@@ -128,7 +128,7 @@
 	  <child_name>Toolbar:button</child_name>
 	  <name>button_main_drucken</name>
 	  <cxx_visibility>protected</cxx_visibility>
-	  <tooltip>Linke Maustaste: LaTeX Abenteurerblatt drucken (pdf Datei). Mittlere Maustaste: Charakterbeschreibung drucken. Rechte Maustaste: Ausrüstung drucken.</tooltip>
+	  <tooltip>Linke Maustaste: LaTeX Abenteurerblatt drucken (pdf Datei). Mittlere Maustaste: Charakterbeschreibung drucken. Rechte Maustaste: AusrÃ¼stung drucken.</tooltip>
 	  <can_focus>True</can_focus>
 	  <signal>
 	    <name>button_release_event</name>
@@ -144,14 +144,14 @@
 	  <child_name>Toolbar:button</child_name>
 	  <name>button_undo</name>
 	  <cxx_visibility>protected</cxx_visibility>
-	  <tooltip>Letzte Änderung rückgängig machen.</tooltip>
+	  <tooltip>Letzte Ã„nderung rÃ¼ckgÃ¤ngig machen.</tooltip>
 	  <can_focus>True</can_focus>
 	  <signal>
 	    <name>clicked</name>
 	    <handler>on_button_undo_clicked</handler>
 	    <last_modification_time>Fri, 12 Apr 2002 11:23:41 GMT</last_modification_time>
 	  </signal>
-	  <label>Zurück</label>
+	  <label>ZurÃ¼ck</label>
 	  <icon>Undo.xpm</icon>
 	  <child>
 	    <new_group>True</new_group>
@@ -163,14 +163,14 @@
 	  <child_name>Toolbar:button</child_name>
 	  <name>button_redo</name>
 	  <cxx_visibility>protected</cxx_visibility>
-	  <tooltip>Rückgängmachen rückgängig machen</tooltip>
+	  <tooltip>RÃ¼ckgÃ¤ngmachen rÃ¼ckgÃ¤ngig machen</tooltip>
 	  <can_focus>True</can_focus>
 	  <signal>
 	    <name>clicked</name>
 	    <handler>on_button_redo_clicked</handler>
 	    <last_modification_time>Fri, 12 Apr 2002 11:23:10 GMT</last_modification_time>
 	  </signal>
-	  <label>Vorwärts</label>
+	  <label>VorwÃ¤rts</label>
 	  <icon>redo.xpm</icon>
 	</widget>
 
@@ -178,14 +178,14 @@
 	  <class>GtkButton</class>
 	  <child_name>Toolbar:button</child_name>
 	  <name>button_menu</name>
-	  <tooltip>Dieses Menü ist auch über die rechte Maustaste (an fast jeder beliebiegen Stelle im Programm) verfügbar.</tooltip>
+	  <tooltip>Dieses MenÃ¼ ist auch Ã¼ber die rechte Maustaste (an fast jeder beliebiegen Stelle im Programm) verfÃ¼gbar.</tooltip>
 	  <can_focus>True</can_focus>
 	  <signal>
 	    <name>button_release_event</name>
 	    <handler>on_button_menu_button_release_event</handler>
 	    <last_modification_time>Sat, 05 Jan 2002 09:11:37 GMT</last_modification_time>
 	  </signal>
-	  <label>Menü</label>
+	  <label>MenÃ¼</label>
 	  <icon>wizzard-trans-50_2.xpm</icon>
 	  <child>
 	    <new_group>True</new_group>
@@ -227,14 +227,14 @@
 	  <child_name>Toolbar:button</child_name>
 	  <name>button_schliessen</name>
 	  <cxx_visibility>protected</cxx_visibility>
-	  <tooltip>Schließen</tooltip>
+	  <tooltip>SchlieÃŸen</tooltip>
 	  <can_focus>True</can_focus>
 	  <signal>
 	    <name>clicked</name>
 	    <handler>on_schliessen_CG_clicked</handler>
 	    <last_modification_time>Fri, 30 Mar 2001 19:47:22 GMT</last_modification_time>
 	  </signal>
-	  <label>Schließen</label>
+	  <label>SchlieÃŸen</label>
 	  <icon>Exit-trans-50.xpm</icon>
 	  <child>
 	    <new_group>True</new_group>
@@ -356,7 +356,7 @@
 		<handler>xml_import_auswahl</handler>
 		<last_modification_time>Fri, 12 Apr 2002 12:00:27 GMT</last_modification_time>
 	      </signal>
-	      <label>Öffnen</label>
+	      <label>Ã–ffnen</label>
 	      <right_justify>False</right_justify>
 	    </widget>
 
@@ -402,13 +402,13 @@
 		<widget>
 		  <class>GtkMenuItem</class>
 		  <name>exportieren</name>
-		  <tooltip>Der Charakter wird im Format für NSCs in publizierten Abenteurern gespeichert</tooltip>
+		  <tooltip>Der Charakter wird im Format fÃ¼r NSCs in publizierten Abenteurern gespeichert</tooltip>
 		  <signal>
 		    <name>activate</name>
 		    <handler>on_exportieren_activate</handler>
 		    <last_modification_time>Mon, 13 May 2002 11:55:31 GMT</last_modification_time>
 		  </signal>
-		  <label>Exportieren für gedruckte Abenteuer</label>
+		  <label>Exportieren fÃ¼r gedruckte Abenteuer</label>
 		  <right_justify>False</right_justify>
 		</widget>
 
@@ -420,7 +420,7 @@
 		    <handler>on_exportieren_ranas_pdf_dokumente_activate</handler>
 		    <last_modification_time>Mon, 09 Dec 2002 19:37:39 GMT</last_modification_time>
 		  </signal>
-		  <label>Exportieren für Ranas pdf-Dokumente</label>
+		  <label>Exportieren fÃ¼r Ranas pdf-Dokumente</label>
 		  <right_justify>False</right_justify>
 		</widget>
 	      </widget>
@@ -461,13 +461,13 @@
 
 		<widget>
 		  <class>GtkMenuItem</class>
-		  <name>ausrüstungsdokument</name>
-		  <label>Ausrüstungsdokument</label>
+		  <name>ausrÃ¼stungsdokument</name>
+		  <label>AusrÃ¼stungsdokument</label>
 		  <right_justify>False</right_justify>
 
 		  <widget>
 		    <class>GtkMenu</class>
-		    <name>ausrüstungsdokument_menu</name>
+		    <name>ausrÃ¼stungsdokument_menu</name>
 
 		    <widget>
 		      <class>GtkMenuItem</class>
@@ -571,7 +571,7 @@
 		<widget>
 		  <class>GtkMenuItem</class>
 		  <name>spielleiterbogen_drucken</name>
-		  <tooltip>Der Spielleiterbogen enthält die wichtigsten Informationen für alle momentan geladenen Abenteurer auf einer Seite</tooltip>
+		  <tooltip>Der Spielleiterbogen enthÃ¤lt die wichtigsten Informationen fÃ¼r alle momentan geladenen Abenteurer auf einer Seite</tooltip>
 		  <accelerator>
 		    <modifiers>GDK_MOD1_MASK</modifiers>
 		    <key>GDK_S</key>
@@ -636,7 +636,7 @@
 
 	    <widget>
 	      <class>GtkMenuItem</class>
-	      <name>rückgängig1</name>
+	      <name>rÃ¼ckgÃ¤ngig1</name>
 	      <accelerator>
 		<modifiers>GDK_CONTROL_MASK</modifiers>
 		<key>GDK_Z</key>
@@ -647,13 +647,13 @@
 		<handler>on_button_undo_clicked</handler>
 		<last_modification_time>Fri, 12 Apr 2002 11:32:34 GMT</last_modification_time>
 	      </signal>
-	      <label>Rückgängig</label>
+	      <label>RÃ¼ckgÃ¤ngig</label>
 	      <right_justify>False</right_justify>
 	    </widget>
 
 	    <widget>
 	      <class>GtkMenuItem</class>
-	      <name>erneut_vorwärts1</name>
+	      <name>erneut_vorwÃ¤rts1</name>
 	      <accelerator>
 		<modifiers>GDK_CONTROL_MASK</modifiers>
 		<key>GDK_R</key>
@@ -664,7 +664,7 @@
 		<handler>on_button_redo_clicked</handler>
 		<last_modification_time>Fri, 12 Apr 2002 11:32:34 GMT</last_modification_time>
 	      </signal>
-	      <label>Erneut/Vorwärts</label>
+	      <label>Erneut/VorwÃ¤rts</label>
 	      <right_justify>False</right_justify>
 	    </widget>
 
@@ -1109,7 +1109,7 @@
 		<widget>
 		  <class>GtkLabel</class>
 		  <name>label329</name>
-		  <label>Knöpfe, Logo
+		  <label>KnÃ¶pfe, Logo
 &amp; HTML</label>
 		  <justify>GTK_JUSTIFY_CENTER</justify>
 		  <wrap>False</wrap>
@@ -1137,7 +1137,7 @@
 		  <class>GtkLabel</class>
 		  <name>label331</name>
 		  <label>Gtk, C++ &amp; xml
-Unterstützung</label>
+UnterstÃ¼tzung</label>
 		  <justify>GTK_JUSTIFY_LEFT</justify>
 		  <wrap>False</wrap>
 		  <xalign>0</xalign>
@@ -2285,7 +2285,7 @@ Sven Rey, Markus Steinberg, Ottmar Zimmer und viele andere geholfen.</label>
 		  <name>button_grda1setzen</name>
 		  <cxx_visibility>protected</cxx_visibility>
 		  <visible>False</visible>
-		  <tooltip>Wird nicht der Knopf 'Abgeleitete Werte' gedrückt, weil der Abenteurer eingegeben wurde, so können mit diesem Knopf die Berechnung der Erfolgswerte (einschließlich des Erfolgswertes für 'Sechster Sinn') gesetzt werden.</tooltip>
+		  <tooltip>Wird nicht der Knopf 'Abgeleitete Werte' gedrÃ¼ckt, weil der Abenteurer eingegeben wurde, so kÃ¶nnen mit diesem Knopf die Berechnung der Erfolgswerte (einschlieÃŸlich des Erfolgswertes fÃ¼r 'Sechster Sinn') gesetzt werden.</tooltip>
 		  <can_focus>True</can_focus>
 		  <signal>
 		    <name>clicked</name>
@@ -2333,7 +2333,7 @@ Sven Rey, Markus Steinberg, Ottmar Zimmer und viele andere geholfen.</label>
 		    <widget>
 		      <class>GtkLabel</class>
 		      <name>label543</name>
-		      <label>Werte für
+		      <label>Werte fÃ¼r
 Grad 1
 setzen</label>
 		      <justify>GTK_JUSTIFY_CENTER</justify>
@@ -2356,7 +2356,7 @@ setzen</label>
 	    <widget>
 	      <class>GtkFrame</class>
 	      <name>frame56</name>
-	      <label>persönliche Boni für</label>
+	      <label>persÃ¶nliche Boni fÃ¼r</label>
 	      <label_xalign>0</label_xalign>
 	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
 	      <child>
@@ -2677,7 +2677,7 @@ setzen</label>
 		<widget>
 		  <class>GtkLabel</class>
 		  <name>label187</name>
-		  <label>Körpermagie</label>
+		  <label>KÃ¶rpermagie</label>
 		  <justify>GTK_JUSTIFY_CENTER</justify>
 		  <wrap>False</wrap>
 		  <xalign>0</xalign>
@@ -4070,7 +4070,7 @@ setzen</label>
 		<widget>
 		  <class>GtkLabel</class>
 		  <name>label496</name>
-		  <label>Hören</label>
+		  <label>HÃ¶ren</label>
 		  <justify>GTK_JUSTIFY_LEFT</justify>
 		  <wrap>False</wrap>
 		  <xalign>0</xalign>
@@ -4658,7 +4658,7 @@ setzen</label>
 	    <widget>
 	      <class>GtkFrame</class>
 	      <name>frame17</name>
-	      <label>Größe (cm)</label>
+	      <label>GrÃ¶ÃŸe (cm)</label>
 	      <label_xalign>0</label_xalign>
 	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
 	      <child>
@@ -5077,7 +5077,7 @@ setzen</label>
 	    <widget>
 	      <class>GtkEventBox</class>
 	      <name>eventbox12</name>
-	      <tooltip>Göttliche Gnade</tooltip>
+	      <tooltip>GÃ¶ttliche Gnade</tooltip>
 	      <child>
 		<left_attach>5</left_attach>
 		<right_attach>6</right_attach>
@@ -5489,7 +5489,7 @@ setzen</label>
 		<class>GtkRadioButton</class>
 		<name>radiobutton_eigenschaften_standard</name>
 		<cxx_visibility>protected</cxx_visibility>
-		<tooltip>2x für jede Eigenschaft würfeln, das höhere Ergebnis zählt.</tooltip>
+		<tooltip>2x fÃ¼r jede Eigenschaft wÃ¼rfeln, das hÃ¶here Ergebnis zÃ¤hlt.</tooltip>
 		<can_focus>True</can_focus>
 		<label>Standard</label>
 		<active>True</active>
@@ -5506,7 +5506,7 @@ setzen</label>
 		<class>GtkRadioButton</class>
 		<name>radiobutton_eigenschaften_zuweisen</name>
 		<cxx_visibility>protected</cxx_visibility>
-		<tooltip>2x würfeln, den besseren Wert an eine Eigenschaft zuweisen, das ganze sechsmal wiederholen.</tooltip>
+		<tooltip>2x wÃ¼rfeln, den besseren Wert an eine Eigenschaft zuweisen, das ganze sechsmal wiederholen.</tooltip>
 		<can_focus>True</can_focus>
 		<label>Zuweisen</label>
 		<active>False</active>
@@ -5523,7 +5523,7 @@ setzen</label>
 		<class>GtkRadioButton</class>
 		<name>radiobutton_eigenschaften_69</name>
 		<cxx_visibility>protected</cxx_visibility>
-		<tooltip>9x würfeln, die besten sechs Ergebnisse frei verteilen.</tooltip>
+		<tooltip>9x wÃ¼rfeln, die besten sechs Ergebnisse frei verteilen.</tooltip>
 		<can_focus>True</can_focus>
 		<label>6 von 9</label>
 		<active>False</active>
@@ -5542,7 +5542,7 @@ setzen</label>
 	      <child_name>Toolbar:button</child_name>
 	      <name>button_grundwerte</name>
 	      <cxx_visibility>protected</cxx_visibility>
-	      <tooltip>Linke Maustaste: 2x für jede Basiseigenschaft würfeln, höheres Ergebnis zählt. Mittlere Maustaste: 2x würfeln, besseren Wert einer Basiseigenschaft zuweisen das ganze 6x wiederholen. Rechte Maustaste: 9x würfeln und die besten sechs Ergebnisse frei verteilen. ACHTUNG: Die Sonderregeln für Nichtmenschen werden nur bei der ersten Variante berücksichtigt.</tooltip>
+	      <tooltip>Linke Maustaste: 2x fÃ¼r jede Basiseigenschaft wÃ¼rfeln, hÃ¶heres Ergebnis zÃ¤hlt. Mittlere Maustaste: 2x wÃ¼rfeln, besseren Wert einer Basiseigenschaft zuweisen das ganze 6x wiederholen. Rechte Maustaste: 9x wÃ¼rfeln und die besten sechs Ergebnisse frei verteilen. ACHTUNG: Die Sonderregeln fÃ¼r Nichtmenschen werden nur bei der ersten Variante berÃ¼cksichtigt.</tooltip>
 	      <can_focus>True</can_focus>
 	      <signal>
 		<name>button_release_event</name>
@@ -5572,7 +5572,7 @@ schaften</label>
 		  <handler>on_radiobutton_mann_toggled</handler>
 		  <last_modification_time>Thu, 03 May 2001 20:43:35 GMT</last_modification_time>
 		</signal>
-		<label>männlich</label>
+		<label>mÃ¤nnlich</label>
 		<active>True</active>
 		<draw_indicator>True</draw_indicator>
 		<group>geschlecht</group>
@@ -5789,7 +5789,7 @@ Werte</label>
 	    <class>GtkFrame</class>
 	    <name>frame_wuerfelvariante</name>
 	    <cxx_visibility>protected</cxx_visibility>
-	    <label>Würfelvariante</label>
+	    <label>WÃ¼rfelvariante</label>
 	    <label_xalign>0</label_xalign>
 	    <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
 	    <child>
@@ -5915,7 +5915,7 @@ Werte</label>
 	      <class>GtkFrame</class>
 	      <name>frame_lernpunkte</name>
 	      <cxx_visibility>protected</cxx_visibility>
-	      <label>Lernpunkte für</label>
+	      <label>Lernpunkte fÃ¼r</label>
 	      <label_xalign>0</label_xalign>
 	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
 	      <child>
@@ -6299,7 +6299,7 @@ Werte</label>
 		<widget>
 		  <class>GtkFrame</class>
 		  <name>frame80</name>
-		  <label>Ungewöhnl. Fertigk.</label>
+		  <label>UngewÃ¶hnl. Fertigk.</label>
 		  <label_xalign>0</label_xalign>
 		  <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
 		  <child>
@@ -6545,7 +6545,7 @@ Werte</label>
 			  <class>GtkLabel</class>
 			  <name>label540</name>
 			  <label>KiDo Techniken
-auswählen</label>
+auswÃ¤hlen</label>
 			  <justify>GTK_JUSTIFY_CENTER</justify>
 			  <wrap>False</wrap>
 			  <xalign>0.5</xalign>
@@ -6968,7 +6968,7 @@ auswählen</label>
 	      <widget>
 		<class>GtkFrame</class>
 		<name>frame101</name>
-		<label>Rüstungsklasse</label>
+		<label>RÃ¼stungsklasse</label>
 		<label_xalign>0</label_xalign>
 		<shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
 		<child>
@@ -7004,7 +7004,7 @@ auswählen</label>
 		<class>GtkToggleButton</class>
 		<name>togglebutton_spezialwaffe</name>
 		<cxx_visibility>protected</cxx_visibility>
-		<tooltip>Nach dem Drücken dieses Knopfes kann eine Spezialwaffe gewählt werden. Entweder eine Nahkampfwaffe die 1 LP gekostet hat, oder eine Fernkampfwaffe, die höchstens 2 LP gekostet hat.</tooltip>
+		<tooltip>Nach dem DrÃ¼cken dieses Knopfes kann eine Spezialwaffe gewÃ¤hlt werden. Entweder eine Nahkampfwaffe die 1 LP gekostet hat, oder eine Fernkampfwaffe, die hÃ¶chstens 2 LP gekostet hat.</tooltip>
 		<can_focus>True</can_focus>
 		<signal>
 		  <name>toggled</name>
@@ -7054,7 +7054,7 @@ auswählen</label>
 		    <class>GtkLabel</class>
 		    <name>label545</name>
 		    <label>Spezialwaffe
-auswählen</label>
+auswÃ¤hlen</label>
 		    <justify>GTK_JUSTIFY_CENTER</justify>
 		    <wrap>False</wrap>
 		    <xalign>0.5</xalign>
@@ -7577,7 +7577,7 @@ auswählen</label>
 		    <widget>
 		      <class>GtkLabel</class>
 		      <name>label602</name>
-		      <label>Einschränkungen aufheben</label>
+		      <label>EinschrÃ¤nkungen aufheben</label>
 		      <justify>GTK_JUSTIFY_CENTER</justify>
 		      <wrap>False</wrap>
 		      <xalign>0</xalign>
@@ -7669,7 +7669,7 @@ auswählen</label>
 		<class>GtkButton</class>
 		<name>button_angeborene_fert</name>
 		<cxx_visibility>protected</cxx_visibility>
-		<tooltip>Linke Maustaste: Würfeln                          Rechte Maustaste: Auswählen (Abbruch dann mit 'Lernpunkte')</tooltip>
+		<tooltip>Linke Maustaste: WÃ¼rfeln                          Rechte Maustaste: AuswÃ¤hlen (Abbruch dann mit 'Lernpunkte')</tooltip>
 		<can_focus>True</can_focus>
 		<signal>
 		  <name>button_release_event</name>
@@ -7727,7 +7727,7 @@ auswählen</label>
 		<child_name>Toolbar:button</child_name>
 		<name>button_lernpunkte</name>
 		<cxx_visibility>protected</cxx_visibility>
-		<tooltip>Lernpunkte würfeln</tooltip>
+		<tooltip>Lernpunkte wÃ¼rfeln</tooltip>
 		<can_focus>True</can_focus>
 		<signal>
 		  <name>clicked</name>
@@ -7746,7 +7746,7 @@ auswählen</label>
 		<child_name>Toolbar:button</child_name>
 		<name>togglebutton_lernpunkte_edit</name>
 		<cxx_visibility>protected</cxx_visibility>
-		<tooltip>Lernpunkte editieren und/oder %Wurf für Berufswahl eingeben.</tooltip>
+		<tooltip>Lernpunkte editieren und/oder %Wurf fÃ¼r Berufswahl eingeben.</tooltip>
 		<can_focus>True</can_focus>
 		<signal>
 		  <name>toggled</name>
@@ -7801,7 +7801,7 @@ auswählen</label>
 		  <widget>
 		    <class>GtkLabel</class>
 		    <name>label557</name>
-		    <label>%Wurf für
+		    <label>%Wurf fÃ¼r
 Beruf eingeben</label>
 		    <justify>GTK_JUSTIFY_CENTER</justify>
 		    <wrap>False</wrap>
@@ -7855,7 +7855,7 @@ Beruf eingeben</label>
 		    <class>GtkSpinButton</class>
 		    <name>spinbutton_beruf</name>
 		    <cxx_visibility>protected</cxx_visibility>
-		    <tooltip>%Wurf für den Beruf eingeben</tooltip>
+		    <tooltip>%Wurf fÃ¼r den Beruf eingeben</tooltip>
 		    <can_focus>True</can_focus>
 		    <signal>
 		      <name>activate</name>
@@ -7953,7 +7953,7 @@ Beruf eingeben</label>
 		<child_name>Toolbar:button</child_name>
 		<name>button_lernschema_geld</name>
 		<cxx_visibility>protected</cxx_visibility>
-		<tooltip>Linke Maustaste: Geld würfeln             Rechte Maustaste: Geld eingeben</tooltip>
+		<tooltip>Linke Maustaste: Geld wÃ¼rfeln             Rechte Maustaste: Geld eingeben</tooltip>
 		<can_focus>True</can_focus>
 		<signal>
 		  <name>button_release_event</name>
@@ -7972,7 +7972,7 @@ Beruf eingeben</label>
 		<child_name>Toolbar:button</child_name>
 		<name>button_lernschema_waffen</name>
 		<cxx_visibility>protected</cxx_visibility>
-		<tooltip>Linke Maustaste: Waffen auswürfeln            Rechte Maustaste: Waffen aussuchen</tooltip>
+		<tooltip>Linke Maustaste: Waffen auswÃ¼rfeln            Rechte Maustaste: Waffen aussuchen</tooltip>
 		<can_focus>True</can_focus>
 		<signal>
 		  <name>button_release_event</name>
@@ -8071,14 +8071,14 @@ eingeben</label>
 		<child_name>Toolbar:button</child_name>
 		<name>button_ruestung</name>
 		<cxx_visibility>protected</cxx_visibility>
-		<tooltip>Linke Maustaste: Rüstung würfeln                                 Rechte Maustaste: Rüstung aussuchen</tooltip>
+		<tooltip>Linke Maustaste: RÃ¼stung wÃ¼rfeln                                 Rechte Maustaste: RÃ¼stung aussuchen</tooltip>
 		<can_focus>True</can_focus>
 		<signal>
 		  <name>button_release_event</name>
 		  <handler>on_button_ruestung_button_release_event</handler>
 		  <last_modification_time>Mon, 25 Feb 2002 09:49:31 GMT</last_modification_time>
 		</signal>
-		<label>Rüstung</label>
+		<label>RÃ¼stung</label>
 		<icon>Dice_Armor-trans-50.xpm</icon>
 	      </widget>
 
@@ -8087,14 +8087,14 @@ eingeben</label>
 		<child_name>Toolbar:button</child_name>
 		<name>button_ausruestung</name>
 		<cxx_visibility>protected</cxx_visibility>
-		<tooltip>Ausrüstung aufgrund bestimmter Fertigkeiten würfeln</tooltip>
+		<tooltip>AusrÃ¼stung aufgrund bestimmter Fertigkeiten wÃ¼rfeln</tooltip>
 		<can_focus>True</can_focus>
 		<signal>
 		  <name>button_release_event</name>
 		  <handler>on_button_ausruestung_button_release_event</handler>
 		  <last_modification_time>Fri, 28 Jun 2002 08:19:11 GMT</last_modification_time>
 		</signal>
-		<label>Ausrüstung</label>
+		<label>AusrÃ¼stung</label>
 		<icon>Dice-Ausruest-50.xpm</icon>
 	      </widget>
 	    </widget>
@@ -9047,7 +9047,7 @@ eingeben</label>
 		<widget>
 		  <class>GtkEventBox</class>
 		  <name>eventbox1</name>
-		  <tooltip>Einstellen des Verhältnisses zwischen Erfahrungspunkten und Gold beim Steigern. Je weiter oben, um so höher der Anteil der verwendeten EP. (Nur wenn mit 'Unterweisung' gesteigert wird.)</tooltip>
+		  <tooltip>Einstellen des VerhÃ¤ltnisses zwischen Erfahrungspunkten und Gold beim Steigern. Je weiter oben, um so hÃ¶her der Anteil der verwendeten EP. (Nur wenn mit 'Unterweisung' gesteigert wird.)</tooltip>
 		  <child>
 		    <left_attach>0</left_attach>
 		    <right_attach>1</right_attach>
@@ -9238,7 +9238,7 @@ eing.</label>
 		  <class>GtkCheckButton</class>
 		  <name>checkbutton_gfp</name>
 		  <cxx_visibility>protected</cxx_visibility>
-		  <tooltip>GFP eingeben (Rechte Maustaste: ändern)</tooltip>
+		  <tooltip>GFP eingeben (Rechte Maustaste: Ã¤ndern)</tooltip>
 		  <can_focus>True</can_focus>
 		  <signal>
 		    <name>button_release_event</name>
@@ -9309,7 +9309,7 @@ eing.</label>
 		  <class>GtkCheckButton</class>
 		  <name>button_EP</name>
 		  <cxx_visibility>protected</cxx_visibility>
-		  <tooltip>Erfahrungspunkte eingeben (Rechte Maustaste: ändern)</tooltip>
+		  <tooltip>Erfahrungspunkte eingeben (Rechte Maustaste: Ã¤ndern)</tooltip>
 		  <signal>
 		    <name>button_release_event</name>
 		    <handler>on_button_EP_eingeben_button_release_event</handler>
@@ -9379,7 +9379,7 @@ eing.</label>
 		  <class>GtkEventBox</class>
 		  <name>eventbox_eppp_steigern</name>
 		  <cxx_visibility>protected</cxx_visibility>
-		  <tooltip>Ist dieser Knopf aktiviert, werden die Erfahrungspunkte entsprechend des eingestellten Verhältnisses reduziert. Ist dieser Knopf deaktiviert, kann beliebig gesteigert werden.</tooltip>
+		  <tooltip>Ist dieser Knopf aktiviert, werden die Erfahrungspunkte entsprechend des eingestellten VerhÃ¤ltnisses reduziert. Ist dieser Knopf deaktiviert, kann beliebig gesteigert werden.</tooltip>
 		  <child>
 		    <left_attach>1</left_attach>
 		    <right_attach>2</right_attach>
@@ -9460,7 +9460,7 @@ eing.</label>
 		  <widget>
 		    <class>GtkButton</class>
 		    <name>button_grad</name>
-		    <tooltip>Ist von den GFP her ein Gradanstieg möglich, so wird dieser hier gesetzt.</tooltip>
+		    <tooltip>Ist von den GFP her ein Gradanstieg mÃ¶glich, so wird dieser hier gesetzt.</tooltip>
 		    <signal>
 		      <name>clicked</name>
 		      <handler>on_button_grad_clicked</handler>
@@ -9543,7 +9543,7 @@ eing.</label>
 		  <widget>
 		    <class>GtkButton</class>
 		    <name>button_grad_ausdauer</name>
-		    <tooltip>Ausdauerpunkte neu auswürfeln</tooltip>
+		    <tooltip>Ausdauerpunkte neu auswÃ¼rfeln</tooltip>
 		    <signal>
 		      <name>clicked</name>
 		      <handler>on_button_grad_ausdauer_clicked</handler>
@@ -9945,7 +9945,7 @@ eing.</label>
 		    <class>GtkButton</class>
 		    <name>button_grad_basiswerte</name>
 		    <cxx_visibility>protected</cxx_visibility>
-		    <tooltip>Linke Maustaste: Würfeln, ob sich die Basiswerte beim Gradanstieg erhöhen         Rechte Maustaste: Würfelwurf direkt eingeben. In beiden Fällen wird zusätzlich die Schicksalsgunst erhöht.</tooltip>
+		    <tooltip>Linke Maustaste: WÃ¼rfeln, ob sich die Basiswerte beim Gradanstieg erhÃ¶hen         Rechte Maustaste: WÃ¼rfelwurf direkt eingeben. In beiden FÃ¤llen wird zusÃ¤tzlich die Schicksalsgunst erhÃ¶ht.</tooltip>
 		    <signal>
 		      <name>button_release_event</name>
 		      <handler>on_button_grad_basiswerte_button_release_event</handler>
@@ -10011,7 +10011,7 @@ eing.</label>
 			<name>spinbutton_eigenschaften_grad_anstieg</name>
 			<cxx_visibility>protected</cxx_visibility>
 			<visible>False</visible>
-			<tooltip>Eingabe mit 'Enter' bestätigen.</tooltip>
+			<tooltip>Eingabe mit 'Enter' bestÃ¤tigen.</tooltip>
 			<can_focus>True</can_focus>
 			<signal>
 			  <name>activate</name>
@@ -10133,7 +10133,7 @@ eing.</label>
 			<class>GtkRadioButton</class>
 			<name>radiobutton_pp_hoch_wie_geht</name>
 			<cxx_visibility>protected</cxx_visibility>
-			<tooltip>Es werden alle PP verwendet, um so hoch wie möglich zu steigern.</tooltip>
+			<tooltip>Es werden alle PP verwendet, um so hoch wie mÃ¶glich zu steigern.</tooltip>
 			<can_focus>True</can_focus>
 			<label>n Stufen</label>
 			<active>False</active>
@@ -10159,7 +10159,7 @@ eing.</label>
 			<class>GtkRadioButton</class>
 			<name>radiobutton_pp_1stufe</name>
 			<cxx_visibility>protected</cxx_visibility>
-			<tooltip>Es wird um eine Stufe gesteigert und wenn die PP nicht reichen mit EP aufgefüllt.</tooltip>
+			<tooltip>Es wird um eine Stufe gesteigert und wenn die PP nicht reichen mit EP aufgefÃ¼llt.</tooltip>
 			<can_focus>True</can_focus>
 			<label>1 Stufe</label>
 			<active>True</active>
@@ -10220,7 +10220,7 @@ eing.</label>
 			  <handler>on_togglebutton_pp_aep_fuellen_toggled</handler>
 			  <last_modification_time>Mon, 17 Jun 2002 07:50:02 GMT</last_modification_time>
 			</signal>
-			<label>Mit EP auffüllen</label>
+			<label>Mit EP auffÃ¼llen</label>
 			<relief>GTK_RELIEF_NORMAL</relief>
 			<active>False</active>
 			<child>
@@ -10244,7 +10244,7 @@ eing.</label>
 		      <class>GtkRadioButton</class>
 		      <name>radiobutton_praxis</name>
 		      <cxx_visibility>protected</cxx_visibility>
-		      <tooltip>Zum Steigern werden in erster Linie Praxispunkte verwendet. Es werden jedoch keine FP verschenkt, fehlenden FP werden durch EP aufgefüllt.</tooltip>
+		      <tooltip>Zum Steigern werden in erster Linie Praxispunkte verwendet. Es werden jedoch keine FP verschenkt, fehlenden FP werden durch EP aufgefÃ¼llt.</tooltip>
 		      <can_focus>True</can_focus>
 		      <signal>
 			<name>toggled</name>
@@ -10547,7 +10547,7 @@ eing.</label>
 			<class>GtkRadioButton</class>
 			<name>radio_spruchrolle_wuerfeln</name>
 			<cxx_visibility>protected</cxx_visibility>
-			<tooltip>Es wird gewürfelt, ob das Lernen von Spruchrolle erfolgreich ist.</tooltip>
+			<tooltip>Es wird gewÃ¼rfelt, ob das Lernen von Spruchrolle erfolgreich ist.</tooltip>
 			<can_focus>True</can_focus>
 			<active>True</active>
 			<draw_indicator>False</draw_indicator>
@@ -10654,7 +10654,7 @@ Spruchrolle</label>
 		      <class>GtkToggleButton</class>
 		      <name>togglebutton_alle_zauber</name>
 		      <cxx_visibility>protected</cxx_visibility>
-		      <tooltip>Es kann aus ALLEN Zaubern gewählt werden</tooltip>
+		      <tooltip>Es kann aus ALLEN Zaubern gewÃ¤hlt werden</tooltip>
 		      <can_focus>True</can_focus>
 		      <signal>
 			<name>toggled</name>
@@ -10724,7 +10724,7 @@ anzeigen</label>
 		      <class>GtkToggleButton</class>
 		      <name>togglebutton_zaubersalze</name>
 		      <cxx_visibility>protected</cxx_visibility>
-		      <tooltip>Zaubersalze können gelernt werden</tooltip>
+		      <tooltip>Zaubersalze kÃ¶nnen gelernt werden</tooltip>
 		      <can_focus>True</can_focus>
 		      <signal>
 			<name>toggled</name>
@@ -10852,7 +10852,7 @@ anzeigen</label>
 		      <class>GtkRadioButton</class>
 		      <name>radiobutton_reduzieren</name>
 		      <cxx_visibility>protected</cxx_visibility>
-		      <tooltip>Ist dieser Knopf gedrückt werden die Erfolgswerte bereits gelernter Fertigkeiten (durch anklicken) reduziert.</tooltip>
+		      <tooltip>Ist dieser Knopf gedrÃ¼ckt werden die Erfolgswerte bereits gelernter Fertigkeiten (durch anklicken) reduziert.</tooltip>
 		      <can_focus>True</can_focus>
 		      <signal>
 			<name>toggled</name>
@@ -10922,7 +10922,7 @@ anzeigen</label>
 		      <class>GtkRadioButton</class>
 		      <name>radiobutton_verlernen</name>
 		      <cxx_visibility>protected</cxx_visibility>
-		      <tooltip>Ist dieser Knopf gedrückt wird eine bereits gelernter Fertigkeiten (durch anklicken) verlernt, wenn sie auf dem niedrigsten Erfolgswert beherrscht wird.</tooltip>
+		      <tooltip>Ist dieser Knopf gedrÃ¼ckt wird eine bereits gelernter Fertigkeiten (durch anklicken) verlernt, wenn sie auf dem niedrigsten Erfolgswert beherrscht wird.</tooltip>
 		      <can_focus>True</can_focus>
 		      <signal>
 			<name>toggled</name>
@@ -10992,7 +10992,7 @@ anzeigen</label>
 		      <class>GtkRadioButton</class>
 		      <name>radiobutton_steigern</name>
 		      <cxx_visibility>protected</cxx_visibility>
-		      <tooltip>Ist dieser Knopf gedrückt können die bereits gelernten Fertigkeiten (durch anklicken) gesteigert werden.</tooltip>
+		      <tooltip>Ist dieser Knopf gedrÃ¼ckt kÃ¶nnen die bereits gelernten Fertigkeiten (durch anklicken) gesteigert werden.</tooltip>
 		      <can_focus>True</can_focus>
 		      <signal>
 			<name>toggled</name>
@@ -11096,7 +11096,7 @@ anzeigen</label>
 		      <class>GtkSpinButton</class>
 		      <name>spinbutton_pp_eingeben</name>
 		      <cxx_visibility>protected</cxx_visibility>
-		      <tooltip>Eingabe mit 'Enter' bestätigen.</tooltip>
+		      <tooltip>Eingabe mit 'Enter' bestÃ¤tigen.</tooltip>
 		      <can_focus>True</can_focus>
 		      <signal>
 			<name>activate</name>
@@ -11225,7 +11225,7 @@ eingeben</label>
 			<class>GtkRadioButton</class>
 			<name>radiobutton_pp_fertigkeit</name>
 			<cxx_visibility>protected</cxx_visibility>
-			<tooltip>Nach Aktivierung dieses Knopfes muß die Fertigkeit gewählt werden, für die PP eingegeben werden sollen.</tooltip>
+			<tooltip>Nach Aktivierung dieses Knopfes muÃŸ die Fertigkeit gewÃ¤hlt werden, fÃ¼r die PP eingegeben werden sollen.</tooltip>
 			<can_focus>True</can_focus>
 			<signal>
 			  <name>toggled</name>
@@ -12667,7 +12667,7 @@ PP lernen</label>
 	      <widget>
 		<class>GtkFrame</class>
 		<name>frame107</name>
-		<label>Rüstung</label>
+		<label>RÃ¼stung</label>
 		<label_xalign>0</label_xalign>
 		<shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
 		<child>
@@ -12698,7 +12698,7 @@ PP lernen</label>
 		    <class>GtkCheckButton</class>
 		    <name>button_ruestung_1</name>
 		    <cxx_visibility>protected</cxx_visibility>
-		    <tooltip>Nach dem Aktivieren des Knopfes eine Rüstung aus der Liste wählen.</tooltip>
+		    <tooltip>Nach dem Aktivieren des Knopfes eine RÃ¼stung aus der Liste wÃ¤hlen.</tooltip>
 		    <can_focus>True</can_focus>
 		    <signal>
 		      <name>toggled</name>
@@ -12725,7 +12725,7 @@ PP lernen</label>
 		    <widget>
 		      <class>GtkEventBox</class>
 		      <name>eventbox9</name>
-		      <tooltip>Nach dem Aktivieren des Knopfes eine Rüstung aus der Liste wählen.</tooltip>
+		      <tooltip>Nach dem Aktivieren des Knopfes eine RÃ¼stung aus der Liste wÃ¤hlen.</tooltip>
 
 		      <widget>
 			<class>GtkVBox</class>
@@ -12753,7 +12753,7 @@ PP lernen</label>
 			  <class>GtkLabel</class>
 			  <name>label_ruestung_1</name>
 			  <cxx_visibility>protected</cxx_visibility>
-			  <label>1. Rüstung</label>
+			  <label>1. RÃ¼stung</label>
 			  <justify>GTK_JUSTIFY_CENTER</justify>
 			  <wrap>False</wrap>
 			  <xalign>0.5</xalign>
@@ -12774,7 +12774,7 @@ PP lernen</label>
 		    <class>GtkCheckButton</class>
 		    <name>button_ruestung_2</name>
 		    <cxx_visibility>protected</cxx_visibility>
-		    <tooltip>Nach dem Aktivieren des Knopfes ein Rüstung aus der Liste wählen.</tooltip>
+		    <tooltip>Nach dem Aktivieren des Knopfes ein RÃ¼stung aus der Liste wÃ¤hlen.</tooltip>
 		    <can_focus>True</can_focus>
 		    <signal>
 		      <name>toggled</name>
@@ -12801,7 +12801,7 @@ PP lernen</label>
 		    <widget>
 		      <class>GtkEventBox</class>
 		      <name>eventbox17</name>
-		      <tooltip>Nach dem Aktivieren des Knopfes eine Rüstung aus der Liste wählen.</tooltip>
+		      <tooltip>Nach dem Aktivieren des Knopfes eine RÃ¼stung aus der Liste wÃ¤hlen.</tooltip>
 
 		      <widget>
 			<class>GtkVBox</class>
@@ -12829,7 +12829,7 @@ PP lernen</label>
 			  <class>GtkLabel</class>
 			  <name>label_ruestung_2</name>
 			  <cxx_visibility>protected</cxx_visibility>
-			  <label>2. Rüstung</label>
+			  <label>2. RÃ¼stung</label>
 			  <justify>GTK_JUSTIFY_CENTER</justify>
 			  <wrap>False</wrap>
 			  <xalign>0.5</xalign>
@@ -12894,7 +12894,7 @@ PP lernen</label>
 			  <class>GtkLabel</class>
 			  <child_name>CList:title</child_name>
 			  <name>label587</name>
-			  <label>Rüstung</label>
+			  <label>RÃ¼stung</label>
 			  <justify>GTK_JUSTIFY_LEFT</justify>
 			  <wrap>False</wrap>
 			  <xalign>0.5</xalign>
@@ -12935,7 +12935,7 @@ Verlust</label>
 			  <child_name>CList:title</child_name>
 			  <name>label590</name>
 			  <label>min.
-Stärke</label>
+StÃ¤rke</label>
 			  <justify>GTK_JUSTIFY_CENTER</justify>
 			  <wrap>False</wrap>
 			  <xalign>0.5</xalign>
@@ -13214,7 +13214,7 @@ Verlust</label>
 			<class>GtkEntry</class>
 			<name>entry_magisch</name>
 			<cxx_visibility>protected</cxx_visibility>
-			<tooltip>Für eine magische (+0/+0) Waffe muß hier ein '*' eingetragen werden.</tooltip>
+			<tooltip>FÃ¼r eine magische (+0/+0) Waffe muÃŸ hier ein '*' eingetragen werden.</tooltip>
 			<can_focus>True</can_focus>
 			<signal>
 			  <name>activate</name>
@@ -13246,7 +13246,7 @@ Verlust</label>
 		      <class>GtkCheckButton</class>
 		      <name>checkbutton_mag_waffenbonus</name>
 		      <cxx_visibility>protected</cxx_visibility>
-		      <tooltip>Nach dem aktivieren: Waffe wählen</tooltip>
+		      <tooltip>Nach dem aktivieren: Waffe wÃ¤hlen</tooltip>
 		      <can_focus>True</can_focus>
 		      <signal>
 			<name>toggled</name>
@@ -13606,7 +13606,7 @@ Drucken</label>
 	    <class>GtkButton</class>
 	    <name>button_grafik</name>
 	    <cxx_visibility>protected</cxx_visibility>
-	    <tooltip>Linke Maustaste: Grafik hinzufügen.                        Rechte Maustaste: Grafik entfernen.</tooltip>
+	    <tooltip>Linke Maustaste: Grafik hinzufÃ¼gen.                        Rechte Maustaste: Grafik entfernen.</tooltip>
 	    <can_focus>True</can_focus>
 	    <signal>
 	      <name>button_release_event</name>
@@ -13674,7 +13674,7 @@ Drucken</label>
 	  <widget>
 	    <class>GtkLabel</class>
 	    <name>label398</name>
-	    <label>(Die Abenteurerbeschreibung darf sämtliche LaTeX Befehle enthalten)</label>
+	    <label>(Die Abenteurerbeschreibung darf sÃ¤mtliche LaTeX Befehle enthalten)</label>
 	    <justify>GTK_JUSTIFY_CENTER</justify>
 	    <wrap>False</wrap>
 	    <xalign>0</xalign>
@@ -15102,7 +15102,7 @@ speichern</label>
 		  <widget>
 		    <class>GtkLabel</class>
 		    <name>label475</name>
-		    <label>Löschen</label>
+		    <label>LÃ¶schen</label>
 		    <justify>GTK_JUSTIFY_CENTER</justify>
 		    <wrap>False</wrap>
 		    <xalign>0.5</xalign>
@@ -15156,8 +15156,8 @@ speichern</label>
 	    <widget>
 	      <class>GtkLabel</class>
 	      <name>label623</name>
-	      <label>Zunächst oben auswählen, wo der neue Gegenstand eingefügt werden soll,
-anschließend unten den neuen Gegenstand auswählen.</label>
+	      <label>ZunÃ¤chst oben auswÃ¤hlen, wo der neue Gegenstand eingefÃ¼gt werden soll,
+anschlieÃŸend unten den neuen Gegenstand auswÃ¤hlen.</label>
 	      <justify>GTK_JUSTIFY_LEFT</justify>
 	      <wrap>False</wrap>
 	      <xalign>0</xalign>
@@ -15320,7 +15320,7 @@ anschließend unten den neuen Gegenstand auswählen.</label>
 		<widget>
 		  <class>GtkLabel</class>
 		  <name>label</name>
-		  <label>Höchstlast:</label>
+		  <label>HÃ¶chstlast:</label>
 		  <justify>GTK_JUSTIFY_CENTER</justify>
 		  <wrap>False</wrap>
 		  <xalign>0</xalign>
@@ -15604,7 +15604,7 @@ anschließend unten den neuen Gegenstand auswählen.</label>
 		    <class>GtkLabel</class>
 		    <name>label526</name>
 		    <label>Mit Geld
-ausrüsten</label>
+ausrÃ¼sten</label>
 		    <justify>GTK_JUSTIFY_CENTER</justify>
 		    <wrap>False</wrap>
 		    <xalign>0.5</xalign>
@@ -15777,7 +15777,7 @@ ausrüsten</label>
 		  <widget>
 		    <class>GtkLabel</class>
 		    <name>label637</name>
-		    <label>Unverkäufliches
+		    <label>UnverkÃ¤ufliches
 anzeigen</label>
 		    <justify>GTK_JUSTIFY_CENTER</justify>
 		    <wrap>False</wrap>
@@ -15803,7 +15803,7 @@ anzeigen</label>
 	<child_name>Notebook:tab</child_name>
 	<name>eventbox_ausruestung</name>
 	<cxx_visibility>protected</cxx_visibility>
-	<tooltip>Ausrüstung</tooltip>
+	<tooltip>AusrÃ¼stung</tooltip>
 	<signal>
 	  <name>button_release_event</name>
 	  <handler>on_eventbox_ausruestung_button_release_event</handler>
@@ -15837,7 +15837,7 @@ anzeigen</label>
 	    <class>GtkLabel</class>
 	    <name>label_notebook_ausruestung</name>
 	    <cxx_visibility>protected</cxx_visibility>
-	    <label>Ausrüstung</label>
+	    <label>AusrÃ¼stung</label>
 	    <justify>GTK_JUSTIFY_CENTER</justify>
 	    <wrap>False</wrap>
 	    <xalign>0.5</xalign>
@@ -15972,7 +15972,7 @@ anzeigen</label>
 	    <widget>
 	      <class>GtkLabel</class>
 	      <name>label578</name>
-	      <label>HTML-Browser (für Hilfe)</label>
+	      <label>HTML-Browser (fÃ¼r Hilfe)</label>
 	      <justify>GTK_JUSTIFY_CENTER</justify>
 	      <wrap>False</wrap>
 	      <xalign>0</xalign>
@@ -15998,7 +15998,7 @@ anzeigen</label>
 	    <widget>
 	      <class>GtkLabel</class>
 	      <name>label576</name>
-	      <label>Temporäres Verzeichnis</label>
+	      <label>TemporÃ¤res Verzeichnis</label>
 	      <justify>GTK_JUSTIFY_CENTER</justify>
 	      <wrap>False</wrap>
 	      <xalign>0</xalign>
@@ -16545,7 +16545,7 @@ anzeigen</label>
 		<class>GtkLabel</class>
 		<name>label598</name>
 		<label>Abenteurer aus
-Liste löschen</label>
+Liste lÃ¶schen</label>
 		<justify>GTK_JUSTIFY_CENTER</justify>
 		<wrap>False</wrap>
 		<xalign>0.5</xalign>
@@ -18780,7 +18780,7 @@ werk</label>
 			<last_modification_time>Wed, 25 Sep 2002 20:12:49 GMT</last_modification_time>
 		      </signal>
 		      <label>Eingestellte Werte
-übernehmen und testen</label>
+Ã¼bernehmen und testen</label>
 		      <relief>GTK_RELIEF_NORMAL</relief>
 		      <child>
 			<left_attach>0</left_attach>
@@ -19240,7 +19240,7 @@ werk</label>
 	      <widget>
 		<class>GtkEventBox</class>
 		<name>eventbox22</name>
-		<tooltip>'GFP': Vorgabe wieviel für GFP der Abenteurer lernen soll. 'Grad': Vorgabe in welchem Grad sich der Abenteurer nach dem Steigern befinden soll.</tooltip>
+		<tooltip>'GFP': Vorgabe wieviel fÃ¼r GFP der Abenteurer lernen soll. 'Grad': Vorgabe in welchem Grad sich der Abenteurer nach dem Steigern befinden soll.</tooltip>
 
 		<widget>
 		  <class>GtkTable</class>
@@ -19668,7 +19668,7 @@ werk</label>
 	  <class>GtkEventBox</class>
 	  <name>eventbox_Original_Midgard</name>
 	  <cxx_visibility>protected</cxx_visibility>
-	  <tooltip>Dieses Icon zeigt an, daß die Originalregeln verwendet werden.</tooltip>
+	  <tooltip>Dieses Icon zeigt an, daÃŸ die Originalregeln verwendet werden.</tooltip>
 	  <child>
 	    <padding>0</padding>
 	    <expand>False</expand>
@@ -19691,7 +19691,7 @@ werk</label>
 	  <class>GtkEventBox</class>
 	  <name>eventbox_NSC_aktiv</name>
 	  <cxx_visibility>protected</cxx_visibility>
-	  <tooltip>Dieses Icon zeigt an, daß der NSC Modus eingeschaltet ist.</tooltip>
+	  <tooltip>Dieses Icon zeigt an, daÃŸ der NSC Modus eingeschaltet ist.</tooltip>
 	  <child>
 	    <padding>0</padding>
 	    <expand>False</expand>
@@ -19714,7 +19714,7 @@ werk</label>
 	  <class>GtkEventBox</class>
 	  <name>eventbox_wizard_aktiv</name>
 	  <cxx_visibility>protected</cxx_visibility>
-	  <tooltip>Dieses Icon zeigt an, daß der Wizard aktiv ist.</tooltip>
+	  <tooltip>Dieses Icon zeigt an, daÃŸ der Wizard aktiv ist.</tooltip>
 	  <child>
 	    <padding>0</padding>
 	    <expand>False</expand>
@@ -20065,7 +20065,7 @@ werk</label>
 	      <class>GtkLabel</class>
 	      <name>label564</name>
 	      <label>Fenster
-schließen</label>
+schlieÃŸen</label>
 	      <justify>GTK_JUSTIFY_CENTER</justify>
 	      <wrap>False</wrap>
 	      <xalign>0.5</xalign>
@@ -20133,7 +20133,7 @@ schließen</label>
 	      <class>GtkLabel</class>
 	      <name>label563</name>
 	      <label>Textfeld
-löschen</label>
+lÃ¶schen</label>
 	      <justify>GTK_JUSTIFY_CENTER</justify>
 	      <wrap>False</wrap>
 	      <xalign>0.5</xalign>
@@ -20311,7 +20311,7 @@ löschen</label>
   <class>GtkFileSelection</class>
   <name>xml_fileselection</name>
   <border_width>10</border_width>
-  <title>XML-Datei auswählen</title>
+  <title>XML-Datei auswÃ¤hlen</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
   <position>GTK_WIN_POS_NONE</position>
   <modal>True</modal>
@@ -20700,7 +20700,7 @@ löschen</label>
       <widget>
 	<class>GtkLabel</class>
 	<name>label645</name>
-	<label>Dieses Fenster beim nächsten Start wieder anzeigen.</label>
+	<label>Dieses Fenster beim nÃ¤chsten Start wieder anzeigen.</label>
 	<justify>GTK_JUSTIFY_CENTER</justify>
 	<wrap>False</wrap>
 	<xalign>0</xalign>

@@ -18,7 +18,7 @@
  */
 
 #include "Land.hh"
-#include "MidgardBasicElement.hh" // für NotFound
+#include "MidgardBasicElement.hh" // fÃ¼r NotFound
 #include "Abenteurer.hh"
 
 cH_Land::cache_t cH_Land::cache;
@@ -90,7 +90,7 @@ Land::Land(const std::string& _kontinent, const Tag *tag)
 
 Laender_All::Laender_All()
 {
- const Tag *Laender=xml_data->find("Länder");
+ const Tag *Laender=xml_data->find("LÃ¤nder");
  if (Laender)
  {  Tag::const_iterator b=Laender->begin(),e=Laender->end();
     FOR_EACH_CONST_TAG_OF_5(i,*Laender,b,e,"Kontinent")

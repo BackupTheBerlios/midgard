@@ -32,7 +32,7 @@
 #  define _TABLE_AUSRUESTUNG_HH
 
 class midgard_CG;
-#include <gtk--/ctree.h>
+#include <gtkmm/ctree.h>
 #include <map>
 #include <Preise.hh>
 #include <Ausruestung.hh>

@@ -1,5 +1,5 @@
 
-// $Id: Datenbank.cc,v 1.26 2002/11/25 12:09:47 thoma Exp $               
+// $Id: Datenbank.cc,v 1.27 2002/12/11 18:18:50 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -24,7 +24,7 @@
 #include <MidgardBasicElement.hh>
 #include <vector>
 #include <string>
-#include <gtk--/main.h>
+#include <gtkmm/main.h>
 #include "Grundwerte.hh"
 #include "Land.hh"   
 //#include "Pflicht.hh"

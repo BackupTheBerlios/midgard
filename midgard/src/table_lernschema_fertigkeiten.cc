@@ -1,4 +1,4 @@
-// $Id: table_lernschema_fertigkeiten.cc,v 1.20 2002/11/19 09:55:17 thoma Exp $
+// $Id: table_lernschema_fertigkeiten.cc,v 1.21 2002/12/11 18:18:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -53,11 +53,11 @@ void table_lernschema::on_angeborene_fertigkeit_clicked()
      wurf = hauptfenster->random.integer(1,100);
    }
   if(count100>0) 
-    { hauptfenster->set_info(itos(count100)+"x eine 100 gewürfelt, "+itos(count100)+" zusätzliche angeborende Fertigkeit nach Belieben wählen. Danach die 'Lernpunkte' auswürfeln.");
+    { hauptfenster->set_info(itos(count100)+"x eine 100 gewÃ¼rfelt, "+itos(count100)+" zusÃ¤tzliche angeborende Fertigkeit nach Belieben wÃ¤hlen. Danach die 'Lernpunkte' auswÃ¼rfeln.");
       on_angeborene_fertigkeit_right_clicked();      
     }
-  hauptfenster->set_status("Für die Angeborene Fertigkeit wurde eine "
-              +itos(wurf)+" gewürfelt => "+AngebFert_gewuerfelt(wurf));
+  hauptfenster->set_status("FÃ¼r die Angeborene Fertigkeit wurde eine "
+              +itos(wurf)+" gewÃ¼rfelt => "+AngebFert_gewuerfelt(wurf));
 }
 
 
@@ -65,7 +65,7 @@ void table_lernschema::on_angeborene_fertigkeit_right_clicked()
 {
   clean_lernschema_trees();
   tree_angeb_fert = manage(new MidgardBasicTree(MidgardBasicTree::ANGEBFERT));
-  tree_angeb_fert->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_ang_fert_leaf_selected));
+  tree_angeb_fert->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_ang_fert_leaf_selected));
   std::list<cH_MidgardBasicElement> L=hauptfenster->getDatabase().Fertigkeit_ang;
   list_Fertigkeit_ang_neu.clear();
   for(std::list<cH_MidgardBasicElement>::const_iterator i=L.begin();i!=L.end();++i)
@@ -138,9 +138,9 @@ void table_lernschema::InfoFensterAusruestung(const std::string &fert_name,
                const std::string &gegen_name,int wurf,int noetig)
 {
  std::string strinfo;
- strinfo="Für die Fertigkeit '"+fert_name+"' wurde für '"+gegen_name+
-        "' eine "+itos(wurf)+" gewürfelt.\n";
- strinfo += "Nötig ist mindestens eine "+itos(noetig)+".\n";
+ strinfo="FÃ¼r die Fertigkeit '"+fert_name+"' wurde fÃ¼r '"+gegen_name+
+        "' eine "+itos(wurf)+" gewÃ¼rfelt.\n";
+ strinfo += "NÃ¶tig ist mindestens eine "+itos(noetig)+".\n";
  if(wurf>noetig) strinfo +="==> Das reicht.\n";
  else strinfo +="==> Das reicht NICHT.\n";
  hauptfenster->InfoFenster->AppendShow(strinfo,WindowInfo::None);

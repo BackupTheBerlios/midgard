@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.52 2002/11/19 09:55:17 thoma Exp $
+// $Id: WindowInfo.cc,v 1.53 2002/12/11 18:18:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,26 +26,26 @@
 
 #include "config.h"
 #include "WindowInfo.hh"
-#include <gtk--/main.h>
+#include <gtkmm/main.h>
 #include "midgard_CG.hh"
 #include "Fertigkeiten.hh"
 #include "../pixmaps/Excl-32.xpm"
-#include <gtk--/button.h>
-#include <gtk--/table.h>   
-#include <gtk--/label.h>
-#include <gtk--/box.h>
+#include <gtkmm/button.h>
+#include <gtkmm/table.h>   
+#include <gtkmm/label.h>
+#include <gtkmm/box.h>
 #include <Misc/itos.h>
 
 void WindowInfo::on_button_abbrechen_clicked()
 {   
-  if(Modus==Autoclean) des.disconnect();
+  if(Modus==Autoclean) des.signal_di().connect();
   hide();
 }
 
 gint WindowInfo::on_WindowInfo_delete_event(GdkEventAny *ev)
 {
  on_button_abbrechen_clicked();
- return true; // verhindert das zerstören des Objektes
+ return true; // verhindert das zerstÃ¶ren des Objektes
 }
 
 
@@ -59,7 +59,7 @@ void WindowInfo::on_button_bestaetigen_clicked()
 }
 
 
-void WindowInfo::on_button_auswahl_clicked(int connect)
+void WindowInfo::on_button_auswahl_clicked(signal_int().connect)
 {
  assert(Modus==PraxisPunkteMBE);
  if(MBE)
@@ -92,16 +92,16 @@ WindowInfo::WindowInfo(midgard_CG* h)
    
    if (mystream) delete mystream;
    Gtk::OStream *mystream = new Gtk::OStream(LogWin->get_list());
-   ((Gtk::OStream*)mystream)->flushed.connect(SigC::slot(LogWin,&logwin::scroll));
+   ((Gtk::OStream*)mystream)->signal_flushed().connect(SigC::slot(*LogWin,&logwin::scroll));
 
    if (myLogstream) delete myLogstream;
    Gtk::OStream *myLogstream = new Gtk::OStream(LogWin_Status->get_list());
-   ((Gtk::OStream*)myLogstream)->flushed.connect(SigC::slot(LogWin_Status,&logwin::scroll));
+   ((Gtk::OStream*)myLogstream)->signal_flushed().connect(SigC::slot(*LogWin_Status,&logwin::scroll));
 
 /*
    if(autoclean)
     {
-      des = Gtk::Main::timeout.connect(slot(this,&WindowInfo::timeout),4000);
+      des = Gtk::Main::signal_timeout().connect(slot(this,&WindowInfo::timeout),4000);
       button_info_ok->hide();
     }
 */
@@ -143,7 +143,7 @@ void WindowInfo::Flush(int anzahl)
 /*
   if(Modus==Autoclean)
     {
-      des = Gtk::Main::timeout.connect(slot(this,&WindowInfo::timeout),4000);
+      des = Gtk::Main::signal_timeout().connect(slot(this,&WindowInfo::timeout),4000);
 //      button_info_ok->hide();
     }
 */
@@ -160,13 +160,13 @@ void WindowInfo::auswahl(int anz)
      Gtk::Pixmap *p = manage(new class Gtk::Pixmap(Excl_32_xpm));
      Gtk::Label  *l = manage(new class Gtk::Label(itos(i+1)+"."));
      Gtk::Button *b = auswahl_button(p,l,i+1);
-     table_auswahl->attach(*b, i, i+1, 0, 1, GTK_FILL, 0, 0, 0);
+     table_auswahl->attach(*b, i, i+1, 0, 1, Gtk::FILL, 0, 0, 0);
    }
   table_auswahl->show_all();
   frame_auswahl->add(*table_auswahl);
 }
 
-Gtk::Button* WindowInfo::auswahl_button(Gtk::Pixmap *p,Gtk::Label *l,int connect)
+Gtk::Button* WindowInfo::auswahl_button(Gtk::Pixmap *p,Gtk::Label *l,signal_int().connect)
 {
   p->set_alignment(0.5, 0.5);
   p->set_padding(0.5, 0.5);
@@ -176,9 +176,9 @@ Gtk::Button* WindowInfo::auswahl_button(Gtk::Pixmap *p,Gtk::Label *l,int connect
   Gtk::Button *button = manage(new class Gtk::Button()); 
   hbox->pack_start(*p);
   hbox->pack_start(*l);
-  button->set_flags(GTK_CAN_FOCUS);
+  button->set_flags(Gtk::CAN_FOCUS);
   button->add(*hbox);
-  button->clicked.connect(SigC::bind(SigC::slot(static_cast<class WindowInfo*>(this), &WindowInfo::on_button_auswahl_clicked),connect));
+  button->signal_clicked().connect(SigC::bind(SigC::slot(*static_cast<class WindowInfo*>(this), &WindowInfo::on_button_auswahl_clicked),connect));
   return button;
 }
 

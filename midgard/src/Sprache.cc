@@ -153,7 +153,7 @@ std::list<MBEmlt> Sprache::VerwandteSprachen(const int erfolgswert,const std::li
 
 std::list<MBEmlt> Sprache::cleanVerwandteSprachen(std::list<MBEmlt> L)
 {
-  // Aus der Liste die Sprache mit dem höchsten Erfolgswert nehmen.
+  // Aus der Liste die Sprache mit dem hÃ¶chsten Erfolgswert nehmen.
   std::map<std::string,int> M;
   for(std::list<MBEmlt>::const_iterator i=L.begin();i!=L.end();++i)
    {

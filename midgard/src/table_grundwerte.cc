@@ -13,9 +13,9 @@
 #include <Misc/Trace.h>
 #include <../pixmaps/EditChar-trans-50.xpm>
 
-#include<gtk--/label.h>
-#include<gtk--/pixmap.h>
-#include<gtk--/box.h>
+#include<gtkmm/label.h>
+#include<gtkmm/pixmap.h>
+#include<gtkmm/box.h>
 #include <bool_CheckButton.hh>
 
 void table_grundwerte::init(midgard_CG *h)
@@ -31,9 +31,9 @@ void table_grundwerte::init(midgard_CG *h)
   Vstand[4]="Adel";
 
   Vhand.resize(3);
-  Vhand[0]="Rechtshänder";
-  Vhand[1]="Linkshänder"; 
-  Vhand[2]="Beidhändig";  
+  Vhand[0]="RechtshÃ¤nder";
+  Vhand[1]="LinkshÃ¤nder"; 
+  Vhand[2]="BeidhÃ¤ndig";  
 
   static bool only_once=false;
   if(!only_once)
@@ -43,7 +43,7 @@ void table_grundwerte::init(midgard_CG *h)
    _m->set_mode(false);
    eventbox_werte_edit->add(*_m);
    eventbox_werte_edit->show_all();
-   _m->toggled.connect_after(SigC::slot(this, &table_grundwerte::on_togglebutton_edit_werte_toggled));
+   _m->signal_toggled().connect_after(SigC::slot(*this, &table_grundwerte::on_togglebutton_edit_werte_toggled));
   }
   edit_sensitive(false);
   zeige_werte();

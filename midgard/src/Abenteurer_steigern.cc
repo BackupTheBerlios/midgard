@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.18 2002/12/11 16:51:17 thoma Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.19 2002/12/11 18:18:50 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -26,7 +26,7 @@ bool Abenteurer::steigere(MBEmlt &MBE,std::string &info,const e_wie_steigern wie
                           const st_bool_steigern &bool_steigern)
 {
   if ( MBE->Erfolgswert() >= (*MBE)->MaxErfolgswert(*this))
-      { info+= "Maximal möglicher Erfolgswert erreicht";
+      { info+= "Maximal mÃ¶glicher Erfolgswert erreicht";
         return false; }
   if(wie==Enums::eUnterweisung)
     {  
@@ -37,7 +37,7 @@ bool Abenteurer::steigere(MBEmlt &MBE,std::string &info,const e_wie_steigern wie
            ((*MBE).What()==MidgardBasicElement::SCHRIFT &&
             MBE->Erfolgswert() >= cH_Fertigkeit("Schreiben")->MaxUnterweisung())
           )
-         { info+= "Weitere Steigerung des Erfolgswertes ist NICHT mit Unterweisung möglich.";
+         { info+= "Weitere Steigerung des Erfolgswertes ist NICHT mit Unterweisung mÃ¶glich.";
            return false; }
      }      
   int stufen=1;
@@ -79,15 +79,15 @@ bool Abenteurer::neu_lernen(MBEmlt &MBE,std::string &info,const e_wie_steigern &
       && !(*MBE)->Voraussetzung(*this,false))
   {
     if((*MBE)->Voraussetzung()=="schlank")
-      info +="Können nur schlanke Abenteurer lernen";
-    else info+="Erst muß "+(*MBE)->Voraussetzung()+" gelernt werden";
+      info +="KÃ¶nnen nur schlanke Abenteurer lernen";
+    else info+="Erst muÃŸ "+(*MBE)->Voraussetzung()+" gelernt werden";
     return false;
   }
- // Neue Dinge können nur durch Unterweisung gelernt werden
- // es sei denn es handelt sich um Zaubersprüche
+ // Neue Dinge kÃ¶nnen nur durch Unterweisung gelernt werden
+ // es sei denn es handelt sich um ZaubersprÃ¼che
  if((*MBE).What()!=MidgardBasicElement::ZAUBER)   
   { if (wie!=Enums::eUnterweisung)
-     { info+="Neue Fertigkeiten, Waffen, Sprachen und Schriften können nur durch 'Unterweisung' gelernt werden";
+     { info+="Neue Fertigkeiten, Waffen, Sprachen und Schriften kÃ¶nnen nur durch 'Unterweisung' gelernt werden";
        return false;
      }
   }   
@@ -95,19 +95,19 @@ bool Abenteurer::neu_lernen(MBEmlt &MBE,std::string &info,const e_wie_steigern &
   {
 /* 
     if(radiobutton_selbst->get_active() )
-      { hauptfenster->set_status("Neue Zauber können nicht durch 'Selbststudium' gelernt werden");
+      { hauptfenster->set_status("Neue Zauber kÃ¶nnen nicht durch 'Selbststudium' gelernt werden");
         return false;
       }
 */
-    // Nicht alle Abenteurerklassen können Zauber auch mit Praxispunkten lernen
+    // Nicht alle Abenteurerklassen kÃ¶nnen Zauber auch mit Praxispunkten lernen
     if(wie==Enums::ePraxis)
       { if(!Typ1()->SpruecheMitPP() && !Typ2()->SpruecheMitPP() )
-           { info+="Neue Zaubersprüche können von "+Typ1()->Name(getWerte().Geschlecht())
+           { info+="Neue ZaubersprÃ¼che kÃ¶nnen von "+Typ1()->Name(getWerte().Geschlecht())
                      +" nicht durch Praxispunkte gelernt werden";
              return false;
            }
         else if((*MBE)->Standard__(*this)!="G")
-           { info +="Nur Grundzauber können von "+Typ1()->Name(getWerte().Geschlecht())
+           { info +="Nur Grundzauber kÃ¶nnen von "+Typ1()->Name(getWerte().Geschlecht())
                      +" mit Praxispunkten gelernt werden";
              return false;
            }
@@ -180,7 +180,7 @@ bool Abenteurer::steigern_usp(const e_wie_steigern wie,
    int rest_aep=0,use_pp=0;
    if(bool_steigern.hoch_wie_geht)
     {
-      if(was!=Enums::eMBEm) { info+="Nur eine Stufe auf einmal möglich"; return false;}
+      if(was!=Enums::eMBEm) { info+="Nur eine Stufe auf einmal mÃ¶glich"; return false;}
       use_pp=pp;
       int ppkosten=0,aep=40*pp;
       stufen=stufen_auf_einmal_steigern_fuer_aep(MBE,ppkosten,aep);
@@ -219,7 +219,7 @@ bool Abenteurer::steigern_usp(const e_wie_steigern wie,
    else
     {  
       if(pp<use_pp )  {info+="Nicht genug PP zum steigern vorhanden"; return false; }
-      if(rest_aep!=0) {info+= "Es müßten "+itos(rest_aep)+" EP verwendet werden um "+itos(stufen)+" Stufe(n) zu steigern"; return false;}
+      if(rest_aep!=0) {info+= "Es mÃ¼ÃŸten "+itos(rest_aep)+" EP verwendet werden um "+itos(stufen)+" Stufe(n) zu steigern"; return false;}
       ep_k=0;
     }
    pp=use_pp;
@@ -319,7 +319,7 @@ int Abenteurer::genug_geld(const int kosten,const e_wie_steigern wie,
                            const st_bool_steigern bool_steigern,
                            std::string &info)
 {
-  if(wie!=Enums::eUnterweisung) return 0; // keine Unterweisung => kein Geld nötig
+  if(wie!=Enums::eUnterweisung) return 0; // keine Unterweisung => kein Geld nÃ¶tig
   if(bool_steigern.Spruchrolle) return 0;
   int gold_k = getWerte().gold_kosten(kosten);
   if( !bool_steigern.HausG1 ) gold_k*=10;
@@ -481,13 +481,13 @@ int Abenteurer::get_ausdauer(int grad, const Datenbank &Database,std::string &in
   nap = ap + nab + getWerte().bo_Au() ;
   int nspez = getWerte().Grad()*getWerte().Spezies()->AP_GradFak();
   nap += nspez;
-  info+="Ausdauerpunkte für Grad "+itos(getWerte().Grad())+": "
-   "Gewürfelt("+itos(ap)+") + Bonus für Typ("+itos(nab)
-   +") + Persönlichen Bonus("+itos(getWerte().bo_Au())
+  info+="Ausdauerpunkte fÃ¼r Grad "+itos(getWerte().Grad())+": "
+   "GewÃ¼rfelt("+itos(ap)+") + Bonus fÃ¼r Typ("+itos(nab)
+   +") + PersÃ¶nlichen Bonus("+itos(getWerte().bo_Au())
    +") + Spezies-Bonus("+itos(nspez)+") = "+itos(nap)+" AP\n";
-   // Für alle ist die AP-anzahel mind. = Grad
+   // FÃ¼r alle ist die AP-anzahel mind. = Grad
   if (getWerte().AP()<getWerte().Grad()) getWerte().setAP(getWerte().Grad());
-   // Neue AP höher als alte?
+   // Neue AP hÃ¶her als alte?
   if (nap>getWerte().AP())  getWerte().setAP(nap)  ;
   return kosten;
 }
@@ -528,7 +528,7 @@ int Abenteurer::get_ab_re_za(const e_was_steigern was,const e_wie_steigern &wie,
     }
   else assert(!"never get here");
   if (kosten!=0 && (alter_wert >= max_wert && bsteigern))
-      { info+="Für Grad "+itos(getWerte().Grad())+" ist der Maximalwert erreicht!" ;
+      { info+="FÃ¼r Grad "+itos(getWerte().Grad())+" ist der Maximalwert erreicht!" ;
         return 0;}
 
   if(kosten!=0 && bsteigern)
@@ -559,10 +559,10 @@ int Abenteurer::get_ab_re_za(const e_was_steigern was,const e_wie_steigern &wie,
 void Abenteurer::eigenschaften_steigern(std::string &info,const Datenbank &Database,int wurf)
 {
   if(getWerte().Grad() <= getWerte().get_Grad_Basiswerte())
-   {info+="Für Grad "+itos(getWerte().get_Grad_Basiswerte())+" wurde schon gewürfelt";
+   {info+="FÃ¼r Grad "+itos(getWerte().get_Grad_Basiswerte())+" wurde schon gewÃ¼rfelt";
     return;
    }
-  // Erhöhen der Schicksalsgunst
+  // ErhÃ¶hen der Schicksalsgunst
   { int n=Database.GradAnstieg.get_Schicksalsgunst(getWerte().Grad());
     if(getWerte().Spezies()->Name()=="Halbling") n=n+2;
     getWerte().add_SG(n);
@@ -572,17 +572,17 @@ void Abenteurer::eigenschaften_steigern(std::string &info,const Datenbank &Datab
   if(wurf==-1) wurf=random.integer(1,100);
 
   int z=wurf;  
-  info+="Beim Würfeln zur Erhöhung einer Eigenschaft für Grad "
+  info+="Beim WÃ¼rfeln zur ErhÃ¶hung einer Eigenschaft fÃ¼r Grad "
       + itos(getWerte().get_Grad_Basiswerte()+1) + " wurde eine ";
   info += itos(wurf);
-  info +=" gewürfelt ==> ";
-  std::string was = "keine Erhöhung";
+  info +=" gewÃ¼rfelt ==> ";
+  std::string was = "keine ErhÃ¶hung";
 
   int erh = random.integer(1,6)+1;
   int awko= getWerte().Ko(); //alter_wert;
   int aapb = getWerte().bo_Au(); // alter Wert
   if     ( z<=76 ) ;//nichts steigern 
-  else if( z<=78 ) { was="Stärke";           getWerte().add_St(erh); }
+  else if( z<=78 ) { was="StÃ¤rke";           getWerte().add_St(erh); }
   else if( z<=81 ) { was="Geschicklichkeit"; getWerte().add_Gs(erh); }
   else if( z<=84 ) { was="Gewandheit"; getWerte().add_Gw(erh); }
   else if( z<=87 ) { was="Konstitution"; getWerte().add_Ko(erh); }
@@ -590,12 +590,12 @@ void Abenteurer::eigenschaften_steigern(std::string &info,const Datenbank &Datab
   else if( z<=93 ) { was="Zaubertalent"; getWerte().add_Zt(erh); }
   else if( z<=95 ) { was="Selbstbeherrschung"; getWerte().add_Sb(erh); }
   else if( z<=97 ) { was="Willenskraft"; getWerte().add_Wk(erh); }
-  else if( z<=99 ) { was="persönliche Ausstrahlung"; getWerte().add_pA(erh); }
+  else if( z<=99 ) { was="persÃ¶nliche Ausstrahlung"; getWerte().add_pA(erh); }
   else if( z==100) { was="Aussehn"; getWerte().add_Au(erh); }
 
   {
    //Setzen von abgeleiteten Werten, die durch eine Steigerung 
-   //bertoffen sein könnten:
+   //bertoffen sein kÃ¶nnten:
    getWerte().setSinn("Sechster Sinn",getWerte().Zt()/25);
 //   getWerte().setRaufen((getWerte().St()+getWerte().Gw())/20+getWerte().bo_An() );
    if(was=="Konstitution" && (awko/10 != getWerte().Ko()/10))
@@ -605,7 +605,7 @@ void Abenteurer::eigenschaften_steigern(std::string &info,const Datenbank &Datab
   }
 
   info += was;
-  if (was != "keine Erhöhung" )  info += " um "+itos(erh)+" erhöht.";
+  if (was != "keine ErhÃ¶hung" )  info += " um "+itos(erh)+" erhÃ¶ht.";
   getWerte().set_Grad_Basiswerte(1+getWerte().get_Grad_Basiswerte());
 }
 

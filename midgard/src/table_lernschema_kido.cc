@@ -1,4 +1,4 @@
-// $Id: table_lernschema_kido.cc,v 1.14 2002/10/31 10:36:44 thoma Exp $
+// $Id: table_lernschema_kido.cc,v 1.15 2002/12/11 18:18:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,7 +31,7 @@ void table_lernschema::on_kido_wahl_clicked()
    KiDo_Stile kido_stil;
    if(!kido_stil.ist_gelernt(hauptfenster->getWerte().Spezialisierung()))
     {
-      hauptfenster->set_status("Erst eine Technik wählen\n");
+      hauptfenster->set_status("Erst eine Technik wÃ¤hlen\n");
       return;
     }
    hauptfenster->getChar()->List_Kido().clear();
@@ -43,17 +43,17 @@ void table_lernschema::fill_kido_lernschema()
   clean_lernschema_trees();
   scrolledwindow_lernen->remove();
   if(maxkido==0) return;
-  else if(maxkido==1) label_lernschma_titel->set_text(itos(maxkido)+" KiDo-Technik auswählen");
-  else label_lernschma_titel->set_text(itos(maxkido)+" KiDo-Techniken auswählen");
+  else if(maxkido==1) label_lernschma_titel->set_text(itos(maxkido)+" KiDo-Technik auswÃ¤hlen");
+  else label_lernschma_titel->set_text(itos(maxkido)+" KiDo-Techniken auswÃ¤hlen");
   tree_kido_lernschema = manage(new MidgardBasicTree(MidgardBasicTree::KIDO_NEU));
-  tree_kido_lernschema->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_tree_kido_lernschema_leaf_selected));
+  tree_kido_lernschema->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_tree_kido_lernschema_leaf_selected));
 
   std::list<MBEmlt> newlist;
   KiDo_Stile kido_stil;
   for(std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getDatabase().Kido.begin();i!=hauptfenster->getDatabase().Kido.end();++i)
    {
      cH_KiDo kd(*i);
-     if(kd->Stufe()!="Schüler") continue;
+     if(kd->Stufe()!="SchÃ¼ler") continue;
      if (kido_stil.ist_hart(hauptfenster->getWerte().Spezialisierung()))
          if(kido_stil.ist_sanft(kd->Stil())) continue;
      if (kido_stil.ist_sanft(hauptfenster->getWerte().Spezialisierung()))

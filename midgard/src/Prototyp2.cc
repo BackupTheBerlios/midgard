@@ -47,7 +47,7 @@ double Prototyp2::fac_for(const std::string &art, const std::string &name, const
       }
    }
   if(count) return facsum/count; 
-  else return 10.0; // groﬂer Wert
+  else return 10.0; // gro√üer Wert
 }
 
 

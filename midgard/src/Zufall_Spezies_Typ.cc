@@ -67,12 +67,12 @@ Enums::StadtLand Zufall::getStadtLand() const
 cH_Land Zufall::getLand() const
 {
    std::vector<pair<cH_Land,bool> > V_=LL.getHerkunft(Aben);
-   std::vector<cH_Land> V; // nur die erlaubten Länder
+   std::vector<cH_Land> V; // nur die erlaubten LÃ¤nder
    for(std::vector<pair<cH_Land,bool> >::const_iterator i=V_.begin();i!=V_.end();++i)
     {
       if(i->second) V.push_back(i->first) ;
     }
-   if(V.empty()){std::cerr << "Konnte kein Land wählen\n"; return cH_Land("Alba");}
+   if(V.empty()){std::cerr << "Konnte kein Land wÃ¤hlen\n"; return cH_Land("Alba");}
    int i=random.integer(0,V.size()-1);
    return V[i];   
 }

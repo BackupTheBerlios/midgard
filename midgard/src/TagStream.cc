@@ -105,7 +105,7 @@ std::string TagStream::de_xml(const std::string &cont)
          else if (tag=="&gt;") ret+='>';
          else if (tag=="&quot;") ret+='"';
 #ifndef __MINGW32__         
-         else if (tag=="&auml;") ret+='ä'; // and so on ... but glade simply passes them
+         else if (tag=="&auml;") ret+='Ã¤'; // and so on ... but glade simply passes them
 #endif         
          else
          {  ret+=tag;

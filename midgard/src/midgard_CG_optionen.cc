@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.116 2002/12/11 11:09:58 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.117 2002/12/11 18:18:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -126,9 +126,9 @@ void midgard_CG::show_Icons(bool i)
 {
  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
  bool b=MOptionen->OberCheck(Midgard_Optionen::Beschriftungen).active;
- if     ( b && i) toolbar_top->set_style(GTK_TOOLBAR_BOTH);
- else if( b &&!i) toolbar_top->set_style(GTK_TOOLBAR_TEXT);
- else if(!b && i) toolbar_top->set_style(GTK_TOOLBAR_ICONS);
+ if     ( b && i) toolbar_top->set_style(Gtk::TOOLBAR_BOTH);
+ else if( b &&!i) toolbar_top->set_style(Gtk::TOOLBAR_TEXT);
+ else if(!b && i) toolbar_top->set_style(Gtk::TOOLBAR_ICONS);
  else if(!b &&!i) toolbar_top->hide();
 }
 
@@ -136,9 +136,9 @@ void midgard_CG::show_Beschriftungen(bool b)
 {
  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
  bool i=MOptionen->OberCheck(Midgard_Optionen::Icons).active;
- if     ( b && i) toolbar_top->set_style(GTK_TOOLBAR_BOTH);
- else if( b &&!i) toolbar_top->set_style(GTK_TOOLBAR_TEXT);
- else if(!b && i) toolbar_top->set_style(GTK_TOOLBAR_ICONS);
+ if     ( b && i) toolbar_top->set_style(Gtk::TOOLBAR_BOTH);
+ else if( b &&!i) toolbar_top->set_style(Gtk::TOOLBAR_TEXT);
+ else if(!b && i) toolbar_top->set_style(Gtk::TOOLBAR_ICONS);
  else if(!b &&!i) toolbar_top->hide();
 }
 
@@ -147,20 +147,20 @@ void midgard_CG::show_3_Tasten_Maus(bool b)
  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   if(b) 
    { table_grundwerte->vbox_gw_wuerfeln->hide();
-     _tooltips.set_tip(*(table_grundwerte->button_grundwerte),"Linke Maustaste: 2x für jede Basiseigenschaft würfeln, höheres Ergebnis zählt.\n"
-                  "Mittlere Maustaste: 2x würfeln, besseren Wert einer Basiseigenschaftzuweisen das ganze 6x wiederholen.\n"
-                  "Rechte Maustaste: 9x würfeln und die besten sechs Ergebnisse frei verteilen.\n"
-                  "ACHTUNG: Die Sonderregeln für Nichtmenschen werden nur bei der ersten Variante berücksichtigt.");
+     _tooltips.set_tip(*(table_grundwerte->button_grundwerte),"Linke Maustaste: 2x fÃ¼r jede Basiseigenschaft wÃ¼rfeln, hÃ¶heres Ergebnis zÃ¤hlt.\n"
+                  "Mittlere Maustaste: 2x wÃ¼rfeln, besseren Wert einer Basiseigenschaftzuweisen das ganze 6x wiederholen.\n"
+                  "Rechte Maustaste: 9x wÃ¼rfeln und die besten sechs Ergebnisse frei verteilen.\n"
+                  "ACHTUNG: Die Sonderregeln fÃ¼r Nichtmenschen werden nur bei der ersten Variante berÃ¼cksichtigt.");
      _tooltips.set_tip(*button_main_drucken,"Linke Maustaste: LaTeX Abenteurerblatt drucken (pdf Datei).\n"
                   "Mittlere Maustaste: Charakterbeschreibung drucken.\n"
-                  "Rechte Maustaste: Ausrüstung drucken.");
+                  "Rechte Maustaste: AusrÃ¼stung drucken.");
    }
   else 
    { table_grundwerte->vbox_gw_wuerfeln->show();
-     _tooltips.set_tip(*(table_grundwerte->button_grundwerte),"Basiseigenschaft auswürfeln\n"
-                  "ACHTUNG: Die Sonderregeln für Nichtmenschen werden nur bei der ersten Variante berücksichtigt.\n");
+     _tooltips.set_tip(*(table_grundwerte->button_grundwerte),"Basiseigenschaft auswÃ¼rfeln\n"
+                  "ACHTUNG: Die Sonderregeln fÃ¼r Nichtmenschen werden nur bei der ersten Variante berÃ¼cksichtigt.\n");
      _tooltips.set_tip(*button_main_drucken,"Linke Maustaste: LaTeX Abenteurerblatt drucken (pdf Datei).\n"
-                  "Rechte Maustaste: Ausrüstung drucken.");
+                  "Rechte Maustaste: AusrÃ¼stung drucken.");
    }
 }
 

@@ -10,9 +10,9 @@
 #ifndef _WINDOW_AUSRUESTUNG_GLADE_HH
 #  define _WINDOW_AUSRUESTUNG_GLADE_HH
 
-#include <gtk--/window.h>
-#include <gtk--/optionmenu.h>
-#include <gtk--/clist.h>
+#include <gtkmm/window.h>
+#include <gtkmm/optionmenu.h>
+#include <gtkmm/clist.h>
 
 class window_Ausruestung_glade : public Gtk::Window
 {   

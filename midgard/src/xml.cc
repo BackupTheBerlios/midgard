@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.44 2002/11/25 12:09:47 thoma Exp $
+// $Id: xml.cc,v 1.45 2002/12/11 18:18:50 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -43,7 +43,7 @@ static void reserve(Tag *t, const std::string &type, unsigned int sz)
 
 static void reserve(Tag *t)
 {  t->reserve(64);
-//   reserve(t,"Länder",8); // geht irgendwie nicht ...
+//   reserve(t,"LÃ¤nder",8); // geht irgendwie nicht ...
    reserve(t,"Schriften",32);
    reserve(t,"Sprachen",64);
    reserve(t,"SpeziesListe",16);
@@ -55,7 +55,7 @@ static void reserve(Tag *t)
    reserve(t,"Berufe",256);
    reserve(t,"verwendbareEP",8);
    reserve(t,"SteigernKosten",8);
-   reserve(t,"Rüstungen",32);
+   reserve(t,"RÃ¼stungen",32);
    reserve(t,"Waffen",128);
    reserve(t,"Waffen-Grundkenntnisse",32);
    reserve(t,"Waffen-Steigern",16);
@@ -137,7 +137,7 @@ reloop:
              }
           }
        }
-       else std::cerr << "Kann Datei '" << file << "' nicht öffnen\n";
+       else std::cerr << "Kann Datei '" << file << "' nicht Ã¶ffnen\n";
        goto reloop;
     }
     
@@ -222,7 +222,7 @@ const Tag *find_Tag(const std::string &listtag, const std::string &elementtag,
 static const char * const std_matching[] = { "Name",0 };
 static const char * const ep_matching[] = { "Fertigkeit",0 };
 static const char * const grad_matching[] = { "Grad",0 };
-static const char * const typ_matching[] = { "Abkürzung",0 };
+static const char * const typ_matching[] = { "AbkÃ¼rzung",0 };
 static const char * const verbot_matching[] = { "Typ","Fertigkeit",0 };
 static const char * const zauberwerk_matching[] = { "Name","Art","Stufe",0 };
 static const char * const preis_matching[] = { "Ware",0 }; // Region?
@@ -239,10 +239,10 @@ const struct xml_liste xml_tags[] =
    {  "Gradanstieg",	"Grad",		grad_matching },
    {  "KI","Prototyp",std_matching },
    {  "Kido-Fertigkeiten",	"KiDo",	std_matching },
-   {  "Länder",		"Land",		std_matching },
+   {  "LÃ¤nder",		"Land",		std_matching },
    {  "Preise",		"Kaufpreis",	preis_matching },
    {  "Preise",		"Modifikation",	modifikation_matching },
-   {  "Rüstungen",	"Rüstung",	typ_matching },
+   {  "RÃ¼stungen",	"RÃ¼stung",	typ_matching },
    {  "Schriften",	"Schrift",	std_matching },
    {  "Spezialgebiete",	"Spezialgebiet",	std_matching },
    {  "SpeziesListe",	"Spezies",	std_matching },

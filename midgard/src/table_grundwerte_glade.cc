@@ -44,7 +44,7 @@ table_grundwerte_glade::table_grundwerte_glade(GlademmData *_data
    Glib::RefPtr<Gdk::Bitmap> _pixmap115_mask;
    Glib::RefPtr<Gdk::Pixmap> _pixmap115_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _pixmap115_mask, Excl_32_xpm);
    Gtk::Image *pixmap115 = manage(new class Gtk::Image(_pixmap115_pixmap, _pixmap115_mask));
-   Gtk::Label *label543 = manage(new class Gtk::Label("Werte für\n"
+   Gtk::Label *label543 = manage(new class Gtk::Label("Werte fÃ¼r\n"
 		"Grad 1\n"
 		"setzen"));
    Gtk::HBox *hbox57 = manage(new class Gtk::HBox(false, 0));
@@ -66,7 +66,7 @@ table_grundwerte_glade::table_grundwerte_glade(GlademmData *_data
    
    Gtk::Label *label183 = manage(new class Gtk::Label("Angriff"));
    Gtk::Label *label186 = manage(new class Gtk::Label("Geistesmagie"));
-   Gtk::Label *label187 = manage(new class Gtk::Label("Körpermagie"));
+   Gtk::Label *label187 = manage(new class Gtk::Label("KÃ¶rpermagie"));
    Gtk::Label *label188 = manage(new class Gtk::Label("Umgebungsmagie"));
    bo_psy = manage(new class Gtk::Label("X"));
    bo_phs = manage(new class Gtk::Label("X"));
@@ -74,7 +74,7 @@ table_grundwerte_glade::table_grundwerte_glade(GlademmData *_data
    
    Gtk::VSeparator *vseparator15 = manage(new class Gtk::VSeparator());
    Gtk::Table *table29 = manage(new class Gtk::Table(5, 5, false));
-   Gtk::Frame *frame56 = manage(new class Gtk::Frame("persönliche Boni für"));
+   Gtk::Frame *frame56 = manage(new class Gtk::Frame("persÃ¶nliche Boni fÃ¼r"));
    Gtk::Label *label___ = manage(new class Gtk::Label("Wk"));
    label_gestalt = manage(new class Gtk::Label(""));
    
@@ -139,7 +139,7 @@ table_grundwerte_glade::table_grundwerte_glade(GlademmData *_data
    Gtk::Label *label493 = manage(new class Gtk::Label("Schmecken"));
    Gtk::Label *label494 = manage(new class Gtk::Label("Tasten"));
    Gtk::Label *label495 = manage(new class Gtk::Label("Sehen"));
-   Gtk::Label *label496 = manage(new class Gtk::Label("Hören"));
+   Gtk::Label *label496 = manage(new class Gtk::Label("HÃ¶ren"));
    label_sehen = manage(new class Gtk::Label("X"));
    
    Gtk::Label *label498 = manage(new class Gtk::Label("Riechen"));
@@ -182,7 +182,7 @@ table_grundwerte_glade::table_grundwerte_glade(GlademmData *_data
    Gtk::Adjustment *spinbutton_groesse_adj = manage(new class Gtk::Adjustment(0, 0, 1000, 1, 10, 10));
    spinbutton_groesse = manage(new class Gtk::SpinButton(*spinbutton_groesse_adj, 1, 0));
    
-   Gtk::Frame *frame17 = manage(new class Gtk::Frame("Größe (cm)"));
+   Gtk::Frame *frame17 = manage(new class Gtk::Frame("GrÃ¶ÃŸe (cm)"));
    entry_nameS = manage(new class Gtk::Entry());
    
    Gtk::Frame *frame31 = manage(new class Gtk::Frame("Name des Spielers"));
@@ -240,7 +240,7 @@ table_grundwerte_glade::table_grundwerte_glade(GlademmData *_data
    vbox_gw_wuerfeln = manage(new class Gtk::VBox(true, 0));
    
    Gtk::RadioButton::Group _RadioBGroup_geschlecht;
-   radiobutton_mann = manage(new class Gtk::RadioButton(_RadioBGroup_geschlecht, "männlich"));
+   radiobutton_mann = manage(new class Gtk::RadioButton(_RadioBGroup_geschlecht, "mÃ¤nnlich"));
    radiobutton_frau = manage(new class Gtk::RadioButton(_RadioBGroup_geschlecht, "weiblich"));
    
    Gtk::VBox *vbox47 = manage(new class Gtk::VBox(false, 0));
@@ -257,7 +257,7 @@ table_grundwerte_glade::table_grundwerte_glade(GlademmData *_data
    
    Gtk::Fixed *fixed5 = manage(new class Gtk::Fixed());
    Gtk::Toolbar *toolbar2 = manage(new class Gtk::Toolbar());
-   frame_wuerfelvariante = manage(new class Gtk::Frame("Würfelvariante"));
+   frame_wuerfelvariante = manage(new class Gtk::Frame("WÃ¼rfelvariante"));
    toolbar2->tools().push_back(Gtk::Toolbar_Helpers::Element(*combo_spezies));
    toolbar2->tools().push_back(Gtk::Toolbar_Helpers::Element(*vbox_gw_wuerfeln));
    
@@ -322,7 +322,7 @@ table_grundwerte_glade::table_grundwerte_glade(GlademmData *_data
    hbox57->pack_start(*pixmap115);
    hbox57->pack_start(*label543, Gtk::PACK_SHRINK, 0);
    button_grda1setzen->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*button_grda1setzen, "Wird nicht der Knopf 'Abgeleitete Werte' gedrückt, weil der Abenteurer eingegeben wurde, so können mit diesem Knopf die Berechnung der Erfolgswerte (einschließlich des Erfolgswertes für 'Sechster Sinn') gesetzt werden.", "");
+   _tooltips.set_tip(*button_grda1setzen, "Wird nicht der Knopf 'Abgeleitete Werte' gedrÃ¼ckt, weil der Abenteurer eingegeben wurde, so kÃ¶nnen mit diesem Knopf die Berechnung der Erfolgswerte (einschlieÃŸlich des Erfolgswertes fÃ¼r 'Sechster Sinn') gesetzt werden.", "");
    button_grda1setzen->set_relief(Gtk::RELIEF_NORMAL);
    button_grda1setzen->add(*hbox57);
    table30->set_row_spacings(0);
@@ -806,7 +806,7 @@ table_grundwerte_glade::table_grundwerte_glade(GlademmData *_data
    frame95->set_shadow_type(Gtk::SHADOW_ETCHED_IN);
    frame95->set_label_align(0,0);
    frame95->add(*spinbutton_gg);
-   _tooltips.set_tip(*eventbox12, "Göttliche Gnade", "");
+   _tooltips.set_tip(*eventbox12, "GÃ¶ttliche Gnade", "");
    eventbox12->add(*frame95);
    spinbutton_sg->set_flags(Gtk::CAN_FOCUS);
    spinbutton_sg->set_update_policy(Gtk::UPDATE_ALWAYS);
@@ -898,22 +898,22 @@ table_grundwerte_glade::table_grundwerte_glade(GlademmData *_data
    }
    combo_spezies->get_entry()->set_text("");
    radiobutton_eigenschaften_standard->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*radiobutton_eigenschaften_standard, "2x für jede Eigenschaft würfeln, das höhere Ergebnis zählt.", "");
+   _tooltips.set_tip(*radiobutton_eigenschaften_standard, "2x fÃ¼r jede Eigenschaft wÃ¼rfeln, das hÃ¶here Ergebnis zÃ¤hlt.", "");
    radiobutton_eigenschaften_standard->set_mode(true);
    radiobutton_eigenschaften_standard->set_active(true);
    radiobutton_eigenschaften_zuweisen->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*radiobutton_eigenschaften_zuweisen, "2x würfeln, den besseren Wert an eine Eigenschaft zuweisen, das ganze sechsmal wiederholen.", "");
+   _tooltips.set_tip(*radiobutton_eigenschaften_zuweisen, "2x wÃ¼rfeln, den besseren Wert an eine Eigenschaft zuweisen, das ganze sechsmal wiederholen.", "");
    radiobutton_eigenschaften_zuweisen->set_mode(true);
    radiobutton_eigenschaften_zuweisen->set_active(false);
    radiobutton_eigenschaften_69->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*radiobutton_eigenschaften_69, "9x würfeln, die besten sechs Ergebnisse frei verteilen.", "");
+   _tooltips.set_tip(*radiobutton_eigenschaften_69, "9x wÃ¼rfeln, die besten sechs Ergebnisse frei verteilen.", "");
    radiobutton_eigenschaften_69->set_mode(true);
    radiobutton_eigenschaften_69->set_active(false);
    vbox_gw_wuerfeln->pack_start(*radiobutton_eigenschaften_standard);
    vbox_gw_wuerfeln->pack_start(*radiobutton_eigenschaften_zuweisen);
    vbox_gw_wuerfeln->pack_start(*radiobutton_eigenschaften_69);
    button_grundwerte->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*button_grundwerte, "Linke Maustaste: 2x für jede Basiseigenschaft würfeln, höheres Ergebnis zählt. Mittlere Maustaste: 2x würfeln, besseren Wert einer Basiseigenschaft zuweisen das ganze 6x wiederholen. Rechte Maustaste: 9x würfeln und die besten sechs Ergebnisse frei verteilen. ACHTUNG: Die Sonderregeln für Nichtmenschen werden nur bei der ersten Variante berücksichtigt.", "");
+   _tooltips.set_tip(*button_grundwerte, "Linke Maustaste: 2x fÃ¼r jede Basiseigenschaft wÃ¼rfeln, hÃ¶heres Ergebnis zÃ¤hlt. Mittlere Maustaste: 2x wÃ¼rfeln, besseren Wert einer Basiseigenschaft zuweisen das ganze 6x wiederholen. Rechte Maustaste: 9x wÃ¼rfeln und die besten sechs Ergebnisse frei verteilen. ACHTUNG: Die Sonderregeln fÃ¼r Nichtmenschen werden nur bei der ersten Variante berÃ¼cksichtigt.", "");
    radiobutton_mann->set_size_request(0,0);
    radiobutton_mann->set_flags(Gtk::CAN_FOCUS);
    radiobutton_mann->set_mode(true);

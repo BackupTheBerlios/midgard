@@ -39,8 +39,8 @@ void midgard_CG::on_exportieren_activate()
 
 void midgard_CG::spielleiter_export_save(const std::string& dateiname)
 {
-  std::string strinfo = "Datei '"+dateiname+"' enthält nun die Daten des ";
-  strinfo +="Abenteurers im Format für Midgard Publikationen\n";
+  std::string strinfo = "Datei '"+dateiname+"' enthÃ¤lt nun die Daten des ";
+  strinfo +="Abenteurers im Format fÃ¼r Midgard Publikationen\n";
   set_status(strinfo); 
   std::ofstream fout2(dateiname.c_str());
 #ifdef __MINGW32__

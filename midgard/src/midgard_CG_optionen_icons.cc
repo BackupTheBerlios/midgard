@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen_icons.cc,v 1.26 2002/12/09 11:22:32 thoma Exp $
+// $Id: midgard_CG_optionen_icons.cc,v 1.27 2002/12/11 18:18:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,7 +25,7 @@ void midgard_CG::Icons_setzen()
   // toplevel toolbar
   for(Gtk::Toolbar_Helpers::ToolList::iterator i=toolbar_top->tools().begin();i!=toolbar_top->tools().end();++i)
    {
-     if((*i)->get_type()==GTK_TOOLBAR_CHILD_SPACE) continue;      
+     if((*i)->get_type()==Gtk::TOOLBAR_CHILD_SPACE) continue;      
      st_icons I=StyleIcon(icon_counter);
      icon_counter=e_icon(int(icon_counter)+1);
 
@@ -168,19 +168,19 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
   if(MOptionen->IconCheck(Midgard_Optionen::Self).active)
    {
      if     (typ==iNew)        return st_icons("Neu"         ,NewChar_trans_50_xpm   );
-     else if(typ==iOpen)       return st_icons("Öffnen"      ,LoadChar_trans_50_xpm  );
+     else if(typ==iOpen)       return st_icons("Ã–ffnen"      ,LoadChar_trans_50_xpm  );
      else if(typ==iClose)      return st_icons("Speichern"   ,SaveChar_trans_50_xpm  );
      else if(typ==iPrint)      return st_icons("Drucken"     ,PrintChar_trans_50_xpm );
-     else if(typ==iBack)       return st_icons("Zurück"      ,Undo_xpm               );
-     else if(typ==iForward)    return st_icons("Vorwärts"    ,redo_xpm               );
-     else if(typ==iMenu)       return st_icons("Menü"        ,wizzard_trans_50_2_xpm );
+     else if(typ==iBack)       return st_icons("ZurÃ¼ck"      ,Undo_xpm               );
+     else if(typ==iForward)    return st_icons("VorwÃ¤rts"    ,redo_xpm               );
+     else if(typ==iMenu)       return st_icons("MenÃ¼"        ,wizzard_trans_50_2_xpm );
      else if(typ==iInfo)       return st_icons("Info"        ,Info_trans_50_xpm      );
      else if(typ==iInstruction)return st_icons("Anleitung"   ,Help_trans_new1_xpm    );
-     else if(typ==iExit)       return st_icons("Schließen"   ,Exit_trans_50_xpm      );
+     else if(typ==iExit)       return st_icons("SchlieÃŸen"   ,Exit_trans_50_xpm      );
      else if(typ==iJa)         return st_icons("Ja"          ,Excl_32_xpm);
      else if(typ==iNein)       return st_icons("Nein"        ,Nein_32_xpm);
-     else if(typ==iOK)         return st_icons("Fenster\nschließen",Yellow_Dice_trans_50_xpm);
-     else if(typ==iErase)      return st_icons("Textfeld\nlöschen",Clear_32_xpm);
+     else if(typ==iOK)         return st_icons("Fenster\nschlieÃŸen",Yellow_Dice_trans_50_xpm);
+     else if(typ==iErase)      return st_icons("Textfeld\nlÃ¶schen",Clear_32_xpm);
      else if(typ==iEigenschaften)return st_icons("Eigen-\nschaften",Dice_W100_trans_50_xpm);
      else if(typ==iAbgeleitet) return st_icons("Abgeleitete-\nWerte",Dices2_trans_50_xpm);
      else if(typ==iEditGrund)  return st_icons("Werte\neditieren",EditChar_trans_50_xpm);
@@ -191,11 +191,11 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iBeruf)      return st_icons("Beruf"  ,Job_trans_50_xpm);
      else if(typ==iGeld)       return st_icons("Geld"  ,Money_50_xpm);
      else if(typ==iWaffen)     return st_icons("Waffen"  ,Weapon_trans_50_xpm);
-     else if(typ==iRuestung)   return st_icons("Rüstung"  ,Dice_Armor_trans_50_xpm);
-     else if(typ==iAusruestung)return st_icons("Ausrüstung"  ,Dice_Ausruest_50_xpm);
+     else if(typ==iRuestung)   return st_icons("RÃ¼stung"  ,Dice_Armor_trans_50_xpm);
+     else if(typ==iAusruestung)return st_icons("AusrÃ¼stung"  ,Dice_Ausruest_50_xpm);
      else if(typ==iBildeinfuegen)return st_icons("Abbildung"  ,Portrait_32_xpm);
-     else if(typ==iDeleteAusr  )return st_icons("Gegenstand\nlöschen"  ,Trash_32_xpm);
-     else if(typ==iDeleteA     )return st_icons("Abenteurer aus\nListe löschen"  ,KillChar_32_xpm);
+     else if(typ==iDeleteAusr  )return st_icons("Gegenstand\nlÃ¶schen"  ,Trash_32_xpm);
+     else if(typ==iDeleteA     )return st_icons("Abenteurer aus\nListe lÃ¶schen"  ,KillChar_32_xpm);
      else if(typ==iButtonSteigern)   return st_icons("Steigern"  ,Steigern_trans_32_xpm);
      else if(typ==iButtonReduce)   return st_icons("Reduzieren"  ,Reduzieren_trans_32_xpm);
      else if(typ==iButtonVerlernen)   return st_icons("Verlernen"  ,Verlernen_trans_32_xpm);
@@ -206,7 +206,7 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iNotebookLernen)   return st_icons("Lernschema"  ,L_Schema_small_xpm);
      else if(typ==iNotebookSteigern)   return st_icons("Steigern"  ,Steigern_small_xpm);
 //     else if(typ==iNotebookBeschreibung)   return st_icons("Beschreibung"  ,Descr.Char-40.xpm);
-//     else if(typ==iNotebookAusruestung)   return st_icons("Ausrüstung"  ,Ausruest_small.xpm);
+//     else if(typ==iNotebookAusruestung)   return st_icons("AusrÃ¼stung"  ,Ausruest_small.xpm);
      else if(typ==iNotebookOptionen)   return st_icons("Optionen"  ,Regio_Hausregel_50_xpm);
      else if(typ==iNotebookNEWS)   return st_icons("News & Geschichte"  ,NewsGeschichte_xpm);
      else if(typ==iNotebookZufall)   return st_icons("Zufallsgenerator"  ,Z_NewChar_xpm);
@@ -215,19 +215,19 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
   else if(MOptionen->IconCheck(Midgard_Optionen::Ulf).active)
    {
      if     (typ==iNew)        return st_icons("Neu"         ,ulf_knopfleiste_24_neu_XPM   );
-     else if(typ==iOpen)       return st_icons("Öffnen"      ,ulf_knopfleiste_24_oeffnen_xpm  );
+     else if(typ==iOpen)       return st_icons("Ã–ffnen"      ,ulf_knopfleiste_24_oeffnen_xpm  );
      else if(typ==iClose)      return st_icons("Speichern"   ,ulf_knopfleiste_24_speichern_xpm  );
      else if(typ==iPrint)      return st_icons("Drucken"     ,ulf_knopfleiste_24_drucken_xpm );
-     else if(typ==iBack)       return st_icons("Zurück"      ,ulf_knopfleiste_24_zurueck_xpm               );
-     else if(typ==iForward)    return st_icons("Vorwärts"    ,ulf_knopfleiste_24_vorwaerts_xpm               );
-     else if(typ==iMenu)       return st_icons("Menü"        ,ulf_knopfleiste_24_menue_xpm );
+     else if(typ==iBack)       return st_icons("ZurÃ¼ck"      ,ulf_knopfleiste_24_zurueck_xpm               );
+     else if(typ==iForward)    return st_icons("VorwÃ¤rts"    ,ulf_knopfleiste_24_vorwaerts_xpm               );
+     else if(typ==iMenu)       return st_icons("MenÃ¼"        ,ulf_knopfleiste_24_menue_xpm );
      else if(typ==iInfo)       return st_icons("Info"        ,ulf_knopfleiste_24_info_xpm      );
      else if(typ==iInstruction)return st_icons("Anleitung"   ,ulf_knopfleiste_24_anleitung_xpm    );
-     else if(typ==iExit)       return st_icons("Schließen"   ,ulf_knopfleiste_24_schliessen_xpm      );
+     else if(typ==iExit)       return st_icons("SchlieÃŸen"   ,ulf_knopfleiste_24_schliessen_xpm      );
      else if(typ==iJa)         return st_icons("Ja"          ,ulf_auswahl_16_ja_xpm);
      else if(typ==iNein)       return st_icons("Nein"        ,ulf_auswahl_16_nein_xpm);
-     else if(typ==iOK)         return st_icons("Fenster\nschließen",ulf_auswahl_16_ja_xpm);
-     else if(typ==iErase)      return st_icons("Textfeld\nlöschen",ulf_auswahl_16_nein_xpm);
+     else if(typ==iOK)         return st_icons("Fenster\nschlieÃŸen",ulf_auswahl_16_ja_xpm);
+     else if(typ==iErase)      return st_icons("Textfeld\nlÃ¶schen",ulf_auswahl_16_nein_xpm);
      else if(typ==iEigenschaften)return st_icons("Eigen-\nschaften",ulf_notebook_24_wuerfel_xpm);
      else if(typ==iAbgeleitet) return st_icons("Abgeleitete-\nWerte",ulf_notebook_24_wuerfel_xpm);
      else if(typ==iEditGrund)  return st_icons("Werte\neditieren",ulf_notebook_24_editieren_xpm);
@@ -238,11 +238,11 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iBeruf)      return st_icons("Beruf"  ,ulf_notebook_24_wuerfel_xpm);
      else if(typ==iGeld)       return st_icons("Geld"  ,ulf_notebook_24_wuerfel_xpm);
      else if(typ==iWaffen)     return st_icons("Waffen"  ,ulf_notebook_24_wuerfel_xpm);
-     else if(typ==iRuestung)   return st_icons("Rüstung"  ,ulf_notebook_24_wuerfel_xpm);
-     else if(typ==iAusruestung)return st_icons("Ausrüstung"  ,ulf_notebook_24_wuerfel_xpm);
+     else if(typ==iRuestung)   return st_icons("RÃ¼stung"  ,ulf_notebook_24_wuerfel_xpm);
+     else if(typ==iAusruestung)return st_icons("AusrÃ¼stung"  ,ulf_notebook_24_wuerfel_xpm);
      else if(typ==iBildeinfuegen)return st_icons("Abbildung"  ,ulf_notebook_24_bildeinfuegen_xpm);
-     else if(typ==iDeleteAusr  )return st_icons("Gegenstand\nlöschen"  ,ulf_notebook_24_loeschen_xpm);
-     else if(typ==iDeleteA     )return st_icons("Abenteurer aus\nListe löschen"  ,ulf_notebook_24_loeschen_xpm);
+     else if(typ==iDeleteAusr  )return st_icons("Gegenstand\nlÃ¶schen"  ,ulf_notebook_24_loeschen_xpm);
+     else if(typ==iDeleteA     )return st_icons("Abenteurer aus\nListe lÃ¶schen"  ,ulf_notebook_24_loeschen_xpm);
      else if(typ==iStatusWizard)return st_icons(""  ,ulf_statusleiste_16_wizard_xpm);
      else if(typ==iStatusNPC)   return st_icons(""  ,ulf_statusleiste_16_npczulassen_xpm);
      else if(typ==iButtonSteigern)   return st_icons("Steigern"  ,ulf_notebook_24_steigern_xpm);
@@ -253,7 +253,7 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iNotebookLernen)   return st_icons("Lernschema"  ,ulf_zipfel_24_lernschema_xpm);
      else if(typ==iNotebookSteigern)   return st_icons("Steigern"  ,ulf_zipfel_24_steigern_xpm);
 //     else if(typ==iNotebookBeschreibung)   return st_icons("Beschreibung"  ,);
-//     else if(typ==iNotebookAusruestung)   return st_icons("Ausrüstung"  ,);
+//     else if(typ==iNotebookAusruestung)   return st_icons("AusrÃ¼stung"  ,);
      else if(typ==iNotebookOptionen)   return st_icons("Optionen"  ,ulf_zipfel_24_einstellungen_xpm);
      else if(typ==iNotebookNEWS)   return st_icons("News & Geschichte"  ,ulf_zipfel_24_verlauf_xpm);
      else if(typ==iNotebookZufall)   return st_icons("Zufallsgenerator"  ,ulf_zipfel_24_zufallsgenerator_xpm);

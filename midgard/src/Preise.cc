@@ -16,7 +16,7 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#include "MidgardBasicElement.hh" // nur für NotFound
+#include "MidgardBasicElement.hh" // nur fÃ¼r NotFound
 #include "Preise.hh"
 #include <Misc/itos.h>
 #include <fstream>
@@ -60,11 +60,11 @@ cH_Preise::cH_Preise(const std::string& _name, const std::string& _art, const Ta
 void Preise::get_Preise()
 {
   art2=tag->getAttr("Art2");
-  einheit=tag->getAttr("Währung");
+  einheit=tag->getAttr("WÃ¤hrung");
   kosten=tag->getFloatAttr("Preis");
   gewicht=tag->getFloatAttr("Gewicht");
   region=tag->getAttr("Region");
-  ruestung=tag->getBoolAttr("Rüstung_ohne_Gewicht");
+  ruestung=tag->getBoolAttr("RÃ¼stung_ohne_Gewicht");
   if(kosten<0) {kosten=0; unverkauflich=true;}
 }
 
@@ -175,7 +175,7 @@ void Preise::saveArtikel(const std::string &Filename,midgard_CG *hauptfenster,
    std::string filename=hauptfenster->MagusVerzeichnis()+"magus_preise.xml";
    std::ofstream datei(filename.c_str());
    if (!datei.good())
-    { hauptfenster->set_status("Kann die Ausrüstung nicht speichern");
+    { hauptfenster->set_status("Kann die AusrÃ¼stung nicht speichern");
       return;
     }
 
@@ -188,7 +188,7 @@ void Preise::saveArtikel(const std::string &Filename,midgard_CG *hauptfenster,
    TeA.setAttr("Art",art);
    TeA.setAttr("Art2",art2);
    TeA.setAttr("Name",name);
-   TeA.setAttr("Währung",einheit);
+   TeA.setAttr("WÃ¤hrung",einheit);
    TeA.setAttr("Preis",dtos(preis));
    TeA.setAttr("Gewicht",dtos(gewicht));
    TeA.setAttr("Region",region);

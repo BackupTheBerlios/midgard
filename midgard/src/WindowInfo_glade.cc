@@ -49,7 +49,7 @@ WindowInfo_glade::WindowInfo_glade(
    Glib::RefPtr<Gdk::Pixmap> _pixmap144_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _pixmap144_mask, Yellow_Dice_trans_50_xpm);
    Gtk::Image *pixmap144 = manage(new class Gtk::Image(_pixmap144_pixmap, _pixmap144_mask));
    Gtk::Label *label564 = manage(new class Gtk::Label("Fenster\n"
-		"schlieﬂen"));
+		"schlie√üen"));
    Gtk::HBox *hbox68 = manage(new class Gtk::HBox(false, 0));
    button_info_ok = manage(new class Gtk::Button());
    
@@ -57,7 +57,7 @@ WindowInfo_glade::WindowInfo_glade(
    Glib::RefPtr<Gdk::Pixmap> _pixmap143_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _pixmap143_mask, Clear_32_xpm);
    Gtk::Image *pixmap143 = manage(new class Gtk::Image(_pixmap143_pixmap, _pixmap143_mask));
    Gtk::Label *label563 = manage(new class Gtk::Label("Textfeld\n"
-		"lˆschen"));
+		"l√∂schen"));
    Gtk::HBox *hbox67 = manage(new class Gtk::HBox(false, 0));
    button_erase = manage(new class Gtk::Button());
    

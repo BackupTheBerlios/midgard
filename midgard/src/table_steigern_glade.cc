@@ -223,7 +223,7 @@ table_steigern_glade::table_steigern_glade(GlademmData *_data
    radiobutton_pp_hoch_wie_geht = manage(new class Gtk::RadioButton(_RadioBGroup_pp_stufen, "n Stufen"));
    radiobutton_pp_1stufe = manage(new class Gtk::RadioButton(_RadioBGroup_pp_stufen, "1 Stufe"));
    togglebutton_pp_verfallen = manage(new class Gtk::ToggleButton("FP verfallen lassen"));
-   togglebutton_pp_aep_fuellen = manage(new class Gtk::ToggleButton("Mit EP auffüllen"));
+   togglebutton_pp_aep_fuellen = manage(new class Gtk::ToggleButton("Mit EP auffÃ¼llen"));
    table_pp_einstellungen = manage(new class Gtk::Table(2, 2, false));
    
    Glib::RefPtr<Gdk::Bitmap> _pixmap76_mask;
@@ -474,7 +474,7 @@ table_steigern_glade::table_steigern_glade(GlademmData *_data
    Glib::RefPtr<Gdk::Bitmap> _pixmap64_mask;
    Glib::RefPtr<Gdk::Pixmap> _pixmap64_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _pixmap64_mask, Armor_trans_50_xpm);
    Gtk::Image *pixmap64 = manage(new class Gtk::Image(_pixmap64_pixmap, _pixmap64_mask));
-   label_ruestung_1 = manage(new class Gtk::Label("1. Rüstung"));
+   label_ruestung_1 = manage(new class Gtk::Label("1. RÃ¼stung"));
    
    Gtk::VBox *vbox59 = manage(new class Gtk::VBox(false, 0));
    Gtk::EventBox *eventbox9 = manage(new class Gtk::EventBox());
@@ -483,18 +483,18 @@ table_steigern_glade::table_steigern_glade(GlademmData *_data
    Glib::RefPtr<Gdk::Bitmap> _pixmap159_mask;
    Glib::RefPtr<Gdk::Pixmap> _pixmap159_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _pixmap159_mask, Armor_trans_50_xpm);
    Gtk::Image *pixmap159 = manage(new class Gtk::Image(_pixmap159_pixmap, _pixmap159_mask));
-   label_ruestung_2 = manage(new class Gtk::Label("2. Rüstung"));
+   label_ruestung_2 = manage(new class Gtk::Label("2. RÃ¼stung"));
    
    Gtk::VBox *vbox60 = manage(new class Gtk::VBox(false, 0));
    Gtk::EventBox *eventbox17 = manage(new class Gtk::EventBox());
    button_ruestung_2 = manage(new class Gtk::CheckButton());
    
-   Gtk::Label *label587 = manage(new class Gtk::Label("Rüstung"));
+   Gtk::Label *label587 = manage(new class Gtk::Label("RÃ¼stung"));
    Gtk::Label *label588 = manage(new class Gtk::Label(""));
    Gtk::Label *label589 = manage(new class Gtk::Label("LP\n"
 		"Verlust"));
    Gtk::Label *label590 = manage(new class Gtk::Label("min.\n"
-		"Stärke"));
+		"StÃ¤rke"));
    Gtk::Label *label591 = manage(new class Gtk::Label("Gw\n"
 		"Verlust"));
    Gtk::Label *label592 = manage(new class Gtk::Label("B\n"
@@ -504,7 +504,7 @@ table_steigern_glade::table_steigern_glade(GlademmData *_data
    Gtk::Viewport *viewport45 = manage(new class Gtk::Viewport(*manage(new Gtk::Adjustment(0,0,1)), *manage(new Gtk::Adjustment(0,0,1))));
    Gtk::ScrolledWindow *scrolledwindow82 = manage(new class Gtk::ScrolledWindow());
    Gtk::Table *table152 = manage(new class Gtk::Table(2, 2, false));
-   Gtk::Frame *frame107 = manage(new class Gtk::Frame("Rüstung"));
+   Gtk::Frame *frame107 = manage(new class Gtk::Frame("RÃ¼stung"));
    label_av_bonus = manage(new class Gtk::Label("AVbonus"));
    label_sl_bonus = manage(new class Gtk::Label("SLbonus"));
    
@@ -710,7 +710,7 @@ table_steigern_glade::table_steigern_glade(GlademmData *_data
    table73->attach(*label_EP, 0, 1, 0, 1, Gtk::AttachOptions(), Gtk::AttachOptions(), 0, 0);
    table73->attach(*label_Gold, 0, 1, 2, 3, Gtk::AttachOptions(), Gtk::AttachOptions(), 0, 0);
    table73->attach(*vscale_EP_Gold, 0, 1, 1, 2, Gtk::FILL, Gtk::EXPAND|Gtk::SHRINK|Gtk::FILL, 0, 0);
-   _tooltips.set_tip(*eventbox1, "Einstellen des Verhältnisses zwischen Erfahrungspunkten und Gold beim Steigern. Je weiter oben, um so höher der Anteil der verwendeten EP. (Nur wenn mit 'Unterweisung' gesteigert wird.)", "");
+   _tooltips.set_tip(*eventbox1, "Einstellen des VerhÃ¤ltnisses zwischen Erfahrungspunkten und Gold beim Steigern. Je weiter oben, um so hÃ¶her der Anteil der verwendeten EP. (Nur wenn mit 'Unterweisung' gesteigert wird.)", "");
    eventbox1->add(*table73);
    pixmap62->set_alignment(0.5,0.5);
    pixmap62->set_padding(0,0);
@@ -733,7 +733,7 @@ table_steigern_glade::table_steigern_glade(GlademmData *_data
    hbox98->pack_start(*pixmap161);
    hbox98->pack_start(*label639, Gtk::PACK_SHRINK, 0);
    checkbutton_gfp->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*checkbutton_gfp, "GFP eingeben (Rechte Maustaste: ändern)", "");
+   _tooltips.set_tip(*checkbutton_gfp, "GFP eingeben (Rechte Maustaste: Ã¤ndern)", "");
    checkbutton_gfp->set_mode(false);
    checkbutton_gfp->set_active(false);
    checkbutton_gfp->add(*hbox98);
@@ -745,11 +745,11 @@ table_steigern_glade::table_steigern_glade(GlademmData *_data
    label638->set_line_wrap(false);
    hbox97->pack_start(*pixmap93);
    hbox97->pack_start(*label638, Gtk::PACK_SHRINK, 0);
-   _tooltips.set_tip(*button_EP, "Erfahrungspunkte eingeben (Rechte Maustaste: ändern)", "");
+   _tooltips.set_tip(*button_EP, "Erfahrungspunkte eingeben (Rechte Maustaste: Ã¤ndern)", "");
    button_EP->set_mode(false);
    button_EP->set_active(false);
    button_EP->add(*hbox97);
-   _tooltips.set_tip(*eventbox_eppp_steigern, "Ist dieser Knopf aktiviert, werden die Erfahrungspunkte entsprechend des eingestellten Verhältnisses reduziert. Ist dieser Knopf deaktiviert, kann beliebig gesteigert werden.", "");
+   _tooltips.set_tip(*eventbox_eppp_steigern, "Ist dieser Knopf aktiviert, werden die Erfahrungspunkte entsprechend des eingestellten VerhÃ¤ltnisses reduziert. Ist dieser Knopf deaktiviert, kann beliebig gesteigert werden.", "");
    table72->set_border_width(1);
    table72->set_row_spacings(0);
    table72->set_col_spacings(0);
@@ -776,7 +776,7 @@ table_steigern_glade::table_steigern_glade(GlademmData *_data
    vbox38->pack_start(*flashing_gradanstieg);
    vbox38->pack_start(*label546, Gtk::PACK_SHRINK, 0);
    vbox38->pack_start(*label_grad_GFP, Gtk::PACK_SHRINK, 0);
-   _tooltips.set_tip(*button_grad, "Ist von den GFP her ein Gradanstieg möglich, so wird dieser hier gesetzt.", "");
+   _tooltips.set_tip(*button_grad, "Ist von den GFP her ein Gradanstieg mÃ¶glich, so wird dieser hier gesetzt.", "");
    button_grad->set_relief(Gtk::RELIEF_NORMAL);
    button_grad->add(*vbox38);
    pixmap125->set_alignment(0.5,0.5);
@@ -792,7 +792,7 @@ table_steigern_glade::table_steigern_glade(GlademmData *_data
    vbox39->pack_start(*pixmap125);
    vbox39->pack_start(*label547, Gtk::PACK_SHRINK, 0);
    vbox39->pack_start(*label_ausdauer_GFP, Gtk::PACK_SHRINK, 0);
-   _tooltips.set_tip(*button_grad_ausdauer, "Ausdauerpunkte neu auswürfeln", "");
+   _tooltips.set_tip(*button_grad_ausdauer, "Ausdauerpunkte neu auswÃ¼rfeln", "");
    button_grad_ausdauer->set_relief(Gtk::RELIEF_NORMAL);
    button_grad_ausdauer->add(*vbox39);
    pixmap126->set_alignment(0.5,0.5);
@@ -859,7 +859,7 @@ table_steigern_glade::table_steigern_glade(GlademmData *_data
    label551->set_justify(Gtk::JUSTIFY_CENTER);
    label551->set_line_wrap(false);
    spinbutton_eigenschaften_grad_anstieg->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*spinbutton_eigenschaften_grad_anstieg, "Eingabe mit 'Enter' bestätigen.", "");
+   _tooltips.set_tip(*spinbutton_eigenschaften_grad_anstieg, "Eingabe mit 'Enter' bestÃ¤tigen.", "");
    spinbutton_eigenschaften_grad_anstieg->set_update_policy(Gtk::UPDATE_ALWAYS);
    spinbutton_eigenschaften_grad_anstieg->set_numeric(false);
    spinbutton_eigenschaften_grad_anstieg->set_digits(0);
@@ -868,7 +868,7 @@ table_steigern_glade::table_steigern_glade(GlademmData *_data
    vbox43->pack_start(*pixmap129, Gtk::PACK_SHRINK, 0);
    vbox43->pack_start(*label551, Gtk::PACK_SHRINK, 0);
    vbox43->pack_start(*spinbutton_eigenschaften_grad_anstieg, Gtk::PACK_SHRINK, 0);
-   _tooltips.set_tip(*button_grad_basiswerte, "Linke Maustaste: Würfeln, ob sich die Basiswerte beim Gradanstieg erhöhen         Rechte Maustaste: Würfelwurf direkt eingeben. In beiden Fällen wird zusätzlich die Schicksalsgunst erhöht.", "");
+   _tooltips.set_tip(*button_grad_basiswerte, "Linke Maustaste: WÃ¼rfeln, ob sich die Basiswerte beim Gradanstieg erhÃ¶hen         Rechte Maustaste: WÃ¼rfelwurf direkt eingeben. In beiden FÃ¤llen wird zusÃ¤tzlich die Schicksalsgunst erhÃ¶ht.", "");
    button_grad_basiswerte->set_relief(Gtk::RELIEF_NORMAL);
    button_grad_basiswerte->add(*vbox43);
    table_gradsteigern_lang->set_row_spacings(0);
@@ -888,11 +888,11 @@ table_steigern_glade::table_steigern_glade(GlademmData *_data
    handlebox_steigern_4->set_snap_edge(Gtk::POS_TOP);
    handlebox_steigern_4->add(*table75);
    radiobutton_pp_hoch_wie_geht->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*radiobutton_pp_hoch_wie_geht, "Es werden alle PP verwendet, um so hoch wie möglich zu steigern.", "");
+   _tooltips.set_tip(*radiobutton_pp_hoch_wie_geht, "Es werden alle PP verwendet, um so hoch wie mÃ¶glich zu steigern.", "");
    radiobutton_pp_hoch_wie_geht->set_mode(false);
    radiobutton_pp_hoch_wie_geht->set_active(false);
    radiobutton_pp_1stufe->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*radiobutton_pp_1stufe, "Es wird um eine Stufe gesteigert und wenn die PP nicht reichen mit EP aufgefüllt.", "");
+   _tooltips.set_tip(*radiobutton_pp_1stufe, "Es wird um eine Stufe gesteigert und wenn die PP nicht reichen mit EP aufgefÃ¼llt.", "");
    radiobutton_pp_1stufe->set_mode(false);
    radiobutton_pp_1stufe->set_active(true);
    togglebutton_pp_verfallen->set_flags(Gtk::CAN_FOCUS);
@@ -916,7 +916,7 @@ table_steigern_glade::table_steigern_glade(GlademmData *_data
    hbox43->pack_start(*pixmap76);
    hbox43->pack_start(*label519, Gtk::PACK_SHRINK, 0);
    radiobutton_praxis->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*radiobutton_praxis, "Zum Steigern werden in erster Linie Praxispunkte verwendet. Es werden jedoch keine FP verschenkt, fehlenden FP werden durch EP aufgefüllt.", "");
+   _tooltips.set_tip(*radiobutton_praxis, "Zum Steigern werden in erster Linie Praxispunkte verwendet. Es werden jedoch keine FP verschenkt, fehlenden FP werden durch EP aufgefÃ¼llt.", "");
    radiobutton_praxis->set_mode(false);
    radiobutton_praxis->set_active(false);
    radiobutton_praxis->add(*hbox43);
@@ -965,7 +965,7 @@ table_steigern_glade::table_steigern_glade(GlademmData *_data
    pixmap81->set_alignment(7.45058e-09,0.5);
    pixmap81->set_padding(0,0);
    radio_spruchrolle_wuerfeln->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*radio_spruchrolle_wuerfeln, "Es wird gewürfelt, ob das Lernen von Spruchrolle erfolgreich ist.", "");
+   _tooltips.set_tip(*radio_spruchrolle_wuerfeln, "Es wird gewÃ¼rfelt, ob das Lernen von Spruchrolle erfolgreich ist.", "");
    radio_spruchrolle_wuerfeln->set_mode(false);
    radio_spruchrolle_wuerfeln->set_active(true);
    radio_spruchrolle_wuerfeln->add(*pixmap81);
@@ -994,7 +994,7 @@ table_steigern_glade::table_steigern_glade(GlademmData *_data
    hbox49->pack_start(*pixmap92, Gtk::PACK_SHRINK, 0);
    hbox49->pack_start(*label534, Gtk::PACK_SHRINK, 0);
    togglebutton_alle_zauber->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*togglebutton_alle_zauber, "Es kann aus ALLEN Zaubern gewählt werden", "");
+   _tooltips.set_tip(*togglebutton_alle_zauber, "Es kann aus ALLEN Zaubern gewÃ¤hlt werden", "");
    togglebutton_alle_zauber->set_relief(Gtk::RELIEF_NORMAL);
    togglebutton_alle_zauber->set_active(false);
    togglebutton_alle_zauber->add(*hbox49);
@@ -1007,7 +1007,7 @@ table_steigern_glade::table_steigern_glade(GlademmData *_data
    hbox48->pack_start(*pixmap91, Gtk::PACK_SHRINK, 0);
    hbox48->pack_start(*label533, Gtk::PACK_SHRINK, 0);
    togglebutton_zaubersalze->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*togglebutton_zaubersalze, "Zaubersalze können gelernt werden", "");
+   _tooltips.set_tip(*togglebutton_zaubersalze, "Zaubersalze kÃ¶nnen gelernt werden", "");
    togglebutton_zaubersalze->set_relief(Gtk::RELIEF_NORMAL);
    togglebutton_zaubersalze->set_active(false);
    togglebutton_zaubersalze->add(*hbox48);
@@ -1033,7 +1033,7 @@ table_steigern_glade::table_steigern_glade(GlademmData *_data
    hbox38->pack_start(*pixmap72, Gtk::PACK_SHRINK, 0);
    hbox38->pack_start(*label514, Gtk::PACK_SHRINK, 0);
    radiobutton_reduzieren->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*radiobutton_reduzieren, "Ist dieser Knopf gedrückt werden die Erfolgswerte bereits gelernter Fertigkeiten (durch anklicken) reduziert.", "");
+   _tooltips.set_tip(*radiobutton_reduzieren, "Ist dieser Knopf gedrÃ¼ckt werden die Erfolgswerte bereits gelernter Fertigkeiten (durch anklicken) reduziert.", "");
    radiobutton_reduzieren->set_mode(false);
    radiobutton_reduzieren->set_active(false);
    radiobutton_reduzieren->add(*hbox38);
@@ -1046,7 +1046,7 @@ table_steigern_glade::table_steigern_glade(GlademmData *_data
    hbox39->pack_start(*pixmap73, Gtk::PACK_SHRINK, 0);
    hbox39->pack_start(*label515, Gtk::PACK_SHRINK, 0);
    radiobutton_verlernen->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*radiobutton_verlernen, "Ist dieser Knopf gedrückt wird eine bereits gelernter Fertigkeiten (durch anklicken) verlernt, wenn sie auf dem niedrigsten Erfolgswert beherrscht wird.", "");
+   _tooltips.set_tip(*radiobutton_verlernen, "Ist dieser Knopf gedrÃ¼ckt wird eine bereits gelernter Fertigkeiten (durch anklicken) verlernt, wenn sie auf dem niedrigsten Erfolgswert beherrscht wird.", "");
    radiobutton_verlernen->set_mode(false);
    radiobutton_verlernen->set_active(false);
    radiobutton_verlernen->add(*hbox39);
@@ -1059,7 +1059,7 @@ table_steigern_glade::table_steigern_glade(GlademmData *_data
    hbox37->pack_start(*pixmap74, Gtk::PACK_SHRINK, 0);
    hbox37->pack_start(*label513, Gtk::PACK_SHRINK, 0);
    radiobutton_steigern->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*radiobutton_steigern, "Ist dieser Knopf gedrückt können die bereits gelernten Fertigkeiten (durch anklicken) gesteigert werden.", "");
+   _tooltips.set_tip(*radiobutton_steigern, "Ist dieser Knopf gedrÃ¼ckt kÃ¶nnen die bereits gelernten Fertigkeiten (durch anklicken) gesteigert werden.", "");
    radiobutton_steigern->set_mode(false);
    radiobutton_steigern->set_active(true);
    radiobutton_steigern->add(*hbox37);
@@ -1073,7 +1073,7 @@ table_steigern_glade::table_steigern_glade(GlademmData *_data
    frame_fertigkeit->set_label_align(0,0);
    frame_fertigkeit->add(*table100);
    spinbutton_pp_eingeben->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*spinbutton_pp_eingeben, "Eingabe mit 'Enter' bestätigen.", "");
+   _tooltips.set_tip(*spinbutton_pp_eingeben, "Eingabe mit 'Enter' bestÃ¤tigen.", "");
    spinbutton_pp_eingeben->set_update_policy(Gtk::UPDATE_ALWAYS);
    spinbutton_pp_eingeben->set_numeric(false);
    spinbutton_pp_eingeben->set_digits(0);
@@ -1092,7 +1092,7 @@ table_steigern_glade::table_steigern_glade(GlademmData *_data
    togglebutton_praxispunkte->set_active(false);
    togglebutton_praxispunkte->add(*hbox40);
    radiobutton_pp_fertigkeit->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*radiobutton_pp_fertigkeit, "Nach Aktivierung dieses Knopfes muß die Fertigkeit gewählt werden, für die PP eingegeben werden sollen.", "");
+   _tooltips.set_tip(*radiobutton_pp_fertigkeit, "Nach Aktivierung dieses Knopfes muÃŸ die Fertigkeit gewÃ¤hlt werden, fÃ¼r die PP eingegeben werden sollen.", "");
    radiobutton_pp_fertigkeit->set_mode(true);
    radiobutton_pp_fertigkeit->set_active(false);
    radiobutton_pp_abwehr->set_flags(Gtk::CAN_FOCUS);
@@ -1330,10 +1330,10 @@ table_steigern_glade::table_steigern_glade(GlademmData *_data
    label_ruestung_1->set_line_wrap(false);
    vbox59->pack_start(*pixmap64);
    vbox59->pack_start(*label_ruestung_1, Gtk::PACK_SHRINK, 0);
-   _tooltips.set_tip(*eventbox9, "Nach dem Aktivieren des Knopfes eine Rüstung aus der Liste wählen.", "");
+   _tooltips.set_tip(*eventbox9, "Nach dem Aktivieren des Knopfes eine RÃ¼stung aus der Liste wÃ¤hlen.", "");
    eventbox9->add(*vbox59);
    button_ruestung_1->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*button_ruestung_1, "Nach dem Aktivieren des Knopfes eine Rüstung aus der Liste wählen.", "");
+   _tooltips.set_tip(*button_ruestung_1, "Nach dem Aktivieren des Knopfes eine RÃ¼stung aus der Liste wÃ¤hlen.", "");
    button_ruestung_1->set_mode(false);
    button_ruestung_1->set_active(false);
    button_ruestung_1->add(*eventbox9);
@@ -1345,10 +1345,10 @@ table_steigern_glade::table_steigern_glade(GlademmData *_data
    label_ruestung_2->set_line_wrap(false);
    vbox60->pack_start(*pixmap159);
    vbox60->pack_start(*label_ruestung_2, Gtk::PACK_SHRINK, 0);
-   _tooltips.set_tip(*eventbox17, "Nach dem Aktivieren des Knopfes eine Rüstung aus der Liste wählen.", "");
+   _tooltips.set_tip(*eventbox17, "Nach dem Aktivieren des Knopfes eine RÃ¼stung aus der Liste wÃ¤hlen.", "");
    eventbox17->add(*vbox60);
    button_ruestung_2->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*button_ruestung_2, "Nach dem Aktivieren des Knopfes ein Rüstung aus der Liste wählen.", "");
+   _tooltips.set_tip(*button_ruestung_2, "Nach dem Aktivieren des Knopfes ein RÃ¼stung aus der Liste wÃ¤hlen.", "");
    button_ruestung_2->set_mode(false);
    button_ruestung_2->set_active(false);
    button_ruestung_2->add(*eventbox17);
@@ -1421,7 +1421,7 @@ table_steigern_glade::table_steigern_glade(GlademmData *_data
    spinbutton_sl_bonus->set_wrap(false);
    spinbutton_sl_bonus->set_snap_to_ticks(false);
    entry_magisch->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*entry_magisch, "Für eine magische (+0/+0) Waffe muß hier ein '*' eingetragen werden.", "");
+   _tooltips.set_tip(*entry_magisch, "FÃ¼r eine magische (+0/+0) Waffe muÃŸ hier ein '*' eingetragen werden.", "");
    entry_magisch->set_visibility(true);
    entry_magisch->set_editable(true);
    entry_magisch->set_text("");
@@ -1442,7 +1442,7 @@ table_steigern_glade::table_steigern_glade(GlademmData *_data
    hbox76->pack_start(*pixmap160);
    hbox76->pack_start(*label593, Gtk::PACK_SHRINK, 0);
    checkbutton_mag_waffenbonus->set_flags(Gtk::CAN_FOCUS);
-   _tooltips.set_tip(*checkbutton_mag_waffenbonus, "Nach dem aktivieren: Waffe wählen", "");
+   _tooltips.set_tip(*checkbutton_mag_waffenbonus, "Nach dem aktivieren: Waffe wÃ¤hlen", "");
    checkbutton_mag_waffenbonus->set_mode(false);
    checkbutton_mag_waffenbonus->set_active(false);
    checkbutton_mag_waffenbonus->add(*hbox76);

@@ -20,8 +20,8 @@ table_optionen_glade::table_optionen_glade(GlademmData *_data
    frame_globale_optionen = manage(new class frame_globale_optionen(_data));
    frame_ansicht = manage(new class frame_ansicht(_data));
    
-   Gtk::Label *label578 = manage(new class Gtk::Label("HTML-Browser (für Hilfe)"));
-   Gtk::Label *label576 = manage(new class Gtk::Label("Temporäres Verzeichnis"));
+   Gtk::Label *label578 = manage(new class Gtk::Label("HTML-Browser (fÃ¼r Hilfe)"));
+   Gtk::Label *label576 = manage(new class Gtk::Label("TemporÃ¤res Verzeichnis"));
    Gtk::Label *label577 = manage(new class Gtk::Label("Speichern"));
    Gtk::Label *label575 = manage(new class Gtk::Label("Pfade"));
    entry_html = manage(new class Gtk::Entry());

@@ -17,8 +17,8 @@
  */
 
 #include "midgard_CG.hh"
-#include <gtk--/box.h>
-#include <gtk--/pixmap.h>
+#include <gtkmm/box.h>
+#include <gtkmm/pixmap.h>
 #include "../pixmaps/midgard_logo_tiny.xpm"
 #include <Misc/itos.h>
 #include <bool_CheckMenuItem.hh>
@@ -44,14 +44,14 @@ void midgard_CG::menu_init()
 {
   menu_kontext=manage(new Gtk::Menu());
 
-//Schummel-Menü/////////////////////////////////////////////////////////////////////
+//Schummel-MenÃ¼/////////////////////////////////////////////////////////////////////
   Gtk::Menu *schummel_menu = manage(new class Gtk::Menu());
-  Gtk::MenuItem *schummel = manage(new class Gtk::MenuItem("Original-Regel-Menü")); 
+  Gtk::MenuItem *schummel = manage(new class Gtk::MenuItem("Original-Regel-MenÃ¼")); 
   schummel->set_submenu(*schummel_menu);
 
   {bool_CheckMenuItem *_M=manage(new bool_CheckMenuItem(schummeln,make_gtk_box(NSC_Mode_26_xpm,"alle Regeln abschalten")));
   schummel_menu->append(*_M);
-  _M->activate.connect_after(SigC::slot(this,&midgard_CG::Schummeln));}
+  _M->signal_activate().connect_after(SigC::slot(*this,&midgard_CG::Schummeln));}
 
   Gtk::MenuItem *trennlinie = (Gtk::MenuItem *)schummel_menu->items().back();
   trennlinie->show();
@@ -61,7 +61,7 @@ void midgard_CG::menu_init()
 
   {Gtk::MenuItem *_M = manage(new Gtk::MenuItem("Lernschema- und Steigern-Fenster aktivieren"));
   schummel_menu->append(*_M);
-  _M->activate.connect_after(SigC::bind(SigC::slot(this,&midgard_CG::OptionenExecute_setzen_from_menu),Midgard_Optionen::LernschemaSensitive));}
+  _M->signal_activate().connect_after(SigC::bind(SigC::slot(*this,&midgard_CG::OptionenExecute_setzen_from_menu),Midgard_Optionen::LernschemaSensitive));}
 
   {bool_CheckMenuItem *_M=manage(new bool_CheckMenuItem(table_grundwerte->edit_werte,"Werte editieren"));
   schummel_menu->append(*_M);}
@@ -81,22 +81,22 @@ void midgard_CG::menu_init()
 
   Gtk::MenuItem *latex = manage(new class Gtk::MenuItem("Abenteurer drucken (LaTeX)"));
   drucken_menu->append(*latex);
-  latex->activate.connect(SigC::slot(this,&midgard_CG::on_abenteurerdokument_drucken));
+  latex->signal_activate().connect(SigC::slot(*this,&midgard_CG::on_abenteurerdokument_drucken));
 
   Gtk::MenuItem *latex_beschreibung = manage(new class Gtk::MenuItem("Abenteurerbeschreibung drucken"));
   drucken_menu->append(*latex_beschreibung);
-  latex_beschreibung->activate.connect(SigC::slot(this,&midgard_CG::on_beschreibung_drucken));
+  latex_beschreibung->signal_activate().connect(SigC::slot(*this,&midgard_CG::on_beschreibung_drucken));
 
-  Gtk::MenuItem *latex_ausruestung = manage(new class Gtk::MenuItem("Ausrüstungsdokument drucken (Alles)"));
+  Gtk::MenuItem *latex_ausruestung = manage(new class Gtk::MenuItem("AusrÃ¼stungsdokument drucken (Alles)"));
   drucken_menu->append(*latex_ausruestung);
-  latex_ausruestung->activate.connect(SigC::slot(this,&midgard_CG::on_auch_unsichtbares_drucken));
-  Gtk::MenuItem *latex_ausruestung2 = manage(new class Gtk::MenuItem("Ausrüstungsdokument drucken (Nur sichtbare Gegenstände)"));
+  latex_ausruestung->signal_activate().connect(SigC::slot(*this,&midgard_CG::on_auch_unsichtbares_drucken));
+  Gtk::MenuItem *latex_ausruestung2 = manage(new class Gtk::MenuItem("AusrÃ¼stungsdokument drucken (Nur sichtbare GegenstÃ¤nde)"));
   drucken_menu->append(*latex_ausruestung2);
-  latex_ausruestung2->activate.connect(SigC::slot(this,&midgard_CG::on_nur_sichtbares_drucken));
+  latex_ausruestung2->signal_activate().connect(SigC::slot(*this,&midgard_CG::on_nur_sichtbares_drucken));
 
   Gtk::MenuItem *latex_empty = manage(new class Gtk::MenuItem("Leeres Abenteurerdokument drucken"));
   drucken_menu->append(*latex_empty);
-  latex_empty->activate.connect(SigC::slot(this,&midgard_CG::on_leeres_abenteurerdokument_drucken));
+  latex_empty->signal_activate().connect(SigC::slot(*this,&midgard_CG::on_leeres_abenteurerdokument_drucken));
 
   menu_kontext->append(*drucken);
 //Regionen/////////////////////////////////////////////////////////////////////
@@ -123,7 +123,7 @@ void midgard_CG::menu_init()
 
      bool_CheckMenuItem *mi = manage(new bool_CheckMenuItem((*i)->Active(),*_tab));
      regionen_menu->append(*mi);
-     (*i)->Active().changed.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),*i));
+     (*i)->Active().signal_changed().connect(SigC::bind(SigC::slot(*this,&midgard_CG::on_checkbutton_Regionen_menu),*i));
      if(!(*i)->Offiziell())
          mi->setSensitive(MOptionen->OptionenCheck(Midgard_Optionen::Original).active,true);
    }
@@ -140,15 +140,15 @@ void midgard_CG::menu_init()
    {
     Gtk::Label *_l=manage (new Gtk::Label(i->text));
     Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
-    _tab->attach(*_l,0,1,0,1,GTK_FILL,0,0,0);
+    _tab->attach(*_l,0,1,0,1,Gtk::FILL,0,0,0);
     if(i->bild) 
      {
       Gtk::Pixmap *_o=manage(new Gtk::Pixmap(i->bild));
-      _tab->attach(*_o,1,2,0,1,GTK_FILL,0,0,0);
+      _tab->attach(*_o,1,2,0,1,Gtk::FILL,0,0,0);
      }
     Gtk::MenuItem *mi=manage(new Gtk::MenuItem());
     mi->add(*_tab);    
-    mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::OptionenExecute_setzen_from_menu),i->index));
+    mi->signal_activate().connect(SigC::bind(SigC::slot(*this,&midgard_CG::OptionenExecute_setzen_from_menu),i->index));
     optionen_menu->append(*mi);
    } 
   menu_kontext->append(*optionen);
@@ -162,7 +162,7 @@ void midgard_CG::menu_init()
 /*
 static void wert_changed(gpointer gp)
 { 
-  std::cout << "MENÜ: WC: "<<  *(bool*)(gp)<<'\n';
+  std::cout << "MENÃœ: WC: "<<  *(bool*)(gp)<<'\n';
 } 
 */ 
 
@@ -176,7 +176,7 @@ void midgard_CG::menubar_init()
   Gtk::Menu *menu2 = manage(new class Gtk::Menu());
 
   Gtk::MenuItem *mi0 = manage(new class Gtk::MenuItem("Optionen"));
-  mi0->activate.connect(SigC::slot(this,&midgard_CG::menu_einstellungen_aendern));
+  mi0->signal_activate().connect(SigC::slot(*this,&midgard_CG::menu_einstellungen_aendern));
   ansicht_menu->items().push_back(Gtk::Menu_Helpers::MenuElem(*mi0));
 
   Gtk::MenuItem *mi1 = manage(new class Gtk::MenuItem("Ansicht & Fenster"));
@@ -187,22 +187,22 @@ void midgard_CG::menubar_init()
    {
     Gtk::Label *_l=manage (new Gtk::Label(i->text));
     Gtk::Table *_tab=manage(new Gtk::Table(0,0,false));
-    _tab->attach(*_l,0,1,0,1,GTK_FILL,0,0,0);
+    _tab->attach(*_l,0,1,0,1,Gtk::FILL,0,0,0);
     if(i->bild) 
      {
       Gtk::Pixmap *_o=manage(new Gtk::Pixmap(i->bild));
-      _tab->attach(*_o,1,2,0,1,GTK_FILL,0,0,0);
+      _tab->attach(*_o,1,2,0,1,Gtk::FILL,0,0,0);
      }
     Gtk::MenuItem *mi=manage(new Gtk::MenuItem());
     mi->add(*_tab);    
-    mi->activate.connect(SigC::bind(SigC::slot(this,&midgard_CG::OptionenExecute_setzen_from_menu),i->index));
+    mi->signal_activate().connect(SigC::bind(SigC::slot(*this,&midgard_CG::OptionenExecute_setzen_from_menu),i->index));
     menu1->append(*mi);
    } 
   for(std::list<Midgard_Optionen::st_Ober>::iterator i=MOptionen->getOber().begin();i!=MOptionen->getOber().end();++i)
    {
     if(!i->show) continue;
     bool_CheckMenuItem *mi = manage(new bool_CheckMenuItem(i->active,i->text,0,0.5));
-    i->active.changed.connect(SigC::bind(SigC::slot(this,&midgard_CG::Ober_element_activate),i->index));
+    i->active.signal_changed().connect(SigC::bind(SigC::slot(*this,&midgard_CG::Ober_element_activate),i->index));
     menu2->append(*mi);
    } 
   mi1->set_submenu(*menu1);
@@ -236,7 +236,7 @@ void midgard_CG::menubar_init()
 
      bool_CheckMenuItem *mi = manage(new bool_CheckMenuItem((*i)->Active(),*_tab));
      regionen_menu->items().push_back(Gtk::Menu_Helpers::CheckMenuElem(*mi));
-     (*i)->Active().changed.connect(SigC::bind(SigC::slot(this,&midgard_CG::on_checkbutton_Regionen_menu),*i));
+     (*i)->Active().signal_changed().connect(SigC::bind(SigC::slot(*this,&midgard_CG::on_checkbutton_Regionen_menu),*i));
      if(!(*i)->Offiziell())
         mi->setSensitive(MOptionen->OptionenCheck(Midgard_Optionen::Original).active,true);
    }
@@ -257,7 +257,7 @@ void midgard_CG::menu_history_init(int oldsize)
    {
      L.push_back(Gtk::Menu_Helpers::MenuElem(*i, "<Control>"+itos(x)));
      Gtk::MenuItem *mi=(Gtk::MenuItem *)L.back();
-     mi->activate.connect(SigC::bind(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::xml_import_history),*i));
+     mi->signal_activate().connect(SigC::bind(SigC::slot(*static_cast<class midgard_CG*>(this), &midgard_CG::xml_import_history),*i));
      ++x;
    }
 }

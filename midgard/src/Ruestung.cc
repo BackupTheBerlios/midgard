@@ -17,7 +17,7 @@
  */
 
 #include "Ruestung.hh"
-#include "MidgardBasicElement.hh" // für NotFound
+#include "MidgardBasicElement.hh" // fÃ¼r NotFound
 #include "Grundwerte.hh"
 
 cH_Ruestung::cache_t cH_Ruestung::cache;
@@ -28,13 +28,13 @@ cH_Ruestung::cH_Ruestung(const std::string& name ,bool create)
  if (cached) *this=*cached;
  else
   {
-  std::cerr << "Rüstung '" << name << "' nicht im Cache\n";
-  const Tag *t=find_Tag("Rüstungen","Rüstung","Abkürzung",name);
+  std::cerr << "RÃ¼stung '" << name << "' nicht im Cache\n";
+  const Tag *t=find_Tag("RÃ¼stungen","RÃ¼stung","AbkÃ¼rzung",name);
   if (t) *this=cH_Ruestung(t);
   else if (create || !xml_data) // !xml_data = vor Einlesen der Daten
-  {  static Tag t2("Rüstung"); 
+  {  static Tag t2("RÃ¼stung"); 
      // note that this Tag is shared ... works well for now
-     t2.setAttr("Abkürzung",name);
+     t2.setAttr("AbkÃ¼rzung",name);
      t2.setAttr("Name",name);
      *this=cH_Ruestung(&t2);
   }
@@ -44,23 +44,23 @@ cH_Ruestung::cH_Ruestung(const std::string& name ,bool create)
 
 cH_Ruestung::cH_Ruestung(const Tag *tag)
 {*this=cH_Ruestung(new Ruestung(tag));
- cache.Register(tag->getAttr("Abkürzung"),*this);
+ cache.Register(tag->getAttr("AbkÃ¼rzung"),*this);
 }
 
 Ruestung::Ruestung(const Tag *tag) 
-: name(tag->getAttr("Abkürzung"))
+: name(tag->getAttr("AbkÃ¼rzung"))
 {
   longname=tag->getAttr("Name");
   region=tag->getAttr("Region");
-  lp_verlust=tag->getIntAttr("schütztLP");
-  min_staerke=tag->getIntAttr("minimaleStärke");
+  lp_verlust=tag->getIntAttr("schÃ¼tztLP");
+  min_staerke=tag->getIntAttr("minimaleStÃ¤rke");
   const Tag *Verlust=tag->find("Verlust");
   if (Verlust)
   {  rw_verlust=Verlust->getIntAttr("RW");
      b_verlust=Verlust->getIntAttr("B");
      abwehr_bonus_verlust=Verlust->getIntAttr("Abwehrbonus");;
      angriffs_bonus_verlust=Verlust->getIntAttr("Angriffsbonus");
-     vollruestungsabzug=Verlust->getIntAttr("Vollrüstung");
+     vollruestungsabzug=Verlust->getIntAttr("VollrÃ¼stung");
      behinderung_wie=Verlust->getAttr("BehinderungWie");
   }
   else
@@ -69,10 +69,10 @@ Ruestung::Ruestung(const Tag *tag)
 
 Ruestung_All::Ruestung_All()
 {
- const Tag *ruestungen=xml_data->find("Rüstungen");
+ const Tag *ruestungen=xml_data->find("RÃ¼stungen");
  if (ruestungen)
  {  Tag::const_iterator b=ruestungen->begin(),e=ruestungen->end();
-    FOR_EACH_CONST_TAG_OF_5(i,*ruestungen,b,e,"Rüstung")
+    FOR_EACH_CONST_TAG_OF_5(i,*ruestungen,b,e,"RÃ¼stung")
        list_All.push_back(cH_Ruestung(&*i));
  }   
 }

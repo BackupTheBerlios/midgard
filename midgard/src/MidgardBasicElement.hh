@@ -169,10 +169,10 @@ class MidgardBasicElement_mutable : public HandleContentCopyable
  private:
       cH_MidgardBasicElement mbe;
       int praxispunkte,erfolgswert,lernpunkte;
-      MidgardBasicElement::st_zusatz zusatz; // Für Zusätze bei Fertigkeiten 
+      MidgardBasicElement::st_zusatz zusatz; // FÃ¼r ZusÃ¤tze bei Fertigkeiten 
                               // (z.B. Abrichten, Sprache, Geheimzeichen...)
                               // und Zauber (Tiersprache)
-      bool gelernt; // Fürs Lernschema
+      bool gelernt; // FÃ¼rs Lernschema
       bool pflicht;
       bool erlaubt;
       std::string lernart; // Fach- Allgemeinwissen, ungew. Fert.

@@ -1,4 +1,4 @@
-// $Id: Prototyp2.hh,v 1.2 2002/10/31 15:10:28 christof Exp $               
+// $Id: Prototyp2.hh,v 1.3 2002/12/11 18:18:50 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -50,7 +50,7 @@ private:
    const std::vector<st_protolisten>& LZauber() const {return lzauber;}
    const std::vector<st_protolisten>& LFertigkeiten() const {return lfertigkeiten;}
 
-   // 'A' enth‰lt eine Liste mit den Ausgew‰hlten 'Info', 'Wissen', 'Natur', ...
+   // 'A' enth√§lt eine Liste mit den Ausgew√§hlten 'Info', 'Wissen', 'Natur', ...
    // 'name' ist die zu lernende Fertigkeit
    // 'art' ist 'F' oder 'Z'
    static double fac_for(const std::string &art, const std::string &name, const std::vector<cH_Prototyp2> &A);

@@ -80,9 +80,9 @@ void Zauber::get_Zauber()
     reagens=tag->getAttr("Reagens");
     nsc_only=tag->getBoolAttr("NSC_only",false);
     
-    enum_zusatz=MidgardBasicElement::eZusatz(tag->getIntAttr("Zus‰tze",ZNone));
+    enum_zusatz=MidgardBasicElement::eZusatz(tag->getIntAttr("Zus√§tze",ZNone));
 
-    FOR_EACH_CONST_TAG_OF(i,*tag,"Zus‰tze")
+    FOR_EACH_CONST_TAG_OF(i,*tag,"Zus√§tze")
       Vzusatz.push_back(st_zusatz(i->getAttr("Name"),i->getAttr("Typ"),
                          i->getAttr("Region"),i->getAttr("RegionZusatz"),""));
                                
@@ -148,7 +148,7 @@ bool Zauber::spruchrolle_wuerfeln(const Abenteurer &A,std::string &info) const
  
  if ((A.Typ1()->Short()!="Ma" && A.Typ2()->Short()!="Ma") && Art()=="A") 
     iaus=-2;
- // F¸r Magier:
+ // F√ºr Magier:
  std::string standard="";
  if (A.Typ1()->Short()=="Ma") standard=Standard(A)[0]; 
  if (A.Typ2()->Short()=="Ma") standard=Standard(A)[1]; 
@@ -168,7 +168,7 @@ bool Zauber::spruchrolle_wuerfeln(const Abenteurer &A,std::string &info) const
  x += erf_z;
 
  info += "Lernversuch von Spruchrolle:
- gew¸rfelt  Spruchstufe  Ausnahme/Spezial Erfolgswert  Gesamtergebnis\n     "
+ gew√ºrfelt  Spruchstufe  Ausnahme/Spezial Erfolgswert  Gesamtergebnis\n     "
       +itos(xr)+"            -"+itos(iStufe())+"               "
       +itos(iaus)+"             "+itos(erf_z)+"       =       "+ itos(x)+"\n";
  if (x>=20) return true;
@@ -189,7 +189,7 @@ Zauber_All::Zauber_All()
     FOR_EACH_CONST_TAG_OF_5(i,*zauber,b,e,"Spruch")
     {  
 // warum sowas?
-//    die Klasse cH_Zauber enth‰lt den Cache, erzeuge ich nur einen Zauber, so
+//    die Klasse cH_Zauber enth√§lt den Cache, erzeuge ich nur einen Zauber, so
 //    wird er nicht in den Cache (nach Namen) aufgenommen.
 //    Ich brauche aber einen cH_MidgardBasicElement, daher bilde ich einen
 //    Zauber* um danach (aus dem ebenfalls MidgardBasicElement*) ein 

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.308 2002/12/11 11:09:58 thoma Exp $
+// $Id: midgard_CG.hh,v 1.309 2002/12/11 18:18:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,9 +23,9 @@
 
 #include <iostream>
 #include <string>
-#include <gtk--/menu.h>
-#include <gtk--/menuitem.h>
-#include <gtk--/pixmap.h>
+#include <gtkmm/menu.h>
+#include <gtkmm/menuitem.h>
+#include <gtkmm/pixmap.h>
 
 #include <vector>
 #include <list>
@@ -145,8 +145,8 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
                st_buttons(Gtk::Widget *w, e_icon i)
                   : widget(w),icon(i) {}};
 
-        std::vector<st_buttons> IconVec;    // Für Gtk::Box
-        std::vector<st_buttons> IconVecBin; // Für Gtk::Bin
+        std::vector<st_buttons> IconVec;    // FÃ¼r Gtk::Box
+        std::vector<st_buttons> IconVecBin; // FÃ¼r Gtk::Bin
         void fill_IconVec();
         st_icons StyleIcon(e_icon typ) const;
         void Icons_setzen();
@@ -214,9 +214,9 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
         Abenteurer &getAben() {return Char.getAbenteurer();}
         void Eigenschaften_variante(int i);
         void on_neuer_charakter_clicked();
-        // Oberfläche
+        // OberflÃ¤che
    public:
-        // Oberfläche Notebook 
+        // OberflÃ¤che Notebook 
         enum enum_notebook_main{NOPAGE=-1,PAGE_INFO=0,PAGE_GRUNDWERTE,PAGE_LERNEN,PAGE_STEIGERN,
                                 PAGE_BESCHREIBUNG,PAGE_AUSRUESTUNG,PAGE_OPTIONEN,
                                 PAGE_NEWS,PAGE_ZUFALL};
@@ -233,7 +233,7 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
         gint on_eventbox_grundwerte_button_release_event(GdkEventButton *event);
         void load_for_mainpage(guint pagenr);
 
-        // Oberfläche Menü
+        // OberflÃ¤che MenÃ¼
         Gtk::Menu *menu_kontext;
         Gtk::Box &make_gtk_box(const gchar * const *data,const std::string &label,const bool text_vor_bild=true,const bool hbox=true);
         gint on_button_menu_button_release_event(GdkEventButton *ev);
@@ -252,14 +252,14 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
         Model<bool> schummeln;
         void Schummeln();
 
-        // Oberfläche Statusbar
+        // OberflÃ¤che Statusbar
         void init_statusbar();
         struct st_reg_status{RegionenPic::epic name; Gtk::Pixmap *pix;
                st_reg_status(RegionenPic::epic n, Gtk::Pixmap *p):name(n),pix(p){}};
         std::vector<st_reg_status> vec_region_status;
         void set_region_statusbar(RegionenPic::epic pic,bool active);
 
-        // Oberfläche Diverses
+        // OberflÃ¤che Diverses
         void setWindowPosition(int x,int y);
         void setWindowSize(int width,int height);
         gint on_eventbox_MCG_button_press_event(GdkEventButton *event);
@@ -275,7 +275,7 @@ class midgard_CG : public midgard_CG_glade, public magus_paths
 
        // Diverses
    private:
-//        SigC::Connection connection_status;
+//        SigC::signal_Connection().connection_status;
         gint timeout_status();
         friend class Datenbank;
         Tag tag_eigene_artikel;

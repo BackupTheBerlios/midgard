@@ -191,7 +191,7 @@ std::string WaffeBesitz::Schaden(const Grundwerte& Werte,const std::string& name
         else             sb=-1;
         if(name=="Kampfriemen") sb+=1;
       }
-  if (Waffe()->Art()!="Schußwaffe" && Waffe()->Art()!="Wurfwaffe") 
+  if (Waffe()->Art()!="SchuÃŸwaffe" && Waffe()->Art()!="Wurfwaffe") 
     {  sb += Werte.bo_Sc(); sb2 += Werte.bo_Sc();}
   if(sb==sb2)  return add_plus_or_minus(s,sb); 
   else         return add_plus_or_minus(s,sb)+"|"+itos(sb2);

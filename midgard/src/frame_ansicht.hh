@@ -15,7 +15,7 @@
 
 class midgard_CG;
 #include "Optionen.hh"
-#include <gtk--/checkbutton.h>
+#include <gtkmm/checkbutton.h>
 
 
 class frame_ansicht : public frame_ansicht_glade

@@ -44,7 +44,7 @@ void Lernschema::StoreLernschema(const std::string &slist,const std::string &ele
 
 Lernschema::Lernschema(bool t)
 {
- StoreLernschema("Zauber","Spruch","Zauberkünste",lern_map);
+ StoreLernschema("Zauber","Spruch","ZauberkÃ¼nste",lern_map);
  StoreLernschema("Fertigkeiten","Fertigkeit","Fachkenntnisse",lern_map);
  StoreLernschema("Waffen","Waffe","Waffenfertigkeiten",lern_map);
 }
@@ -75,7 +75,7 @@ std::list<MBEmlt> Lernschema::get_List(const std::string& art,
               waffe->setErfolgswert(i->second.erfolgswert);
            L.push_back(waffe); 
          }
-      if(art=="Zauberkünste") 
+      if(art=="ZauberkÃ¼nste") 
          { 
            MBEmlt z(&*cH_Zauber(i->first.fertigkeit));
            L.push_back(z);

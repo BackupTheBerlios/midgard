@@ -1,4 +1,4 @@
-// $Id: table_lernschema_beruf.cc,v 1.19 2002/10/25 06:49:10 thoma Exp $
+// $Id: table_lernschema_beruf.cc,v 1.20 2002/12/11 18:18:50 christof Exp $
 /*  Midgard Character Generator Copyright (C) 2001 Malte Thoma
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -58,7 +58,7 @@ gint table_lernschema::on_spinbutton_beruf_focus_in(GdkEventFocus *ev)
 
 void table_lernschema::on_spinbutton_beruf_activate()
 {
-  gtk_spin_button_update(spinbutton_beruf->gtkobj());
+  gtk_spin_button_update(spinbutton_beruf->gobj());
   table_berufsprozent->hide();
   beruf_gewuerfelt(spinbutton_beruf->get_value_as_int());
 }
@@ -88,7 +88,7 @@ void table_lernschema::showBerufsLernList()
   clean_lernschema_trees();
 
   Beruf_tree = manage(new SimpleTree(5,5));
-  Beruf_tree->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_beruf_tree_leaf_selected));
+  Beruf_tree->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_beruf_tree_leaf_selected));
   std::vector<std::string> beruf;
   beruf.push_back("Beruf"); 
   beruf.push_back("Gelernt"); 
@@ -116,7 +116,7 @@ void table_lernschema::showBerufsLernList()
 
   if(gelerntes) hauptfenster->set_status(hauptfenster->label_status->get_text()
                +"\nEin * bezeichnet eine bereits gelernte Fertigkeit."
-               " Für diese wird dann der Erfolgswert um eins erhöht.",false);
+               " FÃ¼r diese wird dann der Erfolgswert um eins erhÃ¶ht.",false);
   Beruf_tree->setDataVec(datavec);
   Beruf_tree->show();
   Beruf_tree->Expand_recursively();

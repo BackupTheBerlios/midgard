@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.288 2002/12/11 11:09:58 thoma Exp $
+// $Id: midgard_CG.cc,v 1.289 2002/12/11 18:18:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,8 +18,8 @@
  */
 
 #include "midgard_CG.hh"
-#include <gtk--/notebook.h>
-#include <gtk--/main.h>
+#include <gtkmm/notebook.h>
+#include <gtkmm/main.h>
 #include "Midgard_Info.hh"
 #include "BegruessungsWindow.hh"
 #include "Fertigkeiten.hh"
@@ -67,7 +67,7 @@ midgard_CG::midgard_CG(const std::string &_argv0,const std::string &_magus_verze
   table_optionen->init();
   menu_init();
   init_statusbar();
-  // für die NEWS
+  // fÃ¼r die NEWS
   Gtk::OStream os(list_news);
   os << 
 #include"NEWS.h" 
@@ -197,7 +197,7 @@ void midgard_CG::fill_IconVec()
   // Beschreibung
   IconVec.push_back(st_buttons(table_beschreibung->button_grafik,iBildeinfuegen));
   IconVec.push_back(st_buttons(table_beschreibung->button_beschreibung_drucken,iPrint));
-  // Ausrüstung
+  // AusrÃ¼stung
   IconVec.push_back(st_buttons(table_ausruestung->button_ausruestung_loeschen,iDeleteAusr));
 
   IconVec.push_back(st_buttons(togglebutton_delete_abenteurer_aus_liste,iDeleteA));

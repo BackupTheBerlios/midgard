@@ -124,7 +124,7 @@ void table_steigern::init_waffenbesitz()
   alte_waffen.push_back("mag.Bonus");
   alte_waffen.push_back("Beschreibung");
   std::list<std::string> neue_waffen=alte_waffen ;
-  alte_waffen.push_front("Waffe (mitgef¸hrt)");
+  alte_waffen.push_front("Waffe (mitgef√ºhrt)");
   neue_waffen.push_front("Waffenauswahl");
 
   waffenbesitz_alt_tree->setTitles(list_vector(alte_waffen));
@@ -137,7 +137,7 @@ void table_steigern::init_waffenbesitz()
 void  table_steigern::show_alte_waffen()
 {
   std::vector<cH_RowDataBase> datavec;
-//cout <<"Alte grˆﬂe = " <<Waffe_Besitz.size()<<'\n';
+//cout <<"Alte gr√∂√üe = " <<Waffe_Besitz.size()<<'\n';
 
   for (std::list<WaffeBesitz>::const_iterator i=hauptfenster->getChar()->List_Waffen_besitz().begin();i!=hauptfenster->getChar()->List_Waffen_besitz().end();++i)
      datavec.push_back(new Data_waffenbesitz(*i,hauptfenster));
@@ -166,6 +166,6 @@ void table_steigern::on_alte_waffenbesitz_reorder()
   switch((Data_waffenbesitz::SPALTEN_A)seq[0]) {
       case Data_waffenbesitz::MAGBONUS : hauptfenster->getChar()->List_Waffen_besitz().sort(WaffenBesitz_sort_magbonus()) ;break;
       case Data_waffenbesitz::NAME_A   : hauptfenster->getChar()->List_Waffen_besitz().sort(WaffenBesitz_sort_name()); break;
-      default : hauptfenster->set_status("Sortieren nach diesem Parameter\n ist nicht mˆglich");
+      default : hauptfenster->set_status("Sortieren nach diesem Parameter\n ist nicht m√∂glich");
    }
 }

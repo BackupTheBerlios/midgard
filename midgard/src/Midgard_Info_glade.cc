@@ -65,10 +65,10 @@ Midgard_Info_glade::Midgard_Info_glade(GlademmData *_data
    Glib::RefPtr<Gdk::Bitmap> _pixmap131_mask;
    Glib::RefPtr<Gdk::Pixmap> _pixmap131_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _pixmap131_mask, Helper_50_xpm);
    Gtk::Image *pixmap131 = manage(new class Gtk::Image(_pixmap131_pixmap, _pixmap131_mask));
-   Gtk::Label *label329 = manage(new class Gtk::Label("Knöpfe, Logo\n"
+   Gtk::Label *label329 = manage(new class Gtk::Label("KnÃ¶pfe, Logo\n"
 		"& HTML"));
    Gtk::Label *label331 = manage(new class Gtk::Label("Gtk, C++ & xml\n"
-		"Unterstützung"));
+		"UnterstÃ¼tzung"));
    Gtk::Label *label327 = manage(new class Gtk::Label("Autor"));
    Gtk::Label *label328 = manage(new class Gtk::Label("Malte Thoma"));
    Gtk::Label *label332 = manage(new class Gtk::Label("Christof Petig"));

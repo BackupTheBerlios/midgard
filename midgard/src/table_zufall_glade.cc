@@ -152,7 +152,7 @@ table_zufall_glade::table_zufall_glade(GlademmData *_data
    Gtk::Label *label617 = manage(new class Gtk::Label("Sprachen"));
    Gtk::Label *label618 = manage(new class Gtk::Label("Schriften"));
    Gtk::Button *button_check100 = manage(new class Gtk::Button("Eingestellte Werte\n"
-		"übernehmen und testen"));
+		"Ã¼bernehmen und testen"));
    Gtk::Label *label610 = manage(new class Gtk::Label("Gebildeter (neu lernen)"));
    Gtk::Label *label609 = manage(new class Gtk::Label("Spezialist (steigern)"));
    scale_fert = new class MyScale();
@@ -663,7 +663,7 @@ table_zufall_glade::table_zufall_glade(GlademmData *_data
    table169->attach(*spinbutton_grad, 1, 2, 1, 2, Gtk::AttachOptions(), Gtk::AttachOptions(), 0, 0);
    table169->attach(*spinbutton_gfp, 1, 2, 0, 1, Gtk::EXPAND|Gtk::FILL, Gtk::AttachOptions(), 0, 0);
    table169->attach(*radiobutton_steigern_grad, 0, 1, 1, 2, Gtk::FILL, Gtk::AttachOptions(), 0, 0);
-   _tooltips.set_tip(*eventbox22, "'GFP': Vorgabe wieviel für GFP der Abenteurer lernen soll. 'Grad': Vorgabe in welchem Grad sich der Abenteurer nach dem Steigern befinden soll.", "");
+   _tooltips.set_tip(*eventbox22, "'GFP': Vorgabe wieviel fÃ¼r GFP der Abenteurer lernen soll. 'Grad': Vorgabe in welchem Grad sich der Abenteurer nach dem Steigern befinden soll.", "");
    eventbox22->add(*table169);
    frame113->set_shadow_type(Gtk::SHADOW_IN);
    frame113->set_label_align(0,0);

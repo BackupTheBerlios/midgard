@@ -1,4 +1,4 @@
-// $Id: LernListen.cc,v 1.26 2002/11/30 08:18:08 thoma Exp $
+// $Id: LernListen.cc,v 1.27 2002/12/11 18:18:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -41,7 +41,7 @@ std::list<MBEmlt> LernListen::getMBEm(const Abenteurer& A,eMBE was,
       case lAllg: 
       case lUnge:           V_=D.Fertigkeit; break;
       case lWaff:           Vm=D.lernschema.get_List("Waffenfertigkeiten",A.getVTyp(),A.List_Waffen());break;
-      case lZaub:           Vm=D.lernschema.get_List("Zauberkünste",A.getVTyp(),A.List_Waffen());break;
+      case lZaub:           Vm=D.lernschema.get_List("ZauberkÃ¼nste",A.getVTyp(),A.List_Waffen());break;
       case lAngebFert:      V_=D.Fertigkeit_ang; break;
       default : assert(!"never get here\n");
     }  
@@ -113,7 +113,7 @@ std::list<MBEmlt> LernListen::getMBEm(const Abenteurer& A,eMBE was,
       if(was==lWaff)
          VI=Lernschema::getIndex(A.getVTyp(),"Waffenfertigkeiten",(*(*i))->Name());
       if(was==lZaub)
-         VI=Lernschema::getIndex(A.getVTyp(),"Zauberkünste",(*(*i))->Name());
+         VI=Lernschema::getIndex(A.getVTyp(),"ZauberkÃ¼nste",(*(*i))->Name());
       int lp=D.lernschema.get_Lernpunkte(VI);
       (*i)->setLernpunkte(lp);
       if((*(*i))->What()==MidgardBasicElement::WAFFE)
@@ -209,7 +209,7 @@ std::vector<MidgardBasicElement::st_zusatz> LernListen::getUeberlebenZusatz() co
    std::vector<MidgardBasicElement::st_zusatz> B;
    for(std::list<cH_MidgardBasicElement>::const_iterator i=D.Fertigkeit.begin();i!=D.Fertigkeit.end();++i)
     {
-      if((*i)->Name().find("Überleben")!=std::string::npos)
+      if((*i)->Name().find("Ãœberleben")!=std::string::npos)
          B.push_back(MidgardBasicElement::st_zusatz((*i)->Name()));
     }
    return B;
@@ -220,7 +220,7 @@ std::vector<MidgardBasicElement::st_zusatz> LernListen::getWaffenZusatz(const st
    std::vector<MidgardBasicElement::st_zusatz> B;
    for(std::list<MBEmlt>::const_iterator i=WL.begin();i!=WL.end();++i)
     {
-      if (cH_Waffe((*i)->getMBE())->Art()=="Schußwaffe" || cH_Waffe((*i)->getMBE())->Art()=="Wurfwaffe")
+      if (cH_Waffe((*i)->getMBE())->Art()=="SchuÃŸwaffe" || cH_Waffe((*i)->getMBE())->Art()=="Wurfwaffe")
         B.push_back(MidgardBasicElement::st_zusatz((*(*i))->Name()));
     }
   return B;
@@ -237,7 +237,7 @@ std::vector<MidgardBasicElement::st_zusatz> LernListen::getSprachenZusatz(const 
      if((*MBE)->Name()=="Muttersprache" || (*MBE)->Name()=="Gastlandsprache")
       {
         if(cH_Sprache(*i)->Alte_Sprache()) continue;                  
-        if((*MBE)->Name()=="Muttersprache") // muß im Heimatland gesprochen werden
+        if((*MBE)->Name()=="Muttersprache") // muÃŸ im Heimatland gesprochen werden
           if(!cH_Sprache(*i)->ist_erlaubt(Aben))
              erlaubt=false;
       }

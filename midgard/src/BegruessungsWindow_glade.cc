@@ -61,7 +61,7 @@ BegruessungsWindow_glade::BegruessungsWindow_glade(
    Glib::RefPtr<Gdk::Pixmap> _pixmap184_pixmap = Gdk::Pixmap::create_from_xpm(get_default_colormap(), _pixmap184_mask, LoadChar_trans_50_xpm);
    Gtk::Image *pixmap184 = manage(new class Gtk::Image(_pixmap184_pixmap, _pixmap184_mask));
    Gtk::Button *button_load = manage(new class Gtk::Button());
-   Gtk::Label *label645 = manage(new class Gtk::Label("Dieses Fenster beim n‰chsten Start wieder anzeigen."));
+   Gtk::Label *label645 = manage(new class Gtk::Label("Dieses Fenster beim n√§chsten Start wieder anzeigen."));
    Gtk::HSeparator *hseparator23 = manage(new class Gtk::HSeparator());
    Gtk::Label *label646 = manage(new class Gtk::Label(""));
    Gtk::Label *label647 = manage(new class Gtk::Label(""));

@@ -28,7 +28,7 @@ void table_steigern::on_kido_laden_clicked()
   KiDo_Stile kido_stil;
   if (!kido_stil.ist_gelernt(hauptfenster->getWerte().Spezialisierung())) 
      {
-       hauptfenster->set_status("Erst einen KiDo-Stil wählen\n(unter 'Lernschema'->'KiDo')");
+       hauptfenster->set_status("Erst einen KiDo-Stil wÃ¤hlen\n(unter 'Lernschema'->'KiDo')");
        return;
      }
   for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCDatabase().Kido.begin();i!=hauptfenster->getCDatabase().Kido.end();++i)
@@ -48,11 +48,11 @@ void table_steigern::on_kido_laden_clicked()
      // Anzahl
      bool gem_technik = (kido_stil.ist_gemischt(hauptfenster->getWerte().Spezialisierung()));
      std::map<std::string,int> MK = KiDo::maxkidostil(hauptfenster->getChar()->List_Kido());  
-     int maxS = MK["Schüler"];
+     int maxS = MK["SchÃ¼ler"];
      int maxE = MK["Eingeweihter"];
      int maxM = MK["Meister"];
-     if((kd->Stufe()=="Schüler"     && gem_technik && maxS <11)||
-        (kd->Stufe()=="Schüler"     &&!gem_technik && maxS <12)||
+     if((kd->Stufe()=="SchÃ¼ler"     && gem_technik && maxS <11)||
+        (kd->Stufe()=="SchÃ¼ler"     &&!gem_technik && maxS <12)||
         (kd->Stufe()=="Eingeweihter"&& gem_technik && maxE < 6)||
         (kd->Stufe()=="Eingeweihter"&&!gem_technik && maxE < 7)||
         (kd->Stufe()=="Meister"     && gem_technik && maxM < 2)||
@@ -99,6 +99,6 @@ void table_steigern::on_alte_kido_reorder()
       case Data_SimpleTree::STUFEa_K : hauptfenster->getChar()->List_Kido().sort(cH_KiDo::sort(cH_KiDo::sort::STUFE)) ;break;
       case Data_SimpleTree::APa_K    : hauptfenster->getChar()->List_Kido().sort(cH_KiDo::sort(cH_KiDo::sort::AP)); break;
       case Data_SimpleTree::STILa_K  : hauptfenster->getChar()->List_Kido().sort(cH_KiDo::sort(cH_KiDo::sort::STIL)) ;break;
-      default : hauptfenster->set_status("Sortieren nach diesem Parameter\n ist nicht möglich");
+      default : hauptfenster->set_status("Sortieren nach diesem Parameter\n ist nicht mÃ¶glich");
    }
 }

@@ -32,20 +32,20 @@ void frame_drucken::init()
    {
      Gtk::RadioButton *rmi=manage(new class Gtk::RadioButton(_RadioMGroup_pdfViewer,i->text,0,0.5));
      rmi->set_active(i->active);
-     rmi->toggled.connect(SigC::bind(SigC::slot(this,&frame_drucken::element_activate),rmi,i->index));
-     table->attach(*rmi,0,1,count,count+1,GTK_FILL,0,0,0);
+     rmi->signal_toggled().connect(SigC::bind(SigC::slot(*this,&frame_drucken::element_activate),rmi,i->index));
+     table->attach(*rmi,0,1,count,count+1,Gtk::FILL,0,0,0);
      if(i->index==Midgard_Optionen::anderer) 
       { Gtk::Button *b=manage(new class Gtk::Button("..."));
-        b->clicked.connect(SigC::slot(this,&frame_drucken::on_button_pdf_viewer_clicked));
-        table->attach(*b,1,2,count+1,count+2,GTK_FILL,0,0,0);
+        b->signal_clicked().connect(SigC::slot(*this,&frame_drucken::on_button_pdf_viewer_clicked));
+        table->attach(*b,1,2,count+1,count+2,Gtk::FILL,0,0,0);
       }
      ++count;
    }
  entry=manage(new class Gtk::Entry());
- entry->changed.connect(SigC::slot(this,&frame_drucken::entry_changed));
+ entry->signal_changed().connect(SigC::slot(*this,&frame_drucken::entry_changed));
  entry->set_text(hauptfenster->getOptionen()->Viewer());
- entry->focus_out_event.connect(SigC::slot(this,&frame_drucken::entry_focus_out));
- table->attach(*entry,0,1,count,count+1,GTK_FILL,0,0,0);
+ entry->signal_focus_out_event().connect(SigC::slot(*this,&frame_drucken::entry_focus_out));
+ table->attach(*entry,0,1,count,count+1,Gtk::FILL,0,0,0);
  table->show_all();
  add(*table);
 }

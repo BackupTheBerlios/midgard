@@ -25,9 +25,9 @@ window_Ausruestung::window_Ausruestung(const Datenbank& dat)
 : Database(dat)
 {
   fill_optionmenu_art();
-  optionmenu_art->get_menu()->deactivate.connect(SigC::slot(static_cast<class window_Ausruestung*>(this), &window_Ausruestung::opt_art));
+  optionmenu_art->get_menu()->signal_deactivate().connect(SigC::slot(*static_cast<class window_Ausruestung*>(this), &window_Ausruestung::opt_art));
   fill_optionmenu_typ();
-  optionmenu_typ->get_menu()->deactivate.connect(SigC::slot(static_cast<class window_Ausruestung*>(this), &window_Ausruestung::opt_typ));
+  optionmenu_typ->get_menu()->signal_deactivate().connect(SigC::slot(*static_cast<class window_Ausruestung*>(this), &window_Ausruestung::opt_typ));
 }
 
 
@@ -55,7 +55,7 @@ void window_Ausruestung::fill_preisliste()
 void window_Ausruestung::opt_art()
 {
   fill_optionmenu_typ();
-  optionmenu_typ->get_menu()->deactivate.connect(SigC::slot(static_cast<class window_Ausruestung*>(this), &window_Ausruestung::opt_typ));
+  optionmenu_typ->get_menu()->signal_deactivate().connect(SigC::slot(*static_cast<class window_Ausruestung*>(this), &window_Ausruestung::opt_typ));
 }
 
 void window_Ausruestung::fill_optionmenu_art()

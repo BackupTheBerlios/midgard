@@ -14,7 +14,7 @@
 #include <gtkmm/button.h>
 
 xml_fileselection_glade::xml_fileselection_glade(
-) : Gtk::FileSelection("XML-Datei auswählen")
+) : Gtk::FileSelection("XML-Datei auswÃ¤hlen")
 {  
    
    Gtk::FileSelection *xml_fileselection = this;
@@ -24,7 +24,7 @@ xml_fileselection_glade::xml_fileselection_glade(
    xml_fileselection->get_cancel_button()->set_flags(Gtk::CAN_FOCUS);
    xml_fileselection->get_cancel_button()->set_relief(Gtk::RELIEF_NORMAL);
    xml_fileselection->set_border_width(10);
-   xml_fileselection->set_title("XML-Datei auswählen");
+   xml_fileselection->set_title("XML-Datei auswÃ¤hlen");
    xml_fileselection->set_modal(true);
    xml_fileselection->set_position(Gtk::WIN_POS_NONE);
    xml_fileselection->show_fileop_buttons();

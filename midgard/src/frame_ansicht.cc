@@ -37,9 +37,9 @@ void frame_ansicht::init()
   {
    if(!i->show) continue;
    bool_CheckButton *cb = manage(new bool_CheckButton(i->active,i->text,0,0.5));
-   i->active.changed.connect(SigC::bind(SigC::slot(this,&frame_ansicht::element_activate),i->index));
-//i->active.changed.connect(SigC::slot(&wert_changed));
-   table->attach(*cb,0,1,count,count+1,GTK_FILL,0,0,0);
+   i->active.signal_changed().connect(SigC::bind(SigC::slot(*this,&frame_ansicht::element_activate),i->index));
+//i->active.signal_changed().connect(SigC::slot(&wert_changed));
+   table->attach(*cb,0,1,count,count+1,Gtk::FILL,0,0,0);
    ++count;
   }
  add(*table);

@@ -103,7 +103,7 @@ static void register_magus(const std::string &argv0)
 
 #endif
 
-#if 0 // Dateien mit magus verknüpfen
+#if 0 // Dateien mit magus verknÃ¼pfen
 +[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\magusfile]
 +@="Midgard Abenteurer"
 +"EditFlags"=hex:00,00,00,00
@@ -124,7 +124,7 @@ static void register_magus(const std::string &argv0)
 +
 #endif
 
-// den aktuellen Abenteurer zu übergeben wäre deutlich sinnvoller! CP
+// den aktuellen Abenteurer zu Ã¼bergeben wÃ¤re deutlich sinnvoller! CP
 xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was)
 : hauptfenster(h),ewas(_was),VA(hauptfenster->getChar())
 {
@@ -166,7 +166,7 @@ std::cout << "Dateiname " << fname << "->" << get_filename() << '\n';
 
    ZeroMemory(&ofn, sizeof (OPENFILENAME));
    ofn.lStructSize = sizeof (OPENFILENAME);
-   		// (GTK_WIDGET(h->gtkobj())->window )
+   		// (Gtk::WIDGET(h->gobj())->window )
 //   ofn.hwndOwner = GDK_DRAWABLE_XID(h->get_window()->gdkobj()); 
 		// GDK_WINDOW_HWND (win) 2.0
    ofn.lpstrFile = buf;
@@ -177,7 +177,7 @@ std::cout << "Dateiname " << fname << "->" << get_filename() << '\n';
    ofn.nFilterIndex = 2;
    ofn.lpstrDefExt= ewas==Export ? "txt" : ewas==Pix ? "" : "magus";
    ofn.lpstrTitle = ewas==Export ? "Abenteurer exportieren" :
-   		ewas==Pix ? "Bild einfügen" :
+   		ewas==Pix ? "Bild einfÃ¼gen" :
    		ewas==Load ? "Abenteurer laden" : "Abenteurer speichern";
    ofn.Flags = OFN_PATHMUSTEXIST 
    		| (ewas==Pix||ewas==Load ? OFN_FILEMUSTEXIST : 0);

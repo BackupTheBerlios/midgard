@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.65 2002/12/11 11:09:58 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.66 2002/12/11 18:18:50 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -184,12 +184,12 @@ bool Abenteurer::setAngebSinnFert(int wurf,const MBEmlt &MBE)
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   int wert=MBE->Erfolgswert();
   if     ( 1<=wurf && wurf<= 2) getWerte().setSinnCheck("Sehen",wert);    
-  else if( 3<=wurf && wurf<= 4) getWerte().setSinnCheck("Hören",wert);    
+  else if( 3<=wurf && wurf<= 4) getWerte().setSinnCheck("HÃ¶ren",wert);    
   else if( 5<=wurf && wurf<= 6) getWerte().setSinnCheck("Riechen",wert);  
   else if( 7<=wurf && wurf<= 8) getWerte().setSinnCheck("Schmecken",wert);
   else if( 9<=wurf && wurf<=10) getWerte().setSinnCheck("Tasten",wert);
   else if(11<=wurf && wurf<=20) getWerte().setSinn("Sehen",wert);    
-  else if(21<=wurf && wurf<=30) getWerte().setSinn("Hören",wert);    
+  else if(21<=wurf && wurf<=30) getWerte().setSinn("HÃ¶ren",wert);    
   else if(31<=wurf && wurf<=40) getWerte().setSinn("Riechen",wert);  
   else if(41<=wurf && wurf<=50) getWerte().setSinn("Schmecken",wert);
   else if(51<=wurf && wurf<=60) getWerte().setSinn("Tasten",wert);
@@ -209,7 +209,7 @@ void Abenteurer::speicherstream(std::ostream &datei,const Datenbank &Database,co
    
    Tag &data=ts.push_back(Tag("MAGUS-data"));  
 
-// Vielleicht hier eingegebene Ausrüstung speichern wie in anderen Dateien
+// Vielleicht hier eingegebene AusrÃ¼stung speichern wie in anderen Dateien
 // oder ganz unten?
 /*
    Tag &Preise=data.push_back(Tag("Preise"));
@@ -220,7 +220,7 @@ void Abenteurer::speicherstream(std::ostream &datei,const Datenbank &Database,co
          k.setAttr_ne("Art", (*i)->Art());
          k.setAttr_ne("Art2", (*i)->Art2());
          k.setAttr("Preis", dtos((*i)->Kosten()));
-         k.setAttr("Währung", (*i)->Einheit());
+         k.setAttr("WÃ¤hrung", (*i)->Einheit());
          k.setAttr("Gewicht", dtos((*i)->Gewicht()));
          k.setAttr("Region", (*i)->Region());
       }
@@ -231,10 +231,10 @@ void Abenteurer::speicherstream(std::ostream &datei,const Datenbank &Database,co
    Abenteurer.setIntAttr("Version",10);
 
    grundwerte_speichern(Abenteurer);
-   Tag &Ausruestung=Abenteurer.push_back(Tag("Ausrüstung"));
-   Ausruestung.push_back(Tag("Rüstung", getWerte().Ruestung()->Name()));
+   Tag &Ausruestung=Abenteurer.push_back(Tag("AusrÃ¼stung"));
+   Ausruestung.push_back(Tag("RÃ¼stung", getWerte().Ruestung()->Name()));
    if (!getWerte().Ruestung(1)->Name().empty())
-     Ausruestung.push_back(Tag("Rüstung2", getWerte().Ruestung(1)->Name()));
+     Ausruestung.push_back(Tag("RÃ¼stung2", getWerte().Ruestung(1)->Name()));
    // Waffen Besitz
    for (std::list<WaffeBesitz>::const_iterator i=List_Waffen_besitz().begin();
 //   for (std::list<MBEmlt>::const_iterator i=List_Waffen_besitz().begin();
@@ -277,7 +277,7 @@ void Abenteurer::speicherstream(std::ostream &datei,const Datenbank &Database,co
    std::list<Midgard_Optionen::st_OptionenCheck> LO=const_cast<Midgard_Optionen*>(Optionen)->getOptionenCheck();
    for(std::list<Midgard_Optionen::st_OptionenCheck>::const_iterator i=LO.begin();i!=LO.end();++i)
    {
-     // Option, die mit dem C. gespeichert werden müssen
+     // Option, die mit dem C. gespeichert werden mÃ¼ssen
      if(i->index!=Midgard_Optionen::Original && i->index!=Midgard_Optionen::NSC_only) continue; 
      Tag &o=Opt.push_back(Tag("CheckOptions"));
      o.setAttr("Name", i->text);
@@ -306,11 +306,11 @@ void Abenteurer::grundwerte_speichern(Tag &datei)
    Tag &Typ=datei.push_back(Tag("Typ"));
    Typ.setAttr_ne("Spezies", getWerte().Spezies()->Name());
    Typ.setAttr_ne("Geschlecht", getWerte().Geschlecht_str());
-   Typ.setAttr_ne("Abkürzung", Typ1()->Short());
-   Typ.setAttr_ne("Abkürzung2", Typ2()->Short());
+   Typ.setAttr_ne("AbkÃ¼rzung", Typ1()->Short());
+   Typ.setAttr_ne("AbkÃ¼rzung2", Typ2()->Short());
    Typ.setAttr_ne("Spezialgebiet", getWerte().Spezialgebiet()->Name());
    Typ.setAttr_ne("Spezialisierung", getWerte().Spezialisierung());
-   Typ.setAttr_ne("Überleben",(*getWerte().Ueberleben())->Name());
+   Typ.setAttr_ne("Ãœberleben",(*getWerte().Ueberleben())->Name());
    Typ.setAttr_ne("Muttersprache",Muttersprache());
    Typ.setAttr("Stadt_Land", getWerte().Stadt_Land_str());
    Typ.setAttr("Hand", getWerte().Hand());
@@ -345,14 +345,14 @@ void Abenteurer::grundwerte_speichern(Tag &datei)
    Beschreibung.setIntAttr("Alter", getWerte().Alter());
    Beschreibung.setAttr("Gestalt", getWerte().Gestalt());
    Beschreibung.setIntAttr("Gewicht", getWerte().Gewicht());
-   Beschreibung.setIntAttr("Größe", getWerte().Groesse());
+   Beschreibung.setIntAttr("GrÃ¶ÃŸe", getWerte().Groesse());
    Beschreibung.setAttr_ne("Stand", getWerte().Stand());
    Beschreibung.setAttr_ne("Bezeichnung", getWerte().Bezeichnung());
    Beschreibung.setAttr_ne("Merkmale", getWerte().Merkmale());
    Beschreibung.setAttr_ne("Herkunft", getWerte().Herkunft()->Name());
    Beschreibung.setAttr_ne("Glaube", getWerte().Glaube());
 
-   Tag &Verm=datei.push_back(Tag("Vermögen"));
+   Tag &Verm=datei.push_back(Tag("VermÃ¶gen"));
    Verm.setIntAttr_nn("GS", getWerte().Gold());
    Verm.setIntAttr_nn("SS", getWerte().Silber());
    Verm.setIntAttr_nn("KS", getWerte().Kupfer());
@@ -367,7 +367,7 @@ void Abenteurer::grundwerte_speichern(Tag &datei)
    if (getWerte().get_Grad_Basiswerte()!=getWerte().Grad())
       Steigern.setIntAttr("Basiswerte", getWerte().get_Grad_Basiswerte());
    if (getWerte().Steigertage())
-      Steigern.setAttr("benötigte_Tage", dtos(getWerte().Steigertage()));
+      Steigern.setAttr("benÃ¶tigte_Tage", dtos(getWerte().Steigertage()));
 
    Tag &Pp=Steigern.push_back(Tag("Praxispunkte"));
    Pp.setIntAttr_nn("Abwehr", getWerte().AbwehrPP());
@@ -376,7 +376,7 @@ void Abenteurer::grundwerte_speichern(Tag &datei)
    Pp.setIntAttr_nn("Resistenz", getWerte().ResistenzPP());
    
    Tag &Text=datei.push_back(Tag("Text",getWerte().Beschreibung()));
-   Text.setIntAttr_nn("Größe", getWerte().BeschreibungPixSize());
+   Text.setIntAttr_nn("GrÃ¶ÃŸe", getWerte().BeschreibungPixSize());
    Text.setAttr_ne("Bild", getWerte().BeschreibungPix());
 }
 
@@ -388,7 +388,7 @@ void Abenteurer::save_ausruestung(Tag &datei,const std::list<AusruestungBaum> &A
       Ggs.setAttr("Bezeichnung", i->getAusruestung().Name());
       Ggs.setAttr("Region", i->getAusruestung().Region());
       Ggs.setFloatAttr("Gewicht", i->getAusruestung().Gewicht());
-      Ggs.setBoolAttr("RüstungOhneGewicht",i->getAusruestung().RuestungOhneGewicht());
+      Ggs.setBoolAttr("RÃ¼stungOhneGewicht",i->getAusruestung().RuestungOhneGewicht());
       Ggs.setAttr("Besonderheit", i->getAusruestung().Material());
       if (i->getAusruestung().Sichtbar()) 
          Ggs.setBoolAttr("sichtbar", i->getAusruestung().Sichtbar());
@@ -433,7 +433,7 @@ bool Abenteurer::xml_import_stream(std::istream& datei, Datenbank &Database,
 /*
    if (xml_version<3 || xml_version>10)
    {         hauptfenster->InfoFenster->AppendShow("XML Version "+itos(xml_version)
-          +" wird noch nicht unterstützt");
+          +" wird noch nicht unterstÃ¼tzt");
    }
 */
 /*
@@ -450,7 +450,7 @@ bool Abenteurer::xml_import_stream(std::istream& datei, Datenbank &Database,
             }
             
             Preise::saveArtikel("",hauptfenster,i->getAttr("Art"),i->getAttr("Art2"),name,
-            		i->getFloatAttr("Preis"),i->getAttr("Währung"),
+            		i->getFloatAttr("Preis"),i->getAttr("WÃ¤hrung"),
             		i->getFloatAttr("Gewicht"),
             		i->getAttr("Region"));
             Database.preise.push_back(cH_Preise(name));
@@ -468,13 +468,13 @@ bool Abenteurer::xml_import_stream(std::istream& datei, Datenbank &Database,
    const Tag *Gesundheit=top->find("Gesundheit");
    const Tag *Beschreibung=top->find("Beschreibung");
    const Tag *Vermoegen=top->find("Vermoegen");
-       if (!Vermoegen) Vermoegen=top->find("Vermögen");
+       if (!Vermoegen) Vermoegen=top->find("VermÃ¶gen");
    const Tag *Ruestung1=top->find("Ruestung");
-       if (!Ruestung1) Ruestung1=top->find("Rüstung");
-   const Tag *Ausruestung=top->find("Ausrüstung");
+       if (!Ruestung1) Ruestung1=top->find("RÃ¼stung");
+   const Tag *Ausruestung=top->find("AusrÃ¼stung");
        if (!Ausruestung) Ausruestung=top->find("Fertigkeiten");
-       if (!Ruestung1) Ruestung1=Ausruestung->find("Rüstung");
-   const Tag *Ruestung2=Ausruestung->find("Rüstung2");
+       if (!Ruestung1) Ruestung1=Ausruestung->find("RÃ¼stung");
+   const Tag *Ruestung2=Ausruestung->find("RÃ¼stung2");
    const Tag *Fertigkeiten=top->find("Fertigkeiten");
    const Tag *Opt=top->find("Optionen");
    const Tag *Steigern=top->find("Steigern");
@@ -510,7 +510,7 @@ bool Abenteurer::xml_import_stream(std::istream& datei, Datenbank &Database,
    }
    getWerte().setHand(Typ->getAttr("Hand"));
    getWerte().setGewicht(Beschreibung->getIntAttr("Gewicht"));
-   getWerte().setGroesse(Beschreibung->getIntAttr("Größe"));
+   getWerte().setGroesse(Beschreibung->getIntAttr("GrÃ¶ÃŸe"));
    getWerte().setGrad(Figur->getIntAttr("Grad"));
    getWerte().setStand(Beschreibung->getAttr("Stand"));
 
@@ -522,7 +522,7 @@ bool Abenteurer::xml_import_stream(std::istream& datei, Datenbank &Database,
        cH_Spezialgebiet S(spezialgebiet);
        getWerte().setSpezialgebiet(S);
      }
-   std::string ueberleben=Typ->getAttr("Überleben");
+   std::string ueberleben=Typ->getAttr("Ãœberleben");
    if(ueberleben!="") 
      { 
        MBEmlt M(&*cH_Fertigkeit(ueberleben));
@@ -536,14 +536,14 @@ bool Abenteurer::xml_import_stream(std::istream& datei, Datenbank &Database,
    getWerte().setGlaube(Beschreibung->getAttr("Glaube"));
    getWerte().setNamen(Figur->getAttr("Name"),Figur->getAttr("Spieler"),Figur->getAttr("Zeitpunkt"));
    getWerte().setGFP(Steigern ? Steigern->getIntAttr("GFP", top->getInt("GFP")) : top->getInt("GFP"));
-   getWerte().setSteigertage(Steigern ? Steigern->getFloatAttr("benötigte_Tage", top->getInt("benötigte_Tage")) : top->getInt("benötigte_Tage"));
+   getWerte().setSteigertage(Steigern ? Steigern->getFloatAttr("benÃ¶tigte_Tage", top->getInt("benÃ¶tigte_Tage")) : top->getInt("benÃ¶tigte_Tage"));
    getWerte().setGG(abgeleiteteEigenschaften->getIntAttr("GG"));    
    getWerte().setSG(abgeleiteteEigenschaften->getIntAttr("SG"));
    const Tag *Text=top->find("Text");
    if (!Text) Text=top; // to avoid testing below
    getWerte().setBeschreibung(Text->Value()); 
    getWerte().setBeschreibungPix(top->getString("TextPix",Text->getAttr("Bild"))); 
-   getWerte().setBeschreibungPixSize(top->getInt("TextPixSize",Text->getIntAttr("Größe")));
+   getWerte().setBeschreibungPixSize(top->getInt("TextPixSize",Text->getIntAttr("GrÃ¶ÃŸe")));
    if (Vermoegen)
       getWerte().setGeld(Vermoegen->getIntAttr("GS"),Vermoegen->getIntAttr("SS"),Vermoegen->getIntAttr("KS"));
 //   getWerte().clearRuestung();
@@ -560,12 +560,12 @@ bool Abenteurer::xml_import_stream(std::istream& datei, Datenbank &Database,
       	,Steigern->getIntAttr("Basiswerte",getWerte().Grad()));
    else getWerte().set_Grad_Anstieg(50,getWerte().Grad());
 
-//   this->Typ1()=cH_Typen(Typ->getAttr("Abkürzung"),true);
-   setTyp1(cH_Typen(Typ->getAttr("Abkürzung"),true));
+//   this->Typ1()=cH_Typen(Typ->getAttr("AbkÃ¼rzung"),true);
+   setTyp1(cH_Typen(Typ->getAttr("AbkÃ¼rzung"),true));
 
-   { std::string s = Typ->getAttr("Abkürzung2");
+   { std::string s = Typ->getAttr("AbkÃ¼rzung2");
      if(s!="") //this->Typ2=cH_Typen(s,true);
-         setTyp2(cH_Typen(Typ->getAttr("Abkürzung2"),true));
+         setTyp2(cH_Typen(Typ->getAttr("AbkÃ¼rzung2"),true));
    }
 
    load_fertigkeiten(Fertigkeiten,Ausruestung,xml_version,Database,Optionen,hauptfenster);
@@ -583,7 +583,7 @@ void Abenteurer::load_ausruestung(const Tag *tag, AusruestungBaum *AB)
       	Ausruestung(i->getAttr("Bezeichnung"),i->getFloatAttr("Gewicht"),
       	         i->getAttr("Besonderheit"),
    					i->getAttr("Region"),i->getBoolAttr("sichtbar"),
-   					i->getBoolAttr("RüstungOhneGewicht")));
+   					i->getBoolAttr("RÃ¼stungOhneGewicht")));
       A->setParent(AB);
       load_ausruestung(&*i,A);
    }
@@ -622,7 +622,7 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
          if(cH_Fertigkeit(fert)->ZusatzEnum(getVTyp()))
          {  fert=new Fertigkeit(*cH_Fertigkeit(fert));
             if(fert->Name()=="Landeskunde") cH_Land(i->getAttr("Zusatz"),true);
-            if(fert->Name()=="Scharfschießen") cH_Waffe(i->getAttr("Zusatz"),true);
+            if(fert->Name()=="ScharfschieÃŸen") cH_Waffe(i->getAttr("Zusatz"),true);
             F->setZusatz(i->getAttr("Zusatz"));
          }
          List_Fertigkeit().push_back(F);
@@ -698,7 +698,7 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
          S->setPraxispunkte(i->getIntAttr("Praxispunkte"));
          List_Schrift().push_back(S);
         }
-// demnächst weg (geänder seit 0.8.10)
+// demnÃ¤chst weg (geÃ¤nder seit 0.8.10)
       else if(sart=="Optionen")
         {
          try{

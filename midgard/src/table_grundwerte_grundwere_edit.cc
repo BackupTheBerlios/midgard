@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_grundwere_edit.cc,v 1.13 2002/11/25 22:25:19 thoma Exp $
+// $Id: table_grundwerte_grundwere_edit.cc,v 1.14 2002/12/11 18:18:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,7 +33,7 @@ void table_grundwerte::on_togglebutton_edit_werte_toggled()
    }
   else 
     {
-//     set_all_entrys(); // eigentlich überflüssig (wg. focus_leaf_event)
+//     set_all_entrys(); // eigentlich Ã¼berflÃ¼ssig (wg. focus_leaf_event)
      edit_sensitive(false);
      fill_typauswahl();
      hauptfenster->undosave("Werte editiert");

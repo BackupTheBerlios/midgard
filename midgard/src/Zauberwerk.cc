@@ -100,9 +100,9 @@ bool Zauberwerk::Voraussetzungen(const std::list<MBEmlt>& listZauber) const
      {
       // Nur EINE Voraussetzung
       if((*(*j))->Name()==i->voraussetzung && vec_vor.size()==1) return true;
-      // Nur EINE von mehreren Voraussetzung nötig
+      // Nur EINE von mehreren Voraussetzung nÃ¶tig
       else if((*(*j))->Name()==i->voraussetzung && i->op=="or") return true;
-      // Mehrere Voraussetzungen nötig
+      // Mehrere Voraussetzungen nÃ¶tig
       else if ((*(*j))->Name()==i->voraussetzung) mapB[i->voraussetzung]=true;
      }
   }
@@ -122,9 +122,9 @@ bool Zauberwerk::Voraussetzungen_Fertigkeit(const std::list<MBEmlt>& listFert) c
      {
       // Nur EINE Voraussetzung
       if((*(*j))->Name()==i->voraussetzung && vec_vorF.size()==1) return true;
-      // Nur EINE von mehreren Voraussetzung nötig
+      // Nur EINE von mehreren Voraussetzung nÃ¶tig
       else if((*(*j))->Name()==i->voraussetzung && i->op=="or") return true;
-      // Mehrere Voraussetzungen nötig
+      // Mehrere Voraussetzungen nÃ¶tig
       else if ((*(*j))->Name()==i->voraussetzung) mapB[i->voraussetzung]=true;
      }
   }

@@ -62,16 +62,16 @@ Spezies::Spezies(const Tag *tag)
  if (Alter) alter_fak=Alter->getIntAttr("Faktor");
  else alter_fak=1;
 
- const Tag *Groesse=tag->find("Größe");
+ const Tag *Groesse=tag->find("GrÃ¶ÃŸe");
  if(!Groesse) Groesse=tag;
  groesse_bonus=Groesse->getIntAttr("Addiere");
- groesse_wanz=Groesse->getIntAttr("AnzahlWürfel");
- groesse_wuerfel=Groesse->getIntAttr("Würfel");
+ groesse_wanz=Groesse->getIntAttr("AnzahlWÃ¼rfel");
+ groesse_wuerfel=Groesse->getIntAttr("WÃ¼rfel");
 
  const Tag *Gewicht=tag->find("Gewicht");
  if (!Gewicht) Gewicht=tag;
  gewicht_bonus=Gewicht->getIntAttr("Addiere");
- gewicht_wanz=Gewicht->getIntAttr("AnzahlWürfel");
+ gewicht_wanz=Gewicht->getIntAttr("AnzahlWÃ¼rfel");
 
  const Tag *NormGe=tag->find("Normgestalt");
  if (!NormGe) NormGe=tag;
@@ -80,7 +80,7 @@ Spezies::Spezies(const Tag *tag)
  const Tag *Bewegungsweite=tag->find("Bewegungsweite");
  if (!Bewegungsweite) Bewegungsweite=tag;
  b_bonus=Bewegungsweite->getIntAttr("Addiere");
- b_wanz=Bewegungsweite->getIntAttr("AnzahlWürfel");
+ b_wanz=Bewegungsweite->getIntAttr("AnzahlWÃ¼rfel");
 
  const Tag *Modifikation=tag->find("Modifikation");
  if (!Modifikation) Modifikation=tag;

@@ -1,4 +1,4 @@
-// $Id: ProgressBar.cc,v 1.3 2002/10/04 06:20:12 thoma Exp $
+// $Id: ProgressBar.cc,v 1.4 2002/12/11 18:18:50 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Christof Petig
  *
@@ -18,8 +18,8 @@
  */
 
 #include "ProgressBar.h"
-#include <gtk--/main.h>
-#include <gtk--/progressbar.h>
+#include <gtkmm/main.h>
+#include <gtkmm/progressbar.h>
 
 void ProgressBar::set_percentage(Gtk::ProgressBar *progressbar, double value)
 {

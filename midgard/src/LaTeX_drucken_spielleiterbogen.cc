@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.20 2002/11/25 12:09:47 thoma Exp $   
+// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.21 2002/12/11 18:18:50 christof Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -71,7 +71,7 @@ void LaTeX_drucken::line(std::ostream &fout,const ewhat &what)
      case eherkunft: S="Herkunft"; break; 
      case estand: S="Stand"; break; 
      case egestalt: S="Gestalt"; break; 
-     case ekoerpergroesse: S="Größe"; break; 
+     case ekoerpergroesse: S="GrÃ¶ÃŸe"; break; 
      case egewicht: S="Gewicht"; break; 
      case eBeruf: S="Beruf"; break; 
      case eglaube: S="Glaube"; break; 
@@ -90,7 +90,7 @@ void LaTeX_drucken::line(std::ostream &fout,const ewhat &what)
      case eabwehr: S="Abwehr"; break; 
      case eres: S="Resistenz"; break; 
      case esinnse: S="Sehen"; break; 
-     case esinnh: S="Hören"; break; 
+     case esinnh: S="HÃ¶ren"; break; 
      case esinnr: S="Riechen"; break; 
      case esinnsc: S="Schmecken"; break; 
      case esinnt: S="Tasten"; break; 
@@ -104,7 +104,7 @@ void LaTeX_drucken::line(std::ostream &fout,const ewhat &what)
      case eZauberkunde: S="Zauberkunde"; break; 
      case eGassenwissen: S="Gassenwissen"; break; 
      case eHimmelskunde: S="Himmelskunde"; break; 
-     case eSchaetzen: S="Schätzen"; break; 
+     case eSchaetzen: S="SchÃ¤tzen"; break; 
      case eangFert: S="angeborene\\newline Fertigkeiten"; break; 
      case eWaffen: S="Waffen"; break;
      case eSprachen: S="Sprachen"; break; 

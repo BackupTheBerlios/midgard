@@ -52,7 +52,7 @@ cH_Fertigkeit::cH_Fertigkeit(const Tag *tag)
 void Fertigkeit::get_Fertigkeit()
 {
   assert(tag);
-  lern_unge=tag->getIntAttr("Lernpunkte",99); // außergewöhnliche Fertigkeit
+  lern_unge=tag->getIntAttr("Lernpunkte",99); // auÃŸergewÃ¶hnliche Fertigkeit
   lern_land=tag->getIntAttr("Lernpunkte-Land",99);
   lern_stadt=tag->getIntAttr("Lernpunkte-Stadt",99);
   anfangswert0=tag->getIntAttr("Anfangswert");
@@ -65,7 +65,7 @@ void Fertigkeit::get_Fertigkeit()
   region_zusatz=tag->getAttr("RegionZusatz");
   attribut=tag->getAttr("Attribut");
   maxunterweisung=tag->getIntAttr("MaximalMitUnterweisung");
-  enum_zusatz=eZusatz(tag->getIntAttr("Zusätze",ZNone));
+  enum_zusatz=eZusatz(tag->getIntAttr("ZusÃ¤tze",ZNone));
   maxerfolgswert=tag->getIntAttr("Maximalwert");
   const Tag *Voraussetzungen=tag->find("Voraussetzungen");
   if (Voraussetzungen)
@@ -88,7 +88,7 @@ void Fertigkeit::get_Fertigkeit()
       vec_region_lp.push_back(st_region_lern(i->getAttr("Herkunft"),
             i->getIntAttr("LP_Stadt"),i->getIntAttr("LP_Land")));
 
-    FOR_EACH_CONST_TAG_OF(i,*tag,"Zusätze")
+    FOR_EACH_CONST_TAG_OF(i,*tag,"ZusÃ¤tze")
       Vzusatz.push_back(st_zusatz(i->getAttr("Name"),i->getAttr("Typ"),
                         i->getAttr("Region"),i->getAttr("RegionZusatz"),""));
 
@@ -106,7 +106,7 @@ void Fertigkeit::get_Fertigkeit()
          std::string pos=i->getAttr("Position");
          if(pos=="Besitz") epos=Besitz;
          else if(pos=="Rucksack") epos=Rucksack;
-         else {std::cerr <<"Falsche Position für "<<Name()<<'\n'; continue;}
+         else {std::cerr <<"Falsche Position fÃ¼r "<<Name()<<'\n'; continue;}
          vec_Besitz.push_back(st_besitz(i->getAttr("Name"),
                               i->getIntAttr("Min"),
                               epos));
@@ -127,7 +127,7 @@ bool Fertigkeit::Voraussetzung(const Abenteurer &A,bool anzeigen) const
  if(voraussetzung.pa > 0 && voraussetzung.pa > Werte.pA()) return false;
  if(voraussetzung.sb > 0 && voraussetzung.sb > Werte.Sb()) return false;
 
- // Höchstwerte
+ // HÃ¶chstwerte
  if(voraussetzung.st < 0 && -voraussetzung.st < Werte.St()) return false;
  if(voraussetzung.gw < 0 && -voraussetzung.gw < Werte.Gw()) return false;
  if(voraussetzung.gs < 0 && -voraussetzung.gs < Werte.Gs()) return false;
@@ -244,7 +244,7 @@ Fertigkeiten_All::Fertigkeiten_All()
     		i!=e;	i=fertigkeiten->find(i+1,"Fertigkeit"))
     {  
 // warum sowas?
-//    die Klasse cH_Fertigkeit enthält den Cache, erzeuge ich nur eine Fertigkeit, so
+//    die Klasse cH_Fertigkeit enthÃ¤lt den Cache, erzeuge ich nur eine Fertigkeit, so
 //    wird sie nicht in den Cache (nach Namen) aufgenommen.
 //    Ich brauche aber einen cH_MidgardBasicElement, daher bilde ich einen
 //    Fertigkeit* um danach (aus dem ebenfalls MidgardBasicElement*) ein 

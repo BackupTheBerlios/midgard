@@ -47,7 +47,7 @@ void table_ausruestung::init(midgard_CG *h)
    
 void table_ausruestung::ausruestung_laden()
 {
-  sichtbarConnection=checkbutton_sichtbar->toggled.connect(SigC::slot(static_cast<class table_ausruestung*>(this), &table_ausruestung::on_checkbutton_sichtbar_toggled));
+  sichtbarConnection=checkbutton_sichtbar->signal_toggled().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_checkbutton_sichtbar_toggled));
   showAusruestung();
 }
 
@@ -66,8 +66,8 @@ void table_ausruestung::showAusruestung()
   scrolledwindow_ausruestung->remove();
   Ausruestung_tree=manage(new Gtk::CTree(title));
 
-  Ausruestung_tree->drag_data_received.connect(SigC::slot(this,&table_ausruestung::tree_drag_data_received));
-  Ausruestung_tree->drag_dest_set ( GTK_DEST_DEFAULT_ALL,
+  Ausruestung_tree->signal_drag_data_received().connect(SigC::slot(*this,&table_ausruestung::tree_drag_data_received));
+  Ausruestung_tree->drag_dest_set ( Gtk::DEST_DEFAULT_ALL,
          target_table, n_targets - 1, /* no rootwin */
          static_cast < GdkDragAction > ( GDK_ACTION_COPY | GDK_ACTION_MOVE) );
   
@@ -90,8 +90,8 @@ void table_ausruestung::showAusruestung()
 
   r->expand_recursive();
   Ausruestung_tree->show(); 
-  Ausruestung_tree->tree_select_row.connect(SigC::slot(static_cast<class table_ausruestung*>(this), &table_ausruestung::on_Ausruestung_tree_select_row));
-  Ausruestung_tree->tree_unselect_row.connect(SigC::slot(static_cast<class table_ausruestung*>(this), &table_ausruestung::on_Ausruestung_tree_unselect_row));
+  Ausruestung_tree->signal_tree_select_row().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_Ausruestung_tree_select_row));
+  Ausruestung_tree->signal_tree_unselect_row().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_Ausruestung_tree_unselect_row));
   for (unsigned int i=0;i<Ausruestung_tree->columns().size();++i)
          Ausruestung_tree->set_column_auto_resize(i,true);
             
@@ -125,13 +125,13 @@ bool table_ausruestung::tree_valid(Gtk::CTree_Helpers::SelectionList &selectionL
 {
   if(selectionList.empty())
    {
-      std::cout<< "Keine Zeile gewählt\n";
+      std::cout<< "Keine Zeile gewÃ¤hlt\n";
       button_ausruestung_loeschen->set_sensitive(true);
       return false;
    }
   if(selectionList.size()>1)
    {
-      std::cout<< "Zuviele Zeilen gewählt\n";
+      std::cout<< "Zuviele Zeilen gewÃ¤hlt\n";
       button_ausruestung_loeschen->set_sensitive(true);
       return false;
    }
@@ -149,9 +149,9 @@ void table_ausruestung::on_Ausruestung_tree_select_row(Gtk::CTree::Row row,gint 
   Gtk::CTree_Helpers::SelectionList selectionList = Ausruestung_tree->selection();
   if(!tree_valid(selectionList)) return;
   AusruestungBaum *A=static_cast<AusruestungBaum*>(selectionList.begin()->get_data());
-  sichtbarConnection.disconnect();
+  sichtbarConnection.signal_di().connect();
   checkbutton_sichtbar->set_active(A->getAusruestung().Sichtbar());
-  sichtbarConnection=checkbutton_sichtbar->toggled.connect(SigC::slot(static_cast<class table_ausruestung*>(this), &table_ausruestung::on_checkbutton_sichtbar_toggled));
+  sichtbarConnection=checkbutton_sichtbar->signal_toggled().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_checkbutton_sichtbar_toggled));
   button_ausruestung_loeschen->set_sensitive(true);
   besitz=A;
 }
