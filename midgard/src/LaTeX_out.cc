@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.85 2002/01/19 17:40:42 christof Exp $
+// $Id: LaTeX_out.cc,v 1.86 2002/01/19 17:44:21 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,6 +23,7 @@
 #include "Sprache.hh"
 #include "Waffe.hh"
 #include <fstream>
+#include "Fertigkeiten_angeboren.hh"
 
 gint midgard_CG::on_latex_release_event(GdkEventButton *ev)
 {
