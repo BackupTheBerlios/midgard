@@ -1,4 +1,89 @@
 ##########################################################################
+NEWS IN VERSION 0.5beta1
+- Elfen können jetzt von Spielbegin an Doppelcharakter werden
+- Bug bei 'Waffen verzaubern' beseitigt
+- Elfenzauberer beherrschen 'Erkennen der Aura' automatisch
+- Neues großes (!) Bild von Alessandro hinzugefügt :-) 
+
+##########################################################################
+NEWS IN VERSION 0.5beta0
+- Ein neuer Knopf ist hinzugekommen: 'Zaubermittel anzeigen'
+   dadurch wird das steigern von Zaubern schneller, wenn der Button
+   deaktiviert ist.
+- Eine Umarbeitung der Programms macht das Zaubern steigern nochmal 
+   deutlich(!!!) schneller. 
+- War kein KiDo Stil gewählt, dann zeigte die Typauswahl immer den 
+   ersten Eintrag (statt des zweiten) an.
+- Anfangsanzeige bei 'KiDo-Stile' war falsch.
+- Wenn KiDo nachträglich gelernt wird ist es nun auch möglich Techniken 
+   zu lernen. 
+- Neuaufbau des MCG funktionierte nicht richtig, wenn man auf 'Neuer Charakter'
+   klickte.
+- Die Anzahl der KiDo-Techniken, die bei Spielbeginn gelernt werden können
+   ist jetzt korrekt implementiert.
+- Speziesabhängige Pflichtfertigkeiten und Pflichtberufe werden beim
+   lernen während der Charaktererschaffung mit entsprechenden 
+   Lernpunkten und Erfolgswerten angezeigt
+- Speziesspezifische Verbote werden berücksichtigt. 
+- Elfen und Zwerge bekommen bei Spielbeginn 'Nachtsicht'
+- Es wird auch berücksichtigt, daß einige Fertigkeiten von Spezies zwar bei 
+   Spielbeginn NICHT lernbar sind, wohl aber später.
+- Es ist möglich Waffengrundkenntnisse zu 'verlernen'.
+   Dieses Feature sollte allerdings nur dann verwendet werden, wenn
+   man sich vertippt hat, da keinerlei Kausalitätsprüfung stattfindet.
+- Unterteilung der Spezies Gnom in Wald-/Berggnom
+- Berücksichtigung des Geschlechtes bei der Berufsvoraussetzung
+- Auch auf der 'steigern'-Seite wird nun die Charakterklasse angegeben.
+- Hilfe leicht überarbeitet (Geschlecht wählen hinzugefügt)
+- Zahlreiche weitere Bugs beseitigt
+- Doppelcharakterklassen implementiert:
+   - Zauber funktionieren (Kämpfer/Zauberer oder Barde/Zauberer 
+      oder Ordenskrieger/Priester) mit richtigen Lernkosten
+   - Fertigkeiten funktionieren
+   - Waffen funktioniert
+   - Sprachen und Schriften steigern funktioniert
+   - Abspeichern/laden funktioniert
+   - Doppelklassen sind möglich wenn ein Kämpfer 'Wissen von der Magie lernt'
+   Einschränkung:
+   - Nach dem lernen von 'Wissen von der Magie' ist man ein Doppelklassencharakter
+      Es ist nicht möglich die Laufbahn als Kämpfer aufzugeben und ein 
+      1. Klassencharakter zu werden. (Aber mal ehrlich, hat jemand aml davon
+      gehöhrt, das DAS jemand wollte?)  
+   - Doppelklassen sind nicht dadurch möglich, daß ein zauberer Waffen hochgenug lernt
+   - Doppelklassen für Elfen bei Spielbeginn funktioniert zwar prinzipiell, aber die 
+      jeweils günstigsten Lernkosten werden noch(!!!) nicht berücksichtigt
+
+##########################################################################
+NEWS IN VERSION 0.4beta10
+- LaTeX output optimiert: Es wird nun zuerst getestet, wie lang eine 
+   Stringkette ist, und wenn diese eine bestimmte Länge überschreitet wird 
+   der Text so skaliert, daß er in die vorgegebene Länge paßt.
+- Fernkampfwaffen werden jetzt mit Reichweite(n) ausgedruckt
+- Einen Bug aus der Datenbank entfernt: 'Geheimmechanismen öffnen' 
+   funktionierte nicht
+- Bug beim Berechnen des Abwehrbonuses für waffenlosen Kampf und einem
+   Erfolgswert<8 entfernt
+- Umarbeitung der magischen Waffen => Möglicherweise kommt es zu Konflikten
+   mit bereits gespeicherten Charakteren die magische Waffen besitzen.
+- Für mag. Waffen kann eine kurze Beschreibung eingegeben werden.
+- Jetzt kann man dieselbe Waffe (z.B. Dolch) mehrmals 'besitzen'. Allerdings
+   ist nur eine NICHTmagische Waffe desselben Typs möglich.
+
+##########################################################################
+NEWS IN VERSION 0.4beta9
+- Boni für Angriff/Abwehr/..../Resistenzen können jetzt auch negativ sein.
+- Neuer Button 'KiDo-laden' von Alessandro
+- Die 'Fertigkeiten' Fenster werden schneller aufgebaut (Neue Programmierung)
+- Bug bei der Umschaltung männlich/weiblich und beim laden von weibl. Charakteren
+    beseitigt
+- Einige andere kleine Umprogrammierungen vorgenommen, die das Programm schneller
+   machen (sollten:)
+- Ausdruck von Gewicht und Größe in SI-Einheiten :-)
+- Alten Bug beseitigt: Jetzt können auch Fertigkeiten OHNE Erfolgswert
+   VERLERNT werden.
+- Bug: Bei Lernen der Zauber werden die GFP nicht hochgerechnet. 
+
+##########################################################################
 NEWS IN VERSION 0.4beta8
 - Beim Laden eines Charakters wurde die falsche Charakterklasse angezeigt
 - Bei nichtmenschlichen Spezies kam es beim Laden zu einem Absturz
@@ -349,7 +434,7 @@ Einige Bugs beseitigt
 NEWS IN VERSION 0.1alpha6
 Einige kleinere Bugs beseitigt
 Waffen aussuchen komplett, 
-Ausdruck von Waffen, die ein CHarakter besitzt mit
+Ausdruck von Waffen, die ein Charakter besitzt mit
    Erfolgswert und Schaden (incl. waffenl. Kampf!)
 Damit der Ausdruck wieder ohne Stopp funktioniert habe ich eine '~'
    als Defaultwert eingetragen, da diese für LaTeX 

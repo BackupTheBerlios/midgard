@@ -171,6 +171,7 @@ void midgard_CG::doppelcharaktere()
 {
    fill_typauswahl_2();
    typauswahl_2->show();
+   typauswahl_2_button(-1);
    magie_bool=true;
 }
 

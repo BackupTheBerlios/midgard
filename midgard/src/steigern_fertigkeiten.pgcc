@@ -260,8 +260,7 @@ void midgard_CG::on_steigern_fert_clist_neu_select_row(gint row, gint column, Gd
       string strinfo="Jetzt muß ein Stil unter 'Lernschema' -> 'KiDo' gewählt werden !!!";
       manage (new WindowInfo(strinfo,true)); }
   if (new_fert=="Wissen von der Magie") 
-      {  
-         midgard_CG::doppelcharaktere();
+      {  midgard_CG::doppelcharaktere();
          string strinfo ="Jetzt unter 'Grundwerte' die zweite Charkakterklasse wählen\n";
          manage (new WindowInfo(strinfo,true));
          // Resistenzboni für Zauberer setzten:
