@@ -19,7 +19,7 @@
 
 #ifndef TAG_HH
 #define TAG_HH
-#include <config.h>
+//#include <config.h>
 #include <string>
 #include <vector>
 #include <algo.h> // for find

@@ -17,7 +17,7 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#include <config.h>
+//#include <config.h>
 #include "Tag.hh"
 #include <fstream>
 #include <strstream>
@@ -35,7 +35,7 @@ class TagStream
 	istrstream *iss;
 
 	char *next_tag(Tag *parent);
-	char *next_tag_pointer();
+	char *next_tag_pointer(Tag *parent);
 	bool good();
 	
 	char *find(const char *start,char what)

@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.16 2001/04/23 10:55:31 thoma Exp $
+# $Id: Makefile.am,v 1.17 2001/04/25 06:07:06 christof Exp $
 
 bin_PROGRAMS = midgard midgard_xmlexport
 
@@ -62,11 +62,11 @@ BUILT_SOURCES_CG = Fertigkeiten_auswahl.cc Waffen_auswahl.cc \
    midgard_CG_Ausnahmen.cc get_standard_zaubermittel.cc \
    get_spezies_constraint.cc midgard_CG_magier_spezialgebiet.cc
 
-BUILT_SOUCES_XML=xml.cc
+BUILT_SOUCES_XMLE=xmlexport.cc
 
-BUILT_SOURCES=$(BUILT_SOURCES_CG) $(BUILT_SOUCES_XML)
+BUILT_SOURCES=$(BUILT_SOURCES_CG) $(BUILT_SOUCES_XMLE)
 
-midgard_xmlexport_SOURCES= $(BUILT_SOUCES_XML)
+midgard_xmlexport_SOURCES= $(BUILT_SOUCES_XMLE)
 
 midgard_SOURCES = \
    spielleiter_export.cc \

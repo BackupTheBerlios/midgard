@@ -111,17 +111,17 @@ char *TagStream::next_tag_pointer(Tag *parent)
 
 static bool isword(unsigned char x)
 // accepting d7 and f7 violates standard ... who cares
-{  return isalnum(x)||strchr(".-_:",x)||x>=0xc0);
+{  return isalnum(x)||strchr(".-_:",x)||x>=0xc0;
 }
 
 static bool isword0(unsigned char x)
 // accepting d7 and f7 violates standard ... who cares
-{  return isalnum(x)||strchr("_:",x)||x>=0xc0);
+{  return isalnum(x)||strchr("_:",x)||x>=0xc0;
 }
 
 char *TagStream::find_wordend(char *ptr)
-{  while (ptr<end_pointer && isword(*ptr)) ++ptr;
-   return ptr>=end_pointer ? 0 : ptr;
+{  while (ptr<buffer+end_pointer && isword(*ptr)) ++ptr;
+   return ptr>=buffer+end_pointer ? 0 : ptr;
 }
 
 // returns unmatched </tag> or 0
@@ -142,7 +142,7 @@ char *TagStream::next_tag(Tag *parent)
                set_pointer(tagend+2);
                break;
             }
-            if (isword(*tagend))
+            if (isword0(*tagend))
             {  char *attrend=find_wordend(tagend);
                if (!attrend || *attrend!='=' || 
                	(attrend[1]!='"' && attrend[1]!='\''))
@@ -154,7 +154,7 @@ char *TagStream::next_tag(Tag *parent)
                		de_xml(string(valuestart,valueend-valuestart-1))));
                   tagend=valueend+1;
                }
-               else ERROR("value does not end",valuestart);
+               else ERROR2("value does not end",valuestart);
             }
             else ERROR2("strange attribute char",tag);
          }         
@@ -185,7 +185,7 @@ char *TagStream::next_tag(Tag *parent)
          {  char *attrend=find_wordend(tagend);
             if (!attrend || *attrend!='=' || 
             	(attrend[1]!='"' && attrend[1]!='\''))
-               ERROR2("strange attribute");
+               ERROR2("strange attribute",tagend);
             char *valuestart(attrend+2);
             char *valueend(find(valuestart,attrend[1]));
             if (valueend)
@@ -209,8 +209,7 @@ char *TagStream::next_tag(Tag *parent)
       char *endtagend=find(tagvalue+1,'>');
       if (!endtagend) ERROR2("endtag doesn't end",valueend);
       if (memcmp(tagvalue+2,newtag->Type().c_str(),newtag->Type().size()))
-      {  cerr << "tag <";
-         newtag->Type() << "> ended with </";
+      {  cerr << "tag <" << newtag->Type() << "> ended with </";
          cerr.write(tagvalue+2,endtagend-tagvalue-2-1) << ">\n";
       }
       set_pointer(endtagend+1);
