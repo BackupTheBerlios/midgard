@@ -3,16 +3,16 @@
 <MAGUS-data>
  <Preise/>
  <Midgard-Abenteurer Version="10">
-  <Figur Name="Adreon McTuron" Spieler="Christof Petig" Zeitpunkt="Erschaffung" Grad="3"/>
-  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Er" Spezialisierung="Langschwert" Stadt_Land="Stadt" Hand="Rechtshänder"/>
+  <Figur Name="Adreon McTuron" Spieler="Christof Petig" Zeitpunkt="Erschaffung" Grad="4"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Er" Spezialisierung="Langschwert" Überleben="Überleben Heimat" Stadt_Land="Stadt" Hand="Rechtshänder"/>
   <Basiseigenschaften St="95" Gw="86" Gs="93" Ko="90" In="97" Zt="76"/>
   <abgeleiteteEigenschaften Au="50" pA="53" Wk="100" Sb="47" B="25"/>
   <Erfolgswerte Abwehr="12" Zaubern="2" ZauberResistenz="11"/>
   <Gesundheit LP="17" AP="22"/>
   <Beschreibung Alter="21" Gestalt="normal" Gewicht="82" Größe="180" Stand="Volk" Herkunft="Alba" Glaube="Dheis Albi"/>
-  <Vermögen GS="8" SS="1"/>
-  <Steigern GFP="805" benötigte_Tage="124">
-   <Praxispunkte Resistenz="1"/>
+  <Vermögen GS="44" SS="1"/>
+  <Steigern GFP="1245" AEP="4" EPproGFP="33" Basiswerte="3" benötigte_Tage="174.24">
+   <Praxispunkte Abwehr="1" Resistenz="1"/>
   </Steigern>
   <Text Größe="8"/>
   <Ausrüstung>
@@ -54,25 +54,25 @@
    <Fertigkeit Bezeichnung="Schwimmen" Wert="11"/>
    <Fertigkeit Bezeichnung="Seilkunst" Wert="8"/>
    <Fertigkeit Bezeichnung="Springen" Wert="11"/>
-   <Fertigkeit Bezeichnung="Spurenlesen" Wert="8"/>
+   <Fertigkeit Bezeichnung="Spurenlesen" Wert="9"/>
    <Fertigkeit Bezeichnung="Suchen" Wert="10"/>
    <Fertigkeit Bezeichnung="Verkleiden" Wert="14"/>
    <Fertigkeit Bezeichnung="Wahrnehmung" Wert="6"/>
    <Fertigkeit Bezeichnung="Zeichensprache" Wert="8"/>
+   <Waffe Bezeichnung="Dolch" Wert="9"/>
+   <Waffe Bezeichnung="Handaxt" Wert="7"/>
+   <Waffe Bezeichnung="Langschwert" Wert="9"/>
+   <Waffe Bezeichnung="kleiner Schild" Wert="3"/>
    <Grundkenntnis Bezeichnung="Einhandschlagwaffe"/>
    <Grundkenntnis Bezeichnung="Einhandschwert"/>
    <Grundkenntnis Bezeichnung="Schild"/>
    <Grundkenntnis Bezeichnung="Stichwaffe"/>
-   <Optionen Name="NSCs zulassen" Wert="false"/>
-   <Optionen Name="Originalregeln" Wert="false"/>
    <Sprache Bezeichnung="Albisch" Wert="20"/>
    <Sprache Bezeichnung="Comentang" Wert="12"/>
    <Urschrift Bezeichnung="Albisch" Wert="14"/>
    <Urschrift Bezeichnung="Comentang" Wert="4"/>
-   <Waffe Bezeichnung="Dolch" Wert="8"/>
-   <Waffe Bezeichnung="Handaxt" Wert="7"/>
-   <Waffe Bezeichnung="kleiner Schild" Wert="2"/>
-   <Waffe Bezeichnung="Langschwert" Wert="8"/>
+   <Optionen Name="Originalregeln" Wert="false"/>
+   <Optionen Name="NSC zulassen" Wert="false"/>
   </Fertigkeiten>
  </Midgard-Abenteurer>
 </MAGUS-data>
