@@ -181,17 +181,16 @@ std::string add_plus_or_minus(std::string &s,const int sb)
 }
 
 
-std::string WaffeBesitz::Schaden(const Grundwerte& Werte,const std::string& name) const
+#include "WaffeGrund.hh"
+std::string WaffeBesitz::Schaden(const Abenteurer& A,const std::string& name) const
 {
+  const Grundwerte &Werte = A.getWerte();
   if (Waffe()->Art()=="Verteidigung") 
      return itos(Waffe()->Schaden_Bonus(name))+"AP";
 
   std::string s=Waffe()->Schaden(name);
   int sb =Waffe()->Schaden_Bonus(name) + sl_Bonus();
   int sb2=Waffe()->Schaden_Bonus2(name) + sl_Bonus();
-  // Nicht stark genug fÃ¼rs EinhÃ¤ndige Tragen dieser Waffe?
-  if(Waffe()->Text().find("EinhÃ¤ndig")!=std::string::npos &&
-       !Waffe()->Min_St_Einhand(Werte)) sb2=sb;
 
   if ( Waffe()->Grundkenntnis() == "Kampf ohne Waffen" ) 
       { s="W6";
@@ -203,11 +202,14 @@ std::string WaffeBesitz::Schaden(const Grundwerte& Werte,const std::string& name
         if(name=="Kampfriemen") sb+=1;
         sb2=sb;
       }
-  // Nicht stark genug fürs Einhändige Tragen dieser Waffe?
+  // Nicht stark genug fürs einhändige Tragen dieser Waffe?
   if(Waffe()->Text().find("Einhändig")!=std::string::npos &&
-        !Waffe()->Min_St_Einhand(Werte)) sb2=sb;
-           
-  if (Waffe()->Art()!="Schußwaffe" && Waffe()->Art()!="Wurfwaffe")
+       !Waffe()->Min_St_Einhand(Werte)) sb2=sb;
+  // Grundkenntnis fürs Einhändige Tragen dieser Waffe nicht erworben
+  if(!MBEmlt(&*cH_WaffeGrund(Waffe()->ZweiteGrundkenntnis()))
+      ->ist_gelernt(A.List_WaffenGrund())) sb2=sb;
+
+  if (Waffe()->Art()!="Schußwaffe" && Waffe()->Art()!="Wurfwaffe") 
     {  sb += Werte.bo_Sc(); sb2 += Werte.bo_Sc();}
   if(sb==sb2)  return add_plus_or_minus(s,sb); 
   else         return add_plus_or_minus(s,sb)+"|"+itos(sb2);

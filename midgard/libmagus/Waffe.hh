@@ -174,7 +174,7 @@ class WaffeBesitz : public MidgardBasicElement_mutable
      int sl_Bonus() const {return sl_bonus;}
      std::string Bonus() const;
      std::string Magisch() const {return magisch;}
-     std::string Schaden(const Grundwerte& Werte,const std::string& name) const;
+     std::string Schaden(const Abenteurer& A,const std::string& name) const;
      std::string Region() const {return region;}
 //     int St() const {return st;}
       

@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.96 2003/06/10 14:31:02 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.97 2003/06/20 14:38:17 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -521,7 +521,16 @@ void LaTeX_drucken::write_waffenbesitz(std::ostream &fout,const std::list<H_Waff
      std::string schaden=(*i)->Schaden(hauptfenster->getWerte(),(*i)->AliasName());
      std::string anm = (*i)->Waffe()->Waffenrang();
      std::string abm = (*i)->Waffe()->WM_Abwehr();
-
+     std::string text=(*i)->Waffe()->Text();
+     
+     bool grund_ist_gelernt = MBEmlt(&*cH_WaffeGrund((*i)->Waffe()->ZweiteGrundkenntnis()))
+           ->ist_gelernt(hauptfenster->getAben().List_WaffenGrund());
+                    
+     if(text.find("Einhändig")!=std::string::npos)
+      { if(!(*i)->Waffe()->Min_St_Einhand(hauptfenster->getWerte())) text="";
+        if(!grund_ist_gelernt) text="";
+      }
+                                             
      VWB.push_back(st_WB(LaTeX_scalemag(waffenname,25,"3cm",(*i)->Magisch(),
             TeX::string2TeX((*i)->Waffe()->Reichweite()+" "+(*i)->Waffe()->Text())),
             swert,schaden,anm,abm));
