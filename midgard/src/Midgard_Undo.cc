@@ -1,4 +1,4 @@
-// $Id: Midgard_Undo.cc,v 1.5 2002/12/11 18:18:50 christof Exp $
+// $Id: Midgard_Undo.cc,v 1.6 2003/09/01 06:47:58 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *

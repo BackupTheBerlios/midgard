@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.33 $">
+<MAGUS-data Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Copyright="Jürgen E. Franke" Jahr="2001" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-2" MAGUS-Bild="10" CVS="$Revision: 1.34 $">
  <SteigernKosten>
   <Kosten Fertigkeit="Bewegung" Wert11="20" Wert12="20" Wert13="50" Wert14="50" Wert15="100" Wert16="200" Wert17="400" Wert18="800" Wert19="800" Wert20="800"/>
   <Kosten Fertigkeit="Lanzenstechen" Wert2="100" Wert3="100" Wert4="150" Wert5="150" Wert6="200" Wert7="200" Wert8="400"/>
@@ -5315,7 +5315,7 @@
     <Sprache Name="Trll'ng"/>
     <Nachbarland Name="Nahuatlan"/>
    </Land>
-   <Land Name="Nahuatlan">
+   <Land Name="Nahuatlan" Region="N">
     <Sprache Name="Nahuatlanisch"/>
     <Nachbarland Name="Feuerinseln"/>
     <Nachbarland Name="Inseln unter dem Westwind"/>
@@ -5327,7 +5327,7 @@
     <Nachbarland Name="Ikengabecken"/>
     <Nachbarland Name="Urruti"/>
    </Land>
-   <Land Name="Eschar">
+   <Land Name="Eschar" Region="E">
     <Sprache Name="Kelwisch"/>
     <Sprache Name="Meketisch"/>
     <Sprache Name="Scharidisch"/>
@@ -5337,12 +5337,12 @@
     <Nachbarland Name="Valian"/>
     <Nachbarland Name="Aran"/>
    </Land>
-   <Land Name="Ikengabecken">
+   <Land Name="Ikengabecken" Region="I">
     <Sprache Name="Ikengadialekte"/>
     <Nachbarland Name="Buluga"/>
     <Nachbarland Name="Eschar"/>
    </Land>
-   <Land Name="Küstenstaaten">
+   <Land Name="Küstenstaaten" Region="KS">
     <Sprache Name="Maralinga"/>
     <Sprache Name="Neu-Vallinga"/>
     <Nachbarland Name="Valian"/>
@@ -5366,7 +5366,7 @@
     <Nachbarland Name="Tegarische Steppe"/>
     <Nachbarland Name="Valian"/>
    </Land>
-   <Land Name="KanThaiPan">
+   <Land Name="KanThaiPan" Region="K">
     <Sprache Name="KanThaiTun"/>
     <Nachbarland Name="Medjis"/>
     <Nachbarland Name="Minangpahit"/>
@@ -5380,7 +5380,7 @@
     <Nachbarland Name="Tegarische Steppe"/>
     <Nachbarland Name="KanThaiPan"/>
    </Land>
-   <Land Name="Minangpahit">
+   <Land Name="Minangpahit" Region="M">
     <Sprache Name="Minangpahitisch"/>
     <Nachbarland Name="Rawindra"/>
     <Nachbarland Name="KanThaiPan"/>
@@ -5392,7 +5392,7 @@
     <Nachbarland Name="Waeland"/>
     <Nachbarland Name="Medjis"/>
    </Land>
-   <Land Name="Rawindra">
+   <Land Name="Rawindra" Region="R">
     <Sprache Name="Rawindi"/>
     <Nachbarland Name="Aran"/>
     <Nachbarland Name="KanThaiPan"/>
@@ -5408,7 +5408,7 @@
     <Nachbarland Name="Medjis"/>
     <Nachbarland Name="Moravod"/>
    </Land>
-   <Land Name="Waeland">
+   <Land Name="Waeland" Region="W">
     <Sprache Name="Waelska"/>
     <Nachbarland Name="Alba"/>
     <Nachbarland Name="Clanngadarn"/>
@@ -5430,7 +5430,7 @@
    </Land>
   </Kontinent>
   <Kontinent Name="Vesternesse">
-   <Land Name="Alba">
+   <Land Name="Alba" Region="A">
     <Sprache Name="Albisch"/>
     <Sprache Name="Altoqua"/>
     <Sprache Name="Dunathisch"/>

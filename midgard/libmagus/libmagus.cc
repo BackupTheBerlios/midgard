@@ -1,4 +1,4 @@
-// $Id: libmagus.cc,v 1.2 2003/08/11 06:26:33 christof Exp $               
+// $Id: libmagus.cc,v 1.3 2003/09/01 06:47:57 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2003 Christof Petig
  *

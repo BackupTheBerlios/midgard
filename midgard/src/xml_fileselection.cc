@@ -43,7 +43,7 @@ try{
    hauptfenster->spielleiter_export_save(this->get_filename(),true); 
  else if (ewas==Pix)
    {
-    VA->getWerte().setBeschreibungPix(this->get_filename());
+    VA->setBeschreibungPix(this->get_filename());
     hauptfenster->table_beschreibung->init(hauptfenster);
    }
  else if (ewas==html)
@@ -55,7 +55,7 @@ try{
  else if (ewas==pdfviewer)
    hauptfenster->table_optionen->frame_drucken->pdf_viewer_selected(this->get_filename());
  delete this;
-}catch(std::exception &e) {std::cerr<<e.what()<<'\n';}
+}catch(std::exception &e) {Ausgabe(Ausgabe::Error,e.what());}
 }
 
 #ifndef __MINGW32__  
@@ -135,13 +135,13 @@ xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was)
  if (!path.empty() && path[path.size()-1]!=WinLux::dirsep) 
     path+=WinLux::dirsep;
  if(ewas==Pix) 
- {  fname=VA->getWerte().BeschreibungPix();
+ {  fname=VA->BeschreibungPix();
     if (fname.empty()) fname=path;
  }
  else if (ewas==Save) 
  {  fname=VA.getFilename();
     if (fname.empty()) 
-       fname=path+defFileName(VA->getWerte().Name_Abenteurer())+".magus";
+       fname=path+defFileName(VA->Name_Abenteurer())+".magus";
 #ifdef __MINGW32__
     register_magus(h->argv0);
 #endif 
@@ -150,11 +150,11 @@ xml_fileselection::xml_fileselection(midgard_CG* h, eAction _was)
  {  // path is ok
  }
  else if (ewas==Export) 
- {  fname=path+defFileName(VA->getWerte().Name_Abenteurer())+".txt";
+ {  fname=path+defFileName(VA->Name_Abenteurer())+".txt";
  }
  set_filename(fname);
  
-std::cout << "Dateiname " << fname << "->" << get_filename() << '\n';
+ Ausgabe(Ausgabe::Debug,"Dateiname " +fname+ "->"+ get_filename());
 #ifdef __MINGW32__
    // TODO was ist mit '\\' am Ende ?
    // TODO path erzeugen?

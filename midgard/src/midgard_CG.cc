@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.300 2003/07/16 06:29:34 christof Exp $
+// $Id: midgard_CG.cc,v 1.301 2003/09/01 06:47:58 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -47,12 +47,11 @@ static void ImageLabelKnopf(Gtk::Button *b, Glib::RefPtr<Gdk::Pixbuf> pb, const 
    vbox->show();
 }
 
-midgard_CG::midgard_CG(const std::string &_argv0,const std::string &_magus_verzeichnis,
+midgard_CG::midgard_CG(
                        const std::string &datei)
-: magus_paths(_argv0,_magus_verzeichnis),in_dtor(false),
-	InfoFenster(0), news_columns(),
-	MOptionen(0),wizard(0),undo_menu(0),menu_kontext(0),
-	schummeln(false),tag_eigene_artikel(Tag("MAGUS-data"))
+: InfoFenster(), news_columns(),
+	wizard(),undo_menu(),menu_kontext(),
+	schummeln(false)
 { news_columns.attach_to(*list_news);
 
 //  ManuProC::Tracer::Enable(table_grundwerte::trace_channel);
@@ -60,10 +59,10 @@ midgard_CG::midgard_CG(const std::string &_argv0,const std::string &_magus_verze
   InfoFenster = new WindowInfo(this);
 
   // Optionen laden
-  fill_IconVec();
-  MOptionen = new Magus_Optionen(this); 
+//  fill_IconVec();
+//  MOptionen = new Magus_Optionen(this); 
   table_optionen->set_Hauptfenster(this);
-  MOptionen->load_options(with_path("magus_optionen.xml",false,true));
+//  MOptionen->load_options(with_path("magus_optionen.xml",false,true));
   
   srand(time(0));
 // ToolBar: StyleIcon
@@ -82,9 +81,9 @@ midgard_CG::midgard_CG(const std::string &_argv0,const std::string &_magus_verze
   wuerfelt_butt->show();
 
   // wait for Window to appear
-  while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+//  while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
 
-  Database.load(Midgard_Info,this);
+//  Database.load(Midgard_Info,this);
 
   set_sensitive(true);
 
@@ -113,8 +112,7 @@ midgard_CG::midgard_CG(const std::string &_argv0,const std::string &_magus_verze
 midgard_CG::~midgard_CG()
 {  
 //cout << "~midgard_CG()\n\n\n\n";
-   in_dtor=true;
-   delete MOptionen;
+//   in_dtor=true;
    if (InfoFenster) delete InfoFenster;
    if (wizard) delete wizard;
    if (menu_kontext) delete menu_kontext;
@@ -153,55 +151,7 @@ void midgard_CG::set_region_statusbar(RegionenPic::epic pic,bool active)
    }
 }
 
-
-std::string magus_paths::with_path(const std::string &name,bool path_only,bool noexit) const
-{
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
-  std::vector<std::string> V;
-#ifndef __MINGW32__ // IMHO macht das unter Win32 keinen Sinn
-
-  // vielleicht sollten wir das aktuelle Verzeichnis beim 
-  // Programmstart einmal ermitteln und nicht immer
-  char currentwd[10240];
-  *currentwd=0;
-  getcwd(currentwd,sizeof currentwd);
-  
-  V.push_back(std::string(currentwd)+"/");
-#endif  
-  V.push_back(magus_verzeichnis);
-#ifndef __MINGW32__
-  V.push_back(PACKAGE_DATA_DIR);
-  V.push_back(std::string(PACKAGE_DATA_DIR)+"/docs/");
-  V.push_back(std::string(currentwd)+"/../xml/");
-  V.push_back(std::string(currentwd)+"/../docs/");
-#else
-  V.push_back(BinaryVerzeichnis());
-  V.push_back(BinaryVerzeichnis()+"Daten\\");
-  V.push_back(BinaryVerzeichnis()+"Hilfe\\");
-#endif  
-  std::string ntmp;
-  for(std::vector<std::string>::const_iterator i=V.begin();i!=V.end();++i)
-   {
-     std::string n=*i+name;
-//cout <<"Suche nach "<< n<<'\n';
-     if(!access(n.c_str(),R_OK)) 
-      { if(path_only) return *i;
-        else return n;
-      }
-   }
-  std::cout << "File "+name+" nowhere found\n";
-  if(!noexit) exit(1);
-  return("");
-}
-
-std::string magus_paths::BinaryVerzeichnis() const
-{  
-  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
-   if (argv0.rfind(WinLux::dirsep)!=std::string::npos) 
-      return argv0.substr(0,argv0.rfind(WinLux::dirsep)+1);
-   else return "";
-}
-
+#if 0
 void midgard_CG::fill_IconVec()
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
@@ -252,4 +202,17 @@ void midgard_CG::fill_IconVec()
   IconVec.push_back(st_buttons(eventbox_zufall,iNotebookZufall));
 
 }
+#endif
 
+void midgard_CG::WizardBeenden() { on_wizard_beenden_activate(); }
+void midgard_CG::AndererAbenteurer() 
+{  getChar().signal_anderer_abenteurer()(); 
+   hauptfenster->on_neuer_charakter_clicked();
+   hauptfenster->table_lernschema->init(this);
+   hauptfenster->table_steigern->init(this);
+}
+
+void midgard_CG::LernschemaSteigern(bool l,bool s)
+{  hauptfenster->frame_lernschema->set_sensitive(l);
+   hauptfenster->frame_steigern->set_sensitive(s);
+}

@@ -1,4 +1,4 @@
-// $Id: magusicons.cc,v 1.7 2003/08/05 08:55:18 christof Exp $
+// $Id: magusicons.cc,v 1.8 2003/09/01 06:47:57 christof Exp $
 
 #include <magusicons_p.h>
 #include <gdkmm/pixbufloader.h>

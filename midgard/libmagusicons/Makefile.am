@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.4 2003/08/04 08:50:22 christof Exp $
+# $Id: Makefile.am,v 1.5 2003/09/01 06:47:57 christof Exp $
 
 noinst_PROGRAMS=embed
 

@@ -1,9 +1,3 @@
-// generated 2002/11/16 21:14:11 CET by thoma@Tiger.(none)
-// using glademm V1.1.2a_cvs
-//
-// newer (non customized) versions of this file go to BegruessungsWindow.cc_new
-
-// This file is for your program, I won't touch it again!
 
 #include "config.h"
 #include "BegruessungsWindow.hh"
@@ -53,7 +47,7 @@ void BegruessungsWindow::on_button_load_clicked()
 /*
 void BegruessungsWindow::on_togglebutton_never_again_toggled()
 {  
-  hauptfenster->MOptionen->setOber("Automatisches Öffnen des Begrüssungsfensters",togglebutton_never_again->get_active());
+  Programmoptionen.setOber("Automatisches Öffnen des Begrüssungsfensters",togglebutton_never_again->get_active());
 }
 */
 

@@ -1,9 +1,3 @@
-// generated 2002/8/26 14:40:04 CEST by thoma@Tiger.(none)
-// using glademm V1.1.1c_cvs
-//
-// newer (non customized) versions of this file go to frame_icons.cc_new
-
-// This file is for your program, I won't touch it again!
 
 #include "config.h"
 #include "frame_icons.hh"

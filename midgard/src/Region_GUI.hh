@@ -1,4 +1,4 @@
-// $Id: Region_GUI.hh,v 1.2 2003/07/16 07:11:36 christof Exp $               
+// $Id: Region_GUI.hh,v 1.3 2003/09/01 06:47:58 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002-2003 Christof Petig

@@ -1,9 +1,3 @@
-// generated 2002/5/13 20:46:12 CEST by thoma@Tiger.(none)
-// using glademm V0.6.4b_cvs
-//
-// newer (non customized) versions of this file go to table_beschreibung.cc_new
-
-// This file is for your program, I won't touch it again!
 
 #include "config.h"
 #include "table_beschreibung.hh"
@@ -22,8 +16,8 @@ void table_beschreibung::save_beschreibung()
   std::string b=text_charakter_beschreibung->get_buffer()->get_text(
   	text_charakter_beschreibung->get_buffer()->begin(),
   	text_charakter_beschreibung->get_buffer()->end());
-  hauptfenster->getWerte().setBeschreibung(b);
-  hauptfenster->undosave("Beschreibung geändert");
+  hauptfenster->getChar().getAbenteurer().setBeschreibung(b);
+  hauptfenster->getChar().undosave("Beschreibung geändert");
 }
 
 bool table_beschreibung::on_text_charakter_beschreibung_focus_out_event(GdkEventFocus *ev)
@@ -43,7 +37,7 @@ void table_beschreibung::on_button_grafik()
 #if 0  
   if (ev->button==3) 
    { label_grafik->set_text("");
-     hauptfenster->getWerte().setBeschreibungPix("");
+     hauptfenster->getChar().getAbenteurer().setBeschreibungPix("");
    }
   return false;
 #endif  
@@ -53,13 +47,13 @@ void table_beschreibung::on_button_grafik()
 void table_beschreibung::on_button_grafik_clicked()
 {  
   (new xml_fileselection(hauptfenster,xml_fileselection::Pix));
-  hauptfenster->undosave("Bild geändert");
+  hauptfenster->getChar().undosave("Bild geändert");
 }
 
 bool table_beschreibung::on_spinbutton_pix_breite_focus_out_event(GdkEventFocus *ev)
 { 
- hauptfenster->getWerte().setBeschreibungPixSize(spinbutton_pix_breite->get_value_as_int());
- hauptfenster->undosave("Bildgröße geändert");
+ hauptfenster->getChar().getAbenteurer().setBeschreibungPixSize(spinbutton_pix_breite->get_value_as_int());
+ hauptfenster->getChar().undosave("Bildgröße geändert");
  return 0;
 }
 
@@ -75,17 +69,17 @@ void table_beschreibung::show_beschreibung()
   	text_charakter_beschreibung->get_buffer()->begin(),
   	text_charakter_beschreibung->get_buffer()->end());
   Gtk::TextBuffer::iterator pos=text_charakter_beschreibung->get_buffer()->begin();
-  text_charakter_beschreibung->get_buffer()->insert(pos, hauptfenster->getWerte().Beschreibung());
+  text_charakter_beschreibung->get_buffer()->insert(pos, hauptfenster->getChar().getAbenteurer().Beschreibung());
 
   std::string s="Bild";
-  if(hauptfenster->getWerte().BeschreibungPix()!="")
+  if(hauptfenster->getChar().getAbenteurer().BeschreibungPix()!="")
    {
-      s+=":\n"+hauptfenster->getWerte().BeschreibungPix();
+      s+=":\n"+hauptfenster->getChar().getAbenteurer().BeschreibungPix();
       std::string ss(s,s.rfind(WinLux::dirsep)+1,s.size());
       s=ss;
    }
   label_grafik->set_text(s);
-  spinbutton_pix_breite->set_value(hauptfenster->getWerte().BeschreibungPixSize());
+  spinbutton_pix_breite->set_value(hauptfenster->getChar().getAbenteurer().BeschreibungPixSize());
 }
 
 void table_beschreibung::insert_into_beschreibung(const std::string &s,const gint select_start,const gint select_end)

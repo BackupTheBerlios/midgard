@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="X" Name="Abenteuer" Titel="Abenteuer" Copyright="var." Jahr="1981-" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="12" MAGUS-Bild="13" CVS="$Revision: 1.9 $">
+<MAGUS-data Region="X" Name="Abenteuer" Titel="Abenteuer" Copyright="var." Jahr="1981-" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="12" MAGUS-Bild="13" CVS="$Revision: 1.10 $">
  <Fertigkeiten>
   <Fertigkeit Name="Schlittschuhlaufen" Region="X" RegionZusatz="Smaskrifter" Lernpunkte="3" Lernpunkte-Land="2" Anfangswert="15" Lernkosten="60" Erfolgswert="10" Attribut="Gs" Maximalwert="18" MaximalMitUnterweisung="18">
    <Grund Typ="BN"/>

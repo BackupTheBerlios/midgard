@@ -1,4 +1,4 @@
-// $Id: table_lernschema_zauber.cc,v 1.11 2002/12/12 11:20:14 christof Exp $
+// $Id: table_lernschema_zauber.cc,v 1.12 2003/09/01 06:47:58 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,7 +35,7 @@ void table_lernschema::show_magier_spezialgebiet(bool show)
 
 void table_lernschema::spezialgebiet_button_fill()
 {
- std::vector<std::string> L=LernListen(hauptfenster->getDatabase()).getSpezialgebiet(hauptfenster->getAben());
+ std::vector<std::string> L=LernListen().getSpezialgebiet(hauptfenster->getChar().getAbenteurer());
  combo_magier_spezialgebiet->set_popdown_strings(L);
 }
 
@@ -46,13 +46,13 @@ void table_lernschema::on_combo_magier_spezialgebiet_activate()
 
 bool table_lernschema::on_combo_magier_spezialgebiet_focus_out_event(GdkEventFocus *ev)
 {
-  for(std::vector<cH_Spezialgebiet>::const_iterator i=hauptfenster->getDatabase().Spezialgebiet.begin();i!=hauptfenster->getDatabase().Spezialgebiet.end();++i)
+  for(std::vector<cH_Spezialgebiet>::const_iterator i=Datenbank.Spezialgebiet.begin();i!=Datenbank.Spezialgebiet.end();++i)
    {
      if((*i)->Name()==combo_magier_spezialgebiet->get_entry()->get_text())
       {
-        hauptfenster->getWerte().setSpezialgebiet(*i);
-        if(hauptfenster->getWerte().Spezialisierung().empty())
-            hauptfenster->getWerte().setSpezialisierung((*i)->Name());
+        hauptfenster->getChar().getAbenteurer().setSpezialgebiet(*i);
+        if(hauptfenster->getChar().getAbenteurer().Spezialisierung().empty())
+            hauptfenster->getChar().getAbenteurer().setSpezialisierung((*i)->Name());
 // if (s=="Spezialgebiet" || s == "Primär- und Sekundärelement") return ;
         if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::SPEZIALGEBIET);
         break;

@@ -1,4 +1,4 @@
-// $Id: ki_speichern.cc,v 1.2 2002/09/26 08:22:18 thoma Exp $
+// $Id: ki_speichern.cc,v 1.3 2003/09/01 06:47:59 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *

@@ -1,4 +1,4 @@
-// $Id: magus_paths.cc,v 1.10 2003/08/04 08:50:22 christof Exp $
+// $Id: magus_paths.cc,v 1.11 2003/09/01 06:47:57 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -47,27 +47,27 @@ void magus_paths::init(const std::string &_argv0,const std::string &_magus_verze
       	"CurrentVersion", "Explorer", "User Shell Folders", NULL); // "AppData");?
       if (r1.get_string("Personal", buf, sizeof buf, "")==ERROR_SUCCESS) 
       {  magus_verzeichnis=buf;
-         std::cout << magus_verzeichnis << " from HKEY_CURRENT_USER\n";
+         Ausgabe(Ausgabe::Debug, magus_verzeichnis+ " from HKEY_CURRENT_USER");
       }
       else
       {  reg_key r2(HKEY_USERS, KEY_READ, ".Default", "Software", "Microsoft", "Windows",
       	"CurrentVersion", "Explorer", "User Shell Folders", NULL);
          if (r2.get_string("Personal", buf, sizeof buf, "")==ERROR_SUCCESS) 
          {	magus_verzeichnis=buf;
-            std::cout << magus_verzeichnis << " from HKEY_USERS\n";
+            Ausgabe(Ausgabe::Debug,magus_verzeichnis + " from HKEY_USERS");
          }
          else
          {  reg_key r3(HKEY_LOCAL_MACHINE, KEY_READ, "Software", "Microsoft", "Windows",
          		"CurrentVersion", "Explorer", "User Shell Folders", NULL);
             if (r3.get_string("Personal", buf, sizeof buf, "")==ERROR_SUCCESS) 
             {  magus_verzeichnis=buf;
-               std::cout << magus_verzeichnis << " from HKEY_LOCAL_MACHINE\n";
+               Ausgabe(Ausgabe::Debug,magus_verzeichnis+" from HKEY_LOCAL_MACHINE");
             }
 
             // %USERPROFILE%\Anwendungsdaten\Magus ???
             else 
             {  magus_verzeichnis="C:\\Eigene Dateien";
-               std::cout << magus_verzeichnis << " by hand\n";
+               Ausgabe(Ausgabe::Debug,magus_verzeichnis+ " by hand");
             }
          }
       }
@@ -114,9 +114,9 @@ void magus_paths::init(const std::string &_argv0,const std::string &_magus_verze
    {  char buf[10240];
       *buf=0;
       getcwd(buf,sizeof buf);
-      std::cout << "cwd: " << buf << '\n';
+      Ausgabe(Ausgabe::Debug,"cwd: "+ std::string(buf));
       argv0=buf+std::string(1,WinLux::dirsep)+argv0;
-      std::cout << "argv0: " << argv0 << '\n';
+      Ausgabe(Ausgabe::Debug,"argv0: " +argv0);
    }
 
 #ifndef __MINGW32__ // IMHO macht das unter Win32 keinen Sinn

@@ -142,7 +142,7 @@ bool Waffe::Min_St_Einhand(const Grundwerte &W) const
 
 bool Waffe::Voraussetzung(const Abenteurer &A,bool anzeigen) const
 {
- const Grundwerte &Werte=A.getWerte();
+ const Grundwerte &Werte=A;
  if ( St()>Werte.St() || Gw()>Werte.Gw() || Gs()>Werte.Gs() ) return false;
  if(anzeigen) return true;
 
@@ -184,7 +184,7 @@ std::string add_plus_or_minus(std::string &s,const int sb)
 #include "WaffeGrund.hh"
 std::string WaffeBesitz::Schaden(const Abenteurer& A,const std::string& name) const
 {
-  const Grundwerte &Werte = A.getWerte();
+  const Grundwerte &Werte = A;
   if (Waffe()->Art()=="Verteidigung") 
      return itos(Waffe()->Schaden_Bonus(name))+"AP";
 
@@ -375,7 +375,7 @@ std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
                    if (16<=(*j)->Erfolgswert())                      erf_wert = 3;
                   }
                  else erf_wert = (*j)->Erfolgswert();
-                 int ewert = A.getWerte().Abwehr_wert()+A.getWerte().bo_Ab() // Grundwerte
+                 int ewert = A.Abwehr_wert()+A.bo_Ab() // Grundwerte
                            + erf_wert + WB->av_Bonus() ;// Waffenwerte
                  Vwaffewert += itos0p(ewert,-1,true);
                }

@@ -40,14 +40,14 @@ Enums::geschlecht Zufall::getGeschlecht() const
 
 cH_Typen Zufall::getTyp() const
 {
-   std::vector<std::pair<cH_Typen,bool> > V=LL.getTypen(Aben,true);
+   std::vector<std::pair<cH_Typen,bool> > V=LL.getTypen(Aben);
    int i=Random::integer(0,V.size()-1);
    return V[i].first;   
 }
 
 Enums::StadtLand Zufall::getStadtLand() const
 {
-  if     (Aben.getWerte().Spezies()->Land()) return Enums::Land;
+  if     (Aben.Spezies()->Land()) return Enums::Land;
   else if(!Aben.Typ1()->Stadt())  return Enums::Land;
   else if(!Aben.Typ1()->Land()) return Enums::Stadt;
 
@@ -84,7 +84,7 @@ MBEmlt Zufall::getMuttersprache() const
   int i=Random::integer(0,V.size()-1);
 
   MBEmlt sprache(&*cH_Sprache((*V[i])->Name()));
-  Sprache::setErfolgswertMuttersprache(sprache,Aben.getWerte().In(),cH_Fertigkeit("Sprache")->AttributBonus(Aben.getWerte()));
+  Sprache::setErfolgswertMuttersprache(sprache,Aben.In(),cH_Fertigkeit("Sprache")->AttributBonus(Aben));
         
   return sprache;   
 }

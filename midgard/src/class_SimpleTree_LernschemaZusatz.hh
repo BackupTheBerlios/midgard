@@ -69,7 +69,6 @@ class Data_Zusatz : public RowDataBase
 {
       MBEmlt MBE;
       MidgardBasicElement::st_zusatz zusatz;
-      Datenbank Database;
    public:
       Data_Zusatz(const MBEmlt &mbe,MidgardBasicElement::st_zusatz z)
          : MBE(mbe),zusatz(z){}

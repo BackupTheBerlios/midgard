@@ -1,4 +1,4 @@
-// $Id: customize_toolbars.h,v 1.5 2003/02/26 13:32:31 christof Exp $
+// $Id: customize_toolbars.h,v 1.6 2003/09/01 06:47:58 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *

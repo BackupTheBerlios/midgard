@@ -1,4 +1,4 @@
-// $Id: Data_waffenbesitz.hh,v 1.10 2003/06/03 16:39:02 christof Exp $
+// $Id: Data_waffenbesitz.hh,v 1.11 2003/09/01 06:47:58 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,6 +27,7 @@
 
 #include "MidgardBasicElement.hh"
 #include "midgard_CG.hh"
+#include <libmagus/Datenbank.hh>
 
 class Data_waffenbesitz :  public RowDataBase
 {
@@ -41,14 +42,14 @@ class Data_waffenbesitz :  public RowDataBase
        {
           switch(seqnr) {
             case NAME_A : return cH_EntryValueIntString(waffe->AliasName());
-            case SCHADEN_A : return cH_EntryValueIntString(waffe->Schaden(hauptfenster->getWerte(),waffe->AliasName()));
+            case SCHADEN_A : return cH_EntryValueIntString(waffe->Schaden(hauptfenster->getChar().getAbenteurer(),waffe->AliasName()));
             case REGION : return cH_EntryValueIntString(Regionen_All::
-               getRegionfromAbk(hauptfenster->getCDatabase().Regionen,
+               getRegionfromAbk(Datenbank.Regionen,
                waffe->Waffe()->Region(waffe->AliasName()))->Name());
             case MAGBONUS : return cH_EntryValueIntString(waffe->Bonus());
             case MAGTEXT : return cH_EntryValueIntString(waffe->Magisch());
            }
-         return cH_EntryValueIntString("?");
+         return cH_EntryValue();
        }
       H_WaffeBesitz get_Waffe() const {return waffe;}
 };

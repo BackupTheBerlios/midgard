@@ -1,4 +1,4 @@
-// $Id: Ausgabe.hh,v 1.2 2003/07/29 06:16:44 christof Exp $
+// $Id: Ausgabe.hh,v 1.3 2003/09/01 06:47:57 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2003 Christof Petig
  *
@@ -28,8 +28,10 @@ struct Ausgabe
 {	enum Level { Debug, Log, Warning, ActionNeeded, Error, Fatal, MaxLevel };
 	
 	typedef void Ausgabe_cb(Level l,const std::string &text);
-	void set(Ausgabe_cb *cb=0);
+	static void set(Ausgabe_cb *cb=0);
 	Ausgabe(Level l,const std::string &text);
+	// für den Standard-callback
+	static void setLogLevel(Level l);
 };
 
 #endif

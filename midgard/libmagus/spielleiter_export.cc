@@ -51,7 +51,7 @@ void spielleiter_export_save(const Abenteurer &Char,const std::string& dateiname
   Ausgabe(Ausgabe::Log,strinfo);
   std::ofstream fout2(dateiname.c_str());
   orecodestream fout(fout2);
-  const Grundwerte &W=Char.getWerte();
+  const Grundwerte &W=Char;
   fout << W.Name_Abenteurer()<<", "
       <<Char.Typ1()->Name(W.Geschlecht())
       <<"               Gr "<<W.Grad()<<"\n";
@@ -91,7 +91,7 @@ void spielleiter_export_save(const Abenteurer &Char,const std::string& dateiname
    {
     cH_Waffe w((*i)->getMBE());
     std::string name = (*(*i))->Name();
-    int anbo = Char.getWerte().bo_An();
+    int anbo = Char.bo_An();
     if (w->Verteidigung())
         anbo = 0;
     int wert = (*i)->Erfolgswert() + anbo;
@@ -149,7 +149,7 @@ void spielleiter_export_save(const Abenteurer &Char,const std::string& dateiname
  fout << fert << "\n";
 
  std::string sinne;
- std::list<MBEmlt> vsinne=Char.getWerte().Sinne() ;
+ std::list<MBEmlt> vsinne=Char.Sinne() ;
  for (std::list<MBEmlt>::const_iterator i=vsinne.begin();i!=vsinne.end();++i)
   {
       sinne += (*(*i))->Name()+"+"+itos((*i)->Erfolgswert())+", ";
@@ -188,7 +188,7 @@ void spielleiter_export_save(const Abenteurer &Char,const std::string& dateiname
 
 static void spielleiter_export_save_zauber(const Abenteurer &Char, std::ostream& fout)
 {
-//  Grundwerte &W=Char.getWerte();
+//  Grundwerte &W=Char;
   std::map<int,std::list<MBEmlt> > ZL;
   for (std::list<MBEmlt>::const_iterator i=Char.List_Zauber().begin();i!=Char.List_Zauber().end();++i)
      ZL[cH_Zauber((*i)->getMBE())->Erfolgswert_Z(Char)].push_back(*i);

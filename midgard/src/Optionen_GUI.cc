@@ -1,4 +1,4 @@
-// $Id: Optionen_GUI.cc,v 1.1 2003/07/11 22:47:25 christof Exp $
+// $Id: Optionen_GUI.cc,v 1.2 2003/09/01 06:47:58 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -45,7 +45,7 @@ static std::string CommandByExtension(const std::string &ext)
         path=path.substr(0, path.size()-3);
      else if (path.size()>5 && path.substr(path.size()-5)==" \"%1\"") 
         path=path.substr(0, path.size()-5);
-std::cout << "Found "<<ext<<" Viewer @" << path << '\n';
+     Ausgabe(Ausgabe::Debug,"Found "+ext+" Viewer @"+ path);
      return path;
    }
    return "";
@@ -293,7 +293,7 @@ void Midgard_Optionen::Ober_setzen_from_menu(OberIndex index)
         else if(index==Icons) 
          { if(!i->active && !OberCheck(Beschriftungen).active)
             {
-              hauptfenster->set_status("Beschriftungen und Icons dürfen nicht gleichzeitig nicht angewählt sein.");
+              Ausgabe(Ausgabe::Error,"Beschriftungen und Icons dürfen nicht gleichzeitig nicht angewählt sein.");
 //              i->active=true;
             }
            else 
@@ -302,7 +302,7 @@ void Midgard_Optionen::Ober_setzen_from_menu(OberIndex index)
         else if(index==Beschriftungen) 
          { if(!i->active && !OberCheck(Icons).active)
             {
-              hauptfenster->set_status("Beschriftungen und Icons dürfen nicht gleichzeitig nicht angewählt sein.");
+              Ausgabe(Ausgabe::Error,"Beschriftungen und Icons dürfen nicht gleichzeitig nicht angewählt sein.");
 //              i->active=true;
             }
            else 
@@ -489,13 +489,13 @@ void detachHB(Gtk::HandleBox &HB,int x,int y,int b,int h)
 void Midgard_Optionen::load_options(const std::string &filename)
 {try {
   std::ifstream f(filename.c_str());
-  if (!f.good()) std::cout << "Cannot open " << filename << '\n';
+  if (!f.good()) Ausgabe(Ausgabe::Error,"Cannot open " +filename);
   TagStream ts(f);
   // we should use ts.getContent once compatibility is not needed !
   const Tag *data=ts.find("MAGUS-optionen"); // compat
   if (!data) data=ts.find("MAGUS-data");
   if(!data)    
-    { std::cout << "Optionen konnten nicht geladen werden";
+    { Ausgabe(Ausgabe::Error,"Optionen konnten nicht geladen werden";
       ts.debug();
       return;
     }
@@ -547,7 +547,7 @@ void Midgard_Optionen::load_options(const std::string &filename)
          else if(name=="handlebox_steigern_4")
             HB=hauptfenster->table_steigern->handlebox_steigern_4;
          else continue;
-std::cout << "SETZEN: "<<name<<' '<<x<<' '<<y<<"\n\n\n\n";
+Ausgabe(Ausgabe::Debug,"SETZEN: "+name+' '+x+' '+y);
          detachHB(*HB,x,y,breite,hoehe);
        }
    }
@@ -571,7 +571,7 @@ void Midgard_Optionen::save_options(const std::string &filename,WindowInfo *Info
   std::ofstream datei(filename.c_str());
   if (!datei.good())
    { 
-    hauptfenster->set_status("Kann die Optionen nicht speichern");
+    Ausgabe(Ausgabe::Error,"Kann die Optionen nicht speichern");
     return;
    }
   TagStream ts;

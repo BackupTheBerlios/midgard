@@ -22,6 +22,7 @@
 #include "Fertigkeiten.hh"
 #include "Waffe.hh"       
 #include "LernListen.hh"
+#include <libmagus/Ausgabe.hh>
 
 void table_steigern::fertigkeiten_zeigen()
 {
@@ -32,15 +33,14 @@ void table_steigern::fertigkeiten_zeigen()
 
 void table_steigern::neue_fertigkeiten_zeigen()
 {
-  Abenteurer &A=hauptfenster->getAben();
-  list_Fertigkeit_neu=LL->get_steigern_MBEm(A,Enums::sFert, 
-     hauptfenster->MOptionen->OptionenCheck(Magus_Optionen::NSC_only).active);  
- MidgardBasicElement::show_list_in_tree(list_Fertigkeit_neu,neue_fert_tree,hauptfenster);
+  Abenteurer &A=hauptfenster->getChar().getAbenteurer();
+  list_Fertigkeit_neu=LL->get_steigern_MBEm(A,Enums::sFert);
+ MidgardBasicTree::show_list_in_tree(list_Fertigkeit_neu,neue_fert_tree,&hauptfenster->getChar().getAbenteurer());
 }
 
 void table_steigern::alte_fertigkeiten_zeigen()
 {
- MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Fertigkeit(),alte_fert_tree,hauptfenster);
+ MidgardBasicTree::show_list_in_tree(hauptfenster->getChar()->List_Fertigkeit(),alte_fert_tree,&hauptfenster->getChar().getAbenteurer());
 }
 
 
@@ -63,7 +63,7 @@ void table_steigern::on_alte_fert_reorder()
   switch((Data_SimpleTree::Spalten_LONG_ALT)seq[0]) {
       case Data_SimpleTree::NAMEa : hauptfenster->getChar()->List_Fertigkeit().sort(MBEmlt::sort(MBEmlt::sort::NAME)); ;break;
       case Data_SimpleTree::WERTa : hauptfenster->getChar()->List_Fertigkeit().sort(MBEmlt::sort(MBEmlt::sort::ERFOLGSWERT)); ;break;
-      default : hauptfenster->set_status("Sortieren nach diesem Parameter\n ist nicht möglich");
+      default : Ausgabe(Ausgabe::Error,"Sortieren nach diesem Parameter ist nicht möglich");
    }
 }
 
@@ -75,7 +75,7 @@ void table_steigern::on_leaf_selected_neue_fert(cH_RowDataBase d)
   MBEmlt MBE = dt->getMBE();
   if ((*MBE)->Name()=="KiDo") 
     { zeige_werte();
-      hauptfenster->InfoFenster->AppendShow("Jetzt muß ein Stil unter 'Lernschema' -> 'KiDo' gewählt werden !!!",WindowInfo::None);
+      Ausgabe(Ausgabe::ActionNeeded,"Jetzt muß ein Stil unter 'Lernschema' -> 'KiDo' gewählt werden !!!");
       hauptfenster->load_for_mainpage(midgard_CG::PAGE_LERNEN);
       MidgardBasicElement_leaf_neu(d);      
     }
@@ -100,16 +100,16 @@ void table_steigern::kaempfer_lernt_zaubern()
 
  Gtk::Combo *_ct = manage(new class Gtk::Combo());
  _ct->get_entry()->set_editable(false); 
- bool nsc_allowed = hauptfenster->getOptionen()->OptionenCheck(Magus_Optionen::NSC_only).active;
- const std::vector<std::pair<cH_Typen,bool> > T=LL->getTypen(hauptfenster->getAben(),nsc_allowed);
+ bool nsc_allowed = hauptfenster->getChar().getAbenteurer().getOptionen().OptionenCheck(Optionen::NSC_only).active;
+ const std::vector<std::pair<cH_Typen,bool> > T=LL->getTypen(hauptfenster->getChar().getAbenteurer());
  std::list<std::string> L;
  for(std::vector<std::pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
   {
     if( i->first->Zaubern()!="z") continue;
     if(i->second)
-      L.push_back(i->first->Name(hauptfenster->getWerte().Geschlecht()));
+      L.push_back(i->first->Name(hauptfenster->getChar().getAbenteurer().Geschlecht()));
     else
-      L.push_back("("+i->first->Name(hauptfenster->getWerte().Geschlecht())+")");
+      L.push_back("("+i->first->Name(hauptfenster->getChar().getAbenteurer().Geschlecht())+")");
   }
  _ct->set_popdown_strings(L);
  _ct->get_entry()->signal_changed().connect(SigC::slot(*this, &table_steigern::zaubern_klasse_gewaehlt));
@@ -131,14 +131,14 @@ void table_steigern::zaubern_klasse_gewaehlt()
    if(!dynamic_cast<Gtk::Combo*>((*i).get_widget())) continue;
    Gtk::Combo *C=dynamic_cast<Gtk::Combo*>((*i).get_widget());
    std::string typ=C->get_entry()->get_text();
-   if(!Typen::get_Typ_from_long(hauptfenster->getCDatabase().Typen,typ))
+   if(!Typen::get_Typ_from_long(Datenbank.Typen,typ))
      return;
    hauptfenster->getChar()->setTyp2(cH_Typen(typ));
    break;    
   }
 
- if (hauptfenster->getWerte().Zaubern_wert()==2) 
-     hauptfenster->getWerte().setZaubern_wert(10);
+ if (hauptfenster->getChar().getAbenteurer().Zaubern_wert()==2) 
+     hauptfenster->getChar().getAbenteurer().setZaubern_wert(10);
  frame_spezielles->remove();
  frame_spezielles->hide();
  fertigkeiten_zeigen();

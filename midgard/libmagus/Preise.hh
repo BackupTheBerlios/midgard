@@ -1,4 +1,4 @@
-// $Id: Preise.hh,v 1.5 2003/08/02 14:55:38 christof Exp $
+// $Id: Preise.hh,v 1.6 2003/09/01 06:47:57 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig

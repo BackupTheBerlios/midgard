@@ -1,4 +1,4 @@
-// $Id: AbenteurerLernpunkte.hh,v 1.3 2003/08/11 06:26:33 christof Exp $               
+// $Id: AbenteurerLernpunkte.hh,v 1.4 2003/09/01 06:47:57 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -48,7 +48,7 @@ class WaffeBesitzLernen
 
 class AbenteurerLernpunkte
 {public:
-	enum GWR_Auswahl {ENone,EGeld1,EGeld2,EGeld3,EWaffen,ERuestung};
+//	enum GWR_Auswahl {ENone,EGeld1,EGeld2,EGeld3,EWaffen,ERuestung};
 private:
 	Lernpunkte lernpunkte; // noch zu vergebende Lernpunkte
 	WaffeBesitzLernen waffebesitzlernen; // Punkte für Waffenauswahl
@@ -78,6 +78,11 @@ private:
    	
    	void on_button_ruestung_clicked(int wurf);
    	void ausruestung_setzen();
+   	
+   	int &MaxKido() { return maxkido; }
+   	std::vector<int> &getVGeldwurf() { return VGeldwurf; }
+   	Lernpunkte &getLernpunkte() { return lernpunkte; }
+   	BerufsKategorie &getBKategorie() { return BKategorie; }
 };
 
 #endif

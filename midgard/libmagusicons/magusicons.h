@@ -1,4 +1,4 @@
-// $Id: magusicons.h,v 1.5 2003/08/05 08:55:18 christof Exp $
+// $Id: magusicons.h,v 1.6 2003/09/01 06:47:57 christof Exp $
 
 #include <gdkmm/pixbuf.h>
 

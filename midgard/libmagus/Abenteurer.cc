@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.13 2003/08/11 06:26:33 christof Exp $            
+// $Id: Abenteurer.cc,v 1.14 2003/09/01 06:47:57 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -18,7 +18,7 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#include "VAbenteurer.hh"
+#include "Abenteurer.hh"
 //#include "export_common.h"
 #include <Misc/TagStream.h>
 #include "Preise.hh"
@@ -94,7 +94,7 @@ const std::list<Abenteurer::st_universell> Abenteurer::List_Universell() const
    }
   cH_MidgardBasicElement werfen(&*cH_Waffe("Werfen"));
   UF.push_back(MBEmlt(werfen));
-  UF.push_back(getWerte().Ueberleben());
+  UF.push_back(Ueberleben());
   UF.sort(sort_universell());
 
   for(std::list<Abenteurer::st_universell>::iterator i=UF.begin();i!=UF.end();++i)
@@ -104,14 +104,14 @@ const std::list<Abenteurer::st_universell> Abenteurer::List_Universell() const
       {
         cH_Fertigkeit f(i->mbe->getMBE());
         iwert = f->Ungelernt(*this);
-        if(f->Name()==(*(getWerte().Ueberleben()))->Name()) iwert=6;
+        if(f->Name()==(*(Ueberleben()))->Name()) iwert=6;
         if (!f->Voraussetzung(*this,true))
             {iwert-=2; i->voraussetzung=false;}
       }
      else if ((*i->mbe)->What()==MidgardBasicElement::WAFFE)
       {
         cH_Waffe f((*i->mbe).getMBE());
-        iwert = 4+getWerte().bo_An();
+        iwert = 4+bo_An();
         if (!f->Voraussetzung(*this,true))
             {iwert=0; i->voraussetzung=false;}
       }
@@ -137,29 +137,29 @@ void Abenteurer::setAngebFert()
 {
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
   List_Fertigkeit_ang().clear();
-  List_Fertigkeit_ang()=getWerte().Spezies()->getAngFertigkeiten();
-  List_Zauber()=getWerte().Spezies()->getZauber();
-  getWerte().resetSinne();
-  std::list<std::pair<std::string,int> > L=getWerte().Spezies()->getSinne();
+  List_Fertigkeit_ang()=Spezies()->getAngFertigkeiten();
+  List_Zauber()=Spezies()->getZauber();
+  resetSinne();
+  std::list<std::pair<std::string,int> > L=Spezies()->getSinne();
   for(std::list<std::pair<std::string,int> >::const_iterator i=L.begin();i!=L.end();++i) 
-       getWerte().setSinn(i->first,i->second);
+       setSinn(i->first,i->second);
 }
 
 bool Abenteurer::setAngebSinnFert(int wurf,const MBEmlt &MBE)
 {
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
   int wert=MBE->Erfolgswert();
-  if     ( 1<=wurf && wurf<= 2) getWerte().setSinnCheck("Sehen",wert);    
-  else if( 3<=wurf && wurf<= 4) getWerte().setSinnCheck("Hören",wert);    
-  else if( 5<=wurf && wurf<= 6) getWerte().setSinnCheck("Riechen",wert);  
-  else if( 7<=wurf && wurf<= 8) getWerte().setSinnCheck("Schmecken",wert);
-  else if( 9<=wurf && wurf<=10) getWerte().setSinnCheck("Tasten",wert);
-  else if(11<=wurf && wurf<=20) getWerte().setSinn("Sehen",wert);    
-  else if(21<=wurf && wurf<=30) getWerte().setSinn("Hören",wert);    
-  else if(31<=wurf && wurf<=40) getWerte().setSinn("Riechen",wert);  
-  else if(41<=wurf && wurf<=50) getWerte().setSinn("Schmecken",wert);
-  else if(51<=wurf && wurf<=60) getWerte().setSinn("Tasten",wert);
-  else if(61<=wurf && wurf<=65) getWerte().setSinn("Sechster Sinn",wert);
+  if     ( 1<=wurf && wurf<= 2) setSinnCheck("Sehen",wert);    
+  else if( 3<=wurf && wurf<= 4) setSinnCheck("Hören",wert);    
+  else if( 5<=wurf && wurf<= 6) setSinnCheck("Riechen",wert);  
+  else if( 7<=wurf && wurf<= 8) setSinnCheck("Schmecken",wert);
+  else if( 9<=wurf && wurf<=10) setSinnCheck("Tasten",wert);
+  else if(11<=wurf && wurf<=20) setSinn("Sehen",wert);    
+  else if(21<=wurf && wurf<=30) setSinn("Hören",wert);    
+  else if(31<=wurf && wurf<=40) setSinn("Riechen",wert);  
+  else if(41<=wurf && wurf<=50) setSinn("Schmecken",wert);
+  else if(51<=wurf && wurf<=60) setSinn("Tasten",wert);
+  else if(61<=wurf && wurf<=65) setSinn("Sechster Sinn",wert);
   else { List_Fertigkeit_ang().push_back(MBE); return false;}
   return true;
 }
@@ -180,9 +180,9 @@ void Abenteurer::speicherstream(std::ostream &datei)
 
    grundwerte_speichern(Abenteurer);
    Tag &Ausruestung=Abenteurer.push_back(Tag("Ausrüstung"));
-   Ausruestung.push_back(Tag("Rüstung", getWerte().Ruestung()->Name()));
-   if (!getWerte().Ruestung(1)->Name().empty())
-     Ausruestung.push_back(Tag("Rüstung2", getWerte().Ruestung(1)->Name()));
+   Ausruestung.push_back(Tag("Rüstung", Ruestung()->Name()));
+   if (!Ruestung(1)->Name().empty())
+     Ausruestung.push_back(Tag("Rüstung2", Ruestung(1)->Name()));
    // Waffen Besitz
    for (std::list<H_WaffeBesitz>::const_iterator i=List_Waffen_besitz().begin();
 //   for (std::list<MBEmlt>::const_iterator i=List_Waffen_besitz().begin();
@@ -201,17 +201,17 @@ void Abenteurer::speicherstream(std::ostream &datei)
    
    Tag &Fertigkeiten=Abenteurer.push_back(Tag("Fertigkeiten"));
 
-   MidgardBasicElement::saveElementliste(Fertigkeiten,getWerte().Sinne(),getWerte(),getVTyp());
-   MidgardBasicElement::saveElementliste(Fertigkeiten,List_Beruf(),getWerte(),getVTyp());
-   MidgardBasicElement::saveElementliste(Fertigkeiten,List_Fertigkeit_ang(),getWerte(),getVTyp());
-   MidgardBasicElement::saveElementliste(Fertigkeiten,List_Fertigkeit(),getWerte(),getVTyp());
-   MidgardBasicElement::saveElementliste(Fertigkeiten,List_Waffen(),getWerte(),getVTyp());
-   MidgardBasicElement::saveElementliste(Fertigkeiten,List_Zauber(),getWerte(),getVTyp());
-   MidgardBasicElement::saveElementliste(Fertigkeiten,List_Zauberwerk(),getWerte(),getVTyp());
-   MidgardBasicElement::saveElementliste(Fertigkeiten,List_Kido(),getWerte(),getVTyp());
-   MidgardBasicElement::saveElementliste(Fertigkeiten,List_WaffenGrund(),getWerte(),getVTyp());
-   MidgardBasicElement::saveElementliste(Fertigkeiten,List_Sprache(),getWerte(),getVTyp());
-   MidgardBasicElement::saveElementliste(Fertigkeiten,List_Schrift(),getWerte(),getVTyp());
+   MidgardBasicElement::saveElementliste(Fertigkeiten,Sinne(),*this,getVTyp());
+   MidgardBasicElement::saveElementliste(Fertigkeiten,List_Beruf(),*this,getVTyp());
+   MidgardBasicElement::saveElementliste(Fertigkeiten,List_Fertigkeit_ang(),*this,getVTyp());
+   MidgardBasicElement::saveElementliste(Fertigkeiten,List_Fertigkeit(),*this,getVTyp());
+   MidgardBasicElement::saveElementliste(Fertigkeiten,List_Waffen(),*this,getVTyp());
+   MidgardBasicElement::saveElementliste(Fertigkeiten,List_Zauber(),*this,getVTyp());
+   MidgardBasicElement::saveElementliste(Fertigkeiten,List_Zauberwerk(),*this,getVTyp());
+   MidgardBasicElement::saveElementliste(Fertigkeiten,List_Kido(),*this,getVTyp());
+   MidgardBasicElement::saveElementliste(Fertigkeiten,List_WaffenGrund(),*this,getVTyp());
+   MidgardBasicElement::saveElementliste(Fertigkeiten,List_Sprache(),*this,getVTyp());
+   MidgardBasicElement::saveElementliste(Fertigkeiten,List_Schrift(),*this,getVTyp());
 
    // Regionen & Optionen
    Tag &Opt=Abenteurer.push_back(Tag("Optionen"));
@@ -246,86 +246,86 @@ void Abenteurer::grundwerte_speichern(Tag &datei)
 {
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
    Tag &Figur=datei.push_back(Tag("Figur"));
-   Figur.setAttr_ne("Name", getWerte().Name_Abenteurer());
-   Figur.setAttr_ne("Spieler", getWerte().Name_Spieler());
-   Figur.setAttr_ne("Zeitpunkt", getWerte().Version());
-   Figur.setIntAttr("Grad", getWerte().Grad());
+   Figur.setAttr_ne("Name", Name_Abenteurer());
+   Figur.setAttr_ne("Spieler", Name_Spieler());
+   Figur.setAttr_ne("Zeitpunkt", Version());
+   Figur.setIntAttr("Grad", Grad());
    
    Tag &Typ=datei.push_back(Tag("Typ"));
-   Typ.setAttr_ne("Spezies", getWerte().Spezies()->Name());
-   Typ.setAttr_ne("Geschlecht", getWerte().Geschlecht_str());
+   Typ.setAttr_ne("Spezies", Spezies()->Name());
+   Typ.setAttr_ne("Geschlecht", Geschlecht_str());
    Typ.setAttr_ne("Abkürzung", Typ1()->Short());
    Typ.setAttr_ne("Abkürzung2", Typ2()->Short());
-   Typ.setAttr_ne("Spezialgebiet", getWerte().Spezialgebiet()->Name());
-   Typ.setAttr_ne("Spezialisierung", getWerte().Spezialisierung());
-   Typ.setAttr_ne("Überleben",(*getWerte().Ueberleben())->Name());
+   Typ.setAttr_ne("Spezialgebiet", Spezialgebiet()->Name());
+   Typ.setAttr_ne("Spezialisierung", Spezialisierung());
+   Typ.setAttr_ne("Überleben",(*Ueberleben())->Name());
    Typ.setAttr_ne("Muttersprache",Muttersprache());
-   Typ.setAttr("Stadt_Land", getWerte().Stadt_Land_str());
-   Typ.setAttr("Hand", getWerte().Hand());
+   Typ.setAttr("Stadt_Land", Stadt_Land_str());
+   Typ.setAttr("Hand", Hand());
    
    Tag &BE=datei.push_back(Tag("Basiseigenschaften"));
-   BE.setIntAttr("St", getWerte().St());
-   BE.setIntAttr("Gw", getWerte().Gw());
-   BE.setIntAttr("Gs", getWerte().Gs());
-   BE.setIntAttr("Ko", getWerte().Ko());
-   BE.setIntAttr("In", getWerte().In());
-   BE.setIntAttr("Zt", getWerte().Zt());
+   BE.setIntAttr("St", St());
+   BE.setIntAttr("Gw", Gw());
+   BE.setIntAttr("Gs", Gs());
+   BE.setIntAttr("Ko", Ko());
+   BE.setIntAttr("In", In());
+   BE.setIntAttr("Zt", Zt());
 
    Tag &aE=datei.push_back(Tag("abgeleiteteEigenschaften"));
-   aE.setIntAttr("Au", getWerte().Au());
-   aE.setIntAttr("pA", getWerte().pA());
-   aE.setIntAttr("Wk", getWerte().Wk());
-   aE.setIntAttr("Sb", getWerte().Sb());
-   aE.setIntAttr("B", getWerte().B());
-   aE.setIntAttr_nn("GG", getWerte().GG());
-   aE.setIntAttr_nn("SG", getWerte().SG());
+   aE.setIntAttr("Au", Au());
+   aE.setIntAttr("pA", pA());
+   aE.setIntAttr("Wk", Wk());
+   aE.setIntAttr("Sb", Sb());
+   aE.setIntAttr("B", B());
+   aE.setIntAttr_nn("GG", GG());
+   aE.setIntAttr_nn("SG", SG());
 
    Tag &Ew=datei.push_back(Tag("Erfolgswerte"));
-   Ew.setIntAttr("Abwehr", getWerte().Abwehr_wert());
-   Ew.setIntAttr("Zaubern", getWerte().Zaubern_wert());
-   Ew.setIntAttr("ZauberResistenz", getWerte().Resistenz());
+   Ew.setIntAttr("Abwehr", Abwehr_wert());
+   Ew.setIntAttr("Zaubern", Zaubern_wert());
+   Ew.setIntAttr("ZauberResistenz", Resistenz());
 
    Tag &Gesundheit=datei.push_back(Tag("Gesundheit")); // schlechter Name ?
-   Gesundheit.setIntAttr("LP", getWerte().LP());
-   Gesundheit.setIntAttr("AP", getWerte().AP());
+   Gesundheit.setIntAttr("LP", LP());
+   Gesundheit.setIntAttr("AP", AP());
 
    Tag &Beschreibung=datei.push_back(Tag("Beschreibung")); // soziale?
-   Beschreibung.setIntAttr("Alter", getWerte().Alter());
-   Beschreibung.setAttr("Gestalt", getWerte().Gestalt());
-   Beschreibung.setIntAttr("Gewicht", getWerte().Gewicht());
-   Beschreibung.setIntAttr("Größe", getWerte().Groesse());
-   Beschreibung.setAttr_ne("Stand", getWerte().Stand());
-   Beschreibung.setAttr_ne("Bezeichnung", getWerte().Bezeichnung());
-   Beschreibung.setAttr_ne("Merkmale", getWerte().Merkmale());
-   Beschreibung.setAttr_ne("Herkunft", getWerte().Herkunft()->Name());
-   Beschreibung.setAttr_ne("Glaube", getWerte().Glaube());
+   Beschreibung.setIntAttr("Alter", Alter());
+   Beschreibung.setAttr("Gestalt", Gestalt());
+   Beschreibung.setIntAttr("Gewicht", Gewicht());
+   Beschreibung.setIntAttr("Größe", Groesse());
+   Beschreibung.setAttr_ne("Stand", Stand());
+   Beschreibung.setAttr_ne("Bezeichnung", Bezeichnung());
+   Beschreibung.setAttr_ne("Merkmale", Merkmale());
+   Beschreibung.setAttr_ne("Herkunft", Herkunft()->Name());
+   Beschreibung.setAttr_ne("Glaube", Glaube());
 
    Tag &Verm=datei.push_back(Tag("Vermögen"));
-   Verm.setIntAttr_nn("GS", getWerte().Gold());
-   Verm.setIntAttr_nn("SS", getWerte().Silber());
-   Verm.setIntAttr_nn("KS", getWerte().Kupfer());
+   Verm.setIntAttr_nn("GS", Gold());
+   Verm.setIntAttr_nn("SS", Silber());
+   Verm.setIntAttr_nn("KS", Kupfer());
 
    Tag &Steigern=datei.push_back(Tag("Steigern"));
-   Steigern.setIntAttr_nn("GFP", getWerte().GFP());
-   Steigern.setIntAttr_nn("AEP", getWerte().AEP());
-   Steigern.setIntAttr_nn("KEP", getWerte().KEP());
-   Steigern.setIntAttr_nn("ZEP", getWerte().ZEP());
-   if (getWerte().get_Steigern_EP_Prozent()!=50)
-      Steigern.setIntAttr("EPproGFP", getWerte().get_Steigern_EP_Prozent());
-   if (getWerte().get_Grad_Basiswerte()!=getWerte().Grad())
-      Steigern.setIntAttr("Basiswerte", getWerte().get_Grad_Basiswerte());
-   if (getWerte().Steigertage())
-      Steigern.setAttr("benötigte_Tage", dtos(getWerte().Steigertage()));
+   Steigern.setIntAttr_nn("GFP", GFP());
+   Steigern.setIntAttr_nn("AEP", AEP());
+   Steigern.setIntAttr_nn("KEP", KEP());
+   Steigern.setIntAttr_nn("ZEP", ZEP());
+   if (get_Steigern_EP_Prozent()!=50)
+      Steigern.setIntAttr("EPproGFP", get_Steigern_EP_Prozent());
+   if (get_Grad_Basiswerte()!=Grad())
+      Steigern.setIntAttr("Basiswerte", get_Grad_Basiswerte());
+   if (Steigertage())
+      Steigern.setAttr("benötigte_Tage", dtos(Steigertage()));
 
    Tag &Pp=Steigern.push_back(Tag("Praxispunkte"));
-   Pp.setIntAttr_nn("Abwehr", getWerte().AbwehrPP());
-   Pp.setIntAttr_nn("Zaubern", getWerte().ZaubernPP());
-   Pp.setIntAttr_nn("Spezial", getWerte().SpezialPP());
-   Pp.setIntAttr_nn("Resistenz", getWerte().ResistenzPP());
+   Pp.setIntAttr_nn("Abwehr", AbwehrPP());
+   Pp.setIntAttr_nn("Zaubern", ZaubernPP());
+   Pp.setIntAttr_nn("Spezial", SpezialPP());
+   Pp.setIntAttr_nn("Resistenz", ResistenzPP());
    
-   Tag &Text=datei.push_back(Tag("Text",getWerte().Beschreibung()));
-   Text.setIntAttr_nn("Größe", getWerte().BeschreibungPixSize());
-   Text.setAttr_ne("Bild", getWerte().BeschreibungPix());
+   class Tag &Text=datei.push_back(class Tag("Text",this->Beschreibung()));
+   Text.setIntAttr_nn("Größe", BeschreibungPixSize());
+   Text.setAttr_ne("Bild", BeschreibungPix());
 }
 
 void Abenteurer::save_ausruestung(Tag &datei,const std::list<AusruestungBaum> &AB)
@@ -429,85 +429,85 @@ bool Abenteurer::xml_import_stream(std::istream& datei)
    const Tag *Steigern=top->find("Steigern");
    const Tag *Praxispunkte=Steigern?Steigern->find("Praxispunkte"):0;
 
-   getWerte().setBasiswerte(Basiseigenschaften->getIntAttr("St"),
+   setBasiswerte(Basiseigenschaften->getIntAttr("St"),
    	Basiseigenschaften->getIntAttr("Gw",abgeleiteteEigenschaften->getIntAttr("RW")),
    	Basiseigenschaften->getIntAttr("Gs",Basiseigenschaften->getIntAttr("Ge")),
    	Basiseigenschaften->getIntAttr("Ko"),
    	Basiseigenschaften->getIntAttr("In"),
    	Basiseigenschaften->getIntAttr("Zt"));
-   getWerte().setAu(abgeleiteteEigenschaften->getIntAttr("Au"));
-   getWerte().setpA(abgeleiteteEigenschaften->getIntAttr("pA"));
-   getWerte().setSb(abgeleiteteEigenschaften->getIntAttr("Sb"));
-   getWerte().setWk(abgeleiteteEigenschaften->getIntAttr("Wk"));
-   getWerte().setB(abgeleiteteEigenschaften->getIntAttr("B"));
-   getWerte().setLP(Gesundheit->getIntAttr("LP"));
-   getWerte().setAP(Gesundheit->getIntAttr("AP"));
-   getWerte().setZaubern_wert(Erfolgswerte->getIntAttr("Zaubern"));
-   getWerte().setAbwehr_wert(Erfolgswerte->getIntAttr("Abwehr"));
-   getWerte().setResistenz(Erfolgswerte->getIntAttr("ZauberResistenz",
+   setAu(abgeleiteteEigenschaften->getIntAttr("Au"));
+   setpA(abgeleiteteEigenschaften->getIntAttr("pA"));
+   setSb(abgeleiteteEigenschaften->getIntAttr("Sb"));
+   setWk(abgeleiteteEigenschaften->getIntAttr("Wk"));
+   setB(abgeleiteteEigenschaften->getIntAttr("B"));
+   setLP(Gesundheit->getIntAttr("LP"));
+   setAP(Gesundheit->getIntAttr("AP"));
+   setZaubern_wert(Erfolgswerte->getIntAttr("Zaubern"));
+   setAbwehr_wert(Erfolgswerte->getIntAttr("Abwehr"));
+   setResistenz(Erfolgswerte->getIntAttr("ZauberResistenz",
   	!Resistenzen?0:Resistenzen->getIntAttr("Zauber",Resistenzen->getIntAttr("Resistenz",Resistenzen->getIntAttr("psy")))));
    if (Praxispunkte)
-   {  getWerte().setZaubernPP(Praxispunkte->getIntAttr("Zaubern"));
-      getWerte().setSpezialPP(Praxispunkte->getIntAttr("Spezial"));
-      getWerte().setAbwehrPP(Praxispunkte->getIntAttr("Abwehr"));
-      getWerte().setResistenzPP(Praxispunkte->getIntAttr("Resistenz"));    }
+   {  setZaubernPP(Praxispunkte->getIntAttr("Zaubern"));
+      setSpezialPP(Praxispunkte->getIntAttr("Spezial"));
+      setAbwehrPP(Praxispunkte->getIntAttr("Abwehr"));
+      setResistenzPP(Praxispunkte->getIntAttr("Resistenz"));    }
    else
-   {  getWerte().setZaubernPP(0);
-      getWerte().setAbwehrPP(0);
-      getWerte().setSpezialPP(0);
-      getWerte().setResistenzPP(0);
+   {  setZaubernPP(0);
+      setAbwehrPP(0);
+      setSpezialPP(0);
+      setResistenzPP(0);
    }
-   getWerte().setHand(Typ->getAttr("Hand"));
-   getWerte().setGewicht(Beschreibung->getIntAttr("Gewicht"));
-   getWerte().setGroesse(Beschreibung->getIntAttr("Größe"));
-   getWerte().setGrad(Figur->getIntAttr("Grad"));
-   getWerte().setStand(Beschreibung->getAttr("Stand"));
+   setHand(Typ->getAttr("Hand"));
+   setGewicht(Beschreibung->getIntAttr("Gewicht"));
+   setGroesse(Beschreibung->getIntAttr("Größe"));
+   setGrad(Figur->getIntAttr("Grad"));
+   setStand(Beschreibung->getAttr("Stand"));
 
-   getWerte().setAlter(Beschreibung->getIntAttr("Alter")); 
-   getWerte().setGeschlecht(Typ->getAttr("Geschlecht","m"));
+   setAlter(Beschreibung->getIntAttr("Alter")); 
+   setGeschlecht(Typ->getAttr("Geschlecht","m"));
    std::string spezialgebiet=Typ->getAttr("Spezialgebiet");
    if(spezialgebiet!="") 
      { 
        cH_Spezialgebiet S(spezialgebiet);
-       getWerte().setSpezialgebiet(S);
+       setSpezialgebiet(S);
      }
    std::string ueberleben=Typ->getAttr("Überleben");
    if(ueberleben!="") 
      { 
        MBEmlt M(&*cH_Fertigkeit(ueberleben));
-       getWerte().setUeberleben(M);
+       setUeberleben(M);
      }
    setMuttersprache(Typ->getAttr("Muttersprache"));
-   getWerte().setSpezialisierung(Typ->getAttr("Spezialisierung"));
-   getWerte().setBezeichnung(Beschreibung->getAttr("Bezeichnung"));
-   getWerte().setMerkmale(Beschreibung->getAttr("Merkmale"));
-   getWerte().setHerkunft(cH_Land(Beschreibung->getAttr("Herkunft"),true));
-   getWerte().setGlaube(Beschreibung->getAttr("Glaube"));
-   getWerte().setNamen(Figur->getAttr("Name"),Figur->getAttr("Spieler"),Figur->getAttr("Zeitpunkt"));
-   getWerte().setGFP(Steigern ? Steigern->getIntAttr("GFP", top->getInt("GFP")) : top->getInt("GFP"));
-   getWerte().setSteigertage(Steigern ? Steigern->getFloatAttr("benötigte_Tage", top->getInt("benötigte_Tage")) : top->getInt("benötigte_Tage"));
-   getWerte().setGG(abgeleiteteEigenschaften->getIntAttr("GG"));    
-   getWerte().setSG(abgeleiteteEigenschaften->getIntAttr("SG"));
+   setSpezialisierung(Typ->getAttr("Spezialisierung"));
+   setBezeichnung(Beschreibung->getAttr("Bezeichnung"));
+   setMerkmale(Beschreibung->getAttr("Merkmale"));
+   setHerkunft(cH_Land(Beschreibung->getAttr("Herkunft"),true));
+   setGlaube(Beschreibung->getAttr("Glaube"));
+   setNamen(Figur->getAttr("Name"),Figur->getAttr("Spieler"),Figur->getAttr("Zeitpunkt"));
+   setGFP(Steigern ? Steigern->getIntAttr("GFP", top->getInt("GFP")) : top->getInt("GFP"));
+   setSteigertage(Steigern ? Steigern->getFloatAttr("benötigte_Tage", top->getInt("benötigte_Tage")) : top->getInt("benötigte_Tage"));
+   setGG(abgeleiteteEigenschaften->getIntAttr("GG"));    
+   setSG(abgeleiteteEigenschaften->getIntAttr("SG"));
    const Tag *Text=top->find("Text");
    if (!Text) Text=top; // to avoid testing below
-   getWerte().setBeschreibung(Text->Value()); 
-   getWerte().setBeschreibungPix(top->getString("TextPix",Text->getAttr("Bild"))); 
-   getWerte().setBeschreibungPixSize(top->getInt("TextPixSize",Text->getIntAttr("Größe")));
+   setBeschreibung(Text->Value()); 
+   setBeschreibungPix(top->getString("TextPix",Text->getAttr("Bild"))); 
+   setBeschreibungPixSize(top->getInt("TextPixSize",Text->getIntAttr("Größe")));
    if (Vermoegen)
-      getWerte().setGeld(Vermoegen->getIntAttr("GS"),Vermoegen->getIntAttr("SS"),Vermoegen->getIntAttr("KS"));
-//   getWerte().clearRuestung();
-   if (Ruestung1) getWerte().setRuestung1(Ruestung1->Value(),true);
-   else getWerte().setRuestung1("OR",true);
-   if (Ruestung2) getWerte().setRuestung2(Ruestung2->Value(),true);
-   else getWerte().setRuestung2("OR",true);
-   getWerte().setSpezies(cH_Spezies(Typ->getAttr("Spezies","Mensch"),true));
-   if (Steigern)       getWerte().setEP(Steigern->getIntAttr("AEP"),Steigern->getIntAttr("KEP"),Steigern->getIntAttr("ZEP"));
+      setGeld(Vermoegen->getIntAttr("GS"),Vermoegen->getIntAttr("SS"),Vermoegen->getIntAttr("KS"));
+//   clearRuestung();
+   if (Ruestung1) setRuestung1(Ruestung1->Value(),true);
+   else setRuestung1("OR",true);
+   if (Ruestung2) setRuestung2(Ruestung2->Value(),true);
+   else setRuestung2("OR",true);
+   setSpezies(cH_Spezies(Typ->getAttr("Spezies","Mensch"),true));
+   if (Steigern)       setEP(Steigern->getIntAttr("AEP"),Steigern->getIntAttr("KEP"),Steigern->getIntAttr("ZEP"));
    else
-      getWerte().setEP(0,0,0);
-   getWerte().setStadtLand(Typ->getAttr("Stadt_Land","Stadt"));
-   if (Steigern) getWerte().set_Grad_Anstieg(Steigern->getIntAttr("EPproGFP",50)
-      	,Steigern->getIntAttr("Basiswerte",getWerte().Grad()));
-   else getWerte().set_Grad_Anstieg(50,getWerte().Grad());
+      setEP(0,0,0);
+   setStadtLand(Typ->getAttr("Stadt_Land","Stadt"));
+   if (Steigern) set_Grad_Anstieg(Steigern->getIntAttr("EPproGFP",50)
+      	,Steigern->getIntAttr("Basiswerte",Grad()));
+   else set_Grad_Anstieg(50,Grad());
 
 //   this->Typ1()=cH_Typen(Typ->getAttr("Abkürzung"),true);
    setTyp1(cH_Typen(Typ->getAttr("Abkürzung"),true));
@@ -548,7 +548,7 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
       const std::string sart=i->Type();
       if(sart=="Sinn")
         {
-         getWerte().setSinn(i->getAttr("Bezeichnung"),i->getIntAttr("Wert"));
+         setSinn(i->getAttr("Bezeichnung"),i->getIntAttr("Wert"));
         }
       else if(sart=="Beruf")
         {
@@ -804,16 +804,16 @@ std::string Abenteurer::Ruestung_B_Verlust(bool ueberlast_beruecksichtigen) cons
  bool ew; // Erfolgswerte um zwei reduzieren
  if(ueberlast_beruecksichtigen)
   {
-    R0 = Ruestung(0)->B_Verlust(getUeberlast(),getWerte(),ew);
-    R1 = Ruestung(1)->B_Verlust(getUeberlast(),getWerte(),ew);
+    R0 = Ruestung(0)->B_Verlust(getUeberlast(),*this,ew);
+    R1 = Ruestung(1)->B_Verlust(getUeberlast(),*this,ew);
   }
  else
   {
-    R0 = Ruestung(0)->B_Verlust(0,getWerte(),ew);
-    R1 = Ruestung(1)->B_Verlust(0,getWerte(),ew);
+    R0 = Ruestung(0)->B_Verlust(0,*this,ew);
+    R1 = Ruestung(1)->B_Verlust(0,*this,ew);
   }
 
- int b=getWerte().B();
+ int b=B();
 
  if     (R0&&!R1) s="\\scriptsize("+itos(b-R0)+")";
  else if(R1&&!R0) s="\\scriptsize("+itos(b-R1)+")";
@@ -823,42 +823,8 @@ std::string Abenteurer::Ruestung_B_Verlust(bool ueberlast_beruecksichtigen) cons
  return "";
 }
 
-#if 1
-void VAbenteurer::push_back()
-{ 
-  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
-   VA.push_back(st_abenteurer()); 
-   ai=--VA.end(); 
+bool Abenteurer::getRegion(const cH_Region &r) const
+{  regionen_t::const_iterator i=regionen.find(r);
+   if (i==regionen.end()) return false;
+   return i->second.Value();
 }
-
-
-void VAbenteurer::setAbenteurer(const std::list<VAbenteurer::st_abenteurer>::iterator &i)
-{
-  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
- ai=i;
-}
-
-bool VAbenteurer::unsaved_exist()
-{ 
-  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
-   for(std::list<st_abenteurer>::iterator i=VA.begin();i!=VA.end();++i)
-       if(!i->gespeichert) return true;
-   return false;
-}
-
-void VAbenteurer::delete_empty()
-{ 
-  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
- reloop:
-   ai=--VA.end(); 
-   for(std::list<st_abenteurer>::iterator i=VA.begin();i!=VA.end();++i)
-    { const Grundwerte &W=i->abenteurer.getWerte(); 
-      if(i->gespeichert && W.Name_Abenteurer().empty())
-        { VA.erase(i); 
-          goto reloop;
-        } 
-    }
-}
-
-#endif
-

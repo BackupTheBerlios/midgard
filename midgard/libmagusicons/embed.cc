@@ -1,4 +1,4 @@
-// $Id: embed.cc,v 1.6 2003/05/08 09:22:15 christof Exp $
+// $Id: embed.cc,v 1.7 2003/09/01 06:47:57 christof Exp $
 
 #define MAKE_PNG
 

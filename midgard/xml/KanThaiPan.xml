@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="K" Name="KanThaiPan" Titel="Unter dem Schirm des Jadekaisers" Copyright="Isolde Popp" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="7" MAGUS-Bild="2" CVS="$Revision: 1.17 $">
+<MAGUS-data Region="K" Name="KanThaiPan" Titel="Unter dem Schirm des Jadekaisers" Copyright="Isolde Popp" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="7" MAGUS-Bild="2" CVS="$Revision: 1.18 $">
  <Fertigkeiten>
   <Fertigkeit Name="+1 KiDo-Technik" Region="K" Lernpunkte="1" Maximalwert="18" MaximalMitUnterweisung="18">
    <Lernschema Typ="Kd" Lernpunkte="1"/>

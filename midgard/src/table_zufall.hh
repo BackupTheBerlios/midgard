@@ -29,11 +29,12 @@ class Zufall;
 
 class table_zufall : public table_zufall_glade
 {
-      friend class table_zufall_glade;
-      friend class midgard_CG;
-      friend class BegruessungsWindow;
+//      friend class midgard_CG;
+//      friend class BegruessungsWindow;
 
+      // besser VAbenteurer
       midgard_CG *hauptfenster;
+      // aus historischen Gründen ... eigentlich sollten die hier weg
       Prozente100 prozente100;
       Grund_Standard_Ausnahme_MBE GSA_MBE;
       
@@ -51,7 +52,6 @@ class table_zufall : public table_zufall_glade
    public:
       table_zufall(GlademmData *_data)
          : table_zufall_glade(_data) , hauptfenster(0) {}
-
 
       void init(midgard_CG *hauptfenster);
 

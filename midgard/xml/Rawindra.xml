@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="R" Name="Rawindra" Titel="Rawindra - Im Bann der Todesechsen" Copyright="Ludger Fischer und Thomas Kreutz" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="8" MAGUS-Bild="1" CVS="$Revision: 1.16 $">
+<MAGUS-data Region="R" Name="Rawindra" Titel="Rawindra - Im Bann der Todesechsen" Copyright="Ludger Fischer und Thomas Kreutz" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="8" MAGUS-Bild="1" CVS="$Revision: 1.17 $">
  <Fertigkeiten>
   <Fertigkeit Name="Elefanten lenken" Region="R" Lernpunkte="6" Anfangswert="15" Lernkosten="1000" Erfolgswert="10" Attribut="Gw" Maximalwert="18" MaximalMitUnterweisung="18">
    <Standard Typ="Sa"/>

@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.45 2003/01/27 13:12:34 christof Exp $
+# $Id: Makefile.am,v 1.46 2003/09/01 06:47:58 christof Exp $
 
 EXTRA_PROGRAMS = all_exp arkanum_exp 
 

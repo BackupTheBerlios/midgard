@@ -22,6 +22,7 @@
 #include "class_SimpleTree.hh"
 #include "Waffe.hh"
 #include "LernListen.hh"
+#include <libmagus/Ausgabe.hh>
 
 void table_steigern::waffen_zeigen()
 {
@@ -33,24 +34,22 @@ void table_steigern::waffen_zeigen()
 
 void table_steigern::neue_waffen_zeigen()
 {
-   Abenteurer &A=hauptfenster->getAben();
-   bool nsc=hauptfenster->MOptionen->OptionenCheck(Magus_Optionen::NSC_only).active;
-   list_Waffen_neu=LL->get_steigern_MBEm(A,Enums::sWaff,nsc);
-   MidgardBasicElement::show_list_in_tree(list_Waffen_neu,neue_waffen_tree,hauptfenster);
+   Abenteurer &A=hauptfenster->getChar().getAbenteurer();
+   list_Waffen_neu=LL->get_steigern_MBEm(A,Enums::sWaff);
+   MidgardBasicTree::show_list_in_tree(list_Waffen_neu,neue_waffen_tree,&hauptfenster->getChar().getAbenteurer());
 }
 
 void table_steigern::waffengrund_zeigen()
 {
-  Abenteurer &A=hauptfenster->getAben();
-  bool nsc=hauptfenster->MOptionen->OptionenCheck(Magus_Optionen::NSC_only).active;
-  list_WaffenGrund_neu=LL->get_steigern_MBEm(A,Enums::sWGru,nsc);
-  MidgardBasicElement::show_list_in_tree(list_WaffenGrund_neu,neue_grund_tree,hauptfenster);
-  MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_WaffenGrund()    ,alte_grund_tree,hauptfenster);
+  Abenteurer &A=hauptfenster->getChar().getAbenteurer();
+  list_WaffenGrund_neu=LL->get_steigern_MBEm(A,Enums::sWGru);
+  MidgardBasicTree::show_list_in_tree(list_WaffenGrund_neu,neue_grund_tree,&hauptfenster->getChar().getAbenteurer());
+  MidgardBasicTree::show_list_in_tree(hauptfenster->getChar()->List_WaffenGrund()    ,alte_grund_tree,&hauptfenster->getChar().getAbenteurer());
 }
 
 void table_steigern::alte_waffen_zeigen()
 {
-   MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Waffen()    ,alte_waffen_tree,hauptfenster);
+   MidgardBasicTree::show_list_in_tree(hauptfenster->getChar()->List_Waffen()    ,alte_waffen_tree,&hauptfenster->getChar().getAbenteurer());
 }
 
 
@@ -73,10 +72,9 @@ void table_steigern::on_leaf_selected_alte_grund(cH_RowDataBase d)
 {  
   if(radiobutton_verlernen->get_active())
    {
-     std::string strinfo="WARNUNG: Beim verlernen von Grundkenntnissen werden die\n";
-     strinfo +="bereits gelernten Waffen, die zu dieser\n";
-     strinfo +="Grundkenntnis gehöhren, NICHT verlernt\n";
-     hauptfenster->set_info(strinfo);
+     Ausgabe(Ausgabe::Warning,"WARNUNG: Beim verlernen von Grundkenntnissen werden die\n"
+     	"bereits gelernten Waffen, die zu dieser\n"
+     	"Grundkenntnis gehöhren, NICHT verlernt");
      MidgardBasicElement_leaf_alt(d);
      neue_waffen_zeigen();
      waffengrund_zeigen();
@@ -102,6 +100,6 @@ void table_steigern::on_alte_waffen_reorder()
   switch((Data_SimpleTree::Spalten_LONG_ALT)seq[0]) {
       case Data_SimpleTree::WERTa : hauptfenster->getChar()->List_Waffen().sort(MBEmlt::sort(MBEmlt::sort::ERFOLGSWERT)); ;break;
       case Data_SimpleTree::NAMEa : hauptfenster->getChar()->List_Waffen().sort(MBEmlt::sort(MBEmlt::sort::NAME)); ;break;
-      default : hauptfenster->set_status("Sortieren nach diesem Parameter\n ist nicht möglich");
+      default : Ausgabe(Ausgabe::Error,"Sortieren nach diesem Parameter ist nicht möglich");
    }
 }

@@ -1,4 +1,4 @@
-// $Id: zauber_exp.cc,v 1.20 2002/10/24 07:24:02 christof Exp $
+// $Id: zauber_exp.cc,v 1.21 2003/09/01 06:47:59 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *

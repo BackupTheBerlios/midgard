@@ -26,7 +26,7 @@
 #include "LernListen.hh"
 #include <typeinfo> // for bad_cast
 static SigC::Connection connection;
-
+#include <libmagus/Ausgabe.hh>
 
 #include <gdk/gdk.h>
 
@@ -57,7 +57,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
    {
      case MidgardBasicElement::ZHerkunft:
       {
-       std::vector<std::pair<cH_Land,bool> > L=LernListen(hauptfenster->getDatabase()).getHerkunft(hauptfenster->getAben());
+       std::vector<std::pair<cH_Land,bool> > L=LernListen().getHerkunft(hauptfenster->getChar().getAbenteurer());
        for(std::vector<std::pair<cH_Land,bool> >::const_iterator i=L.begin();i!=L.end();++i)
           datavec_zusatz.push_back(new Data_Herkunft(i->first,i->second,MBE));
        connection = Tree_Lernschema_Zusatz->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_herkunft_leaf_selected));
@@ -66,9 +66,9 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
       }
      case MidgardBasicElement::ZUeberleben:
       {
-       std::vector<MidgardBasicElement::st_zusatz> V=LernListen(hauptfenster->getDatabase()).getUeberlebenZusatz();
+       std::vector<MidgardBasicElement::st_zusatz> V=LernListen().getUeberlebenZusatz();
        for(std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=V.begin();i!=V.end();++i)
-          datavec_zusatz.push_back(new Data_Zusatz(hauptfenster->getWerte().Ueberleben(),*i));
+          datavec_zusatz.push_back(new Data_Zusatz(hauptfenster->getChar().getAbenteurer().Ueberleben(),*i));
        connection = Tree_Lernschema_Zusatz->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_herkunft_ueberleben_leaf_selected));
        scrolledwindow_lernen->hide();
        break;
@@ -81,7 +81,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
            cH_MidgardBasicElement MBE_=&*cH_Fertigkeit("Landeskunde");
            MBEmlt M(&*MBE_);
            M->setLernArt(MBE->LernArt()+"_Heimat");
-           M->setZusatz(hauptfenster->getWerte().Herkunft()->Name());
+           M->setZusatz(hauptfenster->getChar().getAbenteurer().Herkunft()->Name());
            M->setErfolgswert(MBE->Erfolgswert());
            M->setLernpunkte(MBE->Lernpunkte());
            hauptfenster->getChar()->List_Fertigkeit().push_back(M);
@@ -89,7 +89,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
          }
        else
          {
-           std::vector<MidgardBasicElement::st_zusatz> V=LernListen(hauptfenster->getCDatabase()).getLandZusatz();
+           std::vector<MidgardBasicElement::st_zusatz> V=LernListen().getLandZusatz();
            for(std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=V.begin();i!=V.end();++i)
               datavec_zusatz.push_back(new Data_Zusatz(MBE,*i));
          }
@@ -104,8 +104,8 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
            MBE->setLernArt((*MBE)->Name());
            list_FertigkeitZusaetze.push_back(MBE->LernArt());
         }
-       std::vector<MidgardBasicElement::st_zusatz>  V=LernListen(hauptfenster->
-            getDatabase()).getSprachenZusatz(MBE,hauptfenster->getAben(),button_allgemeinwissen->get_active());
+       std::vector<MidgardBasicElement::st_zusatz>  V=LernListen(
+            ).getSprachenZusatz(MBE,hauptfenster->getChar().getAbenteurer(),button_allgemeinwissen->get_active());
        for(std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=V.begin();i!=V.end();++i)
           datavec_zusatz.push_back(new Data_Zusatz(MBE,*i));
        connection = Tree_Lernschema_Zusatz->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_sprache_selected));
@@ -113,22 +113,22 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
       }
      case MidgardBasicElement::ZSchrift:
       {
-       std::vector<MidgardBasicElement::st_zusatz> V=LernListen(hauptfenster->getDatabase()).getSchriftenZusatz(MBE,hauptfenster->getAben());
+       std::vector<MidgardBasicElement::st_zusatz> V=LernListen().getSchriftenZusatz(MBE,hauptfenster->getChar().getAbenteurer());
        for(std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=V.begin();i!=V.end();++i)
           datavec_zusatz.push_back(new Data_Zusatz(MBE,*i));
        if(datavec_zusatz.empty()) 
-         { hauptfenster->set_status("Keine Schrift lernbar (entweder keine Sprache gelernt oder es werden alle lernbaren Schriften schon beherrscht.)");
+         { Ausgabe(Ausgabe::Error,"Keine Schrift lernbar (entweder keine Sprache gelernt oder es werden alle lernbaren Schriften schon beherrscht.)");
            list_FertigkeitZusaetze.remove((*MBE)->Name());
-           if(MBE->LernArt()=="Fach")      lernpunkte.addFach( MBE->Lernpunkte());
-           else if(MBE->LernArt()=="Allg") lernpunkte.addAllgemein( MBE->Lernpunkte());
-           else if(MBE->LernArt()=="Unge") lernpunkte.addUnge( MBE->Lernpunkte());
+           if(MBE->LernArt()=="Fach")      vabenteurer->getLernpunkte().getLernpunkte().addFach( MBE->Lernpunkte());
+           else if(MBE->LernArt()=="Allg") vabenteurer->getLernpunkte().getLernpunkte().addAllgemein( MBE->Lernpunkte());
+           else if(MBE->LernArt()=="Unge") vabenteurer->getLernpunkte().getLernpunkte().addUnge( MBE->Lernpunkte());
            else if(MBE->LernArt()=="Allg_Schreiben_Muttersprache")
-             { lernpunkte.addAllgemein( MBE->Lernpunkte());
+             { vabenteurer->getLernpunkte().getLernpunkte().addAllgemein( MBE->Lernpunkte());
                list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+4)");
                list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+9)");
                list_FertigkeitZusaetze.remove("Schreiben: Muttersprache(+12)");
              }
-           else hauptfenster->set_info("Fehler beim Lernpunkte zurückstellen");
+           else Ausgabe(Ausgabe::Error,"Fehler beim Lernpunkte zurückstellen");
            return;}
        connection = Tree_Lernschema_Zusatz->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_schrift_selected));
        break;
@@ -139,20 +139,20 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MBEmlt& MB
        for(std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=V.begin();i!=V.end();++i)
            datavec_zusatz.push_back(new Data_Zusatz(MBE,*i));
        if(datavec_zusatz.empty()) 
-         { hauptfenster->set_status("Noch keine Fernkampfwaffe gewählt.");
+         { Ausgabe(Ausgabe::Error,"Noch keine Fernkampfwaffe gewählt.");
            hauptfenster->getChar()->List_Fertigkeit().remove(MBE);
            list_FertigkeitZusaetze.remove((*MBE)->Name());
-           if(MBE->LernArt()=="Fach")      lernpunkte.addFach( MBE->Lernpunkte());
-           else if(MBE->LernArt()=="Allg") lernpunkte.addAllgemein( MBE->Lernpunkte());
-           else if(MBE->LernArt()=="Unge") lernpunkte.addUnge( MBE->Lernpunkte());
-           else hauptfenster->set_info("Fehler beim Lernpunkte zurückstellen");
+           if(MBE->LernArt()=="Fach")      vabenteurer->getLernpunkte().getLernpunkte().addFach( MBE->Lernpunkte());
+           else if(MBE->LernArt()=="Allg") vabenteurer->getLernpunkte().getLernpunkte().addAllgemein( MBE->Lernpunkte());
+           else if(MBE->LernArt()=="Unge") vabenteurer->getLernpunkte().getLernpunkte().addUnge( MBE->Lernpunkte());
+           else Ausgabe(Ausgabe::Error,"Fehler beim Lernpunkte zurückstellen");
            return;}
        connection = Tree_Lernschema_Zusatz->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_selected));
        break;
       }
      case MidgardBasicElement::ZTabelle:
       {
-       std::vector<MidgardBasicElement::st_zusatz> VG=LernListen(hauptfenster->getCDatabase()).getMBEZusatz(MBE);
+       std::vector<MidgardBasicElement::st_zusatz> VG=LernListen().getMBEZusatz(hauptfenster->getChar().getAbenteurer(),MBE);
        for (std::vector<MidgardBasicElement::st_zusatz>::const_iterator i=VG.begin();i!=VG.end();++i)
           datavec_zusatz.push_back(new Data_Zusatz(MBE,*i));
        connection = Tree_Lernschema_Zusatz->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_selected));
@@ -250,7 +250,7 @@ void table_lernschema::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,cons
       {
        if((*MBE)->Name()=="Muttersprache")
         {
-          std::vector<std::string> V=hauptfenster->getWerte().Herkunft()->Sprachen();
+          std::vector<std::string> V=hauptfenster->getChar().getAbenteurer().Herkunft()->Sprachen();
           std::vector<std::string> W;
           for(std::vector<std::string>::const_iterator i=V.begin();i!=V.end();++i)
             if(!cH_Sprache(*i)->Alte_Sprache()) W.push_back(*i) ;
@@ -277,14 +277,14 @@ void table_lernschema::on_herkunft_leaf_selected(cH_RowDataBase d)
 {
   const Data_Herkunft *dt=dynamic_cast<const Data_Herkunft*>(&*d);
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::HERKUNFT);
-  hauptfenster->getWerte().setHerkunft(dt->getLand());
+  hauptfenster->getChar().getAbenteurer().setHerkunft(dt->getLand());
   set_zusatz_sensitive(false);
   zeige_werte();  
-  if(!hauptfenster->getOptionen()->OptionenCheck(Magus_Optionen::NSC_only).active)
+  if(!hauptfenster->getChar().getAbenteurer().getOptionen().OptionenCheck(Optionen::NSC_only).active)
      button_herkunft->set_sensitive(false);
   MBEmlt M(&*cH_Fertigkeit("Muttersprache"));
-  Sprache::setErfolgswertMuttersprache(M,hauptfenster->getWerte().In(),
-           cH_Fertigkeit(M->getMBE())->AttributBonus(hauptfenster->getWerte()));
+  Sprache::setErfolgswertMuttersprache(M,hauptfenster->getChar().getAbenteurer().In(),
+           cH_Fertigkeit(M->getMBE())->AttributBonus(hauptfenster->getChar().getAbenteurer()));
   lernen_zusatz(MidgardBasicElement::ZSprache,M);
 }
 
@@ -294,7 +294,7 @@ void table_lernschema::on_herkunft_ueberleben_leaf_selected(cH_RowDataBase d)
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
 
   MBEmlt M(&*cH_Fertigkeit(dt->getZusatz().name));
-  hauptfenster->getWerte().setUeberleben(M);
+  hauptfenster->getChar().getAbenteurer().setUeberleben(M);
 
   button_angeborene_fert->set_sensitive(true);
   set_zusatz_sensitive(false);
@@ -312,9 +312,9 @@ void table_lernschema::on_zusatz_leaf_selected(cH_RowDataBase d)
   MBE->setZusatz(dt->getZusatz());
   if((*MBE).What()==MidgardBasicElement::FERTIGKEIT)
    {
-     if(hauptfenster->getWerte().Herkunft()->Name()==MBE->Zusatz())
+     if(hauptfenster->getChar().getAbenteurer().Herkunft()->Name()==MBE->Zusatz())
       {
-        MBE->setErfolgswert(10+cH_Fertigkeit(MBE->getMBE())->AttributBonus(hauptfenster->getWerte())); 
+        MBE->setErfolgswert(10+cH_Fertigkeit(MBE->getMBE())->AttributBonus(hauptfenster->getChar().getAbenteurer())); 
       }
      hauptfenster->getChar()->List_Fertigkeit().push_back(MBE);
    }
@@ -358,7 +358,7 @@ void table_lernschema::on_zusatz_leaf_sprache_selected(cH_RowDataBase d)
   show_gelerntes();
   if((*dt->getMBE())->Name()=="Muttersprache")
    {
-     MBEmlt dummy=hauptfenster->getWerte().Ueberleben();
+     MBEmlt dummy=hauptfenster->getChar().getAbenteurer().Ueberleben();
      lernen_zusatz(MidgardBasicElement::ZUeberleben,dummy);
      hauptfenster->getChar()->setMuttersprache((*sprache)->Name());
    }
@@ -366,7 +366,7 @@ void table_lernschema::on_zusatz_leaf_sprache_selected(cH_RowDataBase d)
 
 bool table_lernschema::on_eventbox_zusatz_leave_notify_event(GdkEventCrossing *ev)
 {
-  std::cout << "leave out\n";
+  Ausgabe(Ausgabe::Debug,"leave out");
   return false;
 }
 

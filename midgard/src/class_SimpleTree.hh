@@ -23,16 +23,21 @@
 #include <Waffe.hh>
 #include <Typen.hh>
 #include <RowDataBase.h>
-class midgard_CG;
+class Abenteurer;
+//class midgard_CG;
 
 class Data_SimpleTree : public RowDataBase
 {
  private:
    MBEmlt MBE;
-   const midgard_CG *hauptfenster; 
+   const Abenteurer *abenteurer;
+//   const midgard_CG *hauptfenster; 
+   
  public:
-   Data_SimpleTree(const MBEmlt& _MBE, const midgard_CG *h) 
-   : MBE(_MBE),hauptfenster(h) {}
+//   Data_SimpleTree(const MBEmlt& _MBE, const midgard_CG *h) 
+//   : MBE(_MBE),hauptfenster(h) {}
+   Data_SimpleTree(const MBEmlt& _MBE, const Abenteurer *a) 
+   : MBE(_MBE),abenteurer(a) {}
 
    enum Spalten_ANGEBFERT  {WURFaf,NAMEaf,WERTaf};
    enum Spalten_GELERNTES  {ARTgg,NAMEgg,WERTgg,LERNPUNKTEgg,LERNARTgg};

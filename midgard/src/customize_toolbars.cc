@@ -1,4 +1,4 @@
-// $Id: customize_toolbars.cc,v 1.28 2003/04/30 07:50:26 christof Exp $
+// $Id: customize_toolbars.cc,v 1.29 2003/09/01 06:47:58 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -30,6 +30,7 @@
 // bin + container sind schon dabei
 #include <iostream>
 #include <ChoiceButton.h>
+#include <libmagus/Ausgabe.hh>
 
 static bool hasOnlyPixmaps(Gtk::Box *w)
 {  Gtk::Box_Helpers::BoxList &ch2=dynamic_cast<Gtk::Box*>(w)->children();
@@ -132,12 +133,12 @@ void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text, boo
 // bail out once a widget is hidden
 
 bool Gtk::rec_hide(Gtk::Widget *w)
-{  if (!w) { std::cout << "NULL pointer\n"; return false; }
+{  if (!w) { Ausgabe(Ausgabe::Debug,"NULL pointer"); return false; }
    if (!w->is_visible()) return false;
    // std::cout << '+' << typeid(*w).name() << '-' << w->get_name() << '\n';
    if (dynamic_cast<Gtk::Bin*>(w))
    {  Gtk::Widget *child=dynamic_cast<Gtk::Bin*>(w)->get_child();
-      std::cout << " child of " << w->get_name() << '\n';
+      Ausgabe(Ausgabe::Debug," child of "+w->get_name());
       if (!dynamic_cast<Gtk::Widget*>(child)) { w->hide(); return false; }
       if (child->is_visible() && rec_hide(child)) 
             return true;
@@ -163,9 +164,9 @@ bool Gtk::rec_hide(Gtk::Widget *w)
    else if (dynamic_cast<Gtk::Container*>(w))
    {  // und nun ?
       // z.B. Paned
-      std::cout << typeid(*w).name() << '\n';
+      Ausgabe(Ausgabe::Debug,typeid(*w).name());
    }
-   std::cout << "hiding " << w->get_name() << '\n';
+   Ausgabe(Ausgabe::Debug,"hiding "+w->get_name());
    w->hide();
    return true;
 }

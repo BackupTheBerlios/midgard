@@ -22,6 +22,7 @@
 #include <Misc/Tag.h>
 //#include "xml.h"
 #include "Ausgabe.hh"
+#include "Datenbank.hh" // wegen cH_Region::getRegionfromAbk
 
 cH_Region::cache_t cH_Region::cache;
 
@@ -38,6 +39,8 @@ cH_Region::cH_Region(const std::string& name,bool create)
  else
   {
   Ausgabe(Ausgabe::Warning, "Region '" + name + "' nicht im Cache");
+//for (cache_t::const_iterator a=cache.begin();a!=cache.end();++a)
+//Ausgabe(Ausgabe::Debug,"found "+a->first);
   throw NotFound(name);
   }
 }
@@ -59,7 +62,8 @@ Region::Region(const Tag &tag, const std::string &_file)
 }
 
 cH_Region Regionen_All::getRegionfromAbk(const std::vector<cH_Region>& V,const std::string& r)
-{
+{if (r.empty()) return cH_Region("",true); // DFR und Arkanum gelten NICHT als Regionen
+
  for(std::vector<cH_Region>::const_iterator i=V.begin();i!=V.end();++i)
   {
    if(r==(*i)->Abkuerzung()) 
@@ -69,8 +73,10 @@ cH_Region Regionen_All::getRegionfromAbk(const std::vector<cH_Region>& V,const s
     }
   }
  return cH_Region("???",true);
-// assert(!"Region nicht gefunden\n");
-// abort(); // never get here
+}
+
+cH_Region cH_Region::getRegionfromAbk(const std::string& r)
+{  return Regionen_All::getRegionfromAbk(Datenbank.Regionen,r);
 }
 
 cH_Region cH_Region::load(const Tag &t, const std::string &file)

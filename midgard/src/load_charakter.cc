@@ -50,11 +50,11 @@ void midgard_CG::xml_import(const std::string& datei)
    frame_steigern->set_sensitive(true);
    if(!(Char->xml_import_stream(fi,getDatabase(),getOptionen(),this)))
      {
-       set_info("Laden fehlgeschlagen");
+       Ausgabe(Ausgabe::Error,"Laden fehlgeschlagen");
        return;
      }
    Char.setFilename(datei);
-   set_title(getWerte().Name_Abenteurer());
+   set_title(Name_Abenteurer());
    Char.saved();
    Char.delete_empty();
    push_back_LDateien(datei);

@@ -68,7 +68,7 @@ void midgard_CG::menu_init()
   {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(table_steigern->steigern_mit_EP_bool,"Mit EP/PP steigern"));
   schummel_menu->append(*_M);}
 
-  {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(MOptionen->OptionenCheck(Magus_Optionen::NSC_only).active,"NSC-Modus"));
+  {bool_CheckMenuItem *_M=Gtk::manage(new bool_CheckMenuItem(MOptionen->OptionenCheck(Optionen::NSC_only).active,"NSC-Modus"));
   schummel_menu->append(*_M);}
 
   menu_kontext->append(*schummel);

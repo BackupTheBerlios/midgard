@@ -1,4 +1,4 @@
-// $Id: table_steigern_grad_anstieg.cc,v 1.20 2003/04/29 07:06:56 christof Exp $
+// $Id: table_steigern_grad_anstieg.cc,v 1.21 2003/09/01 06:47:58 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,32 +20,33 @@
 #include "midgard_CG.hh"
 #include "table_steigern.hh"
 #include <Misc/itos.h>
+#include <libmagus/Random.hh>
 
 void table_steigern::on_grad_anstieg_clicked()
 {
  flashing_gradanstieg->setTime(0);
  flashing_eigenschaft->setTime(0);
  radiobutton_steigern->set_active(true);
- int act_grad=hauptfenster->getWerte().Grad();
- int max_grad=hauptfenster->getCDatabase().GradAnstieg.get_Grad(hauptfenster->getWerte().GFP());
+ int act_grad=hauptfenster->getChar().getAbenteurer().Grad();
+ int max_grad=Datenbank.GradAnstieg.get_Grad(hauptfenster->getChar().getAbenteurer().GFP());
 
-//cout << act_grad<<' '<<max_grad<<'\t'<<hauptfenster->getWerte().GFP()<<'\n';
+//cout << act_grad<<' '<<max_grad<<'\t'<<hauptfenster->getChar().getAbenteurer().GFP()<<'\n';
 
-// hauptfenster->getWerte().setGrad(hauptfenster->getCDatabase().GradAnstieg.get_Grad(hauptfenster->getWerte().GFP()));
+// hauptfenster->getChar().getAbenteurer().setGrad(Datenbank.GradAnstieg.get_Grad(hauptfenster->getChar().getAbenteurer().GFP()));
 
  while(act_grad<max_grad)
   {
-    hauptfenster->getWerte().setGrad(++act_grad);
+    hauptfenster->getChar().getAbenteurer().setGrad(++act_grad);
 
     std::string info;
-    hauptfenster->getChar()->get_ausdauer(act_grad,hauptfenster->getCDatabase(),info,
+    hauptfenster->getChar()->get_ausdauer(act_grad,
                            get_wie_steigern(),get_bool_steigern());
-    hauptfenster->set_status(info);
+//    hauptfenster->set_status(info);
 
     get_ab_re_za(Enums::eAbwehr);
     get_ab_re_za(Enums::eResistenz);
     get_ab_re_za(Enums::eZaubern);
-    int wurf=hauptfenster->random.integer(1,100);
+    int wurf=Random::W100();
     get_grundwerte(wurf);
   }
 }
@@ -53,14 +54,14 @@ void table_steigern::on_grad_anstieg_clicked()
 void table_steigern::on_button_grad_clicked()
 {   
   flashing_gradanstieg->setTime(0);
-  hauptfenster->getWerte().setGrad(hauptfenster->getCDatabase().GradAnstieg.get_Grad(hauptfenster->getWerte().GFP()));
+  hauptfenster->getChar().getAbenteurer().setGrad(Datenbank.GradAnstieg.get_Grad(hauptfenster->getChar().getAbenteurer().GFP()));
   zeige_werte();
 }
 void table_steigern::on_button_grad_ausdauer_clicked()
 {   
  std::string info;
- hauptfenster->getChar()->get_ausdauer(hauptfenster->getWerte().Grad(),hauptfenster->getCDatabase(),info,get_wie_steigern(),get_bool_steigern());
- hauptfenster->set_status(info,false);
+ hauptfenster->getChar()->get_ausdauer(hauptfenster->getChar().getAbenteurer().Grad(),get_wie_steigern(),get_bool_steigern());
+// hauptfenster->set_status(info,false);
  zeige_werte();
 }
 void table_steigern::on_button_grad_abwehr_clicked()
@@ -78,14 +79,14 @@ void table_steigern::on_button_grad_resistenz_clicked()
 void table_steigern::on_button_grad_basiswerte_clicked()
 {   
   flashing_eigenschaft->setTime(0);
-  int wurf=hauptfenster->random.integer(1,100);
+  int wurf=Random::integer(1,100);
   get_grundwerte(wurf);
   zeige_werte();
 }
 
 void table_steigern::on_button_grad_basiswerte()
 {
-  if (hauptfenster->MOptionen->WerteEingebenModel().Value()) 
+  if (Programmoptionen.WerteEingebenModel().Value()) 
    {
      spinbutton_eigenschaften_grad_anstieg->show();
      spinbutton_eigenschaften_grad_anstieg->grab_focus();
@@ -106,9 +107,7 @@ void table_steigern::on_spinbutton_eigenschaften_grad_anstieg_activate()
 
 void table_steigern::get_grundwerte(int wurf)
 {
-  std::string info;
-  hauptfenster->getChar()->eigenschaften_steigern(info,hauptfenster->getCDatabase(),wurf);
-  hauptfenster->set_status(info);
+  hauptfenster->getChar()->eigenschaften_steigern(wurf);
   zeige_werte();
 }
 
@@ -117,7 +116,6 @@ void table_steigern::get_ab_re_za(Enums::e_was_steigern was)
   std::string info;
   const bool bsteigern=radiobutton_steigern->get_active();
   hauptfenster->getChar()->get_ab_re_za(was,get_wie_steigern(),bsteigern,
-                        hauptfenster->getCDatabase(),info,get_bool_steigern());
-  hauptfenster->set_status(info);
+                        get_bool_steigern());
   zeige_werte();
 }

@@ -63,26 +63,26 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
  Abenteurer::e_wie_steigern wie=get_wie_steigern();
  Abenteurer::st_bool_steigern bool_steigern=get_bool_steigern();
  
- if (radiobutton_steigern->get_active() && MBE->Steigern(hauptfenster->getAben()))
+ if (radiobutton_steigern->get_active() && MBE->Steigern(hauptfenster->getChar().getAbenteurer()))
     {
-      bool ok=hauptfenster->getAben().steigere(MBE,info,wie,bool_steigern);
-      hauptfenster->set_status(info);
+      bool ok=hauptfenster->getChar().getAbenteurer().steigere(MBE,info,wie,bool_steigern);
+      Ausgabe(Ausgabe::Error,info);
       if(!ok) return false;
     }
- else if (radiobutton_reduzieren->get_active() && MBE->Reduzieren(hauptfenster->getAben()))
+ else if (radiobutton_reduzieren->get_active() && MBE->Reduzieren(hauptfenster->getChar().getAbenteurer()))
     {
-      hauptfenster->getAben().reduziere(MBE,wie,bool_steigern);
+      hauptfenster->getChar().getAbenteurer().reduziere(MBE,wie,bool_steigern);
     }
- else if (radiobutton_verlernen->get_active() && MBE->Verlernen(hauptfenster->getAben()))
+ else if (radiobutton_verlernen->get_active() && MBE->Verlernen(hauptfenster->getChar().getAbenteurer()))
     {
-      hauptfenster->getAben().verlerne(MBE,wie,bool_steigern);
+      hauptfenster->getChar().getAbenteurer().verlerne(MBE,wie,bool_steigern);
       Abenteurer::move_element(*MyList,*MyList_neu,MBE);
     }
  else if (radiobutton_verlernen->get_active() && (*MBE).What()==MidgardBasicElement::WAFFE)
     {
       Abenteurer::move_element(*MyList,*MyList_neu,MBE);
     }
- hauptfenster->undosave((*MBE)->What_str()+" "+(*MBE)->Name()+" auf "+itos(MBE->Erfolgswert())+" gesteigert");
+ hauptfenster->getChar().undosave((*MBE)->What_str()+" "+(*MBE)->Name()+" auf "+itos(MBE->Erfolgswert())+" gesteigert");
  return true;
 }
 
@@ -124,11 +124,11 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
 void table_steigern::neu_lernen(MBEmlt &MBE,const int bonus)
 {
  std::string info;
- bool ok=hauptfenster->getChar()->neu_lernen(MBE,info,get_wie_steigern(),get_bool_steigern(),bonus);
- hauptfenster->set_status(info,false);
+ bool ok=hauptfenster->getChar()->neu_lernen(MBE,get_wie_steigern(),get_bool_steigern(),bonus);
+ Ausgabe(Ausgabe::Error,info,false);
  if(!ok) return ;
 //ab hier neuer code:
- Abenteurer &A=hauptfenster->getAben();
+ Abenteurer &A=hauptfenster->getChar().getAbenteurer();
  if     ((*MBE).What()==MidgardBasicElement::FERTIGKEIT) 
    { if((*MBE)->ZusatzEnum(hauptfenster->getChar()->getVTyp()))
       {
@@ -154,8 +154,8 @@ void table_steigern::neu_lernen(MBEmlt &MBE,const int bonus)
   }
  else if((*MBE).What()==MidgardBasicElement::ZAUBERWERK) A.move_neues_element(MBE,&list_Zauberwerk_neu);
  else if((*MBE).What()==MidgardBasicElement::KIDO) A.move_neues_element(MBE,&list_Kido_neu);
- else if((*MBE).What()==MidgardBasicElement::SPRACHE) A.move_neues_element(MBE,&list_Sprache_neu,&(hauptfenster->getCDatabase().Sprache));
+ else if((*MBE).What()==MidgardBasicElement::SPRACHE) A.move_neues_element(MBE,&list_Sprache_neu,&(Datenbank.Sprache));
  else if((*MBE).What()==MidgardBasicElement::SCHRIFT) A.move_neues_element(MBE,&list_Schrift_neu);
- hauptfenster->undosave((*MBE)->What_str()+" "+(*MBE)->Name()+" gelernt");
+ hauptfenster->getChar().undosave((*MBE)->What_str()+" "+(*MBE)->Name()+" gelernt");
 } 
 

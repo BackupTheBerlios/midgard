@@ -16,35 +16,27 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// generated 2002/9/6 20:10:27 CEST by thoma@Tiger.(none)
-// using glademm V1.1.1c_cvs
-//
-// newer (non customized) versions of this file go to table_zufall.cc_new
-
-// This file is for your program, I won't touch it again!
-
 #include "config.h"
 #include "table_zufall.hh"
 #include "midgard_CG.hh"
 #include "Zufall.hh"
 #include "KI.hh"
 #include "Optionen.hh"
-
+#include <libmagus/Datenbank.hh>
+#include <libmagus/Ausgabe.hh>
 
 void table_zufall::on_button_zufall_voll_clicked()
 {
-   hauptfenster->on_wizard_beenden_activate();
-   Magus_Optionen *MO=hauptfenster->MOptionen;
-   bool old_value=MO->OberCheck(Magus_Optionen::NoInfoFenster).active;
-   std::string noinfofenster=MO->OberCheck(Magus_Optionen::NoInfoFenster).text;
-   MO->setOber(noinfofenster,true);
-   Abenteurer oldAben=hauptfenster->getAben();
+   hauptfenster->WizardBeenden();
+//   Magus_Optionen *MO=hauptfenster->MOptionen;
+   bool old_value=Programmoptionen.OberCheck(Magus_Optionen::NoInfoFenster).active;
+   std::string noinfofenster=Programmoptionen.OberCheck(Magus_Optionen::NoInfoFenster).text;
+   Programmoptionen.setOber(noinfofenster,true);
+   Abenteurer oldAben; // =hauptfenster->getChar().getAbenteurer();
    hauptfenster->getChar().push_back();
-   hauptfenster->on_neuer_charakter_clicked();
-   hauptfenster->table_lernschema->init(hauptfenster);
-   hauptfenster->table_steigern->init(hauptfenster);
+   hauptfenster->AndererAbenteurer();
    
-   Zufall zufall(hauptfenster);
+   Zufall zufall(hauptfenster->getChar().getAbenteurer());
 
    try{
    if(!togglebutton_vorgaben->get_active()) zufall.Voll();
@@ -53,92 +45,89 @@ void table_zufall::on_button_zufall_voll_clicked()
       Zufall::e_Vorgabe v=getVorgaben(oldAben);
       zufall.Teil(v,oldAben);
     }
-   }catch (std::exception &e) { std::cerr << e.what()<<'\n';}
-   MO->setOber(noinfofenster,old_value);
-   hauptfenster->frame_lernschema->set_sensitive(true);
-   hauptfenster->frame_steigern->set_sensitive(true);
+   }catch (std::exception &e) { Ausgabe(Ausgabe::Error,e.what());}
+   Programmoptionen.setOber(noinfofenster,old_value);
+   hauptfenster->LernschemaSteigern(true,true);
 }
-
-
 
 Zufall::e_Vorgabe table_zufall::getVorgaben(Abenteurer& oldAben) const
 {
-   LernListen LL(hauptfenster->getDatabase());
-      Zufall::e_Vorgabe v=Zufall::e_Vorgabe(0);
+   LernListen LL;
+      Zufall::e_Vorgabe v;
       if(checkbutton_spezies->get_active()) 
-         { v=Zufall::e_Vorgabe(v|Zufall::eSpezies);
+         { v+=Zufall::B_Spezies;
            std::string spezies=combo_spezies->get_entry()->get_text();
            if(Spezies::get_Spezies_from_long(LL.getSpezies(true),spezies))
-              oldAben.getWerte().setSpezies(Spezies::getSpezies(spezies,LL.getSpezies(true)));
+              oldAben.setSpezies(Spezies::getSpezies(spezies,LL.getSpezies(true)));
          }
       if(checkbutton_typ->get_active())  
-         {  v=Zufall::e_Vorgabe(v|Zufall::eTyp);
+         {  v+=Zufall::B_Typ;
            std::string typ=combo_typ->get_entry()->get_text();
-           if(Typen::get_Typ_from_long(hauptfenster->getCDatabase().Typen,typ))
+           if(Typen::get_Typ_from_long(Datenbank.Typen,typ))
               oldAben.setTyp1(cH_Typen(typ));
          }
       if(checkbutton_herkunft->get_active())
-         { v=Zufall::e_Vorgabe(v|Zufall::eHerkunft);
+         { v+=Zufall::B_Herkunft;
            cH_Land L(combo_herkunft->get_entry()->get_text(),true);
-           oldAben.getWerte().setHerkunft(L);
+           oldAben.setHerkunft(L);
          }
-      if(checkbutton_ange_fert->get_active())v=Zufall::e_Vorgabe(v|Zufall::eAngeFert);
+      if(checkbutton_ange_fert->get_active())v+=Zufall::B_AngeFert;
       if(checkbutton_werte->get_active())
         {
          if(checkbutton_st->get_active())  
-           { v=Zufall::e_Vorgabe(v|Zufall::eSt); 
+           { v+=Zufall::B_St; 
              spinbutton_st->update();
-             oldAben.getWerte().setSt(spinbutton_st->get_value_as_int());
+             oldAben.setSt(spinbutton_st->get_value_as_int());
            }
          if(checkbutton_gs->get_active()) 
-           { v=Zufall::e_Vorgabe(v|Zufall::eGs);
+           { v+=Zufall::B_Gs;
              spinbutton_gs->update();
-             oldAben.getWerte().setGs(spinbutton_gs->get_value_as_int());
+             oldAben.setGs(spinbutton_gs->get_value_as_int());
            }
          if(checkbutton_gw->get_active())
-           { v=Zufall::e_Vorgabe(v|Zufall::eGw);
+           { v+=Zufall::B_Gw;
              spinbutton_gw->update();
-             oldAben.getWerte().setGw(spinbutton_gw->get_value_as_int());
+             oldAben.setGw(spinbutton_gw->get_value_as_int());
            }
          if(checkbutton_ko->get_active())  
-           { v=Zufall::e_Vorgabe(v|Zufall::eKo);
+           { v+=Zufall::B_Ko;
              spinbutton_ko->update();
-             oldAben.getWerte().setKo(spinbutton_ko->get_value_as_int());
+             oldAben.setKo(spinbutton_ko->get_value_as_int());
            }
          if(checkbutton_in->get_active()) 
-           { v=Zufall::e_Vorgabe(v|Zufall::eIn);
+           { v+=Zufall::B_In;
              spinbutton_in->update();
-             oldAben.getWerte().setIn(spinbutton_in->get_value_as_int());
+             oldAben.setIn(spinbutton_in->get_value_as_int());
            }
          if(checkbutton_zt->get_active()) 
-           { v=Zufall::e_Vorgabe(v|Zufall::eZt);
+           { v+=Zufall::B_Zt;
              spinbutton_zt->update();
-             oldAben.getWerte().setZt(spinbutton_zt->get_value_as_int());
+             oldAben.setZt(spinbutton_zt->get_value_as_int());
            }
          if(checkbutton_au->get_active()) 
-           { v=Zufall::e_Vorgabe(v|Zufall::eAu);
+           { v+=Zufall::B_Au;
              spinbutton_au->update();
-             oldAben.getWerte().setAu(spinbutton_au->get_value_as_int());
+             oldAben.setAu(spinbutton_au->get_value_as_int());
            }
          if(checkbutton_pa->get_active())  
-           { v=Zufall::e_Vorgabe(v|Zufall::epA);
+           { v+=Zufall::B_pA;
              spinbutton_pa->update();
-             oldAben.getWerte().setpA(spinbutton_pa->get_value_as_int());
+             oldAben.setpA(spinbutton_pa->get_value_as_int());
            }
          if(checkbutton_wk->get_active())  
-           { v=Zufall::e_Vorgabe(v|Zufall::eWk);
+           { v+=Zufall::B_Wk;
              spinbutton_wk->update();
-             oldAben.getWerte().setWk(spinbutton_wk->get_value_as_int());
+             oldAben.setWk(spinbutton_wk->get_value_as_int());
            }
          if(checkbutton_sb->get_active())    
-           { v=Zufall::e_Vorgabe(v|Zufall::eSb);
+           { v+=Zufall::B_Sb;
              spinbutton_sb->update();
-             oldAben.getWerte().setSb(spinbutton_sb->get_value_as_int());
+             oldAben.setSb(spinbutton_sb->get_value_as_int());
            }
          if(checkbutton_b->get_active())  
-           { v=Zufall::e_Vorgabe(v|Zufall::eB);
+           { v+=Zufall::B_B;
              spinbutton_b->update();
-             oldAben.getWerte().setB(spinbutton_b->get_value_as_int());
+             oldAben.setB(spinbutton_b->get_value_as_int());
            }
         }
   return v;
@@ -156,34 +145,34 @@ void table_zufall::on_togglebutton_vorgaben_toggled()
 
 void table_zufall::zeige_werte()
 {
-   spinbutton_st->set_value(hauptfenster->getWerte().St());
-   spinbutton_gw->set_value(hauptfenster->getWerte().Gw());
-   spinbutton_gs->set_value(hauptfenster->getWerte().Gs());
-   spinbutton_ko->set_value(hauptfenster->getWerte().Ko());
-   spinbutton_in->set_value(hauptfenster->getWerte().In());
-   spinbutton_zt->set_value(hauptfenster->getWerte().Zt());
-   spinbutton_au->set_value(hauptfenster->getWerte().Au());
-   spinbutton_pa->set_value(hauptfenster->getWerte().pA());
-   spinbutton_sb->set_value(hauptfenster->getWerte().Sb());      
-   spinbutton_wk->set_value(hauptfenster->getWerte().Wk());      
-   spinbutton_b->set_value(hauptfenster->getWerte().B());     
-   combo_spezies->get_entry()->set_text(hauptfenster->getWerte().Spezies()->Name());
-   combo_typ ->get_entry()->set_text(hauptfenster->getChar()->Typ1()->Name(hauptfenster->getWerte().Geschlecht()));
-   combo_herkunft->get_entry()->set_text(hauptfenster->getWerte().Herkunft()->Name());
+   spinbutton_st->set_value(hauptfenster->getChar().getAbenteurer().St());
+   spinbutton_gw->set_value(hauptfenster->getChar().getAbenteurer().Gw());
+   spinbutton_gs->set_value(hauptfenster->getChar().getAbenteurer().Gs());
+   spinbutton_ko->set_value(hauptfenster->getChar().getAbenteurer().Ko());
+   spinbutton_in->set_value(hauptfenster->getChar().getAbenteurer().In());
+   spinbutton_zt->set_value(hauptfenster->getChar().getAbenteurer().Zt());
+   spinbutton_au->set_value(hauptfenster->getChar().getAbenteurer().Au());
+   spinbutton_pa->set_value(hauptfenster->getChar().getAbenteurer().pA());
+   spinbutton_sb->set_value(hauptfenster->getChar().getAbenteurer().Sb());      
+   spinbutton_wk->set_value(hauptfenster->getChar().getAbenteurer().Wk());      
+   spinbutton_b->set_value(hauptfenster->getChar().getAbenteurer().B());     
+   combo_spezies->get_entry()->set_text(hauptfenster->getChar().getAbenteurer().Spezies()->Name());
+   combo_typ ->get_entry()->set_text(hauptfenster->getChar().getAbenteurer().Typ1()->Name(hauptfenster->getChar().getAbenteurer().Geschlecht()));
+   combo_herkunft->get_entry()->set_text(hauptfenster->getChar().getAbenteurer().Herkunft()->Name());
 }
 
 void table_zufall::fill_combos()
-{
-  bool nsc_allowed = hauptfenster->getOptionen()->OptionenCheck(Magus_Optionen::NSC_only).active;
-  LernListen LL(hauptfenster->getCDatabase());
+{ // woher auch sonst diese Information sinnvoll nehmen ...
+  bool nsc_allowed = true; // Programmoptionen.OptionenCheck(Optionen::NSC_only).active;
+  LernListen LL;
   std::list<std::string> L;
 
   // Typen
   fill_combo_typen(LL,nsc_allowed);
 /*  
-  const std::vector<std::pair<cH_Typen,bool> > T=LL.getTypen(hauptfenster->getAben(),nsc_allowed);
+  const std::vector<std::pair<cH_Typen,bool> > T=LL.getTypen(hauptfenster->getChar().getAbenteurer(),nsc_allowed);
   for(std::vector<std::pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
-     L.push_back(i->first->Name(hauptfenster->getWerte().Geschlecht()));
+     L.push_back(i->first->Name(hauptfenster->getChar().getAbenteurer().Geschlecht()));
   combo_typ->set_popdown_strings(L);
 */
   // Spezies
@@ -195,7 +184,7 @@ void table_zufall::fill_combos()
 
   // Herkunft
   L.clear();
-   std::vector<std::pair<cH_Land,bool> > H=LL.getHerkunft(hauptfenster->getAben());
+   std::vector<std::pair<cH_Land,bool> > H=LL.getHerkunft(hauptfenster->getChar().getAbenteurer());
   for(std::vector<std::pair<cH_Land,bool> >::const_iterator i=H.begin();i!=H.end();++i)
      L.push_back(i->first->Name());
  L.sort();
@@ -205,16 +194,20 @@ void table_zufall::fill_combos()
 void table_zufall::fill_combo_typen(const LernListen &LL,const bool nsc_allowed)
 {
   std::list<std::string> L;
-  cH_Spezies spezies=hauptfenster->getWerte().Spezies();
+  cH_Spezies spezies=hauptfenster->getChar().getAbenteurer().Spezies();
 
   // ist eine Spezies in der Combo gesetzt?
   std::string ss=combo_spezies->get_entry()->get_text();
-  if(Spezies::get_Spezies_from_long(hauptfenster->getCDatabase().Spezies,ss))
-     spezies=Spezies::getSpezies(ss,hauptfenster->getDatabase().Spezies)  ;    
+  if(Spezies::get_Spezies_from_long(Datenbank.Spezies,ss))
+     spezies=Spezies::getSpezies(ss,Datenbank.Spezies)  ;
+  if (!(spezies==hauptfenster->getChar().getAbenteurer().Spezies()))
+  {  hauptfenster->getChar().getAbenteurer().setSpezies(spezies);
+     Ausgabe(Ausgabe::Warning,"wie auch immer Spezies!=Spezies werden konnte (CP)");
+  }
 
-  const std::vector<std::pair<cH_Typen,bool> > T=LL.getTypen(hauptfenster->getWerte(),spezies,nsc_allowed);
+  const std::vector<std::pair<cH_Typen,bool> > T=LL.getTypen(hauptfenster->getChar().getAbenteurer());
   for(std::vector<std::pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
-     L.push_back(i->first->Name(hauptfenster->getWerte().Geschlecht()));
+     L.push_back(i->first->Name(hauptfenster->getChar().getAbenteurer().Geschlecht()));
   combo_typ->set_popdown_strings(L);
 }
 
@@ -305,9 +298,9 @@ bool table_zufall::on_combo_spezies_focus_out_event(GdkEventFocus *ev)
 
 void table_zufall::on_combo_spezies_changed()
 {  
-  LernListen LL(hauptfenster->getCDatabase());
-  bool nsc_allowed = hauptfenster->getOptionen()->OptionenCheck(Magus_Optionen::NSC_only).active;
-  fill_combo_typen(LL,nsc_allowed);
+  LernListen LL;
+//  bool nsc_allowed = hauptfenster->getChar().getAbenteurer().getOptionen().OptionenCheck(Optionen::NSC_only).active;
+  fill_combo_typen(LL,true);
 }
 
 void table_zufall::on_combo_typ_activate()

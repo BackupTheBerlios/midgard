@@ -1,4 +1,4 @@
-// $Id: readxml.cc,v 1.3 2003/07/11 22:47:15 christof Exp $
+// $Id: readxml.cc,v 1.4 2003/09/01 06:47:57 christof Exp $
 /*  glade--: C++ frontend for glade (Gtk+ User Interface Builder)
  *  Copyright (C) 1998-2002  Christof Petig
  *

@@ -31,8 +31,8 @@ void midgard_CG::on_speichern()
 
 void midgard_CG::xml_export_auswahl()
 { 
-   if(Char->getWerte().Name_Abenteurer().empty())
-    { set_status("Der Abenteurer braucht noch einen Namen"); 
+   if(Char->Name_Abenteurer().empty())
+    { Ausgabe(Ausgabe::Error,"Der Abenteurer braucht noch einen Namen"); 
       notebook_main->set_current_page(PAGE_GRUNDWERTE);
 //      table_grundwerte->togglebutton_edit_werte->set_active(true);
       table_grundwerte->edit_werte=true;
@@ -50,8 +50,8 @@ void midgard_CG::save_existing_filename()
 
 void midgard_CG::xml_export(const std::string& dateiname)
 {  
-   if(Char->getWerte().Name_Abenteurer().empty())
-    { set_status("Der Abenteurer braucht noch einen Namen"); 
+   if(Char->Name_Abenteurer().empty())
+    { Ausgabe(Ausgabe::Error,"Der Abenteurer braucht noch einen Namen"); 
       notebook_main->set_current_page(PAGE_GRUNDWERTE);
       table_grundwerte->edit_werte=true;
 //      table_grundwerte->togglebutton_edit_werte->set_active(true);
@@ -63,7 +63,7 @@ void midgard_CG::xml_export(const std::string& dateiname)
    std::ofstream datei(dateiname.c_str());
    if (!datei.good())
    { 
-      set_info("Ich kann die Datei '"+dateiname+"' nicht beschreiben");
+      Ausgabe(Ausgabe::Error,"Ich kann die Datei '"+dateiname+"' nicht beschreiben");
       return;
    }
   Char->speicherstream(datei,getCDatabase(),getCOptionen());

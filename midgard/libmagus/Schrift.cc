@@ -68,7 +68,7 @@ bool Schrift::kann_Sprache(const std::list<MBEmlt>& sprache) const
 
 int Schrift::MaxErfolgswert(const Abenteurer &A) const
 {
-  if(A.getWerte().In() < 61) return 14; 
+  if(A.In() < 61) return 14; 
   return cH_Fertigkeit("Schreiben")->MaxErfolgswert(A) ;
 }
 
@@ -84,14 +84,14 @@ std::list<cH_MidgardBasicElement> Schrift::gleicheSchrift(const std::list<cH_Mid
 bool Schrift::Mutterschrift(const Abenteurer& A) const
 {
   
-  std::vector<std::string> V=A.getWerte().Spezies()->getVSprache();
-  if(V.empty()) V=A.getWerte().Herkunft()->Sprachen();
+  std::vector<std::string> V=A.Spezies()->getVSprache();
+  if(V.empty()) V=A.Herkunft()->Sprachen();
   for(std::vector<std::string>::const_iterator i=V.begin();i!=V.end();++i)
    {
      const std::vector<std::string> W=cH_Sprache(*i)->Schrift();
      for(std::vector<std::string>::const_iterator j=W.begin();j!=W.end();++j)
       {
-       std::string spezies=A.getWerte().Spezies()->Name();
+       std::string spezies=A.Spezies()->Name();
        if(spezies=="Waldgnom" && Name()=="Zwergenrunen Futhark") return false;
        if(spezies=="Berggnom" && Name()=="Baumrunen Beth-Luis-Nion") return false;
        if(*j==Name()) return true;

@@ -1,4 +1,4 @@
-// $Id: ProgressBar.cc,v 1.5 2002/12/18 17:58:00 christof Exp $
+// $Id: ProgressBar.cc,v 1.6 2003/09/01 06:47:58 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Christof Petig
  *

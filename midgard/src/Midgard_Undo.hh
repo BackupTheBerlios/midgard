@@ -1,4 +1,4 @@
-// $Id: Midgard_Undo.hh,v 1.6 2003/04/23 07:35:50 christof Exp $
+// $Id: Midgard_Undo.hh,v 1.7 2003/09/01 06:47:58 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,36 +20,7 @@
 #ifndef _MIDGARD_UNDO_HH
 #  define _MIDGARD_UNDO_HH
 
-#include <vector>
-#include <string>
-
-class Midgard_Undo
-{
-  public:
-     struct st_undo{int count;std::string text;std::string speicher;
-            st_undo():count(0){}
-            st_undo(int c,std::string t,std::string s)
-                   : count(c),text(t),speicher(s) {} };
-     typedef std::vector<st_undo>::const_iterator const_iterator;
-  private:
-     std::vector<st_undo> VU;
-     unsigned int count;
-     void clear(unsigned int c) {VU.resize(c);}
-
-  public:
-    Midgard_Undo():count(0) {}
-
-    void clear() {VU.clear();}
-    std::vector<st_undo> get_V() {return VU;}
-    void push_back(std::string text,std::string speicher);
-    const_iterator begin() const { return VU.begin(); }
-    const_iterator end() const { return VU.end(); }
-    const_iterator current_iter() const { return VU.begin()+count; }
-     
-    std::string get_last();
-    std::string get_next();
-    std::string get(unsigned int c);
-};
+#include <libmagus/Undo.hh>
 
 #include <Misc/EntryValueIntString.h>   
 #include <RowDataBase.h>

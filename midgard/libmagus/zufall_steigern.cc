@@ -18,37 +18,40 @@
  */
 
 #include "config.h"
-#include "table_zufall.hh"
+#include "zufall_steigern.hh"
 #include "Zufall.hh"
 #include "KI.hh"
 #include "Optionen.hh"
 #include <Misc/itos.h>
 #include "Prototyp.hh"
-#include "Data_Prototyp.hh"
+#include "Random.hh"
 
-unsigned table_zufall::GFPvonGrad(unsigned grad)
-{  Grad_anstieg &GA=Datenbank.GradAnstieg;
+unsigned zufall_steigern::GFPvonGrad(unsigned grad)
+{  const Grad_anstieg &GA=Datenbank.GradAnstieg;
    return Random::integer(GA.getGFP(grad),GA.getGFP(grad+1)-1);
 }
 
-void table_zufall::steigern(Abenteurer &A, unsigned gfp)
+void zufall_steigern::steigern(Abenteurer &A, unsigned gfp)
 {
   assert(A.Typ1()->Valid());
-  check100();
+//  check100();
+  prozente100.check100();
+  Prototyp::setLast(prozente100);
+  
   if (A.GFP()>=gfp) return;
 
   gfp-=A.GFP();
 
-  if(radiobutton_proto_verteilen->get_active())
-     MagusKI(hauptfenster).VerteileGFP(gfp,prozente100,GSA_MBE);
+  if(prototypen.empty())
+     MagusKI(A).VerteileGFP(gfp,prozente100,GSA_MBE);
   else
    {
-     std::vector<cH_Prototyp2> Prototypen=getSelectedPrototypen();
-     MagusKI(hauptfenster).VerteileGFP(gfp,prozente100,Prototypen);
+     MagusKI(A).VerteileGFP(gfp,prozente100,prototypen);
    }
 }
 
-std::vector<cH_Prototyp2> table_zufall::getSelectedPrototypen()
+#if 0
+std::vector<cH_Prototyp2> zufall_steigern::getSelectedPrototypen()
 {
   std::vector<cH_Prototyp2> P;
   std::vector<cH_RowDataBase> VR=tree_prototyp->getSelectedRowDataBase_vec();
@@ -61,7 +64,7 @@ std::vector<cH_Prototyp2> table_zufall::getSelectedPrototypen()
 }
 
 
-void table_zufall::on_radiobutton_steigern_grad_toggled()
+void zufall_steigern::on_radiobutton_steigern_grad_toggled()
 {
   if(radiobutton_steigern_grad->get_active())
    {
@@ -72,7 +75,7 @@ void table_zufall::on_radiobutton_steigern_grad_toggled()
    }
 }
 
-void table_zufall::on_radiobutton_steigern_gfp_toggled()
+void zufall_steigern::on_radiobutton_steigern_gfp_toggled()
 {
   if(radiobutton_steigern_gfp->get_active())
    {
@@ -84,7 +87,7 @@ void table_zufall::on_radiobutton_steigern_gfp_toggled()
 }
 
 
-void table_zufall::fill_combo_steigern()
+void zufall_steigern::fill_combo_steigern()
 {
   static bool filled=false;
   if(filled) return;
@@ -101,16 +104,16 @@ void table_zufall::fill_combo_steigern()
  combo_prototyp->set_sensitive(true);
 }
 
-void table_zufall::on_combo_prototyp_activate()
+void zufall_steigern::on_combo_prototyp_activate()
 {
 }
 
-bool table_zufall::on_combo_prototyp_focus_out_event(GdkEventFocus *ev)
+bool zufall_steigern::on_combo_prototyp_focus_out_event(GdkEventFocus *ev)
 {
   return 0;
 }
 
-bool table_zufall::entry_is_a_prototyp(const std::string &e)
+bool zufall_steigern::entry_is_a_prototyp(const std::string &e)
 {
   std::list<std::string> L;
   std::list<cH_Prototyp> P=hauptfenster->getDatabase().prototyp;
@@ -120,7 +123,7 @@ bool table_zufall::entry_is_a_prototyp(const std::string &e)
   return true;
 }
 
-void table_zufall::on_combo_prototyp_changed()
+void zufall_steigern::on_combo_prototyp_changed()
 {
   std::string e=combo_prototyp->get_entry()->get_text();
   if(!entry_is_a_prototyp(e)) return;
@@ -144,7 +147,7 @@ void table_zufall::on_combo_prototyp_changed()
   set_bereiche_spinbuttons();    
 }
 
-void table_zufall::set_bereiche_spinbuttons()
+void zufall_steigern::set_bereiche_spinbuttons()
 {
   spinbutton_fertigkeit->set_value(prozente100.get(Enums::sFert));
   spinbutton_waffen->set_value(prozente100.get(Enums::sWaff));
@@ -166,7 +169,7 @@ void table_zufall::set_bereiche_spinbuttons()
 
 
 
-void table_zufall::on_button_check100_clicked()
+void zufall_steigern::on_button_check100_clicked()
 {
   spinbutton_fertigkeit->update();
   spinbutton_waffen->update();
@@ -197,84 +200,85 @@ void table_zufall::on_button_check100_clicked()
 }
 
 
-void table_zufall::on_scale_fert_activate()
+void zufall_steigern::on_scale_fert_activate()
 {
   prozente100.setS(Enums::sFert,scale_fert->get_value());
 }
-void table_zufall::on_scale_waffen_activate()
+void zufall_steigern::on_scale_waffen_activate()
 {
   prozente100.setS(Enums::sWaff,scale_waffen->get_value());
 }
-void table_zufall::on_scale_schriften_activate()
+void zufall_steigern::on_scale_schriften_activate()
 {
   prozente100.setS(Enums::sSchr,scale_schriften->get_value());
 }
-void table_zufall::on_scale_sprachen_activate()
+void zufall_steigern::on_scale_sprachen_activate()
 {
   prozente100.setS(Enums::sSpra,scale_sprachen->get_value());
 }
 
-void table_zufall::on_togglebutton_prototyp_toggled()
+void zufall_steigern::on_togglebutton_prototyp_toggled()
 {
   if(togglebutton_prototyp->get_active()) frame_prototyp_mod->show();
   else frame_prototyp_mod->hide();
 }
 
-void table_zufall::on_spinbutton_fertigkeit_activate()
+void zufall_steigern::on_spinbutton_fertigkeit_activate()
 {  
   spinbutton_waffen->grab_focus();
   spinbutton_waffen->select_region(0,-1);
 }
 
-void table_zufall::on_spinbutton_waffen_activate()
+void zufall_steigern::on_spinbutton_waffen_activate()
 {  
   spinbutton_waffen_grund->grab_focus();
   spinbutton_waffen_grund->select_region(0,-1);
 }
 
-void table_zufall::on_spinbutton_waffen_grund_activate()
+void zufall_steigern::on_spinbutton_waffen_grund_activate()
 {  
   spinbutton_zauber->grab_focus();
   spinbutton_zauber->select_region(0,-1);
 }
 
-void table_zufall::on_spinbutton_zauber_activate()
+void zufall_steigern::on_spinbutton_zauber_activate()
 {  
   spinbutton_zauberwerk->grab_focus();
   spinbutton_zauberwerk->select_region(0,-1);
 }
 
-void table_zufall::on_spinbutton_zauberwerk_activate()
+void zufall_steigern::on_spinbutton_zauberwerk_activate()
 {  
   spinbutton_sprachen->grab_focus();
   spinbutton_sprachen->select_region(0,-1);
 }
 
-void table_zufall::on_spinbutton_sprachen_activate()
+void zufall_steigern::on_spinbutton_sprachen_activate()
 {  
   spinbutton_schriften->grab_focus();
   spinbutton_schriften->select_region(0,-1);
 }
 
-void table_zufall::on_spinbutton_schriften_activate()
+void zufall_steigern::on_spinbutton_schriften_activate()
 {  
  on_button_check100_clicked();
 }
 
-void table_zufall::on_spinbutton_grund_activate()
+void zufall_steigern::on_spinbutton_grund_activate()
 {
  spinbutton_standard->grab_focus();
  spinbutton_standard->select_region(0,-1);
 }
 
-void table_zufall::on_spinbutton_standard_activate()
+void zufall_steigern::on_spinbutton_standard_activate()
 {
  spinbutton_ausnahme->grab_focus();
  spinbutton_ausnahme->select_region(0,-1);
 }
 
-void table_zufall::on_spinbutton_ausnahme_activate()
+void zufall_steigern::on_spinbutton_ausnahme_activate()
 {
   on_button_check100_clicked();
 }
 
+#endif

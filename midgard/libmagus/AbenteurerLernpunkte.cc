@@ -1,4 +1,4 @@
-// $Id: AbenteurerLernpunkte.cc,v 1.2 2003/08/03 01:43:02 christof Exp $               
+// $Id: AbenteurerLernpunkte.cc,v 1.3 2003/09/01 06:47:57 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -71,9 +71,9 @@ void AbenteurerLernpunkte::ruestung_auswaehlen(int wprozent)
       if (96 <= wprozent && wprozent  <= 100) rue = "LR" ;
    }
   if(a.Typ1()->Short()=="Fi") rue="KR";
-  a.getWerte().setRuestung1(rue);
+  a.setRuestung1(rue);
   Ausgabe(Ausgabe::Log, "Beim Auswürfeln der Rüstung wurde eine "+itos(wprozent)+" gewürfelt "
-             "==> " + a.getWerte().Ruestung()->Long());
+             "==> " + a.Ruestung()->Long());
 }
 
 void AbenteurerLernpunkte::beruf_gewuerfelt(int wurf)
@@ -105,7 +105,7 @@ void AbenteurerLernpunkte::on_beruf_tree_leaf_selected(Abenteurer &A, cH_Beruf b
       {
          BKategorie.kat_IV=false;
       }
- }catch(std::exception &e) {std::cerr << e.what()<<'\n';}
+ }catch(std::exception &e) {Ausgabe(Ausgabe::Error,e.what());}
 }
 
 #endif
@@ -127,15 +127,14 @@ void AbenteurerLernpunkte::lernschema_geld_wuerfeln(const std::vector<int>& VGel
  else if (a.Typ1()->Geld() == 3) igold+=6;
  else if (a.Typ1()->Geld() == 4) igold+=3;
 
- if(a.getWerte().Stand()=="Adel" ) igold*=2;  
- if(a.getWerte().Stand()=="Unfrei" ) igold/=2;
+ if(a.Stand()=="Adel" ) igold*=2;  
+ if(a.Stand()=="Unfrei" ) igold/=2;
  if(VGeldwurf[0]==VGeldwurf[1] && VGeldwurf[1]==VGeldwurf[2]) igold += 100;
 
- std::string strinfo ="Beim Auswürfeln von Geld wurden "
+ Ausgabe(Ausgabe::Log,"Beim Auswürfeln von Geld wurden "
    +itos(VGeldwurf[0])+"  "+itos(VGeldwurf[1])+"  "+itos(VGeldwurf[2])+" gewürfelt ==> "
-   +itos(igold)+" Gold";
- Ausgabe(Ausgabe::Log,strinfo);   
- a.getWerte().addGold(igold);  
+   +itos(igold)+" Gold");
+ a.addGold(igold);  
 }
 
 void AbenteurerLernpunkte::ausruestung_setzen()

@@ -1,4 +1,4 @@
-/* $Id: Random.cc,v 1.1 2003/08/03 01:44:00 christof Exp $ */
+/* $Id: Random.cc,v 1.2 2003/09/01 06:47:57 christof Exp $ */
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig

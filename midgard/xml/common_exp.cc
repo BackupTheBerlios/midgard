@@ -1,4 +1,4 @@
-// $Id: common_exp.cc,v 1.35 2002/10/24 07:24:02 christof Exp $
+// $Id: common_exp.cc,v 1.36 2003/09/01 06:47:59 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -110,16 +110,25 @@ void ausnahmen(Tag &o, const std::string &art, const std::string &name, bool nur
 
 std::string Herkunft(bool invert)
 {  std::string herkunft;
-   if (region=="A") herkunft="='Alba'";
-   else if (region=="E") herkunft="='Eschar'";
-   else if (region=="K") herkunft="='KanThaiPan'";
-   else if (region=="R") herkunft="='Rawindra'";
-   else if (region=="M") herkunft="='Minangpahit'";
-   else if (region.empty()) herkunft=" in ('Küstenstaaten','Ikenga Becken')";
-   else herkunft="='never'";
+   std::vector<std::string> laender;
+   // vielleicht über Land(region)
+   (Query("select land from land where coalesce(region,'')=?")
+   	<< region
+   	).FetchArray(laender);
+   if (laender.empty()) herkunft= "='never'";
+   else if (laender.size()==1) herkunft= "='"+laender[0]+"'";
+   else
+   {  herkunft=" in (";
+      for (unsigned i=0;i<laender.size();++i)
+      {  if (i) herkunft+=",";
+         herkunft+="'"+laender[i]+"'";
+      }
+      herkunft+=")";
+   }
+   
    if (invert)
    {  if (herkunft[0]=='=') return "!"+herkunft;
-      if (herkunft[0]=='i') return " not"+herkunft;
+      if (herkunft[0]==' ') return " not"+herkunft;
    }
    return herkunft;
 }

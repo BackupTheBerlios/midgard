@@ -1,4 +1,4 @@
-// $Id: midgard_CG_region_check.cc,v 1.29 2002/11/01 10:23:48 thoma Exp $
+// $Id: midgard_CG_region_check.cc,v 1.30 2003/09/01 06:47:58 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *

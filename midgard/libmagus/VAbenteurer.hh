@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.hh,v 1.2 2003/08/12 06:17:49 christof Exp $               
+// $Id: VAbenteurer.hh,v 1.3 2003/09/01 06:47:57 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -23,6 +23,7 @@
 
 #include "Abenteurer.hh"
 #include "AbenteurerLernpunkte.hh"
+#include "Undo.hh"
 
 class VAbenteurer
 {
@@ -30,6 +31,7 @@ class VAbenteurer
       struct st_abenteurer{Abenteurer abenteurer;
        			   AbenteurerLernpunkte ab_lp;
       			   std::string filename;
+      			   Midgard_Undo undo;
                            bool gespeichert;
              st_abenteurer(const Abenteurer &A,bool g) : abenteurer(A),ab_lp(abenteurer),gespeichert(g) {}
              st_abenteurer() : abenteurer(Abenteurer()),ab_lp(abenteurer),gespeichert(true){} 
@@ -56,6 +58,7 @@ class VAbenteurer
       const std::list<st_abenteurer> &getList() const {return VA;}
       std::list<st_abenteurer> &getList() {return VA;}
       const Abenteurer &getCAbenteurer() const {return ai->abenteurer;}
+      const Abenteurer &getAbenteurer() const {return ai->abenteurer;}
       Abenteurer &getAbenteurer() {return ai->abenteurer;}
       void sort_gw() {VA.sort(sort());}
       void push_back();
@@ -68,11 +71,14 @@ class VAbenteurer
       bool gespeichert() const {return ai->gespeichert;}
       void setFilename(std::string s) {ai->filename=s;}
       const std::string &getFilename() {return ai->filename;}
+      AbenteurerLernpunkte &getLernpunkte() { return ai->ab_lp; }
+      const AbenteurerLernpunkte &getLernpunkte() const { return ai->ab_lp; }
 
       bool unsaved_exist();
       bool empty() const {return VA.empty();}
       size_t size() const {return VA.size();}
       void delete_empty();
+      void undosave(const std::string &s);
 
    const Abenteurer *operator->() const
    {  return &ai->abenteurer; }

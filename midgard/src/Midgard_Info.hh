@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.hh,v 1.41 2002/10/30 16:59:51 christof Exp $
+// $Id: Midgard_Info.hh,v 1.42 2003/09/01 06:47:58 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *

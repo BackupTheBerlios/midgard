@@ -1,4 +1,4 @@
-// $Id: xml.h,v 1.9 2003/08/03 01:43:02 christof Exp $
+// $Id: xml.h,v 1.10 2003/09/01 06:47:57 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2003 Christof Petig
  *

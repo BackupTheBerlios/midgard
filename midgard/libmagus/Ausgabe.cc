@@ -1,4 +1,4 @@
-// $Id: Ausgabe.cc,v 1.3 2003/08/02 22:27:43 christof Exp $
+// $Id: Ausgabe.cc,v 1.4 2003/09/01 06:47:57 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2003 Christof Petig
  *
@@ -44,6 +44,10 @@ const char * const Verbose[Ausgabe::MaxLevel]=
 };
 
 static Ausgabe::Level LogLevel=Ausgabe::Warning;
+
+void Ausgabe::setLogLevel(Level l)
+{  LogLevel=l;
+}
 
 static void StandardAusgabe(Ausgabe::Level l,const std::string &text)
 {  if (l>Ausgabe::MaxLevel) l=Ausgabe::Fatal;

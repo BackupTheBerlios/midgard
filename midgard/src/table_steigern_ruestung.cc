@@ -20,6 +20,7 @@
 #include "table_steigern.hh"
 #include <Misc/itos.h>
 #include <LernListen.hh>
+#include <libmagus/Ausgabe.hh>
 
 void table_steigern::on_button_ruestung_1_toggled()
 {
@@ -50,30 +51,30 @@ void table_steigern::on_ruestung_selection_changed()
   
   cH_Ruestung R=(*clist_ruestung->get_selection()->get_selected())[ruestung_columns.ruestung];
 
-  if(R->Min_Staerke()<=hauptfenster->getWerte().St())
+  if(R->Min_Staerke()<=hauptfenster->getChar().getAbenteurer().St())
    {
      if(button_ruestung_1->get_active())
       {
-        hauptfenster->getWerte().setRuestung1(R->Name());
+        hauptfenster->getChar().getAbenteurer().setRuestung1(R->Name());
         button_ruestung_1->set_active(false);
       }
      else if(button_ruestung_2->get_active())
       {
-        hauptfenster->getWerte().setRuestung2(R->Name());
+        hauptfenster->getChar().getAbenteurer().setRuestung2(R->Name());
         button_ruestung_2->set_active(false);
       }
      show_label();
      clist_ruestung->set_sensitive(false);
    }
   else 
-   hauptfenster->set_status("Nicht stark genug.");
+   Ausgabe(Ausgabe::Error,"Nicht stark genug.");
 }
 
 void table_steigern::fill_ruestung() 
 {
 // show_label();
  RuestungStore->clear();
- std::vector<cH_Ruestung> VR=LL->getRuestung();
+ std::vector<cH_Ruestung> VR=LL->getRuestung(hauptfenster->getChar().getAbenteurer());
  for(std::vector<cH_Ruestung>::const_iterator i=VR.begin();i!=VR.end();++i)
    { cH_Ruestung r(*i);
      Gtk::TreeModel::iterator iter = RuestungStore->append();
@@ -84,7 +85,7 @@ void table_steigern::fill_ruestung()
      (*iter)[ruestung_columns.min_staerke]=r->Min_Staerke();
      (*iter)[ruestung_columns.rw_verlust]=r->RW_Verlust();
      bool dummy;
-     (*iter)[ruestung_columns.b_verlust]=r->B_Verlust(0,hauptfenster->getWerte(),dummy);
+     (*iter)[ruestung_columns.b_verlust]=r->B_Verlust(0,hauptfenster->getChar().getAbenteurer(),dummy);
      (*iter)[ruestung_columns.ruestung]=r;
    } 
  clist_ruestung->set_sensitive(true);
@@ -95,8 +96,8 @@ void table_steigern::show_label()
 // std::string sru=itos(count+1)+"te Rüstung auswählen. Bisherige Rüstungen: ("+ 
 //   Werte.Ruestung()->Long() +"/"+Werte.Ruestung(1)->Long()+")";
 // label_ruestung->set_text(sru.c_str());
-  label_ruestung_1->set_text(hauptfenster->getWerte().Ruestung()->Long());
-  label_ruestung_2->set_text(hauptfenster->getWerte().Ruestung(1)->Long());
+  label_ruestung_1->set_text(hauptfenster->getChar().getAbenteurer().Ruestung()->Long());
+  label_ruestung_2->set_text(hauptfenster->getChar().getAbenteurer().Ruestung(1)->Long());
 }
 
 table_steigern::RuestungColumns::RuestungColumns()

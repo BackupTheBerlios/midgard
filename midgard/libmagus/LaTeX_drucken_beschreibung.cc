@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_beschreibung.cc,v 1.4 2003/08/04 08:50:22 christof Exp $
+// $Id: LaTeX_drucken_beschreibung.cc,v 1.5 2003/09/01 06:47:57 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -28,28 +28,31 @@
 
 void LaTeX_drucken::latex_beschreibung_drucken(const Abenteurer &A)
 {   
- std::string figwidth=itos(A.getWerte().BeschreibungPixSize())+"cm";
- std::string file=A.getWerte().BeschreibungPix();
+ std::string figwidth=itos(A.BeschreibungPixSize())+"cm";
+ std::string file=A.BeschreibungPix();
  std::string filename=get_latex_pathname(TeX_tmp)+get_latex_filename(A,TeX_Beschreibung);
  std::ofstream fout2((filename+".tex").c_str());
  orecodestream fout(fout2);
  LaTeX_header(A,fout,false); 
- fout << "\\fbox{\\parbox[t][23cm]{18cm}{ \n";
+// fout << "\\fbox{\\parbox[t][23cm]{18cm}{ \n";
+ LaTeX_Bildboxen(fout,file,A.BeschreibungPixSize());
+ LaTeX_header_doc(A,fout,false);
  if(file!="")
   {
-   fout << WinLux::normal_tilde;
+//   fout << WinLux::normal_tilde;
 //   fout << "\\IfFileExists{"+WinLux::recodePathForTeX(file)+"}";
-   fout << WinLux::active_tilde;
+//   fout << WinLux::active_tilde;
    fout << "\n~\n"; //'~' damit 'wrapfig funktioniert
    fout << "\\begin{wrapfigure}{r}{"+figwidth+"}\n";
-   fout << WinLux::normal_tilde;
-   fout << "\\includegraphics[width="+figwidth+"]{"
-   	+WinLux::recodePathForTeX(file)+"}\n";
-   fout << WinLux::active_tilde;
+//   fout << WinLux::normal_tilde;
+//   fout << "\\includegraphics[width="+figwidth+"]{"
+//   	+WinLux::recodePathForTeX(file)+"}\n";
+//   fout << WinLux::active_tilde;
+   fout << "\\usebox{\\AbenBox}\n";
    fout << "\\end{wrapfigure}\n";
   }
- fout << A.getWerte().Beschreibung()<<"\n";
- fout << "}}\n";
+ fout << A.Beschreibung()<<"\n";
+// fout << "}}\n";
  LaTeX_footer(fout);
  fout2.close();
  pdf_viewer(filename);

@@ -16,13 +16,6 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// generated 2002/9/6 20:10:27 CEST by thoma@Tiger.(none)
-// using glademm V1.1.1c_cvs
-//
-// newer (non customized) versions of this file go to table_zufall.cc_new
-
-// This file is for your program, I won't touch it again!
-
 #include "config.h"
 #include "table_zufall.hh"
 #include "midgard_CG.hh"
@@ -32,12 +25,15 @@
 #include <Misc/itos.h>
 #include "Prototyp.hh"
 #include "Data_Prototyp.hh"
+#include <libmagus/Ausgabe.hh>
+#include <libmagus/zufall_steigern.hh>
+#include <libmagus/Datenbank.hh>
 
 void table_zufall::on_button_steigern_clicked()
 {
-  if(!hauptfenster->getAben().Typ1()->Valid())
+  if(!hauptfenster->getChar().getAbenteurer().Typ1()->Valid())
    {
-    hauptfenster->set_status("Noch kein Abenteurer vorhanden.");
+    Ausgabe(Ausgabe::Error,"Noch kein Abenteurer vorhanden.");
     return;
    }
 
@@ -46,20 +42,17 @@ void table_zufall::on_button_steigern_clicked()
   spinbutton_gfp->update();
   spinbutton_grad->update();
   if(radiobutton_steigern_gfp->get_active()) gfp=spinbutton_gfp->get_value_as_int();
-  else { Grad_anstieg GA=hauptfenster->getDatabase().GradAnstieg;
-         int grad=spinbutton_grad->get_value_as_int();
-         gfp=hauptfenster->random.integer(GA.getGFP(grad),GA.getGFP(grad+1));
-         gfp-=hauptfenster->getWerte().GFP();
-//cout << grad<<'\t'<<gfp<<'\n';
-         if(gfp<=0) return;
-       }
+  else gfp=zufall_steigern::GFPvonGrad(spinbutton_grad->get_value_as_int());
+
+  zufall_steigern zs;
+  zs.setzeProzente(prozente100);
   if(radiobutton_proto_verteilen->get_active())
-     MagusKI(hauptfenster).VerteileGFP(gfp,prozente100,GSA_MBE);
+     zs.setzeGSA(GSA_MBE);
   else
    {
-     std::vector<cH_Prototyp2> Prototypen=getSelectedPrototypen();
-     MagusKI(hauptfenster).VerteileGFP(gfp,prozente100,Prototypen);
+     zs.setzePrototypen(getSelectedPrototypen());
    }
+  zs.steigern(hauptfenster->getChar().getAbenteurer(),gfp);
 }
 
 std::vector<cH_Prototyp2> table_zufall::getSelectedPrototypen()
@@ -104,7 +97,7 @@ void table_zufall::fill_combo_steigern()
   if(filled) return;
   filled=true;
   std::list<std::string> L;
-  std::list<cH_Prototyp> P=hauptfenster->getDatabase().prototyp;
+  const std::list<cH_Prototyp> &P=Datenbank.prototyp;
   for(std::list<cH_Prototyp>::const_iterator i=P.begin();i!=P.end();++i)
      L.push_back((*i)->Name());
   combo_prototyp->set_popdown_strings(L);
@@ -127,7 +120,7 @@ bool table_zufall::on_combo_prototyp_focus_out_event(GdkEventFocus *ev)
 bool table_zufall::entry_is_a_prototyp(const std::string &e)
 {
   std::list<std::string> L;
-  std::list<cH_Prototyp> P=hauptfenster->getDatabase().prototyp;
+  std::list<cH_Prototyp> P=Datenbank.prototyp;
   for(std::list<cH_Prototyp>::const_iterator i=P.begin();i!=P.end();++i)
      L.push_back((*i)->Name());
   if(find(L.begin(),L.end(),e)==L.end()) return false;

@@ -146,15 +146,15 @@ int Zauber::Erfolgswert_Z(const Abenteurer &A) const
    if (A.Typ2()->Short()=="Ma") 
       ispez = get_spezial_zauber_for_magier(A,standard[1]);
 
-   int erf = A.getWerte().Zaubern_wert()+A.getWerte().bo_Za() + ifac + ispez ;
+   int erf = A.Zaubern_wert()+A.bo_Za() + ifac + ispez ;
    return erf;
 }
 
 int Zauber::get_spezial_zauber_for_magier(const Abenteurer &A,const std::string& standard) const
 {
  int ispez=0;
- if (standard!="G" && Agens(A.getVTyp())==A.getWerte().Spezialgebiet()->Spezial()) ispez = 2;
- if (standard!="G" && Prozess()==A.getWerte().Spezialgebiet()->Spezial()) ispez = 2;
+ if (standard!="G" && Agens(A.getVTyp())==A.Spezialgebiet()->Spezial()) ispez = 2;
+ if (standard!="G" && Prozess()==A.Spezialgebiet()->Spezial()) ispez = 2;
  return ispez;
 }
 
@@ -166,7 +166,7 @@ std::string Zauber::Agens(const std::vector<cH_Typen> &Typ) const
    return agens;
 }
 
-bool Zauber::spruchrolle_wuerfeln(const Abenteurer &A,std::string &info,const int bonus_lesen_von_zauberschrift) const
+bool Zauber::spruchrolle_wuerfeln(const Abenteurer &A,const int bonus_lesen_von_zauberschrift) const
 {
  int iaus=0;
  
@@ -186,17 +186,17 @@ bool Zauber::spruchrolle_wuerfeln(const Abenteurer &A,std::string &info,const in
  
  int xr=Random::W20();
  int x = xr-iStufe();
- int erf_z = A.getWerte().Zaubern_wert() + A.getWerte().bo_Za() ;
+ int erf_z = A.Zaubern_wert() + A.bo_Za() ;
  
  x += iaus;
  x += erf_z;
  x += bonus_lesen_von_zauberschrift;
 
- info += "Lernversuch von Spruchrolle:\n"
+ Ausgabe(Ausgabe::Log,"Lernversuch von Spruchrolle:\n"
  "gewürfelt  Spruchstufe  Ausnahme/Spezial Erfolgswert  Lesen von Zauberschrift  Gesamtergebnis\n     "
       +itos(xr)+  "            -"+itos(iStufe())+"               "
       +itos(iaus)+"             "+itos(erf_z)   +"               "+itos0p(bonus_lesen_von_zauberschrift,0,true)
-      +"       =       "+ itos(x)+"\n";
+      +"       =       "+ itos(x));
  if (x>=20) return true;
  else return false;
 }

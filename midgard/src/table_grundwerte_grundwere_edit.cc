@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_grundwere_edit.cc,v 1.16 2003/07/16 06:29:34 christof Exp $
+// $Id: table_grundwerte_grundwere_edit.cc,v 1.17 2003/09/01 06:47:58 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,13 +36,13 @@ void table_grundwerte::on_togglebutton_edit_werte_toggled()
 //     set_all_entrys(); // eigentlich überflüssig (wg. focus_leaf_event)
      edit_sensitive(false);
      fill_typauswahl();
-     hauptfenster->undosave("Werte editiert");
+     hauptfenster->getChar().undosave("Werte editiert");
     }
 }
 
 void table_grundwerte::on_button_grda1setzen_clicked()
 {
-  hauptfenster->getWerte().setGrad1Werte(hauptfenster->getChar()->getVTyp());
+  hauptfenster->setGrad1Werte(hauptfenster->getChar()->getVTyp());
   zeige_werte();
   hauptfenster->lernschema_sensitive(true);
   hauptfenster->frame_steigern->set_sensitive(true);
@@ -62,45 +62,45 @@ void table_grundwerte::on_entry_nameC_activate()
    }
 }
 bool table_grundwerte::on_entry_nameC_focus_out_event(GdkEventFocus *ev)
-{ hauptfenster->getWerte().setNameC(entry_nameC->get_text());  
-  hauptfenster->set_title(hauptfenster->getWerte().Name_Abenteurer());
+{ hauptfenster->setNameC(entry_nameC->get_text());  
+  hauptfenster->set_title(hauptfenster->Name_Abenteurer());
   return false; 
 }
 
 void table_grundwerte::on_entry_nameS_activate()
 { entry_version->grab_focus(); }
 bool table_grundwerte::on_entry_nameS_focus_out_event(GdkEventFocus *ev)
-{ hauptfenster->getWerte().setNameS(entry_nameS->get_text()); return false;}
+{ hauptfenster->setNameS(entry_nameS->get_text()); return false;}
 
 void table_grundwerte::on_entry_version_activate()
 {  entry_bezeichnung->grab_focus();}
 bool table_grundwerte::on_entry_version_focus_out_event(GdkEventFocus *ev)
-{  hauptfenster->getWerte().setVersion(entry_version->get_text()); return false;}
+{  hauptfenster->setVersion(entry_version->get_text()); return false;}
 
 void table_grundwerte::on_entry_bezeichnung_activate()
 { entry_herkunft->grab_focus();}
 bool table_grundwerte::on_entry_bezeichnung_focus_out_event(GdkEventFocus *ev)
-{  hauptfenster->getWerte().setBezeichnung(entry_bezeichnung->get_text());return false;}
+{  hauptfenster->setBezeichnung(entry_bezeichnung->get_text());return false;}
 
 void table_grundwerte::on_entry_spezialisierung_activate()
 { entry_merkmale->grab_focus();}
 bool table_grundwerte::on_entry_spezialisierung_focus_out_event(GdkEventFocus *ev)
-{  hauptfenster->getWerte().setSpezialisierung(entry_spezialisierung->get_text());return false;}
+{  hauptfenster->setSpezialisierung(entry_spezialisierung->get_text());return false;}
 
 void table_grundwerte::on_entry_merkmale_activate()
 { spinbutton_grad->grab_focus();}
 bool table_grundwerte::on_entry_merkmale_focus_out_event(GdkEventFocus *ev)
-{  hauptfenster->getWerte().setMerkmale(entry_merkmale->get_text());return false;}
+{  hauptfenster->setMerkmale(entry_merkmale->get_text());return false;}
 
 void table_grundwerte::on_entry_glaube_activate()
 { entry_spezialisierung->grab_focus();}
 bool table_grundwerte::on_entry_glaube_focus_out_event(GdkEventFocus *ev)
-{  hauptfenster->getWerte().setGlaube(entry_glaube->get_text());return false;}
+{  hauptfenster->setGlaube(entry_glaube->get_text());return false;}
 
 void table_grundwerte::on_entry_herkunft_activate()
 { entry_glaube->grab_focus();}
 bool table_grundwerte::on_entry_herkunft_focus_out_event(GdkEventFocus *ev)
-{  hauptfenster->getWerte().setHerkunft(cH_Land(entry_herkunft->get_text(),true)); return false;}
+{  hauptfenster->setHerkunft(cH_Land(entry_herkunft->get_text(),true)); return false;}
 
 
 
@@ -110,97 +110,97 @@ void table_grundwerte::on_spinbutton_grad_activate()
 }
 bool table_grundwerte::on_spinbutton_grad_focus_out_event(GdkEventFocus *ev)
 {  spinbutton_grad->update(); 
-   hauptfenster->getWerte().setGrad(spinbutton_grad->get_value_as_int()); 
-   hauptfenster->getWerte().set_Grad_Basiswerte(hauptfenster->getWerte().Grad());
-   int mingfp=hauptfenster->getDatabase().GradAnstieg.getGFP_for(Grad_anstieg::Grad_,hauptfenster->getWerte());
+   hauptfenster->setGrad(spinbutton_grad->get_value_as_int()); 
+   hauptfenster->set_Grad_Basiswerte(hauptfenster->Grad());
+   int mingfp=Datenbank.GradAnstieg.getGFP_for(Grad_anstieg::Grad_,hauptfenster->getWerte());
    spinbutton_gfp->update();
-   if (mingfp>spinbutton_gfp->get_value_as_int()) { hauptfenster->getWerte().setGFP(mingfp); }
+   if (mingfp>spinbutton_gfp->get_value_as_int()) { hauptfenster->setGFP(mingfp); }
    return false; 
 }
 
 void table_grundwerte::on_spinbutton_lp_activate()
 { spinbutton_ap->grab_focus();}
 bool table_grundwerte::on_spinbutton_lp_focus_out_event(GdkEventFocus *ev)
-{ spinbutton_lp->update();  hauptfenster->getWerte().setLP(spinbutton_lp->get_value_as_int()); return false;}
+{ spinbutton_lp->update();  hauptfenster->setLP(spinbutton_lp->get_value_as_int()); return false;}
 
 void table_grundwerte::on_spinbutton_ap_activate()
 { spinbutton_alter->grab_focus();}
 bool table_grundwerte::on_spinbutton_ap_focus_out_event(GdkEventFocus *ev)
-{  spinbutton_ap->update();  hauptfenster->getWerte().setAP(spinbutton_ap->get_value_as_int()); return false;}
+{  spinbutton_ap->update();  hauptfenster->setAP(spinbutton_ap->get_value_as_int()); return false;}
 
 
 void table_grundwerte::on_spinbutton_Cgewicht_activate()
 { spinbutton_groesse->grab_focus();}
 bool table_grundwerte::on_spinbutton_Cgewicht_focus_out_event(GdkEventFocus *ev)
-{ spinbutton_Cgewicht->update();  hauptfenster->getWerte().setGewicht(spinbutton_Cgewicht->get_value_as_int()); zeige_werte();return false;}
+{ spinbutton_Cgewicht->update();  hauptfenster->setGewicht(spinbutton_Cgewicht->get_value_as_int()); zeige_werte();return false;}
 
 void table_grundwerte::on_spinbutton_groesse_activate()
 { spinbutton_tage->grab_focus();}
 bool table_grundwerte::on_spinbutton_groesse_focus_out_event(GdkEventFocus *ev)
-{ spinbutton_groesse->update();   hauptfenster->getWerte().setGroesse(spinbutton_groesse->get_value_as_int()); zeige_werte();return false;}
+{ spinbutton_groesse->update();   hauptfenster->setGroesse(spinbutton_groesse->get_value_as_int()); zeige_werte();return false;}
 
 void table_grundwerte::on_spinbutton_alter_activate()
 { spinbutton_Cgewicht->grab_focus();}
 bool table_grundwerte::on_spinbutton_alter_focus_out_event(GdkEventFocus *ev)
-{ spinbutton_alter->update();  hauptfenster->getWerte().setAlter(spinbutton_alter->get_value_as_int()); return false;}
+{ spinbutton_alter->update();  hauptfenster->setAlter(spinbutton_alter->get_value_as_int()); return false;}
 
 void table_grundwerte::on_spinbutton_tage_activate()
 { spinbutton_gg->grab_focus();}
 bool table_grundwerte::on_spinbutton_tage_focus_out_event(GdkEventFocus *ev)
-{ spinbutton_tage->update(); hauptfenster->getWerte().setSteigertage(spinbutton_tage->get_value_as_int()); return false;}
+{ spinbutton_tage->update(); hauptfenster->setSteigertage(spinbutton_tage->get_value_as_int()); return false;}
 
 void table_grundwerte::on_spinbutton_gg_activate()
 { spinbutton_sg->grab_focus();}
 bool table_grundwerte::on_spinbutton_gg_focus_out_event(GdkEventFocus *ev)
-{ spinbutton_gg->update();  hauptfenster->getWerte().setGG(spinbutton_gg->get_value_as_int()); return false;}
+{ spinbutton_gg->update();  hauptfenster->setGG(spinbutton_gg->get_value_as_int()); return false;}
 
 void table_grundwerte::on_spinbutton_sg_activate()
 { spinbutton_gfp->grab_focus();}
 bool table_grundwerte::on_spinbutton_sg_focus_out_event(GdkEventFocus *ev)
-{ spinbutton_sg->update();  hauptfenster->getWerte().setSG(spinbutton_sg->get_value_as_int()); return false;}
+{ spinbutton_sg->update();  hauptfenster->setSG(spinbutton_sg->get_value_as_int()); return false;}
 
 void table_grundwerte::on_spinbutton_gfp_activate()
 { spinbutton_st->grab_focus();}
 bool table_grundwerte::on_spinbutton_gfp_focus_out_event(GdkEventFocus *ev)
 { 
-  int mingfp=hauptfenster->getDatabase().GradAnstieg.getGFP_for(Grad_anstieg::Grad_,hauptfenster->getWerte());
+  int mingfp=Datenbank.GradAnstieg.getGFP_for(Grad_anstieg::Grad_,hauptfenster->getWerte());
   spinbutton_gfp->update();
   int gfp = spinbutton_gfp->get_value_as_int();
   gfp = ( gfp>mingfp) ? gfp : mingfp ;
-  hauptfenster->getWerte().setGFP(gfp); 
+  hauptfenster->setGFP(gfp); 
   return false;
 }
 
 void table_grundwerte::on_spinbutton_st_activate()
 { spinbutton_gs->grab_focus();}     
 bool table_grundwerte::on_spinbutton_st_focus_out_event(GdkEventFocus *ev)
-{ spinbutton_st->update();  hauptfenster->getWerte().setSt(spinbutton_st->get_value_as_int()); zeige_werte();return false;}     
+{ spinbutton_st->update();  hauptfenster->setSt(spinbutton_st->get_value_as_int()); zeige_werte();return false;}     
 
 void table_grundwerte::on_spinbutton_gw_activate()
 { spinbutton_ko->grab_focus();}     
 bool table_grundwerte::on_spinbutton_gw_focus_out_event(GdkEventFocus *ev)
-{ spinbutton_gw->update();  hauptfenster->getWerte().setGw(spinbutton_gw->get_value_as_int()); zeige_werte();return false;}     
+{ spinbutton_gw->update();  hauptfenster->setGw(spinbutton_gw->get_value_as_int()); zeige_werte();return false;}     
 
 void table_grundwerte::on_spinbutton_gs_activate()
 { spinbutton_gw->grab_focus();}     
 bool table_grundwerte::on_spinbutton_gs_focus_out_event(GdkEventFocus *ev)
-{ spinbutton_gs->update();  hauptfenster->getWerte().setGs(spinbutton_gs->get_value_as_int()); zeige_werte();return false;}     
+{ spinbutton_gs->update();  hauptfenster->setGs(spinbutton_gs->get_value_as_int()); zeige_werte();return false;}     
 
 void table_grundwerte::on_spinbutton_ko_activate()
 { spinbutton_in->grab_focus();}     
 bool table_grundwerte::on_spinbutton_ko_focus_out_event(GdkEventFocus *ev)
-{ spinbutton_ko->update();  hauptfenster->getWerte().setKo(spinbutton_ko->get_value_as_int()); zeige_werte();return false;}     
+{ spinbutton_ko->update();  hauptfenster->setKo(spinbutton_ko->get_value_as_int()); zeige_werte();return false;}     
 
 void table_grundwerte::on_spinbutton_in_activate()
 { spinbutton_zt->grab_focus();}     
 bool table_grundwerte::on_spinbutton_in_focus_out_event(GdkEventFocus *ev)
-{ spinbutton_in->update();  hauptfenster->getWerte().setIn(spinbutton_in->get_value_as_int()); zeige_werte();return false;}     
+{ spinbutton_in->update();  hauptfenster->setIn(spinbutton_in->get_value_as_int()); zeige_werte();return false;}     
 
 void table_grundwerte::on_spinbutton_zt_activate()
 { spinbutton_au->grab_focus(); }     
 bool table_grundwerte::on_spinbutton_zt_focus_out_event(GdkEventFocus *ev)
-{  spinbutton_zt->update();  hauptfenster->getWerte().setZt(spinbutton_zt->get_value_as_int());
-   hauptfenster->getWerte().setSinn("Sechster Sinn",hauptfenster->getWerte().Zt()/25);   
+{  spinbutton_zt->update();  hauptfenster->setZt(spinbutton_zt->get_value_as_int());
+   hauptfenster->setSinn("Sechster Sinn",hauptfenster->Zt()/25);   
    zeige_werte();
    return false;
 }     
@@ -208,27 +208,27 @@ bool table_grundwerte::on_spinbutton_zt_focus_out_event(GdkEventFocus *ev)
 void table_grundwerte::on_spinbutton_sb_activate()
 { spinbutton_wk->grab_focus();}
 bool table_grundwerte::on_spinbutton_sb_focus_out_event(GdkEventFocus *ev)
-{ spinbutton_sb->update();  hauptfenster->getWerte().setSb(spinbutton_sb->get_value_as_int()); return false;}
+{ spinbutton_sb->update();  hauptfenster->setSb(spinbutton_sb->get_value_as_int()); return false;}
 
 void table_grundwerte::on_spinbutton_wk_activate()
 { spinbutton_b->grab_focus();}
 bool table_grundwerte::on_spinbutton_wk_focus_out_event(GdkEventFocus *ev)
-{ spinbutton_wk->update();  hauptfenster->getWerte().setWk(spinbutton_wk->get_value_as_int()); return false;}
+{ spinbutton_wk->update();  hauptfenster->setWk(spinbutton_wk->get_value_as_int()); return false;}
 
 void table_grundwerte::on_spinbutton_au_activate()
 { spinbutton_pa->grab_focus();}
 bool table_grundwerte::on_spinbutton_au_focus_out_event(GdkEventFocus *ev)
-{ spinbutton_au->update();  hauptfenster->getWerte().setAu(spinbutton_au->get_value_as_int()); return false;}
+{ spinbutton_au->update();  hauptfenster->setAu(spinbutton_au->get_value_as_int()); return false;}
 
 void table_grundwerte::on_spinbutton_pa_activate()
 { spinbutton_sb->grab_focus();}   
 bool table_grundwerte::on_spinbutton_pa_focus_out_event(GdkEventFocus *ev)
-{ spinbutton_pa->update();  hauptfenster->getWerte().setpA(spinbutton_pa->get_value_as_int()); return false;}   
+{ spinbutton_pa->update();  hauptfenster->setpA(spinbutton_pa->get_value_as_int()); return false;}   
 
 void table_grundwerte::on_spinbutton_b_activate()
 { button_grda1setzen->grab_focus();} 
 bool table_grundwerte::on_spinbutton_b_focus_out_event(GdkEventFocus *ev)
-{ spinbutton_b->update();   hauptfenster->getWerte().setB(spinbutton_b->get_value_as_int()); return false;} 
+{ spinbutton_b->update();   hauptfenster->setB(spinbutton_b->get_value_as_int()); return false;} 
 
 bool table_grundwerte::on_entry_nameC_focus_in_event(GdkEventFocus *ev)
 { entry_nameC->select_region(0,-1); return false;}
@@ -300,7 +300,7 @@ bool table_grundwerte::on_combo_stand_focus_out_event(GdkEventFocus *ev)
   for(std::vector<std::string>::const_iterator i=Vstand.begin();i!=Vstand.end();++i)
    {
     if(*i==combo_stand->get_entry()->get_text())
-      {  hauptfenster->getWerte().setStand(*i);
+      {  hauptfenster->setStand(*i);
          break;
       }
    }
@@ -318,7 +318,7 @@ bool table_grundwerte::on_combo_hand_focus_out_event(GdkEventFocus *ev)
    {
     if(*i==combo_hand->get_entry()->get_text())
      {
-        hauptfenster->getWerte().setHand(*i);
+        hauptfenster->setHand(*i);
         break;
      }
    }
@@ -370,12 +370,12 @@ void table_grundwerte::midgard_check_werte100()
 {
    if(hauptfenster->getOptionen()->HausregelCheck(Magus_Optionen::Werte100).active)
       return;      
-   int st=hauptfenster->getWerte().St();
-   int gw=hauptfenster->getWerte().Gw();
-   int gs=hauptfenster->getWerte().Gs();
-   int ko=hauptfenster->getWerte().Ko();
-   int in=hauptfenster->getWerte().In();
-   int zt=hauptfenster->getWerte().Zt();
+   int st=hauptfenster->St();
+   int gw=hauptfenster->Gw();
+   int gs=hauptfenster->Gs();
+   int ko=hauptfenster->Ko();
+   int in=hauptfenster->In();
+   int zt=hauptfenster->Zt();
    if (st>100) st=100;
    if (st<1)   st=1;  
    if (gw>100) gw=100;
@@ -388,13 +388,13 @@ void table_grundwerte::midgard_check_werte100()
    if (in<1)   in=1;  
    if (zt>100) zt=100;
    if (zt<1)   zt=1;  
-   hauptfenster->getWerte().setBasiswerte(st,gw,gs,ko,in,zt);
+   hauptfenster->setBasiswerte(st,gw,gs,ko,in,zt);
 
 
-   int au=hauptfenster->getWerte().Au();
-   int pa=hauptfenster->getWerte().pA();
-   int sb=hauptfenster->getWerte().Sb();
-   int wk=hauptfenster->getWerte().Wk();
+   int au=hauptfenster->Au();
+   int pa=hauptfenster->pA();
+   int sb=hauptfenster->Sb();
+   int wk=hauptfenster->Wk();
    if (au>100) au=100;
    if (au<1)   au=1;  
    if (pa>100) pa=100;
@@ -403,6 +403,6 @@ void table_grundwerte::midgard_check_werte100()
    if (sb<1)   sb=1;  
    if (wk>100) wk=100;
    if (wk<1)   wk=1;  
-   hauptfenster->getWerte().setAbgeleitetewerte_small(au,pa,sb,wk);
+   hauptfenster->setAbgeleitetewerte_small(au,pa,sb,wk);
 }
  

@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.18 2003/07/18 06:38:01 christof Exp $
+// $Id: xml.cc,v 1.19 2003/09/01 06:47:57 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2003 Christof Petig
  *

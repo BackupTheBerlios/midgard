@@ -50,8 +50,8 @@ void Fertigkeit_angeborene::get_Fertigkeit(const Tag &t)
 
 int Fertigkeit_angeborene::FErfolgswert(const Abenteurer &a,const MBEmlt &mbem) const
 {
-  if(Name()=="Trinken") return mbem->Erfolgswert()+a.getWerte().Ko()/10;
-  if(Name()=="Berserkergang") return mbem->Erfolgswert()-a.getWerte().Wk()/5;
+  if(Name()=="Trinken") return mbem->Erfolgswert()+a.Ko()/10;
+  if(Name()=="Berserkergang") return mbem->Erfolgswert()-a.Wk()/5;
   return mbem->Erfolgswert();
 }
 

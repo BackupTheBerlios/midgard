@@ -1,4 +1,4 @@
-// $Id: table_lernschema_kido.cc,v 1.16 2002/12/12 11:20:14 christof Exp $
+// $Id: table_lernschema_kido.cc,v 1.17 2003/09/01 06:47:58 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,17 +24,18 @@
 #include "class_SimpleTree.hh"
 #include <Misc/itos.h>
 #include "midgard_CG.hh"
+#include <libmagus/Ausgabe.hh>
 
 void table_lernschema::on_kido_wahl_clicked()
 {
    if(!button_kido_auswahl->get_active()) return;
    KiDo_Stile kido_stil;
-   if(!kido_stil.ist_gelernt(hauptfenster->getWerte().Spezialisierung()))
+   if(!kido_stil.ist_gelernt(vabenteurer->getAbenteurer().Spezialisierung()))
     {
-      hauptfenster->set_status("Erst eine Technik wählen\n");
+      Ausgabe(Ausgabe::Error,"Erst eine Technik wählen");
       return;
     }
-   hauptfenster->getChar()->List_Kido().clear();
+   vabenteurer->getAbenteurer().List_Kido().clear();
    fill_kido_lernschema();
 }
 
@@ -42,27 +43,27 @@ void table_lernschema::fill_kido_lernschema()
 {
   clean_lernschema_trees();
   scrolledwindow_lernen->remove();
-  if(maxkido==0) return;
-  else if(maxkido==1) label_lernschma_titel->set_text(itos(maxkido)+" KiDo-Technik auswählen");
-  else label_lernschma_titel->set_text(itos(maxkido)+" KiDo-Techniken auswählen");
+  if(!vabenteurer->getLernpunkte().MaxKido()) return;
+  else if(vabenteurer->getLernpunkte().MaxKido()==1) label_lernschma_titel->set_text(itos(vabenteurer->getLernpunkte().MaxKido())+" KiDo-Technik auswählen");
+  else label_lernschma_titel->set_text(itos(vabenteurer->getLernpunkte().MaxKido())+" KiDo-Techniken auswählen");
   tree_kido_lernschema = manage(new MidgardBasicTree(MidgardBasicTree::KIDO_NEU));
   tree_kido_lernschema->signal_leaf_selected().connect(SigC::slot(*static_cast<class table_lernschema*>(this), &table_lernschema::on_tree_kido_lernschema_leaf_selected));
 
   std::list<MBEmlt> newlist;
   KiDo_Stile kido_stil;
-  for(std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getDatabase().Kido.begin();i!=hauptfenster->getDatabase().Kido.end();++i)
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=Datenbank.Kido.begin();i!=Datenbank.Kido.end();++i)
    {
      cH_KiDo kd(*i);
      if(kd->Stufe()!="Schüler") continue;
-     if (kido_stil.ist_hart(hauptfenster->getWerte().Spezialisierung()))
+     if (kido_stil.ist_hart(vabenteurer->getAbenteurer().Spezialisierung()))
          if(kido_stil.ist_sanft(kd->Stil())) continue;
-     if (kido_stil.ist_sanft(hauptfenster->getWerte().Spezialisierung()))
+     if (kido_stil.ist_sanft(vabenteurer->getAbenteurer().Spezialisierung()))
          if(kido_stil.ist_hart(kd->Stil())) continue;
-     if (MBEmlt(&*kd)->ist_gelernt(hauptfenster->getChar()->List_Kido())) continue ;
+     if (MBEmlt(&*kd)->ist_gelernt(vabenteurer->getAbenteurer().List_Kido())) continue ;
      newlist.push_back(MBEmlt(*i));                                     
    }
 
-  MidgardBasicElement::show_list_in_tree(newlist,tree_kido_lernschema,hauptfenster);
+  MidgardBasicTree::show_list_in_tree(newlist,tree_kido_lernschema,&vabenteurer->getAbenteurer());
   scrolledwindow_lernen->show();
   tree_kido_lernschema->show();
   scrolledwindow_lernen->add(*tree_kido_lernschema);
@@ -72,9 +73,9 @@ void table_lernschema::on_tree_kido_lernschema_leaf_selected(cH_RowDataBase d)
 {
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE()->getMBE();
-  hauptfenster->getChar()->List_Kido().push_back(MBE);
-  --maxkido;
-  hauptfenster->undosave(MBE->Name()+" gelernt");
+  vabenteurer->getAbenteurer().List_Kido().push_back(MBE);
+  --vabenteurer->getLernpunkte().MaxKido();
+  vabenteurer->undosave(MBE->Name()+" gelernt");
   fill_kido_lernschema();
   show_gelerntes();      
 }
@@ -92,8 +93,8 @@ bool table_lernschema::on_combo_kido_stil_focus_out_event(GdkEventFocus *ev)
    {
      if(*i==combo_kido_stil->get_entry()->get_text())
       {
-        hauptfenster->getWerte().setSpezialisierung(*i);                
-        if(hauptfenster->getWerte().Grad()==1) button_kido_auswahl->set_sensitive(true);
+        vabenteurer->getAbenteurer().setSpezialisierung(*i);                
+        if(vabenteurer->getAbenteurer().Grad()==1) button_kido_auswahl->set_sensitive(true);
         break;
       }
    }

@@ -24,9 +24,6 @@
 
 class window_Ausruestung : public window_Ausruestung_glade
 {   
-        Datenbank Database;
-        
-        friend class window_Ausruestung_glade;
         void fill_preisliste();
         void fill_optionmenu_art();
         void fill_optionmenu_typ();
@@ -36,6 +33,6 @@ class window_Ausruestung : public window_Ausruestung_glade
         void on_button_druck_clicked();
         void on_clist_preisliste_select_row(gint row, gint column, GdkEvent *event); 
    public:
-        window_Ausruestung(const Datenbank& dat);
+        window_Ausruestung();
 };
 #endif

@@ -70,8 +70,8 @@ int Sprache::Kosten(const Abenteurer& A) const
 
 int Sprache::MaxErfolgswert(const Abenteurer& A) const
 {
-  if (A.getWerte().In() < 31) return (11>maxwert ? maxwert : 11); 
-  if (A.getWerte().In() < 61) return (18>maxwert ? maxwert : 18); 
+  if (A.In() < 31) return (11>maxwert ? maxwert : 11); 
+  if (A.In() < 61) return (18>maxwert ? maxwert : 18); 
 
   int ab= cH_Fertigkeit("Sprache")->MaxErfolgswert(A);
   if(maxwert==20) return ab;
@@ -210,7 +210,7 @@ bool Sprache::ist_erlaubt(const Abenteurer& A,bool nachbarland) const
 {
   if(nachbarland)
    {
-     std::vector<std::string> L=A.getWerte().Herkunft()->Nachbarlaender();
+     std::vector<std::string> L=A.Herkunft()->Nachbarlaender();
      for(std::vector<std::string>::const_iterator i=L.begin();i!=L.end();++i)
       {
         std::vector<std::string> V=cH_Land(*i)->Sprachen();
@@ -220,9 +220,9 @@ bool Sprache::ist_erlaubt(const Abenteurer& A,bool nachbarland) const
    }
   else
    {
-     std::vector<std::string> V=A.getWerte().Spezies()->getVSprache();
+     std::vector<std::string> V=A.Spezies()->getVSprache();
      if(V.empty()) // Keine Sprachenvorgabe aufgrund der Spezies
-         V=A.getWerte().Herkunft()->Sprachen();
+         V=A.Herkunft()->Sprachen();
      if(find(V.begin(),V.end(),Name())!=V.end()) return true;
    }
   return false;

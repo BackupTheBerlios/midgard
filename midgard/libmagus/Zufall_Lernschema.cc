@@ -67,8 +67,8 @@ void Zufall::setSpezialwaffe()
    }
   if(V.empty()) return;
   int i=Random::integer(0,V.size()-1);
-  Aben.getWerte().setSpezialisierung((*V[i])->Name());      
-  Waffe::setSpezialWaffe(Aben.getWerte().Spezialisierung(),Aben.List_Waffen());
+  Aben.setSpezialisierung((*V[i])->Name());      
+  Waffe::setSpezialWaffe(Aben.Spezialisierung(),Aben.List_Waffen());
 }
 
 void Zufall::setSpezialgebiet()
@@ -77,7 +77,7 @@ void Zufall::setSpezialgebiet()
   std::vector<std::string> V=LL.getSpezialgebiet(Aben);
   if(V.empty()) return;
   int i=Random::integer(0,V.size()-1);
-  Aben.getWerte().setSpezialgebiet(cH_Spezialgebiet(V[i]));
+  Aben.setSpezialgebiet(cH_Spezialgebiet(V[i]));
 }
 
 
@@ -162,9 +162,9 @@ reloop:
      if((*M)->What()==MidgardBasicElement::FERTIGKEIT) 
        {  cH_Fertigkeit((*M).getMBE())->get_region_lp(lp,Aben); 
           if ((*M)->Name()=="Muttersprache")
-             Sprache::setErfolgswertMuttersprache(M,Aben.getWerte().In(),cH_Fertigkeit(M->getMBE())->AttributBonus(Aben.getWerte()));
+             Sprache::setErfolgswertMuttersprache(M,Aben.In(),cH_Fertigkeit(M->getMBE())->AttributBonus(Aben));
           else if((*M)->Name()=="Gastlandsprache")
-             Sprache::setErfolgswertGastlandsprache(M,Aben.getWerte().In());
+             Sprache::setErfolgswertGastlandsprache(M,Aben.In());
        }
 
      // Fertigkeit/Zauber mit Zusätzen
@@ -271,7 +271,7 @@ MBEmlt Zufall::getZusatz(MidgardBasicElement::eZusatz was,MBEmlt& MBE,bool nachb
   if(was==MidgardBasicElement::ZLand && (*MBE)->Name()=="Landeskunde (Heimat)")
    {
      Mtmp=MBEmlt(&*cH_Fertigkeit("Landeskunde"));
-     Mtmp->setZusatz(Aben.getWerte().Herkunft()->Name());
+     Mtmp->setZusatz(Aben.Herkunft()->Name());
      MBE->setLernArt(MBE->LernArt()+"_Heimat");
    }
   if(was==MidgardBasicElement::ZSprache)

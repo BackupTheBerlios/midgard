@@ -22,7 +22,8 @@
 #include "Schrift.hh"
 #include "LernListen.hh"
 #include "class_SimpleTree.hh"
-
+#include <libmagus/Ausgabe.hh>
+#include <libmagus/NotFound.h>
 
 void table_steigern::schriften_zeigen()
 {
@@ -33,15 +34,14 @@ void table_steigern::schriften_zeigen()
 
 void table_steigern::alte_schrift_zeigen()
 {
-  MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Schrift(),alte_schrift_tree,hauptfenster);
+  MidgardBasicTree::show_list_in_tree(hauptfenster->getChar()->List_Schrift(),alte_schrift_tree,&hauptfenster->getChar().getAbenteurer());
 }
 
 void table_steigern::neue_schrift_zeigen()
 {
-  Abenteurer &A=hauptfenster->getAben();
-  bool nsc=hauptfenster->MOptionen->OptionenCheck(Magus_Optionen::NSC_only).active;
-  list_Schrift_neu=LL->get_steigern_MBEm(A,Enums::sSchr,nsc);
-  MidgardBasicElement::show_list_in_tree(list_Schrift_neu,neue_schrift_tree,hauptfenster);
+  Abenteurer &A=hauptfenster->getChar().getAbenteurer();
+  list_Schrift_neu=LL->get_steigern_MBEm(A,Enums::sSchr);
+  MidgardBasicTree::show_list_in_tree(list_Schrift_neu,neue_schrift_tree,&A);
 }
 
 void table_steigern::sprachen_zeigen()
@@ -53,15 +53,14 @@ void table_steigern::sprachen_zeigen()
 
 void table_steigern::alte_sprache_zeigen()
 {
-  MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Sprache()    ,alte_sprache_tree,hauptfenster);
+  MidgardBasicTree::show_list_in_tree(hauptfenster->getChar()->List_Sprache()    ,alte_sprache_tree,&hauptfenster->getChar().getAbenteurer());
 }
 
 void table_steigern::neue_sprache_zeigen()
 {   
-  Abenteurer &A=hauptfenster->getAben();
-  bool nsc=hauptfenster->MOptionen->OptionenCheck(Magus_Optionen::NSC_only).active;
-  list_Sprache_neu=LL->get_steigern_MBEm(A,Enums::sSpra,nsc);
-   MidgardBasicElement::show_list_in_tree(list_Sprache_neu,neue_sprache_tree,hauptfenster);
+  Abenteurer &A=hauptfenster->getChar().getAbenteurer();
+  list_Sprache_neu=LL->get_steigern_MBEm(A,Enums::sSpra);
+   MidgardBasicTree::show_list_in_tree(list_Sprache_neu,neue_sprache_tree,&hauptfenster->getChar().getAbenteurer());
 //  on_schrift_laden_clicked();
 }   
 
@@ -94,7 +93,7 @@ void table_steigern::on_alte_sprache_reorder()
   switch((Data_SimpleTree::Spalten_LONG_ALT)seq[0]) {
       case Data_SimpleTree::NAMEa : hauptfenster->getChar()->List_Sprache().sort(MBEmlt::sort(MBEmlt::sort::NAME)); ;break;
       case Data_SimpleTree::WERTa : hauptfenster->getChar()->List_Sprache().sort(MBEmlt::sort(MBEmlt::sort::ERFOLGSWERT)); ;break;
-      default : hauptfenster->set_status("Sortieren nach diesem Parameter\n ist nicht möglich");
+      default : Ausgabe(Ausgabe::Error,"Sortieren nach diesem Parameter ist nicht möglich");
    }
 }
 
@@ -130,7 +129,7 @@ void table_steigern::neue_schrift_wegen_sprache()
         cH_Schrift s(*j);
         MBEmlt m(&*s);
         if(m->ist_gelernt(hauptfenster->getChar()->List_Schrift())) continue;
-        std::list<cH_MidgardBasicElement> gS=s->gleicheSchrift(hauptfenster->getCDatabase().Schrift);
+        std::list<cH_MidgardBasicElement> gS=s->gleicheSchrift(Datenbank.Schrift);
         for(std::list<cH_MidgardBasicElement>::const_iterator k=gS.begin();k!=gS.end();++k)
          {
            if(s->Name()!=(*k)->Name()) continue;
@@ -142,7 +141,7 @@ void table_steigern::neue_schrift_wegen_sprache()
               hauptfenster->getChar()->List_Schrift().push_back(S); 
             }
          }
-        }catch(NotFound) {hauptfenster->set_status("FEHLER: Schrift "+*j+" ist unbekannt.");}
+        }catch(NotFound) {Ausgabe(Ausgabe::Error,"Schrift "+*j+" ist unbekannt.");}
       }
    }  
 }

@@ -1,4 +1,4 @@
-// $Id: import_common.h,v 1.1 2001/11/14 08:19:43 christof Exp $
+// $Id: import_common.h,v 1.2 2003/09/01 06:47:59 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *

@@ -1,14 +1,3 @@
-// generated 2002/5/16 18:55:17 CEST by thoma@Tiger.(none)
-// using glademm V0.6.4b_cvs
-//
-// newer (non customized) versions of this file go to table_lernschema.hh_new
-
-// you might replace
-//    class foo : public foo_glade { ... };
-// by
-//    typedef foo_glade foo;
-// if you didn't make any modifications to the widget
-
 #ifndef _TABLE_LERNSCHEMA_HH
 #  include "table_lernschema_glade.hh"
 #  define _TABLE_LERNSCHEMA_HH
@@ -17,21 +6,21 @@
 #include "MidgardBasicElement.hh"
 class VAbenteurer;
 class AusruestungBaum;
+class midgard_CG;
 //#include "Waffe.hh"
 //#include "Beruf.hh"
 #include <libmagus/AbenteurerLernpunkte.hh>
 
 class table_lernschema : public table_lernschema_glade
 {  
-        friend class table_lernschema_glade;
-        friend class table_grundwerte;
-        friend class midgard_CG;  
-        friend class Zufall;
-
-
-        VAbenteurer *hauptfenster; 
+//public:
+	enum GWR_Auswahl {ENone,EGeld1,EGeld2,EGeld3,EWaffen,ERuestung};
+private:
+        VAbenteurer *vabenteurer;
+        midgard_CG *hauptfenster;
         // AbenteurerLernpunkte abent_lernpunkte;
         
+        GWR_Auswahl gwr_auswahl;
         std::list<std::string> list_FertigkeitZusaetze;
         WaffeBesitzLernen waffebesitzlernen;
         MidgardBasicTree *tree_lernschema;
@@ -40,7 +29,6 @@ class table_lernschema : public table_lernschema_glade
         MidgardBasicTree *tree_kido_lernschema;
         MidgardBasicTree *tree_waffen_lernschema;
         std::list<MBEmlt> list_Fertigkeit_ang_neu;                                        
-        AbenteurerLernpunkte::GWR_Auswahl gwr_auswahl;
         std::vector<cH_RowDataBase> datavec_zusatz;
         
 private:
@@ -110,7 +98,7 @@ public:
           : table_lernschema_glade(_data), hauptfenster(),
           tree_lernschema(),Beruf_tree(),tree_angeb_fert(),tree_kido_lernschema(),
             tree_waffen_lernschema() {}
-        void init(VAbenteurer *hauptfenster);
+        void init(midgard_CG *hauptfenster);
 
       // Ab hier die automatischen Methoden von glade erzeugt
 private:

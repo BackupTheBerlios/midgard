@@ -3,6 +3,21 @@ NEU in Version 0.9.0
 - Wechsel nach gtk+ 2.0 und gtkmm 2.0 (neuere Bibliotheken)
 - Icons in eigene (auswechselbare) DLL
 - Bilder sind jetzt im Hintergrund (statt neben den Elementen)
+- Neuorganisation mit libmagus:
+	weniger tiefe hauptfenster-> Verschachtelungen (VAbenteurer müsste
+			nun fast überall ausreichen)
+	Trennung der Oberfläche und (eines Teils) der Logik
+	Ausdruck, Laden der Regeltabellen usw. ist jetzt ohne Oberfläche
+		möglich
+	die Programmoptionen, Pfade etc sind nun sehr früh verfügbar (nicht
+		erst nachdem alles geladen wurde)
+	aktive Regionen und einige Optionen sind jetzt Abenteurerabhängig
+		(wurden früher bereits in .magus gespeichert und sind jetzt
+			auch in der Struktur verfügbar)
+	neue globale/statische Variablen: magus_paths, Datenbank,
+		Programmoptionen
+	Ausgabenklasse mit UTF8->ISO Wandlung und History, vereinheitlicht
+	Abenteurer ist von Grundwerte abgeleitet
 
 ###################################################################
 durch merge:
@@ -29,3 +44,4 @@ TODO
 - alle Ausdrucke unter Windows testen
 - wrapfig for Windows für Grafik in Beschreibung
 - abspeichern der Reihenfolge/Wahl in ChoiceButtons
+- GlobalOptions nach xml portieren

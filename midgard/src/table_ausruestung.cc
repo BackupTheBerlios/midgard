@@ -24,6 +24,7 @@
 #include <fstream>
 #include <Misc/itos.h>
 #include "dtos1.h"
+#include <libmagus/Ausgabe.hh>
 
 void table_ausruestung::init(midgard_CG *h)
 {
@@ -36,9 +37,9 @@ void table_ausruestung::init(midgard_CG *h)
    togglebutton_artikel_neu->set_active(false);
    togglebutton_gruppe_neu->set_active(false); 
 //   togglebutton_gruppe_neu->hide();//
-   label_normallast->set_text(itos(h->getAben().getNormallast())+" kg");
-   label_hoechstlast->set_text(itos(h->getAben().getHoechstlast())+" kg");
-   label_schublast->set_text(itos(h->getAben().getSchublast())+" kg");
+   label_normallast->set_text(itos(hauptfenster->getChar()->getNormallast())+" kg");
+   label_hoechstlast->set_text(itos(hauptfenster->getChar()->getHoechstlast())+" kg");
+   label_schublast->set_text(itos(hauptfenster->getChar()->getSchublast())+" kg");
    fill_new_preise();
    fill_all_Combos_Art_Einheit_Region();
    fill_all_Combo_Art2();
@@ -54,7 +55,7 @@ void table_ausruestung::ausruestung_laden()
 
 void table_ausruestung::showAusruestung()
 {
-  hauptfenster->getAben().setStandardAusruestung();
+  hauptfenster->getChar().getAbenteurer().setStandardAusruestung();
 
   besitz=0;
   std::vector<std::string> title;
@@ -83,7 +84,7 @@ void table_ausruestung::showAusruestung()
   Ausruestung_tree->get_selection()->signal_changed().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_Ausruestung_tree_select_row));
 //  Ausruestung_tree->signal_tree_unselect_row().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_Ausruestung_tree_unselect_row));
   button_ausruestung_loeschen->set_sensitive(false);
-  label_gesamtlast->set_text(dtos1(hauptfenster->getAben().getBelastung("Körper"))+" kg");
+  label_gesamtlast->set_text(dtos1(hauptfenster->getChar().getAbenteurer().getBelastung("Körper"))+" kg");
 }
 
 
@@ -106,7 +107,7 @@ bool table_ausruestung::tree_valid(const Glib::RefPtr<Gtk::TreeSelection> &selec
 { Gtk::TreeIter i= selectionList->get_selected();
   if(i==m_refStore->children().end())
    {
-      std::cout<< "Keine oder zuviel Zeile(n) gewählt\n";
+      Ausgabe(Ausgabe::Debug,"Keine oder zuviel Zeile(n) gewählt");
       button_ausruestung_loeschen->set_sensitive(true);
       return false;
    }
@@ -144,7 +145,7 @@ void table_ausruestung::on_ausruestung_loeschen_clicked()
   if(!besitz) return;
   AusruestungBaum *Parent = besitz->getParent();
   if(Parent)  Parent->remove(*besitz);  
-  else std::cerr << "Keine Herkunftsnode gesetzt\n";
+  else Ausgabe(Ausgabe::Error,"Keine Herkunftsnode gesetzt");
 
 /*
   Gtk::CTree_Helpers::Row parent = selectionList.begin()->get_parent();  
@@ -166,9 +167,9 @@ void table_ausruestung::on_checkbutton_ausruestung_geld_toggled()
 
 void table_ausruestung::zeige_werte()
 {
-  label_golda->set_text(itos(hauptfenster->getWerte().Gold()));
-  label_silbera->set_text(itos(hauptfenster->getWerte().Silber()));
-  label_kupfera->set_text(itos(hauptfenster->getWerte().Kupfer()));
+  label_golda->set_text(itos(hauptfenster->getChar().getAbenteurer().Gold()));
+  label_silbera->set_text(itos(hauptfenster->getChar().getAbenteurer().Silber()));
+  label_kupfera->set_text(itos(hauptfenster->getChar().getAbenteurer().Kupfer()));
 }
 
 void table_ausruestung::on_togglebutton_artikel_neu_toggled()
@@ -227,7 +228,7 @@ void table_ausruestung::fill_all_Combos_Art_Einheit_Region()
   std::list<std::string> LArt;
   std::list<std::string> LEinheit;
   std::list<std::string> LRegion;
-  std::list<cH_Preise> P=hauptfenster->getCDatabase().preise; 
+  std::list<cH_Preise> P=Datenbank.preise; 
   LRegion.push_back("Eigene Erweiterung");
   for(std::list<cH_Preise>::const_iterator i=P.begin();i!=P.end();++i)
    {
@@ -249,7 +250,7 @@ bool table_ausruestung::fill_all_Combo_Art2()
 {
   std::string art=combo_art->get_entry()->get_text();
   std::list<std::string> LArt2;
-  std::list<cH_Preise> P=hauptfenster->getCDatabase().preise; 
+  std::list<cH_Preise> P=Datenbank.preise; 
   for(std::list<cH_Preise>::const_iterator i=P.begin();i!=P.end();++i)
    {
      if(art==(*i)->Art())
@@ -356,11 +357,12 @@ void table_ausruestung::save_new_arikel()
 
   std::string region="EE";
   try{
-  Preise::saveArtikel("",hauptfenster,
+  Preise::saveArtikel("",
                       art,art2,name,preis,einheit,gewicht,region,beschreibung);
-  hauptfenster->getDatabase().preise.push_back(cH_Preise(name));
+#warning Anlegen von neuen Artikeln                      
+//  Datenbank.preise.push_back(cH_Preise(name));
   fill_new_preise();
-  }catch(std::exception &e) {std::cerr << e.what()<<'\n';}
+  }catch(std::exception &e) {Ausgabe(Ausgabe::Error,e.what());}
   ausruestung_laden();
 // table_artikel->hide();
 }

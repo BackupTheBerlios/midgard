@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.61 2003/07/16 06:29:34 christof Exp $
+// $Id: WindowInfo.cc,v 1.62 2003/09/01 06:47:58 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -16,13 +16,6 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
-
-// generated 2001/2/27 13:32:15 CET by thoma@ig23.
-// using glademm V0.5_11f_cvs
-//
-// newer (non customized) versions of this file go to WindowInfo.cc_new
-
-// This file is for your program, I won't touch it again!
 
 #include "config.h"
 #include "WindowInfo.hh"
@@ -139,7 +132,7 @@ void WindowInfo::Flush(int anzahl)
   os.flush();
   LogWin->scroll();
 
-  if(!hauptfenster->MOptionen->OberCheck(Magus_Optionen::NoInfoFenster).active)
+  if(!Programmoptionen.OberCheck(Magus_Optionen::NoInfoFenster).active)
      show();
   if (Modus==None || Modus==Autoclean) bestaetigen(false) ;
 //  else if (Modus==PraxisPunkteMBE) auswahl(anzahl);

@@ -1,4 +1,4 @@
-// $Id: MidgardBasicTree.hh,v 1.10 2002/12/12 08:41:18 christof Exp $
+// $Id: MidgardBasicTree.hh,v 1.11 2003/09/01 06:47:58 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,7 +23,11 @@
 #ifndef _MIDGARDBASICTREE_HH
 #  define _MIDGARDBASICTREE_HH 
 
+#include <libmagus/MidgardBasicElement.hh>
 #include <SimpleTree.hh>
+class midgard_CG;
+class Abenteurer;
+#include <Misc/compiler_ports.h>
 
 class MidgardBasicTree : public SimpleTree
 {
@@ -38,7 +42,11 @@ class MidgardBasicTree : public SimpleTree
       void set_tree_titles(variante V);
       static int Attr(variante V) {return Cols(V);}
       static int Cols(variante V);
-      
+  public:
+      static void show_list_in_tree(
+            const std::list<MBEmlt>& BasicList,
+            SimpleTree *Tree, const Abenteurer *a);
+//            bool clear_me=true);
 };
 
 #endif

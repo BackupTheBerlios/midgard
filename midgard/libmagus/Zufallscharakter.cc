@@ -31,6 +31,8 @@
 #include "spielleiter_export.hh"
 //#include "Magus_Optionen.hh"
 #include "libmagus.hh"
+#include "zufall_steigern.hh"
+#include "Random.hh"
 
 void progress(double d)
 {  Ausgabe(Ausgabe::Log, "Progress " +itos(int(d*100))+ "%");
@@ -38,6 +40,7 @@ void progress(double d)
 
 int main(int argc,char **argv)
 {  ManuProC::Tracer::Enable(LibMagus::trace_channel,true);
+   Ausgabe::setLogLevel(Ausgabe::Debug);
 //   Datenbank db;
    if (argc>1) TagStream::host_encoding=argv[1];
  try {  
@@ -46,6 +49,9 @@ int main(int argc,char **argv)
    Abenteurer a;
    Zufall z(a);
    z.Voll();
+   
+   zufall_steigern zs;
+   zs.steigern(a,zufall_steigern::GFPvonGrad(Random::integer(1,12)));
    
    { std::ofstream datei("random.magus");
      if (!datei.good()) Ausgabe(Ausgabe::Error,"Kann random.magus nicht beschreiben");

@@ -20,7 +20,8 @@
 #include "midgard_CG.hh"
 #include "Data_NewPreis.hh"
 #include <Misc/mystring.h>
-
+#include <libmagus/Datenbank.hh>
+#include <libmagus/Ausgabe.hh>
 
 double Data_NewPreis::CalKosten() const
 {      
@@ -74,13 +75,13 @@ void table_ausruestung::fill_new_preise()
 {
   std::map<e_spalten,std::string> SpaltenMap;
   std::list<cH_Data_NewPreis> LNP;
-  std::list<cH_Preise>::const_iterator e=hauptfenster->getDatabase().preise.end();
+  std::list<cH_Preise>::const_iterator e=Datenbank.preise.end();
 //cout << "F I L L \n";
-  LernListen LL(hauptfenster->getDatabase());
-  for(std::list<cH_Preise>::const_iterator i=hauptfenster->getDatabase().preise.begin();i!=e;++i)
+  LernListen LL;
+  for(std::list<cH_Preise>::const_iterator i=Datenbank.preise.begin();i!=e;++i)
    {
      if((*i)->Unverkauflich() && !togglebutton_unverkauflich->get_active()) continue;
-     if(LL.region_check((*i)->Region()))
+     if(LL.region_check(hauptfenster->getChar().getAbenteurer(),(*i)->Region()))
          LNP.push_back(new Data_NewPreis(*i));
    }
 //cout << "F I L L 2\t"<<LNP.size()<<'\n';
@@ -130,13 +131,13 @@ bool table_ausruestung::genug_geld(const std::string &_E_,const int kosten) cons
   else if(_E_=="SS") einheit=SS;
   else if(_E_=="KS") einheit=KS;
      
-  Grundwerte &W=hauptfenster->getWerte();
+  Grundwerte &W=hauptfenster->getChar().getAbenteurer();
   int vermoegen=W.Kupfer()+10*W.Silber()+100*W.Gold();
 
   {int k=kosten;
    if(einheit==GS)      k *= 100;
    else if(einheit==SS) k *= 10;
-   if(k>vermoegen) { hauptfenster->set_status("Nicht genug Gold"); 
+   if(k>vermoegen) { Ausgabe(Ausgabe::Error,"Nicht genug Gold"); 
                          return false; }
   }
 gewechselt:
@@ -171,7 +172,7 @@ gewechselt:
         goto gewechselt;                
       }
    }
-  hauptfenster->set_status("Nicht genug Geld");
+  Ausgabe(Ausgabe::Error,"Nicht genug Geld");
   return false;
 }
 
@@ -198,8 +199,8 @@ void table_ausruestung::on_preise_tree_neu_leaf_selected(cH_RowDataBase d)
   
   if(!besitz && dt->Ware()->Art()=="Neu")
    {
-     AusruestungBaum &B=hauptfenster->getAben().getBesitz().push_back(A);
-     B.setParent(&hauptfenster->getAben().getBesitz());     
+     AusruestungBaum &B=hauptfenster->getChar().getAbenteurer().getBesitz().push_back(A);
+     B.setParent(&hauptfenster->getChar().getAbenteurer().getBesitz());     
    }
   else if(besitz)
    {
@@ -207,7 +208,7 @@ void table_ausruestung::on_preise_tree_neu_leaf_selected(cH_RowDataBase d)
      B.setParent(besitz);
    }
   else return;
-  hauptfenster->undosave("Ausrüstung "+dt->Ware()->Name()+" hinzugefügt");
+  hauptfenster->getChar().undosave("Ausrüstung "+dt->Ware()->Name()+" hinzugefügt");
   showAusruestung();
 }
 

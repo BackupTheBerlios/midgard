@@ -155,7 +155,7 @@ std::cout << "IN: "<<data<<" at "<<*adresse<<'\t'<<'\n';
        reinterpret_cast < const unsigned char * > ( data.c_str() ) ,
        data.size() );
 
-   }catch(std::exception &e) {std::cerr << e.what()<<'\n';}   
+   }catch(std::exception &e) {Ausgabe(Ausgabe::Error,e.what());}   
 }
 
 #endif

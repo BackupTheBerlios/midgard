@@ -40,7 +40,7 @@ void midgard_CG::on_button_html_hilfe_clicked()
   std::string pfad="file://"+with_path("index.html",false,false);
   std::string s =MOptionen->getString(Magus_Optionen::html_viewer)+" \""+pfad+"\"";
   if (!WinLux::CreateProcess(s))
-	set_status("Fehler: "+s+" funktioniert nicht",false);
+	Ausgabe(Ausgabe::Error,s+" funktioniert nicht",false);
 }
 
 #warning debug code still here
@@ -199,8 +199,9 @@ void midgard_CG::on_schliessen_CG_clicked()
   if(Char.unsaved_exist())
    {
      notebook_main->set_current_page(PAGE_NEWS);
-     set_status("Es existieren nichtgespeicherte Abenteurer",false);
-     InfoFenster->AppendShow("Es existieren nichtgespeicherte Abenteurer,\n soll das Programm trotzdem beendet werden?",WindowInfo::Exit_ohne_speichern);
+     Ausgabe(Ausgabe::Error,"Es existieren nichtgespeicherte Abenteurer",false);
+#warning dialog     
+//     InfoFenster->AppendShow("Es existieren nichtgespeicherte Abenteurer,\n soll das Programm trotzdem beendet werden?",WindowInfo::Exit_ohne_speichern);
      return;
    }
   on_button_quit_confirm_clicked();
@@ -220,5 +221,5 @@ bool midgard_CG::on_midgard_CG_delete_event(GdkEventAny* event)
 
 void midgard_CG::on_exportieren_ranas_pdf_dokumente_activate()
 {
-  InfoFenster->AppendShow("Noch nicht implementiert");
+  Ausgabe(Ausgabe::Error,"Noch nicht implementiert");
 }

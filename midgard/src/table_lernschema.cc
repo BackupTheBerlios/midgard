@@ -1,9 +1,3 @@
-// generated 2002/5/16 18:55:17 CEST by thoma@Tiger.(none)
-// using glademm V0.6.4b_cvs
-//
-// newer (non customized) versions of this file go to table_lernschema.cc_new
-
-// This file is for your program, I won't touch it again!
 
 #include "config.h"
 #include "table_lernschema.hh"
@@ -16,11 +10,13 @@
 #include "KiDo.hh"
 #include "Sprache.hh"
 #include "LernListen.hh"
+#include <libmagus/Random.hh>
+#include <libmagus/Ausgabe.hh>
 
 void table_lernschema::init(midgard_CG *h)
 {
   hauptfenster=h;
-  maxkido=0;
+  vabenteurer->getLernpunkte().MaxKido()=0;
   gwr_auswahl=ENone;
   show_gelerntes();
   zeige_werte();
@@ -33,20 +29,20 @@ void table_lernschema::init(midgard_CG *h)
 
 void table_lernschema::on_button_waffe_trans_clicked()
 {  
- if(lernpunkte.Waffen()>0)
+ if(vabenteurer->getLernpunkte().getLernpunkte().Waffen()>0)
    {
-     lernpunkte.addWaffen(-1);
-     lernpunkte.addUnge(+1);  
+     vabenteurer->getLernpunkte().getLernpunkte().addWaffen(-1);
+     vabenteurer->getLernpunkte().getLernpunkte().addUnge(+1);  
    }
  zeige_lernpunkte();
 }
 
 void table_lernschema::on_button_fach_trans_clicked()
 {  
-   if(lernpunkte.Fach()>0)
+   if(vabenteurer->getLernpunkte().getLernpunkte().Fach()>0)
    {
-     lernpunkte.addFach(-1);
-     lernpunkte.addUnge(+1);
+     vabenteurer->getLernpunkte().getLernpunkte().addFach(-1);
+     vabenteurer->getLernpunkte().getLernpunkte().addUnge(+1);
    }
  zeige_lernpunkte();
 }
@@ -87,15 +83,15 @@ void table_lernschema::on_spinbutton_zaubern_activate()
 void table_lernschema::set_lernpunkte()
 {
   spinbutton_unge->update();
-  lernpunkte.setUnge(spinbutton_unge->get_value_as_int());
+  vabenteurer->getLernpunkte().getLernpunkte().setUnge(spinbutton_unge->get_value_as_int());
   spinbutton_fach->update();
-  lernpunkte.setFach(spinbutton_fach->get_value_as_int());
+  vabenteurer->getLernpunkte().getLernpunkte().setFach(spinbutton_fach->get_value_as_int());
   spinbutton_allgemein->update();
-  lernpunkte.setAllgemein(spinbutton_allgemein->get_value_as_int());
+  vabenteurer->getLernpunkte().getLernpunkte().setAllgemein(spinbutton_allgemein->get_value_as_int());
   spinbutton_waffen->update();   
-  lernpunkte.setWaffen(spinbutton_waffen->get_value_as_int());
+  vabenteurer->getLernpunkte().getLernpunkte().setWaffen(spinbutton_waffen->get_value_as_int());
   spinbutton_zauber->update();
-  lernpunkte.setZauber(spinbutton_zauber->get_value_as_int());
+  vabenteurer->getLernpunkte().getLernpunkte().setZauber(spinbutton_zauber->get_value_as_int());
   on_lernliste_wahl_toggled();
   zeige_werte();
 }
@@ -106,10 +102,10 @@ void table_lernschema::on_lernliste_wahl_toggled()
 {  
    if(button_zauber->get_active())
    {
-     if (hauptfenster->getWerte().Spezialgebiet()->Spezial2()=="" && 
+     if (hauptfenster->getChar().getAbenteurer().Spezialgebiet()->Spezial2()=="" && 
          hauptfenster->getChar()->Typ1()->Short()=="eBe")
       {
-         hauptfenster->set_status("Erst Primär- und Sekundärelement wählen");
+         Ausgabe(Ausgabe::Error,"Erst Primär- und Sekundärelement wählen");
          return;
       }
    }
@@ -122,7 +118,7 @@ void table_lernschema::on_button_waffen_clicked()
 {  
   if(hauptfenster->getChar()->Typ1()->Kultwaffe() &&hauptfenster->getChar()->List_Waffen().empty())
    {
-     hauptfenster->set_status(hauptfenster->getChar()->Typ1()->Name(hauptfenster->getWerte().Geschlecht())+" müssen als erstes ihre Kultwaffe wählen; fehlende Lernpunkte werden geschenkt.",false);
+     Ausgabe(Ausgabe::ActionNeeded,hauptfenster->getChar()->Typ1()->Name(hauptfenster->getChar().getAbenteurer().Geschlecht())+" müssen als erstes ihre Kultwaffe wählen; fehlende Lernpunkte werden geschenkt.");
      togglebutton_teure_anzeigen->set_active(true);
    }
   button_lernschema_waffen->set_sensitive(true);
@@ -138,7 +134,7 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
   MBEmlt MBE = dt->getMBE();
   if(togglebutton_spezialwaffe->get_active() && (*MBE).What()!= MidgardBasicElement::WAFFE)
       {
-        hauptfenster->set_status((*MBE).What_str()+" kann nicht als Spezialwaffe verwendet werden.");
+        Ausgabe(Ausgabe::Error,(*MBE).What_str()+" kann nicht als Spezialwaffe verwendet werden.");
         return;         
       }
   switch((*MBE).What()) {
@@ -148,15 +144,15 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
             { 
              cH_Waffe W(MBE->getMBE());
              if(W->Verteidigung())
-               { hauptfenster->set_status("Eine Verteidingungswaffe kann keine Spezialwaffe werden."); return;}
+               { Ausgabe(Ausgabe::Error,"Eine Verteidingungswaffe kann keine Spezialwaffe werden."); return;}
              else if(W->Reichweite()=="" && (*MBE).Lernpunkte()>1 )
-               { hauptfenster->set_status("Nahkampfwaffen können nur dann eine Spezialwaffe werden wenn sie max. 1 Lernpunkte gekostet haben");return;}
+               { Ausgabe(Ausgabe::Error,"Nahkampfwaffen können nur dann eine Spezialwaffe werden wenn sie max. 1 Lernpunkte gekostet haben");return;}
              else if(W->Reichweite()!="" && (*MBE).Lernpunkte()>2 )
-               { hauptfenster->set_status("Fernkampfwaffen können nur dann eine Spezialwaffe werden wenn sie max. 2 Lernpunkte gekostet haben");return;}
+               { Ausgabe(Ausgabe::Error,"Fernkampfwaffen können nur dann eine Spezialwaffe werden wenn sie max. 2 Lernpunkte gekostet haben");return;}
              else
                {  
-                hauptfenster->getWerte().setSpezialisierung((*MBE)->Name());
-                Waffe::setSpezialWaffe(hauptfenster->getWerte().Spezialisierung(),hauptfenster->getChar()->List_Waffen());
+                hauptfenster->getChar().getAbenteurer().setSpezialisierung((*MBE)->Name());
+                Waffe::setSpezialWaffe(hauptfenster->getChar().getAbenteurer().Spezialisierung(),hauptfenster->getChar()->List_Waffen());
                 togglebutton_spezialwaffe->set_active(false);
                 if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::SPEZIALWAFFE);
                }
@@ -164,8 +160,8 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
            else
             {  
              hauptfenster->getChar()->List_Waffen().remove(MBE);
-             if(MBE->LernArt().find("Allg")!=std::string::npos) lernpunkte.addAllgemein( MBE->Lernpunkte());
-             else lernpunkte.addWaffen(MBE->Lernpunkte());
+             if(MBE->LernArt().find("Allg")!=std::string::npos) vabenteurer->getLernpunkte().getLernpunkte().addAllgemein( MBE->Lernpunkte());
+             else vabenteurer->getLernpunkte().getLernpunkte().addWaffen(MBE->Lernpunkte());
              hauptfenster->getChar()->remove_WaffenGrund();
             }
            break;
@@ -183,12 +179,12 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
          }
      case MidgardBasicElement::ZAUBER :
          {hauptfenster->getChar()->List_Zauber().remove(MBE);
-           lernpunkte.addZauber(MBE->Lernpunkte());
+           vabenteurer->getLernpunkte().getLernpunkte().addZauber(MBE->Lernpunkte());
            break;
          }
      case MidgardBasicElement::KIDO :
          {hauptfenster->getChar()->List_Kido().remove(MBE);
-           ++maxkido;
+           ++vabenteurer->getLernpunkte().MaxKido();
            fill_kido_lernschema();
            break;
          }
@@ -213,9 +209,9 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
                  break;
              default: assert(!"never get here\n");
            }
-           if     (MBE->LernArt().find("Fach")!=std::string::npos) lernpunkte.addFach( MBE->Lernpunkte());
-           else if(MBE->LernArt().find("Allg")!=std::string::npos) lernpunkte.addAllgemein( MBE->Lernpunkte());
-           else if(MBE->LernArt().find("Unge")!=std::string::npos) lernpunkte.addUnge( MBE->Lernpunkte());
+           if     (MBE->LernArt().find("Fach")!=std::string::npos) vabenteurer->getLernpunkte().getLernpunkte().addFach( MBE->Lernpunkte());
+           else if(MBE->LernArt().find("Allg")!=std::string::npos) vabenteurer->getLernpunkte().getLernpunkte().addAllgemein( MBE->Lernpunkte());
+           else if(MBE->LernArt().find("Unge")!=std::string::npos) vabenteurer->getLernpunkte().getLernpunkte().addUnge( MBE->Lernpunkte());
            if(MBE->LernArt().find("Heimat")!=std::string::npos) 
               list_FertigkeitZusaetze.remove("Landeskunde (Heimat)");
            else if(MBE->LernArt().find("_Schreiben_Muttersprache")!=std::string::npos) 
@@ -227,9 +223,9 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
                   list_FertigkeitZusaetze.remove(MBE->LernArt());
            else if(MBE->LernArt().find("Gastlandsprache")!=std::string::npos) 
                   list_FertigkeitZusaetze.remove(MBE->LernArt());
-           else hauptfenster->set_info("Fehler beim Lernpunkte zurückstellen");
+           else Ausgabe(Ausgabe::Error,"Fehler beim Lernpunkte zurückstellen");
            std::string::size_type st = (*MBE)->Name().find("KiDo-Technik");
-           if(st!=std::string::npos)  --maxkido;
+           if(st!=std::string::npos)  --vabenteurer->getLernpunkte().MaxKido();
            break;
          }
      default : break;
@@ -240,26 +236,26 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
      show_lernschema();
   show_gelerntes();
   if((*MBE).What()==MidgardBasicElement::WAFFE && togglebutton_spezialwaffe->get_active())
-     hauptfenster->undosave("Spezialwaffe "+(*MBE)->Name()+" gewählt");
+     hauptfenster->getChar().undosave("Spezialwaffe "+(*MBE)->Name()+" gewählt");
   else
-     hauptfenster->undosave((*MBE)->What_str()+" "+(*MBE)->Name()+" verlernt");
+     hauptfenster->getChar().undosave((*MBE)->What_str()+" "+(*MBE)->Name()+" verlernt");
 }
  
 void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
 {
-  Abenteurer &A=hauptfenster->getAben();
+  Abenteurer &A=hauptfenster->getChar().getAbenteurer();
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   MBEmlt MBE = dt->getMBE();
   if(MBE->Gelernt()) 
    { 
-     hauptfenster->set_status("Diese Fertigkeit ist schon gelernt");
+     Ausgabe(Ausgabe::Error,"Diese Fertigkeit ist schon gelernt");
      tree_lernschema->get_selection()->unselect_all();
      return;
    }
  if(((*MBE).What()==MidgardBasicElement::FERTIGKEIT || (*MBE).What()==MidgardBasicElement::WAFFE)
    && !(*MBE)->Voraussetzung(A,false))
   {
-    hauptfenster->set_status("Erst muß "+(*MBE)->Voraussetzung()+" gelernt werden");
+    Ausgabe(Ausgabe::Error,"Erst muß "+(*MBE)->Voraussetzung()+" gelernt werden");
     return;
   }
   
@@ -267,23 +263,23 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
     case MidgardBasicElement::WAFFE:
       { 
         if(button_allgemeinwissen->get_active())
-         { if(MBE->Lernpunkte()>lernpunkte.Allgemein() )
-             { hauptfenster->set_status("Nicht genug Lernpunkte");
+         { if(MBE->Lernpunkte()>vabenteurer->getLernpunkte().getLernpunkte().Allgemein() )
+             { Ausgabe(Ausgabe::Error,"Nicht genug Lernpunkte");
                tree_lernschema->get_selection()->unselect_all();
                return;
              }
-           lernpunkte.addWaffen(MBE->Lernpunkte());
-           lernpunkte.addAllgemein(-MBE->Lernpunkte());
+           vabenteurer->getLernpunkte().getLernpunkte().addWaffen(MBE->Lernpunkte());
+           vabenteurer->getLernpunkte().getLernpunkte().addAllgemein(-MBE->Lernpunkte());
          }
         int lp=MBE->Lernpunkte();
         if(A.Typ1()->Kultwaffe() &&A.List_Waffen().empty())
           {
             // Für eine Kultwaffe werden fehlende Lernpunkte geschenkt
-            if( lp>lernpunkte.Waffen() ) lp=lernpunkte.Waffen();
-            hauptfenster->set_status((*MBE)->Name()+" als Kultwaffe gewählt");
+            if( lp>vabenteurer->getLernpunkte().getLernpunkte().Waffen() ) lp=vabenteurer->getLernpunkte().getLernpunkte().Waffen();
+            Ausgabe(Ausgabe::Log,(*MBE)->Name()+" als Kultwaffe gewählt");
           }
-        else if(MBE->Lernpunkte()>lernpunkte.Waffen())
-          { hauptfenster->set_status("Nicht genug Lernpunkte");
+        else if(MBE->Lernpunkte()>vabenteurer->getLernpunkte().getLernpunkte().Waffen())
+          { Ausgabe(Ausgabe::Error,"Nicht genug Lernpunkte");
             tree_lernschema->get_selection()->unselect_all();
             return;
           }
@@ -292,34 +288,34 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
           MBEmlt(&*cH_WaffeGrund(cH_Waffe(MBE->getMBE())->Grundkenntnis())));
 
        const std::string &zwgr=cH_Waffe(MBE->getMBE())->ZweiteGrundkenntnis();
-       if(!zwgr.empty()&&cH_Waffe(MBE->getMBE())->Min_St_Einhand(hauptfenster->getWerte())) 
+       if(!zwgr.empty()&&cH_Waffe(MBE->getMBE())->Min_St_Einhand(vabenteurer->getAbenteurer())) 
           A.List_WaffenGrund().push_back(MBEmlt(&*cH_WaffeGrund(zwgr)));
                         
        A.List_WaffenGrund().sort(MBEmlt::sort(MBEmlt::sort::NAME));
        A.List_WaffenGrund().unique();
-        lernpunkte.addWaffen(-lp);
+        vabenteurer->getLernpunkte().getLernpunkte().addWaffen(-lp);
         break; }
     case MidgardBasicElement::ZAUBER:
       { 
-        if(MBE->Lernpunkte()>lernpunkte.Zauber())
-          { hauptfenster->set_status("Nicht genug Lernpunkte");
+        if(MBE->Lernpunkte()>vabenteurer->getLernpunkte().getLernpunkte().Zauber())
+          { Ausgabe(Ausgabe::Error,"Nicht genug Lernpunkte");
             tree_lernschema->get_selection()->unselect_all();
             return;
           }
         if(!(*MBE)->ZusatzEnum(A.getVTyp())) // Das macht 'lernen_zusatz' automatisch
            A.List_Zauber().push_back(MBE); 
         else lernen_zusatz((*MBE)->ZusatzEnum(A.getVTyp()),MBE);
-        lernpunkte.addZauber(- MBE->Lernpunkte());   
+        vabenteurer->getLernpunkte().getLernpunkte().addZauber(- MBE->Lernpunkte());   
         break; }
     case MidgardBasicElement::FERTIGKEIT:
       { 
         if( (MBE->LernArt().find("Fach")!=std::string::npos  &&
-             MBE->Lernpunkte() > lernpunkte.Fach()) ||
+             MBE->Lernpunkte() > vabenteurer->getLernpunkte().getLernpunkte().Fach()) ||
              (MBE->LernArt().find("Allg")!=std::string::npos &&
-             MBE->Lernpunkte() > lernpunkte.Allgemein()) ||
+             MBE->Lernpunkte() > vabenteurer->getLernpunkte().getLernpunkte().Allgemein()) ||
              (MBE->LernArt().find("Unge")!=std::string::npos &&
-             MBE->Lernpunkte() > lernpunkte.Unge()))
-          { hauptfenster->set_status("Nicht genug Lernpunkte");      
+             MBE->Lernpunkte() > vabenteurer->getLernpunkte().getLernpunkte().Unge()))
+          { Ausgabe(Ausgabe::Error,"Nicht genug Lernpunkte");      
             tree_lernschema->get_selection()->unselect_all();
             return;
           }
@@ -327,11 +323,11 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
           { 
             std::string::size_type st = (*MBE)->Name().find("KiDo-Technik");
             if(st!=std::string::npos) 
-               { ++maxkido; list_FertigkeitZusaetze.push_back((*MBE)->Name());}
+               { ++vabenteurer->getLernpunkte().MaxKido(); list_FertigkeitZusaetze.push_back((*MBE)->Name());}
             if(!(*MBE)->ZusatzEnum(A.getVTyp()) && st==std::string::npos)// Das 'push_back' macht 'lernen_zusatz' automatisch
                  A.List_Fertigkeit().push_back(MBE); 
-            if((*MBE)->Name()=="KiDo" && A.Typ1()->Short()=="Kd") maxkido+=2;
-            if(maxkido>0 && MBEmlt(&*cH_Fertigkeit("KiDo"))->ist_gelernt(hauptfenster->getChar()->List_Fertigkeit()))
+            if((*MBE)->Name()=="KiDo" && A.Typ1()->Short()=="Kd") vabenteurer->getLernpunkte().MaxKido()+=2;
+            if(vabenteurer->getLernpunkte().MaxKido()>0 && MBEmlt(&*cH_Fertigkeit("KiDo"))->ist_gelernt(hauptfenster->getChar()->List_Fertigkeit()))
                zeige_werte();
          }
         else
@@ -343,15 +339,15 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
           lernen_zusatz((*MBE)->ZusatzEnum(A.getVTyp()),MBE);
 
         if(MBE->LernArt().find("Fach")!=std::string::npos)
-           lernpunkte.addFach(-MBE->Lernpunkte());
+           vabenteurer->getLernpunkte().getLernpunkte().addFach(-MBE->Lernpunkte());
         else if(MBE->LernArt().find("Allg")!=std::string::npos)
-           lernpunkte.addAllgemein(- MBE->Lernpunkte());
+           vabenteurer->getLernpunkte().getLernpunkte().addAllgemein(- MBE->Lernpunkte());
         else if(MBE->LernArt().find("Unge")!=std::string::npos)
-           lernpunkte.addUnge(- MBE->Lernpunkte());     
+           vabenteurer->getLernpunkte().getLernpunkte().addUnge(- MBE->Lernpunkte());     
         break; }
     default : break;
    }
-  hauptfenster->undosave((*MBE)->What_str()+" "+(*MBE)->Name()+" gelernt");
+  hauptfenster->getChar().undosave((*MBE)->What_str()+" "+(*MBE)->Name()+" gelernt");
   show_lernschema();
   show_gelerntes(); 
   if(frame_lernschema_zusatz->is_visible()) scrolledwindow_lernen->set_sensitive(false);
@@ -368,26 +364,26 @@ void table_lernschema::on_herkunftsland_clicked()
 
 void table_lernschema::lernpflichten_info()
 {
-  std::string t1=hauptfenster->getChar()->Typ1()->getLernpflichtenInfo(hauptfenster->getWerte().Herkunft());
-  std::string t2=hauptfenster->getChar()->Typ2()->getLernpflichtenInfo(hauptfenster->getWerte().Herkunft());
+  std::string t1=hauptfenster->getChar()->Typ1()->getLernpflichtenInfo(hauptfenster->getChar().getAbenteurer().Herkunft());
+  std::string t2=hauptfenster->getChar()->Typ2()->getLernpflichtenInfo(hauptfenster->getChar().getAbenteurer().Herkunft());
   if(!t1.empty() || !t2.empty())
-      hauptfenster->set_info(t1+"\n"+t2);
+      Ausgabe(Ausgabe::ActionNeeded,t1+"\n"+t2);
 }
 
 #include "Zufall.hh"
 void table_lernschema::on_lernpunkte_wuerfeln_clicked()
-{ if (hauptfenster->MOptionen->WerteEingebenModel().Value()) 
+{ if (Programmoptionen.WerteEingebenModel().Value()) 
   {  togglebutton_lernpunkte_edit->set_active(true);
      return;
   }
   lernpflichten_info();
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::LERNPUNKTE);
-  Zufall::Lernpunkte_wuerfeln(lernpunkte,hauptfenster->getAben(),hauptfenster->random);
+  Zufall::Lernpunkte_wuerfeln(vabenteurer->getLernpunkte().getLernpunkte(),hauptfenster->getChar().getAbenteurer());
   show_gelerntes();
 
   zeige_lernpunkte();
 
-  if(!hauptfenster->getOptionen()->OptionenCheck(Magus_Optionen::NSC_only).active)
+  if(!hauptfenster->getChar().getAbenteurer().getOptionen().OptionenCheck(Optionen::NSC_only).active)
      button_lernpunkte->set_sensitive(false);
 
   button_sensitive(true);
@@ -432,23 +428,23 @@ void table_lernschema::edit_lernpunkte(bool b)
 void table_lernschema::on_button_lernschema_geld()
 {  
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::GELD);
-  if(!hauptfenster->getOptionen()->OptionenCheck(Magus_Optionen::NSC_only).active)
+  if(!hauptfenster->getChar().getAbenteurer().getOptionen().OptionenCheck(Optionen::NSC_only).active)
      button_lernschema_geld->set_sensitive(false);
-  if (hauptfenster->MOptionen->WerteEingebenModel().Value())
+  if (Programmoptionen.WerteEingebenModel().Value())
   {  gwr_auswahl=EGeld1;
      set_gwr_eingabe();
   }
   else
-  {  hauptfenster->getWerte().setGeld(0,0,0);
+  {  hauptfenster->getChar().getAbenteurer().setGeld(0,0,0);
      geld_wuerfeln() ;
   }
 }
 
 void table_lernschema::geld_wuerfeln()
 {
-     VGeldwurf.clear();
-     for(int i=0;i<3;++i) VGeldwurf.push_back(hauptfenster->random.integer(1,6));
-     lernschema_geld_wuerfeln(VGeldwurf);
+     vabenteurer->getLernpunkte().getVGeldwurf().clear();
+     for(int i=0;i<3;++i) vabenteurer->getLernpunkte().getVGeldwurf().push_back(Random::integer(1,6));
+     lernschema_geld_wuerfeln(vabenteurer->getLernpunkte().getVGeldwurf());
 }
 
 void table_lernschema::set_gwr_eingabe()
@@ -482,15 +478,15 @@ void table_lernschema::lernschema_geld_wuerfeln(const std::vector<int>& VGeldwur
  else if (hauptfenster->getChar()->Typ1()->Geld() == 3) igold+=6;
  else if (hauptfenster->getChar()->Typ1()->Geld() == 4) igold+=3;
 
- if(hauptfenster->getWerte().Stand()=="Adel" ) igold*=2;  
- if(hauptfenster->getWerte().Stand()=="Unfrei" ) igold/=2;
+ if(hauptfenster->getChar().getAbenteurer().Stand()=="Adel" ) igold*=2;  
+ if(hauptfenster->getChar().getAbenteurer().Stand()=="Unfrei" ) igold/=2;
  if(VGeldwurf[0]==VGeldwurf[1] && VGeldwurf[1]==VGeldwurf[2]) igold += 100;
 
  std::string strinfo ="Beim Auswürfeln von Geld wurden "
    +itos(VGeldwurf[0])+"  "+itos(VGeldwurf[1])+"  "+itos(VGeldwurf[2])+" gewürfelt ==> "
    +itos(igold)+" Gold";
- hauptfenster->set_status(strinfo);   
- hauptfenster->getWerte().addGold(igold);  
+ Ausgabe(Ausgabe::Log,strinfo);   
+ hauptfenster->getChar().getAbenteurer().addGold(igold);  
  zeige_werte();
 }
 
@@ -498,15 +494,15 @@ void table_lernschema::lernschema_geld_wuerfeln(const std::vector<int>& VGeldwur
 void table_lernschema::on_button_ruestung()
 {  
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::RUESTUNG);
-  if(!hauptfenster->getOptionen()->OptionenCheck(Magus_Optionen::NSC_only).active)
+  if(!hauptfenster->getChar().getAbenteurer().getOptionen().OptionenCheck(Optionen::NSC_only).active)
      button_ruestung->set_sensitive(false);
-   if (!hauptfenster->MOptionen->WerteEingebenModel().Value())
+   if (!Programmoptionen.WerteEingebenModel().Value())
    {  
-     int wurf = hauptfenster->random.integer(1,100);
+     int wurf = Random::integer(1,100);
      on_button_ruestung_clicked(wurf);
    }
    else 
-   { //manage (new Window_ruestung(hauptfenster->getWerte(),hauptfenster,hauptfenster->getDatabase()));
+   { //manage (new Window_ruestung(hauptfenster->getWerte(),hauptfenster,Datenbank));
      gwr_auswahl=ERuestung;
      set_gwr_eingabe();  
    }
@@ -556,9 +552,9 @@ void table_lernschema::on_button_ruestung_clicked(int wurf)
       if (96 <= wurf && wurf  <= 100) rue = "LR" ;
    }
   if(hauptfenster->getChar()->Typ1()->Short()=="Fi") rue="KR";
-  hauptfenster->getWerte().setRuestung1(rue);
-  hauptfenster->set_status("Beim Auswürfeln der Rüstung wurde eine "+itos(wurf)+" gewürfelt "
-             "==> " + hauptfenster->getWerte().Ruestung()->Long());
+  hauptfenster->getChar().getAbenteurer().setRuestung1(rue);
+  Ausgabe(Ausgabe::Error,"Beim Auswürfeln der Rüstung wurde eine "+itos(wurf)+" gewürfelt "
+             "==> " + hauptfenster->getChar().getAbenteurer().Ruestung()->Long());
   zeige_werte();
 }
 
@@ -571,11 +567,11 @@ void table_lernschema::on_button_ausruestung()
 void table_lernschema::ausruestung_setzen()
 {
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::AUSRUESTUNG);
-  if(!hauptfenster->getOptionen()->OptionenCheck(Magus_Optionen::NSC_only).active)
+  if(!hauptfenster->getChar().getAbenteurer().getOptionen().OptionenCheck(Optionen::NSC_only).active)
      button_ausruestung->set_sensitive(false);
   
-  hauptfenster->getAben().setStandardAusruestung();
-//  AusruestungBaum &Rucksack=hauptfenster->getAben().getBesitz();
+  hauptfenster->getChar().getAbenteurer().setStandardAusruestung();
+//  AusruestungBaum &Rucksack=hauptfenster->getChar().getAbenteurer().getBesitz();
 //  setFertigkeitenAusruestung(Rucksack);
   setFertigkeitenAusruestung();
 }
@@ -604,8 +600,8 @@ void table_lernschema::on_togglebutton_einschraenkungen_zusatz_anzeigen_toggled(
 void table_lernschema::zeige_werte()
 {
   zeige_lernpunkte();
-  label_ruestung_lernschema->set_text(hauptfenster->getWerte().Ruestung()->Long()); 
-  label_herkunft_lernschema->set_text(hauptfenster->getWerte().Herkunft()->Name());
+  label_ruestung_lernschema->set_text(hauptfenster->getChar().getAbenteurer().Ruestung()->Long()); 
+  label_herkunft_lernschema->set_text(hauptfenster->getChar().getAbenteurer().Herkunft()->Name());
   fertig_typ->set_text(hauptfenster->getChar()->STyp());
 
   // Spezialwaffe anzeigen?
@@ -623,8 +619,8 @@ void table_lernschema::zeige_werte()
           hauptfenster->getChar()->Typ2()->Spezialgebiet() ) 
      show_magier_spezialgebiet(true);
      else show_magier_spezialgebiet(false);
-     if(hauptfenster->getWerte().Spezialgebiet()->Name()!="")
-       combo_magier_spezialgebiet->get_entry()->set_text(hauptfenster->getWerte().Spezialgebiet()->Name());
+     if(hauptfenster->getChar().getAbenteurer().Spezialgebiet()->Name()!="")
+       combo_magier_spezialgebiet->get_entry()->set_text(hauptfenster->getChar().getAbenteurer().Spezialgebiet()->Name());
      button_zauber->set_sensitive(true);   
    }
  else
@@ -644,16 +640,16 @@ void table_lernschema::zeige_werte()
      frame_KiDo_lernschema->hide();
    }
  // KiDo Stil setzen
- combo_kido_stil->get_entry()->set_text(hauptfenster->getWerte().Spezialisierung());
+ combo_kido_stil->get_entry()->set_text(hauptfenster->getChar().getAbenteurer().Spezialisierung());
 }
 
 void table_lernschema::zeige_lernpunkte()
 {
- spinbutton_fach->set_value(lernpunkte.Fach());
- spinbutton_allgemein->set_value(lernpunkte.Allgemein());
- spinbutton_unge->set_value(lernpunkte.Unge());
- spinbutton_waffen->set_value(lernpunkte.Waffen());
- spinbutton_zauber->set_value(lernpunkte.Zauber());
+ spinbutton_fach->set_value(vabenteurer->getLernpunkte().getLernpunkte().Fach());
+ spinbutton_allgemein->set_value(vabenteurer->getLernpunkte().getLernpunkte().Allgemein());
+ spinbutton_unge->set_value(vabenteurer->getLernpunkte().getLernpunkte().Unge());
+ spinbutton_waffen->set_value(vabenteurer->getLernpunkte().getLernpunkte().Waffen());
+ spinbutton_zauber->set_value(vabenteurer->getLernpunkte().getLernpunkte().Zauber());
 }
 
 void table_lernschema::show_gelerntes()
@@ -672,7 +668,7 @@ void table_lernschema::show_gelerntes()
   LL.push_back(hauptfenster->getChar()->List_Sprache());
   LL.push_back(hauptfenster->getChar()->List_Schrift());
   LL.push_back(hauptfenster->getChar()->List_Beruf());  
-  LL.push_back(hauptfenster->getWerte().Sinne());
+  LL.push_back(hauptfenster->getChar().getAbenteurer().Sinne());
   {
   std::list<MBEmlt> temp;
   for(std::list<H_WaffeBesitz>::iterator i=hauptfenster->getChar()->List_Waffen_besitz().begin();i!=hauptfenster->getChar()->List_Waffen_besitz().end();++i)
@@ -682,7 +678,7 @@ void table_lernschema::show_gelerntes()
   for(std::list<std::list<MBEmlt> >::const_iterator i=LL.begin();i!=LL.end();++i)
     for (std::list<MBEmlt>::const_iterator j=i->begin();j!=i->end();++j)
       FL.push_back(*j);
-  MidgardBasicElement::show_list_in_tree(FL,tree_gelerntes,hauptfenster);
+  MidgardBasicTree::show_list_in_tree(FL,tree_gelerntes,&hauptfenster->getChar().getAbenteurer());
 
   tree_gelerntes->Expand_recursively();
   scrolledwindow_lernen->set_sensitive(true);
@@ -691,7 +687,7 @@ void table_lernschema::show_gelerntes()
 
 void table_lernschema::show_lernschema()
 {
-  Abenteurer &A=hauptfenster->getAben();
+  Abenteurer &A=hauptfenster->getChar().getAbenteurer();
   if(button_kido_auswahl->get_active()) return;
   clean_lernschema_trees();
   tree_lernschema = manage(new MidgardBasicTree(MidgardBasicTree::LERNSCHEMA));
@@ -720,13 +716,13 @@ void table_lernschema::show_lernschema()
         else
          {  fert="Allg";
             label_lernschma_titel->set_text("Allgemeinwissen ("+
-                  A.getWerte().Stadt_Land_str()+")");
+                  A.Stadt_Land_str()+")");
          }
    }
 
   std::list<MBEmlt> newlist;
   std::list<MBEmlt> LW;
-  LernListen LL(hauptfenster->getDatabase());
+  LernListen LL;
   if(fert=="Unge" || fert=="Allg") 
    {
     std::list<MBEmlt> L; 
@@ -737,11 +733,11 @@ void table_lernschema::show_lernschema()
        int lp=(*i)->Lernpunkte();
        if(fert=="Allg")
         {
-          if(!togglebutton_teure_anzeigen->get_active() && lp>lernpunkte.Allgemein())
+          if(!togglebutton_teure_anzeigen->get_active() && lp>vabenteurer->getLernpunkte().getLernpunkte().Allgemein())
                continue;
         }
        if(fert=="Unge")
-       if(!togglebutton_teure_anzeigen->get_active() && lp>lernpunkte.Unge())
+       if(!togglebutton_teure_anzeigen->get_active() && lp>vabenteurer->getLernpunkte().getLernpunkte().Unge())
             continue;
        if(lp == 99  ) continue;
 
@@ -757,7 +753,7 @@ void table_lernschema::show_lernschema()
    }
   if(fert=="Fach") // Freiwillige Speziesfertigkeiten
    {
-     std::list<MBEmlt> LW=A.getWerte().Spezies()->getFreiwilligeFertigkeiten(A.getWerte());
+     std::list<MBEmlt> LW=A.Spezies()->getFreiwilligeFertigkeiten(A);
      for(std::list<MBEmlt>::iterator i=LW.begin();i!=LW.end();++i)
       {
        (*i)->setLernArt("Fach");
@@ -765,7 +761,7 @@ void table_lernschema::show_lernschema()
        bool zuteuer=false;
        if ((*i)->ist_gelernt(A.List_Fertigkeit())) gelernt=true;
        if ((*(*i))->ist_gelernt(list_FertigkeitZusaetze)) gelernt=true;
-       if((*i)->Lernpunkte() > lernpunkte.Fach() ) zuteuer=true;
+       if((*i)->Lernpunkte() > vabenteurer->getLernpunkte().getLernpunkte().Fach() ) zuteuer=true;
        if(zuteuer && !togglebutton_teure_anzeigen->get_active()) continue;
        if(gelernt && !togglebutton_gelernte_anzeigen->get_active()) continue;
        if(gelernt) (*i)->setGelernt(true); 
@@ -787,7 +783,7 @@ void table_lernschema::show_lernschema()
           if ((*i)->ist_gelernt(A.List_Waffen())) gelernt=true;
           if (!(*(*i))->Voraussetzung(A)) continue ;
           if(A.Typ1()->Kultwaffe() &&A.List_Waffen().empty())
-            hauptfenster->set_status(A.Typ1()->Name(A.getWerte().Geschlecht())+" müssen als erstes ihre Kultwaffe wählen; fehlende Lernpunkte werden geschenkt.");
+            Ausgabe(Ausgabe::Error,A.Typ1()->Name(A.Geschlecht())+" müssen als erstes ihre Kultwaffe wählen; fehlende Lernpunkte werden geschenkt.");
         }
        else if(what==MidgardBasicElement::ZAUBER)
         {
@@ -804,11 +800,11 @@ void table_lernschema::show_lernschema()
 
        bool zuteuer=false;
        if(what==MidgardBasicElement::WAFFE)
-         { if((*i)->Lernpunkte() > lernpunkte.Waffen() ) zuteuer=true;}
+         { if((*i)->Lernpunkte() > vabenteurer->getLernpunkte().getLernpunkte().Waffen() ) zuteuer=true;}
        else if(what==MidgardBasicElement::ZAUBER)
-         { if((*i)->Lernpunkte() > lernpunkte.Zauber() ) zuteuer=true; }
+         { if((*i)->Lernpunkte() > vabenteurer->getLernpunkte().getLernpunkte().Zauber() ) zuteuer=true; }
        else if(what==MidgardBasicElement::FERTIGKEIT)
-         { if((*i)->Lernpunkte() > lernpunkte.Fach() ) zuteuer=true; }
+         { if((*i)->Lernpunkte() > vabenteurer->getLernpunkte().getLernpunkte().Fach() ) zuteuer=true; }
 
        if(zuteuer && !togglebutton_teure_anzeigen->get_active()) continue;
        if(gelernt && !togglebutton_gelernte_anzeigen->get_active()) continue;
@@ -817,7 +813,7 @@ void table_lernschema::show_lernschema()
        newlist.push_back(*i);
       }
      }   
-  MidgardBasicElement::show_list_in_tree(newlist,tree_lernschema,hauptfenster);
+  MidgardBasicTree::show_list_in_tree(newlist,tree_lernschema,&hauptfenster->getChar().getAbenteurer());
   tree_lernschema->show();
   scrolledwindow_lernen->add(*tree_lernschema);
 

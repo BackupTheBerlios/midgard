@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_ausruestung.cc,v 1.5 2003/08/04 08:50:22 christof Exp $   
+// $Id: LaTeX_drucken_ausruestung.cc,v 1.6 2003/09/01 06:47:57 christof Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -31,9 +31,11 @@ void LaTeX_drucken::on_ausruestung_druck(const Abenteurer &A,bool unsichtbar)
  std::string filename=get_latex_pathname(LaTeX_drucken::TeX_tmp)+get_latex_filename(A,LaTeX_drucken::TeX_Ausruestung);
  std::ofstream fout2((filename+".tex").c_str());
  orecodestream fout(fout2);
- LaTeX_header(A,fout,false);           
+ LaTeX_header(A,fout,false);
+ LaTeX_Bildboxen(fout,A.BeschreibungPix(),1.5);
+ LaTeX_header_doc(A,fout,false);         
 
- std::string breite="18cm";
+ std::string breite="15cm";
  std::string hbreitea="9cm";
  std::string hbreiteb="8.5cm";
  std::string aboxhoehe="26cm";
@@ -47,7 +49,7 @@ void LaTeX_drucken::on_ausruestung_druck(const Abenteurer &A,bool unsichtbar)
  {
   bool ew1=false; bool ew2=false;
   double ueberlast=A.getUeberlast();
-  const Grundwerte &W=A.getWerte();
+  const Grundwerte &W=A;
   cH_Ruestung R1=W.Ruestung(0);
   cH_Ruestung R2=W.Ruestung(1);
   int v1=R1->B_Verlust(ueberlast,W,ew1);
@@ -102,10 +104,12 @@ void LaTeX_drucken::ausruestung_druck(std::ostream &fout,bool unsichtbar,const s
       if (!i->getAusruestung().Material().empty() &&
            i->getAusruestung().Material()!="standard" ) 
          name +=" ("+i->getAusruestung().Material()+")";
-      name = i->getAusruestung().SAnzahl() + name;
-      fout <<"\\makebox[0.7cm]{\\raggedleft\\footnotesize "
-         <<i->getAusruestung().SAnzahl()
-         <<i->getAusruestung().SGewicht()+"}"; 
+      fout <<"\\footnotesize "<<i->getAusruestung().SAnzahl()
+           <<i->getAusruestung().SGewicht()+"&";   
+//      name = i->getAusruestung().SAnzahl() + name;
+//      fout <<"\\makebox[0.7cm]{\\raggedleft\\footnotesize "
+//         <<i->getAusruestung().SAnzahl()
+//         <<i->getAusruestung().SGewicht()+"}"; 
       double fdeep = deep*0.5;
       fout << "\\hspace*{"+dtos1(fdeep)+"cm} ";
       if(i->getAusruestung().Sichtbar())  fout << TeX::string2TeX(name)<<"\\\\\n" ;

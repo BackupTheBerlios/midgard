@@ -107,8 +107,8 @@ std::vector<std::string> MidgardBasicElement::Standard(const Abenteurer &A) cons
  for(std::map<std::string,std::string>::const_iterator i=map_typ.begin();i!=map_typ.end();++i)
    if(A.Typ2()->Short()==i->first) {s[1]=i->second; break;}
 
- s[0]=AusnahmenString(A.getWerte(),A.Typ1(),s[0]);
- s[1]=AusnahmenString(A.getWerte(),A.Typ2(),s[1]);
+ s[0]=AusnahmenString(A,A.Typ1(),s[0]);
+ s[1]=AusnahmenString(A,A.Typ2(),s[1]);
 
  return s;
 }

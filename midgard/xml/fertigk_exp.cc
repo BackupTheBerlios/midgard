@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.44 2003/07/20 18:21:48 thoma Exp $
+// $Id: fertigk_exp.cc,v 1.45 2003/09/01 06:47:59 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.325 2003/08/12 06:19:29 christof Exp $
+// $Id: midgard_CG.hh,v 1.326 2003/09/01 06:47:58 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,6 +21,7 @@
 #  include "midgard_CG_glade.hh"
 #  define _MIDGARD_CG_HH
 
+// hier muss noch viel raus !!!
 #include <iostream>
 #include <string>
 #include <gtkmm/menu.h>
@@ -29,7 +30,6 @@
 
 #include <vector>
 #include <list>
-#include "zufall.h"
 #include "Datenbank.hh"
 #include <fstream>
 #include "WindowInfo.hh"
@@ -44,20 +44,24 @@
 #include "Magus_Optionen.hh"
 
 #include <libmagus/VAbenteurer.hh>
+#include <Misc/compiler_ports.h>
 
 class midgard_CG : public midgard_CG_glade
 {   
+        VAbenteurer Char;
+
 //        bool in_dtor;
 /////////////////////////////////////////////////////////////////////////////
         // Drucken
+   public:        
+        void on_auch_unsichtbares_drucken();
+        void on_beschreibung_drucken();
    private:
         void on_alles_drucken();
         void on_abenteurerdokument_drucken();
         void on_leeres_abenteurerdokument_drucken();
         void on_latex();
-        void on_beschreibung_drucken();
         void on_nur_sichtbares_drucken();
-        void on_auch_unsichtbares_drucken();
         void on_spielleiterbogen_drucken_activate();
         void spielleiter_export_save_zauber(std::ostream& fout,const bool full);
         void spielleiter_export_save_ausruestung(std::ostream& fout);
@@ -65,12 +69,12 @@ class midgard_CG : public midgard_CG_glade
         
         // Info Fenster
    private: 
-        WindowInfo *InfoFenster;
+        __deprecated WindowInfo *InfoFenster; // weg damit! jetzt �ber Ausgabe gehen!
         
         TreeViewUtility::CListEmulator news_columns;
    protected:
 #warning Noch in Ausgabe packen ...
-        void set_info(const std::string& sadd);
+        __deprecated void set_info(const std::string& sadd);
 
         // Optionen
    private:
@@ -124,7 +128,6 @@ class midgard_CG : public midgard_CG_glade
 
         // Wizard
    private:
-        Wizard *wizard;
         void on_neuer_abenteurer_mit_wizard_activate();
         void on_wizard_beenden_activate();
         void on_wizard_starten_activate();
@@ -150,7 +153,6 @@ class midgard_CG : public midgard_CG_glade
 
         // Undo
    private:
-        Midgard_Undo MidgardUndo;
         Gtk::Menu *undo_menu;
         void show_undo_tree();
         void on_undo_leaf_selected(cH_RowDataBase d);
@@ -163,7 +165,6 @@ class midgard_CG : public midgard_CG_glade
 
         // Charaktere
    private:
-        VAbenteurer Char;
         void on_neuer_charakter();
         void fill_AbenteurerListe();
         void on_AbenteurerListe_leaf(cH_RowDataBase d);
@@ -174,8 +175,10 @@ class midgard_CG : public midgard_CG_glade
    protected:
 //        Grundwerte &getWerte() {return Char->getWerte();}
 //        const Grundwerte &getWerte() const {return Char->getWerte();}
+public:
         const VAbenteurer &getChar() const {return Char;}
         VAbenteurer &getChar() {return Char;}
+protected:
 //        const Abenteurer &getAben() const {return Char.getCAbenteurer();}
 //        Abenteurer &getAben() {return Char.getAbenteurer();}
         void Eigenschaften_variante(int i);
@@ -197,11 +200,9 @@ class midgard_CG : public midgard_CG_glade
         bool on_eventbox_steigern_button_release_event(GdkEventButton *event);
         bool on_eventbox_lernen_button_release_event(GdkEventButton *event);
         bool on_eventbox_grundwerte_button_release_event(GdkEventButton *event);
-        void load_for_mainpage(guint pagenr);
 
         // Oberfläche Menü
         Gtk::Menu *menu_kontext;
-        Gtk::Box &make_gtk_box(Glib::RefPtr<Gdk::Pixbuf> data,const std::string &label,const bool text_vor_bild=true,const bool hbox=true);
         void on_button_menu();
         void on_checkbutton_Regionen_menu_(Gtk::CheckMenuItem *menu_item,cH_Region region);
         void on_checkbutton_Regionen_menu(gpointer gp,cH_Region region);
@@ -248,5 +249,15 @@ class midgard_CG : public midgard_CG_glade
    public:
         midgard_CG(const std::vector<std::string> &dateien);
          ~midgard_CG();
+         
+         // neue klarere Methoden
+         void WizardBeenden();
+         void AndererAbenteurer();
+         void LernschemaSteigern(bool l,bool s);
+
+	// Nettigkeiten ?
+        static Gtk::Box &make_gtk_box(Glib::RefPtr<Gdk::Pixbuf> data,const std::string &label,const bool text_vor_bild=true,const bool hbox=true);
+        void load_for_mainpage(guint pagenr);
+        Wizard *wizard;
 };
 #endif

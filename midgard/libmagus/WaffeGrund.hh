@@ -1,4 +1,4 @@
-// $Id: WaffeGrund.hh,v 1.5 2003/05/20 07:14:34 christof Exp $               
+// $Id: WaffeGrund.hh,v 1.6 2003/09/01 06:47:57 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig

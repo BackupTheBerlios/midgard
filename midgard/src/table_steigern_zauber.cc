@@ -23,16 +23,17 @@
 #include "Zauberwerk.hh"
 #include <Misc/itos.h>
 #include "LernListen.hh"
+#include <libmagus/Ausgabe.hh>
+#include <libmagus/Random.hh>
 
 void table_steigern::on_zauber_laden_clicked()
 {   
  try{
-  list_Zauber_neu=LL->get_steigern_Zauberliste(hauptfenster->getAben(),togglebutton_zaubersalze->get_active(),
-                                           Region::isActive(hauptfenster->getCDatabase().Regionen,cH_Region("MdS",true)),
-                                           hauptfenster->MOptionen->OptionenCheck(Magus_Optionen::NSC_only).active,
+  list_Zauber_neu=LL->get_steigern_Zauberliste(hauptfenster->getChar().getAbenteurer(),togglebutton_zaubersalze->get_active(),
+  					   LernListen::region_check(hauptfenster->getChar().getAbenteurer(),"MdS"),
                                            togglebutton_alle_zauber->get_active(),
                                            togglebutton_spruchrolle->get_active());
- }catch(std::exception &e) {std::cerr << e.what()<<'\n';}
+ }catch(std::exception &e) {Ausgabe(Ausgabe::Error,e.what());}
   zauber_zeigen();
 }
 
@@ -40,8 +41,8 @@ void table_steigern::zauber_zeigen()
 {
  if(!hauptfenster->getChar()->is_mage()) return;
  zeige_werte();
- MidgardBasicElement::show_list_in_tree(list_Zauber_neu,neue_zauber_tree,hauptfenster);
- MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Zauber(),alte_zauber_tree,hauptfenster);
+ MidgardBasicTree::show_list_in_tree(list_Zauber_neu,neue_zauber_tree,&hauptfenster->getChar().getAbenteurer());
+ MidgardBasicTree::show_list_in_tree(hauptfenster->getChar()->List_Zauber(),alte_zauber_tree,&hauptfenster->getChar().getAbenteurer());
  zauberwerk_zeigen();
 }
 
@@ -65,15 +66,19 @@ void table_steigern::on_leaf_selected_neue_zauber(cH_RowDataBase d)
 
 void table_steigern::wuerfel_lesen_von_zauberschrift()
 {
-  Random random;
-  int x= random.integer(1,20);
-  int e=hauptfenster->getAben().Erfolgswert("Lesen von Zauberschrift",hauptfenster->getCDatabase()).first;
+  int x= Random::W20();
+  int e=hauptfenster->getChar().getAbenteurer().Erfolgswert("Lesen von Zauberschrift").first;
   int bonus;
   if(x+e >= 20) bonus=+4;
   else          bonus=-4;
+  Ausgabe(Ausgabe::ActionNeeded,"EW:Lesen von Zauberschrift => "+itos(x)+"+"+itos(e)+"="+itos(x+e)
+   +"\n    => Bonus= "+itos(bonus)+"\nSoll versucht werden den Zauberspruch zu lernen?");
+#warning dialog
+#if 0  
   hauptfenster->InfoFenster->AppendShow("EW:Lesen von Zauberschrift => "+itos(x)+"+"+itos(e)+"="+itos(x+e)
    +"\n    => Bonus= "+itos(bonus)+"\nSoll versucht werden den Zauberspruch zu lernen?"
    ,WindowInfo::LernenMitSpruchrolle,bonus);
+#endif   
 }
 
 
@@ -104,7 +109,7 @@ void table_steigern::on_alte_zauber_reorder()
       case Data_SimpleTree::NAMEn_Z  : hauptfenster->getChar()->List_Zauber().sort(cH_Zauber::sort(cH_Zauber::sort::NAME)); ;break;
       case Data_SimpleTree::STUFEn_Z : hauptfenster->getChar()->List_Zauber().sort(cH_Zauber::sort(cH_Zauber::sort::STUFE)); ;break;
       case Data_SimpleTree::URSPRUNGn_Z : hauptfenster->getChar()->List_Zauber().sort(cH_Zauber::sort(cH_Zauber::sort::URSPRUNG)); ;break;
-      default : hauptfenster->set_status("Sortieren nach diesem Parameter\n ist nicht möglich");
+      default : Ausgabe(Ausgabe::Error,"Sortieren nach diesem Parameter ist nicht möglich");
    }
 }
 
@@ -119,7 +124,7 @@ void table_steigern::on_alte_zaubermittel_reorder()
       case Data_SimpleTree::NAMEn_ZW  : hauptfenster->getChar()->List_Zauberwerk().sort(cH_Zauberwerk::sort(cH_Zauberwerk::sort::NAME)) ;break;
       case Data_SimpleTree::STUFEn_ZW : hauptfenster->getChar()->List_Zauberwerk().sort(cH_Zauberwerk::sort(cH_Zauberwerk::sort::STUFE)) ;break;
       case Data_SimpleTree::ARTn_ZW :   hauptfenster->getChar()->List_Zauberwerk().sort(cH_Zauberwerk::sort(cH_Zauberwerk::sort::ART));break;
-      default : hauptfenster->set_status("Sortieren nach diesem Parameter\n ist nicht möglich");
+      default : Ausgabe(Ausgabe::Error,"Sortieren nach diesem Parameter ist nicht möglich");
    }
 }
 
@@ -134,8 +139,8 @@ void table_steigern::zauberwerk_zeigen()
 {
  zauberwerk_laden();
  zeige_werte();
- MidgardBasicElement::show_list_in_tree(list_Zauberwerk_neu,neue_zaubermittel_tree,hauptfenster);
- MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Zauberwerk()    ,alte_zaubermittel_tree,hauptfenster);
+ MidgardBasicTree::show_list_in_tree(list_Zauberwerk_neu,neue_zaubermittel_tree,&hauptfenster->getChar().getAbenteurer());
+ MidgardBasicTree::show_list_in_tree(hauptfenster->getChar()->List_Zauberwerk()    ,alte_zaubermittel_tree,&hauptfenster->getChar().getAbenteurer());
 }
 
 void table_steigern::on_leaf_selected_neue_zauberwerk(cH_RowDataBase d)
@@ -146,7 +151,6 @@ void table_steigern::on_leaf_selected_neue_zauberwerk(cH_RowDataBase d)
 
 void table_steigern::zauberwerk_laden()
 {
- list_Zauberwerk_neu=LL->get_steigern_ZauberWerkliste(hauptfenster->getAben(),
-                                                      hauptfenster->MOptionen->OptionenCheck(Magus_Optionen::NSC_only).active,
+ list_Zauberwerk_neu=LL->get_steigern_ZauberWerkliste(hauptfenster->getChar().getAbenteurer(),
                                                       togglebutton_alle_zauber->get_active());
 }

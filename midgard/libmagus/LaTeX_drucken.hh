@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.hh,v 1.4 2003/08/02 14:55:38 christof Exp $
+// $Id: LaTeX_drucken.hh,v 1.5 2003/09/01 06:47:57 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -82,7 +82,7 @@ class LaTeX_drucken
     static std::string get_latex_filename(const Abenteurer &A,const LaTeX_Filenames what);
     static std::string get_latex_pathname(const LaTeX_Pathnames what);
     void LaTeX_Drachenbox(std::ostream &fout);
-    static void LaTeX_newsavebox(std::ostream &fout);
+    static void LaTeX_newsavebox(const Abenteurer &A,std::ostream &fout);
     static void LaTeX_footer(std::ostream &fout);
     static void LaTeX_kopfzeile(const Abenteurer &A,std::ostream &fout,bool landscape,bool newdoc=true);
     void LaTeX_header(const Abenteurer &A,std::ostream &fout,bool landscape=true,bool kopfzeile=true);
@@ -98,6 +98,8 @@ class LaTeX_drucken
     void line(const VAbenteurer &VA,std::ostream &fout,const ewhat &what);
     void for_each(const VAbenteurer &VA,std::ostream &fout,const ewhat &what);
     void list_for_each(std::ostream &fout,const std::list<MBEmlt>& L,const int &maxlength,const std::string& cm);
+    static void LaTeX_Bildboxen(std::ostream &fout,const std::string &file,const double width_of_abenteurer_cm);
+    void LaTeX_header_doc(const Abenteurer &a,std::ostream &fout,bool landscape=true,bool kopfzeile=true);
  public:
     LaTeX_drucken()
       : bool_sprach(),bool_fert(),bool_waffen()

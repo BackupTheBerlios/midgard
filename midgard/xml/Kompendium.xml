@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="TuT" Name="Kompendium" Titel="Das Kompendium" Copyright="Jürgen E. Franke" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="1" MAGUS-Bild="12" CVS="$Revision: 1.17 $">
+<MAGUS-data Region="TuT" Name="Kompendium" Titel="Das Kompendium" Copyright="Jürgen E. Franke" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="1" MAGUS-Bild="12" CVS="$Revision: 1.18 $">
  <Fertigkeiten>
   <Fertigkeit Name="Geomantie" Region="TuT" Lernpunkte="4" Anfangswert="5" Lernkosten="100" Erfolgswert="4" Attribut="In" Maximalwert="12" MaximalMitUnterweisung="11">
    <Grund Typ="De"/>

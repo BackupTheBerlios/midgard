@@ -1,9 +1,3 @@
-// generated 2002/4/14 11:16:16 CEST by thoma@Tiger.(none)
-// using glademm V0.6.4b_cvs
-//
-// newer (non customized) versions of this file go to frame_drucken.cc_new
-
-// This file is for your program, I won't touch it again!
 
 #include "config.h"
 #include "frame_drucken.hh"

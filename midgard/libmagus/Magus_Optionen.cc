@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.cc,v 1.3 2003/08/03 01:43:02 christof Exp $
+// $Id: Magus_Optionen.cc,v 1.4 2003/09/01 06:47:57 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -46,7 +46,7 @@ static std::string CommandByExtension(const std::string &ext)
         path=path.substr(0, path.size()-3);
      else if (path.size()>5 && path.substr(path.size()-5)==" \"%1\"") 
         path=path.substr(0, path.size()-5);
-std::cout << "Found "<<ext<<" Viewer @" << path << '\n';
+     Ausgabe(Ausgabe::Debug,"Found "+ext+" Viewer @"+path);
      return path;
    }
    return "";

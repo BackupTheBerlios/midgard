@@ -1,4 +1,4 @@
-// $Id: Datenbank.hh,v 1.14 2003/08/03 01:43:02 christof Exp $               
+// $Id: Datenbank.hh,v 1.15 2003/09/01 06:47:57 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig

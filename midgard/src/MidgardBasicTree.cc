@@ -1,4 +1,4 @@
-// $Id: MidgardBasicTree.cc,v 1.25 2002/12/14 23:45:10 christof Exp $
+// $Id: MidgardBasicTree.cc,v 1.26 2003/09/01 06:47:58 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -17,12 +17,7 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-// generated 2001/2/2 11:29:18 CET by thoma@ig23.
-// using glademm V0.5_11c
-  
 #include "MidgardBasicTree.hh"
-
-
 
 MidgardBasicTree::MidgardBasicTree(variante V)
 : SimpleTree(Cols(V))
@@ -179,4 +174,15 @@ void MidgardBasicTree::set_tree_titles(variante V)
      vs.push_back("Schaden");
    }
   setTitles(vs);
+}
+
+void MidgardBasicTree::show_list_in_tree(
+  const std::list<MBEmlt>& BasicList,
+  SimpleTree *Tree, const Abenteurer *a)
+{
+  if (BasicList.begin()==BasicList.end() ) {Tree->clear(); return ;}
+  std::vector<cH_RowDataBase> datavec;
+  for (std::list<MBEmlt>::const_iterator i=BasicList.begin();i!=BasicList.end();++i)
+      datavec.push_back(new Data_SimpleTree(*i,a));
+  Tree->setDataVec(datavec); //,clear_me);
 }

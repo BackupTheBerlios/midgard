@@ -1,9 +1,3 @@
-// generated 2002/5/23 18:30:41 CEST by thoma@Tiger.(none)
-// using glademm V0.6.4b_cvs
-//
-// newer (non customized) versions of this file go to table_steigern.cc_new
-
-// This file is for your program, I won't touch it again!
 
 #include "config.h"
 #include "table_steigern.hh"
@@ -14,12 +8,13 @@
 #include "LernListen.hh"
 #include <bool_CheckButton.hh>
 extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+#include <libmagus/Ausgabe.hh>
 
 void table_steigern::init(midgard_CG *h)
 {
   hauptfenster=h;
   if(LL) delete LL ;
-  LL = new LernListen(hauptfenster->getDatabase());
+  LL = new LernListen();
   flashing_gradanstieg->set(MagusImage("Anpass-trans-50.xpm"),MagusImage("Anpass-trans-50_invers.xpm"),0);
   flashing_eigenschaft->set(MagusImage("Red-Dice-trans-50.xpm"),MagusImage("Red-Dice-trans-50_invers.xpm"),0);
 
@@ -68,7 +63,7 @@ void table_steigern::neuer_charakter()
 
 void table_steigern::on_notebook_lernen_switch_page(GtkNotebookPage *page,guint pagenr)
 {
-  if(hauptfenster && !hauptfenster->in_dtor) load_for_page(pagenr);
+  if(hauptfenster /*&& !hauptfenster->in_dtor*/) load_for_page(pagenr);
 }
 
 void table_steigern::load_for_page(guint pagenr)
@@ -130,9 +125,9 @@ void table_steigern::on_button_geld_s_toggled()
 
 void table_steigern::show_goldeingabe(bool b,int button)
 {
-  LabelSpin_silber->set_value(hauptfenster->getWerte().Silber());
-  LabelSpin_kupfer->set_value(hauptfenster->getWerte().Kupfer());
-  LabelSpin_gold->set_value(hauptfenster->getWerte().Gold());
+  LabelSpin_silber->set_value(hauptfenster->getChar().getAbenteurer().Silber());
+  LabelSpin_kupfer->set_value(hauptfenster->getChar().getAbenteurer().Kupfer());
+  LabelSpin_gold->set_value(hauptfenster->getChar().getAbenteurer().Gold());
   if(b)
    {
      if     (button == 1) 
@@ -159,7 +154,7 @@ void table_steigern::show_goldeingabe(bool b,int button)
 
 void table_steigern::zeige_werte()
 {
-   const Grundwerte &W=hauptfenster->getWerte();
+   const Grundwerte &W=hauptfenster->getChar().getAbenteurer();
     LabelSpin_gfp->set_value(W.GFP());
 
    steigern_gtk();
@@ -175,18 +170,18 @@ void table_steigern::zeige_werte()
    label_pp_resistenz->set_text(itos(W.ResistenzPP()));
    label_steigertage->set_text(dtos1(W.Steigertage()));
    label_alter->set_text(itos(W.Alter()));
-   std::string grad_GFP=hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Grad_fehlt,W);
+   std::string grad_GFP=Datenbank.GradAnstieg.getGFP_for_str(Grad_anstieg::Grad_fehlt,W);
    label_grad_GFP->set_text(grad_GFP);
    if(grad_GFP=="erreicht") flashing_gradanstieg->setTime(1000);
    else                     flashing_gradanstieg->setTime(0);
-   if(hauptfenster->getAben().eigenschaften_steigern_erlaubt())
+   if(hauptfenster->getChar().getAbenteurer().eigenschaften_steigern_erlaubt())
       flashing_eigenschaft->setTime(1000);
    else flashing_eigenschaft->setTime(0);
 
-   label_ausdauer_GFP->set_text(hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Ausdauer,W));
-   label_abwehr_GFP->set_text(hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Abwehr,W));
-   label_resistenz_GFP->set_text(hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Resistenz,W));
-   std::string z=hauptfenster->getCDatabase().GradAnstieg.getGFP_for_str(Grad_anstieg::Zaubern,W);
+   label_ausdauer_GFP->set_text(Datenbank.GradAnstieg.getGFP_for_str(Grad_anstieg::Ausdauer,W));
+   label_abwehr_GFP->set_text(Datenbank.GradAnstieg.getGFP_for_str(Grad_anstieg::Abwehr,W));
+   label_resistenz_GFP->set_text(Datenbank.GradAnstieg.getGFP_for_str(Grad_anstieg::Resistenz,W));
+   std::string z=Datenbank.GradAnstieg.getGFP_for_str(Grad_anstieg::Zaubern,W);
    if(!hauptfenster->getChar()->Typ1()->is_mage() && !hauptfenster->getChar()->Typ2()->is_mage()) z="";
    label_zauber_GFP->set_text(z);
 

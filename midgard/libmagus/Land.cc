@@ -43,7 +43,7 @@ cH_Land::cH_Land(const std::string& name ,bool create)
 
 bool Land::ist_erlaubt(const Abenteurer& A) const
 {
-  std::vector<std::string> V=A.getWerte().Spezies()->getVHerkunft();
+  std::vector<std::string> V=A.Spezies()->getVHerkunft();
   if(V.empty()) // Keine Herkunftsvorgabe aufgrund der Spezies
    { 
      std::vector<cH_Typen> Typ=A.getVTyp();
@@ -73,7 +73,7 @@ bool Land::ist_bekannt(std::string s,const std::vector<cH_Land>& L)
 }
 
 Land::Land(const std::string& _kontinent, const Tag &tag)
-  : name(tag.getAttr("Name")), kontinent(_kontinent)
+  : name(tag.getAttr("Name")), kontinent(_kontinent), region(tag.getAttr("Region"))
 {  FOR_EACH_CONST_TAG_OF(i,tag,"Sprache")
       vec_sprache.push_back(i->getAttr("Name"));
    FOR_EACH_CONST_TAG_OF(i,tag,"Nachbarland")

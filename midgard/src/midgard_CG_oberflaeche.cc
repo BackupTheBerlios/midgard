@@ -1,4 +1,4 @@
-// $Id: midgard_CG_oberflaeche.cc,v 1.3 2002/12/14 23:45:11 christof Exp $
+// $Id: midgard_CG_oberflaeche.cc,v 1.4 2003/09/01 06:47:58 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *

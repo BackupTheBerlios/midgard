@@ -21,6 +21,7 @@
 #include <gtkmm/image.h>
 #include "class_SimpleTree.hh"
 #include "class_SimpleTree_LernschemaZusatz.hh"
+#include <libmagus/Ausgabe.hh>
 
 ///////////////////////////////////////////////////////////
 void table_steigern::on_radio_steigern_toggled()
@@ -106,22 +107,22 @@ void table_steigern::on_radiobutton_pp_fertigkeit_toggled()
 }
 void table_steigern::on_radiobutton_pp_zauber_toggled()
 {
- spinbutton_pp_eingeben->set_value(hauptfenster->getChar()->getWerte().ZaubernPP());
+ spinbutton_pp_eingeben->set_value(hauptfenster->getChar()->ZaubernPP());
  on_radiobutton_pp_all_toggled();
 }
 void table_steigern::on_radiobutton_pp_spezial_toggled()
 {
- spinbutton_pp_eingeben->set_value(hauptfenster->getChar()->getWerte().SpezialPP());
+ spinbutton_pp_eingeben->set_value(hauptfenster->getChar()->SpezialPP());
  on_radiobutton_pp_all_toggled();
 }
 void table_steigern::on_radiobutton_pp_abwehr_toggled()    
 {
- spinbutton_pp_eingeben->set_value(hauptfenster->getChar()->getWerte().AbwehrPP());
+ spinbutton_pp_eingeben->set_value(hauptfenster->getChar()->AbwehrPP());
  on_radiobutton_pp_all_toggled(); 
 }
 void table_steigern::on_radiobutton_pp_resistenz_toggled()
 { 
- spinbutton_pp_eingeben->set_value(hauptfenster->getChar()->getWerte().ResistenzPP());
+ spinbutton_pp_eingeben->set_value(hauptfenster->getChar()->ResistenzPP());
  on_radiobutton_pp_all_toggled();
 }
 void table_steigern::on_radiobutton_pp_all_toggled()
@@ -147,13 +148,13 @@ void table_steigern::on_spinbutton_pp_eingeben_activate()
  if(!radiobutton_pp_fertigkeit->get_active())
   {
     if(radiobutton_pp_abwehr->get_active())
-       hauptfenster->getChar()->getWerte().setAbwehrPP(PPanz);
+       hauptfenster->getChar()->setAbwehrPP(PPanz);
     else if(radiobutton_pp_zauber->get_active())
-       hauptfenster->getChar()->getWerte().setZaubernPP(PPanz);
+       hauptfenster->getChar()->setZaubernPP(PPanz);
     else if(radiobutton_pp_spezial->get_active())
-       hauptfenster->getChar()->getWerte().setSpezialPP(PPanz);
+       hauptfenster->getChar()->setSpezialPP(PPanz);
     else if(radiobutton_pp_resistenz->get_active())
-       hauptfenster->getChar()->getWerte().setResistenzPP(PPanz);
+       hauptfenster->getChar()->setResistenzPP(PPanz);
     spinbutton_pp_eingeben->hide();
     radiobutton_steigern->get_active();
     zeige_werte();
@@ -165,16 +166,16 @@ void table_steigern::on_spinbutton_pp_eingeben_activate()
  const MBEmlt &M=getSelectedNotebookLernen();
 // modify(PP,M,MidgardBasicElement::st_zusatz(""),PPanz);
  M->setPraxispunkte(PPanz);
- }catch(SimpleTree::noRowSelected &e) {std::cerr << e.what()<<'\n'; hauptfenster->set_status("Keine Zeile selektiert");}
+ }catch(SimpleTree::noRowSelected &e) {Ausgabe(Ausgabe::Debug,e.what()); Ausgabe(Ausgabe::Error,"Keine Zeile selektiert");}
 
   if(pagenr==PAGE_FERTIGKEITEN)
-     MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Fertigkeit(),alte_fert_tree,hauptfenster); 
+     MidgardBasicTree::show_list_in_tree(hauptfenster->getChar()->List_Fertigkeit(),alte_fert_tree,&hauptfenster->getChar().getAbenteurer()); 
   if(pagenr==PAGE_WAFFEN)
-     MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Waffen(),alte_waffen_tree,hauptfenster); 
+     MidgardBasicTree::show_list_in_tree(hauptfenster->getChar()->List_Waffen(),alte_waffen_tree,&hauptfenster->getChar().getAbenteurer()); 
   if(pagenr==PAGE_SPRACHE)
    {
-     MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Sprache(),alte_sprache_tree,hauptfenster); 
-     MidgardBasicElement::show_list_in_tree(hauptfenster->getChar()->List_Schrift(),alte_schrift_tree,hauptfenster); 
+     MidgardBasicTree::show_list_in_tree(hauptfenster->getChar()->List_Sprache(),alte_sprache_tree,&hauptfenster->getChar().getAbenteurer()); 
+     MidgardBasicTree::show_list_in_tree(hauptfenster->getChar()->List_Schrift(),alte_schrift_tree,&hauptfenster->getChar().getAbenteurer()); 
    }
   spinbutton_pp_eingeben->hide();
 }
@@ -216,7 +217,7 @@ void table_steigern::fillClistZusatz(MBEmlt &MBE)
   std::vector<cH_RowDataBase> datavec;
   std::vector<std::string> title;
   std::vector<MidgardBasicElement::st_zusatz> VZusatz;
-  LernListen LL(hauptfenster->getCDatabase());
+  LernListen LL;
   switch ((*MBE)->ZusatzEnum(hauptfenster->getChar()->getVTyp()))
    {
      case MidgardBasicElement::ZLand :
@@ -236,7 +237,7 @@ void table_steigern::fillClistZusatz(MBEmlt &MBE)
         title.push_back((*MBE)->Name()+" auswählen");
         title.push_back("Typ");
         title.push_back("Region");
-        VZusatz=LL.getMBEZusatz(MBE);
+        VZusatz=LL.getMBEZusatz(hauptfenster->getChar().getAbenteurer(),MBE);
         break; 
        }
      default : assert("Never get here\n");
@@ -275,7 +276,7 @@ void table_steigern::on_steigern_zusatz_leaf_selected(cH_RowDataBase d)
 {
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
   dt->getMBE()->setZusatz(dt->getZusatz());
-  if(dt->getZusatz().name==hauptfenster->getWerte().Herkunft()->Name())
+  if(dt->getZusatz().name==hauptfenster->getChar().getAbenteurer().Herkunft()->Name())
      dt->getMBE()->setErfolgswert(9);
 
   set_zusatz_sensitive(false);

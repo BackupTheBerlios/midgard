@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.5 2003/08/11 06:26:33 christof Exp $   
+// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.6 2003/09/01 06:47:57 christof Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -33,7 +33,8 @@ void LaTeX_drucken::Spielleiterbogen(VAbenteurer &VA)
  std::ofstream fout2((filename+".tex").c_str());
  orecodestream fout(fout2);
  
- LaTeX_header(Abenteurer(),fout,false,false);           
+ LaTeX_header(Abenteurer(),fout,false,false);
+ LaTeX_header_doc(Abenteurer(),fout,false,false);
  fout << "\\newcommand{\\n}{\\normalsize\\rule[-0.5ex]{0ex}{2.5ex}}\n";
  fout << "\\setlength{\\doublerulesep}{0.1mm}\n";
 // fout << "\\fbox{\\parbox[t][22cm]{18cm}{ \n";
@@ -128,7 +129,7 @@ void LaTeX_drucken::for_each(const VAbenteurer &VA,std::ostream &fout,const ewha
  std::vector<st_is> V;
  for(std::list<VAbenteurer::st_abenteurer>::const_iterator i=VA.getList().begin();i!=VA.getList().end();++i)
   {
-    const Grundwerte &W=i->abenteurer.getWerte();
+    const Grundwerte &W=i->abenteurer;
     const Abenteurer &A=i->abenteurer;
     switch(what)
      {

@@ -1,4 +1,4 @@
-/* $Id: text2c.c,v 1.2 2002/02/13 11:48:12 christof Exp $ */
+/* $Id: text2c.c,v 1.3 2003/09/01 06:47:58 christof Exp $ */
 #include <stdio.h>
 
 int main()

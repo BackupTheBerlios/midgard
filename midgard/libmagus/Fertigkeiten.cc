@@ -112,7 +112,7 @@ void Fertigkeit::get_Fertigkeit(const Tag &t)
 
 bool Fertigkeit::Voraussetzung(const Abenteurer &A,bool anzeigen) const 
 { 
- const Grundwerte &Werte=A.getWerte();
+ const Grundwerte &Werte=A;
  // Mindestwerte
  if(voraussetzung.st > 0 && voraussetzung.st > Werte.St()) return false;
  if(voraussetzung.gw > 0 && voraussetzung.gw > Werte.Gw()) return false;
@@ -156,7 +156,7 @@ FertEnd:
      }
     return false;
   }
-  if(Name()=="Winden" && A.getWerte().Gestalt() != "schlank") return false;
+  if(Name()=="Winden" && A.Gestalt() != "schlank") return false;
   return true;
 }
 
@@ -171,16 +171,16 @@ MidgardBasicElement::eZusatz Fertigkeit::ZusatzEnum(const std::vector<cH_Typen>&
 
 int Fertigkeit::Ungelernt(const Abenteurer &a) const
 {
-  if(Name()=="Trinken") return a.getWerte().Ko()/10;
+  if(Name()=="Trinken") return a.Ko()/10;
   return ungelernt;
 }
 
 
 int Fertigkeit::FErfolgswert(const Abenteurer &a,const MBEmlt &mbem) const
 {
-  if(Name()=="Trinken" && a.getWerte().Spezies()->Name()!="Zwerg") 
-      return mbem->Erfolgswert()+a.getWerte().Ko()/10;
-  else if(Name()=="Berserkergang") return mbem->Erfolgswert()-a.getWerte().Wk()/5;
+  if(Name()=="Trinken" && a.Spezies()->Name()!="Zwerg") 
+      return mbem->Erfolgswert()+a.Ko()/10;
+  else if(Name()=="Berserkergang") return mbem->Erfolgswert()-a.Wk()/5;
   else return mbem->Erfolgswert();
 }
 
@@ -188,7 +188,7 @@ int Fertigkeit::MaxErfolgswert(const Abenteurer& A) const
 {
 //cout << Name()<<" Maximaler Erfolgswert = "<<maxerfolgswert<<'+'
 //  <<AttributBonus(w)<<" Attribut = "<<Attribut()<<'\n';
-  return maxerfolgswert + AttributBonus(A.getWerte());
+  return maxerfolgswert + AttributBonus(A);
 }
 
 
@@ -220,11 +220,11 @@ void Fertigkeit::get_region_lp(int &lp,const Abenteurer& A) const
 {
   for(std::vector<st_region_lern>::const_iterator i=vec_region_lp.begin();i!=vec_region_lp.end();++i)
    {
-     if(!LernListen().region_check(i->region)) continue;
-     if(A.getWerte().Herkunft()->Name()==i->region)
+     if(!LernListen().region_check(A,i->region)) continue;
+     if(A.Herkunft()->Name()==i->region)
        {
-         if     (A.getWerte().Stadt_Land()==Enums::Land  ) lp=i->lp_land;
-         else if(A.getWerte().Stadt_Land()==Enums::Stadt ) lp=i->lp_stadt;
+         if     (A.Stadt_Land()==Enums::Land  ) lp=i->lp_land;
+         else if(A.Stadt_Land()==Enums::Stadt ) lp=i->lp_stadt;
        }
    }
 }

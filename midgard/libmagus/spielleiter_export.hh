@@ -1,4 +1,4 @@
-// $Id: spielleiter_export.hh,v 1.1 2003/08/02 22:29:02 christof Exp $               
+// $Id: spielleiter_export.hh,v 1.2 2003/09/01 06:47:57 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2003 Christof Petig
  *

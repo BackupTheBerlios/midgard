@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="H&amp;D" Name="Hexenzauber &amp; Druidenkraft" Titel="Hexenzauber und Druidenkraft" Copyright="Alexander Huiskes (Hrsg.)" Jahr="1994" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="10" MAGUS-Bild="6" CVS="$Revision: 1.11 $">
+<MAGUS-data Region="H&amp;D" Name="Hexenzauber &amp; Druidenkraft" Titel="Hexenzauber und Druidenkraft" Copyright="Alexander Huiskes (Hrsg.)" Jahr="1994" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="10" MAGUS-Bild="6" CVS="$Revision: 1.12 $">
  <Fertigkeiten>
   <Fertigkeit Name="Wetterkunde" Region="H&amp;D" Anfangswert="5" Lernkosten="50" Erfolgswert="4" Attribut="In" Maximalwert="16" MaximalMitUnterweisung="14">
    <Grund Typ="De"/>

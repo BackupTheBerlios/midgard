@@ -1,4 +1,4 @@
-// $Id: Sprache.hh,v 1.7 2003/07/23 06:44:58 christof Exp $               
+// $Id: Sprache.hh,v 1.8 2003/09/01 06:47:57 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig

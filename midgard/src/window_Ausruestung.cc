@@ -21,8 +21,7 @@
 #include <Gtk_OStream.h>
 
 
-window_Ausruestung::window_Ausruestung(const Datenbank& dat)
-: Database(dat)
+window_Ausruestung::window_Ausruestung()
 {
   fill_optionmenu_art();
   optionmenu_art->get_menu()->signal_deactivate().connect(SigC::slot(*static_cast<class window_Ausruestung*>(this), &window_Ausruestung::opt_art));

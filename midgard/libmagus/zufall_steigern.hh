@@ -28,6 +28,7 @@ class zufall_steigern
 {
       Prozente100 prozente100;
       Grund_Standard_Ausnahme_MBE GSA_MBE;
+      std::vector<cH_Prototyp2> prototypen;
       
       void zeige_werte();
       void fill_combos();
@@ -46,6 +47,10 @@ class zufall_steigern
       void init(); // ???
       void steigern(Abenteurer &A, unsigned gfp);
       static unsigned GFPvonGrad(unsigned grad);
+      
+      void setzeProzente(const Prozente100 &proz) { prozente100=proz; }
+      void setzeGSA(const Grund_Standard_Ausnahme_MBE &g) { GSA_MBE=g; }
+      void setzePrototypen(const std::vector<cH_Prototyp2> &p) { prototypen=p; }
       
    private:
       void check100();

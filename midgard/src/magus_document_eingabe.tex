@@ -1,5 +1,5 @@
 \catcode`\~\active
-\usepackage[pdftex]{graphicx}
+%\usepackage[pdftex]{graphicx}
 \usepackage{tabularx}
 \usepackage{longtable}
 \usepackage{times}
@@ -27,7 +27,7 @@
 \setlength{\doublerulesep}{0mm}
 
 \begin{document}
-\parbox{10cm}{\includegraphics[width=10cm]{\installpath/drache.png}}
+\parbox{10cm}{\usebox{\DrachenBox}}
 \parbox[][][c]{7cm}{
 \LI
   \begin{tabularx}{7.0cm}{|c|X|}\hline
@@ -39,7 +39,7 @@
 \makebox[1.1cm]{Spieler}&{\namespieler}\\\hline
   \end{tabularx}
 }
-\parbox{10cm}{\reflectbox{\includegraphics[width=10cm]{\installpath/drache.png}}}
+\parbox{10cm}{\reflectbox{\usebox{\DrachenBox}}}
 
 \vspace*{2ex}
 \begin{minipage}[t]{13cm}
@@ -173,10 +173,6 @@ Spezies&\makebox[1.2cm]{\spezies}\\\hline
 \makebox[0.6cm]{SG}&\makebox[0.6cm]{\sg}\\\hline
 \end{tabular}
 
-%\vspace{0.5ex}
-%\IfFileExists{MAGUS-Logo-grey2.png}{\parbox{1.5cm}{\includegraphics[width=1.5cm]{MAGUS-Logo-grey2.png}}}%
-%\parbox{1.cm}{\includegraphics[width=1.5cm]{\installpath/MAGUS-Logo-grey2.png}}
-%\hfill
 \parbox[t]{2.8cm}{
 ~\\
 \tiny
@@ -205,7 +201,8 @@ ZEP    & \zep  &  \\\hline
 AEP    & \aep  &  \\\hline
 \end{tabular}
 
-\hspace*{1.0cm} {\includegraphics[height=0.7cm,angle=0]{\installpath/saebel.png}}
+%\hspace*{1.0cm} {\includegraphics[height=0.7cm,angle=0]{\installpath/saebel.png}}
+\hspace*{1.0cm} {\usebox{\SaebelBox}}
 }
 \parbox[t]{4.9cm}{
 ~\\
@@ -230,7 +227,8 @@ Allheilung & & \\\hline
 \end{tabular}
 \hfill 
 ~~~~~
-\raisebox{-2.5ex}{\includegraphics[height=0.9cm,angle=0]{\installpath/Money-gray.png}}
+%\raisebox{-2.5ex}{\includegraphics[height=0.9cm,angle=0]{\installpath/Money-gray.png}}
+\raisebox{-2.5ex}{\usebox{\GeldBox}}
 }
 }
 \vspace{0.5ex}
@@ -245,7 +243,7 @@ Allheilung & & \\\hline
 \makebox[0.4cm]{AP}&\makebox[0.4cm]{{\ap}}&\\\hline
 \end{tabularx}
 
-\parbox{3.3cm}{
+\parbox[b][7.4cm]{3.3cm}{
 \li
 \vspace*{1ex}
 {\setlength{\tabcolsep}{0.3em}
@@ -259,11 +257,11 @@ Riechen        & \sinnr    \\
 Schmecken      & \sinnsc   \\
 Tasten         & \sinnt    \\
 Sechster Sinn  & \sinnss   \\\hline
-\multicolumn{2}{l}{}\\\hline
+\multicolumn{2}{l}{}\\[-1ex]\hline
 \multicolumn{2}{|l|}{Erfolgswerte}\\\hline
 Abwehr        & \abwehr \\
 Zaubern       & \zauber \\\hline
-\multicolumn{2}{l}{}\\\hline
+\multicolumn{2}{l}{}\\[-1ex]\hline
 \multicolumn{2}{|l|}{Resistenzen}\\\hline
 Gift          & \gift   \\
 Resistenz     & \res    \\
@@ -272,36 +270,18 @@ Körpermagie   & \phs    \\
 Umgebungsmagie& \phk    \\\hline
 \end{tabular}
 }
-%\begin{tabular}{|c@{\LI\hspace*{1.4ex}\vline\hspace*{1.4ex}}c@{\LI\hspace*{1.4ex}\vline\hspace*{1.4ex}}c|c|c|c|} \hline
-%Datum\hspace*{2.5em}&GFP&KEP&ZEP&AEP&Geld\\\hline\hline
-%&{\gfp}&{\kep}&{\zep}&{\aep}&{\gold}\\\hline
-%&&&&&\\\hline
-%&&&&&\\\hline
-%&&&&&\\\hline
-%&&&&&\\\hline
-%&&&&&\\\hline
-%&&&&&\\\hline
-%&&&&&\\\hline
-%&&&&&\\\hline
-%&&&&&\\\hline
-%&&&&&\\\hline
-%&&&&&\\\hline
-%&&&&&\\\hline
-%&&&&&\\\hline
-%&&&&&\\\hline
-%&&&&&\\\hline
-%&&&&&\\\hline
-%&&&&&\\\hline
-%&&&&&\\\hline
-%\end{tabular}
 }
-\parbox{2.5cm}{
-\includegraphics[width=2.5cm]{\installpath/Letter-Feather-grey.png}
+\parbox[b][7cm]{2.6cm}{
+\usebox{\LetterFeatherBox}
+\vfill
 
-\parbox{0.5cm}{
-\includegraphics[width=2.5cm]{\installpath/MAGUS-Logo-grey2.png}}
+%\fbox{\parbox[c][4cm]{2.5cm}{\usebox{\LogoBox}}}
+\parbox[c][4cm]{2.5cm}{\usebox{\AbenBox}}
 
 \centering \tiny Version: \magusversion
+}
+
+
 }
 }
 \parbox[t]{7cm}
@@ -426,7 +406,8 @@ Sprache&Wert&Schrift\\\hline\hline
     \end{tabular}
 
 \vspace{1ex}
-\hspace{4.36cm}{\parbox{0.5cm}{\includegraphics[width=3.5cm]{\installpath/wurfbeil.png}}}
+%\hspace{4.36cm}{\parbox{0.5cm}{\includegraphics[width=3.5cm]{\installpath/wurfbeil.png}}}
+\hspace{4.36cm}{\parbox{0.5cm}{\usebox{\WurfbeilBox}}}
 \hspace{-5cm}
 \parbox{5cm}{
 {
@@ -447,10 +428,7 @@ Sprache&Wert&Schrift\\\hline\hline
 }
 
 \vspace{1ex}
-%\parbox{7.5cm}{\includegraphics[width=7.5cm]{\installpath/schwert.png}}
-% \vspace*{2ex}
 
-%\vspace{-2.5ex}
 \scalebox{0.7}{
 \parbox{7.7cm}
 {

@@ -126,7 +126,7 @@ std::string BerufsKategorie::wuerfeln(int wurf)
 
 bool Beruf::Berufsfertigkeit(Abenteurer& A,st_vorteil F)
 {
-  if(F.name=="Schmecken+10")  A.getWerte().setSinn("Schmecken",10);
+  if(F.name=="Schmecken+10")  A.setSinn("Schmecken",10);
   else if(F.gelernt) // Erfolgswert um eins erhöhen
    {
     if(F.name=="Schreiben: Muttersprache(+12)")

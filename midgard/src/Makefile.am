@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.220 2003/07/18 06:36:36 christof Exp $
+# $Id: Makefile.am,v 1.221 2003/09/01 06:47:58 christof Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -160,7 +160,7 @@ magus_SOURCES = $(PORT_FILES) \
    ProgressBar.cc 
 
 #AM_CXXFLAGS = @CXXFLAGS@ 
-CPPFLAGS = @CPPFLAGS@ @KOMPONENTEN2_INCLUDES@ -DUSE_XML $(WIN_INCLUDES) \
+AM_CPPFLAGS = @KOMPONENTEN2_INCLUDES@ -DUSE_XML $(WIN_INCLUDES) \
 	-I.. -I../libmagus
 
 magus_LDADD = $(LINK_OBJS) -lmagusicons -lmagus @LIBS@ @KOMPONENTEN2_NODB_LIBS@

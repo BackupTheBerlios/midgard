@@ -30,49 +30,37 @@ void Zufall::Voll()
   Teil(e_Vorgabe::none,oldAben);
 }
 
-#if 0
-enum Zufall::B_VORGABE_BITS &operator++(enum Zufall::B_VORGABE_BITS &s)
-{  ++(int&)s;
-   return s;
-}
-
-struct st_vor{bool spezies; bool typ; bool herkunft; bool angefert;
-                     bool st; bool gs; bool gw; bool ko; 
-                     bool in; bool zt; bool au; bool pa; bool wk; bool sb; bool b;
-              st_vor() :
-                  spezies(true),typ(true),herkunft(true),angefert(true),
-                  st(true),gs(true),gw(true),ko(true),
-                  in(true),zt(true),au(true),pa(true),wk(true),sb(true),b(true){}
-              };
-#endif      
-
 void Zufall::Teil(e_Vorgabe vorgabe,const Abenteurer &A)
 { oldAben=A;
 
-   if(vorgabe&B_Spezies)  Aben.getWerte().setSpezies(getSpezies());
-   else            Aben.getWerte().setSpezies(oldAben.getWerte().Spezies());
-   Aben.getWerte().gw_wuerfeln_2x();
-   if(vorgabe&B_St)       Aben.getWerte().setSt(oldAben.getWerte().St());
-   if(vorgabe&B_Gs)       Aben.getWerte().setGs(oldAben.getWerte().Gs());
-   if(vorgabe&B_Gw)       Aben.getWerte().setGw(oldAben.getWerte().Gw());
-   if(vorgabe&B_Ko)       Aben.getWerte().setKo(oldAben.getWerte().Ko());
-   if(vorgabe&B_In)       Aben.getWerte().setIn(oldAben.getWerte().In());
-   if(vorgabe&B_Zt)       Aben.getWerte().setZt(oldAben.getWerte().Zt());
-   Aben.getWerte().Au_pA_wuerfeln();
-   Aben.getWerte().setGeschlecht(getGeschlecht());
+   if(vorgabe&B_Spezies)  Aben.setSpezies(getSpezies());
+   else            Aben.setSpezies(oldAben.Spezies());
+   Aben.gw_wuerfeln_2x();
+   if(vorgabe&B_St)       Aben.setSt(oldAben.St());
+   if(vorgabe&B_Gs)       Aben.setGs(oldAben.Gs());
+   if(vorgabe&B_Gw)       Aben.setGw(oldAben.Gw());
+   if(vorgabe&B_Ko)       Aben.setKo(oldAben.Ko());
+   if(vorgabe&B_In)       Aben.setIn(oldAben.In());
+   if(vorgabe&B_Zt)       Aben.setZt(oldAben.Zt());
+   Aben.Au_pA_wuerfeln();
+   Aben.setGeschlecht(getGeschlecht());
    if(!(vorgabe&B_Typ) || !oldAben.Valid())      Aben.setTyp1(getTyp());
    else             Aben.setTyp1(oldAben.Typ1());
-   Aben.getWerte().abge_werte_setzen();
-   if(vorgabe&B_Au)       Aben.getWerte().setAu(oldAben.getWerte().Au());
-   if(vorgabe&B_pA)       Aben.getWerte().setpA(oldAben.getWerte().pA());
-   if(vorgabe&B_Wk)       Aben.getWerte().setWk(oldAben.getWerte().Wk());
-   if(vorgabe&B_Sb)       Aben.getWerte().setSb(oldAben.getWerte().Sb());
-   if(vorgabe&B_B)        Aben.getWerte().setB(oldAben.getWerte().B());
+   if (Aben.Typ1()->NSC_only()) 
+      Aben.getOptionen().OptionenCheck(Optionen::NSC_only).active=true;
+   Aben.abge_werte_setzen();
+   if(vorgabe&B_Au)       Aben.setAu(oldAben.Au());
+   if(vorgabe&B_pA)       Aben.setpA(oldAben.pA());
+   if(vorgabe&B_Wk)       Aben.setWk(oldAben.Wk());
+   if(vorgabe&B_Sb)       Aben.setSb(oldAben.Sb());
+   if(vorgabe&B_B)        Aben.setB(oldAben.B());
    
-   if(!(vorgabe&B_Herkunft)) Aben.getWerte().setHerkunft(getLand());
-   else            Aben.getWerte().setHerkunft(oldAben.getWerte().Herkunft());
+   if(!(vorgabe&B_Herkunft)) Aben.setHerkunft(getLand());
+   else            Aben.setHerkunft(oldAben.Herkunft());
+   if (!Aben.Herkunft()->Region().empty())
+      Aben.getRegion(cH_Region::getRegionfromAbk(Aben.Herkunft()->Region()))=true;
    setMuttersprache();
-   Aben.getWerte().setUeberleben(getUeberleben());
+   Aben.setUeberleben(getUeberleben());
    if(!(vorgabe&B_AngeFert)) setAngebFert();
    else            Aben.List_Fertigkeit_ang()=oldAben.List_Fertigkeit_ang();
    Lernschema();
@@ -122,7 +110,7 @@ void Zufall::Lernpunkte_wuerfeln(Lernpunkte &lernpunkte, Abenteurer &A)
 {
   //Speziesspezifische Fertigkeiten
   int lpspezies=0;
-  A.List_Fertigkeit()=A.getWerte().Spezies()->getFertigkeiten(lpspezies,A.getWerte());
+  A.List_Fertigkeit()=A.Spezies()->getFertigkeiten(lpspezies,A);
 
   int fachlern=Random::W6()+Random::W6();
   lernpunkte.setFach(fachlern - lpspezies);
@@ -141,7 +129,7 @@ void Zufall::Lernpunkte_wuerfeln(Lernpunkte &lernpunkte, Abenteurer &A)
   int age = (lernpunkte.Allgemein() + lernpunkte.Unge()
              + lernpunkte.Fach()
              + lernpunkte.Waffen() + lernpunkte.Zauber())/4+16;
-  A.getWerte().setAlter( age * A.getWerte().Spezies()->AlterFaktor());
+  A.setAlter( age * A.Spezies()->AlterFaktor());
 
 }
 

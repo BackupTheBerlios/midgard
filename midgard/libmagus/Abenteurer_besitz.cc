@@ -1,4 +1,4 @@
-// $Id: Abenteurer_besitz.cc,v 1.4 2003/08/02 14:55:37 christof Exp $               
+// $Id: Abenteurer_besitz.cc,v 1.5 2003/09/01 06:47:57 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -115,7 +115,7 @@ void Abenteurer::setStandardAusruestung()
 
 int Abenteurer::getNormallast() const
 {
-   int s=getWerte().St();
+   int s=St();
    if     (s<=10)          return  3;
    else if(11<=s && s<=30) return  6;
    else if(31<=s && s<=60) return 10;
@@ -126,7 +126,7 @@ int Abenteurer::getNormallast() const
 }
 int Abenteurer::getHoechstlast() const 
 {
-   int s=getWerte().St();
+   int s=St();
    if     (s<=10)          return 40;
    else if(11<=s && s<=30) return 50;
    else if(31<=s && s<=60) return 60;
@@ -137,7 +137,7 @@ int Abenteurer::getHoechstlast() const
 }
 int Abenteurer::getSchublast() const
 {
-   int s=getWerte().St();
+   int s=St();
    if     (s<=10)          return 50;
    else if(11<=s && s<=30) return 70;
    else if(31<=s && s<=60) return 120;

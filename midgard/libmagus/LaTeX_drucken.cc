@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.6 2003/08/11 06:26:33 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.7 2003/09/01 06:47:57 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -48,8 +48,8 @@ static std::string defFileName(const std::string &s)
 
 std::string LaTeX_drucken::get_latex_filename(const Abenteurer &A, const LaTeX_Filenames what)
 {
-  std::string name=A.getWerte().Name_Abenteurer();
-  std::string version=A.getWerte().Version();
+  std::string name=A.Name_Abenteurer();
+  std::string version=A.Version();
   std::string nv="_"+defFileName(name)+"__"+defFileName(version)+"_";
   
   switch (what)
@@ -110,7 +110,7 @@ void LaTeX_drucken::LaTeX_write_values(const Abenteurer &A, std::ostream &fout,c
 {
  fout << "\\documentclass[11pt,a4paper,landscape]{article}\n";
 // fout << "\\newcommand{\\installpath}{"<<get_latex_pathname(TeX_Install)<< "}\n";
- LaTeX_newsavebox(fout);
+ LaTeX_newsavebox(A,fout);
 
  write_grundwerte(A,fout);
  /////////////////////////////////////////////////////////////////////////////
@@ -171,7 +171,7 @@ void LaTeX_drucken::LaTeX_write_values(const Abenteurer &A, std::ostream &fout,c
 // Leerzeile ???
  /////////////////////////////////////////////////////////////////////////////
  // Waffen + Waffen/Besitz
- std::string angriffsverlust_string = A.getWerte().Ruestung_Angriff_Verlust(A.List_Fertigkeit());
+ std::string angriffsverlust_string = A.Ruestung_Angriff_Verlust(A.List_Fertigkeit());
  std::list<H_WaffeBesitz> WBesitz=A.List_Waffen_besitz();
  std::list<H_WaffeBesitz> WB_druck;
  for (std::list<MBEmlt>::const_iterator i=A.List_Waffen().begin();i!=A.List_Waffen().end();++i)
@@ -213,7 +213,7 @@ void LaTeX_drucken::LaTeX_write_empty_values(std::ostream &fout,const std::strin
 {
  fout << "\\documentclass[11pt,a4paper,landscape]{article}\n";
 // fout << "\\newcommand{\\installpath}{"<<get_latex_pathname(TeX_Install)<< "}\n";
- LaTeX_newsavebox(fout);
+ LaTeX_newsavebox(Abenteurer(),fout);
  write_grundwerte(Abenteurer(),fout,true);
  
  std::vector<Sprache_und_Schrift> L;
@@ -311,7 +311,7 @@ void LaTeX_drucken::write_grundwerte(const Abenteurer &A,std::ostream &fout,bool
    }
   if(!empty)
    {
-    const Grundwerte &W=A.getWerte();
+    const Grundwerte &W=A;
     switch(was) {
      case etyp  : {
         std::string styp;
@@ -379,9 +379,9 @@ void LaTeX_drucken::write_grundwerte(const Abenteurer &A,std::ostream &fout,bool
         sfout += W.Ruestung_Abwehr_Verlust(A.List_Fertigkeit());
         break;
       }
-     case eppresistenz:sfout += EmptyInt_4TeX(A.getWerte().ResistenzPP()); break ;
-     case eppabwehr:sfout += EmptyInt_4TeX(A.getWerte().AbwehrPP()); break ;
-     case eppzauber:sfout += EmptyInt_4TeX(A.getWerte().ZaubernPP()); break ;
+     case eppresistenz:sfout += EmptyInt_4TeX(A.ResistenzPP()); break ;
+     case eppabwehr:sfout += EmptyInt_4TeX(A.AbwehrPP()); break ;
+     case eppzauber:sfout += EmptyInt_4TeX(A.ZaubernPP()); break ;
      case ezauber:sfout += itos0p(W.Zaubern_wert(),0,true); break ;
      case ehand:sfout += LaTeX_scale(W.Hand(),7,"1.2cm"); break ;
      case eraufen:sfout += itos(W.Raufen()); break ;
@@ -512,10 +512,10 @@ struct st_WB{std::string name;std::string wert;std::string schaden;
 #include "WaffeGrund.hh"
 void LaTeX_drucken::write_waffenbesitz(const Abenteurer &A, std::ostream &fout,const std::list<H_WaffeBesitz>& L,bool longlist)
 {
-  std::string angriffsverlust = A.getWerte().Ruestung_Angriff_Verlust(A.List_Fertigkeit());
+  std::string angriffsverlust = A.Ruestung_Angriff_Verlust(A.List_Fertigkeit());
   std::vector<st_WB> VWB;
-  VWB.push_back(st_WB("Raufen",itos(A.getWerte().Raufen()),
-                      A.getWerte().RaufenSchaden(),"",""));
+  VWB.push_back(st_WB("Raufen",itos(A.Raufen()),
+                      A.RaufenSchaden(),"",""));
   for(std::list<H_WaffeBesitz>::const_iterator i=L.begin();i!=L.end();++i)
    {
      std::string waffenname = (*i)->AliasName();
@@ -529,7 +529,7 @@ void LaTeX_drucken::write_waffenbesitz(const Abenteurer &A, std::ostream &fout,c
       }
      else  // Erfolgswert für Angriffswaffen
       {
-        int wert = (*i)->Erfolgswert()+A.getWerte().bo_An()+(*i)->av_Bonus()+(*i)->Waffe()->WM_Angriff((*i)->AliasName());
+        int wert = (*i)->Erfolgswert()+A.bo_An()+(*i)->av_Bonus()+(*i)->Waffe()->WM_Angriff((*i)->AliasName());
         // Angriffsbonus subtrahieren, wenn schwere Rüstung getragen wird:
         swert = itos(wert)+angriffsverlust;
       }
@@ -544,7 +544,7 @@ void LaTeX_drucken::write_waffenbesitz(const Abenteurer &A, std::ostream &fout,c
            ->ist_gelernt(A.List_WaffenGrund());
                     
      if(text.find("Einhändig")!=std::string::npos)
-      { if(!(*i)->Waffe()->Min_St_Einhand(A.getWerte())) text="";
+      { if(!(*i)->Waffe()->Min_St_Einhand(A)) text="";
         if(!grund_ist_gelernt) text="";
       }
                                              
@@ -606,7 +606,7 @@ void LaTeX_drucken::write_universelle(const Abenteurer &A,std::ostream &fout)
     else            wert = "--"+itos(abs(iwert));
     
     if     (name=="Geheimmechanismen Ã¶ffnen") name = "Geheimmech. Ã¶ffnen";
-    else if(name=="Landeskunde (Heimat)") name = "Landeskunde ("+A.getWerte().Herkunft()->Name()+")";
+    else if(name=="Landeskunde (Heimat)") name = "Landeskunde ("+A.Herkunft()->Name()+")";
 
     if (!i->gelernt)
      {
@@ -635,7 +635,7 @@ void LaTeX_drucken::write_long_list(const Abenteurer &A,std::ostream &fout,const
                      const std::list<H_WaffeBesitz> &WB_druck)
 {
   fout << "\n\n\\newpage\n\n";
-  fout << "\\catcode`\\~=12\n"; // omitting this kills the printing on Windows - latex bug?
+//  fout << "\\catcode`\\~=12\n"; // omitting this kills the printing on Windows - latex bug?
   fout << "\\begin{sideways}\n";
 //  fout << "\\rotatebox{90}{\n";
   fout << "\\fbox{\n";
@@ -672,10 +672,7 @@ void LaTeX_drucken::write_long_list(const Abenteurer &A,std::ostream &fout,const
   fout << "\\hline\n\\end{tabular}}\n";
 
   fout <<"\\vfill\\hfill\n";
-  fout << WinLux::normal_tilde;
-  fout <<"\\parbox{1.5cm}{\\includegraphics[width=1.5cm]{"
-       << get_latex_pathname(TeX_Install) << "MAGUS-Logo-grey2.png}}";
-  fout << WinLux::active_tilde;
+  fout <<"\\parbox{1.5cm}{\\usebox{\\LogoBoxKlein}}";
   fout << "\\end{minipage}\n";
   fout << "}\n";
   fout << "\\end{sideways}\n";
@@ -722,13 +719,54 @@ std::string LaTeX_drucken::LaTeX_string(int i)
    return("0");
 }
 
-void LaTeX_drucken::LaTeX_newsavebox(std::ostream &fout)
+void LaTeX_drucken::LaTeX_Bildboxen(std::ostream &fout,const std::string &file,const double width_of_abenteurer_cm)
 {
+ fout << "\\newsavebox{\\DrachenBox}\n";
+ fout << "\\newsavebox{\\SmallDrachenBox}\n";
+ fout << "\\newsavebox{\\LogoBox}\n";
+ fout << "\\newsavebox{\\LogoBoxKlein}\n";
+ fout << "\\newsavebox{\\SaebelBox}\n";
+ fout << "\\newsavebox{\\GeldBox}\n";
+ fout << "\\newsavebox{\\LetterFeatherBox}\n";
+ fout << "\\newsavebox{\\WurfbeilBox}\n";
+ fout << "\\newsavebox{\\AbenBox}\n";
+
  fout << WinLux::normal_tilde;
- fout << "\\newcommand{\\installpath}{"<<get_latex_pathname(TeX_Install)<< "}\n";
+ fout << "\\sbox{\\DrachenBox}{\\includegraphics[width=9.9cm]{"<<WinLux::recodePathForTeX(magus_paths::with_path("drache.png"))<<"}}\n";
+ fout << "\\sbox{\\SmallDrachenBox}{\\includegraphics[width=6.5cm]{"<<WinLux::recodePathForTeX(magus_paths::with_path("drache.png"))<<"}}\n";
+ fout << "\\sbox{\\LogoBox}{\\includegraphics[width=2.5cm]{"<< WinLux::recodePathForTeX(magus_paths::with_path("MAGUS-Logo-grey2.png"))<<"}}\n";
+ fout << "\\sbox{\\LogoBoxKlein}{\\includegraphics[width=1.5cm]{"<< WinLux::recodePathForTeX(magus_paths::with_path("MAGUS-Logo-grey2.png"))<<"}}\n";
+ fout << "\\sbox{\\SaebelBox}{\\includegraphics[height=0.7cm]{"<< WinLux::recodePathForTeX(magus_paths::with_path("saebel.png"))<<"}}\n";
+ fout << "\\sbox{\\GeldBox}{\\includegraphics[height=0.9cm]{"<< WinLux::recodePathForTeX(magus_paths::with_path("Money-gray.png"))<<"}}\n";
+ fout << "\\sbox{\\LetterFeatherBox}{\\includegraphics[width=2.5cm]{"<< WinLux::recodePathForTeX(magus_paths::with_path("Letter-Feather-grey.png"))<<"}}\n";
+ fout << "\\sbox{\\WurfbeilBox}{\\includegraphics[width=3.5cm]{"<< WinLux::recodePathForTeX(magus_paths::with_path("wurfbeil.png"))<<"}}\n";
+
+
+ // Ab jetzt geht es um das Bild des Abenteurers ////////////////////////////
+// std::string figwidth=itos(hauptfenster->getWerte().BeschreibungPixSize())+"cm";
+// std::string file=hauptfenster->getWerte().BeschreibungPix();
+ fout << "\\sbox{\\AbenBox}{\\includegraphics[width="+dtos(width_of_abenteurer_cm)+"cm]";
+ if(!file.empty())  fout << "{"+WinLux::recodePathForTeX(file)+"}}\n";
+ else               fout << "{"<< WinLux::recodePathForTeX(magus_paths::with_path("MAGUS-Logo-grey2.png"))<<"}}\n";
+    
+ ////////////////////////////////////////////////////////////////////////////
  fout << WinLux::active_tilde; 
+}
+
+void LaTeX_drucken::LaTeX_newsavebox(const Abenteurer &A,std::ostream &fout)
+{
+// fout << WinLux::normal_tilde;
+// fout << "\\newcommand{\\installpath}{"<<get_latex_pathname(TeX_Install)<< "}\n";
+// fout << WinLux::active_tilde; 
  fout << "\\usepackage{german}\n";
  fout << "\\usepackage[latin1]{inputenc}\n";
+ fout << "\\usepackage[pdftex]{graphicx}\n";
+#ifdef __MINGW32__ 
+ fout << "\\DeclareGraphicsRule{.PNG}{png}{.PNG}{}\n"
+ 	"\\DeclareGraphicsRule{.JPG}{jpg}{.JPG}{}\n"
+ 	"\\DeclareGraphicsRule{.PDF}{pdf}{.PDF}{}\n";
+ 	// tif?
+#endif 
  fout << "\\newsavebox{\\Einhandschwert}    \n";
  fout << "\\newsavebox{\\Stichwaffe}  \n";
  fout << "\\newsavebox{\\Einhandschlagwaffe}\n";
@@ -755,6 +793,7 @@ void LaTeX_drucken::LaTeX_newsavebox(std::ostream &fout)
  fout << "\\newsavebox{\\Blasrohr}  \n";
  fout << "\\newsavebox{\\Wurfpfeil} \n";
  fout << "\\newsavebox{\\Werfen}    \n";
+ LaTeX_Bildboxen(fout,A.BeschreibungPix(),2.5);
 }
 
 
@@ -764,20 +803,21 @@ void LaTeX_drucken::LaTeX_kopfzeile(const Abenteurer &A,std::ostream &fout,bool 
   {
     if(landscape)
      {
-       fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(A.getWerte().Name_Abenteurer(),25,"4.5cm") << "}\n";
-       fout << "\\newcommand{\\namespieler}{"  <<LaTeX_scale(A.getWerte().Name_Spieler(),25,"4.5cm") << "}\n";
+       fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(A.Name_Abenteurer(),25,"4.5cm") << "}\n";
+       fout << "\\newcommand{\\namespieler}{"  <<LaTeX_scale(A.Name_Spieler(),25,"4.5cm") << "}\n";
      }
     else
      {
-       fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(A.getWerte().Name_Abenteurer(),20,"4.cm") << "}\n";
-       fout << "\\newcommand{\\namespieler}{"  <<LaTeX_scale(A.getWerte().Name_Spieler(),20,"4.cm") << "}\n";
+       fout << "\\newcommand{\\namecharakter}{"  <<LaTeX_scale(A.Name_Abenteurer(),20,"4.cm") << "}\n";
+       fout << "\\newcommand{\\namespieler}{"  <<LaTeX_scale(A.Name_Spieler(),20,"4.cm") << "}\n";
      }
   }
  std::string     drache="9.9cm", namensbox="7cm";
- if(!landscape) {drache="7cm" , namensbox="5cm";}
- fout << WinLux::normal_tilde;
- fout << "\\parbox{"+drache+"}{\\includegraphics[width="+drache+"]{"<< get_latex_pathname(TeX_Install) << "drache.png}}\n";
- fout << WinLux::active_tilde; 
+ if(!landscape) {drache="6.5cm" , namensbox="5cm";}
+// fout << WinLux::normal_tilde;
+ if(landscape)  fout << "\\parbox{"+drache+"}{\\usebox{\\DrachenBox}}\n";
+ else           fout << "\\parbox{"+drache+"}{\\usebox{\\SmallDrachenBox}}\n";
+// fout << WinLux::active_tilde; 
  fout << "\\parbox[][][c]{"+namensbox+"}{\n";
  if(!landscape) fout << "\\scriptsize\n";
  fout << "\\LI\n";
@@ -789,9 +829,10 @@ void LaTeX_drucken::LaTeX_kopfzeile(const Abenteurer &A,std::ostream &fout,bool 
  fout <<"\\begin{tabularx}{"+namensbox+"}{|c|X|}\\hline\n";
  fout <<"\\makebox[1.1cm]{Spieler}&\\namespieler\\\\\\hline\n";
  fout <<"\\end{tabularx}\n}\n";
- fout << WinLux::normal_tilde;
- fout << "\\parbox{"+drache+"}{\\reflectbox{\\includegraphics[width="+drache+"]{"<< get_latex_pathname(TeX_Install) << "drache.png}}}\n";
- fout << WinLux::active_tilde;
+// fout << WinLux::normal_tilde;
+ if(landscape)  fout << "\\parbox{"+drache+"}{\\usebox{\\DrachenBox}}\n";
+ else           fout << "\\parbox{"+drache+"}{\\usebox{\\SmallDrachenBox}}\n";
+// fout << WinLux::active_tilde;
  fout <<"\\vspace*{2ex}\n\n";
 }
 
@@ -832,7 +873,7 @@ void LaTeX_drucken::LaTeX_header(const Abenteurer &A,std::ostream &fout,bool lan
    fout << "\%% Listenumgebungen\n";
    fout << "\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n";
    fout << "\\newenvironment{punkte}{\n";
-   fout << "\\begin{std::list}{$\\bullet$}\n";
+   fout << "\\begin{list}{$\\bullet$}\n";
    fout << "{\n";
    fout << "\\setlength{\\labelwidth}{0.5cm}\n";
    fout << "\\setlength{\\leftmargin}{1.cm} \n";
@@ -842,12 +883,12 @@ void LaTeX_drucken::LaTeX_header(const Abenteurer &A,std::ostream &fout,bool lan
    fout << "\\setlength{\\itemsep}{0.1ex plus0.1ex minus0.1ex}\n";
    fout << "}}\n";
    fout << "{\n";
-   fout << "\\end{std::list}\n";
+   fout << "\\end{list}\n";
    fout << "}\n";
 
 
    fout << "\\newenvironment{punkte2}{\n";
-   fout << "\\begin{std::list}{$\\star$}\n";   
+   fout << "\\begin{list}{$\\star$}\n";   
    fout << "{\n";
    fout << "\\setlength{\\labelwidth}{0.5cm}\n";
    fout << "\\setlength{\\leftmargin}{1.cm} \n";
@@ -857,18 +898,22 @@ void LaTeX_drucken::LaTeX_header(const Abenteurer &A,std::ostream &fout,bool lan
    fout << "\\setlength{\\itemsep}{0.0ex plus0.1ex minus0.1ex}\n";
    fout << "}}\n";
    fout << "{\n"; 
-   fout << "\\end{std::list}\n";
+   fout << "\\end{list}\n";
    fout << "}\n";
   }
  fout << "\\newcommand{\\LI}{\\setlength{\\arrayrulewidth}{0.4mm}}\n";
  fout << "\\newcommand{\\li}{\\setlength{\\arrayrulewidth}{0.2mm}}\n";
  fout << "\\setlength{\\doublerulesep}{0mm}\n";
  fout << "\\pagestyle{empty}\n";
+}
+
+void LaTeX_drucken::LaTeX_header_doc(const Abenteurer &a,std::ostream &fout,bool landscape,bool kopfzeile)
+{
  fout << "\\begin{document}\n";
  if(kopfzeile)
    {  
      fout << "\\begin{center}\n";
-     LaTeX_kopfzeile(A,fout,landscape);
+     LaTeX_kopfzeile(a,fout,landscape);
      fout << "\\end{center}\n";
     }
 }
@@ -1023,7 +1068,7 @@ void LaTeX_drucken::LaTeX_kido_main(const Abenteurer &A,std::ostream &fout)
   LaTeX_kopfzeile(A,fout,true,false);
   fout << "\\begin{tabular}{rllcp{17cm}}\n";
   fout << "\\multicolumn{5}{l}{\\large\\bf Erfolgswert KiDo: "
-         <<KiDo::get_erfolgswert_kido(A.List_Fertigkeit())+A.getWerte().bo_Za()<<"}\\\\\\hline\n";
+         <<KiDo::get_erfolgswert_kido(A.List_Fertigkeit())+A.bo_Za()<<"}\\\\\\hline\n";
   fout << " AP & HoHo & Technik & Stufe & Effekt \\\\\\hline \n";
 
   LaTeX_kido(A,fout);

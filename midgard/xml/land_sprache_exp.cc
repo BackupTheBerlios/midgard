@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.63 2003/07/14 14:13:29 thoma Exp $
+// $Id: land_sprache_exp.cc,v 1.64 2003/09/01 06:47:59 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -33,13 +33,14 @@ void land_speichern(Tag &o)
   while ((query>>is).good())
   {Tag &Kontinent=Laender.push_back(Tag("Kontinent"));
    std::string kontinent=fetch_and_set_string_attrib(is, Kontinent, "Name");
-   Query query2("select distinct land from land"
+   Query query2("select distinct land,region from land"
    	" where kontinent='"+kontinent+"'"
    	" order by land");
    FetchIStream is2;
    while ((query2>>is2).good())
    {Tag &Land=Kontinent.push_back(Tag("Land"));
     std::string land=fetch_and_set_string_attrib(is2, Land, "Name");
+    fetch_and_set_string_attrib(is2, Land, "Region");
     Query query3("select sprache from land"
    	" where kontinent='"+kontinent+"'"
    	" and land='"+land+"'"

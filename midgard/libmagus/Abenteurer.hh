@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.14 2003/08/12 06:17:49 christof Exp $               
+// $Id: Abenteurer.hh,v 1.15 2003/09/01 06:47:57 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -23,9 +23,6 @@
 #include <vector>
 #include "Ausruestung.hh"
 #include "Grundwerte.hh"
-//#include "Typen.hh"
-//#include "Datenbank.hh"
-//class Datenbank;
 #include "Optionen.hh"
 #include "Waffe.hh"
 #include "Ruestung.hh"
@@ -52,7 +49,8 @@ class Abenteurer : public Grundwerte
    std::list<MBEmlt> list_Sprache; 
    std::list<MBEmlt> list_Schrift;        
 
-   std::map<cH_Region,Model_copyable<bool> > regionen; // aktive Regionen
+   typedef std::map<cH_Region,Model_copyable<bool> > regionen_t;
+   regionen_t regionen; // aktive Regionen
    Optionen optionen; // aktive Optionen
 
 public:
@@ -140,6 +138,8 @@ public:
    
    Optionen &getOptionen() { return optionen; }
    const Optionen &getOptionen() const { return optionen; }
+   Model_ref<bool> getRegion(const cH_Region &r) { return regionen[r]; }
+   bool getRegion(const cH_Region &r) const;
 
    bool operator==(const Abenteurer& a) const
       {return Name_Abenteurer()==a.Name_Abenteurer() &&
@@ -164,39 +164,38 @@ public:
    typedef Enums::st_bool_steigern st_bool_steigern;
    void reduziere(MBEmlt &MBE,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern);
    void verlerne(MBEmlt &MBE,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern);
-   bool steigere(MBEmlt &MBE,std::string &info,const e_wie_steigern wie,
+   bool steigere(MBEmlt &MBE,const e_wie_steigern wie,
                  const st_bool_steigern &bool_steigern);
-   bool neu_lernen(MBEmlt &MBE,std::string &info,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern,const int bonus=0);
+   bool neu_lernen(MBEmlt &MBE,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern,const int bonus=0);
    void move_neues_element(MBEmlt &MBE,std::list<MBEmlt> *MyList_neu,const std::list<cH_MidgardBasicElement> *alleSprachen=0);
 
    void desteigern(unsigned int kosten,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern);
    bool steigern_usp(const e_wie_steigern wie,int &kosten,
                      const e_was_steigern was,
-                     std::string &info,const st_bool_steigern &bool_steigern)
+                     const st_bool_steigern &bool_steigern)
        { int d=1; 
          MBEmlt mbe=MBEmlt(&*cH_Fertigkeit("",true));
-         return steigern_usp(wie,kosten,mbe,d,was,info,bool_steigern);}
+         return steigern_usp(wie,kosten,mbe,d,was,bool_steigern);}
    bool steigern_usp(const e_wie_steigern wie,int &kosten,MBEmlt MBE,
                      int &stufen,const e_was_steigern was,
-                     std::string &info,const st_bool_steigern &bool_steigern);
+                     const st_bool_steigern &bool_steigern);
    void set_lernzeit(const e_wie_steigern wie,const int kosten,
                      const e_was_steigern was,const st_bool_steigern bool_steigern);
-   int genug_geld(const int kosten,const e_wie_steigern wie,const st_bool_steigern bool_steigern,
-                           std::string &info);
-   bool genug_EP(const int ep_k,const bool bkep,const bool bzep, int &aep0,int &kep0,int &zep0,std::string &info);
+   int genug_geld(const int kosten,const e_wie_steigern wie,const st_bool_steigern bool_steigern);
+   bool genug_EP(const int ep_k,const bool bkep,const bool bzep, int &aep0,int &kep0,int &zep0);
    int EP_kosten(const int kosten,const e_wie_steigern wie);
-   int PP_vorrat(const MBEmlt &MBE,e_was_steigern was,std::string &info,const e_wie_steigern wie);
+   int PP_vorrat(const MBEmlt &MBE,e_was_steigern was,const e_wie_steigern wie);
    void steigern_mit(bool &bkep,bool &bzep,const MBEmlt MBE,e_was_steigern was);
    int stufen_auf_einmal_steigern_fuer_aep(MBEmlt& MBE,int &kosten,int &aep);
    void modify(modi_modus modus,const MBEmlt &M,const MidgardBasicElement::st_zusatz &zusatz,int praxispunkte);
 
 
-   int get_ausdauer(int grad, std::string &info,
+   int get_ausdauer(int grad,
                       const e_wie_steigern &wie,const st_bool_steigern &bool_steigern);
    int get_ab_re_za(const e_was_steigern was,const e_wie_steigern &wie,
                               const bool bsteigern,
-                              std::string &info,const st_bool_steigern &bool_steigern);
-   void eigenschaften_steigern(std::string &info,int wurf=-1);
+                              const st_bool_steigern &bool_steigern);
+   void eigenschaften_steigern(int wurf=-1);
    bool eigenschaften_steigern_erlaubt() const;
   
    std::list<MBEmlt> &get_known_list(const Enums::MBEListen was);

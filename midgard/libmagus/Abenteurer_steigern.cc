@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.8 2003/08/03 01:43:02 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.9 2003/09/01 06:47:57 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -24,12 +24,13 @@
 #include <Misc/itos.h>
 #include "Random.hh"
 #include "Datenbank.hh"
+#include "Ausgabe.hh"
 
-bool Abenteurer::steigere(MBEmlt &MBE,std::string &info,const e_wie_steigern wie,
+bool Abenteurer::steigere(MBEmlt &MBE,const e_wie_steigern wie,
                           const st_bool_steigern &bool_steigern)
 {
   if ( MBE->Erfolgswert() >= (*MBE)->MaxErfolgswert(*this))
-      { info+= "Maximal möglicher Erfolgswert erreicht";
+      { Ausgabe(Ausgabe::Error,(*MBE)->Name()+": Maximal möglicher Erfolgswert ("+itos((*MBE)->MaxErfolgswert(*this))+") erreicht");
         return false; }
   if(wie==Enums::eUnterweisung)
     {  
@@ -40,14 +41,14 @@ bool Abenteurer::steigere(MBEmlt &MBE,std::string &info,const e_wie_steigern wie
            ((*MBE).What()==MidgardBasicElement::SCHRIFT &&
             MBE->Erfolgswert() >= cH_Fertigkeit("Schreiben")->MaxUnterweisung())
           )
-         { info+= "Weitere Steigerung des Erfolgswertes ist NICHT mit Unterweisung möglich.";
+         { Ausgabe(Ausgabe::Error,(*MBE)->Name()+": Weitere Steigerung des Erfolgswertes ist NICHT mit Unterweisung möglich.");
            return false; }
      }      
   int stufen=1;
   int steigerkosten=MBE->Steigern(*this);
-  if(!steigern_usp(wie,steigerkosten,MBE,stufen,Enums::eMBEm,info,bool_steigern)) 
+  if(!steigern_usp(wie,steigerkosten,MBE,stufen,Enums::eMBEm,bool_steigern)) 
          return false;
-  getWerte().addGFP(steigerkosten); 
+  addGFP(steigerkosten); 
 
   MBE->addErfolgswert(stufen);
   return true;
@@ -57,7 +58,7 @@ bool Abenteurer::steigere(MBEmlt &MBE,std::string &info,const e_wie_steigern wie
 void Abenteurer::reduziere(MBEmlt &MBE,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern)
 {
   if (bool_steigern.mitEP) desteigern(MBE->Reduzieren(*this),wie,bool_steigern);
-      getWerte().addGFP(-MBE->Reduzieren(*this));
+      addGFP(-MBE->Reduzieren(*this));
   MBE->addErfolgswert(-1);
 }
 
@@ -67,24 +68,24 @@ void Abenteurer::verlerne(MBEmlt &MBE,const e_wie_steigern &wie,const st_bool_st
   if( (*MBE).What()==MidgardBasicElement::ZAUBER && 
       bool_steigern.Spruchrolle)    verlernen/=5  ;
   if (bool_steigern.mitEP) desteigern(verlernen,wie,bool_steigern);  
-      getWerte().addGFP(-verlernen);
+      addGFP(-verlernen);
 }
 
-bool Abenteurer::neu_lernen(MBEmlt &MBE,std::string &info,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern,const int bonus)
+bool Abenteurer::neu_lernen(MBEmlt &MBE,const e_wie_steigern &wie,const st_bool_steigern &bool_steigern,const int bonus)
 {
  if(((*MBE).What()==MidgardBasicElement::FERTIGKEIT ||  (*MBE).What()==MidgardBasicElement::WAFFE)
       && !(*MBE)->Voraussetzung(*this,false))
   {
     if((*MBE)->Voraussetzung()=="schlank")
-      info +="Können nur schlanke Abenteurer lernen";
-    else info+="Erst muß "+(*MBE)->Voraussetzung()+" gelernt werden";
+      Ausgabe(Ausgabe::Error,(*MBE)->Name()+" können nur schlanke Abenteurer lernen");
+    else Ausgabe(Ausgabe::Error,(*MBE)->Name()+": Erst muß "+(*MBE)->Voraussetzung()+" gelernt werden");
     return false;
   }
  // Neue Dinge können nur durch Unterweisung gelernt werden
  // es sei denn es handelt sich um Zaubersprüche
  if((*MBE).What()!=MidgardBasicElement::ZAUBER)   
   { if (wie!=Enums::eUnterweisung)
-     { info+="Neue Fertigkeiten, Waffen, Sprachen und Schriften können nur durch 'Unterweisung' gelernt werden";
+     { Ausgabe(Ausgabe::Error,(*MBE)->Name()+": Neue Fertigkeiten, Waffen, Sprachen und Schriften können nur durch 'Unterweisung' gelernt werden");
        return false;
      }
   }   
@@ -99,13 +100,13 @@ bool Abenteurer::neu_lernen(MBEmlt &MBE,std::string &info,const e_wie_steigern &
     // Nicht alle Abenteurerklassen können Zauber auch mit Praxispunkten lernen
     if(wie==Enums::ePraxis)
       { if(!Typ1()->SpruecheMitPP() && !Typ2()->SpruecheMitPP() )
-           { info+="Neue Zaubersprüche können von "+Typ1()->Name(getWerte().Geschlecht())
-                     +" nicht durch Praxispunkte gelernt werden";
+           { Ausgabe(Ausgabe::Error,(*MBE)->Name()+": Neue Zaubersprüche können von "+Typ1()->Name(Geschlecht())
+                     +" nicht durch Praxispunkte gelernt werden");
              return false;
            }
         else if((*MBE)->Standard__(*this)!="G")
-           { info +="Nur Grundzauber können von "+Typ1()->Name(getWerte().Geschlecht())
-                     +" mit Praxispunkten gelernt werden";
+           { Ausgabe(Ausgabe::Error,(*MBE)->Name()+": Nur Grundzauber können von "+Typ1()->Name(Geschlecht())
+                     +" mit Praxispunkten gelernt werden");
              return false;
            }
       }
@@ -129,24 +130,24 @@ bool Abenteurer::neu_lernen(MBEmlt &MBE,std::string &info,const e_wie_steigern &
           MBE->setErfolgswert(9);
      else MBE->setErfolgswert(7);
    }
- else if (!steigern_usp(wie,kosten,MBE,dummy,Enums::eMBEm,info,bool_steigern)) return false;
+ else if (!steigern_usp(wie,kosten,MBE,dummy,Enums::eMBEm,bool_steigern)) return false;
 
  if(bool_steigern.Spruchrolle)
-    getWerte().addGFP((*MBE)->Kosten(*this)/10);
- else  getWerte().addGFP(kosten);
+    addGFP((*MBE)->Kosten(*this)/10);
+ else  addGFP(kosten);
      
      
 
  // Lernen mit Spruchrolle: ///////////////////////////////////////////////
  if     ((*MBE).What()==MidgardBasicElement::ZAUBER && bool_steigern.Spruchrolle   
      &&   bool_steigern.SpruchrolleAuto)   
-      getWerte().addGFP(kosten);
+      addGFP(kosten);
  else if((*MBE).What()==MidgardBasicElement::ZAUBER && bool_steigern.Spruchrolle &&
      !bool_steigern.SpruchrolleAuto)
    {
-     bool x=cH_Zauber(MBE->getMBE())->spruchrolle_wuerfeln(*this,info,bonus);
+     bool x=cH_Zauber(MBE->getMBE())->spruchrolle_wuerfeln(*this,bonus);
      if(!x) return false;
-     else getWerte().addGFP(kosten);
+     else addGFP(kosten);
    } 
  return true;
 }
@@ -155,7 +156,6 @@ bool Abenteurer::neu_lernen(MBEmlt &MBE,std::string &info,const e_wie_steigern &
 bool Abenteurer::steigern_usp(const e_wie_steigern wie,
                               int &kosten,MBEmlt MBE,int &stufen, 
                               const e_was_steigern was,
-                              std::string &info,
                               const st_bool_steigern &bool_steigern)
 {
  if (!bool_steigern.mitEP) // Steigern OHNE EP/Gold/PP
@@ -166,7 +166,7 @@ bool Abenteurer::steigern_usp(const e_wie_steigern wie,
    }
 
   // genug GELD
-  int gold_k=genug_geld(kosten,wie,bool_steigern,info);
+  int gold_k=genug_geld(kosten,wie,bool_steigern);
   if(gold_k==-1) return false; // nicht genug Geld
 
   // EP
@@ -174,16 +174,16 @@ bool Abenteurer::steigern_usp(const e_wie_steigern wie,
   steigern_mit(bkep,bzep,MBE,was);
 
   int ep_k = EP_kosten(kosten,wie);
-  int pp   = PP_vorrat(MBE,was,info,wie);
+  int pp   = PP_vorrat(MBE,was,wie);
   if(pp==-1) return false;
 
  if(wie==Enums::ePraxis && !bool_steigern.Spruchrolle)
   {
-   if(pp==0) {info+="Keine PP vorhanden"; return false;}
+   if(pp==0) {Ausgabe(Ausgabe::Error,(*MBE)->Name()+": Keine PP vorhanden"); return false;}
    int rest_aep=0,use_pp=0;
    if(bool_steigern.hoch_wie_geht)
     {
-      if(was!=Enums::eMBEm) { info+="Nur eine Stufe auf einmal möglich"; return false;}
+      if(was!=Enums::eMBEm) { Ausgabe(Ausgabe::Error,(*MBE)->Name()+": Nur eine Stufe auf einmal möglich"); return false;}
       use_pp=pp;
       int ppkosten=0,aep=40*pp;
       stufen=stufen_auf_einmal_steigern_fuer_aep(MBE,ppkosten,aep);
@@ -196,7 +196,7 @@ bool Abenteurer::steigern_usp(const e_wie_steigern wie,
 //         kosten=rest_aep;
 //         rest_aep=0;
 //cout << use_pp<<' '<<kosten<<' '<<rest_aep<<' '<<ep_k<<'\n';
-         info+="Nicht implementiert";
+         Ausgabe(Ausgabe::Error,"Nicht implementiert");
          return false;
        }
     }   
@@ -220,14 +220,14 @@ bool Abenteurer::steigern_usp(const e_wie_steigern wie,
       else            {ep_k = rest_aep + 40*(use_pp-pp); use_pp=pp;}
       if(ep_k > use_pp*40)
        {
-         info+="Höchstens die Hälfte der GFP darf beim 'Steigern mit PP' durch die Hälfte der GFP darf beim 'Steigern mit PP' durch EP bestritten werden"; 
+         Ausgabe(Ausgabe::Error,"Höchstens die Hälfte der GFP darf beim 'Steigern mit PP' durch die Hälfte der GFP darf beim 'Steigern mit PP' durch EP bestritten werden"); 
          return false;
        }
     }  
    else
     {  
-      if(pp<use_pp )  {info+="Nicht genug PP zum steigern vorhanden"; return false; }
-      if(rest_aep!=0) {info+= "Es müßten "+itos(rest_aep)+" EP verwendet werden um "+itos(stufen)+" Stufe(n) zu steigern"; return false;}
+      if(pp<use_pp )  {Ausgabe(Ausgabe::Error,"Nicht genug PP zum steigern vorhanden"); return false; }
+      if(rest_aep!=0) {Ausgabe(Ausgabe::Error,"Es müßten "+itos(rest_aep)+" EP verwendet werden um "+itos(stufen)+" Stufe(n) zu steigern"); return false;}
       ep_k=0;
     }
    pp=use_pp;
@@ -235,11 +235,11 @@ bool Abenteurer::steigern_usp(const e_wie_steigern wie,
 
    
   int aep0=0,kep0=0,zep0=0;
-  bool ok=genug_EP(ep_k,bkep,bzep,aep0,kep0,zep0,info);
+  bool ok=genug_EP(ep_k,bkep,bzep,aep0,kep0,zep0);
   if(!ok) return false;
 
   // jetzt darf gesteigert werden ...
-  getWerte().addGold(-gold_k);
+  addGold(-gold_k);
   
   if(wie==Enums::ePraxis && !bool_steigern.Spruchrolle)
    {
@@ -258,22 +258,22 @@ bool Abenteurer::steigern_usp(const e_wie_steigern wie,
   if(pp)
    {
      if     (was==Enums::eMBEm && (*MBE).What()!=MidgardBasicElement::ZAUBER) modify(PPmodus,MBE,MidgardBasicElement::st_zusatz(),MBE->Praxispunkte()-pp) ;
-     else if(was==Enums::eMBEm && (*MBE).What()==MidgardBasicElement::ZAUBER) getWerte().addSpezialPP(-pp) ;
-     else if(was==Enums::eResistenz)  getWerte().addResistenzPP(-pp) ;
-     else if(was==Enums::eAbwehr)     getWerte().addAbwehrPP(-pp) ;   
-     else if(was==Enums::eZaubern)    getWerte().addZaubernPP(-pp) ;
+     else if(was==Enums::eMBEm && (*MBE).What()==MidgardBasicElement::ZAUBER) addSpezialPP(-pp) ;
+     else if(was==Enums::eResistenz)  addResistenzPP(-pp) ;
+     else if(was==Enums::eAbwehr)     addAbwehrPP(-pp) ;   
+     else if(was==Enums::eZaubern)    addZaubernPP(-pp) ;
      else if(was==Enums::eAusdauer)   ;
      else assert(!"Fehler in steigern_EP.cc");
    }
   if(bkep)
-   { if (ep_k<=getWerte().KEP()) {getWerte().addKEP(-ep_k);ep_k =0  ;}
-     else  {ep_k-=getWerte().KEP(); getWerte().setKEP(0);}
+   { if (ep_k<=KEP()) {addKEP(-ep_k);ep_k =0  ;}
+     else  {ep_k-=KEP(); setKEP(0);}
    }
   if(bzep)
-   { if (ep_k<=getWerte().ZEP()) {getWerte().addZEP(-ep_k);ep_k =0 ;}
-     else {  ep_k-=getWerte().ZEP(); getWerte().setZEP(0);  }
+   { if (ep_k<=ZEP()) {addZEP(-ep_k);ep_k =0 ;}
+     else {  ep_k-=ZEP(); setZEP(0);  }
    }
-  getWerte().addAEP(-ep_k);
+  addAEP(-ep_k);
   return true;  
 }
 
@@ -312,19 +312,19 @@ void Abenteurer::set_lernzeit(const e_wie_steigern wie,const int kosten,
                               const st_bool_steigern bool_steigern)
 {
   if(was==Enums::eAusdauer)
-   { getWerte().addSteigertage(Grad_anstieg::AP_Maximum_Tage);
+   { addSteigertage(Grad_anstieg::AP_Maximum_Tage);
      return;
    }
   if(bool_steigern.Spruchrolle)
    { assert(wie==Enums::eSelbststudium);
-     getWerte().addSteigertage(kosten*3);
+     addSteigertage(kosten*3);
      return;
    }
-  if(wie==Enums::eUnterweisung) getWerte().addSteigertage(kosten/10);
-  else if(wie==Enums::eSelbststudium) getWerte().addSteigertage(kosten/5.);
+  if(wie==Enums::eUnterweisung) addSteigertage(kosten/10);
+  else if(wie==Enums::eSelbststudium) addSteigertage(kosten/5.);
   else if(wie==Enums::ePraxis)       
    {
-     getWerte().addSteigertage(kosten/500.);
+     addSteigertage(kosten/500.);
    }
 }   
 
@@ -353,12 +353,11 @@ void Abenteurer::steigern_mit(bool &bkep,bool &bzep,const MBEmlt MBE,e_was_steig
 
 
 int Abenteurer::genug_geld(const int kosten,const e_wie_steigern wie,
-                           const st_bool_steigern bool_steigern,
-                           std::string &info)
+                           const st_bool_steigern bool_steigern)
 {
   if(wie!=Enums::eUnterweisung) return 0; // keine Unterweisung => kein Geld nötig
   if(bool_steigern.Spruchrolle) return 0;
-  int gold_k = getWerte().gold_kosten(kosten);
+  int gold_k = gold_kosten(kosten);
   if( !bool_steigern.HausG1 ) gold_k*=10;
 
   std::pair<int,bool> gestu=Erfolgswert("Gesch�ftst�chtigkeit");
@@ -366,30 +365,30 @@ int Abenteurer::genug_geld(const int kosten,const e_wie_steigern wie,
    {
       int iw=Random::W20();
       int erg=gestu.first+iw;
-      info+= " EW:Gesch�ftst�chtigkeit = "+itos(gestu.first)+"+"+itos(iw)
-               +"="+itos(erg);
+      Ausgabe(Ausgabe::Log,"EW:Gesch�ftst�chtigkeit = "+itos(gestu.first)+"+"+itos(iw)
+               +"="+itos(erg));
       int gold_gespart = int(gold_k*0.9);
-      if(erg>=20) info+=" => "+itos(gold_gespart)+" Gold gespart";
+      if(erg>=20) Ausgabe(Ausgabe::Log," => "+itos(gold_gespart)+" Gold gespart");
       gold_k-=gold_gespart;
    }
 
-  if (gold_k > getWerte().Gold())
-    { info+= "Zu wenig Gold um zu steigern, es fehlt "+itos(gold_k-getWerte().Gold())+" Gold.";
+  if (gold_k > Gold())
+    { Ausgabe(Ausgabe::Error,"Zu wenig Gold um zu steigern, es fehlt "+itos(gold_k-Gold())+" Gold.");
       return -1;
     }
   else
    return gold_k;
 }
 
-bool Abenteurer::genug_EP(const int ep_k,const bool bkep,const bool bzep, int &aep0,int &kep0,int &zep0,std::string &info)
+bool Abenteurer::genug_EP(const int ep_k,const bool bkep,const bool bzep, int &aep0,int &kep0,int &zep0)
 {
-  int aep=getWerte().AEP();
+  int aep=AEP();
   std::string sw;
-  if (bkep) {aep += getWerte().KEP() ;sw  =",KEP";}
-  if (bzep) {aep += getWerte().ZEP() ;sw +=",ZEP";}
+  if (bkep) {aep += KEP() ;sw  =",KEP";}
+  if (bzep) {aep += ZEP() ;sw +=",ZEP";}
   if (ep_k > aep) 
     { 
-      info+= "Zu wenig EP um zu steigern, es fehlen "+itos(ep_k-aep)+" Erfahrungspunkte (AEP"+sw+").";
+      Ausgabe(Ausgabe::Error,"Zu wenig EP um zu steigern, es fehlen "+itos(ep_k-aep)+" Erfahrungspunkte (AEP"+sw+").");
       return false;
     }
   return true;
@@ -399,23 +398,23 @@ bool Abenteurer::genug_EP(const int ep_k,const bool bkep,const bool bzep, int &a
 int Abenteurer::EP_kosten(const int kosten,const e_wie_steigern wie)
 {
   int ep_k;
-  if(wie==Enums::eUnterweisung) ep_k = getWerte().ep_kosten(kosten);
+  if(wie==Enums::eUnterweisung) ep_k = ep_kosten(kosten);
   else                   ep_k = (int)(kosten);
   return ep_k;
 }
 
 int Abenteurer::PP_vorrat(const MBEmlt &MBE,const e_was_steigern was,
-                          std::string &info,const e_wie_steigern wie)
+                          const e_wie_steigern wie)
 {
   unsigned pp=0;
   if(wie==Enums::ePraxis)
    {
      if     (was==Enums::eMBEm && (*MBE).What()!=MidgardBasicElement::ZAUBER) pp=MBE->Praxispunkte();
-     else if(was==Enums::eMBEm && (*MBE).What()==MidgardBasicElement::ZAUBER) pp=getWerte().SpezialPP();
-     else if(was==Enums::eResistenz) pp=getWerte().ResistenzPP() ;
-     else if(was==Enums::eAbwehr)    pp=getWerte().AbwehrPP() ;
-     else if(was==Enums::eZaubern)   pp=getWerte().ZaubernPP() ;
-     else if(was==Enums::eAusdauer)  {info+= "Ausdauer kann nicht mit Praxispunkten gesteigert werden.";return -1;}
+     else if(was==Enums::eMBEm && (*MBE).What()==MidgardBasicElement::ZAUBER) pp=SpezialPP();
+     else if(was==Enums::eResistenz) pp=ResistenzPP() ;
+     else if(was==Enums::eAbwehr)    pp=AbwehrPP() ;
+     else if(was==Enums::eZaubern)   pp=ZaubernPP() ;
+     else if(was==Enums::eAusdauer)  {Ausgabe(Ausgabe::Error,"Ausdauer kann nicht mit Praxispunkten gesteigert werden.");return -1;}
      else assert(!"Fehler in steigern_EP.cc");
    }
  return pp;
@@ -475,7 +474,7 @@ void Abenteurer::modify(modi_modus modus,const MBEmlt &M,const MidgardBasicEleme
            else if(modus==Zusatzmodus)
             {
               (*i)->setZusatz(zusatz);
-              if(zusatz.name==getWerte().Herkunft()->Name())
+              if(zusatz.name==Herkunft()->Name())
                 (*i)->setErfolgswert(9);
             }
          }   
@@ -491,18 +490,18 @@ void Abenteurer::desteigern(unsigned int kosten,const e_wie_steigern &wie,const 
   if(wie==Enums::ePraxis || wie==Enums::eSelbststudium) ep_k = kosten ;
   else
    {  
-     gold_k = getWerte().gold_kosten(kosten);
-     ep_k = getWerte().ep_kosten(kosten);
+     gold_k = gold_kosten(kosten);
+     ep_k = ep_kosten(kosten);
    }
 //  if( !hauptfenster->getOptionen()->HausregelCheck(Magus_Optionen::Gold).active ) gold_k*=10;
   if( !bool_steigern.HausG1 ) gold_k*=10;
   set_lernzeit(wie,-ep_k,Enums::eMBEm,bool_steigern);
-  getWerte().addGold(gold_k);
-  getWerte().addAEP(ep_k);   
+  addGold(gold_k);
+  addAEP(ep_k);   
 }
 
 
-int Abenteurer::get_ausdauer(int grad, std::string &info,
+int Abenteurer::get_ausdauer(int grad,
                               const e_wie_steigern &wie,const st_bool_steigern &bool_steigern)
 {
    int bonus_K, bonus_aK, bonus_Z;
@@ -518,8 +517,8 @@ int Abenteurer::get_ausdauer(int grad, std::string &info,
    else if (grad == 9)  { bonus_K = 27, bonus_aK = 18; bonus_Z =  9; }
    else if (grad ==10)  { bonus_K = 30, bonus_aK = 20; bonus_Z = 10; }
    else if (grad >=11)  { bonus_K = 30, bonus_aK = 20; bonus_Z = 10; }
-   if (!steigern_usp(wie,kosten,Enums::eAusdauer,info,bool_steigern)) return 0;
-   getWerte().addGFP(kosten);
+   if (!steigern_usp(wie,kosten,Enums::eAusdauer,bool_steigern)) return 0;
+   addGFP(kosten);
    int ap=0;
    for (int i=0;i<grad;++i) ap += Random::W6();
 
@@ -527,40 +526,40 @@ int Abenteurer::get_ausdauer(int grad, std::string &info,
   if      (Typ1()->Ausdauer() == "k" || Typ2()->Ausdauer() == "k")  nab = bonus_K ;
   else if (Typ1()->Ausdauer() == "ak"|| Typ2()->Ausdauer() == "ak") nab = bonus_aK ;
   else  nab = bonus_Z ;
-  nap = ap + nab + getWerte().bo_Au() ;
-  int nspez = getWerte().Grad()*getWerte().Spezies()->AP_GradFak();
+  nap = ap + nab + bo_Au() ;
+  int nspez = Grad()*Spezies()->AP_GradFak();
   nap += nspez;
-  info+="Ausdauerpunkte für Grad "+itos(getWerte().Grad())+": "
+  Ausgabe(Ausgabe::Error,"Ausdauerpunkte für Grad "+itos(Grad())+": "
    "Gewürfelt("+itos(ap)+") + Bonus für Typ("+itos(nab)
-   +") + Persönlichen Bonus("+itos(getWerte().bo_Au())
-   +") + Spezies-Bonus("+itos(nspez)+") = "+itos(nap)+" AP\n";
+   +") + Persönlichen Bonus("+itos(bo_Au())
+   +") + Spezies-Bonus("+itos(nspez)+") = "+itos(nap)+" AP");
    // Für alle ist die AP-anzahel mind. = Grad
-  if (getWerte().AP()<getWerte().Grad()) getWerte().setAP(getWerte().Grad());
+  if (AP()<Grad()) setAP(Grad());
    // Neue AP höher als alte?
-  if (nap>getWerte().AP())  getWerte().setAP(nap)  ;
+  if (nap>AP())  setAP(nap)  ;
   return kosten;
 }
  
 int Abenteurer::get_ab_re_za(const e_was_steigern was,const e_wie_steigern &wie,
                               const bool bsteigern,
-                              std::string &info,const st_bool_steigern &bool_steigern)
+                              const st_bool_steigern &bool_steigern)
 {
   int alter_wert, max_wert;
   int kosten;
-  int grad=getWerte().Grad();
+  int grad=Grad();
   if(!bsteigern) grad=--grad;
   if(grad==0) kosten=0;
   else if (was==Enums::eAbwehr)
     { 
       max_wert = Datenbank.GradAnstieg.get_MaxAbwehr(grad);
-      alter_wert = getWerte().Abwehr_wert(); 
+      alter_wert = Abwehr_wert(); 
       kosten   = Datenbank.GradAnstieg.get_Abwehr_Kosten(alter_wert+1);
       if(!bsteigern) kosten = Datenbank.GradAnstieg.get_Abwehr_Kosten(alter_wert);
     } 
   else if (was==Enums::eResistenz)
     { 
       max_wert = Datenbank.GradAnstieg.get_MaxResistenz(grad);
-      alter_wert = getWerte().Resistenz(); 
+      alter_wert = Resistenz(); 
       kosten   = Datenbank.GradAnstieg.get_Resistenz_Kosten(alter_wert+1);
       if(!bsteigern) kosten = Datenbank.GradAnstieg.get_Resistenz_Kosten(alter_wert);
     } 
@@ -569,7 +568,7 @@ int Abenteurer::get_ab_re_za(const e_was_steigern was,const e_wie_steigern &wie,
       if (is_mage())
        { 
          max_wert = Datenbank.GradAnstieg.get_MaxZauber(grad);
-         alter_wert = getWerte().Zaubern_wert(); 
+         alter_wert = Zaubern_wert(); 
          kosten   = Datenbank.GradAnstieg.get_Zauber_Kosten(alter_wert+1);
          if(!bsteigern) kosten = Datenbank.GradAnstieg.get_Zauber_Kosten(alter_wert);
        } 
@@ -577,104 +576,105 @@ int Abenteurer::get_ab_re_za(const e_was_steigern was,const e_wie_steigern &wie,
     }
   else assert(!"never get here");
   if (kosten!=0 && (alter_wert >= max_wert && bsteigern))
-      { info+="Für Grad "+itos(getWerte().Grad())+" ist der Maximalwert erreicht!" ;
+      { Ausgabe(Ausgabe::Error,"Für Grad "+itos(Grad())+" ist der Maximalwert erreicht!") ;
         return 0;}
 
   if(kosten!=0 && bsteigern)
    { // hier stand eAusdauer ... was ist sinnvoller - oder?
-     if (!steigern_usp(wie,kosten,was,info,bool_steigern)) return 0;
-     getWerte().addGFP(kosten);
-     if      (was==Enums::eAbwehr)    getWerte().setAbwehr_wert(alter_wert+1);
-     else if (was==Enums::eResistenz) getWerte().setResistenz(alter_wert+1);  
-     else if (was==Enums::eZaubern)   getWerte().setZaubern_wert(alter_wert+1);
+     if (!steigern_usp(wie,kosten,was,bool_steigern)) return 0;
+     addGFP(kosten);
+     if      (was==Enums::eAbwehr)    setAbwehr_wert(alter_wert+1);
+     else if (was==Enums::eResistenz) setResistenz(alter_wert+1);  
+     else if (was==Enums::eZaubern)   setZaubern_wert(alter_wert+1);
    }
   else
    {  
      if(kosten==0) 
       { 
-        info="Minimaler Erfogswert erreicht";
+        Ausgabe(Ausgabe::Error,"Minimaler Erfogswert erreicht");
         return 0;
       }
      if (bool_steigern.mitEP) desteigern(kosten,wie,bool_steigern);
      set_lernzeit(wie,-kosten,was,bool_steigern);
-     getWerte().addGFP(-kosten);
-     if      (was==Enums::eAbwehr)    getWerte().setAbwehr_wert(alter_wert-1);
-     else if (was==Enums::eResistenz) getWerte().setResistenz(alter_wert-1);  
-     else if (was==Enums::eZaubern)   getWerte().setZaubern_wert(alter_wert-1);
+     addGFP(-kosten);
+     if      (was==Enums::eAbwehr)    setAbwehr_wert(alter_wert-1);
+     else if (was==Enums::eResistenz) setResistenz(alter_wert-1);  
+     else if (was==Enums::eZaubern)   setZaubern_wert(alter_wert-1);
    }
  return kosten;
 }
 
 bool Abenteurer::eigenschaften_steigern_erlaubt() const
 {
- if(getWerte().Grad() > getWerte().get_Grad_Basiswerte()) return true;
+ if(Grad() > get_Grad_Basiswerte()) return true;
  return false;
 }
 
-void Abenteurer::eigenschaften_steigern(std::string &info,int wurf)
+void Abenteurer::eigenschaften_steigern(int wurf)
 {
   if(!eigenschaften_steigern_erlaubt())
-   {info+="Für Grad "+itos(getWerte().get_Grad_Basiswerte())+" wurde schon gewürfelt";
+   {Ausgabe(Ausgabe::Error,"Für Grad "+itos(get_Grad_Basiswerte())+" wurde schon gewürfelt");
     return;
    }
   // Erhöhen der Schicksalsgunst
-  { int n=Datenbank.GradAnstieg.get_Schicksalsgunst(getWerte().Grad());
-    if(getWerte().Spezies()->Name()=="Halbling") n=n+2;
-    getWerte().add_SG(n);
+  { int n=Datenbank.GradAnstieg.get_Schicksalsgunst(Grad());
+    if(Spezies()->Name()=="Halbling") n=n+2;
+    add_SG(n);
   }
 
   if(wurf==-1) wurf=Random::W100();
 
   int z=wurf;  
-  info+="Beim Würfeln zur Erhöhung einer Eigenschaft für Grad "
-      + itos(getWerte().get_Grad_Basiswerte()+1) + " wurde eine ";
+  std::string info="Beim Würfeln zur Erhöhung einer Eigenschaft für Grad "
+      + itos(get_Grad_Basiswerte()+1) + " wurde eine ";
   info += itos(wurf);
   info +=" gewürfelt ==> ";
   std::string was = "keine Erhöhung";
 
   int erh = Random::W6()+1;
-  int awko= getWerte().Ko(); //alter_wert;
-  int aapb = getWerte().bo_Au(); // alter Wert
+  int awko= Ko(); //alter_wert;
+  int aapb = bo_Au(); // alter Wert
   if     ( z<=76 ) ;//nichts steigern 
-  else if( z<=78 ) { was="Stärke";           getWerte().add_St(erh); }
-  else if( z<=81 ) { was="Geschicklichkeit"; getWerte().add_Gs(erh); }
-  else if( z<=84 ) { was="Gewandheit"; getWerte().add_Gw(erh); }
-  else if( z<=87 ) { was="Konstitution"; getWerte().add_Ko(erh); }
-  else if( z<=90 ) { was="Intelligenz"; getWerte().add_In(erh); }
-  else if( z<=93 ) { was="Zaubertalent"; getWerte().add_Zt(erh); }
-  else if( z<=95 ) { was="Selbstbeherrschung"; getWerte().add_Sb(erh); }
-  else if( z<=97 ) { was="Willenskraft"; getWerte().add_Wk(erh); }
-  else if( z<=99 ) { was="persönliche Ausstrahlung"; getWerte().add_pA(erh); }
-  else if( z==100) { was="Aussehn"; getWerte().add_Au(erh); }
+  else if( z<=78 ) { was="Stärke";           add_St(erh); }
+  else if( z<=81 ) { was="Geschicklichkeit"; add_Gs(erh); }
+  else if( z<=84 ) { was="Gewandheit"; add_Gw(erh); }
+  else if( z<=87 ) { was="Konstitution"; add_Ko(erh); }
+  else if( z<=90 ) { was="Intelligenz"; add_In(erh); }
+  else if( z<=93 ) { was="Zaubertalent"; add_Zt(erh); }
+  else if( z<=95 ) { was="Selbstbeherrschung"; add_Sb(erh); }
+  else if( z<=97 ) { was="Willenskraft"; add_Wk(erh); }
+  else if( z<=99 ) { was="persönliche Ausstrahlung"; add_pA(erh); }
+  else if( z==100) { was="Aussehn"; add_Au(erh); }
 
   {
    //Setzen von abgeleiteten Werten, die durch eine Steigerung 
    //bertoffen sein könnten:
-   getWerte().setSinn("Sechster Sinn",getWerte().Zt()/25);
-//   getWerte().setRaufen((getWerte().St()+getWerte().Gw())/20+getWerte().bo_An() );
-   if(was=="Konstitution" && (awko/10 != getWerte().Ko()/10))
-         getWerte().setLP(getWerte().LP()-awko/10+getWerte().Ko()/10);
-   if( aapb!=getWerte().bo_Au() ) 
-      getWerte().setAP(getWerte().AP()-aapb+getWerte().bo_Au());
+   setSinn("Sechster Sinn",Zt()/25);
+//   setRaufen((St()+Gw())/20+bo_An() );
+   if(was=="Konstitution" && (awko/10 != Ko()/10))
+         setLP(LP()-awko/10+Ko()/10);
+   if( aapb!=bo_Au() ) 
+      setAP(AP()-aapb+bo_Au());
   }
 
   info += was;
   if (was != "keine Erhöhung" )  info += " um "+itos(erh)+" erhöht.";
-  getWerte().set_Grad_Basiswerte(1+getWerte().get_Grad_Basiswerte());
+  Ausgabe(Ausgabe::Log,info);
+  set_Grad_Basiswerte(1+get_Grad_Basiswerte());
 }
 
 
 void Abenteurer::Steigertage2Alter()
 {
-  float tage=getWerte().Steigertage();
-  int alter=getWerte().Alter();
+  float tage=Steigertage();
+  int alter=Alter();
   int tage_pro_jahr=360;
   while(tage>tage_pro_jahr)
    {
      alter+=1;
      tage-=tage_pro_jahr;
    }
-  getWerte().setAlter(alter);
-  getWerte().setSteigertage(tage);
+  setAlter(alter);
+  setSteigertage(tage);
 }
 

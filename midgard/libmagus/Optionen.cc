@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.4 2003/07/11 22:47:15 christof Exp $
+// $Id: Optionen.cc,v 1.5 2003/09/01 06:47:57 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -36,6 +36,10 @@ Optionen::st_OptionenCheck &Optionen::OptionenCheck(OptionenCheckIndex oi)
      }
  assert(!"OptionenCheck: nicht gefunden");
  abort();
+}
+
+const Optionen::st_OptionenCheck &Optionen::OptionenCheck(OptionenCheckIndex oi) const
+{  return const_cast<Optionen*>(this)->OptionenCheck(oi);
 }
 
 Optionen::st_Haus &Optionen::HausregelCheck(HausIndex hi) 

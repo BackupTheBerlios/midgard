@@ -22,6 +22,7 @@
 #include <Misc/itos.h>
 #include "Data_waffenbesitz.hh"
 #include "LernListen.hh"
+#include <libmagus/Ausgabe.hh>
 
 void table_steigern::on_leaf_waffenbesitz_selected_alt(cH_RowDataBase d)
 {  
@@ -31,7 +32,7 @@ void table_steigern::on_leaf_waffenbesitz_selected_alt(cH_RowDataBase d)
 
   if(!checkbutton_mag_waffenbonus->get_active()) 
    {
-    for(std::list<H_WaffeBesitz>::const_iterator i=hauptfenster->getChar()->List_Waffen_besitz().begin();
+    for(std::list<H_WaffeBesitz>::iterator i=hauptfenster->getChar()->List_Waffen_besitz().begin();
          i!=hauptfenster->getChar()->List_Waffen_besitz().end();++i)
      {
         if( *i == WB)
@@ -93,8 +94,8 @@ void table_steigern::on_entry_magisch_activate()
       }
 
      table_magbonus->hide();
-  } catch(std::exception &e) {std::cerr<<e.what()<<'\n';
-   hauptfenster->set_status("Keine Waffe selektiert");
+  } catch(std::exception &e) {Ausgabe(Ausgabe::Error,e.what());
+   Ausgabe(Ausgabe::Error,"Keine Waffe ausgew�hlt");
      };
   show_alte_waffen();
   show_neue_waffen();
@@ -140,8 +141,8 @@ void table_steigern::init_waffenbesitz()
 //  lade_waffenbesitz();
   show_alte_waffen();
 
-  list_WaffenBesitz_neu = LernListen(hauptfenster->getCDatabase())
-             .getWaffenBesitz(hauptfenster->getAben());
+  list_WaffenBesitz_neu = LernListen()
+             .getWaffenBesitz(hauptfenster->getChar().getAbenteurer());
   show_neue_waffen();
 }
 
@@ -160,7 +161,7 @@ void  table_steigern::show_alte_waffen()
 void  table_steigern::show_neue_waffen()
 {
   std::vector<cH_RowDataBase> datavec;
-//  std::list<H_WaffeBesitz> Waffe_Besitz_neu=LernListen(hauptfenster->getCDatabase()).getWaffenBesitz(hauptfenster->getAben());
+//  std::list<H_WaffeBesitz> Waffe_Besitz_neu=LernListen().getWaffenBesitz(hauptfenster->getChar().getAbenteurer());
 //  for (std::list<H_WaffeBesitz>::const_iterator i=Waffe_Besitz_neu.begin();i!=Waffe_Besitz_neu.end();++i)
   for (std::list<H_WaffeBesitz>::const_iterator i=list_WaffenBesitz_neu.begin();i!=list_WaffenBesitz_neu.end();++i)
         datavec.push_back(new Data_waffenbesitz(*i,hauptfenster));
@@ -179,6 +180,6 @@ void table_steigern::on_alte_waffenbesitz_reorder()
   switch((Data_waffenbesitz::SPALTEN_A)seq[0]) {
       case Data_waffenbesitz::MAGBONUS : hauptfenster->getChar()->List_Waffen_besitz().sort(WaffenBesitz_sort_magbonus()) ;break;
       case Data_waffenbesitz::NAME_A   : hauptfenster->getChar()->List_Waffen_besitz().sort(WaffenBesitz_sort_name()); break;
-      default : hauptfenster->set_status("Sortieren nach diesem Parameter\n ist nicht möglich");
+      default : Ausgabe(Ausgabe::Error,"Sortieren nach diesem Parameter ist nicht möglich");
    }
 }

@@ -1,4 +1,4 @@
-// $Id: grundwerte_abge_werte.cc,v 1.6 2003/08/11 06:26:33 christof Exp $
+// $Id: grundwerte_abge_werte.cc,v 1.7 2003/09/01 06:47:57 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig

@@ -41,5 +41,8 @@ use StyleIcon for new Icons
 
   Landeskunde geht, Schreiben: Alte Sprache nicht
 
-- undo/redo müsste in libmagus (in VAbenteurer) und andere Werte ebenfalls
+- evtl. Bugfixes in magus (drucken nicht mitgekommen?)
 
+- Undo/Redo verändern die Lernpunkte noch nicht ...
+
+- Dialoge, anlegen von neuen Artikeln ...

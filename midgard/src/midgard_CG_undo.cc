@@ -1,4 +1,4 @@
-// $Id: midgard_CG_undo.cc,v 1.17 2003/04/29 07:33:56 christof Exp $
+// $Id: midgard_CG_undo.cc,v 1.18 2003/09/01 06:47:58 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -45,7 +45,7 @@ void midgard_CG::on_undo_leaf_selected(cH_RowDataBase d)
   std::stringstream s;
   s<<MidgardUndo.get(dt->getIndex());
   Char->xml_import_stream(s,getDatabase(),getOptionen(),this);
-  set_status("Alten Zustand wieder hergestellt");
+  Ausgabe(Ausgabe::Log,"Alten Zustand wieder hergestellt");
   undo_tree->get_selection()->unselect_all();
 }
 

@@ -1,4 +1,4 @@
-// $Id: kido_exp.cc,v 1.5 2002/06/24 07:46:23 christof Exp $
+// $Id: kido_exp.cc,v 1.6 2003/09/01 06:47:59 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
