@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.23 2003/06/23 07:43:52 thoma Exp $   
+// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.24 2003/07/01 12:44:37 thoma Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -37,8 +37,8 @@ void LaTeX_drucken::Spielleiterbogen()
 // fout << "\\fbox{\\parbox[t][22cm]{18cm}{ \n";
  fout << "\\vspace*{-0cm}\n\n";
 
- fout << "\\scalebox{0.97}{\\footnotesize\n";
- fout << "\\begin{tabular}{|||l|||\n";
+ fout << "\\scriptsize\n";
+ fout << "\\begin{longtable}{|||l|||\n";
  for(unsigned int i=0;i<hauptfenster->Char.getList().size();++i)
    fout << "c|"; // Anzahl der Spalten/Abenteurer
  fout << "||}\\hline\\hline\\hline\n";
@@ -46,12 +46,12 @@ void LaTeX_drucken::Spielleiterbogen()
  for(ewhat was=enamecharakter;was<eMAX; was=ewhat(int(was)+1))
    line(fout,was);
 
- fout << "\\end{tabular}\n";
- fout << "}\n"; //scalebox
+ fout << "\\end{longtable}\n";
+// fout << "}\n"; //scalebox
 // fout << "}}\n"; //fbox+parbox
  LaTeX_footer(fout);
  fout2.close();
- pdf_viewer(filename);
+ pdf_viewer(filename,true);
 }
 
 void LaTeX_drucken::line(std::ostream &fout,const ewhat &what)
