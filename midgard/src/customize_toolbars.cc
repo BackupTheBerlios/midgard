@@ -1,4 +1,4 @@
-// $Id: customize_toolbars.cc,v 1.12 2002/05/16 07:51:13 christof Exp $
+// $Id: customize_toolbars.cc,v 1.13 2002/05/16 08:05:17 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -48,6 +48,20 @@ static void CustomizeBox(Gtk::Widget *child, bool show_icons, bool tab_text)
          else w2->hide();
          if (tab_text) w1->show();
          else w1->hide();
+      }
+      else if (Gtk::Box::isA(w1) && Gtk::Label::isA(w2))
+      {  Gtk::Box_Helpers::BoxList &ch2=dynamic_cast<Gtk::Box*>(w1)->children();
+         Gtk::Box_Helpers::BoxList::iterator i2=ch2.begin(),j2=i2;
+         
+         if (i2!=ch.end() && ++j2!=ch.end()
+            && (*i2)->get_widget() && (*j2)->get_widget()
+            && Gtk::Pixmap::isA((*i2)->get_widget())
+            && Gtk::Pixmap::isA((*j2)->get_widget()))
+         {  if (show_icons) w1->show();
+            else w1->hide();
+            if (tab_text) w2->show();
+            else w2->hide();
+         }
       }
    }
 }
@@ -99,9 +113,8 @@ void Gtk::CustomizeToolbars(Gtk::Widget *w, bool show_icons, bool show_text, boo
       for (Gtk::Notebook_Helpers::PageList::const_iterator i=ch.begin();
       		i!=ch.end();++i)
       {  CustomizeToolbars((*i)->get_child(),show_icons,show_text,tab_text);
-         CustomizeTab((*i)->get_child(),show_icons,tab_text);
+         CustomizeTab((*i)->get_tab(),show_icons,tab_text);
       }
-      // what about the tab?
    }
    else if (Gtk::Container::isA(w))
    {  // und nun ?
