@@ -1,0 +1,8 @@
+.deps
+.libs
+Makefile
+Makefile.in
+arkanum_exp
+arkanum_exp.cc
+kido_exp
+kido_exp.cc
