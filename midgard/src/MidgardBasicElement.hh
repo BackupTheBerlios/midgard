@@ -86,8 +86,6 @@ class MidgardBasicElement : public HandleContentCopyable
                                erfolgswert(0),lernpunkte(0),enum_zusatz(ZNone)
                               ,gelernt(false),steigern_mit_EP(0) {}
 
-//      MidgardBasicElement(const MidgardBasicElement &M);
-
       enum MBEE {BERUF,FERTIGKEIT,FERTIGKEIT_ANG,WAFFEGRUND,WAFFE,WAFFEBESITZ,
                  ZAUBER,ZAUBERWERK,KIDO,SPRACHE,SCHRIFT,SINN} ;
       enum TREE {OLD,NEW};
