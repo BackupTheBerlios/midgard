@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.65 2002/09/30 05:51:25 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.66 2002/10/02 13:09:38 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -860,11 +860,14 @@ void LaTeX_drucken::pdf_viewer(const std::string& file)
 
 // oder batchmode?
   system((pdflatex+" --interaction scrollmode "+file2+".tex").c_str());
-  system((hauptfenster->getOptionen()->Viewer()+" "+file2+".pdf"
+
+  std::string pdfcommand=hauptfenster->getOptionen()->Viewer()+" "+file2+".pdf"
 #ifndef __MINGW32__  
 						  		" &"
-#endif  		
-  								).c_str());
+#endif
+									;
+  hauptfenster->set_status(pdfcommand,false);
+  system(pdfcommand.c_str());
 
 //  unlink((file+".tex").c_str());
   unlink((file2+".aux").c_str());

@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.37 2002/09/26 13:32:41 thoma Exp $
+// $Id: xml.cc,v 1.38 2002/10/02 13:09:38 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -30,6 +30,10 @@ const Tag *xml_data;
 static Tag *xml_data_mutable; // local non const pointer for merging
 
 static void xml_merge(Tag *merge_here, const Tag *tomerge);
+
+typedef std::map<std::string,Tag::difference_type> fastfind_t;
+static fastfind_t fastfind_cache;
+static std::string make_key(const xml_liste &tagprops,const Tag &t);
 
 void xml_init(Gtk::ProgressBar *progressbar, midgard_CG *hauptfenster)
 {  std::string filename=hauptfenster->with_path("midgard.xml");
@@ -88,6 +92,14 @@ reloop:
              else 
              {  // cout << "initial Tag '"<< j->Type()<<"' from '"<< file << "'\n";
                 xml_data_mutable->push_back(*j);
+                
+                const Tag &newtag=xml_data_mutable->back();
+                // prime the cache
+                FOR_EACH_CONST_TAG(k,newtag)
+                {  const xml_liste *tagprops=suche_Tageigenschaften(newtag.Type(),k->Type());
+                   if (tagprops)
+                      fastfind_cache[make_key(*tagprops,*k)]=k-newtag.begin();
+                }
                 // xml_data_mutable->debug();
              }
           }
@@ -95,6 +107,12 @@ reloop:
        else std::cerr << "Kann Datei '" << file << "' nicht öffnen\n";
        goto reloop;
     }
+    
+#if 1
+    for (fastfind_t::const_iterator i=fastfind_cache.begin();i!=fastfind_cache.end();++i)
+       std::cout << i->first << '@' << i->second << '\n';
+#endif    
+    fastfind_cache.clear();
     xml_data=xml_data_mutable;
 }
 
@@ -253,28 +271,53 @@ static void xml_merge_element(Tag &merge_here,
    }
 }
 
+static std::string make_key(const xml_liste &tagprops,const Tag &t)
+{  std::string res;
+//   for (unsigned int i=reinterpret_cast<unsigned int>(&tagprops); i!=0 ;i>>=6) res+=char((i&0x3f)+' ');
+// faster but not readable
+//   for (unsigned int i=&tagprops; i!=0 ;i>>=8) res+=char(i ? i : 0x88);
+
+// fast functional index
+   res+=char((reinterpret_cast<unsigned int>(&tagprops)&0x3f)+' ');
+   res+=char(((reinterpret_cast<unsigned int>(&tagprops)>>6)&0x3f)+' ');
+   for (const char * const *k=tagprops.key;*k;++k) res=res+"."+t.getAttr(*k);
+   return res;
+}
+
 static void xml_merge(Tag *merge_here, const Tag *tomerge)
 {  // suche nach tomerge->getAttr("name");
 //   cout << "merge " << merge_here->Type() << ',' << tomerge->Type() << '\n';
+   const xml_liste *tagprops=0;
    FOR_EACH_CONST_TAG(i,*tomerge)
    {  if (i->Type().empty()) continue;
-      const xml_liste *tagprops=suche_Tageigenschaften(tomerge->Type(),i->Type());
+      // nicht immer suchen ...
+      if (!tagprops || tagprops->elementtag!=i->Type())
+         tagprops=suche_Tageigenschaften(tomerge->Type(),i->Type());
       if (!tagprops)
       {  cerr << "Can't find properties for Tag '" << i->Type() << "'\n";
          continue;
       }
-      FOR_EACH_TAG(j,*merge_here)
-      {  if (j->Type().empty()) continue;
-         const char * const *k=0;
+//      std::cout << make_key(*tagprops,*i) << '\n';
+      
+      fastfind_t::iterator ff=fastfind_cache.find(make_key(*tagprops,*i));
+      if (ff!=fastfind_cache.end())
+      {
+         const Tag::iterator j=merge_here->begin()+ff->second;
+#if 1
+	 const char * const *k=0;
          for (k=tagprops->key;*k && i->getAttr(*k)==j->getAttr(*k);++k) ;
-         if (!*k) // full match
-         {  xml_merge_element(*j,*i,tagprops->key);
+         if (*k) 
+         {  std::cerr << "xml_merge: cache failure: " << ff->first << '\n';
             goto continue_i;
          }
+#endif      
+         xml_merge_element(*j,*i,tagprops->key);
+         goto continue_i;
       }
       // not found
 //      cerr << "pushing back " << i->getAttr("Name") << '\n';
       merge_here->push_back(*i);
+      fastfind_cache[make_key(*tagprops,*i)]=merge_here->end()-merge_here->begin()-1;
     continue_i:
       ;
    }

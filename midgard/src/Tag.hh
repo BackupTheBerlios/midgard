@@ -30,6 +30,7 @@ class Tag {
     	std::string type;
     	std::string value;
     	typedef std::vector <std::pair<std::string,std::string> > attvec_t;
+    	typedef std::vector<Tag>::difference_type difference_type;
     	attvec_t attributes;
     	std::vector <Tag> sub_specifications;
 
@@ -53,6 +54,8 @@ public:
 	{  return sub_specifications.begin(); }
 	const_iterator end() const throw()
 	{  return sub_specifications.end(); }
+	const Tag &back() const throw()
+	{  return sub_specifications.back(); }
 	iterator begin() throw()
 	{  return sub_specifications.begin(); }
 	iterator end() throw()
