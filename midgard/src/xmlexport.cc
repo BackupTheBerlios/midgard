@@ -1,4 +1,4 @@
-// $Id: xmlexport.cc,v 1.1 2002/01/03 10:57:22 christof Exp $
+// $Id: xmlexport.cc,v 1.2 2002/01/03 11:00:01 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -167,7 +167,8 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
    	"order by art, fertigkeit");
    FetchIStream is2;
    while ((query2>>is2).good())
-   {  is2 >> typ;
+   {  std::string typ;
+      is2 >> typ;
       // oder <Beruf Wert=12>Arzt</Beruf> ?
       o << "    <"<<typ;
       if (typ!="Region") fetch_and_write_string_attrib(is2, o, "Bezeichnung");
@@ -183,7 +184,6 @@ void charakter_speichern(std::ostream &o, const std::string &name,const std::str
   }
    
    o << "</Midgard-Charakter>\n";
-   exec sql deallocate descriptor spalten;
 }
 
 int main(int argc, char *argv[])
@@ -202,7 +202,7 @@ int main(int argc, char *argv[])
    {  
       Transaction tr;
       Query query0("select charakter_name, version "
-   	"from charaktere 
+   	"from charaktere "
    	"where charakter_name like '"+std::string(argv[1])+"' "
    	"order by charakter_name, version");
       FetchIStream is;
@@ -215,7 +215,7 @@ int main(int argc, char *argv[])
    else // argc==1
    {  Transaction tr;
       Query query0("select charakter_name, version "
-   	"from charaktere 
+   	"from charaktere "
    	"order by charakter_name, version");
       FetchIStream is;
       while ((query0>>is).good())
