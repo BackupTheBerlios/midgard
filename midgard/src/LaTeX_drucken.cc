@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.38 2002/07/03 06:33:55 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.39 2002/07/03 08:11:19 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -861,15 +861,15 @@ void LaTeX_drucken::LaTeX_zauber(ostream &fout)
      fout <<" & ";
      fout << z->Erfolgswert_Z(hauptfenster->getChar().getVTyp(),hauptfenster->getWerte()) <<" & ";
      fout << Gtk2TeX::string2TeX(z->Ap()) << " & ";
-     fout << z->Art() << " & ";
-     fout << z->Stufe() << " & ";
-     fout << z->Zauberdauer() << " & ";
-     fout << z->Reichweite() << " & ";
-     fout << z->Wirkungsziel() << " & ";
-     fout << z->Wirkungsbereich() << " & ";
-     fout << z->Wirkungsdauer() << " & ";
-     fout << z->Ursprung() << " & " ;
-     fout << LaTeX_scale(z->Material(),20,"3cm") << " & " ;
+     fout << Gtk2TeX::string2TeX(z->Art())<< " & ";
+     fout << Gtk2TeX::string2TeX(z->Stufe()) << " & ";
+     fout << Gtk2TeX::string2TeX(z->Zauberdauer()) << " & ";
+     fout << Gtk2TeX::string2TeX(z->Reichweite()) << " & ";
+     fout << Gtk2TeX::string2TeX(z->Wirkungsziel()) << " & ";
+     fout << Gtk2TeX::string2TeX(z->Wirkungsbereich()) << " & ";
+     fout << Gtk2TeX::string2TeX(z->Wirkungsdauer()) << " & ";
+     fout << Gtk2TeX::string2TeX(z->Ursprung()) << " & " ;
+     fout << LaTeX_scale(Gtk2TeX::string2TeX(z->Material()),20,"3cm") << " & " ;
      fout << z->Agens(hauptfenster->getChar().getVTyp()) <<" " <<z->Prozess() <<" "<<z->Reagens() ;
      fout << "\\\\\n";
    }

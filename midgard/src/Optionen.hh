@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.19 2002/06/28 07:36:51 thoma Exp $
+// $Id: Optionen.hh,v 1.20 2002/07/03 08:11:19 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -53,9 +53,9 @@ class Midgard_Optionen
                st_OptionenCheck(OptionenCheckIndex i,std::string t,bool a, const char * const * const b)
                   :index(i),text(t),active(a),bild(b)
                   {}};
-      struct st_Haus{HausIndex index;std::string text;bool active;
-               st_Haus(HausIndex i,std::string t,bool a)
-                      :index(i),text(t),active(a) {} };
+      struct st_Haus{HausIndex index;std::string text;const char * const *bild;bool active;
+               st_Haus(HausIndex i,std::string t,const char * const *b,bool a)
+                      :index(i),text(t),bild(b),active(a) {} };
       struct st_Ober{OberIndex index;std::string text;bool active;
                st_Ober(OberIndex i,std::string t,bool a)
                       :index(i),text(t),active(a) {} };

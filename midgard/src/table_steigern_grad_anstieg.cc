@@ -1,4 +1,4 @@
-// $Id: table_steigern_grad_anstieg.cc,v 1.6 2002/06/26 14:01:18 christof Exp $
+// $Id: table_steigern_grad_anstieg.cc,v 1.7 2002/07/03 08:11:20 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,7 +32,8 @@ void table_steigern::on_grad_anstieg_clicked()
     get_ab_re_za(Abwehr);
     get_ab_re_za(Resistenz);
     get_ab_re_za(Zaubern);
-    get_grundwerte();
+    int wurf=hauptfenster->random.integer(1,100);
+    get_grundwerte(wurf);
     ++old_grad;
   }
 }
@@ -61,18 +62,38 @@ void table_steigern::on_button_grad_resistenz_clicked()
 }
 void table_steigern::on_button_grad_basiswerte_clicked()
 {   
-  get_grundwerte();
+  int wurf=hauptfenster->random.integer(1,100);
+  get_grundwerte(wurf);
+  zeige_werte();
+}
+
+gint table_steigern::on_button_grad_basiswerte_button_release_event(GdkEventButton *ev)
+{
+  if(hauptfenster->getWerte().Grad() <= hauptfenster->getWerte().get_Grad_Basiswerte()) 
+   { hauptfenster->set_status("Für Grad "+itos(hauptfenster->getWerte().get_Grad_Basiswerte())+" wurde schon gewürfelt");
+      return true;   }
+  if (ev->button == 1) on_button_grad_basiswerte_clicked();
+  if (ev->button == 3) 
+   {
+     spinbutton_eigenschaften_grad_anstieg->show();
+     spinbutton_eigenschaften_grad_anstieg->grab_focus();
+     spinbutton_eigenschaften_grad_anstieg->select_region(0,-1);
+   }
+  return true;
+}
+
+void table_steigern::on_spinbutton_eigenschaften_grad_anstieg_activate()
+{
+  spinbutton_eigenschaften_grad_anstieg->update();
+  spinbutton_eigenschaften_grad_anstieg->hide();
+  int wurf=spinbutton_eigenschaften_grad_anstieg->get_value_as_int();
+  get_grundwerte(wurf);
   zeige_werte();
 }
 
 
-void table_steigern::get_grundwerte()
+void table_steigern::get_grundwerte(int wurf)
 {
-  if(hauptfenster->getWerte().Grad() <= hauptfenster->getWerte().get_Grad_Basiswerte()) 
-   {
-      hauptfenster->set_status("Für Grad "+itos(hauptfenster->getWerte().get_Grad_Basiswerte())+" wurde schon gewürfelt");
-      return;
-   }
   // Erhöhen der Schicksalsgunst
   { int n=hauptfenster->getCDatabase().GradAnstieg.get_Schicksalsgunst(hauptfenster->getWerte().Grad());
     if(hauptfenster->getWerte().Spezies()->Name()=="Halbling") n=n+2;
@@ -80,10 +101,9 @@ void table_steigern::get_grundwerte()
   }
 
 
-  int z=hauptfenster->random.integer(1,100);
-  std::string stinfo="Beim Würfeln zur Erhöhung einer Eigenschaft\nfür Grad "
+  int z=wurf;  std::string stinfo="Beim Würfeln zur Erhöhung einer Eigenschaft\nfür Grad "
       + itos(hauptfenster->getWerte().get_Grad_Basiswerte()+1) + " wurde eine ";
-  stinfo += itos(z);
+  stinfo += itos(wurf);
   stinfo +=" gewürfelt ==> ";
   std::string was = "keine Erhöhung";
 

@@ -66,7 +66,7 @@ private:
 public:
         enum e_was_steigern{Nichts,Ausdauer,Abwehr,Zaubern,Resistenz};
 private:
-        void get_grundwerte();
+        void get_grundwerte(int wurf);
         void get_ausdauer(int grad);
         void get_ab_re_za(e_was_steigern was);//,bool verschenke_pp=false);
          
@@ -181,6 +181,8 @@ private:
         void on_button_grad_resistenz_clicked();
         void on_grad_anstieg_clicked();
         void on_button_grad_basiswerte_clicked();
+        gint on_button_grad_basiswerte_button_release_event(GdkEventButton *ev);
+        void on_spinbutton_eigenschaften_grad_anstieg_activate();
         void on_button_alter_clicked();
         void on_button_geld_s_toggled();
         void on_button_gfp_s_toggled();

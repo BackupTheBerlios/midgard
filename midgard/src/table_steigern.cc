@@ -93,6 +93,7 @@ void table_steigern::load_for_page(guint pagenr)
      frame_zauber_zusatz->hide();
      radiobutton_praxis->set_sensitive(true);
    }
+  spinbutton_eigenschaften_grad_anstieg->hide();  
 }
 
 

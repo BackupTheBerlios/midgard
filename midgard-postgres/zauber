@@ -538,7 +538,7 @@ Schattenroß	2000	12	Geste	4	H&Df	\N	\N	\N	Metall	verändert	Luft	10 min	0	Körper	
 Scheintod	2400	6	Gedanke	5	K	\N	\N	\N				1 min	0	Körper	Zauberer	var			t		\N	\N
 Schildrune	400	2	Geste	2	W	\N	\N	Runen	Magan	verändert	Holz	10 min	-	Umgebung	1 Ob	1 h	göttlich	Holzschild, Spucke	f	\N	\N	\N
 Schlachtenwahnsinn	1500	0	Geste	4	\N	\N	\N	\N	\N	\N	\N	10 s	0	Körper	Zauberer	2 min			t		\N	\N
-Schlaf	120	SGr	Geste	1	\N	\N	\N	\N	Magan	beherrscht	Wasser	1 s	30 m	Körper	3 m Uk	8 h	dämonisch		t		\N	\N
+Schlaf	120	SGr	Geste	1	\N	\N	\N	\N	Magan	beherrscht	Wasser	1 s	30 m	Körper	3 m Uk	8 h	dämonisch	Lotusblütenstaub	t		\N	\N
 Schlafsalz	80	1	Gedanke	1	\N	\N	\N	Zaubersalz	Magan	beherrscht	Wasser	1 s	500 m	Körper	1 Ws	1 h	dämonisch		f		\N	\N
 Schlangenbiß	2000	4	Wort	4	\N	\N	\N	\N	Eis	verwandelt	Holz	10 s	0	Körper	1 Ws	2 min	dämonisch	Schlangengift	f		\N	\N
 Schleichende Verderbnis	2000	8	Geste	4	H&Df	\N	\N	\N	Metall	verändert	Luft	12 h	2 m	Körper	1 Ws	var	finster	Pergament	f		\N	t

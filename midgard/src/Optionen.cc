@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.62 2002/07/03 06:33:55 christof Exp $
+// $Id: Optionen.cc,v 1.63 2002/07/03 08:11:19 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,6 +20,7 @@
 #include "Optionen.hh"
 #include "../pixmaps/midgard_logo_tiny.xpm"
 #include "../pixmaps/Cyan-Dice-trans-50.xpm"
+#include "../pixmaps/Haus-32.xpm"
 //#include "MidgardBasicElement.hh" // nur für NotFound
 #include <fstream>
 #include "TagStream.hh"
@@ -342,10 +343,11 @@ void Midgard_Optionen::pdfViewer_init()
 #endif
 }
 
+
 void Midgard_Optionen::Hausregeln_init()
 {
  list_Hausregeln.clear();  
- list_Hausregeln.push_back(st_Haus(Gold,"1 GS entspricht 1 GFP",false));
+ list_Hausregeln.push_back(st_Haus(Gold,"1 GS entspricht 1 GFP",Haus_32_xpm,false));
 }
 
 void Midgard_Optionen::Ober_init()
