@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.18 2002/06/12 08:14:29 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.19 2002/06/12 08:19:54 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -341,7 +341,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
          std::string b = LaTeX_string(countwaffen++);
 //std::cout << (*j)->Name()<<"\t"<<w->Name()<<"\t"<<"latexstring = "<<b<<"\n";
          std::string waffenname ;
-         waffenname = WB->AliasName();
+         waffenname = WB.AliasName();
          fout << "\\newcommand{\\waffe"<<b<<"}{ " ;
          if (WB.Magisch()!="" || 
             (WB.av_Bonus()!=0 && WB.sl_Bonus()!=0)) waffenname+="$^*$ "+WB.Bonus() ;
