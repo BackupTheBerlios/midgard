@@ -1,10 +1,10 @@
-# $Id: Makefile.am,v 1.219 2003/07/03 13:14:07 christof Exp $
+# $Id: Makefile.am,v 1.220 2003/07/18 06:36:36 christof Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
 
 if WINDOWS
-PORT_FILES=magus.rc registry.cc
+PORT_FILES=magus.rc 
 LINK_OPTIONS=-mwindows
 LINK_OBJS=magus_res.o 
 # -lcomdlg32
@@ -73,26 +73,18 @@ WindowInfo_glade.hh WindowInfo.hh \
    Data_waffenbesitz.hh \
    Data_NewPreis.hh
 
-BUILT_SOURCES= registry.h text2c NEWS.h
+BUILT_SOURCES= text2c NEWS.h
 
-registry.h: ../win32/registry.h ; ln -sf ../win32/$@ .
-registry.cc: ../win32/registry.cc ; ln -sf ../win32/$@ .
 NEWS.h: ../NEWS ; ./text2c <../NEWS | ./iso2utf8 >NEWS.h
 
 magus_SOURCES = $(PORT_FILES) \
    BegruessungsWindow.cc \
    BegruessungsWindow_glade.cc \
-   KI.cc \
-   LernListen_steigern.cc \
-   Zufall.cc \
-   Zufall_Spezies_Typ.cc \
-   Zufall_Lernschema.cc \
    table_zufall.cc \
    table_zufall_steigern.cc \
    table_zufall_lernschema.cc \
    table_zufall_glade.cc \
    customize_toolbars.cc \
-   Abenteurer_steigern.cc \
    midgard_CG_AbenteurerListe.cc \
    table_steigern_gold.cc \
    table_steigern_waffenbesitz.cc \
@@ -121,10 +113,6 @@ magus_SOURCES = $(PORT_FILES) \
    table_lernschema_glade.cc \
    table_lernschema_zusatz.cc \
    table_lernschema_beruf.cc \
-   LaTeX_drucken.cc \
-   LaTeX_drucken_ausruestung.cc \
-   LaTeX_drucken_beschreibung.cc \
-   LaTeX_drucken_spielleiterbogen.cc \
    table_beschreibung.cc \
    table_beschreibung_glade.cc \
    midgard_CG_oberflaeche.cc \
@@ -132,7 +120,7 @@ magus_SOURCES = $(PORT_FILES) \
    midgard_CG_new.cc \
    Wizard.cc \
    frame_globale_optionen.cc \
-   Optionen.cc \
+   Midgard_Optionen.cc \
    table_optionen.cc \
    table_optionen_glade.cc \
    frame_icons.cc \
@@ -146,7 +134,6 @@ magus_SOURCES = $(PORT_FILES) \
    midgard_CG_wizard.cc \
 	load_charakter.cc  \
    save_charakter.cc \
-	Fertigkeiten_angeboren.cc \
 	table_grundwerte_gw_wuerfeln.cc \
    table_grundwerte.cc \
    table_grundwerte_glade.cc \
@@ -155,7 +142,6 @@ magus_SOURCES = $(PORT_FILES) \
    table_steigern_midgard_basic_elemente.cc \
    midgard_CG_menu.cc \
    xml_fileselection.cc \
-   spielleiter_export.cc \
    midgard_CG_region_check.cc \
    midgard_CG_optionen.cc \
    midgard_CG_optionen_icons.cc \
@@ -170,10 +156,8 @@ magus_SOURCES = $(PORT_FILES) \
    WindowInfo.cc \
    WindowInfo_glade.cc \
    class_SimpleTree.cc \
-   snprintf.c \
    Midgard_Undo.cc \
-   ProgressBar.cc \
-   embedded_images.cc
+   ProgressBar.cc 
 
 #AM_CXXFLAGS = @CXXFLAGS@ 
 CPPFLAGS = @CPPFLAGS@ @KOMPONENTEN2_INCLUDES@ -DUSE_XML $(WIN_INCLUDES) \
