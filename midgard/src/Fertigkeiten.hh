@@ -9,7 +9,8 @@
 class Fertigkeit : public MidgardBasicElement
 {
      std::string name, region, attribut;
-     int lernpunkte, lern_land,lern_stadt, anfangswert0, anfangswert,ungelernt;
+     int lernpunkte, lern_land,lern_stadt, anfangswert0, anfangswert,
+         ungelernt,berufskategorie;
      struct st_Voraussetzung {int st;int gw;int gs;int ko;int in;int zt;int au;int pa;
                            int sb;int rw;std::string fert;
          st_Voraussetzung()
@@ -44,6 +45,7 @@ class Fertigkeit : public MidgardBasicElement
      int Anfangswert0() const {return anfangswert0;}
      int Anfangswert() const {return anfangswert;}
      int Ungelernt() const {return ungelernt;}
+     int Berufskategorie() const {return berufskategorie;}
      std::string Voraussetzung() const {return voraussetzung.fert;}
      bool Voraussetzungen(const Grundwerte& Werte) const;
      std::string Pflicht() const {if (pflicht) return "*"; return "";}

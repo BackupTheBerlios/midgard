@@ -21,12 +21,14 @@ cH_Fertigkeit::cH_Fertigkeit(const std::string& name)
 void Fertigkeit::get_Fertigkeit()
 {
   exec sql begin declare section;
-   int db_lp,db_lp_l,db_lp_s,db_anfangswert0,db_anfangswert,db_ungelernt,db_kosten;
+   int db_lp,db_lp_l,db_lp_s,db_anfangswert0,db_anfangswert,db_ungelernt,
+         db_kosten,db_berufskategorie;
    int db_st,db_gw,db_gs,db_ko,db_in,db_zt,db_pa,db_au,db_sb,db_rw;
    char query[1024],db_region[10],db_attribut[10],db_voraussetzung[50];
   exec sql end declare section; 
   std::string squery ="select lp,coalesce(lp_land,99),coalesce(lp_stadt,99),coalesce(anfangswert0,0),
-      coalesce(anfangswert,0),coalesce(ungelernt,-1),coalesce(fp,0),coalesce(region,''),
+      coalesce(anfangswert,0),coalesce(ungelernt,-1),coalesce(berufsklasse,0),
+      coalesce(fp,0),coalesce(region,''),
       coalesce(attribut,''), coalesce(st,0), coalesce(gw,0),coalesce(gs,0),
       coalesce(ko,0), coalesce(\"in\",0), coalesce(zt,0),   
       coalesce(au,0), coalesce(pa,0), 
@@ -42,7 +44,7 @@ void Fertigkeit::get_Fertigkeit()
   exec sql open cl_fertigkeit_ein;
   SQLerror::test(__FILELINE__);
   exec sql fetch cl_fertigkeit_ein into :db_lp,:db_lp_l,:db_lp_s, 
-      :db_anfangswert0, :db_anfangswert, :db_ungelernt, :db_kosten, :db_region,
+      :db_anfangswert0, :db_anfangswert, :db_ungelernt, :db_berufskategorie, :db_kosten, :db_region,
       :db_attribut, :db_st,:db_gw,:db_gs,:db_ko,:db_in,:db_zt,:db_au,:db_pa,
       :db_sb,:db_rw, :db_voraussetzung;
   SQLerror::test(__FILELINE__);
@@ -52,6 +54,7 @@ void Fertigkeit::get_Fertigkeit()
   anfangswert0=db_anfangswert0;
   anfangswert=db_anfangswert;
   ungelernt=db_ungelernt;
+  berufskategorie=db_berufskategorie;
   erfolgswert=anfangswert; //Defaultwert
   kosten=db_kosten;
   region=db_region;

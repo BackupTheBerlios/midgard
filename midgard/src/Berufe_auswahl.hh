@@ -1,4 +1,4 @@
-// $Id: Berufe_auswahl.hh,v 1.23 2001/12/07 08:53:00 thoma Exp $
+// $Id: Berufe_auswahl.hh,v 1.24 2001/12/08 14:47:59 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -43,8 +43,14 @@ class Berufe_auswahl : public Berufe_auswahl_glade
         midgard_CG* hauptfenster;         
         friend class Berufe_auswahl_glade;
         std::list<cH_MidgardBasicElement> list_beruf;
+        vector<cH_Typen> Typ;
+        midgard_CG::st_Database Database;
+        Grundwerte Werte;
+
         void on_berufe_clist_auswahl_select_row(gint row, gint column, GdkEvent *event);
         void on_berufe_clist_auswahl_unselect_row(gint row, gint column, GdkEvent *event);
+        void on_button_wuerfel_clicked();
+        void fill_list();
         void on_close_berufe_clicked();
 //        bool btyp(const std::string& typ, const std::string& typz, const std::string& typ2z);
    public:

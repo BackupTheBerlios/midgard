@@ -53,7 +53,6 @@ Geheimmechanismen öffnen	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
 Geschäftstüchtigkeit	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
 Himmelskunde	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
 Kräuterkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
-Lesen/Schreiben	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
 Lippenlesen	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
 Menschenkenntnis	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
 Naturkunde	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
@@ -186,6 +185,10 @@ Zeichensprache	\N	0	\N	31	\N	\N	\N	\N	\N	\N	31
 Malen/Zeichnen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Körperkontrolle	\N	\N	61	61	\N	\N	\N	61	\N	\N	\N
 Fechten tevarrischer Stil	\N	\N	\N	\N	\N	\N	\N	\N	\N	Fechten	\N
+Gastlandsprache	\N	\N	\N	1	\N	\N	\N	\N	\N	\N	\N
+Muttersprache	\N	\N	\N	1	\N	\N	\N	\N	\N	\N	\N
+Muttersprache schreiben	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
+Schreiben	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
 \.
 --
 -- TOC Entry ID 3 (OID 30118263)

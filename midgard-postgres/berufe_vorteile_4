@@ -164,4 +164,9 @@ Verwalter	Landeskunde
 Waffenschmied	Schätzen
 Zimmermann	Baukunde
 Zureiter	Abrichten
+Brauer	Schmecken+10
+Winzer	Schmecken+10
+Brenner	Trinken
+Brenner	Schmecken+10
+Koch	Schmecken+10
 \.
