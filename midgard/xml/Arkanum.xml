@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="Arkanum" Name="Arkanum" Titel="Das Arkanum" Copyright="Jürgen E. Franke" Jahr="2000" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-1" MAGUS-Bild="9" CVS="$Revision: 1.15 $">
+<MAGUS-data Region="Arkanum" Name="Arkanum" Titel="Das Arkanum" Copyright="Jürgen E. Franke" Jahr="2000" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="-1" MAGUS-Bild="9" CVS="$Revision: 1.16 $">
  <Zauber>
   <Spruch Name="Allheilung" Grad="5" Lernkosten="2500" AP="6" Typ="Geste" Ursprung="göttlich" Agens="Holz" Prozess="erschafft" Reagens="Erde" Zauberdauer="30 min" Reichweite="B" Wirkungsziel="Körper" Wirkungsbereich="1 Ws" Wirkungsdauer="0">
    <Grund Typ="Hl"/>
@@ -1223,7 +1223,7 @@
    <Ausnahme Typ="sHx"/>
    <Ausnahme Typ="wHx"/>
    <Lernschema Typ="Ma" Lernpunkte="1"/>
-   <Beschreibung>Befinden sich im Wirkungsbereich Lebewesen von wenigstens tierischer Intelligenz ( &gt;t31), so spÃ¼rt der Zauberer deren Ausstrahlung als leichten Druck auf den Schlfen, wirkt nicht durch mehr als 30cm dicke WÃ¤nde. Der Zauberer erhÃ¤lt keine Informationen Ã¼ber Art und Anzahl der Lebewesen, er erkennt auch Untote</Beschreibung>
+   <Beschreibung>Befinden sich im Wirkungsbereich Lebewesen von wenigstens tierischer Intelligenz ( &gt;t31), so spürt der Zauberer deren Ausstrahlung als leichten Druck auf den Schlfen, wirkt nicht durch mehr als 30cm dicke Wände. Der Zauberer erhält keine Informationen über Art und Anzahl der Lebewesen, er erkennt auch Untote</Beschreibung>
   </Spruch>
   <Spruch Name="Erkennen von Zauberei" Grad="2" Lernkosten="300" AP="2" Typ="Gedanke" Ursprung="dämonisch" Agens="Magan" Prozess="erkennt" Reagens="Magan" Zauberdauer="1 s" Reichweite="15 m" Wirkungsziel="Geist" Wirkungsbereich="1 m²" Wirkungsdauer="0" Thaumagramm="Siegel">
    <Grund Typ="Ma"/>
@@ -2147,7 +2147,7 @@
    <Ausnahme Typ="Tm"/>
    <Lernschema Typ="Ma" Lernpunkte="1"/>
    <Lernschema Typ="Th" Lernpunkte="3"/>
-   <Beschreibung>Der Zauberer erzeugt einen kurzen magischen Impuls, der einen Gegenstand von bis zu 10kg Gewicht geradlinig in seine Hand fliegen lÃ¤Ã&#x9F;t. Wird der Gegenstand festgehalten, so steht ein WW:(StÃ¤rke/5) gegen EW:Zaubern.</Beschreibung>
+   <Beschreibung>Der Zauberer erzeugt einen kurzen magischen Impuls, der einen Gegenstand von bis zu 10kg Gewicht geradlinig in seine Hand fliegen läßt. Wird der Gegenstand festgehalten, so steht ein WW:(Stärke/5) gegen EW:Zaubern.</Beschreibung>
   </Spruch>
   <Spruch Name="Hexenritt" Grad="4" Lernkosten="1600" AP="4:Gr" Typ="Geste" Ursprung="schwarzmagisch" Agens="Eis" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="20 s" Reichweite="B" Wirkungsziel="Geist" Wirkungsbereich="1 Ws" Wirkungsdauer="6 h" Material="Zaumzeug aus passenden Knochen &amp; Leder, rec. (10 GS)">
    <Grund Typ="PC"/>
@@ -2268,7 +2268,7 @@
    <Standard Typ="sHx"/>
    <Standard Typ="wHx"/>
    <Lernschema Typ="Ma" Lernpunkte="1"/>
-   <Beschreibung>Der Spruch erhÃ¶ht die WahrnehmungsfÃ¤higkeit des Verzauberten fÃ¼r GerÃ¤usche. Er hÃ¶rt fÃ¼r menschliche VerhÃ¤ltnisse ausgezeichnet und erwirbt insbesondere fÃ¼r die Wirkungsdauer die Fertigkeit 'HÃ¶ren+10'.</Beschreibung>
+   <Beschreibung>Der Spruch erhöht die Wahrnehmungsfähigkeit des Verzauberten für Geräusche. Er hört für menschliche Verhältnisse ausgezeichnet und erwirbt insbesondere für die Wirkungsdauer die Fertigkeit 'Hören+10'.</Beschreibung>
   </Spruch>
   <Spruch Name="Hörnerklang" Grad="1" Lernkosten="100" AP="1" Typ="Wort" Ursprung="dämonisch" Agens="Magan" Prozess="verändert" Reagens="Luft" Zauberdauer="1 s" Reichweite="0 m" Wirkungsziel="Umgebung" Wirkungsbereich="2 km Uk" Wirkungsdauer="10 s" Thaumagramm="Runenstab">
    <Grund Typ="Or"/>
@@ -2646,7 +2646,7 @@
    <Ausnahme Typ="ScS"/>
    <Ausnahme Typ="ScW"/>
    <Lernschema Typ="Ma" Lernpunkte="2"/>
-   <Beschreibung>Der Zauberer vermag kurzfristig ein Kraft zu erzeugen, mit der er Ã¼berall innerhalb der Reichweite dieselbe Wirkung erzielen kann, als ob er selbst dort stehen und mit einer seiner HÃ¤nde zugreifen wÃ¼rde. Er kann GegenstÃ¤nde, die sr sehen kann und die nicht mehr als 25kg wiegen, bewegen.</Beschreibung>
+   <Beschreibung>Der Zauberer vermag kurzfristig ein Kraft zu erzeugen, mit der er überall innerhalb der Reichweite dieselbe Wirkung erzielen kann, als ob er selbst dort stehen und mit einer seiner Hände zugreifen würde. Er kann Gegenstände, die sr sehen kann und die nicht mehr als 25kg wiegen, bewegen.</Beschreibung>
   </Spruch>
   <Spruch Name="Macht über das Selbst" Grad="1" Lernkosten="60" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Metall" Prozess="beherrscht" Reagens="Feuer" Zauberdauer="5 s" Reichweite="-" Wirkungsziel="Körper" Wirkungsbereich="Zauberer" Wirkungsdauer="24 h" Thaumagramm="Siegel">
    <Grund Typ="Ma"/>
@@ -2691,7 +2691,7 @@
    <Standard Typ="wHx"/>
    <Ausnahme Typ="PW"/>
    <Lernschema Typ="Ma" Lernpunkte="2"/>
-   <Beschreibung>Der Zauberer erzeugt an der Stelle, an der er sich aufhÃ¤lt, ein Trugbild. Wesen von menschlicher Intelligenz erhalten +4 auf ihren WW:Resistenz gegen diese Illusion. Der Zauberer kann sich in 5 Varianten verwandeln. 1. Mensch (1AP, 10min) 2. Wesen oder Tier, menschenÃ¤hnlich (2AP, 5min) 3. Tier mit anderem KÃ¶rperbau (3AP, 3min 20sec) 4. Pflanze (4AP, 2min 30sec) 5. Mineral oder Element(5AP, 2min).</Beschreibung>
+   <Beschreibung>Der Zauberer erzeugt an der Stelle, an der er sich aufhält, ein Trugbild. Wesen von menschlicher Intelligenz erhalten +4 auf ihren WW:Resistenz gegen diese Illusion. Der Zauberer kann sich in 5 Varianten verwandeln. 1. Mensch (1AP, 10min) 2. Wesen oder Tier, menschenähnlich (2AP, 5min) 3. Tier mit anderem Körperbau (3AP, 3min 20sec) 4. Pflanze (4AP, 2min 30sec) 5. Mineral oder Element(5AP, 2min).</Beschreibung>
   </Spruch>
   <Spruch Name="Macht über die Zeit" Grad="6" Lernkosten="6000" AP="18" Typ="Geste" Ursprung="dämonisch" Agens="Metall" Prozess="zerstört" Reagens="Holz" Zauberdauer="30 min" Reichweite="15 m" Wirkungsziel="Umgebung" Wirkungsbereich="2 m Uk" Wirkungsdauer="perm">
    <Grund Typ="Ma"/>

@@ -1,6 +1,7 @@
 ##### DAS IST DAS WICHTIGSTE #########################################
 * Wizard aktiv
 * Lernpunkte werden nie aktiv, angeb. Fertigkeiten bleiben aktiv
+* Eingabe von PP für Fertigkeiten geht nicht
 ######################################################################
 
 #### das finde ich (CP) beunruhigend #################################
@@ -11,7 +12,6 @@
 - Spezies::getSpezies bräuchte kein Datenbank Argument
 - undosave _vor_ jeder Änderung (am Besten in libmagus selbst)
 * Region nach Herkunft automatisch einschalten
-* Berufe aus dem Gildenbrief
 * Mehrseitige Ausrüstungen
 * Setzen der Handle-Fenster-Positionen :-(
 * KI-Steigern nicht nur mit Unterweisung oder Selbststudium 
