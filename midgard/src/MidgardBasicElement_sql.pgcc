@@ -65,6 +65,8 @@ void MidgardBasicElement::get_map_typ()
 //cout << What()<<'\t'<<map_typ.size()<<'\n';
 #else // USE_XML
 
+ const Tag *tag=this->tag;
+ 
  if(What()==ZAUBER) assert(tag);
  else if(What()==ZAUBERWERK)
  {  vector<pair<std::string,std::string> > anforderungen;
@@ -82,36 +84,35 @@ void MidgardBasicElement::get_map_typ()
     tag=find_Tag("Waffen","Waffe","Name",Name());
  else if(What()==SPRACHE) 
     tag=cH_Fertigkeit("Sprache")->tag;
-//    tag=find_Tag("Fertigkeiten","Fertigkeit","Name","Sprache");
  else if(What()==SCHRIFT)
     tag=cH_Fertigkeit("Schreiben")->tag;
-//    tag=find_Tag("Fertigkeiten","Fertigkeit","Name","Schreiben");
  else if(What()==KIDO)
     tag=cH_Fertigkeit("KiDo")->tag;
-//    tag=find_Tag("Fertigkeiten","Fertigkeit","Name","KiDo"); 
 
  if (tag)
- {  const Tag *Grund=tag->find("Grund");
-    const Tag *Standard=tag->find("Standard");
-    const Tag *Ausnahme=tag->find("Ausnahme");
-    // auch in Waffen-Steigern suchen
-    // V4 nicht? ich glaube ja
+ {  MIDGARD3_4(bool found=false,);
+    for (Tag::const_iterator i=tag->begin();i!=tag->end();++i)
+    {  if (i->Type()=="Grund") 
+       { map_typ[i->getAttr("Typ")]="G"; MIDGARD3_4(found=true,); }
+       else if (i->Type()=="Standard") 
+       { map_typ[i->getAttr("Typ")]="S"; MIDGARD3_4(found=true,); }
+       else if (i->Type()=="Ausnahme") 
+       { map_typ[i->getAttr("Typ")]="A"; MIDGARD3_4(found=true,); }
+    }
 #ifdef MIDGARD3
-    if ((What()==WAFFEGRUND || What()==WAFFE)
-    		&& !Grund && !Standard && !Ausnahme)
+    if ((What()==WAFFEGRUND || What()==WAFFE) && !found)
     {  tag=xml_data->find("Waffen-Steigern");
        if (!tag)
        {  cerr << "<Waffen-Steigern><Grund/>... nicht gefunden\n";
           return;
        }
-       Grund=tag->find("Grund");
-       Standard=tag->find("Standard");
-       Ausnahme=tag->find("Ausnahme");
+       for (Tag::const_iterator i=tag->begin();i!=tag->end();++i)
+       {  if (i->Type()=="Grund") map_typ[i->getAttr("Typ")]="G";
+          else if (i->Type()=="Standard") map_typ[i->getAttr("Typ")]="S";
+          else if (i->Type()=="Ausnahme") map_typ[i->getAttr("Typ")]="A";
+       }
     }
 #endif    
-    if (Grund) Add(map_typ,Grund->Value(),"G");
-    if (Standard) Add(map_typ,Standard->Value(),"S");
-    if (Ausnahme) Add(map_typ,Ausnahme->Value(),"A");
     return;
  }
 #endif    
@@ -120,7 +121,7 @@ void MidgardBasicElement::get_map_typ()
 
 void MidgardBasicElement::get_Steigern_Kosten_map()
 {
-#ifndef XML
+#ifndef USE_XML
   exec sql begin declare section;
    char query[1024];
    int P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,P21,P22;
@@ -180,12 +181,10 @@ void MidgardBasicElement::get_Steigern_Kosten_map()
 // cout <<Name()<<'\t'<<i->first<<'\t'<<i->second<<'\n';
 #else
  if(What()==FERTIGKEIT ) assert(tag);
- else if(What()==WAFFE)
-    assert(!"get here");
- else if(What()==SPRACHE) 
-    tag=cH_Fertigkeit("Sprache")->tag;
- else if(What()==SCHRIFT)
-    tag=cH_Fertigkeit("Schreiben")->tag;
+ else if(What()==WAFFE) assert(!"get here");
+ else if(What()==SPRACHE) tag=cH_Fertigkeit("Sprache")->tag;
+ else if(What()==SCHRIFT) tag=cH_Fertigkeit("Schreiben")->tag;
+ else assert(!"get here");
  // steigern_wie ?
  const Tag *steigern_wie_t=tag->find("steigern_wie");
  std::string steigern_wie;
