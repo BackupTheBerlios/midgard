@@ -32,7 +32,7 @@
 #  define _TABLE_AUSRUESTUNG_HH
 
 class midgard_CG;
-#include <gtkmm/ctree.h>
+#include <gtkmm/treeview.h>
 #include <map>
 #include <Preise.hh>
 #include <Ausruestung.hh>
@@ -44,7 +44,7 @@ class table_ausruestung : public table_ausruestung_glade
         friend class midgard_CG;
         midgard_CG *hauptfenster;
         AusruestungBaum *besitz;
-        Gtk::CTree *Ausruestung_tree;
+        Gtk::TreeView *Ausruestung_tree;
 
    public:
         enum e_spalten{None,Farbe,Material,Stand,Max};
@@ -68,10 +68,10 @@ public:
 private:
         void ausruestung_laden();
         void showAusruestung();
-        void showChildren(Gtk::CTree_Helpers::RowList::iterator r,const std::list<AusruestungBaum> &AB);
-        bool tree_valid(Gtk::CTree_Helpers::SelectionList &selectionList) ;
-        void on_Ausruestung_tree_unselect_row(Gtk::CTree::Row row,gint column);
-        void on_Ausruestung_tree_select_row(Gtk::CTree::Row row,gint column);
+        void showChildren(Gtk::TreeModel::iterator r,const std::list<AusruestungBaum> &AB);
+        bool tree_valid(Gtk::TreeView::Selection &selectionList) ;
+        void on_Ausruestung_tree_unselect_row(Gtk::TreeModel::Row row,gint column);
+        void on_Ausruestung_tree_select_row(Gtk::TreeModel::Row row,gint column);
         void on_checkbutton_sichtbar_toggled();
         void fill_new_preise();
         void fill_all_Combos_Art_Einheit_Region();
