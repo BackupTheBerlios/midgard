@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.39 2002/05/24 14:06:52 thoma Exp $
+// $Id: WindowInfo.cc,v 1.40 2002/05/31 21:22:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,7 +36,7 @@
 #include <gtk--/box.h>
 #include <Aux/itos.h>
 
-void WindowInfo::on_button_info_ok_clicked()
+void WindowInfo::on_button_abbrechen_clicked()
 {   
   if(Modus==Autoclean) des.disconnect();
   hide();
@@ -44,14 +44,15 @@ void WindowInfo::on_button_info_ok_clicked()
 
 gint WindowInfo::on_WindowInfo_delete_event(GdkEventAny *ev)
 {
- on_button_info_ok_clicked();
+// on_button_abbrechen_clicked();
  return true; // verhindert das zerstören des Objektes
 }
 
 
 void WindowInfo::on_button_bestaetigen_clicked()
 {
- if (Modus==ZaubernLernen)   hauptfenster->table_grundwerte->kaempfer_lernt_zaubern();
+ if (Modus==ZaubernLernen)    hauptfenster->table_grundwerte->kaempfer_lernt_zaubern();
+ else if (Modus==Exit_ohne_speichern)  hauptfenster->on_button_quit_confirm_clicked();
  else assert(!"never get here");
 // else if (Modus==PraxisPunkteMBE) hauptfenster->PraxisPunkt_to_AEP(MBE);
 }
@@ -60,7 +61,7 @@ void WindowInfo::on_button_bestaetigen_clicked()
 void WindowInfo::on_button_auswahl_clicked(int connect)
 {
  assert(Modus==PraxisPunkteMBE);
-  if       (connect==1) on_button_info_ok_clicked();
+  if       (connect==1) on_button_abbrechen_clicked();
   else if  (connect==2) hauptfenster->table_steigern->PraxisPunkt_to_AEP(MBE,true,false);
   else if  (connect==3) hauptfenster->table_steigern->PraxisPunkt_to_AEP(MBE,false,false);
   else if  (connect==4) hauptfenster->table_steigern->PraxisPunkt_to_AEP(MBE,true,true);

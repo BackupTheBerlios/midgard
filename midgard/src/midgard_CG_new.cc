@@ -28,6 +28,7 @@ gint midgard_CG::on_neuer_charakter_release_event(GdkEventButton *ev)
 void midgard_CG::on_neuer_charakter_clicked()
 {
    if(Char.empty()) Char.push_back(Abenteurer());
+   Char.safed();
    table_lernschema->label_lernschma_titel->set_text("");
    frame_steigern->set_sensitive(false); // das wirkt nicht ?
    frame_lernschema->set_sensitive(false);
@@ -56,8 +57,7 @@ void midgard_CG::on_neuer_charakter_clicked()
    for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
       (*i)->setActive(false);
 
-//   Char.getWerte().set_Grad_Basiswerte(1);
-   table_steigern->neuer_charakter();
+  table_steigern->neuer_charakter();
 
   menu_init();
   notebook_main->set_page(PAGE_GRUNDWERTE);

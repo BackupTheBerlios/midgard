@@ -147,15 +147,10 @@ void midgard_CG::on_schliessen_CG_clicked()
    {
      notebook_main->set_page(PAGE_NEWS);
      set_status("Es existieren nichtgespeicherte Abenteurer",false);
-     table_confirm_quit->show();
+     InfoFenster->AppendShow("Es existieren nichtgespeicherte Abenteurer,\n soll das Programm trotzdem beendet werden?",WindowInfo::Exit_ohne_speichern);
      return;
    }
   on_button_quit_confirm_clicked();
-}
-
-void midgard_CG::on_button_quit_abbrechen_clicked()
-{
-  table_confirm_quit->hide();
 }
 
 void midgard_CG::on_button_quit_confirm_clicked()
@@ -163,7 +158,6 @@ void midgard_CG::on_button_quit_confirm_clicked()
   connection_status.disconnect();
   Gtk::Main::instance()->quit();
 }
-
 
 gint midgard_CG::on_midgard_CG_delete_event(GdkEventAny* event)
 {

@@ -1,4 +1,25 @@
 ##########################################################################
+NEWS IN VERSION 0.6delta6
+* Erster Abenteurer bei Programmstart als 'gespeichert' markieren.
+* Fenster aufpoppen, wenn nicht alle Abenteurer gespeichert beim beenden
+* Neuer Abenteurer gilt als 'gespeichert'
+* Destruktor wird aufgerufen
+
+TODO:
+* History für geladene Abenteurer (callback stürzt ab)
+* Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
+in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
+links). 
+* Fokus im Zusatzfenster einfrieren
+* Ausdruck für Lange Listen
+* Gildenbrief funktioniert nicht
+* Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
+* gv zeigt den falschen Ausschnitt des pdf Dokumentes (nur für Linux interessant)
+* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+
+##########################################################################
 NEWS IN VERSION 0.6delta5
 * Mehrere Abenteurer in EINER Session bearbeiten 
    (dafür war mal wieder ein Redisign fällig, ohne C++ 
@@ -11,22 +32,6 @@ NEWS IN VERSION 0.6delta5
 * Datum auf Abenteurerdokument
 * einige Bugs beseitigt
 
-TODO:
-* Erster Abenteurer bei Programmstart als 'gespeichert' markieren.
-* History für geladene Abenteurer
-* Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
-in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
-links). 
-* Fokus im Zusatzfenster einfrieren
-* Ausdruck für Lange Listen
-* Gildenbrief funktioniert nicht
-* Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
-* Destruktor wird nicht aufgerufen
-* gv zeigt den falschen Ausschnitt des pdf Dokumentes 
-   (nur für Linux interessant)
-* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
-  man etwas hinzufügen möchte, ist nicht gerade intuitiv
-  (vielleicht drag'n'drop oder CTree verschieben)
 
 ##########################################################################
 NEWS IN VERSION 0.6delta4

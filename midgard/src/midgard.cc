@@ -1,4 +1,4 @@
-// $Id: midgard.cc,v 1.39 2002/05/02 14:14:23 christof Exp $
+// $Id: midgard.cc,v 1.40 2002/05/31 21:22:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,7 +34,7 @@ int main(int argc, char **argv)
 
    midgard_CG *magus=manage(new midgard_CG(datei));
    m.run();
-//   magus->destroy();
+   magus->destroy();
       
    xml_free();
    return 0;

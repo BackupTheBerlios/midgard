@@ -1,4 +1,4 @@
-// $Id: WindowInfo.hh,v 1.31 2002/04/25 16:56:52 thoma Exp $
+// $Id: WindowInfo.hh,v 1.32 2002/05/31 21:22:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -43,10 +43,11 @@ class midgard_CG;
 class WindowInfo : public WindowInfo_glade
 {   
    public:
-        enum emodus {None,Autoclean,ZaubernLernen,PraxisPunkteMBE,PraxisPunkteAnderes};
+        enum emodus {None,Autoclean,ZaubernLernen,PraxisPunkteMBE,
+                     PraxisPunkteAnderes,Exit_ohne_speichern};
    private:
         friend class WindowInfo_glade;
-        void on_button_info_ok_clicked();
+        void on_button_abbrechen_clicked();
         void on_button_bestaetigen_clicked();
         gint timeout();
         SigC::Connection des;
