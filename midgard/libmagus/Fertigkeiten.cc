@@ -46,7 +46,7 @@ cH_Fertigkeit::cH_Fertigkeit(const std::string& name, bool create)
 
 void Fertigkeit::get_Fertigkeit(const Tag &t)
 {
- if (t.hasAttr("Lernkosten"))
+ if (t.hasAttr("Lernkosten") || t.hasAttr("Anfangswert") || t.hasAttr("Maximalwert"))
  {lern_unge=t.getIntAttr("Lernpunkte",99); // außergewöhnliche Fertigkeit
   lern_land=t.getIntAttr("Lernpunkte-Land",99);
   lern_stadt=t.getIntAttr("Lernpunkte-Stadt",99);
@@ -260,7 +260,8 @@ Fertigkeit::Fertigkeit(const Tag &t)
 
 void Fertigkeit::load(const Tag &t)
 {get_Fertigkeit(t); get_map_typ(t);
- if (t.hasAttr("Lernkosten")) 
+ // wenn dies die definitive Erw�hnung der Fertigkeit ist
+ if (t.hasAttr("Lernkosten") || t.hasAttr("Anfangswert") || t.hasAttr("Maximalwert")) 
  { get_Steigern_Kosten_map(t); EP_steigern(t); }
 }
 
