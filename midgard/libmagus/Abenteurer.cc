@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.24 2004/08/30 13:17:56 christof Exp $            
+// $Id: Abenteurer.cc,v 1.25 2004/11/12 09:09:45 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -342,7 +342,7 @@ void Abenteurer::grundwerte_speichern(Tag &datei)
    Pp.setIntAttr_nn("Spezial", SpezialPP());
    Pp.setIntAttr_nn("Resistenz", ResistenzPP());
    
-   class Tag &Text=datei.push_back(class Tag("Text",this->Beschreibung()));
+   Tag &Text=datei.push_back(Tag("Text",this->Beschreibung()));
    Text.setIntAttr_nn("Größe", BeschreibungPixSize());
    Text.setAttr_ne("Bild", BeschreibungPix());
 }
