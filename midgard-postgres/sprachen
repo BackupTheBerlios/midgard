@@ -57,6 +57,7 @@ COPY "sprachen" FROM stdin;
 10	Neu Vallinga	18	\N	\N	10	\N	\N
 10	Rawindi	18	\N	\N	9	\N	\N
 10	Scharidisch	18	\N	\N	\N	\N	\N
+10	Stammesdialekte	18	\N	\N	\N	\N	t
 10	Tegarisch	18	\N	\N	4	\N	\N
 10	Toquinisch	18	\N	\N	\N	\N	\N
 10	Trll'ng	11	\N	\N	\N	\N	\N
