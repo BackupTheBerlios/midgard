@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.334 2004/01/30 23:29:46 christof Exp $
+// $Id: midgard_CG.cc,v 1.335 2004/02/02 07:28:30 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -195,7 +195,7 @@ void midgard_CG::grundwerte_background_create()
       if (pbh<h) pbh=h;
       Glib::RefPtr<Gdk::Pixbuf> pb_scaled
       		=pb->scale_simple(pbw,pbh,Gdk::INTERP_HYPER);
-std::cout << w << ',' << h << ' ' << pbw << ',' << pbh << '\n';      		
+//std::cout << w << ',' << h << ' ' << pbw << ',' << pbh << '\n';      		
       pm->draw_pixbuf(gc,pb_scaled,(pbw-w)/2,(pbh-h)/2,0,0,w,h,Gdk::RGB_DITHER_NORMAL,0,0);
       Glib::RefPtr<Gtk::Style> st=grundwerte_background->get_style()->copy();
       st->set_bg_pixmap(Gtk::STATE_NORMAL,pm);
