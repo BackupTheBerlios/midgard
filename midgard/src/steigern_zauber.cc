@@ -27,13 +27,13 @@ void midgard_CG::on_zauber_laden_clicked()
   list_Zauber_neu.clear();
   for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Zauber.begin();i!=Database.Zauber.end();++i)
     { cH_Zauber z(*i);
-      if ((*i)->ist_gelernt(list_Zauber) && (*i)->ZusatzEnum(Typ)==MidgardBasicElement::ZNone) continue ;
+      if ((*i)->ist_gelernt(Char.CList_Zauber()) && (*i)->ZusatzEnum(Char.getVTyp())==MidgardBasicElement::ZNone) continue ;
       if (z->Zauberart()=="Zaubersalz" && !togglebutton_zaubersalze->get_active())
          continue;
       if (z->Zauberart()=="Beschwörung" && !Region::isActive(Database.Regionen,cH_Region("MdS")))
          continue;
       if (togglebutton_spruchrolle->get_active() && !z->Spruchrolle() ) continue;
-      if ((*i)->ist_lernbar(Typ,z->get_MapTyp()) || togglebutton_alle_zauber->get_active() )
+      if ((*i)->ist_lernbar(Char.getVTyp(),z->get_MapTyp()) || togglebutton_alle_zauber->get_active() )
       if (region_check(z->Region()) && nsc_check((*i)->NSC_only()))
         {
          if(togglebutton_spruchrolle->get_active()) z->setSpruchrolleFaktor(0.1);
@@ -46,11 +46,12 @@ void midgard_CG::on_zauber_laden_clicked()
 
 void midgard_CG::zauber_zeigen()
 {
- if (Typ[0]->Zaubern()=="n" && Typ[1]->Zaubern()=="n") return;
- 
+// if (Typ[0]->Zaubern()=="n" && Typ[1]->Zaubern()=="n") return;
+// if(!Char.CTyp1()->is_mage() && !Char.CTyp2()->is_mage() ) return;
+ if(!Char.is_mage()) return;
  zeige_werte();
  MidgardBasicElement::show_list_in_tree(list_Zauber_neu,neue_zauber_tree,this);
- MidgardBasicElement::show_list_in_tree(list_Zauber    ,alte_zauber_tree,this);
+ MidgardBasicElement::show_list_in_tree(Char.CList_Zauber(),alte_zauber_tree,this);
  zauberwerk_zeigen();
 }
 
@@ -84,7 +85,7 @@ void midgard_CG::on_checkbutton_zaubermittel_toggled()
  zauberwerk_zeigen();
  zeige_werte();
  MidgardBasicElement::show_list_in_tree(list_Zauberwerk_neu,neue_zaubermittel_tree,this);
- MidgardBasicElement::show_list_in_tree(list_Zauberwerk    ,alte_zaubermittel_tree,this);
+ MidgardBasicElement::show_list_in_tree(Char.List_Zauberwerk(),alte_zaubermittel_tree,this);
 }
 */
 
@@ -94,36 +95,36 @@ void midgard_CG::on_spruchrolle_toggled()
 /*
  if (spruchrolle->get_active() ) 
    { 
-      Zauber::set_Spruchrolle(list_Zauber,true);
+      Zauber::set_Spruchrolle(Char.List_Zauber(),true);
       Zauber::set_Spruchrolle(list_Zauber_neu,true);
    }
  else 
    { 
-      Zauber::set_Spruchrolle(list_Zauber,false);
+      Zauber::set_Spruchrolle(Char.List_Zauber(),false);
       Zauber::set_Spruchrolle(list_Zauber_neu,false);
    }
  MidgardBasicElement::show_list_in_tree(list_Zauber_neu,neue_zauber_tree,Werte,Typ,Database);
- MidgardBasicElement::show_list_in_tree(list_Zauber    ,alte_zauber_tree,Werte,Typ,Database);
+ MidgardBasicElement::show_list_in_tree(Char.List_Zauber()    ,alte_zauber_tree,Werte,Typ,Database);
 */
 }
 
 bool midgard_CG::spruchrolle_wuerfeln(const cH_MidgardBasicElement& z)
 {
  cH_Zauber zauber(z);
- int erf_z = Werte.Zaubern_wert() + Werte.bo_Za() ;
+ int erf_z = getCWerte().Zaubern_wert() + getCWerte().bo_Za() ;
  int xr=random.integer(1,20);
  int iaus=0;
  
- if ((Typ[0]->Short()!="Ma" && Typ[1]->Short()!="Ma") && zauber->Art()=="A") 
+ if ((Char.CTyp1()->Short()!="Ma" && Char.CTyp2()->Short()!="Ma") && zauber->Art()=="A") 
     iaus=-2;
 
  // Für Magier:
  std::string standard="";
- if (Typ[0]->Short()=="Ma") standard=z->Standard(Werte,Typ)[0]; 
- if (Typ[1]->Short()=="Ma") standard=z->Standard(Werte,Typ)[1]; 
+ if (Char.CTyp1()->Short()=="Ma") standard=z->Standard(getCWerte(),Char.getVTyp())[0]; 
+ if (Char.CTyp2()->Short()=="Ma") standard=z->Standard(getCWerte(),Char.getVTyp())[1]; 
  if(standard!="") 
    {
-    iaus = zauber->get_spezial_zauber_for_magier(Werte,Typ,standard); 
+    iaus = zauber->get_spezial_zauber_for_magier(getCWerte(),Char.getVTyp(),standard); 
     if (!iaus)
      { if (zauber->Art()=="S")  iaus=+1;
        if (zauber->Art()=="A")  iaus=-1;  }
@@ -146,9 +147,9 @@ void midgard_CG::on_alte_zauber_reorder()
 {
   std::deque<guint> seq = alte_zauber_tree->get_seq();
   switch((Data_SimpleTree::Spalten_ZAUBER)seq[0]) {
-      case Data_SimpleTree::NAMEn_Z  : list_Zauber.sort(cH_Zauber::sort(cH_Zauber::sort::NAME)); ;break;
-      case Data_SimpleTree::STUFEn_Z : list_Zauber.sort(cH_Zauber::sort(cH_Zauber::sort::STUFE)); ;break;
-      case Data_SimpleTree::URSPRUNGn_Z : list_Zauber.sort(cH_Zauber::sort(cH_Zauber::sort::URSPRUNG)); ;break;
+      case Data_SimpleTree::NAMEn_Z  : Char.List_Zauber().sort(cH_Zauber::sort(cH_Zauber::sort::NAME)); ;break;
+      case Data_SimpleTree::STUFEn_Z : Char.List_Zauber().sort(cH_Zauber::sort(cH_Zauber::sort::STUFE)); ;break;
+      case Data_SimpleTree::URSPRUNGn_Z : Char.List_Zauber().sort(cH_Zauber::sort(cH_Zauber::sort::URSPRUNG)); ;break;
       default : set_status("Sortieren nach diesem Parameter\n ist nicht möglich");
    }
 }
@@ -161,9 +162,9 @@ void midgard_CG::on_alte_zaubermittel_reorder()
 {
   std::deque<guint> seq = alte_zaubermittel_tree->get_seq();
   switch((Data_SimpleTree::Spalten_ZAUBERWERK)seq[0]) {
-      case Data_SimpleTree::NAMEn_ZW  : list_Zauberwerk.sort(cH_Zauberwerk::sort(cH_Zauberwerk::sort::NAME)) ;break;
-      case Data_SimpleTree::STUFEn_ZW : list_Zauberwerk.sort(cH_Zauberwerk::sort(cH_Zauberwerk::sort::STUFE)) ;break;
-      case Data_SimpleTree::ARTn_ZW :   list_Zauberwerk.sort(cH_Zauberwerk::sort(cH_Zauberwerk::sort::ART));break;
+      case Data_SimpleTree::NAMEn_ZW  : Char.List_Zauberwerk().sort(cH_Zauberwerk::sort(cH_Zauberwerk::sort::NAME)) ;break;
+      case Data_SimpleTree::STUFEn_ZW : Char.List_Zauberwerk().sort(cH_Zauberwerk::sort(cH_Zauberwerk::sort::STUFE)) ;break;
+      case Data_SimpleTree::ARTn_ZW :   Char.List_Zauberwerk().sort(cH_Zauberwerk::sort(cH_Zauberwerk::sort::ART));break;
       default : set_status("Sortieren nach diesem Parameter\n ist nicht möglich");
    }
 }
@@ -180,7 +181,7 @@ void midgard_CG::zauberwerk_zeigen()
  zauberwerk_laden();
  zeige_werte();
  MidgardBasicElement::show_list_in_tree(list_Zauberwerk_neu,neue_zaubermittel_tree,this);
- MidgardBasicElement::show_list_in_tree(list_Zauberwerk    ,alte_zaubermittel_tree,this);
+ MidgardBasicElement::show_list_in_tree(Char.CList_Zauberwerk()    ,alte_zaubermittel_tree,this);
 }
 
 void midgard_CG::on_leaf_selected_neue_zauberwerk(cH_RowDataBase d)
@@ -195,10 +196,10 @@ void midgard_CG::zauberwerk_laden()
  for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Zauberwerk.begin();i!=Database.Zauberwerk.end();++i)
   {
    cH_Zauberwerk z(*i);
-   if ((*i)->ist_gelernt(list_Zauberwerk)) continue ;
-   if (((*i)->ist_lernbar(Typ,z->get_MapTyp()) 
-         && z->Voraussetzungen(list_Zauber)
-         && z->Voraussetzungen_Fertigkeit(list_Fertigkeit)) 
+   if ((*i)->ist_gelernt(Char.CList_Zauberwerk())) continue ;
+   if (((*i)->ist_lernbar(Char.getVTyp(),z->get_MapTyp()) 
+         && z->Voraussetzungen(Char.CList_Zauber())
+         && z->Voraussetzungen_Fertigkeit(Char.CList_Fertigkeit())) 
          || togglebutton_alle_zauber->get_active() )
      if (region_check(z->Region()) )
        list_Zauberwerk_neu.push_back(*i);

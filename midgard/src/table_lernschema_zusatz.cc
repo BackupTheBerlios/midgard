@@ -57,7 +57,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_M
            M->setZusatz(hauptfenster->getCWerte().Herkunft()->Name());
            M->setErfolgswert(MBE->Erfolgswert());
            M->setLernpunkte(MBE->Lernpunkte());
-           hauptfenster->list_Fertigkeit.push_back(M);
+           hauptfenster->getChar().List_Fertigkeit().push_back(M);
            return;
          }
        else
@@ -80,7 +80,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_M
                 list_FertigkeitZusaetze.push_back(MBE->Name());
                 continue ;
               }
-            if((*i)->ist_gelernt(hauptfenster->list_Sprache)) continue;
+            if((*i)->ist_gelernt(hauptfenster->getCChar().CList_Sprache())) continue;
             datavec.push_back(new Data_Zusatz(MBE,(*i)->Name()));
          }
        connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_sprache_selected));
@@ -90,8 +90,8 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_M
       {
        for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getDatabase().Schrift.begin();i!=hauptfenster->getDatabase().Schrift.end();++i)
          {
-           if((*i)->ist_gelernt(hauptfenster->list_Schrift)) continue;
-           if(!cH_Schrift(*i)->kann_Sprache(hauptfenster->list_Sprache)) continue;
+           if((*i)->ist_gelernt(hauptfenster->getCChar().CList_Schrift())) continue;
+           if(!cH_Schrift(*i)->kann_Sprache(hauptfenster->getCChar().CList_Sprache())) continue;
            datavec.push_back(new Data_Zusatz(MBE,(*i)->Name()));
          }
        if(datavec.empty()) 
@@ -103,12 +103,12 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_M
       }
      case MidgardBasicElement::ZWaffe:
       {
-       for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->list_Waffen.begin();i!=hauptfenster->list_Waffen.end();++i)
+       for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCChar().CList_Waffen().begin();i!=hauptfenster->getCChar().CList_Waffen().end();++i)
         if (cH_Waffe(*i)->Art()=="Schußwaffe" || cH_Waffe(*i)->Art()=="Wurfwaffe")
           datavec.push_back(new Data_Zusatz(MBE,(*i)->Name()));
        if(datavec.empty()) 
          { hauptfenster->set_status("Noch keine Fernkampfwaffe gewählt.");
-           hauptfenster->list_Fertigkeit.remove(MBE);
+           hauptfenster->getChar().List_Fertigkeit().remove(MBE);
            list_FertigkeitZusaetze.remove(MBE->Name());
            return;}
        connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_selected));
@@ -224,12 +224,12 @@ void table_lernschema::on_zusatz_leaf_selected(cH_RowDataBase d)
   if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
    {   
      cH_MidgardBasicElement M=new Fertigkeit(*cH_Fertigkeit(MBE->Name()));
-     hauptfenster->list_Fertigkeit.push_back(M);
+     hauptfenster->getChar().List_Fertigkeit().push_back(M);
    }
   else if(MBE->What()==MidgardBasicElement::ZAUBER)
    {   
      cH_MidgardBasicElement M=new Zauber(*cH_Zauber(MBE->Name()));
-     hauptfenster->list_Zauber.push_back(M);
+     hauptfenster->getChar().List_Zauber().push_back(M);
    }
 
   frame_lernschema_zusatz->hide();
@@ -245,7 +245,7 @@ void table_lernschema::on_zusatz_leaf_schrift_selected(cH_RowDataBase d)
   cH_MidgardBasicElement schrift(&*cH_Schrift(dt->getZusatz()));
   schrift->setErfolgswert(MBE->Erfolgswert());
   schrift->setLernpunkte(MBE->Lernpunkte());
-  hauptfenster->list_Schrift.push_back(schrift);
+  hauptfenster->getChar().List_Schrift().push_back(schrift);
   frame_lernschema_zusatz->hide();
   zeige_werte();  
   show_gelerntes();
@@ -259,7 +259,7 @@ void table_lernschema::on_zusatz_leaf_sprache_selected(cH_RowDataBase d)
   cH_MidgardBasicElement sprache(&*cH_Sprache(dt->getZusatz()));
   sprache->setErfolgswert(MBE->Erfolgswert());
   sprache->setLernpunkte(MBE->Lernpunkte());
-  hauptfenster->list_Sprache.push_back(sprache);
+  hauptfenster->getChar().List_Sprache().push_back(sprache);
   frame_lernschema_zusatz->hide();
   zeige_werte();  
   show_gelerntes();

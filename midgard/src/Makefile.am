@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.164 2002/05/20 20:44:09 thoma Exp $
+# $Id: Makefile.am,v 1.165 2002/05/22 17:00:44 thoma Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -30,6 +30,7 @@ EXTRA_DIST = midgard_document_eingabe.tex.in \
 
 
 noinst_HEADERS = \
+   Abenteurer.hh \
    LernListen.hh \
    LaTeX_drucken.hh \
    table_beschreibung.hh \

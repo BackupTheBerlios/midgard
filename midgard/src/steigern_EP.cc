@@ -27,17 +27,17 @@ gint midgard_CG::vscale_value_changed(GdkEventButton *ev)
 {
   Gtk::Adjustment *A=vscale_EP_Gold->get_adjustment();
   int Av=(int)A->get_value();
-  Werte.set_Steigern_EP_Prozent(100-Av);
+  getWerte().set_Steigern_EP_Prozent(100-Av);
   steigern_gtk();
   return false;
 }
 
 void midgard_CG::steigern_gtk()
 {
-  label_EP->set_text(itos(Werte.get_Steigern_EP_Prozent())+"%");
-  label_Gold->set_text(itos(100-Werte.get_Steigern_EP_Prozent())+"%");
+  label_EP->set_text(itos(getCWerte().get_Steigern_EP_Prozent())+"%");
+  label_Gold->set_text(itos(100-getCWerte().get_Steigern_EP_Prozent())+"%");
   Gtk::Adjustment *A=vscale_EP_Gold->get_adjustment();
-  A->set_value(100-Werte.get_Steigern_EP_Prozent());
+  A->set_value(100-getCWerte().get_Steigern_EP_Prozent());
   if (steigern_mit_EP_bool) checkbutton_EP_Geld->set_active(true);
   else                      checkbutton_EP_Geld->set_active(false);
 }
@@ -56,21 +56,21 @@ void midgard_CG::on_checkbutton_EP_Geld_toggled()
 
 void midgard_CG::on_button_EP_clicked()
 {
-  manage(new Window_Erfahrungspunkte(this,Werte));
+  manage(new Window_Erfahrungspunkte(this,getWerte()));
 }
  
 void midgard_CG::EP_uebernehmen()
 {
-  label_aep->set_text(itos(Werte.AEP()));
-  label_kep->set_text(itos(Werte.KEP()));
-  label_zep->set_text(itos(Werte.ZEP()));
+  label_aep->set_text(itos(getCWerte().AEP()));
+  label_kep->set_text(itos(getCWerte().KEP()));
+  label_zep->set_text(itos(getCWerte().ZEP()));
 }
                   
 void midgard_CG::Geld_uebernehmen()
 {
-  label_gold->set_text(itos(Werte.Gold()));
-  label_silber->set_text(itos(Werte.Silber()));
-  label_kupfer->set_text(itos(Werte.Kupfer()));
+  label_gold->set_text(itos(getCWerte().Gold()));
+  label_silber->set_text(itos(getCWerte().Silber()));
+  label_kupfer->set_text(itos(getCWerte().Kupfer()));
 }
 
 
@@ -84,13 +84,13 @@ void midgard_CG::desteigern(unsigned int kosten)
   else 
    {
      gold_k = (int)(0.5+kosten 
-               * ((100-Werte.get_Steigern_EP_Prozent())/100.));
-     ep_k = (int)(0.5+kosten * (Werte.get_Steigern_EP_Prozent()/100.));
+               * ((100-getCWerte().get_Steigern_EP_Prozent())/100.));
+     ep_k = (int)(0.5+kosten * (getCWerte().get_Steigern_EP_Prozent()/100.));
    }
   if( !MOptionen->HausregelCheck(Midgard_Optionen::Gold).active ) gold_k*=10;
   set_lernzeit(-ep_k);
-  Werte.addGold(gold_k);
-  Werte.addAEP(ep_k);
+  getWerte().addGold(gold_k);
+  getWerte().addAEP(ep_k);
   Geld_uebernehmen();
   EP_uebernehmen();
 }
@@ -98,11 +98,11 @@ void midgard_CG::desteigern(unsigned int kosten)
 void midgard_CG::set_lernzeit(int kosten)
 {
   if(radiobutton_unterweisung->get_active())
-      Werte.addSteigertage(kosten/10);
+      getWerte().addSteigertage(kosten/10);
   else if(radiobutton_selbst->get_active())
-      Werte.addSteigertage(kosten/5.);
+      getWerte().addSteigertage(kosten/5.);
   else if(radiobutton_praxis->get_active())
-      Werte.addSteigertage(kosten/500.);
+      getWerte().addSteigertage(kosten/500.);
 }
 
 bool midgard_CG::steigern_usp(int kosten,cH_MidgardBasicElement* MBE, e_was_steigern was)
@@ -169,25 +169,25 @@ bool midgard_CG::steigern_usp(int kosten,cH_MidgardBasicElement* MBE, e_was_stei
 
 
   // jetzt darf gesteigert werden ...
-  Werte.addGold(-gold_k);  
+  getWerte().addGold(-gold_k);  
   set_lernzeit(kosten);
   if     (MBE&&(*MBE)->What()!=MidgardBasicElement::ZAUBER) (*MBE)->addPraxispunkte(-pp) ;
-  else if(MBE && (*MBE)->What()==MidgardBasicElement::ZAUBER) Werte.addSpezialPP(-pp) ;
-  else if(was==Resistenz)  Werte.addResistenzPP(-pp) ;
-  else if(was==Abwehr)     Werte.addAbwehrPP(-pp) ;
-  else if(was==Zaubern)    Werte.addZaubernPP(-pp) ;
+  else if(MBE && (*MBE)->What()==MidgardBasicElement::ZAUBER) getWerte().addSpezialPP(-pp) ;
+  else if(was==Resistenz)  getWerte().addResistenzPP(-pp) ;
+  else if(was==Abwehr)     getWerte().addAbwehrPP(-pp) ;
+  else if(was==Zaubern)    getWerte().addZaubernPP(-pp) ;
   else if(was==Ausdauer)   ;
   else assert(!"Fehler in steigern_EP.cc");
 
   if(bkep)
-   { if (ep_k<=Werte.KEP()) {Werte.addKEP(-ep_k);ep_k =0  ;}
-     else                   {ep_k-=Werte.KEP(); Werte.setKEP(0);} 
+   { if (ep_k<=getCWerte().KEP()) {getWerte().addKEP(-ep_k);ep_k =0  ;}
+     else                   {ep_k-=getCWerte().KEP(); getWerte().setKEP(0);} 
    }
   if(bzep)
-   { if (ep_k<=Werte.ZEP()) {Werte.addZEP(-ep_k);ep_k =0 ;}
-     else                   {  ep_k-=Werte.ZEP(); Werte.setZEP(0);  } 
+   { if (ep_k<=getCWerte().ZEP()) {getWerte().addZEP(-ep_k);ep_k =0 ;}
+     else                   {  ep_k-=getCWerte().ZEP(); getWerte().setZEP(0);  } 
    }
-  Werte.addAEP(-ep_k);
+  getWerte().addAEP(-ep_k);
   Geld_uebernehmen();
   EP_uebernehmen();
   return true;  
@@ -195,10 +195,10 @@ bool midgard_CG::steigern_usp(int kosten,cH_MidgardBasicElement* MBE, e_was_stei
 
 bool midgard_CG::genug_EP(const int ep_k,const bool bkep,const bool bzep, int &aep0,int &kep0,int &zep0)
 {
-  int aep=Werte.AEP();  
+  int aep=getCWerte().AEP();  
   std::string sw;
-  if (bkep) {aep += Werte.KEP() ;sw  =",KEP";}
-  if (bzep) {aep += Werte.ZEP() ;sw +=",ZEP";}
+  if (bkep) {aep += getCWerte().KEP() ;sw  =",KEP";}
+  if (bzep) {aep += getCWerte().ZEP() ;sw +=",ZEP";}
   if (ep_k > aep) 
     { 
       set_status("Zu wenig EP um zu steigern, es fehlen "+itos(ep_k-aep)+" Erfahrungspunkte (AEP"+sw+")."); 
@@ -214,10 +214,10 @@ int midgard_CG::PP_vorrat(const cH_MidgardBasicElement *MBE,e_was_steigern was)
   if(radiobutton_praxis->get_active())
    { 
      if     (MBE && (*MBE)->What()!=MidgardBasicElement::ZAUBER) pp=(*MBE)->Praxispunkte();
-     else if(MBE && (*MBE)->What()==MidgardBasicElement::ZAUBER) pp=Werte.SpezialPP();
-     else if(was==Resistenz) pp=Werte.ResistenzPP() ;
-     else if(was==Abwehr)    pp=Werte.AbwehrPP() ;
-     else if(was==Zaubern)   pp=Werte.ZaubernPP() ;
+     else if(MBE && (*MBE)->What()==MidgardBasicElement::ZAUBER) pp=getCWerte().SpezialPP();
+     else if(was==Resistenz) pp=getCWerte().ResistenzPP() ;
+     else if(was==Abwehr)    pp=getCWerte().AbwehrPP() ;
+     else if(was==Zaubern)   pp=getCWerte().ZaubernPP() ;
      else if(was==Ausdauer)  {set_status("Ausdauer kann nicht mit Praxispunkten gesteigert werden.");return false;}
      else assert(!"Fehler in steigern_EP.cc");
    }
@@ -229,7 +229,7 @@ int midgard_CG::EP_kosten(const int kosten)
 {
   int ep_k;
   if(radiobutton_unterweisung->get_active()) //+0.5 zum runden
-      ep_k = (int)(0.5 + kosten * (Werte.get_Steigern_EP_Prozent()/100.));
+      ep_k = (int)(0.5 + kosten * (getCWerte().get_Steigern_EP_Prozent()/100.));
   else
       ep_k = (int)(kosten);
   return ep_k;
@@ -262,10 +262,10 @@ int midgard_CG::genug_geld(const int kosten)
   if(!radiobutton_unterweisung->get_active())
      return 0; // keine Untreweisung => kein Geld nötig
   // +0.5 zum runden
-  int gold_k = (int)(0.5 + kosten * ((100-Werte.get_Steigern_EP_Prozent())/100.));
+  int gold_k = (int)(0.5 + kosten * ((100-getCWerte().get_Steigern_EP_Prozent())/100.));
   if( !MOptionen->HausregelCheck(Midgard_Optionen::Gold).active ) gold_k*=10;
-  if (gold_k > Werte.Gold()) 
-    { set_status("Zu wenig Gold um zu steigern, es fehlt "+itos(gold_k-Werte.Gold())+" Gold."); 
+  if (gold_k > getCWerte().Gold()) 
+    { set_status("Zu wenig Gold um zu steigern, es fehlt "+itos(gold_k-getCWerte().Gold())+" Gold."); 
       return -1;
     }
   else 
@@ -288,17 +288,17 @@ void midgard_CG::PraxisPunkt_to_AEP(cH_MidgardBasicElement& MBE,bool verfallen,b
   // Die übrigbleibenden Punkte in AEP umwandeln
   if(!verfallen && aep>0)
    {
-     int steiger_kosten = MBE->Steigern(Werte,Typ);
+     int steiger_kosten = MBE->Steigern(getCWerte(),Char.getVTyp());
      int aep_kosten = steiger_kosten-aep;
-     if(aep_kosten>Werte.AEP())
+     if(aep_kosten>getCWerte().AEP())
       {
         set_status("Zu wenig AEP, die restlichen Punkte verfallen.");
       }
      else
       {
-        Werte.addAEP(-aep_kosten);
+        getWerte().addAEP(-aep_kosten);
         EP_uebernehmen();
-        Werte.addGFP(steiger_kosten);
+        getWerte().addGFP(steiger_kosten);
         MBE->addErfolgswert(1);
 
         set_lernzeit(steiger_kosten-aep_kosten); // Lernzeit für PP
@@ -312,7 +312,7 @@ void midgard_CG::PraxisPunkt_to_AEP(cH_MidgardBasicElement& MBE,bool verfallen,b
 
 int midgard_CG::stufen_auf_einmal_steigern_fuer_aep(bool info,cH_MidgardBasicElement& MBE,int &kosten,int &aep)
 {
-  int steiger_kosten = MBE->Steigern(Werte,Typ);
+  int steiger_kosten = MBE->Steigern(getCWerte(),Char.getVTyp());
   int stufen=0;
   int erfolgswert_mem=MBE->Erfolgswert();
   while(steiger_kosten<=aep)
@@ -321,16 +321,16 @@ int midgard_CG::stufen_auf_einmal_steigern_fuer_aep(bool info,cH_MidgardBasicEle
      ++stufen;
      aep-=steiger_kosten;
      MBE->addErfolgswert(1);
-     steiger_kosten = MBE->Steigern(Werte,Typ);
+     steiger_kosten = MBE->Steigern(getCWerte(),Char.getVTyp());
    }      
   if(info)
    {
-     kosten=MBE->Steigern(Werte,Typ) ; // kosten für die nächste Stufe
+     kosten=MBE->Steigern(getCWerte(),Char.getVTyp()) ; // kosten für die nächste Stufe
      MBE->setErfolgswert(erfolgswert_mem);
    }
   else
    {
-     Werte.addGFP(kosten);
+     getWerte().addGFP(kosten);
      set_lernzeit(kosten);
    }
   return stufen;

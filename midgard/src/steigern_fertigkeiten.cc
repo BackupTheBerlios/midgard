@@ -27,17 +27,17 @@ void midgard_CG::on_fertigkeiten_laden_clicked()
   list_Fertigkeit_neu.clear();
   for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
    { cH_Fertigkeit f(*i);
-     if ((*i)->ist_gelernt(list_Fertigkeit) && cH_Fertigkeit(*i)->ZusatzEnum(Typ)==MidgardBasicElement::ZNone) continue ;
+     if ((*i)->ist_gelernt(Char.CList_Fertigkeit()) && cH_Fertigkeit(*i)->ZusatzEnum(Char.getVTyp())==MidgardBasicElement::ZNone) continue ;
      if (f->Name()=="Sprache" || f->Name()=="Schreiben" || f->Name()=="KiDo-Technik") continue;
-//     if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name())) continue;
-     if(Werte.Spezies()->istVerboten(*i)) continue;
-     if (f->Name()=="Zaubern" && Typ[0]->is_mage() || f->Name()=="Zaubern" && Typ[1]->is_mage() ) continue;
-     if ((*i)->ist_lernbar(Typ,f->get_MapTyp()))
-       if (region_check(f->Region()) )
-        if (f->Voraussetzungen(Werte,list_Fertigkeit)) 
-         {
-            f->setErfolgswert(f->Anfangswert());
-            list_Fertigkeit_neu.push_back(*i);
+//     if (Database.pflicht.istVerboten(getCWerte().Spezies()->Name(),Char.getVTyp(),f->Name())) continue;
+     if(getCWerte().Spezies()->istVerboten(*i)) continue;
+     if (f->Name()=="Zaubern" && Char.is_mage() ) continue;
+     if (!(*i)->ist_lernbar(Char.getVTyp(),f->get_MapTyp())) continue;
+     if (!region_check(f->Region()) ) continue;
+     if (f->Voraussetzungen(getCWerte(),Char.CList_Fertigkeit())) 
+       {
+         f->setErfolgswert(f->Anfangswert());
+         list_Fertigkeit_neu.push_back(*i);
 //Kopie            list_Fertigkeit_neu.push_back(new Fertigkeit(*f));
          }
    }
@@ -48,7 +48,7 @@ void midgard_CG::fertigkeiten_zeigen()
 {
  zeige_werte();
  MidgardBasicElement::show_list_in_tree(list_Fertigkeit_neu,neue_fert_tree,this);
- MidgardBasicElement::show_list_in_tree(list_Fertigkeit    ,alte_fert_tree,this);
+ MidgardBasicElement::show_list_in_tree(Char.CList_Fertigkeit()    ,alte_fert_tree,this);
 }
 
 
@@ -73,8 +73,8 @@ void midgard_CG::on_alte_fert_reorder()
 {
   std::deque<guint> seq = alte_fert_tree->get_seq();
   switch((Data_SimpleTree::Spalten_LONG_ALT)seq[0]) {
-      case Data_SimpleTree::NAMEa : list_Fertigkeit.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME)); ;break;
-      case Data_SimpleTree::WERTa : list_Fertigkeit.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::ERFOLGSWERT)); ;break;
+      case Data_SimpleTree::NAMEa : Char.List_Fertigkeit().sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME)); ;break;
+      case Data_SimpleTree::WERTa : Char.List_Fertigkeit().sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::ERFOLGSWERT)); ;break;
       default : set_status("Sortieren nach diesem Parameter\n ist nicht möglich");
    }
 }
@@ -82,7 +82,7 @@ void midgard_CG::on_alte_fert_reorder()
 
 bool midgard_CG::kido_steigern_check(int wert)
 {
-  if (Werte.Grad()+10 > wert) return false;
+  if (getCWerte().Grad()+10 > wert) return false;
   else
    { set_status("KiDo darf nur auf maximal Grad+10 gesteigert werden.\n");
      return true;
@@ -117,7 +117,7 @@ void midgard_CG::fillClistLand(const cH_MidgardBasicElement &MBE)
   clist_landauswahl->clear();
   Gtk::OStream os(clist_landauswahl);
 
-  switch (MBE->ZusatzEnum(Typ))
+  switch (MBE->ZusatzEnum(Char.getVTyp()))
    {
      case MidgardBasicElement::ZLand :
       {        
@@ -132,7 +132,7 @@ void midgard_CG::fillClistLand(const cH_MidgardBasicElement &MBE)
      case MidgardBasicElement::ZWaffe :
       {      
         clist_landauswahl->set_column_title(0, "Waffe auswählen");
-        for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Waffen.begin();i!=list_Waffen.end();++i)
+        for (std::list<cH_MidgardBasicElement>::const_iterator i=Char.CList_Waffen().begin();i!=Char.CList_Waffen().end();++i)
          {
            if (cH_Waffe(*i)->Art()=="Schußwaffe" || cH_Waffe(*i)->Art()=="Wurfwaffe")
             {
@@ -173,7 +173,7 @@ void midgard_CG::on_clist_landauswahl_select_row(gint row, gint column, GdkEvent
   MidgardBasicElement *MBE=static_cast<MidgardBasicElement*>(clist_landauswahl->selection().begin()->get_data());
   MBE->setZusatz(zusatz);
   // Erhöter Erfolgswert für Landeskunde Heimat:
-  if(zusatz==Werte.Herkunft()->Name()) MBE->setErfolgswert(9);
+  if(zusatz==getCWerte().Herkunft()->Name()) MBE->setErfolgswert(9);
   scrolledwindow_landauswahl->hide();
   on_fertigkeiten_laden_clicked();
   neue_fert_tree->set_sensitive(true);

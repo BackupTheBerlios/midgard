@@ -1,4 +1,4 @@
-// $Id: zeige_werte.cc,v 1.56 2002/05/17 10:24:28 thoma Exp $
+// $Id: zeige_werte.cc,v 1.57 2002/05/22 17:00:45 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,27 +27,27 @@
 
 void midgard_CG::zeige_werte()
 {
-   gfp->set_text(itos(Werte.GFP()));
+   gfp->set_text(itos(getCWerte().GFP()));
 
-   label_s_grad->set_text(itos(Werte.Grad()));
-   label_s_ap->set_text(itos(Werte.AP()));
-   label_s_abwehr->set_text(itos(Werte.Abwehr_wert()));
-   label_s_zaubern->set_text(itos(Werte.Zaubern_wert()));
-   label_s_resistenz->set_text(itos(Werte.Resistenz()));
-   label_pp_abwehr->set_text(itos(Werte.AbwehrPP()));
-   label_pp_zaubern->set_text(itos(Werte.ZaubernPP()));
-   label_pp_spezial->set_text(itos(Werte.SpezialPP()));
-   label_pp_resistenz->set_text(itos(Werte.ResistenzPP()));
-   label_steigertage->set_text(dtos1(Werte.Steigertage()));
-   label_steigertage->set_text(Formatiere_short(fixedpoint<1>(Werte.Steigertage())));
-   label_alter->set_text(itos(Werte.Alter()));
+   label_s_grad->set_text(itos(getCWerte().Grad()));
+   label_s_ap->set_text(itos(getCWerte().AP()));
+   label_s_abwehr->set_text(itos(getCWerte().Abwehr_wert()));
+   label_s_zaubern->set_text(itos(getCWerte().Zaubern_wert()));
+   label_s_resistenz->set_text(itos(getCWerte().Resistenz()));
+   label_pp_abwehr->set_text(itos(getCWerte().AbwehrPP()));
+   label_pp_zaubern->set_text(itos(getCWerte().ZaubernPP()));
+   label_pp_spezial->set_text(itos(getCWerte().SpezialPP()));
+   label_pp_resistenz->set_text(itos(getCWerte().ResistenzPP()));
+   label_steigertage->set_text(dtos1(getCWerte().Steigertage()));
+   label_steigertage->set_text(Formatiere_short(fixedpoint<1>(getCWerte().Steigertage())));
+   label_alter->set_text(itos(getCWerte().Alter()));
 
    
-   label_grad_GFP->set_text(Database.GradAnstieg.getGFP_for_str(Grad_anstieg::Grad_fehlt,Werte));
-   label_ausdauer_GFP->set_text(Database.GradAnstieg.getGFP_for_str(Grad_anstieg::Ausdauer,Werte));
-   label_abwehr_GFP->set_text(Database.GradAnstieg.getGFP_for_str(Grad_anstieg::Abwehr,Werte));
-   label_resistenz_GFP->set_text(Database.GradAnstieg.getGFP_for_str(Grad_anstieg::Resistenz,Werte));
-   std::string z=Database.GradAnstieg.getGFP_for_str(Grad_anstieg::Zaubern,Werte);
-   if(!Typ[0]->is_mage() && !Typ[1]->is_mage()) z="";
+   label_grad_GFP->set_text(Database.GradAnstieg.getGFP_for_str(Grad_anstieg::Grad_fehlt,getCWerte()));
+   label_ausdauer_GFP->set_text(Database.GradAnstieg.getGFP_for_str(Grad_anstieg::Ausdauer,getCWerte()));
+   label_abwehr_GFP->set_text(Database.GradAnstieg.getGFP_for_str(Grad_anstieg::Abwehr,getCWerte()));
+   label_resistenz_GFP->set_text(Database.GradAnstieg.getGFP_for_str(Grad_anstieg::Resistenz,getCWerte()));
+   std::string z=Database.GradAnstieg.getGFP_for_str(Grad_anstieg::Zaubern,getCWerte());
+   if(!Char.CTyp1()->is_mage() && !Char.CTyp2()->is_mage()) z="";
    label_zauber_GFP->set_text(z);
 }

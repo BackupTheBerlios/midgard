@@ -1,4 +1,4 @@
-// $Id: table_lernschema_kido.cc,v 1.1 2002/05/17 10:24:28 thoma Exp $
+// $Id: table_lernschema_kido.cc,v 1.2 2002/05/22 17:00:45 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,7 +34,7 @@ void table_lernschema::on_kido_wahl_clicked()
       hauptfenster->set_status("Erst eine Technik wählen\n");
       return;
     }
-   hauptfenster->list_Kido.clear();
+   hauptfenster->getChar().List_Kido().clear();
    fill_kido_lernschema();
 
 //   manage(new KiDo_auswahl(this,maxkido,Werte,Database,hauptfenster->Typ,Vkido));
@@ -60,7 +60,7 @@ void table_lernschema::fill_kido_lernschema()
          if(kido_stil.ist_sanft(kd->Stil())) continue;
      if (kido_stil.ist_sanft(hauptfenster->getCWerte().Spezialisierung()))
          if(kido_stil.ist_hart(kd->Stil())) continue;
-     if ((*i)->ist_gelernt(hauptfenster->list_Kido)) continue ;
+     if ((*i)->ist_gelernt(hauptfenster->getCChar().CList_Kido())) continue ;
      newlist.push_back(*i);                                     
    }
 
@@ -74,7 +74,7 @@ void table_lernschema::on_tree_kido_lernschema_leaf_selected(cH_RowDataBase d)
 {
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE();
-  hauptfenster->list_Kido.push_back(MBE);
+  hauptfenster->getChar().List_Kido().push_back(MBE);
   --maxkido;
   hauptfenster->undosave(MBE->Name()+" gelernt");
   fill_kido_lernschema();

@@ -26,9 +26,9 @@ void midgard_CG::on_schrift_laden_clicked()
    list_Schrift_neu.clear();
    for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Schrift.begin();i!=Database.Schrift.end();++i)
     { cH_Schrift s(*i);
-      if((*i)->ist_gelernt(list_Schrift)) continue;
+      if((*i)->ist_gelernt(Char.List_Schrift())) continue;
       if (region_check(s->Region()) )  
-         if(s->kann_Sprache(list_Sprache))
+         if(s->kann_Sprache(Char.List_Sprache()))
            { s->setErfolgswert(cH_Fertigkeit("Schreiben")->Anfangswert());
              list_Schrift_neu.push_back(*i) ;
            }
@@ -41,7 +41,7 @@ void midgard_CG::on_sprache_laden_clicked()
    list_Sprache_neu.clear();
    for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Sprache.begin();i!=Database.Sprache.end();++i)
     { cH_Sprache s(*i);
-      if((*i)->ist_gelernt(list_Sprache)) continue;
+      if((*i)->ist_gelernt(Char.List_Sprache())) continue;
       if (region_check(s->Region()) )  
         {  s->setErfolgswert(cH_Fertigkeit("Sprache")->Anfangswert());
            list_Sprache_neu.push_back(*i) ;
@@ -54,14 +54,14 @@ void midgard_CG::on_sprache_laden_clicked()
 void midgard_CG::schriften_zeigen()
 {
    zeige_werte();
-   MidgardBasicElement::show_list_in_tree(list_Schrift    ,alte_schrift_tree,this);
+   MidgardBasicElement::show_list_in_tree(Char.List_Schrift()    ,alte_schrift_tree,this);
    MidgardBasicElement::show_list_in_tree(list_Schrift_neu,neue_schrift_tree,this);
 }
 
 void midgard_CG::sprachen_zeigen()
 {
    zeige_werte();
-   MidgardBasicElement::show_list_in_tree(list_Sprache    ,alte_sprache_tree,this);
+   MidgardBasicElement::show_list_in_tree(Char.List_Sprache()    ,alte_sprache_tree,this);
    MidgardBasicElement::show_list_in_tree(list_Sprache_neu,neue_sprache_tree,this);
 }
 
@@ -102,8 +102,8 @@ void midgard_CG::on_button_sprache_sort_clicked()
 {
   std::deque<guint> seq = alte_sprache_tree->get_seq();
   switch((Data_SimpleTree::Spalten_LONG_ALT)seq[0]) {
-      case Data_SimpleTree::NAMEa : list_Sprache.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME)); ;break;
-      case Data_SimpleTree::WERTa : list_Sprache.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::ERFOLGSWERT)); ;break;
+      case Data_SimpleTree::NAMEa : Char.List_Sprache().sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME)); ;break;
+      case Data_SimpleTree::WERTa : Char.List_Sprache().sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::ERFOLGSWERT)); ;break;
       default : set_status("Sortieren nach diesem Parameter\n ist nicht möglich");
    }
 }
@@ -140,7 +140,7 @@ void midgard_CG::on_leaf_selected_neue_schrift(cH_RowDataBase d)
 void midgard_CG::neue_schrift_wegen_sprache()
 {
   // Alle gelernten Sprachen testen
-  for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Sprache.begin();i!=list_Sprache.end();++i)
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=Char.CList_Sprache().begin();i!=Char.CList_Sprache().end();++i)
    {
      if((*i)->Erfolgswert()<10) continue;
      // welche Schriften gehören zu dieser Sprache?
@@ -149,7 +149,7 @@ void midgard_CG::neue_schrift_wegen_sprache()
       {
        try{
         cH_Schrift s(*j);
-        if(s->ist_gelernt(list_Schrift)) continue;
+        if(s->ist_gelernt(Char.CList_Schrift())) continue;
         std::list<cH_MidgardBasicElement> gS=s->gleicheSchrift(Database.Schrift);
         for(std::list<cH_MidgardBasicElement>::const_iterator k=gS.begin();k!=gS.end();++k)
          {
@@ -158,7 +158,7 @@ void midgard_CG::neue_schrift_wegen_sprache()
            if(e>=12) 
             {
               (*k)->setErfolgswert(8);   
-              list_Schrift.push_back(*k); 
+              Char.List_Schrift().push_back(*k); 
             }
          }
         }catch(NotFound) {set_status("FEHLER: Schrift "+*j+" ist unbekannt.");}
@@ -169,7 +169,7 @@ void midgard_CG::neue_schrift_wegen_sprache()
 int midgard_CG::andereSprache_gleicheSchriftart(std::string art)
 {
   int e=0;
-  for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Schrift.begin();i!=list_Schrift.end();++i)
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=Char.CList_Schrift().begin();i!=Char.CList_Schrift().end();++i)
    {
      if (cH_Schrift(*i)->Art_der_Schrift()==art)
         if( (*i)->Erfolgswert() > e ) 

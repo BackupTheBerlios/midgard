@@ -1,4 +1,4 @@
-// $Id: table_lernschema_fertigkeiten.cc,v 1.2 2002/05/20 06:41:23 thoma Exp $
+// $Id: table_lernschema_fertigkeiten.cc,v 1.3 2002/05/22 17:00:45 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -30,9 +30,9 @@
 gint table_lernschema::on_angeborene_fertigkeit_button_release_event(GdkEventButton *event)
 {
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::ANGEBORENEFERTIGKEITEN);
-  hauptfenster->list_Fertigkeit_ang.clear();
-  hauptfenster->list_Fertigkeit_ang=hauptfenster->getCWerte().Spezies()->getAngFertigkeiten();
-  hauptfenster->list_Zauber=hauptfenster->getWerte().Spezies()->getZauber();
+  hauptfenster->getChar().List_Fertigkeit_ang().clear();
+  hauptfenster->getChar().List_Fertigkeit_ang()=hauptfenster->getCWerte().Spezies()->getAngFertigkeiten();
+  hauptfenster->getChar().List_Zauber()=hauptfenster->getWerte().Spezies()->getZauber();
   hauptfenster->getWerte().resetSinne();
   checkAngeboreneSinne();
   
@@ -88,7 +88,7 @@ void table_lernschema::on_ang_fert_leaf_selected(cH_RowDataBase d)
   cH_MidgardBasicElement MBE = dt->getMBE();
   cH_Fertigkeit_angeborene F(MBE);
   if(!AngebSinn(F->Min(),MBE->Erfolgswert()))
-    MidgardBasicElement::move_element(list_Fertigkeit_ang_neu,hauptfenster->list_Fertigkeit_ang,MBE);
+    MidgardBasicElement::move_element(list_Fertigkeit_ang_neu,hauptfenster->getChar().List_Fertigkeit_ang(),MBE);
   else list_Fertigkeit_ang_neu.remove(MBE);
   MidgardBasicElement::show_list_in_tree(list_Fertigkeit_ang_neu,tree_angeb_fert,hauptfenster);
   show_gelerntes();
@@ -104,7 +104,7 @@ std::string table_lernschema::AngebFert_gewuerfelt(int wurf)
       {
          name=(*i)->Name();
          if(!AngebSinn(wurf,(*i)->Erfolgswert()))
-            hauptfenster->list_Fertigkeit_ang.push_back(*i);
+            hauptfenster->getChar().List_Fertigkeit_ang().push_back(*i);
          break;
       }
    }

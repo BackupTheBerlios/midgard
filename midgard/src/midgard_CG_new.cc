@@ -20,26 +20,16 @@
 
 void midgard_CG::clear_listen()
 {
-   list_Fertigkeit.clear();
-   table_lernschema->list_FertigkeitZusaetze.clear();
-   list_Fertigkeit_neu.clear();
-   list_Fertigkeit_ang.clear();
-   list_Waffen.clear();
-   list_Waffen_neu.clear();
-   list_WaffenGrund.clear();
-   list_WaffenGrund_neu.clear();
-   list_Waffen_besitz.clear();
-   list_Kido.clear();
-   list_Kido_neu.clear();
-   list_Beruf.clear();
-   list_Sprache.clear();
-   list_Schrift.clear();
-   list_Sprache_neu.clear();
-   list_Schrift_neu.clear();
-   list_Zauber.clear();
-   list_Zauberwerk.clear();
-   list_Zauber_neu.clear();
-   list_Zauberwerk_neu.clear();
+//   Char.reset();
+//   table_lernschema->list_FertigkeitZusaetze.clear();
+//   list_Fertigkeit_neu.clear();
+//   list_Waffen_neu.clear();
+//   list_WaffenGrund_neu.clear();
+//   list_Kido_neu.clear();
+//   list_Sprache_neu.clear();
+//   list_Schrift_neu.clear();
+//   list_Zauber_neu.clear();
+//   list_Zauberwerk_neu.clear();
 }
 
 void midgard_CG::clear_gtk()
@@ -62,7 +52,6 @@ void midgard_CG::clear_gtk()
    neue_sprache_tree->clear();
    alte_schrift_tree->clear();
    neue_schrift_tree->clear();
-  
 }
 
 gint midgard_CG::on_neuer_charakter_release_event(GdkEventButton *ev)
@@ -74,14 +63,13 @@ gint midgard_CG::on_neuer_charakter_release_event(GdkEventButton *ev)
 
 void midgard_CG::on_neuer_charakter_clicked()
 {
-  notebook_main->set_page(PAGE_GRUNDWERTE);
    if(modify_bool)
      {
        MOptionen->save_options(InfoFenster);
        xml_export_auswahl();
      }               
    filename="";
-  table_grundwerte->neuer_charakter();
+//   table_grundwerte->neuer_charakter();
 
    table_lernschema->label_lernschma_titel->set_text("");
    frame_steigern->set_sensitive(false); // das wirkt nicht ?
@@ -124,18 +112,16 @@ void midgard_CG::on_neuer_charakter_clicked()
 
 
    table_lernschema->lernpunkte.clear();
-   Typ.clear();
-   Typ.resize(2);
    for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
       (*i)->setActive(false);
    steigern_mit_EP_bool=true;
    checkbutton_EP_Geld->set_active(steigern_mit_EP_bool);
 
-   Werte.set_Grad_Basiswerte(1);
+   Char.getWerte().set_Grad_Basiswerte(1);
    label_EP->set_text("50%");
    label_Gold->set_text("50%");
 
   menu_init();
-//  zeige_lernpunkte();
+  notebook_main->set_page(PAGE_GRUNDWERTE);
   table_grundwerte->neuer_charakter();
 }

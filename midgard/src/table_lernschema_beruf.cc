@@ -1,4 +1,4 @@
-// $Id: table_lernschema_beruf.cc,v 1.2 2002/05/17 12:23:08 thoma Exp $
+// $Id: table_lernschema_beruf.cc,v 1.3 2002/05/22 17:00:45 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -50,8 +50,8 @@ gint table_lernschema::on_button_beruf_release_event(GdkEventButton *ev)
 void table_lernschema::on_entry_berufsname_activate()
 {
   cH_MidgardBasicElement beruf(&*cH_Beruf(entry_berufsname->get_text(),true));
-  hauptfenster->list_Beruf.clear();
-  hauptfenster->list_Beruf.push_back(beruf);
+  hauptfenster->getChar().List_Beruf().clear();
+  hauptfenster->getChar().List_Beruf().push_back(beruf);
   vbox_berufsname->hide();
 //  frame_berufswahl->set_sensitive(false);
 //  if(!MOptionen->OptionenCheck(Midgard_Optionen::NSC_only).active)
@@ -73,12 +73,12 @@ void table_lernschema::on_spinbutton_beruf_activate()
 
 void table_lernschema::deleteBerufsFertigekeit()
 {
-  for(std::list<cH_MidgardBasicElement>::iterator i=hauptfenster->list_Fertigkeit.begin();i!=hauptfenster->list_Fertigkeit.end();++i)
+  for(std::list<cH_MidgardBasicElement>::iterator i=hauptfenster->getChar().List_Fertigkeit().begin();i!=hauptfenster->getChar().List_Fertigkeit().end();++i)
    {
      cH_Fertigkeit f(*i);
      if(f->LernArt()=="Beruf") 
       {
-        hauptfenster->list_Fertigkeit.erase(i);
+        hauptfenster->getChar().List_Fertigkeit().erase(i);
         break;
       }
      else if(f->LernArt()=="Beruf+") 
@@ -111,7 +111,7 @@ void table_lernschema::showBerufsLernList()
 //     if (Database.pflicht.istVerboten(hauptfenster->getCWerte().Spezies()->Name(),hauptfenster->Typ,(*i)->Name())) continue;
      if(hauptfenster->getCWerte().Spezies()->istVerbotenSpielbegin(*i)) continue;
      cH_Beruf b(*i);
-     if ( !b->Typ(hauptfenster->Typ) || 
+     if ( !b->Typ(hauptfenster->getCChar().getVTyp()) || 
           !b->Stand(hauptfenster->getCWerte().Stand()) ) continue;
      if(!b->Stadt() && hauptfenster->getCWerte().Stadt_Land()=="Stadt") continue;
      if(!b->Land()  && hauptfenster->getCWerte().Stadt_Land()=="Land") continue;
@@ -133,7 +133,7 @@ void table_lernschema::showBerufsLernList()
          if( (kat==1 && BKategorie.kat_I)   || (kat==2 && BKategorie.kat_II) ||
              (kat==3 && BKategorie.kat_III) || (kat==4 && BKategorie.kat_IV ) )
            {
-             if(*j!="Schmecken+10" && cH_Fertigkeit(*j)->ist_gelernt(hauptfenster->list_Fertigkeit))
+             if(*j!="Schmecken+10" && cH_Fertigkeit(*j)->ist_gelernt(hauptfenster->getCChar().CList_Fertigkeit()))
                   gelerntes=true;
              else gelerntes=false;
              datavec.push_back(new Beruf_Data(kat,(*i)->Name(),*j,gelerntes));
@@ -191,14 +191,14 @@ void table_lernschema::on_beruf_tree_leaf_selected(cH_RowDataBase d)
  try{
     const Beruf_Data *dt=dynamic_cast<const Beruf_Data*>(&*d);
     cH_MidgardBasicElement mbe(&*cH_Beruf(dt->Beruf()));
-    hauptfenster->list_Beruf.clear(); // es kann nur einen Beruf geben
-    hauptfenster->list_Beruf.push_back(mbe);
+    hauptfenster->getChar().List_Beruf().clear(); // es kann nur einen Beruf geben
+    hauptfenster->getChar().List_Beruf().push_back(mbe);
 
     if(dt->Fert()=="Schmecken+10") 
         hauptfenster->getWerte().setSinn("Schmecken",10);
     else if(dt->Gelernt()) // Erfolgswert um eins erhöhen
      {
-      for (std::list<cH_MidgardBasicElement>::const_iterator k=hauptfenster->list_Fertigkeit.begin();k!=hauptfenster->list_Fertigkeit.end();++k)
+      for (std::list<cH_MidgardBasicElement>::const_iterator k=hauptfenster->getCChar().CList_Fertigkeit().begin();k!=hauptfenster->getCChar().CList_Fertigkeit().end();++k)
         {
           if((*k)->Name()==dt->Fert())
            { (*k)->addErfolgswert(1);
@@ -211,9 +211,10 @@ void table_lernschema::on_beruf_tree_leaf_selected(cH_RowDataBase d)
       {
          cH_MidgardBasicElement MBE(&*cH_Fertigkeit(dt->Fert()));
          cH_Fertigkeit(MBE)->setLernArt("Beruf");
-         if(MBE->ZusatzEnum(hauptfenster->Typ)) lernen_zusatz(MBE->ZusatzEnum(hauptfenster->Typ),MBE);
+         if(MBE->ZusatzEnum(hauptfenster->getCChar().getVTyp())) 
+              lernen_zusatz(MBE->ZusatzEnum(hauptfenster->getCChar().getVTyp()),MBE);
          if(MBE->Name()!="Landeskunde (Heimat)")
-            hauptfenster->list_Fertigkeit.push_back(MBE);
+            hauptfenster->getChar().List_Fertigkeit().push_back(MBE);
       }
 
     if (!BKategorie.kat_IV || (dt->Kat()==3 || dt->Kat()==4))

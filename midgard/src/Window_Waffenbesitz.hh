@@ -1,4 +1,4 @@
-// $Id: Window_Waffenbesitz.hh,v 1.35 2002/05/14 07:26:14 thoma Exp $
+// $Id: Window_Waffenbesitz.hh,v 1.36 2002/05/22 17:00:44 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -73,7 +73,7 @@ class Data_waffenbesitz :  public RowDataBase
           switch(seqnr) {
             case NAME_A : return cH_EntryValueIntString(W->Name());
             case SCHADEN_A : return cH_EntryValueIntString(W->Schaden(hauptfenster->getCWerte(),waffe->Name()));
-            case REGION : return cH_EntryValueIntString(Regionen_All::getRegionfromAbk(hauptfenster->getDatabase().Regionen,W->Waffe()->Region(W->Name()))->Name());
+            case REGION : return cH_EntryValueIntString(Regionen_All::getRegionfromAbk(hauptfenster->getCDatabase().Regionen,W->Waffe()->Region(W->Name()))->Name());
             case MAGBONUS : return cH_EntryValueIntString(W->Bonus());
             case MAGTEXT : return cH_EntryValueIntString(W->Magisch());
            }

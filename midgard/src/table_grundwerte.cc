@@ -26,13 +26,14 @@ void table_grundwerte::init(midgard_CG *h)
   Vhand[1]="Linkshänder"; 
   Vhand[2]="Beidhändig";  
 
-  zeige_werte();
   togglebutton_edit_werte->set_active(false);
   on_togglebutton_edit_werte_toggled();
+  zeige_werte();
 }
     
 void table_grundwerte::zeige_werte()
 { 
+cout << "Typ="<<hauptfenster->getCChar().CTyp1()->Short()<<'\n';
    if(!hauptfenster) return;
    if (hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::Original).active)  
       original_midgard_check();
@@ -68,9 +69,9 @@ void table_grundwerte::zeige_werte()
    bo_an->set_text(itos(hauptfenster->getCWerte().bo_An())) ;
    bo_ab->set_text(itos(hauptfenster->getCWerte().bo_Ab())) ;
    bo_za->set_text(itos(hauptfenster->getCWerte().bo_Za())) ;
-   bo_psy->set_text(itos(hauptfenster->getCWerte().bo_Psy(hauptfenster->Typ))) ;
-   bo_phs->set_text(itos(hauptfenster->getCWerte().bo_Phs(hauptfenster->Typ))) ;
-   bo_phk->set_text(itos(hauptfenster->getCWerte().bo_Phk(hauptfenster->Typ))) ;
+   bo_psy->set_text(itos(hauptfenster->getCWerte().bo_Psy(hauptfenster->getCChar().getVTyp()))) ;
+   bo_phs->set_text(itos(hauptfenster->getCWerte().bo_Phs(hauptfenster->getCChar().getVTyp()))) ;
+   bo_phk->set_text(itos(hauptfenster->getCWerte().bo_Phk(hauptfenster->getCChar().getVTyp()))) ;
    spinbutton_alter->set_value(hauptfenster->getCWerte().Alter());
    spinbutton_gfp->set_value(hauptfenster->getCWerte().GFP());
    spinbutton_tage->set_value(hauptfenster->getCWerte().Steigertage());
@@ -98,14 +99,12 @@ void table_grundwerte::zeige_werte()
    entry_nameC->set_text(hauptfenster->getCWerte().Name_Abenteurer());
    entry_nameS->set_text(hauptfenster->getCWerte().Name_Spieler());
    entry_version->set_text(hauptfenster->getCWerte().Version());
-   
-   if (hauptfenster->Typ[1]->Short()=="") typauswahl_2->hide();
+
+   if (hauptfenster->getCChar().CTyp1()->Short()=="") typauswahl_2->hide();
    else                                   typauswahl_2->show();
 
    if(optionmenu_spezies->get_menu()->items().size()==1) fill_spezies();
    Gtk::Menu_Helpers::SelectMatching(*(optionmenu_spezies),hauptfenster->getCWerte().Spezies());
-
-//  hauptfenster->zeige_werte();
 }
 
 void table_grundwerte::neuer_charakter()
@@ -119,7 +118,7 @@ void table_grundwerte::neuer_charakter()
    if(hauptfenster->getCWerte().Stadt_Land()=="Stadt")  radiobutton_stadt->set_active(true);
    fill_typauswahl();
    fill_spezies();
-   spezieswahl_button();
+//   spezieswahl_button();
    zeige_werte();
 }
 

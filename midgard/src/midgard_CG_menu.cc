@@ -356,7 +356,7 @@ void midgard_CG::menu_gradanstieg_init()
      mi->add(*_tab);
      mi->activate.connect(SigC::slot(this,i->funktion));
      menu_gradanstieg->append(*mi);
-     if(i->text=="Zaubern"  && (!Typ[0]->is_mage() && !Typ[1]->is_mage() ))
+     if(i->text=="Zaubern"  && !Char.is_mage())
       {
         mi->set_sensitive(false);
       }

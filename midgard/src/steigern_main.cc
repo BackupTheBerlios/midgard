@@ -43,7 +43,7 @@ void midgard_CG::on_togglebutton_praxispunkte_toggled()
    {
      radiobutton_pp_fertigkeit->set_active(true);
      vbox_praxispunkte->show();
-     if(Typ[0]->is_mage() || Typ[1]->is_mage()) 
+     if(Char.CTyp1()->is_mage() || Char.CTyp2()->is_mage()) 
          radiobutton_pp_zauber->set_sensitive(true);//show();
      else
          radiobutton_pp_zauber->set_sensitive(true);//hide();
@@ -54,10 +54,10 @@ void midgard_CG::on_togglebutton_praxispunkte_toggled()
 
 std::string midgard_CG::SpruecheMitPP()
 {
-  if(Typ[0]->SpruecheMitPP())
-       return Typ[0]->SpruecheMitPP_Text();
-  else if(Typ[1]->SpruecheMitPP())
-       return Typ[1]->SpruecheMitPP_Text();
+  if(Char.CTyp1()->SpruecheMitPP())
+       return Char.CTyp1()->SpruecheMitPP_Text();
+  else if(Char.CTyp2()->SpruecheMitPP())
+       return Char.CTyp2()->SpruecheMitPP_Text();
   else return "";
 }
 
@@ -114,13 +114,13 @@ void midgard_CG::on_spinbutton_pp_eingeben_activate()
  if(!radiobutton_pp_fertigkeit->get_active())
   {
     if(radiobutton_pp_abwehr->get_active())
-       Werte.setAbwehrPP(PPanz);
+       Char.getWerte().setAbwehrPP(PPanz);
     else if(radiobutton_pp_zauber->get_active())
-       Werte.setZaubernPP(PPanz);
+       Char.getWerte().setZaubernPP(PPanz);
     else if(radiobutton_pp_spezial->get_active())
-       Werte.setSpezialPP(PPanz);
+       Char.getWerte().setSpezialPP(PPanz);
     else if(radiobutton_pp_resistenz->get_active())
-       Werte.setResistenzPP(PPanz);
+       Char.getWerte().setResistenzPP(PPanz);
     spinbutton_pp_eingeben->hide();
     radiobutton_steigern->get_active();
     zeige_werte();
@@ -132,13 +132,13 @@ void midgard_CG::on_spinbutton_pp_eingeben_activate()
 
 
   if(pagenr==PAGE_FERTIGKEITEN)
-     MidgardBasicElement::show_list_in_tree(list_Fertigkeit,alte_fert_tree,this); 
+     MidgardBasicElement::show_list_in_tree(Char.CList_Fertigkeit(),alte_fert_tree,this); 
   if(pagenr==PAGE_WAFFEN)
-     MidgardBasicElement::show_list_in_tree(list_Waffen,alte_waffen_tree,this); 
+     MidgardBasicElement::show_list_in_tree(Char.List_Waffen(),alte_waffen_tree,this); 
   if(pagenr==PAGE_SPRACHE)
    {
-     MidgardBasicElement::show_list_in_tree(list_Sprache,alte_sprache_tree,this); 
-     MidgardBasicElement::show_list_in_tree(list_Schrift,alte_schrift_tree,this); 
+     MidgardBasicElement::show_list_in_tree(Char.List_Sprache(),alte_sprache_tree,this); 
+     MidgardBasicElement::show_list_in_tree(Char.List_Schrift(),alte_schrift_tree,this); 
    }
 
   spinbutton_pp_eingeben->hide();
@@ -174,16 +174,16 @@ cH_MidgardBasicElement midgard_CG::getSelectedNotebookLernen()
 
 void midgard_CG::on_button_alter_clicked()
 {
-  float tage=Werte.Steigertage();
-  int alter=Werte.Alter();
+  float tage=Char.getCWerte().Steigertage();
+  int alter=Char.getCWerte().Alter();
   int tage_pro_jahr=360;
   while(tage>tage_pro_jahr)
    {
      alter+=1;
      tage-=tage_pro_jahr;
    }
-  Werte.setAlter(alter);
-  Werte.setSteigertage(tage);
+  Char.getWerte().setAlter(alter);
+  Char.getWerte().setSteigertage(tage);
   zeige_werte();
 }
 
@@ -215,7 +215,7 @@ void midgard_CG::load_for_page(guint pagenr)
      frame_fertigkeit->hide();
      radiobutton_verlernen->set_active(true);
      if(pagenr==PAGE_ZAUBER) frame_zauber_zusatz->show();
-     if(Typ[0]->SpruecheMitPP() || Typ[1]->SpruecheMitPP())
+     if(Char.CTyp1()->SpruecheMitPP() || Char.CTyp2()->SpruecheMitPP())
         radiobutton_praxis->set_sensitive(true);
      else
         radiobutton_praxis->set_sensitive(false);

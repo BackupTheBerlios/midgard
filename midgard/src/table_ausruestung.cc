@@ -67,7 +67,7 @@ public:
 void table_ausruestung::init(midgard_CG *h)
 {
    hauptfenster=h;
-   besitz=hauptfenster->getWerte().getBesitz();
+   besitz=hauptfenster->getChar().getBesitz();
    zeige_werte();
    ausruestung_laden();
    table_gruppe->hide();
@@ -401,7 +401,7 @@ void table_ausruestung::setStandardAusruestung()
 
 void table_ausruestung::setFertigkeitenAusruestung(AusruestungBaum *Rucksack)
 {
-  for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->list_Fertigkeit.begin();i!=hauptfenster->list_Fertigkeit.end();++i)
+  for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCChar().CList_Fertigkeit().begin();i!=hauptfenster->getCChar().CList_Fertigkeit().end();++i)
    {
     int wurf;
     if((*i)->Name()=="Abrichten" && 90<(wurf=hauptfenster->random.integer(1,100)))
@@ -578,7 +578,7 @@ void table_ausruestung::on_spinbutton_gewicht_activate()
  double gewicht = atof( spinbutton_gewicht->get_text().c_str());
 
   Preise::saveArtikel(art,art2,name,preis,einheit,gewicht);
-  hauptfenster->get_nCDatabase().preise.push_back(cH_Preise(name));
+  hauptfenster->getDatabase().preise.push_back(cH_Preise(name));
   ausruestung_laden();
 // table_artikel->hide();
 }

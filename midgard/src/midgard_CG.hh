@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.243 2002/05/20 20:44:09 thoma Exp $
+// $Id: midgard_CG.hh,v 1.244 2002/05/22 17:00:44 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,6 +38,7 @@ class Random;
 #include "Midgard_Undo.hh"
 #include "Optionen.hh"
 #include "Waffe.hh"
+#include "Abenteurer.hh"
 
 class GeldFenster 
 {public:
@@ -73,12 +74,15 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         Random random;   
 
         void undosave(std::string s); 
+        void WaffenBesitz_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe);
 
-        const Datenbank &getDatabase() const {return Database;}
-        Datenbank &get_nCDatabase() {return Database;}
-        Grundwerte &getWerte() {return Werte;}
-        const Grundwerte &getCWerte() const {return Werte;}
+        const Datenbank &getCDatabase() const {return Database;}
+        Datenbank &getDatabase() {return Database;}
+        Grundwerte &getWerte() {return Char.getWerte();}
+        const Grundwerte &getCWerte() const {return Char.getCWerte();}
         Midgard_Optionen* getOptionen() const {return MOptionen;};
+        const Abenteurer &getCChar() const {return Char;}
+        Abenteurer &getChar() {return Char;}
    public:
         void show_beschreibung() {table_beschreibung->init(this);}
 
@@ -108,7 +112,8 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         Midgard_Undo MidgardUndo;
         Wizard *wizard;
         Midgard_Optionen *MOptionen;
-        Grundwerte Werte;
+//        Grundwerte Werte;
+        Abenteurer Char;
 
         Gtk::Menu *menu, *menu_gradanstieg;
         Gtk::MenuItem *ansicht_menu,*region_menu;
@@ -129,29 +134,29 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         gint on_eventbox_MCG_button_press_event(GdkEventButton *event);
 
         Datenbank Database;
-        std::list<cH_MidgardBasicElement> list_Beruf;
-        std::list<cH_MidgardBasicElement> list_Fertigkeit_ang;
-        std::list<cH_MidgardBasicElement> list_Fertigkeit;
+//        std::list<cH_MidgardBasicElement> list_Beruf;
+//        std::list<cH_MidgardBasicElement> list_Fertigkeit_ang;
+//        std::list<cH_MidgardBasicElement> list_Fertigkeit;
    public:
         void setWindowPosition(int x,int y);
         void setWindowSize(int width,int height);
    private:
         std::list<cH_MidgardBasicElement> list_Fertigkeit_neu;
         std::list<cH_MidgardBasicElement> list_Fertigkeit_universal;
-        std::list<cH_MidgardBasicElement> list_WaffenGrund;
+//        std::list<cH_MidgardBasicElement> list_WaffenGrund;
         std::list<cH_MidgardBasicElement> list_WaffenGrund_neu;
-        std::list<cH_MidgardBasicElement> list_Waffen;
+//        std::list<cH_MidgardBasicElement> list_Waffen;
         std::list<cH_MidgardBasicElement> list_Waffen_neu;
-        std::list<cH_MidgardBasicElement> list_Waffen_besitz;
-        std::list<cH_MidgardBasicElement> list_Zauber;
+//        std::list<cH_MidgardBasicElement> list_Waffen_besitz;
+//        std::list<cH_MidgardBasicElement> list_Zauber;
         std::list<cH_MidgardBasicElement> list_Zauber_neu;
-        std::list<cH_MidgardBasicElement> list_Zauberwerk;
+//        std::list<cH_MidgardBasicElement> list_Zauberwerk;
         std::list<cH_MidgardBasicElement> list_Zauberwerk_neu;
-        std::list<cH_MidgardBasicElement> list_Kido;
+//        std::list<cH_MidgardBasicElement> list_Kido;
         std::list<cH_MidgardBasicElement> list_Kido_neu;
-        std::list<cH_MidgardBasicElement> list_Sprache;
+//        std::list<cH_MidgardBasicElement> list_Sprache;
         std::list<cH_MidgardBasicElement> list_Sprache_neu;
-        std::list<cH_MidgardBasicElement> list_Schrift;
+//        std::list<cH_MidgardBasicElement> list_Schrift;
         std::list<cH_MidgardBasicElement> list_Schrift_neu;
 
     public:
@@ -162,7 +167,8 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         bool modify_bool;
         bool steigern_mit_EP_bool;
 
-        std::vector<cH_Typen> Typ;
+//        std::vector<cH_Typen> Typ;
+        
      
      	  std::string filename;
    
@@ -354,7 +360,7 @@ private:
          ~midgard_CG();
 
 	// werden von anderen Fenstern aufgerufen
-         const vector<cH_Typen> &getVTyp() const {return Typ;}
+//         const vector<cH_Typen> &getVTyp() const {return Typ;}
          void zeige_werte();
  
          cH_MidgardBasicElement getSelectedNotebookLernen();

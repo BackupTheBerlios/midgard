@@ -1,4 +1,4 @@
-// $Id: table_lernschema_zauber.cc,v 1.1 2002/05/18 06:51:34 thoma Exp $
+// $Id: table_lernschema_zauber.cc,v 1.2 2002/05/22 17:00:45 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -47,7 +47,8 @@ void table_lernschema::spezialgebiet_button_fill()
   Gtk::OStream t_(option_magier_spezialgebiet);
   for(std::vector<cH_Spezialgebiet>::const_iterator i=hauptfenster->getDatabase().Spezialgebiet.begin();i!=hauptfenster->getDatabase().Spezialgebiet.end();++i)
    {
-    if((*i)->Typ() != hauptfenster->Typ[0]->Short() && (*i)->Typ() != hauptfenster->Typ[1]->Short() ) continue;
+    if((*i)->Typ() != hauptfenster->getCChar().CTyp1()->Short() && 
+       (*i)->Typ() != hauptfenster->getCChar().CTyp2()->Short() ) continue;
     t_ << (*i)->Name();
     t_.flush((*i)->ref(),&HandleContent::unref);
    }  

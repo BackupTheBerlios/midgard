@@ -75,7 +75,7 @@ gint midgard_CG::on_button_menu_button_release_event(GdkEventButton *event)
 
 
 void midgard_CG::load_for_mainpage(guint pagenr)
-{if(!Typ.empty() && (Typ[0]->is_mage() || Typ[1]->is_mage()))
+{if(!Char.getVTyp().empty() && Char.is_mage())
   {
     button_grad_zaubern->set_sensitive(true);
     frame_pp_zaubern->set_sensitive(true);

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.227 2002/05/20 20:44:09 thoma Exp $
+// $Id: midgard_CG.cc,v 1.228 2002/05/22 17:00:44 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -46,7 +46,7 @@ midgard_CG::midgard_CG(const string &datei)
 //  notebook_main->set_sensitive(true); // solange die Datenbank nicht geladen ist
                                       // stürzt das Programm ab
   srand(time(0));
-  Typ.resize(2);
+//  Typ.resize(2);
   InfoFenster = manage(new WindowInfo(this));
   MOptionen = new Midgard_Optionen(this); 
   table_optionen->set_Hauptfenster(this);
@@ -77,9 +77,9 @@ midgard_CG::~midgard_CG()
 
 void midgard_CG::show_gtk()
 {
- steigern_typ->set_text(Typ[0]->Name(Werte.Geschlecht()));     // Abenteurerklasse im Lernfenster
- if (Typ[1]->Name(Werte.Geschlecht())!="") 
-   steigern_typ->set_text(Typ[0]->Name(Werte.Geschlecht())+"/"+Typ[1]->Name(Werte.Geschlecht()));
+ steigern_typ->set_text(Char.CTyp1()->Name(getCWerte().Geschlecht()));     // Abenteurerklasse im Lernfenster
+ if (Char.CTyp2()->Name(getCWerte().Geschlecht())!="") 
+   steigern_typ->set_text(Char.CTyp1()->Name(getCWerte().Geschlecht())+"/"+Char.CTyp2()->Name(getCWerte().Geschlecht()));
  
  
  zeige_werte();
@@ -98,38 +98,29 @@ void midgard_CG::show_gtk()
 */
 
  // Magie anzeigen?
- if (Typ[0]->is_mage() || Typ[1]->is_mage() )//|| magie_bool) 
+ if (Char.is_mage()) 
    { 
-//   if (Typ[0]->Spezialgebiet() || Typ[1]->Spezialgebiet()) show_magier_spezialgebiet(true);
-//     else show_magier_spezialgebiet(false);
-//     button_zauber->set_sensitive(true);
      table_magier_steigern->show();
    }
  else 
    { 
-//     show_magier_spezialgebiet(false);
-//     button_zauber->set_sensitive(false);
      table_magier_steigern->hide();
    }
  // KiDo anzeigen?
- if(cH_Fertigkeit("KiDo")->ist_gelernt(list_Fertigkeit))
+ if(cH_Fertigkeit("KiDo")->ist_gelernt(Char.CList_Fertigkeit()))
    {
-//     optionmenu_KiDo_Stile->show();
-//     frame_KiDo_lernschema->show();     
      table_kido_steigern->show();
    }
  else 
    { 
-//     optionmenu_KiDo_Stile->hide();
-//     frame_KiDo_lernschema->hide();     
      table_kido_steigern->hide();
    }
 /*
  // KiDo Stil setzen
  int kido_stil_nr=0;
- if (Werte.Spezialisierung()==Vkido[2]) kido_stil_nr = 1;
- if (Werte.Spezialisierung()==Vkido[1]) kido_stil_nr = 2;
- if (Werte.Spezialisierung()==Vkido[3]) kido_stil_nr = 3;
+ if (getCWerte().Spezialisierung()==Vkido[2]) kido_stil_nr = 1;
+ if (getCWerte().Spezialisierung()==Vkido[1]) kido_stil_nr = 2;
+ if (getCWerte().Spezialisierung()==Vkido[3]) kido_stil_nr = 3;
  if (kido_stil_nr!=0)
   {   
     optionmenu_KiDo_Stile->set_history(kido_stil_nr);
@@ -141,15 +132,15 @@ void midgard_CG::show_gtk()
 
 void midgard_CG::on_button_geld_s_clicked()
 {
-  manage (new  Window_Geld_eingeben(this, Werte));
+  manage (new  Window_Geld_eingeben(this, getWerte()));
 }
 void midgard_CG::on_button_ruestung_s_clicked()
 {
-  manage (new Window_ruestung(Werte,this,Database));
+  manage (new Window_ruestung(getWerte(),this,Database));
 }
 void midgard_CG::on_button_waffen_s_clicked()
 {
-  manage (new Window_Waffenbesitz(this,list_Waffen,list_Waffen_besitz));
+  manage (new Window_Waffenbesitz(this,Char.List_Waffen(),Char.List_Waffen_besitz()));
 }
 
 

@@ -26,7 +26,7 @@ void table_grundwerte::fill_typauswahl()
   if(!hauptfenster) return;
   fill_typauswahl_fill(1);
   typauswahl->get_menu()->deactivate.connect(SigC::slot(this, &table_grundwerte::typauswahl_button));
-  if (!hauptfenster->Typ.empty()) Gtk::Menu_Helpers::SelectMatching(*typauswahl,hauptfenster->Typ[0]);
+  if (!hauptfenster->getCChar().getVTyp().empty()) Gtk::Menu_Helpers::SelectMatching(*typauswahl,hauptfenster->getCChar().CTyp1());
 }
 
 void table_grundwerte::fill_typauswahl_2()
@@ -34,7 +34,7 @@ void table_grundwerte::fill_typauswahl_2()
   if(!hauptfenster) return;
   fill_typauswahl_fill(2);
   typauswahl_2->get_menu()->deactivate.connect(SigC::slot(this, &table_grundwerte::typauswahl_2_button));
-  if (hauptfenster->Typ.size()>1) Gtk::Menu_Helpers::SelectMatching(*typauswahl_2,hauptfenster->Typ[1]);
+  if (hauptfenster->getCChar().getVTyp().size()>1) Gtk::Menu_Helpers::SelectMatching(*typauswahl_2,hauptfenster->getCChar().CTyp2());
 }
 
 void table_grundwerte::fill_typauswahl_fill(int typ_1_2)
@@ -56,12 +56,12 @@ void table_grundwerte::fill_typauswahl_fill(int typ_1_2)
 
 void table_grundwerte::typauswahl_button()
 {
- if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::TYP);
- cH_Typen ptr = static_cast<Typen*>(typauswahl->get_menu()->get_active()->get_user_data());
- hauptfenster->Typ[0]=ptr;
- hauptfenster->clear_listen();
+ hauptfenster->Char.reset();
  hauptfenster->clear_gtk();
  hauptfenster->show_gtk();
+ if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::TYP);
+ cH_Typen ptr = static_cast<Typen*>(typauswahl->get_menu()->get_active()->get_user_data());
+ hauptfenster->getChar().setTyp1(ptr);
 // if (Typ[0]->Short()=="dBe" || Typ[0]->Short()=="eBe") angeborene_zauber();
 
  if(hauptfenster->getCWerte().Spezies()->Land()) 
@@ -70,13 +70,13 @@ void table_grundwerte::typauswahl_button()
      radiobutton_stadt->set_sensitive(false);
      radiobutton_land->set_sensitive(true);
    }
- else if(!hauptfenster->Typ[0]->Stadt())
+ else if(!hauptfenster->getCChar().CTyp1()->Stadt())
    {
      radiobutton_land->set_active(true);
      radiobutton_land->set_sensitive(true);
      radiobutton_stadt->set_sensitive(false);
    }
- else if(!hauptfenster->Typ[0]->Land())
+ else if(!hauptfenster->getCChar().CTyp1()->Land())
    {
      radiobutton_stadt->set_active(true);
      radiobutton_stadt->set_sensitive(true);
@@ -92,7 +92,7 @@ void table_grundwerte::typauswahl_button()
 void table_grundwerte::typauswahl_2_button()
 {
  cH_Typen ptr = static_cast<Typen*>(typauswahl_2->get_menu()->get_active()->get_user_data());
- hauptfenster->Typ[1]=ptr;
+ hauptfenster->getChar().setTyp2(ptr);
  hauptfenster->show_gtk();
 // if (Typ[1]->Short()=="dBe" || Typ[1]->Short()=="eBe") angeborene_zauber();
 }
@@ -126,7 +126,7 @@ void table_grundwerte::spezieswahl_button()
    manage (new Window_doppelcharaktere(this));
 
  typauswahl_2->hide();
- hauptfenster->Typ[1]=cH_Typen();
+ hauptfenster->getChar().setTyp2(cH_Typen());
  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::SPEZIES);
 }
 

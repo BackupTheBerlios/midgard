@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.2 2002/05/20 06:41:24 thoma Exp $
+// $Id: table_lernschema_waffen.cc,v 1.3 2002/05/22 17:00:45 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -29,7 +29,7 @@
 
 gint table_lernschema::on_button_lernschema_waffen_button_release_event(GdkEventButton *ev)
 {
-  hauptfenster->list_Waffen_besitz.clear();
+  hauptfenster->getChar().List_Waffen_besitz().clear();
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::WAFFEN);
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
      button_lernschema_waffen->set_sensitive(false);
@@ -69,7 +69,7 @@ void table_lernschema::show_WaffenBesitz_lernschema()
      if(hauptfenster->getCWerte().Spezies()->istVerbotenSpielbegin(*i)) continue;
      const cH_Waffe w(*i);
      if (w->Grundkenntnis() == "Kampf ohne Waffen") continue;
-     if (!(*i)->ist_gelernt(hauptfenster->list_Waffen)) continue;
+     if (!(*i)->ist_gelernt(hauptfenster->getCChar().CList_Waffen())) continue;
      L.push_back(new WaffeBesitz(w,w->Name(),0,0,""));
    }
   MidgardBasicElement::show_list_in_tree(L,tree_waffen_lernschema,hauptfenster);
@@ -111,7 +111,7 @@ void table_lernschema::on_waffen_lernschema_tree_leaf_selected(cH_RowDataBase d)
      waffebesitzlernen.add_AWaffe(-1);
    else return;
 
-   hauptfenster->list_Waffen_besitz.push_back(MBE);
+   hauptfenster->getChar().List_Waffen_besitz().push_back(MBE);
 
    show_gelerntes();
    show_WaffenBesitz_lernschema();
@@ -121,10 +121,11 @@ void table_lernschema::on_waffen_lernschema_tree_leaf_selected(cH_RowDataBase d)
 void table_lernschema::WaffenBesitz_lernschema_wuerfeln(int wurf)
 {
   std::string strinfo = "Für die Waffenauswahl wurde eine "+itos(wurf)
-      +" gewürfelt, die Abenteurerklasse ist "+hauptfenster->Typ[0]->Name(hauptfenster->getCWerte().Geschlecht())+" ==> ";
+      +" gewürfelt, die Abenteurerklasse ist "
+      +hauptfenster->getChar().CTyp1()->Name(hauptfenster->getCWerte().Geschlecht())+" ==> ";
  int E=0,A=0;
  bool M=false;
- if (hauptfenster->Typ[0]->Geld() == 1)
+ if (hauptfenster->getChar().CTyp1()->Geld() == 1)
   { if      ( 1<=wurf&&wurf<=10 ) { E=3;      }
     else if (11<=wurf&&wurf<=20 ) { E=3; A=1; }
     else if (21<=wurf&&wurf<=30 ) { E=2; A=2; }
@@ -133,7 +134,7 @@ void table_lernschema::WaffenBesitz_lernschema_wuerfeln(int wurf)
     else if (81<=wurf&&wurf<=95 ) {      A=5; }
     else if (96<=wurf&&wurf<=100) { E=1; A=4; M=true; }
   }  
- if (hauptfenster->Typ[0]->Geld() == 2)
+ if (hauptfenster->getChar().CTyp1()->Geld() == 2)
   { if      ( 1<=wurf&&wurf<=10 ) { E=2;      }
     else if (11<=wurf&&wurf<=20 ) { E=1; A=1; }
     else if (21<=wurf&&wurf<=30 ) { E=2; A=1; }
@@ -142,7 +143,7 @@ void table_lernschema::WaffenBesitz_lernschema_wuerfeln(int wurf)
     else if (81<=wurf&&wurf<=95 ) {      A=4; }
     else if (96<=wurf&&wurf<=100) { E=1; A=3; M=true; }
   }  
- if (hauptfenster->Typ[0]->Geld() == 3) 
+ if (hauptfenster->getChar().CTyp1()->Geld() == 3) 
   { if      ( 1<=wurf&&wurf<=10 ) { E=1;      }
     else if (11<=wurf&&wurf<=20 ) {      A=1; }
     else if (21<=wurf&&wurf<=30 ) { E=2;      }
@@ -151,7 +152,7 @@ void table_lernschema::WaffenBesitz_lernschema_wuerfeln(int wurf)
     else if (81<=wurf&&wurf<=95 ) {      A=2; }
     else if (96<=wurf&&wurf<=100) { E=1; A=1; M=true; }
   }  
- if (hauptfenster->Typ[0]->Geld() == 4) 
+ if (hauptfenster->getChar().CTyp1()->Geld() == 4) 
   { if      ( 1<=wurf&&wurf<=10 ) { E=2;      }
     else if (11<=wurf&&wurf<=20 ) { E=1; A=1; }
     else if (21<=wurf&&wurf<=30 ) { E=3;      }
@@ -168,12 +169,3 @@ void table_lernschema::WaffenBesitz_lernschema_wuerfeln(int wurf)
  show_WaffenBesitz_lernschema();
 }
 
-void table_lernschema::WaffenBesitz_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe)
-{
-  if(mbe.begin()==mbe.end()) return;
-  if((*mbe.begin())->What()==MidgardBasicElement::WAFFEBESITZ)
-      hauptfenster->list_Waffen_besitz=mbe;
-  else assert(0);
-  hauptfenster->undosave(itos(mbe.size())+" "+(*mbe.begin())->What_str()+"n übernommen");
-  show_gelerntes();
-}

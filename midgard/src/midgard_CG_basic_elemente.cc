@@ -38,51 +38,51 @@ bool midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
  std::list<cH_MidgardBasicElement> *MyList,*MyList_neu;
  if(MBE->What()==MidgardBasicElement::FERTIGKEIT) 
    { if (MBE->Name()=="KiDo" && kido_steigern_check(MBE->Erfolgswert())) return false;
-     MyList     = &list_Fertigkeit; MyList_neu = &list_Fertigkeit_neu;   }
+     MyList     = &Char.List_Fertigkeit(); MyList_neu = &list_Fertigkeit_neu;   }
  else if(MBE->What()==MidgardBasicElement::WAFFE) 
-   { MyList     = &list_Waffen; MyList_neu = &list_Waffen_neu;  }
+   { MyList     = &Char.List_Waffen(); MyList_neu = &list_Waffen_neu;  }
  else if(MBE->What()==MidgardBasicElement::WAFFEGRUND) 
-   { MyList     = &list_WaffenGrund; MyList_neu = &list_WaffenGrund_neu;  }
+   { MyList     = &Char.List_WaffenGrund(); MyList_neu = &list_WaffenGrund_neu;  }
  else if(MBE->What()==MidgardBasicElement::ZAUBER) 
-   { MyList     = &list_Zauber; MyList_neu = &list_Zauber_neu;  }
+   { MyList     = &Char.List_Zauber(); MyList_neu = &list_Zauber_neu;  }
  else if(MBE->What()==MidgardBasicElement::ZAUBERWERK) 
-   { MyList     = &list_Zauberwerk; MyList_neu = &list_Zauberwerk_neu;  }
+   { MyList     = &Char.List_Zauberwerk(); MyList_neu = &list_Zauberwerk_neu;  }
  else if(MBE->What()==MidgardBasicElement::KIDO) 
-   { MyList     = &list_Kido; MyList_neu = &list_Kido_neu;  }
+   { MyList     = &Char.List_Kido(); MyList_neu = &list_Kido_neu;  }
  else if(MBE->What()==MidgardBasicElement::SPRACHE) 
-   { MyList     = &list_Sprache; MyList_neu = &list_Sprache_neu;  }
+   { MyList     = &Char.List_Sprache(); MyList_neu = &list_Sprache_neu;  }
  else if(MBE->What()==MidgardBasicElement::SCHRIFT) 
-   { MyList     = &list_Schrift; MyList_neu = &list_Schrift_neu;  }
+   { MyList     = &Char.List_Schrift(); MyList_neu = &list_Schrift_neu;  }
  else assert(!"Fehler (alt) in midgard_CG_basic_elemente.cc");
 
  //////////////////////////////////////////////////////////////////////////
 
- if (radiobutton_steigern->get_active() && MBE->Steigern(Werte,Typ))
+ if (radiobutton_steigern->get_active() && MBE->Steigern(Char.getCWerte(),Char.getVTyp()))
     {
-      if (!steigern_usp(MBE->Steigern(Werte,Typ),&MBE)) return false;
-      if ( MBE->Erfolgswert() >= MBE->MaxErfolgswert(Werte,Typ)) 
+      if (!steigern_usp(MBE->Steigern(Char.getCWerte(),Char.getVTyp()),&MBE)) return false;
+      if ( MBE->Erfolgswert() >= MBE->MaxErfolgswert(Char.getCWerte(),Char.getVTyp())) 
           { set_status("Maximal möglicher Erfolgswert erreicht");
             return false; }
-      Werte.addGFP(MBE->Steigern(Werte,Typ));
+      Char.getWerte().addGFP(MBE->Steigern(Char.getCWerte(),Char.getVTyp()));
       for (std::list<cH_MidgardBasicElement>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
          if ( (*i)->Name() == MBE->Name()) 
             (*i)->addErfolgswert(1); 
     }
- else if (radiobutton_reduzieren->get_active() && MBE->Reduzieren(Werte,Typ))
+ else if (radiobutton_reduzieren->get_active() && MBE->Reduzieren(Char.getCWerte(),Char.getVTyp()))
     {
-      if (checkbutton_EP_Geld->get_active()) desteigern(MBE->Reduzieren(Werte,Typ));
-      Werte.addGFP(-MBE->Reduzieren(Werte,Typ));
+      if (checkbutton_EP_Geld->get_active()) desteigern(MBE->Reduzieren(Char.getCWerte(),Char.getVTyp()));
+      Char.getWerte().addGFP(-MBE->Reduzieren(Char.getCWerte(),Char.getVTyp()));
       for (std::list<cH_MidgardBasicElement>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
          if ( (*i)->Name() == MBE->Name())  
             (*i)->addErfolgswert(-1); 
     }
- else if (radiobutton_verlernen->get_active() && MBE->Verlernen(Werte,Typ))
+ else if (radiobutton_verlernen->get_active() && MBE->Verlernen(Char.getCWerte(),Char.getVTyp()))
     {
-      guint verlernen = MBE->Verlernen(Werte,Typ);
+      guint verlernen = MBE->Verlernen(Char.getCWerte(),Char.getVTyp());
       if( MBE->What()==MidgardBasicElement::ZAUBER && 
           togglebutton_spruchrolle->get_active() )    verlernen/=5  ;
       if (checkbutton_EP_Geld->get_active()) desteigern(verlernen);
-      Werte.addGFP(-verlernen);
+      Char.getWerte().addGFP(-verlernen);
       MidgardBasicElement::move_element(*MyList,*MyList_neu,MBE);
     }
  else if (radiobutton_verlernen->get_active() && MBE->What()==MidgardBasicElement::WAFFE)
@@ -114,19 +114,19 @@ void midgard_CG::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
         return;
       }
     if(radiobutton_praxis->get_active() )
-      { if(!Typ[0]->SpruecheMitPP() && !Typ[1]->SpruecheMitPP() )
-           { set_status("Neue Zaubersprüche können von "+Typ[0]->Name(Werte.Geschlecht())
+      { if(!Char.CTyp1()->SpruecheMitPP() && !Char.CTyp2()->SpruecheMitPP() )
+           { set_status("Neue Zaubersprüche können von "+Char.CTyp1()->Name(Char.getCWerte().Geschlecht())
                      +" nicht durch Praxispunkte gelernt werden");
              return;
            }
-        else if(MBE->Standard__(Werte,Typ)!="G")
-           { set_status("Nur Grundzauber können von "+Typ[0]->Name(Werte.Geschlecht())
+        else if(MBE->Standard__(Char.getCWerte(),Char.getVTyp())!="G")
+           { set_status("Nur Grundzauber können von "+Char.CTyp1()->Name(Char.getCWerte().Geschlecht())
                      +" mit Praxispunkten gelernt werden");
              return;
            }
       }
   }
- guint kosten=MBE->Kosten(Werte,Typ);
+ guint kosten=MBE->Kosten(Char.getCWerte(),Char.getVTyp());
 
  // Lernen mit Spruchrolle: ///////////////////////////////////////////////
  if( MBE->What()==MidgardBasicElement::ZAUBER &&
@@ -134,24 +134,24 @@ void midgard_CG::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
  /////////////////////////////////////////////////////////////////////////
  
  if (!steigern_usp(kosten,&MBE)) return;
- Werte.addGFP(kosten);
+ Char.getWerte().addGFP(kosten);
 
  // Lernen mit Spruchrolle: ///////////////////////////////////////////////
  if( MBE->What()==MidgardBasicElement::ZAUBER &&
      togglebutton_spruchrolle->get_active() &&
-     radio_spruchrolle_auto->get_active() )    Werte.addGFP(kosten);
+     radio_spruchrolle_auto->get_active() )    Char.getWerte().addGFP(kosten);
  else if( MBE->What()==MidgardBasicElement::ZAUBER &&
      togglebutton_spruchrolle->get_active() &&
      radio_spruchrolle_wuerfeln->get_active() )   
    {
      if(!spruchrolle_wuerfeln(MBE)) return;
-     else Werte.addGFP(kosten);
+     else Char.getWerte().addGFP(kosten);
    } 
  /////////////////////////////////////////////////////////////////////////
 
  std::list<cH_MidgardBasicElement> *MyList,*MyList_neu;
  if(MBE->What()==MidgardBasicElement::FERTIGKEIT) 
-   { if(MBE->ZusatzEnum(Typ))
+   { if(MBE->ZusatzEnum(Char.getVTyp()))
       {  
         neue_fert_tree->set_sensitive(false);
         MBE=new Fertigkeit(*cH_Fertigkeit(MBE));
@@ -160,31 +160,31 @@ void midgard_CG::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
         list_Fertigkeit_neu.push_front(MBE);
       }
      if (MBE->Name()=="KiDo" && kido_steigern_check(MBE->Erfolgswert())) return;
-     MyList     = &list_Fertigkeit; MyList_neu = &list_Fertigkeit_neu;
+     MyList     = &Char.List_Fertigkeit(); MyList_neu = &list_Fertigkeit_neu;
    }
  else if(MBE->What()==MidgardBasicElement::WAFFE) 
-   { MyList     = &list_Waffen; MyList_neu = &list_Waffen_neu;  }
+   { MyList     = &Char.List_Waffen(); MyList_neu = &list_Waffen_neu;  }
  else if(MBE->What()==MidgardBasicElement::WAFFEGRUND) 
-   { MyList     = &list_WaffenGrund; MyList_neu = &list_WaffenGrund_neu;  }
+   { MyList     = &Char.List_WaffenGrund(); MyList_neu = &list_WaffenGrund_neu;  }
  else if(MBE->What()==MidgardBasicElement::ZAUBER) 
   {
-   { if(MBE->ZusatzEnum(Typ))
+   { if(MBE->ZusatzEnum(Char.getVTyp()))
       {  
         MBE=new Zauber(*cH_Zauber(MBE));
         fillClistLand(MBE);
         // Davor stellen, damit beim Kopieren dieses MBE in Verschoben wird.
         list_Zauber_neu.push_front(MBE);
       }
-   MyList     = &list_Zauber; MyList_neu = &list_Zauber_neu;  }
+   MyList     = &Char.List_Zauber(); MyList_neu = &list_Zauber_neu;  }
   }
  else if(MBE->What()==MidgardBasicElement::ZAUBERWERK) 
-   { MyList     = &list_Zauberwerk; MyList_neu = &list_Zauberwerk_neu;  }
+   { MyList     = &Char.List_Zauberwerk(); MyList_neu = &list_Zauberwerk_neu;  }
  else if(MBE->What()==MidgardBasicElement::KIDO) 
-   { MyList     = &list_Kido; MyList_neu = &list_Kido_neu;  }
+   { MyList     = &Char.List_Kido(); MyList_neu = &list_Kido_neu;  }
  else if(MBE->What()==MidgardBasicElement::SPRACHE) 
-   { MyList     = &list_Sprache; MyList_neu = &list_Sprache_neu;  }
+   { MyList     = &Char.List_Sprache(); MyList_neu = &list_Sprache_neu;  }
  else if(MBE->What()==MidgardBasicElement::SCHRIFT) 
-   { MyList     = &list_Schrift; MyList_neu = &list_Schrift_neu;  }
+   { MyList     = &Char.List_Schrift(); MyList_neu = &list_Schrift_neu;  }
  else assert(!"Fehler (alt) in midgard_CG_basic_elemente.cc");
 
 //cout << "Move "<<MyList_neu->size()<<' '<<MyList->size()<<'\n';
@@ -201,7 +201,7 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasic
   if(mbe.begin()==mbe.end()) return;
   if((*mbe.begin())->What()==MidgardBasicElement::WAFFEBESITZ)
    {
-    list_Waffen_besitz=mbe;
+    Char.CList_Waffen_besitz=mbe();
    }
 //  else if((*mbe.begin())->What()==MidgardBasicElement::KIDO)
 //   {
@@ -212,3 +212,16 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasic
   show_gelerntes();
 }
 */
+
+void midgard_CG::WaffenBesitz_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe)
+{
+  if(mbe.begin()==mbe.end()) return;
+  if((*mbe.begin())->What()==MidgardBasicElement::WAFFEBESITZ)
+      Char.List_Waffen_besitz()=mbe;
+  else assert(0);
+  undosave(itos(mbe.size())+" "+(*mbe.begin())->What_str()+"n übernommen");
+  if(notebook_main->get_current_page_num() == PAGE_LERNEN)
+     table_lernschema->show_gelerntes();
+}
+
+

@@ -95,7 +95,7 @@ public:
           tree_lernschema(0),Beruf_tree(0),tree_angeb_fert(0),tree_kido_lernschema(0),
             tree_waffen_lernschema(0),maxkido(0) {}
         void init(midgard_CG *hauptfenster);
-        void WaffenBesitz_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe);
+//        void WaffenBesitz_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe);
 
       // Ab hier die automatischen Methoden von glade erzeugt
 private:

@@ -136,99 +136,101 @@ void midgard_CG::xml_import_stream(istream& datei)
    const Tag *Steigern=top->find("Steigern");
    const Tag *Praxispunkte=Steigern?Steigern->find("Praxispunkte"):0;
 
-   Werte.setBasiswerte(Basiseigenschaften->getIntAttr("St"),
+   getWerte().setBasiswerte(Basiseigenschaften->getIntAttr("St"),
    	Basiseigenschaften->getIntAttr("Gw",abgeleiteteEigenschaften->getIntAttr("RW")),
    	Basiseigenschaften->getIntAttr("Gs",Basiseigenschaften->getIntAttr("Ge")),
    	Basiseigenschaften->getIntAttr("Ko"),
    	Basiseigenschaften->getIntAttr("In"),
    	Basiseigenschaften->getIntAttr("Zt"));
-   Werte.setAu(abgeleiteteEigenschaften->getIntAttr("Au"));
-   Werte.setpA(abgeleiteteEigenschaften->getIntAttr("pA"));
-   Werte.setSb(abgeleiteteEigenschaften->getIntAttr("Sb"));
-   Werte.setWk(abgeleiteteEigenschaften->getIntAttr("Wk"));
-   Werte.setB(abgeleiteteEigenschaften->getIntAttr("B"));
-   Werte.setLP(Gesundheit->getIntAttr("LP"));
-   Werte.setAP(Gesundheit->getIntAttr("AP"));
-   Werte.setZaubern_wert(Erfolgswerte->getIntAttr("Zaubern"));
-   Werte.setAbwehr_wert(Erfolgswerte->getIntAttr("Abwehr"));
-   Werte.setResistenz(Erfolgswerte->getIntAttr("ZauberResistenz",
+   getWerte().setAu(abgeleiteteEigenschaften->getIntAttr("Au"));
+   getWerte().setpA(abgeleiteteEigenschaften->getIntAttr("pA"));
+   getWerte().setSb(abgeleiteteEigenschaften->getIntAttr("Sb"));
+   getWerte().setWk(abgeleiteteEigenschaften->getIntAttr("Wk"));
+   getWerte().setB(abgeleiteteEigenschaften->getIntAttr("B"));
+   getWerte().setLP(Gesundheit->getIntAttr("LP"));
+   getWerte().setAP(Gesundheit->getIntAttr("AP"));
+   getWerte().setZaubern_wert(Erfolgswerte->getIntAttr("Zaubern"));
+   getWerte().setAbwehr_wert(Erfolgswerte->getIntAttr("Abwehr"));
+   getWerte().setResistenz(Erfolgswerte->getIntAttr("ZauberResistenz",
   	!Resistenzen?0:Resistenzen->getIntAttr("Zauber",Resistenzen->getIntAttr("Resistenz",Resistenzen->getIntAttr("psy")))));
    if (Praxispunkte)
-   {  Werte.setZaubernPP(Praxispunkte->getIntAttr("Zaubern"));
-      Werte.setSpezialPP(Praxispunkte->getIntAttr("Spezial"));
-      Werte.setAbwehrPP(Praxispunkte->getIntAttr("Abwehr"));
-      Werte.setResistenzPP(Praxispunkte->getIntAttr("Resistenz"));    }
+   {  getWerte().setZaubernPP(Praxispunkte->getIntAttr("Zaubern"));
+      getWerte().setSpezialPP(Praxispunkte->getIntAttr("Spezial"));
+      getWerte().setAbwehrPP(Praxispunkte->getIntAttr("Abwehr"));
+      getWerte().setResistenzPP(Praxispunkte->getIntAttr("Resistenz"));    }
    else
-   {  Werte.setZaubernPP(0);
-      Werte.setAbwehrPP(0);
-      Werte.setSpezialPP(0);
-      Werte.setResistenzPP(0);
+   {  getWerte().setZaubernPP(0);
+      getWerte().setAbwehrPP(0);
+      getWerte().setSpezialPP(0);
+      getWerte().setResistenzPP(0);
    }
-   Werte.setHand(Typ->getAttr("Hand"));
-   Werte.setGewicht(Beschreibung->getIntAttr("Gewicht"));
-   Werte.setGroesse(Beschreibung->getIntAttr("Größe"));
-   Werte.setGrad(Figur->getIntAttr("Grad"));
-   Werte.setStand(Beschreibung->getAttr("Stand"));
+   getWerte().setHand(Typ->getAttr("Hand"));
+   getWerte().setGewicht(Beschreibung->getIntAttr("Gewicht"));
+   getWerte().setGroesse(Beschreibung->getIntAttr("Größe"));
+   getWerte().setGrad(Figur->getIntAttr("Grad"));
+   getWerte().setStand(Beschreibung->getAttr("Stand"));
 
-   Werte.setAlter(Beschreibung->getIntAttr("Alter")); 
-   Werte.setGeschlecht(Typ->getAttr("Geschlecht","m"));
+   getWerte().setAlter(Beschreibung->getIntAttr("Alter")); 
+   getWerte().setGeschlecht(Typ->getAttr("Geschlecht","m"));
    std::string spezialgebiet=Typ->getAttr("Spezialgebiet");
    if(spezialgebiet!="") 
      { 
        cH_Spezialgebiet S(spezialgebiet);
-       Werte.setSpezialgebiet(S);
+       getWerte().setSpezialgebiet(S);
      }
-   Werte.setSpezialisierung(Typ->getAttr("Spezialisierung"));
-   Werte.setBezeichnung(Beschreibung->getAttr("Bezeichnung"));
-   Werte.setHerkunft(cH_Land(Beschreibung->getAttr("Herkunft"),true));
-   Werte.setGlaube(Beschreibung->getAttr("Glaube"));
-   Werte.setNamen(Figur->getAttr("Name"),Figur->getAttr("Spieler"),Figur->getAttr("Zeitpunkt"));
-   Werte.setGFP(Steigern ? Steigern->getIntAttr("GFP", top->getInt("GFP")) : top->getInt("GFP"));
-   Werte.setSteigertage(Steigern ? Steigern->getFloatAttr("benötigte_Tage", top->getInt("benötigte_Tage")) : top->getInt("benötigte_Tage"));
-   Werte.setGG(abgeleiteteEigenschaften->getIntAttr("GG"));    
-   Werte.setSG(abgeleiteteEigenschaften->getIntAttr("SG"));
-   Werte.setBeschreibung(top->getString("Text")); 
-   Werte.setBeschreibungPix(top->getString("TextPix")); 
-   Werte.setBeschreibungPixSize(atoi(top->getString("TextPixSize").c_str())); 
-   Werte.setGeld(Vermoegen->getIntAttr("GS"),Vermoegen->getIntAttr("SS"),Vermoegen->getIntAttr("KS"));
-   Werte.clearRuestung();
-   if (Ruestung1) Werte.addRuestung(cH_Ruestung(Ruestung1->Value(),true));
-   else Werte.addRuestung(cH_Ruestung("OR",true));
-   if (Ruestung2) Werte.addRuestung(cH_Ruestung(Ruestung2->Value(),true));
-   Werte.setSpezies(cH_Spezies(Typ->getAttr("Spezies","Mensch"),true));
-   if (Steigern)       Werte.setEP(Steigern->getIntAttr("AEP"),Steigern->getIntAttr("KEP"),Steigern->getIntAttr("ZEP"));
+   getWerte().setSpezialisierung(Typ->getAttr("Spezialisierung"));
+   getWerte().setBezeichnung(Beschreibung->getAttr("Bezeichnung"));
+   getWerte().setHerkunft(cH_Land(Beschreibung->getAttr("Herkunft"),true));
+   getWerte().setGlaube(Beschreibung->getAttr("Glaube"));
+   getWerte().setNamen(Figur->getAttr("Name"),Figur->getAttr("Spieler"),Figur->getAttr("Zeitpunkt"));
+   getWerte().setGFP(Steigern ? Steigern->getIntAttr("GFP", top->getInt("GFP")) : top->getInt("GFP"));
+   getWerte().setSteigertage(Steigern ? Steigern->getFloatAttr("benötigte_Tage", top->getInt("benötigte_Tage")) : top->getInt("benötigte_Tage"));
+   getWerte().setGG(abgeleiteteEigenschaften->getIntAttr("GG"));    
+   getWerte().setSG(abgeleiteteEigenschaften->getIntAttr("SG"));
+   getWerte().setBeschreibung(top->getString("Text")); 
+   getWerte().setBeschreibungPix(top->getString("TextPix")); 
+   getWerte().setBeschreibungPixSize(atoi(top->getString("TextPixSize").c_str())); 
+   getWerte().setGeld(Vermoegen->getIntAttr("GS"),Vermoegen->getIntAttr("SS"),Vermoegen->getIntAttr("KS"));
+   getWerte().clearRuestung();
+   if (Ruestung1) getWerte().addRuestung(cH_Ruestung(Ruestung1->Value(),true));
+   else getWerte().addRuestung(cH_Ruestung("OR",true));
+   if (Ruestung2) getWerte().addRuestung(cH_Ruestung(Ruestung2->Value(),true));
+   getWerte().setSpezies(cH_Spezies(Typ->getAttr("Spezies","Mensch"),true));
+   if (Steigern)       getWerte().setEP(Steigern->getIntAttr("AEP"),Steigern->getIntAttr("KEP"),Steigern->getIntAttr("ZEP"));
    else
-      Werte.setEP(0,0,0);
-   Werte.setStadt_Land(Typ->getAttr("Stadt_Land","Stadt"));
-   if(Werte.Stadt_Land()=="Stadt") table_grundwerte->radiobutton_stadt->set_active(true);
-   if(Werte.Stadt_Land()=="Land")  table_grundwerte->radiobutton_land->set_active(true);
-   if (Steigern) Werte.set_Grad_Anstieg(Steigern->getIntAttr("EPproGFP",50)
-      	,Steigern->getIntAttr("Basiswerte",Werte.Grad()));
-   else Werte.set_Grad_Anstieg(50,Werte.Grad());
+      getWerte().setEP(0,0,0);
+   getWerte().setStadt_Land(Typ->getAttr("Stadt_Land","Stadt"));
+   if(getWerte().Stadt_Land()=="Stadt") table_grundwerte->radiobutton_stadt->set_active(true);
+   if(getWerte().Stadt_Land()=="Land")  table_grundwerte->radiobutton_land->set_active(true);
+   if (Steigern) getWerte().set_Grad_Anstieg(Steigern->getIntAttr("EPproGFP",50)
+      	,Steigern->getIntAttr("Basiswerte",getWerte().Grad()));
+   else getWerte().set_Grad_Anstieg(50,getWerte().Grad());
 
-      this->Typ[0]=cH_Typen(Typ->getAttr("Abkürzung"),true);
+//   this->Char.Typ1()=cH_Typen(Typ->getAttr("Abkürzung"),true);
+   Char.setTyp1(cH_Typen(Typ->getAttr("Abkürzung"),true));
 
    { std::string s = Typ->getAttr("Abkürzung2");
-     if(s!="") this->Typ[1]=cH_Typen(s,true);
+     if(s!="") //this->Char.Typ2=cH_Typen(s,true);
+         Char.setTyp2(cH_Typen(Typ->getAttr("Abkürzung2"),true));
    }
 
    load_fertigkeiten(Fertigkeiten,Ausruestung,xml_version);
    Typ_Geschlecht_Spezies_setzen();
 //   load_ausruestung(Ausruestung,&besitz);
-   load_ausruestung(Ausruestung,&(Werte.getBesitz()));
+   load_ausruestung(Ausruestung,&(Char.getBesitz()));
    
 //   filename=datei;
-   set_title(Werte.Name_Abenteurer());
+   set_title(getWerte().Name_Abenteurer());
    load_for_mainpage(notebook_main->get_current_page_num());
 }
 
 void midgard_CG::Typ_Geschlecht_Spezies_setzen() 
 {  
-   if (Werte.Geschlecht()=="w") table_grundwerte->radiobutton_frau->set_active(true);
-   if (Werte.Geschlecht()=="m") table_grundwerte->radiobutton_mann->set_active(true);
+   if (getWerte().Geschlecht()=="w") table_grundwerte->radiobutton_frau->set_active(true);
+   if (getWerte().Geschlecht()=="m") table_grundwerte->radiobutton_mann->set_active(true);
 
    table_grundwerte->fill_typauswahl();
-   if(!Typ[1]->Short().empty()) table_grundwerte->fill_typauswahl_2();
+   if(!Char.CTyp2()->Short().empty()) table_grundwerte->fill_typauswahl_2();
    
 /*
    if (this->Typ[0]->Spezialwaffe() ||  this->Typ[1]->Spezialwaffe() )
@@ -237,13 +239,13 @@ void midgard_CG::Typ_Geschlecht_Spezies_setzen()
          togglebutton_spezialwaffe->set_active(false); }
 */
    menu_init();
-//   Gtk::Menu_Helpers::SelectMatching(*(table_grundwerte->optionmenu_spezies),Werte.Spezies());
+//   Gtk::Menu_Helpers::SelectMatching(*(table_grundwerte->optionmenu_spezies),getWerte().Spezies());
    show_gtk();
 /*
-   if(Werte.Spezialgebiet()->Name()!="") 
+   if(getWerte().Spezialgebiet()->Name()!="") 
      { 
        show_magier_spezialgebiet(true);
-       Gtk::Menu_Helpers::SelectMatching(*option_magier_spezialgebiet,Werte.Spezialgebiet());
+       Gtk::Menu_Helpers::SelectMatching(*option_magier_spezialgebiet,getWerte().Spezialgebiet());
      }
 */
 }
@@ -271,32 +273,32 @@ void midgard_CG::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
       const std::string sart=i->Type();
       if(sart=="Sinn")
         {
-         Werte.setSinn(i->getAttr("Bezeichnung"),i->getIntAttr("Wert"));
+         getWerte().setSinn(i->getAttr("Bezeichnung"),i->getIntAttr("Wert"));
         }
       else if(sart=="Beruf")
         {
          cH_MidgardBasicElement beruf(&*cH_Beruf(i->getAttr("Bezeichnung"),true));
          cH_Beruf(beruf)->setErfolgswert(i->getIntAttr("Wert"));
-         list_Beruf.push_back(beruf);
+         Char.List_Beruf().push_back(beruf);
         }
       else if(sart=="ang-Fertigkeit" || sart=="ang.Fertigkeit")
        {
          cH_MidgardBasicElement fert_an(&*cH_Fertigkeit_angeborene(i->getAttr("Bezeichnung"),true));
          cH_Fertigkeit_angeborene(fert_an)->setErfolgswert(i->getIntAttr("Wert"));
-         list_Fertigkeit_ang.push_back(fert_an);
+         Char.List_Fertigkeit_ang().push_back(fert_an);
        }    
       else if(sart=="Fertigkeit")
        {
          cH_MidgardBasicElement fert(&*cH_Fertigkeit(i->getAttr("Bezeichnung"),true));
          fert->setErfolgswert(i->getIntAttr("Wert"));
          fert->setPraxispunkte(i->getIntAttr("Praxispunkte"));
-         if(cH_Fertigkeit(fert)->ZusatzEnum(Typ))
+         if(cH_Fertigkeit(fert)->ZusatzEnum(Char.getVTyp()))
          {  fert=new Fertigkeit(*cH_Fertigkeit(fert));
             if(fert->Name()=="Landeskunde") cH_Land(i->getAttr("Zusatz"),true);
             if(fert->Name()=="Scharfschießen") cH_Waffe(i->getAttr("Zusatz"),true);
             fert->setZusatz(i->getAttr("Zusatz"));
          }
-         list_Fertigkeit.push_back(fert);
+         Char.List_Fertigkeit().push_back(fert);
 //         if      (fert->Name()=="KiDo") kido_bool=true;
 //         else 
 //         if (fert->Name()=="Zaubern") magie_bool=true;
@@ -306,7 +308,7 @@ void midgard_CG::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
          cH_MidgardBasicElement waffe(&*cH_Waffe(i->getAttr("Bezeichnung"),true));
          waffe->setErfolgswert(i->getIntAttr("Wert"));
          waffe->setPraxispunkte(i->getIntAttr("Praxispunkte"));
-         list_Waffen.push_back(waffe);
+         Char.List_Waffen().push_back(waffe);
         }
 #if 0 // andere Liste       
       if(sart=="Besitz_W")
@@ -314,19 +316,19 @@ void midgard_CG::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
       else if(sart=="Zauber")
         {
          cH_MidgardBasicElement zauber(&*cH_Zauber(i->getAttr("Bezeichnung"),true));
-         if(zauber->ZusatzEnum(Typ))
+         if(zauber->ZusatzEnum(Char.getVTyp()))
           { zauber=new Zauber(*cH_Zauber(zauber));
             zauber->setZusatz(i->getAttr("Zusatz"));
           }
-         list_Zauber.push_back(zauber);
+         Char.List_Zauber().push_back(zauber);
         }
       else if(sart=="Zauberwerk")
-          list_Zauberwerk.push_back(&*cH_Zauberwerk(i->getAttr("Bezeichnung"),
+          Char.List_Zauberwerk().push_back(&*cH_Zauberwerk(i->getAttr("Bezeichnung"),
           	i->getAttr("Art"),i->getAttr("Stufe"),true));
       else if(sart=="KiDo")
-          list_Kido.push_back(&*cH_KiDo(i->getAttr("Bezeichnung"),true)) ;
+          Char.List_Kido().push_back(&*cH_KiDo(i->getAttr("Bezeichnung"),true)) ;
       else if(sart=="Grundkenntnis")
-          list_WaffenGrund.push_back(&*cH_WaffeGrund(i->getAttr("Bezeichnung"),true));
+          Char.List_WaffenGrund().push_back(&*cH_WaffeGrund(i->getAttr("Bezeichnung"),true));
       else if(sart=="Sprache")
         {
          cH_MidgardBasicElement sprache(&*cH_Sprache(i->getAttr("Bezeichnung"),true));
@@ -340,7 +342,7 @@ void midgard_CG::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
          }
          sprache->setErfolgswert(wert);
          sprache->setPraxispunkte(i->getIntAttr("Praxispunkte"));
-         list_Sprache.push_back(sprache);
+         Char.List_Sprache().push_back(sprache);
         }
       else if(sart=="Urschrift") 
         {
@@ -349,7 +351,7 @@ void midgard_CG::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
          if (xml_version<8 && !wert) wert=12;
          schrift->setErfolgswert(wert);
          schrift->setPraxispunkte(i->getIntAttr("Praxispunkte"));
-         list_Schrift.push_back(schrift);
+         Char.List_Schrift().push_back(schrift);
         }
       else if(sart=="Optionen")
         {
@@ -372,7 +374,7 @@ void midgard_CG::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
     FOR_EACH_CONST_TAG_OF(i,*waffen_b,"Waffe")
     {   std::string wn = Database.Waffe_from_Alias[i->getAttr("Bezeichnung")];
         if (wn=="") wn=i->getAttr("Bezeichnung"); 
-        list_Waffen_besitz.push_back(new 
+        Char.List_Waffen_besitz().push_back(new 
 	        WaffeBesitz(cH_Waffe(wn,true),
                         i->getAttr("Bezeichnung"),
                         i->getIntAttr("AngriffVerteidigung_Bonus"),

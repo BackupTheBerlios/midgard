@@ -41,16 +41,16 @@ void Wizard::restart()
 void Wizard::evaluate_step(esteps step)
 {
   assert(vecwiz.size()>(size_t)(step));
-  vector<cH_Typen> Typ=hauptfenster->getVTyp();
+//  vector<cH_Typen> Typ=hauptfenster->getVTyp();
 //cout <<"evaluate_step " <<step<<' '<<LERNSCHEMA_SEITE<<' '<<SPEZIALWAFFE<<' '<<SPEZIALGEBIET<<'\n';
 //  if(step==LERNSCHEMA_SEITE) { next_step(LERNSCHEMA_SEITE); return;}
 
-  if(step==SPEZIALWAFFE&&(!Typ[0]->Spezialwaffe()&&!Typ[1]->Spezialwaffe()))
+  if(step==SPEZIALWAFFE&&(!hauptfenster->getCChar().CTyp1()->Spezialwaffe()&&!hauptfenster->getCChar().CTyp2()->Spezialwaffe()))
    {
      next_step(SPEZIALWAFFE);
      return;
    }
-  if(step==SPEZIALGEBIET&&(!Typ[0]->Spezialgebiet()&&!Typ[1]->Spezialgebiet()))
+  if(step==SPEZIALGEBIET&&(!hauptfenster->getCChar().CTyp1()->Spezialgebiet()&&!hauptfenster->getCChar().CTyp2()->Spezialgebiet()))
    {
      next_step(SPEZIALGEBIET);
      return;
