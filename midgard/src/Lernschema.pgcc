@@ -30,6 +30,27 @@ exec sql include sqlca;
 #include "Zauberwerk.hh"
 #include "Fertigkeiten.hh"
 
+#ifdef USE_XML
+static void StoreLernschema(const string &list,const string &element,
+		const string &typ, std::map<Lernschema::st_index,Lernschema::st_wert> &lern_map,
+		Gtk::ProgressBar *progressbar, double base)
+{const Tag *liste=xml_data->find(list);
+ if (liste)
+ {  Tag::const_iterator b=liste->begin(),e=liste->end();
+    double size=(e-b)*3;
+    FOR_EACH_CONST_TAG_OF_5(i,*liste,b,e,element)
+    {  progressbar->set_percentage((i-b)/size+base);
+       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
+       FOR_EACH_CONST_TAG_OF(j,*i,"Lernschema")
+       {  if (j->getAttr("Typ").empty()) continue; // Spezies ??
+          lern_map[Lernschema::st_index(j->getAttr("Typ"),typ,i->getAttr("Name"))] 
+             = Lernschema::st_wert(j->getBoolAttr("Pflicht"),j->getIntAttr("Erfolgswert")
+             		,"",j->getIntAttr("Lernpunkte"),"","");
+       }
+    }
+ }
+}
+#endif
 
 Lernschema::Lernschema(Gtk::ProgressBar *progressbar)
 {
@@ -62,48 +83,9 @@ Lernschema::Lernschema(Gtk::ProgressBar *progressbar)
      ++count;
    }
 #else 
- const Tag *zauber=xml_data->find("Zauber");
- if (zauber)
- {  Tag::const_iterator b=zauber->begin(),e=zauber->end();
-    double size=(e-b)*3;
-    FOR_EACH_CONST_TAG_OF_5(i,*zauber,b,e,"Spruch")
-    {  progressbar->set_percentage((i-b)/size);
-       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-       for (Tag::const_iterator j=i->find(i->begin(),"Lernschema")
-       		;j!=i->end();j=i->find(j+1,"Lernschema"))
-          lern_map[st_index(j->getAttr("Typ"),"Zauberkünste",i->getAttr("Name"))] 
-             = st_wert(j->getBoolAttr("Pflicht"),j->getIntAttr("Erfolgswert")
-             		,"",j->getIntAttr("Lernpunkte"),"","");
-    }
- }
- const Tag *fertigkeiten=xml_data->find("Fertigkeiten");
- if (fertigkeiten)
- {  Tag::const_iterator b=fertigkeiten->begin(),e=fertigkeiten->end();
-    double size=(e-b)*3;
-    FOR_EACH_CONST_TAG_OF_5(i,*fertigkeiten,b,e,"Fertigkeit")
-    {  progressbar->set_percentage((i-b)/size+.33);
-       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-       for (Tag::const_iterator j=i->find(i->begin(),"Lernschema")
-       		;j!=i->end();j=i->find(j+1,"Lernschema"))
-          lern_map[st_index(j->getAttr("Typ"),"Fachkenntnisse",i->getAttr("Name"))] 
-             = st_wert(j->getBoolAttr("Pflicht"),j->getIntAttr("Erfolgswert")
-             		,"",j->getIntAttr("Lernpunkte"),"","");
-    }
- }
- const Tag *waffen=xml_data->find("Waffen");
- if (waffen)
- {  Tag::const_iterator b=waffen->begin(),e=waffen->end();
-    double size=(e-b)*3;
-    FOR_EACH_CONST_TAG_OF_5(i,*waffen,b,e,"Waffe")
-    {  progressbar->set_percentage((i-b)/size+.66);
-       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-       for (Tag::const_iterator j=i->find(i->begin(),"Lernschema")
-       		;j!=i->end();j=i->find(j+1,"Lernschema"))
-          lern_map[st_index(j->getAttr("Typ"),"Waffenfertigkeiten",i->getAttr("Name"))] 
-             = st_wert(j->getBoolAttr("Pflicht"),j->getIntAttr("Erfolgswert")
-             		,"",j->getIntAttr("Lernpunkte"),"","");
-    }
- }
+ StoreLernschema("Zauber","Spruch","Zauberkünste",lern_map,progressbar,0);
+ StoreLernschema("Fertigkeiten","Fertigkeit","Fachkenntnisse",lern_map,progressbar,0.33);
+ StoreLernschema("Waffen","Waffe","Waffenfertigkeiten",lern_map,progressbar,0.66);
 #endif 
  progressbar->set_percentage(1);
 }
@@ -131,7 +113,7 @@ std::list<cH_MidgardBasicElement> Lernschema::get_List(const std::string& art,
          }
       if(art=="Zauberkünste") 
          { 
-#warning hier auch
+#warning hier auch set_Erfolgswert ??? CP
            L.push_back(&*cH_Zauber(i->first.fertigkeit));
          }
      }   

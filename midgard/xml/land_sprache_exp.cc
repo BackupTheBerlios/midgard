@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.21 2002/01/19 14:28:11 christof Exp $
+// $Id: land_sprache_exp.cc,v 1.22 2002/01/20 11:56:59 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -188,7 +188,7 @@ void land_speichern(std::ostream &o)
       while ((query2>>is2).good()) 
       {  o << "    <Typ";
          fetch_and_write_string_attrib(is2, o, "Name");
-         fetch_and_int_string_attrib(is2, o, "MaximalerGrad");
+         fetch_and_write_int_attrib(is2, o, "MaximalerGrad");
          o << "/>\n";
       }
    }

@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.14 2002/01/19 11:21:37 christof Exp $
+// $Id: fertigk_exp.cc,v 1.15 2002/01/20 11:56:59 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -33,7 +33,7 @@ void fert_speichern(std::ostream &o)
   	" anfangswert0, fp, anfangswert, "
   	MIDGARD3_4("","ungelernt, ")
   	" attribut"
-  	MIDGARD3_4("",", berufsklasse")
+  	MIDGARD3_4("",", berufsklasse, maxwert, maxunterweisung")
   	" from fertigkeiten left join steigern_fertigkeiten on name=fertigkeit"
   	" where coalesce(region,'')='"+region+"'"
   	" order by coalesce(region,''),coalesce(wie,fertigkeit)!=fertigkeit,fertigkeit");
@@ -56,6 +56,8 @@ void fert_speichern(std::ostream &o)
    fetch_and_write_string_attrib(is, o, "Attribut");
 #ifndef MIDGARD3
    fetch_and_write_int_attrib(is, o, "Berufskategorie");
+   fetch_and_write_int_attrib(is, o, "Maximalwert");
+   fetch_and_write_int_attrib(is, o, "MaximalMitUnterweisung");
 #endif
    o << ">\n";
    
