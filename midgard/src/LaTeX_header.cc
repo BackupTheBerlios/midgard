@@ -1,4 +1,4 @@
-// $Id: LaTeX_header.cc,v 1.27 2002/04/17 09:06:08 thoma Exp $
+// $Id: LaTeX_header.cc,v 1.28 2002/05/08 16:10:58 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -63,12 +63,12 @@ void midgard_CG::LaTeX_newsavebox(ostream &fout)
 {
  fout << "\\usepackage{german}\n";
  fout << "\\usepackage[latin1]{inputenc}\n";
- fout << "\\newsavebox{\\ESchwert}    \n";
+ fout << "\\newsavebox{\\Einhandschwert}    \n";
  fout << "\\newsavebox{\\Stichwaffe}  \n";
- fout << "\\newsavebox{\\ESchlagwaffe}\n";
+ fout << "\\newsavebox{\\Einhandschlagwaffe}\n";
  fout << "\\newsavebox{\\Spiesswaffe}\n";
- fout << "\\newsavebox{\\ZSchwert}\n";
- fout << "\\newsavebox{\\ZSchlagwaffe}\n";
+ fout << "\\newsavebox{\\Zweihandschwert}\n";
+ fout << "\\newsavebox{\\Zweihandschlagwaffe}\n";
  fout << "\\newsavebox{\\Stangenwaffe}   \n";
  fout << "\\newsavebox{\\Kettenwaffe}    \n";
  fout << "\\newsavebox{\\KampfohneWaffen}\n";
@@ -80,7 +80,7 @@ void midgard_CG::LaTeX_newsavebox(ostream &fout)
  fout << "\\newsavebox{\\Armbrust}       \n";
  fout << "\\newsavebox{\\Bogen}          \n";
  fout << "\\newsavebox{\\Schleuder}\n";
- fout << "\\newsavebox{\\Schilde}\n";
+ fout << "\\newsavebox{\\Schild}\n";
  fout << "\\newsavebox{\\Parierwaffe}\n";
  fout << "\\newsavebox{\\Kampfstab}\n";
  fout << "\\newsavebox{\\Peitsche} \n";

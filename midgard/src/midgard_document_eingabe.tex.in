@@ -328,43 +328,45 @@ Sprache&Wert&Schrift\\\hline\hline
       &{\waffeEh}&{\waffeAh}\\\cline{2-3}
       \raisebox{1.5ex}[-1.5ex]{\makebox[2cm][l]{{\waffeh}}}&{\waffeSh}&{\waffeVh}\\\hline\hline
     \end{tabular}
+
+\vspace{1ex}
+{
+\LI
+\scriptsize
+\hfill
+\setlength{\tabcolsep}{0.2ex}
+    \begin{tabular}{|l|c|c|l|c|} \cline{1-2}\cline{4-5}
+      ~Rüstungsklasse & \makebox[2em]{\ruestung}           &\hspace*{3em} & ~Abwehr         & \abwehrfinal \\\cline{1-2}\cline{4-5}
+      ~Schutz vor LP--Verlust &\makebox[2em]{\ruestunglp}  &              &  ~mit Verteidigungswaffe& \abwehrmitwaffe\\\cline{1-2}\cline{4-5}
+    \end{tabular}
+\hfill
+}
+
+
+\vspace{-1ex}
 \IfFileExists{schwert.png}{\parbox{7.5cm}{\includegraphics[width=7.5cm]{schwert.png}}}%
 {\parbox{7.5cm}{\includegraphics[width=7.5cm]{@PACKAGE_DATA_DIR@schwert.png}}}
- \vspace*{2ex}
+% \vspace*{2ex}
+
+\vspace{-2.5ex}
  \footnotesize
 \parbox{7.7cm}
 {
 {\setlength{\tabcolsep}{0.2em}\renewcommand{\arraystretch}{0.8}
-    \begin{tabular}[b]{l|l|l|l|}
-      \multicolumn{4}{l}{\small Grundkenntnisse in}\\\cline{2-2}\cline{4-4}
-      ESchwert    &\makebox[1ex]{\usebox{\ESchwert}}  &Wurfspieß&\makebox[1ex]{\usebox{\Wurfspiess}}\\\cline{2-2}\cline{4-4}
-      Stichwaffe  &{\usebox{\Stichwaffe}}             &Stielwurfwaffe&\usebox{\Stielwurfwaffe}\\\cline{2-2}\cline{4-4}
-      ESchlagwaffe&{\usebox{\ESchlagwaffe}}           &Wurfscheibe     &\usebox{\Wurfscheibe}\\\cline{2-2}\cline{4-4}
-      Spießwaffe  &{\usebox{\Spiesswaffe}}            &Fesselwaffe     &\usebox{\Fesselwaffe}\\\cline{2-2}\cline{4-4}
-      ZSchwert    &{\usebox{\ZSchwert}}               &Armbrust      &\usebox{\Armbrust}\\\cline{2-2}\cline{4-4}
-      ZSchlagwaffe&{\usebox{\ZSchlagwaffe}}           &Bogen         &\usebox{\Bogen}\\\cline{2-2}\cline{4-4}
-      Stangenwaffe&{\usebox{\Stangenwaffe}}           &Schleuder     &\usebox{\Schleuder}\\\cline{2-2}\cline{4-4}
-      Kettenwaffe &{\usebox{\Kettenwaffe}}            &Schild        &\usebox{\Schilde}\\\cline{2-2}\cline{4-4}
-      waffenlos   &{\usebox{\KampfohneWaffen}}  &Parierwaffe   &\usebox{\Parierwaffe}\\\cline{2-2}\cline{4-4}
-      Zauberstäbe &{\usebox{\Zauberstaebe}}\\\cline{2-2}
+    \begin{tabular}[b]{l|l|l|l|l|l|l}
+      \multicolumn{4}{l}{\small Grundkenntnisse in}\\\cline{2-2}\cline{4-4}\cline{6-6}   
+      Einhandschwert     &\makebox[1ex]{\usebox{\Einhandschwert}} & Stichwaffe  &\usebox{\Stichwaffe}                & Armbrust    &\usebox{\Armbrust}                   \\\cline{2-2}\cline{4-4}\cline{6-6}   
+      Einhandschlagwaffe &\usebox{\Einhandschlagwaffe}            & Spießwaffe  &\usebox{\Spiesswaffe}               & Bogen       &\usebox{\Bogen}                      \\\cline{2-2}\cline{4-4}\cline{6-6}
+      Zweihandschwert    &\usebox{\Zweihandschwert}               & Kettenwaffe &\usebox{\Kettenwaffe}               & Schleuder   &\usebox{\Schleuder}                  \\\cline{2-2}\cline{4-4}\cline{6-6}
+      Zweihandschlagwaffe&\usebox{\Zweihandschlagwaffe}           & Fesselwaffe &\usebox{\Fesselwaffe}               & Wurfscheibe &\usebox{\Wurfscheibe}                \\\cline{2-2}\cline{4-4}\cline{6-6}
+      Kampf ohne Waffen  &\usebox{\KampfohneWaffen}               & Zauberstäbe &\usebox{\Zauberstaebe}              & Wurfspieß   &\makebox[1ex]{\usebox{\Wurfspiess}}  \\\cline{2-2}\cline{4-4}\cline{6-6}
+      Stangenwaffe       &\usebox{\Stangenwaffe}                  & Schild      &\usebox{\Schild}                  \\\cline{2-2}\cline{4-4}
+      Stielwurfwaffe     &\usebox{\Stielwurfwaffe}                & Parierwaffe &\usebox{\Parierwaffe}             \\\cline{2-2}\cline{4-4}
     \end{tabular}}                                    
-\hfill
-\LI
-\scriptsize
-{\setlength{\tabcolsep}{0.2ex}
-    \begin{tabular}[b]{|c|c|}\hline
-      Rüstungs-&auf LP\\
-      klasse&Verlust\\\hline
-      {\ruestung}&{\ruestunglp}\\\hline
-      \multicolumn{2}{c}{}\\\hline
-      &mit Vert.\\
-      \raisebox{1.5ex}[-1.5ex]{Abwehr}&Waffe\\\hline
-       \rule{0ex}{0ex}{\abwehrfinal}&{\abwehrmitwaffe}\\\hline
-    \end{tabular}
-}
 }
 
-\vspace{-1.5ex}
+\vspace{1.5ex}
+%\vfill
 \parbox{7.5cm}
 {\renewcommand{\arraystretch}{0.7}
 \tiny
