@@ -1,4 +1,4 @@
-// $Id: midgard_CG_drucken.cc,v 1.10 2003/11/24 16:21:42 christof Exp $   
+// $Id: midgard_CG_drucken.cc,v 1.11 2004/05/18 14:14:15 christof Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -73,6 +73,6 @@ void midgard_CG::on_auch_unsichtbares_drucken()
 void midgard_CG::on_spielleiterbogen_drucken_activate()
 {
   LaTeX_drucken L;
-  L.Spielleiterbogen(AbenteurerAuswahl::Chars);
+  L.Spielleiterbogen(*AbenteurerAuswahl::Chars);
 }
  
