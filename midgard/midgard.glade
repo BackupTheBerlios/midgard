@@ -10264,7 +10264,7 @@ auswählen</label>
 			<build_insensitive>True</build_insensitive>
 			<child>
 			  <padding>0</padding>
-			  <expand>False</expand>
+			  <expand>True</expand>
 			  <fill>True</fill>
 			</child>
 		      </widget>
@@ -10272,8 +10272,8 @@ auswählen</label>
 		      <widget>
 			<class>GtkLabel</class>
 			<name>label552</name>
-			<label> Grad, Ausdauer, Abwehr, Zaubern,
- Resistenz an GFP anpassen</label>
+			<label>Alles an GFP 
+anpassen</label>
 			<justify>GTK_JUSTIFY_CENTER</justify>
 			<wrap>False</wrap>
 			<xalign>0.5</xalign>
@@ -10282,8 +10282,8 @@ auswählen</label>
 			<ypad>0</ypad>
 			<child>
 			  <padding>0</padding>
-			  <expand>False</expand>
-			  <fill>False</fill>
+			  <expand>True</expand>
+			  <fill>True</fill>
 			</child>
 		      </widget>
 		    </widget>
