@@ -13,6 +13,10 @@ NEWS IN VERSION 0.5delta1
    als 40 FP kostet
 * Berufsfertigkeit 'Schmecken+10' kann gelernt werden
 * Kleinere Bugs beseitigt
+* Grifffelder um die meisten Knopfleisten, man kann sie abtrennen und
+  woanders aufbewahren. Am sinnvollsten mit der Leiste, die Speichern 
+  und Drucken enthält.
+* (zukünftige) Wizard Verbesserungen von Christof
 
 TODO:
 * Steigern von Resistenz/Zaubern/Abwehr mit PP, wenn Punkte verfallen sollen
