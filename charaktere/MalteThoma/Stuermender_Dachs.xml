@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Preise>
+  <Kaufpreis Ware="Silberbecher" Art="Ausrüstung" Art2="Behälter" Preis="5" Währung="GS" Gewicht="0"/>
+  <Kaufpreis Ware="kleiner Silbertopf" Art="Ausrüstung" Art2="Behälter" Preis="10" Währung="GS" Gewicht="2"/>
+  <Kaufpreis Ware="Mörser und Stößel" Art="Ausrüstung" Art2="Werkzeug" Preis="3" Währung="GS" Gewicht="0"/>
+ </Preise>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Stürmender Dachs" Spieler="Malte Thoma" Zeitpunkt="Grad 1" Grad="7"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Wa" Spezialisierung="Handaxt" Überleben="Überleben im Dschungel" Stadt_Land="Land" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="100" Gw="90" Gs="98" Ko="95" In="62" Zt="22"/>
+  <abgeleiteteEigenschaften Au="83" pA="97" Wk="43" Sb="79" B="26" SG="5"/>
+  <Erfolgswerte Abwehr="14" Zaubern="2" ZauberResistenz="13"/>
+  <Gesundheit LP="17" AP="52"/>
+  <Beschreibung Alter="28" Gestalt="breit" Gewicht="115" Größe="195" Stand="Mittelschicht" Herkunft="Ikenga Becken" Glaube="Schamanistisch"/>
+  <Vermögen GS="124"/>
+  <Steigern GFP="8773" AEP="19" ZEP="5" benötigte_Tage="28">
+   <Praxispunkte/>
+  </Steigern>
+  <Text/>
+  <Ausrüstung>
+   <Rüstung>TR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="0" Bezeichnung="Dolch"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Handaxt"/>
+   <Waffe Erfolgswert="0" Bezeichnung="Kriegshammer">W6-2 Feuerschaden bei schw. Treffer ABW3</Waffe>
+   <Waffe Erfolgswert="0" Bezeichnung="Stoßspeer" AngriffVerteidigung_Bonus="1">Horn einer Donnerechse</Waffe>
+   <Waffe Erfolgswert="0" Bezeichnung="Wurfaxt"/>
+   <Waffe Erfolgswert="0" Bezeichnung="kleiner Schild"/>
+   <Gegenstand Bezeichnung="Körper" Besonderheit="" sichtbar="true">
+    <Gegenstand Bezeichnung="Hose" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Hemd" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Gürtel" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Schuhe" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Rucksack" Besonderheit="Leder" sichtbar="true">
+     <Gegenstand Bezeichnung="Decke" Besonderheit="warm"/>
+     <Gegenstand Bezeichnung="Lederbeutel" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Bezeichnung="Geld" Besonderheit=""/>
+    </Gegenstand>
+   </Gegenstand>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
+   <ang-Fertigkeit Bezeichnung="Berserkergang" Wert="18"/>
+   <Fertigkeit Bezeichnung="Akrobatik" Wert="14"/>
+   <Fertigkeit Bezeichnung="Balancieren" Wert="14"/>
+   <Fertigkeit Bezeichnung="Fallenstellen" Wert="6"/>
+   <Fertigkeit Bezeichnung="Geländelauf" Wert="17"/>
+   <Fertigkeit Bezeichnung="Himmelskunde" Wert="10"/>
+   <Fertigkeit Bezeichnung="Kampf zu Pferd" Wert="10"/>
+   <Fertigkeit Bezeichnung="Klettern" Wert="16"/>
+   <Fertigkeit Bezeichnung="Laufen" Wert="7"/>
+   <Fertigkeit Bezeichnung="Naturkunde" Wert="9"/>
+   <Fertigkeit Bezeichnung="Pflanzenkunde" Wert="9"/>
+   <Fertigkeit Bezeichnung="Reiten" Wert="16"/>
+   <Fertigkeit Bezeichnung="Scharfschießen" Wert="9" Zusatz="Wurfaxt"/>
+   <Fertigkeit Bezeichnung="Schleichen" Wert="9"/>
+   <Fertigkeit Bezeichnung="Schlittschuhlaufen" Wert="14"/>
+   <Fertigkeit Bezeichnung="Schwimmen" Wert="14"/>
+   <Fertigkeit Bezeichnung="Seilkunst" Wert="10"/>
+   <Fertigkeit Bezeichnung="Springen" Wert="14"/>
+   <Fertigkeit Bezeichnung="Spurenlesen" Wert="9"/>
+   <Fertigkeit Bezeichnung="Stimmen nachahmen" Wert="15"/>
+   <Fertigkeit Bezeichnung="Tarnen" Wert="6"/>
+   <Fertigkeit Bezeichnung="Tauchen" Wert="12"/>
+   <Fertigkeit Bezeichnung="Tierkunde"/>
+   <Fertigkeit Bezeichnung="Überleben im Dschungel" Wert="10"/>
+   <Fertigkeit Bezeichnung="Überleben im Wald" Wert="12"/>
+   <Waffe Bezeichnung="Dolch" Wert="10"/>
+   <Waffe Bezeichnung="Handaxt" Wert="12" Praxispunkte="1"/>
+   <Waffe Bezeichnung="Kriegshammer" Wert="11" Praxispunkte="2"/>
+   <Waffe Bezeichnung="Stoßspeer" Wert="10" Praxispunkte="2"/>
+   <Waffe Bezeichnung="Wurfaxt" Wert="11"/>
+   <Waffe Bezeichnung="kleiner Schild" Wert="4"/>
+   <Waffe Bezeichnung="waffenloser Kampf" Wert="10" Praxispunkte="1"/>
+   <Grundkenntnis Bezeichnung="Einhandschlagwaffe"/>
+   <Grundkenntnis Bezeichnung="Schild"/>
+   <Grundkenntnis Bezeichnung="Spießwaffe"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Grundkenntnis Bezeichnung="Stielwurfwaffe"/>
+   <Grundkenntnis Bezeichnung="Kampf ohne Waffen"/>
+   <Sprache Bezeichnung="Albisch" Wert="6"/>
+   <Sprache Bezeichnung="Chryseisch" Wert="6"/>
+   <Sprache Bezeichnung="Ikengadialekte" Wert="18"/>
+   <Sprache Bezeichnung="Moravisch" Wert="6"/>
+   <Sprache Bezeichnung="Neu-Vallinga" Wert="10"/>
+   <Sprache Bezeichnung="Rawindi" Wert="6"/>
+   <Sprache Bezeichnung="Scharidisch" Wert="6"/>
+   <Region Name="KanThaiPan" Region="K"/>
+   <Optionen Name="Originalregeln" Wert="false"/>
+   <Optionen Name="NSC zulassen" Wert="false"/>
+  </Fertigkeiten>
+ </Midgard-Abenteurer>
+</MAGUS-data>

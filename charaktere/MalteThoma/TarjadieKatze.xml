@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Preise>
+ </Preise>
+
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Tarja die Katze" Spieler="Malte Thoma" Zeitpunkt="Erschaffung" Grad="1"/>
+  <Typ Spezies="Mensch" Geschlecht="w" Abkürzung="Tm" Stadt_Land="Stadt"/>
+  <Basiseigenschaften St="48" Gw="92" Gs="99" Ko="91" In="76" Zt="45"/>
+  <abgeleiteteEigenschaften Au="80" pA="91" Wk="31" Sb="56" B="24"/>
+  <Erfolgswerte Abwehr="11" Zaubern="10" ZauberResistenz="10"/>
+  <Gesundheit LP="16" AP="9"/>
+  <Beschreibung Alter="24" Gestalt="normal" Gewicht="62" Größe="159" Stand="Volk" Herkunft="Alba" Glaube="Schamanistisch"/>
+  <Vermögen GS="10"/>
+  <Steigern benötigte_Tage="36"><Praxispunkte/></Steigern>
+  <Ausrüstung>
+    <Rüstung>LR</Rüstung>
+    <Waffe Bezeichnung="Bola"/>
+    <Waffe Bezeichnung="Langschwert"/>
+    <Waffe Bezeichnung="Schleuder"/>
+    <Waffe Bezeichnung="kleiner Schild"/>
+  </Ausrüstung>
+  <Fertigkeiten>
+    <Sinn Bezeichnung="Riechen" Wert="8"/>
+    <Sinn Bezeichnung="Tasten" Wert="8"/>
+    <ang-Fertigkeit Bezeichnung="Gute Reflexe" Wert="9"/>
+    <Fertigkeit Bezeichnung="Abrichten" Wert="9"/>
+    <Fertigkeit Bezeichnung="Balancieren" Wert="11"/>
+    <Fertigkeit Bezeichnung="Erste Hilfe" Wert="8"/>
+    <Fertigkeit Bezeichnung="Fallenstellen" Wert="6"/>
+    <Fertigkeit Bezeichnung="Geländelauf" Wert="16"/>
+    <Fertigkeit Bezeichnung="Klettern" Wert="11"/>
+    <Fertigkeit Bezeichnung="Laufen" Wert="5"/>
+    <Fertigkeit Bezeichnung="Meditieren" Wert="8"/>
+    <Fertigkeit Bezeichnung="Spurenlesen" Wert="6"/>
+    <Fertigkeit Bezeichnung="Tierkunde" Wert="5"/>
+    <Waffe Bezeichnung="Bola" Wert="5"/>
+    <Waffe Bezeichnung="Handaxt" Wert="5"/>
+    <Waffe Bezeichnung="Langschwert" Wert="5"/>
+    <Waffe Bezeichnung="Schleuder" Wert="7"/>
+    <Waffe Bezeichnung="kleiner Schild" Wert="1"/>
+    <Zauber Bezeichnung="Tiersprache" Zusatz="Säugetiere"/>
+    <Zauber Bezeichnung="Wundersame Tarnung"/>
+    <Grundkenntnis Bezeichnung="Schilde"/>
+    <Grundkenntnis Bezeichnung="Schleuder"/>
+    <Grundkenntnis Bezeichnung="Fesselwaffe"/>
+    <Grundkenntnis Bezeichnung="ESchwert"/>
+    <Grundkenntnis Bezeichnung="ESchlagwaffe"/>
+    <Sprache Bezeichnung="Albisch" Wert="18"/>
+    <Sprache Bezeichnung="Comentang" Wert="12"/>
+  </Fertigkeiten>
+ </Midgard-Abenteurer>
+</MAGUS-data>

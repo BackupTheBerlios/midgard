@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Preise/>
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="T" Zeitpunkt="Erschaffung" Grad="1"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="PT" Überleben="Überleben im Gebirge" Muttersprache="Twyneddisch" Stadt_Land="Stadt" Hand="Rechtshänder"/>
+  <Basiseigenschaften St="32" Gw="33" Gs="62" Ko="88" In="91" Zt="47"/>
+  <abgeleiteteEigenschaften Au="28" pA="26" Wk="37" Sb="57" B="28"/>
+  <Erfolgswerte Abwehr="11" Zaubern="10" ZauberResistenz="10"/>
+  <Gesundheit LP="13" AP="8"/>
+  <Beschreibung Alter="22" Gestalt="normal" Gewicht="70" Größe="169" Stand="Adel" Herkunft="Clanngadarn"/>
+  <Vermögen GS="34"/>
+  <Steigern>
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>OR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="0" Bezeichnung="Rapier"/>
+   <Gegenstand Bezeichnung="Körper" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
+    <Gegenstand Bezeichnung="Hose" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Hemd" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Gürtel" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Schuhe" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Rucksack" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
+     <Gegenstand Bezeichnung="Decke" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="warm"/>
+     <Gegenstand Bezeichnung="Lederbeutel" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Bezeichnung="Geld" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit=""/>
+    </Gegenstand>
+   </Gegenstand>
+   <Gegenstand Bezeichnung="Erste Hilfe Ausrüstung (Salben, Heilkräuter und Verbände)" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="10"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="1"/>
+   <Beruf Bezeichnung="Alchimist"/>
+   <Fertigkeit Bezeichnung="Landeskunde" Wert="6" Zusatz="Moravod"/>
+   <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="13"/>
+   <Fertigkeit Bezeichnung="Sagenkunde" Wert="6"/>
+   <Fertigkeit Bezeichnung="Erste Hilfe" Wert="6"/>
+   <Fertigkeit Bezeichnung="Himmelskunde" Wert="5"/>
+   <Fertigkeit Bezeichnung="Gaukeln" Wert="8"/>
+   <Waffe Bezeichnung="Rapier" Wert="4"/>
+   <Zauber Bezeichnung="Hauch des Winters"/>
+   <Zauber Bezeichnung="Erkennen der Aura"/>
+   <Zauber Bezeichnung="Göttlicher Schutz vor dem Bösen"/>
+   <Zauber Bezeichnung="Bannen von Licht"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Sprache Bezeichnung="Twyneddisch" Wert="19"/>
+   <Sprache Bezeichnung="Altoqua" Wert="13"/>
+   <Sprache Bezeichnung="Minangpahitisch" Wert="12"/>
+   <Urschrift Bezeichnung="Twyneddisch" Wert="13"/>
+   <Urschrift Bezeichnung="Altoqua" Wert="13"/>
+   <Urschrift Bezeichnung="Minangpahitisch" Wert="10"/>
+  </Fertigkeiten>
+  <Optionen>
+   <Region Name="Alba" Region="A"/>
+   <Region Name="Waeland" Region="W"/>
+   <CheckOptions Name="Originalregeln" Wert="true"/>
+   <CheckOptions Name="NSC zulassen" Wert="true"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>

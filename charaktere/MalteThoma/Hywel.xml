@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MAGUS-data>
+ <Preise>
+ </Preise>
+
+ <Midgard-Abenteurer Version="10">
+  <Figur Name="Hywel" Spieler="Sebastian Thomas" Zeitpunkt="Erschaffung" Grad="2"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Wa" Spezialisierung="Bogen" Stadt_Land="Land"/>
+  <Basiseigenschaften St="87" Gw="91" Gs="89" Ko="91" In="78" Zt="40"/>
+  <abgeleiteteEigenschaften Au="92" pA="30" Wk="87" Sb="48" B="24"/>
+  <Erfolgswerte Abwehr="12" Zaubern="2" ZauberResistenz="11"/>
+  <Gesundheit LP="17" AP="22"/>
+  <Beschreibung Alter="23" Gestalt="normal" Gewicht="86" Größe="187" Herkunft="Erainn"/>
+  <Vermögen GS="115"/>
+  <Steigern GFP="380" Basiswerte="1" benötigte_Tage="63"><Praxispunkte/></Steigern>
+  <TextPixSize>8</TextPixSize>
+  <Ausrüstung>
+    <Rüstung>LR</Rüstung>
+    <Waffe Bezeichnung="Bogen"/>
+    <Waffe Bezeichnung="Dolch"/>
+    <Waffe Bezeichnung="Kurzschwert"/>
+    <Waffe Bezeichnung="kleiner Schild"/>
+  </Ausrüstung>
+  <Fertigkeiten>
+    <Sinn Bezeichnung="Riechen" Wert="8"/>
+    <Sinn Bezeichnung="Tasten" Wert="8"/>
+    <Beruf Bezeichnung="Bauer"/>
+    <ang-Fertigkeit Bezeichnung="Robustheit" Wert="9"/>
+    <Fertigkeit Bezeichnung="Fallen entdecken" Wert="4"/>
+    <Fertigkeit Bezeichnung="Geländelauf" Wert="16"/>
+    <Fertigkeit Bezeichnung="Himmelskunde" Wert="4"/>
+    <Fertigkeit Bezeichnung="Laufen" Wert="6"/>
+    <Fertigkeit Bezeichnung="Pflanzenkunde" Wert="5"/>
+    <Fertigkeit Bezeichnung="Scharfschießen" Wert="4" Zusatz="Bogen"/>
+    <Fertigkeit Bezeichnung="Schleichen" Wert="9"/>
+    <Fertigkeit Bezeichnung="Spurenlesen" Wert="6"/>
+    <Fertigkeit Bezeichnung="Tierkunde" Wert="6"/>
+    <Fertigkeit Bezeichnung="Überleben im Wald" Wert="8"/>
+    <Waffe Bezeichnung="Bogen" Wert="8"/>
+    <Waffe Bezeichnung="Dolch" Wert="5"/>
+    <Waffe Bezeichnung="Kurzschwert" Wert="6"/>
+    <Waffe Bezeichnung="Stoßspeer" Wert="5"/>
+    <Waffe Bezeichnung="kleiner Schild" Wert="2"/>
+    <Grundkenntnis Bezeichnung="Bögen"/>
+    <Grundkenntnis Bezeichnung="Schilde"/>
+    <Grundkenntnis Bezeichnung="Spießwaffe"/>
+    <Grundkenntnis Bezeichnung="Stichwaffe"/>
+    <Sprache Bezeichnung="Erainnisch" Wert="18"/>
+    <Sprache Bezeichnung="Albisch" Wert="12"/>
+  </Fertigkeiten>
+ </Midgard-Abenteurer>
+</MAGUS-data>
