@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.244 2002/06/30 18:34:15 thoma Exp $
+// $Id: midgard_CG.cc,v 1.245 2002/07/01 08:18:41 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -79,10 +79,23 @@ midgard_CG::~midgard_CG()
 std::string midgard_CG::with_path(const std::string &name,bool path_only,bool noexit) const
 {
   std::vector<std::string> V;
-  V.push_back("./");
+#ifndef __MINGW32__ // IMHO macht das unter Win32 keinen Sinn
+  // vielleicht sollten wir das aktuelle Verzeichnis beim 
+  // Programmstart einmal ermitteln und nicht immer
+  char currentwd[10240];
+  *currentwd=0;
+  getcwd(currentwd,sizeof currentwd);
+  
+  V.push_back(std::string(currentwd)+"/");
+#endif  
   V.push_back(magus_verzeichnis);
-  V.push_back("../xml/");
+#ifndef __MINGW32__
+  V.push_back(std::string(currentwd)+"/../xml/");
   V.push_back(PACKAGE_DATA_DIR);
+#else
+  V.push_back(Binary_Verzeichnis());
+  V.push_back(Binary_Verzeichnis()+"\\Daten");
+#endif  
   std::string ntmp;
   for(std::vector<std::string>::const_iterator i=V.begin();i!=V.end();++i)
    {

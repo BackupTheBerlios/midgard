@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.32 2002/06/30 18:34:40 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.33 2002/07/01 08:18:41 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -792,6 +792,10 @@ void LaTeX_drucken::LaTeX_footer(ostream &fout)
  
 void LaTeX_drucken::pdf_viewer(const std::string& file)
 {
+  char currentwd[10240];
+  *currentwd=0;
+  getcwd(currentwd,sizeof currentwd);
+  
 #ifdef __MINGW32__
   const char * const subpath="\\texmf\\miktex\\bin";
   static std::string newpath;
@@ -815,13 +819,15 @@ void LaTeX_drucken::pdf_viewer(const std::string& file)
      file2=file.substr(file.rfind(WinLux::dirsep())+1);
   }
 
-  system(("pdflatex --interaction batchmode "+file2+".tex").c_str());
+// oder batchmode?
+  system(("pdflatex --interaction scrollmode "+file2+".tex").c_str());
   system((hauptfenster->getOptionen()->Viewer()+" \""+file2+".pdf\" &").c_str());
 
 //  unlink((file+".tex").c_str());
   unlink((file2+".aux").c_str());
   unlink((file2+".log").c_str());
 //  unlink((pfile+".pdf").c_str());
+  chdir(currentwd);
 }
 
 ///////////////////////////////////////////////////////////////
