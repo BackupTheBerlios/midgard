@@ -20,7 +20,7 @@ cH_Zauber::cH_Zauber(const std::string& name)
    cache.Register(name,*this);
   }
 #else
-  assert(!"Zauber nicht im Cache");
+  assert(!"Zauber im Cache");
 #endif  
 }
 

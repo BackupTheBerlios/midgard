@@ -11,15 +11,27 @@ cH_Fertigkeit::cH_Fertigkeit(const std::string& name)
 {
  cH_Fertigkeit *cached(cache.lookup(name));
  if (cached) *this=*cached;
+#ifndef USE_XML 
  else
   {
    *this=cH_Fertigkeit(new Fertigkeit(name));  
    cache.Register(name,*this);
   }
+#else
+  assert(!"Fertigkeit im Cache");
+#endif
 }
+
+#ifdef USE_XML
+cH_Fertigkeit::cH_Fertigkeit(const Tag *tag)
+{*this=cH_Fertigkeit(new Fertigkeit(tag));
+ cache.Register(tag->getAttr("Name"),*this);
+}
+#endif
 
 void Fertigkeit::get_Fertigkeit()
 {
+#ifndef USE_XML
   exec sql begin declare section;
    int db_lp,db_lp_l,db_lp_s,db_anfangswert0,db_anfangswert,db_ungelernt,
          db_kosten,db_berufskategorie;
@@ -66,6 +78,24 @@ lernpunkte=db_lp;
   voraussetzung = st_Voraussetzung(db_st,db_gw,db_gs,db_ko,db_in,db_zt,db_au,db_pa,
                                    db_sb,db_rw,db_voraussetzung);
   exec sql close cl_fertigkeit_ein;
+#else
+  assert(tag);
+  lernpunkte=tag->getIntAttr("Lernpunkte");
+  lern_land=tag->getIntAttr("Lernpunkte:Land",lernpunkte);
+  lern_stadt=tag->getIntAttr("Lernpunkte:Stadt",lernpunkte);
+  anfangswert0=db_anfangswert0;
+  anfangswert=db_anfangswert;
+  ungelernt=db_ungelernt;
+  berufskategorie=db_berufskategorie;
+  erfolgswert=anfangswert; //Defaultwert
+  kosten=db_kosten;
+  region=db_region;
+//cout << Name()<<'\t'<<db_region <<' ' <<Region()<<'\n';
+  attribut=db_attribut;
+  voraussetzung = st_Voraussetzung(db_st,db_gw,db_gs,db_ko,db_in,db_zt,db_au,db_pa,
+                                   db_sb,db_rw,db_voraussetzung);
+  exec sql close cl_fertigkeit_ein;
+#endif  
 }
 
 bool Fertigkeit::Voraussetzungen(const Grundwerte& Werte) const 
@@ -113,6 +143,7 @@ int Fertigkeit::AttributBonus(const Grundwerte& Werte) const
 
 Fertigkeiten_All::Fertigkeiten_All(Gtk::ProgressBar *progressbar)
 {
+#ifndef USE_XML
  exec sql begin declare section;
    char db_name[50][100];
    int db_size;
@@ -144,6 +175,8 @@ Fertigkeiten_All::Fertigkeiten_All(Gtk::ProgressBar *progressbar)
   }
  exec sql close FIein;
  tr.close();
+#else
+#endif
  progressbar->set_percentage(1);
 }  
 

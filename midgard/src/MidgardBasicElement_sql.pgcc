@@ -64,29 +64,27 @@ void MidgardBasicElement::get_map_typ()
   } 
 //cout << What()<<'\t'<<map_typ.size()<<'\n';
 #else // USE_XML
- const Tag *tag=0;
 
- if(What()==ZAUBER)
-    tag=find_Tag("Zauber","Spruch","Name",Name()); 
- if(What()==ZAUBERWERK)
+ if(What()==ZAUBER) assert(tag);
+ else if(What()==ZAUBERWERK)
  {  vector<pair<std::string,std::string> > anforderungen;
     anforderungen.push_back(pair<std::string,std::string>("Name",Name()));
     anforderungen.push_back(pair<std::string,std::string>("Stufe",Stufe()));
     tag=find_Tag("Zauberwerke","Zauberwerk",anforderungen);
  }
- if(What()==FERTIGKEIT )
+ else if(What()==FERTIGKEIT )
     tag=find_Tag("Fertigkeiten","Fertigkeit","Name",Name());
- if(What()==WAFFEGRUND)
+ else if(What()==WAFFEGRUND)
     tag=find_Tag("Waffen:Grundkenntnisse","Waffen:Grundkenntnis","Name",Name());
  // auch in Waffen:Steigern suchen
  // dynamic_cast<Waffe*>(this)->Grundkenntnis()
- if(What()==WAFFE)
+ else if(What()==WAFFE)
     tag=find_Tag("Waffen","Waffe","Name",Name());
- if(What()==SPRACHE)
+ else if(What()==SPRACHE)
     tag=find_Tag("Fertigkeiten","Fertigkeit","Name","Sprache");
- if(What()==SCHRIFT)
+ else if(What()==SCHRIFT)
     tag=find_Tag("Fertigkeiten","Fertigkeit","Name","Lesen/Schreiben");
- if(What()==KIDO)
+ else if(What()==KIDO)
     tag=find_Tag("Fertigkeiten","Fertigkeit","Name","KiDo"); 
 
  if (tag)

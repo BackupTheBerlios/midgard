@@ -28,10 +28,17 @@ class Fertigkeit : public MidgardBasicElement
 //     void get_Steigern_Kosten_map();
 
   public:
+#ifndef USE_XML  
      Fertigkeit(const std::string& n)
       :name(n),lernpunkte(0),lern_land(0),lern_stadt(0),pflicht(false) 
       {get_Fertigkeit(); get_map_typ(); get_Steigern_Kosten_map();
        EP_steigern(Name());}
+#else
+     Fertigkeit(const Tag *t)
+      :MidgardBasicElement(t),name(t->getAttr("Name")),lernpunkte(0),lern_land(0),lern_stadt(0),pflicht(false) 
+      {get_Fertigkeit(); get_map_typ(); get_Steigern_Kosten_map();
+       EP_steigern(Name());}
+#endif
 
      enum MBEE What() const {return MidgardBasicElement::FERTIGKEIT;}
      std::string What_str() const {return "Fertigkeit";}
@@ -76,6 +83,9 @@ class cH_Fertigkeit : public Handle<const Fertigkeit>
     cH_Fertigkeit(){};
  public:
     cH_Fertigkeit(const std::string& n);
+#ifdef USE_XML    
+    cH_Fertigkeit(const Tag *tag);
+#endif
 
     cH_Fertigkeit(const cH_MidgardBasicElement &x) : Handle<const Fertigkeit>
       (dynamic_cast<const Fertigkeit *>(&*x)){}
