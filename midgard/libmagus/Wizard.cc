@@ -33,7 +33,7 @@ void Wizard::set(esteps was)
 
 void Wizard::next_step()
 {  ManuProC::Trace _t(trace_channel,__FUNCTION__,this,act_step.Value());
-   if (in(act_step.Value(),Inaktiv,FERTIG)) return;
+   if (act_step.Value()==FERTIG) return;
    act_step=esteps(int(act_step.Value())+1);
 }
 
@@ -44,7 +44,7 @@ bool Wizard::can_skip(const Abenteurer &A)
    	 return !A.Typ1()->Spezialwaffe() && !A.Typ2()->Spezialwaffe();
       case SPEZIALGEBIET:
          return !A.Typ1()->Spezialgebiet() && !A.Typ2()->Spezialgebiet();
-      case START:
+//      case START:
       case LERNSCHEMA_SEITE:
          return true;
       case SPEZIES:
@@ -86,7 +86,7 @@ void Wizard::next_step(const Abenteurer &A)
 
 void Wizard::done(esteps was,const Abenteurer &A)
 {  ManuProC::Trace _t(trace_channel,__FUNCTION__,this,was,NV("act_step",act_step.Value()));
-   if (act_step.Value()==Inaktiv) return;
+   if (act_step.Value()==FERTIG) return;
    // schauen ob das sinnvoll war - reicht das schon?
    if (was<act_step.Value()) set(was);
    else if (was==act_step.Value()) next_step();
@@ -99,5 +99,5 @@ void Wizard::skip_if_possible(const Abenteurer &A)
 }
 
 Wizard::Wizard()
- : act_step(Inaktiv), act_mode(Sensitive)
+ : act_step(SPEZIES), act_mode(Sensitive)
 {}

@@ -156,9 +156,9 @@ void table_grundwerte::sync_wizard(gpointer x)
    bool always_sens=pr.wizard_mode.Value()<=Wizard::Hints
    	|| hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active;
    combo_spezies->set_sensitive(always_sens 
-   	|| between(pr.wizard.Value(),Wizard::START,Wizard::GRUNDWERTE));
+   	|| between(pr.wizard.Value(),Wizard::SPEZIES,Wizard::GRUNDWERTE));
    button_grundwerte->set_sensitive(always_sens 
-   	|| between(pr.wizard.Value(),Wizard::START,Wizard::GRUNDWERTE)
+   	|| between(pr.wizard.Value(),Wizard::SPEZIES,Wizard::GRUNDWERTE)
    	|| false /* Wert unter 350 */ );
    combo_typ->set_sensitive(always_sens 
    	|| between(pr.wizard.Value(),Wizard::GESCHLECHT,Wizard::TYP));

@@ -21,16 +21,26 @@
 #  define _WIZARD_HH
 
 #include <BaseObjects/Model.h>
+#include <Misc/compiler_ports.h>
 class Abenteurer; // Alternative wäre, Wizard in Abenteurer reinzunehmen
 			// genau wie Lernpunkte
 
 struct Wizard
-{   enum esteps { Inaktiv, START, SPEZIES, GRUNDWERTE, GESCHLECHT, TYP, 
+{   enum esteps { SPEZIES, GRUNDWERTE, GESCHLECHT, TYP, 
+		  // 4
      		  STADTLAND, ABGELEITETEWERTE, LERNSCHEMA_SEITE, HERKUNFT,
+     		  // 8
                   UEBERLEBEN, ANGEBORENEFERTIGKEITEN, LERNPUNKTE, WAEHLEN,
+                  // 12
                   BERUF1, BERUF, GELD, WAFFEN, RUESTUNG, AUSRUESTUNG,
+                  // 18
                   SPEZIALWAFFE, SPEZIALGEBIET, NAMEN, SPEICHERN, FERTIG,
-                  ZWEITER_TYP, KIDO_STIL, MAXSTEPS };
+                  // 23
+                  ZWEITER_TYP, KIDO_STIL, MAXSTEPS, };
+
+                  // bitte nicht mehr verwenden!
+    __deprecated const static esteps Inaktiv=FERTIG;
+    __deprecated const static esteps START=SPEZIES;
     enum mode { Aus, Hints, Sensitive, Aktiv };
 private:
     Model_copyable<esteps> act_step;
@@ -46,7 +56,7 @@ public:
     operator esteps() { return act_step; }
     bool matches(const void *gp) const { return act_step.matches(gp); }
     
-    bool aktiv() const { return act_step.Value()!=Inaktiv; }
+    bool aktiv() const { return act_step.Value()!=FERTIG; }
     Model_ref<mode> getMode() { return act_mode; }
     mode getMode() const { return act_mode.Value(); }
     
@@ -59,6 +69,6 @@ public:
     void skip_if_possible(const Abenteurer &A);
     void done(esteps was,const Abenteurer &A);
     
-    void restart(const Abenteurer &A) { set(START,A); }
+    void restart(const Abenteurer &A) { set(SPEZIES,A); }
 };
 #endif
