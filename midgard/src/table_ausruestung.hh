@@ -101,6 +101,7 @@ private:
         gint on_combo_entry_artikel_art_focus_out_event(GdkEventFocus *ev);
         void on_combo_entry_artikel_art_changed();
         void on_combo_entry_art2_changed();
+        void on_combo_entry_einheit_changed();
         void on_togglebutton_unverkauflich_toggled();
         void on_combo_entry_einheit_activate();
         void on_combo_entry_region_activate();

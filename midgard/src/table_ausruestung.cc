@@ -322,6 +322,11 @@ void table_ausruestung::on_combo_entry_einheit_activate()
 //  combo_entry_region->grab_focus();
   button_artikel_speichern->grab_focus();
 }
+void table_ausruestung::on_combo_entry_einheit_changed()
+{
+ button_artikel_speichern->grab_focus();
+}
+
 void table_ausruestung::on_combo_entry_region_activate()
 {
   button_artikel_speichern->grab_focus();
@@ -330,6 +335,8 @@ void table_ausruestung::on_spinbutton_gewicht_activate()
 {
  spinbutton_preis->grab_focus();
 }
+
+
 
 void table_ausruestung::on_button_artikel_speichern_clicked()
 {

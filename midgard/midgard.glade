@@ -14686,6 +14686,11 @@ KS
 		    <handler>on_combo_entry_einheit_activate</handler>
 		    <last_modification_time>Thu, 28 Nov 2002 07:34:59 GMT</last_modification_time>
 		  </signal>
+		  <signal>
+		    <name>changed</name>
+		    <handler>on_combo_entry_einheit_changed</handler>
+		    <last_modification_time>Thu, 28 Nov 2002 12:07:29 GMT</last_modification_time>
+		  </signal>
 		  <editable>False</editable>
 		  <text_visible>True</text_visible>
 		  <text_max_length>0</text_max_length>
