@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="G" Name="Gildenbrief" Titel="Gildenbrief" Copyright="var." Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="13" MAGUS-Bild="5" CVS="$Revision: 1.7 $">
+<MAGUS-data Region="G" Name="Gildenbrief" Titel="Gildenbrief" Copyright="var." Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="13" MAGUS-Bild="5" CVS="$Revision: 1.8 $">
  <Schriften/>
  <Sprachen/>
  <Typen>
@@ -1483,9 +1483,6 @@
   <Spruch Name="Magischer Kreis, klein">
    <Standard Typ="MMa"/>
   </Spruch>
-  <Spruch Name="Magischer Spion">
-   <Standard Typ="MMa"/>
-  </Spruch>
   <Spruch Name="Marmorhaut">
    <Ausnahme Typ="MMa"/>
   </Spruch>
@@ -2300,6 +2297,9 @@
   </Spruch>
   <Spruch Name="Magische Aura" Region="H&amp;D">
    <Grund Typ="MMa"/>
+  </Spruch>
+  <Spruch Name="Magischer Spion" Region="H&amp;D">
+   <Standard Typ="MMa"/>
   </Spruch>
   <Spruch Name="Nebelsalz" Region="H&amp;D">
    <Ausnahme Typ="MMa"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="H&amp;D" Name="Hexenzauber &amp; Druidenkraft" Titel="Hexenzauber und Druidenkraft" Copyright="Alexander Huiskes (Hrsg.)" Jahr="1994" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="10" MAGUS-Bild="6" CVS="$Revision: 1.6 $">
+<MAGUS-data Region="H&amp;D" Name="Hexenzauber &amp; Druidenkraft" Titel="Hexenzauber und Druidenkraft" Copyright="Alexander Huiskes (Hrsg.)" Jahr="1994" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="10" MAGUS-Bild="6" CVS="$Revision: 1.7 $">
  <Schriften/>
  <Sprachen/>
  <Typen/>
@@ -723,6 +723,19 @@
    <Ausnahme Typ="PC"/>
    <Ausnahme Typ="PK"/>
    <Ausnahme Typ="PW"/>
+  </Spruch>
+  <Spruch Name="Magischer Spion" Region="H&amp;D" Grad="4" Lernkosten="2000" AP="6" Typ="Geste" Ursprung="dämonisch" Zauberdauer="je 2 min" Reichweite="2 km" Wirkungsziel="Umgebung" Wirkungsbereich="0" Wirkungsdauer="1 Monat" Material="Harz und Edelsteinstaub" Thaumagramm="Siegel">
+   <Grund Typ="Sw"/>
+   <Grund Typ="Th"/>
+   <Grund Typ="gHx"/>
+   <Grund Typ="sHx"/>
+   <Grund Typ="wHx"/>
+   <Standard Typ="Dt"/>
+   <Standard Typ="MMa"/>
+   <Standard Typ="Ma"/>
+   <Standard Typ="PW"/>
+   <Ausnahme Typ="dBe"/>
+   <Ausnahme Typ="eBe"/>
   </Spruch>
   <Spruch Name="Nebelsalz" Region="H&amp;D" Grad="1" Lernkosten="60" AP="1" Typ="Gedanke" Ursprung="dämonisch" Agens="Wasser" Prozess="verwandelt" Reagens="Luft" Zauberdauer="1 s" Reichweite="500 m" Wirkungsziel="Umgebung" Wirkungsbereich="2m Uk" Wirkungsdauer="3 h" Zauberart="Zaubersalz">
    <Grund Typ="Sw"/>

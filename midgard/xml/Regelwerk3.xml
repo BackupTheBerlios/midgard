@@ -5379,10 +5379,6 @@
    <Grund Typ="eBe"/>
    <Grund Typ="tBe"/>
   </Spruch>
-  <Spruch Name="Magischer Spion">
-   <Ausnahme Typ="dBe"/>
-   <Ausnahme Typ="eBe"/>
-  </Spruch>
   <Spruch Name="Niessalz">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
@@ -5641,6 +5637,10 @@
    <Ausnahme Typ="eBe"/>
   </Spruch>
   <Spruch Name="Lustsalz" Region="H&amp;D">
+   <Ausnahme Typ="dBe"/>
+   <Ausnahme Typ="eBe"/>
+  </Spruch>
+  <Spruch Name="Magischer Spion" Region="H&amp;D">
    <Ausnahme Typ="dBe"/>
    <Ausnahme Typ="eBe"/>
   </Spruch>

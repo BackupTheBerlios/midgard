@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="N" Name="Nahuatlan" Titel="Nahuatlan - Im Land des Mondjaguars" Copyright="Alexander Huiskes" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="6" MAGUS-Bild="8" CVS="$Revision: 1.9 $">
+<MAGUS-data Region="N" Name="Nahuatlan" Titel="Nahuatlan - Im Land des Mondjaguars" Copyright="Alexander Huiskes" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="6" MAGUS-Bild="8" CVS="$Revision: 1.10 $">
  <Schriften/>
  <Sprachen/>
  <Typen>
@@ -2177,9 +2177,6 @@
   <Spruch Name="Magischer Kreis, klein">
    <Standard Typ="Dt"/>
   </Spruch>
-  <Spruch Name="Magischer Spion">
-   <Standard Typ="Dt"/>
-  </Spruch>
   <Spruch Name="Marmorhaut">
    <Standard Typ="Dt"/>
   </Spruch>
@@ -3014,6 +3011,9 @@
   </Spruch>
   <Spruch Name="Magische Aura" Region="H&amp;D">
    <Ausnahme Typ="Dt"/>
+  </Spruch>
+  <Spruch Name="Magischer Spion" Region="H&amp;D">
+   <Standard Typ="Dt"/>
   </Spruch>
   <Spruch Name="Nebelsalz" Region="H&amp;D">
    <Ausnahme Typ="Dt"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MAGUS-data Region="TuT" Name="Kompendium" Titel="Das Kompendium" Copyright="Jürgen E. Franke" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="1" MAGUS-Bild="12" CVS="$Revision: 1.8 $">
+<MAGUS-data Region="TuT" Name="Kompendium" Titel="Das Kompendium" Copyright="Jürgen E. Franke" offiziell="true" Maintainer="Malte Thoma" Version="1.0" MAGUS-Index="1" MAGUS-Bild="12" CVS="$Revision: 1.9 $">
  <Schriften/>
  <Sprachen/>
  <Typen>
@@ -4224,9 +4224,6 @@
    <Standard Typ="Km"/>
    <Standard Typ="Sw"/>
   </Spruch>
-  <Spruch Name="Magischer Spion">
-   <Grund Typ="Sw"/>
-  </Spruch>
   <Spruch Name="Marmorhaut">
    <Grund Typ="Sw"/>
    <Standard Typ="Fi"/>
@@ -5632,6 +5629,9 @@
   </Spruch>
   <Spruch Name="Magische Aura" Region="H&amp;D">
    <Grund Typ="Km"/>
+  </Spruch>
+  <Spruch Name="Magischer Spion" Region="H&amp;D">
+   <Grund Typ="Sw"/>
   </Spruch>
   <Spruch Name="Nebelsalz" Region="H&amp;D">
    <Grund Typ="Sw"/>
