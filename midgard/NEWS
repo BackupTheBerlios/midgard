@@ -12,6 +12,8 @@ NEWS IN VERSION 0.6delta5
 * einige Bugs beseitigt
 
 TODO:
+* Erster Abenteurer bei Programmstart als 'gespeichert' markieren.
+* History für geladene Abenteurer
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
 in der Auswahl werden sie aber als Einhandwaffen ausgegeben (DFR S. 50
 links). 
