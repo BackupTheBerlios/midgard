@@ -49,7 +49,7 @@ COPY typen (typnr, typs, typl, typlw, typz, ausdauer, stand, sb, ruestung, regio
 14	Ba	Barde	Bardin	j	ak	20	0	1	\N	4	\N	\N	Lieder	\N	\N	\N	31	61	61	\N	\N	\N
 46	De	Derwisch	Derwisch	z	ak	0	0	1	E	4	\N	\N	Wunder	\N	\N	\N	\N	\N	\N	\N	\N	\N
 20	Dr	Druide	Druidin	z	z	10	30	1	\N	3	z	\N	Dweomer	\N	\N	\N	\N	21	\N	\N	\N	\N
-47	Dt	Deuter	Deuterin	z	z	20	0	1	N	4	z	\N	null	\N	\N	\N	\N	\N	\N	\N	\N	\N
+47	Dt	Deuter	Deuterin	z	z	20	0	1	N	4	z	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 5	Er	Ermittler	Ermittlerin	n	ak	0	0	1	\N	4	\N	s	\N	\N	\N	\N	31	61	\N	\N	\N	\N
 41	Fi	Fian	Fiana	j	ak	10	0	1	TuT	2	\N	l	Dweomer	\N	\N	\N	\N	\N	\N	t	\N	\N
 6	Gl	Glücksritter	Glücksritterin	n	ak	0	-20	3	\N	2	\N	\N	\N	\N	\N	61	31	\N	61	\N	\N	\N
