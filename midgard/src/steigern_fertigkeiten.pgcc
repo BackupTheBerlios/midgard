@@ -24,6 +24,8 @@ exec sql include sqlca;
 #include <Gtk_OStream.h>
 #include <algorithm>
 #include "WindowInfo.hh"
+#include <Aux/EntryValueIntString.h>
+#include <Aux/EntryValueEmptyInt.h>
 
 
 void midgard_CG::on_fertigkeiten_laden_clicked()
@@ -34,14 +36,51 @@ void midgard_CG::on_fertigkeiten_laden_clicked()
    
 }
 
+
+class Data_alt_fert : public RowDataBase
+{
+   string name;
+   int wert, steigern, reduzieren, verlernen;
+ public:
+   Data_alt_fert(const string& n, int w,int s,int r,int v )
+   :name(n),wert(w),steigern(s),reduzieren(r),verlernen(v) {}
+
+   virtual const cH_EntryValue Value(int seqnr) const
+ { switch (seqnr) {
+      case 0 : return cH_EntryValueIntString(name);
+      case 1 : return cH_EntryValueEmptyInt(wert);
+      case 2 : return cH_EntryValueEmptyInt(steigern);
+      case 3 : return cH_EntryValueEmptyInt(reduzieren);
+      case 4 : return cH_EntryValueEmptyInt(verlernen);
+   }
+   return cH_EntryValueIntString("?");
+ }
+ string Name() const {  return name; }
+ int  Wert() const {  return wert; }
+ int  Steigern() const {  return steigern; }
+ int  Reduzieren() const {  return reduzieren; }
+ int  Verlernen() const {  return verlernen; }
+
+};
+
+void midgard_CG::on_leaf_selected_alte_fert(cH_RowDataBase d)
+{  const Data_alt_fert *dt=dynamic_cast<const Data_alt_fert*>(&*d);
+   cout << "Data " << dt->Name() << '\n'; 
+   cout << "Data " << dt->Wert() << '\n'; 
+   on_steigern_fert_tree_alt_select(dt->Name(),dt->Wert(),dt->Steigern(),
+      dt->Reduzieren(),dt->Verlernen());
+}
+ 
+
 void midgard_CG::show_alte_fertigkeiten()
 {
-   steigern_fert_clist_alt->clear();
-   Gtk::OStream os(steigern_fert_clist_alt);
+//   steigern_fert_clist_alt->clear();
+//   Gtk::OStream os(steigern_fert_clist_alt);
+   vector<cH_RowDataBase> datavec;
    for ( vector<st_ausgewaehlte_fertigkeiten>::iterator i=vec_fertigkeiten.begin();i!=vec_fertigkeiten.end();++i)
       {
-        string skosten_steigern="", skosten_reduzieren="", sfp="";
-        string serfolgswert=itos(i->erfolgswert);
+//        string skosten_steigern="", skosten_reduzieren="", sfp="";
+//        string serfolgswert=itos(i->erfolgswert);
         exec sql begin declare section;
           int db_kosten_steigern=0, db_kosten_reduzieren=0, db_fp;
           char query[1024];
@@ -93,25 +132,66 @@ void midgard_CG::show_alte_fertigkeiten()
         tr.close();
 
         double fac = midgard_CG::get_standard_fertigkeit_(db_standard,db_standard2,i->name);
-        sfp = itos(db_fp * fac);
-        skosten_steigern = itos(db_kosten_steigern*fac);
-        skosten_reduzieren = itos(db_kosten_reduzieren*fac);
-        if (i->erfolgswert == 0) serfolgswert = "" ;
-        if ( skosten_steigern == "0" ) skosten_steigern="";
-        if ( skosten_reduzieren == "0" ) skosten_reduzieren="";
-        if (skosten_reduzieren!="" || 
-            (skosten_steigern == "0" && skosten_reduzieren == "0")) sfp ="" ;
-         os << i->name<<"\t"<<serfolgswert<<"\t"
-            <<skosten_steigern<<"\t"<<skosten_reduzieren<<"\t"<<sfp<<"\n";
+//        sfp = itos(db_fp * fac);
+//        skosten_steigern = itos(db_kosten_steigern*fac);
+//        skosten_reduzieren = itos(db_kosten_reduzieren*fac);
+//        if (i->erfolgswert == 0) serfolgswert = "" ;
+//        if ( skosten_steigern == "0" ) skosten_steigern="";
+//        if ( skosten_reduzieren == "0" ) skosten_reduzieren="";
+//        if (skosten_reduzieren!="" || 
+//            (skosten_steigern == "0" && skosten_reduzieren == "0")) sfp ="" ;
+//         os << i->name<<"\t"<<serfolgswert<<"\t"
+//            <<skosten_steigern<<"\t"<<skosten_reduzieren<<"\t"<<sfp<<"\n";
+        datavec.push_back(new Data_alt_fert(i->name,
+                  i->erfolgswert,db_kosten_steigern*fac,
+                  db_kosten_reduzieren*fac,db_fp * fac));
       }
- for (unsigned int i=0;i<steigern_fert_clist_alt->columns().size();++i)
-   steigern_fert_clist_alt->set_column_auto_resize(i,true);
- steigern_fert_clist_alt->set_reorderable(true);
+ alte_fert_tree->setDataVec(datavec);  
+// for (unsigned int i=0;i<steigern_fert_clist_alt->columns().size();++i)
+//   steigern_fert_clist_alt->set_column_auto_resize(i,true);
+// steigern_fert_clist_alt->set_reorderable(true);
 }
+
+
+
+class Data_neu_fert : public RowDataBase
+{
+   string name;
+   int wert, lernkosten;
+   string art,vorraussetzungen;
+ public:
+   Data_neu_fert(const string& n, int w,int l,string a, string v )
+   :name(n),wert(w),lernkosten(l),art(a),vorraussetzungen(v) {}
+
+   virtual const cH_EntryValue Value(int seqnr) const
+ { switch (seqnr) {
+      case 0 : return cH_EntryValueIntString(name);
+      case 1 : return cH_EntryValueEmptyInt(wert);
+      case 2 : return cH_EntryValueEmptyInt(lernkosten);
+      case 3 : return cH_EntryValueIntString(art);
+      case 4 : return cH_EntryValueIntString(vorraussetzungen);
+   }
+   return cH_EntryValueIntString("?");
+ }
+ string Name() const {  return name; }
+ int  Wert() const {  return wert; }
+ int  Lernkosten() const {  return lernkosten; }
+// string  Art() const {  return art; }
+// string  Vorraussetzungen() const {  return vorraussetzungen; }
+
+};
+void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
+{  const Data_neu_fert *dt=dynamic_cast<const Data_neu_fert*>(&*d);
+   cout << "Data " << dt->Name() << '\n'; 
+   cout << "Data " << dt->Wert() << '\n'; 
+   on_steigern_fert_tree_neu_select(dt->Name(),dt->Wert(),dt->Lernkosten());
+}
+
 
 void midgard_CG::show_neue_fertigkeiten()
 {
-  steigern_fert_clist_neu->clear();
+//  steigern_fert_clist_neu->clear();
+  vector<cH_RowDataBase> datavec;
   exec sql begin declare section;
    char db_fertigkeiten[100];
    int db_erfolgswert; 
@@ -143,7 +223,7 @@ void midgard_CG::show_neue_fertigkeiten()
  exec sql declare fert_ein cursor for fert_ein_ ;  
  exec sql open fert_ein;
  SQLerror::test(__FILELINE__);
- Gtk::OStream os(steigern_fert_clist_neu);
+// Gtk::OStream os(steigern_fert_clist_neu);
  while (true)
    {
       if (typ_2.s!="")
@@ -156,8 +236,8 @@ void midgard_CG::show_neue_fertigkeiten()
             :db_region;
       SQLerror::test(__FILELINE__,100);  
       if (sqlca.sqlcode) break;
-      string serfolgswert=itos(db_erfolgswert);
-      if (serfolgswert=="0") serfolgswert="";
+//      string serfolgswert=itos(db_erfolgswert);
+//      if (serfolgswert=="0") serfolgswert="";
       double fac = midgard_CG::get_standard_fertigkeit_(db_standard,db_standard2,db_fertigkeiten);
       string s1 = db_standard, s2 = db_standard2;
       s1 = Ausnahmen_string(db_fertigkeiten,db_standard,"");
@@ -168,16 +248,20 @@ void midgard_CG::show_neue_fertigkeiten()
         &&midgard_CG::region_check(db_region) 
         && (s1!="" || s2!="") )
        {
-         os << db_fertigkeiten<<"\t"<<serfolgswert<<"\t"<<db_fp*fac
-            <<"\t"<<s1<<" "<<s2<<"\t"<<db_voraussetzung<<"\n";
+ //        os << db_fertigkeiten<<"\t"<<serfolgswert<<"\t"<<db_fp*fac
+ //           <<"\t"<<s1<<" "<<s2<<"\t"<<db_voraussetzung<<"\n";
+          string st=(string)db_standard+" "+(string)db_standard2;
+          datavec.push_back(new Data_neu_fert(db_fertigkeiten,db_erfolgswert,
+               db_fp*fac,st,db_voraussetzung));
 //         os << db_fertigkeiten<<"\t"<<serfolgswert<<"\t"<<db_fp*fac
 //            <<"\t"<<db_standard<<" "<<db_standard2<<"\t"<<db_voraussetzung<<"\n";
        }
    }
  exec sql close fert_ein;
- for (unsigned int i=0;i<steigern_fert_clist_neu->columns().size();++i)
-   steigern_fert_clist_neu->set_column_auto_resize(i,true);
- steigern_fert_clist_neu->set_reorderable(true);
+ neue_fert_tree->setDataVec(datavec);
+// for (unsigned int i=0;i<steigern_fert_clist_neu->columns().size();++i)
+//   steigern_fert_clist_neu->set_column_auto_resize(i,true);
+// steigern_fert_clist_neu->set_reorderable(true);
  tr.commit();
 }
 
@@ -192,8 +276,63 @@ bool midgard_CG::kido_steigern_check(int wert)
 }
 
 
+void midgard_CG::on_steigern_fert_tree_alt_select(string fertigkeit, int wert,
+   int steigern,int reduzieren,int verlernen)
+{
+ if (fertigkeit=="KiDo" && kido_steigern_check(wert)) return;
+   if (radio_fert_steigern->get_active())
+    {
+      // Steigern mit lernen
+      if (!togglebutton_praxispunkte_fertigkeiten->get_active()) 
+         {
+            werte.gfp += steigern;
+            if (steigern != 0)
+            for (vector<st_ausgewaehlte_fertigkeiten>::iterator i=vec_fertigkeiten.begin();
+                     i!= vec_fertigkeiten.end();++i )
+               if ( i->name == fertigkeit) i->erfolgswert++; 
+         }
+      else  // Lernen mit Praxispunkten 
+         {
+            bool wuerfeln;
+            if (radiobutton_praxis_wuerfeln_fertigkeiten->get_active()) wuerfeln = true;
+            if (radiobutton_praxis_auto_fertigkeiten->get_active()) wuerfeln = false;
+            int gelungen = midgard_CG::praxispunkte_wuerfeln(fertigkeit,wert,"Fertigkeit",wuerfeln);
+            if (gelungen)
+               {
+                  werte.gfp += steigern/2;
+                  for (vector<st_ausgewaehlte_fertigkeiten>::iterator i=vec_fertigkeiten.begin();
+                        i!= vec_fertigkeiten.end();++i )
+                     if ( i->name == fertigkeit) i->erfolgswert++; 
+               }
+         }     
+    }
+   if (radio_fert_reduzieren->get_active())
+         {
+            werte.gfp -= reduzieren;
+            if (reduzieren != 0)
+            for (vector<st_ausgewaehlte_fertigkeiten>::iterator i=vec_fertigkeiten.begin();
+                     i!= vec_fertigkeiten.end();++i )
+               if ( i->name == fertigkeit) i->erfolgswert--; 
+         }
+   if (radio_fert_verlernen->get_active())
+         {
+            werte.gfp -= verlernen;
+            if (verlernen != 0)
+            for (vector<st_ausgewaehlte_fertigkeiten>::iterator i=vec_fertigkeiten.begin();
+                     i!= vec_fertigkeiten.end();++i )
+               if ( i->name == fertigkeit) {vec_fertigkeiten.erase(i);break;}; 
+         }
+   midgard_CG::zeige_werte(werte,"alle");
+   midgard_CG::on_speichern_clicked();
+   midgard_CG::show_alte_fertigkeiten();
+   midgard_CG::show_neue_fertigkeiten();
+   
+//   steigern_fert_clist_alt->unselect_row(row);
+}
+
 void midgard_CG::on_steigern_fert_clist_alt_select_row(gint row, gint column, GdkEvent *event)
 {
+/*
  string fertigkeit=steigern_fert_clist_alt->get_text(row,0);
  int wert = atoi(steigern_fert_clist_alt->get_text(row,1).c_str());
  if (fertigkeit=="KiDo" && kido_steigern_check(wert)) return;
@@ -249,11 +388,40 @@ void midgard_CG::on_steigern_fert_clist_alt_select_row(gint row, gint column, Gd
    midgard_CG::show_neue_fertigkeiten();
    
    steigern_fert_clist_alt->unselect_row(row);
+*/
 }
 
 
+void midgard_CG::on_steigern_fert_tree_neu_select(string fertigkeit, int wert, int lernkosten)
+{
+  werte.gfp += lernkosten;
+  midgard_CG::zeige_werte(werte,"alle");
+  vec_fertigkeiten.push_back(st_ausgewaehlte_fertigkeiten(fertigkeit,wert,"0"));
+
+  if (fertigkeit=="KiDo") {kido_bool=true;show_gtk(get_typ_nr());
+      string strinfo="Jetzt muß ein Stil unter 'Lernschema' -> 'KiDo' gewählt werden !!!";
+      manage (new WindowInfo(strinfo,true)); }
+  if (fertigkeit=="Wissen von der Magie") 
+      {  midgard_CG::doppelcharaktere();
+         string strinfo ="Jetzt unter 'Grundwerte' die zweite Charkakterklasse wählen\n";
+         manage (new WindowInfo(strinfo,true));
+         // Resistenzboni für Zauberer setzten:
+         werte.bo_psy += 3;
+         werte.bo_phs += 1;
+         werte.bo_phk += 3;
+         if (werte.zaubern_wert=="") werte.zaubern_wert = "10";
+      }
+
+  midgard_CG::show_fertigkeiten();
+  midgard_CG::on_speichern_clicked();
+  midgard_CG::show_alte_fertigkeiten();
+  midgard_CG::show_neue_fertigkeiten();
+
+}
+
 void midgard_CG::on_steigern_fert_clist_neu_select_row(gint row, gint column, GdkEvent *event)
 {
+/*
   int new_kosten = atoi(steigern_fert_clist_neu->get_text(row,2).c_str());
   werte.gfp += new_kosten;
   midgard_CG::zeige_werte(werte,"alle");
@@ -280,7 +448,7 @@ void midgard_CG::on_steigern_fert_clist_neu_select_row(gint row, gint column, Gd
   midgard_CG::on_speichern_clicked();
   midgard_CG::show_alte_fertigkeiten();
   midgard_CG::show_neue_fertigkeiten();
-
+*/
 }
 
 void midgard_CG::on_radio_fert_steigern_toggled()

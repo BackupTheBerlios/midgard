@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.36 2001/06/18 05:58:50 thoma Exp $
+// $Id: midgard_CG.cc,v 1.37 2001/06/20 15:42:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,6 +38,26 @@
 midgard_CG::midgard_CG()
 {
   on_neuer_charakter_clicked();
+  set_tree_titles();
+}
+
+void midgard_CG::set_tree_titles()
+{
+ vector<string> alte_fert;
+ alte_fert.push_back("Fertigkeit");
+ alte_fert.push_back("Wert");
+ alte_fert.push_back("Steigern\n(nächste Stufe)");
+ alte_fert.push_back("Reduzieren\n(eine Stufe)");
+ alte_fert.push_back("Verlernen");
+ alte_fert_tree->setTitles(alte_fert);
+
+ vector<string> neue_fert;
+ neue_fert.push_back("Fertigkeit");
+ neue_fert.push_back("Wert");
+ neue_fert.push_back("Lernkosten");
+ neue_fert.push_back("Art");
+ neue_fert.push_back("Vorraussetzungen");
+ neue_fert_tree->setTitles(neue_fert);
 }
 
 void midgard_CG::on_radiobutton_frau_toggled()
@@ -240,8 +260,8 @@ void midgard_CG::on_neuer_charakter_clicked()
    fertigkeiten_clist->clear();
    zauber_clist->clear();
    clist_kido->clear();
-   steigern_fert_clist_alt->clear();
-   steigern_fert_clist_neu->clear();
+//   steigern_fert_clist_alt->clear();
+//   steigern_fert_clist_neu->clear();
    steigern_waffen_clist_alt->clear();
    steigern_waffen_clist_neu->clear();
    grundkenntnisse_clist_alt->clear();

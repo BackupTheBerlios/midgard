@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.42 2001/06/18 05:58:50 thoma Exp $
+// $Id: midgard_CG.hh,v 1.43 2001/06/20 15:42:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -140,6 +140,7 @@ struct st_ausnahmen{string name; string art;float fac;string standard;
          st_ausnahmen(string nn, string aa, float ff, string ss)
          :name(nn), art(aa), fac(ff), standard(ss) {}};
 
+
 extern bool Originalbool;
 extern bool Infobool;
 
@@ -157,9 +158,10 @@ extern bool Kuestenstaatenbool;//S
 class midgard_CG : public midgard_CG_glade
 {   
         friend class midgard_CG_glade;
+        void set_tree_titles();
+
         vector<st_typen> typen_vector;
         vector<st_typen> typen_2_vector;
-//        vector<st_spezialgebiet> vec_spezialgebiet;
         vector<string> vec_spezialgebiet;
         vector<string> spezies_vector;
         vector<st_ausgewaehlte_fertigkeiten> vec_fertigkeiten;
@@ -284,9 +286,13 @@ class midgard_CG : public midgard_CG_glade
          
         void on_fertigkeiten_laden_clicked();
         void on_steigern_fert_clist_alt_select_row(gint row, gint column, GdkEvent *event);
+        void on_steigern_fert_tree_alt_select(string fertigkeit, int wert, int steigern, int reduzieren, int verlernen);
         void on_steigern_fert_clist_neu_select_row(gint row, gint column, GdkEvent *event);
+        void on_steigern_fert_tree_neu_select(string fertigkeit, int wert, int lernkosten);
         void show_alte_fertigkeiten();
+        void on_leaf_selected_alte_fert(cH_RowDataBase d);
         void show_neue_fertigkeiten();
+        void on_leaf_selected_neue_fert(cH_RowDataBase d);
         void on_radio_fert_steigern_toggled();
         void on_radio_fert_reduzieren_toggled();
         void on_radio_fert_verlernen_toggled();
@@ -398,5 +404,6 @@ class midgard_CG : public midgard_CG_glade
          string Ausnahmen_string(const string& name, const string& alt,const string& alt2);
         void get_typ(int nr, int typ_1_2=1);
         int  get_typ_nr(int typ_1_2=1);
+
 };
 #endif
