@@ -15,6 +15,7 @@
 <widget>
   <class>GtkWindow</class>
   <name>midgard_CG</name>
+  <cxx_visibility>protected</cxx_visibility>
   <sensitive>False</sensitive>
   <events>GDK_BUTTON_PRESS_MASK</events>
   <signal>
@@ -122,7 +123,8 @@
 	<widget>
 	  <class>GtkButton</class>
 	  <child_name>Toolbar:button</child_name>
-	  <name>button10</name>
+	  <name>button_main_drucken</name>
+	  <cxx_visibility>protected</cxx_visibility>
 	  <tooltip>Linke Maustaste: LaTeX Abenteurerblatt drucken (pdf Datei). Mittlere Maustaste: Charakterbeschreibung drucken. Rechte Maustaste: Ausrüstung drucken.</tooltip>
 	  <signal>
 	    <name>button_release_event</name>
@@ -13114,8 +13116,8 @@ eingeben</label>
 		  <ypad>0</ypad>
 		  <xexpand>True</xexpand>
 		  <yexpand>True</yexpand>
-		  <xshrink>False</xshrink>
-		  <yshrink>False</yshrink>
+		  <xshrink>True</xshrink>
+		  <yshrink>True</yshrink>
 		  <xfill>True</xfill>
 		  <yfill>True</yfill>
 		</child>
@@ -18682,135 +18684,6 @@ löschen</label>
 	<label></label>
 	<icon>SchliessenIII-50.xpm</icon>
       </widget>
-    </widget>
-  </widget>
-</widget>
-
-<widget>
-  <class>GtkWindow</class>
-  <name>Window_doppelcharaktere</name>
-  <title>Doppelklasse ?</title>
-  <type>GTK_WINDOW_TOPLEVEL</type>
-  <position>GTK_WIN_POS_NONE</position>
-  <modal>True</modal>
-  <allow_shrink>False</allow_shrink>
-  <allow_grow>True</allow_grow>
-  <auto_shrink>False</auto_shrink>
-
-  <widget>
-    <class>GtkTable</class>
-    <name>table64</name>
-    <rows>2</rows>
-    <columns>3</columns>
-    <homogeneous>False</homogeneous>
-    <row_spacing>0</row_spacing>
-    <column_spacing>0</column_spacing>
-
-    <widget>
-      <class>GtkLabel</class>
-      <name>label397</name>
-      <label>Soll dieser Elf ein Doppelklassencharakter sein?</label>
-      <justify>GTK_JUSTIFY_CENTER</justify>
-      <wrap>False</wrap>
-      <xalign>0</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <child>
-	<left_attach>0</left_attach>
-	<right_attach>3</right_attach>
-	<top_attach>0</top_attach>
-	<bottom_attach>1</bottom_attach>
-	<xpad>5</xpad>
-	<ypad>5</ypad>
-	<xexpand>True</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>False</xfill>
-	<yfill>False</yfill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkPixmap</class>
-      <name>pixmap53</name>
-      <filename>Szepter-trans-locol-30.xpm</filename>
-      <xalign>0.5</xalign>
-      <yalign>0.5</yalign>
-      <xpad>0</xpad>
-      <ypad>0</ypad>
-      <build_insensitive>True</build_insensitive>
-      <child>
-	<left_attach>1</left_attach>
-	<right_attach>2</right_attach>
-	<top_attach>1</top_attach>
-	<bottom_attach>2</bottom_attach>
-	<xpad>0</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>True</xfill>
-	<yfill>True</yfill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkButton</class>
-      <name>doppelklasse_button_ja</name>
-      <width>40</width>
-      <can_focus>True</can_focus>
-      <signal>
-	<name>clicked</name>
-	<handler>on_doppelklasse_button_ja_clicked</handler>
-	<last_modification_time>Mon, 14 May 2001 12:46:55 GMT</last_modification_time>
-      </signal>
-      <label>Ja</label>
-      <relief>GTK_RELIEF_NORMAL</relief>
-      <child>
-	<left_attach>0</left_attach>
-	<right_attach>1</right_attach>
-	<top_attach>1</top_attach>
-	<bottom_attach>2</bottom_attach>
-	<xpad>5</xpad>
-	<ypad>10</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>False</xfill>
-	<yfill>False</yfill>
-      </child>
-    </widget>
-
-    <widget>
-      <class>GtkButton</class>
-      <name>button63</name>
-      <width>40</width>
-      <can_focus>True</can_focus>
-      <signal>
-	<name>clicked</name>
-	<handler>on_doppelklasse_button_nein_clicked</handler>
-	<last_modification_time>Mon, 14 May 2001 12:48:34 GMT</last_modification_time>
-      </signal>
-      <label>Nein</label>
-      <relief>GTK_RELIEF_NORMAL</relief>
-      <child>
-	<left_attach>2</left_attach>
-	<right_attach>3</right_attach>
-	<top_attach>1</top_attach>
-	<bottom_attach>2</bottom_attach>
-	<xpad>5</xpad>
-	<ypad>0</ypad>
-	<xexpand>False</xexpand>
-	<yexpand>False</yexpand>
-	<xshrink>False</xshrink>
-	<yshrink>False</yshrink>
-	<xfill>False</xfill>
-	<yfill>False</yfill>
-      </child>
     </widget>
   </widget>
 </widget>

@@ -6,7 +6,7 @@ NEWS IN VERSION 0.7delta5
 * Fertigkeiten mit Zusatz getrennt steigern/reduzieren (==operator)
 * Zaubern lernen geht wieder
 * Beruf mit Zusatz (z.B. Falkner) ohne Absturz
-* Ausgewählte Regionen in der Statusleiste anzeigen (PIXMAPS verkleinern!!!)
+* Ausgewählte Regionen in der Statusleiste anzeigen
 * Herkunftsländer für Priester (Dank an Ottmar Zimmer fürs abtippen)a
 * Kultwaffe für Priester werden im Infofenster angegeben
 * Alte Sprachen für Magister im Lernschema für Magister
@@ -16,6 +16,9 @@ NEWS IN VERSION 0.7delta5
 * Oberfläche überarbeitet
 * Export von Waffen mit richtigem Erfolgswert
 * 'Lernen von Spruchrolle' nur noch wenn 'Lesen von Zauberschrift' gelernt ist
+* Zusätze mit Regionen
+* Elfen-Doppelabenteurerfenster ist ersetzt
+* nicht-3TastenMaus: richtiges Tooltip setzen
 
 TODO: ('-' zeigt CP an)
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
@@ -27,7 +30,6 @@ links).
 - Würfelvarianten für Nichtmenschen!
 - 800x600 endlich wieder funktionstüchtig machen (wenn möglich ...)
 - verschwinden alle Icons?
-- nicht-3TastenMaus: richtiges Tooltip setzen
 - alle Ausdrucke unter Windows testen
 - .magus Endung unter Windows mit Magus.exe verknüpfen (beim Speichern)
 - xml laden beschleunigen (merge with map, reservate on vectors)
