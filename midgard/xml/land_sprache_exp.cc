@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.44 2002/07/01 11:01:49 thoma Exp $
+// $Id: land_sprache_exp.cc,v 1.45 2002/07/01 13:21:51 thoma Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -261,7 +261,7 @@ void land_speichern(Tag &o)
      std::string S=typ;
      if(S[0]=='P') S="PRI";
      Query query1("select land from typen_herkunft where typ='"+typ+"'"
-   		" and (erlaubt=true or erlaubt is null) order by land");
+   		" order by land");
      FetchIStream is1;
      while ((query1>>is1).good())
      {  Typ.push_back(Tag("Herkunft")).setAttr("Name",fetch_string(is1));
