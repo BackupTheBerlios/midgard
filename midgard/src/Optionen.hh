@@ -1,4 +1,4 @@
-// $Id: Optionen.hh,v 1.2 2002/04/14 09:04:23 thoma Exp $
+// $Id: Optionen.hh,v 1.3 2002/04/14 15:32:14 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,14 +21,19 @@
 #  define _MIDGARD_OPTIONEN_HH
 #include <gtk--/menu.h>
 #include <list.h>
+#include <string>
 #include "WindowInfo.hh"
 class midgard_CG;
 
 
 class Midgard_Optionen
 {
+      std::string viewer;
    public:
-      enum pdfViewerIndex {gv,acroread,xpdf};
+      std::string Viewer() ;
+      void setViewer(std::string s) {viewer=s;}
+      enum pdfViewerIndex {gv,acroread,xpdf,anderer};
+
       enum OptionenIndex {Original,Info,showPics,LernschemaSensitive,
                             WizardStarten,Wizard_immer_starten,gw_wuerfeln,
                             LernschemaZusaetzeLoeschen,show_InfoWindow,
@@ -36,40 +41,19 @@ class Midgard_Optionen
       enum HausIndex {Gold};
 
 
-      struct st_pdfViewer {pdfViewerIndex index; 
-                             Gtk::RadioMenuItem *radio_menu_item;
-                             std::string text;
-                             bool active;
-             st_pdfViewer(pdfViewerIndex i,Gtk::RadioMenuItem *r,
-                            std::string t, bool a) 
-                  : index(i),radio_menu_item(r),text(t),active(a) {} };
-
-        struct st_OptionenM{OptionenIndex index;
-                           Gtk::MenuItem *menuitem;
-                           std::string text;
-                           const char * const *bild;
-               st_OptionenM(OptionenIndex i,
-                           Gtk::MenuItem *m,
-                           std::string t,   
-                           const char * const * const b)
-                  :index(i),menuitem(m),text(t),bild(b) 
-                    {}};
-        struct st_Optionen{OptionenIndex index;
-                           Gtk::CheckMenuItem *checkmenuitem;
-                           std::string text;
-                           bool active;const char * const *bild;
-               st_Optionen(OptionenIndex i,
-                           Gtk::CheckMenuItem *cm,
-                           std::string t,
-                           bool a, const char * const * const b)
-                  :index(i),checkmenuitem(cm),text(t),active(a),bild(b)
+      struct st_pdfViewer{pdfViewerIndex index;std::string text;bool active;
+             st_pdfViewer(pdfViewerIndex i,std::string t, bool a) 
+                  : index(i),text(t),active(a) {} };
+      struct st_OptionenM{OptionenIndex index;std::string text;const char * const *bild;
+               st_OptionenM(OptionenIndex i,std::string t,const char * const * const b)
+                  :index(i),text(t),bild(b) {} };
+      struct st_Optionen{OptionenIndex index;std::string text;bool active;const char * const *bild;
+               st_Optionen(OptionenIndex i,std::string t,bool a, const char * const * const b)
+                  :index(i),text(t),active(a),bild(b)
                   {}};
-
-        Gtk::MenuItem *haus_menuitem;
-        struct st_Haus{HausIndex index; Gtk::CheckMenuItem *menu;std::string text;bool active;
-               st_Haus(HausIndex i,Gtk::CheckMenuItem *m,std::string t,bool a)
-                      :index(i),menu(m),text(t),active(a) {}
-                      };
+      struct st_Haus{HausIndex index;std::string text;bool active;
+               st_Haus(HausIndex i,std::string t,bool a)
+                      :index(i),text(t),active(a) {} };
 
    private:
       std::list<st_Haus> list_Hausregeln;
@@ -107,8 +91,6 @@ class Midgard_Optionen
       void Optionen_setzen_from_menu(OptionenIndex index);
       void OptionenM_setzen_from_menu(OptionenIndex index);
       void pdfViewer_setzen_from_menu(pdfViewerIndex index);
-
-
 };
 
 #endif

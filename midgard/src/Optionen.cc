@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.2 2002/04/14 09:04:23 thoma Exp $
+// $Id: Optionen.cc,v 1.3 2002/04/14 15:32:14 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,11 +27,21 @@
 #include "midgard_CG.hh"
 
 Midgard_Optionen::Midgard_Optionen(midgard_CG* h)
-:hauptfenster(h),haus_menuitem(0)
+:hauptfenster(h)
 {
    Optionen_init();
    Hausregeln_init();
    pdfViewer_init();
+}
+
+std::string Midgard_Optionen::Viewer()
+{
+  if     (pdfViewerCheck(Midgard_Optionen::gv).active)       return "gv ";
+  else if(pdfViewerCheck(Midgard_Optionen::xpdf).active)     return "xpdf ";
+  else if(pdfViewerCheck(Midgard_Optionen::acroread).active) return "acroread  ";
+  else if(pdfViewerCheck(Midgard_Optionen::anderer).active)  return viewer+" ";
+  else assert(!"");
+  abort();
 }
 
 
@@ -62,7 +72,6 @@ void Midgard_Optionen::setOption(std::string os,bool b)
  for(std::list<st_Optionen>::iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
    if(i->text==os) 
      { i->active=b;
-       i->checkmenuitem->set_active(i->active);
        return; 
      }
  throw NotFound();
@@ -73,7 +82,6 @@ void Midgard_Optionen::setHausregeln(std::string hs,bool b)
   for(list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
     if(i->text==hs)  
       { i->active=b; 
-        i->menu->set_active(i->active);
         return;
       }
  throw NotFound();
@@ -89,16 +97,19 @@ void Midgard_Optionen::setpdfViewer(std::string is,bool b)
 {
   for(list<st_pdfViewer>::iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
    {
+cout << i->text<<' '<<is<<' '<<(i->text==is)<<' '<<i->active<<'\n';
      if(i->text==is) i->active=b;
      else i->active=!b;
+cout <<'\t'<< i->text<<' '<<(i->text==is)<<' '<<i->active<<'\n';
    }
 }   
     
 
 void Midgard_Optionen::Optionen_setzen_from_menu(OptionenIndex index)
 {
-  if(!hauptfenster->fire_enabled) return;
-  hauptfenster->fire_enabled=false;
+//  if(!hauptfenster->fire_enabled) return;
+//  hauptfenster->fire_enabled=false;
+/*
   for(list<st_Optionen>::iterator i=list_Optionen.begin();i!=list_Optionen.end();++i)
    {
      if(i->index!=index) continue;
@@ -108,7 +119,8 @@ void Midgard_Optionen::Optionen_setzen_from_menu(OptionenIndex index)
      if(i->index==gw_wuerfeln) hauptfenster->show_gw_wuerfeln(i->active);
      if(i->index==NSC_only) hauptfenster->on_radiobutton_mann_toggled(); // zum Neuaufbau des Typmenüs
    }
-  hauptfenster->fire_enabled=true;
+//  hauptfenster->fire_enabled=true;
+*/
 }
  
 void Midgard_Optionen::OptionenM_setzen_from_menu(OptionenIndex index)
@@ -124,8 +136,10 @@ void Midgard_Optionen::Hausregeln_setzen_from_menu(HausIndex index)
 {
   for(list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
    {
-     if(i->index!=index) continue;
-     i->active = i->menu->get_active();
+     if(i->index==index) 
+      { i->active = true;
+        return;
+      }
    }
 }   
     
@@ -133,52 +147,29 @@ void Midgard_Optionen::pdfViewer_setzen_from_menu(pdfViewerIndex index)
 {
   for(list<st_pdfViewer>::iterator i=list_pdfViewer.begin();i!=list_pdfViewer.end();++i)
    {
-     if(i->index!=index) continue;
-     i->active = i->radio_menu_item->get_active();
+     if(i->index==index) i->active = true  ;
+     else                i->active = false ;
    }
 }   
-    
-
-
-
-
-
+ 
 void Midgard_Optionen::Optionen_init()
 {
-  Gtk::CheckMenuItem *menu_original;
-  list_Optionen.push_back(st_Optionen(Original,menu_original,
-                           "Originalregeln",
+  list_Optionen.push_back(st_Optionen(Original,"Originalregeln",
                            true,midgard_logo_tiny_xpm));
-  Gtk::CheckMenuItem *menu_nsc_only;
-  list_Optionen.push_back(st_Optionen(NSC_only,menu_nsc_only,
-                           "NSCs zulassen",
+  list_Optionen.push_back(st_Optionen(NSC_only,"NSCs zulassen",
                            false,0));  
-  Gtk::CheckMenuItem *menu_gw_wuerfeln;
-  list_Optionen.push_back(st_Optionen(gw_wuerfeln,menu_gw_wuerfeln,
+  list_Optionen.push_back(st_Optionen(gw_wuerfeln,
                            "Grundwerte nur mit einer Maustaste auswürfelbar machen",
                            false,Cyan_Dice_trans_50_xpm));
-  Gtk::CheckMenuItem *menu_pics;
-  list_Optionen.push_back(st_Optionen(showPics,menu_pics,
-                           "Bilder anzeigen",true,0));
-  Gtk::CheckMenuItem *menu_wizallways;
-  list_Optionen.push_back(st_Optionen(Wizard_immer_starten,menu_wizallways, 
+  list_Optionen.push_back(st_Optionen(showPics,"Bilder anzeigen",true,0));
+  list_Optionen.push_back(st_Optionen(Wizard_immer_starten, 
                            "Wizard bei jedem Programmstart zeigen",true,0));
 
-  Gtk::MenuItem *menu_lernschema_sensitive;
   list_OptionenM.push_back(st_OptionenM(LernschemaSensitive,
-                           menu_lernschema_sensitive,
                            "Lernschema/Steigern auswählbar machen",0));
-  Gtk::MenuItem *menu_show_info_window;
-  list_OptionenM.push_back(st_OptionenM(show_InfoWindow,
-                           menu_show_info_window,
-                           "Info Fenster zeigen",0));
-  Gtk::MenuItem *menu_wizard_starten;
-  list_OptionenM.push_back(st_OptionenM(WizardStarten,
-                           menu_wizard_starten, 
-                           "Wizard starten",0));
-  Gtk::MenuItem *menu_lernschema_fertzusaetze_loeschen;
+  list_OptionenM.push_back(st_OptionenM(show_InfoWindow,"Info Fenster zeigen",0));
+  list_OptionenM.push_back(st_OptionenM(WizardStarten,"Wizard starten",0));
   list_OptionenM.push_back(st_OptionenM(LernschemaZusaetzeLoeschen,
-                           menu_lernschema_fertzusaetze_loeschen,
                            "Fertigkeiten mit Zusätzen im Lernschema wieder anzeigen",0));
 }
 
@@ -187,25 +178,24 @@ void Midgard_Optionen::Optionen_init()
 
 void Midgard_Optionen::pdfViewer_init()
 {
-  Gtk::RadioMenuItem *menu_xpdf;
-  list_pdfViewer.push_back(st_pdfViewer(xpdf,menu_xpdf,
-                           "pdf Dokument mit 'xpdf' betrachten",
-                           false));
-  Gtk::RadioMenuItem *menu_acroread;
-  list_pdfViewer.push_back(st_pdfViewer(acroread,menu_acroread,
+  list_pdfViewer.push_back(st_pdfViewer(acroread,
                            "pdf Dokument mit 'acroread' betrachten",
                            true));
-  Gtk::RadioMenuItem *menu_gv;
-  list_pdfViewer.push_back(st_pdfViewer(gv,menu_gv,
+  list_pdfViewer.push_back(st_pdfViewer(gv,
                            "pdf Dokument mit 'gv' betrachten",
+                           false));
+  list_pdfViewer.push_back(st_pdfViewer(xpdf,
+                           "pdf Dokument mit 'xpdf' betrachten",
+                           false));
+  list_pdfViewer.push_back(st_pdfViewer(anderer,
+                           "anderer Viewer (z.B. 'kghostview', 'ggv')",
                            false));
 }
 
 void Midgard_Optionen::Hausregeln_init()
 {
  list_Hausregeln.clear();  
- Gtk::CheckMenuItem *gold; 
- list_Hausregeln.push_back(st_Haus(Gold,gold,"1 GS entspricht 1 GFP",false));
+ list_Hausregeln.push_back(st_Haus(Gold,"1 GS entspricht 1 GFP",false));
 }
 
 void Midgard_Optionen::load_options()
@@ -218,6 +208,7 @@ void Midgard_Optionen::load_options()
       ts.debug();
       return;
     }
+
   FOR_EACH_CONST_TAG_OF(i,*data,"Optionen")
      setOption(i->getAttr("Name"),i->getBoolAttr("Wert"));
   FOR_EACH_CONST_TAG_OF(i,*data,"Hausregel")
@@ -259,7 +250,7 @@ void Midgard_Optionen::save_options(WindowInfo *InfoFenster)
    {
      if(!i->active) continue;
      datei << "  <pdfViewer";
-     write_string_attrib(datei, "pdfViewer" ,i->text);
+     write_string_attrib(datei, "Name" ,i->text);
      write_bool_attrib(datei, "Wert", i->active);
      datei << "/>\n";
    }

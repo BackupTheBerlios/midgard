@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.185 2002/04/14 09:04:23 thoma Exp $
+// $Id: midgard_CG.cc,v 1.186 2002/04/14 15:32:14 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,7 +31,7 @@
 #endif
 
 midgard_CG::midgard_CG(const string &datei)
-: InfoFenster(0), MOptionen(0),wizard(0),menu(0),menu_gradanstieg(0),
+: InfoFenster(0),wizard(0), MOptionen(0),menu(0),menu_gradanstieg(0),
   /*haus_menuitem(0),*/Database(Midgard_Info),fire_enabled(true)
 {
   notebook_main->set_sensitive(true); // solange die Datenbank nicht geladen ist
@@ -39,21 +39,19 @@ midgard_CG::midgard_CG(const string &datei)
   srand(time(0));
   if(InfoFenster) delete(InfoFenster);
   InfoFenster = manage(new WindowInfo(this));
-  if(Optionen) delete(Optionen);
-  Optionen = manage(new Optionen(this));
-  
+  if(MOptionen) delete(MOptionen);
+//  MOptionen = manage(new Midgard_Optionen(this)); // geht nicht
+  MOptionen = new Midgard_Optionen(this); // Destruktor schrieben !?!
+  frame_drucken->set_Hauptfenster(this);
 
   set_tree_titles();
   optionmenu_init();  
-  Optionen_init();
-  Hausregeln_init();
-  pdfViewer_init();
 
   on_neuer_charakter_clicked();
-  load_options();
+  MOptionen->load_options();
   notebook_main->set_page(PAGE_GRUNDWERTE); // muß nach 'on_neuer_charakter_clicked' kommen wg. Typ.resize(2)
   if (!datei.empty()) xml_import(datei); // Charakter laden
-  else if(OptionenCheck(Wizard_immer_starten).active) wizard_starten_clicked();
+  else if(MOptionen->OptionenCheck(Midgard_Optionen::Wizard_immer_starten).active) wizard_starten_clicked();
   // für die NEWS
   Gtk::OStream os(list_news);
   os << 
@@ -367,7 +365,7 @@ void midgard_CG::on_schliessen_CG_clicked()
 {
   if(modify_bool)
    {
-     save_options();
+     MOptionen->save_options(InfoFenster);
      xml_export_auswahl();
      return;
    }

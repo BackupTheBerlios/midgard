@@ -25,6 +25,8 @@
 
 void midgard_CG::menu_init()
 {
+  frame_drucken->init();
+/*
   bool memfire=fire_enabled;
   fire_enabled=false;
   if (menu) { menu->destroy(); menu=0; MOptionen->haus_menuitem=0; }
@@ -206,6 +208,7 @@ void midgard_CG::menu_init()
 
   menu->show_all();
   fire_enabled=memfire;
+*/
 }
 
 //////////////////////////////////////////////////////////////////
