@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.108 2001/12/18 13:14:48 thoma Exp $
+// $Id: midgard_CG.hh,v 1.109 2001/12/21 09:34:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -220,7 +220,9 @@ class midgard_CG : public midgard_CG_glade
         void on_button_wert_5_clicked();
         void on_button_wert_6_clicked();
         int werte_label_count;
-        void set_werte_label(Gtk::Label *L=0);
+        void set_werte_label_2();
+        void set_werte_label_3(Gtk::Label *L=0);
+        void gw_setzen(Gtk::Label *L=0,int button=0);
         int  constraint_gw(Random& random,int constraint);
         int  constraint_aw(Random& random,int constraint);
         int  wuerfeln_best_of_two(Random& random);

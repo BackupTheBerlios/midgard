@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.63 2001/12/20 11:29:17 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.64 2001/12/21 09:34:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -227,7 +227,8 @@ void midgard_CG::LaTeX_write_values()
     count++;
     std::string wert = itos(f->Erfolgswert());
     if (wert == "0") wert = "";
-    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<f->Name() << "}\t\t";
+    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<f->Name()<<
+      ' '<<f->Zusatz() << "}\t\t";
     fout << "\\newcommand{\\wert"<<a<<"}{"  <<wert << "}\n";
    }
  std::string a = LaTeX_string(count);

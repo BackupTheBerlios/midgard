@@ -1,4 +1,4 @@
-// $Id: midgard_CG_zauber.cc,v 1.43 2001/12/20 06:18:38 thoma Exp $
+// $Id: midgard_CG_zauber.cc,v 1.44 2001/12/21 09:34:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -76,23 +76,35 @@ void midgard_CG::spezialgebiet_button_fill()
    {
     if((*i)->Typ() != Typ[0]->Short() && (*i)->Typ() != Typ[1]->Short() ) continue;
     t_ << (*i)->Name();
+cout << (*i)->Name()<<'\n';
+cout << "\tvor "<<(*i)->ref()<<'\n';
     t_.flush((*i)->ref(),&HandleContent::unref);
+cout << "\tnach "<<(*i)->ref()<<'\n';
 //    t_.flush(gpointer(&*i));
    }  
  }
  option_magier_spezialgebiet->get_menu()->deactivate.connect(SigC::slot(static_cast<class midgard_CG*>(this), &midgard_CG::spezialgebiet_button));
+cout <<"Menu: "<< option_magier_spezialgebiet->get_menu()<<'\n';
 }
 
 void midgard_CG::spezialgebiet_button()
 {
- cH_Spezialgebiet ptr = static_cast<Spezialgebiet*>(optionmenu_spezies->get_menu()->get_active()->get_user_data());
+cout << "Auswahl\n";
+ gpointer user_data=optionmenu_spezies->get_menu()->get_active()->get_user_data();
+cout <<"Menu: "<< option_magier_spezialgebiet->get_menu()<<'\n';
+cout << "Ja\n";
+cout << user_data<<' '<<&user_data<<'\n';
+ cH_Spezialgebiet ptr = static_cast<Spezialgebiet*>(user_data);
+cout << "aftercast\n";
 // if (s=="Spezialgebiet" || s == "Primär- und Sekundärelement") return ;
 cout <<"Spez="<<(ptr)->Name()<<'\n';
+/*
  Werte.set_Spezialgebiet(ptr);
 
 cout <<"Spez="<<(ptr)->Name()<<'\n';
 // get_spezial_from_spezialgebiet();
 //cout << Werte.Spezialisierung()<<"\t"<<Werte.Spezial()<<"\t"<<Werte.Spezial2(
+*/
 } 
 
               

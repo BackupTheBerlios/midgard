@@ -88,7 +88,7 @@ public:
    int KAW() const {return St()/10;}
    int WLW() const {return 40+Ko()/2;}
    int Geistesblitz() const {return In()/10;}
-   int Gift() const {return 30 + Ko()/10;}
+   int Gift() const {if(Ko()) return 30 + Ko()/10; else return 0;}
    int Alter() const {return alter;}
    std::string Gestalt() const {return gestalt;}
    std::string Geschlecht() const {return geschlecht;}

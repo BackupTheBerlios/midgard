@@ -4,7 +4,8 @@ NEWS IN VERSION 0.1delta1
 * Berufe funktionieren
 * Sprachen, alte Sprachen und Schriften funktionieren (zumindest sollten sie das:-)
 * Umbau der Oberfläche begonnen
-* Landeskunde funktioniert jetzt für Heimatländer (Charaktererschaffung)
+* Landeskunde funktioniert jetzt für Heimatländer 
+   (Charaktererschaffung und Steigern)
 * Neuer Grundwerte-Auswürfelmechanismus implementiert
 * Die Oberfläche für die 4.Version ist weitgehend fertig
 * Die Ausrüstungsbaum funktioniert prinzipiell
@@ -24,11 +25,11 @@ NEWS IN VERSION 0.1delta1
    explizit gelernt wurde.
 
 TODO:
-* Landeskunde beim 'steigern' stürzt ab.
 * Die Ausrüstung kann noch nicht geladen werden
 * Spezielgebiete für Magier stürzt ab
 * Irgendwie funktioniert das mit dem Erfolgswert für waffenlosen Kampf 
    und dem dazugehörigen Abwerbonus noch nicht.
+* Landeskunde Heimat in Universellen Fertigkeiten
 
 
 ##########################################################################

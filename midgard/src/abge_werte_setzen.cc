@@ -1,4 +1,4 @@
-// $Id: abge_werte_setzen.cc,v 1.32 2001/12/18 13:14:48 thoma Exp $
+// $Id: abge_werte_setzen.cc,v 1.33 2001/12/21 09:34:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,7 +27,6 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   Random random;
   int grad =1;
   //////////////////////////////////////////////////////////////////////
-  // Übrige Werte würfeln //////////////////////////////////////////////
   // Aussehn
   int au = constraint_aw(random,Werte.Spezies()->Au());
   // pers. Ausstrahlung
@@ -57,10 +56,9 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   int abwehr_wert=11 ;
   // Zaubern:
   //Barde,Ordenskrieger,Zauberer
-  int zaubern_wert=0;
+  int zaubern_wert=2;
   if (Typ[0]->Zaubern() == "j" || Typ[0]->Zaubern() == "z" || Typ[1]->Zaubern() == "j" || Typ[1]->Zaubern() == "z" ) 
      zaubern_wert = 10 ;
-  else zaubern_wert = 2;
   
   int resistenz = 10;
 
@@ -84,29 +82,38 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   if (Werte.Spezies()->Name()=="Mensch" && Werte.Geschlecht()=="w")
     groesse-=10;   
 
-  int ges=random.integer(1,6) + Werte.Spezies()->Gestalt();
+//  int ges=random.integer(1,6) + Werte.Spezies()->Gestalt();
   int gewicht=0,ganz=0;
   if(Werte.Spezies()->Name()=="Mensch" || Werte.Spezies()->Name()=="Elf" || Werte.Spezies()->Name()=="Zwerg")
       ganz=4;
   else ganz=3;
   for (int i=0;i<ganz;++i) gewicht+=random.integer(1,6) ;
+  if (Werte.Spezies()->Name()=="Mensch" && Werte.Geschlecht()=="w")
+   gewicht-=4;
   gewicht += Werte.St()/10. + groesse;
-  if(Werte.Spezies()->Name()=="Mensch" || Werte.Spezies()->Name()=="Elf" || Werte.Spezies()->Name()=="Zwerg")
+  if(Werte.Spezies()->Name()=="Mensch" || Werte.Spezies()->Name()=="Elf")
       gewicht-=120;
   else gewicht -=90;
 
   std::string gestalt;
+  int g=groesse-100;
+  double ge=gewicht/g;
+  if(ge>1.1) gestalt="breit";
+  else if(ge<0.9) gestalt="schlank";
+  else gestalt="normal";
+
+/*
   if (Werte.St() >= 81) ges++;
   if (Werte.St() >= 96) ges++;
   if (ges<=2) 
    { gestalt = "schlank";
-     gewicht *= gewicht-(int)(gewicht*0.1) ; }
+     gewicht = gewicht-(int)(gewicht*0.1) ; }
   if (ges>=3&&ges<=4) 
      gestalt = "normal";
   if (ges>=5) 
    { gestalt = "breit";
      gewicht =  gewicht+(int)(gewicht*0.1) ; }
-
+*/
   int ihand=random.integer(1,20);
   std::string shand;
   if(ihand<=15) shand="Rechtshänder";
@@ -258,16 +265,6 @@ void midgard_CG::grundwerte_boni_setzen()
 
   Werte.set_Abgeleitetewerte_Boni(bo_au,bo_sc,bo_an,bo_ab,bo_za,bo_psy,bo_phs,
    bo_phk);
-
-/*
-  int bo_gi  =0;
-  int kaw;
-  int wlw;
-  int lpbasis;
-*/
-
-
-
 }
 
 void midgard_CG::original_midgard_check()
