@@ -1,4 +1,4 @@
-// $Id: zeige_werte.cc,v 1.57 2002/05/22 17:00:45 thoma Exp $
+// $Id: zeige_werte.cc,v 1.58 2002/05/24 14:06:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,6 +27,7 @@
 
 void midgard_CG::zeige_werte()
 {
+/*
    gfp->set_text(itos(getCWerte().GFP()));
 
    label_s_grad->set_text(itos(getCWerte().Grad()));
@@ -50,4 +51,5 @@ void midgard_CG::zeige_werte()
    std::string z=Database.GradAnstieg.getGFP_for_str(Grad_anstieg::Zaubern,getCWerte());
    if(!Char.CTyp1()->is_mage() && !Char.CTyp2()->is_mage()) z="";
    label_zauber_GFP->set_text(z);
+*/
 }

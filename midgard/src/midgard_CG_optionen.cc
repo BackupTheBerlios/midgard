@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.91 2002/05/17 12:23:08 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.92 2002/05/24 14:06:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -45,12 +45,12 @@ void midgard_CG::Ober_setzen_from_menu(Gtk::CheckMenuItem *mi,Midgard_Optionen::
 void midgard_CG::checkbutton_original(bool active)
 {
   if(active) 
-    { togglebutton_alle_zauber->set_sensitive(false); 
+    { table_steigern->togglebutton_alle_zauber->set_sensitive(false); 
       MOptionen->setAllHausregeln(false);
       pixmap_logo->show();
     }      
   else 
-    { togglebutton_alle_zauber->set_sensitive(true); 
+    { table_steigern->togglebutton_alle_zauber->set_sensitive(true); 
       pixmap_logo->hide();
     }      
   menu_init();
@@ -85,18 +85,18 @@ void midgard_CG::show_Pics(bool b)
     table_grundwerte->pixmap_dfr4->show();
 //    pixmap_dfr3->show();
     table_lernschema->scrolledwindow_dfr3->show(); 
-    pixmap_kurai->show();
-    table_gradsteigern_lang->show();
-    button_steigern_kurz->hide();
+    table_steigern->pixmap_kurai->show();
+//    table_steigern->table_gradsteigern_lang->show();
+//    table_steigern->button_steigern_kurz->hide();
   }
  else
   {
     table_grundwerte->pixmap_dfr4->hide();
 //    pixmap_dfr3->hide();
     table_lernschema->scrolledwindow_dfr3->hide(); 
-    pixmap_kurai->hide();
-    table_gradsteigern_lang->hide();
-    button_steigern_kurz->show();
+    table_steigern->pixmap_kurai->hide();
+//    table_steigern->table_gradsteigern_lang->hide();
+//    table_steigern->button_steigern_kurz->show();
   }
 }
 
@@ -151,6 +151,12 @@ void midgard_CG::show_NIcons(bool i)
    pixmap_notebook_optionen->show();
    pixmap_notebook_news_1->show();
    pixmap_notebook_news_2->show();
+   table_steigern->pixmap_ns_fertig->show();
+   table_steigern->pixmap_ns_waffen->show();
+   table_steigern->pixmap_ns_zauber->show();
+   table_steigern->pixmap_ns_kido->show();
+   table_steigern->pixmap_ns_sprache->show();
+   table_steigern->pixmap_ns_besitz->show();
   }
  else
   {
@@ -164,6 +170,12 @@ void midgard_CG::show_NIcons(bool i)
    pixmap_notebook_optionen->hide();
    pixmap_notebook_news_1->hide();
    pixmap_notebook_news_2->hide();
+   table_steigern->pixmap_ns_fertig->hide();
+   table_steigern->pixmap_ns_waffen->hide();
+   table_steigern->pixmap_ns_zauber->hide();
+   table_steigern->pixmap_ns_kido->hide();
+   table_steigern->pixmap_ns_sprache->hide();
+   table_steigern->pixmap_ns_besitz->hide();
   }
 }
 
@@ -180,6 +192,12 @@ void midgard_CG::show_NBeschriftungen(bool b)
    label_notebook_ausruestung->show();
    label_notebook_optionen->show();
    label_notebook_news->show();
+   table_steigern->label_ns_fertigkeiten->show();
+   table_steigern->label_nw_waffen->show();
+   table_steigern->label_ns_zauber->show();
+   table_steigern->label_ns_kido->show();
+   table_steigern->label_ns_sprache->show();
+   table_steigern->label_ns_besitz->show();
   }
  else
   {
@@ -191,6 +209,12 @@ void midgard_CG::show_NBeschriftungen(bool b)
    label_notebook_ausruestung->hide();
    label_notebook_optionen->hide();
    label_notebook_news->hide();
+   table_steigern->label_ns_fertigkeiten->hide();
+   table_steigern->label_nw_waffen->hide();
+   table_steigern->label_ns_zauber->hide();
+   table_steigern->label_ns_kido->hide();
+   table_steigern->label_ns_sprache->hide();
+   table_steigern->label_ns_besitz->hide();
   }
 }
 
@@ -208,7 +232,7 @@ void midgard_CG::on_checkbutton_Regionen_menu(Gtk::CheckMenuItem *menu_item,cH_R
 
  table_grundwerte->fill_typauswahl();
  if(notebook_main->get_current_page_num()==PAGE_STEIGERN)
-    load_for_page(notebook_lernen->get_current_page_num());
+    table_steigern->load_for_page(table_steigern->notebook_lernen->get_current_page_num());
 
 // pixmap_logo->show();
  for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)

@@ -36,7 +36,7 @@ void Window_Erfahrungspunkte::on_button_close_clicked()
   Werte.setEP(spinbutton_AEP->get_value_as_int(),
               spinbutton_KEP->get_value_as_int(),
               spinbutton_ZEP->get_value_as_int());
-  hauptfenster->EP_uebernehmen();
+  hauptfenster->table_steigern->zeige_werte();
   destroy();
 }
 

@@ -16,34 +16,54 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#include "config.h"
-#include "Window_ruestung.hh"
-#include <Gtk_OStream.h>
 #include "midgard_CG.hh"
+#include "table_steigern.hh"
+#include <Gtk_OStream.h>
 #include <Aux/itos.h>
 
-void Window_ruestung::on_clist_ruestung_select_row(gint row, gint column, GdkEvent *event)
+void table_steigern::on_button_ruestung_1_toggled()
+{
+ if(!button_ruestung_1->get_active()) return;
+// hauptfenster->getWerte().clearRuestung();
+ fill_ruestung();
+ show_label();
+}
+
+void table_steigern::on_button_ruestung_2_toggled()
+{
+ if(!button_ruestung_2->get_active()) return;
+ fill_ruestung();
+}
+                
+
+void table_steigern::on_clist_ruestung_select_row(gint row, gint column, GdkEvent *event)
 {   
   cH_Ruestung R=static_cast<Ruestung*>(clist_ruestung->selection().begin()->get_data());
 //  Werte.set_Ruestung(clist_ruestung->get_text(row,1));
-  if(R->Min_Staerke()<=Werte.St())
+  if(R->Min_Staerke()<=hauptfenster->getCWerte().St())
    {
-     ++count;
-//     if(count==1)  Werte.clearRuestung();
-//     Werte.addRuestung(R);
+     if(button_ruestung_1->get_active())
+      {
+        hauptfenster->getWerte().setRuestung1(R);
+        button_ruestung_1->set_active(false);
+      }
+     else if(button_ruestung_2->get_active())
+      {
+        hauptfenster->getWerte().setRuestung2(R);
+        button_ruestung_2->set_active(false);
+      }
      show_label();
-     if(count==2) destroy();
+     clist_ruestung->set_sensitive(false);
    }
   else 
    hauptfenster->set_status("Nicht stark genug.");
 }
 
-Window_ruestung::Window_ruestung(Grundwerte& W,midgard_CG* h, const Datenbank& Database) 
-: Werte(W), hauptfenster(h), count(0)
+void table_steigern::fill_ruestung() 
 {
- show_label();
+// show_label();
  Gtk::OStream os(clist_ruestung);
- for(std::vector<cH_Ruestung>::const_iterator i=Database.Ruestung.begin();i!=Database.Ruestung.end();++i)
+ for(std::vector<cH_Ruestung>::const_iterator i=hauptfenster->getCDatabase().Ruestung.begin();i!=hauptfenster->getCDatabase().Ruestung.end();++i)
    { cH_Ruestung r(*i);
      if (hauptfenster->region_check(r->Region()))
         os << r->Long() <<"\t"<<r->Name()<<"\t"<<r->LP_Verlust()<<"\t"
@@ -52,11 +72,15 @@ Window_ruestung::Window_ruestung(Grundwerte& W,midgard_CG* h, const Datenbank& D
    } 
  for (unsigned int i=0;i<clist_ruestung->columns().size();++i)
    clist_ruestung->set_column_auto_resize(i,true);  
+ clist_ruestung->set_sensitive(true);
 }
 
-void Window_ruestung::show_label()
+void table_steigern::show_label()
 {
- std::string sru=itos(count+1)+"te Rüstung auswählen. Bisherige Rüstungen: ("+ 
-   Werte.Ruestung()->Long() +"/"+Werte.Ruestung(1)->Long()+")";
- label_ruestung->set_text(sru.c_str());
+// std::string sru=itos(count+1)+"te Rüstung auswählen. Bisherige Rüstungen: ("+ 
+//   Werte.Ruestung()->Long() +"/"+Werte.Ruestung(1)->Long()+")";
+// label_ruestung->set_text(sru.c_str());
+ label_ruestung_1->set_text(hauptfenster->getCWerte().Ruestung()->Long());
+ label_ruestung_2->set_text(hauptfenster->getCWerte().Ruestung(1)->Long());
 }
+

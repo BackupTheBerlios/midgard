@@ -23,6 +23,10 @@ void table_lernschema::init(midgard_CG *h)
   maxkido=0;
   show_gelerntes();
   zeige_werte();
+  
+  vbox_berufsname->hide();
+  button_kido_auswahl->set_sensitive(false);
+  button_angeborene_fert->set_sensitive(false);
 }
 
 
@@ -474,8 +478,8 @@ void table_lernschema::on_button_ruestung_clicked()
       if (81 <= wurf && wurf  <= 95 ) rue = "LR" ;
       if (96 <= wurf && wurf  <= 100) rue = "LR" ;
    }
-  hauptfenster->getWerte().clearRuestung();
-  hauptfenster->getWerte().addRuestung(cH_Ruestung(rue));
+//  hauptfenster->getWerte().clearRuestung();
+  hauptfenster->getWerte().setRuestung1(cH_Ruestung(rue));
   hauptfenster->set_status("Beim Auswürfeln der Rüstung wurde eine "+itos(wurf)+" gewürfelt "
              "==> " + hauptfenster->getCWerte().Ruestung()->Long());
   zeige_werte();

@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.38 2002/05/14 14:01:44 thoma Exp $
+// $Id: WindowInfo.cc,v 1.39 2002/05/24 14:06:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -61,10 +61,10 @@ void WindowInfo::on_button_auswahl_clicked(int connect)
 {
  assert(Modus==PraxisPunkteMBE);
   if       (connect==1) on_button_info_ok_clicked();
-  else if  (connect==2) hauptfenster->PraxisPunkt_to_AEP(MBE,true,false);
-  else if  (connect==3) hauptfenster->PraxisPunkt_to_AEP(MBE,false,false);
-  else if  (connect==4) hauptfenster->PraxisPunkt_to_AEP(MBE,true,true);
-  else if  (connect==5) hauptfenster->PraxisPunkt_to_AEP(MBE,false,true);
+  else if  (connect==2) hauptfenster->table_steigern->PraxisPunkt_to_AEP(MBE,true,false);
+  else if  (connect==3) hauptfenster->table_steigern->PraxisPunkt_to_AEP(MBE,false,false);
+  else if  (connect==4) hauptfenster->table_steigern->PraxisPunkt_to_AEP(MBE,true,true);
+  else if  (connect==5) hauptfenster->table_steigern->PraxisPunkt_to_AEP(MBE,false,true);
   frame_auswahl->remove();
   hide();
 }

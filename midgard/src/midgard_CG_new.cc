@@ -34,8 +34,8 @@ void midgard_CG::clear_listen()
 
 void midgard_CG::clear_gtk()
 {
-   table_lernschema->tree_gelerntes->clear();
-
+//   table_lernschema->tree_gelerntes->clear();
+/*
    alte_fert_tree->clear();
    neue_fert_tree->clear();
    alte_waffen_tree->clear();
@@ -52,6 +52,7 @@ void midgard_CG::clear_gtk()
    neue_sprache_tree->clear();
    alte_schrift_tree->clear();
    neue_schrift_tree->clear();
+*/
 }
 
 gint midgard_CG::on_neuer_charakter_release_event(GdkEventButton *ev)
@@ -95,31 +96,30 @@ void midgard_CG::on_neuer_charakter_clicked()
    table_lernschema->togglebutton_spezialwaffe->set_active(false);
    table_lernschema->togglebutton_spezialwaffe->hide();
       
-   scrolledwindow_landauswahl->hide();
-   spinbutton_pp_eingeben->hide();
-   vbox_praxispunkte->hide();
+//   scrolledwindow_landauswahl->hide();
+//   spinbutton_pp_eingeben->hide();
+//   vbox_praxispunkte->hide();
 /*
    table_gruppe->hide();
    table_artikel->hide();
    togglebutton_gruppe_neu->hide(); // nicht implementiert
 */
-   togglebutton_praxispunkte->set_active(false);
+//   togglebutton_praxispunkte->set_active(false);
 
-
+/*
    table_lernschema->vbox_berufsname->hide();
    table_lernschema->button_kido_auswahl->set_sensitive(false);       
    table_lernschema->button_angeborene_fert->set_sensitive(false);
-
+*/
 
    table_lernschema->lernpunkte.clear();
    for(std::vector<cH_Region>::const_iterator i=Database.Regionen.begin();i!=Database.Regionen.end();++i)
       (*i)->setActive(false);
-   steigern_mit_EP_bool=true;
-   checkbutton_EP_Geld->set_active(steigern_mit_EP_bool);
 
    Char.getWerte().set_Grad_Basiswerte(1);
-   label_EP->set_text("50%");
-   label_Gold->set_text("50%");
+   table_steigern->neuer_charakter();
+//   label_EP->set_text("50%");
+//   label_Gold->set_text("50%");
 
   menu_init();
   notebook_main->set_page(PAGE_GRUNDWERTE);

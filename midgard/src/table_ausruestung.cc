@@ -16,15 +16,12 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#include "midgard_CG.hh"
 #include "config.h"
 #include "table_ausruestung.hh"
+#include "midgard_CG.hh"
 //#include "WindowInfo.hh"
 #include <Gtk_OStream.h>
 #include <Aux/EntryValueIntString.h>
-#ifndef USE_XML
-#include <Aux/SQLerror.h>
-#endif
 #include <fstream>
 #include <Aux/itos.h>
 #include "dtos1.h"

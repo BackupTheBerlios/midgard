@@ -191,10 +191,11 @@ void midgard_CG::xml_import_stream(istream& datei)
    getWerte().setBeschreibungPix(top->getString("TextPix")); 
    getWerte().setBeschreibungPixSize(atoi(top->getString("TextPixSize").c_str())); 
    getWerte().setGeld(Vermoegen->getIntAttr("GS"),Vermoegen->getIntAttr("SS"),Vermoegen->getIntAttr("KS"));
-   getWerte().clearRuestung();
-   if (Ruestung1) getWerte().addRuestung(cH_Ruestung(Ruestung1->Value(),true));
-   else getWerte().addRuestung(cH_Ruestung("OR",true));
-   if (Ruestung2) getWerte().addRuestung(cH_Ruestung(Ruestung2->Value(),true));
+//   getWerte().clearRuestung();
+   if (Ruestung1) getWerte().setRuestung1(cH_Ruestung(Ruestung1->Value(),true));
+   else getWerte().setRuestung1(cH_Ruestung("OR",true));
+   if (Ruestung2) getWerte().setRuestung2(cH_Ruestung(Ruestung2->Value(),true));
+   else getWerte().setRuestung2(cH_Ruestung("OR",true));
    getWerte().setSpezies(cH_Spezies(Typ->getAttr("Spezies","Mensch"),true));
    if (Steigern)       getWerte().setEP(Steigern->getIntAttr("AEP"),Steigern->getIntAttr("KEP"),Steigern->getIntAttr("ZEP"));
    else
@@ -240,7 +241,7 @@ void midgard_CG::Typ_Geschlecht_Spezies_setzen()
 */
    menu_init();
 //   Gtk::Menu_Helpers::SelectMatching(*(table_grundwerte->optionmenu_spezies),getWerte().Spezies());
-   show_gtk();
+//   show_gtk();
 /*
    if(getWerte().Spezialgebiet()->Name()!="") 
      { 

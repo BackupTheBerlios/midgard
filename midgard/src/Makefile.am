@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.165 2002/05/22 17:00:44 thoma Exp $
+# $Id: Makefile.am,v 1.166 2002/05/24 14:06:52 thoma Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -96,7 +96,8 @@ WindowInfo_glade.hh WindowInfo.hh \
    Window_Erfahrungspunkte_glade.hh \
    ProgressBar.h \
    table_lernschema.hh \
-   table_lernschema_glade.hh
+   table_lernschema_glade.hh \
+   Data_waffenbesitz.hh
 
 BUILT_SOURCES= export_common.h registry.h text2c NEWS.h
 
@@ -109,6 +110,21 @@ NEWS.h: ../NEWS ; ./text2c <../NEWS >NEWS.h
 midgard_xmlexport_SOURCES= xmlexport.cc export_common.cc
 
 magus_SOURCES = $(PORT_FILES) \
+   table_steigern_gold.cc \
+   table_steigern_waffenbesitz.cc \
+   table_steigern_ruestung.cc \
+   table_steigern.cc \
+   table_steigern_glade.hh \
+   table_steigern_glade.cc \
+   table_steigern.hh \
+   table_steigern_EP.cc \
+   table_steigern_fertigkeiten.cc \
+   table_steigern_kido.cc \
+   table_steigern_main.cc \
+   table_steigern_sprache.cc \
+   table_steigern_waffen.cc \
+   table_steigern_zauber.cc \
+   table_steigern_grad_anstieg.cc \
    table_ausruestung.cc \
    table_ausruestung_glade.cc \
    table_lernschema_kido.cc \
@@ -169,18 +185,11 @@ magus_SOURCES = $(PORT_FILES) \
    table_grundwerte_typauswahl.cc \
    MidgardBasicTree.cc \
    MidgardBasicElement.cc \
-   midgard_CG_basic_elemente.cc \
+   table_steigern_midgard_basic_elemente.cc \
    Window_ruestung.cc \
-   steigern_fertigkeiten.cc  \
-   steigern_waffen.cc \
-   steigern_sprache.cc  \
-   steigern_zauber.cc  \
-   steigern_kido.cc  \
    midgard_CG_menu.cc \
    Window_Erfahrungspunkte.cc \
    Window_Erfahrungspunkte_glade.cc \
-   steigern_main.cc \
-   steigern_EP.cc \
    xml_fileselection.cc \
    spielleiter_export.cc \
    midgard_CG_region_check.cc \
@@ -194,7 +203,6 @@ magus_SOURCES = $(PORT_FILES) \
 	Midgard_Info.cc \
 	midgard.cc \
    midgard_CG_drucken.cc \
-   midgard_CG_grad_anstieg.cc \
 	midgard_CG_glade.cc \
 	midgard_CG.cc \
 	table_grundwerte_abge_werte.cc \

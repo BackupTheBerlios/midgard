@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.37 2002/05/22 17:00:44 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.38 2002/05/24 14:06:52 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -76,7 +76,7 @@ public:
              aep(0),kep(0),zep(0),spezies("Mensch"),
              stadt_land("Stadt"), steigern_EP_prozent(50), grad_basiswerte(1)
          { resetSinne(); }
-   void clear() {*this=Grundwerte();}
+   void clear();
    void resetSinne() ;
    void setSt(int i) {grund.st=i;}
    void setGw(int i) {grund.gw=i;}
@@ -229,8 +229,9 @@ public:
    void setBeschreibung(const std::string& _b){beschreibung.text=_b;}
    void setBeschreibungPix(const std::string& _b){beschreibung.file=_b;}
    void setBeschreibungPixSize(int i){beschreibung.size=i;}
-   void clearRuestung() {ruestung.clear(); }
-   void addRuestung(const cH_Ruestung r){ruestung.push_back(r);}
+//   void clearRuestung() {ruestung.clear(); }
+   void setRuestung1(cH_Ruestung r){ruestung[0]=r;}
+   void setRuestung2(cH_Ruestung r){ruestung[1]=r;}
    void setStadt_Land(const std::string& sl) {stadt_land=sl;}
    void setGFP(int _gfp){gfp=_gfp;}
    void addGFP(int _gfp){gfp += _gfp;}
@@ -240,10 +241,14 @@ public:
    void addGold(int g)  {gold+=g;}
    void addSilber(int s) {silber+=s;}
    void addKupfer(int k) {kupfer+=k;}
+   void setGold(int g)  {gold=g;}
+   void setSilber(int s) {silber=s;}
+   void setKupfer(int k) {kupfer=k;}
    void setEP(int a, int k, int z) {aep=a;kep=k;zep=z;}
    void addAEP(int a) {aep+=a;}
    void addKEP(int a) {kep+=a;}
    void addZEP(int a) {zep+=a;}
+   void setAEP(int a) {aep=a;}
    void setKEP(int a) {kep=a;}
    void setZEP(int a) {zep=a;}
    

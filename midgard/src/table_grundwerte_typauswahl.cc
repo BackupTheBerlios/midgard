@@ -58,7 +58,7 @@ void table_grundwerte::typauswahl_button()
 {
  hauptfenster->Char.reset();
  hauptfenster->clear_gtk();
- hauptfenster->show_gtk();
+
  if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::TYP);
  cH_Typen ptr = static_cast<Typen*>(typauswahl->get_menu()->get_active()->get_user_data());
  hauptfenster->getChar().setTyp1(ptr);
@@ -93,7 +93,7 @@ void table_grundwerte::typauswahl_2_button()
 {
  cH_Typen ptr = static_cast<Typen*>(typauswahl_2->get_menu()->get_active()->get_user_data());
  hauptfenster->getChar().setTyp2(ptr);
- hauptfenster->show_gtk();
+// hauptfenster->show_gtk();
 // if (Typ[1]->Short()=="dBe" || Typ[1]->Short()=="eBe") angeborene_zauber();
 }
 

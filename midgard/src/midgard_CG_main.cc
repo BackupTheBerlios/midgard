@@ -75,7 +75,9 @@ gint midgard_CG::on_button_menu_button_release_event(GdkEventButton *event)
 
 
 void midgard_CG::load_for_mainpage(guint pagenr)
-{if(!Char.getVTyp().empty() && Char.is_mage())
+{
+/*
+ if(!Char.getVTyp().empty() && Char.is_mage())
   {
     button_grad_zaubern->set_sensitive(true);
     frame_pp_zaubern->set_sensitive(true);
@@ -85,6 +87,7 @@ void midgard_CG::load_for_mainpage(guint pagenr)
     button_grad_zaubern->set_sensitive(false);
     frame_pp_zaubern->set_sensitive(false);
   }
+*/
  if(pagenr==PAGE_GRUNDWERTE)
   {
     table_grundwerte->init(this);
@@ -98,6 +101,7 @@ void midgard_CG::load_for_mainpage(guint pagenr)
   }
  else if(pagenr==PAGE_STEIGERN)
   {
+/*
     menu_gradanstieg_init();
     if(SpruecheMitPP().empty())
       { radiobutton_pp_spezial->hide();
@@ -111,7 +115,9 @@ void midgard_CG::load_for_mainpage(guint pagenr)
         radiobutton_pp_spezial->add(*l);
         frame_pp_spezial->set_label(SpruecheMitPP());
       }
-    load_for_page(notebook_lernen->get_current_page_num());
+//    load_for_page(notebook_lernen->get_current_page_num());
+*/
+    table_steigern->init(this);
   }
  else if(pagenr==PAGE_BESCHREIBUNG)
    {

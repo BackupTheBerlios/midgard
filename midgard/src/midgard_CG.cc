@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.228 2002/05/22 17:00:44 thoma Exp $
+// $Id: midgard_CG.cc,v 1.229 2002/05/24 14:06:52 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -19,9 +19,9 @@
 
 #include "midgard_CG.hh"
 //#include "Window_hilfe.hh"
-#include "Window_Geld_eingeben.hh"
-#include "Window_ruestung.hh"
-#include "Window_Waffenbesitz.hh"
+//#include "Window_Geld_eingeben.hh"
+//#include "Window_ruestung.hh"
+//#include "Window_Waffenbesitz.hh"
 #include <gtk--/notebook.h>
 //#include <gtk--/main.h>
 #include "Midgard_Info.hh"
@@ -32,7 +32,7 @@
 #endif
 
 midgard_CG::midgard_CG(const string &datei)
-: InfoFenster(0),wizard(0), MOptionen(0),menu(0),menu_gradanstieg(0),
+: InfoFenster(0),wizard(0), MOptionen(0),menu(0),
   Database(Midgard_Info),fire_enabled(true)
 {
   ansicht_menu = manage(new Gtk::MenuItem("Ansicht"));
@@ -67,80 +67,24 @@ midgard_CG::midgard_CG(const string &datei)
 midgard_CG::~midgard_CG()
 {  cout << "~midgard_CG()\n";
    delete MOptionen;
-   if (menu) delete menu;
-   if (menu_gradanstieg) delete menu_gradanstieg;
+//   if (menu) delete menu;
+//   if (table_steigern->menu_gradanstieg) table_steigern->delete menu_gradanstieg;
 //   InfoFenster->destroy(); 
    if(wizard) delete wizard;
 }
 
 
 
-void midgard_CG::show_gtk()
+#include <Aux/itos.h>
+void midgard_CG::WaffenBesitz_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe)
 {
- steigern_typ->set_text(Char.CTyp1()->Name(getCWerte().Geschlecht()));     // Abenteurerklasse im Lernfenster
- if (Char.CTyp2()->Name(getCWerte().Geschlecht())!="") 
-   steigern_typ->set_text(Char.CTyp1()->Name(getCWerte().Geschlecht())+"/"+Char.CTyp2()->Name(getCWerte().Geschlecht()));
- 
- 
- zeige_werte();
-// show_gelerntes();
- EP_uebernehmen();
- Geld_uebernehmen();
- steigern_gtk();
-
-/*
- // Spezialwaffe anzeigen?
- if (Typ[0]->Spezialwaffe() || Typ[1]->Spezialwaffe()) 
-    togglebutton_spezialwaffe->show(); 
- else 
-   { togglebutton_spezialwaffe->set_active(false);
-     togglebutton_spezialwaffe->hide(); }
-*/
-
- // Magie anzeigen?
- if (Char.is_mage()) 
-   { 
-     table_magier_steigern->show();
-   }
- else 
-   { 
-     table_magier_steigern->hide();
-   }
- // KiDo anzeigen?
- if(cH_Fertigkeit("KiDo")->ist_gelernt(Char.CList_Fertigkeit()))
-   {
-     table_kido_steigern->show();
-   }
- else 
-   { 
-     table_kido_steigern->hide();
-   }
-/*
- // KiDo Stil setzen
- int kido_stil_nr=0;
- if (getCWerte().Spezialisierung()==Vkido[2]) kido_stil_nr = 1;
- if (getCWerte().Spezialisierung()==Vkido[1]) kido_stil_nr = 2;
- if (getCWerte().Spezialisierung()==Vkido[3]) kido_stil_nr = 3;
- if (kido_stil_nr!=0)
-  {   
-    optionmenu_KiDo_Stile->set_history(kido_stil_nr);
-  }
-*/
-}
-
-
-
-void midgard_CG::on_button_geld_s_clicked()
-{
-  manage (new  Window_Geld_eingeben(this, getWerte()));
-}
-void midgard_CG::on_button_ruestung_s_clicked()
-{
-  manage (new Window_ruestung(getWerte(),this,Database));
-}
-void midgard_CG::on_button_waffen_s_clicked()
-{
-  manage (new Window_Waffenbesitz(this,Char.List_Waffen(),Char.List_Waffen_besitz()));
+  if(mbe.begin()==mbe.end()) return;
+  if((*mbe.begin())->What()==MidgardBasicElement::WAFFEBESITZ)
+      Char.List_Waffen_besitz()=mbe;
+  else assert(0);
+  undosave(itos(mbe.size())+" "+(*mbe.begin())->What_str()+"n übernommen");
+  if(notebook_main->get_current_page_num() == PAGE_LERNEN)
+     table_lernschema->show_gelerntes();
 }
 
 

@@ -1,4 +1,4 @@
-// $Id: Ruestung.hh,v 1.10 2002/02/09 16:14:06 thoma Exp $               
+// $Id: Ruestung.hh,v 1.11 2002/05/24 14:06:52 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,7 +26,7 @@
 #include <gtk--/progressbar.h>
 #include "xml.h"
 
-class Ruestung  : public HandleContent
+class Ruestung  : public HandleContentCopyable
 {
    std::string name, longname, region; 
    int lp_verlust,min_staerke,rw_verlust,b_verlust,
