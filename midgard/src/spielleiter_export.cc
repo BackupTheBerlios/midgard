@@ -71,8 +71,8 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
        <<", Sb "<<W.Sb()<<"\n";
   fout <<W.LP()<<" LP, "
        <<W.AP()<<" AP - "
-       <<LATIN(W.Ruestung()->Name())<<" -  "
-       << " B " << W.B() ;
+       <<LATIN(W.Ruestung()->Name())<<" - "
+       << "B " << W.B() ;
   std::string boni;
   if     (W.bo_Sc()>0) boni+="SchB+"+itos(W.bo_Sc())+", ";
   else if(W.bo_Sc()<0) boni+="SchB" +itos(W.bo_Sc())+", ";
@@ -99,26 +99,25 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
          if (WB.av_Bonus()!=0 || WB.sl_Bonus()!=0) angriff +="$^*$";
          int mag_schadensbonus = WB.av_Bonus();
          int ang_mod = WB.Waffe()->WM_Angriff((*j)->Name());
-//         if (WB->av_Bonus()==-5 && WB->sl_Bonus()==-5) mag_schadensbonus = 0; 
          int anbo = Char.getCWerte().bo_An();
          if (WB.Waffe()->Verteidigung())
             anbo = 0;
          int wert = j->Erfolgswert() + anbo + mag_schadensbonus + ang_mod;
-         angriff+="+"<<wert << "(";
+         angriff+="+"+itos(wert) + "(";
          std::string schaden=WB.Schaden(Char.getCWerte(),WB->Name());
-         angriff+= schaden << ")";
+         angriff+= schaden+ ")";
        }
       angriff+= ", ";
      }
    }
-  std::string::size_type st2=angriff.find_last_of(",");
-  if(st2!=std::string::npos) angriff.erase(st,1);
+  std::string::size_type st2=angriff.find_last_of(", ");
+  if(st2!=std::string::npos) angriff.erase(st2,2);
   if(!angriff.empty()) 
     { 
      fout << "\n\n";
      fout << "Angriff: ";
      fout <<angriff; 
-
+    }
   fout <<" - Abwehr+"<<W.Abwehr_wert()+W.bo_Ab() <<", "
        <<"Resistenz+"<<W.Resistenz()+W.bo_Psy(Char.getVTyp())<<"/" 
                      <<W.Resistenz()+W.bo_Phs(Char.getVTyp())<<"/" 
@@ -139,16 +138,16 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
     if (wert == "+0") wert = "";
     fert+=LATIN(f->Name())+wert+", " ;
    }
- std::string::size_type st3=fert.find_last_of(",");
- if(st3!=std::string::npos) fert.erase(st,1);
+ std::string::size_type st3=fert.find_last_of(", ");
+ if(st3!=std::string::npos) fert.erase(st3,2);
  fout << fert << " - ";
  std::string sprache;
  for (std::list<MidgardBasicElement_mutable>::const_iterator i=Char.CList_Sprache().begin();i!=Char.CList_Sprache().end();++i)
    {
-      sprache += LATIN((*i)->Name())"+"+itos(i->Erfolgswert()) ;
+      sprache += LATIN((*i)->Name())+"+"+itos(i->Erfolgswert())+", ";
    }
- std::string::size_type st4=sprache.find_last_of(",");
- if(st4!=std::string::npos) sprache.erase(st,1);
+ std::string::size_type st4=sprache.find_last_of(", ");
+ if(st4!=std::string::npos) sprache.erase(st4,2);
  fout << sprache<<"\n\n";
   // Zauber
  if (Char.CList_Zauber().size()!=0)

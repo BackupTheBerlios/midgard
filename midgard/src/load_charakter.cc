@@ -54,6 +54,7 @@ void midgard_CG::xml_import_auswahl()
 void midgard_CG::xml_import_history(const std::string datei)
 {
  xml_import(datei);
+ load_for_mainpage(notebook_main->get_current_page_num());
 }
 
 void midgard_CG::xml_import(const std::string& datei)

@@ -30,6 +30,7 @@
 
 void xml_fileselection::on_ok_button1_clicked()
 {   
+try{
  if (ewas==Load)
    hauptfenster->xml_import(this->get_filename());
  else if (ewas==Save)
@@ -44,6 +45,7 @@ void xml_fileselection::on_ok_button1_clicked()
 #ifndef __MINGW32__  
  destroy();
 #endif
+}catch(std::exception &e) {cerr<<e.what()<<'\n';}
 }
 
 #ifndef __MINGW32__  
