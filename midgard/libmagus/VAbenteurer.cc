@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.cc,v 1.7 2003/12/15 23:17:06 christof Exp $            
+// $Id: VAbenteurer.cc,v 1.8 2004/03/03 07:47:19 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -30,8 +30,11 @@
 VAbenteurer::iterator VAbenteurer::push_back_silent()
 { 
   ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__);
-   VA.push_back(st_abenteurer()); 
-   return --end();
+   VA.push_back(st_abenteurer());
+   iterator res=--VA.end(); 
+   // reinitialize proxy connects (they have been copied)
+   res->init();
+   return res;
 }
 
 VAbenteurer::iterator VAbenteurer::push_back()
@@ -64,7 +67,8 @@ void VAbenteurer::delete_empty()
 }
 
 VAbenteurer::iterator VAbenteurer::load(std::istream &datei)
-{  iterator i=push_back_silent();
+{  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,"std::istream");
+   iterator i=push_back_silent();
    try
    {  if(!(i->getAbenteurer().xml_import_stream(datei)))
       {  Ausgabe(Ausgabe::Error,"XML Aufbau fehlerhaft");
@@ -81,7 +85,8 @@ VAbenteurer::iterator VAbenteurer::load(std::istream &datei)
 }
 
 VAbenteurer::iterator VAbenteurer::load(const std::string &dateiname)
-{  std::ifstream fi(dateiname.c_str());
+{  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,dateiname);
+   std::ifstream fi(dateiname.c_str());
    if (!fi.good()) 
    {  Ausgabe(Ausgabe::Error,"Kann '"+dateiname+"' nicht öffnen/lesen");
       throw std::runtime_error(dateiname);
@@ -111,22 +116,29 @@ VAbenteurer::iterator VAbenteurer::erase(iterator j)
 // ===================== Item =========================
 
 void VAbenteurer::Item::divert_proxy()
-{  proxies.divert(*current_undo);
+{  ManuProC::Trace _t(LibMagus::trace_channel,__PRETTY_FUNCTION__,this);
+   proxies.divert(*current_undo);
+   proxies.divert(*current_undo);
 }
 
 void VAbenteurer::Item::init()
-{  current_undo=--undos.end();
+{  ManuProC::Trace _t(LibMagus::trace_channel,__PRETTY_FUNCTION__,this);
+   current_undo=--undos.end();
    _signal_undo_changed.connect(SigC::slot(*this,&Item::divert_proxy));
    divert_proxy();
 }
 
 VAbenteurer::Item::Item(const Abenteurer &A,bool g) 
 	: bgespeichert(g) 
-{  undos.push_back(st_undo(A)); init(); }
+{  ManuProC::Trace _t(LibMagus::trace_channel,__PRETTY_FUNCTION__,this,g);
+   undos.push_back(st_undo(A)); 
+   init(); 
+}
 		
 VAbenteurer::Item::Item(const Item &i) 
 	: undos(i.undos), filename(i.filename), bgespeichert(i.bgespeichert)
-{  init(); }
+{  ManuProC::Trace _t(LibMagus::trace_channel,__PRETTY_FUNCTION__,this,"Item");
+   init(); }
 
 
 static VAbenteurer::Item::iterator unconstify(const VAbenteurer::Item::const_iterator &i)
@@ -134,7 +146,7 @@ static VAbenteurer::Item::iterator unconstify(const VAbenteurer::Item::const_ite
 }
 
 void VAbenteurer::Item::undosave(const std::string &s)
-{
+{ ManuProC::Trace _t(LibMagus::trace_channel,__PRETTY_FUNCTION__,this,s);
   modified();
   current_undo->text=s;
   iterator i=unconstify(current_undo);
@@ -146,7 +158,8 @@ void VAbenteurer::Item::undosave(const std::string &s)
 }
 
 void VAbenteurer::Item::setUndo(const_iterator it)
-{  current_undo=unconstify(it);
+{  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,this,&*it);
+   current_undo=unconstify(it);
    _signal_undo_changed();
 }
 
@@ -171,13 +184,15 @@ bool AbenteurerAuswahl::valid() const
 }
 
 void AbenteurerAuswahl::divert_proxy()
-{  proxies.divert(*actualIterator());
+{  ManuProC::Trace _t(LibMagus::trace_channel,__PRETTY_FUNCTION__);
+   proxies.divert(*actualIterator());
 }
 
 VAbenteurer AbenteurerAuswahl::Chars;
 
 VAbenteurer::iterator AbenteurerAuswahl::actualIterator()
-{  if (ai==Chars.end()) ai=Chars.push_back();
+{  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,this);
+   if (ai==Chars.end()) ai=Chars.push_back();
    return ai;
 }
 

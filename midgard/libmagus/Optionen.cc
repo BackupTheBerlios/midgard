@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.10 2004/02/29 21:34:46 christof Exp $
+// $Id: Optionen.cc,v 1.11 2004/03/03 07:47:19 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -86,6 +86,8 @@ void Optionen::Optionen_init()
   list_OptionenCheck.push_back(st_OptionenCheck(NSC_only,"NSC zulassen",false));
   list_OptionenCheck.push_back(st_OptionenCheck(ZauberBeschreibungDrucken,"Zauberbeschreibung ausdrucken",false));
 OptionenCheck(Original).active.signal_changed().connect(SigC::bind(
+SigC::slot(&print),&OptionenCheck(Original)));
+OptionenCheck(NSC_only).active.signal_changed().connect(SigC::bind(
 SigC::slot(&print),&OptionenCheck(Original)));
 }
 

@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.40 2003/09/18 07:32:12 christof Exp $
+# $Id: Makefile.am,v 1.41 2004/03/03 07:47:19 christof Exp $
 
 if WINDOWS
 PORT_FILES=registry.cc TeX.cc
@@ -20,7 +20,7 @@ AM_LDFLAGS = @COMMONXX_LDFLAGS@ @COMMONGTK2_LDFLAGS@ $(WIN_LDFLAGS)
 
 CLEANFILES = *~
 
-EXTRA_PROGRAMS= test readxml readxml2 Zufallscharakter
+EXTRA_PROGRAMS= test readxml readxml2 Zufallscharakter model_test model_test2
 
 registry.h: ../win32/registry.h ; ln -sf ../win32/$@ .
 registry.cc: ../win32/registry.cc ; ln -sf ../win32/$@ .
@@ -29,6 +29,8 @@ test_SOURCES=test.cc
 Zufallscharakter_SOURCES=Zufallscharakter.cc
 readxml_SOURCES=readxml.cc
 readxml2_SOURCES=readxml2.cc
+model_test_SOURCES=model_test.cc
+model_test2_SOURCES=model_test2.cc
 
 lib_LTLIBRARIES=libmagus.la
 
@@ -55,10 +57,12 @@ libmagus_la_SOURCES=MidgardBasicElement.cc Zauber.cc KiDo.cc \
 	Lernschema.cc Ausgabe.cc snprintf.c $(PORT_FILES) \
 	$(EXTRA_QUELLEN) Random.cc libmagus.cc
 
-test_LDADD = libmagus.la @COMMONXX_LIBS@ @SIGC_LIBS@
+test_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
 Zufallscharakter_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@ 
 readxml_LDADD = @COMMONXX_LIBS@ @SIGC_LIBS@
 readxml2_LDADD = @XMLPP_LIBS@
+model_test_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
+model_test2_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
 
 BUILT_SOURCES= registry.h TeX.cc
 

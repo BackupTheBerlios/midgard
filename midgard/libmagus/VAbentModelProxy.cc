@@ -1,4 +1,4 @@
-// $Id: VAbentModelProxy.cc,v 1.7 2003/12/01 07:52:36 christof Exp $               
+// $Id: VAbentModelProxy.cc,v 1.8 2004/03/03 07:47:19 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2003 Christof Petig
  *
@@ -20,9 +20,12 @@
 #include "VAbentModelProxy.hh"
 #include "VAbenteurer.hh"
 #include "Datenbank.hh"
+#include "magustrace.h"
+#include <Misc/TraceNV.h>
 
 void VAbentModelProxy::divert(VAbenteurer::st_undo &A)
-{  for (std::vector<cH_Region>::const_iterator i=Datenbank.Regionen.begin();
+{  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,NV("st_undo",&A));
+   for (std::vector<cH_Region>::const_iterator i=Datenbank.Regionen.begin();
 		i!=Datenbank.Regionen.end();++i)
       regionen[*i]=Model_ref<bool>(A.abenteurer.getRegion(*i));
    
@@ -32,14 +35,15 @@ void VAbentModelProxy::divert(VAbenteurer::st_undo &A)
       hausregeln[i->index]=Model_ref<bool>(i->active);
    for (std::list<Optionen::st_OptionenCheck>::iterator i=o.getOptionenCheck().begin();
    		i!=o.getOptionenCheck().end();++i)
-      checks[i->index]=Model_ref<bool>(i->active);
+      checks[i->index].set_model(Model_ref<bool>(i->active));
       
    wizard=Model_ref<Wizard::esteps>(A.wizard);
    wizard_mode=Model_ref<Wizard::mode>(A.wizard);
 }
 
 void VAbentModelProxy::divert(VAbenteurer::Item &A)
-{  for (regionen_t::iterator i=A.proxies.regionen.begin();i!=A.proxies.regionen.end();++i)
+{  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,NV("Item",&A));
+   for (regionen_t::iterator i=A.proxies.regionen.begin();i!=A.proxies.regionen.end();++i)
       regionen[i->first].set_model(i->second);
    for (check_t::iterator i=A.proxies.checks.begin();i!=A.proxies.checks.end();++i)
       checks[i->first].set_model(i->second);

@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.hh,v 1.12 2003/12/15 23:17:06 christof Exp $               
+// $Id: VAbenteurer.hh,v 1.13 2004/03/03 07:47:19 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -54,8 +54,10 @@ namespace AbenteurerListe
 
 		void divert_proxy();
 		void operator=(const Item &);
-		void init(); // iterator setzen, connect
 	public:
+		// call this function after every copy made of this object
+		// ... yes, I know that copy ctors should handle this
+		void init(); // iterator setzen, connect
 		typedef std::vector<st_undo>::const_iterator const_iterator;
 		typedef std::vector<st_undo>::iterator iterator;
 		
