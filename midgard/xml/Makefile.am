@@ -1,6 +1,6 @@
-# $Id: Makefile.am,v 1.8 2001/11/20 22:18:06 christof Exp $
+# $Id: Makefile.am,v 1.9 2001/11/21 08:45:13 christof Exp $
 
-bin_PROGRAMS = arkanum_exp kido_exp fertigk_exp land_sprache_exp waffen_exp \
+noinst_PROGRAMS = arkanum_exp kido_exp fertigk_exp land_sprache_exp waffen_exp \
 	all_exp
 
 %_nm.o: %_exp.cc ; $(COMPILE.cc) -DXML_NO_MAIN $(OUTPUT_OPTION) $<
