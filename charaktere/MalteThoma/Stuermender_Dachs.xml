@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <MAGUS-data>
- <Preise>
-  <Kaufpreis Ware="Silberbecher" Art="Ausrüstung" Art2="Behälter" Preis="5" Währung="GS" Gewicht="0"/>
-  <Kaufpreis Ware="kleiner Silbertopf" Art="Ausrüstung" Art2="Behälter" Preis="10" Währung="GS" Gewicht="2"/>
-  <Kaufpreis Ware="Mörser und Stößel" Art="Ausrüstung" Art2="Werkzeug" Preis="3" Währung="GS" Gewicht="0"/>
- </Preise>
  <Midgard-Abenteurer Version="10">
   <Figur Name="Stürmender Dachs" Spieler="Malte Thoma" Zeitpunkt="Grad 1" Grad="7"/>
   <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Wa" Spezialisierung="Handaxt" Überleben="Überleben im Dschungel" Stadt_Land="Land" Hand="Rechtshänder"/>
@@ -14,8 +9,8 @@
   <Erfolgswerte Abwehr="14" Zaubern="2" ZauberResistenz="13"/>
   <Gesundheit LP="17" AP="52"/>
   <Beschreibung Alter="28" Gestalt="breit" Gewicht="115" Größe="195" Stand="Mittelschicht" Herkunft="Ikenga Becken" Glaube="Schamanistisch"/>
-  <Vermögen GS="124"/>
-  <Steigern GFP="8773" AEP="19" ZEP="5" benötigte_Tage="28">
+  <Vermögen GS="424"/>
+  <Steigern GFP="8773" AEP="419" ZEP="5" benötigte_Tage="28">
    <Praxispunkte/>
   </Steigern>
   <Text/>
@@ -28,15 +23,15 @@
    <Waffe Erfolgswert="0" Bezeichnung="Stoßspeer" AngriffVerteidigung_Bonus="1">Horn einer Donnerechse</Waffe>
    <Waffe Erfolgswert="0" Bezeichnung="Wurfaxt"/>
    <Waffe Erfolgswert="0" Bezeichnung="kleiner Schild"/>
-   <Gegenstand Bezeichnung="Körper" Besonderheit="" sichtbar="true">
-    <Gegenstand Bezeichnung="Hose" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Hemd" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Gürtel" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Schuhe" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Bezeichnung="Rucksack" Besonderheit="Leder" sichtbar="true">
-     <Gegenstand Bezeichnung="Decke" Besonderheit="warm"/>
-     <Gegenstand Bezeichnung="Lederbeutel" Besonderheit="" sichtbar="true"/>
-     <Gegenstand Bezeichnung="Geld" Besonderheit=""/>
+   <Gegenstand Anzahl="1" Bezeichnung="Körper" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
+    <Gegenstand Anzahl="1" Bezeichnung="Hose" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Hemd" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Gürtel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Schuhe" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Bezeichnung="Rucksack" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
+     <Gegenstand Anzahl="1" Bezeichnung="Decke" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="warm"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Lederbeutel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Bezeichnung="Geld" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit=""/>
     </Gegenstand>
    </Gegenstand>
   </Ausrüstung>
@@ -69,7 +64,7 @@
    <Fertigkeit Bezeichnung="Stimmen nachahmen" Wert="15"/>
    <Fertigkeit Bezeichnung="Tarnen" Wert="6"/>
    <Fertigkeit Bezeichnung="Tauchen" Wert="12"/>
-   <Fertigkeit Bezeichnung="Tierkunde"/>
+   <Fertigkeit Bezeichnung="Tierkunde" Wert="8"/>
    <Fertigkeit Bezeichnung="Überleben im Dschungel" Wert="10"/>
    <Fertigkeit Bezeichnung="Überleben im Wald" Wert="12"/>
    <Waffe Bezeichnung="Dolch" Wert="10"/>
@@ -92,9 +87,12 @@
    <Sprache Bezeichnung="Neu-Vallinga" Wert="10"/>
    <Sprache Bezeichnung="Rawindi" Wert="6"/>
    <Sprache Bezeichnung="Scharidisch" Wert="6"/>
-   <Region Name="KanThaiPan" Region="K"/>
-   <Optionen Name="Originalregeln" Wert="false"/>
-   <Optionen Name="NSC zulassen" Wert="false"/>
   </Fertigkeiten>
+  <Optionen>
+   <CheckOptions Name="Originalregeln" Wert="false"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="true"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+  </Optionen>
  </Midgard-Abenteurer>
 </MAGUS-data>

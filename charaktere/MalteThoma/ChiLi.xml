@@ -9,8 +9,8 @@
   <Erfolgswerte Abwehr="14" Zaubern="2" ZauberResistenz="13"/>
   <Gesundheit LP="16" AP="50"/>
   <Beschreibung Alter="29" Gestalt="schlank" Gewicht="53" Größe="160" Stand="Mittelschicht" Herkunft="KanThaiPan" Glaube="ChenMen"/>
-  <Vermögen GS="240"/>
-  <Steigern GFP="7966" AEP="191" EPproGFP="67" benötigte_Tage="35">
+  <Vermögen GS="1000"/>
+  <Steigern GFP="10266" AEP="1000" EPproGFP="67" benötigte_Tage="265">
    <Praxispunkte/>
   </Steigern>
   <Text/>
@@ -45,6 +45,7 @@
    <Fertigkeit Bezeichnung="Balancieren" Wert="18"/>
    <Fertigkeit Bezeichnung="FengSchui" Wert="8"/>
    <Fertigkeit Bezeichnung="Geländelauf" Wert="10"/>
+   <Fertigkeit Bezeichnung="Geschäftstüchtigkeit" Wert="10"/>
    <Fertigkeit Bezeichnung="KarumiJutsu" Wert="17"/>
    <Fertigkeit Bezeichnung="KiDo" Wert="17" Praxispunkte="1"/>
    <Fertigkeit Bezeichnung="Klettern" Wert="20"/>
