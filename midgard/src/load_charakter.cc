@@ -24,17 +24,6 @@
 #include "xml_fileselection.hh"
 //#include <SelectMatching.h>
 
-#ifdef __MINGW__
-std::string utf82iso(const std::string &s);
-std::string iso2utf8(const std::string &s);
-# define Latin2Screen(x) iso2utf8(x)
-# define Internal2Latin(x) utf82iso(x)
-#else
-# define Latin2Screen(x) (x)
-# define Internal2Latin(x) (x)
-#endif
-
- 
 gint midgard_CG::on_laden_release_event(GdkEventButton *ev)
 {
   xml_import_auswahl();

@@ -24,13 +24,7 @@
 #include "Zauber.hh"
 #include <Misc/itos.h>
 #include "xml_fileselection.hh"
-
-#ifdef __MINGW32__
-std::string utf82iso(const std::string &s);
-#define LATIN(x) utf82iso(x)
-#else
-#define LATIN(x) (x)
-#endif
+#include "recodestream.h"
 
 void midgard_CG::on_exportieren_activate()
 {
@@ -48,13 +42,18 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
   strinfo +="Abenteurers im Format für Midgard Publikationen\n";
 //  InfoFenster->AppendShow(strinfo);
   set_status(strinfo); 
-  ofstream fout(dateiname.c_str());
+  ofstream fout2(dateiname.c_str());
+#ifdef __MINGW32__
+  orecodestream fout(fout2);
+#else
+  ostream &fout=fout2;
+#endif
   Grundwerte W=Char.getWerte();
-  fout << LATIN(W.Name_Abenteurer())<<", "
-      <<LATIN(Char.Typ1()->Name(W.Geschlecht()))
+  fout << W.Name_Abenteurer()<<", "
+      <<Char.Typ1()->Name(W.Geschlecht())
       <<"               Gr "<<W.Grad()<<"\n";
-  fout << LATIN(W.Stand())<<", "
-       <<LATIN(W.Glaube())<<" - "
+  fout << W.Stand()<<", "
+       <<W.Glaube()<<" - "
        <<W.GroesseBez() <<" ("
        <<W.Groesse()<<"cm), "
        <<W.Gestalt()<<" - "
@@ -72,7 +71,7 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
        <<", Sb "<<W.Sb()<<"\n";
   fout <<W.LP()<<" LP, "
        <<W.AP()<<" AP - "
-       <<LATIN(W.Ruestung()->Name())<<" - "
+       <<W.Ruestung()->Name()<<" - "
        << "B " << W.B() ;
   std::string boni;
   if     (W.bo_Sc()>0) boni+="SchB+"+itos(W.bo_Sc())+", ";
@@ -96,7 +95,7 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
        {
          std::string waffenname ;
          waffenname = WB->Name();
-         angriff +=LATIN(waffenname);
+         angriff +=waffenname;
          if (WB.av_Bonus()!=0 || WB.sl_Bonus()!=0) angriff +="$^*$";
          int mag_schadensbonus = WB.av_Bonus();
          int ang_mod = WB.Waffe()->WM_Angriff((*j)->Name());
@@ -130,14 +129,14 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
    {cH_Fertigkeit_angeborene f(*i);
     std::string wert = "+"+itos(i->Erfolgswert());
     if (wert == "+0") wert = "";
-    fert+=LATIN(f->Name())+wert+", ";
+    fert+=f->Name()+wert+", ";
    }
  // Fertigkeiten
  for(std::list<MidgardBasicElement_mutable>::const_iterator i=Char.List_Fertigkeit().begin();i!=Char.List_Fertigkeit().end();++i)
    { cH_Fertigkeit f(*i);
     std::string wert = "+"+itos(i->Erfolgswert());
     if (wert == "+0") wert = "";
-    fert+=LATIN(f->Name())+wert+", " ;
+    fert+=f->Name()+wert+", " ;
    }
  std::string::size_type st3=fert.find_last_of(",");
  if(st3!=std::string::npos) fert.erase(st3,2);
@@ -145,7 +144,7 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
  std::string sprache;
  for (std::list<MidgardBasicElement_mutable>::const_iterator i=Char.List_Sprache().begin();i!=Char.List_Sprache().end();++i)
    {
-      sprache += LATIN((*i)->Name())+"+"+itos(i->Erfolgswert())+", ";
+      sprache += (*i)->Name()+"+"+itos(i->Erfolgswert())+", ";
    }
  std::string::size_type st4=sprache.find_last_of(",");
  if(st4!=std::string::npos) sprache.erase(st4,2);
@@ -156,7 +155,7 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
      std::string zauber;
      zauber+="Zaubern+"+itos(W.Zaubern_wert()+Char.getWerte().bo_Za())+": ";
      for (std::list<MidgardBasicElement_mutable>::const_iterator i=Char.List_Zauber().begin();i!=Char.List_Zauber().end();++i)
-        zauber += LATIN((*i)->Name())+", ";
+        zauber += (*i)->Name()+", ";
      std::string::size_type st=zauber.find_last_of(",");
      if(st!=std::string::npos) zauber.erase(st,1);
      fout << zauber<<"\n\n";

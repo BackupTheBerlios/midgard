@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.11 2002/06/26 14:01:18 christof Exp $   
+// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.12 2002/06/29 20:39:30 christof Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -22,12 +22,19 @@
 #include "midgard_CG.hh"
 #include "dtos1.h"
 #include <Misc/itos.h>
+#include "recodestream.h"
 
 void LaTeX_drucken::Spielleiterbogen()
 {
  const_cast<midgard_CG*>(hauptfenster)->Char.sort_gw(); // sortieren nach Gw
  std::string filename=get_latex_pathname(LaTeX_drucken::TeX_tmp)+get_latex_filename(LaTeX_drucken::TeX_Spielleiter);
- ofstream fout((filename+".tex").c_str());
+ ofstream fout2((filename+".tex").c_str());
+#ifdef __MINGW32__
+ orecodestream fout(fout2);
+#else
+ ostream &fout=fout2;
+#endif
+ 
  LaTeX_header(fout,false,false);           
  fout << "\\newcommand{\\n}{\\normalsize\\rule[-0.5ex]{0ex}{2.5ex}}\n";
  fout << "\\setlength{\\doublerulesep}{0.1mm}\n";
@@ -91,11 +98,11 @@ void LaTeX_drucken::Spielleiterbogen()
  fout << "}\n"; //scalebox
 // fout << "}}\n"; //fbox+parbox
  LaTeX_footer(fout);
- fout.close();
+ fout2.close();
  pdf_viewer(filename);
 }
 
-void LaTeX_drucken::line(ofstream &fout,const ewhat &what)
+void LaTeX_drucken::line(ostream &fout,const ewhat &what)
 {
   fout << "\\n ";
   switch(what)
@@ -108,7 +115,7 @@ void LaTeX_drucken::line(ofstream &fout,const ewhat &what)
      case Herkunft: fout << "Herkunft"; break; 
      case Stand: fout << "Stand"; break; 
      case Gestalt: fout << "Gestalt"; break; 
-     case Groesse: fout << "Groesse"; break; 
+     case Groesse: fout << "Größe"; break; 
      case Gewicht: fout << "Gewicht"; break; 
      case Beruf: fout << "Beruf"; break; 
      case Glaube: fout << "Glaube"; break; 
@@ -127,7 +134,7 @@ void LaTeX_drucken::line(ofstream &fout,const ewhat &what)
      case Abwehr: fout << "Abwehr"; break; 
      case Resistenz: fout << "Resistenz"; break; 
      case Sehen: fout << "Sehen"; break; 
-     case Hoeren: fout << "Hoeren"; break; 
+     case Hoeren: fout << "Hören"; break; 
      case Riechen: fout << "Riechen"; break; 
      case Schmecken: fout << "Schmecken"; break; 
      case Tasten: fout << "Tasten"; break; 
@@ -142,7 +149,7 @@ void LaTeX_drucken::line(ofstream &fout,const ewhat &what)
      case Gassenwissen: fout << "Gassenwissen"; break; 
      case Himmelskunde: fout << "Himmelskunde"; break; 
      case Schaetzen: fout << "Schätzen"; break; 
-     case angFert: fout << "angeborne\\newline Fertigkeiten"; break; 
+     case angFert: fout << "angeborene\\newline Fertigkeiten"; break; 
      case Waffen: fout << "Waffen"; break;
      case Sprachen: fout << "Sprachen"; break; 
      case Schriften: fout << "Schriften"; break; 
@@ -155,7 +162,7 @@ struct st_is{int e;std::string s;
       st_is(pair<int,bool> _e,std::string _s) : e(_e.first),s(_s){}
       st_is(int _e) : e(_e),s(itos(_e)) {}
    };
-void LaTeX_drucken::for_each(ofstream &fout,const ewhat& what)
+void LaTeX_drucken::for_each(ostream &fout,const ewhat& what)
 {
  const Datenbank &Database=hauptfenster->getCDatabase();
  int maxlength=15;
@@ -229,7 +236,7 @@ void LaTeX_drucken::for_each(ofstream &fout,const ewhat& what)
 }
 
 
-void LaTeX_drucken::list_for_each(ofstream &fout,const std::list<MidgardBasicElement_mutable>& L,const int &maxlength,const std::string& cm)
+void LaTeX_drucken::list_for_each(ostream &fout,const std::list<MidgardBasicElement_mutable>& L,const int &maxlength,const std::string& cm)
 {
   fout << " & \\parbox{"<<cm<<"}{";
   for(std::list<MidgardBasicElement_mutable>::const_iterator i=L.begin();i!=L.end();)

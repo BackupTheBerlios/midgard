@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.29 2002/06/29 06:32:31 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.30 2002/06/29 20:39:30 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -30,27 +30,22 @@
 #include "Zauber.hh"
 #include "Zauberwerk.hh"
 #include <Gtk2TeX.h>
+#include "recodestream.h"
 
-#ifdef __MINGW32__
-std::string utf82iso(const std::string &s);
-#define LATIN(x) utf82iso(x)
-#else
-#define LATIN(x) (x)
-#endif
-
+static std::string defFileName(const std::string &s)
+{  std::string res;
+   for (std::string::const_iterator i=s.begin();i!=s.end();++i)
+      if (('0' <= *i && *i <= '9') || ('A' <= *i && *i <= 'Z')
+      	|| ('a' <= *i && *i <= 'z') || *i=='_')
+      	 res+=*i;
+   return res;
+}
 
 std::string LaTeX_drucken::get_latex_filename(const LaTeX_Filenames what)
 {
   std::string name=hauptfenster->getWerte().Name_Abenteurer();
   std::string version=hauptfenster->getWerte().Version();
-  std::string nv="_"+name+"__"+version+"_";
-  
-  while(true) // alle nicht von der shell interpretierbare Zeichen ersetzen
-   {
-    string::size_type s=nv.find_first_of(" '");
-    if(s!=string::npos) nv.replace(s,1,"_");
-    else break;
-   }
+  std::string nv="_"+defFileName(name)+"__"+defFileName(version)+"_";
   
   switch (what)
     {
@@ -80,28 +75,29 @@ void LaTeX_drucken::on_latex_clicked(bool values=true)
  std::string installfile=hauptfenster->with_path(get_latex_filename(TeX_MainDocument)+".tex");
  std::string filename=get_latex_pathname(TeX_tmp)+get_latex_filename(TeX_MainWerte);
  
-/*
- if (!access("document_eingabe4.tex",R_OK)) // Files im aktuellen Verzeichnis?
-    system("cp document_eingabe4.tex midgard_tmp_document_eingabe.tex");
- else
-    system("cp "PACKAGE_DATA_DIR"document_eingabe4.tex midgard_tmp_document_eingabe.tex");
-*/
 cout <<"LaTeX: "<< filename<<'\n';
+ {
  ofstream fout((filename+".tex").c_str());
-// fout << "\\newcommand{\\installpath}{"<<get_latex_pathname(TeX_Install)<< "}\n";
- if (values) LaTeX_write_values(fout,installfile);
- else LaTeX_write_empty_values(fout,installfile);
+#ifdef __MINGW32__
+ orecodestream rfout(fout);
+#else
+ ostream &rfout=fout;
+#endif
+ if (values) LaTeX_write_values(rfout,installfile);
+ else LaTeX_write_empty_values(rfout,installfile);
 
  if (hauptfenster->getChar().List_Zauber().size()>0 || hauptfenster->getChar().List_Zauberwerk().size()>0)  // Zauber
   {
-    LaTeX_zauber_main(fout);
+    LaTeX_zauber_main(rfout);
   }
  if (hauptfenster->getChar().List_Kido().size()>0) // KiDo
   {
-    LaTeX_kido_main(fout);
+    LaTeX_kido_main(rfout);
   }
- fout << "\\end{document}\n";
+ rfout << "\\end{document}\n";
+ rfout.flush();
  fout.close();
+ }
  pdf_viewer(filename);
 }      
 
@@ -121,7 +117,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
     if (hauptfenster->getChar().Typ2()->Name(hauptfenster->getWerte().Geschlecht())!="") 
       styp += "/"+hauptfenster->getChar().Typ2()->Name(hauptfenster->getWerte().Geschlecht());
   }
- fout << "\\newcommand{\\typ}{"<< LaTeX_scale(LATIN(styp),10,"2.2cm") << "}\n";
+ fout << "\\newcommand{\\typ}{"<< LaTeX_scale(styp,10,"2.2cm") << "}\n";
  fout << "\\newcommand{\\st}{"  <<hauptfenster->getWerte().St() << "}\n";
  fout << "\\newcommand{\\gs}{" <<hauptfenster->getWerte().Gs() << "}\n";
  fout << "\\newcommand{\\gw}{"  << hauptfenster->getWerte().Gw()<<hauptfenster->getWerte().Ruestung_RW_Verlust()<<"}\n";
@@ -159,7 +155,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  fout << "\\newcommand{\\sinnt}{"<<hauptfenster->getWerte().Tasten()<< "}\n";
  fout << "\\newcommand{\\sinnss}{"<<hauptfenster->getWerte().SechsterSinn()<< "}\n";
  
- fout << "\\newcommand{\\hand}{"<<LATIN(hauptfenster->getWerte().Hand())<< "}\n";
+ fout << "\\newcommand{\\hand}{"<<hauptfenster->getWerte().Hand()<< "}\n";
 
 // fout << "\\newcommand{\\bogi}{ X }\n";
  fout << "\\newcommand{\\res}{"<<hauptfenster->getWerte().Resistenz()<<"}\n";
@@ -183,17 +179,17 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  fout << "\\newcommand{\\zauber}{"<<EmptyInt_4TeX(hauptfenster->getWerte().Zaubern_wert())<< "}\n";
  fout << "\\newcommand{\\ppzauber}{"<<EmptyInt_4TeX(hauptfenster->getWerte().ZaubernPP())<< "}\n";
  fout << "\\newcommand{\\alter}{"  <<hauptfenster->getWerte().Alter() << "}\n";
- fout << "\\newcommand{\\gestalt}{"  <<LaTeX_scale(LATIN(hauptfenster->getWerte().Gestalt()),5,"0.7cm") << "}\n";
+ fout << "\\newcommand{\\gestalt}{"  <<LaTeX_scale(hauptfenster->getWerte().Gestalt(),5,"0.7cm") << "}\n";
  fout << "\\newcommand{\\gewicht}{"  <<hauptfenster->getWerte().Gewicht() << "\\,kg}\n";
  fout << "\\newcommand{\\koerpergroesse}{"  <<hauptfenster->getWerte().Groesse()/100. << "\\,m}\n";
- fout << "\\newcommand{\\koerpergroessebez}{"  <<LATIN(hauptfenster->getWerte().GroesseBez()) << "}\n";
+ fout << "\\newcommand{\\koerpergroessebez}{"  <<hauptfenster->getWerte().GroesseBez() << "}\n";
  fout << "\\newcommand{\\grad}{"  <<hauptfenster->getWerte().Grad() << "}\n";
- fout << "\\newcommand{\\spezialisierung}{ "  <<LaTeX_scale(LATIN(hauptfenster->getWerte().Spezialisierung()),10,"2.2cm") << "}\n";
+ fout << "\\newcommand{\\spezialisierung}{ "  <<LaTeX_scale(hauptfenster->getWerte().Spezialisierung(),10,"2.2cm") << "}\n";
  fout << "\\newcommand{\\stand}{"  <<LaTeX_scale(hauptfenster->getWerte().Stand(),10,"1.5cm") << "}\n";
- fout << "\\newcommand{\\herkunft}{"  <<LaTeX_scale(LATIN(hauptfenster->getWerte().Herkunft()->Name()),10,"2.2cm") << "}\n";
- fout << "\\newcommand{\\glaube}{"  <<LaTeX_scale(LATIN(hauptfenster->getWerte().Glaube()),10,"2.5cm") << "}\n";
- fout << "\\newcommand{\\namecharakter}{" << LaTeX_scale(LATIN(hauptfenster->getWerte().Name_Abenteurer()),25,"4.5cm") << "}\n";
- fout << "\\newcommand{\\namespieler}{" << LaTeX_scale(LATIN(hauptfenster->getWerte().Name_Spieler()),25,"4.5cm") << "}\n";
+ fout << "\\newcommand{\\herkunft}{"  <<LaTeX_scale(hauptfenster->getWerte().Herkunft()->Name(),10,"2.2cm") << "}\n";
+ fout << "\\newcommand{\\glaube}{"  <<LaTeX_scale(hauptfenster->getWerte().Glaube(),10,"2.5cm") << "}\n";
+ fout << "\\newcommand{\\namecharakter}{" << LaTeX_scale(hauptfenster->getWerte().Name_Abenteurer(),25,"4.5cm") << "}\n";
+ fout << "\\newcommand{\\namespieler}{" << LaTeX_scale(hauptfenster->getWerte().Name_Spieler(),25,"4.5cm") << "}\n";
  fout << "\\newcommand{\\gfp}{\\tiny "  <<EmptyInt_4TeX(hauptfenster->getWerte().GFP()) << "}\n";
  fout << "\\newcommand{\\aep}{\\tiny "  <<EmptyInt_4TeX(hauptfenster->getWerte().KEP()) << "}\n";
  fout << "\\newcommand{\\kep}{\\tiny "  <<EmptyInt_4TeX(hauptfenster->getWerte().ZEP()) << "}\n";
@@ -202,9 +198,9 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  double geld = hauptfenster->getWerte().Gold() + hauptfenster->getWerte().Silber()/10. + hauptfenster->getWerte().Kupfer()/100.;
  fout << "\\newcommand{\\gold}{\\tiny "  << geld << "}\n";
 
- fout << "\\newcommand{\\ruestung}{\\scriptsize "  <<LATIN(hauptfenster->getWerte().Ruestung()->Name()) << "}\n";
+ fout << "\\newcommand{\\ruestung}{\\scriptsize "  <<hauptfenster->getWerte().Ruestung()->Name() << "}\n";
  fout << "\\newcommand{\\ruestunglp}{\\scriptsize "  <<hauptfenster->getWerte().Ruestung()->LP_Verlust() << "}\n";
- fout << "\\newcommand{\\ruestungb}{\\scriptsize "  <<LATIN(hauptfenster->getWerte().Ruestung(1)->Name()) << "}\n";
+ fout << "\\newcommand{\\ruestungb}{\\scriptsize "  <<hauptfenster->getWerte().Ruestung(1)->Name() << "}\n";
  fout << "\\newcommand{\\ruestunglpb}{\\scriptsize "  <<hauptfenster->getWerte().Ruestung(1)->LP_Verlust() << "}\n";
 
  /////////////////////////////////////////////////////////////////////////////
@@ -218,7 +214,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
       verwandteSprachen.splice(verwandteSprachen.end(),tmplist);
 //geht nicht!!!      verwandteSprachen.splice(verwandteSprachen.end(),s->VerwandteSprachen(hauptfenster->getChar().List_Sprache,hauptfenster->Database()().Sprache));
       std::string a = LaTeX_string(sprachanz++);
-      fout << "\\newcommand{\\spra"<<a<<"}{\\scriptsize " << LaTeX_scale(LATIN(s->Name()),20,"2.6cm") <<"}\n";
+      fout << "\\newcommand{\\spra"<<a<<"}{\\scriptsize " << LaTeX_scale(s->Name(),20,"2.6cm") <<"}\n";
       fout << "\\newcommand{\\spraw"<<a<<"}{\\scriptsize +"<< (*i).Erfolgswert() <<"}\n";
       vector<pair<std::string,int> > vs=s->SchriftWert(hauptfenster->getChar().List_Schrift());
       std::string ss;
@@ -227,14 +223,14 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
          ss+= j->first + "(+"+itos(j->second)+")";
          if(++j!=vs.end())  ss+=", ";
        }
-      fout << "\\newcommand{\\schr"<<a<<"}{\\scriptsize "<< LaTeX_scale(LATIN(ss),20,"2.6cm") <<"}\n";
+      fout << "\\newcommand{\\schr"<<a<<"}{\\scriptsize "<< LaTeX_scale(ss,20,"2.6cm") <<"}\n";
    }
  verwandteSprachen=Sprache::cleanVerwandteSprachen(verwandteSprachen);
  for(std::list<MidgardBasicElement_mutable>::const_iterator i=verwandteSprachen.begin();i!=verwandteSprachen.end();++i)
    { cH_Sprache s(*i);
      if(i->ist_gelernt(hauptfenster->getChar().List_Sprache())) continue;
      std::string a = LaTeX_string(sprachanz++);
-     fout << "\\newcommand{\\spra"<<a<<"}{\\scriptsize " << LaTeX_scale(LATIN(s->Name()),20,"2.6cm") <<"}\n";
+     fout << "\\newcommand{\\spra"<<a<<"}{\\scriptsize " << LaTeX_scale(s->Name(),20,"2.6cm") <<"}\n";
      fout << "\\newcommand{\\spraw"<<a<<"}{\\scriptsize (+"<< (*i).Erfolgswert() <<")}\n";
      fout << "\\newcommand{\\schr"<<a<<"}{\\scriptsize "<< LaTeX_scale("",20,"2.6cm") <<"}\n";
    }
@@ -267,14 +263,14 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Beruf().begin();
          i!=hauptfenster->getChar().List_Beruf().end();++i)
    {
-     fout << LATIN((*i)->Name()); //<<" ("<<(*i).Erfolgswert()<<")\t";
+     fout << (*i)->Name(); //<<" ("<<(*i).Erfolgswert()<<")\t";
    }
  fout <<"}\n";
  /////////////////////////////////////////////////////////////////////////////
  // weitere Merkmale
  fout << "\\newcommand{\\merkmale}{" ;
- if(hauptfenster->getWerte().Spezies()->Name()!="Mensch")  fout << LATIN(hauptfenster->getWerte().Spezies()->Name())<<" "; 
- fout << LATIN(hauptfenster->getWerte().Merkmale());
+ if(hauptfenster->getWerte().Spezies()->Name()!="Mensch")  fout << hauptfenster->getWerte().Spezies()->Name()<<" "; 
+ fout << hauptfenster->getWerte().Merkmale();
  fout <<"}\n";
  /////////////////////////////////////////////////////////////////////////////
  // Fertigkeiten & Waffen
@@ -285,7 +281,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
    {cH_Fertigkeit_angeborene f(*i);
     std::string a = LaTeX_string(count);
     count++;
-    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<LATIN(f->Name()) << "}   ";
+    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<f->Name() << "}   ";
     // Praxispunkte
     std::string pp = itos((*i).Praxispunkte());
     if (pp == "0") pp = "";
@@ -304,7 +300,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
     std::string wert = itos((*i).Erfolgswert());
     if (wert == "0") wert = "";
     fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  
-      <<LATIN(LaTeX_scale(f->Name()+" "+i->Zusatz(),33,"4cm")) << "}\t\t";
+      <<LaTeX_scale(f->Name()+" "+i->Zusatz(),33,"4cm") << "}\t\t";
     // Praxispunkte
     std::string pp = itos((*i).Praxispunkte());
     if (pp == "0") pp = "";
@@ -327,7 +323,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
     std::string a = LaTeX_string(count);
 //std::cout << "latexstring = "<<a<<"\n";
     std::string wert = itos((*i).Erfolgswert());
-    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<LATIN(w->Name()) << "}\t\t";
+    fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<w->Name() << "}\t\t";
     // Praxispunkte
     std::string pp = itos((*i).Praxispunkte());
     if (pp == "0") pp = "";
@@ -348,7 +344,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
          fout << "\\newcommand{\\waffe"<<b<<"}{ " ;
          if (WB.Magisch()!="" || 
              WB.av_Bonus()!=0 || WB.sl_Bonus()!=0) waffenname+="$^*$ "+WB.Bonus() ;
-         fout <<LaTeX_scalemag(LATIN(waffenname),20,"3cm",WB.Magisch(),WB.Waffe()->Reichweite())<< "}\n";
+         fout <<LaTeX_scalemag(waffenname,20,"3cm",WB.Magisch(),WB.Waffe()->Reichweite())<< "}\n";
          
          // Erfolgswert für einen Verteidigungswaffen
          if (WB.Waffe()->Verteidigung())
@@ -404,7 +400,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
     if (!i->gelernt)
      {
        ++countunifert;
-       fout <<"\\newcommand{\\uni"<<a<<"}{"<<LATIN(name)<< "}\t\t";
+       fout <<"\\newcommand{\\uni"<<a<<"}{"<<name<< "}\t\t";
        if (i->voraussetzung)
           fout << "\\newcommand{\\uniw"<<a<<"}{("<<wert << ")}\n";
        else
@@ -592,7 +588,7 @@ void LaTeX_drucken::LaTeX_write_empty_values(ostream &fout,const std::string &in
         wert = "+4";
       }
 //    f->set_Erfolgswert(f->Ungelernt());
-    fout <<"\\newcommand{\\uni"<<a<<"}{\\tiny "<<LATIN(name)<< "}\t\t";
+    fout <<"\\newcommand{\\uni"<<a<<"}{\\tiny "<<name<< "}\t\t";
     fout << "\\newcommand{\\uniw"<<a<<"}{("<<wert << ")}\n";
   } 
 
@@ -840,21 +836,21 @@ void LaTeX_drucken::LaTeX_zauber(ostream &fout)
   for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Zauber().begin();i!=hauptfenster->getChar().List_Zauber().end();++i)
    {
      cH_Zauber z(*i);
-     fout << LATIN(z->Name()) ;
-     if(!(*i).Zusatz().empty()) fout << " ("<<LATIN((*i).Zusatz())<<")";
+     fout << z->Name() ;
+     if(!(*i).Zusatz().empty()) fout << " ("<<(*i).Zusatz()<<")";
      fout <<" & ";
      fout << z->Erfolgswert_Z(hauptfenster->getChar().getVTyp(),hauptfenster->getWerte()) <<" & ";
-     fout << Gtk2TeX::string2TeX(LATIN(z->Ap())) << " & ";
-     fout << LATIN(z->Art()) << " & ";
+     fout << Gtk2TeX::string2TeX(z->Ap()) << " & ";
+     fout << z->Art() << " & ";
      fout << z->Stufe() << " & ";
-     fout << LATIN(z->Zauberdauer()) << " & ";
-     fout << LATIN(z->Reichweite()) << " & ";
-     fout << LATIN(z->Wirkungsziel()) << " & ";
-     fout << LATIN(z->Wirkungsbereich()) << " & ";
-     fout << LATIN(z->Wirkungsdauer()) << " & ";
-     fout << LATIN(z->Ursprung()) << " & " ;
-     fout << LaTeX_scale(LATIN(z->Material()),20,"3cm") << " & " ;
-     fout << LATIN(z->Agens(hauptfenster->getChar().getVTyp())) <<" " <<LATIN(z->Prozess()) <<" "<<LATIN(z->Reagens()) ;
+     fout << z->Zauberdauer() << " & ";
+     fout << z->Reichweite() << " & ";
+     fout << z->Wirkungsziel() << " & ";
+     fout << z->Wirkungsbereich() << " & ";
+     fout << z->Wirkungsdauer() << " & ";
+     fout << z->Ursprung() << " & " ;
+     fout << LaTeX_scale(z->Material(),20,"3cm") << " & " ;
+     fout << z->Agens(hauptfenster->getChar().getVTyp()) <<" " <<z->Prozess() <<" "<<z->Reagens() ;
      fout << "\\\\\n";
    }
 }
@@ -866,11 +862,11 @@ void LaTeX_drucken::LaTeX_zaubermittel(ostream &fout)
      cH_Zauberwerk z(*i);
 //     std::string wert ;//= itos((*i)->Wert());
 //     fout << wert <<" & ";
-     fout << LATIN(z->Name())  <<" & ";
-     fout << LATIN(z->Art())   <<" & ";
+     fout << z->Name()  <<" & ";
+     fout << z->Art()   <<" & ";
      fout << z->Stufe()   <<" & ";
-     fout << LATIN(z->Zeitaufwand())  <<" & ";
-     fout << LATIN(z->Preis())   <<" \\\\\n ";
+     fout << z->Zeitaufwand()  <<" & ";
+     fout << z->Preis()   <<" \\\\\n ";
    }
 }
 
@@ -916,10 +912,10 @@ void LaTeX_drucken::LaTeX_kido(ostream &fout)
      if (stufe=="Eingeweihter") stufe="E";
      if (stufe=="Meister") stufe="M";
      fout << ap << " & ";
-     fout << LATIN(kd->HoHo()) << " & ";
-     fout << LATIN(kd->Deutsch()) << " & ";
+     fout << kd->HoHo() << " & ";
+     fout << kd->Deutsch() << " & ";
      fout << stufe << " & ";
-     fout << Gtk2TeX::string2TeX(LATIN(kd->Effekt())) ;
+     fout << Gtk2TeX::string2TeX(kd->Effekt()) ;
      fout << "\\\\\n";
    }
 }

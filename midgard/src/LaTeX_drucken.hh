@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.hh,v 1.7 2002/06/19 07:53:37 thoma Exp $
+// $Id: LaTeX_drucken.hh,v 1.8 2002/06/29 20:39:30 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -67,9 +67,9 @@ class LaTeX_drucken
                SechsterSinn,Wahrnehmung,Spurenlesen,Fallen_entdecken,
                Suchen,Menschenkenntnis, Sagenkunde,Zauberkunde,Gassenwissen,
                Himmelskunde,Schaetzen,angFert,Waffen};
-    void line(ofstream &fout,const ewhat &what);
-    void for_each(ofstream &fout,const ewhat &what);
-    void list_for_each(ofstream &fout,const std::list<MidgardBasicElement_mutable>& L,const int &maxlength,const std::string& cm);
+    void line(ostream &fout,const ewhat &what);
+    void for_each(ostream &fout,const ewhat &what);
+    void list_for_each(ostream &fout,const std::list<MidgardBasicElement_mutable>& L,const int &maxlength,const std::string& cm);
  public:
     LaTeX_drucken(const midgard_CG* h)
       : hauptfenster(h) {}
