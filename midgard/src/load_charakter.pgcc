@@ -743,14 +743,25 @@ void midgard_CG::load_fertigkeiten(IF_XML(const Tag *tag, const Tag *waffen_b, i
       else if(sart=="Sprache")
         {
          cH_MidgardBasicElement sprache(&*cH_Sprache(i->getAttr("Bezeichnung"),true));
-         sprache->set_Erfolgswert(i->getIntAttr("Wert"));
+         int wert=i->getIntAttr("Wert");
+         if (xml_version<8) // 3. Auflage
+         {  switch (wert)
+            {  case 1: wert=4;
+               case 2: wert=6;
+               case 3: wert=10;
+               case 4: wert=13;
+            }
+         }
+         sprache->set_Erfolgswert(wert);
          sprache->set_Praxispunkte(i->getIntAttr("Praxispunkte"));
          list_Sprache.push_back(sprache);
         }
       else if(sart=="Urschrift") 
         {
          cH_MidgardBasicElement schrift(&*cH_Schrift(i->getAttr("Bezeichnung"),true));
-         schrift->set_Erfolgswert(i->getIntAttr("Wert"));
+         int wert=i->getIntAttr("Wert");
+         if (xml_version<8 && !wert) wert=12;
+         schrift->set_Erfolgswert(wert);
          schrift->set_Praxispunkte(i->getIntAttr("Praxispunkte"));
          list_Schrift.push_back(schrift);
         }
