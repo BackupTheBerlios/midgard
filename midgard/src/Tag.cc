@@ -18,7 +18,8 @@
  */
 
 #include "Tag.hh"
-#include <algo.h>
+#include <algorithm>
+#include <utility> // pair
 #include <locale.h>
 
 #ifdef __MINGW32__
@@ -77,6 +78,8 @@ bool Tag::parse_bool_value(const std::string &value, bool def)
 {  if (value.empty()) return def;
    if (!strcasecmp(value.c_str(),"true")) return true;
    if (!strcasecmp(value.c_str(),"false")) return false;
+   if (!strcasecmp(value.c_str(),"yes")) return true;
+   if (!strcasecmp(value.c_str(),"no")) return false;
    std::cerr << "strange bool value: \"" << value << "\"\n";
    return parse_int_value(value, def);
 }
@@ -137,8 +140,12 @@ void Tag::mark(const std::string &tg,const std::string &value) throw()
    else (*t).Value(value);
 }
 
+// this is needed for g++ 3.x 
+// - still gives me strange feelings to declare inside std
+namespace std {
 bool operator==(const std::pair<std::string,std::string> &a,const std::string &b)
 {  return a.first==b;
+}
 }
 
 Tag::attvec_t::iterator Tag::attfind(const std::string &name)
@@ -180,7 +187,6 @@ float Tag::getFloatAttr(const std::string &typ,float def) const throw()
    if (i!=attend()) return parse_float_value(i->second,def);
    return def;
 }
-
 
 #include <cstdio>
 

@@ -155,7 +155,7 @@ FertEnd:
 
 ///////////////////////////////////////////////////////////////////
 
-std::string WaffeBesitz::Schaden(const Grundwerte& Werte,const std::string& name,bool latex=false) const
+std::string WaffeBesitz::Schaden(const Grundwerte& Werte,const std::string& name,bool latex) const
 {
   if (Waffe()->Art()=="Verteidigung") 
    {
@@ -266,7 +266,7 @@ std::string Waffe::Schwierigkeit_str() const
 
 
 
-map<std::string,std::string> Waffe::fill_map_alias_waffe()
+std::map<std::string,std::string> Waffe::fill_map_alias_waffe()
 {
   std::map<std::string,std::string> M;
  const Tag *waffen=xml_data->find("Waffen");

@@ -187,7 +187,7 @@ int Sprache::getHoeherenErfolgswert(const std::list<MBEmlt>& gelernte_listSprach
 }
 
 
-bool Sprache::ist_erlaubt(const Abenteurer& A,bool nachbarland=false) const 
+bool Sprache::ist_erlaubt(const Abenteurer& A,bool nachbarland) const 
 {
   if(nachbarland)
    {

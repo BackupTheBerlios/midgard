@@ -43,7 +43,7 @@ class NotFound : public std::exception
 
 class MidgardBasicElement : public HandleContentCopyable
 {
-   private:
+   protected:
       // WARNUNG: Beruf wird nicht verwendet
       struct st_ausnahmen{std::string herkunft;std::string spezies;
                           std::string typ;std::string beruf;std::string stand;

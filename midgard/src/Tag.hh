@@ -30,11 +30,11 @@ class Tag {
     	std::string type;
     	std::string value;
     	typedef std::vector <std::pair<std::string,std::string> > attvec_t;
-    	typedef std::vector<Tag>::difference_type difference_type;
     	attvec_t attributes;
     	std::vector <Tag> sub_specifications;
 
 public: // nice to have for custom parsing
+    	typedef std::vector<Tag>::difference_type difference_type;
 	static bool parse_bool_value(const std::string &val, bool def=false);
 	static int parse_int_value(const std::string &val, int def=0);
 	static long parse_long_value(const std::string &val, long def=0);
@@ -82,6 +82,8 @@ public:
 	// please prefer these finds, they are faster!
 	const_iterator find(const_iterator it,const std::string &type) const
 	{  return ::find(it,end(),type); }
+	const_iterator find(const_iterator it,const std::string &type)
+	{  return ::find(it,const_cast<const Tag*>(this)->end(),type); }
 	iterator find(iterator it,const std::string &type)
 	{  return ::find(it,end(),type); }
 

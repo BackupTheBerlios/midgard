@@ -1,4 +1,4 @@
-// $Id: Lernschema.hh,v 1.12 2002/10/24 07:21:01 christof Exp $               
+// $Id: Lernschema.hh,v 1.13 2002/11/04 08:00:25 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -51,6 +51,9 @@ class Lernschema
          };
 
       std::map<st_index,st_wert> lern_map;
+	
+	static void StoreLernschema(const std::string &slist,const std::string &element,
+		const std::string &typ, std::map<Lernschema::st_index,Lernschema::st_wert> &lern_map);
 
    public:
       Lernschema() {}; //der andere ctor war mal mit Progressbar

@@ -1,4 +1,4 @@
-// $Id: Zauber.hh,v 1.44 2002/10/04 06:20:12 thoma Exp $               
+// $Id: Zauber.hh,v 1.45 2002/11/04 08:00:25 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *

@@ -103,7 +103,7 @@ private:
 
         // drag & drop
         enum {TARGET_STRING,TARGET_ROOTWIN,TARGET_URL};
-        GtkTargetEntry target_table[4];
+        static const GtkTargetEntry target_table[4];
         std::vector<st_ausruestung> vec_aus;
 
         guint n_targets;// = sizeof(target_table) / sizeof(target_table[0]);       

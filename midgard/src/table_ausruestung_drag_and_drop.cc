@@ -24,16 +24,17 @@
 //static  Gdk_Pixmap drag_icon;
 //#include "/tmp/testdrag_and_drop.xpm"
 
-table_ausruestung::table_ausruestung(GlademmData *_data)
-: table_ausruestung_glade(_data) , hauptfenster(0), besitz(0)
-{
-  GtkTargetEntry tt[] = {
+const GtkTargetEntry table_ausruestung::target_table[4] = {
            { "STRING",     0, table_ausruestung::TARGET_STRING },
            { "text/plain", 0, table_ausruestung::TARGET_STRING },
            { "text/uri-std::list", 0, table_ausruestung::TARGET_URL },
            { "application/x-rootwin-drop", 0, table_ausruestung::TARGET_ROOTWIN}
            };
-  target_table=tt;
+
+table_ausruestung::table_ausruestung(GlademmData *_data)
+: table_ausruestung_glade(_data) , hauptfenster(0), besitz(0)
+{
+//  target_table=tt;
   n_targets = sizeof(target_table) / sizeof(target_table[0]);
 
 /*
@@ -57,7 +58,7 @@ table_ausruestung::table_ausruestung(GlademmData *_data)
 
 //  Ausruestung_tree->drag_data_received.connect(slot(this,&(table_ausruestung::drag_data_received)));
 
-  checkbutton_ausruestung_geld->drag_data_received.connect(slot(this,&(table_ausruestung::tree_drag_data_received)));
+  checkbutton_ausruestung_geld->drag_data_received.connect(SigC::slot(this,&table_ausruestung::tree_drag_data_received));
   checkbutton_ausruestung_geld->drag_dest_set ( GTK_DEST_DEFAULT_ALL,
                           target_table, n_targets - 1, /* no rootwin */
                           static_cast < GdkDragAction > ( GDK_ACTION_COPY | GDK_ACTION_MOVE) );

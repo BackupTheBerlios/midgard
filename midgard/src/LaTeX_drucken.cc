@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.73 2002/11/02 22:16:33 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.74 2002/11/04 08:00:25 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -73,7 +73,7 @@ std::string LaTeX_drucken::get_latex_pathname(const LaTeX_Pathnames what)
 }
 
 
-void LaTeX_drucken::on_latex_clicked(bool values=true)
+void LaTeX_drucken::on_latex_clicked(bool values)
 {   
 // std::string installfile=get_latex_pathname(TeX_Install)+get_latex_filename(TeX_MainDocument);
  std::string installfile=hauptfenster->with_path(get_latex_filename(TeX_MainDocument)+".tex");
@@ -220,7 +220,7 @@ void LaTeX_drucken::LaTeX_write_empty_values(std::ostream &fout,const std::strin
  fout << WinLux::active_tilde;
 }
 
-void LaTeX_drucken::write_grundwerte(std::ostream &fout,bool empty=false)
+void LaTeX_drucken::write_grundwerte(std::ostream &fout,bool empty)
 {
  for(ewhat was=enamecharakter;was<eMAX; was=ewhat(int(was)+1))
   {
@@ -405,7 +405,7 @@ void LaTeX_drucken::write_grundwerte(std::ostream &fout,bool empty=false)
 }
 
 
-void LaTeX_drucken::write_sprachen(std::ostream &fout,const std::vector<Sprache_und_Schrift>& L,bool longlist=false)
+void LaTeX_drucken::write_sprachen(std::ostream &fout,const std::vector<Sprache_und_Schrift>& L,bool longlist)
 {
   unsigned int sprachanz=0;
   for(std::vector<Sprache_und_Schrift>::const_iterator i=L.begin();i!=L.end();++i)
@@ -446,7 +446,7 @@ void LaTeX_drucken::write_sprachen(std::ostream &fout,const std::vector<Sprache_
    }
 }
 
-void LaTeX_drucken::write_fertigkeiten(std::ostream &fout,const std::list<MBEmlt>& L,bool longlist=false)
+void LaTeX_drucken::write_fertigkeiten(std::ostream &fout,const std::list<MBEmlt>& L,bool longlist)
 {
   unsigned int count=0;
   for(std::list<MBEmlt>::const_iterator i=L.begin();i!=L.end();++i)
@@ -489,7 +489,7 @@ struct st_WB{std::string name;std::string wert;std::string schaden;
                                   std::string r,std::string m)
                     : name(n),wert(w),schaden(s),rang(r),modi(m) {}};
 
-void LaTeX_drucken::write_waffenbesitz(std::ostream &fout,const std::list<WaffeBesitz>& L,bool longlist=false)
+void LaTeX_drucken::write_waffenbesitz(std::ostream &fout,const std::list<WaffeBesitz>& L,bool longlist)
 {
   std::string angriffsverlust = hauptfenster->getWerte().Ruestung_Angriff_Verlust(hauptfenster->getChar()->List_Fertigkeit());
   std::vector<st_WB> VWB;

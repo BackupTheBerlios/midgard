@@ -62,7 +62,7 @@ void table_ausruestung::showAusruestung()
   scrolledwindow_ausruestung->remove();
   Ausruestung_tree=manage(new Gtk::CTree(title));
 
-  Ausruestung_tree->drag_data_received.connect(slot(this,&(table_ausruestung::tree_drag_data_received)));
+  Ausruestung_tree->drag_data_received.connect(SigC::slot(this,&table_ausruestung::tree_drag_data_received));
   Ausruestung_tree->drag_dest_set ( GTK_DEST_DEFAULT_ALL,
          target_table, n_targets - 1, /* no rootwin */
          static_cast < GdkDragAction > ( GDK_ACTION_COPY | GDK_ACTION_MOVE) );

@@ -24,7 +24,7 @@
 #include "Zauberwerk.hh"
 #include "Fertigkeiten.hh"
 
-static void StoreLernschema(const std::string &slist,const std::string &element,
+void Lernschema::StoreLernschema(const std::string &slist,const std::string &element,
 		const std::string &typ, std::map<Lernschema::st_index,Lernschema::st_wert> &lern_map)
 {const Tag *liste=xml_data->find(slist);
  if (liste)
@@ -41,7 +41,6 @@ static void StoreLernschema(const std::string &slist,const std::string &element,
     }
  }
 }
-
 
 Lernschema::Lernschema(bool t)
 {
@@ -123,4 +122,3 @@ int Lernschema::get_Lernpunkte(const std::vector<st_index>& VI) const
   return lernp;
 }
 
- 

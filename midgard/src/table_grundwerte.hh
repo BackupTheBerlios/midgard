@@ -61,6 +61,7 @@ private:
 
         // Für Variante 2 + 3
         enum e_eigen{est,egw,egs,eko,ein,ezt,eMAX};
+        friend e_eigen &operator++(e_eigen &s);
         e_eigen actual_eigen;
         Gtk::Label *label;
         struct st_eigen{e_eigen eigenschaft;std::string lang;std::string kurz; 

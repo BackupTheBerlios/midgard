@@ -60,7 +60,7 @@ void MidgardBasicElement::show_list_in_tree(
 bool MidgardBasicElement::ist_lernbar(const std::vector<cH_Typen>& Typ,const std::map<std::string,std::string>& map_typ) const
 {
   for (std::vector<cH_Typen>::const_iterator i=Typ.begin();i!=Typ.end();++i)
-    if (const_cast<map<std::string,std::string>& >(map_typ)[(*i)->Short()]!="") 
+    if (const_cast<std::map<std::string,std::string>& >(map_typ)[(*i)->Short()]!="") 
       return true;
   return false;
 }
@@ -104,7 +104,7 @@ std::string MidgardBasicElement::Standard__(const Abenteurer &A) const
  return s2;
 }
 
-vector<std::string> MidgardBasicElement::Standard(const Abenteurer &A) const
+std::vector<std::string> MidgardBasicElement::Standard(const Abenteurer &A) const
 {
  assert(A.getVTyp().size()==2);
  std::vector<std::string> s(2);

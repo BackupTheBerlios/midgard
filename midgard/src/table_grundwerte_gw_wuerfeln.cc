@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.18 2002/10/24 07:58:34 thoma Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.19 2002/11/04 08:00:25 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -179,7 +179,8 @@ void table_grundwerte::gw_variante_2()
 }
 
 enum table_grundwerte::e_eigen &operator++(enum table_grundwerte::e_eigen &s)
-{  return (enum table_grundwerte::e_eigen)(++(int&)s);
+{  ++(int&)s;
+   return s;
 }
 
 

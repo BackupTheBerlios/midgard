@@ -64,7 +64,7 @@
 
 
 
-Gtk::Pixmap *RegionenPic::Pic(epic typ,Midgard_Optionen::IconIndex ii,bool tiny=false)
+Gtk::Pixmap *RegionenPic::Pic(epic typ,Midgard_Optionen::IconIndex ii,bool tiny)
 {  
  if(ii==Midgard_Optionen::Ulf)
  {

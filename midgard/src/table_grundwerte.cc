@@ -32,7 +32,7 @@ void table_grundwerte::init(midgard_CG *h)
   zeige_werte();
 }
     
-void table_grundwerte::zeige_werte(bool typ2_hide=true)
+void table_grundwerte::zeige_werte(bool typ2_hide)
 { 
    if(!hauptfenster) return;
    block_changed=true;
