@@ -9,12 +9,12 @@
 #include "BegruessungsWindow.hh"
 #include "midgard_CG.hh"
 #include "bool_CheckButton.hh"
-#include "../pixmaps/KillChar-32.xpm"
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 BegruessungsWindow::BegruessungsWindow(midgard_CG* h) 
  : hauptfenster(h) 
 {
-  Gtk::Image *p= manage(new class Gtk::Image(Gdk::Pixbuf::create_from_xpm_data(KillChar_32_xpm)));
+  Gtk::Image *p= manage(new class Gtk::Image(MagusImage("KillChar-32.xpm")));
   bool_CheckButton *W = Gtk::manage(new bool_CheckButton(hauptfenster->MOptionen->OberCheck(Midgard_Optionen::BegruessungsFenster).active,*p));
   W->set_mode(false);
   W->show_all();

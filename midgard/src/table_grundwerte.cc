@@ -11,12 +11,12 @@
 #include <Misc/itos.h>
 #include <SelectMatching.h>
 #include <Misc/Trace.h>
-#include <../pixmaps/EditChar-trans-50.xpm>
 
 #include<gtkmm/label.h>
 #include<gtkmm/image.h>
 #include<gtkmm/box.h>
 #include <bool_CheckButton.hh>
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 void table_grundwerte::init(midgard_CG *h)
 {
@@ -39,7 +39,7 @@ void table_grundwerte::init(midgard_CG *h)
   if(!only_once)
   {
    only_once=true;
-    bool_CheckButton *_m=manage(new bool_CheckButton(edit_werte,hauptfenster->make_gtk_box(EditChar_trans_50_xpm,"Werte\neditieren",false,false)));
+    bool_CheckButton *_m=manage(new bool_CheckButton(edit_werte,hauptfenster->make_gtk_box(MagusImage("EditChar-trans-50.xpm"),"Werte\neditieren",false,false)));
    _m->set_mode(false);
    eventbox_werte_edit->add(*_m);
    eventbox_werte_edit->show_all();
