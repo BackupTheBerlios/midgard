@@ -1,4 +1,4 @@
-// $Id: Optionen.cc,v 1.70 2002/08/27 18:45:59 thoma Exp $
+// $Id: Optionen.cc,v 1.71 2002/08/28 08:43:07 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -293,7 +293,7 @@ void Midgard_Optionen::Ober_setzen_from_menu(OberIndex index,bool b)
 
 void Midgard_Optionen::Icon_setzen_from_menu(IconIndex index,bool b)
 {
-//  assert(b);
+  assert(b);
   for(list<st_Icon>::iterator i=list_Icon.begin();i!=list_Icon.end();++i)
    {
      if(i->index==index) 
@@ -511,7 +511,9 @@ void Midgard_Optionen::save_options(const std::string &filename,WindowInfo *Info
      opt.setBoolAttr("Wert", i->active);
    }
  for(std::list<st_Icon>::iterator i=list_Icon.begin();i!=list_Icon.end();++i)
-   { Tag &opt=optionen.push_back(Tag("Icon"));
+   { 
+     if(!i->active) continue;
+     Tag &opt=optionen.push_back(Tag("Icon"));
      opt.setAttr("Name",i->text);
      opt.setBoolAttr("Wert", i->active);
    }

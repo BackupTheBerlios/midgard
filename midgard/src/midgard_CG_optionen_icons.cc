@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen_icons.cc,v 1.1 2002/08/28 07:57:42 thoma Exp $
+// $Id: midgard_CG_optionen_icons.cc,v 1.2 2002/08/28 08:43:07 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,7 +31,6 @@
 #include "../pixmaps/Exit-trans-50.xpm"
 
 
-//pair<std::string,Gtk::Pixmap *> midgard_CG::StyleIcon(e_icon typ) const
 midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
 {
   if(MOptionen->IconCheck(Midgard_Optionen::Self).active)
@@ -47,41 +46,18 @@ midgard_CG::st_icons midgard_CG::StyleIcon(e_icon typ) const
      else if(typ==iHelp)       return st_icons("Hilfe"       ,Help_trans_new1_xpm    );
      else if(typ==iInstruction)return st_icons("Anleitung"   ,Help_trans_new1_xpm    );
      else if(typ==iExit)       return st_icons("Schließen"   ,Exit_trans_50_xpm      );
-/*
-     if     (typ==iNew)     return pair<std::string,Gtk::Pixmap *>("Neu"         ,manage(new Gtk::Pixmap(NewChar_trans_50_xpm)));
-     else if(typ==iOpen)    return pair<std::string,Gtk::Pixmap *>("Öffnen"      ,manage(new Gtk::Pixmap(LoadChar_trans_50_xpm)));
-     else if(typ==iClose)   return pair<std::string,Gtk::Pixmap *>("Speichern"   ,manage(new Gtk::Pixmap(SaveChar_trans_50_xpm)));
-     else if(typ==iPrint)   return pair<std::string,Gtk::Pixmap *>("Drucken"     ,manage(new Gtk::Pixmap(PrintChar_trans_50_xpm)));
-     else if(typ==iBack)    return pair<std::string,Gtk::Pixmap *>("Zurück"      ,manage(new Gtk::Pixmap(Undo_xpm)));
-     else if(typ==iForward) return pair<std::string,Gtk::Pixmap *>("Vorwärts"    ,manage(new Gtk::Pixmap(redo_xpm)));
-     else if(typ==iMenu)    return pair<std::string,Gtk::Pixmap *>("Menü"        ,manage(new Gtk::Pixmap(wizzard_trans_50_2_xpm)));
-     else if(typ==iInfo)    return pair<std::string,Gtk::Pixmap *>("Info"        ,manage(new Gtk::Pixmap(Info_trans_50_xpm)));
-     else if(typ==iHelp)    return pair<std::string,Gtk::Pixmap *>("Hilfe"       ,manage(new Gtk::Pixmap(Help_trans_new1_xpm)));
-  else if(typ==iInstruction)return pair<std::string,Gtk::Pixmap *>("Anleitung"   ,manage(new Gtk::Pixmap(Help_trans_new1_xpm)));
-     else if(typ==iExit)    return pair<std::string,Gtk::Pixmap *>("Schließen"   ,manage(new Gtk::Pixmap(Exit_trans_50_xpm)));      
-*/
    }
   else if(MOptionen->IconCheck(Midgard_Optionen::Ulf).active)
    {
-//     if     (typ==iNew)        return st_icons("Neu"         ,NewChar_trans_50_xpm   );
+     return st_icons("Neu"         ,NewChar_trans_50_xpm   );
 //     return pair<std::string,Gtk::Pixmap *>("Neu",manage(new Gtk::Pixmap(NewChar_trans_50_xpm)));
    }
   assert(!"never get here");
   abort();
 }
 
-
-
 void midgard_CG::Icons_setzen()
 {
-  if(MOptionen->IconCheck(Midgard_Optionen::Self).active)
-   {
-cout << "SELF\n";
-   }
-  else if(MOptionen->IconCheck(Midgard_Optionen::Ulf).active)
-   {
-cout << "ULF\n";
-   }
   e_icon icon_counter=iNew;
   for(Gtk::Toolbar_Helpers::ToolList::iterator i=toolbar_top->tools().begin();i!=toolbar_top->tools().end();++i)
    {
