@@ -21,13 +21,20 @@
 Prozente100::Prozente100()
 : mage(true)
 {
-   VWas.push_back(st_was(fertigkeiten,30));
-   VWas.push_back(st_was(waffen,30));
-   VWas.push_back(st_was(zauber,30));
-   VWas.push_back(st_was(sprachen,7));
-   VWas.push_back(st_was(schriften,3));
-   VWas.push_back(st_was(waffen_grund,0));
-   VWas.push_back(st_was(zauberwerk,0));
+   VWas.push_back(st_was(Enums::sFert,30));
+   VWas.push_back(st_was(Enums::sWaff,30));
+   VWas.push_back(st_was(Enums::sZaub,30));
+   VWas.push_back(st_was(Enums::sSpra,7));
+   VWas.push_back(st_was(Enums::sSchr,3));
+   VWas.push_back(st_was(Enums::sWGru,0));
+   VWas.push_back(st_was(Enums::sZWerk,0));
+   VWas.push_back(st_was(Enums::sKiDo,0));
+
+   VSpezialist.push_back(st_was(Enums::sFert,50));
+   VSpezialist.push_back(st_was(Enums::sWaff,95));
+   VSpezialist.push_back(st_was(Enums::sSpra,50));
+   VSpezialist.push_back(st_was(Enums::sSchr,50));
+
    check100();
 }
 
@@ -40,8 +47,29 @@ void Prozente100::check100()
      int summe=Vsumme();
      if(summe==100) break;
      int diff=100-summe;
-     add(fertigkeiten,diff);
+     add(Enums::sFert,diff);
    }
+ for(std::vector<st_was>::iterator i=VSpezialist.begin();i!=VSpezialist.end();++i)
+  { if     (i->prozent<0)   i->prozent=0;
+    else if(i->prozent>100) i->prozent=100;
+  }
+}
+
+const std::vector<Prozente100::st_was> Prozente100::get100V() const 
+{
+  const_cast<Prozente100&>(*this).check100();
+  std::vector<st_was> V;
+  int s=0;
+  for(std::vector<st_was>::const_iterator i=VWas.begin();i!=VWas.end();++i)
+   {
+     if(i->prozent != 0)
+      {
+        V.push_back(st_was(i->was,s+i->prozent));
+        s+=i->prozent;
+      }
+   }
+  assert(s==100);
+  return V;
 }
 
 
@@ -57,27 +85,40 @@ int Prozente100::Vsumme()
 void Prozente100::set_mage(bool m)
 {
   mage=m;
-  if(!mage) { set(zauber,0); set(zauberwerk,0);}
+  if(!mage) { set(Enums::sZaub,0); set(Enums::sZWerk,0);}
   check100(); 
 }
 
 
-void Prozente100::add(const ewas &was,const int prozent)
+void Prozente100::add(const Enums::MBEListen &was,const int prozent)
 {
   for(std::vector<st_was>::iterator i=VWas.begin();i!=VWas.end();++i)
      if(was==i->was) i->prozent+=prozent;
 }
 
-void Prozente100::set(const ewas &was,const int prozent)
+void Prozente100::set(const Enums::MBEListen &was,const int prozent)
 {
   for(std::vector<st_was>::iterator i=VWas.begin();i!=VWas.end();++i)
      if(was==i->was) i->prozent=prozent;
 }
 
-int Prozente100::get(const ewas &was) const
+int Prozente100::get(const Enums::MBEListen &was) const
 {
   for(std::vector<st_was>::const_iterator i=VWas.begin();i!=VWas.end();++i)
      if(was==i->was) return i->prozent;
   assert(!"never get here"); abort();
+}
+
+void Prozente100::setS(const Enums::MBEListen &was,const int prozent)
+{
+  for(std::vector<st_was>::iterator i=VSpezialist.begin();i!=VSpezialist.end();++i)
+     if(was==i->was) i->prozent=prozent;
+}
+
+int Prozente100::getS(const Enums::MBEListen &was) const
+{
+  for(std::vector<st_was>::const_iterator i=VSpezialist.begin();i!=VSpezialist.end();++i)
+     if(was==i->was) return i->prozent;
+  return 0; // wenn etwas nicht gesteigert werden kann dann entspricht das 100% Allgemeinbildung
 }
 

@@ -20,18 +20,20 @@
 #include "KI.hh"
 #include "zufall.h"
 
-void MagusKI::VerteileGFP(int gfp,const int spezial_allgemein,const Prozente100 &p)
+void MagusKI::VerteileGFP(int gfp,const Prozente100 &p)
 {
   prozente100=p;
   while(gfp>0)
    {
      int i=random.integer(1,100);
+     const Enums::MBEListen was=Was();
+     spezial_allgemein=p.getS(was);
 /*
-     if     (i<=spezial_allgemein) Steigern(gfp);
-     else                          NeuLernen(gfp);
+     if     (i<=spezial_allgemein) Steigern(gfp,was);
+     else                          NeuLernen(gfp,was);
 */
-     if     (i>=spezial_allgemein) cerr << i<<' '<<spezial_allgemein<<"\tSteigern\n";
-     else                          cerr << i<<' '<<spezial_allgemein<<"\tNeuLenren\n";
+     if     (i>=spezial_allgemein) cerr << i<<' '<<spezial_allgemein<<"\tSteigern\t"<<was<<'\t';
+     else                          cerr << i<<' '<<spezial_allgemein<<"\tNeuLenren\t"<<was<<'\t';
 cout << "Noch "<< (gfp-=10)<<" GFP\n";
    }
 }
@@ -47,19 +49,15 @@ std::vector<MBEmlt> List_to_Vector(const std::list<MBEmlt> &L)
 
 const Enums::MBEListen MagusKI::Was() const
 {
-  int i=random.integer(1,100);
-
-return Enums::sFert; //DEBUG
-
-  int min=Enums::sFert;
-  int max=Enums::sZWerk;
-  int j=random.integer(min,max);
-  return Enums::MBEListen(j);
+  int z=random.integer(1,100);
+  const std::vector<Prozente100::st_was> V=prozente100.get100V();
+  for(std::vector<Prozente100::st_was>::const_iterator i=V.begin();i!=V.end();++i)
+    if( z <= i->prozent) return i->was; 
+  assert(!"never get here"); abort();
 }
 
-void MagusKI::NeuLernen(int &gfp)
+void MagusKI::NeuLernen(int &gfp,const Enums::MBEListen was)
 {
-  Enums::MBEListen was=Was();
   std::list<MBEmlt> LL=NeuLernenList(was,gfp);
   if(LL.empty()) return;
   std::vector<MBEmlt> V=List_to_Vector(LL);
@@ -77,9 +75,8 @@ void MagusKI::NeuLernen(int &gfp)
 }
 
 
-void MagusKI::Steigern(int &gfp) 
+void MagusKI::Steigern(int &gfp,const Enums::MBEListen was) 
 {
-  Enums::MBEListen was=Was();
   std::list<MBEmlt> &LL=get_known_list(was);
   if(LL.empty()) return;
   int j=random.integer(0,LL.size()-1);

@@ -48,7 +48,6 @@ class table_zufall : public table_zufall_glade
    private:
       // automatisch von glade erzeugte Methoden
 
-        gint on_hscale_spezial_allgemein_button_release_event(GdkEventButton *ev);
         void on_checkbutton_spezies_toggled();
         void on_checkbutton_herkunft_toggled();
         void on_checkbutton_typ_toggled();
@@ -80,6 +79,9 @@ class table_zufall : public table_zufall_glade
         void on_combo_prototyp_activate();
         gint on_combo_prototyp_focus_out_event(GdkEventFocus *ev);
         void on_combo_prototyp_changed();
+
+        gint on_vscale_spezallg_fert_button_release_event(GdkEventButton *ev);
+
 
 };
 

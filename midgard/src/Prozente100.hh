@@ -19,29 +19,34 @@
 #ifndef PROZ100
 #define PROZ100
 #include <vector>
+#include "Enums.hh"
 
 class Prozente100{
 
    public:
-      enum  ewas {fertigkeiten,waffen,waffen_grund,zauber,
-                  zauberwerk,sprachen,schriften};
-   private:
-      struct st_was{ewas was;int prozent;
-             st_was(ewas w,int p):was(w),prozent(p){}
+      struct st_was{Enums::MBEListen was;int prozent;
+             st_was(Enums::MBEListen w,int p):was(w),prozent(p){}
                    };
+   private:
       std::vector<st_was> VWas;
+      std::vector<st_was> VSpezialist;
       bool mage;
 
       int Vsumme();
-      void add(const ewas &was,const int prozent);
+      void add(const Enums::MBEListen &was,const int prozent);
       
    public:
       Prozente100();
 
       void check100();
       void set_mage(bool m);         
-      int get(const ewas &was) const;
-      void set(const ewas &was,const int prozent);
+      int get(const Enums::MBEListen &was) const;
+      void set(const Enums::MBEListen &was,const int prozent);
+      const std::vector<st_was> get100V() const;
+
+      int getS(const Enums::MBEListen &was) const;
+      void setS(const Enums::MBEListen &was,const int prozent);
+      
 
 };
 

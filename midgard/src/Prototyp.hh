@@ -1,4 +1,4 @@
-// $Id: Prototyp.hh,v 1.1 2002/09/25 20:48:18 thoma Exp $               
+// $Id: Prototyp.hh,v 1.2 2002/09/26 08:15:21 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -30,6 +30,7 @@ class Prototyp : public HandleContent //Copyable
    std::string name;
    int fertigkeit,waffe,waffe_grund,zauber,
           zauberwerk,sprache,schrift;
+   int fert_spez,waff_spez,spra_spez,schr_spez; // Hochspezialisiert oder Allgemeinbildung 
 
    void get_Prototyp();
 
@@ -45,6 +46,11 @@ class Prototyp : public HandleContent //Copyable
    int ZauberWerk() const {return zauberwerk;}
    int Sprache() const {return sprache;}
    int Schrift() const {return schrift;}
+
+   int FertSpezialist() const {return fert_spez;}
+   int WaffSpezialist() const {return waff_spez;}
+   int SpraSpezialist() const {return spra_spez;}
+   int SchrSpezialist() const {return schr_spez;}
 };
 
 class cH_Prototyp : public Handle<const Prototyp>

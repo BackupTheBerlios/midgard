@@ -37,11 +37,11 @@ class MagusKI
 
       const Enums::MBEListen Was() const;
 
-      void NeuLernen(int &gfp);
+      void NeuLernen(int &gfp,const Enums::MBEListen was);
       std::list<MBEmlt>& get_known_list(const Enums::MBEListen was);
       std::list<MBEmlt> NeuLernenList(const Enums::MBEListen was,const int gfp) const;
 
-      void Steigern(int &gfp) ; 
+      void Steigern(int &gfp,const Enums::MBEListen was) ; 
 
       
    public:
@@ -52,7 +52,7 @@ class MagusKI
           LL(Database)
           {};
 
-      void VerteileGFP(int gfp,const int spezial_allgemein,const Prozente100 &p) ;
+      void VerteileGFP(int gfp,const Prozente100 &p) ;
 //      void set_spezial_allgemein(int s) {spezial_allgemein=s;}
 
    private:
