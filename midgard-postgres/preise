@@ -121,6 +121,7 @@ Waffen		Kurzschwert	1.5	20	GS
 Kleidung		Kutte	0	15	GS
 Waffenzubehör		Köcher für 20 Pfeile	0.3	2	GS
 Waffenzubehör		Köcher für 30 Bolzen	0.3	2	GS
+Rüstung	Lederrüstung	LR	20	100	GS
 Waffen		Langbogen	1	40	GS
 Waffen		Langschwert	2.5	100	GS
 Waffen		Lanze	5	13	GS
@@ -154,11 +155,13 @@ Waffen		NunChaku	0.5	10	GS
 Ausrüstung	Werkzeug	Nähnadel	0	8	SS
 Waffen		Ochsenzunge	1	10	GS
 Waffen		Ogerhammer	10	70	GS
+Rüstung	Plattenrüstung	PR	20	100	GS
 Ausrüstung	Tiere	Packpferd (100 kg)	0	80	GS
 Waffen		Parierdolch	0.7	8	GS
 Waffen		Peitsche	1	8	GS
 Rüstung		Plattenrüstung	35	500	GS
 Ausrüstung	Tiere	Pony (70 kg)	0	50	GS
+Rüstung	Ritterrüstung	RR	20	100	GS
 Waffen		Rapier	1.5	70	GS
 Ausrüstung	Tiere	Reitkamel	0	150	GS
 Ausrüstung	Tiere	Reitpferd (100 kg)	0	150	GS
@@ -194,10 +197,12 @@ Waffen		Stockschleuder	2	7	GS
 Waffen		Stoßspeer	2.5	8	GS
 Waffen		Streitaxt	2.5	20	GS
 Waffen		Streitkolben	2.5	12	GS
+Rüstung	Textilrüstung	TR	20	100	GS
 Rüstung		Textilrüstung TR	7.5	20	GS
 Ausrüstung	Musikinstrumente	Trommel	2	5	GS
 Kleidung		Tunika	0	5	GS
 Kleidung		Umhang	0	8	GS
+Rüstung	Vollrüstung	VR	20	100	GS
 Ausrüstung	Präzisionsinstrumente	Vergrößerungsglas (x2) 	0.05	100	GS
 Ausrüstung	Übernachtung	Vierpersonenzelt	5	30	GS
 Rüstung		Vollrüstung	45	600	GS

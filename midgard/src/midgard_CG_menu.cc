@@ -147,15 +147,18 @@ void midgard_CG::menu_init()
   menu->append(*optionen);
 
 //Hausregeln////////////////////////////////////////////////////////////////
-  haus_menu = manage(new class Gtk::Menu());
-  Gtk::MenuItem *haus;
+  Gtk::Menu *haus_menu = manage(new class Gtk::Menu());
+  if(haus_menuitem) {haus_menuitem->destroy();haus_menuitem=0;}
+  haus_menuitem = manage(new class Gtk::MenuItem());
+
   Gtk::Label *_lhaus = manage(new class Gtk::Label("Hausregeln"));
   Gtk::Table *_tabhaus=manage(new Gtk::Table(0,0,false));
-  _tabhaus->attach(*_lhaus,1,2,0,1,0,0,0,0);
+  _tabhaus->attach(*_lhaus,0,1,0,1,0,0,0,0);
   Gtk::Pixmap *pix_haus=manage(new Gtk::Pixmap(Regio_Hausregel_small_xpm));
-  _tab->attach(*pix_haus,0,1,0,1,0,0,0,0);
+  _tabhaus->attach(*pix_haus,1,2,0,1,0,0,0,0);
 
-  haus->set_submenu(*haus_menu);
+  haus_menuitem->set_submenu(*haus_menu);
+
   for(std::list<st_Haus>::iterator i=list_Hausregeln.begin();i!=list_Hausregeln.end();++i)
    {
      i->menu = manage(new class Gtk::CheckMenuItem(i->text));
@@ -163,8 +166,10 @@ void midgard_CG::menu_init()
      i->menu->set_active(i->active);
      i->menu->activate.connect(SigC::slot(this,&midgard_CG::Hausregeln_setzen_from_menu));
    }  
-  haus->add(*_tabhaus);
-  menu->append(*haus);
+
+  haus_menuitem->add(*_tabhaus);
+  menu->append(*haus_menuitem);
+  if(OptionBool.Original) haus_menuitem->set_sensitive(false);
 ///////////////////////////////////////////////////////////////////////////////
 //Import/Export////////////////////////////////////////////////////////////////
   Gtk::Menu *im_ex_menu = manage(new class Gtk::Menu());

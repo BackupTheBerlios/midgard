@@ -22,7 +22,7 @@ CREATE TABLE "waffen_region_name" (
 
 
 COPY "waffen_region_name" FROM stdin;
-Anderthalbhänder	Claemore	A	\N	\N	\N
+Anderthalbhänder	Claymore	A	\N	\N	\N
 Anderthalbhänder	Hamschar	R	\N	\N	\N
 Anderthalbhänder	Nimcha	E	\N	\N	\N
 Blasrohr	FukiDake	K	\N	\N	\N

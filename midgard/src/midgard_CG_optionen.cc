@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.38 2002/01/29 10:45:28 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.39 2002/01/29 15:57:12 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,15 +26,19 @@ void midgard_CG::on_checkbutton_original_menu()
 
   if(OptionBool.Original) 
     { togglebutton_alle_zauber->set_sensitive(false); 
-      haus_menu->set_sensitive(false);
-      Hausregeln_setzen(false);
+      if(haus_menuitem)
+       {
+         Hausregeln_setzen(false);
+         haus_menuitem->set_sensitive(false);
+       }
       pixmap_logo->show();
     }      
   else 
     { togglebutton_alle_zauber->set_sensitive(true); 
-      haus_menu->set_sensitive(true);
       pixmap_logo->hide();
+      haus_menuitem->set_sensitive(true);
     }      
+//  menu_init(); //wg. Hausregeln
 }
 
 void midgard_CG::on_checkbutton_info_fenster_menu()

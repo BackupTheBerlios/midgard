@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.130 2002/01/29 10:45:28 thoma Exp $
+// $Id: midgard_CG.cc,v 1.131 2002/01/29 15:57:12 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,7 +33,7 @@
 
 //midgard_CG::midgard_CG(int argc,char **argv)
 midgard_CG::midgard_CG(Datenbank& _Database, const string &datei)
-: menu(0),menu_gradanstieg(0),Database(_Database)
+: menu(0),menu_gradanstieg(0),haus_menuitem(0),Database(_Database)
 {
   srand(time(0));
   optionmenu_init();  

@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.149 2002/01/29 10:45:28 thoma Exp $
+// $Id: midgard_CG.hh,v 1.150 2002/01/29 15:57:12 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -83,7 +83,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
                void reset() {*this=st_HausBool();} };
         st_HausBool HausBool;
 */
-        Gtk::Menu *haus_menu;
+        Gtk::MenuItem *haus_menuitem;
         struct st_Haus{std::string index; Gtk::CheckMenuItem *menu;std::string text;bool active;
                st_Haus(std::string i,Gtk::CheckMenuItem *m,std::string t)
                       :index(i),menu(m),text(t),active(false) {}
