@@ -1,0 +1,82 @@
+#!/bin/sh
+# Parameter: 1 PS-Font ohne afm
+#            2 tex Name (2/3 letters)
+# Parameter testen !!!
+# 2do:
+#  append \end{document} to end of file
+#  ^M should not kill the line!
+#
+includefonts=yes
+encoding=/usr/share/texmf/dvips/base/cork.enc
+encoding=cork.enc
+#
+#
+if [ $# -lt 2 ] ; then 
+  echo USAGE: $0 '<afm-Datei ohne Endung>' '<TeX Schriftenname (2-3 Buchstaben)>'
+  echo erzeugt ein Beispiel-TeX File und Konfigurationsdateien für die Schriften
+  echo 
+  echo es sollte noch 
+  echo ""  export GS_FONTPATH=`pwd`:/usr/share/ghostscript/fonts
+  echo ""  export GS_LIB=`pwd`:/usr/share/ghostscript/4.03
+  echo ausgeführt werden, wann immer die Schriften angesehen/gedruckt werden sollen
+  echo
+  echo alternativ können die Originaldateien ergänzt werden.
+  exit
+fi
+if [ ! -f $1.afm ] ; then
+  echo Kann $1.afm nicht finden
+  exit
+fi
+echo >genfont.tmp `fgrep FamilyName $1.afm`
+name=`cut -f 2- -d " " genfont.tmp`
+# eventuell FamilyName noch wegnehmen (sed?, cut)
+ps=`afm2tfm $1 rp${2}r`
+#
+if [ ! -f ${encoding} ] ; then
+  encoding=/usr/lib/texmf/dvips/DC.enc
+fi
+afm2tfm $1 -t ${encoding} -v p${2}r rp${2}r
+#
+vptovf p${2}r.vpl p${2}r.vf p${2}r.tfm
+#
+if [ $includefonts = yes ] ; then
+  echo >>psfonts.map $ps '<' $1.pfb
+else
+  echo >>psfonts.map $ps
+fi
+#
+# we add it to Fontmap though not used -- perhaps you later change your mind
+  echo >genfont.tmp $ps
+  ps2=`cut -f 2- -d " " genfont.tmp`
+  echo >>Fontmap "/$ps2 ($1.pfb) ;"
+#
+  echo >>myfont.sty "\\DeclareFontFamily{T1}{p$2}{}"
+  echo >>myfont.sty "\\DeclareFontShape{T1}{p$2}{m}{n}{<-> p${2}r}{}"
+#
+# remove the 'fi' above and uncomment this to prevent adding lines to 
+# Fontmap when not used
+#
+#fi
+#
+if [ ! -f fontlist.tex ] ; then
+   cat >fontlist.tex <<EOF
+\documentclass[a4paper]{article}
+\usepackage{t1enc}
+\usepackage{myfont}
+\usepackage{german} 
+\pagestyle{empty}
+\newcommand{\FamilyName}{}
+\begin{document}
+\large\sloppy
+EOF
+else
+  mv -f fontlist.tex genfont.tmp
+  fgrep -v "\\end{document}" genfont.tmp >fontlist.tex
+fi
+echo -n >>fontlist.tex "{\\usefont{T1}{p${2}}{m}{n}$name \"\`"
+echo -n >>fontlist.tex "Mafy, Q\"uz\"s?\"' Test \\& Pijg! \\\$092: (Wr"
+echo >>fontlist.tex "mk) Swql.}\\\\"
+echo >>fontlist.tex "\\end{document}"
+#
+#echo p${2}r.vpl kann gelöscht werden.
+rm genfont.tmp p${2}r.vpl $1.pfm

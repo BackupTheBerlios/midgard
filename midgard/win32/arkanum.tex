@@ -1,0 +1,33 @@
+\documentclass[a4paper]{article}
+\pagestyle{empty}
+\usepackage{t1enc}
+\DeclareFontFamily{U}{park}{}
+\DeclareFontShape{U}{park}{m}{n}{<-> rparkr}{}
+\DeclareTextSymbol{\cspruchrolle}{U}{42}
+\DeclareTextSymbol{\cagens}{U}{43}
+\DeclareTextSymbol{\creagens}{U}{45}
+\DeclareTextSymbol{\ceis}{U}{48}
+\DeclareTextSymbol{\cerde}{U}{49}
+\DeclareTextSymbol{\cfeuer}{U}{50}
+\DeclareTextSymbol{\cholz}{U}{51}
+\DeclareTextSymbol{\cluft}{U}{52}
+\DeclareTextSymbol{\cmagan}{U}{53}
+\DeclareTextSymbol{\cmetall}{U}{54}
+\DeclareTextSymbol{\cwasser}{U}{55}
+\newcommand{\spruchrolle}{\usefont{U}{park}{m}{n}\cspruchrolle}
+\newcommand{\agens}{\usefont{U}{park}{m}{n}\cagens}
+\newcommand{\reagens}{\usefont{U}{park}{m}{n}\creagens}
+\newcommand{\eis}{\usefont{U}{park}{m}{n}\ceis}
+\newcommand{\erde}{\usefont{U}{park}{m}{n}\cerde}
+\newcommand{\feuer}{\usefont{U}{park}{m}{n}\cfeuer}
+\newcommand{\holz}{\usefont{U}{park}{m}{n}\cholz}
+\newcommand{\luft}{\usefont{U}{park}{m}{n}\cluft}
+\newcommand{\magan}{\usefont{U}{park}{m}{n}\cmagan}
+\newcommand{\metall}{\usefont{U}{park}{m}{n}\cmetall}
+\newcommand{\wasser}{\usefont{U}{park}{m}{n}\cwasser}
+
+\begin{document}
+\Huge
+arkanum \spruchrolle \agens\eis\reagens\luft
+\erde\feuer\holz \magan\metall\wasser
+\end{document}
