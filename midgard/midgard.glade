@@ -14171,7 +14171,7 @@ Drucken</label>
 		  <last_modification_time>Thu, 10 Jan 2002 18:08:22 GMT</last_modification_time>
 		</signal>
 		<label>Neuer Artikel</label>
-		<icon>pinguin.xpm</icon>
+		<icon>New_Art-50.xpm</icon>
 		<active>False</active>
 	      </widget>
 	    </widget>

@@ -34,8 +34,8 @@ void table_ausruestung::init(midgard_CG *h)
    table_gruppe->hide();
    table_artikel->hide();      
    togglebutton_artikel_neu->set_active(false);
-//   togglebutton_gruppe_neu->set_active(false); 
-   togglebutton_gruppe_neu->hide();//
+   togglebutton_gruppe_neu->set_active(false); 
+//   togglebutton_gruppe_neu->hide();//
    label_normallast->set_text(itos(h->getAben().getNormallast())+" kg");
    label_hoechstlast->set_text(itos(h->getAben().getHoechstlast())+" kg");
    label_schublast->set_text(itos(h->getAben().getSchublast())+" kg");
@@ -201,6 +201,7 @@ void table_ausruestung::on_togglebutton_artikel_neu_toggled()
 {
  if(togglebutton_artikel_neu->get_active())
   {
+    togglebutton_gruppe_neu->set_active(false);
     table_artikel->show();
     entry_name->grab_focus();
   }
@@ -212,7 +213,10 @@ void table_ausruestung::on_togglebutton_artikel_neu_toggled()
 void table_ausruestung::on_togglebutton_gruppe_neu_toggled()
 {
  if(togglebutton_gruppe_neu->get_active())
-  table_gruppe->show();
+  {
+   togglebutton_artikel_neu->set_active(false);
+   table_gruppe->show();
+  }
  else 
   table_gruppe->hide();
 }
@@ -238,6 +242,8 @@ void table_ausruestung::on_button_art_speichern_clicked()
 void table_ausruestung::newArt(const std::string &art,const std::string art2)
 {
   MNewArt[art].push_back(art2);
+  togglebutton_gruppe_neu->set_active(false);
+  fill_all_Combos_Art_Einheit_Region();
 }
 
 
