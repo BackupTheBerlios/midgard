@@ -146,13 +146,13 @@ void midgard_CG::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
 
  std::list<cH_MidgardBasicElement> *MyList,*MyList_neu;
  if(MBE->What()==MidgardBasicElement::FERTIGKEIT) 
-   { if(cH_Fertigkeit(MBE)->ZusatzBool(Typ))
-     {  
+   { if(MBE->ZusatzBool(Typ))
+      {  
         MBE=new Fertigkeit(*cH_Fertigkeit(MBE));
         fillClistLand(MBE);
         // Davor stellen, damit beim Kopieren dieses MBE in Verschoben wird.
         list_Fertigkeit_neu.push_front(MBE);
-     }
+      }
      if (MBE->Name()=="KiDo" && kido_steigern_check(MBE->Erfolgswert())) return;
      MyList     = &list_Fertigkeit; MyList_neu = &list_Fertigkeit_neu;
    }
@@ -161,7 +161,16 @@ void midgard_CG::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
  else if(MBE->What()==MidgardBasicElement::WAFFEGRUND) 
    { MyList     = &list_WaffenGrund; MyList_neu = &list_WaffenGrund_neu;  }
  else if(MBE->What()==MidgardBasicElement::ZAUBER) 
-   { MyList     = &list_Zauber; MyList_neu = &list_Zauber_neu;  }
+  {
+   { if(MBE->ZusatzBool(Typ))
+      {  
+        MBE=new Zauber(*cH_Zauber(MBE));
+        fillClistLand(MBE);
+        // Davor stellen, damit beim Kopieren dieses MBE in Verschoben wird.
+        list_Zauber_neu.push_front(MBE);
+      }
+   MyList     = &list_Zauber; MyList_neu = &list_Zauber_neu;  }
+  }
  else if(MBE->What()==MidgardBasicElement::ZAUBERWERK) 
    { MyList     = &list_Zauberwerk; MyList_neu = &list_Zauberwerk_neu;  }
  else if(MBE->What()==MidgardBasicElement::KIDO) 

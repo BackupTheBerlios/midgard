@@ -1,66 +1,60 @@
-/*  Midgard Character Generator
- *  Copyright (C) 2001-2002 Malte Thoma
- *
- *  This program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, U
- */
+// generated 2002/2/14 8:49:01 CET by thoma@Tiger.
+// using glademm V0.6.2c_cvs
+//
+// newer (non customized) versions of this file go to Wizard_window.cc_new
 
-#include "Wizard.hh"
+// This file is for your program, I won't touch it again!
+
+#include "config.h"
+#include "Wizard_window.hh"
+
+
 #include "midgard_CG.hh"
 
-Wizard::esteps &operator++(Wizard::esteps &a)
+Wizard_window::esteps &operator++(Wizard_window::esteps &a)
 {  
-   a= Wizard::esteps(int(a)+1);
-   if(a==Wizard::MAXSTEPS) a=Wizard::esteps(int(Wizard::MAXSTEPS)-1);
+   a= Wizard_window::esteps(int(a)+1);
+   if(a==Wizard_window::MAXSTEPS) a=Wizard_window::esteps(int(Wizard_window::MAXSTEPS)-1);
    return a;
 }
 
-Wizard::Wizard(midgard_CG* h)
+Wizard_window::Wizard_window(midgard_CG* h)
 : hauptfenster(h), actual_step(SPEZIES)
 {
   fill_vecwiz();
+  restart();
 }
 
-void Wizard::next_step()
+
+void Wizard_window::next_step()
 {
   evaluate_step(++actual_step);
 }
-void Wizard::same_step()
+void Wizard_window::same_step()
 {
   evaluate_step(actual_step);
 }
-void Wizard::restart()
+void Wizard_window::restart()
 {
  actual_step=SPEZIES;
  evaluate_step(actual_step);
 }
 
 
-void Wizard::evaluate_step(esteps step)
+void Wizard_window::evaluate_step(esteps step)
 {
   assert(vecwiz.size()>(size_t)(step));
   
   hauptfenster->notebook_main->set_page(vecwiz[step].page);
-  Gtk::OStream os(hauptfenster->LogWinWizard->get_list());
+  Gtk::OStream os(LogWinWizard->get_list());
   os << vecwiz[step].text<<'\n';
   os.flush();
-  hauptfenster->LogWinWizard->scroll();
+  LogWinWizard->scroll();
   (hauptfenster->*(vecwiz[step].callback))();
 }
 
 
-void Wizard::fill_vecwiz()
+void Wizard_window::fill_vecwiz()
 {
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_GRUNDWERTE,
                           "Spezies auswählen",
@@ -92,4 +86,23 @@ void Wizard::fill_vecwiz()
    vecwiz.push_back(st_wiz(midgard_CG::PAGE_LERNEN,
                           "Fertig",
                           &midgard_CG::wizard_do_nothing));
+}
+
+
+void Wizard_window::on_button_wizard_weiter_clicked()
+{   
+  next_step();
+//  hauptfenster->on_button_wizard_weiter_clicked();
+}
+
+void Wizard_window::on_button_wizard_wiederholen_clicked()
+{   
+  same_step();
+// hauptfenster->on_button_wizard_wiederholen_clicked();
+}
+
+void Wizard_window::on_button_close_wizard_clicked()
+{   
+  hauptfenster->on_button_close_wizard_clicked();
+  destroy();
 }

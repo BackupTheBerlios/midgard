@@ -57,7 +57,7 @@ cH_Zauber::cH_Zauber(const Tag *tag)
 void Zauber::get_Zauber()
 {
  assert(tag);
- ursprung=tag->getAttr("Ursprung");
+    ursprung=tag->getAttr("Ursprung");
     kosten=tag->getIntAttr("Lernkosten");
     stufe=tag->getAttr("Grad");
     spruchrolle=tag->getBoolAttr("Spruchrolle");
@@ -75,6 +75,10 @@ void Zauber::get_Zauber()
     agens=tag->getAttr("Agens");
     prozess=tag->getAttr("Prozess");
     reagens=tag->getAttr("Reagens");
+//    zusatzbool=tag->getBoolAttr("Zusätze",false);
+
+    FOR_EACH_CONST_TAG_OF(i,*tag,"Zusätze")
+         Vzusatz.push_back(i->getAttr("Name"));
 }
 
 int Zauber::Kosten_eBe(const std::string& pe,const std::string& se) const

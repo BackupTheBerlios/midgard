@@ -52,7 +52,6 @@ cH_Fertigkeit::cH_Fertigkeit(const Tag *tag)
 void Fertigkeit::get_Fertigkeit()
 {
   assert(tag);
-  lern_unge=tag->getBoolAttr("ZusatzBool",false);
   lern_unge=tag->getIntAttr("Lernpunkte",99); // außergewöhnliche Fertigkeit
   lern_land=tag->getIntAttr("Lernpunkte-Land",99);
   lern_stadt=tag->getIntAttr("Lernpunkte-Stadt",99);
@@ -65,7 +64,7 @@ void Fertigkeit::get_Fertigkeit()
   region=tag->getAttr("Region");
   attribut=tag->getAttr("Attribut");
   maxunterweisung=tag->getIntAttr("MaximalMitUnterweisung");
-  zusatzbool=tag->getBoolAttr("Zusätze",false);
+//  zusatzbool=tag->getBoolAttr("Zusätze",false);
   maxerfolgswert=tag->getIntAttr("Maximalwert");
   const Tag *Voraussetzungen=tag->find("Voraussetzungen");
   if (Voraussetzungen)
@@ -111,7 +110,8 @@ bool Fertigkeit::ZusatzBool(const vector<cH_Typen>& Typ) const
 {
   if(Name()=="Abrichten" && (Typ[0]->Short()=="Tm" || Typ[1]->Short()=="Tm"))
      return false;
-  return zusatzbool;
+  if(Vzusatz.empty() return false; 
+  else return true;
 }
 
 int Fertigkeit::FErfolgswert(const Grundwerte &Werte) const

@@ -28,7 +28,7 @@ void midgard_CG::on_fertigkeiten_laden_clicked()
   list_Fertigkeit_neu.clear();
   for (std::list<cH_MidgardBasicElement>::const_iterator i=Database.Fertigkeit.begin();i!=Database.Fertigkeit.end();++i)
    { cH_Fertigkeit f(*i);
-     if ((*i)->ist_gelernt(list_Fertigkeit) && !f->ZusatzBool(Typ)) continue ;
+     if ((*i)->ist_gelernt(list_Fertigkeit) && !(*i)->ZusatzBool(Typ)) continue ;
      if (f->Name()=="Sprache" || f->Name()=="Schreiben" || f->Name()=="KiDo-Technik") continue;
      if (Database.pflicht.istVerboten(Werte.Spezies()->Name(),Typ,f->Name())) continue;
      if (f->Name()=="Zaubern" && Typ[0]->is_mage() || f->Name()=="Zaubern" && Typ[1]->is_mage() ) continue;
@@ -137,11 +137,12 @@ void midgard_CG::fillClistLand(const cH_MidgardBasicElement &MBE)
 {
   clist_landauswahl->clear();
   Gtk::OStream os(clist_landauswahl);
+
   if(MBE->Name()=="Landeskunde")
      for (std::vector<cH_Land>::const_iterator i=Database.Laender.begin();i!=Database.Laender.end();++i)
       {
-        os <<(*i)->Name()<<'\n';
-        os.flush(MBE->ref(),&HandleContent::unref);
+         os <<(*i)->Name()<<'\n';
+         os.flush(MBE->ref(),&HandleContent::unref);
       }
   else if(MBE->Name()=="Scharfschieﬂen")
      for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Waffen.begin();i!=list_Waffen.end();++i)
@@ -150,18 +151,17 @@ void midgard_CG::fillClistLand(const cH_MidgardBasicElement &MBE)
          {
            os <<(*i)->Name()<<'\n';
            os.flush(MBE->ref(),&HandleContent::unref);
-   
          }
       }
   else
-   {
-     std::vector<std::string> VZ=cH_Fertigkeit(MBE)->VZusatz();
-     for (std::vector<std::string>::const_iterator i=VZ.begin();i!=VZ.end();++i)
-      {
-        os << *i <<'\n';
-        os.flush(MBE->ref(),&HandleContent::unref);
-      }
-   }
+    {
+      std::vector<std::string> VZ=MBE->VZusatz();
+      for (std::vector<std::string>::const_iterator i=VZ.begin();i!=VZ.end();++i)
+       {
+         os << *i <<'\n';
+         os.flush(MBE->ref(),&HandleContent::unref);
+       }
+    }
   scrolledwindow_landauswahl->show();
 }
 

@@ -49,6 +49,9 @@ class MidgardBasicElement : public HandleContent
       std::string name, region;
       int kosten;
       int mutable praxispunkte,erfolgswert,lernpunkte;
+      mutable std::string zusatz; // Für Zusäte bei Fertigkeiten (z.B. Abrichten, Sprache, Geheimzeichen...)
+                                  // und Zauber (Tiersprache)
+      std::vector<std::string> Vzusatz;
       enum EP_t { Nicht=0, KEP=1, ZEP=2, Beides=KEP|ZEP };
       /* EP_t (CP) */ int steigern_mit_EP;
       std::map<std::string,std::string> map_typ;
@@ -80,6 +83,13 @@ class MidgardBasicElement : public HandleContent
 
       map<std::string,std::string> get_MapTyp() const {return map_typ;}
       
+      std::string Zusatz() const {return zusatz;}
+      std::vector<std::string> VZusatz() const {return Vzusatz;}
+      void setZusatz(std::string z) const {zusatz=z;}
+      virtual bool ZusatzBool(const vector<cH_Typen>& Typ) const 
+         { if(Vzusatz.empty()) return false; 
+           else return true; }
+ 
       void EP_steigern(const std::string fert);
       virtual std::string Name() const {return name;}
       std::string Region() const {return region;}
