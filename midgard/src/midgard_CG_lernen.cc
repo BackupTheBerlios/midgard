@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.9 2001/04/23 19:02:39 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.10 2001/05/15 15:01:12 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,10 +25,14 @@
 void midgard_CG::on_lernpunkte_wuerfeln_clicked()
 {
   Random random;
-  lernpunkte.beruf=random.integer(1,6)+random.integer(1,6);
   lernpunkte.fertigkeiten=random.integer(1,6)+random.integer(1,6);
-  lernpunkte.waffen=random.integer(1,6)+random.integer(1,6);
-  if (typ.z=="j" || typ.z == "z") lernpunkte.zauber=random.integer(1,6)+random.integer(1,6);
+  lernpunkte.beruf=random.integer(1,6)+random.integer(1,6);
+  if (typ_2.s=="") lernpunkte.waffen=random.integer(1,6)+random.integer(1,6);
+  else             lernpunkte.waffen=random.integer(1,6)+1; // Doppelcharakter bei Elfen
+  if (typ.z=="j" || typ.z == "z" && typ_2.s=="") 
+      lernpunkte.zauber=random.integer(1,6)+random.integer(1,6);
+  if (typ.z=="j" || typ.z == "z" && typ_2.s!="") 
+      lernpunkte.zauber=random.integer(1,6)+1;
 
   if (werte.alter==0)
    {

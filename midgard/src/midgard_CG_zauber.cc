@@ -1,4 +1,4 @@
-// $Id: midgard_CG_zauber.cc,v 1.11 2001/05/14 13:43:23 thoma Exp $
+// $Id: midgard_CG_zauber.cc,v 1.12 2001/05/15 15:01:12 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -52,6 +52,7 @@ void midgard_CG::zauber_uebernehmen(vector<st_ausgewaehlte_zauber>& saz)
 {
    zauber.clear();
    vec_zauber = saz;
+   zauber.push_back(st_zauber("0","Erkennen der Aura","0","0","0","0","0","0","0","0","0","0","0","0","0","0",0));
    for(vector<st_ausgewaehlte_zauber>::iterator i=vec_zauber.begin();
          i!=vec_zauber.end();++i)
       {

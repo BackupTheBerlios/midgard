@@ -45,24 +45,12 @@ Zauber_auswahl::Zauber_auswahl(midgard_CG* h,const st_werte& werte, const styp& 
   exec sql end declare section;
 
    string squery = "select distinct l.fertigkeit, l.lernpunkte, a.ap, a.kosten \
-      from lernschema l, arkanum_zauber a where l.typ = '"+typ.s+"'\
+      from lernschema l, arkanum_zauber a \
+      where (l.typ = '"+typ.s+"' or l.typ = '"+typ_2.s+"') \
       and l.art = 'Zauber' and a.name = l.fertigkeit ";
    if (typ.s == "eBe") squery += "and (l.p_element = '"+werte.spezial+"' or l.s_element = '"+werte.spezial2+"') ";
    squery += " order by lernpunkte";      
   
-/*
-   if (typ != "eBe")
-    squery ="select l.fertigkeit, l.lernpunkte, a.ap, a.kosten \
-      from lernschema l, arkanum_zauber a where l.typ = '"+typ+"'\
-      and l.art = 'Zauber' and a.name = l.fertigkeit \
-      order by lernpunkte ";
-   if (typ == "eBe")
-    squery ="select distinct l.fertigkeit, l.lernpunkte, a.ap, a.kosten \
-      from lernschema l, arkanum_zauber a where l.typ = '"+typ+"'\
-      and l.art = 'Zauber' and a.name = l.fertigkeit \
-      and (l.p_element = '"+werte.spezial+"' or l.s_element = '"+werte.spezial2+"') \
-      order by lernpunkte ";
-*/
    strncpy(query,squery.c_str(),sizeof(query));
 //cout <<  query<<"\n";
    Transaction tr;

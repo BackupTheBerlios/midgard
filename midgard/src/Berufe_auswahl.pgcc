@@ -32,7 +32,7 @@ exec sql include sqlca;
 #include <Gtk_OStream.h>
 
 
-Berufe_auswahl::Berufe_auswahl(midgard_CG* h, const styp& typ, const st_lernpunkte& l, const st_werte& werte)
+Berufe_auswahl::Berufe_auswahl(midgard_CG* h, const styp& typ, const styp& typ_2, const st_lernpunkte& l, const st_werte& werte)
 {
   hauptfenster=h;
   maxpunkte = l.beruf;
@@ -93,7 +93,7 @@ Berufe_auswahl::Berufe_auswahl(midgard_CG* h, const styp& typ, const st_lernpunk
     Gtk::OStream os(berufe_clist_auswahl);
     for(vector<db_struct_beruf>::iterator i=beruf.begin();i!=beruf.end();++i)
       {
-         if (Berufe_auswahl::berufe_voraussetzung(i->beruf,werte,typ.z)||werte.spezies!="Mensch")
+         if (Berufe_auswahl::berufe_voraussetzung(i->beruf,werte,typ.z,typ_2.z)||werte.spezies!="Mensch")
           {
             os << i->lernpunkte <<"\t"<< i->voraussetzung <<"\t"
                <<i->beruf<<"\t"<<i->vorteile <<"\n";
@@ -141,7 +141,7 @@ void Berufe_auswahl::on_close_berufe_clicked()
 
 }
 
-bool Berufe_auswahl::berufe_voraussetzung(const string& beruf, const st_werte& werte, const string& typz)
+bool Berufe_auswahl::berufe_voraussetzung(const string& beruf, const st_werte& werte, const string& typz, const string& typ2z)
 {
   exec sql begin declare section;
    int db_st,db_ge,db_ko,db_in,db_zt,db_pa,db_au,db_sb;
@@ -172,16 +172,17 @@ bool Berufe_auswahl::berufe_voraussetzung(const string& beruf, const st_werte& w
          db_au<=werte.au &&
          db_sb<=werte.sb &&
          (geschlecht==werte.geschlecht || geschlecht == "") &&
-         Berufe_auswahl::btyp(db_typ,typz) &&
+         Berufe_auswahl::btyp(db_typ,typz,typ2z) &&
          hauptfenster->region_check(db_region)
      )   
    return true;
   else return false ;
 }
 
-bool Berufe_auswahl::btyp(const string& typ, const string& typz)
+bool Berufe_auswahl::btyp(const string& typ, const string& typz, const string& typ2z)
 {
 //cout <<"\t"<<typz<<"\t";
+ if (typ2z!="") return true; // Doppelklassencharakter 
  bool r;
  if       (typ=="z" && typz=="z") r=true;
  else if  (typ=="k" && typz=="n") r=true; 

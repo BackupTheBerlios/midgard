@@ -47,4 +47,5 @@ EXTRA_DIST = \
        Select2-trans.xpm \
        Eschar-trans-50.xpm \
        KiDo-trans-50.xpm \
-       Load-Kido-trans-50.xpm
+       Load-Kido-trans-50.xpm \
+       Draco-small-frame-comp.xpm

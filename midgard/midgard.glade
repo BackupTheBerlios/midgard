@@ -2957,7 +2957,7 @@ beschreibung</label>
 	  <class>GtkTable</class>
 	  <name>table4</name>
 	  <rows>5</rows>
-	  <columns>3</columns>
+	  <columns>4</columns>
 	  <homogeneous>False</homogeneous>
 	  <row_spacing>0</row_spacing>
 	  <column_spacing>0</column_spacing>
@@ -4213,6 +4213,31 @@ würfeln</label>
 	      <xpad>5</xpad>
 	      <ypad>5</ypad>
 	    </widget>
+	  </widget>
+
+	  <widget>
+	    <class>GtkPixmap</class>
+	    <name>pixmap51</name>
+	    <filename>Draco-small-frame-comp.xpm</filename>
+	    <xalign>0.5</xalign>
+	    <yalign>0.5</yalign>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <build_insensitive>True</build_insensitive>
+	    <child>
+	      <left_attach>3</left_attach>
+	      <right_attach>4</right_attach>
+	      <top_attach>0</top_attach>
+	      <bottom_attach>5</bottom_attach>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <xexpand>True</xexpand>
+	      <yexpand>False</yexpand>
+	      <xshrink>False</xshrink>
+	      <yshrink>False</yshrink>
+	      <xfill>True</xfill>
+	      <yfill>True</yfill>
+	    </child>
 	  </widget>
 	</widget>
       </widget>

@@ -1,4 +1,4 @@
-// $Id: Berufe_auswahl.hh,v 1.6 2001/04/19 13:29:11 thoma Exp $
+// $Id: Berufe_auswahl.hh,v 1.7 2001/05/15 15:01:12 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -59,10 +59,10 @@ class Berufe_auswahl : public Berufe_auswahl_glade
         void on_berufe_clist_auswahl_select_row(gint row, gint column, GdkEvent *event);
         void on_berufe_clist_auswahl_unselect_row(gint row, gint column, GdkEvent *event);
         void on_close_berufe_clicked();
-        bool berufe_voraussetzung(const string& beruf, const st_werte& werte, const string& typz);
-        bool btyp(const string& typ, const string& typz);
+        bool berufe_voraussetzung(const string& beruf, const st_werte& werte, const string& typz, const string& typ2z);
+        bool btyp(const string& typ, const string& typz, const string& typ2z);
         string Beruf_vorteile(const string& beruf);
    public:
-        Berufe_auswahl(midgard_CG* h,const styp& typ, const st_lernpunkte& l, const st_werte& werte);
+        Berufe_auswahl(midgard_CG* h,const styp& typ,const styp& typ_2, const st_lernpunkte& l, const st_werte& werte);
 };
 #endif

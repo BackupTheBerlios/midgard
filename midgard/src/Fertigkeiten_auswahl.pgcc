@@ -33,7 +33,7 @@ exec sql include sqlca;
 #include "Sprache_auswahl.hh"
 
 Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
-  st_lernpunkte& l, const st_werte& werte)
+   const string& typ_2,  st_lernpunkte& l, const st_werte& werte)
 {
   hauptfenster=h;
   maxpunkte = l.fertigkeiten;
@@ -43,7 +43,6 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
 
   // Lernschema //////////////////////////////////////////////////////////////
   exec sql begin declare section;
-   char db_typ[5];
    char db_art[100];
    int db_lernpunkte;
    char db_fertigkeiten[100]; 
@@ -57,11 +56,11 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
    int db_fp;
    char db_voraussetzung[100];
    char db_region[10];
+   char query[1024];
    char db_spezies[50];
   exec sql end declare section;
-   strncpy(db_typ,typ.c_str(),sizeof(db_typ));    
-   strncpy(db_spezies,werte.spezies.c_str(),sizeof(db_spezies));    
-
+  strncpy(db_spezies,werte.spezies.c_str(),sizeof(db_spezies));
+  
    Transaction tr;
    // Speziesspezifische Fertigkeiten
    exec sql declare fert_spezies cursor for
@@ -85,8 +84,39 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
       }
    exec sql close fert_spezies;
 
+   string squery = " select l.fertigkeit, art, wert, f.attribut, \
+             l.lernpunkte, pflicht_lernen.typ, \
+             coalesce(f.fp,0), coalesce(v.fertigkeit,'') \
+      from fertigkeiten f, lernschema l, pflicht_lernen, \
+         fertigkeiten_voraussetzung v \
+      where ";
+   if (typ_2=="") squery += " l.typ = '"+typ+"' ";
+   if (typ_2!="") squery += " (l.typ = '"+typ+"' or l.typ = '"+typ_2+"') ";
+   squery +=" and art = 'Fertigkeit' \
+      and (f.fertigkeit = l.fertigkeit ) \
+      and (f.fertigkeit = v.name ) \
+      and l.typ=pflicht_lernen.typ \
+      and l.fertigkeit=pflicht_lernen.pflicht \
+      union all \
+      select l.fertigkeit, art, wert, f.attribut, \
+             l.lernpunkte, NULL, \
+             coalesce(f.fp,0), coalesce(v.fertigkeit,'') \
+      from fertigkeiten f, lernschema l , \
+         fertigkeiten_voraussetzung v \
+      where ";
+   if (typ_2=="") squery += " l.typ = '"+typ+"' ";
+   if (typ_2!="") squery += " (l.typ = '"+typ+"' or l.typ = '"+typ_2+"') ";
+   squery += "  and art = 'Fertigkeit' \
+      and (f.fertigkeit = l.fertigkeit ) \
+      and (f.fertigkeit = v.name ) \
+      and not exists (select true from pflicht_lernen where \
+            pflicht=l.fertigkeit and l.typ=pflicht_lernen.typ) \
+      order by lernpunkte,1";
 
-   exec sql declare fertigkeiten cursor for 
+   strncpy(query,squery.c_str(),sizeof(query));
+   exec sql prepare sfert from :query;
+   exec sql declare fertigkeiten cursor for sfert;
+//   exec sql declare fertigkeiten cursor for 
 /*
       select l.fertigkeit, art, wert, f.attribut,
              lernpunkte, pflicht_lernen.typ,
@@ -101,32 +131,6 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
    typ=:db_spezies  and verboten is not null) 
       order by lernpunkte, l.fertigkeit ;
 */
-      select l.fertigkeit, art, wert, f.attribut,
-             l.lernpunkte, pflicht_lernen.typ,
-             coalesce(f.fp,0), coalesce(v.fertigkeit,'')
-      from fertigkeiten f, lernschema l, pflicht_lernen,
-         fertigkeiten_voraussetzung v
-      where l.typ = :db_typ
-      and art = 'Fertigkeit' 
-      and (f.fertigkeit = l.fertigkeit )
-      and (f.fertigkeit = v.name )
-      and l.typ=pflicht_lernen.typ
-      and l.fertigkeit=pflicht_lernen.pflicht
-
-      union all
-      select l.fertigkeit, art, wert, f.attribut,
-             l.lernpunkte, NULL,
-             coalesce(f.fp,0), coalesce(v.fertigkeit,'')
-      from fertigkeiten f, lernschema l ,
-         fertigkeiten_voraussetzung v
-      where l.typ = :db_typ
-      and art = 'Fertigkeit' 
-      and (f.fertigkeit = l.fertigkeit )
-      and (f.fertigkeit = v.name )
-      and not exists (select true from pflicht_lernen where 
-            pflicht=l.fertigkeit and l.typ=pflicht_lernen.typ)
-      order by lernpunkte,1;
-
    exec sql open fertigkeiten;
    SQLerror::test(__FILELINE__);
    while (true)
@@ -146,7 +150,7 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
    Gtk::OStream os(fertigkeiten_clist_auswahl);
    for(vector<db_struct_fertigkeiten>::iterator i=fert.begin();i!=fert.end();++i)
       {
-        double fac=hauptfenster->get_standard_fertigkeit(typ,"",i->fertigkeiten);
+        double fac=hauptfenster->get_standard_fertigkeit(typ,typ_2,i->fertigkeiten);
         for (vector<string>::const_iterator j=vorteile.begin();
                j!=vorteile.end();++j)
            if ((*j)==i->fertigkeiten) --(i->lernpunkte);
@@ -163,15 +167,22 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
          }
       }
    // andere Fertigkeiten ////////////////////////////////////////////////
-   exec sql declare an_fert cursor for
-      SELECT f.anfangswert0, coalesce(f.lp,0), f.fertigkeit, 
-            f.attribut, coalesce(f.fp,0), coalesce(v.fertigkeit,''),coalesce(f.region,'') 
-      FROM fertigkeiten f, fertigkeiten_voraussetzung v
-      WHERE v.name = f.fertigkeit 
-      AND f.fp != 0
-      AND f.fertigkeit NOT IN
-      (SELECT fertigkeit from lernschema where typ = :db_typ)
-      ORDER BY f.fertigkeit ;
+
+  squery = "SELECT f.anfangswert0, coalesce(f.lp,0), f.fertigkeit, \
+            f.attribut, coalesce(f.fp,0), coalesce(v.fertigkeit,''), \
+      coalesce(f.region,'') \
+      FROM fertigkeiten f, fertigkeiten_voraussetzung v \
+      WHERE v.name = f.fertigkeit \
+      AND f.fp != 0  \
+      AND f.fertigkeit NOT IN \
+      (SELECT fertigkeit from lernschema where ";
+   if (typ_2=="") squery += " typ = '"+typ+"') ";
+   if (typ_2!="") squery += " (typ = '"+typ+"' or typ = '"+typ_2+"')) ";
+      squery += " ORDER BY f.fertigkeit" ; 
+
+   strncpy(query,squery.c_str(),sizeof(query));
+   exec sql prepare san_fert from :query;
+   exec sql declare an_fert cursor for san_fert;
    exec sql open an_fert;
    SQLerror::test(__FILELINE__);
 
@@ -193,7 +204,7 @@ Fertigkeiten_auswahl::Fertigkeiten_auswahl(midgard_CG* h,const string& typ,
    for(vector<db_struct_fertigkeiten>::iterator i=allg_fert.begin();
                                                       i!=allg_fert.end();++i)
       {
-        double fac=hauptfenster->get_standard_fertigkeit(typ,"",i->fertigkeiten);
+        double fac=hauptfenster->get_standard_fertigkeit(typ,typ_2,i->fertigkeiten);
         for (vector<string>::const_iterator j=vorteile.begin();
                j!=vorteile.end();++j)
            if ((*j)==i->fertigkeiten) --(i->lernpunkte);

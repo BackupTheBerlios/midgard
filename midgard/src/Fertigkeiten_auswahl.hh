@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten_auswahl.hh,v 1.6 2001/05/14 13:43:23 thoma Exp $
+// $Id: Fertigkeiten_auswahl.hh,v 1.7 2001/05/15 15:01:12 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -65,7 +65,7 @@ class Fertigkeiten_auswahl : public Fertigkeiten_auswahl_glade
         void on_fertigkeiten_clist_auswahl_unselect_row(gint row, gint column, GdkEvent *event);
         bool Fertigkeiten_spezies_voraussetzung(const string& name,const string& spezies);
  public:
-        Fertigkeiten_auswahl(midgard_CG* h,const string& typ, 
+        Fertigkeiten_auswahl(midgard_CG* h,const string& typ,const string& typ_2, 
                  st_lernpunkte& l, const st_werte& werte);
 };
 #endif

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.6 2001/04/19 13:29:12 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.7 2001/05/15 15:01:12 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -24,7 +24,7 @@
 void midgard_CG::on_berufe_wahl_clicked()
 {
   berufe_clist->clear();
-  manage(new Berufe_auswahl(this,typ,lernpunkte,werte));
+  manage(new Berufe_auswahl(this,typ,typ_2,lernpunkte,werte));
 }
 
 void midgard_CG::show_berufe()
