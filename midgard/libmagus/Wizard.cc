@@ -45,7 +45,7 @@ bool Wizard::can_skip(const Abenteurer &A)
    	     || !A.Spezialisierung().empty();
       case SPEZIALGEBIET:
          return (!A.Typ1()->Spezialgebiet() && !A.Typ2()->Spezialgebiet())
-             || !A.Spezialgebiet()->Name().empty;
+             || !A.Spezialgebiet()->Name().empty();
       case LERNSCHEMA_SEITE:
          return true;
       case SPEZIES:
@@ -74,7 +74,7 @@ bool Wizard::can_skip(const Abenteurer &A)
       case RUESTUNG: return A.Ruestung(0)->Name()!="OR";
       case AUSRUESTUNG: // @@
          return false;
-      case NAMEN: return A.Name().substr(0,4)!="Neu ";
+      case NAMEN: return A.Name_Abenteurer().substr(0,4)!="Neu ";
       case SPEICHERN: return false;
       case ZWEITER_TYP: return A.Typ2()->Valid();
       default:
