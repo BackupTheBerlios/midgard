@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.47 2002/02/08 09:52:38 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.48 2002/02/08 14:34:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,7 +18,6 @@
  */
 
 #include "midgard_CG.hh"
-#include "WindowInfo.hh"
 #include <Aux/itos.h>
 
 gint midgard_CG::on_button_kurz_steigern_release_event(GdkEventButton *event)
@@ -89,8 +88,7 @@ void midgard_CG::get_grundwerte()
 {
   if(Werte.Grad() <= Database.GradAnstieg.get_Grad_Basiswerte()) 
    {
-      std::string strinfo = "Für Grad "+itos(Database.GradAnstieg.get_Grad_Basiswerte())+" wurde schon gewürfelt";
-      manage(new WindowInfo(strinfo));
+      InfoFenster->AppendShow("Für Grad "+itos(Database.GradAnstieg.get_Grad_Basiswerte())+" wurde schon gewürfelt");
       return;
    }
   // Erhöhen der Schicksalsgunst
@@ -138,7 +136,7 @@ void midgard_CG::get_grundwerte()
     {
        stinfo += " um "; stinfo += itos(erh); stinfo+=" erhöht.\n";
     }
-  manage(new WindowInfo(stinfo,false));
+  InfoFenster->AppendShow(stinfo,false);
   Database.GradAnstieg.set_Grad_Basiswerte(1+Database.GradAnstieg.get_Grad_Basiswerte());
   zeige_werte(Werte);
 }
@@ -175,7 +173,7 @@ void midgard_CG::get_ausdauer(int grad)
    stinfo+="Ausdauerpunkte: Gewürfelt + Bonus für Typ + Persönlichen Bonus + Spezies-Bonus\n";
    stinfo+=itos(ap);stinfo+="+";stinfo+=itos(nab);
    stinfo+="+";stinfo+=itos(Werte.bo_Au());stinfo+="=";stinfo+=itos(nap);
-  manage(new WindowInfo(stinfo,false));
+  InfoFenster->AppendShow(stinfo,false);
    // Für alle ist die AP-anzahel mind. = Grad
   if (Werte.AP()<Werte.Grad()) Werte.setAP(Werte.Grad()); 
    // Neue AP höher als alte?
@@ -213,7 +211,7 @@ void midgard_CG::get_ab_re_za(e_was_steigern was)
       else return; }
   else abort();
   if (alter_wert >= max_wert)
-      { manage(new WindowInfo("Für Grad "+itos(Werte.Grad())+" ist der Maximalwert erreicht!")) ;
+      { InfoFenster->AppendShow("Für Grad "+itos(Werte.Grad())+" ist der Maximalwert erreicht!") ;
         return;}
 
   if(!steigern_usp(kosten,0,was));  

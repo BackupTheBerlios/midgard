@@ -20,7 +20,6 @@
 #include "Window_angeb_fert.hh"
 #include "midgard_CG.hh"
 #include <Gtk_OStream.h>
-#include "WindowInfo.hh"
 #include "Fertigkeiten_angeboren.hh"
 #include <Aux/itos.h>
 
@@ -35,11 +34,7 @@ void Window_angeb_fert::on_clist_ang_fert_alt_select_row(gint row, gint column, 
   static_cast<MidgardBasicElement*>(clist_ang_fert_alt->selection().begin()->get_data());
   cH_MidgardBasicElement MBE=static_cast<MidgardBasicElement*>(clist_ang_fert_alt->selection().begin()->get_data());
   MidgardBasicElement::move_element(list_Fertigkeit_ang,list_Fertigkeit_ang_neu,MBE);
-#ifndef USE_XML  
-  hauptfenster->on_speichern_clicked();
-#else
-   hauptfenster->steigern_aktivieren();
-#endif
+  hauptfenster->steigern_aktivieren();
   show_alte_afert();
   show_neue_afert();
 }
@@ -50,11 +45,7 @@ void Window_angeb_fert::on_clist_ang_fert_neu_select_row(gint row, gint column, 
   cH_MidgardBasicElement MBE=static_cast<MidgardBasicElement*>(clist_ang_fert_neu->selection().begin()->get_data());
   if(!Sinn(wurf,atoi(clist_ang_fert_neu->get_text(row,2).c_str())))
      MidgardBasicElement::move_element(list_Fertigkeit_ang_neu,list_Fertigkeit_ang,MBE);
-#ifndef USE_XML     
-  hauptfenster->on_speichern_clicked();
-#else
-   hauptfenster->steigern_aktivieren();
-#endif  
+  hauptfenster->steigern_aktivieren();
   if (wurf==100) { on_button_close_clicked(); return;}
   show_alte_afert();
   show_neue_afert();
@@ -113,7 +104,7 @@ Window_angeb_fert::Window_angeb_fert(midgard_CG* h,
      std::string strinfo="Für die Angeborene Fertigkeit\n wurde eine "
          +itos(wurf)+" gewürfelt.\nangeborene Fertigkeit mit RECHTER "+
          +"Maustaste auswählen.\n";
-     manage(new WindowInfo(strinfo,false));
+     hauptfenster->InfoFenster->AppendShow(strinfo,false);
    }
  if (wurf==-1) 
    { label_ang_fert->set_text("Fertigkeit(en) auswählen");
@@ -135,6 +126,7 @@ void Window_angeb_fert::gewuerfelt()
    {
      if (cH_Fertigkeit_angeborene(*i)->Min()<=wurf && wurf<=cH_Fertigkeit_angeborene(*i)->Max()) 
       {
+         name=(*i)->Name();
          if(!Sinn(wurf,(*i)->Erfolgswert()))
             MidgardBasicElement::move_element(list_Fertigkeit_ang_neu,list_Fertigkeit_ang,*i);
          break;
@@ -157,6 +149,14 @@ bool Window_angeb_fert::Sinn(int wurf,int wert)
   else if(51<=wurf && wurf<=60) Werte.setSinn("Tasten",wert);
   else if(61<=wurf && wurf<=65) Werte.setSinn("Sechster Sinn",wert);
   else return false;
+/*
+cout << "Sehen = "<<Werte.Sinne()["Sehen"]<<'\n';
+cout << "Hören = "<<Werte.Sinne()["Hören"]<<'\n';
+cout << "Riechen = "<<Werte.Sinne()["Riechen"]<<'\n';
+cout << "Schmecken = "<<Werte.Sinne()["Schmecken"]<<'\n';
+cout << "Tasten = "<<Werte.Sinne()["Tasten"]<<'\n';
+cout << "Sechster Sinn = "<<Werte.Sinne()["Sechster Sinn"]<<'\n';
+*/
   return true;
 }
 

@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.22 2002/02/08 09:52:38 thoma Exp $
+// $Id: WindowInfo.cc,v 1.23 2002/02/08 14:34:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -31,21 +31,54 @@
 
 void WindowInfo::on_button_info_ok_clicked()
 {   
- des.disconnect();
- destroy();
+ if(autoclean) des.disconnect();
+// destroy();
+  hide();
 }
 
-WindowInfo::WindowInfo(const std::string& s,bool autoclean)
+WindowInfo::WindowInfo()
 {
-   infotext->set_text(s.c_str());
-cout << "autoclean :"<<autoclean<<'\n';
+//   infotext->set_text(s.c_str());
+
+   if (mystream) delete mystream;
+   Gtk::OStream *mystream = new Gtk::OStream();
+   ((Gtk::OStream*)mystream)->flushed.connect(SigC::slot(LogWin,&logwin::scroll));
+
    if(autoclean)
+    {
       des = Gtk::Main::timeout.connect(slot(this,&WindowInfo::timeout),4000);
+//      button_info_ok->hide();
+    }
 }
+
+void WindowInfo::AppendShow(std::string s,bool autoclean)
+{
+  (*mystream) << s;
+  Flush(autoclean);
+}
+
+void WindowInfo::AppendShow(int i,bool autoclean)
+{
+  (*mystream) << i;
+  Flush(autoclean);
+}
+
+void WindowInfo::Flush(bool autoclean)
+{
+  (*mystream).flush();
+  show();
+  if(autoclean)
+    {
+      des = Gtk::Main::timeout.connect(slot(this,&WindowInfo::timeout),4000);
+//      button_info_ok->hide();
+    }
+}
+
 
 gint WindowInfo::timeout() 
 { 
-   destroy();
+//   destroy();
+   hide();
    return 0; 
 }
 

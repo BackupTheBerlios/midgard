@@ -1,4 +1,4 @@
-// $Id: WindowInfo.hh,v 1.19 2002/01/16 09:37:53 thoma Exp $
+// $Id: WindowInfo.hh,v 1.20 2002/02/08 14:34:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,6 +33,7 @@
 #  define _WINDOWINFO_HH
 #include "glademm_support.hh"
 #include <sigc++/slot.h>
+#include <Gtk_OStream.h>
 
 class WindowInfo : public WindowInfo_glade
 {   
@@ -40,7 +41,13 @@ class WindowInfo : public WindowInfo_glade
         void on_button_info_ok_clicked();
         gint timeout();
         SigC::Connection des;
+        bool autoclean;
+
+        Gtk::OStream *mystream;
+        void Flush(bool autoclean);
    public:
-        WindowInfo(const std::string& s,bool autoclean=true);
+        WindowInfo();
+        void AppendShow(std::string s,bool autoclean=true);
+        void AppendShow(int i,bool autoclean=true);
 };
 #endif

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.62 2002/02/08 09:52:38 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.63 2002/02/08 14:34:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -27,7 +27,6 @@
 //#include "Zauber.hh"
 #include "Fertigkeiten.hh"
 #include "Sprache_auswahl.hh"
-
 
 void midgard_CG::on_herkunftsland_clicked()
 {
@@ -233,7 +232,7 @@ void midgard_CG::on_button_ruestung_clicked()
   Werte.setRuestung(cH_Ruestung(rue));
   std::string strinfo ="Beim Auswürfeln der Rüstung wurde eine\n"+itos(wurf)+" gewürfelt\n";
   strinfo += "---> " + Werte.Ruestung()->Long();
-  manage(new WindowInfo(strinfo));
+  InfoFenster->AppendShow(strinfo);
 }
 
 
@@ -257,7 +256,7 @@ void midgard_CG::on_lernliste_wahl_toggled()
      if (Werte.Spezialgebiet()->Spezial2()=="" && Typ[0]->Short()=="eBe")
       {
          std::string strinfo="Erst Primär- und Sekundärelement wählen\n";
-         manage(new WindowInfo(strinfo));
+         InfoFenster->AppendShow(strinfo);
          return;
       }
     show_lernschema(MidgardBasicElement::ZAUBER);

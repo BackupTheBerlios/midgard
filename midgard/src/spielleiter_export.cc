@@ -17,7 +17,6 @@
  */
 
 #include "midgard_CG.hh"
-#include "WindowInfo.hh"
 #include "Sprache.hh"
 #include "Fertigkeiten_angeboren.hh"
 #include "Waffe.hh"
@@ -37,7 +36,7 @@ void midgard_CG::spielleiter_export_save(const std::string& dateiname)
 {
   std::string strinfo = "Datei '"+dateiname+"' enthält nun die Daten des \n";
   strinfo +="Abenteurers im Format für Midgard Publikationen\n";
-  manage (new WindowInfo(strinfo));
+  InfoFenster->AppendShow(strinfo);
   ofstream fout(dateiname.c_str());
   fout << Werte.Name_Abenteurer()<<", "
       <<Typ[0]->Name(Werte.Geschlecht())<<",   Grad "<<Werte.Grad()<<"\n";

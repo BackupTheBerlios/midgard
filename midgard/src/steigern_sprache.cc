@@ -103,7 +103,7 @@ void midgard_CG::on_button_sprache_sort_clicked()
   switch((Data_SimpleTree::Spalten_LONG_ALT)seq[0]) {
       case Data_SimpleTree::NAMEa : list_Sprache.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME)); ;break;
       case Data_SimpleTree::WERTa : list_Sprache.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::ERFOLGSWERT)); ;break;
-      default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
+      default : InfoFenster->AppendShow("Sortieren nach diesem Parameter\n ist nicht möglich");
    }
 }
 

@@ -371,101 +371,102 @@ void midgard_CG::setFertigkeitenAusruestung(AusruestungBaum *Rucksack)
     if((*i)->Name()=="Abrichten" && 90<(wurf=random.integer(1,100)))
       { AusruestungBaum *Tier = &besitz.push_back(Ausruestung("Tier"));
         Tier->setParent(&besitz);
-        InfoFenster((*i)->Name(),wurf,90);
+        InfoFensterAusruestung((*i)->Name(),wurf,90);
       }
     if((*i)->Name()=="Erste Hilfe" && 5<(wurf=random.integer(1,100)))
       { AusruestungBaum *ErsteHilfe = &Rucksack->push_back(Ausruestung("Erste Hilfe Ausrüstung (Salben, Heilkräuter und Verbände)","",false));
         ErsteHilfe->setParent(Rucksack);
-        InfoFenster((*i)->Name(),wurf,5);
+        InfoFensterAusruestung((*i)->Name(),wurf,5);
       }
     if((*i)->Name()=="Fälschen" && 50<(wurf=random.integer(1,100)))
       { AusruestungBaum *Faelschen = &Rucksack->push_back(Ausruestung("Hilfsmittel und Werkzeuge zum Fälschen","",false));
         Faelschen->setParent(Rucksack);
-        InfoFenster((*i)->Name(),wurf,50);
+        InfoFensterAusruestung((*i)->Name(),wurf,50);
       }
     if((*i)->Name()=="Gaukeln" && 30<(wurf=random.integer(1,100)))
       { AusruestungBaum *Gaukeln = &Rucksack->push_back(Ausruestung("Bälle, Reifen und Keulen zum Jonglieren","",false));
         Gaukeln->setParent(Rucksack);
-        InfoFenster((*i)->Name(),wurf,30);
+        InfoFensterAusruestung((*i)->Name(),wurf,30);
       }
     if((*i)->Name()=="Giftmischen")
       { wurf=random.integer(1,100);
         if(wurf>98)
          { AusruestungBaum *K = &Rucksack->push_back(Ausruestung("eine Dosis 3W6 Klingengift","",false));
            K->setParent(Rucksack);
-           InfoFenster((*i)->Name(),wurf,98);
+           InfoFensterAusruestung((*i)->Name(),wurf,98);
          }
         else if (wurf>90)
          { AusruestungBaum *K = &Rucksack->push_back(Ausruestung("eine Dosis 4W6 Speisegift","",false));
            K->setParent(Rucksack);
-           InfoFenster((*i)->Name(),wurf,90);
+           InfoFensterAusruestung((*i)->Name(),wurf,90);
          }
-        else InfoFenster((*i)->Name(),wurf,90);
+        else InfoFensterAusruestung((*i)->Name(),wurf,90);
       }
     if((*i)->Name()=="Glückspiel" && 50<(wurf=random.integer(1,100)))
       { AusruestungBaum *G = &Rucksack->push_back(Ausruestung("geladene Würfel","",false));
         G->setParent(Rucksack);
-        InfoFenster((*i)->Name(),wurf,50);
+        InfoFensterAusruestung((*i)->Name(),wurf,50);
       }
     if((*i)->Name()=="Kampf zu Pferd" && 95<(wurf=random.integer(1,100)))
       { AusruestungBaum *G = &besitz.push_back(Ausruestung("ausgeblidetes Schlachtroß"));
         G->setParent(&besitz);
-        InfoFenster((*i)->Name(),wurf,95);
+        InfoFensterAusruestung((*i)->Name(),wurf,95);
       }
     if((*i)->Name()=="Musizieren")
       { wurf=random.integer(1,100);
         if(wurf>90)
          { AusruestungBaum *K = &Rucksack->push_back(Ausruestung("magisches Instrument nach eigener Wahl","",false));
            K->setParent(Rucksack);
-           InfoFenster((*i)->Name(),wurf,90);
+           InfoFensterAusruestung((*i)->Name(),wurf,90);
          }
         else if (wurf>5)
          { AusruestungBaum *K = &Rucksack->push_back(Ausruestung("Instrument nach eigener Wahl","",false));
            K->setParent(Rucksack);
-           InfoFenster((*i)->Name(),wurf,5);
+           InfoFensterAusruestung((*i)->Name(),wurf,5);
          }
-        else InfoFenster((*i)->Name(),wurf,5);
+        else InfoFensterAusruestung((*i)->Name(),wurf,5);
       }
     if((*i)->Name()=="Reiten" && 70<(wurf=random.integer(1,100)))
       { AusruestungBaum *G = &besitz.push_back(Ausruestung("Reitpferd"));
         G->setParent(&besitz);
-        InfoFenster((*i)->Name(),wurf,70);
+        InfoFensterAusruestung((*i)->Name(),wurf,70);
       }
     if((*i)->Name()=="Trinken")
       { wurf=random.integer(1,100);
         if(wurf>80)
          { AusruestungBaum *K = &Rucksack->push_back(Ausruestung("Tonkrug mit Schnaps (1 Liter","",false));
            K->setParent(Rucksack);
-           InfoFenster((*i)->Name(),wurf,80);
+           InfoFensterAusruestung((*i)->Name(),wurf,80);
          }
         else if (wurf>30)
          { AusruestungBaum *K = &Rucksack->push_back(Ausruestung("Schlauch mit Wein (2 Liter)","",false));
            K->setParent(Rucksack);
-           InfoFenster((*i)->Name(),wurf,30);
+           InfoFensterAusruestung((*i)->Name(),wurf,30);
          }
-        else InfoFenster((*i)->Name(),wurf,30);
+        else InfoFensterAusruestung((*i)->Name(),wurf,30);
       }
     if((*i)->Name()=="Schlösser öffnen" && 5<(wurf=random.integer(1,100)))
       { AusruestungBaum *G = &Rucksack->push_back(Ausruestung("Dietriche und Nachschlüssel","",false));
         G->setParent(Rucksack);
-        InfoFenster((*i)->Name(),wurf,5);
+        InfoFensterAusruestung((*i)->Name(),wurf,5);
       }
     if((*i)->Name()=="Verkleiden" && 50<(wurf=random.integer(1,100)))
       { AusruestungBaum *G = &Rucksack->push_back(Ausruestung("Ausrüstung für einfache Verkleidungen","",false));
         G->setParent(Rucksack);
-        InfoFenster((*i)->Name(),wurf,50);
+        InfoFensterAusruestung((*i)->Name(),wurf,50);
       }
    }
 }
 
-void midgard_CG::InfoFenster(std::string name,int wurf,int noetig)
+void midgard_CG::InfoFensterAusruestung(std::string name,int wurf,int noetig)
 {
  std::string strinfo;
  strinfo="Für '"+name+"' wurde eine "+itos(wurf)+" gewürfelt.\n";
  strinfo += "Nötig ist mindestens eine "+itos(noetig+1)+".\n";
  if(wurf>noetig) strinfo +="==> Das reicht.\n";
  else strinfo +="==> Das reicht NICHT.\n";
- manage(new WindowInfo(strinfo,false));
+ InfoFenster->AppendShow(strinfo,false);
+// manage(new WindowInfo(strinfo,false));
 }
 
 gint midgard_CG::on_button_ausruestung_druck_release_event(GdkEventButton *event)

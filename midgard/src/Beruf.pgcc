@@ -148,6 +148,7 @@ std::string Beruf::get_Vorteile() const
 
 bool Beruf::Stand(const std::string& stand) const
 {
+//cout << "Stand "<<Name()<<' '<<stand<<' '<<u<<'-'<<v<<'-'<<m<<'-'<<a<<'\n';
   if(stand=="Unfrei" && u) return true;
   if(stand=="Volk" && v) return true;
   if(stand=="Mittelschicht" && m) return true;
@@ -157,6 +158,7 @@ bool Beruf::Stand(const std::string& stand) const
 
 bool Beruf::Typ(const vector<cH_Typen>& Typ) const
 {
+//cout << "Typ  "<<Name()<<' '<<Typ[0]->Beruf()<<' '<<Typ[1]->Beruf()<<' '<<typ_z<<"<->"<<typ_k<<'\n';
   if(Typ[0]->Beruf()=="") return true;
   else if(Typ[0]->Beruf()=="z" && typ_z ) return true; 
   else if(Typ[1]->Beruf()=="z" && typ_z ) return true; 

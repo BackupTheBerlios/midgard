@@ -18,12 +18,8 @@
 
 #include "config.h"
 #include "Window_ruestung.hh"
-//#include <Aux/Transaction.h>
-//#include <Aux/SQLerror.h>
-//exec sql include sqlca;
 #include <Gtk_OStream.h>
 #include "midgard_CG.hh"
-#include "WindowInfo.hh"
 
 void Window_ruestung::on_clist_ruestung_select_row(gint row, gint column, GdkEvent *event)
 {   
@@ -35,7 +31,7 @@ void Window_ruestung::on_clist_ruestung_select_row(gint row, gint column, GdkEve
      destroy();
    }
   else 
-   manage (new WindowInfo("Nicht stark genug."));
+   hauptfenster->InfoFenster->AppendShow("Nicht stark genug.");
 }
 
 Window_ruestung::Window_ruestung(Grundwerte& W,midgard_CG* h, const Datenbank& Database) 

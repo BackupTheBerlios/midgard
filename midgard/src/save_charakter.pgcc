@@ -23,7 +23,6 @@ exec sql include sqlca;
 #include <Aux/SQLerror.h>
 #include <cstring>
 #else
-#include "WindowInfo.hh"
 #include "export_common.h"
 #include <fstream>
 #endif
@@ -66,12 +65,13 @@ void midgard_CG::xml_export(const std::string& dateiname)
   std::string command = "midgard_xmlexport '"+cname+"' '"+version+"' > '"+dateiname+"'";
   system(command.c_str());
   std::string strinfo = "Abenteurer "+cname+" exportiert\n";
-  manage (new WindowInfo(strinfo));
+  InfoFenster->AppendShow(strinfo);
 #else
    ofstream datei(dateiname.c_str());
    if (!datei.good())
-   {  manage(new WindowInfo("Ich kann die Datei '"+dateiname
-   		+"' nicht beschreiben"));
+   { 
+      InfoFenster->AppendShow("Ich kann die Datei '"+dateiname
+                               +"' nicht beschreiben");
       return;
    }
 

@@ -23,7 +23,6 @@
 #include "Schrift.hh"
 #include "Sprache.hh"
 #include "Fertigkeiten.hh"
-#include "WindowInfo.hh"
 
 void Sprache_auswahl::on_clist_sp_sc_select_row(gint row, gint column, GdkEvent *event)
 {   
@@ -111,8 +110,8 @@ Sprache_auswahl::Sprache_auswahl(midgard_CG* h, const Datenbank& Database,
              }
           }
          if(!clist_sp_sc->rows().size())
-            manage (new WindowInfo("Keine Sprache gewählt, deren Schrift zu lernen wäre.\n
-                     (siehe unter 'Allgemeinbildung'))"));
+           hauptfenster->InfoFenster->AppendShow("Keine Sprache gewählt, deren Schrift zu lernen wäre.\n
+                     (siehe unter 'Allgemeinbildung')");
       }
    for (unsigned int i=0;i<clist_sp_sc->columns().size();++i)
       clist_sp_sc->set_column_auto_resize(i,true);

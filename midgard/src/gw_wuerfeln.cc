@@ -1,4 +1,4 @@
-// $Id: gw_wuerfeln.cc,v 1.29 2002/01/29 14:16:23 christof Exp $
+// $Id: gw_wuerfeln.cc,v 1.30 2002/02/08 14:34:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,10 +26,26 @@
 gint midgard_CG::on_button_grundwerte_button_release_event(GdkEventButton *ev)
 {
   if (ev->button==1) 
+    {
+      if(radiobutton_eigenschaften_standard->get_active())
+         Eigenschaften_variante(1);
+      else if(radiobutton_eigenschaften_zuweisen->get_active())
+         Eigenschaften_variante(2);
+      else if(radiobutton_eigenschaften_69->get_active())
+         Eigenschaften_variante(3);
+    }
+  if (ev->button==2) Eigenschaften_variante(2);
+  if (ev->button==3) Eigenschaften_variante(3);
+  return false;
+}
+
+void midgard_CG::Eigenschaften_variante(int i)
+{
+  if (i==1) 
    { gw_wuerfeln_2x();
      table_werte_wuerfeln->hide();
    }
-  else if (ev->button==2)
+  else if (i==2)
    {
      set_werte_label_2();
      werte_label_count=0;
@@ -46,7 +62,7 @@ gint midgard_CG::on_button_grundwerte_button_release_event(GdkEventButton *ev)
      table_werte_wuerfeln->show();
      table_bw_wurf->show();
    }
-  else if (ev->button==3)
+  else if (i==3)
    {
      std::vector<int> V;
      for(int i=0;i<9;++i) V.push_back(random.integer(1,100)) ;
@@ -86,7 +102,6 @@ gint midgard_CG::on_button_grundwerte_button_release_event(GdkEventButton *ev)
      table_werte_wuerfeln->show();
    }
   button_abg_werte->set_sensitive(true);
-  return false;
 }
 
 //////////////////////////////////////////////////////////////////////////

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.46 2002/02/08 09:52:38 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.47 2002/02/08 14:34:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -18,6 +18,7 @@
  */
 
 #include "midgard_CG.hh"
+#include "WindowInfo.hh"
 
 void midgard_CG::on_checkbutton_optionen_menu(st_Optionen O)
 {
@@ -173,5 +174,6 @@ void midgard_CG::Hausregeln_setzen(bool b)
 
 void midgard_CG::regnot(std::string sadd)
 {
-  manage(new WindowInfo(sadd));
+//  manage(new WindowInfo(sadd));
+ InfoFenster->AppendShow(sadd);
 }

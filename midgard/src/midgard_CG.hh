@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.161 2002/02/08 09:52:38 thoma Exp $
+// $Id: midgard_CG.hh,v 1.162 2002/02/08 14:34:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,8 +21,6 @@
 #  include "midgard_CG_glade.hh"
 #  define _MIDGARD_CG_HH
 #include "glademm_support.hh"
-#include "WindowInfo.hh"
-
 
 #include <iostream>
 #include <string>
@@ -37,6 +35,7 @@
 #include "class_lernpunkte.hh"
 #include "Ausruestung.hh"
 class Random;
+#include "WindowInfo.hh"
 
 class GeldFenster 
 {public:
@@ -45,6 +44,10 @@ class GeldFenster
 
 class midgard_CG : public midgard_CG_glade, public GeldFenster
 {   
+   public:
+        WindowInfo *InfoFenster;
+   private:
+
         Random random;   
         enum enum_notebook_main{PAGE_GRUNDWERTE,PAGE_LERNEN,PAGE_STEIGERN,
                                   PAGE_AUSRUESTUNG};
@@ -54,7 +57,6 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
 
         std::vector<std::string> Vstand, Vhand, Vkido;
 
-   private:
         friend class midgard_CG_glade;
         Gtk::Menu *menu, *menu_gradanstieg;
         void menu_init();
@@ -150,6 +152,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         gint on_button_menu_button_release_event(GdkEventButton *ev);
         void gw_wuerfeln_2x();
         gint on_button_grundwerte_button_release_event(GdkEventButton *ev);
+        void Eigenschaften_variante(int i);
         void on_button_wert_1_clicked();
         void on_button_wert_2_clicked();
         void on_button_wert_3_clicked();
@@ -422,7 +425,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void show_modi();
         void setStandardAusruestung();
         void setFertigkeitenAusruestung(AusruestungBaum *Rucksack);
-        void InfoFenster(std::string name,int wurf,int noetig);
+        void InfoFensterAusruestung(std::string name,int wurf,int noetig);
         void showAusruestung();
         void showChildren(Gtk::CTree_Helpers::RowList::iterator r,const std::list<AusruestungBaum> &AB);
         Gtk::CTree *Ausruestung_tree;

@@ -20,7 +20,7 @@
 #include "Window_Waffenbesitz.hh"
 #include "midgard_CG.hh"
 #include "Typen.hh"
-#include "WindowInfo.hh"
+//#include "WindowInfo.hh"
 
 void Window_Waffenbesitz::on_leaf_selected_alt(cH_RowDataBase d)
 {  
@@ -73,7 +73,8 @@ void Window_Waffenbesitz::on_entry_magisch_activate()
         WB->set_Magisch(entry_magisch->get_text());
      table_magbonus->hide();
   } catch(std::exception &e) {cerr<<e.what()<<'\n';
-      manage (new WindowInfo("Keine Waffe selektiert"));
+//      manage (new WindowInfo("Keine Waffe selektiert"));
+      hauptfenster->InfoFenster->AppendShow("Keine Waffe selektiert");
      };
   zeige_waffen();
 }
@@ -184,6 +185,7 @@ void Window_Waffenbesitz::on_button_sort_clicked()
   switch((Data_waffenbesitz::SPALTEN_A)seq[0]) {
       case Data_waffenbesitz::MAGBONUS : Waffe_Besitz.sort(WaffenBesitz_sort_magbonus()) ;break;
       case Data_waffenbesitz::NAME_A   : Waffe_Besitz.sort(WaffenBesitz_sort_name()); break;
-      default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
+      default : hauptfenster->InfoFenster->AppendShow("Sortieren nach diesem Parameter\n ist nicht möglich");
+//      manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
    }
 }

@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.7 2002/02/04 11:01:01 thoma Exp $               
+// $Id: Grundwerte.cc,v 1.8 2002/02/08 14:34:18 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -169,6 +169,7 @@ void Grundwerte::resetSinne()
  sinnmap["Riechen"]=8;
  sinnmap["Schmecken"]=8;
  sinnmap["Tasten"]=8; 
+ sinnmap["Sechster Sinn"]=Zt()/25;
 }
 
 

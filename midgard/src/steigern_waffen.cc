@@ -91,7 +91,7 @@ void midgard_CG::on_leaf_selected_alte_grund(cH_RowDataBase d)
   std::string strinfo="WARNUNG: Beim verlernen von Grundkenntnissen werden die\n";
   strinfo +="bereits gelernten Waffen, die zu dieser\n";
   strinfo +="Grundkenntnis gehöhren, NICHT verlernt\n";
-  WindowInfo(strinfo,true);
+  InfoFenster->AppendShow(strinfo,true);
   if (MidgardBasicElement_leaf_alt(d))
 //     waffen_zeigen();
   on_waffen_laden_clicked();
@@ -116,6 +116,6 @@ void midgard_CG::on_button_waffen_sort_clicked()
   switch((Data_SimpleTree::Spalten_LONG_ALT)seq[0]) {
       case Data_SimpleTree::WERTa : list_Waffen.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::ERFOLGSWERT)); ;break;
       case Data_SimpleTree::NAMEa : list_Waffen.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME)); ;break;
-      default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
+      default : InfoFenster->AppendShow("Sortieren nach diesem Parameter\n ist nicht möglich");
    }
 }

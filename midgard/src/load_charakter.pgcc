@@ -83,15 +83,19 @@ void midgard_CG::xml_import(const std::string& datei)
    }
    // Wenn mehrere Abenteurer -> auswählen?
    if (!top)
-   {  manage(new WindowInfo("(Abenteurer in) Datei '"+datei
-                   +"' nicht gefunden."));
+   {  //manage(new WindowInfo("(Abenteurer in) Datei '"+datei
+      //             +"' nicht gefunden."));
+      InfoFenster->AppendShow("(Abenteurer in) Datei '"+datei
+                   +"' nicht gefunden.");
       return;
    }
    
    const int xml_version=top->getIntAttr("Version");
    if (xml_version<3 || xml_version>10)
-   {  manage(new WindowInfo("XML Version "+itos(xml_version)
-   			+" wird noch nicht unterstützt"));
+   { // manage(new WindowInfo("XML Version "+itos(xml_version)
+   //			+" wird noch nicht unterstützt"));
+     InfoFenster->AppendShow("XML Version "+itos(xml_version)
+          +" wird noch nicht unterstützt");
    }
 
    if (data)

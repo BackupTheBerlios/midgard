@@ -21,7 +21,6 @@
 #include "Waffe.hh"
 #include <Gtk_OStream.h>
 #include <Aux/itos.h>
-#include "WindowInfo.hh"
 #include "midgard_CG.hh"
 #include "Window_Waffe_Geld.hh"
 
@@ -101,7 +100,7 @@ void Window_waffe::wuerfeln()
          os.flush((*i)->ref(),&HandleContent::unref);
       }  
   }
- manage(new WindowInfo(strinfo));
+ oberfenster->hauptfenster->InfoFenster->AppendShow(strinfo);
  label_anzahl_E->set_text(itos(E));
  label_anzahl_A->set_text(itos(A));
 
@@ -188,5 +187,5 @@ void Window_waffe::magische_Waffe()
 {
    std::string strinfo="100 gewürfelt!!! => magische Einhandwaffe\n";
       strinfo+= "bitte unter 'steigern'->'Besitztümer' einen Angriffsbonus von +1 einstellen.\n";
-   manage(new WindowInfo(strinfo));   
+   oberfenster->hauptfenster->InfoFenster->AppendShow(strinfo);   
 }

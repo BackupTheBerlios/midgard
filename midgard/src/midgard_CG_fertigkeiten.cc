@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.53 2002/02/07 16:43:58 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.54 2002/02/08 14:34:18 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -33,7 +33,8 @@ gint midgard_CG::on_angeborene_fertigkeit_button_release_event(GdkEventButton *e
       list_Fertigkeit_ang.push_back(&*cH_Fertigkeit_angeborene("Nachtsicht"/*,0*/));
   if (event->button==1) on_angeborene_fertigkeit_clicked() ;
   if (event->button==3) on_angeborene_fertigkeit_right_clicked() ;
-//  button_fertigkeiten->set_sensitive(true);
+  zeige_werte(Werte);
+  show_gelerntes();
   return false;
 }
 
@@ -46,20 +47,16 @@ void midgard_CG::on_angeborene_fertigkeit_clicked()
       manage (new Window_angeb_fert(this,Database,list_Fertigkeit_ang,Werte,wurf));
       wurf = random.integer(1,100);
    }
-  manage (new Window_angeb_fert(this,Database,list_Fertigkeit_ang,Werte,wurf));
-  std::string stinfo="Für die Angeborene Fertigkeit\n wurde eine ";stinfo+=itos(wurf);stinfo+=" gewürfelt.\n";
+  Window_angeb_fert *W = manage (new Window_angeb_fert(this,Database,list_Fertigkeit_ang,Werte,wurf));
+  std::string stinfo="Für die Angeborene Fertigkeit\n wurde eine ";
+  stinfo+=itos(wurf);stinfo+=" gewürfelt: "+W->Name()+"\n";
   manage(new WindowInfo(stinfo));
-//  show_fertigkeiten();
-  show_gelerntes();
 }
 
 
 void midgard_CG::on_angeborene_fertigkeit_right_clicked()
 {
-  Werte.resetSinne();
   manage (new Window_angeb_fert(this,Database,list_Fertigkeit_ang,Werte,-1));
-  show_gelerntes();
-//  show_fertigkeiten();
 }
 
 

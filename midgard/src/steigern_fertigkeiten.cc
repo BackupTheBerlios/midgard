@@ -16,8 +16,6 @@
  */
 
 #include "midgard_CG.hh"
-#include "WindowInfo.hh"
-//#include "Ausnahmen.hh"
 #include "class_SimpleTree.hh"
 #include "Pflicht.hh"
 #include <Gtk_OStream.h>
@@ -82,7 +80,7 @@ void midgard_CG::on_button_fertigkeiten_sort_clicked()
   switch((Data_SimpleTree::Spalten_LONG_ALT)seq[0]) {
       case Data_SimpleTree::NAMEa : list_Fertigkeit.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME)); ;break;
       case Data_SimpleTree::WERTa : list_Fertigkeit.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::ERFOLGSWERT)); ;break;
-      default : manage(new WindowInfo("Sortieren nach diesem Parameter\n ist nicht möglich"));
+      default : InfoFenster->AppendShow("Sortieren nach diesem Parameter\n ist nicht möglich");
    }
 }
 
@@ -91,8 +89,7 @@ bool midgard_CG::kido_steigern_check(int wert)
 {
   if (Werte.Grad()+10 > wert) return false;
   else
-   { std::string strinfo ="KiDo darf nur auf maximal Grad+10 gesteigert werden.\n";
-     manage (new WindowInfo(strinfo));
+   { InfoFenster->AppendShow("KiDo darf nur auf maximal Grad+10 gesteigert werden.\n");
      return true;
    }
 }
@@ -108,15 +105,14 @@ void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
       optionmenu_KiDo_Stile->set_sensitive(true);
 //      table_kido_lernen->set_sensitive(true);
       button_kido_auswahl->set_sensitive(false);
-      std::string strinfo="Jetzt muß ein Stil unter 'Lernschema' -> 'KiDo' gewählt werden !!!";
-      manage (new WindowInfo(strinfo,false)); 
+      InfoFenster->AppendShow("Jetzt muß ein Stil unter 'Lernschema' -> 'KiDo' gewählt werden !!!",false);
       MidgardBasicElement_leaf_neu(d);      
       lernschema_sensitive(true);
     }
   else if (MBE->Name()=="Zaubern") 
-      {  doppelcharaktere();
-         std::string strinfo ="Jetzt unter 'Grundwerte' die zweite Charkakterklasse wählen\n";
-         manage (new WindowInfo(strinfo,false));
+      {  
+         doppelcharaktere();
+         InfoFenster->AppendShow("Jetzt unter 'Grundwerte' die zweite Charkakterklasse wählen\n",false);
          // Resistenzboni für Zauberer setzten:
 //         Werte.set_magBoni(Werte.bo_Psy()+3,Werte.bo_Phs()+1,Werte.bo_Phk()+3);
          if (Werte.Zaubern_wert()==2) Werte.setZaubern_wert(10);
