@@ -267,4 +267,9 @@
   <Waffen:Grundkenntnis Name="Kharrata" Region="R" Kosten="200"/>
   <Waffen:Grundkenntnis Name="Namisritra" Region="R" Kosten="200"/>
  </Waffen:Grundkenntnisse>
+ <Waffen:Steigern>
+    <Kosten Kategorie="Angriff" Wert5="6" Wert6="6" Wert7="6" Wert8="10" Wert9="20" Wert10="40" Wert11="80" Wert12="160" Wert13="300" Wert14="500" Wert15="1000" Wert16="1000" Wert17="1500" Wert18="1500" Wert19="2500"/>
+    <Kosten Kategorie="Fern" Wert5="6" Wert6="6" Wert7="6" Wert8="10" Wert9="20" Wert10="40" Wert11="80" Wert12="160" Wert13="300" Wert14="500" Wert15="1000" Wert16="1000" Wert17="1500" Wert18="1500" Wert19="2500"/>
+    <Kosten Kategorie="Verteidigung" Wert2="20" Wert3="100" Wert4="400" Wert5="1000" Wert6="2000" Wert7="4000" Wert8="6000"/>
+ </Waffen:Steigern>
 </MidgardCG-data>
