@@ -1,4 +1,4 @@
-// $Id: Window_werte_editieren.cc,v 1.20 2001/06/30 20:30:06 thoma Exp $
+// $Id: Window_werte_editieren.cc,v 1.21 2001/08/18 06:19:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,6 +29,9 @@
 
 void Window_werte_editieren::on_nwe_close_clicked()
 {   
+   gtk_spin_button_update(alter_ein->gtkobj());
+   gtk_spin_button_update(gewicht_ein->gtkobj());
+   gtk_spin_button_update(groesse_ein->gtkobj());
    Werte.set_Basiswerte(atoi(st_ein->get_text().c_str()),
                         atoi( ge_ein->get_text().c_str()),
                         atoi( ko_ein->get_text().c_str()),
@@ -135,4 +138,207 @@ Window_werte_editieren::Window_werte_editieren(midgard_CG* h,Grundwerte& w)
  name_charakter_ein->set_text(Werte.Name_Charakter());
  name_spieler_ein->set_text(Werte.Name_Spieler());
  version_ein->set_text(Werte.Version());
+}
+
+void Window_werte_editieren::st_activate()
+{   
+ ge_ein->grab_focus();
+}
+
+void Window_werte_editieren::ge_activate()
+{   
+ ko_ein->grab_focus();
+}
+
+void Window_werte_editieren::ko_activate()
+{   
+ in_ein->grab_focus();
+}
+
+void Window_werte_editieren::in_activate()
+{   
+ zt_ein->grab_focus();
+}
+
+void Window_werte_editieren::zt_activate()
+{   
+ au_ein->grab_focus();
+}
+void Window_werte_editieren::bzt_activate()
+{   
+ bo_psy_ein->grab_focus();
+}
+
+void Window_werte_editieren::au_activate()
+{   
+ pa_ein->grab_focus();
+}
+
+void Window_werte_editieren::pa_activate()
+{   
+ sb_ein->grab_focus();
+}
+
+void Window_werte_editieren::sb_activate()
+{   
+ rw_ein->grab_focus();
+}
+
+void Window_werte_editieren::rw_activate()
+{   
+ hgw_ein->grab_focus();
+}
+
+void Window_werte_editieren::hgw_activate()
+{   
+ b_ein->grab_focus();
+}
+
+void Window_werte_editieren::b_activate()
+{   
+ lp_ein->grab_focus();
+}
+
+void Window_werte_editieren::lp_activate()
+{   
+ ap_ein->grab_focus();
+}
+
+void Window_werte_editieren::ap_activate()
+{   
+ bo_au_ein->grab_focus();
+}
+
+void Window_werte_editieren::bau_activate()
+{   
+ bo_sc_ein->grab_focus();
+}
+
+void Window_werte_editieren::grad_activate()
+{   
+ st_ein->grab_focus();
+}
+
+void Window_werte_editieren::alter_activate()
+{   
+ gewicht_ein->grab_focus();
+}
+
+void Window_werte_editieren::gewicht_activate()
+{   
+ groesse_ein->grab_focus();
+}
+
+void Window_werte_editieren::groesse_activate()
+{   
+ gestalt_ein->grab_focus();
+}
+
+void Window_werte_editieren::gestalt_activate()
+{   
+ spezialisierung_ein->grab_focus();
+}
+
+void Window_werte_editieren::spezial_activate()
+{   
+ herkunft_ein->grab_focus();
+}
+
+void Window_werte_editieren::her_activate()
+{   
+ glaube_ein->grab_focus();
+}
+
+void Window_werte_editieren::glau_activate()
+{   
+ name_charakter_ein->grab_focus();
+}
+
+void Window_werte_editieren::ns_activate()
+{   
+ version_ein->grab_focus();
+}
+
+void Window_werte_editieren::nc_activate()
+{   
+ name_spieler_ein->grab_focus();
+}
+
+void Window_werte_editieren::sc_activate()
+{   
+ bo_an_ein->grab_focus();
+}
+
+void Window_werte_editieren::an_activate()
+{   
+ bo_ab_ein->grab_focus();
+}
+
+void Window_werte_editieren::ab_activate()
+{   
+ bo_za_ein->grab_focus();
+}
+
+void Window_werte_editieren::psy_activate()
+{   
+ bo_phs_ein->grab_focus();
+}
+
+void Window_werte_editieren::phs_activate()
+{   
+ bo_phk_ein->grab_focus();
+}
+
+void Window_werte_editieren::phk_activate()
+{   
+ bo_gi_ein->grab_focus();
+}
+
+void Window_werte_editieren::gift_activate()
+{   
+ kaw_ein->grab_focus();
+}
+void Window_werte_editieren::wgift_activate()
+{   
+ gfp_ein->grab_focus();
+}
+
+void Window_werte_editieren::lpb_activate()
+{   
+ abwehr_ein->grab_focus();
+}
+
+void Window_werte_editieren::kaw_activate()
+{   
+ wlw_ein->grab_focus();
+}
+
+void Window_werte_editieren::re_activate()
+{   
+ gift_ein->grab_focus();
+}
+
+void Window_werte_editieren::wza_activate()
+{   
+ resistenz_ein->grab_focus();
+}
+
+void Window_werte_editieren::wab_activate()
+{   
+ zaubern_ein->grab_focus();
+}
+
+void Window_werte_editieren::gfp_activate()
+{   
+ alter_ein->grab_focus();
+}
+
+void Window_werte_editieren::vers_activate()
+{   
+ on_nwe_close_clicked();
+}
+
+void Window_werte_editieren::wlw_activate()
+{   
+ lpbasis_ein->grab_focus();
 }

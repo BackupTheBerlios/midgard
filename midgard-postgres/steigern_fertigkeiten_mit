@@ -1,0 +1,100 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE "steigern_fertigkeiten_mit";
+--
+-- TOC Entry ID 2 (OID 13819652)
+--
+-- Name: steigern_fertigkeiten_mit Type: TABLE Owner: thoma
+--
+
+CREATE TABLE "steigern_fertigkeiten_mit" (
+	"name" text NOT NULL,
+	"ep" text NOT NULL
+);
+
+--
+-- Data for TOC Entry ID 3 (OID 13819652) TABLE DATA steigern_fertigkeiten_mit
+--
+
+COPY "steigern_fertigkeiten_mit"  FROM stdin;
+KiDo	ZEP
+KiDo	KEP
+Zauber	ZEP
+Waffen	KEP
+Klettern	KEP
+Lanzenstechen	KEP
+Laufen	KEP
+Luftkampf	KEP
+Meucheln	KEP
+Reiten	KEP
+Rudern	KEP
+Scharfschießen	KEP
+Schlittenfahren	KEP
+Schwimmen	KEP
+Segeln	KEP
+Springen	KEP
+Wissen von der Magie	ZEP
+Athletik	KEP
+Balancieren	KEP
+Ballista bedienen	KEP
+Beidhändiger Kampf	KEP
+Bogen vom Streitwagen	KEP
+Bogen zu Pferd	KEP
+Brettspiel	KEP
+Fallen	KEP
+Faustkampf	KEP
+Fechten	KEP
+Fechten tevarischer Stil	KEP
+FengTsu	KEP
+Geländelauf	KEP
+Geomantie	ZEP
+IaiJutsu	KEP
+Kamelreiten	KEP
+Kampf in Dunkelheit	KEP
+Kampf in Schlachtreihe	KEP
+Kampf in Vollrüstung	KEP
+Kampf vom Streitwagen	KEP
+Kampf zu Elefant	KEP
+Kampf zu Kamel	KEP
+Kampf zu Pferd	KEP
+Kampf zu Srimara	KEP
+Kampftaktik	KEP
+Kanufahren	KEP
+KarumiJutsu	KEP
+Katapult bedienen	KEP
+KentoYobu	KEP
+KujNoIu	ZEP
+MiChen	KEP
+Pyromantie	ZEP
+SchiyoKi	ZEP
+SchiyoKi	KEP
+Schwerttanz	KEP
+Skifahren	KEP
+Streitwagen lenken	KEP
+TaiTschi	ZEP
+TaiTschi	KEP
+Talisman verzaubern	ZEP
+Tauchen	KEP
+Wagenlenken	KEP
+Winden	KEP
+YubeChian	KEP
+Askese	ZEP
+Astrologie	ZEP
+Augensalbe herstellen	ZEP
+Elefanten lenken	KEP
+Körperkontrolle	ZEP
+Srimara lenken	KEP
+Meditieren	ZEP
+Natya	ZEP
+Schmerzen ertragen	ZEP
+Etikette	ZEP
+Fangen	KEP
+Jonglieren	KEP
+Schiffsführung	KEP
+Schlittschuhlaufen	KEP
+Siegelkunde	ZEP
+Werfen	KEP
+Wetterkunde	ZEP
+Heraldik	ZEP
+\.

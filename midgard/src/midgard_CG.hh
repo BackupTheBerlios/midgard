@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.57 2001/08/17 14:31:09 thoma Exp $
+// $Id: midgard_CG.hh,v 1.58 2001/08/18 06:19:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -202,9 +202,11 @@ class midgard_CG : public midgard_CG_glade
          
         void on_button_EP_clicked();
         gint vscale_value_changed(GdkEventButton *ev);
-        bool midgard_CG::steigern(unsigned int kosten);
+        bool steigern(unsigned int kosten,const std::string& fert);
+        void desteigern(unsigned int kosten);
         void on_checkbutton_EP_Geld_toggled();
         void steigern_gtk();
+        int steigern_womit(const std::string& fert);
 
         void on_fertigkeiten_laden_clicked();
         void on_steigern_fert_tree_alt_select(const std::string& fertigkeit, int wert, int steigern, int reduzieren, int verlernen);

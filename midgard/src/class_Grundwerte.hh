@@ -143,6 +143,8 @@ public:
    void add_AEP(int a) {aep+=a;}
    void add_KEP(int a) {kep+=a;}
    void add_ZEP(int a) {zep+=a;}
+   void set_KEP(int a) {kep=a;}
+   void set_ZEP(int a) {zep=a;}
 
 };
 /*

@@ -1,10 +1,17 @@
 ##########################################################################
-NEWS IN VERSION 0.7beta5
+NEWS IN VERSION 0.8beta0
 - ... und wieder etwas an der Oberfläche gebastelt 
 - Damit die Erfahrungspunkte und das Geld verrechnet werden habe ich:
    * einen Scrollbar eingefügt
    * einen Knopf mit dem man das wieder abschalten kann
-   * das abspeichern und laden von scrolbar und Knpof implementiert
+   * das Abspeichern und Laden von Scrollbar und Knopf implementiert
+- und die Funktionen geschrieben, mit denen es möglich ist jetzt
+   auf Wunsch Erfahrungspunkte und Geld gegen GFPs zu verrechnen.
+- die Datenbank hat eine neue Tabelle, in der steht welche Fertigkeit mit 
+   welcher Art von EPs gelernt werden kann.
+- Hilfe leicht überarbeitet
+- Das Eingeben von Werten ("Werte editieren") ist jetzt einfacher: 'Enter'
+   bewirktt jetzt ein Springen zum nächsten Eingabefeld.
 
 ##########################################################################
 NEWS IN VERSION 0.7beta5

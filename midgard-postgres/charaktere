@@ -65,6 +65,8 @@ CREATE TABLE "charaktere" (
 	"typ_2_s" text,
 	"aep" integer,
 	"kep" integer,
-	"zep" integer
+	"zep" integer,
+	"steigern_bool" boolean,
+	"steigern_ep_prozent" integer
 );
 

@@ -49,7 +49,17 @@ void midgard_CG::Geld_uebernehmen()
 }
 
 
-bool midgard_CG::steigern(unsigned int kosten)
+void midgard_CG::desteigern(unsigned int kosten)
+{
+  guint gold_k = (guint)(kosten * ((100-steigern_EP_prozent)/100.));
+  guint ep_k = (guint)(kosten * (steigern_EP_prozent/100.));
+  Werte.add_Gold(gold_k);
+  Werte.add_AEP(ep_k);
+  Geld_uebernehmen();
+  EP_uebernehmen();
+}
+
+bool midgard_CG::steigern(unsigned int kosten,const std::string& fert)
 {
   if (!steigern_bool) return true;
   // genug Geld? 
@@ -58,14 +68,34 @@ bool midgard_CG::steigern(unsigned int kosten)
   if (gold_k > geld) { regnot("Zu wenig Geld um zu steigern,\n es fehlen "+itos(gold_k-geld)+" GS."); return false;}
   
   // genug EP?
-  guint ep_k = (guint)(kosten * ((    steigern_EP_prozent)/100.));
+  bool bkep=false,bzep=false;
+  int womit = steigern_womit(fert);
+  if(womit==1 || womit==3) bkep=true;
+  if(womit==2 || womit==3) bzep=true;
+
+  guint ep_k = (guint)(kosten * (steigern_EP_prozent/100.));
   guint aep=Werte.AEP();  
   guint kep=Werte.KEP();  
   guint zep=Werte.ZEP();  
 
-  guint restep = aep;  
-  if (ep_k > restep) { regnot("Zu wenig EP um zu steigern,\n es fehlen "+itos(ep_k-restep)+" Erfahrungspunkte (AEP)."); return false;}
+  guint ep = aep;  
+  std::string sw;
+  if (bkep) {ep += kep;sw  =",KEP";}
+  if (bzep) {ep += zep;sw +=",ZEP";}
+  if (ep_k > ep) { regnot("Zu wenig EP um zu steigern,\n es fehlen "+itos(ep_k-ep)+" Erfahrungspunkte (AEP"+sw+")."); return false;}
 
+  // jetzt darf gesteigert werden ...
+  Werte.add_Gold(-gold_k);  
+  if(bkep)
+   { if (ep_k<=kep) {Werte.add_KEP(-ep_k);ep_k =0 ;}
+     else           {ep_k-=kep; Werte.set_KEP(0);} 
+   }
+  if(bzep)
+   { if (ep_k<=zep) {Werte.add_ZEP(-ep_k);ep_k =0 ;}
+     else           {ep_k-=zep; Werte.set_ZEP(0);} 
+   }
+  Werte.add_AEP(-ep_k);
+  Geld_uebernehmen();
+  EP_uebernehmen();
   return true;  
 }
-

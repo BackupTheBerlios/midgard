@@ -1,4 +1,4 @@
-// $Id: Window_hilfe.cc,v 1.20 2001/06/27 11:24:35 thoma Exp $
+// $Id: Window_hilfe.cc,v 1.21 2001/08/18 06:19:08 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -89,12 +89,13 @@ Bitte lest die unten aufgeführet Anleitung zur Bedienung der Treebaselisten
     wird der entsprechende Charakter geladen, ansonsten erscheint eine 
     Auswahlliste aller gespeicherter Charaktere. In diesem Fenster ist 
     es auch möglich Charaktere aus der Datenbank zu löschen)
-* Steigern
+* Steigern mit oder ohne Einsatz von Gold und Erfahrungspunkten
 * .... an Grad anpassen
    Mit diesem Knopf werden die AP, die Abwehr, die Resistenzen und der Zaubernwert
    an den Grad angepaßt. Die AP-Zahl kann zu jedem Zeitpunkt neu berechnet werden
    (mit entsprechender Erhöhung der GFP). Außerdem wird für eine Steigerung der 
-   Basiseigenschaften gewürfelt.
+   Basiseigenschaften gewürfelt. Üblicherweise wird dieser Knopf betätigt,
+   wenn die GFP-Grenze für einen neuen Grad übersprungen ist.
 * Fertigkeiten (Fertigkeiten laden)
    Im oberen Fenster sind die Fertigkeiten, die der Charakter kann mit
    dem jeweiligen Erfolgswert angegeben. Außerdem ist angegeben, wieviele
@@ -127,15 +128,14 @@ Anmerkungen zu einigen Features
   Maustaste aufgrufen werden. Dies sind im Einzelnen:
 * Charakter speichern      -> xml-Format exportieren 
 * Charakter laden          -> xml-Format importieren 
-* LaTeX Charakterblatt     -> Export im Format für Midgard Abenteuer
+* LaTeX Charakterblatt     -> Export im Format für Midgard Abenteuer 
 * angeborene Fertigkeiten  -> eingeben (statt würfeln) der angeborenen Fertigkeiten
 
-Anleitung zur Treebaseliste
+Anleitung zur TreeBase-Liste (= Tabellen fürs Steigern und die Waffen)
 
 * Die Listen können durch Anklicken der Kopfzeile in beliebiger Reinfolge
    sortiert werden
 * Mit der rechten Maustaste öffnet man ein (hoffentlich selbsterklärendes) Menü
-   
 
 ";
 return s;

@@ -139,6 +139,7 @@ void midgard_CG::show_neue_zauber()
 
 void midgard_CG::on_steigern_zauber_tree_alt_select(const std::string& new_zauber, int kosten)
 {   
+   if (steigern_bool) desteigern(kosten);
    Werte.add_GFP(-kosten);
    for (std::vector<H_Data_zauber>::iterator i=vec_Zauber.begin();
             i!= vec_Zauber.end();++i) 
@@ -149,6 +150,7 @@ void midgard_CG::on_steigern_zauber_tree_alt_select(const std::string& new_zaube
 void midgard_CG::on_steigern_zauber_tree_neu_select(const std::string& new_zauber, int kosten, 
    const std::string& stufe, const std::string& art)
 {   
+  if (!steigern(kosten,"Zauber")) return;
   int erf = midgard_CG::get_erfolgswert_zaubern(Typ,Typ2,new_zauber);
   
   if (radio_spruchrolle_auto->get_active() && spruchrolle->get_active())
@@ -286,6 +288,7 @@ void midgard_CG::on_leaf_selected_neue_zaubermittel(cH_RowDataBase d)
 
 void midgard_CG::on_steigern_zaubermittel_tree_alt_select(const std::string& name, int kosten)
 {   
+   if (steigern_bool) desteigern(kosten);
    Werte.add_GFP(-kosten);
    for (std::vector<H_Data_zaubermittel>::iterator i=vec_Zaubermittel.begin();
             i!= vec_Zaubermittel.end();++i) 
@@ -296,6 +299,7 @@ void midgard_CG::on_steigern_zaubermittel_tree_alt_select(const std::string& nam
 
 void midgard_CG::on_steigern_zaubermittel_tree_neu_select(const std::string& name, const std::string& stufe, int kosten)
 {   
+  if (!steigern(kosten,"Zauber")) return;
   vec_Zaubermittel.push_back(new Data_zaubermittel(stufe,name));
   Werte.add_GFP(kosten);  
 

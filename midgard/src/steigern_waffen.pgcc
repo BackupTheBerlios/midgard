@@ -202,6 +202,7 @@ void midgard_CG::show_neue_waffen()
 
 void midgard_CG::on_steigern_grund_tree_neu_select(const std::string& name, int kosten)
 {
+  if (!steigern(kosten,"Waffen")) return;
   Werte.add_GFP(kosten);
   midgard_CG::zeige_werte(Werte);
 
@@ -238,6 +239,7 @@ void midgard_CG::on_steigern_waffen_tree_alt_select(const std::string& waffe, in
 {
    if (radio_waffen_steigern->get_active())
       {
+       if (!midgard_CG::steigern(steigern,"Waffen")) return;
        if (!togglebutton_praxispunkte_waffen->get_active()) // normal Lernen
         {
           int maxwert;
@@ -293,6 +295,7 @@ void midgard_CG::on_steigern_waffen_tree_alt_select(const std::string& waffe, in
       }
    if (radio_waffen_reduzieren->get_active())
       {
+        if (steigern_bool) desteigern(reduzieren);
         Werte.add_GFP(-reduzieren);
         if (reduzieren != 0)
         for (std::vector<H_Data_waffen>::iterator i=vec_Waffen.begin();

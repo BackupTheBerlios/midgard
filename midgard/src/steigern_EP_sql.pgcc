@@ -1,0 +1,30 @@
+#include "midgard_CG.hh"
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+exec sql include sqlca;
+
+
+int midgard_CG::steigern_womit(const std::string& fert)
+{
+  int back=0;
+  exec sql begin declare section;
+   char db_fert[50];
+   char db_w[5];
+  exec sql end declare section;
+  strncpy(db_fert,fert.c_str(),sizeof(db_fert));
+  exec sql declare fwein cursor for SELECT ep from steigern_fertigkeiten_mit
+   where name = :db_fert;
+  Transaction tr;
+  exec sql open fwein;
+  SQLerror::test(__FILELINE__);
+  while (true)
+   {
+     exec sql fetch fwein into :db_w;
+     SQLerror::test(__FILELINE__,100);
+     if (sqlca.sqlcode) break;
+     std::string w=db_w;
+     if(w=="KEP") back+=1;
+     if(w=="ZEP") back+=2;
+   }
+  return back;
+}

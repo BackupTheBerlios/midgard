@@ -49,6 +49,7 @@ void midgard_CG::on_leaf_selected_neue_sprache(cH_RowDataBase d)
     
 void midgard_CG::on_steigern_sprache_tree_neu_select(const std::string& name,int kosten)
 {   
+   if (!steigern(kosten,"Sprache")) return;
    Werte.add_GFP(kosten);
    midgard_CG::zeige_werte(Werte);
    vec_Sprachen.push_back(new Data_sprache(name,"",1,0));   
@@ -59,6 +60,7 @@ void midgard_CG::on_steigern_sprache_tree_alt_select(const std::string& name,int
 {   
    if (radio_sprache_steigern->get_active() && steigern)
     {
+      if (!midgard_CG::steigern(steigern,"Sprache")) return;
       Werte.add_GFP(steigern);
       for (std::vector<H_Data_sprache>::iterator i=vec_Sprachen.begin();
                      i!= vec_Sprachen.end();++i )
@@ -66,6 +68,7 @@ void midgard_CG::on_steigern_sprache_tree_alt_select(const std::string& name,int
     }
    if (radio_sprache_reduzieren->get_active() && reduzieren )
     {
+      if (steigern_bool) desteigern(reduzieren);
       Werte.add_GFP(-reduzieren);
       for (std::vector<H_Data_sprache>::iterator i=vec_Sprachen.begin();
                      i!= vec_Sprachen.end();++i )
@@ -73,6 +76,7 @@ void midgard_CG::on_steigern_sprache_tree_alt_select(const std::string& name,int
     }
    if (radio_sprache_verlernen->get_active() && verlernen )
     {
+      if (steigern_bool) desteigern(verlernen);
       Werte.add_GFP(-verlernen);
       for (std::vector<H_Data_sprache>::iterator i=vec_Sprachen.begin();
                      i!= vec_Sprachen.end();++i )
@@ -131,6 +135,7 @@ void midgard_CG::on_leaf_selected_alte_schrift(cH_RowDataBase d)
 
 void midgard_CG::on_steigern_schrift_tree_alt_select(const std::string& name, int kosten)
 {   
+   if (steigern_bool) desteigern(kosten);
    Werte.add_GFP(-kosten);
    for (std::vector<H_Data_schrift>::iterator i=vec_Schriften.begin();
             i!=vec_Schriften.end();++i)
@@ -142,6 +147,7 @@ void midgard_CG::on_steigern_schrift_tree_alt_select(const std::string& name, in
     
 void midgard_CG::on_steigern_schrift_tree_neu_select(const std::string& name, const std::string& art, int kosten)
 {   
+   if (!steigern(kosten,"Lesen/Schreiben")) return;
    Werte.add_GFP(kosten);
    vec_Schriften.push_back(new Data_schrift(name,art));
    on_sprache_laden_clicked();
