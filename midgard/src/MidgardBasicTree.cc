@@ -1,4 +1,4 @@
-// $Id: MidgardBasicTree.cc,v 1.3 2002/01/07 18:59:11 thoma Exp $
+// $Id: MidgardBasicTree.cc,v 1.4 2002/02/05 15:47:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,15 +34,17 @@ MidgardBasicTree::MidgardBasicTree(variante V)
 int MidgardBasicTree::Cols(variante V)
 {
   switch(V) {
+     case (GELERNTES):      return 4;
+     case (LERNSCHEMA):     return 6;
      case (LONG_ALT):       return 7;
      case (LONG_NEU):       return 5;
      case (SPRACHE_NEU):    return 3;
      case (SCHRIFT_ALT):    return 8;
      case (SCHRIFT_NEU):    return 3;
      case (WAFFEGRUND):     return 3;
-     case (ZAUBER):     return 5;
+     case (ZAUBER):         return 5;
      case (ZAUBERWERK):     return 6;
-     case (KIDO):     return 6;
+     case (KIDO):           return 6;
    }
   assert(!"MidgardBasicTree::Cols:     Falsche Variante \n");
   abort();
@@ -51,6 +53,21 @@ int MidgardBasicTree::Cols(variante V)
 void MidgardBasicTree::set_tree_titles(variante V)
 {
   vector<std::string> vs;
+  if(V==GELERNTES)
+   {
+      vs.push_back("Art");
+      vs.push_back("Fertigkeit");
+      vs.push_back("Erfolgswert");  
+      vs.push_back("Lernpunkte");    
+   }
+  if(V==LERNSCHEMA)
+   {
+      vs.push_back("Fertigkeit");
+      vs.push_back("Erfolgswert");  
+      vs.push_back("Lernpunkte");    
+      vs.push_back("Voraussetzung");    
+      vs.push_back("Grundkenntnnis");    
+   }
   if(V==LONG_ALT)
    {
       vs.push_back("Fertigkeit");

@@ -159,8 +159,10 @@ void Fertigkeiten_auswahl::Unge()
      cH_Fertigkeit(*i)->set_Erfolgswert(cH_Fertigkeit(*i)->Anfangswert());
      list_Fert_Unge.push_back(*i);
    }
+
    list_Fert_Unge.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::LERNPUNKTE));
    Gtk::OStream os(unge_clist_auswahl);
+
    for(std::list<cH_MidgardBasicElement>::iterator i=list_Fert_Unge.begin();i!=list_Fert_Unge.end();++i)
       { cH_Fertigkeit f(*i);
         std::string serfolgswert=itos(f->FErfolgswert(Werte));

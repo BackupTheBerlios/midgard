@@ -1,4 +1,4 @@
-// $Id: midgard_CG_fertigkeiten.cc,v 1.47 2002/01/22 15:34:41 thoma Exp $
+// $Id: midgard_CG_fertigkeiten.cc,v 1.48 2002/02/05 15:47:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,15 +25,29 @@
 #include "Fertigkeiten_angeboren.hh"
 #include <Aux/itos.h>
 
-void midgard_CG::on_fertigkeiten_wahl_clicked()
+void midgard_CG::on_allgemein_fertigkeiten_wahl_clicked()
 {   
+  show_lernschema(MidgardBasicElement::FERTIGKEIT,"Allg");
+}
+void midgard_CG::on_untyp_fertigkeiten_wahl_clicked()
+{   
+  show_lernschema(MidgardBasicElement::FERTIGKEIT,"Unge");
+}
+void midgard_CG::on_fach_fertigkeiten_wahl_clicked()
+{   
+//  list_Fertigkeit.clear();
+//  list_Sprache.clear();
+//  list_Schrift.clear();
+  show_lernschema(MidgardBasicElement::FERTIGKEIT,"Fach");
+
   list_Fertigkeit.clear();
   list_Sprache.clear();
   list_Schrift.clear();
-  manage(new Fertigkeiten_auswahl(this,Database,Typ,lernpunkte,
-      Werte,&list_Sprache,list_Schrift,list_Fertigkeit));
+//  manage(new Fertigkeiten_auswahl(this,Database,Typ,lernpunkte,
+//      Werte,&list_Sprache,list_Schrift,list_Fertigkeit));
 }
 
+/*
 void midgard_CG::show_fertigkeiten()
 {
    fertigkeiten_clist->clear();
@@ -65,6 +79,7 @@ void midgard_CG::show_fertigkeiten()
 
    show_sinne();
 }
+*/
 
 gint midgard_CG::on_angeborene_fertigkeit_button_release_event(GdkEventButton *event)
 {
@@ -74,7 +89,7 @@ gint midgard_CG::on_angeborene_fertigkeit_button_release_event(GdkEventButton *e
       list_Fertigkeit_ang.push_back(&*cH_Fertigkeit_angeborene("Nachtsicht"/*,0*/));
   if (event->button==1) on_angeborene_fertigkeit_clicked() ;
   if (event->button==3) on_angeborene_fertigkeit_right_clicked() ;
-  button_fertigkeiten->set_sensitive(true);
+//  button_fertigkeiten->set_sensitive(true);
   return false;
 }
 
@@ -90,14 +105,17 @@ void midgard_CG::on_angeborene_fertigkeit_clicked()
   manage (new Window_angeb_fert(this,Database,list_Fertigkeit_ang,Werte,wurf));
   std::string stinfo="Für die Angeborene Fertigkeit\n wurde eine ";stinfo+=itos(wurf);stinfo+=" gewürfelt.\n";
   manage(new WindowInfo(stinfo));
-  show_fertigkeiten();
+//  show_fertigkeiten();
+  show_gelerntes();
 }
+
 
 void midgard_CG::on_angeborene_fertigkeit_right_clicked()
 {
   Werte.resetSinne();
   manage (new Window_angeb_fert(this,Database,list_Fertigkeit_ang,Werte,-1));
-  show_fertigkeiten();
+  show_gelerntes();
+//  show_fertigkeiten();
 }
 
 

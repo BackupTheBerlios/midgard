@@ -1,4 +1,4 @@
-// $Id: midgard_CG_optionen.cc,v 1.42 2002/01/30 17:50:26 thoma Exp $
+// $Id: midgard_CG_optionen.cc,v 1.43 2002/02/05 15:47:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -84,8 +84,9 @@ void midgard_CG::lernschema_sensitive(bool active)
    table_magier_lernen->set_sensitive(true);     
    hbox_kido->set_sensitive(true);
    table_kido_lernen->set_sensitive(true);
-   button_fertigkeiten->set_sensitive(true);
+//   button_fertigkeiten->set_sensitive(true);
    button_kido_auswahl->set_sensitive(true);
+   table_lernschema_buttons->set_sensitive(true);
 }
 
 

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_beruf.cc,v 1.42 2002/01/28 18:24:00 thoma Exp $
+// $Id: midgard_CG_beruf.cc,v 1.43 2002/02/05 15:47:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -67,6 +67,7 @@ void midgard_CG::on_berufe_wahl_clicked()
 }
 */
 
+/*
 void midgard_CG::show_berufe()
 {
    berufe_clist->clear();
@@ -81,7 +82,7 @@ void midgard_CG::show_berufe()
       berufe_clist->set_column_auto_resize(i,true);
    berufe_clist->set_reorderable(true);
 }
-
+*/
 gint midgard_CG::on_beruf_erfolgswert_release_event(GdkEventButton *ev)
 {
 /*

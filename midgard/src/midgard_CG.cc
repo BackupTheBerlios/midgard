@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.136 2002/02/04 11:01:01 thoma Exp $
+// $Id: midgard_CG.cc,v 1.137 2002/02/05 15:47:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -120,11 +120,12 @@ void midgard_CG::show_gtk()
    steigern_typ->set_text(Typ[0]->Name(Werte.Geschlecht())+"/"+Typ[1]->Name(Werte.Geschlecht()));
  
  zeige_werte(Werte);
+/*
  show_berufe();
  show_fertigkeiten();
  show_waffen();
  show_zauber();
-
+*/
  EP_uebernehmen();
  Geld_uebernehmen();
  steigern_gtk();
@@ -266,6 +267,10 @@ void midgard_CG::clear_gtk()
 
 void midgard_CG::on_neuer_charakter_clicked()
 {
+   notebook3->hide();
+   tree_gelerntes->clear();
+   tree_lernschema->clear();
+   label_lernschma_titel->set_text("");
 
    button_abg_werte->set_sensitive(false);
    button_beschreibung->set_sensitive(false);
@@ -301,8 +306,9 @@ void midgard_CG::on_neuer_charakter_clicked()
 
 //   button_beruf_erfolgswert->set_sensitive(false);
    button_beruf_erfolgswert->hide();
-   button_fertigkeiten->set_sensitive(false);
+//   button_fertigkeiten->set_sensitive(false);
    button_kido_auswahl->set_sensitive(false);       
+   table_lernschema_buttons->set_sensitive(false);
 
    Werte.clear();
    lernpunkte.clear();

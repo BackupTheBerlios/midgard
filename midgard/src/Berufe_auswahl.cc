@@ -203,7 +203,7 @@ void Berufe_auswahl::einBeruf(const Beruf_Data &dt)
     for (std::list<cH_MidgardBasicElement>::const_iterator k=list_fert.begin();k!=list_fert.end();++k)
       {
         if((*k)->Name()==dt.Fert()) (*k)->add_Erfolgswert(1);
-        hauptfenster->show_fertigkeiten();
+//        hauptfenster->show_fertigkeiten();
       }        
   else // neue Fertigkeit
     {

@@ -1,6 +1,25 @@
 ##########################################################################
 NEWS IN VERSION 0.3delta4
 
+* Komplette Neuimplementation des Lernschemas
+  Grund: Sinnvoller Vorschlag von Fabian Wagner
+   -> vermutlich viele neue Bugs zu suchen....
+
+TODO:
+* Testen von nichtmenschlichen Spezies
+* Abspeichern und laden von Optionen 
+* Hausregel Gold auswerten
+* Landeskunde als Berufsfähigkeit für 3 Berufe
+  (Karawanenführer, land, v,m
+   Kaufmann, stadt,m,a
+   Verwalter, land, stadt, m,a,
+* dass man im Ausrüstungsfenster unten eine Position auswählen muss, wenn 
+  man etwas hinzufügen möchte, ist nicht gerade intuitiv
+  (vielleicht drag'n'drop oder CTree verschieben)
+
+##########################################################################
+NEWS IN VERSION 0.3delta4
+
 * Kleine Bugfixes
 * Lernpunkte editieren funktioniert
 * Setzen der Erfolgswerte für Grad 1 durch Knopfdruck möglich
@@ -14,6 +33,7 @@ NEWS IN VERSION 0.3delta4
 * Logo und neue Drachenbilder in LaTeX-dokument eingearbeitet
 
 TODO:
+* Testen von nichtmenschlichen Spezies
 * Abspeichern und laden von Optionen 
 * Hausregel Gold auswerten
 * Landeskunde als Berufsfähigkeit für 3 Berufe

@@ -684,7 +684,6 @@ void midgard_CG::load_fertigkeiten(IF_XML(const Tag *tag, const Tag *waffen_b, i
   tr.close();
 #else
 
-#warning wer löscht die Listen? (Fertigkeiten etc.)
 // alle bools an
 //    OptionBool.Original=OptionBool.Info=OptionBool.Info=
 //    	OptionBool.version=HausregelCheck(EPsteigern).active=true;

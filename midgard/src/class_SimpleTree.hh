@@ -35,6 +35,8 @@ class Data_SimpleTree : public RowDataBase
          const Ausnahmen& _ausnahmen,const Grundwerte &_Werte) 
    : MBE(_MBE),Typ(_Typ),ausnahmen(_ausnahmen),Werte(_Werte) {}
 
+   enum Spalten_GELERNTES  {ARTgg,NAMEgg,WERTgg,LERNPUNKTEgg};
+   enum Spalten_LERNSCHEMA {NAMEg,WERTg,LERNPUNKTEg,VORAUSSETZUNGg,GRUNDKENNTNISg,KOSTENg} ;
    enum Spalten_LONG_ALT {NAMEa,WERTa,PPa,STANDARDa,STEIGERN,REDUZIEREN,VERLERNEN} ;
    enum Spalten_LONG_NEU {NAMEn,WERTn,LERNKOSTEN,ART,VORAUSSETZUNGEN};
    enum Spalten_WAFFEGRUND {NAMEa_G,STANDARDa_G,KOSTEN_G};

@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten.hh,v 1.31 2002/01/26 09:17:41 christof Exp $               
+// $Id: Fertigkeiten.hh,v 1.32 2002/02/05 15:47:43 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,6 +29,7 @@ class Fertigkeit : public MidgardBasicElement
 {
      std::string attribut;
      mutable std::string zusatz; // Für verschiedene Länder bei Landeskunde
+     mutable std::string lernart; // Fach- Allgemeinwissen, ungew. Fert.
      int lern_unge, lern_land,lern_stadt, anfangswert0, anfangswert,
          ungelernt,berufskategorie,maxerfolgswert,maxunterweisung;
      struct st_Voraussetzung {int st;int gw;int gs;int ko;int in;int zt;int au;int pa;
@@ -65,6 +66,8 @@ class Fertigkeit : public MidgardBasicElement
 
      std::string Zusatz() const {return zusatz;}
      void setZusatz(std::string z) const {zusatz=z;}
+     std::string LernArt() const {return lernart;}
+     void setLernArt(std::string z) const {lernart=z;}
      std::string Attribut() const {return attribut;}
      int FErfolgswert(const Grundwerte &Werte) const;
      int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const;

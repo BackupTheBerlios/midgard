@@ -125,7 +125,7 @@ Window_angeb_fert::Window_angeb_fert(midgard_CG* h,
 
 void Window_angeb_fert::on_button_close_clicked()
 {   
-  hauptfenster->show_fertigkeiten();
+//  hauptfenster->show_fertigkeiten();
   destroy();
 }
 

@@ -188,7 +188,7 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasic
    {
     list_Beruf=mbe;
     Database.ausnahmen.set_Beruf(list_Beruf);
-    show_berufe();
+//    show_berufe();
 //    button_beruf_erfolgswert->set_sensitive(true);
    }
 */
@@ -211,7 +211,7 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasic
     for (int j=0;j<KD_tech;++j)
       for(std::list<cH_MidgardBasicElement>::iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i)
        if (cH_Fertigkeit(*i)->Name()=="KiDo-Technik") {list_Fertigkeit.erase(i);break;}
-    show_fertigkeiten();
+//    show_fertigkeiten();
     hbox_waffen->set_sensitive(true);
     table_waffen->set_sensitive(true);
    }
@@ -219,7 +219,7 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasic
    {
     list_Waffen=mbe;
     list_WaffenGrund=mbe2;
-    show_waffen();
+//    show_waffen();
     button_geld_waffen->set_sensitive(true);
     button_ruestung->set_sensitive(true);
          
@@ -232,15 +232,16 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasic
    {
     list_Zauber=mbe;
     angeborene_zauber();
-    show_zauber();
+//    show_zauber();
    }
 //cout << (*mbe.begin())->What()<<'\t'<<MidgardBasicElement::KIDO<<'\n';
   if((*mbe.begin())->What()==MidgardBasicElement::KIDO)
    {
     clist_kido->clear();
     list_Kido=mbe;
-    show_kido();
+//    show_kido();
    }
+  show_gelerntes();
 }
 
 void midgard_CG::MidgardBasicElement_uebernehmen(const cH_MidgardBasicElement& mbe)
@@ -250,14 +251,14 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const cH_MidgardBasicElement& m
     list_Beruf.clear(); // es kann nur einen Beruf geben 
     list_Beruf.push_back(mbe);
     Database.ausnahmen.set_Beruf(list_Beruf);
-    show_berufe();
+//    show_berufe();
     hbox_fertigkeit->set_sensitive(true); 
     table_fertigkeit->set_sensitive(true);
    }
   if(mbe->What()==MidgardBasicElement::FERTIGKEIT)
    {
     list_Fertigkeit.push_back(mbe);
-    show_fertigkeiten();
+//    show_fertigkeiten();
    }
   if(mbe->What()==MidgardBasicElement::SPRACHE)
    {
@@ -266,6 +267,6 @@ void midgard_CG::MidgardBasicElement_uebernehmen(const cH_MidgardBasicElement& m
   if(mbe->What()==MidgardBasicElement::SCHRIFT)
    {
     list_Schrift.push_back(mbe);
-    show_fertigkeiten();
+//    show_fertigkeiten();
    }
 }

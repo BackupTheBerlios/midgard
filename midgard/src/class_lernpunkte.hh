@@ -38,11 +38,17 @@ public:
    int Unge() const {return unge;}
    int Zauber() const { return zauber;}
 
-   void set_Fach(int i) {fach =i;}
-   void set_Waffen(int i) {waffen =i;}
-   void set_Allgemein(int i) {allgemein =i;}
-   void set_Unge(int i) {unge =i;}
-   void set_Zauber(int i) {zauber =i;}
+   void setFach(int i) {fach =i;}
+   void setWaffen(int i) {waffen =i;}
+   void setAllgemein(int i) {allgemein =i;}
+   void setUnge(int i) {unge =i;}
+   void setZauber(int i) {zauber =i;}
+
+   void addFach(int i) {fach +=i;}
+   void addWaffen(int i) {waffen +=i;}
+   void addAllgemein(int i) {allgemein +=i;}
+   void addUnge(int i) {unge +=i;}
+   void addZauber(int i) {zauber +=i;}
 
 //   void set_d_Beruf(int i) {beruf +=i;}
 //   void set_d_Fertigkeit(int i) {fertigkeit +=i;}

@@ -1,4 +1,4 @@
-// $Id: midgard_CG_zauber.cc,v 1.50 2002/01/22 15:34:41 thoma Exp $
+// $Id: midgard_CG_zauber.cc,v 1.51 2002/02/05 15:47:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,11 +34,14 @@ void midgard_CG::on_zauber_wahl_clicked()
       manage(new WindowInfo(strinfo));
       return;
    }
-  manage(new Zauber_auswahl(this,Werte,Database,Typ,lernpunkte.Zauber()));
+  show_lernschema(MidgardBasicElement::ZAUBER); 
+//  manage(new Zauber_auswahl(this,Werte,Database,Typ,lernpunkte.Zauber()));
+//  show_zauber();
 }
 
-void midgard_CG::show_zauber()
-{
+//void midgard_CG::show_zauber()
+//{
+/*
    zauber_clist->clear();
    Gtk::OStream os(zauber_clist);
    for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Zauber.begin();i!=list_Zauber.end();++i)
@@ -49,7 +52,8 @@ void midgard_CG::show_zauber()
    for (unsigned int i=0;i<zauber_clist->columns().size();++i)
       zauber_clist->set_column_auto_resize(i,true);
 //   zauber_clist->set_reorderable(true);
-}
+*/
+//}
 
 
 void midgard_CG::angeborene_zauber()

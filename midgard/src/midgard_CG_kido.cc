@@ -1,4 +1,4 @@
-// $Id: midgard_CG_kido.cc,v 1.31 2002/01/29 10:45:28 thoma Exp $
+// $Id: midgard_CG_kido.cc,v 1.32 2002/02/05 15:47:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -36,6 +36,7 @@ void midgard_CG::on_kido_wahl_clicked()
    manage(new KiDo_auswahl(this,maxkido,Werte,Database,Typ,Vkido));
 }
 
+/*
 void midgard_CG::show_kido()
 {
    clist_kido->clear();
@@ -48,7 +49,7 @@ void midgard_CG::show_kido()
    for (unsigned int i=0;i<clist_kido->columns().size();++i)
       clist_kido->set_column_auto_resize(i,true);
 }
-
+*/
 void midgard_CG::stil_optionmenue()
 {
 //  static bool block=false;

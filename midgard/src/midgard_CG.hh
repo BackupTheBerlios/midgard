@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.154 2002/02/04 11:01:01 thoma Exp $
+// $Id: midgard_CG.hh,v 1.155 2002/02/05 15:47:43 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -252,7 +252,14 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void LaTeX_footer(ostream &fout);
         std::string LaTeX_string(int i);
         void on_schliessen_CG_clicked();
+
+
         void on_lernpunkte_wuerfeln_clicked();
+        void on_tree_gelerntes_leaf_selected(cH_RowDataBase d);
+        void on_tree_lernschema_leaf_selected(cH_RowDataBase d);
+        void show_gelerntes();
+        void show_lernschema(const MidgardBasicElement::MBEE& what,const std::string& fert="");
+        bool SpracheSchrift(const std::string& fert,int wert=0,bool auswahl=false);
         void on_spinbutton_fach_activate();
         void on_spinbutton_allgemein_activate();
         void on_spinbutton_unge_activate();
@@ -277,7 +284,9 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         void on_button_waffen_s_clicked();
         void on_waffen_clist_select_row(gint row, gint column, GdkEvent *event);   
         void on_waffen_clist_unselect_row(gint row, gint column, GdkEvent *event);
-        void on_fertigkeiten_wahl_clicked();
+        void on_fach_fertigkeiten_wahl_clicked();
+        void on_allgemein_fertigkeiten_wahl_clicked();
+        void on_untyp_fertigkeiten_wahl_clicked();
         void on_waffen_wahl_clicked();
         void spezialgebiet_button();
         void spezialgebiet_button_fill();
@@ -287,11 +296,11 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
         gint on_button_beruf_release_event(GdkEventButton *ev);
         void on_entry_berufsname_activate();
         void on_kido_wahl_clicked();
-        void show_kido();
+//        void show_kido();
         void stil_optionmenue();
-        void show_berufe();
-        void show_waffen();
-        void show_zauber();
+//        void show_berufe();
+//        void show_waffen();
+//        void show_zauber();
         void zeige_lernpunkte();
         void zeige_notebook();
         gint on_beruf_erfolgswert_release_event(GdkEventButton *ev);
@@ -498,7 +507,7 @@ class midgard_CG : public midgard_CG_glade, public GeldFenster
          void spielleiter_export_save(const std::string& dateiname);
          void charakter_beschreibung_uebernehmen(const std::string& b,bool drucken);
          void select_charakter(const std::string& name, const std::string& version);
-         void show_fertigkeiten();
+//         void show_fertigkeiten();
          void waffe_besitz_uebernehmen(const std::list<cH_MidgardBasicElement>& wbu);
          void MidgardBasicElement_uebernehmen(const std::list<cH_MidgardBasicElement>& mbe,
                                               const std::list<cH_MidgardBasicElement>& mbe2=std::list<cH_MidgardBasicElement>());
