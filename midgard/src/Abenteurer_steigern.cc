@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.8 2002/10/27 18:25:23 thoma Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.9 2002/10/31 15:37:58 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -538,7 +538,7 @@ int Abenteurer::get_ab_re_za(const e_was_steigern was,const e_wie_steigern &wie,
  return kosten;
 }
 
-void Abenteurer::eigenschaften_steigern(std::string &info,const Datenbank &Database,int wurf=-1)
+void Abenteurer::eigenschaften_steigern(std::string &info,const Datenbank &Database,int wurf)
 {
   if(getWerte().Grad() <= getWerte().get_Grad_Basiswerte())
    {info+="Für Grad "+itos(getWerte().get_Grad_Basiswerte())+" wurde schon gewürfelt";

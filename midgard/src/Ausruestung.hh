@@ -66,13 +66,10 @@ class AusruestungBaum
       // wieso ist das const ? wenn unten eine nicht const funktion existiert
       const AusruestungBaum *parent;
 
+   public:
       typedef std::list<AusruestungBaum>::const_iterator const_iterator;
       typedef std::list<AusruestungBaum>::iterator iterator;
 
-
-
-
-   public:
       AusruestungBaum()  {}
       AusruestungBaum(const Ausruestung& a) 
          : ausruestung(a),parent(0) {}
