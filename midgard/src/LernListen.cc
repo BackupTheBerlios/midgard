@@ -1,4 +1,4 @@
-// $Id: LernListen.cc,v 1.22 2002/11/21 09:00:21 thoma Exp $
+// $Id: LernListen.cc,v 1.23 2002/11/22 16:00:53 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -151,6 +151,9 @@ std::vector<pair<cH_Typen,bool> > LernListen::getTypen(const Grundwerte &W,const
   std::vector<pair<cH_Typen,bool> > V;
   for(std::vector<cH_Typen>::const_iterator i=T.begin();i!=T.end();++i)
    {
+//cout << (*i)->Typl()<<'\t'<<S->Typ_erlaubt((*i)->Short())<<' '
+//<<region_check((*i)->Region())<<' '<<nsc_check(nsc_allowed,(*i)->NSC_only())
+//<<'\n';
      if (S->Typ_erlaubt((*i)->Short()))
       if (region_check((*i)->Region()) && nsc_check(nsc_allowed,(*i)->NSC_only()))
        {
