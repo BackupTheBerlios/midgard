@@ -135,7 +135,6 @@ Karawanenführer	Überleben im Schnee
 Karawanenführer	Überleben im Sumpf
 Karawanenführer	Überleben im Wald
 Karawanenführer	Überleben in der Steppe
-Kaufmann	Landeskunde
 Kaufmann	Rechnen
 Kaufmann	Schätzen
 Kurtisane	Menschenkenntnis
@@ -156,7 +155,6 @@ Steuermann	Rechnen
 Steuermann	Seemannsgang
 Träger	Athletik
 Verwalter	Menschenkenntnis
-Verwalter	Landeskunde
 Waffenschmied	Schätzen
 Zimmermann	Baukunde
 Zureiter	Abrichten
@@ -168,4 +166,6 @@ Koch	Schmecken+10
 Alchimist	Alchemie
 Schreiber	Schreiben
 Verwalter	Schreiben
+Verwalter (Heimat)	Landeskunde
+Kaufmann (Heimat)	Landeskunde
 \.

@@ -177,18 +177,24 @@ Verkleiden	\N	0	\N	31	\N	\N	\N	\N	\N	\N	31
 Wagenlenken	\N	21	\N	\N	\N	\N	\N	\N	\N	\N	21
 Wahrnehmung	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
 Winden	\N	61	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Zeichensprache	\N	0	\N	31	\N	\N	\N	\N	\N	\N	31
 Malen/Zeichnen	\N	31	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Körperkontrolle	\N	\N	61	61	\N	\N	\N	61	\N	\N	\N
 Fechten tevarrischer Stil	\N	\N	\N	\N	\N	\N	\N	\N	\N	Fechten	\N
 Gastlandsprache	\N	\N	\N	1	\N	\N	\N	\N	\N	\N	\N
 Muttersprache	\N	\N	\N	1	\N	\N	\N	\N	\N	\N	\N
-Muttersprache schreiben	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
 Schreiben	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
 Alchemie	\N	\N	\N	81	\N	\N	\N	\N	\N	\N	61
 Fallenstellen	\N	0	\N	\N	\N	\N	\N	\N	\N	\N	31
 Erste Hilfe	\N	0	\N	31	\N	\N	\N	\N	31	\N	31
 Schlösser öffnen	\N	0	\N	\N	\N	\N	\N	\N	\N	\N	61
+Zeichensprache	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	31
+Muttersprache schreiben(+9)	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
+Muttersprache schreiben(+4)	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
+Sprache(+4)	\N	\N	\N	1	\N	\N	\N	\N	\N	\N	\N
+Muttersprache schreiben(+12)	\N	\N	\N	1	\N	\N	\N	\N	\N	\N	\N
+Sprache(+12)	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
+Sprache(+9)	\N	\N	\N	1	\N	\N	\N	\N	\N	\N	\N
+Landeskunde (Heimat)	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	\N
 \.
 --
 -- TOC Entry ID 3 (OID 30118263)

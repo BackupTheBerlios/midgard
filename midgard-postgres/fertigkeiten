@@ -85,31 +85,21 @@ COPY "fertigkeiten"  FROM stdin;
 3	\N	\N	1	Malen/Zeichnen	1	150	B&R	Gs	\N	\N
 3	\N	\N	15	Kanufahren	12	100	3	Gw	\N	\N
 4	\N	\N	15	Segeln	12	100	3	Gw	\N	\N
-3	1	1	6	Lippenlesen	4	250	\N	In	\N	\N
-5	1	1	4	LiYao	2	100	K	In	\N	\N
-3	2	0	15	Skifahren	10	60		Gw	\N	\N
-1	0	0	\N	Geomantie	\N	400	E	Zt	\N	\N
 4	\N	3	15	Glücksspiel	15	200		Gs	\N	\N
 4	\N	\N	8	Beschatten	6	300		Gw	3	\N
 4	\N	\N	4	Fallenmechanik	4	600		Gs	0	\N
 3	\N	\N	15	Fangen	10	60		Gs	8	\N
 4	\N	\N	6	Geheimmechanismen öffnen	4	400		In	1	\N
-99	1	0	12	Singen	8	80		pA	4	\N
 3	\N	\N	15	Tauchen	10	120		Ko	9	\N
 4	\N	\N	4	Wahrnehmung	4	300		In	2	\N
 1	\N	\N	\N	Wissen von der Magie	\N	5000	3	\N	0	\N
 8	\N	\N	8	Kampftaktik	6	150	\N	pA	5	\N
 6	\N	\N	\N	Fechten tevarrischer Stil	\N	400		\N	\N	\N
 3	\N	3	5	Menschenkenntnis	4	250		In	3	3
-4	3	0	5	Pflanzenkunde	4	100	\N	In	0	2
 4	3	3	5	Tierkunde	4	100		In	0	2
 6	\N	\N	2	Kampf in Dunkelheit	2	300		Gw	\N	3
-3	2	0	15	Rudern	10	60		St	3	1
 3	\N	\N	1	Trinken	1	100		Ko	0	2
-6	4	0	8	Abrichten	6	400	\N	pA	\N	3
-3	2	0	4	Fallenstellen	4	200		Gs	1	3
 3	3	3	6	Spurenlesen	4	400		In	0	3
-3	3	0	15	Schwimmen	10	60		Gw	3	1
 6	\N	\N	15	Seemannsgang	15	100	\N	Gw	\N	2
 6	\N	\N	15	Streitwagen lenken	10	60		Gs	\N	1
 3	2	2	15	Wagenlenken	10	60		Gs	3	1
@@ -122,19 +112,15 @@ COPY "fertigkeiten"  FROM stdin;
 3	3	3	8	Überleben in der Steppe	6	50		In	\N	1
 3	3	3	8	Überleben in der Wüste	6	50		In	\N	1
 4	\N	\N	8	Schleichen	6	400	\N	Gw	3	3
-3	2	0	15	Schlittenfahren	10	60		Gs	3	3
 4	\N	\N	8	Tarnen	6	400		Gw	3	3
 2	1	1	5	Himmelskunde	4	50	3	In	\N	1
 3	\N	\N	1	Kalligraphie	1	150	B&R	Gs	\N	1
 8	\N	\N	\N	IaiJutsu	\N	60	K	\N	\N	1
 3	2	2	15	Reiten	10	60		Gw	5	1
 1	\N	\N	\N	Pyromantie	\N	400	E	Zt	\N	1
-99	2	2	5	Landeskunde	4	100	\N	In	8	2
 99	2	2	12	Musizieren	8	80		Gs	\N	1
-4	3	0	5	Naturkunde	4	100	\N	In	\N	1
 99	1	1	15	Tanzen	10	50		Gw	8	1
 99	2	2	8	Seilkunst	6	50		Gs	4	1
-3	3	0	15	Geländelauf	10	60		Gw	8	1
 5	\N	4	8	Beredsamkeit	6	200		pA	3	3
 99	3	3	8	Erste Hilfe	6	100		Gs	\N	2
 8	\N	\N	15	Kampf zu Pferd	10	200		Gw	\N	3
@@ -149,21 +135,16 @@ COPY "fertigkeiten"  FROM stdin;
 4	\N	\N	5	Zauberkunde	4	100		In	0	2
 4	\N	\N	5	Kräuterkunde	4	100		In	\N	2
 5	\N	3	5	Heilkunde	4	100	\N	In	\N	2
-3	\N	0	12	Geheimzeichen	6	20		In	\N	1
 5	\N	\N	15	Verkleiden	12	50		Gs	5	1
 99	4	4	8	Verführen	6	30		pA	3	1
 3	\N	3	5	Gassenwissen	4	200		In	\N	3
 3	\N	\N	4	Laufen	4	50	\N	Ko	\N	1
 5	\N	4	8	Stehlen	8	300		Gs	3	3
 4	\N	\N	8	Verbergen	6	300	\N	In	3	3
-3	3	0	15	Klettern	10	60		GSt	8	1
 4	\N	\N	8	Schlösser öffnen	6	400		Gs	0	3
 8	\N	\N	15	Schmerzen ertragen	12	200	R	Sb	0	3
-8	\N	0	14	Schwerttanz	12	100	K	Gw	\N	3
 4	\N	\N	4	Winden	4	4		Gw	0	3
 4	\N	\N	15	Stimmen nachahmen	12	50		In	\N	1
-4	\N	0	\N	Steinabreibungen machen	\N	60	K	\N	\N	1
-4	4	0	15	Steuern	10	60	\N	Gs	\N	1
 4	\N	3	5	Schätzen	4	100	\N	In	\N	2
 6	\N	\N	8	Schiffsführung	6	150	\N	In	\N	2
 4	\N	3	8	Rechnen	6	100		In	\N	2
@@ -177,18 +158,38 @@ COPY "fertigkeiten"  FROM stdin;
 4	\N	\N	8	Suchen	6	300	\N	In	3	3
 8	\N	\N	8	Geschäftstüchtigkeit	6	2000	2000	In	8	4
 99	\N	\N	5	Giftmischen	4	100	\N	In	5	2
-1	1	1	4	Sprache	-1	0	\N	In	\N	\N
-3	3	3	12	Sprache	4	10		In	\N	2
-2	2	2	9	Sprache	-1	0	\N	In	\N	\N
-99	0	0	10	Muttersprache	-1	0	\N	In	\N	\N
-99	0	0	9	Gastlandsprache	-1	0	\N	In	\N	\N
-99	1	1	4	Muttersprache schreiben	-1	0	\N	In	\N	\N
-99	2	2	9	Muttersprache schreiben	-1	0	\N	In	\N	\N
-99	3	3	12	Muttersprache schreiben	-1	0	\N	In	\N	1
-3	1	1	9	Schreiben	4	20		In	\N	1
-2	\N	\N	4	Schreiben	-1	0	\N	In	\N	\N
 4	\N	\N	6	Baukunde	4	100	\N	In	0	2
 3	\N	2	12	Gaukeln	8	80	\N	Gs	\N	1
+6	4	\N	8	Abrichten	6	400	\N	pA	\N	3
+3	2	\N	15	Skifahren	10	60		Gw	\N	\N
+99	1	1	12	Singen	8	80		pA	4	\N
+4	3	\N	5	Pflanzenkunde	4	100	\N	In	0	2
+3	2	\N	15	Rudern	10	60		St	3	1
+3	2	\N	4	Fallenstellen	4	200		Gs	1	3
+3	3	\N	15	Schwimmen	10	60		Gw	3	1
+3	2	\N	15	Schlittenfahren	10	60		Gs	3	3
+4	3	\N	5	Naturkunde	4	100	\N	In	\N	1
+3	3	\N	15	Geländelauf	10	60		Gw	8	1
+3	\N	2	12	Geheimzeichen	6	20		In	\N	1
+3	3	\N	15	Klettern	10	60		GSt	8	1
+8	\N	\N	14	Schwerttanz	12	100	K	Gw	\N	3
+4	\N	\N	\N	Steinabreibungen machen	\N	60	K	\N	\N	1
+4	4	\N	15	Steuern	10	60	\N	Gs	\N	1
+1	\N	\N	\N	Geomantie	\N	400	E	Zt	\N	\N
+99	0	0	-1	Muttersprache	10	0	\N	In	\N	\N
+99	0	0	-1	Gastlandsprache	9	0	\N	In	\N	\N
+99	1	1	-1	Muttersprache schreiben(+4)	4	0	\N	In	\N	\N
+99	2	2	-1	Muttersprache schreiben(+9)	9	0	\N	In	\N	\N
+2	2	2	-1	Sprache(+9)	9	0	\N	In	\N	\N
+1	1	1	-1	Sprache(+4)	4	0	\N	In	\N	\N
+99	3	3	-1	Muttersprache schreiben(+12)	12	0	\N	In	\N	1
+3	3	3	-1	Sprache(+12)	12	0	\N	In	\N	\N
+99	\N	\N	12	Sprache	4	10		In	\N	2
+3	\N	\N	9	Schreiben	4	20		In	\N	1
+3	\N	\N	6	Lippenlesen	4	250	\N	In	\N	\N
+5	\N	\N	4	LiYao	2	100	K	In	\N	\N
+99	\N	\N	5	Landeskunde	4	100	\N	In	\N	2
+99	2	2	10	Landeskunde (Heimat)	9	100	\N	In	8	2
 \.
 --
 -- TOC Entry ID 3 (OID 30139266)

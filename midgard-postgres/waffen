@@ -79,7 +79,6 @@ Wurfeisen	61	\N	61	Stielwurfwaffe	3	Wurfwaffe	W6	0	W	\N	\N	\N	\N	\N	0	10	30	50	\
 Wurfhammer	61	\N	31	Stielwurfwaffe	2	Wurfwaffe	W6	0	W	\N	\N	\N	Kriegshammer	\N	0	10	20	30	\N	\N
 Wurfpfeil	11	\N	31	Wurfpfeil	3	Wurfwaffe	W6	-2	W	\N	\N	\N	\N	\N	0	10	20	30	\N	\N
 Wurfscheibe	61	\N	61	Wurfscheibe	5	Wurfwaffe	W6	-2	W	\N	\N	\N	\N	\N	0	10	20	30	\N	\N
-Pilum	61	\N	21	Wurfspieﬂ	2	Schuﬂwaffe	W6	0	W	\N	\N	\N	Leichter Speer	\N	0	10	20	30	\N	\N
 Wurfspeer	31	\N	21	Wurfspieﬂ	1	Wurfwaffe	W6	-1	W	\N	\N	\N	Leichter Speer	\N	0	10	30	50	\N	\N
 Speerschleuder	31	\N	61	Wurfspieﬂ	4	Wurfwaffe	W6	0	W	\N	\N	\N	\N	\N	0	20	40	70	\N	\N
 Wurfspieﬂ	61	\N	21	Wurfspieﬂ	1	Wurfwaffe	W6	0	W	\N	\N	\N	\N	\N	0	10	20	30	\N	\N
@@ -114,6 +113,7 @@ Kurzschwert	\N	\N	\N	Stichwaffe	2	Angriff	W6	0	E	+2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\
 Dolch	\N	\N	\N	Stichwaffe	1	Angriff	W6	-1	E	2	-2	2	\N	\N	\N	\N	\N	\N	2	2
 Faustkampf	31	21	\N	waffenloser Kampf	6	Angriff	W6	-4	E	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 waffenloser Kampf	21	21	\N	waffenloser Kampf	7	Angriff	Speziell	0	\N	+2	-2	+2	\N	\N	\N	\N	\N	\N	\N	\N
+Pilum	61	\N	21	Wurfspieﬂ	2	Schuﬂwaffe	W6	0	W	\N	\N	\N	Leichter Speer	3	0	10	20	30	\N	\N
 \.
 --
 -- TOC Entry ID 3 (OID 30125657)

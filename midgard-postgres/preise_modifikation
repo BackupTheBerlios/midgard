@@ -24,9 +24,6 @@ CREATE TABLE "preise_modifikation" (
 --
 
 COPY "preise_modifikation"  FROM stdin;
-Dauernahrung	2	0		Essen	\N	\N
-Getränke	5	0		Gasthaus	\N	\N
-Lebensmittel	1	0	kg/l	Lebensmittel	\N	\N
 versilbert	10	15	GS	Waffen	Material	2
 Alchemistenmetall	50	25	GS	Waffen	Material	3
 standard	1	0	\N	Waffen	Material	1
@@ -43,4 +40,7 @@ Mittelschicht	1	0	\N	Kleidung	Stand	1
 Volk	0.33333	0		Kleidung	Stand	2
 Adel	5	0		Kleidung	Stand	3
 Leinen	1	0		Kleidung	Material	1
+Lebensmittel	1	0	kg/l	Lebensmittel	?	1
+Getränke	5	0		Gasthaus	?	1
+Dauernahrung	2	0		Essen	?	1
 \.
