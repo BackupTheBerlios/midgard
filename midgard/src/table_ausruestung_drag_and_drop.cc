@@ -34,7 +34,8 @@ const GtkTargetEntry table_ausruestung::target_table[4] = {
 #endif
 
 table_ausruestung::table_ausruestung(GlademmData *_data)
-: table_ausruestung_glade(_data) , hauptfenster(0), besitz(0)
+: table_ausruestung_glade(_data) , hauptfenster(0), besitz(0),
+	Ausruestung_tree(0)
 {
 //  target_table=tt;
 //  n_targets = sizeof(target_table) / sizeof(target_table[0]);
@@ -67,6 +68,7 @@ table_ausruestung::table_ausruestung(GlademmData *_data)
                           static_cast < GdkDragAction > ( GDK_ACTION_COPY | GDK_ACTION_MOVE) );
 #endif                          
 
+  Ausruestung_tree=manage(new Gtk::TreeView());
   m_refStore= Gtk::TreeStore::create(m_columns);
   Ausruestung_tree->set_model(m_refStore);
   Ausruestung_tree->append_column("Titel",m_columns.name);
@@ -74,6 +76,8 @@ table_ausruestung::table_ausruestung(GlademmData *_data)
   Ausruestung_tree->append_column("Gewicht",m_columns.gewicht);
   Ausruestung_tree->append_column("Sichtbar",m_columns.sichtbar);
   Ausruestung_tree->append_column("Region",m_columns.region);
+  Ausruestung_tree->show(); 
+  scrolledwindow_ausruestung->add(*Ausruestung_tree);
 }
 
 #if 0

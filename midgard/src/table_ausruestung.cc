@@ -58,8 +58,7 @@ void table_ausruestung::showAusruestung()
 
   besitz=0;
   std::vector<std::string> title;
-  scrolledwindow_ausruestung->remove();
-  Ausruestung_tree=manage(new Gtk::TreeView());
+//  scrolledwindow_ausruestung->remove();
 
 #if 0
   Ausruestung_tree->signal_drag_data_received().connect(SigC::slot(*this,&table_ausruestung::tree_drag_data_received));
@@ -82,11 +81,9 @@ void table_ausruestung::showAusruestung()
    }
 
   Ausruestung_tree->expand_all();
-  Ausruestung_tree->show(); 
   Ausruestung_tree->get_selection()->signal_changed().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_Ausruestung_tree_select_row));
 //  Ausruestung_tree->signal_tree_unselect_row().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_Ausruestung_tree_unselect_row));
             
-  scrolledwindow_ausruestung->add(*Ausruestung_tree);
   button_ausruestung_loeschen->set_sensitive(false);
   label_gesamtlast->set_text(dtos1(hauptfenster->getAben().getBelastung())+" kg");
 }
