@@ -1,4 +1,4 @@
-// $Id: Prototyp2.hh,v 1.1 2002/10/23 15:36:31 thoma Exp $               
+// $Id: Prototyp2.hh,v 1.2 2002/10/31 15:10:28 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -30,11 +30,13 @@ class cH_Prototyp2;
 
 class Prototyp2 : public HandleContent //Copyable
 {
+public:
    struct st_protolisten{std::string name; double fac;
           st_protolisten(std::string n, double f) : name(n),fac(f) {}
           bool operator==(std::string b) const {return name==b;}
           };
 
+private:
    std::string name;
    std::vector<st_protolisten> lzauber;
    std::vector<st_protolisten> lfertigkeiten;
