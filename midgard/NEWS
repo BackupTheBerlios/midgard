@@ -2,7 +2,7 @@
 NEWS IN VERSION 0.3delta3
 
 * kleinere Bugfixes
-* Oberflächenüberarbeitung (steigern: Praxispunkte und Zaubern)
+* Oberflächenüberarbeitung (Lernen, Steigern: Praxispunkte und Zaubern)
 * XML: Laden beschleunigt (Fertigkeiten/Steigern_wie + Waffen/Schwierigkeit)
 
 TODO:
