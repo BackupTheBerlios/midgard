@@ -1,4 +1,4 @@
-// $Id: table_lernschema_waffen.cc,v 1.4 2002/05/25 08:38:40 thoma Exp $
+// $Id: table_lernschema_waffen.cc,v 1.5 2002/06/07 12:17:04 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -97,14 +97,15 @@ void table_lernschema::show_WaffenBesitz_lernschema()
   tree_waffen_lernschema->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_waffen_lernschema_tree_leaf_selected));
   label_lernschma_titel->set_text("Waffenbesitz wählen");
 
-  std::list<cH_MidgardBasicElement> L;
+  std::list<MidgardBasicElement_mutable> L;
   for(std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getDatabase().Waffe.begin();i!=hauptfenster->getDatabase().Waffe.end();++i)
    {
      if(hauptfenster->getCWerte().Spezies()->istVerbotenSpielbegin(*i)) continue;
      const cH_Waffe w(*i);
      if (w->Grundkenntnis() == "Kampf ohne Waffen") continue;
      if (!(*i)->ist_gelernt(hauptfenster->getCChar().CList_Waffen())) continue;
-     L.push_back(new WaffeBesitz(w,w->Name(),0,0,""));
+//     L.push_back(new WaffeBesitz(w,w->Name(),0,0,""));
+     L.push_back(WaffeBesitz(w,-2,w->Name(),0,0,""));
    }
   MidgardBasicElement::show_list_in_tree(L,tree_waffen_lernschema,hauptfenster);
   tree_waffen_lernschema->show();
@@ -130,14 +131,16 @@ void table_lernschema::on_waffen_lernschema_tree_leaf_selected(cH_RowDataBase d)
 {
  try{
    const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
-   cH_MidgardBasicElement MBE = dt->getMBE();
-   std::string art=cH_WaffeBesitz(MBE)->Waffe()->Art2();
+   MidgardBasicElement_mutable MBE = dt->getMBE();
+//   std::string art=cH_WaffeBesitz(MBE)->Waffe()->Art2();
+   std::string art=WaffeBesitz(MBE).Waffe()->Art2();
    if( (art=="E" || art=="W" || art=="V") && waffebesitzlernen.EWaffe()>0)
     {
       waffebesitzlernen.add_EWaffe(-1);
       if(waffebesitzlernen.getMagisch())
         {
-          cH_WaffeBesitz(MBE)->set_av_Bonus(1);
+//          cH_WaffeBesitz(MBE).set_av_Bonus(1);
+          WaffeBesitz(MBE).set_av_Bonus(1);
           waffebesitzlernen.setMagisch(false);
         }
     }

@@ -90,14 +90,14 @@ void Zauberwerk::getVoraussetzungenFert()
 
 
 
-bool Zauberwerk::Voraussetzungen(const std::list<cH_MidgardBasicElement>& listZauber) const
+bool Zauberwerk::Voraussetzungen(const std::list<MidgardBasicElement_mutable>& listZauber) const
 {
  if(vec_vor.size()==0) return true; // Keine Voraussetzung
  std::map<std::string,bool> mapB;
  for(std::vector<st_vor>::const_iterator i=vec_vor.begin();i!=vec_vor.end();++i)
   {
     mapB[i->voraussetzung]=false;   
-    for(std::list<cH_MidgardBasicElement>::const_iterator j=listZauber.begin();j!=listZauber.end();++j)
+    for(std::list<MidgardBasicElement_mutable>::const_iterator j=listZauber.begin();j!=listZauber.end();++j)
      {
       // Nur EINE Voraussetzung
       if((*j)->Name()==i->voraussetzung && vec_vor.size()==1) return true;
@@ -112,14 +112,14 @@ bool Zauberwerk::Voraussetzungen(const std::list<cH_MidgardBasicElement>& listZa
  return true;
 }
 
-bool Zauberwerk::Voraussetzungen_Fertigkeit(const std::list<cH_MidgardBasicElement>& listFert) const
+bool Zauberwerk::Voraussetzungen_Fertigkeit(const std::list<MidgardBasicElement_mutable>& listFert) const
 {
  if(vec_vorF.size()==0) return true; // Keine Voraussetzung
  std::map<std::string,bool> mapB;
  for(std::vector<st_vor>::const_iterator i=vec_vorF.begin();i!=vec_vorF.end();++i)
   {
     mapB[i->voraussetzung]=false;   
-    for(std::list<cH_MidgardBasicElement>::const_iterator j=listFert.begin();j!=listFert.end();++j)
+    for(std::list<MidgardBasicElement_mutable>::const_iterator j=listFert.begin();j!=listFert.end();++j)
      {
       // Nur EINE Voraussetzung
       if((*j)->Name()==i->voraussetzung && vec_vorF.size()==1) return true;

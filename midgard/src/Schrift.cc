@@ -61,9 +61,9 @@ void Schrift::get_Schrift()
   kult=tag->getBoolAttr("Kultschrift");;
 }
 
-bool Schrift::kann_Sprache(const std::list<cH_MidgardBasicElement>& sprache) const
+bool Schrift::kann_Sprache(const std::list<MidgardBasicElement_mutable>& sprache) const
 {
- for(std::list<cH_MidgardBasicElement>::const_iterator i=sprache.begin();i!=sprache.end();++i)
+ for(std::list<MidgardBasicElement_mutable>::const_iterator i=sprache.begin();i!=sprache.end();++i)
   {
    vector<std::string> V=cH_Sprache(*i)->Schrift();
    for(vector<std::string>::const_iterator j=V.begin();j!=V.end();++j)

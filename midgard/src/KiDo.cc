@@ -98,17 +98,17 @@ void KiDo::get_KiDo()
 }
 
 
-int KiDo::get_erfolgswert_kido(const std::list<cH_MidgardBasicElement>& L)
+int KiDo::get_erfolgswert_kido(const std::list<MidgardBasicElement_mutable>& L)
 {
- for (std::list<cH_MidgardBasicElement>::const_iterator i= L.begin();i!=L.end();++i)
+ for (std::list<MidgardBasicElement_mutable>::const_iterator i= L.begin();i!=L.end();++i)
    if (cH_Fertigkeit(*i)->Name() == "KiDo") return cH_Fertigkeit(*i)->Erfolgswert();
  abort();
 }   
 
-std::map<std::string,int> KiDo::maxkidostil(const std::list<cH_MidgardBasicElement>& list_Kido)
+std::map<std::string,int> KiDo::maxkidostil(const std::list<MidgardBasicElement_mutable>& list_Kido)
 {
   std::map<std::string,int> MK;
-  for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Kido.begin();i!=list_Kido.end();++i)
+  for (std::list<MidgardBasicElement_mutable>::const_iterator i=list_Kido.begin();i!=list_Kido.end();++i)
      MK[cH_KiDo(*i)->Stufe()]++;
   return MK;
 }

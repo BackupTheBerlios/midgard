@@ -86,9 +86,12 @@ void Waffe::get_Waffe()
    {  lern_land=Lernkosten->getIntAttr("Land");
       lern_stadt=Lernkosten->getIntAttr("Stadt");
    }
-
+/*
    if(Art()=="Verteidigung") erfolgswert=1;
    else erfolgswert=4;   
+*/
+   if(Art()=="Verteidigung") anfangswert=1;
+   else anfangswert=4;   
 
    FOR_EACH_CONST_TAG_OF(i,*tag,"Voraussetzungen_F")
      vec_voraussetzung_F.push_back(i->getAttr("Name"));
@@ -118,15 +121,15 @@ void Waffe::get_Alias()
 }
 
 
-bool Waffe::Grundkenntnis_vorhanden(const std::list<cH_MidgardBasicElement>& list_WaffenGrund) const
+bool Waffe::Grundkenntnis_vorhanden(const std::list<MidgardBasicElement_mutable>& list_WaffenGrund) const
 {
- for (std::list<cH_MidgardBasicElement>::const_iterator i=list_WaffenGrund.begin();i!=list_WaffenGrund.end();++i)
+ for (std::list<MidgardBasicElement_mutable>::const_iterator i=list_WaffenGrund.begin();i!=list_WaffenGrund.end();++i)
    if (Grundkenntnis()==(*i)->Name()) return true;
  return false;
 }
 
 
-bool Waffe::SG_Voraussetzung(const Grundwerte& Werte,const std::list<cH_MidgardBasicElement> &list_Fertigkeit,const std::list<cH_MidgardBasicElement> &list_Waffen) const
+bool Waffe::SG_Voraussetzung(const Grundwerte& Werte,const std::list<MidgardBasicElement_mutable> &list_Fertigkeit,const std::list<MidgardBasicElement_mutable> &list_Waffen) const
 {
  if ( St()>Werte.St() || Gw()>Werte.Gw() || Gs()>Werte.Gs() ) return false;
  bool fert_ok=true,waffe_ok=true;
@@ -134,7 +137,7 @@ bool Waffe::SG_Voraussetzung(const Grundwerte& Werte,const std::list<cH_MidgardB
 FertEnd:
  for(std::vector<std::string>::iterator i=VF.begin();i!=VF.end();++i)
    {
-    for(std::list<cH_MidgardBasicElement>::const_iterator j=list_Fertigkeit.begin();j!=list_Fertigkeit.end();++j)
+    for(std::list<MidgardBasicElement_mutable>::const_iterator j=list_Fertigkeit.begin();j!=list_Fertigkeit.end();++j)
       {
         if((*i)==(*j)->Name()) 
           { VF.erase(i);
@@ -147,7 +150,7 @@ FertEnd:
 WaffEnd:
  for(std::vector<std::string>::iterator i=VW.begin();i!=VW.end();++i)
    {
-    for(std::list<cH_MidgardBasicElement>::const_iterator j=list_Waffen.begin();j!=list_Waffen.end();++j)
+    for(std::list<MidgardBasicElement_mutable>::const_iterator j=list_Waffen.begin();j!=list_Waffen.end();++j)
       {
         if((*i)==(*j)->Name()) 
          { VW.erase(i); 
@@ -174,7 +177,7 @@ std::string WaffeBesitz::Schaden(const Grundwerte& Werte,const std::string& name
   int sb=waffe->Schaden_Bonus(name) + sl_Bonus();
   if ( waffe->Grundkenntnis() == "Kampf ohne Waffen" ) 
       { s="W6";
-        int w = waffe->Erfolgswert();
+        int w = Erfolgswert();
         if (         w <= 7) sb=-4;
         if ( 8<=w && w <=11) sb=-3;
         if (12<=w && w <=15) sb=-2;
@@ -322,15 +325,15 @@ int Waffe::MaxErfolgswert(const Grundwerte& Werte,const vector<cH_Typen>& Typ) c
 
 
 std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
-   const std::list<cH_MidgardBasicElement>& list_Waffen,
-   const std::list<cH_MidgardBasicElement>& list_Waffen_besitz,
+   const std::list<MidgardBasicElement_mutable>& list_Waffen,
+   const std::list<MidgardBasicElement_mutable>& list_Waffen_besitz,
    const vector<cH_Typen>& Typ,
    const Grundwerte& Werte)
 {
    std::list<cH_MidgardBasicElement> Verteidigungswaffen;
    Verteidigungswaffen.push_back(new WaffeBesitz(
-      cH_Waffe("waffenloser Kampf"),"waffenloser Kampf",0,0,""));
-   for (std::list<cH_MidgardBasicElement>::const_iterator i=list_Waffen_besitz.begin();
+      cH_Waffe("waffenloser Kampf"),0,"waffenloser Kampf",0,0,""));
+   for (std::list<MidgardBasicElement_mutable>::const_iterator i=list_Waffen_besitz.begin();
          i!=list_Waffen_besitz.end();++i)
      {
        cH_WaffeBesitz WB(*i);
@@ -345,24 +348,24 @@ std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
      {
       cH_WaffeBesitz WB(*i);
       std::vector<int> vwert;
-      for (std::list<cH_MidgardBasicElement>::const_iterator j=list_Waffen.begin();j!=list_Waffen.end();++j)      
+      for (std::list<MidgardBasicElement_mutable>::const_iterator j=list_Waffen.begin();j!=list_Waffen.end();++j)      
          { cH_Waffe w(*j);
             if (WB->Name() == w->Name()) 
                { 
                  int erf_wert;
                  if (WB->Name()=="Kampfstab"||WB->Name()=="Sai"||WB->Name()=="Tonfa"||WB->Name()=="KusariGama") 
-                  {erf_wert = w->Erfolgswert()-5; (erf_wert<=7)?:erf_wert=7; }
+                  {erf_wert = j->Erfolgswert()-5; (erf_wert<=7)?:erf_wert=7; }
                  else if (WB->Name()=="TetsuBo")
-                  {erf_wert = w->Erfolgswert()-7; (erf_wert<=7)?:erf_wert=7; }
+                  {erf_wert = j->Erfolgswert()-7; (erf_wert<=7)?:erf_wert=7; }
                  else if (WB->Name()=="GunSen"||WB->Name()=="BuKasa")
-                  {erf_wert = w->Erfolgswert(); (erf_wert<=10)?:erf_wert=10; }
+                  {erf_wert = j->Erfolgswert(); (erf_wert<=10)?:erf_wert=10; }
                  else if (WB->Name()=="waffenloser Kampf")
-                  {if ( w->Erfolgswert()<8)              break       ;
-                   if ( 8<=w->Erfolgswert()&&w->Erfolgswert()<12) erf_wert = 1;
-                   if (12<=w->Erfolgswert()&&w->Erfolgswert()<16) erf_wert = 2;
-                   if (16<=w->Erfolgswert())                      erf_wert = 3;
+                  {if ( j->Erfolgswert()<8)              break       ;
+                   if ( 8<=j->Erfolgswert()&&j->Erfolgswert()<12) erf_wert = 1;
+                   if (12<=j->Erfolgswert()&&j->Erfolgswert()<16) erf_wert = 2;
+                   if (16<=j->Erfolgswert())                      erf_wert = 3;
                   }
-                 else erf_wert = w->Erfolgswert();
+                 else erf_wert = j->Erfolgswert();
                  int ewert = Werte.Abwehr_wert()+Werte.bo_Ab() // Grundwerte
                            + erf_wert + WB->av_Bonus() ;// Waffenwerte
                  Vwaffewert += itos(ewert);
@@ -376,15 +379,15 @@ std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
 
 
 
-void Waffe::setSpezialWaffe(const std::string& name,const std::list<cH_MidgardBasicElement>& list_Waffen_gelernt)
+void Waffe::setSpezialWaffe(const std::string& name,std::list<MidgardBasicElement_mutable>& list_Waffen_gelernt)
 {
-  for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Waffen_gelernt.begin();i!=list_Waffen_gelernt.end();++i)
+  for(std::list<MidgardBasicElement_mutable>::iterator i=list_Waffen_gelernt.begin();i!=list_Waffen_gelernt.end();++i)
    {
     if(name==(*i)->Name()) 
-        (*i)->setErfolgswert(7);
+        (*i).setErfolgswert(7);
     else if(cH_Waffe((*i))->Verteidigung())
-         (*i)->setErfolgswert(1);
-    else (*i)->setErfolgswert(5);
+         (*i).setErfolgswert(1);
+    else (*i).setErfolgswert(5);
    }
 }
 

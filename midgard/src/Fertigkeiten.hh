@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten.hh,v 1.46 2002/05/26 10:17:02 thoma Exp $               
+// $Id: Fertigkeiten.hh,v 1.47 2002/06/07 12:17:03 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,7 +21,6 @@
 #  define _FERTIGKEITEN_HH
 #include "MidgardBasicElement.hh"
 #include "Typen.hh"
-//#include "Ausnahmen.hh"
 #include <gtk--/progressbar.h>
 
 class midgard_CG;
@@ -29,8 +28,8 @@ class midgard_CG;
 class Fertigkeit : public MidgardBasicElement
 {
      std::string attribut;
-     mutable std::string lernart; // Fach- Allgemeinwissen, ungew. Fert.
-     int lern_unge, lern_land,lern_stadt, anfangswert0, anfangswert,
+//     mutable std::string lernart; // Fach- Allgemeinwissen, ungew. Fert.
+     int lern_unge, lern_land,lern_stadt, anfangswert0 /*, anfangswert*/,
          ungelernt,berufskategorie,maxerfolgswert,maxunterweisung;
      struct st_Voraussetzung {int st;int gw;int gs;int ko;int in;int zt;int au;int pa;
                            int sb;int rw;std::string fert;
@@ -43,7 +42,7 @@ class Fertigkeit : public MidgardBasicElement
               sb(_sb),rw(_rw),fert(_fert) {} };
      st_Voraussetzung voraussetzung;
      vector<std::string> vec_voraussetzung;
-     mutable bool pflicht;
+//     mutable bool pflicht;
 
      void get_Fertigkeit();
      struct st_region_lern {std::string region; int lp_stadt; int lp_land;
@@ -54,7 +53,7 @@ class Fertigkeit : public MidgardBasicElement
 
   public:
      Fertigkeit(const Tag *t)
-      :MidgardBasicElement(t,t->getAttr("Name")),lern_unge(0),lern_land(0),lern_stadt(0),pflicht(false) 
+      :MidgardBasicElement(t,t->getAttr("Name")),lern_unge(0),lern_land(0),lern_stadt(0)
       {get_Fertigkeit(); get_map_typ(); get_Steigern_Kosten_map();
        EP_steigern(Name());}
      enum MBEE What() const {return MidgardBasicElement::FERTIGKEIT;}
@@ -62,24 +61,25 @@ class Fertigkeit : public MidgardBasicElement
 
 
      eZusatz ZusatzEnum(const vector<cH_Typen>& Typ) const;
-     std::string LernArt() const {return lernart;}
-     void setLernArt(std::string z) const {lernart=z;}
+//     std::string LernArt() const {return lernart;}
+//     void setLernArt(std::string z) const {lernart=z;}
      std::string Attribut() const {return attribut;}
-     int FErfolgswert(const Grundwerte &Werte) const;
+//     int FErfolgswert(const Grundwerte &Werte) const;
+     int FErfolgswert(const Abenteurer &a,const MidgardBasicElement_mutable &mbem) const;
      int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const;
      int MaxUnterweisung() const {return maxunterweisung;}
      int LernUnge() const {return lern_unge;}
      int LernLand() const {return lern_land;}
      int LernStadt() const {return lern_stadt;}
      int Anfangswert0() const {return anfangswert0;}
-     int Anfangswert() const {return anfangswert;}
+//     int Anfangswert() const {return anfangswert;}
      int Ungelernt() const {return ungelernt;}
      int Berufskategorie() const {return berufskategorie;}
      std::string Voraussetzung() const {return voraussetzung.fert;}
-     bool Voraussetzungen(const Grundwerte& Werte,const std::list<cH_MidgardBasicElement> &list_Fertigkeit) const;
-     bool Pflicht() const {return pflicht;}
-     void setPflicht(bool p) const {pflicht=p;}
-     std::string Pflicht_str() const; 
+     bool Voraussetzungen(const Grundwerte& Werte,const std::list<MidgardBasicElement_mutable> &list_Fertigkeit) const;
+//     bool Pflicht() const {return pflicht;}
+//     void setPflicht(bool p) const {pflicht=p;}
+//     std::string Pflicht_str() const; 
      int AttributBonus(const Grundwerte& Werte) const;
 
 //     void get_region_lp(int &lp,const std::vector<cH_Region>& vec_region,const Grundwerte& Werte) const;

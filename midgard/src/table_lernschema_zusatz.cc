@@ -28,13 +28,13 @@ static SigC::Connection connection;
 
 #include <gdk/gdk.h>
 
-void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_MidgardBasicElement& MBE)
+void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,MidgardBasicElement_mutable& MBE)
 {
   // Weil Fertigkeiten mehrmals gelernt werden dürfen werde sie hier nicht 
   // in die LIste geschrieben.
   // eine Ausnamhe ist 'Landeskunde (Heimat)', das passiert unten
 // list_FertigkeitZusaetze.push_back(MBE->Name());
-  if(MBE->Lernpunkte()==0) // Sprache/Schrift für '0' Lernpunkte nur einmal lernen
+  if(MBE.Lernpunkte()==0) // Sprache/Schrift für '0' Lernpunkte nur einmal lernen
     list_FertigkeitZusaetze.push_back(MBE->Name());
   lernen_zusatz_titel(was,MBE);
   std::vector<cH_RowDataBase> datavec;
@@ -54,11 +54,15 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_M
        if(MBE->Name()=="Landeskunde (Heimat)")
          {
            list_FertigkeitZusaetze.push_back(MBE->Name());
-           cH_MidgardBasicElement M=new Fertigkeit(*cH_Fertigkeit("Landeskunde"));
-           M->setZusatz(hauptfenster->getCWerte().Herkunft()->Name());
-           M->setErfolgswert(MBE->Erfolgswert());
-           M->setLernpunkte(MBE->Lernpunkte());
-           hauptfenster->getChar().List_Fertigkeit().push_back(M);
+/*
+           cH_MidgardBasicElement MBE=new Fertigkeit(*cH_Fertigkeit("Landeskunde"));
+           MidgardBasicElement_mutable M(MBE);
+           M.setZusatz(hauptfenster->getCWerte().Herkunft()->Name());
+           M.setErfolgswert(MBE->Erfolgswert());
+           M.setLernpunkte(MBE->Lernpunkte());
+*/
+           MBE.setZusatz(hauptfenster->getCWerte().Herkunft()->Name());
+           hauptfenster->getChar().List_Fertigkeit().push_back(MBE);
            return;
          }
        else
@@ -104,16 +108,16 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_M
       }
      case MidgardBasicElement::ZWaffe:
       {
-       for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCChar().CList_Waffen().begin();i!=hauptfenster->getCChar().CList_Waffen().end();++i)
+       for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_Waffen().begin();i!=hauptfenster->getCChar().CList_Waffen().end();++i)
         if (cH_Waffe(*i)->Art()=="Schußwaffe" || cH_Waffe(*i)->Art()=="Wurfwaffe")
           datavec.push_back(new Data_Zusatz(MBE,(*i)->Name()));
        if(datavec.empty()) 
          { hauptfenster->set_status("Noch keine Fernkampfwaffe gewählt.");
            hauptfenster->getChar().List_Fertigkeit().remove(MBE);
            list_FertigkeitZusaetze.remove(MBE->Name());
-           if(cH_Fertigkeit(MBE)->LernArt()=="Fach")      lernpunkte.addFach( MBE->Lernpunkte());
-           else if(cH_Fertigkeit(MBE)->LernArt()=="Allg") lernpunkte.addAllgemein( MBE->Lernpunkte());
-           else if(cH_Fertigkeit(MBE)->LernArt()=="Unge") lernpunkte.addUnge( MBE->Lernpunkte());
+           if(MBE.LernArt()=="Fach")      lernpunkte.addFach( MBE.Lernpunkte());
+           else if(MBE.LernArt()=="Allg") lernpunkte.addAllgemein( MBE.Lernpunkte());
+           else if(MBE.LernArt()=="Unge") lernpunkte.addUnge( MBE.Lernpunkte());
            else hauptfenster->set_info("Fehler beim Lernpunkte zurückstellen");
            return;}
        connection = Tree_Lernschema_Zusatz->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_zusatz_leaf_selected));
@@ -142,7 +146,7 @@ void table_lernschema::lernen_zusatz(MidgardBasicElement::eZusatz was,const cH_M
 // fra->pointer_grab();
 }
 
-void table_lernschema::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,const cH_MidgardBasicElement& MBE)
+void table_lernschema::lernen_zusatz_titel(MidgardBasicElement::eZusatz was,const MidgardBasicElement_mutable& MBE)
 {
   std::vector<std::string> vs;
   Tree_Lernschema_Zusatz->set_column_visibility(1,false);
@@ -226,21 +230,22 @@ void table_lernschema::on_zusatz_leaf_selected(cH_RowDataBase d)
 {
   tree_lernschema->set_sensitive(true);
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
-  cH_MidgardBasicElement MBE=dt->getMBE();
+  MidgardBasicElement_mutable MBE=dt->getMBE();
 
-  MBE->setZusatz(dt->getZusatz());
-  MBE->setErfolgswert(MBE->Erfolgswert());
-  MBE->setLernpunkte(MBE->Lernpunkte());
-
+  MBE.setZusatz(dt->getZusatz());
+/*
+  MBE.setErfolgswert(MBE->Erfolgswert());
+  MBE.setLernpunkte(MBE->Lernpunkte());
+*/
   if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
    {   
-     cH_MidgardBasicElement M=new Fertigkeit(*cH_Fertigkeit(MBE->Name()));
-     hauptfenster->getChar().List_Fertigkeit().push_back(M);
+//     cH_MidgardBasicElement M=new Fertigkeit(*cH_Fertigkeit(MBE->Name()));
+     hauptfenster->getChar().List_Fertigkeit().push_back(MBE);
    }
   else if(MBE->What()==MidgardBasicElement::ZAUBER)
    {   
-     cH_MidgardBasicElement M=new Zauber(*cH_Zauber(MBE->Name()));
-     hauptfenster->getChar().List_Zauber().push_back(M);
+//     cH_MidgardBasicElement M=new Zauber(*cH_Zauber(MBE->Name()));
+     hauptfenster->getChar().List_Zauber().push_back(MBE);
    }
 
   frame_lernschema_zusatz->hide();
@@ -252,10 +257,13 @@ void table_lernschema::on_zusatz_leaf_schrift_selected(cH_RowDataBase d)
 {
   if(tree_lernschema) tree_lernschema->set_sensitive(true);
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
-  cH_MidgardBasicElement MBE=dt->getMBE();
-  cH_MidgardBasicElement schrift(&*cH_Schrift(dt->getZusatz()));
-  schrift->setErfolgswert(MBE->Erfolgswert());
-  schrift->setLernpunkte(MBE->Lernpunkte());
+/*
+  MidgardBasicElement_mutable MBE=dt->getMBE();
+  MidgardBasicElement_mutable schrift(&*cH_Schrift(dt->getZusatz()));
+  schrift.setErfolgswert(MBE->Erfolgswert());
+  schrift.setLernpunkte(MBE->Lernpunkte());
+*/
+  MidgardBasicElement_mutable schrift=dt->getMBE();
   hauptfenster->getChar().List_Schrift().push_back(schrift);
   frame_lernschema_zusatz->hide();
   zeige_werte();  
@@ -266,10 +274,13 @@ void table_lernschema::on_zusatz_leaf_sprache_selected(cH_RowDataBase d)
 {
   tree_lernschema->set_sensitive(true);
   const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
+/*
   cH_MidgardBasicElement MBE=dt->getMBE();
   cH_MidgardBasicElement sprache(&*cH_Sprache(dt->getZusatz()));
   sprache->setErfolgswert(MBE->Erfolgswert());
   sprache->setLernpunkte(MBE->Lernpunkte());
+*/
+  MidgardBasicElement_mutable sprache=dt->getMBE();
   hauptfenster->getChar().List_Sprache().push_back(sprache);
   frame_lernschema_zusatz->hide();
   zeige_werte();  

@@ -25,16 +25,16 @@
 void table_steigern::on_leaf_waffenbesitz_selected_alt(cH_RowDataBase d)
 {  
   const Data_waffenbesitz *dt=dynamic_cast<const Data_waffenbesitz*>(&*d);
-  cH_WaffeBesitz WB(dt->get_Waffe());
+  WaffeBesitz WB(dt->get_Waffe());
 
   if(!checkbutton_mag_waffenbonus->get_active()) 
    {
     const MidgardBasicElement *MBE = &static_cast<const MidgardBasicElement&>(*WB);
-    for(std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getChar().List_Waffen_besitz().begin();
+    for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Waffen_besitz().begin();
          i!=hauptfenster->getChar().List_Waffen_besitz().end();++i)
      {
-       cH_WaffeBesitz w(*i);
-       if(w==cH_WaffeBesitz(MBE))
+//       WaffeBesitz w(*i);
+       if(*i==MBE)
          {
             hauptfenster->getChar().List_Waffen_besitz().remove(*i);
             break;
@@ -46,7 +46,7 @@ void table_steigern::on_leaf_waffenbesitz_selected_alt(cH_RowDataBase d)
   else 
    {
      table_magbonus->show();
-     if (WB->Waffe()->Art()=="Verteidigung")
+     if (WB.Waffe()->Art()=="Verteidigung")
        { label_av_bonus->set_text("Abwehrbonus");
          label_sl_bonus->set_text("LP-Schutz");  
        }
@@ -55,9 +55,9 @@ void table_steigern::on_leaf_waffenbesitz_selected_alt(cH_RowDataBase d)
          label_sl_bonus->set_text("Schadensbonus");
        }
 //     label_waffe->set_text(WB->Name());
-     spinbutton_av_bonus->set_value(WB->av_Bonus());
-     spinbutton_sl_bonus->set_value(WB->sl_Bonus());
-     entry_magisch->set_text(WB->Magisch());
+     spinbutton_av_bonus->set_value(WB.av_Bonus());
+     spinbutton_sl_bonus->set_value(WB.sl_Bonus());
+     entry_magisch->set_text(WB.Magisch());
      spinbutton_av_bonus->grab_focus();
      spinbutton_av_bonus->select_region(0,-1);
     }
@@ -75,12 +75,15 @@ void table_steigern::on_entry_magisch_activate()
 
   try{
      cH_Data_waffenbesitz dt(waffenbesitz_alt_tree->getSelectedRowDataBase_as<cH_Data_waffenbesitz>());
-     cH_MidgardBasicElement selected_weapon = dt->get_Waffe();
-     cH_WaffeBesitz WB=dynamic_cast<const WaffeBesitz*>(&*selected_weapon);
+     WaffeBesitz selected_weapon = dt->get_Waffe();
+     
+//     cH_MidgardBasicElement selected_weapon = dt->get_Waffe();
+//     cH_WaffeBesitz WB=dynamic_cast<const WaffeBesitz*>(&*selected_weapon);
+     WaffeBesitz WB=selected_weapon;
 
-        WB->set_av_Bonus(spinbutton_av_bonus->get_value_as_int());
-        WB->set_sl_Bonus(spinbutton_sl_bonus->get_value_as_int());
-        WB->set_Magisch(entry_magisch->get_text());
+        WB.set_av_Bonus(spinbutton_av_bonus->get_value_as_int());
+        WB.set_sl_Bonus(spinbutton_sl_bonus->get_value_as_int());
+        WB.set_Magisch(entry_magisch->get_text());
      table_magbonus->hide();
   } catch(std::exception &e) {cerr<<e.what()<<'\n';
    hauptfenster->set_status("Keine Waffe selektiert");
@@ -93,7 +96,8 @@ void table_steigern::on_entry_magisch_activate()
 void table_steigern::on_leaf_waffenbesitz_selected_neu(cH_RowDataBase d)
 {  
   const Data_waffenbesitz *dt=dynamic_cast<const Data_waffenbesitz*>(&*d);
-  cH_MidgardBasicElement MBE=new WaffeBesitz(*cH_WaffeBesitz(dt->get_Waffe()));
+//  cH_MidgardBasicElement MBE=new WaffeBesitz(*cH_WaffeBesitz(dt->get_Waffe()));
+  MidgardBasicElement_mutable MBE=dt->get_Waffe();
 
   hauptfenster->getChar().List_Waffen_besitz().push_back(MBE);
 //  zeige_waffen();
@@ -122,14 +126,14 @@ void  table_steigern::show_alte_waffen()
   std::vector<cH_RowDataBase> datavec;
 //cout <<"Alte größe = " <<Waffe_Besitz.size()<<'\n';
 
-  for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getChar().List_Waffen_besitz().begin();i!=hauptfenster->getChar().List_Waffen_besitz().end();++i)
+  for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Waffen_besitz().begin();i!=hauptfenster->getChar().List_Waffen_besitz().end();++i)
      datavec.push_back(new Data_waffenbesitz(*i,hauptfenster));
   waffenbesitz_alt_tree->setDataVec(datavec);
 }
 
 void  table_steigern::lade_waffenbesitz()
 {
-  std::list<cH_MidgardBasicElement> Waffe_Besitz_neu;
+  std::list<WaffeBesitz> Waffe_Besitz_neu;
   const std::list<cH_MidgardBasicElement> L=hauptfenster->getCDatabase().Waffe;
   for (std::list<cH_MidgardBasicElement>::const_iterator i=L.begin();i!=L.end();++i)
    {
@@ -137,16 +141,20 @@ void  table_steigern::lade_waffenbesitz()
      if (w->Grundkenntnis() == "Kampf ohne Waffen") continue;
       if ((*i)->ist_gelernt(hauptfenster->getCChar().CList_Waffen()))
        {
-        Waffe_Besitz_neu.push_back(new WaffeBesitz(w,w->Name(),0,0,""));
+//        MidgardBasicElement_mutable W(new WaffeBesitz(w,0,w->Name(),0,0,""));
+        WaffeBesitz W(w,0,w->Name(),0,0,"");
+        Waffe_Besitz_neu.push_back(W);
         for (list<Waffe::st_alias>::const_iterator j=cH_Waffe(w)->Alias().begin();j!=cH_Waffe(w)->Alias().end();++j)
          {
-          Waffe_Besitz_neu.push_back(new WaffeBesitz(w,(*j).name,0,0,""));
+           WaffeBesitz W(w,0,(*j).name,0,0,"");
+//           Waffe_Besitz W(WaffeBesitz(w,0,(*j).name,0,0,"");
+           Waffe_Besitz_neu.push_back(W);
          }
        }
    }
   std::vector<cH_RowDataBase> datavec;
-  for (std::list<cH_MidgardBasicElement>::const_iterator i=Waffe_Besitz_neu.begin();i!=Waffe_Besitz_neu.end();++i)
-     if (hauptfenster->region_check(cH_WaffeBesitz(*i)->Waffe()->Region(cH_WaffeBesitz(*i)->Name())))
+  for (std::list<WaffeBesitz>::const_iterator i=Waffe_Besitz_neu.begin();i!=Waffe_Besitz_neu.end();++i)
+     if (hauptfenster->region_check((*i).Waffe()->Region((*i)->Name())))
         datavec.push_back(new Data_waffenbesitz(*i,hauptfenster));
   waffenbesitz_neu_tree->setDataVec(datavec);
 }

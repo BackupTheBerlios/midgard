@@ -1,4 +1,4 @@
-// $Id: table_lernschema_beruf.cc,v 1.3 2002/05/22 17:00:45 thoma Exp $
+// $Id: table_lernschema_beruf.cc,v 1.4 2002/06/07 12:17:04 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -73,18 +73,18 @@ void table_lernschema::on_spinbutton_beruf_activate()
 
 void table_lernschema::deleteBerufsFertigekeit()
 {
-  for(std::list<cH_MidgardBasicElement>::iterator i=hauptfenster->getChar().List_Fertigkeit().begin();i!=hauptfenster->getChar().List_Fertigkeit().end();++i)
+  for(std::list<MidgardBasicElement_mutable>::iterator i=hauptfenster->getChar().List_Fertigkeit().begin();i!=hauptfenster->getChar().List_Fertigkeit().end();++i)
    {
-     cH_Fertigkeit f(*i);
-     if(f->LernArt()=="Beruf") 
+//     cH_Fertigkeit f(*i);
+     if((*i).LernArt()=="Beruf") 
       {
         hauptfenster->getChar().List_Fertigkeit().erase(i);
         break;
       }
-     else if(f->LernArt()=="Beruf+") 
+     else if((*i).LernArt()=="Beruf+") 
       {
-        (*i)->addErfolgswert(-1);
-        f->setLernArt("");
+        (*i).addErfolgswert(-1);
+        (*i).setLernArt("");
         break;
       }
    }
@@ -105,7 +105,7 @@ void table_lernschema::showBerufsLernList()
   Beruf_tree->setTitles(beruf);       
 
   label_lernschma_titel->set_text("Beruf");
-  std::list<cH_MidgardBasicElement> L;
+  std::list<MidgardBasicElement_mutable> L;
   for(std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getDatabase().Beruf.begin();i!=hauptfenster->getDatabase().Beruf.end();++i)
    {
 //     if (Database.pflicht.istVerboten(hauptfenster->getCWerte().Spezies()->Name(),hauptfenster->Typ,(*i)->Name())) continue;
@@ -118,10 +118,10 @@ void table_lernschema::showBerufsLernList()
      L.push_back(*i);
    }
 
-  L.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME));
+  L.sort(MidgardBasicElement_mutable::sort(MidgardBasicElement_mutable::sort::NAME));
   std::vector<cH_RowDataBase> datavec;
   bool gelerntes=false;
-  for(std::list<cH_MidgardBasicElement>::const_iterator i=L.begin();i!=L.end();++i)
+  for(std::list<MidgardBasicElement_mutable>::const_iterator i=L.begin();i!=L.end();++i)
     {
       cH_Beruf b(*i);
       std::vector<string> fert=b->Vorteile();
@@ -190,7 +190,8 @@ void table_lernschema::on_beruf_tree_leaf_selected(cH_RowDataBase d)
 {
  try{
     const Beruf_Data *dt=dynamic_cast<const Beruf_Data*>(&*d);
-    cH_MidgardBasicElement mbe(&*cH_Beruf(dt->Beruf()));
+    cH_MidgardBasicElement cmbe(&*cH_Beruf(dt->Beruf()));
+    MidgardBasicElement_mutable mbe(cmbe);
     hauptfenster->getChar().List_Beruf().clear(); // es kann nur einen Beruf geben
     hauptfenster->getChar().List_Beruf().push_back(mbe);
 
@@ -198,19 +199,20 @@ void table_lernschema::on_beruf_tree_leaf_selected(cH_RowDataBase d)
         hauptfenster->getWerte().setSinn("Schmecken",10);
     else if(dt->Gelernt()) // Erfolgswert um eins erhöhen
      {
-      for (std::list<cH_MidgardBasicElement>::const_iterator k=hauptfenster->getCChar().CList_Fertigkeit().begin();k!=hauptfenster->getCChar().CList_Fertigkeit().end();++k)
+      for (std::list<MidgardBasicElement_mutable>::iterator k=hauptfenster->getChar().List_Fertigkeit().begin();k!=hauptfenster->getChar().List_Fertigkeit().end();++k)
         {
           if((*k)->Name()==dt->Fert())
-           { (*k)->addErfolgswert(1);
+           { (*k).addErfolgswert(1);
              if((*k)->What()==MidgardBasicElement::FERTIGKEIT)
-                cH_Fertigkeit(*k)->setLernArt("Beruf+");
+                (*k).setLernArt("Beruf+");
            }
         }
      }
     else // neue Fertigkeit
       {
-         cH_MidgardBasicElement MBE(&*cH_Fertigkeit(dt->Fert()));
-         cH_Fertigkeit(MBE)->setLernArt("Beruf");
+         cH_MidgardBasicElement cMBE(&*cH_Fertigkeit(dt->Fert()));
+         MidgardBasicElement_mutable MBE(cMBE);
+         MBE.setLernArt("Beruf");
          if(MBE->ZusatzEnum(hauptfenster->getCChar().getVTyp())) 
               lernen_zusatz(MBE->ZusatzEnum(hauptfenster->getCChar().getVTyp()),MBE);
          if(MBE->Name()!="Landeskunde (Heimat)")

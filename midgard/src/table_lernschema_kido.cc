@@ -1,4 +1,4 @@
-// $Id: table_lernschema_kido.cc,v 1.4 2002/05/27 13:56:07 thoma Exp $
+// $Id: table_lernschema_kido.cc,v 1.5 2002/06/07 12:17:04 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -48,7 +48,7 @@ void table_lernschema::fill_kido_lernschema()
   tree_kido_lernschema = manage(new MidgardBasicTree(MidgardBasicTree::KIDO));
   tree_kido_lernschema->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_tree_kido_lernschema_leaf_selected));
 
-  std::list<cH_MidgardBasicElement> newlist;
+  std::list<MidgardBasicElement_mutable> newlist;
   KiDo_Stile kido_stil;
   for(std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getDatabase().Kido.begin();i!=hauptfenster->getDatabase().Kido.end();++i)
    {
@@ -59,7 +59,7 @@ void table_lernschema::fill_kido_lernschema()
      if (kido_stil.ist_sanft(hauptfenster->getCWerte().Spezialisierung()))
          if(kido_stil.ist_hart(kd->Stil())) continue;
      if ((*i)->ist_gelernt(hauptfenster->getCChar().CList_Kido())) continue ;
-     newlist.push_back(*i);                                     
+     newlist.push_back(MidgardBasicElement_mutable(*i));                                     
    }
 
   MidgardBasicElement::show_list_in_tree(newlist,tree_kido_lernschema,hauptfenster);

@@ -123,7 +123,7 @@ void table_steigern::set_lernzeit(int kosten)
       hauptfenster->getWerte().addSteigertage(kosten/500.);
 }
 
-bool table_steigern::steigern_usp(int kosten,cH_MidgardBasicElement* MBE, e_was_steigern was)
+bool table_steigern::steigern_usp(int kosten,MidgardBasicElement_mutable *MBE, e_was_steigern was)
 {
   if (!steigern_mit_EP_bool) // Steigern OHNE EP/Gold/PP
       { set_lernzeit(kosten);
@@ -189,7 +189,7 @@ bool table_steigern::steigern_usp(int kosten,cH_MidgardBasicElement* MBE, e_was_
   // jetzt darf gesteigert werden ...
   hauptfenster->getWerte().addGold(-gold_k);  
   set_lernzeit(kosten);
-  if     (MBE&&(*MBE)->What()!=MidgardBasicElement::ZAUBER) (*MBE)->addPraxispunkte(-pp) ;
+  if     (MBE&&(*MBE)->What()!=MidgardBasicElement::ZAUBER) (*MBE).addPraxispunkte(-pp) ;
   else if(MBE && (*MBE)->What()==MidgardBasicElement::ZAUBER) hauptfenster->getWerte().addSpezialPP(-pp) ;
   else if(was==Resistenz)  hauptfenster->getWerte().addResistenzPP(-pp) ;
   else if(was==Abwehr)     hauptfenster->getWerte().addAbwehrPP(-pp) ;
@@ -227,12 +227,12 @@ bool table_steigern::genug_EP(const int ep_k,const bool bkep,const bool bzep, in
 }
 
 
-int table_steigern::PP_vorrat(const cH_MidgardBasicElement *MBE,e_was_steigern was)
+int table_steigern::PP_vorrat(const MidgardBasicElement_mutable *MBE,e_was_steigern was)
 {
   guint pp=0;
   if(radiobutton_praxis->get_active())
    { 
-     if     (MBE && (*MBE)->What()!=MidgardBasicElement::ZAUBER) pp=(*MBE)->Praxispunkte();
+     if     (MBE && (*MBE)->What()!=MidgardBasicElement::ZAUBER) pp=(*MBE).Praxispunkte();
      else if(MBE && (*MBE)->What()==MidgardBasicElement::ZAUBER) pp=hauptfenster->getCWerte().SpezialPP();
      else if(was==Resistenz) pp=hauptfenster->getCWerte().ResistenzPP() ;
      else if(was==Abwehr)    pp=hauptfenster->getCWerte().AbwehrPP() ;
@@ -292,15 +292,15 @@ int table_steigern::genug_geld(const int kosten)
 }
 
 
-void table_steigern::PraxisPunkt_to_AEP(cH_MidgardBasicElement& MBE,bool verfallen,bool alle_pp)
+void table_steigern::PraxisPunkt_to_AEP(MidgardBasicElement_mutable& MBE,bool verfallen,bool alle_pp)
 {
   int aep=40;
   if(alle_pp) 
-     { aep=40*MBE->Praxispunkte();
-       MBE->setPraxispunkte(0);
+     { aep=40*MBE.Praxispunkte();
+       MBE.setPraxispunkte(0);
      }
   else 
-       MBE->addPraxispunkte(-1);
+       MBE.addPraxispunkte(-1);
      
   int kosten=0;
   stufen_auf_einmal_steigern_fuer_aep(false,MBE,kosten,aep);
@@ -318,7 +318,7 @@ void table_steigern::PraxisPunkt_to_AEP(cH_MidgardBasicElement& MBE,bool verfall
         hauptfenster->getWerte().addAEP(-aep_kosten);
         zeige_werte();
         hauptfenster->getWerte().addGFP(steiger_kosten);
-        MBE->addErfolgswert(1);
+        MBE.addErfolgswert(1);
 
         set_lernzeit(steiger_kosten-aep_kosten); // Lernzeit für PP
         radiobutton_selbst->set_active(true);
@@ -329,23 +329,23 @@ void table_steigern::PraxisPunkt_to_AEP(cH_MidgardBasicElement& MBE,bool verfall
   load_for_page(notebook_lernen->get_current_page_num());
 }
 
-int table_steigern::stufen_auf_einmal_steigern_fuer_aep(bool info,cH_MidgardBasicElement& MBE,int &kosten,int &aep)
+int table_steigern::stufen_auf_einmal_steigern_fuer_aep(bool info,MidgardBasicElement_mutable& MBE,int &kosten,int &aep)
 {
   int steiger_kosten = MBE->Steigern(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp());
   int stufen=0;
-  int erfolgswert_mem=MBE->Erfolgswert();
+  int erfolgswert_mem=MBE.Erfolgswert();
   while(steiger_kosten<=aep)
    {   
      kosten+=steiger_kosten;
      ++stufen;
      aep-=steiger_kosten;
-     MBE->addErfolgswert(1);
+     MBE.addErfolgswert(1);
      steiger_kosten = MBE->Steigern(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp());
    }      
   if(info)
    {
      kosten=MBE->Steigern(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp()) ; // kosten für die nächste Stufe
-     MBE->setErfolgswert(erfolgswert_mem);
+     MBE.setErfolgswert(erfolgswert_mem);
    }
   else
    {

@@ -154,56 +154,60 @@ int Spezies::Phk(const Grundwerte &W) const
   else return phk100;
 }
 
-std::list<cH_MidgardBasicElement> Spezies::getZauber() const
+std::list<MidgardBasicElement_mutable> Spezies::getZauber() const
 {
-  std::list<cH_MidgardBasicElement> L;
+  std::list<MidgardBasicElement_mutable> L;
   for(std::vector<st_angebfert>::const_iterator i=vec_angebfert.begin();i!=vec_angebfert.end();++i)
    {
     if(!(i->art=="z")) continue;
     cH_MidgardBasicElement z(&*cH_Zauber(i->name)); 
-    L.push_back(z);
+    MidgardBasicElement_mutable Z(z);
+    L.push_back(Z);
    }
  return L;
 }
 
-std::list<cH_MidgardBasicElement> Spezies::getAngFertigkeiten() const
+std::list<MidgardBasicElement_mutable> Spezies::getAngFertigkeiten() const
 {
-  std::list<cH_MidgardBasicElement> L;
+  std::list<MidgardBasicElement_mutable> L;
   for(std::vector<st_angebfert>::const_iterator i=vec_angebfert.begin();i!=vec_angebfert.end();++i)
    {
     if(!(i->art=="af")) continue;
     cH_MidgardBasicElement f(&*cH_Fertigkeit_angeborene(i->name)); 
-    f->setErfolgswert(i->erfolgswert);
-    L.push_back(f);
+    MidgardBasicElement_mutable F(f);
+    F.setErfolgswert(i->erfolgswert);
+    L.push_back(F);
    }
  return L;
 }
 
-std::list<cH_MidgardBasicElement> Spezies::getFertigkeiten(int &lp,const Grundwerte &Werte) const
+std::list<MidgardBasicElement_mutable> Spezies::getFertigkeiten(int &lp,const Grundwerte &Werte) const
 {
-  std::list<cH_MidgardBasicElement> L;
+  std::list<MidgardBasicElement_mutable> L;
   for(std::vector<st_angebfert>::const_iterator i=vec_angebfert.begin();i!=vec_angebfert.end();++i)
    {
     if(!(i->art=="f")) continue;
     cH_MidgardBasicElement f(&*cH_Fertigkeit(i->name)); 
-    f->setErfolgswert(i->erfolgswert + cH_Fertigkeit(f)->AttributBonus(Werte) );
+    MidgardBasicElement_mutable F(f);
+    F.setErfolgswert(i->erfolgswert + cH_Fertigkeit(f)->AttributBonus(Werte) );
     lp+=i->lp;
-    L.push_back(f);
+    L.push_back(F);
    }
  return L;
 }
 
-std::list<cH_MidgardBasicElement> Spezies::getFreiwilligeFertigkeiten(const Grundwerte &Werte) const
+std::list<MidgardBasicElement_mutable> Spezies::getFreiwilligeFertigkeiten(const Grundwerte &Werte) const
 {
-  std::list<cH_MidgardBasicElement> L;
+  std::list<MidgardBasicElement_mutable> L;
   for(std::vector<st_angebfert>::const_iterator i=vec_angebfert.begin();i!=vec_angebfert.end();++i)
    {
     if(!(i->art=="ff")) continue;
     cH_MidgardBasicElement f(&*cH_Fertigkeit(i->name)); 
-    f->setErfolgswert(i->erfolgswert + cH_Fertigkeit(f)->AttributBonus(Werte));
+    MidgardBasicElement_mutable F(f);
+    F.setErfolgswert(i->erfolgswert + cH_Fertigkeit(f)->AttributBonus(Werte));
 //cout << i->erfolgswert<<' '<<cH_Fertigkeit(f)->AttributBonus(Werte)<<'\n';
-    f->setLernpunkte(i->lp);
-    L.push_back(f);
+    F.setLernpunkte(i->lp);
+    L.push_back(F);
    }
  return L;
 }

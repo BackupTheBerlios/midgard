@@ -61,11 +61,11 @@ public:
 ////////////////////////////////////////////////////////////////
 class Data_Zusatz : public RowDataBase
 {
-      cH_MidgardBasicElement MBE;
+      MidgardBasicElement_mutable MBE;
       std::string zusatz;
 
    public:
-      Data_Zusatz(const cH_MidgardBasicElement mbe,std::string z)
+      Data_Zusatz(const MidgardBasicElement_mutable mbe,std::string z)
          : MBE(mbe),zusatz(z) {}
 
       enum Spalten {NAME};
@@ -78,7 +78,7 @@ class Data_Zusatz : public RowDataBase
            }
           return cH_EntryValueIntString();
         }
-      cH_MidgardBasicElement getMBE() const {return MBE;}
+      MidgardBasicElement_mutable getMBE() const {return MBE;}
       std::string getZusatz() const {return zusatz;}
 };
 

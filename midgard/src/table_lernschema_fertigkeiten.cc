@@ -1,4 +1,4 @@
-// $Id: table_lernschema_fertigkeiten.cc,v 1.4 2002/05/27 20:36:46 thoma Exp $
+// $Id: table_lernschema_fertigkeiten.cc,v 1.5 2002/06/07 12:17:04 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -72,7 +72,10 @@ void table_lernschema::on_angeborene_fertigkeit_right_clicked()
   clean_lernschema_trees();
   tree_angeb_fert = manage(new MidgardBasicTree(MidgardBasicTree::ANGEBFERT));
   tree_angeb_fert->leaf_selected.connect(SigC::slot(static_cast<class table_lernschema*>(this), &table_lernschema::on_ang_fert_leaf_selected));
-  list_Fertigkeit_ang_neu=hauptfenster->getDatabase().Fertigkeit_ang;
+  std::list<cH_MidgardBasicElement> L=hauptfenster->getDatabase().Fertigkeit_ang;
+  list_Fertigkeit_ang_neu.clear();
+  for(std::list<cH_MidgardBasicElement>::const_iterator i=L.begin();i!=L.end();++i)
+    list_Fertigkeit_ang_neu.push_back(MidgardBasicElement_mutable(*i));
   MidgardBasicElement::show_list_in_tree(list_Fertigkeit_ang_neu,tree_angeb_fert,hauptfenster);
 
 //  scrolledwindow_beruf->hide();
@@ -85,9 +88,9 @@ void table_lernschema::on_angeborene_fertigkeit_right_clicked()
 void table_lernschema::on_ang_fert_leaf_selected(cH_RowDataBase d)
 {
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
-  cH_MidgardBasicElement MBE = dt->getMBE();
+  MidgardBasicElement_mutable MBE = dt->getMBE();
   cH_Fertigkeit_angeborene F(MBE);
-  if(!AngebSinn(F->Min(),MBE->Erfolgswert()))
+  if(!AngebSinn(F->Min(),MBE.Erfolgswert()))
     MidgardBasicElement::move_element(list_Fertigkeit_ang_neu,hauptfenster->getChar().List_Fertigkeit_ang(),MBE);
   else list_Fertigkeit_ang_neu.remove(MBE);
   MidgardBasicElement::show_list_in_tree(list_Fertigkeit_ang_neu,tree_angeb_fert,hauptfenster);
@@ -103,7 +106,7 @@ std::string table_lernschema::AngebFert_gewuerfelt(int wurf)
      if (cH_Fertigkeit_angeborene(*i)->Min()<=wurf && wurf<=cH_Fertigkeit_angeborene(*i)->Max())
       {
          name=(*i)->Name();
-         if(!AngebSinn(wurf,(*i)->Erfolgswert()))
+         if(!AngebSinn(wurf,MidgardBasicElement_mutable(*i).Erfolgswert()))
             hauptfenster->getChar().List_Fertigkeit_ang().push_back(*i);
          break;
       }

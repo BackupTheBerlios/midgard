@@ -63,8 +63,8 @@ class Zauberwerk : public MidgardBasicElement
 //   std::string Region() const {return region;}
    std::string Preis() const { return preis; }
 
-   bool Voraussetzungen(const std::list<cH_MidgardBasicElement>& listZauber) const;
-   bool Voraussetzungen_Fertigkeit(const std::list<cH_MidgardBasicElement>& listZauber) const;
+   bool Voraussetzungen(const std::list<MidgardBasicElement_mutable>& listZauber) const;
+   bool Voraussetzungen_Fertigkeit(const std::list<MidgardBasicElement_mutable>& listZauber) const;
    int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const 
          {return 0;} //wg. virtueller Funktion
 };

@@ -1,4 +1,4 @@
-// $Id: Data_waffenbesitz.hh,v 1.1 2002/05/24 14:06:52 thoma Exp $
+// $Id: Data_waffenbesitz.hh,v 1.2 2002/06/07 12:17:03 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,26 +32,29 @@
 
 class Data_waffenbesitz :  public RowDataBase
 {
-      cH_MidgardBasicElement waffe;
+//      cH_MidgardBasicElement waffe;
+      WaffeBesitz waffe;
       const midgard_CG *hauptfenster;
   public:
-      Data_waffenbesitz(const cH_MidgardBasicElement& w,const midgard_CG *h)
+//      Data_waffenbesitz(const cH_MidgardBasicElement& w,const midgard_CG *h)
+//         : waffe(w), hauptfenster(h) {}
+      Data_waffenbesitz(const WaffeBesitz& w,const midgard_CG *h)
          : waffe(w), hauptfenster(h) {}
 
       enum SPALTEN_A {NAME_A,SCHADEN_A,REGION,MAGBONUS,MAGTEXT};
       virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
        {
-         cH_WaffeBesitz W(waffe);
+//         cH_WaffeBesitz W(waffe);
           switch(seqnr) {
-            case NAME_A : return cH_EntryValueIntString(W->Name());
-            case SCHADEN_A : return cH_EntryValueIntString(W->Schaden(hauptfenster->getCWerte(),waffe->Name()));
-            case REGION : return cH_EntryValueIntString(Regionen_All::getRegionfromAbk(hauptfenster->getCDatabase().Regionen,W->Waffe()->Region(W->Name()))->Name());
-            case MAGBONUS : return cH_EntryValueIntString(W->Bonus());
-            case MAGTEXT : return cH_EntryValueIntString(W->Magisch());
+            case NAME_A : return cH_EntryValueIntString(waffe->Name());
+            case SCHADEN_A : return cH_EntryValueIntString(waffe.Schaden(hauptfenster->getCWerte(),waffe->Name()));
+            case REGION : return cH_EntryValueIntString(Regionen_All::getRegionfromAbk(hauptfenster->getCDatabase().Regionen,waffe.Waffe()->Region(waffe->Name()))->Name());
+            case MAGBONUS : return cH_EntryValueIntString(waffe.Bonus());
+            case MAGTEXT : return cH_EntryValueIntString(waffe.Magisch());
            }
          return cH_EntryValueIntString("?");
        }
-      cH_MidgardBasicElement get_Waffe() const {return waffe;}
+      WaffeBesitz get_Waffe() const {return waffe;}
 };
 
 class cH_Data_waffenbesitz : public Handle<const Data_waffenbesitz>

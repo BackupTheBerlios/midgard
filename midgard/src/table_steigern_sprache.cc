@@ -30,8 +30,10 @@ void table_steigern::on_schrift_laden_clicked()
       if((*i)->ist_gelernt(hauptfenster->getCChar().CList_Schrift())) continue;
       if (hauptfenster->region_check(s->Region()) )  
          if(s->kann_Sprache(hauptfenster->getCChar().CList_Sprache()))
-           { s->setErfolgswert(cH_Fertigkeit("Schreiben")->Anfangswert());
-             list_Schrift_neu.push_back(*i) ;
+           { 
+             MidgardBasicElement_mutable S(*i);
+             S.setErfolgswert(cH_Fertigkeit("Schreiben")->Anfangswert());
+             list_Schrift_neu.push_back(S) ;
            }
     }
    schriften_zeigen();
@@ -44,8 +46,10 @@ void table_steigern::on_sprache_laden_clicked()
     { cH_Sprache s(*i);
       if((*i)->ist_gelernt(hauptfenster->getCChar().CList_Sprache())) continue;
       if (hauptfenster->region_check(s->Region()) )  
-        {  s->setErfolgswert(cH_Fertigkeit("Sprache")->Anfangswert());
-           list_Sprache_neu.push_back(*i) ;
+        {  
+           MidgardBasicElement_mutable S(*i);
+           S.setErfolgswert(cH_Fertigkeit("Sprache")->Anfangswert());
+           list_Sprache_neu.push_back(S) ;
         }
     }
    sprachen_zeigen();
@@ -81,7 +85,7 @@ void table_steigern::on_leaf_selected_alte_sprache(cH_RowDataBase d)
    {
      cH_Fertigkeit F("Sprache");
      if( radiobutton_unterweisung->get_active() &&
-         dt->getMBE()->Erfolgswert() >= F->MaxUnterweisung())
+         dt->getMBE().Erfolgswert() >= F->MaxUnterweisung())
       {
         hauptfenster->set_status("Weitere Steigerung des Erfolgswertes ist NICHT mit Unterweisung möglich.");
         return;
@@ -98,8 +102,8 @@ void table_steigern::on_alte_sprache_reorder()
 {
   std::deque<guint> seq = alte_sprache_tree->get_seq();
   switch((Data_SimpleTree::Spalten_LONG_ALT)seq[0]) {
-      case Data_SimpleTree::NAMEa : hauptfenster->getChar().List_Sprache().sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME)); ;break;
-      case Data_SimpleTree::WERTa : hauptfenster->getChar().List_Sprache().sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::ERFOLGSWERT)); ;break;
+      case Data_SimpleTree::NAMEa : hauptfenster->getChar().List_Sprache().sort(MidgardBasicElement_mutable::sort(MidgardBasicElement_mutable::sort::NAME)); ;break;
+      case Data_SimpleTree::WERTa : hauptfenster->getChar().List_Sprache().sort(MidgardBasicElement_mutable::sort(MidgardBasicElement_mutable::sort::ERFOLGSWERT)); ;break;
       default : hauptfenster->set_status("Sortieren nach diesem Parameter\n ist nicht möglich");
    }
 }
@@ -112,7 +116,7 @@ void table_steigern::on_leaf_selected_alte_schrift(cH_RowDataBase d)
    {
      cH_Fertigkeit F("Schreiben");
      if( radiobutton_unterweisung->get_active() &&
-         dt->getMBE()->Erfolgswert() >= F->MaxUnterweisung())
+         dt->getMBE().Erfolgswert() >= F->MaxUnterweisung())
       {
         hauptfenster->set_status("Weitere Steigerung des Erfolgswertes ist NICHT mit Unterweisung möglich.");
         return;
@@ -136,9 +140,9 @@ void table_steigern::on_leaf_selected_neue_schrift(cH_RowDataBase d)
 void table_steigern::neue_schrift_wegen_sprache()
 {
   // Alle gelernten Sprachen testen
-  for(std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCChar().CList_Sprache().begin();i!=hauptfenster->getCChar().CList_Sprache().end();++i)
+  for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_Sprache().begin();i!=hauptfenster->getCChar().CList_Sprache().end();++i)
    {
-     if((*i)->Erfolgswert()<10) continue;
+     if((*i).Erfolgswert()<10) continue;
      // welche Schriften gehören zu dieser Sprache?
      std::vector<std::string> VS=cH_Sprache(*i)->Schrift();
      for(std::vector<std::string>::const_iterator j=VS.begin();j!=VS.end();++j)
@@ -153,8 +157,9 @@ void table_steigern::neue_schrift_wegen_sprache()
            int e=andereSprache_gleicheSchriftart(s->Art_der_Schrift());
            if(e>=12) 
             {
-              (*k)->setErfolgswert(8);   
-              hauptfenster->getChar().List_Schrift().push_back(*k); 
+              MidgardBasicElement_mutable S(*k);
+              S.setErfolgswert(8);   
+              hauptfenster->getChar().List_Schrift().push_back(S); 
             }
          }
         }catch(NotFound) {hauptfenster->set_status("FEHLER: Schrift "+*j+" ist unbekannt.");}
@@ -165,11 +170,11 @@ void table_steigern::neue_schrift_wegen_sprache()
 int table_steigern::andereSprache_gleicheSchriftart(std::string art)
 {
   int e=0;
-  for(std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCChar().CList_Schrift().begin();i!=hauptfenster->getCChar().CList_Schrift().end();++i)
+  for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_Schrift().begin();i!=hauptfenster->getCChar().CList_Schrift().end();++i)
    {
      if (cH_Schrift(*i)->Art_der_Schrift()==art)
-        if( (*i)->Erfolgswert() > e ) 
-           e = (*i)->Erfolgswert();
+        if( (*i).Erfolgswert() > e ) 
+           e = (*i).Erfolgswert();
    }
   return e;
 }

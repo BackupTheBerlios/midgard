@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.9 2002/06/06 08:12:23 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.10 2002/06/07 12:17:03 thoma Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -52,14 +52,14 @@ const std::string Abenteurer::SErfolgswert(std::string name,const Datenbank &Dat
 
 const pair<int,bool> Abenteurer::Erfolgswert(std::string name,const Datenbank &Database) const
 {
-  for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i)
+  for(std::list<MidgardBasicElement_mutable>::const_iterator i=list_Fertigkeit.begin();i!=list_Fertigkeit.end();++i)
    {
-     if(name==(*i)->Name()) return pair<int,bool>((*i)->Erfolgswert(),true); 
+     if(name==(*i)->Name()) return pair<int,bool>((*i).Erfolgswert(),true); 
    }   
   std::list<st_universell> UF=CList_Universell(Database);
   for(std::list<st_universell>::const_iterator i=UF.begin();i!=UF.end();++i)
    {
-     if(name==i->mbe->Name()) return pair<int,bool>(i->mbe->Erfolgswert(),false); 
+     if(name==i->mbe->Name()) return pair<int,bool>(i->mbe.Erfolgswert(),false); 
    }   
   return pair<int,bool>(-99,false);
 }
@@ -72,10 +72,10 @@ const std::list<Abenteurer::st_universell> Abenteurer::CList_Universell( const D
    {
      cH_Fertigkeit f(*i);
      if(f->Ungelernt()!=-99)
-     UF.push_back(*i);
+     UF.push_back(MidgardBasicElement_mutable(*i));
    }
   cH_MidgardBasicElement werfen(&*cH_Waffe("Werfen"));
-  UF.push_back(werfen);
+  UF.push_back(MidgardBasicElement_mutable(werfen));
   UF.sort(sort_universell());
 
   for(std::list<Abenteurer::st_universell>::iterator i=UF.begin();i!=UF.end();++i)
@@ -98,7 +98,7 @@ const std::list<Abenteurer::st_universell> Abenteurer::CList_Universell( const D
      if (i->mbe->ist_gelernt(CList_Fertigkeit()) || i->mbe->ist_gelernt(CList_Waffen()))
           i->gelernt=true;
      else // Erfolgswert nur dann setzen, wenn die Fertigkeit NICHT gelernt ist
-          i->mbe->setErfolgswert(iwert);
+          i->mbe.setErfolgswert(iwert);
    }
   return UF;
 }
@@ -173,16 +173,17 @@ void Abenteurer::speicherstream(ostream &datei,const Datenbank &Database,const M
    write_string(datei, Internal2Latin("Rüstung"), getCWerte().Ruestung()->Name(), 4);
    write_string(datei, Internal2Latin("Rüstung2"), getCWerte().Ruestung(1)->Name(), 4);
    // Waffen Besitz
-   for (std::list<cH_MidgardBasicElement>::const_iterator i=CList_Waffen_besitz().begin();
+   for (std::list<MidgardBasicElement_mutable>::const_iterator i=CList_Waffen_besitz().begin();
          i!=CList_Waffen_besitz().end();++i)
-      {  cH_WaffeBesitz WB(*i);
+      {  WaffeBesitz WB(*i);
          datei << "    <Waffe";
+         write_int_attrib(datei, "Erfolgswert", i->Erfolgswert());
          write_string_attrib(datei, "Bezeichnung", Internal2Latin(WB->Name()));
-         write_int_attrib(datei, "AngriffVerteidigung_Bonus", WB->av_Bonus());
-         write_int_attrib(datei, "SchadenLebenspunkte_Bonus", WB->sl_Bonus());
+         write_int_attrib(datei, "AngriffVerteidigung_Bonus", WB.av_Bonus());
+         write_int_attrib(datei, "SchadenLebenspunkte_Bonus", WB.sl_Bonus());
          write_string_attrib(datei, "Region", Internal2Latin(WB->Region()));
-         if (WB->Magisch().empty()) datei << "/>\n";
-         else datei << '>' << Internal2Latin(WB->Magisch()) << "</Waffe>\n";
+         if (WB.Magisch().empty()) datei << "/>\n";
+         else datei << '>' << Internal2Latin(WB.Magisch()) << "</Waffe>\n";
       }
    save_ausruestung(datei, getCBesitz().getChildren());
    datei << Internal2Latin("  </Ausrüstung>\n");
@@ -510,34 +511,38 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
       else if(sart=="Beruf")
         {
          cH_MidgardBasicElement beruf(&*cH_Beruf(i->getAttr("Bezeichnung"),true));
-         cH_Beruf(beruf)->setErfolgswert(i->getIntAttr("Wert"));
-         List_Beruf().push_back(beruf);
+         MidgardBasicElement_mutable B(beruf);
+         B.setErfolgswert(i->getIntAttr("Wert"));
+         List_Beruf().push_back(B);
         }
       else if(sart=="ang-Fertigkeit" || sart=="ang.Fertigkeit")
        {
          cH_MidgardBasicElement fert_an(&*cH_Fertigkeit_angeborene(i->getAttr("Bezeichnung"),true));
-         cH_Fertigkeit_angeborene(fert_an)->setErfolgswert(i->getIntAttr("Wert"));
-         List_Fertigkeit_ang().push_back(fert_an);
+         MidgardBasicElement_mutable F(fert_an);
+         F.setErfolgswert(i->getIntAttr("Wert"));
+         List_Fertigkeit_ang().push_back(F);
        }    
       else if(sart=="Fertigkeit")
        {
          cH_MidgardBasicElement fert(&*cH_Fertigkeit(i->getAttr("Bezeichnung"),true));
-         fert->setErfolgswert(i->getIntAttr("Wert"));
-         fert->setPraxispunkte(i->getIntAttr("Praxispunkte"));
+         MidgardBasicElement_mutable F(fert);
+         F.setErfolgswert(i->getIntAttr("Wert"));
+         F.setPraxispunkte(i->getIntAttr("Praxispunkte"));
          if(cH_Fertigkeit(fert)->ZusatzEnum(getVTyp()))
          {  fert=new Fertigkeit(*cH_Fertigkeit(fert));
             if(fert->Name()=="Landeskunde") cH_Land(i->getAttr("Zusatz"),true);
             if(fert->Name()=="Scharfschießen") cH_Waffe(i->getAttr("Zusatz"),true);
-            fert->setZusatz(i->getAttr("Zusatz"));
+            F.setZusatz(i->getAttr("Zusatz"));
          }
-         List_Fertigkeit().push_back(fert);
+         List_Fertigkeit().push_back(F);
        }    
       else if(sart=="Waffe")
         {
          cH_MidgardBasicElement waffe(&*cH_Waffe(i->getAttr("Bezeichnung"),true));
-         waffe->setErfolgswert(i->getIntAttr("Wert"));
-         waffe->setPraxispunkte(i->getIntAttr("Praxispunkte"));
-         List_Waffen().push_back(waffe);
+         MidgardBasicElement_mutable W(waffe);
+         W.setErfolgswert(i->getIntAttr("Wert"));
+         W.setPraxispunkte(i->getIntAttr("Praxispunkte"));
+         List_Waffen().push_back(W);
         }
 #if 0 // andere Liste       
       if(sart=="Besitz_W")
@@ -545,17 +550,26 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
       else if(sart=="Zauber")
         {
          cH_MidgardBasicElement zauber(&*cH_Zauber(i->getAttr("Bezeichnung"),true));
+         MidgardBasicElement_mutable Z(zauber);
          if(zauber->ZusatzEnum(getVTyp()))
           { zauber=new Zauber(*cH_Zauber(zauber));
-            zauber->setZusatz(i->getAttr("Zusatz"));
+            Z.setZusatz(i->getAttr("Zusatz"));
           }
-         List_Zauber().push_back(zauber);
+         List_Zauber().push_back(Z);
         }
       else if(sart=="Zauberwerk")
-          List_Zauberwerk().push_back(&*cH_Zauberwerk(i->getAttr("Bezeichnung"),
-          	i->getAttr("Art"),i->getAttr("Stufe"),true));
+        {
+          cH_MidgardBasicElement zauberwerk(&*cH_Zauberwerk(i->getAttr("Bezeichnung"),
+                      i->getAttr("Art"),i->getAttr("Stufe"),true));
+          MidgardBasicElement_mutable Z(zauberwerk);
+          List_Zauberwerk().push_back(Z);
+        }
       else if(sart=="KiDo")
-          List_Kido().push_back(&*cH_KiDo(i->getAttr("Bezeichnung"),true)) ;
+        {
+          cH_MidgardBasicElement kido(&*cH_KiDo(i->getAttr("Bezeichnung"),true));
+          MidgardBasicElement_mutable K(kido);
+          List_Kido().push_back(K) ;
+        }
       else if(sart=="Grundkenntnis")
         {  std::string bez=i->getAttr("Bezeichnung");
            if (bez=="ESchwert") bez="Einhandschwert";
@@ -563,11 +577,14 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
            else if (bez=="ESchlagwaffe") bez="Einhandschlagwaffe";
            else if (bez=="ZSchlagwaffe") bez="Zweihandschlagwaffe";
            else if (bez=="Schilde") bez="Schild";
-           List_WaffenGrund().push_back(&*cH_WaffeGrund(bez,true));
+           cH_MidgardBasicElement grund(&*cH_WaffeGrund(bez,true));
+           MidgardBasicElement_mutable G(grund);
+           List_WaffenGrund().push_back(G);
         }
       else if(sart=="Sprache")
         {
          cH_MidgardBasicElement sprache(&*cH_Sprache(i->getAttr("Bezeichnung"),true));
+         MidgardBasicElement_mutable S(sprache);
          int wert=i->getIntAttr("Wert");
          if (xml_version<8)          {  switch (wert)
             {  case 1: wert=4; break;
@@ -576,18 +593,19 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
                case 4: wert=13; break;
             }
          }
-         sprache->setErfolgswert(wert);
-         sprache->setPraxispunkte(i->getIntAttr("Praxispunkte"));
-         List_Sprache().push_back(sprache);
+         S.setErfolgswert(wert);
+         S.setPraxispunkte(i->getIntAttr("Praxispunkte"));
+         List_Sprache().push_back(S);
         }
       else if(sart=="Urschrift") 
         {
          cH_MidgardBasicElement schrift(&*cH_Schrift(i->getAttr("Bezeichnung"),true));
+         MidgardBasicElement_mutable S(schrift);
          int wert=i->getIntAttr("Wert");
          if (xml_version<8 && !wert) wert=12;
-         schrift->setErfolgswert(wert);
-         schrift->setPraxispunkte(i->getIntAttr("Praxispunkte"));
-         List_Schrift().push_back(schrift);
+         S.setErfolgswert(wert);
+         S.setPraxispunkte(i->getIntAttr("Praxispunkte"));
+         List_Schrift().push_back(S);
         }
       else if(sart=="Optionen")
         {
@@ -610,12 +628,21 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
     FOR_EACH_CONST_TAG_OF(i,*waffen_b,"Waffe")
     {   std::string wn = Database.Waffe_from_Alias[i->getAttr("Bezeichnung")];
         if (wn=="") wn=i->getAttr("Bezeichnung"); 
+         WaffeBesitz WB(cH_Waffe(wn,true),
+                        i->getIntAttr("Erfolgswert"),
+                        i->getAttr("Bezeichnung"),
+                        i->getIntAttr("AngriffVerteidigung_Bonus"),
+                        i->getIntAttr("SchadenLebenspunkte_Bonus"),
+                        i->Value());
+        List_Waffen_besitz().push_back(WB);
+/*
         List_Waffen_besitz().push_back(new 
 	        WaffeBesitz(cH_Waffe(wn,true),
                         i->getAttr("Bezeichnung"),
                         i->getIntAttr("AngriffVerteidigung_Bonus"),
                         i->getIntAttr("SchadenLebenspunkte_Bonus"),
                         i->Value()));
+*/
     }
 }
 

@@ -54,7 +54,7 @@ void Fertigkeit_angeborene::get_Fertigkeit()
 }
 
 
-int Fertigkeit_angeborene::FErfolgswert(const Grundwerte &Werte) const
+int Fertigkeit_angeborene::FErfolgswert(const Abenteurer &a,const MidgardBasicElement_mutable &mbem) const
 {
   if(Name()=="Trinken") return Erfolgswert()+Werte.Ko()/10;
   if(Name()=="Berserkergang") return Erfolgswert()-Werte.Wk()/5;

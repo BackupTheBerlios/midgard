@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.14 2002/06/06 08:12:23 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.15 2002/06/07 12:17:03 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -208,15 +208,15 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  // Sprachen und Schriften
  unsigned int sprachanz=0;
  unsigned int maxsprach=23;
- std::list<cH_MidgardBasicElement> verwandteSprachen;
- for(std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCChar().CList_Sprache().begin();i!=hauptfenster->getCChar().CList_Sprache().end();++i)
+ std::list<MidgardBasicElement_mutable> verwandteSprachen;
+ for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_Sprache().begin();i!=hauptfenster->getCChar().CList_Sprache().end();++i)
    {  cH_Sprache s(*i);
-      std::list<cH_MidgardBasicElement> tmplist=s->VerwandteSprachen(hauptfenster->getCChar().CList_Sprache(),hauptfenster->getCDatabase().Sprache);
+      std::list<MidgardBasicElement_mutable> tmplist=s->VerwandteSprachen((*i).Erfolgswert(),hauptfenster->getCChar().CList_Sprache(),hauptfenster->getCDatabase().Sprache);
       verwandteSprachen.splice(verwandteSprachen.end(),tmplist);
 //geht nicht!!!      verwandteSprachen.splice(verwandteSprachen.end(),s->VerwandteSprachen(hauptfenster->getCChar().CList_Sprache,hauptfenster->Database()().Sprache));
       std::string a = LaTeX_string(sprachanz++);
       fout << "\\newcommand{\\spra"<<a<<"}{\\scriptsize " << LaTeX_scale(LATIN(s->Name()),20,"2.6cm") <<"}\n";
-      fout << "\\newcommand{\\spraw"<<a<<"}{\\scriptsize +"<< s->Erfolgswert() <<"}\n";
+      fout << "\\newcommand{\\spraw"<<a<<"}{\\scriptsize +"<< (*i).Erfolgswert() <<"}\n";
       vector<pair<std::string,int> > vs=s->SchriftWert(hauptfenster->getCChar().CList_Schrift());
       std::string ss;
       for(vector<pair<std::string,int> >::const_iterator j=vs.begin();j!=vs.end();)
@@ -227,12 +227,12 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
       fout << "\\newcommand{\\schr"<<a<<"}{\\scriptsize "<< LaTeX_scale(LATIN(ss),20,"2.6cm") <<"}\n";
    }
  verwandteSprachen=Sprache::cleanVerwandteSprachen(verwandteSprachen);
- for(std::list<cH_MidgardBasicElement>::const_iterator i=verwandteSprachen.begin();i!=verwandteSprachen.end();++i)
+ for(std::list<MidgardBasicElement_mutable>::const_iterator i=verwandteSprachen.begin();i!=verwandteSprachen.end();++i)
    { cH_Sprache s(*i);
      if(s->ist_gelernt(hauptfenster->getCChar().CList_Sprache())) continue;
      std::string a = LaTeX_string(sprachanz++);
      fout << "\\newcommand{\\spra"<<a<<"}{\\scriptsize " << LaTeX_scale(LATIN(s->Name()),20,"2.6cm") <<"}\n";
-     fout << "\\newcommand{\\spraw"<<a<<"}{\\scriptsize (+"<< s->Erfolgswert() <<")}\n";
+     fout << "\\newcommand{\\spraw"<<a<<"}{\\scriptsize (+"<< (*i).Erfolgswert() <<")}\n";
      fout << "\\newcommand{\\schr"<<a<<"}{\\scriptsize "<< LaTeX_scale("",20,"2.6cm") <<"}\n";
    }
  for (unsigned int i=sprachanz; i<maxsprach;++i) // Bis zum Ende auffüllen
@@ -247,7 +247,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
 
  /////////////////////////////////////////////////////////////////////////////
  // Grundfertigkeiten (Waffen)
- for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCChar().CList_WaffenGrund().begin();i!=hauptfenster->getCChar().CList_WaffenGrund().end();++i)
+ for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_WaffenGrund().begin();i!=hauptfenster->getCChar().CList_WaffenGrund().end();++i)
    {
       std::string sout = (*i)->Name();
       if (sout =="Bögen") sout = "Bogen";
@@ -261,10 +261,10 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  /////////////////////////////////////////////////////////////////////////////
  // Beruf
  fout << "\\newcommand{\\beruf}{" ;
- for(std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCChar().CList_Beruf().begin();
+ for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_Beruf().begin();
          i!=hauptfenster->getCChar().CList_Beruf().end();++i)
    {
-     fout << LATIN((*i)->Name()); //<<" ("<<(*i)->Erfolgswert()<<")\t";
+     fout << LATIN((*i)->Name()); //<<" ("<<(*i).Erfolgswert()<<")\t";
    }
  fout <<"}\n";
  /////////////////////////////////////////////////////////////////////////////
@@ -278,32 +278,32 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  /////////////////////////////////////////////////////////////////////////////
  // angeborene Fertigkeiten
  int count=0;
- for(std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCChar().CList_Fertigkeit_ang().begin();i!=hauptfenster->getCChar().CList_Fertigkeit_ang().end();++i) 
+ for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_Fertigkeit_ang().begin();i!=hauptfenster->getCChar().CList_Fertigkeit_ang().end();++i) 
    {cH_Fertigkeit_angeborene f(*i);
     std::string a = LaTeX_string(count);
     count++;
     fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<LATIN(f->Name()) << "}   ";
     // Praxispunkte
-    std::string pp = itos(f->Praxispunkte());
+    std::string pp = itos((*i).Praxispunkte());
     if (pp == "0") pp = "";
     fout << "\\newcommand{\\praxis"<<a<<"}{"  << pp << "}   ";
     // Erfolgswert
-    std::string wert = itos(f->FErfolgswert(hauptfenster->getCWerte()));
+    std::string wert = itos(f->FErfolgswert(hauptfenster->getCChar().getAbenteurer(),*i));
     if (wert == "0") wert = "";
     fout << "\\newcommand{\\wert"<<a<<"}{"  <<wert << "}\n";
    }
  /////////////////////////////////////////////////////////////////////////////
  // Fertigkeiten
- for(std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCChar().CList_Fertigkeit().begin();i!=hauptfenster->getCChar().CList_Fertigkeit().end();++i) 
+ for(std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_Fertigkeit().begin();i!=hauptfenster->getCChar().CList_Fertigkeit().end();++i) 
    {cH_Fertigkeit f(*i);
     std::string a = LaTeX_string(count);
     count++;
-    std::string wert = itos(f->Erfolgswert());
+    std::string wert = itos((*i).Erfolgswert());
     if (wert == "0") wert = "";
     fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<LATIN(f->Name())<<
-      ' '<<LATIN(f->Zusatz()) << "}\t\t";
+      ' '<<LATIN((*i).Zusatz()) << "}\t\t";
     // Praxispunkte
-    std::string pp = itos(f->Praxispunkte());
+    std::string pp = itos((*i).Praxispunkte());
     if (pp == "0") pp = "";
     fout << "\\newcommand{\\praxis"<<a<<"}{"  << pp << "}   ";
     fout << "\\newcommand{\\wert"<<a<<"}{"  <<wert << "}\n";
@@ -318,58 +318,59 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  int  i_waffenlos = 4;
  unsigned int countwaffen=0;
  std::string angriffsverlust_string = hauptfenster->getCWerte().Ruestung_Angriff_Verlust(hauptfenster->getCChar().CList_Fertigkeit());
- for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCChar().CList_Waffen().begin();i!=hauptfenster->getCChar().CList_Waffen().end();++i)
+ for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_Waffen().begin();i!=hauptfenster->getCChar().CList_Waffen().end();++i)
    {cH_Waffe w(*i);
     count++;
     std::string a = LaTeX_string(count);
 //std::cout << "latexstring = "<<a<<"\n";
-    std::string wert = itos(w->Erfolgswert());
+    std::string wert = itos((*i).Erfolgswert());
     fout <<"\\newcommand{\\fert"<<a<<"}{\\scriptsize "  <<LATIN(w->Name()) << "}\t\t";
     // Praxispunkte
-    std::string pp = itos(w->Praxispunkte());
+    std::string pp = itos((*i).Praxispunkte());
     if (pp == "0") pp = "";
     fout << "\\newcommand{\\praxis"<<a<<"}{"  << pp << "}   ";
     fout <<"\\newcommand{\\wert"<<a<<"}{"  <<wert << "}\n";
     // waffenloser Kampf:
     if (w->Name()=="waffenloser Kampf") 
          { i_waffenlos=atoi(wert.c_str());}
-      for (std::list<cH_MidgardBasicElement>::const_iterator j=hauptfenster->getCChar().CList_Waffen_besitz().begin();j!=hauptfenster->getCChar().CList_Waffen_besitz().end();++j)
+      for (std::list<MidgardBasicElement_mutable>::const_iterator j=hauptfenster->getCChar().CList_Waffen_besitz().begin();j!=hauptfenster->getCChar().CList_Waffen_besitz().end();++j)
      {
-      cH_WaffeBesitz WB(*j);
-      if (WB->Waffe()->Name()==w->Name())
+      WaffeBesitz WB(*j);
+      if (WB.Waffe()->Name()==w->Name())
        {
          std::string b = LaTeX_string(countwaffen++);
 //std::cout << (*j)->Name()<<"\t"<<w->Name()<<"\t"<<"latexstring = "<<b<<"\n";
          std::string waffenname ;
          waffenname = WB->Name();
          fout << "\\newcommand{\\waffe"<<b<<"}{ " ;
-         if (WB->Magisch()!="" || 
-            (WB->av_Bonus()!=0 && WB->sl_Bonus()!=0)) waffenname+="$^*$ "+WB->Bonus() ;
-         fout <<LaTeX_scalemag(LATIN(waffenname),20,"3cm",WB->Magisch(),WB->Waffe()->Reichweite())<< "}\n";
+         if (WB.Magisch()!="" || 
+            (WB.av_Bonus()!=0 && WB.sl_Bonus()!=0)) waffenname+="$^*$ "+WB.Bonus() ;
+         fout <<LaTeX_scalemag(LATIN(waffenname),20,"3cm",WB.Magisch(),WB.Waffe()->Reichweite())<< "}\n";
          
          // Erfolgswert für einen Verteidigungswaffen
-         if (WB->Waffe()->Verteidigung())
+         if (WB.Waffe()->Verteidigung())
           {
-           int wert = (*i)->Erfolgswert() + WB->av_Bonus() + WB->Waffe()->WM_Angriff(WB->Name()) ;
+           int wert = (*i).Erfolgswert() + WB.av_Bonus() + WB.Waffe()->WM_Angriff(WB->Name()) ;
            fout << "\\newcommand{\\waffeE"<<b<<"}{"<<itos(wert)<<"}\n";
           }
          // Erfolgswert für Angriffswaffen
          else 
           {
-           int wert = (*i)->Erfolgswert() + hauptfenster->getCWerte().bo_An() + WB->av_Bonus() + WB->Waffe()->WM_Angriff(WB->Name()) ;
+           int wert = (*i).Erfolgswert() + hauptfenster->getCWerte().bo_An() + WB.av_Bonus() + WB.Waffe()->WM_Angriff(WB->Name()) ;
            // Angriffsbonus subtrahieren, wenn schwere Rüstung getragen wird:
            fout << "\\newcommand{\\waffeE"<<b<<"}{"<<wert<<angriffsverlust_string<<"}\n";
           }
-         std::string schaden=WB->Schaden(hauptfenster->getCWerte(),WB->Name(),true);
+         std::string schaden=WB.Schaden(hauptfenster->getCWerte(),WB->Name(),true);
          fout << "\\newcommand{\\waffeS"<<b<<"}{"<<schaden << "}\n";
-         std::string anm = WB->Waffe()->Waffenrang();
+         std::string anm = WB.Waffe()->Waffenrang();
          fout << "\\newcommand{\\waffeA"<<b<<"}{"<<anm << "}\n";
-         std::string abm = WB->Waffe()->WM_Abwehr();
+         std::string abm = WB.Waffe()->WM_Abwehr();
          fout << "\\newcommand{\\waffeV"<<b<<"}{"<<abm << "}\n";
        }
      }
    }
  // waffenloser Kampf:
+/*
  cH_MidgardBasicElement waffenlos(new WaffeBesitz(cH_Waffe("waffenloser Kampf"),"waffenloser Kampf",0,0,""));
  fout << "\\newcommand{\\waffeEy"<<"}{"<<i_waffenlos+hauptfenster->getCWerte().bo_An() << "}\n";
  std::string schaden= cH_WaffeBesitz(waffenlos)->Schaden(hauptfenster->getCWerte(), waffenlos->Name(),true);
@@ -378,6 +379,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
  fout << "\\newcommand{\\waffeAy}{"<<anm << "}\n";
  std::string abm = cH_WaffeBesitz(waffenlos)->Waffe()->WM_Abwehr();
  fout << "\\newcommand{\\waffeVy}{"<<abm << "}\n";
+*/
  /////////////////////////////////////////////////////////////////////////
  // Universelle Fertigkeiten
 
@@ -388,7 +390,7 @@ void LaTeX_drucken::LaTeX_write_values(ostream &fout,const std::string &install_
     std::string a = LaTeX_string(countunifert);
     std::string name = i->mbe->Name();
     std::string wert;
-    int iwert= i->mbe->Erfolgswert();
+    int iwert= i->mbe.Erfolgswert();
     if   (iwert>=0) wert = "+"+itos(iwert);
     else            wert = "--"+itos(abs(iwert));
     
@@ -567,7 +569,7 @@ void LaTeX_drucken::LaTeX_write_empty_values(ostream &fout,const std::string &in
   }
  cH_MidgardBasicElement werfen(&*cH_Waffe("Werfen")); 
  UF.push_back(werfen);
- UF.sort(cH_MidgardBasicElement::sort(cH_MidgardBasicElement::sort::NAME));
+ UF.sort(MidgardBasicElement_mutable::sort(MidgardBasicElement_mutable::sort::NAME));
  int countunifert=0;
  for(std::list<cH_MidgardBasicElement>::iterator i=UF.begin();i!=UF.end();++i)
   {
@@ -868,11 +870,11 @@ void LaTeX_drucken::pdf_viewer(const std::string& file)
 
 void LaTeX_drucken::LaTeX_zauber(ostream &fout)
 {
-  for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCChar().CList_Zauber().begin();i!=hauptfenster->getCChar().CList_Zauber().end();++i)
+  for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_Zauber().begin();i!=hauptfenster->getCChar().CList_Zauber().end();++i)
    {
      cH_Zauber z(*i);
      fout << LATIN(z->Name()) ;
-     if(!z->Zusatz().empty()) fout << " ("<<LATIN(z->Zusatz())<<")";
+     if(!(*i).Zusatz().empty()) fout << " ("<<LATIN((*i).Zusatz())<<")";
      fout <<" & ";
      fout << z->Erfolgswert_Z(hauptfenster->getCChar().getVTyp(),hauptfenster->getCWerte()) <<" & ";
      fout << Gtk2TeX::string2TeX(LATIN(z->Ap())) << " & ";
@@ -892,7 +894,7 @@ void LaTeX_drucken::LaTeX_zauber(ostream &fout)
 
 void LaTeX_drucken::LaTeX_zaubermittel(ostream &fout)
 {
-  for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCChar().CList_Zauberwerk().begin();i!=hauptfenster->getCChar().CList_Zauberwerk().end();++i)
+  for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_Zauberwerk().begin();i!=hauptfenster->getCChar().CList_Zauberwerk().end();++i)
    {
      cH_Zauberwerk z(*i);
 //     std::string wert ;//= itos((*i)->Wert());
@@ -936,7 +938,7 @@ void LaTeX_drucken::LaTeX_zauber_main(ostream &fout)
 
 void LaTeX_drucken::LaTeX_kido(ostream &fout)
 {
-  for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCChar().CList_Kido().begin();i!=hauptfenster->getCChar().CList_Kido().end();++i)
+  for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_Kido().begin();i!=hauptfenster->getCChar().CList_Kido().end();++i)
    {
      cH_KiDo kd(*i);
      std::string ap = itos(kd->Ap());

@@ -97,15 +97,15 @@ std::string Sprache::Schriften() const
 
 
 //const vector<pair<std::string,int> > Sprache::SchriftWert(const std::list<cH_MidgardBasicElement>& list_Schrift,const std::list<cH_MidgardBasicElement>& list_AllSchrift) const 
-const vector<pair<std::string,int> > Sprache::SchriftWert(const std::list<cH_MidgardBasicElement>& list_Schrift) const 
+const vector<pair<std::string,int> > Sprache::SchriftWert(const std::list<MidgardBasicElement_mutable>& list_Schrift) const 
 {
  vector<pair<std::string,int> > vs;
  for(vector<std::string>::const_iterator i=VSchrift.begin();i!=VSchrift.end();++i)
   {  
-   for(std::list<cH_MidgardBasicElement>::const_iterator j=list_Schrift.begin();j!=list_Schrift.end();++j)
+   for(std::list<MidgardBasicElement_mutable>::const_iterator j=list_Schrift.begin();j!=list_Schrift.end();++j)
     {
       if(*i == (*j)->Name()) // Schrift ist gelernt
-        vs.push_back(pair<std::string,int>(*i,(*j)->Erfolgswert()));
+        vs.push_back(pair<std::string,int>(*i,(*j).Erfolgswert()));
 /*
       else // Schrift nicht gelernt, aber vielleicht ist dieselbe Schrift gelernt?
         {
@@ -131,35 +131,44 @@ bool Sprache::Sprachgruppe(const std::vector<int>& V2) const
   return false;
 }
 
-std::list<cH_MidgardBasicElement> Sprache::VerwandteSprachen(const std::list<cH_MidgardBasicElement>& gelernte_listSprache,const std::list<cH_MidgardBasicElement>& listSprache) const
+std::list<MidgardBasicElement_mutable> Sprache::VerwandteSprachen(const int erfolgswert,const std::list<MidgardBasicElement_mutable>& gelernte_listSprache,const std::list<cH_MidgardBasicElement>& listSprache) const
 {
-  std::list<cH_MidgardBasicElement> VS;
+  std::list<MidgardBasicElement_mutable> VS;
   for(std::list<cH_MidgardBasicElement>::const_iterator i=listSprache.begin();i!=listSprache.end();++i)
-     if(Erfolgswert()>=10 && !(*i)->ist_gelernt(gelernte_listSprache) &&
+   {
+     if(erfolgswert>=10 && !(*i)->ist_gelernt(gelernte_listSprache) &&
         Sprachgruppe(cH_Sprache(*i)->getVSprachgruppe())) 
       {
-         cH_MidgardBasicElement MBE=new Sprache(*cH_Sprache(*i)); // Kopie anlegen
-         MBE->setErfolgswert(Erfolgswert()-10);
-         VS.push_back(MBE) ;
+//         cH_MidgardBasicElement MBE=new Sprache(*cH_Sprache(*i)); // Kopie anlegen
+//         MBE->setErfolgswert(Erfolgswert()-10);
+//         VS.push_back(MBE) ;
+        MidgardBasicElement_mutable M(*i);
+        M.setErfolgswert(erfolgswert-10);
+        VS.push_back(*i);
       }
+   }
  return VS;
 }
 
-std::list<cH_MidgardBasicElement> Sprache::cleanVerwandteSprachen(std::list<cH_MidgardBasicElement> L)
+std::list<MidgardBasicElement_mutable> Sprache::cleanVerwandteSprachen(std::list<MidgardBasicElement_mutable> L)
 {
   // Aus der Liste die Sprache mit dem höchsten Erfolgswert nehmen.
   std::map<std::string,int> M;
-  for(std::list<cH_MidgardBasicElement>::const_iterator i=L.begin();i!=L.end();++i)
+  for(std::list<MidgardBasicElement_mutable>::const_iterator i=L.begin();i!=L.end();++i)
    {
-     if(M[(*i)->Name()] < (*i)->Erfolgswert()) 
-         M[(*i)->Name()] = (*i)->Erfolgswert();
+     if(M[(*i)->Name()] < (*i).Erfolgswert()) 
+         M[(*i)->Name()] = (*i).Erfolgswert();
    }
-  std::list<cH_MidgardBasicElement> N;
+  std::list<MidgardBasicElement_mutable> N;
   for(std::map<std::string,int>::const_iterator i=M.begin();i!=M.end();++i)
    {
      const cH_Sprache s(i->first);
-     s->setErfolgswert(i->second);
-     N.push_back(&*s);
+//     s->setErfolgswert(i->second);
+//     N.push_back(&*s);
+     
+     MidgardBasicElement_mutable m(&*s);
+     m.setErfolgswert(i->second);
+     N.push_back(m);
    }
  return N;
 }

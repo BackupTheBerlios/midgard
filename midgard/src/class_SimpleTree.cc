@@ -40,28 +40,28 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
           { cH_Fertigkeit_angeborene F(MBE);
             return cH_EntryValueIntString(itos(F->Min())+"-"+itos(F->Max()));
           }
-         case NAMEaf  : return cH_EntryValueIntString(MBE->Name()+" "+MBE->Zusatz());
-         case WERTaf  : return cH_EntryValueEmptyInt(MBE->Erfolgswert());
+         case NAMEaf  : return cH_EntryValueIntString(MBE->Name()+" "+MBE.Zusatz());
+         case WERTaf  : return cH_EntryValueEmptyInt(MBE.Erfolgswert());
         }
       else if (Variante==MidgardBasicTree::GELERNTES)
        switch((Spalten_GELERNTES)seqnr) {
          case ARTgg  : 
                return cH_EntryValueIntString(MBE->What_str()); 
          case NAMEgg : 
-               return cH_EntryValueIntString(MBE->Name()+" "+MBE->Zusatz());
+               return cH_EntryValueIntString(MBE->Name()+" "+MBE.Zusatz());
          case WERTgg : 
            {
              if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
-                return cH_EntryValueEmptyInt(cH_Fertigkeit(MBE)->FErfolgswert(hauptfenster->getCWerte())); 
+                return cH_EntryValueEmptyInt(MBE->FErfolgswert(hauptfenster->getCChar().getAbenteurer(),MBE)); 
              else
-                return cH_EntryValueEmptyInt(MBE->Erfolgswert());
+                return cH_EntryValueEmptyInt(MBE.Erfolgswert());
            }
          case LERNPUNKTEgg : 
-            return cH_EntryValueEmptyInt(MBE->Lernpunkte()); 
+            return cH_EntryValueEmptyInt(MBE.Lernpunkte()); 
         }
       else if (Variante==MidgardBasicTree::LERNSCHEMA)
        switch((Spalten_LERNSCHEMA)seqnr) {
-         case LERNPUNKTEg : return cH_EntryValueIntString(MBE->Lernpunkte()); 
+         case LERNPUNKTEg : return cH_EntryValueIntString(MBE.Lernpunkte()); 
          case PFLICHTg : 
             { if ( MBE->What()==MidgardBasicElement::FERTIGKEIT)
                        return cH_EntryValueIntString(cH_Fertigkeit(MBE)->Pflicht_str()); 
@@ -71,7 +71,7 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case NAMEg : 
            {
              if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
-                return cH_EntryValueIntString(MBE->Name()+" "+cH_Fertigkeit(MBE)->Zusatz());
+                return cH_EntryValueIntString(MBE->Name()+" "+MBE.Zusatz());
              else
                 return cH_EntryValueIntString(MBE->Name());
            }
@@ -79,14 +79,14 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
            {
              if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
                { int AB = cH_Fertigkeit(MBE)->AttributBonus(hauptfenster->getCWerte());
-                 const int EW=cH_Fertigkeit(MBE)->FErfolgswert(hauptfenster->getCWerte());
+                 const int EW=MBE->FErfolgswert(hauptfenster->getCChar().getAbenteurer(),MBE);
                  if(!AB) return cH_EntryValueEmptyInt(EW); 
                  else { std::string s=itos(EW-AB)+"+"+itos(AB); 
                    return cH_EntryValueIntString(s);
                   }
                }
              else if(MBE->What()==MidgardBasicElement::WAFFE)
-                return cH_EntryValueIntString(MBE->Erfolgswert());
+                return cH_EntryValueIntString(MBE.Erfolgswert());
              else if(MBE->What()==MidgardBasicElement::ZAUBER)
                 return cH_EntryValueIntString(cH_Zauber(MBE)->Ap());
            }
@@ -113,7 +113,7 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case ARTg : 
             return cH_EntryValueIntString(MBE->Standard__(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp())); 
          case GELERNTg : 
-            if (MBE->Gelernt()) return cH_EntryValueIntString("*"); 
+            if (MBE.Gelernt()) return cH_EntryValueIntString("*"); 
             else return cH_EntryValueIntString("");
         }
       else if (Variante==MidgardBasicTree::LONG_ALT)
@@ -121,18 +121,18 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case NAMEa : 
            {
 //             if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
-             return cH_EntryValueIntString(MBE->Name()+" "+MBE->Zusatz());
+             return cH_EntryValueIntString(MBE->Name()+" "+MBE.Zusatz());
 //             else
 //                return cH_EntryValueIntString(MBE->Name());
            }
          case WERTa : 
            {
              if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
-                return cH_EntryValueEmptyInt(cH_Fertigkeit(MBE)->FErfolgswert(hauptfenster->getCWerte())); 
+                return cH_EntryValueEmptyInt(MBE->FErfolgswert(hauptfenster->getCChar().getAbenteurer(),MBE)); 
              else
-                return cH_EntryValueIntString(MBE->Erfolgswert());
+                return cH_EntryValueIntString(MBE.Erfolgswert());
            }
-         case PPa : return cH_EntryValueEmptyInt(MBE->Praxispunkte()); 
+         case PPa : return cH_EntryValueEmptyInt(MBE.Praxispunkte()); 
          case STANDARDa : return cH_EntryValueIntString(MBE->Standard__(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp()));
          case STEIGERN : return cH_EntryValueEmptyInt(MBE->Steigern(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp()));
          case REDUZIEREN : return cH_EntryValueEmptyInt(MBE->Reduzieren(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp()));
@@ -144,16 +144,16 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
          case NAMEn : 
            {
              if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
-                return cH_EntryValueIntString(MBE->Name()+" "+cH_Fertigkeit(MBE)->Zusatz());
+                return cH_EntryValueIntString(MBE->Name()+" "+MBE.Zusatz());
              else
                 return cH_EntryValueIntString(MBE->Name());
            }
          case WERTn : 
            {
              if(MBE->What()==MidgardBasicElement::FERTIGKEIT)
-                return cH_EntryValueEmptyInt(cH_Fertigkeit(MBE)->FErfolgswert(hauptfenster->getCWerte())); 
+                return cH_EntryValueEmptyInt(MBE->FErfolgswert(hauptfenster->getCChar().getAbenteurer(),MBE)); 
              else
-                return cH_EntryValueIntString(MBE->Erfolgswert());
+                return cH_EntryValueIntString(MBE.Erfolgswert());
            }
          case LERNKOSTEN : 
           {
@@ -184,8 +184,8 @@ const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
        switch((Spalten_SCHRIFT_ALT)seqnr) {
          case NAMEsa : return cH_EntryValueIntString(MBE->Name());
          case ARTsa : return cH_EntryValueIntString(cH_Schrift(MBE)->Art_der_Schrift());
-         case WERTsa : return cH_EntryValueIntString(MBE->Erfolgswert());
-         case PPsa : return cH_EntryValueEmptyInt(MBE->Praxispunkte()); 
+         case WERTsa : return cH_EntryValueIntString(MBE.Erfolgswert());
+         case PPsa : return cH_EntryValueEmptyInt(MBE.Praxispunkte()); 
          case STANDARDsa : return cH_EntryValueIntString(MBE->Standard__(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp()));
          case STEIGERNs : return cH_EntryValueEmptyInt(MBE->Steigern(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp()));
          case REDUZIERENs : return cH_EntryValueEmptyInt(MBE->Reduzieren(hauptfenster->getCWerte(),hauptfenster->getCChar().getVTyp()));

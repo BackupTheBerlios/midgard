@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.44 2002/06/06 12:38:40 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.45 2002/06/07 12:17:03 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -35,7 +35,7 @@ class Grundwerte
              :  st(_st),gw(_gw),gs(_gs),ko(_ko),in(_in),zt(_zt) {}
          };         
    st_grund grund;
-   std::list<MidgardBasicElement> list_Sinne;
+   std::list<MidgardBasicElement_mutable> list_Sinne;
    int raufen;
 
    int au,pa,sb,wk,b,lp,ap;
@@ -94,7 +94,7 @@ public:
    int B() const {return b;}
    int LP() const {return lp;}
    int AP() const {return ap;}
-   std::list<MidgardBasicElement> Sinne() const {return list_Sinne;}
+   std::list<MidgardBasicElement_mutable> Sinne() const {return list_Sinne;}
    int Raufen() const;
    int Abwehr_wert() const {return abwehr_wert;}
    int AbwehrPP() const {return abwehr_pp;}
@@ -262,8 +262,8 @@ public:
    // LaTeX code für die Rüstung
    std::string Ruestung_RW_Verlust() const ;
    std::string Ruestung_B_Verlust() const ;
-   std::string Ruestung_Abwehr_Verlust(const std::list<cH_MidgardBasicElement>& list_Fertigkeit) const;
-   std::string Ruestung_Angriff_Verlust(const std::list<cH_MidgardBasicElement>& list_Fertigkeit) const;
+   std::string Ruestung_Abwehr_Verlust(const std::list<MidgardBasicElement_mutable>& list_Fertigkeit) const;
+   std::string Ruestung_Angriff_Verlust(const std::list<MidgardBasicElement_mutable>& list_Fertigkeit) const;
 
 };
 #endif

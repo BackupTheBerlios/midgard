@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.171 2002/06/04 09:46:01 thoma Exp $
+# $Id: Makefile.am,v 1.172 2002/06/07 12:17:03 thoma Exp $
 
 bin_PROGRAMS = magus
 noinst_PROGRAMS = text2c
@@ -206,13 +206,6 @@ magus_SOURCES = $(PORT_FILES) \
    Midgard_Undo.cc \
    Tag.cc TagStream.cc xml.cc export_common.cc \
    ProgressBar.cc 
-
-#   LaTeX_header.cc \
-#   LaTeX_out.cc \
-#   LaTeX_zauber.cc \
-#   LaTeX_kido.cc \
-#   LaTeX_charakter_beschreibung.cc \
-
 
 CXXFLAGS = @CXXFLAGS@ 
 CPPFLAGS = @CPPFLAGS@ @KOMPONENTEN_INCLUDES@ -DUSE_XML \

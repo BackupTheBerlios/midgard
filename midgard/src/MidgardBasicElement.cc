@@ -378,3 +378,10 @@ cout << "\n\n\nverwendbareEP "<<fert<<' '<<steigern<<'\n';
  steigern_mit_EP=back;
 }
 
+
+std::string MidgardBasicElement_mutable::Pflicht_str() const
+{
+  if (Pflicht()) return "X";
+  else return "";
+}
+    

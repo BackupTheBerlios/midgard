@@ -32,15 +32,15 @@ class cH_MidgardBasicElement;
 class SimpleTree;
 class Datenbank;
 class midgard_CG;
+class MidgardBasicElement_mutable;
+class Abenteurer;
 
-#ifdef USE_XML
 class NotFound : public std::exception
 {public:
 	virtual const char* what() const throw() { return "NotFound"; }
 };
-#endif
 
-class MidgardBasicElement_fixed : public HandleContentCopyable
+class MidgardBasicElement : public HandleContentCopyable
 {
    private:
       // WARNUNG: Beruf wird nicht verwendet
@@ -59,6 +59,7 @@ class MidgardBasicElement_fixed : public HandleContentCopyable
 	const Tag *tag;
       std::string name, region,region_zusatz;
       int kosten;
+      mutable int anfangswert;
       eZusatz enum_zusatz;
 //      int mutable praxispunkte,erfolgswert,lernpunkte;
 //      enum zusatz;      
@@ -78,11 +79,11 @@ class MidgardBasicElement_fixed : public HandleContentCopyable
       int GrundKosten() const {  return kosten; }
 
    public:
-      MidgardBasicElement_fixed(const std::string &n) 
-            : tag(0), name(n), kosten(0),enum_zusatz(ZNone)
+      MidgardBasicElement(const std::string &n) 
+            : tag(0), name(n), kosten(0),anfangswert(0),enum_zusatz(ZNone)
               ,nsc_only(false),steigern_mit_EP(0) {}
-      MidgardBasicElement_fixed(const Tag *t,const std::string &n) 
-		: tag(t), name(n), kosten(0),enum_zusatz(ZNone)
+      MidgardBasicElement(const Tag *t,const std::string &n) 
+		: tag(t), name(n), kosten(0),anfangswert(0),enum_zusatz(ZNone)
               ,nsc_only(false),steigern_mit_EP(0) {}
 
       enum MBEE {BERUF,FERTIGKEIT,FERTIGKEIT_ANG,WAFFEGRUND,WAFFE,WAFFEBESITZ,
@@ -97,6 +98,8 @@ class MidgardBasicElement_fixed : public HandleContentCopyable
       bool NSC_only() const {return nsc_only;}
       void EP_steigern(const std::string fert);
       virtual std::string Name() const {return name;}
+      int Anfangswert() const {return anfangswert;}
+      void setAnfangswert(int i) const {anfangswert=i;}
       std::string Region() const {return region;}
       std::string RegionZusatz() const {return region_zusatz;}
       std::string RegionString(const Datenbank &D) const;
@@ -107,6 +110,10 @@ class MidgardBasicElement_fixed : public HandleContentCopyable
       virtual int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const {return 0;};
       bool ist_lernbar(const vector<cH_Typen>& Typ,const map<std::string,std::string>& map_typ) const;
       bool ist_gelernt(const std::list<std::string>& L) const;
+      bool ist_gelernt(const std::list<MidgardBasicElement_mutable>& L) const;
+      virtual int FErfolgswert(const Abenteurer &abenteurer,const MidgardBasicElement_mutable &mbem) const;
+
+
       int get_Steigern_Kosten(int erfolgswert) const;
       vector<std::string> Standard(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const; 
       std::string Standard__(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const;
@@ -123,36 +130,45 @@ public:
       int Verlernen(const Grundwerte &Werte,const vector<cH_Typen>& Typ) const; 
       bool standard_one_G(const vector<std::string>& s) const ;
       bool standard_all_S(const vector<std::string>& s) const ;
-      bool operator == (const MidgardBasicElement_fixed& b) const 
+      bool operator == (const MidgardBasicElement& b) const 
          {return What()==b.What() && Name()==b.Name();}
-      bool operator < (const MidgardBasicElement_fixed& b) const 
+      bool operator < (const MidgardBasicElement& b) const 
          {return  Name()<b.Name() ||
                  (Name()==b.Name() && What()<=b.What());  
          }
 
 
       static void show_list_in_tree(
-            const std::list<cH_MidgardBasicElement>& BasicList,
+            const std::list<MidgardBasicElement_mutable>& BasicList,
             SimpleTree *Tree, const midgard_CG *hauptfenster,
             bool clear_me=true);
 
+      static void move_element(std::list<MidgardBasicElement_mutable>& von,
+                               std::list<MidgardBasicElement_mutable>& nach,
+                               const MidgardBasicElement_mutable& MBE);
+
+      static void saveElementliste(ostream &datei,
+      				const std::list<MidgardBasicElement_mutable>& b,
+                                   const Grundwerte& Werte,
+                                   const vector<cH_Typen>& Typ);
+
 };
 
 
-class cH_MidgardBasicElement_fixed : public Handle<const MidgardBasicElement_fixed>
+class cH_MidgardBasicElement : public Handle<const MidgardBasicElement>
 {
-      typedef CacheStatic<std::string,cH_MidgardBasicElement_fixed> cache_t;
+      typedef CacheStatic<std::string,cH_MidgardBasicElement> cache_t;
       static cache_t cache;
-      friend class std::map<std::string,cH_MidgardBasicElement_fixed>;
-      cH_MidgardBasicElement_fixed(){}
+      friend class std::map<std::string,cH_MidgardBasicElement>;
+      cH_MidgardBasicElement(){}
    public:
-      cH_MidgardBasicElement_fixed(const MidgardBasicElement_fixed *r) 
-            : Handle<const MidgardBasicElement_fixed>(r){}
+      cH_MidgardBasicElement(const MidgardBasicElement *r) 
+            : Handle<const MidgardBasicElement>(r){}
 
 
 };
 
-class MidgardBasicElement : public cH_MidgardBasicElement_fixed
+class MidgardBasicElement_mutable : public cH_MidgardBasicElement
 {
  private:
       int praxispunkte,erfolgswert,lernpunkte;
@@ -160,12 +176,16 @@ class MidgardBasicElement : public cH_MidgardBasicElement_fixed
                               // (z.B. Abrichten, Sprache, Geheimzeichen...)
                               // und Zauber (Tiersprache)
       bool gelernt; // Fürs Lernschema
-
+      bool pflicht;
+      std::string lernart; // Fach- Allgemeinwissen, ungew. Fert.
+      
+   
  public: 
 
-      MidgardBasicElement(const cH_MidgardBasicElement_fixed  &mbe)
-         : cH_MidgardBasicElement_fixed(mbe),praxispunkte(0),erfolgswert(0),
-            lernpunkte(0),gelernt(false) {}
+      MidgardBasicElement_mutable(const cH_MidgardBasicElement  &mbe)
+         : cH_MidgardBasicElement(mbe),praxispunkte(0),erfolgswert(0),
+            lernpunkte(0),gelernt(false),pflicht(false) 
+           {setErfolgswert(mbe->Anfangswert());}
 
       int Lernpunkte() const {return lernpunkte;};
       void setLernpunkte(int l) {lernpunkte=l;}
@@ -182,16 +202,13 @@ class MidgardBasicElement : public cH_MidgardBasicElement_fixed
       std::string Zusatz() const {return zusatz;}
       void setZusatz(std::string z) {zusatz=z;}
 
-      bool ist_gelernt(const std::list<MidgardBasicElement>& L) const;
-
-      static void move_element(std::list<MidgardBasicElement>& von,
-                               std::list<MidgardBasicElement>& nach,
-                               const MidgardBasicElement& MBE);
-
-      static void saveElementliste(ostream &datei,
-      				const std::list<MidgardBasicElement>& b,
-                                   const Grundwerte& Werte,
-                                   const vector<cH_Typen>& Typ);
+     std::string LernArt() const {return lernart;}
+     void setLernArt(std::string z)  {lernart=z;}   
+     
+     bool Pflicht() const {return pflicht;}
+     void setPflicht(bool p) {pflicht=p;}
+     std::string Pflicht_str() const; 
+               
 
    class sort {
       public:
@@ -200,7 +217,7 @@ class MidgardBasicElement : public cH_MidgardBasicElement_fixed
          esort es;
       public:
          sort(esort _es):es(_es) {}
-         bool operator() (MidgardBasicElement x,MidgardBasicElement y) const
+         bool operator() (MidgardBasicElement_mutable x,MidgardBasicElement_mutable y) const
            { switch(es) {
                case(LERNPUNKTE) : return x.Lernpunkte() < y.Lernpunkte()  ;
                case(NAME) : return x->Name() < y->Name()  ;

@@ -24,14 +24,14 @@ class table_steigern : public table_steigern_glade
         friend class midgard_CG;
         midgard_CG *hauptfenster;
 
-        std::list<cH_MidgardBasicElement> list_Fertigkeit_neu;
-        std::list<cH_MidgardBasicElement> list_WaffenGrund_neu;
-        std::list<cH_MidgardBasicElement> list_Waffen_neu;
-        std::list<cH_MidgardBasicElement> list_Zauber_neu;
-        std::list<cH_MidgardBasicElement> list_Zauberwerk_neu;
-        std::list<cH_MidgardBasicElement> list_Kido_neu;
-        std::list<cH_MidgardBasicElement> list_Sprache_neu;
-        std::list<cH_MidgardBasicElement> list_Schrift_neu;
+        std::list<MidgardBasicElement_mutable> list_Fertigkeit_neu;
+        std::list<MidgardBasicElement_mutable> list_WaffenGrund_neu;
+        std::list<MidgardBasicElement_mutable> list_Waffen_neu;
+        std::list<MidgardBasicElement_mutable> list_Zauber_neu;
+        std::list<MidgardBasicElement_mutable> list_Zauberwerk_neu;
+        std::list<MidgardBasicElement_mutable> list_Kido_neu;
+        std::list<MidgardBasicElement_mutable> list_Sprache_neu;
+        std::list<MidgardBasicElement_mutable> list_Schrift_neu;
 
         bool steigern_mit_EP_bool;
         enum enum_notebook_lernen{PAGE_FERTIGKEITEN,PAGE_WAFFEN,PAGE_ZAUBER,
@@ -44,7 +44,7 @@ public:
          : table_steigern_glade(_data),hauptfenster(0) {}
         void init(midgard_CG *hauptfenster);
 
-        cH_MidgardBasicElement getSelectedNotebookLernen();
+        MidgardBasicElement_mutable getSelectedNotebookLernen();
         void load_for_page(guint pagenr);
         void zeige_werte();
         void neuer_charakter();
@@ -76,14 +76,14 @@ public:
         int steigern_womit(const std::string& fert);
         void desteigern(unsigned int kosten);
         void set_lernzeit(int kosten);
-        bool steigern_usp(int kosten,cH_MidgardBasicElement *MBE,e_was_steigern was=Nichts);
+        bool steigern_usp(int kosten,MidgardBasicElement_mutable *MBE,e_was_steigern was=Nichts);
         int genug_geld(const int kosten);
         int EP_kosten(const int kosten);
-        int PP_vorrat(const cH_MidgardBasicElement *MBE,e_was_steigern was);
+        int PP_vorrat(const MidgardBasicElement_mutable *MBE,e_was_steigern was);
         bool genug_EP(const int ep_k,const bool bkep,const bool bzep,int &aep0,int &kep0,int &zep0);
         void steigern_mit(bool &bkep,bool &bzep,const cH_MidgardBasicElement *MBE,e_was_steigern was);
-        void PraxisPunkt_to_AEP(cH_MidgardBasicElement& MBE,bool verfallen,bool alle_pp);
-        int stufen_auf_einmal_steigern_fuer_aep(bool info,cH_MidgardBasicElement& MBE,int &kosten,int &aep);
+        void PraxisPunkt_to_AEP(MidgardBasicElement_mutable& MBE,bool verfallen,bool alle_pp);
+        int stufen_auf_einmal_steigern_fuer_aep(bool info,MidgardBasicElement_mutable& MBE,int &kosten,int &aep);
 
 
         // Fertigkeiten

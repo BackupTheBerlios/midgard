@@ -1,4 +1,4 @@
-// $Id: Sprache.hh,v 1.20 2002/03/04 08:08:36 thoma Exp $               
+// $Id: Sprache.hh,v 1.21 2002/06/07 12:17:04 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2002 Christof Petig
@@ -54,15 +54,15 @@ class Sprache : public MidgardBasicElement
 
    std::string Schriften() const;
    const std::vector<std::string> &Schrift() const  {return VSchrift; }
-   const std::vector<pair<std::string,int> > SchriftWert(const std::list<cH_MidgardBasicElement>& list_Schrift) const;
+   const std::vector<pair<std::string,int> > SchriftWert(const std::list<MidgardBasicElement_mutable>& list_Schrift) const;
 
    bool Alte_Sprache() const {return alte_sprache;}    
    bool Minderheit() const {return minderheit;}    
    int MaxErfolgswert(const Grundwerte& w,const std::vector<cH_Typen>& Typ) const;
    int Kosten(const Grundwerte& w,const std::vector<cH_Typen>& Typ) const;
-   std::list<cH_MidgardBasicElement> VerwandteSprachen(const std::list<cH_MidgardBasicElement>& gelernte_listSprache,const std::list<cH_MidgardBasicElement>& listSprache) const;
+   std::list<MidgardBasicElement_mutable> VerwandteSprachen(const int erfolgswert,const std::list<MidgardBasicElement_mutable>& gelernte_listSprache,const std::list<cH_MidgardBasicElement>& listSprache) const;
 
-   static std::list<cH_MidgardBasicElement> Sprache::cleanVerwandteSprachen(std::list<cH_MidgardBasicElement> L);
+   static std::list<MidgardBasicElement_mutable> Sprache::cleanVerwandteSprachen(std::list<MidgardBasicElement_mutable> L);
 
 };
 

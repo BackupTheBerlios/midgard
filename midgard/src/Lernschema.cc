@@ -52,11 +52,11 @@ Lernschema::Lernschema(Gtk::ProgressBar *progressbar)
  ProgressBar::set_percentage(progressbar,1);
 }
 
-std::list<cH_MidgardBasicElement> Lernschema::get_List(const std::string& art, 
+std::list<MidgardBasicElement_mutable> Lernschema::get_List(const std::string& art, 
       const vector<cH_Typen>& Typ,
-      const std::list<cH_MidgardBasicElement>& Gelerntes) const
+      const std::list<MidgardBasicElement_mutable>& Gelerntes) const
 {
- std::list<cH_MidgardBasicElement> L;
+ std::list<MidgardBasicElement_mutable> L;
  for(std::map<st_index,st_wert>::const_iterator i=lern_map.begin();i!=lern_map.end();++i)
   {
    if( (i->first.typ==Typ[0]->Short() || i->first.typ==Typ[1]->Short()) &&
@@ -64,23 +64,27 @@ std::list<cH_MidgardBasicElement> Lernschema::get_List(const std::string& art,
      {
       if(art=="Fachkenntnisse") 
          { 
-           cH_MidgardBasicElement fert(&*cH_Fertigkeit(i->first.fertigkeit));
+//           cH_MidgardBasicElement fert(&*cH_Fertigkeit(i->first.fertigkeit));
+           MidgardBasicElement_mutable fert(&*cH_Fertigkeit(i->first.fertigkeit));
            // Erfolgswert nur dann setzen, wenn die Fertigkeit noch nicht gelernt wurde
            if(!fert->ist_gelernt(Gelerntes))
-              cH_Fertigkeit(fert)->setErfolgswert(i->second.erfolgswert);
+              fert.setErfolgswert(i->second.erfolgswert);
            L.push_back(fert); 
          }
       if(art=="Waffenfertigkeiten") 
          { 
-           cH_MidgardBasicElement waffe(&*cH_Waffe(i->first.fertigkeit));
+//           cH_MidgardBasicElement waffe(&*cH_Waffe(i->first.fertigkeit));
+           MidgardBasicElement_mutable waffe(&*cH_Waffe(i->first.fertigkeit));
            // Erfolgswert nur dann setzen, wenn die Fertigkeit noch nicht gelernt wurde
            if(!waffe->ist_gelernt(Gelerntes))
-              cH_Waffe(waffe)->setErfolgswert(i->second.erfolgswert);
+              waffe.setErfolgswert(i->second.erfolgswert);
            L.push_back(waffe); 
          }
       if(art=="Zauberkünste") 
          { 
-           L.push_back(&*cH_Zauber(i->first.fertigkeit));
+           MidgardBasicElement_mutable z(&*cH_Zauber(i->first.fertigkeit));
+           L.push_back(z);
+//           L.push_back(&*cH_Zauber(i->first.fertigkeit));
          }
      }   
   }

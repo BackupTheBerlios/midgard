@@ -27,10 +27,10 @@ class Sinne : public MidgardBasicElement
   private:
      void get_Sinne();      
   public:
-      Sinne(const Tag *t) : MidgardBasicElement_fixed(t,t->getAttr("Name"))
+      Sinne(const Tag *t) : MidgardBasicElement(t,t->getAttr("Name"))
           {get_Sinne();}
 
-     enum MidgardBasicElement_fixed::MBEE What() const {return MidgardBasicElement::SINN;}
+     enum MBEE What() const {return MidgardBasicElement::SINN;}
      std::string What_str() const {return "Sinn";}
 
      int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const 

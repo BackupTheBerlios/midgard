@@ -59,7 +59,7 @@ void Fertigkeit::get_Fertigkeit()
   anfangswert=tag->getIntAttr("Erfolgswert");
   ungelernt=tag->getIntAttr("Erfolgswert-ungelernt",-99);
   berufskategorie=tag->getIntAttr("Berufskategorie");
-  erfolgswert=anfangswert; //Defaultwert
+//  erfolgswert=anfangswert; //Defaultwert
   kosten=tag->getIntAttr("Lernkosten");
   region=tag->getAttr("Region");
   region_zusatz=tag->getAttr("RegionZusatz");
@@ -101,7 +101,7 @@ void Fertigkeit::get_Fertigkeit()
 
 }
 
-bool Fertigkeit::Voraussetzungen(const Grundwerte& Werte,const std::list<cH_MidgardBasicElement> &list_Fertigkeit) const 
+bool Fertigkeit::Voraussetzungen(const Grundwerte& Werte,const std::list<MidgardBasicElement_mutable> &list_Fertigkeit) const 
 {
  // Mindsetwerte
  if(voraussetzung.st > 0 && voraussetzung.st > Werte.St()) return false;
@@ -129,7 +129,7 @@ bool Fertigkeit::Voraussetzungen(const Grundwerte& Werte,const std::list<cH_Midg
 FertEnd:
  for(std::vector<std::string>::iterator i=VF.begin();i!=VF.end();++i)
   {
-    for(std::list<cH_MidgardBasicElement>::const_iterator j=list_Fertigkeit.begin();j!=list_Fertigkeit.end();++j)
+    for(std::list<MidgardBasicElement_mutable>::const_iterator j=list_Fertigkeit.begin();j!=list_Fertigkeit.end();++j)
      {
       if((*i)==(*j)->Name()) 
        { VF.erase(i); 
@@ -141,11 +141,6 @@ FertEnd:
  return true;
 }
 
-std::string Fertigkeit::Pflicht_str() const
-{
-  if (Pflicht()) return "X"; 
-  else return "";
-}
 
 MidgardBasicElement::eZusatz Fertigkeit::ZusatzEnum(const vector<cH_Typen>& Typ) const
 {
@@ -154,12 +149,12 @@ MidgardBasicElement::eZusatz Fertigkeit::ZusatzEnum(const vector<cH_Typen>& Typ)
   return enum_zusatz;
 }
 
-int Fertigkeit::FErfolgswert(const Grundwerte &Werte) const
+int Fertigkeit::FErfolgswert(const Abenteurer &a,const MidgardBasicElement_mutable &mbem) const
 {
-  if(Name()=="Trinken" && Werte.Spezies()->Name()!="Zwerg") 
-      return Erfolgswert()+Werte.Ko()/10;
-  if(Name()=="Berserkergang") return Erfolgswert()-Werte.Wk()/5;
-  else return Erfolgswert();
+  if(Name()=="Trinken" && a.getCWerte().Spezies()->Name()!="Zwerg") 
+      return mbem.Erfolgswert()+a.getCWerte().Ko()/10;
+  if(Name()=="Berserkergang") return mbem.Erfolgswert()-a.getCWerte().Wk()/5;
+  else return mbem.Erfolgswert();
 }
 
 int Fertigkeit::MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const

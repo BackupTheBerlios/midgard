@@ -1,4 +1,4 @@
-// $Id: KiDo.hh,v 1.21 2002/05/27 13:56:06 thoma Exp $               
+// $Id: KiDo.hh,v 1.22 2002/06/07 12:17:03 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -66,8 +66,8 @@ class KiDo : public MidgardBasicElement
  std::string Stil() const {  return stil; }
  std::string Effekt() const {  return effekt; }
 
- static int get_erfolgswert_kido(const std::list<cH_MidgardBasicElement>& L);
- static std::map<std::string,int> maxkidostil(const std::list<cH_MidgardBasicElement>& list_Kido);
+ static int get_erfolgswert_kido(const std::list<MidgardBasicElement_mutable>& L);
+ static std::map<std::string,int> maxkidostil(const std::list<MidgardBasicElement_mutable>& list_Kido);
  int MaxErfolgswert(const Grundwerte& w,const vector<cH_Typen>& Typ) const 
          {return 0;} //wg. virtueller Funktion
 

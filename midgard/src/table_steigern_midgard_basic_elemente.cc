@@ -26,19 +26,20 @@
 bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
 {
  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
- cH_MidgardBasicElement MBE = dt->getMBE();
+// cH_MidgardBasicElement MBE = dt->getMBE();
+ MidgardBasicElement_mutable MBE = dt->getMBE();
  if(togglebutton_praxispunkte->get_active() && radiobutton_pp_fertigkeit->get_active()) 
   {
-   spinbutton_pp_eingeben->set_value(MBE->Praxispunkte());
+   spinbutton_pp_eingeben->set_value(MBE.Praxispunkte());
    spinbutton_pp_eingeben->show();
    spinbutton_pp_eingeben->grab_focus();
    return false;
   }
 
  ////////////////////////////////////////////////////////////////////////
- std::list<cH_MidgardBasicElement> *MyList,*MyList_neu;
+ std::list<MidgardBasicElement_mutable> *MyList,*MyList_neu;
  if(MBE->What()==MidgardBasicElement::FERTIGKEIT) 
-   { if (MBE->Name()=="KiDo" && kido_steigern_check(MBE->Erfolgswert())) return false;
+   { if (MBE->Name()=="KiDo" && kido_steigern_check(MBE.Erfolgswert())) return false;
      MyList     = &hauptfenster->getChar().List_Fertigkeit(); MyList_neu = &list_Fertigkeit_neu;   }
  else if(MBE->What()==MidgardBasicElement::WAFFE) 
    { MyList     = &hauptfenster->getChar().List_Waffen(); MyList_neu = &list_Waffen_neu;  }
@@ -61,21 +62,21 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
  if (radiobutton_steigern->get_active() && MBE->Steigern(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp()))
     {
       if (!steigern_usp(MBE->Steigern(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp()),&MBE)) return false;
-      if ( MBE->Erfolgswert() >= MBE->MaxErfolgswert(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp())) 
+      if ( MBE.Erfolgswert() >= MBE->MaxErfolgswert(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp())) 
           { hauptfenster->set_status("Maximal möglicher Erfolgswert erreicht");
             return false; }
       hauptfenster->getChar().getWerte().addGFP(MBE->Steigern(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp()));
-      for (std::list<cH_MidgardBasicElement>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
+      for (std::list<MidgardBasicElement_mutable>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
          if ( (*i)->Name() == MBE->Name()) 
-            (*i)->addErfolgswert(1); 
+            (*i).addErfolgswert(1); 
     }
  else if (radiobutton_reduzieren->get_active() && MBE->Reduzieren(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp()))
     {
       if (checkbutton_EP_Geld->get_active()) desteigern(MBE->Reduzieren(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp()));
       hauptfenster->getChar().getWerte().addGFP(-MBE->Reduzieren(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp()));
-      for (std::list<cH_MidgardBasicElement>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
+      for (std::list<MidgardBasicElement_mutable>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
          if ( (*i)->Name() == MBE->Name())  
-            (*i)->addErfolgswert(-1); 
+            (*i).addErfolgswert(-1); 
     }
  else if (radiobutton_verlernen->get_active() && MBE->Verlernen(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp()))
     {
@@ -90,7 +91,7 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
     {
       MidgardBasicElement::move_element(*MyList,*MyList_neu,MBE);
     }
- hauptfenster->undosave(MBE->Name()+" auf "+itos(MBE->Erfolgswert())+" gesteigert");
+ hauptfenster->undosave(MBE->Name()+" auf "+itos(MBE.Erfolgswert())+" gesteigert");
  return true;
 }
 
@@ -98,7 +99,8 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
 void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
 {
  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
- cH_MidgardBasicElement MBE = dt->getMBE();
+// cH_MidgardBasicElement MBE = dt->getMBE();
+ MidgardBasicElement_mutable MBE = dt->getMBE();
  // Neue Dinge können nur durch Unterweisung gelernt werden
  // es sei denn es handelt sich um Zaubersprüche
  if(MBE->What()!=MidgardBasicElement::ZAUBER)
@@ -150,17 +152,17 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
    } 
  /////////////////////////////////////////////////////////////////////////
 
- std::list<cH_MidgardBasicElement> *MyList,*MyList_neu;
+ std::list<MidgardBasicElement_mutable> *MyList,*MyList_neu;
  if(MBE->What()==MidgardBasicElement::FERTIGKEIT) 
    { if(MBE->ZusatzEnum(hauptfenster->getCChar().getVTyp()))
       {  
         neue_fert_tree->set_sensitive(false);
-        MBE=new Fertigkeit(*cH_Fertigkeit(MBE));
+        MBE=MidgardBasicElement_mutable(new Fertigkeit(*cH_Fertigkeit(MBE)));
         fillClistZusatz(MBE);
         // Davor stellen, damit beim Kopieren dieses MBE in Verschoben wird.
         list_Fertigkeit_neu.push_front(MBE);
       }
-     if (MBE->Name()=="KiDo" && kido_steigern_check(MBE->Erfolgswert())) return;
+     if (MBE->Name()=="KiDo" && kido_steigern_check(MBE.Erfolgswert())) return;
      MyList     = &hauptfenster->getChar().List_Fertigkeit(); MyList_neu = &list_Fertigkeit_neu;
    }
  else if(MBE->What()==MidgardBasicElement::WAFFE) 
@@ -171,7 +173,7 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
   {
    { if(MBE->ZusatzEnum(hauptfenster->getCChar().getVTyp()))
       {  
-        MBE=new Zauber(*cH_Zauber(MBE));
+        MBE=MidgardBasicElement_mutable(new Zauber(*cH_Zauber(MBE)));
         fillClistZusatz(MBE);
         // Davor stellen, damit beim Kopieren dieses MBE in Verschoben wird.
         list_Zauber_neu.push_front(MBE);

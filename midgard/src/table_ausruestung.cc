@@ -398,7 +398,7 @@ void table_ausruestung::setStandardAusruestung()
 
 void table_ausruestung::setFertigkeitenAusruestung(AusruestungBaum *Rucksack)
 {
-  for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCChar().CList_Fertigkeit().begin();i!=hauptfenster->getCChar().CList_Fertigkeit().end();++i)
+  for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_Fertigkeit().begin();i!=hauptfenster->getCChar().CList_Fertigkeit().end();++i)
    {
     int wurf;
     if((*i)->Name()=="Abrichten" && 90<(wurf=hauptfenster->random.integer(1,100)))

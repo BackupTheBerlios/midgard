@@ -129,7 +129,7 @@ void table_steigern::on_spinbutton_pp_eingeben_activate()
   }   
  
  guint pagenr = notebook_lernen->get_current_page_num();
- getSelectedNotebookLernen()->setPraxispunkte(PPanz);
+ getSelectedNotebookLernen().setPraxispunkte(PPanz);
 
 
   if(pagenr==PAGE_FERTIGKEITEN)
@@ -145,7 +145,7 @@ void table_steigern::on_spinbutton_pp_eingeben_activate()
   spinbutton_pp_eingeben->hide();
 }
 
-cH_MidgardBasicElement table_steigern::getSelectedNotebookLernen()
+MidgardBasicElement_mutable table_steigern::getSelectedNotebookLernen()
 {
  const Data_SimpleTree *dt;
  guint pagenr = notebook_lernen->get_current_page_num();
@@ -209,7 +209,7 @@ void table_steigern::fillClistZusatz(const cH_MidgardBasicElement &MBE)
      case MidgardBasicElement::ZWaffe :
       {      
         clist_zusatz->set_column_title(0, "Waffe auswählen");
-        for (std::list<cH_MidgardBasicElement>::const_iterator i=hauptfenster->getCChar().CList_Waffen().begin();i!=hauptfenster->getCChar().CList_Waffen().end();++i)
+        for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_Waffen().begin();i!=hauptfenster->getCChar().CList_Waffen().end();++i)
          {
            if (cH_Waffe(*i)->Art()=="Schußwaffe" || cH_Waffe(*i)->Art()=="Wurfwaffe")
             {
@@ -248,9 +248,10 @@ void table_steigern::on_clist_zusatz_select_row(gint row, gint column, GdkEvent 
 {
   std::string zusatz = clist_zusatz->get_text(row,0);
   MidgardBasicElement *MBE=static_cast<MidgardBasicElement*>(clist_zusatz->selection().begin()->get_data());
-  MBE->setZusatz(zusatz);
+  MidgardBasicElement_mutable(MBE).setZusatz(zusatz);
   // Erhöter Erfolgswert für Landeskunde Heimat:
-  if(zusatz==hauptfenster->getCWerte().Herkunft()->Name()) MBE->setErfolgswert(9);
+  if(zusatz==hauptfenster->getCWerte().Herkunft()->Name()) 
+      MidgardBasicElement_mutable(MBE).setErfolgswert(9);
   scrolledwindow_landauswahl->hide();
   on_fertigkeiten_laden_clicked();
   neue_fert_tree->set_sensitive(true);
