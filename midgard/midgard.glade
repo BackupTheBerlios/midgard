@@ -8796,7 +8796,7 @@ eingeben</label>
 		  <last_modification_time>Fri, 28 Jun 2002 08:19:11 GMT</last_modification_time>
 		</signal>
 		<label>Ausrüstung</label>
-		<icon>Dice_Armor-trans-50.xpm</icon>
+		<icon>Dice-Ausruest-50.xpm</icon>
 	      </widget>
 	    </widget>
 	  </widget>
@@ -9474,7 +9474,7 @@ auswählen</label>
 		      <bottom_attach>1</bottom_attach>
 		      <xpad>0</xpad>
 		      <ypad>0</ypad>
-		      <xexpand>False</xexpand>
+		      <xexpand>True</xexpand>
 		      <yexpand>False</yexpand>
 		      <xshrink>False</xshrink>
 		      <yshrink>False</yshrink>
