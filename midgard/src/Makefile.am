@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.125 2002/02/25 10:04:26 thoma Exp $
+# $Id: Makefile.am,v 1.126 2002/02/25 13:14:33 christof Exp $
 
 bin_PROGRAMS = midgard 
 noinst_PROGRAMS = text2c
@@ -202,18 +202,18 @@ midgard_CG_glade.o: $(midgard_CG_glade_o_DEPS)
 
 #black magic to make it cross compile with MinGW under Linux
 
-midgard_exe_LIBS=-lManuProC_Widgets -lManuProC_Base -lGtkmmAddons \
-	 -lgtkmm -lgdkmm -lsigc \
-	 -lgtk-1.3 -lgdk-1.3 -lglib-1.3 -lgmodule-1.3 -lgobject-1.3
+#midgard_exe_LIBS=-lManuProC_Widgets -lManuProC_Base -lGtkmmAddons \
+#	 -lgtkmm -lgdkmm -lsigc \
+#	 -lgtk-1.3 -lgdk-1.3 -lglib-1.3 -lgmodule-1.3 -lgobject-1.3
 	
-midgard_LDFLAGS=-L../../ManuProC_Base/src -L../../GtkmmAddons/src \
-	-L../../ManuProc_Widgets/src -L/usr/local/mingw/local/lib
+#midgard_LDFLAGS=-L../../ManuProC_Base/src -L../../GtkmmAddons/src \
+#	-L../../ManuProc_Widgets/src -L/usr/local/mingw/local/lib
 
 
-midgard.exe: $(midgard_OBJECTS) $(midgard_DEPENDENCIES)
-	@rm -f midgard$(EXEEXT)
-	$(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(LDFLAGS) \
-	  -o $@ $(midgard_LDFLAGS) $(midgard_OBJECTS) $(midgard_exe_LIBS)
+#midgard.exe: $(midgard_OBJECTS) $(midgard_DEPENDENCIES)
+#	@rm -f midgard$(EXEEXT)
+#	$(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(LDFLAGS) \
+#	  -o $@ $(midgard_LDFLAGS) $(midgard_OBJECTS) $(midgard_exe_LIBS)
 
 else
 
