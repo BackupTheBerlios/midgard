@@ -22,6 +22,8 @@
 #include <unistd.h>
 #include <algo.h>
 
+//#define REMEMBER_EMPTY_SPACE
+
 std::string TagStream::de_xml(const std::string &cont)
 {  std::string ret;
    std::string::const_iterator i(cont.begin());
@@ -87,6 +89,14 @@ bool TagStream::good()
 {  return pointer<end_pointer;
 }
 
+static bool more_than_space(const char *b,const char *e)
+{  while (b!=e)
+   {  if (*b!=' ' && *b!='\t' && *b!='\r' && *b!='\n') return true;
+      ++b;
+   }
+   return false;
+}
+
 // winding
 char *TagStream::next_tag_pointer(Tag *parent)
 {  if (pointer>GB_BUFFER_SIZE/2 && end_pointer==GB_BUFFER_SIZE)
@@ -99,7 +109,8 @@ char *TagStream::next_tag_pointer(Tag *parent)
    char *bra=find('<');
    char *result=bra;
    if (!bra) bra=buffer+end_pointer;
-   if (bra>buffer+pointer) parent->push_back(Tag("",de_xml(std::string(buffer+pointer,bra-(buffer+pointer)))));
+   if (bra>buffer+pointer && more_than_space(buffer+pointer,bra)) 
+      parent->push_back(Tag("",de_xml(std::string(buffer+pointer,bra-(buffer+pointer)))));
    set_pointer(bra);
    return result;
 }

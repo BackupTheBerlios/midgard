@@ -1,4 +1,4 @@
-// $Id: abge_werte_setzen.cc,v 1.39 2002/01/19 20:33:46 christof Exp $
+// $Id: abge_werte_setzen.cc,v 1.40 2002/01/19 20:34:14 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -93,7 +93,7 @@ void midgard_CG::on_abge_werte_setzen_clicked()
     std::string h;
     if(ihand<=15) h=Vhand[0];
     else if (16<=ihand && ihand<=19) h=Vhand[1];
-#warning hier stand vorher Vhand[3], das hielt ich mal für 'nen bug CP
+#warning hier stand vorher Vhand[3], das hielt ich mal für nen bug CP
     else h=Vhand[2];
     if (Werte.Spezies()->Name()=="Waldgnom" || 
         Werte.Spezies()->Name()=="Berggnom")

@@ -102,19 +102,19 @@ const std::string Tag::getString(const std::string &typ,const std::string &def) 
 bool Tag::getBool(const std::string &typ,bool def) const throw()
 {  const_iterator t=find(begin(),typ);
    if (t==end()) return def;
-   return t->parse_bool_value();
+   return parse_bool_value(t->Value());
 }
 
 int Tag::getInt(const std::string &typ,int def) const throw()
 {  const_iterator t=find(begin(),typ);
    if (t==end()) return def;
-   return t->parse_int_value();
+   return parse_int_value(t->Value());
 }
 
 float Tag::getFloat(const std::string &typ,float def) const throw()
 {  const_iterator t=find(begin(),typ);
    if (t==end()) return def;
-   return t->parse_float_value();
+   return parse_float_value(t->Value());
 }
 
 void Tag::mark(const std::string &tg,const std::string &value) throw()

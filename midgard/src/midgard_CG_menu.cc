@@ -28,7 +28,11 @@ void midgard_CG::menu_init()
 
   Gtk::MenuItem *save = manage(new class Gtk::MenuItem("Charakter speichern"));
   menu->append(*save);
+#ifndef USE_XML
   save->activate.connect(SigC::slot(this,&midgard_CG::on_speichern_clicked));
+#else
+  save->activate.connect(SigC::slot(this,&midgard_CG::xml_export_auswahl));
+#endif
 
   Gtk::MenuItem *close = manage(new class Gtk::MenuItem("MCG Beenden"));
   menu->append(*close);

@@ -37,11 +37,11 @@ cH_Fertigkeit::cH_Fertigkeit(const std::string& name)
   {
 #ifndef USE_XML 
    *this=cH_Fertigkeit(new Fertigkeit(name));  
+   cache.Register(name,*this);
 #else
   cerr << "Fertigkeit '" << name << "' nicht im Cache\n";
   *this=cH_Fertigkeit(find_Tag("Fertigkeiten","Fertigkeit","Name",name));
 #endif
-   cache.Register(name,*this);
   }
 }
 

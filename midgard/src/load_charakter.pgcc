@@ -46,11 +46,13 @@ void midgard_CG::xml_import_auswahl()
 
 void midgard_CG::xml_import(const std::string& datei)
 {
+#if 0
   std::string command = "midgard_xmlimport < '"+datei+"'";
   system(command.c_str());
   std::string strinfo = "Charakter aus Datei "+datei+" importiert\n";
   manage (new WindowInfo(strinfo));
   on_laden_clicked();  
+#endif
 }
 
 

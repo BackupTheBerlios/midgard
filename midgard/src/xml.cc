@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.23 2002/01/19 11:21:37 christof Exp $
+// $Id: xml.cc,v 1.24 2002/01/19 20:33:46 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001-2002 Christof Petig
  *
@@ -56,6 +56,7 @@ reloop:
           continue;
        t2->Type("Region"); // change Type of Tag "MCG-include" -> "Region"
        
+       cerr << "loading XML " << file << '\n';
        ifstream in2(file.c_str());
        // wenn nicht, URL holen?
        // ab hier sollte man nicht mehr auf i, t2 zugreifen (push_back) !!!

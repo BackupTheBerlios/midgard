@@ -31,20 +31,21 @@ cH_Ruestung::cH_Ruestung(const std::string& name)
  cH_Ruestung *cached(cache.lookup(name));
  if (cached) *this=*cached;
  else
-#ifndef USE_XML
   {
+#ifndef USE_XML
    *this=cH_Ruestung(new Ruestung(name));
    cache.Register(name,*this);
-  }
 #else
-  assert(!"Rüstung im Cache");
+   cerr << "Rüstung '" << name << "' nicht im Cache\n";
+   *this=cH_Ruestung(find_Tag("Rüstungen","Rüstung","Abkürzung",name));
 #endif
+  }
 }
 
 #ifdef USE_XML
 cH_Ruestung::cH_Ruestung(const Tag *tag)
 {*this=cH_Ruestung(new Ruestung(tag));
- cache.Register(tag->getAttr("Name"),*this);
+ cache.Register(tag->getAttr("Abkürzung"),*this);
 }
 #endif
 
@@ -53,7 +54,7 @@ Ruestung::Ruestung(const std::string& n)
 : name(n)
 #else
 Ruestung::Ruestung(const Tag *tag) 
-: name(tag->getAttr("Name"))
+: name(tag->getAttr("Abkürzung"))
 #endif
 {
 #ifndef USE_XML

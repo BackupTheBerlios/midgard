@@ -132,7 +132,11 @@ void Window_Waffenbesitz::on_button_close_clicked()
 
 void Window_Waffenbesitz::zeige_waffen()
 {
+#ifndef USE_XML
   hauptfenster->on_speichern_clicked();
+#else
+#warning Wofür bitte das? CP
+#endif
   show_alte_waffen();
   show_neue_waffen();
 }

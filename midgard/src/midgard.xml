@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<MidgardCG-data XML-Verzeichnis="../../midgard-xml"/>
+<MidgardCG-data XML-Verzeichnis="../../midgard-xml">
  <MCG-include File="Regelwerk4.xml"/>
  <MCG-include File="Arkanum.xml"/>
  <MCG-include File="KanThaiPan.xml"/>

@@ -47,7 +47,9 @@ void midgard_CG::on_fertigkeiten_laden_clicked()
 void midgard_CG::fertigkeiten_zeigen()
 {
  zeige_werte(Werte);
+#ifndef USE_XML 
  on_speichern_clicked();
+#endif 
  MidgardBasicElement::show_list_in_tree(list_Fertigkeit_neu,neue_fert_tree,Werte,Typ,Database.ausnahmen);
  MidgardBasicElement::show_list_in_tree(list_Fertigkeit    ,alte_fert_tree,Werte,Typ,Database.ausnahmen);
 }

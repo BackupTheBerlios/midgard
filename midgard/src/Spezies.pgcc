@@ -32,14 +32,15 @@ cH_Spezies::cH_Spezies(const std::string& name)
  cH_Spezies *cached(cache.lookup(name));
  if (cached) *this=*cached;
  else
-#ifndef USE_XML
   {
+#ifndef USE_XML
    *this=cH_Spezies(new Spezies(name));
    cache.Register(name,*this);
-  }
 #else
-  assert(!"Spezies im Cache");
-#endif  
+   cerr << "Spezies '" << name << "' nicht im Cache\n";
+   *this=cH_Spezies(find_Tag("SpeziesListe","Spezies","Name",name));
+#endif
+  }
 }
 
 #ifdef USE_XML

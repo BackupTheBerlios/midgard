@@ -141,7 +141,9 @@ void midgard_CG::on_spinbutton_pp_eingeben_activate()
      MidgardBasicElement::show_list_in_tree(list_Schrift,alte_schrift_tree,Werte,Typ,Database.ausnahmen); 
    }
 
+#ifndef USE_XML
   on_speichern_clicked();
+#endif  
   }catch(std::exception &e) {cerr << e.what()<<'\n';}
   spinbutton_pp_eingeben->hide();
 }
