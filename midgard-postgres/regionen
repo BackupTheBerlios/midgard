@@ -9,7 +9,7 @@ DROP TABLE "regionen";
 CREATE TABLE "regionen" (
 	"nr" integer NOT NULL,
 	"name" text NOT NULL,
-	"name_lang" text NOT NULL,
+	"titel" text NOT NULL,
 	"abkuerzung" text NOT NULL,
 	"file" text,
 	"url" text,

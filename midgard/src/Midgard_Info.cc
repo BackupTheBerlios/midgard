@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.cc,v 1.68 2002/04/24 07:34:11 thoma Exp $
+// $Id: Midgard_Info.cc,v 1.69 2002/04/24 08:01:53 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -73,7 +73,7 @@ void Midgard_Info::set_Regionen(const std::vector<cH_Region>& Regionen)
   _tab->attach(*_li3,1,3,row,row+1,GTK_FILL,0,0,0);
   ++row;
 
-  std::string illutxt="Alle anderen Illustrationen von Werner Öckl\ncopyright 2000-2001 by Verlag für F&SF-Spiele,\nVerwendung mit freundlicher Genehmigung des VFSF";
+  std::string illutxt="Alle anderen Illustrationen von Werner Öckl\ncopyright 2000-2001";
   Gtk::Label *_li=manage (new Gtk::Label(illutxt,0,0));
   Gtk::Pixmap *_pi=manage(new Gtk::Pixmap(pdolch__xpm));
   _li->set_justify(GTK_JUSTIFY_LEFT);
