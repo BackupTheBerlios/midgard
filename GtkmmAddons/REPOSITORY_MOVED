@@ -1,2 +1,0 @@
-do 
-  cvs -d cvs.manuproc.berlios.de:/cvsroot/manuproc co GtkmmAddons
