@@ -282,6 +282,9 @@ void table_lernschema::on_herkunft_leaf_selected(cH_RowDataBase d)
   Handle<const Data_Herkunft> dt=d.cast_dynamic<const Data_Herkunft>();
   hauptfenster->getChar().getWizard().done(Wizard::HERKUNFT,hauptfenster->getAben());
   hauptfenster->getAben().setHerkunft(dt->getLand());
+  // Region anschalten
+  if (!dt->getLand()->Region().empty())
+      hauptfenster->getAben().getRegion(cH_Region::getRegionfromAbk(dt->getLand()->Region()))=true;
   set_zusatz_sensitive(false);
   zeige_werte();  
   if(!hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active)
