@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_ausruestung.cc,v 1.10 2002/10/28 16:58:38 thoma Exp $   
+// $Id: LaTeX_drucken_ausruestung.cc,v 1.11 2002/10/28 16:58:56 thoma Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -40,7 +40,7 @@ void LaTeX_drucken::on_ausruestung_druck(bool unsichtbar)
  fout << "Normallast: "<<itos(A.getNormallast())<<"\\,kg"
       << "Höchstlast: "<<itos(A.getHoechstlast())<<"\\,kg"
       << "Schublast: " <<itos(A.getSchublast())<<"\\,kg\n\n";
- fout << "Belastung: "<<dtos(A.getBelastung)<<"\\,kg\n\n";
+ fout << "Belastung: "<<dtos(A.getBelastung())<<"\\,kg\n\n";
 
  fout << "\\fbox{\\parbox[t][22cm]{18cm}{ \n";
  const AusruestungBaum besitz=hauptfenster->getChar()->getBesitz();
