@@ -114,10 +114,8 @@ EXPORTS
 	_ZN10Lernschema8getIndexERKSt6vectorI8cH_TypenSaIS1_EERKSsS7_
 	_ZN10Lernschema8st_indexC1ERKS0_
 	_ZN10Lernschema8st_indexD1Ev
-	_ZN10Model_BaseD2Ev
 	_ZN10Preise_All4loadERSt4listI9cH_PreiseSaIS1_EERK3Tag
 	_ZN10RadioModel8callbackEPv
-	_ZN10RadioModelD1Ev
 	_ZN10WaffeGrund14get_WaffeGrundERK3Tag
 	_ZN10WaffeGrund4loadERK3Tag
 	_ZN10WaffeGrundC1ERK3Tag
@@ -299,7 +297,6 @@ EXPORTS
 	_ZN15AbenteurerListe4ItemC1ERKS0_
 	_ZN15AbenteurerListe4ItemC2ERK10Abenteurerb
 	_ZN15AbenteurerListe4ItemC2ERKS0_
-	_ZN15AbenteurerListe4ItemD1Ev
 	_ZN15AusruestungBaumD1Ev
 	_ZN15BerufsKategorie8wuerfelnEi
 	_ZN15cH_PreiseNewMod4loadERK3TagRb
@@ -635,11 +632,9 @@ EXPORTS
 	_ZN9ModelPlexIN6Wizard4modeEE11we2actmodelEPv
 	_ZN9ModelPlexIN6Wizard4modeEE22actmodel_value_changedEPv
 	_ZN9ModelPlexIN6Wizard4modeEEC1ERK9Model_refIS1_E
-	_ZN9ModelPlexIN6Wizard4modeEED1Ev
 	_ZN9ModelPlexIN6Wizard6estepsEE11we2actmodelEPv
 	_ZN9ModelPlexIN6Wizard6estepsEE22actmodel_value_changedEPv
 	_ZN9ModelPlexIN6Wizard6estepsEEC1ERK9Model_refIS1_E
-	_ZN9ModelPlexIN6Wizard6estepsEED1Ev
 	_ZN9ModelPlexIbE11we2actmodelEPv
 	_ZN9ModelPlexIbE22actmodel_value_changedEPv
 	_ZN9ModelPlexIbEC1ERK9Model_refIbE
