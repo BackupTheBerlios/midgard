@@ -1,8 +1,8 @@
 - Zum Ansehen/Editieren von xml Dateien eignet sich
 
     kxmleditor (L,C): schönes Syntax Highlighting, hierarchisch
-    Turbo XML (W)
-    oXygen (LMWJ)
+    Turbo XML ($W)
+    oXygen ($LMWJ)
     conglomerate
     mlview
 
@@ -18,12 +18,17 @@
 
 - Zum Erstellen eines XML Schemas eignet sich
 
-    XML Spy Suite (W):
-    Turbo XML (W,8,M):
+    XML Spy Suite ($W):
+    Turbo XML ($W,8,M):
 
 - Zum Editieren einer XML Datei unter Einhaltung des Schemas eignet sich
 
     Turbo XML ?
     oXygen ?
+    XAmple (J)
+    Jaxe ?
+    Butterfly XML
+    Vex (LWM) ?
+    MLView ?
 
 L=Linux C=CygWin W=Win32 M=Mac 8=Linux/86 J=Java
