@@ -1,17 +1,19 @@
-# $Id: Makefile,v 1.4 2001/04/11 18:26:19 thoma Exp $
+# $Id: Makefile,v 1.5 2001/04/17 11:40:09 thoma Exp $
 
 INSTALLED_TABLES=$(shell psql -t -q -c "select tablename from pg_tables where \
 		tablename not like 'pg_%' and tablename not like 'pga_%';" midgard)
 SYSTEM_TABLES=angeborene_fertigkeiten arkanum_zauber ausnahmen berufe_stand \
 	berufe_voraussetzung berufe_vorteile  \
 	fertigkeiten fertigkeiten_voraussetzung kido lernschema pflicht_lernen \
-	praxispunkte spezies ruestung schrift sprachen steigern_fertigkeiten \
+	praxispunkte spezies spezies_typen ruestung schrift sprachen \
+	steigern_fertigkeiten \
 	steigern_fertigkeiten_werte typen waffen waffen_grund waffen_region_name \
-	waffen_standard waffen_steigern zauber_beschreibung
+	waffen_standard waffen_steigern zauber_beschreibung zauberwerk \
+	zauberwerk_voraussetzung
 USER_TABLES=charaktere charaktere_fertigkeiten
 TABLES=$(SYSTEM_TABLES) $(USER_TABLES)
 
-VERSION=0.3beta6
+VERSION=0.3beta7
 PACKAGE=midgard-postgres
 DIST_FILES=Makefile $(TABLES)
 

@@ -61,3 +61,5 @@ steigern_kido.cc
 get_kido.cc
 midgard_CG_Ausnahmen.cc
 .libs
+get_standard_zaubermittel.cc
+get_spezies_constraint.cc

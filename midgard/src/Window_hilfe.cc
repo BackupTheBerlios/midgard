@@ -27,6 +27,7 @@ string Window_hilfe::hilfetext()
 string s="
 1. Generierung eines neuen Charakters
 
+* Spezies wählen
 * Grundwerte würfeln (eventuell editieren)
 * Charaktertyp wählen
 * Abgeleitete Werte würfeln (eventuell editieren)

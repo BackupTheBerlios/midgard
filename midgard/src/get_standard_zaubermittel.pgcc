@@ -1,0 +1,31 @@
+#include <Aux/Transaction.h>
+#include <Aux/SQLerror.h>
+exec sql include sqlca;
+#include "midgard_CG.hh"
+#include <cstring>
+#include <Gtk_OStream.h>
+
+float midgard_CG::get_standard_zaubermittel(string typs, string name)
+{
+  exec sql begin declare section;
+   char db_ergebnis[20];
+   char query[200];
+  exec sql end declare section;
+  snprintf(query,sizeof(query),"select %s from zauberwerk where name = '%s'",
+               typs.c_str(), name.c_str());
+   Transaction tr;
+   exec sql prepare zaub from :query ;
+   exec sql declare zauber cursor for zaub ;
+   exec sql open zauber;
+   SQLerror::test(__FILELINE__);
+   exec sql fetch zauber into  :db_ergebnis;
+   SQLerror::test(__FILELINE__);  
+
+   float fac;
+   if (!strcmp(db_ergebnis,"G")) fac = 0.5;
+   if (!strcmp(db_ergebnis,"S")) fac = 1.0;
+   if (!strcmp(db_ergebnis,"A")) fac = 5.0;
+
+   return(fac);
+
+}

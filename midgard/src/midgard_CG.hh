@@ -48,6 +48,10 @@ struct st_werte{int st; int ge;int ko;int in;int zt;
              stand(""),herkunft(""),spezies("Mensch"),glaube(""),name_charakter(""), gfp(0),version("Erschaffung"),
              ruestung("OR"), gold(0), silber(0), kupfer(0) {}
       void clear() {*this=st_werte();}}; 
+struct st_spezies_constraint{int st;int ge;int ko;int in;int zt;int sb;int au;
+      int lpbasis;int ap_grad;int gift;int m_abb; int m_psy;int m_phs; int m_phk;
+      int alter;int groesse_f;int groesse_w;int groesse_s;int gestalt;
+      int b_f;int b_s;};
 struct st_lernpunkte{int beruf; int fertigkeiten; int waffen; int zauber;
       st_lernpunkte() : beruf(0),fertigkeiten(0),waffen(0),zauber(0) {}
       void clear(){*this=st_lernpunkte();} };
@@ -134,6 +138,7 @@ class midgard_CG : public midgard_CG_glade
         map<string,string> waffen_grundkenntnisse;
         styp typ;
         st_lernpunkte lernpunkte;
+        st_spezies_constraint spezies_constraint;
 
         void regnot(string sadd);
         void fill_typauswahl();
@@ -143,6 +148,8 @@ class midgard_CG : public midgard_CG_glade
         void on_herkunftsland_clicked();
         void on_muttersprache_clicked();
         void gw_wuerfeln();
+        void get_spezies_constraint();
+        int  wuerfeln_best_of_two();
         void werte_editieren();
         void on_abge_werte_setzen_clicked();
         void grundwerte_boni_setzen();

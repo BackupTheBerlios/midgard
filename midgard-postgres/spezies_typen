@@ -1,0 +1,67 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE "spezies_typen";
+--
+-- TOC Entry ID 2 (OID 368121)
+--
+-- Name: spezies_typen Type: TABLE Owner: thoma
+--
+
+CREATE TABLE "spezies_typen" (
+	"spezies" text,
+	"typen" text,
+	"maxgrad" text
+);
+
+--
+-- Data for TOC Entry ID 3 (OID 368121) TABLE DATA spezies_typen
+--
+
+-- Disable triggers
+UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'spezies_typen';
+COPY "spezies_typen"  FROM stdin;
+Halbling	Ba	\N
+Halbling	Hä	\N
+Halbling	Sp	\N
+Halbling	Hl	\N
+Halbling	PF	\N
+Halbling	PW	\N
+Elf	Ba	\N
+Elf	Gl	\N
+Elf	Kr	\N
+Elf	Se	\N
+Elf	Wa	\N
+Elf	Dr	\N
+Elf	Hl	\N
+Elf	Hx	\N
+Elf	Ma	\N
+Elf	Th	\N
+Zwerg	Hä	\N
+Zwerg	Kr	\N
+Zwerg	Sö	\N
+Zwerg	PF	\N
+Zwerg	PH	\N
+Zwerg	PK	\N
+Zwerg	Th	\N
+Gnom	Gl	\N
+Gnom	Hä	\N
+Gnom	Kr	\N
+Gnom	Sp	\N
+Gnom	Wa	\N
+Gnom	Dr	\N
+Gnom	Hl	\N
+Gnom	wHx	\N
+Gnom	gHx	\N
+Gnom	sHx	\N
+Gnom	Ma	\N
+Gnom	Th	\N
+\.
+-- Enable triggers
+BEGIN TRANSACTION;
+CREATE TEMP TABLE "tr" ("tmp_relname" name, "tmp_reltriggers" smallint);
+INSERT INTO "tr" SELECT C."relname", count(T."oid") FROM "pg_class" C, "pg_trigger" T WHERE C."oid" = T."tgrelid" AND C."relname" ~* 'spezies_typen'  GROUP BY 1;
+UPDATE "pg_class" SET "reltriggers" = TMP."tmp_reltriggers" FROM "tr" TMP WHERE "pg_class"."relname" = TMP."tmp_relname";
+DROP TABLE "tr";
+COMMIT TRANSACTION;
+

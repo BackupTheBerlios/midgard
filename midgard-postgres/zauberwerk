@@ -1,0 +1,111 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE "zauberwerk";
+--
+-- TOC Entry ID 2 (OID 371302)
+--
+-- Name: zauberwerk Type: TABLE Owner: thoma
+--
+
+CREATE TABLE "zauberwerk" (
+	"name" text,
+	"kosten_gfp" integer,
+	"art" text,
+	"stufe" text,
+	"zeitaufwand" text,
+	"kosten" text,
+	"ba" text,
+	"dbe" text,
+	"dr" text,
+	"ebe" text,
+	"ghx" text,
+	"hl" text,
+	"ma" text,
+	"ord" text,
+	"pc" text,
+	"pf" text,
+	"pha" text,
+	"phe" text,
+	"pk" text,
+	"pm" text,
+	"pt" text,
+	"pw" text,
+	"sc" text,
+	"shx" text,
+	"sk" text,
+	"tbe" text,
+	"th" text,
+	"tm" text,
+	"whx" text,
+	"region" text
+);
+
+--
+-- Data for TOC Entry ID 3 (OID 371302) TABLE DATA zauberwerk
+--
+
+-- Disable triggers
+UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'zauberwerk';
+COPY "zauberwerk"  FROM stdin;
+Flohpulver aktivieren	400	AZ	2	3 Tage	70 GS	\N	\N	S	\N	S	S	\N	\N	S	S	S	S	S	S	S	S	S	S	\N	\N	G	\N	S	\N
+Heiltrunk (1W6) aktivieren	600	AZ	2	3 Tage	100 GS (70 GS)	\N	\N	S	\N	S	G	\N	\N	S	S	S	S	S	S	S	S	S	S	\N	\N	\N	\N	S	\N
+Krafttrunk (1W6) aktivieren	400	AZ	1	1 Tag	50 GS (30 GS)	\N	\N	S	\N	S	G	\N	\N	S	S	S	S	S	S	S	S	S	S	\N	\N	G	\N	S	\N
+Krafttrunk (2W6) aktivieren	600	AZ	2	3 Tage	100 GS (60 GS)	\N	\N	S	\N	S	G	\N	\N	S	S	S	S	S	S	S	S	S	S	\N	\N	G	\N	S	\N
+Liebestrank aktivieren	800	AZ	3	1 Monat	300 GS 	\N	S	S	S	G	S	S	\N	S	S	S	S	S	S		S	S	G	\N	S	G	\N	G	\N
+Pulver der Panzerhaut aktivieren	800	AZ	3	5 Tage	100 GS (70 GS) 	\N		S		S	S	S	\N	S	S	S	S	S	S	S	S	S	S	\N		G	\N	S	\N
+Rauchperle aktivieren	800	AZ	3	5 Tage	100 GS (70 GS) 	\N		S		S	S	S	\N	S	S	S	S	S	S	S	S	S	S	\N		G	\N	S	\N
+Reckentrunk aktivieren	600	AZ	2	3 Tage	100 GS (60 GS) 	\N		S		S	S	S	\N	S	S	S	S	S	S	S	S	S	S	\N		G	\N	S	\N
+Salbe der Eisenhaut aktivieren	1200	AZ	4	7 Tage	200 GS (150 GS) 	\N				S	S	S	\N	S	S	S	S	S	S	S	S	S	S	\N		G	\N	S	\N
+Salbe der Krakenhände aktivieren	600	AZ	2	3 Tage	100 GS  	\N				S		S	\N										S	\N		G	\N	S	\N
+Trunk des Riesenwuchses aktivieren	800	AZ	4	7 Tage	500 GS 	\N		S		S	S	S	\N	S	S	S	S	S	S	S	S	S	S	\N		G	\N	S	\N
+Trunk des Schwerelosigkeit aktivieren	1200	AZ	4	15 Tage	500 GS 	\N		S		S	S	S	\N	S	S	S	S	S	S	S	S	S	S	\N		G	\N	S	\N
+Trunk des Unsichtbarkeit aktivieren	800	AZ	3	7 Tage	300 GS 	\N		S		S	S	S	\N	S	S	S	S	S	S	S	S	S	S	\N		G	\N	S	\N
+Trunk des Verwandlung aktivieren	2000	AZ	5	7 Tage	500 GS 	\N		S		S	S	S	\N	S	S	S	S	S	S	S	S	S	S	\N		G	\N	S	\N
+Trunk der Macht über Hunde aktivieren	400	AZ	2	7 Tage	200 GS 	\N	S	S	S	S	S	S	\N		S							S	S	\N	S	G	\N	S	\N
+Trunk der Macht über Orks aktivieren	600	AZ	3	7 Tage	300 GS 	\N	S		S	S		S	\N	S			S					S	S	\N	S	G	\N	S	\N
+Trunk der Macht über Menschen aktivieren	800	AZ	4	15 Tage	500 GS 	\N	S	S	S	S	S	S	\N		S							S	S	\N	S	G	\N	S	\N
+Berserkerpilz aktivieren	600	PZ	2	2 Tage	500 GS	\N	\N	S	\N	S	S	S	\N	S	S	S	S	G	S	S	S	G	S	\N	\N	\N	\N	S	\N
+Kraut der konzentrierten Energie	1200	PZ	4	1 Tag	500 GS	\N	S	S	S	S	G	S	\N	S	S	S	S	S	S	S	S	\N	S	\N	S	G	\N	S	\N
+Schnellkraut aktivieren	800	PZ	3	3 Tage	200 GS	\N	\N	S	\N	S	S	S	\N	S	S	S	S	S	S	S	S	S	S	\N	\N	G	\N	S	\N
+Wasser weihen	200	Weihwasser	1	1 Tag	30 GS	\N	\N	\N	\N	\N	\N	\N	\N	\N	G	G	G	G	G	G	G	\N	\N	\N	\N	\N	\N	\N	\N
+Zauberpergament beschriften	600	Zauberpergament	3	1 Monat/Stufe	variabel	\N	\N	\N	\N	\N	\N	G	\N	S	S	S	S	S	S	S	G	\N	\N	\N	\N	G	\N	\N	\N
+Dämonenamulett verzaubern	500	Amulett	3	1 Monat	20000 GS/ABW	\N	S	A	S	A	A	A	\N	S	A	A	A	S	A	A	A	S	A	\N	S	G	\N	A	\N
+Elementaramulett verzaubern	500	Amulett	3	1 Monat	ab 4000 GS/ABW	\N	S	A	S	A	A	A	\N	A	A	A	A	A	A	A	A	S	A	\N	S	G	\N	A	\N
+Geisteramulett verzaubern	2000	Amulett	4	1 Monat	1000 GS/ABW	\N	S	A	S	A	A	A	\N	A	A	A	A	A	A	S	A	S	A	\N	S	G	\N	A	\N
+Schildamulett verzaubern	100	Amulett	1	1 Monat	2000 GS/ABW	\N	S	A	S	A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N	S	G	\N	A	\N
+Schildamulett verzaubern	200	Amulett	2	1 Monat	3000 GS/ABW	\N	S	A	S	A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N	S	G	\N	A	\N
+Schildamulett verzaubern	300	Amulett	3	1 Monat	4000 GS/ABW	\N	S	A	S	A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N	S	G	\N	A	\N
+Schildamulett verzaubern	400	Amulett	4	1 Monat	5000 GS/ABW	\N	S	A	S	A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N	S	G	\N	A	\N
+Schildamulett verzaubern	500	Amulett	5	1 Monat	6000 GS/ABW	\N	S	A	S	A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N	S	G	\N	A	\N
+Schildamulett verzaubern	600	Amulett	6	1 Monat	7000 GS/ABW	\N	S	A	S	A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N	S	G	\N	A	\N
+Schutzamulett verzaubern	300	Amulett	1	1 Monat	600 GS/ABW	\N		A		A	A	S	\N	A	A	A	A	A	A	A	A	A	A	\N		G	\N	A	\N
+Schutzamulett verzaubern	300	Amulett	2	1 Monat	1200 GS/ABW	\N		A		A	A	S	\N	A	A	A	A	A	A	A	A	A	A	\N		G	\N	A	\N
+Schutzamulett verzaubern	600	Amulett	3	1 Monat	1800 GS/ABW	\N		A		A	A	S	\N	A	A	A	A	A	A	A	A	A	A	\N		G	\N	A	\N
+Schutzamulett verzaubern	800	Amulett	4	1 Monat	2400 GS/ABW	\N		A		A	A	S	\N	A	A	A	A	A	A	A	A	A	A	\N		G	\N	A	\N
+Schutzamulett verzaubern	1000	Amulett	5	1 Monat	3000 GS/ABW	\N		A		A	A	S	\N	A	A	A	A	A	A	A	A	A	A	\N		G	\N	A	\N
+Schutzamulett verzaubern	2000	Amulett	6	1 Monat	3600 GS/ABW	\N		A		A	A	S	\N	A	A	A	A	A	A	A	A	A	A	\N		G	\N	A	\N
+Spiegelamulett verzaubern	200	Amulett	1	1 Monat	1000 GS/ABW	\N		A		A	A	S	\N	A	A	A	A	A	A	A	A	A	A	\N		G	\N	A	\N
+Spiegelamulett verzaubern	600	Amulett	2	1 Monat	2000 GS/ABW	\N		A		A	A	S	\N	A	A	A	A	A	A	A	A	A	A	\N		G	\N	A	\N
+Spiegelamulett verzaubern	1000	Amulett	3	1 Monat	3000 GS/ABW	\N		A		A	A	S	\N	A	A	A	A	A	A	A	A	A	A	\N		G	\N	A	\N
+Spiegelamulett verzaubern	1500	Amulett	4	1 Monat	4000 GS/ABW	\N		A		A	A	S	\N	A	A	A	A	A	A	A	A	A	A	\N		G	\N	A	\N
+Spiegelamulett verzaubern	2000	Amulett	5	1 Monat	5000 GS/ABW	\N		A		A	A	S	\N	A	A	A	A	A	A	A	A	A	A	\N		G	\N	A	\N
+Spiegelamulett verzaubern	2500	Amulett	6	1 Monat	6000 GS/ABW	\N		A		A	A	S	\N	A	A	A	A	A	A	A	A	A	A	\N		G	\N	A	\N
+Untotenamulett verzaubern	500	Amulett	3	1 Monat	20000 GS/ABW	\N	S	S	S	A	S	S	\N	A	S	A	A	A	A	S	A	S	A	\N	S	G	\N	A	\N
+Werwesenamulett verzaubern	400	Amulett	3	1 Monat	20000 GS/ABW	\N	S	S	S	A	S	S	\N	A	S	A	A	A	A	S	A	S	A	\N	S	G	\N	A	\N
+Talisman verzaubern	200	Talisman	1	1 Tag	10/20/30 GS	\N		A		A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N		G	\N	A	\N
+Talisman verzaubern	200	Talisman	2	1 Tag	30/60/90 GS	\N		A		A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N		G	\N	A	\N
+Talisman verzaubern	200	Talisman	3	1 Tag	60/120/180 GS	\N		A		A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N		G	\N	A	\N
+Talisman verzaubern	200	Talisman	4	1 Tag	100/200/300 GS	\N		A		A	A	A	\N	S	S	S	S	S	S	S	S	S	A	\N		G	\N	A	\N
+Schamanentrommel herstellen	1600		G			\N							\N									G		\N			G		\N
+Weihen	20000		G			\N							\N	S	S	S	S	S	S	S	S	S		\N			\N		\N
+Binden	10000		G			\N	A	A	A	A	A	S	\N	A	A	A	A	A	A	A	S	A	A	\N	A	G	\N	A	\N
+\.
+-- Enable triggers
+BEGIN TRANSACTION;
+CREATE TEMP TABLE "tr" ("tmp_relname" name, "tmp_reltriggers" smallint);
+INSERT INTO "tr" SELECT C."relname", count(T."oid") FROM "pg_class" C, "pg_trigger" T WHERE C."oid" = T."tgrelid" AND C."relname" ~* 'zauberwerk'  GROUP BY 1;
+UPDATE "pg_class" SET "reltriggers" = TMP."tmp_reltriggers" FROM "tr" TMP WHERE "pg_class"."relname" = TMP."tmp_relname";
+DROP TABLE "tr";
+COMMIT TRANSACTION;
+

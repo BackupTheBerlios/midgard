@@ -1,0 +1,19 @@
+include "midgard_CG.hh"
+#include <Aux/SQLerror.h>
+exec sql include sqlca;
+
+
+midgard_CG::get_spezies_constraint()
+{
+ exec sql begin declare section;
+   int ST,GE,KO,IN,ZT,STM,GES,KOM,INM,ZTM;
+   char SPEZIES[50];
+ exec sql end declare section;
+ strncpy(SPEZIES,werte.spezies.c_str(),sizeof(SPEZIES));
+ exec sql select coalesce(-m_st,h_st) into ST
+   from spezies where spezies = :SPEZIES;
+ SQLerror::test(__FILELINE__); 
+ spezies_constraint.st=ST;
+
+cerr<< spezies_constraint.st<<"<--\n";
+}

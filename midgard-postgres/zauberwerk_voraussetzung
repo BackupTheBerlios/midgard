@@ -1,0 +1,79 @@
+--
+-- Selected TOC Entries:
+--
+DROP TABLE "zauberwerk_voraussetzung";
+--
+-- TOC Entry ID 2 (OID 371217)
+--
+-- Name: zauberwerk_voraussetzung Type: TABLE Owner: thoma
+--
+
+CREATE TABLE "zauberwerk_voraussetzung" (
+	"name" text,
+	"voraussetzung" text,
+	"verbindung" text
+);
+
+--
+-- Data for TOC Entry ID 3 (OID 371217) TABLE DATA zauberwerk_voraussetzung
+--
+
+-- Disable triggers
+UPDATE "pg_class" SET "reltriggers" = 0 WHERE "relname" ~* 'zauberwerk_voraussetzung';
+COPY "zauberwerk_voraussetzung"  FROM stdin;
+Flohpulver aktivieren	Schweben	\N
+Heiltrunk (1W6) aktivieren	Heilen von Wunden	\N
+Krafttrunk (1W6) aktivieren	Handauflegen	\N
+Krafttrunk (2W6) aktivieren	Handauflegen	\N
+Liebestrank aktivieren	Liebeszauber	or
+Liebestrank aktivieren	Macht über Menschen	or
+Pulver der Panzerhaut aktivieren	Marmorhaut	or
+Pulver der Panzerhaut aktivieren	Rindenhaut	or
+Rauchperle aktivieren	Rauchwolke	\N
+Reckentrunk aktivieren	Stärke	\N
+Salbe der Eisenhaut aktivieren	Eisenhaut	\N
+Salbe der Krakenhände aktivieren	Macht über das Selbst	and
+Salbe der Krakenhände aktivieren	Zauberschloß	and
+Trunk der Macht über Hunde aktivieren	Macht über die belebte Natur	\N
+Trunk der Macht über Orks aktivieren	Macht über Menschen	\N
+Trunk der Macht über Menschen aktivieren	Macht über Menschen	\N
+Trunk des Riesenwuchses aktivieren	Vergrößern	\N
+Trunk des Schwerelosigkeit aktivieren	Schweben	or
+Trunk des Schwerelosigkeit aktivieren	Fliegen	or
+Trunk des Unsichtbarkeit aktivieren	Unsichtbarkeit	\N
+Trunk des Verwandlung aktivieren	Verwandlung	\N
+Berserkerpilz aktivieren	Wahnsinn	or
+Berserkerpilz aktivieren	Heiliger Zorn	or
+Kraut der konzentrierten Energie	Handauflegen	or
+Kraut der konzentrierten Energie	Macht über das Selbst	or
+Schnellkraut aktivieren	Beschleunuigen	\N
+Wasser weihen	Austreibung des Bösen	and
+Wasser weihen	Bannen von Finsterwerk	and
+Wasser weihen	Reinigen	and
+Wasser weihen	Segnen	and
+Zauberpergament beschriften	Lesen von Zauberschrift	\N
+Dämonenamulett verzaubern	Silberne Bannsphäre	\N
+Elementaramulett verzaubern	Silberne Bannsphäre	\N
+Geisteramulett verzaubern	Silberne Bannsphäre	\N
+Schildamulett verzaubern	Silberne Bannsphäre	or
+Schildamulett verzaubern   Flammenkreis	or	\N
+Schutzamulett verzaubern	Geistesschild	or
+Schutzamulett verzaubern	Schwarze Zone	or
+Schutzamulett verzaubern	Zweite Haut	or
+Spiegelamulett verzaubern	Schutzamulett verzaubern	\N
+Untotenamulett verzaubern	Blaue Bannsphäre or	\N
+Untotenamulett verzaubern	Ring des Lebens or	\N
+Werwesenamulett verzaubern	Silberstaub	\N
+Talisman verzaubern	Magischer Kreis des Widerstehens	or
+Talisman verzaubern	Göttlicher Schutz vor Magie	or
+Binden	Thaumatographie	\N
+Schamanentrommel herstellen	Geisterlauf	\N
+\.
+-- Enable triggers
+BEGIN TRANSACTION;
+CREATE TEMP TABLE "tr" ("tmp_relname" name, "tmp_reltriggers" smallint);
+INSERT INTO "tr" SELECT C."relname", count(T."oid") FROM "pg_class" C, "pg_trigger" T WHERE C."oid" = T."tgrelid" AND C."relname" ~* 'zauberwerk_voraussetzung'  GROUP BY 1;
+UPDATE "pg_class" SET "reltriggers" = TMP."tmp_reltriggers" FROM "tr" TMP WHERE "pg_class"."relname" = TMP."tmp_relname";
+DROP TABLE "tr";
+COMMIT TRANSACTION;
+
