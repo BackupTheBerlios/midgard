@@ -1,4 +1,4 @@
-// $Id: Window_hilfe.cc,v 1.17 2001/06/07 08:08:53 thoma Exp $
+// $Id: Window_hilfe.cc,v 1.18 2001/06/12 09:31:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -80,12 +80,20 @@ string s="
    angezeigt, der Ausdruck kann dann aus diesem Programm heraus erfolgen. 
    
 2. Steigern eines Charakters 
+(Generell gilt: Während des Steigerns wird der Charakter STÄNDIG in der 
+Datenbank abgespeichert. Daher ist es nocht nötig, den Charakter nach dem
+steigern noch einmal zu speichern.)
 
 * Charakter laden (Wenn ein Charaktername und eine Version eingetragen sind,
     wird der entsprechende Charakter geladen, ansonsten erscheint eine 
     Auswahlliste aller gespeicherter Charaktere. In diesem Fenster ist 
     es auch möglich Charaktere aus der Datenbank zu löschen)
 * Steigern
+* .... an Grad anpassen
+   Mit diesem Knopf werden die AP, die Abwehr, die Resistenzen und der Zaubernwert
+   an den Grad angepaßt. Die AP-Zahl kann zu jedem Zeitpunkt neu berechnet werden
+   (mit entsprechender Erhöhung der GFP). Außerdem wird für eine Steigerung der 
+   Basiseigenschaften gewürfelt.
 * Fertigkeiten (Fertigkeiten laden)
    Im oberen Fenster sind die Fertigkeiten, die der Charakter kann mit
    dem jeweiligen Erfolgswert angegeben. Außerdem ist angegeben, wieviele

@@ -1,4 +1,4 @@
-// $Id: Berufe_auswahl.hh,v 1.16 2001/06/07 08:08:53 thoma Exp $
+// $Id: Berufe_auswahl.hh,v 1.17 2001/06/12 09:31:05 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *

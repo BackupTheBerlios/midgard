@@ -1,4 +1,4 @@
-// $Id: Window_Waffe_Geld.cc,v 1.20 2001/06/07 08:08:53 thoma Exp $
+// $Id: Window_Waffe_Geld.cc,v 1.21 2001/06/12 09:31:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *

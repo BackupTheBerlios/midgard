@@ -1,4 +1,4 @@
-// $Id: Sprache_auswahl.hh,v 1.14 2001/06/07 08:08:53 thoma Exp $
+// $Id: Sprache_auswahl.hh,v 1.15 2001/06/12 09:31:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *

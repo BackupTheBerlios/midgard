@@ -8297,7 +8297,7 @@ Resistenz an Grad anpassen</label>
   <title>Werte editieren</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
   <position>GTK_WIN_POS_NONE</position>
-  <modal>False</modal>
+  <modal>True</modal>
   <allow_shrink>False</allow_shrink>
   <allow_grow>True</allow_grow>
   <auto_shrink>False</auto_shrink>
@@ -11413,7 +11413,7 @@ Adel
   <title>Lernpunkte editieren</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
   <position>GTK_WIN_POS_NONE</position>
-  <modal>False</modal>
+  <modal>True</modal>
   <allow_shrink>False</allow_shrink>
   <allow_grow>True</allow_grow>
   <auto_shrink>False</auto_shrink>
@@ -11769,7 +11769,7 @@ Adel
   <title>Fertigkeiten</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
   <position>GTK_WIN_POS_NONE</position>
-  <modal>False</modal>
+  <modal>True</modal>
   <allow_shrink>False</allow_shrink>
   <allow_grow>True</allow_grow>
   <auto_shrink>False</auto_shrink>
@@ -12040,7 +12040,7 @@ Adel
   <title>Waffen</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
   <position>GTK_WIN_POS_NONE</position>
-  <modal>False</modal>
+  <modal>True</modal>
   <allow_shrink>False</allow_shrink>
   <allow_grow>True</allow_grow>
   <auto_shrink>False</auto_shrink>
@@ -12285,7 +12285,7 @@ Adel
   <title>Zauber</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
   <position>GTK_WIN_POS_NONE</position>
-  <modal>False</modal>
+  <modal>True</modal>
   <allow_shrink>False</allow_shrink>
   <allow_grow>True</allow_grow>
   <auto_shrink>False</auto_shrink>
@@ -12517,7 +12517,7 @@ Adel
   <title>Berufe</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
   <position>GTK_WIN_POS_NONE</position>
-  <modal>False</modal>
+  <modal>True</modal>
   <allow_shrink>False</allow_shrink>
   <allow_grow>True</allow_grow>
   <auto_shrink>False</auto_shrink>
@@ -13031,7 +13031,7 @@ setzung</label>
   <title>Charakter auswahl</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
   <position>GTK_WIN_POS_NONE</position>
-  <modal>False</modal>
+  <modal>True</modal>
   <allow_shrink>False</allow_shrink>
   <allow_grow>True</allow_grow>
   <auto_shrink>False</auto_shrink>
@@ -13199,7 +13199,7 @@ setzung</label>
   <title>Sprache &amp; Schrift</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
   <position>GTK_WIN_POS_NONE</position>
-  <modal>False</modal>
+  <modal>True</modal>
   <allow_shrink>False</allow_shrink>
   <allow_grow>True</allow_grow>
   <auto_shrink>False</auto_shrink>
@@ -13325,7 +13325,7 @@ setzung</label>
   <title>Herkunft</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
   <position>GTK_WIN_POS_NONE</position>
-  <modal>False</modal>
+  <modal>True</modal>
   <allow_shrink>False</allow_shrink>
   <allow_grow>True</allow_grow>
   <auto_shrink>False</auto_shrink>
@@ -13515,7 +13515,7 @@ setzung</label>
   <title>Waffen &amp; Geld</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
   <position>GTK_WIN_POS_NONE</position>
-  <modal>False</modal>
+  <modal>True</modal>
   <allow_shrink>False</allow_shrink>
   <allow_grow>True</allow_grow>
   <auto_shrink>False</auto_shrink>
@@ -14025,7 +14025,7 @@ setzung</label>
   <title>Geld</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
   <position>GTK_WIN_POS_NONE</position>
-  <modal>False</modal>
+  <modal>True</modal>
   <allow_shrink>False</allow_shrink>
   <allow_grow>True</allow_grow>
   <auto_shrink>False</auto_shrink>
@@ -14314,7 +14314,7 @@ setzung</label>
   <title>Rüstung</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
   <position>GTK_WIN_POS_NONE</position>
-  <modal>False</modal>
+  <modal>True</modal>
   <allow_shrink>False</allow_shrink>
   <allow_grow>True</allow_grow>
   <auto_shrink>False</auto_shrink>
@@ -14512,7 +14512,7 @@ Verlust</label>
   <title>Waffe</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
   <position>GTK_WIN_POS_NONE</position>
-  <modal>False</modal>
+  <modal>True</modal>
   <allow_shrink>False</allow_shrink>
   <allow_grow>True</allow_grow>
   <auto_shrink>False</auto_shrink>
@@ -14666,7 +14666,7 @@ Verlust</label>
   <title>Waffenbesitz</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
   <position>GTK_WIN_POS_NONE</position>
-  <modal>False</modal>
+  <modal>True</modal>
   <allow_shrink>False</allow_shrink>
   <allow_grow>True</allow_grow>
   <auto_shrink>True</auto_shrink>
@@ -15036,7 +15036,7 @@ Verlust</label>
   <title>mag. Waffen</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
   <position>GTK_WIN_POS_NONE</position>
-  <modal>False</modal>
+  <modal>True</modal>
   <allow_shrink>False</allow_shrink>
   <allow_grow>True</allow_grow>
   <auto_shrink>False</auto_shrink>
@@ -15346,7 +15346,7 @@ Verlust</label>
   <title>Angeborene Fertigkeiten</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
   <position>GTK_WIN_POS_NONE</position>
-  <modal>False</modal>
+  <modal>True</modal>
   <allow_shrink>False</allow_shrink>
   <allow_grow>True</allow_grow>
   <auto_shrink>False</auto_shrink>
@@ -16607,7 +16607,7 @@ einfügen, habe aber noch(?) keine Erlaubnis von Elsa :-(</label>
   <title>KiDo</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
   <position>GTK_WIN_POS_NONE</position>
-  <modal>False</modal>
+  <modal>True</modal>
   <allow_shrink>False</allow_shrink>
   <allow_grow>True</allow_grow>
   <auto_shrink>False</auto_shrink>
@@ -16809,7 +16809,7 @@ einfügen, habe aber noch(?) keine Erlaubnis von Elsa :-(</label>
   <title>Doppelklasse ?</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
   <position>GTK_WIN_POS_NONE</position>
-  <modal>False</modal>
+  <modal>True</modal>
   <allow_shrink>False</allow_shrink>
   <allow_grow>True</allow_grow>
   <auto_shrink>False</auto_shrink>
@@ -16939,7 +16939,7 @@ einfügen, habe aber noch(?) keine Erlaubnis von Elsa :-(</label>
   <title>XML-Datei auswählen</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
   <position>GTK_WIN_POS_NONE</position>
-  <modal>False</modal>
+  <modal>True</modal>
   <allow_shrink>False</allow_shrink>
   <allow_grow>True</allow_grow>
   <auto_shrink>False</auto_shrink>

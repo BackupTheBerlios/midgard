@@ -1,4 +1,4 @@
-// $Id: grundwere_edit_setzen.cc,v 1.13 2001/06/07 08:08:53 thoma Exp $
+// $Id: grundwere_edit_setzen.cc,v 1.14 2001/06/12 09:31:06 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *

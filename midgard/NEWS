@@ -1,9 +1,16 @@
 ##########################################################################
+NEWS IN VERSION 0.5beta5
+- Ordenskriegerbug in Datenbank entfernt
+- Hilfe überarbeitet
+
+
+##########################################################################
 NEWS IN VERSION 0.5beta4
 - Bug beim Laden von Charakteren beseitigt (durch 2. Charakterklasse entstanden)
 - Bug bei den angeborenen Fertigkeiten beseitigt (100 funktionierte nicht)
 - Überarbeitung der graphischen Oberfläche: Viele Elemente werden jetzt erst
-   dann angezeigt, wenn man sie benötigt. Hat noch jemand Verbesserungsvorschläge?
+   dann angezeigt, wenn man sie benötigt. Hat noch jemand 
+   Verbesserungsvorschläge?
 - Hilfe überarbeitet
 - Bug bei Zaubern laden beseitigt
 
