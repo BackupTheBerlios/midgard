@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.116 2002/02/12 11:22:44 thoma Exp $
+# $Id: Makefile.am,v 1.117 2002/02/12 12:06:42 thoma Exp $
 
 bin_PROGRAMS = midgard 
 
@@ -154,7 +154,6 @@ midgard_SOURCES = \
    Sprache_auswahl_glade.cc \
    Window_herkunft_glade.cc \
    midgard_CG_lernen.cc \
-   Window_charakter_auswahl_glade.cc \
    Window_charakter_beschreibung_glade.cc \
    Window_charakter_beschreibung.cc \
    Berufe_auswahl_glade.cc \
