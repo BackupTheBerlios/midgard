@@ -11,6 +11,8 @@ NEWS IN VERSION 0.8.6
 * Ein paar neue Icons von Ulf
 * In der expöortierten TXT-Datei wird der Malus beim Zaubern von 
    nicht-Grundzaubern berücksichtigt.
+* LaTeX Dokument überarbeitet, jetzt kann man EP und Geld die man während
+   des Spiels erhält/verliert eintragen.
 
 TODO: ('-' zeigt CP an)
 
