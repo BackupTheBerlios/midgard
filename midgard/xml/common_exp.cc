@@ -1,4 +1,4 @@
-// $Id: common_exp.cc,v 1.7 2001/12/16 21:47:49 christof Exp $
+// $Id: common_exp.cc,v 1.8 2002/01/03 08:20:58 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -19,7 +19,7 @@
 
 #include "export_common.h"
 
-static void schwierigkeit(ostream &o, 
+static void schwierigkeit(std::ostream &o, 
 	const std::string &_query, const std::string &tag)
 {  std::string content;
    Query query(_query);
@@ -34,7 +34,7 @@ static void schwierigkeit(ostream &o,
       o << "    <"<<tag<<">" << content << "</"<<tag<<">\n";
 }
 
-void grund_standard_ausnahme(ostream &o, 
+void grund_standard_ausnahme(std::ostream &o, 
 	const std::string &table, const std::string &name,
 	const std::string &condition, bool nur_region)
 {  std::string query0="select typ from "+table+" where name='"+name
@@ -53,7 +53,7 @@ void grund_standard_ausnahme(ostream &o,
    schwierigkeit(o,query0+"A"+query1, "Ausnahme");
 }
 
-void lernschema(ostream &o, const std::string &art, const std::string &name, bool nur_region)
+void lernschema(std::ostream &o, const std::string &art, const std::string &name, bool nur_region)
 {  
    std::string constraint;
 
@@ -95,7 +95,7 @@ void lernschema(ostream &o, const std::string &art, const std::string &name, boo
    }
 }
 
-void ausnahmen(ostream &o, const std::string &art, const std::string &name, bool nur_region)
+void ausnahmen(std::ostream &o, const std::string &art, const std::string &name, bool nur_region)
 {  std::string constraint;
 #ifdef REGION   
    if (nur_region || region.empty())
@@ -121,7 +121,7 @@ void ausnahmen(ostream &o, const std::string &art, const std::string &name, bool
    }
 }
 
-void pflicht_lernen(ostream &o, const std::string &name, bool nur_region)
+void pflicht_lernen(std::ostream &o, const std::string &name, bool nur_region)
 {  std::string constraint;
 #ifdef REGION   
    if (nur_region || region.empty())
@@ -146,7 +146,7 @@ void pflicht_lernen(ostream &o, const std::string &name, bool nur_region)
    }
 }
 
-void verbot_lernen(ostream &o, const std::string &name, bool nur_region)
+void verbot_lernen(std::ostream &o, const std::string &name, bool nur_region)
 {  std::string constraint;
 #ifdef REGION   
    if (nur_region || region.empty())

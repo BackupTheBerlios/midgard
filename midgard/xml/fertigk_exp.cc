@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.5 2002/01/03 08:08:57 christof Exp $
+// $Id: fertigk_exp.cc,v 1.6 2002/01/03 08:20:58 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -40,7 +40,7 @@ void fert_speichern(std::ostream &o)
    FetchIStream is;
   while ((query>>is).good())
   {o << "  <Fertigkeit";
-   string fert=fetch_and_write_string_attrib(is, o, "Name");
+   std::string fert=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
    fetch_and_write_int_attrib(is, o, "Lernpunkte",99); // außergewöhnliche Fertigkeit
 #ifndef MIDGARD3
@@ -256,7 +256,7 @@ void fert_speichern(std::ostream &o)
          staende+=fetch_string(is2);
       }
 #else
-   string staende;
+   std::string staende;
    if (fetch_bool(is)) staende+=",U";
    if (fetch_bool(is)) staende+=",V";
    if (fetch_bool(is)) staende+=",M";
@@ -363,7 +363,7 @@ void fert_speichern(std::ostream &o)
       fert=fert2;
       ep="";
    }
-   ep+=string(",")+ep2;
+   ep+=std::string(",")+ep2;
   }
   if (ep.size()) 
          o << "  <EP-Typ Fertigkeit=\"" << toXML(fert) 

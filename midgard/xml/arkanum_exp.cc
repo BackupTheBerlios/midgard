@@ -1,4 +1,4 @@
-// $Id: arkanum_exp.cc,v 1.4 2002/01/03 08:08:57 christof Exp $
+// $Id: arkanum_exp.cc,v 1.5 2002/01/03 08:20:58 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -38,7 +38,7 @@ void arkanum_speichern(std::ostream &o)
    	"order by coalesce(region,''),name");
   while ((q >> is).good())
   {o << "  <Spruch";
-   string zauber=fetch_and_write_string_attrib(is, o, "Name");
+   std::string zauber=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
    fetch_and_write_string_attrib(is, o, "Grad");
    fetch_and_write_int_attrib(is, o, "Lernkosten");
@@ -103,10 +103,10 @@ void arkanum_speichern(std::ostream &o)
    FetchIStream is;
   while ((query>>is).good())
   {o << "  <Zauberwerk";
-   string zauberwerk=fetch_and_write_string_attrib(is, o, "Name");
+   std::string zauberwerk=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
    fetch_and_write_string_attrib(is, o, "Art");
-   string stufe=fetch_and_write_string_attrib(is, o, "Stufe");
+   std::string stufe=fetch_and_write_string_attrib(is, o, "Stufe");
    fetch_and_write_string_attrib(is, o, "Zeitaufwand");
    fetch_and_write_string_attrib(is, o, "Geldaufwand");
    fetch_and_write_string_attrib(is, o, "Kosten");
@@ -183,7 +183,7 @@ int main(int argc, char *argv[])
 
    std::cout << "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\n";
    std::cout << "<MidgardCG-data";
-   write_string_attrib("Region",region.empty()?"Arkanum":region);
+   write_string_attrib("Region",region.empty()?std::string("Arkanum"):region);
    std::cout << ">\n";
    arkanum_speichern(std::cout);
    std::cout << "</MidgardCG-data>\n";

@@ -1,4 +1,4 @@
-// $Id: land_sprache_exp.cc,v 1.7 2002/01/03 08:08:57 christof Exp $
+// $Id: land_sprache_exp.cc,v 1.8 2002/01/03 08:20:58 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -98,7 +98,7 @@ void land_speichern(std::ostream &o)
    	" order by spezies");
   while ((query>>is).good())
   {o << "  <Spezies";
-   string name=fetch_and_write_string_attrib(is, o, "Name");
+   std::string name=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_int_attrib(is, o, "MCG-Index");
    fetch_and_write_int_attrib(is, o, "MCG-AP_wert");
    o << ">\n";

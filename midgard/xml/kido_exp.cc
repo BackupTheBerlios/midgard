@@ -1,4 +1,4 @@
-// $Id: kido_exp.cc,v 1.1 2001/12/19 14:12:06 christof Exp $
+// $Id: kido_exp.cc,v 1.2 2002/01/03 08:20:58 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -42,7 +42,7 @@ void kido_speichern(std::ostream &o)
    fetch_and_write_int_attrib(is, o, "Lernkosten");
    fetch_and_write_string_attrib(is, o, "AP");
    o << ">";
-   string Erklaerung=fetch_string(is);
+   std::string Erklaerung=fetch_string(is);
    if (Erklaerung.size())  o << toXML(Erklaerung); 
    o << "</KiDo>\n";
   }
