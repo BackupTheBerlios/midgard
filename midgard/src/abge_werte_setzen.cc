@@ -1,4 +1,4 @@
-// $Id: abge_werte_setzen.cc,v 1.36 2002/01/05 15:01:37 thoma Exp $
+// $Id: abge_werte_setzen.cc,v 1.37 2002/01/14 10:29:27 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -21,121 +21,112 @@
 
 void midgard_CG::on_abge_werte_setzen_clicked()
 {
-  Werte.set_Sinn("Sechster Sinn",Werte.Zt()/25);
-
-  int grad =1;
-  //////////////////////////////////////////////////////////////////////
-  // Aussehn
-  int au = constraint_aw(random,Werte.Spezies()->Au());
-  // pers. Ausstrahlung
-  int pa = random.integer(1,100)-30 + 3*(Werte.In()/10. + Werte.Au()/10.) ;
-  // Bewegungsweite
-  int b = Werte.Spezies()->B_s();
-  for (int i=0;i<Werte.Spezies()->B_f();++i) b+=random.integer(1,3);
-
-  // Willenskraft & Selbstbeherrschung
-  int wk = random.integer(1,100)-40 + 3*(Werte.In()/10. + Werte.Ko()/10.) ;
+  Werte.setGrad(1);
+  Werte.setSinn("Sechster Sinn",Werte.Zt()/25);
+  Werte.setAu( constraint_aw(random,Werte.Spezies()->Au()) );
+  Werte.setpA( random.integer(1,100)-30 + 3*(Werte.In()/10. + Werte.Au()/10.) );
+  {
+    int b = Werte.Spezies()->B_s();
+    for (int i=0;i<Werte.Spezies()->B_f();++i) b+=random.integer(1,3);
+    Werte.setB(b);
+  }
+  Werte.setWk(random.integer(1,100)-40 + 3*(Werte.In()/10. + Werte.Ko()/10.) );
+  {
 //  int sb = constraint_aw(random,Werte.Spezies()->Sb()) 
-  int sb = random.integer(1,100) + 3*(Werte.In()/10. + wk/10.) - 30;
-  //////////////////////////////////////////////////////////////////////
-  // Boni für Selbstbeherrschung
-  // Assassine, Beschwörer & Druide
-  sb += Typ[0]->Sb() + Typ[1]->Sb();
-  // Saddhu
-  if (Typ[0]->Short() == "Sa") sb = 80+random.integer(1,20);
-
-  grundwerte_boni_setzen();
-  ////////////////////////////////////////////////////////////////////////
-  // Was mit den Boni zusammenhägt:
-  // Raufen
-  Werte.set_Raufen((Werte.St()+Werte.Gw())/20+Werte.bo_An() );
-  if(Werte.Spezies()->Name()=="Zwerg") Werte.set_Raufen(Werte.Raufen()+1);  
-  // Abwehr
-  int abwehr_wert=11 ;
-  // Zaubern:
-  //Barde,Ordenskrieger,Zauberer
-  int zaubern_wert=2;
-  if (Typ[0]->Zaubern() == "j" || Typ[0]->Zaubern() == "z" || Typ[1]->Zaubern() == "j" || Typ[1]->Zaubern() == "z" ) 
-     zaubern_wert = 10 ;
-  
-  int resistenz = 10;
+    int sb = random.integer(1,100) + 3*(Werte.In()/10. + Werte.Wk()/10.) - 30;
+    // Boni für Selbstbeherrschung: Assassine, Beschwörer & Druide
+    sb += Typ[0]->Sb() + Typ[1]->Sb();
+    // Saddhu
+    if (Typ[0]->Short() == "Sa") sb = 80+random.integer(1,20);
+    Werte.setSb(sb);
+  }
+  Werte.setAbwehr_wert(11) ;
+  if (Typ[0]->Zaubern() == "j" || Typ[0]->Zaubern() == "z" || 
+      Typ[1]->Zaubern() == "j" || Typ[1]->Zaubern() == "z" ) 
+    Werte.setZaubern_wert(10) ;
+  else Werte.setZaubern_wert(2) ;
+  Werte.setResistenz(10);
 
   ////////////////////////////////////////////////////////////////////////
-  // LP und AP
-  int bo_au_typ;  
-  // Ausdauerbonus für Typen
-  if      (Typ[0]->Ausdauer() == "k" || Typ[1]->Ausdauer() == "k" ) bo_au_typ = 4 ;
-  else if (Typ[0]->Ausdauer() == "ak"|| Typ[1]->Ausdauer() == "ak" ) bo_au_typ = 3 ;
-  else bo_au_typ = 2 ;
-  // Werte würfeln und setzen
-  int lp = random.integer(1,6)+Werte.Ko()/10.+4+Werte.Spezies()->LPBasis() ;
-  int ap = random.integer(1,6)+Werte.bo_Au()+bo_au_typ + Werte.Grad()*Werte.Spezies()->AP_Grad() ;
-  if (ap<1) ap=1;
+  // Ausdauer
+  {
+    int bo_au_typ;  
+    if      (Typ[0]->Ausdauer() == "k" || Typ[1]->Ausdauer() == "k" ) bo_au_typ = 4 ;
+    else if (Typ[0]->Ausdauer() == "ak"|| Typ[1]->Ausdauer() == "ak" ) bo_au_typ = 3 ;
+    else bo_au_typ = 2 ;
+    int ap = random.integer(1,6)+Werte.bo_Au()+bo_au_typ + Werte.Grad()*Werte.Spezies()->AP_Grad() ;
+    if (ap<4) ap=4;
+    Werte.setAP(ap);
+  }
+  Werte.setLP(random.integer(1,6)+Werte.Ko()/10.+4+Werte.Spezies()->LPBasis());
 
   /////////////////////////////////////////////////////////////////////////
   // Körper und Stand
-  int groesse = Werte.Spezies()->Groesse_s() + Werte.St()/10.;
-  for (int i=0;i<Werte.Spezies()->Groesse_f();++i) 
-      groesse += random.integer(1,Werte.Spezies()->Groesse_w()) ;
-  if (Werte.Spezies()->Name()=="Mensch" && Werte.Geschlecht()=="w")
-    groesse-=10;   
+  {
+    int groesse = Werte.Spezies()->Groesse_s() + Werte.St()/10.;
+    for (int i=0;i<Werte.Spezies()->Groesse_f();++i) 
+       groesse += random.integer(1,Werte.Spezies()->Groesse_w()) ;
+    if (Werte.Spezies()->Name()=="Mensch" && Werte.Geschlecht()=="w")
+       groesse-=10;   
+    Werte.setGroesse(groesse);
+  }
 
-//  int ges=random.integer(1,6) + Werte.Spezies()->Gestalt();
-  int gewicht=0,ganz=0;
-  if(Werte.Spezies()->Name()=="Mensch" || Werte.Spezies()->Name()=="Elf" || Werte.Spezies()->Name()=="Zwerg")
-      ganz=4;
-  else ganz=3;
-  for (int i=0;i<ganz;++i) gewicht+=random.integer(1,6) ;
-  if (Werte.Spezies()->Name()=="Mensch" && Werte.Geschlecht()=="w")
-   gewicht-=4;
-  gewicht += Werte.St()/10. + groesse;
-  if(Werte.Spezies()->Name()=="Mensch" || Werte.Spezies()->Name()=="Elf")
+  {
+   int gewicht=0,ganz=0;
+   if(Werte.Spezies()->Name()=="Mensch" || 
+     Werte.Spezies()->Name()=="Elf" || 
+     Werte.Spezies()->Name()=="Zwerg" )
+    ganz=4;
+   else ganz=3;
+   for (int i=0;i<ganz;++i) gewicht+=random.integer(1,6) ;
+   if (Werte.Spezies()->Name()=="Mensch" && Werte.Geschlecht()=="w")
+    gewicht-=4;
+   gewicht += Werte.St()/10. + Werte.Groesse();
+   if(Werte.Spezies()->Name()=="Mensch" || 
+      Werte.Spezies()->Name()=="Elf")
       gewicht-=120;
-  else gewicht -=90;
-
-  std::string gestalt;
-  int g=groesse-100;
-  double ge=gewicht/g;
-  if(ge>1.1) gestalt="breit";
-  else if(ge<0.9) gestalt="schlank";
-  else gestalt="normal";
-
-  int ihand=random.integer(1,20);
-  std::string shand;
-  if(ihand<=15) shand="Rechtshänder";
-  else if (16<=ihand && ihand<=19) shand="Linkshänder";
-  else shand="Beidhändig";
-  if (Werte.Spezies()->Name()=="Waldgnom" || Werte.Spezies()->Name()=="Berggnom")
-      shand="Beidhändig";
-
-  int istand=random.integer(1,100);
-  int typstand = Typ[0]->Stand();
-  (typstand<Typ[1]->Stand())?typstand=Typ[1]->Stand():
-  istand += typstand;
+   else gewicht -=90;
+   Werte.setGewicht(gewicht);
+  }
+  {
+    int ihand=random.integer(1,20);
+    std::string h;
+    if(ihand<=15) h=Vhand[0];
+    else if (16<=ihand && ihand<=19) h=Vhand[1];
+    else h=Vhand[3];
+    if (Werte.Spezies()->Name()=="Waldgnom" || 
+        Werte.Spezies()->Name()=="Berggnom")
+      h=Vhand[3];
+    Werte.setHand(h);
+  }
+  {
+    int istand=random.integer(1,100);
+    int typstand = Typ[0]->Stand();
+    (typstand<Typ[1]->Stand()) ? typstand=Typ[1]->Stand() : istand += typstand;
 //std::cout << "typstand\t"<<typstand<<"\n";
-  std::string stand;  
-  if(Werte.Spezies()->Name()=="Mensch")
-   {
-     if (istand<=10) stand = "Unfrei";
-     if (11<=istand&&istand<=50) stand = "Volk";
-     if (51<=istand&&istand<=90) stand = "Mittelschicht";
-     if (istand>=91) stand = "Adel";
+    std::string stand;  
+    if(Werte.Spezies()->Name()=="Mensch")
+     {
+       if (istand<=10) stand = Vstand[1];
+       if (11<=istand&&istand<=50) stand =  Vstand[2];
+       if (51<=istand&&istand<=90) stand =  Vstand[3];
+       if (istand>=91) stand =  Vstand[4];;
+     }
+    else if(Werte.Spezies()->Name()=="Halbling" ||
+            Werte.Spezies()->Name()=="Waldgnom" ||
+            Werte.Spezies()->Name()=="Berggnom")
+     {
+       if (istand<=50) stand =  Vstand[2];
+       if (51<=istand) stand =  Vstand[3];
+     }
+    else
+     {
+       if (            istand<=50) stand =  Vstand[2];
+       if (51<=istand&&istand<=90) stand =  Vstand[3];
+       if (istand>=91) stand =  Vstand[4];
+     }
+    Werte.setStand(stand);
    }
-  else if(Werte.Spezies()->Name()=="Halbling" ||
-          Werte.Spezies()->Name()=="Waldgnom" ||
-          Werte.Spezies()->Name()=="Berggnom")
-   {
-     if (istand<=50) stand = "Volk";
-     if (51<=istand) stand = "Mittelschicht";
-   }
-  else
-   {
-     if (            istand<=50) stand = "Volk";
-     if (51<=istand&&istand<=90) stand = "Mittelschicht";
-     if (istand>=91) stand = "Adel";
-   }
-  Werte.set_Abgeleitetewerte(au,pa,sb,wk,b,lp,ap,abwehr_wert,zaubern_wert,
-   resistenz,gestalt,shand,gewicht,groesse,grad,stand);
 
   if (Originalbool) original_midgard_check() ;
   zeige_werte(Werte);
@@ -147,110 +138,6 @@ void midgard_CG::on_abge_werte_setzen_clicked()
   frame_lernschema->set_sensitive(true);
 }
 
-
-void midgard_CG::grundwerte_boni_setzen()
-{
-  int bo_au  = Werte.Ko()/10. + Werte.St()/20. - 7 ;
-  int bo_sc  = Werte.St()/20. + Werte.Gs()/30. - 3 ;;
-
-  //Angriff
-  int bo_an  =0;
-  int ist=Werte.Gs();
-  if (1<=ist&&ist<=5) { bo_an-=2; }
-  if (6<=ist&&ist<=20) { bo_an-=1; }
-  if (81<=ist&&ist<=95) { bo_an+=1;}
-  if (96<=ist) {bo_an+=2;}
-
-  //Abwehr
-  int bo_ab  =0;
-  ist=Werte.Gw();
-  if (1<=ist&&ist<=5) { bo_ab-=2;}
-  if (6<=ist&&ist<=20) { bo_ab-=1; }
-  if (81<=ist&&ist<=95) { bo_ab+=1;}
-  if (96<=ist) { bo_ab+=2;}
-
-  //Zaubern
-  int bo_za  =0;
-  ist=Werte.Zt();
-  if (ist<=5)           {bo_za-=3; }
-  if (6<=ist&&ist<=20)  {bo_za-=2; }
-  if (21<=ist&&ist<=40) {bo_za-=1; }
-  if (61<=ist&&ist<=80) {bo_za+=1; }
-  if (81<=ist&&ist<=95) {bo_za+=2; }
-  if (96<=ist&&ist<=99) {bo_za+=3; }
-  if (ist>=100)         {bo_za+=4; }
-
-  // Geistesmagie
-  ist=Werte.Zt();
-  int bo_psyZt =0;
-  if (ist<=5)           {bo_psyZt-=2; }
-  if (6<=ist&&ist<=20)  {bo_psyZt-=1; }
-  if (81<=ist&&ist<=95) {bo_psyZt+=1; }
-  if (96<=ist&&ist<=99) {bo_psyZt+=2; }
-  if (ist>=100)         {bo_psyZt+=3; }
-  ist=Werte.In();
-  int bo_psyIn =0;
-  if (ist<=5)           { bo_psyIn-=2; }
-  if (6<=ist&&ist<=20)  { bo_psyIn-=1; }
-  if (81<=ist&&ist<=95) { bo_psyIn+=1; }
-  if (96<=ist)          { bo_psyIn+=2; }
-  int bo_psy = (bo_psyZt>bo_psyIn) ? bo_psyZt : bo_psyIn ;
-  if (Werte.Spezies()->Name()=="Elf" && Werte.Zt() <= 100 ) { bo_psy+=2;}
-  if (Werte.Spezies()->Name()=="Elf" && Werte.Zt() >= 100 ) { bo_psy+=3;}
-  if (Werte.Spezies()->Name()=="Berggnom") { bo_psy+=5;}
-  if (Werte.Spezies()->Name()=="Waldgnom") { bo_psy+=5;}
-  if (Werte.Spezies()->Name()=="Halbling") { bo_psy+=5;}
-  if (Werte.Spezies()->Name()=="Zwerg")    { bo_psy+=4;}
-  // Körpermagie
-  ist=Werte.Zt();
-  int bo_phsZt =0;
-  if (ist<=5)           {bo_phsZt-=2; }
-  if (6<=ist&&ist<=20)  {bo_phsZt-=1; }
-  if (81<=ist&&ist<=95) {bo_phsZt+=1; }
-  if (96<=ist&&ist<=99) {bo_phsZt+=2; }
-  if (ist>=100)         {bo_phsZt+=3; }
-  ist=Werte.Ko();
-  int bo_phsKo =0;
-  if (ist<=5)           { bo_phsKo-=2; }
-  if (6<=ist&&ist<=20)  { bo_phsKo-=1; }
-  if (81<=ist&&ist<=95) { bo_phsKo+=1; }
-  if (96<=ist)          { bo_phsKo+=2; }
-  int bo_phs = (bo_phsZt>bo_phsKo) ? bo_phsZt : bo_phsKo ;
-  if (Werte.Spezies()->Name()=="Elf" && Werte.Zt() <= 100 ) { bo_phs+=2;}
-  if (Werte.Spezies()->Name()=="Elf" && Werte.Zt() >= 100 ) { bo_phs+=3;}
-  if (Werte.Spezies()->Name()=="Berggnom") { bo_phs+=5;}
-  if (Werte.Spezies()->Name()=="Waldgnom") { bo_phs+=5;}
-  if (Werte.Spezies()->Name()=="Halbling") { bo_phs+=5;}
-  if (Werte.Spezies()->Name()=="Zwerg")    { bo_phs+=4;}
-  // Umgebungsmagie
-  ist=Werte.Gw();
-  int bo_phk =0;
-  if (ist<=5)           {bo_phk-=2; }
-  if (6<=ist&&ist<=20)  {bo_phk-=1; }
-  if (81<=ist&&ist<=95) {bo_phk+=1; }
-  if (96<=ist)          {bo_phk+=2; }
-  if (Werte.Spezies()->Name()=="Elf") { bo_phs+=2;}
-  if (Werte.Spezies()->Name()=="Berggnom") { bo_phs+=5;}
-  if (Werte.Spezies()->Name()=="Waldgnom") { bo_phs+=5;}
-  if (Werte.Spezies()->Name()=="Halbling") { bo_phs+=5;}
-
-/*
-  // Speziesspezifische Boni
-//  if (bo_ab <Werte.Spezies()->Abb()) bo_ab =Werte.Spezies()->Abb();
-  if (bo_psy<Werte.Spezies()->Psy()) bo_psy=Werte.Spezies()->Psy();
-  if (bo_phs<Werte.Spezies()->Phs()) bo_phs=Werte.Spezies()->Phs();
-  if (bo_phk<Werte.Spezies()->Phk()) bo_phk=Werte.Spezies()->Phk();
-*/
-
-  // Grundlegende Resistenz
-  if (Typ[0]->Zaubern()=="z" || Typ[1]->Zaubern()=="z" ) 
-      { bo_phs+=3; bo_psy+=3; bo_phk+=3; }
-  else
-      { bo_phs+=2; }
-
-  Werte.set_Abgeleitetewerte_Boni(bo_au,bo_sc,bo_an,bo_ab,bo_za,bo_psy,bo_phs,
-   bo_phk);
-}
 
 void midgard_CG::original_midgard_check()
 {
@@ -267,7 +154,7 @@ void midgard_CG::original_midgard_check()
    if (in<1)   in=1;
    if (zt>100) zt=100;
    if (zt<1)   zt=1;
-   Werte.set_Basiswerte(st,gw,gs,ko,in,zt);
+   Werte.setBasiswerte(st,gw,gs,ko,in,zt);
 
    int au=Werte.Au(),pa=Werte.pA(),sb=Werte.Sb(),wk=Werte.Wk();
    if (au>100) au=100;
@@ -278,5 +165,5 @@ void midgard_CG::original_midgard_check()
    if (sb<1)   sb=1;
    if (wk>100) wk=100;
    if (wk<1)   wk=1;
-   Werte.set_Abgeleitetewerte_small(au,pa,sb,wk);
+   Werte.setAbgeleitetewerte_small(au,pa,sb,wk);
 }

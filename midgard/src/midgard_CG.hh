@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.128 2002/01/12 08:12:25 thoma Exp $
+// $Id: midgard_CG.hh,v 1.129 2002/01/14 10:29:27 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -47,31 +47,6 @@
 #include <list>
 #include "zufall.h"
 #include "Datenbank.hh"
-/*
-#include "Zauber.hh"
-#include "Zauberwerk.hh"
-#include "Fertigkeiten.hh"
-#include "Waffe.hh"
-#include "WaffeGrund.hh"
-#include "KiDo.hh"
-#include "Region.hh"
-#include "Ruestung.hh"
-#include "Fertigkeiten_angeboren.hh"
-*/
-//#include "class_berufe.hh"
-/*
-#include "class_lernpunkte.hh"
-#include "Grundwerte.hh"
-#include "Land.hh"
-#include "Pflicht.hh"
-#include "Spezies.hh"
-#include "Typen.hh"
-#include "Grad_anstieg.hh"
-#include "Lernschema.hh"
-#include "Beruf.hh"
-#include "Preise.hh"
-#include "Ausruestung.hh"
-*/
 class Random;
 
 extern bool Originalbool;
@@ -85,68 +60,10 @@ class midgard_CG : public midgard_CG_glade
                                   PAGE_AUSRUESTUNG};
         enum enum_notebook_lernen{PAGE_FERTIGKEITEN,PAGE_WAFFEN,PAGE_ZAUBER,
                                   PAGE_KIDO,PAGE_SPRACHE};
-   public:
-/*
-        struct st_Database { std::vector<cH_Region> Regionen;
-                             std::vector<cH_Land> Laender;
-                             std::vector<cH_Ruestung> Ruestung;
-                             Lernschema lernschema;
-                             std::list<cH_MidgardBasicElement> Beruf;
-                             std::list<cH_MidgardBasicElement> Fertigkeit_ang;
-                             std::list<cH_MidgardBasicElement> Fertigkeit;
-                             std::list<cH_MidgardBasicElement> WaffeGrund;
-                             std::list<cH_MidgardBasicElement> Waffe;
-                             std::map<std::string,std::string> Waffe_from_Alias;
-                             std::list<cH_MidgardBasicElement> Zauber;
-                             std::list<cH_MidgardBasicElement> Zauberwerk;
-                             std::list<cH_MidgardBasicElement> Kido;
-                             std::list<cH_MidgardBasicElement> Sprache;
-                             std::list<cH_MidgardBasicElement> Schrift;
-                             Pflicht pflicht;
-                             Ausnahmen ausnahmen;
-                             std::vector<cH_Spezies> Spezies;
-                             std::vector<cH_Typen> Typen;
-                             Grad_anstieg GradAnstieg;
-                             std::vector<cH_Spezialgebiet> Spezialgebiet;
-                             std::list<cH_Preise> preise;
-                             std::list<cH_PreiseMod> preisemod;
-               st_Database(){}
-               st_Database(std::vector<cH_Region> Re,
-                           std::vector<cH_Land> L,
-                           std::vector<cH_Ruestung> R,
-                           Lernschema l,
-                           std::list<cH_MidgardBasicElement> B,
-                           std::list<cH_MidgardBasicElement> Fa,
-                           std::list<cH_MidgardBasicElement> F,
-                           std::list<cH_MidgardBasicElement> WG,
-                           std::list<cH_MidgardBasicElement> W,
-                           std::map<std::string,std::string> WfA,
-                           std::list<cH_MidgardBasicElement> Z,
-                           std::list<cH_MidgardBasicElement> Zw,
-                           std::list<cH_MidgardBasicElement> K,
-                           std::list<cH_MidgardBasicElement> Sp,
-                           std::list<cH_MidgardBasicElement> Sc,
-                           Pflicht p,
-                           Ausnahmen a,
-                           std::vector<cH_Spezies> S,
-                           std::vector<cH_Typen> T,
-                           Grad_anstieg GA,
-                           std::vector<cH_Spezialgebiet> SP,
-                           std::list<cH_Preise> pr,
-                           std::list<cH_PreiseMod> prm )
-                           : Regionen(Re),Laender(L),Ruestung(R),
-                             lernschema(l),
-                             Beruf(B),Fertigkeit_ang(Fa),
-                             Fertigkeit(F),WaffeGrund(WG),Waffe(W),
-                             Waffe_from_Alias(WfA),
-                             Zauber(Z),Zauberwerk(Zw),
-                             Kido(K),Sprache(Sp),Schrift(Sc),
-                             pflicht(p),ausnahmen(a),Spezies(S),
-                             Typen(T),GradAnstieg(GA),
-                             Spezialgebiet(SP),
-                             preise(pr),preisemod(prm) {}
-                           };
-*/
+
+
+        std::vector<std::string> Vstand, Vhand;
+
    private:
         friend class midgard_CG_glade;
         Gtk::Menu *menu;
@@ -218,10 +135,36 @@ class midgard_CG : public midgard_CG_glade
         int  constraint_gw(Random& random,int constraint);
         int  constraint_aw(Random& random,int constraint);
         int  wuerfeln_best_of_two(Random& random);
-        void werte_editieren();
+//        void werte_editieren();
+        void on_togglebutton_edit_werte_toggled();
+        void set_all_entrys();
+        void on_entry_nameC_activate();
+        void on_entry_nameS_activate();
+        void on_entry_version_activate();
+        void on_entry_spezialisierung_activate();
+        void on_entry_glaube_activate();
+        void on_entry_herkunft_activate();
+        void on_spinbutton_grad_activate();
+        void on_spinbutton_lp_activate();
+        void on_spinbutton_ap_activate();
+        void on_spinbutton_Cgewicht_activate();
+        void on_spinbutton_groesse_activate();
+        void on_spinbutton_alter_activate();
+        void on_spinbutton_st_activate();
+        void on_spinbutton_gw_activate();
+        void on_spinbutton_gs_activate();
+        void on_spinbutton_ko_activate();
+        void on_spinbutton_in_activate();
+        void on_spinbutton_zt_activate();
+        void on_spinbutton_sb_activate();
+        void on_spinbutton_wk_activate();
+        void on_spinbutton_au_activate();
+        void on_spinbutton_pa_activate();
+        void on_spinbutton_b_activate();
+
+        void edit_sensitive(bool b);
         void on_abge_werte_setzen_clicked();
         void original_midgard_check();
-        void grundwerte_boni_setzen();
         void on_neuer_charakter_clicked();
         void clear_gtk();
         void clear_listen();

@@ -15,9 +15,9 @@ void Window_Erfahrungspunkte::on_button_close_clicked()
   spinbutton_AEP->update();
   spinbutton_KEP->update();
   spinbutton_ZEP->update();
-  Werte.set_EP(spinbutton_AEP->get_value_as_int(),
-               spinbutton_KEP->get_value_as_int(),
-               spinbutton_ZEP->get_value_as_int());
+  Werte.setEP(spinbutton_AEP->get_value_as_int(),
+              spinbutton_KEP->get_value_as_int(),
+              spinbutton_ZEP->get_value_as_int());
   hauptfenster->EP_uebernehmen();
   destroy();
 }

@@ -71,9 +71,9 @@ void midgard_CG::spielleiter_export()
    }
 
  fout <<" - Abwehr+"<<Werte.Abwehr_wert()+Werte.bo_Ab() <<", "
-      <<"Resistenz+"<<Werte.Resistenz()+Werte.bo_Psy()<<"/" 
-                    <<Werte.Resistenz()+Werte.bo_Phs()<<"/" 
-                    <<Werte.Resistenz()+Werte.bo_Phk()<<"\n\n" ;
+      <<"Resistenz+"<<Werte.Resistenz()+Werte.bo_Psy(Typ)<<"/" 
+                    <<Werte.Resistenz()+Werte.bo_Phs(Typ)<<"/" 
+                    <<Werte.Resistenz()+Werte.bo_Phk(Typ)<<"\n\n" ;
 
  // angeborene Fertigkeiten
  for(std::list<cH_MidgardBasicElement>::const_iterator i=list_Fertigkeit_ang.begin();i!=list_Fertigkeit_ang.end();++i)

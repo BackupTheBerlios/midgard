@@ -1,4 +1,4 @@
-// $Id: LaTeX_out.cc,v 1.81 2002/01/09 11:42:19 thoma Exp $
+// $Id: LaTeX_out.cc,v 1.82 2002/01/14 10:29:27 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -107,9 +107,9 @@ void midgard_CG::LaTeX_write_values()
  fout << "\\newcommand{\\boan}{"<<Werte.bo_An()<< "}\n";
  fout << "\\newcommand{\\boab}{"<<Werte.bo_Ab()<< "}\n";
  fout << "\\newcommand{\\boza}{"<<Werte.bo_Za()<< "}\n";
- fout << "\\newcommand{\\bopsy}{"<<Werte.bo_Psy()<< "}\n";
- fout << "\\newcommand{\\bophs}{"<<Werte.bo_Phs()<< "}\n";
- fout << "\\newcommand{\\bophk}{"<<Werte.bo_Phk()<< "}\n";
+ fout << "\\newcommand{\\bopsy}{"<<Werte.bo_Psy(Typ)<< "}\n";
+ fout << "\\newcommand{\\bophs}{"<<Werte.bo_Phs(Typ)<< "}\n";
+ fout << "\\newcommand{\\bophk}{"<<Werte.bo_Phk(Typ)<< "}\n";
 
  // Sinne
  fout << "\\newcommand{\\sinnse}{"<<Werte.Sehen()<< "}\n";
@@ -123,9 +123,9 @@ void midgard_CG::LaTeX_write_values()
 
 
 // fout << "\\newcommand{\\bogi}{ X }\n";
- fout << "\\newcommand{\\psy}{"<<Werte.Resistenz()+Werte.bo_Psy()<<"}\n";
- fout << "\\newcommand{\\phs}{"<<Werte.Resistenz()+Werte.bo_Phs()<<"}\n";
- fout << "\\newcommand{\\phk}{"<<Werte.Resistenz()+Werte.bo_Phk()<<"}\n";
+ fout << "\\newcommand{\\psy}{"<<Werte.Resistenz()+Werte.bo_Psy(Typ)<<"}\n";
+ fout << "\\newcommand{\\phs}{"<<Werte.Resistenz()+Werte.bo_Phs(Typ)<<"}\n";
+ fout << "\\newcommand{\\phk}{"<<Werte.Resistenz()+Werte.bo_Phk(Typ)<<"}\n";
 // fout << "\\newcommand{\\gift}{"<<3*Werte.LP()+Werte.bo_Gift()+ Spezies_constraint.Gift()<<"}\n";
  fout << "\\newcommand{\\gift}{"<<Werte.Gift()<<"}\n";
 

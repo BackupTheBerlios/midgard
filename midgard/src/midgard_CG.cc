@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.111 2002/01/12 09:23:30 thoma Exp $
+// $Id: midgard_CG.cc,v 1.112 2002/01/14 10:29:27 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -40,6 +40,17 @@ midgard_CG::midgard_CG(Datenbank& _Database)
   srand(time(0));
   on_neuer_charakter_clicked();
   set_tree_titles();
+  
+        Vstand.resize(5);
+        Vstand[1]="Unfrei";
+        Vstand[2]="Volk";
+        Vstand[3]="Mittelschicht";
+        Vstand[4]="Adel";
+        Vhand.resize(3);
+        Vhand[0]="Rechtshänder";
+        Vhand[1]="Linkshänder";
+        Vhand[2]="Beidhändig";
+
 }
 
 gint midgard_CG::on_eventbox_MCG_button_press_event(GdkEventButton *event) 
@@ -72,7 +83,7 @@ void midgard_CG::set_tree_titles()
 void midgard_CG::on_radiobutton_frau_toggled()
 {   
   if (radiobutton_frau->get_active()) Werte.Geschlecht()="w";
-   else Werte.set_Geschlecht("m");
+   else Werte.setGeschlecht("m");
   fill_typauswahl();
   fill_typauswahl_2();
   typauswahl->set_history(Typ[0]->Nr());
@@ -82,7 +93,7 @@ void midgard_CG::on_radiobutton_frau_toggled()
 void midgard_CG::on_radiobutton_mann_toggled()
 {
   if (radiobutton_mann->get_active()) Werte.Geschlecht()="m";
-   else Werte.set_Geschlecht("w");
+   else Werte.setGeschlecht("w");
   fill_typauswahl();
   fill_typauswahl_2();
   typauswahl->set_history(Typ[0]->Nr());
@@ -161,12 +172,12 @@ void midgard_CG::on_charakter_beschreibung_clicked()
 }   
 void midgard_CG::charakter_beschreibung_uebernehmen(const std::string& b)
 {
-  Werte.set_Beschreibung(b);
+  Werte.setBeschreibung(b);
   on_speichern_clicked();
 }
 void midgard_CG::charakter_beschreibung_drucken(const std::string& b)
 {
-  Werte.set_Beschreibung(b);
+  Werte.setBeschreibung(b);
   on_speichern_clicked();
   midgard_CG::latex_beschreibung_drucken();
 }

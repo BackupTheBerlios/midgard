@@ -1,4 +1,4 @@
-// $Id: midgard_CG_waffen.cc,v 1.29 2001/12/20 06:18:38 thoma Exp $
+// $Id: midgard_CG_waffen.cc,v 1.30 2002/01/14 10:29:28 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -52,7 +52,7 @@ void midgard_CG::on_waffen_clist_select_row(gint row, gint column, GdkEvent *eve
     Gtk::CList::SelectionList::iterator i=waffen_clist->selection().begin();
     cH_MidgardBasicElement ptr = static_cast<MidgardBasicElement*>(i->get_data());           
     (ptr)->set_Erfolgswert((ptr)->Erfolgswert()+2);
-    Werte.set_Spezialisierung((ptr)->Name());
+    Werte.setSpezialisierung((ptr)->Name());
 
     static cH_MidgardBasicElement *ptr_mem=0;
     if(ptr_mem)

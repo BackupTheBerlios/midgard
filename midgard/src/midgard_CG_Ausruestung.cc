@@ -270,9 +270,9 @@ void midgard_CG::on_clist_preisliste_select_row(gint row, gint column, GdkEvent 
      if(einheit=="GS") g=atoi(kosten.c_str());
      if(einheit=="SS") s=atoi(kosten.c_str());
      if(einheit=="KS") k=atoi(kosten.c_str());
-     Werte.add_Gold(-g);
-     Werte.add_Silber(-s);
-     Werte.add_Kupfer(-k);
+     Werte.addGold(-g);
+     Werte.addSilber(-s);
+     Werte.addKupfer(-k);
      Geld_uebernehmen();
    }
  std::string bez;

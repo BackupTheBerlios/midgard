@@ -1,4 +1,4 @@
-// $Id: Window_werte_editieren.cc,v 1.31 2001/12/31 16:06:34 thoma Exp $
+// $Id: Window_werte_editieren.cc,v 1.32 2002/01/14 10:29:27 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -32,7 +32,7 @@ void Window_werte_editieren::on_nwe_close_clicked()
    alter_ein->update();
    gewicht_ein->update();
    groesse_ein->update();
-   Werte.set_Basiswerte(atoi(st_ein->get_text().c_str()),
+   Werte.setBasiswerte(atoi(st_ein->get_text().c_str()),
                         atoi( gw_ein->get_text().c_str()),
                         atoi( gs_ein->get_text().c_str()),
                         atoi( ko_ein->get_text().c_str()),
@@ -40,6 +40,7 @@ void Window_werte_editieren::on_nwe_close_clicked()
                         atoi( zt_ein->get_text().c_str()));
    int istand = int(optionmenu_stand->get_menu()->get_active()->get_user_data());
    int ihand  = int(optionmenu_hand->get_menu()->get_active()->get_user_data());
+/*
    Werte.set_Abgeleitetewerte(atoi( au_ein->get_text().c_str()),
                               atoi( pa_ein->get_text().c_str()),
                               atoi( sb_ein->get_text().c_str()),
@@ -50,12 +51,13 @@ void Window_werte_editieren::on_nwe_close_clicked()
                               atoi(abwehr_ein ->  get_text().c_str()),
                               atoi(zaubern_ein -> get_text().c_str()),
                               atoi (resistenz_ein ->   get_text().c_str()),
-                              gestalt_ein->get_text(),
                               vhand[ihand],
                               atoi( gewicht_ein->get_text().c_str()),
                               atoi( groesse_ein->get_text().c_str()),
                               atoi( grad_ein->get_text().c_str()),
                               vstand[istand]);
+*/
+/*
    Werte.set_Abgeleitetewerte_Boni(atoi (bo_au_ein->get_text().c_str()),
                               atoi (bo_sc_ein->get_text().c_str()),
                               atoi (bo_an_ein->get_text().c_str()),
@@ -64,16 +66,16 @@ void Window_werte_editieren::on_nwe_close_clicked()
                               atoi (bo_psy_ein->get_text().c_str()),
                               atoi (bo_phs_ein->get_text().c_str()),
                               atoi (bo_phk_ein->get_text().c_str()));
-
-   Werte.set_GFP(atoi (gfp_ein->get_text().c_str()));
-   Werte.set_GG(atoi (gg_ein->get_text().c_str()));
-   Werte.set_SG(atoi (sg_ein->get_text().c_str()));
-   Werte.set_Alter(atoi( alter_ein->get_text().c_str()));
+*/
+   Werte.setGFP(atoi (gfp_ein->get_text().c_str()));
+   Werte.setGG(atoi (gg_ein->get_text().c_str()));
+   Werte.setSG(atoi (sg_ein->get_text().c_str()));
+   Werte.setAlter(atoi( alter_ein->get_text().c_str()));
    Werte.setSteigertage(atoi( spinbutton_steigertage->get_text().c_str()));
-   Werte.set_Spezialisierung(spezialisierung_ein->get_text());
-   Werte.set_Herkunft(cH_Land(herkunft_ein->get_text()));
-   Werte.set_Glaube(glaube_ein->get_text());
-   Werte.set_Namen(name_charakter_ein->get_text(),name_spieler_ein->get_text(),
+   Werte.setSpezialisierung(spezialisierung_ein->get_text());
+   Werte.setHerkunft(cH_Land(herkunft_ein->get_text()));
+   Werte.setGlaube(glaube_ein->get_text());
+   Werte.setNamen(name_charakter_ein->get_text(),name_spieler_ein->get_text(),
                version_ein->get_text());
 
    hauptfenster->zeige_werte(Werte);
@@ -112,9 +114,9 @@ Window_werte_editieren::Window_werte_editieren(midgard_CG* h,Grundwerte& w)
  bo_an_ein->  set_value(Werte.bo_An ());
  bo_ab_ein->  set_value(Werte.bo_Ab ());
  bo_za_ein->  set_value(Werte.bo_Za ());
- bo_psy_ein-> set_value(Werte.bo_Psy()); 
- bo_phs_ein-> set_value(Werte.bo_Phs()); 
- bo_phk_ein-> set_value(Werte.bo_Phk()); 
+// bo_psy_ein-> set_value(Werte.bo_Psy(Typ)); 
+// bo_phs_ein-> set_value(Werte.bo_Phs(Typ)); 
+// bo_phk_ein-> set_value(Werte.bo_Phk(Typ)); 
  abwehr_ein -> set_value(Werte.Abwehr_wert());
  zaubern_ein -> set_value(Werte.Zaubern_wert());
  resistenz_ein -> set_value(Werte.Resistenz());
@@ -122,7 +124,6 @@ Window_werte_editieren::Window_werte_editieren(midgard_CG* h,Grundwerte& w)
    
  alter_ein->set_value(Werte.Alter());   
  spinbutton_steigertage->set_value(Werte.Steigertage());
- gestalt_ein->set_text(Werte.Gestalt());   
  gewicht_ein->set_value(Werte.Gewicht());   
  groesse_ein->set_value(Werte.Groesse());   
  grad_ein->set_value(Werte.Grad());   
@@ -243,11 +244,6 @@ void Window_werte_editieren::gewicht_activate()
 }
 
 void Window_werte_editieren::groesse_activate()
-{   
- gestalt_ein->grab_focus();
-}
-
-void Window_werte_editieren::gestalt_activate()
 {   
  spezialisierung_ein->grab_focus();
 }

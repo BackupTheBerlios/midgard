@@ -113,8 +113,8 @@ void midgard_CG::on_leaf_selected_neue_fert(cH_RowDataBase d)
          strinfo += " und anschließend 'Fertigkeiten neu laden' klicken\n";
          manage (new WindowInfo(strinfo,true));
          // Resistenzboni für Zauberer setzten:
-         Werte.set_magBoni(Werte.bo_Psy()+3,Werte.bo_Phs()+1,Werte.bo_Phk()+3);
-         if (Werte.Zaubern_wert()==2) Werte.set_Zaubern_wert(10);
+//         Werte.set_magBoni(Werte.bo_Psy()+3,Werte.bo_Phs()+1,Werte.bo_Phk()+3);
+         if (Werte.Zaubern_wert()==2) Werte.setZaubern_wert(10);
       }
   else 
      MidgardBasicElement_leaf_neu(d);

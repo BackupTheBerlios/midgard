@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.86 2002/01/09 16:24:08 thoma Exp $
+# $Id: Makefile.am,v 1.87 2002/01/14 10:29:27 thoma Exp $
 
 USE_XML=$(shell if test `hostname` = "puck" ; then echo -DUSE_XML ; fi)
 
@@ -118,6 +118,7 @@ midgard_xmlimport_SOURCES= $(BUILT_SOUCES_XMLI) Tag.cc TagStream.cc
 
 
 midgard_SOURCES = \
+   Grundwerte.cc \
 	gw_wuerfeln.cc \
    midgard_CG_Ausruestung.cc \
    Berufe_auswahl.cc \

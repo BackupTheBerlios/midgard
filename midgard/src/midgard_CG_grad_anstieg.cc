@@ -1,4 +1,4 @@
-// $Id: midgard_CG_grad_anstieg.cc,v 1.38 2002/01/11 10:22:13 thoma Exp $
+// $Id: midgard_CG_grad_anstieg.cc,v 1.39 2002/01/14 10:29:27 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -23,7 +23,7 @@
 void midgard_CG::on_grad_anstieg_clicked()
 {
  int old_grad=Werte.Grad();
- Werte.set_Grad(Database.GradAnstieg.get_Grad(Werte.GFP()));
+ Werte.setGrad(Database.GradAnstieg.get_Grad(Werte.GFP()));
  get_ausdauer(Werte.Grad());
  while(old_grad<=Werte.Grad())
   {
@@ -39,7 +39,7 @@ void midgard_CG::on_grad_anstieg_clicked()
 
 void midgard_CG::on_button_grad_clicked()
 {   
-  Werte.set_Grad(Database.GradAnstieg.get_Grad(Werte.GFP()));
+  Werte.setGrad(Database.GradAnstieg.get_Grad(Werte.GFP()));
   zeige_werte(Werte);
 }
 void midgard_CG::on_button_grad_ausdauer_clicked()
@@ -108,13 +108,12 @@ void midgard_CG::get_grundwerte()
   {
    //Setzen von abgeleiteten Werten, die durch eine Steigerung 
    //bertoffen sein könnten:
-   grundwerte_boni_setzen();
-   Werte.set_Sinn("Sechster Sinn",Werte.Zt()/25);
-   Werte.set_Raufen((Werte.St()+Werte.Gw())/20+Werte.bo_An() );
+   Werte.setSinn("Sechster Sinn",Werte.Zt()/25);
+//   Werte.setRaufen((Werte.St()+Werte.Gw())/20+Werte.bo_An() );
    if(was=="Konstitution" && (awko/10 != Werte.Ko()/10))
          Werte.setLP(Werte.LP()-awko/10+Werte.Ko()/10);
    if( aapb!=Werte.bo_Au() ) 
-      Werte.set_AP(Werte.AP()-aapb+Werte.bo_Au());
+      Werte.setAP(Werte.AP()-aapb+Werte.bo_Au());
   }
 
 
@@ -122,7 +121,6 @@ void midgard_CG::get_grundwerte()
   if (was != "keine Erhöhung" )
     {
        stinfo += " um "; stinfo += itos(erh); stinfo+=" erhöht.\n";
-       midgard_CG::grundwerte_boni_setzen();
     }
   manage(new WindowInfo(stinfo,true));
   if (Originalbool) original_midgard_check() ;
@@ -144,7 +142,7 @@ void midgard_CG::get_ausdauer(int grad)
    if (grad ==10)  { bonus_K = 30, bonus_aK = 20; bonus_Z = 10; kosten =  1500;}
    if (grad >=11)  { bonus_K = 30, bonus_aK = 20; bonus_Z = 10; kosten =  2000;}
    if (!steigern_usp(kosten,0,Ausdauer)) return;
-   Werte.add_GFP(kosten);
+   Werte.addGFP(kosten);
    int ap=0;
    for (int i=0;i<grad;++i) ap += random.integer(1,6);
 
@@ -162,9 +160,9 @@ void midgard_CG::get_ausdauer(int grad)
    stinfo+="+";stinfo+=itos(Werte.bo_Au());stinfo+="=";stinfo+=itos(nap);
   manage(new WindowInfo(stinfo,true));
    // Für alle ist die AP-anzahel mind. = Grad
-  if (Werte.AP()<Werte.Grad()) Werte.set_AP(Werte.Grad()); 
+  if (Werte.AP()<Werte.Grad()) Werte.setAP(Werte.Grad()); 
    // Neue AP höher als alte?
-  if (nap>Werte.AP())  Werte.set_AP(nap)  ;
+  if (nap>Werte.AP())  Werte.setAP(nap)  ;
 
   Werte.addSteigertage(28);
 }
@@ -202,8 +200,8 @@ void midgard_CG::get_ab_re_za(e_was_steigern was)
         return;}
 
   if(!steigern_usp(kosten,0,was));  
-  Werte.add_GFP(kosten);
-  if (was==Abwehr) Werte.set_Abwehr_wert(alter_wert+1);
-  if (was==Resistenz) Werte.set_Resistenz(alter_wert+1); 
-  if (was==Zaubern) Werte.set_Zaubern_wert(alter_wert+1); 
+  Werte.addGFP(kosten);
+  if (was==Abwehr) Werte.setAbwehr_wert(alter_wert+1);
+  if (was==Resistenz) Werte.setResistenz(alter_wert+1); 
+  if (was==Zaubern) Werte.setZaubern_wert(alter_wert+1); 
 }

@@ -43,7 +43,7 @@ bool midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
       if ( MBE->Erfolgswert() >= MBE->MaxErfolgswert(Werte,Typ)) 
           { regnot("Maximal möglicher Erfolgswert erreicht");
             return false; }
-      Werte.add_GFP(MBE->Steigern(Typ,Database.ausnahmen));
+      Werte.addGFP(MBE->Steigern(Typ,Database.ausnahmen));
       for (std::list<cH_MidgardBasicElement>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
          if ( (*i)->Name() == MBE->Name()) 
             (*i)->add_Erfolgswert(1); 
@@ -51,7 +51,7 @@ bool midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
  if (radiobutton_reduzieren->get_active() && MBE->Reduzieren(Typ,Database.ausnahmen))
     {
       if (steigern_bool) desteigern(MBE->Reduzieren(Typ,Database.ausnahmen));
-      Werte.add_GFP(-MBE->Reduzieren(Typ,Database.ausnahmen));
+      Werte.addGFP(-MBE->Reduzieren(Typ,Database.ausnahmen));
       for (std::list<cH_MidgardBasicElement>::iterator i=(*MyList).begin();i!= (*MyList).end();++i )
          if ( (*i)->Name() == MBE->Name())  
             (*i)->add_Erfolgswert(-1); 
@@ -62,7 +62,7 @@ bool midgard_CG::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
       if( MBE->What()==MidgardBasicElement::ZAUBER && 
           togglebutton_spruchrolle->get_active() )    verlernen/=5  ;
       if (steigern_bool) desteigern(verlernen);
-      Werte.add_GFP(-verlernen);
+      Werte.addGFP(-verlernen);
       MidgardBasicElement::move_element(*MyList,*MyList_neu,MBE);
     }
  return true;
@@ -107,18 +107,18 @@ void midgard_CG::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
  /////////////////////////////////////////////////////////////////////////
  
  if (!steigern_usp(kosten,&MBE)) return;
- Werte.add_GFP(kosten);
+ Werte.addGFP(kosten);
 
  // Lernen mit Spruchrolle: ///////////////////////////////////////////////
  if( MBE->What()==MidgardBasicElement::ZAUBER &&
      togglebutton_spruchrolle->get_active() &&
-     radio_spruchrolle_auto->get_active() )    Werte.add_GFP(kosten);
+     radio_spruchrolle_auto->get_active() )    Werte.addGFP(kosten);
  else if( MBE->What()==MidgardBasicElement::ZAUBER &&
      togglebutton_spruchrolle->get_active() &&
      radio_spruchrolle_wuerfeln->get_active() )   
    {
      if(!spruchrolle_wuerfeln(MBE)) return;
-     else Werte.add_GFP(kosten);
+     else Werte.addGFP(kosten);
    } 
  /////////////////////////////////////////////////////////////////////////
 

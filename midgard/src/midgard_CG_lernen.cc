@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.40 2002/01/11 08:48:11 thoma Exp $
+// $Id: midgard_CG_lernen.cc,v 1.41 2002/01/14 10:29:28 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -29,7 +29,7 @@ void midgard_CG::on_herkunftsland_clicked()
 }
 void midgard_CG::herkunft_uebernehmen(const cH_Land& s)
 {
-   Werte.set_Herkunft(s); 
+   Werte.setHerkunft(s); 
    zeige_werte(Werte); 
    button_lernpunkte->set_sensitive(true);
    button_lernpunkte_edit->set_sensitive(true);
@@ -61,8 +61,8 @@ void midgard_CG::on_lernpunkte_wuerfeln_clicked()
 
 //     if (Typ[0]->Zaubern()=="z" ) age = age/4+19;
 //     if (Typ[0]->Zaubern()=="n" || Typ[0]->Zaubern()=="j") age = age/4+16;
-     Werte.set_Alter( age * Werte.Spezies()->Alter());
-     alter->set_text(itos(Werte.Alter()));
+     Werte.setAlter( age * Werte.Spezies()->Alter());
+     spinbutton_alter->set_text(itos(Werte.Alter()));
    }
   zeige_lernpunkte();
   zeige_notebook();
@@ -117,7 +117,7 @@ void midgard_CG::zeige_lernpunkte()
 
 void midgard_CG::on_button_geld_waffen_clicked()
 {   
-  Werte.set_Geld(0,0,0);
+  Werte.setGeld(0,0,0);
   on_speichern_clicked();
   manage(new Window_Waffe_Geld(this,Werte,Typ,Database,list_Waffen));
 }
@@ -188,7 +188,7 @@ void midgard_CG::on_button_ruestung_clicked()
       if (81 <= wurf && wurf  <= 95 ) rue = "LR" ;
       if (96 <= wurf && wurf  <= 100) rue = "LR" ;
    }    
-  Werte.set_Ruestung(cH_Ruestung(rue));
+  Werte.setRuestung(cH_Ruestung(rue));
   std::string strinfo ="Beim Auswürfeln der Rüstung wurde eine\n"+itos(wurf)+" gewürfelt\n";
   strinfo += "---> " + Werte.Ruestung()->Long();
   manage(new WindowInfo(strinfo));

@@ -1,4 +1,4 @@
-// $Id: Grundwerte.hh,v 1.14 2002/01/12 08:12:25 thoma Exp $               
+// $Id: Grundwerte.hh,v 1.15 2002/01/14 10:29:27 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -26,6 +26,7 @@
 #include "Spezialgebiet.hh"
 //#include <map>
 //#include <string>
+#include "Typen.hh"
 
 class Grundwerte
 {
@@ -42,8 +43,9 @@ class Grundwerte
    int gg,sg;
    int abwehr_wert,abwehr_pp,zaubern_wert,zauber_pp;
    int resistenz,resistenz_pp;
-   int bo_au,bo_sc,bo_an,bo_ab,bo_za,bo_psy,bo_phs,bo_phk,alter;
-   std::string gestalt, geschlecht;
+//   int bo_au,bo_sc,bo_an,bo_ab,bo_za,bo_psy,bo_phs,bo_phk,
+   int alter;
+   std::string geschlecht;
    int gewicht,groesse,grad;
    std::string stand,spezialisierung,hand,
       glaube,name_charakter,name_spieler,version,beschreibung;
@@ -60,8 +62,8 @@ public:
    Grundwerte() : raufen(0),au(0),pa(0),sb(0), wk(0),
              b(0),lp(0),ap(0),gg(0),sg(0),abwehr_wert(0),abwehr_pp(0),
              zaubern_wert(0),zauber_pp(0),resistenz(0),resistenz_pp(0),
-             bo_au(0),bo_sc(0),bo_an(0),bo_ab(0),bo_za(0),
-             bo_psy(0),bo_phs(0),bo_phk(0),
+//             bo_au(0),bo_sc(0),bo_an(0),bo_ab(0),bo_za(0),
+//             bo_psy(0),bo_phs(0),bo_phk(0),
              alter(0),geschlecht("m"),gewicht(0),groesse(0),grad(1),
              stand(""),glaube(""),name_charakter(""),version("Erschaffung"),
              gfp(0),steigertage(0),gold(0), silber(0), kupfer(0),
@@ -69,12 +71,7 @@ public:
              stadt_land("Stadt") 
          { resetSinne(); }
    void clear() {*this=Grundwerte();}
-   void resetSinne() {sinnmap["Sehen"]=8;
-                      sinnmap["Hören"]=8;
-                      sinnmap["Riechen"]=8;
-                      sinnmap["Schmecken"]=8;
-                      sinnmap["Tasten"]=8; }
-
+   void resetSinne() ;
    void setSt(int i) {grund.st=i;}
    void setGw(int i) {grund.gw=i;}
    void setGs(int i) {grund.gs=i;}
@@ -95,27 +92,33 @@ public:
    int LP() const {return lp;}
    int AP() const {return ap;}
    std::map<std::string,int> Sinne() const {return sinnmap;}
-   int Raufen() const {return raufen;}
+   int Raufen() const;
    int Abwehr_wert() const {return abwehr_wert;}
    int AbwehrPP() const {return abwehr_pp;}
    int Zaubern_wert() const { return zaubern_wert;}
    int ZaubernPP() const { return zauber_pp;}
    int Resistenz() const {return resistenz;}
    int ResistenzPP() const {return resistenz_pp;}
-   int bo_Au() const {return bo_au;}
-   int bo_Sc() const {return bo_sc;}
-   int bo_An() const {return bo_an;}
-   int bo_Ab() const {return bo_ab;}
-   int bo_Za() const {return bo_za;}
-   int bo_Psy() const {return bo_psy;}
-   int bo_Phs() const {return bo_phs;}
-   int bo_Phk() const {return bo_phk;}
+   int bo_Au() const;
+   int bo_Sc() const;
+   int bo_An() const; 
+   int bo_Ab() const;
+   int bo_Za() const;
+   int bo_Psy(const vector<cH_Typen>& Typ) const;
+   int bo_Phs(const vector<cH_Typen>& Typ) const;
+   int bo_Phk(const vector<cH_Typen>& Typ) const;
    int KAW() const {return St()/10;}
    int WLW() const {return 40+Ko()/2;}
    int Geistesblitz() const {return In()/10;}
    int Gift() const {if(Ko()) return 30 + Ko()/10; else return 0;}
    int Alter() const {return alter;}
-   std::string Gestalt() const {return gestalt;}
+   std::string Gestalt() const 
+         { int g=groesse-100;  
+           double ge=gewicht/g;
+           if(ge>1.1)      return "breit";
+           else if(ge<0.9) return "schlank";
+           else            return "normal";
+         }         
    std::string Geschlecht() const {return geschlecht;}
    std::string Hand() const {return hand;}
    int Gewicht() const {return gewicht;}
@@ -159,29 +162,34 @@ public:
    void add_Wk(int i) {wk+=i;}
 
    void setLP(int i) {lp=i;}
-   void set_Basiswerte(int st,int gw,int gs,int ko,int in, int zt)
+   void setBasiswerte(int st,int gw,int gs,int ko,int in, int zt)
          {grund=st_grund(st,gw,gs,ko,in,zt);}
-   void set_Abgeleitetewerte(int _au,int _pa,int _sb,int _wk,int _b,
+/*
+   void setAbgeleitetewerte(int _au,int _pa,int _sb,int _wk,int _b,
          int _lp, int _ap, int _abwehr_wert,int _zaubern_wert,
          int _resistenz,
-         std::string _gestalt, std::string _hand,
+         std::string _hand,
          int _gewicht,int _groesse,int _grad, std::string _stand)
       { au=_au ;pa=_pa ;sb=_sb;wk=_wk ;b=_b ;lp=_lp ;ap=_ap ;
          abwehr_wert=_abwehr_wert ;zaubern_wert=_zaubern_wert ;
          resistenz=_resistenz ;
-         gestalt=_gestalt ; hand=_hand;
+         ; hand=_hand;
          gewicht=_gewicht ;groesse=_groesse ;grad=_grad ;stand=_stand;
       }
-   void set_Abgeleitetewerte_small(int _au,int _pa,int _sb,int _wk)
+*/
+   void setGewicht(int i) {gewicht=i;}
+   void setGroesse(int i) {groesse=i;}
+   void setHand(std::string s) {hand=s;}
+   void setStand(std::string s) {stand=s;}
+   void setAu(int i) {au=i;}
+   void setpA(int i) {pa=i;}
+   void setSb(int i) {sb=i;}
+   void setWk(int i) {wk=i;}
+   void setB(int i) {b=i;}
+   void setAbgeleitetewerte_small(int _au,int _pa,int _sb,int _wk)
       { au=_au ;pa=_pa ;sb=_sb; wk=_wk; }
-   void set_Abgeleitetewerte_Boni(int _bo_au,int _bo_sc,int _bo_an,int _bo_ab,
-         int _bo_za,int _bo_psy,int _bo_phs,int _bo_phk)
-      { bo_au=_bo_au ; bo_sc=_bo_sc ;bo_an=_bo_an ;
-         bo_ab=_bo_ab ;bo_za=_bo_za ; bo_psy=_bo_psy ;bo_phs=_bo_phs ;
-         bo_phk=_bo_phk ;
-      }
 
-   void set_Sinn(std::string name,int wert) {sinnmap[name]=wert;}
+   void setSinn(std::string name,int wert) {sinnmap[name]=wert;}
 
    int Sehen() const {return const_cast<std::map<std::string,int>&>(sinnmap)["Sehen"];}
    int Hoeren() const {return const_cast<std::map<std::string,int>&>(sinnmap)["Hören"];}
@@ -190,52 +198,52 @@ public:
    int Tasten() const {return const_cast<std::map<std::string,int>&>(sinnmap)["Tasten"];}
    int SechsterSinn() const {return const_cast<std::map<std::string,int>&>(sinnmap)["Sechster Sinn"];}
 
-   void set_Raufen(int r) {raufen=r;}
-
-   void set_magBoni(int psy,int phs,int phk) {bo_psy=psy;bo_phs=phs;bo_phk=phk;}
-   void set_Zaubern_wert(int i){zaubern_wert=i;}
-   void set_Abwehr_wert(int i){abwehr_wert=i;}
-   void set_Resistenz(int i){resistenz=i;}
+   void setZaubern_wert(int i){zaubern_wert=i;}
+   void setAbwehr_wert(int i){abwehr_wert=i;}
+   void setResistenz(int i){resistenz=i;}
    void setZaubernPP(int i){zauber_pp=i;}
    void setAbwehrPP(int i){abwehr_pp=i;}
    void setResistenzPP(int i){resistenz_pp=i;}
    void addZaubernPP(int i){zauber_pp+=i;}
    void addAbwehrPP(int i){abwehr_pp+=i;}
    void addResistenzPP(int i){resistenz_pp+=i;}
-   void set_Grad(int i){grad=i;}
-   void set_AP(int i){ap=i;}
-   void set_SG(int i){sg=i;}
+   void setGrad(int i){grad=i;}
+   void setAP(int i){ap=i;}
+   void setSG(int i){sg=i;}
    void add_SG(int i){sg+=i;}
-   void set_GG(int i){gg=i;}
-   void set_Alter(int _alter){alter=_alter;}
-   void set_Geschlecht(const std::string& _geschlecht){geschlecht=_geschlecht;}
-   void set_Spezialisierung(const std::string& _spezialisierung){spezialisierung=_spezialisierung;}   
-   void set_Spezialgebiet(const cH_Spezialgebiet& s) {spezialgebiet=s;}
-//   void set_Spezial(const std::string& _spezial,std::string _spezial2){spezial=_spezial;spezial2=_spezial2;}
-   void set_Herkunft(const cH_Land& _herkunft){herkunft=_herkunft;}
-   void set_Spezies(const cH_Spezies& _spezies){spezies=_spezies;}
-   void set_Glaube(const std::string& _glaube){glaube=_glaube;}
+   void setGG(int i){gg=i;}
+   void setAlter(int _alter){alter=_alter;}
+   void setGeschlecht(const std::string& _geschlecht){geschlecht=_geschlecht;}
+   void setSpezialisierung(const std::string& _spezialisierung){spezialisierung=_spezialisierung;}   
+   void setSpezialgebiet(const cH_Spezialgebiet& s) {spezialgebiet=s;}
+//   void setSpezial(const std::string& _spezial,std::string _spezial2){spezial=_spezial;spezial2=_spezial2;}
+   void setHerkunft(const cH_Land& _herkunft){herkunft=_herkunft;}
+   void setSpezies(const cH_Spezies& _spezies){spezies=_spezies;}
+   void setGlaube(const std::string& _glaube){glaube=_glaube;}
    void setCharaktername(const std::string& s) {name_charakter=s;}
-   void setVersion(const std::string& s) {version=s;}
-   void set_Namen(const std::string& _name_charakter,std::string _name_spieler, std::string _version)
+   void setNamen(const std::string& _name_charakter,std::string _name_spieler, std::string _version)
       {name_charakter=_name_charakter;name_spieler=_name_spieler;version=_version;}
-   void set_Beschreibung(const std::string& _beschreibung){beschreibung=_beschreibung;}
-   void set_Ruestung(const cH_Ruestung _ruestung){ruestung=_ruestung;}
+   void setNameC(const std::string& s) {name_charakter=s;}
+   void setNameS(const std::string& s) { name_spieler=s;}
+   void setVersion(const std::string& s) { version=s;}
+
+   void setBeschreibung(const std::string& _beschreibung){beschreibung=_beschreibung;}
+   void setRuestung(const cH_Ruestung _ruestung){ruestung=_ruestung;}
    void setStadt_Land(const std::string& sl) {stadt_land=sl;}
-   void set_GFP(int _gfp){gfp=_gfp;}
-   void add_GFP(int _gfp){gfp += _gfp;}
+   void setGFP(int _gfp){gfp=_gfp;}
+   void addGFP(int _gfp){gfp += _gfp;}
    void setSteigertage(float i){steigertage=i;}
    void addSteigertage(float i){steigertage+=i;}
-   void set_Geld(int g,int s,int k){gold=g;silber=s;kupfer=k;}
-   void add_Gold(int g)  {gold+=g;}
-   void add_Silber(int s) {silber+=s;}
-   void add_Kupfer(int k) {kupfer+=k;}
-   void set_EP(int a, int k, int z) {aep=a;kep=k;zep=z;}
-   void add_AEP(int a) {aep+=a;}
-   void add_KEP(int a) {kep+=a;}
-   void add_ZEP(int a) {zep+=a;}
-   void set_KEP(int a) {kep=a;}
-   void set_ZEP(int a) {zep=a;}
+   void setGeld(int g,int s,int k){gold=g;silber=s;kupfer=k;}
+   void addGold(int g)  {gold+=g;}
+   void addSilber(int s) {silber+=s;}
+   void addKupfer(int k) {kupfer+=k;}
+   void setEP(int a, int k, int z) {aep=a;kep=k;zep=z;}
+   void addAEP(int a) {aep+=a;}
+   void addKEP(int a) {kep+=a;}
+   void addZEP(int a) {zep+=a;}
+   void setKEP(int a) {kep=a;}
+   void setZEP(int a) {zep=a;}
 
 };
 /*

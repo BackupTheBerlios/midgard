@@ -111,7 +111,7 @@ void midgard_CG::fill_spezies()
 void midgard_CG::spezieswahl_button()
 {
  cH_Spezies *ptr = static_cast<cH_Spezies*>(optionmenu_spezies->get_menu()->get_active()->get_user_data());
- Werte.set_Spezies(*ptr);
+ Werte.setSpezies(*ptr);
 
  fill_typauswahl();
  typauswahl_button();

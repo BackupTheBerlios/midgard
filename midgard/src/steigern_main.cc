@@ -157,20 +157,20 @@ void midgard_CG::on_button_alter_clicked()
      alter+=1;
      tage-=tage_pro_jahr;
    }
-  Werte.set_Alter(alter);
+  Werte.setAlter(alter);
   Werte.setSteigertage(tage);
   zeige_werte(Werte);
 }
 
 
 gint midgard_CG::on_eventbox_ausruestung_button_release_event(GdkEventButton *event)
-{ notebook_main->set_page(PAGE_AUSRUESTUNG); }
+{ notebook_main->set_page(PAGE_AUSRUESTUNG); return false;}
 gint midgard_CG::on_eventbox_steigern_button_release_event(GdkEventButton *event)
-{ notebook_main->set_page(PAGE_STEIGERN); }
+{ notebook_main->set_page(PAGE_STEIGERN); return false;}
 gint midgard_CG::on_eventbox_lernen_button_release_event(GdkEventButton *event)
-{ notebook_main->set_page(PAGE_LERNEN); }
+{ notebook_main->set_page(PAGE_LERNEN); return false;}
 gint midgard_CG::on_eventbox_grundwerte_button_release_event(GdkEventButton *event)
-{ notebook_main->set_page(PAGE_GRUNDWERTE); }
+{ notebook_main->set_page(PAGE_GRUNDWERTE); return false;}
 
 
 void midgard_CG::on_notebook_main_switch_page(Gtk::Notebook_Helpers::Page *page,guint pagenr)

@@ -38,7 +38,7 @@ void Window_ruestung::on_clist_ruestung_select_row(gint row, gint column, GdkEve
 //  Werte.set_Ruestung(clist_ruestung->get_text(row,1));
   if((*R)->Min_Staerke()<=Werte.St())
    {
-     Werte.set_Ruestung(*R);
+     Werte.setRuestung(*R);
      destroy();
    }
   else 

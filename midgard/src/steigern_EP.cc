@@ -73,8 +73,8 @@ void midgard_CG::desteigern(unsigned int kosten)
                * ((100-Database.GradAnstieg.get_Steigern_EP_Prozent())/100.));
      ep_k = (guint)(kosten * (Database.GradAnstieg.get_Steigern_EP_Prozent()/100.));
    }
-  Werte.add_Gold(gold_k);
-  Werte.add_AEP(ep_k);
+  Werte.addGold(gold_k);
+  Werte.addAEP(ep_k);
   Geld_uebernehmen();
   EP_uebernehmen();
 }
@@ -145,7 +145,7 @@ bool midgard_CG::steigern_usp(unsigned int kosten,const cH_MidgardBasicElement* 
   if (ep_k > ep) { regnot("Zu wenig EP um zu steigern,\n es fehlen "+itos(ep_k-ep)+" Erfahrungspunkte (AEP"+sw+")."); return false;}
 
   // jetzt darf gesteigert werden ...
-  Werte.add_Gold(-gold_k);  
+  Werte.addGold(-gold_k);  
   set_lernzeit(kosten);
   if (MBE) (*MBE)->add_Praxispunkte(-pp) ;
   else if(was==Resistenz)  Werte.addResistenzPP(-pp) ;
@@ -154,14 +154,14 @@ bool midgard_CG::steigern_usp(unsigned int kosten,const cH_MidgardBasicElement* 
   else assert(!"Fehler in steigern_EP.cc");
 
   if(bkep)
-   { if (ep_k<=kep) {Werte.add_KEP(-ep_k);ep_k =0 ;}
-     else           {ep_k-=kep; Werte.set_KEP(0);} 
+   { if (ep_k<=kep) {Werte.addKEP(-ep_k);ep_k =0 ;}
+     else           {ep_k-=kep; Werte.setKEP(0);} 
    }
   if(bzep)
-   { if (ep_k<=zep) {Werte.add_ZEP(-ep_k);ep_k =0 ;}
-     else           {ep_k-=zep; Werte.set_ZEP(0);} 
+   { if (ep_k<=zep) {Werte.addZEP(-ep_k);ep_k =0 ;}
+     else           {ep_k-=zep; Werte.setZEP(0);} 
    }
-  Werte.add_AEP(-ep_k);
+  Werte.addAEP(-ep_k);
   Geld_uebernehmen();
   EP_uebernehmen();
   return true;  

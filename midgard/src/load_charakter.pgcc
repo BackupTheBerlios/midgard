@@ -56,7 +56,7 @@ void midgard_CG::on_laden_clicked()
 
 void midgard_CG::select_charakter(const std::string& name, const std::string& version)
 {
-  Werte.set_Namen(name,"",version);
+  Werte.setNamen(name,"",version);
   midgard_CG::load_charakter();
   button_abg_werte->set_sensitive(true);
   button_herkunft->set_sensitive(true);
@@ -77,10 +77,7 @@ void midgard_CG::load_charakter()
       char db_typ_2_s[5]     ;
       int db_st,db_gw,db_gs,db_ko,db_in,db_zt,db_au,db_pa,db_sb,db_wk,
           db_b,db_lp,db_ap,db_abwehr,db_zaubern,db_resistenz
-          ,db_abwehr_pp,db_zaubern_pp,db_resistenz_pp,
-          db_bo_au,db_bo_sc,db_bo_an,db_bo_ab,db_bo_za,db_bo_psy,db_bo_phs,
-          db_bo_phk,db_alter;
-      char db_gestalt[20] ;
+          ,db_abwehr_pp,db_zaubern_pp,db_resistenz_pp,db_alter;
       char db_hand[30] ;
       char db_geschlecht[5];
       int db_gewicht,db_groesse,db_grad;
@@ -135,7 +132,6 @@ void midgard_CG::load_charakter()
          zaubern_pp        ,
          resistenz_pp      ,
          alter          ,
-         gestalt        ,
          hand           ,
          geschlecht     ,
          gewicht        ,
@@ -145,14 +141,6 @@ void midgard_CG::load_charakter()
          stand          ,
          herkunft       ,
          glaube         ,
-         db_bo_au       ,
-         db_bo_sc       ,
-         db_bo_an       ,
-         db_bo_ab       ,
-         db_bo_za       ,
-         db_bo_psy      ,
-         db_bo_phs      ,
-         db_bo_phk      ,
          db_gfp         ,
          gg         ,
          sg         ,
@@ -199,7 +187,6 @@ void midgard_CG::load_charakter()
        :db_zaubern_pp  ,
        :db_resistenz_pp,
        :db_alter    ,
-       :db_gestalt  ,
        :db_hand     ,
        :db_geschlecht,
        :db_gewicht  ,
@@ -209,14 +196,6 @@ void midgard_CG::load_charakter()
        :db_stand    ,
        :db_herkunft ,
        :db_glaube   ,
-       :db_bo_au       ,
-       :db_bo_sc       ,
-       :db_bo_an       ,
-       :db_bo_ab       ,
-       :db_bo_za       ,
-       :db_bo_psy      ,
-       :db_bo_phs      ,
-       :db_bo_phk      ,
        :db_gfp         ,
        :db_gg         ,
        :db_sg         ,
@@ -231,29 +210,35 @@ void midgard_CG::load_charakter()
        :db_stadt_land;
    SQLerror::test(__FILELINE__);
    exec sql close cha;
-   Werte.set_Basiswerte(db_st,db_gw,db_gs,db_ko,db_in,db_zt) ;    
-   Werte.set_Abgeleitetewerte(db_au,db_pa,db_sb,db_wk,db_b,
-       db_lp, db_ap,db_abwehr,db_zaubern,db_resistenz,db_gestalt,db_hand,
-       db_gewicht,db_groesse,db_grad,db_stand);
+   Werte.setBasiswerte(db_st,db_gw,db_gs,db_ko,db_in,db_zt) ;    
+   Werte.setLP(db_lp);
+   Werte.setAP(db_ap);
+   Werte.setZaubern_wert(db_zaubern);
+   Werte.setAbwehr_wert(db_abwehr);
+   Werte.setResistenz(db_resistenz);
    Werte.setZaubernPP(db_zaubern_pp);
    Werte.setAbwehrPP(db_abwehr_pp);
    Werte.setResistenzPP(db_resistenz_pp);
-   Werte.set_Abgeleitetewerte_Boni(db_bo_au,db_bo_sc, db_bo_an,db_bo_ab,
-      db_bo_za,db_bo_psy,db_bo_phs,db_bo_phk);   
-   Werte.set_Alter(db_alter); 
-   Werte.set_Geschlecht(db_geschlecht) ;
-   Werte.set_Spezialisierung(db_spez) ;
-   Werte.set_Herkunft(cH_Land(db_herkunft));
-   Werte.set_Glaube(db_glaube);
-   Werte.set_Namen(db_name_ch,db_name_sp,db_version) ;
-   Werte.set_GFP(db_gfp);
-   Werte.set_GG(db_gg);
-   Werte.set_SG(db_sg);
-   Werte.set_Beschreibung(db_beschreibung); free(db_beschreibung);
-   Werte.set_Geld(db_gold,db_silber,db_kupfer);
-   Werte.set_Ruestung(cH_Ruestung(db_ruestung));
-   Werte.set_Spezies(cH_Spezies(db_spezies)) ;
-   Werte.set_EP(db_aep,db_kep,db_zep);
+   Werte.setHand(db_hand);
+   Werte.setGewicht(db_gewicht);
+   Werte.setGroesse(db_groesse);
+   Werte.setGrad(db_grad);
+   Werte.setStand(db_stand);
+
+   Werte.setAlter(db_alter); 
+   Werte.setGeschlecht(db_geschlecht) ;
+   Werte.setSpezialisierung(db_spez) ;
+   Werte.setHerkunft(cH_Land(db_herkunft));
+   Werte.setGlaube(db_glaube);
+   Werte.setNamen(db_name_ch,db_name_sp,db_version) ;
+   Werte.setGFP(db_gfp);
+   Werte.setGG(db_gg);
+   Werte.setSG(db_sg);
+   Werte.setBeschreibung(db_beschreibung); free(db_beschreibung);
+   Werte.setGeld(db_gold,db_silber,db_kupfer);
+   Werte.setRuestung(cH_Ruestung(db_ruestung));
+   Werte.setSpezies(cH_Spezies(db_spezies)) ;
+   Werte.setEP(db_aep,db_kep,db_zep);
    Werte.setStadt_Land(db_stadt_land);
    steigern_bool=db_steigern_bool;
    Database.GradAnstieg.set_Grad_Anstieg(db_steigern_EP,db_grad_basiswerte);
@@ -294,7 +279,7 @@ void midgard_CG::load_charakter()
    //////////////////////////////////////////////////////////////
    show_gtk();
    if(cH_Spezialgebiet::is_cached(Werte.Spezialisierung()))
-      Werte.set_Spezialgebiet(cH_Spezialgebiet(Werte.Spezialisierung()));
+      Werte.setSpezialgebiet(cH_Spezialgebiet(Werte.Spezialisierung()));
    load_ausruestung();
 }
 
@@ -418,7 +403,7 @@ void midgard_CG::load_fertigkeiten()
       std::string sart=db_art;
       if(sart=="Sinn")
         {
-         Werte.set_Sinn(db_fert,db_wert);
+         Werte.setSinn(db_fert,db_wert);
         }
       if(sart=="Beruf")
         {

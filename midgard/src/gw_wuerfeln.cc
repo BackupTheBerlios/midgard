@@ -1,4 +1,4 @@
-// $Id: gw_wuerfeln.cc,v 1.25 2001/12/21 22:46:15 thoma Exp $
+// $Id: gw_wuerfeln.cc,v 1.26 2002/01/14 10:29:27 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -101,12 +101,12 @@ void midgard_CG::gw_setzen(Gtk::Label *L,int button)
   if(L) 
    {
      int w=atoi(label_besserer_wurf->get_text().c_str());
-     if(L->get_text()=="St") {Werte.setSt(w); st->set_text(itos(w));}
-     else if(L->get_text()=="Gs") {Werte.setGs(w); gs->set_text(itos(w));}
-     else if(L->get_text()=="Gw") {Werte.setGw(w); gw->set_text(itos(w));}
-     else if(L->get_text()=="Ko") {Werte.setKo(w); ko->set_text(itos(w));}
-     else if(L->get_text()=="In") {Werte.setIn(w); in->set_text(itos(w));}
-     else if(L->get_text()=="Zt") {Werte.setZt(w); zt->set_text(itos(w));}
+     if(L->get_text()=="St") {Werte.setSt(w); spinbutton_st->set_text(itos(w));}
+     else if(L->get_text()=="Gs") {Werte.setGs(w); spinbutton_gs->set_text(itos(w));}
+     else if(L->get_text()=="Gw") {Werte.setGw(w); spinbutton_gw->set_text(itos(w));}
+     else if(L->get_text()=="Ko") {Werte.setKo(w); spinbutton_ko->set_text(itos(w));}
+     else if(L->get_text()=="In") {Werte.setIn(w); spinbutton_in->set_text(itos(w));}
+     else if(L->get_text()=="Zt") {Werte.setZt(w); spinbutton_zt->set_text(itos(w));}
    }
   if(++werte_label_count==7)
    {
@@ -152,32 +152,32 @@ void midgard_CG::set_werte_label_3(Gtk::Label *L)
      int w=atoi(L->get_text().c_str());
      switch(werte_label_count) {
       case 1 : 
-            st->set_text(L->get_text());
+            spinbutton_st->set_text(L->get_text());
             Werte.setSt(w);
             label_werte->set_text("Welcher Wert soll für die  Geschicklichkeit (Gs) verwendet werden?");
             break;
       case 2 :
-            gs->set_text(L->get_text());
+            spinbutton_gs->set_text(L->get_text());
             Werte.setGs(w);
             label_werte->set_text("Welcher Wert soll für die  Gewandheit (Gw) verwendet werden?");
             break;
       case 3 : 
-            gw->set_text(L->get_text());
+            spinbutton_gw->set_text(L->get_text());
             Werte.setGw(w);
             label_werte->set_text("Welcher Wert soll für die  Konstitution (Ko) verwendet werden?");
             break;
       case 4 : 
-            ko->set_text(L->get_text());
+            spinbutton_ko->set_text(L->get_text());
             Werte.setKo(w);
             label_werte->set_text("Welcher Wert soll für die  Intelligenz (In) verwendet werden?");
             break;
       case 5 : 
-            in->set_text(L->get_text());
+            spinbutton_in->set_text(L->get_text());
             Werte.setIn(w);
             label_werte->set_text("Welcher Wert soll für das  Zaubertalent (Zt) verwendet werden?");
             break;
       default: 
-            zt->set_text(L->get_text());
+            spinbutton_zt->set_text(L->get_text());
             Werte.setZt(w);
             table_werte_wuerfeln->hide();
             table_bw_wurf->hide();
@@ -235,7 +235,7 @@ void midgard_CG::on_button_wert_6_clicked()
 
 void midgard_CG::gw_wuerfeln_2x()
 {   
- Werte.set_Basiswerte(constraint_gw(random,Werte.Spezies()->St()),
+ Werte.setBasiswerte(constraint_gw(random,Werte.Spezies()->St()),
      constraint_gw(random,Werte.Spezies()->Gw()),
      constraint_gw(random,Werte.Spezies()->Gs()),
      constraint_gw(random,Werte.Spezies()->Ko()),

@@ -151,9 +151,7 @@ void midgard_CG::grundwerte_speichern()
       char db_typ_2_s[5];
       int db_st, db_gw, db_gs,db_ko, db_in,db_zt,db_au,db_pa,db_sb,db_wk,
           db_b, db_lp, db_ap,db_abwehr,db_abwehr_pp,db_zaubern,db_zaubern_pp,
-          db_resistenz,db_resistenz_pp, db_bo_au, db_bo_sc,db_bo_an,db_bo_ab,db_bo_za,  
-          db_bo_psy, db_bo_phs , db_bo_phk,db_lpbasis, db_alter  ;
-      char db_gestalt[20] ;
+          db_resistenz,db_resistenz_pp,db_lpbasis, db_alter  ;
       char db_hand[30] ;
       char db_geschlecht[5];
       int db_gewicht, db_groesse, db_grad ;
@@ -194,16 +192,6 @@ void midgard_CG::grundwerte_speichern()
       db_abwehr_pp    = Werte.AbwehrPP();      
       db_zaubern_pp   = Werte.ZaubernPP();
       db_resistenz_pp = Werte.ResistenzPP();      
-      db_bo_au        = Werte.bo_Au();      
-      db_bo_sc        = Werte.bo_Sc();      
-      db_bo_an        = Werte.bo_An();      
-      db_bo_ab        = Werte.bo_Ab();      
-      db_bo_za        = Werte.bo_Za();      
-      db_bo_psy       = Werte.bo_Psy();      
-      db_bo_phs       = Werte.bo_Phs();      
-      db_bo_phk       = Werte.bo_Phk();      
-//      db_bo_gi        = Werte.bo_Gift();      
-//      db_lpbasis      = Werte.LPBasis();      
       db_alter        = Werte.Alter();      
       db_gewicht      = Werte.Gewicht();      
       db_groesse      = Werte.Groesse();      
@@ -222,7 +210,6 @@ void midgard_CG::grundwerte_speichern()
       db_grad_basiswerte = Database.GradAnstieg.get_Grad_Basiswerte();
 
    db_beschreibung = (char *) (Werte.Beschreibung()).c_str();
-   strncpy(db_gestalt,(Werte.Gestalt()).c_str(),sizeof(db_gestalt));
    strncpy(db_hand,(Werte.Hand()).c_str(),sizeof(db_hand));
    strncpy(db_geschlecht,(Werte.Geschlecht()).c_str(),sizeof(db_geschlecht));
    strncpy(db_spez,(Werte.Spezialisierung()).c_str(),sizeof(db_spez));
@@ -266,7 +253,6 @@ void midgard_CG::grundwerte_speichern()
       resistenz_pp   = :db_resistenz_pp,
       lpbasis        = :db_lpbasis  ,
       alter          = :db_alter    ,
-      gestalt        = :db_gestalt  ,
       hand           = :db_hand     ,
       geschlecht     = :db_geschlecht  ,
       gewicht        = :db_gewicht  ,
@@ -276,14 +262,6 @@ void midgard_CG::grundwerte_speichern()
       stand          = :db_stand    ,
       herkunft       = :db_herkunft ,
       glaube         = :db_glaube   ,
-      db_bo_au       = :db_bo_au       ,
-      db_bo_sc       = :db_bo_sc       ,
-      db_bo_an       = :db_bo_an       ,
-      db_bo_ab       = :db_bo_ab       ,
-      db_bo_za       = :db_bo_za       ,
-      db_bo_psy      = :db_bo_psy      ,
-      db_bo_phs      = :db_bo_phs      ,
-      db_bo_phk      = :db_bo_phk      ,
       db_gfp         = :db_gfp         ,
       gg             = :db_gg         ,
       sg             = :db_sg         ,
