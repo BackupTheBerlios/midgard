@@ -37,5 +37,5 @@ COPY "regionen" FROM stdin;
 8	Nahuatlan	N	\N	\N	Malte Thoma	1.0	Alexander Huiskes	t	8
 6	Rawindra	R	\N	\N	Malte Thoma	1.0	Ludger Fischer und Thomas Kreutz	t	1
 1	Tipps und Tricks	TuT	\N	\N	Malte Thoma	1.0	Jürgen E. Franke	t	12
-7	Waeland	W	\N	\N	Malte Thoma	1.0	?	t	7
+7	Waeland	W	\N	\N	Malte Thoma	1.0	Olaf Möhle und Stephanie Lammers	t	7
 \.

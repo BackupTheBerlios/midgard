@@ -1,4 +1,4 @@
-// $Id: midgard_CG_lernen.cc,v 1.50 2002/01/29 14:16:23 christof Exp $
+// $Id: midgard_CG_lernen.cc,v 1.51 2002/02/04 07:57:47 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -60,17 +60,14 @@ void midgard_CG::on_lernpunkte_wuerfeln_clicked()
   if (Typ[1]->Zaubern()=="j" || Typ[1]->Zaubern() == "z" && Typ[1]->Short()!="") 
       lernpunkte.set_Zauber(random.integer(1,6)+1);
 
-//  if (Werte.Alter()==0)
-   {
-     int age = (lernpunkte.Allgemein() + lernpunkte.Unge() 
+  int age = (lernpunkte.Allgemein() + lernpunkte.Unge() 
              + lernpunkte.Fach()
              + lernpunkte.Waffen() + lernpunkte.Zauber())/4+16;
 
 //     if (Typ[0]->Zaubern()=="z" ) age = age/4+19;
 //     if (Typ[0]->Zaubern()=="n" || Typ[0]->Zaubern()=="j") age = age/4+16;
-     Werte.setAlter( age * Werte.Spezies()->Alter());
-     spinbutton_alter->set_value(Werte.Alter());
-   }
+  Werte.setAlter( age * Werte.Spezies()->Alter());
+  spinbutton_alter->set_value(Werte.Alter());
   zeige_lernpunkte();
   zeige_notebook();
 }
@@ -102,7 +99,6 @@ void midgard_CG::on_button_waffe_trans_clicked()
 
 void midgard_CG::on_togglebutton_lernpunkte_edit_toggled()
 {
-//  manage(new Window_lernpunkte_editieren(this,&lernpunkte)); 
   edit_lernpunkte(togglebutton_lernpunkte_edit->get_active());
   zeige_notebook();
 }
@@ -118,45 +114,39 @@ void midgard_CG::edit_lernpunkte(bool b)
 
 
 gint midgard_CG::on_spinbutton_fach_focus_out_event(GdkEventFocus *ev)
-{on_spinbutton_fach_activate();  return false;}
-void midgard_CG::on_spinbutton_fach_activate()
-{
-  gtk_spin_button_update(spinbutton_fach->gtkobj());
-  lernpunkte.set_Fach(spinbutton_fach->get_value_as_int());
-  spinbutton_allgemein->grab_focus();
-}
+{ set_lernpunkte();  return false;}
 gint midgard_CG::on_spinbutton_allgemein_focus_out_event(GdkEventFocus *ev)
-{on_spinbutton_allgemein_activate();  return false;}
+{ set_lernpunkte();  return false;}
+gint midgard_CG::on_spinbutton_unge_focus_out_event(GdkEventFocus *ev)
+{ set_lernpunkte();  return false;}
+gint midgard_CG::on_spinbutton_waffen_focus_out_event(GdkEventFocus *ev)
+{ set_lernpunkte();  return false;}
+gint midgard_CG::on_spinbutton_zaubern_focus_out_event(GdkEventFocus *ev)
+{ set_lernpunkte();  return false;}
+
+void midgard_CG::on_spinbutton_fach_activate()
+{ set_lernpunkte(); spinbutton_allgemein->grab_focus();}
 void midgard_CG::on_spinbutton_allgemein_activate()
+{ set_lernpunkte(); spinbutton_unge->grab_focus();}
+void midgard_CG::on_spinbutton_unge_activate()
+{ set_lernpunkte(); spinbutton_waffen->grab_focus();}
+void midgard_CG::on_spinbutton_waffen_activate()
+{ set_lernpunkte(); spinbutton_zauber->grab_focus();}
+void midgard_CG::on_spinbutton_zaubern_activate()
+{ set_lernpunkte(); togglebutton_lernpunkte_edit->set_active(false);}
+
+void midgard_CG::set_lernpunkte()
 {
   gtk_spin_button_update(spinbutton_unge->gtkobj());
   lernpunkte.set_Unge(spinbutton_unge->get_value_as_int());
-  spinbutton_unge->grab_focus();
-}
-gint midgard_CG::on_spinbutton_unge_focus_out_event(GdkEventFocus *ev)
-{on_spinbutton_unge_activate();  return false;}
-void midgard_CG::on_spinbutton_unge_activate()
-{
+  gtk_spin_button_update(spinbutton_fach->gtkobj());
+  lernpunkte.set_Fach(spinbutton_fach->get_value_as_int());
   gtk_spin_button_update(spinbutton_allgemein->gtkobj());
   lernpunkte.set_Allgemein(spinbutton_allgemein->get_value_as_int());
-  spinbutton_waffen->grab_focus();
-}
-gint midgard_CG::on_spinbutton_waffen_focus_out_event(GdkEventFocus *ev)
-{on_spinbutton_waffen_activate();  return false;}
-void midgard_CG::on_spinbutton_waffen_activate()
-{
   gtk_spin_button_update(spinbutton_waffen->gtkobj());
   lernpunkte.set_Waffen(spinbutton_waffen->get_value_as_int());
-  spinbutton_zauber->grab_focus();
-}
-gint midgard_CG::on_spinbutton_zaubern_focus_out_event(GdkEventFocus *ev)
-{on_spinbutton_zaubern_activate();  return false;}
-void midgard_CG::on_spinbutton_zaubern_activate()
-{
   gtk_spin_button_update(spinbutton_zauber->gtkobj());
   lernpunkte.set_Zauber(spinbutton_zauber->get_value_as_int());
-//  edit_lernpunkte(false);
-  togglebutton_lernpunkte_edit->set_active(false);
 }
 
                                         

@@ -44,7 +44,7 @@ COPY "typen" FROM stdin;
 12	Sp	Spitzbube	Spitzbübin	n	ak	-20	-20	1	\N	4	\N	s	\N
 13	Wa	Waldläufer	Waldläuferin	n	k	-10	0	1	\N	2	\N	l	\N
 14	Ba	Barde	Bardin	j	ak	20	0	1	\N	4	\N	\N	\N
-15	Or	Ordeskrieger	Ordenskriegerin	j	ak	0	0	3	\N	3	k	\N	t
+15	Or	Ordenskrieger	Ordenskriegerin	j	ak	0	0	3	\N	3	k	\N	t
 16	Tm	Tiermeister	Tiermeisterin	j	ak	0	0	1	\N	2	\N	l	\N
 17	eBe	Elementarbeschwörer	Elementarbeschwörerin	z	z	20	30	4	3	3	z	\N	\N
 18	dBe	Dämonenbeschwörer	Dämonenbeschwörerin	z	z	20	30	4	3	3	z	\N	\N
