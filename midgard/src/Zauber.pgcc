@@ -182,7 +182,8 @@ Zauber_All::Zauber_All(Gtk::ProgressBar *progressbar)
       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
 #warning das registriert den Zauber aber nicht im cache - oder?
 // es müsste cH_Zauber sein
-      list_All.push_back(new Zauber(db_name[i]));
+//      list_All.push_back(new Zauber(db_name[i]));
+      list_All.push_back(&*(cH_Zauber(db_name[i])));
       ++count;
      }
    if(j<50) break;
@@ -210,7 +211,7 @@ Zauber_All::Zauber_All(Gtk::ProgressBar *progressbar)
 //    Ich brauche aber einen cH_MidgardBasicElement, daher bilde ich einen
 //    Zauber* um danach (aus dem ebenfalls MidgardBasicElement*) ein 
 //    cH_MidgardBasicElement zu machen. Wow.
-       list_All.push_back(&*(new cH_Zauber(&*i)));
+       list_All.push_back(&*(cH_Zauber(&*i)));
     }
  }
 #endif 

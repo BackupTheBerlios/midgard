@@ -142,7 +142,7 @@ Beruf_All::Beruf_All(Gtk::ProgressBar *progressbar)
    exec sql fetch BAein into :db_name;
    SQLerror::test(__FILELINE__,100);
    if (sqlca.sqlcode) break;
-   list_All.push_back(new Beruf(db_name));
+   list_All.push_back(&*(cH_Beruf(db_name)));
    ++count;
   }
  exec sql close BAein;

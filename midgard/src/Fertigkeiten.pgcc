@@ -135,7 +135,9 @@ Fertigkeiten_All::Fertigkeiten_All(Gtk::ProgressBar *progressbar)
     {
       progressbar->set_percentage(count/db_size);
       while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-      list_All.push_back(new Fertigkeit(db_name[i]));
+//      list_All.push_back(new Fertigkeit(db_name[i]));
+//      list_All.push_back(&**(new const cH_Fertigkeit(db_name[i])));
+      list_All.push_back(&*(cH_Fertigkeit(db_name[i])));
       ++count;
     }
    if(j<50) break;
