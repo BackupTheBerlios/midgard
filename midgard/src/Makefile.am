@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.126 2002/02/25 13:14:33 christof Exp $
+# $Id: Makefile.am,v 1.127 2002/02/25 16:03:51 christof Exp $
 
 bin_PROGRAMS = midgard 
 noinst_PROGRAMS = text2c
@@ -195,10 +195,12 @@ if UTF8
 	$(CPP) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
 	$(AM_CXXFLAGS) $(CXXFLAGS) $*.cc | ./iso2utf8 | \
 	$(CXXCOMPILE) -o $*.o -c -x c++ /dev/stdin
+	echo > .deps/$(*F).P
 midgard_CG_glade.o: $(midgard_CG_glade_o_DEPS)
 	$(CPP) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
 	$(AM_CXXFLAGS) $(CXXFLAGS) $*.cc | ./iso2utf8 | \
 	$(CXXCOMPILE) -o $*.o -O0 -c -x c++ /dev/stdin
+	echo > .deps/$(*F).P
 
 #black magic to make it cross compile with MinGW under Linux
 
