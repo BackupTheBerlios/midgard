@@ -20,6 +20,7 @@
 //#include <gtk--/toolbar.h>
 #include <gtk--/pixmap.h>
 #include "class_SimpleTree.hh"
+#include "class_SimpleTree_LernschemaZusatz.hh"
 
 ///////////////////////////////////////////////////////////
 void table_steigern::on_radio_steigern_toggled()
@@ -129,7 +130,7 @@ void table_steigern::on_spinbutton_pp_eingeben_activate()
   }   
  
  guint pagenr = notebook_lernen->get_current_page_num();
- getSelectedNotebookLernen().setPraxispunkte(PPanz);
+ const_cast<MidgardBasicElement_mutable&>(getSelectedNotebookLernen()).setPraxispunkte(PPanz);
 
 
   if(pagenr==PAGE_FERTIGKEITEN)
@@ -145,7 +146,7 @@ void table_steigern::on_spinbutton_pp_eingeben_activate()
   spinbutton_pp_eingeben->hide();
 }
 
-MidgardBasicElement_mutable table_steigern::getSelectedNotebookLernen()
+const MidgardBasicElement_mutable &table_steigern::getSelectedNotebookLernen()
 {
  const Data_SimpleTree *dt;
  guint pagenr = notebook_lernen->get_current_page_num();
@@ -189,70 +190,93 @@ void table_steigern::on_button_alter_clicked()
 }
 
 
-void table_steigern::fillClistZusatz(const cH_MidgardBasicElement &MBE)
+void table_steigern::fillClistZusatz(MidgardBasicElement_mutable &MBE)
 {
-  clist_zusatz->clear();
-  Gtk::OStream os(clist_zusatz);
-
+  std::vector<cH_RowDataBase> datavec;
+  std::vector<std::string> title;
   switch (MBE->ZusatzEnum(hauptfenster->getCChar().getVTyp()))
    {
      case MidgardBasicElement::ZLand :
       {        
-        clist_zusatz->set_column_title(0, "Land auswählen");
+        title.push_back("Land auswählen");
         for (std::vector<cH_Land>::const_iterator i=hauptfenster->getCDatabase().Laender.begin();i!=hauptfenster->getCDatabase().Laender.end();++i)
          {
-            os <<(*i)->Name()<<'\n';
-            os.flush(MBE->ref(),&HandleContent::unref);
-          }
+           datavec.push_back(new Data_Zusatz(MBE,(*i)->Name()));
+         }
         break;
       }
      case MidgardBasicElement::ZWaffe :
       {      
-        clist_zusatz->set_column_title(0, "Waffe auswählen");
+        title.push_back("Waffe auswählen");
         for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getCChar().CList_Waffen().begin();i!=hauptfenster->getCChar().CList_Waffen().end();++i)
          {
            if (cH_Waffe(*i)->Art()=="Schußwaffe" || cH_Waffe(*i)->Art()=="Wurfwaffe")
             {
-              os <<(*i)->Name()<<'\n';
-              os.flush(MBE->ref(),&HandleContent::unref);
+              datavec.push_back(new Data_Zusatz(MBE,(*i)->Name()));
             }
          }
         break;
       }
      case MidgardBasicElement::ZTabelle : 
       {
-        clist_zusatz->set_column_title(0, MBE->Name()+" auswählen");
+        title.push_back(MBE->Name()+" auswählen");
         std::vector<std::string> VZ=MBE->VZusatz();
         for (std::vector<std::string>::const_iterator i=VZ.begin();i!=VZ.end();++i)
            {
-             os << *i <<'\n';
-             os.flush(MBE->ref(),&HandleContent::unref);
+             datavec.push_back(new Data_Zusatz(MBE,(*i)));
            }
         break; 
        }
-
-     case MidgardBasicElement::ZHerkunft :
-      {
-        assert("Never get here\n");
-      }
-     case MidgardBasicElement::ZNone :
-      {
-        assert("Never get here\n");
-      }
      default : assert("Never get here\n");
    }
+  tree_steigern_zusatz->setTitles(title);
+  tree_steigern_zusatz->setDataVec(datavec);
   scrolledwindow_landauswahl->show();
 }
 
-void table_steigern::on_clist_zusatz_select_row(gint row, gint column, GdkEvent *event)
+
+
+#include <algorithm>
+void table_steigern::on_steigern_zusatz_leaf_selected(cH_RowDataBase d)
 {
-  std::string zusatz = clist_zusatz->get_text(row,0);
-  MidgardBasicElement *MBE=static_cast<MidgardBasicElement*>(clist_zusatz->selection().begin()->get_data());
-  MidgardBasicElement_mutable(MBE).setZusatz(zusatz);
+  const Data_Zusatz *dt=dynamic_cast<const Data_Zusatz*>(&*d);
+
+  MidgardBasicElement_mutable *M
+      =const_cast<MidgardBasicElement_mutable*>(&(dt->getMBE()));
+#warning: Christof, warum geht das nicht?
+/*
+  M->setZusatz(dt->getZusatz());
   // Erhöter Erfolgswert für Landeskunde Heimat:
-  if(zusatz==hauptfenster->getCWerte().Herkunft()->Name()) 
-      MidgardBasicElement_mutable(MBE).setErfolgswert(9);
+  if(dt->getZusatz()==hauptfenster->getCWerte().Herkunft()->Name()) 
+       M->setErfolgswert(9);
+*/
+/*
+  std::list<MidgardBasicElement_mutable> L;
+  bool found=false;
+  int c=0;
+  while(true)
+   {
+     if(c==0) L==hauptfenster->getCChar().CList_Fertigkeit();
+     else if(c==1) L==hauptfenster->getCChar().CList_Zauber();
+     else assert(!"never get here\n");
+     for(std::list<MidgardBasicElement_mutable>::iterator i=L.begin();i!=L.end();++i)
+      {
+        if(i->Name()==(*M)->Name())       
+         {
+           found=true;
+           i->setZusatz(dt->getZusatz());
+           if(dt->getZusatz()==hauptfenster->getCWerte().Herkunft()->Name()) 
+             i->setErfolgswert(9);
+         }
+      }
+    if(found) break;
+    else ++c;
+   }
+// bis hier ist es ein HACK
+*/
+
   scrolledwindow_landauswahl->hide();
   on_fertigkeiten_laden_clicked();
   neue_fert_tree->set_sensitive(true);
 }
+
