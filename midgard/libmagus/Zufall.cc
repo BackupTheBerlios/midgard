@@ -148,18 +148,18 @@ void Zufall::Lernpunkte_wuerfeln(Lernpunkte &lernpunkte, Abenteurer &A)
   int lpspezies=0;
   A.List_Fertigkeit()=A.getWerte().Spezies()->getFertigkeiten(lpspezies,A.getWerte());
 
-  int fachlern=Random::integer(1,6)+Random::integer(1,6);
+  int fachlern=Random::W6()+Random::W6();
   lernpunkte.setFach(fachlern - lpspezies);
-  lernpunkte.setAllgemein(Random::integer(1,6)+1);
-  lernpunkte.setUnge(Random::integer(1,6));
-  lernpunkte.setWaffen(Random::integer(1,6)+Random::integer(1,6));  
-  if (A.Typ1()->is_mage()) lernpunkte.setZauber(Random::integer(1,6)+Random::integer(1,6));
+  lernpunkte.setAllgemein(Random::W6()+1);
+  lernpunkte.setUnge(Random::W6());
+  lernpunkte.setWaffen(Random::W6()+Random::W6());  
+  if (A.Typ1()->is_mage()) lernpunkte.setZauber(Random::W6()+Random::W6());
 
   // Doppelcharaktere
   if(A.Typ2()->Short()!="" || A.Typ1()->Short()=="To" )
    {
-      lernpunkte.setWaffen(Random::integer(1,6)+1);
-      lernpunkte.setZauber(Random::integer(1,6)+1);
+      lernpunkte.setWaffen(Random::W6()+1);
+      lernpunkte.setZauber(Random::W6()+1);
    }
 
   int age = (lernpunkte.Allgemein() + lernpunkte.Unge()

@@ -1,4 +1,4 @@
-/* $Id: zufall.h,v 1.3 2003/07/22 06:26:40 christof Exp $ */
+/* $Id: zufall.h,v 1.4 2003/07/25 07:26:03 christof Exp $ */
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -25,5 +25,10 @@
 namespace Random {
         int integer(int min, int max)
         {return min + int(((max-min+1.)*rand())/(RAND_MAX+1.0)); }
+        int W3() { return integer(1,3); }
+        int W6() { return integer(1,6); }
+        int W10() { return integer(1,10); }
+        int W20() { return integer(1,20); }
+        int W100() { return integer(1,100); }
 };
 #endif

@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.4 2003/07/21 08:23:59 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.5 2003/07/25 07:26:03 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -520,7 +520,7 @@ int Abenteurer::get_ausdauer(int grad, std::string &info,
    if (!steigern_usp(wie,kosten,Enums::eAusdauer,info,bool_steigern)) return 0;
    getWerte().addGFP(kosten);
    int ap=0;
-   for (int i=0;i<grad;++i) ap += Random::integer(1,6);
+   for (int i=0;i<grad;++i) ap += Random::W6();
 
   int nab, nap;
   if      (Typ1()->Ausdauer() == "k" || Typ2()->Ausdauer() == "k")  nab = bonus_K ;
@@ -631,7 +631,7 @@ void Abenteurer::eigenschaften_steigern(std::string &info,int wurf)
   info +=" gewürfelt ==> ";
   std::string was = "keine Erhöhung";
 
-  int erh = Random::integer(1,6)+1;
+  int erh = Random::W6()+1;
   int awko= getWerte().Ko(); //alter_wert;
   int aapb = getWerte().bo_Au(); // alter Wert
   if     ( z<=76 ) ;//nichts steigern 

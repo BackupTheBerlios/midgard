@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.29 2003/07/22 06:27:12 christof Exp $
+# $Id: Makefile.am,v 1.30 2003/07/25 07:26:03 christof Exp $
 
 AM_CPPFLAGS = @CPPFLAGS@ @COMMONXX_INCLUDES@ $(WIN_INCLUDES) -I.. \
 	@SIGC_CFLAGS@ -DSIGC1_2 @XMLPP_CFLAGS@ @COMMONGTK2_INCLUDES@
@@ -27,6 +27,7 @@ noinst_LIBRARIES=libmagus.a
 EXTRA_QUELLEN=Abenteurer_steigern.cc LernListen_steigern.cc KI.cc \
 	LaTeX_drucken_ausruestung.cc LaTeX_drucken.cc \
 	LaTeX_drucken_beschreibung.cc LaTeX_drucken_spielleiterbogen.cc \
+	grundwerte_abge_werte.cc \
 	Zufall.cc Zufall_Lernschema.cc Zufall_Spezies_Typ.cc \
 	spielleiter_export.cc Magus_Optionen.cc
 
