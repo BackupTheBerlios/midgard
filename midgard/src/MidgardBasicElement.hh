@@ -72,13 +72,7 @@ class MidgardBasicElement : public HandleContent
                                erfolgswert(0),lernpunkte(0)
                               ,steigern_mit_EP(0) {}
 
-      MidgardBasicElement(const MidgardBasicElement &M)
-       : name(M.name), region(M.region),kosten(M.kosten), 
-         praxispunkte(M.praxispunkte),erfolgswert(M.erfolgswert),
-         lernpunkte(M.lernpunkte), steigern_mit_EP(M.steigern_mit_EP),
-         map_typ(M.map_typ),map_erfolgswert_kosten(M.map_erfolgswert_kosten)
-       {}
-
+      MidgardBasicElement(const MidgardBasicElement &M);
 
       enum MBEE {BERUF,FERTIGKEIT,FERTIGKEIT_ANG,WAFFEGRUND,WAFFE,WAFFEBESITZ,
                  ZAUBER,ZAUBERWERK,KIDO,SPRACHE,SCHRIFT} ;

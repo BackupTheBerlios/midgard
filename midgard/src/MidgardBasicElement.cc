@@ -348,3 +348,11 @@ void MidgardBasicElement::EP_steigern(const std::string fert)
  steigern_mit_EP=back;
 }
 
+MidgardBasicElement::MidgardBasicElement(const MidgardBasicElement &M)
+       : name(M.name), region(M.region),kosten(M.kosten), 
+         praxispunkte(M.praxispunkte),erfolgswert(M.erfolgswert),
+         lernpunkte(M.lernpunkte), steigern_mit_EP(M.steigern_mit_EP),
+         map_typ(M.map_typ),map_erfolgswert_kosten(M.map_erfolgswert_kosten)
+{
+cout << M.name << " copied\n";
+}
