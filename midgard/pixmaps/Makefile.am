@@ -52,4 +52,5 @@ EXTRA_DIST = \
        Mage-Tower-locol-20.xpm \
        Szepter-trans-locol-30.xpm \
        Phex-mod2-lowcol-20.xpm \
-       Falke-trans-lowCol-20.xpm
+       Falke-trans-lowCol-20.xpm \
+       pinguin.xpm

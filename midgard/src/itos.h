@@ -1,4 +1,4 @@
-/* $Id: itos.h,v 1.7 2001/05/21 06:48:24 thoma Exp $ */
+/* $Id: itos.h,v 1.8 2001/05/25 10:22:38 thoma Exp $ */
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *

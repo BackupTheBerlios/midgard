@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.28 2001/05/21 06:48:24 thoma Exp $
+// $Id: midgard_CG.cc,v 1.29 2001/05/25 10:22:38 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -149,10 +149,12 @@ void midgard_CG::on_charakter_beschreibung_clicked()
 void midgard_CG::charakter_beschreibung_uebernehmen(const string& b)
 {
   werte.beschreibung=b;  
+  on_speichern_clicked();
 }
 void midgard_CG::charakter_beschreibung_drucken(const string& b)
 {
   werte.beschreibung=b;  
+  on_speichern_clicked();
   midgard_CG::latex_beschreibung_drucken();
 }
 

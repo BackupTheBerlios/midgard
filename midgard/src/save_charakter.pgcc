@@ -43,8 +43,8 @@ void midgard_CG::on_speichern_clicked()
 {
    // Werte
    exec sql begin declare section;
-      char db_beschreibung[102400] ;
-//      char *db_beschreibung = const cast<char*> (werte.beschreibung.c_str());
+//      char db_beschreibung[102400] ;
+      char *db_beschreibung; 
       char db_typ_s[5]     ;
       char db_typ_2_s[5]     ;
       int db_st = werte.st;      
@@ -102,7 +102,8 @@ void midgard_CG::on_speichern_clicked()
       char db_spezies[50];
    exec sql end declare section;
    db_zaubern = atoi(werte.zaubern_wert.c_str());
-   strncpy(db_beschreibung,werte.beschreibung.c_str(),sizeof(db_beschreibung));
+//   strncpy(db_beschreibung,werte.beschreibung.c_str(),sizeof(db_beschreibung));
+   db_beschreibung = (char *) werte.beschreibung.c_str();
    strncpy(db_gestalt,werte.gestalt.c_str(),sizeof(db_gestalt));
    strncpy(db_geschlecht,werte.geschlecht.c_str(),sizeof(db_geschlecht));
    strncpy(db_spez,werte.spezialisierung.c_str(),sizeof(db_spez));

@@ -22,22 +22,24 @@ exec sql include sqlca;
 #include <Aux/Transaction.h>
 #include <Aux/SQLerror.h>
 #include "Window_charakter_auswahl.hh"
+#include "xml_fileselection.hh"
+
  
 gint midgard_CG::on_laden_release_event(GdkEventButton *ev)
 {
   if (ev->button==1) midgard_CG::on_laden_clicked();
-  if (ev->button==3) midgard_CG::xml_import();
+  if (ev->button==3) manage (new xml_fileselection(this));
   return false;
 }
  
-void midgard_CG::xml_import()
+void midgard_CG::xml_import(const string& datei)
 {
-  string command = "midgard_xmlimport < "+werte.name_charakter+".xml";
+cout << datei << "\n";
+  string command = "midgard_xmlimport < "+datei;
   system(command.c_str());
-  string strinfo = "Charakter "+werte.name_charakter+" importiert\n";
+  string strinfo = "Charakter aus Datei "+datei+" importiert\n";
   manage (new WindowInfo(strinfo));
 }
- 
 
 
 void midgard_CG::on_laden_clicked()
@@ -60,7 +62,8 @@ void midgard_CG::load_charakter()
 {
    // Werte
    exec sql begin declare section;
-      char db_beschreibung[102400] ;
+//      char db_beschreibung[102400] ;
+      char *db_beschreibung;
       char db_typ_s[5]     ;
       char db_typ_2_s[5]     ;
       int db_st = werte.st;      
@@ -118,6 +121,8 @@ void midgard_CG::load_charakter()
       char db_region_2[20];
       char db_spezies[50];
    exec sql end declare section;
+
+db_beschreibung=0;
    strncpy(db_name_ch,werte.name_charakter.c_str(),sizeof(db_name_ch));
    strncpy(db_version,werte.version.c_str(),sizeof(db_version));
 
@@ -288,7 +293,7 @@ void midgard_CG::load_charakter()
       werte.name_spieler= db_name_sp ;
       werte.name_charakter= db_name_ch ;
       werte.gfp = db_gfp;
-      werte.beschreibung = db_beschreibung;
+      werte.beschreibung = *db_beschreibung;
       werte.gold = db_gold;
       werte.silber = db_silber;
       werte.kupfer = db_kupfer;

@@ -1,4 +1,12 @@
 ##########################################################################
+NEWS IN VERSION 0.5beta3
+- Charakterbeschreibung darf nun beliebig lang in der Datenbank abgespeichert
+    werden.
+- kleinere Bugs beseitigt
+- Info Seite leicht überarbeitet
+- xml-import Bugs beseitigt
+
+##########################################################################
 NEWS IN VERSION 0.5beta2
 - 4 Neue Bilder von Alessandro eingefügt.
 - xml-export von Christof überarbeitet
