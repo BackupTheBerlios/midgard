@@ -59,6 +59,7 @@ void table_steigern::on_leaf_selected_neue_grund(cH_RowDataBase d)
 {  
   MidgardBasicElement_leaf_neu(d);
   neue_waffen_zeigen();
+  waffengrund_zeigen();
 }
 
 
@@ -78,6 +79,7 @@ void table_steigern::on_leaf_selected_alte_grund(cH_RowDataBase d)
      hauptfenster->set_info(strinfo);
      MidgardBasicElement_leaf_alt(d);
      neue_waffen_zeigen();
+     waffengrund_zeigen();
    }
 }
 
