@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<MidgardCG-data>
+ <MCG:include File="/home/christof/localcvs/midgard/Regelwerk.xml"/>
+ <MCG:include File="/home/christof/localcvs/midgard/Arkanum.xml"/>
+ <MCG:include File="/home/christof/localcvs/midgard/KanThaiPan.xml"/>
+</MidgardCG-data>

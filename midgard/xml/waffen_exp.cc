@@ -1,4 +1,4 @@
-// $Id: waffen_exp.cc,v 1.3 2001/12/27 21:38:16 christof Exp $
+// $Id: waffen_exp.cc,v 1.4 2001/12/27 22:55:25 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -67,7 +67,7 @@ void waffen_speichern(std::ostream &o)
    		MIDGARD3_4("ge,","gw,gs,")
    		" reichweite_0, reichweite_n,"
    		"reichweite_m, reichweite_f"
-   		MIDGARD3_4("","lern_land,lern_stadt")
+   		MIDGARD3_4("",",lern_land,lern_stadt")
    	" from waffen"
    	" where coalesce(region,'')='"+region+"'"
    	" order by coalesce(region,''),art,name");
@@ -101,7 +101,7 @@ void waffen_speichern(std::ostream &o)
    fetch_and_write_int_attrib(is, o, "nah");
    fetch_and_write_int_attrib(is, o, "mittel");
    fetch_and_write_int_attrib(is, o, "fern");
-   o << "/>"
+   o << "/>";
 #ifndef MIDGARD3
    o << "<Lernkosten";
    fetch_and_write_int_attrib(is, o, "Land");

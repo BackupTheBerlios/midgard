@@ -1,4 +1,4 @@
-// $Id: xml.cc,v 1.7 2001/12/27 14:26:36 christof Exp $
+// $Id: xml.cc,v 1.8 2001/12/27 22:55:25 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -32,22 +32,37 @@ void xml_init(const std::string &filename="midgard.xml")
    }
    xml_data=top->find("MidgardCG-data");
    if (!xml_data) cerr << "Ladefehler XML Datei " << filename << "\n";
-   
+
+reloop:   
    Tag::const_iterator b=xml_data->begin(),e=xml_data->end();
     for (Tag::const_iterator i=xml_data->find(b,"MCG:include");
     		i!=e;	i=xml_data->find(i+1,"MCG:include"))
-    {  ifstream in2(i->getAttr("File").c_str());
+    {  const Tag *t2=&*i;
+       std::string file=t2->getAttr("File");
+       if (t2->getBoolAttr("Loaded",false) || t2->getBoolAttr("inactive",false))
+          continue;
+       // ich weiﬂ, ist unsauber, aber was solls, geht nicht sinnvoll anders
+       const_cast<Tag*>(t2)->setAttr("Loaded","True");
+       
+       ifstream in2(file.c_str());
        // wenn nicht, URL holen?
+       // ab hier sollte man nicht mehr auf i, t2 zugreifen (push_back) !!!
        if (in2.good()) 
        {  TagStream ts2(in2);
           const Tag *data2=ts2.find("MidgardCG-data");
           for (Tag::const_iterator j=data2->begin();j!=data2->end();++j)
-          {  if (top->find(j->Type()))
-             {  // merge
+          {  if (j->Type().empty()) continue; // inter tag space
+             if (xml_data->find(j->Type()))
+             {  cout << "TODO: merge '"<< j->Type()<<"' from '"<< file << "'\n";
              }
-             else top->push_back(*j);
+             else 
+             {  cout << "initial Tag '"<< j->Type()<<"' from '"<< file << "'\n";
+                const_cast<Tag*>(xml_data)->push_back(*j);
+                // xml_data->debug();
+             }
           }
        }
+       goto reloop;
     }
 }
 

@@ -80,9 +80,9 @@ lernpunkte=db_lp;
   exec sql close cl_fertigkeit_ein;
 #else
   assert(tag);
-  lernpunkte=tag->getIntAttr("Lernpunkte"); // außergewöhnliche Fertigkeit
-  lern_land=tag->getIntAttr("Lernpunkte:Land",0);
-  lern_stadt=tag->getIntAttr("Lernpunkte:Stadt",0);
+  lernpunkte=tag->getIntAttr("Lernpunkte",99); // außergewöhnliche Fertigkeit
+  lern_land=tag->getIntAttr("Lernpunkte:Land",99);
+  lern_stadt=tag->getIntAttr("Lernpunkte:Stadt",99);
   anfangswert0=tag->getIntAttr("Anfangswert");
   anfangswert=tag->getIntAttr("Erfolgswert");
   ungelernt=tag->getIntAttr("Erfolgswert:ungelernt");

@@ -1,4 +1,4 @@
-// $Id: fertigk_exp.cc,v 1.2 2001/12/27 09:47:22 christof Exp $
+// $Id: fertigk_exp.cc,v 1.3 2001/12/27 22:55:25 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -42,10 +42,10 @@ void fert_speichern(std::ostream &o)
   {o << "  <Fertigkeit";
    string fert=fetch_and_write_string_attrib(is, o, "Name");
    fetch_and_write_string_attrib(is, o, "Region");
-   fetch_and_write_int_attrib(is, o, "Lernpunkte"); // außergewöhnliche Fertigkeit
+   fetch_and_write_int_attrib(is, o, "Lernpunkte",99); // außergewöhnliche Fertigkeit
 #ifndef MIDGARD3
-   fetch_and_write_int_attrib(is, o, "Lernpunkte:Land");
-   fetch_and_write_int_attrib(is, o, "Lernpunkte:Stadt");
+   fetch_and_write_int_attrib(is, o, "Lernpunkte:Land",99);
+   fetch_and_write_int_attrib(is, o, "Lernpunkte:Stadt",99);
 #endif
    fetch_and_write_int_attrib(is, o, "Anfangswert");
    fetch_and_write_int_attrib(is, o, "Lernkosten");
@@ -105,6 +105,7 @@ void fert_speichern(std::ostream &o)
        }
     }
 //********************* praxispunkte ********************
+#ifdef MIDGARD3
       { Query query2("select coalesce(max_wert,0), coalesce(lernfaktor,0)"
       		" from praxispunkte where name='"+fert+"'");
       	FetchIStream is2=query2.Fetch();
@@ -115,6 +116,7 @@ void fert_speichern(std::ostream &o)
            o << "/>\n";
         }
       }
+#endif
 
 //********************* steigern_fertigkeiten_werte ********************
       {  Query query2("select"
@@ -366,8 +368,8 @@ void fert_speichern(std::ostream &o)
   if (ep.size()) 
          o << "  <EP-Typ Fertigkeit=\"" << toXML(fert) 
       		<< "\" Typ=\"" << toXML(ep.substr(1)) << "\"/>\n";
- }
    o << " </verwendbareEP>\n";
+ }
 
 //*************************** Steigerungstabelle *******************
   if (region=="")
