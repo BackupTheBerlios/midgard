@@ -21,57 +21,57 @@
 #include <gtkmm/alignment.h>
 #include <gtkmm/table.h>
 
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 #include <gtkmm/box.h>
 #include <gtkmm/label.h>
 
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 #include <gtkmm/image.h>
 
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 #include <gtkmm/eventbox.h>
 
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 #include <gtkmm/frame.h>
 
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 #include <gtkmm/button.h>
 
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 #include <gtkmm/radiobutton.h>
 
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 table_steigern_glade::table_steigern_glade(GlademmData *gmm_data
 ) : Gtk::Table(2, 2, false)

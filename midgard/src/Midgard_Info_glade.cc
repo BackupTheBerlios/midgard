@@ -16,31 +16,31 @@
 #include "Midgard_Info_glade.hh"
 #include <gtkmm/image.h>
 
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 #include <gtkmm/label.h>
 
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 #include <gtkmm/box.h>
 #include <gtkmm/separator.h>
 #include <gtkmm/table.h>
 #include <gtkmm/frame.h>
 
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 #include <gtkmm/viewport.h>
 #include <gtkmm/adjustment.h>

@@ -18,19 +18,19 @@
 #include <gtkmm/accelgroup.h>
 #include <gtkmm/image.h>
 
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 #include <gtkmm/label.h>
 #include <gtkmm/box.h>
 
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 #include <gtkmm/table.h>
 
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 WindowInfo_glade::WindowInfo_glade(
 ) : Gtk::Window(Gtk::WINDOW_POPUP)

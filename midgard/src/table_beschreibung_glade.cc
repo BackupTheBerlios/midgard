@@ -16,12 +16,12 @@
 #include "table_beschreibung_glade.hh"
 #include <gtkmm/image.h>
 
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 #include <gtkmm/label.h>
 #include <gtkmm/box.h>
 
-extern Glib::RefPtr<Gtk::Pixbuf> MagusImage(const std::string &name);
+extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 
 #include <gtkmm/adjustment.h>
 #include <gtkmm/table.h>
