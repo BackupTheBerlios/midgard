@@ -35,6 +35,7 @@
 gint midgard_CG::on_laden_release_event(GdkEventButton *ev)
 {
   xml_import_auswahl();
+  frame_steigern->set_sensitive(true);
   return false;
 }
 
@@ -182,13 +183,11 @@ void midgard_CG::Typ_Geschlecht_Spezies_setzen() {
          togglebutton_spezialwaffe->show();
    else {togglebutton_spezialwaffe->hide();
          togglebutton_spezialwaffe->set_active(false); }
-   Database.ausnahmen.set_Typ(this->Typ);
 
    menu_init();
 
-   Database.ausnahmen.set_Beruf(list_Beruf);
 
-      Gtk::Menu_Helpers::SelectMatching(*optionmenu_spezies,Werte.Spezies());
+   Gtk::Menu_Helpers::SelectMatching(*optionmenu_spezies,Werte.Spezies());
    
    show_gtk();
    if(cH_Spezialgebiet::is_cached(Werte.Spezialisierung()))
