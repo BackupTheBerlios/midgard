@@ -1,4 +1,4 @@
-// $Id: xmlimport.pgcc,v 1.24 2001/08/28 17:00:25 christof Exp $
+// $Id: xmlimport.pgcc,v 1.25 2001/08/29 06:45:43 christof Exp $
 /*  Midgard Roleplaying Character Generator
  *  Copyright (C) 2001 Christof Petig
  *
@@ -305,7 +305,7 @@ bool charakter_laden(istream &i)
    }
    // Wirklich abbrechen ?? oder andere Charaktere laden?
    if (!charakter_laden(top)) return false;
-   while ((top=ts.find(top,"Midgard-Charakter"))!=ts.end())
+   while ((top=ts.find(++top,"Midgard-Charakter"))!=ts.end())
       if (!charakter_laden(top)) return false;
    return true;
 }
