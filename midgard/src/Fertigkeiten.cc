@@ -84,8 +84,8 @@ void Fertigkeit::get_Fertigkeit()
     FOR_EACH_CONST_TAG_OF(i,*tag,"Voraussetzungen_2")
       vec_voraussetzung.push_back(i->getAttr("Name"));
 
-    FOR_EACH_CONST_TAG_OF(i,*tag,"Region_Lernpunkte")
-      vec_region_lp.push_back(st_region_lern(i->getAttr("Region"),
+    FOR_EACH_CONST_TAG_OF(i,*tag,"Lernpunkte_Herkunft")
+      vec_region_lp.push_back(st_region_lern(i->getAttr("Herkunft"),
             i->getIntAttr("LP_Stadt"),i->getIntAttr("LP_Land")));
 
     FOR_EACH_CONST_TAG_OF(i,*tag,"Zusätze")
