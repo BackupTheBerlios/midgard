@@ -83,7 +83,7 @@ void table_ausruestung::showAusruestung()
   Ausruestung_tree->get_selection()->signal_changed().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_Ausruestung_tree_select_row));
 //  Ausruestung_tree->signal_tree_unselect_row().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_Ausruestung_tree_unselect_row));
   button_ausruestung_loeschen->set_sensitive(false);
-  label_gesamtlast->set_text(dtos1(hauptfenster->getAben().getBelastung("Körper"))+" kg");
+  label_gesamtlast->set_text(dtos1(hauptfenster->getAben().getBelastung("KÃ¶rper"))+" kg");
 }
 
 

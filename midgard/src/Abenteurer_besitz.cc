@@ -1,4 +1,4 @@
-// $Id: Abenteurer_besitz.cc,v 1.10 2003/01/23 15:28:25 thoma Exp $               
+// $Id: Abenteurer_besitz.cc,v 1.11 2003/04/23 07:44:09 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -42,7 +42,7 @@ std::map<std::string,double> Abenteurer::getBelastung() const
 //  double last=0;
   for(AusruestungBaum::const_iterator i=getBesitz().begin();i!=getBesitz().end();++i)
    {
-//     if(i->getAusruestung().Name()!="Körper") continue;
+//     if(i->getAusruestung().Name()!="KÃ¶rper") continue;
      
      double G=i->getAusruestung().Gewicht();
      if(G>0) MG[i->getAusruestung().Name()]+=G*i->getAusruestung().Anzahl();
@@ -149,7 +149,7 @@ int Abenteurer::getSchublast() const
 
 double Abenteurer::getUeberlast() const
 {
-  double u=getBelastung("Körper")-getNormallast();
+  double u=getBelastung("KÃ¶rper")-getNormallast();
   if (u<0) return  0;
   else     return  u;
 }

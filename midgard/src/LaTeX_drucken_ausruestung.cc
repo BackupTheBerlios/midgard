@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_ausruestung.cc,v 1.21 2003/01/27 07:20:15 thoma Exp $   
+// $Id: LaTeX_drucken_ausruestung.cc,v 1.22 2003/04/23 07:44:09 christof Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -43,7 +43,7 @@ void LaTeX_drucken::on_ausruestung_druck(bool unsichtbar)
  fout << "Normallast: "<<itos(A.getNormallast())<<"\\,kg\\qquad\n"
       << "Höchstlast: "<<itos(A.getHoechstlast())<<"\\,kg\\qquad\n"
       << "Schublast: " <<itos(A.getSchublast())<<"\\,kg\n\n";
- fout << "Belastung: "<<dtos1(A.getBelastung("K�rper"))<<"\\,kg}\\hfill\n";
+ fout << "Belastung: "<<dtos1(A.getBelastung("Körper"))<<"\\,kg}\\hfill\n";
  fout <<"\\parbox{"+hbreiteb+"}{";
  {
   bool ew1=false; bool ew2=false;

@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.70 2003/02/24 12:48:25 thoma Exp $            
+// $Id: Abenteurer.cc,v 1.71 2003/04/23 07:44:09 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -310,7 +310,7 @@ void Abenteurer::grundwerte_speichern(Tag &datei)
    Typ.setAttr_ne("Abkürzung2", Typ2()->Short());
    Typ.setAttr_ne("Spezialgebiet", getWerte().Spezialgebiet()->Name());
    Typ.setAttr_ne("Spezialisierung", getWerte().Spezialisierung());
-   Typ.setAttr_ne("ܜberleben",(*getWerte().Ueberleben())->Name());
+   Typ.setAttr_ne("Ü�berleben",(*getWerte().Ueberleben())->Name());
    Typ.setAttr_ne("Muttersprache",Muttersprache());
    Typ.setAttr("Stadt_Land", getWerte().Stadt_Land_str());
    Typ.setAttr("Hand", getWerte().Hand());
@@ -524,7 +524,7 @@ bool Abenteurer::xml_import_stream(std::istream& datei, Datenbank &Database,
        cH_Spezialgebiet S(spezialgebiet);
        getWerte().setSpezialgebiet(S);
      }
-   std::string ueberleben=Typ->getAttr("ܜberleben");
+   std::string ueberleben=Typ->getAttr("Ü�berleben");
    if(ueberleben!="") 
      { 
        MBEmlt M(&*cH_Fertigkeit(ueberleben));
@@ -586,7 +586,7 @@ void Abenteurer::load_ausruestung(const Tag *tag, AusruestungBaum *AB)
       	         i->getAttr("Bezeichnung"),i->getFloatAttr("Gewicht"),
       	         i->getAttr("Besonderheit"),
    					i->getAttr("Region"),i->getBoolAttr("sichtbar"),
-   					i->getBoolAttr("R�stungOhneGewicht"),
+   					i->getBoolAttr("RüstungOhneGewicht"),
    					i->getAttr("Beschreibung")));
       A->setParent(AB);
       load_ausruestung(&*i,A);

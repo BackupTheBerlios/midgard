@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.22 2003/03/10 07:27:10 thoma Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.23 2003/04/23 07:44:09 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *
@@ -215,7 +215,7 @@ bool Abenteurer::steigern_usp(const e_wie_steigern wie,
       else            {ep_k = rest_aep + 40*(use_pp-pp); use_pp=pp;}
       if(ep_k > use_pp*40)
        {
-         info+="Höchstens die Hälfte der GFP darf beim 'Steigern mit PP' durch die Hälfte der GFP darf beim 'Steigern mit PP' durch EP bestritten werden"; 
+         info+="HÃ¶chstens die HÃ¤lfte der GFP darf beim 'Steigern mit PP' durch die HÃ¤lfte der GFP darf beim 'Steigern mit PP' durch EP bestritten werden"; 
          return false;
        }
     }  
@@ -288,7 +288,7 @@ void Abenteurer::move_neues_element(MBEmlt &MBE,std::list<MBEmlt> *MyList_neu_,c
  else if((*MBE).What()==MidgardBasicElement::KIDO) MyList= &List_Kido(); 
  else if((*MBE).What()==MidgardBasicElement::SPRACHE) 
    { MyList     = &List_Sprache();
-     // eventuell höherer Erfolgswert weil die Sprache schon ungelernt beherrscht wird)
+     // eventuell hÃ¶herer Erfolgswert weil die Sprache schon ungelernt beherrscht wird)
      int ungelernterErfolgswert=cH_Sprache(MBE->getMBE())->getHoeherenErfolgswert(List_Sprache(),*alleSprachen/*hauptfenster->getCDatabase().Sprache*/);
      if (ungelernterErfolgswert > MBE->Erfolgswert()) MBE->setErfolgswert(ungelernterErfolgswert);
      // bis hier
@@ -596,10 +596,10 @@ bool Abenteurer::eigenschaften_steigern_erlaubt() const
 void Abenteurer::eigenschaften_steigern(std::string &info,const Datenbank &Database,int wurf)
 {
   if(!eigenschaften_steigern_erlaubt())
-   {info+="Für Grad "+itos(getWerte().get_Grad_Basiswerte())+" wurde schon gewürfelt";
+   {info+="FÃ¼r Grad "+itos(getWerte().get_Grad_Basiswerte())+" wurde schon gewÃ¼rfelt";
     return;
    }
-  // Erhöhen der Schicksalsgunst
+  // ErhÃ¶hen der Schicksalsgunst
   { int n=Database.GradAnstieg.get_Schicksalsgunst(getWerte().Grad());
     if(getWerte().Spezies()->Name()=="Halbling") n=n+2;
     getWerte().add_SG(n);
@@ -609,11 +609,11 @@ void Abenteurer::eigenschaften_steigern(std::string &info,const Datenbank &Datab
   if(wurf==-1) wurf=random.integer(1,100);
 
   int z=wurf;  
-  info+="Beim Würfeln zur Erhöhung einer Eigenschaft für Grad "
+  info+="Beim WÃ¼rfeln zur ErhÃ¶hung einer Eigenschaft fÃ¼r Grad "
       + itos(getWerte().get_Grad_Basiswerte()+1) + " wurde eine ";
   info += itos(wurf);
-  info +=" gewürfelt ==> ";
-  std::string was = "keine Erhöhung";
+  info +=" gewÃ¼rfelt ==> ";
+  std::string was = "keine ErhÃ¶hung";
 
   int erh = random.integer(1,6)+1;
   int awko= getWerte().Ko(); //alter_wert;

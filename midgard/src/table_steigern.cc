@@ -235,10 +235,10 @@ table_steigern::table_steigern(GlademmData *_data)
          : table_steigern_glade(_data),hauptfenster(0),LL(0),
             steigern_mit_EP_bool(true) 
 {  clist_ruestung->set_model(RuestungStore);
-   clist_ruestung->append_column("Rüstung",ruestung_columns.name);
+   clist_ruestung->append_column("RÃ¼stung",ruestung_columns.name);
    clist_ruestung->append_column("",ruestung_columns.abkz);
    clist_ruestung->append_column("LP\nVerlust",ruestung_columns.lp_verlust);
-   clist_ruestung->append_column("min.\nStärke",ruestung_columns.min_staerke);
+   clist_ruestung->append_column("min.\nStÃ¤rke",ruestung_columns.min_staerke);
    clist_ruestung->append_column("Gw\nVerlust",ruestung_columns.rw_verlust);
    clist_ruestung->append_column("B\nVerlust",ruestung_columns.b_verlust);
    clist_ruestung->get_selection()->signal_changed().connect(SigC::slot(*this,&table_steigern::on_ruestung_selection_changed));

@@ -207,7 +207,7 @@ void table_ausruestung::on_preise_tree_neu_leaf_selected(cH_RowDataBase d)
      B.setParent(besitz);
    }
   else return;
-  hauptfenster->undosave("Ausr¸stung "+dt->Ware()->Name()+" hinzugef¸gt");
+  hauptfenster->undosave("Ausr√ºstung "+dt->Ware()->Name()+" hinzugef√ºgt");
   showAusruestung();
 }
 

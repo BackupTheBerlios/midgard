@@ -1,0 +1,15 @@
+#!/bin/sh
+if [ $# -eq 0 ]
+then
+  echo $0 file
+  exit 1
+fi
+for i in $*
+do
+  mv $i $i.orig
+  sed -e 's/ä/Ã¤/g' -e 's/ö/Ã¶/g' -e 's/ü/Ã¼/g' -e 's/ß/ÃŸ/g' \
+	-e 's/Ä/Ã„/g' -e 's/Ö/Ã–/g' -e 's/Ü/Ãœ/g' <$i.orig >$i
+  diff $i.orig $i
+done
+exit 0
+

@@ -65,7 +65,7 @@ void Preise::get_Preise()
   gewicht=tag->getFloatAttr("Gewicht");
   region=tag->getAttr("Region");
   beschreibung=tag->getAttr("Beschreibung");
-  ruestung=tag->getBoolAttr("Rüstung_ohne_Gewicht");
+  ruestung=tag->getBoolAttr("RÃ¼stung_ohne_Gewicht");
   if(kosten<0) {kosten=0; unverkauflich=true;}
 }
 
@@ -189,7 +189,7 @@ void Preise::saveArtikel(const std::string &Filename,midgard_CG *hauptfenster,
    TeA.setAttr("Art",art);
    TeA.setAttr("Art2",art2);
    TeA.setAttr("Ware",name);
-   TeA.setAttr("Währung",einheit);
+   TeA.setAttr("WÃ¤hrung",einheit);
    TeA.setAttr("Preis",dtos(preis));
    TeA.setAttr("Gewicht",dtos(gewicht));
    TeA.setAttr("Region",region);

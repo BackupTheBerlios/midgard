@@ -114,7 +114,7 @@ void table_steigern::kaempfer_lernt_zaubern()
  _ct->set_popdown_strings(L);
  _ct->get_entry()->signal_changed().connect(SigC::slot(*this, &table_steigern::zaubern_klasse_gewaehlt));
  _b->pack_start(*_ct,false, false, 0);
- frame_spezielles->set_label("Zweite Abenteurerklasse auswählen");
+ frame_spezielles->set_label("Zweite Abenteurerklasse auswÃ¤hlen");
  frame_spezielles->add(*_b);
  frame_spezielles->show_all();
 // _ct->set_use_arrows(true);
