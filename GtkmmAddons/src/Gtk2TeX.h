@@ -18,8 +18,9 @@
 
 // $Id: Gtk2TeX.h,v 1.14 2002/09/24 15:17:31 christof Exp $
 
-#include <iostream>
 #include <TeX.h>
+#include <iostream>
+#if 0
 #include <gtkmm/clist.h>
 
 namespace Gtk2TeX
@@ -57,3 +58,4 @@ namespace Gtk2TeX
 	
 	std::ostream &CList2Table(std::ostream &os,const Gtk::CList *cl,const TableFlags &fl=TableFlags());
 };
+#endif
