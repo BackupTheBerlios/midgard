@@ -1,8 +1,9 @@
 ##### DAS IST DAS WICHTIGSTE #########################################
 - Absturz bei Auswahl der Rüstung
-- nerviges Zuklappen der ungelernten Fertigkeiten
 - nicht-Refresh der aktuellen Zeile nach anklicken (lernen)
 - Verlernen geht nicht
+- man kann keine Verzeichnisse im Requester auswählen
+- zum Reduzieren muss man jedesmal auf Reduzieren gehen (setzt sich zurück)
 
 Bugreport Sanni:
 Auswahl/Besitz: Teilweise als aufklappbare Einträge ohne Namen und 
@@ -150,3 +151,8 @@ was bedeutet:
 - pimpl idiom (see there)
 
 - Landeskunde etc. nicht mehr anbieten wenn alle Untertypen erlernt wurden.
+
+-------------
+
+Funktionen können ersetzt werden:
+on_leaf_selected_neue_zauberwerk -> MidgardBasicElement_leaf_neu

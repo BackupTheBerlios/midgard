@@ -83,7 +83,8 @@ void table_steigern::on_alte_fert_reorder()
 }
 
 
-
+#warning das sollte vereinheitlicht werden!
+// vielleicht in table_steigern::neu_lernen tun
 void table_steigern::on_leaf_selected_neue_fert(cH_RowDataBase d)
 {  
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
@@ -93,6 +94,7 @@ void table_steigern::on_leaf_selected_neue_fert(cH_RowDataBase d)
       Ausgabe(Ausgabe::ActionNeeded,"Jetzt muss ein Stil unter 'Lernschema' -> 'KiDo' gewählt werden !!!");
 #warning Kido Stil mit Wizard realisieren!
 //      hauptfenster->load_for_mainpage(midgard_CG::PAGE_LERNEN);
+//          Wizard::KIDO_STIL
       MidgardBasicElement_leaf_neu(d);      
     }
   else if ((*MBE)->Name()=="Zaubern") 
@@ -100,7 +102,10 @@ void table_steigern::on_leaf_selected_neue_fert(cH_RowDataBase d)
       kaempfer_lernt_zaubern();
     }
   else 
+  {  
      MidgardBasicElement_leaf_neu(d);
+     return;
+  }
   fertigkeiten_zeigen();
 }
 
@@ -108,6 +113,7 @@ void table_steigern::on_leaf_selected_neue_fert(cH_RowDataBase d)
 
 void table_steigern::kaempfer_lernt_zaubern() 
 {
+// Wizard::ZWEITER_TYP
  Gtk::HBox *_b=manage(new Gtk::HBox());
 
  Gtk::Button *_button=manage(new Gtk::Button("Abbrechen"));

@@ -62,7 +62,7 @@ void table_steigern::on_leaf_selected_neue_zauber(cH_RowDataBase d)
      return;
    }   
   MidgardBasicElement_leaf_neu(d);
-  zauber_zeigen();
+//  zauber_zeigen();
 }
 
 void table_steigern::wuerfel_lesen_von_zauberschrift()
@@ -147,7 +147,7 @@ void table_steigern::zauberwerk_zeigen()
 void table_steigern::on_leaf_selected_neue_zauberwerk(cH_RowDataBase d)
 {  
   MidgardBasicElement_leaf_neu(d);
-  zauberwerk_zeigen();
+//  zauberwerk_zeigen();
 }
 
 void table_steigern::zauberwerk_laden()

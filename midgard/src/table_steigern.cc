@@ -87,7 +87,7 @@ void table_steigern::load_for_page(guint pagenr)
   // Sensitive & Show
   if(pagenr==PAGE_ZAUBER || pagenr==PAGE_KIDO)
    {
-     radiobutton_verlernen->set_active(true); // wieso das denn?
+//     radiobutton_verlernen->set_active(true); // wieso das denn?
      if(pagenr==PAGE_ZAUBER) 
        { frame_zauber_zusatz->show();
          const Abenteurer &W=hauptfenster->getAben();
@@ -100,7 +100,7 @@ void table_steigern::load_for_page(guint pagenr)
    }
   else
    {
-     radiobutton_steigern->set_active(true);
+//     radiobutton_steigern->set_active(true);
      frame_zauber_zusatz->hide();
      radiobutton_praxis->set_sensitive(true);
    }
@@ -327,3 +327,4 @@ void table_steigern::Window2Abenteurer()
      steigern_gtk();
   }
 }
+

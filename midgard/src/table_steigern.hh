@@ -46,7 +46,7 @@ class table_steigern : public table_steigern_glade
         std::list<MBEmlt> list_Sprache_neu;
         std::list<MBEmlt> list_Schrift_neu;
 
-        Model<bool> steigern_mit_EP_bool; // nur das Model für die Oberfläche
+        Model<bool> steigern_mit_EP_bool; // nur das Model fÃ¼r die OberflÃ¤che
               // muss synchron mit Grundwerte gehalten werden
         enum enum_notebook_lernen{PAGE_FERTIGKEITEN,PAGE_WAFFEN,PAGE_ZAUBER,
                                   PAGE_KIDO,PAGE_SPRACHE,PAGE_BESITZ};
@@ -72,15 +72,23 @@ private:
         void neuer_charakter();
         void refresh();
 
+        // neu: passende Widgets
+        MidgardBasicTree *getKnownTree(MidgardBasicElement::MBEE was);
+        MidgardBasicTree *getLearnTree(MidgardBasicElement::MBEE was);
+        std::list<MBEmlt> &getLearnList(MidgardBasicElement::MBEE was);
+        
         // Main
+        // in dialog wandeln
         void fillClistZusatz(MBEmlt &MBE);
         void set_zusatz_sensitive(bool an);
         void on_radio_steigern_all();
         std::string SpruecheMitPP();
         void on_radiobutton_pp_all_toggled();
         bool MidgardBasicElement_leaf_alt(const cH_RowDataBase &d);
+        // Ã¼bernimmt jetzt auch das Redisplay
         void MidgardBasicElement_leaf_neu(const cH_RowDataBase &d);
-        void neu_lernen(MBEmlt &MBE,const int bonus=-99);
+        // true: gelernt
+        bool neu_lernen(MBEmlt &MBE,const int bonus=-99);
         void show_goldeingabe(bool b,int button=0);
         void show_EPeingabe(bool b,int button=0);
         void kaempfer_lernt_zaubern() ;
