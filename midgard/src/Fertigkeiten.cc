@@ -99,6 +99,17 @@ void Fertigkeit::get_Fertigkeit()
                               i->getAttr("Stand"),
                               i->getAttr("Standard")));
 
+    FOR_EACH_CONST_TAG_OF(i,*tag,"Besitz")
+      {
+         e_pos epos;
+         std::string pos=i->getAttr("Position");
+         if(pos=="Besitz") epos=Besitz;
+         else if(pos=="Rucksack") epos=Rucksack;
+         else {cerr <<"Falsche Position für "<<Name()<<'\n'; continue;}
+         vec_Besitz.push_back(st_besitz(i->getAttr("Name"),
+                              i->getIntAttr("Min"),
+                              epos));
+      }
 }
 
 bool Fertigkeit::Voraussetzung(const Abenteurer &A,bool anzeigen) const 
@@ -210,6 +221,7 @@ void Fertigkeit::get_region_lp(int &lp,const midgard_CG* hauptfenster) const
        }
    }
 }
+
 
 Fertigkeiten_All::Fertigkeiten_All(Gtk::ProgressBar *progressbar)
 {

@@ -100,8 +100,9 @@ private:
 
        // Ausrüstung
 //       void setStandardAusruestung();
-       void setFertigkeitenAusruestung(AusruestungBaum *Rucksack);
-       void InfoFensterAusruestung(std::string name,int wurf,int noetig);
+       void setFertigkeitenAusruestung(AusruestungBaum &Rucksack);
+       void InfoFensterAusruestung(const std::string &fert_name,
+                        const std::string &gegen_name,int wurf,int noetig);
        
 public:
         

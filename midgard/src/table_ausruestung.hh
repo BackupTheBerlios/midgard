@@ -25,7 +25,7 @@ class table_ausruestung : public table_ausruestung_glade
         friend class table_ausruestung_glade;
         friend class midgard_CG;
         midgard_CG *hauptfenster;
-        AusruestungBaum besitz;
+//        AusruestungBaum besitz;
         Gtk::CTree *Ausruestung_tree;
         struct st_modimap_index{std::string art;std::string art2;std::string typ;
             st_modimap_index(std::string a,std::string a2,std::string t)
@@ -56,7 +56,7 @@ private:
         void on_checkbutton_sichtbar_toggled();
         void fill_preisliste();
 public:
-        AusruestungBaum* setStandardAusruestung();
+        AusruestungBaum &setStandardAusruestung(AusruestungBaum &besitz);
 private:
 //        void setFertigkeitenAusruestung(AusruestungBaum *Rucksack);
 //        void InfoFensterAusruestung(std::string name,int wurf,int noetig);

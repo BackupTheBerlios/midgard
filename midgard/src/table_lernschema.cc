@@ -540,8 +540,8 @@ gint table_lernschema::on_button_ausruestung_button_release_event(GdkEventButton
   if(hauptfenster->wizard) hauptfenster->wizard->next_step(Wizard::AUSRUESTUNG);
   if(!hauptfenster->getOptionen()->OptionenCheck(Midgard_Optionen::NSC_only).active)
      button_ausruestung->set_sensitive(false);
-//  if(hauptfenster->getChar().getAbenteurer().getBesitz().empty()) 
-  AusruestungBaum *Rucksack=hauptfenster->table_ausruestung->setStandardAusruestung();
+  
+  AusruestungBaum &Rucksack=hauptfenster->table_ausruestung->setStandardAusruestung(hauptfenster->getChar().getBesitz()); 
   setFertigkeitenAusruestung(Rucksack);
   return 0;
 }

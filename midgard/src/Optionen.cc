@@ -1,5 +1,5 @@
 
-// $Id: Optionen.cc,v 1.59 2002/07/01 14:21:05 christof Exp $
+// $Id: Optionen.cc,v 1.60 2002/07/01 19:11:33 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -285,11 +285,7 @@ void Midgard_Optionen::Optionen_init()
   list_OptionenCheck.push_back(st_OptionenCheck(NSC_only,"NSC zulassen",
                            false,0));
   list_OptionenCheck.push_back(st_OptionenCheck(gw_wuerfeln,
-#ifndef __MINGW32__
-                           "Grundwerte nur mit einer Maustaste auswürfelbar machen",
-#else
-			   "3-Tasten Maus",
-#endif                           
+                           "3-Tasten Maus",
                            false,Cyan_Dice_trans_50_xpm));
   list_OptionenCheck.push_back(st_OptionenCheck(Wizard_immer_starten, 
                            "Wizard bei jedem Programmstart starten",true,0));
@@ -327,16 +323,16 @@ void Midgard_Optionen::pdfViewer_init()
 {
 #ifndef __MINGW32__
   list_pdfViewer.push_back(st_pdfViewer(acroread,
-                           "pdf Dokument mit 'acroread' betrachten",
+                           "acroread",
                            true));
   list_pdfViewer.push_back(st_pdfViewer(gv,
-                           "pdf Dokument mit 'gv' betrachten",
+                           "gv",
                            false));
   list_pdfViewer.push_back(st_pdfViewer(xpdf,
-                           "pdf Dokument mit 'xpdf' betrachten",
+                           "xpdf",
                            false));
   list_pdfViewer.push_back(st_pdfViewer(anderer,
-                           "anderer Viewer (z.B. 'kghostview', 'ggv')",
+                           "anderer",
                            false));
 #else
   list_pdfViewer.push_back(st_pdfViewer(anderer,

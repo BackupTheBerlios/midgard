@@ -1,4 +1,4 @@
-// $Id: table_lernschema_fertigkeiten.cc,v 1.8 2002/06/26 14:01:18 christof Exp $
+// $Id: table_lernschema_fertigkeiten.cc,v 1.9 2002/07/01 19:11:33 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -145,4 +145,45 @@ void table_lernschema::checkAngeboreneSinne()
   std::list<pair<std::string,int> > L=hauptfenster->getWerte().Spezies()->getSinne();
   for(std::list<pair<std::string,int> >::const_iterator i=L.begin();i!=L.end();++i)
      hauptfenster->getWerte().setSinn(i->first,i->second);
+}
+
+void table_lernschema::setFertigkeitenAusruestung(AusruestungBaum &Rucksack)
+{
+  AusruestungBaum &besitz=hauptfenster->getChar().getBesitz();
+  for (std::list<MidgardBasicElement_mutable>::const_iterator i=hauptfenster->getChar().List_Fertigkeit().begin();i!=hauptfenster->getChar().List_Fertigkeit().end();++i)
+   {
+     const std::vector<Fertigkeit::st_besitz> VB=cH_Fertigkeit(*i)->get_vec_Besitz();
+     for(std::vector<Fertigkeit::st_besitz>::const_iterator j=VB.begin();j!=VB.end();++j)
+      {
+        int wurf=hauptfenster->random.integer(1,100);
+cout << (*i)->Name()<<'\t'<<j->name<<'\n';
+        if(wurf<j->min)
+         {
+           AusruestungBaum *A;
+           if(j->position == Fertigkeit::Besitz)
+            {
+              A = &besitz.push_back(Ausruestung(j->name)); 
+              A->setParent(&besitz);
+            }
+           else if(j->position == Fertigkeit::Rucksack)
+            {
+              A = &Rucksack.push_back(Ausruestung(j->name));
+              A->setParent(&Rucksack); 
+            }
+         }
+        InfoFensterAusruestung((*i)->Name(),j->name,wurf,j->min);
+      }
+   }
+}
+
+void table_lernschema::InfoFensterAusruestung(const std::string &fert_name,
+               const std::string &gegen_name,int wurf,int noetig)
+{
+ std::string strinfo;
+ strinfo="Für die Fertigkeit '"+fert_name+"' wurde für '"+gegen_name+
+        "' eine "+itos(wurf)+" gewürfelt.\n";
+ strinfo += "Nötig ist mindestens eine "+itos(noetig+1)+".\n";
+ if(wurf>noetig) strinfo +="==> Das reicht.\n";
+ else strinfo +="==> Das reicht NICHT.\n";
+ hauptfenster->InfoFenster->AppendShow(strinfo,WindowInfo::None);
 }

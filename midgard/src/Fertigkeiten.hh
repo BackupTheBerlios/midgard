@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten.hh,v 1.48 2002/06/20 19:06:17 thoma Exp $               
+// $Id: Fertigkeiten.hh,v 1.49 2002/07/01 19:11:33 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -50,6 +50,15 @@ class Fertigkeit : public MidgardBasicElement
            };
      std::vector<st_region_lern> vec_region_lp;
 
+
+  public:
+     enum e_pos {Besitz,Rucksack};
+     struct st_besitz{std::string name;int min;e_pos position;
+            st_besitz(std::string n,int m,e_pos p) : name(n),min(m),position(p) {}
+            };
+  private:
+     std::vector<st_besitz> vec_Besitz;
+
   public:
      Fertigkeit(const Tag *t)
       :MidgardBasicElement(t,t->getAttr("Name")),lern_unge(0),lern_land(0),lern_stadt(0)
@@ -75,6 +84,7 @@ class Fertigkeit : public MidgardBasicElement
      int AttributBonus(const Grundwerte& Werte) const;
 
      void get_region_lp(int &lp,const midgard_CG* hauptfenster) const;
+     const std::vector<st_besitz> &get_vec_Besitz() const {return vec_Besitz;}
 };
 
 class cH_Fertigkeit : public Handle<const Fertigkeit>
