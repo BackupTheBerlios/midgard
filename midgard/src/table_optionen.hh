@@ -22,7 +22,7 @@ public:
         table_optionen(GlademmData *_data) : table_optionen_glade(_data)
         {  
         }
-        void set_Hauptfenster(midgard_CG *h) {hauptfenster=h;}
+        void set_Hauptfenster(midgard_CG *h); 
         void init();        
 private:
         void on_entry_html_changed();

@@ -54,7 +54,6 @@ void frame_globale_optionen::init()
    ++count;
   } 
  add(*table);
-cout << "\n\nINIT\n";
  show_all();
 }
 
