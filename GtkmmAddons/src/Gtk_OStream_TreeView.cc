@@ -1,4 +1,4 @@
-// $Id: Gtk_OStream_TreeView.cc,v 1.3 2002/12/18 17:54:57 christof Exp $
+// $Id: Gtk_OStream_TreeView.cc,v 1.4 2002/12/19 07:26:03 christof Exp $
 /*  Gtk--addons: a collection of gtk-- addons
     Copyright (C) 2002  Adolf Petig GmbH. & Co. KG
     Developed by Christof Petig <christof.petig@wtal.de>
@@ -27,7 +27,7 @@ static int get_ModelColumn(Gtk::TreeViewColumn *tvc);
 
 void Gtk::OStream::line_TreeView(const std::string &line)
 {  Glib::RefPtr<TreeModel> r_model=handler_data.treeview.view->get_model();
-   Gtk::ListStore *store=dynamic_cast<Gtk::ListStore *>(&*r_model);
+   Glib::RefPtr<Gtk::ListStore> store=Glib::RefPtr<Gtk::ListStore>::cast_dynamic(r_model);
    if (!store) 
    {  std::cerr << "Model is not a ListStore ...\n";
       return;
@@ -46,7 +46,10 @@ void Gtk::OStream::line_TreeView(const std::string &line)
 //      Glib::PropertyProxy_Base pb=coli->get_first_cell_renderer();
       int column=get_ModelColumn(*coli);
       if (column!=-1)
-         row.set_value(column, Glib::Value<Glib::ustring>(line.substr(b,end)));
+      {  Glib::Value<Glib::ustring> val;
+         val.set(line.substr(b,end));
+         row.set_value(column, val);
+      }
            
 //      set_value_impl
 //gtk_list_store_set_value(gobj(), const_cast<GtkTreeIter*>(row.gobj()),
@@ -94,6 +97,7 @@ static int get_ModelColumn(Gtk::TreeViewColumn *tvc)
 	  list = list->next->next;
 	}
     }
+  return -1;
 }
 
 
