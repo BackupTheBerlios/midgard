@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.105 2002/01/30 15:59:37 christof Exp $
+# $Id: Makefile.am,v 1.106 2002/01/31 11:25:27 christof Exp $
 
 bin_PROGRAMS = midgard 
 
@@ -206,19 +206,26 @@ LDFLAGS = @KOMPONENTEN_LDFLAGS@
 
 CLEANFILES = *~ *_new $(BUILT_SOURCES) *_old
 
+midgard_CG_glade_o_DEPS=midgard_CG_glade.cc ../config.h midgard_CG.hh \
+	midgard_CG_glade.hh 
+	# und vieles mehr !!!
 
 if UTF8
 
-%.o: %.cc ; $(CPP) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
+%.o: %.cc
+	$(CPP) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
 	$(AM_CXXFLAGS) $(CXXFLAGS) $*.cc | ./iso2utf8 | \
 	$(CXXCOMPILE) -o $*.o -c -x c++ /dev/stdin
+midgard_CG_glade.o: $(midgard_CG_glade_o_DEPS)
+	$(CPP) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
+	$(AM_CXXFLAGS) $(CXXFLAGS) $*.cc | ./iso2utf8 | \
+	$(CXXCOMPILE) -o $*.o -O0 -c -x c++ /dev/stdin
 
 else
 
 # midgard_CG_glade.cc nicht optimieren, sonst explodiert der
-# Speicherverbrauch (immer noch? CP 2002-1-20)
-midgard_CG_glade.o: midgard_CG_glade.cc ../config.h midgard_CG.hh \
-		midgard_CG_glade.hh   # und vieles mehr !!!
+# Speicherverbrauch (>344MB am 2002-1-31)
+midgard_CG_glade.o: $(midgard_CG_glade_o_DEPS)
 	$(CXXCOMPILE) -O0 -c $<
 	echo > .deps/$(*F).P
 
