@@ -4,6 +4,7 @@ NEWS IN VERSION 0.7.6
 * Auf Christofs(!) Wunsch hin ist das 'delta' verschwunden :-(
 * Oberfläche überarbeitet
 * Endlich ist das Fenster wieder verkleinerbar -> 800x600 geht
+* xml export von Zusätzen zu Fertigkeiten in der richtigen Region
 
 TODO: ('-' zeigt CP an)
 * Für Zwerge sind Langschwert, Streitaxt und Morgenstern Zweihandwaffen,
@@ -13,12 +14,10 @@ links).
   man etwas hinzufügen möchte, ist nicht gerade intuitiv
   (vielleicht drag'n'drop oder CTree verschieben)
 - Würfelvarianten für Nichtmenschen!
-- 800x600 endlich wieder funktionstüchtig machen (wenn möglich ...)
-- verschwinden alle Icons?
+- verschwinden alle Icons? (Nein:-)
 - alle Ausdrucke unter Windows testen
 - .magus Endung unter Windows mit Magus.exe verknüpfen (beim Speichern)
 - xml laden beschleunigen (merge with map, reservate on vectors)
-- xml export von Zusätzen zu Fertigkeiten in der richtigen Region
 
 
 ##########################################################################
