@@ -131,7 +131,7 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
            }
       }
   }
- guint kosten=MBE->Kosten(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp());
+ int kosten=MBE->Kosten(hauptfenster->getCChar().getCWerte(),hauptfenster->getCChar().getVTyp());
 
  // Lernen mit Spruchrolle: ///////////////////////////////////////////////
  if( MBE->What()==MidgardBasicElement::ZAUBER &&
