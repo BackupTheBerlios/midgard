@@ -81,7 +81,6 @@ void table_beschreibung::show_beschreibung()
   if(hauptfenster->getWerte().BeschreibungPix()!="")
    {
       s+=":\n"+hauptfenster->getWerte().BeschreibungPix();
-cout <<"s ="<< s<<'\t'<<s.rfind(WinLux::dirsep)<<'\n';
       std::string ss(s,s.rfind(WinLux::dirsep)+1,s.size());
       s=ss;
    }
