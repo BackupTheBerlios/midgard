@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.26 2002/06/28 14:06:09 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.27 2002/06/28 19:05:45 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -821,10 +821,10 @@ void LaTeX_drucken::pdf_viewer(const std::string& file)
   if (!getenv("TEXMFOUTPUT"))
   {  static string env; // static is needed ! CP
      env=file;
-     if (pfile.rfind("/")!=std::string::npos)
-        env.replace(0,pfile.rfind("/")+1,"");
+     if (env.rfind("/")!=std::string::npos)
+        env.replace(0,env.rfind("/")+1,"");
      env="TEXMFOUTPUT="+env;
-     putenv(env.c_str());
+     putenv((char*)(env.c_str()));
   }
   
   system(("pdflatex --interaction scrollmode "+file+".tex").c_str());
